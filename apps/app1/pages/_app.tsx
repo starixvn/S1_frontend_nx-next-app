@@ -1,16 +1,14 @@
 import { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import { store } from '@nx-next-app/store'
-import Head from 'next/head'
-import Layout from '../components/layout/Layout'
+import { MetaData } from '@nx-next-app/components'
+import Layout from '../components/Layout/Layout'
 import './styles.css'
 
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
-			<Head>
-				<title>Welcome to app1!</title>
-			</Head>
+			<MetaData title='Welcome to app1!' />
 
 			<Provider store={store}>
 				<Layout>
