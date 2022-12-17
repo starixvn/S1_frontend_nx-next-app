@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { rootApi } from '../service/rootApi/api'
+import { rootApi } from '@nx-next-app/api'
 
 export const store = configureStore({
 	reducer: {

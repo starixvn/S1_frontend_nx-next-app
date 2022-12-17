@@ -14,10 +14,12 @@
 		"skipLibCheck": true,
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
+		"noImplicitAny": true,
 		"paths": {
-			"@nx-next-app/components": ["libs/components/src/index.ts"],
-			"@nx-next-app/store": ["libs/app/store"],
-			"@nx-next-app/api": ["libs/app/service/index.ts"]
+			"@nx-next-app/api": ["libs/app/service/index.ts"],
+			"@nx-next-app/components": ["libs/web/src/components/index.ts"],
+			"@nx-next-app/hooks": ["libs/web/src/hooks/index.ts"],
+			"@nx-next-app/store": ["libs/app/store"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]
