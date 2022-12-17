@@ -1,5 +1,5 @@
 module.exports = {
-	extends: ['airbnb', 'prettier'],
+	extends: ['airbnb'],
 	plugins: [],
 	rules: {
 		'react/jsx-filename-extension': [
@@ -18,8 +18,6 @@ module.exports = {
 		'import/extensions': 'off',
 		'no-unused-vars': 'off',
 		'react/jsx-no-constructed-context-values': 'off',
-		'@typescript-eslint/no-unused-vars': ['warn'],
-		'@typescript-eslint/no-use-before-define': 'off',
 		'react/destructuring-assignment': 'off',
 		'import/no-extraneous-dependencies': 'off',
 		'no-param-reassign': 'off',
