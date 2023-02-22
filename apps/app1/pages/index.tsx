@@ -1,16 +1,14 @@
 import { GetServerSideProps } from 'next'
 import { authApiUrl, axiosWithSSRorSSG } from '@nx-next-app/api'
 import { useAuth } from '@nx-next-app/hooks'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-const Index = ({ data }: { data: unknown }) => {
+const Index = (data: any) => {
 	const { isSignIn } = useAuth()
+	const { t } = useTranslation()
 
-	return (
-		<div>
-			Home {JSON.stringify(data)}
-			<div>isLogin {JSON.stringify(isSignIn)}</div>
-		</div>
-	)
+	return <div>{t('Label_Title')}</div>
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
@@ -19,6 +17,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	return {
 		props: {
 			data,
+			...(await serverSideTranslations(context.locale)),
 		},
 	}
 }
