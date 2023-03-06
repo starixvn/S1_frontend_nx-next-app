@@ -17,11 +17,11 @@
 		"noImplicitAny": true,
 		"paths": {
 			"@nx-next-app/api": ["libs/app/service/index.ts"],
+			"@nx-next-app/store": ["libs/app/store"],
 			"@nx-next-app/components": ["libs/web/src/components/index.ts"],
 			"@nx-next-app/hooks": ["libs/web/src/hooks/index.ts"],
-			"@nx-next-app/store": ["libs/app/store"],
-      "@nx-next-app/utils": ["libs/web/src/utils/index.ts"]
-    }
+			"@nx-next-app/utils": ["libs/web/src/utils/index.ts"]
+		}
 	},
 	"exclude": ["node_modules", "tmp"]
 }
