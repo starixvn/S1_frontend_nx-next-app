@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { GetServerSideProps } from 'next'
 import React, { FormEvent, useState } from 'react'
+import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
+import { LocalStorageEnum, setLocalStorage } from '@nx-next-app/utils'
 import {
 	baseAxios,
 	siteApiUrl,
@@ -14,6 +16,8 @@ interface IPromotionProps {
 }
 
 const PromotionSSR = ({ initialPromotionList = [] }: IPromotionProps) => {
+	const router = useRouter()
+	const { pathname, asPath, query } = router
 	const { i18n } = useTranslation()
 	const [payload, setPayload] = useState({
 		currencyId: 2,
@@ -53,16 +57,21 @@ const PromotionSSR = ({ initialPromotionList = [] }: IPromotionProps) => {
 
 	return (
 		<div>
-			{/* <h1>{t('Label_Title')}</h1> */}
+			{/* <h1>{i18n.t('Label_Title')}</h1> */}
 			promotion
 			<div>
 				<form onSubmit={handleGetPromotionListV3}>
 					<label>
 						langId:
 						<select
-							defaultValue={i18n.language}
+							// defaultValue={i18n.language}
+							value={i18n.language}
 							onChange={e => {
-								i18n.changeLanguage(e.target.value)
+								// 僅替換 locale
+								router.push({ pathname, query }, asPath, {
+									locale: e.target.value,
+								})
+								setLocalStorage(LocalStorageEnum.Locale, e.target.value)
 							}}
 						>
 							<option value='en'>en</option>
