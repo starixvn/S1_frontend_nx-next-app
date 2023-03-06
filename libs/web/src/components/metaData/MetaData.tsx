@@ -1,15 +1,17 @@
 import React from 'react'
 import Head from 'next/head'
 
-export interface IMetaDataProps {
-	title: string
-}
-
-const MetaData = ({ title }: IMetaDataProps) => {
+const MetaData = () => {
 	return (
-		<Head>
-			<title>{title}</title>
-		</Head>
+		<div>
+			<Head>
+				<meta
+					name='description'
+					content='seo content from api'
+					key='seo key from api'
+				/>
+			</Head>
+		</div>
 	)
 }
 

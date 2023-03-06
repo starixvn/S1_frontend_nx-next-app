@@ -1,5 +1,5 @@
+import { MetaData } from '@nx-next-app/components'
 import { ReactNode } from 'react'
-import { Footer, Navbar } from '@nx-next-app/components'
 
 interface ILayoutProps {
 	children: ReactNode
@@ -8,9 +8,9 @@ interface ILayoutProps {
 export function Layout({ children }: ILayoutProps) {
 	return (
 		<>
-			<Navbar.No1 />
+			<MetaData />
 			<main className='app'>{children}</main>
-			<Footer.No1 />
+			footer
 		</>
 	)
 }

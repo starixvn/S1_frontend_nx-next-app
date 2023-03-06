@@ -4,12 +4,11 @@ import { store } from '@nx-next-app/store'
 import { MetaData } from '@nx-next-app/components'
 import { appWithTranslation } from 'next-i18next'
 import Layout from '../components/Layout/Layout'
-import './styles.css'
 
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
-			<MetaData title='Welcome to app1!' />
+			<MetaData />
 
 			<Provider store={store}>
 				<Layout>
@@ -19,5 +18,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
 		</>
 	)
 }
+
 // https://github.com/i18next/next-i18next#unserializable-configs
 export default appWithTranslation(CustomApp)

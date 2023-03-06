@@ -19,13 +19,44 @@
 							}
 						]
 					}
+				],
+				"react/jsx-filename-extension": [
+					1,
+					{
+						"extensions": [".ts", ".tsx", ".js", ".jsx"]
+					}
 				]
 			}
 		},
 		{
 			"files": ["*.ts", "*.tsx"],
 			"extends": ["plugin:@nrwl/nx/typescript"],
-			"rules": {}
+			"rules": {
+				"import/no-unresolved": "off",
+				"prefer-const": "warn",
+				"arrow-body-style": "off",
+				"react/react-in-jsx-scope": "off",
+				"react/jsx-props-no-spreading": "off",
+				"import/prefer-default-export": "off",
+				"react/function-component-definition": "off",
+				"import/extensions": "off",
+				"no-unused-vars": "off",
+				"react/jsx-no-constructed-context-values": "off",
+				"@typescript-eslint/no-unused-vars": ["warn"],
+				"@typescript-eslint/no-use-before-define": "off",
+				"react/destructuring-assignment": "off",
+				"import/no-extraneous-dependencies": "off",
+				"no-param-reassign": "off",
+				"no-use-before-define": "off",
+				"no-undef": "off",
+				"no-restricted-exports": "off",
+				"react/require-default-props": "off",
+				"no-unused-expressions": "off",
+				"react-hooks/exhaustive-deps": "off",
+				"jsx-a11y/label-has-associated-control": "off",
+				"no-shadow": "off",
+				"react-hooks/rules-of-hooks": "off"
+			}
 		},
 		{
 			"files": ["*.js", "*.jsx"],
