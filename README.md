@@ -22,3 +22,4 @@ cp .env.development.example .env.development
 ---
 
 ## [next-i18next](/README/next-i18next.md)
+## [environment-next](/README/environment-next.md)
