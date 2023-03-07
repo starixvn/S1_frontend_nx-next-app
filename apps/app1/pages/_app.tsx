@@ -4,20 +4,13 @@ import { store } from '@nx-next-app/store'
 import { MetaData } from '@nx-next-app/components'
 import { appWithTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
-import { useInitLocaleEffect } from '@nx-next-app/hooks'
+import { initLocaleEffect } from '@nx-next-app/hooks'
 import Layout from '../components/Layout/Layout'
 
 function CustomApp({ Component, pageProps }: AppProps) {
 	const router = useRouter()
-	const { initLocale } = useInitLocaleEffect()
 
-	useEffect(() => {
-		// 到 client side 才做
-		if (window !== undefined) {
-			initLocale(router, 'en')
-		}
-	}, [])
+	initLocaleEffect(router, 'en')
 
 	return (
 		<>

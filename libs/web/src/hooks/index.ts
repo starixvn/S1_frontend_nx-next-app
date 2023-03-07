@@ -1,2 +1,2 @@
 export * from './useAuth'
-export * from './useInitLocaleEffect'
+export * from './initLocaleEffect'
