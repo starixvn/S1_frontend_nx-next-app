@@ -3,13 +3,14 @@ import { GetServerSideProps } from 'next'
 import React, { FormEvent, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
-import { LocalStorageEnum, setLocalStorage } from '@nx-next-app/utils'
 import {
 	baseAxios,
 	siteApiUrl,
 	useLazyGetPromotionListV3Query,
 } from '@nx-next-app/api'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useLocalStorage } from 'usehooks-ts'
+import { LocalStorageNames } from '@nx-next-app/constants'
 
 interface IPromotionProps {
 	initialPromotionList: unknown[]
@@ -23,6 +24,11 @@ const PromotionSSR = ({ initialPromotionList = [] }: IPromotionProps) => {
 		currencyId: 2,
 		deviceType: 1,
 	})
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const [_, setLocalLocale] = useLocalStorage<string | undefined>(
+		LocalStorageNames.Locale,
+		undefined
+	)
 
 	// * query example
 	// const {
@@ -71,7 +77,7 @@ const PromotionSSR = ({ initialPromotionList = [] }: IPromotionProps) => {
 								router.push({ pathname, query }, asPath, {
 									locale: e.target.value,
 								})
-								setLocalStorage(LocalStorageEnum.Locale, e.target.value)
+								setLocalLocale(e.target.value)
 							}}
 						>
 							<option value='en'>en</option>

@@ -1,8 +1,8 @@
 {
 	"root": true,
-	"ignorePatterns": ["**/*"],
 	"plugins": ["@nrwl/nx"],
 	"extends": ["next", "./.eslint.config"],
+  "ignorePatterns": [".eslintrc.json" , "tsconfig.base.json"],
 	"overrides": [
 		{
 			"files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -55,7 +55,8 @@
 				"react-hooks/exhaustive-deps": "off",
 				"jsx-a11y/label-has-associated-control": "off",
 				"no-shadow": "off",
-				"react-hooks/rules-of-hooks": "off"
+				"react-hooks/rules-of-hooks": "off",
+        "dot-notation" : "off"
 			}
 		},
 		{
