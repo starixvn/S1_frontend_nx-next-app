@@ -15,7 +15,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 	useEffect(() => {
 		// 到 client side 才做
 		if (window !== undefined) {
-			initLocale(router)
+			initLocale(router, 'en')
 		}
 	}, [])
 

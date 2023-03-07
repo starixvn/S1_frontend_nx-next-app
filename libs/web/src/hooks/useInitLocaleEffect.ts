@@ -8,13 +8,13 @@ export const useInitLocaleEffect = () => {
 		undefined
 	)
 
-	const initLocale = (router: NextRouter) => {
+	const initLocale = (router: NextRouter, defaultLang: string) => {
 		const { pathname, asPath, query, locale } = router
 		if (locale === 'default') {
 			// 把預設改成 default , 假如是預設 沒有 local值時取 default , 有 local值時取local
 			if (!localLocale) {
 				router.push({ pathname, query }, asPath, {
-					locale: 'en',
+					locale: defaultLang,
 				})
 			} else {
 				router.push({ pathname, query }, asPath, {
