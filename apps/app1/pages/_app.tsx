@@ -3,13 +3,18 @@ import { Provider } from 'react-redux'
 import { store } from '@nx-next-app/store'
 import { MetaData } from '@nx-next-app/components'
 import { appWithTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { initLocaleEffect } from '@nx-next-app/hooks'
 import Layout from '../components/Layout/Layout'
-import './styles.css'
 
 function CustomApp({ Component, pageProps }: AppProps) {
+	const router = useRouter()
+
+	initLocaleEffect(router, 'en')
+
 	return (
 		<>
-			<MetaData title='Welcome to app1!' />
+			<MetaData />
 
 			<Provider store={store}>
 				<Layout>
@@ -19,5 +24,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
 		</>
 	)
 }
+
 // https://github.com/i18next/next-i18next#unserializable-configs
 export default appWithTranslation(CustomApp)
