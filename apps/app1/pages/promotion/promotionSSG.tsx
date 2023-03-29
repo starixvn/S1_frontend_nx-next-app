@@ -1,5 +1,5 @@
 import React from 'react'
-import { baseAxios, siteApiUrl } from '@nx-next-app/api'
+import { baseAxios, siteApiUrl } from '@nx-next-app/service'
 import { GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'

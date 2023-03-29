@@ -1,25 +1,19 @@
-## Generate an application
+相關套件
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+- [react-hook-form](https://react-hook-form.com/get-started)
 
-> You can use any of the plugins above to generate applications as well.
+> 使用 React Hook Form 處理表單驗證。
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+- [usehooks-ts](https://usehooks-ts.com/)
 
-## npm install
+> 使用 usehooks-ts 進行邏輯處理。
 
-- npm install
-- npm install prepare
+- [lodash](https://lodash.com/docs/4.17.15)
 
-## Configure your local environment
+> 使用 JavaScript 實用程序庫。
 
-```
-cp .env.development.example .env.development
-```
-
-將 `.env.development` 丟到 `app` 並給予相關設定
-
----
+## [generate app flow](/README/flow.md)
 
 ## [next-i18next](/README/next-i18next.md)
+
 ## [environment-next](/README/environment-next.md)

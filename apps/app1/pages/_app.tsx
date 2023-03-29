@@ -1,11 +1,10 @@
 import { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
-import { store } from '@nx-next-app/store'
-import { MetaData } from '@nx-next-app/components'
-import { appWithTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
+import { appWithTranslation } from 'next-i18next'
+import { store } from '@nx-next-app/store'
 import { initLocaleEffect } from '@nx-next-app/hooks'
-import Layout from '../components/Layout/Layout'
+import { Layout, MetaData } from '@nx-next-app/components/F0001'
 
 function CustomApp({ Component, pageProps }: AppProps) {
 	const router = useRouter()

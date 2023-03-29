@@ -2,7 +2,7 @@ import {
 	useCheckSignInQuery,
 	useSignInMutation,
 	useSignOutMutation,
-} from '@nx-next-app/api'
+} from '../service/authApi/api'
 
 export interface IAuthProps {
 	isSignIn: boolean
