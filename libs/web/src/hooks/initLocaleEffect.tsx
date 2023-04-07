@@ -1,7 +1,7 @@
+import { useEffect } from 'react'
 import { NextRouter } from 'next/router'
 import { useLocalStorage } from 'usehooks-ts'
-import { LocalStorageNames } from '@nx-next-app/constants'
-import { useEffect } from 'react'
+import { LocalStorageNames } from '../app/constants/localStorageNames'
 
 /**
  *
@@ -17,6 +17,7 @@ export const initLocaleEffect = (router: NextRouter, defaultLang: string) => {
 
 	const initLocale = () => {
 		const { pathname, asPath, query, locale } = router
+
 		if (locale === 'default') {
 			// 把預設改成 default , 假如是預設 沒有 local值時取 default , 有 local值時取local
 			if (!localLocale) {

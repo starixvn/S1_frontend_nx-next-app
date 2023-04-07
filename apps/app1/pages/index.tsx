@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next'
-import { authApiUrl, baseAxios } from '@nx-next-app/api'
+import { authApiUrl, baseAxios } from '@nx-next-app/service'
 import { useAuth } from '@nx-next-app/hooks'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
