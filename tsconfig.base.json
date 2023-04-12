@@ -17,14 +17,14 @@
 		"noImplicitAny": true,
 		"paths": {
 			"@apps/*": ["apps/*"],
-			"@nx-next-app/features": ["libs/features/src/lib"],
-			"@nx-next-app/service": ["libs/web/src/service"],
 			"@nx-next-app/components/*": ["libs/web/src/components/*"],
-			"@nx-next-app/data-access": ["libs/web/src/data-access"],
-			"@nx-next-app/utils": ["libs/web/src/utils"],
-			"@nx-next-app/hooks": ["libs/web/src/hooks"],
 			"@nx-next-app/constants": ["libs/web/src/app/constants"],
-			"@nx-next-app/store": ["libs/web/src/app/store"]
+			"@nx-next-app/data-access": ["libs/web/src/data-access"],
+			"@nx-next-app/features": ["libs/features/src/lib"],
+			"@nx-next-app/hooks": ["libs/web/src/hooks"],
+			"@nx-next-app/service": ["libs/web/src/service"],
+			"@nx-next-app/store": ["libs/web/src/app/store"],
+			"@nx-next-app/utils": ["libs/web/src/utils"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]
