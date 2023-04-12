@@ -1,29 +1,17 @@
 import { GetServerSideProps } from 'next'
 import { authApiUrl, baseAxios } from '@nx-next-app/service'
 import { useAuth } from '@nx-next-app/hooks'
-import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import Head from 'next/head'
 
-const Index = (data: unknown) => {
+import { Nova88 } from '@nx-next-app/features'
+
+const { Home } = Nova88.Desktop
+
+const Index = () => {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { isSignIn } = useAuth()
 
-	const { t } = useTranslation()
-
-	return (
-		<>
-			<Head>
-				<title>Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Bet</title>
-				<meta
-					name='description'
-					content='Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.'
-					key='Asia Most Trusted Sportsbook, Live Casino, Slot Games, SABA Sports, Online Casino, Online Betting'
-				/>
-			</Head>
-			<div>{t('Label_Title')}</div>
-		</>
-	)
+	return <Home />
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {

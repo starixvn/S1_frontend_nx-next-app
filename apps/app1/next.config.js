@@ -17,6 +17,10 @@ const nextConfig = {
 		// See: https://github.com/gregberge/svgr
 		svgr: false,
 	},
+	images: {
+		// domains: ['banner.0814media.net'],
+		domains: [process.env.NEXT_PUBLIC_BANNER_DOMAIN],
+	},
 	async rewrites() {
 		return {
 			fallback: isDevelopment

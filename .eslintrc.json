@@ -57,7 +57,9 @@
 				"jsx-a11y/label-has-associated-control": "off",
 				"no-shadow": "off",
 				"react-hooks/rules-of-hooks": "off",
-				"dot-notation": "off"
+				"dot-notation": "off",
+				"react/no-unescaped-entities": "off",
+				"jsx-a11y/anchor-is-valid": "off"
 			}
 		},
 		{
