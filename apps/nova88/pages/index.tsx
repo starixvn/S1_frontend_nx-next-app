@@ -7,11 +7,7 @@ import { Nova88 } from '@nx-next-app/features'
 const { Home } = Nova88.Desktop
 
 const Index = () => {
-	return (
-		<div>
-			<Home />
-		</div>
-	)
+	return <Home />
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {

@@ -59,7 +59,11 @@
 				"react-hooks/rules-of-hooks": "off",
 				"dot-notation": "off",
 				"react/no-unescaped-entities": "off",
-				"jsx-a11y/anchor-is-valid": "off"
+				"jsx-a11y/anchor-is-valid": "off",
+				"jsx-a11y/control-has-associated-label": "off",
+				"jsx-a11y/anchor-has-content": "off",
+				"react/no-unused-prop-types": "warn",
+				"@typescript-eslint/no-empty-interface": "warn"
 			}
 		},
 		{

@@ -116,54 +116,17 @@ public/
           └── common.json
 ```
 
-### Configure Redux
+### Configure redux and styles
+
+- 提供 `Provider` and `store`
+- 創建 `styles` 將設計提供的 `css`、`font` 放在 apps/{appName}/styles 資料夾，並在 `_app` 引用
 
 \_app.tsx
 
 ```tsx
 import { Provider } from 'react-redux'
+import { store } from '@nx-next-app/store'
 
-function CustomApp({ Component, pageProps }: AppProps) {
-	// ...
-
-	return (
-		<Provider store={store}>
-			<Component {...pageProps} />
-		</Provider>
-	)
-}
-```
-
-### Configure Layout
-
-\_app.tsx
-
-```tsx
-import { Provider } from 'react-redux'
-import { Layout } from '@nx-next-app/components/xxxx'
-
-function CustomApp({ Component, pageProps }: AppProps) {
-	// ...
-
-	return (
-		<Provider store={store}>
-			<Layout>
-				<Component {...pageProps} />
-			</Layout>
-		</Provider>
-	)
-}
-```
-
-### Configure Styles
-
-創建 `styles` 將設計提供的 `css`、`font` 放在 apps/{appName}/styles 資料夾，並在 `_app` 引用
-
-\_app.tsx
-
-```tsx
-import { Provider } from 'react-redux'
-import { Layout } from '@nx-next-app/components/xxxx'
 import '../styles/css/style.css'
 import '../styles/css/swiper.css'
 import '../styles/css/font.css'
@@ -173,9 +136,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 
 	return (
 		<Provider store={store}>
-			<Layout>
-				<Component {...pageProps} />
-			</Layout>
+			<Component {...pageProps} />
 		</Provider>
 	)
 }
