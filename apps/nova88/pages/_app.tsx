@@ -22,7 +22,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
 				<title>Welcome to nova88!</title>
 			</Head>
 
+			{/* Redux 狀態管理 */}
 			<Provider store={store}>
+				{/* 提供 Component 狀態管理 */}
 				<ConfigProvider>
 					<Component {...pageProps} />
 				</ConfigProvider>

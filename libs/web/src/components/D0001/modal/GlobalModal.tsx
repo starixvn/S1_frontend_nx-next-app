@@ -2,7 +2,7 @@ import Modal from './Modal'
 
 export interface IGlobalModalProps {
 	icon?: string | null
-	type: 'info' | null
+	type: 'info' | 'error' | null
 	message: string
 	resetModal: () => void
 }
@@ -18,20 +18,23 @@ const GlobalModal = ({
 	const open = !!type
 
 	let mergedIcon: React.ReactNode = <div className={icon || ''} />
+	let title = ''
 
 	if (!icon && icon !== null) {
 		switch (type) {
 			case 'info':
 				mergedIcon = <div className='icon icon-bell' />
+				title = 'info'
 				break
 
 			// case 'success':
 			// 	mergedIcon = <div className='icon icon-bell' />
 			// 	break
 
-			// case 'error':
-			// 	mergedIcon = <div className='icon icon-bell' />
-			// 	break
+			case 'error':
+				mergedIcon = <div className='icon icon-bell' />
+				title = 'error'
+				break
 
 			default:
 				mergedIcon = null
@@ -42,8 +45,7 @@ const GlobalModal = ({
 		<Modal open={open} onCancel={resetModal}>
 			<div className='Success active'>
 				{mergedIcon}
-
-				<div className='title'>info</div>
+				<div className='title'>{title}</div>
 				<div>{message}</div>
 				<div className='btnGroup'>
 					<button type='button' className='btn-check' onClick={resetModal}>

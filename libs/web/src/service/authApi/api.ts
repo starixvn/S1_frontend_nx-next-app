@@ -37,5 +37,9 @@ export const authApi = rootApi.injectEndpoints({
 	}),
 })
 
-export const { useCheckSignInQuery, useSignInMutation, useSignOutMutation } =
-	authApi
+export const {
+	useCheckSignInQuery,
+	useLazyCheckSignInQuery,
+	useSignInMutation,
+	useSignOutMutation,
+} = authApi

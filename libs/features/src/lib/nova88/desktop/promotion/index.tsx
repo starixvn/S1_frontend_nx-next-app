@@ -133,4 +133,4 @@ const PromotionSSR = ({ initialPromotionList = [] }: IPromotionProps) => {
 	)
 }
 
-export { PromotionSSR }
+export default PromotionSSR

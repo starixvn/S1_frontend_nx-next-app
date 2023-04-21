@@ -1,4 +1,5 @@
-import { baseAxios, siteApiUrl } from '../service'
+import { AxiosRequestConfig } from 'axios'
+import { authApiUrl, baseAxios, siteApiUrl } from '../service'
 
 export const getPromotionListV3 = ({
 	locale,
@@ -13,3 +14,16 @@ export const getPromotionListV3 = ({
 		currencyId,
 		deviceType,
 	})
+
+export const checkSignIn = async (
+	params: null,
+	config: AxiosRequestConfig
+): Promise<boolean> => {
+	const { data: { errorCode } = {} } = await baseAxios.post(
+		authApiUrl.checkSignIn,
+		params,
+		config
+	)
+	const isSignIn = errorCode === 0
+	return isSignIn
+}
