@@ -126,6 +126,7 @@ public/
 ```tsx
 import { Provider } from 'react-redux'
 import { store } from '@nx-next-app/store'
+import { ConfigProvider } from '@nx-next-app/components/{Modal}'
 
 import '../styles/css/style.css'
 import '../styles/css/swiper.css'
@@ -136,7 +137,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
 
 	return (
 		<Provider store={store}>
-			<Component {...pageProps} />
+			<ConfigProvider>
+				<Component {...pageProps} />
+			</ConfigProvider>
 		</Provider>
 	)
 }

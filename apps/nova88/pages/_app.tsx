@@ -5,6 +5,7 @@ import { store } from '@nx-next-app/store'
 import { useRouter } from 'next/router'
 import { appWithTranslation } from 'next-i18next'
 import { initLocaleEffect } from '@nx-next-app/hooks'
+import { ConfigProvider } from '@nx-next-app/components/D0001'
 
 import '../styles/css/style.css'
 import '../styles/css/swiper.css'
@@ -22,7 +23,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			</Head>
 
 			<Provider store={store}>
-				<Component {...pageProps} />
+				<ConfigProvider>
+					<Component {...pageProps} />
+				</ConfigProvider>
 			</Provider>
 		</>
 	)
