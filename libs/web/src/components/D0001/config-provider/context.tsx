@@ -5,6 +5,7 @@ export interface ConfigContextInterface {
 	globalModal: GlobalModalType
 	modal: {
 		info: (message: string) => void
+		error: (message: string) => void
 	}
 	resetModal: () => void
 }
@@ -27,6 +28,7 @@ export const ConfigProvider = ({ children }: { children: ReactNode }) => {
 		globalModal,
 		modal: {
 			info: (message: string) => setGlobalModal({ type: 'info', message }),
+			error: (message: string) => setGlobalModal({ type: 'error', message }),
 		},
 		resetModal,
 	}

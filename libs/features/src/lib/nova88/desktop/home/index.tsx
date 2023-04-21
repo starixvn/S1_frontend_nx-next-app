@@ -1,12 +1,14 @@
 import React from 'react'
-import Layout from '../layout'
+import { useTranslation } from 'next-i18next'
 
 // * wip feat
 const Home = () => {
+	const { t } = useTranslation()
 	return (
-		<Layout>
+		<>
+			<h1>{t('Label_Title')}</h1>
 			<main>Home Page</main>
-		</Layout>
+		</>
 	)
 }
 

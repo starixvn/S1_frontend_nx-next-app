@@ -1,18 +1,27 @@
+import Link from 'next/link'
 import { ReactNode } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Footer, Header } from '@nx-next-app/components/D0001'
-import { Provider } from 'react-redux'
-import { store } from '@nx-next-app/store'
+import { useTranslation } from 'next-i18next'
+import {
+	Footer,
+	GlobalModal,
+	Header,
+	useConfig,
+} from '@nx-next-app/components/D0001'
+
+import { useAuth } from '../auth-context'
 
 interface ILayoutProps {
 	children: ReactNode
 }
 
-// *  test only, remove later
-const isSignIn = true
-
 export function Layout({ children }: ILayoutProps) {
+	const { auth } = useAuth()
+	const { globalModal, resetModal } = useConfig()
+
+	const { onSignIn, onSignOut } = useAuth()
+
 	const {
+		t,
 		i18n: { language },
 	} = useTranslation()
 
@@ -21,11 +30,14 @@ export function Layout({ children }: ILayoutProps) {
 	}.png`
 
 	return (
-		<Provider store={store}>
+		<>
 			<Header>
-				<Header.Logo logoUrl={logoUrl} />
+				<Header.Logo
+					logoUrl={logoUrl}
+					rewardsUrl={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/88rewards.png`}
+				/>
 				<Header.Function>
-					{isSignIn ? (
+					{auth.isLogin ? (
 						<>
 							<a href='/en/transfer-funds'>
 								<span>Transfer Funds</span>
@@ -51,22 +63,30 @@ export function Layout({ children }: ILayoutProps) {
 
 							<Header.Function.Country />
 
-							<button type='button' className='icon icon-exit' />
+							<button
+								onClick={onSignOut}
+								type='button'
+								className='icon icon-exit'
+							/>
 						</>
 					) : (
 						<>
-							<Header.Function.Login />
-							<a href='forgetPassword.html' className='forgot'>
-								Forgotten your<span>password?</span>
-							</a>
+							<Header.Function.Login onLogin={onSignIn} />
+							<Header.Function.Country />
+							<Link href='forget-password'>
+								<a className='forgot'>{t('Label_ForgetPassword')}</a>
+							</Link>
 						</>
 					)}
 				</Header.Function>
 				<Header.Menu />
 			</Header>
 			{children}
+
+			<GlobalModal {...globalModal} resetModal={resetModal} />
+
 			<Footer />
-		</Provider>
+		</>
 	)
 }
 

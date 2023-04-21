@@ -1,16 +1,39 @@
-import React from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import Form from '../../form'
 
-const Login = () => {
+type LoginFormType = {
+	userName: string
+	password: string
+}
+
+interface ILoginProps {
+	onLogin: SubmitHandler<LoginFormType>
+}
+
+const Login = ({ onLogin }: ILoginProps) => {
+	const { register, handleSubmit } = useForm<LoginFormType>()
+
 	return (
 		<>
-			<input placeholder='Username' />
-			<input placeholder='Password' />
-			<a href='login.html' className='login'>
+			<Form onSubmit={handleSubmit(onLogin)} component={false}>
+				<input
+					defaultValue=''
+					placeholder='Username'
+					{...register('userName')}
+				/>
+				<input
+					defaultValue=''
+					placeholder='Password'
+					{...register('password')}
+				/>
+			</Form>
+
+			<button type='button' onClick={handleSubmit(onLogin)} className='login'>
 				Log In
-			</a>
-			<a href='join.html' className='join'>
+			</button>
+			<button type='button' className='join'>
 				Join Now
-			</a>
+			</button>
 		</>
 	)
 }

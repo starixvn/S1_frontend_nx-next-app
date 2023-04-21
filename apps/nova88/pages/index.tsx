@@ -1,24 +1,37 @@
 import React from 'react'
-import { authApiUrl, baseAxios } from '@nx-next-app/service'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Nova88 } from '@nx-next-app/features'
+import { checkSignIn } from '@nx-next-app/data-access'
 
-const { Home } = Nova88.Desktop
+const { AuthProvider, AuthRequire, Layout, Home } = Nova88.Desktop
 
-const Index = () => {
-	return <Home />
+interface IHomePageProps {
+	originIsSignIn: boolean
+}
+
+const HomePage = ({ originIsSignIn }: IHomePageProps) => {
+	return (
+		<AuthProvider originIsSignIn={originIsSignIn}>
+			<AuthRequire>
+				<Layout>
+					<Home />
+				</Layout>
+			</AuthRequire>
+		</AuthProvider>
+	)
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
-	const { data } = await baseAxios.post(authApiUrl.checkSignIn)
+	const { cookie } = context.req.headers
+	const originIsSignIn = await checkSignIn(null, { headers: { cookie } })
 
 	return {
 		props: {
-			data,
+			originIsSignIn,
 			...(await serverSideTranslations(context.locale)),
 		},
 	}
 }
 
-export default Index
+export default HomePage
