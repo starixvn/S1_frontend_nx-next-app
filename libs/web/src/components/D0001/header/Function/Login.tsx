@@ -22,6 +22,7 @@ const Login = ({ onLogin }: ILoginProps) => {
 					{...register('userName')}
 				/>
 				<input
+					type='password'
 					defaultValue=''
 					placeholder='Password'
 					{...register('password')}
