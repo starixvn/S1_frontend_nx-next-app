@@ -1,11 +1,14 @@
-import React from 'react'
-import { useConfig } from '../../config-provider'
+import { useGlobalModal } from '../../config-context'
 
 const App = () => {
-	const { modal } = useConfig()
+	const { modal } = useGlobalModal()
 
 	const fn = () => {
-		modal.info('some message')
+		modal.info('some message', {
+			onOK: () => {
+				//
+			},
+		})
 	}
 
 	return (

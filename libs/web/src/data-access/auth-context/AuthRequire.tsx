@@ -9,7 +9,7 @@ const AuthRequire = ({ children }: { children: JSX.Element }) => {
 	useEffect(() => {
 		// * wip feat: 實作登入狀態監聽
 		// eslint-disable-next-line no-console
-		console.log(auth)
+
 		onCheckSignIn()
 	}, [pathname])
 

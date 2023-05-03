@@ -8,7 +8,7 @@ interface IFunctionProps {
 	children: ReactNode
 }
 
-interface IFunctionInterface extends FC<IFunctionProps> {
+export interface IFunctionInterface extends FC<IFunctionProps> {
 	Login: typeof Login
 	Country: typeof Country
 	Wallet: typeof Wallet

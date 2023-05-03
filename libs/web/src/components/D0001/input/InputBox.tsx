@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
 import classNames from 'classnames'
 
-interface IInputProps
+export interface IInputBoxProps
 	extends Omit<
 		InputHTMLAttributes<HTMLInputElement>,
 		'size' | 'prefix' | 'checked'
@@ -62,7 +62,7 @@ const formatStr = "('000)"
  * @param {*} prop - other html input props
  * @author Wen
  */
-const Input = ({
+const InputBox = ({
 	register,
 	touched,
 	password,
@@ -82,7 +82,7 @@ const Input = ({
 	className,
 	onClickInfo,
 	...props
-}: IInputProps) => {
+}: IInputBoxProps) => {
 	const [showPassword, setShowPassword] = useState(false)
 	const handleShowPasswordClick = () => setShowPassword(prev => !prev)
 
@@ -177,4 +177,4 @@ const Input = ({
 	)
 }
 
-export { Input }
+export default InputBox
