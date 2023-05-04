@@ -10,6 +10,7 @@ export const authApiUrl = {
 
 export const authApi = rootApi.injectEndpoints({
 	endpoints: builder => ({
+		// * 確認登入狀態
 		checkSignIn: builder.query<IAxiosResponse<void>, null>({
 			query: data => ({
 				url: authApiUrl.checkSignIn,
@@ -18,6 +19,7 @@ export const authApi = rootApi.injectEndpoints({
 			}),
 			providesTags: ['AUTH_API_POST'],
 		}),
+		// * 登入
 		signIn: builder.mutation<IAxiosResponse<void>, ISignInArgs>({
 			query: data => ({
 				url: authApiUrl.signIn,
@@ -26,6 +28,7 @@ export const authApi = rootApi.injectEndpoints({
 			}),
 			invalidatesTags: ['AUTH_API_POST'],
 		}),
+		// * 登出
 		signOut: builder.mutation<IAxiosResponse<void>, null>({
 			query: data => ({
 				url: authApiUrl.signOut,

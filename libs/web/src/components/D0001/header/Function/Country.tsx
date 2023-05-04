@@ -1,9 +1,17 @@
-import React from 'react'
+import classNames from 'classnames'
+import { useRef } from 'react'
+import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 
 const Country = () => {
+	const ref = useRef(null)
+	const { value: isOpen, toggle, setFalse } = useBoolean(true)
+	useBoolean()
+
+	useOnClickOutside(ref, setFalse)
+
 	return (
-		<div className='country'>
-			<button type='button' className='flag th'>
+		<div ref={ref} className={classNames('country', { active: isOpen })}>
+			<button type='button' className='flag th' onClick={toggle}>
 				{' '}
 			</button>
 

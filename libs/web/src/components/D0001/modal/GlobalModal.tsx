@@ -1,9 +1,20 @@
+import { ReactNode } from 'react'
+import { isArray } from 'lodash'
+
 import Modal from './Modal'
+
+export type ModalMessageType =
+	| string
+	| (string | number)[]
+	| undefined
+	| null
+	| React.ReactElement
 
 export interface IGlobalModalProps {
 	icon?: string | null
 	type: 'info' | 'error' | null
-	message: string
+	message: ModalMessageType
+	onOK?: () => void
 	resetModal: () => void
 }
 
@@ -12,12 +23,13 @@ export type GlobalModalType = Omit<IGlobalModalProps, 'resetModal'>
 const GlobalModal = ({
 	icon,
 	type,
-	message = '',
+	message = null,
+	onOK,
 	resetModal,
 }: IGlobalModalProps) => {
 	const open = !!type
 
-	let mergedIcon: React.ReactNode = <div className={icon || ''} />
+	let mergedIcon: ReactNode = <div className={icon || ''} />
 	let title = ''
 
 	if (!icon && icon !== null) {
@@ -46,9 +58,21 @@ const GlobalModal = ({
 			<div className='Success active'>
 				{mergedIcon}
 				<div className='title'>{title}</div>
-				<div>{message}</div>
+				<div>
+					{!isArray(message) && message}
+
+					{isArray(message) && message.map(val => <div>{val}</div>)}
+				</div>
+
 				<div className='btnGroup'>
-					<button type='button' className='btn-check' onClick={resetModal}>
+					<button
+						type='button'
+						className='btn-check'
+						onClick={() => {
+							resetModal()
+							onOK && onOK()
+						}}
+					>
 						OK
 					</button>
 				</div>

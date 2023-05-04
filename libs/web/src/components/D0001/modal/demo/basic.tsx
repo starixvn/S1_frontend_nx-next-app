@@ -11,7 +11,7 @@ const App: React.FC = () => {
 
 	const handleOk = () => {
 		// eslint-disable-next-line no-console
-		console.log('do something...')
+		console.log('do something...', {})
 	}
 
 	const handleCancel = () => {

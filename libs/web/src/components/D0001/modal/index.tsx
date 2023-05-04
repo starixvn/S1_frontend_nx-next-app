@@ -4,6 +4,7 @@ import GlobalModal, { IGlobalModalProps, GlobalModalType } from './GlobalModal'
 import useModal from './useModal'
 
 export type IModalInterface = FC<IModalProps>
+export type { ModalMessageType } from './GlobalModal'
 
 const Modal = OriginModal as IModalInterface
 

@@ -2,5 +2,11 @@
 	"Label_Title": "Title common",
 	"Label_Close": "Close",
 	"Label_Information": "Information",
-	"Label_ForgetPassword": "Forgotten your password?"
+	"Label_ForgetPassword": "Forgotten your password?",
+	"Label_UserNameRequired": "Username is required.",
+	"Label_UserNameLength": "6-18 alphanumeric (A-Z, a-z, 0-9) characters only.",
+	"Label_PasswordRequired": "Password is required.",
+	"Label_LoggedOut": "You have successfully logged out!!",
+	"Label_Join": "Join Now",
+	"Label_LogIn": "Log In"
 }

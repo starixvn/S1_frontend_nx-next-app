@@ -1,8 +1,8 @@
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import { FieldValues } from 'react-hook-form/dist/types/fields'
-import { Input } from '../Input'
 import { passwordRegx } from '../type'
+import InputBox from '../InputBox'
 
 const InputBasic = () => {
 	const {
@@ -48,7 +48,7 @@ const InputBasic = () => {
 	return (
 		<form className='joinloginFunction' onSubmit={handleSubmit(onSubmit)}>
 			<div className='inputModule'>
-				<Input
+				<InputBox
 					register={register('userName', {
 						required: { value: true, message: '要想多久？' },
 						onBlur: checkUserName,
@@ -64,7 +64,7 @@ const InputBasic = () => {
 						console.log('Click Info')
 					}}
 				/>
-				<Input
+				<InputBox
 					register={register('password', {
 						required: { value: true, message: '不填是怎樣？' },
 						pattern: {

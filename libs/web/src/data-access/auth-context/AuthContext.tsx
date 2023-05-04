@@ -1,11 +1,10 @@
-import { useConfig } from '@nx-next-app/components/D0001'
+import { createContext, ReactNode, useState } from 'react'
+import { useTranslation } from 'next-i18next'
 import {
 	useLazyCheckSignInQuery,
 	useSignInMutation,
 	useSignOutMutation,
-} from '@nx-next-app/service'
-
-import { createContext, ReactNode, useState } from 'react'
+} from '../../service'
 
 export interface AuthContextInterface {
 	auth: { isLogin: boolean | undefined }
@@ -30,7 +29,7 @@ export const AuthProvider = ({
 	children: ReactNode
 	originIsSignIn: boolean
 }) => {
-	const { modal } = useConfig()
+	const { t } = useTranslation()
 	const [checkSignInQuery] = useLazyCheckSignInQuery()
 	const [auth, setAuth] = useState<{ isLogin: boolean | undefined }>({
 		isLogin: originIsSignIn,
@@ -64,30 +63,22 @@ export const AuthProvider = ({
 		const { userAgent } = navigator
 		const screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`
 
-		try {
-			await signIn({
-				userName,
-				userpwd: password,
-				isPersistent: false,
-				url,
-				platform,
-				userAgent,
-				screen,
-			}).unwrap()
+		await signIn({
+			userName,
+			userpwd: password,
+			isPersistent: false,
+			url,
+			platform,
+			userAgent,
+			screen,
+		}).unwrap()
 
-			setAuth({ isLogin: true })
-		} catch (error) {
-			modal.error((error as Error).message)
-		}
+		setAuth({ isLogin: true })
 	}
 
 	const onSignOut = async () => {
-		try {
-			await signOut(null).unwrap()
-			setAuth({ isLogin: undefined })
-		} catch (error) {
-			modal.error((error as Error).message)
-		}
+		await signOut(null).unwrap()
+		setAuth({ isLogin: undefined })
 	}
 
 	const value: AuthContextInterface = {
