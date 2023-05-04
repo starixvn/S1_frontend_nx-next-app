@@ -1,0 +1,62 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "apps/nova88-desktop",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/next:build",
+			"outputs": ["{options.outputPath}"],
+			"defaultConfiguration": "production",
+			"options": {
+				"root": "apps/nova88-desktop",
+				"outputPath": "dist/apps/nova88-desktop"
+			},
+			"configurations": {
+				"development": {
+					"outputPath": "apps/nova88-desktop"
+				},
+				"production": {}
+			}
+		},
+		"serve": {
+			"executor": "@nrwl/next:server",
+			"defaultConfiguration": "development",
+			"options": {
+				"buildTarget": "nova88-desktop:build",
+				"dev": true
+			},
+			"configurations": {
+				"development": {
+					"buildTarget": "nova88-desktop:build:development",
+					"dev": true
+				},
+				"production": {
+					"buildTarget": "nova88-desktop:build:production",
+					"dev": false
+				}
+			}
+		},
+		"export": {
+			"executor": "@nrwl/next:export",
+			"options": {
+				"buildTarget": "nova88-desktop:build:production"
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/apps/nova88-desktop"],
+			"options": {
+				"jestConfig": "apps/nova88-desktop/jest.config.ts",
+				"passWithNoTests": true
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/nova88-desktop/**/*.{ts,tsx,js,jsx}"]
+			}
+		}
+	},
+	"tags": []
+}
