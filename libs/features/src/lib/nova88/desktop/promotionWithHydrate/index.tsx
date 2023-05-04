@@ -10,7 +10,9 @@ interface IPromotionProps {
 	initialPromotionList: unknown[]
 }
 
-const PromotionSSR = ({ initialPromotionList = [] }: IPromotionProps) => {
+const PromotionSSRWithHydrate = ({
+	initialPromotionList = [],
+}: IPromotionProps) => {
 	const router = useRouter()
 	const { pathname, asPath, query } = router
 	const { t, i18n } = useTranslation()
@@ -133,4 +135,4 @@ const PromotionSSR = ({ initialPromotionList = [] }: IPromotionProps) => {
 	)
 }
 
-export default PromotionSSR
+export { PromotionSSRWithHydrate }

@@ -5,7 +5,7 @@ import { getPromotionListV3 } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Nova88 } from '@nx-next-app/features'
 
-const { PromotionSSR } = Nova88.Desktop
+const { PromotionSSRWithHydrate } = Nova88.Desktop
 
 // import { PromotionSSR } from '@nx-next-app/features/nova88/desktop'
 
@@ -14,7 +14,7 @@ interface IPromotionProps {
 }
 
 const PromotionSSRPage = ({ initialPromotionList = [] }: IPromotionProps) => (
-	<PromotionSSR initialPromotionList={initialPromotionList} />
+	<PromotionSSRWithHydrate initialPromotionList={initialPromotionList} />
 )
 
 export default PromotionSSRPage
