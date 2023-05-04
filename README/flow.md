@@ -25,7 +25,7 @@ cp .env.example .env
 
 ### Configure i18next and next.config.js
 
-創建 next-i18next-config.js，給予支援語系與默認語系
+創建 next-i18next.config.js，給予支援語系與默認語系
 
 apps/{appName}/next-i18next.config.js
 
@@ -93,11 +93,17 @@ module.exports = withNx(nextConfig)
 
 \_app.tsx
 
+- 加入 initLocaleEffect 用於自定義初始語系
+- 加入 appWithTranslation HOC 完成語系設定
+
 ```tsx
 import { appWithTranslation } from 'next-i18next'
+import { initLocaleEffect } from '@nx-next-app/hooks'
+import { useRouter } from 'next/router'
 
 function CustomApp({ Component, pageProps }: AppProps) {
-	// ...
+	const router = useRouter()
+
 	initLocaleEffect(router, 'en')
 
 	return <>// ..</>
@@ -119,6 +125,7 @@ public/
 ### Configure redux and styles
 
 - 提供 `Provider` and `store`
+- 提供 `ConfigProvider`ㄔ
 - 創建 `styles` 將設計提供的 `css`、`font` 放在 apps/{appName}/styles 資料夾，並在 `_app` 引用
 
 \_app.tsx
@@ -136,11 +143,17 @@ function CustomApp({ Component, pageProps }: AppProps) {
 	// ...
 
 	return (
-		<Provider store={store}>
-			<ConfigProvider>
-				<Component {...pageProps} />
-			</ConfigProvider>
-		</Provider>
+		    <Head>
+				<title>Welcome to nova88!</title>
+			</Head>
+
+			{/* Redux 狀態管理 */}
+			<Provider store={store}>
+				{/* 提供 Component 狀態管理 */}
+				<ConfigProvider>
+					<Component {...pageProps} />
+				</ConfigProvider>
+			</Provider>
 	)
 }
 ```

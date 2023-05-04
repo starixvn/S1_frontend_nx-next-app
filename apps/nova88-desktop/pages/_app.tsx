@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import { AppProps } from 'next/app'
-import { Provider } from 'react-redux'
 import { store } from '@nx-next-app/store'
-import { useRouter } from 'next/router'
-import { appWithTranslation } from 'next-i18next'
-import { initLocaleEffect } from '@nx-next-app/hooks'
+import { Provider } from 'react-redux'
 import { ConfigProvider } from '@nx-next-app/components/D0001'
+import { useRouter } from 'next/router'
+import { initLocaleEffect } from '@nx-next-app/hooks'
+import { appWithTranslation } from 'next-i18next'
 
 import '../styles/css/style.css'
 import '../styles/css/swiper.css'
@@ -19,10 +19,8 @@ function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<Head>
-				<title>Welcome to nova88!</title>
+				<title>Welcome to nova88-desktop!</title>
 			</Head>
-
-			{/* Redux 狀態管理 */}
 			<Provider store={store}>
 				{/* 提供 Component 狀態管理 */}
 				<ConfigProvider>

@@ -4,7 +4,7 @@ import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 
 const Country = () => {
 	const ref = useRef(null)
-	const { value: isOpen, toggle, setFalse } = useBoolean(true)
+	const { value: isOpen, toggle, setFalse } = useBoolean(false)
 	useBoolean()
 
 	useOnClickOutside(ref, setFalse)
