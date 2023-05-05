@@ -16,3 +16,5 @@ export { default as Form } from './form'
 
 export { Modal, GlobalModal, useModal } from './modal'
 export type { IModalProps, IGlobalModalProps, GlobalModalType } from './modal'
+
+export * from './back-top'
