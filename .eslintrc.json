@@ -1,7 +1,7 @@
 {
 	"root": true,
 	"plugins": ["@nrwl/nx"],
-	"extends": ["next"],
+	"extends": ["next", "airbnb"],
 	"overrides": [
 		{
 			"files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -64,7 +64,7 @@
 				"jsx-a11y/anchor-has-content": "off",
 				"react/no-unused-prop-types": "warn",
 				"@typescript-eslint/no-empty-interface": "warn"
-      }
+			}
 		},
 		{
 			"files": ["*.js", "*.jsx"],

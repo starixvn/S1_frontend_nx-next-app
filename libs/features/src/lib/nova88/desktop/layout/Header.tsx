@@ -10,6 +10,7 @@ import { useAuth } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
 import { FieldErrors } from 'react-hook-form'
 import { renderFieldError } from '@nx-next-app/utils'
+import { UserInfoMemberType } from '@nx-next-app/service'
 
 const LayoutHeader = () => {
 	const {
@@ -20,7 +21,11 @@ const LayoutHeader = () => {
 
 	const { modal } = useGlobalModal()
 
-	const { auth, onSignIn, onSignOut } = useAuth()
+	const { auth, userInfo, onSignIn, onSignOut } = useAuth()
+
+	// TODO: wip feat
+	// eslint-disable-next-line no-console
+	console.log(userInfo?.memberType === UserInfoMemberType.LiveStreaming)
 
 	const handleSignIn = async (payload: {
 		userName: string

@@ -1,13 +1,16 @@
 import { createContext, ReactNode, useState } from 'react'
-import { useTranslation } from 'next-i18next'
+
 import {
+	useGetUserInfoQuery,
 	useLazyCheckSignInQuery,
 	useSignInMutation,
 	useSignOutMutation,
 } from '../../service'
+import { IUserInfoData } from '../../service/accountStrict/type'
 
 export interface AuthContextInterface {
 	auth: { isLogin: boolean | undefined }
+	userInfo: IUserInfoData | undefined
 	onSignIn: ({
 		userName,
 		password,
@@ -29,12 +32,19 @@ export const AuthProvider = ({
 	children: ReactNode
 	originIsSignIn: boolean
 }) => {
-	const { t } = useTranslation()
-	const [checkSignInQuery] = useLazyCheckSignInQuery()
 	const [auth, setAuth] = useState<{ isLogin: boolean | undefined }>({
 		isLogin: originIsSignIn,
 	})
+
+	const [checkSignInQuery] = useLazyCheckSignInQuery()
+
+	const { data: { data: userInfo } = {} } = useGetUserInfoQuery(null, {
+		// * 沒有登入時不打
+		skip: !auth.isLogin,
+	})
+
 	const [signIn] = useSignInMutation()
+
 	const [signOut] = useSignOutMutation()
 
 	const onCheckSignIn = async () => {
@@ -83,6 +93,7 @@ export const AuthProvider = ({
 
 	const value: AuthContextInterface = {
 		auth,
+		userInfo,
 		onCheckSignIn,
 		onSignIn,
 		onSignOut,
