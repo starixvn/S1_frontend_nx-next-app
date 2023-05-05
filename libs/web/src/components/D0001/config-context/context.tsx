@@ -1,11 +1,21 @@
 import { createContext, ReactNode, useState } from 'react'
-import { GlobalModalType, ModalMessageType } from '../modal'
+import { GlobalModalType, IGlobalModalProps, ModalMessageType } from '../modal'
 
 export interface ConfigContextInterface {
 	globalModal: GlobalModalType
 	modal: {
-		info: (message: ModalMessageType, { onOK }?: { onOK?: () => void }) => void
-		error: (message: ModalMessageType) => void
+		open: (
+			message: ModalMessageType,
+			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK'>
+		) => void
+		info: (
+			message: ModalMessageType,
+			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK'>
+		) => void
+		error: (
+			message: ModalMessageType,
+			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK'>
+		) => void
 	}
 	resetModal: () => void
 }
@@ -16,21 +26,31 @@ export const ConfigContext = createContext<ConfigContextInterface>(null!)
 export const ConfigProvider = ({ children }: { children: ReactNode }) => {
 	const [globalModal, setGlobalModal] = useState<GlobalModalType>({
 		type: null,
+		title: null,
 		message: undefined,
 		icon: null,
 		onOK: () => null,
 	})
 
 	const resetModal = () => {
-		setGlobalModal({ type: null, message: '' })
+		setGlobalModal({
+			type: null,
+			title: null,
+			message: undefined,
+			icon: null,
+			onOK: () => null,
+		})
 	}
 
 	const value: ConfigContextInterface = {
 		globalModal,
 		modal: {
+			open: (message, config) =>
+				setGlobalModal({ type: 'default', message, ...config }),
 			info: (message, config) =>
-				setGlobalModal({ type: 'info', message, onOK: config?.onOK }),
-			error: message => setGlobalModal({ type: 'error', message }),
+				setGlobalModal({ type: 'info', message, ...config }),
+			error: (message, config) =>
+				setGlobalModal({ type: 'error', message, ...config }),
 		},
 		resetModal,
 	}

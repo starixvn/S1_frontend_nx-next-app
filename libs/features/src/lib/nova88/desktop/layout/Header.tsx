@@ -42,7 +42,10 @@ const LayoutHeader = () => {
 	const handleSignOut = async () => {
 		try {
 			await onSignOut()
-			modal.info(t('Label_LoggedOut'), {
+
+			modal.open(t('Label_LoggedOut'), {
+				icon: 'icon icon-exit',
+				title: t('Label_LogOut'),
 				onOK: () => router.push(paths.home.root),
 			})
 		} catch (error) {
@@ -51,7 +54,7 @@ const LayoutHeader = () => {
 	}
 
 	const handleLoginInvalid = (errors: FieldErrors<LoginFormType>) => {
-		modal.info(renderFieldError(errors))
+		modal.error(renderFieldError(errors))
 	}
 
 	const logoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${

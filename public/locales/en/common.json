@@ -6,7 +6,8 @@
 	"Label_UserNameRequired": "Username is required.",
 	"Label_UserNameLength": "6-18 alphanumeric (A-Z, a-z, 0-9) characters only.",
 	"Label_PasswordRequired": "Password is required.",
-	"Label_LoggedOut": "You have successfully logged out!!",
 	"Label_Join": "Join Now",
-	"Label_LogIn": "Log In"
+	"Label_LogIn": "Log In",
+	"Label_LogOut": "Logout",
+	"Label_LoggedOut": "You have successfully logged out!!"
 }

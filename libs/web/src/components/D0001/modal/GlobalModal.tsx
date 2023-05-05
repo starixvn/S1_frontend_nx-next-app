@@ -1,4 +1,3 @@
-import { ReactNode } from 'react'
 import { isArray } from 'lodash'
 
 import Modal from './Modal'
@@ -12,7 +11,8 @@ export type ModalMessageType =
 
 export interface IGlobalModalProps {
 	icon?: string | null
-	type: 'info' | 'error' | null
+	title?: string | null
+	type?: 'default' | 'info' | 'error' | null
 	message: ModalMessageType
 	onOK?: () => void
 	resetModal: () => void
@@ -22,6 +22,7 @@ export type GlobalModalType = Omit<IGlobalModalProps, 'resetModal'>
 
 const GlobalModal = ({
 	icon,
+	title,
 	type,
 	message = null,
 	onOK,
@@ -29,35 +30,31 @@ const GlobalModal = ({
 }: IGlobalModalProps) => {
 	const open = !!type
 
-	let mergedIcon: ReactNode = <div className={icon || ''} />
-	let title = ''
+	let mergedIcon
+	let mergedTitle
 
-	if (!icon && icon !== null) {
-		switch (type) {
-			case 'info':
-				mergedIcon = <div className='icon icon-bell' />
-				title = 'info'
-				break
+	switch (type) {
+		case 'info':
+			mergedIcon = icon || 'icon icon-bell'
+			mergedTitle = title || 'Information'
 
-			// case 'success':
-			// 	mergedIcon = <div className='icon icon-bell' />
-			// 	break
+			break
 
-			case 'error':
-				mergedIcon = <div className='icon icon-bell' />
-				title = 'error'
-				break
+		case 'error':
+			mergedIcon = icon || 'icon icon-bell'
+			mergedTitle = title || 'error'
+			break
 
-			default:
-				mergedIcon = null
-		}
+		default:
+			mergedIcon = icon || ''
+			mergedTitle = title || null
 	}
 
 	return (
 		<Modal open={open} onCancel={resetModal}>
 			<div className='Success active'>
-				{mergedIcon}
-				<div className='title'>{title}</div>
+				<div className={mergedIcon} />
+				<div className='title'>{mergedTitle}</div>
 				<div>
 					{!isArray(message) && message}
 
