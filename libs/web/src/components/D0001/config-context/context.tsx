@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useState } from 'react'
 import { GlobalModalType, IGlobalModalProps, ModalMessageType } from '../modal'
+import { LangData } from './type'
 
 export interface ConfigContextInterface {
 	globalModal: GlobalModalType
@@ -18,12 +19,19 @@ export interface ConfigContextInterface {
 		) => void
 	}
 	resetModal: () => void
+	langData: LangData
 }
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 export const ConfigContext = createContext<ConfigContextInterface>(null!)
 
-export const ConfigProvider = ({ children }: { children: ReactNode }) => {
+export const ConfigProvider = ({
+	children,
+	langData,
+}: {
+	children: ReactNode
+	langData: LangData
+}) => {
 	const [globalModal, setGlobalModal] = useState<GlobalModalType>({
 		type: null,
 		title: null,
@@ -53,6 +61,7 @@ export const ConfigProvider = ({ children }: { children: ReactNode }) => {
 				setGlobalModal({ type: 'error', message, ...config }),
 		},
 		resetModal,
+		langData,
 	}
 
 	return (

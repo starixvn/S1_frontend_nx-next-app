@@ -19,7 +19,9 @@ const JoinPage = ({ originIsSignIn }: IJoinPageProps) => {
 		<AuthProvider originIsSignIn={originIsSignIn}>
 			<AuthRequire>
 				<Layout>
-					<main>JoinPage</main>
+					<main>
+						<p>JoinPage</p>
+					</main>
 				</Layout>
 			</AuthRequire>
 		</AuthProvider>

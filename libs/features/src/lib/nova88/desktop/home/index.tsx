@@ -8,7 +8,9 @@ const Home = () => {
 	return (
 		<>
 			<h1>{t('Label_Title')}</h1>
-			<main>Home Page</main>
+			<main>
+				<p>Home Page</p>
+			</main>
 		</>
 	)
 }

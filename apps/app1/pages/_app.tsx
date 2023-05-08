@@ -12,7 +12,7 @@ import '../styles/css/font.css'
 function CustomApp({ Component, pageProps }: AppProps) {
 	const router = useRouter()
 
-	initLocaleEffect(router, 'en')
+	initLocaleEffect(router)
 
 	return (
 		<>

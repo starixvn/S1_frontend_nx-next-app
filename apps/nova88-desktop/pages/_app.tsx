@@ -4,17 +4,20 @@ import { store } from '@nx-next-app/store'
 import { Provider } from 'react-redux'
 import { ConfigProvider } from '@nx-next-app/components/D0001'
 import { useRouter } from 'next/router'
-import { initLocaleEffect } from '@nx-next-app/hooks'
+import { useInitLocaleEffect } from '@nx-next-app/hooks'
 import { appWithTranslation } from 'next-i18next'
+import { Nova88 } from '@nx-next-app/features'
 
 import '../styles/css/style.css'
 import '../styles/css/swiper.css'
 import '../styles/css/font.css'
 
+const { LANG_DATA } = Nova88.Data
+
 function CustomApp({ Component, pageProps }: AppProps) {
 	const router = useRouter()
 
-	initLocaleEffect(router, 'en')
+	useInitLocaleEffect(router)
 
 	return (
 		<>
@@ -23,7 +26,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			</Head>
 			<Provider store={store}>
 				{/* 提供 Component 狀態管理 */}
-				<ConfigProvider>
+				<ConfigProvider langData={LANG_DATA}>
 					<Component {...pageProps} />
 				</ConfigProvider>
 			</Provider>
