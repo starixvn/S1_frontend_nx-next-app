@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 import {
+	BackTop,
 	Footer,
 	GlobalModal,
 	useGlobalModal,
@@ -23,6 +24,8 @@ export function Layout({ children }: ILayoutProps) {
 			<GlobalModal {...globalModal} resetModal={resetModal} />
 
 			<Footer />
+
+			<BackTop />
 		</>
 	)
 }
