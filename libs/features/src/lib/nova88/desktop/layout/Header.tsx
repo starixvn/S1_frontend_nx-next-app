@@ -11,6 +11,7 @@ import { paths } from '@nx-next-app/constants'
 import { FieldErrors } from 'react-hook-form'
 import { renderFieldError } from '@nx-next-app/utils'
 import { UserInfoMemberType } from '@nx-next-app/service'
+import { Country } from './Country'
 
 const LayoutHeader = () => {
 	const {
@@ -25,7 +26,7 @@ const LayoutHeader = () => {
 
 	// TODO: wip feat
 	// eslint-disable-next-line no-console
-	console.log(userInfo?.memberType === UserInfoMemberType.LiveStreaming)
+	// console.log(userInfo?.memberType === UserInfoMemberType.LiveStreaming)
 
 	const handleSignIn = async (payload: {
 		userName: string
@@ -92,7 +93,7 @@ const LayoutHeader = () => {
 
 						<a className='icon icon-email' href='/en/message' />
 
-						<Header.Function.Country />
+						<Country />
 
 						<button
 							onClick={handleSignOut}
@@ -106,7 +107,7 @@ const LayoutHeader = () => {
 							onLogin={handleSignIn}
 							onLoginInvalid={handleLoginInvalid}
 						/>
-						<Header.Function.Country />
+						<Country />
 						<Link href='forget-password'>
 							<a className='forgot'>{t('Label_ForgetPassword')}</a>
 						</Link>

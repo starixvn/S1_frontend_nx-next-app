@@ -1,37 +1,24 @@
 import { useEffect } from 'react'
 import { NextRouter } from 'next/router'
-import { useLocalStorage } from 'usehooks-ts'
-import { LocalStorageNames } from '../app/constants/localStorageNames'
+import { getCookie } from 'cookies-next'
 
 /**
  *
  * @param router useRouter
- * @param defaultLang 默認語系
- * 初始語系
+ * 初始化登入登出狀態時的語系
  */
-export const initLocaleEffect = (router: NextRouter, defaultLang: string) => {
-	const [localLocale, setLocalLocale] = useLocalStorage<string | undefined>(
-		LocalStorageNames.Locale,
-		undefined
-	)
+export const useInitLocaleEffect = (router: NextRouter) => {
+	const cookieLang = getCookie(
+		`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`
+	) as string
 
 	const initLocale = () => {
 		const { pathname, asPath, query, locale } = router
 
-		if (locale === 'default') {
-			// 把預設改成 default , 假如是預設 沒有 local值時取 default , 有 local值時取local
-			if (!localLocale) {
-				router.push({ pathname, query }, asPath, {
-					locale: defaultLang,
-				})
-			} else {
-				router.push({ pathname, query }, asPath, {
-					locale: localLocale,
-				})
-			}
-		} else {
-			// 有帶 locale 則直接改成該 locale
-			setLocalLocale(locale)
+		if (locale === 'default' || locale !== cookieLang) {
+			router.push({ pathname, query }, asPath, {
+				locale: cookieLang,
+			})
 		}
 	}
 
@@ -40,5 +27,5 @@ export const initLocaleEffect = (router: NextRouter, defaultLang: string) => {
 		if (window !== undefined) {
 			initLocale()
 		}
-	}, [])
+	}, [cookieLang])
 }

@@ -19,7 +19,9 @@ const ForgetPasswordPage = ({ originIsSignIn }: IForgetPasswordPageProps) => {
 		<AuthProvider originIsSignIn={originIsSignIn}>
 			<AuthRequire>
 				<Layout>
-					<main>ForgetPassword Page</main>
+					<main>
+						<p>ForgetPassword Page</p>
+					</main>
 				</Layout>
 			</AuthRequire>
 		</AuthProvider>
