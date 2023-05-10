@@ -13,33 +13,33 @@ export enum UserInfoMemberType {
 
 export interface IUserInfoData {
 	userName: string
-	email: string
-	accountName: string
-	birth_d: string
-	birth_m: string
-	birth_y: string
-	regTime: string
-	lastLogin: string
-	country: string
-	areaCode: string
-	phoneNo: string
-	perCountry: string
 	currencyId: number
 	langId: string
-	userLevel: number
-	phoneVerified: false
-	phoneReward: number
-	emailVerified: false
-	emailReward: number
-	enablePromotion: number
-	isLineBinding: boolean
-	addressCountry: null
-	addressState: null | string
-	addressPostCode: null | string
-	addressCity: null | string
-	addressLineFirst: null | string
-	addressLineSecond: null | string
-	isResetPwd: boolean
-	actStatus: UserInfoActStatusEnum
-	memberType: UserInfoMemberType
+	email?: string
+	accountName?: string
+	birth_d?: string
+	birth_m?: string
+	birth_y?: string
+	regTime?: string
+	lastLogin?: string
+	country?: string
+	areaCode?: string
+	phoneNo?: string
+	perCountry?: string
+	userLevel?: number
+	phoneVerified?: false
+	phoneReward?: number
+	emailVerified?: false
+	emailReward?: number
+	enablePromotion?: number
+	isLineBinding?: boolean
+	addressCountry?: null
+	addressState?: null | string
+	addressPostCode?: null | string
+	addressCity?: null | string
+	addressLineFirst?: null | string
+	addressLineSecond?: null | string
+	isResetPwd?: boolean
+	actStatus?: UserInfoActStatusEnum
+	memberType?: UserInfoMemberType
 }

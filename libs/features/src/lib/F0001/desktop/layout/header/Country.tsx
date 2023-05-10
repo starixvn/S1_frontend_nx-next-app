@@ -10,7 +10,7 @@ import { useSetLanguageMutation } from '@nx-next-app/service'
 import { setCookies } from 'cookies-next'
 import { isEqual } from 'lodash'
 
-export const Country = () => {
+const Country = () => {
 	const router = useRouter()
 	const { modal } = useGlobalModal()
 	const { pathname, asPath, query } = router
@@ -21,8 +21,8 @@ export const Country = () => {
 		userInfo: { currencyId: currentCurrency, langId: currentLang },
 		auth,
 	} = useAuth()
-	const langKey = currencyToLangKey[currentCurrency] ?? null
 
+	const [icon, setIcon] = useState<string | null>(null)
 	const [langGroup, setLangGroup] = useState<{
 		[key: string]: Array<{
 			displayText: string
@@ -44,7 +44,7 @@ export const Country = () => {
 		if (currencyId === currentCurrency && langCode === currentLang) return
 
 		if (auth.isLogin) {
-			// 有登入
+			// 有登入狀態，透過 setLang 完成語系切換，不在此處做 router.push
 			try {
 				await setLanguage({ langId: langCode }).unwrap()
 			} catch (error) {
@@ -56,14 +56,14 @@ export const Country = () => {
 				`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`,
 				currencyId
 			)
+			router.push({ pathname, query }, asPath, {
+				locale: langCode,
+			})
 		}
-
-		router.push({ pathname, query }, asPath, {
-			locale: langCode,
-		})
 	}
 
 	useEffect(() => {
+		const langKey = currencyToLangKey[currentCurrency]
 		if (auth.isLogin) {
 			// 登入後針對 langGroup 做篩選
 			setLangGroup({ [langKey]: rawLangGroup[langKey] })
@@ -72,14 +72,20 @@ export const Country = () => {
 			// 若不相符才 reset 至 rawLangGroup
 			setLangGroup(rawLangGroup)
 		}
+
+		if (langKey !== icon) {
+			setIcon(langKey)
+		}
 	}, [auth.isLogin, currentCurrency])
 
 	return (
 		<Header.Function.Country
-			icon={langKey}
+			icon={icon}
 			langGroup={langGroup}
 			onSetLanguage={handleSetLanguage}
 			langGroupCountry={langGroupCountry}
 		/>
 	)
 }
+
+export default Country

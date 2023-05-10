@@ -5,7 +5,7 @@ import {
 	GlobalModal,
 	useGlobalModal,
 } from '@nx-next-app/components/D0001'
-import LayoutHeader from './Header'
+import LayoutHeader from './header'
 
 interface ILayoutProps {
 	children: ReactNode
