@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 import {
 	Header,
 	LoginFormType,
@@ -10,8 +11,10 @@ import { useAuth } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
 import { FieldErrors } from 'react-hook-form'
 import { renderFieldError } from '@nx-next-app/utils'
-import { UserInfoMemberType } from '@nx-next-app/service'
-import { Country } from './Country'
+import MemberFile from './MemberFile'
+import MsgPopUp from './MsgPopUp'
+import Country from './Country'
+import Wallet from './Wallet'
 
 const LayoutHeader = () => {
 	const {
@@ -22,11 +25,7 @@ const LayoutHeader = () => {
 
 	const { modal } = useGlobalModal()
 
-	const { auth, userInfo, onSignIn, onSignOut } = useAuth()
-
-	// TODO: wip feat
-	// eslint-disable-next-line no-console
-	// console.log(userInfo?.memberType === UserInfoMemberType.LiveStreaming)
+	const { auth, onSignIn, onSignOut } = useAuth()
 
 	const handleSignIn = async (payload: {
 		userName: string
@@ -71,27 +70,37 @@ const LayoutHeader = () => {
 			<Header.Function>
 				{auth.isLogin ? (
 					<>
-						<a href='/en/transfer-funds'>
-							<span>Transfer Funds</span>
-						</a>
+						<Link href={paths.transferFunds.root}>
+							<a>
+								<span>{t('Label_TransferFunds')}</span>
+							</a>
+						</Link>
 
-						<a href='/en/withdrawal'>
-							<span>Withdrawal</span>
-						</a>
+						<Link href={paths.withdrawal.root}>
+							<a>
+								<span>{t('Label_Withdrawal')}</span>
+							</a>
+						</Link>
 
-						<a href='/en/history'>
-							<span>History</span>
-						</a>
+						<Link href={paths.history.root}>
+							<a>
+								<span>{t('Label_History')}</span>
+							</a>
+						</Link>
 
-						<a href='/en/deposit'>
-							<span>Deposit</span>
-						</a>
+						<Link href={paths.deposit.root}>
+							<a>
+								<span>{t('Label_Deposit')}</span>
+							</a>
+						</Link>
 
-						<Header.Function.Wallet />
+						<Wallet />
 
-						<Header.Function.MemberFile />
+						<MemberFile />
 
-						<a className='icon icon-email' href='/en/message' />
+						<Link href={paths.message.root}>
+							<MsgPopUp />
+						</Link>
 
 						<Country />
 
@@ -108,7 +117,7 @@ const LayoutHeader = () => {
 							onLoginInvalid={handleLoginInvalid}
 						/>
 						<Country />
-						<Link href='forget-password'>
+						<Link href={paths.forgetPassword.root}>
 							<a className='forgot'>{t('Label_ForgetPassword')}</a>
 						</Link>
 					</>

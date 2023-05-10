@@ -1,20 +1,56 @@
-import React from 'react'
+import Link from 'next/link'
+import dayjs from 'dayjs'
+import classNames from 'classnames'
+import { useBoolean, useOnClickOutside } from 'usehooks-ts'
+import { useRef } from 'react'
+import { ITpWalletData, IWalletBalanceData } from '@nx-next-app/service'
+import { paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { SpinButton } from '../../button'
 
-const Wallet = () => {
+interface IWalletProps {
+	onRefetchAllWallet: () => void
+	walletBalance: IWalletBalanceData | undefined
+	custBonusWallet: unknown
+	tpWalletList: ITpWalletData[] | undefined
+}
+
+const Wallet = ({
+	onRefetchAllWallet,
+	walletBalance,
+	custBonusWallet,
+	tpWalletList,
+}: IWalletProps) => {
+	const ref = useRef(null)
+	const { value: isActive, setFalse, toggle } = useBoolean(false)
+	const {
+		userInfo: { lastLogin },
+	} = useAuth()
+
+	useOnClickOutside(ref, setFalse)
+
 	return (
-		<div className='wallet icon icon-balance'>
+		<div
+			ref={ref}
+			className={classNames('wallet icon icon-balance', {
+				active: isActive,
+			})}
+			onClick={toggle}
+		>
 			<span>VNĐ 28,848.50 ('000)</span>
+
 			<button type='button' className='icon icon-minus'>
 				{' '}
 			</button>
+
+			<SpinButton onClick={onRefetchAllWallet} />
+
 			<div className='submenu'>
 				<div className='balance'>
 					<span>VND</span>
 					<span>
 						28,848.50 ('000)
-						<button type='button' className='icon icon-spinner11'>
-							{' '}
-						</button>
+						<SpinButton onClick={onRefetchAllWallet} />
 					</span>
 				</div>
 				<div className='walletBalance'>
@@ -36,16 +72,16 @@ const Wallet = () => {
 					</div>
 				</div>
 				<div className='btnGroup'>
-					<a className='orange' href='/en/deposit'>
-						Deposit
-					</a>
-					<a className='orange' href='/en/transfer-funds'>
-						Transfer Funds
-					</a>
+					<Link href={paths.deposit.root}>
+						<a className='orange'>Deposit</a>
+					</Link>
+					<Link href={paths.transferFunds.root}>
+						<a className='orange'>Transfer Funds</a>
+					</Link>
 				</div>
 				<div className='loginLog'>
 					<span>Last Login</span>
-					<span>4/12/2023 6:53:54 PM</span>
+					<span>{dayjs(lastLogin).format('L LT')}</span>
 				</div>
 				<div className='transactionLog'>
 					<span>Last Transaction</span>

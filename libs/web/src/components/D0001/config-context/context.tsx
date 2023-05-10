@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useState } from 'react'
 import { GlobalModalType, IGlobalModalProps, ModalMessageType } from '../modal'
-import { LangData } from './type'
+import { IVipClubImage, LangData } from './type'
 
 export interface ConfigContextInterface {
 	globalModal: GlobalModalType
@@ -20,6 +20,7 @@ export interface ConfigContextInterface {
 	}
 	resetModal: () => void
 	langData: LangData
+	VIP_CLUB_IMAGES: IVipClubImage[]
 }
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -28,9 +29,11 @@ export const ConfigContext = createContext<ConfigContextInterface>(null!)
 export const ConfigProvider = ({
 	children,
 	langData,
+	VIP_CLUB_IMAGES,
 }: {
 	children: ReactNode
 	langData: LangData
+	VIP_CLUB_IMAGES: IVipClubImage[]
 }) => {
 	const [globalModal, setGlobalModal] = useState<GlobalModalType>({
 		type: null,
@@ -61,7 +64,9 @@ export const ConfigProvider = ({
 				setGlobalModal({ type: 'error', message, ...config }),
 		},
 		resetModal,
+
 		langData,
+		VIP_CLUB_IMAGES,
 	}
 
 	return (

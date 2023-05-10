@@ -1,5 +1,6 @@
 import Image from 'next/future/image'
 import Link from 'next/link'
+import { paths } from '../../../app/constants'
 
 interface ILogoProps {
 	logoUrl: string
@@ -9,11 +10,9 @@ interface ILogoProps {
 const Logo = ({ logoUrl, rewardsUrl }: ILogoProps) => {
 	return (
 		<div className='logo'>
-			<Link className='logo' href='/'>
+			<Link className='logo' href={paths.home.root}>
 				<a>
-					{/* 先用原生 img 查看寬高，再給予定寬高 */}
 					<Image src={logoUrl} alt='logo' width={150} height={66} />
-					{/* <img src={logoUrl} alt='logoUrl' /> */}
 				</a>
 			</Link>
 			<Link

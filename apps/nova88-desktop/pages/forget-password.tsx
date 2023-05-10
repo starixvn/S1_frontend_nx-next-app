@@ -6,21 +6,28 @@ import {
 	checkSignIn,
 } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Nova88 } from '@nx-next-app/features'
+import { F0001 } from '@nx-next-app/features'
 
-const { Layout } = Nova88.Desktop
+const { Layout } = F0001.Desktop
 
 interface IForgetPasswordPageProps {
 	originIsSignIn: boolean
 }
 
+// * TODO: wip todo
 const ForgetPasswordPage = ({ originIsSignIn }: IForgetPasswordPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn}>
 			<AuthRequire>
 				<Layout>
 					<main>
-						<p>ForgetPassword Page</p>
+						<br />
+						<br />
+						<br />
+						<h1 style={{ color: 'black' }}>ForgetPassword Page</h1>
+						<br />
+						<br />
+						<br />
 					</main>
 				</Layout>
 			</AuthRequire>

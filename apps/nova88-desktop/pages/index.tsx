@@ -1,14 +1,14 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Nova88 } from '@nx-next-app/features'
+import { F0001 } from '@nx-next-app/features'
 import {
 	checkSignIn,
 	AuthRequire,
 	AuthProvider,
 } from '@nx-next-app/data-access'
 
-const { Layout, Home } = Nova88.Desktop
+const { Layout, Home } = F0001.Desktop
 
 interface IHomePageProps {
 	originIsSignIn: boolean

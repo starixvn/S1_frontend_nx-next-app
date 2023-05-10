@@ -1,1 +1,1 @@
-export * as Nova88 from './nova88'
+export * as F0001 from './F0001'

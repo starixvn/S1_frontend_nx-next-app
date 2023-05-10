@@ -1,1 +1,2 @@
-export * from './initLocaleEffect'
+export * from './useInitLocaleEffect'
+export * from './useSynchronizeCookiesEffect'

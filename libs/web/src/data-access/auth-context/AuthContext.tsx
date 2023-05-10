@@ -1,18 +1,18 @@
-import { createContext, ReactNode, useEffect, useState } from 'react'
-import { getCookie, setCookies } from 'cookies-next'
+import { createContext, ReactNode, useState } from 'react'
+import { getCookie } from 'cookies-next'
+import { useRouter } from 'next/router'
 import {
 	useGetUserInfoQuery,
 	useLazyCheckSignInQuery,
 	useSignInMutation,
 	useSignOutMutation,
 } from '../../service'
+import { useInitLocaleEffect, useSynchronizeCookiesEffect } from '../../hooks'
 import { IUserInfoData } from '../../service/accountStrict/type'
 
 export interface AuthContextInterface {
 	auth: { isLogin: boolean | undefined }
-	userInfo:
-		| IUserInfoData
-		| Pick<IUserInfoData, 'currencyId' | 'langId' | 'userName'>
+	userInfo: IUserInfoData
 	onSignIn: ({
 		userName,
 		password,
@@ -34,6 +34,7 @@ export const AuthProvider = ({
 	children: ReactNode
 	originIsSignIn: boolean
 }) => {
+	const router = useRouter()
 	const [auth, setAuth] = useState<{ isLogin: boolean | undefined }>({
 		isLogin: originIsSignIn,
 	})
@@ -100,24 +101,15 @@ export const AuthProvider = ({
 		setAuth({ isLogin: true })
 	}
 
-	// 登入後將 cookie 得值設為該帳號資訊
-	// 不能寫在 signIn 的原因為，該 useGetUserInfoQuery 觸發時間與會在 setAuth 異動 isLogin 後才會去取資料
-	// 故直接判斷 userName 若非 "guest" 時做設定，實務上登入後便不會一直異動該值
-	useEffect(() => {
-		if (userInfo.userName !== 'guest') {
-			const { langId, currencyId } = userInfo
-			setCookies(`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`, langId)
-			setCookies(
-				`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`,
-				currencyId
-			)
-		}
-	}, [userInfo.userName])
-
 	const onSignOut = async () => {
 		await signOut(null).unwrap()
 		setAuth({ isLogin: undefined })
 	}
+
+	// 處理登入狀態同步使用者 cookie, 未登入不做同步
+	useSynchronizeCookiesEffect(userInfo)
+	// 處理路由導轉
+	useInitLocaleEffect({ router, userInfo, isLogin: auth.isLogin })
 
 	const value: AuthContextInterface = {
 		auth,

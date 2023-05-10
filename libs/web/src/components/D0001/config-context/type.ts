@@ -9,3 +9,9 @@ export interface LangData {
 	currencyToLangKey: { [key: number]: string }
 	langGroupCountry: { [key: string]: string }
 }
+
+export interface IVipClubImage {
+	url: string
+	displayKey: string
+	alt: string
+}

@@ -9,5 +9,13 @@
 	"Label_Join": "Join Now",
 	"Label_LogIn": "Log In",
 	"Label_LogOut": "Logout",
-	"Label_LoggedOut": "You have successfully logged out!!"
+	"Label_LoggedOut": "You have successfully logged out!!",
+	"Label_TransferFunds": "Transfer Funds",
+	"Label_Withdrawal": "Withdrawal",
+	"Label_History": "History",
+	"Label_Deposit": "Deposit",
+	"Label_Profile": "Profile",
+	"Label_CryptoWallet": "Crypto Wallet",
+	"Label_ReferFriends": "Refer Friends",
+	"Label_ChangePassword": "Change Password"
 }

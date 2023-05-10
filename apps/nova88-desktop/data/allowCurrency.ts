@@ -1,0 +1,28 @@
+import { F0001 } from '@nx-next-app/features'
+
+const { Types } = F0001
+
+const { MYR, USD, THB, CNY, IDR, INR, KHM, BDT } = Types.CurrenciesEnum
+
+export const ALLOWED_CURRENCIES = {
+	VIP: [MYR, THB, IDR],
+	AFFILIATE: [MYR, THB, IDR, CNY, BDT, USD, INR],
+	EXCHANGE: [INR, BDT],
+	WORLD_CIP: [MYR, THB, IDR, INR],
+	REWARDS: [MYR, THB, IDR],
+
+	WITHDRAWAL_METHOD: {
+		BANK_CARD: [MYR, THB, IDR, INR, KHM],
+		E_WALLET: [IDR, BDT, MYR, THB],
+	},
+
+	PRODUCTS: {
+		SLOT_AMB: [THB, USD, CNY, KHM],
+		GAME_M_POKER: [THB],
+		GAME_AMB: [THB],
+		GAME_V_GAMING: [MYR, IDR, THB, BDT, CNY, USD, KHM, INR],
+		FISHING_GOD: [INR],
+		FISHING_ONT_SHOT: [INR],
+		FISHING_THAI_LOTTERY: [THB],
+	},
+}
