@@ -1,6 +1,10 @@
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import dynamic from 'next/dynamic'
 import React from 'react'
-import Modal from '../Modal'
 import useModal from '../useModal'
+
+const DemoModal = dynamic(() => import('./DemoModal'), { ssr: false })
 
 const App: React.FC = () => {
 	const demoModal = useModal()
@@ -23,19 +27,8 @@ const App: React.FC = () => {
 			<button type='button' onClick={showModal}>
 				Open Modal
 			</button>
-			<Modal open={demoModal.open} onCancel={handleCancel}>
-				<p>Some contents...</p>
-				<div className='Success active'>
-					<div className='icon icon-bell' />
-					<div className='title'>Information</div>
-					<div>Content</div>
-					<div className='btnGroup'>
-						<button type='button' className='btn-check' onClick={handleOk}>
-							OK
-						</button>
-					</div>
-				</div>
-			</Modal>
+
+			<DemoModal {...demoModal} />
 		</>
 	)
 }

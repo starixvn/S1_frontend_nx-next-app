@@ -12,7 +12,7 @@ interface ILayoutProps {
 }
 
 export function Layout({ children }: ILayoutProps) {
-	const { globalModal, resetModal } = useGlobalModal()
+	const { globalModal, closeModal } = useGlobalModal()
 
 	return (
 		<>
@@ -21,7 +21,7 @@ export function Layout({ children }: ILayoutProps) {
 			{children}
 
 			{/* 只需放在 Layout 來渲染全域彈窗 */}
-			<GlobalModal {...globalModal} resetModal={resetModal} />
+			<GlobalModal {...globalModal} closeModal={closeModal} />
 
 			<Footer />
 

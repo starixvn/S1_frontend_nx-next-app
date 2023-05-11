@@ -1,24 +1,24 @@
 import { createContext, ReactNode, useState } from 'react'
-import { GlobalModalType, IGlobalModalProps, ModalMessageType } from '../modal'
+import { GlobalModalType, IGlobalModalProps, ModalContentType } from '../modal'
 import { IVipClubImage, LangData } from './type'
 
 export interface ConfigContextInterface {
 	globalModal: GlobalModalType
 	modal: {
 		open: (
-			message: ModalMessageType,
+			message: ModalContentType,
 			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK'>
 		) => void
 		info: (
-			message: ModalMessageType,
+			message: ModalContentType,
 			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK'>
 		) => void
 		error: (
-			message: ModalMessageType,
+			message: ModalContentType,
 			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK'>
 		) => void
 	}
-	resetModal: () => void
+	closeModal: () => void
 	langData: LangData
 	VIP_CLUB_IMAGES: IVipClubImage[]
 }
@@ -38,16 +38,16 @@ export const ConfigProvider = ({
 	const [globalModal, setGlobalModal] = useState<GlobalModalType>({
 		type: null,
 		title: null,
-		message: undefined,
+		content: undefined,
 		icon: null,
 		onOK: () => null,
 	})
 
-	const resetModal = () => {
+	const closeModal = () => {
 		setGlobalModal({
 			type: null,
 			title: null,
-			message: undefined,
+			content: undefined,
 			icon: null,
 			onOK: () => null,
 		})
@@ -56,14 +56,14 @@ export const ConfigProvider = ({
 	const value: ConfigContextInterface = {
 		globalModal,
 		modal: {
-			open: (message, config) =>
-				setGlobalModal({ type: 'default', message, ...config }),
-			info: (message, config) =>
-				setGlobalModal({ type: 'info', message, ...config }),
-			error: (message, config) =>
-				setGlobalModal({ type: 'error', message, ...config }),
+			open: (content, config) =>
+				setGlobalModal({ type: 'default', content, ...config }),
+			info: (content, config) =>
+				setGlobalModal({ type: 'info', content, ...config }),
+			error: (content, config) =>
+				setGlobalModal({ type: 'error', content, ...config }),
 		},
-		resetModal,
+		closeModal,
 
 		langData,
 		VIP_CLUB_IMAGES,
