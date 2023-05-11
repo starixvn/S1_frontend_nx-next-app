@@ -5,6 +5,7 @@ import {
 	LoginFormType,
 	useGlobalModal,
 } from '@nx-next-app/components/D0001'
+import { deleteCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
@@ -42,6 +43,9 @@ const LayoutHeader = () => {
 	const handleSignOut = async () => {
 		try {
 			await onSignOut()
+
+			deleteCookie(`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`)
+			deleteCookie(`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`)
 
 			modal.open(t('Label_LoggedOut'), {
 				icon: 'icon icon-exit',

@@ -50,7 +50,7 @@ const Country = ({
 							{langGroupCountry[lang]}
 						</div>
 						<div className={classNames('flag', lang)} key={`flag_${lang}`}>
-							{item.map(({ value, currencyId, displayText }) => {
+							{item?.map(({ value, currencyId, displayText }) => {
 								return (
 									<button
 										key={`${lang}_${value}`}

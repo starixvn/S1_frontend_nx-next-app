@@ -1,13 +1,17 @@
 import { createContext, ReactNode, useState } from 'react'
-import { getCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
+import { useTranslation } from 'next-i18next'
 import {
 	useGetUserInfoQuery,
 	useLazyCheckSignInQuery,
 	useSignInMutation,
 	useSignOutMutation,
 } from '../../service'
-import { useInitLocaleEffect, useSynchronizeCookiesEffect } from '../../hooks'
+import {
+	InitialPropsInterface,
+	useInitLocaleEffect,
+	useSynchronizeCookiesEffect,
+} from '../../hooks'
 import { IUserInfoData } from '../../service/accountStrict/type'
 
 export interface AuthContextInterface {
@@ -27,29 +31,32 @@ export interface AuthContextInterface {
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 export const AuthContext = createContext<AuthContextInterface>(null!)
 
+interface IAuthProviderProps extends InitialPropsInterface {
+	children: ReactNode
+}
+
 export const AuthProvider = ({
 	children,
 	originIsSignIn,
-}: {
-	children: ReactNode
-	originIsSignIn: boolean
-}) => {
+	originCookies,
+}: IAuthProviderProps) => {
 	const router = useRouter()
+	const { t } = useTranslation()
 	const [auth, setAuth] = useState<{ isLogin: boolean | undefined }>({
 		isLogin: originIsSignIn,
 	})
 
 	const [checkSignInQuery] = useLazyCheckSignInQuery()
 
-	// 未登入時使用 cookie value , 此值因有 middleware 處理，不可能為 undefined
+	// * 未登入時使用 cookie value , 此值因有 middleware 處理，不可能為 undefined
 	const {
 		data: {
-			data: userInfo = {
-				langId: getCookie(
+			data: originUserInfo = {
+				langId: originCookies[
 					`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`
-				) as string,
+				] as string,
 				currencyId: Number(
-					getCookie(`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`)
+					originCookies[`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`]
 				),
 				userName: 'guest',
 			},
@@ -57,7 +64,14 @@ export const AuthProvider = ({
 	} = useGetUserInfoQuery(null, {
 		// * 沒有登入時不打
 		skip: !auth.isLogin,
+		// * 重登帳號時重撈 api
+		refetchOnMountOrArgChange: true,
 	})
+
+	const userInfo = {
+		...originUserInfo,
+		currencyName: t(`Label_Currency_${originUserInfo.currencyId}`),
+	}
 
 	const [signIn] = useSignInMutation()
 
@@ -98,6 +112,7 @@ export const AuthProvider = ({
 			userAgent,
 			screen,
 		}).unwrap()
+
 		setAuth({ isLogin: true })
 	}
 
