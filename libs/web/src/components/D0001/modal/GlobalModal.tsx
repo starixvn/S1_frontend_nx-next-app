@@ -2,7 +2,7 @@ import { isArray } from 'lodash'
 
 import Modal from './Modal'
 
-export type ModalMessageType =
+export type ModalContentType =
 	| string
 	| (string | number)[]
 	| undefined
@@ -13,20 +13,20 @@ export interface IGlobalModalProps {
 	icon?: string | null
 	title?: string | null
 	type?: 'default' | 'info' | 'error' | null
-	message: ModalMessageType
+	content: ModalContentType
 	onOK?: () => void
-	resetModal: () => void
+	closeModal: () => void
 }
 
-export type GlobalModalType = Omit<IGlobalModalProps, 'resetModal'>
+export type GlobalModalType = Omit<IGlobalModalProps, 'closeModal'>
 
 const GlobalModal = ({
 	icon,
 	title,
 	type,
-	message = null,
+	content = null,
 	onOK,
-	resetModal,
+	closeModal,
 }: IGlobalModalProps) => {
 	const open = !!type
 
@@ -51,29 +51,33 @@ const GlobalModal = ({
 	}
 
 	return (
-		<Modal open={open} onCancel={resetModal}>
-			<div className='Success active'>
-				<div className={mergedIcon} />
-				<div className='title'>{mergedTitle}</div>
-				<div>
-					{!isArray(message) && message}
+		<Modal open={open} onCancel={closeModal}>
+			{type === 'default' && content}
 
-					{isArray(message) && message.map(val => <div>{val}</div>)}
-				</div>
+			{type !== 'default' && (
+				<div className='Success active'>
+					<div className={mergedIcon} />
+					<div className='title'>{mergedTitle}</div>
+					<div>
+						{!isArray(content) && content}
 
-				<div className='btnGroup'>
-					<button
-						type='button'
-						className='btn-check'
-						onClick={() => {
-							resetModal()
-							onOK && onOK()
-						}}
-					>
-						OK
-					</button>
+						{isArray(content) && content.map(val => <div>{val}</div>)}
+					</div>
+
+					<div className='btnGroup'>
+						<button
+							type='button'
+							className='btn-check'
+							onClick={() => {
+								closeModal()
+								onOK && onOK()
+							}}
+						>
+							OK
+						</button>
+					</div>
 				</div>
-			</div>
+			)}
 		</Modal>
 	)
 }

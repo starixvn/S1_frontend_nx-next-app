@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-interface ModalState {
+export interface ModalState {
 	open: boolean
 	onOpen: () => void
 	onCancel: () => void

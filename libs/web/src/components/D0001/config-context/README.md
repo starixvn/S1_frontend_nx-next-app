@@ -9,7 +9,7 @@ export function Layout({ children }: ILayoutProps) {
 		i18n: { language },
 	} = useTranslation()
 	const { auth } = useAuth()
-	const { globalModal, resetModal, modal } = useGlobalModal()
+	const { globalModal, closeModal, modal } = useGlobalModal()
 
 	return (
 		<>
@@ -18,7 +18,7 @@ export function Layout({ children }: ILayoutProps) {
 			{children}
 
 			{/* 只需放在 Layout 來渲染全域彈窗 */}
-			<GlobalModal {...globalModal} resetModal={resetModal} />
+			<GlobalModal {...globalModal} closeModal={closeModal} />
 
 			<Footer />
 		</>
