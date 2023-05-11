@@ -2,18 +2,22 @@ import { rootApi } from '../rootApi/api'
 import { IAxiosResponse } from '../axiosBaseQuery'
 import {
 	IPopUpMsgData,
-	IWalletBalanceData,
+	IMainWalletInfoData,
 	ISetLangArgs,
 	ITpWalletData,
 	TpWalletListTypeEnum,
+	ICustBonusWalletData,
+	ITpWalletInfoData,
 } from './type'
 
 export const accountApiUrl = {
 	getPopupMsg: 'Account/GetPopupMsg',
-	getWalletBalance: 'Account/GetWalletBalance',
+	getMainWalletInfo: 'Account/GetWalletBalance',
 	getCustBonusWallet: 'Account/GetCustBonusWallet',
 	getTpWalletList: 'Account/GetTpWalletList',
+	getTpWalletBalance: 'Account/GetTpWalletBalance',
 	setLang: 'Account/SetLanguage',
+	setHideBalance: 'Account/SetHideBalance',
 }
 
 const accountApi = rootApi.injectEndpoints({
@@ -24,14 +28,19 @@ const accountApi = rootApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
-		getWalletBalance: builder.query<IAxiosResponse<IWalletBalanceData>, null>({
-			query: () => ({
-				url: accountApiUrl.getWalletBalance,
-				method: 'POST',
-			}),
-		}),
-		// TODO: 查詢 interface
-		getCustBonusWallet: builder.query<IAxiosResponse<unknown>, null>({
+		getMainWalletInfo: builder.query<IAxiosResponse<IMainWalletInfoData>, null>(
+			{
+				query: () => ({
+					url: accountApiUrl.getMainWalletInfo,
+					method: 'POST',
+				}),
+				providesTags: ['ACCOUNT_GET_MAIN_WALLET_INFO'],
+			}
+		),
+		getCustBonusWalletList: builder.query<
+			IAxiosResponse<ICustBonusWalletData[]>,
+			null
+		>({
 			query: () => ({
 				url: accountApiUrl.getCustBonusWallet,
 				method: 'POST',
@@ -47,6 +56,17 @@ const accountApi = rootApi.injectEndpoints({
 				data: { listType },
 			}),
 		}),
+		getTpWalletInfoByTpId: builder.query<
+			IAxiosResponse<ITpWalletInfoData>,
+			number
+		>({
+			query: tpId => ({
+				url: `${accountApiUrl.getTpWalletBalance}`,
+				method: 'POST',
+				data: { tpId },
+			}),
+		}),
+
 		setLanguage: builder.mutation<IAxiosResponse<void>, ISetLangArgs>({
 			query: data => ({
 				url: accountApiUrl.setLang,
@@ -55,13 +75,22 @@ const accountApi = rootApi.injectEndpoints({
 			}),
 			invalidatesTags: ['ACCOUNT_STRICT_GET_USER_INFO'],
 		}),
+		setHideBalance: builder.mutation<IAxiosResponse<void>, boolean>({
+			query: isHide => ({
+				url: `${accountApiUrl.setHideBalance}?value=${isHide}`,
+				method: 'GET',
+			}),
+			invalidatesTags: ['ACCOUNT_GET_MAIN_WALLET_INFO'],
+		}),
 	}),
 })
 
 export const {
 	useGetPopupMsgQuery,
-	useGetWalletBalanceQuery,
-	useGetCustBonusWalletQuery,
+	useGetMainWalletInfoQuery,
+	useGetCustBonusWalletListQuery,
+	useLazyGetTpWalletInfoByTpIdQuery,
 	useGetTpWalletListQuery,
 	useSetLanguageMutation,
+	useSetHideBalanceMutation,
 } = accountApi

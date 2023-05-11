@@ -12,8 +12,9 @@ export enum UserInfoMemberType {
 }
 
 export interface IUserInfoData {
+	currencyName?: string // * 由前端透過 i18n 塞進的值
 	userName: string
-	currencyId: number
+	currencyId: number | undefined
 	langId: string
 	email?: string
 	accountName?: string

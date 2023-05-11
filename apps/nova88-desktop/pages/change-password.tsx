@@ -1,23 +1,24 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
-import {
-	AuthProvider,
-	AuthRequire,
-	checkSignIn,
-} from '@nx-next-app/data-access'
+import { AuthProvider, AuthRequire } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { F0001 } from '@nx-next-app/features'
+import {
+	InitialPropsInterface,
+	useServerSideInitialPropsFetcher,
+} from '@nx-next-app/hooks'
 
 const { Layout } = F0001.Desktop
 
-interface IChangePasswordPageProps {
-	originIsSignIn: boolean
-}
+type IChangePasswordPageProps = InitialPropsInterface
 
 // * TODO: wip todo
-const ChangePasswordPage = ({ originIsSignIn }: IChangePasswordPageProps) => {
+const ChangePasswordPage = ({
+	originIsSignIn,
+	originCookies,
+}: IChangePasswordPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn}>
+		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<AuthRequire>
 				<Layout>
 					<main>
@@ -36,12 +37,11 @@ const ChangePasswordPage = ({ originIsSignIn }: IChangePasswordPageProps) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
-	const { cookie } = context.req.headers
-	const originIsSignIn = await checkSignIn(null, { headers: { cookie } })
+	const initialProps = await useServerSideInitialPropsFetcher(context)
 
 	return {
 		props: {
-			originIsSignIn,
+			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 		},
 	}

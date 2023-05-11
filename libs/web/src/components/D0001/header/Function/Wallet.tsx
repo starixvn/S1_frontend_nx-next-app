@@ -1,45 +1,86 @@
 import Link from 'next/link'
 import dayjs from 'dayjs'
 import classNames from 'classnames'
-import { useBoolean, useOnClickOutside } from 'usehooks-ts'
-import { useRef } from 'react'
-import { ITpWalletData, IWalletBalanceData } from '@nx-next-app/service'
+import { useTranslation } from 'next-i18next'
+import { useBoolean, useDebounce, useOnClickOutside } from 'usehooks-ts'
+import { useEffect, useRef } from 'react'
+import {
+	ICustBonusWalletData,
+	IMainWalletInfoData,
+	ITpWalletInfoData,
+} from '@nx-next-app/service'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { SpinButton } from '../../button'
 
 interface IWalletProps {
+	totalWalletBalance: number
+	mainWalletInfo: IMainWalletInfoData | undefined
+	custBonusWalletList: ICustBonusWalletData[] | undefined
+	tpWalletBalanceList: ITpWalletInfoData[] | undefined
 	onRefetchAllWallet: () => void
-	walletBalance: IWalletBalanceData | undefined
-	custBonusWallet: unknown
-	tpWalletList: ITpWalletData[] | undefined
+	onSetHideBalance: (isHideBalance: boolean) => void
 }
 
 const Wallet = ({
+	totalWalletBalance,
+	mainWalletInfo,
+	custBonusWalletList,
+	tpWalletBalanceList,
 	onRefetchAllWallet,
-	walletBalance,
-	custBonusWallet,
-	tpWalletList,
+	onSetHideBalance,
 }: IWalletProps) => {
 	const ref = useRef(null)
-	const { value: isActive, setFalse, toggle } = useBoolean(false)
+	const { t } = useTranslation()
+	const {
+		userInfo: { currencyName },
+	} = useAuth()
+
+	const {
+		value: isWalletActive,
+		setFalse: setWalletActiveFalse,
+		toggle: toggleWalletActive,
+	} = useBoolean(false)
 	const {
 		userInfo: { lastLogin },
 	} = useAuth()
 
-	useOnClickOutside(ref, setFalse)
+	const { value: isHideBalance, toggle: toggleHideBalance } = useBoolean()
+	const debouncedIsHideBalance = useDebounce(isHideBalance, 500)
+
+	const handleToggleHideBalance = () => {
+		toggleHideBalance()
+	}
+
+	useOnClickOutside(ref, setWalletActiveFalse)
+
+	// * 使用者快速切換時，讓畫面順利切換，用 debounce 觸發最後的狀態
+	useEffect(() => {
+		onSetHideBalance(!isHideBalance)
+	}, [debouncedIsHideBalance])
+
+	const { balance, lastTransaction } = mainWalletInfo ?? {}
 
 	return (
 		<div
 			ref={ref}
 			className={classNames('wallet icon icon-balance', {
-				active: isActive,
+				active: isWalletActive,
 			})}
-			onClick={toggle}
+			onClick={toggleWalletActive}
 		>
-			<span>VNĐ 28,848.50 ('000)</span>
+			<span>{totalWalletBalance} ('000)</span>
 
-			<button type='button' className='icon icon-minus'>
+			<button
+				className={classNames('icon', {
+					'icon-minus': isHideBalance,
+					'icon-plus': !isHideBalance,
+				})}
+				onClick={e => {
+					e.stopPropagation()
+					handleToggleHideBalance()
+				}}
+			>
 				{' '}
 			</button>
 
@@ -47,30 +88,53 @@ const Wallet = ({
 
 			<div className='submenu'>
 				<div className='balance'>
-					<span>VND</span>
+					<span>{currencyName}</span>
 					<span>
-						28,848.50 ('000)
+						{totalWalletBalance} ('000)
 						<SpinButton onClick={onRefetchAllWallet} />
 					</span>
 				</div>
+
 				<div className='walletBalance'>
 					<div className='walletName'>
 						<span>Main Wallet</span>
-						<span>83.00 ('000)</span>
+						<span>{balance} ('000)</span>
 					</div>
+					{custBonusWalletList?.map(item => {
+						const { turnover, rollover } = item
+						const percentage =
+							turnover > rollover
+								? 100
+								: ((turnover / rollover) * 100).toFixed(2)
+						return (
+							<div>
+								<div>
+									<span>{item.promoCategoryId}</span>
+									<span>{item.bonus}</span>
+								</div>
+								<div className='progressBar'>
+									<div className='bar'>
+										<div
+											className='progress'
+											style={{ width: `${percentage}%` }}
+										/>
+									</div>
+									<div className='percentage'>{percentage}%</div>
+								</div>
+							</div>
+						)
+					})}
 				</div>
-				<div className='walletBalance'>
-					<div className='walletName'>
-						<span>V8 Wallet</span>
-						<span>28,765.50 ('000)</span>
+
+				{tpWalletBalanceList?.map(item => (
+					<div className='walletBalance'>
+						<div className='walletName'>
+							<span>{item.tpName}</span>
+							<span>{item.balance} ('000)</span>
+						</div>
 					</div>
-				</div>
-				<div className='walletBalance'>
-					<div className='walletName'>
-						<span>PT Wallet</span>
-						<span>0.00 ('000)</span>
-					</div>
-				</div>
+				))}
+
 				<div className='btnGroup'>
 					<Link href={paths.deposit.root}>
 						<a className='orange'>Deposit</a>
@@ -80,12 +144,15 @@ const Wallet = ({
 					</Link>
 				</div>
 				<div className='loginLog'>
-					<span>Last Login</span>
+					<span>{t('Label_LastLogin')}</span>
 					<span>{dayjs(lastLogin).format('L LT')}</span>
 				</div>
 				<div className='transactionLog'>
-					<span>Last Transaction</span>
-					<span>2/12/2023 12:22:08 AM</span>
+					<span>{t('Label_LastTransaction')}</span>
+
+					<span>
+						{lastTransaction && dayjs(lastTransaction).format('L LT')}
+					</span>
 				</div>
 			</div>
 		</div>
