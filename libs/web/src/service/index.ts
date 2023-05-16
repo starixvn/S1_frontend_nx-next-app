@@ -1,6 +1,7 @@
 export * from './rootApi/api'
 export * from './authApi/api'
 export * from './siteApi/api'
+export * from './siteApi/type'
 export * from './accountStrict/api'
 export * from './accountStrict/type'
 export * from './baseApi'
