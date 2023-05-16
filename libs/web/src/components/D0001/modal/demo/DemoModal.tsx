@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
-import React from 'react'
-import { Modal } from '..'
+import Modal from '../Modal'
 import { ModalState } from '../useModal'
 
 const DemoModal = (props: ModalState) => {
@@ -8,7 +7,7 @@ const DemoModal = (props: ModalState) => {
 		console.log('handleClicked')
 	}
 	return (
-		<Modal open={props.open} onCancel={props.onCancel}>
+		<Modal open={props.open}>
 			<p>Some contents...</p>
 			<div className='Success active'>
 				<div className='icon icon-bell' />

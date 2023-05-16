@@ -7,7 +7,7 @@ import {
 import { deleteCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
 import { FieldErrors } from 'react-hook-form'
 import { renderFieldError } from '@nx-next-app/utils'
@@ -24,6 +24,12 @@ const LayoutHeader = () => {
 	const router = useRouter()
 
 	const { modal } = useGlobalModal()
+
+	const { tpMaintainList } = useGlobalData()
+
+	// TODO: menu
+	// eslint-disable-next-line no-console
+	console.log({ tpMaintainList })
 
 	const { auth, onSignIn, onSignOut } = useAuth()
 
@@ -46,10 +52,13 @@ const LayoutHeader = () => {
 			deleteCookie(`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`)
 			deleteCookie(`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`)
 
-			modal.open(t('Label_LoggedOut'), {
+			modal.info(t('Label_LoggedOut'), {
 				icon: 'icon icon-exit',
 				title: t('Label_LogOut'),
-				onOK: () => router.push(paths.home.root),
+				onOK: () => {
+					router.push(paths.home.root)
+					router.reload()
+				},
 			})
 		} catch (error) {
 			modal.info((error as Error).message)

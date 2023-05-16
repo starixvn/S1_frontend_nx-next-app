@@ -11,22 +11,16 @@ const App = () => {
 	const { modal } = useGlobalModal()
 	const demoModal = useModal()
 
-	const showModal = () => {
-		demoModal.onOpen()
-	}
-
-	const handleOk = () => {
-		// eslint-disable-next-line no-console
-		console.log('do something...', {})
-	}
-
-	const handleCancel = () => {
-		demoModal.onCancel()
-	}
-
 	const fnDefault = () => {
 		// * function 的方式打開彈窗
-		modal.open(<DemoModal {...demoModal} />)
+		modal.open(
+			<DemoModal
+				onOpen={demoModal.onOpen}
+				open={demoModal.open}
+				onCancel={demoModal.onCancel}
+				// * {...demoModal}
+			/>
+		)
 	}
 
 	const fnInfo = () => {

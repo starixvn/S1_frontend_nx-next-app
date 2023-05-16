@@ -2,7 +2,11 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { F0001 } from '@nx-next-app/features'
-import { AuthRequire, AuthProvider } from '@nx-next-app/data-access'
+import {
+	AuthRequire,
+	AuthProvider,
+	GlobalDataProvider,
+} from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -15,11 +19,13 @@ type IHomePageProps = InitialPropsInterface
 const HomePage = ({ originIsSignIn, originCookies }: IHomePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<AuthRequire>
-				<Layout>
-					<Home />
-				</Layout>
-			</AuthRequire>
+			<GlobalDataProvider>
+				<AuthRequire>
+					<Layout>
+						<Home />
+					</Layout>
+				</AuthRequire>
+			</GlobalDataProvider>
 		</AuthProvider>
 	)
 }

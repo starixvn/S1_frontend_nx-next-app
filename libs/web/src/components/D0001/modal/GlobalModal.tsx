@@ -51,7 +51,7 @@ const GlobalModal = ({
 	}
 
 	return (
-		<Modal open={open} onCancel={closeModal}>
+		<Modal open={open}>
 			{type === 'default' && content}
 
 			{type !== 'default' && (
