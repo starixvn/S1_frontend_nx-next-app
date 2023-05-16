@@ -60,9 +60,7 @@ const InputBasic = () => {
 					error={!!errors['userName']}
 					touched={!!touchedFields['userName']}
 					successMessage='要確定餒！'
-					onClickInfo={() => {
-						console.log('Click Info')
-					}}
+					infoMessage='這是InfoMessage'
 				/>
 				<InputBox
 					register={register('password', {
