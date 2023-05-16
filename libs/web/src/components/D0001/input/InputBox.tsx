@@ -22,7 +22,7 @@ export interface IInputBoxProps
 	icon?: string
 	description?: string
 	areaCode?: string
-	onClickInfo?: () => void
+	infoMessage?: string
 }
 
 const formatStr = "('000)"
@@ -39,7 +39,7 @@ const formatStr = "('000)"
  * 4. 其餘未出現在 interface 的 props 均為 HTML 原生參數，已移除
  * 5. 移除 tip 與 checked , 改由 errorMessage、successMessage、error (boolean)、loading (boolean) 取代
  * 6. 增加 touched (boolean) , 並且為必填，判斷元件是否觸發過，傳入 touchedFields[pathName] 判斷
- * 7. 目前 InfoIcon 顯示邏輯：需將要觸發的 func 傳入 onClickInfo , 若該欄圍無驗證需要 ( 未傳入 error prop )，則 InfoIcon 恆現 ; 若有驗證需求 ( 有傳入 error prop )，則僅在首次驗證前出現 ( touched 前 )。
+ * 7. 目前 InfoIcon 顯示邏輯：需將要觸發的 Info 文字傳入 infoMessage , 若該欄圍無驗證需要 ( 未傳入 error prop )，則 InfoIcon 恆現 ; 若有驗證需求 ( 有傳入 error prop )，則僅在首次驗證前出現 ( touched 前 )。
  * 其餘可至元件庫內閱讀完整 docs
  *
  * ---
@@ -55,7 +55,7 @@ const formatStr = "('000)"
  * @param {string} description - 原名 toolTip ,位置在 input 結尾 , Checked Icon 左側，更動為 description 符合 css ClassName
  * @param {boolean} isMessagesHide - 啟用後將會隱藏所有 msg ( 包含 error , success )
  * @param {string} areaCode - 與 title 同位置，但為淺灰字樣
- * @param {function} onClickInfo - 有給予此 function 時會出現 info icon , 細節請閱說明第七點。
+ * @param {string} infoMessage - 有給予此 function 時會出現 info icon , 細節請閱說明第七點。
  * @param {boolean} isConvert - 控制是否加入 VND format
  * @param {boolean} warning - 檢視舊專案無使用到,true 則顯示警告 icon
  * @param {string} type - HTMLInputTypeAttribute
@@ -80,41 +80,62 @@ const InputBox = ({
 	description,
 	areaCode,
 	className,
-	onClickInfo,
+	infoMessage,
 	...props
 }: IInputBoxProps) => {
 	const [showPassword, setShowPassword] = useState(false)
-	const handleShowPasswordClick = () => setShowPassword(prev => !prev)
+	const [showInfo, setShowInfo] = useState(false)
 
 	// 狀態管理 Icon , password 不會有此 icon
 	const stateIcon = () => {
-		if (onClickInfo) {
-			// 沒做驗證，持續顯示 Info Icon
-			// 如果有做驗證，僅在驗證前顯示 info
-			if (error === undefined || !touched) {
-				return (
-					// 為消除綁定 onClick 在 非 button 元件上的錯
-					// eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/control-has-associated-label,jsx-a11y/no-static-element-interactions
-					<i
-						className='icon icon-information'
-						onClick={onClickInfo}
-						style={{ cursor: 'pointer' }}
-					/>
-				)
-			}
+		// 此處透過權重管理要顯示的 Icon
+
+		if (error) {
+			return <i className='icon icon-cross' />
 		}
 
 		if (loading) {
 			return <i className='icon icon-spinner11' />
 		}
 
-		if (touched && !error) {
+		// 有傳入 successMessage 的話該 icon 會在驗證無錯誤之後出現
+		if (touched && !error && !!successMessage) {
 			// 成功 icon 應在輸入資料驗證後才會顯示
 			return <i className='icon icon-checkmark' />
 		}
 
-		if (error) {
-			return <i className='icon icon-cross' />
+		if (infoMessage) {
+			return (
+				// 為消除綁定 onClick 在 非 button 元件上的錯
+				// eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/control-has-associated-label,jsx-a11y/no-static-element-interactions
+				<i
+					className='icon icon-information'
+					onClick={() => setShowInfo(prev => !prev)}
+					style={{ cursor: 'pointer' }}
+				/>
+			)
+		}
+
+		return null
+	}
+
+	const renderInfoMessage = () => {
+		// 隱藏就全部不顯示
+		if (isMessagesHide) return null
+
+		// error 權重最高
+		if (type !== 'date' && !!errorMessage) {
+			return <div className={classNames('tip', 'active')}>{errorMessage}</div>
+		}
+		// successMessage 權重次之
+		if (touched && !loading && !!successMessage) {
+			// 成功 message 應在輸入資料驗證後才會顯示
+			return <div className={classNames('tip', 'active')}>{successMessage}</div>
+		}
+
+		// infoMessage 權重最低
+		if (infoMessage && showInfo) {
+			return <div className={classNames('tip', 'active')}>{infoMessage}</div>
 		}
 
 		return null
@@ -154,7 +175,7 @@ const InputBox = ({
 								'icon-eye': showPassword,
 							})}
 							style={{ cursor: 'pointer' }}
-							onClick={handleShowPasswordClick}
+							onClick={() => setShowPassword(prev => !prev)}
 						/>
 					) : (
 						stateIcon()
@@ -164,15 +185,7 @@ const InputBox = ({
 					{warning && <i className='icon icon-warning' />}
 				</div>
 			</div>
-
-			{/* success 跟 error 邏輯不同 */}
-			{touched && !isMessagesHide && !error && !!successMessage && !loading && (
-				<div className={classNames('tip', 'active')}>{successMessage}</div>
-			)}
-
-			{type !== 'date' && !isMessagesHide && !!errorMessage && (
-				<div className={classNames('tip', 'active')}>{errorMessage}</div>
-			)}
+			{renderInfoMessage()}
 		</>
 	)
 }
