@@ -1,6 +1,8 @@
 import { FC } from 'react'
-import OriginModal, { IModalProps } from './Modal'
-import GlobalModal, { IGlobalModalProps, GlobalModalType } from './GlobalModal'
+import OriginModal from './Modal'
+import type { IModalProps } from './Modal'
+import GlobalModal from './GlobalModal'
+import type { IGlobalModalProps, GlobalModalType } from './GlobalModal'
 import useModal from './useModal'
 
 export type IModalInterface = FC<IModalProps>

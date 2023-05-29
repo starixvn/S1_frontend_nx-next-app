@@ -5,7 +5,7 @@ import { useAuth } from '@nx-next-app/data-access'
 const MemberFile = () => {
 	const { userInfo } = useAuth()
 	const { VIP_CLUB_IMAGES } = useConfig()
-	const userLevelImageInfo = VIP_CLUB_IMAGES[userInfo?.userLevel ?? -1] ?? {}
+	const userLevelImageInfo = VIP_CLUB_IMAGES[userInfo?.userLevel ?? -1]
 
 	return <Header.Function.MemberFile userLevelImageInfo={userLevelImageInfo} />
 }
