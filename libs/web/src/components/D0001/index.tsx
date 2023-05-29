@@ -5,8 +5,8 @@ export { default as MetaData } from './metaData'
 export * from './button'
 
 export { default as Header } from './header'
-export { IFunctionInterface } from './header/Function'
-export { LoginFormType } from './header/Function/Login'
+export type { IFunctionInterface } from './header/Function'
+export type { LoginFormType } from './header/Function/Login'
 
 export { default as Footer } from './footer'
 
