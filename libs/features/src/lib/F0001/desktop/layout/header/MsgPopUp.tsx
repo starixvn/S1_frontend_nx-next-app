@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import classNames from 'classnames'
 import { useRouter } from 'next/router'
-import { includes } from 'lodash'
+import { includes } from 'lodash-es'
 import { useBoolean } from 'usehooks-ts'
 import { paths } from '@nx-next-app/constants'
 import { useGetPopupMsgQuery } from '@nx-next-app/service'

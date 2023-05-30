@@ -5,7 +5,7 @@ import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import Image from 'next/image'
-import { includes } from 'lodash'
+import { includes } from 'lodash-es'
 import { useAuth } from '../../../../data-access'
 import { paths } from '../../../../app/constants'
 
