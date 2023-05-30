@@ -15,7 +15,7 @@ export const FLAG_PREFIX_ICON_BY_CURRENCIES: { [key: number]: string } = {
 	74: 'bd',
 }
 
-const BasicWithIcon = () => {
+const SelectWithIcon = () => {
 	const { t } = useTranslation()
 
 	const options: ISelectProps['options'] = [
@@ -77,4 +77,4 @@ const BasicWithIcon = () => {
 	)
 }
 
-export default BasicWithIcon
+export { SelectWithIcon }

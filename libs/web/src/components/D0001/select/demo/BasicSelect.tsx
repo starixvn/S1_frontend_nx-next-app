@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
+
 import Select, { ISelectProps } from '..'
 
-const basic = () => {
+const BasicSelect = () => {
 	const options: ISelectProps['options'] = [
 		{
 			value: 2,
@@ -31,6 +32,7 @@ const basic = () => {
 			value: 74,
 			label: 'label 74',
 		},
+
 		{
 			value: 72,
 			label: 'label 72',
@@ -47,4 +49,4 @@ const basic = () => {
 	)
 }
 
-export default basic
+export { BasicSelect }
