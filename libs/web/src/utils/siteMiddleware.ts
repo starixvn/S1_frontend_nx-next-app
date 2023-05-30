@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { LANG_TO_CURRENCY } from '@apps/nova88-desktop/data'
 
 interface ISiteMiddleware {
 	request: NextRequest
 	config: {
 		defaultLocale: string
 		defaultCurrency: number
+		langToCurrency: { [key: string]: number }
 	}
 }
 
@@ -13,7 +13,7 @@ interface ISiteMiddleware {
 // 若透過指定語系進入，則會給予指定語系的 locale
 
 export const siteMiddleware = ({ request, config }: ISiteMiddleware) => {
-	const { defaultCurrency, defaultLocale } = config
+	const { defaultCurrency, defaultLocale, langToCurrency } = config
 	const response = NextResponse.next()
 	const { locale } = request.nextUrl
 	const hasLangId = request.cookies.has(
@@ -44,7 +44,7 @@ export const siteMiddleware = ({ request, config }: ISiteMiddleware) => {
 		)
 		response.cookies.set(
 			`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`,
-			LANG_TO_CURRENCY[locale]
+			langToCurrency[locale]
 		)
 	}
 	return response

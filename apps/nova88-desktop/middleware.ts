@@ -7,6 +7,7 @@ import { LANG_TO_CURRENCY } from './data/langList'
 const config = {
 	defaultLocale: 'en',
 	defaultCurrency: LANG_TO_CURRENCY['en'],
+	langToCurrency: LANG_TO_CURRENCY,
 }
 
 export const middleware = (request: NextRequest) => {
