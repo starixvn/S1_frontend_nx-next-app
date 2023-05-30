@@ -4,7 +4,7 @@
 	"license": "MIT",
 	"scripts": {
 		"start": "nx serve",
-		"build": "nx build && sh script.sh",
+		"build": "nx build $app && sh script.sh $app",
 		"test": "nx test",
 		"prepare": "husky install"
 	},

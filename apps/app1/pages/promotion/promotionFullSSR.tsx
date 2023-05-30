@@ -3,9 +3,6 @@ import { GetServerSideProps } from 'next'
 import React from 'react'
 import { getPromotionListV3 } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Nova88 } from '@nx-next-app/features'
-
-const { PromotionFullSSR } = Nova88.Desktop
 
 // import { PromotionSSR } from '@nx-next-app/features/nova88/desktop'
 
@@ -19,13 +16,7 @@ const PromotionSSRPage = ({
 	initialPromotionList = [],
 	defaultDeviceType,
 	defaultCurrencyId,
-}: IPromotionProps) => (
-	<PromotionFullSSR
-		initialPromotionList={initialPromotionList}
-		defaultCurrencyId={defaultCurrencyId}
-		defaultDeviceType={defaultDeviceType}
-	/>
-)
+}: IPromotionProps) => <div>PromotionSSRPage</div>
 
 export default PromotionSSRPage
 
