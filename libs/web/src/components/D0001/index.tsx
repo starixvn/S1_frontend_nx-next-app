@@ -20,3 +20,7 @@ export { Modal, GlobalModal, useModal } from './modal'
 export type { IModalProps, IGlobalModalProps, GlobalModalType } from './modal'
 
 export * from './back-top'
+
+export { default as Select } from './select'
+export type { ISelectProps } from './select'
+export type { SelectOptionType } from './select/type'
