@@ -1,6 +1,6 @@
 # Production 建置流程
 
-執行 `npm run build {$品牌}` 時，因有特定共用資源不會被 next 自動包入 production 資料夾內，所以必須另外執行 `script.sh` 來複製特定資料進成品資料夾。
+執行 `app={$品牌} npm run build` 時，因有特定共用資源不會被 next 自動包入 production 資料夾內，所以必須另外執行 `script.sh` 來複製特定資料進成品資料夾。
 
 需要拷貝的資料有：
 

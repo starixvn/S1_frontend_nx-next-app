@@ -1,6 +1,6 @@
 import { getCookies } from 'cookies-next'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
-import { assign, isEmpty } from 'lodash'
+import { assign, isEmpty } from 'lodash-es'
 import { GetServerSidePropsContext, PreviewData } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { checkSignIn } from '../data-access/siteApi'

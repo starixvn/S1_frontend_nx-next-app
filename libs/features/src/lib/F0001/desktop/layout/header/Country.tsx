@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 import { useAuth } from '@nx-next-app/data-access'
 import { useSetLanguageMutation } from '@nx-next-app/service'
 import { setCookies } from 'cookies-next'
-import { isEqual } from 'lodash'
+import { isEqual } from 'lodash-es'
 
 const Country = () => {
 	const router = useRouter()

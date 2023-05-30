@@ -133,14 +133,3 @@ export const LANG_DATA = {
 	currencyToLangKey: CURRENCY_TO_LANG_KEY,
 	langGroupCountry: LANG_GROUP_COUNTRY,
 }
-
-export const LANG_TO_CURRENCY: { [key: string]: number } = {
-	en: 2,
-	cs: 2,
-	my: 2,
-	th: 4,
-	id: 15,
-	hi: 61,
-	kh: 72,
-	bd: 74,
-}
