@@ -184,7 +184,9 @@ header input:focus-within {
           justify-content: space-between;
 }
 .header > div a.rewardsLogo {
-  margin: 0 0 20px 10px;
+  margin: 0 0 20px 30px;
+  position: absolute;
+  right: -86px;
 }
 .header > div a.rewardsLogo img {
   width: 65px;
@@ -2457,7 +2459,8 @@ header input:focus-within {
   font-size: 18px;
 }
 .header > div.function .wallet .icon-plus,
-.header > div.function .wallet .icon-minus {
+.header > div.function .wallet .icon-minus,
+.header > div.function .wallet .icon-spinner11 {
   background: #112240;
   border-radius: 30px;
   display: -webkit-box;
@@ -2470,12 +2473,19 @@ header input:focus-within {
       -ms-flex-pack: center;
           justify-content: center;
   width: 18px;
-  height: 17px;
+  height: 18px;
   margin-left: 3px;
 }
 .header > div.function .wallet .icon-plus:before,
-.header > div.function .wallet .icon-minus:before {
+.header > div.function .wallet .icon-minus:before,
+.header > div.function .wallet .icon-spinner11:before {
   color: white;
+}
+.header > div.function .wallet .icon-spinner11 {
+  background: #FF5E00;
+}
+.header > div.function .wallet .icon-spinner11::before {
+  font-size: 10px;
 }
 .header > div.function .wallet .submenu div {
   display: -webkit-box;
@@ -2703,10 +2713,16 @@ footer .license > div:nth-child(1) > div:nth-child(2) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 footer .license > div:nth-child(1) > div:nth-child(2) > div {
   margin: 15px 20px 0 0;
   width: 65px;
+}
+footer .license > div:nth-child(1) > div:nth-child(2) > div:last-child {
+  width: 115px;
 }
 footer .license > div:nth-child(2) {
   width: 730px;
@@ -2828,7 +2844,6 @@ footer .footerList > .item-wrapper > div > div.title {
 }
 footer .footerList > .item-wrapper > div > div.title + div {
   margin: 10px 0;
-  height: 38px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3336,6 +3351,9 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
 .flag.bd:before {
   background: url(https://banner.0814media.net/desktop/img/flag/bd.jpg) no-repeat top left/cover;
 }
+.flag.kh:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
+}
 .flag.gb:before {
   background: url(https://banner.0814media.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
 }
@@ -3604,6 +3622,7 @@ input[type=file] {
           justify-content: center;
   min-width: 123px;
   margin: 0 5px;
+  font-size: 12px;
 }
 .btnGroup button.btn-org,
 .btnGroup a.btn-org {
@@ -5287,6 +5306,9 @@ input[type=file] {
 #popup .pop .backupDomain .checkbox input[type=checkbox]:checked + label {
   color: #f77900;
 }
+#popup .pop .backupDomain .checkbox:hover input[type=checkbox] + label {
+  background: #f77900;
+}
 #popup .pop .upload,
 #popup .pop .uploadError,
 #popup .pop .uploadSuccess,
@@ -5779,7 +5801,8 @@ input[type=file] {
 .changePassWordpop,
 .editSuccess,
 .joinSuccess,
-.resetPassWordpop {
+.resetPassWordpop,
+.noticepop {
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -5807,7 +5830,8 @@ input[type=file] {
 .changePassWordpop.active,
 .editSuccess.active,
 .joinSuccess.active,
-.resetPassWordpop.active {
+.resetPassWordpop.active,
+.noticepop.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5826,7 +5850,8 @@ input[type=file] {
 .changePassWordpop .icon,
 .editSuccess .icon,
 .joinSuccess .icon,
-.resetPassWordpop .icon {
+.resetPassWordpop .icon,
+.noticepop .icon {
   font-size: 36px;
   color: #CDAE8E;
 }
@@ -5844,7 +5869,8 @@ input[type=file] {
 .changePassWordpop .icon.icon-bell,
 .editSuccess .icon.icon-bell,
 .joinSuccess .icon.icon-bell,
-.resetPassWordpop .icon.icon-bell {
+.resetPassWordpop .icon.icon-bell,
+.noticepop .icon.icon-bell {
   color: #CDAE8E;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
@@ -5865,7 +5891,8 @@ input[type=file] {
 .changePassWordpop .title,
 .editSuccess .title,
 .joinSuccess .title,
-.resetPassWordpop .title {
+.resetPassWordpop .title,
+.noticepop .title {
   margin: 10px 0 20px;
 }
 .Submit .txt-lightgray,
@@ -5882,7 +5909,8 @@ input[type=file] {
 .changePassWordpop .txt-lightgray,
 .editSuccess .txt-lightgray,
 .joinSuccess .txt-lightgray,
-.resetPassWordpop .txt-lightgray {
+.resetPassWordpop .txt-lightgray,
+.noticepop .txt-lightgray {
   text-align: center;
 }
 .Submit .popList,
@@ -5899,7 +5927,8 @@ input[type=file] {
 .changePassWordpop .popList,
 .editSuccess .popList,
 .joinSuccess .popList,
-.resetPassWordpop .popList {
+.resetPassWordpop .popList,
+.noticepop .popList {
   width: 100%;
   margin-top: 30px;
 }
@@ -5917,7 +5946,8 @@ input[type=file] {
 .changePassWordpop .popList ul,
 .editSuccess .popList ul,
 .joinSuccess .popList ul,
-.resetPassWordpop .popList ul {
+.resetPassWordpop .popList ul,
+.noticepop .popList ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5943,7 +5973,8 @@ input[type=file] {
 .changePassWordpop .popList ul li,
 .editSuccess .popList ul li,
 .joinSuccess .popList ul li,
-.resetPassWordpop .popList ul li {
+.resetPassWordpop .popList ul li,
+.noticepop .popList ul li {
   line-height: 30px;
   letter-spacing: 1px;
   font-size: 12px;
@@ -5962,9 +5993,28 @@ input[type=file] {
 .changePassWordpop .popList ul li:first-child,
 .editSuccess .popList ul li:first-child,
 .joinSuccess .popList ul li:first-child,
-.resetPassWordpop .popList ul li:first-child {
+.resetPassWordpop .popList ul li:first-child,
+.noticepop .popList ul li:first-child {
   color: #1E85EC;
   font-weight: bold;
+}
+
+.noticepop .btnGroup {
+  margin: 20px auto;
+}
+.noticepop .checkbox {
+  margin: 0 auto 15px !important;
+}
+.noticepop .checkbox input[type=checkbox] + label {
+  border: 1px solid #f77900;
+}
+.noticepop .checkbox input[type=checkbox]:checked + label {
+  color: #f77900;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.noticepop .checkbox:hover input[type=checkbox] + label {
+  background: #f77900;
 }
 
 .Success .progressBarModule {
@@ -6327,7 +6377,7 @@ input[type=file] {
 .walletModule .walletBalanceModule span.icon-icon32px_Sportsbook-Wallet + span + .btnGroup button {
   height: 30px;
   min-width: 90px;
-  padding: 10px 0;
+  padding: 10px 5px;
 }
 .walletModule .walletBalanceModule .icon.icon-spinner11 {
   margin-top: 0;
@@ -6554,10 +6604,6 @@ input[type=file] {
   position: absolute;
   top: 25px;
   right: 12px;
-}
-.addBank .addBankName .cryptoInfo .checkbox {
-  margin-right: -2px;
-  margin-left: 5px;
 }
 .addBank .addBankName .cryptoInfo > .title {
   width: 100%;
@@ -7036,9 +7082,6 @@ input[type=file] {
 .quickSelect .dropdown .dropdown-container .dropdown-item {
   margin: 0;
   padding: 5px 0 5px 10px;
-}
-.quickSelect .dropdown .btn {
-  padding: 0 10px;
 }
 
 .specialBonus {
@@ -8462,8 +8505,8 @@ input:-webkit-autofill:active {
 }
 
 button.icon-spinner11.active {
-  -webkit-animation: rotate 0.7s linear 2;
-          animation: rotate 0.7s linear 2;
+  -webkit-animation: rotate 0.5s linear 2;
+          animation: rotate 0.5s linear 2;
 }
 button.icon-spinner11:before {
   margin: 0;
@@ -9992,6 +10035,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   text-transform: capitalize;
   min-height: 50px;
   word-break: break-all;
+  font-size: 13px;
 }
 .statement > div div:last-child {
   border: 0;
@@ -12291,14 +12335,14 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .quickLinkNew4 {
   position: fixed;
   right: 0;
-  top: 145px;
+  top: 180px;
   z-index: 1;
   -webkit-transition: 0.6s;
   transition: 0.6s;
   padding: 10px;
   cursor: pointer;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, rgba(204, 204, 204, 0.8)), to(rgba(255, 255, 255, 0)));
-  background: linear-gradient(to bottom, rgba(204, 204, 204, 0.8) 60%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(75%, rgba(204, 204, 204, 0.8)), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(to bottom, rgba(204, 204, 204, 0.8) 75%, rgba(255, 255, 255, 0) 100%);
   color: #0f2346;
   font-weight: bold;
   display: -webkit-box;
@@ -12314,7 +12358,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 150px;
+  height: 175px;
   width: 20px;
 }
 .quickLinkNew1 i,
@@ -12336,7 +12380,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .quickLinkNew4 > div {
   letter-spacing: 1px;
   height: 24px;
-  width: 100px;
+  width: 160px;
+  white-space: nowrap;
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
   display: -webkit-box;
@@ -12557,13 +12602,13 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .indexCenterBanner .qrGroup .qrCode:first-child {
   position: absolute;
-  right: 227.5px;
-  bottom: 21px;
+  left: 257.5px;
+  bottom: 77px;
 }
 .indexCenterBanner .qrGroup .qrCode:last-child {
   position: absolute;
-  right: 37px;
-  bottom: 21px;
+  left: 60px;
+  bottom: 77px;
 }
 
 .streaming {
@@ -12964,6 +13009,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   list-style: decimal;
   line-height: 20px;
   margin-left: 15px;
+  word-wrap: break-word;
 }
 .important li span,
 .important li a {
@@ -13114,6 +13160,31 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   position: relative;
   cursor: pointer;
 }
+.jpotModule .jpot.active {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  pointer-events: none;
+}
+.jpotModule .jpot.active .jpot-btn, .jpotModule .jpot.active .number {
+  -webkit-filter: brightness(0.7);
+          filter: brightness(0.7);
+}
+.jpotModule .jpot.active .under {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.jpotModule .jpot .under {
+  display: none;
+  position: absolute;
+  right: 5px;
+  bottom: 8px;
+  z-index: 1;
+  color: #fff;
+  padding: 5px 10px;
+  -webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.9));
+          filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.9));
+}
 .jpotModule .jpot .jpot-item {
   position: absolute;
   bottom: 10px;
@@ -13208,8 +13279,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   border-radius: 30px;
   color: #fff;
   font-size: 14px;
-  padding: 10px 20px;
+  padding: 0 20px;
   font-weight: bold;
+  height: 40px;
 }
 .jpotModule .jpot .jpot-btn:hover a,
 .jpotModule .jpot .jpot-btn:hover button {
@@ -14533,7 +14605,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  min-height: 20px;
+  min-height: 30px;
 }
 .rolloverList div div:nth-child(1) {
   min-height: 38px;
@@ -16988,6 +17060,21 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .profileModule > div.profile > div > div > button.icon:before {
   margin-left: 0;
 }
+.profileModule > div.profile input::-webkit-input-placeholder {
+  color: #b2b2b2;
+}
+.profileModule > div.profile input::-moz-placeholder {
+  color: #b2b2b2;
+}
+.profileModule > div.profile input:-ms-input-placeholder {
+  color: #b2b2b2;
+}
+.profileModule > div.profile input::-ms-input-placeholder {
+  color: #b2b2b2;
+}
+.profileModule > div.profile input::placeholder {
+  color: #b2b2b2;
+}
 .profileModule + .btnGroup {
   width: 270px;
 }
@@ -19438,4 +19525,89 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .exclude__table__item div span:last-child::after {
   height: 0;
   display: none;
+}
+
+.header .logo {
+  position: relative;
+}
+.header .cambodia::before {
+  content: "";
+  display: block;
+  width: 85px;
+  height: 85px;
+  -webkit-animation: rabbitboy 1s infinite;
+          animation: rabbitboy 1s infinite;
+  position: absolute;
+  left: -47px;
+  bottom: 14px;
+}
+@media (max-width: 1480px) {
+  .header .cambodia::before {
+    -webkit-animation: none;
+            animation: none;
+  }
+}
+.header .cambodia::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: rabbitgirl 1s infinite;
+          animation: rabbitgirl 1s infinite;
+  position: absolute;
+  right: -42px;
+  bottom: 13px;
+}
+.header .cambodia > img {
+  width: 80px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 23px;
+  right: -2px;
+}
+
+@-webkit-keyframes rabbitgirl {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitgirl-a.png) no-repeat center/cover;
+  }
+  50% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitgirl-b.png) no-repeat center/cover;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitgirl-a.png) no-repeat center/cover;
+  }
+}
+
+@keyframes rabbitgirl {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitgirl-a.png) no-repeat center/cover;
+  }
+  50% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitgirl-b.png) no-repeat center/cover;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitgirl-a.png) no-repeat center/cover;
+  }
+}
+@-webkit-keyframes rabbitboy {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitboy-a.png) no-repeat center/cover;
+  }
+  50% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitboy-b.png) no-repeat center/cover;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitboy-a.png) no-repeat center/cover;
+  }
+}
+@keyframes rabbitboy {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitboy-a.png) no-repeat center/cover;
+  }
+  50% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitboy-b.png) no-repeat center/cover;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitboy-a.png) no-repeat center/cover;
+  }
 }/*# sourceMappingURL=style.css.map */
