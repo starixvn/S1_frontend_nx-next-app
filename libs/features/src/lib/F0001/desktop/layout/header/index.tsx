@@ -7,7 +7,7 @@ import {
 
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
-import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import { useAuth } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
 import { FieldErrors } from 'react-hook-form'
 import { renderFieldError } from '@nx-next-app/utils'
@@ -24,12 +24,6 @@ const LayoutHeader = () => {
 	const router = useRouter()
 
 	const { modal } = useGlobalModal()
-
-	const { tpMaintainList } = useGlobalData()
-
-	// TODO: menu
-	// eslint-disable-next-line no-console
-	console.log({ tpMaintainList })
 
 	const { auth, onSignIn, onSignOut } = useAuth()
 

@@ -5,6 +5,8 @@ import {
 	GlobalModal,
 	useGlobalModal,
 } from '@nx-next-app/components/D0001'
+
+import { useAffiliateReferralEffect } from '@nx-next-app/hooks'
 import LayoutHeader from './header'
 
 interface ILayoutProps {
@@ -13,6 +15,8 @@ interface ILayoutProps {
 
 export function Layout({ children }: ILayoutProps) {
 	const { globalModal, closeModal } = useGlobalModal()
+
+	useAffiliateReferralEffect({ expireDay: 7 })
 
 	return (
 		<>
