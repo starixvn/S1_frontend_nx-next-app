@@ -1,6 +1,6 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
-import { AuthProvider, AuthRequire } from '@nx-next-app/data-access'
+import { AuthProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { F0001 } from '@nx-next-app/features'
 import {
@@ -19,19 +19,17 @@ const WithdrawalPage = ({
 }: IWithdrawalPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<AuthRequire>
-				<Layout>
-					<main>
-						<br />
-						<br />
-						<br />
-						<h1 style={{ color: 'black' }}>Withdrawal Page</h1>
-						<br />
-						<br />
-						<br />
-					</main>
-				</Layout>
-			</AuthRequire>
+			<Layout>
+				<main>
+					<br />
+					<br />
+					<br />
+					<h1 style={{ color: 'black' }}>Withdrawal Page</h1>
+					<br />
+					<br />
+					<br />
+				</main>
+			</Layout>
 		</AuthProvider>
 	)
 }
