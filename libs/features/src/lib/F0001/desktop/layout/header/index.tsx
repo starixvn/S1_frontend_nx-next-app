@@ -4,7 +4,7 @@ import {
 	LoginFormType,
 	useGlobalModal,
 } from '@nx-next-app/components/D0001'
-import { deleteCookie } from 'cookies-next'
+
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
@@ -48,18 +48,6 @@ const LayoutHeader = () => {
 	const handleSignOut = async () => {
 		try {
 			await onSignOut()
-
-			deleteCookie(`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`)
-			deleteCookie(`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`)
-
-			modal.info(t('Label_LoggedOut'), {
-				icon: 'icon icon-exit',
-				title: t('Label_LogOut'),
-				onOK: () => {
-					router.push(paths.home.root)
-					router.reload()
-				},
-			})
 		} catch (error) {
 			modal.info((error as Error).message)
 		}

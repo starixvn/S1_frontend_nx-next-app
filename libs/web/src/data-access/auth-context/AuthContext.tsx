@@ -1,6 +1,8 @@
 import { createContext, ReactNode, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
+import { deleteCookie } from 'cookies-next'
+import { useGlobalModal } from '@nx-next-app/components/D0001'
 import {
 	useGetUserInfoQuery,
 	useLazyCheckSignInQuery,
@@ -10,9 +12,11 @@ import {
 import {
 	InitialPropsInterface,
 	useInitLocaleEffect,
+	useOnlineCheckInterval,
 	useSynchronizeCookiesEffect,
 } from '../../hooks'
 import { IUserInfoData } from '../../service/accountStrict/type'
+import { paths } from '../../app/constants/paths'
 
 export interface AuthContextInterface {
 	auth: { isLogin: boolean | undefined }
@@ -26,6 +30,7 @@ export interface AuthContextInterface {
 	}) => void
 	onSignOut: () => void
 	onCheckSignIn: () => void
+	onResetAuth: () => void
 }
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -42,6 +47,7 @@ export const AuthProvider = ({
 }: IAuthProviderProps) => {
 	const router = useRouter()
 	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
 	const [auth, setAuth] = useState<{ isLogin: boolean | undefined }>({
 		isLogin: originIsSignIn,
 	})
@@ -118,6 +124,20 @@ export const AuthProvider = ({
 
 	const onSignOut = async () => {
 		await signOut(null).unwrap()
+		onResetAuth()
+		modal.info(t('Label_LoggedOut'), {
+			icon: 'icon icon-exit',
+			title: t('Label_LogOut'),
+			onOK: () => {
+				router.push(paths.home.root)
+				router.reload()
+			},
+		})
+	}
+
+	const onResetAuth = () => {
+		deleteCookie(`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`)
+		deleteCookie(`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`)
 		setAuth({ isLogin: undefined })
 	}
 
@@ -126,12 +146,16 @@ export const AuthProvider = ({
 	// 處理路由導轉
 	useInitLocaleEffect({ router, userInfo, isLogin: auth.isLogin })
 
+	// * 輪詢確認使用者是否保持線上狀態
+	useOnlineCheckInterval({ isLogin: auth.isLogin, onResetAuth })
+
 	const value: AuthContextInterface = {
 		auth,
 		userInfo,
 		onCheckSignIn,
 		onSignIn,
 		onSignOut,
+		onResetAuth,
 	}
 
 	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

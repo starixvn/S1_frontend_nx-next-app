@@ -11,6 +11,7 @@ import {
 } from './type'
 
 export const accountApiUrl = {
+	onlineCheck: 'Account/onlineCheck',
 	getPopupMsg: 'Account/GetPopupMsg',
 	getMainWalletInfo: 'Account/GetWalletBalance',
 	getCustBonusWallet: 'Account/GetCustBonusWallet',
@@ -22,6 +23,12 @@ export const accountApiUrl = {
 
 const accountApi = rootApi.injectEndpoints({
 	endpoints: builder => ({
+		onlineCheck: builder.query<IAxiosResponse<null>, null>({
+			query: () => ({
+				url: accountApiUrl.onlineCheck,
+				method: 'POST',
+			}),
+		}),
 		getPopupMsg: builder.query<IAxiosResponse<IPopUpMsgData>, null>({
 			query: () => ({
 				url: accountApiUrl.getPopupMsg,
@@ -89,6 +96,7 @@ export const {
 	useGetPopupMsgQuery,
 	useGetMainWalletInfoQuery,
 	useGetCustBonusWalletListQuery,
+	useLazyOnlineCheckQuery,
 	useLazyGetTpWalletInfoByTpIdQuery,
 	useGetTpWalletListQuery,
 	useSetLanguageMutation,
