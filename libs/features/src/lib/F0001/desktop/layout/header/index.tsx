@@ -92,9 +92,7 @@ const LayoutHeader = () => {
 
 						<MemberFile />
 
-						<Link href={paths.message.root}>
-							<MsgPopUp />
-						</Link>
+						<MsgPopUp />
 
 						<Country />
 

@@ -11,12 +11,13 @@ import {
 } from './type'
 
 export const accountApiUrl = {
-	onlineCheck: 'Account/onlineCheck',
 	getPopupMsg: 'Account/GetPopupMsg',
+	getMsgCount: 'Account/getMsgCount',
 	getMainWalletInfo: 'Account/GetWalletBalance',
 	getCustBonusWallet: 'Account/GetCustBonusWallet',
 	getTpWalletList: 'Account/GetTpWalletList',
 	getTpWalletBalance: 'Account/GetTpWalletBalance',
+	onlineCheck: 'Account/onlineCheck',
 	setLang: 'Account/SetLanguage',
 	setHideBalance: 'Account/SetHideBalance',
 }
@@ -26,6 +27,12 @@ const accountApi = rootApi.injectEndpoints({
 		onlineCheck: builder.query<IAxiosResponse<null>, null>({
 			query: () => ({
 				url: accountApiUrl.onlineCheck,
+				method: 'POST',
+			}),
+		}),
+		getMsgCount: builder.query<IAxiosResponse<number>, null>({
+			query: () => ({
+				url: accountApiUrl.getMsgCount,
 				method: 'POST',
 			}),
 		}),
@@ -94,6 +101,7 @@ const accountApi = rootApi.injectEndpoints({
 
 export const {
 	useGetPopupMsgQuery,
+	useGetMsgCountQuery,
 	useGetMainWalletInfoQuery,
 	useGetCustBonusWalletListQuery,
 	useLazyOnlineCheckQuery,

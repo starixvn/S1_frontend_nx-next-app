@@ -70,6 +70,7 @@ const useTpWalletBalanceListFetcher = ({ langId }: { langId: string }) => {
 		tpWalletsBalanceSum + (mainWalletInfo?.balance || 0)
 
 	return {
+		isHideBalance: Boolean(mainWalletInfo?.isHideBalance),
 		mainWalletInfo,
 		totalWalletBalance,
 		custBonusWalletList,
@@ -82,10 +83,12 @@ const Wallet = () => {
 	const { userInfo } = useAuth()
 
 	const {
+		isHideBalance,
 		totalWalletBalance,
 		mainWalletInfo,
 		custBonusWalletList,
 		tpWalletBalanceList,
+
 		onRefetchAllWallet,
 	} = useTpWalletBalanceListFetcher({ langId: userInfo.langId })
 
@@ -95,6 +98,7 @@ const Wallet = () => {
 
 	return (
 		<Header.Function.Wallet
+			originIsHideBalance={isHideBalance}
 			totalWalletBalance={totalWalletBalance}
 			mainWalletInfo={mainWalletInfo}
 			custBonusWalletList={custBonusWalletList}

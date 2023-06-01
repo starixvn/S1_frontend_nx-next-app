@@ -1,9 +1,14 @@
 import { FieldErrors } from 'react-hook-form'
 
-export const numberFormatter = new Intl.NumberFormat('en', {
-	maximumFractionDigits: 0,
-	minimumFractionDigits: 0,
-})
+/**
+ * @returns 數字 format 到特定小數點，預設為第二位
+ */
+export const numFormatToDigits = (value: number, digits = 2): string => {
+	const formatter = new Intl.NumberFormat('en', {
+		minimumFractionDigits: digits,
+	})
+	return formatter.format(Number(value.toFixed(digits)))
+}
 
 /**
  * Input: 

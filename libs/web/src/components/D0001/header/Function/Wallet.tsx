@@ -9,11 +9,13 @@ import {
 	IMainWalletInfoData,
 	ITpWalletInfoData,
 } from '@nx-next-app/service'
+import { numFormatToDigits } from '@nx-next-app/utils'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { SpinButton } from '../../button'
 
 interface IWalletProps {
+	originIsHideBalance: boolean
 	totalWalletBalance: number
 	mainWalletInfo: IMainWalletInfoData | undefined
 	custBonusWalletList: ICustBonusWalletData[] | undefined
@@ -23,6 +25,7 @@ interface IWalletProps {
 }
 
 const Wallet = ({
+	originIsHideBalance,
 	totalWalletBalance,
 	mainWalletInfo,
 	custBonusWalletList,
@@ -45,19 +48,24 @@ const Wallet = ({
 		userInfo: { lastLogin },
 	} = useAuth()
 
-	const { value: isHideBalance, toggle: toggleHideBalance } = useBoolean()
+	const {
+		value: isHideBalance,
+		setValue: setIsHideBalanceValue,
+		toggle: toggleHideBalance,
+	} = useBoolean(originIsHideBalance)
 	const debouncedIsHideBalance = useDebounce(isHideBalance, 500)
-
-	const handleToggleHideBalance = () => {
-		toggleHideBalance()
-	}
-
-	useOnClickOutside(ref, setWalletActiveFalse)
 
 	// * 使用者快速切換時，讓畫面順利切換，用 debounce 觸發最後的狀態
 	useEffect(() => {
-		onSetHideBalance(!isHideBalance)
+		onSetHideBalance(debouncedIsHideBalance)
 	}, [debouncedIsHideBalance])
+
+	// * fetching 結束後給予正確數值
+	useEffect(() => {
+		setIsHideBalanceValue(originIsHideBalance)
+	}, [originIsHideBalance])
+
+	useOnClickOutside(ref, setWalletActiveFalse)
 
 	const { balance, lastTransaction } = mainWalletInfo ?? {}
 
@@ -69,16 +77,19 @@ const Wallet = ({
 			})}
 			onClick={toggleWalletActive}
 		>
-			<span>{totalWalletBalance} ('000)</span>
+			<span>
+				{`${currencyName} `}
+				{!isHideBalance && numFormatToDigits(totalWalletBalance)}
+			</span>
 
 			<button
 				className={classNames('icon', {
-					'icon-minus': isHideBalance,
-					'icon-plus': !isHideBalance,
+					'icon-minus': !isHideBalance,
+					'icon-plus': isHideBalance,
 				})}
 				onClick={e => {
 					e.stopPropagation()
-					handleToggleHideBalance()
+					toggleHideBalance()
 				}}
 			>
 				{' '}
@@ -101,16 +112,16 @@ const Wallet = ({
 						<span>{balance} ('000)</span>
 					</div>
 					{custBonusWalletList?.map(item => {
-						const { turnover, rollover } = item
+						const { turnover, rollover, promoCategoryId, bonus, tpId } = item
 						const percentage =
 							turnover > rollover
 								? 100
 								: ((turnover / rollover) * 100).toFixed(2)
 						return (
-							<div>
+							<div key={tpId}>
 								<div>
-									<span>{item.promoCategoryId}</span>
-									<span>{item.bonus}</span>
+									<span>{promoCategoryId}</span>
+									<span>{bonus}</span>
 								</div>
 								<div className='progressBar'>
 									<div className='bar'>
@@ -126,11 +137,11 @@ const Wallet = ({
 					})}
 				</div>
 
-				{tpWalletBalanceList?.map(item => (
-					<div className='walletBalance'>
+				{tpWalletBalanceList?.map(({ tpName, balance, tpId }) => (
+					<div className='walletBalance' key={tpId}>
 						<div className='walletName'>
-							<span>{item.tpName}</span>
-							<span>{item.balance} ('000)</span>
+							<span>{tpName}</span>
+							<span>{balance} ('000)</span>
 						</div>
 					</div>
 				))}
