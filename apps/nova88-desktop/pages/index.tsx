@@ -12,11 +12,15 @@ const { Layout, Home } = F0001.Desktop
 
 type IHomePageProps = InitialPropsInterface
 
-const HomePage = ({ originIsSignIn, originCookies }: IHomePageProps) => {
+const HomePage = ({
+	originIsSignIn,
+	originCookies,
+	persistSEOData,
+}: IHomePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout>
+				<Layout persistSEOData={persistSEOData}>
 					<Home />
 				</Layout>
 			</GlobalDataProvider>

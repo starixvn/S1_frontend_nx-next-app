@@ -3,11 +3,13 @@ import { TmpCookiesObj } from 'cookies-next/lib/types'
 import { assign, isEmpty } from 'lodash-es'
 import { GetServerSidePropsContext, PreviewData } from 'next'
 import { ParsedUrlQuery } from 'querystring'
-import { checkSignIn } from '../data-access/siteApi'
+import { checkSignIn, getSEOData } from '../data-access/siteApi'
+import { ISEOData } from '../data-access/type'
 
 export interface InitialPropsInterface {
 	originIsSignIn: boolean
 	originCookies: TmpCookiesObj
+	persistSEOData: ISEOData
 }
 
 // 轉換 response cookie 格式
@@ -45,10 +47,12 @@ export const useServerSideInitialPropsFetcher = async (
 	}
 	const originIsSignIn = await checkSignIn(null, { headers: { cookie } })
 
+	const persistSEOData = await getSEOData(null, { headers: { cookie } })
+
 	// 如果有 cookiesFromServer , 則取該 cookie 作為 userInfo 資料
 	const originCookies = isEmpty(cookiesFromServer)
 		? getCookies(context)
 		: assign(getCookies(context), cookiesFromServer)
 
-	return { originIsSignIn, originCookies }
+	return { originIsSignIn, originCookies, persistSEOData }
 }

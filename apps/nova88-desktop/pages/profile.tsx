@@ -13,10 +13,14 @@ const { Layout } = F0001.Desktop
 type IProfilePageProps = InitialPropsInterface
 
 // * TODO: wip todo
-const ProfilePage = ({ originIsSignIn, originCookies }: IProfilePageProps) => {
+const ProfilePage = ({
+	originIsSignIn,
+	originCookies,
+	persistSEOData,
+}: IProfilePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout>
+			<Layout persistSEOData={persistSEOData}>
 				<main>
 					<br />
 					<br />

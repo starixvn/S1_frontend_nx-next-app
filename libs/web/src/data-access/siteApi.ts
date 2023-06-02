@@ -1,19 +1,6 @@
 import { AxiosRequestConfig } from 'axios'
-import { authApiUrl, baseAxios, siteApiUrl } from '../service'
-
-export const getPromotionListV3 = ({
-	locale,
-	currencyId,
-	deviceType,
-}: {
-	locale: string
-	currencyId: string | number | string[]
-	deviceType: string | number | string[]
-}) =>
-	baseAxios.post(`${siteApiUrl.getPromotionListV3}/${locale}`, {
-		currencyId,
-		deviceType,
-	})
+import { siteApiUrl, authApiUrl, baseAxios } from '../service'
+import { ISEOData } from './type'
 
 export const checkSignIn = async (
 	params: null,
@@ -26,4 +13,17 @@ export const checkSignIn = async (
 	)
 	const isSignIn = errorCode === 0
 	return isSignIn
+}
+
+export const getSEOData = async (
+	params: null,
+	config: AxiosRequestConfig
+): Promise<ISEOData> => {
+	const { data: { data } = {} } = await baseAxios.post(
+		siteApiUrl.getSEOData,
+		params,
+		config
+	)
+
+	return data
 }

@@ -16,10 +16,11 @@ type IChangePasswordPageProps = InitialPropsInterface
 const ChangePasswordPage = ({
 	originIsSignIn,
 	originCookies,
+	persistSEOData,
 }: IChangePasswordPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout>
+			<Layout persistSEOData={persistSEOData}>
 				<main>
 					<br />
 					<br />

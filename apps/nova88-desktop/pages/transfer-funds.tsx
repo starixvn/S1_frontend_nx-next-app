@@ -16,10 +16,11 @@ type ITransferFundsPageProps = InitialPropsInterface
 const TransferFundsPage = ({
 	originIsSignIn,
 	originCookies,
+	persistSEOData,
 }: ITransferFundsPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout>
+			<Layout persistSEOData={persistSEOData}>
 				<main>
 					<br />
 					<br />

@@ -36,7 +36,8 @@ export interface AuthContextInterface {
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 export const AuthContext = createContext<AuthContextInterface>(null!)
 
-interface IAuthProviderProps extends InitialPropsInterface {
+interface IAuthProviderProps
+	extends Pick<InitialPropsInterface, 'originIsSignIn' | 'originCookies'> {
 	children: ReactNode
 }
 

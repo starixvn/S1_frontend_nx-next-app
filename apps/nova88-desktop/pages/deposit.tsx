@@ -13,10 +13,14 @@ const { Layout } = F0001.Desktop
 type IHomePageProps = InitialPropsInterface
 
 // * TODO: wip todo
-const DepositPage = ({ originIsSignIn, originCookies }: IHomePageProps) => {
+const DepositPage = ({
+	originIsSignIn,
+	originCookies,
+	persistSEOData,
+}: IHomePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout>
+			<Layout persistSEOData={persistSEOData}>
 				<main>
 					<br />
 					<br />

@@ -16,10 +16,11 @@ type IForgetPasswordPageProps = InitialPropsInterface
 const ForgetPasswordPage = ({
 	originIsSignIn,
 	originCookies,
+	persistSEOData,
 }: IForgetPasswordPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout>
+			<Layout persistSEOData={persistSEOData}>
 				<main>
 					<br />
 					<br />

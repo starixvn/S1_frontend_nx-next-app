@@ -1,7 +1,5 @@
 export * from './config-context'
 
-export { default as MetaData } from './metaData'
-
 export * from './button'
 
 export { default as Header } from './header'
@@ -24,3 +22,5 @@ export * from './back-top'
 export { default as Select } from './select'
 export type { ISelectProps } from './select'
 export type { SelectOptionType } from './select/type'
+
+export { default as MetaData } from './metaData'

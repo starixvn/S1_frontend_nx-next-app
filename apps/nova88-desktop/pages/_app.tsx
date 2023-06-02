@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { AppProps } from 'next/app'
 import { store } from '@nx-next-app/store'
 import { Provider } from 'react-redux'
@@ -31,10 +30,6 @@ dayjs.extend(localizedFormat)
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
-			<Head>
-				<title>Welcome to nova88-desktop!</title>
-			</Head>
-
 			<Provider store={store}>
 				{/* 提供 Component 狀態管理 */}
 				<ConfigProvider langData={LANG_DATA} VIP_CLUB_IMAGES={VIP_CLUB_IMAGES}>

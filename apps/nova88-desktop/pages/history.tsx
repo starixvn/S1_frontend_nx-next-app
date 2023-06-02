@@ -13,10 +13,14 @@ const { Layout } = F0001.Desktop
 type IHistoryPageProps = InitialPropsInterface
 
 // * TODO: wip todo
-const HistoryPage = ({ originIsSignIn, originCookies }: IHistoryPageProps) => {
+const HistoryPage = ({
+	originIsSignIn,
+	originCookies,
+	persistSEOData,
+}: IHistoryPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout>
+			<Layout persistSEOData={persistSEOData}>
 				<main>
 					<br />
 					<br />

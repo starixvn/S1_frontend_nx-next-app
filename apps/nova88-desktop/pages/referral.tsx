@@ -16,10 +16,11 @@ type IReferralPageProps = InitialPropsInterface
 const ReferralPage = ({
 	originIsSignIn,
 	originCookies,
+	persistSEOData,
 }: IReferralPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout>
+			<Layout persistSEOData={persistSEOData}>
 				<main>
 					<br />
 					<br />

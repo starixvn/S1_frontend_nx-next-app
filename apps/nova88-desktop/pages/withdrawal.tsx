@@ -16,10 +16,11 @@ type IWithdrawalPageProps = InitialPropsInterface
 const WithdrawalPage = ({
 	originIsSignIn,
 	originCookies,
+	persistSEOData,
 }: IWithdrawalPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout>
+			<Layout persistSEOData={persistSEOData}>
 				<main>
 					<br />
 					<br />

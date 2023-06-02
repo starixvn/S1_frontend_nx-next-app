@@ -13,10 +13,14 @@ const { Layout } = F0001.Desktop
 type IMessagePageProps = InitialPropsInterface
 
 // * TODO: wip todo
-const MessagePage = ({ originIsSignIn, originCookies }: IMessagePageProps) => {
+const MessagePage = ({
+	originIsSignIn,
+	originCookies,
+	persistSEOData,
+}: IMessagePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout>
+			<Layout persistSEOData={persistSEOData}>
 				<main>
 					<br />
 					<br />

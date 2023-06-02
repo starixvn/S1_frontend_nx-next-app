@@ -16,10 +16,11 @@ type ICryptoWalletPageProps = InitialPropsInterface
 const CryptoWalletPage = ({
 	originIsSignIn,
 	originCookies,
+	persistSEOData,
 }: ICryptoWalletPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout>
+			<Layout persistSEOData={persistSEOData}>
 				<main>
 					<br />
 					<br />

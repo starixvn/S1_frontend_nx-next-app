@@ -13,10 +13,14 @@ const { Layout } = F0001.Desktop
 type IJoinPageProps = InitialPropsInterface
 // * TODO: wip todo
 
-const JoinPage = ({ originIsSignIn, originCookies }: IJoinPageProps) => {
+const JoinPage = ({
+	originIsSignIn,
+	originCookies,
+	persistSEOData,
+}: IJoinPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout>
+			<Layout persistSEOData={persistSEOData}>
 				<main>
 					<br />
 					<br />

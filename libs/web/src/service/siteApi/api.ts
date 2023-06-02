@@ -5,7 +5,7 @@ import { TpMaintainData } from './type'
 export const siteApiUrl = {
 	getTpIds: 'Site/GetTpIds',
 	getTpMaintainList: 'Site/GetTpMaintainList',
-	getPromotionListV3: 'Promotion/GetPromotionListV3',
+	getSEOData: 'Site/Seo',
 }
 
 export const siteApi = rootApi.injectEndpoints({
@@ -27,24 +27,7 @@ export const siteApi = rootApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
-		getPromotionListV3: builder.query<
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			IAxiosResponse<any>,
-			{ langId: string; currencyId: number; deviceType: number }
-		>({
-			query: ({ langId, ...data }) => ({
-				url: `Promotion/GetPromotionListV3/${langId}`,
-				method: 'POST',
-				data,
-			}),
-			providesTags: ['AUTH_API_POST'],
-		}),
 	}),
 })
 
-export const {
-	useGetProductTpIdsQuery,
-	useGetTpMaintainListQuery,
-	useGetPromotionListV3Query,
-	useLazyGetPromotionListV3Query,
-} = siteApi
+export const { useGetProductTpIdsQuery, useGetTpMaintainListQuery } = siteApi

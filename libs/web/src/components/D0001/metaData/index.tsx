@@ -1,17 +1,71 @@
-import React from 'react'
 import Head from 'next/head'
+import { META_DATA, paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { ISEOData } from 'libs/web/src/data-access/type'
+import { replace } from 'lodash-es'
+import { useRouter } from 'next/router'
 
-const MetaData = () => {
+const useMetaData = (persistSEOData: ISEOData) => {
+	const { pathname } = useRouter()
+	const {
+		userInfo: { langId },
+	} = useAuth()
+
+	const metaDataByLang =
+		(META_DATA?.[replace(pathname, '/', '')]
+			? META_DATA?.[replace(pathname, '/', '')]
+			: META_DATA?.[paths.home.root])?.[langId] ?? {}
+
+	return { ...persistSEOData, ...metaDataByLang }
+}
+
+const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
+	const {
+		title,
+		description,
+		keyword,
+		links = [],
+	} = useMetaData(persistSEOData)
+
 	return (
-		<div>
-			<Head>
-				<meta
-					name='description'
-					content='seo content from api'
-					key='seo key from api'
-				/>
-			</Head>
-		</div>
+		<Head>
+			<title>{title}</title>
+
+			<link
+				rel='icon'
+				href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/favicon.ico`}
+			/>
+
+			{links.map(attribute => (
+				<link key={attribute.hreflang} {...attribute} />
+			))}
+
+			<meta name='description' content={description} />
+			<meta name='keyword' content={keyword} />
+			<meta name='twitter:title' content={title} />
+			<meta name='twitter:description' content={description} />
+			<meta
+				name='twitter:url'
+				content={process.env['NEXT_PUBLIC_ENV_PRODUCT_HOST']}
+			/>
+			<meta name='twitter:domain' content='nova88.net' />
+			<meta name='twitter:card' content='summary_large_image' />
+			<meta
+				name='twitter:image'
+				content={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/img/thumbnail/thumbnail_001.jpg`}
+			/>
+			<meta
+				property='og:url'
+				content={process.env['NEXT_PUBLIC_ENV_PRODUCT_HOST']}
+			/>
+			<meta property='og:type' content='website' />
+			<meta property='og:title' content={title} />
+			<meta property='og:description' content={description} />
+			<meta
+				property='oog:image'
+				content={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/img/thumbnail/thumbnail_001.jpg`}
+			/>
+		</Head>
 	)
 }
 
