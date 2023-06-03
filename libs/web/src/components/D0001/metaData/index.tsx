@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { META_DATA, paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { ISEOData } from 'libs/web/src/data-access/type'
-import { replace } from 'lodash-es'
+import { replace, uniqueId } from 'lodash-es'
 import { useRouter } from 'next/router'
 
 const useMetaData = (persistSEOData: ISEOData) => {
@@ -37,7 +37,7 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 			/>
 
 			{links.map(attribute => (
-				<link key={attribute.hreflang} {...attribute} />
+				<link key={uniqueId()} {...attribute} />
 			))}
 
 			<meta name='description' content={description} />
