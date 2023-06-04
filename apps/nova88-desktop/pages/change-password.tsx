@@ -25,7 +25,7 @@ const ChangePasswordPage = ({
 					<br />
 					<br />
 					<br />
-					<h1 style={{ color: 'black' }}>ForgetPassword Page</h1>
+					<h1 style={{ color: 'black' }}>ChangePassword Page</h1>
 					<br />
 					<br />
 					<br />
@@ -37,6 +37,15 @@ const ChangePasswordPage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
+
+	if (!initialProps.originIsSignIn) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false,
+			},
+		}
+	}
 
 	return {
 		props: {

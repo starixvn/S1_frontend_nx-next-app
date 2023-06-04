@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/heading-has-content */
 import React from 'react'
 import { GetServerSideProps } from 'next'
 import { AuthProvider } from '@nx-next-app/data-access'
@@ -38,6 +39,15 @@ const ProfilePage = ({
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
 
+	if (!initialProps.originIsSignIn) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false,
+			},
+		}
+	}
+
 	return {
 		props: {
 			...initialProps,
@@ -45,4 +55,5 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		},
 	}
 }
+
 export default ProfilePage

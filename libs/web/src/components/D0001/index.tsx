@@ -24,3 +24,5 @@ export type { ISelectProps } from './select'
 export type { SelectOptionType } from './select/type'
 
 export { default as MetaData } from './metaData'
+
+export { default as Loading } from './loading'
