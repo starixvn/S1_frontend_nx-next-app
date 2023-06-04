@@ -1,49 +1,42 @@
 {
-  "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "nx-next-app",
-  "affected": {
-    "defaultBase": "main"
-  },
-  "implicitDependencies": {
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
-    ".eslintrc.json": "*"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/nx-cloud",
-      "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
-        "accessToken": "ODI3NTY3NGItYzlhZC00NjU2LWFjYTMtOTcyZTA5YjQzYWYzfHJlYWQtd3JpdGU="
-      }
-    }
-  },
-  "targetDefaults": {
-    "build": {
-      "dependsOn": [
-        "^build"
-      ]
-    }
-  },
-  "generators": {
-    "@nrwl/react": {
-      "application": {
-        "babel": true
-      }
-    },
-    "@nrwl/next": {
-      "application": {
-        "style": "css",
-        "linter": "eslint"
-      }
-    }
-  },
-  "defaultProject": "app1"
+	"$schema": "./node_modules/nx/schemas/nx-schema.json",
+	"npmScope": "nx-next-app",
+	"affected": {
+		"defaultBase": "main"
+	},
+	"implicitDependencies": {
+		"package.json": {
+			"dependencies": "*",
+			"devDependencies": "*"
+		},
+		".eslintrc.json": "*"
+	},
+	"tasksRunnerOptions": {
+		"default": {
+			"runner": "@nrwl/nx-cloud",
+			"options": {
+				"cacheableOperations": ["build", "lint", "test", "e2e"],
+				"accessToken": "ODI3NTY3NGItYzlhZC00NjU2LWFjYTMtOTcyZTA5YjQzYWYzfHJlYWQtd3JpdGU="
+			}
+		}
+	},
+	"targetDefaults": {
+		"build": {
+			"dependsOn": ["^build"]
+		}
+	},
+	"generators": {
+		"@nrwl/react": {
+			"application": {
+				"babel": true
+			}
+		},
+		"@nrwl/next": {
+			"application": {
+				"style": "css",
+				"linter": "eslint"
+			}
+		}
+	},
+	"defaultProject": "nova88-desktop"
 }

@@ -2,8 +2,6 @@
 	"$schema": "./node_modules/nx/schemas/workspace-schema.json",
 	"version": 2,
 	"projects": {
-		"app1": "apps/app1",
-		"app1-e2e": "apps/app1-e2e",
 		"features": "libs/features",
 		"nova88-desktop": "apps/nova88-desktop",
 		"nova88-desktop-e2e": "apps/nova88-desktop-e2e",

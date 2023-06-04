@@ -22,18 +22,20 @@
 
 ### Configure tsconfig.base.json
 
-到專案的 tsconfig.base.json 加入該專案的指定路徑，方便 import 時使用，避免使用 `../..`
-
-底下以 app1 為例：
+使用 tsconfig.base.json 定義的 paths 方便絕對路徑 import 以減少使用相對路徑
 
 tsconfig.base.json
 
 ```json
-	"paths": {
-			"@nx-next-app/api": ["libs/app/service/index.ts"],
-			"@nx-next-app/store": ["libs/app/store"],
-			"@nx-next-app/components": ["libs/web/src/components/index.ts"],
-			"@nx-next-app/hooks": ["libs/web/src/hooks/index.ts"],
-			"@nx-next-app/constants": ["libs/app/constants/index.ts"],
-		},
+		"paths": {
+			"@apps/*": ["apps/*"],
+			"@nx-next-app/components/*": ["libs/web/src/components/*"],
+			"@nx-next-app/constants": ["libs/web/src/app/constants"],
+			"@nx-next-app/data-access": ["libs/web/src/data-access"],
+			"@nx-next-app/features": ["libs/features/src/lib"],
+			"@nx-next-app/hooks": ["libs/web/src/hooks"],
+			"@nx-next-app/service": ["libs/web/src/service"],
+			"@nx-next-app/store": ["libs/web/src/app/store"],
+			"@nx-next-app/utils": ["libs/web/src/utils"]
+		}
 ```
