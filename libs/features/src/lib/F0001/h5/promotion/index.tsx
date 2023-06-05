@@ -3,7 +3,6 @@ import { FormEvent, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { useLocalStorage } from 'usehooks-ts'
-import { useLazyGetPromotionListV3Query } from '@nx-next-app/service'
 import { LocalStorageNames } from '@nx-next-app/constants'
 
 interface IPromotionProps {
@@ -35,24 +34,24 @@ const PromotionSSR = ({ initialPromotionList = [] }: IPromotionProps) => {
 	// })
 
 	// * lazy query example
-	const [
-		getPromotionListV3Query,
-		{ data: { data: promotionList = initialPromotionList } = {}, isLoading },
-	] = useLazyGetPromotionListV3Query()
+	// const [
+	// 	getPromotionListV3Query,
+	// 	{ data: { data: promotionList = initialPromotionList } = {}, isLoading },
+	// ] = useLazyGetPromotionListV3Query()
 
 	const handleGetPromotionListV3 = async (
 		event: FormEvent<HTMLFormElement>
 	) => {
 		event.preventDefault()
 
-		try {
-			await getPromotionListV3Query({
-				...payload,
-				langId: i18n.language,
-			}).unwrap()
-		} catch (error) {
-			// console.log(error)
-		}
+		// try {
+		// 	await getPromotionListV3Query({
+		// 		...payload,
+		// 		langId: i18n.language,
+		// 	}).unwrap()
+		// } catch (error) {
+		// 	// console.log(error)
+		// }
 	}
 
 	return (
@@ -122,12 +121,12 @@ const PromotionSSR = ({ initialPromotionList = [] }: IPromotionProps) => {
 					<input type='submit' value='Submit' />
 				</form>
 			</div>
-			{isLoading && 'loading...'}
+			{/* {isLoading && 'loading...'} */}
 			<div>
 				<h3>promotion content</h3>
-				{promotionList.map((item: any) => {
-					return <p key={item.bonusCode}>{item?.description}</p>
-				})}
+				{/* {promotionList.map((item: any) => { */}
+				{/* 	return <p key={item.bonusCode}>{item?.description}</p> */}
+				{/* })} */}
 			</div>
 		</div>
 	)

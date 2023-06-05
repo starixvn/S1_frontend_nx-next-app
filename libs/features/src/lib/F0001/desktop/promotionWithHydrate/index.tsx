@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { useLocalStorage } from 'usehooks-ts'
 import { LocalStorageNames } from '@nx-next-app/constants'
-import { useLazyGetPromotionListV3Query } from '@nx-next-app/service'
 
 interface IPromotionProps {
 	initialPromotionList: unknown[]
@@ -37,24 +36,24 @@ const PromotionSSRWithHydrate = ({
 	// })
 
 	// * lazy query example
-	const [
-		getPromotionListV3,
-		{ data: { data: promotionList = initialPromotionList } = {}, isLoading },
-	] = useLazyGetPromotionListV3Query()
+	// const [
+	// 	getPromotionListV3,
+	// 	{ data: { data: promotionList = initialPromotionList } = {}, isLoading },
+	// ] = useLazyGetPromotionListV3Query()
 
 	const handleGetPromotionListV3 = async (
 		event: FormEvent<HTMLFormElement>
 	) => {
 		event.preventDefault()
 
-		try {
-			await getPromotionListV3({
-				...payload,
-				langId: i18n.language,
-			}).unwrap()
-		} catch (error) {
-			// console.log(error)
-		}
+		// try {
+		// 	await getPromotionListV3({
+		// 		...payload,
+		// 		langId: i18n.language,
+		// 	}).unwrap()
+		// } catch (error) {
+		// 	// console.log(error)
+		// }
 	}
 
 	return (
@@ -124,12 +123,12 @@ const PromotionSSRWithHydrate = ({
 					<input type='submit' value='Submit' />
 				</form>
 			</div>
-			{isLoading && 'loading...'}
+			{/* {isLoading && 'loading...'} */}
 			<div>
 				<h3>promotion content</h3>
-				{promotionList.map((item: any) => {
-					return <p key={item.bonusCode}>{item?.description}</p>
-				})}
+				{/* {promotionList.map((item: any) => { */}
+				{/* 	return <p key={item.bonusCode}>{item?.description}</p> */}
+				{/* })} */}
 			</div>
 		</div>
 	)
