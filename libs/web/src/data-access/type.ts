@@ -9,4 +9,6 @@ export interface ISEOData {
 	paymentMethod: null
 	script: 'ae45edf1-dfeb-467c-a26e-930e988e8909'
 	xcmScript: '0be376b3-ead2-4688-8337-5125dc453bb9'
+	description: string
+	links: object[]
 }
