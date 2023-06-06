@@ -1,10 +1,9 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 const withNx = require('@nrwl/next/plugins/with-nx')
 
 /**
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
  * */
-
-const isDevelopment = process.env.NODE_ENV !== 'production'
 
 process.env.I18NEXT_DEFAULT_CONFIG_PATH = `${__dirname}/next-i18next.config.js`
 
@@ -22,14 +21,12 @@ const nextConfig = {
 	},
 	async rewrites() {
 		return {
-			fallback: isDevelopment
-				? [
-						{
-							source: '/api/:path*',
-							destination: `${process.env.NEXT_PUBLIC_ENV_DB_HOST}/api/:path*`,
-						},
-				  ]
-				: [],
+			fallback: [
+				{
+					source: '/api/:path*',
+					destination: `${process.env.NEXT_PUBLIC_ENV_DB_HOST}/api/:path*`,
+				},
+			],
 		}
 	},
 	i18n: {
