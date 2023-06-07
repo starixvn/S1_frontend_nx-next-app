@@ -1,8 +1,4 @@
-import { F0001 } from '@nx-next-app/features'
-
-const {
-	Types: { CurrenciesEnum },
-} = F0001
+import { CurrenciesEnum } from '@nx-next-app/types'
 
 const LANG_GROUPS: {
 	[lang: string]: { displayText: string; value: string; currencyId: number }[]

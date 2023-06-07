@@ -15,3 +15,8 @@ export interface IVipClubImage {
 	displayKey: string
 	alt: string
 }
+
+export interface IImageData {
+	url: string
+	alt: string
+}

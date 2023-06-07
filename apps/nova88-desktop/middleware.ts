@@ -2,7 +2,7 @@ import type { NextRequest } from 'next/server'
 import { siteMiddleware } from '@nx-next-app/utils'
 
 // langToCurrency 在 middleware 就要使用到，next 規定 middleware 使用的資源要寫在裡面才 build 得過
-const langToCurrency: { [key: string]: number } = {
+export const LANG_TO_CURRENCY: { [key: string]: number } = {
 	en: 2,
 	cs: 2,
 	my: 2,
@@ -18,7 +18,7 @@ const langToCurrency: { [key: string]: number } = {
 const config = {
 	defaultLocale: 'en',
 	defaultCurrency: 2,
-	langToCurrency,
+	langToCurrency: LANG_TO_CURRENCY,
 }
 
 export const middleware = (request: NextRequest) => {

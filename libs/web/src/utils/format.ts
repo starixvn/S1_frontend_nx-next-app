@@ -1,3 +1,5 @@
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { includes, isNaN } from 'lodash-es'
 import { FieldErrors } from 'react-hook-form'
 
 /**
@@ -8,6 +10,31 @@ export const numFormatToDigits = (value: number, digits = 2): string => {
 		minimumFractionDigits: digits,
 	})
 	return formatter.format(Number(value.toFixed(digits)))
+}
+
+/**
+ *
+ * @returns 格式化金額字串
+ * @description Input: numberFormat(5000000), Output: 5000,000 | 5,000 ('000)
+ *
+ */
+export const numberFormat = (
+	value: number,
+	currencyId: CurrenciesEnum,
+	digits?: number
+) => {
+	if (isNaN(Number(value))) return null
+
+	const isConvert = includes(
+		[CurrenciesEnum.IDR, CurrenciesEnum.VND],
+		currencyId
+	)
+
+	if (isConvert) {
+		return `${numFormatToDigits(Number(value) / 1000)} ('000)`
+	}
+
+	return numFormatToDigits(Number(value), digits)
 }
 
 /**

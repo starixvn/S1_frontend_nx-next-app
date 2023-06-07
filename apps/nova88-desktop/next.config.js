@@ -1,4 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
+/* eslint-disable import/no-extraneous-dependencies */
 const withNx = require('@nrwl/next/plugins/with-nx')
 
 /**
@@ -16,7 +17,6 @@ const nextConfig = {
 		svgr: false,
 	},
 	images: {
-		// domains: ['banner.0814media.net'],
 		domains: [process.env.NEXT_PUBLIC_BANNER_DOMAIN],
 	},
 	async rewrites() {
