@@ -21,7 +21,7 @@ When using Nx, you can create multiple applications and libraries in the same wo
 cp .env.example .env
 ```
 
-將 `.env.development` 丟到 `apps/{appName}` folder 並給予相關設定
+將 `.env` 丟到 `apps/{appName}` folder 並給予相關設定
 
 ### Configure i18next and next.config.js
 
@@ -66,19 +66,16 @@ const nextConfig = {
 		svgr: false,
 	},
 	images: {
-		// domains: ['banner.0814media.net'],
 		domains: [process.env.NEXT_PUBLIC_BANNER_DOMAIN],
 	},
 	async rewrites() {
 		return {
-			fallback: isDevelopment
-				? [
-						{
-							source: '/api/:path*',
-							destination: `${process.env.NEXT_PUBLIC_ENV_DB_HOST}/api/:path*`,
-						},
-				  ]
-				: [],
+			fallback: [
+				{
+					source: '/api/:path*',
+					destination: `${process.env.NEXT_PUBLIC_ENV_DB_HOST}/api/:path*`,
+				},
+			],
 		}
 	},
 	i18n: {
@@ -93,20 +90,42 @@ module.exports = withNx(nextConfig)
 
 \_app.tsx
 
-- 加入 initLocaleEffect 用於自定義初始語系
+- 加入 store 完成 react-redux 配置
+- 加入 ConfigProvider 讓元件之間可以跨組間溝通
 - 加入 appWithTranslation HOC 完成語系設定
+- 配置 style
+- 配置 dayjs 相關設定
 
 ```tsx
+import { AppProps } from 'next/app'
+import { store } from '@nx-next-app/store'
+import { Provider } from 'react-redux'
+import { ConfigProvider } from '@nx-next-app/components/D0001'
 import { appWithTranslation } from 'next-i18next'
-import { initLocaleEffect } from '@nx-next-app/hooks'
-import { useRouter } from 'next/router'
+
+// * supply localized format options
+// * https://day.js.org/docs/en/plugin/localized-format
+import dayjs from 'dayjs'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
+
+import '../styles/css/style.css'
+import '../styles/css/swiper.css'
+import '../styles/css/font.css'
+import '../styles/css/datePicker.css'
+
+dayjs.extend(localizedFormat)
 
 function CustomApp({ Component, pageProps }: AppProps) {
-	const router = useRouter()
-
-	initLocaleEffect(router, 'en')
-
-	return <>// ..</>
+	return (
+		<>
+			<Provider store={store}>
+				{/* 提供 Component 狀態管理 */}
+				<ConfigProvider>
+					<Component {...pageProps} />
+				</ConfigProvider>
+			</Provider>
+		</>
+	)
 }
 
 export default appWithTranslation(CustomApp)
@@ -118,42 +137,6 @@ export default appWithTranslation(CustomApp)
 public/
   └── locales/
       └── en/
-          ├── {appName}.json
+          ├── {process.env["NEXT_PUBLIC_SITE_NAME"]}.json
           └── common.json
-```
-
-### Configure redux and styles
-
-- 提供 `Provider` and `store`
-- 提供 `ConfigProvider`ㄔ
-- 創建 `styles` 將設計提供的 `css`、`font` 放在 apps/{appName}/styles 資料夾，並在 `_app` 引用
-
-\_app.tsx
-
-```tsx
-import { Provider } from 'react-redux'
-import { store } from '@nx-next-app/store'
-import { ConfigProvider } from '@nx-next-app/components/{Modal}'
-
-import '../styles/css/style.css'
-import '../styles/css/swiper.css'
-import '../styles/css/font.css'
-
-function CustomApp({ Component, pageProps }: AppProps) {
-	// ...
-
-	return (
-		    <Head>
-				<title>Welcome to nova88!</title>
-			</Head>
-
-			{/* Redux 狀態管理 */}
-			<Provider store={store}>
-				{/* 提供 Component 狀態管理 */}
-				<ConfigProvider>
-					<Component {...pageProps} />
-				</ConfigProvider>
-			</Provider>
-	)
-}
 ```

@@ -19,7 +19,7 @@ export interface ConfigContextInterface {
 		) => void
 	}
 	closeModal: () => void
-	langData: LangData
+	langData?: LangData
 	VIP_CLUB_IMAGES: IVipClubImage[]
 }
 
@@ -29,11 +29,11 @@ export const ConfigContext = createContext<ConfigContextInterface>(null!)
 export const ConfigProvider = ({
 	children,
 	langData,
-	VIP_CLUB_IMAGES,
+	VIP_CLUB_IMAGES = [],
 }: {
 	children: ReactNode
-	langData: LangData
-	VIP_CLUB_IMAGES: IVipClubImage[]
+	langData?: LangData
+	VIP_CLUB_IMAGES?: IVipClubImage[]
 }) => {
 	const [globalModal, setGlobalModal] = useState<GlobalModalType>({
 		type: null,
