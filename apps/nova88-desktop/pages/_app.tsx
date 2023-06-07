@@ -3,7 +3,7 @@ import { store } from '@nx-next-app/store'
 import { Provider } from 'react-redux'
 import { ConfigProvider } from '@nx-next-app/components/D0001'
 import { appWithTranslation } from 'next-i18next'
-import { F0001 } from '@nx-next-app/features'
+import { ThirdPartyJS } from '@nx-next-app/features/F0001/desktop'
 
 // * supply localized format options
 // * https://day.js.org/docs/en/plugin/localized-format
@@ -23,7 +23,7 @@ const {
 	GTMScript,
 	JackpotsScript,
 	GoogleTagManagerScript,
-} = F0001.Desktop.ThirdPartyJS
+} = ThirdPartyJS
 
 dayjs.extend(localizedFormat)
 

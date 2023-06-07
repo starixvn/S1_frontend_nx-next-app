@@ -1,8 +1,6 @@
-import { F0001 } from '@nx-next-app/features'
+import { CurrenciesEnum } from '@nx-next-app/types'
 
-const { Types } = F0001
-
-const { MYR, USD, THB, CNY, IDR, INR, KHM, BDT } = Types.CurrenciesEnum
+const { MYR, USD, THB, CNY, IDR, INR, KHM, BDT } = CurrenciesEnum
 
 export const ALLOWED_CURRENCIES = {
 	VIP: [MYR, THB, IDR],

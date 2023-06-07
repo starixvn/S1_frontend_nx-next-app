@@ -2,13 +2,11 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { AuthProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { F0001 } from '@nx-next-app/features'
+import { Layout } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-
-const { Layout } = F0001.Desktop
 
 type IHistoryPageProps = InitialPropsInterface
 

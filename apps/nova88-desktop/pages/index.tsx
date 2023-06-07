@@ -1,14 +1,12 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { F0001 } from '@nx-next-app/features'
+import { Layout, Home } from '@nx-next-app/features/F0001/desktop'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-
-const { Layout, Home } = F0001.Desktop
 
 type IHomePageProps = InitialPropsInterface
 

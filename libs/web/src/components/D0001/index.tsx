@@ -8,7 +8,6 @@ export type { LoginFormType } from './header/Function/Login'
 
 export { default as Footer } from './footer'
 
-// common components
 export { InputBox } from './input'
 export type { IInputBoxInterface } from './input'
 
@@ -22,6 +21,11 @@ export * from './back-top'
 export { default as Select } from './select'
 export type { ISelectProps } from './select'
 export type { SelectOptionType } from './select/type'
+
+export { default as Carousel } from './carousel'
+export type { ICarouselProps } from './carousel'
+
+// export type { sw } from './swiper'
 
 export { default as MetaData } from './metaData'
 

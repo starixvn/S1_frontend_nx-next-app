@@ -1,12 +1,19 @@
 {
 	"Label_Title": "標題",
-  "Label_Close": "关闭",
-  "Label_Information": "资讯",
-  "Label_ForgetPassword": "忘记密码吗？",
-  "Label_UserNameRequired": "请输入用户名",
-  "Label_UserNameLength": "仅限6到18个数字、英文字母大小写",
-  "Label_PasswordRequired": "请输入密码。",
-  "Label_LoggedOut": "您已成功登出！",
-  "Label_Join": "立即加入",
-  "Label_LogIn": "登入"
+	"Label_Close": "关闭",
+	"Label_Information": "资讯",
+	"Label_ForgetPassword": "忘记密码吗？",
+	"Label_UserNameRequired": "请输入用户名",
+	"Label_UserNameLength": "仅限6到18个数字、英文字母大小写",
+	"Label_PasswordRequired": "请输入密码。",
+	"Label_LoggedOut": "您已成功登出！",
+	"Label_Join": "立即加入",
+	"Label_LogIn": "登入",
+
+	"Label_Vintage_Club": "古铜",
+	"Label_Silver_Club": "白银",
+	"Label_Gold_Club": "黄金",
+	"Label_Titanium_Club": "钛金",
+	"Label_Diamond_Club": "钻石",
+	"Label_Club": "俱乐部"
 }
