@@ -53,12 +53,15 @@ pre {
 
 a {
   text-decoration: none;
-  color: #CDAE8E;
+  color: #fff;
   cursor: pointer;
 }
 
 img {
   width: 100%;
+  max-width: -webkit-min-content;
+  max-width: -moz-min-content;
+  max-width: min-content;
   display: block;
 }
 /*# sourceMappingURL=reset.css.map */
