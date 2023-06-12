@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { createContext, ReactNode } from 'react'
 import {
 	useGetTpMaintainListQuery,
@@ -6,13 +7,12 @@ import {
 } from '../../service'
 import { useAuth } from '../auth-context'
 
-interface GlobalDataContextInterface {
+interface IGlobalDataContext {
 	tpMaintainList: TpMaintainData[]
 	productTpIds: number[]
 }
 
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-const GlobalDataContext = createContext<GlobalDataContextInterface>({} as never)
+const GlobalDataContext = createContext<IGlobalDataContext>(null!)
 
 interface IGlobalDataProviderProps {
 	children: ReactNode
@@ -34,7 +34,7 @@ const GlobalDataProvider = ({ children }: IGlobalDataProviderProps) => {
 		{ skip: !isLogin }
 	)
 
-	const value: GlobalDataContextInterface = {
+	const value: IGlobalDataContext = {
 		tpMaintainList,
 		productTpIds,
 	}

@@ -1,14 +1,13 @@
 import { ReactNode } from 'react'
-
 import {
 	BackTop,
 	Footer,
 	GlobalModal,
 	MetaData,
-	useGlobalModal,
 } from '@nx-next-app/components/D0001'
 import { ISEOData } from 'libs/web/src/data-access/type'
 import { useAffiliateReferralEffect } from '@nx-next-app/hooks'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import LayoutHeader from './header'
 
 interface ILayoutProps {

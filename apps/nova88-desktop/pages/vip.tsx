@@ -10,11 +10,6 @@ import {
 } from '@nx-next-app/hooks'
 import { includes } from 'lodash-es'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import {
-	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
-	VIP_CLUB_IMAGES,
-	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
-} from '../data'
 
 type IVipPageProps = InitialPropsInterface
 
@@ -26,15 +21,7 @@ const VipPage = ({
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<Layout persistSEOData={persistSEOData}>
-				<Vip
-					VIP_CLUB_IMAGES={VIP_CLUB_IMAGES}
-					VIP_EVENT_CURRENCIES_LIMITATION_INFO={
-						VIP_EVENT_CURRENCIES_LIMITATION_INFO
-					}
-					VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY={
-						VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY
-					}
-				/>
+				<Vip />
 			</Layout>
 		</AuthProvider>
 	)

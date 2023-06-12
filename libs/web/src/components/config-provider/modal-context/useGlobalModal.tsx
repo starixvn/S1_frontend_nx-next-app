@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import { ConfigContext } from './context'
+import { ModalContext } from './Context'
 
 const useGlobalModal = () => {
-	const { globalModal, modal, closeModal } = useContext(ConfigContext)
+	const { globalModal, modal, closeModal } = useContext(ModalContext)
 	return { globalModal, modal, closeModal }
 }
 

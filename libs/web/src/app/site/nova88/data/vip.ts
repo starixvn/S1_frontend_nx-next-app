@@ -1,7 +1,8 @@
-import { IVipClubImage } from '@nx-next-app/components/D0001'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { IVipEventCurrenciesLimitationInfo } from '@nx-next-app/features/F0001/desktop'
-import { IImageData } from '@nx-next-app/components/D0001/config-context/type'
+import {
+	CurrenciesEnum,
+	IImageData,
+	IStaticVipEventCurrenciesLimitationInfo,
+} from '@nx-next-app/types'
 
 export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
 	langId: string | number
@@ -32,7 +33,7 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
 	},
 ]
 
-export const VIP_CLUB_IMAGES: IVipClubImage[] = [
+export const VIP_CLUB_IMAGES: IImageData[] = [
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/vip1.png`,
 		displayKey: 'Label_Vintage_Club',
@@ -65,7 +66,7 @@ export const VIP_CLUB_IMAGES: IVipClubImage[] = [
 	},
 ]
 
-export const VIP_EVENT_CURRENCIES_LIMITATION_INFO: IVipEventCurrenciesLimitationInfo =
+export const VIP_EVENT_CURRENCIES_LIMITATION_INFO: IStaticVipEventCurrenciesLimitationInfo =
 	{
 		[CurrenciesEnum.THB]: {
 			dailyWithdrawalLimitation: [500000, 600000, 800000, 1000000, 1500000],

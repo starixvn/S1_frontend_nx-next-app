@@ -1,11 +1,7 @@
+import { IStaticProducts, IStaticSlotTpGameType } from '@nx-next-app/types'
+
 // * 用於 casino, casino topQuickLink,  hot game
-export const SLOT_TP_GAME_TYPE: {
-	[key: string]: {
-		TP_ID: number
-		TP_GAME_TYPE: number
-		NAME: string
-	}
-} = {
+export const SLOT_TP_GAME_TYPE: IStaticSlotTpGameType = {
 	SABA: {
 		TP_ID: 41,
 		TP_GAME_TYPE: 4,
@@ -30,15 +26,7 @@ export const SLOT_TP_GAME_TYPE: {
 	SKY_WIND: { TP_ID: 43, TP_GAME_TYPE: 82, NAME: 'skywind' },
 }
 
-export const PRODUCTS: {
-	[key: string]: {
-		TP_ID: number
-		NAME?: string
-		BET_TYPE?: number
-		TP_GAME_TYPE?: number
-		GAME_ID?: number | string
-	}
-} = {
+export const PRODUCTS: IStaticProducts = {
 	// * SPORTS
 	SPORTS: {
 		TP_ID: 41,

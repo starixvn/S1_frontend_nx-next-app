@@ -1,26 +1,14 @@
 import Image from 'next/future/image'
 import Link from 'next/link'
-import { Carousel, IVipClubImage } from '@nx-next-app/components/D0001'
-import { IImageData } from '@nx-next-app/components/D0001/config-context/type'
+import { Carousel } from '@nx-next-app/components/D0001'
 import { paths } from '@nx-next-app/constants'
-
-import { useAuth } from '@nx-next-app/data-access'
-import { IVipEventCurrenciesLimitationInfo } from './type'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import VipInfo from './VipInfo'
 import VipPage from './VipPage'
 
-const Vip = ({
-	VIP_CLUB_IMAGES,
-	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
-	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
-}: {
-	VIP_CLUB_IMAGES: IVipClubImage[]
-	VIP_EVENT_CURRENCIES_LIMITATION_INFO: IVipEventCurrenciesLimitationInfo
-	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY: (
-		langId: string | number
-	) => IImageData[]
-}) => {
+const Vip = () => {
 	const { userInfo, auth } = useAuth()
+	const { VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY } = useStaticData()
 
 	return (
 		<main className='vip'>
@@ -34,12 +22,7 @@ const Vip = ({
 
 			<VipInfo />
 
-			<VipPage
-				VIP_CLUB_IMAGES={VIP_CLUB_IMAGES}
-				VIP_EVENT_CURRENCIES_LIMITATION_INFO={
-					VIP_EVENT_CURRENCIES_LIMITATION_INFO
-				}
-			/>
+			<VipPage />
 
 			{auth.isLogin ? (
 				<Image
