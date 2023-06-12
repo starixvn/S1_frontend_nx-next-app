@@ -140,3 +140,20 @@ public/
           ├── {process.env["NEXT_PUBLIC_SITE_NAME"]}.json
           └── common.json
 ```
+
+給予 port 號，規則：
+_-desktop: 400x
+_.h5: 300x
+
+// project.json
+
+```json
+		"serve": {
+			"executor": "@nrwl/next:server",
+			"defaultConfiguration": "development",
+			"options": {
+				"buildTarget": "nova88-desktop:build",
+				"dev": true,
+				"port": 4001 //給予port號
+			},
+```
