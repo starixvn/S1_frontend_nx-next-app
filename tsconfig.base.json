@@ -18,6 +18,7 @@
 		"paths": {
 			"@apps/*": ["apps/*"],
 			"@nx-next-app/components/*": ["libs/web/src/components/*"],
+			"@nx-next-app/site/*": ["libs/web/src/app/site/*"],
 			"@nx-next-app/constants": ["libs/web/src/app/constants"],
 			"@nx-next-app/data-access": ["libs/web/src/data-access"],
 			"@nx-next-app/features/*": ["libs/features/src/lib/*"],

@@ -1,5 +1,4 @@
 import { CurrenciesEnum } from '@nx-next-app/types'
-import { includes, isNaN } from 'lodash-es'
 import { FieldErrors } from 'react-hook-form'
 
 /**
@@ -23,10 +22,10 @@ export const numberFormat = (
 	currencyId: CurrenciesEnum,
 	digits?: number
 ) => {
-	if (isNaN(Number(value))) return null
+	// 原生的
+	if (Number.isNaN(Number(value))) return null
 
-	const isConvert = includes(
-		[CurrenciesEnum.IDR, CurrenciesEnum.VND],
+	const isConvert = [CurrenciesEnum.IDR, CurrenciesEnum.VND].includes(
 		currencyId
 	)
 
@@ -38,15 +37,15 @@ export const numberFormat = (
 }
 
 /**
- * Input: 
- * 
+ * Input:
+ *
  * {
 		password: { type: 'required', message: 'Password is required.' },
 		userName: { type: 'required', message: 'Username is required.' },
 	}
- *	
+ *
  * Output: ['Username is required.', 'Password is required.']
- * 
+ *
  * * @example modal.info(renderFieldError(errors))
  */
 
@@ -57,15 +56,15 @@ export const renderFieldErrors = (errors: FieldErrors = {}): string[] => {
 }
 
 /**
- * Input: 
- * 
+ * Input:
+ *
  * {
 		password: { type: 'required', message: 'Password is required.' },
 		userName: { type: 'required', message: 'Username is required.' },
 	}
- *	
+ *
  * Output: 'Username is required.'
- * 
+ *
  * * @example modal.info(renderFieldError(errors))
  */
 

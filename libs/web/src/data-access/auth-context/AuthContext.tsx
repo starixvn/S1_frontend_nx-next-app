@@ -2,7 +2,7 @@ import { createContext, ReactNode, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { deleteCookie } from 'cookies-next'
-import { useGlobalModal } from '@nx-next-app/components/D0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	useGetUserInfoQuery,
 	useLazyCheckSignInQuery,

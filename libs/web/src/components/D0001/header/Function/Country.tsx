@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import { LANG_GROUP_COUNTRY } from '@nx-next-app/constants'
 import { useRef, Fragment } from 'react'
 import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 
@@ -18,16 +19,11 @@ interface ICountryProps {
 			currencyId: number
 		}>
 	}
-	langGroupCountry: { [lang: string]: string }
 }
 
-const Country = ({
-	icon,
-	onSetLanguage,
-	langGroup,
-	langGroupCountry,
-}: ICountryProps) => {
+const Country = ({ icon, onSetLanguage, langGroup }: ICountryProps) => {
 	const ref = useRef(null)
+
 	const { value: isOpen, toggle, setFalse } = useBoolean(false)
 	useBoolean()
 
@@ -47,7 +43,7 @@ const Country = ({
 				{Object.entries(langGroup).map(([lang, item]) => (
 					<Fragment key={lang}>
 						<div className='countryName' key={lang}>
-							{langGroupCountry[lang]}
+							{LANG_GROUP_COUNTRY[lang]}
 						</div>
 						<div className={classNames('flag', lang)} key={`flag_${lang}`}>
 							{item?.map(({ value, currencyId, displayText }) => {

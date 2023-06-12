@@ -1,22 +1,20 @@
-import {
-	Header,
-	useConfig,
-	useGlobalModal,
-} from '@nx-next-app/components/D0001'
+import { isEqual } from 'lodash-es'
+import { Header } from '@nx-next-app/components/D0001'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useSetLanguageMutation } from '@nx-next-app/service'
 import { setCookies } from 'cookies-next'
-import { isEqual } from 'lodash-es'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { CURRENCY_TO_LANG_KEY } from '@nx-next-app/constants'
 
 const Country = () => {
 	const router = useRouter()
 	const { modal } = useGlobalModal()
 	const { pathname, asPath, query } = router
-	const {
-		langData: { langGroups: rawLangGroup, currencyToLangKey, langGroupCountry },
-	} = useConfig()
+
+	const { LANG_GROUPS } = useStaticData()
+
 	const {
 		userInfo: { currencyId: currentCurrency, langId: currentLang },
 		auth,
@@ -29,7 +27,7 @@ const Country = () => {
 			value: string
 			currencyId: number
 		}>
-	}>(rawLangGroup)
+	}>(LANG_GROUPS)
 
 	const [setLanguage] = useSetLanguageMutation()
 
@@ -63,14 +61,15 @@ const Country = () => {
 	}
 
 	useEffect(() => {
-		const langKey = currencyToLangKey[currentCurrency]
+		const langKey = CURRENCY_TO_LANG_KEY[currentCurrency]
+
 		if (auth.isLogin) {
 			// 登入後針對 langGroup 做篩選
-			setLangGroup({ [langKey]: rawLangGroup[langKey] })
+			setLangGroup({ [langKey]: LANG_GROUPS[langKey] })
 			// 未登入加入比對當前 langGroup 是否與初始 langGroup 相同，減少重複渲染
-		} else if (!isEqual(langGroup, rawLangGroup)) {
-			// 若不相符才 reset 至 rawLangGroup
-			setLangGroup(rawLangGroup)
+		} else if (!isEqual(langGroup, LANG_GROUPS)) {
+			// 若不相符才 reset 至 LANG_GROUPS
+			setLangGroup(LANG_GROUPS)
 		}
 
 		if (langKey !== icon) {
@@ -83,7 +82,6 @@ const Country = () => {
 			icon={icon}
 			langGroup={langGroup}
 			onSetLanguage={handleSetLanguage}
-			langGroupCountry={langGroupCountry}
 		/>
 	)
 }

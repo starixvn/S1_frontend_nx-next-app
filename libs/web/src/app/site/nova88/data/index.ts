@@ -1,8 +1,10 @@
-import { CurrenciesEnum } from '@nx-next-app/types'
+import { CurrenciesEnum, IStaticLangGroups } from '@nx-next-app/types'
 
-const LANG_GROUPS: {
-	[lang: string]: { displayText: string; value: string; currencyId: number }[]
-} = {
+export * from './allowCurrency'
+export * from './vip'
+export * from './products'
+
+export const LANG_GROUPS: IStaticLangGroups = {
 	ch: [
 		{
 			displayText: 'English',
@@ -100,32 +102,4 @@ const LANG_GROUPS: {
 			currencyId: CurrenciesEnum.USD,
 		},
 	],
-}
-
-const CURRENCY_TO_LANG_KEY = {
-	2: 'ch',
-	3: 'gb',
-	4: 'th',
-	13: 'cs',
-	15: 'id',
-	61: 'in',
-	72: 'kh',
-	74: 'bd',
-}
-
-const LANG_GROUP_COUNTRY = {
-	ch: 'Malaysia',
-	th: 'Thailand',
-	id: 'Indonesia',
-	in: 'India',
-	cs: 'China',
-	gb: 'Global',
-	bd: 'Bangladesh',
-	kh: 'Cambodia',
-}
-
-export const LANG_DATA = {
-	langGroups: LANG_GROUPS,
-	currencyToLangKey: CURRENCY_TO_LANG_KEY,
-	langGroupCountry: LANG_GROUP_COUNTRY,
 }

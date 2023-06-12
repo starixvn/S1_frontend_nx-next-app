@@ -1,24 +1,6 @@
+import { IGlobalModalProps } from '@nx-next-app/components/config-provider'
 import { isArray } from 'lodash-es'
-
 import Modal from './Modal'
-
-export type ModalContentType =
-	| string
-	| (string | number)[]
-	| undefined
-	| null
-	| React.ReactElement
-
-export interface IGlobalModalProps {
-	icon?: string | null
-	title?: string | null
-	type?: 'default' | 'info' | 'error' | null
-	content: ModalContentType
-	onOK?: () => void
-	closeModal: () => void
-}
-
-export type GlobalModalType = Omit<IGlobalModalProps, 'closeModal'>
 
 const GlobalModal = ({
 	icon,

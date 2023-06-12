@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic'
 import { FieldErrors } from 'react-hook-form'
 import { renderFieldError, renderFieldErrors } from '../../../../utils'
-import { useGlobalModal } from '../../config-context'
+import { useGlobalModal } from '../../../config-provider/modal-context'
 import useModal from '../useModal'
 
 const DemoModal = dynamic(() => import('./DemoModal'), { ssr: false })

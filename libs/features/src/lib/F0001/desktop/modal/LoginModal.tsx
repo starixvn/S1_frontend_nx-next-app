@@ -1,5 +1,3 @@
-import { useGlobalModal } from '@nx-next-app/components/D0001'
-
 /* 
 * 預期使用方式
 import dynamic from 'next/dynamic'
@@ -9,6 +7,8 @@ const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
 
 modal.open(<LoginModal />)
 */
+
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 
 const LoginModal = () => {
 	const { closeModal } = useGlobalModal()

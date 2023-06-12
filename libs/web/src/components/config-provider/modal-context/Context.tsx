@@ -1,8 +1,24 @@
 import { createContext, ReactNode, useState } from 'react'
-import { GlobalModalType, IGlobalModalProps, ModalContentType } from '../modal'
-import { IVipClubImage, LangData } from './type'
 
-export interface ConfigContextInterface {
+export type ModalContentType =
+	| string
+	| (string | number)[]
+	| undefined
+	| null
+	| React.ReactElement
+
+export interface IGlobalModalProps {
+	icon?: string | null
+	title?: string | null
+	type?: 'default' | 'info' | 'error' | null
+	content: ModalContentType
+	onOK?: () => void
+	closeModal: () => void
+}
+
+export type GlobalModalType = Omit<IGlobalModalProps, 'closeModal'>
+
+export interface ModalContextInterface {
 	globalModal: GlobalModalType
 	modal: {
 		open: (
@@ -19,22 +35,12 @@ export interface ConfigContextInterface {
 		) => void
 	}
 	closeModal: () => void
-	langData?: LangData
-	VIP_CLUB_IMAGES: IVipClubImage[]
 }
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-export const ConfigContext = createContext<ConfigContextInterface>(null!)
+const ModalContext = createContext<ModalContextInterface>(null!)
 
-export const ConfigProvider = ({
-	children,
-	langData,
-	VIP_CLUB_IMAGES = [],
-}: {
-	children: ReactNode
-	langData?: LangData
-	VIP_CLUB_IMAGES?: IVipClubImage[]
-}) => {
+const ModalProvider = ({ children }: { children: ReactNode }) => {
 	const [globalModal, setGlobalModal] = useState<GlobalModalType>({
 		type: null,
 		title: null,
@@ -53,7 +59,7 @@ export const ConfigProvider = ({
 		})
 	}
 
-	const value: ConfigContextInterface = {
+	const value: ModalContextInterface = {
 		globalModal,
 		modal: {
 			open: (content, config) =>
@@ -64,12 +70,9 @@ export const ConfigProvider = ({
 				setGlobalModal({ type: 'error', content, ...config }),
 		},
 		closeModal,
-
-		langData,
-		VIP_CLUB_IMAGES,
 	}
 
-	return (
-		<ConfigContext.Provider value={value}>{children}</ConfigContext.Provider>
-	)
+	return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
 }
+
+export { ModalContext, ModalProvider }

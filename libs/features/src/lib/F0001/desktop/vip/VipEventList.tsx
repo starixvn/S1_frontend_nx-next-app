@@ -2,12 +2,12 @@ import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { numberFormat } from '@nx-next-app/utils'
 import { uniqueId } from 'lodash-es'
-import { IVipEventCurrenciesLimitationInfo } from './type'
+import { IStaticVipEventCurrenciesLimitationInfo } from '@nx-next-app/types'
 
 const VipEventList = ({
 	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
 }: {
-	VIP_EVENT_CURRENCIES_LIMITATION_INFO: IVipEventCurrenciesLimitationInfo
+	VIP_EVENT_CURRENCIES_LIMITATION_INFO: IStaticVipEventCurrenciesLimitationInfo
 }) => {
 	const { t } = useTranslation()
 	const {

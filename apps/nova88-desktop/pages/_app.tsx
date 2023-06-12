@@ -1,20 +1,30 @@
 import { AppProps } from 'next/app'
-import { store } from '@nx-next-app/store'
 import { Provider } from 'react-redux'
-import { ConfigProvider } from '@nx-next-app/components/D0001'
+import { store } from '@nx-next-app/store'
 import { appWithTranslation } from 'next-i18next'
-import { ThirdPartyJS } from '@nx-next-app/features/F0001/desktop'
+import { UIProvider } from '@nx-next-app/components/config-provider'
+import { StaticDataProvider } from '@nx-next-app/data-access'
 
+import { ThirdPartyJS } from '@nx-next-app/features/F0001/desktop'
 // * supply localized format options
 // * https://day.js.org/docs/en/plugin/localized-format
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
+import {
+	ALLOWED_CURRENCIES,
+	LANG_GROUPS,
+	PRODUCTS,
+	SLOT_TP_GAME_TYPE,
+	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
+	VIP_CLUB_IMAGES,
+	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
+} from '@nx-next-app/site/nova88'
+
 import '../styles/css/style.css'
 import '../styles/css/swiper.css'
 import '../styles/css/font.css'
 import '../styles/css/datePicker.css'
-import { LANG_DATA, VIP_CLUB_IMAGES } from '../data'
 
 const {
 	LiveChatScript,
@@ -32,9 +42,23 @@ function CustomApp({ Component, pageProps }: AppProps) {
 		<>
 			<Provider store={store}>
 				{/* 提供 Component 狀態管理 */}
-				<ConfigProvider langData={LANG_DATA} VIP_CLUB_IMAGES={VIP_CLUB_IMAGES}>
-					<Component {...pageProps} />
-				</ConfigProvider>
+				<UIProvider>
+					<StaticDataProvider
+						PRODUCTS={PRODUCTS}
+						ALLOWED_CURRENCIES={ALLOWED_CURRENCIES}
+						SLOT_TP_GAME_TYPE={SLOT_TP_GAME_TYPE}
+						LANG_GROUPS={LANG_GROUPS}
+						VIP_CLUB_IMAGES={VIP_CLUB_IMAGES}
+						VIP_EVENT_CURRENCIES_LIMITATION_INFO={
+							VIP_EVENT_CURRENCIES_LIMITATION_INFO
+						}
+						VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY={
+							VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY
+						}
+					>
+						<Component {...pageProps} />
+					</StaticDataProvider>
+				</UIProvider>
 			</Provider>
 
 			<LiveChatScript />
