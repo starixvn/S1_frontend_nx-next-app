@@ -12,7 +12,13 @@ const Logo = ({ logoUrl, rewardsUrl }: ILogoProps) => {
 		<div className='logo'>
 			<Link className='logo' href={paths.home.root}>
 				<a>
-					<Image src={logoUrl} alt='logo' width={150} height={66} />
+					<Image
+						src={logoUrl}
+						alt='logo'
+						width={150}
+						height={66}
+						style={{ width: '150px', height: '66px' }}
+					/>
 				</a>
 			</Link>
 			<Link
