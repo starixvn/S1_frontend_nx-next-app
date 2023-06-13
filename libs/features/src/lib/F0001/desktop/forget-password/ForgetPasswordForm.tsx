@@ -1,0 +1,77 @@
+import { useTranslation } from 'next-i18next'
+import { useForm } from 'react-hook-form'
+import { InputBox, emailRegex } from '@nx-next-app/components/D0001'
+import Form from 'libs/web/src/components/D0001/form'
+
+type ForgetPasswordFormType = {
+	email: string
+}
+interface IForgetPasswordFormProps {
+	loading: boolean
+	onCancel: () => void
+	onSubmit: (value: ForgetPasswordFormType) => void
+}
+const ForgetPasswordForm = ({
+	loading,
+	onCancel,
+	onSubmit,
+}: IForgetPasswordFormProps) => {
+	const { t } = useTranslation()
+	const { register, handleSubmit, formState, trigger } =
+		useForm<ForgetPasswordFormType>()
+	const { errors, touchedFields } = formState
+
+	return (
+		<div className='joinloginFunction'>
+			<Form
+				onSubmit={e => {
+					e.preventDefault()
+					handleSubmit(onSubmit)
+				}}
+			>
+				<div className='title txt-blue'>{t('Label_ForgetPassword')}</div>
+				<div className='inputModule'>
+					<InputBox
+						register={register('email', {
+							required: { value: true, message: t('Label_EmailFormatError') },
+							pattern: {
+								value: emailRegex,
+								message: t('Label_EmailFormatError'),
+							},
+							onBlur: async () => {
+								await trigger('email')
+							},
+						})}
+						loading={loading}
+						icon='txt-blue icon-email'
+						title={t('Label_Email') || ''}
+						touched={!!touchedFields['email']}
+						infoMessage={t('Label_ResetPasswordMsg') || ''}
+						errorMessage={errors['email']?.message as string}
+						error={!!errors['email']}
+					/>
+				</div>
+				<div className='btnGroup'>
+					<button
+						className='gray'
+						onClick={() => {
+							onCancel()
+						}}
+						type='button'
+					>
+						{t('Label_Cancel')}
+					</button>
+					<button
+						className='orange'
+						onClick={handleSubmit(onSubmit)}
+						type='submit'
+					>
+						{t('Label_Submit')}
+					</button>
+				</div>
+			</Form>
+		</div>
+	)
+}
+
+export { ForgetPasswordForm, ForgetPasswordFormType }

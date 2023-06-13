@@ -9,6 +9,13 @@
 	"Label_LoggedOut": "您已成功登出！",
 	"Label_Join": "立即加入",
 	"Label_LogIn": "登入",
+  "Label_Cancel" : "取消",
+  "Label_Submit": "提交",
+  "Label_Email": "邮箱地址",
+  "Label_EmailFormatError": "电子邮箱格式错误",
+  "Label_ResetPasswordMsg": "请输入您注册电邮以重置密码。",
+  "Label_ForgetPsw": "忘记密码",
+  "Label_ForgotPwdMailSent": "更新密码的連結已发送到您的注册电子邮件地址。",
 
 	"Label_Vintage_Club": "古铜",
 	"Label_Silver_Club": "白银",
