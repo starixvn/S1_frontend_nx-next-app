@@ -2,7 +2,7 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { AuthProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout } from '@nx-next-app/features/F0001/desktop'
+import { Layout, ForgetPassword } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -10,7 +10,6 @@ import {
 
 type IForgetPasswordPageProps = InitialPropsInterface
 
-// * TODO: wip todo
 const ForgetPasswordPage = ({
 	originIsSignIn,
 	originCookies,
@@ -19,15 +18,7 @@ const ForgetPasswordPage = ({
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<Layout persistSEOData={persistSEOData}>
-				<main>
-					<br />
-					<br />
-					<br />
-					<h1 style={{ color: 'black' }}>ForgetPassword Page</h1>
-					<br />
-					<br />
-					<br />
-				</main>
+				<ForgetPassword />
 			</Layout>
 		</AuthProvider>
 	)
@@ -35,6 +26,15 @@ const ForgetPasswordPage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
+	const { originIsSignIn } = initialProps
+	if (originIsSignIn) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false,
+			},
+		}
+	}
 
 	return {
 		props: {

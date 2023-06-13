@@ -1,11 +1,12 @@
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
-import { TpMaintainData } from './type'
+import { ISetForgetPasswordArgs, TpMaintainData } from './type'
 
 export const siteApiUrl = {
 	getTpIds: 'Site/GetTpIds',
 	getTpMaintainList: 'Site/GetTpMaintainList',
 	getSEOData: 'Site/Seo',
+	forgetPassword: 'Site/ForgetPwdV2',
 }
 
 export const siteApi = rootApi.injectEndpoints({
@@ -27,7 +28,21 @@ export const siteApi = rootApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
+		setForgetPassword: builder.mutation<
+			IAxiosResponse<void>,
+			ISetForgetPasswordArgs
+		>({
+			query: ({ langId, ...data }) => ({
+				url: `${siteApiUrl.forgetPassword}/${langId}`,
+				method: 'POST',
+				data,
+			}),
+		}),
 	}),
 })
 
-export const { useGetProductTpIdsQuery, useGetTpMaintainListQuery } = siteApi
+export const {
+	useGetProductTpIdsQuery,
+	useGetTpMaintainListQuery,
+	useSetForgetPasswordMutation,
+} = siteApi

@@ -98,8 +98,8 @@ const InputBox = ({
 			return <i className='icon icon-spinner11' />
 		}
 
-		// 有傳入 successMessage 的話該 icon 會在驗證無錯誤之後出現
-		if (touched && !error && !!successMessage) {
+		// 有傳入 successMessage 或有驗證過的話該 icon 會在驗證無錯誤之後出現
+		if (touched && !error && (!!successMessage || error !== undefined)) {
 			// 成功 icon 應在輸入資料驗證後才會顯示
 			return <i className='icon icon-checkmark' />
 		}
@@ -133,8 +133,8 @@ const InputBox = ({
 			return <div className={classNames('tip', 'active')}>{successMessage}</div>
 		}
 
-		// infoMessage 權重最低
-		if (infoMessage && showInfo) {
+		// infoMessage 權重最低，沒驗證 or 尚未驗證過才會觸發
+		if (infoMessage && showInfo && (error === undefined || !touched)) {
 			return <div className={classNames('tip', 'active')}>{infoMessage}</div>
 		}
 
