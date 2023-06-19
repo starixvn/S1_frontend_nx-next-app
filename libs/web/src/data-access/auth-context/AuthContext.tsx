@@ -77,7 +77,7 @@ export const AuthProvider = ({
 
 	const userInfo = {
 		...originUserInfo,
-		currencyName: t(`Label_Currency_${originUserInfo.currencyId}`),
+		currencyName: t(`Label_General_Currency_${originUserInfo.currencyId}`),
 	}
 
 	const [signIn] = useSignInMutation()
@@ -126,9 +126,9 @@ export const AuthProvider = ({
 	const onSignOut = async () => {
 		await signOut(null).unwrap()
 		onResetAuth()
-		modal.info(t('Label_LoggedOut'), {
+		modal.info(t('Label_General_LoggedOut'), {
 			icon: 'icon icon-exit',
-			title: t('Label_LogOut'),
+			title: t('Label_General_LogOut'),
 			onOK: () => {
 				router.push(paths.home.root)
 				router.reload()

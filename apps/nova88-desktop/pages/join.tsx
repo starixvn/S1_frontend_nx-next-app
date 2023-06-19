@@ -1,8 +1,8 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
-import { AuthProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout } from '@nx-next-app/features/F0001/desktop'
+import { AuthProvider } from '@nx-next-app/data-access'
+import { Layout, Join } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -20,13 +20,7 @@ const JoinPage = ({
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<Layout persistSEOData={persistSEOData}>
 				<main>
-					<br />
-					<br />
-					<br />
-					<h1 style={{ color: 'black' }}>Join Page</h1>
-					<br />
-					<br />
-					<br />
+					<Join cookies={originCookies} />
 				</main>
 			</Layout>
 		</AuthProvider>

@@ -1,6 +1,9 @@
 export * from './Names'
 export * from './paths'
 export * from './metaData'
+export * from './areaCode'
+export * from './currency'
+export * from './regex'
 
 export const CURRENCY_TO_LANG_KEY: {
 	[key: string | number]: string

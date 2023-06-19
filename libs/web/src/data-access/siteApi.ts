@@ -1,5 +1,12 @@
 import { AxiosRequestConfig } from 'axios'
-import { siteApiUrl, authApiUrl, baseAxios } from '../service'
+import {
+	baseAxios,
+	siteApiUrl,
+	authApiUrl,
+	lineLoginApiUrl,
+	ILineRegisterData,
+	IGetLineUserIdTypeArgs,
+} from '../service'
 import { ISEOData } from './type'
 
 export const checkSignIn = async (
@@ -25,5 +32,17 @@ export const getSEOData = async (
 		config
 	)
 
+	return data
+}
+
+export const getLineUserId = async (
+	params: IGetLineUserIdTypeArgs,
+	config: AxiosRequestConfig
+): Promise<ILineRegisterData> => {
+	const { data: { data } = {} } = await baseAxios.post(
+		lineLoginApiUrl.lineCallback,
+		params,
+		config
+	)
 	return data
 }

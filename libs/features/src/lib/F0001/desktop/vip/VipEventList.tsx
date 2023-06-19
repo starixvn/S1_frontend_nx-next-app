@@ -79,7 +79,7 @@ const VipEventList = ({
 					{dailyWithdrawalLimitation.map(val => (
 						<td key={uniqueId()}>{val && numberFormat(val, currencyId, 0)}</td>
 					))}
-					<td>{t('Label_Unlimited')}</td>
+					<td>{t('Label_General_Unlimited')}</td>
 				</tr>
 				<tr>
 					<td>{t('Label_Vip_Daily_Transactions_Count')}</td>
@@ -88,12 +88,14 @@ const VipEventList = ({
 					<td>15</td>
 					<td>15</td>
 					<td>20</td>
-					<td>{t('Label_Unlimited')}</td>
+					<td>{t('Label_General_Unlimited')}</td>
 				</tr>
 				<tr className='title'>
 					<td className='icon icon-nova88'>
 						{t('Label_Vip_Exclusive_Bonus')}{' '}
-						<span className='txt-orange'>({t(`Currency_${currencyId}`)})</span>
+						<span className='txt-orange'>
+							({t(`Label_General_Currency_${currencyId}`)})
+						</span>
 					</td>
 					<td colSpan={6} />
 				</tr>
@@ -174,7 +176,9 @@ const VipEventList = ({
 				<tr className='title'>
 					<td className='icon icon-nova88'>
 						{t('Label_Vip_Tire_Upgrade_Requirement')}{' '}
-						<span className='txt-orange'>({t(`Currency_${currencyId}`)})</span>
+						<span className='txt-orange'>
+							({t(`Label_General_Currency_${currencyId}`)})
+						</span>
 					</td>
 					<td colSpan={6} />
 				</tr>
@@ -183,12 +187,14 @@ const VipEventList = ({
 					{monthlyMinimumDeposit.map(val => (
 						<td key={uniqueId()}>{val && numberFormat(val, currencyId, 0)}</td>
 					))}
-					<td>{t('Label_Vip_ByInvitation')}</td>
+					<td>{t('Label_Vip_By_Invitation')}</td>
 				</tr>
 				<tr className='title'>
 					<td className='icon icon-nova88'>
 						{t('Label_Vip_Tier_Maintenance_Requirement')}{' '}
-						<span className='txt-orange'>({t(`Currency_${currencyId}`)})</span>
+						<span className='txt-orange'>
+							({t(`Label_General_Currency_${currencyId}`)})
+						</span>
 					</td>
 					<td colSpan={6} />
 				</tr>
@@ -197,23 +203,23 @@ const VipEventList = ({
 					{minimumDepositWithinValidityPeriod.map(val => (
 						<td key={uniqueId()}>{val && numberFormat(val, currencyId, 0)}</td>
 					))}
-					<td>{t('Label_Vip_ByInvitation')}</td>
+					<td>{t('Label_Vip_By_Invitation')}</td>
 				</tr>
 				<tr>
 					<td>{t('Label_Vip_Minimum_Turnover_Within_Validity_Period')}</td>
 					{minimumTurnoverWithinValidityPeriod.map(val => (
 						<td key={uniqueId()}>{val && numberFormat(val, currencyId, 0)}</td>
 					))}
-					<td>{t('Label_Vip_ByInvitation')}</td>
+					<td>{t('Label_Vip_By_Invitation')}</td>
 				</tr>
 				<tr className='lastTd'>
 					<td>{t('Label_Vip_Ranking_Validity_Membership_Renewal')}</td>
-					<td>{t('Label_Normal')}</td>
+					<td>{t('Label_Vip_Normal')}</td>
 					<td>{t('Label_Vip_Lifetime')}</td>
 					<td>{t('Label_Vip_3Months')}</td>
 					<td>{t('Label_Vip_3Months')}</td>
 					<td>{t('Label_Vip_3Months')}</td>
-					<td>{t('Label_Vip_ByInvitation')}</td>
+					<td>{t('Label_Vip_By_Invitation')}</td>
 				</tr>
 			</tbody>
 		</table>

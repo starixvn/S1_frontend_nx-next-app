@@ -56,7 +56,7 @@ const PromotionSSR = ({ initialPromotionList = [] }: IPromotionProps) => {
 
 	return (
 		<div>
-			<h1>{t('Label_Title')}</h1>
+			<h1>{t('Label_General_Title')}</h1>
 
 			<div>
 				<form onSubmit={handleGetPromotionListV3}>

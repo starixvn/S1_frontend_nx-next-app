@@ -70,3 +70,17 @@ export interface IStaticVipEventCurrenciesLimitationInfo {
 		minimumTurnoverWithinValidityPeriod: (number | null)[]
 	}
 }
+
+export interface ITermsConditions {
+	TermsConditions: string
+	OurPolicies: string
+	PrivacyPolicy: string
+	CookiePolicy: string
+	RuleRegulations: string
+	AccountTerms: string
+	FAQ: string
+	AboutUs: string
+	Terms: string
+	ContactUs: string
+	ResposibleGaming: string
+}

@@ -12,6 +12,7 @@ export interface ISelectProps {
 	placeholder?: string
 	showSearch?: boolean
 	onChange?: (value: SelectOptionType['value']) => void
+	errorMessage?: string
 }
 
 const Select = (props: ISelectProps) => {
@@ -24,6 +25,7 @@ const Select = (props: ISelectProps) => {
 		placeholder = 'select',
 		showSearch,
 		onChange,
+		errorMessage,
 	} = props
 	const { value: isActive, toggle, setFalse } = useBoolean()
 	const [currentOption, setCurrentOption] = useState<SelectOptionType>()
@@ -31,7 +33,6 @@ const Select = (props: ISelectProps) => {
 
 	const handleOptionClick = (newOption: SelectOptionType) => {
 		setCurrentOption(newOption)
-		setFalse()
 
 		if (onChange) {
 			onChange(newOption.value)
@@ -65,11 +66,11 @@ const Select = (props: ISelectProps) => {
 	)
 
 	return (
-		<div className='inputBox-blue'>
-			<div ref={ref} className='dropdown'>
+		<div className={classNames('inputBox-blue', { error: errorMessage })}>
+			<div ref={ref} className='dropdown' onClick={toggle}>
 				{prefixIcon}
 
-				<button type='button' className='btn' onClick={toggle}>
+				<button type='button' className='btn'>
 					{currentOption?.prefixOptionIcon}
 					{currentOption?.label || placeholder}
 				</button>

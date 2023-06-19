@@ -155,11 +155,11 @@ const Wallet = ({
 					</Link>
 				</div>
 				<div className='loginLog'>
-					<span>{t('Label_LastLogin')}</span>
+					<span>{t('Label_General_LastLogin')}</span>
 					<span>{dayjs(lastLogin).format('L LT')}</span>
 				</div>
 				<div className='transactionLog'>
-					<span>{t('Label_LastTransaction')}</span>
+					<span>{t('Label_General_LastTransaction')}</span>
 
 					<span>
 						{lastTransaction && dayjs(lastTransaction).format('L LT')}

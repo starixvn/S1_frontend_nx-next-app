@@ -3,6 +3,8 @@ import { CurrenciesEnum, IStaticLangGroups } from '@nx-next-app/types'
 export * from './allowCurrency'
 export * from './vip'
 export * from './products'
+export * from './termsConditions'
+export * from './join'
 
 export const LANG_GROUPS: IStaticLangGroups = {
 	ch: [
