@@ -27,7 +27,7 @@ const PromotionFullSSR = ({
 
 	return (
 		<div>
-			<h1>{t('Label_Title')}</h1>
+			<h1>{t('Label_General_Title')}</h1>
 			<div>
 				<form>
 					<label>

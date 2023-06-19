@@ -23,9 +23,12 @@ const Login = ({ onLogin, onLoginInvalid }: ILoginProps) => {
 					defaultValue=''
 					placeholder='Username'
 					{...register('userName', {
-						required: { value: true, message: t('Label_UserNameRequired') },
-						minLength: { value: 6, message: t('Label_UserNameLength') },
-						maxLength: { value: 18, message: t('Label_UserNameLength') },
+						required: { value: true, message: t('Label_General_UsernameReq') },
+						minLength: { value: 6, message: t('Label_General_UserNameLength') },
+						maxLength: {
+							value: 18,
+							message: t('Label_General_UserNameLength'),
+						},
 					})}
 				/>
 				<input
@@ -33,7 +36,10 @@ const Login = ({ onLogin, onLoginInvalid }: ILoginProps) => {
 					type='password'
 					placeholder='Password'
 					{...register('password', {
-						required: { value: true, message: t('Label_PasswordRequired') },
+						required: {
+							value: true,
+							message: t('Label_General_PasswordRequired'),
+						},
 					})}
 				/>
 			</Form>
@@ -43,11 +49,11 @@ const Login = ({ onLogin, onLoginInvalid }: ILoginProps) => {
 				className='login'
 				onClick={handleSubmit(onLogin, onLoginInvalid)}
 			>
-				{t('Label_LogIn')}
+				{t('Label_General_LogIn')}
 			</button>
 			<Link href='join'>
 				<button type='button' className='join'>
-					{t('Label_Join')}
+					{t('Label_General_Join')}
 				</button>
 			</Link>
 		</>

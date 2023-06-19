@@ -62,25 +62,25 @@ const LayoutHeader = () => {
 					<>
 						<Link href={paths.transferFunds.root}>
 							<a>
-								<span>{t('Label_TransferFunds')}</span>
+								<span>{t('Label_General_TransferFunds')}</span>
 							</a>
 						</Link>
 
 						<Link href={paths.withdrawal.root}>
 							<a>
-								<span>{t('Label_Withdrawal')}</span>
+								<span>{t('Label_General_Withdrawal')}</span>
 							</a>
 						</Link>
 
 						<Link href={paths.history.root}>
 							<a>
-								<span>{t('Label_History')}</span>
+								<span>{t('Label_General_History')}</span>
 							</a>
 						</Link>
 
 						<Link href={paths.deposit.root}>
 							<a>
-								<span>{t('Label_Deposit')}</span>
+								<span>{t('Label_General_Deposit')}</span>
 							</a>
 						</Link>
 
@@ -106,7 +106,7 @@ const LayoutHeader = () => {
 						/>
 						<Country />
 						<Link href={paths.forgetPassword.root}>
-							<a className='forgot'>{t('Label_ForgetPassword')}</a>
+							<a className='forgot'>{t('Label_Header_ForgetPassword')}</a>
 						</Link>
 					</>
 				)}

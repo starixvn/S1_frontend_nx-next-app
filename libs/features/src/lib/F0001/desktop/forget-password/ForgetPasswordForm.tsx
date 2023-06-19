@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next'
 import { useForm } from 'react-hook-form'
-import { InputBox, emailRegex } from '@nx-next-app/components/D0001'
-import Form from 'libs/web/src/components/D0001/form'
+import { InputBox, Form } from '@nx-next-app/components/D0001'
+import { EMAIL_REGEX } from '@nx-next-app/constants'
 
 type ForgetPasswordFormType = {
 	email: string
@@ -35,7 +35,7 @@ const ForgetPasswordForm = ({
 						register={register('email', {
 							required: { value: true, message: t('Label_EmailFormatError') },
 							pattern: {
-								value: emailRegex,
+								value: EMAIL_REGEX,
 								message: t('Label_EmailFormatError'),
 							},
 							onBlur: async () => {

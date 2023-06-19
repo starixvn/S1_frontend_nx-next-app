@@ -7,6 +7,7 @@ import {
 	IStaticProducts,
 	IStaticSlotTpGameType,
 	IStaticVipEventCurrenciesLimitationInfo,
+	ITermsConditions,
 } from '@nx-next-app/types'
 
 export interface IStaticDataContext {
@@ -19,6 +20,10 @@ export interface IStaticDataContext {
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY: (
 		langId: string | number
 	) => IImageData[]
+	FEATURE_BONUS: { [key: number]: string }
+	TERMS_CONDITIONS: ({ langId }: { langId: string }) => ITermsConditions
+	USERNAME_REGEX: RegExp
+	PASSWORD_REGEX: RegExp
 }
 
 const StaticDataContext = createContext<IStaticDataContext>(null!)
@@ -36,6 +41,10 @@ const StaticDataProvider = ({
 	VIP_CLUB_IMAGES,
 	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
+	FEATURE_BONUS,
+	TERMS_CONDITIONS,
+	USERNAME_REGEX,
+	PASSWORD_REGEX,
 }: IStaticDataProviderProps) => {
 	const value: IStaticDataContext = {
 		PRODUCTS,
@@ -45,6 +54,10 @@ const StaticDataProvider = ({
 		VIP_CLUB_IMAGES,
 		VIP_EVENT_CURRENCIES_LIMITATION_INFO,
 		VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
+		FEATURE_BONUS,
+		TERMS_CONDITIONS,
+		USERNAME_REGEX,
+		PASSWORD_REGEX,
 	}
 
 	return (

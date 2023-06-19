@@ -36,27 +36,27 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
 export const VIP_CLUB_IMAGES: IImageData[] = [
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/vip1.png`,
-		displayKey: 'Label_Vintage_Club',
+		displayKey: 'Label_Vip_Vintage_Club',
 		alt: 'vip01',
 	},
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/vip2.png`,
-		displayKey: 'Label_Silver_Club',
+		displayKey: 'Label_Vip_Silver_Club',
 		alt: 'vip02',
 	},
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/vip3.png`,
-		displayKey: 'Label_Gold_Club',
+		displayKey: 'Label_Vip_Gold_Club',
 		alt: 'vip03',
 	},
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/vip4.png`,
-		displayKey: 'Label_Titanium_Club',
+		displayKey: 'Label_Vip_Titanium_Club',
 		alt: 'vip04',
 	},
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/vip5.png`,
-		displayKey: 'Label_Diamond_Club',
+		displayKey: 'Label_Vip_Diamond_Club',
 		alt: 'vip05',
 	},
 	{

@@ -23,3 +23,20 @@ export enum FlagEnum {
 	hasLang = 1,
 	unSetLang = 2,
 }
+
+export interface ISignUpArgs {
+	affCode?: string
+	affId?: string
+	areaCode: string
+	currencyId: number
+	email: string
+	phoneNo: string
+	realName: string
+	reCaptchaToken: string
+	referralUrl?: string
+	userLang: string
+	userName: string
+	userpwd: string
+	blackbox?: string
+	langId: string
+}

@@ -31,7 +31,12 @@ export const axiosBaseQuery =
 			responseType?: AxiosRequestConfig['responseType']
 		},
 		unknown,
-		{ status?: number; statusText?: string; errorCode?: number }
+		{
+			status?: number
+			statusText?: string
+			errorCode?: number
+			message?: string
+		}
 	> =>
 	async ({ url, method, data, params, headers, responseType }) => {
 		try {

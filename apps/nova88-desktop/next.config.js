@@ -17,7 +17,10 @@ const nextConfig = {
 		svgr: false,
 	},
 	images: {
-		domains: [process.env.NEXT_PUBLIC_BANNER_DOMAIN],
+		domains: [
+			process.env.NEXT_PUBLIC_BANNER_DOMAIN,
+			process.env.NEXT_PUBLIC_IMAGE_DOMAIN,
+		],
 	},
 	async rewrites() {
 		return {

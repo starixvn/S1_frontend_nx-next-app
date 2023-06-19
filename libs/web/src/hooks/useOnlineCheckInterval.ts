@@ -26,9 +26,9 @@ const useOnlineCheckInterval = ({
 				await onlineCheck(null).unwrap()
 			} catch (error) {
 				onResetAuth()
-				modal.info((error as Error).message || t('Label_LoggedOut'), {
+				modal.info((error as Error).message || t('Label_General_LoggedOut'), {
 					icon: 'icon icon-exit',
-					title: t('Label_LogOut'),
+					title: t('Label_General_LogOut'),
 					onOK: () => {
 						push(paths.home.root)
 						reload()
