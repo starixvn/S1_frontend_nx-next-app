@@ -68,7 +68,15 @@
 				"jsx-a11y/click-events-have-key-events": "off",
 				"jsx-a11y/no-static-element-interactions": "off",
 				"react/button-has-type": "off",
-				"@nrwl/nx/enforce-module-boundaries": "off"
+				"@nrwl/nx/enforce-module-boundaries": "off",
+        "semi": "off",
+        "no-tabs": "off",
+        "react/jsx-indent-props" : "off",
+        "indent": "off",
+        "react/jsx-indent" : "off",
+        "jsx-quotes": "off",
+        "no-mixed-spaces-and-tabs": "off",
+        "arrow-parens" : "off"
 			}
 		},
 		{

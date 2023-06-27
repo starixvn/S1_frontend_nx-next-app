@@ -1,10 +1,6 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-/* eslint-disable import/no-extraneous-dependencies */
-const withNx = require('@nrwl/next/plugins/with-nx')
+/* eslint-disable */
 
-/**
- * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
- * */
+const withNx = require('@nrwl/next/plugins/with-nx')
 
 process.env.I18NEXT_DEFAULT_CONFIG_PATH = `${__dirname}/next-i18next.config.js`
 

@@ -1,4 +1,4 @@
-import Image from 'next/future/image'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Carousel } from '@nx-next-app/components/D0001'
 import { paths } from '@nx-next-app/constants'

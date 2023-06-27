@@ -9,7 +9,7 @@ import {
 	useLazyGetTpWalletInfoByTpIdQuery,
 	useSetHideBalanceMutation,
 } from '@nx-next-app/service'
-import { sumBy } from 'lodash-es'
+import { sumBy } from 'lodash'
 import { useEffect, useState } from 'react'
 import { useInterval } from 'usehooks-ts'
 

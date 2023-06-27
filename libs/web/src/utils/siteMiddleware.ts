@@ -32,19 +32,19 @@ export const siteMiddleware = ({ request, config }: ISiteMiddleware) => {
 			)
 			response.cookies.set(
 				`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`,
-				defaultCurrency
+				String(defaultCurrency)
 			)
 		}
 	}
 	// 有指定語系，且與 cookie 不相符，將 cookie 替換至該語系
-	if (locale !== 'default' && locale !== cookieLang) {
+	if (locale !== 'default' && locale !== String(cookieLang)) {
 		response.cookies.set(
 			`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`,
 			locale
 		)
 		response.cookies.set(
 			`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`,
-			langToCurrency[locale]
+			String(langToCurrency[locale])
 		)
 	}
 	return response
