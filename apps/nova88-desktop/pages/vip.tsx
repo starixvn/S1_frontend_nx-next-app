@@ -8,7 +8,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { includes } from 'lodash-es'
+import { includes } from 'lodash'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 
 type IVipPageProps = InitialPropsInterface
