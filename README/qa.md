@@ -3,6 +3,7 @@
 1. [如何另開頁面](#如何另開頁面)
 2. [如何渲染圖片](#如何渲染圖片)
 3. [如何加入使用者驗證](#如何加入使用者驗證)
+4. [如何正確使用第三方Script](#如何正確使用三方Script)
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -63,3 +64,18 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	}
 }
 ```
+
+#### 如果正確使用三方Script
+因 serverSide 在 render 時無法正確吃到 thirdParty 的 script 
+故照以下方式撰寫實在 build project 時可能會出現錯誤
+
+```tsx
+  window.IGLOO.getBlackbox === 'function'
+// Type error: Property 'IGLOO' does not exist on type 'Window & typeof globalThis'.
+```
+
+要使用以下寫法才有辦法成功 build project 
+```tsx
+    (window as any).IGLOO.getBlackbox === 'function'
+```
+  
