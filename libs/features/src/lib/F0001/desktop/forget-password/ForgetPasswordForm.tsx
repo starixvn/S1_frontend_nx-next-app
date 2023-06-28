@@ -74,4 +74,4 @@ const ForgetPasswordForm = ({
 	)
 }
 
-export { ForgetPasswordForm, ForgetPasswordFormType }
+export { ForgetPasswordForm, type ForgetPasswordFormType }

@@ -306,8 +306,9 @@ const Form = ({ cookies }: IJoinProps) => {
 
 		try {
 			await signUp({
-				affCode,
-				affId,
+				// 因 cookies 有機會是 string[] 導致錯誤
+				affCode: affCode as string,
+				affId: affId as string,
 				areaCode,
 				currencyId: formCurrencyId,
 				email,
