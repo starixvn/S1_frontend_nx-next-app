@@ -256,10 +256,10 @@ const Form = ({ cookies }: IJoinProps) => {
 		let blackbox = ''
 		if (
 			typeof window !== undefined &&
-			typeof window.IGLOO.getBlackbox === 'function'
+			typeof (window as any).IGLOO.getBlackbox === 'function'
 		) {
 			try {
-				const result = await window.IGLOO.getBlackbox()
+				const result = await (window as any).IGLOO.getBlackbox()
 				blackbox = result?.blackbox || ''
 			} catch (error) {
 				// error
