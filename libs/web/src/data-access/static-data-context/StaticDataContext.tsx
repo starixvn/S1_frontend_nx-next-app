@@ -2,6 +2,7 @@
 import { createContext, ReactNode } from 'react'
 import {
 	IImageData,
+	IMetaData,
 	IStaticAllowedCurrencies,
 	IStaticLangGroups,
 	IStaticProducts,
@@ -11,6 +12,7 @@ import {
 } from '@nx-next-app/types'
 
 export interface IStaticDataContext {
+	META_DATA: IMetaData
 	PRODUCTS: IStaticProducts
 	ALLOWED_CURRENCIES: IStaticAllowedCurrencies
 	SLOT_TP_GAME_TYPE: IStaticSlotTpGameType
@@ -34,6 +36,7 @@ interface IStaticDataProviderProps extends IStaticDataContext {
 
 const StaticDataProvider = ({
 	children,
+	META_DATA,
 	PRODUCTS,
 	ALLOWED_CURRENCIES,
 	SLOT_TP_GAME_TYPE,
@@ -47,6 +50,7 @@ const StaticDataProvider = ({
 	PASSWORD_REGEX,
 }: IStaticDataProviderProps) => {
 	const value: IStaticDataContext = {
+		META_DATA,
 		PRODUCTS,
 		ALLOWED_CURRENCIES,
 		SLOT_TP_GAME_TYPE,

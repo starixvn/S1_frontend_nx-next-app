@@ -32,6 +32,7 @@
 			"files": ["*.ts", "*.tsx"],
 			"extends": ["plugin:@nrwl/nx/typescript"],
 			"rules": {
+				"@next/next/no-img-element": "off",
 				"@next/next/no-html-link-for-pages": "off",
 				"import/no-unresolved": "off",
 				"prefer-const": "warn",
@@ -69,14 +70,14 @@
 				"jsx-a11y/no-static-element-interactions": "off",
 				"react/button-has-type": "off",
 				"@nrwl/nx/enforce-module-boundaries": "off",
-        "semi": "off",
-        "no-tabs": "off",
-        "react/jsx-indent-props" : "off",
-        "indent": "off",
-        "react/jsx-indent" : "off",
-        "jsx-quotes": "off",
-        "no-mixed-spaces-and-tabs": "off",
-        "arrow-parens" : "off"
+				"semi": "off",
+				"no-tabs": "off",
+				"react/jsx-indent-props": "off",
+				"indent": "off",
+				"react/jsx-indent": "off",
+				"jsx-quotes": "off",
+				"no-mixed-spaces-and-tabs": "off",
+				"arrow-parens": "off"
 			}
 		},
 		{

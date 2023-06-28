@@ -4,8 +4,8 @@ import { store } from '@nx-next-app/store'
 import { appWithTranslation } from 'next-i18next'
 import { UIProvider } from '@nx-next-app/components/config-provider'
 import { StaticDataProvider } from '@nx-next-app/data-access'
-
 import { ThirdPartyJS } from '@nx-next-app/features/F0001/desktop'
+
 // * supply localized format options
 // * https://day.js.org/docs/en/plugin/localized-format
 import dayjs from 'dayjs'
@@ -15,6 +15,7 @@ import {
 	ALLOWED_CURRENCIES,
 	FEATURE_BONUS,
 	LANG_GROUPS,
+	META_DATA,
 	PASSWORD_REGEX,
 	PRODUCTS,
 	SLOT_TP_GAME_TYPE,
@@ -48,6 +49,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 				{/* 提供 Component 狀態管理 */}
 				<UIProvider>
 					<StaticDataProvider
+						META_DATA={META_DATA}
 						PRODUCTS={PRODUCTS}
 						ALLOWED_CURRENCIES={ALLOWED_CURRENCIES}
 						SLOT_TP_GAME_TYPE={SLOT_TP_GAME_TYPE}
