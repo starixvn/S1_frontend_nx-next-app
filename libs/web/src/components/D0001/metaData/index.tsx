@@ -1,12 +1,14 @@
 import Head from 'next/head'
-import { META_DATA, paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { ISEOData } from 'libs/web/src/data-access/type'
 import { replace, uniqueId } from 'lodash'
 import { useRouter } from 'next/router'
 
 const useMetaData = (persistSEOData: ISEOData) => {
 	const { pathname } = useRouter()
+	const { META_DATA } = useStaticData()
+
 	const {
 		userInfo: { langId },
 	} = useAuth()

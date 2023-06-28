@@ -52,8 +52,6 @@ const withNx = require('@nrwl/next/plugins/with-nx')
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
  * */
 
-const isDevelopment = process.env.NODE_ENV !== 'production'
-
 // * 自定義next-i18next.config.js路徑
 process.env.I18NEXT_DEFAULT_CONFIG_PATH = `${__dirname}/next-i18next.config.js`
 
@@ -90,18 +88,20 @@ module.exports = withNx(nextConfig)
 
 \_app.tsx
 
-- 加入 store 完成 react-redux 配置
-- 加入 ConfigProvider 讓元件之間可以跨組間溝通
+- 加入 Provider、store 完成 react-redux 配置
 - 加入 appWithTranslation HOC 完成語系設定
-- 配置 style
+- 加入 UIProvider 讓元件之間可以跨組間溝通
+- 加入 StaticDataProvider 讓元件可使用跨品牌使用靜態資料
 - 配置 dayjs 相關設定
+- 配置 style
 
 ```tsx
 import { AppProps } from 'next/app'
-import { store } from '@nx-next-app/store'
 import { Provider } from 'react-redux'
-import { ConfigProvider } from '@nx-next-app/components/D0001'
+import { store } from '@nx-next-app/store'
 import { appWithTranslation } from 'next-i18next'
+import { UIProvider } from '@nx-next-app/components/config-provider'
+import { StaticDataProvider } from '@nx-next-app/data-access'
 
 // * supply localized format options
 // * https://day.js.org/docs/en/plugin/localized-format
@@ -119,10 +119,13 @@ function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<Provider store={store}>
-				{/* 提供 Component 狀態管理 */}
-				<ConfigProvider>
-					<Component {...pageProps} />
-				</ConfigProvider>
+				<UIProvider>
+					<StaticDataProvider
+					// {...}
+					>
+						<Component {...pageProps} />
+					</StaticDataProvider>
+				</UIProvider>
 			</Provider>
 		</>
 	)

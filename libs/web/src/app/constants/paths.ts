@@ -26,6 +26,12 @@ export const paths = {
 	profile: {
 		root: 'profile',
 	},
+	statement: {
+		root: 'statement',
+	},
+	wallet: {
+		root: 'wallet',
+	},
 	cryptoWallet: {
 		root: 'crypto-wallet',
 	},
@@ -67,5 +73,14 @@ export const paths = {
 	},
 	lottery: {
 		root: 'lottery',
+	},
+	setting: {
+		root: 'setting',
+	},
+	myAccount: {
+		root: 'my-account',
+	},
+	leaderboard: {
+		root: 'leaderboard',
 	},
 }

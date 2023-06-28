@@ -5,6 +5,8 @@ const withNx = require('@nrwl/next/plugins/with-nx')
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
  * */
 
+process.env.I18NEXT_DEFAULT_CONFIG_PATH = `${__dirname}/next-i18next.config.js`
+
 const { i18n } = require('./next-i18next.config')
 
 const nextConfig = {

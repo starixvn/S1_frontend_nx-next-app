@@ -5,6 +5,7 @@ export * from './vip'
 export * from './products'
 export * from './termsConditions'
 export * from './join'
+export * from './metaData'
 
 export const LANG_GROUPS: IStaticLangGroups = {
 	ch: [

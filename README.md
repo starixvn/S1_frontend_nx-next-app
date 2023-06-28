@@ -12,7 +12,7 @@
 
 > 使用 JavaScript 實用程序庫。
 
-## [generate app flow](/README/flow.md)
+## [generate app flow](/README/generate-app-flow.md)
 
 ## [next-i18next](/README/next-i18next.md)
 
@@ -39,3 +39,5 @@ tsconfig.base.json
 			"@nx-next-app/utils": ["libs/web/src/utils"]
 		}
 ```
+
+ㄒ

@@ -1,4 +1,4 @@
-import { paths } from './paths'
+import { paths } from '@nx-next-app/constants'
 
 export const META_DATA: {
 	[path: string]: {
