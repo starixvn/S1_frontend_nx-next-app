@@ -17,6 +17,10 @@ export interface IInputBoxProps
 	subtitle?: string
 	requiredIcon?: boolean
 	disabled?: boolean
+	format?: boolean
+	formatStr?: string
+	buttonBox?: boolean
+	buttonBoxSource?: React.ReactNode[]
 }
 
 /**
@@ -31,9 +35,13 @@ export interface IInputBoxProps
  * @param {boolean} error - 驗證是否通過 -  !!errors[pathName]
  * @param {string} errorMessage - 錯誤訊息，由 formState.errors[pathName]?.message 傳遞下來
  * @param {string} icon - icon's className
- * @param {string} type - HTMLInputTypeAttribute , 可自定義 type , 沒填的話預設 "text", password 模式下此功能無用。
+ * @param {string} type - HTMLInputTypeAttribute , 可自定義 type ,如在用於 amount 時傳入強制為 number ，沒填的話預設 "text", password 模式下此功能無用。
  * @param {React.ReactNode} children - 傳入子元件，若功能完成後無使用到可刪除
  * @param {string} subtitle - subtitle's text
+ * @param {boolean} format - 是否加入特定幣別 formatStr
+ * @param {string} formatStr - 用於複寫預設的 formatStr
+ * @param {boolean} buttonBox - 是否顯示 input 底部的按鈕列，用於 financial 系列功能頁
+ * @param {React.ReactNode[]} buttonBoxSource - 有開啟 buttonBox 時要給予按鈕列要顯示的內容
  * @param {*} prop - other html input props
  * @author Wen
  */
@@ -55,6 +63,10 @@ const InputBox = ({
 	subtitle,
 	requiredIcon,
 	disabled,
+	format,
+	formatStr = "('000)",
+	buttonBox,
+	buttonBoxSource,
 	...props
 }: IInputBoxProps) => {
 	const [showPassword, setShowPassword] = useState(false)
@@ -118,6 +130,7 @@ const InputBox = ({
 						textRight: !password,
 					})}
 				/>
+				{format && <div>{formatStr}</div>}
 				<div className='icon-module'>
 					{stateIcon()}
 					{password && (
@@ -146,6 +159,7 @@ const InputBox = ({
 			>
 				{errorMessage}
 			</div>
+			{buttonBox && <div className='buttonBox'>{buttonBoxSource}</div>}
 		</div>
 	)
 }

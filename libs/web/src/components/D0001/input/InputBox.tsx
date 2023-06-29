@@ -11,7 +11,6 @@ export interface IInputBoxProps
 	error?: boolean
 	password?: boolean
 	isMessagesHide?: boolean
-	isConvert?: boolean
 	warning?: boolean
 	successMessage?: string
 	errorMessage?: string
@@ -19,9 +18,9 @@ export interface IInputBoxProps
 	description?: string
 	areaCode?: string
 	infoMessage?: string
+	format?: boolean
+	formatStr?: string
 }
-
-const formatStr = "('000)"
 
 /**
  * 原 InputBox 元件，現將 InputBox.PSW 合併至單一 Input 元件，傳入 `password` 將會轉換成 password Input。
@@ -52,7 +51,8 @@ const formatStr = "('000)"
  * @param {boolean} isMessagesHide - 啟用後將會隱藏所有 msg ( 包含 error , success )
  * @param {string} areaCode - 與 title 同位置，但為淺灰字樣
  * @param {string} infoMessage - 有給予此 function 時會出現 info icon , 細節請閱說明第七點。
- * @param {boolean} isConvert - 控制是否加入 VND format
+ * @param {boolean} format - 控制是否加入 formatStr
+ * @param {string} formatStr - 用於複寫預設的 formatStr
  * @param {boolean} warning - 檢視舊專案無使用到,true 則顯示警告 icon
  * @param {string} type - HTMLInputTypeAttribute
  * @param {*} prop - other html input props
@@ -65,7 +65,7 @@ const InputBox = ({
 	loading,
 	error,
 	isMessagesHide,
-	isConvert,
+	format,
 	warning,
 	successMessage,
 	errorMessage,
@@ -76,6 +76,7 @@ const InputBox = ({
 	areaCode,
 	className,
 	infoMessage,
+	formatStr = "('000)",
 	...props
 }: IInputBoxProps) => {
 	const [showPassword, setShowPassword] = useState(false)
@@ -160,7 +161,7 @@ const InputBox = ({
 				{!!description && <div className='description'>{description}</div>}
 
 				<div className='iconModule'>
-					{!!isConvert && <i>{formatStr}</i>}
+					{format && <i>{formatStr}</i>}
 
 					{password ? (
 						// eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
