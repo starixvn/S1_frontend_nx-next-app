@@ -15,34 +15,67 @@ enum AccordionEnum {
 
 const Setting = () => {
 	const { t } = useTranslation()
-	const { userInfo } = useAuth()
+	const { userInfo, auth } = useAuth()
 	const [accordionType, setAccordionType] = useState<AccordionEnum>()
 
 	return (
 		<>
 			<Header className='header'>
-				<div className='title'>更多</div>
+				<div className='title'>{t('Label_General_More')}</div>
 			</Header>
+
 			<main className='more'>
-				<div className='tag'>
-					<Link href={paths.profile.root}>
-						<a className='icon icon-member'>{t('Label_General_Profile')}</a>
-					</Link>
-					<i />
-					<Link href={paths.message.root}>
-						<a className='icon icon-email' href='/cs/message'>
-							{t('Label_General_Message')}
-							<i className='quantity'>6</i>
-						</a>
-					</Link>
-				</div>
+				{auth.isLogin && (
+					<div className='tag'>
+						<Link
+							href={{
+								pathname: paths.profile.root,
+								query: { from: paths.setting.root },
+							}}
+						>
+							<a className='icon icon-member'>{t('Label_General_Profile')}</a>
+						</Link>
+						<i />
+						<Link href={paths.message.root}>
+							<a className='icon icon-email' href='/cs/message'>
+								{t('Label_General_Message')}
+								<i className='quantity'>6</i>
+							</a>
+						</Link>
+					</div>
+				)}
+
+				{!auth.isLogin && (
+					<div className='tag'>
+						<Link
+							href={{
+								pathname: paths.join.root,
+								query: { from: paths.setting.root },
+							}}
+						>
+							<a>{t('Label_General_Join')}</a>
+						</Link>
+						<i />
+						<Link
+							href={{
+								pathname: paths.login.root,
+								query: { from: paths.setting.root },
+							}}
+						>
+							<a>{t('Label_General_LogIn')}</a>
+						</Link>
+					</div>
+				)}
 
 				<div className='accordion'>
-					<div>
-						<a className='title icon icon-person' href={paths.myAccount.root}>
-							{t('Label_General_MyAccount')}
-						</a>
-					</div>
+					{auth.isLogin && (
+						<div>
+							<a className='title icon icon-person' href={paths.myAccount.root}>
+								{t('Label_General_MyAccount')}
+							</a>
+						</div>
+					)}
+
 					<div>
 						<a className='title icon icon-medal' href={paths.vip.root}>
 							VIP
@@ -210,11 +243,13 @@ const Setting = () => {
 						</a>
 						<a href='/cs/game-provider'>{t('Label_General_GameProvider')}</a>
 					</div>
-					<div>
-						<button className='title icon icon-exit'>
-							{t('Label_General_LogOut')}
-						</button>
-					</div>
+					{auth.isLogin && (
+						<div>
+							<button className='title icon icon-exit'>
+								{t('Label_General_LogOut')}
+							</button>
+						</div>
+					)}
 				</div>
 			</main>
 		</>

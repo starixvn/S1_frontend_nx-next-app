@@ -2,8 +2,11 @@ export const paths = {
 	home: {
 		root: '/',
 	},
+	login: {
+		root: 'login',
+	},
 	forgetPassword: {
-		root: '/forget-password',
+		root: 'forget-password',
 	},
 	join: {
 		root: 'join',
