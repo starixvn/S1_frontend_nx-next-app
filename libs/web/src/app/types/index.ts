@@ -45,6 +45,7 @@ export interface IStaticAllowedCurrencies {
 	EXCHANGE: CurrenciesEnum[]
 	WORLD_CIP: CurrenciesEnum[]
 	REWARDS: CurrenciesEnum[]
+	LEADER_BOARD: CurrenciesEnum[]
 	WITHDRAWAL_METHOD: {
 		BANK_CARD: CurrenciesEnum[]
 		E_WALLET: CurrenciesEnum[]

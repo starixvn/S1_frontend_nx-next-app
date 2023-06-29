@@ -47,6 +47,9 @@ export const paths = {
 	bankInfo: {
 		root: 'bank-info',
 	},
+	appDownload: {
+		root: 'app-download',
+	},
 	promotion: {
 		root: 'promotion',
 	},

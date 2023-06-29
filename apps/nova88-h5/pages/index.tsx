@@ -7,6 +7,7 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { Layout, Home } from '@nx-next-app/features/F0001/h5'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 
 type IHomePageProps = InitialPropsInterface
 
@@ -15,11 +16,13 @@ const HomePage = ({
 	originCookies,
 	persistSEOData,
 }: IHomePageProps) => {
+	const persistAppDownloadHint = originCookies[ENV_COOKIE_NAMES.AppDownloadHint]
+
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData}>
-					<Home />
+					<Home persistAppDownloadHint={persistAppDownloadHint} />
 				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>

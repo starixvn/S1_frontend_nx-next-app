@@ -16,6 +16,7 @@ const Login = () => {
 	const { push, query } = useRouter()
 	const { t } = useTranslation()
 	const { onSignIn } = useAuth()
+
 	const fromRoute = isString(query['from']) ? query['from'] : paths.home.root
 	const { register, handleSubmit, formState, trigger } =
 		useForm<LoginFormType>()
@@ -32,10 +33,7 @@ const Login = () => {
 
 	return (
 		<div className='logoSwitch active'>
-			<button
-				data-testid='close_join_modal_btn'
-				onClick={() => push(fromRoute)}
-			>
+			<button onClick={() => push(fromRoute)}>
 				<div className='icon icon-close' />
 			</button>
 			<img
@@ -103,15 +101,11 @@ const Login = () => {
 						errorMessage={errors['password']?.message as string}
 					/>
 				</div>
-				<div className='Terms' data-testid='forgetpw'>
+				<div className='Terms'>
 					<a href='/en/forget-password'>Forgot your Password?</a>
 				</div>
 				<div className='btn-group'>
-					<button
-						data-testid='login_submit'
-						type='submit'
-						onClick={handleSubmit(handleSignIn)}
-					>
+					<button type='submit' onClick={handleSubmit(handleSignIn)}>
 						{t('Label_General_LogIn')}
 					</button>
 				</div>

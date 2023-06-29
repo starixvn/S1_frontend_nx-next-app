@@ -1,17 +1,27 @@
+import { paths } from '@nx-next-app/constants'
 import classNames from 'classnames'
 import Image from 'next/future/image'
-import { useBoolean } from 'usehooks-ts'
+import Link from 'next/link'
+import { useTranslation } from 'next-i18next'
 
-const AppDownload = () => {
-	const { value: isActive, setFalse } = useBoolean(true)
+interface IAppDownloadProps {
+	isAppDownloadHintActive: boolean
+	onCloseAppDownloadHint: () => void
+}
+
+const AppDownload = ({
+	isAppDownloadHintActive,
+	onCloseAppDownloadHint,
+}: IAppDownloadProps) => {
+	const { t } = useTranslation()
 
 	return (
 		<div
 			className={classNames('appdownload', {
-				active: isActive,
+				active: isAppDownloadHintActive,
 			})}
 		>
-			<button className='icon icon-close' onClick={setFalse} />
+			<button className='icon icon-close' onClick={onCloseAppDownloadHint} />
 			<Image
 				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/app/appicon.jpg`}
 				alt='appicon-img'
@@ -19,10 +29,12 @@ const AppDownload = () => {
 				width={34}
 			/>
 			<div>
-				<div>Download the App</div>
-				<div>Bet Anytime Anywhere</div>
+				<div>{t('Label_AppDownload_DownloadAppNow')}</div>
+				<div>{t('Label_AppDownload_BestMobileExperience')}</div>
 			</div>
-			<a href='app.html'>Download</a>
+			<Link href={paths.appDownload.root}>
+				<a>{t('Label_General_Download')}</a>
+			</Link>
 		</div>
 	)
 }
