@@ -12,7 +12,7 @@ const HeaderModule = ({ className, ...props }: IHeaderModuleProps) => {
 
 	return (
 		<div className={classNames('headerModule dragon', className)} {...props}>
-			<a href='/en'>
+			<a href='/'>
 				<Image
 					className='dragonlogo'
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/dragon-logo.png`}
@@ -31,7 +31,7 @@ const HeaderModule = ({ className, ...props }: IHeaderModuleProps) => {
 				/>
 			</a>
 
-			{!auth.isLogin && (
+			{auth.isLogin && (
 				<div>
 					<div className='headerInfo'>
 						Welcome

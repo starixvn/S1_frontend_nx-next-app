@@ -64,6 +64,8 @@
 	"Label_General_Terms": "Terms",
 	"Label_General_GameProvider": "Game Provider",
 	"Label_General_ContactUs": "Contact Us",
+	"Label_General_ForgetPassword": "Forgot your Password",
+	"Label_General_Download": "Download",
 
 	"Label_Header_ForgetPassword": "Forgotten your password?",
 
@@ -124,5 +126,11 @@
 	"Label_Join_RemindPrefferedCurrency": "Preffered Currency is required.",
 	"Label_Join_SignUpTerms1": "By clicking the JOIN NOW button, I hereby acknowledge that I am above 18 years old and have read and accepted your",
 	"Label_Join_SignUpTerms2": "terms & conditions",
-	"Label_Join_SignUpTerms3": "."
+	"Label_Join_SignUpTerms3": ".",
+
+	"Label_Login_UsernameTooltip": "For security, we suggest that your username does not contain your real name.",
+
+	"Label_AppDownload_DownloadAppNow": "Download APP now",
+
+	"Label_AppDownload_BestMobileExperience": "Best Mobile Experience"
 }
