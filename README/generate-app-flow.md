@@ -160,3 +160,6 @@ _.h5: 300x
 				"port": 4001 //給予port號
 			},
 ```
+
+### 添加 middleware 設定 
+[locale.md](locale.md)
