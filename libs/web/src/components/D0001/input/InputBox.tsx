@@ -4,16 +4,12 @@ import { UseFormRegisterReturn } from 'react-hook-form'
 import classNames from 'classnames'
 
 export interface IInputBoxProps
-	extends Omit<
-		InputHTMLAttributes<HTMLInputElement>,
-		'size' | 'prefix' | 'checked'
-	> {
+	extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
 	register: UseFormRegisterReturn
 	touched: boolean
 	loading?: boolean
 	error?: boolean
 	password?: boolean
-	checked?: boolean | 'loading' | null
 	isMessagesHide?: boolean
 	isConvert?: boolean
 	warning?: boolean
@@ -43,8 +39,8 @@ const formatStr = "('000)"
  * 其餘可至元件庫內閱讀完整 docs
  *
  * ---
- * @param {require} register 必填，傳入 react-hook-form 的 register 綁定元件
- * @param {require} touched 必填，樣式需透過判斷是否觸發過元件，才可做進一步渲染，傳入 touchedFields[pathName] 做判斷。
+ * @param {required} register 必填，傳入 react-hook-form 的 register 綁定元件
+ * @param {required} touched 必填，樣式需透過判斷是否觸發過元件，才可做進一步渲染，傳入 touchedFields[pathName] 做判斷。
  * @param {boolean} password - 傳遞 password props 控制是否為 pwd input
  * @param {string} className - 現預設有包含 'inputBox-blue' 在其中，可不必傳此 class，傳進 className 即覆蓋
  * @param {string} errorMessage - 錯誤訊息，由 formState.errors[pathName]?.message 傳遞下來
@@ -66,7 +62,6 @@ const InputBox = ({
 	register,
 	touched,
 	password,
-	checked,
 	loading,
 	error,
 	isMessagesHide,
