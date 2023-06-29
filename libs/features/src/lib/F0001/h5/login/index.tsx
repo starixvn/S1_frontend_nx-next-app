@@ -3,11 +3,32 @@ import { paths } from '@nx-next-app/constants'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { isString } from 'lodash-es'
+import { Form, InputBox } from '@nx-next-app/components/H0001'
+import { useForm } from 'react-hook-form'
+import { useAuth } from '@nx-next-app/data-access'
 
+type LoginFormType = {
+	userName: string
+	password: string
+}
 const Login = () => {
+	const router = useRouter()
 	const { push, query } = useRouter()
 	const { t } = useTranslation()
+	const { onSignIn } = useAuth()
 	const fromRoute = isString(query['from']) ? query['from'] : paths.home.root
+	const { register, handleSubmit, formState, trigger } =
+		useForm<LoginFormType>()
+	const { errors, touchedFields } = formState
+
+	const handleSignIn = async (payload: LoginFormType) => {
+		try {
+			await onSignIn(payload)
+			router.push(paths.home.root)
+		} catch (error) {
+			// ..error
+		}
+	}
 
 	return (
 		<div className='logoSwitch active'>
@@ -44,47 +65,57 @@ const Login = () => {
 					</Link>
 				</div>
 			</button>
-			<div className='Login active'>
-				<div className='infoModule '>
-					<div className='inputInfo ' data-testid='inputInfo'>
-						For security, we suggest that your username does not contain your
-						real name.
-					</div>
-					<div className='inputBox '>
-						<i className='icon icon-member' />
-						<input
-							data-testid='UserName_ipt'
-							placeholder='Username'
-							type='text'
-							className='textRight'
-							value=''
-						/>
-						<div className='icon-module' />
-						<i data-testid='showTipBtn' className='icon icon-information' />
-					</div>
-				</div>
-				<div className='tip' data-testid='UserName_msg' />
-			</div>
-			<div className='infoModule'>
-				<div className='inputBox '>
-					<i className='icon icon-key' />
-					<input
-						data-testid='Password_ipt'
-						type='password'
-						placeholder='Password'
-						value=''
+			<Form
+				onSubmit={e => {
+					e.preventDefault()
+					handleSubmit(handleSignIn)
+				}}
+			>
+				<div className='Login active'>
+					<InputBox
+						register={register('userName', {
+							required: {
+								value: true,
+								message: t('Label_General_UsernameReq'),
+							},
+							onBlur: () => trigger('userName'),
+						})}
+						touched={!!touchedFields['userName']}
+						icon='icon-member'
+						infoMessage={t('Label_General_UsernameTooltip') || ''}
+						placeholder={t('Label_General_Username') || ''}
+						error={!!errors['userName']}
+						errorMessage={errors['userName']?.message as string}
 					/>
-					<div className='icon-module'>
-						<i data-testid='showPsw' className='icon icon-eye-blocked' />
-					</div>
+					<InputBox
+						password
+						register={register('password', {
+							required: {
+								value: true,
+								message: t('Label_General_PasswordRequired'),
+							},
+							onBlur: () => trigger('password'),
+						})}
+						touched={!!touchedFields['password']}
+						icon='icon-key'
+						placeholder={t('Label_General_Password') || ''}
+						error={!!errors['password']}
+						errorMessage={errors['password']?.message as string}
+					/>
 				</div>
-			</div>
-			<div className='Terms' data-testid='forgetpw'>
-				<a href='/en/forget-password'>Forgot your Password?</a>
-			</div>
-			<div className='btn-group'>
-				<button data-testid='login_submit'>Log In</button>
-			</div>
+				<div className='Terms' data-testid='forgetpw'>
+					<a href='/en/forget-password'>Forgot your Password?</a>
+				</div>
+				<div className='btn-group'>
+					<button
+						data-testid='login_submit'
+						type='submit'
+						onClick={handleSubmit(handleSignIn)}
+					>
+						{t('Label_General_LogIn')}
+					</button>
+				</div>
+			</Form>
 			<a href='/en/'>
 				<div className='visit'>
 					I would like to visit !<i className='icon icon-visit' />

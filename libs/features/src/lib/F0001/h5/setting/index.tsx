@@ -4,6 +4,7 @@ import { useAuth } from '@nx-next-app/data-access'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 
 enum AccordionEnum {
@@ -14,9 +15,14 @@ enum AccordionEnum {
 }
 
 const Setting = () => {
+	const router = useRouter()
 	const { t } = useTranslation()
-	const { userInfo, auth } = useAuth()
+	const { userInfo, auth, onSignOut } = useAuth()
 	const [accordionType, setAccordionType] = useState<AccordionEnum>()
+	const handleSignOut = async () => {
+		await onSignOut()
+		router.push(paths.home.root)
+	}
 
 	return (
 		<>
@@ -245,7 +251,7 @@ const Setting = () => {
 					</div>
 					{auth.isLogin && (
 						<div>
-							<button className='title icon icon-exit'>
+							<button className='title icon icon-exit' onClick={handleSignOut}>
 								{t('Label_General_LogOut')}
 							</button>
 						</div>

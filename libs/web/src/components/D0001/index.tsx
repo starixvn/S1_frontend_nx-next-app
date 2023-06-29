@@ -7,7 +7,7 @@ export type { LoginFormType } from './header/Function/Login'
 export { default as Footer } from './footer'
 
 export { InputBox } from './input'
-export type { IInputBoxInterface } from './input'
+export type { IInputBoxProps } from './input'
 
 export { default as Form } from './form'
 

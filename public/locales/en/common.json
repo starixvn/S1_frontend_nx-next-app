@@ -31,6 +31,7 @@
 	"Label_General_LastTransaction": "Last Transaction",
 	"Label_General_Unlimited": "Unlimited",
 	"Label_General_Username": "Username",
+  "Label_General_UsernameTooltip" : "For security, we suggest that your username does not contain your real name.",
 	"Label_General_Password": "Password",
 	"Label_General_Email": "Email",
 	"Label_General_PasswordValidate": "Password must be 6-15 characters, contain alphanumeric.",
