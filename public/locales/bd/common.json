@@ -63,5 +63,6 @@
 	"Label_Join_RemindPrefferedCurrency": "পছন্দের মূদ্রা প্রয়োজন।",
 	"Label_Join_SignUpTerms1": "এখনই যোগদান করুন বোতামে ক্লিক করার মাধ্যমে, আমি এতদ্বারা স্বীকার করছি যে আমার বয়স 18 বছরের বেশি এবং আমি এটি সম্পূর্ণ পড়েছি এবং এটি মেনে নিচ্ছি",
 	"Label_Join_SignUpTerms2": "শর্তাবলী",
-	"Label_Join_SignUpTerms3": "."
+	"Label_Join_SignUpTerms3": ".",
+	"Label_Join_DontHaveAccount": "কোনো অ্যাকাউন্ট নেই"
 }

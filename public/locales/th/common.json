@@ -98,5 +98,6 @@
 	"Label_Join_RemindPrefferedCurrency": "ต้องระบุสกุลเงินที่ต้องการ",
 	"Label_Join_SignUpTerms1": "คลิ๊กที่ปุ่มสมัครสมาชิก , ข้าพเจ้าขอรับรองว่าข้าพเจ้ามีอายุเกิน 18 ปี ได้อ่านและยอมรับ",
 	"Label_Join_SignUpTerms2": "ข้อกำหนดและเงื่อนไข",
-	"Label_Join_SignUpTerms3": "แล้ว"
+	"Label_Join_SignUpTerms3": "แล้ว",
+	"Label_Join_DontHaveAccount": "ยังไม่มีบัญชีใช่ไหม"
 }

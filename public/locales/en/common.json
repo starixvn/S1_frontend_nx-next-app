@@ -128,10 +128,10 @@
 	"Label_Join_SignUpTerms1": "By clicking the JOIN NOW button, I hereby acknowledge that I am above 18 years old and have read and accepted your",
 	"Label_Join_SignUpTerms2": "terms & conditions",
 	"Label_Join_SignUpTerms3": ".",
+	"Label_Join_DontHaveAccount": "Don't have an account?",
 
 	"Label_Login_UsernameTooltip": "For security, we suggest that your username does not contain your real name.",
 
 	"Label_AppDownload_DownloadAppNow": "Download APP now",
-
 	"Label_AppDownload_BestMobileExperience": "Best Mobile Experience"
 }

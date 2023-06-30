@@ -1,10 +1,10 @@
 import classNames from 'classnames'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { isNumber } from 'lodash'
-import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { CurrenciesEnum } from '@nx-next-app/types'
@@ -30,7 +30,8 @@ import {
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
 } from '@nx-next-app/service'
-import LineRegister from './LineRegister'
+import { LineRegister } from './LineRegister'
+import { LoginHint } from './LoginHint'
 
 interface IJoinProps {
 	cookies: TmpCookiesObj
@@ -58,6 +59,8 @@ const Form = ({ cookies }: IJoinProps) => {
 		getFieldState,
 	} = useForm()
 
+	const { errors, touchedFields } = formState
+
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
@@ -78,7 +81,6 @@ const Form = ({ cookies }: IJoinProps) => {
 	const [signUp] = useSignupMutation()
 
 	const [phoneErrorTip, setPhoneErrorTip] = useState<string | undefined>('')
-	const { errors, touchedFields } = formState
 	const watchCurrencyId = watch('currencyId')
 
 	const checkUsername = async () => {
@@ -361,17 +363,7 @@ const Form = ({ cookies }: IJoinProps) => {
 			className='joinloginFunction'
 			onSubmit={handleSubmit(handleSubmitForm)}
 		>
-			<span className='title txt-blue'>{t('Label_General_Join')}</span>
-			<div>
-				{t('Label_Join_LoginMsg')}
-				<button
-					className='txt-blue'
-					type='button'
-					// onClick={openLogin}
-				>
-					{t('Label_Join_LoginHere')}
-				</button>
-			</div>
+			<LoginHint />
 			{currencyId === CurrenciesEnum.THB && <LineRegister />}
 			<div className='inputModule'>
 				<InputBox
@@ -540,4 +532,4 @@ const Form = ({ cookies }: IJoinProps) => {
 	)
 }
 
-export default Form
+export { Form }

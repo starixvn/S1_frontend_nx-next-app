@@ -1,90 +1,178 @@
-/* 
-* 預期使用方式
-import dynamic from 'next/dynamic'
-const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
-	ssr: false,
-})
-
-modal.open(<LoginModal />)
-*/
-
+import Link from 'next/link'
+import Image from 'next/future/image'
+import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/router'
+import { useTranslation } from 'next-i18next'
+import { paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { InputBox } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useSignInMutation } from '@nx-next-app/service'
 
 const LoginModal = () => {
+	const router = useRouter()
+	const { t } = useTranslation()
 	const { closeModal } = useGlobalModal()
+
+	const {
+		userInfo: { langId },
+	} = useAuth()
+
+	const { formState, trigger, setError, register, getValues, handleSubmit } =
+		useForm()
+
+	const { errors, touchedFields } = formState
+
+	const [signIn] = useSignInMutation()
+
+	const handleSubmitForm = async () => {
+		const { username, password } = getValues()
+
+		if (typeof window === undefined) return
+
+		const url = window.location.origin
+		const { platform } = navigator
+		const { userAgent } = navigator
+		const screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`
+
+		try {
+			await signIn({
+				userName: username,
+				userpwd: password,
+				isPersistent: false,
+				url,
+				platform,
+				userAgent,
+				screen,
+			}).unwrap()
+
+			closeModal()
+			router.push(`/${langId}/${paths.deposit.root}`)
+		} catch (error) {
+			const { errorCode, message } =
+				(error as {
+					errorCode: number
+					message: string
+					status: number
+				}) || {}
+
+			const errorCodeType: { [key: string]: number[] } = {
+				username: [1101, 1102, 1103, 9000],
+				password: [1001],
+			}
+
+			const errorCodeIdx = Object.values(errorCodeType).findIndex(arr =>
+				arr.includes(errorCode)
+			)
+
+			if (errorCodeIdx !== -1) {
+				const errorColumn = Object.keys(errorCodeType)[errorCodeIdx]
+				setError(errorColumn, { type: 'mismatch', message })
+			}
+		}
+	}
 
 	return (
 		<div className='loginpop active'>
 			<div className='joinloginModule'>
 				<div className='loginAnimation'>
-					<img
+					<Image
 						className='animationlogo'
 						alt='animationlogo'
-						src='https://image.0814media.net/SiteSkin/img/logo_en_w.png'
+						src={`${process.env['NEXT_PUBLIC_IMAGE_HOST']}/SiteSkin/img/logo_en_w.png`}
+						width={150}
+						height={66}
+						style={{ width: '150px', height: '66px' }}
 					/>
-
-					<img
+					<Image
 						className='npc1'
 						alt='npc1'
-						src='https://banner.0814media.net/desktop/img/loginNpc01.png'
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/loginNpc01.png`}
+						width={181}
+						height={335}
+						style={{ width: '181px', height: '335px' }}
 					/>
-					<img
+					<Image
 						className='npc2'
 						alt='npc2'
-						src='https://banner.0814media.net/desktop/img/loginNpc02.png'
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/loginNpc02.png`}
+						width={400}
+						height={367}
+						style={{ width: '400px', height: '367px' }}
 					/>
-					<img
+					<Image
 						className='welcome'
 						alt='welcome'
-						src='https://banner.0814media.net/desktop/img/welcome.png'
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/welcome.png`}
+						width={49}
+						height={313}
+						style={{ width: '49px', height: '313px' }}
 					/>
-					<img
+					<Image
 						className='back'
 						alt='back'
-						src='https://banner.0814media.net/desktop/img/back.png'
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/back.png`}
+						width={17}
+						height={57}
+						style={{ width: '17px', height: '57px' }}
 					/>
 				</div>
-
-				<form className='joinloginFunction'>
-					<div className='title txt-orange'>登入</div>
+				<form
+					className='joinloginFunction'
+					onSubmit={handleSubmit(handleSubmitForm)}
+				>
+					<div className='title txt-orange'>{t('Label_General_LogIn')}</div>
 					<div className='noAccount'>
-						没有账户吗?{' '}
-						<button className='txt-orange' type='button'>
-							立即加入
-						</button>
+						{t('Label_Join_DontHaveAccount')}
+						<Link href={paths.join.root}>
+							<a className='txt-orange' onClick={closeModal}>
+								{t('Label_General_Join')}
+							</a>
+						</Link>
 					</div>
 					<div className='inputModule'>
-						<div className='inputBox-org'>
-							<i className='icon icon-member txt-orange' />
-							<input
-								data-testid='input'
-								type='text'
-								placeholder='用戶名'
-								value=''
-							/>
-							<div className='iconModule'>
-								<i className='icon icon-information' />
-							</div>
-						</div>
-						<div className='tip' />
-						<div className='inputBox-org'>
-							<i className='icon icon-key txt-orange' />
-							<i className='txt-blue' />
-							<input type='password' placeholder='密码' value='' />
-							<div className='iconModule'>
-								<i className='icon icon-eye-blocked' />
-							</div>
-						</div>
-						<a className='txt-blue2' href='/cs/forget-password'>
-							忘记密码吗？
-						</a>
+						<InputBox
+							register={register('username', {
+								required: {
+									value: true,
+									message: t('Label_General_UsernameReq'),
+								},
+								onBlur: () => trigger('username'),
+							})}
+							icon='icon-member txt-blue'
+							placeholder={t('Label_General_Username') || ''}
+							errorMessage={errors['username']?.message as string}
+							error={!!errors['username']}
+							touched={!!touchedFields['username']}
+							infoMessage={t('Label_Join_UsernameTooltip') || ''}
+						/>
+						<InputBox
+							register={register('password', {
+								required: {
+									value: true,
+									message: t('Label_General_PasswordRequired'),
+								},
+								onBlur: () => trigger('password'),
+							})}
+							password
+							icon='icon icon-key txt-blue'
+							placeholder={t('Label_General_Password') || ''}
+							errorMessage={errors['password']?.message as string}
+							error={!!errors['password']}
+							touched={!!touchedFields['password']}
+						/>
+						<Link href={paths.forgetPassword.root}>
+							<a className='forgot' onClick={closeModal}>
+								{t('Label_Header_ForgetPassword')}
+							</a>
+						</Link>
 					</div>
 					<div className='btnGroup'>
 						<button className='btn-cancel' type='button' onClick={closeModal}>
-							取消
+							{t('Label_General_Cancel')}
 						</button>
 						<button className='btn-check' type='submit'>
-							登入
+							{t('Label_General_LogIn')}
 						</button>
 					</div>
 				</form>
