@@ -1,22 +1,37 @@
-import React, { HTMLAttributes, ReactNode } from 'react'
+import { HTMLAttributes, ReactNode } from 'react'
+import classNames from 'classnames'
 import { useBoolean } from 'usehooks-ts'
 
 interface ISettingCollapseItemProps extends HTMLAttributes<HTMLDivElement> {
 	children?: ReactNode
-	header: (isActive?: boolean) => ReactNode
+	header: string | ReactNode
+	prefixIcon: string
 }
 
 const SettingCollapseItem = ({
 	children,
 	header,
+	prefixIcon,
 	...props
 }: ISettingCollapseItemProps) => {
-	const { value, toggle } = useBoolean()
+	const { value: isActive, toggle } = useBoolean()
 
 	return (
-		<div {...props} onClick={toggle}>
-			{/* 有子元件才將 toggle 往上傳 */}
-			{header(children ? value : undefined)}
+		<div {...props}>
+			{children ? (
+				<button
+					onClick={toggle}
+					className={classNames(prefixIcon, {
+						active: isActive,
+					})}
+				>
+					{header}
+
+					<i className='icon icon-keyboard_arrow_down' />
+				</button>
+			) : (
+				<a className={classNames(prefixIcon)}>{header}</a>
+			)}
 
 			{children}
 		</div>
