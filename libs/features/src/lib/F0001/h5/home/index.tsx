@@ -1,37 +1,49 @@
-import { Header } from '@nx-next-app/components/H0001'
-import { ENV_COOKIE_NAMES, paths } from '@nx-next-app/constants'
+import { Header, useAppDownload } from '@nx-next-app/components/H0001'
+import { useAuth } from '@nx-next-app/data-access'
+import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
+import { useSetHideBalanceMutation } from '@nx-next-app/service'
 import classNames from 'classnames'
-import { setCookie } from 'cookies-next'
-import { useRouter } from 'next/router'
-import { useBoolean } from 'usehooks-ts'
 
 interface IHomeProps {
 	persistAppDownloadHint: string
 }
 
 const Home = ({ persistAppDownloadHint }: IHomeProps) => {
-	const { pathname } = useRouter()
+	const { userInfo } = useAuth()
 	const {
-		value: isAppDownloadHintActive,
-		setFalse: setAppDownloadHintActiveFalse,
-	} = useBoolean(!persistAppDownloadHint)
+		isLoading: isTpWalletBalanceListLoading,
+		isHideBalance,
+		totalWalletBalance,
+		mainWalletInfo,
+		custBonusWalletList,
+		tpWalletBalanceList,
+		onRefetchAllWallet,
+	} = useTpWalletBalanceListFetcher({ langId: userInfo.langId })
 
-	const handleCloseAppDownloadHint = () => {
-		setCookie(ENV_COOKIE_NAMES.AppDownloadHint, true)
-		setAppDownloadHintActiveFalse()
-	}
+	const [setHideBalance] = useSetHideBalanceMutation()
+
+	const { isAppDownloadHintActive, onCloseAppDownloadHint } = useAppDownload(
+		Boolean(persistAppDownloadHint)
+	)
 
 	return (
 		<>
 			<Header>
-				{pathname === paths.home.root && (
-					<Header.AppDownLoad
-						isAppDownloadHintActive={isAppDownloadHintActive}
-						onCloseAppDownloadHint={handleCloseAppDownloadHint}
-					/>
-				)}
+				<Header.AppDownLoad
+					isAppDownloadHintActive={isAppDownloadHintActive}
+					onCloseAppDownloadHint={onCloseAppDownloadHint}
+				/>
 
-				<Header.HeaderModule />
+				<Header.HeaderModule
+					isTpWalletBalanceListLoading={isTpWalletBalanceListLoading}
+					originIsHideBalance={isHideBalance}
+					totalWalletBalance={totalWalletBalance}
+					mainWalletInfo={mainWalletInfo}
+					custBonusWalletList={custBonusWalletList}
+					tpWalletBalanceList={tpWalletBalanceList}
+					onRefetchAllWallet={onRefetchAllWallet}
+					onSetHideBalance={setHideBalance}
+				/>
 			</Header>
 
 			<main

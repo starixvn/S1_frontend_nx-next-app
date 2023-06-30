@@ -31,7 +31,7 @@
 	"Label_General_LastTransaction": "最后交易",
 	"Label_General_Unlimited": "无上限",
 	"Label_General_Username": "用戶名",
-  "Label_General_UsernameTooltip" : "基于安全考量，我们建议用户名不要使用或包含您的真实姓名",
+	"Label_General_UsernameTooltip": "基于安全考量，我们建议用户名不要使用或包含您的真实姓名",
 	"Label_General_Password": "密码",
 	"Label_General_Email": "邮箱地址",
 	"Label_General_PasswordValidate": "密码长度必须 6 至 15 个字符，包含字母数字。",
@@ -65,6 +65,7 @@
 	"Label_General_GameProvider": "游戏供应商",
 	"Label_General_ContactUs": "联络我们",
 	"Label_General_Download": "下载",
+	"Label_General_Welcome": "欢迎",
 
 	"Label_Header_ForgetPassword": "忘记密码吗？",
 
