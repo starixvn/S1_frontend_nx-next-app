@@ -45,4 +45,4 @@ const LineRegister = () => {
 	)
 }
 
-export default LineRegister
+export { LineRegister }
