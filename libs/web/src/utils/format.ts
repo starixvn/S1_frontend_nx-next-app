@@ -1,5 +1,6 @@
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { FieldErrors } from 'react-hook-form'
+import { isNaN } from 'lodash-es'
 
 /**
  * @returns 數字 format 到特定小數點，預設為第二位
@@ -23,7 +24,7 @@ export const numberFormat = (
 	digits?: number
 ) => {
 	// 原生的
-	if (Number.isNaN(Number(value))) return null
+	if (isNaN(Number(value))) return null
 
 	const isConvert = [CurrenciesEnum.IDR, CurrenciesEnum.VND].includes(
 		currencyId
