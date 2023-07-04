@@ -122,6 +122,7 @@ export const AuthProvider = ({
 	const onSignOut = async () => {
 		await signOut(null).unwrap()
 		onResetAuth()
+		localStorage.removeItem('myFavorites')
 	}
 
 	const onResetAuth = () => {

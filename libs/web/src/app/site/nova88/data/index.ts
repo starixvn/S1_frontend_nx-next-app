@@ -7,6 +7,7 @@ export * from './termsConditions'
 export * from './join'
 export * from './metaData'
 export * from './menu'
+export * from './slots'
 
 export const LANG_GROUPS: IStaticLangGroups = {
 	ch: [

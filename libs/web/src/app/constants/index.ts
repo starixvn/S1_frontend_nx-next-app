@@ -31,6 +31,12 @@ export const LANG_GROUP_COUNTRY: {
 	kh: 'Cambodia',
 }
 
+export const DEVICE_TYPE = {
+	Desktop: 1,
+	Mobile: 2,
+	NativeAPP: 3,
+}
+
 export const CURRENCY_TO_TIMEZONE: { [key: number]: string } = {
 	2: '+08:00',
 	4: '+07:00',

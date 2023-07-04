@@ -23,6 +23,7 @@ export const accountApiUrl = {
 	setLang: 'Account/SetLanguage',
 	setHideBalance: 'Account/SetHideBalance',
 	getCustSpecificBonus: 'Account/GetCustSpecificBonus',
+	SetFavoriteGame: 'Account/SetFavoriteGame',
 }
 
 const accountApi = rootApi.injectEndpoints({
@@ -109,6 +110,17 @@ const accountApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
+		setFavoriteGame: builder.mutation<
+			IAxiosResponse<void>,
+			{ providerId: number; gameId: string; isRemove: boolean }
+		>({
+			query: data => ({
+				url: accountApiUrl.SetFavoriteGame,
+				method: 'POST',
+				data,
+			}),
+			invalidatesTags: ['SLOTS_GAME_DATA'],
+		}),
 	}),
 })
 
@@ -123,4 +135,5 @@ export const {
 	useSetLanguageMutation,
 	useSetHideBalanceMutation,
 	useLazyGetCustSpecificBonusQuery,
+	useSetFavoriteGameMutation,
 } = accountApi

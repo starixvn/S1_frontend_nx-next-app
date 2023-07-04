@@ -147,4 +147,8 @@ export enum MenuKeyEnum {
 	'Affiliates' = 'Affiliates',
 }
 
+export enum TpGameType {
+	All,
+}
+
 export * from './footer'

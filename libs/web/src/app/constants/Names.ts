@@ -4,3 +4,7 @@ export const ENV_COOKIE_NAMES = {
 	LineUserId: `${process.env['NEXT_PUBLIC_SITE_NAME']}_lineUserId`,
 	AppDownloadHint: `${process.env['NEXT_PUBLIC_SITE_NAME']}_AppDownloadHint`,
 }
+
+export const ENV_LOCAL_STORAGE_NAMES = {
+	SlotsGameFavorites: `${process.env['NEXT_PUBLIC_SITE_NAME']}_SlotsGameFavorites`,
+}
