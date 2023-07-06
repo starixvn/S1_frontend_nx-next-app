@@ -11,14 +11,14 @@ import { CurrenciesEnum } from '@nx-next-app/types'
 import {
 	paths,
 	AREA_CODE,
+	EMAIL_REGEX,
 	ENV_COOKIE_NAMES,
-	CURRENCY_TO_LANG_KEY,
 	PHONE_DIGITS_LIMIT,
+	PHONE_LENGTH_REGEX,
+	CURRENCY_TO_LANG_KEY,
 	AREA_CODE_BY_CURRENCY,
 	RECAPTCHAT_LANG_BY_LANG_ID,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
-	EMAIL_REGEX,
-	PHONE_LENGTH_REGEX,
 } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
@@ -26,6 +26,7 @@ import {
 	useSignupMutation,
 	useLazyExistsEmailQuery,
 	useGetRecaptchaInfoQuery,
+	useLazyAffiliateCheckQuery,
 	useLazyExistsUserNameQuery,
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
@@ -40,10 +41,19 @@ interface IJoinProps {
 const Form = ({ cookies }: IJoinProps) => {
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
-	const { LANG_GROUPS, TERMS_CONDITIONS, USERNAME_REGEX, PASSWORD_REGEX } =
-		useStaticData()
+	const {
+		LANG_GROUPS,
+		TERMS_CONDITIONS,
+		USERNAME_REGEX,
+		PASSWORD_REGEX,
+		REALNAME_REGEX,
+	} = useStaticData()
 	const router = useRouter()
 	const { query } = router
+
+	const urlAffId = query['AffId'] || cookies['AffId']
+	const urlAffCode = query['AffCode'] || cookies['AffCode']
+	const urlAffiliate = urlAffId || urlAffCode
 
 	const {
 		formState,
@@ -70,6 +80,7 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery()
 
+	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 
 	const [checkExistsUsername, { isFetching: existsUsernameLoading }] =
@@ -102,10 +113,6 @@ const Form = ({ cookies }: IJoinProps) => {
 		}
 	}
 
-	const checkPassword = async () => {
-		await trigger('password')
-	}
-
 	const checkConfirmPwd = async () => {
 		await trigger('confirmPwd')
 		const { error } = getFieldState('confirmPwd')
@@ -119,10 +126,6 @@ const Form = ({ cookies }: IJoinProps) => {
 				message: t('Label_Join_ConfirmPwdNotMatch') || '',
 			})
 		}
-	}
-
-	const checkRealName = async () => {
-		await trigger('realName')
 	}
 
 	const checkEmail = async () => {
@@ -187,6 +190,23 @@ const Form = ({ cookies }: IJoinProps) => {
 		return true
 	}
 
+	const checkAffiliate = async () => {
+		const formAffiliate = getValues('affiliate')
+
+		// check affiliate is qualified from api
+		try {
+			await affiliateCheck({ affCode: formAffiliate }).unwrap()
+			return true
+		} catch (error) {
+			// error
+			setError('affiliate', {
+				type: 'invalid',
+				message: t('Label_Join_AffiliateIdWrong') || '',
+			})
+			return false
+		}
+	}
+
 	const selectCurrency = (newCurrencyId: ISelectProps['value']) => {
 		const formCurrencyId = getValues('currencyId')
 
@@ -222,23 +242,27 @@ const Form = ({ cookies }: IJoinProps) => {
 		}
 	}
 
-	const checkAffiliate = async () => {
-		const affiliate =
-			query['AffCode'] ||
-			cookies['AffCode'] ||
-			query['AffId'] ||
-			cookies['AffId']
-
-		if (!affiliate) return
+	const checkUrlAffiliate = async () => {
+		if (!urlAffiliate) return
 
 		try {
-			const {
-				data: { currencyId },
-			} = await getAffiliateAgent({ affId: affiliate as string }).unwrap()
+			if (urlAffId) {
+				const {
+					data: { currencyId },
+				} = await getAffiliateAgent({ affId: urlAffId as string }).unwrap()
 
-			if (currencyId) {
-				selectCurrency(currencyId)
-				setValue('affiliate', affiliate)
+				if (currencyId) {
+					selectCurrency(currencyId)
+					setValue('affiliate', urlAffId)
+				}
+			} else if (urlAffCode) {
+				const { errorCode } = await affiliateCheck({
+					affCode: urlAffCode as string,
+				}).unwrap()
+
+				if (errorCode === 0) {
+					setValue('affiliate', urlAffCode)
+				}
 			}
 		} catch (error) {
 			// error
@@ -290,13 +314,19 @@ const Form = ({ cookies }: IJoinProps) => {
 		} = getValues()
 
 		const currencyCheck = checkCurrency()
+		const affCodeCheck = await checkAffiliate()
 
-		// currency & recaptcha cannot use form required check
-		if (!reCaptchaToken || recaptchaInfo?.country === 'CN' || !currencyCheck)
+		// currency & recaptcha & affiliate cannot use form required check
+		if (
+			!reCaptchaToken ||
+			recaptchaInfo?.country === 'CN' ||
+			!currencyCheck ||
+			!affCodeCheck
+		)
 			return
 
-		const affCode = affiliate && (query['AffCode'] || cookies['AffCode'])
-		const affId = affiliate && (query['AffId'] || cookies['AffId'])
+		const affId = affiliate && urlAffId ? affiliate : null
+		const affCode = !urlAffId && affCodeCheck ? affiliate : null
 
 		// use register currency to get langId, if not exist, use default en
 		const userLang =
@@ -351,7 +381,7 @@ const Form = ({ cookies }: IJoinProps) => {
 	}))
 
 	useEffect(() => {
-		checkAffiliate()
+		checkUrlAffiliate()
 	}, [])
 
 	useEffect(() => {
@@ -394,7 +424,7 @@ const Form = ({ cookies }: IJoinProps) => {
 							value: PASSWORD_REGEX,
 							message: t('Label_General_PasswordValidate') || '',
 						},
-						onBlur: checkPassword,
+						onBlur: () => trigger('password'),
 					})}
 					password
 					icon='icon icon-key txt-blue'
@@ -418,7 +448,11 @@ const Form = ({ cookies }: IJoinProps) => {
 				<InputBox
 					register={register('realName', {
 						required: { value: true, message: t('Label_Join_RealNameReq') },
-						onBlur: checkRealName,
+						pattern: {
+							value: REALNAME_REGEX,
+							message: t('Label_Join_EnterRealName') || '',
+						},
+						onBlur: () => trigger('realName'),
 					})}
 					icon='icon-member txt-blue'
 					placeholder={t('Label_General_RealName') as string}
@@ -426,7 +460,6 @@ const Form = ({ cookies }: IJoinProps) => {
 					error={!!errors['realName']}
 					touched={!!touchedFields['realName']}
 					infoMessage={t('Label_General_RemindForName') as string}
-					successMessage={t('Label_General_RemindForName') as string}
 				/>
 				<InputBox
 					register={register('email', {
@@ -489,12 +522,17 @@ const Form = ({ cookies }: IJoinProps) => {
 					</>
 				)}
 				<InputBox
-					register={register('affiliate')}
+					register={register('affiliate', {
+						onBlur: checkAffiliate,
+					})}
 					icon='icon icon-affiliate txt-blue'
 					placeholder={t('Label_Join_Affiliate_ID') as string}
 					errorMessage={errors['affiliate']?.message as string}
+					error={!!errors['affiliate']}
 					touched={!!touchedFields['affiliate']}
 					infoMessage={t('Label_Join_Please_Enter_Affiliate_ID') as string}
+					// If has url affiliate and has value in affiliate input, the affiliate is qualified.
+					readOnly={!!urlAffiliate && !!getValues('affiliate')}
 				/>
 			</div>
 			{recaptchaInfo?.siteKey && recaptchaInfo.country !== 'CN' && (

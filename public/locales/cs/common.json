@@ -128,6 +128,8 @@
 	"Label_Join_SignUpTerms2": "条款与规则",
 	"Label_Join_SignUpTerms3": "、隐私政策, Cookies政策及其他政策。",
 	"Label_Join_DontHaveAccount": "没有账户吗?",
+	"Label_Join_AffiliateIdWrong": "代理商ID 无法查找",
+	"Label_Join_EnterRealName": "请输入真实姓名，禁止输入特殊符号",
 
 	"Label_Login_UsernameTooltip": "基于安全考量，我们建议用户名不要使用或包含您的真实姓名",
 

@@ -63,5 +63,7 @@
 	"Label_Join_RemindPrefferedCurrency": "पसंदीदा मुद्रा आवश्यक है",
 	"Label_Join_SignUpTerms1": "जॉइन नाउ बटन पर क्लिक करके, मैं एतद्द्वारा स्वीकार करता हूं कि मेरी उम्र 18 वर्ष से अधिक है और मैंने आपके",
 	"Label_Join_SignUpTerms2": "नियम और शर्तें",
-	"Label_Join_SignUpTerms3": ""
+	"Label_Join_SignUpTerms3": "",
+	"Label_Join_AffiliateIdWrong": "एफिलिएट आईडी नहीं मिला पा रहा है",
+	"Label_Join_EnterRealName": "कृपया अपना असली नाम दर्ज करें, विशेष प्रतीकों की अनुमति नहीं है"
 }
