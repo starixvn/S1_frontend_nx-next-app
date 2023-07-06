@@ -14,6 +14,7 @@ export const siteApiUrl = {
 	getAffiliateAgent: 'Site/GetAffiliateAgent',
 	getRecaptchaInfo: 'Site/GetRecaptchaInfo',
 	signup: 'Site/Signup',
+	affiliateCheck: 'Site/AffiliateCheck',
 }
 
 export const siteApi = rootApi.injectEndpoints({
@@ -89,6 +90,13 @@ export const siteApi = rootApi.injectEndpoints({
 				data: { affId },
 			}),
 		}),
+		affiliateCheck: builder.query<IAxiosResponse<void>, { affCode: string }>({
+			query: ({ affCode }) => ({
+				url: siteApiUrl.affiliateCheck,
+				method: 'POST',
+				data: { affCode },
+			}),
+		}),
 		getRecaptchaInfo: builder.query<
 			IAxiosResponse<{
 				siteKey: string
@@ -123,4 +131,5 @@ export const {
 	useLazyGetAffiliateAgentQuery,
 	useGetRecaptchaInfoQuery,
 	useSignupMutation,
+	useLazyAffiliateCheckQuery,
 } = siteApi

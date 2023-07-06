@@ -100,5 +100,7 @@
 	"Label_Join_SignUpTerms1": "Dengan tekan butang SERTAI SEKARANG, saya akui bahawa saya berumur 18 tahun atau ke atas dan telah baca dan terima",
 	"Label_Join_SignUpTerms2": "terma & syarat",
 	"Label_Join_SignUpTerms3": ".",
-	"Label_Join_DontHaveAccount": "Tiada akaun?"
+	"Label_Join_DontHaveAccount": "Tiada akaun?",
+	"Label_Join_AffiliateIdWrong": "ID ahli gabungan tidak ditemui",
+	"Label_Join_EnterRealName": "Sila masukkan nama benar anda, simbol khas dilarang"
 }

@@ -17,6 +17,7 @@ import {
 	LANG_GROUPS,
 	META_DATA,
 	PASSWORD_REGEX,
+	REALNAME_REGEX,
 	PRODUCTS,
 	SLOT_TP_GAME_TYPE,
 	TERMS_CONDITIONS,
@@ -65,6 +66,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 						TERMS_CONDITIONS={TERMS_CONDITIONS}
 						USERNAME_REGEX={USERNAME_REGEX}
 						PASSWORD_REGEX={PASSWORD_REGEX}
+						REALNAME_REGEX={REALNAME_REGEX}
 					>
 						<Component {...pageProps} />
 					</StaticDataProvider>

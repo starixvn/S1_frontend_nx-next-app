@@ -24,6 +24,7 @@ import {
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	VIP_CLUB_IMAGES,
 	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
+	REALNAME_REGEX,
 } from '@nx-next-app/site/nova88'
 
 import '../styles/css/style-dark.css'
@@ -64,6 +65,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 						TERMS_CONDITIONS={TERMS_CONDITIONS}
 						USERNAME_REGEX={USERNAME_REGEX}
 						PASSWORD_REGEX={PASSWORD_REGEX}
+						REALNAME_REGEX={REALNAME_REGEX}
 					>
 						<Component {...pageProps} />
 					</StaticDataProvider>

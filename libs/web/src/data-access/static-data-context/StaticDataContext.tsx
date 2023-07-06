@@ -26,6 +26,7 @@ export interface IStaticDataContext {
 	TERMS_CONDITIONS: ({ langId }: { langId: string }) => ITermsConditions
 	USERNAME_REGEX: RegExp
 	PASSWORD_REGEX: RegExp
+	REALNAME_REGEX: RegExp
 }
 
 const StaticDataContext = createContext<IStaticDataContext>(null!)
@@ -48,6 +49,7 @@ const StaticDataProvider = ({
 	TERMS_CONDITIONS,
 	USERNAME_REGEX,
 	PASSWORD_REGEX,
+	REALNAME_REGEX,
 }: IStaticDataProviderProps) => {
 	const value: IStaticDataContext = {
 		META_DATA,
@@ -62,6 +64,7 @@ const StaticDataProvider = ({
 		TERMS_CONDITIONS,
 		USERNAME_REGEX,
 		PASSWORD_REGEX,
+		REALNAME_REGEX,
 	}
 
 	return (

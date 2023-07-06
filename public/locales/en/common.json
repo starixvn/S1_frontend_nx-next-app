@@ -129,6 +129,8 @@
 	"Label_Join_SignUpTerms2": "terms & conditions",
 	"Label_Join_SignUpTerms3": ".",
 	"Label_Join_DontHaveAccount": "Don't have an account?",
+	"Label_Join_AffiliateIdWrong": "Affiliate ID cant be found",
+	"Label_Join_EnterRealName": "Please enter your real name, special symbols are not allowed",
 
 	"Label_Login_UsernameTooltip": "For security, we suggest that your username does not contain your real name.",
 
