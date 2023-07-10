@@ -65,8 +65,8 @@ export const paths = {
 	liveCasino: {
 		root: 'live-casino',
 	},
-	casino: {
-		root: 'casino',
+	slots: {
+		root: 'slots',
 	},
 	oneGame: {
 		root: 'oneGame',

@@ -1298,7 +1298,7 @@ export const META_DATA: {
 			],
 		},
 	},
-	[paths.casino.root]: {
+	[paths.slots.root]: {
 		en: {
 			title: `Nova88 | Best Online Slots | Asia's Most Trusted Platform`,
 			description: `Explore More Slot Games in Nova88. Login Everyday And Enjoy The Games. Get Appreciation Token and Weekly Free Spins From Us. Don't Miss Out, Claim Now!`,

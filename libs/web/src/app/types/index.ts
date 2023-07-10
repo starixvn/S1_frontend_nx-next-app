@@ -11,6 +11,12 @@ export enum CurrenciesEnum {
 	USDT = 96,
 }
 
+export enum DeviceTypeEnum {
+	Desktop = 1,
+	Mobile,
+	NativeAPP,
+}
+
 export interface IImageData {
 	url: string
 	alt: string
@@ -25,14 +31,13 @@ export interface IStaticSlotTpGameType {
 	}
 }
 
-export interface IStaticProducts {
-	[key: string]: {
-		TP_ID: number
-		NAME?: string
-		BET_TYPE?: number
-		TP_GAME_TYPE?: number
-		GAME_ID?: number | string
-	}
+export interface IStaticProduct {
+	TP_ID: number
+	GAME_ID?: number | string
+	TP_GAME_TYPE: number | null
+	BET_TYPE?: number
+	NAME?: string
+	GAME_TYPE?: string
 }
 
 export interface IStaticLangGroups {
@@ -45,11 +50,14 @@ export interface IStaticAllowedCurrencies {
 	EXCHANGE: CurrenciesEnum[]
 	WORLD_CIP: CurrenciesEnum[]
 	REWARDS: CurrenciesEnum[]
+	SPORTS_CRICKET: CurrenciesEnum[]
+	SPORTS_VOLLEYBALL: CurrenciesEnum[]
 	LEADER_BOARD: CurrenciesEnum[]
 	WITHDRAWAL_METHOD: {
 		BANK_CARD: CurrenciesEnum[]
 		E_WALLET: CurrenciesEnum[]
 	}
+	GAMES_MPOKER: CurrenciesEnum[]
 	PRODUCTS: {
 		SLOT_AMB: CurrenciesEnum[]
 		SLOT_WM: CurrenciesEnum[]
@@ -100,4 +108,29 @@ export interface IMetaData {
 			}[]
 		}
 	}
+}
+
+export enum MenuKeyEnum {
+	'Sports' = "'Sports'",
+	'Casino' = 'Casino',
+	'LiveCasino' = 'LiveCasino',
+	'Exchange' = 'Exchange',
+	'Home' = 'Home',
+	'AppDownload' = 'AppDownload',
+	'CryptoSports' = 'CryptoSports',
+	'ESports' = 'ESports',
+	'Slots' = 'Slots',
+	'Games' = 'Games',
+	'Fishing' = 'Fishing',
+	'Lottery' = 'Lottery',
+	'Promotion' = 'Promotion',
+	'VIP' = 'VIP',
+}
+
+export enum MenuActionTypeEnum {
+	EnterPage,
+	Link,
+	LinkNoImg,
+	DirectUrl,
+	UseGoToGame,
 }

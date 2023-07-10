@@ -15,6 +15,7 @@ import {
 	ALLOWED_CURRENCIES,
 	FEATURE_BONUS,
 	LANG_GROUPS,
+	MENU_DATA,
 	META_DATA,
 	PASSWORD_REGEX,
 	REALNAME_REGEX,
@@ -50,6 +51,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 				{/* 提供 Component 狀態管理 */}
 				<UIProvider>
 					<StaticDataProvider
+						MENU_DATA={MENU_DATA}
 						META_DATA={META_DATA}
 						PRODUCTS={PRODUCTS}
 						ALLOWED_CURRENCIES={ALLOWED_CURRENCIES}
