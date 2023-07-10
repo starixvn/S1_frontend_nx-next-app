@@ -111,7 +111,10 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 						key={uniqueId()}
 						className={classNames(item.className)}
 						onClick={() => {
-							onMenuOpen(item)
+							onMenuOpen(item, {
+								loginCallback: () => console.log('need login'),
+								messageCallBack: message => console.log(message),
+							})
 						}}
 					>
 						<img
