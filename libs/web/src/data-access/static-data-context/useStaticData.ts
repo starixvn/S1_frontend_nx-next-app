@@ -1,6 +1,6 @@
 import { useContext } from 'react'
-import { IStaticDataContext, StaticDataContext } from './StaticDataContext'
+import { StaticDataContext } from './StaticDataContext'
 
-const useStaticData = (): IStaticDataContext => useContext(StaticDataContext)
+const useStaticData = () => useContext(StaticDataContext)
 
 export { useStaticData }

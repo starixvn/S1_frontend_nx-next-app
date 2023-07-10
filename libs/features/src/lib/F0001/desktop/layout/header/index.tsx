@@ -11,6 +11,7 @@ import MemberFile from './MemberFile'
 import MsgPopUp from './MsgPopUp'
 import Country from './Country'
 import Wallet from './Wallet'
+import Menu from './Menu'
 
 const LayoutHeader = () => {
 	const {
@@ -119,7 +120,8 @@ const LayoutHeader = () => {
 					</>
 				)}
 			</Header.Function>
-			<Header.Menu />
+
+			<Menu />
 		</Header>
 	)
 }

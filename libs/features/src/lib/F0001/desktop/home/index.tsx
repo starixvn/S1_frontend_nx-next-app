@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'next-i18next'
+import { useMenu } from '@nx-next-app/hooks'
 
 // * wip feat
 const Home = () => {

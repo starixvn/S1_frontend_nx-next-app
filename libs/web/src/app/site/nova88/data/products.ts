@@ -1,4 +1,4 @@
-import { IStaticProducts, IStaticSlotTpGameType } from '@nx-next-app/types'
+import { IStaticSlotTpGameType } from '@nx-next-app/types'
 
 // * 用於 casino, casino topQuickLink,  hot game
 export const SLOT_TP_GAME_TYPE: IStaticSlotTpGameType = {
@@ -26,7 +26,7 @@ export const SLOT_TP_GAME_TYPE: IStaticSlotTpGameType = {
 	SKY_WIND: { TP_ID: 43, TP_GAME_TYPE: 82, NAME: 'skywind' },
 }
 
-export const PRODUCTS: IStaticProducts = {
+export const PRODUCTS = {
 	// * SPORTS
 	SPORTS: {
 		TP_ID: 41,
@@ -186,6 +186,7 @@ export const PRODUCTS: IStaticProducts = {
 		TP_ID: 27,
 		GAME_ID: 0,
 		TP_GAME_TYPE: 46,
+		GAME_TYPE: 'slots',
 	},
 	SLOTS_MGPSW: {
 		TP_ID: 34,
@@ -265,15 +266,17 @@ export const PRODUCTS: IStaticProducts = {
 	LIVE_CASINO_MW: {
 		GAME_ID: 105,
 		TP_ID: 5,
+		TP_GAME_TYPE: null,
 	},
 	LIVE_CASINO_N2: {
 		TP_ID: 28,
 		TP_GAME_TYPE: 45,
 	},
 	LIVE_CASINO_PT: {
-		GAME_ID: 0,
+		GAME_ID: '0',
 		TP_ID: 27,
 		TP_GAME_TYPE: 48,
+		GAME_TYPE: 'slots',
 	},
 	LIVE_CASINO_EVO: {
 		GAME_ID: 0,

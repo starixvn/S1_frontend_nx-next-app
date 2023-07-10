@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { createContext, ReactNode } from 'react'
 import {
@@ -5,15 +6,18 @@ import {
 	IMetaData,
 	IStaticAllowedCurrencies,
 	IStaticLangGroups,
-	IStaticProducts,
+	IStaticProduct,
 	IStaticSlotTpGameType,
 	IStaticVipEventCurrenciesLimitationInfo,
 	ITermsConditions,
 } from '@nx-next-app/types'
 
 export interface IStaticDataContext {
+	MENU_DATA: any
 	META_DATA: IMetaData
-	PRODUCTS: IStaticProducts
+	PRODUCTS: {
+		[key: string]: IStaticProduct
+	}
 	ALLOWED_CURRENCIES: IStaticAllowedCurrencies
 	SLOT_TP_GAME_TYPE: IStaticSlotTpGameType
 	LANG_GROUPS: IStaticLangGroups
@@ -37,6 +41,7 @@ interface IStaticDataProviderProps extends IStaticDataContext {
 
 const StaticDataProvider = ({
 	children,
+	MENU_DATA,
 	META_DATA,
 	PRODUCTS,
 	ALLOWED_CURRENCIES,
@@ -52,6 +57,7 @@ const StaticDataProvider = ({
 	REALNAME_REGEX,
 }: IStaticDataProviderProps) => {
 	const value: IStaticDataContext = {
+		MENU_DATA,
 		META_DATA,
 		PRODUCTS,
 		ALLOWED_CURRENCIES,
