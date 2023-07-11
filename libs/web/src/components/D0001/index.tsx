@@ -28,3 +28,5 @@ export type { ICarouselProps } from './carousel'
 export { default as MetaData } from './metaData'
 
 export { default as Loading } from './loading'
+
+export { Marquee } from './marquee'

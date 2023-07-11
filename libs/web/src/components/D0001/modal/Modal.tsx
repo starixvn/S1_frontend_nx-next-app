@@ -7,14 +7,11 @@ export interface IModalProps {
 }
 
 const Modal = (props: IModalProps) => {
-	const ref = useRef(null)
 	const { open, children } = props
 
 	return (
 		<div id='popup' className={classNames({ active: open })}>
-			<div ref={ref} className='pop'>
-				{children}
-			</div>
+			{children}
 		</div>
 	)
 }

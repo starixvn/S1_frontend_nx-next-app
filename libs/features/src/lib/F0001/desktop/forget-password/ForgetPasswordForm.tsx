@@ -29,14 +29,17 @@ const ForgetPasswordForm = ({
 					handleSubmit(onSubmit)
 				}}
 			>
-				<div className='title txt-blue'>{t('Label_ForgetPassword')}</div>
+				<div className='title txt-blue'>{t('Label_Header_ForgetPassword')}</div>
 				<div className='inputModule'>
 					<InputBox
 						register={register('email', {
-							required: { value: true, message: t('Label_EmailFormatError') },
+							required: {
+								value: true,
+								message: t('Label_Join_MailWrongFormat'),
+							},
 							pattern: {
 								value: EMAIL_REGEX,
-								message: t('Label_EmailFormatError'),
+								message: t('Label_Join_MailWrongFormat'),
 							},
 							onBlur: async () => {
 								await trigger('email')
@@ -44,9 +47,9 @@ const ForgetPasswordForm = ({
 						})}
 						loading={loading}
 						icon='txt-blue icon-email'
-						title={t('Label_Email') || ''}
+						title={t('Label_General_Email') || ''}
 						touched={!!touchedFields['email']}
-						infoMessage={t('Label_ResetPasswordMsg') || ''}
+						infoMessage={t('Label_General_ResetPasswordMsg') || ''}
 						errorMessage={errors['email']?.message as string}
 						error={!!errors['email']}
 					/>
@@ -59,14 +62,14 @@ const ForgetPasswordForm = ({
 						}}
 						type='button'
 					>
-						{t('Label_Cancel')}
+						{t('Label_General_Cancel')}
 					</button>
 					<button
 						className='orange'
 						onClick={handleSubmit(onSubmit)}
 						type='submit'
 					>
-						{t('Label_Submit')}
+						{t('Label_General_Submit')}
 					</button>
 				</div>
 			</Form>

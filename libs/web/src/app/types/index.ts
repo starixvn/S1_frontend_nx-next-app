@@ -68,6 +68,7 @@ export interface IStaticAllowedCurrencies {
 		FISHING_ONT_SHOT: CurrenciesEnum[]
 		FISHING_THAI_LOTTERY: CurrenciesEnum[]
 	}
+	JACKPOT: CurrenciesEnum[]
 }
 
 export interface IStaticVipEventCurrenciesLimitationInfo {
@@ -108,6 +109,39 @@ export interface IMetaData {
 			}[]
 		}
 	}
+}
+
+// 稽查 Admin 目前後端的設定 1 為 MainBanner
+export enum BannerTypeEnum {
+	Main = 1,
+	HotEvent = 2,
+	Slots,
+}
+
+export enum BannerActionEnum {
+	NoAction = 1,
+	GoToGame,
+	GoToBonus,
+	OpenWindow,
+	RedirectPage,
+	RedirectPageOfThisSite,
+}
+
+
+export enum PromotionTypeEnum {
+	FirstDeposit = 1,
+	Redeposit = 2,
+	FreeBet = 3,
+	WalletBonus = 5,
+	Rebate = 6,
+	Cashback = 7,
+	Other = 8,
+	SpecialBonus = 9001,
+}
+
+export enum BonusTypeEnum {
+	Percentage = 1,
+	Amount,
 }
 
 export enum MenuKeyEnum {

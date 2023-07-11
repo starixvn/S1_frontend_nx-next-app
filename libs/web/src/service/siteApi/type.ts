@@ -40,3 +40,25 @@ export interface ISignUpArgs {
 	blackbox?: string
 	langId: string
 }
+
+export interface IGetBannerArgs {
+	langId: string
+	bannerTypes: number[]
+	currencyId: number
+}
+export interface IBannerData {
+	actionMode: number
+	backgroundPic: string
+	bannerLink: string
+	bannerMobileUrl: string
+	bannerName: string
+	bannerPCUrl: string
+	bannerType: number
+	bonusCode: string
+	details: string
+	gameId: string
+	logo: string
+	tpGameType: number
+	tpId: string
+	urlRouter: string
+}
