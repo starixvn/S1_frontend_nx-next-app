@@ -7,9 +7,31 @@ import {
 	IGotoGameArg,
 	useLazyGotoGameQuery,
 } from '@nx-next-app/service'
+import { includes } from 'lodash-es'
 import { useRouter } from 'next/router'
 
-const open9WSports = ({
+type LoginCallbackType = () => void
+type MessageCallbackType = (message: string) => void
+
+const windowOpen = ({
+	pathname,
+	windowKey,
+}: {
+	pathname: string
+	windowKey: string
+}) => {
+	if (typeof window !== `undefined`) {
+		window
+			.open(
+				pathname,
+				windowKey,
+				'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0'
+			)
+			?.focus()
+	}
+}
+
+export const open9WSports = ({
 	url,
 	userId,
 	key,
@@ -44,9 +66,6 @@ const open9WSports = ({
 	form.remove()
 }
 
-type LoginCallbackType = () => void
-type MessageCallbackType = (message: string) => void
-
 const useMenu = <T>({ langId }: { langId: string }) => {
 	const { push } = useRouter()
 	const { auth } = useAuth()
@@ -59,12 +78,12 @@ const useMenu = <T>({ langId }: { langId: string }) => {
 	const onEnterSlotsPage = (
 		{
 			tpId,
-			tyGameType,
+			tpGameType,
 			gameId,
 			isFree = false,
 		}: {
 			tpId: string
-			tyGameType?: string
+			tpGameType?: string
 			gameId?: string
 			isFree?: boolean
 		},
@@ -75,38 +94,93 @@ const useMenu = <T>({ langId }: { langId: string }) => {
 			return
 		}
 
-		if (typeof window !== `undefined`) {
-			const host = process.env['NEXT_PUBLIC_ENV_DB_HOST']
-			const signupUrl = `${host}/${paths.join.root}`
-			const loginUrl = `${host}/${paths.login.root}`
-			const errorUrl = `${process.env['NEXT_PUBLIC_ERROR_DOMAIN']}/404/index_${langId}.html`
+		const host = process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		const signupUrl = `${host}/${paths.join.root}`
+		const loginUrl = `${host}/${paths.login.root}`
+		const errorUrl = `${process.env['NEXT_PUBLIC_ERROR_DOMAIN']}/404/index_${langId}.html`
 
-			const searchParams = new URLSearchParams({
-				tpId,
-				fun: isFree ? '1' : '0',
-				gameType: 'slots',
-			})
-			if (tyGameType) {
-				searchParams.set('tpGameType', tyGameType)
-			}
-			if (gameId) {
-				searchParams.set('tpGameType', gameId)
-			}
-
-			const entPageUrl = `${host}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&${searchParams.toString()}`
-
-			window
-				.open(
-					entPageUrl,
-					`Tp_${tpId}`,
-					'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0'
-				)
-				?.focus()
+		const searchParams = new URLSearchParams({
+			tpId,
+			fun: isFree ? '1' : '0',
+			gameType: 'slots',
+		})
+		if (tpGameType) {
+			searchParams.set('tpGameType', tpGameType)
 		}
+		if (gameId) {
+			searchParams.set('tpGameType', gameId)
+		}
+
+		const entPageUrl = `${host}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&${searchParams.toString()}`
+
+		windowOpen({
+			pathname: entPageUrl,
+			windowKey: tpId,
+		})
 	}
 
-	const onEnterPage = () => {
-		console.log('onEnterPage')
+	const onEnterPage = (
+		{
+			langId,
+			tpId,
+			gameId = '',
+			matchid = '',
+			betType = '',
+			tpGameType,
+		}: {
+			langId: string
+			tpId: number
+			gameId?: string | number
+			matchid?: string
+			betType?: string | number
+			tpGameType: number | null
+		},
+		{ loginCallback }: { loginCallback: LoginCallbackType }
+	) => {
+		const host = process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		const signupUrl = `${host}/${paths.join.root}`
+		const loginUrl = `${host}/${paths.login.root}`
+		const errorUrl = `${process.env['NEXT_PUBLIC_ERROR_DOMAIN']}/404/index_${langId}.html`
+		const cashierUrl = `${host}/${paths.deposit.root}`
+		const lobbyUrl = ''
+
+		const searchParams = new URLSearchParams({
+			tpId: String(tpId),
+			gameId: String(gameId),
+			matchid: String(matchid),
+			getType: String(betType),
+			lobbyUrl,
+			tpGameType: String(tpGameType),
+		})
+
+		const entPageUrl = `${host}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&CashierUrl=${cashierUrl}&${searchParams.toString()}`
+
+		console.log('loginCallback')
+
+		// * 這裡的遊戲不需要登入，執行完直接 return 出去
+		if (
+			tpId === 1 &&
+			(gameId < 100 || includes([161, 180, 192, 2002], gameId))
+		) {
+			return push(entPageUrl)
+		}
+		if (tpId === 45) {
+			return windowOpen({
+				pathname: entPageUrl,
+				windowKey: `${tpId}_${gameId}`,
+			})
+		}
+
+		// * 這裡的遊戲需要登入檢查
+
+		if (loginCallback && !auth.isLogin) {
+			loginCallback()
+			return
+		}
+		windowOpen({
+			pathname: entPageUrl,
+			windowKey: `${tpId}_${gameId}`,
+		})
 	}
 
 	const onGoToGame = async (
@@ -136,7 +210,6 @@ const useMenu = <T>({ langId }: { langId: string }) => {
 				inputs: { gameId, fun, gameType, tpGameType: String(tpGameType) },
 			}).unwrap()
 
-			console.log('!')
 			const result = JSON.parse(message)
 
 			if (
@@ -190,8 +263,20 @@ const useMenu = <T>({ langId }: { langId: string }) => {
 				break
 
 			case MenuActionTypeEnum.EnterPage:
-				console.log('MenuActionTypeEnum.EnterPage')
-				onEnterPage()
+				if (product) {
+					const { TP_ID, GAME_ID, TP_GAME_TYPE } = product
+					console.log('MenuActionTypeEnum.EnterPage')
+					onEnterPage(
+						{
+							langId,
+							tpId: TP_ID,
+							gameId: GAME_ID,
+							tpGameType: TP_GAME_TYPE,
+						},
+						{ loginCallback }
+					)
+				}
+
 				break
 
 			case MenuActionTypeEnum.UseGoToGame:
