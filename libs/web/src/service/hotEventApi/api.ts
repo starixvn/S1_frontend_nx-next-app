@@ -1,4 +1,5 @@
-import { IAxiosResponse, rootApi } from '@nx-next-app/service'
+import { IAxiosResponse } from '../axiosBaseQuery'
+import { rootApi } from '../rootApi/api'
 import { IGetHotEventListArgs, IHotEventData } from './type'
 
 export const hotEventApiUrl = {

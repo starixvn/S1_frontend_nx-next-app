@@ -46,10 +46,10 @@ const HomeSwiper = ({ bannerData }: IHomeSwiperProps) => {
 					case BannerActionEnum.GoToBonus:
 						return `${paths.promotion.root}?BonusCode=${bonusCode}`
 					// RedirectPageOfThisSite
-					case BannerActionEnum.RedirectPageOfThisSite:
+					case BannerActionEnum.RedirectPageOfThisSite: {
 						const params = (() => {
 							let result = ''
-							if (urlRouter === paths.casino.root) {
+							if (urlRouter === paths.liveCasino.root) {
 								result = `?tpId=${tpId}${
 									isNumber(tpGameType)
 										? `&tpGameType=${tpGameType}`
@@ -61,6 +61,7 @@ const HomeSwiper = ({ bannerData }: IHomeSwiperProps) => {
 							return result
 						})()
 						return `${urlRouter}${params}`
+					}
 					default:
 						return ''
 				}
