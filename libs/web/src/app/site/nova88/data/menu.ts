@@ -121,7 +121,6 @@ export const MENU_DATA: IMenuData = {
 		pathname: paths.sports.root,
 		product: PRODUCTS['SPORTS'],
 		query: { provider: 'saba', type: 'soccer' },
-
 		subMenuSort: {
 			[INR]: [
 				SPORTS_CRYPTO_SPORTS.TP_GAME_TYPE,
