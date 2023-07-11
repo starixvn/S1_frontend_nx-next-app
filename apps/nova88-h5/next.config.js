@@ -17,6 +17,13 @@ const nextConfig = {
 	},
 	images: {
 		domains: [process.env.NEXT_PUBLIC_BANNER_DOMAIN],
+		// 因為存在太多外部連結，先全打開
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: '**',
+			},
+		],
 	},
 	async rewrites() {
 		return {

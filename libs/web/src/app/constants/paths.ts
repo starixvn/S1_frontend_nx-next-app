@@ -89,4 +89,7 @@ export const paths = {
 	leaderboard: {
 		root: 'leaderboard',
 	},
+	announcement: {
+		root: 'announcement',
+	},
 }

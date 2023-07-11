@@ -5,7 +5,11 @@ import { getCookies, setCookies } from 'cookies-next'
 import { GetServerSidePropsContext, PreviewData } from 'next'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
 import { ISEOData } from '../data-access/type'
-import { checkSignIn, getSEOData, getLineUserId } from '../data-access/siteApi'
+import {
+	checkSignIn,
+	getSEOData,
+	getLineUserId,
+} from 'libs/web/src/data-access/service'
 import { LineLoginDirectTypeEnum } from '../service'
 import { paths, ENV_COOKIE_NAMES } from '../app/constants'
 
@@ -13,6 +17,7 @@ export interface InitialPropsInterface {
 	originIsSignIn: boolean
 	originCookies: TmpCookiesObj
 	persistSEOData: ISEOData
+	currentHeaderCookies: string
 }
 
 // 轉換 response cookie 格式
@@ -32,6 +37,12 @@ const transferCookies = (values: string[]) => {
 		}
 	})
 	return result
+}
+
+const transferCookiesObj = (cookies: TmpCookiesObj): string => {
+	return Object.keys(cookies)
+		.map(key => `${key}=${cookies[key]}`)
+		.join(';')
 }
 
 interface IQueryInterface extends ParsedUrlQuery {
@@ -114,27 +125,31 @@ const handleLineDirectCheck = async ({
 export const useServerSideInitialPropsFetcher = async (
 	context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
 ): Promise<InitialPropsInterface> => {
-	const { cookie } = context.req.headers
 	const { query } = context
 	const middlewareCookies = context.res.getHeader('set-cookie')
-
 	let cookiesFromServer = {}
-
 	if (middlewareCookies) {
 		cookiesFromServer = transferCookies(middlewareCookies as string[])
 	}
-	const originIsSignIn = await checkSignIn(null, { headers: { cookie } })
-
-	const persistSEOData = await getSEOData(null, { headers: { cookie } })
-
-	// 如果有 cookiesFromServer , 則取該 cookie 作為 userInfo 資料
+	// 如果有 cookiesFromServer , 則取該 cookie 作為 userInfo 資料 , 給 clientSide 做使用的
 	const originCookies = isEmpty(cookiesFromServer)
 		? getCookies(context)
 		: assign(getCookies(context), cookiesFromServer)
 
+	// 帶進 api config 使用的 cookie
+	const currentHeaderCookies = transferCookiesObj(originCookies)
+
+	const originIsSignIn = await checkSignIn(null, {
+		headers: { cookie: currentHeaderCookies },
+	})
+
+	const persistSEOData = await getSEOData(null, {
+		headers: { cookie: currentHeaderCookies },
+	})
+
 	const lineRedirectPath = await handleLineDirectCheck({
 		query,
-		cookie,
+		cookie: currentHeaderCookies,
 		langId: originCookies[ENV_COOKIE_NAMES.LangId],
 	})
 
@@ -144,5 +159,5 @@ export const useServerSideInitialPropsFetcher = async (
 		context.res.end()
 	}
 
-	return { originIsSignIn, originCookies, persistSEOData }
+	return { originIsSignIn, originCookies, persistSEOData, currentHeaderCookies }
 }

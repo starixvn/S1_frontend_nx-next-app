@@ -1,6 +1,6 @@
 import { CurrenciesEnum, IStaticAllowedCurrencies } from '@nx-next-app/types'
 
-const { MYR, USD, THB, CNY, IDR, INR, KHM, BDT } = CurrenciesEnum
+const { MYR, USD, THB, CNY, IDR, INR, KHM, BDT, VND, USDT } = CurrenciesEnum
 
 export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 	VIP: [MYR, THB, IDR],
@@ -26,4 +26,5 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 		FISHING_ONT_SHOT: [INR],
 		FISHING_THAI_LOTTERY: [THB],
 	},
+	JACKPOT: [MYR, USD, THB, CNY, IDR, VND, INR, KHM, USDT],
 }

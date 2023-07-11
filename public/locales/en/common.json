@@ -106,6 +106,8 @@
 	"Label_Product_Keno": "Keno",
 	"Label_Product_NumberGame": "Number Game",
 	"Label_Product_TableGame": "Table Game",
+  "Label_General_LatestHighlightVideo": "Latest Highlight Video",
+  "Label_General_UpcomingMatches": "Upcoming Matches",
 
 	"Label_Header_ForgetPassword": "Forgotten your password?",
 
@@ -176,5 +178,25 @@
 	"Label_Login_UsernameTooltip": "For security, we suggest that your username does not contain your real name.",
 
 	"Label_AppDownload_DownloadAppNow": "Download APP now",
-	"Label_AppDownload_BestMobileExperience": "Best Mobile Experience"
+	"Label_AppDownload_BestMobileExperience": "Best Mobile Experience",
+
+  "Label_General_OK" : "OK",
+  "Label_General_ResetPasswordMsg": "Please enter your registered email to reset your password",
+  "Label_General_ForgetPsw": "Forget Password",
+  "Label_General_ForgotPwdMailSent": "Reset password link has sent to your registered email address.",
+  "Label_General_SeeMore" : "See More",
+
+  "Label_Promotion_MoreInfo": "More Info",
+  "Label_Promotion_ApplyNow" : "APPLY NOW",
+  "Label_Promotion_ClaimNow" : "Claim Now",
+  "Label_Promotion_JoinNow" : "Join Now",
+  "Label_Promotion_AllPromos": "ALL PROMOS",
+  "Label_Promotion_LossWithBonus": "Loss With Bonus",
+  "Label_Promotion_NetLoss": "Net Loss",
+  "Label_Promotion_TotalNetLoss": "Total Net Loss",
+  "Label_Promotion_MinNetLossRequired": "Min Net Loss Required",
+  "Label_Promotion_Percentage": "Percentage",
+  "Label_Promotion_TotalBonus": "Total Bonus",
+  "Label_Promotion_MaxBonus": "Max Bonus",
+  "Label_Promotion_TotalBonusClaimable": "Total Bonus Claimable"
 }

@@ -73,109 +73,111 @@ const LoginModal = () => {
 	}
 
 	return (
-		<div className='loginpop active'>
-			<div className='joinloginModule'>
-				<div className='loginAnimation'>
-					<Image
-						className='animationlogo'
-						alt='animationlogo'
-						src={`${process.env['NEXT_PUBLIC_IMAGE_HOST']}/SiteSkin/img/logo_en_w.png`}
-						width={150}
-						height={66}
-						style={{ width: '150px', height: '66px' }}
-					/>
-					<Image
-						className='npc1'
-						alt='npc1'
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/loginNpc01.png`}
-						width={181}
-						height={335}
-						style={{ width: '181px', height: '335px' }}
-					/>
-					<Image
-						className='npc2'
-						alt='npc2'
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/loginNpc02.png`}
-						width={400}
-						height={367}
-						style={{ width: '400px', height: '367px' }}
-					/>
-					<Image
-						className='welcome'
-						alt='welcome'
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/welcome.png`}
-						width={49}
-						height={313}
-						style={{ width: '49px', height: '313px' }}
-					/>
-					<Image
-						className='back'
-						alt='back'
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/back.png`}
-						width={17}
-						height={57}
-						style={{ width: '17px', height: '57px' }}
-					/>
+		<div className='pop'>
+			<div className='loginpop active'>
+				<div className='joinloginModule'>
+					<div className='loginAnimation'>
+						<Image
+							className='animationlogo'
+							alt='animationlogo'
+							src={`${process.env['NEXT_PUBLIC_IMAGE_HOST']}/SiteSkin/img/logo_en_w.png`}
+							width={150}
+							height={66}
+							style={{ width: '150px', height: '66px' }}
+						/>
+						<Image
+							className='npc1'
+							alt='npc1'
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/loginNpc01.png`}
+							width={181}
+							height={335}
+							style={{ width: '181px', height: '335px' }}
+						/>
+						<Image
+							className='npc2'
+							alt='npc2'
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/loginNpc02.png`}
+							width={400}
+							height={367}
+							style={{ width: '400px', height: '367px' }}
+						/>
+						<Image
+							className='welcome'
+							alt='welcome'
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/welcome.png`}
+							width={49}
+							height={313}
+							style={{ width: '49px', height: '313px' }}
+						/>
+						<Image
+							className='back'
+							alt='back'
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/back.png`}
+							width={17}
+							height={57}
+							style={{ width: '17px', height: '57px' }}
+						/>
+					</div>
+					<form
+						className='joinloginFunction'
+						onSubmit={handleSubmit(handleSubmitForm)}
+					>
+						<div className='title txt-orange'>{t('Label_General_LogIn')}</div>
+						<div className='noAccount'>
+							{t('Label_Join_DontHaveAccount')}
+							<Link href={paths.join.root}>
+								<a className='txt-orange' onClick={closeModal}>
+									{t('Label_General_Join')}
+								</a>
+							</Link>
+						</div>
+						<div className='inputModule'>
+							<InputBox
+								register={register('username', {
+									required: {
+										value: true,
+										message: t('Label_General_UsernameReq'),
+									},
+									onBlur: () => trigger('username'),
+								})}
+								icon='icon-member txt-blue'
+								placeholder={t('Label_General_Username') || ''}
+								errorMessage={errors['username']?.message as string}
+								error={!!errors['username']}
+								touched={!!touchedFields['username']}
+								infoMessage={t('Label_Join_UsernameTooltip') || ''}
+							/>
+							<InputBox
+								register={register('password', {
+									required: {
+										value: true,
+										message: t('Label_General_PasswordRequired'),
+									},
+									onBlur: () => trigger('password'),
+								})}
+								password
+								icon='icon icon-key txt-blue'
+								placeholder={t('Label_General_Password') || ''}
+								errorMessage={errors['password']?.message as string}
+								error={!!errors['password']}
+								touched={!!touchedFields['password']}
+							/>
+							<Link href={paths.forgetPassword.root}>
+								<a className='forgot' onClick={closeModal}>
+									{t('Label_Header_ForgetPassword')}
+								</a>
+							</Link>
+						</div>
+						<div className='btnGroup'>
+							<button className='btn-cancel' type='button' onClick={closeModal}>
+								{t('Label_General_Cancel')}
+							</button>
+							<button className='btn-check' type='submit'>
+								{t('Label_General_LogIn')}
+							</button>
+						</div>
+					</form>
 				</div>
-				<form
-					className='joinloginFunction'
-					onSubmit={handleSubmit(handleSubmitForm)}
-				>
-					<div className='title txt-orange'>{t('Label_General_LogIn')}</div>
-					<div className='noAccount'>
-						{t('Label_Join_DontHaveAccount')}
-						<Link href={paths.join.root}>
-							<a className='txt-orange' onClick={closeModal}>
-								{t('Label_General_Join')}
-							</a>
-						</Link>
-					</div>
-					<div className='inputModule'>
-						<InputBox
-							register={register('username', {
-								required: {
-									value: true,
-									message: t('Label_General_UsernameReq'),
-								},
-								onBlur: () => trigger('username'),
-							})}
-							icon='icon-member txt-blue'
-							placeholder={t('Label_General_Username') || ''}
-							errorMessage={errors['username']?.message as string}
-							error={!!errors['username']}
-							touched={!!touchedFields['username']}
-							infoMessage={t('Label_Join_UsernameTooltip') || ''}
-						/>
-						<InputBox
-							register={register('password', {
-								required: {
-									value: true,
-									message: t('Label_General_PasswordRequired'),
-								},
-								onBlur: () => trigger('password'),
-							})}
-							password
-							icon='icon icon-key txt-blue'
-							placeholder={t('Label_General_Password') || ''}
-							errorMessage={errors['password']?.message as string}
-							error={!!errors['password']}
-							touched={!!touchedFields['password']}
-						/>
-						<Link href={paths.forgetPassword.root}>
-							<a className='forgot' onClick={closeModal}>
-								{t('Label_Header_ForgetPassword')}
-							</a>
-						</Link>
-					</div>
-					<div className='btnGroup'>
-						<button className='btn-cancel' type='button' onClick={closeModal}>
-							{t('Label_General_Cancel')}
-						</button>
-						<button className='btn-check' type='submit'>
-							{t('Label_General_LogIn')}
-						</button>
-					</div>
-				</form>
 			</div>
 		</div>
 	)

@@ -8,6 +8,8 @@ import {
 	TpWalletListTypeEnum,
 	ICustBonusWalletData,
 	ITpWalletInfoData,
+	IGetCustSpecificBonusArgs,
+	ICustSpecificBonusData,
 } from './type'
 
 export const accountApiUrl = {
@@ -20,6 +22,7 @@ export const accountApiUrl = {
 	onlineCheck: 'Account/onlineCheck',
 	setLang: 'Account/SetLanguage',
 	setHideBalance: 'Account/SetHideBalance',
+	getCustSpecificBonus: 'Account/GetCustSpecificBonus',
 }
 
 const accountApi = rootApi.injectEndpoints({
@@ -96,6 +99,16 @@ const accountApi = rootApi.injectEndpoints({
 			}),
 			invalidatesTags: ['ACCOUNT_GET_MAIN_WALLET_INFO'],
 		}),
+		getCustSpecificBonus: builder.query<
+			IAxiosResponse<ICustSpecificBonusData>,
+			IGetCustSpecificBonusArgs
+		>({
+			query: data => ({
+				url: accountApiUrl.getCustSpecificBonus,
+				method: 'POST',
+				data,
+			}),
+		}),
 	}),
 })
 
@@ -109,4 +122,5 @@ export const {
 	useGetTpWalletListQuery,
 	useSetLanguageMutation,
 	useSetHideBalanceMutation,
+	useLazyGetCustSpecificBonusQuery,
 } = accountApi

@@ -14,6 +14,7 @@ export const siteApiUrl = {
 	getAffiliateAgent: 'Site/GetAffiliateAgent',
 	getRecaptchaInfo: 'Site/GetRecaptchaInfo',
 	signup: 'Site/Signup',
+	getBanner: 'Site/GetBannerV3',
 	affiliateCheck: 'Site/AffiliateCheck',
 }
 
@@ -44,18 +45,6 @@ export const siteApi = rootApi.injectEndpoints({
 				url: `${siteApiUrl.forgetPassword}/${langId}`,
 				method: 'POST',
 			}),
-		}),
-		getPromotionListV3: builder.query<
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			IAxiosResponse<any>,
-			{ langId: string; currencyId: number; deviceType: number }
-		>({
-			query: ({ langId, ...data }) => ({
-				url: `Promotion/GetPromotionListV3/${langId}`,
-				method: 'POST',
-				data,
-			}),
-			providesTags: ['AUTH_API_POST'],
 		}),
 		existsUserName: builder.query<
 			IAxiosResponse<boolean>,
@@ -123,8 +112,6 @@ export const {
 	useGetProductTpIdsQuery,
 	useGetTpMaintainListQuery,
 	useSetForgetPasswordMutation,
-	useGetPromotionListV3Query,
-	useLazyGetPromotionListV3Query,
 	useLazyExistsUserNameQuery,
 	useLazyExistsEmailQuery,
 	useGetSiteCurrencyListQuery,
