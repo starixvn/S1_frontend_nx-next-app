@@ -91,5 +91,5 @@ export const paths = {
 	},
 	announcement: {
 		root: 'announcement',
-	},
+	}
 }
