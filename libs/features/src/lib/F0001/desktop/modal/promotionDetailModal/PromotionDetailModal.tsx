@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import { useTranslation } from 'next-i18next'
 import Image from 'next/future/image'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -24,7 +25,9 @@ const PromotionDetailModal = ({
 	const { banner, title, description, cashBackDetails, bonusCode, details } =
 		promotionDetail
 
-	const handleJoinPromotion = () => {}
+	const handleJoinPromotion = () => {
+		//
+	}
 
 	return (
 		<div className='promoInfoPop active'>

@@ -80,7 +80,7 @@ const HomeSwiper = () => {
 		}
 
 		return (
-			<button key={`banner-${bannerName}`} onClick={() => handleClick(banner)}>
+			<button key={bannerName} onClick={() => handleClick(banner)}>
 				<Image src={bannerPCUrl} alt={bannerName} width={1920} height={500} />
 			</button>
 		)

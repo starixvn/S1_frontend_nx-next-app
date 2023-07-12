@@ -1,4 +1,4 @@
-import { IStaticProduct } from '@nx-next-app/types'
+import { CurrenciesEnum, IStaticProduct, MenuKeyEnum } from '@nx-next-app/types'
 
 export enum CategoryEnum {
 	SPORTS = 1,
@@ -11,29 +11,15 @@ export enum CategoryEnum {
 	POKER,
 }
 
-export enum MenuKeyEnum {
-	'Sports' = 'Sports',
-	'LiveCasino' = 'LiveCasino',
-	'Exchange' = 'Exchange',
-	'Home' = 'Home',
-	'AppDownload' = 'AppDownload',
-	'CryptoSports' = 'CryptoSports',
-	'ESports' = 'ESports',
-	'Slots' = 'Slots',
-	'Games' = 'Games',
-	'Fishing' = 'Fishing',
-	'Lottery' = 'Lottery',
-	'Promotion' = 'Promotion',
-	'VIP' = 'VIP',
-}
-
 export enum MenuActionTypeEnum {
 	EnterPage,
 	Link,
 	UseGoToGame,
+	Null,
 }
 
-export type ISubMenu = {
+export type ISubMenu<T> = {
+	productKey?: T
 	displayText?: string
 	displayKey?: string
 	className?: string
@@ -41,15 +27,18 @@ export type ISubMenu = {
 	query?: { provider?: string; type?: string }
 	product?: IStaticProduct
 	menuActionType: MenuActionTypeEnum
-	allowCurrencies?: CurrenciesEnum[]
+	allowCurrencies?: CurrenciesEnum[] | undefined
 	needLogin?: boolean
+	isTpMaintain?: boolean
 	eventIcons?: {
 		icon:
 			| 'icon icon-new'
 			| 'live'
 			| 'icon icon-star-full'
 			| 'icon icon-mediafire'
-		period: { start: null | string; end: string }
+
+		text: 'NEW' | 'HOT' | 'LIVE'
+		period: { start: null | string; end: null | string }
 	}[]
 	headerMenuImgList?: {
 		className: 'List-npc' | 'List-bg'
@@ -62,45 +51,42 @@ export type ISubMenu = {
 	}
 }
 
-export type IMenuData = {
+/**
+ * @param eventIcons fds
+ */
+export type IMenuData<T> = {
 	[module in MenuKeyEnum]: {
 		displayKey?: string
 		displayText?: string
-		className?: string
+		className: string
 		subMenuClassName?: string
-		menuActionType?: MenuActionTypeEnum
+		menuActionType: MenuActionTypeEnum
 		product?: IStaticProduct
 		query?: { provider: string; type: string }
 		pathname?: string
 		eventIcons?: {
-			icon: string
-			period: { start: null | string; end: string }
+			icon:
+				| 'icon icon-new'
+				| 'live'
+				| 'icon icon-star-full'
+				| 'icon icon-mediafire'
+			text: 'NEW' | 'HOT' | 'LIVE'
+			period: { start: null | string; end: null | string }
 		}[]
-		checkBeforeLogin?: boolean
-		allowCurrencies?: CurrenciesEnum[]
+
+		allowCurrencies: CurrenciesEnum[] | boolean // * true: 全開, false: 全關
 		subMenuSort?: {
-			[key: number]: (number | null)[]
+			[key: number]: T[]
 		}
 		menuType?: 'menu' | 'banner'
-		subMenu?: ISubMenu[]
+		subMenuAllowCurrenciesWithAuth: boolean // * 決定是否需要登入後才過濾
+		subMenu?: ISubMenu<T>[]
 	}
-}
-
-export enum CurrenciesEnum {
-	MYR = 2,
-	USD = 3,
-	THB = 4,
-	CNY = 13,
-	IDR = 15,
-	INR = 61,
-	KHM = 72,
-	BDT = 74,
-	USDT = 96,
 }
 
 export enum SocialChannelEnum {
 	HOME = 1,
-	CONTENT_US,
+	CONTACT_US,
 	APP,
 	FOOTER,
 }

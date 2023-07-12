@@ -141,10 +141,10 @@ const PLATFORM_LIST: {
 		hoverImgName: 'tcb',
 	},
 	{
-		...PRODUCTS['POKER_GAMES_M_POKER'],
+		...PRODUCTS['GAMES_POKER_M_POKER'],
 		imgName: 'mp',
 		hoverImgName: 'mpa',
-		allowCurrencies: ALLOWED_CURRENCIES.PRODUCTS.GAME_M_POKER,
+		allowCurrencies: ALLOWED_CURRENCIES['GAMES_POKER_M_POKER'],
 	},
 	{
 		...PRODUCTS['SLOTS_RED_TIGER'],
@@ -198,7 +198,7 @@ const PLATFORM_LIST: {
 		parameter: { ...PRODUCTS['SLOTS_AMB'] },
 		imgName: 'liveCasino_amb',
 		hoverImgName: 'liveCasino_amba',
-		allowCurrencies: ALLOWED_CURRENCIES.PRODUCTS.SLOT_AMB,
+		allowCurrencies: ALLOWED_CURRENCIES['SLOTS_AMB'],
 	},
 	{
 		...PRODUCTS['SLOTS_SKY_WIND'],
