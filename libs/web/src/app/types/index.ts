@@ -127,7 +127,6 @@ export enum BannerActionEnum {
 	RedirectPageOfThisSite,
 }
 
-
 export enum PromotionTypeEnum {
 	FirstDeposit = 1,
 	Redeposit = 2,
@@ -168,3 +167,5 @@ export enum MenuActionTypeEnum {
 	DirectUrl,
 	UseGoToGame,
 }
+
+export * from './footer'

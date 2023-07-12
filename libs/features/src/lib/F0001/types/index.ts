@@ -1,4 +1,4 @@
-import { CurrenciesEnum, IStaticProduct } from '@nx-next-app/types'
+import { IStaticProduct } from '@nx-next-app/types'
 
 export enum CategoryEnum {
 	SPORTS = 1,
@@ -84,4 +84,36 @@ export type IMenuData = {
 		menuType?: 'menu' | 'banner'
 		subMenu?: ISubMenu[]
 	}
+}
+
+export enum CurrenciesEnum {
+	MYR = 2,
+	USD = 3,
+	THB = 4,
+	CNY = 13,
+	IDR = 15,
+	INR = 61,
+	KHM = 72,
+	BDT = 74,
+	USDT = 96,
+}
+
+export enum SocialChannelEnum {
+	HOME = 1,
+	CONTENT_US,
+	APP,
+	FOOTER,
+}
+
+export const footerImgName: Record<string, string> = {
+	Youtube: 'yta.png',
+	Telegram: 'tga.png',
+	Facebook: 'fba.png',
+	Twitter: 'twa.png',
+	Instagram: 'ina.png',
+	Pinterest: 'pta.png',
+	WhatsApp: 'waa.png',
+	'E-mail': 'ema.png',
+	Livechat: 'chat.png',
+	LINE: 'line.png',
 }

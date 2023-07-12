@@ -15,10 +15,11 @@ const TransferFundsPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	footerData,
 }: ITransferFundsPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout persistSEOData={persistSEOData}>
+			<Layout persistSEOData={persistSEOData} footerData={footerData}>
 				<main>
 					<br />
 					<br />

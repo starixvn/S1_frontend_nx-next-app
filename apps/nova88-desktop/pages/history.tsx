@@ -15,10 +15,11 @@ const HistoryPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	footerData,
 }: IHistoryPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout persistSEOData={persistSEOData}>
+			<Layout persistSEOData={persistSEOData} footerData={footerData}>
 				<main>
 					<br />
 					<br />

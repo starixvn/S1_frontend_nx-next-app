@@ -69,7 +69,7 @@ export const paths = {
 		root: 'slots',
 	},
 	oneGame: {
-		root: 'oneGame',
+		root: 'poker',
 	},
 	fishing: {
 		root: 'fishing',

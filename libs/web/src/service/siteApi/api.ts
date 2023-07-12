@@ -1,11 +1,16 @@
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
-import { ISetForgetPasswordArgs, TpMaintainData, ISignUpArgs } from './type'
+import {
+	ISetForgetPasswordArgs,
+	TpMaintainData,
+	ISignUpArgs,
+	ISeoData,
+	ISocialChannelData,
+} from './type'
 
 export const siteApiUrl = {
 	getTpIds: 'Site/GetTpIds',
 	getTpMaintainList: 'Site/GetTpMaintainList',
-	getSEOData: 'Site/Seo',
 	forgetPassword: 'Site/ForgetPwdV2',
 	getPromotionListV3: 'Promotion/GetPromotionListV3',
 	existsUserName: 'Site/ExistsUserName',
@@ -16,6 +21,8 @@ export const siteApiUrl = {
 	signup: 'Site/Signup',
 	getBanner: 'Site/GetBannerV3',
 	affiliateCheck: 'Site/AffiliateCheck',
+	getSocialChannel: 'Site/GetSocialChannel',
+	getSeo: 'Site/seo',
 }
 
 export const siteApi = rootApi.injectEndpoints({
@@ -35,6 +42,34 @@ export const siteApi = rootApi.injectEndpoints({
 			query: () => ({
 				url: siteApiUrl.getTpMaintainList,
 				method: 'POST',
+			}),
+		}),
+		getSocialChannel: builder.query<
+			IAxiosResponse<ISocialChannelData[]>,
+			{
+				currencyId: number
+				langId: string
+				displayPage: number
+			}
+		>({
+			query: data => ({
+				url: `Site/GetSocialChannel`,
+				method: 'POST',
+				data,
+			}),
+		}),
+		getTpIds: builder.query<IAxiosResponse<number[]>, null>({
+			query: data => ({
+				url: `Site/GetTpIds`,
+				method: 'POST',
+				data,
+			}),
+		}),
+		getSeo: builder.query<IAxiosResponse<ISeoData>, null>({
+			query: data => ({
+				url: `Site/seo`,
+				method: 'POST',
+				data,
 			}),
 		}),
 		setForgetPassword: builder.mutation<
@@ -119,4 +154,7 @@ export const {
 	useGetRecaptchaInfoQuery,
 	useSignupMutation,
 	useLazyAffiliateCheckQuery,
+	useGetSocialChannelQuery,
+	useGetTpIdsQuery,
+	useGetSeoQuery,
 } = siteApi

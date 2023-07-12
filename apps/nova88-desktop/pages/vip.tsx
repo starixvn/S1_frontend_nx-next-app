@@ -17,10 +17,11 @@ const VipPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	footerData,
 }: IVipPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout persistSEOData={persistSEOData}>
+			<Layout persistSEOData={persistSEOData} footerData={footerData}>
 				<Vip />
 			</Layout>
 		</AuthProvider>
