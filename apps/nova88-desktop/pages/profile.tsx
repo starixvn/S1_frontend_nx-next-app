@@ -16,10 +16,11 @@ const ProfilePage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	footerData,
 }: IProfilePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout persistSEOData={persistSEOData}>
+			<Layout persistSEOData={persistSEOData} footerData={footerData}>
 				<main>
 					<br />
 					<br />

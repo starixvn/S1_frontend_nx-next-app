@@ -15,10 +15,11 @@ const DepositPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	footerData,
 }: IHomePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout persistSEOData={persistSEOData}>
+			<Layout persistSEOData={persistSEOData} footerData={footerData}>
 				<main>
 					<br />
 					<br />

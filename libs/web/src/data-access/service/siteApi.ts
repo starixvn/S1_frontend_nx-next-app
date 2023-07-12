@@ -1,3 +1,5 @@
+/* eslint-disable no-await-in-loop */
+/* eslint-disable no-restricted-syntax */
 import { AxiosRequestConfig } from 'axios'
 import {
 	baseAxios,
@@ -12,7 +14,20 @@ export const getSEOData = async (
 	config: AxiosRequestConfig
 ): Promise<ISEOData> => {
 	const { data: { data } = {} } = await baseAxios.post(
-		siteApiUrl.getSEOData,
+		siteApiUrl.getSeo,
+		params,
+		config
+	)
+
+	return data
+}
+
+export const getTpIds = async (
+	params: null,
+	config: AxiosRequestConfig
+): Promise<number[]> => {
+	const { data: { data } = {} } = await baseAxios.post(
+		siteApiUrl.getTpIds,
 		params,
 		config
 	)

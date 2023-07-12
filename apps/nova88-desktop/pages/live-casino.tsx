@@ -15,10 +15,11 @@ const LiveCasinoPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	footerData,
 }: ILiveCasinoPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout persistSEOData={persistSEOData}>
+			<Layout persistSEOData={persistSEOData} footerData={footerData}>
 				<main>
 					<br />
 					<br />

@@ -4,12 +4,16 @@ import { assign, isEmpty } from 'lodash-es'
 import { getCookies, setCookies } from 'cookies-next'
 import { GetServerSidePropsContext, PreviewData } from 'next'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
-import { ISEOData } from '../data-access/type'
+import { footerDataConverter } from '@nx-next-app/site/nova88/data/footer'
+import { IResponseConvertedFooterData } from 'libs/web/src/app/types/footer'
 import {
 	checkSignIn,
-	getSEOData,
 	getLineUserId,
-} from 'libs/web/src/data-access/service'
+	getSEOData,
+	getTpIds,
+} from '@nx-next-app/data-access'
+
+import { ISEOData } from '../data-access/type'
 import { LineLoginDirectTypeEnum } from '../service'
 import { paths, ENV_COOKIE_NAMES } from '../app/constants'
 
@@ -17,6 +21,7 @@ export interface InitialPropsInterface {
 	originIsSignIn: boolean
 	originCookies: TmpCookiesObj
 	persistSEOData: ISEOData
+	footerData: IResponseConvertedFooterData
 	currentHeaderCookies: string
 }
 
@@ -147,6 +152,18 @@ export const useServerSideInitialPropsFetcher = async (
 		headers: { cookie: currentHeaderCookies },
 	})
 
+	const tpIds = await getTpIds(null, {
+		headers: { cookie: context.req.headers.cookie },
+	})
+
+	// 獲取footerData資料
+	const footerData = footerDataConverter({
+		currentLang: originCookies['nova88_langId'] ?? 'en',
+		currencyId: Number(originCookies['nova88_currencyId']),
+		isLogin: originIsSignIn,
+		tpIds: originIsSignIn ? tpIds : [],
+	})
+
 	const lineRedirectPath = await handleLineDirectCheck({
 		query,
 		cookie: currentHeaderCookies,
@@ -159,5 +176,11 @@ export const useServerSideInitialPropsFetcher = async (
 		context.res.end()
 	}
 
-	return { originIsSignIn, originCookies, persistSEOData, currentHeaderCookies }
+	return {
+		originIsSignIn,
+		originCookies,
+		persistSEOData,
+		footerData,
+		currentHeaderCookies,
+	}
 }

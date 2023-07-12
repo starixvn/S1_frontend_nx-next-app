@@ -20,7 +20,11 @@ import {
 	IHighlightData,
 	IPromotionData,
 } from '@nx-next-app/service'
-import { BannerTypeEnum, DeviceTypeEnum } from '@nx-next-app/types'
+import {
+	BannerTypeEnum,
+	DeviceTypeEnum,
+	IResponseConvertedFooterData,
+} from '@nx-next-app/types'
 import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
 
 interface IHomePageProps extends InitialPropsInterface {
@@ -28,6 +32,7 @@ interface IHomePageProps extends InitialPropsInterface {
 	bannerData: IBannerData[]
 	promotionData: IPromotionData[]
 	latestHighlightVideo: IHighlightData
+	footerData: IResponseConvertedFooterData
 }
 
 const HomePage = ({
@@ -38,11 +43,12 @@ const HomePage = ({
 	bannerData,
 	promotionData,
 	latestHighlightVideo,
+	footerData,
 }: IHomePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData}>
+				<Layout persistSEOData={persistSEOData} footerData={footerData}>
 					<Home
 						announcementData={announcementData}
 						bannerData={bannerData}

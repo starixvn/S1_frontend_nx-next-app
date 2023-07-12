@@ -1,14 +1,39 @@
 export interface TpMaintainData {
+  siteId: number
+  tpId: number
+  tpGameType: number
+  tpCategoryId: number
+  beginDate: null | string
+  endDate: null | string
+  maintainType: number
+  typeValue: number
+  beginTime: null | string
+  endTime: null | string
+}
+
+export interface ISocialChannelData {
+	id: number
+	channelName: string
+	title: string
+	link: string
+	linkType: number
+	scheme: {
+		ios: string
+		android: string
+	}
+}
+
+export interface ISeoData {
 	siteId: number
-	tpId: number
-	tpGameType: number
-	tpCategoryId: number
-	beginDate: null | string
-	endDate: null | string
-	maintainType: number
-	typeValue: number
-	beginTime: null | string
-	endTime: null | string
+	title: string
+	meta: string
+	defaultLang: string
+	activeDomain: boolean
+	keyword: string
+	followUs: null
+	paymentMethod: null
+	script: string
+	xcmScript: string
 }
 
 export interface ISetForgetPasswordArgs {
