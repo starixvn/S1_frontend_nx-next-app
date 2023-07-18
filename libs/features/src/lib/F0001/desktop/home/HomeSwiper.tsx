@@ -1,16 +1,16 @@
 import Link from 'next/link'
-import { isNumber } from 'lodash'
 import Image from 'next/future/image'
 import { Carousel } from '@nx-next-app/components/D0001'
 import { IBannerData } from '@nx-next-app/service'
-import { multiEqual } from '@nx-next-app/utils'
+import { isUrl, multiEqual } from '@nx-next-app/utils'
 import { BannerActionEnum } from '@nx-next-app/types'
 import { paths } from '@nx-next-app/constants'
+import { useContext } from 'react'
+import { HomeContext } from './HomeContext'
+import { getPathParams } from './utils'
 
-interface IHomeSwiperProps {
-	bannerData: IBannerData[]
-}
-const HomeSwiper = ({ bannerData }: IHomeSwiperProps) => {
+const HomeSwiper = () => {
+	const { bannerData } = useContext(HomeContext)
 	const handleClick = (banner: IBannerData) => {
 		if (window === undefined) return
 		const { actionMode, bannerLink } = banner
@@ -47,19 +47,12 @@ const HomeSwiper = ({ bannerData }: IHomeSwiperProps) => {
 						return `${paths.promotion.root}?BonusCode=${bonusCode}`
 					// RedirectPageOfThisSite
 					case BannerActionEnum.RedirectPageOfThisSite: {
-						const params = (() => {
-							let result = ''
-							if (urlRouter === paths.liveCasino.root) {
-								result = `?tpId=${tpId}${
-									isNumber(tpGameType)
-										? `&tpGameType=${tpGameType}`
-										: '&tpGameType=undefined'
-								}`
-							} else if (urlRouter === paths.sports.root) {
-								result = `?tpId=${tpId}${gameId ? `&gameId=${gameId}` : ''}`
-							}
-							return result
-						})()
+						const params = getPathParams({
+							urlRouter,
+							tpId,
+							tpGameType,
+							gameId,
+						})
 						return `${urlRouter}${params}`
 					}
 					default:
@@ -70,12 +63,16 @@ const HomeSwiper = ({ bannerData }: IHomeSwiperProps) => {
 				<div key={`banner-${bannerName}`}>
 					<Link href={link} passHref>
 						<a>
-							<Image
-								src={bannerPCUrl}
-								alt={bannerName}
-								width={1920}
-								height={500}
-							/>
+							{isUrl(bannerPCUrl) ? (
+								<Image
+									src={bannerPCUrl}
+									alt={bannerName}
+									width={1920}
+									height={500}
+								/>
+							) : (
+								<img src={bannerPCUrl} alt={bannerName} />
+							)}
 						</a>
 					</Link>
 				</div>

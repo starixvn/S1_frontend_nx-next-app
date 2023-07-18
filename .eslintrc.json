@@ -24,8 +24,7 @@
 					{
 						"extensions": [".ts", ".tsx", ".js", ".jsx"]
 					}
-				],
-				"typescript-eslint/no-explicit-any": "off"
+				]
 			}
 		},
 		{
@@ -78,7 +77,9 @@
 				"react/jsx-indent": "off",
 				"jsx-quotes": "off",
 				"no-mixed-spaces-and-tabs": "off",
-				"arrow-parens": "off"
+				"arrow-parens": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "import/no-cycle" : "off"
 			}
 		},
 		{

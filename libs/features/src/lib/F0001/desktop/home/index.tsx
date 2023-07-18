@@ -1,7 +1,6 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
 
 import {
 	IAnnouncementData,
@@ -10,6 +9,7 @@ import {
 	IAxiosResponse,
 	useLazyGetPromotionDetailQuery,
 	IHighlightData,
+	IHotEventData,
 } from '@nx-next-app/service'
 import { Marquee } from '@nx-next-app/components/D0001'
 import { useAuth } from '@nx-next-app/data-access'
@@ -18,7 +18,8 @@ import { paths } from '@nx-next-app/constants'
 import { CurrenciesEnum, DeviceTypeEnum } from '@nx-next-app/types'
 import { HomeSwiper } from './HomeSwiper'
 import { PromotionMarquee } from './PromotionMarquee'
-import { LatestVideAndEvent } from './LatestVideoAndEvent'
+import { LatestVideAndEvent } from './latestVideoAndEvent'
+import { HomeContext } from './HomeContext'
 
 const LoginModal = dynamic(() => import('../modal/LoginModal'), {
 	ssr: false,
@@ -31,23 +32,24 @@ const PromotionDetailModal = dynamic(
 	}
 )
 
-interface IHomeProps {
+export interface IHomeProps {
 	announcementData: IAnnouncementData[]
 	promotionData: IPromotionData[]
 	bannerData: IBannerData[]
+	hotEventData: IHotEventData[]
 	latestHighlightVideo: IHighlightData
 	jackPotCurrencies: CurrenciesEnum[]
 }
 // * wip feat
 const Home = ({
 	announcementData,
-	bannerData,
 	promotionData,
+	bannerData,
+	hotEventData,
 	latestHighlightVideo,
 	jackPotCurrencies,
 }: IHomeProps) => {
 	const { push } = useRouter()
-	const { t } = useTranslation()
 	const { auth, userInfo } = useAuth()
 	const { modal } = useGlobalModal()
 
@@ -83,20 +85,25 @@ const Home = ({
 
 	return (
 		<main>
-			{/* 首頁輪播 */}
-			<HomeSwiper bannerData={bannerData} />
-			{/* 跑馬燈 */}
-			<Marquee data={announcementData} onMarqueeClick={handleMarqueeClick} />
-			{/* Promotion跑馬燈 */}
-			<PromotionMarquee
-				promotionData={promotionData}
-				onPromotionClick={handlePromotionClick}
-			/>
-			{/* 最新影片 與 event 區塊 */}
-			<LatestVideAndEvent
-				latestHighlightVideo={latestHighlightVideo}
-				jackPotCurrencies={jackPotCurrencies}
-			/>
+			<HomeContext.Provider
+				value={{
+					announcementData,
+					promotionData,
+					bannerData,
+					hotEventData,
+					latestHighlightVideo,
+					jackPotCurrencies,
+				}}
+			>
+				{/* 首頁輪播 */}
+				<HomeSwiper />
+				{/* 跑馬燈 */}
+				<Marquee data={announcementData} onMarqueeClick={handleMarqueeClick} />
+				{/* Promotion跑馬燈 */}
+				<PromotionMarquee onPromotionClick={handlePromotionClick} />
+				{/* 最新影片 與 event 區塊 */}
+				<LatestVideAndEvent />
+			</HomeContext.Provider>
 		</main>
 	)
 }

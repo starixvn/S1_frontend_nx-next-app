@@ -3,6 +3,7 @@ export * from './paths'
 export * from './areaCode'
 export * from './currency'
 export * from './regex'
+export * from './timeFormat'
 
 export const CURRENCY_TO_LANG_KEY: {
 	[key: string | number]: string
