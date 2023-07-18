@@ -1,0 +1,51 @@
+import { useContext } from 'react'
+import Link from 'next/link'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import Image from 'next/future/image'
+import { useAuth } from '@nx-next-app/data-access'
+import { paths } from '@nx-next-app/constants'
+import { JackPot } from '@nx-next-app/components/D0001'
+import { useRouter } from 'next/router'
+import { HomeContext } from '../../HomeContext'
+
+const HomeJackPot = () => {
+	const { t } = useTranslation()
+	const { jackPotCurrencies } = useContext(HomeContext)
+	const { userInfo } = useAuth()
+	const { currencyId, langId } = userInfo
+	const { push } = useRouter()
+
+	return (
+		<div className='jpotModule'>
+			{includes(jackPotCurrencies, currencyId) ? (
+				<>
+					<div className='moduleTitle'>{t('Label_General_Jackpot')}</div>
+					<JackPot onClick={() => push(paths.slots.root)} isRoot />
+				</>
+			) : (
+				<>
+					<div className='moduleTitle'>{t('Label_General_Slots')}</div>
+					<Link href={paths.slots.root}>
+						<a className='slotsbox'>
+							<Image
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/img/indexslots_bg_${langId}.jpg`}
+								alt='slots-bg'
+								width={605}
+								height={215}
+							/>
+							<Image
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/img/indexslots_items.png`}
+								alt='slots-items'
+								width={362}
+								height={291}
+							/>
+						</a>
+					</Link>
+				</>
+			)}
+		</div>
+	)
+}
+
+export default HomeJackPot

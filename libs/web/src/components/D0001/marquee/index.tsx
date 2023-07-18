@@ -12,7 +12,7 @@ interface IMarqueeProps {
 
 const Marquee = ({ data, configs, onMarqueeClick }: IMarqueeProps) => {
 	const defaultConfig = {
-		direction: 'left' as 'left',
+		direction: 'left' as const,
 		pauseOnHover: true,
 		speed: 50,
 		...configs,

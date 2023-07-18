@@ -7,18 +7,16 @@ import { filter } from 'lodash-es'
 import ReactMarquee from 'react-fast-marquee'
 import { paths } from '@nx-next-app/constants'
 import { isUrl } from '@nx-next-app/utils'
-import { IPromotionData } from '@nx-next-app/service'
+import { useContext } from 'react'
+import { HomeContext } from './HomeContext'
 
 dayjs.extend(isBetween)
 
 interface IPromotionMarqueeProps {
-	promotionData: IPromotionData[]
 	onPromotionClick: (bonusCode: string) => void
 }
-const PromotionMarquee = ({
-	promotionData,
-	onPromotionClick,
-}: IPromotionMarqueeProps) => {
+const PromotionMarquee = ({ onPromotionClick }: IPromotionMarqueeProps) => {
+	const { promotionData } = useContext(HomeContext)
 	const { t } = useTranslation()
 
 	const filteredPromotions = filter(
@@ -39,7 +37,7 @@ const PromotionMarquee = ({
 				</div>
 				{promotionData?.length > 0 && (
 					<div className='swiper-container promosSwiper'>
-						<ReactMarquee speed={80} pauseOnHover={true}>
+						<ReactMarquee speed={80} pauseOnHover>
 							<div className='swiper-container'>
 								<div className='swiper-wrapper' style={{ display: 'flex' }}>
 									{filteredPromotions.map(

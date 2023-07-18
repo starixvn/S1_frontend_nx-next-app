@@ -1,10 +1,15 @@
 import { useTranslation } from 'next-i18next'
+import { HotEventSwiper } from './HotEventSwiper'
 
-export const UpComingMatches = () => {
+const UpComingMatches = () => {
 	const { t } = useTranslation()
+
 	return (
-		<div>
+		<>
 			<div className='moduleTitle'>{t('Label_General_UpcomingMatches')}</div>
-		</div>
+			<HotEventSwiper />
+		</>
 	)
 }
+
+export { UpComingMatches }

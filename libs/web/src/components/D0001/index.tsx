@@ -30,3 +30,5 @@ export { default as MetaData } from './metaData'
 export { default as Loading } from './loading'
 
 export { Marquee } from './marquee'
+
+export { default as JackPot } from './jackpot/index'

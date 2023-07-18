@@ -9,6 +9,7 @@ import {
 	getBanner,
 	getPromotion,
 	getLatestHighlightVideo,
+	getHotEvent,
 } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
@@ -18,6 +19,7 @@ import {
 	IAnnouncementData,
 	IBannerData,
 	IHighlightData,
+	IHotEventData,
 	IPromotionData,
 } from '@nx-next-app/service'
 import {
@@ -26,6 +28,7 @@ import {
 	IResponseConvertedFooterData,
 } from '@nx-next-app/types'
 import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 
 interface IHomePageProps extends InitialPropsInterface {
 	announcementData: IAnnouncementData[]
@@ -33,6 +36,7 @@ interface IHomePageProps extends InitialPropsInterface {
 	promotionData: IPromotionData[]
 	latestHighlightVideo: IHighlightData
 	footerData: IResponseConvertedFooterData
+	hotEventData: IHotEventData[]
 }
 
 const HomePage = ({
@@ -43,6 +47,7 @@ const HomePage = ({
 	bannerData,
 	promotionData,
 	latestHighlightVideo,
+	hotEventData,
 	footerData,
 }: IHomePageProps) => {
 	return (
@@ -54,6 +59,7 @@ const HomePage = ({
 						bannerData={bannerData}
 						promotionData={promotionData}
 						latestHighlightVideo={latestHighlightVideo}
+						hotEventData={hotEventData}
 						jackPotCurrencies={ALLOWED_CURRENCIES.JACKPOT}
 					/>
 				</Layout>
@@ -66,14 +72,11 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
 	const { originCookies, currentHeaderCookies } = initialProps
 	const { langId, currencyId } = {
-		langId: originCookies[
-			`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`
-		] as string,
-		currencyId: Number(
-			originCookies[`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`]
-		),
+		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
+		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
 	const announcementData = await getAnnouncement({ langId, currencyId })
+
 	const bannerData = await getBanner(
 		{
 			langId,
@@ -89,12 +92,15 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
 	const latestHighlightVideo = await getLatestHighlightVideo({ langId })
 
+	const hotEventData = await getHotEvent({ langId })
+
 	return {
 		props: {
 			bannerData,
 			announcementData,
 			promotionData,
 			latestHighlightVideo,
+			hotEventData,
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 		},
