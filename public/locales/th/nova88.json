@@ -14,5 +14,10 @@
 	"Label_Join_MemberBenefits_4": "เงินคืนยอดเล่นรายวัน สูงสุด {{rebate}}%",
 	"Label_Join_EnjoyNova88VipExclusiveBonus": "เพลิดเพลินไปกับ NOVA88 โบนัสและเงินคืนพิเศษ",
 	"Label_Join_SpeedyDepositAndWithdrawal": "แพลตฟอร์มเกมที่หลากหลายพร้อมโอกาสที่ดีกว่าและประสบการณ์การเล่นเกมเต็มรูปแบบ",
-	"Label_Join_RegisterWithLine": "ลงทะเบียนด้วย LINE"
+	"Label_Join_RegisterWithLine": "ลงทะเบียนด้วย LINE",
+	"Label_Join_Congratulations": "ขอแสดงความยินดีด้วย",
+	"Label_Join_BecomingDistinguishedPlayer": "การเป็นผู้เล่นที่โดดเด่น",
+	"Label_Join_AfterJoinHint": "ยินดีด้วยค่ะ คุณได้ลงทะเบียนเป็นสมาชิกเรียบร้อยแล้ว",
+	"Label_Join_DepositNow": "ฝากเงินเดี๋ยวนี้",
+	"Label_Join_IWouldLikeToVisit": "ฉันต้องการเข้าร่วม"
 }

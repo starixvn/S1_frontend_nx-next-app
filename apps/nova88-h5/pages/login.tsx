@@ -6,7 +6,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout, Login } from '@nx-next-app/features/F0001/h5'
+import { Layout, LoginJoin } from '@nx-next-app/features/F0001/h5'
 
 type IHomePageProps = InitialPropsInterface
 
@@ -19,7 +19,7 @@ const LoginPage = ({
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData}>
-					<Login />
+					<LoginJoin cookies={originCookies} />
 				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>
