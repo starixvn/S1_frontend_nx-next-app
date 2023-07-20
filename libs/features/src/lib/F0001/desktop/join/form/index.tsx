@@ -54,6 +54,7 @@ const Form = ({ cookies }: IJoinProps) => {
 	const urlAffId = query['AffId'] || cookies['AffId']
 	const urlAffCode = query['AffCode'] || cookies['AffCode']
 	const urlAffiliate = urlAffId || urlAffCode
+	const lineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
 
 	const {
 		formState,
@@ -192,6 +193,7 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const checkAffiliate = async () => {
 		const formAffiliate = getValues('affiliate')
+		if (!formAffiliate) return true
 
 		// check affiliate is qualified from api
 		try {
@@ -270,7 +272,6 @@ const Form = ({ cookies }: IJoinProps) => {
 	}
 
 	const checkLineRegister = () => {
-		const lineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
 		if (!lineUserId) return
 
 		if (siteCurrencyList.length > 0) {
@@ -353,6 +354,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				userpwd: password,
 				blackbox,
 				langId,
+				lineUserId: lineUserId as string,
 			}).unwrap()
 
 			router.push(`/${userLang}/${paths.deposit.root}`)
@@ -362,18 +364,26 @@ const Form = ({ cookies }: IJoinProps) => {
 		}
 	}
 
-	const currencySelectOptions = siteCurrencyList.map(currencyId => ({
-		value: currencyId,
-		label: t(`Label_General_Currency_${currencyId}`),
-		prefixOptionIcon: (
-			<div
-				className={classNames(
-					'flag',
-					FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
-				)}
-			/>
-		),
-	}))
+	const currencySelectOptions = siteCurrencyList
+		.filter(currencyId => {
+			const affiliate = getValues('affiliate')
+			const formCurrencyId = getValues('currencyId')
+
+			// if affId qualified, only show currencyId from api
+			return urlAffId && affiliate ? currencyId === formCurrencyId : true
+		})
+		.map(currencyId => ({
+			value: currencyId,
+			label: t(`Label_General_Currency_${currencyId}`),
+			prefixOptionIcon: (
+				<div
+					className={classNames(
+						'flag',
+						FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
+					)}
+				/>
+			),
+		}))
 
 	const areaCodeSelectOptions = Object.values(AREA_CODE).map(el => ({
 		value: el.AreaCode,

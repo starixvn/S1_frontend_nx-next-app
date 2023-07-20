@@ -64,6 +64,7 @@ export interface ISignUpArgs {
 	userpwd: string
 	blackbox?: string
 	langId: string
+	lineUserId?: string
 }
 
 export interface IGetBannerArgs {
