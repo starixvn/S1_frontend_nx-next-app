@@ -10,7 +10,9 @@ import { ThirdPartyJS } from '@nx-next-app/features/F0001/desktop'
 // * https://day.js.org/docs/en/plugin/localized-format
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
-
+import timezone from 'dayjs/plugin/timezone'
+import utc from 'dayjs/plugin/utc'
+import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import {
 	ALLOWED_CURRENCIES,
 	FEATURE_BONUS,
@@ -26,6 +28,7 @@ import {
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	VIP_CLUB_IMAGES,
 	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
+	CURRENCY_LIST,
 } from '@nx-next-app/site/nova88'
 
 import '../styles/css/style.css'
@@ -43,7 +46,8 @@ const {
 } = ThirdPartyJS
 
 dayjs.extend(localizedFormat)
-
+dayjs.extend(timezone)
+dayjs.extend(utc)
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
@@ -57,6 +61,8 @@ function CustomApp({ Component, pageProps }: AppProps) {
 						ALLOWED_CURRENCIES={ALLOWED_CURRENCIES}
 						SLOT_TP_GAME_TYPE={SLOT_TP_GAME_TYPE}
 						LANG_GROUPS={LANG_GROUPS}
+						CURRENCY_LIST={CURRENCY_LIST}
+						CURRENCY_TO_TIMEZONE={CURRENCY_TO_TIMEZONE}
 						VIP_CLUB_IMAGES={VIP_CLUB_IMAGES}
 						VIP_EVENT_CURRENCIES_LIMITATION_INFO={
 							VIP_EVENT_CURRENCIES_LIMITATION_INFO

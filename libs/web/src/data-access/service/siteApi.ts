@@ -5,6 +5,8 @@ import {
 	baseAxios,
 	IBannerData,
 	IGetBannerArgs,
+	IGetVipBannerArgs,
+	IVipBannerData,
 	siteApiUrl,
 } from '@nx-next-app/service'
 import { ISEOData } from 'libs/web/src/data-access/type'
@@ -57,4 +59,17 @@ export const getBanner = async (
 	}
 
 	return result
+}
+
+export const getVipBanner = async (
+	params: IGetVipBannerArgs,
+	config: AxiosRequestConfig
+): Promise<IVipBannerData> => {
+	const { data: { data } = {} } = await baseAxios.post(
+		siteApiUrl.getVipBanner,
+		params,
+		config
+	)
+
+	return data
 }
