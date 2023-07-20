@@ -1,48 +1,35 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { Carousel } from '@nx-next-app/components/D0001'
-import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import VipInfo from './VipInfo'
-import VipPage from './VipPage'
+import Image from 'next/future/image'
+import { useAuth } from '@nx-next-app/data-access'
+import { IVipBannerData } from '@nx-next-app/service'
+import VipBanner from '@nx-next-app/features/F0001/desktop/vip/VipBanner'
+import VipTable from '@nx-next-app/features/F0001/desktop/vip/VipTable'
+import VipBottom from '@nx-next-app/features/F0001/desktop/vip/VipBottom'
 
-const Vip = () => {
-	const { userInfo, auth } = useAuth()
-	const { VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY } = useStaticData()
+interface IVipProps {
+	vipBannerData: IVipBannerData
+}
 
+const Vip = ({
+	vipBannerData: { vipBannerData, lastUpdateTime },
+}: IVipProps) => {
+	const {
+		userInfo: { langId },
+	} = useAuth()
 	return (
 		<main className='vip'>
-			<Carousel pagination={false}>
-				{VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY(userInfo.langId).map(item => (
-					<div key={item.alt}>
-						<Image src={item.url} alt={item.alt} height={365} width={1400} />
-					</div>
-				))}
-			</Carousel>
-
-			<VipInfo />
-
-			<VipPage />
-
-			{auth.isLogin ? (
+			<VipBanner vipBannerData={vipBannerData} />
+			<div className='newvipinfo'>
 				<Image
-					style={{ cursor: 'auto' }}
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/${userInfo.langId}/vip_program_${userInfo.langId}.jpg`}
-					alt='vip-program-img'
-					width={1400}
-					height={365}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vipinfo${
+						langId === 'en' ? '' : `-${langId}`
+					}.png`}
+					width={1920}
+					height={438}
+					alt=''
 				/>
-			) : (
-				<Link href={paths.join.root}>
-					<Image
-						style={{ cursor: 'pointer' }}
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/${userInfo.langId}/vip_program_${userInfo.langId}.jpg`}
-						alt='vip-program-img'
-						width={1400}
-						height={365}
-					/>
-				</Link>
-			)}
+			</div>
+			<VipTable vipBannerData={vipBannerData} lastUpdateTime={lastUpdateTime} />
+			<VipBottom />
 		</main>
 	)
 }

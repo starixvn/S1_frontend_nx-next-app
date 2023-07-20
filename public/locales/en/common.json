@@ -152,6 +152,12 @@
 	"Label_Vip_Minimum_Deposit_Within_Validity_Period": "MINIMUM DEPOSIT WITHIN VALIDITY PERIOD",
 	"Label_Vip_Minimum_Turnover_Within_Validity_Period": "MINIMUM TURNOVER WITHIN VALIDITY PERIOD",
 	"Label_Vip_Ranking_Validity_Membership_Renewal": "RANKING VALIDITY MEMBERSHIP RENEWAL",
+  "Label_Vip_NoRestrictions": "NO RESTRICTIONS",
+  "Label_Vip_Special_Rebate_UP_TO": "SPECIAL REBATE UP TO",
+  "Label_Vip_TopPriorityServices": "Top Priority Services",
+  "Label_Vip_ExclusivePromo":"Exclusive Promo",
+  "Label_Vip_BirthdaySpecialGifts": "Birthday Special Gifts",
+  "Label_Vip_LifetimeMembership": "Lifetime Membership",
 
 	"Label_LeaderBoard": "LeaderBoard",
 

@@ -1,14 +1,14 @@
 export interface TpMaintainData {
-  siteId: number
-  tpId: number
-  tpGameType: number
-  tpCategoryId: number
-  beginDate: null | string
-  endDate: null | string
-  maintainType: number
-  typeValue: number
-  beginTime: null | string
-  endTime: null | string
+	siteId: number
+	tpId: number
+	tpGameType: number
+	tpCategoryId: number
+	beginDate: null | string
+	endDate: null | string
+	maintainType: number
+	typeValue: number
+	beginTime: null | string
+	endTime: null | string
 }
 
 export interface ISocialChannelData {
@@ -87,4 +87,37 @@ export interface IBannerData {
 	tpGameType: number
 	tpId: string
 	urlRouter: string
+}
+
+export interface IGetVipBannerArgs {
+	currencyId: number
+}
+
+export type VipBannerInfo = {
+	rebateCategory: {
+		categoryId: number
+		categoryName: string
+		level: number
+		percentage: number
+	}[]
+	level: number
+	levelName: string
+	withdrawalMin: string
+	withdrawalMax: string
+	times: string
+	upDeposit: null | string
+	upBonus: null | string
+	downDeposit: null | string
+	downTurnover: null | string
+	rankingValidityMembershipRenewal: string
+	depositPriority: null | string
+	serviceSupport: null | string
+	withdrawalPriority: null | string
+	designatedAccountManager: boolean
+	referralBonus: boolean
+}
+
+export interface IVipBannerData {
+	lastUpdateTime: string
+	vipBannerData: VipBannerInfo[]
 }

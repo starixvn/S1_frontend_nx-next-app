@@ -21,6 +21,14 @@ export interface IImageData {
 	url: string
 	alt: string
 	displayKey?: string
+	levelTabsName?: string
+	level?: number
+}
+
+export interface IBannerByCurrencyData {
+	url: string
+	level: number
+	levelText: string
 }
 
 export interface IStaticSlotTpGameType {

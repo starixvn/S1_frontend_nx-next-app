@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { createContext, ReactNode } from 'react'
 import {
+	IBannerByCurrencyData,
 	IImageData,
 	IMetaData,
 	IStaticAllowedCurrencies,
@@ -21,11 +22,14 @@ export interface IStaticDataContext {
 	ALLOWED_CURRENCIES: IStaticAllowedCurrencies
 	SLOT_TP_GAME_TYPE: IStaticSlotTpGameType
 	LANG_GROUPS: IStaticLangGroups
-	VIP_CLUB_IMAGES: IImageData[]
+	CURRENCY_LIST: { [key: string]: number }
+	CURRENCY_TO_TIMEZONE: { [key: number]: string }
+	VIP_CLUB_IMAGES: (deviceType: number) => IImageData[]
 	VIP_EVENT_CURRENCIES_LIMITATION_INFO: IStaticVipEventCurrenciesLimitationInfo
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY: (
-		langId: string | number
-	) => IImageData[]
+		langId: string | number,
+		deviceType: number
+	) => IBannerByCurrencyData[]
 	FEATURE_BONUS: { [key: number]: string }
 	TERMS_CONDITIONS: ({ langId }: { langId: string }) => ITermsConditions
 	USERNAME_REGEX: RegExp
@@ -47,6 +51,8 @@ const StaticDataProvider = ({
 	ALLOWED_CURRENCIES,
 	SLOT_TP_GAME_TYPE,
 	LANG_GROUPS,
+	CURRENCY_LIST,
+	CURRENCY_TO_TIMEZONE,
 	VIP_CLUB_IMAGES,
 	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
@@ -63,6 +69,8 @@ const StaticDataProvider = ({
 		ALLOWED_CURRENCIES,
 		SLOT_TP_GAME_TYPE,
 		LANG_GROUPS,
+		CURRENCY_LIST,
+		CURRENCY_TO_TIMEZONE,
 		VIP_CLUB_IMAGES,
 		VIP_EVENT_CURRENCIES_LIMITATION_INFO,
 		VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,

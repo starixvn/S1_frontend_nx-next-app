@@ -6,6 +6,8 @@ import {
 	ISignUpArgs,
 	ISeoData,
 	ISocialChannelData,
+	IVipBannerData,
+	IGetVipBannerArgs,
 } from './type'
 
 export const siteApiUrl = {
@@ -23,6 +25,7 @@ export const siteApiUrl = {
 	affiliateCheck: 'Site/AffiliateCheck',
 	getSocialChannel: 'Site/GetSocialChannel',
 	getSeo: 'Site/seo',
+	getVipBanner: 'Site/GetVipBanner',
 }
 
 export const siteApi = rootApi.injectEndpoints({
@@ -138,6 +141,15 @@ export const siteApi = rootApi.injectEndpoints({
 				url: `${siteApiUrl.signup}/${langId}`,
 				method: 'POST',
 				data,
+			}),
+		}),
+		getVipBanner: builder.query<
+			IAxiosResponse<IVipBannerData[]>,
+			IGetVipBannerArgs
+		>({
+			query: () => ({
+				url: siteApiUrl.getVipBanner,
+				method: 'POST',
 			}),
 		}),
 	}),

@@ -25,15 +25,21 @@ import {
 	VIP_CLUB_IMAGES,
 	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
 	REALNAME_REGEX,
+	CURRENCY_LIST,
+	MENU_DATA,
 } from '@nx-next-app/site/nova88'
 
 import '../styles/css/style-dark.css'
 import '../styles/css/style.css'
 import '../styles/css/swiper.css'
 import '../styles/css/font.css'
+import timezone from 'dayjs/plugin/timezone'
+import utc from 'dayjs/plugin/utc'
+import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 
 dayjs.extend(localizedFormat)
-
+dayjs.extend(timezone)
+dayjs.extend(utc)
 const {
 	LiveChatScript,
 	IovationScript,
@@ -49,11 +55,14 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			<Provider store={store}>
 				<UIProvider>
 					<StaticDataProvider
+						MENU_DATA={MENU_DATA}
 						META_DATA={META_DATA}
 						PRODUCTS={PRODUCTS}
 						ALLOWED_CURRENCIES={ALLOWED_CURRENCIES}
 						SLOT_TP_GAME_TYPE={SLOT_TP_GAME_TYPE}
 						LANG_GROUPS={LANG_GROUPS}
+						CURRENCY_LIST={CURRENCY_LIST}
+						CURRENCY_TO_TIMEZONE={CURRENCY_TO_TIMEZONE}
 						VIP_CLUB_IMAGES={VIP_CLUB_IMAGES}
 						VIP_EVENT_CURRENCIES_LIMITATION_INFO={
 							VIP_EVENT_CURRENCIES_LIMITATION_INFO
