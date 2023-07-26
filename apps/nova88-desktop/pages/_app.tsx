@@ -10,13 +10,17 @@ import { ThirdPartyJS } from '@nx-next-app/features/F0001/desktop'
 // * https://day.js.org/docs/en/plugin/localized-format
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
-
+import timezone from 'dayjs/plugin/timezone'
+import utc from 'dayjs/plugin/utc'
+import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import {
 	ALLOWED_CURRENCIES,
 	FEATURE_BONUS,
 	LANG_GROUPS,
+	MENU_DATA,
 	META_DATA,
 	PASSWORD_REGEX,
+	REALNAME_REGEX,
 	PRODUCTS,
 	SLOT_TP_GAME_TYPE,
 	TERMS_CONDITIONS,
@@ -24,6 +28,7 @@ import {
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	VIP_CLUB_IMAGES,
 	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
+	CURRENCY_LIST,
 } from '@nx-next-app/site/nova88'
 
 import '../styles/css/style.css'
@@ -41,7 +46,8 @@ const {
 } = ThirdPartyJS
 
 dayjs.extend(localizedFormat)
-
+dayjs.extend(timezone)
+dayjs.extend(utc)
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
@@ -49,11 +55,14 @@ function CustomApp({ Component, pageProps }: AppProps) {
 				{/* 提供 Component 狀態管理 */}
 				<UIProvider>
 					<StaticDataProvider
+						MENU_DATA={MENU_DATA}
 						META_DATA={META_DATA}
 						PRODUCTS={PRODUCTS}
 						ALLOWED_CURRENCIES={ALLOWED_CURRENCIES}
 						SLOT_TP_GAME_TYPE={SLOT_TP_GAME_TYPE}
 						LANG_GROUPS={LANG_GROUPS}
+						CURRENCY_LIST={CURRENCY_LIST}
+						CURRENCY_TO_TIMEZONE={CURRENCY_TO_TIMEZONE}
 						VIP_CLUB_IMAGES={VIP_CLUB_IMAGES}
 						VIP_EVENT_CURRENCIES_LIMITATION_INFO={
 							VIP_EVENT_CURRENCIES_LIMITATION_INFO
@@ -65,6 +74,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 						TERMS_CONDITIONS={TERMS_CONDITIONS}
 						USERNAME_REGEX={USERNAME_REGEX}
 						PASSWORD_REGEX={PASSWORD_REGEX}
+						REALNAME_REGEX={REALNAME_REGEX}
 					>
 						<Component {...pageProps} />
 					</StaticDataProvider>

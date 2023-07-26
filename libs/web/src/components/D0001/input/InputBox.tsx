@@ -4,18 +4,13 @@ import { UseFormRegisterReturn } from 'react-hook-form'
 import classNames from 'classnames'
 
 export interface IInputBoxProps
-	extends Omit<
-		InputHTMLAttributes<HTMLInputElement>,
-		'size' | 'prefix' | 'checked'
-	> {
+	extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
 	register: UseFormRegisterReturn
 	touched: boolean
 	loading?: boolean
 	error?: boolean
 	password?: boolean
-	checked?: boolean | 'loading' | null
 	isMessagesHide?: boolean
-	isConvert?: boolean
 	warning?: boolean
 	successMessage?: string
 	errorMessage?: string
@@ -23,9 +18,9 @@ export interface IInputBoxProps
 	description?: string
 	areaCode?: string
 	infoMessage?: string
+	format?: boolean
+	formatStr?: string
 }
-
-const formatStr = "('000)"
 
 /**
  * 原 InputBox 元件，現將 InputBox.PSW 合併至單一 Input 元件，傳入 `password` 將會轉換成 password Input。
@@ -43,8 +38,8 @@ const formatStr = "('000)"
  * 其餘可至元件庫內閱讀完整 docs
  *
  * ---
- * @param {require} register 必填，傳入 react-hook-form 的 register 綁定元件
- * @param {require} touched 必填，樣式需透過判斷是否觸發過元件，才可做進一步渲染，傳入 touchedFields[pathName] 做判斷。
+ * @param {required} register 必填，傳入 react-hook-form 的 register 綁定元件
+ * @param {required} touched 必填，樣式需透過判斷是否觸發過元件，才可做進一步渲染，傳入 touchedFields[pathName] 做判斷。
  * @param {boolean} password - 傳遞 password props 控制是否為 pwd input
  * @param {string} className - 現預設有包含 'inputBox-blue' 在其中，可不必傳此 class，傳進 className 即覆蓋
  * @param {string} errorMessage - 錯誤訊息，由 formState.errors[pathName]?.message 傳遞下來
@@ -56,7 +51,8 @@ const formatStr = "('000)"
  * @param {boolean} isMessagesHide - 啟用後將會隱藏所有 msg ( 包含 error , success )
  * @param {string} areaCode - 與 title 同位置，但為淺灰字樣
  * @param {string} infoMessage - 有給予此 function 時會出現 info icon , 細節請閱說明第七點。
- * @param {boolean} isConvert - 控制是否加入 VND format
+ * @param {boolean} format - 控制是否加入 formatStr
+ * @param {string} formatStr - 用於複寫預設的 formatStr
  * @param {boolean} warning - 檢視舊專案無使用到,true 則顯示警告 icon
  * @param {string} type - HTMLInputTypeAttribute
  * @param {*} prop - other html input props
@@ -66,11 +62,10 @@ const InputBox = ({
 	register,
 	touched,
 	password,
-	checked,
 	loading,
 	error,
 	isMessagesHide,
-	isConvert,
+	format,
 	warning,
 	successMessage,
 	errorMessage,
@@ -81,6 +76,7 @@ const InputBox = ({
 	areaCode,
 	className,
 	infoMessage,
+	formatStr = "('000)",
 	...props
 }: IInputBoxProps) => {
 	const [showPassword, setShowPassword] = useState(false)
@@ -165,7 +161,7 @@ const InputBox = ({
 				{!!description && <div className='description'>{description}</div>}
 
 				<div className='iconModule'>
-					{!!isConvert && <i>{formatStr}</i>}
+					{format && <i>{formatStr}</i>}
 
 					{password ? (
 						// eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions

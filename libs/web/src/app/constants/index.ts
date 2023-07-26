@@ -3,6 +3,7 @@ export * from './paths'
 export * from './areaCode'
 export * from './currency'
 export * from './regex'
+export * from './timeFormat'
 
 export const CURRENCY_TO_LANG_KEY: {
 	[key: string | number]: string
@@ -28,4 +29,15 @@ export const LANG_GROUP_COUNTRY: {
 	gb: 'Global',
 	bd: 'Bangladesh',
 	kh: 'Cambodia',
+}
+
+export const CURRENCY_TO_TIMEZONE: { [key: number]: string } = {
+	2: '+08:00',
+	4: '+07:00',
+	15: '+07:00',
+	72: '+07:00',
+	74: '+06:00',
+	61: '+05:30',
+	3: '+00:00',
+	13: '+08:00',
 }

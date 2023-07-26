@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import { FieldValues } from 'react-hook-form/dist/types/fields'
-import { passwordRegex } from '../type'
 import InputBox from '../InputBox'
 
+const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z!@#$%^&*\d]{6,15}$/
 const InputBasic = () => {
 	const {
 		handleSubmit,
@@ -66,7 +66,7 @@ const InputBasic = () => {
 					register={register('password', {
 						required: { value: true, message: '不填是怎樣？' },
 						pattern: {
-							value: passwordRegex,
+							value: PASSWORD_REGEX,
 							message: '密码长度必须 6 至 15 个字符，包含字母数字。',
 						},
 						onBlur: checkPassword,

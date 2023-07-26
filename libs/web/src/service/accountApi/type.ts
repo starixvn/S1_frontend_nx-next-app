@@ -62,3 +62,23 @@ export interface ICustBonusWalletData {
 	status: CustBonusWalletStatusEnum
 	fullFillType: CustBonusWalletFullFillTypeEnum
 }
+
+// custSpecificBonus
+// 取得 bonus 達成進度
+export interface IGetCustSpecificBonusArgs {
+	bonusCode: string
+	tpId: number
+	promoCategoryId?: string
+}
+
+export interface ICustSpecificBonusData {
+	bonusId: number
+	bonus: number
+	rollover: number
+	turnover: number
+	fullFillType: number
+	promoCategoryId: number
+	tpId: number
+	status: number
+	expiryTime: string
+}

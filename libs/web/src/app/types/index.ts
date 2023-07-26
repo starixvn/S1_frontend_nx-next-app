@@ -11,10 +11,24 @@ export enum CurrenciesEnum {
 	USDT = 96,
 }
 
+export enum DeviceTypeEnum {
+	Desktop = 1,
+	Mobile,
+	NativeAPP,
+}
+
 export interface IImageData {
 	url: string
 	alt: string
 	displayKey?: string
+	levelTabsName?: string
+	level?: number
+}
+
+export interface IBannerByCurrencyData {
+	url: string
+	level: number
+	levelText: string
 }
 
 export interface IStaticSlotTpGameType {
@@ -25,14 +39,13 @@ export interface IStaticSlotTpGameType {
 	}
 }
 
-export interface IStaticProducts {
-	[key: string]: {
-		TP_ID: number
-		NAME?: string
-		BET_TYPE?: number
-		TP_GAME_TYPE?: number
-		GAME_ID?: number | string
-	}
+export interface IStaticProduct {
+	TP_ID: number
+	GAME_ID?: number | string
+	TP_GAME_TYPE: number | null
+	BET_TYPE?: number
+	NAME?: string
+	GAME_TYPE?: string
 }
 
 export interface IStaticLangGroups {
@@ -40,25 +53,7 @@ export interface IStaticLangGroups {
 }
 
 export interface IStaticAllowedCurrencies {
-	VIP: CurrenciesEnum[]
-	AFFILIATE: CurrenciesEnum[]
-	EXCHANGE: CurrenciesEnum[]
-	WORLD_CIP: CurrenciesEnum[]
-	REWARDS: CurrenciesEnum[]
-	WITHDRAWAL_METHOD: {
-		BANK_CARD: CurrenciesEnum[]
-		E_WALLET: CurrenciesEnum[]
-	}
-	PRODUCTS: {
-		SLOT_AMB: CurrenciesEnum[]
-		SLOT_WM: CurrenciesEnum[]
-		GAME_M_POKER: CurrenciesEnum[]
-		GAME_AMB: CurrenciesEnum[]
-		GAME_V_GAMING: CurrenciesEnum[]
-		FISHING_GOD: CurrenciesEnum[]
-		FISHING_ONT_SHOT: CurrenciesEnum[]
-		FISHING_THAI_LOTTERY: CurrenciesEnum[]
-	}
+	[key: string]: CurrenciesEnum[] | IStaticAllowedCurrencies
 }
 
 export interface IStaticVipEventCurrenciesLimitationInfo {
@@ -100,3 +95,54 @@ export interface IMetaData {
 		}
 	}
 }
+
+// 稽查 Admin 目前後端的設定 1 為 MainBanner
+export enum BannerTypeEnum {
+	Main = 1,
+	HotEvent = 2,
+	Slots,
+}
+
+export enum BannerActionEnum {
+	NoAction = 1,
+	GoToGame,
+	GoToBonus,
+	OpenWindow,
+	RedirectPage,
+	RedirectPageOfThisSite,
+}
+
+export enum PromotionTypeEnum {
+	FirstDeposit = 1,
+	Redeposit = 2,
+	FreeBet = 3,
+	WalletBonus = 5,
+	Rebate = 6,
+	Cashback = 7,
+	Other = 8,
+	SpecialBonus = 9001,
+}
+
+export enum BonusTypeEnum {
+	Percentage = 1,
+	Amount,
+}
+
+export enum MenuKeyEnum {
+	'Sports' = 'Sports',
+	'LiveCasino' = 'LiveCasino',
+	'Exchange' = 'Exchange',
+	'Home' = 'Home',
+	'AppDownload' = 'AppDownload',
+	'CryptoSports' = 'CryptoSports',
+	'ESports' = 'ESports',
+	'Slots' = 'Slots',
+	'Games' = 'Games',
+	'Fishing' = 'Fishing',
+	'Lottery' = 'Lottery',
+	'Promotion' = 'Promotion',
+	'VIP' = 'VIP',
+	'LeaderBoard' = 'LeaderBoard',
+}
+
+export * from './footer'

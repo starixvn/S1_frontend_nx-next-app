@@ -63,5 +63,8 @@
 	"Label_Join_RemindPrefferedCurrency": "ទាមទារឱ្យមានរូបិយបណ្ណដែលចង់បាន ។",
 	"Label_Join_SignUpTerms1": "ដោយចុចប៊ូតុង៖ ចូលរួមឥឡូវនេះ ខ្ញុំទទួលស្គាល់ថាខ្ញុំមានអាយុលើសពី 18 ឆ្នាំ ហើយបានអាន និងទទួលយក",
 	"Label_Join_SignUpTerms2": "ប្រការ និងលក្ខខណ្ឌរបស់អ្នក",
-	"Label_Join_SignUpTerms3": "."
+	"Label_Join_SignUpTerms3": ".",
+	"Label_Join_DontHaveAccount": "អត់មានគណនី?",
+	"Label_Join_AffiliateIdWrong": "រកមិនឃើញលេខសម្គាល់សាខាទេ។",
+	"Label_Join_EnterRealName": "សូមបញ្ចូលឈ្មោះពិតរបស់អ្នក គ្មាននិមិត្តសញ្ញាពិសេសត្រូវបានអនុញ្ញាតទេ។"
 }

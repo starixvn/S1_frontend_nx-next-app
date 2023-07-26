@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/future/image'
 import Carousel from '..'
 
 const IMAGE_LIST: { alt: string; url: string }[] = []

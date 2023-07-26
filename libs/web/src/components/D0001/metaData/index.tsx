@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { ISEOData } from 'libs/web/src/data-access/type'
 import { replace, uniqueId } from 'lodash'
@@ -13,12 +12,13 @@ const useMetaData = (persistSEOData: ISEOData) => {
 		userInfo: { langId },
 	} = useAuth()
 
-	const metaDataByLang =
-		(META_DATA?.[replace(pathname, '/', '')]
-			? META_DATA?.[replace(pathname, '/', '')]
-			: META_DATA?.[paths.home.root])?.[langId] ?? {}
+	const defaultMetaData =
+		META_DATA?.[replace(pathname, '/', '')]?.[langId] ?? {}
 
-	return { ...persistSEOData, ...metaDataByLang }
+	return {
+		...persistSEOData,
+		...defaultMetaData,
+	}
 }
 
 const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
@@ -28,7 +28,6 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 		keyword,
 		links = [],
 	} = useMetaData(persistSEOData)
-
 	return (
 		<Head>
 			<title>{title}</title>

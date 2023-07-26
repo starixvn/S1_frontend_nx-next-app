@@ -1,22 +1,31 @@
-import { Header } from '@nx-next-app/components/H0001'
-import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import classNames from 'classnames'
-import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
-import { useState } from 'react'
-
-enum AccordionEnum {
-	Languages,
-	OutPolicies,
-	HelpSupport,
-	Member,
-}
+import classNames from 'classnames'
+import { Header, SettingCollapse } from '@nx-next-app/components/H0001'
+import { LANG_GROUP_COUNTRY, paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useLanguageGroup } from '@nx-next-app/hooks'
+import { includes, isEqual } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useGetMsgCountQuery } from '@nx-next-app/service'
 
 const Setting = () => {
+	const { push } = useRouter()
 	const { t } = useTranslation()
-	const { userInfo, auth } = useAuth()
-	const [accordionType, setAccordionType] = useState<AccordionEnum>()
+
+	const { ALLOWED_CURRENCIES } = useStaticData()
+	const { icon, languageGroup, onSetLanguage } = useLanguageGroup()
+	const { data: { data: msgCount = 0 } = {} } = useGetMsgCountQuery(null)
+	const {
+		userInfo: { currencyId, langId },
+		auth: { isLogin },
+		onSignOut,
+	} = useAuth()
+
+	const handleSignOut = async () => {
+		await onSignOut()
+		push(paths.home.root)
+	}
 
 	return (
 		<>
@@ -25,127 +34,164 @@ const Setting = () => {
 			</Header>
 
 			<main className='more'>
-				{auth.isLogin && (
-					<div className='tag'>
-						<Link
-							href={{
-								pathname: paths.profile.root,
-								query: { from: paths.setting.root },
-							}}
-						>
-							<a className='icon icon-member'>{t('Label_General_Profile')}</a>
-						</Link>
-						<i />
-						<Link href={paths.message.root}>
-							<a className='icon icon-email' href='/cs/message'>
-								{t('Label_General_Message')}
-								<i className='quantity'>6</i>
-							</a>
-						</Link>
-					</div>
-				)}
+				<div className='tag'>
+					{isLogin ? (
+						<>
+							<Link
+								href={{
+									pathname: paths.profile.root,
+									query: { from: paths.setting.root },
+								}}
+							>
+								<a className='icon icon-member'>{t('Label_General_Profile')}</a>
+							</Link>
+							<i />
+							<Link href={paths.message.root}>
+								<a className='icon icon-email'>
+									{t('Label_General_Message')}
+									{msgCount && <i className='quantity'>{msgCount}</i>}
+								</a>
+							</Link>
+						</>
+					) : (
+						<>
+							<Link
+								href={{
+									pathname: paths.join.root,
+									query: { from: paths.setting.root },
+								}}
+							>
+								<a>{t('Label_General_Join')}</a>
+							</Link>
+							<i />
+							<Link
+								href={{
+									pathname: paths.login.root,
+									query: { from: paths.setting.root },
+								}}
+							>
+								<a>{t('Label_General_LogIn')}</a>
+							</Link>
+						</>
+					)}
+				</div>
 
-				{!auth.isLogin && (
-					<div className='tag'>
-						<Link
-							href={{
-								pathname: paths.join.root,
-								query: { from: paths.setting.root },
-							}}
-						>
-							<a>{t('Label_General_Join')}</a>
-						</Link>
-						<i />
-						<Link
-							href={{
-								pathname: paths.login.root,
-								query: { from: paths.setting.root },
-							}}
-						>
-							<a>{t('Label_General_LogIn')}</a>
-						</Link>
-					</div>
-				)}
-
-				<div className='accordion'>
-					{auth.isLogin && (
-						<div>
-							<a className='title icon icon-person' href={paths.myAccount.root}>
-								{t('Label_General_MyAccount')}
-							</a>
-						</div>
+				<SettingCollapse>
+					{!isLogin && (
+						<SettingCollapse.Item
+							prefixIcon='title icon icon-person'
+							header={t('Label_General_MyAccount')}
+							onClick={() => push(paths.myAccount.root)}
+						/>
 					)}
 
-					<div>
-						<a className='title icon icon-medal' href={paths.vip.root}>
-							VIP
-						</a>
-					</div>
-					<div>
-						<a
-							className='title icon icon-star-full'
-							href={`${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/rewards/`}
-							target='_blank'
-							rel='noreferrer'
-						>
-							{t('Label_General_Rewards')}
+					{includes(ALLOWED_CURRENCIES.VIP, currencyId) && (
+						<SettingCollapse.Item
+							prefixIcon='title icon icon-medal'
+							header='VIP'
+							onClick={() => push(paths.vip.root)}
+						/>
+					)}
 
-							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/88rewards.png`}
-								alt='Rewards'
-							/>
-						</a>
-					</div>
-					<div>
-						<a className='title icon icon-trophy' href={paths.leaderboard.root}>
-							{t('Label_General_LeaderBoard')}
-						</a>
-					</div>
-					<div>
-						<a
-							className='title icon icon-affiliate'
-							href={`${process.env['NEXT_PUBLIC_AFFILIATE_DOMAIN']}?lang=${
-								userInfo.langId || 'en'
-							}`}
-						>
-							{t('Label_General_Affiliate')}
-						</a>
-					</div>
-					<div>
-						<button
-							className={classNames('title icon icon-sphere', {
-								active: accordionType === AccordionEnum.Languages,
-							})}
-							onClick={() => setAccordionType(AccordionEnum.Languages)}
-						>
-							{t('Label_General_Languages')}
-							<i className='icon icon-keyboard_arrow_down' />
-						</button>
-						<div className='countryNew'>
-							<div className='active'>
-								<div className='countryName'>
+					{includes(ALLOWED_CURRENCIES.REWARDS, currencyId) && (
+						<SettingCollapse.Item
+							prefixIcon='title icon icon-star-full'
+							onClick={() =>
+								window.open(
+									`${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/rewards/`,
+									'rewards'
+								)
+							}
+							header={
+								<>
+									{t('Label_General_Rewards')}
 									<img
-										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/ch.jpg`}
-										alt='MY'
+										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/88rewards.png`}
+										alt='Rewards'
 									/>
-									Malaysia
-								</div>
-								<button className=''>English</button>
-								<button className='active'>简体中文</button>
-								<button className=''>Malay</button>
-							</div>
-						</div>
-					</div>
-					<div>
-						<button
-							className={classNames('title icon icon-policies', {
-								active: accordionType === AccordionEnum.OutPolicies,
+								</>
+							}
+						/>
+					)}
+
+					{includes(ALLOWED_CURRENCIES.LEADER_BOARD, currencyId) && (
+						<SettingCollapse.Item
+							prefixIcon='title icon icon-trophy'
+							onClick={() => push(paths.leaderboard.root)}
+							header={t('Label_General_LeaderBoard')}
+						/>
+					)}
+
+					{includes(ALLOWED_CURRENCIES.AFFILIATE, currencyId) && (
+						<SettingCollapse.Item
+							prefixIcon='title icon icon-affiliate'
+							onClick={() =>
+								push(
+									`${process.env['NEXT_PUBLIC_AFFILIATE_DOMAIN']}?lang=${
+										langId || 'en'
+									}`
+								)
+							}
+							header={t('Label_General_Affiliate')}
+						/>
+					)}
+
+					<SettingCollapse.Item
+						prefixIcon='title icon icon-sphere'
+						header={t('Label_General_Languages')}
+					>
+						<div className='countryNew'>
+							{Object.entries(languageGroup).map(([lang, items]) => {
+								return (
+									<div
+										key={`${lang}-${items}`}
+										className={classNames({
+											active: lang === icon,
+										})}
+									>
+										<div className='countryName'>
+											<img
+												src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/${lang}.jpg`}
+												alt={lang}
+											/>
+											{LANG_GROUP_COUNTRY[lang]}
+										</div>
+
+										{items.map(languageItem => {
+											return (
+												<button
+													key={`${languageItem.value}-${languageItem.currencyId}`}
+													className={classNames({
+														active: isEqual(
+															{ langId, currencyId },
+															{
+																langId: languageItem.value,
+																currencyId: languageItem.currencyId,
+															}
+														),
+													})}
+													type='button'
+													onClick={() => {
+														onSetLanguage({
+															langCode: languageItem.value,
+															currencyId: languageItem.currencyId,
+														})
+													}}
+												>
+													{languageItem.displayText}
+												</button>
+											)
+										})}
+									</div>
+								)
 							})}
-							onClick={() => setAccordionType(AccordionEnum.OutPolicies)}
-						>
-							{t('Label_General_OurPolicies')}
-							<i className='icon icon-keyboard_arrow_down' />
-						</button>
+						</div>
+					</SettingCollapse.Item>
+
+					<SettingCollapse.Item
+						prefixIcon='title icon icon-policies'
+						header={t('Label_General_OurPolicies')}
+					>
 						<a
 							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/my_cs/ResposibleGaming.html`}
 							target='_blank'
@@ -174,17 +220,12 @@ const Setting = () => {
 						>
 							{t('Label_General_CookiePolicy')}
 						</a>
-					</div>
-					<div>
-						<button
-							className={classNames('title icon icon-question', {
-								active: accordionType === AccordionEnum.HelpSupport,
-							})}
-							onClick={() => setAccordionType(AccordionEnum.HelpSupport)}
-						>
-							{t('Label_General_HelpSupport')}
-							<i className='icon icon-keyboard_arrow_down' />
-						</button>
+					</SettingCollapse.Item>
+
+					<SettingCollapse.Item
+						prefixIcon='title icon icon-question'
+						header={t('Label_General_HelpSupport')}
+					>
 						<a
 							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/my_cs/RulesandRegulations.html`}
 							target='_blank'
@@ -206,17 +247,12 @@ const Setting = () => {
 						>
 							{t('Label_General_FAQ')}
 						</a>
-					</div>
-					<div>
-						<button
-							className={classNames('title icon icon-member', {
-								active: accordionType === AccordionEnum.Member,
-							})}
-							onClick={() => setAccordionType(AccordionEnum.Member)}
-						>
-							{String(process.env['NEXT_PUBLIC_SITE_NAME']).toUpperCase()}
-							<i className='icon icon-keyboard_arrow_down' />
-						</button>
+					</SettingCollapse.Item>
+
+					<SettingCollapse.Item
+						prefixIcon='title icon icon-member'
+						header={String(process.env['NEXT_PUBLIC_SITE_NAME']).toUpperCase()}
+					>
 						<a
 							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/my_cs/AboutUs.html`}
 							target='_blank'
@@ -226,7 +262,7 @@ const Setting = () => {
 						</a>
 						<a
 							href={`${process.env['NEXT_PUBLIC_AFFILIATE_DOMAIN']}?lang=${
-								userInfo.langId || 'en'
+								langId || 'en'
 							}`}
 							target='_blank'
 							rel='noreferrer noopener'
@@ -242,15 +278,16 @@ const Setting = () => {
 							{t('Label_General_Terms')}
 						</a>
 						<a href='/cs/game-provider'>{t('Label_General_GameProvider')}</a>
-					</div>
-					{auth.isLogin && (
-						<div>
-							<button className='title icon icon-exit'>
-								{t('Label_General_LogOut')}
-							</button>
-						</div>
+					</SettingCollapse.Item>
+
+					{isLogin && (
+						<SettingCollapse.Item
+							prefixIcon='title icon icon-exit'
+							header={t('Label_General_LogOut')}
+							onClick={handleSignOut}
+						/>
 					)}
-				</div>
+				</SettingCollapse>
 			</main>
 		</>
 	)

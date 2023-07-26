@@ -1,67 +1,146 @@
 import {
 	CurrenciesEnum,
+	DeviceTypeEnum,
+	IBannerByCurrencyData,
 	IImageData,
 	IStaticVipEventCurrenciesLimitationInfo,
 } from '@nx-next-app/types'
+import * as process from 'process'
+
+export const VIP_LEVEL = {
+	VIP_LEVEL_VINTAGE: 1,
+	VIP_LEVEL_SILVER: 2,
+	VIP_LEVEL_GOLD: 3,
+	VIP_LEVEL_TITANIUM: 4,
+	VIP_LEVEL_DIAMOND: 5,
+	VIP_LEVEL_NOVA: 6,
+}
 
 export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
-	langId: string | number
-): IImageData[] => [
+	langId: string | number,
+	deviceType: number
+): IBannerByCurrencyData[] => [
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/${langId}/vip_1.png`,
-		alt: 'vip-banner-1',
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
+		}/img/vintage${
+			langId && langId !== process.env['NEXT_PUBLIC_DEFAULT_LANG']
+				? `-${langId}`
+				: ''
+		}.png`,
+		level: VIP_LEVEL.VIP_LEVEL_VINTAGE,
+		levelText: 'vintage',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/${langId}/vip_2.png`,
-		alt: 'vip-banner-2',
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
+		}/img/silver${
+			langId && langId !== process.env['NEXT_PUBLIC_DEFAULT_LANG']
+				? `-${langId}`
+				: ''
+		}.png`,
+		level: VIP_LEVEL.VIP_LEVEL_SILVER,
+		levelText: 'silver',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/${langId}/vip_3.png`,
-		alt: 'vip-banner-3',
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
+		}/img/gold${
+			langId && langId !== process.env['NEXT_PUBLIC_DEFAULT_LANG']
+				? `-${langId}`
+				: ''
+		}.png`,
+		level: VIP_LEVEL.VIP_LEVEL_GOLD,
+		levelText: 'gold',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/${langId}/vip_4.png`,
-		alt: 'vip-banner-4',
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
+		}/img/titanium${
+			langId && langId !== process.env['NEXT_PUBLIC_DEFAULT_LANG']
+				? `-${langId}`
+				: ''
+		}.png`,
+		level: VIP_LEVEL.VIP_LEVEL_TITANIUM,
+		levelText: 'titanium',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/${langId}/vip_5.png`,
-		alt: 'vip-banner-5',
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
+		}/img/diamond${
+			langId && langId !== process.env['NEXT_PUBLIC_DEFAULT_LANG']
+				? `-${langId}`
+				: ''
+		}.png`,
+		level: VIP_LEVEL.VIP_LEVEL_DIAMOND,
+		levelText: 'diamond',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/${langId}/vip_6.png`,
-		alt: 'vip-banner-6',
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
+		}/img/nova${
+			langId && langId !== process.env['NEXT_PUBLIC_DEFAULT_LANG']
+				? `-${langId}`
+				: ''
+		}.png`,
+		level: VIP_LEVEL.VIP_LEVEL_NOVA,
+		levelText: 'nova',
 	},
 ]
 
-export const VIP_CLUB_IMAGES: IImageData[] = [
+export const VIP_CLUB_IMAGES = (deviceType: number): IImageData[] => [
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/vip1.png`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
+		}/img/vip/vip1.png`,
 		displayKey: 'Label_Vip_Vintage_Club',
+		levelTabsName: 'vintage',
+		level: VIP_LEVEL.VIP_LEVEL_VINTAGE,
 		alt: 'vip01',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/vip2.png`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
+		}/img/vip/vip2.png`,
 		displayKey: 'Label_Vip_Silver_Club',
+		levelTabsName: 'silver',
+		level: VIP_LEVEL.VIP_LEVEL_SILVER,
 		alt: 'vip02',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/vip3.png`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
+		}/img/vip/vip3.png`,
 		displayKey: 'Label_Vip_Gold_Club',
+		levelTabsName: 'gold',
+		level: VIP_LEVEL.VIP_LEVEL_GOLD,
 		alt: 'vip03',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/vip4.png`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
+		}/img/vip/vip4.png`,
 		displayKey: 'Label_Vip_Titanium_Club',
+		levelTabsName: 'titanium',
+		level: VIP_LEVEL.VIP_LEVEL_TITANIUM,
 		alt: 'vip04',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/vip5.png`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
+		}/img/vip/vip5.png`,
 		displayKey: 'Label_Vip_Diamond_Club',
+		levelTabsName: 'diamond',
+		level: VIP_LEVEL.VIP_LEVEL_DIAMOND,
 		alt: 'vip05',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vip/vip6.png`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
+		}/img/vip/vip6.png`,
 		displayKey: 'Label_Nova_Club',
+		levelTabsName: 'nova',
+		level: VIP_LEVEL.VIP_LEVEL_NOVA,
 		alt: 'vip06',
 	},
 ]

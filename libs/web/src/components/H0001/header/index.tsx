@@ -18,3 +18,4 @@ Header.AppDownLoad = AppDownload
 Header.HeaderModule = HeaderModule
 
 export default Header
+export { useAppDownload } from './useAppDownload'

@@ -1,11 +1,18 @@
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
-import { ISetForgetPasswordArgs, TpMaintainData, ISignUpArgs } from './type'
+import {
+	ISetForgetPasswordArgs,
+	TpMaintainData,
+	ISignUpArgs,
+	ISeoData,
+	ISocialChannelData,
+	IVipBannerData,
+	IGetVipBannerArgs,
+} from './type'
 
 export const siteApiUrl = {
 	getTpIds: 'Site/GetTpIds',
 	getTpMaintainList: 'Site/GetTpMaintainList',
-	getSEOData: 'Site/Seo',
 	forgetPassword: 'Site/ForgetPwdV2',
 	getPromotionListV3: 'Promotion/GetPromotionListV3',
 	existsUserName: 'Site/ExistsUserName',
@@ -14,6 +21,11 @@ export const siteApiUrl = {
 	getAffiliateAgent: 'Site/GetAffiliateAgent',
 	getRecaptchaInfo: 'Site/GetRecaptchaInfo',
 	signup: 'Site/Signup',
+	getBanner: 'Site/GetBannerV3',
+	affiliateCheck: 'Site/AffiliateCheck',
+	getSocialChannel: 'Site/GetSocialChannel',
+	getSeo: 'Site/seo',
+	getVipBanner: 'Site/GetVipBanner',
 }
 
 export const siteApi = rootApi.injectEndpoints({
@@ -35,6 +47,34 @@ export const siteApi = rootApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
+		getSocialChannel: builder.query<
+			IAxiosResponse<ISocialChannelData[]>,
+			{
+				currencyId: number
+				langId: string
+				displayPage: number
+			}
+		>({
+			query: data => ({
+				url: `Site/GetSocialChannel`,
+				method: 'POST',
+				data,
+			}),
+		}),
+		getTpIds: builder.query<IAxiosResponse<number[]>, null>({
+			query: data => ({
+				url: `Site/GetTpIds`,
+				method: 'POST',
+				data,
+			}),
+		}),
+		getSeo: builder.query<IAxiosResponse<ISeoData>, null>({
+			query: data => ({
+				url: `Site/seo`,
+				method: 'POST',
+				data,
+			}),
+		}),
 		setForgetPassword: builder.mutation<
 			IAxiosResponse<void>,
 			ISetForgetPasswordArgs
@@ -43,18 +83,6 @@ export const siteApi = rootApi.injectEndpoints({
 				url: `${siteApiUrl.forgetPassword}/${langId}`,
 				method: 'POST',
 			}),
-		}),
-		getPromotionListV3: builder.query<
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			IAxiosResponse<any>,
-			{ langId: string; currencyId: number; deviceType: number }
-		>({
-			query: ({ langId, ...data }) => ({
-				url: `Promotion/GetPromotionListV3/${langId}`,
-				method: 'POST',
-				data,
-			}),
-			providesTags: ['AUTH_API_POST'],
 		}),
 		existsUserName: builder.query<
 			IAxiosResponse<boolean>,
@@ -89,6 +117,13 @@ export const siteApi = rootApi.injectEndpoints({
 				data: { affId },
 			}),
 		}),
+		affiliateCheck: builder.query<IAxiosResponse<void>, { affCode: string }>({
+			query: ({ affCode }) => ({
+				url: siteApiUrl.affiliateCheck,
+				method: 'POST',
+				data: { affCode },
+			}),
+		}),
 		getRecaptchaInfo: builder.query<
 			IAxiosResponse<{
 				siteKey: string
@@ -108,6 +143,15 @@ export const siteApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
+		getVipBanner: builder.query<
+			IAxiosResponse<IVipBannerData[]>,
+			IGetVipBannerArgs
+		>({
+			query: () => ({
+				url: siteApiUrl.getVipBanner,
+				method: 'POST',
+			}),
+		}),
 	}),
 })
 
@@ -115,12 +159,14 @@ export const {
 	useGetProductTpIdsQuery,
 	useGetTpMaintainListQuery,
 	useSetForgetPasswordMutation,
-	useGetPromotionListV3Query,
-	useLazyGetPromotionListV3Query,
 	useLazyExistsUserNameQuery,
 	useLazyExistsEmailQuery,
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
 	useGetRecaptchaInfoQuery,
 	useSignupMutation,
+	useLazyAffiliateCheckQuery,
+	useGetSocialChannelQuery,
+	useGetTpIdsQuery,
+	useGetSeoQuery,
 } = siteApi

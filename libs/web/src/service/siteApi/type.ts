@@ -11,6 +11,31 @@ export interface TpMaintainData {
 	endTime: null | string
 }
 
+export interface ISocialChannelData {
+	id: number
+	channelName: string
+	title: string
+	link: string
+	linkType: number
+	scheme: {
+		ios: string
+		android: string
+	}
+}
+
+export interface ISeoData {
+	siteId: number
+	title: string
+	meta: string
+	defaultLang: string
+	activeDomain: boolean
+	keyword: string
+	followUs: null
+	paymentMethod: null
+	script: string
+	xcmScript: string
+}
+
 export interface ISetForgetPasswordArgs {
 	langId: string
 	email: string
@@ -39,4 +64,60 @@ export interface ISignUpArgs {
 	userpwd: string
 	blackbox?: string
 	langId: string
+	lineUserId?: string
+}
+
+export interface IGetBannerArgs {
+	langId: string
+	bannerTypes: number[]
+	currencyId: number
+}
+export interface IBannerData {
+	actionMode: number
+	backgroundPic: string
+	bannerLink: string
+	bannerMobileUrl: string
+	bannerName: string
+	bannerPCUrl: string
+	bannerType: number
+	bonusCode: string
+	details: string
+	gameId: string
+	logo: string
+	tpGameType: number
+	tpId: string
+	urlRouter: string
+}
+
+export interface IGetVipBannerArgs {
+	currencyId: number
+}
+
+export type VipBannerInfo = {
+	rebateCategory: {
+		categoryId: number
+		categoryName: string
+		level: number
+		percentage: number
+	}[]
+	level: number
+	levelName: string
+	withdrawalMin: string
+	withdrawalMax: string
+	times: string
+	upDeposit: null | string
+	upBonus: null | string
+	downDeposit: null | string
+	downTurnover: null | string
+	rankingValidityMembershipRenewal: string
+	depositPriority: null | string
+	serviceSupport: null | string
+	withdrawalPriority: null | string
+	designatedAccountManager: boolean
+	referralBonus: boolean
+}
+
+export interface IVipBannerData {
+	lastUpdateTime: string
+	vipBannerData: VipBannerInfo[]
 }

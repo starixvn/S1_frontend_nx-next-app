@@ -47,6 +47,9 @@ export const paths = {
 	bankInfo: {
 		root: 'bank-info',
 	},
+	appDownload: {
+		root: 'app-download',
+	},
 	promotion: {
 		root: 'promotion',
 	},
@@ -62,11 +65,11 @@ export const paths = {
 	liveCasino: {
 		root: 'live-casino',
 	},
-	casino: {
-		root: 'casino',
+	slots: {
+		root: 'slots',
 	},
 	oneGame: {
-		root: 'oneGame',
+		root: 'poker',
 	},
 	fishing: {
 		root: 'fishing',
@@ -86,4 +89,7 @@ export const paths = {
 	leaderboard: {
 		root: 'leaderboard',
 	},
+	announcement: {
+		root: 'announcement',
+	}
 }

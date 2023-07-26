@@ -7,7 +7,7 @@ export type { LoginFormType } from './header/Function/Login'
 export { default as Footer } from './footer'
 
 export { InputBox } from './input'
-export type { IInputBoxInterface } from './input'
+export type { IInputBoxProps } from './input'
 
 export { default as Form } from './form'
 
@@ -28,3 +28,7 @@ export type { ICarouselProps } from './carousel'
 export { default as MetaData } from './metaData'
 
 export { default as Loading } from './loading'
+
+export { Marquee } from './marquee'
+
+export { default as JackPot } from './jackpot/index'

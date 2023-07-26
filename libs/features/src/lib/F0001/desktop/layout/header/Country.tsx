@@ -1,87 +1,14 @@
-import { isEqual } from 'lodash-es'
 import { Header } from '@nx-next-app/components/D0001'
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useSetLanguageMutation } from '@nx-next-app/service'
-import { setCookies } from 'cookies-next'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { CURRENCY_TO_LANG_KEY } from '@nx-next-app/constants'
+import { useLanguageGroup } from '@nx-next-app/hooks'
 
 const Country = () => {
-	const router = useRouter()
-	const { modal } = useGlobalModal()
-	const { pathname, asPath, query } = router
-
-	const { LANG_GROUPS } = useStaticData()
-
-	const {
-		userInfo: { currencyId: currentCurrency, langId: currentLang },
-		auth,
-	} = useAuth()
-
-	const [icon, setIcon] = useState<string | null>(null)
-	const [langGroup, setLangGroup] = useState<{
-		[key: string]: Array<{
-			displayText: string
-			value: string
-			currencyId: number
-		}>
-	}>(LANG_GROUPS)
-
-	const [setLanguage] = useSetLanguageMutation()
-
-	const handleSetLanguage = async ({
-		langCode,
-		currencyId,
-	}: {
-		langCode: string
-		currencyId: number
-	}) => {
-		// 選擇沒變則 return
-		if (currencyId === currentCurrency && langCode === currentLang) return
-
-		if (auth.isLogin) {
-			// 有登入狀態，透過 setLang 完成語系切換，不在此處做 router.push
-			try {
-				await setLanguage({ langId: langCode }).unwrap()
-			} catch (error) {
-				modal.error((error as Error).message)
-			}
-		} else {
-			setCookies(`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`, langCode)
-			setCookies(
-				`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`,
-				currencyId
-			)
-			router.push({ pathname, query }, asPath, {
-				locale: langCode,
-			})
-		}
-	}
-
-	useEffect(() => {
-		const langKey = CURRENCY_TO_LANG_KEY[currentCurrency]
-
-		if (auth.isLogin) {
-			// 登入後針對 langGroup 做篩選
-			setLangGroup({ [langKey]: LANG_GROUPS[langKey] })
-			// 未登入加入比對當前 langGroup 是否與初始 langGroup 相同，減少重複渲染
-		} else if (!isEqual(langGroup, LANG_GROUPS)) {
-			// 若不相符才 reset 至 LANG_GROUPS
-			setLangGroup(LANG_GROUPS)
-		}
-
-		if (langKey !== icon) {
-			setIcon(langKey)
-		}
-	}, [auth.isLogin, currentCurrency])
+	const { icon, languageGroup, onSetLanguage } = useLanguageGroup()
 
 	return (
 		<Header.Function.Country
 			icon={icon}
-			langGroup={langGroup}
-			onSetLanguage={handleSetLanguage}
+			langGroup={languageGroup}
+			onSetLanguage={onSetLanguage}
 		/>
 	)
 }
