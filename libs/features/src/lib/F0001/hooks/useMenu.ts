@@ -1,35 +1,20 @@
-/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import { includes } from 'lodash-es'
+import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth } from '@nx-next-app/data-access'
 import { ISubMenu, MenuActionTypeEnum } from '@nx-next-app/features/F0001/types'
+import { useMenuData } from '@nx-next-app/hooks'
 import {
 	IAxiosError,
 	IGotoGameArg,
 	useLazyGotoGameQuery,
 } from '@nx-next-app/service'
-import { includes } from 'lodash-es'
-import { useRouter } from 'next/router'
+import { onWindowOpenProduct } from '@nx-next-app/utils'
 
 type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void
-
-const windowOpen = ({
-	pathname,
-	windowKey,
-}: {
-	pathname: string
-	windowKey: string
-}) => {
-	if (typeof window !== `undefined`) {
-		window
-			.open(
-				pathname,
-				windowKey,
-				'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0'
-			)
-			?.focus()
-	}
-}
 
 export const open9WSports = ({
 	url,
@@ -66,10 +51,16 @@ export const open9WSports = ({
 	form.remove()
 }
 
-const useMenu = <T>({ langId }: { langId: string }) => {
+/**
+ * * useMenu 的 function 共用於裝置，不共用於品牌，每間品牌的開啟遊戲方式不同
+ */
+const useMenu = () => {
 	const { push } = useRouter()
-	const { auth } = useAuth()
-	const { MENU_DATA } = useStaticData()
+	const {
+		auth,
+		userInfo: { langId },
+	} = useAuth()
+	const menuData = useMenuData()
 	const [gotoGame] = useLazyGotoGameQuery()
 
 	/**
@@ -113,7 +104,7 @@ const useMenu = <T>({ langId }: { langId: string }) => {
 
 		const entPageUrl = `${host}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&${searchParams.toString()}`
 
-		windowOpen({
+		onWindowOpenProduct({
 			pathname: entPageUrl,
 			windowKey: tpId,
 		})
@@ -155,8 +146,6 @@ const useMenu = <T>({ langId }: { langId: string }) => {
 
 		const entPageUrl = `${host}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&CashierUrl=${cashierUrl}&${searchParams.toString()}`
 
-		console.log('loginCallback')
-
 		// * 這裡的遊戲不需要登入，執行完直接 return 出去
 		if (
 			tpId === 1 &&
@@ -164,8 +153,11 @@ const useMenu = <T>({ langId }: { langId: string }) => {
 		) {
 			return push(entPageUrl)
 		}
-		if (tpId === 45) {
-			return windowOpen({
+
+		if (
+			tpId === 45 // * SPORTS CRYPTO SPORTS
+		) {
+			return onWindowOpenProduct({
 				pathname: entPageUrl,
 				windowKey: `${tpId}_${gameId}`,
 			})
@@ -174,10 +166,9 @@ const useMenu = <T>({ langId }: { langId: string }) => {
 		// * 這裡的遊戲需要登入檢查
 
 		if (loginCallback && !auth.isLogin) {
-			loginCallback()
-			return
+			return loginCallback()
 		}
-		windowOpen({
+		onWindowOpenProduct({
 			pathname: entPageUrl,
 			windowKey: `${tpId}_${gameId}`,
 		})
@@ -204,7 +195,7 @@ const useMenu = <T>({ langId }: { langId: string }) => {
 
 		try {
 			const { message } = await gotoGame({
-				appType: Number(process.env['NEXT_PUBLIC_DeviceType']),
+				appType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
 				tpId,
 				langId,
 				inputs: { gameId, fun, gameType, tpGameType: String(tpGameType) },
@@ -242,7 +233,7 @@ const useMenu = <T>({ langId }: { langId: string }) => {
 	}
 
 	const onMenuOpen = (
-		item: ISubMenu,
+		item: ISubMenu<any>,
 		{
 			loginCallback,
 			messageCallBack,
@@ -259,13 +250,13 @@ const useMenu = <T>({ langId }: { langId: string }) => {
 					pathname,
 					query,
 				})
-				console.log('MenuActionTypeEnum.Link', { query })
+
 				break
 
 			case MenuActionTypeEnum.EnterPage:
 				if (product) {
 					const { TP_ID, GAME_ID, TP_GAME_TYPE } = product
-					console.log('MenuActionTypeEnum.EnterPage')
+
 					onEnterPage(
 						{
 							langId,
@@ -304,7 +295,7 @@ const useMenu = <T>({ langId }: { langId: string }) => {
 	}
 
 	return {
-		menuData: MENU_DATA as T,
+		menuData,
 		onMenuOpen,
 		onEnterPage,
 		onGoToGame,

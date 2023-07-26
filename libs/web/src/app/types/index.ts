@@ -53,30 +53,7 @@ export interface IStaticLangGroups {
 }
 
 export interface IStaticAllowedCurrencies {
-	VIP: CurrenciesEnum[]
-	AFFILIATE: CurrenciesEnum[]
-	EXCHANGE: CurrenciesEnum[]
-	WORLD_CIP: CurrenciesEnum[]
-	REWARDS: CurrenciesEnum[]
-	SPORTS_CRICKET: CurrenciesEnum[]
-	SPORTS_VOLLEYBALL: CurrenciesEnum[]
-	LEADER_BOARD: CurrenciesEnum[]
-	WITHDRAWAL_METHOD: {
-		BANK_CARD: CurrenciesEnum[]
-		E_WALLET: CurrenciesEnum[]
-	}
-	GAMES_MPOKER: CurrenciesEnum[]
-	PRODUCTS: {
-		SLOT_AMB: CurrenciesEnum[]
-		SLOT_WM: CurrenciesEnum[]
-		GAME_M_POKER: CurrenciesEnum[]
-		GAME_AMB: CurrenciesEnum[]
-		GAME_V_GAMING: CurrenciesEnum[]
-		FISHING_GOD: CurrenciesEnum[]
-		FISHING_ONT_SHOT: CurrenciesEnum[]
-		FISHING_THAI_LOTTERY: CurrenciesEnum[]
-	}
-	JACKPOT: CurrenciesEnum[]
+	[key: string]: CurrenciesEnum[] | IStaticAllowedCurrencies
 }
 
 export interface IStaticVipEventCurrenciesLimitationInfo {
@@ -152,8 +129,7 @@ export enum BonusTypeEnum {
 }
 
 export enum MenuKeyEnum {
-	'Sports' = "'Sports'",
-	'Casino' = 'Casino',
+	'Sports' = 'Sports',
 	'LiveCasino' = 'LiveCasino',
 	'Exchange' = 'Exchange',
 	'Home' = 'Home',
@@ -166,14 +142,7 @@ export enum MenuKeyEnum {
 	'Lottery' = 'Lottery',
 	'Promotion' = 'Promotion',
 	'VIP' = 'VIP',
-}
-
-export enum MenuActionTypeEnum {
-	EnterPage,
-	Link,
-	LinkNoImg,
-	DirectUrl,
-	UseGoToGame,
+	'LeaderBoard' = 'LeaderBoard',
 }
 
 export * from './footer'

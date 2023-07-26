@@ -9,7 +9,7 @@ import { useAuth } from '../auth-context'
 
 interface IGlobalDataContext {
 	tpMaintainList: TpMaintainData[]
-	productTpIds: number[]
+	productTpIds?: number[]
 }
 
 const GlobalDataContext = createContext<IGlobalDataContext>(null!)
@@ -29,10 +29,9 @@ const GlobalDataProvider = ({ children }: IGlobalDataProviderProps) => {
 		)
 
 	// * 未登入狀態時 skip api
-	const { data: { data: productTpIds = [] } = {} } = useGetProductTpIdsQuery(
-		null,
-		{ skip: !isLogin }
-	)
+	const { data: { data: productTpIds } = {} } = useGetProductTpIdsQuery(null, {
+		skip: !isLogin,
+	})
 
 	const value: IGlobalDataContext = {
 		tpMaintainList,
