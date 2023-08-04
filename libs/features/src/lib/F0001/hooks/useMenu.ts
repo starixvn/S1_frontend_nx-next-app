@@ -310,13 +310,13 @@ const useMenu = () => {
 		}
 	) => {
 		const { menuActionType, pathname = '/', query, product } = item
-		const searchParams = new URLSearchParams(query as { [key: string]: string })
+		// const searchParams = new URLSearchParams(query as { [key: string]: string })
 
 		switch (menuActionType) {
-			case MenuActionTypeEnum.Redirect:
-				window.location.href = `${pathname}?${searchParams.toString()}`
-
-				break
+			// case MenuActionTypeEnum.Redirect:
+			// 	window.location.href = `${pathname}?${searchParams.toString()}`
+			//
+			// 	break
 
 			case MenuActionTypeEnum.Link:
 				push({
