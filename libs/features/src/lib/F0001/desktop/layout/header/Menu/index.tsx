@@ -1,8 +1,6 @@
 import classNames from 'classnames'
 import dynamic from 'next/dynamic'
-import { isEventPeriod } from '@nx-next-app/utils'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { head, isArray, uniqueId } from 'lodash-es'
+import { getMainEventIcon, useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useTranslation } from 'next-i18next'
 import { useState } from 'react'
@@ -18,10 +16,10 @@ const LoginModal = dynamic(
 
 const Menu = () => {
 	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
 	const { menuData, onMenuOpen } = useMenu()
 	const [menuKey, setMenuKey] = useState<string>()
 	const debouncedMenuKey = useDebounce(menuKey, 150)
-	const { modal } = useGlobalModal()
 
 	return (
 		<div className='menu'>
@@ -30,59 +28,35 @@ const Menu = () => {
 					([
 						key,
 						{
-							className,
+							display,
+							desktop: { className, eventIcons },
 							pathname = '/',
 							displayKey,
 							displayText,
-							eventIcons,
 							subMenu,
 							menuActionType,
 							product,
 							query,
 						},
 					]) => {
-						// * 渲染第一個活動期間的事件 icon，假設同時有 [NEW,HOT] ,會用前者
-						const menuEventIcon =
-							eventIcons &&
-							head(eventIcons.filter(({ period }) => isEventPeriod(period)))
+						// * 只顯示 all | desktop 類別
+						if (display === 'h5' || !display) return null
 
-						// * 輪詢一次 subMenu，抓回遇到的第一個活動期間的 eventIcons 資訊
-						const firstEventProduct = subMenu?.find(
-							item =>
-								isArray(item.eventIcons) &&
-								head(
-									item.eventIcons.filter(({ period }) => isEventPeriod(period))
-								)
-						)
-						const subMenuEventIcon =
-							firstEventProduct &&
-							firstEventProduct?.eventIcons &&
-							// * 拿第一個活動內的 eventIcons
-							head(
-								firstEventProduct.eventIcons.filter(({ period }) =>
-									isEventPeriod(period)
-								)
-							)
-
-						const eventIcon = subMenuEventIcon || menuEventIcon
+						const { icon, text } =
+							getMainEventIcon({ eventIcons, subMenu }) ?? {}
 
 						return (
 							<a
 								onClick={() =>
 									onMenuOpen(
-										{
-											menuActionType,
-											pathname,
-											query,
-											product,
-										},
+										{ menuActionType, pathname, query, product },
 										{
 											loginCallback: () => modal.open(<LoginModal />),
 											messageCallBack: message => modal.error(message),
 										}
 									)
 								}
-								key={uniqueId()}
+								key={key}
 								className={classNames(className)}
 								onMouseEnter={() => setMenuKey(key)}
 								onMouseLeave={() => setMenuKey(undefined)}
@@ -90,12 +64,10 @@ const Menu = () => {
 								<div
 									className={classNames(
 										// * 主選單的 icon 如果是 new 要替換成 star-full
-										eventIcon?.icon === 'icon icon-new'
-											? 'icon icon-star-full'
-											: eventIcon?.icon
+										icon === 'icon icon-new' ? 'icon icon-star-full' : icon
 									)}
 								>
-									{eventIcon?.text}
+									{text}
 								</div>
 
 								{displayKey ? t(displayKey) : displayText}

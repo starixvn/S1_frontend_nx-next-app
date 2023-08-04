@@ -15,14 +15,31 @@ export enum MenuActionTypeEnum {
 	EnterPage,
 	Link,
 	UseGoToGame,
+	WindowOpen,
 	Null,
 }
 
+// * 子選單資訊，h5、desktop 內為分裝置的資訊，以外的是共用資訊
 export type ISubMenu<T> = {
+	h5?: {
+		className?: ''
+		img?: string
+	}
+	desktop?: {
+		className?: string
+		headerMenuImgList?: {
+			className: 'List-npc' | 'List-bg'
+			imgUrl: string
+		}[]
+		lobbyPage?: {
+			bgImg?: string
+			hoverBgImg?: string
+			npcImg?: string
+		}
+	}
 	productKey?: T
 	displayText?: string
 	displayKey?: string
-	className?: string
 	pathname?: string
 	query?: { provider?: string; type?: string }
 	product?: IStaticProduct
@@ -40,45 +57,49 @@ export type ISubMenu<T> = {
 		text: 'NEW' | 'HOT' | 'LIVE'
 		period: { start: null | string; end: null | string }
 	}[]
-	headerMenuImgList?: {
-		className: 'List-npc' | 'List-bg'
-		imgUrl: string
-	}[]
-	lobbyPage?: {
-		bgImg?: string
-		hoverBgImg?: string
-		npcImg?: string
-	}
 }
 
-/**
- * @param eventIcons fds
- */
+// * 主選單資訊，h5、desktop 內為分裝置的資訊，以外的是共用資訊
 export type IMenuData<T> = {
 	[module in MenuKeyEnum]: {
+		display: 'h5' | 'desktop' | 'all'
+		h5: {
+			className?: string
+			subMenuClassName?: string
+			img?: string
+			icon?: string
+			eventIcons?: {
+				icon: 'icon icon-new' | 'icon icon-mediafire'
+				text: 'NEW' | 'HOT'
+				period: { start: null | string; end: null | string }
+			}[]
+		}
+		desktop: {
+			className?: string
+			subMenuClassName?: string
+			img?: string
+			icon?: string
+			eventIcons?: {
+				icon:
+					| 'icon icon-new'
+					| 'live'
+					| 'icon icon-star-full'
+					| 'icon icon-mediafire'
+				text: 'NEW' | 'HOT' | 'LIVE'
+				period: { start: null | string; end: null | string }
+			}[]
+			menuType?: 'menu' | 'banner'
+		}
 		displayKey?: string
 		displayText?: string
-		className: string
-		subMenuClassName?: string
 		menuActionType: MenuActionTypeEnum
 		product?: IStaticProduct
 		query?: { provider: string; type: string }
 		pathname?: string
-		eventIcons?: {
-			icon:
-				| 'icon icon-new'
-				| 'live'
-				| 'icon icon-star-full'
-				| 'icon icon-mediafire'
-			text: 'NEW' | 'HOT' | 'LIVE'
-			period: { start: null | string; end: null | string }
-		}[]
-
 		allowCurrencies: CurrenciesEnum[] | boolean // * true: 全開, false: 全關
 		subMenuSort?: {
 			[key: number]: T[]
 		}
-		menuType?: 'menu' | 'banner'
 		subMenuAllowCurrenciesWithAuth: boolean // * 決定是否需要登入後才過濾
 		subMenu?: ISubMenu<T>[]
 	}

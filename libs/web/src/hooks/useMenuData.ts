@@ -13,13 +13,13 @@ import { useStaticData } from '../data-access/static-data-context'
 const useMenuData = <T extends IMenuData<any>>() => {
 	const {
 		auth: { isLogin },
-		userInfo: { currencyId },
+		userInfo: { currencyId, langId },
 	} = useAuth()
 	const { MENU_DATA } = useStaticData()
 	const { tpMaintainList, productTpIds } = useGlobalData()
 
 	const getMenu = () => {
-		const menuData = cloneDeep(MENU_DATA as T)
+		const menuData = cloneDeep(MENU_DATA({ currencyId, langId }) as T)
 		const result = {} as T
 
 		Object.keys(menuData).forEach(key => {

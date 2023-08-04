@@ -2,14 +2,13 @@ import QRCode from 'qrcode.react'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import { useAuth } from '@nx-next-app/data-access'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { head, upperCase } from 'lodash-es'
+import { getSubMenuEventIcon, useMenu } from '@nx-next-app/features/F0001/hooks'
+import { upperCase } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { Dispatch, SetStateAction } from 'react'
 import { useGetAppDownloadLinksQuery } from '@nx-next-app/service'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { MenuKeyEnum } from '@nx-next-app/types'
-import { isEventPeriod } from '@nx-next-app/utils'
 
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
@@ -28,20 +27,16 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 	const {
 		userInfo: { langId },
 	} = useAuth()
-
 	const { modal } = useGlobalModal()
-
 	const { menuData, onMenuOpen } = useMenu()
-
 	const { data: { data: appDownloadLinks } = {} } =
 		useGetAppDownloadLinksQuery(null)
 
 	const renderSubMenu = (key: string) => {
 		const {
+			desktop: { menuType, subMenuClassName },
 			subMenu,
-			subMenuClassName,
 			pathname,
-			menuType,
 			product,
 			query,
 			menuActionType,
@@ -149,15 +144,15 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 				onMouseLeave={() => setMenuKey(undefined)}
 			>
 				{subMenu?.map(item => {
-					const { eventIcons } = item
+					const {
+						desktop: { className, headerMenuImgList } = {},
+						eventIcons,
+						displayKey,
+						displayText,
+						productKey,
+					} = item
 
-					// * 渲染第一個活動期間的事件 icon，假設同時有 [NEW,HOT] ,會用前者
-					const subMenuEventIcon =
-						eventIcons &&
-						head(eventIcons.filter(({ period }) => isEventPeriod(period)))
-
-					// * 給獨立的key抱持menu不做過多非必要渲染
-					const menuKey = `${key}-${item.displayKey || item.displayText}`
+					const subMenuEventIcon = getSubMenuEventIcon(eventIcons)
 
 					return (
 						<a
@@ -165,8 +160,8 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 								// * 如果維護中取消點擊事件
 								pointerEvents: item.isTpMaintain ? 'none' : 'auto',
 							}}
-							key={menuKey}
-							className={classNames(item.className, subMenuEventIcon?.icon, {
+							key={productKey}
+							className={classNames(className, subMenuEventIcon?.icon, {
 								active: item.isTpMaintain,
 							})}
 							onClick={() => {
@@ -192,8 +187,7 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 								alt='ListBG-center'
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/subMenu-Wrapper-ListBG-center.png`}
 							/>
-
-							{item.headerMenuImgList?.map(img => (
+							{headerMenuImgList?.map(img => (
 								<img
 									key={img.imgUrl}
 									className={classNames(img.className)}
@@ -201,11 +195,7 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${img.imgUrl}`}
 								/>
 							))}
-
-							<span>
-								{item.displayKey ? t(item.displayKey) : item.displayText}
-							</span>
-
+							<span>{displayKey ? t(displayKey) : displayText}</span>
 							<div className='under'>{t('Label_General_UnderMaintenance')}</div>
 						</a>
 					)

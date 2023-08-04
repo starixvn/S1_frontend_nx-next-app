@@ -12,7 +12,6 @@ import { useGetMsgCountQuery } from '@nx-next-app/service'
 const Setting = () => {
 	const { push } = useRouter()
 	const { t } = useTranslation()
-
 	const { ALLOWED_CURRENCIES } = useStaticData()
 	const { icon, languageGroup, onSetLanguage } = useLanguageGroup()
 	const { data: { data: msgCount = 0 } = {} } = useGetMsgCountQuery(null)
@@ -85,7 +84,7 @@ const Setting = () => {
 						/>
 					)}
 
-					{includes(ALLOWED_CURRENCIES.VIP, currencyId) && (
+					{includes(ALLOWED_CURRENCIES['VIP'], currencyId) && (
 						<SettingCollapse.Item
 							prefixIcon='title icon icon-medal'
 							header='VIP'
@@ -93,7 +92,7 @@ const Setting = () => {
 						/>
 					)}
 
-					{includes(ALLOWED_CURRENCIES.REWARDS, currencyId) && (
+					{includes(ALLOWED_CURRENCIES['REWARDS'], currencyId) && (
 						<SettingCollapse.Item
 							prefixIcon='title icon icon-star-full'
 							onClick={() =>
@@ -114,7 +113,7 @@ const Setting = () => {
 						/>
 					)}
 
-					{includes(ALLOWED_CURRENCIES.LEADER_BOARD, currencyId) && (
+					{includes(ALLOWED_CURRENCIES['LEADER_BOARD'], currencyId) && (
 						<SettingCollapse.Item
 							prefixIcon='title icon icon-trophy'
 							onClick={() => push(paths.leaderboard.root)}
@@ -122,7 +121,7 @@ const Setting = () => {
 						/>
 					)}
 
-					{includes(ALLOWED_CURRENCIES.AFFILIATE, currencyId) && (
+					{includes(ALLOWED_CURRENCIES['AFFILIATE'], currencyId) && (
 						<SettingCollapse.Item
 							prefixIcon='title icon icon-affiliate'
 							onClick={() =>

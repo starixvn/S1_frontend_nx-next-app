@@ -25,10 +25,6 @@ export interface ModalContextInterface {
 			message: ModalContentType,
 			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK'>
 		) => void
-		customOpen: (
-			message: ModalContentType,
-			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK'>
-		) => void
 		info: (
 			message: ModalContentType,
 			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK'>
@@ -68,8 +64,6 @@ const ModalProvider = ({ children }: { children: ReactNode }) => {
 		modal: {
 			open: (content, config) =>
 				setGlobalModal({ type: 'default', content, ...config }),
-			customOpen: (content, config) =>
-				setGlobalModal({ type: 'custom', content, ...config }),
 			info: (content, config) =>
 				setGlobalModal({ type: 'info', content, ...config }),
 			error: (content, config) =>

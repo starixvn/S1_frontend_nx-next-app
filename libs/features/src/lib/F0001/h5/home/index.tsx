@@ -3,6 +3,7 @@ import { useAuth } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import { useSetHideBalanceMutation } from '@nx-next-app/service'
 import classNames from 'classnames'
+import Menu from './menu'
 
 interface IHomeProps {
 	persistAppDownloadHint: string
@@ -52,7 +53,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 					active: isAppDownloadHintActive,
 				})}
 			>
-				home
+				<Menu />
 			</main>
 		</>
 	)

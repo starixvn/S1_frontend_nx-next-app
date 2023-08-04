@@ -18,12 +18,10 @@ const Layout = ({ children, persistSEOData }: ILayoutProps) => {
 	return (
 		<>
 			<MetaData persistSEOData={persistSEOData} />
-
 			{children}
-
 			<LayoutFooter />
-			{/* 只需放在 Layout 來渲染全域彈窗 */}
 
+			{/* 只需放在 Layout 來渲染全域彈窗 */}
 			<GlobalModal {...globalModal} closeModal={closeModal} />
 		</>
 	)
