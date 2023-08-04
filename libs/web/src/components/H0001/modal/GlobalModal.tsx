@@ -35,7 +35,7 @@ const GlobalModal = ({
 			{type !== 'default' && (
 				<div className='pop'>
 					<div className='popTit'>
-						<div className='icon icon-close' />
+						<div className='icon icon-close' onClick={closeModal} />
 						{mergedTitle}
 					</div>
 					<div className='popTxt'>
