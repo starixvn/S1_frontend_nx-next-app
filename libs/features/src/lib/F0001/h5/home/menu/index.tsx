@@ -1,0 +1,93 @@
+import { useState } from 'react'
+import classNames from 'classnames'
+import { getMainEventIcon, useMenu } from '@nx-next-app/features/F0001/hooks'
+import { MenuActionTypeEnum } from '@nx-next-app/features/F0001/types'
+import { useRouter } from 'next/router'
+import { paths } from '@nx-next-app/constants'
+import { useTranslation } from 'next-i18next'
+import { MenuKeyEnum } from '@nx-next-app/types'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import SubMenu from './SubMenu'
+
+const Menu = () => {
+	const { t } = useTranslation()
+	const { push } = useRouter()
+	const { menuData, onMenuOpen } = useMenu()
+	const [menuKey, setMenuKey] = useState<keyof typeof MenuKeyEnum | ''>(
+		'Sports'
+	)
+	const { modal } = useGlobalModal()
+
+	return (
+		<div id='content'>
+			<div className='sideBar'>
+				{Object.entries(menuData).map(
+					([
+						key,
+						{
+							display,
+							h5: { eventIcons, className, icon, img },
+							pathname = '/',
+							displayKey,
+							displayText,
+							subMenu,
+							menuActionType,
+							product,
+							query,
+						},
+					]) => {
+						// * 只顯示 all | h5 類別
+						if (display === 'desktop' || !display) return null
+
+						const { icon: mainEventIcon } =
+							getMainEventIcon({ eventIcons, subMenu }) ?? {}
+
+						return (
+							<a
+								className={classNames(className, {
+									active: menuKey === key,
+								})}
+								onClick={() => {
+									if (
+										key !== menuKey &&
+										menuActionType === MenuActionTypeEnum.Null
+									) {
+										setMenuKey(key as keyof typeof MenuKeyEnum)
+									}
+
+									onMenuOpen(
+										{ menuActionType, pathname, query, product },
+										{
+											loginCallback: () => {
+												push({
+													pathname: paths.login.root,
+													query: { from: paths.home.root },
+												})
+											},
+											messageCallBack: message => modal.error(message),
+										}
+									)
+								}}
+							>
+								{icon && <i className={classNames(icon)} />}
+								{img && (
+									<img
+										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}${img}`}
+										alt={`img-${img}`}
+									/>
+								)}
+
+								<div>{displayKey ? t(displayKey) : displayText}</div>
+								<i className={classNames(mainEventIcon)} />
+							</a>
+						)
+					}
+				)}
+			</div>
+
+			<SubMenu menuKey={menuKey} />
+		</div>
+	)
+}
+
+export default Menu

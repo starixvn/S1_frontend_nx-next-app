@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { includes } from 'lodash-es'
+import { head, includes, isArray } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -11,7 +11,7 @@ import {
 	IGotoGameArg,
 	useLazyGotoGameQuery,
 } from '@nx-next-app/service'
-import { onWindowOpenProduct } from '@nx-next-app/utils'
+import { isEventPeriod, onWindowOpenProduct } from '@nx-next-app/utils'
 
 type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void
@@ -49,6 +49,73 @@ export const open9WSports = ({
 	)
 	form.submit()
 	form.remove()
+}
+
+/**
+ * @returns desktop、h5 回傳 menu event icon
+ */
+export const getMainEventIcon = ({
+	eventIcons,
+	subMenu,
+}: {
+	eventIcons?: {
+		icon:
+			| (
+					| 'icon icon-new'
+					| 'live'
+					| 'icon icon-star-full'
+					| 'icon icon-mediafire'
+			  )
+			| ('icon icon-new' | 'icon icon-mediafire')
+		text: 'NEW' | 'HOT' | 'LIVE'
+		period: { start: null | string; end: null | string }
+	}[]
+	subMenu?: ISubMenu<any>[]
+}) => {
+	// * 渲染第一個活動期間的事件 icon，假設同時有 [NEW,HOT] ,會用前者
+	const menuEventIcon =
+		eventIcons && head(eventIcons.filter(({ period }) => isEventPeriod(period)))
+
+	// * 輪詢一次 subMenu，抓回遇到的第一個活動期間的 eventIcons 資訊
+	const firstEventProduct = subMenu?.find(
+		item =>
+			isArray(item.eventIcons) &&
+			head(item.eventIcons.filter(({ period }) => isEventPeriod(period)))
+	)
+	const subMenuEventIcon =
+		firstEventProduct &&
+		firstEventProduct?.eventIcons &&
+		// * 拿第一個活動內的 eventIcons
+		head(
+			firstEventProduct.eventIcons.filter(({ period }) => isEventPeriod(period))
+		)
+
+	const eventIcon = subMenuEventIcon || menuEventIcon
+
+	return eventIcon
+}
+
+/**
+ * @returns desktop、h5 回傳 sub menu event icon
+ * @description 渲染第一個活動期間的事件 icon，假設同時有 [NEW,HOT] ,會用前者
+ */
+export const getSubMenuEventIcon = (
+	eventIcons?: {
+		icon:
+			| (
+					| 'icon icon-new'
+					| 'live'
+					| 'icon icon-star-full'
+					| 'icon icon-mediafire'
+			  )
+			| ('icon icon-new' | 'icon icon-mediafire')
+		text: 'NEW' | 'HOT' | 'LIVE'
+		period: { start: null | string; end: null | string }
+	}[]
+) => {
+	return (
+		eventIcons && head(eventIcons.filter(({ period }) => isEventPeriod(period)))
+	)
 }
 
 /**
@@ -117,14 +184,14 @@ const useMenu = () => {
 			gameId = '',
 			matchid = '',
 			betType = '',
-			tpGameType,
+			tpGameType = null,
 		}: {
 			langId: string
 			tpId: number
 			gameId?: string | number
 			matchid?: string
 			betType?: string | number
-			tpGameType: number | null
+			tpGameType?: number | null
 		},
 		{ loginCallback }: { loginCallback: LoginCallbackType }
 	) => {
@@ -286,6 +353,12 @@ const useMenu = () => {
 						},
 						{ loginCallback, messageCallBack }
 					)
+				}
+				break
+
+			case MenuActionTypeEnum.WindowOpen:
+				if (window !== undefined) {
+					window.open(pathname, pathname)
 				}
 				break
 

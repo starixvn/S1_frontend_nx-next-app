@@ -14,7 +14,13 @@ import {
 } from '@nx-next-app/types'
 
 export interface IStaticDataContext {
-	MENU_DATA: any
+	MENU_DATA: ({
+		currencyId,
+		langId,
+	}: {
+		currencyId: number
+		langId: string
+	}) => any
 	META_DATA: IMetaData
 	PRODUCTS: {
 		[key: string]: IStaticProduct

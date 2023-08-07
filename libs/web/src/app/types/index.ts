@@ -42,7 +42,7 @@ export interface IStaticSlotTpGameType {
 export interface IStaticProduct {
 	TP_ID: number
 	GAME_ID?: number | string
-	TP_GAME_TYPE: number | null
+	TP_GAME_TYPE?: number | null
 	BET_TYPE?: number
 	NAME?: string
 	GAME_TYPE?: string
@@ -53,7 +53,7 @@ export interface IStaticLangGroups {
 }
 
 export interface IStaticAllowedCurrencies {
-	[key: string]: CurrenciesEnum[] | IStaticAllowedCurrencies
+	[key: string]: CurrenciesEnum[]
 }
 
 export interface IStaticVipEventCurrenciesLimitationInfo {
@@ -130,6 +130,7 @@ export enum BonusTypeEnum {
 
 export enum MenuKeyEnum {
 	'Sports' = 'Sports',
+	'Reward' = 'Reward',
 	'LiveCasino' = 'LiveCasino',
 	'Exchange' = 'Exchange',
 	'Home' = 'Home',
@@ -143,6 +144,7 @@ export enum MenuKeyEnum {
 	'Promotion' = 'Promotion',
 	'VIP' = 'VIP',
 	'LeaderBoard' = 'LeaderBoard',
+	'Affiliates' = 'Affiliates',
 }
 
 export * from './footer'

@@ -1,14 +1,13 @@
-import React from 'react'
 import Image from 'next/future/image'
 import { capitalize } from 'lodash-es'
 import { IBannerByCurrencyData } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { isUrl } from '@nx-next-app/utils'
-import { VipBannerData } from '@nx-next-app/service'
+import { VipBannerInfo } from '@nx-next-app/service'
 
 interface IVipBannerItemProps {
-	vipData: VipBannerData
+	vipData: VipBannerInfo
 	BannerByCurrencyData: IBannerByCurrencyData
 }
 
