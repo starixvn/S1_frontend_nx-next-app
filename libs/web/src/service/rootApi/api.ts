@@ -14,6 +14,7 @@ export const rootApi = createApi({
 		'AUTH_API_POST',
 		'ACCOUNT_STRICT_GET_USER_INFO',
 		'ACCOUNT_GET_MAIN_WALLET_INFO',
+		'SLOTS_GAME_DATA',
 	],
 	endpoints: () => ({}),
 })

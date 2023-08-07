@@ -41,7 +41,12 @@ export type ISubMenu<T> = {
 	displayText?: string
 	displayKey?: string
 	pathname?: string
-	query?: { provider?: string; type?: string }
+	query?: {
+		provider?: string
+		type?: string
+		tpId?: string | number
+		tpGameType?: string | number
+	}
 	product?: IStaticProduct
 	menuActionType: MenuActionTypeEnum
 	allowCurrencies?: CurrenciesEnum[] | undefined

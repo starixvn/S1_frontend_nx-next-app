@@ -29,7 +29,6 @@ const JackPot = ({
 	const [jackpotItemList, setJackpotItemList] = useState<(string | number[])[]>(
 		[]
 	)
-
 	const { isJackPotLoaded, currentText } = useJackPot(ref)
 
 	const formatTextList = currentText.split('')
@@ -87,8 +86,6 @@ const JackPot = ({
 			})
 		})
 	}, [animationLoopMillisecond, jackpotItemList])
-
-	if (jackpotItemList?.length <= 0 && !isRoot) return null
 
 	return (
 		<>
