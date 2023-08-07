@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-import Image from 'next/future/image'
 import process from 'process'
 import { useHover } from 'usehooks-ts'
 import classNames from 'classnames'
@@ -23,9 +22,7 @@ const VendorItem = ({
 		<div className='swiper-slide'>
 			<button ref={hoverRef} className={classNames({ active: isActive })}>
 				<div>
-					<Image
-						width={100}
-						height={55}
+					<img
 						src={`${
 							process.env['NEXT_PUBLIC_BANNER_HOST']
 						}/desktop/img/venderlogo/${imgName}${isActive ? 'a' : ''}.png`}
