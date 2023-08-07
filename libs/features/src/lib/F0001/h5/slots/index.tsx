@@ -82,7 +82,7 @@ const Slots = ({
 
 	const {
 		slotsGameList,
-		gameListRef,
+		ref: gameListRef,
 		myFavorites,
 		onFavoritesToggle,
 		onGamePlay,
@@ -105,7 +105,9 @@ const Slots = ({
 						className='icon icon-search'
 						onClick={() => setIsShowSearchInput(true)}
 					/>
-					<div className={`infoModule ${isShowSearchInput && 'active'}`}>
+					<div
+						className={classNames('infoModule', { active: isShowSearchInput })}
+					>
 						<div className='inputBox'>
 							<input
 								placeholder={t('Label_SearchGames') as string}
@@ -133,7 +135,6 @@ const Slots = ({
 						onChange={onCategoryChange}
 					/>
 				</div>
-
 				<div ref={ref} />
 				<GameList
 					vendorList={vendorList}

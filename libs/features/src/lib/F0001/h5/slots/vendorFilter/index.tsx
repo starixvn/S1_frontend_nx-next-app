@@ -29,7 +29,6 @@ const VendorFilter = ({
 								...rest,
 							}}
 							tpId={tpId}
-							tpName={tpName}
 							displayText={displayText}
 							activeVendorTpId={activeVendorTpId}
 							onClick={onClick}

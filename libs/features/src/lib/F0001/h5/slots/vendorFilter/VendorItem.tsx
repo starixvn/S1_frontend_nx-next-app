@@ -2,11 +2,11 @@ import React from 'react'
 import Image from 'next/future/image'
 import process from 'process'
 import { IVendorData } from 'libs/web/src/service/gameApi/type'
+import classNames from 'classnames'
 
 interface IVendorItemProps {
 	item: IVendorData
 	tpId: number
-	tpName: string
 	displayText: string
 	activeVendorTpId?: string | number | null
 	onClick: (provider: IVendorData) => void
@@ -15,7 +15,6 @@ interface IVendorItemProps {
 const VendorItem = ({
 	item,
 	tpId,
-	tpName,
 	displayText,
 	activeVendorTpId,
 	onClick,
@@ -23,12 +22,16 @@ const VendorItem = ({
 	return (
 		<a
 			onClick={() => onClick(item)}
-			className={tpId === activeVendorTpId ? 'active' : ''}
+			className={classNames({ active: tpId === activeVendorTpId })}
 		>
 			<Image
-				width={100}
-				height={55}
-				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/venderlogo/${item.imgName}.png`}
+				width={60}
+				height={40}
+				src={`${
+					process.env['NEXT_PUBLIC_BANNER_HOST']
+				}/desktop/img/venderlogo/${item.imgName}${
+					tpId === activeVendorTpId ? 'a' : ''
+				}.png`}
 				alt={displayText}
 			/>
 		</a>

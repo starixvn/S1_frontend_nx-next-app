@@ -7,6 +7,7 @@ import {
 } from 'libs/web/src/service/gameApi/type'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
+import classNames from 'classnames'
 
 const GameList = ({
 	vendorList,
@@ -61,7 +62,7 @@ const GameList = ({
 						const resultGameName = gameName[langId] ?? gameName['en']
 						return (
 							<div
-								className={`info ${isMaintain ? 'star active' : ''}`}
+								className={classNames('info', { 'star active': isMaintain })}
 								key={`slots-game-${tpId}-${gameId}`}
 							>
 								{activeCategory === 'new' ? (

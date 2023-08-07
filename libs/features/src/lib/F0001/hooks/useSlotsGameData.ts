@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { camelCase, find, some, trim } from 'lodash-es'
 import { useRouter } from 'next/router'
 import {
@@ -13,12 +13,9 @@ import {
 } from '@nx-next-app/service'
 import { TpGameType } from '@nx-next-app/types'
 import { SLOT_TP_GAME_TYPE } from '@nx-next-app/site/nova88'
-import {
-	useIntersectionObserver,
-	useIsFirstRender,
-	useLocalStorage,
-} from 'usehooks-ts'
+import { useIsFirstRender, useLocalStorage } from 'usehooks-ts'
 import { useMenu } from '@nx-next-app/features/F0001/hooks/useMenu'
+import { useInView } from '@nx-next-app/hooks'
 
 const useSlotsGameData = ({
 	categoryKey,
@@ -40,9 +37,7 @@ const useSlotsGameData = ({
 	const { onEnterSlotsPage } = useMenu()
 	const { tpMaintainList } = useGlobalData()
 	const isFirstRender = useIsFirstRender()
-	const gameListRef = useRef<HTMLDivElement | null>(null)
-	const entry = useIntersectionObserver(gameListRef, {})
-	const isVisible = !!entry?.isIntersecting
+	const { ref, isInView } = useInView({})
 	const [slotsGameList, setSlotsGameList] = useState<IDisplayGameData[]>([])
 	// 初始渲染40筆資料
 	const [pageSize, setPageSize] = useState(40)
@@ -225,18 +220,18 @@ const useSlotsGameData = ({
 	}, [categoryKey, queryTpId, searchCategoryText, slotsGameList.length])
 
 	useEffect(() => {
-		// 每次更新40筆資料
-		if (isVisible) {
+		// 每次更新25筆資料
+		if (isInView) {
 			if (pageSize >= slotsGameList.length) {
 				return
 			}
-			setPageSize(prev => prev + 40)
+			setPageSize(prev => prev + 25)
 		}
-	}, [isVisible])
+	}, [isInView])
 
 	return {
 		slotsGameList: slotsGameList.slice(0, pageSize),
-		gameListRef,
+		ref,
 		myFavorites,
 		onFavoritesToggle,
 		onGamePlay,

@@ -49,13 +49,17 @@ const Slots = ({
 		persistSlotsCategoryData,
 		loginCallback: () => modal.open(<LoginModal />),
 	})
-	const { slotsGameList, gameListRef, onFavoritesToggle, onGamePlay } =
-		useSlotsGameData({
-			categoryKey: activeCategoryKey,
-			searchCategoryText,
-			persistSlotsCategoryData,
-			loginCallback: () => modal.open(<LoginModal />),
-		})
+	const {
+		slotsGameList,
+		ref: gameListRef,
+		onFavoritesToggle,
+		onGamePlay,
+	} = useSlotsGameData({
+		categoryKey: activeCategoryKey,
+		searchCategoryText,
+		persistSlotsCategoryData,
+		loginCallback: () => modal.open(<LoginModal />),
+	})
 
 	return (
 		<main>

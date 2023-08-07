@@ -26,7 +26,9 @@ const VendorItem = ({
 					<Image
 						width={100}
 						height={55}
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/venderlogo/${imgName}.png`}
+						src={`${
+							process.env['NEXT_PUBLIC_BANNER_HOST']
+						}/desktop/img/venderlogo/${imgName}${isActive ? 'a' : ''}.png`}
 						alt={displayText}
 					/>
 					<div>{displayText}</div>

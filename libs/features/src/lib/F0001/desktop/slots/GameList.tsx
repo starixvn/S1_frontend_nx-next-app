@@ -6,6 +6,7 @@ import {
 } from 'libs/web/src/service/gameApi/type'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
+import classNames from 'classnames'
 
 const GameList = ({
 	vendorList,
@@ -55,7 +56,7 @@ const GameList = ({
 
 						return (
 							<div
-								className={isMaintain ? 'active' : ''}
+								className={classNames({ active: isMaintain })}
 								style={{
 									pointerEvents: isMaintain ? 'none' : 'auto',
 								}}
@@ -66,9 +67,9 @@ const GameList = ({
 								</div>
 
 								<div
-									className={`icon ${
-										activeCategory === 'new' ? 'icon-new' : ''
-									}`}
+									className={classNames('icon', {
+										'icon-new': activeCategory === 'new',
+									})}
 								/>
 
 								<img alt='Casino_tpInfo' src={resultImgUrl} />
@@ -86,9 +87,9 @@ const GameList = ({
 												...rest,
 											})
 										}
-										className={`icon icon-star-full${
-											isFavorite ? ' active' : ''
-										}`}
+										className={classNames('icon icon-star-full', {
+											active: isFavorite,
+										})}
 									/>
 								</div>
 
