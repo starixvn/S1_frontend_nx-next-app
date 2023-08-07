@@ -168,6 +168,7 @@ const useSlotsGameData = ({
 				}) ?? []
 			const existingValue = new Set(myFavorites.split('&'))
 			let result = ''
+
 			responseMyFavorites.forEach(str => {
 				if (!existingValue.has(str)) {
 					result += `${result === '' ? '' : '&'}${str}`

@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 
 interface IGameInfoProps {
+	isFavorite: boolean
 	imgUrl: string
 	activeGame: IDisplayGameData & {
 		resultTpName?: string
@@ -17,6 +18,7 @@ interface IGameInfoProps {
 }
 
 const GameInfo = ({
+	isFavorite,
 	imgUrl,
 	activeGame,
 	setActiveGame,
@@ -27,6 +29,7 @@ const GameInfo = ({
 		userInfo: { langId },
 	} = useAuth()
 	const { t } = useTranslation()
+
 	return (
 		<div className='slotpopup active' style={{ zIndex: 10 }}>
 			<div className='slotFunction'>
@@ -52,9 +55,7 @@ const GameInfo = ({
 								playFree: activeGame?.playFree,
 							})
 						}
-						className={`icon icon-star-${
-							activeGame.isFavorite ? 'full' : 'empty'
-						}`}
+						className={`icon icon-star-${isFavorite ? 'full' : 'empty'}`}
 					/>
 				</div>
 				<button

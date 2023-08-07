@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import CarouselBanner from '@nx-next-app/features/F0001/h5/common/carouselBanner'
 import { useGetBannerV3Query } from '@nx-next-app/service'
+import { includes } from 'lodash-es'
 import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import classNames from 'classnames'
 import {
 	IDisplayGameData,
 	ISlotsGameData,
@@ -16,6 +18,7 @@ import { useTranslation } from 'next-i18next'
 import { useSlotsVendorData } from '@nx-next-app/features/F0001/hooks/useSlotsVendorData'
 import { useCategoryData } from '@nx-next-app/features/F0001/hooks/useSlotsCategoryData'
 import { useSlotsGameData } from '@nx-next-app/features/F0001/hooks/useSlotsGameData'
+import { useInView } from '@nx-next-app/hooks'
 
 const Slots = ({
 	persistSlotsGameData,
@@ -24,9 +27,8 @@ const Slots = ({
 	persistSlotsGameData: ISlotsGameData
 	persistSlotsCategoryData: ISlotsGameData
 }) => {
-	const [isFixed, setIsFixed] = useState<boolean>(false)
-	const [searchText, setSearchText] = useState<string>('')
-	const [isShowSearchInput, setIsShowSearchInput] = useState(false)
+	const { ref, isInView } = useInView({ rootMargin: '-160px 0px 0px 0px' })
+	const [isShowSearchInput, setIsShowSearchInput] = useState<boolean>(false)
 	const [activeGame, setActiveGame] = useState<
 		| (IDisplayGameData & {
 				resultTpName?: string
@@ -35,7 +37,6 @@ const Slots = ({
 		  })
 		| null
 	>(null)
-	const gameListTpoRef = useRef<HTMLDivElement | null>(null)
 	const {
 		userInfo: { currencyId, langId },
 	} = useAuth()
@@ -52,12 +53,14 @@ const Slots = ({
 	})
 
 	const handleInputClose = () => {
-		if (searchText !== '') {
-			setSearchText('')
+		setIsShowSearchInput(false)
+		if (searchCategoryText !== '') {
+			onSearchCategoryTextChange('')
 		} else {
 			setIsShowSearchInput(false)
 		}
 	}
+
 	const handleGameActive = (targetData: IDisplayGameData) => {
 		setActiveGame(targetData)
 	}
@@ -90,38 +93,6 @@ const Slots = ({
 		loginCallback: () => push(paths.login.root),
 	})
 
-	// gameInfo更新isFavorite
-	useEffect(() => {
-		slotsGameList.forEach(({ tpId, gameId, isFavorite }: IDisplayGameData) => {
-			if (activeGame?.tpId === tpId && activeGame?.gameId === gameId) {
-				setActiveGame(prev => ({
-					...(prev as IDisplayGameData & {
-						resultTpName?: string
-						resultGameImgDisplayText?: string
-						resultGameName?: string
-					}),
-					isFavorite: !isFavorite,
-				}))
-			}
-		})
-	}, [myFavorites])
-
-	// 監聽scrollbar固定vendorFilter & categoryFilter
-	useEffect(() => {
-		const handleScroller = () => {
-			const gameListTop =
-				gameListTpoRef?.current?.getBoundingClientRect().top ?? 0
-			gameListTop >= 160 ? setIsFixed(false) : setIsFixed(true)
-		}
-		window.addEventListener('scroll', () => {
-			handleScroller()
-		})
-		return () =>
-			window.removeEventListener('scroll', () => {
-				handleScroller()
-			})
-	}, [])
-
 	return (
 		<>
 			<header className='header' id='header'>
@@ -146,9 +117,11 @@ const Slots = ({
 					</div>
 				</div>
 			</header>
+
 			<main className='main casino'>
 				{!isGetBannerV3Fetching && <CarouselBanner bannerList={bannerList} />}
-				<div className={`functionList ${isFixed ? ' active' : ''}`}>
+
+				<div className={classNames('functionList', { active: !isInView })}>
 					<VendorFilter
 						vendorList={vendorList}
 						activeVendorTpId={activeVendorTpId}
@@ -160,25 +133,28 @@ const Slots = ({
 						onChange={onCategoryChange}
 					/>
 				</div>
+
+				<div ref={ref} />
 				<GameList
 					vendorList={vendorList}
 					activeCategory={activeCategoryKey}
 					slotsGameList={slotsGameList}
 					gameListRef={gameListRef}
-					gameListTpoRef={gameListTpoRef}
 					imgUrl={persistSlotsGameData.imgUrl ?? ''}
 					onActive={handleGameActive}
 					onSetFavorites={onFavoritesToggle}
 				/>
-				{activeGame ? (
+
+				{activeGame && (
 					<GameInfo
+						isFavorite={includes(myFavorites, activeGame.gameId)}
 						imgUrl={persistSlotsGameData.imgUrl ?? ''}
 						activeGame={activeGame}
 						setActiveGame={setActiveGame}
 						onSetFavorites={onFavoritesToggle}
 						onPlay={onGamePlay}
 					/>
-				) : null}
+				)}
 			</main>
 		</>
 	)

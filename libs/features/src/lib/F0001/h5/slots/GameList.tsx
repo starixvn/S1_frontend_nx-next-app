@@ -13,7 +13,6 @@ const GameList = ({
 	activeCategory,
 	slotsGameList,
 	gameListRef,
-	gameListTpoRef,
 	imgUrl,
 	onActive,
 	onSetFavorites,
@@ -22,7 +21,6 @@ const GameList = ({
 	activeCategory: string
 	slotsGameList: IDisplayGameData[]
 	gameListRef: LegacyRef<HTMLDivElement> | undefined
-	gameListTpoRef: LegacyRef<HTMLDivElement> | undefined
 	imgUrl: string
 	onActive: (
 		targetGame: IDisplayGameData & {
@@ -40,7 +38,7 @@ const GameList = ({
 
 	return slotsGameList && slotsGameList.length > 0 ? (
 		<Suspense>
-			<div className='slotList' ref={gameListTpoRef}>
+			<div className='slotList'>
 				{slotsGameList.map(
 					({
 						tpId,
@@ -119,7 +117,7 @@ const GameList = ({
 			</div>
 		</Suspense>
 	) : (
-		<div className='nodata icon icon-nodata' ref={gameListTpoRef}>
+		<div className='nodata icon icon-nodata'>
 			<div className='txt-white'>{t('Label_NoData')}</div>
 		</div>
 	)
