@@ -266,7 +266,6 @@ export const PRODUCTS = {
 	LIVE_CASINO_MW: {
 		GAME_ID: 105,
 		TP_ID: 5,
-		TP_GAME_TYPE: null,
 	},
 	LIVE_CASINO_N2: {
 		TP_ID: 28,

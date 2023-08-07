@@ -42,7 +42,7 @@ export interface IStaticSlotTpGameType {
 export interface IStaticProduct {
 	TP_ID: number
 	GAME_ID?: number | string
-	TP_GAME_TYPE: number | null
+	TP_GAME_TYPE?: number | null
 	BET_TYPE?: number
 	NAME?: string
 	GAME_TYPE?: string

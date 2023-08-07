@@ -184,14 +184,14 @@ const useMenu = () => {
 			gameId = '',
 			matchid = '',
 			betType = '',
-			tpGameType,
+			tpGameType = null,
 		}: {
 			langId: string
 			tpId: number
 			gameId?: string | number
 			matchid?: string
 			betType?: string | number
-			tpGameType: number | null
+			tpGameType?: number | null
 		},
 		{ loginCallback }: { loginCallback: LoginCallbackType }
 	) => {

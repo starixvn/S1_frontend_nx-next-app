@@ -7,7 +7,9 @@ import { paths } from '../../../constants/paths'
 import { ALLOWED_CURRENCIES } from './allowCurrency'
 import { PRODUCTS } from './products'
 
-const PRODUCT_EVENT_PERIOD = {
+const PRODUCT_EVENT_PERIOD: {
+	[key: string]: { start: null | string; end: null | string }
+} = {
 	SPORTS_9W: {
 		start: null,
 		end: '2023/12/31 22:59:59',
@@ -398,7 +400,7 @@ export const MENU_DATA = ({
 						{
 							icon: 'icon icon-new',
 							text: 'NEW',
-							period: PRODUCT_EVENT_PERIOD.SPORTS_9W,
+							period: PRODUCT_EVENT_PERIOD['SPORTS_9W'],
 						},
 					],
 					needLogin: true,
@@ -699,7 +701,7 @@ export const MENU_DATA = ({
 						{
 							icon: 'icon icon-new',
 							text: 'NEW',
-							period: PRODUCT_EVENT_PERIOD.LIVE_CASINO_BG,
+							period: PRODUCT_EVENT_PERIOD['LIVE_CASINO_BG'],
 						},
 					],
 				},
@@ -2260,7 +2262,7 @@ export const MENU_DATA = ({
 					{
 						icon: 'icon icon-mediafire',
 						text: 'HOT',
-						period: PRODUCT_EVENT_PERIOD.PROMOS,
+						period: PRODUCT_EVENT_PERIOD['PROMOS'],
 					},
 				],
 			},
