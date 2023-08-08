@@ -1232,7 +1232,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Pragmatic Play',
 					query: {
-						provider: 'pragmatic-play',
+            tpId: PRODUCTS['SLOTS_PP'].TP_ID,
 					},
 					menuActionType: MenuActionTypeEnum.Link,
 					product: PRODUCTS['SLOTS_PP'],
@@ -1256,7 +1256,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Spadegaming',
 					query: {
-						provider: 'spadegaming',
+            tpId: PRODUCTS['SLOTS_SG'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1282,7 +1282,7 @@ export const MENU_DATA = ({
 					displayText: 'AdvantPlay',
 
 					query: {
-						provider: 'advant-play',
+            tpId: PRODUCTS['SLOTS_ADVANT_PLAY'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1308,7 +1308,7 @@ export const MENU_DATA = ({
 					displayText: 'PG Soft',
 
 					query: {
-						provider: 'pg',
+            tpId: PRODUCTS['SLOTS_PG'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1333,7 +1333,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Microgaming',
 					query: {
-						provider: 'microgaming',
+            tpId: PRODUCTS['SLOTS_MGPSW'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1358,7 +1358,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Jili',
 					query: {
-						provider: 'jili',
+            tpId: PRODUCTS['SLOTS_JILI'].TP_ID,
 					},
 					menuActionType: MenuActionTypeEnum.Link,
 					product: PRODUCTS['SLOTS_JILI'],
@@ -1382,7 +1382,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Joker',
 					query: {
-						provider: 'joker',
+            tpId: PRODUCTS['SLOTS_JOKER'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1407,7 +1407,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Red Tiger',
 					query: {
-						provider: 'red-tiger',
+            tpId: PRODUCTS['SLOTS_RED_TIGER'].TP_ID,
 					},
 					menuActionType: MenuActionTypeEnum.Link,
 					product: PRODUCTS['SLOTS_RED_TIGER'],
@@ -1431,7 +1431,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'NetEnt',
 					query: {
-						provider: 'netent',
+            tpId: PRODUCTS['SLOTS_NET_ENT'].TP_ID,
 					},
 					menuActionType: MenuActionTypeEnum.Link,
 					product: PRODUCTS['SLOTS_NET_ENT'],
@@ -1455,7 +1455,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'CQ9',
 					query: {
-						provider: 'cq9',
+            tpId: PRODUCTS['SLOTS_CQ9'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1480,7 +1480,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Game Play',
 					query: {
-						provider: 'gpi',
+            tpId: PRODUCTS['SLOTS_GPI'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1505,7 +1505,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'YGGDrassil',
 					query: {
-						provider: 'ygg',
+            tpId: PRODUCTS['SLOTS_YGG'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1530,7 +1530,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'AMBSlot',
 					query: {
-						provider: 'amb',
+            tpId: PRODUCTS['SLOTS_AMB'].TP_ID,
 					},
 					menuActionType: MenuActionTypeEnum.Link,
 					product: PRODUCTS['SLOTS_AMB'],
@@ -1555,7 +1555,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Habanero',
 					query: {
-						provider: 'habanero',
+            tpId: PRODUCTS['SLOTS_HABANERO'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1580,7 +1580,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'SimplePlay',
 					query: {
-						provider: 'simple-play',
+            tpId: PRODUCTS['SLOTS_SIMPLE_PLAY'].TP_ID
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1605,7 +1605,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Skywind',
 					query: {
-						provider: 'skywind',
+            tpId: PRODUCTS['SLOTS_SKY_WIND'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1630,7 +1630,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Playtech',
 					query: {
-						provider: 'playtech',
+            tpId: PRODUCTS['SLOTS_PT'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,

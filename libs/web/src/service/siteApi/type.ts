@@ -89,6 +89,25 @@ export interface IBannerData {
 	urlRouter: string
 }
 
+export interface IBannerV3Data {
+	bannerName: string
+	bannerType: number
+	actionMode: number
+	bonusCode: null
+	tpId: string
+	gameId: string | null | undefined
+	urlRouter: string
+	details: null
+	bannerLink: string
+	bannerPCUrl: string
+	bannerMobileUrl: string
+	logo: null
+	backgroundPic: null
+	tpGameType: number
+	redirectLink: string | null
+	itemKey: string
+}
+
 export interface IGetVipBannerArgs {
 	currencyId: number
 }

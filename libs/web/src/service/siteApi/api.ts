@@ -4,8 +4,9 @@ import {
 	ISetForgetPasswordArgs,
 	TpMaintainData,
 	ISignUpArgs,
-	ISeoData,
-	ISocialChannelData,
+	IBannerV3Data,
+  ISeoData,
+  ISocialChannelData,
 	IVipBannerData,
 	IGetVipBannerArgs,
 } from './type'
@@ -143,6 +144,16 @@ export const siteApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
+		getBannerV3: builder.query<
+			IAxiosResponse<IBannerV3Data[]>,
+			{ langId: string; bannerType: number; currencyId: number }
+		>({
+			query: ({ langId, ...data }) => ({
+				url: `${siteApiUrl.getBanner}/${langId}`,
+				method: 'POST',
+				data,
+			}),
+		}),
 		getVipBanner: builder.query<
 			IAxiosResponse<IVipBannerData[]>,
 			IGetVipBannerArgs
@@ -165,6 +176,7 @@ export const {
 	useLazyGetAffiliateAgentQuery,
 	useGetRecaptchaInfoQuery,
 	useSignupMutation,
+	useGetBannerV3Query,
 	useLazyAffiliateCheckQuery,
 	useGetSocialChannelQuery,
 	useGetTpIdsQuery,
