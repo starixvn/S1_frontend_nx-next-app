@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { isNumber } from 'lodash'
 import { paths } from '@nx-next-app/constants'
-import { IBannerV3Data } from '@nx-next-app/service'
+import { IBannerData } from '@nx-next-app/service'
 import { BannerActionEnum } from '@nx-next-app/types'
 import { PRODUCTS } from '@nx-next-app/site/nova88'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
@@ -11,7 +11,7 @@ import Carousel from '@nx-next-app/components/D0001/carousel'
 import BannerItem from '@nx-next-app/features/F0001/h5/common/carouselBanner/BannerItem'
 
 interface ICarouselBannerProps {
-	bannerList: IBannerV3Data[]
+	bannerList: IBannerData[]
 }
 
 const Index = ({ bannerList }: ICarouselBannerProps) => {
@@ -68,7 +68,7 @@ const Index = ({ bannerList }: ICarouselBannerProps) => {
 		actionMode,
 		bannerLink,
 		tpGameType,
-	}: IBannerV3Data) => {
+	}: IBannerData) => {
 		if (Number(tpId) === PRODUCTS.SLOTS_PT.TP_ID) {
 			onGoToGame(
 				{

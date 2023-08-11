@@ -29,6 +29,7 @@ import {
 	VIP_CLUB_IMAGES,
 	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
 	CURRENCY_LIST,
+	BANNER_IMAGE_LIST,
 } from '@nx-next-app/site/nova88'
 
 import '../styles/css/style.css'
@@ -75,6 +76,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 						USERNAME_REGEX={USERNAME_REGEX}
 						PASSWORD_REGEX={PASSWORD_REGEX}
 						REALNAME_REGEX={REALNAME_REGEX}
+						BANNER_IMAGE_LIST={BANNER_IMAGE_LIST}
 					>
 						<Component {...pageProps} />
 					</StaticDataProvider>

@@ -129,3 +129,7 @@ export const footerImgName: Record<string, string> = {
 	Livechat: 'chat.png',
 	LINE: 'line.png',
 }
+
+export enum GameTypeEnum {
+	All,
+}

@@ -95,4 +95,10 @@ export const paths = {
 	rewards: {
 		root: 'rewards',
 	},
+	newsInfo: {
+		root: 'news-info',
+	},
+	luckyWheel: {
+		root: 'luckyWheel',
+	},
 }

@@ -73,23 +73,6 @@ export interface IGetBannerArgs {
 	currencyId: number
 }
 export interface IBannerData {
-	actionMode: number
-	backgroundPic: string
-	bannerLink: string
-	bannerMobileUrl: string
-	bannerName: string
-	bannerPCUrl: string
-	bannerType: number
-	bonusCode: string
-	details: string
-	gameId: string
-	logo: string
-	tpGameType: number
-	tpId: string
-	urlRouter: string
-}
-
-export interface IBannerV3Data {
 	bannerName: string
 	bannerType: number
 	actionMode: number

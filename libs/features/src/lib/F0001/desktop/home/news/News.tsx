@@ -1,0 +1,51 @@
+import { useTranslation } from 'next-i18next'
+import { uniqueId } from 'lodash-es'
+import { useRouter } from 'next/router'
+import { isUrl } from '@nx-next-app/utils'
+import { paths } from '@nx-next-app/constants'
+import Image from 'next/future/image'
+import { useHome } from '../HomeContext'
+
+const News = () => {
+	const { t } = useTranslation()
+	const { push } = useRouter()
+	const { newsData = [] } = useHome()
+	const handleClick = (newsId: number) => {
+		push(`${paths.newsInfo.root}?newsId=${newsId}`)
+	}
+
+	return (
+		<div className='newsList'>
+			<div className='moduleTitle'>{t('Label_General_SportNews')}</div>
+			{newsData.map(({ imageURL, postTime, title, content, newsId }, idx) => (
+				<div key={uniqueId()}>
+					<div className='newsModule'>
+						{isUrl(imageURL) ? (
+							<Image src={imageURL} alt='news-img' width={1920} height={1080} />
+						) : (
+							<img src={imageURL} alt='news-img' />
+						)}
+
+						<div>
+							<div>{postTime.slice(0, 10)}</div>
+							<div>{title}</div>
+							<div>{content}</div>
+							<div className='btnGroup'>
+								<button
+									className='lightblue'
+									onClick={() => handleClick(newsId)}
+								>
+									{t('Label_General_ReadMore')}
+								</button>
+							</div>
+						</div>
+					</div>
+
+					{idx === 0 ? <div className='newsBorder' /> : null}
+				</div>
+			))}
+		</div>
+	)
+}
+
+export { News }

@@ -1,22 +1,19 @@
-import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
-import Image from 'next/future/image'
 import dayjs from 'dayjs'
-import isBetween from 'dayjs/plugin/isBetween'
+import Link from 'next/link'
 import { filter } from 'lodash-es'
+import Image from 'next/future/image'
+import isBetween from 'dayjs/plugin/isBetween'
+import { useTranslation } from 'next-i18next'
 import ReactMarquee from 'react-fast-marquee'
 import { paths } from '@nx-next-app/constants'
 import { isUrl } from '@nx-next-app/utils'
-import { useContext } from 'react'
-import { HomeContext } from './HomeContext'
+
+import { useHome } from './HomeContext'
 
 dayjs.extend(isBetween)
 
-interface IPromotionMarqueeProps {
-	onPromotionClick: (bonusCode: string) => void
-}
-const PromotionMarquee = ({ onPromotionClick }: IPromotionMarqueeProps) => {
-	const { promotionData } = useContext(HomeContext)
+const PromotionMarquee = () => {
+	const { promotionData, handlePromotionClick } = useHome()
 	const { t } = useTranslation()
 
 	const filteredPromotions = filter(
@@ -63,7 +60,7 @@ const PromotionMarquee = ({ onPromotionClick }: IPromotionMarqueeProps) => {
 												<div className='btnGroup'>
 													<button
 														className='lightblue'
-														onClick={() => onPromotionClick(bonusCode)}
+														onClick={() => handlePromotionClick(bonusCode)}
 													>
 														{t('Label_Promotion_MoreInfo')}
 													</button>

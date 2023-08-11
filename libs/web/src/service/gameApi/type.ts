@@ -50,3 +50,31 @@ export interface IDisplayGameData extends IGameData {
 	isMaintain: boolean
 	isFavorite: boolean
 }
+
+export interface IGetRecentlyViewedArgs {
+	deviceType: number
+	currencyId: number
+}
+
+export type IViewedGameData = {
+	betType: string
+	categoryId: number
+	gameId: string
+	gameLogo: {
+		[lang: string]: string
+	}
+	gameName: {
+		[lang: string]: string
+	}
+	isMaintain: boolean
+	tpGameIdNo: number
+	tpGameType: number
+	tpId: number
+	tpLogo: string
+	tpName: string
+}
+export interface IRecentlyViewedData {
+	bannerUrl: string
+	imgUrl: string
+	recentlyViewedList: IViewedGameData[]
+}

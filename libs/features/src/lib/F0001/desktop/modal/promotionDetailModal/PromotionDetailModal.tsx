@@ -8,6 +8,9 @@ import { ButtonGroup } from '@nx-next-app/features/F0001/desktop/modal/promotion
 import Link from 'next/link'
 import { paths } from '@nx-next-app/constants'
 import { CashbackInfo } from '@nx-next-app/features/F0001/desktop/modal/promotionDetailModal/CashbankInfo'
+import { useAuth } from '@nx-next-app/data-access'
+import dynamic from 'next/dynamic'
+import React from 'react'
 
 interface IPromotionDetailModalProps {
 	promotionDetail: IPromotionData
@@ -15,18 +18,29 @@ interface IPromotionDetailModalProps {
 	hideAllPromoButton?: boolean
 }
 
-// TODO
+const LoginModal = dynamic(() => import('../LoginModal'), {
+	ssr: false,
+})
+
+// TODO Detail Modal 內容待 Promotion 頁面製作時補上
 const PromotionDetailModal = ({
 	promotionDetail,
 	hideAllPromoButton = false,
 }: IPromotionDetailModalProps) => {
 	const { closeModal } = useGlobalModal()
 	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
 	const { banner, title, description, cashBackDetails, bonusCode, details } =
 		promotionDetail
+	const {
+		userInfo: { currencyId, langId, accountName, phoneNo, email },
+		auth: { isLogin },
+	} = useAuth()
 
 	const handleJoinPromotion = () => {
-		//
+		if (!isLogin) {
+			modal.open(<LoginModal />)
+		}
 	}
 
 	return (

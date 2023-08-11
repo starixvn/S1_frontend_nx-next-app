@@ -22,6 +22,6 @@ const PromoRule = ({
 	const isPercentage = bonusType === BonusTypeEnum.Percentage
 
 	const isStaticOrRebate =
-		promotionType === PromotionTypeEnum.Other ||
+		promotionType === PromotionTypeEnum.SpecialBonus ||
 		promotionType === PromotionTypeEnum.Rebate
 }
