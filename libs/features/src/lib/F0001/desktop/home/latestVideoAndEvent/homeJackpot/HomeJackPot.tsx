@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import Link from 'next/link'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
@@ -7,11 +6,11 @@ import { useAuth } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
 import { JackPot } from '@nx-next-app/components/D0001'
 import { useRouter } from 'next/router'
-import { HomeContext } from '../../HomeContext'
+import { useHome } from '../../HomeContext'
 
 const HomeJackPot = () => {
 	const { t } = useTranslation()
-	const { jackPotCurrencies } = useContext(HomeContext)
+	const { jackPotCurrencies } = useHome()
 	const { userInfo } = useAuth()
 	const { currencyId, langId } = userInfo
 	const { push } = useRouter()

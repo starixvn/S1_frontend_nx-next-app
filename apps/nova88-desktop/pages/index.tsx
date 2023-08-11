@@ -10,6 +10,8 @@ import {
 	getPromotion,
 	getLatestHighlightVideo,
 	getHotEvent,
+	getHotGame,
+	getNews,
 } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
@@ -20,48 +22,58 @@ import {
 	IBannerData,
 	IHighlightData,
 	IHotEventData,
+	IHotGame,
+	INewsData,
 	IPromotionData,
 } from '@nx-next-app/service'
 import {
 	BannerTypeEnum,
-	DeviceTypeEnum,
 	IResponseConvertedFooterData,
 } from '@nx-next-app/types'
 import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { HomeProvider } from '@nx-next-app/features/F0001/desktop/home/HomeContext'
 
 interface IHomePageProps extends InitialPropsInterface {
-	announcementData: IAnnouncementData[]
-	bannerData: IBannerData[]
-	promotionData: IPromotionData[]
-	latestHighlightVideo: IHighlightData
+	persistAnnouncementData: IAnnouncementData[]
+	persistBannerData: IBannerData[]
+	persistPromotionData: IPromotionData[]
+	persistLatestHighlightVideo: IHighlightData
+	persistHotEventData: IHotEventData[]
+	persistHotGameData: IHotGame[]
+	persistNewsData: INewsData[]
 	footerData: IResponseConvertedFooterData
-	hotEventData: IHotEventData[]
 }
 
 const HomePage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-	announcementData,
-	bannerData,
-	promotionData,
-	latestHighlightVideo,
-	hotEventData,
+	persistAnnouncementData,
+	persistBannerData,
+	persistPromotionData,
+	persistLatestHighlightVideo,
+	persistHotEventData,
+	persistHotGameData,
+	persistNewsData,
 	footerData,
 }: IHomePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData} footerData={footerData}>
-					<Home
-						announcementData={announcementData}
-						bannerData={bannerData}
-						promotionData={promotionData}
-						latestHighlightVideo={latestHighlightVideo}
-						hotEventData={hotEventData}
+					<HomeProvider
 						jackPotCurrencies={ALLOWED_CURRENCIES.JACKPOT}
-					/>
+						persistAnnouncementData={persistAnnouncementData}
+						persistBannerData={persistBannerData}
+						persistPromotionData={persistPromotionData}
+						persistLatestHighlightVideo={persistLatestHighlightVideo}
+						persistHotEventData={persistHotEventData}
+						persistHotGameData={persistHotGameData}
+						persistNewsData={persistNewsData}
+					>
+						<Home />
+					</HomeProvider>
 				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>
@@ -75,9 +87,9 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
-	const announcementData = await getAnnouncement({ langId, currencyId })
+	const persistAnnouncementData = await getAnnouncement({ langId, currencyId })
 
-	const bannerData = await getBanner(
+	const persistBannerData = await getBanner(
 		{
 			langId,
 			currencyId,
@@ -85,22 +97,42 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		},
 		{ headers: { cookie: currentHeaderCookies } }
 	)
-	const promotionData = await getPromotion(
-		{ langId, currencyId, deviceType: DeviceTypeEnum.Desktop },
+	const persistPromotionData = await getPromotion(
+		{
+			langId,
+			currencyId,
+			deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
+		},
 		{ headers: { cookie: currentHeaderCookies } }
 	)
 
-	const latestHighlightVideo = await getLatestHighlightVideo({ langId })
+	const persistLatestHighlightVideo = await getLatestHighlightVideo({ langId })
 
-	const hotEventData = await getHotEvent({ langId })
+	const persistHotEventData = await getHotEvent({ langId })
+
+	const hotGameData = await getHotGame({
+		deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
+		currencyId,
+	})
+
+	const { HotGame: persistHotGameData } = hotGameData ?? {}
+
+	const persistNewsData = await getNews({
+		langId,
+		currencyId,
+		pageSize: 2,
+		pageNumber: 1,
+	})
 
 	return {
 		props: {
-			bannerData,
-			announcementData,
-			promotionData,
-			latestHighlightVideo,
-			hotEventData,
+			persistBannerData,
+			persistAnnouncementData,
+			persistPromotionData,
+			persistLatestHighlightVideo,
+			persistHotEventData,
+			persistHotGameData,
+			persistNewsData,
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 		},

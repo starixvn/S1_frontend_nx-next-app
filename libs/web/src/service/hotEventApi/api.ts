@@ -6,7 +6,7 @@ export const hotEventApiUrl = {
 	getHotEventList: 'HotEvent/GetDataList',
 }
 
-export const hotEventApi = rootApi.injectEndpoints({
+const hotEventApi = rootApi.injectEndpoints({
 	endpoints: builder => ({
 		// * 首頁 hotEvent
 		getHotEventList: builder.query<

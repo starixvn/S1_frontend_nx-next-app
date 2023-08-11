@@ -41,6 +41,7 @@ export interface IStaticDataContext {
 	USERNAME_REGEX: RegExp
 	PASSWORD_REGEX: RegExp
 	REALNAME_REGEX: RegExp
+	BANNER_IMAGE_LIST: { [lang: string]: string }
 }
 
 const StaticDataContext = createContext<IStaticDataContext>(null!)
@@ -67,6 +68,7 @@ const StaticDataProvider = ({
 	USERNAME_REGEX,
 	PASSWORD_REGEX,
 	REALNAME_REGEX,
+	BANNER_IMAGE_LIST,
 }: IStaticDataProviderProps) => {
 	const value: IStaticDataContext = {
 		MENU_DATA,
@@ -85,6 +87,7 @@ const StaticDataProvider = ({
 		USERNAME_REGEX,
 		PASSWORD_REGEX,
 		REALNAME_REGEX,
+		BANNER_IMAGE_LIST,
 	}
 
 	return (

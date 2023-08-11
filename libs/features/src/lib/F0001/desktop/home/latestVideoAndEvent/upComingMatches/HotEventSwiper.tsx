@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import dayjs from 'dayjs'
 import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
@@ -9,13 +8,8 @@ import { Carousel } from '@nx-next-app/components/D0001'
 import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
 import Link from 'next/link'
 import { uniqueId } from 'lodash-es'
-import dynamic from 'next/dynamic'
-import { HomeContext } from '../../HomeContext'
+import { useHome } from '../../HomeContext'
 import { getPathParams } from '../../utils'
-
-export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
-	ssr: false,
-})
 
 const Item = ({ data }: { data: IHotEventData }) => {
 	const { t } = useTranslation()
@@ -125,7 +119,7 @@ const Item = ({ data }: { data: IHotEventData }) => {
 }
 
 const HotEventSwiper = () => {
-	const { hotEventData: OriginHotEvent } = useContext(HomeContext)
+	const { hotEventData: OriginHotEvent } = useHome()
 	const {
 		userInfo: { langId },
 	} = useAuth()

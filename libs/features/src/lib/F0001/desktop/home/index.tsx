@@ -1,108 +1,63 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
-import {
-	IAnnouncementData,
-	IBannerData,
-	IPromotionData,
-	IAxiosResponse,
-	useLazyGetPromotionDetailQuery,
-	IHighlightData,
-	IHotEventData,
-} from '@nx-next-app/service'
 import { Marquee } from '@nx-next-app/components/D0001'
-import { useAuth } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { paths } from '@nx-next-app/constants'
-import { CurrenciesEnum, DeviceTypeEnum } from '@nx-next-app/types'
-import { HomeSwiper } from './HomeSwiper'
+
 import { PromotionMarquee } from './PromotionMarquee'
 import { LatestVideAndEvent } from './latestVideoAndEvent'
-import { HomeContext } from './HomeContext'
+import { useHome } from './HomeContext'
+import { HotGameMarquee } from './HotGameMarquee'
+import { NewsBlock } from './news'
+import { RecentlyViewGames } from './RecentlyViewGames'
+import CarouselBanner from '../common/carouselBanner'
+import { CenterBanner } from './CenterBanner'
 
-const LoginModal = dynamic(() => import('../modal/LoginModal'), {
+const LuckyWheel = dynamic(() => import('./widgets/LuckyWheel'), { ssr: false })
+
+const QuickDownload = dynamic(() => import('./widgets/QuickDownload'), {
 	ssr: false,
 })
 
-const PromotionDetailModal = dynamic(
-	() => import('../modal/promotionDetailModal/PromotionDetailModal'),
-	{
-		ssr: false,
-	}
-)
+const QuickLink = dynamic(() => import('./widgets/QuickLink'), { ssr: false })
 
-export interface IHomeProps {
-	announcementData: IAnnouncementData[]
-	promotionData: IPromotionData[]
-	bannerData: IBannerData[]
-	hotEventData: IHotEventData[]
-	latestHighlightVideo: IHighlightData
-	jackPotCurrencies: CurrenciesEnum[]
-}
-// * wip feat
-const Home = ({
-	announcementData,
-	promotionData,
-	bannerData,
-	hotEventData,
-	latestHighlightVideo,
-	jackPotCurrencies,
-}: IHomeProps) => {
-	const { push } = useRouter()
-	const { auth, userInfo } = useAuth()
-	const { modal } = useGlobalModal()
-
-	const [getPromotionDetail] = useLazyGetPromotionDetailQuery()
-
-	// 跑馬燈資訊 click 事件
-	const handleMarqueeClick = () => {
-		if (auth.isLogin) {
-			push(paths.announcement.root)
-		} else {
-			modal.open(<LoginModal />)
-		}
-	}
-
-	// promotion click 事件
-	const handlePromotionClick = async (bonusCode: string) => {
-		const { currencyId, langId } = userInfo
-		try {
-			// 桌機模組固定傳桌機
-			const {
-				data: { data: promotionDetail } = {} as IAxiosResponse<IPromotionData>,
-			} = await getPromotionDetail({
-				currencyId,
-				langId,
-				bonusCode,
-				deviceType: DeviceTypeEnum.Desktop,
-			})
-			modal.open(<PromotionDetailModal promotionDetail={promotionDetail} />)
-		} catch (error) {
-			modal.error((error as Error).message)
-		}
-	}
+const Home = () => {
+	const {
+		bannerData,
+		announcementData,
+		recentlyViewedList,
+		socialChannelList,
+		handleMarqueeClick,
+	} = useHome()
 
 	return (
 		<main>
-			<HomeContext.Provider
-				value={{
-					announcementData,
-					promotionData,
-					bannerData,
-					hotEventData,
-					latestHighlightVideo,
-					jackPotCurrencies,
-				}}
-			>
-				{/* 首頁輪播 */}
-				<HomeSwiper />
-				{/* 跑馬燈 */}
-				<Marquee data={announcementData} onMarqueeClick={handleMarqueeClick} />
-				{/* Promotion跑馬燈 */}
-				<PromotionMarquee onPromotionClick={handlePromotionClick} />
-				{/* 最新影片 與 event 區塊 */}
-				<LatestVideAndEvent />
-			</HomeContext.Provider>
+			{/* 首頁輪播 */}
+			<CarouselBanner
+				bannerList={bannerData}
+				pagination={false}
+				navigation={false}
+			/>
+			{/* 跑馬燈 */}
+			<Marquee data={announcementData} onMarqueeClick={handleMarqueeClick} />
+			{/* Promotion跑馬燈 */}
+			<PromotionMarquee />
+			{/* 最新影片 與 event 區塊 */}
+			<LatestVideAndEvent />
+			{/* 熱門遊戲 */}
+			<HotGameMarquee />
+			{/* 有登入才會顯示最近看過的遊戲 */}
+			{recentlyViewedList.length > 0 && (
+				<RecentlyViewGames recentlyViewedList={recentlyViewedList} />
+			)}
+			{/* News */}
+			<NewsBlock />
+			{/* 底部 App download Banner */}
+			<CenterBanner />
+			{/* 頁面小元件，一律使用 dynamic import */}
+			<LuckyWheel />
+			<QuickDownload />
+			{socialChannelList.length > 0 && (
+				<QuickLink socialChannelList={socialChannelList} />
+			)}
 		</main>
 	)
 }

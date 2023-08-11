@@ -8,6 +8,7 @@ export * from './join'
 export * from './metaData'
 export * from './menu'
 export * from './slots'
+export * from './images'
 
 export const LANG_GROUPS: IStaticLangGroups = {
 	ch: [

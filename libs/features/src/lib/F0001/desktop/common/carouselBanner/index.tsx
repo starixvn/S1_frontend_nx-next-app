@@ -2,21 +2,23 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { isNumber } from 'lodash'
 import { paths } from '@nx-next-app/constants'
-import { IBannerV3Data } from '@nx-next-app/service'
+import { IBannerData } from '@nx-next-app/service'
 import { BannerActionEnum } from '@nx-next-app/types'
 import { PRODUCTS } from '@nx-next-app/site/nova88'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import Carousel from '@nx-next-app/components/D0001/carousel'
+import Carousel, {
+	ICarouselProps,
+} from '@nx-next-app/components/D0001/carousel'
 import LoginModal from '@nx-next-app/features/F0001/desktop/modal/LoginModal'
 import BannerItem from './BannerItem'
 
-interface ICarouselBannerProps {
-	bannerList: IBannerV3Data[]
+interface ICarouselBannerProps extends ICarouselProps {
+	bannerList: IBannerData[]
 }
 
-const CarouselBanner = ({ bannerList }: ICarouselBannerProps) => {
+const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 	const {
 		userInfo: { langId },
 	} = useAuth()
@@ -71,7 +73,7 @@ const CarouselBanner = ({ bannerList }: ICarouselBannerProps) => {
 		actionMode,
 		bannerLink,
 		tpGameType,
-	}: IBannerV3Data) => {
+	}: IBannerData) => {
 		if (Number(tpId) === PRODUCTS.SLOTS_PT.TP_ID) {
 			onGoToGame(
 				{
@@ -110,7 +112,7 @@ const CarouselBanner = ({ bannerList }: ICarouselBannerProps) => {
 	}
 
 	return (
-		<Carousel className='banner'>
+		<Carousel className='banner' {...rest}>
 			{resultList.map(item => (
 				<BannerItem
 					itemKey={item.itemKey}

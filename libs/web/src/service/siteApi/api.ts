@@ -4,9 +4,9 @@ import {
 	ISetForgetPasswordArgs,
 	TpMaintainData,
 	ISignUpArgs,
-	IBannerV3Data,
-  ISeoData,
-  ISocialChannelData,
+	IBannerData,
+	ISeoData,
+	ISocialChannelData,
 	IVipBannerData,
 	IGetVipBannerArgs,
 } from './type'
@@ -145,7 +145,7 @@ export const siteApi = rootApi.injectEndpoints({
 			}),
 		}),
 		getBannerV3: builder.query<
-			IAxiosResponse<IBannerV3Data[]>,
+			IAxiosResponse<IBannerData[]>,
 			{ langId: string; bannerType: number; currencyId: number }
 		>({
 			query: ({ langId, ...data }) => ({
