@@ -11,6 +11,7 @@ import {
 	IStaticSlotTpGameType,
 	IStaticVipEventCurrenciesLimitationInfo,
 	ITermsConditions,
+	ILeftMenuData,
 } from '@nx-next-app/types'
 
 export interface IStaticDataContext {
@@ -25,6 +26,7 @@ export interface IStaticDataContext {
 	PRODUCTS: {
 		[key: string]: IStaticProduct
 	}
+	LEFT_MENU_DATA: ILeftMenuData
 	ALLOWED_CURRENCIES: IStaticAllowedCurrencies
 	SLOT_TP_GAME_TYPE: IStaticSlotTpGameType
 	LANG_GROUPS: IStaticLangGroups
@@ -69,6 +71,7 @@ const StaticDataProvider = ({
 	PASSWORD_REGEX,
 	REALNAME_REGEX,
 	BANNER_IMAGE_LIST,
+	LEFT_MENU_DATA,
 }: IStaticDataProviderProps) => {
 	const value: IStaticDataContext = {
 		MENU_DATA,
@@ -88,6 +91,7 @@ const StaticDataProvider = ({
 		PASSWORD_REGEX,
 		REALNAME_REGEX,
 		BANNER_IMAGE_LIST,
+		LEFT_MENU_DATA,
 	}
 
 	return (

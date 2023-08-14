@@ -8,3 +8,4 @@ export { default as ForgetPassword } from './forget-password'
 
 export * as ThirdPartyJS from './thirdPartyJS'
 export * from './join'
+export * from './leftMenu'

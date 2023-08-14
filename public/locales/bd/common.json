@@ -39,6 +39,12 @@
 	"Label_General_Submit": "জমা দিন",
 	"Label_General_RealName": "প্রকৃত নাম",
 	"Label_General_RemindForName": "আপনার বৈধ আইডি নামের সাথে সম্পূর্ণ নাম অবশ্যই মিলবে, বিশেষ চিহ্নগুলি পূরণ করা নিষিদ্ধ",
+	"Label_General_Cashier": "কোষাধ্যক্ষ",
+	"Label_General_Statement": "বিবৃতি",
+	"Label_General_MyAccount": "আমার অ্যাকাউন্",
+	"Label_General_BankInfo": "ব্যাংক তথ্য",
+	"Label_General_PersonalMessage": "ব্যক্তিগত বার্তা",
+	"Label_General_Announcement": "ঘোষণা",
 
 	"Label_Header_ForgetPassword": "আপনার পাসওয়ার্ড ভুলে গেছেন?",
 

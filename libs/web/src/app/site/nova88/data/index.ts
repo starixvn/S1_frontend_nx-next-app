@@ -9,6 +9,7 @@ export * from './metaData'
 export * from './menu'
 export * from './slots'
 export * from './images'
+export * from './leftMenu'
 
 export const LANG_GROUPS: IStaticLangGroups = {
 	ch: [
