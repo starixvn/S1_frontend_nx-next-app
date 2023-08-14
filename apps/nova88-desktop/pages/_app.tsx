@@ -30,6 +30,7 @@ import {
 	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
 	CURRENCY_LIST,
 	BANNER_IMAGE_LIST,
+	LEFT_MENU_DATA,
 } from '@nx-next-app/site/nova88'
 
 import '../styles/css/style.css'
@@ -77,6 +78,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 						PASSWORD_REGEX={PASSWORD_REGEX}
 						REALNAME_REGEX={REALNAME_REGEX}
 						BANNER_IMAGE_LIST={BANNER_IMAGE_LIST}
+						LEFT_MENU_DATA={LEFT_MENU_DATA}
 					>
 						<Component {...pageProps} />
 					</StaticDataProvider>

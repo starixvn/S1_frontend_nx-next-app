@@ -39,6 +39,12 @@
 	"Label_General_Submit": "प्रस्तुत",
 	"Label_General_RealName": "असली नाम",
 	"Label_General_RemindForName": "पूरा नाम आपके मान्य आईडी नाम से मेल खाना चाहिए, विशेष चिन्हों को भरना मना है",
+	"Label_General_Cashier": "केशियर",
+	"Label_General_Statement": "विवरण",
+	"Label_General_MyAccount": "मेरा खाता",
+	"Label_General_BankInfo": "बैंक की जानकारी",
+	"Label_General_PersonalMessage": "व्यक्तिगत संदेश",
+	"Label_General_Announcement": "मुनादी करना",
 
 	"Label_Header_ForgetPassword": "यदि आप अपनी यूजर आईदी  या पासवर्ड भूल गए है ?",
 

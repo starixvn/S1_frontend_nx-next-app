@@ -53,7 +53,7 @@ export interface IStaticLangGroups {
 }
 
 export interface IStaticAllowedCurrencies {
-	[key: string]: CurrenciesEnum[]
+	[key: string]: CurrenciesEnum[] | { [subKey: string]: CurrenciesEnum[] }
 }
 
 export interface IStaticVipEventCurrenciesLimitationInfo {
@@ -154,6 +154,25 @@ export enum TpGameType {
 export enum LinkTypeEnum {
 	Url = 1,
 	QRCode,
+}
+
+export enum LeftMenuKeyEnum {
+	'Cashier' = 'Cashier',
+	'MyAccount' = 'MyAccount',
+	'Message' = 'Message',
+}
+
+export type ILeftMenuData = {
+	[key in LeftMenuKeyEnum]: {
+		displayKey: string
+		subMenu: {
+			[key: string]: {
+				displayKey: string
+				pathname: string
+				allowCurrencies: CurrenciesEnum[] | boolean // * true: 全開, false: 全關
+			}
+		}
+	}
 }
 
 export * from './footer'

@@ -39,6 +39,12 @@
 	"Label_General_Submit": "Ajukan",
 	"Label_General_RealName": "Nama asli",
 	"Label_General_RemindForName": "NAMA LENGKAP harus sesuai dengan nama KTP Anda yang masih berlaku, dilarang menggunakan simbol khusus",
+	"Label_General_Cashier": "Kasir",
+	"Label_General_Statement": "Pernyataan",
+	"Label_General_MyAccount": "Akun Saya",
+	"Label_General_BankInfo": "Informasi bank",
+	"Label_General_PersonalMessage": "Pesan pribadi",
+	"Label_General_Announcement": "Pengumuman",
 
 	"Label_Header_ForgetPassword": "Lupa Kata Sandi anda?",
 
