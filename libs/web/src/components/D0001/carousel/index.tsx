@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import dynamic from 'next/dynamic'
 import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper'
 import { ReactIdSwiperProps } from 'react-id-swiper'
+import { DEVICE_TYPE } from '@nx-next-app/constants'
 
 // * 啟用功能
 SwiperCore.use([Pagination, Navigation, Autoplay])
@@ -38,14 +39,18 @@ const Carousel = ({ children, className, ...rest }: ICarouselProps) => {
 	}
 
 	const config = { ...params, ...rest }
-
-	return (
-		<div className={classNames('swiper-container', className)}>
-			<div className='swiper-wrapper'>
-				<DynamicSwiper {...config}>{children}</DynamicSwiper>
+	if (Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Desktop) {
+		return (
+			<div className={classNames('swiper-container', className)}>
+				<div className='swiper-wrapper'>
+					<DynamicSwiper {...config}>{children}</DynamicSwiper>
+				</div>
 			</div>
-		</div>
-	)
+		)
+	}
+	if (Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Mobile) {
+		return <DynamicSwiper {...config}>{children}</DynamicSwiper>
+	}
 }
 
 export default Carousel

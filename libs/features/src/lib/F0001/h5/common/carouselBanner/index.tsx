@@ -14,7 +14,7 @@ interface ICarouselBannerProps {
 	bannerList: IBannerData[]
 }
 
-const Index = ({ bannerList }: ICarouselBannerProps) => {
+const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 	const {
 		userInfo: { langId },
 	} = useAuth()
@@ -107,13 +107,12 @@ const Index = ({ bannerList }: ICarouselBannerProps) => {
 	}
 
 	return (
-		<Carousel className='banner'>
+		<Carousel {...rest}>
 			{resultList.map(item => (
 				<BannerItem
 					itemKey={item.itemKey}
 					src={item.bannerPCUrl}
 					alt={item.bannerName}
-					className='banner'
 					onClick={
 						item.redirectLink
 							? () => push(item.redirectLink ?? '/')
@@ -126,4 +125,4 @@ const Index = ({ bannerList }: ICarouselBannerProps) => {
 	)
 }
 
-export default Index
+export default CarouselBanner

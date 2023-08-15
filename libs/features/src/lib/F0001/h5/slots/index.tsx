@@ -47,7 +47,8 @@ const Slots = ({
 		data: { data: bannerList = [] } = {},
 		isFetching: isGetBannerV3Fetching,
 	} = useGetBannerV3Query({
-		bannerType: DEVICE_TYPE.Mobile,
+		// 這邊拿nannerType拿2取不到值,故依照線上版本
+		bannerType: DEVICE_TYPE.NativeAPP,
 		currencyId,
 		langId,
 	})
