@@ -1,7 +1,6 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import { Marquee } from '@nx-next-app/components/D0001'
-
 import { PromotionMarquee } from './PromotionMarquee'
 import { LatestVideAndEvent } from './latestVideoAndEvent'
 import { useHome } from './HomeContext'
