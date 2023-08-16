@@ -105,6 +105,9 @@
 	"Label_General_BankInfo": "Bank Info",
 	"Label_General_PersonalMessage": "Personal Message",
 	"Label_General_Announcement": "Announcement",
+	"Label_General_No": "No",
+	"Label_General_Yes": "Yes",
+	"Label_General_Oh": "Oh",
 
 	"Label_Product_Dota2": "Dota2",
 	"Label_Product_LOL": "LOL",

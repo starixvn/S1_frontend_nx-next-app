@@ -63,7 +63,7 @@ const HomePage = ({
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData} footerData={footerData}>
 					<HomeProvider
-						jackPotCurrencies={ALLOWED_CURRENCIES.JACKPOT}
+						jackPotCurrencies={ALLOWED_CURRENCIES.JACKPOT as number[]}
 						persistAnnouncementData={persistAnnouncementData}
 						persistBannerData={persistBannerData}
 						persistPromotionData={persistPromotionData}

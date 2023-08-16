@@ -10,9 +10,11 @@ export type ModalContentType =
 export interface IGlobalModalProps {
 	icon?: string | null
 	title?: string | null
-	type?: 'default' | 'info' | 'error' | 'custom' | null
+	type?: 'default' | 'info' | 'error' | 'custom' | 'confirm' | null
 	content: ModalContentType
+	okText?: string | null
 	onOK?: () => void
+	onCancel?: () => void
 	closeModal: () => void
 }
 
@@ -27,11 +29,18 @@ export interface ModalContextInterface {
 		) => void
 		info: (
 			message: ModalContentType,
-			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK'>
+			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK' | 'okText'>
 		) => void
 		error: (
 			message: ModalContentType,
-			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK'>
+			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK' | 'okText'>
+		) => void
+		confirm: (
+			message: ModalContentType,
+			config?: Pick<
+				IGlobalModalProps,
+				'icon' | 'title' | 'onOK' | 'onCancel' | 'okText'
+			>
 		) => void
 	}
 	closeModal: () => void
@@ -46,7 +55,9 @@ const ModalProvider = ({ children }: { children: ReactNode }) => {
 		title: null,
 		content: undefined,
 		icon: null,
+		okText: null,
 		onOK: () => null,
+		onCancel: () => null,
 	})
 
 	const closeModal = () => {
@@ -55,7 +66,9 @@ const ModalProvider = ({ children }: { children: ReactNode }) => {
 			title: null,
 			content: undefined,
 			icon: null,
+			okText: null,
 			onOK: () => null,
+			onCancel: () => null,
 		})
 	}
 
@@ -68,6 +81,8 @@ const ModalProvider = ({ children }: { children: ReactNode }) => {
 				setGlobalModal({ type: 'info', content, ...config }),
 			error: (content, config) =>
 				setGlobalModal({ type: 'error', content, ...config }),
+			confirm: (content, config) =>
+				setGlobalModal({ type: 'confirm', content, ...config }),
 		},
 		closeModal,
 	}
