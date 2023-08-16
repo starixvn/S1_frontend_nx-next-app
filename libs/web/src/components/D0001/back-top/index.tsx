@@ -1,16 +1,17 @@
 import { useEffect } from 'react'
 import { useBoolean } from 'usehooks-ts'
+import { throttle } from 'lodash-es'
 
 const BackTop = () => {
 	const { value: isVisible, setTrue, setFalse } = useBoolean(false)
 
-	const handleScroll = () => {
+	const handleScroll = throttle(() => {
 		if (window.scrollY) {
 			setTrue()
 		} else {
 			setFalse()
 		}
-	}
+	}, 100)
 
 	const scrollToTop = () => {
 		window.scrollTo({ top: 0, behavior: 'smooth' })

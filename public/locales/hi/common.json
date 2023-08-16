@@ -45,6 +45,10 @@
 	"Label_General_BankInfo": "बैंक की जानकारी",
 	"Label_General_PersonalMessage": "व्यक्तिगत संदेश",
 	"Label_General_Announcement": "मुनादी करना",
+	"Label_General_No": "No",
+	"Label_General_Yes": "हाँ",
+	"Label_General_OK": "OK",
+	"Label_General_Oh": "Oh",
 
 	"Label_Header_ForgetPassword": "यदि आप अपनी यूजर आईदी  या पासवर्ड भूल गए है ?",
 

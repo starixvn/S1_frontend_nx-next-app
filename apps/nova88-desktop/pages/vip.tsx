@@ -1,7 +1,11 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { AuthProvider, getVipBanner } from '@nx-next-app/data-access'
+import {
+	AuthProvider,
+	getVipBanner,
+	GlobalDataProvider,
+} from '@nx-next-app/data-access'
 import { Layout, Vip } from '@nx-next-app/features/F0001/desktop'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import {
@@ -25,9 +29,11 @@ const VipPage = ({
 }: IVipPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout persistSEOData={persistSEOData} footerData={footerData}>
-				<Vip vipBannerData={vipBannerData} />
-			</Layout>
+			<GlobalDataProvider>
+				<Layout persistSEOData={persistSEOData} footerData={footerData}>
+					<Vip vipBannerData={vipBannerData} />
+				</Layout>
+			</GlobalDataProvider>
 		</AuthProvider>
 	)
 }

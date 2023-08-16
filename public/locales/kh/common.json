@@ -45,6 +45,10 @@
 	"Label_General_BankInfo": "ព័ត៌មានធនាគារ",
 	"Label_General_PersonalMessage": "សារផ្ទាល់ខ្លួន",
 	"Label_General_Announcement": "សេចក្តីជូនដំណឹង",
+	"Label_General_No": "ទេ",
+	"Label_General_Yes": "បាទ/ចាស៎",
+	"Label_General_OK": "OK",
+	"Label_General_Oh": "Oh",
 
 	"Label_Header_ForgetPassword": "ភ្លេចពាក្យសម្ងាត់របស់អ្នក?",
 

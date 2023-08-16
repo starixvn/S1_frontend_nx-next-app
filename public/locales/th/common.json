@@ -45,6 +45,10 @@
 	"Label_General_BankInfo": "ข้อมูลธนาคาร",
 	"Label_General_PersonalMessage": "ข้อความส่วนตัว",
 	"Label_General_Announcement": "ประกาศ",
+	"Label_General_No": "ไม่",
+	"Label_General_Yes": "ใช่",
+	"Label_General_OK": "OK",
+	"Label_General_Oh": "Oh",
 
 	"Label_Header_ForgetPassword": "ลืมรหัสผ่านหรือไม่",
 

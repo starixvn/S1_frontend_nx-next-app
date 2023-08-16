@@ -1,5 +1,5 @@
 import React from 'react'
-import { AuthProvider } from '@nx-next-app/data-access'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
@@ -18,9 +18,11 @@ const AppDownloadPage = ({
 }: IAppDownloadPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout persistSEOData={persistSEOData} footerData={footerData}>
-				<AppDownload />
-			</Layout>
+			<GlobalDataProvider>
+				<Layout persistSEOData={persistSEOData} footerData={footerData}>
+					<AppDownload />
+				</Layout>
+			</GlobalDataProvider>
 		</AuthProvider>
 	)
 }

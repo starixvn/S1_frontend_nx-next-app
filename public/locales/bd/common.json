@@ -45,6 +45,10 @@
 	"Label_General_BankInfo": "ব্যাংক তথ্য",
 	"Label_General_PersonalMessage": "ব্যক্তিগত বার্তা",
 	"Label_General_Announcement": "ঘোষণা",
+	"Label_General_No": "না",
+	"Label_General_Yes": "হ্যাঁ",
+	"Label_General_OK": "OK",
+	"Label_General_Oh": "Oh",
 
 	"Label_Header_ForgetPassword": "আপনার পাসওয়ার্ড ভুলে গেছেন?",
 

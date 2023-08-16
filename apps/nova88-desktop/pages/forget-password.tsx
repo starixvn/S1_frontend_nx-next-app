@@ -1,6 +1,6 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
-import { AuthProvider } from '@nx-next-app/data-access'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Layout, ForgetPassword } from '@nx-next-app/features/F0001/desktop'
 import {
@@ -18,9 +18,11 @@ const ForgetPasswordPage = ({
 }: IForgetPasswordPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout persistSEOData={persistSEOData} footerData={footerData}>
-				<ForgetPassword />
-			</Layout>
+			<GlobalDataProvider>
+				<Layout persistSEOData={persistSEOData} footerData={footerData}>
+					<ForgetPassword />
+				</Layout>
+			</GlobalDataProvider>
 		</AuthProvider>
 	)
 }
