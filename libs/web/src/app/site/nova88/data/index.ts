@@ -122,17 +122,6 @@ const CURRENCY_TO_LANG_KEY = {
 	74: 'bd',
 }
 
-export const CURRENCY_LIST = {
-	MYR: CurrenciesEnum.MYR,
-	USD: CurrenciesEnum.USD,
-	THB: CurrenciesEnum.THB,
-	CNY: CurrenciesEnum.CNY,
-	IDR: CurrenciesEnum.IDR,
-	INR: CurrenciesEnum.INR,
-	USDT: CurrenciesEnum.USDT,
-	BDT: CurrenciesEnum.BDT,
-}
-
 const LANG_GROUP_COUNTRY = {
 	ch: 'Malaysia',
 	th: 'Thailand',

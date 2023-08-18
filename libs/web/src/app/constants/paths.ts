@@ -86,8 +86,8 @@ export const paths = {
 	myAccount: {
 		root: 'my-account',
 	},
-	leaderboard: {
-		root: 'leaderboard',
+	leaderBoard: {
+		root: 'leaderBoard',
 	},
 	announcement: {
 		root: 'announcement',

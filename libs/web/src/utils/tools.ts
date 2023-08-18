@@ -1,3 +1,4 @@
+import { CurrenciesEnum } from '@nx-next-app/types'
 import dayjs from 'dayjs'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -74,4 +75,30 @@ export const isEventPeriod = (period: {
 	}
 
 	return true
+}
+
+/**
+ * @returns string
+ * @description 回傳 TERMS & CONDITIONS的語系
+ * ```tsx
+ * getTermsConditionsLangId({ langId: 'en', currencyId: 15}) // id_en
+ * getTermsConditionsLangId({ langId: 'cs', currencyId: 15}) // cs
+ * ```
+ */
+export const getTermsConditionsLangId = ({
+	langId,
+	currencyId,
+}: {
+	langId: string
+	currencyId: number
+}) => {
+	if (langId === 'en') {
+		if (currencyId === CurrenciesEnum.THB) {
+			return 'th_en'
+		}
+		if (currencyId === CurrenciesEnum.IDR) {
+			return 'id_en'
+		}
+	}
+	return langId
 }

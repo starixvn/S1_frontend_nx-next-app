@@ -2,7 +2,6 @@ import { paths } from '@nx-next-app/constants'
 import { PRODUCTS } from '@nx-next-app/site/nova88/data/products'
 import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88/data/allowCurrency'
 import {
-	CURRENCY_LIST,
 	CURRENCY_PAYMENT_LIST,
 	LANG_TO_CURRENCY,
 } from '@nx-next-app/site/nova88'
@@ -10,6 +9,7 @@ import {
 	IRequestConvertedFooterData,
 	IResponseConvertedFooterData,
 } from 'libs/web/src/app/types/footer'
+import { CurrenciesEnum } from '@nx-next-app/types'
 
 const COPYRIGHT_LIST: { displayName: string; href: string }[] = [
 	{
@@ -367,10 +367,10 @@ export const footerDataConverter = ({
 
 	const servicePlanListConverter = () => {
 		const getCurrencyLink = (currencyId: number) => {
-			if (currencyId === CURRENCY_LIST['MYR']) {
+			if (currencyId === CurrenciesEnum.MYR) {
 				return ` https://aff.nova88mas102.com/?lang=${currentLang}`
 			}
-			if (currencyId === CURRENCY_LIST['INR']) {
+			if (currencyId === CurrenciesEnum.INR) {
 				return `https://aff.nova88india.com/?lang=${currentLang}`
 			}
 			return `https://aff.nova88bkk.com/?lang=${currentLang}`
@@ -389,7 +389,7 @@ export const footerDataConverter = ({
 
 	const promotionTextListConverter = () => {
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const [currencyName, _] = Object.entries(CURRENCY_LIST).find(
+		const [currencyName, _] = Object.entries(CurrenciesEnum).find(
 			([key, value]) => value === currencyId
 		) ?? ['MYR', 2]
 
@@ -415,7 +415,6 @@ export const footerDataConverter = ({
 
 	const getSfpData = () => {
 		return {
-			currencyList: CURRENCY_LIST,
 			currencyPaymentList: CURRENCY_PAYMENT_LIST,
 			langToCurrency: LANG_TO_CURRENCY,
 		}

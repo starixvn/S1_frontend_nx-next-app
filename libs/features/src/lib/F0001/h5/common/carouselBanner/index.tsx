@@ -19,7 +19,7 @@ const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 		userInfo: { langId },
 	} = useAuth()
 	const { push } = useRouter()
-	const { onEnterPage, onGoToGame } = useMenu({ langId })
+	const { onEnterPage, onGoToGame } = useMenu()
 
 	const resultList = bannerList.map(
 		(

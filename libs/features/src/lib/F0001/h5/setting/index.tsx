@@ -116,7 +116,7 @@ const Setting = () => {
 					{includes(ALLOWED_CURRENCIES['LEADER_BOARD'], currencyId) && (
 						<SettingCollapse.Item
 							prefixIcon='title icon icon-trophy'
-							onClick={() => push(paths.leaderboard.root)}
+							onClick={() => push(paths.leaderBoard.root)}
 							header={t('Label_General_LeaderBoard')}
 						/>
 					)}

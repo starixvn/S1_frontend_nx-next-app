@@ -3,7 +3,7 @@ import { CurrenciesEnum } from '@nx-next-app/types'
 const { MYR, USD, THB, CNY, IDR, INR, KHM, BDT, VND, USDT } = CurrenciesEnum
 
 export const ALLOWED_CURRENCIES: {
-	[key: string]: CurrenciesEnum[] | { [subKey: string]: CurrenciesEnum[] }
+	[key: string]: CurrenciesEnum[]
 } = {
 	VIP: [MYR, THB, IDR],
 	AFFILIATE: [MYR, THB, IDR, CNY, BDT, USD, INR],
@@ -11,10 +11,6 @@ export const ALLOWED_CURRENCIES: {
 	REWARDS: [MYR, THB, IDR],
 	LEADER_BOARD: [MYR, IDR, THB],
 
-	WITHDRAWAL_METHOD: {
-		BANK_CARD: [MYR, THB, IDR, INR, KHM],
-		E_WALLET: [IDR, BDT, MYR, THB],
-	},
 	TRANSFER: [INR, BDT, USD],
 	BANK_INFO: [MYR, THB, IDR, INR, KHM],
 	GAMES_MPOKER: [THB],

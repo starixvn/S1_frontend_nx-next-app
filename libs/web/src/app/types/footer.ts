@@ -44,9 +44,6 @@ export interface ILicenseData {
 }
 
 export interface ISfpData {
-	currencyList: {
-		[currency: string]: number
-	}
 	currencyPaymentList: {
 		[currency: string]: { name: string; img: string }[]
 	}
