@@ -30,7 +30,6 @@ export interface IStaticDataContext {
 	ALLOWED_CURRENCIES: IStaticAllowedCurrencies
 	SLOT_TP_GAME_TYPE: IStaticSlotTpGameType
 	LANG_GROUPS: IStaticLangGroups
-	CURRENCY_LIST: { [key: string]: number }
 	CURRENCY_TO_TIMEZONE: { [key: number]: string }
 	VIP_CLUB_IMAGES: (deviceType: number) => IImageData[]
 	VIP_EVENT_CURRENCIES_LIMITATION_INFO: IStaticVipEventCurrenciesLimitationInfo
@@ -60,7 +59,6 @@ const StaticDataProvider = ({
 	ALLOWED_CURRENCIES,
 	SLOT_TP_GAME_TYPE,
 	LANG_GROUPS,
-	CURRENCY_LIST,
 	CURRENCY_TO_TIMEZONE,
 	VIP_CLUB_IMAGES,
 	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
@@ -80,7 +78,6 @@ const StaticDataProvider = ({
 		ALLOWED_CURRENCIES,
 		SLOT_TP_GAME_TYPE,
 		LANG_GROUPS,
-		CURRENCY_LIST,
 		CURRENCY_TO_TIMEZONE,
 		VIP_CLUB_IMAGES,
 		VIP_EVENT_CURRENCIES_LIMITATION_INFO,
