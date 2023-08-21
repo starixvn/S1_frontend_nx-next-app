@@ -32,3 +32,5 @@ export { default as Loading } from './loading'
 export { Marquee } from './marquee'
 
 export { default as JackPot } from './jackpot/index'
+
+export { default as GameListItem } from './game-list-item/index'
