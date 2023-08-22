@@ -12,6 +12,8 @@ const LuckyWheel = () => {
 	const { push } = useRouter()
 	const [display, setDisplay] = useState(true)
 
+	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+	// @ts-ignore
 	const allowedCurrency = ALLOWED_CURRENCIES['LUCKY_WHEEL'][currencyId]
 	if (!allowedCurrency || !display) return null
 
