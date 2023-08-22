@@ -9,6 +9,7 @@ import VipBanner from '@nx-next-app/features/F0001/h5/vip/VipBanner'
 import VipTable from '@nx-next-app/features/F0001/h5/vip/VipTable'
 import VipBottom from '@nx-next-app/features/F0001/h5/vip/VipBottom'
 import VipMedal from '@nx-next-app/features/F0001/h5/vip/VipMedal'
+import { Header } from '@nx-next-app/components/H0001'
 
 interface IVipProps {
 	vipBannerData: IVipBannerData
@@ -35,9 +36,10 @@ const Vip = ({
 
 	return (
 		<>
-			<header className='header' id='header'>
-				<div className='title'>VIP</div>
-			</header>
+			<Header className='header'>
+				<Header.Tag title={t('label_VIP') as string} />
+			</Header>
+
 			<main className='main vip'>
 				<VipBanner vipBannerData={vipBannerData} />
 				<div className='vipprogram'>

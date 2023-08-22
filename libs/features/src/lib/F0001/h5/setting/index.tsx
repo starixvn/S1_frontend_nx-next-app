@@ -29,7 +29,7 @@ const Setting = () => {
 	return (
 		<>
 			<Header className='header'>
-				<div className='title'>{t('Label_General_More')}</div>
+				<Header.Tag title={t('Label_General_More') as string} />
 			</Header>
 
 			<main className='more'>

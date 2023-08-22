@@ -19,6 +19,7 @@ import { useSlotsVendorData } from '@nx-next-app/features/F0001/hooks/useSlotsVe
 import { useCategoryData } from '@nx-next-app/features/F0001/hooks/useSlotsCategoryData'
 import { useSlotsGameData } from '@nx-next-app/features/F0001/hooks/useSlotsGameData'
 import { useInView } from '@nx-next-app/hooks'
+import { Header } from '@nx-next-app/components/H0001'
 
 const Slots = ({
 	persistSlotsGameData,
@@ -96,30 +97,17 @@ const Slots = ({
 
 	return (
 		<>
-			<header className='header' id='header'>
-				<div className='title searchBar'>
-					<a href={paths.home.root}>
-						<i className='icon icon-keyboard_arrow_left' />
-					</a>
-					{t('Label_General_Slots')}
-					<i
-						className='icon icon-search'
-						onClick={() => setIsShowSearchInput(true)}
-					/>
-					<div
-						className={classNames('infoModule', { active: isShowSearchInput })}
-					>
-						<div className='inputBox'>
-							<input
-								placeholder={t('Label_SearchGames') as string}
-								value={searchCategoryText}
-								onChange={e => onSearchCategoryTextChange(e.target.value)}
-							/>
-							<i className='icon icon-close' onClick={handleInputClose} />
-						</div>
-					</div>
-				</div>
-			</header>
+			<Header className='header'>
+				<Header.Tag
+					title={t('Label_General_Slots') as string}
+					back={paths.home.root}
+					onSearchBarChange={onSearchCategoryTextChange}
+					searchText={searchCategoryText}
+					isShowSearchInput={isShowSearchInput}
+					setIsShowSearchInput={() => setIsShowSearchInput(true)}
+					onInputClose={handleInputClose}
+				/>
+			</Header>
 
 			<main className='main casino'>
 				{!isGetBannerV3Fetching && <CarouselBanner bannerList={bannerList} />}

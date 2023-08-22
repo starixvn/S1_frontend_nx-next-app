@@ -1,6 +1,7 @@
 export { default as MetaData } from './metaData'
 
 export { default as Header, useAppDownload } from './header'
+export type { TagOptionType } from './header'
 
 export { InputBox } from './input'
 
