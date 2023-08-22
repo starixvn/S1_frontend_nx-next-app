@@ -1,22 +1,26 @@
-import React from 'react'
 import { GetServerSideProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { Layout, Fishing } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout } from '@nx-next-app/features/F0001/h5'
 
-const LeaderBoardPage = ({
+type IHomePageProps = InitialPropsInterface
+
+const FishingPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-}: InitialPropsInterface) => {
+	footerData,
+}: IHomePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData}>leaderBoardPage</Layout>
+				<Layout persistSEOData={persistSEOData} footerData={footerData}>
+					<Fishing />
+				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>
 	)
@@ -33,4 +37,4 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	}
 }
 
-export default LeaderBoardPage
+export default FishingPage

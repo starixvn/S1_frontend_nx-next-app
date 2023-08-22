@@ -11,6 +11,7 @@ import {
 	IStaticSlotTpGameType,
 	IStaticVipEventCurrenciesLimitationInfo,
 	ITermsConditions,
+	ILeftMenuData,
 } from '@nx-next-app/types'
 
 export interface IStaticDataContext {
@@ -25,10 +26,10 @@ export interface IStaticDataContext {
 	PRODUCTS: {
 		[key: string]: IStaticProduct
 	}
+	LEFT_MENU_DATA: ILeftMenuData
 	ALLOWED_CURRENCIES: IStaticAllowedCurrencies
 	SLOT_TP_GAME_TYPE: IStaticSlotTpGameType
 	LANG_GROUPS: IStaticLangGroups
-	CURRENCY_LIST: { [key: string]: number }
 	CURRENCY_TO_TIMEZONE: { [key: number]: string }
 	VIP_CLUB_IMAGES: (deviceType: number) => IImageData[]
 	VIP_EVENT_CURRENCIES_LIMITATION_INFO: IStaticVipEventCurrenciesLimitationInfo
@@ -41,6 +42,7 @@ export interface IStaticDataContext {
 	USERNAME_REGEX: RegExp
 	PASSWORD_REGEX: RegExp
 	REALNAME_REGEX: RegExp
+	BANNER_IMAGE_LIST: { [lang: string]: string }
 }
 
 const StaticDataContext = createContext<IStaticDataContext>(null!)
@@ -57,7 +59,6 @@ const StaticDataProvider = ({
 	ALLOWED_CURRENCIES,
 	SLOT_TP_GAME_TYPE,
 	LANG_GROUPS,
-	CURRENCY_LIST,
 	CURRENCY_TO_TIMEZONE,
 	VIP_CLUB_IMAGES,
 	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
@@ -67,6 +68,8 @@ const StaticDataProvider = ({
 	USERNAME_REGEX,
 	PASSWORD_REGEX,
 	REALNAME_REGEX,
+	BANNER_IMAGE_LIST,
+	LEFT_MENU_DATA,
 }: IStaticDataProviderProps) => {
 	const value: IStaticDataContext = {
 		MENU_DATA,
@@ -75,7 +78,6 @@ const StaticDataProvider = ({
 		ALLOWED_CURRENCIES,
 		SLOT_TP_GAME_TYPE,
 		LANG_GROUPS,
-		CURRENCY_LIST,
 		CURRENCY_TO_TIMEZONE,
 		VIP_CLUB_IMAGES,
 		VIP_EVENT_CURRENCIES_LIMITATION_INFO,
@@ -85,6 +87,8 @@ const StaticDataProvider = ({
 		USERNAME_REGEX,
 		PASSWORD_REGEX,
 		REALNAME_REGEX,
+		BANNER_IMAGE_LIST,
+		LEFT_MENU_DATA,
 	}
 
 	return (

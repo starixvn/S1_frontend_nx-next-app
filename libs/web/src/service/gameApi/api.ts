@@ -1,9 +1,14 @@
-import { rootApi } from '@nx-next-app/service'
-import { IAxiosResponse } from 'libs/web/src/service/axiosBaseQuery'
-import { ISlotsGameData } from 'libs/web/src/service/gameApi/type'
+import { rootApi } from '../rootApi/api'
+import {
+	IGetRecentlyViewedArgs,
+	IRecentlyViewedData,
+	ISlotsGameData,
+} from './type'
+import { IAxiosResponse } from '../axiosBaseQuery'
 
 export const gameApiUrl = {
 	getSlotGamePage: 'Game/GetSlotGamePage',
+	getRecentlyViewed: 'Game/GetRecentlyViewed',
 }
 
 export const gameApi = rootApi.injectEndpoints({
@@ -19,7 +24,17 @@ export const gameApi = rootApi.injectEndpoints({
 			}),
 			providesTags: ['SLOTS_GAME_DATA'],
 		}),
+		getRecentlyViewed: builder.query<
+			IAxiosResponse<IRecentlyViewedData>,
+			IGetRecentlyViewedArgs
+		>({
+			query: data => ({
+				url: gameApiUrl.getRecentlyViewed,
+				method: 'POST',
+				data,
+			}),
+		}),
 	}),
 })
 
-export const { useGetSlotGamePageQuery } = gameApi
+export const { useGetSlotGamePageQuery, useGetRecentlyViewedQuery } = gameApi

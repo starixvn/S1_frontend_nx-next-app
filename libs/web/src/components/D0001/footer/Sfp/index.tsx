@@ -4,6 +4,7 @@ import { footerImgName } from 'libs/features/src/lib/F0001/types'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { ISfpData } from 'libs/web/src/app/types/footer'
+import { CurrenciesEnum } from '@nx-next-app/types'
 
 interface ISfpProps {
 	sfpData: ISfpData
@@ -21,7 +22,7 @@ interface ISfpProps {
 }
 
 const Sfp = ({
-	sfpData: { currencyList, currencyPaymentList, langToCurrency },
+	sfpData: { currencyPaymentList, langToCurrency },
 	socialChannelList,
 }: ISfpProps) => {
 	const {
@@ -40,7 +41,7 @@ const Sfp = ({
 			currencyId
 				? `Currency_${currencyId}`
 				: `Currency_${langToCurrency[langId]}`,
-			t(`Currency_${currencyList['MYR']}`)
+			t(`Currency_${CurrenciesEnum.MYR}`)
 		)
 
 	const paymentList =

@@ -96,9 +96,8 @@ export const MENU_DATA = ({
 						],
 					},
 					displayKey: 'Label_General_LeaderBoard',
-
 					menuActionType: MenuActionTypeEnum.Link,
-					pathname: paths.leaderboard.root,
+					pathname: paths.leaderBoard.root,
 					allowCurrencies: ALLOWED_CURRENCIES['LEADER_BOARD'],
 				},
 				{
@@ -1232,7 +1231,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Pragmatic Play',
 					query: {
-            tpId: PRODUCTS['SLOTS_PP'].TP_ID,
+						tpId: PRODUCTS['SLOTS_PP'].TP_ID,
 					},
 					menuActionType: MenuActionTypeEnum.Link,
 					product: PRODUCTS['SLOTS_PP'],
@@ -1256,7 +1255,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Spadegaming',
 					query: {
-            tpId: PRODUCTS['SLOTS_SG'].TP_ID,
+						tpId: PRODUCTS['SLOTS_SG'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1282,7 +1281,7 @@ export const MENU_DATA = ({
 					displayText: 'AdvantPlay',
 
 					query: {
-            tpId: PRODUCTS['SLOTS_ADVANT_PLAY'].TP_ID,
+						tpId: PRODUCTS['SLOTS_ADVANT_PLAY'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1308,7 +1307,7 @@ export const MENU_DATA = ({
 					displayText: 'PG Soft',
 
 					query: {
-            tpId: PRODUCTS['SLOTS_PG'].TP_ID,
+						tpId: PRODUCTS['SLOTS_PG'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1333,7 +1332,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Microgaming',
 					query: {
-            tpId: PRODUCTS['SLOTS_MGPSW'].TP_ID,
+						tpId: PRODUCTS['SLOTS_MGPSW'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1358,7 +1357,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Jili',
 					query: {
-            tpId: PRODUCTS['SLOTS_JILI'].TP_ID,
+						tpId: PRODUCTS['SLOTS_JILI'].TP_ID,
 					},
 					menuActionType: MenuActionTypeEnum.Link,
 					product: PRODUCTS['SLOTS_JILI'],
@@ -1382,7 +1381,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Joker',
 					query: {
-            tpId: PRODUCTS['SLOTS_JOKER'].TP_ID,
+						tpId: PRODUCTS['SLOTS_JOKER'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1407,7 +1406,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Red Tiger',
 					query: {
-            tpId: PRODUCTS['SLOTS_RED_TIGER'].TP_ID,
+						tpId: PRODUCTS['SLOTS_RED_TIGER'].TP_ID,
 					},
 					menuActionType: MenuActionTypeEnum.Link,
 					product: PRODUCTS['SLOTS_RED_TIGER'],
@@ -1431,7 +1430,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'NetEnt',
 					query: {
-            tpId: PRODUCTS['SLOTS_NET_ENT'].TP_ID,
+						tpId: PRODUCTS['SLOTS_NET_ENT'].TP_ID,
 					},
 					menuActionType: MenuActionTypeEnum.Link,
 					product: PRODUCTS['SLOTS_NET_ENT'],
@@ -1455,7 +1454,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'CQ9',
 					query: {
-            tpId: PRODUCTS['SLOTS_CQ9'].TP_ID,
+						tpId: PRODUCTS['SLOTS_CQ9'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1480,7 +1479,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Game Play',
 					query: {
-            tpId: PRODUCTS['SLOTS_GPI'].TP_ID,
+						tpId: PRODUCTS['SLOTS_GPI'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1505,7 +1504,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'YGGDrassil',
 					query: {
-            tpId: PRODUCTS['SLOTS_YGG'].TP_ID,
+						tpId: PRODUCTS['SLOTS_YGG'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1530,7 +1529,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'AMBSlot',
 					query: {
-            tpId: PRODUCTS['SLOTS_AMB'].TP_ID,
+						tpId: PRODUCTS['SLOTS_AMB'].TP_ID,
 					},
 					menuActionType: MenuActionTypeEnum.Link,
 					product: PRODUCTS['SLOTS_AMB'],
@@ -1555,7 +1554,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Habanero',
 					query: {
-            tpId: PRODUCTS['SLOTS_HABANERO'].TP_ID,
+						tpId: PRODUCTS['SLOTS_HABANERO'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1580,7 +1579,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'SimplePlay',
 					query: {
-            tpId: PRODUCTS['SLOTS_SIMPLE_PLAY'].TP_ID
+						tpId: PRODUCTS['SLOTS_SIMPLE_PLAY'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1605,7 +1604,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Skywind',
 					query: {
-            tpId: PRODUCTS['SLOTS_SKY_WIND'].TP_ID,
+						tpId: PRODUCTS['SLOTS_SKY_WIND'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -1630,7 +1629,7 @@ export const MENU_DATA = ({
 					pathname: paths.slots.root,
 					displayText: 'Playtech',
 					query: {
-            tpId: PRODUCTS['SLOTS_PT'].TP_ID,
+						tpId: PRODUCTS['SLOTS_PT'].TP_ID,
 					},
 
 					menuActionType: MenuActionTypeEnum.Link,
@@ -2321,11 +2320,10 @@ export const MENU_DATA = ({
 				subMenuClassName: 'rankingList',
 			},
 			displayKey: 'Label_LeaderBoard',
-			pathname: paths.leaderboard.root,
+			pathname: paths.leaderBoard.root,
 			menuActionType: MenuActionTypeEnum.Link,
-
 			subMenuAllowCurrenciesWithAuth: false,
-			allowCurrencies: true,
+			allowCurrencies: ALLOWED_CURRENCIES['LEADER_BOARD'],
 		},
 	}
 }

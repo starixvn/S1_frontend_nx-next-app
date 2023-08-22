@@ -53,7 +53,7 @@ export interface IStaticLangGroups {
 }
 
 export interface IStaticAllowedCurrencies {
-	[key: string]: CurrenciesEnum[]
+	[key: string]: CurrenciesEnum[] | { [subKey: string]: CurrenciesEnum[] }
 }
 
 export interface IStaticVipEventCurrenciesLimitationInfo {
@@ -112,6 +112,7 @@ export enum BannerActionEnum {
 	RedirectPageOfThisSite,
 }
 
+// 根據 Admin 新的 bonusType 調整
 export enum PromotionTypeEnum {
 	FirstDeposit = 1,
 	Redeposit = 2,
@@ -119,8 +120,7 @@ export enum PromotionTypeEnum {
 	WalletBonus = 5,
 	Rebate = 6,
 	Cashback = 7,
-	Other = 8,
-	SpecialBonus = 9001,
+	SpecialBonus = 8,
 }
 
 export enum BonusTypeEnum {
@@ -149,6 +149,30 @@ export enum MenuKeyEnum {
 
 export enum TpGameType {
 	All,
+}
+
+export enum LinkTypeEnum {
+	Url = 1,
+	QRCode,
+}
+
+export enum LeftMenuKeyEnum {
+	'Cashier' = 'Cashier',
+	'MyAccount' = 'MyAccount',
+	'Message' = 'Message',
+}
+
+export type ILeftMenuData = {
+	[key in LeftMenuKeyEnum]: {
+		displayKey: string
+		subMenu: {
+			[key: string]: {
+				displayKey: string
+				pathname: string
+				allowCurrencies: CurrenciesEnum[] | boolean // * true: 全開, false: 全關
+			}
+		}
+	}
 }
 
 export * from './footer'

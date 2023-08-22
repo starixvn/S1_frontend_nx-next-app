@@ -3,7 +3,7 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { AuthProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout } from '@nx-next-app/features/F0001/desktop'
+import { Layout, LeftMenu } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -22,13 +22,16 @@ const ProfilePage = ({
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<Layout persistSEOData={persistSEOData} footerData={footerData}>
 				<main>
-					<br />
-					<br />
-					<br />
-					<h1 style={{ color: 'black' }}>Profile Page</h1>
-					<br />
-					<br />
-					<br />
+					<section className='inside'>
+						<LeftMenu />
+						<br />
+						<br />
+						<br />
+						<h1 style={{ color: 'black' }}>Profile Page</h1>
+						<br />
+						<br />
+						<br />
+					</section>
 				</main>
 			</Layout>
 		</AuthProvider>

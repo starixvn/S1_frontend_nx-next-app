@@ -1,9 +1,11 @@
 import React from 'react'
 import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
-import { useGetAppDownloadLinksQuery } from '@nx-next-app/service'
+import {
+	useGetAppDownloadLinksQuery,
+	IAppDownloadLinks,
+} from '@nx-next-app/service'
 import QRCode from 'qrcode.react'
-import { IAppDownloadLinks } from 'libs/web/src/service/playerApi/type'
 
 const AppDownload = () => {
 	const { t } = useTranslation()

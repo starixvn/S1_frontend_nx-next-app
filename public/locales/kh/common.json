@@ -39,6 +39,16 @@
 	"Label_General_Submit": "បញ្ជូន",
 	"Label_General_RealName": "ឈ្មោះ​ពិត",
 	"Label_General_RemindForName": "ឈ្មោះត្រូវតែដូចគ្នានឹងអត្តសញ្ញាណប័ណ្ណរបស់អ្នក ហើយវាត្រូវបានហាមឃាត់មិនឱ្យបំពេញនិមិត្តសញ្ញាពិសេស",
+	"Label_General_Cashier": "បេឡាករ",
+	"Label_General_Statement": "ការប្រកាស",
+	"Label_General_MyAccount": "គណនីរបស់ខ្ញុំ",
+	"Label_General_BankInfo": "ព័ត៌មានធនាគារ",
+	"Label_General_PersonalMessage": "សារផ្ទាល់ខ្លួន",
+	"Label_General_Announcement": "សេចក្តីជូនដំណឹង",
+	"Label_General_No": "ទេ",
+	"Label_General_Yes": "បាទ/ចាស៎",
+	"Label_General_OK": "OK",
+	"Label_General_Oh": "Oh",
 
 	"Label_Header_ForgetPassword": "ភ្លេចពាក្យសម្ងាត់របស់អ្នក?",
 

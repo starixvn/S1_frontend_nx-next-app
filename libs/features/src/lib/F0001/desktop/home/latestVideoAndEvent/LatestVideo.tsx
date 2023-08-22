@@ -1,11 +1,8 @@
-import { IHighlightData } from '@nx-next-app/service'
 import { useTranslation } from 'next-i18next'
+import { useHome } from '../HomeContext'
 
-export const LatestVideo = ({
-	latestHighlightVideo,
-}: {
-	latestHighlightVideo: IHighlightData
-}) => {
+export const LatestVideo = () => {
+	const { latestHighlightVideo } = useHome()
 	const { link, title } = latestHighlightVideo ?? {}
 	const { t } = useTranslation()
 	return link ? (

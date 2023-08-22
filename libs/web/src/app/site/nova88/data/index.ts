@@ -8,6 +8,8 @@ export * from './join'
 export * from './metaData'
 export * from './menu'
 export * from './slots'
+export * from './images'
+export * from './leftMenu'
 
 export const LANG_GROUPS: IStaticLangGroups = {
 	ch: [
@@ -118,17 +120,6 @@ const CURRENCY_TO_LANG_KEY = {
 	61: 'in',
 	72: 'kh',
 	74: 'bd',
-}
-
-export const CURRENCY_LIST = {
-	MYR: CurrenciesEnum.MYR,
-	USD: CurrenciesEnum.USD,
-	THB: CurrenciesEnum.THB,
-	CNY: CurrenciesEnum.CNY,
-	IDR: CurrenciesEnum.IDR,
-	INR: CurrenciesEnum.INR,
-	USDT: CurrenciesEnum.USDT,
-	BDT: CurrenciesEnum.BDT,
 }
 
 const LANG_GROUP_COUNTRY = {

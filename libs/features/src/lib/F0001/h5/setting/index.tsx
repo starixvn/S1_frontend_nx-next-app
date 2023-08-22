@@ -29,7 +29,7 @@ const Setting = () => {
 	return (
 		<>
 			<Header className='header'>
-				<div className='title'>{t('Label_General_More')}</div>
+				<Header.Tag title={t('Label_General_More') as string} />
 			</Header>
 
 			<main className='more'>
@@ -116,7 +116,7 @@ const Setting = () => {
 					{includes(ALLOWED_CURRENCIES['LEADER_BOARD'], currencyId) && (
 						<SettingCollapse.Item
 							prefixIcon='title icon icon-trophy'
-							onClick={() => push(paths.leaderboard.root)}
+							onClick={() => push(paths.leaderBoard.root)}
 							header={t('Label_General_LeaderBoard')}
 						/>
 					)}

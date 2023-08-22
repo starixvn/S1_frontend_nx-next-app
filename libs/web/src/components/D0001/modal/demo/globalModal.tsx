@@ -29,6 +29,7 @@ const App = () => {
 		modal.info('some message', {
 			icon: 'icon icon-another',
 			title: 'another title',
+			okText: 'ok',
 			onOK: () => {
 				//
 			},
@@ -42,6 +43,18 @@ const App = () => {
 		// * 顯示全部錯誤訊息
 		modal.error(renderFieldErrors(errors))
 	}
+
+	const fnConfirm = modal.confirm('some message', {
+		icon: 'icon icon-another',
+		title: 'another',
+		okText: 'okk',
+		onOK: () => {
+			//
+		},
+		onCancel: () => {
+			//
+		},
+	})
 
 	return (
 		<button type='button' onClick={fnDefault}>

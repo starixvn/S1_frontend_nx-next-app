@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { isNumber } from 'lodash'
 import { paths } from '@nx-next-app/constants'
-import { IBannerV3Data } from '@nx-next-app/service'
+import { IBannerData } from '@nx-next-app/service'
 import { BannerActionEnum } from '@nx-next-app/types'
 import { PRODUCTS } from '@nx-next-app/site/nova88'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
@@ -11,15 +11,15 @@ import Carousel from '@nx-next-app/components/D0001/carousel'
 import BannerItem from '@nx-next-app/features/F0001/h5/common/carouselBanner/BannerItem'
 
 interface ICarouselBannerProps {
-	bannerList: IBannerV3Data[]
+	bannerList: IBannerData[]
 }
 
-const Index = ({ bannerList }: ICarouselBannerProps) => {
+const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 	const {
 		userInfo: { langId },
 	} = useAuth()
 	const { push } = useRouter()
-	const { onEnterPage, onGoToGame } = useMenu({ langId })
+	const { onEnterPage, onGoToGame } = useMenu()
 
 	const resultList = bannerList.map(
 		(
@@ -68,7 +68,7 @@ const Index = ({ bannerList }: ICarouselBannerProps) => {
 		actionMode,
 		bannerLink,
 		tpGameType,
-	}: IBannerV3Data) => {
+	}: IBannerData) => {
 		if (Number(tpId) === PRODUCTS.SLOTS_PT.TP_ID) {
 			onGoToGame(
 				{
@@ -107,13 +107,12 @@ const Index = ({ bannerList }: ICarouselBannerProps) => {
 	}
 
 	return (
-		<Carousel className='banner'>
+		<Carousel {...rest}>
 			{resultList.map(item => (
 				<BannerItem
 					itemKey={item.itemKey}
 					src={item.bannerPCUrl}
 					alt={item.bannerName}
-					className='banner'
 					onClick={
 						item.redirectLink
 							? () => push(item.redirectLink ?? '/')
@@ -126,4 +125,4 @@ const Index = ({ bannerList }: ICarouselBannerProps) => {
 	)
 }
 
-export default Index
+export default CarouselBanner
