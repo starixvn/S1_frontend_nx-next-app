@@ -5,22 +5,10 @@ import classNames from 'classnames'
 import QRCode from 'qrcode.react'
 import { ISocialChannelData } from '@nx-next-app/service'
 import { LinkTypeEnum } from '@nx-next-app/types'
+import { channelIconClass } from '@nx-next-app/features/F0001/types'
 
 interface IQuickLinkProps {
 	socialChannelList: ISocialChannelData[]
-}
-
-// 這裡不能用 id，因為 id 不同語系不一樣
-const sideBarIconClass: { [channelName: string]: string } = {
-	Livechat: 'icon icon icon-chat',
-	WhatsApp: 'icon icon-whatsapp',
-	Telegram: 'icon icon-telegram',
-	'E-mail': 'icon icon icon-envelope',
-	Facebook: 'icon icon-facebook2',
-	Twitter: 'icon icon-twitter',
-	Instagram: 'icon icon-instagram',
-	LINE: 'icon icon-line',
-	Youtube: 'icon icon-youtube',
 }
 
 const QuickLink = ({ socialChannelList }: IQuickLinkProps) => {
@@ -52,7 +40,7 @@ const QuickLink = ({ socialChannelList }: IQuickLinkProps) => {
 				onMouseOver={() => setActiveIcon(channelName)}
 				onMouseLeave={() => setActiveIcon(null)}
 				onFocus={() => 0}
-				className={classNames(sideBarIconClass[channelName], {
+				className={classNames(channelIconClass[channelName], {
 					active: activeIcon === channelName,
 				})}
 			>

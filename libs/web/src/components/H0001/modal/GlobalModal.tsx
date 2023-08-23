@@ -11,6 +11,7 @@ const GlobalModal = ({
 	onOK,
 	onCancel,
 	closeModal,
+	className,
 }: IGlobalModalProps) => {
 	const { t } = useTranslation()
 	const open = !!type
@@ -39,9 +40,10 @@ const GlobalModal = ({
 		default:
 			mergedTitle = title || null
 	}
+	if (!open) return null
 
 	return (
-		<Modal open={open}>
+		<Modal open={open} className={className}>
 			{type === 'default' && content}
 
 			{type !== 'default' && (

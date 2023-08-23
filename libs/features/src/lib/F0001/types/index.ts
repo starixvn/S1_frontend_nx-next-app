@@ -133,3 +133,15 @@ export const footerImgName: Record<string, string> = {
 export enum GameTypeEnum {
 	All,
 }
+
+export const channelIconClass: { [channelName: string]: string } = {
+	Livechat: 'icon icon icon-chat',
+	WhatsApp: 'icon icon-whatsapp',
+	Telegram: 'icon icon-telegram',
+	'E-mail': 'icon icon icon-envelope',
+	Facebook: 'icon icon-facebook2',
+	Twitter: 'icon icon-twitter',
+	Instagram: 'icon icon-instagram',
+	LINE: 'icon icon-line',
+	Youtube: 'icon icon-youtube',
+}
