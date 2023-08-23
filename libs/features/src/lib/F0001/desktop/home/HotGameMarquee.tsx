@@ -2,15 +2,10 @@ import { uniqueId } from 'lodash-es'
 import dynamic from 'next/dynamic'
 import ReactMarquee from 'react-fast-marquee'
 import Image from 'next/future/image'
-import { IHotGame } from '@nx-next-app/service'
-import { useAuth, useGlobalData } from '@nx-next-app/data-access'
-import { CategoryEnum, GameTypeEnum } from '@nx-next-app/features/F0001/types'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useTranslation } from 'next-i18next'
 import { isUrl } from '@nx-next-app/utils'
-
-import { useHome } from './HomeContext'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 
 const LoginModal = dynamic(() => import('../modal/LoginModal'), {
 	ssr: false,
@@ -24,47 +19,12 @@ const UnderMaintenanceModal = dynamic(
 )
 const HotGameMarquee = () => {
 	const { t } = useTranslation()
-	const {
-		userInfo: { langId },
-	} = useAuth()
-	const { hotGameData } = useHome()
+	const { hotGameData, handleHotGameClick } = useHome()
 
-	const { tpMaintainList } = useGlobalData()
 	const { modal } = useGlobalModal()
-	const { onEnterSlotsPage, onEnterPage } = useMenu()
-
-	const handleLoginModal = () => modal.open(<LoginModal />)
-	const handleClick = ({
-		game,
-		isInMaintain,
-	}: {
-		game: IHotGame
-		isInMaintain: boolean
-	}) => {
-		const { tpId, gameId, tpCategory, tpGameType } = game ?? {}
-		if (isInMaintain) {
-			modal.open(<UnderMaintenanceModal />)
-		} else if (tpCategory === CategoryEnum.SLOTS) {
-			onEnterSlotsPage(
-				{ tpId: String(tpId), gameId, tpGameType: String(tpGameType) },
-				{ loginCallback: handleLoginModal }
-			)
-		} else {
-			onEnterPage(
-				{ tpId, gameId, tpGameType, langId },
-				{ loginCallback: handleLoginModal }
-			)
-		}
-	}
 
 	const children = hotGameData.map(game => {
 		const { gameLogo, gameName, tpName, tpLogo } = game
-		const isInMaintain = tpMaintainList?.some(
-			maintain =>
-				maintain.tpId === game.tpId &&
-				(maintain.tpGameType === game.tpGameType ||
-					maintain.tpGameType === GameTypeEnum.All)
-		)
 
 		return (
 			<div
@@ -73,7 +33,18 @@ const HotGameMarquee = () => {
 					width: '300px',
 					margin: '0 15px',
 				}}
-				onClick={() => handleClick({ game, isInMaintain })}
+				onClick={() =>
+					handleHotGameClick(
+						{
+							game,
+						},
+						{
+							underMaintenanceCallback: () =>
+								modal.open(<UnderMaintenanceModal />),
+							loginCallback: () => modal.open(<LoginModal />),
+						}
+					)
+				}
 			>
 				{isUrl(gameLogo) ? (
 					<Image src={gameLogo} width={260} height={151} alt={gameName} />

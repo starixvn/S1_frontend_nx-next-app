@@ -23,6 +23,9 @@ export const paths = {
 	withdrawal: {
 		root: 'withdrawal',
 	},
+	eWalletWithdrawal: {
+		root: 'eWallet-withdrawal',
+	},
 	message: {
 		root: 'message',
 	},

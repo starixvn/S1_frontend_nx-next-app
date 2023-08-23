@@ -18,3 +18,10 @@ export type { SelectOptionType } from './select/type'
 export { InputPhone } from './input'
 
 export { Modal, GlobalModal, useModal } from './modal'
+
+export { Marquee } from './marquee'
+
+export { default as Carousel } from './carousel'
+export type { ICarouselProps } from './carousel'
+
+export { default as JackPot } from './jackpot/index'

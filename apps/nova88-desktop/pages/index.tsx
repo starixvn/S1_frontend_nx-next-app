@@ -2,6 +2,7 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Layout, Home } from '@nx-next-app/features/F0001/desktop'
+import { HomeProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	AuthProvider,
 	GlobalDataProvider,
@@ -30,9 +31,7 @@ import {
 	BannerTypeEnum,
 	IResponseConvertedFooterData,
 } from '@nx-next-app/types'
-import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { HomeProvider } from '@nx-next-app/features/F0001/desktop/home/HomeContext'
 
 interface IHomePageProps extends InitialPropsInterface {
 	persistAnnouncementData: IAnnouncementData[]
@@ -63,7 +62,6 @@ const HomePage = ({
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData} footerData={footerData}>
 					<HomeProvider
-						jackPotCurrencies={ALLOWED_CURRENCIES.JACKPOT as number[]}
 						persistAnnouncementData={persistAnnouncementData}
 						persistBannerData={persistBannerData}
 						persistPromotionData={persistPromotionData}
@@ -71,6 +69,8 @@ const HomePage = ({
 						persistHotEventData={persistHotEventData}
 						persistHotGameData={persistHotGameData}
 						persistNewsData={persistNewsData}
+						persistLicenseData={footerData.licenseData}
+						persistServicePlanData={footerData.servicePlanData}
 					>
 						<Home />
 					</HomeProvider>

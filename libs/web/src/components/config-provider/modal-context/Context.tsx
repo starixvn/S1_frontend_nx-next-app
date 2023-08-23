@@ -16,6 +16,7 @@ export interface IGlobalModalProps {
 	onOK?: () => void
 	onCancel?: () => void
 	closeModal: () => void
+	className?: string
 }
 
 export type GlobalModalType = Omit<IGlobalModalProps, 'closeModal'>
@@ -25,7 +26,7 @@ export interface ModalContextInterface {
 	modal: {
 		open: (
 			message: ModalContentType,
-			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK'>
+			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK' | 'className'>
 		) => void
 		info: (
 			message: ModalContentType,

@@ -1,27 +1,14 @@
-import dayjs from 'dayjs'
 import Link from 'next/link'
-import { filter } from 'lodash-es'
 import Image from 'next/future/image'
-import isBetween from 'dayjs/plugin/isBetween'
 import { useTranslation } from 'next-i18next'
 import ReactMarquee from 'react-fast-marquee'
 import { paths } from '@nx-next-app/constants'
 import { isUrl } from '@nx-next-app/utils'
-
-import { useHome } from './HomeContext'
-
-dayjs.extend(isBetween)
+import { useHome } from '@nx-next-app/features/F0001/providers'
 
 const PromotionMarquee = () => {
 	const { promotionData, handlePromotionClick } = useHome()
 	const { t } = useTranslation()
-
-	const filteredPromotions = filter(
-		promotionData,
-		({ displayFrom, displayTo }) => {
-			return dayjs().isBetween(dayjs.unix(displayFrom), dayjs.unix(displayTo))
-		}
-	)
 
 	return (
 		<div className='projpot'>
@@ -37,7 +24,7 @@ const PromotionMarquee = () => {
 						<ReactMarquee speed={80} pauseOnHover>
 							<div className='swiper-container'>
 								<div className='swiper-wrapper' style={{ display: 'flex' }}>
-									{filteredPromotions.map(
+									{promotionData.map(
 										({ bonusCode, categoryId, tpId, banner, title }) => (
 											<div
 												key={`promotion.list-${bonusCode}-${categoryId}-${tpId}`}

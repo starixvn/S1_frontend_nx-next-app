@@ -10,6 +10,7 @@ import {
 	ITpWalletInfoData,
 	IGetCustSpecificBonusArgs,
 	ICustSpecificBonusData,
+	IReferralSettingData,
 } from './type'
 
 export const accountApiUrl = {
@@ -24,6 +25,8 @@ export const accountApiUrl = {
 	setHideBalance: 'Account/SetHideBalance',
 	getCustSpecificBonus: 'Account/GetCustSpecificBonus',
 	SetFavoriteGame: 'Account/SetFavoriteGame',
+	getReferralSetting: 'Account/GetReferralSetting',
+	getReferralCode: 'Account/GetReferralCode',
 }
 
 const accountApi = rootApi.injectEndpoints({
@@ -121,6 +124,21 @@ const accountApi = rootApi.injectEndpoints({
 			}),
 			invalidatesTags: ['SLOTS_GAME_DATA'],
 		}),
+		getReferralSetting: builder.query<
+			IAxiosResponse<IReferralSettingData[]>,
+			null
+		>({
+			query: () => ({
+				url: accountApiUrl.getReferralSetting,
+				method: 'POST',
+			}),
+		}),
+		getReferralCode: builder.query<IAxiosResponse<string>, null>({
+			query: () => ({
+				url: accountApiUrl.getReferralCode,
+				method: 'POST',
+			}),
+		}),
 	}),
 })
 
@@ -136,4 +154,6 @@ export const {
 	useSetHideBalanceMutation,
 	useLazyGetCustSpecificBonusQuery,
 	useSetFavoriteGameMutation,
+	useGetReferralCodeQuery,
+	useGetReferralSettingQuery,
 } = accountApi

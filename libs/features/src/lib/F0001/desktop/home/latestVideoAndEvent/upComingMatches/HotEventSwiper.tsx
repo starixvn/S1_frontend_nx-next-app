@@ -1,18 +1,18 @@
 import dayjs from 'dayjs'
 import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
-import { IHotEventData, useGetHotEventListQuery } from '@nx-next-app/service'
+import { IHotEventData } from '@nx-next-app/service'
 import { isUrl } from '@nx-next-app/utils'
 import { Carousel } from '@nx-next-app/components/D0001'
 import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
 import Link from 'next/link'
 import { uniqueId } from 'lodash-es'
-import { useHome } from '../../HomeContext'
+import { useHome } from '@nx-next-app/features/F0001/providers'
 import { getPathParams } from '../../utils'
 
 const Item = ({ data }: { data: IHotEventData }) => {
 	const { t } = useTranslation()
+	const { formatHdp } = useHome()
 	const {
 		backgroundPic,
 		sportLeaguesTitle,
@@ -36,11 +36,6 @@ const Item = ({ data }: { data: IHotEventData }) => {
 		gameId,
 	})
 
-	const formatHdp = (hdp: number) => {
-		if (hdp === 0) return hdp
-
-		return `${hdp > 0 ? '+' : ''}${hdp}`
-	}
 	const date = dayjs(battleTime).format(dateFormat)
 	const time = dayjs(battleTime).format(timeFormat)
 
@@ -119,19 +114,7 @@ const Item = ({ data }: { data: IHotEventData }) => {
 }
 
 const HotEventSwiper = () => {
-	const { hotEventData: OriginHotEvent } = useHome()
-	const {
-		userInfo: { langId },
-	} = useAuth()
-
-	const { data: { data: hotEventData = OriginHotEvent } = {} } =
-		useGetHotEventListQuery(
-			{ langId },
-			{
-				pollingInterval: 60000,
-				skip: !langId,
-			}
-		)
+	const { hotEventData } = useHome()
 
 	const config = {
 		slidesPerView: 2,

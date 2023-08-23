@@ -6,7 +6,7 @@ interface IBannerItemProps {
 	itemKey: string
 	src: string
 	alt: string
-	className: string
+	className?: string
 	isRedirect: boolean
 	onClick: () => void
 }

@@ -82,3 +82,11 @@ export interface ICustSpecificBonusData {
 	status: number
 	expiryTime: string
 }
+
+export interface IReferralSettingData {
+	bonusAmount: number
+	deposit: number
+	periodDays: number
+	status: boolean
+	vaildBet: number
+}

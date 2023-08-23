@@ -4,55 +4,21 @@ import Image from 'next/future/image'
 import dynamic from 'next/dynamic'
 import { useAuth } from '@nx-next-app/data-access'
 import { Carousel } from '@nx-next-app/components/D0001'
-import { IViewedGameData } from '@nx-next-app/service'
 import { isUrl } from '@nx-next-app/utils'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { ISubMenu } from '@nx-next-app/features/F0001/types'
+import { useHome } from '@nx-next-app/features/F0001/providers'
 
 const LoginModal = dynamic(() => import('../modal/LoginModal'), {
 	ssr: false,
 })
 
-const RecentlyViewGames = ({
-	recentlyViewedList,
-}: {
-	recentlyViewedList: IViewedGameData[]
-}) => {
+const RecentlyViewGames = () => {
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
+	const { recentlyViewedList, handleRecentlyViewGameClick } = useHome()
 	const {
 		userInfo: { langId },
 	} = useAuth()
-
-	const { menuData, onMenuOpen } = useMenu()
-
-	const handleGameClick = ({
-		tpId,
-		tpGameType,
-		isMaintain,
-	}: {
-		tpId: number
-		tpGameType: number
-		isMaintain: boolean
-	}) => {
-		if (!isMaintain) {
-			// 非 Maintain 才做動作
-			let subMenu: ISubMenu<any> | undefined
-			Object.values(menuData).forEach(item => {
-				const result = item.subMenu?.find(
-					({ product }) =>
-						product?.TP_ID === tpId && product?.TP_GAME_TYPE === tpGameType
-				)
-				if (result !== undefined) {
-					subMenu = result
-				}
-			})
-			if (subMenu !== undefined) {
-				onMenuOpen(subMenu, { loginCallback: () => modal.open(<LoginModal />) })
-			}
-		}
-	}
 
 	const config = {
 		slidesPerView: 5.8,
@@ -81,7 +47,12 @@ const RecentlyViewGames = ({
 						<div
 							className='swiper-slide'
 							key={tpGameIdNo}
-							onClick={() => handleGameClick({ tpId, tpGameType, isMaintain })}
+							onClick={() =>
+								handleRecentlyViewGameClick(
+									{ tpId, tpGameType, isMaintain },
+									{ loginCallback: () => modal.open(<LoginModal />) }
+								)
+							}
 						>
 							<div
 								className={classNames('recently-game', {
