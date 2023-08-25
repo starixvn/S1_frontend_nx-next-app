@@ -1,9 +1,6 @@
 export { default as Layout } from './layout'
-
 export { default as Home } from './home'
-
 export { default as Setting } from './setting'
-
 export { default as LoginJoin } from './loginJoin'
-
 export { default as ChangePassword } from './change-password'
+export { default as RebateExclude } from './rebate-exclude'

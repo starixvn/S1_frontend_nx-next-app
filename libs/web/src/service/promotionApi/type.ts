@@ -63,3 +63,11 @@ export interface IPromotionData {
 export interface IGetPromotionDetailArgs extends IGetPromotionArgs {
 	bonusCode: string
 }
+
+export interface IRebateExcludeGameData {
+	gameName: string
+	tpCategoryName: string
+	tpGameType: number
+	tpGameTypeName: string
+	tpName: string
+}
