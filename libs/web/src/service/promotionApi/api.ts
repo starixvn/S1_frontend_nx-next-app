@@ -1,13 +1,15 @@
-import { IAxiosResponse } from '../axiosBaseQuery'
-import { rootApi } from '../rootApi/api'
 import {
 	IGetPromotionDetailArgs,
 	IPromotionData,
+	IRebateExcludeGameData,
 } from 'libs/web/src/service/promotionApi/type'
+import { IAxiosResponse } from '../axiosBaseQuery'
+import { rootApi } from '../rootApi/api'
 
 export const promotionApiUrl = {
 	getPromotionListV3: 'Promotion/GetPromotionListV3',
 	getPromotionDetail: 'Promotion/GetPromotionDetail',
+	getRebateExcludeGameList: 'Promotion/GetRebateExcludeGameList',
 }
 
 export const promotionApi = rootApi.injectEndpoints({
@@ -34,6 +36,16 @@ export const promotionApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
+		getRebateExcludeGameList: builder.query<
+			IAxiosResponse<IRebateExcludeGameData[]>,
+			{ langId: string; currencyId: number }
+		>({
+			query: ({ langId, currencyId }) => ({
+				url: `${promotionApiUrl.getRebateExcludeGameList}/${langId}`,
+				method: 'POST',
+				data: { currencyId },
+			}),
+		}),
 	}),
 })
 
@@ -41,4 +53,5 @@ export const {
 	useGetPromotionListV3Query,
 	useLazyGetPromotionListV3Query,
 	useLazyGetPromotionDetailQuery,
+	useGetRebateExcludeGameListQuery,
 } = promotionApi
