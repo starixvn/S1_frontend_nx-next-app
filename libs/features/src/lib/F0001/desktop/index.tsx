@@ -8,6 +8,8 @@ export { default as Fishing } from './fishing/index'
 export { default as LeaderBoard } from './leaderBoard'
 export { default as ForgetPassword } from './forget-password'
 
+export { default as ChangePassword } from './change-password'
+
 export * as ThirdPartyJS from './thirdPartyJS'
 export * from './join'
 export * from './leftMenu'

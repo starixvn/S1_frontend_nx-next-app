@@ -112,5 +112,12 @@
 	"Label_Join_SignUpTerms3": ".",
 	"Label_Join_DontHaveAccount": "Tiada akaun?",
 	"Label_Join_AffiliateIdWrong": "ID ahli gabungan tidak ditemui",
-	"Label_Join_EnterRealName": "Sila masukkan nama benar anda, simbol khas dilarang"
+	"Label_Join_EnterRealName": "Sila masukkan nama benar anda, simbol khas dilarang",
+
+	"Label_ChangePassword_PasswordReq": "Kata Laluan diperlukan.",
+	"Label_ChangePassword_ChangePasswordHint": "Ubah kata laluan semasa log masuk, tukar kata laluan secara kerap adalah lebih baik untuk keselamatan akaun.",
+	"Label_ChangePassword_OldPassword": "Kata laluan lama",
+	"Label_ChangePassword_NewPassword": "Kata laluan baru",
+	"Label_ChangePassword_ChangePswUpdateSuccess": "Kemas kini berjaya!",
+	"Label_ChangePassword_ChangePswSuccessHint": "Anda boleh gunakan kata laluan baru apabila anda log masuk lain kali."
 }

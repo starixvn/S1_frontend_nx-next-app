@@ -76,5 +76,12 @@
 	"Label_Join_SignUpTerms3": ".",
 	"Label_Join_DontHaveAccount": "কোনো অ্যাকাউন্ট নেই",
 	"Label_Join_AffiliateIdWrong": "এফিলিয়েট আইডি পাওয়া যাচ্ছে না",
-	"Label_Join_EnterRealName": "আপনার আসল নাম লিখুন, বিশেষ চিহ্ন অনুমোদিত নয়"
+	"Label_Join_EnterRealName": "আপনার আসল নাম লিখুন, বিশেষ চিহ্ন অনুমোদিত নয়",
+
+	"Label_ChangePassword_PasswordReq": "পাসওয়ার্ড প্রয়োজন.",
+	"Label_ChangePassword_ChangePasswordHint": "প্রবেশ করার সময় পাসওয়ার্ড পরিবর্তন করুন, এবং নিয়মিত পরিবর্তন অ্যাকাউন্ট নিরাপত্তার জন্য উপকারী।",
+	"Label_ChangePassword_OldPassword": "পুরানো পাসওয়ার্ড",
+	"Label_ChangePassword_NewPassword": "নতুন পাসওয়ার্ড",
+	"Label_ChangePassword_ChangePswUpdateSuccess": "হালনাগাদ সফল হয়েছে!",
+	"Label_ChangePassword_ChangePswSuccessHint": "আপনি পরের বার প্রবেশ করার সময় নতুন পাসওয়ার্ড ব্যবহার করতে পারেন।"
 }

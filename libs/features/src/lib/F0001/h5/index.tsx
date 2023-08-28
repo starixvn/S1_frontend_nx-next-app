@@ -5,3 +5,5 @@ export { default as Home } from './home'
 export { default as Setting } from './setting'
 
 export { default as LoginJoin } from './loginJoin'
+
+export { default as ChangePassword } from './change-password'

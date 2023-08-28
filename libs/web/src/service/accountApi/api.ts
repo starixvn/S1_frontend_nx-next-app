@@ -11,6 +11,7 @@ import {
 	IGetCustSpecificBonusArgs,
 	ICustSpecificBonusData,
 	IReferralSettingData,
+	ISetChangePasswordArgs,
 } from './type'
 
 export const accountApiUrl = {
@@ -24,6 +25,7 @@ export const accountApiUrl = {
 	setLang: 'Account/SetLanguage',
 	setHideBalance: 'Account/SetHideBalance',
 	getCustSpecificBonus: 'Account/GetCustSpecificBonus',
+	changePassword: 'Account/ChangePassword',
 	SetFavoriteGame: 'Account/SetFavoriteGame',
 	getReferralSetting: 'Account/GetReferralSetting',
 	getReferralCode: 'Account/GetReferralCode',
@@ -113,6 +115,16 @@ const accountApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
+		setChangePassword: builder.mutation<
+			IAxiosResponse<void>,
+			ISetChangePasswordArgs
+		>({
+			query: data => ({
+				url: accountApiUrl.changePassword,
+				method: 'POST',
+				data,
+			}),
+		}),
 		setFavoriteGame: builder.mutation<
 			IAxiosResponse<void>,
 			{ providerId: number; gameId: string; isRemove: boolean }
@@ -156,4 +168,5 @@ export const {
 	useSetFavoriteGameMutation,
 	useGetReferralCodeQuery,
 	useGetReferralSettingQuery,
+	useSetChangePasswordMutation,
 } = accountApi
