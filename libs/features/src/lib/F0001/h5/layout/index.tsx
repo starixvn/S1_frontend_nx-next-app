@@ -1,7 +1,10 @@
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
+import { useRouter } from 'next/router'
+import { paths } from '@nx-next-app/constants'
 import { ISEOData } from '@nx-next-app/data-access'
 import { MetaData, GlobalModal } from '@nx-next-app/components/H0001'
 import { useAffiliateReferralEffect } from '@nx-next-app/hooks'
+import { useGlobalModalEffect } from 'libs/web/src/hooks/useGlobalModalEffect'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import dynamic from 'next/dynamic'
 import LayoutFooter from './footer'
@@ -16,6 +19,9 @@ const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
 
 const Layout = ({ children, persistSEOData }: ILayoutProps) => {
 	const { globalModal, closeModal } = useGlobalModal()
+	const router = useRouter()
+
+	useGlobalModalEffect(() => router.push(paths.changePassword.root))
 
 	useAffiliateReferralEffect({ expireDay: 7 })
 

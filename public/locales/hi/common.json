@@ -75,5 +75,12 @@
 	"Label_Join_SignUpTerms2": "नियम और शर्तें",
 	"Label_Join_SignUpTerms3": "",
 	"Label_Join_AffiliateIdWrong": "एफिलिएट आईडी नहीं मिला पा रहा है",
-	"Label_Join_EnterRealName": "कृपया अपना असली नाम दर्ज करें, विशेष प्रतीकों की अनुमति नहीं है"
+	"Label_Join_EnterRealName": "कृपया अपना असली नाम दर्ज करें, विशेष प्रतीकों की अनुमति नहीं है",
+
+	"Label_ChangePassword_PasswordReq": "पासवर्ड की आवश्यकता है।",
+	"Label_ChangePassword_ChangePasswordHint": "लॉग इन करते समय पासवर्ड को संशोधित करे और नियमित रूप से पासवर्ड का संशोधन करना आपके खाते की सुरक्षा के लिए फायदेमंद है। ",
+	"Label_ChangePassword_OldPassword": "पुराना पासवर्",
+	"Label_ChangePassword_NewPassword": "नया पासवर्ड",
+	"Label_ChangePassword_ChangePswUpdateSuccess": "अद्यतन सफल है!",
+	"Label_ChangePassword_ChangePswSuccessHint": "जब आप अगली बार लॉगिन करेंगे तो आप नए पासवर्ड का उपयोग कर सकते हैं।"
 }

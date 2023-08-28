@@ -90,3 +90,8 @@ export interface IReferralSettingData {
 	status: boolean
 	vaildBet: number
 }
+
+export interface ISetChangePasswordArgs {
+	oldPassword: string
+	newPassword: string
+}

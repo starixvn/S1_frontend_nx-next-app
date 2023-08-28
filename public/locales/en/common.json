@@ -94,6 +94,7 @@
 	"Label_General_Jackpot": "Jackpot",
 	"Label_General_PlayNow": "Play Now",
 	"Label_General_UnderMaintenance": "Under Maintenance",
+	"Label_General_Back": "Back",
 	"Label_General_HotGames": "Hot Games",
 	"Label_General_SportNews": "Sport News",
 	"Label_General_ReadMore": "Read More",
@@ -299,6 +300,13 @@
 	"Label_Promotion_TotalBonus": "Total Bonus",
 	"Label_Promotion_MaxBonus": "Max Bonus",
 	"Label_Promotion_TotalBonusClaimable": "Total Bonus Claimable",
+
+	"Label_ChangePassword_PasswordReq": "Password is required.",
+	"Label_ChangePassword_ChangePasswordHint": "Modify the password when logging in,and regular modification is beneficial to account security.",
+	"Label_ChangePassword_OldPassword": "Old Password",
+	"Label_ChangePassword_NewPassword": "New Password",
+	"Label_ChangePassword_ChangePswUpdateSuccess": "The update is successful!",
+	"Label_ChangePassword_ChangePswSuccessHint": "You can use the new password when you login in next time.",
 
 	"Label_Currency_2": "MYR",
 	"Label_Currency_3": "USD",

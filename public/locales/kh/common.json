@@ -76,5 +76,12 @@
 	"Label_Join_SignUpTerms3": ".",
 	"Label_Join_DontHaveAccount": "អត់មានគណនី?",
 	"Label_Join_AffiliateIdWrong": "រកមិនឃើញលេខសម្គាល់សាខាទេ។",
-	"Label_Join_EnterRealName": "សូមបញ្ចូលឈ្មោះពិតរបស់អ្នក គ្មាននិមិត្តសញ្ញាពិសេសត្រូវបានអនុញ្ញាតទេ។"
+	"Label_Join_EnterRealName": "សូមបញ្ចូលឈ្មោះពិតរបស់អ្នក គ្មាននិមិត្តសញ្ញាពិសេសត្រូវបានអនុញ្ញាតទេ។",
+
+	"Label_ChangePassword_PasswordReq": "ត្រូវការពាក្យសម្ងាត់ ។",
+	"Label_ChangePassword_ChangePasswordHint": "កែពាក្យសម្ងាត់នៅពេលចូល ហើយការកែតម្រូវជាទៀងទាត់គឺមានសារៈប្រយោជន៍ចំពោះសុវត្ថិភាពគណនី។",
+	"Label_ChangePassword_OldPassword": "ពាក្យសម្ងាត់ចាស់",
+	"Label_ChangePassword_NewPassword": "ពាក្យសម្ងាត់ថ្មី",
+	"Label_ChangePassword_ChangePswUpdateSuccess": "ធ្វើបច្ចុប្បន្នភាពដោយជោគជ័យ!",
+	"Label_ChangePassword_ChangePswSuccessHint": "អ្នកអាចប្រើពាក្យសម្ងាត់ថ្មីនៅពេលអ្នកចូលលើកក្រោយ។"
 }

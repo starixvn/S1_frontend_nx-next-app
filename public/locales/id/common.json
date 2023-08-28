@@ -112,5 +112,12 @@
 	"Label_Join_SignUpTerms3": ".",
 	"Label_Join_DontHaveAccount": "Tidak memiliki Akun",
 	"Label_Join_AffiliateIdWrong": "ID afiliasi tidak dapat ditemukan",
-	"Label_Join_EnterRealName": "Silahkan masukkan nama asli, simbol tidak diperkenankan"
+	"Label_Join_EnterRealName": "Silahkan masukkan nama asli, simbol tidak diperkenankan",
+
+	"Label_ChangePassword_PasswordReq": "Kata Sanda wajib diisi",
+	"Label_ChangePassword_ChangePasswordHint": "Ubah kata sandi saat masuk, dan modifikasi rutin bermanfaat untuk keamanan akun.",
+	"Label_ChangePassword_OldPassword": "Kata sandi lama",
+	"Label_ChangePassword_NewPassword": "Kata Sandi Baru",
+	"Label_ChangePassword_ChangePswUpdateSuccess": "Pembaruan selesai!",
+	"Label_ChangePassword_ChangePswSuccessHint": "Harap gunakan kata sandi baru saat Anda masuk kembali."
 }

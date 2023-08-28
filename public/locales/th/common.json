@@ -111,5 +111,12 @@
 	"Label_Join_SignUpTerms3": "แล้ว",
 	"Label_Join_DontHaveAccount": "ยังไม่มีบัญชีใช่ไหม",
 	"Label_Join_AffiliateIdWrong": "ไม่พบรหัสพันธมิตรดังกล่าว",
-	"Label_Join_EnterRealName": "กรุณาใส่ชื่อจริงของคุณ ไม่อนุญาตให้ใช้สัญลักษณ์พิเศษ"
+	"Label_Join_EnterRealName": "กรุณาใส่ชื่อจริงของคุณ ไม่อนุญาตให้ใช้สัญลักษณ์พิเศษ",
+
+	"Label_ChangePassword_PasswordReq": "ต้องใส่รหัสผ่าน",
+	"Label_ChangePassword_ChangePasswordHint": "แก้ไขรหัสผ่านเมื่อเข้าสู่ระบบและการแก้ไขเป็นประจำจะเป็นประโยชน์ต่อความปลอดภัยของบัญชี",
+	"Label_ChangePassword_OldPassword": "กรุณายืนยันรหัสที่ใช้ปัจจุบัน",
+	"Label_ChangePassword_NewPassword": "รหัสผ่านใหม่",
+	"Label_ChangePassword_ChangePswUpdateSuccess": "การอัพเดทสำเร็จเรียบร้อยแล้ว!",
+	"Label_ChangePassword_ChangePswSuccessHint": "สมาชิกสามารถใช้รหัสผ่านใหม่เมื่อเข้าล็อคอินในครั้งถัดไป"
 }
