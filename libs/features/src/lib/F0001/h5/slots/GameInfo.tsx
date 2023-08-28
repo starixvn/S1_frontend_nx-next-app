@@ -1,30 +1,19 @@
-import React, { Dispatch, SetStateAction } from 'react'
+import React from 'react'
 import Image from 'next/future/image'
-import { IDisplayGameData } from 'libs/web/src/service/gameApi/type'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
+import { useSlots } from '@nx-next-app/features/F0001/providers'
+import { IGameData } from '@nx-next-app/service'
 
-interface IGameInfoProps {
-	isFavorite: boolean
-	imgUrl: string
-	activeGame: IDisplayGameData & {
-		resultTpName?: string
-		resultGameImgDisplayText?: string
-		resultGameName?: string
-	}
-	setActiveGame: Dispatch<SetStateAction<IDisplayGameData | null>>
-	onSetFavorites: (gameObj: IDisplayGameData) => void
-	onPlay: (targetGame: IDisplayGameData) => void
-}
-
-const GameInfo = ({
-	isFavorite,
-	imgUrl,
-	activeGame,
-	setActiveGame,
-	onSetFavorites,
-	onPlay,
-}: IGameInfoProps) => {
+const GameInfo = () => {
+	const {
+		imgUrl,
+		activeGame,
+		isFavorite,
+		onFavoritesToggle,
+		onGamePlay,
+		onGameActive,
+	} = useSlots()
 	const {
 		userInfo: { langId },
 	} = useAuth()
@@ -34,47 +23,54 @@ const GameInfo = ({
 		<div className='slotpopup active' style={{ zIndex: 10 }}>
 			<div className='slotFunction'>
 				<Image
-					src={`${imgUrl}/${activeGame.resultTpName}/${activeGame.imgName[langId]}`}
-					alt={activeGame.resultGameName as string}
+					src={`${imgUrl}/${activeGame?.resultTpName}/${activeGame?.imgName[langId]}`}
+					alt={activeGame?.resultGameName as string}
 					width={300}
 					height={300}
 				/>
 
 				<div className='gameTitle'>
 					<div className='title text-org'>
-						{activeGame.resultGameName as string}
+						{activeGame?.resultGameName as string}
 					</div>
 					<span
-						onClick={() =>
-							onSetFavorites({
-								...activeGame,
-								tpId: activeGame?.tpId,
-								gameId: activeGame?.gameId,
-								imgName: activeGame?.imgName,
-								gameName: activeGame?.gameName,
-								playFree: activeGame?.playFree,
-							})
-						}
+						onClick={() => onFavoritesToggle(activeGame as IGameData)}
 						className={`icon icon-star-${isFavorite ? 'full' : 'empty'}`}
 					/>
 				</div>
 				<button
 					className='icon icon-cancel-circle'
-					onClick={() => setActiveGame(null)}
+					onClick={() => onGameActive(null)}
 				/>
 				<div className='btn-group'>
 					<button
 						className='blue'
 						data-testid='clickPlay'
-						onClick={() => onPlay(activeGame)}
+						onClick={() => {
+							if (activeGame?.tpId && activeGame?.gameId) {
+								onGamePlay({
+									tpId: activeGame.tpId,
+									gameId: activeGame.gameId,
+									playFree: activeGame?.playFree,
+								})
+							}
+						}}
 					>
 						{t('Label_Play')}
 					</button>
-					{activeGame.playFree ? (
+					{activeGame?.playFree ? (
 						<button
 							data-testid='clickFreePlay'
 							className='orange'
-							onClick={() => onPlay(activeGame)}
+							onClick={() => {
+								if (activeGame?.tpId && activeGame?.gameId) {
+									onGamePlay({
+										tpId: activeGame.tpId,
+										gameId: activeGame.gameId,
+										playFree: activeGame?.playFree,
+									})
+								}
+							}}
 						>
 							{t('Label_Demo')}
 						</button>

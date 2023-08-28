@@ -3,13 +3,14 @@ import { useMemo } from 'react'
 
 import { IMenuData } from '@nx-next-app/features/F0001/types'
 import { MenuKeyEnum } from '@nx-next-app/types'
-import { assign, cloneDeep, find, includes, isArray } from 'lodash-es'
-import { useAuth, useGlobalData } from '@nx-next-app/data-access'
-import { useStaticData } from '../data-access/static-data-context'
+import { assign, cloneDeep, includes, isArray } from 'lodash-es'
+import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
+import { getIsTpMaintain } from '@nx-next-app/utils'
 
 /**
  * * useMenuData 的顯示邏輯，共用於品牌、裝置
  */
+
 const useMenuData = <T extends IMenuData<any>>() => {
 	const {
 		auth: { isLogin },
@@ -77,12 +78,11 @@ const useMenuData = <T extends IMenuData<any>>() => {
 
 				// * 規則4: 最後將排序或已過濾出來的產品加入是否維護中參數，在 Menu 的 SubMenu 加入 isTpMaintain 參數
 				newSubMenu = newSubMenu.map(item => {
-					const tpMaintain = find(tpMaintainList, { tpId: item.product?.TP_ID })
-
-					const isTpMaintain =
-						tpMaintain &&
-						(tpMaintain?.tpGameType === 0 || // * 0:代表全部
-							tpMaintain?.tpGameType === item.product?.TP_GAME_TYPE)
+					const isTpMaintain = getIsTpMaintain({
+						tpMaintainList,
+						tpId: item.product?.TP_ID,
+						tpGameType: item.product?.TP_GAME_TYPE,
+					})
 
 					return { ...item, isTpMaintain }
 				})

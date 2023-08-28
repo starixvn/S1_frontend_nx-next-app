@@ -1,17 +1,18 @@
 import React from 'react'
-import { Layout, Slots } from '@nx-next-app/features/F0001/desktop'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { GetServerSideProps } from 'next'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import SlotsProvider from '@nx-next-app/features/F0001/providers/slots-context'
+import { Layout, Slots } from '@nx-next-app/features/F0001/desktop'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { ISlotsGameData } from 'libs/web/src/service/gameApi/type'
-import { CATEGORY_SORT } from '@nx-next-app/site/nova88/data/slots'
 import { getSlotGamePage } from 'libs/web/src/data-access/service/gameApi'
 import { IResponseConvertedFooterData } from '@nx-next-app/types'
+import { CATEGORY_SORT } from '@nx-next-app/site/nova88/data/slots'
 import { pick } from 'lodash-es'
 
 type ISlotsPageProps = InitialPropsInterface & {
@@ -31,12 +32,14 @@ const SlotsPage = ({
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData} footerData={footerData}>
-					<Slots
-						persistSlotsGameData={persistSlotsGameData}
-						persistSlotsCategoryData={persistSlotsCategoryData}
-					/>
-				</Layout>
+				<SlotsProvider
+					persistSlotsGameData={persistSlotsGameData}
+					persistSlotsCategoryData={persistSlotsCategoryData}
+				>
+					<Layout persistSEOData={persistSEOData} footerData={footerData}>
+						<Slots />
+					</Layout>
+				</SlotsProvider>
 			</GlobalDataProvider>
 		</AuthProvider>
 	)

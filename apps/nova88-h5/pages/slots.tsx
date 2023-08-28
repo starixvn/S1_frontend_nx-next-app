@@ -4,14 +4,15 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import SlotsProvider from '@nx-next-app/features/F0001/providers/slots-context'
 import { Layout } from '@nx-next-app/features/F0001/h5'
 import Slots from '@nx-next-app/features/F0001/h5/slots'
-import { getSlotGamePage } from 'libs/web/src/data-access/service/gameApi'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { CATEGORY_SORT } from '@nx-next-app/site/nova88/data/slots'
 import { ISlotsGameData } from 'libs/web/src/service/gameApi/type'
+import { getSlotGamePage } from 'libs/web/src/data-access/service/gameApi'
+import { CATEGORY_SORT } from '@nx-next-app/site/nova88/data/slots'
 import { pick } from 'lodash-es'
 
 type ISlotsPageProps = InitialPropsInterface & {
@@ -29,12 +30,14 @@ const SlotsPage = ({
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData}>
-					<Slots
-						persistSlotsGameData={persistSlotsGameData}
-						persistSlotsCategoryData={persistSlotsCategoryData}
-					/>
-				</Layout>
+				<SlotsProvider
+					persistSlotsGameData={persistSlotsGameData}
+					persistSlotsCategoryData={persistSlotsCategoryData}
+				>
+					<Layout persistSEOData={persistSEOData}>
+						<Slots />
+					</Layout>
+				</SlotsProvider>
 			</GlobalDataProvider>
 		</AuthProvider>
 	)

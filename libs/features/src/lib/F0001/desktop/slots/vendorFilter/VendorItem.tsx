@@ -16,7 +16,7 @@ const VendorItem = ({
 }: IVendorItemProps) => {
 	const hoverRef = useRef(null)
 	const isHover = useHover(hoverRef)
-	const imgName = isHover ? `${originImgName}a` : originImgName
+	const imgName = isHover && !isActive ? `${originImgName}a` : originImgName
 
 	return (
 		<div className='swiper-slide'>
