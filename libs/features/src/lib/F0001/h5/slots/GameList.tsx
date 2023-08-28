@@ -1,37 +1,20 @@
-import React, { LegacyRef, Suspense } from 'react'
+import React, { Suspense } from 'react'
+import classNames from 'classnames'
 import Image from 'next/future/image'
-import {
-	IDisplayGameData,
-	IGameData,
-	IVendorData,
-} from 'libs/web/src/service/gameApi/type'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
-import classNames from 'classnames'
+import { useSlots } from '@nx-next-app/features/F0001/providers'
 
-const GameList = ({
-	vendorList,
-	activeCategory,
-	slotsGameList,
-	gameListRef,
-	imgUrl,
-	onActive,
-	onSetFavorites,
-}: {
-	vendorList: IVendorData[]
-	activeCategory: string
-	slotsGameList: IDisplayGameData[]
-	gameListRef: LegacyRef<HTMLDivElement> | undefined
-	imgUrl: string
-	onActive: (
-		targetGame: IDisplayGameData & {
-			resultTpName?: string
-			resultGameImgDisplayText?: string
-			resultGameName?: string
-		}
-	) => void
-	onSetFavorites: (gameObj: IGameData) => void
-}) => {
+const GameList = () => {
+	const {
+		slotsGameList,
+		vendorList,
+		imgUrl,
+		activeCategoryKey,
+		gameListRef,
+		onGameActive,
+		onFavoritesToggle,
+	} = useSlots()
 	const {
 		userInfo: { langId },
 	} = useAuth()
@@ -65,13 +48,13 @@ const GameList = ({
 								className={classNames('info', { 'star active': isMaintain })}
 								key={`slots-game-${tpId}-${gameId}`}
 							>
-								{activeCategory === 'new' ? (
+								{activeCategoryKey === 'new' ? (
 									<i className='icon  icon-new' />
 								) : null}
 
 								<button
 									onClick={() =>
-										onActive({
+										onGameActive({
 											tpId,
 											gameId,
 											imgName,
@@ -99,13 +82,9 @@ const GameList = ({
 								)}
 								<span
 									onClick={() =>
-										onSetFavorites({
+										onFavoritesToggle({
 											tpId,
 											gameId,
-											imgName,
-											gameName,
-											playFree,
-											...rest,
 										})
 									}
 									className={`icon icon-star-${isFavorite ? 'full' : 'empty'}`}

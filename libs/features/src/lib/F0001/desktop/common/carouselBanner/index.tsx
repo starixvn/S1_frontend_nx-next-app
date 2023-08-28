@@ -4,9 +4,8 @@ import { isNumber } from 'lodash'
 import { paths } from '@nx-next-app/constants'
 import { IBannerData } from '@nx-next-app/service'
 import { BannerActionEnum } from '@nx-next-app/types'
-import { PRODUCTS } from '@nx-next-app/site/nova88'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import Carousel, {
 	ICarouselProps,
@@ -23,6 +22,7 @@ const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 		userInfo: { langId },
 	} = useAuth()
 	const { push } = useRouter()
+	const { PRODUCTS } = useStaticData()
 	const { modal } = useGlobalModal()
 	const { onEnterPage, onGoToGame } = useMenu()
 
@@ -74,7 +74,7 @@ const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 		bannerLink,
 		tpGameType,
 	}: IBannerData) => {
-		if (Number(tpId) === PRODUCTS.SLOTS_PT.TP_ID) {
+		if (Number(tpId) === PRODUCTS['SLOTS_PT'].TP_ID) {
 			onGoToGame(
 				{
 					tpId: Number(tpId),
@@ -115,7 +115,7 @@ const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 		<Carousel className='banner' {...rest}>
 			{resultList.map(item => (
 				<BannerItem
-					itemKey={item.itemKey}
+					key={item.itemKey}
 					src={item.bannerPCUrl}
 					alt={item.bannerName}
 					className='banner'

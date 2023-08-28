@@ -1,18 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { IVendorData } from 'libs/web/src/service/gameApi/type'
+import { useSlots } from '@nx-next-app/features/F0001/providers'
 import VendorItem from './VendorItem'
 
-interface IVendorFilterProps {
-	vendorList: IVendorData[]
-	activeVendorTpId?: string | number | null
-	onVendorChange: (vendorData: { tpId: number; openPath: string }) => void
-}
-
-const VendorFilter = ({
-	vendorList,
-	activeVendorTpId,
-	onVendorChange,
-}: IVendorFilterProps) => {
+const VendorFilter = () => {
+	const { vendorList, activeVendorTpId, onVendorChange } = useSlots()
 	return (
 		<div className='partnerSelect'>
 			<Swiper spaceBetween={0} slidesPerView={9} navigation>

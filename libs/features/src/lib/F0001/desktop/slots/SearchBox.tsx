@@ -1,21 +1,18 @@
 import React from 'react'
 import { useTranslation } from 'next-i18next'
+import { useSlots } from '@nx-next-app/features/F0001/providers'
 
-interface ISearchBoxProps {
-	searchText: string
-	onChange: (value: string) => void
-}
-
-const SearchBox = ({ searchText, onChange }: ISearchBoxProps) => {
+const SearchBox = () => {
 	const { t } = useTranslation()
+	const { searchCategoryText, onSearchCategoryTextChange } = useSlots()
 	return (
 		<div className='inputBox-white'>
 			<i className='txt-blue12 icon icon-search' />
 			<input
 				type='text'
-				onChange={e => onChange(e.target.value)}
+				onChange={e => onSearchCategoryTextChange(e.target.value)}
 				placeholder={t('Label_SearchGames') as string}
-				value={searchText}
+				value={searchCategoryText}
 			/>
 		</div>
 	)

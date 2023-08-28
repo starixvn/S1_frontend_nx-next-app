@@ -3,7 +3,6 @@ import Image from 'next/future/image'
 import { isUrl } from '@nx-next-app/utils'
 
 interface IBannerItemProps {
-	itemKey: string
 	src: string
 	alt: string
 	className: string
@@ -12,7 +11,6 @@ interface IBannerItemProps {
 }
 
 const BannerItem = ({
-	itemKey,
 	src,
 	alt,
 	className,
@@ -21,7 +19,7 @@ const BannerItem = ({
 }: IBannerItemProps): ReactElement => {
 	if (isRedirect) {
 		return (
-			<div key={itemKey} onClick={onClick} className={className}>
+			<div onClick={onClick} className={className}>
 				{isUrl(src) ? (
 					<Image width={1920} height={500} src={src} alt={alt} />
 				) : (
@@ -31,7 +29,7 @@ const BannerItem = ({
 		)
 	}
 	return (
-		<button key={itemKey} onClick={onClick} className={className}>
+		<button onClick={onClick} className={className}>
 			{isUrl(src) ? (
 				<Image width={1920} height={500} src={src} alt={alt} />
 			) : (

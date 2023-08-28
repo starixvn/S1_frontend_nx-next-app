@@ -1,100 +1,29 @@
-import React, { useState } from 'react'
-import CarouselBanner from '@nx-next-app/features/F0001/h5/common/carouselBanner'
-import { useGetBannerV3Query } from '@nx-next-app/service'
-import { includes } from 'lodash-es'
-import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import React from 'react'
 import classNames from 'classnames'
-import {
-	IDisplayGameData,
-	ISlotsGameData,
-} from 'libs/web/src/service/gameApi/type'
-import { useRouter } from 'next/router'
+import CarouselBanner from '@nx-next-app/features/F0001/h5/common/carouselBanner'
 import VendorFilter from '@nx-next-app/features/F0001/h5/slots/vendorFilter'
 import CategoryFilter from '@nx-next-app/features/F0001/h5/slots/CategoryFilter'
 import GameList from '@nx-next-app/features/F0001/h5/slots/GameList'
 import GameInfo from '@nx-next-app/features/F0001/h5/slots/GameInfo'
+import { paths } from '@nx-next-app/constants'
 import { useTranslation } from 'next-i18next'
-import { useSlotsVendorData } from '@nx-next-app/features/F0001/hooks/useSlotsVendorData'
-import { useCategoryData } from '@nx-next-app/features/F0001/hooks/useSlotsCategoryData'
-import { useSlotsGameData } from '@nx-next-app/features/F0001/hooks/useSlotsGameData'
-import { useInView } from '@nx-next-app/hooks'
 import { Header } from '@nx-next-app/components/H0001'
+import { useSlots } from '@nx-next-app/features/F0001/providers'
 
-const Slots = ({
-	persistSlotsGameData,
-	persistSlotsCategoryData,
-}: {
-	persistSlotsGameData: ISlotsGameData
-	persistSlotsCategoryData: ISlotsGameData
-}) => {
-	const { ref, isInView } = useInView({ rootMargin: '-160px 0px 0px 0px' })
-	const [isShowSearchInput, setIsShowSearchInput] = useState<boolean>(false)
-	const [activeGame, setActiveGame] = useState<
-		| (IDisplayGameData & {
-				resultTpName?: string
-				resultGameImgDisplayText?: string
-				resultGameName?: string
-		  })
-		| null
-	>(null)
+const Slots = () => {
 	const {
-		userInfo: { currencyId, langId },
-	} = useAuth()
-	const { push } = useRouter()
-	const { t } = useTranslation()
-
-	const {
-		data: { data: bannerList = [] } = {},
-		isFetching: isGetBannerV3Fetching,
-	} = useGetBannerV3Query({
-		// 這邊拿nannerType拿2取不到值,故依照線上版本
-		bannerType: DEVICE_TYPE.NativeAPP,
-		currencyId,
-		langId,
-	})
-
-	const handleInputClose = () => {
-		setIsShowSearchInput(false)
-		if (searchCategoryText !== '') {
-			onSearchCategoryTextChange('')
-		} else {
-			setIsShowSearchInput(false)
-		}
-	}
-
-	const handleGameActive = (targetData: IDisplayGameData) => {
-		setActiveGame(targetData)
-	}
-
-	const { vendorList, activeVendorTpId, onVendorChange } = useSlotsVendorData({
-		persistProviderList: persistSlotsGameData.providerList || [],
-	})
-
-	const {
-		categoryKeys,
-		activeCategoryKey,
+		bannerList,
 		searchCategoryText,
+		navRef,
+		activeGame,
+		isGetBannerV3Fetching,
+		isShowSearchInput,
+		isNavInView,
+		setIsShowSearchInput,
 		onSearchCategoryTextChange,
-		onCategoryChange,
-	} = useCategoryData({
-		persistSlotsCategoryData,
-		loginCallback: () => push(paths.login.root),
-	})
-
-	const {
-		slotsGameList,
-		ref: gameListRef,
-		myFavorites,
-		onFavoritesToggle,
-		onGamePlay,
-	} = useSlotsGameData({
-		categoryKey: activeCategoryKey,
-		searchCategoryText,
-		persistSlotsCategoryData,
-		loginCallback: () => push(paths.login.root),
-	})
-
+		onInputClose,
+	} = useSlots()
+	const { t } = useTranslation()
 	return (
 		<>
 			<Header className='header'>
@@ -105,46 +34,47 @@ const Slots = ({
 					searchText={searchCategoryText}
 					isShowSearchInput={isShowSearchInput}
 					setIsShowSearchInput={() => setIsShowSearchInput(true)}
-					onInputClose={handleInputClose}
+					onInputClose={onInputClose}
 				/>
 			</Header>
 
-			<main className='main casino'>
-				{!isGetBannerV3Fetching && <CarouselBanner bannerList={bannerList} />}
-
-				<div className={classNames('functionList', { active: !isInView })}>
-					<VendorFilter
-						vendorList={vendorList}
-						activeVendorTpId={activeVendorTpId}
-						onClick={onVendorChange}
+			<header className='header' id='header'>
+				<div className='title searchBar'>
+					<a href={paths.home.root}>
+						<i className='icon icon-keyboard_arrow_left' />
+					</a>
+					{t('Label_General_Slots')}
+					<i
+						className='icon icon-search'
+						onClick={() => setIsShowSearchInput(true)}
 					/>
-					<CategoryFilter
-						categoryList={categoryKeys}
-						activeCategory={activeCategoryKey}
-						onChange={onCategoryChange}
-					/>
+					<div
+						className={classNames('infoModule', { active: isShowSearchInput })}
+					>
+						<div className='inputBox'>
+							<input
+								placeholder={t('Label_SearchGames') as string}
+								value={searchCategoryText}
+								onChange={e => onSearchCategoryTextChange(e.target.value)}
+							/>
+							<i className='icon icon-close' onClick={onInputClose} />
+						</div>
+					</div>
 				</div>
-				<div ref={ref} />
-				<GameList
-					vendorList={vendorList}
-					activeCategory={activeCategoryKey}
-					slotsGameList={slotsGameList}
-					gameListRef={gameListRef}
-					imgUrl={persistSlotsGameData.imgUrl ?? ''}
-					onActive={handleGameActive}
-					onSetFavorites={onFavoritesToggle}
-				/>
+			</header>
 
-				{activeGame && (
-					<GameInfo
-						isFavorite={includes(myFavorites, activeGame.gameId)}
-						imgUrl={persistSlotsGameData.imgUrl ?? ''}
-						activeGame={activeGame}
-						setActiveGame={setActiveGame}
-						onSetFavorites={onFavoritesToggle}
-						onPlay={onGamePlay}
-					/>
+			<main className='main casino'>
+				{!isGetBannerV3Fetching && (
+					<CarouselBanner bannerList={bannerList} navigation={false} />
 				)}
+
+				<div className={classNames('functionList', { active: !isNavInView })}>
+					<VendorFilter />
+					<CategoryFilter />
+				</div>
+				<div ref={navRef} />
+				<GameList />
+				{activeGame && <GameInfo />}
 			</main>
 		</>
 	)

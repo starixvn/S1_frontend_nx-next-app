@@ -1,26 +1,18 @@
 import React from 'react'
 import { useTranslation } from 'next-i18next'
+import { useSlots } from '@nx-next-app/features/F0001/providers'
 
-interface ICategoryFilterProps {
-	categoryList: string[]
-	activeCategory: string | null
-	onChange: (value: string) => void
-}
-
-const CategoryFilter = ({
-	categoryList,
-	activeCategory,
-	onChange,
-}: ICategoryFilterProps) => {
+const CategoryFilter = () => {
+	const { categoryKeys, activeCategoryKey, onCategoryChange } = useSlots()
 	const { t } = useTranslation()
 	return (
 		<div className='filterSelect'>
-			{categoryList.map(value => {
+			{categoryKeys.map(value => {
 				return (
 					<button
 						key={`slot-nav-${value}`}
-						className={activeCategory === value ? 'active' : ''}
-						onClick={() => onChange(value)}
+						className={activeCategoryKey === value ? 'active' : ''}
+						onClick={() => onCategoryChange(value)}
 					>
 						{t(`Label_${value.charAt(0).toUpperCase() + value.slice(1)}`)}
 					</button>

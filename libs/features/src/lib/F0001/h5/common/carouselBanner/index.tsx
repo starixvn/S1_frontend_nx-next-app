@@ -112,7 +112,7 @@ const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 		<Carousel {...rest}>
 			{resultList.map(item => (
 				<BannerItem
-					itemKey={item.itemKey}
+					key={item.itemKey}
 					src={item.bannerPCUrl}
 					alt={item.bannerName}
 					onClick={

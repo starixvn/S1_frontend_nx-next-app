@@ -1,18 +1,9 @@
 import React from 'react'
-import { IVendorData } from 'libs/web/src/service/gameApi/type'
 import VendorItem from '@nx-next-app/features/F0001/h5/slots/vendorFilter/VendorItem'
+import { useSlots } from '@nx-next-app/features/F0001/providers'
 
-interface IVendorFilterProps {
-	vendorList: IVendorData[]
-	activeVendorTpId?: string | number | null
-	onClick: (provider: IVendorData) => void
-}
-
-const VendorFilter = ({
-	vendorList,
-	activeVendorTpId,
-	onClick,
-}: IVendorFilterProps) => {
+const VendorFilter = () => {
+	const { vendorList, activeVendorTpId, onVendorChange } = useSlots()
 	return (
 		<div className='partnerSelect'>
 			{vendorList?.map(
@@ -31,7 +22,7 @@ const VendorFilter = ({
 							tpId={tpId}
 							displayText={displayText}
 							activeVendorTpId={activeVendorTpId}
-							onClick={onClick}
+							onClick={onVendorChange}
 						/>
 					)
 				}
