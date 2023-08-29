@@ -83,5 +83,9 @@
 	"Label_ChangePassword_OldPassword": "পুরানো পাসওয়ার্ড",
 	"Label_ChangePassword_NewPassword": "নতুন পাসওয়ার্ড",
 	"Label_ChangePassword_ChangePswUpdateSuccess": "হালনাগাদ সফল হয়েছে!",
-	"Label_ChangePassword_ChangePswSuccessHint": "আপনি পরের বার প্রবেশ করার সময় নতুন পাসওয়ার্ড ব্যবহার করতে পারেন।"
+	"Label_ChangePassword_ChangePswSuccessHint": "আপনি পরের বার প্রবেশ করার সময় নতুন পাসওয়ার্ড ব্যবহার করতে পারেন।",
+
+	"Label_Banner_Game_SubTitle": "জীবন সম্পর্কে একটি নতুন দৃষ্টিভঙ্গি",
+	"Label_Banner_Game_Title_1": "খেলা দিয়ে আপনার জীবন সাজান",
+	"Label_Banner_Game_Title_2": "with Game"
 }

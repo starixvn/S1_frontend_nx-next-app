@@ -119,5 +119,9 @@
 	"Label_ChangePassword_OldPassword": "Kata laluan lama",
 	"Label_ChangePassword_NewPassword": "Kata laluan baru",
 	"Label_ChangePassword_ChangePswUpdateSuccess": "Kemas kini berjaya!",
-	"Label_ChangePassword_ChangePswSuccessHint": "Anda boleh gunakan kata laluan baru apabila anda log masuk lain kali."
+	"Label_ChangePassword_ChangePswSuccessHint": "Anda boleh gunakan kata laluan baru apabila anda log masuk lain kali.",
+
+	"Label_Banner_Game_SubTitle": "Perspektif Baru Kehidupan",
+	"Label_Banner_Game_Title_1": "Hiasi Kehidupan anda ",
+	"Label_Banner_Game_Title_2": "dengan Permainan"
 }

@@ -1781,6 +1781,150 @@ export const MENU_DATA = ({
 					menuActionType: MenuActionTypeEnum.EnterPage,
 					product: PRODUCTS['GAMES_POKER_KINGMAKER'],
 				},
+				{
+					h5: { img: '/h5/img/gameSpribeAviator.png' },
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'gameSpribeAviator.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamespribe-aciator.png',
+							hoverBgImg: 'gamespribe-aciatora.png',
+						},
+					},
+					productKey: 'GAME_AVIATOR',
+					displayText: 'Aviator',
+					menuActionType: MenuActionTypeEnum.EnterPage,
+					product: PRODUCTS['GAME_AVIATOR'],
+				},
+				{
+					h5: { img: '/h5/img/gameSpribeMines.png' },
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'gameSpribeMines.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamespribe-mines.png',
+							hoverBgImg: 'gamespribe-minesa.png',
+						},
+					},
+					productKey: 'GAME_MINES',
+					displayText: 'Mines',
+					menuActionType: MenuActionTypeEnum.EnterPage,
+					product: PRODUCTS['GAME_MINES'],
+				},
+				{
+					h5: { img: '/h5/img/gameSpribeGoal.png' },
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'gameSpribeGoal.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamespribe-goal.png',
+							hoverBgImg: 'gamespribe-goala.png',
+						},
+					},
+					productKey: 'GAME_GOAL',
+					displayText: 'Goal',
+					menuActionType: MenuActionTypeEnum.EnterPage,
+					product: PRODUCTS['GAME_GOAL'],
+				},
+				{
+					h5: { img: '/h5/img/gameSpribeDice.png' },
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'gameSpribeDice.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamespribe-dice.png',
+							hoverBgImg: 'gamespribe-dicea.png',
+						},
+					},
+					productKey: 'GAME_DICE',
+					displayText: 'DICE',
+					menuActionType: MenuActionTypeEnum.EnterPage,
+					product: PRODUCTS['GAME_DICE'],
+				},
+				{
+					h5: { img: '/h5/img/ap.png' },
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'ap.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gameap.png',
+							hoverBgImg: 'gameapa.png',
+						},
+					},
+					productKey: 'GAME_CRASH',
+					displayText: 'Crash',
+					menuActionType: MenuActionTypeEnum.EnterPage,
+					product: PRODUCTS['GAME_CRASH'],
+				},
+				{
+					h5: { img: '/h5/img/gameSpribeGoal.png' },
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'jili.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamejili.png',
+							hoverBgImg: 'gamejilia.png',
+						},
+					},
+					productKey: 'GAME_GORUSH',
+					displayText: 'Go Rush',
+					menuActionType: MenuActionTypeEnum.EnterPage,
+					product: PRODUCTS['GAME_GORUSH'],
+				},
 			],
 			allowCurrencies: true,
 		},

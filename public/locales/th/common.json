@@ -118,5 +118,9 @@
 	"Label_ChangePassword_OldPassword": "กรุณายืนยันรหัสที่ใช้ปัจจุบัน",
 	"Label_ChangePassword_NewPassword": "รหัสผ่านใหม่",
 	"Label_ChangePassword_ChangePswUpdateSuccess": "การอัพเดทสำเร็จเรียบร้อยแล้ว!",
-	"Label_ChangePassword_ChangePswSuccessHint": "สมาชิกสามารถใช้รหัสผ่านใหม่เมื่อเข้าล็อคอินในครั้งถัดไป"
+	"Label_ChangePassword_ChangePswSuccessHint": "สมาชิกสามารถใช้รหัสผ่านใหม่เมื่อเข้าล็อคอินในครั้งถัดไป",
+
+	"Label_Banner_Game_SubTitle": "Perspektif Baru Kehidupan",
+	"Label_Banner_Game_Title_1": "Hiasi Kehidupan anda ",
+	"Label_Banner_Game_Title_2": "dengan Permainan"
 }

@@ -445,4 +445,40 @@ export const PRODUCTS = {
 		GAME_ID: 237,
 		TP_GAME_TYPE: 83,
 	},
+	// add
+	GAME_VGAMING: {
+		TP_ID: 41,
+		GAME_ID: 171,
+		TP_GAME_TYPE: 95,
+	},
+	GAME_AVIATOR: {
+		TP_ID: 53,
+		GAME_ID: 'imgame12001',
+		TP_GAME_TYPE: 104,
+	},
+	GAME_MINES: {
+		TP_ID: 53,
+		GAME_ID: 'imgame12002',
+		TP_GAME_TYPE: 104,
+	},
+	GAME_GOAL: {
+		TP_ID: 53,
+		GAME_ID: 'imgame12003',
+		TP_GAME_TYPE: 104,
+	},
+	GAME_DICE: {
+		TP_ID: 53,
+		GAME_ID: 'imgame12004',
+		TP_GAME_TYPE: 104,
+	},
+	GAME_CRASH: {
+		TP_ID: 39,
+		GAME_ID: 'Crash',
+		TP_GAME_TYPE: 67,
+	},
+	GAME_GORUSH: {
+		TP_ID: 32,
+		GAME_ID: 224,
+		TP_GAME_TYPE: 53,
+	},
 }

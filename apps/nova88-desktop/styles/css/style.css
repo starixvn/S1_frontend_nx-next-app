@@ -208,8 +208,8 @@ header input:focus-within {
   width: 55px;
   height: 55px;
   background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
-  -webkit-animation: splogo 5.5s ease-in-out infinite;
-          animation: splogo 5.5s ease-in-out infinite;
+  -webkit-animation: splogo 3.5s ease-in-out infinite;
+          animation: splogo 3.5s ease-in-out infinite;
 }
 @-webkit-keyframes splogo {
   0% {
