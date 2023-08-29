@@ -83,5 +83,9 @@
 	"Label_ChangePassword_OldPassword": "ពាក្យសម្ងាត់ចាស់",
 	"Label_ChangePassword_NewPassword": "ពាក្យសម្ងាត់ថ្មី",
 	"Label_ChangePassword_ChangePswUpdateSuccess": "ធ្វើបច្ចុប្បន្នភាពដោយជោគជ័យ!",
-	"Label_ChangePassword_ChangePswSuccessHint": "អ្នកអាចប្រើពាក្យសម្ងាត់ថ្មីនៅពេលអ្នកចូលលើកក្រោយ។"
+	"Label_ChangePassword_ChangePswSuccessHint": "អ្នកអាចប្រើពាក្យសម្ងាត់ថ្មីនៅពេលអ្នកចូលលើកក្រោយ។",
+
+	"Label_Banner_Game_SubTitle": "ទស្សនៈថ្មីនៃជីវិត ",
+	"Label_Banner_Game_Title_1": "សាក តុបតែងជីវិតរបស់អ្នកជាមួយហ្គេម",
+	"Label_Banner_Game_Title_2": ""
 }
