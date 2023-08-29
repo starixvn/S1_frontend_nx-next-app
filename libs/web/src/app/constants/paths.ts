@@ -17,6 +17,9 @@ export const paths = {
 	history: {
 		root: 'history',
 	},
+	referralHistory: {
+		root: 'referral-history',
+	},
 	transferFunds: {
 		root: 'transfer-funds',
 	},

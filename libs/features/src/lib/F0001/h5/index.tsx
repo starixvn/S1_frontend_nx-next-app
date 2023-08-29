@@ -5,3 +5,5 @@ export { default as LoginJoin } from './loginJoin'
 export { default as ChangePassword } from './change-password'
 export { default as RebateExclude } from './rebate-exclude'
 export { default as Promotion } from './promotion'
+
+export { default as Referral } from './referral'

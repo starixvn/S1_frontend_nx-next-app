@@ -95,3 +95,33 @@ export interface ISetChangePasswordArgs {
 	oldPassword: string
 	newPassword: string
 }
+
+export interface IReferralSummaryData {
+	amountCount: number
+	amountSum: number
+	conditionCount: number
+	hasReferral: boolean
+	referralCount: number
+}
+
+export interface IReferralSettingDetailData {
+	referralReward: number
+	invitationLimit: number
+	agentValidBet: number
+	agentDeposit: number
+	memberReward: number
+	vaildBet: number
+	deposit: number
+	periodDays: number
+	depositRewardPercentage: number
+	minPayout: number
+	maxPayout: number
+	referralContent: {
+		langId: string
+		bannerUrl: null | string
+		title: null | string
+		description: null | string
+		detail: null | string
+		type: number
+	}
+}
