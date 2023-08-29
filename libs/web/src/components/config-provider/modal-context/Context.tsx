@@ -45,6 +45,7 @@ export interface ModalContextInterface {
 		) => void
 	}
 	closeModal: () => void
+	setIsValid: (newIsValid: boolean) => void
 }
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -60,6 +61,10 @@ const ModalProvider = ({ children }: { children: ReactNode }) => {
 		onOK: () => null,
 		onCancel: () => null,
 	})
+
+	const setIsValid = (newIsValid: boolean) => {
+		setGlobalModal(prev => ({ ...prev, isValid: newIsValid }))
+	}
 
 	const closeModal = () => {
 		setGlobalModal({
@@ -86,6 +91,7 @@ const ModalProvider = ({ children }: { children: ReactNode }) => {
 				setGlobalModal({ type: 'confirm', content, ...config }),
 		},
 		closeModal,
+		setIsValid,
 	}
 
 	return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>

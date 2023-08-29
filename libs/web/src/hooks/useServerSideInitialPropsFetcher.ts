@@ -18,6 +18,8 @@ import { LineLoginDirectTypeEnum } from '../service'
 import { paths, ENV_COOKIE_NAMES } from '../app/constants'
 
 export interface InitialPropsInterface {
+	originLangId: string
+	originCurrencyId: number
 	originIsSignIn: boolean
 	originCookies: TmpCookiesObj
 	persistSEOData: ISEOData
@@ -177,6 +179,8 @@ export const useServerSideInitialPropsFetcher = async (
 	}
 
 	return {
+		originLangId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
+		originCurrencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 		originIsSignIn,
 		originCookies,
 		persistSEOData,

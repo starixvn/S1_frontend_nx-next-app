@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useRef, useState, MouseEvent } from 'react'
 import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 import { filter, find, includes, uniqueId } from 'lodash'
 import classNames from 'classnames'
-import { SelectOptionType } from './type'
+import { SelectOptionType } from '@nx-next-app/types'
 
 export interface ISelectProps {
 	value?: string | number

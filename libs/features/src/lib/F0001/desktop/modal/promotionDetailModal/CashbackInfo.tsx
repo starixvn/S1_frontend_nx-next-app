@@ -58,19 +58,19 @@ const CashbackInfo = ({ bonusCode, cashBackDetails }: ICashBackInfoProps) => {
 					</tr>
 					<tr>
 						<td colSpan={4}>
-							{t('Label_Promotion_TotalBonus')}
+							{t('Label_Promotion_TotalBonus')}：
 							<span>{numberFormat(originalTotalBonus, currencyId)}</span>
 						</td>
 					</tr>
 					<tr>
 						<td colSpan={4}>
-							{t('Label_Promotion_MaxBonus')}
+							{t('Label_Promotion_MaxBonus')}：
 							<span>{numberFormat(maxBonus, currencyId)}</span>
 						</td>
 					</tr>
 					<tr>
 						<td colSpan={4}>
-							{t('Label_Promotion_TotalBonusClaimable')}
+							{t('Label_Promotion_TotalBonusClaimable')}：
 							<span>{numberFormat(totalBonus, currencyId)}</span>
 						</td>
 					</tr>
@@ -80,4 +80,4 @@ const CashbackInfo = ({ bonusCode, cashBackDetails }: ICashBackInfoProps) => {
 	)
 }
 
-export { CashbackInfo }
+export default CashbackInfo

@@ -1,3 +1,4 @@
 export * from './format'
 export * from './tools'
 export * from './jackPot'
+export * from './promotion'

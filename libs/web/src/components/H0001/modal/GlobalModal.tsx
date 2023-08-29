@@ -40,7 +40,6 @@ const GlobalModal = ({
 		default:
 			mergedTitle = title || null
 	}
-	if (!open) return null
 
 	return (
 		<Modal open={open} className={className}>
@@ -64,7 +63,6 @@ const GlobalModal = ({
 								type='button'
 								className='white'
 								onClick={() => {
-									closeModal()
 									onOK && onOK()
 								}}
 							>

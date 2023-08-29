@@ -74,13 +74,13 @@ export interface IGetCustSpecificBonusArgs {
 export interface ICustSpecificBonusData {
 	bonusId: number
 	bonus: number
-	rollover: number
-	turnover: number
+	rollover: number // custRollOver
+	turnover: number // custTurnOver
 	fullFillType: number
-	promoCategoryId: number
+	promoCategoryId: number // categoryId
 	tpId: number
 	status: number
-	expiryTime: string
+	expiryTime: string // custExpiryTime
 }
 
 export interface IReferralSettingData {

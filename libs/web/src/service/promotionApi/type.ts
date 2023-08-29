@@ -1,3 +1,5 @@
+import { DeviceTypeEnum } from '@nx-next-app/types'
+
 export interface IGetPromotionArgs {
 	langId: string
 	currencyId: number
@@ -16,6 +18,7 @@ export type ICashBackDetail = {
 	lossAmount: number
 	cashBackDetail: ICashBackDetail[]
 }
+
 export interface IPromotionData {
 	banner: string
 	beenUsed: boolean
@@ -23,7 +26,12 @@ export interface IPromotionData {
 	bonusCode: string
 	bonusType: number
 	canJoin: boolean
-	canJoinTierAmountList: any[]
+	canJoinTierAmountList: {
+		bonus: number
+		bonusAmount: number
+		lockedAmount: number
+		requiredAmount: number
+	}[]
 	cashBackDetails: ICashBackDetail
 	categoryId: number
 	custExpiryTime: string
@@ -46,13 +54,22 @@ export interface IPromotionData {
 	promotionAction: number
 	promotionLink: string | null
 	promotionType: number
-	refList: unknown
+	refList: {
+		depositId: number
+		amount: number
+	}[]
 	requiredAmount: number
-	result: number
+	result: number // * 0=成功
 	rollOver: number
 	sort: number
 	status: number
-	tierAmountList: []
+	tierAmountList: {
+		requiredAmount: number
+		bonus: number
+		maxBonus: number
+		winOver: number
+		rollOver: number
+	}[]
 	title: string
 	tpId: number
 	walletType: number
@@ -70,4 +87,11 @@ export interface IRebateExcludeGameData {
 	tpGameType: number
 	tpGameTypeName: string
 	tpName: string
+}
+
+export interface ISetClaimPromotionArgs {
+	langId: string
+	bonusCode: string
+	deviceType: DeviceTypeEnum
+	lockedAmount: number
 }
