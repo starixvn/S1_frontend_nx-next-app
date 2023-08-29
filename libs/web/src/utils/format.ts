@@ -1,6 +1,7 @@
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { FieldErrors } from 'react-hook-form'
-import { isNaN } from 'lodash-es'
+import { isNaN, replace } from 'lodash-es'
+import { INTEGER_ONLY_REGEX } from '../app/constants/regex'
 
 /**
  * @returns 數字 format 到特定小數點，預設為第二位
@@ -12,11 +13,16 @@ export const numFormatToDigits = (value: number, digits = 2): string => {
 	return formatter.format(Number(value.toFixed(digits)))
 }
 
+const isConvert = (currencyId: CurrenciesEnum) =>
+	[CurrenciesEnum.IDR, CurrenciesEnum.VND].includes(currencyId)
+
 /**
- *
- * @returns 格式化金額字串
- * @description Input: numberFormat(5000000), Output: 5000,000 | 5,000 ('000)
- *
+ * @returns string
+ * @description 格式化金額字串
+ * ```tsx
+ * numberFormat(5000000, CurrenciesEnum.MYR) // 5,000,000
+ * numberFormat(5000000, CurrenciesEnum.VND) // 5,000 ('000)
+ * ```
  */
 export const numberFormat = (
 	value: number,
@@ -24,17 +30,40 @@ export const numberFormat = (
 	digits?: number
 ) => {
 	// 原生的
-	if (isNaN(Number(value))) return null
+	if (isNaN(Number(value))) return undefined
 
-	const isConvert = [CurrenciesEnum.IDR, CurrenciesEnum.VND].includes(
-		currencyId
-	)
-
-	if (isConvert) {
-		return `${numFormatToDigits(Number(value) / 1000)} ('000)`
+	if (isConvert(currencyId)) {
+		return `${numFormatToDigits(Number(value) / 1000, digits)} ('000)`
 	}
 
 	return numFormatToDigits(Number(value), digits)
+}
+
+/**
+ * @returns number
+ * @description 根據 currencies 返回真實金額
+ * ```tsx
+revertNumberFormat(1000, CurrenciesEnum.VND)	// 1000000
+revertNumberFormat(1000, CurrenciesEnum.IDR)	// 1000000
+revertNumberFormat(1000, CurrenciesEnum.MYR)	// 1000
+revertNumberFormat(1000, CurrenciesEnum.THB)	// 1000
+revertNumberFormat("1.00 ('000)", currencyId)	// 1000
+revertNumberFormat("1,000.00 ('000)", currencyId)	// 1000000
+ * ```
+ */
+export const revertNumberFormat = (
+	value: number | string | undefined,
+	currencyId: CurrenciesEnum
+): string | undefined => {
+	if (!value) return undefined
+
+	let result = Number(replace(String(value), INTEGER_ONLY_REGEX, ''))
+
+	if (isConvert(currencyId)) {
+		result = Number(result) * 1000
+	}
+
+	return String(result)
 }
 
 /**

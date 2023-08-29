@@ -1,4 +1,4 @@
-import { ReactNode, useRef } from 'react'
+import { ReactNode } from 'react'
 import classNames from 'classnames'
 
 export interface IModalProps {

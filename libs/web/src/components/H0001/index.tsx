@@ -13,7 +13,6 @@ export { SpinButton } from './button'
 
 export { default as Select } from './select'
 export type { ISelectProps } from './select'
-export type { SelectOptionType } from './select/type'
 
 export { InputPhone } from './input'
 

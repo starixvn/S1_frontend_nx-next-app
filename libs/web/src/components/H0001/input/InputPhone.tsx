@@ -1,7 +1,8 @@
 import classNames from 'classnames'
 import React, { InputHTMLAttributes, useState } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
-import { Select, SelectOptionType } from '@nx-next-app/components/H0001'
+import { Select } from '@nx-next-app/components/H0001'
+import { SelectOptionType } from '@nx-next-app/types'
 
 export interface IInputPhoneProps
 	extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {

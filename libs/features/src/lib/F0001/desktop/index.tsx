@@ -10,6 +10,8 @@ export { default as RebateExclude } from './rebate-exclude'
 
 export { default as ChangePassword } from './change-password'
 
+export { default as Promotion } from './promotion'
+
 export * as ThirdPartyJS from './thirdPartyJS'
 export * from './join'
 export * from './leftMenu'

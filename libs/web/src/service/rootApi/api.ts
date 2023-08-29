@@ -15,6 +15,8 @@ export const rootApi = createApi({
 		'ACCOUNT_STRICT_GET_USER_INFO',
 		'ACCOUNT_GET_MAIN_WALLET_INFO',
 		'SLOTS_GAME_DATA',
+		'PROMOTION_GET_PROMOTION_LIST',
+		'PROMOTION_GET_SPECIAL_PROMOTION_LIST',
 	],
 	endpoints: () => ({}),
 })

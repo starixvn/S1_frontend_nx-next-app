@@ -18,7 +18,6 @@ export * from './back-top'
 
 export { default as Select } from './select'
 export type { ISelectProps } from './select'
-export type { SelectOptionType } from './select/type'
 
 export { default as Carousel } from './carousel'
 export type { ICarouselProps } from './carousel'
