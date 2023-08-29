@@ -37,32 +37,7 @@ const Slots = () => {
 					onInputClose={onInputClose}
 				/>
 			</Header>
-
-			<header className='header' id='header'>
-				<div className='title searchBar'>
-					<a href={paths.home.root}>
-						<i className='icon icon-keyboard_arrow_left' />
-					</a>
-					{t('Label_General_Slots')}
-					<i
-						className='icon icon-search'
-						onClick={() => setIsShowSearchInput(true)}
-					/>
-					<div
-						className={classNames('infoModule', { active: isShowSearchInput })}
-					>
-						<div className='inputBox'>
-							<input
-								placeholder={t('Label_SearchGames') as string}
-								value={searchCategoryText}
-								onChange={e => onSearchCategoryTextChange(e.target.value)}
-							/>
-							<i className='icon icon-close' onClick={onInputClose} />
-						</div>
-					</div>
-				</div>
-			</header>
-
+			ㄑ
 			<main className='main casino'>
 				{!isGetBannerV3Fetching && (
 					<CarouselBanner bannerList={bannerList} navigation={false} />

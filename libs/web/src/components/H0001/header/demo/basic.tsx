@@ -28,7 +28,7 @@ const Basic = () => {
 	}
 
 	// * back & title & search ex:slot
-	const tabs1 = () => {
+	const Tabs1 = () => {
 		return (
 			<Header className='header'>
 				<Header.Tag
@@ -45,7 +45,7 @@ const Basic = () => {
 	}
 
 	// * back & title & quickSelect ex: leaderBoard
-	const tabs2 = () => {
+	const Tabs2 = () => {
 		return (
 			<Header className='header'>
 				<Header.Tag
@@ -61,7 +61,7 @@ const Basic = () => {
 	}
 
 	// * 只有文字的 tabs Link
-	const tabs3 = () => {
+	const Tabs3 = () => {
 		return (
 			<Header className='header'>
 				{/* 第一層  */}
@@ -89,7 +89,7 @@ const Basic = () => {
 		)
 	}
 
-	return tabs1
+	return Tabs1
 }
 
 export default Basic

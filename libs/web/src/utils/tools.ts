@@ -34,6 +34,12 @@ export const isUrl = (url: string): boolean => {
 	return regexp.test(url)
 }
 
+export const onWindowOpen = (
+	url?: string | URL | undefined,
+	target?: string | undefined,
+	features?: string | undefined
+) => typeof window !== undefined && window.open(url, target, features)
+
 export const onWindowOpenProduct = ({
 	pathname,
 	windowKey,

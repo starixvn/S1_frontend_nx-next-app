@@ -12,6 +12,8 @@ import {
 	ICustSpecificBonusData,
 	IReferralSettingData,
 	ISetChangePasswordArgs,
+	IReferralSummaryData,
+	IReferralSettingDetailData,
 } from './type'
 
 export const accountApiUrl = {
@@ -29,6 +31,8 @@ export const accountApiUrl = {
 	SetFavoriteGame: 'Account/SetFavoriteGame',
 	getReferralSetting: 'Account/GetReferralSetting',
 	getReferralCode: 'Account/GetReferralCode',
+	getReferralSummary: 'Account/GetReferralSummaryV2',
+	getReferralSettingDetail: 'Account/GetReferralSettingDetail',
 }
 
 const accountApi = rootApi.injectEndpoints({
@@ -151,6 +155,24 @@ const accountApi = rootApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
+		getReferralSummary: builder.query<
+			IAxiosResponse<IReferralSummaryData>,
+			null
+		>({
+			query: () => ({
+				url: accountApiUrl.getReferralSummary,
+				method: 'POST',
+			}),
+		}),
+		getReferralSettingDetail: builder.query<
+			IAxiosResponse<IReferralSettingDetailData>,
+			null
+		>({
+			query: () => ({
+				url: accountApiUrl.getReferralSettingDetail,
+				method: 'POST',
+			}),
+		}),
 	}),
 })
 
@@ -169,4 +191,6 @@ export const {
 	useGetReferralCodeQuery,
 	useGetReferralSettingQuery,
 	useSetChangePasswordMutation,
+	useGetReferralSummaryQuery,
+	useLazyGetReferralSettingDetailQuery,
 } = accountApi
