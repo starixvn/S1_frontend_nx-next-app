@@ -11,10 +11,9 @@ export { default as Game } from './game/index'
 export { default as LeaderBoard } from './leaderBoard'
 export { default as ForgetPassword } from './forget-password'
 export { default as RebateExclude } from './rebate-exclude'
-
 export { default as ChangePassword } from './change-password'
-
 export { default as Promotion } from './promotion'
+export { default as LuckyWheel } from './luckyWheel'
 
 export * as ThirdPartyJS from './thirdPartyJS'
 export * from './join'

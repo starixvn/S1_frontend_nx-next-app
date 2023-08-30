@@ -19,6 +19,7 @@ export const rootApi = createApi({
 		'PROMOTION_GET_SPECIAL_PROMOTION_LIST',
 		'PAYMENT_DEPOSIT_HISTORY',
 		'PAYMENT_WITHDRAWAL_HISTORY',
+		'LUCKY_WHEEL_DRAW_PRIZE',
 	],
 	endpoints: () => ({}),
 })

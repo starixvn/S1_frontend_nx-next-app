@@ -10,6 +10,7 @@ export * from './menu'
 export * from './slots'
 export * from './images'
 export * from './leftMenu'
+export * from './eventPeriod'
 
 export const LANG_GROUPS: IStaticLangGroups = {
 	ch: [

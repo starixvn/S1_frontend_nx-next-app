@@ -3,6 +3,7 @@ import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 import Image from 'next/future/image'
+import { includes } from 'lodash-es'
 
 const LuckyWheel = () => {
 	const {
@@ -12,9 +13,10 @@ const LuckyWheel = () => {
 	const { push } = useRouter()
 	const [display, setDisplay] = useState(true)
 
-	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-	// @ts-ignore
-	const allowedCurrency = ALLOWED_CURRENCIES['LUCKY_WHEEL'][currencyId]
+	const allowedCurrency = includes(
+		ALLOWED_CURRENCIES['LUCKY_WHEEL'],
+		currencyId
+	)
 	if (!allowedCurrency || !display) return null
 
 	return (

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useSetLanguageMutation } from '@nx-next-app/service'
 import { setCookie } from 'cookies-next'
-import { CURRENCY_TO_LANG_KEY } from '@nx-next-app/constants'
+import { CURRENCY_TO_LANG_KEY, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 
 /**
  * @description 處理設置語系相關邏輯
@@ -45,11 +45,8 @@ const useLanguageGroup = () => {
 			// 有登入狀態，透過 setLang 完成語系切換，不在此處做 router.push
 			await setLanguage({ langId: langCode }).unwrap()
 		} else {
-			setCookie(`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`, langCode)
-			setCookie(
-				`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`,
-				currencyId
-			)
+			setCookie(ENV_COOKIE_NAMES.LangId, langCode)
+			setCookie(ENV_COOKIE_NAMES.CurrencyId, currencyId)
 			push({ pathname, query }, asPath, {
 				locale: langCode,
 			})

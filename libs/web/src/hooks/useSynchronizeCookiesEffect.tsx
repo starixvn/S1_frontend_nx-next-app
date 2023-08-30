@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { setCookies } from 'cookies-next'
 import { IUserInfoData } from '../service'
+import { ENV_COOKIE_NAMES } from '../app/constants/Names'
 
 /**
  *
@@ -14,11 +15,8 @@ export const useSynchronizeCookiesEffect = (userInfo: IUserInfoData) => {
 	useEffect(() => {
 		if (userInfo.userName !== 'guest') {
 			const { langId, currencyId } = userInfo
-			setCookies(`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`, langId)
-			setCookies(
-				`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`,
-				currencyId
-			)
+			setCookies(ENV_COOKIE_NAMES.LangId, langId)
+			setCookies(ENV_COOKIE_NAMES.CurrencyId, currencyId)
 		}
 	}, [userInfo.userName])
 }

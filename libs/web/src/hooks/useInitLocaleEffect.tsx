@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { NextRouter } from 'next/router'
 import { getCookie } from 'cookies-next'
 import { IUserInfoData } from '../service'
+import { ENV_COOKIE_NAMES } from '../app/constants/Names'
 
 /**
  *
@@ -22,9 +23,7 @@ export const useInitLocaleEffect = ({
 	userInfo,
 	isLogin,
 }: IUseInitLocaleEffectProps) => {
-	const cookieLang = getCookie(
-		`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`
-	) as string
+	const cookieLang = getCookie(ENV_COOKIE_NAMES.LangId) as string
 
 	const initLocale = () => {
 		const { pathname, asPath, query, locale } = router

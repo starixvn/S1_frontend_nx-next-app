@@ -13,6 +13,7 @@ import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import { useSetHideBalanceMutation } from '@nx-next-app/service'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 
+import dynamic from 'next/dynamic'
 import Menu from './menu'
 import { LoginBlock } from './LoginBlock'
 import { AppDownload } from './AppDownload'
@@ -28,6 +29,8 @@ import { HeaderQuickLink } from './HeaderQuickLink'
 interface IHomeProps {
 	persistAppDownloadHint: string
 }
+
+const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
 
 const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 	const { push } = useRouter()
@@ -116,6 +119,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 					{includes(jackPotCurrencies, currencyId) && (
 						<JackPot onClick={() => push(paths.slots.root)} isRoot />
 					)}
+					<LuckyWheel />
 					<AppDownload />
 					<FooterBlock />
 				</div>

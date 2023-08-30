@@ -25,4 +25,6 @@ export type { ICarouselProps } from './carousel'
 
 export { default as JackPot } from './jackpot/index'
 
+export { default as Loading } from './loading'
+
 export * from './image'
