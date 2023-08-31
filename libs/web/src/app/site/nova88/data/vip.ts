@@ -92,7 +92,7 @@ export const VIP_CLUB_IMAGES = (deviceType: number): IImageData[] => [
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip/vip1.png`,
+		}/img/vip1.png`,
 		displayKey: 'Label_Vip_Vintage_Club',
 		levelTabsName: 'vintage',
 		level: VIP_LEVEL.VIP_LEVEL_VINTAGE,
@@ -101,7 +101,7 @@ export const VIP_CLUB_IMAGES = (deviceType: number): IImageData[] => [
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip/vip2.png`,
+		}/img/vip2.png`,
 		displayKey: 'Label_Vip_Silver_Club',
 		levelTabsName: 'silver',
 		level: VIP_LEVEL.VIP_LEVEL_SILVER,
@@ -110,7 +110,7 @@ export const VIP_CLUB_IMAGES = (deviceType: number): IImageData[] => [
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip/vip3.png`,
+		}/img/vip3.png`,
 		displayKey: 'Label_Vip_Gold_Club',
 		levelTabsName: 'gold',
 		level: VIP_LEVEL.VIP_LEVEL_GOLD,
@@ -119,7 +119,7 @@ export const VIP_CLUB_IMAGES = (deviceType: number): IImageData[] => [
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip/vip4.png`,
+		}/img/vip4.png`,
 		displayKey: 'Label_Vip_Titanium_Club',
 		levelTabsName: 'titanium',
 		level: VIP_LEVEL.VIP_LEVEL_TITANIUM,
@@ -128,7 +128,7 @@ export const VIP_CLUB_IMAGES = (deviceType: number): IImageData[] => [
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip/vip5.png`,
+		}/img/vip5.png`,
 		displayKey: 'Label_Vip_Diamond_Club',
 		levelTabsName: 'diamond',
 		level: VIP_LEVEL.VIP_LEVEL_DIAMOND,
@@ -137,7 +137,7 @@ export const VIP_CLUB_IMAGES = (deviceType: number): IImageData[] => [
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip/vip6.png`,
+		}/img/vip6.png`,
 		displayKey: 'Label_Nova_Club',
 		levelTabsName: 'nova',
 		level: VIP_LEVEL.VIP_LEVEL_NOVA,

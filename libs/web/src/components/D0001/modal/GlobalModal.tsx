@@ -9,6 +9,7 @@ const GlobalModal = ({
 	type,
 	content = null,
 	okText,
+	cancelText,
 	onOK,
 	onCancel,
 	closeModal,
@@ -19,6 +20,7 @@ const GlobalModal = ({
 	let mergedIcon
 	let mergedTitle
 	let mergeOkText
+	let mergeCancelText
 
 	switch (type) {
 		case 'info':
@@ -39,6 +41,7 @@ const GlobalModal = ({
 			mergedIcon = icon || 'icon icon-bell'
 			mergedTitle = title || t('Label_General_Oh')
 			mergeOkText = okText || t('Label_General_Yes')
+			mergeCancelText = cancelText || t('Label_General_No')
 
 			break
 
@@ -46,6 +49,7 @@ const GlobalModal = ({
 			mergedIcon = icon || ''
 			mergedTitle = title || null
 			mergeOkText = okText || t('Label_General_OK')
+			mergeCancelText = cancelText || t('Label_General_No')
 	}
 
 	return (
@@ -82,7 +86,7 @@ const GlobalModal = ({
 										onCancel && onCancel()
 									}}
 								>
-									{t('Label_General_No')}
+									{mergeCancelText}
 								</button>
 							)}
 						</div>

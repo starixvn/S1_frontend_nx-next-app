@@ -86,5 +86,7 @@
 
 	"Label_Banner_Game_SubTitle": "जीवन का एक नया दृष्टिकोण",
 	"Label_Banner_Game_Title_1": "अपने जीवन को",
-	"Label_Banner_Game_Title_2": "खेल से सजाएं"
+	"Label_Banner_Game_Title_2": "खेल से सजाएं",
+
+	"Label_Profile_ProfileModifyWarning": "खाता सुरक्षा सुनिश्चित करें, व्यक्तिगत जानकारी मे भरने के बाद संशोधन नहीं हो सकता है ।"
 }

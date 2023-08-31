@@ -156,7 +156,7 @@ const Wallet = ({
 				</div>
 				<div className='loginLog'>
 					<span>{t('Label_General_LastLogin')}</span>
-					<span>{dayjs(lastLogin).format('L LT')}</span>
+					{/* <span>{dayjs(lastLogin).format('L LT')}</span> */}
 				</div>
 				<div className='transactionLog'>
 					<span>{t('Label_General_LastTransaction')}</span>

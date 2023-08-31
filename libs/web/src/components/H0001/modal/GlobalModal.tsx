@@ -8,6 +8,7 @@ const GlobalModal = ({
 	type,
 	content = null,
 	okText,
+	cancelText,
 	onOK,
 	onCancel,
 	closeModal,
@@ -19,6 +20,7 @@ const GlobalModal = ({
 	// let mergedIcon
 	let mergedTitle
 	let mergeOkText = okText || t('Label_General_Yes')
+	let mergeCancelText
 
 	switch (type) {
 		case 'info':
@@ -34,6 +36,7 @@ const GlobalModal = ({
 		case 'confirm':
 			mergedTitle = title || t('label_Message_ImportantNote')
 			mergeOkText = okText || t('Label_General_Yes')
+			mergeCancelText = cancelText || t('Label_General_No')
 
 			break
 
@@ -63,6 +66,7 @@ const GlobalModal = ({
 								type='button'
 								className='white'
 								onClick={() => {
+									closeModal()
 									onOK && onOK()
 								}}
 							>
@@ -76,7 +80,7 @@ const GlobalModal = ({
 										onCancel && onCancel()
 									}}
 								>
-									{t('Label_General_No')}
+									{mergeCancelText}
 								</button>
 							)}
 						</div>

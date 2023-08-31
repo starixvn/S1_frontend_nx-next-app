@@ -22,8 +22,6 @@ export type { ISelectProps } from './select'
 export { default as Carousel } from './carousel'
 export type { ICarouselProps } from './carousel'
 
-// export type { sw } from './swiper'
-
 export { default as MetaData } from './metaData'
 
 export { default as Loading } from './loading'
@@ -35,3 +33,4 @@ export { default as JackPot } from './jackpot/index'
 export { default as GameListItem } from './game-list-item/index'
 
 export * from './image'
+export * from './spin'

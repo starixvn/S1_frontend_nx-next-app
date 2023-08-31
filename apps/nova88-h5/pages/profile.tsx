@@ -7,6 +7,7 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { Layout } from '@nx-next-app/features/F0001/h5'
+import { Profile } from '@nx-next-app/features/F0001/h5/profile'
 
 const ProfilePage = ({
 	originIsSignIn,
@@ -16,7 +17,9 @@ const ProfilePage = ({
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData}>ProfilePage</Layout>
+				<Layout persistSEOData={persistSEOData}>
+					<Profile />
+				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>
 	)

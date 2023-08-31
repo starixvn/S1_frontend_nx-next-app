@@ -13,6 +13,7 @@ export interface IGlobalModalProps {
 	type?: 'default' | 'info' | 'error' | 'custom' | 'confirm' | null
 	content: ModalContentType
 	okText?: string | null
+	cancelText?: string | null
 	onOK?: () => void
 	onCancel?: () => void
 	closeModal: () => void
@@ -40,7 +41,7 @@ export interface ModalContextInterface {
 			message: ModalContentType,
 			config?: Pick<
 				IGlobalModalProps,
-				'icon' | 'title' | 'onOK' | 'onCancel' | 'okText'
+				'icon' | 'title' | 'onOK' | 'onCancel' | 'okText' | 'cancelText'
 			>
 		) => void
 	}

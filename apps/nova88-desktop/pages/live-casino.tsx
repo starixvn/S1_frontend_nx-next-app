@@ -21,13 +21,7 @@ const LiveCasinoPage = ({
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<Layout persistSEOData={persistSEOData} footerData={footerData}>
 				<main>
-					<br />
-					<br />
-					<br />
 					<h1 style={{ color: 'black' }}>LiveCasinoPage</h1>
-					<br />
-					<br />
-					<br />
 				</main>
 			</Layout>
 		</AuthProvider>

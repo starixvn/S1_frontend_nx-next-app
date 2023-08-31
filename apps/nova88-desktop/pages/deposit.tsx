@@ -24,13 +24,7 @@ const DepositPage = ({
 					<main>
 						<section className='inside'>
 							<LeftMenu />
-							<br />
-							<br />
-							<br />
 							<h1 style={{ color: 'black' }}>Deposit Page</h1>
-							<br />
-							<br />
-							<br />
 						</section>
 					</main>
 				</Layout>
