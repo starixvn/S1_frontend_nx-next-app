@@ -122,5 +122,7 @@
 
 	"Label_Banner_Game_SubTitle": "Perspektif Baru Kehidupan",
 	"Label_Banner_Game_Title_1": "Hiasi Kehidupan anda ",
-	"Label_Banner_Game_Title_2": "dengan Permainan"
+	"Label_Banner_Game_Title_2": "dengan Permainan",
+
+	"Label_Profile_ProfileModifyWarning": "เพื่อความปลอดภัย ข้อมูลส่วนตัวทั้งหมดจะไม่สามารถแก้ไขได้หลังจากใส่ข้อมูลสำเร็จแล้ว"
 }

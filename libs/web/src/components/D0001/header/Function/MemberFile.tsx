@@ -36,29 +36,23 @@ const MemberFile = ({ userLevelImageInfo }: IMemberFileProps) => {
 			onClick={toggle}
 		>
 			{userLevelImageInfo?.url && (
-				<>
-					<div className='vipAnimation'>
-						<div />
-					</div>
-
-					<Link href={paths.profile.root}>
-						<a
-							onClick={e => {
-								// * 停止 toggle
-								if (!includes(pathname, paths.profile.root)) {
-									e.stopPropagation()
-								}
-							}}
-						>
-							<Image
-								src={userLevelImageInfo.url}
-								alt={userLevelImageInfo.alt}
-								width={30}
-								height={25}
-							/>
-						</a>
-					</Link>
-				</>
+				<Link href={paths.profile.root}>
+					<a
+						onClick={e => {
+							// * 停止 toggle
+							if (!includes(pathname, paths.profile.root)) {
+								e.stopPropagation()
+							}
+						}}
+					>
+						<Image
+							src={userLevelImageInfo.url}
+							alt={userLevelImageInfo.alt}
+							width={30}
+							height={25}
+						/>
+					</a>
+				</Link>
 			)}
 
 			<button type='button'>{userInfo?.userName}</button>

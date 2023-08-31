@@ -87,5 +87,7 @@
 
 	"Label_Banner_Game_SubTitle": "জীবন সম্পর্কে একটি নতুন দৃষ্টিভঙ্গি",
 	"Label_Banner_Game_Title_1": "খেলা দিয়ে আপনার জীবন সাজান",
-	"Label_Banner_Game_Title_2": "with Game"
+	"Label_Banner_Game_Title_2": "with Game",
+
+	"Label_Profile_ProfileModifyWarning": "অ্যাকাউন্ট নিরাপত্তা নিশ্চিত করুন, ব্যক্তিগত তথ্য পূরণ করার পরে পরিবর্তন করা যাবে না।"
 }

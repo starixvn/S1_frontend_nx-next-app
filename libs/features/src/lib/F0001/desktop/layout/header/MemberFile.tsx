@@ -1,7 +1,6 @@
-import React from 'react'
 import { Header } from '@nx-next-app/components/D0001'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { DeviceTypeEnum } from '@nx-next-app/types'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 
 const MemberFile = () => {
 	const { userInfo } = useAuth()
