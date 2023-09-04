@@ -11,3 +11,20 @@ export interface IGotoGameArg {
 		tpGameType: null | string | number | undefined
 	}
 }
+
+export interface ITransferHistoryData {
+	tpName: string
+	transId: string
+	amount: number
+	direction: number
+	createTime: string
+	status: number
+	memo: string
+	isAdjustment: boolean
+}
+
+export interface IGetTransferHistoryArgs {
+	startDate: number
+	endDate: number
+	pageNumber: number
+}

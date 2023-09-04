@@ -1,4 +1,5 @@
-import { IAxiosResponse, rootApi } from '@nx-next-app/service'
+import { IAxiosResponse } from '../axiosBaseQuery'
+import { rootApi } from '../rootApi/api'
 import {
 	ICustRankData,
 	ICustRankMonthData,
@@ -8,7 +9,7 @@ import {
 	IGetLeaderBoardListArgs,
 	IGetLeaderBoardListMonthArgs,
 	ILeaderBoardMonthData,
-} from 'libs/web/src/service/eventsApi/type'
+} from './type'
 
 export const eventApiUrl = {
 	getLeaderBoardListMonth: 'Events/GetLeaderboardListMonth',

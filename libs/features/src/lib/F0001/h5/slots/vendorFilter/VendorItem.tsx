@@ -1,6 +1,6 @@
 import React from 'react'
 import process from 'process'
-import { IVendorData } from 'libs/web/src/service/gameApi/type'
+import { IVendorData } from '@nx-next-app/service'
 import classNames from 'classnames'
 
 interface IVendorItemProps {

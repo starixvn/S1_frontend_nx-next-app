@@ -14,11 +14,26 @@ export const paths = {
 	deposit: {
 		root: 'deposit',
 	},
+	transfer: {
+		root: 'transfer',
+	},
 	history: {
 		root: 'history',
 	},
 	referralHistory: {
 		root: 'referral-history',
+	},
+	depositHistory: {
+		root: 'deposit-history',
+	},
+	withdrawalHistory: {
+		root: 'withdrawal-history',
+	},
+	transferHistory: {
+		root: 'transfer-history',
+	},
+	financialLog: {
+		root: 'financial-log',
 	},
 	transferFunds: {
 		root: 'transfer-funds',

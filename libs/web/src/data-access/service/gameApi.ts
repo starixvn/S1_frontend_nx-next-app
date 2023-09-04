@@ -1,6 +1,5 @@
-import { baseAxios } from '@nx-next-app/service'
-import { gameApiUrl } from 'libs/web/src/service/gameApi/api'
-import { AxiosRequestConfig } from 'axios/index'
+import { baseAxios, gameApiUrl } from '@nx-next-app/service'
+import { AxiosRequestConfig } from 'axios'
 
 export const getSlotGamePage = async (
 	params: {

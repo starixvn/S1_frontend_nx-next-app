@@ -1,9 +1,9 @@
 import {
+	baseAxios,
 	IGetPromotionArgs,
 	IPromotionData,
-} from 'libs/web/src/service/promotionApi/type'
-import { baseAxios } from '@nx-next-app/service'
-import { promotionApiUrl } from 'libs/web/src/service/promotionApi/api'
+	promotionApiUrl,
+} from '@nx-next-app/service'
 import { AxiosRequestConfig } from 'axios'
 
 export const getPromotion = async (

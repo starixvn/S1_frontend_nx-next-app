@@ -115,7 +115,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		currencyId,
 	})
 
-	const { HotGame: persistHotGameData } = hotGameData ?? {}
+	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
 
 	const persistNewsData = await getNews({
 		langId,

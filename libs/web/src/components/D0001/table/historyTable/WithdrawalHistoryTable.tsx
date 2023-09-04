@@ -1,0 +1,137 @@
+import React from 'react'
+import {
+	WithdrawalStatusClassName,
+	WithdrawalStatusClassNameEnum,
+	WithdrawalStatusEnum,
+} from 'libs/web/src/app/types/history'
+import { IWithdrawalInfoHistoryData } from '@nx-next-app/service'
+import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
+import dayjs from 'dayjs'
+import { numberFormat } from '@nx-next-app/utils'
+import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
+import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
+import { useTranslation } from 'next-i18next'
+import { useAuth } from '@nx-next-app/data-access'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+
+const WithdrawalHistoryTable = ({
+	dataSource,
+	onReload,
+	onCancel,
+}: {
+	dataSource: IWithdrawalInfoHistoryData[]
+	onReload: () => void
+	onCancel: (transId: string) => void
+}) => {
+	const { t } = useTranslation()
+	const {
+		userInfo: { currencyId },
+	} = useAuth()
+
+	const { modal } = useGlobalModal()
+
+	const columns = [
+		{
+			title: t('Label_History_NO'),
+			dataIndex: 'no',
+			key: 'no',
+			render: ({ index }: { index: number }) => index + 1,
+		},
+		{
+			title: `${t('Label_History_Date')} (${CURRENCY_TO_TIMEZONE[currencyId]})`,
+			dataIndex: 'createTime',
+			key: 'createTime',
+			render: ({ item: { createTime } }: { item: { createTime: string } }) => (
+				<>
+					{dayjs(createTime, 'YYYY-MM-DDThh:mm:ssZ')
+						// .utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
+						.format('DD/MM/YYYY')}
+					<span className='txt-blue2'>
+						{dayjs(createTime, 'YYYY-MM-DDThh:mm:ssZ')
+							// .utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
+							.format('HH:mm:ss')}
+					</span>
+				</>
+			),
+		},
+		{
+			title: t('Label_History_ID'),
+			dataIndex: 'transId',
+			key: 'transId',
+		},
+		{
+			title: t('Label_History_Amount'),
+			dataIndex: 'amount',
+			key: 'amount',
+			render: ({ item: { amount } }: { item: { amount: number } }) =>
+				numberFormat(amount, currencyId, 0),
+		},
+		{
+			title: t('Label_History_Status'),
+			dataIndex: 'status',
+			key: 'status',
+			render: ({
+				item: { status },
+			}: {
+				item: { status: WithdrawalStatusClassNameEnum }
+			}) => {
+				const statusClassName =
+					WithdrawalStatusClassName[status as WithdrawalStatusClassNameEnum]
+				const statusText = t(`Label_WithdrawalStatus${status}`)
+				return <div className={statusClassName}>{statusText}</div>
+			},
+		},
+		{
+			title: (
+				<>
+					{t('Label_History_Action')}
+					<SpinButton onClick={onReload} />
+				</>
+			),
+			dataIndex: 'action',
+			key: 'action',
+			render: ({
+				item: { canCancel, status, transId },
+			}: {
+				// eslint-disable-next-line react/no-unused-prop-types
+				item: {
+					canCancel: boolean
+					status: WithdrawalStatusEnum
+					transId: string
+				}
+			}) => {
+				const showingCancelBtn =
+					canCancel &&
+					(status === WithdrawalStatusEnum.pending ||
+						status === WithdrawalStatusEnum.toKyc)
+
+				return (
+					showingCancelBtn && (
+						<div className='btnGroup'>
+							<button
+								className='btn-cancel'
+								onClick={() => {
+									modal.confirm(t('Label_History_CancelConfirm'), {
+										onOK: () => onCancel(transId),
+									})
+								}}
+							>
+								{t('Label_General_Cancel')}
+							</button>
+						</div>
+					)
+				)
+			},
+		},
+	]
+
+	return (
+		<Table
+			dataSource={dataSource}
+			columns={columns as ITableColumns<IWithdrawalInfoHistoryData>[]}
+			className='history'
+		/>
+	)
+}
+
+export default WithdrawalHistoryTable

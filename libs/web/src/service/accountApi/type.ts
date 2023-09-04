@@ -125,3 +125,23 @@ export interface IReferralSettingDetailData {
 		type: number
 	}
 }
+
+export interface IReferralData {
+	custId: number
+	userName: string
+	registerDate: string
+	currencyId: number
+	totalDeposit: number
+	depositC: number
+	totalBet: number
+	vaildBetC: number
+	bonusAmount: number
+	status: number
+}
+
+export interface IGetReferralArgs {
+	startDate: number
+	endDate: number
+	pageNumber: number
+	pageSize: number
+}
