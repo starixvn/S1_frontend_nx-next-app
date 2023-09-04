@@ -1,5 +1,10 @@
 import { ReactNode } from 'react'
 
+export interface IEventPeriod {
+	start: null | string
+	end: null | string
+}
+
 export enum CurrenciesEnum {
 	MYR = 2,
 	USD = 3,
@@ -55,7 +60,7 @@ export interface IStaticLangGroups {
 }
 
 export interface IStaticAllowedCurrencies {
-	[key: string]: CurrenciesEnum[] | { [subKey: string]: CurrenciesEnum[] }
+	[key: string]: CurrenciesEnum[]
 }
 
 export interface IStaticVipEventCurrenciesLimitationInfo {

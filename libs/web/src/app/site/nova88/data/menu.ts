@@ -1,4 +1,9 @@
-import { CurrenciesEnum, DeviceTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
+import {
+	CurrenciesEnum,
+	DeviceTypeEnum,
+	IEventPeriod,
+	MenuKeyEnum,
+} from '@nx-next-app/types'
 import {
 	IMenuData,
 	MenuActionTypeEnum,
@@ -7,8 +12,11 @@ import { paths } from '../../../constants/paths'
 import { ALLOWED_CURRENCIES } from './allowCurrency'
 import { PRODUCTS } from './products'
 
+/**
+ * 定義 menu 的活動時間，只存在於 menu.ts
+ */
 const PRODUCT_EVENT_PERIOD: {
-	[key: string]: { start: null | string; end: null | string }
+	[key: string]: IEventPeriod
 } = {
 	SPORTS_9W: {
 		start: null,
@@ -19,6 +27,7 @@ const PRODUCT_EVENT_PERIOD: {
 		end: '2023/12/31 22:59:59',
 	},
 	PROMOS: { start: null, end: '2023/12/31 22:59:59' },
+	LUCKY_WHEEL: { start: '2021/12/13 00:00:00', end: null },
 }
 
 const { MYR, INR, IDR, BDT, THB } = CurrenciesEnum
