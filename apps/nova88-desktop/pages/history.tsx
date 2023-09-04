@@ -7,10 +7,15 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import History from '@nx-next-app/features/F0001/desktop/history'
+import HistoryProvider from '@nx-next-app/features/F0001/providers/history-context'
+import {
+	HISTORY_TABS,
+	QUICK_PICK_LIST,
+} from '@nx-next-app/site/nova88/data/history'
 
 type IHistoryPageProps = InitialPropsInterface
 
-// * TODO: wip todo
 const HistoryPage = ({
 	originIsSignIn,
 	originCookies,
@@ -21,12 +26,17 @@ const HistoryPage = ({
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData} footerData={footerData}>
-					<main>
-						<section className='inside'>
-							<LeftMenu />
-							<h1 style={{ color: 'black' }}>History Page</h1>
-						</section>
-					</main>
+					<HistoryProvider
+						HISTORY_TABS={HISTORY_TABS}
+						QUICK_PICK_LIST={QUICK_PICK_LIST}
+					>
+						<main>
+							<section className='inside'>
+								<LeftMenu />
+								<History />
+							</section>
+						</main>
+					</HistoryProvider>
 				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>

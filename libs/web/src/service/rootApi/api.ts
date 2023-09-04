@@ -17,6 +17,8 @@ export const rootApi = createApi({
 		'SLOTS_GAME_DATA',
 		'PROMOTION_GET_PROMOTION_LIST',
 		'PROMOTION_GET_SPECIAL_PROMOTION_LIST',
+		'PAYMENT_DEPOSIT_HISTORY',
+		'PAYMENT_WITHDRAWAL_HISTORY',
 	],
 	endpoints: () => ({}),
 })

@@ -12,7 +12,7 @@ import {
 	useLazyGetCustRankQuery,
 	useLazyGetLeaderBoardListMonthQuery,
 	useLazyGetLeaderBoardListQuery,
-} from 'libs/web/src/service/eventsApi/api'
+} from '@nx-next-app/service'
 import dayjs, { Dayjs } from 'dayjs'
 import { find, includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'

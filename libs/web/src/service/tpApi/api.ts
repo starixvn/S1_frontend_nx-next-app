@@ -1,9 +1,14 @@
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
-import { IGotoGameArg } from './type'
+import {
+	IGetTransferHistoryArgs,
+	IGotoGameArg,
+	ITransferHistoryData,
+} from './type'
 
 export const tpApiUrl = {
 	gotoGame: 'Tp/GotoGame',
+	getTransferHistory: 'Tp/GetTransferHistory',
 }
 
 export const tpApi = rootApi.injectEndpoints({
@@ -15,7 +20,17 @@ export const tpApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
+		getTransferHistory: builder.query<
+			IAxiosResponse<ITransferHistoryData[]>,
+			IGetTransferHistoryArgs
+		>({
+			query: data => ({
+				url: tpApiUrl.getTransferHistory,
+				method: 'POST',
+				data,
+			}),
+		}),
 	}),
 })
 
-export const { useLazyGotoGameQuery } = tpApi
+export const { useLazyGotoGameQuery, useLazyGetTransferHistoryQuery } = tpApi
