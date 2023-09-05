@@ -7,6 +7,7 @@ export { default as Fishing } from './fishing/index'
 export { default as Referral } from './referral'
 
 export { default as Game } from './game/index'
+export { default as Esport } from './esport/index'
 
 export { default as LeaderBoard } from './leaderBoard'
 export { default as ForgetPassword } from './forget-password'

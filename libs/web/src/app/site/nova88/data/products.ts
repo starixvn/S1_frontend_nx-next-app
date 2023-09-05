@@ -98,6 +98,19 @@ export const PRODUCTS = {
 		TP_GAME_TYPE: 69,
 		BET_TYPE: 4,
 	},
+	// add new item
+	SPORTS_E_SABA: {
+		TP_ID: 41,
+		GAME_ID: 43,
+		TP_GAME_TYPE: 69,
+		BET_TYPE: 4,
+	},
+	SPORTS_E_IMESPORTS: {
+		TP_ID: 52,
+		GAME_ID: 'ESPORTSBULL',
+		TP_GAME_TYPE: 102,
+		BET_TYPE: 4,
+	},
 	SPORTS_WORLD_CUP: {
 		TP_ID: 41,
 		GAME_ID: 2002,
