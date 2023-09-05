@@ -23,7 +23,7 @@ const GameList = () => {
 		onMenuOpen,
 	} = useMenu()
 
-	const onItemClick = (item: ISubMenu<any>) => {
+	const onItemClick = (item: ISubMenu<string>) => {
 		onMenuOpen(item, {
 			loginCallback: () => modal.open(<LoginModal />),
 		})
@@ -46,6 +46,8 @@ const GameList = () => {
 								: item.displayText
 						}
 						onItemClick={() => onItemClick(item)}
+						gameTextClassName='name'
+						eventIcons={item?.eventIcons}
 					/>
 				))}
 			</div>

@@ -10,6 +10,8 @@ interface IListItemProps {
 	imgSrc: string
 	onItemClick: () => void
 	style: React.CSSProperties
+	gameTextClassName: string
+	eventIcons?: object
 }
 
 const GameListItem = ({
@@ -20,6 +22,8 @@ const GameListItem = ({
 	imgSrc,
 	onItemClick,
 	style,
+	gameTextClassName,
+	eventIcons,
 }: IListItemProps) => {
 	const { t } = useTranslation()
 	const hoverRef = useRef(null)
@@ -31,9 +35,10 @@ const GameListItem = ({
 			style={style}
 			onClick={onItemClick}
 		>
+			{eventIcons && <div className='icon icon-new' />}
 			<img src={isHover ? hoverImgSrc : imgSrc} alt={alt} />
 			<div className='under'>{t('Label_General_UnderMaintenance')}</div>
-			<h2 className='name'>{displayName}</h2>
+			<h2 className={gameTextClassName}>{displayName}</h2>
 		</div>
 	)
 }
