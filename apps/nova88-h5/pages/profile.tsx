@@ -6,8 +6,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout } from '@nx-next-app/features/F0001/h5'
-import { Profile } from '@nx-next-app/features/F0001/h5/profile'
+import { Layout, Profile } from '@nx-next-app/features/F0001/h5'
 
 const ProfilePage = ({
 	originIsSignIn,

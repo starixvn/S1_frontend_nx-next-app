@@ -145,3 +145,29 @@ export interface IGetReferralArgs {
 	pageNumber: number
 	pageSize: number
 }
+
+export interface IBankInfoDetail {
+	bankName: string
+	bankLogo: string
+	bankSite: string
+	disabled: boolean
+	sysId: number
+	accountNo: string
+	ifscCode: string | null
+}
+
+interface IUSDTDetail {
+	nickName: string
+	usdtAddress: string
+	network: string
+	currencyId: number
+	currencyName: string
+	disabled: boolean
+}
+
+export interface IGetCustBankInfoData {
+	accountName: string
+	defAccountNo: string
+	bankInfoDetail: IBankInfoDetail[]
+	uSDTDetail: IUSDTDetail[]
+}

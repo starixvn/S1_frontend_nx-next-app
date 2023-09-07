@@ -132,4 +132,4 @@ const Profile = () => {
 	)
 }
 
-export { Profile }
+export default Profile
