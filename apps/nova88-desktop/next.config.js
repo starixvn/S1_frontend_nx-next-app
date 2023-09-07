@@ -16,6 +16,7 @@ const nextConfig = {
 		domains: [
 			process.env.NEXT_PUBLIC_BANNER_DOMAIN,
 			process.env.NEXT_PUBLIC_IMAGE_DOMAIN,
+			process.env.NEXT_PUBLIC_PAYMENT_DOMAIN,
 		],
 		// 因為存在太多外部連結，先全打開
 		remotePatterns: [

@@ -56,6 +56,9 @@ export const paths = {
 	wallet: {
 		root: 'wallet',
 	},
+	eWallet: {
+		root: 'eWallet',
+	},
 	cryptoWallet: {
 		root: 'crypto-wallet',
 	},

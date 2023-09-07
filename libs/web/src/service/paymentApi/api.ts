@@ -1,6 +1,7 @@
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
 import {
+	IBankInfoSysData,
 	IDepositInfoHistoryData,
 	IGetDepositInfoHistoryArgs,
 	IGetStatementArgs,
@@ -17,6 +18,7 @@ export const paymentApiUrl = {
 	uploadReceipt: 'Payment/UploadReceipt',
 	setDepositCancel: 'Payment/SetDepositCancel',
 	setWithdrawalCancel: 'Payment/SetWithdrawalCancel',
+	getBankInfoSysList: 'Payment/GetBankInfoSysList',
 }
 
 export const paymentApi = rootApi.injectEndpoints({
@@ -83,6 +85,15 @@ export const paymentApi = rootApi.injectEndpoints({
 			}),
 			invalidatesTags: ['PAYMENT_WITHDRAWAL_HISTORY'],
 		}),
+		getBankInfoSysList: builder.query<IAxiosResponse<IBankInfoSysData[]>, void>(
+			{
+				query: data => ({
+					url: paymentApiUrl.getBankInfoSysList,
+					method: 'POST',
+					data,
+				}),
+			}
+		),
 	}),
 })
 
@@ -90,6 +101,7 @@ export const {
 	useLazyGetDepositInfoHistoryQuery,
 	useLazyGetWithdrawalInfoHistoryQuery,
 	useLazyGetStatementQuery,
+	useGetBankInfoSysListQuery,
 	useUploadReceiptMutation,
 	useSetDepositCancelMutation,
 	useSetWithdrawalCancelMutation,

@@ -20,6 +20,7 @@ export const rootApi = createApi({
 		'PAYMENT_DEPOSIT_HISTORY',
 		'PAYMENT_WITHDRAWAL_HISTORY',
 		'LUCKY_WHEEL_DRAW_PRIZE',
+		'ACCOUNT_GET_USER_BANK_INFO',
 	],
 	endpoints: () => ({}),
 })

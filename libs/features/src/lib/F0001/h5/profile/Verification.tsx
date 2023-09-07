@@ -1,14 +1,15 @@
 import classNames from 'classnames'
+import { includes } from 'lodash-es'
 import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import Image from 'next/future/image'
-import { DeviceTypeEnum } from '@nx-next-app/types'
+import { CurrenciesEnum, DeviceTypeEnum } from '@nx-next-app/types'
 import { numberFormat, getSafetyLv } from '@nx-next-app/utils'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 
 const Verification = () => {
 	const { t } = useTranslation()
-	const { VIP_CLUB_IMAGES } = useStaticData()
+	const { VIP_CLUB_IMAGES, ALLOWED_CURRENCIES } = useStaticData()
 
 	const {
 		userInfo: {
@@ -49,7 +50,10 @@ const Verification = () => {
 					width={126}
 					height={106}
 				/>
-				<div>{t(userLevelImageInfo?.displayKey as string)}</div>
+				{includes(
+					ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],
+					currencyId
+				) && <div>{t(userLevelImageInfo?.displayKey as string)}</div>}
 			</div>
 			<div className='accountSafety'>
 				<div>{t('Label_Profile_AccountSafety')}：</div>

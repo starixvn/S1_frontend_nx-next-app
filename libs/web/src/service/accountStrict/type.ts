@@ -67,3 +67,10 @@ export interface ISetProfileAddressArgs {
 	AddressLineFirst: string
 	AddressLineSecond?: string
 }
+
+export interface ISetCustBankInfoArgs {
+	accountName?: string
+	accountNo: string
+	sysId: number
+	ifscCode?: string | null
+}

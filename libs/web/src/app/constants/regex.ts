@@ -14,3 +14,5 @@ export const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z!@#$%^&*\d]{6,15}$/
  * ```
  */
 export const INTEGER_ONLY_REGEX = /(\..*)|[^0-9]/g
+
+export const IFSC_CODE_REGEX = /^[A-Za-z0-9]{11}$/

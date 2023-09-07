@@ -1,3 +1,13 @@
+export interface IBankInfoSysData {
+	sysId: number
+	currencyId: number
+	bankCode: string
+	bankName: string
+	bankLogo: string
+	bankSite: string
+	status: number
+}
+
 export interface IDepositInfoHistoryData {
 	createTime: string
 	depositType: number

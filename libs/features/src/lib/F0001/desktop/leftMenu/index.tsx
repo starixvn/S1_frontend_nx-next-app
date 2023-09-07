@@ -49,4 +49,4 @@ const LeftMenu = () => {
 	return <div id='leftMenu'>{menuList}</div>
 }
 
-export { LeftMenu }
+export default LeftMenu

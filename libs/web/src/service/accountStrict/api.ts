@@ -5,6 +5,7 @@ import {
 	IOTPSMSData,
 	ISetProfileArgs,
 	ISetProfileAddressArgs,
+	ISetCustBankInfoArgs,
 } from './type'
 
 export const accountStrictApiUrl = {
@@ -14,6 +15,8 @@ export const accountStrictApiUrl = {
 	verifyOTP: 'AccountStrict/VerifyOTP',
 	SetProfile: 'AccountStrict/SetProfile',
 	setProfileAddress: 'AccountStrict/SetProfileAddress',
+	delCustBankInfo: 'AccountStrict/DelCustBankInfo',
+	setCustBankInfo: 'AccountStrict/SetCustBankInfo',
 }
 
 export const accountStrictApi = rootApi.injectEndpoints({
@@ -68,6 +71,28 @@ export const accountStrictApi = rootApi.injectEndpoints({
 			}),
 			invalidatesTags: ['ACCOUNT_STRICT_GET_USER_INFO'],
 		}),
+		delCustBankInfo: builder.mutation<
+			IAxiosResponse<IUserInfoData | undefined>,
+			{ accountName: string; accountNo: string; sysId: number }
+		>({
+			query: data => ({
+				url: accountStrictApiUrl.delCustBankInfo,
+				method: 'POST',
+				data,
+			}),
+			invalidatesTags: ['ACCOUNT_GET_USER_BANK_INFO'],
+		}),
+		setCustBankInfo: builder.mutation<
+			IAxiosResponse<void>,
+			ISetCustBankInfoArgs
+		>({
+			query: data => ({
+				url: accountStrictApiUrl.setCustBankInfo,
+				method: 'POST',
+				data,
+			}),
+			invalidatesTags: ['ACCOUNT_GET_USER_BANK_INFO'],
+		}),
 	}),
 })
 
@@ -78,4 +103,6 @@ export const {
 	useVerifyOTPMutation,
 	useSetProfileMutation,
 	useSetProfileAddressMutation,
+	useDelCustBankInfoMutation,
+	useSetCustBankInfoMutation,
 } = accountStrictApi

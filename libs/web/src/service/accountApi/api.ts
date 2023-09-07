@@ -16,6 +16,7 @@ import {
 	IReferralSettingDetailData,
 	IGetReferralArgs,
 	IReferralData,
+	IGetCustBankInfoData,
 } from './type'
 
 export const accountApiUrl = {
@@ -36,6 +37,7 @@ export const accountApiUrl = {
 	getReferralSummary: 'Account/GetReferralSummaryV2',
 	getReferralSettingDetail: 'Account/GetReferralSettingDetail',
 	getReferral: 'Account/GetRefFriendList',
+	getCustBankInfo: 'Account/GetCustBankInfo',
 }
 
 const accountApi = rootApi.injectEndpoints({
@@ -186,6 +188,13 @@ const accountApi = rootApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
+		getCustBankInfo: builder.query<IAxiosResponse<IGetCustBankInfoData>, void>({
+			query: () => ({
+				url: accountApiUrl.getCustBankInfo,
+				method: 'POST',
+			}),
+			providesTags: ['ACCOUNT_GET_USER_BANK_INFO'],
+		}),
 	}),
 })
 
@@ -207,4 +216,5 @@ export const {
 	useGetReferralSummaryQuery,
 	useLazyGetReferralSettingDetailQuery,
 	useLazyGetReferralQuery,
+	useGetCustBankInfoQuery,
 } = accountApi

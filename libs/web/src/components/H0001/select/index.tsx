@@ -91,7 +91,8 @@ const Select = (props: ISelectProps) => {
 			>
 				{prefixIcon}
 				<button type='button' className='dropdown btn'>
-					<div>
+					{/* 如 prefixOptionIcon 為 Image 會造成跑版，所以使用 style 調整 */}
+					<div style={{ display: 'flex', alignItems: 'center' }}>
 						{currentOption?.prefixOptionIcon}
 						<span className='text'>{currentOption?.label || placeholder}</span>
 					</div>
@@ -122,7 +123,7 @@ const Select = (props: ISelectProps) => {
 							onClick={() => handleOptionClick(option)}
 						>
 							{option.prefixOptionIcon}
-							{option.label || ' '}
+							<span className='text'> {option.label || ' '}</span>
 						</div>
 					))}
 				</div>
