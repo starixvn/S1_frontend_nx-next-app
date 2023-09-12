@@ -645,6 +645,11 @@
 	"Label_LuckyWheel_OtherConditions3": "3. Nova88 reserves the right to amend or withdraw the Promotion at any time.",
 	"Label_LuckyWheel_OtherConditions4": "4. Nova88 is the sole arbiter of the Promotion and its decision is final.",
 	"Label_LuckyWheel_OtherConditions5": "5. Nova88 Standard Terms and Conditions apply.",
+		
+	"Label_Lottery_Game_SubTitle":"Reach to Be Rich",
+	"Label_Lottery_Game_Title_1": "LOTTERY",
+	"Label_Lottery_Game_Title_2": "HEAVEN 24/7"
+
 	"Label_BankInfo_UpdateBankInfo": "Please update your bank account details before making withdrawal.",
 	"Label_BankInfo_BankAccountName": "Account Name",
 	"Label_BankInfo_BankAccountHint": "Account Name must match with Bank Account Holder",

@@ -90,10 +90,16 @@
 	"Label_Banner_Game_Title_1": "अपने जीवन को",
 	"Label_Banner_Game_Title_2": "खेल से सजाएं",
 
+		
+	"Label_Lottery_Game_SubTitle":"अभी अप्लाई करें",
+	"Label_Lottery_Game_Title_1": "और जानकारी",
+	"Label_Lottery_Game_Title_2":  "सभी प्रचार",
+	"Label_PlayNow": "अब खेलते हैं",
+	
+
 	"Label_Profile_ProfileModifyWarning": "खाता सुरक्षा सुनिश्चित करें, व्यक्तिगत जानकारी मे भरने के बाद संशोधन नहीं हो सकता है ।",
 	"Label_Join_EnterRealName": "कृपया अपना असली नाम दर्ज करें, विशेष प्रतीकों की अनुमति नहीं है",
-
 	"Label_Announcement": "मुनादी करना",
-
 	"Label_Message_PersonalMsg": "व्यक्तिगत संदेश"
+		
 }
