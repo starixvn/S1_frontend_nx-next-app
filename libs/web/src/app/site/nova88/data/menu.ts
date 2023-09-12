@@ -28,6 +28,26 @@ const PRODUCT_EVENT_PERIOD: {
 	},
 	PROMOS: { start: null, end: '2023/12/31 22:59:59' },
 	LUCKY_WHEEL: { start: '2021/12/13 00:00:00', end: null },
+	VIP: {
+		start: '2021/02/05 12:00:00',
+		end: null,
+	},
+	RANKING: {
+		start: '2021/03/01 12:00:00',
+		end: null,
+	},
+	TV: {
+		start: '2021/03/30 00:00:00',
+		end: null,
+	},
+	PROMO: {
+		start: '2021/11/11 00:00:00',
+		end: null,
+	},
+	IM: {
+		start: null,
+		end: '2023/12/31 22:59:59',
+	},
 }
 
 const { MYR, INR, IDR, BDT, THB } = CurrenciesEnum
@@ -89,6 +109,13 @@ export const MENU_DATA = ({
 					menuActionType: MenuActionTypeEnum.Link,
 					pathname: paths.vip.root,
 					allowCurrencies: ALLOWED_CURRENCIES['VIP'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['VIP'],
+						},
+					],
 				},
 				{
 					h5: {},
@@ -590,6 +617,13 @@ export const MENU_DATA = ({
 					displayKey: 'IM E-Sports',
 					menuActionType: MenuActionTypeEnum.EnterPage,
 					product: PRODUCTS['SPORTS_E_IMESPORTS'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['IM'],
+						},
+					],
 				},
 			],
 		},
@@ -714,7 +748,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_pp',
+							npcImg: 'casino_pp.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_PP',
@@ -744,7 +779,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_bg',
+							npcImg: 'casino_bg.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_BG',
@@ -780,7 +816,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_yb',
+							npcImg: 'casino_yb.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_YEE_BET',
@@ -809,7 +846,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_yb',
+							npcImg: 'casino_sk.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_SKY_WIND',
@@ -839,7 +877,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_mg',
+							npcImg: 'casino_mg.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_MG',
@@ -869,7 +908,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_ev',
+							npcImg: 'casino_ev.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_EVO',
@@ -899,7 +939,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_pt',
+							npcImg: 'casino_pt.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_PT',
@@ -928,7 +969,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_n2',
+							npcImg: 'casino_n2.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_N2',
@@ -958,7 +1000,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_wm',
+							npcImg: 'casino_wm.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_WM',
@@ -988,7 +1031,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_ab',
+							npcImg: 'casino_ab.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_ALL_BET',
@@ -1020,7 +1064,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_eb',
+							npcImg: 'casino_eb.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_E_BET',
@@ -1050,7 +1095,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_sa',
+							npcImg: 'casino_sa.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_SA',
@@ -1079,7 +1125,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_dg',
+							npcImg: 'casino_dg.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_DG',
@@ -1108,7 +1155,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_ae',
+							npcImg: 'casino_ae.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_AE',
@@ -1135,7 +1183,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_ag',
+							npcImg: 'casino_ag.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_AG',
@@ -1859,6 +1908,13 @@ export const MENU_DATA = ({
 					displayText: 'Aviator',
 					menuActionType: MenuActionTypeEnum.EnterPage,
 					product: PRODUCTS['GAME_AVIATOR'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['IM'],
+						},
+					],
 				},
 				{
 					h5: { img: '/h5/img/gameSpribeMines.png' },
@@ -1883,6 +1939,13 @@ export const MENU_DATA = ({
 					displayText: 'Mines',
 					menuActionType: MenuActionTypeEnum.EnterPage,
 					product: PRODUCTS['GAME_MINES'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['IM'],
+						},
+					],
 				},
 				{
 					h5: { img: '/h5/img/gameSpribeGoal.png' },
@@ -1907,6 +1970,13 @@ export const MENU_DATA = ({
 					displayText: 'Goal',
 					menuActionType: MenuActionTypeEnum.EnterPage,
 					product: PRODUCTS['GAME_GOAL'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['IM'],
+						},
+					],
 				},
 				{
 					h5: { img: '/h5/img/gameSpribeDice.png' },
@@ -1931,6 +2001,13 @@ export const MENU_DATA = ({
 					displayText: 'DICE',
 					menuActionType: MenuActionTypeEnum.EnterPage,
 					product: PRODUCTS['GAME_DICE'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['IM'],
+						},
+					],
 				},
 				{
 					h5: { img: '/h5/img/ap.png' },

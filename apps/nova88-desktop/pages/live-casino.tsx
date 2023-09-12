@@ -1,29 +1,25 @@
-import React from 'react'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { GetServerSideProps } from 'next'
-import { AuthProvider } from '@nx-next-app/data-access'
+import { Layout, LiveCasino } from '@nx-next-app/features/F0001/desktop'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 
-type ILiveCasinoPageProps = InitialPropsInterface
-
-// * TODO: wip todo
 const LiveCasinoPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
 	footerData,
-}: ILiveCasinoPageProps) => {
+}: InitialPropsInterface) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout persistSEOData={persistSEOData} footerData={footerData}>
-				<main>
-					<h1 style={{ color: 'black' }}>LiveCasinoPage</h1>
-				</main>
-			</Layout>
+			<GlobalDataProvider>
+				<Layout persistSEOData={persistSEOData} footerData={footerData}>
+					<LiveCasino />
+				</Layout>
+			</GlobalDataProvider>
 		</AuthProvider>
 	)
 }
