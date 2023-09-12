@@ -39,6 +39,9 @@
 	"Label_General_Submit": "ตกลง",
 	"Label_General_RealName": "ชื่อจริง",
 	"Label_General_RemindForName": "ชื่อ-นามสกุล ต้องตรงกับชื่อในบัตรประจำตัวประชาชน ไม่อนุญาตให้กรอกสัญลักษณ์พิเศษ",
+  "Label_General_NoData": "ประกาศ",
+  "Label_General_AreYouSureDelete": "คุณแน่ใจหรือว่าต้องการลบ?",
+  "Label_General_CantBeRestore": "ไม่สามารถกู้คืนได้หลังจากลบไปแล้ว",
 	"Label_General_Cashier": "แคชเชียร์",
 	"Label_General_Statement": "รายการฝากถอน",
 	"Label_General_MyAccount": "บัญชีของฉัน",
@@ -112,6 +115,10 @@
 	"Label_Join_DontHaveAccount": "ยังไม่มีบัญชีใช่ไหม",
 	"Label_Join_AffiliateIdWrong": "ไม่พบรหัสพันธมิตรดังกล่าว",
 	"Label_Join_EnterRealName": "กรุณาใส่ชื่อจริงของคุณ ไม่อนุญาตให้ใช้สัญลักษณ์พิเศษ",
+
+  "Label_Announcement": "ประกาศ",
+
+  "Label_Message_PersonalMsg": "ข้อความส่วนตัว",
 
 	"Label_ChangePassword_PasswordReq": "ต้องใส่รหัสผ่าน",
 	"Label_ChangePassword_ChangePasswordHint": "แก้ไขรหัสผ่านเมื่อเข้าสู่ระบบและการแก้ไขเป็นประจำจะเป็นประโยชน์ต่อความปลอดภัยของบัญชี",

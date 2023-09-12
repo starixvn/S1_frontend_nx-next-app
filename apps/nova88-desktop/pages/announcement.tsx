@@ -7,16 +7,16 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import Announcement from '@nx-next-app/features/F0001/desktop/announcement'
 
-type IHomePageProps = InitialPropsInterface
+type IAnnouncementPage = InitialPropsInterface
 
-// * TODO: wip todo
 const AnnouncementPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
 	footerData,
-}: IHomePageProps) => {
+}: IAnnouncementPage) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
@@ -24,7 +24,7 @@ const AnnouncementPage = ({
 					<main>
 						<section className='inside'>
 							<LeftMenu />
-							<h1 style={{ color: 'black' }}>Announcement Page</h1>
+							<Announcement />
 						</section>
 					</main>
 				</Layout>

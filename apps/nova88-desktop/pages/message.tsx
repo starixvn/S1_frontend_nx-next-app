@@ -7,10 +7,10 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import PersonalMessage from '@nx-next-app/features/F0001/desktop/message'
 
 type IMessagePageProps = InitialPropsInterface
 
-// * TODO: wip todo
 const MessagePage = ({
 	originIsSignIn,
 	originCookies,
@@ -24,7 +24,7 @@ const MessagePage = ({
 					<main>
 						<section className='inside'>
 							<LeftMenu />
-							<h1 style={{ color: 'black' }}>Message Page</h1>
+							<PersonalMessage />
 						</section>
 					</main>
 				</Layout>

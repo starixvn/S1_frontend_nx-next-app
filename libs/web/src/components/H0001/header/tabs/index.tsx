@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import classNames from 'classnames'
 import { useRouter } from 'next/router'
-import { head } from 'lodash-es'
+import { head, isUndefined } from 'lodash-es'
 
 type TagOptionType = {
 	key: string | number
@@ -23,7 +23,7 @@ interface ITagProps {
 }
 
 interface ITagsProps extends React.HTMLAttributes<HTMLDivElement> {
-	tags: { href: string; label: string; isShow?: boolean }[]
+	tags: { href: string; label: string; isShow?: boolean; active?: boolean }[]
 	className?: string
 }
 
@@ -113,15 +113,16 @@ const Tag = ({
 
 const Tags = ({ tags = [], className = 'headerTag', ...props }: ITagsProps) => {
 	const { pathname } = useRouter()
+
 	return (
 		<div className={className} {...props}>
-			{tags.map(({ href, label, isShow = true }) => {
+			{tags.map(({ href, label, isShow = true, active }) => {
 				return (
 					isShow && (
 						<Link key={label} href={href}>
 							<a
 								className={classNames({
-									active: pathname.split('/')[1] === href,
+									active: isUndefined(active) ? pathname.match(href) : active,
 								})}
 							>
 								{label}

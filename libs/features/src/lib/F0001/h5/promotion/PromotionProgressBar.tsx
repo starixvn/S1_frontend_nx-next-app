@@ -36,7 +36,12 @@ const PromotionProgressBar = ({
 				<div className='bar'>
 					<div className='progress' style={{ width: `${percentage}%` }} />
 				</div>
-				{onSpinButton && <SpinButton onClick={onSpinButton} />}
+				{onSpinButton && (
+					<SpinButton
+						className='icon icon-spinner11 clickBtn'
+						onClick={onSpinButton}
+					/>
+				)}
 			</div>
 		</div>
 	)

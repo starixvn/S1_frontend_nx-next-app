@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import { paths } from '@nx-next-app/constants'
 import { useBoolean } from 'usehooks-ts'
+import MsgPopup from './MsgPopup'
 
 const LayoutFooter = () => {
 	const { t } = useTranslation()
@@ -59,23 +60,7 @@ const LayoutFooter = () => {
 					<span>{t('Label_General_LiveChat')}</span>
 				</a>
 
-				<Link href={paths.setting.root}>
-					<a
-						className={classNames('icon icon-menu', {
-							active:
-								pathname.startsWith(`/${paths.setting.root}`) &&
-								!isWalletActive,
-						})}
-					>
-						{/* <div className='msgPop'>
-						<div>Weekly Retention Bonus1</div>
-						<button className='icon icon-close' />
-					</div> */}
-						{/* <div className='icon icon-envelope' /> */}
-						<div className='circleAnimation' />
-						<span>{t('Label_General_More')}</span>
-					</a>
-				</Link>
+				<MsgPopup isWalletActive={isWalletActive} />
 			</footer>
 
 			<div

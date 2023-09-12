@@ -86,6 +86,9 @@
 	"Label_General_Lottery": "彩票",
 	"Label_General_Promos": "优惠",
 	"Label_General_UnderMaintenance": "维护中",
+  "Label_General_NoData": "目前没有可用的信息。",
+  "Label_General_AreYouSureDelete": "确定要删除么？",
+  "Label_General_CantBeRestore": "删除后将无法还原！",
 	"Label_General_Cashier": "收银",
 	"Label_General_Statement": "账变记录",
 	"Label_General_BankInfo": "银行资讯",
@@ -259,6 +262,10 @@
 	"Label_Demo": "演示",
 	"Label_underMaintenance": "维护中",
 	"Label_PlayNow": "立即游戏",
+
+  "Label_Announcement": "公告",
+
+  "Label_Message_PersonalMsg": "站内信",
 
 	"Label_ChangePassword_PasswordReq": "请输入密码。",
 	"Label_ChangePassword_ChangePasswordHint": "登录时修改密码，定期修改有利于帐号安全。",

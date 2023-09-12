@@ -40,6 +40,8 @@ export function Layout({ children, persistSEOData, footerData }: ILayoutProps) {
 			{/* 只需放在 Layout 來渲染全域彈窗 */}
 			<GlobalModal {...globalModal} closeModal={closeModal} />
 
+			{/* <Loading /> */}
+
 			<BackTop />
 		</>
 	)

@@ -1,3 +1,5 @@
+import { IAxiosResponse } from 'libs/web/src/service/axiosBaseQuery'
+
 export enum TpWalletListTypeEnum {
 	All,
 	Transferred,
@@ -82,6 +84,48 @@ export interface ICustSpecificBonusData {
 	status: number
 	expiryTime: string // custExpiryTime
 }
+
+export interface IGetMsgListArgs {
+	pageNumber: number
+	pageSize?: number
+}
+
+export interface IMsgData {
+	id: number
+	type: number
+	senderCustId: number
+	sender: string
+	title: string
+	createTime: string
+	flag: boolean
+	isBatch: boolean
+}
+
+export type IGetMsgListResponse = IAxiosResponse<IMsgData[]>
+
+export interface IBasicMsg {
+	msgId: number
+	isBatch: boolean
+}
+
+export interface IDelMsgArgs {
+	deleteList: IBasicMsg[]
+}
+
+export interface ISetMsgReadArgs {
+	setList: IBasicMsg[]
+}
+
+export interface IGetMsgContentArgs {
+	msgId: number
+	isBatch: number
+}
+
+export interface IMsgContentData {
+	content: string
+}
+
+export type IMsgContentResponse = IAxiosResponse<IMsgContentData>
 
 export interface IReferralSettingData {
 	bonusAmount: number

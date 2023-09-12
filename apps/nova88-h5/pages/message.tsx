@@ -7,6 +7,7 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { Layout } from '@nx-next-app/features/F0001/h5'
+import PersonalMessage from '@nx-next-app/features/F0001/h5/message'
 
 const MessagePage = ({
 	originIsSignIn,
@@ -16,7 +17,9 @@ const MessagePage = ({
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData}>MessagePage</Layout>
+				<Layout persistSEOData={persistSEOData}>
+					<PersonalMessage />
+				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>
 	)
@@ -24,6 +27,15 @@ const MessagePage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
+
+	if (!initialProps.originIsSignIn) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false,
+			},
+		}
+	}
 
 	return {
 		props: {

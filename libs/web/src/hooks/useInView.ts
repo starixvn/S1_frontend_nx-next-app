@@ -5,9 +5,6 @@ interface Args extends IntersectionObserverInit {
 	freezeOnceVisible?: boolean
 }
 
-/**
- * @description
- */
 const useInView = ({
 	threshold = 0,
 	root = null,
@@ -21,6 +18,7 @@ const useInView = ({
 		rootMargin,
 		freezeOnceVisible,
 	})
+
 	const isInView = !!entry?.isIntersecting
 
 	return { ref, isInView }

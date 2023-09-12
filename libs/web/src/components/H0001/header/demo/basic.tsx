@@ -60,15 +60,20 @@ const Basic = () => {
 		)
 	}
 
-	// * 只有文字的 tabs Link
+	// * 只有文字的 tabs Link 以及可從外部給 active
 	const Tabs3 = () => {
+		const pathname = '/announcement'
 		return (
 			<Header className='header'>
 				{/* 第一層  */}
 				<Header.Tags
 					tags={[
 						{ href: paths.profile.root, label: t('Label_Profile') },
-						{ href: paths.message.root, label: t('Label_Message') },
+						{
+							href: paths.message.root,
+							label: t('Label_Message'),
+							active: Boolean(pathname.match(paths.announcement.root)),
+						},
 					]}
 				/>
 				{/* 第二層  */}

@@ -39,6 +39,9 @@
 	"Label_General_Submit": "प्रस्तुत",
 	"Label_General_RealName": "असली नाम",
 	"Label_General_RemindForName": "पूरा नाम आपके मान्य आईडी नाम से मेल खाना चाहिए, विशेष चिन्हों को भरना मना है",
+	"Label_General_NoData": "अभी कोई जानकारी उपलब्ध नहीं है।",
+	"Label_General_AreYouSureDelete": "क्या आप वाकई इसॆ हटाना चाहते हैं?",
+	"Label_General_CantBeRestore": "इसे हटाए जाने के बाद वापस नहीं किया जा सकता है",
 	"Label_General_Cashier": "केशियर",
 	"Label_General_Statement": "विवरण",
 	"Label_General_MyAccount": "मेरा खाता",
@@ -75,7 +78,6 @@
 	"Label_Join_SignUpTerms2": "नियम और शर्तें",
 	"Label_Join_SignUpTerms3": "",
 	"Label_Join_AffiliateIdWrong": "एफिलिएट आईडी नहीं मिला पा रहा है",
-	"Label_Join_EnterRealName": "कृपया अपना असली नाम दर्ज करें, विशेष प्रतीकों की अनुमति नहीं है",
 
 	"Label_ChangePassword_PasswordReq": "पासवर्ड की आवश्यकता है।",
 	"Label_ChangePassword_ChangePasswordHint": "लॉग इन करते समय पासवर्ड को संशोधित करे और नियमित रूप से पासवर्ड का संशोधन करना आपके खाते की सुरक्षा के लिए फायदेमंद है। ",
@@ -88,5 +90,10 @@
 	"Label_Banner_Game_Title_1": "अपने जीवन को",
 	"Label_Banner_Game_Title_2": "खेल से सजाएं",
 
-	"Label_Profile_ProfileModifyWarning": "खाता सुरक्षा सुनिश्चित करें, व्यक्तिगत जानकारी मे भरने के बाद संशोधन नहीं हो सकता है ।"
+	"Label_Profile_ProfileModifyWarning": "खाता सुरक्षा सुनिश्चित करें, व्यक्तिगत जानकारी मे भरने के बाद संशोधन नहीं हो सकता है ।",
+	"Label_Join_EnterRealName": "कृपया अपना असली नाम दर्ज करें, विशेष प्रतीकों की अनुमति नहीं है",
+
+	"Label_Announcement": "मुनादी करना",
+
+	"Label_Message_PersonalMsg": "व्यक्तिगत संदेश"
 }
