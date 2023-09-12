@@ -6,6 +6,7 @@ import { MetaData, GlobalModal } from '@nx-next-app/components/H0001'
 import { useAffiliateReferralEffect } from '@nx-next-app/hooks'
 import { useGlobalModalEffect } from 'libs/web/src/hooks/useGlobalModalEffect'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { BackTop } from '@nx-next-app/components/D0001'
 import LayoutFooter from './footer'
 import RotationHint from './RotationHint'
 
@@ -31,6 +32,8 @@ const Layout = ({ children, persistSEOData }: ILayoutProps) => {
 
 			{/* 只需放在 Layout 來渲染全域彈窗 */}
 			<GlobalModal {...globalModal} closeModal={closeModal} />
+
+			<BackTop />
 		</>
 	)
 }

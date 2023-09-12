@@ -101,6 +101,8 @@
 	"Label_General_Jackpot": "Jackpot",
 	"Label_General_PlayNow": "Play Now",
 	"Label_General_UnderMaintenance": "Under Maintenance",
+	"Label_General_AreYouSureDelete": "Are you sure you want to delete?",
+	"Label_General_CantBeRestore": "It cannot be restore after deleted",
 	"Label_General_Back": "Back",
 	"Label_General_HotGames": "Hot Games",
 	"Label_General_SportNews": "Sport News",
@@ -280,7 +282,7 @@
 	"Label_LeaderBoard_Month": "Month",
 	"Label_LeaderBoard_Points": "Points",
 
-	"label_Message_ImportantNote": "Important Note",
+	"Label_Profile": "Profile",
 
 	"Label_APP_DOWNLOAD": "APP DOWNLOAD",
 	"Label_APP_DOWNLOAD_Title": "The Most User Friendly APP",
@@ -361,6 +363,14 @@
 	"Label_ChangePassword_NewPassword": "New Password",
 	"Label_ChangePassword_ChangePswUpdateSuccess": "The update is successful!",
 	"Label_ChangePassword_ChangePswSuccessHint": "You can use the new password when you login in next time.",
+
+	"Label_Announcement": "Announcement",
+
+	"Label_Message_PersonalMsg": "Personal Message",
+	"Label_Message": "Message",
+	"Label_Message_SelectAll": "Select All",
+	"label_Message_ImportantNote": "Important Note",
+	"label_Message_CheckConfirm": "Are you sure you want to delete? It cannot restore after deletion!",
 
 	"Label_Currency_2": "MYR",
 	"Label_Currency_3": "USD",

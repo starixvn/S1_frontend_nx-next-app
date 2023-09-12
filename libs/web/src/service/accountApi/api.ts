@@ -10,6 +10,12 @@ import {
 	ITpWalletInfoData,
 	IGetCustSpecificBonusArgs,
 	ICustSpecificBonusData,
+	IGetMsgListArgs,
+	IDelMsgArgs,
+	ISetMsgReadArgs,
+	IGetMsgListResponse,
+	IMsgContentResponse,
+	IGetMsgContentArgs,
 	IReferralSettingData,
 	ISetChangePasswordArgs,
 	IReferralSummaryData,
@@ -32,6 +38,10 @@ export const accountApiUrl = {
 	getCustSpecificBonus: 'Account/GetCustSpecificBonus',
 	changePassword: 'Account/ChangePassword',
 	SetFavoriteGame: 'Account/SetFavoriteGame',
+	getMessageList: 'Account/GetMsgList',
+	delMsg: 'Account/DelMsg',
+	setMsgRead: 'Account/SetMsgReadV2',
+	getMsgContent: 'Account/GetMsgContent',
 	getReferralSetting: 'Account/GetReferralSetting',
 	getReferralCode: 'Account/GetReferralCode',
 	getReferralSummary: 'Account/GetReferralSummaryV2',
@@ -53,12 +63,14 @@ const accountApi = rootApi.injectEndpoints({
 				url: accountApiUrl.getMsgCount,
 				method: 'POST',
 			}),
+			providesTags: ['ACCOUNT_GET_MSG_COUNT'],
 		}),
 		getPopupMsg: builder.query<IAxiosResponse<IPopUpMsgData>, null>({
 			query: () => ({
 				url: accountApiUrl.getPopupMsg,
 				method: 'POST',
 			}),
+			providesTags: ['ACCOUNT_POPUP_MSG'],
 		}),
 		getMainWalletInfo: builder.query<IAxiosResponse<IMainWalletInfoData>, null>(
 			{
@@ -145,6 +157,44 @@ const accountApi = rootApi.injectEndpoints({
 			}),
 			invalidatesTags: ['SLOTS_GAME_DATA'],
 		}),
+		getMsgList: builder.query<IGetMsgListResponse, IGetMsgListArgs>({
+			query: ({ pageNumber, pageSize }) => ({
+				url: accountApiUrl.getMessageList,
+				method: 'POST',
+				data: { pageNumber, pageSize },
+			}),
+			providesTags: ['ACCOUNT_GET_MSG'],
+		}),
+		delMsg: builder.mutation<IAxiosResponse<void>, IDelMsgArgs>({
+			query: list => ({
+				url: accountApiUrl.delMsg,
+				method: 'POST',
+				data: list,
+			}),
+			invalidatesTags: ['ACCOUNT_GET_MSG', 'ACCOUNT_GET_MSG_COUNT'],
+		}),
+		setMsgRead: builder.mutation<IAxiosResponse<null>, ISetMsgReadArgs>({
+			query: list => ({
+				url: accountApiUrl.setMsgRead,
+				method: 'POST',
+				data: list,
+			}),
+			invalidatesTags: ['ACCOUNT_GET_MSG', 'ACCOUNT_GET_MSG_COUNT'],
+		}),
+		// * 這裡為了要觸發 其他三隻 api 所以先用 mutation
+		// * 打這支後端似乎會自動觸發 setMsgRead
+		getMsgContent: builder.mutation<IMsgContentResponse, IGetMsgContentArgs>({
+			query: list => ({
+				url: accountApiUrl.getMsgContent,
+				method: 'POST',
+				data: list,
+			}),
+			invalidatesTags: [
+				'ACCOUNT_POPUP_MSG',
+				'ACCOUNT_GET_MSG_COUNT',
+				'ACCOUNT_GET_MSG',
+			],
+		}),
 		getReferralSetting: builder.query<
 			IAxiosResponse<IReferralSettingData[]>,
 			null
@@ -210,6 +260,10 @@ export const {
 	useSetHideBalanceMutation,
 	useLazyGetCustSpecificBonusQuery,
 	useSetFavoriteGameMutation,
+	useGetMsgListQuery,
+	useDelMsgMutation,
+	useSetMsgReadMutation,
+	useGetMsgContentMutation,
 	useGetReferralCodeQuery,
 	useGetReferralSettingQuery,
 	useSetChangePasswordMutation,
