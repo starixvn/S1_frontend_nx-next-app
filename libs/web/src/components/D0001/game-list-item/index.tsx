@@ -1,6 +1,7 @@
 import { useTranslation } from 'next-i18next'
 import { useRef } from 'react'
 import { useHover } from 'usehooks-ts'
+import head from 'lodash/head'
 
 interface IListItemProps {
 	alt: string
@@ -11,7 +12,9 @@ interface IListItemProps {
 	onItemClick: () => void
 	style: React.CSSProperties
 	gameTextClassName: string
-	eventIcons?: object
+	eventIcons?: {
+		icon: string
+	}[]
 }
 
 const GameListItem = ({
@@ -35,7 +38,10 @@ const GameListItem = ({
 			style={style}
 			onClick={onItemClick}
 		>
-			{eventIcons && <div className='icon icon-new' />}
+			{/* 舊專案只會顯示一個 new Icon , 先這樣寫未來有需要再擴充 */}
+			{eventIcons && head(eventIcons)?.icon && (
+				<div className={head(eventIcons)?.icon} />
+			)}
 			<img src={isHover ? hoverImgSrc : imgSrc} alt={alt} />
 			<div className='under'>{t('Label_General_UnderMaintenance')}</div>
 			<h2 className={gameTextClassName}>{displayName}</h2>
