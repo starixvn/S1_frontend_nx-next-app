@@ -21,30 +21,16 @@ const BankSlipModal = ({
 }: {
 	bankSlipInfo: {
 		bankInfo: {
-			sysId: number
-			currencyId: number
-			bankCode: string
 			bankName: string
-			bankLogo: string
 			bankSite: string
-			status: number
 		}
 		depositRep: {
-			ver: number
-			sysId: number
 			accountName: string
 			accountNo: string
-			ifscCode: string
-			currencyId: number
-			isLocalPay: boolean
-			groupId: number
-			code: null
 		}
 		amount: number
 		transId: string
 		depositReceipt: {
-			depositId: number
-			picFileName: string
 			receiptNo: number
 			depositPic: null
 		}[]
