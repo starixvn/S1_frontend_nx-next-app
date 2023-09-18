@@ -74,3 +74,10 @@ export interface ISetCustBankInfoArgs {
 	sysId: number
 	ifscCode?: string | null
 }
+
+export interface ISetCustCryptoWalletArgs {
+	address: string
+	currencyId: number
+	network: string
+	nickName?: string
+}

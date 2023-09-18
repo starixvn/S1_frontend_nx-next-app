@@ -1,7 +1,5 @@
 import { useTranslation } from 'next-i18next'
 import { ReactNode, createContext, useContext, useState } from 'react'
-import { DeviceTypeEnum } from '@nx-next-app/types'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	IBankInfoDetail,
 	IBankInfoSysData,
@@ -10,11 +8,13 @@ import {
 	useGetBankInfoSysListQuery,
 	useSetCustBankInfoMutation,
 } from '@nx-next-app/service'
+import { DeviceTypeEnum } from '@nx-next-app/types'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 
 type ISelBank = {
+	sysId: number
 	bankLogo: string
 	bankName: string
-	sysId: number
 }
 
 interface IBankInfoContext {
@@ -82,10 +82,10 @@ export const BankInfoProvider = ({ children }: IBankInfoProviderProps) => {
 	}) => {
 		try {
 			await setCustBankInfo({
-				sysId: sysId ?? (selBank?.sysId as number),
-				accountNo,
-				accountName: custBankInfo?.accountName as string,
 				ifscCode,
+				accountNo,
+				sysId: sysId ?? (selBank?.sysId as number),
+				accountName: custBankInfo?.accountName as string,
 			})
 
 			Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DeviceTypeEnum.Desktop

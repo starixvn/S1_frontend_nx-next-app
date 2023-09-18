@@ -2,11 +2,11 @@ import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { CurrenciesEnum } from '@nx-next-app/types'
+import { Header } from '@nx-next-app/components/H0001'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useBankInfo } from '@nx-next-app/features/F0001/providers'
-import { Header } from '@nx-next-app/components/H0001'
-import { ShowCards } from './ShowCards'
 import { AddCard } from './AddCard'
+import { CardList } from './CardList'
 
 const BankInfo = () => {
 	const { t } = useTranslation()
@@ -25,7 +25,15 @@ const BankInfo = () => {
 				<Header.Tags
 					tags={[
 						{ href: paths.wallet.root, label: t('Label_General_MyWallet') },
-						{ href: paths.bankInfo.root, label: t('Label_General_BankInfo') },
+						{
+							href: paths.bankInfo.root,
+							label: t('Label_General_BankInfo'),
+							subPaths: [
+								paths.bankInfo.root,
+								paths.eWallet.root,
+								paths.cryptoWallet.root,
+							],
+						},
 					]}
 				/>
 				<Header.Tags
@@ -48,8 +56,7 @@ const BankInfo = () => {
 				/>
 			</Header>
 			<main className='main Wallet'>
-				<div>{t('Label_General_BankInfo')}</div>
-				{isShowCards ? <ShowCards /> : <AddCard />}
+				{isShowCards ? <CardList /> : <AddCard />}
 			</main>
 		</>
 	)

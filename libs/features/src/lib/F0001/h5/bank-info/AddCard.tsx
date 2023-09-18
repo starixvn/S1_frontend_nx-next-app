@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import Image from 'next/future/image'
@@ -48,6 +49,10 @@ const AddCard = () => {
 		handleSetCustBankInfo({ sysId, accountNo, ifscCode })
 	}
 
+	useEffect(() => {
+		setValue('sysId', bankSysOptions[0].value)
+	}, [])
+
 	return (
 		<Form onSubmit={handleSubmit(handleSubmitForm)}>
 			<Select
@@ -56,6 +61,7 @@ const AddCard = () => {
 				placeholder={t('Label_BankInfo_SelectBank') as string}
 				onChange={sysId => setValue('sysId', sysId)}
 				errorMessage={errors['sysId']?.message as string}
+				defaultValue={bankSysOptions[0].value}
 			/>
 			<InputBox
 				register={register('accountNo', {

@@ -200,7 +200,7 @@ export interface IBankInfoDetail {
 	ifscCode: string | null
 }
 
-interface IUSDTDetail {
+export interface IUSDTDetail {
 	nickName: string
 	usdtAddress: string
 	network: string
@@ -209,9 +209,17 @@ interface IUSDTDetail {
 	disabled: boolean
 }
 
-export interface IGetCustBankInfoData {
+export interface ICustBankInfoData {
 	accountName: string
 	defAccountNo: string
 	bankInfoDetail: IBankInfoDetail[]
 	uSDTDetail: IUSDTDetail[]
+}
+
+export interface ICustEWalletInfoData {
+	eWalletName: string
+	eWalletLogo: string
+	eWalletSite: string | null
+	sysId: number
+	accountNo: string
 }

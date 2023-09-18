@@ -28,3 +28,4 @@ export { default as JackPot } from './jackpot/index'
 export { default as Loading } from './loading'
 
 export * from './image'
+export * from './countdown-timer'

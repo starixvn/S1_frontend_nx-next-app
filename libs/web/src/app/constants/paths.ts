@@ -125,4 +125,7 @@ export const paths = {
 	luckyWheel: {
 		root: 'luckyWheel',
 	},
+	eWallet: {
+		root: 'eWallet',
+	},
 }

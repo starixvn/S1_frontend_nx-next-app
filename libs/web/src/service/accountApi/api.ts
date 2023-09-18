@@ -22,7 +22,8 @@ import {
 	IReferralSettingDetailData,
 	IGetReferralArgs,
 	IReferralData,
-	IGetCustBankInfoData,
+	ICustBankInfoData,
+	ICustEWalletInfoData,
 } from './type'
 
 export const accountApiUrl = {
@@ -48,6 +49,7 @@ export const accountApiUrl = {
 	getReferralSettingDetail: 'Account/GetReferralSettingDetail',
 	getReferral: 'Account/GetRefFriendList',
 	getCustBankInfo: 'Account/GetCustBankInfo',
+	getCustEWalletInfo: 'Account/GetCustEWalletInfo',
 }
 
 const accountApi = rootApi.injectEndpoints({
@@ -110,7 +112,6 @@ const accountApi = rootApi.injectEndpoints({
 				data: { tpId },
 			}),
 		}),
-
 		setLanguage: builder.mutation<IAxiosResponse<void>, ISetLangArgs>({
 			query: data => ({
 				url: accountApiUrl.setLang,
@@ -238,12 +239,22 @@ const accountApi = rootApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
-		getCustBankInfo: builder.query<IAxiosResponse<IGetCustBankInfoData>, void>({
+		getCustBankInfo: builder.query<IAxiosResponse<ICustBankInfoData>, void>({
 			query: () => ({
 				url: accountApiUrl.getCustBankInfo,
 				method: 'POST',
 			}),
 			providesTags: ['ACCOUNT_GET_USER_BANK_INFO'],
+		}),
+		getCustEWalletInfo: builder.query<
+			IAxiosResponse<ICustEWalletInfoData[]>,
+			void
+		>({
+			query: () => ({
+				url: accountApiUrl.getCustEWalletInfo,
+				method: 'POST',
+			}),
+			providesTags: ['ACCOUNT_GET_USER_EWALLET_INFO'],
 		}),
 	}),
 })
@@ -271,4 +282,5 @@ export const {
 	useLazyGetReferralSettingDetailQuery,
 	useLazyGetReferralQuery,
 	useGetCustBankInfoQuery,
+	useGetCustEWalletInfoQuery,
 } = accountApi

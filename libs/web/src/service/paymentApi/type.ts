@@ -73,8 +73,7 @@ export interface IWithdrawalInfoHistoryData {
 	}[]
 }
 
-export interface IGetWithdrawalInfoHistoryArgs
-	extends IGetDepositInfoHistoryArgs {}
+export type IGetWithdrawalInfoHistoryArgs = IGetDepositInfoHistoryArgs
 
 export interface IStatementData {
 	type: string
@@ -89,9 +88,35 @@ export interface IStatementData {
 	custTimeZone: string
 }
 
-export interface IGetStatementArgs extends IGetDepositInfoHistoryArgs {}
+export type IGetStatementArgs = IGetDepositInfoHistoryArgs
 
 export interface IUploadReceiptArgs {
 	receipt: string
 	transId: string
+}
+
+export interface ICryptoCurrency {
+	currencyId: number
+	currencyName: string
+}
+
+export interface ICryptoNetwork {
+	currencyId: number
+	network: string
+}
+
+export interface ISupportCryptoInfo {
+	cryptoCurrency: ICryptoCurrency[]
+	cryptoNetwork: ICryptoNetwork[]
+}
+
+export interface IEWalletInfoSysData {
+	currencyId: number
+	eWalletCode: string
+	eWalletLogo: string
+	eWalletName: string
+	eWalletSite: string | null
+	sort: number
+	status: number
+	sysId: number
 }
