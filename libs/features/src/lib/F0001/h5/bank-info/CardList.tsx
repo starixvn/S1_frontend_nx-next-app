@@ -5,7 +5,7 @@ import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { CurrenciesEnum, DeviceTypeEnum } from '@nx-next-app/types'
 import { useBankInfo } from '@nx-next-app/features/F0001/providers'
 
-const ShowCards = () => {
+const CardList = () => {
 	const { t } = useTranslation()
 
 	const { ALLOWED_CURRENCIES, VIP_CLUB_IMAGES } = useStaticData()
@@ -91,4 +91,4 @@ const ShowCards = () => {
 	)
 }
 
-export { ShowCards }
+export { CardList }

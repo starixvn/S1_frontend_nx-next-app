@@ -181,6 +181,9 @@
 	"Label_General_LatestAwards": "Latest Awards",
 	"Label_General_MyWallet": "My Wallet",
 	"Label_General_EWallet": "E-Wallet",
+	"Label_General_AccountName": "Account Name",
+	"Label_General_BankAccountHint": "Account Name must match with Bank Account Holder",
+	"Label_General_UpdatePersonalDetail": "Update Personal Details",
 
 	"Label_Product_Dota2": "Dota2",
 	"Label_Product_LOL": "LOL",
@@ -675,5 +678,16 @@
 	"Label_Wallet_BonusWallet_3": "Fishing Wallet",
 	"Label_Wallet_BonusWallet_6": "Sports Wallet",
 	"Label_Wallet_BonusWallet_9": "SBSW Wallet",
-	"Label_Wallet_BonusWallet_11": "E-Sports Wallet"
+	"Label_Wallet_BonusWallet_11": "E-Sports Wallet",
+
+	"Label_CryptoWallet_UpdateCryptoWallet": "Please update your crypto wallet details before making withdrawal.",
+	"Label_CryptoWallet_CryptoWalletSubmitNote": "Please note: Once the crypto wallet is submitted, it cannot be modified/ deleted.",
+	"Label_CryptoWallet_NumberOfWallet": "Number of wallet",
+	"Label_CryptoWallet_AddCryptoWallet": "Add Crypto Wallet",
+	"Label_CryptoWallet_CryptoWalletNickName": "Wallet Nickname",
+	"Label_CryptoWallet_CryptoWalletAddress": "Wallet Address",
+	"Label_CryptoWallet_PleaseEnterWalletAddress": "Please Enter Your Crypto Wallet Address",
+	"Label_CryptoWallet_CryptoOTP": "Phone number (OTP) verification are required before using Crypto service.",
+
+	"Label_EWallet_AddEWallet": "Add E-Wallet"
 }

@@ -22,5 +22,6 @@ export { default as Join } from './join'
 export { default as LeftMenu } from './leftMenu'
 export { default as BankInfo } from './bank-info'
 export { default as Profile } from './profile'
+export { default as CryptoWallet } from './crypto-wallet'
 
 export * as ThirdPartyJS from './thirdPartyJS'

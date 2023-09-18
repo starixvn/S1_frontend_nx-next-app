@@ -1,0 +1,45 @@
+import classNames from 'classnames'
+import { useState } from 'react'
+import { useTranslation } from 'next-i18next'
+import { useAuth } from '@nx-next-app/data-access'
+import { AddWallet } from './AddWallet'
+import { WalletList } from './WalletList'
+
+const CryptoWallet = () => {
+	const { t } = useTranslation()
+
+	const {
+		userInfo: { accountName },
+	} = useAuth()
+
+	const [tip, setTip] = useState<boolean>(false)
+
+	return (
+		<div className='rightModule'>
+			<div className='infoModule'>
+				<div className='inside-title'>
+					<span className='icon icon icon-USDT'>
+						{t('Label_General_CryptoWallet')}
+					</span>
+					<div>{t('Label_CryptoWallet_UpdateCryptoWallet')}</div>
+				</div>
+				{accountName && (
+					<div className='accountName'>
+						{t('Label_General_AccountName')}
+						<span>{accountName}</span>
+						<button
+							className='icon icon-error'
+							onClick={() => setTip(prev => !prev)}
+						/>
+						<div className={classNames('tip', { active: tip })}>
+							{t('Label_General_BankAccountHint')}
+						</div>
+					</div>
+				)}
+				<AddWallet />
+				<WalletList />
+			</div>
+		</div>
+	)
+}
+export default CryptoWallet

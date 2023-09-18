@@ -34,3 +34,4 @@ export { default as GameListItem } from './game-list-item/index'
 
 export * from './image'
 export * from './spin'
+export * from './countdown-timer'

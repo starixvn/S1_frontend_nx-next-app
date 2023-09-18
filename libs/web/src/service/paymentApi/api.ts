@@ -9,6 +9,8 @@ import {
 	IStatementData,
 	IUploadReceiptArgs,
 	IWithdrawalInfoHistoryData,
+	ISupportCryptoInfo,
+	IEWalletInfoSysData,
 } from './type'
 
 export const paymentApiUrl = {
@@ -19,6 +21,8 @@ export const paymentApiUrl = {
 	setDepositCancel: 'Payment/SetDepositCancel',
 	setWithdrawalCancel: 'Payment/SetWithdrawalCancel',
 	getBankInfoSysList: 'Payment/GetBankInfoSysList',
+	getSupportCryptoInfo: 'Payment/GetSupportCryptoInfo',
+	getEWalletInfoSysList: 'Payment/GetEWalletInfoSysList',
 }
 
 export const paymentApi = rootApi.injectEndpoints({
@@ -94,6 +98,26 @@ export const paymentApi = rootApi.injectEndpoints({
 				}),
 			}
 		),
+		getSupportCryptoInfo: builder.query<
+			IAxiosResponse<ISupportCryptoInfo>,
+			void
+		>({
+			query: () => ({
+				url: paymentApiUrl.getSupportCryptoInfo,
+				method: 'POST',
+			}),
+			providesTags: ['ACCOUNT_GET_USER_CRYPTO_WALLET_INFO'],
+		}),
+		getEWalletInfoSysList: builder.query<
+			IAxiosResponse<IEWalletInfoSysData[]>,
+			void
+		>({
+			query: () => ({
+				url: paymentApiUrl.getEWalletInfoSysList,
+				method: 'POST',
+			}),
+			providesTags: ['ACCOUNT_GET_USER_EWALLET_INFO'],
+		}),
 	}),
 })
 
@@ -105,4 +129,6 @@ export const {
 	useUploadReceiptMutation,
 	useSetDepositCancelMutation,
 	useSetWithdrawalCancelMutation,
+	useGetSupportCryptoInfoQuery,
+	useGetEWalletInfoSysListQuery,
 } = paymentApi

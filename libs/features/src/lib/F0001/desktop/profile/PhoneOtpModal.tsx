@@ -1,19 +1,12 @@
-import dayjs from 'dayjs'
 import classNames from 'classnames'
 import { useForm } from 'react-hook-form'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
-import {
-	useVerifyOTPMutation,
-	useSendOTPSMSMutation,
-} from '@nx-next-app/service'
+import { usePhoneOtp } from '@nx-next-app/hooks'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import {
-	OtpErrorCodeEnum,
-	PrevPageEnum,
-	PREV_PAGE,
-} from '@nx-next-app/constants'
+import { PREV_PAGE, PrevPageEnum } from '@nx-next-app/constants'
+import { CountdownTimer } from '@nx-next-app/components/D0001'
 
 const PhoneOtpModal = () => {
 	const { t } = useTranslation()
@@ -26,65 +19,37 @@ const PhoneOtpModal = () => {
 		useForm()
 	const { errors } = formState
 
-	const [timer, setTimer] = useState<boolean>(false)
-
-	const [sendOtpSMS, { data: { data: { startUnixTime = 0 } = {} } = {} }] =
-		useSendOTPSMSMutation()
-
-	const [verifyOtp] = useVerifyOTPMutation()
+	const { timer, startUnixTime, setTimer, handleSendOtpSMS, handleVerifyOtp } =
+		usePhoneOtp()
 
 	const handleSubmitForm = async () => {
 		const otpCode = getValues('otpCode')
-		try {
-			await verifyOtp({ otpCode }).unwrap()
 
-			if (prevPage) {
-				const { path, contentKey, submitKey } =
-					PREV_PAGE[prevPage as PrevPageEnum]
+		const errorMsg = await handleVerifyOtp({
+			otpCode,
+			callbackFn: () => {
+				if (prevPage) {
+					const { path, contentKey, submitKey } =
+						PREV_PAGE[prevPage as PrevPageEnum]
 
-				modal.confirm(t(contentKey), {
-					icon: 'icon icon-icon32px_notification',
-					title: t('Label_General_ImportantNotes'),
-					okText: t(submitKey),
-					cancelText: t('Label_Profile_Later'),
-					onOK: () => push(path),
-				})
-			} else {
-				closeModal()
-			}
-		} catch (error) {
-			const { errorCode, message } =
-				(error as {
-					errorCode: number
-					message: string
-					status: number
-				}) || {}
+					modal.confirm(t(contentKey), {
+						icon: 'icon icon-icon32px_notification',
+						title: t('Label_General_ImportantNotes'),
+						okText: t(submitKey),
+						cancelText: t('Label_Profile_Later'),
+						onOK: () => push(path),
+					})
+				} else {
+					closeModal()
+				}
+			},
+		})
 
-			let errorMsg = message
-			if (errorCode === OtpErrorCodeEnum.WrongPhoneNumber) {
-				errorMsg = t('Label_Profile_APISendOTPSMS_5002')
-			} else {
-				errorMsg = t('Label_Profile_OTPInvalid')
-			}
-
-			setError('otpCode', {
-				type: 'manual',
-				message: errorMsg,
-			})
-		}
-	}
-
-	const sendOTPCode = async () => {
-		try {
-			await sendOtpSMS().unwrap()
-			setTimer(true)
-		} catch (error) {
-			modal.error((error as Error).message)
-		}
+		if (errorMsg) setError('otpCode', { type: 'manual', message: errorMsg })
 	}
 
 	useEffect(() => {
-		sendOTPCode()
+		handleSendOtpSMS()
 	}, [])
 
 	return (
@@ -148,7 +113,7 @@ const PhoneOtpModal = () => {
 										maxHeight: '36px',
 									}}
 									className='blue'
-									onClick={sendOTPCode}
+									onClick={handleSendOtpSMS}
 								>
 									{t('Label_Profile_Retransmit')}
 								</button>
@@ -159,44 +124,6 @@ const PhoneOtpModal = () => {
 			</div>
 		</div>
 	)
-}
-
-const CountdownTimer = ({
-	timer,
-	startUnixTime,
-	setTimer,
-}: {
-	timer: boolean
-	startUnixTime?: number
-	setTimer: (state: boolean) => void
-}) => {
-	let initTime = 0
-	if (startUnixTime) {
-		initTime = startUnixTime + 300 - dayjs().unix()
-	}
-
-	const [remainingTime, setRemainingTime] = useState<number>(initTime)
-
-	if (remainingTime <= 0) {
-		setTimer(false)
-	}
-
-	useEffect(() => {
-		const interval = setInterval(() => {
-			if (timer && remainingTime > 0) {
-				setRemainingTime(prevTime => prevTime - 1)
-			}
-		}, 1000)
-
-		return () => {
-			clearInterval(interval)
-			setTimer(false)
-		}
-	}, [startUnixTime, timer])
-
-	const formatTime = dayjs.unix(remainingTime).format('mm:ss')
-
-	return <div className='txt-blue2'>( {formatTime} )</div>
 }
 
 export { PhoneOtpModal }

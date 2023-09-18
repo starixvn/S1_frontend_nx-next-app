@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/heading-has-content */
 import dayjs from 'dayjs'
 import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
