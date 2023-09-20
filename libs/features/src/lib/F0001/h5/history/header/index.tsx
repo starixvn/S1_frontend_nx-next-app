@@ -1,15 +1,40 @@
-import React from 'react'
 import HistoryFilter from '@nx-next-app/features/F0001/h5/history/header/HistoryFilter'
-import HistoryTags from '@nx-next-app/features/F0001/h5/history/header/HistoryTags'
-import HistoryTabs from '@nx-next-app/features/F0001/h5/history/header/HistoryTabs'
+import { Header } from '@nx-next-app/components/H0001'
+import { useHistory } from '@nx-next-app/features/F0001/providers'
+import { useTranslation } from 'next-i18next'
+import { QuickPickEnum } from 'libs/web/src/app/types/history'
 
 const HistoryHeader = () => {
+	const { t } = useTranslation()
+	const {
+		HEADER_TAGS = [],
+		QUICK_PICK_LIST,
+		tabsRef,
+		onQuickPickChange,
+		onTabsScroll,
+	} = useHistory()
+
+	const tags = HEADER_TAGS.map(item => ({
+		href: item.href,
+		label: t(item.label),
+	}))
+
+	const quickSelect = QUICK_PICK_LIST.map(item => ({
+		key: item.value,
+		label: t(item.label),
+	}))
+
 	return (
-		<header className='header'>
-			<HistoryTags />
-			<HistoryTabs />
+		<Header className='header'>
+			<Header.Tags tags={tags} />
+			<Header.Tag
+				quickSelect={quickSelect}
+				onQuickSelectChange={key => onQuickPickChange(key as QuickPickEnum)}
+				onTabsScroll={onTabsScroll}
+				ref={tabsRef}
+			/>
 			<HistoryFilter />
-		</header>
+		</Header>
 	)
 }
 

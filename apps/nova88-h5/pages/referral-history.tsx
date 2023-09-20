@@ -22,11 +22,11 @@ const ReferralHistoryPage = ({
 	originCookies,
 	persistSEOData,
 }: IReferralHistoryPageProps) => {
-	const HEADER_TAGS: { displayKey: string; pathName: string }[] = [
-		{ displayKey: 'Label_General_ReferFriends', pathName: paths.referral.root },
+	const HEADER_TAGS: { label: string; href: string }[] = [
+		{ label: 'Label_General_ReferFriends', href: paths.referral.root },
 		{
-			displayKey: 'Label_General_ReferralHistory',
-			pathName: paths.referralHistory.root,
+			label: 'Label_General_ReferralHistory',
+			href: paths.referralHistory.root,
 		},
 	]
 

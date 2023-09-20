@@ -22,14 +22,11 @@ const TransferHistoryPage = ({
 	originCookies,
 	persistSEOData,
 }: ITransferHistoryPageProps) => {
-	const HEADER_TAGS: { displayKey: string; pathName: string }[] = [
+	const HEADER_TAGS: { label: string; href: string }[] = [
+		{ label: 'Label_General_Transfer', href: paths.transferFunds.root },
 		{
-			displayKey: 'Label_General_Transfer',
-			pathName: paths.transferFunds.root,
-		},
-		{
-			displayKey: 'Label_General_TransferHistory',
-			pathName: paths.transferHistory.root,
+			label: 'Label_General_TransferHistory',
+			href: paths.transferHistory.root,
 		},
 	]
 

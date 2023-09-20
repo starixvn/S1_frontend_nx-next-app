@@ -22,11 +22,11 @@ const WithdrawalHistoryPage = ({
 	originCookies,
 	persistSEOData,
 }: IDepositHistoryPageProps) => {
-	const HEADER_TAGS: { displayKey: string; pathName: string }[] = [
-		{ displayKey: 'Label_General_Withdrawal', pathName: paths.withdrawal.root },
+	const HEADER_TAGS: { label: string; href: string }[] = [
+		{ label: 'Label_General_Withdrawal', href: paths.withdrawal.root },
 		{
-			displayKey: 'Label_General_WithdrawalHistory',
-			pathName: paths.withdrawalHistory.root,
+			label: 'Label_General_WithdrawalHistory',
+			href: paths.withdrawalHistory.root,
 		},
 	]
 

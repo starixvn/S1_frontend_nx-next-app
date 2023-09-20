@@ -36,12 +36,11 @@ interface IHistoryProviderProps {
 		allowCurrencies?: number[]
 	}[]
 	QUICK_PICK_LIST: { value: QuickPickEnum; label: string }[]
-	HEADER_TAGS?: { displayKey: string; pathName: string }[]
+	HEADER_TAGS?: { label: string; href: string }[]
 }
 
 export interface IHistoryContextInterface {
 	activeTab: number
-	activePeriod: number | string | undefined
 	startDate: Date | null
 	endDate: Date | null
 	displayColumns:
@@ -60,7 +59,7 @@ export interface IHistoryContextInterface {
 		allowCurrencies?: number[]
 	}[]
 	QUICK_PICK_LIST: { value: QuickPickEnum; label: string }[]
-	HEADER_TAGS?: { displayKey: string; pathName: string }[]
+	HEADER_TAGS?: { label: string; href: string }[]
 	historyListRef?: React.MutableRefObject<null>
 	tabsRef?: React.MutableRefObject<null | HTMLDivElement>
 	isLoading: boolean
@@ -119,9 +118,7 @@ const HistoryProvider = ({
 		}
 	}
 	const [activeTab, setActiveTab] = useState(getInitActiveTab())
-	const [activePeriod, setActivePeriod] = useState<number | string | undefined>(
-		QuickPickEnum.Today
-	)
+
 	const [startDate, setStartDate] = useState<Date | null>(
 		new Date(new Date().setHours(0, 0, 0, 0))
 	)
@@ -223,82 +220,17 @@ const HistoryProvider = ({
 		}
 	}
 
-	const updatePeriodByDateRange = ({
-		targetStartDate = startDate,
-		targetEndDate = endDate,
-	}) => {
-		const dayjsStartDate = dayjs(targetStartDate)
-		const dayjsEndDate = dayjs(targetEndDate)
-
-		const today = dayjs()
-		const todayStart = today.startOf('day')
-		const todayEnd = today.endOf('day')
-		const yesterdayStart = today.subtract(1, 'day').startOf('day')
-		const yesterdayEnd = today.subtract(1, 'day').endOf('day')
-		const thisWeekStart = today.startOf('week')
-		const thisWeekEnd = today.endOf('day')
-		const lastWeekStart = today.subtract(1, 'week').startOf('week')
-		const lastWeekEnd = today.subtract(1, 'week').endOf('week')
-		const thisMonthStart = today.startOf('month')
-		const thisMonthEnd = today.endOf('day')
-		const lastMonthStart = today.subtract(1, 'month').startOf('month')
-		const lastMonthEnd = today.subtract(1, 'month').endOf('month')
-
-		const periods = [
-			{ start: todayStart, end: todayEnd, period: QuickPickEnum.Today },
-			{
-				start: yesterdayStart,
-				end: yesterdayEnd,
-				period: QuickPickEnum.Yesterday,
-			},
-			{
-				start: thisWeekStart,
-				end: thisWeekEnd,
-				period: QuickPickEnum.ThisWeek,
-			},
-			{
-				start: lastWeekStart,
-				end: lastWeekEnd,
-				period: QuickPickEnum.LastWeek,
-			},
-			{
-				start: thisMonthStart,
-				end: thisMonthEnd,
-				period: QuickPickEnum.ThisMonth,
-			},
-			{
-				start: lastMonthStart,
-				end: lastMonthEnd,
-				period: QuickPickEnum.LastMonth,
-			},
-		]
-
-		const matchedPeriod = periods.find(
-			({ start, end, period }) =>
-				dayjsStartDate.isSame(start, 'day') && dayjsEndDate.isSame(end, 'day')
-		)
-
-		if (matchedPeriod) {
-			setActivePeriod(matchedPeriod.period)
-		} else {
-			setActivePeriod(undefined)
-		}
-	}
-
 	const onQuickPickChange = (newPeriod: string | number | undefined) => {
-		setActivePeriod(newPeriod)
 		updateDateRangeByPeriod(newPeriod)
 	}
 
 	const onStartDateChange = (newStartDate: Date | null) => {
 		setStartDate(newStartDate)
-		updatePeriodByDateRange({ targetStartDate: newStartDate })
 	}
 
 	const onEndDateChange = (newEndDate: Date | null) => {
 		const endDate = dayjs(newEndDate).endOf('day').toDate()
 		setEndDate(endDate)
-		updatePeriodByDateRange({ targetEndDate: endDate })
 	}
 
 	const onPageChange = async ({ selected }: { selected: number }) => {
@@ -480,7 +412,6 @@ const HistoryProvider = ({
 
 	const value: IHistoryContextInterface = {
 		activeTab,
-		activePeriod,
 		startDate,
 		endDate,
 		displayColumns,
