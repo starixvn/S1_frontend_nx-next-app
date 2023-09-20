@@ -14,9 +14,6 @@ export const paths = {
 	deposit: {
 		root: 'deposit',
 	},
-	transfer: {
-		root: 'transfer',
-	},
 	history: {
 		root: 'history',
 	},

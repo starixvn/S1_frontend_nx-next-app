@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { useForm, FormProvider } from 'react-hook-form'
 import { useRouter } from 'next/router'
-import { Spin } from '@nx-next-app/components/D0001'
+import { Loading } from '@nx-next-app/components/D0001'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useSetProfileMutation } from '@nx-next-app/service'
@@ -99,7 +99,7 @@ const Profile = () => {
 	const showSubmitBtn = !accountName || !phoneNo || !birthDay
 
 	// * 等待 response 回來才渲染元件，確保不會發生 react-hydration-error
-	if (!accountName) return <Spin />
+	if (!accountName) return <Loading />
 
 	return (
 		<div className='rightModule'>

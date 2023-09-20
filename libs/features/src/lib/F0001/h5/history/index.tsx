@@ -18,7 +18,6 @@ import DepositItem from '@nx-next-app/features/F0001/h5/history/historyItems/Dep
 import WithdrawalItem from '@nx-next-app/features/F0001/h5/history/historyItems/WithdrawalItem'
 import FinancialItem from '@nx-next-app/features/F0001/h5/history/historyItems/FinancialItem'
 import ReferralItem from '@nx-next-app/features/F0001/h5/history/historyItems/ReferralItem'
-import HistoryItems from './historyItems'
 
 const History = () => {
 	const {
@@ -38,8 +37,8 @@ const History = () => {
 					{isShowMobileLoading && <Loading />}
 					{displayColumns.length > 0 && (
 						<div className='infoList'>
-							{displayColumns.map((item, index) => (
-								<HistoryItems key={uniqueId()} {...item}>
+							{displayColumns.map(item => (
+								<React.Fragment key={uniqueId()}>
 									{activeTab === HistoryTabsEnum.Transfer && (
 										<TransferItem {...(item as ITransferHistoryData)} />
 									)}
@@ -55,7 +54,7 @@ const History = () => {
 									{activeTab === HistoryTabsEnum.Referral && (
 										<ReferralItem {...(item as IReferralData)} />
 									)}
-								</HistoryItems>
+								</React.Fragment>
 							))}
 							<span ref={historyListRef} />
 							{displayColumns.length > 2 ? <BackTop /> : null}

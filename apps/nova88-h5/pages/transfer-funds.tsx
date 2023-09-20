@@ -6,7 +6,8 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout } from '@nx-next-app/features/F0001/h5'
+import { Layout, TransferFunds } from '@nx-next-app/features/F0001/h5'
+import { TransferFundsProvider } from '@nx-next-app/features/F0001/providers'
 
 const TransferPage = ({
 	originIsSignIn,
@@ -16,7 +17,11 @@ const TransferPage = ({
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData}>TransferPage</Layout>
+				<TransferFundsProvider>
+					<Layout persistSEOData={persistSEOData}>
+						<TransferFunds />
+					</Layout>
+				</TransferFundsProvider>
 			</GlobalDataProvider>
 		</AuthProvider>
 	)

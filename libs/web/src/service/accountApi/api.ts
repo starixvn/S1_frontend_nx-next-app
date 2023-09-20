@@ -1,5 +1,6 @@
 import { rootApi } from '../rootApi/api'
 import { IAxiosResponse } from '../axiosBaseQuery'
+
 import {
 	IPopUpMsgData,
 	IMainWalletInfoData,
@@ -50,6 +51,8 @@ export const accountApiUrl = {
 	getReferral: 'Account/GetRefFriendList',
 	getCustBankInfo: 'Account/GetCustBankInfo',
 	getCustEWalletInfo: 'Account/GetCustEWalletInfo',
+	getWalletTransferStatus: 'Account/GetWalletTransferStatus',
+	setWalletTransferStatus: 'Account/SetWalletTransferStatus',
 }
 
 const accountApi = rootApi.injectEndpoints({
@@ -256,6 +259,27 @@ const accountApi = rootApi.injectEndpoints({
 			}),
 			providesTags: ['ACCOUNT_GET_USER_EWALLET_INFO'],
 		}),
+		getWalletTransferStatus: builder.query<
+			IAxiosResponse<{ data: number }>,
+			void
+		>({
+			query: () => ({
+				url: accountApiUrl.getWalletTransferStatus,
+				method: 'POST',
+			}),
+			providesTags: ['ACCOUNT_GET_AUTO_TRANSFER_INFO'],
+		}),
+		setWalletTransferStatus: builder.mutation<
+			IAxiosResponse<void>,
+			{ autoTransfer: number }
+		>({
+			query: data => ({
+				url: accountApiUrl.setWalletTransferStatus,
+				method: 'POST',
+				data,
+			}),
+			invalidatesTags: ['ACCOUNT_GET_AUTO_TRANSFER_INFO'],
+		}),
 	}),
 })
 
@@ -263,6 +287,7 @@ export const {
 	useGetPopupMsgQuery,
 	useGetMsgCountQuery,
 	useGetMainWalletInfoQuery,
+	useLazyGetMainWalletInfoQuery,
 	useGetCustBonusWalletListQuery,
 	useLazyOnlineCheckQuery,
 	useLazyGetTpWalletInfoByTpIdQuery,
@@ -283,4 +308,6 @@ export const {
 	useLazyGetReferralQuery,
 	useGetCustBankInfoQuery,
 	useGetCustEWalletInfoQuery,
+	useGetWalletTransferStatusQuery,
+	useSetWalletTransferStatusMutation,
 } = accountApi
