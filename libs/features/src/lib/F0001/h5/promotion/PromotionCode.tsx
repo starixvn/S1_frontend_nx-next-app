@@ -11,7 +11,8 @@ const PromotionCode = () => {
 
 	return (
 		<Form
-			onSubmit={promotionForm.handleSubmit(({ specialCode }) => {
+			onSubmit={promotionForm.handleSubmit(() => {
+				const { specialCode } = promotionForm.getValues()
 				onSetSpecialCode({
 					specialCode,
 					messageCallBack(message) {
