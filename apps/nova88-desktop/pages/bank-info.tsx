@@ -1,8 +1,9 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
-import { AuthProvider } from '@nx-next-app/data-access'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, LeftMenu } from '@nx-next-app/features/F0001/desktop'
+import { Layout, LeftMenu, BankInfo } from '@nx-next-app/features/F0001/desktop'
+import { BankInfoProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -10,7 +11,6 @@ import {
 
 type IHomePageProps = InitialPropsInterface
 
-// * TODO: wip todo
 const BankInfoPage = ({
 	originIsSignIn,
 	originCookies,
@@ -19,20 +19,18 @@ const BankInfoPage = ({
 }: IHomePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout persistSEOData={persistSEOData} footerData={footerData}>
-				<main>
-					<section className='inside'>
-						<LeftMenu />
-						<br />
-						<br />
-						<br />
-						<h1 style={{ color: 'black' }}>Bank Info Page</h1>
-						<br />
-						<br />
-						<br />
-					</section>
-				</main>
-			</Layout>
+			<GlobalDataProvider>
+				<BankInfoProvider>
+					<Layout persistSEOData={persistSEOData} footerData={footerData}>
+						<main>
+							<section className='inside'>
+								<LeftMenu />
+								<BankInfo />
+							</section>
+						</main>
+					</Layout>
+				</BankInfoProvider>
+			</GlobalDataProvider>
 		</AuthProvider>
 	)
 }

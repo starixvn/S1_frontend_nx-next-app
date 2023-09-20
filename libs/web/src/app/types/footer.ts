@@ -19,6 +19,7 @@ export interface IPlatformListData {
 	hoverImgName: string
 }
 export interface IServicePlanListData {
+	key: string
 	icon: string
 	displayName: string
 	description: string

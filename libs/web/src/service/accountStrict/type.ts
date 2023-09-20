@@ -34,7 +34,7 @@ export interface IUserInfoData {
 	emailReward?: number
 	enablePromotion?: number
 	isLineBinding?: boolean
-	addressCountry?: null
+	addressCountry?: null | string
 	addressState?: null | string
 	addressPostCode?: null | string
 	addressCity?: null | string
@@ -43,4 +43,41 @@ export interface IUserInfoData {
 	isResetPwd?: boolean
 	actStatus?: UserInfoActStatusEnum
 	memberType?: UserInfoMemberType
+}
+
+export interface IOTPSMSData {
+	startUnixTime: number
+	status: number
+}
+
+export interface ISetProfileArgs {
+	AccountName: string
+	AreaCode: string
+	Birth_d: string
+	Birth_m: string
+	Birth_y: string
+	PhoneNo: string
+}
+
+export interface ISetProfileAddressArgs {
+	AddressCountry: string
+	AddressState: string
+	AddressPostCode: string
+	AddressCity: string
+	AddressLineFirst: string
+	AddressLineSecond?: string
+}
+
+export interface ISetCustBankInfoArgs {
+	accountName?: string
+	accountNo: string
+	sysId: number
+	ifscCode?: string | null
+}
+
+export interface ISetCustCryptoWalletArgs {
+	address: string
+	currencyId: number
+	network: string
+	nickName?: string
 }

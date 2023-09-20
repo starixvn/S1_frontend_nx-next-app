@@ -7,10 +7,12 @@ import { BannerActionEnum } from '@nx-next-app/types'
 import { PRODUCTS } from '@nx-next-app/site/nova88'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useAuth } from '@nx-next-app/data-access'
-import Carousel from '@nx-next-app/components/D0001/carousel'
-import BannerItem from '@nx-next-app/features/F0001/h5/common/carouselBanner/BannerItem'
+import Carousel, {
+	ICarouselProps,
+} from '@nx-next-app/components/H0001/carousel'
+import BannerItem from './BannerItem'
 
-interface ICarouselBannerProps {
+interface ICarouselBannerProps extends ICarouselProps {
 	bannerList: IBannerData[]
 }
 
@@ -110,7 +112,7 @@ const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 		<Carousel {...rest}>
 			{resultList.map(item => (
 				<BannerItem
-					itemKey={item.itemKey}
+					key={item.itemKey}
 					src={item.bannerPCUrl}
 					alt={item.bannerName}
 					onClick={

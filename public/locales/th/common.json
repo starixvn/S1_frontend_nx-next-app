@@ -39,6 +39,9 @@
 	"Label_General_Submit": "ตกลง",
 	"Label_General_RealName": "ชื่อจริง",
 	"Label_General_RemindForName": "ชื่อ-นามสกุล ต้องตรงกับชื่อในบัตรประจำตัวประชาชน ไม่อนุญาตให้กรอกสัญลักษณ์พิเศษ",
+  "Label_General_NoData": "ประกาศ",
+  "Label_General_AreYouSureDelete": "คุณแน่ใจหรือว่าต้องการลบ?",
+  "Label_General_CantBeRestore": "ไม่สามารถกู้คืนได้หลังจากลบไปแล้ว",
 	"Label_General_Cashier": "แคชเชียร์",
 	"Label_General_Statement": "รายการฝากถอน",
 	"Label_General_MyAccount": "บัญชีของฉัน",
@@ -111,5 +114,27 @@
 	"Label_Join_SignUpTerms3": "แล้ว",
 	"Label_Join_DontHaveAccount": "ยังไม่มีบัญชีใช่ไหม",
 	"Label_Join_AffiliateIdWrong": "ไม่พบรหัสพันธมิตรดังกล่าว",
-	"Label_Join_EnterRealName": "กรุณาใส่ชื่อจริงของคุณ ไม่อนุญาตให้ใช้สัญลักษณ์พิเศษ"
+	"Label_Join_EnterRealName": "กรุณาใส่ชื่อจริงของคุณ ไม่อนุญาตให้ใช้สัญลักษณ์พิเศษ",
+
+  "Label_Announcement": "ประกาศ",
+
+  "Label_Message_PersonalMsg": "ข้อความส่วนตัว",
+
+	"Label_ChangePassword_PasswordReq": "ต้องใส่รหัสผ่าน",
+	"Label_ChangePassword_ChangePasswordHint": "แก้ไขรหัสผ่านเมื่อเข้าสู่ระบบและการแก้ไขเป็นประจำจะเป็นประโยชน์ต่อความปลอดภัยของบัญชี",
+	"Label_ChangePassword_OldPassword": "กรุณายืนยันรหัสที่ใช้ปัจจุบัน",
+	"Label_ChangePassword_NewPassword": "รหัสผ่านใหม่",
+	"Label_ChangePassword_ChangePswUpdateSuccess": "การอัพเดทสำเร็จเรียบร้อยแล้ว!",
+	"Label_ChangePassword_ChangePswSuccessHint": "สมาชิกสามารถใช้รหัสผ่านใหม่เมื่อเข้าล็อคอินในครั้งถัดไป",
+
+	"Label_Banner_Game_SubTitle": "Perspektif Baru Kehidupan",
+	"Label_Banner_Game_Title_1": "Hiasi Kehidupan anda ",
+	"Label_Banner_Game_Title_2": "dengan Permainan",
+
+	"Label_Lottery_Game_SubTitle": "ถึงเวลาแห่งความรวย!!!",
+	"Label_Lottery_Game_Title_1": "สวรรค์ของคนเล่นหวย",
+	"Label_Lottery_Game_Title_2": "ออนไลน์ตลอด 24 ชม",
+	"Label_PlayNow": "เล่นเดี๋ยวนี้",
+
+	"Label_Profile_ProfileModifyWarning": "เพื่อความปลอดภัย ข้อมูลส่วนตัวทั้งหมดจะไม่สามารถแก้ไขได้หลังจากใส่ข้อมูลสำเร็จแล้ว"
 }

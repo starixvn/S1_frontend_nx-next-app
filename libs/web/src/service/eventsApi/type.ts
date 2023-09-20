@@ -45,3 +45,27 @@ export interface IGetCustRankMonthArgs {
 }
 
 export type ICustRankMonthData = ICustRankData
+
+export interface IDisplayDrawPrizeData {
+	eventId: number
+	index: number
+	prizeId: number
+	prizeIndex: number
+	prizeName: string
+}
+
+// * 幸運輪盤抽獎紀錄
+export interface ICustDrawPrizeData {
+	amount: number
+	drawTime: string
+	eventDate: string
+	prizeId: number
+	prizeName: string
+}
+
+export interface ICheckDrawPrizeData {
+	jackpot: number
+	prizeId: number
+	prizeName: null | string
+	ticketCount: number
+}

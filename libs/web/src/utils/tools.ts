@@ -1,5 +1,7 @@
 import { CurrenciesEnum } from '@nx-next-app/types'
 import dayjs from 'dayjs'
+import { find } from 'lodash-es'
+import { TpMaintainData } from '../service/siteApi/type'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export const openLiveChat = () =>
@@ -31,6 +33,12 @@ export const isUrl = (url: string): boolean => {
 	const regexp = new RegExp(/^(http:|https:)/gi)
 	return regexp.test(url)
 }
+
+export const onWindowOpen = (
+	url?: string | URL | undefined,
+	target?: string | undefined,
+	features?: string | undefined
+) => typeof window !== undefined && window.open(url, target, features)
 
 export const onWindowOpenProduct = ({
 	pathname,
@@ -101,4 +109,23 @@ export const getTermsConditionsLangId = ({
 		}
 	}
 	return langId
+}
+
+export const getIsTpMaintain = ({
+	tpMaintainList,
+	tpId,
+	tpGameType,
+}: {
+	tpMaintainList: TpMaintainData[]
+	tpId: number | undefined
+	tpGameType: number | null | undefined
+}): boolean => {
+	const tpMaintain = find(tpMaintainList, { tpId })
+
+	const isTpMaintain =
+		tpMaintain &&
+		(tpMaintain?.tpGameType === 0 || // * 0:代表全部
+			tpMaintain?.tpGameType === tpGameType)
+
+	return Boolean(isTpMaintain)
 }

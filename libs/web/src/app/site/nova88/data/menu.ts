@@ -1,4 +1,9 @@
-import { CurrenciesEnum, DeviceTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
+import {
+	CurrenciesEnum,
+	DeviceTypeEnum,
+	IEventPeriod,
+	MenuKeyEnum,
+} from '@nx-next-app/types'
 import {
 	IMenuData,
 	MenuActionTypeEnum,
@@ -7,8 +12,11 @@ import { paths } from '../../../constants/paths'
 import { ALLOWED_CURRENCIES } from './allowCurrency'
 import { PRODUCTS } from './products'
 
+/**
+ * 定義 menu 的活動時間，只存在於 menu.ts
+ */
 const PRODUCT_EVENT_PERIOD: {
-	[key: string]: { start: null | string; end: null | string }
+	[key: string]: IEventPeriod
 } = {
 	SPORTS_9W: {
 		start: null,
@@ -19,6 +27,27 @@ const PRODUCT_EVENT_PERIOD: {
 		end: '2023/12/31 22:59:59',
 	},
 	PROMOS: { start: null, end: '2023/12/31 22:59:59' },
+	LUCKY_WHEEL: { start: '2021/12/13 00:00:00', end: null },
+	VIP: {
+		start: '2021/02/05 12:00:00',
+		end: null,
+	},
+	RANKING: {
+		start: '2021/03/01 12:00:00',
+		end: null,
+	},
+	TV: {
+		start: '2021/03/30 00:00:00',
+		end: null,
+	},
+	PROMO: {
+		start: '2021/11/11 00:00:00',
+		end: null,
+	},
+	IM: {
+		start: null,
+		end: '2023/12/31 22:59:59',
+	},
 }
 
 const { MYR, INR, IDR, BDT, THB } = CurrenciesEnum
@@ -80,6 +109,13 @@ export const MENU_DATA = ({
 					menuActionType: MenuActionTypeEnum.Link,
 					pathname: paths.vip.root,
 					allowCurrencies: ALLOWED_CURRENCIES['VIP'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['VIP'],
+						},
+					],
 				},
 				{
 					h5: {},
@@ -421,13 +457,128 @@ export const MENU_DATA = ({
 			allowCurrencies: true,
 			subMenuAllowCurrenciesWithAuth: false,
 			subMenu: [
+				// {
+				// 	h5: { img: '/h5/img/esportALL.png' },
+				// 	desktop: {
+				// 		headerMenuImgList: [
+				// 			{
+				// 				className: 'List-npc',
+				// 				imgUrl: 'esportALL.png',
+				// 			},
+				// 			{
+				// 				className: 'List-bg',
+				// 				imgUrl: 'eSportsListHover.png',
+				// 			},
+				// 		],
+				// 		lobbyPage: {
+				// 			bgImg: 'esposts-all.png',
+				// 			hoverBgImg: 'esposts-alla.png',
+				// 		},
+				// 	},
+				// 	productKey: 'SPORTS_E_SPORT_ALL',
+				// 	displayKey: 'Label_General_All',
+				// 	menuActionType: MenuActionTypeEnum.EnterPage,
+				// 	product: PRODUCTS['SPORTS_E_SPORT_ALL'],
+				// },
+				// {
+				// 	h5: { img: '/h5/img/esportDOTA2.png' },
+				// 	desktop: {
+				// 		headerMenuImgList: [
+				// 			{
+				// 				className: 'List-npc',
+				// 				imgUrl: 'esportDOTA2.png',
+				// 			},
+				// 			{
+				// 				className: 'List-bg',
+				// 				imgUrl: 'eSportsListHover.png',
+				// 			},
+				// 		],
+				// 		lobbyPage: {
+				// 			bgImg: 'esposts-dota.png',
+				// 			hoverBgImg: 'esposts-dotaa.png',
+				// 		},
+				// 	},
+				// 	productKey: 'SPORTS_E_SPORT_DOTA2',
+				// 	displayKey: 'Label_Product_Dota2',
+				// 	menuActionType: MenuActionTypeEnum.EnterPage,
+				// 	product: PRODUCTS['SPORTS_E_SPORT_DOTA2'],
+				// },
+				// {
+				// 	h5: { img: '/h5/img/esportLOL.png' },
+				// 	desktop: {
+				// 		headerMenuImgList: [
+				// 			{
+				// 				className: 'List-npc',
+				// 				imgUrl: 'esportLOL.png',
+				// 			},
+				// 			{
+				// 				className: 'List-bg',
+				// 				imgUrl: 'eSportsListHover.png',
+				// 			},
+				// 		],
+				// 		lobbyPage: {
+				// 			bgImg: 'esposts-lol.png',
+				// 			hoverBgImg: 'esposts-lola.png',
+				// 		},
+				// 	},
+				// 	productKey: 'SPORTS_E_SPORT_LOL',
+				// 	displayKey: 'Label_Product_LOL',
+				// 	menuActionType: MenuActionTypeEnum.EnterPage,
+				// 	product: PRODUCTS['SPORTS_E_SPORT_LOL'],
+				// },
+				// {
+				// 	h5: { img: '/h5/img/esportCS.png' },
+				// 	desktop: {
+				// 		headerMenuImgList: [
+				// 			{
+				// 				className: 'List-npc',
+				// 				imgUrl: 'esportCS.png',
+				// 			},
+				// 			{
+				// 				className: 'List-bg',
+				// 				imgUrl: 'eSportsListHover.png',
+				// 			},
+				// 		],
+				// 		lobbyPage: {
+				// 			bgImg: 'esposts-cs.png',
+				// 			hoverBgImg: 'esposts-csa.png',
+				// 		},
+				// 	},
+				// 	productKey: 'SPORTS_E_SPORT_CSGO',
+				// 	displayKey: 'Label_Product_CSGO',
+				// 	menuActionType: MenuActionTypeEnum.EnterPage,
+				// 	product: PRODUCTS['SPORTS_E_SPORT_CSGO'],
+				// },
+				// {
+				// 	h5: { img: '/h5/img/esportKOG.png' },
+				// 	desktop: {
+				// 		headerMenuImgList: [
+				// 			{
+				// 				className: 'List-npc',
+				// 				imgUrl: 'esportKOG.png',
+				// 			},
+				// 			{
+				// 				className: 'List-bg',
+				// 				imgUrl: 'eSportsListHover.png',
+				// 			},
+				// 		],
+				// 		lobbyPage: {
+				// 			bgImg: 'esposts-kog.png',
+				// 			hoverBgImg: 'esposts-koga.png',
+				// 		},
+				// 	},
+				// 	productKey: 'SPORTS_E_SPORT_KOG',
+				// 	displayKey: 'Label_Product_Kog',
+				// 	menuActionType: MenuActionTypeEnum.EnterPage,
+				// 	product: PRODUCTS['SPORTS_E_SPORT_KOG'],
+				// },
 				{
-					h5: { img: '/h5/img/esportALL.png' },
+					h5: { img: '/h5/img/esportSABA.png' },
 					desktop: {
 						headerMenuImgList: [
 							{
 								className: 'List-npc',
-								imgUrl: 'esportALL.png',
+								imgUrl: 'esportSABA.png',
 							},
 							{
 								className: 'List-bg',
@@ -435,22 +586,22 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'esposts-all.png',
-							hoverBgImg: 'esposts-alla.png',
+							bgImg: 'esposts-saba.png',
+							hoverBgImg: 'esposts-sabaa.png',
 						},
 					},
-					productKey: 'SPORTS_E_SPORT_ALL',
-					displayKey: 'Label_General_All',
+					productKey: 'SPORTS_E_SABA',
+					displayKey: 'Saba',
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					product: PRODUCTS['SPORTS_E_SPORT_ALL'],
+					product: PRODUCTS['SPORTS_E_SABA'],
 				},
 				{
-					h5: { img: '/h5/img/esportDOTA2.png' },
+					h5: { img: '/h5/img/esportInplayMatrix.png' },
 					desktop: {
 						headerMenuImgList: [
 							{
 								className: 'List-npc',
-								imgUrl: 'esportDOTA2.png',
+								imgUrl: 'esportInplayMatrix.png',
 							},
 							{
 								className: 'List-bg',
@@ -458,83 +609,21 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'esposts-dota.png',
-							hoverBgImg: 'esposts-dotaa.png',
+							bgImg: 'esposts-inplaymatrix.png',
+							hoverBgImg: 'esposts-inplaymatrixa.png',
 						},
 					},
-					productKey: 'SPORTS_E_SPORT_DOTA2',
-					displayKey: 'Label_Product_Dota2',
+					productKey: 'SPORTS_E_IMESPORTS',
+					displayKey: 'IM E-Sports',
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					product: PRODUCTS['SPORTS_E_SPORT_DOTA2'],
-				},
-				{
-					h5: { img: '/h5/img/esportLOL.png' },
-					desktop: {
-						headerMenuImgList: [
-							{
-								className: 'List-npc',
-								imgUrl: 'esportLOL.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'eSportsListHover.png',
-							},
-						],
-						lobbyPage: {
-							bgImg: 'esposts-lol.png',
-							hoverBgImg: 'esposts-lola.png',
+					product: PRODUCTS['SPORTS_E_IMESPORTS'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['IM'],
 						},
-					},
-					productKey: 'SPORTS_E_SPORT_LOL',
-					displayKey: 'Label_Product_LOL',
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					product: PRODUCTS['SPORTS_E_SPORT_LOL'],
-				},
-				{
-					h5: { img: '/h5/img/esportCS.png' },
-					desktop: {
-						headerMenuImgList: [
-							{
-								className: 'List-npc',
-								imgUrl: 'esportCS.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'eSportsListHover.png',
-							},
-						],
-						lobbyPage: {
-							bgImg: 'esposts-cs.png',
-							hoverBgImg: 'esposts-csa.png',
-						},
-					},
-					productKey: 'SPORTS_E_SPORT_CSGO',
-					displayKey: 'Label_Product_CSGO',
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					product: PRODUCTS['SPORTS_E_SPORT_CSGO'],
-				},
-				{
-					h5: { img: '/h5/img/esportKOG.png' },
-					desktop: {
-						headerMenuImgList: [
-							{
-								className: 'List-npc',
-								imgUrl: 'esportKOG.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'eSportsListHover.png',
-							},
-						],
-						lobbyPage: {
-							bgImg: 'esposts-kog.png',
-							hoverBgImg: 'esposts-koga.png',
-						},
-					},
-					productKey: 'SPORTS_E_SPORT_KOG',
-					displayKey: 'Label_Product_Kog',
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					product: PRODUCTS['SPORTS_E_SPORT_KOG'],
+					],
 				},
 			],
 		},
@@ -659,7 +748,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_pp',
+							npcImg: 'casino_pp.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_PP',
@@ -689,7 +779,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_bg',
+							npcImg: 'casino_bg.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_BG',
@@ -725,7 +816,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_yb',
+							npcImg: 'casino_yb.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_YEE_BET',
@@ -754,7 +846,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_yb',
+							npcImg: 'casino_sk.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_SKY_WIND',
@@ -784,7 +877,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_mg',
+							npcImg: 'casino_mg.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_MG',
@@ -814,7 +908,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_ev',
+							npcImg: 'casino_ev.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_EVO',
@@ -844,7 +939,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_pt',
+							npcImg: 'casino_pt.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_PT',
@@ -873,7 +969,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_n2',
+							npcImg: 'casino_n2.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_N2',
@@ -903,7 +1000,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_wm',
+							npcImg: 'casino_wm.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_WM',
@@ -933,7 +1031,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_ab',
+							npcImg: 'casino_ab.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_ALL_BET',
@@ -965,7 +1064,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_eb',
+							npcImg: 'casino_eb.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_E_BET',
@@ -995,7 +1095,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_sa',
+							npcImg: 'casino_sa.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_SA',
@@ -1024,7 +1125,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_dg',
+							npcImg: 'casino_dg.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_DG',
@@ -1053,7 +1155,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_ae',
+							npcImg: 'casino_ae.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_AE',
@@ -1080,7 +1183,8 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_ag',
+							npcImg: 'casino_ag.png',
+							hoverBgImg: 'animation_img.png',
 						},
 					},
 					productKey: 'LIVE_CASINO_AG',
@@ -1780,6 +1884,178 @@ export const MENU_DATA = ({
 					displayText: 'King Maker',
 					menuActionType: MenuActionTypeEnum.EnterPage,
 					product: PRODUCTS['GAMES_POKER_KINGMAKER'],
+				},
+				{
+					h5: { img: '/h5/img/gameSpribeAviator.png' },
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'gameSpribeAviator.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamespribe-aciator.png',
+							hoverBgImg: 'gamespribe-aciatora.png',
+						},
+					},
+					productKey: 'GAME_AVIATOR',
+					displayText: 'Aviator',
+					menuActionType: MenuActionTypeEnum.EnterPage,
+					product: PRODUCTS['GAME_AVIATOR'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['IM'],
+						},
+					],
+				},
+				{
+					h5: { img: '/h5/img/gameSpribeMines.png' },
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'gameSpribeMines.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamespribe-mines.png',
+							hoverBgImg: 'gamespribe-minesa.png',
+						},
+					},
+					productKey: 'GAME_MINES',
+					displayText: 'Mines',
+					menuActionType: MenuActionTypeEnum.EnterPage,
+					product: PRODUCTS['GAME_MINES'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['IM'],
+						},
+					],
+				},
+				{
+					h5: { img: '/h5/img/gameSpribeGoal.png' },
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'gameSpribeGoal.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamespribe-goal.png',
+							hoverBgImg: 'gamespribe-goala.png',
+						},
+					},
+					productKey: 'GAME_GOAL',
+					displayText: 'Goal',
+					menuActionType: MenuActionTypeEnum.EnterPage,
+					product: PRODUCTS['GAME_GOAL'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['IM'],
+						},
+					],
+				},
+				{
+					h5: { img: '/h5/img/gameSpribeDice.png' },
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'gameSpribeDice.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamespribe-dice.png',
+							hoverBgImg: 'gamespribe-dicea.png',
+						},
+					},
+					productKey: 'GAME_DICE',
+					displayText: 'DICE',
+					menuActionType: MenuActionTypeEnum.EnterPage,
+					product: PRODUCTS['GAME_DICE'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['IM'],
+						},
+					],
+				},
+				{
+					h5: { img: '/h5/img/ap.png' },
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'ap.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gameap.png',
+							hoverBgImg: 'gameapa.png',
+						},
+					},
+					productKey: 'GAME_CRASH',
+					displayText: 'Crash',
+					menuActionType: MenuActionTypeEnum.EnterPage,
+					product: PRODUCTS['GAME_CRASH'],
+				},
+				{
+					h5: { img: '/h5/img/gameSpribeGoal.png' },
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'jili.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamejili.png',
+							hoverBgImg: 'gamejilia.png',
+						},
+					},
+					productKey: 'GAME_GORUSH',
+					displayText: 'Go Rush',
+					menuActionType: MenuActionTypeEnum.EnterPage,
+					product: PRODUCTS['GAME_GORUSH'],
 				},
 			],
 			allowCurrencies: true,

@@ -23,12 +23,7 @@ const ForgetPasswordForm = ({
 
 	return (
 		<div className='joinloginFunction'>
-			<Form
-				onSubmit={e => {
-					e.preventDefault()
-					handleSubmit(onSubmit)
-				}}
-			>
+			<Form onSubmit={handleSubmit(onSubmit)}>
 				<div className='title txt-blue'>{t('Label_Header_ForgetPassword')}</div>
 				<div className='inputModule'>
 					<InputBox

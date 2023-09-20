@@ -39,6 +39,9 @@
 	"Label_General_Submit": "បញ្ជូន",
 	"Label_General_RealName": "ឈ្មោះ​ពិត",
 	"Label_General_RemindForName": "ឈ្មោះត្រូវតែដូចគ្នានឹងអត្តសញ្ញាណប័ណ្ណរបស់អ្នក ហើយវាត្រូវបានហាមឃាត់មិនឱ្យបំពេញនិមិត្តសញ្ញាពិសេស",
+  "Label_General_NoData": "មិនមានព័ត៌មានទេ ឥឡូវនេះ។",
+  "Label_General_AreYouSureDelete": "តើអ្នកប្រាកដថាចង់លុបចោលទេ?",
+  "Label_General_CantBeRestore": "វាមិនអាចទាញយកវិញបានទេបន្ទាប់ពីបានលុប",
 	"Label_General_Cashier": "បេឡាករ",
 	"Label_General_Statement": "ការប្រកាស",
 	"Label_General_MyAccount": "គណនីរបស់ខ្ញុំ",
@@ -76,5 +79,27 @@
 	"Label_Join_SignUpTerms3": ".",
 	"Label_Join_DontHaveAccount": "អត់មានគណនី?",
 	"Label_Join_AffiliateIdWrong": "រកមិនឃើញលេខសម្គាល់សាខាទេ។",
-	"Label_Join_EnterRealName": "សូមបញ្ចូលឈ្មោះពិតរបស់អ្នក គ្មាននិមិត្តសញ្ញាពិសេសត្រូវបានអនុញ្ញាតទេ។"
+	"Label_Join_EnterRealName": "សូមបញ្ចូលឈ្មោះពិតរបស់អ្នក គ្មាននិមិត្តសញ្ញាពិសេសត្រូវបានអនុញ្ញាតទេ។",
+
+  "Label_Announcement": "សេចក្តីជូនដំណឹង",
+
+  "Label_Message_PersonalMsg": "សារផ្ទាល់ខ្លួន",
+
+	"Label_ChangePassword_PasswordReq": "ត្រូវការពាក្យសម្ងាត់ ។",
+	"Label_ChangePassword_ChangePasswordHint": "កែពាក្យសម្ងាត់នៅពេលចូល ហើយការកែតម្រូវជាទៀងទាត់គឺមានសារៈប្រយោជន៍ចំពោះសុវត្ថិភាពគណនី។",
+	"Label_ChangePassword_OldPassword": "ពាក្យសម្ងាត់ចាស់",
+	"Label_ChangePassword_NewPassword": "ពាក្យសម្ងាត់ថ្មី",
+	"Label_ChangePassword_ChangePswUpdateSuccess": "ធ្វើបច្ចុប្បន្នភាពដោយជោគជ័យ!",
+	"Label_ChangePassword_ChangePswSuccessHint": "អ្នកអាចប្រើពាក្យសម្ងាត់ថ្មីនៅពេលអ្នកចូលលើកក្រោយ។",
+
+	"Label_Banner_Game_SubTitle": "ទស្សនៈថ្មីនៃជីវិត ",
+	"Label_Banner_Game_Title_1": "សាក តុបតែងជីវិតរបស់អ្នកជាមួយហ្គេម",
+	"Label_Banner_Game_Title_2": "",
+		
+	"Label_Lottery_Game_SubTitle": "ឈានក្លាយទៅជាសេដ្ធី សាក ជាមួយឆ្នោត",
+	"Label_Lottery_Game_Title_1": "Lottery Heaven",
+	"Label_Lottery_Game_Title_2": "២៤/៧ ម៉ោង។",
+	"Label_PlayNow":  "លេង ឥឡូវនេះ",
+
+	"Label_Profile_ProfileModifyWarning": "ដើម្បីធានាសុវត្ថិភាពគណនី ព័ត៌មានផ្ទាល់ខ្លួនមិនអាចកែប្រែបានបន្ទាប់ពីបានបំពេញរួច។"
 }

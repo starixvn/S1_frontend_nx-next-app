@@ -13,8 +13,19 @@ export { SpinButton } from './button'
 
 export { default as Select } from './select'
 export type { ISelectProps } from './select'
-export type { SelectOptionType } from './select/type'
 
 export { InputPhone } from './input'
 
 export { Modal, GlobalModal, useModal } from './modal'
+
+export { Marquee } from './marquee'
+
+export { default as Carousel } from './carousel'
+export type { ICarouselProps } from './carousel'
+
+export { default as JackPot } from './jackpot/index'
+
+export { default as Loading } from './loading'
+
+export * from './image'
+export * from './countdown-timer'

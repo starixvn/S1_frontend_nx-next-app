@@ -39,6 +39,9 @@
 	"Label_General_Submit": "Ajukan",
 	"Label_General_RealName": "Nama asli",
 	"Label_General_RemindForName": "NAMA LENGKAP harus sesuai dengan nama KTP Anda yang masih berlaku, dilarang menggunakan simbol khusus",
+	"Label_General_NoData": "Tidak Ada Informasi Yang Tersedia",
+	"Label_General_AreYouSureDelete": "Apakah anda yakin untuk menghapus?",
+	"Label_General_CantBeRestore": " Jika sudah terhapus maka tidak bisa kembali lagi",
 	"Label_General_Cashier": "Kasir",
 	"Label_General_Statement": "Pernyataan",
 	"Label_General_MyAccount": "Akun Saya",
@@ -112,5 +115,28 @@
 	"Label_Join_SignUpTerms3": ".",
 	"Label_Join_DontHaveAccount": "Tidak memiliki Akun",
 	"Label_Join_AffiliateIdWrong": "ID afiliasi tidak dapat ditemukan",
-	"Label_Join_EnterRealName": "Silahkan masukkan nama asli, simbol tidak diperkenankan"
+	"Label_Join_EnterRealName": "Silahkan masukkan nama asli, simbol tidak diperkenankan",
+
+	"Label_Announcement": "Pengumuman",
+
+	"Label_Message_PersonalMsg": "Pesan pribadi",
+
+	"Label_ChangePassword_PasswordReq": "Kata Sanda wajib diisi",
+	"Label_ChangePassword_ChangePasswordHint": "Ubah kata sandi saat masuk, dan modifikasi rutin bermanfaat untuk keamanan akun.",
+	"Label_ChangePassword_OldPassword": "Kata sandi lama",
+	"Label_ChangePassword_NewPassword": "Kata Sandi Baru",
+	"Label_ChangePassword_ChangePswUpdateSuccess": "Pembaruan selesai!",
+	"Label_ChangePassword_ChangePswSuccessHint": "Harap gunakan kata sandi baru saat Anda masuk kembali.",
+
+	"Label_Banner_Game_SubTitle": "Sebuah Sudut Pandang Kehidupan Baru",
+	"Label_Banner_Game_Title_1": "Hiasi Hidup Anda",
+	"Label_Banner_Game_Title_2": "Dengan Game",
+
+		
+	"Label_Lottery_Game_SubTitle": "Raih Kekayaan Anda",
+	"Label_Lottery_Game_Title_1": "Surga Togel",
+	"Label_Lottery_Game_Title_2": "24/7",
+	"Label_PlayNow": "Main Sekarang",
+
+	"Label_Profile_ProfileModifyWarning": "Pastikan keamanan akun Anda, Data Anda tidak dapat diubah atau modifikasi setelah diajukan"
 }

@@ -144,7 +144,9 @@ const PLATFORM_LIST: {
 		...PRODUCTS['GAMES_POKER_M_POKER'],
 		imgName: 'mp',
 		hoverImgName: 'mpa',
-		allowCurrencies: ALLOWED_CURRENCIES['GAMES_POKER_M_POKER'],
+		allowCurrencies: ALLOWED_CURRENCIES[
+			'GAMES_POKER_M_POKER'
+		] as CurrenciesEnum[],
 	},
 	{
 		...PRODUCTS['SLOTS_RED_TIGER'],
@@ -198,7 +200,7 @@ const PLATFORM_LIST: {
 		parameter: { ...PRODUCTS['SLOTS_AMB'] },
 		imgName: 'liveCasino_amb',
 		hoverImgName: 'liveCasino_amba',
-		allowCurrencies: ALLOWED_CURRENCIES['SLOTS_AMB'],
+		allowCurrencies: ALLOWED_CURRENCIES['SLOTS_AMB'] as CurrenciesEnum[],
 	},
 	{
 		...PRODUCTS['SLOTS_SKY_WIND'],
@@ -210,30 +212,35 @@ const PLATFORM_LIST: {
 ]
 
 const FOOTER_ICONS: {
+	key: string
 	icon: string
 	displayName: string
 	description: string
 	hotKeyName: string
 }[] = [
 	{
+		key: 'friendReferral',
 		icon: 'icon-friendreferral',
 		displayName: 'Label_Referral_Program',
 		description: 'Label_Referral_Program_desc',
 		hotKeyName: 'Label_JoinNow',
 	},
 	{
+		key: 'affiliate',
 		icon: 'icon-affiliate',
 		displayName: 'Label_Affiliate_Program',
 		description: 'Label_Affiliate_Program_desc',
 		hotKeyName: 'Label_Apply_Now',
 	},
 	{
+		key: 'vip',
 		icon: 'icon-vip',
 		displayName: 'Label_VIP_Program',
 		description: 'Label_VIP_Program_desc',
 		hotKeyName: 'Label_More_Info',
 	},
 	{
+		key: 'liveChat',
 		icon: 'icon-livechat1',
 		displayName: 'Label_Customer_Support',
 		description: 'Label_Customer_Support_desc',

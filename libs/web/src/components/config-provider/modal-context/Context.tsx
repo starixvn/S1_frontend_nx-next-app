@@ -13,9 +13,11 @@ export interface IGlobalModalProps {
 	type?: 'default' | 'info' | 'error' | 'custom' | 'confirm' | null
 	content: ModalContentType
 	okText?: string | null
+	cancelText?: string | null
 	onOK?: () => void
 	onCancel?: () => void
 	closeModal: () => void
+	className?: string
 }
 
 export type GlobalModalType = Omit<IGlobalModalProps, 'closeModal'>
@@ -25,7 +27,7 @@ export interface ModalContextInterface {
 	modal: {
 		open: (
 			message: ModalContentType,
-			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK'>
+			config?: Pick<IGlobalModalProps, 'icon' | 'title' | 'onOK' | 'className'>
 		) => void
 		info: (
 			message: ModalContentType,
@@ -39,11 +41,12 @@ export interface ModalContextInterface {
 			message: ModalContentType,
 			config?: Pick<
 				IGlobalModalProps,
-				'icon' | 'title' | 'onOK' | 'onCancel' | 'okText'
+				'icon' | 'title' | 'onOK' | 'onCancel' | 'okText' | 'cancelText'
 			>
 		) => void
 	}
 	closeModal: () => void
+	setIsValid: (newIsValid: boolean) => void
 }
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -59,6 +62,10 @@ const ModalProvider = ({ children }: { children: ReactNode }) => {
 		onOK: () => null,
 		onCancel: () => null,
 	})
+
+	const setIsValid = (newIsValid: boolean) => {
+		setGlobalModal(prev => ({ ...prev, isValid: newIsValid }))
+	}
 
 	const closeModal = () => {
 		setGlobalModal({
@@ -85,6 +92,7 @@ const ModalProvider = ({ children }: { children: ReactNode }) => {
 				setGlobalModal({ type: 'confirm', content, ...config }),
 		},
 		closeModal,
+		setIsValid,
 	}
 
 	return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>

@@ -18,12 +18,9 @@ export * from './back-top'
 
 export { default as Select } from './select'
 export type { ISelectProps } from './select'
-export type { SelectOptionType } from './select/type'
 
 export { default as Carousel } from './carousel'
 export type { ICarouselProps } from './carousel'
-
-// export type { sw } from './swiper'
 
 export { default as MetaData } from './metaData'
 
@@ -34,3 +31,7 @@ export { Marquee } from './marquee'
 export { default as JackPot } from './jackpot/index'
 
 export { default as GameListItem } from './game-list-item/index'
+
+export * from './image'
+export * from './spin'
+export * from './countdown-timer'

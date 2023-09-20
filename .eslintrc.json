@@ -78,8 +78,7 @@
 				"jsx-quotes": "off",
 				"no-mixed-spaces-and-tabs": "off",
 				"arrow-parens": "off",
-        "@typescript-eslint/no-explicit-any": "off",
-        "import/no-cycle" : "off"
+				"import/no-cycle": "off"
 			}
 		},
 		{

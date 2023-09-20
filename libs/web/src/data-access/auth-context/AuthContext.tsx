@@ -14,6 +14,7 @@ import {
 	useSynchronizeCookiesEffect,
 } from '../../hooks'
 import { IUserInfoData } from '../../service/accountStrict/type'
+import { ENV_COOKIE_NAMES } from '../../app/constants/Names'
 
 export interface AuthContextInterface {
 	auth: { isLogin: boolean | undefined }
@@ -55,12 +56,8 @@ export const AuthProvider = ({
 	const {
 		data: {
 			data: originUserInfo = {
-				langId: originCookies[
-					`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`
-				] as string,
-				currencyId: Number(
-					originCookies[`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`]
-				),
+				langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
+				currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 				userName: 'guest',
 			},
 		} = {},

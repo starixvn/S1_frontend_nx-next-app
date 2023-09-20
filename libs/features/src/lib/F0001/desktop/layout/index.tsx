@@ -1,7 +1,9 @@
+import dynamic from 'next/dynamic'
 import React, { ReactNode } from 'react'
-import { BackTop, GlobalModal, MetaData } from '@nx-next-app/components/D0001'
 import { ISEOData } from 'libs/web/src/data-access/type'
 import { useAffiliateReferralEffect } from '@nx-next-app/hooks'
+import { BackTop, GlobalModal, MetaData } from '@nx-next-app/components/D0001'
+import { useGlobalModalEffect } from 'libs/web/src/hooks/useGlobalModalEffect'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import LayoutHeader from '@nx-next-app/features/F0001/desktop/layout/header'
 import LayoutFooter from '@nx-next-app/features/F0001/desktop/layout/footer'
@@ -13,8 +15,16 @@ interface ILayoutProps {
 	footerData: IResponseConvertedFooterData
 }
 
+const ChangePasswordModal = dynamic(
+	() => import('../modal/ChangePasswordModal'),
+	{ ssr: false }
+)
+
 export function Layout({ children, persistSEOData, footerData }: ILayoutProps) {
-	const { globalModal, closeModal } = useGlobalModal()
+	const { globalModal, closeModal, modal } = useGlobalModal()
+
+	useGlobalModalEffect(() => modal.open(<ChangePasswordModal />))
+
 	useAffiliateReferralEffect({ expireDay: 7 })
 
 	return (
@@ -29,6 +39,8 @@ export function Layout({ children, persistSEOData, footerData }: ILayoutProps) {
 
 			{/* 只需放在 Layout 來渲染全域彈窗 */}
 			<GlobalModal {...globalModal} closeModal={closeModal} />
+
+			{/* <Loading /> */}
 
 			<BackTop />
 		</>

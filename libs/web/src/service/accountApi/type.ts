@@ -1,3 +1,5 @@
+import { IAxiosResponse } from 'libs/web/src/service/axiosBaseQuery'
+
 export enum TpWalletListTypeEnum {
 	All,
 	Transferred,
@@ -74,11 +76,150 @@ export interface IGetCustSpecificBonusArgs {
 export interface ICustSpecificBonusData {
 	bonusId: number
 	bonus: number
-	rollover: number
-	turnover: number
+	rollover: number // custRollOver
+	turnover: number // custTurnOver
 	fullFillType: number
-	promoCategoryId: number
+	promoCategoryId: number // categoryId
 	tpId: number
 	status: number
-	expiryTime: string
+	expiryTime: string // custExpiryTime
+}
+
+export interface IGetMsgListArgs {
+	pageNumber: number
+	pageSize?: number
+}
+
+export interface IMsgData {
+	id: number
+	type: number
+	senderCustId: number
+	sender: string
+	title: string
+	createTime: string
+	flag: boolean
+	isBatch: boolean
+}
+
+export type IGetMsgListResponse = IAxiosResponse<IMsgData[]>
+
+export interface IBasicMsg {
+	msgId: number
+	isBatch: boolean
+}
+
+export interface IDelMsgArgs {
+	deleteList: IBasicMsg[]
+}
+
+export interface ISetMsgReadArgs {
+	setList: IBasicMsg[]
+}
+
+export interface IGetMsgContentArgs {
+	msgId: number
+	isBatch: number
+}
+
+export interface IMsgContentData {
+	content: string
+}
+
+export type IMsgContentResponse = IAxiosResponse<IMsgContentData>
+
+export interface IReferralSettingData {
+	bonusAmount: number
+	deposit: number
+	periodDays: number
+	status: boolean
+	vaildBet: number
+}
+
+export interface ISetChangePasswordArgs {
+	oldPassword: string
+	newPassword: string
+}
+
+export interface IReferralSummaryData {
+	amountCount: number
+	amountSum: number
+	conditionCount: number
+	hasReferral: boolean
+	referralCount: number
+}
+
+export interface IReferralSettingDetailData {
+	referralReward: number
+	invitationLimit: number
+	agentValidBet: number
+	agentDeposit: number
+	memberReward: number
+	vaildBet: number
+	deposit: number
+	periodDays: number
+	depositRewardPercentage: number
+	minPayout: number
+	maxPayout: number
+	referralContent: {
+		langId: string
+		bannerUrl: null | string
+		title: null | string
+		description: null | string
+		detail: null | string
+		type: number
+	}
+}
+
+export interface IReferralData {
+	custId: number
+	userName: string
+	registerDate: string
+	currencyId: number
+	totalDeposit: number
+	depositC: number
+	totalBet: number
+	vaildBetC: number
+	bonusAmount: number
+	status: number
+}
+
+export interface IGetReferralArgs {
+	startDate: number
+	endDate: number
+	pageNumber: number
+	pageSize: number
+}
+
+export interface IBankInfoDetail {
+	bankName: string
+	bankLogo: string
+	bankSite: string
+	disabled: boolean
+	sysId: number
+	accountNo: string
+	ifscCode: string | null
+}
+
+export interface IUSDTDetail {
+	nickName: string
+	usdtAddress: string
+	network: string
+	currencyId: number
+	currencyName: string
+	disabled: boolean
+}
+
+export interface ICustBankInfoData {
+	accountName: string
+	defAccountNo: string
+	bankInfoDetail: IBankInfoDetail[]
+	uSDTDetail: IUSDTDetail[]
+}
+
+export interface ICustEWalletInfoData {
+	eWalletName: string
+	eWalletLogo: string
+	eWalletSite: string | null
+	sysId: number
+	accountNo: string
 }

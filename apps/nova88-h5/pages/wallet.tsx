@@ -6,7 +6,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout } from '@nx-next-app/features/F0001/h5'
+import { Layout, Wallet } from '@nx-next-app/features/F0001/h5'
 
 const WalletPage = ({
 	originIsSignIn,
@@ -16,7 +16,9 @@ const WalletPage = ({
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData}>WalletPage</Layout>
+				<Layout persistSEOData={persistSEOData}>
+					<Wallet />
+				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>
 	)

@@ -1,7 +1,14 @@
 export { default as Layout } from './layout'
-
 export { default as Home } from './home'
-
 export { default as Setting } from './setting'
-
 export { default as LoginJoin } from './loginJoin'
+export { default as ChangePassword } from './change-password'
+export { default as RebateExclude } from './rebate-exclude'
+export { default as Promotion } from './promotion'
+export { default as LuckyWheel } from './luckyWheel'
+export { default as Referral } from './referral'
+export { default as Profile } from './profile'
+export { default as BankInfo } from './bank-info'
+export { default as Wallet } from './wallet'
+export { default as CryptoWallet } from './crypto-wallet'
+export { default as EWallet } from './eWallet'

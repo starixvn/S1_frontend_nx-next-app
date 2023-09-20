@@ -1,8 +1,9 @@
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import { useBoolean, useOnClickOutside } from 'usehooks-ts'
+import { useTranslation } from 'next-i18next'
 import { filter, find, includes, uniqueId } from 'lodash'
 import classNames from 'classnames'
-import { SelectOptionType } from './type'
+import { SelectOptionType } from '@nx-next-app/types'
 
 export interface ISelectProps {
 	value?: string | number
@@ -11,19 +12,24 @@ export interface ISelectProps {
 	prefixIcon?: ReactNode
 	placeholder?: string
 	showSearch?: boolean
+	isTranslation?: boolean
+	prefixText?: string
 	onChange?: (value: SelectOptionType['value']) => void
 	errorMessage?: string
 }
 
 const Select = (props: ISelectProps) => {
+	const { t } = useTranslation()
 	const ref = useRef(null)
 	const {
 		value,
 		defaultValue,
 		options,
 		prefixIcon,
-		placeholder = 'select',
+		placeholder = t('Label_General_None'),
 		showSearch,
+		isTranslation,
+		prefixText,
 		onChange,
 		errorMessage,
 	} = props
@@ -67,12 +73,16 @@ const Select = (props: ISelectProps) => {
 
 	return (
 		<div className={classNames('inputBox-blue', { error: errorMessage })}>
+			{prefixText && <i className='txt-blue'>{prefixText}</i>}
 			<div ref={ref} className='dropdown' onClick={toggle}>
 				{prefixIcon}
 
 				<button type='button' className='btn'>
 					{currentOption?.prefixOptionIcon}
-					{currentOption?.label || placeholder}
+					{isTranslation
+						? t(currentOption?.label as string) || t(placeholder)
+						: currentOption?.label ||
+						  (isTranslation ? t(placeholder) : placeholder)}
 				</button>
 
 				<div className={classNames('dropdown-container', { active: isActive })}>
@@ -95,7 +105,7 @@ const Select = (props: ISelectProps) => {
 							onClick={() => handleOptionClick(option)}
 						>
 							{option.prefixOptionIcon}
-							{option.label || ' '}
+							{isTranslation ? t(option.label as string) : option.label || ' '}
 						</div>
 					))}
 				</div>

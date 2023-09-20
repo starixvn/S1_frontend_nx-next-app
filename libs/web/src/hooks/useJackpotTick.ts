@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import useInterval from 'libs/web/src/hooks/useInterval'
 
 const ANIMATION_LOOP_MILLISECOND = 2000

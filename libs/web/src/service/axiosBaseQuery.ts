@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { BaseQueryFn } from '@reduxjs/toolkit/query'
 import axios, { AxiosRequestConfig } from 'axios'
 
@@ -16,6 +17,7 @@ export interface IAxiosError extends globalThis.Error {
 	status?: number
 	statusText?: string
 	errorCode?: number
+	data?: any
 }
 
 export const axiosBaseQuery =
@@ -36,6 +38,7 @@ export const axiosBaseQuery =
 			statusText?: string
 			errorCode?: number
 			message?: string
+			data?: any
 		}
 	> =>
 	async ({ url, method, data, params, headers, responseType }) => {
@@ -59,6 +62,8 @@ export const axiosBaseQuery =
 				error.status = status
 				error.statusText = statusText
 				error.errorCode = axiosData?.errorCode
+				error.data = axiosData?.data
+
 				throw error
 			}
 
@@ -71,6 +76,7 @@ export const axiosBaseQuery =
 					status: error.status,
 					message: error?.message,
 					errorCode: error?.errorCode,
+					data: error?.data,
 				},
 			}
 		}

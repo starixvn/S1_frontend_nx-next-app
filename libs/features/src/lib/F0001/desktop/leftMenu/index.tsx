@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import classNames from 'classnames'
-import { isArray, includes } from 'lodash-es'
+import { isArray, includes, uniqueId } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
@@ -25,7 +25,7 @@ const LeftMenu = () => {
 
 					return (
 						isMatchCurrency && (
-							<Link href={pathname}>
+							<Link key={uniqueId()} href={pathname}>
 								<a className={classNames('menuSelect', { active: matchPath })}>
 									<span className=''>{t(displayKey)}</span>
 								</a>
@@ -36,7 +36,7 @@ const LeftMenu = () => {
 			)
 
 			return (
-				<div className='menuModule'>
+				<div className='menuModule' key={uniqueId()}>
 					<button className='menuHeader' style={{ cursor: 'auto' }}>
 						{t(displayKey)}
 					</button>
@@ -49,4 +49,4 @@ const LeftMenu = () => {
 	return <div id='leftMenu'>{menuList}</div>
 }
 
-export { LeftMenu }
+export default LeftMenu

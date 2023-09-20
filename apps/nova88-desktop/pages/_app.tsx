@@ -32,10 +32,10 @@ import {
 	LEFT_MENU_DATA,
 } from '@nx-next-app/site/nova88'
 
+import 'react-datepicker/dist/react-datepicker.css'
 import '../styles/css/style.css'
 import '../styles/css/swiper.css'
 import '../styles/css/font.css'
-import '../styles/css/datePicker.css'
 
 const {
 	LiveChatScript,

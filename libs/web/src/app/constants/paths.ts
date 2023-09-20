@@ -14,14 +14,35 @@ export const paths = {
 	deposit: {
 		root: 'deposit',
 	},
+	transfer: {
+		root: 'transfer',
+	},
 	history: {
 		root: 'history',
+	},
+	referralHistory: {
+		root: 'referral-history',
+	},
+	depositHistory: {
+		root: 'deposit-history',
+	},
+	withdrawalHistory: {
+		root: 'withdrawal-history',
+	},
+	transferHistory: {
+		root: 'transfer-history',
+	},
+	financialLog: {
+		root: 'financial-log',
 	},
 	transferFunds: {
 		root: 'transfer-funds',
 	},
 	withdrawal: {
 		root: 'withdrawal',
+	},
+	eWalletWithdrawal: {
+		root: 'eWallet-withdrawal',
 	},
 	message: {
 		root: 'message',
@@ -34,6 +55,9 @@ export const paths = {
 	},
 	wallet: {
 		root: 'wallet',
+	},
+	eWallet: {
+		root: 'eWallet',
 	},
 	cryptoWallet: {
 		root: 'crypto-wallet',

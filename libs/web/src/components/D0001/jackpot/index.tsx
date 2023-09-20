@@ -7,6 +7,8 @@ import { ANIMATION_LOOP_MILLISECOND, useJackPot } from '@nx-next-app/hooks'
 import { takeJackItemList } from '@nx-next-app/utils'
 import { useAuth } from '@nx-next-app/data-access'
 import { JackpotItem } from '@nx-next-app/components/D0001/jackpot/JackpotItem'
+import * as process from 'process'
+import { DeviceTypeEnum } from '@nx-next-app/types'
 
 const TEXT_TOP = 30
 interface IJackPotProps {
@@ -103,7 +105,12 @@ const JackPot = ({
 						</div>
 						<div className='jpot-item'>
 							<Image
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/homepage/jpot-item.png`}
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+									Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) ===
+									DeviceTypeEnum.Desktop
+										? 'desktop'
+										: 'h5'
+								}/img/homepage/jpot-item.png`}
 								alt=''
 								width={382}
 								height={324}

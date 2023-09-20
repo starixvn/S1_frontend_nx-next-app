@@ -48,7 +48,7 @@ const Setting = () => {
 							<Link href={paths.message.root}>
 								<a className='icon icon-email'>
 									{t('Label_General_Message')}
-									{msgCount && <i className='quantity'>{msgCount}</i>}
+									{msgCount > 0 && <i className='quantity'>{msgCount}</i>}
 								</a>
 							</Link>
 						</>

@@ -108,7 +108,10 @@ const HeaderModule = ({
 							{!isHideBalance && (
 								<>
 									{numFormatToDigits(totalWalletBalance)}
-									<SpinButton onClick={onRefetchAllWallet} />
+									<SpinButton
+										className='icon icon-spinner11 clickBtn'
+										onClick={onRefetchAllWallet}
+									/>
 								</>
 							)}
 						</div>

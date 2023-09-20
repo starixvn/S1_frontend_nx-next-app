@@ -8,6 +8,8 @@ import {
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import AppDownload from 'libs/features/src/lib/F0001/desktop/appDownload'
+import AppDownloadProvider from '@nx-next-app/features/F0001/providers/appDownload-context'
+import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/nova88/data/appDownload'
 
 type IAppDownloadPageProps = InitialPropsInterface
 const AppDownloadPage = ({
@@ -19,9 +21,11 @@ const AppDownloadPage = ({
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData} footerData={footerData}>
-					<AppDownload />
-				</Layout>
+				<AppDownloadProvider APP_DOWNLOAD_LIST={APP_DOWNLOAD_LIST}>
+					<Layout persistSEOData={persistSEOData} footerData={footerData}>
+						<AppDownload />
+					</Layout>
+				</AppDownloadProvider>
 			</GlobalDataProvider>
 		</AuthProvider>
 	)

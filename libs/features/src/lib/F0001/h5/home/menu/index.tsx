@@ -19,7 +19,7 @@ const Menu = () => {
 	const { modal } = useGlobalModal()
 
 	return (
-		<div id='content'>
+		<>
 			<div className='sideBar'>
 				{Object.entries(menuData).map(
 					([
@@ -86,7 +86,7 @@ const Menu = () => {
 			</div>
 
 			<SubMenu menuKey={menuKey} />
-		</div>
+		</>
 	)
 }
 

@@ -1,30 +1,19 @@
-import React, { LegacyRef, Suspense } from 'react'
-import {
-	IDisplayGameData,
-	IGameData,
-	IVendorData,
-} from 'libs/web/src/service/gameApi/type'
+import React, { Suspense } from 'react'
+import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
-import classNames from 'classnames'
+import { useSlots } from '@nx-next-app/features/F0001/providers'
 
-const GameList = ({
-	vendorList,
-	activeCategory,
-	slotsGameList,
-	gameListRef,
-	imgUrl,
-	onSetFavorites,
-	onPlay,
-}: {
-	vendorList: IVendorData[]
-	activeCategory: string
-	slotsGameList: IDisplayGameData[]
-	gameListRef: LegacyRef<HTMLDivElement> | undefined
-	imgUrl: string
-	onSetFavorites: (gameObj: IGameData) => void
-	onPlay: (targetGame: IGameData) => void
-}) => {
+const GameList = () => {
+	const {
+		slotsGameList,
+		vendorList,
+		imgUrl,
+		activeCategoryKey,
+		gameListRef,
+		onGamePlay,
+		onFavoritesToggle,
+	} = useSlots()
 	const {
 		userInfo: { langId },
 	} = useAuth()
@@ -68,7 +57,7 @@ const GameList = ({
 
 								<div
 									className={classNames('icon', {
-										'icon-new': activeCategory === 'new',
+										'icon-new': activeCategoryKey === 'new',
 									})}
 								/>
 
@@ -78,13 +67,9 @@ const GameList = ({
 									<div>{resultGameName}</div>
 									<div
 										onClick={() =>
-											onSetFavorites({
+											onFavoritesToggle({
 												tpId,
 												gameId,
-												imgName,
-												gameName,
-												playFree,
-												...rest,
 											})
 										}
 										className={classNames('icon icon-star-full', {
@@ -97,13 +82,10 @@ const GameList = ({
 									<button
 										className='blue'
 										onClick={() =>
-											onPlay({
+											onGamePlay({
 												tpId,
 												gameId,
-												imgName,
-												gameName,
 												playFree,
-												...rest,
 											})
 										}
 									>
@@ -114,13 +96,10 @@ const GameList = ({
 										<button
 											className='blue'
 											onClick={() =>
-												onPlay({
+												onGamePlay({
 													tpId,
 													gameId,
-													imgName,
-													gameName,
 													playFree,
-													...rest,
 												})
 											}
 										>

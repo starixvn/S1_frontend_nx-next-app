@@ -45,10 +45,13 @@
 	"Label_General_BankInfo": "ব্যাংক তথ্য",
 	"Label_General_PersonalMessage": "ব্যক্তিগত বার্তা",
 	"Label_General_Announcement": "ঘোষণা",
-	"Label_General_No": "না",
-	"Label_General_Yes": "হ্যাঁ",
 	"Label_General_OK": "OK",
 	"Label_General_Oh": "Oh",
+  "Label_General_NoData": "এখন কোন তথ্য পাওয়া যায় না.",
+  "Label_General_AreYouSureDelete": "আপনি মুছে ফেলতে চান?",
+  "Label_General_CantBeRestore": "মুছে ফেলার পরে এটি পুনরুদ্ধার করা যাবে না",
+  "Label_General_No": "না",
+	"Label_General_Yes": "হ্যাঁ",
 
 	"Label_Header_ForgetPassword": "আপনার পাসওয়ার্ড ভুলে গেছেন?",
 
@@ -76,5 +79,28 @@
 	"Label_Join_SignUpTerms3": ".",
 	"Label_Join_DontHaveAccount": "কোনো অ্যাকাউন্ট নেই",
 	"Label_Join_AffiliateIdWrong": "এফিলিয়েট আইডি পাওয়া যাচ্ছে না",
-	"Label_Join_EnterRealName": "আপনার আসল নাম লিখুন, বিশেষ চিহ্ন অনুমোদিত নয়"
+	"Label_Join_EnterRealName": "আপনার আসল নাম লিখুন, বিশেষ চিহ্ন অনুমোদিত নয়",
+
+  "Label_Announcement": "ঘোষণা",
+
+  "Label_Message_PersonalMsg": "ব্যক্তিগত বার্তা",
+
+	"Label_ChangePassword_PasswordReq": "পাসওয়ার্ড প্রয়োজন.",
+	"Label_ChangePassword_ChangePasswordHint": "প্রবেশ করার সময় পাসওয়ার্ড পরিবর্তন করুন, এবং নিয়মিত পরিবর্তন অ্যাকাউন্ট নিরাপত্তার জন্য উপকারী।",
+	"Label_ChangePassword_OldPassword": "পুরানো পাসওয়ার্ড",
+	"Label_ChangePassword_NewPassword": "নতুন পাসওয়ার্ড",
+	"Label_ChangePassword_ChangePswUpdateSuccess": "হালনাগাদ সফল হয়েছে!",
+	"Label_ChangePassword_ChangePswSuccessHint": "আপনি পরের বার প্রবেশ করার সময় নতুন পাসওয়ার্ড ব্যবহার করতে পারেন।",
+
+	"Label_Banner_Game_SubTitle": "জীবন সম্পর্কে একটি নতুন দৃষ্টিভঙ্গি",
+	"Label_Banner_Game_Title_1": "খেলা দিয়ে আপনার জীবন সাজান",
+	"Label_Banner_Game_Title_2": "with Game",
+
+	
+	"Label_Lottery_Game_SubTitle": "Reach to Be Rich",
+	"Label_Lottery_Game_Title_1": "LOTTERY",
+	"Label_Lottery_Game_Title_2": "HEAVEN 24/7",
+	"Label_PlayNow": "এখন খেলুন",
+
+	"Label_Profile_ProfileModifyWarning": "অ্যাকাউন্ট নিরাপত্তা নিশ্চিত করুন, ব্যক্তিগত তথ্য পূরণ করার পরে পরিবর্তন করা যাবে না।"
 }

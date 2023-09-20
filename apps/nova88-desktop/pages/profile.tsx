@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import React from 'react'
 import { GetServerSideProps } from 'next'
-import { AuthProvider } from '@nx-next-app/data-access'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, LeftMenu } from '@nx-next-app/features/F0001/desktop'
+import { Layout, Profile, LeftMenu } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -11,7 +11,6 @@ import {
 
 type IProfilePageProps = InitialPropsInterface
 
-// * TODO: wip todo
 const ProfilePage = ({
 	originIsSignIn,
 	originCookies,
@@ -20,20 +19,16 @@ const ProfilePage = ({
 }: IProfilePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout persistSEOData={persistSEOData} footerData={footerData}>
-				<main>
-					<section className='inside'>
-						<LeftMenu />
-						<br />
-						<br />
-						<br />
-						<h1 style={{ color: 'black' }}>Profile Page</h1>
-						<br />
-						<br />
-						<br />
-					</section>
-				</main>
-			</Layout>
+			<GlobalDataProvider>
+				<Layout persistSEOData={persistSEOData} footerData={footerData}>
+					<main>
+						<section className='inside'>
+							<LeftMenu />
+							<Profile />
+						</section>
+					</main>
+				</Layout>
+			</GlobalDataProvider>
 		</AuthProvider>
 	)
 }

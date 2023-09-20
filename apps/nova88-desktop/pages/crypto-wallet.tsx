@@ -1,8 +1,13 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
-import { AuthProvider } from '@nx-next-app/data-access'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, LeftMenu } from '@nx-next-app/features/F0001/desktop'
+import { CryptoWalletProvider } from '@nx-next-app/features/F0001/providers'
+import {
+	Layout,
+	LeftMenu,
+	CryptoWallet,
+} from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -10,7 +15,6 @@ import {
 
 type ICryptoWalletPageProps = InitialPropsInterface
 
-// * TODO: wip todo
 const CryptoWalletPage = ({
 	originIsSignIn,
 	originCookies,
@@ -19,20 +23,18 @@ const CryptoWalletPage = ({
 }: ICryptoWalletPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout persistSEOData={persistSEOData} footerData={footerData}>
-				<main>
-					<section className='inside'>
-						<LeftMenu />
-						<br />
-						<br />
-						<br />
-						<h1 style={{ color: 'black' }}>CryptoWallet Page</h1>
-						<br />
-						<br />
-						<br />
-					</section>
-				</main>
-			</Layout>
+			<GlobalDataProvider>
+				<CryptoWalletProvider>
+					<Layout persistSEOData={persistSEOData} footerData={footerData}>
+						<main>
+							<section className='inside'>
+								<LeftMenu />
+								<CryptoWallet />
+							</section>
+						</main>
+					</Layout>
+				</CryptoWalletProvider>
+			</GlobalDataProvider>
 		</AuthProvider>
 	)
 }

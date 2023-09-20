@@ -1,3 +1,10 @@
+import { ReactNode } from 'react'
+
+export interface IEventPeriod {
+	start: null | string
+	end: null | string
+}
+
 export enum CurrenciesEnum {
 	MYR = 2,
 	USD = 3,
@@ -53,7 +60,7 @@ export interface IStaticLangGroups {
 }
 
 export interface IStaticAllowedCurrencies {
-	[key: string]: CurrenciesEnum[] | { [subKey: string]: CurrenciesEnum[] }
+	[key: string]: CurrenciesEnum[]
 }
 
 export interface IStaticVipEventCurrenciesLimitationInfo {
@@ -112,17 +119,6 @@ export enum BannerActionEnum {
 	RedirectPageOfThisSite,
 }
 
-// 根據 Admin 新的 bonusType 調整
-export enum PromotionTypeEnum {
-	FirstDeposit = 1,
-	Redeposit = 2,
-	FreeBet = 3,
-	WalletBonus = 5,
-	Rebate = 6,
-	Cashback = 7,
-	SpecialBonus = 8,
-}
-
 export enum BonusTypeEnum {
 	Percentage = 1,
 	Amount,
@@ -175,4 +171,13 @@ export type ILeftMenuData = {
 	}
 }
 
+export type SelectOptionType = {
+	className?: string
+	value: string | number | undefined
+	label: string | number | null | ReactNode
+	disabled?: boolean
+	prefixOptionIcon?: ReactNode
+}
+
 export * from './footer'
+export * from './promotion'

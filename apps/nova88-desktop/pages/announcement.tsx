@@ -1,38 +1,34 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
-import { AuthProvider } from '@nx-next-app/data-access'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Layout, LeftMenu } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import Announcement from '@nx-next-app/features/F0001/desktop/announcement'
 
-type IHomePageProps = InitialPropsInterface
+type IAnnouncementPage = InitialPropsInterface
 
-// * TODO: wip todo
 const AnnouncementPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
 	footerData,
-}: IHomePageProps) => {
+}: IAnnouncementPage) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout persistSEOData={persistSEOData} footerData={footerData}>
-				<main>
-					<section className='inside'>
-						<LeftMenu />
-						<br />
-						<br />
-						<br />
-						<h1 style={{ color: 'black' }}>Announcement Page</h1>
-						<br />
-						<br />
-						<br />
-					</section>
-				</main>
-			</Layout>
+			<GlobalDataProvider>
+				<Layout persistSEOData={persistSEOData} footerData={footerData}>
+					<main>
+						<section className='inside'>
+							<LeftMenu />
+							<Announcement />
+						</section>
+					</main>
+				</Layout>
+			</GlobalDataProvider>
 		</AuthProvider>
 	)
 }

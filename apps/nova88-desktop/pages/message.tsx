@@ -1,16 +1,16 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
-import { AuthProvider } from '@nx-next-app/data-access'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Layout, LeftMenu } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import PersonalMessage from '@nx-next-app/features/F0001/desktop/message'
 
 type IMessagePageProps = InitialPropsInterface
 
-// * TODO: wip todo
 const MessagePage = ({
 	originIsSignIn,
 	originCookies,
@@ -19,20 +19,16 @@ const MessagePage = ({
 }: IMessagePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<Layout persistSEOData={persistSEOData} footerData={footerData}>
-				<main>
-					<section className='inside'>
-						<LeftMenu />
-						<br />
-						<br />
-						<br />
-						<h1 style={{ color: 'black' }}>Message Page</h1>
-						<br />
-						<br />
-						<br />
-					</section>
-				</main>
-			</Layout>
+			<GlobalDataProvider>
+				<Layout persistSEOData={persistSEOData} footerData={footerData}>
+					<main>
+						<section className='inside'>
+							<LeftMenu />
+							<PersonalMessage />
+						</section>
+					</main>
+				</Layout>
+			</GlobalDataProvider>
 		</AuthProvider>
 	)
 }

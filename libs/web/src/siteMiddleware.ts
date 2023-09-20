@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { ENV_COOKIE_NAMES } from './app/constants/Names'
 
 interface ISiteMiddleware {
 	request: NextRequest
@@ -16,34 +17,21 @@ export const siteMiddleware = ({ request, config }: ISiteMiddleware) => {
 	const { defaultCurrency, defaultLocale, langToCurrency } = config
 	const response = NextResponse.next()
 	const { locale } = request.nextUrl
-	const hasLangId = request.cookies.has(
-		`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`
-	)
-	const cookieLang = request.cookies.get(
-		`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`
-	)
+	const hasLangId = request.cookies.has(ENV_COOKIE_NAMES.LangId)
+	const cookieLang = request.cookies.get(ENV_COOKIE_NAMES.LangId)
 
 	// 沒有 cookie 資料，且無指定語系
 	if (!hasLangId) {
 		if (locale === 'default') {
-			response.cookies.set(
-				`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`,
-				defaultLocale
-			)
-			response.cookies.set(
-				`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`,
-				String(defaultCurrency)
-			)
+			response.cookies.set(ENV_COOKIE_NAMES.LangId, defaultLocale)
+			response.cookies.set(ENV_COOKIE_NAMES.CurrencyId, String(defaultCurrency))
 		}
 	}
 	// 有指定語系，且與 cookie 不相符，將 cookie 替換至該語系
 	if (locale !== 'default' && locale !== String(cookieLang)) {
+		response.cookies.set(ENV_COOKIE_NAMES.LangId, locale)
 		response.cookies.set(
-			`${process.env['NEXT_PUBLIC_SITE_NAME']}_langId`,
-			locale
-		)
-		response.cookies.set(
-			`${process.env['NEXT_PUBLIC_SITE_NAME']}_currencyId`,
+			ENV_COOKIE_NAMES.CurrencyId,
 			String(langToCurrency[locale])
 		)
 	}

@@ -20,6 +20,7 @@ export interface IInputBoxProps
 	infoMessage?: string
 	format?: boolean
 	formatStr?: string
+	showIconModule?: boolean
 }
 
 /**
@@ -55,6 +56,7 @@ export interface IInputBoxProps
  * @param {string} formatStr - 用於複寫預設的 formatStr
  * @param {boolean} warning - 檢視舊專案無使用到,true 則顯示警告 icon
  * @param {string} type - HTMLInputTypeAttribute
+ * @param {boolean} showIconModule - Whether show showIconModule
  * @param {*} prop - other html input props
  * @author Wen
  */
@@ -77,6 +79,7 @@ const InputBox = ({
 	className,
 	infoMessage,
 	formatStr = "('000)",
+	showIconModule = true,
 	...props
 }: IInputBoxProps) => {
 	const [showPassword, setShowPassword] = useState(false)
@@ -160,26 +163,28 @@ const InputBox = ({
 
 				{!!description && <div className='description'>{description}</div>}
 
-				<div className='iconModule'>
-					{format && <i>{formatStr}</i>}
+				{showIconModule && (
+					<div className='iconModule'>
+						{format && <i>{formatStr}</i>}
 
-					{password ? (
-						// eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
-						<i
-							className={classNames('icon', {
-								'icon-eye-blocked': !showPassword,
-								'icon-eye': showPassword,
-							})}
-							style={{ cursor: 'pointer' }}
-							onClick={() => setShowPassword(prev => !prev)}
-						/>
-					) : (
-						stateIcon()
-					)}
+						{password ? (
+							// eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
+							<i
+								className={classNames('icon', {
+									'icon-eye-blocked': !showPassword,
+									'icon-eye': showPassword,
+								})}
+								style={{ cursor: 'pointer' }}
+								onClick={() => setShowPassword(prev => !prev)}
+							/>
+						) : (
+							stateIcon()
+						)}
 
-					{/* 檢查舊專案無使用到，怕有功能需要用，暫不移除 */}
-					{warning && <i className='icon icon-warning' />}
-				</div>
+						{/* 檢查舊專案無使用到，怕有功能需要用，暫不移除 */}
+						{warning && <i className='icon icon-warning' />}
+					</div>
+				)}
 			</div>
 			{renderInfoMessage()}
 		</>

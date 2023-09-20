@@ -20,7 +20,11 @@ const MsgPopUp = () => {
 	const isPopupMsgActive = !!popupMsg?.id && isMessagePage
 
 	return (
-		<Link href={paths.message.root}>
+		<Link
+			href={{
+				pathname: paths.message.root,
+			}}
+		>
 			<a
 				className={classNames('icon icon-email', {
 					active: isPopupCountActive,
@@ -30,7 +34,15 @@ const MsgPopUp = () => {
 					<div className='msgPop'>
 						<div
 							onClick={() => {
-								router.push(paths.message.root)
+								router.push({
+									pathname: paths.message.root,
+									query: {
+										msgId: popupMsg?.id ? popupMsg.id : undefined,
+										popUpPageNumber: popupMsg.pageNumber
+											? popupMsg.pageNumber
+											: undefined,
+									},
+								})
 							}}
 						>
 							{popupMsg?.popupMessage}
