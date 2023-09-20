@@ -15,7 +15,6 @@ import {
 	useGetReferralCodeQuery,
 	useGetReferralSettingQuery,
 	useGetSocialChannelQuery,
-	useLazyGetPromotionDetailQuery,
 } from '@nx-next-app/service'
 import {
 	CurrenciesEnum,
@@ -194,8 +193,6 @@ export const HomeProvider = ({
 
 	const { recentlyViewedList = [] } = recentlyViewData ?? {}
 
-	const [getPromotionDetail] = useLazyGetPromotionDetailQuery()
-
 	const { data: { data: referralSetting = [] } = {} } =
 		useGetReferralSettingQuery(null, { skip: !isLogin })
 	const { data: { data: referralCode = '' } = {} } = useGetReferralCodeQuery(
@@ -223,18 +220,7 @@ export const HomeProvider = ({
 
 	// promotion click 事件
 	const handlePromotionClick = async (bonusCode: string) => {
-		try {
-			// 桌機模組固定傳桌機
-			const { data: promotionDetail } = await getPromotionDetail({
-				currencyId,
-				langId,
-				bonusCode,
-				deviceType: DeviceTypeEnum.Desktop,
-			}).unwrap()
-			modal.open(<PromotionDetailModal promotionDetail={promotionDetail} />)
-		} catch (error) {
-			modal.error((error as Error).message)
-		}
+		modal.open(<PromotionDetailModal bonusCode={bonusCode} />)
 	}
 
 	// 跑馬燈資訊 click 事件

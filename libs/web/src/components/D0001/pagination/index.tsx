@@ -18,7 +18,7 @@ const defaultReactPaginateProps = {
 	previousLabel: '<',
 	pageRangeDisplayed: 5,
 	marginPagesDisplayed: 1,
-	renderOnZeroPageCount: null,
+	renderOnZeroPageCount: null as ReactPaginateProps['renderOnZeroPageCount'],
 	breakLinkClassName: 'pagination-item',
 	activeLinkClassName: 'active',
 }

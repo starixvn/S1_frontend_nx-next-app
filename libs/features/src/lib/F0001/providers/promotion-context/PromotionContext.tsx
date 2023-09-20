@@ -50,15 +50,10 @@ interface PromotionContextInterface {
 		value: PromotionFilterEnum
 		needLogin: boolean
 	}[]
-	promotionForm: UseFormReturn<
-		{
-			specialCode: string
-			amount: string
-		},
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		any,
-		undefined
-	>
+	promotionForm: UseFormReturn<{
+		specialCode: string
+		amount: string
+	}>
 	promotionData: IPromotionData[]
 	activeFilterType: PromotionFilterEnum
 	onChangeActiveFilterType: (type: PromotionFilterEnum) => void

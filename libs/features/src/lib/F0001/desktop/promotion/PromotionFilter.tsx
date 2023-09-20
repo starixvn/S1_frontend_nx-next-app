@@ -52,14 +52,15 @@ const PromotionFilter = () => {
 			{isLogin && activeFilterType === PromotionFilterEnum.PromoCode && (
 				<div className='specialBonus'>
 					<Form
-						onSubmit={promotionForm.handleSubmit(({ specialCode }) =>
+						onSubmit={promotionForm.handleSubmit(() => {
+							const { specialCode } = promotionForm.getValues()
 							onSetSpecialCode({
 								specialCode,
 								messageCallBack(message) {
 									modal.info(message, { onOK: () => closeModal() })
 								},
 							})
-						)}
+						})}
 					>
 						<div className='inputBox-white'>
 							<input {...promotionForm.register('specialCode')} />
