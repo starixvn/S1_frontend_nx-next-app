@@ -22,11 +22,11 @@ const DepositHistoryPage = ({
 	originCookies,
 	persistSEOData,
 }: IDepositHistoryPageProps) => {
-	const HEADER_TAGS: { displayKey: string; pathName: string }[] = [
-		{ displayKey: 'Label_General_Deposit', pathName: paths.deposit.root },
+	const HEADER_TAGS: { label: string; href: string }[] = [
+		{ label: 'Label_General_Deposit', href: paths.deposit.root },
 		{
-			displayKey: 'Label_General_DepositHistory',
-			pathName: paths.depositHistory.root,
+			label: 'Label_General_DepositHistory',
+			href: paths.depositHistory.root,
 		},
 	]
 
