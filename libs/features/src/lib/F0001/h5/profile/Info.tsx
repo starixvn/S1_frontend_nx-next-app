@@ -4,7 +4,7 @@ import { useSendOTPEmailMutation } from '@nx-next-app/service'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { Spin } from '@nx-next-app/components/D0001'
+import { Loading } from '@nx-next-app/components/D0001'
 import { PhoneOtpModal } from './PhoneOtpModal'
 
 const Info = () => {
@@ -44,7 +44,7 @@ const Info = () => {
 		}
 	}
 
-	if (!lastLogin) return <Spin />
+	if (!lastLogin) return <Loading />
 
 	return (
 		<div className='profile'>

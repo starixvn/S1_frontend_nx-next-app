@@ -13,7 +13,7 @@ export const numFormatToDigits = (value: number, digits = 2): string => {
 	return formatter.format(Number(value.toFixed(digits)))
 }
 
-const isConvert = (currencyId: CurrenciesEnum) =>
+export const isConvert = (currencyId: CurrenciesEnum) =>
 	[CurrenciesEnum.IDR, CurrenciesEnum.VND].includes(currencyId)
 
 /**

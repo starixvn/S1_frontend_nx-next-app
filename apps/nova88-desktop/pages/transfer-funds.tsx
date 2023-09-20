@@ -2,15 +2,19 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, LeftMenu } from '@nx-next-app/features/F0001/desktop'
+import {
+	Layout,
+	LeftMenu,
+	TransferFunds,
+} from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { TransferFundsProvider } from '@nx-next-app/features/F0001/providers'
 
 type ITransferFundsPageProps = InitialPropsInterface
 
-// * TODO: wip todo
 const TransferFundsPage = ({
 	originIsSignIn,
 	originCookies,
@@ -20,14 +24,16 @@ const TransferFundsPage = ({
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData} footerData={footerData}>
-					<main>
-						<section className='inside'>
-							<LeftMenu />
-							<h1 style={{ color: 'black' }}>TransferFunds Page</h1>
-						</section>
-					</main>
-				</Layout>
+				<TransferFundsProvider>
+					<Layout persistSEOData={persistSEOData} footerData={footerData}>
+						<main>
+							<section className='inside'>
+								<LeftMenu />
+								<TransferFunds />
+							</section>
+						</main>
+					</Layout>
+				</TransferFundsProvider>
 			</GlobalDataProvider>
 		</AuthProvider>
 	)

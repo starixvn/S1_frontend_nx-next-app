@@ -153,7 +153,6 @@
 	"Label_General_WithdrawalHistory": "Withdrawal History",
 	"Label_General_TransferHistory": "Transfer History",
 	"Label_General_FinancialLog": "Financial Log",
-
 	"Label_General_NoData": "No information is available now",
 	"Label_General_Product": "Product",
 	"Label_General_Loading": "Loading",
@@ -177,13 +176,16 @@
 	"Label_General_UpdateSuccessful": "Update Successful",
 	"Label_General_Awesome": "Awesome",
 	"Label_General_Success": "Success",
-	"Label_General_Fail": "Fail",
+	"Label_General_Fail": "Failed",
 	"Label_General_LatestAwards": "Latest Awards",
 	"Label_General_MyWallet": "My Wallet",
 	"Label_General_EWallet": "E-Wallet",
 	"Label_General_AccountName": "Account Name",
 	"Label_General_BankAccountHint": "Account Name must match with Bank Account Holder",
 	"Label_General_UpdatePersonalDetail": "Update Personal Details",
+	"Label_General_AmountTooltip": "Amount can not be less than {{0}}.",
+	"Label_General_RecentTransactions": "Recent Transactions",
+	"Label_General_AllTranscations": "All Transactions",
 
 	"Label_Product_Dota2": "Dota2",
 	"Label_Product_LOL": "LOL",
@@ -649,7 +651,7 @@
 	"Label_LuckyWheel_OtherConditions4": "4. Nova88 is the sole arbiter of the Promotion and its decision is final.",
 	"Label_LuckyWheel_OtherConditions5": "5. Nova88 Standard Terms and Conditions apply.",
 
-	"Label_Lottery_Game_SubTitle":"Reach to Be Rich",
+	"Label_Lottery_Game_SubTitle": "Reach to Be Rich",
 	"Label_Lottery_Game_Title_1": "LOTTERY",
 	"Label_Lottery_Game_Title_2": "HEAVEN 24/7",
 
@@ -689,5 +691,17 @@
 	"Label_CryptoWallet_PleaseEnterWalletAddress": "Please Enter Your Crypto Wallet Address",
 	"Label_CryptoWallet_CryptoOTP": "Phone number (OTP) verification are required before using Crypto service.",
 
-	"Label_EWallet_AddEWallet": "Add E-Wallet"
+	"Label_EWallet_AddEWallet": "Add E-Wallet",
+	"Label_TransferFunds_AutoTransferHint": "Auto Transfer will transfer all your fund to the game. If any running bonus within, your fund will be locked in the designated wallet that entered.",
+	"Label_TransferFunds_MainWalletAutoTransfer": "Main Wallet Auto Transfer",
+	"Label_TransferFunds_Caution": "CAUTION!",
+	"Label_TransferFunds_Manual": "Manual",
+	"Label_TransferFunds_RestoreAll": "Restore All",
+	"Label_TransferFunds_From": "From",
+	"Label_TransferFunds_To": "To",
+	"Label_TransferFunds_PleaseSelectFromWallet": "Kindly select preferable fund out wallet",
+	"Label_TransferFunds_PleaseSelectToWallet": "Kindly select preferable fund in wallet",
+	"Label_TransferFunds_TurnoverAccmulateHint": "Your Fund are locked to transfer out due to Rollover requirement is not fulfils.",
+	"Label_TransferFunds_TurnoverAccumulated": "Turnover Accumulated",
+	"Label_TransferFunds_MaxAmount": "Max Amount"
 }

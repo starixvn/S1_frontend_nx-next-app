@@ -1,10 +1,9 @@
-import React from 'react'
+import dayjs from 'dayjs'
+import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
+import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
 import { ITransferHistoryData } from '@nx-next-app/service'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
-import dayjs from 'dayjs'
-import { numberFormat } from '@nx-next-app/utils'
-import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
-import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
+import { numberFormat, transferDirection } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 
@@ -19,32 +18,6 @@ const TransferHistoryTable = ({
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
-
-	const transferDirection = ({
-		direction,
-		displayMainWallet,
-		displayAdjustment,
-		isAdjustment,
-		tpName,
-	}: {
-		direction: number
-		displayMainWallet: string
-		displayAdjustment: string
-		isAdjustment: boolean
-		tpName: string
-	}) => {
-		const startWallet =
-			direction === 1 && !isAdjustment ? displayMainWallet : tpName
-		let endWallet = ''
-
-		if (isAdjustment) {
-			endWallet = displayAdjustment
-		} else {
-			endWallet = direction === 1 ? tpName : displayMainWallet
-		}
-
-		return { startWallet, endWallet }
-	}
 
 	const columns = [
 		{
@@ -86,7 +59,7 @@ const TransferHistoryTable = ({
 			}) => {
 				const { startWallet, endWallet } = transferDirection({
 					direction,
-					displayMainWallet: t('Label_MainWallet'),
+					displayMainWallet: t('Label_History_MainWallet'),
 					displayAdjustment: t('Label_Adjustment'),
 					isAdjustment,
 					tpName,

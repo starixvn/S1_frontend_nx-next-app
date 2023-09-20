@@ -7,7 +7,7 @@ import { CurrenciesEnum } from '@nx-next-app/types'
 import { IFSC_CODE_REGEX } from '@nx-next-app/constants'
 import { useBankInfo } from '@nx-next-app/features/F0001/providers'
 import { Form, Select, InputBox } from '@nx-next-app/components/H0001'
-import { Spin } from '@nx-next-app/components/D0001'
+import { Loading } from '@nx-next-app/components/D0001'
 
 const AddCard = () => {
 	const { t } = useTranslation()
@@ -23,7 +23,7 @@ const AddCard = () => {
 	const { bankInfoSysList, setIsShowCards, handleSetCustBankInfo } =
 		useBankInfo()
 
-	if (!bankInfoSysList) return <Spin />
+	if (!bankInfoSysList) return <Loading />
 
 	const bankSysOptions = bankInfoSysList.map(
 		({ bankLogo, bankName, sysId }) => ({

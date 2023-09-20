@@ -5,7 +5,7 @@ import { useAuth } from '@nx-next-app/data-access'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { IFSC_CODE_REGEX } from '@nx-next-app/constants'
 import { useBankInfo } from '@nx-next-app/features/F0001/providers'
-import { Spin, InputBox } from '@nx-next-app/components/D0001'
+import { Loading, InputBox } from '@nx-next-app/components/D0001'
 
 const Step3 = () => {
 	const { t } = useTranslation()
@@ -19,7 +19,7 @@ const Step3 = () => {
 
 	const { selBank, setStep, handleSetCustBankInfo } = useBankInfo()
 
-	if (!selBank) return <Spin />
+	if (!selBank) return <Loading />
 
 	const { bankLogo, bankName } = selBank
 

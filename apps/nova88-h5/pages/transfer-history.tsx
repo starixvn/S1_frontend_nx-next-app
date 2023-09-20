@@ -23,7 +23,10 @@ const TransferHistoryPage = ({
 	persistSEOData,
 }: ITransferHistoryPageProps) => {
 	const HEADER_TAGS: { displayKey: string; pathName: string }[] = [
-		{ displayKey: 'Label_General_Transfer', pathName: paths.transfer.root },
+		{
+			displayKey: 'Label_General_Transfer',
+			pathName: paths.transferFunds.root,
+		},
 		{
 			displayKey: 'Label_General_TransferHistory',
 			pathName: paths.transferHistory.root,

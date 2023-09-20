@@ -26,6 +26,8 @@ export const rootApi = createApi({
 		'ACCOUNT_GET_USER_BANK_INFO',
 		'ACCOUNT_GET_USER_CRYPTO_WALLET_INFO',
 		'ACCOUNT_GET_USER_EWALLET_INFO',
+		'ACCOUNT_GET_AUTO_TRANSFER_INFO',
+		'TP_GET_TRANSFER_INFO',
 	],
 	endpoints: () => ({}),
 })

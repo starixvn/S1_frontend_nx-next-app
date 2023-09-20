@@ -129,3 +129,29 @@ export const getIsTpMaintain = ({
 
 	return Boolean(isTpMaintain)
 }
+
+export const transferDirection = ({
+	direction,
+	displayMainWallet,
+	displayAdjustment,
+	isAdjustment,
+	tpName,
+}: {
+	direction: number
+	displayMainWallet: string
+	displayAdjustment: string
+	isAdjustment: boolean
+	tpName: string
+}) => {
+	const startWallet =
+		direction === 1 && !isAdjustment ? displayMainWallet : tpName
+	let endWallet = ''
+
+	if (isAdjustment) {
+		endWallet = displayAdjustment
+	} else {
+		endWallet = direction === 1 ? tpName : displayMainWallet
+	}
+
+	return { startWallet, endWallet }
+}
