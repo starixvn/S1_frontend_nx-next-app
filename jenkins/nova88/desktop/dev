@@ -23,7 +23,7 @@ pipeline {
         stage('Deploy') {
             agent { node { label 'master' } }
             steps {
-                sh 'ansible-playbook -i ${ansible_path}/DEV.AWS.yml ${ansible_path}/deploy.docker.yml --extra-vars "host=linux-dev docker_name=next-sample-dev ver=desktop/next-sample-dev:${version} env=${env} docker_ports=${project_port}:${project_port}"'
+                sh 'ansible-playbook -i ${ansible_path}/DEV.AWS.yml ${ansible_path}/deploy.docker.yml --extra-vars "host=linux-dev docker_name=${project} ver=desktop/next-sample-dev:${version} env=${env} docker_ports=${project_port}:${project_port}"'
             }
         }
     }
