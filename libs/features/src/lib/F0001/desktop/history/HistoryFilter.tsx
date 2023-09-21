@@ -8,7 +8,7 @@ const HistoryFilter = () => {
 	const {
 		startDate,
 		endDate,
-		activePeriod,
+		activeTab,
 		QUICK_PICK_LIST,
 		onQuickPickChange,
 		onStartDateChange,
@@ -24,8 +24,8 @@ const HistoryFilter = () => {
 					options={QUICK_PICK_LIST}
 					isTranslation
 					placeholder='-'
-					value={activePeriod}
-					defaultValue={activePeriod}
+					value={activeTab}
+					defaultValue={activeTab}
 					prefixText={t('Label_History_QuickPick') as string}
 					onChange={value => onQuickPickChange(value)}
 				/>
