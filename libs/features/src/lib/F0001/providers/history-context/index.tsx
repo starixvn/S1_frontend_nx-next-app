@@ -21,12 +21,14 @@ import {
 	useLazyGetWithdrawalInfoHistoryQuery,
 	useSetDepositCancelMutation,
 	useSetWithdrawalCancelMutation,
+	useUploadReceiptMutation,
 } from '@nx-next-app/service'
 import { DEVICE_TYPE } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { HistoryTabsEnum, QuickPickEnum } from 'libs/web/src/app/types/history'
 import { useInView } from '@nx-next-app/hooks'
 import { useRouter } from 'next/router'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 
 interface IHistoryProviderProps {
 	children: ReactNode
@@ -68,6 +70,7 @@ export interface IHistoryContextInterface {
 	onQuickPickChange: (newPeriod: string | number | undefined) => void
 	onPageChange: (selectedItem: { selected: number }) => void
 	onSearch: () => void
+	onSubmit: ({ transId, receipt }: { transId: string; receipt: string }) => void
 	onStartDateChange: (newDate: Date | null) => void
 	onEndDateChange: (newDate: Date | null) => void
 	onDepositCancel: (transId: string) => void
@@ -92,7 +95,7 @@ const HistoryProvider = ({
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
-
+	const { modal } = useGlobalModal()
 	const tabsRef = useRef<HTMLDivElement | null>(null)
 	const { ref: historyListRef, isInView: isHistoryListInView } = useInView({})
 	const { pathname } = useRouter()
@@ -177,6 +180,9 @@ const HistoryProvider = ({
 			isFetching: isGetReferralFetching,
 		},
 	] = useLazyGetReferralQuery()
+
+	const [uploadReceipt, { isLoading: isUploadReceiptLoading }] =
+		useUploadReceiptMutation()
 
 	const [setDepositCancel, { isLoading: isSetDepositCancelLoading }] =
 		useSetDepositCancelMutation()
@@ -315,6 +321,20 @@ const HistoryProvider = ({
 		}
 	}
 
+	const onSubmit = async ({
+		transId,
+		receipt,
+	}: {
+		transId: string
+		receipt: string
+	}) => {
+		try {
+			await uploadReceipt({ transId, receipt }).unwrap()
+		} catch (error) {
+			modal.error((error as Error).message)
+		}
+	}
+
 	const onDepositCancel = async (transId: string) => {
 		await setDepositCancel({ transId }).unwrap()
 	}
@@ -393,7 +413,8 @@ const HistoryProvider = ({
 		isGetStatementFetching ||
 		isGetReferralFetching ||
 		isSetDepositCancelLoading ||
-		isSetWithdrawalCancelLoading
+		isSetWithdrawalCancelLoading ||
+		isUploadReceiptLoading
 
 	useEffect(() => {
 		if (!isLoading) {
@@ -430,6 +451,7 @@ const HistoryProvider = ({
 		onEndDateChange,
 		onPageChange,
 		onSearch,
+		onSubmit,
 		onDepositCancel,
 		onWithdrawalCancel,
 		onTabsScroll,
