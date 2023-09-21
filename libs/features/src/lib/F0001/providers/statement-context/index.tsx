@@ -25,7 +25,7 @@ import { useRouter } from 'next/router'
 interface IStatementProviderProps {
 	children: ReactNode
 	QUICK_PICK_LIST: { value: QuickPickEnum; label: string }[]
-	HEADER_TAGS?: { displayKey: string; pathName: string }[]
+	HEADER_TAGS: { label: string; href: string }[]
 }
 
 export interface IStatementContextInterface {
@@ -44,7 +44,7 @@ export interface IStatementContextInterface {
 	loading: boolean
 	totalTurnover: number | string
 	totalWinlostAmount: number | string
-	HEADER_TAGS?: { displayKey: string; pathName: string }[]
+	HEADER_TAGS: { label: string; href: string }[]
 	tabsRef?: React.MutableRefObject<null | HTMLDivElement>
 	onPageChange: ({ selected }: { selected: number }) => void
 	onQuickPickChange: (

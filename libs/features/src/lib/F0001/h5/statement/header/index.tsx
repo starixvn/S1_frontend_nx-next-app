@@ -1,16 +1,44 @@
 import React from 'react'
-import StatementTags from '@nx-next-app/features/F0001/h5/statement/header/StatementTags'
-import StatementTabs from '@nx-next-app/features/F0001/h5/statement/header/StatementTabs'
 import Breadcrumb from '@nx-next-app/components/H0001/breadcrumb'
 import { useStatement } from '@nx-next-app/features/F0001/providers/statement-context'
+import { Header } from '@nx-next-app/components/H0001'
+import { QuickPickEnum } from 'libs/web/src/app/types/history'
+import { useTranslation } from 'next-i18next'
 
 const StatementHeader = () => {
-	const { activeTab, breadcrumbs, onTabChange } = useStatement()
+	const { t } = useTranslation()
+	const {
+		HEADER_TAGS,
+		activeTab,
+		breadcrumbs,
+		onTabChange,
+		QUICK_PICK_LIST,
+		tabsRef,
+		onQuickPickChange,
+		onTabsScroll,
+	} = useStatement()
+
+	const tags = HEADER_TAGS.map(item => ({
+		href: item.href,
+		label: t(item.label),
+	}))
+
+	const quickSelect = QUICK_PICK_LIST.map(item => ({
+		key: item.value,
+		label: t(item.label),
+	}))
 
 	return (
 		<header className='header'>
-			<StatementTags />
-			<StatementTabs />
+			<Header.Tags tags={tags} />
+			<Header.Tag
+				quickSelect={quickSelect}
+				onQuickSelectChange={key =>
+					onQuickPickChange(key as QuickPickEnum, true)
+				}
+				onTabsScroll={onTabsScroll}
+				ref={tabsRef}
+			/>
 			<Breadcrumb
 				items={breadcrumbs}
 				activeItem={activeTab}
