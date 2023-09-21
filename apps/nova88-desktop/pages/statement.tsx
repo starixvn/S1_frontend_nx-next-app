@@ -7,26 +7,30 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import StatementProvider from '@nx-next-app/features/F0001/providers/statement-context'
+import Statement from '@nx-next-app/features/F0001/desktop/statement'
+import { QUICK_PICK_LIST } from '@nx-next-app/site/nova88/data/history'
 
-type IHomePageProps = InitialPropsInterface
+type IStatementPageProps = InitialPropsInterface
 
-// * TODO: wip todo
 const StatementPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
 	footerData,
-}: IHomePageProps) => {
+}: IStatementPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData} footerData={footerData}>
-					<main>
-						<section className='inside'>
-							<LeftMenu />
-							<h1 style={{ color: 'black' }}>Statement Page</h1>
-						</section>
-					</main>
+					<StatementProvider QUICK_PICK_LIST={QUICK_PICK_LIST}>
+						<main>
+							<section className='inside'>
+								<LeftMenu />
+								<Statement />
+							</section>
+						</main>
+					</StatementProvider>
 				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>

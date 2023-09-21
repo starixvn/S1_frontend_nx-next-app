@@ -34,13 +34,9 @@ const FinancialHistoryTable = ({
 			// eslint-disable-next-line react/no-unused-prop-types
 			render: ({ item: { createTime } }: { item: { createTime: string } }) => (
 				<>
-					{dayjs(createTime, 'YYYY-MM-DDThh:mm:ssZ')
-						// .utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
-						.format('DD/MM/YYYY')}
+					{dayjs(createTime).format('MM/DD/YYYY')}
 					<span className='txt-blue'>
-						{dayjs(createTime, 'YYYY-MM-DDThh:mm:ssZ')
-							// .utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
-							.format('HH:mm:ss')}
+						{dayjs(createTime).format('hh:mm:ss A')}
 					</span>
 				</>
 			),
@@ -93,7 +89,9 @@ const FinancialHistoryTable = ({
 		<Table
 			dataSource={dataSource}
 			columns={columns as ITableColumns<IStatementData>[]}
-			className='history'
+			mainClassName='list history'
+			headerClassName='listHeader'
+			bodyClassName='listBody'
 		/>
 	)
 }

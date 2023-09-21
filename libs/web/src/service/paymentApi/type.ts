@@ -120,3 +120,66 @@ export interface IEWalletInfoSysData {
 	status: number
 	sysId: number
 }
+
+export interface ICustTpBetRecordListDateRangeData {
+	settledDate: string
+	turnOver: number
+	validBet: number
+	winlostAmount: number
+}
+
+export interface ICustTpBetRecordListDateRangeArgs {
+	startDate: string
+	endDate: string
+	pageNumber: number
+	pageSize: number
+}
+
+export interface ICustTpBetRecordListOneDayData {
+	settledDate: string
+	categoryName: string
+	categoryId: number
+	turnOver: number
+	validBet: number
+	winlostAmount: number
+}
+
+export interface ICustTpBetRecordListOneDayArgs {
+	selDate: string
+	pageNumber: number
+	pageSize: number
+}
+
+export interface ICustTpBetRecordListbyCategoryIdData {
+	settledDate: string
+	gameTypeName: string
+	gameTypeID: number
+	turnOver: number
+	validBet: number
+	winlostAmount: number
+}
+
+export interface ICustTpBetRecordListbyCategoryIdArgs {
+	selDate: string
+	categoryId: number
+	pageNumber: number
+	pageSize: number
+}
+
+export interface ICustTpBetRecordDetailListbyGameTypeData {
+	transId: string
+	bonusId: number
+	bonusCode: null | string
+	turnOver: number
+	validBet: number
+	winlostAmount: number
+	transTime: string
+	settledTime: string
+}
+
+export interface ICustTpBetRecordDetailListbyGameTypeArgs {
+	selDate: string
+	gameTypeId: number
+	pageNumber: number
+	pageSize: number
+}
