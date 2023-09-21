@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import React, { useState } from 'react'
+import React, { forwardRef, useState } from 'react'
 import { head, includes, isUndefined } from 'lodash-es'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -20,6 +20,7 @@ interface ITagProps {
 	setIsShowSearchInput?: () => void
 	onInputClose?: () => void
 	onSearchBarChange?: (searchText: string) => void
+	onTabsScroll?: () => void
 }
 
 interface ITagsProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -33,89 +34,110 @@ interface ITagsProps extends React.HTMLAttributes<HTMLDivElement> {
 	className?: string
 }
 
-const Tag = ({
-	title,
-	back,
-	activeQuickSelect,
-	quickSelect,
-	onQuickSelectChange,
-	searchText,
-	isShowSearchInput,
-	setIsShowSearchInput,
-	onInputClose,
-	onSearchBarChange,
-}: ITagProps) => {
-	const { push } = useRouter()
-	const [quickSelectValue, setQuickSelectValue] = useState(
-		head(quickSelect)?.key
-	)
+// * 這裡用 forwardRef 是因為 withdrawal history 需用到 ScrollToView 功能
+// * 如果之後 tabs 一多也可以帶上 onTabsScroll & ref
+const Tag = forwardRef(
+	(
+		{
+			title,
+			back,
+			activeQuickSelect,
+			quickSelect,
+			onQuickSelectChange,
+			searchText,
+			isShowSearchInput,
+			setIsShowSearchInput,
+			onInputClose,
+			onSearchBarChange,
+			onTabsScroll,
+		}: ITagProps,
+		ref
+	) => {
+		const { push } = useRouter()
+		const [quickSelectValue, setQuickSelectValue] = useState(
+			head(quickSelect)?.key
+		)
 
-	return (
-		<>
-			{!!title && (
-				<div
-					className={classNames('title', {
-						searchBar: !!onSearchBarChange,
-					})}
-				>
-					{back && (
-						<a onClick={() => push(back)}>
-							<i className='icon icon-keyboard_arrow_left' />
-						</a>
-					)}
-					{title}
-					{onSearchBarChange && (
-						<>
-							<i className='icon icon-search' onClick={setIsShowSearchInput} />
-							<div
-								className={classNames('infoModule', {
-									active: isShowSearchInput,
-								})}
-							>
-								<div className='inputBox'>
-									<input
-										placeholder='Search'
-										value={searchText}
-										onChange={e => onSearchBarChange(e.target.value)}
-									/>
-									<i className='icon icon-close' onClick={onInputClose} />
+		return (
+			<>
+				{!!title && (
+					<div
+						className={classNames('title', {
+							searchBar: !!onSearchBarChange,
+						})}
+					>
+						{back && (
+							<a onClick={() => push(back)}>
+								<i className='icon icon-keyboard_arrow_left' />
+							</a>
+						)}
+						{title}
+						{onSearchBarChange && (
+							<>
+								<i
+									className='icon icon-search'
+									onClick={setIsShowSearchInput}
+								/>
+								<div
+									className={classNames('infoModule', {
+										active: isShowSearchInput,
+									})}
+								>
+									<div className='inputBox'>
+										<input
+											placeholder='Search'
+											value={searchText}
+											onChange={e => onSearchBarChange(e.target.value)}
+										/>
+										<i className='icon icon-close' onClick={onInputClose} />
+									</div>
 								</div>
-							</div>
-						</>
-					)}
-				</div>
-			)}
+							</>
+						)}
+					</div>
+				)}
 
-			{quickSelect && (
-				<div className='quickSelect'>
-					{quickSelect.map(({ key, label }) => {
-						return (
-							<button
-								key={key}
-								className={classNames({
-									active: activeQuickSelect === key || quickSelectValue === key,
-								})}
-								value={key}
-								onClick={() => {
-									if (!activeQuickSelect) {
-										// * 觸發 uncontrolled component 元件邏輯
-										setQuickSelectValue(key)
-									}
+				{quickSelect && (
+					<div
+						className='quickSelect'
+						ref={ref as React.MutableRefObject<null | HTMLDivElement>}
+					>
+						{quickSelect.map(({ key, label }) => {
+							return (
+								<button
+									key={key}
+									className={classNames({
+										active:
+											activeQuickSelect === key || quickSelectValue === key,
+									})}
+									value={key}
+									onClick={() => {
+										if (!activeQuickSelect) {
+											// * 觸發 uncontrolled component 元件邏輯
+											setQuickSelectValue(key)
+										}
 
-									if (onQuickSelectChange) {
-										onQuickSelectChange(key)
-									}
-								}}
-							>
-								{label}
-							</button>
-						)
-					})}
-				</div>
-			)}
-		</>
-	)
-}
+										if (onQuickSelectChange) {
+											onQuickSelectChange(key)
+										}
+									}}
+								>
+									{label}
+								</button>
+							)
+						})}
+						{!!onTabsScroll && (
+							<i
+								className='icon icon-keyboard_arrow_right'
+								onClick={onTabsScroll}
+							/>
+						)}
+					</div>
+				)}
+			</>
+		)
+	}
+)
 
 const Tags = ({ tags = [], className = 'headerTag', ...props }: ITagsProps) => {
 	const { pathname } = useRouter()
@@ -129,7 +151,7 @@ const Tags = ({ tags = [], className = 'headerTag', ...props }: ITagsProps) => {
 							<a
 								className={classNames({
 									active: isUndefined(active)
-										? pathname.match(href) ||
+										? pathname.split('/')[1] === href ||
 										  includes(subPaths, pathname.split('/')[1])
 										: active,
 								})}

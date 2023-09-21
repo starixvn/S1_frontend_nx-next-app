@@ -4,11 +4,15 @@ import {
 	IGetTransferHistoryArgs,
 	IGotoGameArg,
 	ITransferHistoryData,
+	ITransferArgs,
+	ITransferData,
 } from './type'
 
 export const tpApiUrl = {
 	gotoGame: 'Tp/GotoGame',
 	getTransferHistory: 'Tp/GetTransferHistory',
+	transfer: 'Tp/TransferEX',
+	getTransferRecent: 'Tp/GetTransferRecent',
 }
 
 export const tpApi = rootApi.injectEndpoints({
@@ -30,7 +34,31 @@ export const tpApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
+		transfer: builder.mutation<IAxiosResponse<ITransferData>, ITransferArgs>({
+			query: data => ({
+				url: tpApiUrl.transfer,
+				method: 'POST',
+				data,
+			}),
+			invalidatesTags: ['TP_GET_TRANSFER_INFO'],
+		}),
+		getTransferRecent: builder.query<
+			IAxiosResponse<ITransferHistoryData[]>,
+			void
+		>({
+			query: () => ({
+				url: tpApiUrl.getTransferRecent,
+				method: 'POST',
+			}),
+			providesTags: ['TP_GET_TRANSFER_INFO'],
+		}),
 	}),
 })
 
-export const { useLazyGotoGameQuery, useLazyGetTransferHistoryQuery } = tpApi
+export const {
+	useLazyGotoGameQuery,
+	useLazyGetTransferHistoryQuery,
+	useTransferMutation,
+	useGetTransferRecentQuery,
+	// useLazyGetTransferRecentQuery,
+} = tpApi

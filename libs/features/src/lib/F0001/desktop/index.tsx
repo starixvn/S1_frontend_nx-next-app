@@ -23,5 +23,6 @@ export { default as LeftMenu } from './leftMenu'
 export { default as BankInfo } from './bank-info'
 export { default as Profile } from './profile'
 export { default as CryptoWallet } from './crypto-wallet'
+export { default as TransferFunds } from './transfer-funds'
 
 export * as ThirdPartyJS from './thirdPartyJS'

@@ -43,35 +43,42 @@ const useTpWalletBalanceListFetcher = ({ langId }: { langId: string }) => {
 
 	const [getTpWalletInfoByTpId] = useLazyGetTpWalletInfoByTpIdQuery()
 
-	const onRefetchAllWallet = () => {
-		refetchGetWalletBalance()
-		refetchCustBonusWallet()
-		refetchTpWalletList()
+	const onRefetchAllWallet = async () => {
+		await Promise.all([
+			refetchGetWalletBalance(),
+			refetchCustBonusWallet(),
+			refetchTpWalletList(),
+		])
+
+		getTpWalletBalanceList()
+	}
+
+	// * 透過 tpWalletList 迭代並 call api 抓出每個 tp 的 balance 資訊
+	const getTpWalletBalanceList = async () => {
+		if (tpWalletList && tpWalletList?.length >= 1) {
+			let result: ITpWalletInfoData[] = []
+
+			const promiseTpWalletListMap = tpWalletList.map(({ tpId, tpName }) =>
+				getTpWalletInfoByTpId(tpId)
+					.unwrap()
+					.then(({ data }) => {
+						result = [...result, { ...data, tpName }]
+						return data
+					})
+			)
+			await Promise.allSettled(promiseTpWalletListMap)
+
+			// 透過 tpId 排序
+			result = result.sort((a, b) => (a.tpId > b.tpId ? 1 : -1))
+
+			setTpWalletBalanceList(result)
+		}
 	}
 
 	// * 每３０秒更新一次錢包資訊
 	useInterval(onRefetchAllWallet, 30000)
 
-	// * 透過 tpWalletList 迭代並 call api 抓出每個 tp 的 balance 資訊
 	useEffect(() => {
-		const getTpWalletBalanceList = async () => {
-			if (tpWalletList && tpWalletList?.length >= 1) {
-				let result: ITpWalletInfoData[] = []
-				const promiseTpWalletListMap = tpWalletList.map(({ tpId, tpName }) =>
-					getTpWalletInfoByTpId(tpId)
-						.unwrap()
-						.then(({ data }) => {
-							result = [...result, { ...data, tpName }]
-							return data
-						})
-				)
-				await Promise.allSettled(promiseTpWalletListMap)
-				// 透過 tpId 排序
-				result = result.sort((a, b) => (a.tpId > b.tpId ? 1 : -1))
-				setTpWalletBalanceList(result)
-			}
-		}
-
 		getTpWalletBalanceList()
 	}, [tpWalletList])
 

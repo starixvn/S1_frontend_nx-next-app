@@ -28,3 +28,20 @@ export interface IGetTransferHistoryArgs {
 	endDate: number
 	pageNumber: number
 }
+
+export interface ITransferArgs {
+	amount: number
+	toTpId: number
+	fromTpId: number
+	transferAction: number
+}
+
+export interface ITransferData {
+	status: number
+	thirdId: number | null
+	difference: number
+	bonus: number
+	rollover: number
+	turnover: number
+	bonusStatus: number
+}

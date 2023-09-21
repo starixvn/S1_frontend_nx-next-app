@@ -1,31 +1,25 @@
-import React from 'react'
-import classNames from 'classnames'
 import { useHistory } from '@nx-next-app/features/F0001/providers'
 import { useTranslation } from 'next-i18next'
+import { Header } from '@nx-next-app/components/H0001'
+import { QuickPickEnum } from 'libs/web/src/app/types/history'
 
 const HistoryTabs = () => {
-	const {
-		activePeriod,
-		QUICK_PICK_LIST,
-		tabsRef,
-		onQuickPickChange,
-		onTabsScroll,
-	} = useHistory()
+	const { QUICK_PICK_LIST, tabsRef, onQuickPickChange, onTabsScroll } =
+		useHistory()
 	const { t } = useTranslation()
 
+	const quickSelect = QUICK_PICK_LIST.map(item => ({
+		key: item.value,
+		label: t(item.label),
+	}))
+
 	return (
-		<div className='quickSelect' ref={tabsRef}>
-			{QUICK_PICK_LIST.map(({ value, label }) => (
-				<button
-					key={value}
-					onClick={() => onQuickPickChange(value)}
-					className={classNames({ active: activePeriod === value })}
-				>
-					{t(label)}
-				</button>
-			))}
-			<i className='icon icon-keyboard_arrow_right' onClick={onTabsScroll} />
-		</div>
+		<Header.Tag
+			quickSelect={quickSelect}
+			onQuickSelectChange={key => onQuickPickChange(key as QuickPickEnum)}
+			onTabsScroll={onTabsScroll}
+			ref={tabsRef}
+		/>
 	)
 }
 
