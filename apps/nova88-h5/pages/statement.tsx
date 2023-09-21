@@ -17,11 +17,11 @@ const StatementPage = ({
 	originCookies,
 	persistSEOData,
 }: InitialPropsInterface) => {
-	const HEADER_TAGS: { displayKey: string; pathName: string }[] = [
-		{ displayKey: 'Label_General_Statement', pathName: paths.statement.root },
+	const HEADER_TAGS: { label: string; href: string }[] = [
+		{ label: 'Label_General_Statement', href: paths.statement.root },
 		{
-			displayKey: 'Label_General_FinancialLog',
-			pathName: paths.financialLog.root,
+			label: 'Label_General_FinancialLog',
+			href: paths.financialLog.root,
 		},
 	]
 
