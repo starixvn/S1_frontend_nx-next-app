@@ -2,7 +2,7 @@ pipeline {
     agent none
     environment {
         env = 'dev'
-        registry = '13.213.82.69/desktop/next-sample-dev'
+        registry = '13.213.82.69/desktop/next-nova88-dev'
         ansible_path = '/var/jenkins_home/ansible/frontend'
         project = 'nova88-desktop'
         project_port = '5073'
