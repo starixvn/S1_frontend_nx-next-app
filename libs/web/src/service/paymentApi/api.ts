@@ -2,6 +2,14 @@ import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
 import {
 	IBankInfoSysData,
+	ICustTpBetRecordDetailListbyGameTypeArgs,
+	ICustTpBetRecordDetailListbyGameTypeData,
+	ICustTpBetRecordListbyCategoryIdArgs,
+	ICustTpBetRecordListbyCategoryIdData,
+	ICustTpBetRecordListDateRangeArgs,
+	ICustTpBetRecordListDateRangeData,
+	ICustTpBetRecordListOneDayArgs,
+	ICustTpBetRecordListOneDayData,
 	IDepositInfoHistoryData,
 	IGetDepositInfoHistoryArgs,
 	IGetStatementArgs,
@@ -17,6 +25,12 @@ export const paymentApiUrl = {
 	getDepositInfoHistory: 'Payment/GetDepositInfoHistory',
 	getWithdrawalInfoHistory: 'Payment/GetWithdrawalInfoHistory',
 	getStatement: 'Payment/GetStatement',
+	getCustTpBetRecordListDateRange: 'Payment/CustTpBetRecordListDateRange',
+	getGetCustTpBetRecordListOneDay: 'Payment/GetCustTpBetRecordListOneDay',
+	getCustTpBetRecordListbyCategoryId:
+		'Payment/GetCustTpBetRecordListbyCategoryId',
+	getCustTpBetRecordDetailListbyGameType:
+		'Payment/GetCustTpBetRecordDetailListbyGameType',
 	uploadReceipt: 'Payment/UploadReceipt',
 	setDepositCancel: 'Payment/SetDepositCancel',
 	setWithdrawalCancel: 'Payment/SetWithdrawalCancel',
@@ -55,6 +69,46 @@ export const paymentApi = rootApi.injectEndpoints({
 		>({
 			query: data => ({
 				url: paymentApiUrl.getStatement,
+				method: 'POST',
+				data,
+			}),
+		}),
+		getCustTpBetRecordListDateRange: builder.query<
+			IAxiosResponse<ICustTpBetRecordListDateRangeData[]>,
+			ICustTpBetRecordListDateRangeArgs
+		>({
+			query: data => ({
+				url: paymentApiUrl.getCustTpBetRecordListDateRange,
+				method: 'POST',
+				data,
+			}),
+		}),
+		getGetCustTpBetRecordListOneDay: builder.query<
+			IAxiosResponse<ICustTpBetRecordListOneDayData[]>,
+			ICustTpBetRecordListOneDayArgs
+		>({
+			query: data => ({
+				url: paymentApiUrl.getGetCustTpBetRecordListOneDay,
+				method: 'POST',
+				data,
+			}),
+		}),
+		getCustTpBetRecordListbyCategoryId: builder.query<
+			IAxiosResponse<ICustTpBetRecordListbyCategoryIdData[]>,
+			ICustTpBetRecordListbyCategoryIdArgs
+		>({
+			query: data => ({
+				url: paymentApiUrl.getCustTpBetRecordListbyCategoryId,
+				method: 'POST',
+				data,
+			}),
+		}),
+		getCustTpBetRecordDetailListbyGameType: builder.query<
+			IAxiosResponse<ICustTpBetRecordDetailListbyGameTypeData[]>,
+			ICustTpBetRecordDetailListbyGameTypeArgs
+		>({
+			query: data => ({
+				url: paymentApiUrl.getCustTpBetRecordDetailListbyGameType,
 				method: 'POST',
 				data,
 			}),
@@ -126,6 +180,10 @@ export const {
 	useLazyGetWithdrawalInfoHistoryQuery,
 	useLazyGetStatementQuery,
 	useGetBankInfoSysListQuery,
+	useLazyGetCustTpBetRecordListDateRangeQuery,
+	useLazyGetGetCustTpBetRecordListOneDayQuery,
+	useLazyGetCustTpBetRecordListbyCategoryIdQuery,
+	useLazyGetCustTpBetRecordDetailListbyGameTypeQuery,
 	useUploadReceiptMutation,
 	useSetDepositCancelMutation,
 	useSetWithdrawalCancelMutation,

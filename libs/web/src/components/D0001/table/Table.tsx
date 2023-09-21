@@ -11,32 +11,56 @@ export interface ITableColumns<T> {
 export interface ITableProps<T> {
 	dataSource: T[]
 	columns: ITableColumns<T>[]
-	className?: string
+	mainClassName?: string
+	headerClassName?: string
+	bodyClassName?: string
+	isShowBodyDivElement?: boolean
+	footer?: () => ReactNode
 }
 
-const Table = <T,>({ dataSource, columns, className }: ITableProps<T>) => {
+const Table = <T,>({
+	dataSource,
+	columns,
+	mainClassName,
+	headerClassName,
+	bodyClassName,
+	isShowBodyDivElement = true,
+	footer,
+}: ITableProps<T>) => {
+	const renderColumns = (item: T, index: number) =>
+		columns.map(column => (
+			<div key={column.key}>
+				{
+					(column.render
+						? column.render({ item, index })
+						: item[column.dataIndex]) as ReactNode
+				}
+			</div>
+		))
 	return (
-		<div className={`list ${className}`}>
-			<div className='listHeader'>
+		<div className={mainClassName}>
+			<div className={headerClassName}>
 				{columns.map(column => (
 					<div key={column.key}>{column.title}</div>
 				))}
 			</div>
-			<div className='listBody'>
-				{dataSource.map((item, index) => (
-					<div key={uniqueId()}>
-						{columns.map(column => (
-							<div key={column.key}>
-								{
-									(column.render
-										? column.render({ item, index })
-										: item[column.dataIndex]) as ReactNode
-								}
-							</div>
+			{isShowBodyDivElement ? (
+				<>
+					<div className={bodyClassName}>
+						{dataSource.map((item, index) => (
+							<div key={uniqueId()}>{renderColumns(item, index)}</div>
 						))}
 					</div>
-				))}
-			</div>
+					{footer && footer()}
+				</>
+			) : (
+				<>
+					{dataSource.map((item, index) => (
+						<div key={uniqueId()}>{renderColumns(item, index)}</div>
+					))}
+					{footer && footer()}
+				</>
+			)}
 		</div>
 	)
 }

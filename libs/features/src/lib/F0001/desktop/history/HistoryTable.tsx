@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from '@nx-next-app/features/F0001/providers/history-context'
-import useHistoryTable from '@nx-next-app/components/D0001/table/useHistoryTable'
+import useTable from 'libs/web/src/components/D0001/table/useTable'
 import { HistoryTabsEnum } from 'libs/web/src/app/types/history'
 import { useTranslation } from 'next-i18next'
 
@@ -14,7 +14,7 @@ const HistoryTable = () => {
 		WithdrawalHistoryTable,
 		FinancialHistoryTable,
 		ReferralHistoryTable,
-	} = useHistoryTable({
+	} = useTable({
 		dataSource: displayColumns,
 		onSubmit,
 		onCancel: onDepositCancel,

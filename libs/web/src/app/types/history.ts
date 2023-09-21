@@ -54,6 +54,15 @@ export enum QuickPickEnum {
 	LastMonth,
 }
 
+export const QuickPickData: Record<QuickPickEnum, string> = {
+	[QuickPickEnum.Today]: 'Today',
+	[QuickPickEnum.Yesterday]: 'Yesterday',
+	[QuickPickEnum.ThisWeek]: 'ThisWeek',
+	[QuickPickEnum.LastWeek]: 'LastWeek',
+	[QuickPickEnum.ThisMonth]: 'ThisMonth',
+	[QuickPickEnum.LastMonth]: 'LastMonth',
+}
+
 export enum DepositTypeEnum {
 	OnlineBanking = 1,
 	MobilePayment,

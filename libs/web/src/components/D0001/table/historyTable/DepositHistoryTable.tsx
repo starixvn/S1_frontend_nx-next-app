@@ -54,13 +54,9 @@ const DepositHistoryTable = ({
 			key: 'createTime',
 			render: ({ item: { createTime } }: { item: { createTime: string } }) => (
 				<>
-					{dayjs(createTime, 'YYYY-MM-DDThh:mm:ssZ')
-						// .tz(CURRENCY_TO_TIMEZONE[currencyId])
-						.format('MM/DD/YYYY')}
+					{dayjs(createTime).format('MM/DD/YYYY')}
 					<span className='txt-blue'>
-						{dayjs(createTime, 'YYYY-MM-DDThh:mm:ssZ')
-							// .tz(CURRENCY_TO_TIMEZONE[currencyId])
-							.format('HH:mm:ss')}
+						{dayjs(createTime).format('hh:mm:ss A')}
 					</span>
 				</>
 			),
@@ -155,7 +151,9 @@ const DepositHistoryTable = ({
 		<Table
 			dataSource={dataSource}
 			columns={columns as ITableColumns<IDepositInfoHistoryData>[]}
-			className='history'
+			mainClassName='list history'
+			headerClassName='listHeader'
+			bodyClassName='listBody'
 		/>
 	)
 }
