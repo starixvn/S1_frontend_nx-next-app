@@ -20,9 +20,15 @@ export interface IAxiosError extends globalThis.Error {
 	data?: any
 }
 
+// used in clientside rtk query
 export const axiosBaseQuery =
 	(
-		{ baseUrl }: { baseUrl: string } = { baseUrl: '' }
+		{
+			baseUrl,
+			preHeaders,
+		}: { baseUrl: string; preHeaders?: AxiosRequestConfig['headers'] } = {
+			baseUrl: '',
+		}
 	): BaseQueryFn<
 		{
 			url: string
@@ -52,7 +58,7 @@ export const axiosBaseQuery =
 				method,
 				data,
 				params,
-				headers,
+				headers: { ...preHeaders, ...headers },
 				responseType,
 			})
 

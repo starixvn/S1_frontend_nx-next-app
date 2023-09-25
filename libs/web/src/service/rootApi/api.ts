@@ -9,7 +9,7 @@ import { axiosBaseQuery } from '../axiosBaseQuery'
 
 export const rootApi = createApi({
 	reducerPath: 'rootApi',
-	baseQuery: axiosBaseQuery({ baseUrl }),
+	baseQuery: axiosBaseQuery({ baseUrl, preHeaders: { TEST: 'HEADER-TEST' } }),
 	tagTypes: [
 		'AUTH_API_POST',
 		'ACCOUNT_STRICT_GET_USER_INFO',
