@@ -20,13 +20,15 @@ export interface IAxiosError extends globalThis.Error {
 	data?: any
 }
 
+// 這裡定義前端預給的 Header
+const preHeaders = {
+	'ai-host': `${process.env['NEXT_PUBLIC_REFERER_HOST']}`,
+}
+
 // used in clientside rtk query
 export const axiosBaseQuery =
 	(
-		{
-			baseUrl,
-			preHeaders,
-		}: { baseUrl: string; preHeaders?: AxiosRequestConfig['headers'] } = {
+		{ baseUrl }: { baseUrl: string } = {
 			baseUrl: '',
 		}
 	): BaseQueryFn<

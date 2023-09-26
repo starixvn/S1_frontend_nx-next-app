@@ -11,8 +11,6 @@ export const rootApi = createApi({
 	reducerPath: 'rootApi',
 	baseQuery: axiosBaseQuery({
 		baseUrl,
-		// 供後端判斷來源網站用的 header
-		preHeaders: { 'ai-host': `${process.env['NEXT_PUBLIC_REFERER_HOST']}` },
 	}),
 	tagTypes: [
 		'AUTH_API_POST',
