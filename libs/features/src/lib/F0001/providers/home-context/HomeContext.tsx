@@ -322,7 +322,7 @@ export const HomeProvider = ({
 	) => {
 		if (!isMaintain) {
 			// 非 Maintain 才做動作
-			let subMenu: ISubMenu<any> | undefined
+			let subMenu: ISubMenu | undefined
 			Object.values(menuData).forEach(item => {
 				const result = item.subMenu?.find(
 					({ product }) =>

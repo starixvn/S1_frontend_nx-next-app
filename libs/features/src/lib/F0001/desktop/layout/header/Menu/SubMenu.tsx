@@ -34,12 +34,11 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 
 	const renderSubMenu = (key: string) => {
 		const {
-			desktop: { menuType, subMenuClassName },
+			desktop: { menuType, subMenuClassName, menuActionType },
 			subMenu,
 			pathname,
 			product,
 			query,
-			menuActionType,
 		} = menuData[key as MenuKeyEnum]
 
 		// * AppDownload 的元件較獨特，非 menu 也非 banner, 因此先獨立出來實作
@@ -55,7 +54,7 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 					onClick={() =>
 						onMenuOpen(
 							{
-								menuActionType,
+								desktop: { menuActionType },
 								pathname,
 								query,
 								product,
@@ -116,7 +115,7 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 						onClick={() =>
 							onMenuOpen(
 								{
-									menuActionType,
+									desktop: { menuActionType },
 									pathname,
 									query,
 									product,

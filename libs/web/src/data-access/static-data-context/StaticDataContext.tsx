@@ -13,6 +13,7 @@ import {
 	ITermsConditions,
 	ILeftMenuData,
 } from '@nx-next-app/types'
+import { IMenuData } from '@nx-next-app/features/F0001/types'
 
 export interface IStaticDataContext {
 	MENU_DATA: ({
@@ -21,7 +22,7 @@ export interface IStaticDataContext {
 	}: {
 		currencyId: number
 		langId: string
-	}) => any
+	}) => IMenuData
 	META_DATA: IMetaData
 	PRODUCTS: {
 		[key: string]: IStaticProduct
