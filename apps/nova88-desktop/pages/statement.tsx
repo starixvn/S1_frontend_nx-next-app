@@ -23,7 +23,7 @@ const StatementPage = ({
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData} footerData={footerData}>
-					<StatementProvider QUICK_PICK_LIST={QUICK_PICK_LIST}>
+					<StatementProvider QUICK_PICK_LIST={QUICK_PICK_LIST} HEADER_TAGS={[]}>
 						<main>
 							<section className='inside'>
 								<LeftMenu />
