@@ -6,6 +6,7 @@ import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { ISubMenu, MenuActionTypeEnum } from '@nx-next-app/features/F0001/types'
 import { useMenuData } from '@nx-next-app/hooks'
+import { DeviceTypeEnum } from '@nx-next-app/types'
 import {
 	IAxiosError,
 	IGotoGameArg,
@@ -70,7 +71,7 @@ export const getMainEventIcon = ({
 		text: 'NEW' | 'HOT' | 'LIVE'
 		period: { start: null | string; end: null | string }
 	}[]
-	subMenu?: ISubMenu<any>[]
+	subMenu?: ISubMenu[]
 }) => {
 	// * 渲染第一個活動期間的事件 icon，假設同時有 [NEW,HOT] ,會用前者
 	const menuEventIcon =
@@ -177,24 +178,23 @@ const useMenu = () => {
 		})
 	}
 
-	const onEnterPage = (
-		{
-			langId,
-			tpId,
-			gameId = '',
-			matchid = '',
-			betType = '',
-			tpGameType = null,
-		}: {
-			langId: string
-			tpId: number
-			gameId?: string | number
-			matchid?: string
-			betType?: string | number
-			tpGameType?: number | null
-		},
-		{ loginCallback }: { loginCallback: LoginCallbackType }
-	) => {
+	const onDefaultEnterPage = ({
+		langId,
+		tpId,
+		gameId = '',
+		matchid = '',
+		bettype = '',
+		tpGameType = null,
+		appType,
+	}: {
+		langId: string
+		tpId: number
+		gameId?: string | number
+		matchid?: string
+		bettype?: string | number
+		tpGameType?: number | null
+		appType?: number | null
+	}) => {
 		const host = process.env['NEXT_PUBLIC_ENV_DB_HOST']
 		const signupUrl = `${host}/${paths.join.root}`
 		const loginUrl = `${host}/${paths.login.root}`
@@ -206,13 +206,54 @@ const useMenu = () => {
 			tpId: String(tpId),
 			gameId: String(gameId),
 			matchid: String(matchid),
-			getType: String(betType),
+			bettype: String(bettype),
 			lobbyUrl,
 			tpGameType: String(tpGameType),
 		})
 
+		if (
+			Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DeviceTypeEnum.Mobile
+		) {
+			searchParams.set(
+				'AppType',
+				appType ? String(appType) : String(DeviceTypeEnum.Mobile)
+			)
+		}
+
 		const entPageUrl = `${host}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&CashierUrl=${cashierUrl}&${searchParams.toString()}`
 
+		return entPageUrl
+	}
+
+	const onEnterPage = (
+		{
+			langId,
+			tpId,
+			gameId = '',
+			matchid = '',
+			bettype = '',
+			tpGameType = null,
+			appType,
+		}: {
+			langId: string
+			tpId: number
+			gameId?: string | number
+			matchid?: string
+			bettype?: string | number
+			tpGameType?: number | null
+			appType?: number | null
+		},
+		{ loginCallback }: { loginCallback: LoginCallbackType }
+	) => {
+		const entPageUrl = onDefaultEnterPage({
+			langId,
+			tpId,
+			gameId,
+			matchid,
+			bettype,
+			tpGameType,
+			appType,
+		})
 		// * 這裡的遊戲不需要登入，執行完直接 return 出去
 		if (
 			tpId === 1 &&
@@ -300,7 +341,8 @@ const useMenu = () => {
 	}
 
 	const onMenuOpen = (
-		item: ISubMenu<any>,
+		// * 目前只有在 Sports 才會需要這個參數 (products 有 hasDesktopLink)
+		item: ISubMenu & { appType?: number },
 		{
 			loginCallback,
 			messageCallBack,
@@ -309,15 +351,14 @@ const useMenu = () => {
 			messageCallBack?: MessageCallbackType
 		}
 	) => {
-		const { menuActionType, pathname = '/', query, product } = item
-		// const searchParams = new URLSearchParams(query as { [key: string]: string })
+		const { desktop, h5, pathname = '/', query, product, appType } = item || {}
+
+		const { menuActionType } =
+			Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DeviceTypeEnum.Desktop
+				? desktop || {}
+				: h5 || {}
 
 		switch (menuActionType) {
-			// case MenuActionTypeEnum.Redirect:
-			// 	window.location.href = `${pathname}?${searchParams.toString()}`
-			//
-			// 	break
-
 			case MenuActionTypeEnum.Link:
 				push({
 					pathname,
@@ -328,7 +369,7 @@ const useMenu = () => {
 
 			case MenuActionTypeEnum.EnterPage:
 				if (product) {
-					const { TP_ID, GAME_ID, TP_GAME_TYPE } = product
+					const { TP_ID, GAME_ID, TP_GAME_TYPE, BET_TYPE } = product
 
 					onEnterPage(
 						{
@@ -336,6 +377,8 @@ const useMenu = () => {
 							tpId: TP_ID,
 							gameId: GAME_ID,
 							tpGameType: TP_GAME_TYPE,
+							bettype: BET_TYPE,
+							appType,
 						},
 						{ loginCallback }
 					)
@@ -379,6 +422,7 @@ const useMenu = () => {
 		onEnterPage,
 		onGoToGame,
 		onEnterSlotsPage,
+		onDefaultEnterPage,
 	}
 }
 

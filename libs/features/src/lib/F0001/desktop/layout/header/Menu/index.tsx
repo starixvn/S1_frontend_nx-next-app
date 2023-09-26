@@ -29,12 +29,11 @@ const Menu = () => {
 						key,
 						{
 							display,
-							desktop: { className, eventIcons },
+							desktop: { className, eventIcons, menuActionType },
 							pathname = '/',
 							displayKey,
 							displayText,
 							subMenu,
-							menuActionType,
 							product,
 							query,
 						},
@@ -49,7 +48,7 @@ const Menu = () => {
 							<a
 								onClick={() =>
 									onMenuOpen(
-										{ menuActionType, pathname, query, product },
+										{ desktop: { menuActionType }, pathname, query, product },
 										{
 											loginCallback: () => modal.open(<LoginModal />),
 											messageCallBack: message => modal.error(message),

@@ -494,4 +494,4 @@ export const PRODUCTS = {
 		GAME_ID: 224,
 		TP_GAME_TYPE: 53,
 	},
-}
+} as const

@@ -1,5 +1,5 @@
 import { getSubMenuEventIcon, useMenu } from '@nx-next-app/features/F0001/hooks'
-import { MenuKeyEnum } from '@nx-next-app/types'
+import { DeviceTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
 import classNames from 'classnames'
 import process from 'process'
 import { useTranslation } from 'next-i18next'
@@ -28,7 +28,7 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 			>
 				{subMenu?.map(item => {
 					const {
-						h5: { className, img } = {},
+						h5: { className, img, hasDesktopLink } = {},
 						eventIcons,
 						displayKey,
 						displayText,
@@ -38,7 +38,7 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 					const subMenuEventIcon = getSubMenuEventIcon(eventIcons)
 
 					return (
-						<button
+						<div
 							style={{
 								// * 如果維護中取消點擊事件
 								pointerEvents: item.isTpMaintain ? 'none' : 'auto',
@@ -64,8 +64,33 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 								alt={productKey}
 							/>
 							<div>{displayKey ? t(displayKey) : displayText}</div>
+							{hasDesktopLink && (
+								<div className='switchbtn'>
+									<button
+										disabled={item.isTpMaintain}
+										onClick={e => {
+											e.stopPropagation()
+											onMenuOpen(
+												{
+													...item,
+													appType: DeviceTypeEnum.Desktop,
+												},
+												{
+													loginCallback: () => {
+														push(paths.login.root)
+													},
+													messageCallBack: message => null,
+												}
+											)
+										}}
+									>
+										{t('Label_General_Desktop')}
+									</button>
+									<button>{t('Label_General_PlayNow')}</button>
+								</div>
+							)}
 							<div className='under'>{t('Label_General_UnderMaintenance')}</div>
-						</button>
+						</div>
 					)
 				})}
 			</div>

@@ -1,4 +1,5 @@
 import { CurrenciesEnum, IStaticProduct, MenuKeyEnum } from '@nx-next-app/types'
+import { PRODUCTS } from '@nx-next-app/site/nova88'
 
 export enum CategoryEnum {
 	SPORTS = 1,
@@ -20,10 +21,12 @@ export enum MenuActionTypeEnum {
 }
 
 // * 子選單資訊，h5、desktop 內為分裝置的資訊，以外的是共用資訊
-export type ISubMenu<T> = {
+export type ISubMenu = {
 	h5?: {
 		className?: ''
 		img?: string
+		menuActionType: MenuActionTypeEnum
+		hasDesktopLink?: boolean // * 決定是否有顯示 desktop & play now 按鈕
 	}
 	desktop?: {
 		className?: string
@@ -36,8 +39,9 @@ export type ISubMenu<T> = {
 			hoverBgImg?: string
 			npcImg?: string
 		}
+		menuActionType: MenuActionTypeEnum
 	}
-	productKey?: T
+	productKey?: keyof typeof PRODUCTS
 	displayText?: string
 	displayKey?: string
 	pathname?: string
@@ -48,7 +52,6 @@ export type ISubMenu<T> = {
 		tpGameType?: string | number
 	}
 	product?: IStaticProduct
-	menuActionType: MenuActionTypeEnum
 	allowCurrencies?: CurrenciesEnum[] | undefined
 	needLogin?: boolean
 	isTpMaintain?: boolean
@@ -65,7 +68,7 @@ export type ISubMenu<T> = {
 }
 
 // * 主選單資訊，h5、desktop 內為分裝置的資訊，以外的是共用資訊
-export type IMenuData<T> = {
+export type IMenuData = {
 	[module in MenuKeyEnum]: {
 		display: 'h5' | 'desktop' | 'all'
 		h5: {
@@ -78,6 +81,7 @@ export type IMenuData<T> = {
 				text: 'NEW' | 'HOT'
 				period: { start: null | string; end: null | string }
 			}[]
+			menuActionType: MenuActionTypeEnum
 		}
 		desktop: {
 			className?: string
@@ -94,19 +98,20 @@ export type IMenuData<T> = {
 				period: { start: null | string; end: null | string }
 			}[]
 			menuType?: 'menu' | 'banner'
+			menuActionType: MenuActionTypeEnum
 		}
 		displayKey?: string
 		displayText?: string
-		menuActionType: MenuActionTypeEnum
 		product?: IStaticProduct
 		query?: { provider: string; type: string }
 		pathname?: string
 		allowCurrencies: CurrenciesEnum[] | boolean // * true: 全開, false: 全關
 		subMenuSort?: {
-			[key: number]: T[]
+			[key: number]: string[]
 		}
+
 		subMenuAllowCurrenciesWithAuth: boolean // * 決定是否需要登入後才過濾
-		subMenu?: ISubMenu<T>[]
+		subMenu?: ISubMenu[]
 	}
 }
 

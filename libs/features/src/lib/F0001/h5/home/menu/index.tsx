@@ -26,12 +26,11 @@ const Menu = () => {
 						key,
 						{
 							display,
-							h5: { eventIcons, className, icon, img },
+							h5: { eventIcons, className, icon, img, menuActionType },
 							pathname = '/',
 							displayKey,
 							displayText,
 							subMenu,
-							menuActionType,
 							product,
 							query,
 						},
@@ -56,7 +55,7 @@ const Menu = () => {
 									}
 
 									onMenuOpen(
-										{ menuActionType, pathname, query, product },
+										{ h5: { menuActionType }, pathname, query, product },
 										{
 											loginCallback: () => {
 												push({

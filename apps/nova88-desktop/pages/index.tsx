@@ -60,7 +60,11 @@ const HomePage = ({
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData} footerData={footerData}>
+				<Layout
+					showFooter
+					persistSEOData={persistSEOData}
+					footerData={footerData}
+				>
 					<HomeProvider
 						persistAnnouncementData={persistAnnouncementData}
 						persistBannerData={persistBannerData}
