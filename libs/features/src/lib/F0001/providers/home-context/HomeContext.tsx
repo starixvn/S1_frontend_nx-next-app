@@ -108,15 +108,23 @@ export const useHome = () => {
 	return useContext(HomeContext)
 }
 
-const PromotionDetailModal = dynamic(
+const DesktopPromotionDetailModal = dynamic(
 	() =>
 		import(
 			'@nx-next-app/features/F0001/desktop/modal/promotionDetailModal/PromotionDetailModal'
 		),
-	{
-		ssr: false,
-	}
+	{ ssr: false }
 )
+
+const H5PromotionDetailModal = dynamic(
+	() =>
+		import(
+			'@nx-next-app/features/F0001/h5/modal/promotionDetailModal/PromotionDetailModal'
+		),
+	{ ssr: false }
+)
+
+const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
 export const HomeProvider = ({
 	children,
@@ -162,7 +170,7 @@ export const HomeProvider = ({
 	const { data: { data: recentlyViewData } = {} } = useGetRecentlyViewedQuery(
 		{
 			currencyId,
-			deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
+			deviceType,
 		},
 		{
 			skip: !isLogin,
@@ -185,9 +193,7 @@ export const HomeProvider = ({
 				// 手機版才需要
 			},
 			{
-				skip:
-					Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) !==
-					DeviceTypeEnum.Mobile,
+				skip: deviceType !== DeviceTypeEnum.Mobile,
 			}
 		)
 
@@ -220,7 +226,24 @@ export const HomeProvider = ({
 
 	// promotion click 事件
 	const handlePromotionClick = async (bonusCode: string) => {
-		modal.open(<PromotionDetailModal bonusCode={bonusCode} />)
+		try {
+			switch (deviceType) {
+				case DeviceTypeEnum.Desktop:
+					modal.open(<DesktopPromotionDetailModal bonusCode={bonusCode} />)
+					break
+
+				case DeviceTypeEnum.Mobile:
+					modal.open(<H5PromotionDetailModal bonusCode={bonusCode} />, {
+						className: 'promospop',
+					})
+					break
+
+				default:
+					break
+			}
+		} catch (error) {
+			modal.error((error as Error).message)
+		}
 	}
 
 	// 跑馬燈資訊 click 事件
