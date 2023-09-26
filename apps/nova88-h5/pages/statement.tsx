@@ -7,16 +7,35 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { Layout } from '@nx-next-app/features/F0001/h5'
+import StatementProvider from '@nx-next-app/features/F0001/providers/statement-context'
+import { QUICK_PICK_LIST } from '@nx-next-app/site/nova88/data/history'
+import Statement from '@nx-next-app/features/F0001/h5/statement'
+import { paths } from '@nx-next-app/constants'
 
 const StatementPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
 }: InitialPropsInterface) => {
+	const HEADER_TAGS: { label: string; href: string }[] = [
+		{ label: 'Label_General_Statement', href: paths.statement.root },
+		{
+			label: 'Label_General_FinancialLog',
+			href: paths.financialLog.root,
+		},
+	]
+
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData}>StatementPage</Layout>
+				<Layout persistSEOData={persistSEOData}>
+					<StatementProvider
+						QUICK_PICK_LIST={QUICK_PICK_LIST}
+						HEADER_TAGS={HEADER_TAGS}
+					>
+						<Statement />
+					</StatementProvider>
+				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>
 	)
@@ -24,6 +43,15 @@ const StatementPage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
+
+	if (!initialProps.originIsSignIn) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false,
+			},
+		}
+	}
 
 	return {
 		props: {

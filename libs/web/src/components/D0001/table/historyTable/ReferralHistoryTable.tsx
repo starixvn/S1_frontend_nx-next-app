@@ -44,13 +44,9 @@ const ReferralHistoryTable = ({
 				item: { registerDate: string }
 			}) => (
 				<>
-					{dayjs(registerDate, 'YYYY-MM-DDThh:mm:ssZ')
-						// .utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
-						.format('DD/MM/YYYY')}
+					{dayjs(registerDate).format('MM/DD/YYYY')}
 					<span className='txt-blue'>
-						{dayjs(registerDate, 'YYYY-MM-DDThh:mm:ssZ')
-							// .utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
-							.format('HH:mm:ss')}
+						{dayjs(registerDate).format('hh:mm:ss A')}
 					</span>
 				</>
 			),
@@ -119,7 +115,9 @@ const ReferralHistoryTable = ({
 		<Table
 			dataSource={dataSource}
 			columns={columns as ITableColumns<IReferralData>[]}
-			className='history'
+			mainClassName='list history'
+			headerClassName='listHeader'
+			bodyClassName='listBody'
 		/>
 	)
 }
