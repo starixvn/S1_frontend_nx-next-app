@@ -8,7 +8,7 @@ export const baseAxios = axios.create({
 	baseURL: `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}${baseUrl}`,
 	headers: {
 		common: {
-			Referer: `${process.env['NEXT_PUBLIC_REFERER_HOST']}`, // 預設 referrer
+			'ai-host': `${process.env['NEXT_PUBLIC_REFERER_HOST']}`, // 預設 referrer
 		},
 	},
 })
