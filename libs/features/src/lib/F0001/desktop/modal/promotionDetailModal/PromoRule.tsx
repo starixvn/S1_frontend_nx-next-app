@@ -6,7 +6,7 @@ import {
 import { BonusTypeEnum, PromotionTypeEnum } from '@nx-next-app/types'
 import { getExpiryTime, numberFormat } from '@nx-next-app/utils'
 import { includes, toUpper } from 'lodash-es'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
 interface IPromoRuleProps {
 	promotionDetail: IPromotionData

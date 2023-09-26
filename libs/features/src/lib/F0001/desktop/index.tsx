@@ -1,11 +1,9 @@
 export { default as Layout } from './layout'
-
 export { default as Home } from './home'
 export { default as Vip } from './vip'
 export { default as Slots } from './slots'
 export { default as Fishing } from './fishing/index'
 export { default as Referral } from './referral'
-
 export { default as Game } from './game/index'
 export { default as Esport } from './esport/index'
 export { default as LiveCasino } from './live-casino/index'
@@ -26,5 +24,6 @@ export { default as BankInfo } from './bank-info'
 export { default as Profile } from './profile'
 export { default as CryptoWallet } from './crypto-wallet'
 export { default as TransferFunds } from './transfer-funds'
+export { default as Deposit } from './deposit'
 
 export * as ThirdPartyJS from './thirdPartyJS'

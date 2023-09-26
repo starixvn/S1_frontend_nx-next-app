@@ -182,3 +182,4 @@ export type SelectOptionType = {
 export * from './footer'
 export * from './promotion'
 export * from './history'
+export * from './deposit'

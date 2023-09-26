@@ -1,4 +1,4 @@
-import BankSlipModal from './BankSlipModal'
+import DepositBankSlipModal from './DepositBankSlipModal'
 import HistoryMsgModal from './HistoryMsgModal'
 
-export { BankSlipModal, HistoryMsgModal }
+export { DepositBankSlipModal, HistoryMsgModal }

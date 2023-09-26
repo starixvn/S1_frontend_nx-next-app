@@ -14,10 +14,11 @@ export interface IGlobalModalProps {
 	content: ModalContentType
 	okText?: string | null
 	cancelText?: string | null
+	className?: string
+	footer?: React.ReactElement[]
 	onOK?: () => void
 	onCancel?: () => void
 	closeModal: () => void
-	className?: string
 }
 
 export type GlobalModalType = Omit<IGlobalModalProps, 'closeModal'>
@@ -41,7 +42,13 @@ export interface ModalContextInterface {
 			message: ModalContentType,
 			config?: Pick<
 				IGlobalModalProps,
-				'icon' | 'title' | 'onOK' | 'onCancel' | 'okText' | 'cancelText'
+				| 'icon'
+				| 'title'
+				| 'footer'
+				| 'onOK'
+				| 'onCancel'
+				| 'okText'
+				| 'cancelText'
 			>
 		) => void
 	}

@@ -1,0 +1,257 @@
+import { useAuth, IDepositSavedInfo } from '@nx-next-app/data-access'
+import {
+	useGetDepositPromotionListQuery,
+	useGetPaymentBankTransferListQuery,
+	useGetPaymentCryptoPayListQuery,
+	useGetPaymentLinePayInfoQuery,
+	useGetPaymentMobilePayListQuery,
+	useGetPaymentOnlineBankingListQuery,
+	useGetPaymentQRPayListQuery,
+	useGetPaymentTopUpCardPayListQuery,
+	IPaymentBankTransferData,
+	IPaymentOnlineBankingData,
+	IPaymentMobilePayData,
+	IPaymentCryptoPayData,
+	IPaymentLinePayInfo,
+	IPaymentQRPayData,
+	IPaymentTopUpCardPayData,
+	useGetPaymentAutoDepositListQuery,
+	IPaymentAutoDepositData,
+} from '@nx-next-app/service'
+import {
+	CurrenciesEnum,
+	DepositPaymentEnum,
+	IDepositPaymentOption,
+	SelectOptionType,
+} from '@nx-next-app/types'
+import { head, includes, isArray } from 'lodash-es'
+import { useRouter } from 'next/router'
+import { createContext, ReactNode, useContext, useEffect } from 'react'
+import { useReadLocalStorage } from 'usehooks-ts'
+import { ENV_LOCAL_STORAGE_NAMES } from '../../app/constants/Names'
+
+interface DepositContextInterface {
+	DEPOSIT_PAYMENT_OPTIONS: {
+		[DepositPaymentEnum.AutoDeposit]: IDepositPaymentOption
+		[DepositPaymentEnum.BankTransfer]: IDepositPaymentOption
+		[DepositPaymentEnum.LinePay]: IDepositPaymentOption
+		[DepositPaymentEnum.OnlineBanking]: IDepositPaymentOption
+		[DepositPaymentEnum.MobilePay]: IDepositPaymentOption
+		[DepositPaymentEnum.CryptoPay]: IDepositPaymentOption
+		[DepositPaymentEnum.QRPay]: IDepositPaymentOption
+		[DepositPaymentEnum.TopUpCardPay]: IDepositPaymentOption
+	}
+	DEPOSIT_CHANNEL_OPTIONS: SelectOptionType[]
+	loading: boolean
+	payments: {
+		[DepositPaymentEnum.AutoDeposit]?: IPaymentAutoDepositData[]
+		[DepositPaymentEnum.BankTransfer]?: IPaymentBankTransferData[]
+		[DepositPaymentEnum.LinePay]?: IPaymentLinePayInfo
+		[DepositPaymentEnum.OnlineBanking]?: IPaymentOnlineBankingData[]
+		[DepositPaymentEnum.MobilePay]?: IPaymentMobilePayData[]
+		[DepositPaymentEnum.CryptoPay]?: IPaymentCryptoPayData[]
+		[DepositPaymentEnum.QRPay]?: IPaymentQRPayData[]
+		[DepositPaymentEnum.TopUpCardPay]?: IPaymentTopUpCardPayData[]
+	}
+	promotionOptions: SelectOptionType[]
+	refetchPaymentBankTransferList: () => void
+	refetchPaymentOnlineBankingList: () => void
+	refetchPaymentMobilePayList: () => void
+	refetchPaymentCryptoPayList: () => void
+	refetchPaymentQRPayList: () => void
+	refetchPaymentTopUpCardPayList: () => void
+	refetchPaymentAutoDepositList: () => void
+}
+
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+export const DepositContext = createContext<DepositContextInterface>(null!)
+
+export const useDepositContext = () => {
+	return useContext(DepositContext)
+}
+
+interface IDepositProviderProps {
+	children: ReactNode
+	DEPOSIT_PAYMENT_OPTIONS: {
+		[DepositPaymentEnum.AutoDeposit]: IDepositPaymentOption
+		[DepositPaymentEnum.BankTransfer]: IDepositPaymentOption
+		[DepositPaymentEnum.LinePay]: IDepositPaymentOption
+		[DepositPaymentEnum.OnlineBanking]: IDepositPaymentOption
+		[DepositPaymentEnum.MobilePay]: IDepositPaymentOption
+		[DepositPaymentEnum.CryptoPay]: IDepositPaymentOption
+		[DepositPaymentEnum.QRPay]: IDepositPaymentOption
+		[DepositPaymentEnum.TopUpCardPay]: IDepositPaymentOption
+	}
+	DEPOSIT_CHANNEL_OPTIONS: SelectOptionType[]
+	// * 排序與開關
+	depositPaymentOrders: DepositPaymentEnum[]
+}
+
+// * api 使用 isLoading 使初次 fetch  loading
+// * 使用 refetch api 不使用 tags 的原因為：只會在特定 function 更新 refetch，並不需要跨組件更新狀態。
+export const DepositProvider = ({
+	children,
+	DEPOSIT_PAYMENT_OPTIONS,
+	DEPOSIT_CHANNEL_OPTIONS,
+	depositPaymentOrders,
+}: IDepositProviderProps) => {
+	const { pathname, query, push } = useRouter()
+
+	const {
+		userInfo: { langId, currencyId, userName, accountName },
+	} = useAuth()
+
+	// * 確保 userName 不是訪客
+	if (!accountName) return null
+
+	const {
+		data: { data: paymentAutoDepositList = [] } = {},
+		isLoading: isGetPaymentAutoDepositListLoading,
+		refetch: refetchPaymentAutoDepositList,
+	} = useGetPaymentAutoDepositListQuery(undefined, {
+		skip: !includes(depositPaymentOrders, DepositPaymentEnum.AutoDeposit),
+	})
+
+	const {
+		data: { data: paymentBankTransferList = [] } = {},
+		isLoading: isGetPaymentBankTransferListLoading,
+		refetch: refetchPaymentBankTransferList,
+	} = useGetPaymentBankTransferListQuery(undefined, {
+		skip: !includes(depositPaymentOrders, DepositPaymentEnum.BankTransfer),
+	})
+
+	const {
+		data: { data: paymentOnlineBankingList = [] } = {},
+		isLoading: isGetPaymentOnlineBankingListLoading,
+		refetch: refetchPaymentOnlineBankingList,
+	} = useGetPaymentOnlineBankingListQuery(null, {
+		skip: !includes(depositPaymentOrders, DepositPaymentEnum.OnlineBanking),
+	})
+
+	const {
+		data: { data: paymentMobilePayList = [] } = {},
+		isLoading: isGetPaymentMobilePayListLoading,
+		refetch: refetchPaymentMobilePayList,
+	} = useGetPaymentMobilePayListQuery(null, {
+		skip: !includes(depositPaymentOrders, DepositPaymentEnum.MobilePay),
+	})
+
+	const {
+		data: { data: paymentCryptoPayList = [] } = {},
+		isLoading: isGetPaymentCryptoPayListLoading,
+		refetch: refetchPaymentCryptoPayList,
+	} = useGetPaymentCryptoPayListQuery(null, {
+		skip: !includes(depositPaymentOrders, DepositPaymentEnum.CryptoPay),
+	})
+
+	// * LinePay support THB only
+	const {
+		data: { data: paymentLinePayInfo } = {},
+		isLoading: isGetPaymentLinePayInfoLoading,
+	} = useGetPaymentLinePayInfoQuery(undefined, {
+		skip: currencyId !== CurrenciesEnum.THB,
+	})
+
+	const {
+		data: { data: paymentQRPayList } = {},
+		isLoading: isGetPaymentQRPayListLoading,
+		refetch: refetchPaymentQRPayList,
+	} = useGetPaymentQRPayListQuery(undefined, {
+		skip: !includes(depositPaymentOrders, DepositPaymentEnum.QRPay),
+	})
+
+	const {
+		data: { data: paymentTopUpCardPayList } = {},
+		isLoading: isGetPaymentTopUpCardPayListLoading,
+		refetch: refetchPaymentTopUpCardPayList,
+	} = useGetPaymentTopUpCardPayListQuery(undefined, {
+		skip: !includes(depositPaymentOrders, DepositPaymentEnum.TopUpCardPay),
+	})
+
+	// * 用於 'Choose Available Promotion'
+	const { data: { data: depositPromotionList = [] } = {} } =
+		useGetDepositPromotionListQuery({
+			deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
+			langId,
+		})
+
+	// * 格式化成符合 SelectOptionType 的型態
+	const promotionOptions: SelectOptionType[] = depositPromotionList.map(
+		({ title, bonusCode }) => ({
+			label: title,
+			value: String(bonusCode),
+		})
+	)
+
+	const originPayments: DepositContextInterface['payments'] = {
+		[DepositPaymentEnum.AutoDeposit]: paymentAutoDepositList,
+		[DepositPaymentEnum.BankTransfer]: paymentBankTransferList,
+		[DepositPaymentEnum.OnlineBanking]: paymentOnlineBankingList,
+		[DepositPaymentEnum.MobilePay]: paymentMobilePayList,
+		[DepositPaymentEnum.CryptoPay]: paymentCryptoPayList,
+		[DepositPaymentEnum.LinePay]: paymentLinePayInfo,
+		[DepositPaymentEnum.QRPay]: paymentQRPayList,
+		[DepositPaymentEnum.TopUpCardPay]: paymentTopUpCardPayList,
+	}
+
+	const defaultSavedInfo = (useReadLocalStorage(
+		ENV_LOCAL_STORAGE_NAMES.DepositSavedInfo(userName)
+	) || {}) as IDepositSavedInfo
+
+	// * 依據 depositPaymentOrders 排序 && 沒資料會過濾掉
+	const payments: DepositContextInterface['payments'] =
+		depositPaymentOrders.reduce((acc, cur) => {
+			const paymentData: object | any[] | undefined = originPayments[cur]
+
+			if (!paymentData || (isArray(paymentData) && paymentData.length === 0))
+				return acc
+
+			return { ...acc, [cur]: paymentData }
+		}, {})
+
+	const loading =
+		isGetPaymentBankTransferListLoading ||
+		isGetPaymentOnlineBankingListLoading ||
+		isGetPaymentMobilePayListLoading ||
+		isGetPaymentCryptoPayListLoading ||
+		isGetPaymentLinePayInfoLoading ||
+		isGetPaymentQRPayListLoading ||
+		isGetPaymentTopUpCardPayListLoading ||
+		isGetPaymentAutoDepositListLoading
+
+	const value: DepositContextInterface = {
+		DEPOSIT_PAYMENT_OPTIONS,
+		DEPOSIT_CHANNEL_OPTIONS,
+		loading,
+		payments,
+		promotionOptions,
+		refetchPaymentBankTransferList,
+		refetchPaymentOnlineBankingList,
+		refetchPaymentMobilePayList,
+		refetchPaymentCryptoPayList,
+		refetchPaymentQRPayList,
+		refetchPaymentTopUpCardPayList,
+		refetchPaymentAutoDepositList,
+	}
+
+	// * 初始資料完後，設定默認 Deposit Payment
+	useEffect(() => {
+		if (loading) return
+		const defaultPaymentType =
+			defaultSavedInfo['paymentType'] ||
+			query['paymentType'] ||
+			head(Object.keys(payments))
+
+		if (!query['paymentType']) {
+			push(
+				{ pathname, query: { paymentType: defaultPaymentType } },
+				undefined,
+				{ shallow: true }
+			)
+		}
+	}, [loading, query['paymentType']])
+
+	return (
+		<DepositContext.Provider value={value}>{children}</DepositContext.Provider>
+	)
+}
