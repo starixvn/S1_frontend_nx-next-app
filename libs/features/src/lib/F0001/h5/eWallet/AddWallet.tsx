@@ -2,9 +2,8 @@ import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import Image from 'next/future/image'
-import { Spin } from '@nx-next-app/components/D0001'
 import { useEWallet } from '@nx-next-app/features/F0001/providers'
-import { Form, Select, InputBox } from '@nx-next-app/components/H0001'
+import { Form, Select, InputBox, Loading } from '@nx-next-app/components/H0001'
 
 const AddWallet = () => {
 	const { t } = useTranslation()
@@ -16,7 +15,7 @@ const AddWallet = () => {
 	const { eWalletInfoSysList, setIsShowCards, handleSetCustEWallet } =
 		useEWallet()
 
-	if (!eWalletInfoSysList) return <Spin />
+	if (!eWalletInfoSysList) return <Loading />
 
 	const eWalletSysOptions = eWalletInfoSysList.map(
 		({ eWalletLogo, eWalletName, sysId }) => ({
