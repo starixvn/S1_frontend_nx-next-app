@@ -2,15 +2,18 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, LeftMenu } from '@nx-next-app/features/F0001/desktop'
+import { Layout, Withdrawal } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import {
+	CryptoWalletProvider,
+	WithdrawalProvider,
+} from '@nx-next-app/features/F0001/providers'
 
 type IWithdrawalPageProps = InitialPropsInterface
 
-// * TODO: wip todo
 const WithdrawalPage = ({
 	originIsSignIn,
 	originCookies,
@@ -21,12 +24,12 @@ const WithdrawalPage = ({
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData} footerData={footerData}>
-					<main>
-						<section className='inside'>
-							<LeftMenu />
-							<h1 style={{ color: 'black' }}>Withdrawal Page</h1>
-						</section>
-					</main>
+					<WithdrawalProvider>
+						{/* 因為需使用 cryptoWallet 的 hooks ,故需多包此層 */}
+						<CryptoWalletProvider>
+							<Withdrawal />
+						</CryptoWalletProvider>
+					</WithdrawalProvider>
 				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>

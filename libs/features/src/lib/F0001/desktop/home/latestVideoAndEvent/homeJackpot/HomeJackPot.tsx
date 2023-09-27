@@ -6,7 +6,7 @@ import { useAuth } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
 import { JackPot } from '@nx-next-app/components/D0001'
 import { useRouter } from 'next/router'
-import { useHome } from '@nx-next-app/features/F0001/providers/home-context/HomeContext'
+import { useHome } from '@nx-next-app/features/F0001/providers/home-context'
 
 const HomeJackPot = () => {
 	const { t } = useTranslation()

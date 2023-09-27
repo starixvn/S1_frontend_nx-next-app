@@ -68,11 +68,27 @@ export interface ISetProfileAddressArgs {
 	AddressLineSecond?: string
 }
 
-export interface ISetCustBankInfoArgs {
-	accountName?: string
+export interface IDeleteBankCardArgs {
+	accountName: string
 	accountNo: string
 	sysId: number
-	ifscCode?: string | null
+}
+
+export interface IDeleteEWalletCardArgs {
+	accountNo: string
+	sysId: number
+}
+
+export interface ISetLocalBankInfoArgs {
+	accountName: string
+	accountNo: string
+	sysId: number
+	IFSCCode?: string
+}
+
+export interface ISetEWalletInfoArgs {
+	accountNo: string
+	sysId: number
 }
 
 export interface ISetCustCryptoWalletArgs {

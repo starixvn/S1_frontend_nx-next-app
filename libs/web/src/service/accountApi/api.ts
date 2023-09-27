@@ -21,10 +21,11 @@ import {
 	ISetChangePasswordArgs,
 	IReferralSummaryData,
 	IReferralSettingDetailData,
+	IWithdrawalAvailableBalanceData,
+	ICustBankInfoData,
+	IEWalletData,
 	IGetReferralArgs,
 	IReferralData,
-	ICustBankInfoData,
-	ICustEWalletInfoData,
 } from './type'
 
 export const accountApiUrl = {
@@ -48,9 +49,10 @@ export const accountApiUrl = {
 	getReferralCode: 'Account/GetReferralCode',
 	getReferralSummary: 'Account/GetReferralSummaryV2',
 	getReferralSettingDetail: 'Account/GetReferralSettingDetail',
+	getWithdrawalAvailableBalance: 'Account/GetWithdrawalAvailableBalance',
+	getCustEWalletInfo: 'Account/GetCustEWalletInfo',
 	getReferral: 'Account/GetRefFriendList',
 	getCustBankInfo: 'Account/GetCustBankInfo',
-	getCustEWalletInfo: 'Account/GetCustEWalletInfo',
 	getWalletTransferStatus: 'Account/GetWalletTransferStatus',
 	setWalletTransferStatus: 'Account/SetWalletTransferStatus',
 }
@@ -242,22 +244,36 @@ const accountApi = rootApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
-		getCustBankInfo: builder.query<IAxiosResponse<ICustBankInfoData>, void>({
+		getWithdrawalAvailableBalance: builder.query<
+			IAxiosResponse<IWithdrawalAvailableBalanceData>,
+			null
+		>({
+			query: () => ({
+				url: accountApiUrl.getWithdrawalAvailableBalance,
+				method: 'POST',
+			}),
+			providesTags: ['WITHDRAWAL_API_POST'],
+		}),
+		getCustBankInfo: builder.query<IAxiosResponse<ICustBankInfoData>, null>({
 			query: () => ({
 				url: accountApiUrl.getCustBankInfo,
 				method: 'POST',
 			}),
-			providesTags: ['ACCOUNT_GET_USER_BANK_INFO'],
+			providesTags: [
+				'WITHDRAWAL_BANKCARD_POST',
+				'WITHDRAWAL_CRYPTO_POST',
+				'ACCOUNT_GET_USER_BANK_INFO',
+			],
 		}),
-		getCustEWalletInfo: builder.query<
-			IAxiosResponse<ICustEWalletInfoData[]>,
-			void
-		>({
+		getCustEWalletInfo: builder.query<IAxiosResponse<IEWalletData[]>, null>({
 			query: () => ({
 				url: accountApiUrl.getCustEWalletInfo,
 				method: 'POST',
 			}),
-			providesTags: ['ACCOUNT_GET_USER_EWALLET_INFO'],
+			providesTags: [
+				'WITHDRAWAL_EWALLET_POST',
+				'ACCOUNT_GET_USER_EWALLET_INFO',
+			],
 		}),
 		getWalletTransferStatus: builder.query<
 			IAxiosResponse<{ data: number }>,
@@ -302,6 +318,7 @@ export const {
 	useGetMsgContentMutation,
 	useGetReferralCodeQuery,
 	useGetReferralSettingQuery,
+	useGetWithdrawalAvailableBalanceQuery,
 	useSetChangePasswordMutation,
 	useGetReferralSummaryQuery,
 	useLazyGetReferralSettingDetailQuery,

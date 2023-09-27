@@ -48,4 +48,5 @@ export const CURRENCY_TO_TIMEZONE: { [key: number]: string } = {
 	61: '+05:30',
 	3: '+00:00',
 	13: '+08:00',
+	51: '+07:00',
 }

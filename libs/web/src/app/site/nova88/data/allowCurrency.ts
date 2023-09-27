@@ -36,4 +36,8 @@ export const ALLOWED_CURRENCIES: {
 
 	LOTTERY_GPI_THAILOTTERY: [THB],
 	LUCKY_WHEEL: [MYR, THB, IDR],
+
+	// === withdrawal method ===
+	BANK_CARD: [MYR, THB, IDR, INR, KHM, VND, CNY],
+	E_WALLET: [IDR, BDT, MYR, THB, VND],
 }

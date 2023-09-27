@@ -41,6 +41,15 @@ export const paths = {
 	eWalletWithdrawal: {
 		root: 'eWallet-withdrawal',
 	},
+	cryptoWithdrawal: {
+		root: 'crypto-withdrawal',
+	},
+	kycWaiting: {
+		root: 'kyc-waiting',
+	},
+	kyc: {
+		root: 'kyc',
+	},
 	message: {
 		root: 'message',
 	},

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import { usePhoneOtp } from '@nx-next-app/hooks'
-import { useCryptoWallet } from '@nx-next-app/features/F0001/providers'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	Form,
@@ -10,8 +9,23 @@ import {
 	InputBox,
 	CountdownTimer,
 } from '@nx-next-app/components/H0001'
+import {
+	ICryptoNetwork,
+	IOTPSMSData,
+	ISetCustCryptoWalletArgs,
+} from '@nx-next-app/service'
 
-const AddWalletModal = () => {
+const AddWalletModal = ({
+	cryptoNetworkList,
+	cryptoCurrencyOptions,
+	handleGetOtpInfo,
+	handleSetCustCryptoWallet,
+}: {
+	cryptoNetworkList: ICryptoNetwork[]
+	cryptoCurrencyOptions: { value: number; label: string }[]
+	handleGetOtpInfo: () => Promise<IOTPSMSData | undefined>
+	handleSetCustCryptoWallet: (args: ISetCustCryptoWalletArgs) => Promise<void>
+}) => {
 	const { t } = useTranslation()
 
 	const { modal, closeModal } = useGlobalModal()
@@ -26,13 +40,6 @@ const AddWalletModal = () => {
 		handleSubmit,
 	} = useForm()
 	const { errors, touchedFields } = formState
-
-	const {
-		cryptoNetworkList,
-		cryptoCurrencyOptions,
-		handleGetOtpInfo,
-		handleSetCustCryptoWallet,
-	} = useCryptoWallet()
 
 	const { timer, startUnixTime, setTimer, handleSendOtpSMS, handleVerifyOtp } =
 		usePhoneOtp()
