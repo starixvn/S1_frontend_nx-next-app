@@ -13,7 +13,6 @@ export const ALLOWED_CURRENCIES: {
 
 	TRANSFER: [INR, BDT, USD],
 	BANK_INFO: [MYR, THB, IDR, INR, KHM],
-	E_WALLET: [MYR, THB, IDR, BDT],
 
 	GAMES_MPOKER: [THB],
 
@@ -36,4 +35,8 @@ export const ALLOWED_CURRENCIES: {
 
 	LOTTERY_GPI_THAILOTTERY: [THB],
 	LUCKY_WHEEL: [MYR, THB, IDR],
+
+	// === withdrawal method ===
+	BANK_CARD: [MYR, THB, IDR, INR, KHM, VND, CNY],
+	E_WALLET: [MYR, THB, IDR, BDT],
 }

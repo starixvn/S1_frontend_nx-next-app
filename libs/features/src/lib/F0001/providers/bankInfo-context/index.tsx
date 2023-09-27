@@ -2,11 +2,11 @@ import { useTranslation } from 'next-i18next'
 import { ReactNode, createContext, useContext, useState } from 'react'
 import {
 	IBankInfoDetail,
-	IBankInfoSysData,
 	useGetCustBankInfoQuery,
-	useDelCustBankInfoMutation,
 	useGetBankInfoSysListQuery,
-	useSetCustBankInfoMutation,
+	useSetLocalBankInfoMutation,
+	useDeleteBankCardMutation,
+	IBankInfoSysData,
 } from '@nx-next-app/service'
 import { DeviceTypeEnum } from '@nx-next-app/types'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -60,11 +60,11 @@ export const BankInfoProvider = ({ children }: IBankInfoProviderProps) => {
 
 	const { modal } = useGlobalModal()
 
-	const { data: { data: custBankInfo } = {} } = useGetCustBankInfoQuery()
+	const { data: { data: custBankInfo } = {} } = useGetCustBankInfoQuery(null)
 	const { data: { data: bankInfoSysList = [] } = {} } =
-		useGetBankInfoSysListQuery()
-	const [setCustBankInfo] = useSetCustBankInfoMutation()
-	const [delCustBankInfo] = useDelCustBankInfoMutation()
+		useGetBankInfoSysListQuery(null)
+	const [setCustBankInfo] = useSetLocalBankInfoMutation()
+	const [delCustBankInfo] = useDeleteBankCardMutation()
 
 	const [step, setStep] = useState<number>(1) // Desktop
 	const [isShowCards, setIsShowCards] = useState<boolean>(true) // Mobile
@@ -82,10 +82,10 @@ export const BankInfoProvider = ({ children }: IBankInfoProviderProps) => {
 	}) => {
 		try {
 			await setCustBankInfo({
-				ifscCode,
 				accountNo,
 				sysId: sysId ?? (selBank?.sysId as number),
 				accountName: custBankInfo?.accountName as string,
+				IFSCCode: ifscCode,
 			})
 
 			Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DeviceTypeEnum.Desktop

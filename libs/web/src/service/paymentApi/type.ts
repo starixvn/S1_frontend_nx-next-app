@@ -1,11 +1,77 @@
-export interface IBankInfoSysData {
-	sysId: number
-	currencyId: number
-	bankCode: string
-	bankName: string
-	bankLogo: string
-	bankSite: string
+export type WithdrawalMessageData = {
+	createTime: string
+	errorTypeName: string
+	message: string
+}
+
+export interface IWithdrawalRecentInfoData {
+	amount: number
+	canCancel: boolean
+	chargeFee: number
+	createTime: string
+	memo: string
 	status: number
+	transId: string
+	withdrawalMessage: string
+	withdrawalMessageDetail: WithdrawalMessageData[]
+}
+
+export type IUsdtData = {
+	currencyId: number
+	currencyName: string
+	maxTimes: number
+	network: string
+	unlimited: boolean
+	withdrawalAvailableAmount: number
+	withdrawalMin: number
+	withdrawalTimes: number
+}
+
+export interface IWithdrawalLimitData {
+	eWalletStatus: number
+	eWalletUnlimited: boolean
+	eWalletWithdrawalAvailableAmount: number
+	eWalletWithdrawalMin: number
+	maxTimes: number
+	totalWithdrawalMax: number
+	unlimited: boolean
+	withdrawalAvailableAmount: number
+	withdrawalMin: number
+	withdrawalTimes: number
+	usdtList: IUsdtData[]
+}
+
+export interface IBankInfoSysData {
+	bankCode: string
+	bankLogo: string
+	bankName: string
+	bankSite: string
+	currencyId: number
+	status: number
+	sysId: number
+}
+
+export interface IEWalletInfoData {
+	currencyId: number
+	eWalletCode: string
+	eWalletLogo: string
+	eWalletName: string
+	eWalletSite: string
+	sort: number
+	status: number
+	sysId: number
+}
+
+export interface IGetExchangeInfoArgs {
+	amount: number
+	currencyName: string
+	network: string
+}
+
+export interface IExchangeInfoData {
+	rate: number
+	to_Amount: number
+	updated_timestamp: number
 }
 
 export interface IDepositInfoHistoryData {
@@ -93,6 +159,24 @@ export type IGetStatementArgs = IGetDepositInfoHistoryArgs
 export interface IUploadReceiptArgs {
 	receipt: string
 	transId: string
+}
+
+export interface ISubmitWithdrawalArgs {
+	accountNo: string
+	amount: number
+	sysId: number
+	memo?: string
+	blackbox?: string
+	ifscCode?: string
+}
+
+export interface ISubmitCryptoWithdrawalArgs {
+	accountNo: string
+	amount: number
+	blackbox: string
+	currencyId: number
+	exchangeRate: number
+	exchangeAmount: number
 }
 
 export interface ICryptoCurrency {

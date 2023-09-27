@@ -12,7 +12,7 @@ export const HISTORY_TABS = [
 		id: HistoryTabsEnum.Deposit,
 	},
 	{
-		displayKey: 'Label_History_Withdrawal',
+		displayKey: 'Label_General_Withdrawal',
 		id: HistoryTabsEnum.Withdrawal,
 	},
 	{

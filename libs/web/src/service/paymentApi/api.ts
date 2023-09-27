@@ -1,6 +1,14 @@
-import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
+import { IAxiosResponse } from '../axiosBaseQuery'
 import {
+	IEWalletInfoData,
+	IExchangeInfoData,
+	IGetExchangeInfoArgs,
+	ISubmitCryptoWithdrawalArgs,
+	ISubmitWithdrawalArgs,
+	IWithdrawalLimitData,
+	IWithdrawalRecentInfoData,
+	IGetStatementArgs,
 	IBankInfoSysData,
 	ICustTpBetRecordDetailListbyGameTypeArgs,
 	ICustTpBetRecordDetailListbyGameTypeData,
@@ -12,16 +20,22 @@ import {
 	ICustTpBetRecordListOneDayData,
 	IDepositInfoHistoryData,
 	IGetDepositInfoHistoryArgs,
-	IGetStatementArgs,
+	IWithdrawalInfoHistoryData,
 	IGetWithdrawalInfoHistoryArgs,
 	IStatementData,
 	IUploadReceiptArgs,
-	IWithdrawalInfoHistoryData,
 	ISupportCryptoInfo,
-	IEWalletInfoSysData,
 } from './type'
 
 export const paymentApiUrl = {
+	kycCheck: 'Payment/KycCheck',
+	getWithdrawalRecentInfo: 'Payment/GetWithdrawalInfoRecent',
+	getWithdrawalLimit: 'Payment/GetWithdrawalLimit',
+	setWithdrawalCancel: 'Payment/SetWithdrawalCancel',
+	getBankInfoSysList: 'Payment/GetBankInfoSysList',
+	getEWalletInfoSysList: 'Payment/GetEWalletInfoSysList',
+	getSupportCryptoInfo: 'Payment/GetSupportCryptoInfo',
+	getExchangeInfo: 'Payment/GetExchangeInfo',
 	getDepositInfoHistory: 'Payment/GetDepositInfoHistory',
 	getWithdrawalInfoHistory: 'Payment/GetWithdrawalInfoHistory',
 	getStatement: 'Payment/GetStatement',
@@ -33,14 +47,108 @@ export const paymentApiUrl = {
 		'Payment/GetCustTpBetRecordDetailListbyGameType',
 	uploadReceipt: 'Payment/UploadReceipt',
 	setDepositCancel: 'Payment/SetDepositCancel',
-	setWithdrawalCancel: 'Payment/SetWithdrawalCancel',
-	getBankInfoSysList: 'Payment/GetBankInfoSysList',
-	getSupportCryptoInfo: 'Payment/GetSupportCryptoInfo',
-	getEWalletInfoSysList: 'Payment/GetEWalletInfoSysList',
+	// local bank 等正常 withdrawal
+	withdrawalReq: 'Payment/WithdrawalReq',
+	// EWallet withdrawal
+	withdrawalEWallet: 'Payment/WithdrawalEWalletReq',
+	// Crypto withdrawal
+	withdrawalCrypto: 'Payment/WithdrawalCryptoReq',
 }
 
-export const paymentApi = rootApi.injectEndpoints({
+const paymentApi = rootApi.injectEndpoints({
 	endpoints: builder => ({
+		kycCheck: builder.query<IAxiosResponse<null>, null>({
+			query: () => ({
+				url: paymentApiUrl.kycCheck,
+				method: 'POST',
+			}),
+		}),
+		getWithdrawalRecentInfo: builder.query<
+			IAxiosResponse<IWithdrawalRecentInfoData[]>,
+			null
+		>({
+			query: () => ({
+				url: paymentApiUrl.getWithdrawalRecentInfo,
+				method: 'POST',
+			}),
+			providesTags: ['WITHDRAWAL_API_POST'],
+		}),
+		getWithdrawalLimit: builder.query<
+			IAxiosResponse<IWithdrawalLimitData>,
+			null
+		>({
+			query: () => ({
+				url: paymentApiUrl.getWithdrawalLimit,
+				method: 'POST',
+			}),
+		}),
+		setWithdrawalCancel: builder.mutation<
+			IAxiosResponse<void>,
+			{ transId: string }
+		>({
+			query: data => ({
+				url: paymentApiUrl.setWithdrawalCancel,
+				method: 'POST',
+				data,
+			}),
+			invalidatesTags: ['WITHDRAWAL_API_POST', 'PAYMENT_WITHDRAWAL_HISTORY'],
+		}),
+		getBankInfoSysList: builder.query<IAxiosResponse<IBankInfoSysData[]>, null>(
+			{
+				query: () => ({
+					url: paymentApiUrl.getBankInfoSysList,
+					method: 'POST',
+				}),
+			}
+		),
+		getEWalletInfoList: builder.query<IAxiosResponse<IEWalletInfoData[]>, null>(
+			{
+				query: () => ({
+					url: paymentApiUrl.getEWalletInfoSysList,
+					method: 'POST',
+				}),
+			}
+		),
+		getExchangeInfo: builder.query<
+			IAxiosResponse<IExchangeInfoData>,
+			IGetExchangeInfoArgs
+		>({
+			query: data => ({
+				url: paymentApiUrl.getExchangeInfo,
+				method: 'POST',
+				data,
+			}),
+		}),
+		submitWithdrawal: builder.mutation<
+			IAxiosResponse<void>,
+			ISubmitWithdrawalArgs
+		>({
+			query: data => ({
+				url: paymentApiUrl.withdrawalReq,
+				method: 'POST',
+				data,
+			}),
+		}),
+		submitEWalletWithdrawal: builder.mutation<
+			IAxiosResponse<void>,
+			ISubmitWithdrawalArgs
+		>({
+			query: data => ({
+				url: paymentApiUrl.withdrawalEWallet,
+				method: 'POST',
+				data,
+			}),
+		}),
+		submitCryptoWithdrawal: builder.mutation<
+			IAxiosResponse<void>,
+			ISubmitCryptoWithdrawalArgs
+		>({
+			query: data => ({
+				url: paymentApiUrl.withdrawalCrypto,
+				method: 'POST',
+				data,
+			}),
+		}),
 		getDepositInfoHistory: builder.query<
 			IAxiosResponse<IDepositInfoHistoryData[]>,
 			IGetDepositInfoHistoryArgs
@@ -132,26 +240,6 @@ export const paymentApi = rootApi.injectEndpoints({
 			}),
 			invalidatesTags: ['PAYMENT_DEPOSIT_HISTORY'],
 		}),
-		setWithdrawalCancel: builder.mutation<
-			IAxiosResponse<void>,
-			{ transId: string }
-		>({
-			query: data => ({
-				url: paymentApiUrl.setWithdrawalCancel,
-				method: 'POST',
-				data,
-			}),
-			invalidatesTags: ['PAYMENT_WITHDRAWAL_HISTORY'],
-		}),
-		getBankInfoSysList: builder.query<IAxiosResponse<IBankInfoSysData[]>, void>(
-			{
-				query: data => ({
-					url: paymentApiUrl.getBankInfoSysList,
-					method: 'POST',
-					data,
-				}),
-			}
-		),
 		getSupportCryptoInfo: builder.query<
 			IAxiosResponse<ISupportCryptoInfo>,
 			void
@@ -162,20 +250,19 @@ export const paymentApi = rootApi.injectEndpoints({
 			}),
 			providesTags: ['ACCOUNT_GET_USER_CRYPTO_WALLET_INFO'],
 		}),
-		getEWalletInfoSysList: builder.query<
-			IAxiosResponse<IEWalletInfoSysData[]>,
-			void
-		>({
-			query: () => ({
-				url: paymentApiUrl.getEWalletInfoSysList,
-				method: 'POST',
-			}),
-			providesTags: ['ACCOUNT_GET_USER_EWALLET_INFO'],
-		}),
 	}),
 })
 
 export const {
+	useLazyKycCheckQuery,
+	useGetWithdrawalRecentInfoQuery,
+	useGetWithdrawalLimitQuery,
+	useSetWithdrawalCancelMutation,
+	useLazyGetEWalletInfoListQuery,
+	useGetEWalletInfoListQuery,
+	useLazyGetBankInfoSysListQuery,
+	useGetExchangeInfoQuery,
+	useLazyGetExchangeInfoQuery,
 	useLazyGetDepositInfoHistoryQuery,
 	useLazyGetWithdrawalInfoHistoryQuery,
 	useLazyGetStatementQuery,
@@ -186,7 +273,8 @@ export const {
 	useLazyGetCustTpBetRecordDetailListbyGameTypeQuery,
 	useUploadReceiptMutation,
 	useSetDepositCancelMutation,
-	useSetWithdrawalCancelMutation,
+	useSubmitWithdrawalMutation,
+	useSubmitCryptoWithdrawalMutation,
+	useSubmitEWalletWithdrawalMutation,
 	useGetSupportCryptoInfoQuery,
-	useGetEWalletInfoSysListQuery,
 } = paymentApi
