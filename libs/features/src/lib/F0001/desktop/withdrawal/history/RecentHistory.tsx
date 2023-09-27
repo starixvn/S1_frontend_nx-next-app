@@ -1,7 +1,11 @@
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { paths } from '@nx-next-app/constants'
 import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
 import WithdrawalHistoryTable from '@nx-next-app/components/D0001/table/historyTable/WithdrawalHistoryTable'
 
 const RecentHistory = () => {
+	const { t } = useTranslation()
 	const {
 		withdrawalRecentInfo,
 		refetchWithdrawalRecentInfo,
@@ -9,11 +13,23 @@ const RecentHistory = () => {
 	} = useWithdrawal()
 
 	return (
-		<WithdrawalHistoryTable
-			dataSource={withdrawalRecentInfo}
-			onReload={refetchWithdrawalRecentInfo}
-			onCancel={cancelWithdrawal}
-		/>
+		<>
+			{withdrawalRecentInfo.length > 0 ? (
+				<WithdrawalHistoryTable
+					classNames='list'
+					dataSource={withdrawalRecentInfo}
+					onReload={refetchWithdrawalRecentInfo}
+					onCancel={cancelWithdrawal}
+				/>
+			) : (
+				<div className='nodata icon icon-nodata'>
+					<div>{t('Label_History_NoData')}</div>
+				</div>
+			)}
+			<Link href={paths.history.root}>
+				<a className='icon icon-books' />
+			</Link>
+		</>
 	)
 }
 
