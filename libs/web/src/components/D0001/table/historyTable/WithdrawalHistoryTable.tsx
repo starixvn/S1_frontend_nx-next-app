@@ -18,10 +18,12 @@ const WithdrawalHistoryTable = ({
 	dataSource,
 	onReload,
 	onCancel,
+	classNames = 'list history',
 }: {
 	dataSource: IWithdrawalInfoHistoryData[]
 	onReload: () => void
 	onCancel: (transId: string) => void
+	classNames?: string
 }) => {
 	const { t } = useTranslation()
 	const {
@@ -125,7 +127,7 @@ const WithdrawalHistoryTable = ({
 		<Table
 			dataSource={dataSource}
 			columns={columns as ITableColumns<IWithdrawalInfoHistoryData>[]}
-			mainClassName='list history'
+			mainClassName={classNames}
 			headerClassName='listHeader'
 			bodyClassName='listBody'
 		/>
