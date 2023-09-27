@@ -26,7 +26,7 @@ const LotteryList = () => {
 		onMenuOpen,
 	} = useMenu()
 
-	const onItemClick = (item: ISubMenu<string>) => {
+	const onItemClick = (item: ISubMenu) => {
 		onMenuOpen(item, {
 			loginCallback: () => modal.open(<LoginModal />),
 		})
