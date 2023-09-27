@@ -4,9 +4,9 @@ import {
 	IEWalletInfoSysData,
 	ICustEWalletInfoData,
 	useGetCustEWalletInfoQuery,
-	useDelCustEWalletInfoMutation,
-	useGetEWalletInfoSysListQuery,
-	useSetCustEWalletInfoMutation,
+	useDeleteEWalletCardMutation,
+	useGetEWalletInfoListQuery,
+	useSetEWalletInfoMutation,
 } from '@nx-next-app/service'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 
@@ -46,11 +46,11 @@ export const EWalletProvider = ({ children }: { children: ReactNode }) => {
 	const [isShowCards, setIsShowCards] = useState<boolean>(true)
 
 	const { data: { data: custEWalletList = [] } = {} } =
-		useGetCustEWalletInfoQuery()
+		useGetCustEWalletInfoQuery(null)
 	const { data: { data: eWalletInfoSysList = [] } = {} } =
-		useGetEWalletInfoSysListQuery()
-	const [setCustEWallet] = useSetCustEWalletInfoMutation()
-	const [delCustEWallet] = useDelCustEWalletInfoMutation()
+		useGetEWalletInfoListQuery(null)
+	const [setCustEWallet] = useSetEWalletInfoMutation()
+	const [delCustEWallet] = useDeleteEWalletCardMutation()
 
 	const handleSetCustEWallet = async ({
 		sysId,

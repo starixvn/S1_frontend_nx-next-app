@@ -17,7 +17,7 @@ export interface IInputBoxProps
 	icon?: string
 	description?: string
 	areaCode?: string
-	infoMessage?: string
+	infoMessage?: string | null
 	format?: boolean
 	formatStr?: string
 	showIconModule?: boolean

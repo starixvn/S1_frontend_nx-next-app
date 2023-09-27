@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next'
-import { useHome } from '@nx-next-app/features/F0001/providers/home-context/HomeContext'
+import { useHome } from '@nx-next-app/features/F0001/providers/home-context'
 
 export const LatestVideo = () => {
 	const { latestHighlightVideo } = useHome()

@@ -44,7 +44,7 @@ export const CryptoWalletProvider = ({ children }: { children: ReactNode }) => {
 		userInfo: { phoneVerified },
 	} = useAuth()
 
-	const { data: { data: custBankInfo } = {} } = useGetCustBankInfoQuery()
+	const { data: { data: custBankInfo } = {} } = useGetCustBankInfoQuery(null)
 
 	const { data: { data: supportCryptoInfo } = {} } =
 		useGetSupportCryptoInfoQuery()
@@ -104,9 +104,24 @@ export const CryptoWalletProvider = ({ children }: { children: ReactNode }) => {
 		} else if (
 			Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DeviceTypeEnum.Desktop
 		) {
-			modal.open(<DesktopAddWalletModal />)
+			// 避免層級混亂，Modal ( Layout 層 ) 所使用的資料均透過 props 正確傳遞
+			modal.open(
+				<DesktopAddWalletModal
+					handleSetCustCryptoWallet={handleSetCustCryptoWallet}
+					cryptoNetworkList={cryptoNetworkList}
+					handleGetOtpInfo={handleGetOtpInfo}
+					cryptoCurrencyOptions={cryptoCurrencyOptions}
+				/>
+			)
 		} else {
-			modal.open(<H5AddWalletModal />)
+			modal.open(
+				<H5AddWalletModal
+					handleSetCustCryptoWallet={handleSetCustCryptoWallet}
+					cryptoNetworkList={cryptoNetworkList}
+					handleGetOtpInfo={handleGetOtpInfo}
+					cryptoCurrencyOptions={cryptoCurrencyOptions}
+				/>
+			)
 		}
 	}
 

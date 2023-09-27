@@ -5,23 +5,27 @@ import {
 	IOTPSMSData,
 	ISetProfileArgs,
 	ISetProfileAddressArgs,
-	ISetCustBankInfoArgs,
+	IDeleteBankCardArgs,
+	IDeleteEWalletCardArgs,
+	ISetLocalBankInfoArgs,
+	ISetEWalletInfoArgs,
 	ISetCustCryptoWalletArgs,
 } from './type'
 
 export const accountStrictApiUrl = {
 	getCustProfile: 'AccountStrict/GetCustProfile',
+	getOTPVerifyInfo: 'AccountStrict/GetOTPVerifyInfo',
 	sendOTPEmail: 'AccountStrict/SendOTPEmail',
 	sendOTPSMS: 'AccountStrict/SendOTPSMS',
 	verifyOTP: 'AccountStrict/VerifyOTP',
 	SetProfile: 'AccountStrict/SetProfile',
 	setProfileAddress: 'AccountStrict/SetProfileAddress',
-	delCustBankInfo: 'AccountStrict/DelCustBankInfo',
-	setCustBankInfo: 'AccountStrict/SetCustBankInfo',
 	setCustCryptoWallet: 'AccountStrict/SetCustCryptoWallet',
-	setCustEWalletInfo: 'AccountStrict/SetCustEWalletInfo',
-	delCustEWalletInfo: 'AccountStrict/DelCustEWalletInfo',
-	getOTPVerifyInfo: 'AccountStrict/GetOTPVerifyInfo',
+	deleteBankCard: 'AccountStrict/DelCustBankInfo',
+	deleteEWalletCard: 'AccountStrict/DelCustEWalletInfo',
+	setLocalBankInfo: 'AccountStrict/SetCustBankInfo',
+	setEWalletInfo: 'AccountStrict/SetCustEWalletInfo',
+	uploadCustPhoto: 'AccountStrict/UploadCustPhotoId',
 }
 
 export const accountStrictApi = rootApi.injectEndpoints({
@@ -37,6 +41,7 @@ export const accountStrictApi = rootApi.injectEndpoints({
 			}),
 			providesTags: ['ACCOUNT_STRICT_GET_USER_INFO'],
 		}),
+
 		sendOTPEmail: builder.mutation<IAxiosResponse<void>, { route: string }>({
 			query: ({ route }) => ({
 				url: accountStrictApiUrl.sendOTPEmail,
@@ -83,27 +88,66 @@ export const accountStrictApi = rootApi.injectEndpoints({
 			}),
 			invalidatesTags: ['ACCOUNT_STRICT_GET_USER_INFO'],
 		}),
-		delCustBankInfo: builder.mutation<
-			IAxiosResponse<IUserInfoData | undefined>,
-			{ accountName: string; accountNo: string; sysId: number }
-		>({
-			query: data => ({
-				url: accountStrictApiUrl.delCustBankInfo,
-				method: 'POST',
-				data,
-			}),
-			invalidatesTags: ['ACCOUNT_GET_USER_BANK_INFO'],
-		}),
-		setCustBankInfo: builder.mutation<
+		deleteBankCard: builder.mutation<IAxiosResponse<void>, IDeleteBankCardArgs>(
+			{
+				query: data => ({
+					url: accountStrictApiUrl.deleteBankCard,
+					method: 'POST',
+					data,
+				}),
+				invalidatesTags: [
+					'WITHDRAWAL_BANKCARD_POST',
+					'ACCOUNT_GET_USER_BANK_INFO',
+				],
+			}
+		),
+		deleteEWalletCard: builder.mutation<
 			IAxiosResponse<void>,
-			ISetCustBankInfoArgs
+			IDeleteEWalletCardArgs
 		>({
 			query: data => ({
-				url: accountStrictApiUrl.setCustBankInfo,
+				url: accountStrictApiUrl.deleteEWalletCard,
 				method: 'POST',
 				data,
 			}),
-			invalidatesTags: ['ACCOUNT_GET_USER_BANK_INFO'],
+			invalidatesTags: [
+				'WITHDRAWAL_EWALLET_POST',
+				'ACCOUNT_GET_USER_EWALLET_INFO',
+			],
+		}),
+		setLocalBankInfo: builder.mutation<
+			IAxiosResponse<void>,
+			ISetLocalBankInfoArgs
+		>({
+			query: data => ({
+				url: accountStrictApiUrl.setLocalBankInfo,
+				method: 'POST',
+				data,
+			}),
+			invalidatesTags: ['WITHDRAWAL_BANKCARD_POST'],
+		}),
+		setEWalletInfo: builder.mutation<IAxiosResponse<void>, ISetEWalletInfoArgs>(
+			{
+				query: data => ({
+					url: accountStrictApiUrl.setEWalletInfo,
+					method: 'POST',
+					data,
+				}),
+				invalidatesTags: [
+					'WITHDRAWAL_EWALLET_POST',
+					'ACCOUNT_GET_USER_EWALLET_INFO',
+				],
+			}
+		),
+		uploadCustPhoto: builder.mutation<IAxiosResponse<void>, FormData>({
+			query: data => ({
+				url: accountStrictApiUrl.uploadCustPhoto,
+				method: 'POST',
+				data,
+				headers: {
+					'Content-Type': 'multipart/form-data',
+				},
+			}),
 		}),
 		setCustCryptoWallet: builder.mutation<
 			IAxiosResponse<void>,
@@ -116,28 +160,6 @@ export const accountStrictApi = rootApi.injectEndpoints({
 			}),
 			invalidatesTags: ['ACCOUNT_GET_USER_CRYPTO_WALLET_INFO'],
 		}),
-		setCustEWalletInfo: builder.mutation<
-			IAxiosResponse<void>,
-			{ sysId: number; accountNo: string }
-		>({
-			query: data => ({
-				url: accountStrictApiUrl.setCustEWalletInfo,
-				method: 'POST',
-				data,
-			}),
-			invalidatesTags: ['ACCOUNT_GET_USER_EWALLET_INFO'],
-		}),
-		delCustEWalletInfo: builder.mutation<
-			IAxiosResponse<void>,
-			{ sysId: number; accountNo: string }
-		>({
-			query: data => ({
-				url: accountStrictApiUrl.delCustEWalletInfo,
-				method: 'POST',
-				data,
-			}),
-			invalidatesTags: ['ACCOUNT_GET_USER_EWALLET_INFO'],
-		}),
 	}),
 })
 
@@ -149,9 +171,10 @@ export const {
 	useVerifyOTPMutation,
 	useSetProfileMutation,
 	useSetProfileAddressMutation,
-	useDelCustBankInfoMutation,
-	useSetCustBankInfoMutation,
+	useDeleteBankCardMutation,
+	useDeleteEWalletCardMutation,
+	useSetLocalBankInfoMutation,
+	useSetEWalletInfoMutation,
+	useUploadCustPhotoMutation,
 	useSetCustCryptoWalletMutation,
-	useSetCustEWalletInfoMutation,
-	useDelCustEWalletInfoMutation,
 } = accountStrictApi

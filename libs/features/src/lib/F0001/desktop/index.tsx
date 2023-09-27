@@ -12,6 +12,8 @@ export { default as LiveCasino } from './live-casino/index'
 
 export { default as Lottery } from './lottery/index'
 
+export { default as Withdrawal } from './withdrawal'
+
 export { default as LeaderBoard } from './leaderBoard'
 export { default as ForgetPassword } from './forget-password'
 export { default as RebateExclude } from './rebate-exclude'

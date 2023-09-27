@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { isUrl } from '@nx-next-app/utils'
 import { paths } from '@nx-next-app/constants'
 import Image from 'next/future/image'
-import { useHome } from '@nx-next-app/features/F0001/providers/home-context/HomeContext'
+import { useHome } from '@nx-next-app/features/F0001/providers/home-context'
 
 const News = () => {
 	const { t } = useTranslation()

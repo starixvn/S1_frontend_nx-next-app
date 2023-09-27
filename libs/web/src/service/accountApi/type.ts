@@ -135,6 +135,12 @@ export interface IReferralSettingData {
 	vaildBet: number
 }
 
+export interface IWithdrawalAvailableBalanceData {
+	availableBalance: number
+	balance: number
+	deduction: number
+}
+
 export interface ISetChangePasswordArgs {
 	oldPassword: string
 	newPassword: string
@@ -168,6 +174,40 @@ export interface IReferralSettingDetailData {
 		detail: null | string
 		type: number
 	}
+}
+
+export type IBankInfoData = {
+	accountNo: string
+	bankLogo: string
+	bankName: string
+	bankSite: string
+	disabled: boolean
+	ifscCode: string
+	sysId: number
+}
+
+export type IUsdtDetailData = {
+	currencyId: number
+	currencyName: string
+	disabled: boolean
+	network: string
+	nickName: string
+	usdtAddress: string
+}
+
+export interface ICustBankInfoData {
+	accountName: string
+	defAccountNo: number
+	bankInfoDetail: IBankInfoData[]
+	uSDTDetail: IUsdtDetailData[]
+}
+
+export type IEWalletData = {
+	accountNo: string
+	eWalletLogo: string
+	eWalletName: string
+	eWalletSite: string
+	sysId: number
 }
 
 export interface IReferralData {
