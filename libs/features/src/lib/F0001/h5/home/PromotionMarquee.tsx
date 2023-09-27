@@ -7,7 +7,7 @@ import { isUrl } from '@nx-next-app/utils'
 import Image from 'next/future/image'
 
 const PromotionMarquee = () => {
-	const { promotionData } = useHome()
+	const { promotionData, handlePromotionClick } = useHome()
 	const { t } = useTranslation()
 
 	return (
@@ -32,8 +32,10 @@ const PromotionMarquee = () => {
 							<div>{title}</div>
 							<div>{description}</div>
 							<div className='btn-group'>
-								{/* TODO onClick */}
-								<button className='blue'>
+								<button
+									className='blue'
+									onClick={() => handlePromotionClick(bonusCode)}
+								>
 									{t('Label_Promotion_MoreInfo')}
 								</button>
 							</div>

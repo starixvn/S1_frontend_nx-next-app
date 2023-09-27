@@ -13,6 +13,8 @@ interface ILayoutProps {
 	children: ReactNode
 	persistSEOData: ISEOData
 	footerData: IResponseConvertedFooterData
+	showFooter?: boolean
+	hasGoTopBtn?: boolean
 }
 
 const ChangePasswordModal = dynamic(
@@ -20,7 +22,13 @@ const ChangePasswordModal = dynamic(
 	{ ssr: false }
 )
 
-export function Layout({ children, persistSEOData, footerData }: ILayoutProps) {
+export function Layout({
+	children,
+	persistSEOData,
+	footerData,
+	showFooter = false,
+	hasGoTopBtn = true,
+}: ILayoutProps) {
 	const { globalModal, closeModal, modal } = useGlobalModal()
 
 	useGlobalModalEffect(() => modal.open(<ChangePasswordModal />))
@@ -35,14 +43,12 @@ export function Layout({ children, persistSEOData, footerData }: ILayoutProps) {
 
 			{children}
 
-			<LayoutFooter footerData={footerData} isFullFooter />
+			{showFooter && <LayoutFooter footerData={footerData} isFullFooter />}
 
 			{/* 只需放在 Layout 來渲染全域彈窗 */}
 			<GlobalModal {...globalModal} closeModal={closeModal} />
 
-			{/* <Loading /> */}
-
-			<BackTop />
+			{hasGoTopBtn && <BackTop />}
 		</>
 	)
 }

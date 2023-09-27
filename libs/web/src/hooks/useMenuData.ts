@@ -11,7 +11,7 @@ import { getIsTpMaintain } from '@nx-next-app/utils'
  * * useMenuData 的顯示邏輯，共用於品牌、裝置
  */
 
-const useMenuData = <T extends IMenuData<any>>() => {
+const useMenuData = () => {
 	const {
 		auth: { isLogin },
 		userInfo: { currencyId, langId },
@@ -20,8 +20,8 @@ const useMenuData = <T extends IMenuData<any>>() => {
 	const { tpMaintainList, productTpIds } = useGlobalData()
 
 	const getMenu = () => {
-		const menuData = cloneDeep(MENU_DATA({ currencyId, langId }) as T)
-		const result = {} as T
+		const menuData = cloneDeep(MENU_DATA({ currencyId, langId }))
+		const result = {} as IMenuData
 
 		Object.keys(menuData).forEach(key => {
 			const newMenuData = menuData[key as MenuKeyEnum]
@@ -67,9 +67,9 @@ const useMenuData = <T extends IMenuData<any>>() => {
 				// * 規則3: 排序，根據 subMenuSort 的 productKey 做排序
 				if (subMenuSort && subMenuSort[currencyId]) {
 					newSubMenu.sort((a, b) => {
-						let indexA = subMenuSort[currencyId].indexOf(a.productKey)
+						let indexA = subMenuSort[currencyId].indexOf(a.productKey || '')
 						indexA = indexA === -1 ? 999 : indexA // * 不在排序內的選項排到最後面
-						let indexB = subMenuSort[currencyId].indexOf(b.productKey)
+						let indexB = subMenuSort[currencyId].indexOf(b.productKey || '')
 						indexB = indexA === -1 ? 999 : indexB // * 不在排序內的選項排到最後面
 
 						return indexA - indexB
@@ -95,7 +95,7 @@ const useMenuData = <T extends IMenuData<any>>() => {
 
 		// eslint-disable-next-line no-console
 		console.log('update menu')
-		return result as T
+		return result
 	}
 
 	// * 防止重複渲染菜單:在渲染邏輯上 hover 的動畫會用 setState 實作，這最讓 menu 元件不停 re-render
