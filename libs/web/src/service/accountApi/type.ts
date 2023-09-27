@@ -249,13 +249,6 @@ export interface IUSDTDetail {
 	disabled: boolean
 }
 
-export interface ICustBankInfoData {
-	accountName: string
-	defAccountNo: string
-	bankInfoDetail: IBankInfoDetail[]
-	uSDTDetail: IUSDTDetail[]
-}
-
 export interface ICustEWalletInfoData {
 	eWalletName: string
 	eWalletLogo: string

@@ -10,7 +10,6 @@ import {
 
 export const tpApiUrl = {
 	gotoGame: 'Tp/GotoGame',
-	transfer: 'Tp/Transfer',
 	getTransferHistory: 'Tp/GetTransferHistory',
 	transfer: 'Tp/TransferEX',
 	getTransferRecent: 'Tp/GetTransferRecent',
