@@ -1,4 +1,4 @@
-import { QuickPickEnum } from 'libs/web/src/app/types/history'
+import { QuickPickEnum } from '@nx-next-app/types'
 
 export const QUICK_PICK_LIST = [
 	// 配合Select元件,故displayKey改為label

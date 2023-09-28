@@ -1,9 +1,9 @@
 import React from 'react'
+import { useTranslation } from 'next-i18next'
 import Breadcrumb from '@nx-next-app/components/H0001/breadcrumb'
 import { useStatement } from '@nx-next-app/features/F0001/providers/statement-context'
 import { Header } from '@nx-next-app/components/H0001'
-import { QuickPickEnum } from 'libs/web/src/app/types/history'
-import { useTranslation } from 'next-i18next'
+import { QuickPickEnum } from '@nx-next-app/types'
 
 const StatementHeader = () => {
 	const { t } = useTranslation()

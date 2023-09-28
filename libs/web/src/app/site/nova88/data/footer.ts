@@ -1,15 +1,16 @@
 import { paths } from '@nx-next-app/constants'
-import { PRODUCTS } from '@nx-next-app/site/nova88/data/products'
-import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88/data/allowCurrency'
 import {
-	CURRENCY_PAYMENT_LIST,
-	LANG_TO_CURRENCY,
-} from '@nx-next-app/site/nova88'
-import {
+	CurrenciesEnum,
 	IRequestConvertedFooterData,
 	IResponseConvertedFooterData,
-} from 'libs/web/src/app/types/footer'
-import { CurrenciesEnum } from '@nx-next-app/types'
+} from '@nx-next-app/types'
+
+import {
+	ALLOWED_CURRENCIES,
+	CURRENCY_PAYMENT_LIST,
+	LANG_TO_CURRENCY,
+	PRODUCTS,
+} from './index'
 
 const COPYRIGHT_LIST: { displayName: string; href: string }[] = [
 	{
