@@ -254,7 +254,7 @@ const accountApi = rootApi.injectEndpoints({
 			}),
 			providesTags: ['WITHDRAWAL_API_POST'],
 		}),
-		getCustBankInfo: builder.query<IAxiosResponse<ICustBankInfoData>, null>({
+		getCustBankInfo: builder.query<IAxiosResponse<ICustBankInfoData>, void>({
 			query: () => ({
 				url: accountApiUrl.getCustBankInfo,
 				method: 'POST',
