@@ -80,9 +80,9 @@ const Select = (props: ISelectProps) => {
 				<button type='button' className='btn'>
 					{currentOption?.prefixOptionIcon}
 					{isTranslation
-						? t(currentOption?.label as string) || t(placeholder)
+						? t(currentOption?.label as string) || t(placeholder || '')
 						: currentOption?.label ||
-						  (isTranslation ? t(placeholder) : placeholder)}
+						  (isTranslation ? t(placeholder || '') : placeholder)}
 				</button>
 
 				<div className={classNames('dropdown-container', { active: isActive })}>

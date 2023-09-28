@@ -1,11 +1,11 @@
-import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88/data'
 import {
 	ILeftMenuData,
 	CurrenciesEnum,
 	LeftMenuKeyEnum,
 } from '@nx-next-app/types'
+import { paths } from '@nx-next-app/constants'
 
-import { paths } from '../../../constants/paths'
+import { ALLOWED_CURRENCIES } from './allowCurrency'
 
 export const LEFT_MENU_DATA: ILeftMenuData = {
 	[LeftMenuKeyEnum.Cashier]: {

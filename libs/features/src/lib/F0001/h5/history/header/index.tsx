@@ -1,8 +1,8 @@
+import { useTranslation } from 'next-i18next'
 import HistoryFilter from '@nx-next-app/features/F0001/h5/history/header/HistoryFilter'
 import { Header } from '@nx-next-app/components/H0001'
 import { useHistory } from '@nx-next-app/features/F0001/providers'
-import { useTranslation } from 'next-i18next'
-import { QuickPickEnum } from 'libs/web/src/app/types/history'
+import { QuickPickEnum } from '@nx-next-app/types'
 
 const HistoryHeader = () => {
 	const { t } = useTranslation()

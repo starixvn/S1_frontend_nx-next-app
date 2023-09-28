@@ -8,7 +8,8 @@ import {
 	IMenuData,
 	MenuActionTypeEnum,
 } from '@nx-next-app/features/F0001/types'
-import { paths } from '../../../constants/paths'
+import { paths } from '@nx-next-app/constants'
+
 import { ALLOWED_CURRENCIES } from './allowCurrency'
 import { PRODUCTS } from './products'
 

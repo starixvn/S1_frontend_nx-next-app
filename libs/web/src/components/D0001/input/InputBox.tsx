@@ -21,6 +21,7 @@ export interface IInputBoxProps
 	format?: boolean
 	formatStr?: string
 	showIconModule?: boolean
+	onInfoClick?: () => void
 }
 
 /**
@@ -57,6 +58,7 @@ export interface IInputBoxProps
  * @param {boolean} warning - 檢視舊專案無使用到,true 則顯示警告 icon
  * @param {string} type - HTMLInputTypeAttribute
  * @param {boolean} showIconModule - Whether show showIconModule
+ * @param {boolean} onInfoClick - 顯示 info icon 並觸發外部點擊事件
  * @param {*} prop - other html input props
  * @author Wen
  */
@@ -80,6 +82,7 @@ const InputBox = ({
 	infoMessage,
 	formatStr = "('000)",
 	showIconModule = true,
+	onInfoClick,
 	...props
 }: IInputBoxProps) => {
 	const [showPassword, setShowPassword] = useState(false)
@@ -103,13 +106,16 @@ const InputBox = ({
 			return <i className='icon icon-checkmark' />
 		}
 
-		if (infoMessage) {
+		if (infoMessage || onInfoClick) {
 			return (
 				// 為消除綁定 onClick 在 非 button 元件上的錯
 				// eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/control-has-associated-label,jsx-a11y/no-static-element-interactions
 				<i
 					className='icon icon-information'
-					onClick={() => setShowInfo(prev => !prev)}
+					onClick={() => {
+						setShowInfo(prev => !prev)
+						onInfoClick && onInfoClick()
+					}}
 					style={{ cursor: 'pointer' }}
 				/>
 			)
@@ -159,7 +165,7 @@ const InputBox = ({
 				{!!title && <i className='txt-blue'>{title}</i>}
 				{!!areaCode && <div className='txt-lightgray'>{areaCode}</div>}
 
-				<input type={inputType()} {...props} {...register} />
+				<input type={inputType()} {...register} {...props} />
 
 				{!!description && <div className='description'>{description}</div>}
 

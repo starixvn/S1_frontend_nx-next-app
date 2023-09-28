@@ -6,7 +6,9 @@ import React, {
 	useRef,
 	useState,
 } from 'react'
-import { QuickPickData, QuickPickEnum } from 'libs/web/src/app/types/history'
+import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
 import {
 	IAxiosResponse,
 	ICustTpBetRecordDetailListbyGameTypeData,
@@ -18,9 +20,7 @@ import {
 	useLazyGetCustTpBetRecordListDateRangeQuery,
 	useLazyGetGetCustTpBetRecordListOneDayQuery,
 } from '@nx-next-app/service'
-import dayjs from 'dayjs'
-import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
+import { QuickPickData, QuickPickEnum } from '@nx-next-app/types'
 
 interface IStatementProviderProps {
 	children: ReactNode

@@ -1,80 +1,73 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import classNames from 'classnames'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { useCopyToClipboard } from 'usehooks-ts'
-import { convertFileToBase64 } from '@nx-next-app/features/F0001/desktop/history/modal/utils'
 import Image from 'next/future/image'
 import { uniqueId } from 'lodash-es'
 import { CurrenciesEnum } from '@nx-next-app/types'
+import { IDepositInfoHistoryData } from '@nx-next-app/service'
+import { useImageFile } from '@nx-next-app/hooks'
+import { convertBase64ToFile, convertFileToBase64 } from '@nx-next-app/utils'
 
-const BankSlipModal = ({
-	bankSlipInfo: {
-		bankInfo: { bankName, bankSite },
-		depositRep: { accountName, accountNo },
-		amount,
+interface IBankSlipModalProps {
+	bankName?: string
+	bankSite?: string
+	accountName?: string
+	accountNo?: string
+	amount?: number
+	transId?: string
+	depositReceipt?: IDepositInfoHistoryData['depositReceipt']
+	defaultReceipt?: string
+	onSubmit: ({
 		transId,
-		depositReceipt,
-	},
+		receipt,
+	}: {
+		transId?: string
+		receipt: string
+	}) => void
+}
+
+const DepositBankSlipModal = ({
+	bankName,
+	bankSite,
+	accountName,
+	accountNo,
+	amount,
+	transId,
+	depositReceipt = [],
+	defaultReceipt,
 	onSubmit,
-}: {
-	bankSlipInfo: {
-		bankInfo: {
-			bankName: string
-			bankSite: string
-		}
-		depositRep: {
-			accountName: string
-			accountNo: string
-		}
-		amount: number
-		transId: string
-		depositReceipt: {
-			receiptNo: number
-			depositPic: null
-		}[]
-	}
-	onSubmit: ({ transId, receipt }: { transId: string; receipt: string }) => void
-}) => {
+}: IBankSlipModalProps) => {
 	const { t } = useTranslation()
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { closeModal } = useGlobalModal()
 	const [, copy] = useCopyToClipboard()
-	const [selectedFile, setSelectedFile] = useState<File | null>(null)
-	const [errorMessage, setErrorMessage] = useState('')
 
-	const handleFileChange = (
-		event:
-			| React.ChangeEvent<HTMLInputElement>
-			| React.DragEvent<HTMLLabelElement>
-	) => {
-		const file =
-			(event as React.DragEvent<HTMLLabelElement>).dataTransfer?.files?.length >
-			0
-				? (event as React.DragEvent<HTMLLabelElement>).dataTransfer?.files[0]
-				: (event as React.ChangeEvent<HTMLInputElement>).target?.files?.[0]
-		if (file && file.type.startsWith('image/')) {
-			setSelectedFile(file)
-			setErrorMessage('')
-		} else {
-			setErrorMessage(
-				t('Label_History_File_format_error_please_try_again') as string
-			)
-			setSelectedFile(null)
-		}
-	}
+	const { errorMessage, imageFile, setImageFile, onImageFileChange } =
+		useImageFile()
 
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+	const handleBankSlipSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
-		if (selectedFile) {
-			const image = await convertFileToBase64(selectedFile)
+		if (imageFile) {
+			const image = await convertFileToBase64(imageFile)
 			onSubmit({ transId, receipt: image as string })
 			closeModal()
 		}
 	}
+
+	useEffect(() => {
+		const setDefaultImageFile = async (dataUrl?: string) => {
+			if (dataUrl) {
+				const imgFile = await convertBase64ToFile(dataUrl)
+				setImageFile(imgFile)
+			}
+		}
+		setDefaultImageFile(defaultReceipt)
+	}, [defaultReceipt])
 
 	return (
 		<div className='active'>
@@ -99,7 +92,7 @@ const BankSlipModal = ({
 							</div>
 							<button
 								className='icon icon-files-empty clickBtn copyBtn'
-								onClick={() => copy(accountName)}
+								onClick={() => copy(accountName || '')}
 							/>
 						</li>
 						<li>
@@ -109,21 +102,23 @@ const BankSlipModal = ({
 							</div>
 							<button
 								className='icon icon-files-empty clickBtn copyBtn'
-								onClick={() => copy(accountNo)}
+								onClick={() => copy(accountNo || '')}
 							/>
 						</li>
-						<li>
-							<div>
-								<span className='title'>
-									{t('Label_History_DepositAmount')}
-								</span>
-								<span>{amount}</span>
-							</div>
-							<button
-								className='icon icon-files-empty clickBtn copyBtn'
-								onClick={() => copy(amount.toString())}
-							/>
-						</li>
+						{amount && (
+							<li>
+								<div>
+									<span className='title'>
+										{t('Label_History_DepositAmount')}
+									</span>
+									<span>{amount}</span>
+								</div>
+								<button
+									className='icon icon-files-empty clickBtn copyBtn'
+									onClick={() => copy(amount?.toString())}
+								/>
+							</li>
+						)}
 					</ul>
 				</div>
 				<span className='text'>{t('Label_History_AttachFile')}</span>
@@ -133,18 +128,18 @@ const BankSlipModal = ({
 							<label
 								className='upload_img'
 								onDragOver={e => e.preventDefault()}
-								onDrop={handleFileChange}
+								onDrop={onImageFileChange}
 							>
 								<input
 									type='file'
 									accept='image/*'
-									onChange={handleFileChange}
+									onChange={onImageFileChange}
 								/>
-								{selectedFile ? (
+								{imageFile ? (
 									<Image
 										width={121}
 										height={80}
-										src={URL.createObjectURL(selectedFile)}
+										src={URL.createObjectURL(imageFile)}
 										alt='Selected'
 									/>
 								) : (
@@ -168,14 +163,14 @@ const BankSlipModal = ({
 					<label
 						className={classNames('upload_img', { error: errorMessage })}
 						onDragOver={e => e.preventDefault()}
-						onDrop={handleFileChange}
+						onDrop={onImageFileChange}
 					>
-						<input type='file' accept='image/*' onChange={handleFileChange} />
-						{selectedFile ? (
+						<input type='file' accept='image/*' onChange={onImageFileChange} />
+						{imageFile ? (
 							<Image
 								width={121}
 								height={80}
-								src={URL.createObjectURL(selectedFile)}
+								src={URL.createObjectURL(imageFile)}
 								alt='Selected'
 							/>
 						) : (
@@ -190,7 +185,7 @@ const BankSlipModal = ({
 						<li>{t('Label_History_BankSlipHint3')}</li>
 					</ul>
 				</div>
-				<form onSubmit={handleSubmit}>
+				<form onSubmit={handleBankSlipSubmit}>
 					<div className='btn-group'>
 						<button
 							className='white closePopup'
@@ -202,10 +197,10 @@ const BankSlipModal = ({
 						</button>
 						<button
 							type='submit'
-							disabled={!selectedFile}
+							disabled={!imageFile}
 							className={`${
 								currencyId !== CurrenciesEnum.THB ||
-								(currencyId === CurrenciesEnum.THB && selectedFile)
+								(currencyId === CurrenciesEnum.THB && imageFile)
 									? 'blue'
 									: 'gray'
 							} closePopup`}
@@ -219,4 +214,4 @@ const BankSlipModal = ({
 	)
 }
 
-export default BankSlipModal
+export default DepositBankSlipModal

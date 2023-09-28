@@ -4,10 +4,12 @@ import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
 import { ICustSpecificBonusData } from '../accountApi/type'
 import {
+	IDepositPromotionData,
 	IGetPromotionDetailArgs,
 	IPromotionData,
 	IRebateExcludeGameData,
 	ISetClaimPromotionArgs,
+	ISetDepositPromotionQueueArgs,
 } from './type'
 
 export const promotionApiUrl = {
@@ -15,8 +17,10 @@ export const promotionApiUrl = {
 	getPromotionDetail: 'Promotion/GetPromotionDetail',
 	getRebateExcludeGameList: 'Promotion/GetRebateExcludeGameList',
 	getSpecialPromotionList: 'Promotion/GetSpecialPromotionListV2',
+	getDepositPromotionList: 'Promotion/GetDepositPromotionList',
 	setSpecialCode: 'Promotion/SetSpecialCode',
 	setClaimPromotion: 'Promotion/SetClaimPromotion',
+	setDepositPromotionQueue: 'Promotion/SetDepositPromotionQueue',
 }
 
 export const promotionApi = rootApi.injectEndpoints({
@@ -71,6 +75,19 @@ export const promotionApi = rootApi.injectEndpoints({
 			}),
 			providesTags: ['PROMOTION_GET_SPECIAL_PROMOTION_LIST'],
 		}),
+		getDepositPromotionList: builder.query<
+			IAxiosResponse<IDepositPromotionData[]>,
+			{
+				langId: string
+				deviceType: DeviceTypeEnum
+			}
+		>({
+			query: ({ langId, ...data }) => ({
+				url: `${promotionApiUrl.getDepositPromotionList}/${langId}`,
+				method: 'POST',
+				data,
+			}),
+		}),
 		setSpecialCode: builder.mutation<
 			IAxiosResponse<void>,
 			{
@@ -96,6 +113,16 @@ export const promotionApi = rootApi.injectEndpoints({
 				data,
 			}),
 			invalidatesTags: ['PROMOTION_GET_PROMOTION_LIST'],
+		}),
+		setDepositPromotionQueue: builder.mutation<
+			IAxiosResponse<void>,
+			ISetDepositPromotionQueueArgs
+		>({
+			query: ({ langId, ...data }) => ({
+				url: `${promotionApiUrl.setDepositPromotionQueue}/${langId}`,
+				method: 'POST',
+				data,
+			}),
 		}),
 	}),
 })
@@ -194,6 +221,8 @@ export const {
 	useGetRebateExcludeGameListQuery,
 	useGetPromotionDetailQuery,
 	useGetSpecialPromotionListQuery,
+	useGetDepositPromotionListQuery,
 	useSetSpecialCodeMutation,
 	useSetClaimPromotionMutation,
+	useSetDepositPromotionQueueMutation,
 } = promotionApi

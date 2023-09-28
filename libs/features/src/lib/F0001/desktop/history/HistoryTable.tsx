@@ -24,7 +24,7 @@ const HistoryTable = () => {
 	if (displayColumns.length === 0) {
 		return (
 			<div className='nodata icon icon-nodata'>
-				<div>{t('Label_General_Nodata')}</div>
+				<div>{t('Label_General_NoData')}</div>
 			</div>
 		)
 	}

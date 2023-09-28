@@ -1,4 +1,4 @@
-import { IStaticAllowedCurrencies } from 'libs/web/src/app/types/index'
+import { IStaticAllowedCurrencies } from '@nx-next-app/types'
 
 export interface IResponseConvertedFooterData {
 	copyRightList: ICopyRightListData[]

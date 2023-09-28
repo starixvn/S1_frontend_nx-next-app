@@ -54,7 +54,7 @@ const TransferItem = ({
 				</li>
 				<li>
 					<span className='title'>
-						{t('Label_History_Time')} ({CURRENCY_TO_TIMEZONE[currencyId]})
+						{t('Label_General_Time')} ({CURRENCY_TO_TIMEZONE[currencyId]})
 					</span>
 					<span>
 						{dayjs(createTime, 'YYYY-MM-DDThh:mm:ssZ')

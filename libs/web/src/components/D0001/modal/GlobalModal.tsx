@@ -10,6 +10,7 @@ const GlobalModal = ({
 	content = null,
 	okText,
 	cancelText,
+	footer,
 	onOK,
 	onCancel,
 	closeModal,
@@ -68,26 +69,32 @@ const GlobalModal = ({
 						</div>
 
 						<div className='btnGroup'>
-							<button
-								type='button'
-								className='btn-check'
-								onClick={() => {
-									closeModal()
-									onOK && onOK()
-								}}
-							>
-								{mergeOkText}
-							</button>
-							{type === 'confirm' && (
-								<button
-									className='btn-cancel'
-									onClick={() => {
-										closeModal()
-										onCancel && onCancel()
-									}}
-								>
-									{mergeCancelText}
-								</button>
+							{footer}
+
+							{!footer && (
+								<>
+									<button
+										type='button'
+										className='btn-check'
+										onClick={() => {
+											closeModal()
+											onOK && onOK()
+										}}
+									>
+										{mergeOkText}
+									</button>
+									{type === 'confirm' && (
+										<button
+											className='btn-cancel'
+											onClick={() => {
+												closeModal()
+												onCancel && onCancel()
+											}}
+										>
+											{mergeCancelText}
+										</button>
+									)}
+								</>
 							)}
 						</div>
 					</div>

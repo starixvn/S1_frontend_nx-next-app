@@ -18,6 +18,7 @@ export interface IAxiosError extends globalThis.Error {
 	statusText?: string
 	errorCode?: number
 	data?: any
+	rawMessage?: string
 }
 
 // 這裡定義前端預給的 Header
@@ -64,13 +65,14 @@ export const axiosBaseQuery =
 				responseType,
 			})
 
-			if (axiosData?.errorCode && axiosData?.errorCode !== 0) {
+			if (axiosData?.errorCode !== 0) {
 				const error: IAxiosError = new Error()
 				error.message = axiosData?.message
 				error.status = status
 				error.statusText = statusText
 				error.errorCode = axiosData?.errorCode
 				error.data = axiosData?.data
+				error.rawMessage = axiosData?.rawMessage
 
 				throw error
 			}
@@ -80,12 +82,7 @@ export const axiosBaseQuery =
 			const error = axiosError as IAxiosError
 
 			return {
-				error: {
-					status: error.status,
-					message: error?.message,
-					errorCode: error?.errorCode,
-					data: error?.data,
-				},
+				error,
 			}
 		}
 	}
