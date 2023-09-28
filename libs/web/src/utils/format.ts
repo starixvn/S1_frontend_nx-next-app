@@ -22,18 +22,24 @@ export const isConvert = (currencyId: CurrenciesEnum) =>
  * ```tsx
  * numberFormat(5000000, CurrenciesEnum.MYR) // 5,000,000
  * numberFormat(5000000, CurrenciesEnum.VND) // 5,000 ('000)
+ * numberFormat(5000000, CurrenciesEnum.VND) // 5,000 ('000));
+ * numberFormat(5000000, CurrenciesEnum.VND, 0) // 5,000 ('000));
+ * numberFormat(5000000, CurrenciesEnum.VND, 0, false) // 5,000;
  * ```
  */
 export const numberFormat = (
-	value: number,
+	value: number | string,
 	currencyId: CurrenciesEnum,
-	digits?: number
+	digits?: number,
+	format = true
 ) => {
 	// 原生的
 	if (isNaN(Number(value))) return undefined
 
 	if (isConvert(currencyId)) {
-		return `${numFormatToDigits(Number(value) / 1000, digits)} ('000)`
+		return `${numFormatToDigits(Number(value) / 1000, digits)} ${
+			format && `('000)`
+		}`
 	}
 
 	return numFormatToDigits(Number(value), digits)

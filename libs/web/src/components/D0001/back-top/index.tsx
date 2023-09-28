@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useBoolean } from 'usehooks-ts'
 import { throttle } from 'lodash-es'
+import { scrollToTop } from '@nx-next-app/utils'
 
 const BackTop = () => {
 	const { value: isVisible, setTrue, setFalse } = useBoolean(false)
@@ -12,10 +13,6 @@ const BackTop = () => {
 			setFalse()
 		}
 	}, 100)
-
-	const scrollToTop = () => {
-		window.scrollTo({ top: 0, behavior: 'smooth' })
-	}
 
 	useEffect(() => {
 		if (window === undefined) return

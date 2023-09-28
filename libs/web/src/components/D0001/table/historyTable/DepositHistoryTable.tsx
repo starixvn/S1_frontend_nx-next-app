@@ -1,4 +1,3 @@
-import React from 'react'
 import {
 	DepositStatusClassName,
 	DepositStatusClassNameEnum,
@@ -16,13 +15,16 @@ import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import dynamic from 'next/dynamic'
 
-const BankSlipModal = dynamic(
+const DepositBankSlipModal = dynamic(
 	() =>
-		import('@nx-next-app/features/F0001/desktop/history/modal/BankSlipModal'),
+		import(
+			'@nx-next-app/features/F0001/desktop/history/modal/DepositBankSlipModal'
+		),
 	{
 		ssr: false,
 	}
 )
+
 const DepositHistoryTable = ({
 	dataSource,
 	onReload,
@@ -31,7 +33,13 @@ const DepositHistoryTable = ({
 }: {
 	dataSource: IDepositInfoHistoryData[]
 	onReload: () => void
-	onSubmit: ({ transId, receipt }: { transId: string; receipt: string }) => void
+	onSubmit: ({
+		transId,
+		receipt,
+	}: {
+		transId?: string
+		receipt: string
+	}) => void
 	onCancel: (transId: string) => void
 }) => {
 	const { t } = useTranslation()
@@ -67,7 +75,7 @@ const DepositHistoryTable = ({
 			key: 'transId',
 		},
 		{
-			title: t('Label_History_Method'),
+			title: t('Label_General_Method'),
 			dataIndex: 'depositType',
 			key: 'depositType',
 			render: ({ item: { depositType } }: { item: { depositType: number } }) =>
@@ -119,11 +127,19 @@ const DepositHistoryTable = ({
 								className='orange icon icon-pencil'
 								onClick={() =>
 									modal.open(
-										<BankSlipModal bankSlipInfo={item} onSubmit={onSubmit} />
+										<DepositBankSlipModal
+											bankName={item.bankInfo.bankName}
+											bankSite={item.bankInfo.bankSite}
+											accountName={item.depositRep.accountName}
+											accountNo={item.depositRep.accountNo}
+											transId={item.transId}
+											depositReceipt={item.depositReceipt}
+											onSubmit={onSubmit}
+										/>
 									)
 								}
 							>
-								{t('Label_History_SubmitProof')}
+								{t('Label_General_SubmitBankSlip')}
 							</button>
 							<button
 								className='gray'

@@ -71,7 +71,7 @@ const History = () => {
 										</li>
 										<li>
 											<span className='title'>
-												{t('Label_History_Time')} ({timezone})
+												{t('Label_General_Time')} ({timezone})
 											</span>
 											<span>
 												{getConvertedTime(createTime).format('hh:mm:ss A')}

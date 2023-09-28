@@ -35,6 +35,7 @@ const History = () => {
 			<main className='main history'>
 				<div className='recent active'>
 					{isShowMobileLoading && <Loading />}
+
 					{displayColumns.length > 0 && (
 						<div className='infoList'>
 							{displayColumns.map(item => (

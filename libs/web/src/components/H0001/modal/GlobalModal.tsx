@@ -9,10 +9,11 @@ const GlobalModal = ({
 	content = null,
 	okText,
 	cancelText,
+	className,
+	footer,
 	onOK,
 	onCancel,
 	closeModal,
-	className,
 }: IGlobalModalProps) => {
 	const { t } = useTranslation()
 	const open = !!type
@@ -62,26 +63,32 @@ const GlobalModal = ({
 						</div>
 
 						<div className='btn-group'>
-							<button
-								type='button'
-								className='white'
-								onClick={() => {
-									closeModal()
-									onOK && onOK()
-								}}
-							>
-								{mergeOkText}
-							</button>
-							{type === 'confirm' && (
-								<button
-									className='btn-cancel'
-									onClick={() => {
-										closeModal()
-										onCancel && onCancel()
-									}}
-								>
-									{mergeCancelText}
-								</button>
+							{footer}
+
+							{!footer && (
+								<>
+									<button
+										type='button'
+										className='white'
+										onClick={() => {
+											closeModal()
+											onOK && onOK()
+										}}
+									>
+										{mergeOkText}
+									</button>
+									{type === 'confirm' && (
+										<button
+											className='btn-cancel'
+											onClick={() => {
+												closeModal()
+												onCancel && onCancel()
+											}}
+										>
+											{mergeCancelText}
+										</button>
+									)}
+								</>
 							)}
 						</div>
 					</div>

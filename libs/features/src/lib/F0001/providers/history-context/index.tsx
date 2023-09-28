@@ -70,7 +70,13 @@ export interface IHistoryContextInterface {
 	onQuickPickChange: (newPeriod: string | number | undefined) => void
 	onPageChange: (selectedItem: { selected: number }) => void
 	onSearch: () => void
-	onSubmit: ({ transId, receipt }: { transId: string; receipt: string }) => void
+	onSubmit: ({
+		transId,
+		receipt,
+	}: {
+		transId?: string
+		receipt: string
+	}) => void
 	onStartDateChange: (newDate: Date | null) => void
 	onEndDateChange: (newDate: Date | null) => void
 	onDepositCancel: (transId: string) => void
@@ -325,11 +331,13 @@ const HistoryProvider = ({
 		transId,
 		receipt,
 	}: {
-		transId: string
+		transId?: string
 		receipt: string
 	}) => {
 		try {
-			await uploadReceipt({ transId, receipt }).unwrap()
+			if (transId) {
+				await uploadReceipt({ transId, receipt }).unwrap()
+			}
 		} catch (error) {
 			modal.error((error as Error).message)
 		}

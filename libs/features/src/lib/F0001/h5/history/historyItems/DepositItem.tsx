@@ -12,7 +12,7 @@ import HistoryMsgModal from 'libs/features/src/lib/F0001/h5/history/modal/Histor
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { BankSlipModal } from '@nx-next-app/features/F0001/h5/history/modal'
+import { DepositBankSlipModal } from '@nx-next-app/features/F0001/h5/history/modal'
 import {
 	IDepositInfoHistoryData,
 	useSetDepositCancelMutation,
@@ -50,11 +50,13 @@ const DepositItem = ({
 		transId,
 		receipt,
 	}: {
-		transId: string
+		transId?: string
 		receipt: string
 	}) => {
 		try {
-			await uploadReceipt({ transId, receipt }).unwrap()
+			if (transId) {
+				await uploadReceipt({ transId, receipt }).unwrap()
+			}
 		} catch (error) {
 			modal.error((error as Error).message)
 		}
@@ -75,7 +77,7 @@ const DepositItem = ({
 				</li>
 				<li>
 					<span className='title'>
-						{t('Label_History_Time')} ({CURRENCY_TO_TIMEZONE[currencyId]})
+						{t('Label_General_Time')} ({CURRENCY_TO_TIMEZONE[currencyId]})
 					</span>
 					<span>
 						{dayjs(createTime, 'YYYY-MM-DDThh:mm:ssZ')
@@ -88,7 +90,7 @@ const DepositItem = ({
 					<span>{transId}</span>
 				</li>
 				<li>
-					<span className='title'>{t('Label_History_Method')}</span>
+					<span className='title'>{t('Label_General_Method')}</span>
 					<span>{t(`Label_DepositType${depositType}`)}</span>
 				</li>
 				<li>
@@ -154,38 +156,21 @@ const DepositItem = ({
 							className='orange openPopup'
 							onClick={() =>
 								modal.open(
-									<BankSlipModal
-										bankSlipInfo={
-											{
-												bankInfo,
-												depositRep,
-												amount,
-												transId,
-												depositReceipt,
-											} as {
-												bankInfo: {
-													bankName: string
-													bankSite: string
-												}
-												depositRep: {
-													accountName: string
-													accountNo: string
-												}
-												amount: number
-												transId: string
-												depositReceipt: {
-													receiptNo: number
-													depositPic: null
-												}[]
-											}
-										}
+									<DepositBankSlipModal
+										{...{
+											bankInfo,
+											depositRep,
+											amount,
+											transId,
+											depositReceipt,
+										}}
 										onSubmit={onUploadReceipt}
 									/>,
 									{ className: 'statuspop' }
 								)
 							}
 						>
-							{t('Label_History_SubmitProof')}
+							{t('Label_Deposit_SubmitProof')}
 						</button>
 					</div>
 				)}

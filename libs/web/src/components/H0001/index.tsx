@@ -9,6 +9,8 @@ export { default as Form } from './form'
 
 export { default as SettingCollapse } from './setting-collapse'
 
+export * from './deposit'
+
 export { SpinButton } from './button'
 
 export { default as Select } from './select'

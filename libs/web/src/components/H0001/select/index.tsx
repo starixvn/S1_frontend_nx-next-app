@@ -3,6 +3,7 @@ import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 import { filter, find, includes, uniqueId } from 'lodash'
 import classNames from 'classnames'
 import { SelectOptionType } from '@nx-next-app/types'
+import { useTranslation } from 'next-i18next'
 
 export interface ISelectProps {
 	value?: string | number
@@ -17,13 +18,14 @@ export interface ISelectProps {
 }
 
 const Select = (props: ISelectProps) => {
+	const { t } = useTranslation()
 	const ref = useRef(null)
 	const {
 		value,
 		defaultValue,
 		options,
 		prefixIcon,
-		placeholder = 'select',
+		placeholder = t('Label_General_None'),
 		showSearch,
 		infoMessage,
 		errorMessage,

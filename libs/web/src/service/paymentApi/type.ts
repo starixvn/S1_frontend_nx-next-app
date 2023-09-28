@@ -1,3 +1,18 @@
+import { DepositActionModeEnum } from '../../app/types/deposit'
+
+export interface IBankInfoSysData {
+	sysId: number
+	currencyId: number
+	bankCode: string
+	bankName: string
+	bankLogo: string
+	bankSite: string
+	status: number
+	transId: string
+	withdrawalMessage: string
+	withdrawalMessageDetail: WithdrawalMessageData[]
+}
+
 export type WithdrawalMessageData = {
 	createTime: string
 	errorTypeName: string
@@ -41,16 +56,6 @@ export interface IWithdrawalLimitData {
 	usdtList: IUsdtData[]
 }
 
-export interface IBankInfoSysData {
-	bankCode: string
-	bankLogo: string
-	bankName: string
-	bankSite: string
-	currencyId: number
-	status: number
-	sysId: number
-}
-
 export interface IEWalletInfoData {
 	currencyId: number
 	eWalletCode: string
@@ -89,7 +94,7 @@ export interface IDepositInfoHistoryData {
 		currencyId: number
 		isLocalPay: boolean
 		groupId: number
-		code: null
+		code: null | string
 	}
 	bankInfo: {
 		sysId: number
@@ -100,16 +105,16 @@ export interface IDepositInfoHistoryData {
 		bankSite: string
 		status: number
 	}
-	thirdId: string | number
-	refId: null
+	thirdId: null | string
+	refId: null | string
 	depositTime: null
 	depositReceipt: {
 		depositId: number
 		picFileName: string
 		receiptNo: number
-		depositPic: null
+		depositPic: string
 	}[]
-	depositMessage: string
+	depositMessage: null | string
 	depositMessageDetail: {
 		errorTypeName: string
 		message: string
@@ -266,4 +271,256 @@ export interface ICustTpBetRecordDetailListbyGameTypeArgs {
 	gameTypeId: number
 	pageNumber: number
 	pageSize: number
+}
+
+export interface IPaymentAutoDepositData {
+	bankId: number
+	sysId: number
+	bankCode: string
+	bankName: string
+	ifscCode: null | string
+	bankLogo: string
+	bankSite: null | string
+	minAmount: number
+	maxAmount: number
+	status: number
+	qrCodeUrl: null | string
+}
+export interface IPaymentBankTransferData {
+	bankCode: string
+	bankId: number
+	bankLogo: string
+	bankName: string
+	bankSite: string
+	canSubmit: boolean
+	groupIds: null | number[]
+	ifscCode: string
+	maxAmount: number
+	minAmount: number
+	qrCodeUrl: string
+	status: number
+	supportChannel: number[]
+	sysId: number
+}
+
+export interface IPaymentOnlineBankingData {
+	channelId: number
+	maxAmount: number
+	minAmount: number
+	mode: number
+	payId: number
+	payName: string
+	selBank: boolean
+}
+
+export interface IPaymentMobilePayData {
+	channelName: string
+	gSort: number
+	groupId: number
+	groupName: string
+	maxAmount: number
+	minAmount: number
+	mode: number
+}
+
+export interface IPaymentCryptoPayData {
+	amountList: null | number[]
+	amountRule: number
+	channelId: number
+	channelName: string
+	currencyId: number
+	currencyName: string
+	gSort: number
+	groupId: number
+	groupName: string
+	maxAmount: number
+	minAmount: number
+	mode: number
+	payCode: null | string
+	payCurrencyId: null | number
+	payId: number
+	payName: string
+	pointLevel: number
+	sSort: number
+}
+
+export interface IChannelMobilePayData {
+	amountList: null | number[]
+	amountRule: number
+	channelId: number
+	channelName: string
+	currencyId: number
+	gSort: number
+	groupId: number
+	groupName: string
+	maxAmount: number
+	minAmount: number
+	mode: DepositActionModeEnum
+	payCode: null | string
+	payCurrencyId: null | string
+	payId: number
+	payName: null | string
+	pointLevel: number
+	sSort: number
+}
+
+export interface IBankAccountInfoData {
+	accountName: string
+	accountNo: string
+	bankLogo: string
+	bankName: string
+	bankSite: string
+	ifscCode: string
+	maxAmount: number
+	minAmount: number
+	postScript: string
+	transId: string
+}
+
+export interface IPostDepositBankTransferReqArgs {
+	amount: number
+	sysId?: number
+	fromChannel?: number
+	fromSysId?: number
+	fromAccountNum?: string
+	hasPromotion: boolean
+	bankId?: number
+}
+export interface IDepositBankTransferReqData {
+	bankName: string
+	bankLogo: string
+	bankSite: string
+	accountNo: string
+	accountName: string
+	ifscCode: string
+	transId: string
+	postScript: string
+	minAmount: number
+	maxAmount: number
+}
+
+export interface IPaymentLinePayInfo {
+	currencyId: number
+	id: number
+	isoCode: string
+	link: string
+	siteId: number
+	siteName: string
+}
+
+export interface IPaymentQRPayData {
+	channelName: string
+	gSort: number
+	groupId: number
+	groupName: string
+	maxAmount: number
+	minAmount: number
+	mode: number
+}
+
+export interface IChannelQrPayData {
+	amountList: null | number[]
+	amountRule: number
+	channelId: number
+	channelName: string
+	currencyId: number
+	gSort: number
+	groupId: number
+	groupName: 'ACB'
+	maxAmount: number
+	minAmount: number
+	mode: DepositActionModeEnum
+	payCode: string
+	payCurrencyId: string
+	payId: number
+	payName: string
+	pointLevel: number
+	sSort: number
+}
+
+export interface IPaymentTopUpCardPayData {
+	gSort: number
+	groupId: number
+	groupName: string
+	maxAmount: number
+	minAmount: number
+	mode: number
+	payName: string
+}
+
+export interface IChannelTopUpCardPayData {
+	amountList: number[]
+	amountRule: number
+	channelId: number
+	channelName: string
+	code: number
+	currencyId: number
+	gSort: number
+	groupId: number
+	groupName: string
+	maxAmount: number
+	minAmount: number
+	mode: number
+	payCode: string
+	payCurrencyId: string
+	payId: number
+	payName: string
+	pointLevel: number
+	sSort: number
+	serial: null | string
+	updated_timestamp: number
+}
+
+export interface IDepositLocalPayReqData {
+	amount: number
+	bankLogo: string
+	code: string
+	generateQr: boolean
+	returnUrl: string // ex:pay-qrcode/1683277168.png
+	transId: string // ex:'DD1408405'
+}
+
+export interface IDepositInfoRecentData {
+	createTime: string
+	depositType: number
+	transId: string
+	amount: number
+	status: number
+	depositRep: {
+		ver: number
+		sysId: number
+		accountName: string
+		accountNo: string
+		ifscCode: string
+		currencyId: number
+		isLocalPay: boolean
+		groupId: number
+		code: null | string
+	}
+	bankInfo: {
+		sysId: number
+		currencyId: number
+		bankCode: string
+		bankName: string
+		bankLogo: string
+		bankSite: string
+		status: number
+	}
+	thirdId: null | string
+	refId: null | string
+	depositTime: null
+	depositReceipt: [
+		{
+			depositId: number
+			picFileName: string
+			receiptNo: number
+			depositPic: string
+		}
+	]
+	depositMessage: null | string
+	depositMessageDetail: {
+		errorTypeName: string
+		message: string
+		createTime: string
+	}[]
 }

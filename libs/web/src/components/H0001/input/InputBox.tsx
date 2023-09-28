@@ -21,6 +21,7 @@ export interface IInputBoxProps
 	formatStr?: string
 	buttonBox?: boolean
 	buttonBoxSource?: React.ReactNode[]
+	onInfoClick?: () => void
 }
 
 /**
@@ -42,6 +43,7 @@ export interface IInputBoxProps
  * @param {string} formatStr - 用於複寫預設的 formatStr
  * @param {boolean} buttonBox - 是否顯示 input 底部的按鈕列，用於 financial 系列功能頁
  * @param {React.ReactNode[]} buttonBoxSource - 有開啟 buttonBox 時要給予按鈕列要顯示的內容
+ * * @param {boolean} onInfoClick - 顯示 info icon 並觸發外部點擊事件
  * @param {*} prop - other html input props
  * @author Wen
  */
@@ -67,6 +69,7 @@ const InputBox = ({
 	formatStr = "('000)",
 	buttonBox,
 	buttonBoxSource,
+	onInfoClick,
 	...props
 }: IInputBoxProps) => {
 	const [showPassword, setShowPassword] = useState(false)
@@ -104,7 +107,7 @@ const InputBox = ({
 				infoModule: !className,
 			})}
 		>
-			{!!infoMessage && (
+			{(!!infoMessage || onInfoClick) && (
 				<div
 					className={classNames('inputInfo', {
 						active: showInfo,
@@ -143,10 +146,16 @@ const InputBox = ({
 							onClick={() => setShowPassword(prev => !prev)}
 						/>
 					)}
-					{!!infoMessage && (
+					{(!!infoMessage || onInfoClick) && (
 						<i
 							className='icon icon-information'
-							onClick={() => setShowInfo(prev => !prev)}
+							onClick={() => {
+								if (infoMessage) {
+									setShowInfo(prev => !prev)
+								}
+
+								onInfoClick && onInfoClick()
+							}}
 						/>
 					)}
 				</div>

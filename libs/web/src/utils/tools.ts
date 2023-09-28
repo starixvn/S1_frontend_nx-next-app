@@ -155,3 +155,19 @@ export const transferDirection = ({
 
 	return { startWallet, endWallet }
 }
+
+/**
+ * secondsToTime(60) // 01:00
+ * @returns 秒數轉乘分鐘數
+ */
+export const secondsToTime = (secondsInTime: number) => {
+	const pad = (num: number, size: number) => `000${num}`.slice(size * -1)
+	const time = parseFloat(String(secondsInTime)).toFixed(3)
+	const minutes = Math.floor(Number(time) / 60) % 60
+	const seconds = Math.floor(Number(time) - minutes * 60)
+	return `${pad(minutes, 2)}:${pad(seconds, 2)}`
+}
+
+export const scrollToTop = () => {
+	window !== undefined && window.scrollTo({ top: 0, behavior: 'smooth' })
+}
