@@ -1,5 +1,6 @@
-import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
-import { HistoryTabsEnum, QuickPickEnum } from 'libs/web/src/app/types/history'
+import { HistoryTabsEnum, QuickPickEnum } from '@nx-next-app/types'
+
+import { ALLOWED_CURRENCIES } from './allowCurrency'
 
 export const HISTORY_TABS = [
 	{
