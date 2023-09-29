@@ -21,7 +21,7 @@ const Statement = () => {
 			<main className='main history'>
 				{displayColumns.length === 0 ? (
 					<div className='nodata icon icon-nodata'>
-						<div>{t('Label_General_Nodata')}</div>
+						<div>{t('Label_General_NoData')}</div>
 					</div>
 				) : (
 					<>

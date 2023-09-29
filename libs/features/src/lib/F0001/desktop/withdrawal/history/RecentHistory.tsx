@@ -23,7 +23,7 @@ const RecentHistory = () => {
 				/>
 			) : (
 				<div className='nodata icon icon-nodata'>
-					<div>{t('Label_History_NoData')}</div>
+					<div>{t('Label_General_NoData')}</div>
 				</div>
 			)}
 			<Link href={paths.history.root}>

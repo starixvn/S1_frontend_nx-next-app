@@ -593,7 +593,6 @@
 
 	"Label_History": "History",
 	"Label_History_Transfer": "Transfer",
-	"Label_History_Deposit": "Deposit",
 	"Label_History_Financial": "Financial",
 	"Label_History_Referral": "Referral",
 	"Label_History_QuickPick": "Quick Pick",
@@ -622,7 +621,6 @@
 	"Label_History_TotalDeposit": "Total Deposit",
 	"Label_History_TotalBet": "Total Bet",
 	"Label_History_BonusAmount": "Bonus Amount",
-	"Label_History_NoData": "No information is available now.",
 	"Label_History_File_format_error_please_try_again": "File format error, please try again.",
 	"Label_History_BankAccount": "Bank Account",
 	"Label_History_TransactionHint": "Please transfer the amount to the account.",

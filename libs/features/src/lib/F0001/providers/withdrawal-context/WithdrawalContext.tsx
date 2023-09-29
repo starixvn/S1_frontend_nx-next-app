@@ -202,7 +202,7 @@ export const WithdrawalProvider = ({ children }: IWithdrawalProviderProps) => {
 		data: { data: custBankInfo } = {},
 		isFetching: isCustBankInfoFetching,
 		refetch: refetchCustBankInfo,
-	} = useGetCustBankInfoQuery(null, { refetchOnMountOrArgChange: true })
+	} = useGetCustBankInfoQuery(undefined, { refetchOnMountOrArgChange: true })
 
 	const {
 		bankInfoDetail = [],

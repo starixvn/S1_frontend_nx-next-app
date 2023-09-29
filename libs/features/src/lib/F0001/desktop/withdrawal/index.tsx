@@ -13,36 +13,38 @@ const index = () => {
 	const { t } = useTranslation()
 	const { restoreAll, loading, kycStatus } = useWithdrawal()
 
-	if (loading) return <Loading />
-
 	return (
 		<main>
 			<section className='inside'>
 				<LeftMenu />
-				<div className='rightModule'>
-					<div className='infoModule'>
-						<div className='inside-title'>
-							<span className='icon icon-icon32px_Withdraw'>
-								{t('Label_General_Withdrawal')}
-							</span>
-							<button onClick={restoreAll} className='icon icon-history'>
-								<span>{t('Label_Withdrawal_RestoreAll')}</span>
-							</button>
+				{loading ? (
+					<Loading />
+				) : (
+					<div className='rightModule'>
+						<div className='infoModule'>
+							<div className='inside-title'>
+								<span className='icon icon-icon32px_Withdraw'>
+									{t('Label_General_Withdrawal')}
+								</span>
+								<button onClick={restoreAll} className='icon icon-history'>
+									<span>{t('Label_Withdrawal_RestoreAll')}</span>
+								</button>
+							</div>
+							{kycStatus !== KycStatusEnum.Normal ? (
+								<KycPanel />
+							) : (
+								<>
+									<div className='infoModuleLeft'>
+										<WalletInfo />
+										<WalletPanel />
+									</div>
+									<ImportNotice />
+								</>
+							)}
 						</div>
-						{kycStatus !== KycStatusEnum.Normal ? (
-							<KycPanel />
-						) : (
-							<>
-								<div className='infoModuleLeft'>
-									<WalletInfo />
-									<WalletPanel />
-								</div>
-								<ImportNotice />
-							</>
-						)}
+						<RecentHistory />
 					</div>
-					<RecentHistory />
-				</div>
+				)}
 			</section>
 		</main>
 	)

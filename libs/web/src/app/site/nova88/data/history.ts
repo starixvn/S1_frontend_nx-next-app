@@ -9,7 +9,7 @@ export const HISTORY_TABS = [
 		allowCurrencies: ALLOWED_CURRENCIES['TRANSFER'],
 	},
 	{
-		displayKey: 'Label_History_Deposit',
+		displayKey: 'Label_General_Deposit',
 		id: HistoryTabsEnum.Deposit,
 	},
 	{

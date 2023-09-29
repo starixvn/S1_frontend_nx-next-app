@@ -9,9 +9,10 @@ import { useTransferFunds } from '../../providers'
 
 const TransferFunds = () => {
 	const { t } = useTranslation()
-	const { loading } = useTransferFunds()
+	const { loading, isTransferLoading } = useTransferFunds()
 
-	if (loading) return <Loading />
+	// * 手機版的動畫與桌機版不同，不需將 loading 邏輯分開
+	if (loading || isTransferLoading) return <Loading />
 
 	return (
 		<>

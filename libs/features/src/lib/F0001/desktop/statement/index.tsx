@@ -1,4 +1,3 @@
-import React from 'react'
 import { useTranslation } from 'next-i18next'
 import { Loading, Select } from '@nx-next-app/components/D0001'
 import { useStatement } from '@nx-next-app/features/F0001/providers/statement-context'
@@ -22,6 +21,7 @@ const Statement = () => {
 		onTabChange,
 		onSearch,
 	} = useStatement()
+
 	return (
 		<div className='rightModule'>
 			<div className='infoModule'>
@@ -56,7 +56,7 @@ const Statement = () => {
 
 				{displayColumns.length === 0 && (
 					<div className='nodata icon icon-nodata'>
-						<div>{t('Label_General_Nodata')}</div>
+						<div>{t('Label_General_NoData')}</div>
 					</div>
 				)}
 				{displayColumns.length > 0 && !loading && (

@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import classNames from 'classnames'
 import { isArray, includes, uniqueId } from 'lodash-es'
 import { useRouter } from 'next/router'
@@ -7,7 +6,7 @@ import { useAuth, useStaticData } from '@nx-next-app/data-access'
 
 const LeftMenu = () => {
 	const { t } = useTranslation()
-	const { pathname: routerPath } = useRouter()
+	const { pathname: routerPath, push } = useRouter()
 
 	const { LEFT_MENU_DATA } = useStaticData()
 	const {
@@ -25,11 +24,16 @@ const LeftMenu = () => {
 
 					return (
 						isMatchCurrency && (
-							<Link key={uniqueId()} href={pathname}>
-								<a className={classNames('menuSelect', { active: matchPath })}>
-									<span className=''>{t(displayKey)}</span>
-								</a>
-							</Link>
+							<a
+								key={displayKey}
+								className={classNames('menuSelect', { active: matchPath })}
+								onClick={() => {
+									// * 目標路徑不同才進行導轉
+									!matchPath && push(pathname)
+								}}
+							>
+								<span className=''>{t(displayKey)}</span>
+							</a>
 						)
 					)
 				}
