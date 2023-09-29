@@ -2,6 +2,8 @@ import classNames from 'classnames'
 import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
+import { Loading } from '@nx-next-app/components/D0001'
+import { useBankInfo } from '@nx-next-app/features/F0001/providers'
 import { StepBar } from './StepBar'
 import { CardList } from './CardList'
 import { AddCardPanel } from './addCardPanel'
@@ -13,8 +15,11 @@ const BankInfo = () => {
 		userInfo: { accountName },
 	} = useAuth()
 
+	const { loading } = useBankInfo()
+
 	const [tip, setTip] = useState<boolean>(false)
 
+	if (loading) return <Loading />
 	return (
 		<div className='rightModule'>
 			<div className='infoModule'>

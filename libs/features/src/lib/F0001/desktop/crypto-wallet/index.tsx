@@ -1,6 +1,8 @@
 import classNames from 'classnames'
 import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
+import { Loading } from '@nx-next-app/components/D0001'
+import { useCryptoWallet } from '@nx-next-app/features/F0001/providers'
 import { useAuth } from '@nx-next-app/data-access'
 import { AddWallet } from './AddWallet'
 import { WalletList } from './WalletList'
@@ -13,6 +15,10 @@ const CryptoWallet = () => {
 	} = useAuth()
 
 	const [tip, setTip] = useState<boolean>(false)
+
+	const { loading } = useCryptoWallet()
+
+	if (loading) return <Loading />
 
 	return (
 		<div className='rightModule'>

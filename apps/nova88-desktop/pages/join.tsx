@@ -9,7 +9,6 @@ import {
 } from '@nx-next-app/hooks'
 
 type IJoinPageProps = InitialPropsInterface
-// * TODO: wip todo
 
 const JoinPage = ({
 	originIsSignIn,

@@ -103,7 +103,7 @@ const PersonalMessage = () => {
 					</>
 				) : (
 					<div className='nodata icon icon-nodata'>
-						<div>{t('lbl_NoData')}</div>
+						<div>{t('Label_General_NoData')}</div>
 					</div>
 				)}
 			</div>

@@ -30,6 +30,7 @@ const DepositShortcutList = ({
 
 				return (
 					<button
+						key={value}
 						style={{
 							pointerEvents: disabled ? 'none' : 'auto',
 						}}

@@ -9,7 +9,7 @@ import {
 	IMainWalletInfoData,
 	ITpWalletInfoData,
 } from '@nx-next-app/service'
-import { numFormatToDigits } from '@nx-next-app/utils'
+import { numberFormat, numFormatToDigits } from '@nx-next-app/utils'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { SpinButton } from '../../button'
@@ -36,7 +36,7 @@ const Wallet = ({
 	const ref = useRef(null)
 	const { t } = useTranslation()
 	const {
-		userInfo: { currencyName },
+		userInfo: { currencyName, currencyId },
 	} = useAuth()
 
 	const {
@@ -101,15 +101,15 @@ const Wallet = ({
 				<div className='balance'>
 					<span>{currencyName}</span>
 					<span>
-						{totalWalletBalance} ('000)
+						{numberFormat(totalWalletBalance, currencyId)}
 						<SpinButton onClick={onRefetchAllWallet} />
 					</span>
 				</div>
 
 				<div className='walletBalance'>
 					<div className='walletName'>
-						<span>Main Wallet</span>
-						<span>{balance} ('000)</span>
+						<span>{t('Label_Wallet_MainWallet')}</span>
+						<span>{numberFormat(balance || 0, currencyId)}</span>
 					</div>
 					{custBonusWalletList?.map(item => {
 						const { turnover, rollover, promoCategoryId, bonus, tpId } = item
@@ -141,22 +141,22 @@ const Wallet = ({
 					<div className='walletBalance' key={tpId}>
 						<div className='walletName'>
 							<span>{tpName}</span>
-							<span>{balance} ('000)</span>
+							<span>{numberFormat(balance, currencyId)}</span>
 						</div>
 					</div>
 				))}
 
 				<div className='btnGroup'>
 					<Link href={paths.deposit.root}>
-						<a className='orange'>Deposit</a>
+						<a className='orange'>{t('Label_General_Deposit')}</a>
 					</Link>
 					<Link href={paths.transferFunds.root}>
-						<a className='orange'>Transfer Funds</a>
+						<a className='orange'>{t('Label_General_TransferFunds')}</a>
 					</Link>
 				</div>
 				<div className='loginLog'>
 					<span>{t('Label_General_LastLogin')}</span>
-					{/* <span>{dayjs(lastLogin).format('L LT')}</span> */}
+					<span>{dayjs(lastLogin).format('L LT')}</span>
 				</div>
 				<div className='transactionLog'>
 					<span>{t('Label_General_LastTransaction')}</span>

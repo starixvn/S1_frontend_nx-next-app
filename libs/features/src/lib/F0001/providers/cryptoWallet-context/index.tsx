@@ -19,6 +19,7 @@ import { AddWalletModal as DesktopAddWalletModal } from '@nx-next-app/features/F
 import { AddWalletModal as H5AddWalletModal } from '@nx-next-app/features/F0001/h5/crypto-wallet/AddWalletModal'
 
 interface ICryptoWalletContextValue {
+	loading: boolean
 	USDTDetail: IUSDTDetail[]
 	cryptoNetworkList: ICryptoNetwork[]
 	cryptoCurrencyOptions: { value: number; label: string }[]
@@ -44,14 +45,21 @@ export const CryptoWalletProvider = ({ children }: { children: ReactNode }) => {
 		userInfo: { phoneVerified },
 	} = useAuth()
 
-	const { data: { data: custBankInfo } = {} } = useGetCustBankInfoQuery(null)
+	const {
+		data: { data: custBankInfo } = {},
+		isFetching: isGetCustBankInfoFetching,
+	} = useGetCustBankInfoQuery()
 
-	const { data: { data: supportCryptoInfo } = {} } =
-		useGetSupportCryptoInfoQuery()
+	const {
+		data: { data: supportCryptoInfo } = {},
+		isFetching: isGetSupportCryptoInfoFetching,
+	} = useGetSupportCryptoInfoQuery()
 
+	// * 不加入此 loading 避免每次打開彈窗都出現 loading 動畫
 	const [getOtpInfo] = useLazyGetOTPVerifyInfoQuery()
 
-	const [setCustCryptoWallet] = useSetCustCryptoWalletMutation()
+	const [setCustCryptoWallet, { isLoading: isSetCustCryptoWalletLoading }] =
+		useSetCustCryptoWalletMutation()
 
 	const { uSDTDetail: USDTDetail = [] } = custBankInfo ?? {}
 	const { cryptoCurrency = [], cryptoNetwork: cryptoNetworkList = [] } =
@@ -125,7 +133,13 @@ export const CryptoWalletProvider = ({ children }: { children: ReactNode }) => {
 		}
 	}
 
+	const loading =
+		isGetCustBankInfoFetching ||
+		isGetSupportCryptoInfoFetching ||
+		isSetCustCryptoWalletLoading
+
 	const value: ICryptoWalletContextValue = {
+		loading,
 		USDTDetail,
 		cryptoNetworkList,
 		cryptoCurrencyOptions,

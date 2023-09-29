@@ -63,7 +63,7 @@ const History = () => {
 					)}
 					{currentPage && displayColumns.length === 0 && (
 						<div className='nodata icon icon-nodata'>
-							<div className='txt-white'>{t('Label_History_NoData')}</div>
+							<div className='txt-white'>{t('Label_General_NoData')}</div>
 						</div>
 					)}
 				</div>

@@ -36,6 +36,7 @@ interface IForm {
 }
 interface ITransferFundsContext {
 	loading: boolean
+	isTransferLoading: boolean
 	isFormValid: boolean
 	timezone: string
 	maxAmount: number | undefined
@@ -99,7 +100,7 @@ export const TransferFundsProvider = ({
 		String(watchWalletFrom) && String(watchWalletTo) && isValid
 	)
 
-	const [loading, setLoading] = useState<boolean>(false)
+	const [isTransferLoading, setIsTransferLoading] = useState<boolean>(false)
 	const [maxAmount, setMaxAmount] = useState<number | undefined>()
 
 	const {
@@ -114,15 +115,25 @@ export const TransferFundsProvider = ({
 	const {
 		data: { data: transferHistory = [] } = {},
 		refetch: getTransferRecent,
+		isFetching: isGetTransferRecentFetching,
 	} = useGetTransferRecentQuery()
 
-	const { data: { data: autoTransferStatus } = {} } =
-		useGetWalletTransferStatusQuery()
+	const {
+		data: { data: autoTransferStatus } = {},
+		isFetching: isGetWalletTransferStatusFetching,
+	} = useGetWalletTransferStatusQuery()
 
 	const [transfer] = useTransferMutation()
-	const [getMainWalletInfo] = useLazyGetMainWalletInfoQuery()
-	const [getTpWalletInfoByTpId] = useLazyGetTpWalletInfoByTpIdQuery()
-	const [setWalletAutoTransferStatus] = useSetWalletTransferStatusMutation()
+	const [getMainWalletInfo, { isFetching: isGetMainWalletInfoFetching }] =
+		useLazyGetMainWalletInfoQuery()
+	const [
+		getTpWalletInfoByTpId,
+		{ isFetching: isGetTpWalletInfoByTpIdFetching },
+	] = useLazyGetTpWalletInfoByTpIdQuery()
+	const [
+		setWalletAutoTransferStatus,
+		{ isLoading: isSeWalletAutoTransferStatusLoading },
+	] = useSetWalletTransferStatusMutation()
 
 	const tpWalletOption = tpWalletBalanceList.map(({ tpId, tpName }) => ({
 		value: tpId,
@@ -184,7 +195,7 @@ export const TransferFundsProvider = ({
 			}
 		}
 
-		setLoading(true)
+		setIsTransferLoading(true)
 
 		try {
 			const { data, errorCode } = await transfer({
@@ -226,7 +237,7 @@ export const TransferFundsProvider = ({
 			modal.error((error as Error).message)
 		}
 
-		setLoading(false)
+		setIsTransferLoading(false)
 
 		//* 要 return true 才會 reset amount
 		return true
@@ -352,8 +363,16 @@ export const TransferFundsProvider = ({
 		if (success) resetField('amount')
 	}
 
+	const loading =
+		isGetWalletTransferStatusFetching ||
+		isGetTransferRecentFetching ||
+		isGetMainWalletInfoFetching ||
+		isGetTpWalletInfoByTpIdFetching ||
+		isSeWalletAutoTransferStatusLoading
+
 	const value: ITransferFundsContext = {
 		loading,
+		isTransferLoading, // transfer loading 動畫與準備資料的動畫拆開
 		isFormValid,
 		timezone,
 		maxAmount,

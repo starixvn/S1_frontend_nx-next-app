@@ -18,6 +18,7 @@ type ISelBank = {
 }
 
 interface IBankInfoContext {
+	loading: boolean
 	step: number
 	selBank?: ISelBank
 	isShowCards: boolean
@@ -60,11 +61,18 @@ export const BankInfoProvider = ({ children }: IBankInfoProviderProps) => {
 
 	const { modal } = useGlobalModal()
 
-	const { data: { data: custBankInfo } = {} } = useGetCustBankInfoQuery(null)
-	const { data: { data: bankInfoSysList = [] } = {} } =
-		useGetBankInfoSysListQuery(null)
-	const [setCustBankInfo] = useSetLocalBankInfoMutation()
-	const [delCustBankInfo] = useDeleteBankCardMutation()
+	const {
+		data: { data: custBankInfo } = {},
+		isFetching: isGetCustBankInfoFetching,
+	} = useGetCustBankInfoQuery()
+	const {
+		data: { data: bankInfoSysList = [] } = {},
+		isFetching: isGetBankInfoSysListFetching,
+	} = useGetBankInfoSysListQuery(null)
+	const [setCustBankInfo, { isLoading: isSetLocalBankInfoLoading }] =
+		useSetLocalBankInfoMutation()
+	const [delCustBankInfo, { isLoading: isDeleteBankCardLoading }] =
+		useDeleteBankCardMutation()
 
 	const [step, setStep] = useState<number>(1) // Desktop
 	const [isShowCards, setIsShowCards] = useState<boolean>(true) // Mobile
@@ -127,7 +135,14 @@ export const BankInfoProvider = ({ children }: IBankInfoProviderProps) => {
 
 	const { bankInfoDetail = [] } = custBankInfo ?? {}
 
+	const loading =
+		isGetCustBankInfoFetching ||
+		isGetBankInfoSysListFetching ||
+		isSetLocalBankInfoLoading ||
+		isDeleteBankCardLoading
+
 	const value: IBankInfoContext = {
+		loading,
 		step,
 		selBank,
 		isShowCards,

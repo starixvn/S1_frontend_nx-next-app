@@ -10,8 +10,14 @@ import { useTransferFunds } from '../../providers'
 
 const TransferFunds = () => {
 	const { t } = useTranslation()
-	const { loading, transferHistory, handleGetTransferRecent } =
-		useTransferFunds()
+	const {
+		loading,
+		isTransferLoading,
+		transferHistory,
+		handleGetTransferRecent,
+	} = useTransferFunds()
+
+	if (loading) return <Loading />
 
 	return (
 		<div className='rightModule'>
@@ -24,7 +30,7 @@ const TransferFunds = () => {
 						<AutoTransfer />
 					</div>
 
-					{loading ? (
+					{isTransferLoading ? (
 						<Loading />
 					) : (
 						<>

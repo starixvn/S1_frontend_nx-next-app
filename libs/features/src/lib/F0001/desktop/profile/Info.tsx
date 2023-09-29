@@ -162,6 +162,7 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 							placeholderText='DD/MM/YYYY'
 							closeOnScroll
 							showDisabledMonthNavigation
+							showYearDropdown
 						/>
 						<div className='iconModule'>
 							<i className='icon icon-calendar' />
