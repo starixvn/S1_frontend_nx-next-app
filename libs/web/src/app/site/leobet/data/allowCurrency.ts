@@ -1,0 +1,42 @@
+import { CurrenciesEnum } from '@nx-next-app/types'
+
+const { INR } = CurrenciesEnum
+
+export const ALLOWED_CURRENCIES: {
+	[key: string]: CurrenciesEnum[]
+} = {
+	VIP: [],
+	AFFILIATE: [INR],
+	EXCHANGE: [INR],
+	REWARDS: [],
+	LEADER_BOARD: [],
+
+	TRANSFER: [INR],
+	BANK_INFO: [INR],
+
+	GAMES_MPOKER: [],
+
+	JACKPOT: [INR],
+
+	SPORTS_CRICKET: [INR],
+	SPORTS_SABA_CLUB: [INR],
+	SPORTS_VOLLEYBALL: [],
+
+	LIVE_CASINO_WM: [INR],
+	LIVE_CASINO_ALL_BET: [],
+
+	SLOTS_AMB: [],
+
+	GAMES_POKER_M_POKER: [],
+	GAMES_POKER_AMB_POKER: [],
+
+	FISHING_SG: [INR],
+	FISHING_CQ9_ONE_SHOT_FISHING: [INR],
+
+	LOTTERY_GPI_THAILOTTERY: [],
+	LUCKY_WHEEL: [],
+
+	// === withdrawal method ===
+	BANK_CARD: [INR],
+	E_WALLET: [],
+}
