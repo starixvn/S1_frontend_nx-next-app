@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const fs = require('fs')
 const { outputData, sortData } = require('./sheet/sheet')
@@ -5,20 +6,24 @@ const { outputData, sortData } = require('./sheet/sheet')
 // * 輸出當前版本，平常不會使用
 const outputSheet = async tab => {
 	const fileList = fs.readdirSync('public/locales') // ex: ['en','cs']
-	const headerRow = ['key', ...fileList] // ex: ['key','en','cs']
+	let headerRow = ['key', ...fileList] // ex: ['key','en','cs']
 
 	const contents = {}
 
 	fileList.forEach(lang => {
 		// * 讀取目前所有檔案
-		const jsonFile = fs.readFileSync(`public/locales/${lang}/${tab}.json`)
-		const fileData = JSON.parse(jsonFile) || {}
+		try {
+			const jsonFile = fs.readFileSync(`public/locales/${lang}/${tab}.json`)
+			const fileData = JSON.parse(jsonFile) || {}
 
-		Object.keys(fileData).forEach(key => {
-			const content = fileData[key] || ''
+			Object.keys(fileData).forEach(key => {
+				const content = fileData[key] || ''
 
-			contents[key] = { ...contents[key], ...{ key, [lang]: content } }
-		})
+				contents[key] = { ...contents[key], ...{ key, [lang]: content } }
+			})
+		} catch (error) {
+			headerRow = headerRow.filter(val => val !== lang)
+		}
 	})
 
 	outputData({ tab, headerRow, contents: sortData(contents) })

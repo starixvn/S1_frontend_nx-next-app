@@ -5,14 +5,11 @@
 	"Label_Vip_Info_Title_2": "Overview",
 	"Label_Vip_Info_Content_2": "We have classified the membership tiers to Vintage Club, Silver Club, Gold Club, Titanium Club, Diamond Club and Nova Club. Enjoy all our privilege products and services when you achieve higher tier.",
 	"Label_Vip_Info_Title_3": "Enjoy the benefits and privileges with difference membership tier",
-	"Label_Title": "en Title",
 	"Label_Once_Nova88_App_is_installed": "Once Nova88 App is installed, tap Trust or complete the setting as below.",
 	"Label_DownloadAppStep1": "Click Apple iOS download button from Nova88 site.",
 	"Label_DownloadAppStep2": "Click 'Get the App' to redirect to app preview page",
 	"Label_DownloadAppStep3": "You will redirect to 'Mini Puzzle Game' on AppStore instead of 'Nova88' app \n Click 'Get' to install 'Mini Puzzle Game' app",
 	"Label_DownloadAppStep4": "Open 'Mini Puzzle Game' to launch the 'Nova88' app",
-
-	"Label_General_Title": "Title",
 
 	"Label_Join_Features": "Features",
 	"Label_Join_Memeber_Benefits": "Member Benefits",
@@ -43,7 +40,7 @@
 	"Label_Responsible_Gaming_desc": "Nova88 strives to provide good quality entertainment for its players and have put in place safeguards to promote and ensure responsible gaming.",
 	"Label_Security_desc": "Players security and privacy is of upmost importance. Nova88 has security measures in place to protect players funds and personal information.",
 	"Label_Brand_Ambassador": "NOVA88 Brand Ambassador 2022/23",
-  "Label_Cookie_Reminder": "Nova88 uses cookies to enhance your website experience. By staying on the website, you agree to the use of these cookies.",
-  "Label_LeaderBoard_Title_1": "NOVA88 MONTHLY TOURNAMENT",
-  "Label_LeaderBoard_Title_2": "BE PART OF US!"
+	"Label_Cookie_Reminder": "Nova88 uses cookies to enhance your website experience. By staying on the website, you agree to the use of these cookies.",
+	"Label_LeaderBoard_Title_1": "NOVA88 MONTHLY TOURNAMENT",
+	"Label_LeaderBoard_Title_2": "BE PART OF US!"
 }
