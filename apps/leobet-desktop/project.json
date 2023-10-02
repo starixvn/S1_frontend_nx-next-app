@@ -1,0 +1,63 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "apps/leobet-desktop",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/next:build",
+			"outputs": ["{options.outputPath}"],
+			"defaultConfiguration": "production",
+			"options": {
+				"root": "apps/leobet-desktop",
+				"outputPath": "dist/apps/leobet-desktop"
+			},
+			"configurations": {
+				"development": {
+					"outputPath": "apps/leobet-desktop"
+				},
+				"production": {}
+			}
+		},
+		"serve": {
+			"executor": "@nrwl/next:server",
+			"defaultConfiguration": "development",
+			"options": {
+				"buildTarget": "leobet-desktop:build",
+				"dev": true,
+        "port" : 4002
+			},
+			"configurations": {
+				"development": {
+					"buildTarget": "leobet-desktop:build:development",
+					"dev": true
+				},
+				"production": {
+					"buildTarget": "leobet-desktop:build:production",
+					"dev": false
+				}
+			}
+		},
+		"export": {
+			"executor": "@nrwl/next:export",
+			"options": {
+				"buildTarget": "leobet-desktop:build:production"
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/apps/leobet-desktop"],
+			"options": {
+				"jestConfig": "apps/leobet-desktop/jest.config.ts",
+				"passWithNoTests": true
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/leobet-desktop/**/*.{ts,tsx,js,jsx}"]
+			}
+		}
+	},
+	"tags": []
+}
