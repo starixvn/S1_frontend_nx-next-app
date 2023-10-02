@@ -15,6 +15,7 @@ COPY ./apps/${project_name}/.env.${env} ./apps/${project_name}/.env
 
 # install
 RUN npm ci
+RUN node SheetToJson.js
 RUN nx clear-cache
 RUN app=${project_name} npm run build
 
