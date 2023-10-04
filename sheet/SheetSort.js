@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const { extractSheets } = require('spreadsheet-to-json')
-const auth = require('./ailab-resources-385807-220772b7ea81.json')
-const { outputData, sortData, SHEET_URL_ID } = require('./sheet/sheet')
+const auth = require('../ailab-resources-385807-220772b7ea81.json')
+const { outputData, sortData, SHEET_URL_ID } = require('./sheet')
 
 // * url：https://docs.google.com/spreadsheets/d/1yQNCCdV2UGOGE8-GhM0eOMEoTG23F0JpcR5pf5tTq5E
 
