@@ -1,11 +1,13 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const fs = require('fs')
-const { outputData, sortData } = require('./sheet/sheet')
+const { outputData, sortData } = require('./sheet')
 
 // * 輸出當前版本，平常不會使用
 const outputSheet = async tab => {
-	const fileList = fs.readdirSync('public/locales') // ex: ['en','cs']
+	const location = 'public/locales'
+	const fileList = fs.readdirSync(location) // ex: ['en','cs']
+
 	let headerRow = ['key', ...fileList] // ex: ['key','en','cs']
 
 	const contents = {}
@@ -13,7 +15,7 @@ const outputSheet = async tab => {
 	fileList.forEach(lang => {
 		// * 讀取目前所有檔案
 		try {
-			const jsonFile = fs.readFileSync(`public/locales/${lang}/${tab}.json`)
+			const jsonFile = fs.readFileSync(`${location}/${lang}/${tab}.json`)
 			const fileData = JSON.parse(jsonFile) || {}
 
 			Object.keys(fileData).forEach(key => {

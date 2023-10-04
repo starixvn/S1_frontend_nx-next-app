@@ -6,8 +6,8 @@ const { extractSheets } = require('spreadsheet-to-json')
 const { merge } = require('lodash')
 const path = require('path')
 const fs = require('fs-extra')
-const auth = require('./ailab-resources-385807-220772b7ea81.json')
-const { SHEET_URL_ID } = require('./sheet/sheet')
+const auth = require('../ailab-resources-385807-220772b7ea81.json')
+const { SHEET_URL_ID } = require('./sheet')
 
 // * url：https://docs.google.com/spreadsheets/d/1yQNCCdV2UGOGE8-GhM0eOMEoTG23F0JpcR5pf5tTq5E
 
@@ -52,22 +52,17 @@ extractSheets(
 		const contents = getContents(data)
 
 		for (const lang in contents) {
+			const location = `../public/locales/${lang}`
 			// * 建立目錄，確保目錄存在。如果目錄結構不存在，則建立該目錄
-			fs.ensureDirSync(
-				path.dirname(
-					path.resolve(__dirname, `./public/locales/${lang}`, 'test')
-				)
-			)
+			fs.ensureDirSync(path.dirname(path.resolve(__dirname, location, 'test')))
 
 			for (const fileName in contents[lang]) {
 				const content = contents[lang][fileName]
 
 				// * 寫入檔案至 './public/locales/${lang}'
-				fs.writeJSONSync(
-					path.resolve(__dirname, `./public/locales/${lang}`, fileName),
-					content,
-					{ spaces: 2 }
-				)
+				fs.writeJSONSync(path.resolve(__dirname, location, fileName), content, {
+					spaces: 2,
+				})
 			}
 		}
 	}
