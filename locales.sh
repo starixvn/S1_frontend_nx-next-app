@@ -1,6 +1,6 @@
 
 # 目前既有品牌
-SITE_LIST=(nova88 leobet)
+SITE_LIST=(common nova88 leobet)
 
 # READ
 echo "選擇品牌(單選、複選)"
