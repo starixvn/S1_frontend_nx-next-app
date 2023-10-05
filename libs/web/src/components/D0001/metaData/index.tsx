@@ -1,25 +1,7 @@
-import Head from 'next/head'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { ISEOData } from 'libs/web/src/data-access/type'
-import { replace, uniqueId } from 'lodash'
-import { useRouter } from 'next/router'
-
-const useMetaData = (persistSEOData: ISEOData) => {
-	const { pathname } = useRouter()
-	const { META_DATA } = useStaticData()
-
-	const {
-		userInfo: { langId },
-	} = useAuth()
-
-	const defaultMetaData =
-		META_DATA?.[replace(pathname, '/', '')]?.[langId] ?? {}
-
-	return {
-		...persistSEOData,
-		...defaultMetaData,
-	}
-}
+import { useMetaData } from '@nx-next-app/hooks'
+import { uniqueId } from 'lodash-es'
+import Head from 'next/head'
 
 const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 	const {
@@ -28,6 +10,7 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 		keyword,
 		links = [],
 	} = useMetaData(persistSEOData)
+
 	return (
 		<Head>
 			<title>{title}</title>
@@ -37,9 +20,9 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 				href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/favicon.ico`}
 			/>
 
-			{links.map(attribute => (
-				<link key={uniqueId()} {...attribute} />
-			))}
+			{links.map(attribute => {
+				return <link key={uniqueId()} {...attribute} />
+			})}
 
 			<meta name='description' content={description} />
 			<meta name='keyword' content={keyword} />

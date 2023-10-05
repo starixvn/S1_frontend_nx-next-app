@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Image from 'next/future/image'
 import classNames from 'classnames'
 import { getMainEventIcon, useMenu } from '@nx-next-app/features/F0001/hooks'
 import { MenuActionTypeEnum } from '@nx-next-app/features/F0001/types'
@@ -42,7 +43,8 @@ const Menu = () => {
 							getMainEventIcon({ eventIcons, subMenu }) ?? {}
 
 						return (
-							<a
+							<button
+								key={key}
 								className={classNames(className, {
 									active: menuKey === key,
 								})}
@@ -70,15 +72,17 @@ const Menu = () => {
 							>
 								{icon && <i className={classNames(icon)} />}
 								{img && (
-									<img
+									<Image
 										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}${img}`}
 										alt={`img-${img}`}
+										width={30}
+										height={30}
 									/>
 								)}
 
 								<div>{displayKey ? t(displayKey) : displayText}</div>
 								<i className={classNames(mainEventIcon)} />
-							</a>
+							</button>
 						)
 					}
 				)}

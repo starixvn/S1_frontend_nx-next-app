@@ -1,13 +1,15 @@
-import Link from 'next/link'
 import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
 import ReactMarquee from 'react-fast-marquee'
 import { paths } from '@nx-next-app/constants'
 import { isUrl } from '@nx-next-app/utils'
 import { useHome } from '@nx-next-app/features/F0001/providers'
+import { toUpper } from 'lodash-es'
+import { useRouter } from 'next/router'
 
 const PromotionMarquee = () => {
 	const { promotionData, handlePromotionClick } = useHome()
+	const { push } = useRouter()
 	const { t } = useTranslation()
 
 	return (
@@ -15,9 +17,14 @@ const PromotionMarquee = () => {
 			<div className='promos'>
 				<div className='moduleTitle'>
 					{t('Label_General_Promotion')}
-					<Link href={paths.promotion.root} passHref>
-						<a className='more'>{t('Label_General_SeeMore').toUpperCase()}</a>
-					</Link>
+					<a
+						role='link'
+						aria-hidden
+						className='more'
+						onClick={() => push(paths.promotion.root)}
+					>
+						{toUpper(t('Label_General_SeeMore') || '')}
+					</a>
 				</div>
 				{promotionData?.length > 0 && (
 					<div className='swiper-container promosSwiper'>

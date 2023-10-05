@@ -1,22 +1,24 @@
-import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { paths } from '@nx-next-app/constants'
 import ReactMarquee from 'react-fast-marquee'
 import { isUrl } from '@nx-next-app/utils'
+import { useRouter } from 'next/router'
 import Image from 'next/future/image'
 
 const PromotionMarquee = () => {
 	const { promotionData, handlePromotionClick } = useHome()
+	const { push } = useRouter()
 	const { t } = useTranslation()
 
 	return (
 		<>
 			<div className='moduleTitle'>
 				{t('Label_General_Promotion')}
-				<Link href={paths.promotion.root} passHref>
-					<a>{t('Label_General_SeeMore').toUpperCase()}</a>
-				</Link>
+
+				<a role='link' aria-hidden onClick={() => push(paths.promotion.root)}>
+					{t('Label_General_SeeMore').toUpperCase()}
+				</a>
 			</div>
 			{promotionData.length > 0 && (
 				<ReactMarquee speed={60} className='promos' gradient={false}>

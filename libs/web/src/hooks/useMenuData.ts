@@ -93,8 +93,6 @@ const useMenuData = () => {
 			assign(result, { [key]: newMenuData })
 		})
 
-		// eslint-disable-next-line no-console
-		console.log('update menu')
 		return result
 	}
 

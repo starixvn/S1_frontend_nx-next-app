@@ -1,9 +1,10 @@
 import QRCode from 'qrcode.react'
+import Image from 'next/future/image'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import { useAuth } from '@nx-next-app/data-access'
 import { getSubMenuEventIcon, useMenu } from '@nx-next-app/features/F0001/hooks'
-import { upperCase } from 'lodash-es'
+import { uniqueId, upperCase } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { Dispatch, SetStateAction } from 'react'
 import { useGetAppDownloadLinksQuery } from '@nx-next-app/service'
@@ -44,7 +45,7 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 		// * AppDownload 的元件較獨特，非 menu 也非 banner, 因此先獨立出來實作
 		if (key === MenuKeyEnum.AppDownload) {
 			return (
-				<a
+				<button
 					key={key}
 					className={classNames(subMenuClassName, {
 						active: key === debouncedMenuKey,
@@ -81,55 +82,58 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 										includeMargin
 									/>
 									{item.appTypeName === 'Andriod' && (
-										<img
+										<Image
 											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/appdownload_and.jpg`}
 											alt='Andriod Download'
+											height={100}
+											width={100}
 										/>
 									)}
 
 									{item.appTypeName === 'IOS' && (
-										<img
+										<Image
 											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/appdownload_ios.jpg`}
 											alt='IOS Download'
+											height={100}
+											width={100}
 										/>
 									)}
 								</div>
 							))}
 						</div>
 					</div>
-				</a>
+				</button>
 			)
 		}
 
 		if (menuType === 'banner') {
 			return (
-				<div
+				<a
+					role='link'
+					aria-hidden
 					key={key}
+					className={classNames(subMenuClassName, langId, {
+						active: key === debouncedMenuKey,
+					})}
 					onMouseEnter={() => setMenuKey(key)}
 					onMouseLeave={() => setMenuKey(undefined)}
+					onClick={() =>
+						onMenuOpen(
+							{
+								desktop: { menuActionType },
+								pathname,
+								query,
+								product,
+							},
+							{
+								loginCallback: () => modal.open(<LoginModal />),
+								messageCallBack: message => modal.error(message),
+							}
+						)
+					}
 				>
-					<a
-						className={classNames(subMenuClassName, langId, {
-							active: key === debouncedMenuKey,
-						})}
-						onClick={() =>
-							onMenuOpen(
-								{
-									desktop: { menuActionType },
-									pathname,
-									query,
-									product,
-								},
-								{
-									loginCallback: () => modal.open(<LoginModal />),
-									messageCallBack: message => modal.error(message),
-								}
-							)
-						}
-					>
-						<div />
-					</a>
-				</div>
+					<div />
+				</a>
 			)
 		}
 
@@ -154,12 +158,12 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 					const subMenuEventIcon = getSubMenuEventIcon(eventIcons)
 
 					return (
-						<a
+						<button
 							style={{
 								// * 如果維護中取消點擊事件
 								pointerEvents: item.isTpMaintain ? 'none' : 'auto',
 							}}
-							key={productKey}
+							key={productKey || uniqueId()}
 							className={classNames(className, subMenuEventIcon?.icon, {
 								active: item.isTpMaintain,
 							})}
@@ -170,33 +174,42 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 								})
 							}}
 						>
-							<img
+							<Image
 								className='ListBG-left'
 								alt='ListBG-left'
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/subMenu-Wrapper-ListBG-left.png`}
+								width={77}
+								height={137}
 							/>
 
-							<img
+							<Image
 								className='ListBG-right'
 								alt='ListBG-right'
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/subMenu-Wrapper-ListBG-right.png`}
+								width={92}
+								height={140}
 							/>
-							<img
+							<Image
 								className='ListBG-center'
 								alt='ListBG-center'
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/subMenu-Wrapper-ListBG-center.png`}
+								width={150}
+								height={200}
 							/>
 							{headerMenuImgList?.map(img => (
-								<img
+								<Image
 									key={img.imgUrl}
 									className={classNames(img.className)}
 									alt={img.imgUrl}
 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${img.imgUrl}`}
+									width={150}
+									height={200}
 								/>
 							))}
+
 							<span>{displayKey ? t(displayKey) : displayText}</span>
 							<div className='under'>{t('Label_General_UnderMaintenance')}</div>
-						</a>
+						</button>
 					)
 				})}
 			</div>

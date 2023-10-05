@@ -75,6 +75,6 @@ export interface ISeoData {
 	links?: {
 		rel?: string
 		href?: string
-		hreflang?: string
+		hrefLang?: string
 	}[]
 }

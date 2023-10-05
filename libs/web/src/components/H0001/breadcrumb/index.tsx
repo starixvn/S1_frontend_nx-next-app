@@ -13,6 +13,8 @@ const Breadcrumb = ({ items, activeItem, onClick }: IBreadcrumbProps) => {
 		<nav className='breadcrumb'>
 			{items.slice(0, index).map(({ displayKey, value }) => (
 				<a
+					role='link'
+					aria-hidden
 					onClick={() => onClick(value)}
 					key={displayKey}
 					className={classNames({ active: activeItem === value })}

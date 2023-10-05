@@ -99,7 +99,7 @@ const Sfp = ({
 				<div className='title'>{t('Label_Payment_Method')}</div>
 				<div className='paymentLogo'>
 					{paymentList.map(({ name, img }) => (
-						<a key={name}>
+						<a role='link' aria-hidden key={name}>
 							<Image src={img} alt={name} width={50} height={32} />
 						</a>
 					))}

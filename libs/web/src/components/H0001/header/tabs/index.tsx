@@ -67,7 +67,7 @@ const Tag = forwardRef(
 						})}
 					>
 						{back && (
-							<a onClick={() => push(back)}>
+							<a role='link' aria-hidden onClick={() => push(back)}>
 								<i className='icon icon-keyboard_arrow_left' />
 							</a>
 						)}
@@ -147,7 +147,7 @@ const Tags = ({ tags = [], className = 'headerTag', ...props }: ITagsProps) => {
 			{tags.map(({ href, label, isShow = true, active, subPaths }) => {
 				return (
 					isShow && (
-						<Link key={label} href={href}>
+						<Link key={label} href={href} passHref>
 							<a
 								className={classNames({
 									active: isUndefined(active)

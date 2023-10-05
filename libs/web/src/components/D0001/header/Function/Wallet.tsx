@@ -147,10 +147,10 @@ const Wallet = ({
 				))}
 
 				<div className='btnGroup'>
-					<Link href={paths.deposit.root}>
+					<Link href={paths.deposit.root} passHref>
 						<a className='orange'>{t('Label_General_Deposit')}</a>
 					</Link>
-					<Link href={paths.transferFunds.root}>
+					<Link href={paths.transferFunds.root} passHref>
 						<a className='orange'>{t('Label_General_TransferFunds')}</a>
 					</Link>
 				</div>

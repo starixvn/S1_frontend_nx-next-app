@@ -20,9 +20,12 @@ const LiveCasino = () => {
 				</div>
 				<Image
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/homepage/livecasinobg.jpg`}
-					alt=''
+					alt='livecasinobg-img'
 					width={605}
-					height={331}
+					height={330}
+					// * 給予符合長寬比的數據，以利SEO，
+					// * https://developer.chrome.com/docs/lighthouse/best-practices/image-aspect-ratio/?utm_source=lighthouse&utm_medium=devtools
+					style={{ width: 605, height: 330 }}
 				/>
 			</div>
 		</div>
