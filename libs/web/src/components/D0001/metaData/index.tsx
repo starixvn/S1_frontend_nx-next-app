@@ -13,12 +13,13 @@ const useMetaData = (persistSEOData: ISEOData) => {
 		userInfo: { langId },
 	} = useAuth()
 
-	const metaDataByLang =
-		(META_DATA?.[replace(pathname, '/', '')]
+	const metaDataByLang = (
+		META_DATA?.[replace(pathname, '/', '')]
 			? META_DATA?.[replace(pathname, '/', '')]
-			: META_DATA?.[paths.home.root])?.[langId] ?? {}
+			: META_DATA?.[paths.home.root]
+	)?.[langId]
 
-	return persistSEOData?.title ? persistSEOData : metaDataByLang
+	return (persistSEOData?.title ? persistSEOData : metaDataByLang) || {}
 }
 
 const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
