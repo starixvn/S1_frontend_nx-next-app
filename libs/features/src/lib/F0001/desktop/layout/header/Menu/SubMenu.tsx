@@ -44,7 +44,7 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 		// * AppDownload 的元件較獨特，非 menu 也非 banner, 因此先獨立出來實作
 		if (key === MenuKeyEnum.AppDownload) {
 			return (
-				<a
+				<button
 					key={key}
 					className={classNames(subMenuClassName, {
 						active: key === debouncedMenuKey,
@@ -97,7 +97,7 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 							))}
 						</div>
 					</div>
-				</a>
+				</button>
 			)
 		}
 
@@ -108,7 +108,7 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 					onMouseEnter={() => setMenuKey(key)}
 					onMouseLeave={() => setMenuKey(undefined)}
 				>
-					<a
+					<button
 						className={classNames(subMenuClassName, langId, {
 							active: key === debouncedMenuKey,
 						})}
@@ -128,7 +128,7 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 						}
 					>
 						<div />
-					</a>
+					</button>
 				</div>
 			)
 		}
@@ -154,7 +154,7 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 					const subMenuEventIcon = getSubMenuEventIcon(eventIcons)
 
 					return (
-						<a
+						<button
 							style={{
 								// * 如果維護中取消點擊事件
 								pointerEvents: item.isTpMaintain ? 'none' : 'auto',
@@ -196,7 +196,7 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 							))}
 							<span>{displayKey ? t(displayKey) : displayText}</span>
 							<div className='under'>{t('Label_General_UnderMaintenance')}</div>
-						</a>
+						</button>
 					)
 				})}
 			</div>

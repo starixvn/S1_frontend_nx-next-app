@@ -1,6 +1,9 @@
-/* eslint-disable */
-
+// eslint-disable-next-line @typescript-eslint/no-var-requires, import/no-extraneous-dependencies
 const withNx = require('@nrwl/next/plugins/with-nx')
+
+/**
+ * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
+ * */
 
 process.env.I18NEXT_DEFAULT_CONFIG_PATH = `${__dirname}/next-i18next.config.js`
 
@@ -32,6 +35,13 @@ const nextConfig = {
 				{
 					source: '/api/:path*',
 					destination: `${process.env.NEXT_PUBLIC_ENV_DB_HOST}/api/:path*`,
+				},
+				// * Cashier api 的 domain 需關閉 i18n 自動添加前綴的設置，並自行給予 langId '/api' 的字段使其正確匹配
+				// * 原因為 langId 組在 api controller 前面 ex: /en/Cashier/DepositReqCryptoPay
+				{
+					source: '/:langId/Cashier/:path*',
+					destination: `${process.env.NEXT_PUBLIC_ENV_DB_HOST}/:langId/Cashier/:path*`,
+					locale: false,
 				},
 			],
 		}

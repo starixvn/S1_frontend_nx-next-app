@@ -15,7 +15,7 @@ const LayoutFooter = () => {
 	return (
 		<>
 			<footer id='footer'>
-				<Link href={paths.home.root}>
+				<Link href={paths.home.root} passHref>
 					<a
 						className={classNames('icon icon-home', {
 							active: pathname === paths.home.root && !isWalletActive,
@@ -26,7 +26,7 @@ const LayoutFooter = () => {
 					</a>
 				</Link>
 
-				<Link href={paths.promotion.root}>
+				<Link href={paths.promotion.root} passHref>
 					<a
 						className={classNames('icon icon-gift', {
 							active:
