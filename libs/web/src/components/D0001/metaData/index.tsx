@@ -3,6 +3,7 @@ import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { ISEOData } from 'libs/web/src/data-access/type'
 import { replace, uniqueId } from 'lodash'
 import { useRouter } from 'next/router'
+import { paths } from '@nx-next-app/constants'
 
 const useMetaData = (persistSEOData: ISEOData) => {
 	const { pathname } = useRouter()
@@ -12,13 +13,12 @@ const useMetaData = (persistSEOData: ISEOData) => {
 		userInfo: { langId },
 	} = useAuth()
 
-	const defaultMetaData =
-		META_DATA?.[replace(pathname, '/', '')]?.[langId] ?? {}
+	const metaDataByLang =
+		(META_DATA?.[replace(pathname, '/', '')]
+			? META_DATA?.[replace(pathname, '/', '')]
+			: META_DATA?.[paths.home.root])?.[langId] ?? {}
 
-	return {
-		...persistSEOData,
-		...defaultMetaData,
-	}
+	return persistSEOData?.title ? persistSEOData : metaDataByLang
 }
 
 const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
@@ -28,6 +28,7 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 		keyword,
 		links = [],
 	} = useMetaData(persistSEOData)
+
 	return (
 		<Head>
 			<title>{title}</title>

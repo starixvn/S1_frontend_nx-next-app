@@ -2,6 +2,533 @@ import { paths } from '@nx-next-app/constants'
 import { IMetaData } from '@nx-next-app/types'
 
 export const META_DATA: IMetaData = {
+	[paths.home.root]: {
+		en: {
+			title: `Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Bet`,
+			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
+			keyword: `Asia Most Trusted Sportsbook, Live Casino, Slot Games, SABA Sports, Online Casino, Online Betting`,
+			links: [
+				{ rel: 'canonical', href: `https://www.nova88.net/en/` },
+				{
+					rel: 'alternate',
+					media: 'only screen and (max-width: 640px)',
+					href: `https://m.nova88.net/en/`,
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/',
+					hrefLang: 'en-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/',
+					hrefLang: 'ms-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/',
+					hrefLang: 'id-id',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/',
+					hrefLang: 'th-th',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/',
+					hrefLang: 'hi-in',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/',
+					hrefLang: 'zh-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/',
+					hrefLang: 'bn-bd',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88103.net/kh/',
+					hrefLang: 'kh-kh',
+				},
+				{
+					rel: 'alternate',
+					href: 'http://nova88901.net/vn/',
+					hrefLang: 'vi-vn',
+				},
+			],
+		},
+		cs: {
+			title: `Nova88 欧亚体育 - 亚洲最佳体育博彩，真人娱乐与在线博彩。`,
+			description: `Nova88 欧亚体育 -亚洲知名品牌与最受信任的在线博彩网站。立即注册并享受顶尖的体育博彩，真人娱乐，电子游戏老虎机，彩票，快乐彩，和捕鱼游戏。`,
+			keyword: `Nova88 欧亚体育，Nova88 欧亚体育链接，在线博彩，在线赌博，马来西亚在线博彩，体育博彩，彩票，马来西亚真人娱乐场`,
+			links: [
+				{ rel: 'canonical', href: `https://www.nova88105.net/cs/` },
+				{
+					rel: 'alternate',
+					media: 'only screen and (max-width: 640px)',
+					href: `https://m.nova88105.net/cs/`,
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/',
+					hrefLang: 'en-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/',
+					hrefLang: 'ms-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/',
+					hrefLang: 'id-id',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/',
+					hrefLang: 'th-th',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/',
+					hrefLang: 'hi-in',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/',
+					hrefLang: 'zh-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/',
+					hrefLang: 'bn-bd',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88103.net/kh/',
+					hrefLang: 'kh-kh',
+				},
+				{
+					rel: 'alternate',
+					href: 'http://nova88901.net/vn/',
+					hrefLang: 'vi-vn',
+				},
+			],
+		},
+		id: {
+			title: `Nova88 - Situs Judi Online - Bandar Taruhan Bola Terpercaya`,
+			description: `Nova88 adalah Situs Online Terbaik Berlisensi Resmi dan Terpercaya dengan berbagai permainan Casino Online, Taruhan Bola dan Slot Mesin Online yang akan menghibur Anda.`,
+			keyword: `Nova88, Nova88 Indo, Situs Bola Terpercaya, Situs Bola Lisensi Resmi, Bola Online, Slot Mesin Online, Casino Online`,
+			links: [
+				{
+					rel: 'alternate',
+					media: 'only screen and (max-width: 640px)',
+					href: `https://m.nova88-indo805.info/id/`,
+				},
+				{
+					rel: 'canonical',
+					href: `https://www.nova88-indo805.info/id/`,
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/',
+					hrefLang: 'en-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/',
+					hrefLang: 'ms-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/',
+					hrefLang: 'id-id',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/',
+					hrefLang: 'th-th',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/',
+					hrefLang: 'hi-in',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/',
+					hrefLang: 'zh-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/',
+					hrefLang: 'bn-bd',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88103.net/kh/',
+					hrefLang: 'kh-kh',
+				},
+				{
+					rel: 'alternate',
+					href: 'http://nova88901.net/vn/',
+					hrefLang: 'vi-vn',
+				},
+			],
+		},
+		th: {
+			title: `Nova88 - หน้าเว็บเดิมพันกีฬา,คาสิโนออนไลน์ที่ดีที่สุดในเอเชีย`,
+			description: `Nova88  เป็นเว็บไซต์เดิมพันออนไลน์ที่หน้าเชื่อถือและดีสุดในเอเชีย เข้าร่วมและเดิมพันกีฬา,คาสิโนสด,สล็อต คาสิโน,ลอตเตอรี,คีโน,และ ตกปลา`,
+			keyword: `Nova88, ลิงค์ Nova88, คาสิโนออนไลน์, การพนันออนไลน์, การพนันออนไลน์ไทย, การเดิมพันกีฬา, ลอตเตอรี, ไทยคาสิโนสด`,
+			links: [
+				{
+					rel: 'alternate',
+					media: 'only screen and (max-width: 640px)',
+					href: `https://m.nova88bkk.com/th/`,
+				},
+				{ rel: 'canonical', href: `https://www.nova88bkk.com/th/` },
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/',
+					hrefLang: 'en-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/',
+					hrefLang: 'ms-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/',
+					hrefLang: 'id-id',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/',
+					hrefLang: 'th-th',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/',
+					hrefLang: 'hi-in',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/',
+					hrefLang: 'zh-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/',
+					hrefLang: 'bn-bd',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88103.net/kh/',
+					hrefLang: 'kh-kh',
+				},
+				{
+					rel: 'alternate',
+					href: 'http://nova88901.net/vn/',
+					hrefLang: 'vi-vn',
+				},
+			],
+		},
+		my: {
+			title: `Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Asia`,
+			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
+			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
+			links: [
+				{
+					rel: 'alternate',
+					media: 'only screen and (max-width: 640px)',
+					href: `https://m.nova88mas.com/my/`,
+				},
+				{ rel: 'canonical', href: `https://www.nova88mas.com/my/` },
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/',
+					hrefLang: 'en-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/',
+					hrefLang: 'ms-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/',
+					hrefLang: 'id-id',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/',
+					hrefLang: 'th-th',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/',
+					hrefLang: 'hi-in',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/',
+					hrefLang: 'zh-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/',
+					hrefLang: 'bn-bd',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88103.net/kh/',
+					hrefLang: 'kh-kh',
+				},
+				{
+					rel: 'alternate',
+					href: 'http://nova88901.net/vn/',
+					hrefLang: 'vi-vn',
+				},
+			],
+		},
+		hi: {
+			title: `Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Asia`,
+			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
+			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
+			links: [
+				{
+					rel: 'alternate',
+					media: 'only screen and (max-width: 640px)',
+					href: `https://m.nova88india.com/hi/`,
+				},
+				{ rel: 'canonical', href: `https://www.nova88india.com/hi/` },
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/',
+					hrefLang: 'en-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/',
+					hrefLang: 'ms-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/',
+					hrefLang: 'id-id',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/',
+					hrefLang: 'th-th',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/',
+					hrefLang: 'hi-in',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/',
+					hrefLang: 'zh-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/',
+					hrefLang: 'bn-bd',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88103.net/kh/',
+					hrefLang: 'kh-kh',
+				},
+				{
+					rel: 'alternate',
+					href: 'http://nova88901.net/vn/',
+					hrefLang: 'vi-vn',
+				},
+			],
+		},
+		bd: {
+			title: `Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Asia`,
+			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
+			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
+			links: [
+				{
+					rel: 'alternate',
+					media: 'only screen and (max-width: 640px)',
+					href: `https://m.nova88106.net/bd/`,
+				},
+				{ rel: 'canonical', href: `https://www.nova88106.net/bd/` },
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/',
+					hrefLang: 'en-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/',
+					hrefLang: 'ms-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/',
+					hrefLang: 'id-id',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/',
+					hrefLang: 'th-th',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/',
+					hrefLang: 'hi-in',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/',
+					hrefLang: 'zh-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/',
+					hrefLang: 'bn-bd',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88103.net/kh/',
+					hrefLang: 'kh-kh',
+				},
+				{
+					rel: 'alternate',
+					href: 'http://nova88901.net/vn/',
+					hrefLang: 'vi-vn',
+				},
+			],
+		},
+		kh: {
+			title: `Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Asia`,
+			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
+			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
+			links: [
+				{
+					rel: 'alternate',
+					media: 'only screen and (max-width: 640px)',
+					href: `https://m.nova88106.net/kh/`,
+				},
+				{ rel: 'canonical', href: `https://www.nova88106.net/kh/` },
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/',
+					hrefLang: 'en-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/',
+					hrefLang: 'ms-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/',
+					hrefLang: 'id-id',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/',
+					hrefLang: 'th-th',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/',
+					hrefLang: 'hi-in',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/',
+					hrefLang: 'zh-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/',
+					hrefLang: 'bn-bd',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88103.net/kh/',
+					hrefLang: 'kh-kh',
+				},
+				{
+					rel: 'alternate',
+					href: 'http://nova88901.net/vn/',
+					hrefLang: 'vi-vn',
+				},
+			],
+		},
+		vn: {
+			title: `Nova88 | Nova88 quay hũ | Nova88 Casino | Nova88 Asia`,
+			description: `Nova88 là nhà cái đáng tin cậy cung cấp dịch vụ cá độ thể thao, live casino, và quay hũ tại châu Á. Là đối tác chính thức của SABA Sports.`,
+			keyword: `Nhà cái hàng đầu châu Á, Live Casino, Quay hũ, SABA Sports, Online Casino, cá độ trực tuyến`,
+			links: [
+				{ rel: 'canonical', href: `https://www.nova88.net/en/` },
+				{
+					rel: 'alternate',
+					media: 'only screen and (max-width: 640px)',
+					href: `https://m.nova88.net/en/`,
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/',
+					hrefLang: 'en-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/',
+					hrefLang: 'ms-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/',
+					hrefLang: 'id-id',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/',
+					hrefLang: 'th-th',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/',
+					hrefLang: 'hi-in',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/',
+					hrefLang: 'zh-my',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/',
+					hrefLang: 'bn-bd',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88103.net/kh/',
+					hrefLang: 'kh-kh',
+				},
+				{
+					rel: 'alternate',
+					href: 'http://nova88901.net/vn/',
+					hrefLang: 'vi-vn',
+				},
+			],
+		},
+	},
 	[paths.join.root]: {
 		en: {
 			links: [

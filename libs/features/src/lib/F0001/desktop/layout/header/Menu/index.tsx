@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import dynamic from 'next/dynamic'
+import { toUpper } from 'lodash-es'
 import { getMainEventIcon, useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useTranslation } from 'next-i18next'
@@ -43,9 +44,12 @@ const Menu = () => {
 
 						const { icon, text } =
 							getMainEventIcon({ eventIcons, subMenu }) ?? {}
+						const menuText = toUpper(
+							(displayKey ? t(displayKey) : displayText) || ''
+						)
 
 						return (
-							<a
+							<button
 								onClick={() =>
 									onMenuOpen(
 										{ desktop: { menuActionType }, pathname, query, product },
@@ -69,8 +73,8 @@ const Menu = () => {
 									{text}
 								</div>
 
-								{displayKey ? t(displayKey) : displayText}
-							</a>
+								{menuText}
+							</button>
 						)
 					}
 				)}

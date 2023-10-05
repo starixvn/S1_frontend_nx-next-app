@@ -18,7 +18,7 @@ const useMetaData = (persistSEOData: ISEOData) => {
 			? META_DATA?.[replace(pathname, '/', '')]
 			: META_DATA?.[paths.home.root])?.[langId] ?? {}
 
-	return { ...persistSEOData, ...metaDataByLang }
+	return persistSEOData?.title ? persistSEOData : metaDataByLang
 }
 
 const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
