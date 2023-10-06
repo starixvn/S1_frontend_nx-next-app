@@ -1,5 +1,6 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
+import { useTranslation } from 'next-i18next'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Layout, LeftMenu, Referral } from '@nx-next-app/features/F0001/desktop'
@@ -7,8 +8,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import ReferralProvider from '@nx-next-app/features/F0001/providers/referral-context'
-import { useTranslation } from 'next-i18next'
+import { ReferralProvider } from '@nx-next-app/features/F0001/providers'
 
 type IReferralPageProps = InitialPropsInterface
 

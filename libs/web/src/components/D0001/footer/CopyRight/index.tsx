@@ -1,4 +1,3 @@
-import React from 'react'
 import { useTranslation } from 'next-i18next'
 import { ICopyRightListData } from 'libs/web/src/app/types/footer'
 import { upperFirst } from 'lodash-es'

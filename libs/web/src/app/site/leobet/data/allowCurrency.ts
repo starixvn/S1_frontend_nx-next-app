@@ -1,10 +1,8 @@
-import { CurrenciesEnum } from '@nx-next-app/types'
+import { CurrenciesEnum, IStaticAllowedCurrencies } from '@nx-next-app/types'
 
 const { INR } = CurrenciesEnum
 
-export const ALLOWED_CURRENCIES: {
-	[key: string]: CurrenciesEnum[]
-} = {
+export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 	VIP: [],
 	AFFILIATE: [INR],
 	EXCHANGE: [INR],

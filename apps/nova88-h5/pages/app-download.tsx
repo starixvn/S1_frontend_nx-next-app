@@ -1,14 +1,13 @@
 import React from 'react'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout } from '@nx-next-app/features/F0001/h5'
-import AppDownload from '@nx-next-app/features/F0001/h5/appDownload'
-import { GetServerSideProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import AppDownloadProvider from '@nx-next-app/features/F0001/providers/appDownload-context'
+import { Layout, AppDownload } from '@nx-next-app/features/F0001/h5'
+import { AppDownloadProvider } from '@nx-next-app/features/F0001/providers'
 import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/nova88/data/appDownload'
 
 type IAppDownloadPageProps = InitialPropsInterface

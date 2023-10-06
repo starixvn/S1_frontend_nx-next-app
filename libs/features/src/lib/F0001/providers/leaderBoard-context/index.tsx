@@ -456,4 +456,4 @@ const LeaderBoardProvider = ({
 	)
 }
 
-export default LeaderBoardProvider
+export { LeaderBoardProvider }

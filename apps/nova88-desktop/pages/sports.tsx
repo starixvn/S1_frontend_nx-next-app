@@ -2,12 +2,11 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout } from '@nx-next-app/features/F0001/desktop'
+import { Layout, Sports } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import Sports from '@nx-next-app/features/F0001/desktop/sports'
 
 type ISportPageProps = InitialPropsInterface
 

@@ -7,7 +7,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import ReferralProvider from '@nx-next-app/features/F0001/providers/referral-context'
+import { ReferralProvider } from '@nx-next-app/features/F0001/providers'
 import { useTranslation } from 'next-i18next'
 import { Header } from '@nx-next-app/components/H0001'
 import { paths } from '@nx-next-app/constants'

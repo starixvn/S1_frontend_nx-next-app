@@ -6,9 +6,9 @@ import {
 } from '@nx-next-app/hooks'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout } from '@nx-next-app/features/F0001/h5'
-import LeaderBoardProvider from '@nx-next-app/features/F0001/providers/leaderBoard-context'
-import LeaderBoard from '@nx-next-app/features/F0001/h5/leaderBoard'
+import { Layout, LeaderBoard } from '@nx-next-app/features/F0001/h5'
+import { LeaderBoardProvider } from '@nx-next-app/features/F0001/providers'
+
 import {
 	LEADER_BOARD_EVENT_CODE,
 	LEADER_BOARD_GAME_POINT_NAV,
