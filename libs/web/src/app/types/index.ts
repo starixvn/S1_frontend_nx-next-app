@@ -60,7 +60,39 @@ export interface IStaticLangGroups {
 }
 
 export interface IStaticAllowedCurrencies {
-	[key: string]: CurrenciesEnum[]
+	VIP?: CurrenciesEnum[]
+	AFFILIATE?: CurrenciesEnum[]
+	EXCHANGE?: CurrenciesEnum[]
+	REWARDS?: CurrenciesEnum[]
+	LEADER_BOARD?: CurrenciesEnum[]
+
+	TRANSFER?: CurrenciesEnum[]
+	BANK_INFO?: CurrenciesEnum[]
+
+	GAMES_MPOKER?: CurrenciesEnum[]
+
+	JACKPOT?: CurrenciesEnum[]
+
+	SPORTS_CRICKET?: CurrenciesEnum[]
+	SPORTS_SABA_CLUB?: CurrenciesEnum[]
+	SPORTS_VOLLEYBALL?: CurrenciesEnum[]
+
+	LIVE_CASINO_WM?: CurrenciesEnum[]
+	LIVE_CASINO_ALL_BET?: CurrenciesEnum[]
+
+	SLOTS_AMB?: CurrenciesEnum[]
+
+	GAMES_POKER_M_POKER?: CurrenciesEnum[]
+	GAMES_POKER_AMB_POKER?: CurrenciesEnum[]
+
+	FISHING_SG?: CurrenciesEnum[]
+	FISHING_CQ9_ONE_SHOT_FISHING?: CurrenciesEnum[]
+
+	LOTTERY_GPI_THAILOTTERY?: CurrenciesEnum[]
+	LUCKY_WHEEL?: CurrenciesEnum[]
+
+	BANK_CARD?: CurrenciesEnum[]
+	E_WALLET?: CurrenciesEnum[]
 }
 
 export interface IStaticVipEventCurrenciesLimitationInfo {

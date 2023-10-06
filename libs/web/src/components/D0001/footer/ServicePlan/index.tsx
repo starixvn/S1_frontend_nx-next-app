@@ -1,4 +1,4 @@
-import React from 'react'
+import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -6,6 +6,13 @@ import { useRouter } from 'next/router'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { IServicePlanData } from 'libs/web/src/app/types/footer'
 import { openLiveChat } from '@nx-next-app/utils'
+
+const LoginModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
+	{
+		ssr: false,
+	}
+)
 
 const ServicePlan = ({
 	servicePlanData: { servicePlanList, allowedCurrencies },
@@ -24,7 +31,7 @@ const ServicePlan = ({
 			// todo:呼叫登錄彈窗
 			auth.isLogin
 				? router.push(`/${langId}/${paths.referral.root}`)
-				: modal.open('please login')
+				: modal.open(<LoginModal />)
 		}
 
 		switch (hotKeyName) {
@@ -35,7 +42,7 @@ const ServicePlan = ({
 					<a
 						href={applyNowLink}
 						style={
-							allowedCurrencies.AFFILIATE.includes(currencyId as number)
+							allowedCurrencies?.AFFILIATE?.includes(currencyId as number)
 								? {}
 								: { pointerEvents: 'none' }
 						}
@@ -50,7 +57,7 @@ const ServicePlan = ({
 					<a
 						href={`/${langId}/${paths.vip.root}`}
 						style={
-							allowedCurrencies.VIP.includes(currencyId as number)
+							allowedCurrencies?.VIP?.includes(currencyId as number)
 								? {}
 								: { pointerEvents: 'none' }
 						}
