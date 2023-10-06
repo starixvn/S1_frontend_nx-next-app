@@ -1,19 +1,22 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
+import { pick } from 'lodash-es'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import SlotsProvider from '@nx-next-app/features/F0001/providers/slots-context'
+import { SlotsProvider } from '@nx-next-app/features/F0001/providers'
 import { Layout, Slots } from '@nx-next-app/features/F0001/desktop'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import {
+	AuthProvider,
+	GlobalDataProvider,
+	getSlotGamePage,
+} from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { ISlotsGameData } from '@nx-next-app/service'
-import { getSlotGamePage } from 'libs/web/src/data-access/service/gameApi'
 import { IResponseConvertedFooterData } from '@nx-next-app/types'
 import { CATEGORY_SORT } from '@nx-next-app/site/nova88/data/slots'
-import { pick } from 'lodash-es'
 
 type ISlotsPageProps = InitialPropsInterface & {
 	footerData: IResponseConvertedFooterData

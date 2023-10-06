@@ -515,4 +515,4 @@ const SlotsProvider = ({
 	return <SlotsContext.Provider value={value}>{children}</SlotsContext.Provider>
 }
 
-export default SlotsProvider
+export { SlotsProvider }

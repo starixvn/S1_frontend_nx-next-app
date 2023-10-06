@@ -68,4 +68,4 @@ const AppDownloadProvider = ({
 	)
 }
 
-export default AppDownloadProvider
+export { AppDownloadProvider }
