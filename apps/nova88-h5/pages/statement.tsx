@@ -1,4 +1,5 @@
 import React from 'react'
+import { paths } from '@nx-next-app/constants'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
@@ -6,11 +7,9 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout } from '@nx-next-app/features/F0001/h5'
-import StatementProvider from '@nx-next-app/features/F0001/providers/statement-context'
+import { Layout, Statement } from '@nx-next-app/features/F0001/h5'
+import { StatementProvider } from '@nx-next-app/features/F0001/providers'
 import { QUICK_PICK_LIST } from '@nx-next-app/site/nova88/data/history'
-import Statement from '@nx-next-app/features/F0001/h5/statement'
-import { paths } from '@nx-next-app/constants'
 
 const StatementPage = ({
 	originIsSignIn,

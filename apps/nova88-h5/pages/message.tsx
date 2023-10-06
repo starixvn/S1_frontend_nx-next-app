@@ -6,8 +6,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout } from '@nx-next-app/features/F0001/h5'
-import PersonalMessage from '@nx-next-app/features/F0001/h5/message'
+import { Layout, PersonalMessage } from '@nx-next-app/features/F0001/h5'
 
 const MessagePage = ({
 	originIsSignIn,

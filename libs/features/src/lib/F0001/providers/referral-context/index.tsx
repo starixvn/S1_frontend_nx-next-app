@@ -109,4 +109,4 @@ const ReferralProvider = ({
 	)
 }
 
-export default ReferralProvider
+export { ReferralProvider }

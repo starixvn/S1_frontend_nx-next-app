@@ -5,8 +5,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout } from '@nx-next-app/features/F0001/h5'
-import Announcement from '@nx-next-app/features/F0001/h5/announcement'
+import { Layout, Announcement } from '@nx-next-app/features/F0001/h5'
 
 type IAnnouncementPage = InitialPropsInterface
 

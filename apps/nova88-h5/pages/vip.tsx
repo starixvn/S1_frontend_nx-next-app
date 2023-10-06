@@ -10,11 +10,10 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout } from '@nx-next-app/features/F0001/h5'
+import { Layout, Vip } from '@nx-next-app/features/F0001/h5'
 import { includes } from 'lodash'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import Vip from '@nx-next-app/features/F0001/h5/vip'
 import { IVipBannerData } from '@nx-next-app/service'
 
 interface IVipPageProps extends InitialPropsInterface {

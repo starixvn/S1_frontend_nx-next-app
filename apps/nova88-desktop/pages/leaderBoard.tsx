@@ -19,7 +19,7 @@ import {
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout, LeaderBoard } from '@nx-next-app/features/F0001/desktop'
-import LeaderBoardProvider from '@nx-next-app/features/F0001/providers/leaderBoard-context'
+import { LeaderBoardProvider } from '@nx-next-app/features/F0001/providers'
 
 type ILeaderBoardPageProps = InitialPropsInterface
 

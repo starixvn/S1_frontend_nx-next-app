@@ -478,4 +478,4 @@ const StatementProvider = ({
 	)
 }
 
-export default StatementProvider
+export { StatementProvider }

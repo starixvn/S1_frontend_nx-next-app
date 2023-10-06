@@ -470,4 +470,4 @@ const HistoryProvider = ({
 		<HistoryContext.Provider value={value}>{children}</HistoryContext.Provider>
 	)
 }
-export default HistoryProvider
+export { HistoryProvider }
