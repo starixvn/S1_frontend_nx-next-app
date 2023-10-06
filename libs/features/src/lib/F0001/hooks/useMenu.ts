@@ -195,7 +195,8 @@ const useMenu = () => {
 		tpGameType?: number | null
 		appType?: number | null
 	}) => {
-		const host = process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		const dbHost = process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		const host = typeof window !== `undefined` ? window.location.origin : null
 		const signupUrl = `${host}/${paths.join.root}`
 		const loginUrl = `${host}/${paths.login.root}`
 		const errorUrl = `${process.env['NEXT_PUBLIC_ERROR_DOMAIN']}/404/index_${langId}.html`
@@ -220,7 +221,7 @@ const useMenu = () => {
 			)
 		}
 
-		const entPageUrl = `${host}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&CashierUrl=${cashierUrl}&${searchParams.toString()}`
+		const entPageUrl = `${dbHost}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&CashierUrl=${cashierUrl}&${searchParams.toString()}`
 
 		return entPageUrl
 	}
