@@ -26,6 +26,7 @@ WORKDIR /app
 
 COPY --from=build-step /build/node_modules ./node_modules
 COPY --from=build-step /build/dist/apps/${project_name} .
+RUN npm i sharp
 
 EXPOSE ${port}
 
