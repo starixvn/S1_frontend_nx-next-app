@@ -152,7 +152,7 @@ const useMenu = () => {
 			loginCallback()
 			return
 		}
-		const host = window.location.origin
+		const host = typeof window === 'undefined' ? null : window.location.origin
 		const dbHost =
 			process.env.NODE_ENV === 'production'
 				? host
@@ -198,7 +198,7 @@ const useMenu = () => {
 		tpGameType?: number | null
 		appType?: number | null
 	}) => {
-		const host = window.location.origin
+		const host = typeof window === 'undefined' ? null : window.location.origin
 		// 實際帶的 host 位置，正式環境帶當前 domain , local 環境則帶 api proxy
 		const dbHost =
 			process.env.NODE_ENV === 'production'

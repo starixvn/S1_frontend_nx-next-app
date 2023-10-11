@@ -3,8 +3,11 @@ import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { PRODUCTS } from '@nx-next-app/site/nova88'
 import { useAuth } from '@nx-next-app/data-access'
 import { find } from 'lodash-es'
+import { useIsClient } from 'usehooks-ts'
 
 const Sports = () => {
+	const isClient = useIsClient()
+
 	const {
 		query: { provider: queryProvider, type: queryType },
 	} = useRouter()
@@ -37,7 +40,10 @@ const Sports = () => {
 	})
 
 	// * iframe 沒有 target 參數 --> 使用 data attributes 注入參數
-	return <iframe title='sport' data-target='sport_iframe' src={iframeUrl} />
+	// * 確保在用戶端才被渲染
+	return isClient ? (
+		<iframe title='sport' data-target='sport_iframe' src={iframeUrl} />
+	) : null
 }
 
 export default Sports
