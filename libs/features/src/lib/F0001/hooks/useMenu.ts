@@ -152,8 +152,11 @@ const useMenu = () => {
 			loginCallback()
 			return
 		}
-
-		const host = process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		const host = typeof window === 'undefined' ? null : window.location.origin
+		const dbHost =
+			process.env.NODE_ENV === 'production'
+				? host
+				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
 		const signupUrl = `${host}/${paths.join.root}`
 		const loginUrl = `${host}/${paths.login.root}`
 		const errorUrl = `${process.env['NEXT_PUBLIC_ERROR_DOMAIN']}/404/index_${langId}.html`
@@ -170,7 +173,7 @@ const useMenu = () => {
 			searchParams.set('tpGameType', gameId)
 		}
 
-		const entPageUrl = `${host}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&${searchParams.toString()}`
+		const entPageUrl = `${dbHost}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&${searchParams.toString()}`
 
 		onWindowOpenProduct({
 			pathname: entPageUrl,
@@ -195,7 +198,12 @@ const useMenu = () => {
 		tpGameType?: number | null
 		appType?: number | null
 	}) => {
-		const host = process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		const host = typeof window === 'undefined' ? null : window.location.origin
+		// 實際帶的 host 位置，正式環境帶當前 domain , local 環境則帶 api proxy
+		const dbHost =
+			process.env.NODE_ENV === 'production'
+				? host
+				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
 		const signupUrl = `${host}/${paths.join.root}`
 		const loginUrl = `${host}/${paths.login.root}`
 		const errorUrl = `${process.env['NEXT_PUBLIC_ERROR_DOMAIN']}/404/index_${langId}.html`
@@ -220,7 +228,7 @@ const useMenu = () => {
 			)
 		}
 
-		const entPageUrl = `${host}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&CashierUrl=${cashierUrl}&${searchParams.toString()}`
+		const entPageUrl = `${dbHost}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&CashierUrl=${cashierUrl}&${searchParams.toString()}`
 
 		return entPageUrl
 	}
