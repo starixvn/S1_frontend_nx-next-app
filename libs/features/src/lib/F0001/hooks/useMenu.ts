@@ -170,7 +170,7 @@ const useMenu = () => {
 			searchParams.set('tpGameType', tpGameType)
 		}
 		if (gameId) {
-			searchParams.set('tpGameType', gameId)
+			searchParams.set('gameId', gameId)
 		}
 
 		const entPageUrl = `${dbHost}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&${searchParams.toString()}`
