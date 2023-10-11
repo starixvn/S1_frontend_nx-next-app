@@ -152,11 +152,11 @@ const useMenu = () => {
 			loginCallback()
 			return
 		}
+		const host = window.location.origin
 		const dbHost =
 			process.env.NODE_ENV === 'production'
-				? ''
+				? host
 				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
-		const host = window.location.origin
 		const signupUrl = `${host}/${paths.join.root}`
 		const loginUrl = `${host}/${paths.login.root}`
 		const errorUrl = `${process.env['NEXT_PUBLIC_ERROR_DOMAIN']}/404/index_${langId}.html`
@@ -198,11 +198,12 @@ const useMenu = () => {
 		tpGameType?: number | null
 		appType?: number | null
 	}) => {
+		const host = window.location.origin
+		// 實際帶的 host 位置，正式環境帶當前 domain , local 環境則帶 api proxy
 		const dbHost =
 			process.env.NODE_ENV === 'production'
-				? ''
+				? host
 				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
-		const host = window.location.origin
 		const signupUrl = `${host}/${paths.join.root}`
 		const loginUrl = `${host}/${paths.login.root}`
 		const errorUrl = `${process.env['NEXT_PUBLIC_ERROR_DOMAIN']}/404/index_${langId}.html`
