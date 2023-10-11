@@ -182,7 +182,7 @@ export const MENU_DATA = ({
 				menuActionType: MenuActionTypeEnum.EnterPage,
 			},
 			product: PRODUCTS['SPORTS_CRYPTO_SPORTS'],
-			allowCurrencies: true,
+			allowCurrencies: [],
 			subMenuAllowCurrenciesWithAuth: false,
 		},
 		[MenuKeyEnum.Sports]: {
@@ -219,6 +219,7 @@ export const MENU_DATA = ({
 					productKey: 'SPORTS_CRYPTO_SPORTS',
 					displayKey: 'Label_General_CryptoSports',
 					product: PRODUCTS['SPORTS_CRYPTO_SPORTS'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -676,7 +677,7 @@ export const MENU_DATA = ({
 			displayKey: 'Label_General_LiveCasino',
 			pathname: paths.liveCasino.root,
 			allowCurrencies: true,
-			subMenuAllowCurrenciesWithAuth: true,
+			subMenuAllowCurrenciesWithAuth: false,
 			subMenuSort: {
 				[MYR]: [
 					'LIVE_CASINO_PP',
@@ -793,6 +794,7 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_PP',
 					displayText: 'Pragmatic Play',
 					product: PRODUCTS['LIVE_CASINO_PP'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -862,6 +864,7 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_YEE_BET',
 					displayText: 'YeeBet',
 					product: PRODUCTS['LIVE_CASINO_YEE_BET'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -893,6 +896,7 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_SKY_WIND',
 					displayText: 'Skywind',
 					product: PRODUCTS['LIVE_CASINO_SKY_WIND'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -924,6 +928,7 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_MG',
 					displayText: 'Microgaming',
 					product: PRODUCTS['LIVE_CASINO_MG'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -986,6 +991,7 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_PT',
 					displayText: 'Playtech',
 					product: PRODUCTS['LIVE_CASINO_PT'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -1017,6 +1023,7 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_N2',
 					displayText: 'n2-LIVE',
 					product: PRODUCTS['LIVE_CASINO_N2'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -1048,7 +1055,8 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_WM',
 					displayText: 'WM Casino',
 					product: PRODUCTS['LIVE_CASINO_WM'],
-					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_WM'],
+					// allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_WM'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -1080,8 +1088,8 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_ALL_BET',
 					displayText: 'Allbet',
 					product: PRODUCTS['LIVE_CASINO_ALL_BET'],
-
-					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_ALL_BET'],
+					// allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_ALL_BET'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -1113,6 +1121,7 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_E_BET',
 					displayText: 'eBET',
 					product: PRODUCTS['LIVE_CASINO_E_BET'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -1237,6 +1246,7 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_AG',
 					displayText: 'Asia Gaming',
 					product: PRODUCTS['LIVE_CASINO_AG'],
+					allowCurrencies: [],
 				},
 			],
 		},
@@ -1253,7 +1263,7 @@ export const MENU_DATA = ({
 			},
 			displayKey: 'Label_General_Slots',
 			pathname: paths.slots.root,
-			subMenuAllowCurrenciesWithAuth: true,
+			subMenuAllowCurrenciesWithAuth: false,
 			subMenuSort: {
 				[THB]: [
 					'SLOTS_PP',
@@ -1388,6 +1398,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_PP'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_PP'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -1525,6 +1536,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_JILI'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_JILI'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -1606,6 +1618,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_NET_ENT'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_NET_ENT'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -1660,6 +1673,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_GPI'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_GPI'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -1687,6 +1701,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_YGG'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_YGG'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -1714,7 +1729,8 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_AMB'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_AMB'],
-					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_AMB'],
+					// allowCurrencies: ALLOWED_CURRENCIES['SLOTS_AMB'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -1742,6 +1758,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_HABANERO'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_HABANERO'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -1769,6 +1786,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_SIMPLE_PLAY'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_SIMPLE_PLAY'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -1796,6 +1814,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_SKY_WIND'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_SKY_WIND'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -1823,6 +1842,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_PT'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_PT'],
+					allowCurrencies: [],
 				},
 			],
 			allowCurrencies: true,
@@ -1897,7 +1917,8 @@ export const MENU_DATA = ({
 					productKey: 'GAMES_POKER_M_POKER',
 					displayText: 'MPoker',
 					product: PRODUCTS['GAMES_POKER_M_POKER'],
-					allowCurrencies: ALLOWED_CURRENCIES['GAMES_POKER_M_POKER'],
+					// allowCurrencies: ALLOWED_CURRENCIES['GAMES_POKER_M_POKER'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -1925,7 +1946,8 @@ export const MENU_DATA = ({
 					productKey: 'GAMES_POKER_AMB_POKER',
 					displayText: 'AMB Poker',
 					product: PRODUCTS['GAMES_POKER_AMB_POKER'],
-					allowCurrencies: ALLOWED_CURRENCIES['GAMES_POKER_AMB_POKER'],
+					// allowCurrencies: ALLOWED_CURRENCIES['GAMES_POKER_AMB_POKER'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -2171,6 +2193,7 @@ export const MENU_DATA = ({
 					productKey: 'GAME_GORUSH',
 					displayText: 'Go Rush',
 					product: PRODUCTS['GAME_GORUSH'],
+					allowCurrencies: [],
 				},
 			],
 			allowCurrencies: true,
@@ -2264,6 +2287,7 @@ export const MENU_DATA = ({
 					productKey: 'FISHING_HAIBA',
 					displayKey: 'Label_Product_Haiba',
 					product: PRODUCTS['FISHING_HAIBA'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -2290,6 +2314,7 @@ export const MENU_DATA = ({
 					productKey: 'FISHING_HUNTING_HAPPY_FISH_5',
 					displayKey: 'Label_Fishing_Hunting_Happy_Fish_5',
 					product: PRODUCTS['FISHING_HUNTING_HAPPY_FISH_5'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -2316,6 +2341,7 @@ export const MENU_DATA = ({
 					productKey: 'FISHING_HUNTING_MONSTER_AWAKEN',
 					displayKey: 'Label_Fishing_Hunting_Monster_Awaken',
 					product: PRODUCTS['FISHING_HUNTING_MONSTER_AWAKEN'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -2343,6 +2369,7 @@ export const MENU_DATA = ({
 					productKey: 'FISHING_CQ9_PARADISE',
 					displayKey: 'Label_Paradise',
 					product: PRODUCTS['FISHING_CQ9_PARADISE'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -2397,6 +2424,7 @@ export const MENU_DATA = ({
 					productKey: 'FISHING_SGW',
 					displayKey: 'Label_Fishing_FishingWar',
 					product: PRODUCTS['FISHING_SGW'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -2424,7 +2452,8 @@ export const MENU_DATA = ({
 					productKey: 'FISHING_SG',
 					displayKey: 'Label_Fishing_FishingGod',
 					product: PRODUCTS['FISHING_SG'],
-					allowCurrencies: ALLOWED_CURRENCIES['FISHING_SG'],
+					// allowCurrencies: ALLOWED_CURRENCIES['FISHING_SG'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -2452,7 +2481,8 @@ export const MENU_DATA = ({
 					productKey: 'FISHING_CQ9_ONE_SHOT_FISHING',
 					displayKey: 'Label_Oneshot_Fishing',
 					product: PRODUCTS['FISHING_CQ9_ONE_SHOT_FISHING'],
-					allowCurrencies: ALLOWED_CURRENCIES['FISHING_CQ9_ONE_SHOT_FISHING'],
+					// allowCurrencies: ALLOWED_CURRENCIES['FISHING_CQ9_ONE_SHOT_FISHING'],
+					allowCurrencies: [],
 				},
 			],
 			subMenuAllowCurrenciesWithAuth: false,
@@ -2493,6 +2523,7 @@ export const MENU_DATA = ({
 					productKey: 'LOTTERY_GPI_KENO',
 					displayKey: 'Label_Product_GPI_Keno',
 					product: PRODUCTS['LOTTERY_GPI_KENO'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -2519,7 +2550,8 @@ export const MENU_DATA = ({
 					productKey: 'LOTTERY_GPI_THAILOTTERY',
 					displayKey: 'Label_Product_GPI_ThaiLottery',
 					product: PRODUCTS['LOTTERY_GPI_THAILOTTERY'],
-					allowCurrencies: ALLOWED_CURRENCIES['LOTTERY_GPI_THAILOTTERY'],
+					// allowCurrencies: ALLOWED_CURRENCIES['LOTTERY_GPI_THAILOTTERY'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -2546,6 +2578,7 @@ export const MENU_DATA = ({
 					productKey: 'LOTTERY_GPI_FAST3',
 					displayKey: 'Label_Product_GPI_Fast3',
 					product: PRODUCTS['LOTTERY_GPI_FAST3'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
@@ -2573,6 +2606,7 @@ export const MENU_DATA = ({
 					productKey: 'LOTTERY_TCG',
 					displayKey: 'Label_Product_TcGame',
 					product: PRODUCTS['LOTTERY_TCG'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
