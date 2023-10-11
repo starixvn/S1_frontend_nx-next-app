@@ -195,7 +195,10 @@ const useMenu = () => {
 		tpGameType?: number | null
 		appType?: number | null
 	}) => {
-		const dbHost = process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		const dbHost =
+			process.env.NODE_ENV === 'production'
+				? ''
+				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
 		const host = typeof window !== `undefined` ? window.location.origin : null
 		const signupUrl = `${host}/${paths.join.root}`
 		const loginUrl = `${host}/${paths.login.root}`
