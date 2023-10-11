@@ -199,7 +199,7 @@ const useMenu = () => {
 			process.env.NODE_ENV === 'production'
 				? ''
 				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
-		const host = typeof window !== `undefined` ? window.location.origin : null
+		const host = window.location.origin
 		const signupUrl = `${host}/${paths.join.root}`
 		const loginUrl = `${host}/${paths.login.root}`
 		const errorUrl = `${process.env['NEXT_PUBLIC_ERROR_DOMAIN']}/404/index_${langId}.html`
