@@ -1,10 +1,9 @@
 @font-face {
-  font-family: 'icomoon';
+  font-family: "icomoon";
   src: url("../fonts/icomoon.woff?v=202003") format("woff");
 }
-
 .icon:before, .icon:after {
-  font-family: 'icomoon';
+  font-family: "icomoon";
   font-size: 5vw;
 }
 
@@ -25,7 +24,7 @@
 }
 
 .icon-information:before {
-  color: #5574A7;
+  color: rgba(215, 174, 120, 0.6) !important;
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
@@ -44,7 +43,7 @@
 .icon-new:before {
   font-size: 3vw;
   content: "New" !important;
-  font-family: 'Microsoft YaHei',sans-serif;
+  font-family: "Microsoft YaHei", sans-serif;
 }
 
 .icon-envelope:before {
@@ -74,10 +73,9 @@
   border-radius: 3px;
   font-size: 3vw;
 }
-
 .icon-live:before {
   content: "Live";
-  font-family: 'Microsoft YaHei',sans-serif;
+  font-family: "Microsoft YaHei", sans-serif;
 }
 
 .icon-line-bold:before {
@@ -634,6 +632,7 @@
 
 .icon-information:before {
   content: "\e951";
+  color: rgba(255, 42, 86, 0.8);
 }
 
 .icon-cake1:before {
@@ -1026,5 +1025,4 @@
 
 .icon-moon:before {
   content: "\e91d";
-}
-/*# sourceMappingURL=font.css.map */
+}/*# sourceMappingURL=font.css.map */

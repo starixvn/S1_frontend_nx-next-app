@@ -89,7 +89,7 @@ img {
 }
 
 .icon-information:before {
-  color: #5574A7;
+  color: rgba(215, 174, 120, 0.6) !important;
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
@@ -697,6 +697,7 @@ img {
 
 .icon-information:before {
   content: "\e951";
+  color: rgba(255, 42, 86, 0.8);
 }
 
 .icon-cake1:before {
@@ -1172,7 +1173,7 @@ div[tabindex="-1"] {
 }
 .switch > div.switchBg {
   position: absolute;
-  background: #112240;
+  background: #0a0a0a;
   width: 50%;
   height: 100%;
   border-radius: 30px;
@@ -1207,10 +1208,10 @@ div[tabindex="-1"] {
 }
 
 .register-line {
-  margin: 6vw 0;
-  color: #5574A7;
+  margin: 8vw 0 2vw;
+  color: rgba(10, 10, 10, 0.8);
   text-align: center;
-  font-size: 3.5vw;
+  font-size: 3vw;
 }
 .register-line .icon {
   margin-right: 1vw;
@@ -1251,6 +1252,7 @@ div[tabindex="-1"] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 20px;
 }
 .Join .dropdown.btn > div {
   display: -webkit-box;
@@ -1281,13 +1283,13 @@ div[tabindex="-1"] {
 .Join .Terms {
   padding: 0 2vw;
   margin: 2vw 0;
-  color: #5574A7;
+  color: #777777;
 }
 .Join .Terms.error {
   border: 1px solid #e92529;
 }
 .Join .Terms a {
-  color: #1E85EC;
+  color: #d7ae78;
   text-decoration: underline;
 }
 .Join .congrats {
@@ -1367,7 +1369,7 @@ header {
   width: 100%;
   position: fixed;
   top: 0;
-  background: #112240;
+  background: rgb(10, 10, 10);
   -ms-flex-flow: wrap;
       flex-flow: wrap;
   display: -webkit-box;
@@ -1394,6 +1396,8 @@ header .headerModule {
       -ms-flex-pack: justify;
           justify-content: space-between;
   position: relative;
+  -webkit-box-shadow: 0 2px 8px 1px rgba(255, 255, 255, 0.3);
+          box-shadow: 0 2px 8px 1px rgba(255, 255, 255, 0.3);
 }
 header .headerModule > a {
   display: -webkit-box;
@@ -1409,8 +1413,10 @@ header .headerModule > a {
           clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
 }
 header .headerModule > a img {
-  width: 24vw;
-  margin-left: 2vw;
+  width: 30vw;
+  margin-left: 3vw;
+  -webkit-filter: drop-shadow(2px 1px 1px rgba(10, 10, 10, 0.35));
+          filter: drop-shadow(2px 1px 1px rgba(10, 10, 10, 0.35));
 }
 header .headerModule > div {
   display: -webkit-box;
@@ -1437,7 +1443,7 @@ header .headerModule .headerInfo span {
   margin-right: 1vw;
 }
 header .headerModule .headerInfo .MemberID {
-  color: white;
+  color: #CDAE8E;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1445,6 +1451,7 @@ header .headerModule .headerInfo .MemberID {
       -ms-flex-align: center;
           align-items: center;
   margin-left: 1vw;
+  font-weight: 600;
 }
 header .splogo {
   position: absolute;
@@ -1550,7 +1557,7 @@ header button.clickBtn::before {
   font-size: 3vw;
   color: white;
   padding: 1vw 3vw;
-  background: #112240;
+  background: rgba(255, 42, 86, 0.9);
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -1566,7 +1573,7 @@ header button.clickBtn::before {
   font-weight: 700;
 }
 .headerButton > button.loginBtn, .headerButton > a.loginBtn {
-  background: #FF5E00;
+  background: rgb(10, 10, 10);
 }
 
 #Marquee {
@@ -1633,7 +1640,7 @@ header button.clickBtn::before {
 }
 
 .icon-new {
-  background: #F77A00;
+  background: rgba(255, 42, 86, 0.95);
   padding: 0 1vw;
   border-radius: 3px;
 }
@@ -1642,9 +1649,6 @@ main {
   width: 100%;
   padding: 12vw 0 0;
   overflow: hidden;
-}
-main.active {
-  padding: 22vw 0 0;
 }
 main .swiper-container {
   position: relative;
@@ -1658,7 +1662,10 @@ main .swiper-container .swiper-slide.swiper-slide-active {
           justify-content: center;
 }
 main .swiper-container .swiper-pagination-bullet-active {
-  background: #5574A7;
+  background: #bea082;
+}
+main .swiper-container .swiper-pagination-bullet {
+  background-color: #d6b594;
 }
 main .banner {
   height: 37.5vw;
@@ -1713,10 +1720,11 @@ main .sideBar button, main .sideBar a {
 }
 main .sideBar button i:not(.icon-new):not(.icon-live):not(.icon-mediafire):before, main .sideBar a i:not(.icon-new):not(.icon-live):not(.icon-mediafire):before {
   font-size: 8vw;
+  color: rgb(10, 10, 10);
 }
 main .sideBar button i:not(.icon-new):not(.icon-live):not(.icon-mediafire) + div, main .sideBar a i:not(.icon-new):not(.icon-live):not(.icon-mediafire) + div {
-  color: #5574A7;
   font-size: 3vw;
+  color: rgb(10, 10, 10);
 }
 main .sideBar button i.icon-new, main .sideBar button i.icon-live, main .sideBar a i.icon-new, main .sideBar a i.icon-live {
   color: white;
@@ -1744,6 +1752,9 @@ main .sideBar button.active i, main .sideBar a.active i {
   color: white;
 }
 main .sideBar button.active i:not(.icon-new):not(.icon-live) + div, main .sideBar a.active i:not(.icon-new):not(.icon-live) + div {
+  color: white;
+}
+main .sideBar button.active i:not(.icon-new):not(.icon-live)::before, main .sideBar a.active i:not(.icon-new):not(.icon-live)::before {
   color: white;
 }
 main .sideBar button.event, main .sideBar a.event {
@@ -1824,7 +1835,7 @@ main .gameList {
   display: flex;
   -ms-flex-flow: wrap;
       flex-flow: wrap;
-  background: #f3f3f3;
+  background: #b2b2b2;
   padding: 2vw;
   border: 1px solid #e2e2e2;
 }
@@ -1892,19 +1903,19 @@ main .gameList > div > div .switchbtn, main .gameList > div > a .switchbtn, main
   width: 100%;
 }
 main .gameList > div > div .switchbtn a, main .gameList > div > div .switchbtn button, main .gameList > div > a .switchbtn a, main .gameList > div > a .switchbtn button, main .gameList > div > button .switchbtn a, main .gameList > div > button .switchbtn button, main .gameList > a > div .switchbtn a, main .gameList > a > div .switchbtn button, main .gameList > a > a .switchbtn a, main .gameList > a > a .switchbtn button, main .gameList > a > button .switchbtn a, main .gameList > a > button .switchbtn button, main .gameList > button > div .switchbtn a, main .gameList > button > div .switchbtn button, main .gameList > button > a .switchbtn a, main .gameList > button > a .switchbtn button, main .gameList > button > button .switchbtn a, main .gameList > button > button .switchbtn button {
-  font-size: 3vw;
+  font-size: 4vw;
   -webkit-transform: scale(0.5);
           transform: scale(0.5);
   -webkit-transform-origin: right;
           transform-origin: right;
-  width: 20vw;
+  width: 24.5vw;
   margin: -2vw 0 0 0;
   border-radius: 5px;
   min-height: 6vw;
-  background: #FF5E00;
+  background: rgb(255, 42, 86);
 }
 main .gameList > div > div .switchbtn a:first-child, main .gameList > div > div .switchbtn button:first-child, main .gameList > div > a .switchbtn a:first-child, main .gameList > div > a .switchbtn button:first-child, main .gameList > div > button .switchbtn a:first-child, main .gameList > div > button .switchbtn button:first-child, main .gameList > a > div .switchbtn a:first-child, main .gameList > a > div .switchbtn button:first-child, main .gameList > a > a .switchbtn a:first-child, main .gameList > a > a .switchbtn button:first-child, main .gameList > a > button .switchbtn a:first-child, main .gameList > a > button .switchbtn button:first-child, main .gameList > button > div .switchbtn a:first-child, main .gameList > button > div .switchbtn button:first-child, main .gameList > button > a .switchbtn a:first-child, main .gameList > button > a .switchbtn button:first-child, main .gameList > button > button .switchbtn a:first-child, main .gameList > button > button .switchbtn button:first-child {
-  background: #5574A7;
+  background: #a88c6f;
   margin-bottom: 0;
 }
 main .gameList > div > div .switchbtn a:hover, main .gameList > div > div .switchbtn button:hover, main .gameList > div > a .switchbtn a:hover, main .gameList > div > a .switchbtn button:hover, main .gameList > div > button .switchbtn a:hover, main .gameList > div > button .switchbtn button:hover, main .gameList > a > div .switchbtn a:hover, main .gameList > a > div .switchbtn button:hover, main .gameList > a > a .switchbtn a:hover, main .gameList > a > a .switchbtn button:hover, main .gameList > a > button .switchbtn a:hover, main .gameList > a > button .switchbtn button:hover, main .gameList > button > div .switchbtn a:hover, main .gameList > button > div .switchbtn button:hover, main .gameList > button > a .switchbtn a:hover, main .gameList > button > a .switchbtn button:hover, main .gameList > button > button .switchbtn a:hover, main .gameList > button > button .switchbtn button:hover {
@@ -1930,7 +1941,7 @@ main .gameList > div > div img + div, main .gameList > div > a img + div, main .
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 76%;
-  color: #5574A7;
+  color: rgb(10, 10, 10);
   padding: 0 12%;
   bottom: 1vw;
   max-height: 5vw;
@@ -1972,9 +1983,9 @@ footer > a {
   border-top-right-radius: 1vw;
   -webkit-transition: 0.7s;
   transition: 0.7s;
-  color: #112240;
+  color: rgb(10, 10, 10);
   background: white;
-  border-right: 2px solid #112240;
+  border-right: 2px solid rgba(10, 10, 10, 0.6);
 }
 footer > a:nth-child(5) {
   border-right: 0;
@@ -2114,7 +2125,7 @@ footer > a:last-child {
   border-right: 0;
 }
 footer > a .icon-envelope {
-  color: #e92529;
+  color: rgb(255, 42, 86);
   position: absolute;
   top: 1vw;
   right: 3vw;
@@ -2147,9 +2158,10 @@ footer > a span {
   white-space: nowrap;
   position: absolute;
   bottom: 0.5vw;
+  font-weight: 600;
 }
 footer > a.active {
-  border-bottom: 2px solid #FF5E00;
+  border-bottom: 2px solid #bea082;
   color: #5574A7;
   -webkit-transition: 0.7s;
   transition: 0.7s;
@@ -2163,7 +2175,7 @@ footer > a.active:before {
   top: -4.5vw;
   -webkit-transition: 0.7s;
   transition: 0.7s;
-  background: #FF5E00;
+  background: #bea082;
   font-size: 4vw;
   width: 6vw;
   height: 6vw;
@@ -2188,13 +2200,13 @@ footer > a.active .circleAnimation {
   width: calc(20vw - 2px);
 }
 footer > a.active .circleAnimation + span {
-  color: #FF5E00;
+  color: #CDAE8E;
 }
 footer > a.active .circleAnimation::before {
-  background: rgba(255, 94, 0, 0.4901960784);
+  background: #bea082;
 }
 footer > a.active .circleAnimation::after {
-  background: rgba(255, 94, 0, 0.4901960784);
+  background: #CDAE8E;
 }
 
 .circleAnimation {
@@ -2346,7 +2358,7 @@ footer > a.active .circleAnimation::after {
   padding: 2vw 0 2vw 2vw;
   font-size: 3vw;
   min-height: 8.27vw;
-  color: #5574A7;
+  color: #8b8b8b;
 }
 .dropdown.dropdownbank {
   height: 12vw;
@@ -2357,9 +2369,9 @@ footer > a.active .circleAnimation::after {
 .dropdown ~ .dropdown-container {
   display: none;
   position: absolute;
-  background: #ecf3fd;
+  background: #dfdfdf;
   z-index: 2;
-  border: 1px solid #5574A7;
+  border: 1px solid #8b8b8b;
   border-top: 0;
   width: 100%;
   margin: 0 0 0 -1px;
@@ -2367,7 +2379,7 @@ footer > a.active .circleAnimation::after {
   top: 8vw;
   max-height: 45vw;
   overflow-y: scroll;
-  color: #5574A7;
+  color: #777777;
 }
 .dropdown ~ .dropdown-container.active {
   display: block;
@@ -3418,7 +3430,7 @@ footer > a.active .circleAnimation::after {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: #747474;
+  color: rgba(10, 10, 10, 0.5);
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3431,7 +3443,7 @@ footer > a.active .circleAnimation::after {
 }
 .header .headerTag > a.active, .header .headerTag > button.active {
   color: white;
-  background: #112240;
+  background: rgb(10, 10, 10);
 }
 .header .headerTag > a.active .quantity, .header .headerTag > button.active .quantity {
   color: white;
@@ -3440,7 +3452,7 @@ footer > a.active .circleAnimation::after {
 .header .title {
   width: 100%;
   height: 12vw;
-  background: #112240;
+  background: #0a0a0a;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3957,7 +3969,7 @@ footer > a.active .circleAnimation::after {
 .Balance .icon-minus:after, .Balance .icon-plus:after {
   font-size: 3.5vw;
   background: white;
-  color: #5574A7;
+  color: rgb(10, 10, 10);
   border-radius: 100%;
   margin-left: 1vw;
 }
@@ -3980,6 +3992,7 @@ footer > a.active .circleAnimation::after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  color: #CDAE8E;
 }
 
 .name {
@@ -3996,10 +4009,10 @@ footer > a.active .circleAnimation::after {
 .infoList .info {
   border-radius: 5px;
   padding: 4vw;
-  background: #D2E2F9;
+  background: #dddddd;
 }
 .infoList .info:nth-child(even) {
-  background: rgba(210, 226, 249, 0.5);
+  background: rgba(221, 221, 221, 0.35);
 }
 
 .openPopup {
@@ -4011,14 +4024,14 @@ footer > a.active .circleAnimation::after {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  padding: 0 3vw;
-  border-radius: 3px;
-  font-weight: bold;
+  padding: 0.3vw 3vw;
+  border-radius: 25px;
   min-width: 15vw;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   color: white;
+  font-size: 2.5vw;
 }
 
 .reject {
@@ -4026,14 +4039,14 @@ footer > a.active .circleAnimation::after {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  padding: 0 3vw;
-  border-radius: 3px;
-  font-weight: bold;
+  padding: 0.3vw 3vw;
+  border-radius: 25px;
   min-width: 15vw;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   color: white;
+  font-size: 2.5vw;
 }
 
 .cancelled {
@@ -4041,14 +4054,14 @@ footer > a.active .circleAnimation::after {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  padding: 0 3.2vw;
-  border-radius: 3px;
-  font-weight: bold;
+  padding: 0.3vw 3vw;
+  border-radius: 25px;
   min-width: 15vw;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   color: white;
+  font-size: 2.5vw;
 }
 
 .pending {
@@ -4057,13 +4070,13 @@ footer > a.active .circleAnimation::after {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  padding: 0 3vw;
-  border-radius: 3px;
-  font-weight: bold;
+  padding: 0.3vw 3vw;
+  border-radius: 25px;
   min-width: 15vw;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  font-size: 2.5vw;
 }
 
 .pending, .reject, .cancelled, .approved {
@@ -4082,6 +4095,8 @@ footer > a.active .circleAnimation::after {
   margin-left: 1vw;
   position: absolute;
   right: -6vw;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
 }
 
 .info ul {
@@ -4091,7 +4106,7 @@ footer > a.active .circleAnimation::after {
   float: left;
   width: 49%;
   line-height: 24px;
-  color: #666;
+  color: #dfdfdf;
 }
 .info ul li span {
   display: -webkit-box;
@@ -4099,7 +4114,7 @@ footer > a.active .circleAnimation::after {
   display: flex;
 }
 .info ul li span.title {
-  color: #5574A7;
+  color: rgb(10, 10, 10);
 }
 .info ul li span.title button.icon, .info ul li span.title i.icon {
   border-radius: 100%;
@@ -4141,7 +4156,7 @@ footer > a.active .circleAnimation::after {
   color: #a5aab1;
 }
 .info > div:not(.btn-group) > div.title {
-  color: #5574A7;
+  color: rgb(10, 10, 10);
 }
 .info > div:not(.btn-group) button {
   position: absolute;
@@ -4167,12 +4182,12 @@ footer > a.active .circleAnimation::after {
 .inputInfo {
   text-align: left;
   display: none;
-  background: #a5bbe0;
+  background: #d7ae78;
   border-radius: 5px;
   padding: 2vw;
   position: relative;
   word-break: break-word;
-  color: #5574A7;
+  color: #fff;
 }
 .inputInfo:before {
   content: "";
@@ -4180,7 +4195,7 @@ footer > a.active .circleAnimation::after {
   height: 0;
   border-width: 2vw 2vw 0 2vw;
   border-style: solid dashed dashed;
-  border-color: #a5bbe0 transparent transparent;
+  border-color: #d7ae78 transparent transparent;
   position: absolute;
   bottom: -1.5vw;
   right: 3vw;
@@ -4269,7 +4284,7 @@ footer > a.active .circleAnimation::after {
 }
 .infoModule.parts .phone .dropdown-container .inputBox, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event {
   border-radius: 0;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.8);
   margin-top: 0;
   position: sticky;
   top: 0;
@@ -4380,7 +4395,7 @@ footer > a.active .circleAnimation::after {
   padding: 0 2vw;
   -ms-flex-flow: wrap;
       flex-flow: wrap;
-  border: 1px solid #5574A7;
+  border: 1px solid rgba(10, 10, 10, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4457,7 +4472,7 @@ footer > a.active .circleAnimation::after {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.6);
   font-weight: normal;
 }
 .inputBox > .icon-module, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event > .icon-module, .worldcupEvent .event .event-content .inputBox-event > .icon-module {
@@ -4503,7 +4518,7 @@ footer > a.active .circleAnimation::after {
 }
 .quickSelect + .functionList .icon-icon32px_1 {
   margin: 0 0 0 1vw;
-  color: #5574A7;
+  color: rgba(255, 42, 86, 0.75);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4597,8 +4612,8 @@ footer > a.active .circleAnimation::after {
   color: #c6d4f1;
 }
 .btn-group button, .btn-group a, .btn-group .submit {
-  background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
-  background: linear-gradient(to bottom, #435F8B, #6383B9);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(6%, #d7ae78), color-stop(34%, #d1b37d), to(rgba(138, 89, 56, 0.7019607843)));
+  background: linear-gradient(0deg, #d7ae78 6%, #d1b37d 34%, rgba(138, 89, 56, 0.7019607843) 100%);
   width: 100%;
   border-radius: 3px;
   padding: 2vw;
@@ -4615,7 +4630,7 @@ footer > a.active .circleAnimation::after {
       -ms-flex: 1;
           flex: 1;
   position: relative;
-  font-size: 3vw;
+  font-size: 3.5vw;
 }
 .btn-group button i, .btn-group a i, .btn-group .submit i {
   margin: 0 0 0 2vw;
@@ -4639,8 +4654,8 @@ footer > a.active .circleAnimation::after {
   background: linear-gradient(270deg, #556D97 0%, #112240 100%);
 }
 .btn-group button.cancel, .btn-group a.cancel, .btn-group .submit.cancel {
-  background: -webkit-gradient(linear, left top, left bottom, from(#95aacf), to(#bdcbe2));
-  background: linear-gradient(to bottom, #95aacf, #bdcbe2);
+  background: #b2b2b2;
+  color: #666;
 }
 .btn-group button.white, .btn-group a.white, .btn-group .submit.white {
   background: -webkit-gradient(linear, left top, left bottom, from(#95aacf), to(#bdcbe2));
@@ -4650,7 +4665,7 @@ footer > a.active .circleAnimation::after {
   background: #949494;
 }
 .btn-group button.orange, .btn-group a.orange, .btn-group .submit.orange {
-  background: #F77A00;
+  background: rgb(255, 42, 86);
 }
 .btn-group button.red, .btn-group a.red, .btn-group .submit.red {
   background: #e92529;
@@ -4660,7 +4675,7 @@ footer > a.active .circleAnimation::after {
   color: white;
   line-height: 1;
   padding: 2vw;
-  margin: 0;
+  margin: 0 15vw;
 }
 .btn-group button.btn-line .icon, .btn-group a.btn-line .icon, .btn-group .submit.btn-line .icon {
   font-size: 18px;
@@ -4677,7 +4692,7 @@ footer > a.active .circleAnimation::after {
   color: #284985;
 }
 .btn-group .recentBtn {
-  background: #112240;
+  background: rgb(10, 10, 10);
 }
 
 .bankAccount {
@@ -5085,29 +5100,29 @@ input {
       -ms-flex: auto;
           flex: auto;
   padding: 2vw;
-  color: #5574A7;
+  color: rgba(255, 42, 86, 0.9);
   border: 0;
   outline: none;
   font-size: 3.6vw;
 }
 input::-webkit-input-placeholder {
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.45);
   text-align: left;
 }
 input::-moz-placeholder {
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.45);
   text-align: left;
 }
 input:-ms-input-placeholder {
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.45);
   text-align: left;
 }
 input::-ms-input-placeholder {
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.45);
   text-align: left;
 }
 input::placeholder {
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.45);
   text-align: left;
 }
 input[type=file] {
@@ -5129,7 +5144,7 @@ input[type=checkbox] + label {
 }
 
 button.clickBtn {
-  background: #5574A7;
+  background: rgba(255, 42, 86, 0.75);
   border-radius: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5165,12 +5180,12 @@ button.clickBtn:before {
   position: relative;
   background: white;
   font-size: 3vw;
-  border: 1px solid #bfcce2;
-  color: #5574A7;
+  border: 1px solid rgba(10, 10, 10, 0.5);
+  color: rgba(10, 10, 10, 0.7);
 }
 .buttonBox button.active {
   color: white;
-  background: #F77A00;
+  background: rgb(255, 42, 86);
 }
 .buttonBox button[disabled] {
   background: #e6e6e6;
@@ -5248,7 +5263,9 @@ button.clickBtn:before {
   right: 5vw;
   width: 10vw;
   height: 10vw;
-  background: #FF5E00;
+  background: rgb(255, 42, 86);
+  -webkit-box-shadow: 0 2px 5px 0 rgba(10, 10, 10, 0.6);
+          box-shadow: 0 2px 5px 0 rgba(10, 10, 10, 0.6);
   border-radius: 100%;
   z-index: 1;
 }
@@ -5581,6 +5598,7 @@ input[type=date] {
   resize: none;
   font-size: 12px;
   white-space: nowrap;
+  color: rgba(10, 10, 10, 0.8);
 }
 
 ::-webkit-datetime-edit {
@@ -6741,7 +6759,7 @@ span.important {
   margin: 0 2vw 0 0;
 }
 .rollover > div:not(.account) > div:nth-child(2) {
-  color: #666;
+  color: #dfdfdf;
 }
 
 .resend {
@@ -8474,7 +8492,7 @@ span.important {
 .depositModule {
   width: calc(100% - 6vw - 2px);
   margin: auto;
-  background: #D2E2F9;
+  background: #f0f0f0;
   padding: 3vw;
   border-radius: 0 0 5px 5px;
   display: none;
@@ -8492,7 +8510,7 @@ span.important {
 }
 .depositModule > .title:not(.text-org) {
   font-weight: normal;
-  background: #112240;
+  background: rgb(10, 10, 10);
   padding: 5px;
   border-radius: 5px 5px 0 0;
   margin: 4vw 0 0;
@@ -8501,7 +8519,7 @@ span.important {
   margin-right: 1vw;
 }
 .depositModule > .title > span.text-org {
-  color: white;
+  color: rgb(255, 42, 86);
 }
 .depositModule > .title.fast:after {
   content: "";
@@ -8512,13 +8530,13 @@ span.important {
   margin-left: 1vw;
 }
 .depositModule .selectModule {
-  background: #f5f5f5;
+  background: #dddddd;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   border-radius: 0 0 5px 5px;
   padding: 2vw;
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.8);
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
@@ -8537,10 +8555,11 @@ span.important {
   font-size: 2.5vw;
   text-overflow: ellipsis;
   overflow: hidden;
+  color: rgb(10, 10, 10);
 }
 .depositModule .selectModule > div .subinfo {
   font-size: 2.5vw;
-  color: #505050;
+  color: rgba(10, 10, 10, 0.7);
   margin-bottom: 1vw;
 }
 .depositModule .selectModule > div .subinfo span {
@@ -8688,7 +8707,7 @@ span.important {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(40, 73, 133, 0.6);
+  background: rgba(10, 10, 10, 0.6);
   border-radius: 5px;
   z-index: 1;
 }
@@ -8707,7 +8726,7 @@ span.important {
   color: #5574A7;
 }
 .depositModule .selectModule .bankName .bank > div:last-child {
-  color: #666;
+  color: #dfdfdf;
 }
 .depositModule .selectModule .bankName img {
   width: auto;
@@ -8718,7 +8737,7 @@ span.important {
   position: absolute;
   right: 0.5vw;
   bottom: -1vw;
-  color: #F77A00;
+  color: rgb(255, 42, 86);
   z-index: 2;
   display: none;
 }
@@ -8727,8 +8746,8 @@ span.important {
   border-radius: 10vw;
 }
 .depositModule .selectModule .bankName.active {
-  -webkit-box-shadow: 0 0 0 2px #F77A00;
-          box-shadow: 0 0 0 2px #F77A00;
+  -webkit-box-shadow: 0 0 0 2px rgb(255, 42, 86);
+          box-shadow: 0 0 0 2px rgb(255, 42, 86);
 }
 .depositModule .selectModule .bankName.active .icon-icon32px_check {
   display: block;
@@ -8876,7 +8895,7 @@ span.important {
 }
 
 .submenu {
-  background: #E4E4E4;
+  background: #f3f3f3;
   padding: 2vw 2vw 0;
 }
 .submenu > div {
@@ -8906,7 +8925,7 @@ span.important {
   color: #5574A7;
 }
 .submenu > div.thBar a i {
-  background: #112240;
+  background: #bea082;
   padding: 2vw 1vw;
   border-radius: 5px;
   width: 8vw;
@@ -8928,7 +8947,7 @@ span.important {
   font-size: 7vw;
 }
 .submenu > div.thBar a span {
-  color: #112240;
+  color: #bea082;
   font-weight: 700;
 }
 
@@ -8938,6 +8957,7 @@ span.important {
   display: flex;
   padding: 0 2vw;
   position: relative;
+  margin-bottom: 10vw;
 }
 .hotGame .swiper-pagination, .promos .swiper-pagination {
   bottom: -4vw !important;
@@ -8946,7 +8966,7 @@ span.important {
   background: #F8F7F6;
   min-width: 55vw;
   max-width: 45vw;
-  color: #666;
+  color: #dfdfdf;
   margin: 0 2vw 0 0;
   border-radius: 5px;
   overflow: hidden;
@@ -8978,13 +8998,16 @@ span.important {
 }
 .hotGame .hotGamModule > div:not(.btn-group):nth-child(2), .hotGame .promosModule > div:not(.btn-group):nth-child(2), .promos .hotGamModule > div:not(.btn-group):nth-child(2), .promos .promosModule > div:not(.btn-group):nth-child(2) {
   font-weight: bold;
-  color: #5574A7;
+  color: rgb(10, 10, 10);
   margin-top: 1.5vw;
+  font-size: 3.5vw;
+  text-transform: uppercase;
 }
 .hotGame .hotGamModule > div:not(.btn-group):nth-child(3), .hotGame .promosModule > div:not(.btn-group):nth-child(3), .promos .hotGamModule > div:not(.btn-group):nth-child(3), .promos .promosModule > div:not(.btn-group):nth-child(3) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: #8b8b8b;
 }
 
 .promos .promosModule {
@@ -9011,6 +9034,8 @@ span.important {
 }
 .promos .promosModule > div.btn-group button {
   padding: 2vw 0;
+  background: -webkit-gradient(linear, left top, right top, color-stop(6%, rgb(215, 174, 120)), color-stop(34%, rgb(209, 179, 125)), to(rgb(138, 89, 56)));
+  background: linear-gradient(90deg, rgb(215, 174, 120) 6%, rgb(209, 179, 125) 34%, rgb(138, 89, 56) 100%);
 }
 
 .hotGame .hotGamModule .hotgametitle {
@@ -9027,7 +9052,7 @@ span.important {
   color: #878787;
 }
 .hotGame .hotGamModule .hotgametitle > div .hotgame-name {
-  color: #5574A7;
+  color: rgb(10, 10, 10);
 }
 .hotGame .hotGamModule > div.btn-group {
   overflow: hidden;
@@ -9035,13 +9060,9 @@ span.important {
   margin-left: 30vw;
 }
 .hotGame .hotGamModule > div.btn-group button {
-  background: -webkit-gradient(linear, left top, right top, color-stop(30%, #ff5e00), to(#f39519));
-  background: linear-gradient(90deg, #ff5e00 30%, #f39519 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(6%, rgb(215, 174, 120)), color-stop(34%, rgb(209, 179, 125)), to(rgb(138, 89, 56)));
+  background: linear-gradient(90deg, rgb(215, 174, 120) 6%, rgb(209, 179, 125) 34%, rgb(138, 89, 56) 100%);
   padding-right: 3vw;
-}
-.hotGame .hotGamModule > div.btn-group button:hover {
-  background: -webkit-gradient(linear, left top, right top, color-stop(30%, #c71e00), to(#fa735b));
-  background: linear-gradient(90deg, #c71e00 30%, #fa735b 100%);
 }
 
 .friendReferral {
@@ -9142,7 +9163,7 @@ span.important {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: url(https://banner.0814media.net/h5/img/gamenamebg.png) no-repeat center top/cover;
+  background: url(../img/gamenamebg.png) no-repeat center top/cover;
 }
 @media (max-width: 325px) {
   .upcomingmatches .swiper-slide .teamNew .gamename {
@@ -9172,7 +9193,7 @@ span.important {
 }
 .upcomingmatches .swiper-slide .teamNew > div.odds > div {
   height: 9vw;
-  background: rgba(29, 54, 98, 0.5);
+  background: rgba(251, 233, 197, 0.2);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9182,10 +9203,10 @@ span.important {
   font-weight: normal;
 }
 .upcomingmatches .swiper-slide .teamNew > div.odds > div > div:nth-child(2) {
-  color: #9ac2f3;
+  color: rgb(251, 233, 197);
 }
 .upcomingmatches .swiper-slide .teamNew > div.odds > div:nth-child(2) {
-  background: rgba(7, 58, 139, 0.6);
+  background: rgba(251, 233, 197, 0.4);
 }
 .upcomingmatches .swiper-slide .teamNew > div > div {
   -webkit-box-flex: 1;
@@ -9244,7 +9265,8 @@ span.important {
   text-overflow: ellipsis;
 }
 .upcomingmatches .swiper-slide .teamNew > div > div.teamL > div:nth-child(3), .upcomingmatches .swiper-slide .teamNew > div > div.teamR > div:nth-child(3) {
-  color: #F77A00;
+  font-size: 3.5vw;
+  color: rgb(255, 42, 86);
 }
 .upcomingmatches .swiper-slide .teamNew > div > div.teamR .odds {
   left: unset;
@@ -9260,14 +9282,10 @@ span.important {
 }
 .upcomingmatches .swiper-slide .teamNew > div > div.btn-group button {
   border-radius: 10vw;
-  padding: 1vw 2vw;
+  padding: 2vw 6vw;
   width: auto;
-  background: -webkit-gradient(linear, left top, right top, color-stop(30%, #ff5e00), to(#f39519));
-  background: linear-gradient(90deg, #ff5e00 30%, #f39519 100%);
-}
-.upcomingmatches .swiper-slide .teamNew > div > div.btn-group button:hover {
-  background: -webkit-gradient(linear, left top, right top, color-stop(30%, #c71e00), to(#fa735b));
-  background: linear-gradient(90deg, #c71e00 30%, #fa735b 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(6%, rgb(215, 174, 120)), color-stop(34%, rgb(209, 179, 125)), to(rgb(138, 89, 56)));
+  background: linear-gradient(90deg, rgb(215, 174, 120) 6%, rgb(209, 179, 125) 34%, rgb(138, 89, 56) 100%);
 }
 
 .liveTvTag {
@@ -9384,7 +9402,7 @@ span.important {
   font-weight: bold;
 }
 .liveTv > .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
-  color: #666;
+  color: #dfdfdf;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -9467,7 +9485,7 @@ span.important {
 
 .aff {
   text-align: center;
-  background: #112240;
+  background: rgb(10, 10, 10);
   padding: 0 0 20vw;
   margin: 0 2vw 0;
 }
@@ -9478,7 +9496,7 @@ span.important {
 }
 
 .footerModule {
-  background: #112240;
+  background: rgb(10, 10, 10);
   padding-top: 3vw;
 }
 .footerModule .middle {
@@ -9610,7 +9628,7 @@ span.important {
 }
 
 .moduleTitle {
-  background: url(https://banner.0814media.net/h5/img/homepage/titlebg.png) no-repeat;
+  background: url(../img/homepage/titlebg.png) no-repeat;
   margin: 8vw 2vw 3vw;
   font-weight: bold;
   padding: 0 0 1vw 5vw;
@@ -9623,7 +9641,7 @@ span.important {
 .moduleTitle > a {
   position: absolute;
   right: 1vw;
-  color: #5574A7;
+  color: rgb(209, 179, 125);
   font-size: 3vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9634,7 +9652,7 @@ span.important {
 }
 .moduleTitle > a::after {
   content: "";
-  background: url(https://banner.0814media.net/h5/img/homepage/more.png) no-repeat;
+  background: url(../img/homepage/more.png) no-repeat;
   width: 20px;
   height: 20px;
   margin: 1vw 1vw 0;
@@ -9978,7 +9996,7 @@ span.important {
   position: relative;
 }
 .rememberMode > .icon {
-  color: #5574A7;
+  color: rgba(255, 42, 86, 0.7);
   position: absolute;
   right: 0;
   top: 2vw;
@@ -10012,7 +10030,7 @@ span.important {
 
 .important {
   background: #e2e2e2;
-  color: #666;
+  color: #dfdfdf;
   padding: 4vw;
 }
 .important .title {
@@ -10041,7 +10059,7 @@ span.important {
   font-weight: bold;
 }
 .important li a, .important li button {
-  color: #5574A7;
+  color: #d7ae78;
 }
 
 .formula {
@@ -10243,7 +10261,7 @@ span.important {
 
 .features {
   background: #e2e2e2;
-  color: #838383;
+  color: #777777;
   border-radius: 5px;
   float: left;
   font-size: 3vw;
@@ -10256,16 +10274,20 @@ span.important {
 }
 .features .title {
   text-align: left;
-  color: #5574A7;
+  color: #fff;
   margin: 0;
   font-size: 3vw;
 }
 .features .title:nth-child(1) {
-  background: #5574A7;
+  background: #0a0a0a;
   color: white;
   font-size: 4vw;
   padding: 2vw 3vw;
   border-radius: 5px 5px 0 0;
+}
+.features .title:nth-child(2), .features .title:last-of-type {
+  color: #0a0a0a;
+  font-size: 3.2vw;
 }
 .features .title span:before {
   font-size: 4vw;
@@ -10376,7 +10398,6 @@ span.important {
   position: absolute;
   top: -23vw;
   right: -6vw;
-  pointer-events: none;
 }
 .jpot .jpot-btn {
   width: 40%;
@@ -10433,7 +10454,7 @@ span.important {
 }
 .swithModule {
   text-align: center;
-  color: #5574A7 !important;
+  color: rgb(10, 10, 10);
   font-size: 12px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10446,8 +10467,8 @@ span.important {
 .swithModule .switchBtn {
   width: 60px;
   height: 28px;
-  border: 1px solid #f3f3f3;
-  background: #666;
+  border: 1px solid #b2b2b2;
+  background: #dfdfdf;
   border-radius: 28px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11353,7 +11374,7 @@ span.important {
   width: 80vw;
   padding: 7vw;
   border-radius: 10px;
-  background: #f3f3f3;
+  background: #b2b2b2;
 }
 .slotpopup .slotFunction .icon-cancel-circle {
   position: absolute;
@@ -12347,9 +12368,6 @@ span.important {
 .flag.gb:before {
   background: url(https://banner.0814media.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
 }
-.flag.kh:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
-}
 
 .addressModule {
   margin-top: 5vw;
@@ -13223,7 +13241,11 @@ span.important {
 }
 .mainWallet .account {
   padding: 2.5vw 3vw;
-  background: #E4E4E4;
+  background: #d7ae78;
+  color: rgb(10, 10, 10);
+}
+.mainWallet .account > div:nth-child(2) {
+  color: rgb(138, 89, 56);
 }
 .mainWallet .account .icon:before {
   font-size: 3vw;
@@ -14270,13 +14292,4 @@ input:-webkit-autofill:active {
   margin: 5px auto;
   padding-top: 10px;
   border-top: 1px dotted #1E85EC;
-}
-
-.react-datepicker-wrapper {
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
-}
-.react-datepicker-wrapper input {
-  width: 100%;
 }/*# sourceMappingURL=style.css.map */
