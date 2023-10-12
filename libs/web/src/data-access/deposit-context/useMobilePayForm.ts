@@ -5,7 +5,7 @@ import {
 	IDepositLocalPayEWalletQRModalProps,
 	useDepositSavedLocalStorage,
 } from '@nx-next-app/data-access'
-import { useDebounce } from 'usehooks-ts'
+import { useDebounce, useEffectOnce } from 'usehooks-ts'
 import {
 	IAxiosError,
 	IPaymentMobilePayData,
@@ -275,7 +275,7 @@ const useMobilePayForm = ({
 	])
 
 	// * 初始優先導向 local storage 的值
-	useEffect(() => {
+	useEffectOnce(() => {
 		const { groupName, channelId } = depositLocalStorageSavedInfo
 
 		push(
@@ -290,7 +290,7 @@ const useMobilePayForm = ({
 			undefined,
 			{ shallow: true }
 		)
-	}, [])
+	})
 
 	return {
 		formMethods,

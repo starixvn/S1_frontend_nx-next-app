@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useDebounce } from 'usehooks-ts'
+import { useDebounce, useEffectOnce } from 'usehooks-ts'
 import {
 	IAxiosError,
 	IPaymentBankTransferData,
@@ -235,7 +235,7 @@ const useDepositBankTransferForm = ({
 	}, [debouncedLoading, queryPaymentType, querySysId])
 
 	// * 初始優先導向 local storage 的值
-	useEffect(() => {
+	useEffectOnce(() => {
 		const { sysId } = depositLocalStorageSavedInfo
 
 		push(
@@ -243,7 +243,7 @@ const useDepositBankTransferForm = ({
 			undefined,
 			{ shallow: true }
 		)
-	}, [])
+	})
 
 	return {
 		formMethods,

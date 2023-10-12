@@ -3,7 +3,7 @@ import {
 	IDepositQRCodeModalProps,
 	useDepositSavedLocalStorage,
 } from '@nx-next-app/data-access'
-import { useDebounce } from 'usehooks-ts'
+import { useDebounce, useEffectOnce } from 'usehooks-ts'
 import {
 	IAxiosError,
 	IPaymentCryptoPayData,
@@ -254,7 +254,7 @@ const useCryptoPayForm = ({
 	}, [debouncedLoading, queryPaymentType, queryPaymentName, queryChannelId])
 
 	// * 初始優先導向 local storage 的值
-	useEffect(() => {
+	useEffectOnce(() => {
 		const { groupName, channelId } = depositLocalStorageSavedInfo
 
 		push(
@@ -269,7 +269,7 @@ const useCryptoPayForm = ({
 			undefined,
 			{ shallow: true }
 		)
-	}, [])
+	})
 
 	return {
 		formMethods,

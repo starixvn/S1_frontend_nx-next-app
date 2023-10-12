@@ -16,8 +16,7 @@ import { find, head } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useDebounce } from 'usehooks-ts'
-
+import { useDebounce, useEffectOnce } from 'usehooks-ts'
 import { useDepositContext } from './DepositContext'
 
 export interface IQRPayForm {
@@ -216,7 +215,7 @@ const useQRPayForm = ({
 	}, [debouncedLoading, queryPaymentType, queryPaymentName])
 
 	// * 初始優先導向 local storage 的值
-	useEffect(() => {
+	useEffectOnce(() => {
 		const { groupName, channelId } = depositLocalStorageSavedInfo
 
 		push(
@@ -231,7 +230,7 @@ const useQRPayForm = ({
 			undefined,
 			{ shallow: true }
 		)
-	}, [])
+	})
 
 	return {
 		formMethods,
