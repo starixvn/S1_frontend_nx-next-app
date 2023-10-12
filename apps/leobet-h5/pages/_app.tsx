@@ -28,7 +28,7 @@ import {
 	MENU_DATA,
 	BANNER_IMAGE_LIST,
 	LEFT_MENU_DATA,
-} from '@nx-next-app/site/nova88'
+} from '@nx-next-app/site/leobet'
 
 import 'react-datepicker/dist/react-datepicker.css'
 import '../styles/css/style-dark.css'
