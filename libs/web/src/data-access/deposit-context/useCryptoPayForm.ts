@@ -50,6 +50,7 @@ const useCryptoPayForm = ({
 }) => {
 	const {
 		userInfo: { langId, currencyId },
+		dbHost,
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
@@ -184,7 +185,7 @@ const useCryptoPayForm = ({
 					})
 				}
 			} else {
-				const baseUrl = `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/${langId}/Cashier/DepositReqCryptoPay`
+				const baseUrl = `${dbHost}/${langId}/Cashier/DepositReqCryptoPay`
 				window.open(`${baseUrl}?${paramsUrl}`)
 			}
 		} catch (error) {

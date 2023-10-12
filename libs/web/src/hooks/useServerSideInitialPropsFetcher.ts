@@ -160,8 +160,8 @@ export const useServerSideInitialPropsFetcher = async (
 
 	// 獲取footerData資料
 	const footerData = footerDataConverter({
-		currentLang: originCookies['nova88_langId'] ?? 'en',
-		currencyId: Number(originCookies['nova88_currencyId']),
+		currentLang: originCookies[ENV_COOKIE_NAMES.LangId] ?? 'en',
+		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 		isLogin: originIsSignIn,
 		tpIds: originIsSignIn ? tpIds : [],
 	})

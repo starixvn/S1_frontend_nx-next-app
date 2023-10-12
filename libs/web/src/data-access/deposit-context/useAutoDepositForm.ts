@@ -29,6 +29,7 @@ const useAutoDepositForm = ({
 }) => {
 	const {
 		userInfo: { langId, currencyId },
+		dbHost,
 	} = useAuth()
 	const { modal } = useGlobalModal()
 	const { query, pathname, push } = useRouter()
@@ -86,7 +87,7 @@ const useAutoDepositForm = ({
 			const paramsUrl = searchParams.toString()
 
 			// * window.open only
-			const baseUrl = `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/${langId}/Cashier/DepositReqBankAutoChannel`
+			const baseUrl = `${dbHost}/${langId}/Cashier/DepositReqBankAutoChannel`
 			window.open(`${baseUrl}?${paramsUrl}`)
 
 			resetField('amount')

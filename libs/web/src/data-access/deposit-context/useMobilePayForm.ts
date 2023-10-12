@@ -64,6 +64,7 @@ const useMobilePayForm = ({
 }) => {
 	const {
 		userInfo: { langId, currencyId },
+		dbHost,
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
@@ -184,7 +185,7 @@ const useMobilePayForm = ({
 					info: depositReqMobilePayInfo,
 				})
 			} else {
-				const baseUrl = `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/${langId}/Cashier/DepositReqMobilePay`
+				const baseUrl = `${dbHost}/${langId}/Cashier/DepositReqMobilePay`
 				window.open(`${baseUrl}?${paramsUrl}`)
 			}
 

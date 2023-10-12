@@ -45,6 +45,7 @@ const useOnlineBankingForm = ({
 }) => {
 	const {
 		userInfo: { langId, currencyId },
+		dbHost,
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
@@ -147,7 +148,7 @@ const useOnlineBankingForm = ({
 						info: depositOnlineBankingReqInfo,
 					})
 				} else {
-					const baseUrl = `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/${langId}/Cashier/DepositReqOnlineBanking`
+					const baseUrl = `${dbHost}/${langId}/Cashier/DepositReqOnlineBanking`
 
 					window.open(`${baseUrl}?${paramsUrl}`)
 				}

@@ -40,6 +40,7 @@ const useTopUpCardForm = ({
 }) => {
 	const {
 		userInfo: { langId, currencyId },
+		dbHost,
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
@@ -143,7 +144,7 @@ const useTopUpCardForm = ({
 				})
 				const paramsUrl = searchParams.toString()
 
-				const baseUrl = `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/${langId}/${cashierApiUrl.postDepositLoadCardPayReq}`
+				const baseUrl = `${dbHost}/${langId}/${cashierApiUrl.postDepositLoadCardPayReq}`
 				window.open(`${baseUrl}?${paramsUrl}`)
 			}
 
