@@ -19,6 +19,7 @@ import { ENV_COOKIE_NAMES } from '../../app/constants/Names'
 export interface AuthContextInterface {
 	auth: { isLogin: boolean | undefined }
 	userInfo: IUserInfoData
+	dbHost: string
 	onSignIn: ({
 		userName,
 		password,
@@ -126,6 +127,13 @@ export const AuthProvider = ({
 		setAuth({ isLogin: undefined })
 	}
 
+	const host = typeof window === 'undefined' ? null : window.location.origin
+	// * DB 路徑，根據生產模式與開發模式給予不同的路徑
+	const dbHost =
+		(process.env.NODE_ENV === 'production'
+			? host
+			: process.env['NEXT_PUBLIC_ENV_DB_HOST']) || ''
+
 	// 處理登入狀態同步使用者 cookie, 未登入不做同步
 	useSynchronizeCookiesEffect(userInfo)
 	// 處理路由導轉
@@ -137,6 +145,7 @@ export const AuthProvider = ({
 	const value: AuthContextInterface = {
 		auth,
 		userInfo,
+		dbHost,
 		onCheckSignIn,
 		onSignIn,
 		onSignOut,

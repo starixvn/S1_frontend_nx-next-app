@@ -10,27 +10,34 @@ export interface IDepositSavedInfo {
 	payName?: any
 }
 
+/**
+ * 存款頁面 "記住上一次存款狀態" 的狀態管理
+ */
 const useDepositSavedLocalStorage = () => {
 	const {
 		userInfo: { userName },
 	} = useAuth()
 
+	// * 「是否記住上一次存款狀態」默認值
 	const defaultSavedChecked = useReadLocalStorage(
 		ENV_LOCAL_STORAGE_NAMES.DepositSavedChecked
 	)
 
+	// * 「是否記住上一次存款狀態」狀態管理
 	const [
 		isDepositLocalStorageSavedChecked,
 		setIsDepositLocalStorageSavedChecked,
 	] = useLocalStorage<boolean>(
 		ENV_LOCAL_STORAGE_NAMES.DepositSavedChecked,
-		defaultSavedChecked || ({} as any)
+		!!defaultSavedChecked
 	)
 
+	// * 「上一次存款狀態」默認值
 	const defaultSavedInfo = useReadLocalStorage(
 		ENV_LOCAL_STORAGE_NAMES.DepositSavedInfo(userName)
 	)
 
+	// * 「上一次存款狀態」狀態管理
 	const [depositLocalStorageSavedInfo, setDepositLocalStorageSavedInfo] =
 		useLocalStorage<IDepositSavedInfo>(
 			ENV_LOCAL_STORAGE_NAMES.DepositSavedInfo(userName),

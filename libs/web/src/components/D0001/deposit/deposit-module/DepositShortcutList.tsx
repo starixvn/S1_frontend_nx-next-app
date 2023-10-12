@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import { uniqueId } from 'lodash-es'
 
 interface IDepositShortcutListProps {
 	minAmount: number
@@ -30,7 +31,7 @@ const DepositShortcutList = ({
 
 				return (
 					<button
-						key={value}
+						key={uniqueId()}
 						style={{
 							pointerEvents: disabled ? 'none' : 'auto',
 						}}
