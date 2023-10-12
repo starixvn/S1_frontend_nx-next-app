@@ -5,6 +5,8 @@ import process from 'process'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
+import { uniqueId } from 'lodash-es'
+import Image from 'next/future/image'
 
 interface ISubMenuProps {
 	menuKey: keyof typeof MenuKeyEnum | ''
@@ -43,7 +45,7 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 								// * 如果維護中取消點擊事件
 								pointerEvents: item.isTpMaintain ? 'none' : 'auto',
 							}}
-							key={productKey}
+							key={productKey || uniqueId()}
 							className={classNames(className, {
 								active: item.isTpMaintain,
 							})}
@@ -59,10 +61,15 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 							{eventIcons && (
 								<i className={classNames(subMenuEventIcon?.icon)} />
 							)}
-							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}${img}`}
-								alt={productKey}
-							/>
+							{img && (
+								<Image
+									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}${img}`}
+									alt={productKey || 'menu-item-img'}
+									width={101}
+									height={135}
+								/>
+							)}
+
 							<div>{displayKey ? t(displayKey) : displayText}</div>
 							{hasDesktopLink && (
 								<div className='switchbtn'>

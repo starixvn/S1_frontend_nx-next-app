@@ -38,10 +38,10 @@ const HeaderModule = ({
 	...props
 }: IHeaderModuleProps) => {
 	const { t } = useTranslation()
-	const { auth, userInfo } = useAuth()
 
 	const {
-		userInfo: { currencyName },
+		auth,
+		userInfo: { currencyName, userName },
 	} = useAuth()
 
 	const {
@@ -53,8 +53,10 @@ const HeaderModule = ({
 
 	// * 使用者快速切換時，讓畫面順利切換，用 debounce 觸發最後的狀態
 	useEffect(() => {
-		onSetHideBalance(debouncedIsHideBalance)
-	}, [debouncedIsHideBalance])
+		if (auth.isLogin) {
+			onSetHideBalance(debouncedIsHideBalance)
+		}
+	}, [debouncedIsHideBalance, auth.isLogin])
 
 	// * fetching 結束後給予正確數值
 	useEffect(() => {
@@ -62,24 +64,16 @@ const HeaderModule = ({
 	}, [originIsHideBalance])
 
 	return (
-		<div className={classNames('headerModule dragon', className)} {...props}>
+		<div className={classNames('headerModule', className)} {...props}>
 			{/* 用 a link 讓畫面重新整理 */}
 			<a href='/'>
 				<Image
 					className='dragonlogo'
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/dragon-logo.png`}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/logo_en_w.png`}
 					alt='logo'
-					height={55}
-					width={107}
-					style={{ height: 55, width: 107 }}
-				/>
-				<Image
-					className='dragon-light'
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/dragon-light.png`}
-					alt='logo-light'
-					height={42}
-					width={26}
-					style={{ height: 42, width: 26 }}
+					height={40}
+					width={90}
+					style={{ height: 40, width: 90 }}
 				/>
 			</a>
 
@@ -88,7 +82,7 @@ const HeaderModule = ({
 					<div className='headerInfo'>
 						{t('Label_General_Welcome')}
 						<Link href={paths.profile.root}>
-							<a className='MemberID'>{userInfo.userName}</a>
+							<a className='MemberID'>{userName}</a>
 						</Link>
 					</div>
 					<div className='Balance'>

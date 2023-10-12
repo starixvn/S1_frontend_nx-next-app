@@ -21,7 +21,12 @@ const LuckyWheel = () => {
 
 	return (
 		<div className='eventLink'>
-			<button className='icon icon-close' onClick={() => setDisplay(false)} />
+			<button
+				type='button'
+				aria-label='event-link'
+				className='icon icon-close'
+				onClick={() => setDisplay(false)}
+			/>
 
 			<div onClick={() => push(paths.luckyWheel.root)} className='wheelModule'>
 				<Image

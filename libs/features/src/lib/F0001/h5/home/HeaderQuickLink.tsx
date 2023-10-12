@@ -36,7 +36,7 @@ const HeaderQuickLink = () => {
 						<span>{t('Label_General_Withdrawal')}</span>
 					</a>
 				</Link>
-				<Link href={paths.promotion.root}>
+				<Link href={paths.promotion.root} passHref>
 					<a>
 						<i className='icon icon-gift' />
 						<span>{t('Label_General_Promotion')}</span>

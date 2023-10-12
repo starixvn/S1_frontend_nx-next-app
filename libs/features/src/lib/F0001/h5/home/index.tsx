@@ -91,6 +91,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 				})}
 			>
 				{isLogin && <HeaderQuickLink />}
+
 				<CarouselBanner
 					bannerList={bannerData}
 					pagination={false}

@@ -65,8 +65,9 @@ const HotEventSwiper = () => {
 									<Image
 										src={backgroundPic}
 										alt='hotevent-bg-img'
-										width={300}
-										height={183}
+										width={360}
+										height={219}
+										style={{ width: 360, height: 219 }}
 									/>
 								)}
 								<div className='gamename'>{sportLeaguesTitle}</div>

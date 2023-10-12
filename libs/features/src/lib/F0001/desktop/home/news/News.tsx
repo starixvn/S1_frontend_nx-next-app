@@ -3,7 +3,6 @@ import { uniqueId } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { isUrl } from '@nx-next-app/utils'
 import { paths } from '@nx-next-app/constants'
-import Image from 'next/future/image'
 import { useHome } from '@nx-next-app/features/F0001/providers/home-context'
 
 const News = () => {
@@ -20,11 +19,7 @@ const News = () => {
 			{newsData.map(({ imageURL, postTime, title, content, newsId }, idx) => (
 				<div key={uniqueId()}>
 					<div className='newsModule'>
-						{isUrl(imageURL) ? (
-							<Image src={imageURL} alt='news-img' width={1920} height={1080} />
-						) : (
-							<img src={imageURL} alt='news-img' />
-						)}
+						{isUrl(imageURL) && <img src={imageURL} alt='news-img' />}
 
 						<div>
 							<div>{postTime.slice(0, 10)}</div>

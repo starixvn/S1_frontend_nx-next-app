@@ -11,12 +11,17 @@ import DepositRecentHistory from './DepositRecentHistory'
 
 const Deposit = () => {
 	const { t } = useTranslation()
+	const {
+		auth: { isLogin },
+	} = useAuth()
 
 	const {
 		userInfo: { currencyName, currencyId },
 	} = useAuth()
-	const { data: { data: mainWalletInfo } = {} } =
-		useGetMainWalletInfoQuery(null)
+	const { data: { data: mainWalletInfo } = {} } = useGetMainWalletInfoQuery(
+		null,
+		{ skip: !isLogin }
+	)
 
 	const balanceText = `${currencyName} $${numberFormat(
 		mainWalletInfo?.balance || 0,

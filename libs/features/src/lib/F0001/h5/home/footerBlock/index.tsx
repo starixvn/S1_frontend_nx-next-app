@@ -25,6 +25,7 @@ const index = () => {
 									href={link}
 									target='_blank'
 									rel='noreferrer noopener'
+									aria-label={channelName}
 								/>
 							)
 						})}
