@@ -75,7 +75,7 @@ export const MENU_DATA = ({
 			},
 			desktop: { menuActionType: MenuActionTypeEnum.WindowOpen },
 			pathname: `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/rewards/`,
-			allowCurrencies: true,
+			allowCurrencies: [],
 			subMenuAllowCurrenciesWithAuth: false,
 		},
 		[MenuKeyEnum.Home]: {
