@@ -21,15 +21,17 @@ const Logo = ({ logoUrl, rewardsUrl }: ILogoProps) => {
 					/>
 				</a>
 			</Link>
-			<Link
-				href={`${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/rewards/`}
-				className='logo'
-				passHref
-			>
-				<a target='_blank' rel='noopener noreferrer' className='rewardsLogo'>
-					<Image src={rewardsUrl} alt='88reward' width={65} height={65} />
-				</a>
-			</Link>
+			{process.env['NEXT_PUBLIC_SHOW_REWARD'] === 'true' && (
+				<Link
+					href={`${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/rewards/`}
+					className='logo'
+					passHref
+				>
+					<a target='_blank' rel='noopener noreferrer' className='rewardsLogo'>
+						<Image src={rewardsUrl} alt='88reward' width={65} height={65} />
+					</a>
+				</Link>
+			)}
 		</div>
 	)
 }
