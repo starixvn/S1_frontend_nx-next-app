@@ -33,6 +33,7 @@ const Country = ({ icon, onSetLanguage, langGroup }: ICountryProps) => {
 		<div ref={ref} className={classNames('country', { active: isOpen })}>
 			<button
 				type='button'
+				aria-label='country-flag'
 				className={classNames('flag', icon)}
 				onClick={toggle}
 			>

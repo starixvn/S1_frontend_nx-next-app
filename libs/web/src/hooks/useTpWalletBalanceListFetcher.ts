@@ -1,6 +1,7 @@
 import { sumBy } from 'lodash-es'
 import { useEffect, useState } from 'react'
 import { useInterval } from 'usehooks-ts'
+import { useAuth } from '../data-access/auth-context'
 import {
 	useGetCustBonusWalletListQuery,
 	useGetMainWalletInfoQuery,
@@ -16,6 +17,10 @@ import {
  * * 首頁錢包相關邏輯，跨裝置跨模組共用
  */
 const useTpWalletBalanceListFetcher = ({ langId }: { langId: string }) => {
+	const {
+		auth: { isLogin },
+	} = useAuth()
+
 	const [tpWalletBalanceList, setTpWalletBalanceList] = useState<
 		ITpWalletInfoData[]
 	>([])
@@ -24,22 +29,31 @@ const useTpWalletBalanceListFetcher = ({ langId }: { langId: string }) => {
 		data: { data: mainWalletInfo } = {},
 		refetch: refetchGetWalletBalance,
 		isLoading: isGetMainWalletInfoLoading,
-	} = useGetMainWalletInfoQuery(null)
+	} = useGetMainWalletInfoQuery(null, {
+		skip: !isLogin,
+	})
 
 	const {
 		data: { data: custBonusWalletList } = {},
 		refetch: refetchCustBonusWallet,
 		isLoading: isGetCustBonusWalletListLoading,
-	} = useGetCustBonusWalletListQuery(null)
+	} = useGetCustBonusWalletListQuery(null, {
+		skip: !isLogin,
+	})
 
 	const {
 		data: { data: tpWalletList } = {},
 		refetch: refetchTpWalletList,
 		isLoading: isGetTpWalletListLoading,
-	} = useGetTpWalletListQuery({
-		langId,
-		listType: TpWalletListTypeEnum.All,
-	})
+	} = useGetTpWalletListQuery(
+		{
+			langId,
+			listType: TpWalletListTypeEnum.All,
+		},
+		{
+			skip: !isLogin,
+		}
+	)
 
 	const [getTpWalletInfoByTpId] = useLazyGetTpWalletInfoByTpIdQuery()
 
@@ -76,7 +90,7 @@ const useTpWalletBalanceListFetcher = ({ langId }: { langId: string }) => {
 	}
 
 	// * 每３０秒更新一次錢包資訊
-	useInterval(onRefetchAllWallet, 30000)
+	useInterval(onRefetchAllWallet, isLogin ? 30000 : null)
 
 	useEffect(() => {
 		getTpWalletBalanceList()

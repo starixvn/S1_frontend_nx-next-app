@@ -41,6 +41,8 @@ const LayoutFooter = () => {
 				</Link>
 
 				<a
+					role='link'
+					aria-hidden
 					onClick={onToggleWalletActive}
 					className={classNames('icon icon-icon32px_wallet', {
 						'icon-close active': isWalletActive,

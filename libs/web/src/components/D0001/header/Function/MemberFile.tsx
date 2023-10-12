@@ -58,16 +58,16 @@ const MemberFile = ({ userLevelImageInfo }: IMemberFileProps) => {
 			<button type='button'>{userInfo?.userName}</button>
 
 			<div className='submenu'>
-				<Link href={paths.profile.root}>
+				<Link href={paths.profile.root} passHref>
 					<a className=''>{t('Label_General_Profile')}</a>
 				</Link>
-				<Link href={paths.cryptoWallet.root}>
+				<Link href={paths.cryptoWallet.root} passHref>
 					<a className=''>{t('Label_General_CryptoWallet')}</a>
 				</Link>
-				<Link href={paths.referral.root}>
+				<Link href={paths.referral.root} passHref>
 					<a className='icon '>{t('Label_General_ReferFriends')}</a>
 				</Link>
-				<Link href={paths.changePassword.root}>
+				<Link href={paths.changePassword.root} passHref>
 					<a className=''>{t('Label_General_ChangePassword')}</a>
 				</Link>
 			</div>

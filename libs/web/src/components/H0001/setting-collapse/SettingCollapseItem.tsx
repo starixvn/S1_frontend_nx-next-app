@@ -30,7 +30,9 @@ const SettingCollapseItem = ({
 					<i className='icon icon-keyboard_arrow_down' />
 				</button>
 			) : (
-				<a className={classNames(prefixIcon)}>{header}</a>
+				<a role='link' aria-hidden className={classNames(prefixIcon)}>
+					{header}
+				</a>
 			)}
 
 			{children}

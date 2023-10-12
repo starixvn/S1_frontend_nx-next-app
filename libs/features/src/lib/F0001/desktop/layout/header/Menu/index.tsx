@@ -50,6 +50,8 @@ const Menu = () => {
 
 						return (
 							<button
+								type='button'
+								aria-label='menu-item'
 								onClick={() =>
 									onMenuOpen(
 										{ desktop: { menuActionType }, pathname, query, product },

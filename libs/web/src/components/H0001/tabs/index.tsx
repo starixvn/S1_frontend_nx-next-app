@@ -25,7 +25,7 @@ const TabsHeaderTag = ({
 			{tabsHeaderItem.map(({ tabPath, label, isShow = true }) => {
 				return (
 					isShow && (
-						<Link href={tabPath}>
+						<Link href={tabPath} passHref>
 							<a
 								className={classNames({
 									active: currentPath.split('/')[1] === tabPath,
@@ -52,7 +52,7 @@ const TabsTag = ({
 			{tabsTagItem.map(({ tabPath, label, isShow = true }) => {
 				return (
 					isShow && (
-						<Link href={tabPath}>
+						<Link href={tabPath} passHref>
 							<a
 								className={classNames({
 									active: currentPath.split('/')[1] === tabPath,

@@ -36,7 +36,12 @@ const ServicePlan = ({
 
 		switch (hotKeyName) {
 			case 'Label_JoinNow':
-				return <a onClick={linkToReferral}>{`${t(hotKeyName)} >`}</a>
+				return (
+					// * role 設為 link，讓爬蟲略過此標籤
+					<a role='link' aria-hidden onClick={linkToReferral}>{`${t(
+						hotKeyName
+					)} >`}</a>
+				)
 			case 'Label_Apply_Now':
 				return (
 					<a
@@ -66,7 +71,12 @@ const ServicePlan = ({
 					</a>
 				)
 			case 'Label_Chat_Now':
-				return <a onClick={openLiveChat}>{`${t('Label_Chat_Now')} >`}</a>
+				return (
+					// * role 設為 link，讓爬蟲略過此標籤
+					<a role='link' aria-hidden onClick={openLiveChat}>{`${t(
+						'Label_Chat_Now'
+					)} >`}</a>
+				)
 			default:
 				return null
 		}

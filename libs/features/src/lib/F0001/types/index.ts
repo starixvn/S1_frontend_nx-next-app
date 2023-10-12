@@ -105,7 +105,7 @@ export type IMenuData = {
 		product?: IStaticProduct
 		query?: { provider: string; type: string }
 		pathname?: string
-		allowCurrencies: CurrenciesEnum[] | boolean // * true: 全開, false: 全關
+		allowCurrencies?: CurrenciesEnum[] | boolean // * true: 全開, false: 全關
 		subMenuSort?: {
 			[key: number]: string[]
 		}

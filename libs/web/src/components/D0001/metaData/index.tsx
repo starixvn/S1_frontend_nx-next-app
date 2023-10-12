@@ -20,9 +20,9 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 				href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/favicon.ico`}
 			/>
 
-			{links.map(attribute => (
-				<link key={uniqueId()} {...attribute} />
-			))}
+			{links.map(attribute => {
+				return <link key={uniqueId()} {...attribute} />
+			})}
 
 			<meta name='description' content={description} />
 			<meta name='keyword' content={keyword} />

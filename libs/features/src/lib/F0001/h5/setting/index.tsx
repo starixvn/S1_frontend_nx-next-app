@@ -12,14 +12,18 @@ import { useGetMsgCountQuery } from '@nx-next-app/service'
 const Setting = () => {
 	const { push } = useRouter()
 	const { t } = useTranslation()
-	const { ALLOWED_CURRENCIES } = useStaticData()
-	const { icon, languageGroup, onSetLanguage } = useLanguageGroup()
-	const { data: { data: msgCount = 0 } = {} } = useGetMsgCountQuery(null)
 	const {
 		userInfo: { currencyId, langId },
 		auth: { isLogin },
 		onSignOut,
 	} = useAuth()
+
+	const { ALLOWED_CURRENCIES } = useStaticData()
+	const { icon, languageGroup, onSetLanguage } = useLanguageGroup()
+
+	const { data: { data: msgCount = 0 } = {} } = useGetMsgCountQuery(null, {
+		skip: !isLogin,
+	})
 
 	const handleSignOut = async () => {
 		await onSignOut()

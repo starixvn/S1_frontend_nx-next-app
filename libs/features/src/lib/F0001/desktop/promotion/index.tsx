@@ -13,7 +13,6 @@ const Promotion = () => {
 						<div className='inside-title'>
 							<span className='icon icon-gift'>{t('Label_Promotions')}</span>
 						</div>
-
 						<PromotionFilter />
 						<PromotionList />
 					</div>

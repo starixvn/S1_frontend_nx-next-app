@@ -17,7 +17,11 @@ const Form = ({ children, component = false, ...restProps }: IFormProps) => {
 			{...restProps}
 		>
 			{children}
-			<button type='submit' style={{ display: 'contents' }} />
+			<button
+				type='submit'
+				aria-label='form-submit'
+				style={{ display: 'contents' }}
+			/>
 		</form>
 	)
 }
