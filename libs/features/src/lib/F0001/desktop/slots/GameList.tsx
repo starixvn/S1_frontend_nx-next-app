@@ -85,7 +85,7 @@ const GameList = () => {
 											onGamePlay({
 												tpId,
 												gameId,
-												playFree,
+												playFree: false,
 											})
 										}
 									>
