@@ -3,7 +3,7 @@ import {
 	IDepositQRCodeModalProps,
 	useDepositSavedLocalStorage,
 } from '@nx-next-app/data-access'
-import { useDebounce } from 'usehooks-ts'
+import { useDebounce, useEffectOnce } from 'usehooks-ts'
 import {
 	IAxiosError,
 	IPaymentCryptoPayData,
@@ -50,6 +50,7 @@ const useCryptoPayForm = ({
 }) => {
 	const {
 		userInfo: { langId, currencyId },
+		dbHost,
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
@@ -184,7 +185,7 @@ const useCryptoPayForm = ({
 					})
 				}
 			} else {
-				const baseUrl = `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/${langId}/Cashier/DepositReqCryptoPay`
+				const baseUrl = `${dbHost}/${langId}/Cashier/DepositReqCryptoPay`
 				window.open(`${baseUrl}?${paramsUrl}`)
 			}
 		} catch (error) {
@@ -253,7 +254,7 @@ const useCryptoPayForm = ({
 	}, [debouncedLoading, queryPaymentType, queryPaymentName, queryChannelId])
 
 	// * 初始優先導向 local storage 的值
-	useEffect(() => {
+	useEffectOnce(() => {
 		const { groupName, channelId } = depositLocalStorageSavedInfo
 
 		push(
@@ -268,7 +269,7 @@ const useCryptoPayForm = ({
 			undefined,
 			{ shallow: true }
 		)
-	}, [])
+	})
 
 	return {
 		formMethods,

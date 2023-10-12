@@ -5,7 +5,7 @@ import {
 	IDepositLocalPayEWalletQRModalProps,
 	useDepositSavedLocalStorage,
 } from '@nx-next-app/data-access'
-import { useDebounce } from 'usehooks-ts'
+import { useDebounce, useEffectOnce } from 'usehooks-ts'
 import {
 	IAxiosError,
 	IPaymentMobilePayData,
@@ -64,6 +64,7 @@ const useMobilePayForm = ({
 }) => {
 	const {
 		userInfo: { langId, currencyId },
+		dbHost,
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
@@ -184,7 +185,7 @@ const useMobilePayForm = ({
 					info: depositReqMobilePayInfo,
 				})
 			} else {
-				const baseUrl = `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/${langId}/Cashier/DepositReqMobilePay`
+				const baseUrl = `${dbHost}/${langId}/Cashier/DepositReqMobilePay`
 				window.open(`${baseUrl}?${paramsUrl}`)
 			}
 
@@ -274,7 +275,7 @@ const useMobilePayForm = ({
 	])
 
 	// * 初始優先導向 local storage 的值
-	useEffect(() => {
+	useEffectOnce(() => {
 		const { groupName, channelId } = depositLocalStorageSavedInfo
 
 		push(
@@ -289,7 +290,7 @@ const useMobilePayForm = ({
 			undefined,
 			{ shallow: true }
 		)
-	}, [])
+	})
 
 	return {
 		formMethods,

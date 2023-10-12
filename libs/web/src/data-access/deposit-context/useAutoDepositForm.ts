@@ -10,7 +10,7 @@ import { find, head } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useDebounce } from 'usehooks-ts'
+import { useDebounce, useEffectOnce } from 'usehooks-ts'
 import { useDepositContext } from './DepositContext'
 
 interface IAutoDepositForm {
@@ -29,6 +29,7 @@ const useAutoDepositForm = ({
 }) => {
 	const {
 		userInfo: { langId, currencyId },
+		dbHost,
 	} = useAuth()
 	const { modal } = useGlobalModal()
 	const { query, pathname, push } = useRouter()
@@ -86,7 +87,7 @@ const useAutoDepositForm = ({
 			const paramsUrl = searchParams.toString()
 
 			// * window.open only
-			const baseUrl = `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/${langId}/Cashier/DepositReqBankAutoChannel`
+			const baseUrl = `${dbHost}/${langId}/Cashier/DepositReqBankAutoChannel`
 			window.open(`${baseUrl}?${paramsUrl}`)
 
 			resetField('amount')
@@ -149,7 +150,7 @@ const useAutoDepositForm = ({
 	}, [debouncedLoading, queryPaymentType, querySysId])
 
 	// * 初始優先導向 local storage 的值
-	useEffect(() => {
+	useEffectOnce(() => {
 		const { sysId } = depositLocalStorageSavedInfo
 
 		push(
@@ -157,7 +158,7 @@ const useAutoDepositForm = ({
 			undefined,
 			{ shallow: true }
 		)
-	}, [])
+	})
 
 	return { formMethods, loading: debouncedLoading, onAutoDepositFormSubmit }
 }

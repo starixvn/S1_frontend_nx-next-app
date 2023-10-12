@@ -185,6 +185,9 @@ header input:focus-within {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+.header form {
+  display: contents;
+}
 .header > div a.rewardsLogo {
   margin: 0 0 20px 30px;
   position: absolute;
@@ -409,7 +412,7 @@ header input:focus-within {
 .header > div.menu > div > button div.icon {
   position: absolute;
   top: -4px;
-  background: #f77900;
+  background: #d7ae78;
   font-size: 12px;
   padding: 0 8px 2px 6px;
   font-weight: bold;
@@ -451,7 +454,7 @@ header input:focus-within {
   height: 0;
   border-style: solid;
   border-width: 0 0 18px 10px;
-  border-color: transparent transparent transparent #f77900;
+  border-color: transparent transparent transparent #A98153;
   position: absolute;
   background: 0 0;
   top: 0;
@@ -1815,36 +1818,20 @@ header input:focus-within {
   display: none;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-en.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .promoList.en {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-en.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .promoList.cs {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-cs.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .promoList.my {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-my.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .promoList.th {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-th.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .promoList.id {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-id.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .promoList.hi {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-hi.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .promoList.bd {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-bd.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .promoList.vn {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-vn.jpg) no-repeat center/auto;
+  padding: unset;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList > div {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList > div .txt-orange {
   font-weight: bold;
@@ -2038,6 +2025,9 @@ header input:focus-within {
   font-size: 13px;
   margin: 0;
   min-height: unset;
+}
+.header > div.function .forgot::before {
+  display: none;
 }
 .header > div.function .forgot span {
   text-decoration: underline;

@@ -98,7 +98,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 	const showUPI = currencyId === CurrenciesEnum.INR && watchPayName === 'TenPay'
 
 	const depositAmountText = `${t('Label_General_DepositAmount')} ${
-		currencyId === IDR && t('Label_Deposit_IDRAmountHint')
+		currencyId === IDR ? t('Label_Deposit_IDRAmountHint') : ''
 	}`
 
 	return (
@@ -175,7 +175,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 								message: t('Label_Deposit_PleaseEnterUPI'),
 							},
 						})}
-						placeholder='ENTER'
+						placeholder={t('Label_Deposit_EnterYourUPI') || ''}
 						touched={!!touchedFields['UPIPayAccount']}
 						errorMessage={errors['UPIPayAccount']?.message || ''}
 						error={!!errors['UPIPayAccount']}

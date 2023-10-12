@@ -4,7 +4,7 @@ import {
 	IDepositQRCodeModalProps,
 	useDepositSavedLocalStorage,
 } from '@nx-next-app/data-access'
-import { useDebounce } from 'usehooks-ts'
+import { useDebounce, useEffectOnce } from 'usehooks-ts'
 import {
 	IPaymentOnlineBankingData,
 	useGetPaymentBankTransferListQuery,
@@ -45,6 +45,7 @@ const useOnlineBankingForm = ({
 }) => {
 	const {
 		userInfo: { langId, currencyId },
+		dbHost,
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
@@ -147,7 +148,7 @@ const useOnlineBankingForm = ({
 						info: depositOnlineBankingReqInfo,
 					})
 				} else {
-					const baseUrl = `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/${langId}/Cashier/DepositReqOnlineBanking`
+					const baseUrl = `${dbHost}/${langId}/Cashier/DepositReqOnlineBanking`
 
 					window.open(`${baseUrl}?${paramsUrl}`)
 				}
@@ -228,10 +229,10 @@ const useOnlineBankingForm = ({
 				shallow: true,
 			})
 		}
-	}, [debouncedLoading, queryPaymentType, queryPaymentName, querySysId])
+	}, [debouncedLoading, queryPaymentType, queryPaymentName])
 
 	// * 初始優先導向 local storage 的值
-	useEffect(() => {
+	useEffectOnce(() => {
 		const { payName, sysId } = depositLocalStorageSavedInfo
 
 		push(
@@ -242,7 +243,7 @@ const useOnlineBankingForm = ({
 			undefined,
 			{ shallow: true }
 		)
-	}, [])
+	})
 
 	return {
 		formMethods,
