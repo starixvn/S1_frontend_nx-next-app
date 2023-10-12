@@ -12,7 +12,7 @@ import {
 import { DepositActionModeEnum } from '@nx-next-app/types'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
 import { find, head } from 'lodash-es'
-import { useDebounce } from 'usehooks-ts'
+import { useDebounce, useEffectOnce } from 'usehooks-ts'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -174,6 +174,24 @@ const useTopUpCardForm = ({
 
 	const debouncedLoading = useDebounce(loading, 50)
 
+	// * 初始優先導向 local storage 的值
+	useEffectOnce(() => {
+		if (isGetChannelTopUpCardPayListFetching) return
+		const { groupName, channelId } = depositLocalStorageSavedInfo
+		push(
+			{
+				pathname,
+				query: {
+					paymentType: queryPaymentType,
+					paymentName: groupName,
+					channelId,
+				},
+			},
+			undefined,
+			{ shallow: true }
+		)
+	})
+
 	// * 任何選項異動時即時更新 formState
 	useEffect(() => {
 		if (!debouncedLoading && queryPaymentType) {
@@ -225,24 +243,6 @@ const useTopUpCardForm = ({
 			})
 		}
 	}, [debouncedLoading, queryPaymentType, queryPaymentName])
-
-	// * 初始優先導向 local storage 的值
-	useEffect(() => {
-		if (isGetChannelTopUpCardPayListFetching) return
-		const { groupName, channelId } = depositLocalStorageSavedInfo
-		push(
-			{
-				pathname,
-				query: {
-					paymentType: queryPaymentType,
-					paymentName: groupName,
-					channelId,
-				},
-			},
-			undefined,
-			{ shallow: true }
-		)
-	}, [])
 
 	const isFormValid = isValid && !!getValues('amount')
 
