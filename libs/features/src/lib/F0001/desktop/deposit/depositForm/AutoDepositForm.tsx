@@ -56,7 +56,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
 	const depositAmountText = `${t('Label_General_DepositAmount')} ${
-		currencyId === IDR && t('Label_Deposit_IDRAmountHint')
+		currencyId === IDR ? t('Label_Deposit_IDRAmountHint') : ''
 	}`
 
 	return (
