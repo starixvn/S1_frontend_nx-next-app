@@ -42,6 +42,7 @@ const useQRPayForm = ({
 }) => {
 	const {
 		userInfo: { langId, currencyId },
+		dbHost,
 	} = useAuth()
 	const { modal } = useGlobalModal()
 	const {
@@ -139,7 +140,7 @@ const useQRPayForm = ({
 					channelName,
 				})
 			} else {
-				const baseUrl = `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/${langId}/Cashier/DepositReqQRPay`
+				const baseUrl = `${dbHost}/${langId}/Cashier/DepositReqQRPay`
 				window.open(`${baseUrl}?${paramsUrl}`)
 			}
 
