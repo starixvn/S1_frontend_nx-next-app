@@ -155,7 +155,7 @@ export const useServerSideInitialPropsFetcher = async (
 	})
 
 	const tpIds = await getTpIds(null, {
-		headers: { cookie: context.req.headers.cookie },
+		headers: { cookie: currentHeaderCookies },
 	})
 
 	// 獲取footerData資料
