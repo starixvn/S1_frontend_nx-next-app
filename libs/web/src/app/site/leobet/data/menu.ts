@@ -1844,6 +1844,33 @@ export const MENU_DATA = ({
 					product: PRODUCTS['SLOTS_PT'],
 					allowCurrencies: [],
 				},
+				{
+					h5: {
+						img: '/h5/img/slotSPRIBE.png',
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					desktop: {
+						className: 'slot_SPRIBE',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotSPRIBE.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_SPRIBE',
+					pathname: paths.slots.root,
+					displayText: 'SPRIBE',
+					query: {
+						tpId: PRODUCTS['SLOTS_SPRIBE'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_SPRIBE'],
+				},
 			],
 			allowCurrencies: true,
 		},

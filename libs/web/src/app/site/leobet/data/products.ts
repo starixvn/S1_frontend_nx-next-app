@@ -202,6 +202,10 @@ export const PRODUCTS = {
 		TP_ID: 43,
 		TP_GAME_TYPE: 82,
 	},
+	SLOTS_SPRIBE: {
+		TP_ID: 53,
+		TP_GAME_TYPE: 104,
+	},
 	// * LIVE CASINO
 	LIVE_CASINO_WM: {
 		TP_ID: 20,
