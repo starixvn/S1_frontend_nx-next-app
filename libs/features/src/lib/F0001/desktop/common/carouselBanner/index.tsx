@@ -1,4 +1,3 @@
-import React from 'react'
 import { useRouter } from 'next/router'
 import { isNumber } from 'lodash'
 import { paths } from '@nx-next-app/constants'

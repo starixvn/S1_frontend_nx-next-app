@@ -16,12 +16,7 @@ import {
 	useGetReferralSettingQuery,
 	useGetSocialChannelQuery,
 } from '@nx-next-app/service'
-import {
-	CurrenciesEnum,
-	DeviceTypeEnum,
-	ILicenseData,
-	IServicePlanData,
-} from '@nx-next-app/types'
+import { CurrenciesEnum, DeviceTypeEnum, IFooterData } from '@nx-next-app/types'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -49,8 +44,8 @@ interface IHomeProviderProps {
 	persistHotGameData: IHotGame[]
 	persistNewsData: INewsData[]
 	// For H5
-	persistLicenseData: ILicenseData
-	persistServicePlanData: IServicePlanData
+	persistLicenseData: IFooterData['licenseData']
+	persistProgramList: IFooterData['programList']
 }
 
 export interface HomeContextInterface {
@@ -65,7 +60,7 @@ export interface HomeContextInterface {
 	recentlyViewedList: IViewedGameData[]
 	socialChannelList: ISocialChannelData[]
 	footerSocialChannelList: ISocialChannelData[]
-	licenseData: ILicenseData
+	licenseData: IFooterData['licenseData']
 	affiliateData: { allowCurrencies: CurrenciesEnum[]; link: string }
 	referralData: { referralBonus: number | null; referralCode: string }
 	handlePromotionClick: (bonusCode: string) => void
@@ -136,7 +131,7 @@ export const HomeProvider = ({
 	persistHotGameData,
 	persistNewsData,
 	persistLicenseData,
-	persistServicePlanData,
+	persistProgramList,
 }: IHomeProviderProps) => {
 	const { push } = useRouter()
 	const { onEnterSlotsPage, onEnterPage, menuData, onMenuOpen } = useMenu()
@@ -213,13 +208,13 @@ export const HomeProvider = ({
 		referralCode,
 	}
 
-	const { servicePlanList } = persistServicePlanData
-
 	const affiliateData = {
 		allowCurrencies: ALLOWED_CURRENCIES['AFFILIATE'] as CurrenciesEnum[],
 		link:
-			find(servicePlanList, ({ key }) => key === 'affiliate')?.applyNowLink ??
-			'',
+			find(
+				persistProgramList,
+				({ displayKey }) => displayKey === 'Label_Affiliate_Program'
+			)?.applyNowLink ?? '',
 	}
 
 	const jackPotCurrencies = ALLOWED_CURRENCIES['JACKPOT'] as CurrenciesEnum[]

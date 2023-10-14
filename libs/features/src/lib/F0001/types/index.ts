@@ -1,5 +1,5 @@
+import { PRODUCTS } from '@nx-next-app/constants'
 import { CurrenciesEnum, IStaticProduct, MenuKeyEnum } from '@nx-next-app/types'
-import { PRODUCTS } from '@nx-next-app/site/nova88'
 
 export enum CategoryEnum {
 	SPORTS = 1,
