@@ -15,11 +15,11 @@ import {
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { ISlotsGameData } from '@nx-next-app/service'
-import { IResponseConvertedFooterData } from '@nx-next-app/types'
+import { IFooterData } from '@nx-next-app/types'
 import { CATEGORY_SORT } from '@nx-next-app/site/leobet/data/slots'
 
 type ISlotsPageProps = InitialPropsInterface & {
-	footerData: IResponseConvertedFooterData
+	footerData: IFooterData
 	persistSlotsGameData: ISlotsGameData
 	persistSlotsCategoryData: ISlotsGameData
 }

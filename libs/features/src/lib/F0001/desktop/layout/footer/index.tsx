@@ -2,15 +2,25 @@ import { Footer } from '@nx-next-app/components/D0001'
 import { useGetSeoQuery, useGetSocialChannelQuery } from '@nx-next-app/service'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { SocialChannelEnum } from 'libs/features/src/lib/F0001/types'
-import { IResponseConvertedFooterData } from 'libs/web/src/app/types/footer'
+import { IFooterData } from 'libs/web/src/app/types/footer'
 
 const LayoutFooter = ({
 	footerData,
 	isFullFooter = false,
 }: {
-	footerData: IResponseConvertedFooterData
+	footerData: IFooterData
 	isFullFooter: boolean
 }) => {
+	const {
+		copyRightList,
+		platformList,
+		programList,
+		programDescriptionList,
+		licenseData,
+		suggestedBrowser,
+		paymentMethodsByCurrencyId,
+	} = footerData
+
 	const {
 		userInfo: { currencyId, langId },
 	} = useAuth()
@@ -58,27 +68,30 @@ const LayoutFooter = ({
 
 	return (
 		<Footer>
-			<Footer.CopyRight copyRightList={footerData.copyRightList} />
+			{!!copyRightList && <Footer.CopyRight copyRightList={copyRightList} />}
 
-			{isFullFooter && (
-				<Footer.PlatForm platformList={footerData.platformList} />
+			{!!platformList && isFullFooter && (
+				<Footer.PlatForm platformList={platformList} />
 			)}
 
 			<div className='footerList'>
-				<Footer.ServicePlan servicePlanData={footerData.servicePlanData} />
+				{!!programList && <Footer.ProgramList programList={programList} />}
 
-				{isFullFooter && (
-					<Footer.PromotionText
-						promotionTextList={footerData.promotionTextList}
+				{!!programDescriptionList && isFullFooter && (
+					<Footer.ProgramDescriptionList
+						promotionTextList={programDescriptionList}
 					/>
 				)}
 			</div>
 
-			<Footer.License licenseData={footerData.licenseData} seoData={seoData} />
+			{isFullFooter && (
+				<Footer.License licenseData={licenseData} seoData={seoData} />
+			)}
 
 			{isGetSocialChannelListLoading ? null : (
 				<Footer.Sfp
-					sfpData={footerData.sfpData}
+					suggestedBrowser={suggestedBrowser}
+					paymentMethodsByCurrencyId={paymentMethodsByCurrencyId}
 					socialChannelList={socialChannelList}
 				/>
 			)}

@@ -4,13 +4,10 @@ import { assign, isEmpty } from 'lodash-es'
 import { getCookies, setCookies } from 'cookies-next'
 import { GetServerSidePropsContext, PreviewData } from 'next'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
-import { footerDataConverter } from '@nx-next-app/site/nova88/data/footer'
-import { IResponseConvertedFooterData } from 'libs/web/src/app/types/footer'
 import {
 	checkSignIn,
 	getLineUserId,
 	getSEOData,
-	getTpIds,
 } from '@nx-next-app/data-access'
 
 import { ISEOData } from '../data-access/type'
@@ -23,7 +20,6 @@ export interface InitialPropsInterface {
 	originIsSignIn: boolean
 	originCookies: TmpCookiesObj
 	persistSEOData: ISEOData
-	footerData: IResponseConvertedFooterData
 	currentHeaderCookies: string
 }
 
@@ -154,18 +150,6 @@ export const useServerSideInitialPropsFetcher = async (
 		headers: { cookie: currentHeaderCookies },
 	})
 
-	const tpIds = await getTpIds(null, {
-		headers: { cookie: currentHeaderCookies },
-	})
-
-	// 獲取footerData資料
-	const footerData = footerDataConverter({
-		currentLang: originCookies[ENV_COOKIE_NAMES.LangId] ?? 'en',
-		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
-		isLogin: originIsSignIn,
-		tpIds: originIsSignIn ? tpIds : [],
-	})
-
 	const lineRedirectPath = await handleLineDirectCheck({
 		query,
 		cookie: currentHeaderCookies,
@@ -184,7 +168,6 @@ export const useServerSideInitialPropsFetcher = async (
 		originIsSignIn,
 		originCookies,
 		persistSEOData,
-		footerData,
 		currentHeaderCookies,
 	}
 }

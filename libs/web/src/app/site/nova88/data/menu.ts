@@ -8,10 +8,9 @@ import {
 	IMenuData,
 	MenuActionTypeEnum,
 } from '@nx-next-app/features/F0001/types'
-import { paths } from '@nx-next-app/constants'
+import { paths, PRODUCTS } from '@nx-next-app/constants'
 
 import { ALLOWED_CURRENCIES } from './allowCurrency'
-import { PRODUCTS } from './products'
 
 /**
  * 定義 menu 的活動時間，只存在於 menu.ts
@@ -1080,7 +1079,6 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_ALL_BET',
 					displayText: 'Allbet',
 					product: PRODUCTS['LIVE_CASINO_ALL_BET'],
-
 					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_ALL_BET'],
 				},
 				{
