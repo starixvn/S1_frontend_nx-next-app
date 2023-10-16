@@ -16,19 +16,26 @@ import {
 	DEPOSIT_CHANNEL_OPTIONS,
 	DEPOSIT_PAYMENT_OPTIONS,
 	DEPOSIT_PAYMENT_ORDERS,
+	FOOTER_DATA,
 } from '@nx-next-app/site/leobet'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { IFooterData } from '@nx-next-app/types'
+
+interface IDepositPageProps extends InitialPropsInterface {
+	persistFooterData: IFooterData
+}
 
 const DepositPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-	footerData,
-}: InitialPropsInterface) => {
+	persistFooterData,
+}: IDepositPageProps) => {
 	const { t } = useTranslation()
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData} footerData={footerData}>
+				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<DepositProvider
 						DEPOSIT_PAYMENT_OPTIONS={DEPOSIT_PAYMENT_OPTIONS}
 						DEPOSIT_CHANNEL_OPTIONS={DEPOSIT_CHANNEL_OPTIONS({ t })}
@@ -45,6 +52,11 @@ const DepositPage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
+	const { originCookies } = initialProps
+	const { langId, currencyId } = {
+		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
+		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
+	}
 
 	if (!initialProps.originIsSignIn) {
 		return {
@@ -57,6 +69,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
 	return {
 		props: {
+			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 		},

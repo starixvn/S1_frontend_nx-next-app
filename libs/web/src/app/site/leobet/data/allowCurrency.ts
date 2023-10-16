@@ -14,7 +14,7 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 
 	GAMES_MPOKER: [],
 
-	JACKPOT: [INR],
+	JACKPOT: [],
 
 	SPORTS_CRICKET: [INR],
 	SPORTS_SABA_CLUB: [INR],

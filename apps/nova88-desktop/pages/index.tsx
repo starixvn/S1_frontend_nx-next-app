@@ -27,10 +27,7 @@ import {
 	INewsData,
 	IPromotionData,
 } from '@nx-next-app/service'
-import {
-	BannerTypeEnum,
-	IResponseConvertedFooterData,
-} from '@nx-next-app/types'
+import { BannerTypeEnum, IFooterData } from '@nx-next-app/types'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 
 interface IHomePageProps extends InitialPropsInterface {
@@ -41,7 +38,7 @@ interface IHomePageProps extends InitialPropsInterface {
 	persistHotEventData: IHotEventData[]
 	persistHotGameData: IHotGame[]
 	persistNewsData: INewsData[]
-	footerData: IResponseConvertedFooterData
+	footerData: IFooterData
 }
 
 const HomePage = ({
@@ -74,7 +71,7 @@ const HomePage = ({
 						persistHotGameData={persistHotGameData}
 						persistNewsData={persistNewsData}
 						persistLicenseData={footerData.licenseData}
-						persistServicePlanData={footerData.servicePlanData}
+						persistProgramList={footerData.programList}
 					>
 						<Home />
 					</HomeProvider>

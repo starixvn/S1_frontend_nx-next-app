@@ -1,63 +1,57 @@
-import { IStaticAllowedCurrencies } from '@nx-next-app/types'
+import { PRODUCTS } from '@nx-next-app/constants'
 
-export interface IResponseConvertedFooterData {
-	copyRightList: ICopyRightListData[]
-	platformList: IPlatformListData[]
-	servicePlanData: IServicePlanData
-	promotionTextList: IPromotionTextListData[]
+export interface IFooterData {
+	copyRightList?: ICopyRightListData[]
+	platformList?: IPlatformListData[]
+	programList?: IProgramData[]
+	programDescriptionList?: IProgramDescriptionData[]
 	licenseData: ILicenseData
-	sfpData: ISfpData
+	suggestedBrowser: ISuggestedBrowserData[]
+	paymentMethodsByCurrencyId: {
+		[key: number]: IPaymentMethod[]
+	}
 }
 
-export interface ICopyRightListData {
-	displayName: string
+interface ICopyRightListData {
+	displayKey: string
 	href: string
 }
 export interface IPlatformListData {
-	key: string
+	productKey: keyof typeof PRODUCTS
 	imgName: string
 	hoverImgName: string
 }
-export interface IServicePlanListData {
-	key: string
+
+interface IProgramData {
+	applyNowLink: string
 	icon: string
-	displayName: string
+	displayKey: string
 	description: string
 	hotKeyName: string
-	applyNowLink: string
 }
 
-export interface IServicePlanData {
-	allowedCurrencies: IStaticAllowedCurrencies
-	servicePlanList: IServicePlanListData[]
-}
-
-export interface IPromotionTextListData {
-	key: number
-	content: {
-		title: string
+interface IProgramDescriptionData {
+	contents: {
+		displayKey: string
 		description: string
 	}[]
 }
-export interface ILicenseData {
+
+interface ILicenseData {
 	defaultScript: string
 	defaultXCMScript: string
 }
 
-export interface ISfpData {
-	currencyPaymentList: {
-		[currency: string]: { name: string; img: string }[]
-	}
-	langToCurrency: {
-		[key: string]: number
-	}
+interface ISuggestedBrowserData {
+	imageSrc: string
+	alt: string
+	width: number
+	height: number
 }
 
-export interface IRequestConvertedFooterData {
-	currentLang: string
-	currencyId: number
-	isLogin: boolean | undefined
-	tpIds: number[]
+interface IPaymentMethod {
+	name: string
+	img: string
 }
 
 export interface ISeoData {

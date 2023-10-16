@@ -1,10 +1,9 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { isNumber } from 'lodash'
-import { paths } from '@nx-next-app/constants'
+import { paths, PRODUCTS } from '@nx-next-app/constants'
 import { IBannerData } from '@nx-next-app/service'
 import { BannerActionEnum } from '@nx-next-app/types'
-import { PRODUCTS } from '@nx-next-app/site/nova88'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useAuth } from '@nx-next-app/data-access'
 import Carousel, {

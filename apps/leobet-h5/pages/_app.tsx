@@ -17,7 +17,6 @@ import {
 	FEATURE_BONUS,
 	LANG_GROUPS,
 	PASSWORD_REGEX,
-	PRODUCTS,
 	SLOT_TP_GAME_TYPE,
 	TERMS_CONDITIONS,
 	USERNAME_REGEX,
@@ -37,7 +36,7 @@ import '../styles/css/swiper.css'
 import '../styles/css/font.css'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
-import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
+import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
 
 dayjs.extend(localizedFormat)
 dayjs.extend(timezone)

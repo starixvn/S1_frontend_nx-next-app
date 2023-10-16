@@ -28,7 +28,8 @@ import {
 	INewsData,
 	IPromotionData,
 } from '@nx-next-app/service'
-import { BannerTypeEnum } from '@nx-next-app/types'
+import { BannerTypeEnum, IFooterData } from '@nx-next-app/types'
+import { FOOTER_DATA } from '@nx-next-app/site/leobet'
 
 interface IHomePageProps extends InitialPropsInterface {
 	persistAnnouncementData: IAnnouncementData[]
@@ -38,12 +39,12 @@ interface IHomePageProps extends InitialPropsInterface {
 	persistHotEventData: IHotEventData[]
 	persistHotGameData: IHotGame[]
 	persistNewsData: INewsData[]
+	persistFooterData: IFooterData
 }
 
 const HomePage = ({
 	originIsSignIn,
 	originCookies,
-	footerData,
 	persistSEOData,
 	persistAnnouncementData,
 	persistBannerData,
@@ -52,6 +53,7 @@ const HomePage = ({
 	persistHotEventData,
 	persistHotGameData,
 	persistNewsData,
+	persistFooterData,
 }: IHomePageProps) => {
 	const persistAppDownloadHint = originCookies[ENV_COOKIE_NAMES.AppDownloadHint]
 
@@ -67,8 +69,8 @@ const HomePage = ({
 						persistHotEventData={persistHotEventData}
 						persistHotGameData={persistHotGameData}
 						persistNewsData={persistNewsData}
-						persistLicenseData={footerData.licenseData}
-						persistServicePlanData={footerData.servicePlanData}
+						persistLicenseData={persistFooterData.licenseData}
+						persistProgramList={persistFooterData.programList}
 					>
 						<Home persistAppDownloadHint={persistAppDownloadHint} />
 					</HomeProvider>
@@ -133,6 +135,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			persistHotEventData,
 			persistHotGameData,
 			persistNewsData,
+			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 		},

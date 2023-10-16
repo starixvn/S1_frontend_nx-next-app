@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'
-import Image from 'next/future/image'
-import Head from 'next/head'
+import { IFooterData, ISeoData } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
-import { ILicenseData, ISeoData } from 'libs/web/src/app/types/footer'
+import Image from 'next/future/image'
+import { useEffect } from 'react'
+import Head from 'next/head'
 
 const License = ({
 	licenseData: { defaultScript, defaultXCMScript },
 	seoData,
 }: {
-	licenseData: ILicenseData
+	licenseData: IFooterData['licenseData']
 	seoData: ISeoData
 }) => {
 	const { t } = useTranslation()

@@ -13,7 +13,7 @@ import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
-import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
+import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
 import {
 	ALLOWED_CURRENCIES,
 	FEATURE_BONUS,
@@ -22,7 +22,6 @@ import {
 	META_DATA,
 	PASSWORD_REGEX,
 	REALNAME_REGEX,
-	PRODUCTS,
 	SLOT_TP_GAME_TYPE,
 	TERMS_CONDITIONS,
 	USERNAME_REGEX,

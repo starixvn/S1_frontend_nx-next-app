@@ -11,19 +11,24 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { FOOTER_DATA } from '@nx-next-app/site/leobet'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { IFooterData } from '@nx-next-app/types'
 
-type IMessagePageProps = InitialPropsInterface
+interface IMessagePageProps extends InitialPropsInterface {
+	persistFooterData: IFooterData
+}
 
 const MessagePage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-	footerData,
+	persistFooterData,
 }: IMessagePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData} footerData={footerData}>
+				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<main>
 						<section className='inside'>
 							<LeftMenu />
@@ -38,6 +43,10 @@ const MessagePage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
+	const langId = initialProps.originCookies[ENV_COOKIE_NAMES.LangId]
+	const currencyId = Number(
+		initialProps.originCookies[ENV_COOKIE_NAMES.CurrencyId]
+	)
 
 	if (!initialProps.originIsSignIn) {
 		return {
@@ -50,6 +59,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
 	return {
 		props: {
+			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 		},
