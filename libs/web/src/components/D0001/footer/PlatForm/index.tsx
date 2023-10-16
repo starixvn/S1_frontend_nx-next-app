@@ -46,7 +46,7 @@ const PlatForm = ({
 						key={productKey}
 						type='button'
 						className={displayImgName}
-						style={{ width: '80px', height: '55px' }}
+						style={{ width: 'auto', height: '55px' }}
 						onClick={() => {
 							onMenuOpen(
 								{ desktop: { menuActionType }, pathname, query, product },
@@ -58,7 +58,7 @@ const PlatForm = ({
 						}}
 					>
 						<Image
-							style={{ width: '80px', height: '55px' }}
+							style={{ width: 'auto', height: '55px' }}
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/venderlogo/${displayImgName}.png`}
 							alt={`logo ${displayImgName}`}
 							width={80}
