@@ -35,6 +35,7 @@ import {
 	trim,
 } from 'lodash-es'
 import { getIsTpMaintain } from '@nx-next-app/utils'
+import { BannerTypeEnum } from '@nx-next-app/types'
 
 interface ISlotsProviderProps {
 	children: ReactNode
@@ -182,11 +183,7 @@ const SlotsProvider = ({
 		data: { data: bannerList = [] } = {},
 		isFetching: isGetBannerV3Fetching,
 	} = useGetBannerV3Query({
-		bannerType:
-			Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Desktop
-				? DEVICE_TYPE.Desktop
-				: // 這邊拿bannerType拿2取不到值,故依照線上版本
-				  DEVICE_TYPE.NativeAPP,
+		bannerType: BannerTypeEnum.Slots,
 		currencyId,
 		langId,
 	})

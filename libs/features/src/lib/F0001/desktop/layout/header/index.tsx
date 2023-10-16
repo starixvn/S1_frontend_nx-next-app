@@ -56,7 +56,7 @@ const LayoutHeader = () => {
 		modal.error(renderFieldError(errors))
 	}
 
-	const logoUrl = `https://d19f2m0d06f9rs.cloudfront.net/desktop/img/logo.png`
+	const logoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/logo.png`
 
 	return (
 		<Header>

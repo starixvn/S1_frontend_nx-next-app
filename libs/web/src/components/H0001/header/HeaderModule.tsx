@@ -69,7 +69,7 @@ const HeaderModule = ({
 			<a href='/'>
 				<Image
 					className='dragonlogo'
-					src='https://d19f2m0d06f9rs.cloudfront.net/desktop/img/logo.png'
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/logo.png`}
 					alt='logo'
 					height={40}
 					width={90}
