@@ -10305,10 +10305,9 @@ span.important {
 .jpot {
   position: relative;
   cursor: pointer;
-  margin: 13vw 2vw 7vw;
+  margin: 7vw 2vw 15vw;
   border-radius: 1vw;
   height: 37vw;
-  background: url(https://banner.0814media.net/h5/img/homepage/jpotbg-a.png) no-repeat 100%/cover;
 }
 .jpot.active {
   -webkit-filter: grayscale(1);
@@ -10321,6 +10320,12 @@ span.important {
 }
 .jpot.active .under {
   display: block;
+}
+.jpot-bg {
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  border-radius: 5px;
 }
 .jpot .under {
   display: none;
@@ -10336,7 +10341,7 @@ span.important {
   width: 100%;
 }
 .jpot > .number {
-  background: url(https://banner.0814media.net/h5/img/homepage/jpot-title.png) no-repeat;
+  background: url(../img/homepage/jpot-title.png) no-repeat;
   position: absolute;
   width: 67vw;
   height: 9.6vw;
@@ -10393,10 +10398,10 @@ span.important {
   margin-right: 10px;
 }
 .jpot .jpot-item img {
-  width: 70%;
+  width: 68%;
   display: block;
   position: absolute;
-  top: -23vw;
+  bottom: 0;
   right: -6vw;
 }
 .jpot .jpot-btn {
@@ -10422,8 +10427,8 @@ span.important {
 .jpot .jpot-btn button {
   font-size: 3vw;
   font-weight: bold;
-  background: -webkit-gradient(linear, left top, right top, color-stop(30%, #ff5e00), to(#f39519));
-  background: linear-gradient(90deg, #ff5e00 30%, #f39519 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(6%, #d7ae78), color-stop(34%, #d1b37d), to(rgba(138, 89, 56, 0.7019607843)));
+  background: linear-gradient(90deg, #d7ae78 6%, #d1b37d 34%, rgba(138, 89, 56, 0.7019607843) 100%);
   padding: 0 3vw;
   height: 6vw;
   border-radius: 5vw;
