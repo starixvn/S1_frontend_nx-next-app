@@ -75,27 +75,28 @@ const License = ({
 						</>
 					)}
 				</div>
-				<div>
-					<div>
-						<div>{t('Label_JOE_COLE')}</div>
-						<div>{t('Label_Brand_Ambassador')}</div>
-						<Image
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/joecole_w.png`}
-							alt='joecole_signature'
-							width={65}
-							height={57}
-						/>
-						<div>{t('Label_Former_Chelsea_Liverpool')}</div>
-						<div>{t('Label_England_International')}</div>
-					</div>
-					<Image
-						className='star'
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/jc.png`}
-						alt='joecole_photo'
-						width={219}
-						height={337}
-					/>
-				</div>
+				{/* 先註解掉，這段之後需要重構 */}
+				{/* <div> */}
+				{/*	<div> */}
+				{/*		<div>{t('Label_JOE_COLE')}</div> */}
+				{/*		<div>{t('Label_Brand_Ambassador')}</div> */}
+				{/*		<Image */}
+				{/*			src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/joecole_w.png`} */}
+				{/*			alt='joecole_signature' */}
+				{/*			width={65} */}
+				{/*			height={57} */}
+				{/*		/> */}
+				{/*		<div>{t('Label_Former_Chelsea_Liverpool')}</div> */}
+				{/*		<div>{t('Label_England_International')}</div> */}
+				{/*	</div> */}
+				{/*	<Image */}
+				{/*		className='star' */}
+				{/*		src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/jc.png`} */}
+				{/*		alt='joecole_photo' */}
+				{/*		width={219} */}
+				{/*		height={337} */}
+				{/*	/> */}
+				{/* </div> */}
 			</div>
 			<Head>
 				<script
