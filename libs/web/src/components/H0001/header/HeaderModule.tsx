@@ -69,11 +69,11 @@ const HeaderModule = ({
 			<a href='/'>
 				<Image
 					className='dragonlogo'
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/logo_en_w.png`}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/logo.png`}
 					alt='logo'
 					height={40}
 					width={90}
-					style={{ height: 40, width: 90 }}
+					style={{ height: 26, width: 125 }}
 				/>
 			</a>
 

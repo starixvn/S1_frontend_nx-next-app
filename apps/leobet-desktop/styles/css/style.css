@@ -1366,7 +1366,7 @@ header input:focus-within {
   width: 150px;
   height: 25px;
   font-style: italic;
-  background: url(../img/subMenu-Wrapper-spanBG.png) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/subMenu-Wrapper-spanBG.png) no-repeat center/cover;
   -webkit-transition: 0.6s;
   transition: 0.6s;
   left: 10px;
@@ -12052,7 +12052,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .moduleTitle {
-  background: url(../img/homepage/titlebg.png) no-repeat;
+  background: url(https://banner.leoking88.net/desktop/img/homepage/titlebg.png) no-repeat;
   margin: 30px auto 15px;
   padding: 0 0 0 25px;
   line-height: 2.5;
@@ -12073,7 +12073,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .moduleTitle > a::after {
   content: "";
-  background: url(../img/homepage/more.png) no-repeat;
+  background: url(https://banner.leoking88.net/desktop/img/homepage/more.png) no-repeat;
   width: 20px;
   height: 20px;
   position: absolute;
@@ -12405,7 +12405,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: url(../img/gamenamebg.png) no-repeat center top/cover;
+  background: url(https://banner.leoking88.net/desktop/img/gamenamebg.png) no-repeat center top/cover;
 }
 .hot-match .hotevent .team {
   height: 310px;
@@ -12584,7 +12584,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .liveVideo .newsList .title,
 .newsVideo .latestVideo .title,
 .newsVideo .newsList .title {
-  background: url(../img/homepage/latestvideotitlebg.jpg) no-repeat;
+  background: url(https://banner.leoking88.net/desktop/img/homepage/latestvideotitlebg.jpg) no-repeat;
   line-height: 46px;
   border-radius: 0 0 5px 5px;
   padding-left: 20px;
@@ -12725,7 +12725,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: url(../img/gamenamebg.png) no-repeat center top/cover;
+  background: url(https://banner.leoking88.net/desktop/img/gamenamebg.png) no-repeat center top/cover;
 }
 .liveVideo .latestVideo + div .hotevent .team,
 .liveVideo .newsList + div .hotevent .team,
@@ -13487,7 +13487,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   content: "";
   width: 300px;
   height: 435px;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/homepage/livacasino-item.png) no-repeat;
+  background: url(https://banner.leoking88.net/desktop/img/homepage/livacasino-item.png) no-repeat;
   position: absolute;
   z-index: 2;
   right: 20px;
@@ -14569,7 +14569,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   background: #ff2a56;
 }
 .jpotModule .jpot .number {
-  background: url(../img/homepage/jpot-title.png) no-repeat;
+  background: url(https://banner.leoking88.net/desktop/img/homepage/jpot-title.png) no-repeat;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -20964,7 +20964,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: block;
   width: 130px;
   height: 30px;
-  background-image: url("../img/logo.png");
+  background-image: url("https://banner.leoking88.net/desktop/img/logo.png");
   background-size: 100%;
   background-repeat: no-repeat;
   -webkit-transition: ease 0.15s;
