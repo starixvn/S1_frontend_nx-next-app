@@ -43,10 +43,10 @@ const Features = () => {
 				<Image
 					className='animationlogo'
 					alt='logo'
-					src={`${process.env['NEXT_PUBLIC_IMAGE_HOST']}/SiteSkin/img/logo_en_w.png`}
-					width={150}
-					height={66}
-					style={{ width: '150px', height: '66px' }}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/logo.png`}
+					width={187}
+					height={40}
+					style={{ width: '187px', height: '40px' }}
 				/>
 				<Image
 					className='npc1'

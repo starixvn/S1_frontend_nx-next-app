@@ -28,13 +28,13 @@ const HomeJackPot = () => {
 					<Link href={paths.slots.root}>
 						<a className='slotsbox'>
 							<Image
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/img/indexslots_bg_${langId}.jpg`}
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/indexslots_bg_${langId}.jpg`}
 								alt='slots-bg'
 								width={605}
 								height={215}
 							/>
 							<Image
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/img/indexslots_items.png`}
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/indexslots_items.png`}
 								alt='slots-items'
 								width={362}
 								height={291}
