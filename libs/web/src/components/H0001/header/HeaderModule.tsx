@@ -73,7 +73,7 @@ const HeaderModule = ({
 					alt='logo'
 					height={40}
 					width={90}
-					style={{ height: 40, width: 90 }}
+					style={{ height: 26, width: 125 }}
 				/>
 			</a>
 
