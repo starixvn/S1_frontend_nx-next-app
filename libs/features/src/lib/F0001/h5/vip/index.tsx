@@ -37,7 +37,7 @@ const Vip = ({
 	return (
 		<>
 			<Header className='header'>
-				<Header.Tag title={t('label_VIP') as string} />
+				<Header.Tag title='VIP' />
 			</Header>
 
 			<main className='main vip'>

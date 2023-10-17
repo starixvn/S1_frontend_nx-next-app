@@ -98,7 +98,7 @@ const GameList = () => {
 		</Suspense>
 	) : (
 		<div className='nodata icon icon-nodata'>
-			<div className='txt-white'>{t('Label_NoData')}</div>
+			<div className='txt-white'>{t('Label_General_NoData')}</div>
 		</div>
 	)
 }

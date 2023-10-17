@@ -205,7 +205,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 							},
 							max: {
 								value: watchMaxAmount,
-								message: t('Label_General_AmountNotInLimit'),
+								message: t('Label_General_NotInLimit'),
 							},
 						})}
 						format={isConvert(currencyId)}

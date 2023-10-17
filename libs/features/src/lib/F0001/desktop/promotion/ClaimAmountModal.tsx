@@ -68,25 +68,21 @@ const ClaimAmountModal = ({
 								register={register('amount', {
 									required: {
 										value: true,
-										message: t('Label_General_CanNotBeLessThan', {
-											value1: t('Label_General_Amount'),
-											value2: min,
+										message: t('Label_General_AmountLessThan', {
+											value1: min,
 										}),
 									},
 									min: {
 										// * 只拿整數
 										value: replace(String(min), INTEGER_ONLY_REGEX, ''),
-										message: t('Label_General_CanNotBeLessThan', {
-											value1: t('Label_General_Amount'),
-											value2: min,
+										message: t('Label_General_AmountLessThan', {
+											value1: min,
 										}),
 									},
 									max: {
 										// * 只拿整數
 										value: replace(String(max), INTEGER_ONLY_REGEX, ''),
-										message: t('Label_General_NotInLimit', {
-											value1: max,
-										}),
+										message: t('Label_General_NotInLimit'),
 									},
 									onBlur: () => trigger('amount'),
 									onChange: e => {

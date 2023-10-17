@@ -25,7 +25,7 @@ const VipMedal = ({ activeTab, onChange }: IVipMedalProps) => {
 						<img src={url} alt={displayKey} />
 						<div>
 							{t(displayKey as string)}
-							<span>{t('Label_Club')}</span>
+							<span>{t('Label_Vip_Club')}</span>
 						</div>
 					</div>
 				)

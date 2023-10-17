@@ -50,7 +50,7 @@ const Transfer = () => {
 								valueAsNumber: true,
 								required: {
 									value: true,
-									message: t('Label_General_AmountTooltip', { 0: 1 }),
+									message: t('Label_General_AmountLessThan', { value1: 1 }),
 								},
 								onBlur: handleCheckAmount,
 							})}
@@ -59,7 +59,9 @@ const Transfer = () => {
 							error={!!errors['amount']}
 							format={isConvert(currencyId)}
 							touched={!!touchedFields['amount']}
-							infoMessage={t('Label_General_AmountTooltip', { 0: 1 }) as string}
+							infoMessage={
+								t('Label_General_AmountLessThan', { value1: 1 }) as string
+							}
 							errorMessage={errors['amount']?.message as string}
 						/>
 						<div className='btnGroup'>

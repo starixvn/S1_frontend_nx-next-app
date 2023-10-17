@@ -51,7 +51,7 @@ const DepositHistoryTable = ({
 
 	const columns = [
 		{
-			title: t('Label_History_NO'),
+			title: t('Label_General_No'),
 			dataIndex: 'no',
 			key: 'no',
 			render: ({ index }: { index: number }) => index + 1,

@@ -345,7 +345,7 @@ export const TransferFundsProvider = ({
 
 		if (amount && amount < 1) {
 			setError('amount', {
-				message: t('Label_General_AmountTooltip', { 0: 1 }) as string,
+				message: t('Label_General_AmountLessThan', { value1: 1 }) as string,
 			})
 		}
 	}
