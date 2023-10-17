@@ -40,6 +40,10 @@ const nextConfig = {
 					destination: `${process.env.NEXT_PUBLIC_ENV_DB_HOST}/:langId/Cashier/:path*`,
 					locale: false,
 				},
+				{
+					source: '/health',
+					destination: '/api/health',
+				},
 			],
 		}
 	},
