@@ -24,7 +24,7 @@ const PromotionPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-	footerData,
+
 	persistPromotionData,
 }: IPromotionPageProps) => {
 	return (

@@ -74,31 +74,31 @@ const LayoutFooter = () => {
 					<Link href={paths.wallet.root}>
 						<a className='icon icon-icon32px_wallet'>
 							<div className='circleAnimation' />
-							<span>My Wallet</span>
+							<span>{t('Label_General_MyWallet')}</span>
 						</a>
 					</Link>
 					<Link href={paths.withdrawal.root}>
 						<a className='icon icon-icon32px_Withdraw'>
 							<div className='circleAnimation' />
-							<span>Withdrawal</span>
+							<span>{t('Label_General_Withdrawal')}</span>
 						</a>
 					</Link>
 					<Link href={paths.deposit.root}>
 						<a className='icon icon-icon32px_deposit'>
 							<div className='circleAnimation' />
-							<span>Deposit</span>
+							<span>{t('Label_General_Deposit')}</span>
 						</a>
 					</Link>
 					<Link href={paths.transferFunds.root}>
 						<a className='icon icon-icon32px_Funds-transfer'>
 							<div className='circleAnimation' />
-							<span>Transfer</span>
+							<span>{t('Label_General_Transfer')}</span>
 						</a>
 					</Link>
 					<Link href={paths.statement.root}>
 						<a className='icon icon-icon32px_History'>
 							<div className='circleAnimation' />
-							<span>Statement</span>
+							<span>{t('Label_General_Statement')}</span>
 						</a>
 					</Link>
 				</div>
