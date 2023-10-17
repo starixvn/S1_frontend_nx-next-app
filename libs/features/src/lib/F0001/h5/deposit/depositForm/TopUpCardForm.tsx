@@ -18,7 +18,7 @@ import {
 	numberFormat,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
-import { isNumber, toLower } from 'lodash-es'
+import { isNumber, toLower, upperFirst } from 'lodash-es'
 import { useTranslation } from 'react-i18next'
 import { useBoolean } from 'usehooks-ts'
 
@@ -233,7 +233,11 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 								<span className='icon icon-warning' />
 								{t('Label_General_ImportantNotes')}
 							</li>
-							<li>{t('Label_Deposit_DepositLoadCardNoticeContent1')}</li>
+							<li>
+								{t('Label_Deposit_DepositLoadCardNoticeContent1', {
+									site: upperFirst(process.env['NEXT_PUBLIC_SITE_NAME'] || ''),
+								})}
+							</li>
 							<li>{t('Label_Deposit_DepositLoadCardNoticeContent2')}</li>
 						</ol>
 					</div>

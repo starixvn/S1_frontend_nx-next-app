@@ -386,7 +386,7 @@ export const WithdrawalProvider = ({ children }: IWithdrawalProviderProps) => {
 			// ewallet
 			setError('amount', {
 				type: 'notInLimit',
-				message: t('Label_Withdrawal_NotinLimit') ?? '',
+				message: t('Label_General_NotInLimit') ?? '',
 			})
 		} else if (!unlimited && realAmount > withdrawalAvailableAmount) {
 			// localBank
@@ -402,8 +402,8 @@ export const WithdrawalProvider = ({ children }: IWithdrawalProviderProps) => {
 			setError('amount', {
 				type: 'lessThanMin',
 				message:
-					t('Label_Withdrawal_AmountTooltip', {
-						min: numberFormat(realWithdrawalMin, currencyId, 0),
+					t('Label_General_AmountLessThan', {
+						value1: numberFormat(realWithdrawalMin, currencyId, 0),
 					}) ?? '',
 			})
 		} else if (

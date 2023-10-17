@@ -35,7 +35,7 @@ const GlobalModal = ({
 			break
 
 		case 'confirm':
-			mergedTitle = title || t('label_Message_ImportantNote')
+			mergedTitle = title || t('Label_General_ImportantNote')
 			mergeOkText = okText || t('Label_General_Yes')
 			mergeCancelText = cancelText || t('Label_General_No')
 

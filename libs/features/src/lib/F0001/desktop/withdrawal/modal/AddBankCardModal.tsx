@@ -176,7 +176,7 @@ const AddBankCardModal = ({
 						title={
 							isLocal
 								? t('Label_Withdrawal_AccountNumber') ?? ''
-								: t('label_Withdrawal_EWalletAccountNumber') ?? ''
+								: t('Label_Withdrawal_EWalletAccountNumber') ?? ''
 						}
 						touched={!!touchedFields['accountNo']}
 						error={!!errors['accountNo']}

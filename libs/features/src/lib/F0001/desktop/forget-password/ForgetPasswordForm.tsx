@@ -2,6 +2,7 @@ import { useTranslation } from 'next-i18next'
 import { useForm } from 'react-hook-form'
 import { InputBox, Form } from '@nx-next-app/components/D0001'
 import { EMAIL_REGEX } from '@nx-next-app/constants'
+import { upperFirst } from 'lodash-es'
 
 type ForgetPasswordFormType = {
 	email: string
@@ -44,7 +45,11 @@ const ForgetPasswordForm = ({
 						icon='txt-blue icon-email'
 						title={t('Label_General_Email') || ''}
 						touched={!!touchedFields['email']}
-						infoMessage={t('Label_General_ResetPasswordMsg') || ''}
+						infoMessage={
+							t('Label_General_ResetPasswordMsg', {
+								site: upperFirst(process.env['NEXT_PUBLIC_SITE_NAME'] || ''),
+							}) || ''
+						}
 						errorMessage={errors['email']?.message as string}
 						error={!!errors['email']}
 					/>
