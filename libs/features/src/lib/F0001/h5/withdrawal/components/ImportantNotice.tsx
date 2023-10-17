@@ -7,7 +7,7 @@ const ImportantNotice = () => {
 		<div className='important'>
 			<div className='title'>
 				<span className='icon icon-information' />
-				{t('Label_Withdrawal_ImportantNotice')}
+				{t('Label_General_ImportantNotice')}
 			</div>
 			<ul>
 				<li>
