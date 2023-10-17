@@ -164,7 +164,7 @@ export const MENU_DATA = ({
 				menuActionType: MenuActionTypeEnum.Link,
 			},
 			pathname: paths.appDownload.root,
-			allowCurrencies: true,
+			allowCurrencies: [],
 			subMenuAllowCurrenciesWithAuth: false,
 		},
 		[MenuKeyEnum.CryptoSports]: {
@@ -457,7 +457,7 @@ export const MENU_DATA = ({
 						menuActionType: MenuActionTypeEnum.UseGoToGame,
 					},
 					productKey: 'SPORTS_9W_SPORTS',
-					displayText: 'Nova88 Exchange',
+					displayText: 'Exchange',
 					product: PRODUCTS['SPORTS_9W_SPORTS'],
 					eventIcons: [
 						{
