@@ -155,7 +155,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 							},
 							max: {
 								value: watchMaxAmount,
-								message: t('Label_General_AmountNotInLimit'),
+								message: t('Label_General_NotInLimit'),
 							},
 						})}
 						format={isConvert(currencyId)}

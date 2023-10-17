@@ -187,7 +187,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 							},
 							max: {
 								value: watchMaxAmount,
-								message: t('Label_General_AmountNotInLimit'),
+								message: t('Label_General_NotInLimit'),
 							},
 						})}
 						format={isConvert(currencyId)}
@@ -201,7 +201,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 						errorMessage={errors['amount']?.message || ''}
 						error={!!errors['amount']}
 						infoMessage={
-							t('Label_General_AmountTooltip', {
+							t('Label_General_AmountLessThan', {
 								value1: numberFormat(convertedMinAmount, currencyId, 0),
 							}) || ''
 						}

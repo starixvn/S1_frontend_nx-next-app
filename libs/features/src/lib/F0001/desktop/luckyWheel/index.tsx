@@ -4,7 +4,7 @@ import { useBoolean } from 'usehooks-ts'
 import { useAuth } from '@nx-next-app/data-access'
 import { Img, Loading, SpinButton } from '@nx-next-app/components/D0001'
 import { useTranslation } from 'next-i18next'
-import { toUpper } from 'lodash-es'
+import { toUpper, upperFirst } from 'lodash-es'
 import { IEventPeriod } from '@nx-next-app/types'
 import { useLuckWheelContext } from '@nx-next-app/features/F0001/providers'
 
@@ -86,9 +86,21 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 						<ul>
 							<li>{t('Label_LuckyWheel_OtherConditions1')}</li>
 							<li>{t('Label_LuckyWheel_OtherConditions2')}</li>
-							<li>{t('Label_LuckyWheel_OtherConditions3')}</li>
-							<li>{t('Label_LuckyWheel_OtherConditions4')}</li>
-							<li>{t('Label_LuckyWheel_OtherConditions5')}</li>
+							<li>
+								{t('Label_LuckyWheel_OtherConditions3', {
+									site: upperFirst(process.env['NEXT_PUBLIC_SITE_NAME'] || ''),
+								})}
+							</li>
+							<li>
+								{t('Label_LuckyWheel_OtherConditions4', {
+									site: upperFirst(process.env['NEXT_PUBLIC_SITE_NAME'] || ''),
+								})}
+							</li>
+							<li>
+								{t('Label_LuckyWheel_OtherConditions5', {
+									site: upperFirst(process.env['NEXT_PUBLIC_SITE_NAME'] || ''),
+								})}
+							</li>
 						</ul>
 					</div>
 					<div className='luckyBox title'>

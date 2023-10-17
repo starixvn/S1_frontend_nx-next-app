@@ -3,7 +3,7 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { createContext, ReactNode, useContext, useEffect } from 'react'
 import { useAuth } from '@nx-next-app/data-access'
 import { useTranslation } from 'next-i18next'
-import { delay } from 'lodash-es'
+import { delay, upperFirst } from 'lodash-es'
 import {
 	useCheckDrawPrizeQuery,
 	useGetDisplayDrawPrizeListQuery,
@@ -184,7 +184,8 @@ export const LuckWheelProvider = ({ children }: ILuckWheelProviderProps) => {
 							<div className='title'>{t('Label_LuckyWheel_Spin_Rewards')}</div>
 							<div>
 								{t('Label_LuckyWheel_Congratulation', {
-									value1: drawPrizeData.prizeName,
+									prizeName: drawPrizeData.prizeName,
+									site: upperFirst(process.env['NEXT_PUBLIC_SITE_NAME'] || ''),
 								})}
 							</div>
 							<div className='am'>{drawPrizeData.prizeName}</div>

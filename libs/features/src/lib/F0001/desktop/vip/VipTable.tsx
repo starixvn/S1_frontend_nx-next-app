@@ -31,7 +31,7 @@ const VipTable = ({ vipBannerData, lastUpdateTime }: IVipBannerData) => {
 							<td key={`${item.displayKey}-${item.alt}`}>
 								<img src={item.url} alt={item.alt} />
 								{t(item.displayKey || '')}
-								{langId === 'cs' && <p>{t('Label_Club')}</p>}
+								{langId === 'cs' && <p>{t('Label_Vip_Club')}</p>}
 							</td>
 						))}
 					</tr>
