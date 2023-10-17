@@ -121,8 +121,9 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 						<JackPot onClick={() => push(paths.slots.root)} isRoot />
 					)}
 					<LuckyWheel />
-					<AppDownload />
-					<FooterBlock />
+					{/* 先隱藏 */}
+					{/* <AppDownload /> */}
+					{/* <FooterBlock /> */}
 				</div>
 			</main>
 		</>
