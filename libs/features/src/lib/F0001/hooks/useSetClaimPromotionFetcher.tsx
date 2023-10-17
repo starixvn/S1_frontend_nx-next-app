@@ -106,7 +106,10 @@ const useSetClaimPromotionFetcher = () => {
 					label: `${t('Label_General_DepositAmount')} ${numberFormat(
 						item.requiredAmount,
 						currencyId
-					)} ~ ${numberFormat(item.bonusAmount, currencyId)}`,
+					)} / ${t('Label_General_BonusAmount')} ${numberFormat(
+						item.bonusAmount,
+						currencyId
+					)}`,
 				}))
 
 			modal.open(

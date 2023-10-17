@@ -69,7 +69,7 @@ const ReferralItem = ({
 					</span>
 				</li>
 				<li>
-					<span className='title'>{t('Label_History_BonusAmount')}</span>
+					<span className='title'>{t('Label_General_BonusAmount')}</span>
 					<span>{numberFormat(bonusAmount as number, currencyId, 0)}</span>
 				</li>
 				<li>

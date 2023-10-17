@@ -91,7 +91,7 @@ const ReferralHistoryTable = ({
 			),
 		},
 		{
-			title: t('Label_History_BonusAmount'),
+			title: t('Label_General_BonusAmount'),
 			dataIndex: 'bonusAmount',
 			key: 'bonusAmount',
 			render: ({ item: { bonusAmount } }: { item: { bonusAmount: number } }) =>
