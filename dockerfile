@@ -1,4 +1,5 @@
-FROM node:16.15.1 AS build-step
+FROM node:16.20.0-alpine AS builder
+RUN apk add --no-cache libc6-compat python3 make g++
 
 ARG project_name
 ARG env
@@ -24,14 +25,21 @@ ARG project_name
 ARG port
 WORKDIR /app
 
-COPY --from=build-step /build/node_modules ./node_modules
-COPY --from=build-step /build/dist/apps/${project_name} .
-RUN npm i sharp
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder --chown=nextjs:nodejs /build/dist/apps/${project_name}/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /build/dist/apps/${project_name}/.next/static ./dist/apps/${project_name}/.next/static
+COPY --from=builder --chown=nextjs:nodejs /build/dist/apps/${project_name}/public ./apps/${project_name}/public
+RUN #npm i sharp
+
+USER nextjs
 
 EXPOSE ${port}
 
+ENV APP_PATH=apps/${project_name}/server.js
 ENV PORT ${port}
 
-CMD ["npm", "start"]
+CMD node $APP_PATH
 
 

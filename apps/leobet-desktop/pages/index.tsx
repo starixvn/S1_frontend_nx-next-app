@@ -31,6 +31,14 @@ import { BannerTypeEnum, IFooterData } from '@nx-next-app/types'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { FOOTER_DATA } from '@nx-next-app/site/leobet'
 
+// 此為優化專案導出所需要的設定，因配合 nx 配置路徑衝突做的優化
+// 優化專案 build 出來的檔案結構，僅獨立輸出必要的資源而非整包 node_module , 控管 docker image 大小
+// https://nextjs.org/docs/pages/api-reference/next-config-js/output
+// https://github.com/nrwl/nx/issues/9017
+import path from 'path'
+
+path.resolve('./next.config.js')
+
 interface IHomePageProps extends InitialPropsInterface {
 	persistAnnouncementData: IAnnouncementData[]
 	persistBannerData: IBannerData[]
