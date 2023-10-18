@@ -1,5 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires, import/no-extraneous-dependencies
 const withNx = require('@nrwl/next/plugins/with-nx')
+const path = require('path')
 
 /**
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
@@ -54,6 +55,13 @@ const nextConfig = {
 		...i18n,
 		localeDetection: false, // * 不根據用戶語言環境自動導轉
 		// * https://nextjs.org/docs/advanced-features/i18n-routing#disabling-automatic-locale-detection
+	},
+	// 優化專案 build 出來的檔案結構，僅獨立輸出必要的資源而非整包 node_module , 控管 docker image 大小
+	// https://nextjs.org/docs/pages/api-reference/next-config-js/output
+	// https://github.com/nrwl/nx/issues/9017
+	output: 'standalone',
+	experimental: {
+		outputFileTracingRoot: path.join(__dirname, '../../'),
 	},
 }
 
