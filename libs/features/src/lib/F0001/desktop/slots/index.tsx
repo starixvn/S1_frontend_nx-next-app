@@ -6,9 +6,17 @@ import GameList from '@nx-next-app/features/F0001/desktop/slots/GameList'
 import { CarouselBanner } from '@nx-next-app/features/F0001/desktop/common'
 import { useSlots } from '@nx-next-app/features/F0001/providers'
 import { Loading } from '@nx-next-app/components/D0001'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { includes } from 'lodash-es'
 
 const Slots = () => {
 	const { bannerList, isGetBannerV3Fetching } = useSlots()
+	const { ALLOWED_CURRENCIES } = useStaticData()
+	const jackpotCurrencies = ALLOWED_CURRENCIES['JACKPOT'] as CurrenciesEnum[]
+	const {
+		userInfo: { currencyId },
+	} = useAuth()
 
 	if (isGetBannerV3Fetching) return <Loading />
 
@@ -23,9 +31,12 @@ const Slots = () => {
 			)}
 			<section className='inside'>
 				<div className='rightModule'>
-					<div className='slotJpot'>
-						<Jackpot onClick={() => null} />
-					</div>
+					{includes(jackpotCurrencies, currencyId) && (
+						<div className='slotJpot'>
+							<Jackpot onClick={() => null} />
+						</div>
+					)}
+
 					<div className='infoModule'>
 						<VendorFilter />
 						<div className='casinoSelect'>
