@@ -1,7 +1,7 @@
 import React from 'react'
-import DatePicker from 'react-datepicker'
 import { useHistory } from '@nx-next-app/features/F0001/providers'
 import { useTranslation } from 'next-i18next'
+import DateSelector from '@nx-next-app/components/H0001/dateSelector'
 
 const HistoryFilter = () => {
 	const { startDate, endDate, onStartDateChange, onEndDateChange, onSearch } =
@@ -13,17 +13,17 @@ const HistoryFilter = () => {
 			<div className='infoModule parts'>
 				<div className='inputBox'>
 					<i className='icon icon-calendar' />
-					<DatePicker
+					<DateSelector
 						selected={startDate}
-						onChange={(date: Date) => onStartDateChange(date)}
+						onChange={(date: Date | null) => onStartDateChange(date)}
 					/>
 				</div>
 				<i className='icon icon-icon32px_1' />
 				<div className='inputBox'>
 					<i className='icon icon-calendar' />
-					<DatePicker
+					<DateSelector
 						selected={endDate}
-						onChange={(date: Date) => onEndDateChange(date)}
+						onChange={(date: Date | null) => onEndDateChange(date)}
 					/>
 				</div>
 				<div className='btn-group' onClick={onSearch}>
