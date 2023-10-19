@@ -3,132 +3,132 @@ export const paths = {
 		root: '/',
 	},
 	login: {
-		root: 'login',
+		root: '/login',
 	},
 	forgetPassword: {
-		root: 'forget-password',
+		root: '/forget-password',
 	},
 	join: {
-		root: 'join',
+		root: '/join',
 	},
 	deposit: {
-		root: 'deposit',
+		root: '/deposit',
 	},
 	history: {
-		root: 'history',
+		root: '/history',
 	},
 	referralHistory: {
-		root: 'referral-history',
+		root: '/referral-history',
 	},
 	depositHistory: {
-		root: 'deposit-history',
+		root: '/deposit-history',
 	},
 	withdrawalHistory: {
-		root: 'withdrawal-history',
+		root: '/withdrawal-history',
 	},
 	transferHistory: {
-		root: 'transfer-history',
+		root: '/transfer-history',
 	},
 	financialLog: {
-		root: 'financial-log',
+		root: '/financial-log',
 	},
 	transferFunds: {
-		root: 'transfer-funds',
+		root: '/transfer-funds',
 	},
 	withdrawal: {
-		root: 'withdrawal',
+		root: '/withdrawal',
 	},
 	eWalletWithdrawal: {
-		root: 'eWallet-withdrawal',
+		root: '/eWallet-withdrawal',
 	},
 	cryptoWithdrawal: {
-		root: 'crypto-withdrawal',
+		root: '/crypto-withdrawal',
 	},
 	kycWaiting: {
-		root: 'kyc-waiting',
+		root: '/kyc-waiting',
 	},
 	kyc: {
-		root: 'kyc',
+		root: '/kyc',
 	},
 	message: {
-		root: 'message',
+		root: '/message',
 	},
 	profile: {
-		root: 'profile',
+		root: '/profile',
 	},
 	statement: {
-		root: 'statement',
+		root: '/statement',
 	},
 	wallet: {
-		root: 'wallet',
+		root: '/wallet',
 	},
 	eWallet: {
-		root: 'eWallet',
+		root: '/eWallet',
 	},
 	cryptoWallet: {
-		root: 'crypto-wallet',
+		root: '/crypto-wallet',
 	},
 	referral: {
-		root: 'referral',
+		root: '/referral',
 	},
 	changePassword: {
-		root: 'change-password',
+		root: '/change-password',
 	},
 	bankInfo: {
-		root: 'bank-info',
+		root: '/bank-info',
 	},
 	appDownload: {
-		root: 'app-download',
+		root: '/app-download',
 	},
 	promotion: {
-		root: 'promotion',
+		root: '/promotion',
 	},
 	vip: {
-		root: 'vip',
+		root: '/vip',
 	},
 	sports: {
-		root: 'sports',
+		root: '/sports',
 	},
 	eSport: {
-		root: 'eSport',
+		root: '/eSport',
 	},
 	liveCasino: {
-		root: 'live-casino',
+		root: '/live-casino',
 	},
 	slots: {
-		root: 'slots',
+		root: '/slots',
 	},
 	oneGame: {
-		root: 'poker',
+		root: '/poker',
 	},
 	fishing: {
-		root: 'fishing',
+		root: '/fishing',
 	},
 	game: {
-		root: 'game',
+		root: '/game',
 	},
 	lottery: {
-		root: 'lottery',
+		root: '/lottery',
 	},
 	setting: {
-		root: 'setting',
+		root: '/setting',
 	},
 	myAccount: {
-		root: 'my-account',
+		root: '/my-account',
 	},
 	leaderBoard: {
-		root: 'leaderBoard',
+		root: '/leaderBoard',
 	},
 	announcement: {
-		root: 'announcement',
+		root: '/announcement',
 	},
 	rewards: {
-		root: 'rewards',
+		root: '/rewards',
 	},
 	newsInfo: {
-		root: 'news-info',
+		root: '/news-info',
 	},
 	luckyWheel: {
-		root: 'luckyWheel',
+		root: '/luckyWheel',
 	},
 }
