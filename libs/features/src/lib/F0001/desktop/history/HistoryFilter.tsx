@@ -1,8 +1,8 @@
 import React from 'react'
-import DatePicker from 'react-datepicker'
 import { Select } from '@nx-next-app/components/D0001'
 import { useTranslation } from 'next-i18next'
 import { useHistory } from '@nx-next-app/features/F0001/providers/history-context'
+import DateSelector from 'libs/web/src/components/D0001/dateSelector'
 
 const HistoryFilter = () => {
 	const {
@@ -32,9 +32,9 @@ const HistoryFilter = () => {
 			</div>
 			<div className='inputBox-blue'>
 				<i className='txt-blue'>{t('Label_History_From')}</i>
-				<DatePicker
+				<DateSelector
 					selected={startDate}
-					onChange={(date: Date) => onStartDateChange(date)}
+					onChange={(date: Date | null) => onStartDateChange(date)}
 					selectsStart
 					startDate={startDate}
 					endDate={endDate}
@@ -46,9 +46,9 @@ const HistoryFilter = () => {
 
 			<div className='inputBox-blue'>
 				<i className='txt-blue'>{t('Label_History_To')}</i>
-				<DatePicker
+				<DateSelector
 					selected={endDate}
-					onChange={(date: Date) => onEndDateChange(date)}
+					onChange={(date: Date | null) => onEndDateChange(date)}
 					selectsEnd
 					startDate={startDate}
 					endDate={endDate}
