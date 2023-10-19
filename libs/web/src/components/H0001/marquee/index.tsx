@@ -5,7 +5,7 @@ import {
 } from '@nx-next-app/components/D0001/marquee/type'
 
 interface IMarqueeProps {
-	data: IMarqueeData[]
+	data: IMarqueeData[] | null
 	onMarqueeClick: () => void
 	configs?: IMarqueeConfigs
 }
@@ -22,7 +22,7 @@ const Marquee = ({ data, configs, onMarqueeClick }: IMarqueeProps) => {
 			<div className='icon icon-marquee'>
 				<div className='marquee-run '>
 					<ReactMarquee {...defaultConfig}>
-						{data.map(({ id, subject }) => (
+						{data?.map(({ id, subject }) => (
 							<button
 								className='white'
 								key={`announcement-${id}`}

@@ -49,7 +49,7 @@ interface IHomeProviderProps {
 }
 
 export interface HomeContextInterface {
-	announcementData: IAnnouncementData[]
+	announcementData: IAnnouncementData[] | null
 	promotionData: IPromotionData[]
 	bannerData: IBannerData[]
 	hotEventData: IHotEventData[]

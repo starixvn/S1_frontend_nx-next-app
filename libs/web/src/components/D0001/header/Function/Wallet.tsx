@@ -113,6 +113,7 @@ const Wallet = ({
 					</div>
 					{custBonusWalletList?.map(item => {
 						const { turnover, rollover, promoCategoryId, bonus, tpId } = item
+
 						const percentage =
 							turnover > rollover
 								? 100
@@ -120,7 +121,9 @@ const Wallet = ({
 						return (
 							<div key={tpId}>
 								<div>
-									<span>{promoCategoryId}</span>
+									<span>
+										{t(`Label_Wallet_BonusWallet_${promoCategoryId}`)}
+									</span>
 									<span>{bonus}</span>
 								</div>
 								<div className='progressBar'>
