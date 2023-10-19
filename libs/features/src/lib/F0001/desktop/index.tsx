@@ -7,11 +7,8 @@ export { default as Referral } from './referral'
 export { default as Game } from './game/index'
 export { default as Esport } from './esport/index'
 export { default as LiveCasino } from './live-casino/index'
-
 export { default as Lottery } from './lottery/index'
-
 export { default as Withdrawal } from './withdrawal'
-
 export { default as LeaderBoard } from './leaderBoard'
 export { default as ForgetPassword } from './forget-password'
 export { default as RebateExclude } from './rebate-exclude'
@@ -31,5 +28,6 @@ export { default as Statement } from './statement'
 export { default as Announcement } from './announcement'
 export { default as AppDownload } from './appDownload'
 export { default as History } from './history'
+export { default as News } from './news'
 
 export * as ThirdPartyJS from './thirdPartyJS'
