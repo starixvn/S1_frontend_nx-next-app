@@ -142,6 +142,7 @@
   "Label_Deposit_RememberLastMode": "Ghi nhớ chế độ đã sử dụng cuối cùng của tôi",
   "Label_Deposit_RememberLastModeInfo": "Ghi nhớ ngân hàng được sử dụng cho lần nạp tiền cuối cùng của bạn. Nếu ngân hàng bạn đã chọn đã đóng, vui lòng chọn lại.",
   "Label_Deposit_ScanAndPay": "Quét và Thanh toán",
+  "Label_Deposit_ScanQR": "Quét mã QR",
   "Label_Deposit_SelectChannel": "Chọn tài khoản nạp",
   "Label_Deposit_SubTitle": "Bạn có thể chọn mục nạp tiền phù hợp nhất từ những lựa chọn bên dưới:",
   "Label_Deposit_SubmitBankSlipInfo": "Vui lòng gửi biên lai ngân hàng để xử lý yêu cầu nạp tiền nhanh hơn.",

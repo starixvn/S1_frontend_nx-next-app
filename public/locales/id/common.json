@@ -142,6 +142,7 @@
   "Label_Deposit_RememberLastMode": "Ingat mode terakhir yang digunakan",
   "Label_Deposit_RememberLastModeInfo": "Ingat bank yang Anda gunakan untuk deposit terakhir. Jika bank yang Anda pilih sudah tutup, mohon pilih kembali.",
   "Label_Deposit_ScanAndPay": "",
+  "Label_Deposit_ScanQR": "Pindai QR",
   "Label_Deposit_SelectChannel": "Pilih Saluran",
   "Label_Deposit_SubTitle": "Anda dapat memilih opsi setoran yang paling cocok dari yang disediakan di bawah ini:",
   "Label_Deposit_SubmitBankSlipInfo": "Berikan slip bank di sini agar permintaan Anda dapat kami proses dengan cepat.",

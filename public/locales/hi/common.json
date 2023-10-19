@@ -142,6 +142,7 @@
   "Label_Deposit_RememberLastMode": "मेरा पिछला इस्तेमाल किया हुआ मोड याद रखें",
   "Label_Deposit_RememberLastModeInfo": "आपकी पिछली जमा राशि के लिए इस्तेमाल किया गया बैंक याद रखें। यदि आपके द्वारा चयनित बैंक बंद कर दिया गया है, तो कृपया फिर से चयन करें।",
   "Label_Deposit_ScanAndPay": "",
+  "Label_Deposit_ScanQR": "क्यूआर स्कैन करें",
   "Label_Deposit_SelectChannel": "चैनल चुनें",
   "Label_Deposit_SubTitle": "आप नीचे दिए गए विकल्प में से सबसे उपयुक्त जमा विकल्प चुन सकते हैं:",
   "Label_Deposit_SubmitBankSlipInfo": "कृपया हमें यहां बैंक स्लिप प्रदान करें ताकि हम आपके अनुरोध को शीघ्रता से संसाधित कर सकें।",
