@@ -9,7 +9,7 @@ export const messageApiUrl = {
 const messageApi = rootApi.injectEndpoints({
 	endpoints: builder => ({
 		getAnnouncement: builder.query<
-			IAxiosResponse<IAnnouncementData[]>,
+			IAxiosResponse<IAnnouncementData[] | null>,
 			IGetAnnouncementArgs
 		>({
 			query: ({ langId, currencyId }) => ({
