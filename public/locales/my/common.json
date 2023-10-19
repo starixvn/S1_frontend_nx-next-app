@@ -142,6 +142,7 @@
   "Label_Deposit_RememberLastMode": "Ingat dara terakhir yang saya gunakan",
   "Label_Deposit_RememberLastModeInfo": "Sila ingat bank yang anda gunakan untuk deposit terakhir anda. Jika saluran bank yang anda pilih telah ditutup, sila pilih yang lain.",
   "Label_Deposit_ScanAndPay": "Imbas dan Bayar",
+  "Label_Deposit_ScanQR": "Imbas QR",
   "Label_Deposit_SelectChannel": "Pilih Saluran",
   "Label_Deposit_SubTitle": "Anda boleh memilih kaedah deposit yang paling sesuai daripada pilihan yang disediakan di bawah:",
   "Label_Deposit_SubmitBankSlipInfo": "Sila serahkan slip bank di sini supaya kami boleh memproses pohonan anda dengan lebih cepat.",

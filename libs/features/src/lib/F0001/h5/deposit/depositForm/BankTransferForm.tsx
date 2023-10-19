@@ -95,7 +95,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 				<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 					{dataSource.map(item => {
 						const {
-							bankCode,
+							bankName,
 							bankLogo,
 							minAmount,
 							maxAmount,
@@ -105,7 +105,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 
 						return (
 							<DepositModule.SubModuleButton
-								label={bankCode}
+								label={bankName}
 								imgName={`square/${toLower(bankLogo)}`}
 								matchValue={String(sysId)}
 								key={sysId}
