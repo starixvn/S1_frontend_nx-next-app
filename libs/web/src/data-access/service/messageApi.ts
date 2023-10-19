@@ -4,6 +4,7 @@ import {
 	IGetAnnouncementArgs,
 	messageApiUrl,
 } from '@nx-next-app/service'
+import { isNull } from 'lodash-es'
 
 // 有沒有登入不影響 announcement 資料，故不帶 cookie
 export const getAnnouncement = async (
@@ -14,5 +15,5 @@ export const getAnnouncement = async (
 		`${messageApiUrl.announcement}/${langId}`,
 		{ currencyId }
 	)
-	return data
+	return isNull(data) ? [] : data
 }
