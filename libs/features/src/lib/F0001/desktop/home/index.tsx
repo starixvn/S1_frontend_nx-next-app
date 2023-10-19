@@ -64,7 +64,7 @@ const Home = () => {
 			<CenterBanner />
 			{/* 頁面小元件，一律使用 dynamic import */}
 			<LuckyWheel />
-			<QuickDownload />
+			{/* <QuickDownload /> */}
 			{socialChannelList.length > 0 && (
 				<QuickLink socialChannelList={socialChannelList} />
 			)}
