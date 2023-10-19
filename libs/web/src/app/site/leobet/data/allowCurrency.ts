@@ -4,7 +4,7 @@ const { INR } = CurrenciesEnum
 
 export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 	VIP: [],
-	AFFILIATE: [INR],
+	AFFILIATE: [],
 	EXCHANGE: [INR],
 	REWARDS: [],
 	LEADER_BOARD: [],
@@ -37,4 +37,7 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 	// === withdrawal method ===
 	BANK_CARD: [INR],
 	E_WALLET: [],
+
+	// === Profile method ===
+	ADDRESS: [],
 }

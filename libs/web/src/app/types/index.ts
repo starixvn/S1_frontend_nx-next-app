@@ -93,6 +93,7 @@ export interface IStaticAllowedCurrencies {
 
 	BANK_CARD?: CurrenciesEnum[]
 	E_WALLET?: CurrenciesEnum[]
+	ADDRESS?: CurrenciesEnum[]
 }
 
 export interface IStaticVipEventCurrenciesLimitationInfo {

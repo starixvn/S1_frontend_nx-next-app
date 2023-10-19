@@ -162,34 +162,34 @@ export const FOOTER_DATA = ({
 			},
 		],
 		programList: [
-			{
-				applyNowLink: getApplyNowLink(currencyId),
-				icon: 'icon-friendreferral',
-				displayKey: 'Label_Referral_Program',
-				description: 'Label_Referral_Program_desc',
-				hotKeyName: 'Label_JoinNow',
-			},
-			{
-				applyNowLink: getApplyNowLink(currencyId),
-				icon: 'icon-affiliate',
-				displayKey: 'Label_Affiliate_Program',
-				description: 'Label_Affiliate_Program_desc',
-				hotKeyName: 'Label_Apply_Now',
-			},
-			{
-				applyNowLink: getApplyNowLink(currencyId),
-				icon: 'icon-vip',
-				displayKey: 'Label_VIP_Program',
-				description: 'Label_VIP_Program_desc',
-				hotKeyName: 'Label_More_Info',
-			},
-			{
-				applyNowLink: getApplyNowLink(currencyId),
-				icon: 'icon-livechat1',
-				displayKey: 'Label_Customer_Support',
-				description: 'Label_Customer_Support_desc',
-				hotKeyName: 'Label_Chat_Now',
-			},
+			// {
+			// 	applyNowLink: getApplyNowLink(currencyId),
+			// 	icon: 'icon-friendreferral',
+			// 	displayKey: 'Label_Referral_Program',
+			// 	description: 'Label_Referral_Program_desc',
+			// 	hotKeyName: 'Label_JoinNow',
+			// },
+			// {
+			// 	applyNowLink: getApplyNowLink(currencyId),
+			// 	icon: 'icon-affiliate',
+			// 	displayKey: 'Label_Affiliate_Program',
+			// 	description: 'Label_Affiliate_Program_desc',
+			// 	hotKeyName: 'Label_Apply_Now',
+			// },
+			// {
+			// 	applyNowLink: getApplyNowLink(currencyId),
+			// 	icon: 'icon-vip',
+			// 	displayKey: 'Label_VIP_Program',
+			// 	description: 'Label_VIP_Program_desc',
+			// 	hotKeyName: 'Label_More_Info',
+			// },
+			// {
+			// 	applyNowLink: getApplyNowLink(currencyId),
+			// 	icon: 'icon-livechat1',
+			// 	displayKey: 'Label_Customer_Support',
+			// 	description: 'Label_Customer_Support_desc',
+			// 	hotKeyName: 'Label_Chat_Now',
+			// },
 		],
 		programDescriptionList: [
 			{

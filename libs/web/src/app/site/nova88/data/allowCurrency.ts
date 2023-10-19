@@ -39,4 +39,7 @@ export const ALLOWED_CURRENCIES: {
 	// === withdrawal method ===
 	BANK_CARD: [MYR, THB, IDR, INR, KHM, VND, CNY],
 	E_WALLET: [MYR, THB, IDR, BDT],
+
+	// === Profile method ===
+	ADDRESS: [MYR, USD, THB, CNY, IDR, VND, INR, KHM, BDT, USDT],
 }

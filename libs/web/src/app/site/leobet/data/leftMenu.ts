@@ -59,7 +59,7 @@ export const LEFT_MENU_DATA: ILeftMenuData = {
 			referral: {
 				displayKey: 'Label_General_ReferFriends',
 				pathname: paths.referral.root,
-				allowCurrencies: false,
+				allowCurrencies: [],
 			},
 			changePassword: {
 				displayKey: 'Label_General_ChangePassword',

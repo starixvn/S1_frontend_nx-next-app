@@ -2789,7 +2789,7 @@ export const MENU_DATA = ({
 				return `https://aff.nova88bkk.com/?lang=${langId}`
 			})(),
 			subMenuAllowCurrenciesWithAuth: false,
-			allowCurrencies: true,
+			allowCurrencies: ALLOWED_CURRENCIES['AFFILIATE'],
 		},
 		[MenuKeyEnum.VIP]: {
 			display: 'all',
