@@ -142,6 +142,7 @@
   "Label_Deposit_RememberLastMode": "จำโหมดที่ใช้ล่าสุดของฉัน",
   "Label_Deposit_RememberLastModeInfo": "จำธนาคารที่ใช้สำหรับการฝากเงินครั้งสุดท้ายของคุณ หากธนาคารที่คุณเลือกถูกปิดโปรดเลือกอีกครั้ง",
   "Label_Deposit_ScanAndPay": "",
+  "Label_Deposit_ScanQR": "สแกน QR",
   "Label_Deposit_SelectChannel": "เลือกช่อง",
   "Label_Deposit_SubTitle": "คุณสามารถเลือกตัวเลือกการฝากที่ดีที่สุดสำหรับคุณจากรายการด้านล่าง:",
   "Label_Deposit_SubmitBankSlipInfo": "โปรดแนบสลิปธนาคารที่นี่เพื่อให้เราดำเนินการตามคำขอของคุณได้อย่างรวดเร็ว",

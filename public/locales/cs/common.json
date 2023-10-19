@@ -142,6 +142,7 @@
   "Label_Deposit_RememberLastMode": "储存我最后一次交易模式",
   "Label_Deposit_RememberLastModeInfo": "储存最后一笔存款交易银行。若您选择的银行已结业，请再重新选择。",
   "Label_Deposit_ScanAndPay": "扫码付款",
+  "Label_Deposit_ScanQR": "掃描二維碼",
   "Label_Deposit_SelectChannel": "选择渠道",
   "Label_Deposit_SubTitle": "从下方选出最符合您需求的存款方式：",
   "Label_Deposit_SubmitBankSlipInfo": "请提供转账收据以便更快捷处理您的交易",
