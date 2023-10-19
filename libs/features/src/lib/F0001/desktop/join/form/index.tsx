@@ -31,6 +31,7 @@ import {
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
 } from '@nx-next-app/service'
+import { includes } from 'lodash-es'
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
 
@@ -55,6 +56,8 @@ const Form = ({ cookies }: IJoinProps) => {
 	const urlAffCode = query['AffCode'] || cookies['AffCode']
 	const urlAffiliate = urlAffId || urlAffCode
 	const lineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
+
+	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	const {
 		formState,
@@ -531,19 +534,24 @@ const Form = ({ cookies }: IJoinProps) => {
 						</div>
 					</>
 				)}
-				<InputBox
-					register={register('affiliate', {
-						onBlur: checkAffiliate,
-					})}
-					icon='icon icon-affiliate txt-blue'
-					placeholder={t('Label_Join_Affiliate_ID') as string}
-					errorMessage={errors['affiliate']?.message as string}
-					error={!!errors['affiliate']}
-					touched={!!touchedFields['affiliate']}
-					infoMessage={t('Label_Join_Please_Enter_Affiliate_ID') as string}
-					// If has url affiliate and has value in affiliate input, the affiliate is qualified.
-					readOnly={!!urlAffiliate && !!getValues('affiliate')}
-				/>
+				{includes(
+					ALLOWED_CURRENCIES['AFFILIATE'] as CurrenciesEnum[],
+					currencyId
+				) && (
+					<InputBox
+						register={register('affiliate', {
+							onBlur: checkAffiliate,
+						})}
+						icon='icon icon-affiliate txt-blue'
+						placeholder={t('Label_Join_Affiliate_ID') as string}
+						errorMessage={errors['affiliate']?.message as string}
+						error={!!errors['affiliate']}
+						touched={!!touchedFields['affiliate']}
+						infoMessage={t('Label_Join_Please_Enter_Affiliate_ID') as string}
+						// If has url affiliate and has value in affiliate input, the affiliate is qualified.
+						readOnly={!!urlAffiliate && !!getValues('affiliate')}
+					/>
+				)}
 			</div>
 			{recaptchaInfo?.siteKey && recaptchaInfo.country !== 'CN' && (
 				<div className='g-recaptcha'>
