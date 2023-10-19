@@ -10,7 +10,7 @@ const News = () => {
 	const { push } = useRouter()
 	const { newsData = [] } = useHome()
 	const handleClick = (newsId: number) => {
-		push(`${paths.newsInfo.root}?newsId=${newsId}`)
+		push(`${paths.newsInfo.root}/${newsId}`)
 	}
 
 	return (
