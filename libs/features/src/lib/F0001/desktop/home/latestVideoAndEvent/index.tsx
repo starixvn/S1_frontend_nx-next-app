@@ -18,4 +18,4 @@ const index = () => {
 	)
 }
 
-export { index as LatestVideAndEvent }
+export { index as LatestVideoAndEvent }

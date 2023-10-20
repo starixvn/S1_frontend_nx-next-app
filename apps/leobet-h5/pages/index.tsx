@@ -29,7 +29,7 @@ import {
 	IPromotionData,
 } from '@nx-next-app/service'
 import { BannerTypeEnum, IFooterData } from '@nx-next-app/types'
-import { FOOTER_DATA } from '@nx-next-app/site/leobet'
+import { FOOTER_DATA, MOBILE_HOME_ORDERS } from '@nx-next-app/site/leobet'
 
 // 此為優化專案導出所需要的設定，因配合 nx 配置路徑衝突做的優化
 // 優化專案 build 出來的檔案結構，僅獨立輸出必要的資源而非整包 node_module , 控管 docker image 大小
@@ -79,6 +79,7 @@ const HomePage = ({
 						persistNewsData={persistNewsData}
 						persistLicenseData={persistFooterData.licenseData}
 						persistProgramList={persistFooterData.programList}
+						mobileHomeOrders={MOBILE_HOME_ORDERS}
 					>
 						<Home persistAppDownloadHint={persistAppDownloadHint} />
 					</HomeProvider>
