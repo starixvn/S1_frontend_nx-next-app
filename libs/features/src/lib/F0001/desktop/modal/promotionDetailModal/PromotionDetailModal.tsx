@@ -10,7 +10,6 @@ import {
 	getIsHidePromotionJoinButton,
 	isShowPromotionProgressBar,
 	isUrl,
-	openLiveChat,
 } from '@nx-next-app/utils'
 import { paths } from '@nx-next-app/constants'
 import { PromotionTypeEnum } from '@nx-next-app/types'
@@ -113,12 +112,6 @@ const PromotionDetailModal = ({
 							<div className='txt-gray'>{description}</div>
 						</div>
 						<div className='btnGroup'>
-							{promotionType === PromotionTypeEnum.SpecialBonus && (
-								<button className='red' onClick={() => openLiveChat()}>
-									{toUpper(t('Label_General_ApplyNow') || '')}
-								</button>
-							)}
-
 							{!isHideJoinButton && (
 								<button
 									className='orange'

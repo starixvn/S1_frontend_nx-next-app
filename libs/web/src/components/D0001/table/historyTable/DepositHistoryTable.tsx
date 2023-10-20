@@ -15,6 +15,14 @@ import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import dynamic from 'next/dynamic'
 
+const HistoryMsgModal = dynamic(
+	() =>
+		import('@nx-next-app/features/F0001/desktop/history/modal/HistoryMsgModal'),
+	{
+		ssr: false,
+	}
+)
+
 const DepositBankSlipModal = dynamic(
 	() =>
 		import(
@@ -93,15 +101,43 @@ const DepositHistoryTable = ({
 			dataIndex: 'status',
 			key: 'status',
 			render: ({
-				item: { status },
+				item: { status, transId, depositMessageDetail },
 			}: {
-				item: { status: DepositStatusClassNameEnum }
+				item: {
+					status: DepositStatusClassNameEnum
+					depositMessageDetail: IDepositInfoHistoryData['depositMessageDetail']
+					transId: string
+				}
 			}) => {
 				const statusClassName =
 					DepositStatusClassName[status as DepositStatusClassNameEnum]
 				const statusText = t(`Label_DepositStatus${status}`)
 
-				return <div className={statusClassName}>{statusText}</div>
+				return (
+					<div className={statusClassName}>
+						{statusText}
+						{depositMessageDetail && depositMessageDetail.length > 0 && (
+							<button
+								className='infobtn'
+								onClick={() => {
+									modal.open(
+										<HistoryMsgModal
+											transId={transId as string}
+											messageDetail={
+												depositMessageDetail as {
+													errorTypeName: string
+													message: string
+													createTime: string
+												}[]
+											}
+										/>,
+										{ className: 'statuspop' }
+									)
+								}}
+							/>
+						)}
+					</div>
+				)
 			},
 		},
 		{
