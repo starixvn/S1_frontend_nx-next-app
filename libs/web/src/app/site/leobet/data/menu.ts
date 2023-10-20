@@ -479,7 +479,7 @@ export const MENU_DATA = ({
 			desktop: {
 				className: 'eSportsbtn',
 				subMenuClassName: 'eSportsList',
-				menuActionType,
+				menuActionType: MenuActionTypeEnum.Null,
 			},
 			displayKey: 'Label_General_ESports',
 			pathname: paths.eSport.root,
@@ -671,7 +671,7 @@ export const MENU_DATA = ({
 			desktop: {
 				className: 'livecasinobtn icon icon-newicon',
 				subMenuClassName: 'livecasinoList',
-				menuActionType,
+				menuActionType: MenuActionTypeEnum.Null,
 			},
 			displayKey: 'Label_General_LiveCasino',
 			pathname: paths.liveCasino.root,
@@ -1879,7 +1879,10 @@ export const MENU_DATA = ({
 				icon: 'icon icon-play',
 				menuActionType,
 			},
-			desktop: { subMenuClassName: 'livecasinoList', menuActionType },
+			desktop: {
+				subMenuClassName: 'livecasinoList',
+				menuActionType: MenuActionTypeEnum.Null,
+			},
 			displayKey: 'Label_General_Games',
 			pathname: paths.game.root,
 			// * 整理完之後看起來都一樣，留著以防之後要用
@@ -2233,7 +2236,7 @@ export const MENU_DATA = ({
 			desktop: {
 				className: 'fishbtn',
 				subMenuClassName: 'fishList',
-				menuActionType,
+				menuActionType: MenuActionTypeEnum.Null,
 			},
 			displayKey: 'Label_General_Fishing',
 			pathname: paths.fishing.root,
@@ -2520,7 +2523,10 @@ export const MENU_DATA = ({
 				icon: 'icon icon-kelo',
 				menuActionType,
 			},
-			desktop: { subMenuClassName: 'gameList', menuActionType },
+			desktop: {
+				subMenuClassName: 'gameList',
+				menuActionType: MenuActionTypeEnum.Null,
+			},
 			displayKey: 'Label_General_Lottery',
 			pathname: paths.lottery.root,
 			subMenu: [
