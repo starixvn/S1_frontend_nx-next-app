@@ -8,7 +8,6 @@ import {
 	DepositStatusEnum,
 	DepositTypeEnum,
 } from 'libs/web/src/app/types/history'
-import HistoryMsgModal from 'libs/features/src/lib/F0001/h5/history/modal/HistoryMsgModal'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -18,6 +17,14 @@ import {
 	useSetDepositCancelMutation,
 	useUploadReceiptMutation,
 } from '@nx-next-app/service'
+import dynamic from 'next/dynamic'
+
+const HistoryMsgModal = dynamic(
+	() => import('@nx-next-app/features/F0001/h5/history/modal/HistoryMsgModal'),
+	{
+		ssr: false,
+	}
+)
 
 const DepositItem = ({
 	createTime,
@@ -105,6 +112,7 @@ const DepositItem = ({
 						}
 					>
 						{t(`Label_DepositStatus${status}`)}
+
 						{depositMessageDetail && depositMessageDetail.length > 0 && (
 							<button
 								className='infobtn'

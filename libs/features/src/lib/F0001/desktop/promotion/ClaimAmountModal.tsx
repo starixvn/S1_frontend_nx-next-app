@@ -64,7 +64,7 @@ const ClaimAmountModal = ({
 							<div className=''>{t('Label_Promotion_EnterPreferAmount')}</div>
 
 							<InputBox
-								className='inputBox-white'
+								className='inputBox-blue'
 								register={register('amount', {
 									required: {
 										value: true,
