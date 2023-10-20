@@ -17,8 +17,11 @@ const FriendReferral = () => {
 	} = useHome()
 	const {
 		userInfo: { currencyId },
+		auth: { isLogin },
 	} = useAuth()
 	const { modal } = useGlobalModal()
+
+	if (!isLogin) return null
 
 	return (
 		<>
