@@ -8,9 +8,17 @@ import DepositImportant from './DepositImportant'
 import DepositRecentHistory from './DepositRecentHistory'
 import DepositForm from './depositForm'
 
-const Deposit = () => {
-	const { loading } = useDepositContext()
+interface IDepositProps {
+	options: {
+		// * 是否顯示 referral 按鈕
+		showReferralButton: boolean
+	}
+}
+
+const Deposit = ({ options }: IDepositProps) => {
 	const { t } = useTranslation()
+	const { loading } = useDepositContext()
+	const { showReferralButton } = options
 
 	return (
 		<main>
@@ -26,11 +34,14 @@ const Deposit = () => {
 									{t('Label_General_Deposit')}
 								</span>
 								<div>{t('Label_Deposit_SubTitle')}</div>
-								<Link href={paths.referral.root} passHref>
-									<a className='icon icon-friend'>
-										<span>{t('Label_Deposit_ReferFriendsRewards')}</span>
-									</a>
-								</Link>
+
+								{showReferralButton && (
+									<Link href={paths.referral.root} passHref>
+										<a className='icon icon-friend'>
+											<span>{t('Label_Deposit_ReferFriendsRewards')}</span>
+										</a>
+									</Link>
+								)}
 							</div>
 
 							<DepositForm />
