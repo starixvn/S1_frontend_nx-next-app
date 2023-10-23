@@ -192,82 +192,82 @@ export const FOOTER_DATA = ({
 			// },
 		],
 		programDescriptionList: [
-			{
-				contents: [
-					{
-						displayKey: `Label_Sports_Betting_Online_${currencyId}`,
-						description: 'Label_Sports_Betting_Online_Malaysia_desc',
-					},
-					{
-						displayKey: 'Label_Soccer_Betting_Live_Betting',
-						description: 'Label_Soccer_Betting_Live_Betting_desc',
-					},
-				],
-			},
-			{
-				contents: [
-					{
-						displayKey: 'Label_Sports_Betting_In_Play_Betting',
-						description: 'Label_Sports_Betting_In_Play_Betting_desc',
-					},
-					{
-						displayKey: 'Label_Online_Casino_Live_Casino',
-						description: 'Label_Online_Casino_Live_Casino_desc',
-					},
-					{
-						displayKey: 'Label_Keno_Lottery_Betting',
-						description: 'Label_Keno_Lottery_Betting_desc',
-					},
-				],
-			},
-			{
-				contents: [
-					{
-						displayKey: 'Label_Virtual_Sports',
-						description: 'Label_Virtual_Sports_desc',
-					},
-					{
-						displayKey: 'Label_Fishing_in_footer',
-						description: 'Label_Fishing_desc',
-					},
-					{
-						displayKey: 'Label_ESports',
-						description: 'Label_ESport_desc',
-					},
-				],
-			},
-			{
-				contents: [
-					{
-						displayKey: 'Label_Mobile_Betting',
-						description: 'Label_Mobile_Betting_desc',
-					},
-					{
-						displayKey: 'Label_Open_An_Account',
-						description: 'Label_Open_An_Account_desc',
-					},
-					{
-						displayKey: 'Label_Payment_Options',
-						description: 'Label_Payment_Options_desc',
-					},
-				],
-			},
-			{
-				contents: [
-					{
-						displayKey: 'Label_Affiliates_in_footer',
-						description: 'Label_Affiliates_desc',
-					},
-					{
-						displayKey: 'Label_Responsible_Gaming',
-						description: 'Label_Responsible_Gaming_desc',
-					},
-					{
-						displayKey: 'Label_Security',
-						description: 'Label_Security_desc',
-					},
-				],
-			},
+			// {
+			// 	contents: [
+			// 		{
+			// 			displayKey: `Label_Sports_Betting_Online_${currencyId}`,
+			// 			description: 'Label_Sports_Betting_Online_Malaysia_desc',
+			// 		},
+			// 		{
+			// 			displayKey: 'Label_Soccer_Betting_Live_Betting',
+			// 			description: 'Label_Soccer_Betting_Live_Betting_desc',
+			// 		},
+			// 	],
+			// },
+			// {
+			// 	contents: [
+			// 		{
+			// 			displayKey: 'Label_Sports_Betting_In_Play_Betting',
+			// 			description: 'Label_Sports_Betting_In_Play_Betting_desc',
+			// 		},
+			// 		{
+			// 			displayKey: 'Label_Online_Casino_Live_Casino',
+			// 			description: 'Label_Online_Casino_Live_Casino_desc',
+			// 		},
+			// 		{
+			// 			displayKey: 'Label_Keno_Lottery_Betting',
+			// 			description: 'Label_Keno_Lottery_Betting_desc',
+			// 		},
+			// 	],
+			// },
+			// {
+			// 	contents: [
+			// 		{
+			// 			displayKey: 'Label_Virtual_Sports',
+			// 			description: 'Label_Virtual_Sports_desc',
+			// 		},
+			// 		{
+			// 			displayKey: 'Label_Fishing_in_footer',
+			// 			description: 'Label_Fishing_desc',
+			// 		},
+			// 		{
+			// 			displayKey: 'Label_ESports',
+			// 			description: 'Label_ESport_desc',
+			// 		},
+			// 	],
+			// },
+			// {
+			// 	contents: [
+			// 		{
+			// 			displayKey: 'Label_Mobile_Betting',
+			// 			description: 'Label_Mobile_Betting_desc',
+			// 		},
+			// 		{
+			// 			displayKey: 'Label_Open_An_Account',
+			// 			description: 'Label_Open_An_Account_desc',
+			// 		},
+			// 		{
+			// 			displayKey: 'Label_Payment_Options',
+			// 			description: 'Label_Payment_Options_desc',
+			// 		},
+			// 	],
+			// },
+			// {
+			// 	contents: [
+			// 		{
+			// 			displayKey: 'Label_Affiliates_in_footer',
+			// 			description: 'Label_Affiliates_desc',
+			// 		},
+			// 		{
+			// 			displayKey: 'Label_Responsible_Gaming',
+			// 			description: 'Label_Responsible_Gaming_desc',
+			// 		},
+			// 		{
+			// 			displayKey: 'Label_Security',
+			// 			description: 'Label_Security_desc',
+			// 		},
+			// 	],
+			// },
 		],
 		licenseData: {
 			defaultScript: 'a7019fa5-9f9a-468b-92da-4890f6a6e4a7',
