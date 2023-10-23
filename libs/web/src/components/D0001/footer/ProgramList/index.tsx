@@ -83,6 +83,8 @@ const ProgramList = ({
 		}
 	}
 
+	if (programList.length === 0) return null
+
 	return (
 		<div className='item-wrapper'>
 			{programList.map(
