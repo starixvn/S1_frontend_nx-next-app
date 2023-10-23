@@ -8,6 +8,8 @@ const ProgramDescriptionList = ({
 }) => {
 	const { t } = useTranslation()
 
+	if (promotionTextList.length === 0) return null
+
 	return (
 		<div className='item-wrapper'>
 			{promotionTextList.map(({ contents }, index) => {
