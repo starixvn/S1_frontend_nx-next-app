@@ -48,6 +48,8 @@ const QuickLink = ({ socialChannelList }: IQuickLinkProps) => {
 			</a>
 		)
 	})
+	if (socialChannelList.length === 0) return null
+
 	return (
 		<div ref={hoverRef}>
 			<div className={classNames('quickLinkNew1', { active: isHover })}>

@@ -3,9 +3,9 @@ import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import {
 	Header,
-	useAppDownload,
-	Marquee,
 	JackPot,
+	Marquee,
+	useAppDownload,
 } from '@nx-next-app/components/H0001'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -14,17 +14,20 @@ import { useSetHideBalanceMutation } from '@nx-next-app/service'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 
 import dynamic from 'next/dynamic'
+import { MobileHomeComponentsEnum } from '@nx-next-app/types'
+import { multiEqual } from '@nx-next-app/utils'
 import Menu from './menu'
+
 import { LoginBlock } from './LoginBlock'
-import { AppDownload } from './AppDownload'
 import { PromotionMarquee } from './PromotionMarquee'
 import { HotEventSwiper } from './HotEventSwiper'
 import { HotGameMarquee } from './HotGameMarquee'
 import { RecentlyViewGames } from './RecentlyViewGames'
 import { FriendReferral } from './FriendReferral'
-import { FooterBlock } from './footerBlock'
 import CarouselBanner from '../common/carouselBanner'
 import { HeaderQuickLink } from './HeaderQuickLink'
+import { AppDownload } from './AppDownload'
+import { FooterBlock } from './footerBlock'
 
 interface IHomeProps {
 	persistAppDownloadHint: string
@@ -45,7 +48,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 		announcementData,
 		handleMarqueeClick,
 		jackPotCurrencies,
-		recentlyViewedList,
+		mobileHomeOrders,
 	} = useHome()
 
 	const {
@@ -62,6 +65,51 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 
 	const { isAppDownloadHintActive, onCloseAppDownloadHint } = useAppDownload(
 		Boolean(persistAppDownloadHint)
+	)
+
+	const homeComponents = {
+		[MobileHomeComponentsEnum.CarouselBanner]: (
+			<CarouselBanner
+				bannerList={bannerData}
+				pagination={false}
+				navigation={false}
+			/>
+		),
+		[MobileHomeComponentsEnum.Marquee]: (
+			<Marquee
+				data={announcementData}
+				onMarqueeClick={() =>
+					handleMarqueeClick({
+						loginCallback: () => push(paths.login.root),
+					})
+				}
+			/>
+		),
+		[MobileHomeComponentsEnum.PromotionMarquee]: <PromotionMarquee />,
+		[MobileHomeComponentsEnum.HotEventSwiper]: <HotEventSwiper />,
+		[MobileHomeComponentsEnum.HotGameMarquee]: <HotGameMarquee />,
+		[MobileHomeComponentsEnum.RecentlyViewGames]: <RecentlyViewGames />,
+		[MobileHomeComponentsEnum.FriendReferral]: <FriendReferral />,
+		[MobileHomeComponentsEnum.Jackpot]: includes(
+			jackPotCurrencies,
+			currencyId
+		) && <JackPot onClick={() => push(paths.slots.root)} isRoot />,
+		[MobileHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
+		[MobileHomeComponentsEnum.AppDownload]: <AppDownload />,
+		[MobileHomeComponentsEnum.FooterBlock]: <FooterBlock />,
+	}
+
+	// banner 區塊，目前只有兩個
+	const bannerBlockOrders = mobileHomeOrders.filter(component =>
+		multiEqual(component, [
+			MobileHomeComponentsEnum.CarouselBanner,
+			MobileHomeComponentsEnum.Marquee,
+		])
+	)
+
+	// contents 區塊
+	const contentOrders = mobileHomeOrders.filter(
+		component => !includes(bannerBlockOrders, component)
 	)
 
 	return (
@@ -91,39 +139,16 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 				})}
 			>
 				{isLogin && <HeaderQuickLink />}
+				{bannerBlockOrders.map(component =>
+					homeComponents[component] ? homeComponents[component] : null
+				)}
 
-				<CarouselBanner
-					bannerList={bannerData}
-					pagination={false}
-					navigation={false}
-				/>
-				<Marquee
-					data={announcementData}
-					onMarqueeClick={() =>
-						handleMarqueeClick({
-							loginCallback: () => push(paths.login.root),
-						})
-					}
-				/>
 				{!isLogin && <LoginBlock />}
 				<div id='content'>
 					<Menu />
-					{/* Promotion跑馬燈 */}
-					<PromotionMarquee />
-					{/* HotEvent */}
-					<HotEventSwiper />
-					{/* 熱門遊戲 */}
-					<HotGameMarquee />
-					{/* 有登入才會顯示最近看過的遊戲 */}
-					{recentlyViewedList.length > 0 && <RecentlyViewGames />}
-					{isLogin && <FriendReferral />}
-					{includes(jackPotCurrencies, currencyId) && (
-						<JackPot onClick={() => push(paths.slots.root)} isRoot />
+					{contentOrders.map(component =>
+						homeComponents[component] ? homeComponents[component] : null
 					)}
-					<LuckyWheel />
-					{/* 先隱藏 */}
-					{/* <AppDownload /> */}
-					{/* <FooterBlock /> */}
 				</div>
 			</main>
 		</>

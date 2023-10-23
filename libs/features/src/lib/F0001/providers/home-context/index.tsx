@@ -16,7 +16,13 @@ import {
 	useGetReferralSettingQuery,
 	useGetSocialChannelQuery,
 } from '@nx-next-app/service'
-import { CurrenciesEnum, DeviceTypeEnum, IFooterData } from '@nx-next-app/types'
+import {
+	CurrenciesEnum,
+	DesktopHomeComponentsEnum,
+	DeviceTypeEnum,
+	IFooterData,
+	MobileHomeComponentsEnum,
+} from '@nx-next-app/types'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -46,9 +52,17 @@ interface IHomeProviderProps {
 	// For H5
 	persistLicenseData: IFooterData['licenseData']
 	persistProgramList: IFooterData['programList']
+	// 桌機排序與開關
+	desktopHomeOrders?: DesktopHomeComponentsEnum[]
+	// 手機排序與開關
+	mobileHomeOrders?: MobileHomeComponentsEnum[]
 }
 
 export interface HomeContextInterface {
+	// 桌機排序與開關
+	desktopHomeOrders: DesktopHomeComponentsEnum[]
+	// 手機排序與開關
+	mobileHomeOrders: MobileHomeComponentsEnum[]
 	announcementData: IAnnouncementData[] | null
 	promotionData: IPromotionData[]
 	bannerData: IBannerData[]
@@ -121,6 +135,35 @@ const H5PromotionDetailModal = dynamic(
 
 const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
+// 如果沒指定則使用 default 排序並全開
+const defaultDesktopHomeOrders = [
+	DesktopHomeComponentsEnum.CarouselBanner,
+	DesktopHomeComponentsEnum.Marquee,
+	DesktopHomeComponentsEnum.PromotionMarquee,
+	DesktopHomeComponentsEnum.LatestVideoAndEvent,
+	DesktopHomeComponentsEnum.HotGameMarquee,
+	DesktopHomeComponentsEnum.RecentlyViewGames,
+	DesktopHomeComponentsEnum.NewsBlock,
+	DesktopHomeComponentsEnum.CenterBanner,
+	DesktopHomeComponentsEnum.LuckyWheel,
+	DesktopHomeComponentsEnum.QuickDownload,
+	DesktopHomeComponentsEnum.QuickLink,
+]
+
+const defaultMobileHomeOrders = [
+	MobileHomeComponentsEnum.CarouselBanner,
+	MobileHomeComponentsEnum.Marquee,
+	MobileHomeComponentsEnum.PromotionMarquee,
+	MobileHomeComponentsEnum.HotEventSwiper,
+	MobileHomeComponentsEnum.HotGameMarquee,
+	MobileHomeComponentsEnum.RecentlyViewGames,
+	MobileHomeComponentsEnum.FriendReferral,
+	MobileHomeComponentsEnum.Jackpot,
+	MobileHomeComponentsEnum.LuckyWheel,
+	MobileHomeComponentsEnum.AppDownload,
+	MobileHomeComponentsEnum.FooterBlock,
+]
+
 export const HomeProvider = ({
 	children,
 	persistAnnouncementData,
@@ -132,6 +175,8 @@ export const HomeProvider = ({
 	persistNewsData,
 	persistLicenseData,
 	persistProgramList,
+	desktopHomeOrders = defaultDesktopHomeOrders,
+	mobileHomeOrders = defaultMobileHomeOrders,
 }: IHomeProviderProps) => {
 	const { push } = useRouter()
 	const { onEnterSlotsPage, onEnterPage, menuData, onMenuOpen } = useMenu()
@@ -334,6 +379,8 @@ export const HomeProvider = ({
 	}
 
 	const value: HomeContextInterface = {
+		desktopHomeOrders,
+		mobileHomeOrders,
 		announcementData,
 		recentlyViewedList,
 		jackPotCurrencies,

@@ -1,4 +1,5 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import {
 	WithdrawalStatusClassName,
 	WithdrawalStatusClassNameEnum,
@@ -13,6 +14,14 @@ import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+
+const HistoryMsgModal = dynamic(
+	() =>
+		import('@nx-next-app/features/F0001/desktop/history/modal/HistoryMsgModal'),
+	{
+		ssr: false,
+	}
+)
 
 const WithdrawalHistoryTable = ({
 	dataSource,
@@ -69,14 +78,46 @@ const WithdrawalHistoryTable = ({
 			dataIndex: 'status',
 			key: 'status',
 			render: ({
-				item: { status },
+				item: { status, transId, withdrawalMessageDetail },
 			}: {
-				item: { status: WithdrawalStatusClassNameEnum }
+				item: {
+					transId: string
+					status: WithdrawalStatusClassNameEnum
+					withdrawalMessageDetail: {
+						errorTypeName: string
+						message: string
+						createTime: string
+					}[]
+				}
 			}) => {
 				const statusClassName =
 					WithdrawalStatusClassName[status as WithdrawalStatusClassNameEnum]
 				const statusText = t(`Label_WithdrawalStatus${status}`)
-				return <div className={statusClassName}>{statusText}</div>
+				return (
+					<div className={statusClassName}>
+						{statusText}
+						{withdrawalMessageDetail && withdrawalMessageDetail.length > 0 && (
+							<button
+								className='infobtn'
+								onClick={() => {
+									modal.open(
+										<HistoryMsgModal
+											transId={transId as string}
+											messageDetail={
+												withdrawalMessageDetail as {
+													errorTypeName: string
+													message: string
+													createTime: string
+												}[]
+											}
+										/>,
+										{ className: 'statuspop' }
+									)
+								}}
+							/>
+						)}
+					</div>
+				)
 			},
 		},
 		{

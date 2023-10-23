@@ -27,6 +27,8 @@ const RecentlyViewGames = () => {
 		rebuildOnUpdate: false,
 	}
 
+	if (recentlyViewedList.length === 0) return null
+
 	return (
 		<>
 			<div className='moduleTitle'>{t('Label_General_RecentlyViewed')}</div>
