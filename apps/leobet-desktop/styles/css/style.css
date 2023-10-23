@@ -156,6 +156,13 @@ header input:focus-within {
   outline: rgb(255, 42, 86);
 }
 
+input:-webkit-autofill {
+  -webkit-text-fill-color: #d7ae78;
+}
+input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autofill:hover {
+  -webkit-text-fill-color: #d7ae78;
+}
+
 .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7174,7 +7181,7 @@ input[type=file] {
   margin: 0 10px;
 }
 .addBankpop .txt div .txt-blue + span {
-  color: #5574a7;
+  color: #0a0a0a;
 }
 
 .addAddresspop .icon-close {
@@ -7218,26 +7225,26 @@ input[type=file] {
 .addAddresspop .inputBox-blue .iconModule .icon {
   font-size: initial;
 }
-.addAddresspop > div {
+.addAddresspop form > div {
   width: 100%;
   border-bottom: 1px solid #BFCCE2;
   padding-bottom: 20px;
 }
-.addAddresspop > div .inputModuleRow > .btnGroup {
+.addAddresspop form > div .inputModuleRow > .btnGroup {
   margin: 10px 0;
 }
-.addAddresspop > div .inputModuleRow > .btnGroup button {
+.addAddresspop form > div .inputModuleRow > .btnGroup button {
   margin-right: 0;
-  min-width: 100px;
+  min-width: 97px;
 }
-.addAddresspop > div.btnGroup {
+.addAddresspop form > div.btnGroup {
   border: 0;
   margin: 20px 0 0;
 }
-.addAddresspop > div .tip {
+.addAddresspop form > div .tip {
   text-align: left;
 }
-.addAddresspop > div .txt-blue {
+.addAddresspop form > div .txt-blue {
   padding-left: 5px;
 }
 
@@ -8673,6 +8680,28 @@ article p {
   width: 100%;
 }
 
+.react-datepicker-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+.react-datepicker-wrapper input {
+  width: 100%;
+}
+
+.react-datepicker-popper {
+  -webkit-transform: translate3d(168.6px, 25.6px, 0px);
+          transform: translate3d(168.6px, 25.6px, 0px);
+}
+
+.react-datepicker__day--keyboard-selected {
+  background: #d7ae78;
+}
+.react-datepicker__day--keyboard-selected:hover {
+  background: #A98153;
+  color: #fff;
+}
+
 .progressBarModule {
   font-weight: bold;
 }
@@ -8790,7 +8819,7 @@ article p {
 }
 
 pre {
-  color: #b2b2b2;
+  color: rgba(10, 10, 10, 0.7);
 }
 
 .bankLogo img {
@@ -9582,7 +9611,7 @@ button.icon-spinner11:before {
   left: -1px;
   width: calc(100% - 1px);
   border-radius: 5px;
-  background: #D2E2F9;
+  background: #fff;
   border: 1px solid #CDAE8E;
   margin-left: 0;
   overflow: hidden;
@@ -12291,7 +12320,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .recently .swiper-slide {
   cursor: pointer;
   padding-top: 20px;
-  margin-top: -10px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -12686,7 +12714,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .newsVideo .latestVideo .newsBorder,
 .newsVideo .newsList .newsBorder {
   height: 1px;
-  background: #5574A7;
+  background: #d7ae78;
   margin: 10px 0;
 }
 .liveVideo .latestVideo + div,
@@ -14708,7 +14736,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   left: calc(100% - 26px);
 }
 .swithModule .icon {
-  color: #5574A7;
+  color: rgba(255, 42, 86, 0.75);
   font-size: 18px;
   font-weight: bold;
   margin-bottom: -2px;
@@ -14718,7 +14746,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .swithModule .inputInfo {
   display: none;
-  background: #d2e2f9;
+  background: #fff;
   border-radius: 5px;
   padding: 5px 10px;
   position: absolute;
@@ -14726,10 +14754,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   right: -5px;
   min-width: 500px;
   font-weight: 400;
-  color: #5574A7;
+  color: #d7ae78;
   z-index: 4;
-  -webkit-filter: drop-shadow(0px 0px 2px #5574A7);
-          filter: drop-shadow(0px 0px 2px #5574A7);
+  -webkit-filter: drop-shadow(0px 0px 2px #A98153);
+          filter: drop-shadow(0px 0px 2px #A98153);
 }
 .swithModule .inputInfo.active {
   display: block;
@@ -14740,7 +14768,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   height: 0;
   border-width: 10px 10px 0 10px;
   border-style: solid dashed dashed;
-  border-color: #d2e2f9 transparent transparent;
+  border-color: #fff transparent transparent;
   position: absolute;
   bottom: -10px;
   right: 10px;
@@ -21277,4 +21305,16 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin: 5px auto;
   padding-top: 10px;
   border-top: 1px dotted #d7ae78;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }/*# sourceMappingURL=style.css.map */

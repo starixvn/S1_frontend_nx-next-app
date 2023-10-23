@@ -1835,7 +1835,7 @@ main .gameList {
   display: flex;
   -ms-flex-flow: wrap;
       flex-flow: wrap;
-  background: #b2b2b2;
+  background: #dfdfdf;
   padding: 2vw;
   border: 1px solid #e2e2e2;
 }
@@ -1843,6 +1843,7 @@ main .gameList > div, main .gameList > a, main .gameList > button {
   display: none;
   -ms-flex-flow: wrap;
       flex-flow: wrap;
+  width: 100%;
 }
 main .gameList > div .under, main .gameList > a .under, main .gameList > button .under {
   display: none;
@@ -1860,8 +1861,8 @@ main .gameList > div.active, main .gameList > a.active, main .gameList > button.
 }
 main .gameList > div > div, main .gameList > div > a, main .gameList > div > button, main .gameList > a > div, main .gameList > a > a, main .gameList > a > button, main .gameList > button > div, main .gameList > button > a, main .gameList > button > button {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 27vw;
-          flex: 0 0 27vw;
+      -ms-flex: 0 0 27.25vw;
+          flex: 0 0 27.25vw;
   margin: 2vw;
   text-align: center;
   position: relative;
@@ -1869,6 +1870,7 @@ main .gameList > div > div, main .gameList > div > a, main .gameList > div > but
   border-radius: 10px;
   background: #ececec;
   overflow: hidden;
+  height: 36vw;
 }
 main .gameList > div > div.active, main .gameList > div > a.active, main .gameList > div > button.active, main .gameList > a > div.active, main .gameList > a > a.active, main .gameList > a > button.active, main .gameList > button > div.active, main .gameList > button > a.active, main .gameList > button > button.active {
   display: -webkit-box;
@@ -1950,6 +1952,20 @@ main .gameList .icon-new {
   position: absolute;
   right: 1vw;
   bottom: 5vw;
+  z-index: 1;
+}
+main .list-bg-left,
+main .list-bg-right,
+main .list-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+main .list-title,
+main .list-npc {
+  position: absolute;
+  bottom: 0.6vw;
+  left: 0;
 }
 
 footer {
@@ -2224,7 +2240,7 @@ footer > a.active .circleAnimation::after {
 .circleAnimation:before {
   content: "";
   border-radius: 100%;
-  background: rgba(85, 116, 167, 0.3);
+  background: rgba(10, 10, 10, 0.3);
   width: 10vw;
   height: 10vw;
   -webkit-animation: zoom1 3s infinite;
@@ -2234,7 +2250,7 @@ footer > a.active .circleAnimation::after {
 .circleAnimation:after {
   content: "";
   border-radius: 100%;
-  background: rgba(85, 116, 167, 0.6);
+  background: rgba(10, 10, 10, 0.6);
   width: 9vw;
   height: 9vw;
   -webkit-animation: zoom2 3s infinite;
@@ -2408,7 +2424,7 @@ footer > a.active .circleAnimation::after {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: rgba(85, 116, 167, 0.8);
+  background: rgba(10, 10, 10, 0.5);
   padding: 8vw;
   overflow: auto;
   display: -webkit-box;
@@ -2429,6 +2445,7 @@ footer > a.active .circleAnimation::after {
 #popup > div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo) {
   background: white;
   width: 100%;
+  border-radius: 1vw;
 }
 #popup .pop .account {
   -webkit-box-shadow: none;
@@ -2464,8 +2481,8 @@ footer > a.active .circleAnimation::after {
   word-break: break-word;
   padding: 1vw 8vw 1vw 2vw;
   display: -webkit-box;
-  border-bottom: 1px solid #5574A7;
-  color: #5574A7;
+  border-bottom: 1px solid #A98153;
+  color: #A98153;
   font-weight: bold;
   width: calc(100% - 10vw);
   line-height: 24px;
@@ -2484,13 +2501,13 @@ footer > a.active .circleAnimation::after {
       -ms-flex-align: center;
           align-items: center;
   top: 0;
-  color: #5574A7;
+  color: #A98153;
 }
 #popup .popTxt {
   padding: 4vw 2vw;
   border-radius: 0 0 3px 3px;
   width: calc(100% - 4vw);
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2557,8 +2574,8 @@ footer > a.active .circleAnimation::after {
 #popup.backupDomain .pop .popTit {
   font-size: 4vw;
   width: calc(100% - 8vw);
-  padding: 3vw 5vw 3vw 3vw;
-  background: #233d67;
+  padding: 1.5vw 5vw 1.5vw 3vw;
+  background: #d7ae78;
   color: white;
   max-height: 11vw;
 }
@@ -2603,7 +2620,7 @@ footer > a.active .circleAnimation::after {
   padding: 0.5vw 2.5vw 1vw;
   font-size: 3vw;
   right: 0.8vw;
-  background: #5574A7;
+  background: #d7ae78;
   margin: auto 0 auto auto;
 }
 #popup.backupDomain .pop .popTxt .text-center {
@@ -2617,7 +2634,7 @@ footer > a.active .circleAnimation::after {
 }
 #popup.backupDomain .pop .popTxt .text-center input[type=checkbox] + label {
   margin: 0vw 1vw 0 0;
-  border: 1px solid #F77A00;
+  border: 1px solid #d7ae78;
   border-radius: 100%;
   width: 4vw;
   height: 4vw;
@@ -2641,9 +2658,9 @@ footer > a.active .circleAnimation::after {
 }
 #popup.resetPassword .popTit {
   font-size: 4vw;
-  width: calc(100% - 8vw);
-  padding: 3vw 5vw 3vw 3vw;
-  background: #233d67;
+  width: calc(100% - 6vw);
+  padding: 1vw 5vw 1vw 1vw;
+  background: #b2b2b2;
   color: white;
   max-height: 11vw;
 }
@@ -3006,7 +3023,7 @@ footer > a.active .circleAnimation::after {
 }
 #popup.promospop .pop .popTit {
   position: fixed;
-  background: #ecf3fd;
+  background: #fff;
   padding: 2vw 0;
   width: 100%;
   text-align: center;
@@ -3017,7 +3034,7 @@ footer > a.active .circleAnimation::after {
 }
 #popup.promospop .pop .icon-close {
   z-index: 2;
-  color: #233d67;
+  color: #A98153;
   position: absolute;
 }
 #popup.promospop .pop .promotions {
@@ -3032,7 +3049,7 @@ footer > a.active .circleAnimation::after {
   color: white;
 }
 #popup.promospop .pop .promotions a {
-  color: #F77A00;
+  color: #ff2a56;
 }
 #popup.promospop .pop .promotions .text {
   line-height: 24px;
@@ -3047,15 +3064,15 @@ footer > a.active .circleAnimation::after {
 }
 #popup.statuspop .pop {
   background: #eaf1ff;
-  border: 1px solid #284985;
+  border: 1px solid #8b8b8b;
   padding: 0;
   border-radius: 1vw;
 }
 #popup.statuspop .pop .statustitle {
   font-size: 4.5vw;
   padding: 2vw 9vw 2vw 4vw;
-  border-bottom: 1px solid #5574a7;
-  background: #284985;
+  border-bottom: 1px solid #d7ae78;
+  background: #8b8b8b;
   color: white;
   position: relative;
 }
@@ -3068,7 +3085,7 @@ footer > a.active .circleAnimation::after {
   border-top: 0;
 }
 #popup.statuspop .pop .statuscontent > div {
-  border-bottom: 1px solid #c1cceb;
+  border-bottom: 1px solid #d7ae78;
 }
 #popup.statuspop .pop .statuscontent > div .subtitle {
   font-size: 4vw;
@@ -3085,7 +3102,8 @@ footer > a.active .circleAnimation::after {
   border-bottom: 0;
 }
 #popup.statuspop .pop .success {
-  background: #5574a7;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(6%, #d7ae78), color-stop(34%, #d1b37d), to(rgba(138, 89, 56, 0.7019607843)));
+  background: linear-gradient(0deg, #d7ae78 6%, #d1b37d 34%, rgba(138, 89, 56, 0.7019607843) 100%);
   padding: 2vw 10vw;
   border-radius: 5vw;
   margin: auto auto 5vw;
@@ -3171,7 +3189,7 @@ footer > a.active .circleAnimation::after {
 }
 #popup.detailpop .pop .popTit {
   position: fixed;
-  background: #ecf3fd;
+  background: #dfdfdf;
   padding: 2vw 0;
   width: 100%;
   text-align: center;
@@ -3179,10 +3197,11 @@ footer > a.active .circleAnimation::after {
   -webkit-box-shadow: rgba(0, 0, 0, 0.7) 0 0 4px 0;
           box-shadow: rgba(0, 0, 0, 0.7) 0 0 4px 0;
   border: 0;
+  color: #A98153;
 }
 #popup.detailpop .pop .icon-close {
   z-index: 2;
-  color: #233d67;
+  color: #A98153;
   position: absolute;
 }
 #popup.detailpop .pop .infoList {
@@ -3447,7 +3466,7 @@ footer > a.active .circleAnimation::after {
 }
 .header .headerTag > a.active .quantity, .header .headerTag > button.active .quantity {
   color: white;
-  background: #FF5E00;
+  background: #ff2a56;
 }
 .header .title {
   width: 100%;
@@ -3511,7 +3530,7 @@ footer > a.active .circleAnimation::after {
   opacity: 0;
 }
 .header .title.searchBar .infoModule .inputBox, .header .title.searchBar .infoModule .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .header .title.searchBar .infoModule .inputBox-event {
-  background: #c6d4f1;
+  background: #fff;
   margin-left: 15vw;
   height: 8vw;
 }
@@ -3530,7 +3549,7 @@ footer > a.active .circleAnimation::after {
 }
 
 .quantity {
-  background: white;
+  background: #ff2a56;
   border-radius: 100%;
   width: 8vw;
   height: 8vw;
@@ -3548,7 +3567,7 @@ footer > a.active .circleAnimation::after {
   -webkit-transform: scale(0.8);
           transform: scale(0.8);
   margin: -3vw 0 0;
-  color: #5574A7;
+  color: #fff;
 }
 
 .title {
@@ -3578,7 +3597,6 @@ footer > a.active .circleAnimation::after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-bottom: 1px solid #5574A7;
   background: #E4E4E4;
 }
 .tag a, .tag button {
@@ -3596,13 +3614,13 @@ footer > a.active .circleAnimation::after {
           justify-content: center;
   height: 12vw;
   border-bottom: 3px solid transparent;
-  color: #A4A4A4;
+  color: #0a0a0a;
   font-size: 4vw;
   text-align: center;
 }
 .tag a.active, .tag button.active {
-  color: #112240;
-  border-color: #FF5E00;
+  color: rgba(10, 10, 10, 0.7);
+  border-color: #ff2a56;
   font-weight: bold;
 }
 
@@ -3613,7 +3631,7 @@ footer > a.active .circleAnimation::after {
   padding: 20vw 4vw;
 }
 .main > .icon-member {
-  background: #112240;
+  background: rgba(10, 10, 10, 0.7);
   padding: 3vw;
   width: 13vw;
   height: 13vw;
@@ -3627,7 +3645,7 @@ footer > a.active .circleAnimation::after {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 100%;
-  margin: 0 auto 7vw;
+  margin: 0 auto 4vw;
   position: relative;
 }
 .main > .icon-member:before {
@@ -3648,7 +3666,7 @@ footer > a.active .circleAnimation::after {
 .main > .icon-member .circleAnimation:after {
   width: 22vw;
   height: 22vw;
-  background: #112240;
+  background: rgba(10, 10, 10, 0.7);
 }
 .main.deposit {
   padding: 14vw 4vw;
@@ -3673,7 +3691,7 @@ footer > a.active .circleAnimation::after {
   margin: 0 1vw 0 0;
 }
 .Wallet > .account {
-  background: #D2E2F9;
+  background: #F1D5B6;
 }
 .Wallet > .account .account {
   width: calc(100% - 8vw);
@@ -3722,11 +3740,11 @@ footer > a.active .circleAnimation::after {
   padding: 3vw;
 }
 .walletTotal span {
-  color: #112240;
+  color: #0a0a0a;
   margin: 0 2vw;
 }
 .walletTotal .icon {
-  color: #112240;
+  color: #0a0a0a;
   background: none;
 }
 
@@ -3737,7 +3755,7 @@ footer > a.active .circleAnimation::after {
   top: 0;
   left: 0;
   z-index: 2;
-  background: rgba(0, 25, 66, 0.9);
+  background: rgba(10, 10, 10, 0.7);
   visibility: hidden;
   -webkit-transition: 0.7s;
   transition: 0.7s;
@@ -3790,6 +3808,12 @@ footer > a.active .circleAnimation::after {
   display: -ms-flexbox;
   display: flex;
 }
+.walletMenu .walletModule > a .circleAnimation::before {
+  background: rgba(169, 129, 83, 0.3);
+}
+.walletMenu .walletModule > a .circleAnimation::after {
+  background: rgba(169, 129, 83, 0.3);
+}
 .walletMenu .walletModule > a span {
   margin: 0 0 -15vw;
 }
@@ -3804,7 +3828,7 @@ footer > a.active .circleAnimation::after {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: #5574A7;
+  background: #A98153;
   font-size: 7vw;
 }
 .walletMenu .walletModule > a.icon-icon32px_wallet:before {
@@ -3927,11 +3951,11 @@ footer > a.active .circleAnimation::after {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: #7591C1;
+  background: #d7ae78;
 }
 .balanceModule button.clickBtn:not(.icon-history)::before {
-  background: #5574A7;
-  padding: 2vw;
+  background: #ff2a56;
+  padding: 1vw;
 }
 .balanceModule button.clickBtn::before {
   margin: 0 2vw 0 0;
@@ -4000,7 +4024,7 @@ footer > a.active .circleAnimation::after {
   font-weight: bold;
   text-align: center;
   margin: 0 0 2vw;
-  color: #112240;
+  color: rgba(10, 10, 10, 0.7);
 }
 .name + .text-org {
   text-align: center;
@@ -4009,10 +4033,10 @@ footer > a.active .circleAnimation::after {
 .infoList .info {
   border-radius: 5px;
   padding: 4vw;
-  background: #dddddd;
+  background: #dfdfdf;
 }
 .infoList .info:nth-child(even) {
-  background: rgba(221, 221, 221, 0.35);
+  background: rgba(223, 223, 223, 0.35);
 }
 
 .openPopup {
@@ -4106,7 +4130,7 @@ footer > a.active .circleAnimation::after {
   float: left;
   width: 49%;
   line-height: 24px;
-  color: #dfdfdf;
+  color: rgba(10, 10, 10, 0.7);
 }
 .info ul li span {
   display: -webkit-box;
@@ -4118,7 +4142,7 @@ footer > a.active .circleAnimation::after {
 }
 .info ul li span.title button.icon, .info ul li span.title i.icon {
   border-radius: 100%;
-  background: #5574A7;
+  background: #ff2a56;
   width: 4.6vw;
   height: 4.6vw;
   display: -webkit-box;
@@ -4258,10 +4282,10 @@ footer > a.active .circleAnimation::after {
           flex-flow: row wrap;
 }
 .infoModule.parts + span {
-  color: #5574A7;
+  color: #A98153;
 }
 .infoModule.parts + span + div {
-  color: #5574A7;
+  color: #A98153;
 }
 .infoModule.parts .phone {
   display: -webkit-box;
@@ -4327,7 +4351,7 @@ footer > a.active .circleAnimation::after {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  color: #5574A7;
+  color: #A98153;
 }
 .infoModule.parts label.inputBox .icon-folder-upload, .infoModule.parts .worldcupEvent .event .event-content label.inputBox-event .icon-folder-upload, .worldcupEvent .event .event-content .infoModule.parts label.inputBox-event .icon-folder-upload {
   margin: 0 1vw 0 0;
@@ -4612,8 +4636,7 @@ footer > a.active .circleAnimation::after {
   color: #c6d4f1;
 }
 .btn-group button, .btn-group a, .btn-group .submit {
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(6%, #d7ae78), color-stop(34%, #d1b37d), to(rgba(138, 89, 56, 0.7019607843)));
-  background: linear-gradient(0deg, #d7ae78 6%, #d1b37d 34%, rgba(138, 89, 56, 0.7019607843) 100%);
+  background: #d7ae78;
   width: 100%;
   border-radius: 3px;
   padding: 2vw;
@@ -4650,19 +4673,18 @@ footer > a.active .circleAnimation::after {
   background: #F77A00;
 }
 .btn-group button.blue, .btn-group a.blue, .btn-group .submit.blue {
-  background: -webkit-gradient(linear, right top, left top, from(#556D97), to(#112240));
-  background: linear-gradient(270deg, #556D97 0%, #112240 100%);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(6%, #d7ae78), color-stop(34%, #d1b37d), to(rgba(138, 89, 56, 0.7019607843)));
+  background: linear-gradient(0deg, #d7ae78 6%, #d1b37d 34%, rgba(138, 89, 56, 0.7019607843) 100%);
 }
 .btn-group button.cancel, .btn-group a.cancel, .btn-group .submit.cancel {
   background: #b2b2b2;
   color: #666;
 }
 .btn-group button.white, .btn-group a.white, .btn-group .submit.white {
-  background: -webkit-gradient(linear, left top, left bottom, from(#95aacf), to(#bdcbe2));
-  background: linear-gradient(to bottom, #95aacf, #bdcbe2);
+  background: #b2b2b2;
 }
 .btn-group button.gray, .btn-group a.gray, .btn-group .submit.gray {
-  background: #949494;
+  background: #b2b2b2;
 }
 .btn-group button.orange, .btn-group a.orange, .btn-group .submit.orange {
   background: rgb(255, 42, 86);
@@ -4716,16 +4738,19 @@ footer > a.active .circleAnimation::after {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  color: #5574A7;
+  color: #A98153;
 }
 .bankAccount .nickName + .icon:before {
-  color: #5574A7;
+  color: #A98153;
   margin: 0 2vw 0 0;
   font-size: 6vw;
 }
 .bankAccount .account {
   background: #e6e6e6;
   border-bottom: 0;
+}
+.bankAccount .account .mask {
+  display: none;
 }
 .bankAccount .account.pending {
   position: relative;
@@ -4738,15 +4763,23 @@ footer > a.active .circleAnimation::after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: rgba(40, 73, 133, 0.6);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: rgba(10, 10, 10, 0.5);
+  color: #fff;
   width: 100%;
   height: 100%;
   border-radius: 5px;
   z-index: 1;
+  line-height: 1;
 }
 .bankAccount .account.active {
-  -webkit-box-shadow: 0 0 0 2px #5574a7 inset;
-          box-shadow: 0 0 0 2px #5574a7 inset;
+  -webkit-box-shadow: 0 0 0 2px #0a0a0a inset;
+          box-shadow: 0 0 0 2px #0a0a0a inset;
   margin: 2vw 0;
   padding: 4vw;
 }
@@ -4774,6 +4807,32 @@ footer > a.active .circleAnimation::after {
 }
 .selectBank button.active, .selectBank a.active {
   border: 2px solid #5574A7;
+}
+.selectBank button .mask, .selectBank a .mask {
+  display: none;
+}
+.selectBank button.pending, .selectBank a.pending {
+  width: auto;
+}
+.selectBank button.pending .mask, .selectBank a.pending .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: rgba(10, 10, 10, 0.5);
+  color: #fff;
+  z-index: 1;
+  line-height: 1;
 }
 .selectBank a {
   display: -webkit-box;
@@ -4825,12 +4884,12 @@ footer > a.active .circleAnimation::after {
           align-items: center;
 }
 .step .stepLine .stepBar50 {
-  background: #5574A7;
+  background: #A98153;
   width: 50%;
   height: 100%;
 }
 .step .stepLine .stepBar100 {
-  background: #5574A7;
+  background: #A98153;
   width: 100%;
   height: 100%;
 }
@@ -4847,7 +4906,7 @@ footer > a.active .circleAnimation::after {
           justify-content: center;
 }
 .step .circle {
-  background: #FF5E00;
+  background: rgba(241, 213, 182, 0.5);
   width: 12vw;
   height: 12vw;
   z-index: 1;
@@ -4865,25 +4924,25 @@ footer > a.active .circleAnimation::after {
           justify-content: center;
 }
 .step .circle > div {
-  background: rgba(255, 94, 0, 0.568627451);
+  background: rgba(241, 213, 182, 0.95);
   width: 10vw;
   height: 10vw;
 }
 .step .circle > div > div {
   width: 8vw;
   height: 8vw;
-  background: #FF5E00;
+  background: #d7ae78;
   font-weight: bold;
   color: white;
 }
 .step .circle.active {
-  background: rgba(255, 94, 0, 0.3803921569);
+  background: rgba(241, 213, 182, 0.5);
 }
 .step .circle.active > div {
-  background: rgba(255, 94, 0, 0.568627451);
+  background: rgba(241, 213, 182, 0.95);
 }
 .step .circle.active > div > div {
-  background: rgba(255, 94, 0, 0.568627451);
+  background: #d7ae78;
   color: white;
 }
 
@@ -4927,12 +4986,12 @@ footer > a.active .circleAnimation::after {
       flex-flow: wrap;
   position: relative;
   border-bottom: 1px solid #E8EDF3;
-  color: #112240;
+  color: #0a0a0a;
 }
 .account.active {
   margin: 0;
   padding: 0;
-  color: #112240;
+  color: #0a0a0a;
 }
 .account .bankLogo {
   -webkit-box-flex: 1;
@@ -4965,7 +5024,7 @@ footer > a.active .circleAnimation::after {
 }
 
 .text {
-  color: #5574A7;
+  color: #0a0a0a;
 }
 
 .text-gray {
@@ -4973,7 +5032,7 @@ footer > a.active .circleAnimation::after {
 }
 
 .text-org {
-  color: #5574A7;
+  color: #A98153;
 }
 
 .text-org.text-center {
@@ -5005,10 +5064,10 @@ footer > a.active .circleAnimation::after {
   color: white;
 }
 .bankSlip .info .title {
-  color: #1e85ec;
+  color: #d7ae78;
 }
 .bankSlip .info .clickBtn {
-  background: #1e85ec;
+  background: #d7ae78;
   border-radius: 3px;
 }
 .bankSlip .text-gray.title {
@@ -5030,8 +5089,8 @@ footer > a.active .circleAnimation::after {
   width: 25.3vw;
   height: 18vw;
   border-radius: 10px;
-  border: 1px solid #1e85ec;
-  background: rgba(117, 145, 193, 0.5);
+  border: 1px solid #d7ae78;
+  background: rgba(223, 223, 223, 0.5);
   margin: 0 1vw 1vw 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5073,7 +5132,7 @@ footer > a.active .circleAnimation::after {
 }
 .bankSlip .upload_img .icon {
   font-size: 5vw;
-  color: #1e85ec;
+  color: #d7ae78;
 }
 .bankSlip .upload_img img {
   height: 100%;
@@ -5250,7 +5309,7 @@ button.clickBtn:before {
 .transfer ul li:nth-last-child(2) span span {
   border-radius: 3px;
   padding: 1vw;
-  background: rgba(0, 43, 108, 0.7);
+  background: rgba(215, 174, 120, 0.8);
   color: white;
 }
 .transfer ul li:last-child {
@@ -5363,7 +5422,7 @@ button.clickBtn:before {
 }
 .functionList .smallBtn-group.active button {
   color: white;
-  background: #FF5E00;
+  background: #d7ae78;
 }
 .functionList ~ .account {
   -ms-flex-flow: wrap;
@@ -5623,17 +5682,17 @@ input[type=date] {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  border: 1px solid #5574A7;
+  border: 1px solid #d7ae78;
   border-radius: 3px;
   padding: 1vw;
   margin: 0 2vw 0 0;
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
 }
 .filterBtn button:last-child {
   margin: 0;
 }
 .filterBtn button.active {
-  background: #5574A7;
+  background: #d7ae78;
   color: white;
 }
 
@@ -5679,7 +5738,7 @@ input[type=date] {
   position: fixed;
   top: 0;
   left: 0;
-  background: #ecf3fd;
+  background: #fff;
   padding: 8vw;
   display: none;
   z-index: 4;
@@ -5753,8 +5812,8 @@ input[type=date] {
 #Loading .cube .sides * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background-color: rgba(85, 116, 167, 0.1);
-  border: 1px solid #5574A7;
+  background-color: rgba(215, 174, 120, 0.2);
+  border: 1px solid rgba(10, 10, 10, 0.1);
 }
 #Loading .cube .sides .top {
   -webkit-animation: top-animation 3s ease infinite;
@@ -6163,12 +6222,11 @@ input[type=date] {
 #Loading h1:after {
   font-size: 4vw;
   font-weight: bold;
-  content: "NOVA88";
+  content: "LEOBET";
   position: absolute;
-  color: rgb(255, 255, 255);
   -webkit-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
-  text-shadow: -1px -1px 1px #333, -2px -2px 1px #333, -3px -3px 1px #333, -4px -4px 1px #333, -5px -5px 1px #333, -6px -6px 1px #333, -7px -7px 5px rgba(0, 0, 128, 0.75);
+  text-shadow: -1px -1px 1px #ff2a56, -2px -2px 1px #ff2a56, -3px -3px 1px #ff2a56, -4px -4px 1px #ff2a56, -5px -5px 1px #ff2a56, -6px -6px 1px #ff2a56, -7px -7px 5px rgba(255, 42, 86, 0.75);
 }
 #Loading .text {
   width: 100%;
@@ -6177,7 +6235,7 @@ input[type=date] {
           transform: translateY(25vw);
   font-size: 4vw;
   text-align: center;
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
 }
 
 .amount {
@@ -6235,7 +6293,7 @@ span.important {
   font-weight: normal;
   font-size: 3vw;
   height: 6vw;
-  color: #112240;
+  color: #0a0a0a;
 }
 .quickChangePage div i:before, .quickChangePage button i:before, .quickChangePage a i:before {
   font-size: 7vw;
@@ -6257,7 +6315,7 @@ span.important {
 .quickChangePage .btn-group button, .quickChangePage .btn-group a {
   padding: 1vw 2vw;
   color: white;
-  background: #FF5E00;
+  background: #ff2a56;
 }
 
 .promotions {
@@ -6318,7 +6376,7 @@ span.important {
   z-index: 1;
   top: 3.5vw;
   left: -0.5vw;
-  background: #F77A00;
+  background: #ff2a56;
   border-radius: 0 0 10px 0;
   width: 30px;
   height: 25px;
@@ -6333,7 +6391,7 @@ span.important {
   content: "CLAIMED";
 }
 .promotions .new {
-  border-color: #F77A00 transparent transparent transparent;
+  border-color: #ff2a56 transparent transparent transparent;
 }
 .promotions .new:before {
   content: "NEW";
@@ -6342,7 +6400,7 @@ span.important {
 .promotions .promodule, .promotions .proInfomodule {
   padding: 3vw;
   border: 0;
-  background: #D2E2F9;
+  background: rgba(241, 213, 182, 0.6);
   line-height: 24px;
   position: relative;
   margin: 3vw 0;
@@ -6355,7 +6413,7 @@ span.important {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: #e92529;
+  background: #777777;
 }
 .promotions .promodule.active .rollover, .promotions .proInfomodule.active .rollover {
   border-color: #4F4F4F;
@@ -6400,7 +6458,7 @@ span.important {
 }
 .promotions .promodule > button.ViewAllAmount, .promotions .proInfomodule > button.ViewAllAmount {
   padding: 5px 10px;
-  background: #002B6C;
+  background: #d7ae78;
   margin: -1px 0 2vw;
   width: 100%;
   border-radius: 0 0 10px 10px;
@@ -6426,7 +6484,7 @@ span.important {
 .promotions .promodule .protitle, .promotions .proInfomodule .protitle {
   margin: 1vw 0 0;
   font-size: 4vw;
-  color: #5574A7;
+  color: #A98153;
   font-weight: bold;
   padding-left: 1vw;
 }
@@ -6474,7 +6532,7 @@ span.important {
 }
 .promotions .promodule .account .info span:first-child, .promotions .proInfomodule .account .info span:first-child {
   font-weight: bold;
-  color: #b2b2b2;
+  color: rgba(10, 10, 10, 0.7);
 }
 .promotions .promodule strong, .promotions .proInfomodule strong {
   font-weight: bold !important;
@@ -6665,7 +6723,7 @@ span.important {
 }
 .progressBarModule .bar {
   height: 2vw;
-  background: #D2E2F9;
+  border: 1px solid #ff2a56;
   border-radius: 10px;
   overflow: hidden;
   -webkit-box-flex: 1;
@@ -6673,23 +6731,23 @@ span.important {
           flex: auto;
 }
 .progressBarModule .bar .progress {
-  background: #5574A7;
+  background: #ff2a56;
   height: 100%;
   border-radius: 10px;
 }
 .progressBarModule .icon-spinner11 {
-  background: #5574A7;
+  background: #ff2a56;
   color: white;
   border-radius: 100%;
   margin: 0 0 0 2vw;
-  width: 7vw;
-  height: 7vw;
+  width: 5vw;
+  height: 5vw;
 }
 .progressBarModule .icon-spinner11:before {
   font-size: 3vw;
 }
 .progressBarModule .percentage {
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
   font-weight: bold;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
@@ -6716,8 +6774,7 @@ span.important {
       -ms-flex-align: center;
           align-items: center;
   margin: 2vw 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
-  background: linear-gradient(to bottom, #435F8B, #6383B9);
+  background: #ff2a56;
   border-radius: 5px;
   padding: 2vw;
 }
@@ -6737,8 +6794,7 @@ span.important {
 }
 
 .rollover {
-  color: #5574A7;
-  background: #D2E2F9;
+  background: #F1D5B6;
   border-radius: 3px;
   margin: 1vw 0 0;
 }
@@ -6820,7 +6876,7 @@ span.important {
   border: 1px solid #b2b2b2;
   background: white;
   padding: 5px 10px;
-  color: #1249A5;
+  color: #d7ae78;
 }
 .depositSlip > div > div:last-child {
   text-align: right;
@@ -7066,10 +7122,10 @@ span.important {
   width: calc(100% - 8vw);
 }
 .breadcrumb a {
-  color: #a5bbe0;
+  color: rgba(10, 10, 10, 0.7);
 }
 .breadcrumb a[class=acive] {
-  color: #5574A7;
+  color: #d7ae78;
 }
 .breadcrumb a + a::before {
   font-family: "icomoon";
@@ -7078,12 +7134,12 @@ span.important {
 }
 
 .total {
-  color: #5574A7;
+  color: #fff;
   font-weight: bold;
   font-size: 5vw;
   padding: 2vw;
   border-radius: 5px;
-  background: #D2E2F9;
+  background: #d7ae78;
   text-align: right;
 }
 
@@ -7110,10 +7166,10 @@ span.important {
   padding: 0 2vw 2vw;
 }
 .rankingNew .rankList + div {
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
 }
 .rankingNew .rankList .title {
-  color: #7591C1;
+  color: rgba(10, 10, 10, 0.7);
   margin: 0;
   padding: 4vw 2vw 0;
 }
@@ -7124,7 +7180,7 @@ span.important {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #7591C1;
+  background: #d7ae78;
   border-radius: 5px;
   margin: 2vw 0;
   padding: 2vw;
@@ -7136,7 +7192,7 @@ span.important {
   color: #05BC0B;
 }
 .rankingNew .rankList ul li:first-child {
-  color: #92AED6;
+  color: rgba(10, 10, 10, 0.7);
   background: transparent;
   border: 0;
 }
@@ -7177,7 +7233,7 @@ span.important {
   margin-right: 1vw;
 }
 .rankingNew .rankList ul li.userRank {
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
   background: white;
   text-align: center;
   font-weight: bold;
@@ -7187,14 +7243,14 @@ span.important {
   margin: 0 0 0 2vw;
 }
 .rankingNew .text-blue {
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
   margin-bottom: 2vw;
 }
 .rankingNew .filterBtn button {
   white-space: nowrap;
 }
 .rankingNew .title {
-  color: #112240;
+  color: rgba(10, 10, 10, 0.7);
   font-size: 4vw;
   margin: 0;
   position: relative;
@@ -7204,7 +7260,7 @@ span.important {
 
 .list {
   margin: 0 0 3vw;
-  background: #D2E2F9;
+  background: #d7ae78;
   padding: 4vw 2vw;
   border-radius: 0 0 3px 3px;
 }
@@ -7611,9 +7667,10 @@ span.important {
           flex-flow: column;
   position: relative;
   font-weight: bold;
+  color: #d7ae78;
 }
 .more .tag a .quantity, .more .tag button .quantity {
-  background: #FF5E00;
+  background: #ff2a56;
   width: 8vw;
   height: 8vw;
   top: 3vw;
@@ -7622,7 +7679,7 @@ span.important {
   color: white;
 }
 .more .tag a:not(.icon).active, .more .tag button:not(.icon).active {
-  color: #F77A00;
+  color: #ff2a56;
 }
 .more .tag a.active, .more .tag button.active {
   border-bottom: 0;
@@ -7649,7 +7706,7 @@ span.important {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #949494;
+  color: #0a0a0a;
   position: relative;
   background: white;
 }
@@ -7658,7 +7715,7 @@ span.important {
   margin: 0 2vw 0 0;
 }
 .accordion > div .title.icon-exit {
-  color: #F77A00;
+  color: #ff2a56;
 }
 .accordion > div .title.icon-exit:before {
   margin: 0 1.5vw 0 0.5vw;
@@ -7715,7 +7772,7 @@ span.important {
 }
 .accordion > div a, .accordion > div button, .accordion > div div {
   padding: 3vw 4vw;
-  color: #112240;
+  color: #0a0a0a;
   font-weight: bold;
   margin-bottom: 1px;
   background: #F9F9F9;
@@ -7823,7 +7880,7 @@ span.important {
   position: relative;
 }
 .vip_mark div {
-  background: #112240;
+  background: #0a0a0a;
   padding: 1vw;
   margin-top: 1vw;
   border-radius: 15px;
@@ -7895,7 +7952,7 @@ span.important {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #112240;
+  background: #0a0a0a;
   border-radius: 5px;
   margin: 0 2vw 0 0;
 }
@@ -7913,7 +7970,7 @@ span.important {
   display: flex;
   -ms-flex-flow: wrap;
       flex-flow: wrap;
-  background: #5574A7;
+  background: #b2b2b2;
 }
 .provider button, .provider a {
   -webkit-box-flex: 0;
@@ -8698,6 +8755,9 @@ span.important {
   right: 0;
   font-size: 5vw;
 }
+.depositModule .selectModule .bankName .mask {
+  display: none;
+}
 .depositModule .selectModule .bankName.pending {
   width: auto;
 }
@@ -8707,9 +8767,20 @@ span.important {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(10, 10, 10, 0.6);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: rgba(10, 10, 10, 0.5);
+  color: #fff;
   border-radius: 5px;
   z-index: 1;
+  line-height: 1;
 }
 .depositModule .selectModule .bankName .bank {
   margin: 0 0 0 3vw;
@@ -9359,7 +9430,7 @@ span.important {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: url(https://banner.0814media.net/h5/img/livetvtitlebg.png) no-repeat center/75% 100%;
+  background: url(https://banner.leoking88.net/h5/img/livetvtitlebggold.png) no-repeat center/75% 100%;
   border-radius: 5px 5px 0 0;
   color: white;
   position: relative;
@@ -9370,7 +9441,7 @@ span.important {
   position: absolute;
   left: 2vw;
   top: 1vw;
-  color: #aec3e1;
+  color: #d7ae78;
   font-weight: normal;
 }
 .liveTv > .liveTvModule .liveTvInfo {
@@ -9385,13 +9456,13 @@ span.important {
   line-height: 7vw;
 }
 .liveTv > .liveTvModule .liveTvInfo > div div {
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
 }
 .liveTv > .liveTvModule .liveTvInfo > div div.btn-group button, .liveTv > .liveTvModule .liveTvInfo > div div.btn-group a {
   padding: 1vw 3vw;
 }
 .liveTv > .liveTvModule .liveTvInfo > div div span {
-  background: #5574A7;
+  background: rgba(10, 10, 10, 0.7);
   padding: 1vw 2vw;
   margin: 2vw;
   border-radius: 5px;
@@ -9402,7 +9473,7 @@ span.important {
   font-weight: bold;
 }
 .liveTv > .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
-  color: #dfdfdf;
+  color: rgba(10, 10, 10, 0.7);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -9683,7 +9754,7 @@ span.important {
   margin: 1vw;
 }
 .referralShare .popTxt > div button i, .referralShare .popTxt > div a i {
-  background: #5574A7;
+  background: #ff2a56;
   border-radius: 5px;
   padding: 3vw;
   display: -webkit-box;
@@ -10010,9 +10081,9 @@ span.important {
   content: "";
   border-width: 0 2vw 2vw 2vw;
   border-style: solid dashed dashed;
-  border-color: transparent transparent #a5bbe0 transparent;
+  border-color: transparent transparent #d7ae78 transparent;
   right: 0.7vw;
-  top: -2vw;
+  top: -1.5vw;
 }
 .rememberMode .inputInfo span {
   display: block;
@@ -10030,7 +10101,7 @@ span.important {
 
 .important {
   background: #e2e2e2;
-  color: #dfdfdf;
+  color: #8b8b8b;
   padding: 4vw;
 }
 .important .title {
@@ -10067,7 +10138,7 @@ span.important {
   border: 1px solid #e6e6e6;
   border-radius: 3px;
   margin: 3vw 0;
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
   padding: 1vw 2vw;
 }
 .formula > div {
@@ -10103,7 +10174,7 @@ span.important {
   -webkit-box-flex: 19;
       -ms-flex: 19;
           flex: 19;
-  background: #f5f5f5;
+  background: rgba(223, 223, 223, 0.5);
   text-align: left;
   border-radius: 3px;
 }
@@ -10111,10 +10182,10 @@ span.important {
   font-weight: normal;
 }
 .formula > div > div:nth-child(2) > div:nth-child(2) {
-  color: #bfcce2;
+  color: #d7ae78;
 }
 .formula > div > div:nth-child(2) > div:nth-child(2) span {
-  color: #F77A00;
+  color: #ff2a56;
   margin: 0 0 0 2vw;
 }
 
@@ -10153,12 +10224,12 @@ span.important {
 }
 .myAccount a div {
   position: relative;
-  color: #112240;
+  color: #0a0a0a;
   font-weight: bold;
   margin-top: 0.5vw;
 }
 .myAccount a div:nth-child(1) {
-  background: #112240;
+  background: #0a0a0a;
   border-radius: 100%;
   width: 18vw;
   height: 18vw;
@@ -10180,7 +10251,7 @@ span.important {
 }
 .myAccount a div .quantity {
   position: absolute;
-  background: #FF5E00;
+  background: #ff2a56;
   color: white;
   top: 2vw;
   right: -2vw;
@@ -10193,11 +10264,11 @@ span.important {
   margin: 2vw 0;
 }
 .cashBack .title {
-  color: #5574A7;
+  color: #0a0a0a;
   margin: 1vw;
 }
 .cashBack table {
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
   font-size: 3vw;
   width: 100%;
   border-radius: 2px;
@@ -10205,15 +10276,15 @@ span.important {
   background: white;
 }
 .cashBack table tr:nth-child(1) {
-  background: #112240;
+  background: rgba(10, 10, 10, 0.8);
   color: white;
   font-weight: bold;
 }
 .cashBack table tr:nth-child(even) {
-  background: rgba(198, 212, 241, 0.3);
+  background: rgba(215, 174, 120, 0.3);
 }
 .cashBack table tr:nth-last-child(3) {
-  border-top: 1px solid #D2E2F9;
+  border-top: 1px solid #F1D5B6;
 }
 .cashBack table tr:nth-last-child(-n+3) {
   font-weight: bold;
@@ -10230,7 +10301,7 @@ span.important {
   min-width: 25vw;
 }
 .cashBack table tr td {
-  border-right: 1px solid #D2E2F9;
+  border-right: 1px solid #F1D5B6;
   padding: 1vw;
   line-height: 18px;
   white-space: nowrap;
@@ -10242,7 +10313,7 @@ span.important {
   border-top: none;
 }
 .cashBack.newStyle table tr:nth-last-child(6) {
-  border-top: 1px solid #D2E2F9;
+  border-top: 1px solid #F1D5B6;
 }
 .cashBack.newStyle table tr:nth-last-child(-n+6) {
   font-weight: bold;
@@ -10927,7 +10998,7 @@ span.important {
 }
 
 .dragonPayPop ul {
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
 }
 .dragonPayPop ul li {
   margin-left: 4vw;
@@ -10940,10 +11011,10 @@ span.important {
   width: 100%;
 }
 .dragonPayPop .pop > div span {
-  color: #1E85EC;
+  color: rgba(10, 10, 10, 0.7);
 }
 .dragonPayPop .pop > div.popTit {
-  background: #233d67;
+  background: #d7ae78;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -10967,6 +11038,9 @@ span.important {
   top: auto;
   position: absolute;
 }
+.dragonPayPop .pop > div.popTit .icon-close::before {
+  color: #fff;
+}
 .dragonPayPop .pop > div.popTxt .sisa {
   text-align: center;
   margin: 2vw 0 0;
@@ -10988,14 +11062,14 @@ span.important {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-top: 1px dotted #1E85EC;
-  border-bottom: 1px dotted #1E85EC;
+  border-top: 1px dotted #d7ae78;
+  border-bottom: 1px dotted #d7ae78;
   padding: 2vw 0;
   margin: 2vw 0 0;
 }
 .dragonPayPop .pop > div.popTxt .guide > button {
   padding: 0.5vw 2vw;
-  background: #5574A7;
+  background: #d7ae78;
   color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11032,7 +11106,7 @@ span.important {
 }
 .accountInfo > div button {
   padding: 0.5vw 2vw;
-  background: #5574A7;
+  background: #d7ae78;
   color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11082,8 +11156,8 @@ span.important {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   height: 12vw;
-  -webkit-filter: brightness(70%) contrast(50%) sepia(1) hue-rotate(170deg);
-          filter: brightness(70%) contrast(50%) sepia(1) hue-rotate(170deg);
+  -webkit-filter: brightness(65%) contrast(40%) sepia(1) hue-rotate(0deg);
+          filter: brightness(65%) contrast(40%) sepia(1) hue-rotate(0deg);
 }
 
 .filterSelect {
@@ -11107,11 +11181,11 @@ span.important {
 }
 
 .partnerSelect button, .partnerSelect a {
-  background: #D2E2F9;
+  background: #F1D5B6;
   margin-right: 1vw;
 }
 .partnerSelect button.active, .partnerSelect a.active {
-  background: #284985;
+  background: #d7ae78;
   color: white;
 }
 .partnerSelect button.active img, .partnerSelect a.active img {
@@ -11140,7 +11214,7 @@ span.important {
   padding: 0 0 0 1vw;
 }
 .rolloverList > div > div:nth-child(1), .minAmount > div > div:nth-child(1), .remainingTime > div > div:nth-child(1) {
-  background: #112240;
+  background: rgba(10, 10, 10, 0.8);
   color: white;
 }
 .rolloverList > div > div:nth-child(2), .minAmount > div > div:nth-child(2), .remainingTime > div > div:nth-child(2) {
@@ -12036,7 +12110,7 @@ span.important {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -12074,7 +12148,7 @@ span.important {
 }
 
 .userVerification {
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
   margin-bottom: 5vw;
 }
 .userVerification > div:first-child {
@@ -12156,19 +12230,19 @@ span.important {
   left: 53vw;
 }
 .userVerification > div:last-child > div.active {
-  background: #5574A7;
+  background: #d7ae78;
 }
 .userVerification > div:last-child > div.active:after {
   font-family: "icomoon";
   content: "\e98b";
-  background: #1E85EC;
+  background: #ff2a56;
 }
 .userVerification > div:last-child > div.openTip .description {
   display: block;
 }
 .userVerification .description {
   position: absolute;
-  border: 1px solid #1E85EC;
+  border: 1px solid #d7ae78;
   border-radius: 3px;
   background: white;
   font-size: 3vw;
@@ -12178,7 +12252,7 @@ span.important {
   width: -moz-max-content;
   width: max-content;
   text-align: center;
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
   left: 0;
   top: 0;
   -webkit-transform: translate(-3vw, 12vw);
@@ -12186,7 +12260,7 @@ span.important {
   display: none;
 }
 .userVerification .description:before {
-  border-color: transparent transparent #1E85EC;
+  border-color: transparent transparent #d7ae78;
   border-style: solid solid solid;
   border-width: 4vw;
   top: 0;
@@ -12212,7 +12286,7 @@ span.important {
           transform: translateY(-100%);
 }
 .userVerification .description .title {
-  color: #1E85EC;
+  color: #d7ae78;
   font-size: 4vw;
   margin-bottom: 1vw;
 }
@@ -12239,8 +12313,7 @@ span.important {
   font-size: 3.5vw;
 }
 .profile > div > div button {
-  background: -webkit-gradient(linear, left top, left bottom, from(#f77900), to(#f55c00));
-  background: linear-gradient(to bottom, #f77900, #f55c00);
+  background: #ff2a56;
   color: white;
   padding: 1vw 2vw;
   border-radius: 3px;
@@ -12337,6 +12410,15 @@ span.important {
   transition: 0.6s;
 }
 
+.react-datepicker-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+.react-datepicker-wrapper input {
+  width: 100%;
+}
+
 .flag:before {
   content: "";
   display: block;
@@ -12378,19 +12460,19 @@ span.important {
   margin-top: 5vw;
   padding-bottom: 3vw;
   margin-bottom: 3vw;
-  border-bottom: 1px solid #a5bbe0;
+  border-bottom: 1px solid #d7ae78;
 }
 .addressModule .title {
   font-size: 4vw;
   text-align: center;
-  color: #284985;
+  color: rgba(10, 10, 10, 0.7);
   padding-bottom: 3vw;
   margin-bottom: 3vw;
-  border-bottom: 1px solid #a5bbe0;
+  border-bottom: 1px solid #d7ae78;
 }
 .addressModule .title span {
   font-size: 3vw;
-  color: #a5bbe0;
+  color: rgba(10, 10, 10, 0.5);
   display: block;
   width: 100%;
   margin-top: 3vw;
@@ -12401,12 +12483,12 @@ span.important {
 }
 .addressModule .subtitle {
   font-size: 3.35vw;
-  color: #284985;
+  color: #0a0a0a;
   width: 100%;
 }
 .addressModule .addressContent {
   margin: 3vw auto;
-  color: #284985;
+  color: #0a0a0a;
   text-align: center;
 }
 .addressModule .addressContent > div {
@@ -13268,7 +13350,7 @@ span.important {
 }
 
 .duitnowPayPop ul {
-  color: #5574A7;
+  color: #A98153;
 }
 .duitnowPayPop ul li {
   margin-left: 4vw;
@@ -13284,14 +13366,13 @@ span.important {
   color: #1E85EC;
 }
 .duitnowPayPop .pop > div.popTit {
-  background: #233d67;
+  background: #fff;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: white !important;
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;
@@ -13318,7 +13399,7 @@ span.important {
   margin: 2vw 0 0;
 }
 .duitnowPayPop .pop > div.popTxt .sisa div {
-  color: #5574A7;
+  color: #0a0a0a;
 }
 .duitnowPayPop .pop > div.popTxt .sisa div:last-child {
   font-weight: bold;
@@ -13326,7 +13407,7 @@ span.important {
 }
 .duitnowPayPop .pop > div.popTxt .sisa span {
   font-size: 3.5vw;
-  color: #233d67;
+  color: #A98153;
   font-weight: normal;
   padding: 1vw 2vw;
   margin: 2vw 1vw;
@@ -13339,7 +13420,7 @@ span.important {
   text-align: center;
 }
 .duitnowPayPop .pop > div.popTxt .amount span {
-  color: #5574A7;
+  color: #A98153;
   font-weight: bold;
   font-size: 4vw;
   display: block;
@@ -13361,14 +13442,14 @@ span.important {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-top: 1px dotted #1E85EC;
-  border-bottom: 1px dotted #1E85EC;
+  border-top: 1px dotted #d7ae78;
+  border-bottom: 1px dotted #d7ae78;
   padding: 2vw 0;
   margin: 2vw 0 0;
 }
 .duitnowPayPop .pop > div.popTxt .guide > button {
   padding: 0.5vw 2vw;
-  background: #5574A7;
+  background: #d7ae78;
   color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13391,7 +13472,7 @@ span.important {
           align-items: center;
   width: 53vw;
   height: 53vw;
-  background: rgba(198, 212, 241, 0.8);
+  background: rgba(241, 213, 182, 0.8);
   overflow: hidden;
   margin: 1vw 0;
 }
@@ -13839,7 +13920,7 @@ input:-webkit-autofill:active {
 }
 .subheader {
   background: #fff;
-  padding: 1.5vw;
+  padding: 2vw;
 }
 .subheader__container {
   width: calc(100% - 3vw);
@@ -13849,8 +13930,8 @@ input:-webkit-autofill:active {
   content: "";
   display: block;
   width: 130px;
-  height: 58px;
-  background-image: url("https://banner.0814media.net/h5/img/logo_en_w.png");
+  height: 30px;
+  background-image: url("https://banner.leoking88.net/desktop/img/logo.png");
   background-size: 100%;
   background-repeat: no-repeat;
   -webkit-transition: ease 0.15s;
@@ -13860,17 +13941,17 @@ input:-webkit-autofill:active {
 .subcopyright {
   width: calc(100% - 4vw);
   margin: 0 auto;
-  background: #D2E2F9;
+  background: rgba(223, 223, 223, 0.8);
   padding: 2vw;
   text-align: center;
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
   font-size: 3vw;
 }
 
 .exclude {
   padding: 5vw 2vw;
-  background: #F0F7FF;
-  color: #7591C1;
+  background: rgba(223, 223, 223, 0.2);
+  color: rgba(10, 10, 10, 0.7);
   font-size: 3vw;
   width: calc(100% - 4vw);
 }
@@ -13881,7 +13962,7 @@ input:-webkit-autofill:active {
 .exclude__title {
   font-weight: bold;
   font-size: 4.25vw;
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
   position: relative;
   margin-bottom: 25px;
 }
@@ -13894,13 +13975,13 @@ input:-webkit-autofill:active {
   right: 0;
   height: 2px;
   width: 100%;
-  background-image: -webkit-gradient(linear, left top, right top, from(#5574A7), to(rgba(247, 122, 0, 0)));
-  background-image: linear-gradient(to right, #5574A7, rgba(247, 122, 0, 0));
+  background-image: -webkit-gradient(linear, left top, right top, from(#0a0a0a), to(rgba(10, 10, 10, 0)));
+  background-image: linear-gradient(to right, #0a0a0a, rgba(10, 10, 10, 0));
 }
 .exclude__table {
   width: 100%;
-  border-left: 1px solid #7591c1;
-  border-right: 1px solid #7591c1;
+  border-left: 1px solid #0a0a0a;
+  border-right: 1px solid #0a0a0a;
   border-radius: 3px;
   text-align: center;
 }
@@ -13916,7 +13997,7 @@ input:-webkit-autofill:active {
           justify-content: center;
 }
 .exclude__table__item:first-child div {
-  background: #7591c1;
+  background: #0a0a0a;
   color: #fff;
   font-weight: bold;
 }
@@ -13939,10 +14020,10 @@ input:-webkit-autofill:active {
       -ms-flex: 1 1 30vw;
           flex: 1 1 30vw;
   padding: 0.5vw 0;
-  border-bottom: 1px solid #7591c1;
+  border-bottom: 1px solid #0a0a0a;
 }
 .exclude__table__item div:first-child {
-  border-right: 1px solid #7591c1;
+  border-right: 1px solid #0a0a0a;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 5vw;
           flex: 1 1 5vw;
@@ -14101,7 +14182,7 @@ input:-webkit-autofill:active {
 }
 
 .thiaPop ul {
-  color: #5574A7;
+  color: #8b8b8b;
 }
 .thiaPop ul li {
   margin-left: 4vw;
@@ -14182,7 +14263,7 @@ input:-webkit-autofill:active {
           align-items: center;
   padding: 2vw;
   margin: 1vw 0 0;
-  background: rgba(210, 226, 249, 0.4);
+  background: rgba(223, 223, 223, 0.4);
   border-radius: 1vw;
 }
 .thiaPop .pop > div .guide > button {
@@ -14210,7 +14291,7 @@ input:-webkit-autofill:active {
           align-items: center;
   width: 53vw;
   height: 53vw;
-  background: rgba(198, 212, 241, 0.8);
+  background: rgba(223, 223, 223, 0.8);
   overflow: hidden;
   margin: 1vw 0;
 }
@@ -14239,7 +14320,7 @@ input:-webkit-autofill:active {
 }
 .thiaPop .pop > div .description input {
   border: 0;
-  background: rgba(117, 145, 193, 0.2);
+  background: rgba(178, 178, 178, 0.2);
   padding: 1vw 2vw;
   border-radius: 1vw;
   margin: 0 1vw;
@@ -14248,13 +14329,13 @@ input:-webkit-autofill:active {
 }
 .thiaPop .pop > div .description input:focus {
   outline: none;
-  background: rgba(198, 212, 241, 0.8);
+  background: rgba(215, 174, 120, 0.5);
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 .thiaPop .pop > div .description button {
   border-radius: 1vw;
-  background: #7591C1;
+  background: #d7ae78;
   color: #fff;
   height: 6vw;
   width: 6vw;
@@ -14285,7 +14366,7 @@ input:-webkit-autofill:active {
   font-size: 3.25vw;
   margin: 1vw auto;
   padding-bottom: 1.5vw;
-  border-bottom: 1px dotted #1E85EC;
+  border-bottom: 1px dotted #d7ae78;
 }
 .thiaPop .pop > div .info div {
   margin: 2.5vw auto 2vw;
@@ -14297,4 +14378,16 @@ input:-webkit-autofill:active {
   margin: 5px auto;
   padding-top: 10px;
   border-top: 1px dotted #1E85EC;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }/*# sourceMappingURL=style.css.map */
