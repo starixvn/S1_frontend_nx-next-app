@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'next-i18next'
 import dayjs from 'dayjs'
-import { uniqueId } from 'lodash-es'
+import { cloneDeep, uniqueId } from 'lodash-es'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import Image from 'next/future/image'
 
@@ -17,7 +17,8 @@ export interface IHistoryMsgModalProps {
 const HistoryMsgModal = ({ transId, messageDetail }: IHistoryMsgModalProps) => {
 	const { t } = useTranslation()
 	const { closeModal } = useGlobalModal()
-
+	// 使用 sort 時應建立副本，並對副本做更動，因 sort 會修改原始資料，直接更動 api 回傳的 data 會導致報錯
+	const cloneMessageDetail = cloneDeep(messageDetail)
 	return (
 		<div className='statuspop'>
 			<Image
@@ -30,7 +31,7 @@ const HistoryMsgModal = ({ transId, messageDetail }: IHistoryMsgModalProps) => {
 				{transId} {t('Label_General_Message')}
 			</div>
 			<div className='statuscontent'>
-				{messageDetail
+				{cloneMessageDetail
 					?.slice()
 					.sort(
 						({ createTime: createTimeA }, { createTime: createTimeB }) =>
