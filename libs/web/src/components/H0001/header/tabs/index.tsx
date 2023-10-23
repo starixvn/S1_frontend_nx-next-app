@@ -151,8 +151,7 @@ const Tags = ({ tags = [], className = 'headerTag', ...props }: ITagsProps) => {
 							<a
 								className={classNames({
 									active: isUndefined(active)
-										? pathname.split('/')[1] === href ||
-										  includes(subPaths, pathname.split('/')[1])
+										? pathname === href || includes(subPaths, pathname)
 										: active,
 								})}
 							>

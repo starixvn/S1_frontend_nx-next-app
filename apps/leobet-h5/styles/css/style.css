@@ -8628,7 +8628,7 @@ span.important {
 }
 .depositModule .selectModule > div.btn-group button {
   font-size: 3vw;
-  background: #112240;
+  background: #d7ae78;
 }
 .depositModule .selectModule .infoAccount {
   width: 100%;
@@ -8652,9 +8652,10 @@ span.important {
 }
 .depositModule .selectModule .infoAccount li span {
   width: 69vw;
-  color: #fff;
-  background: #5574A7;
+  color: rgba(255, 42, 86, 0.9);
+  background: transparent;
   border-radius: 3px;
+  border: 1px solid rgba(10, 10, 10, 0.5);
   padding: 1vw 0 1vw 1.5vw;
 }
 .depositModule .selectModule .infoAccount li button {
