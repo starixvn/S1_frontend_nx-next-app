@@ -67,7 +67,8 @@ const HotEventSwiper = () => {
 										alt='hotevent-bg-img'
 										width={360}
 										height={219}
-										style={{ width: 360, height: 219 }}
+										// 不能加這行 style ，元件會壞去
+										// style={{ width: 360, height: 219 }}
 									/>
 								)}
 								<div className='gamename'>{sportLeaguesTitle}</div>
