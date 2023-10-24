@@ -152,6 +152,7 @@ export const MENU_DATA = ({
 					displayKey: 'Label_General_Referral',
 					needLogin: true,
 					pathname: paths.referral.root,
+					allowCurrencies: [],
 				},
 			],
 		},

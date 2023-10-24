@@ -30,7 +30,7 @@ const Features = () => {
 				)}{' '}
 			</ul>
 			<div className='title'>
-				{t('Label_Join_EnjoyNova88VipExclusiveBonus').toUpperCase()}
+				{t('Label_Join_EnjoyVipExclusiveBonus').toUpperCase()}
 			</div>
 			<ul>
 				<li>{t('Label_Join_MultipleProductPlatforms')}</li>

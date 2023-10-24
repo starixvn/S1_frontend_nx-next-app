@@ -1,4 +1,4 @@
-
+#!/bin/sh
 # 目前既有品牌
 SITE_LIST=(common nova88 leobet)
 
