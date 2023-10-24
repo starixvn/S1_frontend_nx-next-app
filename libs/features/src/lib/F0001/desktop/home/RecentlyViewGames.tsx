@@ -64,6 +64,7 @@ const RecentlyViewGames = () => {
 							>
 								<div>
 									<Image
+										className='recently-image'
 										src={gameLogo[langId] ?? gameLogo['en']}
 										width={300}
 										height={300}
