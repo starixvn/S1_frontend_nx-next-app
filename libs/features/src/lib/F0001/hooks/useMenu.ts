@@ -159,7 +159,9 @@ const useMenu = () => {
 				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
 		const signupUrl = `${host}/${paths.join.root}`
 		const loginUrl = `${host}/${paths.login.root}`
-		const errorUrl = `${process.env['NEXT_PUBLIC_ERROR_DOMAIN']}/404/index_${langId}.html`
+
+		// * 只支援 en, cs, id, th
+		const errorUrl = `${dbHost}/404/index_${langId}.html`
 
 		const searchParams = new URLSearchParams({
 			tpId,
