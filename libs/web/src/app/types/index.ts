@@ -65,6 +65,7 @@ export interface IStaticAllowedCurrencies {
 	EXCHANGE?: CurrenciesEnum[]
 	REWARDS?: CurrenciesEnum[]
 	LEADER_BOARD?: CurrenciesEnum[]
+	APP_DOWNLOAD?: CurrenciesEnum[]
 
 	TRANSFER?: CurrenciesEnum[]
 	BANK_INFO?: CurrenciesEnum[]

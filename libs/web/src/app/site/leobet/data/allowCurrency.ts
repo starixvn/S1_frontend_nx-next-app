@@ -8,6 +8,7 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 	EXCHANGE: [INR],
 	REWARDS: [],
 	LEADER_BOARD: [],
+	APP_DOWNLOAD: [],
 
 	TRANSFER: [INR],
 	BANK_INFO: [INR],

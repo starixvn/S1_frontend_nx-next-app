@@ -22,7 +22,6 @@ export const MOBILE_HOME_ORDERS = [
 	MobileHomeComponentsEnum.HotEventSwiper,
 	MobileHomeComponentsEnum.HotGameMarquee,
 	MobileHomeComponentsEnum.RecentlyViewGames,
-	MobileHomeComponentsEnum.FriendReferral,
 	MobileHomeComponentsEnum.Jackpot,
 	MobileHomeComponentsEnum.LuckyWheel,
 ]
