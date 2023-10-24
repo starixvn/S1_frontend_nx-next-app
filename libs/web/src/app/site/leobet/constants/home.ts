@@ -24,4 +24,5 @@ export const MOBILE_HOME_ORDERS = [
 	MobileHomeComponentsEnum.RecentlyViewGames,
 	MobileHomeComponentsEnum.Jackpot,
 	MobileHomeComponentsEnum.LuckyWheel,
+	MobileHomeComponentsEnum.SimpleFooter,
 ]

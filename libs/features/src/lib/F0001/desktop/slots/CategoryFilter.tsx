@@ -4,7 +4,6 @@ import { useSlots } from '@nx-next-app/features/F0001/providers'
 
 const CategoryFilter = () => {
 	const { categoryKeys, activeCategoryKey, onCategoryChange } = useSlots()
-	console.log(categoryKeys)
 	const { t } = useTranslation()
 	return (
 		<div className='btnGroup promoType'>
