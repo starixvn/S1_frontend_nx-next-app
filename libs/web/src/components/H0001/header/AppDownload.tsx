@@ -7,14 +7,16 @@ import { useTranslation } from 'next-i18next'
 interface IAppDownloadProps {
 	isAppDownloadHintActive: boolean
 	onCloseAppDownloadHint: () => void
+	showAppDownload: boolean
 }
 
 const AppDownload = ({
 	isAppDownloadHintActive,
 	onCloseAppDownloadHint,
+	showAppDownload,
 }: IAppDownloadProps) => {
 	const { t } = useTranslation()
-
+	if (!showAppDownload) return null
 	return (
 		<div
 			className={classNames('appdownload', {

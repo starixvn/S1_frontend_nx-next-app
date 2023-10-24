@@ -8,13 +8,13 @@ import {
 	useAppDownload,
 } from '@nx-next-app/components/H0001'
 import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import { useSetHideBalanceMutation } from '@nx-next-app/service'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 
 import dynamic from 'next/dynamic'
-import { MobileHomeComponentsEnum } from '@nx-next-app/types'
+import { CurrenciesEnum, MobileHomeComponentsEnum } from '@nx-next-app/types'
 import { multiEqual } from '@nx-next-app/utils'
 import Menu from './menu'
 
@@ -67,6 +67,8 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 		Boolean(persistAppDownloadHint)
 	)
 
+	const { ALLOWED_CURRENCIES } = useStaticData()
+
 	const homeComponents = {
 		[MobileHomeComponentsEnum.CarouselBanner]: (
 			<CarouselBanner
@@ -112,12 +114,18 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 		component => !includes(bannerBlockOrders, component)
 	)
 
+	const showAppDownload = includes(
+		ALLOWED_CURRENCIES['APP_DOWNLOAD'] as CurrenciesEnum[],
+		currencyId
+	)
+
 	return (
 		<>
 			<Header>
 				<Header.AppDownLoad
 					isAppDownloadHintActive={isAppDownloadHintActive}
 					onCloseAppDownloadHint={onCloseAppDownloadHint}
+					showAppDownload={showAppDownload}
 				/>
 
 				<Header.HeaderModule
