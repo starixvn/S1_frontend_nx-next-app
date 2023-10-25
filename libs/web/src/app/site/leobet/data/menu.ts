@@ -2698,7 +2698,7 @@ export const MENU_DATA = ({
 				{
 					h5: {
 						img: '/h5/img/numbergame.png',
-						menuActionType: MenuActionTypeEnum.Link,
+						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
 						className: 'numberGame',
@@ -2721,6 +2721,7 @@ export const MENU_DATA = ({
 					productKey: 'LOTTERY_NUMBER_GAME',
 					displayKey: 'Label_Product_NumberGame',
 					product: PRODUCTS['LOTTERY_NUMBER_GAME'],
+					pathname: paths.sports.root,
 					query: { provider: 'saba', type: 'number-game' },
 				},
 				{
@@ -2749,7 +2750,7 @@ export const MENU_DATA = ({
 					productKey: 'LOTTERY_TABLE_GAME',
 					displayKey: 'Label_Product_TableGame',
 					product: PRODUCTS['LOTTERY_TABLE_GAME'],
-					query: { provider: 'saba', type: 'number-game' },
+					// query: { provider: 'saba', type: 'number-game' },
 				},
 			],
 			subMenuAllowCurrenciesWithAuth: false,
