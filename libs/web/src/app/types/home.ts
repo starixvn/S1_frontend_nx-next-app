@@ -43,4 +43,6 @@ export enum MobileHomeComponentsEnum {
 	AppDownload = 'AppDownload',
 	// 代言人頭像
 	FooterBlock = 'FooterBlock',
+	// 簡易 Footer , 與 Footer 只可擇一添加
+	SimpleFooter = 'SimpleFooter',
 }

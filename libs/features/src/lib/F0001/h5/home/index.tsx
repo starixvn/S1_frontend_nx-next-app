@@ -27,6 +27,7 @@ import { FriendReferral } from './FriendReferral'
 import CarouselBanner from '../common/carouselBanner'
 import { HeaderQuickLink } from './HeaderQuickLink'
 import { AppDownload } from './AppDownload'
+import { SimpleFooter } from './SimpleFooter'
 import { FooterBlock } from './footerBlock'
 
 interface IHomeProps {
@@ -99,6 +100,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 		[MobileHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
 		[MobileHomeComponentsEnum.AppDownload]: <AppDownload />,
 		[MobileHomeComponentsEnum.FooterBlock]: <FooterBlock />,
+		[MobileHomeComponentsEnum.SimpleFooter]: <SimpleFooter />,
 	}
 
 	// banner 區塊，目前只有兩個
