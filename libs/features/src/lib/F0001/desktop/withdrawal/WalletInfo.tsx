@@ -13,7 +13,7 @@ const WalletInfo = () => {
 	} = useAuth()
 	const { withdrawalBalance, refetchWithdrawalBalance } = useWithdrawal()
 
-	const { availableBalance } = withdrawalBalance
+	const { availableBalance = 0 } = withdrawalBalance ?? {}
 
 	const { value: showTips, toggle: toggleTips } = useBoolean(false)
 

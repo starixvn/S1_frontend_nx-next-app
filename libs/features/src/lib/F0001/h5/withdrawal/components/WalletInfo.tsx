@@ -15,25 +15,30 @@ const WalletInfo = () => {
 	} = useAuth()
 	const { refetchWithdrawalBalance, withdrawalBalance, restoreAll } =
 		useWithdrawal()
-	const { availableBalance } = withdrawalBalance ?? {}
+	const { availableBalance = 0 } = withdrawalBalance ?? {}
 
 	const userLevelImageInfo = VIP_CLUB_IMAGES(DeviceTypeEnum.Mobile)[
 		(userLevel as number) - 1
 	]
 	return (
 		<>
-			<div className='vip_mark'>
-				<Image
-					src={userLevelImageInfo?.url}
-					alt={userLevelImageInfo?.alt}
-					width={126}
-					height={106}
-				/>
-				{includes(
-					ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],
-					currencyId
-				) && <div>{t(userLevelImageInfo?.displayKey as string)}</div>}
-			</div>
+			{userLevelImageInfo?.url ? (
+				<div className='vip_mark'>
+					<Image
+						src={userLevelImageInfo?.url}
+						alt={userLevelImageInfo?.alt}
+						width={126}
+						height={106}
+					/>
+					{includes(
+						ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],
+						currencyId
+					) && <div>{t(userLevelImageInfo?.displayKey as string)}</div>}
+				</div>
+			) : (
+				<div className='icon icon-member' />
+			)}
+
 			<div className='name'>{userName}</div>
 			<div className='text-org'>
 				{t('Label_Withdrawal_EligibleWithdrawalAmount')}
