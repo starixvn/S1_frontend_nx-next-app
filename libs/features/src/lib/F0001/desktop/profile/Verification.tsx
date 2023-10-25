@@ -60,12 +60,16 @@ const Verification = () => {
 	return (
 		<div className='vipLv'>
 			<div className='vipbg'>
-				<Image
-					src={userLevelImageInfo?.url}
-					alt={userLevelImageInfo?.alt}
-					width={150}
-					height={127}
-				/>
+				{userLevelImageInfo?.url ? (
+					<Image
+						src={userLevelImageInfo?.url}
+						alt={userLevelImageInfo?.alt}
+						width={150}
+						height={127}
+					/>
+				) : (
+					<div className='icon icon-member' />
+				)}
 			</div>
 			{includes(ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[], currencyId) && (
 				<div className='vipname'>

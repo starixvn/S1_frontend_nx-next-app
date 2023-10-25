@@ -27,7 +27,7 @@ const LoginJoin = ({ cookies }: ILoginJoinProps) => {
 				<div className='icon icon-close' />
 			</button>
 			<img
-				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/logo_en_w.png`}
+				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/logo.png`}
 				alt='logo'
 			/>
 
