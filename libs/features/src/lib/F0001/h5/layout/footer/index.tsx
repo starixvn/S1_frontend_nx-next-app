@@ -55,7 +55,7 @@ const LayoutFooter = () => {
 				<a
 					rel='noreferrer'
 					target='_blank'
-					href='https://direct.lc.chat/11638088/'
+					href={`https://direct.lc.chat/${process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']}/`}
 					className='icon icon-contact'
 				>
 					<div className='circleAnimation' />
