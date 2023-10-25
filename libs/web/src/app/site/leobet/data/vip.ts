@@ -88,62 +88,8 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
 	},
 ]
 
-export const VIP_CLUB_IMAGES = (deviceType: number): IImageData[] => [
-	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
-			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip1.png`,
-		displayKey: 'Label_Vip_Vintage_Club',
-		levelTabsName: 'vintage',
-		level: VIP_LEVEL.VIP_LEVEL_VINTAGE,
-		alt: 'vip01',
-	},
-	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
-			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip2.png`,
-		displayKey: 'Label_Vip_Silver_Club',
-		levelTabsName: 'silver',
-		level: VIP_LEVEL.VIP_LEVEL_SILVER,
-		alt: 'vip02',
-	},
-	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
-			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip3.png`,
-		displayKey: 'Label_Vip_Gold_Club',
-		levelTabsName: 'gold',
-		level: VIP_LEVEL.VIP_LEVEL_GOLD,
-		alt: 'vip03',
-	},
-	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
-			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip4.png`,
-		displayKey: 'Label_Vip_Titanium_Club',
-		levelTabsName: 'titanium',
-		level: VIP_LEVEL.VIP_LEVEL_TITANIUM,
-		alt: 'vip04',
-	},
-	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
-			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip5.png`,
-		displayKey: 'Label_Vip_Diamond_Club',
-		levelTabsName: 'diamond',
-		level: VIP_LEVEL.VIP_LEVEL_DIAMOND,
-		alt: 'vip05',
-	},
-	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
-			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip6.png`,
-		displayKey: 'Label_Nova_Club',
-		levelTabsName: 'nova',
-		level: VIP_LEVEL.VIP_LEVEL_NOVA,
-		alt: 'vip06',
-	},
-]
+// Leobet 沒有 VIP 功能
+export const VIP_CLUB_IMAGES = (deviceType: number): IImageData[] => []
 
 export const VIP_EVENT_CURRENCIES_LIMITATION_INFO: IStaticVipEventCurrenciesLimitationInfo =
 	{

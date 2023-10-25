@@ -43,18 +43,22 @@ const Verification = () => {
 
 	return (
 		<>
-			<div className='vip_mark'>
-				<Image
-					src={userLevelImageInfo?.url}
-					alt={userLevelImageInfo?.alt}
-					width={126}
-					height={106}
-				/>
-				{includes(
-					ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],
-					currencyId
-				) && <div>{t(userLevelImageInfo?.displayKey as string)}</div>}
-			</div>
+			{userLevelImageInfo?.url ? (
+				<div className='vip_mark'>
+					<Image
+						src={userLevelImageInfo?.url}
+						alt={userLevelImageInfo?.alt}
+						width={126}
+						height={106}
+					/>
+					{includes(
+						ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],
+						currencyId
+					) && <div>{t(userLevelImageInfo?.displayKey as string)}</div>}
+				</div>
+			) : (
+				<div className='icon icon-member' />
+			)}
 			<div className='accountSafety'>
 				<div>{t('Label_Profile_AccountSafety')}：</div>
 				<div>{t(safetyDisplayKey)}</div>

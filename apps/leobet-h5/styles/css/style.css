@@ -1611,7 +1611,7 @@ header button.clickBtn::before {
 #Marquee .marquee-box .marquee-run button {
   -webkit-text-size-adjust: 100%;
   padding: 2vw;
-  color: #112240;
+  color: #0a0a0a;
 }
 #Marquee .marquee-box.icon::before {
   width: 35px;
@@ -1870,7 +1870,7 @@ main .gameList > div > div, main .gameList > div > a, main .gameList > div > but
   border-radius: 10px;
   background: #ececec;
   overflow: hidden;
-  height: 36vw;
+  height: 36.5vw;
 }
 main .gameList > div > div.active, main .gameList > div > a.active, main .gameList > div > button.active, main .gameList > a > div.active, main .gameList > a > a.active, main .gameList > a > button.active, main .gameList > button > div.active, main .gameList > button > a.active, main .gameList > button > button.active {
   display: -webkit-box;
@@ -14112,7 +14112,7 @@ input:-webkit-autofill:active {
   background: #efefef;
   border-radius: 7px;
   font-weight: bold;
-  color: #233d67;
+  color: #0a0a0a;
   padding: 5vw;
   position: relative;
 }

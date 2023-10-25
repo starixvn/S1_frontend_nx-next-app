@@ -2364,6 +2364,15 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
 .header > div.function .memberfile > .vipAnimation > div, .header > div.function .memberfile > .vipAnimation:before, .header > div.function .memberfile > .vipAnimation:after {
   background: #203769;
 }
+.header > div.function .memberfile .icon-member {
+  color: #0a0a0a;
+  font-size: 24px;
+}
+.header > div.function .memberfile .icon-member:hover {
+  color: #d7ae78;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
 .header > div.function .memberfile > a {
   width: 33px;
   margin-right: 5px;

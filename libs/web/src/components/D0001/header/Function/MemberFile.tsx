@@ -35,7 +35,8 @@ const MemberFile = ({ userLevelImageInfo }: IMemberFileProps) => {
 			})}
 			onClick={toggle}
 		>
-			{userLevelImageInfo?.url && (
+			{/* 如果沒有 vipLevelImage 則顯示 simple icon */}
+			{userLevelImageInfo?.url ? (
 				<Link href={paths.profile.root}>
 					<a
 						onClick={e => {
@@ -52,6 +53,10 @@ const MemberFile = ({ userLevelImageInfo }: IMemberFileProps) => {
 							height={25}
 						/>
 					</a>
+				</Link>
+			) : (
+				<Link href={paths.profile.root}>
+					<i className='icon icon-member' onClick={e => e.stopPropagation()} />
 				</Link>
 			)}
 
