@@ -1,11 +1,14 @@
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
-import { useAuth } from '@nx-next-app/data-access'
+import { includes } from 'lodash-es'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { PrevPageEnum, PREV_PAGE } from '@nx-next-app/constants'
 import { useSetProfileAddressMutation } from '@nx-next-app/service'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { Form, InputBox } from '@nx-next-app/components/H0001'
+
 import { PhoneOtpModal } from './PhoneOtpModal'
 
 const AddressEdit = () => {
@@ -20,8 +23,9 @@ const AddressEdit = () => {
 	const { modal } = useGlobalModal()
 
 	const {
-		userInfo: { addressCity, phoneVerified },
+		userInfo: { addressCity, phoneVerified, currencyId },
 	} = useAuth()
+	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	const [setProfileAddress] = useSetProfileAddressMutation()
 
@@ -79,6 +83,9 @@ const AddressEdit = () => {
 			onOK: setAddress,
 		})
 	}
+
+	if (!includes(ALLOWED_CURRENCIES['ADDRESS'] as CurrenciesEnum[], currencyId))
+		return null
 
 	if (addressCity) return null
 
