@@ -42,7 +42,6 @@ dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
 dayjs.extend(utc)
 const {
-	LiveChatScript,
 	IovationScript,
 	PlayTechScript,
 	GTMScript,
@@ -82,8 +81,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
 					</StaticDataProvider>
 				</UIProvider>
 			</Provider>
-
-			<LiveChatScript />
+			{/* 手機版 liveChat Layout 會蓋住 more button, footer 下方的 button */}
+			{/* 是指定路徑的，所以沒引入這個 script 也不影響 */}
+			{/* <LiveChatScript /> */}
 			<IovationScript />
 			<PlayTechScript />
 			<GTMScript />
