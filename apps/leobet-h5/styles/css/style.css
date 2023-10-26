@@ -2016,8 +2016,8 @@ footer > a.icon-menu .msgPop {
           transform: translateY(-100%);
   top: -1vw;
   right: 5vw;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f77900), to(#f55c00));
-  background: linear-gradient(to bottom, #f77900, #f55c00);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(42%, #ff2a56), color-stop(83%, #ff6281));
+  background: linear-gradient(180deg, #ff2a56 42%, #ff6281 83%);
   padding: 2vw;
   text-align: center;
   border-radius: 3px;
@@ -2044,7 +2044,7 @@ footer > a.icon-menu .msgPop > div {
 }
 footer > a.icon-menu .msgPop button {
   background: white;
-  color: #F77A00;
+  color: #ff2a56;
   width: 4vw;
   height: 4vw;
   border-radius: 100%;
@@ -2066,10 +2066,10 @@ footer > a.icon-menu .msgPop button::before {
           transform: scale(0.7);
 }
 footer > a.icon-menu .msgPop:after {
-  border-color: #f55c00 transparent transparent;
+  border-color: #ff6281 transparent transparent;
   border-style: solid solid solid solid;
   border-width: 8px;
-  bottom: 0;
+  bottom: 0.5vw;
   content: "";
   height: 0;
   right: 2.5vw;
@@ -4806,7 +4806,7 @@ footer > a.active .circleAnimation::after {
   min-height: 13vw;
 }
 .selectBank button.active, .selectBank a.active {
-  border: 2px solid #5574A7;
+  border: 2px solid #ff2a56;
 }
 .selectBank button .mask, .selectBank a .mask {
   display: none;
@@ -7838,7 +7838,7 @@ span.important {
 }
 .accordion > div a.countryNew > div > button, .accordion > div button.countryNew > div > button, .accordion > div div.countryNew > div > button {
   display: block;
-  border-right: 1px solid #5574A7;
+  border-right: 1px solid #0a0a0a;
   background: transparent;
   padding: 0 4vw;
 }
@@ -7855,7 +7855,7 @@ span.important {
   font-weight: bold;
 }
 .accordion > div a.countryNew > div.active > button.active, .accordion > div button.countryNew > div.active > button.active, .accordion > div div.countryNew > div.active > button.active {
-  color: #F77A00;
+  color: #ff2a56;
 }
 .accordion > div a.countryNew > div.active img, .accordion > div button.countryNew > div.active img, .accordion > div div.countryNew > div.active img {
   -webkit-box-shadow: 0 0 5px 5px rgba(255, 94, 0, 0.4784313725);
@@ -9557,7 +9557,7 @@ span.important {
 
 .aff {
   text-align: center;
-  background: rgb(10, 10, 10);
+  background: #0a0a0a;
   padding: 0 0 20vw;
   margin: 0 2vw 0;
 }
@@ -9568,11 +9568,12 @@ span.important {
 }
 
 .footerModule {
-  background: rgb(10, 10, 10);
+  background: #0a0a0a;
   padding-top: 3vw;
+  margin-top: 15vw;
 }
 .footerModule .middle {
-  background: #142A50;
+  background: #0a0a0a;
   padding: 0 5vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9783,7 +9784,7 @@ span.important {
   right: 1vw;
   top: -5vw;
   z-index: 4;
-  background: #f06d4f;
+  background: #d7ae78;
   border-radius: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11499,7 +11500,7 @@ span.important {
 
 .ifsc {
   font-size: 4vw;
-  color: #5574A7;
+  color: #0a0a0a;
   margin-top: 1vw;
   background: white;
   padding: 2vw;
@@ -12293,7 +12294,7 @@ span.important {
 }
 
 .profile {
-  color: #5574A7;
+  color: #0a0a0a;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13489,9 +13490,9 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px white inset;
-          box-shadow: 0 0 0px 1000px white inset;
-  -webkit-text-fill-color: #5574a7;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+          box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-text-fill-color: #d7ae78;
 }
 
 .angpaoEvent {

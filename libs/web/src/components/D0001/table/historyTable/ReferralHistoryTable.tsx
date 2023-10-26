@@ -44,9 +44,13 @@ const ReferralHistoryTable = ({
 				item: { registerDate: string }
 			}) => (
 				<>
-					{dayjs(registerDate).format('MM/DD/YYYY')}
+					{dayjs(registerDate)
+						.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
+						.format('MM/DD/YYYY')}
 					<span className='txt-blue'>
-						{dayjs(registerDate).format('hh:mm:ss A')}
+						{dayjs(registerDate)
+							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
+							.format('hh:mm:ss A')}
 					</span>
 				</>
 			),

@@ -46,7 +46,9 @@ const DateRangeStatementTable = ({
 			}: {
 				item: { settledDate: string }
 			}) => {
-				return dayjs(settledDate).format('YYYY-MM-DD')
+				return dayjs(settledDate)
+					.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
+					.format('YYYY-MM-DD')
 			},
 		},
 		{

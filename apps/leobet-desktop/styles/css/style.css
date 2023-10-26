@@ -2293,8 +2293,8 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
   right: 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f77900), to(#f55c00));
-  background: linear-gradient(to bottom, #f77900, #f55c00);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(42%, #ff2a56), color-stop(83%, #ff6281));
+  background: linear-gradient(180deg, #ff2a56 42%, #ff6281 83%);
   padding: 10px 10px 10px 15px;
   text-align: center;
   border-radius: 3px;
@@ -2309,8 +2309,8 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
           justify-content: center;
   color: white;
   font-weight: bold;
-  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.4);
+          box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.4);
 }
 .header > div.function .icon-email .msgPop > div {
   overflow: hidden;
@@ -2320,7 +2320,7 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
 }
 .header > div.function .icon-email .msgPop button {
   background: white;
-  color: #f77900;
+  color: #ff2a56;
   width: 18px;
   height: 18px;
   border-radius: 100%;
@@ -2341,7 +2341,7 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
           transform: scale(0.7);
 }
 .header > div.function .icon-email .msgPop:after {
-  border-color: transparent transparent #f77900;
+  border-color: transparent transparent #ff2a56;
   border-style: solid solid solid solid;
   border-width: 8px;
   top: 1px;
@@ -4085,7 +4085,7 @@ input[type=file] {
   font-size: 14px;
   font-weight: bold;
   z-index: 4;
-  background: #f06d4f;
+  background: #d7ae78;
   border-radius: 100%;
   line-height: 22px;
 }
