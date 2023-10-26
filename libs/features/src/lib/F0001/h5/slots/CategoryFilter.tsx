@@ -14,7 +14,9 @@ const CategoryFilter = () => {
 						className={activeCategoryKey === value ? 'active' : ''}
 						onClick={() => onCategoryChange(value)}
 					>
-						{t(`Label_${value.charAt(0).toUpperCase() + value.slice(1)}`)}
+						{t(
+							`Label_General_${value.charAt(0).toUpperCase() + value.slice(1)}`
+						)}
 					</button>
 				)
 			})}
