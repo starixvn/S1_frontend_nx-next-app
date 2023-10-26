@@ -32,9 +32,13 @@ const TransferHistoryTable = ({
 			key: 'createTime',
 			render: ({ item: { createTime } }: { item: { createTime: string } }) => (
 				<>
-					{dayjs(createTime).format('MM/DD/YYYY')}
+					{dayjs(createTime)
+						.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
+						.format('MM/DD/YYYY')}
 					<span className='txt-blue'>
-						{dayjs(createTime).format('hh:mm:ss A')}
+						{dayjs(createTime)
+							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
+							.format('hh:mm:ss A')}
 					</span>
 				</>
 			),

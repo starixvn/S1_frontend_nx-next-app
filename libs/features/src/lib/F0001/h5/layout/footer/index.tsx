@@ -66,7 +66,7 @@ const LayoutFooter = () => {
 			</footer>
 
 			<div
-				className={classNames('walletMenu', {
+				className={classNames('walletMenu five-style', {
 					active: isWalletActive,
 				})}
 			>

@@ -68,7 +68,7 @@ const useTable = <T,>({
 						transId,
 						receipt,
 					}: {
-						transId: string
+						transId?: string
 						receipt: string
 					}) => void
 				}

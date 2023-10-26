@@ -67,7 +67,9 @@ const ByDetailStatementTable = ({
 			dataIndex: 'settledTime',
 			key: 'settledTime',
 			render: ({ item: { settledTime } }: { item: { settledTime: string } }) =>
-				dayjs(settledTime).format('YYYY-MM-DD HH:mm:ss'),
+				dayjs(settledTime)
+					.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
+					.format('YYYY-MM-DD HH:mm:ss'),
 		},
 	]
 
