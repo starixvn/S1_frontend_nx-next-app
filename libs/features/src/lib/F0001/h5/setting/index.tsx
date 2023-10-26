@@ -196,28 +196,28 @@ const Setting = () => {
 						header={t('Label_General_OurPolicies')}
 					>
 						<a
-							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/my_cs/ResposibleGaming.html`}
+							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ResposibleGaming.html`}
 							target='_blank'
 							rel='noreferrer noopener'
 						>
 							{t('Label_General_ResponsibleGaming')}
 						</a>
 						<a
-							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/my_cs/TermsConditions.html`}
+							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/TermsConditions.html`}
 							target='_blank'
 							rel='noreferrer noopener'
 						>
 							{t('Label_General_TermsConditions')}
 						</a>
 						<a
-							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/my_cs/PrivacyPolicy.html`}
+							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/PrivacyPolicy.html`}
 							target='_blank'
 							rel='noreferrer noopener'
 						>
 							{t('Label_General_PrivacyPolicy')}
 						</a>
 						<a
-							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/my_cs/CookiePolicy.html`}
+							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/CookiePolicy.html`}
 							target='_blank'
 							rel='noreferrer noopener'
 						>
@@ -230,21 +230,21 @@ const Setting = () => {
 						header={t('Label_General_HelpSupport')}
 					>
 						<a
-							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/my_cs/RulesandRegulations.html`}
+							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/RulesandRegulations.html`}
 							target='_blank'
 							rel='noreferrer noopener'
 						>
 							{t('Label_General_RuleRegulations')}
 						</a>
 						<a
-							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/my_cs/AccountTerms.html`}
+							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AccountTerms.html`}
 							target='_blank'
 							rel='noreferrer noopener'
 						>
 							{t('Label_General_AccountTerms')}
 						</a>
 						<a
-							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/my_cs/FAQ.html`}
+							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/FAQ.html`}
 							target='_blank'
 							rel='noreferrer noopener'
 						>
@@ -257,7 +257,7 @@ const Setting = () => {
 						header={String(process.env['NEXT_PUBLIC_SITE_NAME']).toUpperCase()}
 					>
 						<a
-							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/my_cs/AboutUs.html`}
+							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AboutUs.html`}
 							target='_blank'
 							rel='noreferrer noopener'
 						>
@@ -272,15 +272,23 @@ const Setting = () => {
 						>
 							{t('Label_General_Affiliate')}
 						</a>
-						<a href='/cs/contactUs'>{t('Label_General_ContactUs')}</a>
 						<a
-							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/my_cs/Terms.html`}
+							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html`}
+							target='_blank'
+							rel='noreferrer noopener'
+						>
+							{t('Label_General_ContactUs')}
+						</a>
+						<a
+							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/Terms.html`}
 							target='_blank'
 							rel='noreferrer noopener'
 						>
 							{t('Label_General_Terms')}
 						</a>
-						<a href='/cs/game-provider'>{t('Label_General_GameProvider')}</a>
+						<a href={paths.gameProvider.root}>
+							{t('Label_General_GameProvider')}
+						</a>
 					</SettingCollapse.Item>
 
 					{isLogin && (
