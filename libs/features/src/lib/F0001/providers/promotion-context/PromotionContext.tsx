@@ -19,11 +19,19 @@ import {
 	PromotionTypeEnum,
 	PromotionWalletType,
 } from '@nx-next-app/types'
-import { createContext, ReactNode, useContext, useState } from 'react'
+import {
+	createContext,
+	ReactNode,
+	useContext,
+	useEffect,
+	useState,
+} from 'react'
 import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useForm, UseFormReturn } from 'react-hook-form'
-import { includes, trim } from 'lodash-es'
+import { includes, isUndefined, trim } from 'lodash-es'
+import { useRouter } from 'next/router'
+import { paths } from '@nx-next-app/constants'
 
 const DesktopPromotionDetailModal = dynamic(
 	() =>
@@ -96,6 +104,9 @@ export const PromotionProvider = ({
 	} = useAuth()
 	const dispatch = useAppDispatch()
 	const { modal } = useGlobalModal()
+	const { query, replace } = useRouter()
+
+	const { BonusCode: queryBonus } = query
 
 	const [activeFilterType, setActiveFilterType] = useState<PromotionFilterEnum>(
 		PromotionFilterEnum.All
@@ -287,6 +298,15 @@ export const PromotionProvider = ({
 
 			return bol
 		})
+
+	useEffect(() => {
+		// 如果 query 有帶 bonusCode 需直接打開 detail 彈窗
+		if (!isUndefined(queryBonus)) {
+			onGetPromotionDetail({ bonusCode: queryBonus as string })
+			// 打開後就洗掉 query , 避免重複觸發
+			replace(paths.promotion.root, undefined, { shallow: true })
+		}
+	}, [queryBonus])
 
 	const value: PromotionContextInterface = {
 		persistPromotionData,
