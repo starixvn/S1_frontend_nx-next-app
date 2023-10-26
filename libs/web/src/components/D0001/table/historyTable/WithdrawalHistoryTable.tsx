@@ -54,9 +54,13 @@ const WithdrawalHistoryTable = ({
 			key: 'createTime',
 			render: ({ item: { createTime } }: { item: { createTime: string } }) => (
 				<>
-					{dayjs(createTime).format('MM/DD/YYYY')}
-					<span className='txt-blue2'>
-						{dayjs(createTime).format('hh:mm:ss A')}
+					{dayjs(createTime)
+						.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
+						.format('MM/DD/YYYY')}
+					<span className='txt-blue'>
+						{dayjs(createTime)
+							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
+							.format('hh:mm:ss A')}
 					</span>
 				</>
 			),

@@ -42,7 +42,9 @@ const ByCategoryStatementTable = ({
 			dataIndex: 'settledDate',
 			key: 'settledDate',
 			render: ({ item: { settledDate } }: { item: { settledDate: string } }) =>
-				dayjs(settledDate).format('YYYY-MM-DD'),
+				dayjs(settledDate)
+					.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
+					.format('YYYY-MM-DD'),
 		},
 		{
 			title: t('Label_General_GameTypeName'),
