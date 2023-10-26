@@ -1108,7 +1108,7 @@ body, html {
   position: fixed;
   top: 3vw;
   right: 3vw;
-  color: #F77A00;
+  color: #d7ae78;
 }
 
 div[tabindex="-1"] {
@@ -1239,7 +1239,7 @@ div[tabindex="-1"] {
   margin: 2vw 0;
 }
 .Login .Terms a {
-  color: #1E85EC;
+  color: #ff2a56;
   text-decoration: underline;
   display: block;
   text-align: center;
@@ -1294,7 +1294,7 @@ div[tabindex="-1"] {
 }
 .Join .congrats {
   text-align: center;
-  color: #F77A00;
+  color: #ff2a56;
   font-size: 4vw;
   margin: 10vw 0;
   position: relative;
@@ -1303,7 +1303,7 @@ div[tabindex="-1"] {
   content: "\e996";
   font-family: "icomoon";
   font-size: 20vw;
-  color: #5574A7;
+  color: #d7ae78;
   margin: 5vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1314,7 +1314,7 @@ div[tabindex="-1"] {
 }
 .Join .congrats > p {
   font-size: 5vw;
-  color: #5574A7;
+  color: #ff2a56;
   font-weight: bold;
   margin: 2vw;
 }
@@ -2205,7 +2205,7 @@ footer > a.active.icon-close:after {
   color: white;
 }
 footer > a.active .circleAnimation {
-  background: url(https://banner.0814media.net/h5/img/footerActive.svg) no-repeat top center/100%;
+  background: url(https://banner.leoking88.net/h5/img/footerActive.svg) no-repeat top center/100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3201,7 +3201,7 @@ footer > a.active .circleAnimation::after {
 }
 #popup.detailpop .pop .icon-close {
   z-index: 2;
-  color: #A98153;
+  color: #d7ae78;
   position: absolute;
 }
 #popup.detailpop .pop .infoList {
@@ -7970,7 +7970,7 @@ span.important {
   display: flex;
   -ms-flex-flow: wrap;
       flex-flow: wrap;
-  background: #b2b2b2;
+  min-height: auto;
 }
 .provider button, .provider a {
   -webkit-box-flex: 0;
@@ -7987,6 +7987,8 @@ span.important {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background: #b3b3b3;
+  padding: 1.5vw;
 }
 .provider button:nth-child(3n), .provider a:nth-child(3n) {
   margin-right: 0;
@@ -9235,7 +9237,7 @@ span.important {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: url(../img/gamenamebg.png) no-repeat center top/cover;
+  background: url(https://banner.leoking88.net/h5/img/gamenamebg.png) no-repeat center top/cover;
 }
 @media (max-width: 325px) {
   .upcomingmatches .swiper-slide .teamNew .gamename {
@@ -9413,7 +9415,7 @@ span.important {
   font-size: 20vw;
 }
 .liveTv > .liveTvModule.active > .title {
-  background: url(https://banner.0814media.net/h5/img/livetvtitlebggold.png) no-repeat center/75% 100%;
+  background: url(https://banner.leoking88.net/h5/img/livetvtitlebggold.png) no-repeat center/75% 100%;
 }
 .liveTv > .liveTvModule.active > .title:before {
   color: red;
@@ -9701,7 +9703,7 @@ span.important {
 }
 
 .moduleTitle {
-  background: url(../img/homepage/titlebg.png) no-repeat;
+  background: url(https://banner.leoking88.net/h5/img/homepage/titlebg.png) no-repeat;
   margin: 8vw 2vw 3vw;
   font-weight: bold;
   padding: 0 0 1vw 5vw;
@@ -9725,7 +9727,7 @@ span.important {
 }
 .moduleTitle > a::after {
   content: "";
-  background: url(../img/homepage/more.png) no-repeat;
+  background: url(https://banner.leoking88.net/h5/img/homepage/more.png) no-repeat;
   width: 20px;
   height: 20px;
   margin: 1vw 1vw 0;
@@ -10414,7 +10416,7 @@ span.important {
   width: 100%;
 }
 .jpot > .number {
-  background: url(../img/homepage/jpot-title.png) no-repeat;
+  background: url(https://banner.leoking88.net/h5/img/homepage/jpot-title.png) no-repeat;
   position: absolute;
   width: 67vw;
   height: 9.6vw;
