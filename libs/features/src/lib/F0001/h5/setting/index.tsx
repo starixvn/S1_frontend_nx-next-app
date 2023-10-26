@@ -286,9 +286,9 @@ const Setting = () => {
 						>
 							{t('Label_General_Terms')}
 						</a>
-						<a href={paths.gameProvider.root}>
+						<Link href={paths.gameProvider.root}>
 							{t('Label_General_GameProvider')}
-						</a>
+						</Link>
 					</SettingCollapse.Item>
 
 					{isLogin && (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { IFooterData } from '@nx-next-app/types'
 import { Header } from '@nx-next-app/components/H0001'
 import { useTranslation } from 'next-i18next'
@@ -16,7 +16,6 @@ const GameProvider = ({
 }) => {
 	const { t } = useTranslation()
 	const { push } = useRouter()
-	const [onMouseOverImg, setOnMouseOverImg] = useState({})
 	const { modal } = useGlobalModal()
 	const { menuData, onMenuOpen } = useMenu()
 	const allSubMenu = Object.values(menuData).flatMap(item => item.subMenu)
@@ -27,10 +26,7 @@ const GameProvider = ({
 				<Header.Tag title={t('Label_General_GameProvider') as string} />
 			</Header>
 			<main className='main provider'>
-				{platformList.map(({ productKey, imgName, hoverImgName }) => {
-					const displayImgName =
-						onMouseOverImg === imgName ? hoverImgName : imgName
-
+				{platformList.map(({ productKey, imgName }) => {
 					const subMenu = find(allSubMenu, { productKey })
 					if (!subMenu?.h5) return null
 
@@ -45,7 +41,7 @@ const GameProvider = ({
 						<button
 							key={productKey}
 							type='button'
-							className={displayImgName}
+							className={imgName}
 							style={{ width: 'auto', height: '55px' }}
 							onClick={() => {
 								onMenuOpen(
@@ -61,12 +57,10 @@ const GameProvider = ({
 						>
 							<Image
 								style={{ width: 'auto', height: '55px' }}
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/venderlogo/${displayImgName}.png`}
-								alt={`logo ${displayImgName}`}
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/venderlogo/${imgName}.png`}
+								alt={`logo ${imgName}`}
 								width={80}
 								height={55}
-								onMouseOver={() => setOnMouseOverImg(imgName)}
-								onMouseOut={() => setOnMouseOverImg({})}
 							/>
 						</button>
 					)

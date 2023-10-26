@@ -132,6 +132,6 @@ export const paths = {
 		root: '/luckyWheel',
 	},
 	gameProvider: {
-		root: 'game-provider',
+		root: '/game-provider',
 	},
 }
