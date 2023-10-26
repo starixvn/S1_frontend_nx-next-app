@@ -1,14 +1,18 @@
 import Link from 'next/link'
-import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
 import classNames from 'classnames'
-import { paths } from '@nx-next-app/constants'
 import { useBoolean } from 'usehooks-ts'
+import { useRouter } from 'next/router'
+import { useTranslation } from 'next-i18next'
+import { useAuth } from '@nx-next-app/data-access'
+import { paths } from '@nx-next-app/constants'
 import MsgPopup from './MsgPopup'
 
 const LayoutFooter = () => {
 	const { t } = useTranslation()
 	const { value: isWalletActive, toggle: onToggleWalletActive } = useBoolean()
+	const {
+		auth: { isLogin },
+	} = useAuth()
 	const router = useRouter()
 	const { pathname } = router
 
@@ -40,17 +44,19 @@ const LayoutFooter = () => {
 					</a>
 				</Link>
 
-				<a
-					role='link'
-					aria-hidden
-					onClick={onToggleWalletActive}
-					className={classNames('icon icon-icon32px_wallet', {
-						'icon-close active': isWalletActive,
-					})}
-				>
-					<div className='circleAnimation' />
-					<span>{t('Label_General_Wallet')}</span>
-				</a>
+				{isLogin && (
+					<a
+						role='link'
+						aria-hidden
+						onClick={onToggleWalletActive}
+						className={classNames('icon icon-icon32px_wallet', {
+							'icon-close active': isWalletActive,
+						})}
+					>
+						<div className='circleAnimation' />
+						<span>{t('Label_General_Wallet')}</span>
+					</a>
+				)}
 
 				<a
 					rel='noreferrer'
