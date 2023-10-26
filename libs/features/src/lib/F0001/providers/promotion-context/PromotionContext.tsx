@@ -29,7 +29,7 @@ import {
 import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useForm, UseFormReturn } from 'react-hook-form'
-import { includes, isUndefined, trim } from 'lodash-es'
+import { filter, includes, isUndefined, trim } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 
@@ -101,6 +101,7 @@ export const PromotionProvider = ({
 }: IPromotionProviderProps) => {
 	const {
 		userInfo: { langId, currencyId },
+		auth: { isLogin },
 	} = useAuth()
 	const dispatch = useAppDispatch()
 	const { modal } = useGlobalModal()
@@ -299,6 +300,13 @@ export const PromotionProvider = ({
 			return bol
 		})
 
+	const filteredPromotionSelectOptions = filter(
+		PROMOTION_SELECT_OPTIONS,
+		({ needLogin }) => {
+			return !(needLogin && !isLogin)
+		}
+	)
+
 	useEffect(() => {
 		// 如果 query 有帶 bonusCode 需直接打開 detail 彈窗
 		if (!isUndefined(queryBonus)) {
@@ -310,7 +318,7 @@ export const PromotionProvider = ({
 
 	const value: PromotionContextInterface = {
 		persistPromotionData,
-		PROMOTION_SELECT_OPTIONS,
+		PROMOTION_SELECT_OPTIONS: filteredPromotionSelectOptions,
 		promotionForm,
 		promotionData,
 		activeFilterType,
