@@ -16,7 +16,7 @@ import {
 	DEPOSIT_CHANNEL_OPTIONS,
 	DEPOSIT_PAYMENT_OPTIONS,
 	DEPOSIT_PAYMENT_ORDERS,
-} from '@nx-next-app/site/nova88'
+} from '@nx-next-app/site/leobet'
 
 const DepositPage = ({
 	originIsSignIn,

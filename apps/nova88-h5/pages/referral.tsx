@@ -18,7 +18,6 @@ const ReferralPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-	footerData,
 }: IReferralPageProps) => {
 	const { t } = useTranslation()
 

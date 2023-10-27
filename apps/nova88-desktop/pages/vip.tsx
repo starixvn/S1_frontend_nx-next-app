@@ -7,7 +7,7 @@ import {
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
 import { Layout, Vip } from '@nx-next-app/features/F0001/desktop'
-import { CurrenciesEnum } from '@nx-next-app/types'
+import { CurrenciesEnum, IFooterData } from '@nx-next-app/types'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -15,22 +15,24 @@ import {
 import { includes } from 'lodash'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IVipBannerData } from '@nx-next-app/service'
+import { FOOTER_DATA } from '@nx-next-app/site/nova88'
 
 interface IVipPageProps extends InitialPropsInterface {
 	vipBannerData: IVipBannerData
+	persistFooterData: IFooterData
 }
 
 const VipPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-	footerData,
+	persistFooterData,
 	vipBannerData,
 }: IVipPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData} footerData={footerData}>
+				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<Vip vipBannerData={vipBannerData} />
 				</Layout>
 			</GlobalDataProvider>
@@ -40,9 +42,9 @@ const VipPage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
-	const { currentHeaderCookies } = initialProps
-
-	const currencyId = initialProps.originCookies[ENV_COOKIE_NAMES.CurrencyId]
+	const { originCookies, currentHeaderCookies } = initialProps
+	const langId = originCookies[ENV_COOKIE_NAMES.LangId]
+	const currencyId = Number(originCookies[ENV_COOKIE_NAMES.CurrencyId])
 
 	const vipBannerData = await getVipBanner(
 		{
@@ -51,6 +53,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		{ headers: { cookie: currentHeaderCookies } }
 	)
 
+	// * 只支援 MYR IDR THB 幣別
 	if (
 		!includes(
 			[CurrenciesEnum.MYR, CurrenciesEnum.IDR, CurrenciesEnum.THB],
@@ -68,6 +71,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	return {
 		props: {
 			vipBannerData,
+			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 		},

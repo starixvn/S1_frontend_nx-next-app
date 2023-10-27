@@ -8,22 +8,15 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 
-type ISportPageProps = InitialPropsInterface
-
 const SportsPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-	footerData,
-}: ISportPageProps) => {
+}: InitialPropsInterface) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout
-					hasGoTopBtn={false}
-					persistSEOData={persistSEOData}
-					footerData={footerData}
-				>
+				<Layout hasGoTopBtn={false} persistSEOData={persistSEOData}>
 					<main>
 						<section className='inside'>
 							<Sports />

@@ -7,19 +7,24 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { IFooterData } from '@nx-next-app/types'
 
-type IForgetPasswordPageProps = InitialPropsInterface
+interface IForgetPasswordPageProps extends InitialPropsInterface {
+	persistFooterData: IFooterData
+}
 
 const ForgetPasswordPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-	footerData,
+	persistFooterData,
 }: IForgetPasswordPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData} footerData={footerData}>
+				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<ForgetPassword />
 				</Layout>
 			</GlobalDataProvider>
@@ -29,7 +34,12 @@ const ForgetPasswordPage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
-	const { originIsSignIn } = initialProps
+	const { originIsSignIn, originCookies } = initialProps
+	const { langId, currencyId } = {
+		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
+		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
+	}
+
 	if (originIsSignIn) {
 		return {
 			redirect: {
@@ -41,6 +51,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
 	return {
 		props: {
+			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 		},

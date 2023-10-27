@@ -1,25 +1,24 @@
 import { GetServerSideProps } from 'next'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, Game } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import { ForgetPassword, Layout } from '@nx-next-app/features/F0001/h5'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-type IHomePageProps = InitialPropsInterface
+type IForgetPasswordPageProps = InitialPropsInterface
 
-const GamePage = ({
+const ForgetPasswordPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-	footerData,
-}: IHomePageProps) => {
+}: IForgetPasswordPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData} footerData={footerData}>
-					<Game />
+				<Layout persistSEOData={persistSEOData}>
+					<ForgetPassword />
 				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>
@@ -37,4 +36,4 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	}
 }
 
-export default GamePage
+export default ForgetPasswordPage
