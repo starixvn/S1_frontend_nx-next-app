@@ -39,7 +39,7 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 			<meta name='twitter:card' content='summary_large_image' />
 			<meta
 				name='twitter:image'
-				content={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/img/thumbnail/thumbnail_001.jpg`}
+				content={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/thumbnail/thumbnail_001.jpg`}
 			/>
 			<meta
 				property='og:url'
@@ -50,7 +50,7 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 			<meta property='og:description' content={description} />
 			<meta
 				property='oog:image'
-				content={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/img/thumbnail/thumbnail_001.jpg`}
+				content={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/thumbnail/thumbnail_001.jpg`}
 			/>
 		</Head>
 	)
