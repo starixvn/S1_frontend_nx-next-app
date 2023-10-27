@@ -32,7 +32,10 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 				name='twitter:url'
 				content={process.env['NEXT_PUBLIC_ENV_PRODUCT_HOST']}
 			/>
-			<meta name='twitter:domain' content='nova88.net' />
+			<meta
+				name='twitter:domain'
+				content={`${process.env['NEXT_PUBLIC_BANNER_HOST']}.net`}
+			/>
 			<meta name='twitter:card' content='summary_large_image' />
 			<meta
 				name='twitter:image'
