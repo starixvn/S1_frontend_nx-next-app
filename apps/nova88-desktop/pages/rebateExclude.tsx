@@ -11,6 +11,7 @@ import { RebateExclude } from '@nx-next-app/features/F0001/desktop'
 
 type IRebateExcludePageProps = InitialPropsInterface
 
+// * rebateExclude 不需要 layout
 const RebateExcludePage = ({
 	originIsSignIn,
 	originCookies,

@@ -13,20 +13,20 @@ import localizedFormat from 'dayjs/plugin/localizedFormat'
 
 import {
 	META_DATA,
-	ALLOWED_CURRENCIES,
-	FEATURE_BONUS,
-	LANG_GROUPS,
-	PASSWORD_REGEX,
-	SLOT_TP_GAME_TYPE,
-	TERMS_CONDITIONS,
-	USERNAME_REGEX,
-	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
-	VIP_CLUB_IMAGES,
-	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
-	REALNAME_REGEX,
 	MENU_DATA,
-	BANNER_IMAGE_LIST,
+	LANG_GROUPS,
+	FEATURE_BONUS,
+	PASSWORD_REGEX,
+	USERNAME_REGEX,
+	REALNAME_REGEX,
 	LEFT_MENU_DATA,
+	VIP_CLUB_IMAGES,
+	TERMS_CONDITIONS,
+	SLOT_TP_GAME_TYPE,
+	BANNER_IMAGE_LIST,
+	ALLOWED_CURRENCIES,
+	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
+	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
 } from '@nx-next-app/site/nova88'
 
 import 'react-datepicker/dist/react-datepicker.css'
@@ -42,7 +42,6 @@ dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
 dayjs.extend(utc)
 const {
-	LiveChatScript,
 	IovationScript,
 	PlayTechScript,
 	GTMScript,
@@ -82,8 +81,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
 					</StaticDataProvider>
 				</UIProvider>
 			</Provider>
-
-			<LiveChatScript />
+			{/* 手機版 liveChat Layout 會蓋住 more button, footer 下方的 button */}
+			{/* 是指定路徑的，所以沒引入這個 script 也不影響 */}
+			{/* <LiveChatScript /> */}
 			<IovationScript />
 			<PlayTechScript />
 			<GTMScript />
