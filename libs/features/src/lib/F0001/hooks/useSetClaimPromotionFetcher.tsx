@@ -1,4 +1,5 @@
 import { useAuth } from '@nx-next-app/data-access'
+import dynamic from 'next/dynamic'
 import {
 	IGetCustSpecificBonusArgs,
 	IPromotionData,
@@ -9,19 +10,35 @@ import {
 	useSetClaimPromotionMutation,
 } from '@nx-next-app/service'
 import { useAppDispatch } from '@nx-next-app/store'
-import { PromotionTypeEnum, SelectOptionType } from '@nx-next-app/types'
+import {
+	DeviceTypeEnum,
+	SelectOptionType,
+	PromotionTypeEnum,
+} from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useRouter } from 'next/router'
 import { every, includes } from 'lodash-es'
 import { paths } from '@nx-next-app/constants'
 import { numberFormat } from '@nx-next-app/utils'
-import dynamic from 'next/dynamic'
-import ClaimAmountModal from '../desktop/promotion/ClaimAmountModal'
 
 const LoginModal = dynamic(() => import('../desktop/modal/LoginModal'), {
 	ssr: false,
 })
+
+const DesktopClaimAmountModal = dynamic(
+	() => import('../desktop/promotion/ClaimAmountModal'),
+	{
+		ssr: false,
+	}
+)
+
+const H5ClaimAmountModal = dynamic(
+	() => import('../h5/promotion/ClaimAmountModal'),
+	{
+		ssr: false,
+	}
+)
 
 const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
@@ -79,7 +96,14 @@ const useSetClaimPromotionFetcher = () => {
 		} = promotionData
 
 		if (!auth.isLogin) {
-			modal.open(<LoginModal />)
+			if (
+				Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) ===
+				DeviceTypeEnum.Desktop
+			) {
+				modal.open(<LoginModal />)
+			} else {
+				push(`${paths.login.root}?from=${paths.promotion.root}`)
+			}
 			return
 		}
 
@@ -113,14 +137,26 @@ const useSetClaimPromotionFetcher = () => {
 				}))
 
 			modal.open(
-				<ClaimAmountModal
-					bonusCode={bonusCode}
-					promotionType={promotionType}
-					minAmount={requiredAmount}
-					maxAmount={maxAmount}
-					onSetClaimPromotion={onSetClaimPromotion}
-					tierAmountListSelectOptions={tierAmountListSelectOptions}
-				/>
+				Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) ===
+					DeviceTypeEnum.Desktop ? (
+					<DesktopClaimAmountModal
+						bonusCode={bonusCode}
+						promotionType={promotionType}
+						minAmount={requiredAmount}
+						maxAmount={maxAmount}
+						onSetClaimPromotion={onSetClaimPromotion}
+						tierAmountListSelectOptions={tierAmountListSelectOptions}
+					/>
+				) : (
+					<H5ClaimAmountModal
+						bonusCode={bonusCode}
+						promotionType={promotionType}
+						minAmount={requiredAmount}
+						maxAmount={maxAmount}
+						onSetClaimPromotion={onSetClaimPromotion}
+						tierAmountListSelectOptions={tierAmountListSelectOptions}
+					/>
+				)
 			)
 
 			return
