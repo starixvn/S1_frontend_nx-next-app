@@ -80,7 +80,7 @@ const Setting = () => {
 				</div>
 
 				<SettingCollapse>
-					{!isLogin && (
+					{isLogin && (
 						<SettingCollapse.Item
 							prefixIcon='title icon icon-person'
 							header={t('Label_General_MyAccount')}
@@ -263,15 +263,18 @@ const Setting = () => {
 						>
 							{t('Label_General_AboutUs')}
 						</a>
-						<a
-							href={`${process.env['NEXT_PUBLIC_AFFILIATE_DOMAIN']}?lang=${
-								langId || 'en'
-							}`}
-							target='_blank'
-							rel='noreferrer noopener'
-						>
-							{t('Label_General_Affiliate')}
-						</a>
+						{includes(ALLOWED_CURRENCIES['AFFILIATE'], currencyId) && (
+							<a
+								href={`${process.env['NEXT_PUBLIC_AFFILIATE_DOMAIN']}?lang=${
+									langId || 'en'
+								}`}
+								target='_blank'
+								rel='noreferrer noopener'
+							>
+								{t('Label_General_Affiliate')}
+							</a>
+						)}
+
 						<a href='/cs/contactUs'>{t('Label_General_ContactUs')}</a>
 						<a
 							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/my_cs/Terms.html`}
