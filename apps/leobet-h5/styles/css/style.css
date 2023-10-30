@@ -7646,13 +7646,34 @@ span.important {
   background: #F9F9F9;
 }
 .more .tag {
-  height: 16vw;
+  height: 20vw;
   padding: 3vw 0;
   border: 0;
   background: #F9F9F9;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.more .tag-before {
+  height: unset;
+}
+.more .tag-before a, .more .tag-before button {
+  margin: 2vw 3vw;
+  border-radius: 5vw;
+  padding: 1.9vw 0;
+  font-size: 3.6vw;
+}
+.more .tag-before a:first-child, .more .tag-before button:first-child {
+  margin-right: 1vw;
+}
+.more .tag-before a:last-child, .more .tag-before button:last-child {
+  margin-left: 1vw;
+}
+.more .tag-after {
+  padding: 5vw 0;
+  margin: 3vw 0;
 }
 .more .tag i {
   width: 1px;
@@ -7677,9 +7698,9 @@ span.important {
 }
 .more .tag a .quantity, .more .tag button .quantity {
   background: #ff2a56;
-  width: 8vw;
-  height: 8vw;
-  top: 3vw;
+  width: 9vw;
+  height: 9vw;
+  top: -2vw;
   left: 50%;
   position: absolute;
   color: white;
@@ -7786,6 +7807,7 @@ span.important {
   font-weight: bold;
   margin-bottom: 1px;
   background: #F9F9F9;
+  font-size: 3.5vw;
 }
 .accordion > div a.mode, .accordion > div button.mode, .accordion > div div.mode {
   -webkit-box-pack: center;

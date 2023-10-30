@@ -37,7 +37,12 @@ const Setting = () => {
 			</Header>
 
 			<main className='more'>
-				<div className='tag'>
+				<div
+					className={classNames('tag', {
+						'tag-before': !isLogin,
+						'tag-after': isLogin,
+					})}
+				>
 					{isLogin ? (
 						<>
 							<Link
