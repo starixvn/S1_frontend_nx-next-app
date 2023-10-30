@@ -7646,7 +7646,7 @@ span.important {
   background: #F9F9F9;
 }
 .more .tag {
-  height: 19vw;
+  height: 16vw;
   padding: 3vw 0;
   border: 0;
   background: #F9F9F9;
@@ -7656,7 +7656,7 @@ span.important {
 }
 .more .tag i {
   width: 1px;
-  height: 15vw;
+  height: 100%;
   background: #A4A4A4;
 }
 .more .tag a, .more .tag button {
@@ -7667,7 +7667,13 @@ span.important {
           flex-flow: column;
   position: relative;
   font-weight: bold;
-  color: #d7ae78;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff;
+  background: #d7ae78;
+}
+.more .tag a:first-child, .more .tag button:first-child {
+  background: #ff2a56;
 }
 .more .tag a .quantity, .more .tag button .quantity {
   background: #ff2a56;
@@ -7678,8 +7684,12 @@ span.important {
   position: absolute;
   color: white;
 }
-.more .tag a:not(.icon).active, .more .tag button:not(.icon).active {
-  color: #ff2a56;
+.more .tag a.icon, .more .tag button.icon {
+  background: unset;
+  color: #d7ae78;
+}
+.more .tag a.icon-member, .more .tag a.icon-email, .more .tag button.icon-member, .more .tag button.icon-email {
+  color: #d7ae78;
 }
 .more .tag a.active, .more .tag button.active {
   border-bottom: 0;

@@ -15,7 +15,7 @@ import {
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { ISlotsGameData } from '@nx-next-app/service'
-import { CATEGORY_SORT } from '@nx-next-app/site/nova88/data/slots'
+import { CATEGORY_SORT } from '@nx-next-app/site/leobet/data/slots'
 
 type ISlotsPageProps = InitialPropsInterface & {
 	persistSlotsGameData: ISlotsGameData

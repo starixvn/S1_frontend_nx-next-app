@@ -10,7 +10,7 @@ const PromotionFilter = () => {
 	// * mapping 成 Header.Tag 所需的格式
 	const quickSelect: TagOptionType[] = PROMOTION_SELECT_OPTIONS.map(item => ({
 		key: item.value,
-		label: t(item.displayKey),
+		label: t(item.displayKey).toUpperCase(),
 	}))
 
 	return (

@@ -95,6 +95,7 @@ export interface IStaticAllowedCurrencies {
 	BANK_CARD?: CurrenciesEnum[]
 	E_WALLET?: CurrenciesEnum[]
 	ADDRESS?: CurrenciesEnum[]
+	REFER_FRIENDS?: CurrenciesEnum[]
 }
 
 export interface IStaticVipEventCurrenciesLimitationInfo {

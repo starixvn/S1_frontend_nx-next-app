@@ -32,11 +32,14 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 				name='twitter:url'
 				content={process.env['NEXT_PUBLIC_ENV_PRODUCT_HOST']}
 			/>
-			<meta name='twitter:domain' content='nova88.net' />
+			<meta
+				name='twitter:domain'
+				content={`${process.env['NEXT_PUBLIC_BANNER_HOST']}.net`}
+			/>
 			<meta name='twitter:card' content='summary_large_image' />
 			<meta
 				name='twitter:image'
-				content={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/img/thumbnail/thumbnail_001.jpg`}
+				content={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/thumbnail/thumbnail_001.jpg`}
 			/>
 			<meta
 				property='og:url'
@@ -47,7 +50,7 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 			<meta property='og:description' content={description} />
 			<meta
 				property='oog:image'
-				content={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/img/thumbnail/thumbnail_001.jpg`}
+				content={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/thumbnail/thumbnail_001.jpg`}
 			/>
 		</Head>
 	)

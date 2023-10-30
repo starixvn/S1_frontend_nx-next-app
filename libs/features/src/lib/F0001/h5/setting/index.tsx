@@ -140,6 +140,18 @@ const Setting = () => {
 					)}
 
 					<SettingCollapse.Item
+						prefixIcon='title icon icon-affiliate'
+						onClick={() =>
+							push(
+								`${process.env['NEXT_PUBLIC_AFFILIATE_DOMAIN']}?lang=${
+									langId || 'en'
+								}`
+							)
+						}
+						header={t('Label_General_Affiliate')}
+					/>
+
+					<SettingCollapse.Item
 						prefixIcon='title icon icon-sphere'
 						header={t('Label_General_Languages')}
 					>
@@ -274,8 +286,6 @@ const Setting = () => {
 								{t('Label_General_Affiliate')}
 							</a>
 						)}
-
-						<a href='/cs/contactUs'>{t('Label_General_ContactUs')}</a>
 						<a
 							href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html`}
 							target='_blank'

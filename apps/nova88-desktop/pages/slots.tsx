@@ -1,6 +1,6 @@
 import React from 'react'
-import { GetServerSideProps } from 'next'
 import { pick } from 'lodash-es'
+import { GetServerSideProps } from 'next'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,

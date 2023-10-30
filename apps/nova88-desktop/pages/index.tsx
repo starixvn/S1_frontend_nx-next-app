@@ -29,6 +29,7 @@ import {
 } from '@nx-next-app/service'
 import { BannerTypeEnum, IFooterData } from '@nx-next-app/types'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { DESKTOP_HOME_ORDERS, FOOTER_DATA } from '@nx-next-app/site/nova88'
 
 // 此為優化專案導出所需要的設定，因配合 nx 配置路徑衝突做的優化
 // 優化專案 build 出來的檔案結構，僅獨立輸出必要的資源而非整包 node_module , 控管 docker image 大小
@@ -36,6 +37,9 @@ import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 // https://github.com/nrwl/nx/issues/9017
 import path from 'path'
 
+// path.resolve 會把指定路徑解析成絕對路徑
+// 這樣解析是為了讓 next 輸出時可以正確吃到當前 project 的 next.config
+// 用於解決 nx 在 next 專案上 path 衝突使用的小 trick
 path.resolve('./next.config.js')
 
 interface IHomePageProps extends InitialPropsInterface {
@@ -46,7 +50,7 @@ interface IHomePageProps extends InitialPropsInterface {
 	persistHotEventData: IHotEventData[]
 	persistHotGameData: IHotGame[]
 	persistNewsData: INewsData[]
-	footerData: IFooterData
+	persistFooterData: IFooterData
 }
 
 const HomePage = ({
@@ -60,15 +64,16 @@ const HomePage = ({
 	persistHotEventData,
 	persistHotGameData,
 	persistNewsData,
-	footerData,
+	persistFooterData,
 }: IHomePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
 				<Layout
 					showFooter
+					isFullFooter
 					persistSEOData={persistSEOData}
-					footerData={footerData}
+					footerData={persistFooterData}
 				>
 					<HomeProvider
 						persistAnnouncementData={persistAnnouncementData}
@@ -78,8 +83,9 @@ const HomePage = ({
 						persistHotEventData={persistHotEventData}
 						persistHotGameData={persistHotGameData}
 						persistNewsData={persistNewsData}
-						persistLicenseData={footerData.licenseData}
-						persistProgramList={footerData.programList}
+						persistLicenseData={persistFooterData.licenseData}
+						persistProgramList={persistFooterData.programList}
+						desktopHomeOrders={DESKTOP_HOME_ORDERS}
 					>
 						<Home />
 					</HomeProvider>
@@ -142,6 +148,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			persistHotEventData,
 			persistHotGameData,
 			persistNewsData,
+			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 		},
