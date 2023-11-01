@@ -4021,6 +4021,7 @@ input[type=file] {
       -ms-flex-flow: row;
           flex-flow: row;
   padding-left: 40px;
+  width: 100%;
 }
 #Marquee .marquee-box .marquee-run button {
   color: white;
