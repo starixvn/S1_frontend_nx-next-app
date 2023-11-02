@@ -6,7 +6,6 @@ import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 import { uniqueId } from 'lodash-es'
-import Image from 'next/future/image'
 
 interface ISubMenuProps {
 	menuKey: keyof typeof MenuKeyEnum | ''
@@ -30,7 +29,7 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 			>
 				{subMenu?.map(item => {
 					const {
-						h5: { className, img, hasDesktopLink } = {},
+						h5: { className, hasDesktopLink, headerMenuImgList, img } = {},
 						eventIcons,
 						displayKey,
 						displayText,
@@ -61,14 +60,22 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 							{eventIcons && (
 								<i className={classNames(subMenuEventIcon?.icon)} />
 							)}
+
 							{img && (
-								<Image
+								<img
 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}${img}`}
 									alt={productKey || 'menu-item-img'}
-									width={101}
-									height={135}
 								/>
 							)}
+
+							{headerMenuImgList?.map(img => (
+								<img
+									key={img.imgUrl}
+									className={classNames(img.className)}
+									alt={img.imgUrl}
+									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/dropdown/${img.imgUrl}`}
+								/>
+							))}
 
 							<div>{displayKey ? t(displayKey) : displayText}</div>
 							{hasDesktopLink && (
