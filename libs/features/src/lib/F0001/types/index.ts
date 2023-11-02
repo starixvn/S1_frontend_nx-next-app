@@ -24,6 +24,10 @@ export enum MenuActionTypeEnum {
 export type ISubMenu = {
 	h5?: {
 		className?: ''
+		headerMenuImgList?: {
+			className: string
+			imgUrl: string
+		}[]
 		img?: string
 		menuActionType: MenuActionTypeEnum
 		hasDesktopLink?: boolean // * 決定是否有顯示 desktop & play now 按鈕
@@ -31,7 +35,7 @@ export type ISubMenu = {
 	desktop?: {
 		className?: string
 		headerMenuImgList?: {
-			className: 'List-npc' | 'List-bg'
+			className: string
 			imgUrl: string
 		}[]
 		lobbyPage?: {
