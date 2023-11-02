@@ -14,6 +14,7 @@ import { ISEOData } from '../data-access/type'
 import { LineLoginDirectTypeEnum } from '../service'
 import { paths, ENV_COOKIE_NAMES } from '../app/constants'
 import { useRedirectDevice } from './useRedirectDevice'
+import { useRedirectMaintain } from './useRedirectMaintain'
 
 export interface InitialPropsInterface {
 	originLangId: string
@@ -143,6 +144,12 @@ export const useServerSideInitialPropsFetcher = async (
 		? getCookies(context)
 		: assign(getCookies(context), cookiesFromServer)
 
+	const originLangId = originCookies[ENV_COOKIE_NAMES.LangId] as string
+	const originCurrencyId = Number(originCookies[ENV_COOKIE_NAMES.CurrencyId])
+
+	// 取得當前 currencyId 後執行維護導轉邏輯
+	await useRedirectMaintain(context, originCurrencyId)
+
 	// 帶進 api config 使用的 cookie
 	const currentHeaderCookies = transferCookiesObj(originCookies)
 
@@ -167,8 +174,8 @@ export const useServerSideInitialPropsFetcher = async (
 	}
 
 	return {
-		originLangId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
-		originCurrencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
+		originLangId,
+		originCurrencyId,
 		originIsSignIn,
 		originCookies,
 		persistSEOData,
