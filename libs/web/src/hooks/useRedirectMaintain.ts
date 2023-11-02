@@ -22,11 +22,13 @@ export const useRedirectMaintain = async (
 	const isInMaintain = await checkMaintain()
 	const { req, res } = context
 	const reqDomain = req.headers.host
-
 	const langKey = CURRENCY_TO_LANG_KEY[currencyId] ?? 'en'
+	const mobileCName = `${process.env['NEXT_PUBLIC_M_CNAME']}.`
+	const desktopCName = `${process.env['NEXT_PUBLIC_PC_CNAME']}.`
 
-	if (isInMaintain) {
-		const maintainUrl = `https://${reqDomain}/underMaintenance/${langKey}/index.html`
+	if (isInMaintain && reqDomain) {
+		const targetDomain = reqDomain.replace(mobileCName, desktopCName)
+		const maintainUrl = `https://${targetDomain}/underMaintenance/${langKey}/index.html`
 		res.writeHead(302, { Location: maintainUrl })
 		res.end()
 	}
