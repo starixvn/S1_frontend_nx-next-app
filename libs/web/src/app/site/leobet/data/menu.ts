@@ -57,6 +57,32 @@ const menuActionType =
 		? MenuActionTypeEnum.Link
 		: MenuActionTypeEnum.Null
 
+const desktopSubmenuBackground = [
+	{
+		className: 'ListBG-left',
+		imgUrl: 'subMenu-Wrapper-ListBG-left.png',
+	},
+	{
+		className: 'ListBG-right',
+		imgUrl: 'subMenu-Wrapper-ListBG-right.png',
+	},
+	{
+		className: 'ListBG-center',
+		imgUrl: 'subMenu-Wrapper-ListBG-center.png',
+	},
+]
+
+const h5SubmenuBackground = [
+	{
+		className: 'list-bg-left',
+		imgUrl: 'list-left.png',
+	},
+	{
+		className: 'list-bg-right',
+		imgUrl: 'list-right.png',
+	},
+]
+
 export const MENU_DATA = ({
 	currencyId,
 	langId,
@@ -93,6 +119,7 @@ export const MENU_DATA = ({
 					h5: { menuActionType: MenuActionTypeEnum.Link },
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'home-vip.png',
@@ -185,6 +212,7 @@ export const MENU_DATA = ({
 			allowCurrencies: [],
 			subMenuAllowCurrenciesWithAuth: false,
 		},
+
 		[MenuKeyEnum.Sports]: {
 			display: 'all',
 			h5: {
@@ -204,11 +232,28 @@ export const MENU_DATA = ({
 			subMenu: [
 				{
 					h5: {
-						img: '/h5/img/cryptosportsNPC.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'sports-bg-soccer.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-cryptosport.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'cryptosportNPC.png',
@@ -223,12 +268,28 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/soccer.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 						hasDesktopLink: true,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-bg',
+								imgUrl: 'sports-bg-soccer.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-soccer.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'soccerNPC.png',
@@ -248,12 +309,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/saba_soccer.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 						hasDesktopLink: true,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'sports-bg-soccer.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-sabssoccer.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'sabssoccerNPC.png',
@@ -274,12 +352,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/basketball.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 						hasDesktopLink: true,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'sports-bg-basketball.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-basketball.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'basketballNPC.png',
@@ -299,12 +394,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/cricket.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 						hasDesktopLink: true,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'sports-bg-cricket.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-cricket.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'cricketNPC.png',
@@ -323,14 +435,32 @@ export const MENU_DATA = ({
 					product: PRODUCTS['SPORTS_CRICKET'],
 					allowCurrencies: ALLOWED_CURRENCIES['SPORTS_CRICKET'],
 				},
+
 				{
 					h5: {
-						img: '/h5/img/badminton.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 						hasDesktopLink: true,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'sports-bg-soccer.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-cryptosport.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'badmintonNPC.png',
@@ -350,12 +480,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/volleyball.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 						hasDesktopLink: true,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'sports-bg-soccer.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-cryptosport.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'volleyballNPC.png',
@@ -376,11 +523,28 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/betradarsoccer.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'sports-bg-soccer.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-betradarsoccer.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'betradarsoccerNPC.png',
@@ -424,6 +588,7 @@ export const MENU_DATA = ({
 
 			subMenuAllowCurrenciesWithAuth: false,
 		},
+
 		[MenuKeyEnum.Exchange]: {
 			display: 'all',
 			h5: {
@@ -441,11 +606,23 @@ export const MENU_DATA = ({
 			subMenu: [
 				{
 					h5: {
-						img: '/h5/img/9w.png',
 						menuActionType: MenuActionTypeEnum.UseGoToGame,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-9w.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: '9wnpc.png',
@@ -604,8 +781,19 @@ export const MENU_DATA = ({
 				// },
 				{
 					h5: {
-						img: '/h5/img/esportSABA.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-npc',
+								imgUrl: 'esports-saba.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'esports-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						headerMenuImgList: [
@@ -630,11 +818,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/esportInplayMatrix.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-npc',
+								imgUrl: 'esports-im.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'esports-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'esportInplayMatrix.png',
@@ -663,6 +863,9 @@ export const MENU_DATA = ({
 				},
 			],
 		},
+
+		/// //////////////////////////////////////
+
 		[MenuKeyEnum.LiveCasino]: {
 			display: 'all',
 			h5: {
@@ -766,12 +969,30 @@ export const MENU_DATA = ({
 			subMenu: [
 				{
 					h5: {
-						img: '/h5/img/pp.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-pp.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-pp.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'livePP',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-PP.png',
@@ -798,12 +1019,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/bg.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-bg.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-bg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'liveBG',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-bg.png',
@@ -836,12 +1074,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/yb.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-yb.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-yb.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'casino-yb',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-yb.png',
@@ -868,12 +1123,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/sk.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-sk.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-sk.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'casino_Skywind',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-SK.png',
@@ -900,12 +1172,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/mgp.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-mg.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-mg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'casino_MG',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-mg.png',
@@ -932,12 +1221,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ev.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-ev.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-ev.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'casino_EVO',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-ev.png',
@@ -963,12 +1269,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ptc.png',
 						menuActionType: MenuActionTypeEnum.UseGoToGame,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-pt.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-pt.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'casino_PT',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-pt.png',
@@ -995,12 +1318,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/n2.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-n2.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-n2.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'casino_N2LIVE',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-n2.png',
@@ -1027,12 +1367,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/wm.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-wm.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-wm.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'liveWM',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-WM.png',
@@ -1060,12 +1417,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ab.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-ab.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-ab.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'liveALL',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-ALL.png',
@@ -1093,12 +1467,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/eb.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-eb.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-eb.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'liveEB',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-EB.png',
@@ -1125,12 +1516,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/sa.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-sa.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-sa.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'liveSA',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-SA.png',
@@ -1156,12 +1564,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/dg.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-dg.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-dg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'liveDG',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-DG.png',
@@ -1187,12 +1612,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ae.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-ae.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-ae.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'liveAE',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-AE.png',
@@ -1218,12 +1660,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ag.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-ag.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-ag.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'liveAG',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-AG.png',
@@ -1374,12 +1833,23 @@ export const MENU_DATA = ({
 			subMenu: [
 				{
 					h5: {
-						img: '/h5/img/spp.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-pp.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_PP',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'slotPP.png',
@@ -1402,12 +1872,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/sg.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-sg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_SG',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'slotSG.png',
@@ -1429,12 +1910,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/apnew.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-apnew.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_AdvantPlay',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'slotapnew.png',
@@ -1457,12 +1949,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/pg.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-pg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_PG',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'slotPG.png',
@@ -1485,12 +1988,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/mg.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-mg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_MGPSW',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'slotmg.png',
@@ -1512,12 +2026,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ji.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-pp.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_JI',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'slotji.png',
@@ -1540,12 +2065,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/joker.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-joker.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_JOKER',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'slotJOKER.png',
@@ -1567,12 +2103,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/rt.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-rt.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_RedTiger',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'slotrt.png',
@@ -1594,12 +2141,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/nt.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-nt.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_NetEnt',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'slotnt.png',
@@ -1622,12 +2180,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/cq9.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-cq9.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_CQ9',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'slotCQ9.png',
@@ -1649,12 +2218,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/gpi.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-gpi.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_GPI',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'slotGPI.png',
@@ -1677,11 +2257,22 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ygg.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-ygg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_YGG',
+						...desktopSubmenuBackground,
 						headerMenuImgList: [
 							{
 								className: 'List-npc',
@@ -1705,8 +2296,18 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/am.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-am.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_AMB',
@@ -1734,8 +2335,18 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ho.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-ho.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_Habanero',
@@ -1762,8 +2373,18 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/simpleplay.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-simpleplay.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_SimplePlay',
@@ -1790,8 +2411,18 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/slotsk.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-skywind.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_Skywind',
@@ -1818,8 +2449,18 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/pt.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-pt.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_PT',
@@ -1846,12 +2487,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/slotSPRIBE.png',
 						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-spribe.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'slot_SPRIBE',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'slotSPRIBE.png',
@@ -1923,12 +2575,24 @@ export const MENU_DATA = ({
 			subMenu: [
 				{
 					h5: {
-						img: '/h5/img/mp.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-mp.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'mp',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
+
 							{
 								className: 'List-npc',
 								imgUrl: 'mp.png',
@@ -1952,12 +2616,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/amb.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-amb.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'fsgw',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'am.png',
@@ -1981,12 +2656,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/vg.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-vg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'fsgw',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'vg.png',
@@ -2009,12 +2695,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/km.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-km.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'fsgw',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'km.png',
@@ -2036,12 +2733,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/gameSpribeAviator.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-spribe-aviator.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'fsgw',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'gameSpribeAviator.png',
@@ -2070,12 +2778,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/gameSpribeMines.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-spribe-mines.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'fsgw',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'gameSpribeMines.png',
@@ -2104,12 +2823,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/gameSpribeGoal.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-spribe-goal.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'fsgw',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'gameSpribeGoal.png',
@@ -2138,12 +2868,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/gameSpribeDice.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-spribe-dice.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'fsgw',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'gameSpribeDice.png',
@@ -2172,12 +2913,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ap.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-ap.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'fsgw',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'ap.png',
@@ -2199,12 +2951,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/gameSpribeGoal.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-spribe-goal.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'fsgw',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'jili.png',
@@ -2294,11 +3057,22 @@ export const MENU_DATA = ({
 			subMenu: [
 				{
 					h5: {
-						img: '/h5/img/hb.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'fish-hb.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'fish-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'hb.png',
@@ -2321,11 +3095,22 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/hf5.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'fish-hf5.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'fish-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'hf5.png',
@@ -2348,11 +3133,22 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ma.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'fish-ma.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'fish-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'ma.png',
@@ -2375,12 +3171,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/pd.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'fish-pd.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'fish-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'fsgw',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'paradise.png',
@@ -2403,12 +3210,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ffw.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'fish-fwo.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'fish-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'fgg',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'fishGG.png',
@@ -2430,12 +3248,12 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/fw.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
 						className: 'fsgw',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'fishSGwar.png',
@@ -2458,12 +3276,12 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/fg.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
 						className: 'fsg',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'fishSG.png',
@@ -2487,12 +3305,12 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/of.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
 						className: 'fsg',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'oneshotfishing.png',
@@ -2533,11 +3351,22 @@ export const MENU_DATA = ({
 			subMenu: [
 				{
 					h5: {
-						img: '/h5/img/gpikeno.png',
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'lo-gpikeno.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'lottery-list-title.png',
+							},
+						],
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'lo-gpikeno.png',
@@ -2560,11 +3389,22 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/gpithai.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'lo-gpithaiv.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'lottery-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'lo-gpithai.png',
@@ -2588,11 +3428,22 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/gpifast3.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'lo-gpifast3.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'lottery-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'lo-gpifast3.png',
@@ -2615,12 +3466,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/tcg.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'lo-tcg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'lottery-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'indo',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'lo-tcg.png',
@@ -2643,12 +3505,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/keno.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'lo-keno.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'lottery-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'keno',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'lo-keno.png',
@@ -2670,12 +3543,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/lottery.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'lo-lottery.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'lottery-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'lottery',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'lo-lottery.png',
@@ -2697,12 +3581,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/numbergame.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'lo-numbergame.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'lottery-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'numberGame',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'lo-numberGame.png',
@@ -2726,12 +3621,23 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/tablegame.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'lo-tablegame.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'lottery-list-title.png',
+							},
+						],
 					},
 					desktop: {
 						className: 'numberGame',
 						headerMenuImgList: [
+							...desktopSubmenuBackground,
 							{
 								className: 'List-npc',
 								imgUrl: 'lo-tableGame.png',

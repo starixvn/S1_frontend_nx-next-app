@@ -174,36 +174,12 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 								})
 							}}
 						>
-							<Image
-								className='ListBG-left'
-								alt='ListBG-left'
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/subMenu-Wrapper-ListBG-left.png`}
-								width={77}
-								height={137}
-							/>
-
-							<Image
-								className='ListBG-right'
-								alt='ListBG-right'
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/subMenu-Wrapper-ListBG-right.png`}
-								width={92}
-								height={140}
-							/>
-							<Image
-								className='ListBG-center'
-								alt='ListBG-center'
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/subMenu-Wrapper-ListBG-center.png`}
-								width={150}
-								height={200}
-							/>
 							{headerMenuImgList?.map(img => (
-								<Image
+								<img
 									key={img.imgUrl}
 									className={classNames(img.className)}
 									alt={img.imgUrl}
 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${img.imgUrl}`}
-									width={150}
-									height={200}
 								/>
 							))}
 
