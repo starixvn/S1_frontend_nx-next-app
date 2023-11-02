@@ -79,10 +79,12 @@ const useAutoDepositForm = ({
 				}
 			}
 
+			const errorUrl = `${dbHost}/404/index_${langId}.html`
 			const searchParams = new URLSearchParams({
 				SysId: String(sysId),
 				Amount: String(convertedAmount),
 				BonusCode: bonusCode,
+				errorUrl,
 			})
 			const paramsUrl = searchParams.toString()
 
