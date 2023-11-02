@@ -114,11 +114,12 @@ const useQRPayForm = ({
 					bonusCode = data?.bonusCode
 				}
 			}
-
+			const errorUrl = `${dbHost}/404/index_${langId}.html`
 			const searchParams = new URLSearchParams({
 				ChannelId: String(channelId),
 				Amount: String(convertedAmount),
 				BonusCode: bonusCode,
+				errorUrl,
 			})
 			const paramsUrl = searchParams.toString()
 
