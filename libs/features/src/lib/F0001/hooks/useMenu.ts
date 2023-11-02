@@ -208,7 +208,7 @@ const useMenu = () => {
 				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
 		const signupUrl = `${host}/${paths.join.root}`
 		const loginUrl = `${host}/${paths.login.root}`
-		const errorUrl = `$dbHost}/404/index_${langId}.html`
+		const errorUrl = `${dbHost}/404/index_${langId}.html`
 		const cashierUrl = `${host}/${paths.deposit.root}`
 		const lobbyUrl = ''
 
