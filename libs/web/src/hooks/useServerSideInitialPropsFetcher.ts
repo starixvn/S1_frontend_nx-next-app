@@ -13,6 +13,7 @@ import {
 import { ISEOData } from '../data-access/type'
 import { LineLoginDirectTypeEnum } from '../service'
 import { paths, ENV_COOKIE_NAMES } from '../app/constants'
+import { useRedirectDevice } from './useRedirectDevice'
 
 export interface InitialPropsInterface {
 	originLangId: string
@@ -127,7 +128,10 @@ const handleLineDirectCheck = async ({
 
 export const useServerSideInitialPropsFetcher = async (
 	context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
-): Promise<InitialPropsInterface> => {
+): Promise<InitialPropsInterface | undefined> => {
+	// 裝置導轉邏輯
+	useRedirectDevice(context)
+
 	const { query } = context
 	const middlewareCookies = context.res.getHeader('set-cookie')
 	let cookiesFromServer = {}
