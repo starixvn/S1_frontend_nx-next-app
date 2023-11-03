@@ -50,7 +50,11 @@
 							return response.json()
 						})
 						.then(function (myJson) {
-							const { UTCTimeStart, UTCTimeEnd } = myJson
+							const { Maintain, UTCTimeStart, UTCTimeEnd } = myJson
+							// * 如果該頁面結束維護，回首頁
+							if (!Maintain) {
+								document.location.href = window.location.origin
+							}
 							let startTime = new Date(0)
 							let endTime = new Date(0)
 							startTime.setUTCSeconds(UTCTimeStart)
