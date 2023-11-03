@@ -134,6 +134,10 @@ export const PRODUCTS = {
 		TP_ID: 24,
 		TP_GAME_TYPE: 39,
 	},
+	SLOTS_ENDORPHINA: {
+		TP_ID: 49,
+		TP_GAME_TYPE: 98,
+	},
 	SLOTS_JOKER: {
 		TP_ID: 9,
 		TP_GAME_TYPE: 13,
