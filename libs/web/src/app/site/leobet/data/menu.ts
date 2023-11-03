@@ -2523,6 +2523,51 @@ export const MENU_DATA = ({
 					},
 					product: PRODUCTS['SLOTS_SPRIBE'],
 				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-endorphina.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_Endorphina',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'slotEndorphina.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_ENDORPHINA',
+					pathname: paths.slots.root,
+					displayText: 'Endorphina',
+					query: {
+						tpId: PRODUCTS['SLOTS_ENDORPHINA'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_ENDORPHINA'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: { start: null, end: null },
+						},
+					],
+				},
 			],
 			allowCurrencies: true,
 		},
