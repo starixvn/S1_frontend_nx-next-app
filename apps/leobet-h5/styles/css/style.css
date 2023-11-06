@@ -1323,7 +1323,7 @@ div[tabindex="-1"] {
   width: 50vw;
   height: 48vw;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/spread.png) no-repeat;
+  background: url(https://banner.leoking88.net/h5/img/spread.png) no-repeat;
   background-size: 100%;
   top: -5vw;
   left: 20vw;
@@ -1459,7 +1459,7 @@ header .splogo {
   bottom: 3vw;
   width: 8vw !important;
   height: 8vw !important;
-  background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
   -webkit-animation: splogo 3.5s ease-in-out infinite;
           animation: splogo 3.5s ease-in-out infinite;
   -webkit-clip-path: none !important;
@@ -1467,69 +1467,69 @@ header .splogo {
 }
 @-webkit-keyframes splogo {
   0% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0.1;
   }
   5% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   45% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   50% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0;
   }
   51% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0.1;
   }
   56% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   95% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0;
   }
 }
 @keyframes splogo {
   0% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0.1;
   }
   5% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   45% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   50% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0;
   }
   51% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0.1;
   }
   56% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   95% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0;
   }
 }
@@ -1616,7 +1616,7 @@ header button.clickBtn::before {
 #Marquee .marquee-box.icon::before {
   width: 35px;
   color: white;
-  background: #E4E4E4 url(https://banner.0814media.net/h5/img/homepage/megaphone.png) no-repeat left center/auto 65%;
+  background: #E4E4E4 url(https://banner.leoking88.net/h5/img/homepage/megaphone.png) no-repeat left center/auto 65%;
   z-index: 1;
   height: 35px;
   display: -webkit-box;
@@ -2537,7 +2537,7 @@ footer > a.active .circleAnimation::after {
   margin: 2vw 0 0;
 }
 #popup.ErrorPage {
-  background: url(https://banner.0814media.net/h5/img/errorBG.jpg) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/h5/img/errorBG.jpg) no-repeat center/cover;
 }
 #popup.ErrorPage .icon-close {
   position: absolute;
@@ -4113,7 +4113,7 @@ footer > a.active .circleAnimation::after {
   position: relative;
 }
 .pending .infobtn, .reject .infobtn, .cancelled .infobtn, .approved .infobtn {
-  background: url(https://banner.0814media.net/h5/img/notice.png) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/h5/img/notice.png) no-repeat center/cover;
   width: 4vw;
   height: 4vw;
   margin-left: 1vw;
@@ -6932,7 +6932,7 @@ span.important {
 }
 
 .installGuide {
-  background: #2d023a url(https://banner.0814media.net/h5/img/918/bg.jpg) no-repeat center top/180vw;
+  background: #2d023a url(https://banner.leoking88.net/h5/img/918/bg.jpg) no-repeat center top/180vw;
   width: calc(100% - 8vw);
   height: calc(100% - 40vw);
   padding: 20vw 4vw 20vw;
@@ -7095,7 +7095,7 @@ span.important {
   overflow: unset;
 }
 .installGuide.mega {
-  background: url(https://banner.0814media.net/h5/img/megabg.jpg) no-repeat center top/cover;
+  background: url(https://banner.leoking88.net/h5/img/megabg.jpg) no-repeat center top/cover;
 }
 .installGuide.mega section .copyinfo .inputBox, .installGuide.mega section .copyinfo .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .installGuide.mega section .copyinfo .inputBox-event {
   border: 1px solid #0ad9f5;
@@ -7423,7 +7423,7 @@ span.important {
 .refer .referinfo-step .icon::after {
   content: "";
   display: block;
-  background: url(https://banner.0814media.net/h5/img/refer-dashLine.svg) no-repeat center/2vw 10vw;
+  background: url(https://banner.leoking88.net/h5/img/refer-dashLine.svg) no-repeat center/2vw 10vw;
   padding: 1vw 0;
   width: 2vw;
   height: 10vw;
@@ -7475,7 +7475,7 @@ span.important {
 .refer .referinfo-list .inputcopy::after {
   content: "";
   display: inline-block;
-  background: url(https://banner.0814media.net/h5/img/icon-copy.svg) no-repeat center/5vw 5vw;
+  background: url(https://banner.leoking88.net/h5/img/icon-copy.svg) no-repeat center/5vw 5vw;
   width: 5vw;
   height: 5vw;
   position: absolute;
@@ -8462,7 +8462,7 @@ span.important {
 .vip .vipPage .viptable-item-text li.High::before {
   content: "";
   display: block;
-  background: url(https://banner.0814media.net/h5/img/check.png) no-repeat center/100%;
+  background: url(https://banner.leoking88.net/h5/img/check.png) no-repeat center/100%;
   height: 3vw;
   width: 3vw;
 }
@@ -8522,7 +8522,7 @@ span.important {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: url(https://banner.0814media.net/h5/img/vip-bottom-bg.png) no-repeat center/100%;
+  background: url(https://banner.leoking88.net/h5/img/vip-bottom-bg.png) no-repeat center/100%;
   height: 100%;
   padding-bottom: 20vw;
   margin-top: 10vw;
@@ -8614,7 +8614,7 @@ span.important {
 }
 .depositModule > .title.fast:after {
   content: "";
-  background: url(https://banner.0814media.net/desktop/img/fast-icon.png) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/fast-icon.png) no-repeat center/cover;
   display: block;
   width: 14vw;
   height: 4vw;
@@ -8757,7 +8757,7 @@ span.important {
 }
 .depositModule .selectModule .bankName.fast::after {
   content: "";
-  background: url(https://banner.0814media.net/desktop/img/fast-icon.png) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/fast-icon.png) no-repeat center/cover;
   display: block;
   width: 13vw;
   height: 4vw;
@@ -8988,7 +8988,7 @@ span.important {
   width: 10vw;
   height: 10vw;
   margin: 0 auto !important;
-  background: url(https://banner.0814media.net/h5/img/qrpay.png) center/cover;
+  background: url(https://banner.leoking88.net/h5/img/qrpay.png) center/cover;
 }
 
 .icon-topup::before {
@@ -8997,7 +8997,7 @@ span.important {
   width: 10vw;
   height: 10vw;
   margin: 0 auto !important;
-  background: url(https://banner.0814media.net/h5/img/topup.png) center/cover;
+  background: url(https://banner.leoking88.net/h5/img/topup.png) center/cover;
 }
 
 .submenu {
@@ -9117,7 +9117,7 @@ span.important {
 }
 
 .promos .promosModule {
-  background: url(https://banner.0814media.net/h5/img/homepage/promobg.jpg) no-repeat left/cover;
+  background: url(https://banner.leoking88.net/h5/img/homepage/promobg.jpg) no-repeat left/cover;
 }
 .promos .promosModule > div:nth-child(1) {
   width: 100%;
@@ -9173,34 +9173,34 @@ span.important {
 
 .friendReferral {
   margin: 2vw;
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-en.jpg) no-repeat center/100%;
+  background: url(https://banner.leoking88.net/h5/img/index-referBlock-H5-en.jpg) no-repeat center/100%;
   min-height: 42.5vw;
   border-radius: 5px;
   border: 1px solid #d2e2f9;
 }
 .friendReferral.en {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-en.jpg) no-repeat center/100%;
+  background: url(https://banner.leoking88.net/h5/img/index-referBlock-H5-en.jpg) no-repeat center/100%;
 }
 .friendReferral.cs {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-cs.jpg) no-repeat center/100%;
+  background: url(https://banner.leoking88.net/h5/img/index-referBlock-H5-cs.jpg) no-repeat center/100%;
 }
 .friendReferral.th {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-th.jpg) no-repeat center/100%;
+  background: url(https://banner.leoking88.net/h5/img/index-referBlock-H5-th.jpg) no-repeat center/100%;
 }
 .friendReferral.id {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-id.jpg) no-repeat center/100%;
+  background: url(https://banner.leoking88.net/h5/img/index-referBlock-H5-id.jpg) no-repeat center/100%;
 }
 .friendReferral.hi {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-hi.jpg) no-repeat center/100%;
+  background: url(https://banner.leoking88.net/h5/img/index-referBlock-H5-hi.jpg) no-repeat center/100%;
 }
 .friendReferral.bd {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-bd.jpg) no-repeat center/100%;
+  background: url(https://banner.leoking88.net/h5/img/index-referBlock-H5-bd.jpg) no-repeat center/100%;
 }
 .friendReferral.kh {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-kh.jpg) no-repeat center/100%;
+  background: url(https://banner.leoking88.net/h5/img/index-referBlock-H5-kh.jpg) no-repeat center/100%;
 }
 .friendReferral.vn {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-vn.jpg) no-repeat center/100%;
+  background: url(https://banner.leoking88.net/h5/img/index-referBlock-H5-vn.jpg) no-repeat center/100%;
 }
 .friendReferral-btn {
   font-size: 2.8vw;
@@ -9532,7 +9532,7 @@ span.important {
   content: "";
   width: 64vw;
   height: 58vw;
-  background: url(https://banner.0814media.net/img/liveCasinoBox/girl.png) no-repeat;
+  background: url(https://banner.leoking88.net/img/liveCasinoBox/girl.png) no-repeat;
   position: absolute;
   right: -22vw;
   bottom: 0.5vw;
@@ -10494,7 +10494,7 @@ span.important {
   content: "";
   display: block;
   position: absolute;
-  background: url(https://banner.0814media.net/h5/img/homepage/coin.png) no-repeat 70%;
+  background: url(https://banner.leoking88.net/h5/img/homepage/coin.png) no-repeat 70%;
   width: 10vw;
   height: 10vw;
   top: calc(50% - 5vw);
@@ -10543,25 +10543,25 @@ span.important {
 
 @-webkit-keyframes jpot {
   0% {
-    background: url(https://banner.0814media.net/h5/img/jpotbg.png) no-repeat center/cover;
+    background: url(https://banner.leoking88.net/h5/img/jpotbg.png) no-repeat center/cover;
   }
   50% {
-    background: url(https://banner.0814media.net/h5/img/jpotbga.png) no-repeat center/cover;
+    background: url(https://banner.leoking88.net/h5/img/jpotbga.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/jpotbg.png) no-repeat center/cover;
+    background: url(https://banner.leoking88.net/h5/img/jpotbg.png) no-repeat center/cover;
   }
 }
 
 @keyframes jpot {
   0% {
-    background: url(https://banner.0814media.net/h5/img/jpotbg.png) no-repeat center/cover;
+    background: url(https://banner.leoking88.net/h5/img/jpotbg.png) no-repeat center/cover;
   }
   50% {
-    background: url(https://banner.0814media.net/h5/img/jpotbga.png) no-repeat center/cover;
+    background: url(https://banner.leoking88.net/h5/img/jpotbga.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/jpotbg.png) no-repeat center/cover;
+    background: url(https://banner.leoking88.net/h5/img/jpotbg.png) no-repeat center/cover;
   }
 }
 .swithModule {
@@ -10722,7 +10722,7 @@ span.important {
   width: 100%;
 }
 .apppage .app {
-  background: url(https://banner.0814media.net/h5/img/app/new-appbg.png) no-repeat top center/cover;
+  background: url(https://banner.leoking88.net/h5/img/app/new-appbg.png) no-repeat top center/cover;
 }
 .apppage .appHeader {
   height: 8vw;
@@ -11267,7 +11267,7 @@ span.important {
 
 /*checkspeed*/
 .checkspeed {
-  background: #0339a2 url(https://banner.0814media.net/h5/img/check_speed/bg.jpg) no-repeat center 24vw/100% auto;
+  background: #0339a2 url(https://banner.leoking88.net/h5/img/check_speed/bg.jpg) no-repeat center 24vw/100% auto;
   height: auto;
 }
 .checkspeed img {
@@ -11613,14 +11613,14 @@ span.important {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(https://banner.0814media.net/h5/img/event/wheel/bg.jpg) no-repeat top center/175vw, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
-  background: url(https://banner.0814media.net/h5/img/event/wheel/bg.jpg) no-repeat top center/175vw, linear-gradient(to right, #100d41, #250333);
+  background: url(https://banner.leoking88.net/h5/img/event/wheel/bg.jpg) no-repeat top center/175vw, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
+  background: url(https://banner.leoking88.net/h5/img/event/wheel/bg.jpg) no-repeat top center/175vw, linear-gradient(to right, #100d41, #250333);
   padding: 0 0 24vw;
 }
 .wheelEvent .eventTitleBg {
   width: 56vw;
   height: 13vw;
-  background: url(https://banner.0814media.net/h5/img/event/wheel/event_title_bg.png) no-repeat top center/cover;
+  background: url(https://banner.leoking88.net/h5/img/event/wheel/event_title_bg.png) no-repeat top center/cover;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11695,7 +11695,7 @@ span.important {
   width: 60vw;
   height: 60vw;
   position: absolute;
-  background: url(https://banner.0814media.net/h5/img/event/wheel/wheelbg.png) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/h5/img/event/wheel/wheelbg.png) no-repeat center/cover;
   border-radius: 100%;
   margin-top: 1vw;
   font-weight: bold;
@@ -12059,7 +12059,7 @@ span.important {
   right: 50px;
   width: 60px;
   height: 46px;
-  background: url(https://banner.0814media.net/h5/img/event/wheel/coin.png) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/h5/img/event/wheel/coin.png) no-repeat center/cover;
 }
 .wheelPopModule .wheelPop .animation .coin:nth-child(2) {
   top: 100px;
@@ -12462,34 +12462,34 @@ span.important {
   margin-right: 5px;
 }
 .flag.ch:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/ch.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/ch.jpg) no-repeat top left/cover;
 }
 .flag.cs:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/cs.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/cs.jpg) no-repeat top left/cover;
 }
 .flag.en:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/en.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/en.jpg) no-repeat top left/cover;
 }
 .flag.th:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/th.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/th.jpg) no-repeat top left/cover;
 }
 .flag.id:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/id.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/id.jpg) no-repeat top left/cover;
 }
 .flag.vn:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/vn.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/vn.jpg) no-repeat top left/cover;
 }
 .flag.in:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/in.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/in.jpg) no-repeat top left/cover;
 }
 .flag.bd:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/bd.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/bd.jpg) no-repeat top left/cover;
 }
 .flag.kh:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
 }
 .flag.gb:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
 }
 
 .addressModule {
@@ -12541,11 +12541,11 @@ span.important {
 .worldcupEvent .eventPage.top {
   position: relative;
   height: 200vw;
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/bg.jpg) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/h5/img/event/worldcup/bg.jpg) no-repeat center/cover;
 }
 .worldcupEvent .eventPage.middle {
   position: relative;
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/bg2.jpg) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/h5/img/event/worldcup/bg2.jpg) no-repeat center/cover;
   text-align: center;
   padding: 10vw 0;
 }
@@ -12688,7 +12688,7 @@ span.important {
   display: block;
   width: 4vw;
   height: 4vw;
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/icon-fifa.svg) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/h5/img/event/worldcup/icon-fifa.svg) no-repeat center/cover;
   position: absolute;
   left: -0.5vw;
   top: 1.05vw;
@@ -12697,8 +12697,8 @@ span.important {
   position: relative;
   padding: 5vw 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/fixturebg.jpg) no-repeat top center/contain, -webkit-gradient(linear, left top, left bottom, color-stop(50%, #300113), to(#4a031e));
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/fixturebg.jpg) no-repeat top center/contain, linear-gradient(180deg, #300113 50%, #4a031e 100%);
+  background: url(https://banner.leoking88.net/h5/img/event/worldcup/fixturebg.jpg) no-repeat top center/contain, -webkit-gradient(linear, left top, left bottom, color-stop(50%, #300113), to(#4a031e));
+  background: url(https://banner.leoking88.net/h5/img/event/worldcup/fixturebg.jpg) no-repeat top center/contain, linear-gradient(180deg, #300113 50%, #4a031e 100%);
 }
 .worldcupEvent .fixture .title {
   margin: 3vw auto 18vw;
@@ -13180,7 +13180,7 @@ span.important {
   left: 0;
   width: 10vw;
   height: 4.75vw;
-  background: url(https://banner.0814media.net/img/worldcup/ticket.png) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/img/worldcup/ticket.png) no-repeat center/cover;
 }
 .worldcupEvent .progressBar .progressItem.active .value {
   color: #02D2B8;
@@ -13276,7 +13276,7 @@ span.important {
   top: 2vw;
   width: 13vw;
   height: 2vw;
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/5deco.svg) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/h5/img/event/worldcup/5deco.svg) no-repeat center/cover;
 }
 .worldcupEvent .info .subtitle:before {
   left: -15vw;
@@ -13546,12 +13546,12 @@ input:-webkit-autofill:active {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(https://banner.0814media.net/h5/img/event/angpao/bg-top.jpg) no-repeat top center/cover, #990100;
+  background: url(https://banner.leoking88.net/h5/img/event/angpao/bg-top.jpg) no-repeat top center/cover, #990100;
   min-height: 92vw;
 }
 .angpaoEvent .eventPage--bottom {
   min-width: 100%;
-  background: url(https://banner.0814media.net/h5/img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
+  background: url(https://banner.leoking88.net/h5/img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
   padding-top: 5vw;
   padding-bottom: 15vw;
 }
@@ -13650,7 +13650,7 @@ input:-webkit-autofill:active {
   font-size: 3.5vw;
   text-transform: uppercase;
   color: #fff;
-  background: url(https://banner.0814media.net/h5/img/event/angpao/btn.png) no-repeat top center/contain;
+  background: url(https://banner.leoking88.net/h5/img/event/angpao/btn.png) no-repeat top center/contain;
   width: 45vw;
   height: 12vw;
   line-height: 1;
