@@ -217,75 +217,75 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
   bottom: 45px;
   width: 55px;
   height: 55px;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-sevilla.png) center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
   -webkit-animation: splogo 3.5s ease-in-out infinite;
           animation: splogo 3.5s ease-in-out infinite;
 }
 @-webkit-keyframes splogo {
   0% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0.1;
   }
   5% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   45% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   50% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0;
   }
   51% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0.1;
   }
   56% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   95% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0;
   }
 }
 @keyframes splogo {
   0% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0.1;
   }
   5% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   45% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   50% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0;
   }
   51% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0.1;
   }
   56% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   95% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0;
   }
 }
@@ -349,7 +349,7 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
   content: "";
   width: 112px;
   height: 60px;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/worldcup/xs-logo.png) center no-repeat;
+  background: url(https://banner.leoking88.net/desktop/img/event/worldcup/xs-logo.png) center no-repeat;
 }
 .header > div.menu > div > a.rewardsbtn::before,
 .header > div.menu > div > button.rewardsbtn::before {
@@ -357,13 +357,13 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
   content: "";
   width: 45px;
   height: 45px;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/88rewards_w.png) center top/cover;
+  background: url(https://banner.leoking88.net/desktop/img/88rewards_w.png) center top/cover;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 .header > div.menu > div > a.rewardsbtn:hover::before,
 .header > div.menu > div > button.rewardsbtn:hover::before {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/88rewards.png) center top/cover;
+  background: url(https://banner.leoking88.net/desktop/img/88rewards.png) center top/cover;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -373,19 +373,19 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
   content: "";
   width: 52px;
   height: 28.3px;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/cryptosports.png) no-repeat center top/cover;
+  background: url(https://banner.leoking88.net/desktop/img/cryptosports.png) no-repeat center top/cover;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 .header > div.menu > div > a.cryptobtn:hover::before,
 .header > div.menu > div > button.cryptobtn:hover::before {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/cryptosportsa.png) no-repeat center top/cover;
+  background: url(https://banner.leoking88.net/desktop/img/cryptosportsa.png) no-repeat center top/cover;
 }
 .header > div.menu > div > a.cryptobtn.maintenance:hover::before,
 .header > div.menu > div > button.cryptobtn.maintenance:hover::before {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/cryptosports.png) no-repeat center top/cover;
+  background: url(https://banner.leoking88.net/desktop/img/cryptosports.png) no-repeat center top/cover;
 }
 .header > div.menu > div > a:after,
 .header > div.menu > div > button:after {
@@ -1727,7 +1727,7 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
 .header > div.menu .subMenu-Wrapper-new .appList,
 .header > div.menu .subMenu-Wrapper-new .promoList,
 .header > div.menu .subMenu-Wrapper-new .eventList {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/poker.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/poker.jpg) no-repeat center/auto;
   padding: 0 calc((100% - 1400px) / 2);
 }
 .header > div.menu .subMenu-Wrapper-new .pokerList > div,
@@ -1845,7 +1845,7 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
   font-size: 24px;
 }
 .header > div.menu .subMenu-Wrapper-new .appList {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/appdownload_bg.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/appdownload_bg.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .appList > div {
   display: -webkit-box;
@@ -1884,7 +1884,7 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
   font-size: 18px;
 }
 .header > div.menu .subMenu-Wrapper-new .eventList {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/worldcup/eventbanner.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/event/worldcup/eventbanner.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .eventList > div {
   width: auto;
@@ -1903,7 +1903,7 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList {
   width: 100%;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/cryptosports_en.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/cryptosports_en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList::before {
   display: block;
@@ -1911,58 +1911,58 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
   height: 210px;
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.en {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/cryptosports_en.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/cryptosports_en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.th {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/cryptosports_th.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/cryptosports_th.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.id {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/cryptosports_id.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/cryptosports_id.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.cs {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/cryptosports_cs.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/cryptosports_cs.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.vn {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/cryptosports_vn.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/cryptosports_vn.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/cryptosports_en_um.jpg);
+  background: url(https://banner.leoking88.net/desktop/img/cryptosports_en_um.jpg);
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.en {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/cryptosports_en_um.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/cryptosports_en_um.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.en {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/cryptosports_vn_um.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/cryptosports_vn_um.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.th {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/cryptosports_th_um.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/cryptosports_th_um.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.id {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/cryptosports_id_um.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/cryptosports_id_um.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.cs {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/cryptosports_cs_um.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/cryptosports_cs_um.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.vn {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/cryptosports_vn_um.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/cryptosports_vn_um.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.en {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/vipdropdown.png) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/vipdropdown.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.my {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/vipdropdown-my.png) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/vipdropdown-my.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.cs {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/vipdropdown-cs.png) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/vipdropdown-cs.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.id {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/vipdropdown-id.png) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/vipdropdown-id.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.th {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/vipdropdown-th.png) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/vipdropdown-th.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.vn {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/vipdropdown-vn.png) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/vipdropdown-vn.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList > div {
   margin: 0 auto 0 100px;
@@ -1975,22 +1975,22 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
   background: url(https://image.0814media.net/SiteSkin/img/leaderboardbanner-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.en {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/leaderboardbanner-en.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/leaderboardbanner-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.my {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/leaderboardbanner-my.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/leaderboardbanner-my.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.cs {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/leaderboardbanner-cs.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/leaderboardbanner-cs.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.th {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/leaderboardbanner-th.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/leaderboardbanner-th.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.id {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/leaderboardbanner-id.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/leaderboardbanner-id.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.vn {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/leaderboardbanner-vn.jpg) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/leaderboardbanner-vn.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList > div,
 .header > div.menu .subMenu-Wrapper-new .rankingList > a {
@@ -2813,7 +2813,7 @@ footer .license {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/licensebg.png) no-repeat bottom right;
+  background: url(https://banner.leoking88.net/desktop/img/licensebg.png) no-repeat bottom right;
   margin-top: 20px;
 }
 footer .license .title {
@@ -3453,34 +3453,34 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
   margin-right: 5px;
 }
 .flag.ch:before {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/flag/ch.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/ch.jpg) no-repeat top left/cover;
 }
 .flag.cs:before {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/flag/cs.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/cs.jpg) no-repeat top left/cover;
 }
 .flag.en:before {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/flag/en.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/en.jpg) no-repeat top left/cover;
 }
 .flag.th:before {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/flag/th.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/th.jpg) no-repeat top left/cover;
 }
 .flag.id:before {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/flag/id.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/id.jpg) no-repeat top left/cover;
 }
 .flag.vn:before {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/flag/vn.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/vn.jpg) no-repeat top left/cover;
 }
 .flag.in:before {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/flag/in.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/in.jpg) no-repeat top left/cover;
 }
 .flag.bd:before {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/flag/bd.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/bd.jpg) no-repeat top left/cover;
 }
 .flag.kh:before {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
 }
 .flag.gb:before {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
 }
 
 .txt-orange {
@@ -3998,7 +3998,7 @@ input[type=file] {
 #Marquee .marquee-box.icon:before {
   width: 35px;
   color: white;
-  background: #0a0a0a url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/homepage/megaphone.png) no-repeat left center/auto 65%;
+  background: #0a0a0a url(https://banner.leoking88.net/desktop/img/homepage/megaphone.png) no-repeat left center/auto 65%;
   z-index: 1;
   height: 100%;
   display: -webkit-box;
@@ -4684,7 +4684,7 @@ input[type=file] {
           align-items: center;
 }
 .list .listBody .approved .infobtn, .list .listBody .pending .infobtn, .list .listBody .reject .infobtn, .list .listBody .cancel .infobtn {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/notice.png) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/notice.png) no-repeat center/cover;
   width: 15px;
   height: 15px;
   margin-left: 1px;
@@ -5574,7 +5574,7 @@ input[type=file] {
   font-size: 48px;
   width: 120px;
   height: 120px;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/joinSuccessBg.png) no-repeat top center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/joinSuccessBg.png) no-repeat top center/cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5800,7 +5800,7 @@ input[type=file] {
   right: 50px;
   width: 60px;
   height: 46px;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/wheel/coin.png) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/event/wheel/coin.png) no-repeat center/cover;
 }
 #popup .pop.wheelPop .animation .coin:nth-child(2) {
   top: 100px;
@@ -7547,7 +7547,7 @@ input[type=file] {
   width: 150px;
 }
 .vipLv > div.vipbg {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/vip/vipbg.png) no-repeat center/auto 100%;
+  background: url(https://banner.leoking88.net/desktop/img/vip/vipbg.png) no-repeat center/auto 100%;
   padding: 20px;
   margin-top: 0;
 }
@@ -7968,7 +7968,7 @@ input[type=file] {
 }
 
 .livecasinoinside {
-  background: #1e1c17 url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/livecasino/livecasino-bg01.jpg) no-repeat bottom center/100%;
+  background: #1e1c17 url(https://banner.leoking88.net/desktop/img/livecasino/livecasino-bg01.jpg) no-repeat bottom center/100%;
   padding-bottom: 130px;
   min-height: 100%;
 }
@@ -9767,7 +9767,7 @@ button.icon-spinner11:before {
 }
 .onegameModule .promotionsInfo {
   position: relative;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/onegame/bg.jpg) no-repeat center;
+  background: url(https://banner.leoking88.net/desktop/img/onegame/bg.jpg) no-repeat center;
   height: 500px;
   padding: 0;
 }
@@ -9808,10 +9808,10 @@ button.icon-spinner11:before {
 }
 .onegameModule .onegame .left {
   height: 252px;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/onegame/btnleftbg.png) no-repeat center right/cover;
+  background: url(https://banner.leoking88.net/desktop/img/onegame/btnleftbg.png) no-repeat center right/cover;
 }
 .onegameModule .onegame .left.right {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/onegame/btnrightbg.png) no-repeat center left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/onegame/btnrightbg.png) no-repeat center left/cover;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
@@ -9895,7 +9895,7 @@ button.icon-spinner11:before {
   margin-bottom: 30px;
 }
 .installGuide.mega, .installGuide.kiss {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/megabg.jpg) no-repeat bottom/cover;
+  background: url(https://banner.leoking88.net/desktop/img/megabg.jpg) no-repeat bottom/cover;
   padding: 20px;
 }
 .installGuide.mega .guides, .installGuide.kiss .guides {
@@ -9953,7 +9953,7 @@ button.icon-spinner11:before {
   margin-bottom: 10px;
 }
 .installGuide.kiss {
-  background: #2d023a url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/918/bg.jpg) no-repeat top/100%;
+  background: #2d023a url(https://banner.leoking88.net/desktop/img/918/bg.jpg) no-repeat top/100%;
 }
 .installGuide > div {
   background: white;
@@ -10458,7 +10458,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .ErrorPage > div {
   width: 30%;
   height: 50%;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/errorBG.jpg) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/errorBG.jpg) no-repeat center/cover;
   position: relative;
   margin: auto;
   padding: 0 5%;
@@ -10530,7 +10530,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .rightModule .refer-history::after {
   content: "";
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/icon-right.svg) no-repeat center/12px 12px;
+  background: url(https://banner.leoking88.net/desktop/img/icon-right.svg) no-repeat center/12px 12px;
   display: inline-block;
   width: 12px;
   height: 12px;
@@ -10543,7 +10543,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   transition: 0.3s;
 }
 .rightModule .refer-history:hover::after {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/icon-right-1.svg) no-repeat center/12px 12px;
+  background: url(https://banner.leoking88.net/desktop/img/icon-right-1.svg) no-repeat center/12px 12px;
 }
 .rightModule .refer .subtitle {
   color: #112240;
@@ -10652,7 +10652,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .rightModule .refer .referinfo-step .icon::after {
   content: "";
   display: block;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/refer-dashLine.svg) no-repeat center;
+  background: url(https://banner.leoking88.net/desktop/img/refer-dashLine.svg) no-repeat center;
   padding: 5px 0px;
   width: 3px;
   height: 45px;
@@ -10702,7 +10702,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .rightModule .refer .referinfo-list .inputcopy::after {
   content: "";
   display: inline-block;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/icon-copy.svg) no-repeat center/20px 20px;
+  background: url(https://banner.leoking88.net/desktop/img/icon-copy.svg) no-repeat center/20px 20px;
   width: 20px;
   height: 20px;
   position: absolute;
@@ -10713,7 +10713,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   transition: 0.3s;
 }
 .rightModule .refer .referinfo-list .inputcopy:hover::after {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/icon-copy-1.svg) no-repeat center/20px 20px;
+  background: url(https://banner.leoking88.net/desktop/img/icon-copy-1.svg) no-repeat center/20px 20px;
 }
 .rightModule .refer .referinfo-list-qr {
   width: 90px;
@@ -11337,13 +11337,13 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: none;
 }
 .vip .swiper-button-next {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/next-right.png) no-repeat center/100%;
+  background: url(https://banner.leoking88.net/desktop/img/next-right.png) no-repeat center/100%;
   width: 45px;
   right: 100px;
   top: 260px;
 }
 .vip .swiper-button-prev {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/next-left.png) no-repeat center/100%;
+  background: url(https://banner.leoking88.net/desktop/img/next-left.png) no-repeat center/100%;
   width: 45px;
   left: 100px;
   top: 260px;
@@ -11358,7 +11358,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/vip-bottom-bg.png) no-repeat center/100%;
+  background: url(https://banner.leoking88.net/desktop/img/vip-bottom-bg.png) no-repeat center/100%;
   height: 450px;
 }
 .vip .vip-bottom-item {
@@ -11778,7 +11778,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .subModuleListColumn > .subModule > div > button > div.fast:after,
 .subModuleListColumn > .subModule > div > a > div.fast:after {
   content: "";
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/fast-icon.png) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/fast-icon.png) no-repeat center/cover;
   display: block;
   width: 50px;
   height: 15px;
@@ -12022,7 +12022,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 55px;
   height: 55px;
   margin: 0 auto !important;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/qrpay.png) center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/qrpay.png) center/cover;
 }
 
 .icon-topup::before {
@@ -12031,7 +12031,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 55px;
   height: 55px;
   margin: 0 auto !important;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/topup.png) center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/topup.png) center/cover;
 }
 
 .text-center {
@@ -12196,7 +12196,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .promos .swiper-container .swiper-wrapper > div {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/homepage/promobg.jpg) no-repeat left/cover;
+  background: url(https://banner.leoking88.net/desktop/img/homepage/promobg.jpg) no-repeat left/cover;
 }
 .promos .swiper-container .swiper-wrapper > div > div {
   display: -webkit-box;
@@ -13034,7 +13034,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .newsVideo .latestVideo + div .liveTv .team > div:first-child,
 .newsVideo .newsList + div .upcomingmatches .team > div:first-child,
 .newsVideo .newsList + div .liveTv .team > div:first-child {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/upcomingmatchestitle.png) no-repeat top center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/upcomingmatchestitle.png) no-repeat top center/auto;
   line-height: 27px;
   font-size: 12px;
   overflow: hidden;
@@ -13054,7 +13054,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .newsVideo .latestVideo + div .liveTv .team > div:last-child,
 .newsVideo .newsList + div .upcomingmatches .team > div:last-child,
 .newsVideo .newsList + div .liveTv .team > div:last-child {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/upcomingmatchestitledown.png) no-repeat top center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/upcomingmatchestitledown.png) no-repeat top center/auto;
   line-height: 27px;
   font-size: 12px;
 }
@@ -13373,7 +13373,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title,
 .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title,
 .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/livetvtitlebggold.png) no-repeat center/75% 100%;
+  background: url(https://banner.leoking88.net/desktop/img/livetvtitlebggold.png) no-repeat center/75% 100%;
 }
 .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before,
 .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before,
@@ -13408,7 +13408,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/livetvtitlebg.png) no-repeat center/75% 100%;
+  background: url(https://banner.leoking88.net/desktop/img/livetvtitlebg.png) no-repeat center/75% 100%;
   color: white;
   position: relative;
   font-size: 12px;
@@ -14667,7 +14667,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   content: "";
   display: block;
   position: absolute;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/homepage/jpot-coin.png) no-repeat;
+  background: url(https://banner.leoking88.net/desktop/img/homepage/jpot-coin.png) no-repeat;
   width: 53px;
   height: 50px;
   top: -42px;
@@ -14679,7 +14679,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   content: "";
   display: block;
   position: absolute;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/homepage/coin.png) no-repeat 75%;
+  background: url(https://banner.leoking88.net/desktop/img/homepage/coin.png) no-repeat 75%;
   width: 15px;
   height: 15px;
   top: calc(50% - 8px);
@@ -14928,7 +14928,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .fishinginside {
-  background: #84eff9 url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/fishing/fishbg.jpg) no-repeat bottom center/100%;
+  background: #84eff9 url(https://banner.leoking88.net/desktop/img/fishing/fishbg.jpg) no-repeat bottom center/100%;
   padding-bottom: 130px;
   min-height: 100%;
 }
@@ -15014,7 +15014,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .lotteryinside {
   position: relative;
-  background: #020321 url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/lottery/lotterybg.jpg) no-repeat bottom center/100%;
+  background: #020321 url(https://banner.leoking88.net/desktop/img/lottery/lotterybg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
 }
 .lotteryinside .inside {
@@ -15239,7 +15239,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .esportinside {
   position: relative;
-  background: #131419 url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/esport/esportsbg.jpg) no-repeat bottom center/100%;
+  background: #131419 url(https://banner.leoking88.net/desktop/img/esport/esportsbg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
 }
 .esportinside .bannerInfo .text img {
@@ -15471,7 +15471,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .gameinside {
   position: relative;
-  background: #3e132e url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/game/gamebg.jpg) no-repeat bottom center/100%;
+  background: #3e132e url(https://banner.leoking88.net/desktop/img/game/gamebg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
 }
 .gameinside .inside .rightModule {
@@ -15581,7 +15581,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .app {
   min-width: auto;
   padding: 180px 0 10vw 0;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/app/appbg.jpg) no-repeat top center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/app/appbg.jpg) no-repeat top center/cover;
 }
 .appHeader {
   height: 50px;
@@ -16079,7 +16079,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: block;
   width: 80px;
   height: 80px;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/wclogo.gif) center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/wclogo.gif) center/cover;
   position: absolute;
   top: -40px;
   right: -15px;
@@ -16193,7 +16193,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 /*checkspeed*/
 .checkspeed {
-  background: black url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/check_speed/bg.jpg) no-repeat center 87px/cover;
+  background: black url(https://banner.leoking88.net/desktop/img/check_speed/bg.jpg) no-repeat center 87px/cover;
   width: 100%;
 }
 .checkspeed img {
@@ -16388,7 +16388,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 @media screen and (max-width: 767px), (orientation: portrait) {
   .checkspeed {
-    background: #0339a2 url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/check_speed/bg.jpg) no-repeat top center/cover;
+    background: #0339a2 url(https://banner.leoking88.net/desktop/img/check_speed/bg.jpg) no-repeat top center/cover;
     height: auto;
   }
   .checkspeed .wallpaper {
@@ -16512,25 +16512,25 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 @-webkit-keyframes lobbyjpot {
   0% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
   }
   50% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/lobbyjpotbga.png) no-repeat center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/lobbyjpotbga.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
   }
 }
 
 @keyframes lobbyjpot {
   0% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
   }
   50% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/lobbyjpotbga.png) no-repeat center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/lobbyjpotbga.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
   }
 }
 .mainBanner {
@@ -17063,7 +17063,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .rankingNew {
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/ranking_new_sportsbg.jpg) no-repeat top center;
+  background: url(https://banner.leoking88.net/desktop/img/ranking_new_sportsbg.jpg) no-repeat top center;
   background-position: top center;
   background-size: auto 100%;
   min-height: 1025px;
@@ -18024,13 +18024,13 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/wheel/bg.jpg) no-repeat top center, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/wheel/bg.jpg) no-repeat top center, linear-gradient(to right, #100d41, #250333);
+  background: url(https://banner.leoking88.net/desktop/img/event/wheel/bg.jpg) no-repeat top center, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
+  background: url(https://banner.leoking88.net/desktop/img/event/wheel/bg.jpg) no-repeat top center, linear-gradient(to right, #100d41, #250333);
 }
 .wheelEvent .eventPage .eventTitleBg {
   width: 372px;
   height: 86px;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/wheel/event_title_bg.png) no-repeat center -8px;
+  background: url(https://banner.leoking88.net/desktop/img/event/wheel/event_title_bg.png) no-repeat center -8px;
   margin-top: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -18081,7 +18081,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 410px;
   height: 410px;
   position: relative;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/wheel/wheelbg.png) no-repeat center;
+  background: url(https://banner.leoking88.net/desktop/img/event/wheel/wheelbg.png) no-repeat center;
   overflow: hidden;
 }
 .wheelEvent .eventPage .wheelModule .wheel ul li {
@@ -19015,15 +19015,15 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   position: relative;
   padding-top: 50px;
   height: 942px;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/worldcup/bg.jpg) no-repeat center, -webkit-gradient(linear, left top, left bottom, from(#730A33), to(#1D1A1B));
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/worldcup/bg.jpg) no-repeat center, linear-gradient(to bottom, #730A33, #1D1A1B);
+  background: url(https://banner.leoking88.net/desktop/img/event/worldcup/bg.jpg) no-repeat center, -webkit-gradient(linear, left top, left bottom, from(#730A33), to(#1D1A1B));
+  background: url(https://banner.leoking88.net/desktop/img/event/worldcup/bg.jpg) no-repeat center, linear-gradient(to bottom, #730A33, #1D1A1B);
 }
 .worldcupEvent .eventPage.middle {
   position: relative;
   padding-top: 100px;
   height: 1170px;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/worldcup/bg2.jpg) no-repeat center, -webkit-gradient(linear, left top, left bottom, from(#1D1A1B), color-stop(#730A33), to(#1D1A1B));
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/worldcup/bg2.jpg) no-repeat center, linear-gradient(to bottom, #1D1A1B, #730A33, #1D1A1B);
+  background: url(https://banner.leoking88.net/desktop/img/event/worldcup/bg2.jpg) no-repeat center, -webkit-gradient(linear, left top, left bottom, from(#1D1A1B), color-stop(#730A33), to(#1D1A1B));
+  background: url(https://banner.leoking88.net/desktop/img/event/worldcup/bg2.jpg) no-repeat center, linear-gradient(to bottom, #1D1A1B, #730A33, #1D1A1B);
   text-align: center;
 }
 .worldcupEvent .eventPage.bottom {
@@ -19744,7 +19744,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   top: 33%;
   -webkit-transform: scale(0.75);
           transform: scale(0.75);
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/worldcup/fixture-deco.svg);
+  background: url(https://banner.leoking88.net/desktop/img/event/worldcup/fixture-deco.svg);
   background-repeat: no-repeat;
 }
 @media (min-width: 1700px) {
@@ -19921,7 +19921,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   max-width: 1350px;
   height: 988px;
   margin: 21px auto 40px;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/worldcup/arrow-bg.png) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/event/worldcup/arrow-bg.png) no-repeat center/cover;
   -webkit-animation: breathe 1s alternate infinite;
           animation: breathe 1s alternate infinite;
 }
@@ -20031,7 +20031,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: block;
   width: 20px;
   height: 20px;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/worldcup/icon-fifa.svg) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/event/worldcup/icon-fifa.svg) no-repeat center/cover;
   position: absolute;
   left: -5px;
   top: 6px;
@@ -20235,7 +20235,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   left: 0;
   width: 50px;
   height: 22px;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/img/worldcup/ticket.png) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/img/worldcup/ticket.png) no-repeat center/cover;
 }
 .worldcupEvent .progressBar .progressItem.active .value {
   color: #02D2B8;
@@ -20334,7 +20334,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   top: 7px;
   width: 72.5px;
   height: 12.5px;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/worldcup/5deco.svg) no-repeat center/cover;
+  background: url(https://banner.leoking88.net/desktop/img/event/worldcup/5deco.svg) no-repeat center/cover;
 }
 .worldcupEvent .info .subtitle:before {
   left: -85px;
@@ -20431,18 +20431,18 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 @-webkit-keyframes breathe {
   0% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/worldcup/arrow-bg.png) no-repeat center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/event/worldcup/arrow-bg.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/worldcup/arrow-bgb.png) no-repeat center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/event/worldcup/arrow-bgb.png) no-repeat center/cover;
   }
 }
 @keyframes breathe {
   0% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/worldcup/arrow-bg.png) no-repeat center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/event/worldcup/arrow-bg.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/worldcup/arrow-bgb.png) no-repeat center/cover;
+    background: url(https://banner.leoking88.net/desktop/img/event/worldcup/arrow-bgb.png) no-repeat center/cover;
   }
 }
 @-webkit-keyframes deco {
@@ -20668,12 +20668,12 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/angpao/bg-top.jpg) no-repeat top center, #990100;
+  background: url(https://banner.leoking88.net/desktop/img/event/angpao/bg-top.jpg) no-repeat top center, #990100;
   margin-top: -1px;
 }
 .angpaoEvent .eventPage--bottom {
   min-width: 100%;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
+  background: url(https://banner.leoking88.net/desktop/img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
   padding-top: 50px;
   padding-bottom: 30px;
 }
@@ -20741,7 +20741,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   font-size: 22px;
   text-transform: uppercase;
   color: #fff;
-  background: url(https://d19f2m0d06f9rs.cloudfront.net/desktop/img/event/angpao/btn.png) no-repeat top center/contain;
+  background: url(https://banner.leoking88.net/desktop/img/event/angpao/btn.png) no-repeat top center/contain;
   width: 230px;
   height: 80px;
   line-height: 1;
