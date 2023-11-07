@@ -1727,7 +1727,6 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
 .header > div.menu .subMenu-Wrapper-new .appList,
 .header > div.menu .subMenu-Wrapper-new .promoList,
 .header > div.menu .subMenu-Wrapper-new .eventList {
-  background: url(https://banner.leoking88.net/desktop/img/poker.jpg) no-repeat center/auto;
   padding: 0 calc((100% - 1400px) / 2);
 }
 .header > div.menu .subMenu-Wrapper-new .pokerList > div,
