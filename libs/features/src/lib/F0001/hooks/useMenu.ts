@@ -157,8 +157,8 @@ const useMenu = () => {
 			process.env.NODE_ENV === 'production'
 				? host
 				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
-		const signupUrl = `${host}/${paths.join.root}`
-		const loginUrl = `${host}/${paths.login.root}`
+		const signupUrl = `${host}${paths.join.root}`
+		const loginUrl = `${host}${paths.login.root}`
 
 		// * 只支援 en, cs, id, th
 		const errorUrl = `${dbHost}/404/index_${langId}.html`
@@ -206,10 +206,10 @@ const useMenu = () => {
 			process.env.NODE_ENV === 'production'
 				? host
 				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
-		const signupUrl = `${host}/${paths.join.root}`
-		const loginUrl = `${host}/${paths.login.root}`
+		const signupUrl = `${host}${paths.join.root}`
+		const loginUrl = `${host}${paths.login.root}`
 		const errorUrl = `${dbHost}/404/index_${langId}.html`
-		const cashierUrl = `${host}/${paths.deposit.root}`
+		const cashierUrl = `${host}${paths.deposit.root}`
 		const lobbyUrl = ''
 
 		const searchParams = new URLSearchParams({
