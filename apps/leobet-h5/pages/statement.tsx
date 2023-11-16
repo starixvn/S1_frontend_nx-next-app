@@ -7,8 +7,8 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout, Statement } from '@nx-next-app/features/F0001/h5'
-import { StatementProvider } from '@nx-next-app/features/F0001/providers'
+import { Layout, Statement } from '@nx-next-app/features/F0002/h5'
+import { StatementProvider } from '@nx-next-app/features/F0002/providers'
 import { QUICK_PICK_LIST } from '@nx-next-app/site/leobet/data/history'
 
 const StatementPage = ({

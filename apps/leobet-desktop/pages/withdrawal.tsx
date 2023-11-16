@@ -2,7 +2,7 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, Withdrawal } from '@nx-next-app/features/F0001/desktop'
+import { Layout, Withdrawal } from '@nx-next-app/features/F0002/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -10,7 +10,7 @@ import {
 import {
 	CryptoWalletProvider,
 	WithdrawalProvider,
-} from '@nx-next-app/features/F0001/providers'
+} from '@nx-next-app/features/F0002/providers'
 import { FOOTER_DATA } from '@nx-next-app/site/leobet'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IFooterData } from '@nx-next-app/types'

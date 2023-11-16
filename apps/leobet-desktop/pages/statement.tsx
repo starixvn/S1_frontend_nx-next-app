@@ -6,12 +6,12 @@ import {
 	Layout,
 	LeftMenu,
 	Statement,
-} from '@nx-next-app/features/F0001/desktop'
+} from '@nx-next-app/features/F0002/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { StatementProvider } from '@nx-next-app/features/F0001/providers'
+import { StatementProvider } from '@nx-next-app/features/F0002/providers'
 import { QUICK_PICK_LIST } from '@nx-next-app/site/leobet/data/history'
 import { FOOTER_DATA } from '@nx-next-app/site/leobet'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'

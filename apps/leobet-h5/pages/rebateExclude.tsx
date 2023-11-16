@@ -7,7 +7,7 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 
-import { RebateExclude } from '@nx-next-app/features/F0001/h5'
+import { RebateExclude } from '@nx-next-app/features/F0002/h5'
 
 type IRebateExcludePageProps = InitialPropsInterface
 

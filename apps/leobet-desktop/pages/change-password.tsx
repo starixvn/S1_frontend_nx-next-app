@@ -6,7 +6,7 @@ import {
 	Layout,
 	ChangePassword,
 	LeftMenu,
-} from '@nx-next-app/features/F0001/desktop'
+} from '@nx-next-app/features/F0002/desktop'
 
 import {
 	InitialPropsInterface,

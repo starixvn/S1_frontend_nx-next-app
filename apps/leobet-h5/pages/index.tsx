@@ -12,12 +12,12 @@ import {
 	getPromotion,
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
-import { HomeProvider } from '@nx-next-app/features/F0001/providers'
+import { HomeProvider } from '@nx-next-app/features/F0002/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout, Home } from '@nx-next-app/features/F0001/h5'
+import { Layout, Home } from '@nx-next-app/features/F0002/h5'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	IAnnouncementData,

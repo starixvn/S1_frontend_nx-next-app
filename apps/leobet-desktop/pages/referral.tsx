@@ -3,12 +3,12 @@ import { GetServerSideProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, LeftMenu, Referral } from '@nx-next-app/features/F0001/desktop'
+import { Layout, LeftMenu, Referral } from '@nx-next-app/features/F0002/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { ReferralProvider } from '@nx-next-app/features/F0001/providers'
+import { ReferralProvider } from '@nx-next-app/features/F0002/providers'
 import { FOOTER_DATA } from '@nx-next-app/site/leobet'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IFooterData } from '@nx-next-app/types'

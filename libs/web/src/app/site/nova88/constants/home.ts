@@ -4,8 +4,8 @@ import {
 } from '@nx-next-app/types'
 
 export const DESKTOP_HOME_ORDERS = [
-	DesktopHomeComponentsEnum.CarouselBanner,
 	DesktopHomeComponentsEnum.Marquee,
+	DesktopHomeComponentsEnum.CarouselBanner,
 	DesktopHomeComponentsEnum.PromotionMarquee,
 	DesktopHomeComponentsEnum.LatestVideoAndEvent,
 	DesktopHomeComponentsEnum.HotGameMarquee,
