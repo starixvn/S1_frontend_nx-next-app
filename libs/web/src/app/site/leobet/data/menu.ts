@@ -3290,6 +3290,7 @@ export const MENU_DATA = ({
 					productKey: 'FISHING',
 					displayKey: 'Label_FishingGG',
 					product: PRODUCTS['FISHING'],
+					allowCurrencies: [],
 				},
 				{
 					h5: {
