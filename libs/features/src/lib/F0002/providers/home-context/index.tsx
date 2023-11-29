@@ -16,20 +16,16 @@ import {
 	useGetReferralSettingQuery,
 	useGetSocialChannelQuery,
 } from '@nx-next-app/service'
-import {
-	CurrenciesEnum,
-	DesktopHomeComponentsEnum,
-	DeviceTypeEnum,
-	IFooterData,
-	MobileHomeComponentsEnum,
-} from '@nx-next-app/types'
+import { CurrenciesEnum, DeviceTypeEnum, IFooterData } from '@nx-next-app/types'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	CategoryEnum,
+	DesktopHomeComponentsEnum,
 	GameTypeEnum,
 	ISubMenu,
+	MobileHomeComponentsEnum,
 	SocialChannelEnum,
 } from '@nx-next-app/features/F0002/types'
 import { paths } from '@nx-next-app/constants'

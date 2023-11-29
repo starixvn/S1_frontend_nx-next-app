@@ -43,7 +43,7 @@ export function Layout({
 		<>
 			<MetaData persistSEOData={persistSEOData} />
 
-			<LayoutHeader />
+			{/* <LayoutHeader /> */}
 
 			{children}
 

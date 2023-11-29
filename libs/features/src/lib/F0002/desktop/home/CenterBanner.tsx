@@ -1,7 +1,7 @@
 import QRCode from 'qrcode.react'
 import Image from 'next/future/image'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useDownloadLinks } from '@nx-next-app/features/F0002/hooks/useDownloadLinks'
+import { useDownloadLinks } from '@nx-next-app/hooks'
 
 const CenterBanner = () => {
 	const { BANNER_IMAGE_LIST } = useStaticData()

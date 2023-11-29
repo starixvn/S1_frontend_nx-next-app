@@ -13,6 +13,8 @@ import {
 	getHotEvent,
 	getHotGame,
 	getNews,
+	getSlotGamePage,
+	SlotGameCategoryEnum,
 } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
@@ -26,9 +28,10 @@ import {
 	IHotGame,
 	INewsData,
 	IPromotionData,
+	ISlotsGameData,
 } from '@nx-next-app/service'
 import { BannerTypeEnum, IFooterData } from '@nx-next-app/types'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { DESKTOP_HOME_ORDERS, FOOTER_DATA } from '@nx-next-app/site/nova88'
 
 // 此為優化專案導出所需要的設定，因配合 nx 配置路徑衝突做的優化
@@ -49,6 +52,7 @@ interface IHomePageProps extends InitialPropsInterface {
 	persistLatestHighlightVideo: IHighlightData
 	persistHotEventData: IHotEventData[]
 	persistHotGameData: IHotGame[]
+	persistSlotsGameData: ISlotsGameData
 	persistNewsData: INewsData[]
 	persistFooterData: IFooterData
 }
@@ -63,6 +67,7 @@ const HomePage = ({
 	persistLatestHighlightVideo,
 	persistHotEventData,
 	persistHotGameData,
+	persistSlotsGameData,
 	persistNewsData,
 	persistFooterData,
 }: IHomePageProps) => {
@@ -83,6 +88,7 @@ const HomePage = ({
 						persistHotEventData={persistHotEventData}
 						persistHotGameData={persistHotGameData}
 						persistNewsData={persistNewsData}
+						persistSlotsGameData={persistSlotsGameData}
 						persistLicenseData={persistFooterData.licenseData}
 						persistProgramList={persistFooterData.programList}
 						desktopHomeOrders={DESKTOP_HOME_ORDERS}
@@ -132,6 +138,15 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
 	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
 
+	const persistSlotsGameData = await getSlotGamePage(
+		{
+			deviceType: DEVICE_TYPE.Desktop,
+			currencyId,
+			slotGameCategoryList: [SlotGameCategoryEnum.Jackpot],
+		},
+		{ headers: { cookie: currentHeaderCookies } }
+	)
+
 	const persistNewsData = await getNews({
 		langId,
 		currencyId,
@@ -148,6 +163,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			persistHotEventData,
 			persistHotGameData,
 			persistNewsData,
+			persistSlotsGameData,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),

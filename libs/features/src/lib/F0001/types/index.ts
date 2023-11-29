@@ -197,3 +197,5 @@ export enum KycStatusEnum {
 	KycUpload,
 	KycPending,
 }
+
+export * from './home'
