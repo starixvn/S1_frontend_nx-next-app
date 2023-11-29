@@ -2,7 +2,6 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import { Marquee } from '@nx-next-app/components/D0002'
 import { useHome } from '@nx-next-app/features/F0002/providers'
-import { DesktopHomeComponentsEnum } from '@nx-next-app/types'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 
 import { PromotionMarquee } from './PromotionMarquee'
@@ -12,6 +11,7 @@ import { NewsBlock } from './news'
 import { RecentlyViewGames } from './RecentlyViewGames'
 import CarouselBanner from '../common/carouselBanner'
 import { CenterBanner } from './CenterBanner'
+import { DesktopHomeComponentsEnum } from '@nx-next-app/features/F0002/types'
 
 const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
 

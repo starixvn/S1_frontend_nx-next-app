@@ -5,7 +5,7 @@ import {
 
 const useDownloadLinks = () => {
 	const {
-		data: { androidDownLoadUrl, iosDownloadUrl },
+		data: { androidDownLoadUrl, iosDownloadUrl, androidTypeName, iosTypeName },
 	} = useGetAppDownloadLinksQuery(null, {
 		selectFromResult: ({ data: { data: originList = [] } = {} }) => {
 			const formatData: Record<string, IAppDownloadLinks> = originList.reduce(
@@ -18,6 +18,8 @@ const useDownloadLinks = () => {
 				data: {
 					androidDownLoadUrl: formatData['Andriod']?.downloadLink,
 					iosDownloadUrl: formatData['IOS']?.downloadLink,
+					androidTypeName: formatData['Andriod']?.appTypeName,
+					iosTypeName: formatData['IOS']?.appTypeName,
 				},
 			}
 		},
@@ -25,7 +27,9 @@ const useDownloadLinks = () => {
 
 	return {
 		androidDownLoadUrl,
+		androidTypeName,
 		iosDownloadUrl,
+		iosTypeName,
 	}
 }
 
