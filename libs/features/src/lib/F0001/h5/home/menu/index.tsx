@@ -39,6 +39,10 @@ const Menu = () => {
 						// * 只顯示 all | h5 類別
 						if (display === 'desktop' || !display) return null
 
+						// * 有 displayKey 可以避開以 icon 呈現的 menu
+						// * subMenu 不能給預設值，用 ?. 的邏輯才能將 「以 icon 呈現」和 「submenu 沒有值」區隔開來
+						if (displayKey && subMenu?.length === 0) return null
+
 						const { icon: mainEventIcon } =
 							getMainEventIcon({ eventIcons, subMenu }) ?? {}
 
