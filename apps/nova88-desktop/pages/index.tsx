@@ -76,7 +76,6 @@ const HomePage = ({
 			<GlobalDataProvider>
 				<Layout
 					showFooter
-					isFullFooter
 					persistSEOData={persistSEOData}
 					footerData={persistFooterData}
 				>

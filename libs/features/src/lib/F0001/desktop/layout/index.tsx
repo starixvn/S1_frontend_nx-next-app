@@ -16,7 +16,6 @@ interface ILayoutProps {
 	persistSEOData: ISEOData
 	footerData?: IFooterData
 	showFooter?: boolean
-	isFullFooter?: boolean
 	hasGoTopBtn?: boolean
 }
 
@@ -30,7 +29,6 @@ export function Layout({
 	persistSEOData,
 	footerData,
 	showFooter = true, // * 判斷是否顯示 footer
-	isFullFooter = false, // * 判斷是否顯示全版 footer
 	hasGoTopBtn = true,
 }: ILayoutProps) {
 	const { globalModal, closeModal, modal } = useGlobalModal()
@@ -47,9 +45,7 @@ export function Layout({
 
 			{children}
 
-			{showFooter && !!footerData && (
-				<LayoutFooter footerData={footerData} isFullFooter={isFullFooter} />
-			)}
+			{showFooter && !!footerData && <LayoutFooter footerData={footerData} />}
 
 			{/* 只需放在 Layout 來渲染全域彈窗 */}
 			<GlobalModal {...globalModal} closeModal={closeModal} />
