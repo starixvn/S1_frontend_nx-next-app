@@ -8,10 +8,10 @@ export const FOOTER_DATA = ({
 	currencyId: number
 }): IFooterData => {
 	// * 根據幣別決定路徑，每間品牌不同
-	const getApplyNowLink = (currencyId: number) => {
-		// if (currencyId === CurrenciesEnum.MYR) {
-		// 	return ` https://aff.nova88mas102.com/?lang=${currentLang}`
-		// }
+	const getApplyNowLink = (currencyId: number, langId: string) => {
+		if (currencyId === CurrenciesEnum.MYR) {
+			return ` https://aff.nova88mas102.com/?lang=${langId}`
+		}
 		if (currencyId === CurrenciesEnum.INR) {
 			return `https://aff.nova88india.com/?lang=${langId}`
 		}
@@ -19,254 +19,76 @@ export const FOOTER_DATA = ({
 	}
 
 	return {
-		copyRightList: [
+		quickLinks: [
 			{
 				displayKey: 'Label_AboutUs',
 				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AboutUs.html`,
 			},
 			{
-				displayKey: 'Label_ContactUs',
-				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html`,
-			},
-			{
 				displayKey: 'Label_TermsConditions',
 				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/Terms.html`,
 			},
-		],
-		// * platformList 渲染時需透過 tpIds、allowCurrencies 過濾一次
-		platformList: [
 			{
-				productKey: 'SPORTS_SOCCER',
-				imgName: 'saba',
-				hoverImgName: 'sabab',
-			},
-			{
-				productKey: 'LIVE_CASINO_ALL_BET',
-				imgName: 'ab',
-				hoverImgName: 'aba',
-			},
-			{
-				productKey: 'LIVE_CASINO_DG',
-				imgName: 'dg',
-				hoverImgName: 'dga',
-			},
-			{
-				productKey: 'LIVE_CASINO_AG',
-				imgName: 'ag',
-				hoverImgName: 'aga',
-			},
-			{
-				productKey: 'LIVE_CASINO_AE',
-				imgName: 'ae',
-				hoverImgName: 'aea',
-			},
-			{
-				productKey: 'LIVE_CASINO_SA',
-				imgName: 'sa',
-				hoverImgName: 'saa',
-			},
-			{
-				productKey: 'SLOTS_PP',
-				imgName: 'casino_pp',
-				hoverImgName: 'casino_ppa',
-			},
-			{
-				productKey: 'LIVE_CASINO_BG',
-				imgName: 'bg',
-				hoverImgName: 'bga',
-			},
-			{
-				productKey: 'LIVE_CASINO_YEE_BET',
-				imgName: 'yb',
-				hoverImgName: 'yba',
-			},
-			{
-				productKey: 'SLOTS_MGPSW',
-				imgName: 'casino_mg',
-				hoverImgName: 'casino_mga',
-			},
-			{
-				productKey: 'SLOTS_PT',
-				imgName: 'pt',
-				hoverImgName: 'pta',
-			},
-			{
-				productKey: 'SLOTS_YGG',
-				imgName: 'casino_ygg',
-				hoverImgName: 'casino_ygga',
-			},
-			{
-				productKey: 'SLOTS_JOKER',
-				imgName: 'casino_joker',
-				hoverImgName: 'casino_jokera',
-			},
-			{
-				productKey: 'SLOTS_SG',
-				imgName: 'casino_sg',
-				hoverImgName: 'casino_sga',
-			},
-			{
-				productKey: 'SLOTS_JILI',
-				imgName: 'casino_jili',
-				hoverImgName: 'casino_jilia',
-			},
-			{
-				productKey: 'LOTTERY_TCG',
-				imgName: 'tc',
-				hoverImgName: 'tcb',
-			},
-			{
-				productKey: 'GAMES_POKER_M_POKER',
-				imgName: 'mp',
-				hoverImgName: 'mpa',
-			},
-			{
-				productKey: 'SLOTS_RED_TIGER',
-				imgName: 'casino_redtiger',
-				hoverImgName: 'casino_redtigera',
-			},
-			{
-				productKey: 'SLOTS_NET_ENT',
-				imgName: 'casino_netent',
-				hoverImgName: 'casino_netenta',
-			},
-			{
-				productKey: 'SLOTS_ADVANT_PLAY',
-				imgName: 'casino_ap',
-				hoverImgName: 'casino_apa',
-			},
-			{
-				productKey: 'LIVE_CASINO_EVO',
-				imgName: 'ev',
-				hoverImgName: 'eva',
-			},
-			{
-				productKey: 'SLOTS_HABANERO',
-				imgName: 'casino_hb',
-				hoverImgName: 'casino_hba',
-			},
-			{
-				productKey: 'SLOTS_SIMPLE_PLAY',
-				imgName: 'liveCasino_simpleplay',
-				hoverImgName: 'liveCasino_simpleplaya',
-			},
-			{
-				productKey: 'SLOTS_AMB',
-				imgName: 'liveCasino_amb',
-				hoverImgName: 'liveCasino_amba',
-			},
-			{
-				productKey: 'SLOTS_SKY_WIND',
-				imgName: 'sk',
-				hoverImgName: 'ska',
-			},
-		],
-		programList: [
-			{
-				applyNowLink: getApplyNowLink(currencyId),
-				icon: 'icon-friendreferral',
-				displayKey: 'Label_Referral_Program',
-				description: 'Label_Referral_Program_desc',
-				hotKeyName: 'Label_JoinNow',
-			},
-			{
-				applyNowLink: getApplyNowLink(currencyId),
-				icon: 'icon-affiliate',
 				displayKey: 'Label_Affiliate_Program',
-				description: 'Label_Affiliate_Program_desc',
-				hotKeyName: 'Label_Apply_Now',
+				href: getApplyNowLink(currencyId, langId),
 			},
 			{
-				applyNowLink: getApplyNowLink(currencyId),
-				icon: 'icon-vip',
-				displayKey: 'Label_VIP_Program',
-				description: 'Label_VIP_Program_desc',
-				hotKeyName: 'Label_More_Info',
-			},
-			{
-				applyNowLink: getApplyNowLink(currencyId),
-				icon: 'icon-livechat1',
-				displayKey: 'Label_Customer_Support',
-				description: 'Label_Customer_Support_desc',
-				hotKeyName: 'Label_Chat_Now',
+				displayKey: 'Label_ContactUs',
+				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html`,
 			},
 		],
-		programDescriptionList: [
+		promotionTextList: [
 			{
-				contents: [
-					{
-						displayKey: `Label_Sports_Betting_Online_${currencyId}`,
-						description: 'Label_Sports_Betting_Online_Malaysia_desc',
-					},
-					{
-						displayKey: 'Label_Soccer_Betting_Live_Betting',
-						description: 'Label_Soccer_Betting_Live_Betting_desc',
-					},
-				],
+				title: 'Label_Soccer_Betting_Live_Betting',
+				content: 'Label_Soccer_Betting_Live_Betting_desc',
 			},
 			{
-				contents: [
-					{
-						displayKey: 'Label_Sports_Betting_In_Play_Betting',
-						description: 'Label_Sports_Betting_In_Play_Betting_desc',
-					},
-					{
-						displayKey: 'Label_Online_Casino_Live_Casino',
-						description: 'Label_Online_Casino_Live_Casino_desc',
-					},
-					{
-						displayKey: 'Label_Keno_Lottery_Betting',
-						description: 'Label_Keno_Lottery_Betting_desc',
-					},
-				],
+				title: 'Label_Sports_Betting_In_Play_Betting',
+				content: 'Label_Sports_Betting_In_Play_Betting_desc',
 			},
 			{
-				contents: [
-					{
-						displayKey: 'Label_Virtual_Sports',
-						description: 'Label_Virtual_Sports_desc',
-					},
-					{
-						displayKey: 'Label_Fishing_in_footer',
-						description: 'Label_Fishing_desc',
-					},
-					{
-						displayKey: 'Label_ESports',
-						description: 'Label_ESport_desc',
-					},
-				],
+				title: 'Label_Online_Casino_Live_Casino',
+				content: 'Label_Online_Casino_Live_Casino_desc',
 			},
 			{
-				contents: [
-					{
-						displayKey: 'Label_Mobile_Betting',
-						description: 'Label_Mobile_Betting_desc',
-					},
-					{
-						displayKey: 'Label_Open_An_Account',
-						description: 'Label_Open_An_Account_desc',
-					},
-					{
-						displayKey: 'Label_Payment_Options',
-						description: 'Label_Payment_Options_desc',
-					},
-				],
+				title: 'Label_Keno_Lottery_Betting',
+				content: 'Label_Keno_Lottery_Betting_desc',
 			},
 			{
-				contents: [
-					{
-						displayKey: 'Label_Affiliates_in_footer',
-						description: 'Label_Affiliates_desc',
-					},
-					{
-						displayKey: 'Label_Responsible_Gaming',
-						description: 'Label_Responsible_Gaming_desc',
-					},
-					{
-						displayKey: 'Label_Security',
-						description: 'Label_Security_desc',
-					},
-				],
+				title: 'Label_Virtual_Sports',
+				content: 'Label_Virtual_Sports_desc',
+			},
+			{
+				title: 'Label_Fishing_in_footer',
+				content: 'Label_Fishing_desc',
+			},
+			{
+				title: 'Label_ESports',
+				content: 'Label_ESport_desc',
+			},
+			{
+				title: 'Label_Mobile_Betting',
+				content: 'Label_Mobile_Betting_desc',
+			},
+			{
+				title: 'Label_Open_An_Account',
+				content: 'Label_Open_An_Account_desc',
+			},
+			{
+				title: 'Label_Payment_Options',
+				content: 'Label_Payment_Options_desc',
+			},
+			{
+				title: 'Label_Affiliates_in_footer',
+				content: 'Label_Affiliates_desc',
+			},
+			{
+				title: 'Label_Responsible_Gaming',
+				content: 'Label_Responsible_Gaming_desc',
+			},
+			{
+				title: 'Label_Security',
+				content: 'Label_Security_desc',
 			},
 		],
 		licenseData: {
@@ -275,25 +97,25 @@ export const FOOTER_DATA = ({
 		},
 		suggestedBrowser: [
 			{
-				imageSrc: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/gga.png`,
+				imageSrc: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/chrome.png`,
 				alt: 'chrome',
 				width: 30,
 				height: 30,
 			},
 			{
-				imageSrc: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/ffa.png`,
+				imageSrc: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/firefox.png`,
 				alt: 'firefox',
 				width: 30,
 				height: 30,
 			},
 			{
-				imageSrc: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/iea.png`,
+				imageSrc: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/edge.png`,
 				alt: 'edge',
 				width: 30,
 				height: 30,
 			},
 			{
-				imageSrc: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/sfa.png`,
+				imageSrc: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/safari.png`,
 				alt: 'safari',
 				width: 30,
 				height: 30,
@@ -302,104 +124,321 @@ export const FOOTER_DATA = ({
 		paymentMethodsByCurrencyId: {
 			[CurrenciesEnum.MYR]: [
 				{
-					name: 'help2pay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/help2pay.png`,
+					name: 'Maybank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/maybank.jpg`,
 				},
 				{
-					name: 'fpay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/fpay.png`,
+					name: 'OCBC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ocbc.jpg`,
 				},
-				{
-					name: 'truepay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/truepay.png`,
-				},
+
 				{
 					name: 'tngqr',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/tngqr.png`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ambank.jpg`,
 				},
 				{
-					name: 'duitnowqr',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/duitnowqr.png`,
+					name: 'CIMB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/cimb.jpg`,
+				},
+				{
+					name: 'RHB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/rhb.jpg`,
+				},
+				{
+					name: 'AFFIN',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/affin.jpg`,
+				},
+				{
+					name: 'HLB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/hlb.jpg`,
+				},
+				{
+					name: 'PBB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/pbb.jpg`,
+				},
+				{
+					name: 'Duitnow',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/duitnow.jpg`,
+				},
+				{
+					name: 'TnG',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/tng.jpg`,
+				},
+				{
+					name: 'Boost',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/boost.jpg`,
+				},
+				{
+					name: 'Grabpay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/grabpay.jpg`,
+				},
+				{
+					name: 'Shopeepay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/shopeepay.jpg`,
 				},
 			],
 			[CurrenciesEnum.THB]: [
 				{
-					name: 'help2pay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/help2pay.png`,
+					name: 'Kasikorn Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/kasikornbank.jpg`,
 				},
 				{
-					name: 'thaiqr',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/thaiqr.png`,
+					name: 'Krung Thai Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ktb.jpg`,
+				},
+				{
+					name: 'Siam Commercial Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/scb.jpg`,
+				},
+				{
+					name: 'Bangkok Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bangkokbank.jpg`,
+				},
+				{
+					name: 'Bank of Ayudhya',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ayudhya.jpg`,
+				},
+				{
+					name: 'Promtpay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/promptpay.jpg`,
+				},
+				{
+					name: 'TrueMoney',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/truemoney.jpg`,
 				},
 			],
 			[CurrenciesEnum.IDR]: [
 				{
-					name: 'help2pay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/help2pay.png`,
+					name: 'BCA',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bca.jpg`,
 				},
 				{
-					name: 'ovo',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/ovo.png`,
+					name: 'MANDIRI',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/mandiri.jpg`,
 				},
 				{
-					name: 'gopay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/gopay.png`,
+					name: 'BRI',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bri.jpg`,
 				},
 				{
-					name: 'dana',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/dana.png`,
+					name: 'PERMATA',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/permata.jpg`,
 				},
 				{
-					name: 'sakuku',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/sakuku.png`,
+					name: 'CIMB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/cimb.jpg`,
 				},
 				{
-					name: 'linkaja',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/linkaja.png`,
+					name: 'BNI',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bni.jpg`,
 				},
 				{
-					name: 'shopeepay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/shopeepay.png`,
+					name: 'QRIS',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/qris.jpg`,
 				},
 				{
-					name: 'doku',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/doku.png`,
+					name: 'GOPAY',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/gopay.jpg`,
+				},
+				{
+					name: 'OVO',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ovo.jpg`,
+				},
+				{
+					name: 'DANA',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dana.jpg`,
+				},
+				{
+					name: 'SAKUKU',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/sakuku.jpg`,
+				},
+				{
+					name: 'LINKAJA',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/linkaja.jpg`,
+				},
+				{
+					name: 'SHOPEEPAY',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/shopeepay.jpg`,
+				},
+				{
+					name: 'DOKU',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doku.jpg`,
 				},
 			],
 			[CurrenciesEnum.INR]: [
 				{
-					name: 'tenpay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/tenpay.png`,
+					name: 'Federeal Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/federealbank.jpg`,
+				},
+				{
+					name: 'ICICI Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/icici.jpg`,
+				},
+				{
+					name: 'IDFC Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/idfc.jpg`,
+				},
+				{
+					name: 'Indian Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/indian.jpg`,
+				},
+				{
+					name: 'IndusInd Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/indusind.jpg`,
+				},
+				{
+					name: 'Kotak Mahindra',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/kotak.jpg`,
+				},
+				{
+					name: 'UPI',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/upi.jpg`,
 				},
 			],
 			[CurrenciesEnum.BDT]: [
 				{
-					name: 'DirePay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/direpay.png`,
+					name: 'Bkash',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bkash.jpg`,
 				},
 				{
-					name: 'FxBit',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/fxbit.png`,
+					name: 'Rocket',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/rocket.jpg`,
+				},
+				{
+					name: 'Upay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/upay.jpg`,
+				},
+				{
+					name: 'Nagad',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/nagad.jpg`,
+				},
+			],
+			[CurrenciesEnum.KHM]: [
+				{
+					name: 'ABA',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/aba.jpg`,
+				},
+				{
+					name: 'ACLEDA',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/acleda.jpg`,
+				},
+				{
+					name: 'WING',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/wing.jpg`,
+				},
+				{
+					name: 'TRUEMONEY',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/truemoney.jpg`,
+				},
+				{
+					name: 'PIPAY',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/pipay.jpg`,
+				},
+			],
+			[CurrenciesEnum.VND]: [
+				{
+					name: 'ACB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/acb.jpg`,
+				},
+				{
+					name: 'DAB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dab.jpg`,
+				},
+				{
+					name: 'Eximbank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/exim.jpg`,
+				},
+				{
+					name: 'VTB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/vtb.jpg`,
+				},
+				{
+					name: 'BIDV',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bidv.jpg`,
+				},
+				{
+					name: 'MB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/mb.jpg`,
+				},
+				{
+					name: 'TCB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/tcb.jpg`,
+				},
+				{
+					name: 'VCB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/vcb.jpg`,
+				},
+				{
+					name: 'VIB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/vib.jpg`,
+				},
+				{
+					name: 'HDB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/hdb.jpg`,
+				},
+				{
+					name: 'MSB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/msb.jpg`,
+				},
+				{
+					name: 'SACOM',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/sacom.jpg`,
+				},
+				{
+					name: 'MOMO',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/momo.jpg`,
+				},
+				{
+					name: 'ZALO',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/zalo.jpg`,
 				},
 			],
 			[CurrenciesEnum.CNY]: [
 				{
-					name: 'DirePay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/direpay.png`,
-				},
-				{
-					name: 'FxBit',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/fxbit.png`,
+					name: '广西省农村信用社',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/kwangsi.jpg`,
 				},
 			],
 			[CurrenciesEnum.USD]: [
 				{
-					name: 'DirePay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/direpay.png`,
+					name: 'USDT',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
 				},
 				{
-					name: 'FxBit',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/fxbit.png`,
+					name: 'USDC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+				},
+				{
+					name: 'BUSD',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/busd.jpg`,
+				},
+				{
+					name: 'DAI',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+				},
+				{
+					name: 'DOGE',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+				},
+				{
+					name: 'EOS',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+				},
+				{
+					name: 'SHIB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/shib.jpg`,
+				},
+				{
+					name: 'ADA',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+				},
+				{
+					name: 'ETH',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+				},
+				{
+					name: 'BTC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
 				},
 			],
 		},

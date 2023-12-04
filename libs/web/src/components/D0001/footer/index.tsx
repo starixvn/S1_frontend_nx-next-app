@@ -1,20 +1,24 @@
 import React, { ReactNode } from 'react'
-import CopyRight from './CopyRight'
+import QuickLinks from './CopyRight'
 import License from './License'
-import PlatForm from './PlatForm'
 import ProgramDescriptionList from './ProgramDescriptionList'
 import ProgramList from './ProgramList'
-import Sfp from './Sfp'
+import SocialMedia from './SocialMedia'
+import SuggestBrowser from './SuggestBrowser'
+import PaymentMethod from './PaymentMethod'
+import PromotionText from './PromotionText'
 
 const Footer = ({ children }: { children: ReactNode }) => {
 	return <footer id='footer'>{children}</footer>
 }
 
-Footer.CopyRight = CopyRight
-Footer.PlatForm = PlatForm
+Footer.QuickLinks = QuickLinks
+Footer.SocialMedia = SocialMedia
 Footer.ProgramList = ProgramList
 Footer.ProgramDescriptionList = ProgramDescriptionList
 Footer.License = License
-Footer.Sfp = Sfp
+Footer.SuggestBrowser = SuggestBrowser
+Footer.PaymentMethod = PaymentMethod
+Footer.PromotionText = PromotionText
 
 export default Footer
