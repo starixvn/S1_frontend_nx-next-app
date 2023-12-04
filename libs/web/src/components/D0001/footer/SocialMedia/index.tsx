@@ -1,6 +1,6 @@
 import React from 'react'
-import Image from 'next/future/image'
 import { footerImgName } from '@nx-next-app/features/F0001/types'
+import { Img } from '@nx-next-app/components/D0001'
 
 interface ISocialMediaProps {
 	socialChannelList: {
@@ -21,11 +21,9 @@ const SocialMedia = ({ socialChannelList }: ISocialMediaProps) => {
 		<div className='social-media'>
 			{socialChannelList.map(({ link, channelName, title }) => (
 				<a key={channelName} href={link} target='_blank' rel='noreferrer'>
-					<Image
+					<Img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/${footerImgName[channelName]}`}
 						alt={title}
-						width={30}
-						height={30}
 					/>
 				</a>
 			))}
