@@ -1506,9 +1506,9 @@ export const MENU_DATA = ({
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
-					productKey: 'LIVE_CASINO_E_BET',
+					productKey: 'LIVE_CASINO_WE',
 					displayText: 'eBET',
-					product: PRODUCTS['LIVE_CASINO_E_BET'],
+					product: PRODUCTS['LIVE_CASINO_WE'],
 					allowCurrencies: [],
 				},
 				{

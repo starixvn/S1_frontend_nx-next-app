@@ -18,7 +18,7 @@ const GameList = () => {
 	const { t } = useTranslation()
 	const {
 		menuData: {
-			Games: { subMenu },
+			Game: { subMenu },
 		},
 		onMenuOpen,
 	} = useMenu()
