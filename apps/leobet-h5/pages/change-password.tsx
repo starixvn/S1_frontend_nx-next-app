@@ -5,7 +5,7 @@ import {
 	useServerSideInitialPropsFetcher,
 	InitialPropsInterface,
 } from '@nx-next-app/hooks'
-import { Layout, ChangePassword } from '@nx-next-app/features/F0001/h5'
+import { Layout, ChangePassword } from '@nx-next-app/features/F0002/h5'
 
 const ChangePasswordPage = ({
 	originIsSignIn,

@@ -2,14 +2,11 @@ import {
 	CurrenciesEnum,
 	DeviceTypeEnum,
 	IEventPeriod,
-	MenuKeyEnum,
-} from '@nx-next-app/types'
-import {
 	IMenuData,
 	MenuActionTypeEnum,
-} from '@nx-next-app/features/F0001/types'
+	MenuKeyEnum,
+} from '@nx-next-app/types'
 import { paths, PRODUCTS } from '@nx-next-app/constants'
-
 import { ALLOWED_CURRENCIES } from './allowCurrency'
 
 /**
@@ -183,35 +180,35 @@ export const MENU_DATA = ({
 				},
 			],
 		},
-		[MenuKeyEnum.AppDownload]: {
-			display: 'desktop',
-			h5: { menuActionType: MenuActionTypeEnum.Link },
-			desktop: {
-				className: 'icon icon-mobile',
-				subMenuClassName: 'appList',
-				menuActionType: MenuActionTypeEnum.Link,
-			},
-			pathname: paths.appDownload.root,
-			allowCurrencies: [],
-			subMenuAllowCurrenciesWithAuth: false,
-		},
-		[MenuKeyEnum.CryptoSports]: {
-			display: 'all',
-			h5: {
-				className: 'crypto',
-				img: '/h5/img/cryptosports.png',
-				menuActionType: MenuActionTypeEnum.EnterPage,
-			},
-			desktop: {
-				className: 'cryptobtn',
-				menuType: 'banner',
-				subMenuClassName: 'cryptoList',
-				menuActionType: MenuActionTypeEnum.EnterPage,
-			},
-			product: PRODUCTS['SPORTS_CRYPTO_SPORTS'],
-			allowCurrencies: [],
-			subMenuAllowCurrenciesWithAuth: false,
-		},
+		// [MenuKeyEnum.AppDownload]: {
+		// 	display: 'desktop',
+		// 	h5: { menuActionType: MenuActionTypeEnum.Link },
+		// 	desktop: {
+		// 		className: 'icon icon-mobile',
+		// 		subMenuClassName: 'appList',
+		// 		menuActionType: MenuActionTypeEnum.Link,
+		// 	},
+		// 	pathname: paths.appDownload.root,
+		// 	allowCurrencies: [],
+		// 	subMenuAllowCurrenciesWithAuth: false,
+		// },
+		// [MenuKeyEnum.CryptoSports]: {
+		// 	display: 'all',
+		// 	h5: {
+		// 		className: 'crypto',
+		// 		img: '/h5/img/cryptosports.png',
+		// 		menuActionType: MenuActionTypeEnum.EnterPage,
+		// 	},
+		// 	desktop: {
+		// 		className: 'cryptobtn',
+		// 		menuType: 'banner',
+		// 		subMenuClassName: 'cryptoList',
+		// 		menuActionType: MenuActionTypeEnum.EnterPage,
+		// 	},
+		// 	product: PRODUCTS['SPORTS_CRYPTO_SPORTS'],
+		// 	allowCurrencies: [],
+		// 	subMenuAllowCurrenciesWithAuth: false,
+		// },
 
 		[MenuKeyEnum.Sports]: {
 			display: 'all',
@@ -866,7 +863,7 @@ export const MENU_DATA = ({
 
 		/// //////////////////////////////////////
 
-		[MenuKeyEnum.LiveCasino]: {
+		[MenuKeyEnum.Casino]: {
 			display: 'all',
 			h5: {
 				icon: 'icon icon-livecasino',
@@ -1709,7 +1706,7 @@ export const MENU_DATA = ({
 				},
 			],
 		},
-		[MenuKeyEnum.Slots]: {
+		[MenuKeyEnum.Slot]: {
 			display: 'all',
 			h5: {
 				icon: 'icon icon-icon_777',
@@ -2571,7 +2568,7 @@ export const MENU_DATA = ({
 			],
 			allowCurrencies: true,
 		},
-		[MenuKeyEnum.Games]: {
+		[MenuKeyEnum.Game]: {
 			display: 'all',
 			h5: {
 				icon: 'icon icon-play',

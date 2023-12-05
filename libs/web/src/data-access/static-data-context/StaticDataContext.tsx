@@ -12,8 +12,8 @@ import {
 	IStaticVipEventCurrenciesLimitationInfo,
 	ITermsConditions,
 	ILeftMenuData,
+	IMenuData,
 } from '@nx-next-app/types'
-import { IMenuData } from '@nx-next-app/features/F0001/types'
 
 export interface IStaticDataContext {
 	MENU_DATA: ({

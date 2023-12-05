@@ -1,7 +1,7 @@
 import React from 'react'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, LuckyWheel } from '@nx-next-app/features/F0001/h5'
+import { Layout, LuckyWheel } from '@nx-next-app/features/F0002/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -10,7 +10,7 @@ import { ALLOWED_CURRENCIES, EVENT_PERIOD } from '@nx-next-app/site/leobet'
 import { includes } from 'lodash-es'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { LuckWheelProvider } from '@nx-next-app/features/F0001/providers'
+import { LuckWheelProvider } from '@nx-next-app/features/F0002/providers'
 
 type ILuckyWheelPageProps = InitialPropsInterface
 

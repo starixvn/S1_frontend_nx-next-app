@@ -2,12 +2,12 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { CryptoWalletProvider } from '@nx-next-app/features/F0001/providers'
+import { CryptoWalletProvider } from '@nx-next-app/features/F0002/providers'
 import {
 	Layout,
 	LeftMenu,
 	CryptoWallet,
-} from '@nx-next-app/features/F0001/desktop'
+} from '@nx-next-app/features/F0002/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,

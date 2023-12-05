@@ -2,12 +2,12 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, LeftMenu, History } from '@nx-next-app/features/F0001/desktop'
+import { Layout, LeftMenu, History } from '@nx-next-app/features/F0002/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { HistoryProvider } from '@nx-next-app/features/F0001/providers'
+import { HistoryProvider } from '@nx-next-app/features/F0002/providers'
 import {
 	HISTORY_TABS,
 	QUICK_PICK_LIST,

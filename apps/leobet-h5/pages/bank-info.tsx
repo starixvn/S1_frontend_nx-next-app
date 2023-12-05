@@ -5,8 +5,8 @@ import {
 	useServerSideInitialPropsFetcher,
 	InitialPropsInterface,
 } from '@nx-next-app/hooks'
-import { BankInfoProvider } from '@nx-next-app/features/F0001/providers'
-import { Layout, BankInfo } from '@nx-next-app/features/F0001/h5'
+import { BankInfoProvider } from '@nx-next-app/features/F0002/providers'
+import { Layout, BankInfo } from '@nx-next-app/features/F0002/h5'
 
 const BankInfoPage = ({
 	originIsSignIn,

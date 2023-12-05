@@ -6,7 +6,7 @@ import {
 	getVipBanner,
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
-import { Layout, Vip } from '@nx-next-app/features/F0001/desktop'
+import { Layout, Vip } from '@nx-next-app/features/F0002/desktop'
 import { CurrenciesEnum, IFooterData } from '@nx-next-app/types'
 import {
 	InitialPropsInterface,

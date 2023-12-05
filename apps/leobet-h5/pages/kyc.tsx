@@ -3,8 +3,8 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Kyc, Layout } from '@nx-next-app/features/F0001/h5'
-import { WithdrawalProvider } from '@nx-next-app/features/F0001/providers'
+import { Kyc, Layout } from '@nx-next-app/features/F0002/h5'
+import { WithdrawalProvider } from '@nx-next-app/features/F0002/providers'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 

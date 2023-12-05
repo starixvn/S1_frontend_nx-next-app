@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMemo } from 'react'
-
-import { IMenuData } from '@nx-next-app/features/F0001/types'
-import { MenuKeyEnum } from '@nx-next-app/types'
+import { IMenuData, MenuKeyEnum } from '@nx-next-app/types'
 import { assign, cloneDeep, includes, isArray } from 'lodash-es'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { getIsTpMaintain } from '@nx-next-app/utils'
@@ -58,11 +56,12 @@ const useMenuData = () => {
 				})
 
 				// * 規則2: 有登入時，透過 tpIds 過濾不開放的遊戲，讓後端 api 可控制是否顯示遊戲
-				if (productTpIds) {
-					newSubMenu = newSubMenu.filter(({ product }) =>
-						includes(productTpIds, product?.TP_ID)
-					)
-				}
+				// * 更新：關閉此規則，之後會另開 api 來決定是否開關遊戲
+				// if (productTpIds) {
+				// 	newSubMenu = newSubMenu.filter(({ product }) =>
+				// 		includes(productTpIds, product?.TP_ID)
+				// 	)
+				// }
 
 				// * 規則3: 排序，根據 subMenuSort 的 productKey 做排序
 				if (subMenuSort && subMenuSort[currencyId]) {

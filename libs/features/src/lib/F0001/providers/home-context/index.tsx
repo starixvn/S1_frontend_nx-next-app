@@ -1,4 +1,4 @@
-import React, { createContext, useContext, ReactNode } from 'react'
+import React, { createContext, ReactNode, useContext } from 'react'
 import {
 	IAnnouncementData,
 	IBannerData,
@@ -7,6 +7,7 @@ import {
 	IHotGame,
 	INewsData,
 	IPromotionData,
+	ISlotsGameData,
 	ISocialChannelData,
 	IViewedGameData,
 	useGetAnnouncementQuery,
@@ -18,10 +19,9 @@ import {
 } from '@nx-next-app/service'
 import {
 	CurrenciesEnum,
-	DesktopHomeComponentsEnum,
 	DeviceTypeEnum,
 	IFooterData,
-	MobileHomeComponentsEnum,
+	ISubMenu,
 } from '@nx-next-app/types'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import dynamic from 'next/dynamic'
@@ -29,8 +29,9 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	CategoryEnum,
 	GameTypeEnum,
-	ISubMenu,
 	SocialChannelEnum,
+	MobileHomeComponentsEnum,
+	DesktopHomeComponentsEnum,
 } from '@nx-next-app/features/F0001/types'
 import { paths } from '@nx-next-app/constants'
 import { useRouter } from 'next/router'
@@ -49,6 +50,7 @@ interface IHomeProviderProps {
 	persistHotEventData: IHotEventData[]
 	persistHotGameData: IHotGame[]
 	persistNewsData: INewsData[]
+	persistSlotsGameData: ISlotsGameData
 	// For H5
 	persistLicenseData: IFooterData['licenseData']
 	persistProgramList: IFooterData['programList']
@@ -74,6 +76,7 @@ export interface HomeContextInterface {
 	recentlyViewedList: IViewedGameData[]
 	socialChannelList: ISocialChannelData[]
 	footerSocialChannelList: ISocialChannelData[]
+	slotGameData: ISlotsGameData
 	licenseData: IFooterData['licenseData']
 	affiliateData: { allowCurrencies: CurrenciesEnum[]; link: string }
 	referralData: { referralBonus: number | null; referralCode: string }
@@ -106,6 +109,18 @@ export interface HomeContextInterface {
 			underMaintenanceCallback,
 		}: { loginCallback: () => void; underMaintenanceCallback: () => void }
 	) => void
+	handleSlotGamePlay: (
+		{
+			tpId,
+			gameId,
+			playFree,
+		}: {
+			tpId: number
+			gameId: string
+			playFree?: boolean
+		},
+		{ loginCallback }: { loginCallback: () => void }
+	) => void
 	// HotEvent 元件使用
 	formatHdp: (hdp: number) => string | number
 }
@@ -137,17 +152,16 @@ const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
 // 如果沒指定則使用 default 排序並全開
 const defaultDesktopHomeOrders = [
-	DesktopHomeComponentsEnum.CarouselBanner,
 	DesktopHomeComponentsEnum.Marquee,
-	DesktopHomeComponentsEnum.PromotionMarquee,
-	DesktopHomeComponentsEnum.LatestVideoAndEvent,
-	DesktopHomeComponentsEnum.HotGameMarquee,
-	DesktopHomeComponentsEnum.RecentlyViewGames,
-	DesktopHomeComponentsEnum.NewsBlock,
-	DesktopHomeComponentsEnum.CenterBanner,
+	DesktopHomeComponentsEnum.CarouselBanner,
+	DesktopHomeComponentsEnum.WelcomeInfo,
+	DesktopHomeComponentsEnum.PromotionSwiper,
+	DesktopHomeComponentsEnum.HotMatch,
+	DesktopHomeComponentsEnum.LiveCasino,
+	DesktopHomeComponentsEnum.HotGame,
+	DesktopHomeComponentsEnum.AppDownloadBanner,
+	DesktopHomeComponentsEnum.OfficialPartner,
 	DesktopHomeComponentsEnum.LuckyWheel,
-	DesktopHomeComponentsEnum.QuickDownload,
-	DesktopHomeComponentsEnum.QuickLink,
 ]
 
 const defaultMobileHomeOrders = [
@@ -166,15 +180,16 @@ const defaultMobileHomeOrders = [
 
 export const HomeProvider = ({
 	children,
-	persistAnnouncementData,
+	persistNewsData,
+	persistProgramList,
 	persistBannerData,
 	persistPromotionData,
 	persistHotEventData,
-	persistLatestHighlightVideo,
 	persistHotGameData,
-	persistNewsData,
 	persistLicenseData,
-	persistProgramList,
+	persistSlotsGameData,
+	persistAnnouncementData,
+	persistLatestHighlightVideo,
 	desktopHomeOrders = defaultDesktopHomeOrders,
 	mobileHomeOrders = defaultMobileHomeOrders,
 }: IHomeProviderProps) => {
@@ -186,7 +201,7 @@ export const HomeProvider = ({
 		userInfo: { currencyId, langId },
 	} = useAuth()
 
-	const { ALLOWED_CURRENCIES } = useStaticData()
+	const { ALLOWED_CURRENCIES, SLOT_TP_GAME_TYPE } = useStaticData()
 
 	const { modal } = useGlobalModal()
 
@@ -315,8 +330,10 @@ export const HomeProvider = ({
 	const handleHotGameClick = (
 		{
 			game,
+			playFree = false,
 		}: {
 			game: IHotGame
+			playFree?: boolean
 		},
 		{
 			loginCallback,
@@ -336,12 +353,44 @@ export const HomeProvider = ({
 			underMaintenanceCallback()
 		} else if (tpCategory === CategoryEnum.SLOTS) {
 			onEnterSlotsPage(
-				{ tpId: String(tpId), gameId, tpGameType: String(tpGameType) },
+				{
+					tpId: String(tpId),
+					gameId,
+					tpGameType: String(tpGameType),
+					isFree: playFree,
+				},
 				{ loginCallback }
 			)
 		} else {
 			onEnterPage({ tpId, gameId, tpGameType, langId }, { loginCallback })
 		}
+	}
+
+	const handleSlotGamePlay = (
+		{
+			tpId,
+			gameId,
+			playFree = false,
+		}: {
+			tpId: number
+			gameId: string
+			playFree?: boolean
+		},
+		{ loginCallback }: { loginCallback: () => void }
+	) => {
+		const tpGameType =
+			find(Object.values(SLOT_TP_GAME_TYPE), { TP_ID: tpId })?.TP_GAME_TYPE ||
+			''
+
+		onEnterSlotsPage(
+			{
+				tpId: String(tpId),
+				tpGameType: String(tpGameType),
+				gameId,
+				isFree: playFree,
+			},
+			{ loginCallback }
+		)
 	}
 
 	const handleRecentlyViewGameClick = (
@@ -363,9 +412,9 @@ export const HomeProvider = ({
 		if (!isMaintain) {
 			// 非 Maintain 才做動作
 			let subMenu: ISubMenu | undefined
-			Object.values(menuData).forEach(item => {
+			Object.values(menuData).forEach((item: any) => {
 				const result = item.subMenu?.find(
-					({ product }) =>
+					({ product }: ISubMenu) =>
 						product?.TP_ID === tpId && product?.TP_GAME_TYPE === tpGameType
 				)
 				if (result !== undefined) {
@@ -388,6 +437,7 @@ export const HomeProvider = ({
 		footerSocialChannelList,
 		promotionData,
 		hotEventData,
+		slotGameData: persistSlotsGameData,
 		licenseData: persistLicenseData,
 		bannerData: persistBannerData,
 		latestHighlightVideo: persistLatestHighlightVideo,
@@ -399,6 +449,7 @@ export const HomeProvider = ({
 		handleMarqueeClick,
 		handleHotGameClick,
 		handleRecentlyViewGameClick,
+		handleSlotGamePlay,
 		formatHdp,
 	}
 

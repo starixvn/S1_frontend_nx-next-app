@@ -2,14 +2,11 @@ import {
 	CurrenciesEnum,
 	DeviceTypeEnum,
 	IEventPeriod,
-	MenuKeyEnum,
-} from '@nx-next-app/types'
-import {
 	IMenuData,
 	MenuActionTypeEnum,
-} from '@nx-next-app/features/F0001/types'
+	MenuKeyEnum,
+} from '@nx-next-app/types'
 import { paths, PRODUCTS } from '@nx-next-app/constants'
-
 import { ALLOWED_CURRENCIES } from './allowCurrency'
 
 /**
@@ -46,7 +43,11 @@ const PRODUCT_EVENT_PERIOD: {
 	},
 	IM: {
 		start: null,
-		end: '2023/12/31 22:59:59',
+		end: '2023/12/01 22:59:59',
+	},
+	SPORTS_E_SPORTS_TFG: {
+		start: null,
+		end: '2023/12/31 23:59:59',
 	},
 }
 
@@ -65,18 +66,6 @@ export const MENU_DATA = ({
 	langId: string
 }): IMenuData => {
 	return {
-		[MenuKeyEnum.Reward]: {
-			display: 'h5',
-			h5: {
-				className: 'reward',
-				img: '/h5/img/88rewards.png',
-				menuActionType: MenuActionTypeEnum.WindowOpen,
-			},
-			desktop: { menuActionType: MenuActionTypeEnum.WindowOpen },
-			pathname: `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/rewards/`,
-			allowCurrencies: true,
-			subMenuAllowCurrenciesWithAuth: false,
-		},
 		[MenuKeyEnum.Home]: {
 			display: 'desktop',
 			h5: { menuActionType: MenuActionTypeEnum.Link },
@@ -97,23 +86,12 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'home-vip.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'vipbg.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					displayText: 'VIP',
 					pathname: paths.vip.root,
 					allowCurrencies: ALLOWED_CURRENCIES['VIP'],
-					eventIcons: [
-						{
-							icon: 'icon icon-new',
-							text: 'NEW',
-							period: PRODUCT_EVENT_PERIOD['VIP'],
-						},
-					],
 				},
 				{
 					h5: { menuActionType: MenuActionTypeEnum.Link },
@@ -122,10 +100,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'home-ranking.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'rankingbg.png',
 							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
@@ -142,10 +116,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'home-refer.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'referbg.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -155,35 +125,51 @@ export const MENU_DATA = ({
 				},
 			],
 		},
-		[MenuKeyEnum.AppDownload]: {
-			display: 'desktop',
-			h5: { menuActionType: MenuActionTypeEnum.Link },
-			desktop: {
-				className: 'icon icon-mobile',
-				subMenuClassName: 'appList',
-				menuActionType: MenuActionTypeEnum.Link,
-			},
-			pathname: paths.appDownload.root,
-			allowCurrencies: true,
-			subMenuAllowCurrenciesWithAuth: false,
-		},
-		[MenuKeyEnum.CryptoSports]: {
+		[MenuKeyEnum.Reward]: {
 			display: 'all',
 			h5: {
-				className: 'crypto',
-				img: '/h5/img/cryptosports.png',
-				menuActionType: MenuActionTypeEnum.EnterPage,
+				className: 'reward',
+				img: '/h5/img/88rewards.png',
+				menuActionType: MenuActionTypeEnum.WindowOpen,
 			},
 			desktop: {
-				className: 'cryptobtn',
-				menuType: 'banner',
-				subMenuClassName: 'cryptoList',
-				menuActionType: MenuActionTypeEnum.EnterPage,
+				className: 'reward',
+				menuActionType: MenuActionTypeEnum.WindowOpen,
 			},
-			product: PRODUCTS['SPORTS_CRYPTO_SPORTS'],
-			allowCurrencies: true,
+			pathname: `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/rewards/`,
+			allowCurrencies: ALLOWED_CURRENCIES['REWARDS'],
 			subMenuAllowCurrenciesWithAuth: false,
 		},
+		// * 不提供此功能了
+		// [MenuKeyEnum.AppDownload]: {
+		// 	display: 'desktop',
+		// 	h5: { menuActionType: MenuActionTypeEnum.Link },
+		// 	desktop: {
+		// 		className: 'icon icon-mobile',
+		// 		subMenuClassName: 'appList',
+		// 		menuActionType: MenuActionTypeEnum.Link,
+		// 	},
+		// 	pathname: paths.appDownload.root,
+		// 	allowCurrencies: true,
+		// 	subMenuAllowCurrenciesWithAuth: false,
+		// },
+		// [MenuKeyEnum.CryptoSports]: {
+		// 	display: 'all',
+		// 	h5: {
+		// 		className: 'crypto',
+		// 		img: '/h5/img/cryptosports.png',
+		// 		menuActionType: MenuActionTypeEnum.EnterPage,
+		// 	},
+		// 	desktop: {
+		// 		className: 'cryptobtn',
+		// 		menuType: 'banner',
+		// 		subMenuClassName: 'cryptoList',
+		// 		menuActionType: MenuActionTypeEnum.EnterPage,
+		// 	},
+		// 	product: PRODUCTS['SPORTS_CRYPTO_SPORTS'],
+		// 	allowCurrencies: true,
+		// 	subMenuAllowCurrenciesWithAuth: false,
+		// },
 		[MenuKeyEnum.Sports]: {
 			display: 'all',
 			h5: {
@@ -231,10 +217,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'soccerNPC.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'soccerBG.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -255,10 +237,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'sabssoccerNPC.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'soccerBG.png',
 							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
@@ -282,10 +260,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'basketballNPC.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'basketballBG.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -306,10 +280,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'cricketNPC.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'cricketBG.png',
 							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
@@ -333,10 +303,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'badmintonNPC.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'badmintonBG.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -358,10 +324,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'volleyballNPC.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'volleyballBG.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -382,10 +344,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'betradarsoccerNPC.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'soccerBG.png',
 							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
@@ -448,10 +406,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: '9wnpc.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'cricketBG.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.UseGoToGame,
 					},
@@ -460,7 +414,7 @@ export const MENU_DATA = ({
 					product: PRODUCTS['SPORTS_9W_SPORTS'],
 					eventIcons: [
 						{
-							icon: 'icon icon-new',
+							icon: 'icon',
 							text: 'NEW',
 							period: PRODUCT_EVENT_PERIOD['SPORTS_9W'],
 						},
@@ -493,10 +447,7 @@ export const MENU_DATA = ({
 				// 				className: 'List-npc',
 				// 				imgUrl: 'esportALL.png',
 				// 			},
-				// 			{
-				// 				className: 'List-bg',
-				// 				imgUrl: 'eSportsListHover.png',
-				// 			},
+
 				// 		],
 				// 		lobbyPage: {
 				// 			bgImg: 'esposts-all.png',
@@ -516,10 +467,7 @@ export const MENU_DATA = ({
 				// 				className: 'List-npc',
 				// 				imgUrl: 'esportDOTA2.png',
 				// 			},
-				// 			{
-				// 				className: 'List-bg',
-				// 				imgUrl: 'eSportsListHover.png',
-				// 			},
+
 				// 		],
 				// 		lobbyPage: {
 				// 			bgImg: 'esposts-dota.png',
@@ -539,10 +487,7 @@ export const MENU_DATA = ({
 				// 				className: 'List-npc',
 				// 				imgUrl: 'esportLOL.png',
 				// 			},
-				// 			{
-				// 				className: 'List-bg',
-				// 				imgUrl: 'eSportsListHover.png',
-				// 			},
+
 				// 		],
 				// 		lobbyPage: {
 				// 			bgImg: 'esposts-lol.png',
@@ -562,10 +507,7 @@ export const MENU_DATA = ({
 				// 				className: 'List-npc',
 				// 				imgUrl: 'esportCS.png',
 				// 			},
-				// 			{
-				// 				className: 'List-bg',
-				// 				imgUrl: 'eSportsListHover.png',
-				// 			},
+
 				// 		],
 				// 		lobbyPage: {
 				// 			bgImg: 'esposts-cs.png',
@@ -585,10 +527,7 @@ export const MENU_DATA = ({
 				// 				className: 'List-npc',
 				// 				imgUrl: 'esportKOG.png',
 				// 			},
-				// 			{
-				// 				className: 'List-bg',
-				// 				imgUrl: 'eSportsListHover.png',
-				// 			},
+
 				// 		],
 				// 		lobbyPage: {
 				// 			bgImg: 'esposts-kog.png',
@@ -610,10 +549,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'esportSABA.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'eSportsListHover.png',
 							},
 						],
 						lobbyPage: {
@@ -637,10 +572,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'esportInplayMatrix.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'eSportsListHover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'esposts-inplaymatrix.png',
@@ -653,15 +584,44 @@ export const MENU_DATA = ({
 					product: PRODUCTS['SPORTS_E_IMESPORTS'],
 					eventIcons: [
 						{
-							icon: 'icon icon-new',
+							icon: 'new-icon',
 							text: 'NEW',
 							period: PRODUCT_EVENT_PERIOD['IM'],
 						},
 					],
 				},
+				{
+					h5: {
+						img: '/h5/img/esportTFG.png',
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'esportTFG.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'esposts-inplaymatrix.png',
+							hoverBgImg: 'esposts-inplaymatrixa.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'SPORTS_E_SPORTS_TFG',
+					displayKey: 'TFGaming',
+					product: PRODUCTS['SPORTS_E_SPORTS_TFG'],
+					eventIcons: [
+						{
+							icon: 'new-icon',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['SPORTS_E_SPORTS_TFG'],
+						},
+					],
+				},
 			],
 		},
-		[MenuKeyEnum.LiveCasino]: {
+		[MenuKeyEnum.Casino]: {
 			display: 'all',
 			h5: {
 				icon: 'icon icon-livecasino',
@@ -774,14 +734,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'casino-PP.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'ppBG.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'livecasinListHover.png',
-							},
 						],
 						lobbyPage: {
 							npcImg: 'casino_pp.png',
@@ -805,14 +757,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'casino-bg.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'bgbg.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'livecasinListHover.png',
-							},
 						],
 						lobbyPage: {
 							npcImg: 'casino_bg.png',
@@ -825,7 +769,7 @@ export const MENU_DATA = ({
 					product: PRODUCTS['LIVE_CASINO_BG'],
 					eventIcons: [
 						{
-							icon: 'icon icon-new',
+							icon: 'new-icon',
 							text: 'NEW',
 							period: PRODUCT_EVENT_PERIOD['LIVE_CASINO_BG'],
 						},
@@ -842,14 +786,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-yb.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'ybBG.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'livecasinListHover.png',
 							},
 						],
 						lobbyPage: {
@@ -874,14 +810,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'casino-SK.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'skbg.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'livecasinListHover.png',
-							},
 						],
 						lobbyPage: {
 							npcImg: 'casino_sk.png',
@@ -904,14 +832,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-mg.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'mgbg.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'livecasinListHover.png',
 							},
 						],
 						lobbyPage: {
@@ -936,14 +856,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'casino-ev.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'evbg.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'livecasinListHover.png',
-							},
 						],
 						lobbyPage: {
 							npcImg: 'casino_ev.png',
@@ -966,14 +878,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-pt.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'ptbg.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'livecasinListHover.png',
 							},
 						],
 						lobbyPage: {
@@ -998,14 +902,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'casino-n2.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'n2bg.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'livecasinListHover.png',
-							},
 						],
 						lobbyPage: {
 							npcImg: 'casino_n2.png',
@@ -1028,14 +924,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-WM.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'wmBG.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'livecasinListHover.png',
 							},
 						],
 						lobbyPage: {
@@ -1061,14 +949,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'casino-ALL.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'allBG.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'livecasinListHover.png',
-							},
 						],
 						lobbyPage: {
 							npcImg: 'casino_ab.png',
@@ -1091,26 +971,18 @@ export const MENU_DATA = ({
 						headerMenuImgList: [
 							{
 								className: 'List-npc',
-								imgUrl: 'casino-EB.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'ebBG.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'livecasinListHover.png',
+								imgUrl: 'casino-we.png',
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_eb.png',
+							npcImg: 'casino-we.png',
 							hoverBgImg: 'animation_img.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
-					productKey: 'LIVE_CASINO_E_BET',
-					displayText: 'eBET',
-					product: PRODUCTS['LIVE_CASINO_E_BET'],
+					productKey: 'LIVE_CASINO_WE',
+					displayText: 'WE',
+					product: PRODUCTS['LIVE_CASINO_WE'],
 				},
 				{
 					h5: {
@@ -1123,14 +995,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'casino-SA.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'saBG.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'livecasinListHover.png',
 							},
 						],
 						lobbyPage: {
@@ -1155,14 +1019,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'casino-DG.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'dgBG.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'livecasinListHover.png',
-							},
 						],
 						lobbyPage: {
 							npcImg: 'casino_dg.png',
@@ -1186,14 +1042,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'casino-AE.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'aeBG.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'livecasinListHover.png',
-							},
 						],
 						lobbyPage: {
 							npcImg: 'casino_ae.png',
@@ -1215,15 +1063,7 @@ export const MENU_DATA = ({
 						headerMenuImgList: [
 							{
 								className: 'List-npc',
-								imgUrl: 'casino-AG.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'agBG.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'livecasinListHover.png',
+								imgUrl: 'casino-ag.png',
 							},
 						],
 						lobbyPage: {
@@ -1235,10 +1075,11 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_AG',
 					displayText: 'Asia Gaming',
 					product: PRODUCTS['LIVE_CASINO_AG'],
+					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_AG'],
 				},
 			],
 		},
-		[MenuKeyEnum.Slots]: {
+		[MenuKeyEnum.Slot]: {
 			display: 'all',
 			h5: {
 				icon: 'icon icon-icon_777',
@@ -1372,10 +1213,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'slotPP.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -1399,10 +1236,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'slotSG.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -1424,11 +1257,7 @@ export const MENU_DATA = ({
 						headerMenuImgList: [
 							{
 								className: 'List-npc',
-								imgUrl: 'slotapnew.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
+								imgUrl: 'slotap.png',
 							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
@@ -1454,10 +1283,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'slotPG.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -1482,10 +1307,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'slotmg.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -1508,10 +1329,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'slotji.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
 							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
@@ -1536,10 +1353,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'slotJOKER.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -1562,10 +1375,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'slotrt.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
 							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
@@ -1590,10 +1399,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'slotnt.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -1616,10 +1421,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'slotCQ9.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
 							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
@@ -1644,10 +1445,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'slotGPI.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -1671,10 +1468,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'slotYGG.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -1697,10 +1490,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'slotam.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
 							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
@@ -1726,10 +1515,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'slotho.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -1752,10 +1537,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'slotSimplePlay.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
 							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
@@ -1780,10 +1561,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'slotsk.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -1807,10 +1584,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'slotpt.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'slotListHover.png',
-							},
 						],
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -1825,7 +1598,7 @@ export const MENU_DATA = ({
 			],
 			allowCurrencies: true,
 		},
-		[MenuKeyEnum.Games]: {
+		[MenuKeyEnum.Game]: {
 			display: 'all',
 			h5: {
 				icon: 'icon icon-play',
@@ -1881,10 +1654,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'mp.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'tablelisthover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'gamemp.png',
@@ -1908,10 +1677,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'am.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'tablelisthover.png',
 							},
 						],
 						lobbyPage: {
@@ -1937,10 +1702,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'vg.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'tablelisthover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'gamevg.png',
@@ -1965,10 +1726,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'km.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'tablelisthover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'gamekim.png',
@@ -1992,10 +1749,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'gameSpribeAviator.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'tablelisthover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'gamespribe-aciator.png',
@@ -2008,7 +1761,7 @@ export const MENU_DATA = ({
 					product: PRODUCTS['GAME_AVIATOR'],
 					eventIcons: [
 						{
-							icon: 'icon icon-new',
+							icon: 'icon',
 							text: 'NEW',
 							period: PRODUCT_EVENT_PERIOD['IM'],
 						},
@@ -2026,10 +1779,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'gameSpribeMines.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'tablelisthover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'gamespribe-mines.png',
@@ -2042,7 +1791,7 @@ export const MENU_DATA = ({
 					product: PRODUCTS['GAME_MINES'],
 					eventIcons: [
 						{
-							icon: 'icon icon-new',
+							icon: 'icon',
 							text: 'NEW',
 							period: PRODUCT_EVENT_PERIOD['IM'],
 						},
@@ -2060,10 +1809,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'gameSpribeGoal.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'tablelisthover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'gamespribe-goal.png',
@@ -2076,7 +1821,7 @@ export const MENU_DATA = ({
 					product: PRODUCTS['GAME_GOAL'],
 					eventIcons: [
 						{
-							icon: 'icon icon-new',
+							icon: 'icon',
 							text: 'NEW',
 							period: PRODUCT_EVENT_PERIOD['IM'],
 						},
@@ -2094,10 +1839,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'gameSpribeDice.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'tablelisthover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'gamespribe-dice.png',
@@ -2110,7 +1851,7 @@ export const MENU_DATA = ({
 					product: PRODUCTS['GAME_DICE'],
 					eventIcons: [
 						{
-							icon: 'icon icon-new',
+							icon: 'icon',
 							text: 'NEW',
 							period: PRODUCT_EVENT_PERIOD['IM'],
 						},
@@ -2127,10 +1868,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'ap.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'tablelisthover.png',
 							},
 						],
 						lobbyPage: {
@@ -2154,10 +1891,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'jili.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'tablelisthover.png',
 							},
 						],
 						lobbyPage: {
@@ -2248,10 +1981,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'hb.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'fishListHover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'fishhb.png',
@@ -2274,10 +2003,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'hf5.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'fishListHover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'fishhf.png',
@@ -2299,10 +2024,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'ma.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'fishListHover.png',
 							},
 						],
 						lobbyPage: {
@@ -2327,10 +2048,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'paradise.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'fishListHover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'fishpd.png',
@@ -2353,10 +2070,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'fishGG.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'fishListHover.png',
 							},
 						],
 						lobbyPage: {
@@ -2381,10 +2094,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'fishSGwar.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'fishListHover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'fishfw.png',
@@ -2407,10 +2116,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'fishSG.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'fishListHover.png',
 							},
 						],
 						lobbyPage: {
@@ -2435,10 +2140,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'oneshotfishing.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'fishListHover.png',
 							},
 						],
 						lobbyPage: {
@@ -2477,10 +2178,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'lo-gpikeno.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'gameListHover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'lotterygpikeno.png',
@@ -2502,10 +2199,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'lo-gpithai.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'gameListHover.png',
 							},
 						],
 						lobbyPage: {
@@ -2530,10 +2223,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'lo-gpifast3.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'gameListHover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'lotterygpifast3.png',
@@ -2556,10 +2245,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'lo-tcg.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'gameListHover.png',
 							},
 						],
 						lobbyPage: {
@@ -2584,10 +2269,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'lo-keno.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'gameListHover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'lotteryke.png',
@@ -2611,10 +2292,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'lo-lottery.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'gameListHover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'lotterylo.png',
@@ -2637,10 +2314,6 @@ export const MENU_DATA = ({
 							{
 								className: 'List-npc',
 								imgUrl: 'lo-numberGame.png',
-							},
-							{
-								className: 'List-bg',
-								imgUrl: 'gameListHover.png',
 							},
 						],
 						lobbyPage: {
@@ -2666,10 +2339,6 @@ export const MENU_DATA = ({
 								className: 'List-npc',
 								imgUrl: 'lo-tableGame.png',
 							},
-							{
-								className: 'List-bg',
-								imgUrl: 'gameListHover.png',
-							},
 						],
 						lobbyPage: {
 							bgImg: 'lotteryta.png',
@@ -2694,7 +2363,7 @@ export const MENU_DATA = ({
 				menuType: 'banner',
 				eventIcons: [
 					{
-						icon: 'icon icon-mediafire',
+						icon: 'icon mediafire',
 						text: 'HOT',
 						period: PRODUCT_EVENT_PERIOD['PROMOS'],
 					},

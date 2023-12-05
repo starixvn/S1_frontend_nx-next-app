@@ -88,12 +88,14 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
 	},
 ]
 
+// * headerUrl 目前只有支援 desktop
 export const VIP_CLUB_IMAGES = (deviceType: number): IImageData[] => [
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip1.png`,
 		displayKey: 'Label_Vip_Vintage_Club',
+		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-vintage.png`,
 		levelTabsName: 'vintage',
 		level: VIP_LEVEL.VIP_LEVEL_VINTAGE,
 		alt: 'vip01',
@@ -103,6 +105,7 @@ export const VIP_CLUB_IMAGES = (deviceType: number): IImageData[] => [
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip2.png`,
 		displayKey: 'Label_Vip_Silver_Club',
+		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-silver.png`,
 		levelTabsName: 'silver',
 		level: VIP_LEVEL.VIP_LEVEL_SILVER,
 		alt: 'vip02',
@@ -112,6 +115,7 @@ export const VIP_CLUB_IMAGES = (deviceType: number): IImageData[] => [
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip3.png`,
 		displayKey: 'Label_Vip_Gold_Club',
+		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-gold.png`,
 		levelTabsName: 'gold',
 		level: VIP_LEVEL.VIP_LEVEL_GOLD,
 		alt: 'vip03',
@@ -121,6 +125,7 @@ export const VIP_CLUB_IMAGES = (deviceType: number): IImageData[] => [
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip4.png`,
 		displayKey: 'Label_Vip_Titanium_Club',
+		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-titanium.png`,
 		levelTabsName: 'titanium',
 		level: VIP_LEVEL.VIP_LEVEL_TITANIUM,
 		alt: 'vip04',
@@ -130,6 +135,7 @@ export const VIP_CLUB_IMAGES = (deviceType: number): IImageData[] => [
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip5.png`,
 		displayKey: 'Label_Vip_Diamond_Club',
+		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-diamond.png`,
 		levelTabsName: 'diamond',
 		level: VIP_LEVEL.VIP_LEVEL_DIAMOND,
 		alt: 'vip05',
@@ -139,6 +145,7 @@ export const VIP_CLUB_IMAGES = (deviceType: number): IImageData[] => [
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip6.png`,
 		displayKey: 'Label_Nova_Club',
+		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-nova.png`,
 		levelTabsName: 'nova',
 		level: VIP_LEVEL.VIP_LEVEL_NOVA,
 		alt: 'vip06',

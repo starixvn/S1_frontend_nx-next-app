@@ -3,30 +3,25 @@ import { useGetSeoQuery, useGetSocialChannelQuery } from '@nx-next-app/service'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { SocialChannelEnum } from 'libs/features/src/lib/F0001/types'
 import { IFooterData } from 'libs/web/src/app/types/footer'
+import { useTranslation } from 'next-i18next'
+import { upperFirst } from 'lodash-es'
 
-const LayoutFooter = ({
-	footerData,
-	isFullFooter = false,
-}: {
-	footerData: IFooterData
-	isFullFooter: boolean
-}) => {
+const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 	const {
-		copyRightList,
-		platformList,
-		programList,
-		programDescriptionList,
+		quickLinks,
 		licenseData,
 		suggestedBrowser,
 		paymentMethodsByCurrencyId,
+		promotionTextList,
 	} = footerData
 
 	const {
 		userInfo: { currencyId, langId },
 	} = useAuth()
-
 	const { META_DATA } = useStaticData()
-
+	const { t } = useTranslation()
+	const year = new Date().getFullYear()
+	const site = upperFirst(process.env['NEXT_PUBLIC_SITE_NAME'])
 	const {
 		data: { data: socialChannelList = [] } = {},
 		isLoading: isGetSocialChannelListLoading,
@@ -68,40 +63,23 @@ const LayoutFooter = ({
 
 	return (
 		<Footer>
-			{!!copyRightList && <Footer.CopyRight copyRightList={copyRightList} />}
-
-			{!!platformList && isFullFooter && (
-				<Footer.PlatForm platformList={platformList} />
-			)}
-
-			{(!!programList && programList?.length > 0) ||
-				(!!programDescriptionList &&
-					programDescriptionList?.length > 0 &&
-					isFullFooter && (
-						<div className='footerList'>
-							{!!programList && (
-								<Footer.ProgramList programList={programList} />
-							)}
-
-							{!!programDescriptionList && isFullFooter && (
-								<Footer.ProgramDescriptionList
-									promotionTextList={programDescriptionList}
-								/>
-							)}
-						</div>
-					))}
-
-			{isFullFooter && (
+			<div className='footer-top'>
+				{!!quickLinks && <Footer.QuickLinks quickLinks={quickLinks} />}
+				{isGetSocialChannelListLoading ? null : (
+					<Footer.SocialMedia socialChannelList={socialChannelList} />
+				)}
+			</div>
+			<div className='footer-center'>
 				<Footer.License licenseData={licenseData} seoData={seoData} />
-			)}
-
-			{isGetSocialChannelListLoading ? null : (
-				<Footer.Sfp
-					suggestedBrowser={suggestedBrowser}
+				<Footer.SuggestBrowser suggestedBrowser={suggestedBrowser} />
+				<Footer.PaymentMethod
 					paymentMethodsByCurrencyId={paymentMethodsByCurrencyId}
-					socialChannelList={socialChannelList}
 				/>
-			)}
+			</div>
+			<div className='copyright'>
+				{t('Label_Footer_Copyright', { year, site })}
+			</div>
+			<Footer.PromotionText promotionTextList={promotionTextList} />
 		</Footer>
 	)
 }

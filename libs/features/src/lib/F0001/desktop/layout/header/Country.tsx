@@ -1,15 +1,26 @@
 import { Header } from '@nx-next-app/components/D0001'
 import { useLanguageGroup } from '@nx-next-app/hooks'
+import classNames from 'classnames'
+import { useRef } from 'react'
+import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 
 const Country = () => {
 	const { icon, languageGroup, onSetLanguage } = useLanguageGroup()
+	const ref = useRef(null)
+	const { value: isActive, toggle, setFalse } = useBoolean(false)
+
+	useOnClickOutside(ref, setFalse)
 
 	return (
-		<Header.Function.Country
-			icon={icon}
-			langGroup={languageGroup}
-			onSetLanguage={onSetLanguage}
-		/>
+		<div ref={ref} className={classNames('country', { active: isActive })}>
+			<Header.Function.Country
+				icon={icon}
+				toggle={toggle}
+				isActive={isActive}
+				langGroup={languageGroup}
+				onSetLanguage={onSetLanguage}
+			/>
+		</div>
 	)
 }
 

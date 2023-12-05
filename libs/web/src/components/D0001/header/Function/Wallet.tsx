@@ -72,101 +72,101 @@ const Wallet = ({
 	return (
 		<div
 			ref={ref}
-			className={classNames('wallet icon icon-balance', {
+			className={classNames('home-balance', {
 				active: isWalletActive,
 			})}
 			onClick={toggleWalletActive}
 		>
-			<span>
+			<a className='wallet'> {t('Label_General_Balance')} </a>
+			<div className='balance-money'>
+				<SpinButton className='icon-spinner' onClick={onRefetchAllWallet} />
 				{`${currencyName} `}
-				{!isHideBalance && numFormatToDigits(totalWalletBalance)}
-			</span>
+				{!isHideBalance ? numFormatToDigits(totalWalletBalance) : '****'}
 
-			<button
-				className={classNames('icon', {
-					'icon-minus': !isHideBalance,
-					'icon-plus': isHideBalance,
-				})}
-				onClick={e => {
-					e.stopPropagation()
-					toggleHideBalance()
-				}}
-			>
-				{' '}
-			</button>
-
-			<SpinButton onClick={onRefetchAllWallet} />
-
-			<div className='submenu'>
-				<div className='balance'>
-					<span>{currencyName}</span>
-					<span>
-						{numberFormat(totalWalletBalance, currencyId)}
-						<SpinButton onClick={onRefetchAllWallet} />
-					</span>
-				</div>
-
-				<div className='walletBalance'>
-					<div className='walletName'>
-						<span>{t('Label_Wallet_MainWallet')}</span>
-						<span>{numberFormat(balance || 0, currencyId)}</span>
-					</div>
-					{custBonusWalletList?.map(item => {
-						const { turnover, rollover, promoCategoryId, bonus, tpId } = item
-
-						const percentage =
-							turnover > rollover
-								? 100
-								: ((turnover / rollover) * 100).toFixed(2)
-						return (
-							<div key={tpId}>
-								<div>
-									<span>
-										{t(`Label_Wallet_BonusWallet_${promoCategoryId}`)}
-									</span>
-									<span>{bonus}</span>
-								</div>
-								<div className='progressBar'>
-									<div className='bar'>
-										<div
-											className='progress'
-											style={{ width: `${percentage}%` }}
-										/>
-									</div>
-									<div className='percentage'>{percentage}%</div>
-								</div>
-							</div>
-						)
+				<button
+					className={classNames('icon', {
+						'icon-minus': !isHideBalance,
+						'icon-plus': isHideBalance,
 					})}
-				</div>
+					onClick={e => {
+						e.stopPropagation()
+						toggleHideBalance()
+					}}
+				/>
+			</div>
 
-				{tpWalletBalanceList?.map(({ tpName, balance, tpId }) => (
-					<div className='walletBalance' key={tpId}>
-						<div className='walletName'>
-							<span>{tpName}</span>
-							<span>{numberFormat(balance, currencyId)}</span>
-						</div>
+			<div className='home-balance'>
+				<div className='balance-submenu'>
+					<div className='balance'>
+						<span>{currencyName}</span>
+						<span>
+							{numberFormat(totalWalletBalance, currencyId)}
+							<SpinButton onClick={onRefetchAllWallet} />
+						</span>
 					</div>
-				))}
 
-				<div className='btnGroup'>
-					<Link href={paths.deposit.root} passHref>
-						<a className='orange'>{t('Label_General_Deposit')}</a>
-					</Link>
-					<Link href={paths.transferFunds.root} passHref>
-						<a className='orange'>{t('Label_General_TransferFunds')}</a>
-					</Link>
-				</div>
-				<div className='loginLog'>
-					<span>{t('Label_General_LastLogin')}</span>
-					<span>{dayjs(lastLogin).format('L LT')}</span>
-				</div>
-				<div className='transactionLog'>
-					<span>{t('Label_General_LastTransaction')}</span>
+					<div className='walletBalance'>
+						<div className='walletName'>
+							<span>{t('Label_Wallet_MainWallet')}</span>
+							<span>{numberFormat(balance || 0, currencyId)}</span>
+						</div>
+						{custBonusWalletList?.map(item => {
+							const { turnover, rollover, promoCategoryId, bonus, tpId } = item
 
-					<span>
-						{lastTransaction && dayjs(lastTransaction).format('L LT')}
-					</span>
+							const percentage =
+								turnover > rollover
+									? 100
+									: ((turnover / rollover) * 100).toFixed(2)
+							return (
+								<div key={tpId}>
+									<div>
+										<span>
+											{t(`Label_Wallet_BonusWallet_${promoCategoryId}`)}
+										</span>
+										<span>{bonus}</span>
+									</div>
+									<div className='progressBar'>
+										<div className='bar'>
+											<div
+												className='progress'
+												style={{ width: `${percentage}%` }}
+											/>
+										</div>
+										<div className='percentage'>{percentage}%</div>
+									</div>
+								</div>
+							)
+						})}
+					</div>
+
+					{tpWalletBalanceList?.map(({ tpName, balance, tpId }) => (
+						<div className='walletBalance' key={tpId}>
+							<div className='walletName'>
+								<span>{tpName}</span>
+								<span>{numberFormat(balance, currencyId)}</span>
+							</div>
+						</div>
+					))}
+
+					<div className='btnGroup'>
+						<Link href={paths.deposit.root} passHref>
+							<a className='orange'>{t('Label_General_Deposit')}</a>
+						</Link>
+						<Link href={paths.transferFunds.root} passHref>
+							<a className='orange'>{t('Label_General_TransferFunds')}</a>
+						</Link>
+					</div>
+					<div className='loginLog'>
+						<span>{t('Label_General_LastLogin')}</span>
+						<span>{dayjs(lastLogin).format('L LT')}</span>
+					</div>
+					<div className='transactionLog'>
+						<span>{t('Label_General_LastTransaction')}</span>
+
+						<span>
+							{lastTransaction && dayjs(lastTransaction).format('L LT')}
+						</span>
+					</div>
 				</div>
 			</div>
 		</div>
