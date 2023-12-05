@@ -12,9 +12,9 @@ import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import { useSetHideBalanceMutation } from '@nx-next-app/service'
 import { useHome } from '@nx-next-app/features/F0002/providers'
-
+import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0002/types'
 import dynamic from 'next/dynamic'
-import { CurrenciesEnum, MobileHomeComponentsEnum } from '@nx-next-app/types'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import { multiEqual } from '@nx-next-app/utils'
 import Menu from './menu'
 

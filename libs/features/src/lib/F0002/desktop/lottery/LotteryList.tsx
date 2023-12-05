@@ -6,7 +6,7 @@ import { ReactIdSwiperProps } from 'react-id-swiper'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useMenu } from '@nx-next-app/features/F0002/hooks'
 import { useTranslation } from 'next-i18next'
-import { ISubMenu } from '../../types'
+import { ISubMenu } from '@nx-next-app/types'
 import LotteryListItem from './LotteryListItem'
 
 const LoginModal = dynamic(
@@ -55,7 +55,7 @@ const LotteryList = () => {
 		<section className='inside'>
 			<div className='rightModule'>
 				<Carousel>
-					{subMenu?.map(item => (
+					{subMenu?.map((item: ISubMenu) => (
 						<LotteryListItem
 							className={classNames('swiper-slide', {
 								active: item.isTpMaintain,

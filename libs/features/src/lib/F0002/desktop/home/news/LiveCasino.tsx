@@ -21,7 +21,7 @@ const LiveCasino = () => {
 	const { modal } = useGlobalModal()
 
 	const casinoDG = find(
-		menuData.LiveCasino.subMenu,
+		menuData.Casino.subMenu,
 		menu => menu.productKey === 'LIVE_CASINO_DG'
 	)
 

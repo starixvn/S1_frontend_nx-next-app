@@ -21,7 +21,7 @@ const LiveCasino = () => {
 	const { menuData, onMenuOpen } = useMenu()
 	const { modal } = useGlobalModal()
 
-	const liveCasinoMenu = menuData.LiveCasino.subMenu
+	const liveCasinoMenu = menuData.Casino.subMenu
 
 	const ppCasino = find(
 		liveCasinoMenu,

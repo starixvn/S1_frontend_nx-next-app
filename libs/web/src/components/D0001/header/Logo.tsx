@@ -5,22 +5,19 @@ import { paths } from '../../../app/constants'
 interface ILogoProps {
 	logoUrl: string
 	rewardsUrl: string
+	showSpLogo: boolean
 }
 
-const Logo = ({ logoUrl, rewardsUrl }: ILogoProps) => {
+const Logo = ({ logoUrl, rewardsUrl, showSpLogo }: ILogoProps) => {
 	return (
 		<div className='logo'>
 			<Link className='logo' href={paths.home.root}>
 				<a>
-					<Image
-						src={logoUrl}
-						alt='logo'
-						width={187}
-						height={40}
-						style={{ width: '187px', height: '40px' }}
-					/>
+					<img src={logoUrl} alt='logo' />
 				</a>
 			</Link>
+			{showSpLogo && <a className='splogo' />}
+
 			{process.env['NEXT_PUBLIC_SHOW_REWARD'] === 'true' && (
 				<Link
 					href={`${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/rewards/`}

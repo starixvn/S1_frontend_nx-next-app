@@ -2,11 +2,11 @@ import { useState } from 'react'
 import Image from 'next/future/image'
 import classNames from 'classnames'
 import { getMainEventIcon, useMenu } from '@nx-next-app/features/F0002/hooks'
-import { MenuActionTypeEnum } from '@nx-next-app/features/F0002/types'
+
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 import { useTranslation } from 'next-i18next'
-import { MenuKeyEnum } from '@nx-next-app/types'
+import { MenuActionTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import SubMenu from './SubMenu'
 

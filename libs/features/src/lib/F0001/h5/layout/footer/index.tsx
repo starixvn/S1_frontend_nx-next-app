@@ -40,7 +40,7 @@ const LayoutFooter = () => {
 					>
 						<div className='circleAnimation' />
 						<span>{t('Label_General_Promotion')}</span>
-						<div className='icon icon-mediafire'>HOT</div>
+						<div className='icon mediafire'>HOT</div>
 					</a>
 				</Link>
 

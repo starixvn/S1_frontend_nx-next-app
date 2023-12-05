@@ -27,6 +27,7 @@ export enum DeviceTypeEnum {
 export interface IImageData {
 	url: string
 	alt: string
+	headerUrl?: string
 	displayKey?: string
 	levelTabsName?: string
 	level?: number
@@ -80,6 +81,7 @@ export interface IStaticAllowedCurrencies {
 
 	LIVE_CASINO_WM?: CurrenciesEnum[]
 	LIVE_CASINO_ALL_BET?: CurrenciesEnum[]
+	LIVE_CASINO_AG?: CurrenciesEnum[]
 
 	SLOTS_AMB?: CurrenciesEnum[]
 
@@ -162,14 +164,14 @@ export enum BonusTypeEnum {
 export enum MenuKeyEnum {
 	'Sports' = 'Sports',
 	'Reward' = 'Reward',
-	'LiveCasino' = 'LiveCasino',
+	'Casino' = 'Casino',
 	'Exchange' = 'Exchange',
 	'Home' = 'Home',
-	'AppDownload' = 'AppDownload',
-	'CryptoSports' = 'CryptoSports',
+	// 'AppDownload' = 'AppDownload',
+	// 'CryptoSports' = 'CryptoSports',
 	'ESports' = 'ESports',
-	'Slots' = 'Slots',
-	'Games' = 'Games',
+	'Slot' = 'Slot',
+	'Game' = 'Game',
 	'Fishing' = 'Fishing',
 	'Lottery' = 'Lottery',
 	'Promotion' = 'Promotion',
@@ -218,3 +220,4 @@ export * from './footer'
 export * from './promotion'
 export * from './history'
 export * from './deposit'
+export * from './menu'

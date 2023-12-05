@@ -17,17 +17,21 @@ import {
 	useGetReferralSettingQuery,
 	useGetSocialChannelQuery,
 } from '@nx-next-app/service'
-import { CurrenciesEnum, DeviceTypeEnum, IFooterData } from '@nx-next-app/types'
+import {
+	CurrenciesEnum,
+	DeviceTypeEnum,
+	IFooterData,
+	ISubMenu,
+} from '@nx-next-app/types'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	CategoryEnum,
-	DesktopHomeComponentsEnum,
 	GameTypeEnum,
-	ISubMenu,
-	MobileHomeComponentsEnum,
 	SocialChannelEnum,
+	MobileHomeComponentsEnum,
+	DesktopHomeComponentsEnum,
 } from '@nx-next-app/features/F0001/types'
 import { paths } from '@nx-next-app/constants'
 import { useRouter } from 'next/router'
@@ -408,9 +412,9 @@ export const HomeProvider = ({
 		if (!isMaintain) {
 			// 非 Maintain 才做動作
 			let subMenu: ISubMenu | undefined
-			Object.values(menuData).forEach(item => {
+			Object.values(menuData).forEach((item: any) => {
 				const result = item.subMenu?.find(
-					({ product }) =>
+					({ product }: ISubMenu) =>
 						product?.TP_ID === tpId && product?.TP_GAME_TYPE === tpGameType
 				)
 				if (result !== undefined) {

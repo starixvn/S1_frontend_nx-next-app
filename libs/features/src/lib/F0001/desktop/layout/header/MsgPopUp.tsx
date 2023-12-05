@@ -20,46 +20,48 @@ const MsgPopUp = () => {
 	const isPopupMsgActive = !!popupMsg?.id && isMessagePage
 
 	return (
-		<Link
-			href={{
-				pathname: paths.message.root,
-			}}
-		>
-			<a
-				className={classNames('icon icon-email', {
-					active: isPopupCountActive,
-				})}
+		<div className={classNames('message active')}>
+			<Link
+				href={{
+					pathname: paths.message.root,
+				}}
 			>
-				{isPopupMsgActive && !isHided && (
-					<div className='msgPop'>
-						<div
-							onClick={() => {
-								router.push({
-									pathname: paths.message.root,
-									query: {
-										msgId: popupMsg?.id ? popupMsg.id : undefined,
-										popUpPageNumber: popupMsg.pageNumber
-											? popupMsg.pageNumber
-											: undefined,
-									},
-								})
-							}}
-						>
-							{popupMsg?.popupMessage}
-						</div>
-
-						<button
-							className='icon icon-close'
-							onClick={e => {
-								e.preventDefault()
-								e.stopPropagation()
-								setTrue()
-							}}
-						/>
+				<a>
+					<img
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/message.png`}
+						alt=''
+					/>
+				</a>
+			</Link>
+			{isPopupCountActive && <div className='message-text' />}
+			{isPopupMsgActive && !isHided && (
+				<div className='msgPop'>
+					<div
+						onClick={() => {
+							router.push({
+								pathname: paths.message.root,
+								query: {
+									msgId: popupMsg?.id ? popupMsg.id : undefined,
+									popUpPageNumber: popupMsg.pageNumber
+										? popupMsg.pageNumber
+										: undefined,
+								},
+							})
+						}}
+					>
+						{popupMsg?.popupMessage}
 					</div>
-				)}
-			</a>
-		</Link>
+					<button
+						className='icon icon-close'
+						onClick={e => {
+							e.preventDefault()
+							e.stopPropagation()
+							setTrue()
+						}}
+					/>
+				</div>
+			)}
+		</div>
 	)
 }
 

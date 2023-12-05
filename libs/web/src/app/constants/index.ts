@@ -19,6 +19,7 @@ export const CURRENCY_TO_LANG_KEY: {
 	61: 'in',
 	72: 'kh',
 	74: 'bd',
+	51: 'vn',
 }
 
 export const LANG_GROUP_COUNTRY: {
@@ -32,6 +33,7 @@ export const LANG_GROUP_COUNTRY: {
 	gb: 'Global',
 	bd: 'Bangladesh',
 	kh: 'Cambodia',
+	vn: 'Vietnam',
 }
 
 export const DEVICE_TYPE = {

@@ -43,68 +43,68 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 		} = menuData[key as MenuKeyEnum]
 
 		// * AppDownload 的元件較獨特，非 menu 也非 banner, 因此先獨立出來實作
-		if (key === MenuKeyEnum.AppDownload) {
-			return (
-				<button
-					key={key}
-					className={classNames(subMenuClassName, {
-						active: key === debouncedMenuKey,
-					})}
-					onMouseEnter={() => setMenuKey(key)}
-					onMouseLeave={() => setMenuKey(undefined)}
-					onClick={() =>
-						onMenuOpen(
-							{
-								desktop: { menuActionType },
-								pathname,
-								query,
-								product,
-							},
-							{
-								loginCallback: () => modal.open(<LoginModal />),
-								messageCallBack: message => modal.error(message),
-							}
-						)
-					}
-				>
-					<div>
-						<div className='txt-orange'>
-							{upperCase(process.env['NEXT_PUBLIC_SITE_NAME'])}
-						</div>
-						<div>{t('Label_APP_DOWNLOAD_Title')}</div>
-						<div className='appListQrcode'>
-							{appDownloadLinks?.map(item => (
-								<div key={item.downloadLink}>
-									<QRCode
-										value={item.downloadLink}
-										renderAs='svg'
-										size={112}
-										includeMargin
-									/>
-									{item.appTypeName === 'Andriod' && (
-										<Image
-											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/appdownload_and.jpg`}
-											alt='Andriod Download'
-											height={100}
-											width={100}
-										/>
-									)}
+		// if (key === MenuKeyEnum.AppDownload) {
+		// 	return (
+		// 		<button
+		// 			key={key}
+		// 			className={classNames(subMenuClassName, {
+		// 				active: key === debouncedMenuKey,
+		// 			})}
+		// 			onMouseEnter={() => setMenuKey(key)}
+		// 			onMouseLeave={() => setMenuKey(undefined)}
+		// 			onClick={() =>
+		// 				onMenuOpen(
+		// 					{
+		// 						desktop: { menuActionType },
+		// 						pathname,
+		// 						query,
+		// 						product,
+		// 					},
+		// 					{
+		// 						loginCallback: () => modal.open(<LoginModal />),
+		// 						messageCallBack: message => modal.error(message),
+		// 					}
+		// 				)
+		// 			}
+		// 		>
+		// 			<div>
+		// 				<div className='txt-orange'>
+		// 					{upperCase(process.env['NEXT_PUBLIC_SITE_NAME'])}
+		// 				</div>
+		// 				<div>{t('Label_APP_DOWNLOAD_Title')}</div>
+		// 				<div className='appListQrcode'>
+		// 					{appDownloadLinks?.map(item => (
+		// 						<div key={item.downloadLink}>
+		// 							<QRCode
+		// 								value={item.downloadLink}
+		// 								renderAs='svg'
+		// 								size={112}
+		// 								includeMargin
+		// 							/>
+		// 							{item.appTypeName === 'Andriod' && (
+		// 								<Image
+		// 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/appdownload_and.jpg`}
+		// 									alt='Andriod Download'
+		// 									height={100}
+		// 									width={100}
+		// 								/>
+		// 							)}
 
-									{item.appTypeName === 'IOS' && (
-										<Image
-											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/appdownload_ios.jpg`}
-											alt='IOS Download'
-											height={100}
-											width={100}
-										/>
-									)}
-								</div>
-							))}
-						</div>
-					</div>
-				</button>
-			)
-		}
+		// 							{item.appTypeName === 'IOS' && (
+		// 								<Image
+		// 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/appdownload_ios.jpg`}
+		// 									alt='IOS Download'
+		// 									height={100}
+		// 									width={100}
+		// 								/>
+		// 							)}
+		// 						</div>
+		// 					))}
+		// 				</div>
+		// 			</div>
+		// 		</button>
+		// 	)
+		// }
 
 		if (menuType === 'banner') {
 			return (
