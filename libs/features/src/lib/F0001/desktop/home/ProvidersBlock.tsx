@@ -12,8 +12,8 @@ const ProvidersBlock = () => {
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
 	const { menuData, onMenuOpen } = useMenu()
-	const liveCasinoMenu = menuData.LiveCasino.subMenu
-	const slotMenu = menuData.Slots.subMenu
+	const liveCasinoMenu = menuData.Casino.subMenu
+	const slotMenu = menuData.Slot.subMenu
 	const lotteryMenu = menuData.Lottery.subMenu
 
 	const providerKeys = [
@@ -86,7 +86,7 @@ const ProvidersBlock = () => {
 		},
 		{
 			item: find(
-				menuData.Games.subMenu,
+				menuData.Game.subMenu,
 				obj => obj.productKey === 'GAMES_POKER_M_POKER'
 			),
 			imgName: 'mp',
@@ -146,7 +146,7 @@ const ProvidersBlock = () => {
 			imgName: 'es',
 		},
 		{
-			item: find(liveCasinoMenu, obj => obj.productKey === 'LIVE_CASINO_E_BET'),
+			item: find(liveCasinoMenu, obj => obj.productKey === 'LIVE_CASINO_WE'),
 			imgName: 'we',
 		},
 		{

@@ -58,7 +58,7 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			currencyId: CurrenciesEnum.INR,
 		},
 		{
-			displayText: 'Hindi',
+			displayText: 'हिंदी',
 			value: 'hi',
 			currencyId: CurrenciesEnum.INR,
 		},

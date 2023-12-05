@@ -40,7 +40,7 @@ const HotGame = () => {
 	const [showHotGameNavigation, setShowHotGameNavigation] = useState(false)
 	const [showJackpotNavigation, setShowJackpotNavigation] = useState(false)
 
-	const slotMenu = menuData.Slots.subMenu
+	const slotMenu = menuData.Slot.subMenu
 
 	const slotPP = find(slotMenu, menu => menu.productKey === 'SLOTS_PP')
 	const slotSG = find(slotMenu, menu => menu.productKey === 'SLOTS_SG')

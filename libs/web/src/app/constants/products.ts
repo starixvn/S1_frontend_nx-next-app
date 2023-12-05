@@ -120,6 +120,11 @@ export const PRODUCTS = {
 		TP_ID: 45,
 		TP_GAME_TYPE: 87,
 	},
+	SPORTS_E_SPORTS_TFG: {
+		TP_ID: 48,
+		GAME_ID: 0,
+		TP_GAME_TYPE: 97,
+	},
 	// * SLOTS
 	SLOTS_JILI: {
 		TP_ID: 32,
@@ -221,7 +226,7 @@ export const PRODUCTS = {
 		TP_ID: 12,
 		TP_GAME_TYPE: 6,
 	},
-	LIVE_CASINO_E_BET: {
+	LIVE_CASINO_WE: {
 		GAME_ID: 18,
 		TP_ID: 18,
 		TP_GAME_TYPE: 28,

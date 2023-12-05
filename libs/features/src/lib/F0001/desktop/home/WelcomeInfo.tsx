@@ -6,7 +6,7 @@ import { paths } from '@nx-next-app/constants'
 import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { MenuActionTypeEnum } from '@nx-next-app/features/F0001/types'
+import { MenuActionTypeEnum } from '@nx-next-app/types'
 
 const LoginModal = dynamic(() => import('../modal/LoginModal'), {
 	ssr: false,

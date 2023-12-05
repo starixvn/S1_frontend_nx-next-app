@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import GameListItem from '@nx-next-app/components/D0002/game-list-item'
 import { useTranslation } from 'next-i18next'
 import classNames from 'classnames'
-import { ISubMenu } from '../../types'
+import { ISubMenu } from '@nx-next-app/types'
 
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0002/desktop/modal/LoginModal'),
@@ -32,7 +32,7 @@ const GameList = () => {
 	return (
 		<section className='inside'>
 			<div className='rightModule'>
-				{subMenu?.map(item => (
+				{subMenu?.map((item: ISubMenu) => (
 					<GameListItem
 						className={classNames('gameItem', { active: item.isTpMaintain })}
 						style={{ pointerEvents: item.isTpMaintain ? 'none' : 'auto' }}

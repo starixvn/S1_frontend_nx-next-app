@@ -68,8 +68,8 @@ const Menu = () => {
 							>
 								<div
 									className={classNames(
-										// * 主選單的 icon 如果是 new 要替換成 star-full
-										icon === 'icon icon-new' ? 'icon icon-star-full' : icon
+										// * 主選單的 icon 如果是 new 要替換成 icon
+										icon === 'new-icon' ? 'icon' : icon
 									)}
 								>
 									{text}
