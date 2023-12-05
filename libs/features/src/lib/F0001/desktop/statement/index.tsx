@@ -44,7 +44,7 @@ const Statement = () => {
 							value={activePeriod}
 							defaultValue={activePeriod}
 							prefixText={t('Label_History_QuickPick') as string}
-							onChange={value => onQuickPickChange(value, false)}
+							onChange={value => onQuickPickChange(value as number, false)}
 						/>
 					</div>
 					<div className='btnGroup' onClick={onSearch}>

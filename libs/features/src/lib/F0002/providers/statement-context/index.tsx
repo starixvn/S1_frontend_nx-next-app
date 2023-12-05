@@ -122,8 +122,9 @@ const StatementProvider = ({
 	const breadcrumbs = [
 		{ displayKey: t('Label_History_QuickPick'), value: null },
 		{
-			displayKey:
-				QuickPickData[(activePeriod as QuickPickEnum) ?? QuickPickEnum.Today],
+			displayKey: t(
+				QuickPickData[(activePeriod as QuickPickEnum) ?? QuickPickEnum.Today]
+			),
 			value: '',
 		},
 		{ displayKey: t('Label_General_ByDay'), value: 'byDay' },

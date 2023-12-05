@@ -30,7 +30,7 @@ interface IStatementProviderProps {
 
 export interface IStatementContextInterface {
 	QUICK_PICK_LIST: { value: QuickPickEnum; label: string }[]
-	activePeriod: number | string | undefined
+	activePeriod: number
 	displayColumns: (
 		| ICustTpBetRecordListDateRangeData
 		| ICustTpBetRecordListOneDayData
@@ -47,22 +47,21 @@ export interface IStatementContextInterface {
 	HEADER_TAGS: { label: string; href: string }[]
 	tabsRef?: React.MutableRefObject<null | HTMLDivElement>
 	onPageChange: ({ selected }: { selected: number }) => void
-	onQuickPickChange: (
-		newPeriod: string | number | undefined,
-		isSearch: boolean
-	) => void
+	onQuickPickChange: (newPeriod: number, isSearch: boolean) => void
 	onDetails: ({
 		targetTab,
 		selDate,
 		categoryId,
 		gameTypeId,
 		pageNumber,
+		period,
 	}: {
 		targetTab: string
 		selDate: string
 		categoryId?: number
 		gameTypeId?: number
 		pageNumber?: number
+		period?: number
 	}) => void
 	onTabChange: (newTab: string) => void
 	onTabsScroll?: () => void
@@ -93,8 +92,11 @@ const StatementProvider = ({
 	const { t } = useTranslation()
 	const router = useRouter()
 	const tabsRef = useRef<HTMLDivElement | null>(null)
-	const [activePeriod, setActivePeriod] = useState<number | string | undefined>(
-		QuickPickEnum.Today
+	const [activePeriod, setActivePeriod] = useState<number>(
+		Number(router.query['period']) || QuickPickEnum.Today
+	)
+	const [recordPeriod, setRecordPeriod] = useState<number>(
+		Number(router.query['period']) ?? QuickPickEnum.Today
 	)
 	const [activeTab, setActiveTab] = useState<string | null>('')
 	const [startDate, setStartDate] = useState<Date | null>(
@@ -122,8 +124,9 @@ const StatementProvider = ({
 	const breadcrumbs = [
 		{ displayKey: t('Label_History_QuickPick'), value: null },
 		{
-			displayKey:
-				QuickPickData[(activePeriod as QuickPickEnum) ?? QuickPickEnum.Today],
+			displayKey: t(
+				QuickPickData[(recordPeriod as QuickPickEnum) ?? QuickPickEnum.Today]
+			),
 			value: '',
 		},
 		{ displayKey: t('Label_General_ByDay'), value: 'byDay' },
@@ -197,10 +200,7 @@ const StatementProvider = ({
 		setActiveTab(newTab)
 	}
 
-	const onQuickPickChange = (
-		newPeriod: string | number | undefined,
-		isSearch = true
-	) => {
+	const onQuickPickChange = (newPeriod: number, isSearch = true) => {
 		setActivePeriod(newPeriod)
 		updateDateRangeByPeriod(newPeriod)
 		const dateRangeData: Record<string, { startDate: Date; endDate: Date }> = {
@@ -233,8 +233,8 @@ const StatementProvider = ({
 			onDetails({
 				targetTab: '',
 				selDate: '',
-				newStartDate: dateRangeData[newPeriod as string].startDate as Date,
-				newEndDate: dateRangeData[newPeriod as string].endDate as Date,
+				newStartDate: dateRangeData[newPeriod].startDate as Date,
+				newEndDate: dateRangeData[newPeriod].endDate as Date,
 			})
 	}
 
@@ -257,6 +257,7 @@ const StatementProvider = ({
 		pageNumber,
 		newStartDate,
 		newEndDate,
+		period,
 	}: {
 		targetTab: string
 		selDate: string
@@ -265,6 +266,7 @@ const StatementProvider = ({
 		pageNumber?: number
 		newStartDate?: Date
 		newEndDate?: Date
+		period?: number
 	}) => {
 		const args = {
 			pageNumber: pageNumber ?? currentPage,
@@ -298,8 +300,9 @@ const StatementProvider = ({
 				delete router.query['byDetail']
 				setActiveTab('')
 				setUrlArgs({
-					startDate: dayjs(startDate).format('YYYY-MM-DD'),
-					endDate: dayjs(endDate).format('YYYY-MM-DD'),
+					period: period ?? activePeriod,
+					startDate: dayjs(newStartDate ?? startDate).format('YYYY-MM-DD'),
+					endDate: dayjs(newEndDate ?? endDate).format('YYYY-MM-DD'),
 					pageNumber: currentPage,
 					pageSize: 10,
 				})
@@ -311,6 +314,7 @@ const StatementProvider = ({
 				delete router.query['byDetail']
 				setActiveTab('byDay')
 				setUrlArgs({
+					period: period ?? activePeriod,
 					...(typeof router.query === 'object' ? router.query : {}),
 					...{
 						byDay: Object.keys(args)
@@ -318,6 +322,7 @@ const StatementProvider = ({
 							.join('&'),
 					},
 				})
+
 				break
 
 			case 'byCategory':
@@ -328,6 +333,7 @@ const StatementProvider = ({
 				delete router.query['byDetail']
 				setActiveTab('byCategory')
 				setUrlArgs({
+					period: period ?? activePeriod,
 					...(typeof router.query === 'object' ? router.query : {}),
 					...{
 						byCategory: Object.keys({
@@ -351,6 +357,7 @@ const StatementProvider = ({
 				}).unwrap()
 				setActiveTab('byDetail')
 				setUrlArgs({
+					period: period ?? activePeriod,
 					...(typeof router.query === 'object' ? router.query : {}),
 					...{
 						byDetail: Object.keys({ ...args, gameTypeId: gameTypeId as number })
@@ -375,6 +382,8 @@ const StatementProvider = ({
 			default:
 				break
 		}
+		setActivePeriod(period ?? activePeriod)
+		setRecordPeriod(period ?? activePeriod)
 		setCurrentPage(result?.pageNumber ?? 1)
 		setTotalPage(result?.totalPages ?? 1)
 		setDisplayColumns(result?.data ?? [])
@@ -415,7 +424,8 @@ const StatementProvider = ({
 		}
 	}
 
-	const onSearch = () => onDetails({ targetTab: '', selDate: '' })
+	const onSearch = () =>
+		onDetails({ targetTab: '', selDate: '', period: activePeriod })
 
 	const init = async () => {
 		let newTab = ''
@@ -432,6 +442,7 @@ const StatementProvider = ({
 		const queryString: string = router.query[newTab as string] as string
 
 		const targetSelDate = queryString?.match(/selDate=([^&]+)/)?.[1]
+
 		const queryObject: Record<string, string> = {}
 		if (newTab) {
 			queryString.split('&').forEach((pair: string) => {
@@ -442,7 +453,17 @@ const StatementProvider = ({
 		onDetails({
 			targetTab: newTab as string,
 			selDate: targetSelDate as string,
-			...(newTab !== '' ? queryObject : router.query),
+			...(newTab !== ''
+				? queryObject
+				: {
+						...router.query,
+						newStartDate: dayjs(router.query['startDate'] as string).format(
+							'YYYY-MM-DD'
+						),
+						newEndDate: dayjs(router.query['endDate'] as string).format(
+							'YYYY-MM-DD'
+						),
+				  }),
 		})
 	}
 
@@ -452,7 +473,7 @@ const StatementProvider = ({
 
 	const value: IStatementContextInterface = {
 		QUICK_PICK_LIST,
-		activePeriod,
+		activePeriod: Number(activePeriod),
 		displayColumns,
 		activeTab,
 		breadcrumbs,
