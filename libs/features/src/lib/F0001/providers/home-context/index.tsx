@@ -50,7 +50,7 @@ interface IHomeProviderProps {
 	persistHotEventData: IHotEventData[]
 	persistHotGameData: IHotGame[]
 	persistNewsData: INewsData[]
-	persistSlotsGameData: ISlotsGameData
+	persistSlotsGameData?: ISlotsGameData
 	// For H5
 	persistLicenseData: IFooterData['licenseData']
 	persistProgramList: IFooterData['programList']
@@ -76,7 +76,7 @@ export interface HomeContextInterface {
 	recentlyViewedList: IViewedGameData[]
 	socialChannelList: ISocialChannelData[]
 	footerSocialChannelList: ISocialChannelData[]
-	slotGameData: ISlotsGameData
+	slotGameData?: ISlotsGameData
 	licenseData: IFooterData['licenseData']
 	affiliateData: { allowCurrencies: CurrenciesEnum[]; link: string }
 	referralData: { referralBonus: number | null; referralCode: string }

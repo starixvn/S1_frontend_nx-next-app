@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useTranslation } from 'next-i18next'
-import { ISubMenu } from '../../types'
+import { ISubMenu } from '@nx-next-app/types'
 import LiveCasinoListItem from './LiveCasinoListItem'
 
 const LoginModal = dynamic(
@@ -18,7 +18,7 @@ const LiveCasinoList = () => {
 	const { t } = useTranslation()
 	const {
 		menuData: {
-			LiveCasino: { subMenu },
+			Casino: { subMenu },
 		},
 		onMenuOpen,
 	} = useMenu()

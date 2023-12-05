@@ -18,7 +18,7 @@ const LiveCasinoList = () => {
 	const { t } = useTranslation()
 	const {
 		menuData: {
-			LiveCasino: { subMenu },
+			Casino: { subMenu },
 		},
 		onMenuOpen,
 	} = useMenu()
