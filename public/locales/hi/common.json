@@ -13,6 +13,7 @@
   "Label_AppDownload_Instructions": "निर्देश",
   "Label_Apply_Now": "अभी अप्लाई करें",
   "Label_BankInfo_AccountNumber": "खाता संख्या",
+  "Label_BankInfo_AccountWrongFormat": "खाता संख्या प्रारूप गलत है",
   "Label_BankInfo_AddBankAccount": "बैंक खाता जोड़ें",
   "Label_BankInfo_AddNewAccount": "नया खाता जोड़ें",
   "Label_BankInfo_AreYouSureDelete": "क्या आप वाकई इसॆ हटाना चाहते हैं?",

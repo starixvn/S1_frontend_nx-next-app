@@ -13,6 +13,7 @@
   "Label_AppDownload_Instructions": "Hướng dẫn",
   "Label_Apply_Now": "Đăng ký Ngay",
   "Label_BankInfo_AccountNumber": "Số tài khoản",
+  "Label_BankInfo_AccountWrongFormat": "Định dạng số tài khoản không đúng",
   "Label_BankInfo_AddBankAccount": "Thêm Tài Khoản",
   "Label_BankInfo_AddNewAccount": "Thêm tài khoản",
   "Label_BankInfo_AreYouSureDelete": "Bạn có chắc muốn xóa?",

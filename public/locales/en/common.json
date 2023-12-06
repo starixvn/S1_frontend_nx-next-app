@@ -13,6 +13,7 @@
   "Label_AppDownload_Instructions": "Instructions",
   "Label_Apply_Now": "Apply Now",
   "Label_BankInfo_AccountNumber": "Account Number",
+  "Label_BankInfo_AccountWrongFormat": "Account Number format is wrong.",
   "Label_BankInfo_AddBankAccount": "Add Bank Account",
   "Label_BankInfo_AddNewAccount": "Add New Account",
   "Label_BankInfo_AreYouSureDelete": "Are you sure you want to delete?",

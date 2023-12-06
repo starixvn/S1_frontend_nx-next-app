@@ -13,6 +13,7 @@
   "Label_AppDownload_Instructions": "নির্দেশনা",
   "Label_Apply_Now": "এখন আবেদন কর",
   "Label_BankInfo_AccountNumber": "হিসাব নাম্বার",
+  "Label_BankInfo_AccountWrongFormat": "অ্যাকাউন্ট নম্বর বিন্যাস ভুল",
   "Label_BankInfo_AddBankAccount": "ব্যাংক অ্যাকাউন্ট যোগ করুন",
   "Label_BankInfo_AddNewAccount": "নতুন অ্যাকাউন্ট যোগ করুন",
   "Label_BankInfo_AreYouSureDelete": "আপনি মুছে ফেলতে চান?",
