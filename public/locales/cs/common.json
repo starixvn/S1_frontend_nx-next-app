@@ -13,6 +13,7 @@
   "Label_AppDownload_Instructions": "指示详情",
   "Label_Apply_Now": "立即申请",
   "Label_BankInfo_AccountNumber": "帐户号码",
+  "Label_BankInfo_AccountWrongFormat": "帐号格式错误",
   "Label_BankInfo_AddBankAccount": "新增银行帐户",
   "Label_BankInfo_AddNewAccount": "新增账户",
   "Label_BankInfo_AreYouSureDelete": "确定要删除么？",

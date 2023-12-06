@@ -13,6 +13,7 @@
   "Label_AppDownload_Instructions": "instruksi",
   "Label_Apply_Now": "Ajukan Sekarang",
   "Label_BankInfo_AccountNumber": "Nomor Akun",
+  "Label_BankInfo_AccountWrongFormat": "Kesalahan pada nomor akun",
   "Label_BankInfo_AddBankAccount": "Tambahkan Rekening Bank",
   "Label_BankInfo_AddNewAccount": "Tambahkan akun baru",
   "Label_BankInfo_AreYouSureDelete": "Apakah anda yakin untuk menghapus?",
