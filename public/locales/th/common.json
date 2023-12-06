@@ -13,6 +13,7 @@
   "Label_AppDownload_Instructions": "คำแนะนำ",
   "Label_Apply_Now": "สมัครเลย",
   "Label_BankInfo_AccountNumber": "หมายเลขบัญชี",
+  "Label_BankInfo_AccountWrongFormat": "หมายเลขบัญชีไม่ถูกต้อง",
   "Label_BankInfo_AddBankAccount": "เพิ่มธนาคาร",
   "Label_BankInfo_AddNewAccount": "เพิ่มบัญชีใหม่",
   "Label_BankInfo_AreYouSureDelete": "คุณแน่ใจหรือว่าต้องการลบ?",

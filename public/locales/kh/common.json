@@ -13,6 +13,7 @@
   "Label_AppDownload_Instructions": "សេចក្តីណែនាំ",
   "Label_Apply_Now": "ដាក់ពាក្យឥឡូវនេះ",
   "Label_BankInfo_AccountNumber": "លេខគណនី",
+  "Label_BankInfo_AccountWrongFormat": "ទម្រង់លេខគណនី ខុស",
   "Label_BankInfo_AddBankAccount": "បន្ថែមគណនីធនាគារ",
   "Label_BankInfo_AddNewAccount": "បន្ថែមគណនីថ្មី",
   "Label_BankInfo_AreYouSureDelete": "តើអ្នកប្រាកដថាចង់លុបចោលទេ?",
