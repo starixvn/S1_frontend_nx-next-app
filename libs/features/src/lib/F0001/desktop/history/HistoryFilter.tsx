@@ -8,7 +8,7 @@ const HistoryFilter = () => {
 	const {
 		startDate,
 		endDate,
-		activeTab,
+		activePeriod,
 		QUICK_PICK_LIST,
 		onQuickPickChange,
 		onStartDateChange,
@@ -24,21 +24,23 @@ const HistoryFilter = () => {
 					options={QUICK_PICK_LIST}
 					isTranslation
 					placeholder='-'
-					value={activeTab}
-					defaultValue={activeTab}
+					value={activePeriod}
+					defaultValue={activePeriod}
 					prefixText={t('Label_History_QuickPick') as string}
 					onChange={value => onQuickPickChange(value)}
 				/>
 			</div>
 			<div className='inputBox-blue'>
 				<i className='txt-blue'>{t('Label_History_From')}</i>
-				<DateSelector
-					selected={startDate}
-					onChange={(date: Date | null) => onStartDateChange(date)}
-					selectsStart
-					startDate={startDate}
-					endDate={endDate}
-				/>
+				<div className='rdt'>
+					<DateSelector
+						selected={startDate}
+						onChange={(date: Date | null) => onStartDateChange(date)}
+						selectsStart
+						startDate={startDate}
+						endDate={endDate}
+					/>
+				</div>
 				<div className='iconModule'>
 					<i className='icon icon-calendar' />
 				</div>
@@ -46,14 +48,16 @@ const HistoryFilter = () => {
 
 			<div className='inputBox-blue'>
 				<i className='txt-blue'>{t('Label_History_To')}</i>
-				<DateSelector
-					selected={endDate}
-					onChange={(date: Date | null) => onEndDateChange(date)}
-					selectsEnd
-					startDate={startDate}
-					endDate={endDate}
-					minDate={startDate}
-				/>
+				<div className='rdt'>
+					<DateSelector
+						selected={endDate}
+						onChange={(date: Date | null) => onEndDateChange(date)}
+						selectsEnd
+						startDate={startDate}
+						endDate={endDate}
+						minDate={startDate}
+					/>
+				</div>
 				<div className='iconModule'>
 					<i className='icon icon-calendar' />
 				</div>

@@ -67,6 +67,7 @@ export interface SlotsContextInterface {
 	isNavInView: boolean
 	isGameListInView: boolean
 	isFavorite: boolean
+	isActiveDropdown: boolean
 	onVendorChange: ({
 		tpId,
 		openPath,
@@ -103,6 +104,7 @@ export interface SlotsContextInterface {
 		gameId: string
 		playFree: boolean
 	}) => void
+	onToggleDropdown: () => void
 }
 
 export const SlotsContext = createContext<SlotsContextInterface>(
@@ -152,9 +154,8 @@ const SlotsProvider = ({
 	const [activeVendorTpId, setActiveVendorTpId] = useState<
 		number | string | null
 	>(null)
-	const [vendorList, setVendorList] = useState<IVendorData[]>(
+	const vendorList: IVendorData[] =
 		persistSlotsGameData.providerList as IVendorData[]
-	)
 	const [searchCategoryText, setSearchCategoryText] = useState('')
 	const [activeCategoryKey, setActiveCategoryKey] =
 		useState<keyof ISlotsGameData>('all')
@@ -175,6 +176,7 @@ const SlotsProvider = ({
 		  })
 		| null
 	>(null)
+	const [isActiveDropdown, setIsActiveDropdown] = useState(false)
 
 	const [setFavoriteGame, { isLoading: isSetFavoriteGameLoading }] =
 		useSetFavoriteGameMutation()
@@ -353,6 +355,10 @@ const SlotsProvider = ({
 		setActiveGame(targetData)
 	}
 
+	const onToggleDropdown = () => {
+		setIsActiveDropdown(prev => !prev)
+	}
+
 	useEffect(() => {
 		// * 首次進入slots計算整理myFavorites
 		if (isFirstRender) {
@@ -375,13 +381,13 @@ const SlotsProvider = ({
 
 			const targetIndex = findIndex(vendorList, { tpId: Number(queryTpId) })
 
-			// * 將 queryTpId 找到的 vendor slice 到第一個選項並 selected
+			// * 當指定廠牌不在頁面上時,展開下拉
 			if (targetIndex !== -1) {
-				const newVendorList = [
-					...vendorList.slice(targetIndex),
-					...vendorList.slice(0, targetIndex),
-				]
-				setVendorList(newVendorList)
+				if (targetIndex > 5) {
+					setIsActiveDropdown(true)
+				} else {
+					setIsActiveDropdown(false)
+				}
 				setActiveVendorTpId(vendorList[targetIndex].tpId)
 			}
 		}
@@ -499,6 +505,7 @@ const SlotsProvider = ({
 		isNavInView,
 		isGameListInView,
 		isFavorite: includes(myFavorites, activeGame?.gameId),
+		isActiveDropdown,
 		onVendorChange,
 		onCategoryChange,
 		onSearchCategoryTextChange,
@@ -507,6 +514,7 @@ const SlotsProvider = ({
 		onFavoritesToggle,
 		onGameActive,
 		onGamePlay,
+		onToggleDropdown,
 	}
 
 	return <SlotsContext.Provider value={value}>{children}</SlotsContext.Provider>

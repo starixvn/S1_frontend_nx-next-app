@@ -15,7 +15,6 @@ const BankSelect = () => {
 	const { withdrawalType, bankData, selectedBankInfo, handleSelectCard } =
 		useWithdrawal()
 	const { bankInfoDetail, custEWalletInfo } = bankData
-
 	const showIFSC =
 		currencyId === CurrenciesEnum.INR &&
 		withdrawalType === WithdrawalBankCardEnum.LocalBank
@@ -43,16 +42,17 @@ const BankSelect = () => {
 		switch (withdrawalType) {
 			case WithdrawalBankCardEnum.LocalBank:
 				return bankInfoDetail.map(info => {
-					const { sysId, accountNo, bankName, bankLogo, ifscCode } = info
+					const { sysId, accountNo, bankName, bankLogo, ifscCode, disabled } =
+						info
 					const selected =
 						selectedBankInfo?.sysId === sysId &&
 						selectedBankInfo?.accountNo === accountNo
 
 					return (
 						<button
-							className={classNames({ active: selected })}
+							disabled={disabled}
+							className={classNames({ active: selected, pending: disabled })}
 							key={`${info.sysId}-${info.accountNo}`}
-							data-testid='bank-icon'
 							onClick={() =>
 								handleSelectCard({
 									bankName,
@@ -63,6 +63,12 @@ const BankSelect = () => {
 								})
 							}
 						>
+							{disabled && (
+								<div className='mask'>
+									{t('Label_General_UnderMaintenance')}
+								</div>
+							)}
+
 							<img
 								src={`${
 									process.env['NEXT_PUBLIC_PAYMENT_HOST']

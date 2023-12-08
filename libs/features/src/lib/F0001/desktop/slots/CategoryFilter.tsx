@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useSlots } from '@nx-next-app/features/F0001/providers'
 
@@ -6,18 +7,18 @@ const CategoryFilter = () => {
 	const { categoryKeys, activeCategoryKey, onCategoryChange } = useSlots()
 	const { t } = useTranslation()
 	return (
-		<div className='btnGroup promoType'>
+		<div className='select-bar'>
 			{categoryKeys.map(value => {
 				return (
-					<button
+					<div
 						key={`casino-nav-${value}`}
-						className={activeCategoryKey === value ? 'btn-check' : 'blueBorder'}
+						className={classNames({ active: activeCategoryKey === value })}
 						onClick={() => onCategoryChange(value)}
 					>
 						{t(
 							`Label_General_${value.charAt(0).toUpperCase() + value.slice(1)}`
 						)}
-					</button>
+					</div>
 				)
 			})}
 		</div>

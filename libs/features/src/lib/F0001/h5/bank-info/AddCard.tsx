@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next'
 import Image from 'next/future/image'
 import { useAuth } from '@nx-next-app/data-access'
 import { CurrenciesEnum } from '@nx-next-app/types'
-import { IFSC_CODE_REGEX } from '@nx-next-app/constants'
+import { IFSC_CODE_REGEX, BANK_ACCOUNT_REGEX } from '@nx-next-app/constants'
 import { useBankInfo } from '@nx-next-app/features/F0001/providers'
 import { Form, Select, InputBox } from '@nx-next-app/components/H0001'
 import { Loading } from '@nx-next-app/components/D0001'
@@ -69,9 +69,12 @@ const AddCard = () => {
 						value: true,
 						message: t('Label_BankInfo_NeedAccountNo'),
 					},
+					pattern: {
+						value: BANK_ACCOUNT_REGEX,
+						message: t('Label_BankInfo_AccountWrongFormat'),
+					},
 					onBlur: () => trigger('accountNo'),
 				})}
-				type='number'
 				icon='icon-newspaper'
 				placeholder={t('Label_BankInfo_AccountNumber') as string}
 				touched={!!touchedFields['accountNo']}

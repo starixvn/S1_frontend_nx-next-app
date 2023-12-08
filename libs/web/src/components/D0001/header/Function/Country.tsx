@@ -1,10 +1,12 @@
 import classNames from 'classnames'
 import { LANG_GROUP_COUNTRY } from '@nx-next-app/constants'
-import { useRef, Fragment } from 'react'
-import { useBoolean, useOnClickOutside } from 'usehooks-ts'
+import { Fragment } from 'react'
 
 interface ICountryProps {
 	icon: string | null
+	isActive: boolean
+	selectedText?: string
+	toggle: () => void
 	onSetLanguage: ({
 		langCode,
 		currencyId,
@@ -21,26 +23,27 @@ interface ICountryProps {
 	}
 }
 
-const Country = ({ icon, onSetLanguage, langGroup }: ICountryProps) => {
-	const ref = useRef(null)
-
-	const { value: isOpen, toggle, setFalse } = useBoolean(false)
-	useBoolean()
-
-	useOnClickOutside(ref, setFalse)
-
+const Country = ({
+	icon,
+	isActive,
+	langGroup,
+	selectedText,
+	toggle,
+	onSetLanguage,
+}: ICountryProps) => {
 	return (
-		<div ref={ref} className={classNames('country', { active: isOpen })}>
+		<>
 			<button
 				type='button'
 				aria-label='country-flag'
-				className={classNames('flag', icon)}
+				className={classNames('flag arrow', icon)}
 				onClick={toggle}
+				style={{ whiteSpace: 'nowrap' }}
 			>
-				{' '}
+				{selectedText && selectedText}
 			</button>
 
-			<div className='countryList'>
+			<div className={classNames('countryList', { active: isActive })}>
 				{Object.entries(langGroup).map(([lang, item]) => (
 					<Fragment key={lang}>
 						<div className='countryName' key={lang}>
@@ -68,7 +71,7 @@ const Country = ({ icon, onSetLanguage, langGroup }: ICountryProps) => {
 					</Fragment>
 				))}
 			</div>
-		</div>
+		</>
 	)
 }
 

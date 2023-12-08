@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
+import Image from 'next/future/image'
 import { useAuth } from '@nx-next-app/data-access'
 import { useSlots } from '@nx-next-app/features/F0001/providers'
 
@@ -21,7 +22,7 @@ const GameList = () => {
 
 	return slotsGameList && slotsGameList.length > 0 ? (
 		<Suspense>
-			<div className='slotList'>
+			<div className='slots-list'>
 				{slotsGameList.map(
 					({
 						tpId,
@@ -45,69 +46,79 @@ const GameList = () => {
 
 						return (
 							<div
-								className={classNames({ active: isMaintain })}
+								className='slots-list-item'
 								style={{
 									pointerEvents: isMaintain ? 'none' : 'auto',
 								}}
 								key={`casino-game-${tpId}-${gameId}`}
 							>
-								<div className='brand'>
-									<span>{resultGameImgDisplayText}</span>
+								{isMaintain && (
+									<div className='under'>
+										{t('Label_General_UnderMaintenance')}
+									</div>
+								)}
+								{activeCategoryKey === 'new' && (
+									<div className='new-icon'>{t('Label_General_New')}</div>
+								)}
+
+								<div className='img-wrapper'>
+									<Image src={resultImgUrl} alt='' width={220} height={220} />
+									<div className='btn-container'>
+										<button
+											className='btn-play'
+											onClick={() =>
+												onGamePlay({
+													tpId,
+													gameId,
+													playFree: false,
+												})
+											}
+										>
+											{t('Label_Play')}
+										</button>
+
+										{playFree ? (
+											<button
+												className='btn-demo'
+												onClick={() =>
+													onGamePlay({
+														tpId,
+														gameId,
+														playFree,
+													})
+												}
+											>
+												{t('Label_Demo')}
+											</button>
+										) : null}
+									</div>
 								</div>
-
-								<div
-									className={classNames('icon', {
-										'icon-new': activeCategoryKey === 'new',
-									})}
-								/>
-
-								<img alt='Casino_tpInfo' src={resultImgUrl} />
-
-								<div className='txt-darkBlue'>
-									<div>{resultGameName}</div>
+								<div className='details'>
+									<div>
+										<div>{resultGameName}</div>
+										<div>{resultGameImgDisplayText}</div>
+									</div>
 									<div
+										className={classNames({ active: isFavorite })}
 										onClick={() =>
 											onFavoritesToggle({
 												tpId,
 												gameId,
 											})
 										}
-										className={classNames('icon icon-star-full', {
-											active: isFavorite,
-										})}
-									/>
-								</div>
-
-								<div className='btnGroup'>
-									<button
-										className='blue'
-										onClick={() =>
-											onGamePlay({
-												tpId,
-												gameId,
-												playFree: false,
-											})
-										}
 									>
-										{t('Label_Play')}
-									</button>
-
-									{playFree ? (
-										<button
-											className='blue'
-											onClick={() =>
-												onGamePlay({
-													tpId,
-													gameId,
-													playFree,
-												})
-											}
-										>
-											{t('Label_Demo')}
-										</button>
-									) : null}
+										<Image
+											src={`${
+												process.env['NEXT_PUBLIC_BANNER_HOST']
+											}/desktop/img/4.0/lobby-slots/star-icon${
+												isFavorite ? '-active' : ''
+											}.png`}
+											alt=''
+											width={23}
+											height={23}
+										/>
+									</div>
 								</div>
-								<div className='under'>{t('Label_underMaintenance')}</div>
 							</div>
 						)
 					}
@@ -116,7 +127,13 @@ const GameList = () => {
 			</div>
 		</Suspense>
 	) : (
-		<div className='nodata icon icon-nodata'>
+		<div className='nodata'>
+			<Image
+				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/nodata-icon.png`}
+				alt=''
+				width={60}
+				height={60}
+			/>
 			<div>{t('Label_General_NoData')}</div>
 		</div>
 	)

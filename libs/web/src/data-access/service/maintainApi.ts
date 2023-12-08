@@ -7,10 +7,11 @@ export const checkMaintain = async (): Promise<boolean> => {
 			? 'maintain_test.json'
 			: 'maintain.json'
 	const { data } = await axios.get(
-		`${process.env['NEXT_PUBLIC_BANNER_HOST']}/${process.env[
+		`${process.env['NEXT_PUBLIC_ERROR_HOST']}/${process.env[
 			'NEXT_PUBLIC_SITE_NAME'
 		]?.toUpperCase()}/${maintainFile}`
 	)
+
 	const { Maintain } = data as { Maintain: boolean }
 
 	return Maintain

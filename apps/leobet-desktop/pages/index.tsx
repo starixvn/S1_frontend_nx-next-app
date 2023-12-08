@@ -1,8 +1,8 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, Home } from '@nx-next-app/features/F0001/desktop'
-import { HomeProvider } from '@nx-next-app/features/F0001/providers'
+import { Layout, Home } from '@nx-next-app/features/F0002/desktop'
+import { HomeProvider } from '@nx-next-app/features/F0002/providers'
 import {
 	AuthProvider,
 	GlobalDataProvider,
