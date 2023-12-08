@@ -8989,7 +8989,7 @@ button.icon-spinner11:before {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #5574A7;
+  color: rgba(10, 10, 10, 0.7);
 }
 
 #Loading {
@@ -9482,7 +9482,7 @@ button.icon-spinner11:before {
 #Loading h1:after {
   font-size: 1ˊpx;
   font-weight: bold;
-  content: "LEOBET";
+  content: "YashBet";
   position: absolute;
   -webkit-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
