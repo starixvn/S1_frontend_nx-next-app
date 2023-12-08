@@ -27,6 +27,7 @@ export enum DeviceTypeEnum {
 export interface IImageData {
 	url: string
 	alt: string
+	headerUrl?: string
 	displayKey?: string
 	levelTabsName?: string
 	level?: number
@@ -77,20 +78,47 @@ export interface IStaticAllowedCurrencies {
 	SPORTS_CRICKET?: CurrenciesEnum[]
 	SPORTS_SABA_CLUB?: CurrenciesEnum[]
 	SPORTS_VOLLEYBALL?: CurrenciesEnum[]
+	SLOTS_PEGASUS?: CurrenciesEnum[]
 
+	LIVE_CASINO_PP?: CurrenciesEnum[]
 	LIVE_CASINO_WM?: CurrenciesEnum[]
 	LIVE_CASINO_ALL_BET?: CurrenciesEnum[]
+	LIVE_CASINO_AG?: CurrenciesEnum[]
+	LIVE_CASINO_N2?: CurrenciesEnum[]
+	LIVE_SKY_WIND?: CurrenciesEnum[]
+	LIVE_CASINO_PT?: CurrenciesEnum[]
+	LIVE_CASINO_DG?: CurrenciesEnum[]
+	LIVE_CASINO_MG?: CurrenciesEnum[]
+	LIVE_CASINO_SA?: CurrenciesEnum[]
 
+	SLOTS_PP?: CurrenciesEnum[]
 	SLOTS_AMB?: CurrenciesEnum[]
+	SLOTS_PG?: CurrenciesEnum[]
+	SLOTS_FA_CHAI?: CurrenciesEnum[]
+	SLOTS_SKY_WIND?: CurrenciesEnum[]
+	SLOTS_JOKER?: CurrenciesEnum[]
+	SLOTS_SPRIBE?: CurrenciesEnum[]
+	SLOTS_PT?: CurrenciesEnum[]
+	SLOTS_MGPSW?: CurrenciesEnum[]
+	SLOTS_SIMPLE_PLAY?: CurrenciesEnum[]
 
+	GAMES_V8_POKER?: CurrenciesEnum[]
 	GAMES_POKER_M_POKER?: CurrenciesEnum[]
 	GAMES_POKER_AMB_POKER?: CurrenciesEnum[]
+	GAME_SPACEMAN?: CurrenciesEnum[]
+	GAME_AVIATOR?: CurrenciesEnum[]
+	GAME_MINES?: CurrenciesEnum[]
+	GAME_GOAL?: CurrenciesEnum[]
+	GAME_DICE?: CurrenciesEnum[]
 
 	FISHING_SG?: CurrenciesEnum[]
 	FISHING_CQ9_ONE_SHOT_FISHING?: CurrenciesEnum[]
+	FISHING_HUNTING_HAPPY_FISH_5?: CurrenciesEnum[]
+	FISHING_HAIBA?: CurrenciesEnum[]
 
 	LOTTERY_GPI_THAILOTTERY?: CurrenciesEnum[]
 	LUCKY_WHEEL?: CurrenciesEnum[]
+	LOTTERY_GPI_FAST3?: CurrenciesEnum[]
 
 	BANK_CARD?: CurrenciesEnum[]
 	E_WALLET?: CurrenciesEnum[]
@@ -162,14 +190,14 @@ export enum BonusTypeEnum {
 export enum MenuKeyEnum {
 	'Sports' = 'Sports',
 	'Reward' = 'Reward',
-	'LiveCasino' = 'LiveCasino',
+	'Casino' = 'Casino',
 	'Exchange' = 'Exchange',
 	'Home' = 'Home',
-	'AppDownload' = 'AppDownload',
-	'CryptoSports' = 'CryptoSports',
+	// 'AppDownload' = 'AppDownload',
+	// 'CryptoSports' = 'CryptoSports',
 	'ESports' = 'ESports',
-	'Slots' = 'Slots',
-	'Games' = 'Games',
+	'Slot' = 'Slot',
+	'Game' = 'Game',
 	'Fishing' = 'Fishing',
 	'Lottery' = 'Lottery',
 	'Promotion' = 'Promotion',
@@ -218,4 +246,4 @@ export * from './footer'
 export * from './promotion'
 export * from './history'
 export * from './deposit'
-export * from './home'
+export * from './menu'

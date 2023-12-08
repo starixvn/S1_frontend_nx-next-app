@@ -1,7 +1,7 @@
 import {
 	DesktopHomeComponentsEnum,
 	MobileHomeComponentsEnum,
-} from '@nx-next-app/types'
+} from '@nx-next-app/features/F0002/types'
 
 export const DESKTOP_HOME_ORDERS = [
 	DesktopHomeComponentsEnum.CarouselBanner,

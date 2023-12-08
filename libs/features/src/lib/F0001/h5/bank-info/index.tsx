@@ -1,24 +1,17 @@
-import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
-import { CurrenciesEnum } from '@nx-next-app/types'
 import { Header } from '@nx-next-app/components/H0001'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useBankInfo } from '@nx-next-app/features/F0001/providers'
+
 import { AddCard } from './AddCard'
 import { CardList } from './CardList'
 
 const BankInfo = () => {
 	const { t } = useTranslation()
-
-	const { ALLOWED_CURRENCIES } = useStaticData()
-
 	const {
-		userInfo: { currencyId },
-	} = useAuth()
-
-	const { isShowCards } = useBankInfo()
-
+		isShowCards,
+		cardAllowed: { bankCardAllowed, eWalletCardAllowed, cryptoCardAllowed },
+	} = useBankInfo()
 	return (
 		<>
 			<Header className='header'>
@@ -38,18 +31,20 @@ const BankInfo = () => {
 				/>
 				<Header.Tags
 					tags={[
-						{ href: paths.bankInfo.root, label: t('Label_General_BankInfo') },
+						{
+							href: paths.bankInfo.root,
+							label: t('Label_General_BankInfo'),
+							isShow: bankCardAllowed,
+						},
 						{
 							href: paths.eWallet.root,
 							label: t('Label_General_EWallet'),
-							isShow: includes(
-								ALLOWED_CURRENCIES['E_WALLET'] as CurrenciesEnum[],
-								currencyId
-							),
+							isShow: eWalletCardAllowed,
 						},
 						{
 							href: paths.cryptoWallet.root,
 							label: t('Label_General_CryptoWallet'),
+							isShow: cryptoCardAllowed,
 						},
 					]}
 					className='tag'

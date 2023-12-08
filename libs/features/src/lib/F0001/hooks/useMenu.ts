@@ -4,9 +4,14 @@ import { head, includes, isArray } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { ISubMenu, MenuActionTypeEnum } from '@nx-next-app/features/F0001/types'
+
 import { useMenuData } from '@nx-next-app/hooks'
-import { DeviceTypeEnum } from '@nx-next-app/types'
+import {
+	DeviceTypeEnum,
+	ISubMenu,
+	MenuActionTypeEnum,
+	MenuEventIcon,
+} from '@nx-next-app/types'
 import {
 	IAxiosError,
 	IGotoGameArg,
@@ -59,18 +64,7 @@ export const getMainEventIcon = ({
 	eventIcons,
 	subMenu,
 }: {
-	eventIcons?: {
-		icon:
-			| (
-					| 'icon icon-new'
-					| 'live'
-					| 'icon icon-star-full'
-					| 'icon icon-mediafire'
-			  )
-			| ('icon icon-new' | 'icon icon-mediafire')
-		text: 'NEW' | 'HOT' | 'LIVE'
-		period: { start: null | string; end: null | string }
-	}[]
+	eventIcons?: MenuEventIcon[]
 	subMenu?: ISubMenu[]
 }) => {
 	// * 渲染第一個活動期間的事件 icon，假設同時有 [NEW,HOT] ,會用前者
@@ -100,20 +94,7 @@ export const getMainEventIcon = ({
  * @returns desktop、h5 回傳 sub menu event icon
  * @description 渲染第一個活動期間的事件 icon，假設同時有 [NEW,HOT] ,會用前者
  */
-export const getSubMenuEventIcon = (
-	eventIcons?: {
-		icon:
-			| (
-					| 'icon icon-new'
-					| 'live'
-					| 'icon icon-star-full'
-					| 'icon icon-mediafire'
-			  )
-			| ('icon icon-new' | 'icon icon-mediafire')
-		text: 'NEW' | 'HOT' | 'LIVE'
-		period: { start: null | string; end: null | string }
-	}[]
-) => {
+export const getSubMenuEventIcon = (eventIcons?: MenuEventIcon[]) => {
 	return (
 		eventIcons && head(eventIcons.filter(({ period }) => isEventPeriod(period)))
 	)

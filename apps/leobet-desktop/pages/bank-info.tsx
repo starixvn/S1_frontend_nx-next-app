@@ -2,8 +2,8 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, LeftMenu, BankInfo } from '@nx-next-app/features/F0001/desktop'
-import { BankInfoProvider } from '@nx-next-app/features/F0001/providers'
+import { Layout, LeftMenu, BankInfo } from '@nx-next-app/features/F0002/desktop'
+import { BankInfoProvider } from '@nx-next-app/features/F0002/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,

@@ -3,7 +3,7 @@ import { includes } from 'lodash-es'
 import { GetServerSideProps } from 'next'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, LuckyWheel } from '@nx-next-app/features/F0001/desktop'
+import { Layout, LuckyWheel } from '@nx-next-app/features/F0002/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -14,7 +14,7 @@ import {
 	FOOTER_DATA,
 } from '@nx-next-app/site/leobet'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { LuckWheelProvider } from '@nx-next-app/features/F0001/providers'
+import { LuckWheelProvider } from '@nx-next-app/features/F0002/providers'
 import { IFooterData } from '@nx-next-app/types'
 
 interface ILuckyWheelPageProps extends InitialPropsInterface {

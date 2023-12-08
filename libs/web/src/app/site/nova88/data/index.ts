@@ -38,6 +38,14 @@ export const LANG_GROUPS: IStaticLangGroups = {
 		},
 		{ displayText: 'ไทย', value: 'th', currencyId: CurrenciesEnum.THB },
 	],
+	vn: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.VND,
+		},
+		{ displayText: 'Tiếng Việt', value: 'vn', currencyId: CurrenciesEnum.VND },
+	],
 	id: [
 		{
 			displayText: 'English',
@@ -57,7 +65,7 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			currencyId: CurrenciesEnum.INR,
 		},
 		{
-			displayText: 'Hindi',
+			displayText: 'हिंदी',
 			value: 'hi',
 			currencyId: CurrenciesEnum.INR,
 		},

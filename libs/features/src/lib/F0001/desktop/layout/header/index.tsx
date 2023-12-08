@@ -1,28 +1,36 @@
 import Link from 'next/link'
 import { Header, LoginFormType } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
+import {
+	LineLoginDirectTypeEnum,
+	useLazyGetLineLoginDirectUrlQuery,
+} from '@nx-next-app/service'
 import { paths } from '@nx-next-app/constants'
 import { FieldErrors } from 'react-hook-form'
 import { renderFieldError } from '@nx-next-app/utils'
-import MemberFile from './MemberFile'
 import MsgPopUp from './MsgPopUp'
 import Country from './Country'
 import Wallet from './Wallet'
 import Menu from './Menu'
 
 const LayoutHeader = () => {
-	const {
-		t,
-		i18n: { language },
-	} = useTranslation()
+	const { t } = useTranslation()
 	const router = useRouter()
 
 	const { modal } = useGlobalModal()
 
-	const { auth, onSignIn, onSignOut } = useAuth()
+	const {
+		auth,
+		onSignIn,
+		onSignOut,
+		userInfo: { currencyId },
+	} = useAuth()
+
+	const [getLineLoginDirectUrl] = useLazyGetLineLoginDirectUrlQuery()
 
 	const handleSignIn = async (payload: {
 		userName: string
@@ -56,65 +64,53 @@ const LayoutHeader = () => {
 		modal.error(renderFieldError(errors))
 	}
 
-	const logoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/logo.png`
+	const handleLineLogin = async () => {
+		try {
+			const { data: lineLoginDirectUrl } = await getLineLoginDirectUrl({
+				type: LineLoginDirectTypeEnum.Login,
+			}).unwrap()
+
+			if (lineLoginDirectUrl) {
+				window.location.href = lineLoginDirectUrl
+			}
+		} catch (error) {
+			modal.error((error as Error).message)
+		}
+	}
+
+	const logoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/logo_w.png`
+
+	// * line 登入按鈕的顯示邏輯
+	const showLineLogin = currencyId === CurrenciesEnum.THB
 
 	return (
 		<Header>
 			<Header.Logo
 				logoUrl={logoUrl}
 				rewardsUrl={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/88rewards.png`}
+				showSpLogo
 			/>
 			<Header.Function>
 				{auth.isLogin ? (
 					<>
-						<Link href={paths.transferFunds.root}>
-							<a>
-								<span>{t('Label_General_TransferFunds')}</span>
-							</a>
-						</Link>
-
-						<Link href={paths.withdrawal.root}>
-							<a>
-								<span>{t('Label_General_Withdrawal')}</span>
-							</a>
-						</Link>
-
-						<Link href={paths.history.root}>
-							<a>
-								<span>{t('Label_General_History')}</span>
-							</a>
-						</Link>
-
-						<Link href={paths.deposit.root}>
-							<a>
-								<span>{t('Label_General_Deposit')}</span>
-							</a>
-						</Link>
-
-						<Wallet />
-
-						<MemberFile />
-
+						<Header.Function.MemberFile onSignOut={handleSignOut} />
 						<MsgPopUp />
-
-						<Country />
-
-						<button
-							onClick={handleSignOut}
-							type='button'
-							className='icon icon-exit'
-						/>
+						<div className='line' />
+						<Wallet />
+						<Link href={paths.deposit.root}>
+							<a className='deposit-btn'>
+								<span>{t('Label_Deposit')}</span>
+							</a>
+						</Link>
 					</>
 				) : (
 					<>
 						<Header.Function.Login
 							onLogin={handleSignIn}
 							onLoginInvalid={handleLoginInvalid}
+							onLineLogin={showLineLogin && handleLineLogin}
 						/>
 						<Country />
-						<Link href={paths.forgetPassword.root}>
-							<a className='forgot'>{t('Label_Header_ForgetPassword')}</a>
-						</Link>
 					</>
 				)}
 			</Header.Function>

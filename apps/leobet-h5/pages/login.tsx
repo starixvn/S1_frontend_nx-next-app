@@ -6,7 +6,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout, LoginJoin } from '@nx-next-app/features/F0001/h5'
+import { Layout, LoginJoin } from '@nx-next-app/features/F0002/h5'
 
 type IHomePageProps = InitialPropsInterface
 

@@ -4,12 +4,12 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, CryptoWithdrawal } from '@nx-next-app/features/F0001/h5'
+import { Layout, CryptoWithdrawal } from '@nx-next-app/features/F0002/h5'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import {
 	CryptoWalletProvider,
 	WithdrawalProvider,
-} from '@nx-next-app/features/F0001/providers'
+} from '@nx-next-app/features/F0002/providers'
 
 const CryptoWithdrawalPage = ({
 	originIsSignIn,

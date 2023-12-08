@@ -39,14 +39,19 @@ const TransferFunds = () => {
 						</>
 					)}
 				</div>
-
-				<TransferHistoryTable
-					dataSource={transferHistory}
-					onReload={handleGetTransferRecent}
-				/>
-				<Link href={paths.history.root} passHref>
-					<a className='icon icon-books' />
-				</Link>
+				{isTransferLoading ? (
+					<Loading />
+				) : (
+					<>
+						<TransferHistoryTable
+							dataSource={transferHistory}
+							onReload={handleGetTransferRecent}
+						/>
+						<Link href={paths.history.root} passHref>
+							<a className='icon icon-books' />
+						</Link>
+					</>
+				)}
 			</div>
 		</div>
 	)

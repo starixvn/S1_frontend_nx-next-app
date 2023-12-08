@@ -115,7 +115,6 @@ export const TransferFundsProvider = ({
 	const {
 		data: { data: transferHistory = [] } = {},
 		refetch: getTransferRecent,
-		isFetching: isGetTransferRecentFetching,
 	} = useGetTransferRecentQuery()
 
 	const {
@@ -360,12 +359,15 @@ export const TransferFundsProvider = ({
 			transferAction: TransferTypeEnum.transfer,
 		})
 
-		if (success) resetField('amount')
+		if (success) {
+			// success 才重 load 錢包資訊
+			onRefetchAllWallet()
+			resetField('amount')
+		}
 	}
 
 	const loading =
 		isGetWalletTransferStatusFetching ||
-		isGetTransferRecentFetching ||
 		isGetMainWalletInfoFetching ||
 		isGetTpWalletInfoByTpIdFetching ||
 		isSeWalletAutoTransferStatusLoading
