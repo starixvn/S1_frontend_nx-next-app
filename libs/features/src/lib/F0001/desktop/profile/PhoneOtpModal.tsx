@@ -67,7 +67,7 @@ const PhoneOtpModal = () => {
 					style={{ display: 'contents' }}
 				>
 					<div
-						className={classNames('inputBox-blue', {
+						className={classNames('inputBox-white', {
 							error: errors['otpCode'],
 						})}
 					>
