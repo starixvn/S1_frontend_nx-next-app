@@ -15,6 +15,7 @@ import { useHome } from '@nx-next-app/features/F0001/providers'
 import {
 	MobileHomeComponentsEnum,
 	MobileHomeComponentsEnum,
+	MobileHomeComponentsEnum,
 } from '@nx-next-app/features/F0001/types'
 
 import dynamic from 'next/dynamic'
