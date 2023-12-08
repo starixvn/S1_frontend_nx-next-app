@@ -41,11 +41,15 @@ const PRODUCT_EVENT_PERIOD: {
 		start: '2021/11/11 00:00:00',
 		end: null,
 	},
-	IM: {
-		start: null,
-		end: '2023/12/01 22:59:59',
-	},
 	SPORTS_E_SPORTS_TFG: {
+		start: null,
+		end: '2023/12/31 23:59:59',
+	},
+	SLOTS_FA_CHAI: {
+		start: null,
+		end: '2023/12/31 23:59:59',
+	},
+	GAMES_V8_POKER: {
 		start: null,
 		end: '2023/12/31 23:59:59',
 	},
@@ -358,12 +362,11 @@ export const MENU_DATA = ({
 			subMenuSort: {
 				[INR]: [
 					'SPORTS_CRYPTO_SPORTS',
+					'SPORTS_CRICKET',
 					'SPORTS_SOCCER',
 					'SPORTS_SABA_SOCCER',
 					'SPORTS_BASKETBALL',
-					'SPORTS_CRICKET',
 					'SPORTS_BADMINTON',
-					'SPORTS_VOLLEYBALL',
 					'VIRTUAL_SPORTS',
 				],
 				[BDT]: [
@@ -414,7 +417,7 @@ export const MENU_DATA = ({
 					product: PRODUCTS['SPORTS_9W_SPORTS'],
 					eventIcons: [
 						{
-							icon: 'icon',
+							icon: 'new-icon',
 							text: 'NEW',
 							period: PRODUCT_EVENT_PERIOD['SPORTS_9W'],
 						},
@@ -582,11 +585,33 @@ export const MENU_DATA = ({
 					productKey: 'SPORTS_E_IMESPORTS',
 					displayKey: 'IM E-Sports',
 					product: PRODUCTS['SPORTS_E_IMESPORTS'],
+				},
+				{
+					h5: {
+						img: '/h5/img/esportTFG.png',
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'esportTFG.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'esposts-inplaymatrix.png',
+							hoverBgImg: 'esposts-inplaymatrixa.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'SPORTS_E_SPORTS_TFG',
+					displayKey: 'TFGaming',
+					product: PRODUCTS['SPORTS_E_SPORTS_TFG'],
 					eventIcons: [
 						{
 							icon: 'new-icon',
 							text: 'NEW',
-							period: PRODUCT_EVENT_PERIOD['IM'],
+							period: PRODUCT_EVENT_PERIOD['SPORTS_E_SPORTS_TFG'],
 						},
 					],
 				},
@@ -635,7 +660,7 @@ export const MENU_DATA = ({
 			displayKey: 'Label_General_LiveCasino',
 			pathname: paths.liveCasino.root,
 			allowCurrencies: true,
-			subMenuAllowCurrenciesWithAuth: true,
+			subMenuAllowCurrenciesWithAuth: false,
 			subMenuSort: {
 				[MYR]: [
 					'LIVE_CASINO_PP',
@@ -651,14 +676,12 @@ export const MENU_DATA = ({
 					'LIVE_CASINO_ALL_BET',
 					'LIVE_CASINO_AG',
 					'LIVE_CASINO_WM',
-					'LIVE_CASINO_E_BET',
 					'LIVE_CASINO_N2',
 				],
 				[THB]: [
 					'LIVE_CASINO_PP',
 					'LIVE_CASINO_BG',
 					'LIVE_CASINO_YEE_BET',
-					'LIVE_CASINO_SKY_WIND',
 					'LIVE_CASINO_MG',
 					'LIVE_CASINO_EVO',
 					'LIVE_CASINO_PT',
@@ -668,7 +691,7 @@ export const MENU_DATA = ({
 					'LIVE_CASINO_ALL_BET',
 					'LIVE_CASINO_AG',
 					'LIVE_CASINO_WM',
-					'LIVE_CASINO_E_BET',
+					'LIVE_CASINO_WE',
 					'LIVE_CASINO_N2',
 				],
 				[IDR]: [
@@ -685,7 +708,7 @@ export const MENU_DATA = ({
 					'LIVE_CASINO_ALL_BET',
 					'LIVE_CASINO_AG',
 					'LIVE_CASINO_WM',
-					'LIVE_CASINO_E_BET',
+					'LIVE_CASINO_WE',
 					'LIVE_CASINO_N2',
 				],
 				[INR]: [
@@ -702,7 +725,7 @@ export const MENU_DATA = ({
 					'LIVE_CASINO_ALL_BET',
 					'LIVE_CASINO_AG',
 					'LIVE_CASINO_WM',
-					'LIVE_CASINO_E_BET',
+					'LIVE_CASINO_WE',
 					'LIVE_CASINO_N2',
 				],
 				[BDT]: [
@@ -716,8 +739,7 @@ export const MENU_DATA = ({
 					'LIVE_CASINO_DG',
 					'LIVE_CASINO_AE',
 					'LIVE_CASINO_SA',
-					'LIVE_CASINO_ALL_BET',
-					'LIVE_CASINO_E_BET',
+					'LIVE_CASINO_WE',
 					'LIVE_CASINO_N2',
 				],
 			},
@@ -744,6 +766,7 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_PP',
 					displayText: 'Pragmatic Play',
 					product: PRODUCTS['LIVE_CASINO_PP'],
+					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_PP'],
 				},
 				{
 					h5: {
@@ -820,6 +843,7 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_SKY_WIND',
 					displayText: 'Skywind',
 					product: PRODUCTS['LIVE_CASINO_SKY_WIND'],
+					allowCurrencies: ALLOWED_CURRENCIES['LIVE_SKY_WIND'],
 				},
 				{
 					h5: {
@@ -843,6 +867,7 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_MG',
 					displayText: 'Microgaming',
 					product: PRODUCTS['LIVE_CASINO_MG'],
+					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_MG'],
 				},
 				{
 					h5: {
@@ -889,6 +914,7 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_PT',
 					displayText: 'Playtech',
 					product: PRODUCTS['LIVE_CASINO_PT'],
+					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_PT'],
 				},
 				{
 					h5: {
@@ -912,6 +938,7 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_N2',
 					displayText: 'n2-LIVE',
 					product: PRODUCTS['LIVE_CASINO_N2'],
+					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_N2'],
 				},
 				{
 					h5: {
@@ -1006,29 +1033,7 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_SA',
 					displayText: 'SA Gaming',
 					product: PRODUCTS['LIVE_CASINO_SA'],
-				},
-				{
-					h5: {
-						img: '/h5/img/dg.png',
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					desktop: {
-						className: 'liveDG',
-						headerMenuImgList: [
-							{
-								className: 'List-npc',
-								imgUrl: 'casino-DG.png',
-							},
-						],
-						lobbyPage: {
-							npcImg: 'casino_dg.png',
-							hoverBgImg: 'animation_img.png',
-						},
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					productKey: 'LIVE_CASINO_DG',
-					displayText: 'Dream Gaming',
-					product: PRODUCTS['LIVE_CASINO_DG'],
+					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_SA'],
 				},
 				{
 					h5: {
@@ -1053,6 +1058,30 @@ export const MENU_DATA = ({
 					displayText: 'AE Sexy',
 					product: PRODUCTS['LIVE_CASINO_AE'],
 				},
+				{
+					h5: {
+						img: '/h5/img/dg.png',
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						className: 'liveDG',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-DG.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'casino_dg.png',
+							hoverBgImg: 'animation_img.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LIVE_CASINO_DG',
+					displayText: 'Dream Gaming',
+					product: PRODUCTS['LIVE_CASINO_DG'],
+				},
+
 				{
 					h5: {
 						img: '/h5/img/ag.png',
@@ -1092,19 +1121,24 @@ export const MENU_DATA = ({
 			},
 			displayKey: 'Label_General_Slots',
 			pathname: paths.slots.root,
-			subMenuAllowCurrenciesWithAuth: true,
+			subMenuAllowCurrenciesWithAuth: false,
 			subMenuSort: {
 				[THB]: [
 					'SLOTS_PP',
 					'SLOTS_SG',
 					'SLOTS_ADVANT_PLAY',
+					'SLOTS_ES',
+					'SLOTS_NEXT_SPIN',
 					'SLOTS_PG',
+					'SLOTS_FA_CHAI',
 					'SLOTS_MGPSW',
 					'SLOTS_JILI',
+					'SLOTS_SPRIBE',
 					'SLOTS_JOKER',
 					'SLOTS_RED_TIGER',
 					'SLOTS_NET_ENT',
 					'SLOTS_CQ9',
+					'SLOTS_PNG',
 					'SLOTS_GPI',
 					'SLOTS_YGG',
 					'SLOTS_AMB',
@@ -1119,13 +1153,19 @@ export const MENU_DATA = ({
 					'SLOTS_PP',
 					'SLOTS_SG',
 					'SLOTS_ADVANT_PLAY',
+					'SLOTS_ES',
+					'SLOTS_NEXT_SPIN',
 					'SLOTS_PG',
+					'SLOTS_FA_CHAI',
 					'SLOTS_MGPSW',
 					'SLOTS_JILI',
+					'SLOTS_SPRIBE',
 					'SLOTS_JOKER',
+					'SLOTS_PEGASUS',
 					'SLOTS_RED_TIGER',
 					'SLOTS_NET_ENT',
 					'SLOTS_CQ9',
+					'SLOTS_PNG',
 					'SLOTS_GPI',
 					'SLOTS_YGG',
 					'SLOTS_AMB',
@@ -1140,19 +1180,24 @@ export const MENU_DATA = ({
 					'SLOTS_PP',
 					'SLOTS_SG',
 					'SLOTS_ADVANT_PLAY',
+					'SLOTS_ES',
+					'SLOTS_NEXT_SPIN',
 					'SLOTS_PG',
+					'SLOTS_FA_CHAI',
 					'SLOTS_MGPSW',
 					'SLOTS_JILI',
+					'SLOTS_SPRIBE',
 					'SLOTS_JOKER',
 					'SLOTS_RED_TIGER',
+					'SLOTS_SKY_WIND',
 					'SLOTS_NET_ENT',
 					'SLOTS_CQ9',
+					'SLOTS_PNG',
 					'SLOTS_GPI',
 					'SLOTS_YGG',
 					'SLOTS_AMB',
 					'SLOTS_HABANERO',
 					'SLOTS_SIMPLE_PLAY',
-					'SLOTS_SKY_WIND',
 					'SLOTS_PT',
 					'SLOTS_ICG',
 					'SLOTS_OW',
@@ -1161,13 +1206,18 @@ export const MENU_DATA = ({
 					'SLOTS_PP',
 					'SLOTS_SG',
 					'SLOTS_ADVANT_PLAY',
+					'SLOTS_ES',
+					'SLOTS_NEXT_SPIN',
 					'SLOTS_PG',
+					'SLOTS_FA_CHAI',
 					'SLOTS_MGPSW',
 					'SLOTS_JILI',
+					'SLOTS_SPRIBE',
 					'SLOTS_JOKER',
 					'SLOTS_RED_TIGER',
 					'SLOTS_NET_ENT',
 					'SLOTS_CQ9',
+					'SLOTS_PNG',
 					'SLOTS_GPI',
 					'SLOTS_YGG',
 					'SLOTS_AMB',
@@ -1182,13 +1232,18 @@ export const MENU_DATA = ({
 					'SLOTS_PP',
 					'SLOTS_SG',
 					'SLOTS_ADVANT_PLAY',
+					'SLOTS_ES',
+					'SLOTS_NEXT_SPIN',
 					'SLOTS_PG',
+					'SLOTS_FA_CHAI',
 					'SLOTS_MGPSW',
 					'SLOTS_JILI',
+					'SLOTS_SPRIBE',
 					'SLOTS_JOKER',
 					'SLOTS_RED_TIGER',
 					'SLOTS_NET_ENT',
 					'SLOTS_CQ9',
+					'SLOTS_PNG',
 					'SLOTS_GPI',
 					'SLOTS_YGG',
 					'SLOTS_AMB',
@@ -1223,6 +1278,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_PP'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_PP'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_PP'],
 				},
 				{
 					h5: {
@@ -1265,12 +1321,59 @@ export const MENU_DATA = ({
 					productKey: 'SLOTS_ADVANT_PLAY',
 					pathname: paths.slots.root,
 					displayText: 'AdvantPlay',
-
 					query: {
 						tpId: PRODUCTS['SLOTS_ADVANT_PLAY'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_ADVANT_PLAY'],
 				},
+				{
+					h5: {
+						img: '/h5/img/slotEs.png',
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					desktop: {
+						className: '',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotEs.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_ES',
+					pathname: paths.slots.root,
+					displayText: 'ES',
+
+					query: {
+						tpId: PRODUCTS['SLOTS_ES'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_ES'],
+				},
+				{
+					h5: {
+						img: '/h5/img/slotNextspin.png',
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					desktop: {
+						className: '',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotNextspin.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_NEXT_SPIN',
+					pathname: paths.slots.root,
+					displayText: 'Nextspin',
+					query: {
+						tpId: PRODUCTS['SLOTS_NEXT_SPIN'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_NEXT_SPIN'],
+				},
+
 				{
 					h5: {
 						img: '/h5/img/pg.png',
@@ -1289,11 +1392,42 @@ export const MENU_DATA = ({
 					productKey: 'SLOTS_PG',
 					pathname: paths.slots.root,
 					displayText: 'PG Soft',
-
 					query: {
 						tpId: PRODUCTS['SLOTS_PG'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_PG'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_PG'],
+				},
+				{
+					h5: {
+						img: '/h5/img/slotfachai.png',
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					desktop: {
+						className: '',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotfachai.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_FA_CHAI',
+					pathname: paths.slots.root,
+					displayText: 'Fa Chai',
+					query: {
+						tpId: PRODUCTS['SLOTS_FA_CHAI'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_FA_CHAI'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_FA_CHAI'],
+					eventIcons: [
+						{
+							icon: 'new-icon',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['SLOTS_FA_CHAI'],
+						},
+					],
 				},
 				{
 					h5: {
@@ -1317,6 +1451,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_MGPSW'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_MGPSW'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_MGPSW'],
 				},
 				{
 					h5: {
@@ -1343,6 +1478,30 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
+						img: '/h5/img/spribe.png',
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					desktop: {
+						className: '',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotSPRIBE.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_SPRIBE',
+					pathname: paths.slots.root,
+					displayText: 'SPRIBE',
+					query: {
+						tpId: PRODUCTS['SLOTS_SPRIBE'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_SPRIBE'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_SPRIBE'],
+				},
+				{
+					h5: {
 						img: '/h5/img/joker.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -1363,6 +1522,31 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_JOKER'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_JOKER'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_JOKER'],
+				},
+				{
+					h5: {
+						img: '/h5/img/pegasus.png',
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					desktop: {
+						className: '',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotpegasus.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_PEGASUS',
+					pathname: paths.slots.root,
+					displayText: 'Pegasus',
+					query: {
+						tpId: PRODUCTS['SLOTS_PEGASUS'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_PEGASUS'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_PEGASUS'],
 				},
 				{
 					h5: {
@@ -1432,6 +1616,29 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_CQ9'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_CQ9'],
+				},
+				{
+					h5: {
+						img: '/h5/img/playngo.png',
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					desktop: {
+						className: '',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotplayngo.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_PNG',
+					pathname: paths.slots.root,
+					displayText: "Play' n GO",
+					query: {
+						tpId: PRODUCTS['SLOTS_PNG'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_PNG'],
 				},
 				{
 					h5: {
@@ -1548,6 +1755,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_SIMPLE_PLAY'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_SIMPLE_PLAY'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_SIMPLE_PLAY'],
 				},
 				{
 					h5: {
@@ -1571,6 +1779,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_SKY_WIND'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_SKY_WIND'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_SKY_WIND'],
 				},
 				{
 					h5: {
@@ -1594,6 +1803,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_PT'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_PT'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_PT'],
 				},
 			],
 			allowCurrencies: true,
@@ -1712,7 +1922,6 @@ export const MENU_DATA = ({
 					productKey: 'SPORTS_SABA_CLUB',
 					displayText: 'Vgaming',
 					product: PRODUCTS['SPORTS_SABA_CLUB'],
-					allowCurrencies: ALLOWED_CURRENCIES['SPORTS_SABA_CLUB'],
 				},
 				{
 					h5: {
@@ -1739,11 +1948,41 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
+						img: '/h5/img/v8.png',
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						className: '',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'v8.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'v8.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'GAMES_V8_POKER',
+					displayText: 'V8Poker',
+					product: PRODUCTS['GAMES_V8_POKER'],
+					eventIcons: [
+						{
+							icon: 'new-icon',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['GAMES_V8_POKER'],
+						},
+					],
+					allowCurrencies: ALLOWED_CURRENCIES['GAMES_V8_POKER'],
+				},
+				{
+					h5: {
 						img: '/h5/img/gameSpribeAviator.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
-						className: 'fsgw',
+						className: '',
 						headerMenuImgList: [
 							{
 								className: 'List-npc',
@@ -1759,13 +1998,7 @@ export const MENU_DATA = ({
 					productKey: 'GAME_AVIATOR',
 					displayText: 'Aviator',
 					product: PRODUCTS['GAME_AVIATOR'],
-					eventIcons: [
-						{
-							icon: 'icon',
-							text: 'NEW',
-							period: PRODUCT_EVENT_PERIOD['IM'],
-						},
-					],
+					allowCurrencies: ALLOWED_CURRENCIES['GAME_AVIATOR'],
 				},
 				{
 					h5: {
@@ -1789,13 +2022,7 @@ export const MENU_DATA = ({
 					productKey: 'GAME_MINES',
 					displayText: 'Mines',
 					product: PRODUCTS['GAME_MINES'],
-					eventIcons: [
-						{
-							icon: 'icon',
-							text: 'NEW',
-							period: PRODUCT_EVENT_PERIOD['IM'],
-						},
-					],
+					allowCurrencies: ALLOWED_CURRENCIES['GAME_MINES'],
 				},
 				{
 					h5: {
@@ -1819,13 +2046,7 @@ export const MENU_DATA = ({
 					productKey: 'GAME_GOAL',
 					displayText: 'Goal',
 					product: PRODUCTS['GAME_GOAL'],
-					eventIcons: [
-						{
-							icon: 'icon',
-							text: 'NEW',
-							period: PRODUCT_EVENT_PERIOD['IM'],
-						},
-					],
+					allowCurrencies: ALLOWED_CURRENCIES['GAME_GOAL'],
 				},
 				{
 					h5: {
@@ -1849,13 +2070,30 @@ export const MENU_DATA = ({
 					productKey: 'GAME_DICE',
 					displayText: 'DICE',
 					product: PRODUCTS['GAME_DICE'],
-					eventIcons: [
-						{
-							icon: 'icon',
-							text: 'NEW',
-							period: PRODUCT_EVENT_PERIOD['IM'],
+					allowCurrencies: ALLOWED_CURRENCIES['GAME_DICE'],
+				},
+				{
+					h5: {
+						img: '/h5/img/pp.png',
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						className: '',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'pp.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: '',
 						},
-					],
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'GAME_SPACEMAN',
+					displayText: 'Spaceman',
+					product: PRODUCTS['GAME_SPACEMAN'],
+					allowCurrencies: ALLOWED_CURRENCIES['GAME_SPACEMAN'],
 				},
 				{
 					h5: {
@@ -1922,6 +2160,8 @@ export const MENU_DATA = ({
 			subMenuSort: {
 				[THB]: [
 					'FISHING_SGW',
+					'FISHING_ZOMBIE_PARTY',
+					'FISHING_ALIEN_HUNTER',
 					'FISHING_CQ9_PARADISE',
 					'FISHING',
 					'FISHING_SKY_WIND_OCEAN_RULER',
@@ -1936,6 +2176,8 @@ export const MENU_DATA = ({
 				],
 				[MYR]: [
 					'FISHING_SGW',
+					'FISHING_ZOMBIE_PARTY',
+					'FISHING_ALIEN_HUNTER',
 					'FISHING_CQ9_PARADISE',
 					'FISHING',
 					'FISHING_SKY_WIND_OCEAN_RULER',
@@ -1946,6 +2188,8 @@ export const MENU_DATA = ({
 				],
 				[IDR]: [
 					'FISHING_SGW',
+					'FISHING_ZOMBIE_PARTY',
+					'FISHING_ALIEN_HUNTER',
 					'FISHING_CQ9_PARADISE',
 					'FISHING',
 					'FISHING_SKY_WIND_OCEAN_RULER',
@@ -1955,7 +2199,10 @@ export const MENU_DATA = ({
 					'FISHING_HUNTING_MONSTER_AWAKEN',
 				],
 				[INR]: [
+					'FISHING_SG',
 					'FISHING_SGW',
+					'FISHING_ZOMBIE_PARTY',
+					'FISHING_ALIEN_HUNTER',
 					'FISHING_CQ9_PARADISE',
 					'FISHING',
 					'FISHING_SKY_WIND_OCEAN_RULER',
@@ -1972,115 +2219,27 @@ export const MENU_DATA = ({
 			subMenu: [
 				{
 					h5: {
-						img: '/h5/img/hb.png',
+						img: '/h5/img/fg.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
+						className: 'fsg',
 						headerMenuImgList: [
 							{
 								className: 'List-npc',
-								imgUrl: 'hb.png',
+								imgUrl: 'fishSG.png',
 							},
 						],
 						lobbyPage: {
-							bgImg: 'fishhb.png',
-							hoverBgImg: 'fishhba.png',
+							bgImg: 'fishfg.png',
+							hoverBgImg: 'fishfga.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
-					productKey: 'FISHING_HAIBA',
-					displayKey: 'Label_Product_Haiba',
-					product: PRODUCTS['FISHING_HAIBA'],
-				},
-				{
-					h5: {
-						img: '/h5/img/hf5.png',
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					desktop: {
-						headerMenuImgList: [
-							{
-								className: 'List-npc',
-								imgUrl: 'hf5.png',
-							},
-						],
-						lobbyPage: {
-							bgImg: 'fishhf.png',
-							hoverBgImg: 'fishhfa.png',
-						},
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					productKey: 'FISHING_HUNTING_HAPPY_FISH_5',
-					displayKey: 'Label_Fishing_Hunting_Happy_Fish_5',
-					product: PRODUCTS['FISHING_HUNTING_HAPPY_FISH_5'],
-				},
-				{
-					h5: {
-						img: '/h5/img/ma.png',
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					desktop: {
-						headerMenuImgList: [
-							{
-								className: 'List-npc',
-								imgUrl: 'ma.png',
-							},
-						],
-						lobbyPage: {
-							bgImg: 'fishma.png',
-							hoverBgImg: 'fishmaa.png',
-						},
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					productKey: 'FISHING_HUNTING_MONSTER_AWAKEN',
-					displayKey: 'Label_Fishing_Hunting_Monster_Awaken',
-					product: PRODUCTS['FISHING_HUNTING_MONSTER_AWAKEN'],
-				},
-				{
-					h5: {
-						img: '/h5/img/pd.png',
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					desktop: {
-						className: 'fsgw',
-						headerMenuImgList: [
-							{
-								className: 'List-npc',
-								imgUrl: 'paradise.png',
-							},
-						],
-						lobbyPage: {
-							bgImg: 'fishpd.png',
-							hoverBgImg: 'fishpda.png',
-						},
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					productKey: 'FISHING_CQ9_PARADISE',
-					displayKey: 'Label_Paradise',
-					product: PRODUCTS['FISHING_CQ9_PARADISE'],
-				},
-				{
-					h5: {
-						img: '/h5/img/ffw.png',
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					desktop: {
-						className: 'fgg',
-						headerMenuImgList: [
-							{
-								className: 'List-npc',
-								imgUrl: 'fishGG.png',
-							},
-						],
-						lobbyPage: {
-							bgImg: 'fishgg.png',
-							hoverBgImg: 'fishgga.png',
-						},
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					productKey: 'FISHING',
-					displayKey: 'Label_FishingGG',
-					product: PRODUCTS['FISHING'],
+					productKey: 'FISHING_SG',
+					displayKey: 'Label_Fishing_FishingGod',
+					product: PRODUCTS['FISHING_SG'],
+					allowCurrencies: ALLOWED_CURRENCIES['FISHING_SG'],
 				},
 				{
 					h5: {
@@ -2107,27 +2266,138 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/fg.png',
+						img: '/h5/img/fishzp.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
-						className: 'fsg',
+						className: '',
 						headerMenuImgList: [
 							{
 								className: 'List-npc',
-								imgUrl: 'fishSG.png',
+								imgUrl: 'fishzp.png',
 							},
 						],
 						lobbyPage: {
-							bgImg: 'fishfg.png',
-							hoverBgImg: 'fishfga.png',
+							bgImg: 'fishzp.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
-					productKey: 'FISHING_SG',
-					displayKey: 'Label_Fishing_FishingGod',
-					product: PRODUCTS['FISHING_SG'],
-					allowCurrencies: ALLOWED_CURRENCIES['FISHING_SG'],
+					productKey: 'FISHING_ZOMBIE_PARTY',
+					displayKey: 'Label_Fishing_ZombieParty',
+					product: PRODUCTS['FISHING_ZOMBIE_PARTY'],
+				},
+				{
+					h5: {
+						img: '/h5/img/fishah.png',
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						className: '',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'fishah.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'fishah.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'FISHING_ALIEN_HUNTER',
+					displayKey: 'Label_Fishing_AlienHunter',
+					product: PRODUCTS['FISHING_ALIEN_HUNTER'],
+				},
+				{
+					h5: {
+						img: '/h5/img/pd.png',
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'paradise.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'fishpd.png',
+							hoverBgImg: 'fishpda.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'FISHING_CQ9_PARADISE',
+					displayKey: 'Label_Paradise',
+					product: PRODUCTS['FISHING_CQ9_PARADISE'],
+				},
+				{
+					h5: {
+						img: '/h5/img/hb.png',
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'hb.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'fishhb.png',
+							hoverBgImg: 'fishhba.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'FISHING_HAIBA',
+					displayKey: 'Label_Product_Haiba',
+					product: PRODUCTS['FISHING_HAIBA'],
+					allowCurrencies: ALLOWED_CURRENCIES['FISHING_HAIBA'],
+				},
+				{
+					h5: {
+						img: '/h5/img/hf5.png',
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'hf5.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'fishhf.png',
+							hoverBgImg: 'fishhfa.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'FISHING_HUNTING_HAPPY_FISH_5',
+					displayKey: 'Label_Fishing_Hunting_Happy_Fish_5',
+					product: PRODUCTS['FISHING_HUNTING_HAPPY_FISH_5'],
+					allowCurrencies: ALLOWED_CURRENCIES['FISHING_HUNTING_HAPPY_FISH_5'],
+				},
+				{
+					h5: {
+						img: '/h5/img/ma.png',
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'ma.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'fishma.png',
+							hoverBgImg: 'fishmaa.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'FISHING_HUNTING_MONSTER_AWAKEN',
+					displayKey: 'Label_Fishing_Hunting_Monster_Awaken',
+					product: PRODUCTS['FISHING_HUNTING_MONSTER_AWAKEN'],
 				},
 				{
 					h5: {
@@ -2233,6 +2503,7 @@ export const MENU_DATA = ({
 					productKey: 'LOTTERY_GPI_FAST3',
 					displayKey: 'Label_Product_GPI_Fast3',
 					product: PRODUCTS['LOTTERY_GPI_FAST3'],
+					allowCurrencies: ALLOWED_CURRENCIES['LOTTERY_GPI_FAST3'],
 				},
 				{
 					h5: {

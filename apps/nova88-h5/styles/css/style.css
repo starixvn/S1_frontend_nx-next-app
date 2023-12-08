@@ -2408,6 +2408,7 @@ footer > a.active .circleAnimation::after {
   transition: 0.7s;
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
 }
 #popup.active {
   visibility: visible;
@@ -3508,6 +3509,77 @@ footer > a.active .circleAnimation::after {
   }
 }
 #popup.vninfopop > div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo) {
+  background-color: unset;
+}
+#popup.sponsorpop {
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: unset;
+          flex-flow: unset;
+  display: none;
+}
+#popup.sponsorpop.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#popup.sponsorpop .sponsor {
+  background: rgba(0, 0, 0, 0);
+  margin-bottom: 15vw;
+  position: relative;
+  -webkit-animation: sponsor 0.3s linear 0.2s backwards;
+          animation: sponsor 0.3s linear 0.2s backwards;
+}
+#popup.sponsorpop .sponsor img {
+  display: block;
+  margin: 0 auto;
+  max-width: 85vw;
+}
+@-webkit-keyframes sponsor {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.95) translateY(1em);
+            transform: scale(0.95) translateY(1em);
+  }
+}
+@keyframes sponsor {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.95) translateY(1em);
+            transform: scale(0.95) translateY(1em);
+  }
+}
+#popup.sponsorpop .closepop {
+  cursor: pointer;
+  display: block;
+  width: 7vw;
+  position: absolute;
+  left: 50%;
+  bottom: -5vw;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-animation: closepop 2s ease-in-out;
+          animation: closepop 2s ease-in-out;
+}
+@keyframes closepop {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  88% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#popup.sponsorpop > div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo) {
   background-color: unset;
 }
 
@@ -4863,6 +4935,9 @@ footer > a.active .circleAnimation::after {
   background: #e6e6e6;
   border-bottom: 0;
 }
+.bankAccount .account .mask {
+  display: none;
+}
 .bankAccount .account.pending {
   position: relative;
   width: calc(100% - 8vw);
@@ -4874,7 +4949,15 @@ footer > a.active .circleAnimation::after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: rgba(40, 73, 133, 0.6);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  font-size: 3vw;
+  background: rgba(40, 73, 133, 0.8);
   width: 100%;
   height: 100%;
   border-radius: 5px;
@@ -4910,6 +4993,33 @@ footer > a.active .circleAnimation::after {
 }
 .selectBank button.active, .selectBank a.active {
   border: 2px solid #5574A7;
+}
+.selectBank button .mask, .selectBank a .mask {
+  display: none;
+}
+.selectBank button.pending, .selectBank a.pending {
+  position: relative;
+}
+.selectBank button.pending .mask, .selectBank a.pending .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  background: rgba(40, 73, 133, 0.8);
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+  z-index: 1;
+  font-size: 3vw;
 }
 .selectBank a {
   display: -webkit-box;
@@ -9024,6 +9134,15 @@ span.important {
   height: 10vw;
   margin: 0 auto !important;
   background: url(https://banner.0814media.net/h5/img/topup.png) center/cover;
+}
+
+.icon-quick::before {
+  content: "";
+  display: block;
+  width: 10vw;
+  height: 10vw;
+  margin: 0 auto !important;
+  background: url(https://banner.0814media.net/h5/img/quick-transfer.png) center/cover;
 }
 
 .submenu {

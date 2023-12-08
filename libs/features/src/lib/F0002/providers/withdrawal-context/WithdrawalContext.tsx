@@ -137,9 +137,9 @@ export const WithdrawalProvider = ({ children }: IWithdrawalProviderProps) => {
 
 	// 手機使用的，用來監測當前 path 來判斷 withdrawalType , 桌機用不到
 	const withdrawalType = (() => {
-		if (pathname === `/${paths.eWalletWithdrawal.root}`)
+		if (pathname === `${paths.eWalletWithdrawal.root}`)
 			return WithdrawalBankCardEnum.EWallet
-		if (pathname === `/${paths.cryptoWithdrawal.root}`)
+		if (pathname === `${paths.cryptoWithdrawal.root}`)
 			return WithdrawalBankCardEnum.Crypto
 		return WithdrawalBankCardEnum.LocalBank
 	})()

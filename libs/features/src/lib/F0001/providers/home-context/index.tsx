@@ -187,9 +187,9 @@ export const HomeProvider = ({
 	persistHotEventData,
 	persistHotGameData,
 	persistLicenseData,
-	persistSlotsGameData,
 	persistAnnouncementData,
 	persistLatestHighlightVideo,
+	persistSlotsGameData = {},
 	desktopHomeOrders = defaultDesktopHomeOrders,
 	mobileHomeOrders = defaultMobileHomeOrders,
 }: IHomeProviderProps) => {

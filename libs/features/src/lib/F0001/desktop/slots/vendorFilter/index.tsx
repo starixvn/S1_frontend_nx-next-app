@@ -1,14 +1,25 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
+import classNames from 'classnames'
+import Image from 'next/future/image'
 import { useSlots } from '@nx-next-app/features/F0001/providers'
 import VendorItem from './VendorItem'
 
 const VendorFilter = () => {
-	const { vendorList, activeVendorTpId, onVendorChange } = useSlots()
+	const {
+		vendorList,
+		activeVendorTpId,
+		isActiveDropdown,
+		onVendorChange,
+		onToggleDropdown,
+	} = useSlots()
 	return (
-		<div className='partnerSelect'>
-			<Swiper spaceBetween={0} slidesPerView={9} navigation>
+		<div
+			className={`provider ${classNames({
+				active: isActiveDropdown,
+			})}`}
+		>
+			<div className='provider-list'>
 				{vendorList.map(({ tpId, openPath, tpName, imgName, displayText }) => (
-					<SwiperSlide
+					<VendorItem
 						key={`slot-swiper-${tpId}`}
 						onClick={() =>
 							onVendorChange({
@@ -16,15 +27,20 @@ const VendorFilter = () => {
 								openPath,
 							})
 						}
-					>
-						<VendorItem
-							isActive={activeVendorTpId === tpId}
-							displayText={displayText}
-							imgName={imgName}
-						/>
-					</SwiperSlide>
+						isActive={activeVendorTpId === tpId}
+						displayText={displayText}
+						imgName={imgName}
+					/>
 				))}
-			</Swiper>
+			</div>
+			<button onClick={() => onToggleDropdown()}>
+				<Image
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/lobby-slots/down.png`}
+					alt=''
+					width={18}
+					height={18}
+				/>
+			</button>
 		</div>
 	)
 }
