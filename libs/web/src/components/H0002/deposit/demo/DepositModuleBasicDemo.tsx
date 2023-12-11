@@ -5,7 +5,7 @@ import {
 	InputBox,
 	Img,
 	Select,
-} from '@nx-next-app/components/F0002'
+} from '@nx-next-app/components/F0006'
 import { useTranslation } from 'next-i18next'
 import { useForm } from 'react-hook-form'
 import DepositModule from '../deposit-module'

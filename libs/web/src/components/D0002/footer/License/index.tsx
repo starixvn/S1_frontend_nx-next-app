@@ -31,7 +31,7 @@ const License = ({
 
 	return (
 		<>
-			{/* 因為 leobet 當前不顯示代言人，故直接判斷 license 出現時機決定是否渲染此區塊 */}
+			{/* 因為 yashbet 當前不顯示代言人，故直接判斷 license 出現時機決定是否渲染此區塊 */}
 			{showLicenseLogo && (
 				<div className='license'>
 					<div>
