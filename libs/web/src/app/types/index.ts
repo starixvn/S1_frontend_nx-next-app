@@ -242,6 +242,12 @@ export type SelectOptionType = {
 	prefixOptionIcon?: ReactNode
 }
 
+//* 有特殊開啟遊戲需求（例：以 api 回傳的 message 另開頁面）
+export enum LoginGameTypeEnum {
+	returlGameUrl = 1,
+	returnHtml,
+}
+
 export * from './footer'
 export * from './promotion'
 export * from './history'

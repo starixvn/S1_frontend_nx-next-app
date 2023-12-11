@@ -1,6 +1,6 @@
 
 # 目前分頁
-SITE_LIST=(nova88 leobet)
+SITE_LIST=(nova88 yashbet)
 
 # READ SITE
 echo "選擇品牌 (單選)"

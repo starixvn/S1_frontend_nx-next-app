@@ -152,6 +152,7 @@ const accountApi = rootApi.injectEndpoints({
 				method: 'POST',
 				data,
 			}),
+			invalidatesTags: ['ACCOUNT_STRICT_GET_USER_INFO'],
 		}),
 		setFavoriteGame: builder.mutation<
 			IAxiosResponse<void>,

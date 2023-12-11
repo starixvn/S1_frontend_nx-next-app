@@ -4,7 +4,7 @@ import { paths } from '@nx-next-app/constants'
 import { ISEOData } from '@nx-next-app/data-access'
 import { MetaData, GlobalModal } from '@nx-next-app/components/H0001'
 import { useAffiliateReferralEffect } from '@nx-next-app/hooks'
-import { useGlobalModalEffect } from 'libs/web/src/hooks/useGlobalModalEffect'
+import { useChangePasswordModalEffect } from 'libs/web/src/hooks/useChangePasswordModalEffect'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { BackTop } from '@nx-next-app/components/D0001'
 import LayoutFooter from './footer'
@@ -19,7 +19,7 @@ const Layout = ({ children, persistSEOData }: ILayoutProps) => {
 	const { globalModal, closeModal } = useGlobalModal()
 	const router = useRouter()
 
-	useGlobalModalEffect(() => router.push(paths.changePassword.root))
+	useChangePasswordModalEffect(() => router.push(paths.changePassword.root))
 
 	useAffiliateReferralEffect({ expireDay: 7 })
 
