@@ -2,15 +2,15 @@
 
 import { head, includes, isArray } from 'lodash-es'
 import { useRouter } from 'next/router'
-import { paths } from '@nx-next-app/constants'
+import { paths, PRODUCTS } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-
 import { useMenuData } from '@nx-next-app/hooks'
 import {
-	DeviceTypeEnum,
 	ISubMenu,
-	MenuActionTypeEnum,
 	MenuEventIcon,
+	DeviceTypeEnum,
+	LoginGameTypeEnum,
+	MenuActionTypeEnum,
 } from '@nx-next-app/types'
 import {
 	IAxiosError,
@@ -21,6 +21,11 @@ import { isEventPeriod, onWindowOpenProduct } from '@nx-next-app/utils'
 
 type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void
+
+const SPECIAL_LOGIN_GAME_TYPE: { [key in LoginGameTypeEnum]: number[] } = {
+	[LoginGameTypeEnum.returlGameUrl]: [],
+	[LoginGameTypeEnum.returnHtml]: [PRODUCTS.SLOTS_PG.TP_ID],
+}
 
 export const open9WSports = ({
 	url,
@@ -109,6 +114,7 @@ const useMenu = () => {
 		auth,
 		userInfo: { langId },
 	} = useAuth()
+
 	const menuData = useMenuData()
 	const [gotoGame] = useLazyGotoGameQuery()
 
@@ -129,6 +135,28 @@ const useMenu = () => {
 		},
 		{ loginCallback }: { loginCallback: LoginCallbackType }
 	) => {
+		if (
+			SPECIAL_LOGIN_GAME_TYPE[LoginGameTypeEnum.returnHtml].includes(
+				Number(tpId)
+			)
+		) {
+			onGoToGame(
+				{
+					tpId: Number(tpId),
+					langId,
+					inputs: {
+						gameId,
+						tpGameType,
+						fun: '0',
+						gameType: '',
+						loginGameType: String(LoginGameTypeEnum.returnHtml),
+					},
+				},
+				{ loginCallback }
+			)
+			return
+		}
+
 		if (loginCallback && !auth.isLogin) {
 			loginCallback()
 			return
@@ -277,7 +305,13 @@ const useMenu = () => {
 		{
 			tpId,
 			langId,
-			inputs: { gameId = null, fun = '0', gameType = '', tpGameType = '' },
+			inputs: {
+				gameId = null,
+				fun = '0',
+				gameType = '',
+				tpGameType = '',
+				loginGameType = '',
+			},
 		}: Omit<IGotoGameArg, 'appType'>,
 		{
 			loginCallback,
@@ -297,17 +331,29 @@ const useMenu = () => {
 				appType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
 				tpId,
 				langId,
-				inputs: { gameId, fun, gameType, tpGameType: String(tpGameType) },
+				inputs: {
+					gameId,
+					fun,
+					gameType,
+					tpGameType: String(tpGameType),
+					loginGameType,
+				},
 			}).unwrap()
-
-			const result = JSON.parse(message)
 
 			if (
 				// * SPORT 9W 的開啟方式來自於代理商給的文件，因此需拉出單獨處理
 				tpId === 31 // SPORTS_9W_SPORTS TP_ID
 			) {
+				const result = JSON.parse(message)
 				const { url, key, userId } = result ?? {}
 				open9WSports({ url, key, userId })
+			} else if (loginGameType !== '') {
+				if (Number(loginGameType) === LoginGameTypeEnum.returnHtml) {
+					const newWindow = window.open()
+					newWindow?.document.write(message)
+				} else {
+					window.open(message)
+				}
 			} else {
 				// * 非 9W, 直接由後端給的 message 當路徑直接另開頁面
 				window.open(

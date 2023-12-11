@@ -16,7 +16,6 @@ import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0002/types'
 import dynamic from 'next/dynamic'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { multiEqual } from '@nx-next-app/utils'
-import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0002/types'
 
 import Menu from './menu'
 import { LoginBlock } from './LoginBlock'
