@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/future/image'
 import classNames from 'classnames'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -67,13 +66,10 @@ const HeaderModule = ({
 		<div className={classNames('headerModule', className)} {...props}>
 			{/* 用 a link 讓畫面重新整理 */}
 			<a href='/'>
-				<Image
+				<img
 					className='dragonlogo'
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/logo.png`}
 					alt='logo'
-					height={40}
-					width={90}
-					style={{ height: 26, width: 125 }}
 				/>
 			</a>
 
