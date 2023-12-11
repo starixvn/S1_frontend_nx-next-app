@@ -5,6 +5,7 @@ import { siteMiddleware } from '@nx-next-app/middleware'
 export const LANG_TO_CURRENCY: { [key: string]: number } = {
 	en: 61,
 	hi: 61,
+	bd: 74,
 }
 
 // 此 middleware 僅處理未初始化的 cookie，再進入 'default' 時會給予固定 defaultLang 內的 locale
