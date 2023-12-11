@@ -53,6 +53,14 @@ const PRODUCT_EVENT_PERIOD: {
 		start: null,
 		end: '2023/12/31 23:59:59',
 	},
+	SLOTS_NO_LIMIT_CITY: {
+		start: null,
+		end: '2024/01/11 23:59:59',
+	},
+	SLOTS_BNG: {
+		start: null,
+		end: '2024/01/11 23:59:59',
+	},
 }
 
 const { MYR, INR, IDR, BDT, THB } = CurrenciesEnum
@@ -1130,11 +1138,13 @@ export const MENU_DATA = ({
 					'SLOTS_ES',
 					'SLOTS_NEXT_SPIN',
 					'SLOTS_PG',
+					'SLOTS_BNG',
 					'SLOTS_FA_CHAI',
 					'SLOTS_MGPSW',
 					'SLOTS_JILI',
 					'SLOTS_SPRIBE',
 					'SLOTS_JOKER',
+					'SLOTS_NO_LIMIT_CITY',
 					'SLOTS_RED_TIGER',
 					'SLOTS_NET_ENT',
 					'SLOTS_CQ9',
@@ -1156,12 +1166,14 @@ export const MENU_DATA = ({
 					'SLOTS_ES',
 					'SLOTS_NEXT_SPIN',
 					'SLOTS_PG',
+					'SLOTS_BNG',
 					'SLOTS_FA_CHAI',
 					'SLOTS_MGPSW',
 					'SLOTS_JILI',
 					'SLOTS_SPRIBE',
 					'SLOTS_JOKER',
 					'SLOTS_PEGASUS',
+					'SLOTS_NO_LIMIT_CITY',
 					'SLOTS_RED_TIGER',
 					'SLOTS_NET_ENT',
 					'SLOTS_CQ9',
@@ -1183,11 +1195,13 @@ export const MENU_DATA = ({
 					'SLOTS_ES',
 					'SLOTS_NEXT_SPIN',
 					'SLOTS_PG',
+					'SLOTS_BNG',
 					'SLOTS_FA_CHAI',
 					'SLOTS_MGPSW',
 					'SLOTS_JILI',
 					'SLOTS_SPRIBE',
 					'SLOTS_JOKER',
+					'SLOTS_NO_LIMIT_CITY',
 					'SLOTS_RED_TIGER',
 					'SLOTS_SKY_WIND',
 					'SLOTS_NET_ENT',
@@ -1209,11 +1223,13 @@ export const MENU_DATA = ({
 					'SLOTS_ES',
 					'SLOTS_NEXT_SPIN',
 					'SLOTS_PG',
+					'SLOTS_BNG',
 					'SLOTS_FA_CHAI',
 					'SLOTS_MGPSW',
 					'SLOTS_JILI',
 					'SLOTS_SPRIBE',
 					'SLOTS_JOKER',
+					'SLOTS_NO_LIMIT_CITY',
 					'SLOTS_RED_TIGER',
 					'SLOTS_NET_ENT',
 					'SLOTS_CQ9',
@@ -1235,11 +1251,13 @@ export const MENU_DATA = ({
 					'SLOTS_ES',
 					'SLOTS_NEXT_SPIN',
 					'SLOTS_PG',
+					'SLOTS_BNG',
 					'SLOTS_FA_CHAI',
 					'SLOTS_MGPSW',
 					'SLOTS_JILI',
 					'SLOTS_SPRIBE',
 					'SLOTS_JOKER',
+					'SLOTS_NO_LIMIT_CITY',
 					'SLOTS_RED_TIGER',
 					'SLOTS_NET_ENT',
 					'SLOTS_CQ9',
@@ -1400,6 +1418,36 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
+						img: '/h5/img/bng.png',
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					desktop: {
+						className: 'slotbng',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotbng.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_BNG',
+					pathname: paths.slots.root,
+					displayText: 'BNG',
+					query: {
+						tpId: PRODUCTS['SLOTS_BNG'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_BNG'],
+					eventIcons: [
+						{
+							icon: 'new-icon',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['SLOTS_BNG'],
+						},
+					],
+				},
+				{
+					h5: {
 						img: '/h5/img/slotfachai.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -1547,6 +1595,36 @@ export const MENU_DATA = ({
 					},
 					product: PRODUCTS['SLOTS_PEGASUS'],
 					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_PEGASUS'],
+				},
+				{
+					h5: {
+						img: '/h5/img/slotnlc.png',
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					desktop: {
+						className: '',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotnlc.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_NO_LIMIT_CITY',
+					pathname: paths.slots.root,
+					displayText: 'NoLimit City',
+					query: {
+						tpId: PRODUCTS['SLOTS_NO_LIMIT_CITY'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_NO_LIMIT_CITY'],
+					eventIcons: [
+						{
+							icon: 'new-icon',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['SLOTS_NO_LIMIT_CITY'],
+						},
+					],
 				},
 				{
 					h5: {

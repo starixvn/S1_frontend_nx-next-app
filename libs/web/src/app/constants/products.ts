@@ -147,6 +147,10 @@ export const PRODUCTS = {
 		TP_ID: 56,
 		TP_GAME_TYPE: 107,
 	},
+	SLOTS_NO_LIMIT_CITY: {
+		TP_ID: 59,
+		TP_GAME_TYPE: 107,
+	},
 	SLOTS_JOKER: {
 		TP_ID: 9,
 		TP_GAME_TYPE: 13,
@@ -178,6 +182,10 @@ export const PRODUCTS = {
 	SLOTS_PG: {
 		TP_ID: 14,
 		TP_GAME_TYPE: 17,
+	},
+	SLOTS_BNG: {
+		TP_ID: 57,
+		TP_GAME_TYPE: 108,
 	},
 	SLOTS_OW: {
 		TP_ID: 41,
