@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next'
 import { onWindowOpen } from '@nx-next-app/utils'
-import { Img } from '@nx-next-app/components/D0002'
+import { Img } from '@nx-next-app/components/D0006'
 import { useReferral } from '@nx-next-app/features/F0006/providers'
 
 const ReferralSocialMediaList = () => {

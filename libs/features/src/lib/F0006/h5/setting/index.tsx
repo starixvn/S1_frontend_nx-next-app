@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import classNames from 'classnames'
-import { Header, SettingCollapse } from '@nx-next-app/components/H0001'
+import { Header, SettingCollapse } from '@nx-next-app/components/H0006'
 import { LANG_GROUP_COUNTRY, paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useLanguageGroup } from '@nx-next-app/hooks'

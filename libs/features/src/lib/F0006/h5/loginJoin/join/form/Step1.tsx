@@ -2,7 +2,7 @@ import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
-import { InputBox } from '@nx-next-app/components/H0001'
+import { InputBox } from '@nx-next-app/components/H0006'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import {
 	useLazyAffiliateCheckQuery,

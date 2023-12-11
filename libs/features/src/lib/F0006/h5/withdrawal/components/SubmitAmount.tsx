@@ -5,7 +5,7 @@ import { useWithdrawal } from '@nx-next-app/features/F0006/providers'
 import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0006/types'
 import { numberFormat } from '@nx-next-app/utils'
 import { CurrenciesEnum } from '@nx-next-app/types'
-import { Form, InputBox } from '@nx-next-app/components/H0001'
+import { Form, InputBox } from '@nx-next-app/components/H0006'
 
 const SubmitAmount = () => {
 	const { t } = useTranslation()

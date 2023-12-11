@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 import { useFormContext } from 'react-hook-form'
 import { paths } from '@nx-next-app/constants'
-import { InputBox } from '@nx-next-app/components/H0001'
+import { InputBox } from '@nx-next-app/components/H0006'
 
 const LoginForm = () => {
 	const { t } = useTranslation()

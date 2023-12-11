@@ -1,4 +1,4 @@
-import { Header } from '@nx-next-app/components/D0002'
+import { Header } from '@nx-next-app/components/D0006'
 import { useAuth } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import { useSetHideBalanceMutation } from '@nx-next-app/service'

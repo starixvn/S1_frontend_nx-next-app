@@ -3,7 +3,7 @@ import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { CurrenciesEnum, DeviceTypeEnum } from '@nx-next-app/types'
 import Image from 'next/future/image'
 import { includes } from 'lodash-es'
-import { SpinButton } from '@nx-next-app/components/H0001'
+import { SpinButton } from '@nx-next-app/components/H0006'
 import { numberFormat } from '@nx-next-app/utils'
 import { useWithdrawal } from '@nx-next-app/features/F0006/providers'
 

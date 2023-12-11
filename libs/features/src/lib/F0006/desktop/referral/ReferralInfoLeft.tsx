@@ -1,4 +1,4 @@
-import { Img } from '@nx-next-app/components/D0002'
+import { Img } from '@nx-next-app/components/D0006'
 import { toUpper } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 

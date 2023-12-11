@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { UseFormReturn } from 'react-hook-form'
-import { InputBox } from '@nx-next-app/components/D0002'
+import { InputBox } from '@nx-next-app/components/D0006'
 import { PASSWORD_REGEX } from '@nx-next-app/constants'
 import { ChangePasswordFormType } from 'libs/web/src/hooks/useChangePasswordFetcher'
 

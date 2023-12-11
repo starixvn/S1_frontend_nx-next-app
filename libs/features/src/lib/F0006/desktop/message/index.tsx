@@ -2,8 +2,8 @@ import React from 'react'
 import { isEmpty } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useMessageFetcher } from '@nx-next-app/hooks'
-import Pagination from '@nx-next-app/components/D0002/pagination'
-import { Loading, SpinButton } from '@nx-next-app/components/D0002'
+import Pagination from '@nx-next-app/components/D0006/pagination'
+import { Loading, SpinButton } from '@nx-next-app/components/D0006'
 import MessageList from './MessageList'
 
 const PersonalMessage = () => {

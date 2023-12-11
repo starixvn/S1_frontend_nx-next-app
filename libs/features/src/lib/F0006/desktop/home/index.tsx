@@ -1,6 +1,6 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import { Marquee } from '@nx-next-app/components/D0002'
+import { Marquee } from '@nx-next-app/components/D0006'
 import { useHome } from '@nx-next-app/features/F0006/providers'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { DesktopHomeComponentsEnum } from '@nx-next-app/features/F0006/types'

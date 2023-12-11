@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from '@nx-next-app/features/F0006/providers/history-context'
-import useTable from 'libs/web/src/components/D0002/table/useTable'
+import useTable from 'libs/web/src/components/D0006/table/useTable'
 import { HistoryTabsEnum } from 'libs/web/src/app/types/history'
 import { useTranslation } from 'next-i18next'
 

@@ -12,7 +12,7 @@ import {
 	Select,
 	InputBox,
 	ISelectProps,
-} from '@nx-next-app/components/H0001'
+} from '@nx-next-app/components/H0006'
 import { useCheckPhone } from '@nx-next-app/features/F0006/hooks'
 import { PhoneOtpModal } from './PhoneOtpModal'
 

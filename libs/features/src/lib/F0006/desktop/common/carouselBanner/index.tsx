@@ -8,7 +8,7 @@ import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import Carousel, {
 	ICarouselProps,
-} from '@nx-next-app/components/D0002/carousel'
+} from '@nx-next-app/components/D0006/carousel'
 import LoginModal from '@nx-next-app/features/F0006/desktop/modal/LoginModal'
 import BannerItem from './BannerItem'
 

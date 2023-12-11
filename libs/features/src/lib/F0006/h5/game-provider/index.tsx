@@ -1,6 +1,6 @@
 import React from 'react'
 import { IFooterData } from '@nx-next-app/types'
-import { Header } from '@nx-next-app/components/H0001'
+import { Header } from '@nx-next-app/components/H0006'
 import { useTranslation } from 'next-i18next'
 import { find } from 'lodash-es'
 import Image from 'next/future/image'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Carousel } from '@nx-next-app/components/D0002'
+import { Carousel } from '@nx-next-app/components/D0006'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import VipBannerItem from '@nx-next-app/features/F0006/h5/vip/VipBannerItem'
 import { DeviceTypeEnum } from '@nx-next-app/types'

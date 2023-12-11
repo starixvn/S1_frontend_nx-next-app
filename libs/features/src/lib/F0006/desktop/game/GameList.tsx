@@ -1,7 +1,7 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useMenu } from '@nx-next-app/features/F0006/hooks'
 import dynamic from 'next/dynamic'
-import GameListItem from '@nx-next-app/components/D0002/game-list-item'
+import GameListItem from '@nx-next-app/components/D0006/game-list-item'
 import { useTranslation } from 'next-i18next'
 import classNames from 'classnames'
 import { ISubMenu } from '@nx-next-app/types'

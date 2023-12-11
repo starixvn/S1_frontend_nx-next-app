@@ -1,6 +1,6 @@
 import { isArray } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { Loading } from '@nx-next-app/components/D0002'
+import { Loading } from '@nx-next-app/components/D0006'
 import { useRebateExclude } from '@nx-next-app/features/F0006/hooks'
 
 const RebateExclude = () => {

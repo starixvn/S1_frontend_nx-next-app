@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import React, { InputHTMLAttributes, useState } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
-import { Select } from '@nx-next-app/components/F0006'
+import { Select } from '@nx-next-app/components/H0006'
 import { SelectOptionType } from '@nx-next-app/types'
 
 export interface IInputPhoneProps

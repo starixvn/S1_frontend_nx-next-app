@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import { usePhoneOtp } from '@nx-next-app/hooks'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { PREV_PAGE, PrevPageEnum } from '@nx-next-app/constants'
-import { Form, CountdownTimer } from '@nx-next-app/components/H0001'
+import { Form, CountdownTimer } from '@nx-next-app/components/H0006'
 
 const PhoneOtpModal = () => {
 	const { t } = useTranslation()

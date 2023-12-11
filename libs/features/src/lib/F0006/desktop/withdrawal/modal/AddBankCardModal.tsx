@@ -7,7 +7,7 @@ import {
 	InputBox,
 	ISelectProps,
 	Select,
-} from '@nx-next-app/components/D0002'
+} from '@nx-next-app/components/D0006'
 import { find, head } from 'lodash-es'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { CurrenciesEnum } from '@nx-next-app/types'

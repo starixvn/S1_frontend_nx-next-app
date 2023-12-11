@@ -8,7 +8,7 @@ import { useMenu } from '@nx-next-app/features/F0006/hooks'
 import { useAuth } from '@nx-next-app/data-access'
 import Carousel, {
 	ICarouselProps,
-} from '@nx-next-app/components/H0001/carousel'
+} from '@nx-next-app/components/H0006/carousel'
 import BannerItem from './BannerItem'
 
 interface ICarouselBannerProps extends ICarouselProps {

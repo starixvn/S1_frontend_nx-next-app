@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next'
 import { isConvert } from '@nx-next-app/utils'
 import { useAuth } from '@nx-next-app/data-access'
-import { Form, Select, InputBox } from '@nx-next-app/components/D0002'
+import { Form, Select, InputBox } from '@nx-next-app/components/D0006'
 import { useTransferFunds } from '@nx-next-app/features/F0006/providers'
 import classNames from 'classnames'
 

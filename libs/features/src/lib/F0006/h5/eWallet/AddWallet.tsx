@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import Image from 'next/future/image'
 import { useEWallet } from '@nx-next-app/features/F0006/providers'
-import { Form, Select, InputBox, Loading } from '@nx-next-app/components/H0001'
+import { Form, Select, InputBox, Loading } from '@nx-next-app/components/H0006'
 
 const AddWallet = () => {
 	const { t } = useTranslation()

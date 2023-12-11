@@ -21,7 +21,7 @@ import {
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
 } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0002'
+import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0006'
 import {
 	useSignupMutation,
 	useLazyExistsEmailQuery,

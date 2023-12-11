@@ -4,7 +4,7 @@ import { useSendOTPEmailMutation } from '@nx-next-app/service'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { Loading } from '@nx-next-app/components/D0002'
+import { Loading } from '@nx-next-app/components/D0006'
 import { PhoneOtpModal } from './PhoneOtpModal'
 
 const Info = () => {

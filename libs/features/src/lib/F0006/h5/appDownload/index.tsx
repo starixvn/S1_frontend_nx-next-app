@@ -3,7 +3,7 @@ import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
 import QRCode from 'qrcode.react'
 import { paths } from '@nx-next-app/constants'
-import { Carousel } from '@nx-next-app/components/D0002'
+import { Carousel } from '@nx-next-app/components/D0006'
 import { useAppDownload } from '@nx-next-app/features/F0006/providers/appDownload-context'
 
 const AppDownload = () => {

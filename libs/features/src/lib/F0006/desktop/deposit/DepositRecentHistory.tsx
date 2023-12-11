@@ -1,5 +1,5 @@
-import { Loading } from '@nx-next-app/components/D0002'
-import DepositHistoryTable from '@nx-next-app/components/D0002/table/historyTable/DepositHistoryTable'
+import { Loading } from '@nx-next-app/components/D0006'
+import DepositHistoryTable from '@nx-next-app/components/D0006/table/historyTable/DepositHistoryTable'
 import { useDepositRecentHistory } from '@nx-next-app/data-access'
 
 const DepositRecentHistory = () => {

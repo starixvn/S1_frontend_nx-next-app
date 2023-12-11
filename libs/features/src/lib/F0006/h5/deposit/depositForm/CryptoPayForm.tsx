@@ -4,7 +4,7 @@ import {
 	Form,
 	InputBox,
 	Select,
-} from '@nx-next-app/components/H0001'
+} from '@nx-next-app/components/H0006'
 import {
 	ICryptoForm,
 	useAuth,

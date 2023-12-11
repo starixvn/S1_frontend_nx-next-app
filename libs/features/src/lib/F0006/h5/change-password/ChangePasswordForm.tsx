@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 import { UseFormReturn } from 'react-hook-form'
 import { PASSWORD_REGEX, paths } from '@nx-next-app/constants'
-import { Form, InputBox } from '@nx-next-app/components/H0001'
+import { Form, InputBox } from '@nx-next-app/components/H0006'
 import { ChangePasswordFormType } from 'libs/web/src/hooks/useChangePasswordFetcher'
 
 interface IChangePasswordFormProps {

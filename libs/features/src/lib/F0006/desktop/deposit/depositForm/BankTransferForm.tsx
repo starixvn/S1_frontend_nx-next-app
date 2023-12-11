@@ -9,7 +9,7 @@ import {
 	InputBox,
 	Loading,
 	Select,
-} from '@nx-next-app/components/D0002'
+} from '@nx-next-app/components/D0006'
 import { paths } from '@nx-next-app/constants'
 import {
 	useAuth,

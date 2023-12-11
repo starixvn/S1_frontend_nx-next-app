@@ -5,7 +5,7 @@ import {
 	useAffiliateReferralEffect,
 	useChangePasswordModalEffect,
 } from '@nx-next-app/hooks'
-import { BackTop, GlobalModal, MetaData } from '@nx-next-app/components/D0002'
+import { BackTop, GlobalModal, MetaData } from '@nx-next-app/components/D0006'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import LayoutHeader from '@nx-next-app/features/F0006/desktop/layout/header'
 import LayoutFooter from '@nx-next-app/features/F0006/desktop/layout/footer'

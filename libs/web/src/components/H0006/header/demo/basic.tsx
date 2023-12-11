@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Header, TagOptionType } from '@nx-next-app/components/F0006'
+import { Header, TagOptionType } from '@nx-next-app/components/H0006'
 import { paths } from '@nx-next-app/constants'
 import { useTranslation } from 'next-i18next'
 

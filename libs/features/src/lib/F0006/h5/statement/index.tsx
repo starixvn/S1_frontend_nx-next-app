@@ -3,7 +3,7 @@ import StatementHeader from '@nx-next-app/features/F0006/h5/statement/header'
 import { useStatement } from '@nx-next-app/features/F0006/providers/statement-context'
 import StatementItem from '@nx-next-app/features/F0006/h5/statement/statementItem'
 import { uniqueId } from 'lodash-es'
-import { Loading, Select } from '@nx-next-app/components/H0001'
+import { Loading, Select } from '@nx-next-app/components/H0006'
 import { useTranslation } from 'next-i18next'
 
 const Statement = () => {

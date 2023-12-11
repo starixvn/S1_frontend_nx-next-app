@@ -1,9 +1,9 @@
 import { useTranslation } from 'next-i18next'
-import { Loading, Select } from '@nx-next-app/components/D0002'
+import { Loading, Select } from '@nx-next-app/components/D0006'
 import { useStatement } from '@nx-next-app/features/F0006/providers/statement-context'
 import StatementTable from '@nx-next-app/features/F0006/desktop/statement/StatementTable'
-import Breadcrumb from '@nx-next-app/components/D0002/breadcrumb'
-import Pagination from '@nx-next-app/components/D0002/pagination'
+import Breadcrumb from '@nx-next-app/components/D0006/breadcrumb'
+import Pagination from '@nx-next-app/components/D0006/pagination'
 
 const Statement = () => {
 	const { t } = useTranslation()

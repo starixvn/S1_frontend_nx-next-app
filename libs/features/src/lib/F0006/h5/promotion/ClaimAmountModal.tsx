@@ -1,4 +1,4 @@
-import { Form, InputBox, Select } from '@nx-next-app/components/H0001'
+import { Form, InputBox, Select } from '@nx-next-app/components/H0006'
 import { PromotionTypeEnum, SelectOptionType } from '@nx-next-app/types'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
