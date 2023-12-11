@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 import { ISEOData } from '@nx-next-app/data-access'
 import {
 	useAffiliateReferralEffect,
-	useGlobalModalEffect,
+	useChangePasswordModalEffect,
 } from '@nx-next-app/hooks'
 import { BackTop, GlobalModal, MetaData } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -33,7 +33,7 @@ export function Layout({
 }: ILayoutProps) {
 	const { globalModal, closeModal, modal } = useGlobalModal()
 
-	useGlobalModalEffect(() => modal.open(<ChangePasswordModal />))
+	useChangePasswordModalEffect(() => modal.open(<ChangePasswordModal />))
 
 	useAffiliateReferralEffect({ expireDay: 7 })
 

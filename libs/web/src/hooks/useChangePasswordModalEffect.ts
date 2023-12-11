@@ -6,14 +6,14 @@ import { useAuth } from '@nx-next-app/data-access'
  * 之後直播主的 memberType 也從這裡改寫即可
  */
 
-const useGlobalModalEffect = (handleModalEffect: () => void) => {
+const useChangePasswordModalEffect = (handleModalCallBack: () => void) => {
 	const { userInfo } = useAuth()
 
 	useEffect(() => {
 		if (userInfo.isResetPwd) {
-			handleModalEffect()
+			handleModalCallBack()
 		}
 	}, [userInfo.isResetPwd])
 }
 
-export { useGlobalModalEffect }
+export { useChangePasswordModalEffect }
