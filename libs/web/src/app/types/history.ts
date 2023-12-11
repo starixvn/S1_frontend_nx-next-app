@@ -8,10 +8,10 @@ export enum DepositStatusClassNameEnum {
 
 export enum WithdrawalStatusClassNameEnum {
 	Pending = 1,
-	InProgress,
-	Approved,
+	InProgress = 4,
+	Cancel = 5,
+	Approved = 6,
 	Reject,
-	Cancel,
 }
 
 export enum DepositStatusEnum {
