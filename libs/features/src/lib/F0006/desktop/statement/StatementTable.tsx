@@ -1,5 +1,5 @@
 import React from 'react'
-import useTable from '@nx-next-app/components/D0002/table/useTable'
+import useTable from '@nx-next-app/components/D0006/table/useTable'
 import { useStatement } from '@nx-next-app/features/F0006/providers/statement-context'
 
 const StatementTable = () => {

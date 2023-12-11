@@ -3,8 +3,8 @@ import { isEmpty } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useMessageFetcher } from '@nx-next-app/hooks'
-import Loading from '@nx-next-app/components/H0001/loading'
-import { Header, SpinButton } from '@nx-next-app/components/H0001'
+import Loading from '@nx-next-app/components/H0006/loading'
+import { Header, SpinButton } from '@nx-next-app/components/H0006'
 import MessageList from './MessageList'
 
 const PersonalMessage = () => {

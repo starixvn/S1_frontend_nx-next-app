@@ -8,7 +8,7 @@ import {
 	Select,
 	InputBox,
 	CountdownTimer,
-} from '@nx-next-app/components/H0001'
+} from '@nx-next-app/components/H0006'
 import {
 	ICryptoNetwork,
 	IOTPSMSData,

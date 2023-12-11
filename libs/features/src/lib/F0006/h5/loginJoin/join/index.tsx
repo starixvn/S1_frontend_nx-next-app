@@ -16,7 +16,7 @@ import {
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { ISelectProps } from '@nx-next-app/components/H0001'
+import { ISelectProps } from '@nx-next-app/components/H0006'
 import {
 	useSignupMutation,
 	useGetRecaptchaInfoQuery,

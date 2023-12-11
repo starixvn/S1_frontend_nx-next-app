@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
-import { Loading } from '@nx-next-app/components/D0002'
+import { Loading } from '@nx-next-app/components/D0006'
 import { useCryptoWallet } from '@nx-next-app/features/F0006/providers'
 import { useAuth } from '@nx-next-app/data-access'
 import { AddWallet } from './AddWallet'

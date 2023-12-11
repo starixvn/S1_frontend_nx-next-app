@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useGetAnnouncementQuery } from '@nx-next-app/service'
 import { useAuth } from '@nx-next-app/data-access'
-import { Header } from '@nx-next-app/components/H0001'
+import { Header } from '@nx-next-app/components/H0006'
 import { paths } from '@nx-next-app/constants'
 import { useRouter } from 'next/router'
 

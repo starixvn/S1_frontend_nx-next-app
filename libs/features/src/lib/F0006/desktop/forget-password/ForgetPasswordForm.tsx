@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next'
 import { useForm } from 'react-hook-form'
-import { InputBox, Form } from '@nx-next-app/components/D0002'
+import { InputBox, Form } from '@nx-next-app/components/D0006'
 import { EMAIL_REGEX } from '@nx-next-app/constants'
 import { upperFirst } from 'lodash-es'
 

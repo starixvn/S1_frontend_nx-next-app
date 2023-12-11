@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from '@nx-next-app/features/F0006/providers'
 import { useTranslation } from 'next-i18next'
-import { BackTop } from '@nx-next-app/components/D0002'
+import { BackTop } from '@nx-next-app/components/D0006'
 import { uniqueId } from 'lodash-es'
 import { HistoryTabsEnum } from 'libs/web/src/app/types/history'
 import {
@@ -11,7 +11,7 @@ import {
 	ITransferHistoryData,
 	IWithdrawalInfoHistoryData,
 } from '@nx-next-app/service'
-import Loading from '@nx-next-app/components/H0001/loading'
+import Loading from '@nx-next-app/components/H0006/loading'
 import HistoryHeader from '@nx-next-app/features/F0006/h5/history/header'
 import TransferItem from '@nx-next-app/features/F0006/h5/history/historyItems/TransferItem'
 import DepositItem from '@nx-next-app/features/F0006/h5/history/historyItems/DepositItem'

@@ -9,7 +9,7 @@ import VipBanner from '@nx-next-app/features/F0006/h5/vip/VipBanner'
 import VipTable from '@nx-next-app/features/F0006/h5/vip/VipTable'
 import VipBottom from '@nx-next-app/features/F0006/h5/vip/VipBottom'
 import VipMedal from '@nx-next-app/features/F0006/h5/vip/VipMedal'
-import { Header } from '@nx-next-app/components/H0001'
+import { Header } from '@nx-next-app/components/H0006'
 
 interface IVipProps {
 	vipBannerData: IVipBannerData

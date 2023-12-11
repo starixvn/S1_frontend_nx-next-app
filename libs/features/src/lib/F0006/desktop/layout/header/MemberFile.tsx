@@ -1,4 +1,4 @@
-import { Header } from '@nx-next-app/components/D0002'
+import { Header } from '@nx-next-app/components/D0006'
 import { DeviceTypeEnum } from '@nx-next-app/types'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 

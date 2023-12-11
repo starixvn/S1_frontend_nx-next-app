@@ -4,7 +4,7 @@ import { useBoolean } from 'usehooks-ts'
 import classNames from 'classnames'
 import { useWithdrawal } from '@nx-next-app/features/F0006/providers'
 import { numberFormat } from '@nx-next-app/utils'
-import { SpinButton } from '@nx-next-app/components/D0002'
+import { SpinButton } from '@nx-next-app/components/D0006'
 
 const WalletInfo = () => {
 	const { t } = useTranslation()

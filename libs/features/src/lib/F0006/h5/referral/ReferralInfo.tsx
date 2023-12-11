@@ -1,5 +1,5 @@
 import QRCode from 'qrcode.react'
-import { Img } from '@nx-next-app/components/H0001'
+import { Img } from '@nx-next-app/components/H0006'
 import { toUpper } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useReferral } from '@nx-next-app/features/F0006/providers'

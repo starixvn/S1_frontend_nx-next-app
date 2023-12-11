@@ -1,5 +1,5 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { Form } from '@nx-next-app/components/H0001'
+import { Form } from '@nx-next-app/components/H0006'
 import { usePromotion } from '@nx-next-app/features/F0006/providers'
 import { PromotionFilterEnum } from '@nx-next-app/types'
 

@@ -6,7 +6,7 @@ import { CurrenciesEnum } from '@nx-next-app/types'
 import { numFormatToDigits } from '@nx-next-app/utils'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
-import { Header, SpinButton } from '@nx-next-app/components/H0001'
+import { Header, SpinButton } from '@nx-next-app/components/H0006'
 
 const Wallet = () => {
 	const { t } = useTranslation()

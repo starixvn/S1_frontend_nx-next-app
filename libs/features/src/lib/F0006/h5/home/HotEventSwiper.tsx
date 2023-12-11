@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 import { useHome } from '@nx-next-app/features/F0006/providers'
-import { Carousel } from '@nx-next-app/components/H0001'
+import { Carousel } from '@nx-next-app/components/H0006'
 import { useTranslation } from 'next-i18next'
 import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
 import { useMenu } from '@nx-next-app/features/F0006/hooks'

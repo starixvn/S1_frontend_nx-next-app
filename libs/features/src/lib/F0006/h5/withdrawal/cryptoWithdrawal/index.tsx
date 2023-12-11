@@ -1,5 +1,5 @@
 import { useWithdrawal } from '@nx-next-app/features/F0006/providers'
-import { Loading } from '@nx-next-app/components/H0001'
+import { Loading } from '@nx-next-app/components/H0006'
 
 import {
 	RecentHistory,

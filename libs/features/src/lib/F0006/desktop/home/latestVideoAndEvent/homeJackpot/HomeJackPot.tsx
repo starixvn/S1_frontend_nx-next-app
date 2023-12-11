@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next'
 import Image from 'next/future/image'
 import { useAuth } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
-import { JackPot } from '@nx-next-app/components/D0002'
+import { JackPot } from '@nx-next-app/components/D0006'
 import { useRouter } from 'next/router'
 import { useHome } from '@nx-next-app/features/F0006/providers/home-context'
 

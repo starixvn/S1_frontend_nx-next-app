@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Header, LoginFormType } from '@nx-next-app/components/D0002'
+import { Header, LoginFormType } from '@nx-next-app/components/D0006'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'

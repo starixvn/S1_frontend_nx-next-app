@@ -23,7 +23,7 @@ import {
 	ITpWalletInfoData,
 } from '@nx-next-app/service'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { ISelectProps } from '@nx-next-app/components/D0002'
+import { ISelectProps } from '@nx-next-app/components/D0006'
 import { TurnoverModal as DesktopTurnoverModal } from '@nx-next-app/features/F0006/desktop/transfer-funds/TurnoverModal'
 import { TurnoverModal as H5TurnoverModal } from '@nx-next-app/features/F0006/h5/transfer-funds/TurnoverModal'
 import { useForm, UseFormReturn } from 'react-hook-form'

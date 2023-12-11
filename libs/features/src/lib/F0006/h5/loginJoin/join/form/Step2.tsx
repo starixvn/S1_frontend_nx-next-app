@@ -6,7 +6,7 @@ import {
 	InputBox,
 	InputPhone,
 	ISelectProps,
-} from '@nx-next-app/components/H0001'
+} from '@nx-next-app/components/H0006'
 import {
 	AREA_CODE,
 	EMAIL_REGEX,

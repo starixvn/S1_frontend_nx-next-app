@@ -6,8 +6,8 @@ import { useAuth } from '@nx-next-app/data-access'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { IFSC_CODE_REGEX } from '@nx-next-app/constants'
 import { useBankInfo } from '@nx-next-app/features/F0006/providers'
-import { Form, Select, InputBox } from '@nx-next-app/components/H0001'
-import { Loading } from '@nx-next-app/components/D0002'
+import { Form, Select, InputBox } from '@nx-next-app/components/H0006'
+import { Loading } from '@nx-next-app/components/D0006'
 
 const AddCard = () => {
 	const { t } = useTranslation()

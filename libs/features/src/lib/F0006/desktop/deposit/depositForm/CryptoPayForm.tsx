@@ -5,7 +5,7 @@ import {
 	InputBox,
 	Loading,
 	Select,
-} from '@nx-next-app/components/D0002'
+} from '@nx-next-app/components/D0006'
 import {
 	useAuth,
 	useCryptoPayForm,

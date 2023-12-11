@@ -6,7 +6,7 @@ import {
 	JackPot,
 	Marquee,
 	useAppDownload,
-} from '@nx-next-app/components/H0001'
+} from '@nx-next-app/components/H0006'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'

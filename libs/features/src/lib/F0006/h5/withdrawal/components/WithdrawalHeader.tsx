@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next'
-import { Header } from '@nx-next-app/components/H0001'
+import { Header } from '@nx-next-app/components/H0006'
 import { paths } from '@nx-next-app/constants'
 import { useWithdrawal } from '@nx-next-app/features/F0006/providers'
 

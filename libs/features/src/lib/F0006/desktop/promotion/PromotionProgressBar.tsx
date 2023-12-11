@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { getPromotionPercentage, numberFormat } from '@nx-next-app/utils'
-import { SpinButton } from '@nx-next-app/components/D0002'
+import { SpinButton } from '@nx-next-app/components/D0006'
 
 const PromotionProgressBar = ({
 	custTurnOver,

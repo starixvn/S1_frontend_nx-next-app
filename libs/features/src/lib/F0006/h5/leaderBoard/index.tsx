@@ -3,7 +3,7 @@ import LeaderBoardEventList from '@nx-next-app/features/F0006/h5/leaderBoard/Lea
 import LeaderBoardContent from '@nx-next-app/features/F0006/h5/leaderBoard/LeaderBoardContent'
 import { useLeaderBoard } from '@nx-next-app/features/F0006/providers/leaderBoard-context'
 import { useTranslation } from 'next-i18next'
-import { Header, TagOptionType } from '@nx-next-app/components/H0001'
+import { Header, TagOptionType } from '@nx-next-app/components/H0006'
 
 const LeaderBoard = () => {
 	const { activeTab, LeaderBoardTabsEnum, onTabsChange, LEADER_BOARD_TABS } =

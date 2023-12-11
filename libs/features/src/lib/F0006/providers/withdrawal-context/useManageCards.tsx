@@ -14,7 +14,7 @@ import {
 	useSetLocalBankInfoMutation,
 } from '@nx-next-app/service'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { ISelectProps } from '@nx-next-app/components/D0002'
+import { ISelectProps } from '@nx-next-app/components/D0006'
 import dynamic from 'next/dynamic'
 
 const AddBankCardModal = dynamic(

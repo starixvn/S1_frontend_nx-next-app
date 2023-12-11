@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { find } from 'lodash-es'
-import { Select } from '@nx-next-app/components/D0002'
+import { Select } from '@nx-next-app/components/D0006'
 import { useLeaderBoard } from '@nx-next-app/features/F0006/providers/leaderBoard-context'
 
 const LeaderBoardContentNav = () => {

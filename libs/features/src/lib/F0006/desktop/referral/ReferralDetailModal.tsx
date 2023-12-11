@@ -1,5 +1,5 @@
 import { isNull } from 'lodash-es'
-import { Img } from '@nx-next-app/components/D0002'
+import { Img } from '@nx-next-app/components/D0006'
 import { IReferralSettingDetailData } from '@nx-next-app/service'
 import { useTranslation } from 'next-i18next'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'

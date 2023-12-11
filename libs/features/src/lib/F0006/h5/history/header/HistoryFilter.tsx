@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from '@nx-next-app/features/F0006/providers'
 import { useTranslation } from 'next-i18next'
-import DateSelector from '@nx-next-app/components/H0001/dateSelector'
+import DateSelector from '@nx-next-app/components/H0006/dateSelector'
 
 const HistoryFilter = () => {
 	const { startDate, endDate, onStartDateChange, onEndDateChange, onSearch } =

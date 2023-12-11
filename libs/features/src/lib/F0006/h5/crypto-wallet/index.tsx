@@ -4,7 +4,7 @@ import { paths } from '@nx-next-app/constants'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useCryptoWallet } from '@nx-next-app/features/F0006/providers'
-import { Header } from '@nx-next-app/components/H0001'
+import { Header } from '@nx-next-app/components/H0006'
 import { WalletList } from './WalletList'
 
 const CryptoWallet = () => {

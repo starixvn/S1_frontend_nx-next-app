@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next'
 import { numFormatToDigits } from '@nx-next-app/utils'
 import { TransferWalletTpId } from '@nx-next-app/constants'
-import { SpinButton } from '@nx-next-app/components/D0002'
+import { SpinButton } from '@nx-next-app/components/D0006'
 import { useTransferFunds } from '@nx-next-app/features/F0006/providers'
 
 const WalletList = () => {

@@ -1,4 +1,4 @@
-import { Header } from '@nx-next-app/components/H0001'
+import { Header } from '@nx-next-app/components/H0006'
 import PromotionCode from './PromotionCode'
 import PromotionFilter from './PromotionFilter'
 import PromotionList from './PromotionList'

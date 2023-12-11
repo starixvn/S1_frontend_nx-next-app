@@ -3,9 +3,9 @@ import { useTranslation } from 'next-i18next'
 import HistoryTabs from '@nx-next-app/features/F0006/desktop/history/HistoryTabs'
 import HistoryFilter from '@nx-next-app/features/F0006/desktop/history/HistoryFilter'
 import HistoryTable from '@nx-next-app/features/F0006/desktop/history/HistoryTable'
-import Pagination from '@nx-next-app/components/D0002/pagination'
+import Pagination from '@nx-next-app/components/D0006/pagination'
 import { useHistory } from '@nx-next-app/features/F0006/providers/history-context'
-import { Loading } from '@nx-next-app/components/D0002'
+import { Loading } from '@nx-next-app/components/D0006'
 
 const History = () => {
 	const { displayColumns, currentPage, totalPage, isLoading, onPageChange } =

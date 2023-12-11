@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { InputBox } from '@nx-next-app/components/D0002'
+import { InputBox } from '@nx-next-app/components/D0006'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useSignInMutation } from '@nx-next-app/service'
 

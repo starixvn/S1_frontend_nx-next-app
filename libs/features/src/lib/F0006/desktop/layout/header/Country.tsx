@@ -1,4 +1,4 @@
-import { Header } from '@nx-next-app/components/D0002'
+import { Header } from '@nx-next-app/components/D0006'
 import { useLanguageGroup } from '@nx-next-app/hooks'
 
 const Country = () => {

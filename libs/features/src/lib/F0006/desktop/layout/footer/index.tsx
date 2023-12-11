@@ -1,4 +1,4 @@
-import { Footer } from '@nx-next-app/components/D0002'
+import { Footer } from '@nx-next-app/components/D0006'
 import { useGetSeoQuery, useGetSocialChannelQuery } from '@nx-next-app/service'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { SocialChannelEnum } from 'libs/features/src/lib/F0006/types'

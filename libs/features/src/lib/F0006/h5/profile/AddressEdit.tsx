@@ -7,7 +7,7 @@ import { PrevPageEnum, PREV_PAGE } from '@nx-next-app/constants'
 import { useSetProfileAddressMutation } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { Form, InputBox } from '@nx-next-app/components/H0001'
+import { Form, InputBox } from '@nx-next-app/components/H0006'
 
 import { PhoneOtpModal } from './PhoneOtpModal'
 

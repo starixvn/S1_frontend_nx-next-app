@@ -3,7 +3,7 @@ import {
 	Form,
 	InputBox,
 	Select,
-} from '@nx-next-app/components/D0002'
+} from '@nx-next-app/components/D0006'
 import {
 	useAuth,
 	useAutoDepositForm,

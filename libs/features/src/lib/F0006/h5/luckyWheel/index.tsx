@@ -1,4 +1,4 @@
-import { Header, Img, Loading, SpinButton } from '@nx-next-app/components/H0001'
+import { Header, Img, Loading, SpinButton } from '@nx-next-app/components/H0006'
 import { useAuth } from '@nx-next-app/data-access'
 import { IEventPeriod } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'

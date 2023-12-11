@@ -1,8 +1,8 @@
 import React from 'react'
 import { useTranslation } from 'next-i18next'
-import Breadcrumb from '@nx-next-app/components/H0001/breadcrumb'
+import Breadcrumb from '@nx-next-app/components/H0006/breadcrumb'
 import { useStatement } from '@nx-next-app/features/F0006/providers/statement-context'
-import { Header } from '@nx-next-app/components/H0001'
+import { Header } from '@nx-next-app/components/H0006'
 import { QuickPickEnum } from '@nx-next-app/types'
 
 const StatementHeader = () => {

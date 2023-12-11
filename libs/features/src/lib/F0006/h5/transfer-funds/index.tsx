@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
-import { Header, Loading } from '@nx-next-app/components/H0001'
+import { Header, Loading } from '@nx-next-app/components/H0006'
 import { History } from './History'
 import { Transfer } from './Transfer'
 import { WalletList } from './WalletList'

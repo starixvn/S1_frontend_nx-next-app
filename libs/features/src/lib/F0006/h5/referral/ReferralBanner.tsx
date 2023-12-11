@@ -1,6 +1,6 @@
 import { useAuth } from '@nx-next-app/data-access'
 import { useReferral } from '@nx-next-app/features/F0006/providers'
-import { Img } from '@nx-next-app/components/H0001'
+import { Img } from '@nx-next-app/components/H0006'
 
 const ReferralBanner = () => {
 	const {

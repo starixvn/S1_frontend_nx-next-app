@@ -7,7 +7,7 @@ import GameList from '@nx-next-app/features/F0006/h5/slots/GameList'
 import GameInfo from '@nx-next-app/features/F0006/h5/slots/GameInfo'
 import { paths } from '@nx-next-app/constants'
 import { useTranslation } from 'next-i18next'
-import { Header } from '@nx-next-app/components/H0001'
+import { Header } from '@nx-next-app/components/H0006'
 import { useSlots } from '@nx-next-app/features/F0006/providers'
 
 const Slots = () => {
