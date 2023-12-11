@@ -158,10 +158,6 @@ export const useServerSideInitialPropsFetcher = async (
 		headers: { cookie: currentHeaderCookies },
 	})
 
-	const profile = await getCustProfile(null, {
-		headers: { cookie: currentHeaderCookies },
-	})
-
 	const persistSEOData = await getSEOData(null, {
 		headers: { cookie: currentHeaderCookies },
 	})
@@ -178,12 +174,18 @@ export const useServerSideInitialPropsFetcher = async (
 		context.res.end()
 	} else if (
 		// * 判斷是否為為直播主帳號，直播主只允許進入home與slots頁面
-		profile?.memberType === UserInfoMemberType.LiveStreaming &&
+		originIsSignIn &&
 		![paths.slots.root, paths.home.root].includes(String(context.resolvedUrl))
 	) {
-		// 302 redirect
-		context.res.writeHead(302, { Location: paths.home.root })
-		context.res.end()
+		// * getCustProfile 在沒登入的情況下不打 api
+		const profile = await getCustProfile(null, {
+			headers: { cookie: currentHeaderCookies },
+		})
+		if (profile?.memberType === UserInfoMemberType.LiveStreaming) {
+			// 302 redirect
+			context.res.writeHead(302, { Location: paths.home.root })
+			context.res.end()
+		}
 	}
 
 	return {
