@@ -23,17 +23,19 @@ interface ICryptoWithdrawalProps extends InitialPropsInterface {
 }
 
 const CryptoWithdrawalPage = ({
-	withdrawalBlockSetting,
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	withdrawalBlockSetting,
 }: ICryptoWithdrawalProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData}>
 					<WithdrawalProvider withdrawalBlockSetting={withdrawalBlockSetting}>
-						<CryptoWalletProvider>
+						<CryptoWalletProvider
+							withdrawalBlockSetting={withdrawalBlockSetting}
+						>
 							<CryptoWithdrawal />
 						</CryptoWalletProvider>
 					</WithdrawalProvider>
