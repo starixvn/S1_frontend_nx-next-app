@@ -1,15 +1,14 @@
 import { paths } from '@nx-next-app/constants'
-import React from 'react'
+import { useRouter } from 'next/router'
+import React, { useLayoutEffect } from 'react'
 
 export default function Page404() {
-	return <div>404</div>
-}
+	const { push } = useRouter()
 
-// * 404 未找到檔案的路徑時導回 首頁
-export async function getStaticProps() {
-	return {
-		redirect: {
-			destination: paths.home.root,
-		},
-	}
+	// * 404 未找到檔案的路徑時導回首頁
+	useLayoutEffect(() => {
+		push(paths.home.root)
+	}, [])
+
+	return <div>404</div>
 }
