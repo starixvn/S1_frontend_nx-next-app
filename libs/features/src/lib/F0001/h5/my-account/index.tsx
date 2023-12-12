@@ -7,7 +7,7 @@ import { useGetMsgCountQuery } from '@nx-next-app/service'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { includes } from 'lodash-es'
 import Image from 'next/future/image'
-import { CurrenciesEnum, DeviceTypeEnum } from '@nx-next-app/types'
+import { CurrenciesEnum } from '@nx-next-app/types'
 
 const MyAccount = () => {
 	const { t } = useTranslation()
@@ -21,9 +21,7 @@ const MyAccount = () => {
 		skip: !isLogin,
 	})
 
-	const userLevelImageInfo = VIP_CLUB_IMAGES(DeviceTypeEnum.Mobile)[
-		(userLevel as number) - 1
-	]
+	const userLevelImageInfo = VIP_CLUB_IMAGES[(userLevel as number) - 1]
 
 	return (
 		<>

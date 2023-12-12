@@ -5,7 +5,7 @@ import 'dayjs/plugin/utc'
 import { useTranslation } from 'next-i18next'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import VipTableInfo from '@nx-next-app/features/F0001/desktop/vip/VipTableInfo'
-import { DeviceTypeEnum } from '@nx-next-app/types'
+
 import { IVipBannerData } from '@nx-next-app/service'
 
 const VipTable = ({ vipBannerData, lastUpdateTime }: IVipBannerData) => {
@@ -27,10 +27,11 @@ const VipTable = ({ vipBannerData, lastUpdateTime }: IVipBannerData) => {
 								.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 								?.format('L') ?? ''}
 						</td>
-						{VIP_CLUB_IMAGES(DeviceTypeEnum.Desktop).map(item => (
-							<td key={`${item.displayKey}-${item.alt}`}>
+						{VIP_CLUB_IMAGES.map(item => (
+							<td key={item.alt}>
 								<img src={item.url} alt={item.alt} />
 								{t(item.displayKey || '')}
+								{/* // * cs 語系才需顯示 Club */}
 								{langId === 'cs' && <p>{t('Label_Vip_Club')}</p>}
 							</td>
 						))}
