@@ -4,7 +4,6 @@ import { useTranslation } from 'next-i18next'
 import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 import { numberFormat } from '@nx-next-app/utils'
 import { useRouter } from 'next/router'
-import { DeviceTypeEnum } from '@nx-next-app/types'
 import classNames from 'classnames'
 import { includes, head, find } from 'lodash'
 import { useLanguageGroup } from '@nx-next-app/hooks'
@@ -49,13 +48,9 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 	const isVipLevelHighest = upDeposit === null
 
 	// * 當前 VIP 等級資訊
-	const currentVipLevelInfo = VIP_CLUB_IMAGES(DeviceTypeEnum.Desktop)[
-		currentVipLevel - 1
-	]
+	const currentVipLevelInfo = VIP_CLUB_IMAGES[currentVipLevel - 1]
 	// * 下一階 VIP 等級資訊
-	const nextVipLevelInfo = VIP_CLUB_IMAGES(DeviceTypeEnum.Desktop)[
-		currentVipLevel
-	]
+	const nextVipLevelInfo = VIP_CLUB_IMAGES[currentVipLevel]
 
 	// * Vip 進度條百分比
 	const progress = Math.floor((actualDeposit / Number(upDeposit)) * 100)

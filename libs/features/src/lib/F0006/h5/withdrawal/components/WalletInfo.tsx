@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { CurrenciesEnum, DeviceTypeEnum } from '@nx-next-app/types'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import Image from 'next/future/image'
 import { includes } from 'lodash-es'
 import { SpinButton } from '@nx-next-app/components/H0006'
@@ -17,9 +17,7 @@ const WalletInfo = () => {
 		useWithdrawal()
 	const { availableBalance = 0 } = withdrawalBalance ?? {}
 
-	const userLevelImageInfo = VIP_CLUB_IMAGES(DeviceTypeEnum.Mobile)[
-		(userLevel as number) - 1
-	]
+	const userLevelImageInfo = VIP_CLUB_IMAGES[(userLevel as number) - 1]
 	return (
 		<>
 			{userLevelImageInfo?.url ? (
