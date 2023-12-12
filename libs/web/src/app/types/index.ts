@@ -126,16 +126,6 @@ export interface IStaticAllowedCurrencies {
 	REFER_FRIENDS?: CurrenciesEnum[]
 }
 
-export interface IStaticVipEventCurrenciesLimitationInfo {
-	[key: number]: {
-		dailyWithdrawalLimitation: (number | null)[]
-		tierUpGradeBonus: (number | null)[]
-		monthlyMinimumDeposit: (number | null)[]
-		minimumDepositWithinValidityPeriod: (number | null)[]
-		minimumTurnoverWithinValidityPeriod: (number | null)[]
-	}
-}
-
 export interface ITermsConditions {
 	TermsConditions: string
 	OurPolicies: string
@@ -253,3 +243,4 @@ export * from './promotion'
 export * from './history'
 export * from './deposit'
 export * from './menu'
+export * from './vip'

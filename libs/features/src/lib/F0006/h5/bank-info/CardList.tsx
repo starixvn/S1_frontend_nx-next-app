@@ -2,7 +2,7 @@ import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Image from 'next/future/image'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { CurrenciesEnum, DeviceTypeEnum } from '@nx-next-app/types'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import { useBankInfo } from '@nx-next-app/features/F0006/providers'
 
 const CardList = () => {
@@ -16,9 +16,7 @@ const CardList = () => {
 
 	const { bankInfoDetail, setIsShowCards, handleDeleteCard } = useBankInfo()
 
-	const userLevelImageInfo = VIP_CLUB_IMAGES(DeviceTypeEnum.Mobile)[
-		(userLevel as number) - 1
-	]
+	const userLevelImageInfo = VIP_CLUB_IMAGES[(userLevel as number) - 1]
 
 	return (
 		<>

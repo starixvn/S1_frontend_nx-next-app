@@ -3,7 +3,7 @@ import { includes } from 'lodash-es'
 import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import Image from 'next/future/image'
-import { CurrenciesEnum, DeviceTypeEnum } from '@nx-next-app/types'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import { numberFormat, getSafetyLv } from '@nx-next-app/utils'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 
@@ -31,9 +31,7 @@ const Verification = () => {
 	const handleTipOpen = ({ col }: { col: 'accountName' | 'email' | 'phone' }) =>
 		col === tipOpenCol ? setTipOpenCol(undefined) : setTipOpenCol(col)
 
-	const userLevelImageInfo = VIP_CLUB_IMAGES(DeviceTypeEnum.Mobile)[
-		(userLevel as number) - 1
-	]
+	const userLevelImageInfo = VIP_CLUB_IMAGES[(userLevel as number) - 1]
 
 	const { safetyLv, safetyDisplayKey } = getSafetyLv({
 		accountName,

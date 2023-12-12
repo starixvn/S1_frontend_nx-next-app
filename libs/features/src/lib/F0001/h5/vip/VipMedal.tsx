@@ -1,5 +1,5 @@
 import React from 'react'
-import { DeviceTypeEnum, IImageData } from '@nx-next-app/types'
+import { IImageData } from '@nx-next-app/types'
 import { useStaticData } from '@nx-next-app/data-access'
 import { useTranslation } from 'next-i18next'
 
@@ -13,7 +13,7 @@ const VipMedal = ({ activeTab, onChange }: IVipMedalProps) => {
 	const { VIP_CLUB_IMAGES } = useStaticData()
 	return (
 		<div className='medal'>
-			{VIP_CLUB_IMAGES(DeviceTypeEnum.Mobile).map(
+			{VIP_CLUB_IMAGES.map(
 				({ url, displayKey, levelTabsName, level, alt }: IImageData) => (
 					<div
 						className={`medal-item ${

@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/future/image'
 import { capitalize } from 'lodash-es'
-import { IBannerByCurrencyData } from '@nx-next-app/types'
+import { IBannerByCurrencyData, VipLevelEnum } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { isUrl } from '@nx-next-app/utils'
@@ -9,7 +9,7 @@ import { VipBannerInfo } from '@nx-next-app/service'
 
 interface IVipBannerItemProps {
 	vipBannerInfo: VipBannerInfo
-	BannerByCurrencyData: IBannerByCurrencyData
+	bannerByCurrencyData: IBannerByCurrencyData
 }
 
 const VipBannerItem = ({
@@ -20,7 +20,7 @@ const VipBannerItem = ({
 		referralBonus,
 		rebateCategory: rebateCategoryList,
 	},
-	BannerByCurrencyData: { levelText, level, url },
+	bannerByCurrencyData: { levelText, level, url },
 }: IVipBannerItemProps) => {
 	const { t } = useTranslation()
 	const {
@@ -33,7 +33,9 @@ const VipBannerItem = ({
 				{t('Label_Vip_Monthly_Minimum_Deposit')}
 				<span>
 					{/* vintage Club 與 Nova Club 在後台是不能編輯的且是文字或null 故這裡不顯示 currency */}
-					{level === 1 || level === 6 ? null : currencyName}
+					{level === VipLevelEnum.VINTAGE || level === VipLevelEnum.Highest
+						? null
+						: currencyName}
 					{upDeposit ? upDeposit.split('.')[0] : t('Label_Vip_NoRestrictions')}
 				</span>
 				{upBonus && (
@@ -41,7 +43,9 @@ const VipBannerItem = ({
 						{t('Label_Vip_Tier_Maintenance_Requirement')}
 						<span>
 							{/* vintage Club 與 Nova Club 在後台是不能編輯的且是文字或null 故這裡不顯示 currency */}
-							{level === 1 || level === 6 ? null : currencyName}{' '}
+							{level === VipLevelEnum.VINTAGE || level === VipLevelEnum.Highest
+								? null
+								: currencyName}{' '}
 							{upBonus ? upBonus.split('.')[0] : null}
 						</span>
 					</div>
