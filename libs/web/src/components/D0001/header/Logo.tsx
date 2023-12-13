@@ -20,7 +20,7 @@ const Logo = ({ logoUrl, rewardsUrl, showSpLogo }: ILogoProps) => {
 
 			{process.env['NEXT_PUBLIC_SHOW_REWARD'] === 'true' && (
 				<Link
-					href={`${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/rewards/`}
+					href={`${process.env['NEXT_PUBLIC_REWARD_HOST']}`}
 					className='logo'
 					passHref
 				>
