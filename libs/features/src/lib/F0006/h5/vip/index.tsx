@@ -4,7 +4,6 @@ import dayjs from 'dayjs'
 import { useTranslation } from 'next-i18next'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { IVipBannerData } from '@nx-next-app/service'
-import { DeviceTypeEnum } from '@nx-next-app/types'
 import VipBanner from '@nx-next-app/features/F0006/h5/vip/VipBanner'
 import VipTable from '@nx-next-app/features/F0006/h5/vip/VipTable'
 import VipBottom from '@nx-next-app/features/F0006/h5/vip/VipBottom'
@@ -25,7 +24,7 @@ const Vip = ({
 	const { CURRENCY_TO_TIMEZONE, VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY } =
 		useStaticData()
 	const [activeTab, setActiveTab] = useState<number>(
-		VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY(langId, DeviceTypeEnum.Mobile)[0].level
+		VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY(langId)[0].level
 	)
 
 	const vipBannerInfo = vipBannerData.find(({ level }) => level === activeTab)
