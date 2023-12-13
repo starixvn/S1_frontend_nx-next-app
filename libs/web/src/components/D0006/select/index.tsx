@@ -16,6 +16,7 @@ export interface ISelectProps {
 	prefixText?: string
 	onChange?: (value: SelectOptionType['value']) => void
 	errorMessage?: string
+	showValue?: boolean
 }
 
 const Select = (props: ISelectProps) => {
@@ -30,8 +31,9 @@ const Select = (props: ISelectProps) => {
 		showSearch,
 		isTranslation,
 		prefixText,
-		onChange,
 		errorMessage,
+		showValue,
+		onChange,
 	} = props
 	const { value: isActive, toggle, setFalse } = useBoolean()
 	const [currentOption, setCurrentOption] = useState<SelectOptionType>()
@@ -71,18 +73,29 @@ const Select = (props: ISelectProps) => {
 			includes(String(item.label), filterValue)
 	)
 
+	let label = currentOption?.label ?? placeholder
+	if (isTranslation) {
+		label = t(currentOption?.label as string) || t(placeholder || '')
+	} else if (showValue) {
+		label = currentOption?.value as string
+	}
+
 	return (
 		<div className={classNames('inputBox-blue', { error: errorMessage })}>
 			{prefixText && <i className='txt-blue'>{prefixText}</i>}
-			<div ref={ref} className='dropdown' onClick={toggle}>
+			<div
+				ref={ref}
+				className='dropdown'
+				onClick={e => {
+					if (!(e?.target as HTMLInputElement)?.className.includes('search'))
+						toggle()
+				}}
+			>
 				{prefixIcon}
 
 				<button type='button' className='btn'>
 					{currentOption?.prefixOptionIcon}
-					{isTranslation
-						? t(currentOption?.label as string) || t(placeholder || '')
-						: currentOption?.label ||
-						  (isTranslation ? t(placeholder || '') : placeholder)}
+					{label}
 				</button>
 
 				<div className={classNames('dropdown-container', { active: isActive })}>
