@@ -6,7 +6,7 @@ import {
 	useLazyCheckDepositSpecialCodeQuery,
 } from '@nx-next-app/service'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
-import { find, head } from 'lodash-es'
+import { find, head, isEmpty } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -115,7 +115,11 @@ const useAutoDepositForm = ({
 
 	// * 任何選項異動時即時更新 formState
 	useEffect(() => {
-		if (!debouncedLoading && queryPaymentType) {
+		if (
+			!debouncedLoading &&
+			queryPaymentType &&
+			isEmpty(depositLocalStorageSavedInfo)
+		) {
 			// * 清空 amount
 			resetField('amount')
 
@@ -153,6 +157,10 @@ const useAutoDepositForm = ({
 
 	// * 初始優先導向 local storage 的值
 	useEffectOnce(() => {
+		if (!isEmpty(depositLocalStorageSavedInfo)) {
+			return
+		}
+
 		const { sysId } = depositLocalStorageSavedInfo
 
 		push(
