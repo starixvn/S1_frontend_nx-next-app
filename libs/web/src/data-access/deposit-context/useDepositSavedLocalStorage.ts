@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useLocalStorage, useReadLocalStorage } from 'usehooks-ts'
 import { ENV_LOCAL_STORAGE_NAMES } from '@nx-next-app/constants'
 import { useAuth } from '../auth-context'
