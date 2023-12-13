@@ -27,6 +27,7 @@ export const siteApiUrl = {
 	getSocialChannel: 'Site/GetSocialChannel',
 	getSeo: 'Site/seo',
 	getVipBanner: 'Site/GetVipBanner',
+	getIpCountry: 'Site/GetIpCountry',
 }
 
 export const siteApi = rootApi.injectEndpoints({

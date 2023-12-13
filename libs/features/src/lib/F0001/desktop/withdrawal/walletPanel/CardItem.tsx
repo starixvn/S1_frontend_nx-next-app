@@ -7,6 +7,7 @@ import {
 import { useTranslation } from 'next-i18next'
 import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
 import { useAuth } from '@nx-next-app/data-access'
+import classNames from 'classnames'
 
 const CardItem = ({
 	item,
@@ -36,7 +37,7 @@ const CardItem = ({
 	const bankName =
 		(item as IBankInfoData)?.bankName ?? (item as IEWalletData)?.eWalletName
 
-	const { ifscCode } = item as IBankInfoData
+	const { ifscCode, disabled = false } = item as IBankInfoData
 
 	const checked =
 		accountNo === selectedBankInfo.accountNo &&
@@ -44,7 +45,14 @@ const CardItem = ({
 
 	const bankLogo = String(rawBankLogo).toLowerCase()
 	return (
-		<div className='addBankName' key={`${accountNo}-${sysId}`}>
+		<div
+			className={classNames('addBankName', { pending: disabled })}
+			key={`${accountNo}-${sysId}`}
+		>
+			{disabled && (
+				<div className='mask'>{t('Label_General_UnderMaintenance')}</div>
+			)}
+
 			<div className='addBankInfo'>
 				<div className='bankName'>
 					<img
@@ -85,6 +93,7 @@ const CardItem = ({
 							})
 						}}
 						checked={checked}
+						disabled={disabled}
 					/>
 					<label htmlFor={accountNo} className='icon icon-checkbox-checked' />
 				</div>

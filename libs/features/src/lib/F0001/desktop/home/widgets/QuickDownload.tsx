@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next'
 import QRCode from 'qrcode.react'
 import classNames from 'classnames'
 import { useHover } from 'usehooks-ts'
-import { useDownloadLinks } from '@nx-next-app/features/F0001/hooks/useDownloadLinks'
+import { useDownloadLinks } from '@nx-next-app/hooks'
 
 const QuickDownload = () => {
 	const { t } = useTranslation()

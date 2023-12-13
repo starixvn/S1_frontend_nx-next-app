@@ -55,6 +55,7 @@ export const accountApiUrl = {
 	getCustBankInfo: 'Account/GetCustBankInfo',
 	getWalletTransferStatus: 'Account/GetWalletTransferStatus',
 	setWalletTransferStatus: 'Account/SetWalletTransferStatus',
+	getCustVIPProgress: 'Account/GetCustVIPProgress',
 }
 
 const accountApi = rootApi.injectEndpoints({
@@ -151,6 +152,7 @@ const accountApi = rootApi.injectEndpoints({
 				method: 'POST',
 				data,
 			}),
+			invalidatesTags: ['ACCOUNT_STRICT_GET_USER_INFO'],
 		}),
 		setFavoriteGame: builder.mutation<
 			IAxiosResponse<void>,
@@ -296,6 +298,21 @@ const accountApi = rootApi.injectEndpoints({
 			}),
 			invalidatesTags: ['ACCOUNT_GET_AUTO_TRANSFER_INFO'],
 		}),
+		getCustVIPProgress: builder.query<
+			IAxiosResponse<{
+				currentVipLevel: number
+				upDeposit: null | number
+				actualDeposit: number
+				downDeposit: null | number
+				downTurnover: null | number
+			}>,
+			null
+		>({
+			query: () => ({
+				url: accountApiUrl.getCustVIPProgress,
+				method: 'POST',
+			}),
+		}),
 	}),
 })
 
@@ -327,4 +344,5 @@ export const {
 	useGetCustEWalletInfoQuery,
 	useGetWalletTransferStatusQuery,
 	useSetWalletTransferStatusMutation,
+	useGetCustVIPProgressQuery,
 } = accountApi

@@ -1,9 +1,11 @@
 import { PRODUCTS } from '@nx-next-app/constants'
 
 export interface IFooterData {
-	copyRightList?: ICopyRightListData[]
+	copyRightList?: ICopyRightData[]
+	quickLinks?: IQuickLinksData[]
 	platformList?: IPlatformListData[]
 	programList?: IProgramData[]
+	promotionTextList?: IPromotionTextData[]
 	programDescriptionList?: IProgramDescriptionData[]
 	licenseData: ILicenseData
 	suggestedBrowser: ISuggestedBrowserData[]
@@ -12,10 +14,13 @@ export interface IFooterData {
 	}
 }
 
-interface ICopyRightListData {
+interface IQuickLinksData {
 	displayKey: string
 	href: string
 }
+
+type ICopyRightData = IQuickLinksData
+
 export interface IPlatformListData {
 	productKey: keyof typeof PRODUCTS
 	imgName: string
@@ -71,4 +76,9 @@ export interface ISeoData {
 		href?: string
 		hrefLang?: string
 	}[]
+}
+
+export interface IPromotionTextData {
+	title: string
+	content: string
 }

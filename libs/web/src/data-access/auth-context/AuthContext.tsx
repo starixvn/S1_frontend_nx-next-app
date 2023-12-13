@@ -133,12 +133,10 @@ export const AuthProvider = ({
 		(process.env.NODE_ENV === 'production'
 			? host
 			: process.env['NEXT_PUBLIC_ENV_DB_HOST']) || ''
-
-	// 處理登入狀態同步使用者 cookie, 未登入不做同步
+	// * 處理登入狀態同步使用者 cookie, 未登入不做同步
 	useSynchronizeCookiesEffect(userInfo)
-	// 處理路由導轉
+	// * 處理路由導轉
 	useInitLocaleEffect({ router, userInfo, isLogin: auth.isLogin })
-
 	// * 輪詢確認使用者是否保持線上狀態
 	useOnlineCheckInterval({ isLogin: auth.isLogin, onResetAuth })
 

@@ -9,11 +9,10 @@ import {
 	IStaticLangGroups,
 	IStaticProduct,
 	IStaticSlotTpGameType,
-	IStaticVipEventCurrenciesLimitationInfo,
 	ITermsConditions,
 	ILeftMenuData,
+	IMenuData,
 } from '@nx-next-app/types'
-import { IMenuData } from '@nx-next-app/features/F0001/types'
 
 export interface IStaticDataContext {
 	MENU_DATA: ({
@@ -32,11 +31,9 @@ export interface IStaticDataContext {
 	SLOT_TP_GAME_TYPE: IStaticSlotTpGameType
 	LANG_GROUPS: IStaticLangGroups
 	CURRENCY_TO_TIMEZONE: { [key: number]: string }
-	VIP_CLUB_IMAGES: (deviceType: number) => IImageData[]
-	VIP_EVENT_CURRENCIES_LIMITATION_INFO: IStaticVipEventCurrenciesLimitationInfo
+	VIP_CLUB_IMAGES: IImageData[]
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY: (
-		langId: string | number,
-		deviceType: number
+		langId: string | number
 	) => IBannerByCurrencyData[]
 	FEATURE_BONUS: { [key: number]: string }
 	TERMS_CONDITIONS: ({ langId }: { langId: string }) => ITermsConditions
@@ -62,7 +59,6 @@ const StaticDataProvider = ({
 	LANG_GROUPS,
 	CURRENCY_TO_TIMEZONE,
 	VIP_CLUB_IMAGES,
-	VIP_EVENT_CURRENCIES_LIMITATION_INFO,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	FEATURE_BONUS,
 	TERMS_CONDITIONS,
@@ -81,7 +77,6 @@ const StaticDataProvider = ({
 		LANG_GROUPS,
 		CURRENCY_TO_TIMEZONE,
 		VIP_CLUB_IMAGES,
-		VIP_EVENT_CURRENCIES_LIMITATION_INFO,
 		VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 		FEATURE_BONUS,
 		TERMS_CONDITIONS,

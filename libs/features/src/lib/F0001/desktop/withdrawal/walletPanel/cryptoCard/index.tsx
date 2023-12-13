@@ -8,10 +8,15 @@ import { CryptoCardItem } from '@nx-next-app/features/F0001/desktop/withdrawal/w
 // 因 Crypto 卡片元件跟其他兩種不同，故獨立寫在此區
 const CryptoCard = () => {
 	const { t } = useTranslation()
-	const { bankData } = useWithdrawal()
+	const {
+		bankData,
+		withdrawalAllowed: { cryptoCardAllowed },
+	} = useWithdrawal()
 	// 與 CryptoWallet 共用
 	const { handleAddWallet } = useCryptoWallet()
 	const { usdtDetail } = bankData
+
+	if (!cryptoCardAllowed) return null
 
 	return (
 		<div className='walletModule'>

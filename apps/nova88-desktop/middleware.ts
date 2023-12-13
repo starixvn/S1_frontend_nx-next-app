@@ -11,6 +11,7 @@ export const LANG_TO_CURRENCY: { [key: string]: number } = {
 	hi: 61,
 	kh: 72,
 	bd: 74,
+	vn: 51,
 }
 
 // 此 middleware 僅處理未初始化的 cookie，再進入 'default' 時會給予固定 defaultLang 內的 locale

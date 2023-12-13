@@ -8,7 +8,7 @@ import {
 	useLazyGetLineLoginDirectUrlQuery,
 } from '@nx-next-app/service'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { CurrenciesEnum, DeviceTypeEnum } from '@nx-next-app/types'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 
 const Verification = () => {
@@ -47,9 +47,7 @@ const Verification = () => {
 		}
 	}
 
-	const userLevelImageInfo = VIP_CLUB_IMAGES(DeviceTypeEnum.Desktop)[
-		(userLevel as number) - 1 ?? 0
-	]
+	const userLevelImageInfo = VIP_CLUB_IMAGES[(userLevel as number) - 1 ?? 0]
 
 	const { safetyLv, safetyDisplayKey } = getSafetyLv({
 		accountName,

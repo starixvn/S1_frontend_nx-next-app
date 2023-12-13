@@ -2,16 +2,18 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import { Marquee } from '@nx-next-app/components/D0001'
 import { useHome } from '@nx-next-app/features/F0001/providers'
-import { DesktopHomeComponentsEnum } from '@nx-next-app/types'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { DesktopHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
 
-import { PromotionMarquee } from './PromotionMarquee'
-import { LatestVideoAndEvent } from './latestVideoAndEvent'
-import { HotGameMarquee } from './HotGameMarquee'
-import { NewsBlock } from './news'
-import { RecentlyViewGames } from './RecentlyViewGames'
+import { HotGame } from './HotGame'
+import { HotMatch } from './hotMatch'
+import { WelcomeInfo } from './WelcomeInfo'
+import { AppDownloadBanner } from './AppDownloadBanner'
+import { PromotionSwiper } from './PromotionSwiper'
+import { LiveCasino } from './LiveCasino'
+import { ProvidersBlock } from './ProvidersBlock'
+import { OfficialPartner } from './OfficialPartner'
 import CarouselBanner from '../common/carouselBanner'
-import { CenterBanner } from './CenterBanner'
 
 const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
 
@@ -37,8 +39,8 @@ const Home = () => {
 	const homeComponents = {
 		[DesktopHomeComponentsEnum.CarouselBanner]: (
 			<CarouselBanner
+				className='homebanner'
 				bannerList={bannerData}
-				pagination={false}
 				navigation={false}
 			/>
 		),
@@ -52,12 +54,14 @@ const Home = () => {
 				}
 			/>
 		),
-		[DesktopHomeComponentsEnum.PromotionMarquee]: <PromotionMarquee />,
-		[DesktopHomeComponentsEnum.LatestVideoAndEvent]: <LatestVideoAndEvent />,
-		[DesktopHomeComponentsEnum.HotGameMarquee]: <HotGameMarquee />,
-		[DesktopHomeComponentsEnum.RecentlyViewGames]: <RecentlyViewGames />,
-		[DesktopHomeComponentsEnum.NewsBlock]: <NewsBlock />,
-		[DesktopHomeComponentsEnum.CenterBanner]: <CenterBanner />,
+		[DesktopHomeComponentsEnum.PromotionSwiper]: <PromotionSwiper />,
+		[DesktopHomeComponentsEnum.WelcomeInfo]: <WelcomeInfo />,
+		[DesktopHomeComponentsEnum.HotMatch]: <HotMatch />,
+		[DesktopHomeComponentsEnum.LiveCasino]: <LiveCasino />,
+		[DesktopHomeComponentsEnum.HotGame]: <HotGame />,
+		[DesktopHomeComponentsEnum.AppDownloadBanner]: <AppDownloadBanner />,
+		[DesktopHomeComponentsEnum.OfficialPartner]: <OfficialPartner />,
+		[DesktopHomeComponentsEnum.ProviderBlock]: <ProvidersBlock />,
 		[DesktopHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
 		[DesktopHomeComponentsEnum.QuickDownload]: <QuickDownload />,
 		[DesktopHomeComponentsEnum.QuickLink]: (

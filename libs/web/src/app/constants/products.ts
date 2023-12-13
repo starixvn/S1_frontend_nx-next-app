@@ -120,6 +120,11 @@ export const PRODUCTS = {
 		TP_ID: 45,
 		TP_GAME_TYPE: 87,
 	},
+	SPORTS_E_SPORTS_TFG: {
+		TP_ID: 48,
+		GAME_ID: 0,
+		TP_GAME_TYPE: 97,
+	},
 	// * SLOTS
 	SLOTS_JILI: {
 		TP_ID: 32,
@@ -138,6 +143,14 @@ export const PRODUCTS = {
 		TP_ID: 49,
 		TP_GAME_TYPE: 98,
 	},
+	SLOTS_PEGASUS: {
+		TP_ID: 56,
+		TP_GAME_TYPE: 107,
+	},
+	SLOTS_NO_LIMIT_CITY: {
+		TP_ID: 59,
+		TP_GAME_TYPE: 107,
+	},
 	SLOTS_JOKER: {
 		TP_ID: 9,
 		TP_GAME_TYPE: 13,
@@ -145,6 +158,10 @@ export const PRODUCTS = {
 	SLOTS_CQ9: {
 		TP_ID: 16,
 		TP_GAME_TYPE: 29,
+	},
+	SLOTS_PNG: {
+		TP_ID: 54,
+		TP_GAME_TYPE: 105,
 	},
 	SLOTS_GPI: {
 		TP_ID: 6,
@@ -165,6 +182,10 @@ export const PRODUCTS = {
 	SLOTS_PG: {
 		TP_ID: 14,
 		TP_GAME_TYPE: 17,
+	},
+	SLOTS_BNG: {
+		TP_ID: 57,
+		TP_GAME_TYPE: 108,
 	},
 	SLOTS_OW: {
 		TP_ID: 41,
@@ -194,6 +215,18 @@ export const PRODUCTS = {
 		TP_ID: 39,
 		TP_GAME_TYPE: 67,
 	},
+	SLOTS_ES: {
+		TP_ID: 49,
+		TP_GAME_TYPE: 98,
+	},
+	SLOTS_NEXT_SPIN: {
+		TP_ID: 50,
+		TP_GAME_TYPE: 99,
+	},
+	SLOTS_FA_CHAI: {
+		TP_ID: 55,
+		TP_GAME_TYPE: 106,
+	},
 	SLOTS_HABANERO: {
 		TP_ID: 40,
 		TP_GAME_TYPE: 68,
@@ -221,7 +254,7 @@ export const PRODUCTS = {
 		TP_ID: 12,
 		TP_GAME_TYPE: 6,
 	},
-	LIVE_CASINO_E_BET: {
+	LIVE_CASINO_WE: {
 		GAME_ID: 18,
 		TP_ID: 18,
 		TP_GAME_TYPE: 28,
@@ -378,6 +411,18 @@ export const PRODUCTS = {
 		NAME: 'Skywind_Cai_Shen_Da_Hai',
 		TP_GAME_TYPE: 85,
 	},
+	FISHING_ZOMBIE_PARTY: {
+		GAME_ID: 'F-ZP01',
+		TP_ID: 10,
+		NAME: 'Fishing_Zombie_Party',
+		TP_GAME_TYPE: 31,
+	},
+	FISHING_ALIEN_HUNTER: {
+		GAME_ID: 'F-AH01',
+		TP_ID: 10,
+		NAME: 'Fishing_Alien_Hunter',
+		TP_GAME_TYPE: 31,
+	},
 	// * COCKFIGHTING_VN
 	COCKFIGHTING_VN: {
 		TP_ID: 17,
@@ -457,6 +502,11 @@ export const PRODUCTS = {
 		TP_ID: 11,
 		TP_GAME_TYPE: 52,
 	},
+	GAMES_V8_POKER: {
+		TP_ID: 25,
+		TP_GAME_TYPE: 47,
+		GAME_ID: 0,
+	},
 	GAMES_POKER_M_POKER: {
 		TP_ID: 35,
 		TP_GAME_TYPE: 60,
@@ -496,6 +546,11 @@ export const PRODUCTS = {
 		TP_ID: 39,
 		GAME_ID: 'Crash',
 		TP_GAME_TYPE: 67,
+	},
+	GAME_SPACEMAN: {
+		TP_ID: 5,
+		GAME_ID: 1302,
+		TP_GAME_TYPE: 7,
 	},
 	GAME_GORUSH: {
 		TP_ID: 32,

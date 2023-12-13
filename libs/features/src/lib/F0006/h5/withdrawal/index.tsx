@@ -1,0 +1,34 @@
+import { Loading } from '@nx-next-app/components/H0006'
+import { useWithdrawal } from '@nx-next-app/features/F0006/providers'
+
+import {
+	BankSelect,
+	WalletInfo,
+	WithdrawalHeader,
+	BalanceInfo,
+	ImportantNotice,
+	RecentHistory,
+	SubmitAmount,
+} from './components'
+
+const Withdrawal = () => {
+	const { loading } = useWithdrawal()
+
+	if (loading) return <Loading />
+
+	return (
+		<>
+			<WithdrawalHeader />
+			<main className='main withdrawal'>
+				<WalletInfo />
+				<BankSelect />
+				<BalanceInfo />
+				<SubmitAmount />
+				<RecentHistory />
+				<ImportantNotice />
+			</main>
+		</>
+	)
+}
+
+export default Withdrawal
