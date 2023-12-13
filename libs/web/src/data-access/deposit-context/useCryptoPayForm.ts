@@ -3,7 +3,7 @@ import {
 	IDepositQRCodeModalProps,
 	useDepositSavedLocalStorage,
 } from '@nx-next-app/data-access'
-import { useDebounce, useEffectOnce } from 'usehooks-ts'
+import { useDebounce, useIsFirstRender } from 'usehooks-ts'
 import {
 	IAxiosError,
 	IPaymentCryptoPayData,
@@ -54,6 +54,7 @@ const useCryptoPayForm = ({
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
+	const isFirstRender = useIsFirstRender()
 	const {
 		query: {
 			paymentType: queryPaymentType,
@@ -206,13 +207,28 @@ const useCryptoPayForm = ({
 
 	const debouncedLoading = useDebounce(loading, 50)
 
-	// * 任何選項異動時即時更新 formState
 	useEffect(() => {
-		if (
-			!debouncedLoading &&
-			queryPaymentType &&
-			isEmpty(depositLocalStorageSavedInfo)
-		) {
+		if (debouncedLoading) return
+
+		// * 初始渲染時決定是否優先導向 local storage 的值
+		if (isFirstRender && !isEmpty(depositLocalStorageSavedInfo)) {
+			const { groupName, channelId } = depositLocalStorageSavedInfo
+
+			push(
+				{
+					pathname,
+					query: {
+						paymentType: queryPaymentType,
+						paymentName: groupName,
+						channelId,
+					},
+				},
+				undefined,
+				{ shallow: true }
+			)
+		}
+		// * 任何選項異動時即時更新 formState
+		else if (queryPaymentType) {
 			// * 清空 amount
 			resetField('amount')
 
@@ -258,29 +274,13 @@ const useCryptoPayForm = ({
 				shallow: true,
 			})
 		}
-	}, [debouncedLoading, queryPaymentType, queryPaymentName, queryChannelId])
-
-	// * 初始優先導向 local storage 的值
-	useEffectOnce(() => {
-		if (!isEmpty(depositLocalStorageSavedInfo)) {
-			return
-		}
-
-		const { groupName, channelId } = depositLocalStorageSavedInfo
-
-		push(
-			{
-				pathname,
-				query: {
-					paymentType: queryPaymentType,
-					paymentName: groupName,
-					channelId,
-				},
-			},
-			undefined,
-			{ shallow: true }
-		)
-	})
+	}, [
+		debouncedLoading,
+		queryPaymentType,
+		queryPaymentName,
+		queryChannelId,
+		isFirstRender,
+	])
 
 	return {
 		formMethods,

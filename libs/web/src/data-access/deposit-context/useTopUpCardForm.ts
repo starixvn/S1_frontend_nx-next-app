@@ -12,7 +12,7 @@ import {
 import { DepositActionModeEnum } from '@nx-next-app/types'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
 import { find, head, isEmpty } from 'lodash-es'
-import { useDebounce, useEffectOnce } from 'usehooks-ts'
+import { useDebounce, useIsFirstRender } from 'usehooks-ts'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -44,6 +44,7 @@ const useTopUpCardForm = ({
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
+	const isFirstRender = useIsFirstRender()
 	const {
 		query: {
 			paymentType: queryPaymentType,
@@ -174,13 +175,28 @@ const useTopUpCardForm = ({
 
 	const debouncedLoading = useDebounce(loading, 50)
 
-	// * 任何選項異動時即時更新 formState
 	useEffect(() => {
-		if (
-			!debouncedLoading &&
-			queryPaymentType &&
-			isEmpty(depositLocalStorageSavedInfo)
-		) {
+		if (debouncedLoading) return
+
+		// * 初始渲染時決定是否優先導向 local storage 的值
+		if (isFirstRender && !isEmpty(depositLocalStorageSavedInfo)) {
+			const { groupName, channelId } = depositLocalStorageSavedInfo
+
+			push(
+				{
+					pathname,
+					query: {
+						paymentType: queryPaymentType,
+						paymentName: groupName,
+						channelId,
+					},
+				},
+				undefined,
+				{ shallow: true }
+			)
+		}
+		// * 任何選項異動時即時更新 formState
+		else if (queryPaymentType) {
 			// * 清空 amount
 			resetField('amount')
 
@@ -228,31 +244,7 @@ const useTopUpCardForm = ({
 				shallow: true,
 			})
 		}
-	}, [debouncedLoading, queryPaymentType, queryPaymentName])
-
-	// * 初始優先導向 local storage 的值
-	useEffectOnce(() => {
-		if (
-			!isEmpty(depositLocalStorageSavedInfo) &&
-			isGetChannelTopUpCardPayListFetching
-		) {
-			return
-		}
-
-		const { groupName, channelId } = depositLocalStorageSavedInfo
-		push(
-			{
-				pathname,
-				query: {
-					paymentType: queryPaymentType,
-					paymentName: groupName,
-					channelId,
-				},
-			},
-			undefined,
-			{ shallow: true }
-		)
-	})
+	}, [debouncedLoading, queryPaymentType, queryPaymentName, isFirstRender])
 
 	const isFormValid = isValid && !!getValues('amount')
 
