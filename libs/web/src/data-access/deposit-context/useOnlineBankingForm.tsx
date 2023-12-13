@@ -12,7 +12,7 @@ import {
 	useLazyGetDepositOnlineBankingReqInfoQuery,
 } from '@nx-next-app/service'
 import { DepositActionModeEnum } from '@nx-next-app/types'
-import { find, head } from 'lodash-es'
+import { find, head, isEmpty } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -174,7 +174,11 @@ const useOnlineBankingForm = ({
 
 	// * 任何選項異動時即時更新 form state
 	useEffect(() => {
-		if (!debouncedLoading && queryPaymentType) {
+		if (
+			!debouncedLoading &&
+			queryPaymentType &&
+			isEmpty(depositLocalStorageSavedInfo)
+		) {
 			// * 清空 amount
 			resetField('amount')
 
@@ -234,6 +238,9 @@ const useOnlineBankingForm = ({
 
 	// * 初始優先導向 local storage 的值
 	useEffectOnce(() => {
+		if (!isEmpty(depositLocalStorageSavedInfo)) {
+			return
+		}
 		const { payName, sysId } = depositLocalStorageSavedInfo
 
 		push(

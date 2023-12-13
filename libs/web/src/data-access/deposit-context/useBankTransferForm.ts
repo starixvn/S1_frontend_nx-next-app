@@ -14,7 +14,7 @@ import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
 import { DepositChannelIdEnum, SelectOptionType } from '@nx-next-app/types'
-import { every, find, head, includes } from 'lodash-es'
+import { every, find, head, includes, isEmpty } from 'lodash-es'
 import { useAuth, useDepositSavedLocalStorage } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useDepositContext } from './DepositContext'
@@ -196,7 +196,11 @@ const useDepositBankTransferForm = ({
 
 	// * 任何選項異動時即時更新 formState
 	useEffect(() => {
-		if (!debouncedLoading && queryPaymentType) {
+		if (
+			!debouncedLoading &&
+			queryPaymentType &&
+			isEmpty(depositLocalStorageSavedInfo)
+		) {
 			// * 清空 amount、receipt
 			reset({ amount: NaN, receipt: undefined })
 
@@ -236,6 +240,9 @@ const useDepositBankTransferForm = ({
 
 	// * 初始優先導向 local storage 的值
 	useEffectOnce(() => {
+		if (!isEmpty(depositLocalStorageSavedInfo)) {
+			return
+		}
 		const { sysId } = depositLocalStorageSavedInfo
 
 		push(

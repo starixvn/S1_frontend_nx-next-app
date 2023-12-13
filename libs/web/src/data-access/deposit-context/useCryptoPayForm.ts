@@ -12,7 +12,7 @@ import {
 	useLazyGetDepositReqCryptoPayInfoQuery,
 } from '@nx-next-app/service'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
-import { find, head, reduce } from 'lodash-es'
+import { find, head, isEmpty, reduce } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useEffect, useMemo } from 'react'
 import { useForm } from 'react-hook-form'
@@ -208,7 +208,11 @@ const useCryptoPayForm = ({
 
 	// * 任何選項異動時即時更新 formState
 	useEffect(() => {
-		if (!debouncedLoading && queryPaymentType) {
+		if (
+			!debouncedLoading &&
+			queryPaymentType &&
+			isEmpty(depositLocalStorageSavedInfo)
+		) {
 			// * 清空 amount
 			resetField('amount')
 
@@ -258,6 +262,10 @@ const useCryptoPayForm = ({
 
 	// * 初始優先導向 local storage 的值
 	useEffectOnce(() => {
+		if (!isEmpty(depositLocalStorageSavedInfo)) {
+			return
+		}
+
 		const { groupName, channelId } = depositLocalStorageSavedInfo
 
 		push(
