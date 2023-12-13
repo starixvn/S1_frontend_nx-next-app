@@ -168,6 +168,7 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 					errorMessage={errors['phone']?.message as string}
 					onChangeSelect={areaCode => selectAreaCode(areaCode)}
 					selectValue={getValues('areaCode')}
+					showValue
 				/>
 			)}
 			{recaptchaInfo?.siteKey && recaptchaInfo.country !== 'CN' && (
