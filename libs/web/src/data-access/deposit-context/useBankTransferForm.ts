@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useDebounce, useIsFirstRender } from 'usehooks-ts'
+import { useDebounce } from 'usehooks-ts'
 import {
 	IAxiosError,
 	IPaymentBankTransferData,
@@ -47,7 +47,7 @@ const useDepositBankTransferForm = ({
 		userInfo: { langId, currencyId },
 	} = useAuth()
 	const { modal } = useGlobalModal()
-	const isFirstRender = useIsFirstRender()
+
 	const { query, pathname, push } = useRouter()
 	const { paymentType: queryPaymentType, sysId: querySysId } = query
 
@@ -196,10 +196,17 @@ const useDepositBankTransferForm = ({
 	}
 
 	useEffect(() => {
+		// * loading 狀態提前 return
 		if (debouncedLoading) return
 
-		// * 初始渲染時決定是否優先導向 local storage 的值
-		if (isFirstRender && !isEmpty(depositLocalStorageSavedInfo)) {
+		// * 如果當前 isDepositLocalStorageSavedChecked = true 及 depositLocalStorageSavedInfo 有值 及 query url (除了 paymentType 之外)需要的 key 皆為空值時給予 local storage 的值
+		if (
+			every([
+				isDepositLocalStorageSavedChecked,
+				!isEmpty(depositLocalStorageSavedInfo),
+				!querySysId,
+			])
+		) {
 			const { sysId } = depositLocalStorageSavedInfo
 
 			push(
@@ -209,7 +216,7 @@ const useDepositBankTransferForm = ({
 			)
 		}
 		// * 任何選項異動時即時更新 formState
-		else if (queryPaymentType) {
+		else {
 			// * 清空 amount、receipt
 			reset({ amount: NaN, receipt: undefined })
 
@@ -245,7 +252,7 @@ const useDepositBankTransferForm = ({
 				)
 			}
 		}
-	}, [debouncedLoading, queryPaymentType, querySysId, isFirstRender])
+	}, [debouncedLoading, queryPaymentType, querySysId])
 
 	return {
 		formMethods,

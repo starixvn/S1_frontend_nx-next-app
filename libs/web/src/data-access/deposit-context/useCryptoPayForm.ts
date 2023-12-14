@@ -3,7 +3,7 @@ import {
 	IDepositQRCodeModalProps,
 	useDepositSavedLocalStorage,
 } from '@nx-next-app/data-access'
-import { useDebounce, useIsFirstRender } from 'usehooks-ts'
+import { useDebounce } from 'usehooks-ts'
 import {
 	IAxiosError,
 	IPaymentCryptoPayData,
@@ -12,7 +12,7 @@ import {
 	useLazyGetDepositReqCryptoPayInfoQuery,
 } from '@nx-next-app/service'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
-import { find, head, isEmpty, reduce } from 'lodash-es'
+import { every, find, head, isEmpty, reduce } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useEffect, useMemo } from 'react'
 import { useForm } from 'react-hook-form'
@@ -54,7 +54,6 @@ const useCryptoPayForm = ({
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
-	const isFirstRender = useIsFirstRender()
 	const {
 		query: {
 			paymentType: queryPaymentType,
@@ -208,10 +207,18 @@ const useCryptoPayForm = ({
 	const debouncedLoading = useDebounce(loading, 50)
 
 	useEffect(() => {
+		// * loading 狀態提前 return
 		if (debouncedLoading) return
 
-		// * 初始渲染時決定是否優先導向 local storage 的值
-		if (isFirstRender && !isEmpty(depositLocalStorageSavedInfo)) {
+		// * 如果當前 isDepositLocalStorageSavedChecked = true 及 depositLocalStorageSavedInfo 有值 及 query url (除了 paymentType 之外)需要的 key 皆為空值時給予 local storage 的值
+		if (
+			every([
+				isDepositLocalStorageSavedChecked,
+				!isEmpty(depositLocalStorageSavedInfo),
+				!queryPaymentName,
+				!queryChannelId,
+			])
+		) {
 			const { groupName, channelId } = depositLocalStorageSavedInfo
 
 			push(
@@ -228,7 +235,7 @@ const useCryptoPayForm = ({
 			)
 		}
 		// * 任何選項異動時即時更新 formState
-		else if (queryPaymentType) {
+		else {
 			// * 清空 amount
 			resetField('amount')
 
@@ -274,13 +281,7 @@ const useCryptoPayForm = ({
 				shallow: true,
 			})
 		}
-	}, [
-		debouncedLoading,
-		queryPaymentType,
-		queryPaymentName,
-		queryChannelId,
-		isFirstRender,
-	])
+	}, [debouncedLoading, queryPaymentType, queryPaymentName, queryChannelId])
 
 	return {
 		formMethods,

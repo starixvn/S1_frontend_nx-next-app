@@ -11,8 +11,8 @@ import {
 } from '@nx-next-app/service'
 import { DepositActionModeEnum } from '@nx-next-app/types'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
-import { find, head, isEmpty } from 'lodash-es'
-import { useDebounce, useIsFirstRender } from 'usehooks-ts'
+import { every, find, head, isEmpty } from 'lodash-es'
+import { useDebounce } from 'usehooks-ts'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -44,7 +44,6 @@ const useTopUpCardForm = ({
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
-	const isFirstRender = useIsFirstRender()
 	const {
 		query: {
 			paymentType: queryPaymentType,
@@ -176,10 +175,18 @@ const useTopUpCardForm = ({
 	const debouncedLoading = useDebounce(loading, 50)
 
 	useEffect(() => {
+		// * loading 狀態提前 return
 		if (debouncedLoading) return
 
-		// * 初始渲染時決定是否優先導向 local storage 的值
-		if (isFirstRender && !isEmpty(depositLocalStorageSavedInfo)) {
+		// * 如果當前 isDepositLocalStorageSavedChecked = true 及 depositLocalStorageSavedInfo 有值 及 query url (除了 paymentType 之外)需要的 key 皆為空值時給予 local storage 的值
+		if (
+			every([
+				isDepositLocalStorageSavedChecked,
+				!isEmpty(depositLocalStorageSavedInfo),
+				!queryPaymentName,
+				!queryChannelId,
+			])
+		) {
 			const { groupName, channelId } = depositLocalStorageSavedInfo
 
 			push(
@@ -196,7 +203,7 @@ const useTopUpCardForm = ({
 			)
 		}
 		// * 任何選項異動時即時更新 formState
-		else if (queryPaymentType) {
+		else {
 			// * 清空 amount
 			resetField('amount')
 
@@ -244,7 +251,7 @@ const useTopUpCardForm = ({
 				shallow: true,
 			})
 		}
-	}, [debouncedLoading, queryPaymentType, queryPaymentName, isFirstRender])
+	}, [debouncedLoading, queryPaymentType, queryPaymentName])
 
 	const isFormValid = isValid && !!getValues('amount')
 
