@@ -6,11 +6,11 @@ import {
 	useLazyCheckDepositSpecialCodeQuery,
 } from '@nx-next-app/service'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
-import { find, head } from 'lodash-es'
+import { find, head, isEmpty } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useDebounce, useEffectOnce } from 'usehooks-ts'
+import { useDebounce, useIsFirstRender } from 'usehooks-ts'
 import { useDepositContext } from './DepositContext'
 
 interface IAutoDepositForm {
@@ -32,6 +32,7 @@ const useAutoDepositForm = ({
 		dbHost,
 	} = useAuth()
 	const { modal } = useGlobalModal()
+	const isFirstRender = useIsFirstRender()
 	const { query, pathname, push } = useRouter()
 	const { paymentType: queryPaymentType, sysId: querySysId } = query
 
@@ -113,9 +114,21 @@ const useAutoDepositForm = ({
 
 	const debouncedLoading = useDebounce(loading, 50)
 
-	// * 任何選項異動時即時更新 formState
 	useEffect(() => {
-		if (!debouncedLoading && queryPaymentType) {
+		if (debouncedLoading) return
+
+		// * 初始渲染時決定是否優先導向 local storage 的值
+		if (isFirstRender && !isEmpty(depositLocalStorageSavedInfo)) {
+			const { sysId } = depositLocalStorageSavedInfo
+
+			push(
+				{ pathname, query: { paymentType: queryPaymentType, sysId } },
+				undefined,
+				{ shallow: true }
+			)
+		}
+		// * 任何選項異動時即時更新 formState
+		else if (queryPaymentType) {
 			// * 清空 amount
 			resetField('amount')
 
@@ -149,18 +162,7 @@ const useAutoDepositForm = ({
 				})
 			}
 		}
-	}, [debouncedLoading, queryPaymentType, querySysId])
-
-	// * 初始優先導向 local storage 的值
-	useEffectOnce(() => {
-		const { sysId } = depositLocalStorageSavedInfo
-
-		push(
-			{ pathname, query: { paymentType: queryPaymentType, sysId } },
-			undefined,
-			{ shallow: true }
-		)
-	})
+	}, [debouncedLoading, queryPaymentType, querySysId, isFirstRender])
 
 	return { formMethods, loading: debouncedLoading, onAutoDepositFormSubmit }
 }

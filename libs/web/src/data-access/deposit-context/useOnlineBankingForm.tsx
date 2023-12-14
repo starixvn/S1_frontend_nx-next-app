@@ -4,7 +4,7 @@ import {
 	IDepositQRCodeModalProps,
 	useDepositSavedLocalStorage,
 } from '@nx-next-app/data-access'
-import { useDebounce, useEffectOnce } from 'usehooks-ts'
+import { useDebounce, useIsFirstRender } from 'usehooks-ts'
 import {
 	IPaymentOnlineBankingData,
 	useGetPaymentBankTransferListQuery,
@@ -12,7 +12,7 @@ import {
 	useLazyGetDepositOnlineBankingReqInfoQuery,
 } from '@nx-next-app/service'
 import { DepositActionModeEnum } from '@nx-next-app/types'
-import { find, head } from 'lodash-es'
+import { find, head, isEmpty } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -49,6 +49,7 @@ const useOnlineBankingForm = ({
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
+	const isFirstRender = useIsFirstRender()
 	const {
 		query: {
 			paymentType: queryPaymentType,
@@ -172,9 +173,24 @@ const useOnlineBankingForm = ({
 		submit()
 	}
 
-	// * 任何選項異動時即時更新 form state
 	useEffect(() => {
-		if (!debouncedLoading && queryPaymentType) {
+		if (debouncedLoading) return
+
+		// * 初始渲染時決定是否優先導向 local storage 的值
+		if (isFirstRender && !isEmpty(depositLocalStorageSavedInfo)) {
+			const { payName, sysId } = depositLocalStorageSavedInfo
+
+			push(
+				{
+					pathname,
+					query: { paymentType: queryPaymentType, paymentName: payName, sysId },
+				},
+				undefined,
+				{ shallow: true }
+			)
+		}
+		// * 任何選項異動時即時更新 form state
+		else if (queryPaymentType) {
 			// * 清空 amount
 			resetField('amount')
 
@@ -230,21 +246,7 @@ const useOnlineBankingForm = ({
 				shallow: true,
 			})
 		}
-	}, [debouncedLoading, queryPaymentType, queryPaymentName])
-
-	// * 初始優先導向 local storage 的值
-	useEffectOnce(() => {
-		const { payName, sysId } = depositLocalStorageSavedInfo
-
-		push(
-			{
-				pathname,
-				query: { paymentType: queryPaymentType, paymentName: payName, sysId },
-			},
-			undefined,
-			{ shallow: true }
-		)
-	})
+	}, [debouncedLoading, queryPaymentType, queryPaymentName, isFirstRender])
 
 	return {
 		formMethods,

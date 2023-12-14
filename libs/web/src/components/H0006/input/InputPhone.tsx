@@ -17,6 +17,7 @@ export interface IInputPhoneProps
 	disabled?: boolean
 	showSearch?: boolean
 	selectValue?: string | number
+	showValue?: boolean
 	selectOptions: SelectOptionType[]
 	onChangeSelect: (value: SelectOptionType['value']) => void
 }
@@ -33,6 +34,7 @@ export interface IInputPhoneProps
  * @param {React.ReactNode} children - 傳入子元件，若功能完成後無使用到可刪除
  * @param {boolean} showSearch - 是否顯示 select 內的搜尋列
  * @param {string | number} selectValue - select 的 value
+ * @param {boolean} showValue - 是否只顯示 value 而不是 label
  * @param {SelectOptionType[]} selectOptions - select 的選項
  * @param {(value: SelectOptionType['value']) => void} onChangeSelect - 改變 select 的 value 時觸發
  * @param {*} prop - other html input props
@@ -55,6 +57,7 @@ const InputPhone = ({
 	showSearch,
 	selectValue,
 	selectOptions,
+	showValue,
 	onChangeSelect,
 	...props
 }: IInputPhoneProps) => {
@@ -95,6 +98,7 @@ const InputPhone = ({
 					prefixIcon={<i className='icon icon-phone' />}
 					onChange={onChangeSelect}
 					value={selectValue}
+					showValue={showValue}
 				/>
 
 				<div

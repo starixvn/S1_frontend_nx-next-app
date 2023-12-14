@@ -66,6 +66,12 @@ const LayoutFooter = ({
 		},
 	})
 
+	const isPromoListShowed =
+		(!!programList && programList?.length > 0) ||
+		(!!programDescriptionList &&
+			programDescriptionList?.length > 0 &&
+			isFullFooter)
+
 	return (
 		<Footer>
 			{!!copyRightList && <Footer.CopyRight copyRightList={copyRightList} />}
@@ -74,22 +80,17 @@ const LayoutFooter = ({
 				<Footer.PlatForm platformList={platformList} />
 			)}
 
-			{(!!programList && programList?.length > 0) ||
-				(!!programDescriptionList &&
-					programDescriptionList?.length > 0 &&
-					isFullFooter && (
-						<div className='footerList'>
-							{!!programList && (
-								<Footer.ProgramList programList={programList} />
-							)}
+			{isPromoListShowed && (
+				<div className='footerList'>
+					{!!programList && <Footer.ProgramList programList={programList} />}
 
-							{!!programDescriptionList && isFullFooter && (
-								<Footer.ProgramDescriptionList
-									promotionTextList={programDescriptionList}
-								/>
-							)}
-						</div>
-					))}
+					{!!programDescriptionList && isFullFooter && (
+						<Footer.ProgramDescriptionList
+							promotionTextList={programDescriptionList}
+						/>
+					)}
+				</div>
+			)}
 
 			{isFullFooter && (
 				<Footer.License licenseData={licenseData} seoData={seoData} />
