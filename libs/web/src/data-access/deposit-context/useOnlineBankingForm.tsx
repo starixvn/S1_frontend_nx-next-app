@@ -234,7 +234,7 @@ const useOnlineBankingForm = ({
 		// * 如果當前 isDepositLocalStorageSavedChecked = true 及 depositLocalStorageSavedInfo 有值 及 query url (除了 paymentType 之外)需要的 key 皆為空值時給予 local storage 的值
 		// * isFirstEffect: 設定過一次後將 isFirstEffect 由 true 變為 false
 		// * isPrepared: url 都有值，才算準備好，如果進到 localStorage 裡要把初始值蓋過去
-		const isPrepared = every([queryPaymentType, queryPaymentName, querySysId])
+		const isPrepared = every([queryPaymentType, queryPaymentName])
 		if (
 			isPrepared &&
 			isFirstEffect &&
@@ -247,15 +247,15 @@ const useOnlineBankingForm = ({
 				pathname,
 				query: {
 					paymentType: queryPaymentType,
-					paymentName: depositLocalStorageSavedInfo.groupName,
-					sysId: depositLocalStorageSavedInfo.sysId,
+					paymentName: depositLocalStorageSavedInfo.payName,
+					sysId: depositLocalStorageSavedInfo?.sysId,
 				},
 			}
 			toggleIsFirstEffect()
 		}
 
 		push(url, undefined, { shallow: true })
-	}, [debouncedLoading, queryPaymentType, queryPaymentName, querySysId])
+	}, [debouncedLoading, queryPaymentType, queryPaymentName])
 
 	return {
 		formMethods,
