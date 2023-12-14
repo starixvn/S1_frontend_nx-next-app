@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useDebounce } from 'usehooks-ts'
+import { useBoolean, useDebounce } from 'usehooks-ts'
 import {
 	IAxiosError,
 	IPaymentBankTransferData,
@@ -47,6 +47,7 @@ const useDepositBankTransferForm = ({
 		userInfo: { langId, currencyId },
 	} = useAuth()
 	const { modal } = useGlobalModal()
+	const { value: isFirstEffect, toggle: toggleIsFirstEffect } = useBoolean(true)
 	const { query, pathname, push } = useRouter()
 	const { paymentType: queryPaymentType, sysId: querySysId } = query
 
@@ -194,63 +195,63 @@ const useDepositBankTransferForm = ({
 		}
 	}
 
+	// * 任何選項異動時即時更新 formState
 	useEffect(() => {
 		// * loading 狀態提前 return
 		if (debouncedLoading) return
 
+		// * 清空 amount、receipt
+		reset({ amount: NaN, receipt: undefined })
+
+		const {
+			sysId,
+			bankId,
+			minAmount = 0,
+			maxAmount = 0,
+			qrCodeUrl,
+			canSubmit,
+		} = find(dataSource, {
+			sysId: Number(querySysId),
+		}) ||
+		head(dataSource) ||
+		{}
+
+		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
+		const convertMinAmount = minAmount / (isConvert(currencyId) ? 1000 : 1)
+		const convertMaxAmount = maxAmount / (isConvert(currencyId) ? 1000 : 1)
+
+		setValue('sysId', sysId)
+		setValue('bankId', bankId)
+		setValue('qrCodeUrl', qrCodeUrl)
+		setValue('minAmount', convertMinAmount)
+		setValue('maxAmount', convertMaxAmount)
+		setValue('canSubmit', canSubmit)
+
+		let url = { pathname, query: { paymentType: queryPaymentType, sysId } }
+
 		// * 如果當前 isDepositLocalStorageSavedChecked = true 及 depositLocalStorageSavedInfo 有值 及 query url (除了 paymentType 之外)需要的 key 皆為空值時給予 local storage 的值
+		// * isFirstEffect: 設定過一次後將 isFirstEffect 由 true 變為 false
+		// * isPrepared: url 都有值，才算準備好，如果進到 localStorage 裡要把初始值蓋過去
+		const isPrepared = every([queryPaymentType, querySysId])
 		if (
+			isPrepared &&
+			isFirstEffect &&
 			every([
 				isDepositLocalStorageSavedChecked,
 				!isEmpty(depositLocalStorageSavedInfo),
-				!querySysId,
 			])
 		) {
-			const { sysId } = depositLocalStorageSavedInfo
-
-			push(
-				{ pathname, query: { paymentType: queryPaymentType, sysId } },
-				undefined,
-				{ shallow: true }
-			)
-		}
-		// * 任何選項異動時即時更新 formState
-		else {
-			// * 清空 amount、receipt
-			reset({ amount: NaN, receipt: undefined })
-
-			const {
-				sysId,
-				bankId,
-				minAmount = 0,
-				maxAmount = 0,
-				qrCodeUrl,
-				canSubmit,
-			} = find(dataSource, {
-				sysId: Number(querySysId),
-			}) ||
-			head(dataSource) ||
-			{}
-
-			// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
-			const convertMinAmount = minAmount / (isConvert(currencyId) ? 1000 : 1)
-			const convertMaxAmount = maxAmount / (isConvert(currencyId) ? 1000 : 1)
-
-			setValue('sysId', sysId)
-			setValue('bankId', bankId)
-			setValue('qrCodeUrl', qrCodeUrl)
-			setValue('minAmount', convertMinAmount)
-			setValue('maxAmount', convertMaxAmount)
-			setValue('canSubmit', canSubmit)
-
-			if (sysId) {
-				push(
-					{ pathname, query: { paymentType: queryPaymentType, sysId } },
-					undefined,
-					{ shallow: true }
-				)
+			url = {
+				pathname,
+				query: {
+					paymentType: queryPaymentType,
+					sysId: depositLocalStorageSavedInfo.sysId,
+				},
 			}
+			toggleIsFirstEffect()
 		}
+
+		push(url, undefined, { shallow: true })
 	}, [debouncedLoading, queryPaymentType, querySysId])
 
 	return {

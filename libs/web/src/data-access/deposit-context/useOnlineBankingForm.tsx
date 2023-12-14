@@ -4,7 +4,7 @@ import {
 	IDepositQRCodeModalProps,
 	useDepositSavedLocalStorage,
 } from '@nx-next-app/data-access'
-import { useDebounce } from 'usehooks-ts'
+import { useBoolean, useDebounce } from 'usehooks-ts'
 import {
 	IPaymentOnlineBankingData,
 	useGetPaymentBankTransferListQuery,
@@ -49,7 +49,7 @@ const useOnlineBankingForm = ({
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
-
+	const { value: isFirstEffect, toggle: toggleIsFirstEffect } = useBoolean(true)
 	const {
 		query: {
 			paymentType: queryPaymentType,
@@ -173,88 +173,89 @@ const useOnlineBankingForm = ({
 		submit()
 	}
 
+	// * 任何選項異動時即時更新 form state
 	useEffect(() => {
 		// * loading 狀態提前 return
 		if (debouncedLoading) return
 
 		// * 如果當前 isDepositLocalStorageSavedChecked = true 及 depositLocalStorageSavedInfo 有值 及 query url (除了 paymentType 之外)需要的 key 皆為空值時給予 local storage 的值
+
+		// * 清空 amount
+		resetField('amount')
+
+		const {
+			payName,
+			payId,
+			channelId,
+			minAmount = 0,
+			maxAmount = 0,
+			mode,
+			selBank = false,
+		} = find(dataSource, { payName: String(queryPaymentName) }) ||
+		head(dataSource) ||
+		{}
+
+		const {
+			bankLogo,
+			sysId,
+			minAmount: selBankMinAmount = 0,
+			maxAmount: selBankMaxAmount = 0,
+		} = find(paymentBankTransferList, { sysId: Number(querySysId) }) ||
+		head(paymentBankTransferList) ||
+		{}
+
+		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
+		const convertMinAmount =
+			(selBank ? selBankMinAmount : minAmount) /
+			(isConvert(currencyId) ? 1000 : 1)
+		const convertMaxAmount =
+			(selBank ? selBankMaxAmount : maxAmount) /
+			(isConvert(currencyId) ? 1000 : 1)
+
+		setValue('payName', payName)
+		setValue('payId', payId)
+		setValue('sysId', sysId)
+		setValue('channelId', channelId)
+		setValue('minAmount', convertMinAmount)
+		setValue('maxAmount', convertMaxAmount)
+		setValue('mode', mode)
+		setValue('selBank', selBank)
+		setValue('bankLogo', bankLogo)
+
+		let url = {
+			pathname,
+			query: {
+				paymentType: queryPaymentType,
+				paymentName: payName,
+				sysId,
+			},
+		}
+
+		// * 如果當前 isDepositLocalStorageSavedChecked = true 及 depositLocalStorageSavedInfo 有值 及 query url (除了 paymentType 之外)需要的 key 皆為空值時給予 local storage 的值
+		// * isFirstEffect: 設定過一次後將 isFirstEffect 由 true 變為 false
+		// * isPrepared: url 都有值，才算準備好，如果進到 localStorage 裡要把初始值蓋過去
+		const isPrepared = every([queryPaymentType, queryPaymentName, querySysId])
 		if (
+			isPrepared &&
+			isFirstEffect &&
 			every([
 				isDepositLocalStorageSavedChecked,
 				!isEmpty(depositLocalStorageSavedInfo),
-				!queryPaymentName,
-				!querySysId,
 			])
 		) {
-			const { payName, sysId } = depositLocalStorageSavedInfo
-
-			push(
-				{
-					pathname,
-					query: { paymentType: queryPaymentType, paymentName: payName, sysId },
-				},
-				undefined,
-				{ shallow: true }
-			)
-		}
-		// * 任何選項異動時即時更新 form state
-		else {
-			// * 清空 amount
-			resetField('amount')
-
-			const {
-				payName,
-				payId,
-				channelId,
-				minAmount = 0,
-				maxAmount = 0,
-				mode,
-				selBank = false,
-			} = find(dataSource, { payName: String(queryPaymentName) }) ||
-			head(dataSource) ||
-			{}
-
-			const {
-				bankLogo,
-				sysId,
-				minAmount: selBankMinAmount = 0,
-				maxAmount: selBankMaxAmount = 0,
-			} = find(paymentBankTransferList, { sysId: Number(querySysId) }) ||
-			head(paymentBankTransferList) ||
-			{}
-
-			// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
-			const convertMinAmount =
-				(selBank ? selBankMinAmount : minAmount) /
-				(isConvert(currencyId) ? 1000 : 1)
-			const convertMaxAmount =
-				(selBank ? selBankMaxAmount : maxAmount) /
-				(isConvert(currencyId) ? 1000 : 1)
-
-			setValue('payName', payName)
-			setValue('payId', payId)
-			setValue('sysId', sysId)
-			setValue('channelId', channelId)
-			setValue('minAmount', convertMinAmount)
-			setValue('maxAmount', convertMaxAmount)
-			setValue('mode', mode)
-			setValue('selBank', selBank)
-			setValue('bankLogo', bankLogo)
-
-			const url = {
+			url = {
 				pathname,
 				query: {
 					paymentType: queryPaymentType,
-					paymentName: payName,
-					sysId,
+					paymentName: depositLocalStorageSavedInfo.groupName,
+					sysId: depositLocalStorageSavedInfo.sysId,
 				},
 			}
-
-			push(url, undefined, {
-				shallow: true,
-			})
+			toggleIsFirstEffect()
 		}
-	}, [debouncedLoading, queryPaymentType, queryPaymentName])
+
+		push(url, undefined, { shallow: true })
+	}, [debouncedLoading, queryPaymentType, queryPaymentName, querySysId])
 
 	return {
 		formMethods,
