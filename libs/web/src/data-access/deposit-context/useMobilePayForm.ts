@@ -5,7 +5,7 @@ import {
 	IDepositLocalPayEWalletQRModalProps,
 	useDepositSavedLocalStorage,
 } from '@nx-next-app/data-access'
-import { useDebounce, useEffectOnce } from 'usehooks-ts'
+import { useDebounce, useIsFirstRender } from 'usehooks-ts'
 import {
 	IAxiosError,
 	IPaymentMobilePayData,
@@ -17,7 +17,7 @@ import {
 } from '@nx-next-app/service'
 import { CurrenciesEnum, DepositActionModeEnum } from '@nx-next-app/types'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
-import { find, head } from 'lodash-es'
+import { find, head, isEmpty } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -68,6 +68,8 @@ const useMobilePayForm = ({
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
+	const isFirstRender = useIsFirstRender()
+
 	const {
 		query: {
 			paymentType: queryPaymentType,
@@ -142,12 +144,13 @@ const useMobilePayForm = ({
 					bonusCode = data?.bonusCode
 				}
 			}
-
+			const errorUrl = `${dbHost}/404/index_${langId}.html`
 			const searchParams = new URLSearchParams({
 				ChannelId: String(channelId),
 				Amount: String(convertedAmount),
 				BonusCode: bonusCode,
 				PayAccount: UPIPayAccount,
+				errorUrl,
 			})
 			const paramsUrl = searchParams.toString()
 
@@ -215,9 +218,28 @@ const useMobilePayForm = ({
 
 	const debouncedLoading = useDebounce(loading, 50)
 
-	// * 任何選項異動時即時更新 formState
 	useEffect(() => {
-		if (!debouncedLoading && queryPaymentType) {
+		if (debouncedLoading) return
+
+		// * 初始渲染時決定是否優先導向 local storage 的值
+		if (isFirstRender && !isEmpty(depositLocalStorageSavedInfo)) {
+			const { groupName, channelId } = depositLocalStorageSavedInfo
+
+			push(
+				{
+					pathname,
+					query: {
+						paymentType: queryPaymentType,
+						paymentName: groupName,
+						channelId,
+					},
+				},
+				undefined,
+				{ shallow: true }
+			)
+		}
+		// * 任何選項異動時即時更新 formState(
+		else if (queryPaymentType) {
 			// * 清空 amount
 			resetField('amount')
 
@@ -267,30 +289,13 @@ const useMobilePayForm = ({
 			})
 		}
 	}, [
+		isFirstRender,
 		debouncedLoading,
 		queryPaymentType,
 		queryPaymentName,
 		queryChannelId,
 		isGetChannelMobilePayListFetching,
 	])
-
-	// * 初始優先導向 local storage 的值
-	useEffectOnce(() => {
-		const { groupName, channelId } = depositLocalStorageSavedInfo
-
-		push(
-			{
-				pathname,
-				query: {
-					paymentType: queryPaymentType,
-					paymentName: groupName,
-					channelId,
-				},
-			},
-			undefined,
-			{ shallow: true }
-		)
-	})
 
 	return {
 		formMethods,

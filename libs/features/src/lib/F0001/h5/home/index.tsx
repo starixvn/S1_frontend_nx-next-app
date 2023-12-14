@@ -14,10 +14,10 @@ import { useSetHideBalanceMutation } from '@nx-next-app/service'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 
 import dynamic from 'next/dynamic'
-import { CurrenciesEnum, MobileHomeComponentsEnum } from '@nx-next-app/types'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import { multiEqual } from '@nx-next-app/utils'
+import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
 import Menu from './menu'
-
 import { LoginBlock } from './LoginBlock'
 import { PromotionMarquee } from './PromotionMarquee'
 import { HotEventSwiper } from './HotEventSwiper'

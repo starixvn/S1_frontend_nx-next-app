@@ -38,6 +38,14 @@ export const LANG_GROUPS: IStaticLangGroups = {
 		},
 		{ displayText: 'ไทย', value: 'th', currencyId: CurrenciesEnum.THB },
 	],
+	vn: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.VND,
+		},
+		{ displayText: 'Tiếng Việt', value: 'vn', currencyId: CurrenciesEnum.VND },
+	],
 	id: [
 		{
 			displayText: 'English',
@@ -57,7 +65,7 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			currencyId: CurrenciesEnum.INR,
 		},
 		{
-			displayText: 'Hindi',
+			displayText: 'हिंदी',
 			value: 'hi',
 			currencyId: CurrenciesEnum.INR,
 		},
@@ -110,34 +118,6 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			currencyId: CurrenciesEnum.USD,
 		},
 	],
-}
-
-const CURRENCY_TO_LANG_KEY = {
-	2: 'ch',
-	3: 'gb',
-	4: 'th',
-	13: 'cs',
-	15: 'id',
-	61: 'in',
-	72: 'kh',
-	74: 'bd',
-}
-
-const LANG_GROUP_COUNTRY = {
-	ch: 'Malaysia',
-	th: 'Thailand',
-	id: 'Indonesia',
-	in: 'India',
-	cs: 'China',
-	gb: 'Global',
-	bd: 'Bangladesh',
-	kh: 'Cambodia',
-}
-
-export const LANG_DATA = {
-	langGroups: LANG_GROUPS,
-	currencyToLangKey: CURRENCY_TO_LANG_KEY,
-	langGroupCountry: LANG_GROUP_COUNTRY,
 }
 
 export const LANG_TO_CURRENCY: { [key: string]: number } = {

@@ -43,6 +43,7 @@ import {
 	IDepositLocalPayReqData,
 	IPaymentAutoDepositData,
 	IDepositInfoRecentData,
+	IWithdrawalSetting,
 } from './type'
 
 export const paymentApiUrl = {
@@ -87,6 +88,7 @@ export const paymentApiUrl = {
 	postDepositBankTransferReq: 'Payment/DepositReqWireTransfer',
 	postDepositLocalPayReq: 'Payment/DepositReqLocalPay',
 	checkDepositSpecialCode: 'Payment/CheckDepositSpecialCode',
+	getWithdrawalBlockSetting: 'Payment/GetWithdrawalBlockSetting',
 }
 
 const paymentApi = rootApi.injectEndpoints({
@@ -465,6 +467,16 @@ const paymentApi = rootApi.injectEndpoints({
 			}),
 			invalidatesTags: ['PAYMENT_DEPOSIT_HISTORY'],
 		}),
+		// withdrawal 區域開放區塊控制
+		getWithdrawalBlockSetting: builder.query<
+			IAxiosResponse<IWithdrawalSetting[]>,
+			void
+		>({
+			query: () => ({
+				url: paymentApiUrl.getWithdrawalBlockSetting,
+				method: 'POST',
+			}),
+		}),
 	}),
 })
 
@@ -509,4 +521,5 @@ export const {
 	useLazyCheckDepositSpecialCodeQuery,
 	usePostDepositBankTransferReqMutation,
 	usePostDepositLocalPayReqMutation,
+	useGetWithdrawalBlockSettingQuery,
 } = paymentApi

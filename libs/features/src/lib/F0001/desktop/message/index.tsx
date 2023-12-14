@@ -6,13 +6,6 @@ import Pagination from '@nx-next-app/components/D0001/pagination'
 import { Loading, SpinButton } from '@nx-next-app/components/D0001'
 import MessageList from './MessageList'
 
-const css = `
-        .pagination-ul {
-            display:flex
-        }
-        .pagination li a:hover:not(.active)
-        `
-
 const PersonalMessage = () => {
 	const { t } = useTranslation()
 	const { messageModeResponse } = useMessageFetcher({
@@ -35,9 +28,8 @@ const PersonalMessage = () => {
 	const { currentPage, totalPages, onPageChange } = paginationMode
 
 	return (
-		<>
-			<style>{css}</style>
-			<div className='rightModule'>
+		<div className='rightModule'>
+			<div className='infoModule'>
 				<div className='inside-title'>
 					<span className='icon icon-icon32px_openmail'>
 						{t('Label_Message_PersonalMsg')}
@@ -107,7 +99,7 @@ const PersonalMessage = () => {
 					</div>
 				)}
 			</div>
-		</>
+		</div>
 	)
 }
 

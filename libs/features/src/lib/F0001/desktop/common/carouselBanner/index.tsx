@@ -14,9 +14,14 @@ import BannerItem from './BannerItem'
 
 interface ICarouselBannerProps extends ICarouselProps {
 	bannerList: IBannerData[]
+	className?: string
 }
 
-const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
+const CarouselBanner = ({
+	bannerList,
+	className = 'banner',
+	...rest
+}: ICarouselBannerProps) => {
 	const {
 		userInfo: { langId },
 	} = useAuth()
@@ -111,7 +116,7 @@ const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 	}
 
 	return (
-		<Carousel className='banner' {...rest}>
+		<Carousel className={className} {...rest}>
 			{resultList.map(item => (
 				<BannerItem
 					key={item.itemKey}

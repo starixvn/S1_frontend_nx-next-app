@@ -8,10 +8,10 @@ export enum DepositStatusClassNameEnum {
 
 export enum WithdrawalStatusClassNameEnum {
 	Pending = 1,
-	InProgress,
-	Approved,
+	InProgress = 4,
+	Cancel = 5,
+	Approved = 6,
 	Reject,
-	Cancel,
 }
 
 export enum DepositStatusEnum {
@@ -55,12 +55,12 @@ export enum QuickPickEnum {
 }
 
 export const QuickPickData: Record<QuickPickEnum, string> = {
-	[QuickPickEnum.Today]: 'Today',
-	[QuickPickEnum.Yesterday]: 'Yesterday',
-	[QuickPickEnum.ThisWeek]: 'ThisWeek',
-	[QuickPickEnum.LastWeek]: 'LastWeek',
-	[QuickPickEnum.ThisMonth]: 'ThisMonth',
-	[QuickPickEnum.LastMonth]: 'LastMonth',
+	[QuickPickEnum.Today]: 'Label_History_Today',
+	[QuickPickEnum.Yesterday]: 'Label_History_Yesterday',
+	[QuickPickEnum.ThisWeek]: 'Label_History_ThisWeek',
+	[QuickPickEnum.LastWeek]: 'Label_History_LastWeek',
+	[QuickPickEnum.ThisMonth]: 'Label_History_ThisMonth',
+	[QuickPickEnum.LastMonth]: 'Label_History_LastMonth',
 }
 
 export enum DepositTypeEnum {

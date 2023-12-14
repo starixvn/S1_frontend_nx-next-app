@@ -1,6 +1,10 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import {
+	AuthProvider,
+	getWithdrawalBlockSetting,
+	GlobalDataProvider,
+} from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { CryptoWalletProvider } from '@nx-next-app/features/F0001/providers'
 import {
@@ -15,9 +19,11 @@ import {
 import { FOOTER_DATA } from '@nx-next-app/site/nova88'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IFooterData } from '@nx-next-app/types'
+import { IWithdrawalSetting } from '@nx-next-app/service'
 
 interface ICryptoWalletPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
+	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
 const CryptoWalletPage = ({
@@ -25,11 +31,12 @@ const CryptoWalletPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	withdrawalBlockSetting,
 }: ICryptoWalletPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<CryptoWalletProvider>
+				<CryptoWalletProvider withdrawalBlockSetting={withdrawalBlockSetting}>
 					<Layout
 						persistSEOData={persistSEOData}
 						footerData={persistFooterData}
@@ -49,11 +56,15 @@ const CryptoWalletPage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
-	const { originCookies } = initialProps
+	const { originCookies, currentHeaderCookies } = initialProps
 	const { langId, currencyId } = {
 		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
+
+	const withdrawalBlockSetting = await getWithdrawalBlockSetting({
+		headers: { cookie: currentHeaderCookies },
+	})
 
 	if (!initialProps.originIsSignIn) {
 		return {
@@ -66,6 +77,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
 	return {
 		props: {
+			withdrawalBlockSetting,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),

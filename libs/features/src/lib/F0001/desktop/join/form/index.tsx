@@ -515,6 +515,7 @@ const Form = ({ cookies }: IJoinProps) => {
 								onChange={areaCode => selectAreaCode(areaCode)}
 								value={getValues('areaCode')}
 								errorMessage={phoneErrorTip}
+								showValue
 							/>
 							<InputBox
 								register={register('phone', {

@@ -1,13 +1,11 @@
-import QRCode from 'qrcode.react'
-import Image from 'next/future/image'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import { useAuth } from '@nx-next-app/data-access'
 import { getSubMenuEventIcon, useMenu } from '@nx-next-app/features/F0001/hooks'
-import { uniqueId, upperCase } from 'lodash-es'
+import { toLower, uniqueId } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { Dispatch, SetStateAction } from 'react'
-import { useGetAppDownloadLinksQuery } from '@nx-next-app/service'
+
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { MenuKeyEnum } from '@nx-next-app/types'
 
@@ -30,8 +28,6 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 	} = useAuth()
 	const { modal } = useGlobalModal()
 	const { menuData, onMenuOpen } = useMenu()
-	const { data: { data: appDownloadLinks } = {} } =
-		useGetAppDownloadLinksQuery(null)
 
 	const renderSubMenu = (key: string) => {
 		const {
@@ -43,68 +39,69 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 		} = menuData[key as MenuKeyEnum]
 
 		// * AppDownload 的元件較獨特，非 menu 也非 banner, 因此先獨立出來實作
-		if (key === MenuKeyEnum.AppDownload) {
-			return (
-				<button
-					key={key}
-					className={classNames(subMenuClassName, {
-						active: key === debouncedMenuKey,
-					})}
-					onMouseEnter={() => setMenuKey(key)}
-					onMouseLeave={() => setMenuKey(undefined)}
-					onClick={() =>
-						onMenuOpen(
-							{
-								desktop: { menuActionType },
-								pathname,
-								query,
-								product,
-							},
-							{
-								loginCallback: () => modal.open(<LoginModal />),
-								messageCallBack: message => modal.error(message),
-							}
-						)
-					}
-				>
-					<div>
-						<div className='txt-orange'>
-							{upperCase(process.env['NEXT_PUBLIC_SITE_NAME'])}
-						</div>
-						<div>{t('Label_APP_DOWNLOAD_Title')}</div>
-						<div className='appListQrcode'>
-							{appDownloadLinks?.map(item => (
-								<div key={item.downloadLink}>
-									<QRCode
-										value={item.downloadLink}
-										renderAs='svg'
-										size={112}
-										includeMargin
-									/>
-									{item.appTypeName === 'Andriod' && (
-										<Image
-											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/appdownload_and.jpg`}
-											alt='Andriod Download'
-											height={100}
-											width={100}
-										/>
-									)}
+		// * 更新：關閉此功能
+		// if (key === MenuKeyEnum.AppDownload) {
+		// 	return (
+		// 		<button
+		// 			key={key}
+		// 			className={classNames(subMenuClassName, {
+		// 				active: key === debouncedMenuKey,
+		// 			})}
+		// 			onMouseEnter={() => setMenuKey(key)}
+		// 			onMouseLeave={() => setMenuKey(undefined)}
+		// 			onClick={() =>
+		// 				onMenuOpen(
+		// 					{
+		// 						desktop: { menuActionType },
+		// 						pathname,
+		// 						query,
+		// 						product,
+		// 					},
+		// 					{
+		// 						loginCallback: () => modal.open(<LoginModal />),
+		// 						messageCallBack: message => modal.error(message),
+		// 					}
+		// 				)
+		// 			}
+		// 		>
+		// 			<div>
+		// 				<div className='txt-orange'>
+		// 					{upperCase(process.env['NEXT_PUBLIC_SITE_NAME'])}
+		// 				</div>
+		// 				<div>{t('Label_APP_DOWNLOAD_Title')}</div>
+		// 				<div className='appListQrcode'>
+		// 					{appDownloadLinks?.map(item => (
+		// 						<div key={item.downloadLink}>
+		// 							<QRCode
+		// 								value={item.downloadLink}
+		// 								renderAs='svg'
+		// 								size={112}
+		// 								includeMargin
+		// 							/>
+		// 							{item.appTypeName === 'Andriod' && (
+		// 								<Image
+		// 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/appdownload_and.jpg`}
+		// 									alt='Andriod Download'
+		// 									height={100}
+		// 									width={100}
+		// 								/>
+		// 							)}
 
-									{item.appTypeName === 'IOS' && (
-										<Image
-											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/appdownload_ios.jpg`}
-											alt='IOS Download'
-											height={100}
-											width={100}
-										/>
-									)}
-								</div>
-							))}
-						</div>
-					</div>
-				</button>
-			)
-		}
+		// 							{item.appTypeName === 'IOS' && (
+		// 								<Image
+		// 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/appdownload_ios.jpg`}
+		// 									alt='IOS Download'
+		// 									height={100}
+		// 									width={100}
+		// 								/>
+		// 							)}
+		// 						</div>
+		// 					))}
+		// 				</div>
+		// 			</div>
+		// 		</button>
+		// 	)
+		// }
 
 		if (menuType === 'banner') {
 			return (
@@ -164,7 +161,7 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 								pointerEvents: item.isTpMaintain ? 'none' : 'auto',
 							}}
 							key={productKey || uniqueId()}
-							className={classNames(className, subMenuEventIcon?.icon, {
+							className={classNames(className, {
 								active: item.isTpMaintain,
 							})}
 							onClick={() => {
@@ -174,36 +171,20 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 								})
 							}}
 						>
-							<Image
-								className='ListBG-left'
-								alt='ListBG-left'
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/subMenu-Wrapper-ListBG-left.png`}
-								width={77}
-								height={137}
-							/>
+							{subMenuEventIcon && (
+								<div className={subMenuEventIcon?.icon}>
+									{subMenuEventIcon?.text}
+								</div>
+							)}
 
-							<Image
-								className='ListBG-right'
-								alt='ListBG-right'
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/subMenu-Wrapper-ListBG-right.png`}
-								width={92}
-								height={140}
-							/>
-							<Image
-								className='ListBG-center'
-								alt='ListBG-center'
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/subMenu-Wrapper-ListBG-center.png`}
-								width={150}
-								height={200}
-							/>
 							{headerMenuImgList?.map(img => (
-								<Image
+								<img
 									key={img.imgUrl}
 									className={classNames(img.className)}
 									alt={img.imgUrl}
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${img.imgUrl}`}
-									width={150}
-									height={200}
+									src={`${
+										process.env['NEXT_PUBLIC_BANNER_HOST']
+									}/desktop/img/4.0/dropdown/${toLower(key)}/${img.imgUrl}`}
 								/>
 							))}
 

@@ -15,18 +15,17 @@ const Vip = ({
 	const {
 		userInfo: { langId },
 	} = useAuth()
+
+	// * en 時不帶後綴語系
+	const vipInfoImageUrl = `${
+		process.env['NEXT_PUBLIC_BANNER_HOST']
+	}/desktop/img/vipinfo${langId === 'en' ? '' : `-${langId}`}.png`
+
 	return (
 		<main className='vip'>
 			<VipBanner vipBannerData={vipBannerData} />
 			<div className='newvipinfo'>
-				<Image
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vipinfo${
-						langId === 'en' ? '' : `-${langId}`
-					}.png`}
-					width={1920}
-					height={438}
-					alt=''
-				/>
+				<Image src={vipInfoImageUrl} width={1920} height={438} alt='' />
 			</div>
 			<VipTable vipBannerData={vipBannerData} lastUpdateTime={lastUpdateTime} />
 			<VipBottom />

@@ -2,11 +2,11 @@ import { useState } from 'react'
 import Image from 'next/future/image'
 import classNames from 'classnames'
 import { getMainEventIcon, useMenu } from '@nx-next-app/features/F0001/hooks'
-import { MenuActionTypeEnum } from '@nx-next-app/features/F0001/types'
+
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 import { useTranslation } from 'next-i18next'
-import { MenuKeyEnum } from '@nx-next-app/types'
+import { MenuActionTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import SubMenu from './SubMenu'
 
@@ -38,6 +38,10 @@ const Menu = () => {
 					]) => {
 						// * 只顯示 all | h5 類別
 						if (display === 'desktop' || !display) return null
+
+						// * 有 displayKey 可以避開以 icon 呈現的 menu
+						// * subMenu 不能給預設值，用 ?. 的邏輯才能將 「以 icon 呈現」和 「submenu 沒有值」區隔開來
+						if (displayKey && subMenu?.length === 0) return null
 
 						const { icon: mainEventIcon } =
 							getMainEventIcon({ eventIcons, subMenu }) ?? {}

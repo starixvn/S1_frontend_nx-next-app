@@ -7,13 +7,20 @@ import {
 	useDeleteEWalletCardMutation,
 	useGetEWalletInfoListQuery,
 	useSetEWalletInfoMutation,
+	IWithdrawalSetting,
 } from '@nx-next-app/service'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useWalletAllowed } from '@nx-next-app/features/F0001/hooks'
 
 interface IEWalletContextValue {
 	isShowCards: boolean
 	custEWalletList: ICustEWalletInfoData[]
 	eWalletInfoSysList: IEWalletInfoSysData[]
+	cardAllowed: {
+		bankCardAllowed: boolean
+		eWalletCardAllowed: boolean
+		cryptoCardAllowed: boolean
+	}
 	setIsShowCards: (isShowCards: boolean) => void
 	handleSetCustEWallet: ({
 		sysId,
@@ -38,7 +45,13 @@ const EWalletContext = createContext<IEWalletContextValue>(
 
 export const useEWallet = () => useContext(EWalletContext)
 
-export const EWalletProvider = ({ children }: { children: ReactNode }) => {
+export const EWalletProvider = ({
+	children,
+	withdrawalBlockSetting,
+}: {
+	children: ReactNode
+	withdrawalBlockSetting: IWithdrawalSetting[]
+}) => {
 	const { t } = useTranslation()
 
 	const { modal } = useGlobalModal()
@@ -96,10 +109,13 @@ export const EWalletProvider = ({ children }: { children: ReactNode }) => {
 		)
 	}
 
+	const { cardAllowed } = useWalletAllowed({ withdrawalBlockSetting })
+
 	const value: IEWalletContextValue = {
 		isShowCards,
 		custEWalletList,
 		eWalletInfoSysList,
+		cardAllowed,
 		setIsShowCards,
 		handleDeleteEWallet,
 		handleSetCustEWallet,
