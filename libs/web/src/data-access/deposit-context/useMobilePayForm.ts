@@ -5,7 +5,7 @@ import {
 	IDepositLocalPayEWalletQRModalProps,
 	useDepositSavedLocalStorage,
 } from '@nx-next-app/data-access'
-import { useDebounce } from 'usehooks-ts'
+import { useBoolean, useDebounce } from 'usehooks-ts'
 import {
 	IAxiosError,
 	IPaymentMobilePayData,
@@ -68,6 +68,7 @@ const useMobilePayForm = ({
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
+	const { value: isFirstEffect, toggle: toggleIsFirstEffect } = useBoolean(true)
 
 	const {
 		query: {
@@ -221,80 +222,76 @@ const useMobilePayForm = ({
 		// * loading 狀態提前 return
 		if (debouncedLoading && isGetChannelMobilePayListFetching) return
 
+		// * 任何選項異動時即時更新 formState
+		// * 清空 amount
+		resetField('amount')
+
+		// * 有異動時即清空 UPIPayAccount 狀態 (因只會在特定情境出現)
+		resetField('UPIPayAccount')
+
+		const { mode, groupName } =
+			find(dataSource, { groupName: String(queryPaymentName) }) ||
+			head(dataSource) ||
+			{}
+
+		const {
+			payName,
+			channelId,
+			channelName,
+			minAmount = 0,
+			maxAmount = 0,
+			amountRule,
+		} = find(channelMobilePayList, { channelId: Number(queryChannelId) }) ||
+		head(channelMobilePayList) ||
+		{}
+
+		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
+		const convertMinAmount = minAmount / (isConvert(currencyId) ? 1000 : 1)
+		const convertMaxAmount = maxAmount / (isConvert(currencyId) ? 1000 : 1)
+
+		setValue('mode', mode)
+		setValue('channelId', channelId)
+		setValue('groupName', groupName)
+		setValue('channelName', channelName)
+		setValue('minAmount', convertMinAmount)
+		setValue('maxAmount', convertMaxAmount)
+		setValue('payName', payName)
+		setValue('amountRule', amountRule)
+
+		let url = {
+			pathname,
+			query: {
+				paymentType: queryPaymentType,
+				paymentName: groupName,
+				channelId,
+			},
+		}
+
 		// * 如果當前 isDepositLocalStorageSavedChecked = true 及 depositLocalStorageSavedInfo 有值 及 query url (除了 paymentType 之外)需要的 key 皆為空值時給予 local storage 的值
 		if (
 			every([
 				isDepositLocalStorageSavedChecked,
 				!isEmpty(depositLocalStorageSavedInfo),
-				!queryPaymentName,
-				!queryChannelId,
+				queryPaymentType,
+				queryPaymentName,
+				queryChannelId,
+				isFirstEffect,
 			])
 		) {
-			const { groupName, channelId } = depositLocalStorageSavedInfo
-
-			push(
-				{
-					pathname,
-					query: {
-						paymentType: queryPaymentType,
-						paymentName: groupName,
-						channelId,
-					},
-				},
-				undefined,
-				{ shallow: true }
-			)
-		}
-		// * 任何選項異動時即時更新 formState(
-		else {
-			// * 清空 amount
-			resetField('amount')
-
-			// * 有異動時即清空 UPIPayAccount 狀態 (因只會在特定情境出現)
-			resetField('UPIPayAccount')
-
-			const { mode, groupName } =
-				find(dataSource, { groupName: String(queryPaymentName) }) ||
-				head(dataSource) ||
-				{}
-
-			const {
-				payName,
-				channelId,
-				channelName,
-				minAmount = 0,
-				maxAmount = 0,
-				amountRule,
-			} = find(channelMobilePayList, { channelId: Number(queryChannelId) }) ||
-			head(channelMobilePayList) ||
-			{}
-
-			// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
-			const convertMinAmount = minAmount / (isConvert(currencyId) ? 1000 : 1)
-			const convertMaxAmount = maxAmount / (isConvert(currencyId) ? 1000 : 1)
-
-			setValue('mode', mode)
-			setValue('channelId', channelId)
-			setValue('groupName', groupName)
-			setValue('channelName', channelName)
-			setValue('minAmount', convertMinAmount)
-			setValue('maxAmount', convertMaxAmount)
-			setValue('payName', payName)
-			setValue('amountRule', amountRule)
-
-			const url = {
+			url = {
 				pathname,
 				query: {
 					paymentType: queryPaymentType,
-					paymentName: groupName,
-					channelId,
+					paymentName: depositLocalStorageSavedInfo.groupName,
+					channelId: depositLocalStorageSavedInfo.channelId,
 				},
 			}
-
-			push(url, undefined, {
-				shallow: true,
-			})
+			toggleIsFirstEffect()
 		}
+
+		push(url, undefined, {
+			shallow: true,
+		})
 	}, [
 		debouncedLoading,
 		isGetChannelMobilePayListFetching,
