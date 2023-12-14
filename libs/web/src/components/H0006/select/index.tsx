@@ -14,6 +14,7 @@ export interface ISelectProps {
 	showSearch?: boolean
 	errorMessage?: string
 	infoMessage?: string
+	showValue?: boolean
 	onChange?: (value: SelectOptionType['value']) => void
 }
 
@@ -29,6 +30,7 @@ const Select = (props: ISelectProps) => {
 		showSearch,
 		infoMessage,
 		errorMessage,
+		showValue,
 		onChange,
 	} = props
 	const { value: isActive, toggle, setFalse } = useBoolean()
@@ -96,7 +98,11 @@ const Select = (props: ISelectProps) => {
 					{/* 如 prefixOptionIcon 為 Image 會造成跑版，所以使用 style 調整 */}
 					<div style={{ display: 'flex', alignItems: 'center' }}>
 						{currentOption?.prefixOptionIcon}
-						<span className='text'>{currentOption?.label || placeholder}</span>
+						<span className='text'>
+							{showValue
+								? currentOption?.value
+								: currentOption?.label || placeholder}
+						</span>
 					</div>
 					<i className='icon icon-keyboard_arrow_down' />
 				</button>
