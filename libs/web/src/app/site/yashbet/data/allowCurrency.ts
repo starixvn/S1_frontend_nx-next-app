@@ -4,7 +4,7 @@ const { INR, BDT } = CurrenciesEnum
 
 export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 	VIP: [],
-	AFFILIATE: [],
+	AFFILIATE: [INR, BDT],
 	EXCHANGE: [INR, BDT],
 	REWARDS: [],
 	LEADER_BOARD: [],
