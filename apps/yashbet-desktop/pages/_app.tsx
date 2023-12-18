@@ -4,7 +4,6 @@ import { store } from '@nx-next-app/store'
 import { appWithTranslation } from 'next-i18next'
 import { UIProvider } from '@nx-next-app/components/config-provider'
 import { StaticDataProvider } from '@nx-next-app/data-access'
-import { ThirdPartyJS } from '@nx-next-app/features/F0006/desktop'
 
 // * supply localized format options
 // * https://day.js.org/docs/en/plugin/localized-format
@@ -28,6 +27,7 @@ import {
 	VIP_CLUB_IMAGES,
 	BANNER_IMAGE_LIST,
 	LEFT_MENU_DATA,
+	ThirdPartyJS,
 } from '@nx-next-app/site/yashbet'
 
 import 'react-datepicker/dist/react-datepicker.css'
