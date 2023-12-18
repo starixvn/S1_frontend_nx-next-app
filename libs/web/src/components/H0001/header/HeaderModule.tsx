@@ -63,47 +63,84 @@ const HeaderModule = ({
 	}, [originIsHideBalance])
 
 	return (
-		<div className={classNames('headerModule', className)} {...props}>
+		<div className={classNames('header-module', className)} {...props}>
 			{/* 用 a link 讓畫面重新整理 */}
-			<a href='/'>
+			<a href={paths.home.root} className='header-logo'>
 				<img
-					className='dragonlogo'
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/logo.png`}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w.png`}
 					alt='logo'
 				/>
 			</a>
 
+			<a className='splogo' />
+
+			{/* 登入前 */}
+			{!auth.isLogin && (
+				<>
+					<div className='home-btn-group header-login'>
+						<Link href={paths.login.root}>
+							<a className='btn-login'>{t('Label_General_LogIn')}</a>
+						</Link>
+						<Link href={paths.join.root}>
+							<a className='btn-register' href='/cs/join'>
+								{t('Label_General_Register')}
+							</a>
+						</Link>
+					</div>
+
+					<Link href={paths.setting.root}>
+						<a className='btn-menu'>
+							<img
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/menu.png`}
+								alt='setting'
+							/>
+						</a>
+					</Link>
+				</>
+			)}
+
+			{/* 登入後簡易資訊 */}
 			{auth.isLogin && !isTpWalletBalanceListLoading && (
-				<div>
-					<div className='headerInfo'>
-						{t('Label_General_Welcome')}
+				<div className='header-info'>
+					<div>
+						{`${t('Label_General_Welcome')}, `}
 						<Link href={paths.profile.root}>
 							<a className='MemberID'>{userName}</a>
 						</Link>
 					</div>
-					<div className='Balance'>
-						<button
-							className={classNames('icon', {
-								'icon-minus': !isHideBalance,
-								'icon-plus': isHideBalance,
-							})}
-							onClick={e => {
-								e.stopPropagation()
-								toggleHideBalance()
-							}}
-						>
-							{currencyName}
-						</button>
+					<div className='header-balance'>
+						<span>{currencyName}</span>
 						<div>
-							{!isHideBalance && (
-								<>
-									{numFormatToDigits(totalWalletBalance)}
-									<SpinButton
-										className='icon icon-spinner11 clickBtn'
-										onClick={onRefetchAllWallet}
-									/>
-								</>
+							{isHideBalance ? (
+								`*****`
+							) : (
+								<>${numFormatToDigits(totalWalletBalance)}</>
 							)}
+
+							<SpinButton
+								className='icon icon-spinner11 clickBtn'
+								onClick={onRefetchAllWallet}
+							/>
+							<button
+								onClick={e => {
+									e.stopPropagation()
+									toggleHideBalance()
+								}}
+							>
+								{isHideBalance ? (
+									<img
+										className='icon-plus'
+										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/plus.png`}
+										alt='img-icon-plus'
+									/>
+								) : (
+									<img
+										className='icon-minus'
+										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/minus.png`}
+										alt='img- icon-minus'
+									/>
+								)}
+							</button>
 						</div>
 					</div>
 				</div>
