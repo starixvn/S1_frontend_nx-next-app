@@ -4,7 +4,6 @@ import { store } from '@nx-next-app/store'
 import { appWithTranslation } from 'next-i18next'
 import { UIProvider } from '@nx-next-app/components/config-provider'
 import { StaticDataProvider } from '@nx-next-app/data-access'
-import { ThirdPartyJS } from '@nx-next-app/features/F0001/desktop'
 
 // * supply localized format options
 // * https://day.js.org/docs/en/plugin/localized-format
@@ -26,6 +25,7 @@ import {
 	BANNER_IMAGE_LIST,
 	ALLOWED_CURRENCIES,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
+	ThirdPartyJS,
 } from '@nx-next-app/site/nova88'
 
 import 'react-datepicker/dist/react-datepicker.css'
@@ -40,6 +40,7 @@ import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
 dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
 dayjs.extend(utc)
+
 const {
 	IovationScript,
 	PlayTechScript,
