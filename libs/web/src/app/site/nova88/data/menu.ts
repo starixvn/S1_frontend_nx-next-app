@@ -148,7 +148,7 @@ export const MENU_DATA = ({
 				className: 'reward',
 				menuActionType: MenuActionTypeEnum.WindowOpen,
 			},
-			pathname: `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/rewards/`,
+			pathname: `${process.env['NEXT_PUBLIC_REWARD_HOST']}`,
 			allowCurrencies: ALLOWED_CURRENCIES['REWARDS'],
 			subMenuAllowCurrenciesWithAuth: false,
 		},

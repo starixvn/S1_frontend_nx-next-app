@@ -12,11 +12,11 @@ import {
 	usePostDepositLocalPayReqMutation,
 } from '@nx-next-app/service'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
-import { find, head, isEmpty } from 'lodash-es'
+import { every, find, head, isEmpty } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useDebounce, useIsFirstRender } from 'usehooks-ts'
+import { useBoolean, useDebounce } from 'usehooks-ts'
 import { useDepositContext } from './DepositContext'
 
 export interface IQRPayForm {
@@ -44,7 +44,7 @@ const useQRPayForm = ({
 		dbHost,
 	} = useAuth()
 	const { modal } = useGlobalModal()
-	const isFirstRender = useIsFirstRender()
+	const { value: isFirstEffect, toggle: toggleIsFirstEffect } = useBoolean(true)
 	const {
 		query: {
 			paymentType: queryPaymentType,
@@ -171,69 +171,76 @@ const useQRPayForm = ({
 
 	const debouncedLoading = useDebounce(loading, 50)
 
+	// * 任何選項異動時即時更新 formState
 	useEffect(() => {
+		// * loading 狀態提前 return
 		if (debouncedLoading) return
 
-		// * 初始渲染時決定是否優先導向 local storage 的值
-		if (isFirstRender && !isEmpty(depositLocalStorageSavedInfo)) {
-			const { groupName, channelId } = depositLocalStorageSavedInfo
+		// * 清空 amount
+		resetField('amount')
 
-			push(
-				{
-					pathname,
-					query: {
-						paymentType: queryPaymentType,
-						paymentName: groupName,
-						channelId,
-					},
-				},
-				undefined,
-				{ shallow: true }
-			)
-		}
-		// * 任何選項異動時即時更新 formState
-		else if (queryPaymentType) {
-			// * 清空 amount
-			resetField('amount')
-
-			const { groupName } =
-				find(dataSource, { groupName: String(queryPaymentName) }) ||
-				head(dataSource) ||
-				{}
-
-			const {
-				channelId,
-				channelName,
-				minAmount = 0,
-				maxAmount = 0,
-			} = find(channelQrPayList, { channelId: Number(queryChannelId) }) ||
-			head(channelQrPayList) ||
+		const { groupName } =
+			find(dataSource, { groupName: String(queryPaymentName) }) ||
+			head(dataSource) ||
 			{}
 
-			// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
-			const convertMinAmount = minAmount / (isConvert(currencyId) ? 1000 : 1)
-			const convertMaxAmount = maxAmount / (isConvert(currencyId) ? 1000 : 1)
+		const {
+			channelId,
+			channelName,
+			minAmount = 0,
+			maxAmount = 0,
+		} = find(channelQrPayList, { channelId: Number(queryChannelId) }) ||
+		head(channelQrPayList) ||
+		{}
 
-			setValue('groupName', groupName)
-			setValue('channelId', channelId)
-			setValue('channelName', channelName)
-			setValue('minAmount', convertMinAmount)
-			setValue('maxAmount', convertMaxAmount)
+		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
+		const convertMinAmount = minAmount / (isConvert(currencyId) ? 1000 : 1)
+		const convertMaxAmount = maxAmount / (isConvert(currencyId) ? 1000 : 1)
 
-			const url = {
+		setValue('groupName', groupName)
+		setValue('channelId', channelId)
+		setValue('channelName', channelName)
+		setValue('minAmount', convertMinAmount)
+		setValue('maxAmount', convertMaxAmount)
+
+		let url = {
+			pathname,
+			query: {
+				paymentType: queryPaymentType,
+				paymentName: groupName,
+				channelId,
+			},
+		}
+
+		// * 如果當前 isDepositLocalStorageSavedChecked = true 及 depositLocalStorageSavedInfo 有值 及 query url (除了 paymentType 之外)需要的 key 皆為空值時給予 local storage 的值
+		// * isFirstEffect: 設定過一次後將 isFirstEffect 由 true 變為 false
+		// * isPrepared: url 都有值，才算準備好，如果進到 localStorage 裡要把初始值蓋過去
+		const isPrepared = every([
+			queryPaymentType,
+			queryPaymentName,
+			queryChannelId,
+		])
+		if (
+			isPrepared &&
+			isFirstEffect &&
+			every([
+				isDepositLocalStorageSavedChecked,
+				!isEmpty(depositLocalStorageSavedInfo),
+			])
+		) {
+			url = {
 				pathname,
 				query: {
 					paymentType: queryPaymentType,
-					paymentName: groupName,
-					channelId,
+					paymentName: depositLocalStorageSavedInfo.groupName,
+					channelId: depositLocalStorageSavedInfo.channelId,
 				},
 			}
-
-			push(url, undefined, {
-				shallow: true,
-			})
+			toggleIsFirstEffect()
 		}
-	}, [debouncedLoading, queryPaymentType, queryPaymentName, isFirstRender])
+
+		push(url, undefined, { shallow: true })
+	}, [debouncedLoading, queryPaymentType, queryPaymentName])
 
 	return {
 		formMethods,

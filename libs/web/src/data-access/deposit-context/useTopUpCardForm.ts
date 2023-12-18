@@ -11,8 +11,8 @@ import {
 } from '@nx-next-app/service'
 import { DepositActionModeEnum } from '@nx-next-app/types'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
-import { find, head, isEmpty } from 'lodash-es'
-import { useDebounce, useIsFirstRender } from 'usehooks-ts'
+import { every, find, head, isEmpty } from 'lodash-es'
+import { useBoolean, useDebounce } from 'usehooks-ts'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -44,7 +44,7 @@ const useTopUpCardForm = ({
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
-	const isFirstRender = useIsFirstRender()
+	const { value: isFirstEffect, toggle: toggleIsFirstEffect } = useBoolean(true)
 	const {
 		query: {
 			paymentType: queryPaymentType,
@@ -175,76 +175,87 @@ const useTopUpCardForm = ({
 
 	const debouncedLoading = useDebounce(loading, 50)
 
+	// * 任何選項異動時即時更新 formState
 	useEffect(() => {
+		// * loading 狀態提前 return
 		if (debouncedLoading) return
 
-		// * 初始渲染時決定是否優先導向 local storage 的值
-		if (isFirstRender && !isEmpty(depositLocalStorageSavedInfo)) {
-			const { groupName, channelId } = depositLocalStorageSavedInfo
+		// * 如果當前 isDepositLocalStorageSavedChecked = true 及 depositLocalStorageSavedInfo 有值 及 query url (除了 paymentType 之外)需要的 key 皆為空值時給予 local storage 的值
 
-			push(
-				{
-					pathname,
-					query: {
-						paymentType: queryPaymentType,
-						paymentName: groupName,
-						channelId,
-					},
-				},
-				undefined,
-				{ shallow: true }
-			)
-		}
-		// * 任何選項異動時即時更新 formState
-		else if (queryPaymentType) {
-			// * 清空 amount
-			resetField('amount')
+		// * 清空 amount
+		resetField('amount')
 
-			const { groupName } =
-				find(dataSource, { groupName: String(queryPaymentName) }) ||
-				head(dataSource) ||
-				{}
-
-			const {
-				mode,
-				channelId,
-				minAmount = 0,
-				maxAmount = 0,
-				amountList,
-			} = find(channelTopUpCardPayList, {
-				channelId: Number(queryChannelId),
-			}) ||
-			head(channelTopUpCardPayList) ||
+		const { groupName } =
+			find(dataSource, { groupName: String(queryPaymentName) }) ||
+			head(dataSource) ||
 			{}
 
-			// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
-			const convertMinAmount = minAmount / (isConvert(currencyId) ? 1000 : 1)
-			const convertMaxAmount = maxAmount / (isConvert(currencyId) ? 1000 : 1)
-			const convertAmountList = amountList?.map(
-				value => value / (isConvert(currencyId) ? 1000 : 1)
-			)
+		const {
+			mode,
+			channelId,
+			minAmount = 0,
+			maxAmount = 0,
+			amountList,
+		} = find(channelTopUpCardPayList, {
+			channelId: Number(queryChannelId),
+		}) ||
+		head(channelTopUpCardPayList) ||
+		{}
 
-			setValue('mode', mode)
-			setValue('groupName', groupName)
-			setValue('channelId', channelId)
-			setValue('minAmount', convertMinAmount)
-			setValue('maxAmount', convertMaxAmount)
-			setValue('amountList', convertAmountList)
+		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
+		const convertMinAmount = minAmount / (isConvert(currencyId) ? 1000 : 1)
+		const convertMaxAmount = maxAmount / (isConvert(currencyId) ? 1000 : 1)
+		const convertAmountList = amountList?.map(
+			value => value / (isConvert(currencyId) ? 1000 : 1)
+		)
 
-			const url = {
+		setValue('mode', mode)
+		setValue('groupName', groupName)
+		setValue('channelId', channelId)
+		setValue('minAmount', convertMinAmount)
+		setValue('maxAmount', convertMaxAmount)
+		setValue('amountList', convertAmountList)
+
+		let url = {
+			pathname,
+			query: {
+				paymentType: queryPaymentType,
+				paymentName: groupName,
+				channelId,
+			},
+		}
+
+		// * 如果當前 isDepositLocalStorageSavedChecked = true 及 depositLocalStorageSavedInfo 有值 及 query url (除了 paymentType 之外)需要的 key 皆為空值時給予 local storage 的值
+		// * isFirstEffect: 設定過一次後將 isFirstEffect 由 true 變為 false
+		// * isPrepared: url 都有值，才算準備好，如果進到 localStorage 裡要把初始值蓋過去
+		const isPrepared = every([
+			queryPaymentType,
+			queryPaymentName,
+			queryChannelId,
+		])
+		if (
+			isPrepared &&
+			isFirstEffect &&
+			every([
+				isDepositLocalStorageSavedChecked,
+				!isEmpty(depositLocalStorageSavedInfo),
+			])
+		) {
+			url = {
 				pathname,
 				query: {
 					paymentType: queryPaymentType,
-					paymentName: groupName,
-					channelId,
+					paymentName: depositLocalStorageSavedInfo.groupName,
+					channelId: depositLocalStorageSavedInfo.channelId,
 				},
 			}
-
-			push(url, undefined, {
-				shallow: true,
-			})
+			toggleIsFirstEffect()
 		}
-	}, [debouncedLoading, queryPaymentType, queryPaymentName, isFirstRender])
+
+		push(url, undefined, {
+			shallow: true,
+		})
+	}, [debouncedLoading, queryPaymentType, queryPaymentName, queryChannelId])
 
 	const isFormValid = isValid && !!getValues('amount')
 
