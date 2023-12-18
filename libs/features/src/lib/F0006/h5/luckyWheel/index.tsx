@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next'
 import { useLuckWheelContext } from '@nx-next-app/features/F0006/providers'
 import { useBoolean } from 'usehooks-ts'
 import classNames from 'classnames'
-import { toUpper } from 'lodash-es'
+import { toUpper, upperFirst } from 'lodash-es'
 import dayjs from 'dayjs'
 
 interface ILuckyWheelProps {
@@ -92,9 +92,27 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 							<ul>
 								<li>{t('Label_LuckyWheel_OtherConditions1')}</li>
 								<li>{t('Label_LuckyWheel_OtherConditions2')}</li>
-								<li>{t('Label_LuckyWheel_OtherConditions3')}</li>
-								<li>{t('Label_LuckyWheel_OtherConditions4')}</li>
-								<li>{t('Label_LuckyWheel_OtherConditions5')}</li>
+								<li>
+									{t('Label_LuckyWheel_OtherConditions3', {
+										site: upperFirst(
+											process.env['NEXT_PUBLIC_SITE_NAME'] || ''
+										),
+									})}
+								</li>
+								<li>
+									{t('Label_LuckyWheel_OtherConditions4', {
+										site: upperFirst(
+											process.env['NEXT_PUBLIC_SITE_NAME'] || ''
+										),
+									})}
+								</li>
+								<li>
+									{t('Label_LuckyWheel_OtherConditions5', {
+										site: upperFirst(
+											process.env['NEXT_PUBLIC_SITE_NAME'] || ''
+										),
+									})}
+								</li>
 							</ul>
 						</div>
 						<div className='luckyBox title'>

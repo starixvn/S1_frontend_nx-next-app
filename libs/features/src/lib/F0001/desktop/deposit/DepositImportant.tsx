@@ -45,7 +45,7 @@ const DepositImportant = () => {
 					<Trans
 						i18nKey='Label_Deposit_ImportantNoticeContent6'
 						components={{
-							a: <button onClick={() => openLiveChat()} />,
+							Link: <a onClick={() => openLiveChat()} />,
 						}}
 					/>
 				</li>
