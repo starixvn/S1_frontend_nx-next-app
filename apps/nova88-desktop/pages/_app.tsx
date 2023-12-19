@@ -4,7 +4,6 @@ import { store } from '@nx-next-app/store'
 import { appWithTranslation } from 'next-i18next'
 import { UIProvider } from '@nx-next-app/components/config-provider'
 import { StaticDataProvider } from '@nx-next-app/data-access'
-import { ThirdPartyJS } from '@nx-next-app/features/F0001/desktop'
 
 // * supply localized format options
 // * https://day.js.org/docs/en/plugin/localized-format
@@ -28,12 +27,17 @@ import {
 	VIP_CLUB_IMAGES,
 	BANNER_IMAGE_LIST,
 	LEFT_MENU_DATA,
+	ThirdPartyJS,
 } from '@nx-next-app/site/nova88'
 
 import 'react-datepicker/dist/react-datepicker.css'
 import '../styles/css/style.css'
 import '../styles/css/swiper.css'
 import '../styles/css/font.css'
+
+dayjs.extend(localizedFormat)
+dayjs.extend(timezone)
+dayjs.extend(utc)
 
 const {
 	LiveChatScript,
@@ -44,9 +48,6 @@ const {
 	GoogleTagManagerScript,
 } = ThirdPartyJS
 
-dayjs.extend(localizedFormat)
-dayjs.extend(timezone)
-dayjs.extend(utc)
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>

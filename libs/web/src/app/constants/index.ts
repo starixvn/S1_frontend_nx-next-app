@@ -53,3 +53,14 @@ export const CURRENCY_TO_TIMEZONE: { [key: number]: string } = {
 	13: '+08:00',
 	51: '+07:00',
 }
+
+// liveChat 專屬
+export const LIVE_CHAT_ID_BY_LANG_ID: {
+	[langId: string]: number
+} = {
+	en: 1,
+	id: 2,
+	cs: 3,
+	th: 4,
+	hi: 8,
+}

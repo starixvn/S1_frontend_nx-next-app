@@ -12,6 +12,7 @@ export * from './appDownload'
 export * from './eventPeriod'
 export * from './allowCurrency'
 export * from './termsConditions'
+export * as ThirdPartyJS from './thirdPartyJS'
 
 export const LANG_GROUPS: IStaticLangGroups = {
 	// ch: [

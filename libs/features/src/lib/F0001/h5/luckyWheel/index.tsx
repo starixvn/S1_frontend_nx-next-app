@@ -5,8 +5,9 @@ import { useTranslation } from 'next-i18next'
 import { useLuckWheelContext } from '@nx-next-app/features/F0001/providers'
 import { useBoolean } from 'usehooks-ts'
 import classNames from 'classnames'
-import { toUpper } from 'lodash-es'
+import { toUpper, upperFirst } from 'lodash-es'
 import dayjs from 'dayjs'
+import { paths } from '@nx-next-app/constants'
 
 interface ILuckyWheelProps {
 	eventPeriod: IEventPeriod
@@ -34,7 +35,10 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 	return (
 		<>
 			<Header className='header'>
-				<Header.Tag title={t('Label_LuckyWheel_Title') as string} />
+				<Header.Tag
+					title={t('Label_LuckyWheel_Title') as string}
+					back={paths.home.root}
+				/>
 			</Header>
 
 			<main className='main wheelEvent'>
@@ -92,39 +96,65 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 							<ul>
 								<li>{t('Label_LuckyWheel_OtherConditions1')}</li>
 								<li>{t('Label_LuckyWheel_OtherConditions2')}</li>
-								<li>{t('Label_LuckyWheel_OtherConditions3')}</li>
-								<li>{t('Label_LuckyWheel_OtherConditions4')}</li>
-								<li>{t('Label_LuckyWheel_OtherConditions5')}</li>
+								<li>
+									{t('Label_LuckyWheel_OtherConditions3', {
+										site: upperFirst(
+											process.env['NEXT_PUBLIC_SITE_NAME'] || ''
+										),
+									})}
+								</li>
+
+								<li>
+									{t('Label_LuckyWheel_OtherConditions4', {
+										site: upperFirst(
+											process.env['NEXT_PUBLIC_SITE_NAME'] || ''
+										),
+									})}
+								</li>
+								<li>
+									{t('Label_LuckyWheel_OtherConditions5', {
+										site: upperFirst(
+											process.env['NEXT_PUBLIC_SITE_NAME'] || ''
+										),
+									})}
+								</li>
 							</ul>
 						</div>
-						<div className='luckyBox title'>
-							<span>{t('Label_LuckyWheel_MyLuckWheelRewards')}</span>
-						</div>
-						{!isLogin || custDrawPrizeList.length === 0 ? (
-							<div className='nodata icon icon-nodata'>
-								<div className='txt-white'>{t('Label_General_NoData')}</div>
-							</div>
-						) : (
-							<div className='eventList'>
-								<div className='listBoxShadow'>
-									<div>
-										<div>
+						{isLogin && (
+							<>
+								<div className='luckyBox title'>
+									<span>{t('Label_LuckyWheel_MyLuckWheelRewards')}</span>
+								</div>
+
+								{custDrawPrizeList.length === 0 ? (
+									<div className='nodata icon icon-nodata'>
+										<div className='txt-white'>{t('Label_General_NoData')}</div>
+									</div>
+								) : (
+									<div className='eventList'>
+										<div className='listBoxShadow'>
 											<div>
-												{t('Label_General_Day')} ( {dayjs().format('Z')} )
+												<div>
+													<div>
+														{t('Label_General_Day')} ( {dayjs().format('Z')} )
+													</div>
+												</div>
+												<div>
+													{t('Label_General_LatestAwards')} ( {currencyName} )
+												</div>
 											</div>
-										</div>
-										<div>
-											{t('Label_General_LatestAwards')} ( {currencyName} )
+											{custDrawPrizeList.map(({ drawTime, prizeName }) => (
+												<div>
+													<div>
+														{dayjs(drawTime).format('YYYY/MM/DD HH:mm:ss')}
+													</div>
+													<div>{prizeName}</div>
+												</div>
+											))}
 										</div>
 									</div>
-									{custDrawPrizeList.map(({ drawTime, prizeName }) => (
-										<div>
-											<div>{dayjs(drawTime).format('YYYY/MM/DD HH:mm:ss')}</div>
-											<div>{prizeName}</div>
-										</div>
-									))}
-								</div>
-							</div>
+								)}
+							</>
 						)}
 					</div>
 				</div>

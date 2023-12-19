@@ -25,7 +25,6 @@ import { HotGameMarquee } from './HotGameMarquee'
 import { RecentlyViewGames } from './RecentlyViewGames'
 import { FriendReferral } from './FriendReferral'
 import CarouselBanner from '../common/carouselBanner'
-import { HeaderQuickLink } from './HeaderQuickLink'
 import { AppDownload } from './AppDownload'
 import { SimpleFooter } from './SimpleFooter'
 import { FooterBlock } from './footerBlock'
@@ -148,7 +147,6 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 					active: isAppDownloadHintActive,
 				})}
 			>
-				{isLogin && <HeaderQuickLink />}
 				{bannerBlockOrders.map(component =>
 					homeComponents[component] ? homeComponents[component] : null
 				)}
