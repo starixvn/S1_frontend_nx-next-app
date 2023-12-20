@@ -27,6 +27,7 @@ import {
 	VIP_CLUB_IMAGES,
 	BANNER_IMAGE_LIST,
 	LEFT_MENU_DATA,
+	LIVE_CHAT_ID_BY_LANG_ID,
 	ThirdPartyJS,
 } from '@nx-next-app/site/yashbet'
 
@@ -72,6 +73,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 						REALNAME_REGEX={REALNAME_REGEX}
 						BANNER_IMAGE_LIST={BANNER_IMAGE_LIST}
 						LEFT_MENU_DATA={LEFT_MENU_DATA}
+						LIVE_CHAT_ID_BY_LANG_ID={LIVE_CHAT_ID_BY_LANG_ID}
 					>
 						<Component {...pageProps} />
 					</StaticDataProvider>

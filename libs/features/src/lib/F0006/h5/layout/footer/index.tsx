@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { useBoolean } from 'usehooks-ts'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
 import MsgPopup from './MsgPopup'
 
@@ -12,9 +12,16 @@ const LayoutFooter = () => {
 	const { value: isWalletActive, toggle: onToggleWalletActive } = useBoolean()
 	const {
 		auth: { isLogin },
+		userInfo: { langId },
 	} = useAuth()
 	const router = useRouter()
 	const { pathname } = router
+	const { LIVE_CHAT_ID_BY_LANG_ID } = useStaticData()
+
+	// * 根據語系有不同的 LIVE CHAT ID, 默認為 en
+	const liveChatUrl = `https://direct.lc.chat/${
+		process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']
+	}/${LIVE_CHAT_ID_BY_LANG_ID[langId] || 'en'}`
 
 	return (
 		<>
@@ -61,7 +68,7 @@ const LayoutFooter = () => {
 				<a
 					rel='noreferrer'
 					target='_blank'
-					href={`https://direct.lc.chat/${process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']}/`}
+					href={liveChatUrl}
 					className='icon icon-contact'
 				>
 					<div className='circleAnimation' />

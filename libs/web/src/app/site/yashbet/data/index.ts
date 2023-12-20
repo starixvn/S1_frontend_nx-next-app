@@ -124,3 +124,12 @@ export const LANG_TO_CURRENCY: { [key: string]: number } = {
 	kh: 72,
 	bd: 74,
 }
+
+// liveChat 專屬
+export const LIVE_CHAT_ID_BY_LANG_ID: {
+	[langId: string]: number
+} = {
+	en: 11,
+	hi: 11,
+	bd: 12,
+}
