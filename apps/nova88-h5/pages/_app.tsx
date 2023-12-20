@@ -24,6 +24,7 @@ import {
 	SLOT_TP_GAME_TYPE,
 	BANNER_IMAGE_LIST,
 	ALLOWED_CURRENCIES,
+	LIVE_CHAT_ID_BY_LANG_ID,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	ThirdPartyJS,
 } from '@nx-next-app/site/nova88'
@@ -73,6 +74,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 						REALNAME_REGEX={REALNAME_REGEX}
 						BANNER_IMAGE_LIST={BANNER_IMAGE_LIST}
 						LEFT_MENU_DATA={LEFT_MENU_DATA}
+						LIVE_CHAT_ID_BY_LANG_ID={LIVE_CHAT_ID_BY_LANG_ID}
 					>
 						<Component {...pageProps} />
 					</StaticDataProvider>
