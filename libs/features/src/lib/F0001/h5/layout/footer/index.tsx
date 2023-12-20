@@ -3,8 +3,8 @@ import classNames from 'classnames'
 import { useBoolean } from 'usehooks-ts'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
-import { LIVE_CHAT_ID_BY_LANG_ID, paths } from '@nx-next-app/constants'
+import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 
 const FOOTER_HOME_DOMAIN = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/footer`
 
@@ -17,6 +17,7 @@ const LayoutFooter = () => {
 	} = useAuth()
 	const router = useRouter()
 	const { pathname } = router
+	const { LIVE_CHAT_ID_BY_LANG_ID } = useStaticData()
 
 	// * 根據語系有不同的 LIVE CHAT ID, 默認為 en
 	const liveChatUrl = `https://direct.lc.chat/${
