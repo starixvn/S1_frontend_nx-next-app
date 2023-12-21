@@ -15,7 +15,7 @@ const ProvidersBlock = () => {
 	const liveCasinoMenu = menuData.Casino.subMenu
 	const slotMenu = menuData.Slot.subMenu
 	const lotteryMenu = menuData.Lottery.subMenu
-	const fourDMenu = menuData.FourD.subMenu
+	const fourDMenu = menuData.FourD?.subMenu
 
 	const providerKeys = [
 		{ item: menuData.Sports, imgName: 'saba' },
