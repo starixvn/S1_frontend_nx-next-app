@@ -15,6 +15,7 @@ const ProvidersBlock = () => {
 	const liveCasinoMenu = menuData.Casino.subMenu
 	const slotMenu = menuData.Slot.subMenu
 	const lotteryMenu = menuData.Lottery.subMenu
+	const fourDMenu = menuData.FourD.subMenu
 
 	const providerKeys = [
 		{ item: menuData.Sports, imgName: 'saba' },
@@ -162,6 +163,14 @@ const ProvidersBlock = () => {
 		{
 			item: find(slotMenu, obj => obj.productKey === 'SLOTS_AMB'),
 			imgName: 'pegasus',
+		},
+		{
+			item: find(slotMenu, obj => obj.productKey === 'SLOTS_AMIGO'),
+			imgName: 'amigo',
+		},
+		{
+			item: find(fourDMenu, obj => obj.productKey === 'FOUR_D_GRAND_DRAGON'),
+			imgName: 'haolong',
 		},
 	]
 
