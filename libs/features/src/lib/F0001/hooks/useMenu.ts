@@ -23,7 +23,7 @@ type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void
 
 const SPECIAL_LOGIN_GAME_TYPE: { [key in LoginGameTypeEnum]: number[] } = {
-	[LoginGameTypeEnum.returlGameUrl]: [],
+	[LoginGameTypeEnum.returnGameUrl]: [],
 	[LoginGameTypeEnum.returnHtml]: [PRODUCTS.SLOTS_PG.TP_ID],
 }
 
@@ -425,7 +425,8 @@ const useMenu = () => {
 
 			case MenuActionTypeEnum.UseGoToGame:
 				if (product) {
-					const { TP_ID, GAME_ID, GAME_TYPE, TP_GAME_TYPE } = product
+					const { TP_ID, GAME_ID, GAME_TYPE, TP_GAME_TYPE, LOGIN_GAME_TYPE } =
+						product
 					onGoToGame(
 						{
 							tpId: TP_ID,
@@ -435,6 +436,7 @@ const useMenu = () => {
 								fun: '0',
 								gameType: GAME_TYPE,
 								tpGameType: TP_GAME_TYPE,
+								loginGameType: String(LOGIN_GAME_TYPE),
 							},
 						},
 						{ loginCallback, messageCallBack }

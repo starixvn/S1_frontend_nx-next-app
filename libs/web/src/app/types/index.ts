@@ -54,6 +54,7 @@ export interface IStaticProduct {
 	BET_TYPE?: number
 	NAME?: string
 	GAME_TYPE?: string
+	LOGIN_GAME_TYPE?: LoginGameTypeEnum // * 決定 onGoToGame function 要如何開啟遊戲
 }
 
 export interface IStaticLangGroups {
@@ -115,6 +116,8 @@ export interface IStaticAllowedCurrencies {
 	FISHING_CQ9_ONE_SHOT_FISHING?: CurrenciesEnum[]
 	FISHING_HUNTING_HAPPY_FISH_5?: CurrenciesEnum[]
 	FISHING_HAIBA?: CurrenciesEnum[]
+
+	FOUR_D_GRAND_DRAGON?: CurrenciesEnum[]
 
 	LOTTERY_GPI_THAILOTTERY?: CurrenciesEnum[]
 	LUCKY_WHEEL?: CurrenciesEnum[]
@@ -189,6 +192,9 @@ export enum MenuKeyEnum {
 	'Slot' = 'Slot',
 	'Game' = 'Game',
 	'Fishing' = 'Fishing',
+	// * 識別碼或關鍵字不可直接接在數字常值後面。ts(1351)，4D => FourD
+	'FourD' = 'FourD',
+	// '4D' = '4D',
 	'Lottery' = 'Lottery',
 	'Promotion' = 'Promotion',
 	'VIP' = 'VIP',
@@ -234,7 +240,7 @@ export type SelectOptionType = {
 
 //* 有特殊開啟遊戲需求（例：以 api 回傳的 message 另開頁面）
 export enum LoginGameTypeEnum {
-	returlGameUrl = 1,
+	returnGameUrl = 1,
 	returnHtml,
 }
 

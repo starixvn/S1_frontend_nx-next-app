@@ -61,6 +61,10 @@ const PRODUCT_EVENT_PERIOD: {
 		start: null,
 		end: '2024/01/11 23:59:59',
 	},
+	FOUR_D_GRAND_DRAGON: {
+		start: null,
+		end: '2023/12/31 23:59:59',
+	},
 }
 
 const { MYR, INR, IDR, BDT, THB } = CurrenciesEnum
@@ -1317,6 +1321,29 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
+						img: '/h5/img/slotamigo.png',
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					desktop: {
+						className: 'slot_AdvantPlay',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotamigo.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_AMIGO',
+					pathname: paths.slots.root,
+					displayText: 'Amigo Gaming',
+					query: {
+						tpId: PRODUCTS['SLOTS_AMIGO'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_AMIGO'],
+				},
+				{
+					h5: {
 						img: '/h5/img/slotEs.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -2476,6 +2503,56 @@ export const MENU_DATA = ({
 			subMenuAllowCurrenciesWithAuth: false,
 			allowCurrencies: true,
 		},
+		[MenuKeyEnum.FourD]: {
+			display: 'all',
+			h5: {
+				icon: 'icon icon-game',
+				menuActionType,
+			},
+			desktop: {
+				className: '',
+				subMenuClassName: 'fourList',
+				menuActionType,
+			},
+			displayText: '4D',
+			pathname: paths.fourD.root,
+			subMenu: [
+				{
+					h5: {
+						img: '/h5/img/haolong.png',
+						menuActionType: MenuActionTypeEnum.UseGoToGame,
+					},
+					desktop: {
+						className: '',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'haolong.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'haolong.png',
+						},
+						menuActionType: MenuActionTypeEnum.UseGoToGame,
+					},
+					productKey: 'FOUR_D_GRAND_DRAGON',
+					// * Grand Dragon 目前不分語系
+					displayText: 'Grand Dragon',
+					product: PRODUCTS['FOUR_D_GRAND_DRAGON'],
+					allowCurrencies: ALLOWED_CURRENCIES['FOUR_D_GRAND_DRAGON'],
+					eventIcons: [
+						{
+							icon: 'new-icon',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['FOUR_D_GRAND_DRAGON'],
+						},
+					],
+				},
+			],
+			subMenuAllowCurrenciesWithAuth: false,
+			allowCurrencies: ALLOWED_CURRENCIES['FOUR_D_GRAND_DRAGON'],
+		},
+
 		[MenuKeyEnum.Lottery]: {
 			display: 'all',
 			h5: {
@@ -2692,7 +2769,6 @@ export const MENU_DATA = ({
 			},
 			displayKey: 'Label_General_Promos',
 			pathname: paths.promotion.root,
-
 			subMenuAllowCurrenciesWithAuth: false,
 			allowCurrencies: true,
 		},
