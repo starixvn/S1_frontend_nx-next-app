@@ -23,7 +23,10 @@ const GameProvider = ({
 	return (
 		<>
 			<Header className='header'>
-				<Header.Tag title={t('Label_General_GameProvider') as string} />
+				<Header.Tag
+					back={paths.home.root}
+					title={t('Label_General_GameProvider') as string}
+				/>
 			</Header>
 			<main className='main provider'>
 				{platformList.map(({ productKey, imgName }) => {
