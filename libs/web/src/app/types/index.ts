@@ -39,14 +39,6 @@ export interface IBannerByCurrencyData {
 	levelText: string
 }
 
-export interface IStaticSlotTpGameType {
-	[key: string]: {
-		TP_ID: number
-		TP_GAME_TYPE: number
-		NAME: string
-	}
-}
-
 export interface IStaticProduct {
 	TP_ID: number
 	GAME_ID?: number | string

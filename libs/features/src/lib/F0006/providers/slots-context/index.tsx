@@ -19,7 +19,7 @@ import {
 	useSetFavoriteGameMutation,
 } from '@nx-next-app/service'
 import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
-import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useInView } from '@nx-next-app/hooks'
 import { useMenu } from '@nx-next-app/features/F0006/hooks'
@@ -143,7 +143,6 @@ const SlotsProvider = ({
 	const { modal } = useGlobalModal()
 	const { onEnterSlotsPage } = useMenu()
 	const { tpMaintainList } = useGlobalData()
-	const { SLOT_TP_GAME_TYPE } = useStaticData()
 	const isFirstRender = useIsFirstRender()
 	const { ref: gameListRef, isInView: isGameListInView } = useInView({})
 	const { ref: navRef, isInView: isNavInView } = useInView({
@@ -237,9 +236,9 @@ const SlotsProvider = ({
 		gameId: string
 		playFree: boolean
 	}) => {
-		const tpGameType =
-			find(Object.values(SLOT_TP_GAME_TYPE), { TP_ID: tpId })?.TP_GAME_TYPE ||
-			''
+		// * 從 slotGameData 中的 providerList 找對應的 tpGameType
+		const { tpGameType = '' } =
+			find(persistSlotsGameData.providerList, { tpId }) || {}
 
 		onEnterSlotsPage(
 			{
@@ -453,12 +452,13 @@ const SlotsProvider = ({
 				isMaintain: getIsTpMaintain({
 					tpMaintainList,
 					tpId: gameObj.tpId,
-					tpGameType: Object.values(SLOT_TP_GAME_TYPE).find(
-						obj => obj.TP_ID === gameObj.tpId
-					)?.TP_GAME_TYPE,
+					tpGameType: find(persistSlotsGameData.providerList, {
+						tpId: gameObj.tpId,
+					})?.tpGameType,
 				}),
 				isFavorite: isFavorite({ tpId: gameObj.tpId, gameId: gameObj.gameId }),
 			}))
+
 		setSlotsGameList(filteredGameList)
 		setIsProcess(false)
 	}, [activeCategoryKey, queryTpId, searchCategoryText, myFavorites])

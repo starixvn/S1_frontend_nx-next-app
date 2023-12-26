@@ -22,6 +22,7 @@ export interface IGameData {
 export interface IVendorData {
 	tpId: number
 	tpName: string
+	tpGameType: number
 	playFree: boolean
 	displayText: string
 	imgName: string

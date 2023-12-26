@@ -1767,7 +1767,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '4.0/dropdown/slots/am.png',
+						img: '4.0/dropdown/slots/slotam.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
