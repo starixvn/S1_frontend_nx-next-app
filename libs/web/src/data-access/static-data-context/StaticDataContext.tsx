@@ -8,7 +8,6 @@ import {
 	IStaticAllowedCurrencies,
 	IStaticLangGroups,
 	IStaticProduct,
-	IStaticSlotTpGameType,
 	ITermsConditions,
 	ILeftMenuData,
 	IMenuData,
@@ -28,7 +27,6 @@ export interface IStaticDataContext {
 	}
 	LEFT_MENU_DATA: ILeftMenuData
 	ALLOWED_CURRENCIES: IStaticAllowedCurrencies
-	SLOT_TP_GAME_TYPE: IStaticSlotTpGameType
 	LANG_GROUPS: IStaticLangGroups
 	CURRENCY_TO_TIMEZONE: { [key: number]: string }
 	VIP_CLUB_IMAGES: IImageData[]
@@ -58,7 +56,6 @@ const StaticDataProvider = ({
 	META_DATA,
 	PRODUCTS,
 	ALLOWED_CURRENCIES,
-	SLOT_TP_GAME_TYPE,
 	LANG_GROUPS,
 	CURRENCY_TO_TIMEZONE,
 	VIP_CLUB_IMAGES,
@@ -77,7 +74,6 @@ const StaticDataProvider = ({
 		META_DATA,
 		PRODUCTS,
 		ALLOWED_CURRENCIES,
-		SLOT_TP_GAME_TYPE,
 		LANG_GROUPS,
 		CURRENCY_TO_TIMEZONE,
 		VIP_CLUB_IMAGES,
