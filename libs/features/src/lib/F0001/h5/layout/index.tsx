@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
-import { ISEOData } from '@nx-next-app/data-access'
+import { ISEOData, useAuth } from '@nx-next-app/data-access'
 import { MetaData, GlobalModal } from '@nx-next-app/components/H0001'
 import { useAffiliateReferralEffect } from '@nx-next-app/hooks'
 import { useChangePasswordModalEffect } from 'libs/web/src/hooks/useChangePasswordModalEffect'
@@ -17,7 +17,11 @@ interface ILayoutProps {
 
 const Layout = ({ children, persistSEOData }: ILayoutProps) => {
 	const { globalModal, closeModal } = useGlobalModal()
+
 	const router = useRouter()
+	const {
+		auth: { isLogin },
+	} = useAuth()
 
 	useChangePasswordModalEffect(() => router.push(paths.changePassword.root))
 
@@ -28,7 +32,8 @@ const Layout = ({ children, persistSEOData }: ILayoutProps) => {
 			<MetaData persistSEOData={persistSEOData} />
 			<RotationHint />
 			{children}
-			<LayoutFooter />
+
+			{isLogin && <LayoutFooter />}
 
 			{/* 只需放在 Layout 來渲染全域彈窗 */}
 			<GlobalModal {...globalModal} closeModal={closeModal} />

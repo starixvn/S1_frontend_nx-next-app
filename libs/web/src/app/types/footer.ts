@@ -24,7 +24,7 @@ type ICopyRightData = IQuickLinksData
 export interface IPlatformListData {
 	productKey: keyof typeof PRODUCTS
 	imgName: string
-	hoverImgName: string
+	hoverImgName?: string
 }
 
 interface IProgramData {

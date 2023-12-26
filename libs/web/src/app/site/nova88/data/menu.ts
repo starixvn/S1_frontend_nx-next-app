@@ -61,6 +61,10 @@ const PRODUCT_EVENT_PERIOD: {
 		start: null,
 		end: '2024/01/11 23:59:59',
 	},
+	FOUR_D_GRAND_DRAGON: {
+		start: null,
+		end: '2023/12/31 23:59:59',
+	},
 }
 
 const { MYR, INR, IDR, BDT, THB } = CurrenciesEnum
@@ -149,44 +153,17 @@ export const MENU_DATA = ({
 				menuActionType: MenuActionTypeEnum.WindowOpen,
 			},
 			pathname: `${process.env['NEXT_PUBLIC_REWARD_HOST']}`,
-			allowCurrencies: ALLOWED_CURRENCIES['REWARDS'],
 			subMenuAllowCurrenciesWithAuth: false,
+			allowCurrencies: [], // * 不顯示在首頁
 		},
-		// * 不提供此功能了
-		// [MenuKeyEnum.AppDownload]: {
-		// 	display: 'desktop',
-		// 	h5: { menuActionType: MenuActionTypeEnum.Link },
-		// 	desktop: {
-		// 		className: 'icon icon-mobile',
-		// 		subMenuClassName: 'appList',
-		// 		menuActionType: MenuActionTypeEnum.Link,
-		// 	},
-		// 	pathname: paths.appDownload.root,
-		// 	allowCurrencies: true,
-		// 	subMenuAllowCurrenciesWithAuth: false,
-		// },
-		// [MenuKeyEnum.CryptoSports]: {
-		// 	display: 'all',
-		// 	h5: {
-		// 		className: 'crypto',
-		// 		img: '/h5/img/cryptosports.png',
-		// 		menuActionType: MenuActionTypeEnum.EnterPage,
-		// 	},
-		// 	desktop: {
-		// 		className: 'cryptobtn',
-		// 		menuType: 'banner',
-		// 		subMenuClassName: 'cryptoList',
-		// 		menuActionType: MenuActionTypeEnum.EnterPage,
-		// 	},
-		// 	product: PRODUCTS['SPORTS_CRYPTO_SPORTS'],
-		// 	allowCurrencies: true,
-		// 	subMenuAllowCurrenciesWithAuth: false,
-		// },
 		[MenuKeyEnum.Sports]: {
 			display: 'all',
 			h5: {
 				icon: 'icon icon-soccer',
+				className: 'btn-sports',
+				img: '4.0/sports-icon.png',
 				menuActionType,
+				subMenuClassName: 'sports',
 			},
 			desktop: {
 				className: 'sportsbtn',
@@ -201,7 +178,7 @@ export const MENU_DATA = ({
 			subMenu: [
 				{
 					h5: {
-						img: '/h5/img/cryptosportsNPC.png',
+						img: '4.0/dropdown/sports/cryptosportNPC.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -219,9 +196,8 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/soccer.png',
+						img: '4.0/dropdown/sports/soccerNPC.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
-						hasDesktopLink: true,
 					},
 					desktop: {
 						headerMenuImgList: [
@@ -240,9 +216,8 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/saba_soccer.png',
+						img: '4.0/dropdown/sports/sabasoccerNPC.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
-						hasDesktopLink: true,
 					},
 					desktop: {
 						headerMenuImgList: [
@@ -262,9 +237,8 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/basketball.png',
+						img: '4.0/dropdown/sports/basketballNPC.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
-						hasDesktopLink: true,
 					},
 					desktop: {
 						headerMenuImgList: [
@@ -283,9 +257,8 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/cricket.png',
+						img: '4.0/dropdown/sports/cricketNPC.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
-						hasDesktopLink: true,
 					},
 					desktop: {
 						headerMenuImgList: [
@@ -305,9 +278,8 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/badminton.png',
+						img: '4.0/dropdown/sports/badmintonNPC.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
-						hasDesktopLink: true,
 					},
 					desktop: {
 						headerMenuImgList: [
@@ -326,9 +298,8 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/volleyball.png',
+						img: '4.0/dropdown/sports/volleyballNPC.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
-						hasDesktopLink: true,
 					},
 					desktop: {
 						headerMenuImgList: [
@@ -348,7 +319,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/betradarsoccer.png',
+						img: '4.0/dropdown/sports/betradarsoccerNPC.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -388,13 +359,14 @@ export const MENU_DATA = ({
 					'VIRTUAL_SPORTS',
 				],
 			},
-
 			subMenuAllowCurrenciesWithAuth: false,
 		},
 		[MenuKeyEnum.Exchange]: {
 			display: 'all',
 			h5: {
-				icon: 'icon icon-sports',
+				icon: '',
+				className: 'btn-exchange',
+				img: '4.0/exchange-icon.png',
 				menuActionType: MenuActionTypeEnum.Null,
 			},
 			desktop: {
@@ -408,7 +380,7 @@ export const MENU_DATA = ({
 			subMenu: [
 				{
 					h5: {
-						img: '/h5/img/9w.png',
+						img: '4.0/dropdown/exchange/9wnpc.png',
 						menuActionType: MenuActionTypeEnum.UseGoToGame,
 					},
 					desktop: {
@@ -437,7 +409,9 @@ export const MENU_DATA = ({
 		[MenuKeyEnum.ESports]: {
 			display: 'all',
 			h5: {
-				icon: 'icon icon-sports',
+				icon: '',
+				className: 'btn-esports',
+				img: '4.0/esports-icon.png',
 				menuActionType,
 			},
 			desktop: {
@@ -552,7 +526,7 @@ export const MENU_DATA = ({
 				// },
 				{
 					h5: {
-						img: '/h5/img/esportSABA.png',
+						img: '4.0/dropdown/esports/esportSABA.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -574,7 +548,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/esportInplayMatrix.png',
+						img: '4.0/dropdown/esports/esportInplayMatrix.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -596,7 +570,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/esportTFG.png',
+						img: '4.0/dropdown/esports/esportTFG.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -628,7 +602,9 @@ export const MENU_DATA = ({
 		[MenuKeyEnum.Casino]: {
 			display: 'all',
 			h5: {
-				icon: 'icon icon-livecasino',
+				icon: '',
+				className: 'btn-casino',
+				img: '4.0/casino-icon.png',
 				menuActionType,
 			},
 			desktop: {
@@ -725,7 +701,7 @@ export const MENU_DATA = ({
 			subMenu: [
 				{
 					h5: {
-						img: '/h5/img/pp.png',
+						img: '4.0/dropdown/casino/casino-PP.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -749,7 +725,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/bg.png',
+						img: '4.0/dropdown/casino/casino-bg.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -779,7 +755,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/yb.png',
+						img: '4.0/dropdown/casino/casino-yb.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -802,7 +778,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/sk.png',
+						img: '4.0/dropdown/casino/casino-SK.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -826,7 +802,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/mgp.png',
+						img: '4.0/dropdown/casino/casino-mg.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -850,7 +826,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ev.png',
+						img: '4.0/dropdown/casino/casino-ev.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -873,7 +849,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ptc.png',
+						img: '4.0/dropdown/casino/casino-pt.png',
 						menuActionType: MenuActionTypeEnum.UseGoToGame,
 					},
 					desktop: {
@@ -897,7 +873,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/n2.png',
+						img: '4.0/dropdown/casino/casino-n2.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -921,7 +897,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/wm.png',
+						img: '4.0/dropdown/casino/casino-WM.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -945,7 +921,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ab.png',
+						img: '4.0/dropdown/casino/casino-ALL.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -969,7 +945,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/eb.png',
+						img: '4.0/dropdown/casino/casino-EB.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -992,7 +968,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/sa.png',
+						img: '4.0/dropdown/casino/casino-SA.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -1016,7 +992,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ae.png',
+						img: '4.0/dropdown/casino/casino-AE.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -1039,7 +1015,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/dg.png',
+						img: '4.0/dropdown/casino/casino-DG.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -1063,7 +1039,7 @@ export const MENU_DATA = ({
 
 				{
 					h5: {
-						img: '/h5/img/ag.png',
+						img: '4.0/dropdown/casino/casino-ag.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -1088,9 +1064,12 @@ export const MENU_DATA = ({
 			],
 		},
 		[MenuKeyEnum.Slot]: {
+			// 4.0/dropdown/slots/slotap.png
 			display: 'all',
 			h5: {
-				icon: 'icon icon-icon_777',
+				icon: '',
+				className: 'btn-slots',
+				img: '4.0/slots-icon.png',
 				menuActionType,
 			},
 			desktop: {
@@ -1247,7 +1226,7 @@ export const MENU_DATA = ({
 			subMenu: [
 				{
 					h5: {
-						img: '/h5/img/spp.png',
+						img: '4.0/dropdown/slots/slotPP.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1271,7 +1250,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/sg.png',
+						img: '4.0/dropdown/slots/slotSG.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1294,7 +1273,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/apnew.png',
+						img: '4.0/dropdown/slots/slotap.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1317,7 +1296,30 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/slotEs.png',
+						img: '4.0/dropdown/slots/slotamigo.png',
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					desktop: {
+						className: 'slot_AdvantPlay',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotamigo.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_AMIGO',
+					pathname: paths.slots.root,
+					displayText: 'Amigo Gaming',
+					query: {
+						tpId: PRODUCTS['SLOTS_AMIGO'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_AMIGO'],
+				},
+				{
+					h5: {
+						img: '4.0/dropdown/slots/slotEndorphina.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1341,7 +1343,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/slotNextspin.png',
+						img: '4.0/dropdown/slots/slotNextspin.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1362,10 +1364,9 @@ export const MENU_DATA = ({
 					},
 					product: PRODUCTS['SLOTS_NEXT_SPIN'],
 				},
-
 				{
 					h5: {
-						img: '/h5/img/pg.png',
+						img: '4.0/dropdown/slots/slotPG.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1389,7 +1390,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/bng.png',
+						img: '4.0/dropdown/slots/bng.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1419,7 +1420,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/slotfachai.png',
+						img: '4.0/dropdown/slots/fachai.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1450,7 +1451,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/mg.png',
+						img: '4.0/dropdown/slots/slotmg.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1474,7 +1475,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ji.png',
+						img: '4.0/dropdown/slots/slotji.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1497,7 +1498,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/spribe.png',
+						img: '4.0/dropdown/slots/slotSPRIBE.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1521,7 +1522,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/joker.png',
+						img: '4.0/dropdown/slots/slotJOKER.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1545,7 +1546,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/pegasus.png',
+						img: '4.0/dropdown/slots/slotpegasus.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1569,7 +1570,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/slotnlc.png',
+						img: '4.0/dropdown/slots/slotnlc.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1599,7 +1600,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/rt.png',
+						img: '4.0/dropdown/slots/slotrt.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1622,7 +1623,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/nt.png',
+						img: '4.0/dropdown/slots/slotnt.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1645,7 +1646,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/cq9.png',
+						img: '4.0/dropdown/slots/slotCQ9.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1668,7 +1669,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/playngo.png',
+						img: '4.0/dropdown/slots/slotplayngo.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1691,7 +1692,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/gpi.png',
+						img: '4.0/dropdown/slots/slotGPI.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1714,7 +1715,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ygg.png',
+						img: '4.0/dropdown/slots/slotYGG.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1737,7 +1738,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/am.png',
+						img: '4.0/dropdown/slots/slotam.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1761,7 +1762,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ho.png',
+						img: '4.0/dropdown/slots/slotho.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1784,7 +1785,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/simpleplay.png',
+						img: '4.0/dropdown/slots/slotSimplePlay.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1808,7 +1809,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/slotsk.png',
+						img: '4.0/dropdown/slots/slotsk.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1832,7 +1833,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/pt.png',
+						img: '4.0/dropdown/slots/slotpt.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -1860,7 +1861,9 @@ export const MENU_DATA = ({
 		[MenuKeyEnum.Game]: {
 			display: 'all',
 			h5: {
-				icon: 'icon icon-play',
+				icon: '',
+				className: 'btn-games',
+				img: '4.0/games-icon.png',
 				menuActionType,
 			},
 			desktop: { subMenuClassName: 'livecasinoList', menuActionType },
@@ -1901,9 +1904,10 @@ export const MENU_DATA = ({
 			// },
 			subMenuAllowCurrenciesWithAuth: false,
 			subMenu: [
+				// 4.0/dropdown/games/vg.png
 				{
 					h5: {
-						img: '/h5/img/mp.png',
+						img: '4.0/dropdown/games/mp.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -1927,7 +1931,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/amb.png',
+						img: '4.0/dropdown/games/amb.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -1951,7 +1955,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/vg.png',
+						img: '4.0/dropdown/games/vg.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -1974,7 +1978,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/km.png',
+						img: '4.0/dropdown/games/km.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -1997,7 +2001,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/v8.png',
+						img: '4.0/dropdown/games/v8.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2027,7 +2031,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/gameSpribeAviator.png',
+						img: '4.0/dropdown/games/gameSpribeAviator.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2051,7 +2055,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/gameSpribeMines.png',
+						img: '4.0/dropdown/games/gameSpribeMines.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2075,7 +2079,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/gameSpribeGoal.png',
+						img: '4.0/dropdown/games/gameSpribeGoal.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2099,7 +2103,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/gameSpribeDice.png',
+						img: '4.0/dropdown/games/gameSpribeDice.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2123,7 +2127,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/pp.png',
+						img: '4.0/dropdown/games/pp.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2146,7 +2150,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ap.png',
+						img: '4.0/dropdown/games/ap.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2169,7 +2173,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/gameSpribeGoal.png',
+						img: '4.0/dropdown/games/jili.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2196,7 +2200,9 @@ export const MENU_DATA = ({
 		[MenuKeyEnum.Fishing]: {
 			display: 'all',
 			h5: {
-				icon: 'icon icon-game',
+				icon: '',
+				className: 'btn-fishing',
+				img: '4.0/fishing-icon.png',
 				menuActionType,
 			},
 			desktop: {
@@ -2268,7 +2274,7 @@ export const MENU_DATA = ({
 			subMenu: [
 				{
 					h5: {
-						img: '/h5/img/fg.png',
+						img: '4.0/dropdown/fishing/fishSG.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2292,7 +2298,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/fw.png',
+						img: '4.0/dropdown/fishing/fishSGwar.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2315,7 +2321,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/fishzp.png',
+						img: '4.0/dropdown/fishing/fishzp.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2337,7 +2343,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/fishah.png',
+						img: '4.0/dropdown/fishing/fishah.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2359,7 +2365,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/pd.png',
+						img: '4.0/dropdown/fishing/paradise.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2382,7 +2388,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/hb.png',
+						img: '4.0/dropdown/fishing/hb.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2405,7 +2411,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/hf5.png',
+						img: '4.0/dropdown/fishing/hf5.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2428,7 +2434,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/ma.png',
+						img: '4.0/dropdown/fishing/ma.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2450,7 +2456,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/of.png',
+						img: '4.0/dropdown/fishing/of.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2476,10 +2482,62 @@ export const MENU_DATA = ({
 			subMenuAllowCurrenciesWithAuth: false,
 			allowCurrencies: true,
 		},
+		[MenuKeyEnum.FourD]: {
+			display: 'all',
+			h5: {
+				icon: '',
+				className: 'btn-four',
+				img: '4.0/four-icon.png',
+				menuActionType,
+			},
+			desktop: {
+				className: '',
+				subMenuClassName: 'fourList',
+				menuActionType,
+			},
+			displayText: '4D',
+			pathname: paths.fourD.root,
+			subMenu: [
+				{
+					h5: {
+						img: '4.0/dropdown/4d/haolong.png',
+						menuActionType: MenuActionTypeEnum.UseGoToGame,
+					},
+					desktop: {
+						className: '',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'haolong.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'haolong.png',
+						},
+						menuActionType: MenuActionTypeEnum.UseGoToGame,
+					},
+					productKey: 'FOUR_D_GRAND_DRAGON',
+					// * Grand Dragon 目前不分語系
+					displayText: 'Grand Dragon',
+					product: PRODUCTS['FOUR_D_GRAND_DRAGON'],
+					allowCurrencies: ALLOWED_CURRENCIES['FOUR_D_GRAND_DRAGON'],
+					eventIcons: [
+						{
+							icon: 'new-icon',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['FOUR_D_GRAND_DRAGON'],
+						},
+					],
+				},
+			],
+			subMenuAllowCurrenciesWithAuth: false,
+		},
 		[MenuKeyEnum.Lottery]: {
 			display: 'all',
 			h5: {
-				icon: 'icon icon-kelo',
+				icon: '',
+				className: 'btn-lottery',
+				img: '4.0/lottery-icon.png',
 				menuActionType,
 			},
 			desktop: { subMenuClassName: 'gameList', menuActionType },
@@ -2488,7 +2546,7 @@ export const MENU_DATA = ({
 			subMenu: [
 				{
 					h5: {
-						img: '/h5/img/gpikeno.png',
+						img: '4.0/dropdown/lottery/lo-gpikeno.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2510,7 +2568,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/gpithai.png',
+						img: '4.0/dropdown/lottery/lo-gpithai.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2533,7 +2591,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/gpifast3.png',
+						img: '4.0/dropdown/lottery/lo-gpifast3.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2556,7 +2614,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/tcg.png',
+						img: '4.0/dropdown/lottery/lo-tcg.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2579,7 +2637,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/keno.png',
+						img: '4.0/dropdown/lottery/lo-keno.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2602,7 +2660,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/lottery.png',
+						img: '4.0/dropdown/lottery/lo-lottery.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2625,7 +2683,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/numbergame.png',
+						img: '4.0/dropdown/lottery/lo-numberGame.png',
 						menuActionType: MenuActionTypeEnum.Link,
 					},
 					desktop: {
@@ -2649,7 +2707,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '/h5/img/tablegame.png',
+						img: '4.0/dropdown/lottery/lo-tableGame.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -2677,7 +2735,11 @@ export const MENU_DATA = ({
 		},
 		[MenuKeyEnum.Promotion]: {
 			display: 'desktop',
-			h5: { menuActionType: MenuActionTypeEnum.Link },
+			h5: {
+				className: 'btn-promotion',
+				img: '4.0/promotion-icon.png',
+				menuActionType: MenuActionTypeEnum.Link,
+			},
 			desktop: {
 				subMenuClassName: 'promoList',
 				menuType: 'banner',
@@ -2692,14 +2754,15 @@ export const MENU_DATA = ({
 			},
 			displayKey: 'Label_General_Promos',
 			pathname: paths.promotion.root,
-
 			subMenuAllowCurrenciesWithAuth: false,
-			allowCurrencies: true,
+			allowCurrencies: false, // * 不顯示在 menu
 		},
 		[MenuKeyEnum.Affiliates]: {
 			display: 'h5',
 			h5: {
 				icon: 'icon icon-affiliate',
+				className: 'btn-affiliate',
+				img: '4.0/affiliate-icon.png',
 				menuActionType: MenuActionTypeEnum.WindowOpen,
 			},
 			desktop: { menuActionType: MenuActionTypeEnum.WindowOpen },
@@ -2716,12 +2779,12 @@ export const MENU_DATA = ({
 				return `https://aff.nova88bkk.com/?lang=${langId}`
 			})(),
 			subMenuAllowCurrenciesWithAuth: false,
-			allowCurrencies: true,
+			allowCurrencies: false, // * 不顯示在 menu
 		},
 		[MenuKeyEnum.VIP]: {
 			display: 'all',
 			h5: {
-				icon: 'icon icon-vip',
+				icon: '',
 				menuActionType: MenuActionTypeEnum.Link,
 			},
 			desktop: {
@@ -2733,12 +2796,14 @@ export const MENU_DATA = ({
 			pathname: paths.vip.root,
 
 			subMenuAllowCurrenciesWithAuth: false,
-			allowCurrencies: ALLOWED_CURRENCIES['VIP'],
+			allowCurrencies: false,
 		},
 		[MenuKeyEnum.LeaderBoard]: {
 			display: 'all',
 			h5: {
 				icon: 'icon icon-ranking',
+				className: 'btn-ranking',
+				img: '4.0/ranking-icon.png',
 				menuActionType: MenuActionTypeEnum.Link,
 			},
 			desktop: {
@@ -2749,7 +2814,7 @@ export const MENU_DATA = ({
 			displayKey: 'Label_LeaderBoard',
 			pathname: paths.leaderBoard.root,
 			subMenuAllowCurrenciesWithAuth: false,
-			allowCurrencies: ALLOWED_CURRENCIES['LEADER_BOARD'],
+			allowCurrencies: false, // * 不顯示在 menu
 		},
 	}
 }

@@ -15,6 +15,7 @@ const PromotionFilter = () => {
 
 	return (
 		<Header.Tag
+			back
 			title={t('Label_General_Promotion') as string}
 			quickSelect={quickSelect}
 			onQuickSelectChange={key =>

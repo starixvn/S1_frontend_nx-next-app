@@ -19,6 +19,157 @@ export const FOOTER_DATA = ({
 	}
 
 	return {
+		// * platformList 渲染時需透過 tpIds、allowCurrencies 過濾一次
+		platformList: [
+			{
+				productKey: 'SPORTS_SOCCER',
+				imgName: 'saba',
+			},
+			{
+				productKey: 'LIVE_CASINO_ALL_BET',
+				imgName: 'all',
+			},
+			{
+				productKey: 'LIVE_CASINO_DG',
+				imgName: 'dg',
+			},
+			{
+				productKey: 'LIVE_CASINO_AG',
+				imgName: 'ag',
+			},
+			{
+				productKey: 'LIVE_CASINO_AE',
+				imgName: 'sexy',
+			},
+			{
+				productKey: 'LIVE_CASINO_SA',
+				imgName: 'sa',
+			},
+			{
+				productKey: 'SLOTS_PP',
+				imgName: 'pp',
+			},
+			{
+				productKey: 'LIVE_CASINO_BG',
+				imgName: 'bg',
+			},
+			{
+				productKey: 'LIVE_CASINO_YEE_BET',
+				imgName: 'yb',
+			},
+			{
+				productKey: 'SLOTS_MGPSW',
+				imgName: 'mic',
+			},
+			{
+				productKey: 'SLOTS_PT',
+				imgName: 'pt',
+			},
+			{
+				productKey: 'SLOTS_YGG',
+				imgName: 'ygg',
+			},
+			{
+				productKey: 'SLOTS_JOKER',
+				imgName: 'joker',
+			},
+			{
+				productKey: 'SLOTS_SG',
+				imgName: 'spad',
+			},
+			{
+				productKey: 'SLOTS_JILI',
+				imgName: 'jili',
+			},
+			{
+				productKey: 'LOTTERY_TCG',
+				imgName: 'tc',
+			},
+			{
+				productKey: 'SLOTS_RED_TIGER',
+				imgName: 'red',
+			},
+			{
+				productKey: 'SLOTS_NET_ENT',
+				imgName: 'net',
+			},
+			{
+				productKey: 'SLOTS_ADVANT_PLAY',
+				imgName: 'ap',
+			},
+			{
+				productKey: 'LIVE_CASINO_EVO',
+				imgName: 'evo',
+			},
+			{
+				productKey: 'SLOTS_HABANERO',
+				imgName: 'ha',
+			},
+			{
+				productKey: 'SLOTS_SIMPLE_PLAY',
+				imgName: 'simple',
+			},
+			{
+				productKey: 'SLOTS_SKY_WIND',
+				imgName: 'sky',
+			},
+			{
+				productKey: 'SLOTS_NEXT_SPIN',
+				imgName: 'next',
+			},
+			{
+				productKey: 'SPORTS_E_IMESPORTS',
+				imgName: 'im-esports',
+			},
+			{
+				productKey: 'SLOTS_SPRIBE',
+				imgName: 'spribe',
+			},
+			{
+				productKey: 'SLOTS_PNG',
+				imgName: 'png',
+			},
+			{
+				productKey: 'SLOTS_ES',
+				imgName: 'es',
+			},
+			{
+				productKey: 'LIVE_CASINO_WE',
+				imgName: 'we',
+			},
+			{
+				productKey: 'SLOTS_AMB',
+				imgName: 'askme',
+			},
+			{
+				productKey: 'SLOTS_FA_CHAI',
+				imgName: 'fachai',
+			},
+			{
+				productKey: 'SLOTS_BNG',
+				imgName: 'bnga',
+			},
+			{
+				productKey: 'SLOTS_PEGASUS',
+				imgName: 'pegasus',
+			},
+			{
+				productKey: 'GAMES_V8_POKER',
+				imgName: 'v8',
+			},
+			{
+				productKey: 'SPORTS_E_SPORTS_TFG',
+				imgName: 'tfg',
+			},
+			{
+				productKey: 'SLOTS_NO_LIMIT_CITY',
+				imgName: 'nlc',
+			},
+			{
+				productKey: 'SLOTS_AMIGO',
+				imgName: 'amigo',
+			},
+		],
 		quickLinks: [
 			{
 				displayKey: 'Label_AboutUs',

@@ -54,6 +54,7 @@ interface IHomeProviderProps {
 	// For H5
 	persistLicenseData: IFooterData['licenseData']
 	persistProgramList: IFooterData['programList']
+	persistPlatformList: IFooterData['platformList']
 	// 桌機排序與開關
 	desktopHomeOrders?: DesktopHomeComponentsEnum[]
 	// 手機排序與開關
@@ -78,6 +79,7 @@ export interface HomeContextInterface {
 	footerSocialChannelList: ISocialChannelData[]
 	slotGameData?: ISlotsGameData
 	licenseData: IFooterData['licenseData']
+	platformList: IFooterData['platformList']
 	affiliateData: { allowCurrencies: CurrenciesEnum[]; link: string }
 	referralData: { referralBonus: number | null; referralCode: string }
 	handlePromotionClick: (bonusCode: string) => void
@@ -182,6 +184,7 @@ export const HomeProvider = ({
 	children,
 	persistNewsData,
 	persistProgramList,
+	persistPlatformList,
 	persistBannerData,
 	persistPromotionData,
 	persistHotEventData,
@@ -201,7 +204,7 @@ export const HomeProvider = ({
 		userInfo: { currencyId, langId },
 	} = useAuth()
 
-	const { ALLOWED_CURRENCIES, SLOT_TP_GAME_TYPE } = useStaticData()
+	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	const { modal } = useGlobalModal()
 
@@ -378,9 +381,11 @@ export const HomeProvider = ({
 		},
 		{ loginCallback }: { loginCallback: () => void }
 	) => {
-		const tpGameType =
-			find(Object.values(SLOT_TP_GAME_TYPE), { TP_ID: tpId })?.TP_GAME_TYPE ||
-			''
+		// * 從 slotGameData 中的 providerList 找對應的 tpGameType
+		const { tpGameType = '' } =
+			find(persistSlotsGameData.providerList, {
+				tpId,
+			}) || {}
 
 		onEnterSlotsPage(
 			{
@@ -439,6 +444,7 @@ export const HomeProvider = ({
 		hotEventData,
 		slotGameData: persistSlotsGameData,
 		licenseData: persistLicenseData,
+		platformList: persistPlatformList,
 		bannerData: persistBannerData,
 		latestHighlightVideo: persistLatestHighlightVideo,
 		hotGameData: persistHotGameData,

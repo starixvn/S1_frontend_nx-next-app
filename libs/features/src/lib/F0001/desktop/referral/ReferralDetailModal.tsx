@@ -85,12 +85,12 @@ const ReferralDetailModal = ({
 					</div>
 
 					{/* // * 確保資料不是 null 才顯示元件 */}
-					{!isNull(referralContent?.detail) && (
+					{!!referralContent?.detail && (
 						<div
 							className='proDataBody'
 							// eslint-disable-next-line react/no-danger
 							dangerouslySetInnerHTML={{
-								__html: referralContent.detail,
+								__html: referralContent?.detail,
 							}}
 						/>
 					)}

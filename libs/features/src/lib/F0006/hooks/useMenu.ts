@@ -23,7 +23,7 @@ type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void
 
 const SPECIAL_LOGIN_GAME_TYPE: { [key in LoginGameTypeEnum]: number[] } = {
-	[LoginGameTypeEnum.returlGameUrl]: [],
+	[LoginGameTypeEnum.returnGameUrl]: [],
 	[LoginGameTypeEnum.returnHtml]: [PRODUCTS.SLOTS_PG.TP_ID],
 }
 

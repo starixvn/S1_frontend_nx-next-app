@@ -1,5 +1,5 @@
 import { getSubMenuEventIcon, useMenu } from '@nx-next-app/features/F0001/hooks'
-import { DeviceTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
+import { MenuKeyEnum } from '@nx-next-app/types'
 import classNames from 'classnames'
 import process from 'process'
 import { useTranslation } from 'next-i18next'
@@ -29,23 +29,21 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 			>
 				{subMenu?.map(item => {
 					const {
-						h5: { className, hasDesktopLink, headerMenuImgList, img } = {},
+						h5: { className, headerMenuImgList, img } = {},
 						eventIcons,
-						displayKey,
-						displayText,
 						productKey,
 					} = item
 
 					const subMenuEventIcon = getSubMenuEventIcon(eventIcons)
 
 					return (
-						<div
+						<button
 							style={{
 								// * 如果維護中取消點擊事件
 								pointerEvents: item.isTpMaintain ? 'none' : 'auto',
 							}}
 							key={productKey || uniqueId()}
-							className={classNames(className, {
+							className={classNames('gamelist-item', className, {
 								active: item.isTpMaintain,
 							})}
 							onClick={() => {
@@ -58,12 +56,14 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 							}}
 						>
 							{eventIcons && (
-								<i className={classNames(subMenuEventIcon?.icon)} />
+								<i className={classNames(subMenuEventIcon?.icon)}>
+									{subMenuEventIcon?.text}
+								</i>
 							)}
 
 							{img && (
 								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}${img}`}
+									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/${img}`}
 									alt={productKey || 'menu-item-img'}
 								/>
 							)}
@@ -77,34 +77,8 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 								/>
 							))}
 
-							<div>{displayKey ? t(displayKey) : displayText}</div>
-							{hasDesktopLink && (
-								<div className='switchbtn'>
-									<button
-										disabled={item.isTpMaintain}
-										onClick={e => {
-											e.stopPropagation()
-											onMenuOpen(
-												{
-													...item,
-													appType: DeviceTypeEnum.Desktop,
-												},
-												{
-													loginCallback: () => {
-														push(paths.login.root)
-													},
-													messageCallBack: message => null,
-												}
-											)
-										}}
-									>
-										{t('Label_General_Desktop')}
-									</button>
-									<button>{t('Label_General_PlayNow')}</button>
-								</div>
-							)}
 							<div className='under'>{t('Label_General_UnderMaintenance')}</div>
-						</div>
+						</button>
 					)
 				})}
 			</div>
@@ -112,7 +86,7 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 	}
 
 	return (
-		<div className='gameList'>
+		<div className='home-gamelist'>
 			{Object.keys(menuData).map(key => renderSubMenu(key))}
 		</div>
 	)
