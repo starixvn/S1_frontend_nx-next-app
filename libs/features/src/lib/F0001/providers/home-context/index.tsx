@@ -204,7 +204,7 @@ export const HomeProvider = ({
 		userInfo: { currencyId, langId },
 	} = useAuth()
 
-	const { ALLOWED_CURRENCIES, SLOT_TP_GAME_TYPE } = useStaticData()
+	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	const { modal } = useGlobalModal()
 
@@ -381,9 +381,11 @@ export const HomeProvider = ({
 		},
 		{ loginCallback }: { loginCallback: () => void }
 	) => {
-		const tpGameType =
-			find(Object.values(SLOT_TP_GAME_TYPE), { TP_ID: tpId })?.TP_GAME_TYPE ||
-			''
+		// * 從 slotGameData 中的 providerList 找對應的 tpGameType
+		const { tpGameType = '' } =
+			find(persistSlotsGameData.providerList, {
+				tpId,
+			}) || {}
 
 		onEnterSlotsPage(
 			{
