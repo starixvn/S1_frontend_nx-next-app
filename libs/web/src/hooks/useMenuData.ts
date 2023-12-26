@@ -4,6 +4,7 @@ import { IMenuData, MenuKeyEnum } from '@nx-next-app/types'
 import { assign, cloneDeep, includes, isArray } from 'lodash-es'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { getIsTpMaintain } from '@nx-next-app/utils'
+import { getSubMenuEventIcon } from '@nx-next-app/features/F0001/hooks'
 
 /**
  * * useMenuData 的顯示邏輯，共用於品牌、裝置
@@ -76,14 +77,20 @@ const useMenuData = () => {
 				}
 
 				// * 規則4: 最後將排序或已過濾出來的產品加入是否維護中參數，在 Menu 的 SubMenu 加入 isTpMaintain 參數
+				// * 規則5: 透過 getSubMenuEventIcon 驗證還在活動中的第一個 eventIcon
 				newSubMenu = newSubMenu.map(item => {
 					const isTpMaintain = getIsTpMaintain({
 						tpMaintainList,
 						tpId: item.product?.TP_ID,
 						tpGameType: item.product?.TP_GAME_TYPE,
 					})
+					const subMenuEventIcon = getSubMenuEventIcon(item.eventIcons)
 
-					return { ...item, isTpMaintain }
+					return {
+						...item,
+						isTpMaintain,
+						eventIcons: subMenuEventIcon && [subMenuEventIcon],
+					}
 				})
 
 				assign(newMenuData, { subMenu: newSubMenu })

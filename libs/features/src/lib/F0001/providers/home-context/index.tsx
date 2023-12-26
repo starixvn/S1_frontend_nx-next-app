@@ -54,6 +54,7 @@ interface IHomeProviderProps {
 	// For H5
 	persistLicenseData: IFooterData['licenseData']
 	persistProgramList: IFooterData['programList']
+	persistPlatformList: IFooterData['platformList']
 	// 桌機排序與開關
 	desktopHomeOrders?: DesktopHomeComponentsEnum[]
 	// 手機排序與開關
@@ -78,6 +79,7 @@ export interface HomeContextInterface {
 	footerSocialChannelList: ISocialChannelData[]
 	slotGameData?: ISlotsGameData
 	licenseData: IFooterData['licenseData']
+	platformList: IFooterData['platformList']
 	affiliateData: { allowCurrencies: CurrenciesEnum[]; link: string }
 	referralData: { referralBonus: number | null; referralCode: string }
 	handlePromotionClick: (bonusCode: string) => void
@@ -182,6 +184,7 @@ export const HomeProvider = ({
 	children,
 	persistNewsData,
 	persistProgramList,
+	persistPlatformList,
 	persistBannerData,
 	persistPromotionData,
 	persistHotEventData,
@@ -439,6 +442,7 @@ export const HomeProvider = ({
 		hotEventData,
 		slotGameData: persistSlotsGameData,
 		licenseData: persistLicenseData,
+		platformList: persistPlatformList,
 		bannerData: persistBannerData,
 		latestHighlightVideo: persistLatestHighlightVideo,
 		hotGameData: persistHotGameData,

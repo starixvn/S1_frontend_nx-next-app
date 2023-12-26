@@ -13,15 +13,15 @@ interface ISiteMiddleware {
 
 // * middleware 使用之資源定義在該位置
 // * 僅限使用在 middleware 中，middleware 此類 server worker 僅支援 fetch 原生操作
-export const getIpCountry = async (): Promise<any> => {
+export const getIpCountry = async (originHeader: Headers): Promise<any> => {
 	// * fetch 預設不使用 cookies，此 api 僅撈國家資訊，故也不帶
 	// * https://stackoverflow.com/questions/34558264/fetch-api-with-cookie
+	const newHeaders = new Headers(originHeader)
+	newHeaders.set('ai-host', `${process.env['NEXT_PUBLIC_REFERER_HOST']}`)
 	const countryCode = fetch(
 		new URL(`${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/api/Site/GetIpCountry`),
 		{
-			headers: {
-				'ai-host': `${process.env['NEXT_PUBLIC_REFERER_HOST']}`, // 預設 referrer
-			},
+			headers: newHeaders,
 		}
 	)
 		.then(res => res.json())
@@ -65,7 +65,7 @@ export const siteMiddleware = async ({ request, config }: ISiteMiddleware) => {
 	// * 沒有 cookie 資料，且無指定語系
 	if (!hasLangId) {
 		if (locale === 'default') {
-			const countryCode = await getIpCountry()
+			const countryCode = await getIpCountry(request.headers)
 			const locale = countryCodeMap[countryCode]?.langId || defaultLocale
 			const currencyId =
 				countryCodeMap[countryCode]?.currencyId || defaultCurrency
