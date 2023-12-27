@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useBoolean, useDebounce, useOnClickOutside } from 'usehooks-ts'
-import { useEffect, useRef } from 'react'
+import { Fragment, useEffect, useRef } from 'react'
 import {
 	ICustBonusWalletData,
 	IMainWalletInfoData,
@@ -118,8 +118,8 @@ const Wallet = ({
 									? 100
 									: ((turnover / rollover) * 100).toFixed(2)
 							return (
-								<div key={tpId}>
-									<div>
+								<Fragment key={tpId}>
+									<div className='bouns'>
 										<span>
 											{t(`Label_Wallet_BonusWallet_${promoCategoryId}`)}
 										</span>
@@ -134,7 +134,7 @@ const Wallet = ({
 										</div>
 										<div className='percentage'>{percentage}%</div>
 									</div>
-								</div>
+								</Fragment>
 							)
 						})}
 					</div>
