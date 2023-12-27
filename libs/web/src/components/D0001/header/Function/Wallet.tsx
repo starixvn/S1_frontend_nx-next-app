@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import dayjs from 'dayjs'
 import classNames from 'classnames'
+import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useBoolean, useDebounce, useOnClickOutside } from 'usehooks-ts'
 import { useEffect, useRef } from 'react'
@@ -11,7 +12,7 @@ import {
 } from '@nx-next-app/service'
 import { numberFormat, numFormatToDigits } from '@nx-next-app/utils'
 import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { SpinButton } from '../../button'
 
 interface IWalletProps {
@@ -36,7 +37,7 @@ const Wallet = ({
 	const ref = useRef(null)
 	const { t } = useTranslation()
 	const {
-		userInfo: { currencyName, currencyId },
+		userInfo: { lastLogin, currencyName, currencyId },
 	} = useAuth()
 
 	const {
@@ -44,9 +45,6 @@ const Wallet = ({
 		setFalse: setWalletActiveFalse,
 		toggle: toggleWalletActive,
 	} = useBoolean(false)
-	const {
-		userInfo: { lastLogin },
-	} = useAuth()
 
 	const {
 		value: isHideBalance,
@@ -54,6 +52,8 @@ const Wallet = ({
 		toggle: toggleHideBalance,
 	} = useBoolean(originIsHideBalance)
 	const debouncedIsHideBalance = useDebounce(isHideBalance, 500)
+
+	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	// * 使用者快速切換時，讓畫面順利切換，用 debounce 觸發最後的狀態
 	useEffect(() => {
@@ -149,12 +149,14 @@ const Wallet = ({
 					))}
 
 					<div className='btnGroup'>
-						<Link href={paths.deposit.root} passHref>
-							<a className='orange'>{t('Label_General_Deposit')}</a>
+						<Link href={paths.withdrawal.root} passHref>
+							<a className='orange'>{t('Label_General_Withdrawal')}</a>
 						</Link>
-						<Link href={paths.transferFunds.root} passHref>
-							<a className='orange'>{t('Label_General_TransferFunds')}</a>
-						</Link>
+						{includes(ALLOWED_CURRENCIES.TRANSFER, currencyId) && (
+							<Link href={paths.transferFunds.root} passHref>
+								<a className='orange'>{t('Label_General_TransferFunds')}</a>
+							</Link>
+						)}
 					</div>
 					<div className='loginLog'>
 						<span>{t('Label_General_LastLogin')}</span>
