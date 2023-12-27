@@ -19,7 +19,7 @@ export const LEFT_MENU_DATA: ILeftMenuData = {
 			transfer: {
 				displayKey: 'Label_General_TransferFunds',
 				pathname: paths.transferFunds.root,
-				allowCurrencies: ALLOWED_CURRENCIES['TRANSFER'] as CurrenciesEnum[],
+				allowCurrencies: ALLOWED_CURRENCIES['TRANSFER'],
 			},
 			withdrawal: {
 				displayKey: 'Label_General_Withdrawal',
@@ -59,7 +59,7 @@ export const LEFT_MENU_DATA: ILeftMenuData = {
 			referral: {
 				displayKey: 'Label_General_ReferFriends',
 				pathname: paths.referral.root,
-				allowCurrencies: false,
+				allowCurrencies: ALLOWED_CURRENCIES['REFER_FRIENDS'],
 			},
 			changePassword: {
 				displayKey: 'Label_General_ChangePassword',
