@@ -1,7 +1,6 @@
 import classNames from 'classnames'
-import { find, includes, isNumber, toLower } from 'lodash-es'
+import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import {
 	DepositModule,
@@ -9,14 +8,12 @@ import {
 	InputBox,
 	Select,
 } from '@nx-next-app/components/H0001'
-import { paths } from '@nx-next-app/constants'
 import {
 	useAuth,
 	useDepositBankTransferForm,
 	useDepositContext,
 } from '@nx-next-app/data-access'
 import { IPaymentBankTransferData } from '@nx-next-app/service'
-import { DepositChannelIdEnum } from '@nx-next-app/types'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	generateShortcutList,
@@ -40,9 +37,8 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { t } = useTranslation()
-	const { push } = useRouter()
 	const { modal } = useGlobalModal()
-	const { DEPOSIT_CHANNEL_OPTIONS, promotionOptions } = useDepositContext()
+	const { promotionOptions } = useDepositContext()
 
 	const {
 		formMethods: {
@@ -55,14 +51,10 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 		},
 		isFormValid,
 		bankAccountInfo,
-		bankInfoDetail,
-		bankInfoDetailOptions,
 		onBankTransferFormSubmit,
 	} = useDepositBankTransferForm({ dataSource })
 
 	const watchAmount = watch('amount')
-	const watchFromChannel = watch('fromChannel')
-	const watchFromSysId = watch('fromSysId')
 	const watchBonusCode = watch('bonusCode')
 	const watchCanSubmit = watch('canSubmit')
 	const watchMinAmount = watch('minAmount')
@@ -134,55 +126,6 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 				)}
 
 				{watchQrCodeUrl && <DepositModule.ScanQR qrCode={watchQrCodeUrl} />}
-
-				<DepositModule
-					title={t('Label_Deposit_DepositChannel')}
-					className='infoModule'
-					required
-				>
-					<Select
-						value={Number(watchFromChannel)}
-						placeholder={t('Label_Deposit_SelectChannel') || ''}
-						options={DEPOSIT_CHANNEL_OPTIONS}
-						onChange={value => {
-							setValue('fromChannel', String(value))
-						}}
-					/>
-				</DepositModule>
-
-				{includes(
-					[DepositChannelIdEnum.OnlineBanking, DepositChannelIdEnum.ATM],
-					Number(watchFromChannel)
-				) && (
-					<DepositModule
-						title={t('Label_General_BankDetails')}
-						required
-						className='selectModule inner'
-					>
-						<div className='infoModule parts active'>
-							<Select
-								value={watchFromSysId}
-								placeholder={t('Label_BankInfo_SelectBank') || ''}
-								options={bankInfoDetailOptions}
-								onChange={value => {
-									const { sysId: fromSysId, accountNo: fromAccountNum } =
-										find(bankInfoDetail, {
-											sysId: Number(value),
-										}) ?? {}
-
-									setValue('fromSysId', fromSysId)
-									setValue('fromAccountNum', String(fromAccountNum))
-								}}
-							/>
-
-							<div className='btn-group'>
-								<a className='orange' onClick={() => push(paths.bankInfo.root)}>
-									+
-								</a>
-							</div>
-						</div>
-					</DepositModule>
-				)}
 
 				<div className='btn-group'>
 					<button onClick={onOpenBankSlipModal}>

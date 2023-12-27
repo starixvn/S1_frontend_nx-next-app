@@ -13,8 +13,7 @@ import {
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
-import { DepositChannelIdEnum, SelectOptionType } from '@nx-next-app/types'
-import { every, find, head, includes, isEmpty } from 'lodash-es'
+import { every, find, head, isEmpty } from 'lodash-es'
 import { useAuth, useDepositSavedLocalStorage } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useDepositContext } from './DepositContext'
@@ -23,8 +22,6 @@ export interface IBankTransferForm {
 	amount: number
 	sysId?: number
 	bankId?: number
-	fromAccountNum?: string
-	fromChannel?: string
 	fromSysId?: number
 	channelId?: string
 	// * receipt: 連同建單後回傳的 TransId 一起送 UploadReceipt
@@ -67,9 +64,7 @@ const useDepositBankTransferForm = ({
 		formState: { isValid },
 	} = formMethods
 
-	const watchFromChannel = watch('fromChannel')
 	const watchReceipt = watch('receipt')
-	const watchFromAccountNum = watch('fromAccountNum')
 
 	const { loading: contextLoading, refetchPaymentBankTransferList } =
 		useDepositContext()
@@ -98,14 +93,6 @@ const useDepositBankTransferForm = ({
 
 	const [checkDepositSpecialCode] = useLazyCheckDepositSpecialCodeQuery()
 
-	// * 格式化成符合 SelectOptionType 的型態
-	const bankInfoDetailOptions: SelectOptionType[] = (
-		custBankInfo?.bankInfoDetail || []
-	).map(({ bankName, sysId }) => ({
-		label: bankName,
-		value: sysId,
-	}))
-
 	const loading =
 		contextLoading ||
 		isPostDepositReqWireTransferLoading ||
@@ -114,16 +101,8 @@ const useDepositBankTransferForm = ({
 
 	const debouncedLoading = useDebounce(loading, 50)
 
-	const isFormValid =
-		isValid &&
-		every([
-			watchFromChannel,
-			!includes(
-				[DepositChannelIdEnum.ATM, DepositChannelIdEnum.OnlineBanking],
-				Number(watchFromChannel)
-			) || watchFromAccountNum,
-			watchReceipt,
-		])
+	// * Form 的 isValid 驗證 + Submit Bank Slip 為必填
+	const isFormValid = isValid && watchReceipt
 
 	// * 1. 檢查是否有 specialCode，specialCode 與bonusCode 只能擇一
 	// * 2. 建立單據取得 transId
@@ -134,9 +113,7 @@ const useDepositBankTransferForm = ({
 			const {
 				amount,
 				sysId,
-				fromChannel,
 				fromSysId,
-				fromAccountNum,
 				bankId,
 				bonusCode: originBonusCode,
 				promoCode,
@@ -157,9 +134,7 @@ const useDepositBankTransferForm = ({
 			const { data: { transId } = {} } = await postDepositBankTransferReq({
 				amount: convertedAmount,
 				sysId,
-				fromChannel: Number(fromChannel),
 				fromSysId,
-				fromAccountNum,
 				bankId: Number(bankId),
 				hasPromotion: Boolean(bonusCode),
 			}).unwrap()
@@ -252,7 +227,12 @@ const useDepositBankTransferForm = ({
 		}
 
 		push(url, undefined, { shallow: true })
-	}, [debouncedLoading, queryPaymentType, querySysId])
+	}, [
+		dataSource, // 監聽 dataSource 是為了根據資料裡面的 'canSubmit' 再次初始狀態
+		debouncedLoading,
+		queryPaymentType,
+		querySysId,
+	])
 
 	return {
 		formMethods,
@@ -260,7 +240,6 @@ const useDepositBankTransferForm = ({
 		isFormValid,
 		bankAccountInfo,
 		bankInfoDetail: custBankInfo?.bankInfoDetail || [],
-		bankInfoDetailOptions,
 		onBankTransferFormSubmit,
 	}
 }

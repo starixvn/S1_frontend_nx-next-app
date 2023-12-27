@@ -1,10 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMemo } from 'react'
-import { IMenuData, MenuKeyEnum } from '@nx-next-app/types'
-import { assign, cloneDeep, includes, isArray } from 'lodash-es'
+import { DeviceTypeEnum, IMenuData, MenuKeyEnum } from '@nx-next-app/types'
+import { assign, cloneDeep, includes, isArray, isBoolean } from 'lodash-es'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { getIsTpMaintain } from '@nx-next-app/utils'
 import { getSubMenuEventIcon } from '@nx-next-app/features/F0001/hooks'
+
+const deviceType: DeviceTypeEnum = Number(
+	process.env['NEXT_PUBLIC_DEVICE_TYPE']
+)
 
 /**
  * * useMenuData 的顯示邏輯，共用於品牌、裝置
@@ -24,13 +28,25 @@ const useMenuData = () => {
 
 		Object.keys(menuData).forEach(key => {
 			const newMenuData = menuData[key as MenuKeyEnum]
+			const { desktop, h5 } = newMenuData
 
-			// * 使用者的幣別不符合該 Menu 開放的幣別，不顯示 Menu 選項
+			// * 通用 allowCurrencies 規則，使用者的幣別不符合該 Menu 開放的幣別，不顯示 Menu 選項
 			if (
 				(isArray(newMenuData.allowCurrencies) &&
 					!includes(newMenuData.allowCurrencies, currencyId)) ||
-				!newMenuData.allowCurrencies
+				(isBoolean(newMenuData.allowCurrencies) && !newMenuData.allowCurrencies)
 			) {
+				return
+			}
+
+			// * 決定是否顯示在 Menu 上，相同幣別規則下，桌機手機有不同的顯示規則(例如手機版的Menu不顯示而是顯示在其他頁面)
+			// * 這裡只判斷 bool 型態
+			const deviceAllowCurrencies =
+				deviceType === DeviceTypeEnum.Desktop
+					? desktop.allowCurrencies
+					: h5.allowCurrencies
+
+			if (isBoolean(deviceAllowCurrencies) && !deviceAllowCurrencies) {
 				return
 			}
 

@@ -41,7 +41,6 @@ interface DepositContextInterface {
 		[DepositPaymentEnum.QRPay]: IDepositPaymentOption
 		[DepositPaymentEnum.TopUpCardPay]: IDepositPaymentOption
 	}
-	DEPOSIT_CHANNEL_OPTIONS: SelectOptionType[]
 	loading: boolean
 	payments: {
 		[DepositPaymentEnum.AutoDeposit]?: IPaymentAutoDepositData[]
@@ -82,7 +81,7 @@ interface IDepositProviderProps {
 		[DepositPaymentEnum.QRPay]: IDepositPaymentOption
 		[DepositPaymentEnum.TopUpCardPay]: IDepositPaymentOption
 	}
-	DEPOSIT_CHANNEL_OPTIONS: SelectOptionType[]
+
 	// * 排序與開關
 	depositPaymentOrders: DepositPaymentEnum[]
 }
@@ -92,7 +91,6 @@ interface IDepositProviderProps {
 export const DepositProvider = ({
 	children,
 	DEPOSIT_PAYMENT_OPTIONS,
-	DEPOSIT_CHANNEL_OPTIONS,
 	depositPaymentOrders,
 }: IDepositProviderProps) => {
 	const { pathname, query, push } = useRouter()
@@ -221,7 +219,6 @@ export const DepositProvider = ({
 
 	const value: DepositContextInterface = {
 		DEPOSIT_PAYMENT_OPTIONS,
-		DEPOSIT_CHANNEL_OPTIONS,
 		loading,
 		payments,
 		promotionOptions,
