@@ -67,7 +67,7 @@ export type ISubMenu = {
 
 // * 主選單資訊，h5、desktop 內為分裝置的資訊，以外的是共用資訊
 export type IMenuData = {
-	[module in MenuKeyEnum]: {
+	[module in MenuKeyEnum]?: {
 		display: 'h5' | 'desktop' | 'all'
 		h5: {
 			className?: string
