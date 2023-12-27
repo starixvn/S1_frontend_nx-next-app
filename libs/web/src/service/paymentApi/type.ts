@@ -382,7 +382,6 @@ export interface IPostDepositBankTransferReqArgs {
 	sysId?: number
 	fromChannel?: number
 	fromSysId?: number
-	fromAccountNum?: string
 	hasPromotion: boolean
 	bankId?: number
 }

@@ -147,14 +147,16 @@ export const MENU_DATA = ({
 				className: 'reward',
 				img: '/h5/img/88rewards.png',
 				menuActionType: MenuActionTypeEnum.WindowOpen,
+				allowCurrencies: false, // * 手機版不顯示
 			},
 			desktop: {
 				className: 'reward',
 				menuActionType: MenuActionTypeEnum.WindowOpen,
+				allowCurrencies: true,
 			},
 			pathname: `${process.env['NEXT_PUBLIC_REWARD_HOST']}`,
 			subMenuAllowCurrenciesWithAuth: false,
-			allowCurrencies: [], // * 不顯示在首頁
+			allowCurrencies: ALLOWED_CURRENCIES['REWARDS'],
 		},
 		[MenuKeyEnum.Sports]: {
 			display: 'all',
@@ -2768,6 +2770,7 @@ export const MENU_DATA = ({
 				className: 'btn-promotion',
 				img: '4.0/promotion-icon.png',
 				menuActionType: MenuActionTypeEnum.Link,
+				allowCurrencies: false,
 			},
 			desktop: {
 				subMenuClassName: 'promoList',
@@ -2784,7 +2787,7 @@ export const MENU_DATA = ({
 			displayKey: 'Label_General_Promos',
 			pathname: paths.promotion.root,
 			subMenuAllowCurrenciesWithAuth: false,
-			allowCurrencies: false, // * 不顯示在 menu
+			allowCurrencies: true,
 		},
 		[MenuKeyEnum.Affiliates]: {
 			display: 'h5',
@@ -2815,6 +2818,7 @@ export const MENU_DATA = ({
 			h5: {
 				icon: '',
 				menuActionType: MenuActionTypeEnum.Link,
+				allowCurrencies: false,
 			},
 			desktop: {
 				menuType: 'banner',
@@ -2825,7 +2829,7 @@ export const MENU_DATA = ({
 			pathname: paths.vip.root,
 
 			subMenuAllowCurrenciesWithAuth: false,
-			allowCurrencies: false,
+			allowCurrencies: ALLOWED_CURRENCIES['VIP'],
 		},
 		[MenuKeyEnum.LeaderBoard]: {
 			display: 'all',
@@ -2834,6 +2838,7 @@ export const MENU_DATA = ({
 				className: 'btn-ranking',
 				img: '4.0/ranking-icon.png',
 				menuActionType: MenuActionTypeEnum.Link,
+				allowCurrencies: false,
 			},
 			desktop: {
 				menuType: 'banner',
@@ -2843,7 +2848,7 @@ export const MENU_DATA = ({
 			displayKey: 'Label_LeaderBoard',
 			pathname: paths.leaderBoard.root,
 			subMenuAllowCurrenciesWithAuth: false,
-			allowCurrencies: false, // * 不顯示在 menu
+			allowCurrencies: ALLOWED_CURRENCIES['LEADER_BOARD'],
 		},
 	}
 }
