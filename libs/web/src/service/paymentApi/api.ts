@@ -317,6 +317,7 @@ const paymentApi = rootApi.injectEndpoints({
 				method: 'POST',
 				data,
 			}),
+			providesTags: ['PAYMENT_DEPOSIT_HISTORY'],
 		}),
 		// * Deposit OnlineBanking 第一層
 		getPaymentOnlineBankingList: builder.query<

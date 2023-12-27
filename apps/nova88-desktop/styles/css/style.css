@@ -9038,6 +9038,7 @@ input[type=file] {
 
 form {
   width: 100%;
+  color: #5574A7;
 }
 
 .casinoSelect {
@@ -12961,6 +12962,15 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   height: 57px;
   margin: 0 auto !important;
   background: url(https://banner.0814media.net/desktop/img/topup.png) center/cover;
+}
+
+.icon-dou::before {
+  content: "";
+  display: block;
+  width: 57px;
+  height: 57px;
+  margin: 0 auto !important;
+  background: url(https://banner.0814media.net/desktop/img/4.0/chat-transfer.png) center/cover;
 }
 
 .text-center {
