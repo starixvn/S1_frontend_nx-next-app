@@ -44,6 +44,8 @@ import {
 	IPaymentAutoDepositData,
 	IDepositInfoRecentData,
 	IWithdrawalSetting,
+	IDepositQuickTransferData,
+	IDepositChatTransferData,
 } from './type'
 
 export const paymentApiUrl = {
@@ -83,6 +85,8 @@ export const paymentApiUrl = {
 	getChannelQrPayList: 'Payment/GetQRPayInfoList',
 	getPaymentTopUpCardPayList: 'Payment/GetLoadCardPayGroupList',
 	getChannelTopUpCardPayList: 'Payment/GetLoadCardPayInfoList',
+	getDepositQuickTransfer: 'Payment/GetPayInfoQuickTransfer',
+	getDepositChatTransfer: 'Payment/GetPayInfoChatTransfer',
 	getBankAccountInfo: 'Payment/GetLocalBankInfo',
 	getDepositInfoRecentList: 'Payment/GetDepositInfoRecent',
 	postDepositBankTransferReq: 'Payment/DepositReqWireTransfer',
@@ -412,6 +416,30 @@ const paymentApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
+		// * Quick transfer 資訊
+		getDepositQuickTransfer: builder.query<
+			IAxiosResponse<{
+				QuickTransfer: { data: IDepositQuickTransferData[] }
+			}>,
+			void
+		>({
+			query: () => ({
+				url: paymentApiUrl.getDepositQuickTransfer,
+				method: 'POST',
+			}),
+		}),
+		// * Chat Transfer 資訊
+		getDepositChatTransfer: builder.query<
+			IAxiosResponse<{
+				ChatTransfer: { data: IDepositChatTransferData[] }
+			}>,
+			void
+		>({
+			query: () => ({
+				url: paymentApiUrl.getDepositChatTransfer,
+				method: 'POST',
+			}),
+		}),
 		getBankAccountInfo: builder.query<
 			IAxiosResponse<IBankAccountInfoData>,
 			{ sysId: number }
@@ -517,6 +545,8 @@ export const {
 	useGetChannelQrPayListQuery,
 	useGetPaymentTopUpCardPayListQuery,
 	useGetChannelTopUpCardPayListQuery,
+	useGetDepositQuickTransferQuery,
+	useGetDepositChatTransferQuery,
 	useGetBankAccountInfoQuery,
 	useGetDepositInfoRecentListQuery,
 	useLazyCheckDepositSpecialCodeQuery,

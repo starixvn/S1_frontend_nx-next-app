@@ -12,6 +12,8 @@ export const DEPOSIT_PAYMENT_ORDERS = [
 	DepositPaymentEnum.CryptoPay,
 	DepositPaymentEnum.QRPay,
 	DepositPaymentEnum.TopUpCardPay,
+	DepositPaymentEnum.QuickTransfer,
+	DepositPaymentEnum.ChatTransfer,
 ]
 
 export const DEPOSIT_PAYMENT_OPTIONS = {
@@ -54,5 +56,15 @@ export const DEPOSIT_PAYMENT_OPTIONS = {
 		labelDisplayKey: 'TOP-UP CARD',
 		timeDisplayKey: 'Label_General_Instant',
 		icon: 'icon icon-topup',
+	},
+	[DepositPaymentEnum.QuickTransfer]: {
+		labelDisplayKey: 'Quick Transfer',
+		timeDisplayKey: 'Label_General_Instant',
+		icon: 'icon-quick',
+	},
+	[DepositPaymentEnum.ChatTransfer]: {
+		labelDisplayKey: 'ChatTransfer',
+		timeDisplayKey: 'Label_General_Instant',
+		icon: 'icon-dou',
 	},
 }
