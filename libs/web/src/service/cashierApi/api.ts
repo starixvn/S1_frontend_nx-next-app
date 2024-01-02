@@ -11,6 +11,8 @@ export const cashierApiUrl = {
 	getDepositReqCryptoPay: 'Cashier/DepositReqCryptoPay',
 	getDepositReqCryptoLocalPay: 'Cashier/DepositReqCryptoLocalPay',
 	postDepositLoadCardPayReq: 'Cashier/DepositReqLoadCardPay',
+
+	postDepositReq: 'Cashier/DepositReq', // * 通用存款 api
 }
 
 // * cashierApi 的 api 中間沒有 /api/ 的 domain，因此使用 createApi 獨立宣告 baseUrl: '/'
