@@ -216,7 +216,7 @@ export type ILeftMenuData = {
 			[key: string]: {
 				displayKey: string
 				pathname: string
-				allowCurrencies: CurrenciesEnum[] | boolean // * true: 全開, false: 全關
+				allowCurrencies?: CurrenciesEnum[] | boolean // * true: 全開, false: 全關
 			}
 		}
 	}

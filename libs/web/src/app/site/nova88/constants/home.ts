@@ -18,13 +18,14 @@ export const DESKTOP_HOME_ORDERS = [
 ]
 
 export const MOBILE_HOME_ORDERS = [
-	MobileHomeComponentsEnum.CarouselBanner,
 	MobileHomeComponentsEnum.Marquee,
-	MobileHomeComponentsEnum.PromotionMarquee,
+	MobileHomeComponentsEnum.CarouselBanner,
 	MobileHomeComponentsEnum.HotEventSwiper,
-	MobileHomeComponentsEnum.HotGameMarquee,
-	MobileHomeComponentsEnum.RecentlyViewGames,
-	MobileHomeComponentsEnum.Jackpot,
+	MobileHomeComponentsEnum.PromotionSwiper,
+	MobileHomeComponentsEnum.HotGameSwiper,
+	MobileHomeComponentsEnum.JackPotSwiper,
+	MobileHomeComponentsEnum.AppDownload,
+	MobileHomeComponentsEnum.PartnerBlock,
+	MobileHomeComponentsEnum.FooterBlock,
 	MobileHomeComponentsEnum.LuckyWheel,
-	MobileHomeComponentsEnum.SimpleFooter,
 ]

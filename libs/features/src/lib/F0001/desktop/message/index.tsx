@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 import { isEmpty } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useMessageFetcher } from '@nx-next-app/hooks'
@@ -56,11 +57,15 @@ const PersonalMessage = () => {
 										</div>
 										<div>
 											<button
-												className='icon icon-icon32px_openmail'
+												className={classNames('icon icon-icon32px_openmail', {
+													active: msgList.length === selectedMessage.length,
+												})}
 												onClick={onReadSelectedMsg}
 											/>
 											<button
-												className='icon icon-bin'
+												className={classNames('icon icon-bin', {
+													active: msgList.length === selectedMessage.length,
+												})}
 												onClick={onDeleteMessage}
 											/>
 										</div>

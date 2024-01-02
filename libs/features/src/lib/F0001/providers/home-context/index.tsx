@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext } from 'react'
+import React, { createContext, ReactNode, useContext, useEffect } from 'react'
 import {
 	IAnnouncementData,
 	IBannerData,
@@ -16,6 +16,9 @@ import {
 	useGetReferralCodeQuery,
 	useGetReferralSettingQuery,
 	useGetSocialChannelQuery,
+	useLazyGetIpCountryQuery,
+	useLazyGetPopUpPromotionQuery,
+	useLazyGetWalletInfoQuery,
 } from '@nx-next-app/service'
 import {
 	CurrenciesEnum,
@@ -39,6 +42,7 @@ import { filter, find, head } from 'lodash-es'
 import dayjs from 'dayjs'
 import isBetween from 'dayjs/plugin/isBetween'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import { getCookie, setCookie } from 'cookies-next'
 
 dayjs.extend(isBetween)
 interface IHomeProviderProps {
@@ -150,6 +154,41 @@ const H5PromotionDetailModal = dynamic(
 	{ ssr: false }
 )
 
+const DesktopSponsorShipModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/SponsorShipModal'),
+	{ ssr: false }
+)
+
+const DesktopDisClaimerVndModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/DisclaimerVndModal'),
+	{ ssr: false }
+)
+
+const DesktopDepositHintModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/DepositHintModal'),
+	{ ssr: false }
+)
+
+const DesktopHomePromotionModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/HomePromotionModal'),
+	{ ssr: false }
+)
+
+const H5SponsorShipModal = dynamic(
+	() => import('@nx-next-app/features/F0001/h5/modal/SponsorShipModal'),
+	{ ssr: false }
+)
+
+const H5HomePromotionModal = dynamic(
+	() => import('@nx-next-app/features/F0001/h5/modal/HomePromotionModal'),
+	{ ssr: false }
+)
+
+const H5DisClaimerVndModal = dynamic(
+	() => import('@nx-next-app/features/F0001/h5/modal/DisclaimerVndModal'),
+	{ ssr: false }
+)
+
 const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
 // 如果沒指定則使用 default 排序並全開
@@ -162,22 +201,22 @@ const defaultDesktopHomeOrders = [
 	DesktopHomeComponentsEnum.LiveCasino,
 	DesktopHomeComponentsEnum.HotGame,
 	DesktopHomeComponentsEnum.AppDownloadBanner,
+	DesktopHomeComponentsEnum.ProviderBlock,
 	DesktopHomeComponentsEnum.OfficialPartner,
 	DesktopHomeComponentsEnum.LuckyWheel,
 ]
 
 const defaultMobileHomeOrders = [
-	MobileHomeComponentsEnum.CarouselBanner,
 	MobileHomeComponentsEnum.Marquee,
-	MobileHomeComponentsEnum.PromotionMarquee,
+	MobileHomeComponentsEnum.CarouselBanner,
 	MobileHomeComponentsEnum.HotEventSwiper,
-	MobileHomeComponentsEnum.HotGameMarquee,
-	MobileHomeComponentsEnum.RecentlyViewGames,
-	MobileHomeComponentsEnum.FriendReferral,
-	MobileHomeComponentsEnum.Jackpot,
-	MobileHomeComponentsEnum.LuckyWheel,
+	MobileHomeComponentsEnum.PromotionSwiper,
+	MobileHomeComponentsEnum.HotGameSwiper,
+	MobileHomeComponentsEnum.JackPotSwiper,
 	MobileHomeComponentsEnum.AppDownload,
+	MobileHomeComponentsEnum.PartnerBlock,
 	MobileHomeComponentsEnum.FooterBlock,
+	MobileHomeComponentsEnum.LuckyWheel,
 ]
 
 export const HomeProvider = ({
@@ -199,9 +238,10 @@ export const HomeProvider = ({
 	const { push } = useRouter()
 	const { onEnterSlotsPage, onEnterPage, menuData, onMenuOpen } = useMenu()
 	const { tpMaintainList } = useGlobalData()
+
 	const {
 		auth: { isLogin },
-		userInfo: { currencyId, langId },
+		userInfo: { currencyId, langId, userName, accountName },
 	} = useAuth()
 
 	const { ALLOWED_CURRENCIES } = useStaticData()
@@ -265,6 +305,12 @@ export const HomeProvider = ({
 			skip: !isLogin,
 		}
 	)
+
+	const [getPopUpPromotion] = useLazyGetPopUpPromotionQuery()
+
+	const [getIpCountry] = useLazyGetIpCountryQuery()
+
+	const [getWalletInfo] = useLazyGetWalletInfoQuery()
 
 	const referralData = {
 		referralBonus: head(referralSetting)?.bonusAmount ?? null,
@@ -431,6 +477,161 @@ export const HomeProvider = ({
 			}
 		}
 	}
+
+	useEffect(() => {
+		const cookieMaxAge = 20 * 60 * 60
+		// 贊助商彈窗顯示日期
+		const expiredForSponsorShipDate = new Date(2023, 12, 31)
+		const expiredDisclaimerForVndDate = new Date(2024, 3, 13)
+
+		const promotionPopup = async () => {
+			const cookieName = `popupPromotions${userName}`
+
+			if (!isLogin || !accountName || getCookie(cookieName) === '1') {
+				openNextPopup()
+				return
+			}
+
+			const { data: { bonusCode = null } = {} } = await getPopUpPromotion({
+				deviceType,
+				langId,
+			}).unwrap()
+
+			if (bonusCode) {
+				setCookie(cookieName, '1', { maxAge: cookieMaxAge })
+				switch (deviceType) {
+					case DeviceTypeEnum.Desktop:
+						modal.open(
+							<DesktopHomePromotionModal
+								bonusCode={bonusCode}
+								closeCallback={openNextPopup}
+							/>
+						)
+						break
+
+					case DeviceTypeEnum.Mobile:
+						modal.open(
+							<H5HomePromotionModal
+								closeCallback={openNextPopup}
+								bonusCode={bonusCode}
+							/>,
+							{
+								className: 'promosback',
+							}
+						)
+						break
+
+					default:
+						break
+				}
+			} else {
+				openNextPopup()
+			}
+		}
+
+		const depositPopup = async () => {
+			const cookieName = `balanceHint${userName}`
+			if (!isLogin || !accountName || getCookie(cookieName) === '1') {
+				openNextPopup()
+				return
+			}
+
+			const { data: { balance = 0, tpWallets = [] } = {} } =
+				await getWalletInfo(null).unwrap()
+
+			const hasBalance =
+				!!balance || tpWallets?.filter(tp => tp.balance > 0).length >= 1
+			// 儲值彈窗只有桌機有
+			if (hasBalance && deviceType === DeviceTypeEnum.Desktop) {
+				modal.open(<DesktopDepositHintModal closeCallback={openNextPopup} />)
+				setCookie(cookieName, '1', { maxAge: cookieMaxAge })
+			} else {
+				openNextPopup()
+			}
+		}
+
+		const sponsorshipPopup = () => {
+			// 贊助商彈窗只在未登入狀態顯示，所以不需要設定 userName , 只要固定 cookie 來驗證是否顯示過即可
+			const cookieName = 'sponsorshipPopup'
+			if (
+				new Date() > expiredForSponsorShipDate ||
+				getCookie(cookieName) === '1' ||
+				isLogin
+			) {
+				openNextPopup()
+				return
+			}
+			setCookie(cookieName, '1', { maxAge: cookieMaxAge })
+
+			switch (deviceType) {
+				case DeviceTypeEnum.Desktop:
+					modal.open(<DesktopSponsorShipModal closeCallback={openNextPopup} />)
+					break
+
+				case DeviceTypeEnum.Mobile:
+					modal.open(<H5SponsorShipModal closeCallback={openNextPopup} />, {
+						className: 'sponsorpop',
+					})
+					break
+
+				default:
+					break
+			}
+		}
+
+		const disclaimerForVnd = async () => {
+			const cookieName = `disclaimerForVnd${userName}`
+			if (
+				new Date() > expiredDisclaimerForVndDate ||
+				getCookie(cookieName) === '1'
+			) {
+				openNextPopup()
+				return
+			}
+			const {
+				data: { code = '' },
+			} = await getIpCountry(null).unwrap()
+			if (code === 'VN') {
+				setCookie(cookieName, '1', { maxAge: cookieMaxAge })
+				switch (deviceType) {
+					case DeviceTypeEnum.Desktop:
+						modal.open(
+							<DesktopDisClaimerVndModal closeCallback={openNextPopup} />
+						)
+						break
+
+					case DeviceTypeEnum.Mobile:
+						modal.open(<H5DisClaimerVndModal closeCallback={openNextPopup} />, {
+							className: 'vninfopop',
+						})
+						break
+
+					default:
+						break
+				}
+			} else {
+				openNextPopup()
+			}
+		}
+
+		const popStack = [
+			depositPopup,
+			sponsorshipPopup,
+			promotionPopup,
+			disclaimerForVnd,
+		]
+
+		const openNextPopup = () => {
+			if (popStack.length > 0) {
+				const current = popStack.pop()
+				if (current) {
+					current()
+				}
+			}
+		}
+		openNextPopup()
+		// 正確放入更新依賴確保正確觸發 effect
+	}, [isLogin, accountName])
 
 	const value: HomeContextInterface = {
 		desktopHomeOrders,

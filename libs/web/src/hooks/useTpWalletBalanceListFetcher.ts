@@ -96,9 +96,13 @@ const useTpWalletBalanceListFetcher = ({ langId }: { langId: string }) => {
 		getTpWalletBalanceList()
 	}, [tpWalletList])
 
+	// * tp 錢包總金額
 	const tpWalletsBalanceSum = sumBy(tpWalletBalanceList, 'balance')
+	// * bonus 錢包總金額
+	const bonusWalletSum = sumBy(custBonusWalletList, 'bonus')
+	// * 主錢包 + tp 錢包總金額 + bonus 錢包總金額
 	const totalWalletBalance =
-		tpWalletsBalanceSum + (mainWalletInfo?.balance || 0)
+		(mainWalletInfo?.balance || 0) + tpWalletsBalanceSum + bonusWalletSum
 
 	const isLoading =
 		isGetMainWalletInfoLoading ||

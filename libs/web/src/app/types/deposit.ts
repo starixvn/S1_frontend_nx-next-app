@@ -8,18 +8,8 @@ export enum DepositPaymentEnum {
 	CryptoPay = 'CryptoPay',
 	QRPay = 'QRPay',
 	TopUpCardPay = 'TopUpCardPay',
-	// LocalBanking = 'LocalBanking',
-
-	// LoadCard = 'LoadCard',
-	// BankAutoChannel = 'BankAutoChannel',
-}
-
-export enum DepositChannelIdEnum {
-	OnlineBanking = 1,
-	CashDepositMachine,
-	ATM,
-	OverTheCounter,
-	BankQR,
+	QuickTransfer = 'QuickTransfer',
+	ChatTransfer = 'ChatTransfer',
 }
 
 export enum DepositActionModeEnum {
