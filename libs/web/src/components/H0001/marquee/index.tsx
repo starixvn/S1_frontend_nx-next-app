@@ -19,14 +19,14 @@ const Marquee = ({ data, configs, onMarqueeClick }: IMarqueeProps) => {
 	}
 	return (
 		<div id='Marquee'>
-			<div className='icon icon-marquee'>
-				<div className='marquee-run '>
+			<div className='marquee-box'>
+				<div className='marquee-run' style={{ width: '100%' }}>
 					<ReactMarquee {...defaultConfig}>
 						{data?.map(({ id, subject }) => (
 							<button
 								className='white'
 								key={`announcement-${id}`}
-								style={{ paddingLeft: '2rem', color: '#112240' }}
+								style={{ paddingLeft: '2rem' }}
 								onClick={onMarqueeClick}
 							>
 								{subject}
