@@ -44,7 +44,7 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 							}}
 							key={productKey || uniqueId()}
 							className={classNames('gamelist-item', className, {
-								active: item.isTpMaintain,
+								under: item.isTpMaintain,
 							})}
 							onClick={() => {
 								onMenuOpen(item, {
@@ -61,23 +61,27 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 								</i>
 							)}
 
-							{img && (
-								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/${img}`}
-									alt={productKey || 'menu-item-img'}
-								/>
-							)}
+							<div className='gamelist-img'>
+								{img && (
+									<img
+										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/${img}`}
+										alt={productKey || 'menu-item-img'}
+									/>
+								)}
 
-							{headerMenuImgList?.map(img => (
-								<img
-									key={img.imgUrl}
-									className={classNames(img.className)}
-									alt={img.imgUrl}
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/dropdown/${img.imgUrl}`}
-								/>
-							))}
+								{headerMenuImgList?.map(img => (
+									<img
+										key={img.imgUrl}
+										className={classNames(img.className)}
+										alt={img.imgUrl}
+										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/dropdown/${img.imgUrl}`}
+									/>
+								))}
 
-							<div className='under'>{t('Label_General_UnderMaintenance')}</div>
+								<div className='gamelist-title'>
+									{t(item.displayKey || '') || item.displayText}
+								</div>
+							</div>
 						</button>
 					)
 				})}
