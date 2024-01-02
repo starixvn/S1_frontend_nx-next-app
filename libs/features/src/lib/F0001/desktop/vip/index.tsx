@@ -25,7 +25,7 @@ const Vip = ({
 		<main className='vip'>
 			<VipBanner vipBannerData={vipBannerData} />
 			<div className='newvipinfo'>
-				<Image src={vipInfoImageUrl} width={1920} height={438} alt='' />
+				<Image src={vipInfoImageUrl} width={1920} height={438} alt='vipInfo' />
 			</div>
 			<VipTable vipBannerData={vipBannerData} lastUpdateTime={lastUpdateTime} />
 			<VipBottom />
