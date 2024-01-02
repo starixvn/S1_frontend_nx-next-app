@@ -44,6 +44,18 @@ export const channelIconClass: { [channelName: string]: string } = {
 	Youtube: 'icon icon-youtube',
 }
 
+export const channelIcon: { [channelName: string]: string } = {
+	Youtube: 'youtube',
+	Telegram: 'tga',
+	Facebook: 'fb',
+	Twitter: 'twitter',
+	Instagram: 'ig',
+	LINE: 'line',
+	Livechat: 'livechat',
+	WhatsApp: 'whatsapp',
+	'E-mail': 'email',
+}
+
 export enum WithdrawalStatusEnum {
 	Pending = 1,
 	OnHold,
