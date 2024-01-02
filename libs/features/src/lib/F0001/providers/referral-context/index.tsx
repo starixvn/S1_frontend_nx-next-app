@@ -1,4 +1,5 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { isEmpty } from 'lodash-es'
 import {
 	IReferralSummaryData,
 	useGetReferralCodeQuery,
@@ -65,6 +66,8 @@ const ReferralProvider = ({
 			const { data: referralSettingDetail } = await getReferralSettingDetail(
 				null
 			).unwrap()
+
+			if (isEmpty(referralSettingDetail)) return
 
 			switch (Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])) {
 				case DeviceTypeEnum.Desktop:

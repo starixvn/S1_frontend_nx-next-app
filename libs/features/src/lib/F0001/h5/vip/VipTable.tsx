@@ -1,9 +1,9 @@
-import React from 'react'
 import { useTranslation } from 'next-i18next'
+import classNames from 'classnames'
 import { capitalize } from 'lodash-es'
 import { useAuth } from '@nx-next-app/data-access'
-import { numberFormat } from '@nx-next-app/utils'
-import { VipBannerInfo } from '@nx-next-app/service'
+import { numberFormatExcludeString } from '@nx-next-app/utils'
+import type { VipBannerInfo } from '@nx-next-app/service'
 
 interface IVipTableProps {
 	vipBannerInfo: VipBannerInfo | undefined
@@ -15,12 +15,12 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
+
 	return (
 		<div
 			className={`viptable ${
-				vipBannerInfo?.level === activeTab
-					? vipBannerInfo?.levelName.toLowerCase().split(' ')[0]
-					: null
+				vipBannerInfo?.level === activeTab &&
+				vipBannerInfo?.levelName.toLowerCase().split(' ')[0]
 			}`}
 		>
 			<div className='viptable-item'>
@@ -29,18 +29,20 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 				</ul>
 				<ul className='viptable-item-text'>
 					<li>{capitalize(t('Label_Vip_Deposit_Priority') as string)}</li>
-					<li className=''>
+					<li>
 						<div
-							className={`${vipBannerInfo?.depositPriority ? 'High' : null}`}
+							className={classNames({ High: vipBannerInfo?.depositPriority })}
 						/>
 						{vipBannerInfo?.depositPriority}
 					</li>
 				</ul>
 				<ul className='viptable-item-text'>
 					<li>{capitalize(t('Label_Vip_WithDrawal_Priority') as string)}</li>
-					<li className=''>
+					<li>
 						<div
-							className={`${vipBannerInfo?.withdrawalPriority ? 'High' : null}`}
+							className={classNames({
+								High: vipBannerInfo?.withdrawalPriority,
+							})}
 						/>
 						{vipBannerInfo?.withdrawalPriority}
 					</li>
@@ -49,9 +51,9 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 					<li>
 						{capitalize(t('Label_Vip_Service_Support_At_Date') as string)}
 					</li>
-					<li className=''>
+					<li>
 						<div
-							className={`${vipBannerInfo?.serviceSupport ? 'High' : null}`}
+							className={classNames({ High: vipBannerInfo?.serviceSupport })}
 						/>
 						{vipBannerInfo?.serviceSupport}
 					</li>
@@ -61,22 +63,16 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 						{capitalize(t('Label_Vip_Designated_Account_Manager') as string)}
 					</li>
 					<li
-						className={`${
-							vipBannerInfo?.designatedAccountManager ? 'High' : null
-						}`}
+						className={classNames({
+							High: vipBannerInfo?.designatedAccountManager,
+						})}
 					/>
 				</ul>
 				<ul className='viptable-item-text'>
 					<li>
 						{capitalize(t('Label_Vip_Daily_Withdrawal_Limitation') as string)}
 					</li>
-					<li>
-						{numberFormat(
-							Number(vipBannerInfo?.withdrawalMax.split('.')[0]),
-							currencyId,
-							0
-						)}
-					</li>
+					<li>{numberFormatExcludeString(vipBannerInfo?.withdrawalMax)}</li>
 				</ul>
 				<ul className='viptable-item-text'>
 					<li>
@@ -94,14 +90,9 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 				</ul>
 				<ul className='viptable-item-text'>
 					<li>{capitalize(t('Label_Vip_Tier_UpGrade_Bonus') as string)}</li>
-					<li className=''>
-						{vipBannerInfo?.upBonus
-							? numberFormat(
-									Number(vipBannerInfo?.upBonus.split('.')[0]),
-									currencyId,
-									0
-							  )
-							: null}
+					<li>
+						{vipBannerInfo?.upBonus &&
+							numberFormatExcludeString(vipBannerInfo?.upBonus)}
 					</li>
 				</ul>
 			</div>
@@ -111,19 +102,19 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 				</ul>
 				<ul className='viptable-item-text'>
 					<li>{capitalize(t('Label_Vip_Sport_Rebate') as string)}</li>
-					<li className=''>{vipBannerInfo?.rebateCategory[0]?.percentage}%</li>
+					<li>{vipBannerInfo?.rebateCategory[0]?.percentage}%</li>
 				</ul>
 				<ul className='viptable-item-text'>
 					<li>{capitalize(t('Label_Vip_Live_Casino_Rebate') as string)}</li>
-					<li className=''>{vipBannerInfo?.rebateCategory[2]?.percentage}%</li>
+					<li>{vipBannerInfo?.rebateCategory[2]?.percentage}%</li>
 				</ul>
 				<ul className='viptable-item-text'>
 					<li>{capitalize(t('Label_Vip_Slot_Fishing_Rebate') as string)}</li>
-					<li className=''>{vipBannerInfo?.rebateCategory[1]?.percentage}%</li>
+					<li>{vipBannerInfo?.rebateCategory[1]?.percentage}%</li>
 				</ul>
 				<ul className='viptable-item-text'>
 					<li>{capitalize(t('Label_Vip_Virtual_Sport_Rebate') as string)}</li>
-					<li className=''>{vipBannerInfo?.rebateCategory[3]?.percentage}%</li>
+					<li>{vipBannerInfo?.rebateCategory[3]?.percentage}%</li>
 				</ul>
 			</div>
 			<div className='viptable-item'>
@@ -146,14 +137,9 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 					<li>
 						{capitalize(t('Label_Vip_Monthly_Minimum_Deposit') as string)}
 					</li>
-					<li className=''>
-						{vipBannerInfo?.upDeposit
-							? numberFormat(
-									Number(vipBannerInfo?.upDeposit.split('.')[0]),
-									currencyId,
-									0
-							  )
-							: null}
+					<li>
+						{vipBannerInfo?.upDeposit &&
+							numberFormatExcludeString(vipBannerInfo?.upDeposit)}
 					</li>
 				</ul>
 			</div>
@@ -170,15 +156,10 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 							t('Label_Vip_Minimum_Deposit_Within_Validity_Period') as string
 						)}
 					</li>
-					<li className=''>
+					<li>
 						{vipBannerInfo?.downDeposit &&
-						Number(vipBannerInfo?.downDeposit) !== 0
-							? numberFormat(
-									Number(vipBannerInfo?.downDeposit.split('.')[0]),
-									currencyId,
-									0
-							  )
-							: null}
+							Number(vipBannerInfo?.downDeposit) !== 0 &&
+							numberFormatExcludeString(vipBannerInfo?.downDeposit)}
 					</li>
 				</ul>
 				<ul className='viptable-item-text'>
@@ -187,15 +168,10 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 							t('Label_Vip_Minimum_Turnover_Within_Validity_Period') as string
 						)}
 					</li>
-					<li className=''>
+					<li>
 						{vipBannerInfo?.downTurnover &&
-						Number(vipBannerInfo?.downTurnover) !== 0
-							? numberFormat(
-									Number(vipBannerInfo?.downTurnover.split('.')[0]),
-									currencyId,
-									0
-							  )
-							: null}
+							Number(vipBannerInfo?.downTurnover) !== 0 &&
+							numberFormatExcludeString(vipBannerInfo?.downTurnover)}
 					</li>
 				</ul>
 				<ul className='viptable-item-text'>
@@ -204,9 +180,7 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 							t('Label_Vip_Ranking_Validity_Membership_Renewal') as string
 						)}
 					</li>
-					<li className=''>
-						{vipBannerInfo?.rankingValidityMembershipRenewal}
-					</li>
+					<li>{vipBannerInfo?.rankingValidityMembershipRenewal}</li>
 				</ul>
 			</div>
 		</div>
