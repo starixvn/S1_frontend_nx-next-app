@@ -203,7 +203,7 @@ const StatementProvider = ({
 	const onQuickPickChange = (newPeriod: number, isSearch = true) => {
 		setActivePeriod(newPeriod)
 		updateDateRangeByPeriod(newPeriod)
-		const dateRangeData: Record<string, { startDate: Date; endDate: Date }> = {
+		const dateRangeData: Record<number, { startDate: Date; endDate: Date }> = {
 			[QuickPickEnum.Today]: {
 				startDate: dayjs().startOf('day').toDate(),
 				endDate: dayjs().endOf('day').toDate(),
@@ -220,7 +220,7 @@ const StatementProvider = ({
 				startDate: dayjs().subtract(1, 'week').startOf('week').toDate(),
 				endDate: dayjs().subtract(1, 'week').endOf('week').toDate(),
 			},
-			[QuickPickEnum.ThisWeek]: {
+			[QuickPickEnum.ThisMonth]: {
 				startDate: dayjs().startOf('month').toDate(),
 				endDate: dayjs().toDate(),
 			},
@@ -235,6 +235,7 @@ const StatementProvider = ({
 				selDate: '',
 				newStartDate: dateRangeData[newPeriod].startDate as Date,
 				newEndDate: dateRangeData[newPeriod].endDate as Date,
+				period: newPeriod,
 			})
 	}
 
@@ -382,6 +383,7 @@ const StatementProvider = ({
 			default:
 				break
 		}
+
 		setActivePeriod(period ?? activePeriod)
 		setRecordPeriod(period ?? activePeriod)
 		setCurrentPage(result?.pageNumber ?? 1)

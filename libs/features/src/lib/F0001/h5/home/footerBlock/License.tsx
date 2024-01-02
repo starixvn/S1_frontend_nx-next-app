@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import Image from 'next/future/image'
 import Head from 'next/head'
 import { useTranslation } from 'next-i18next'
 import { ISeoData } from 'libs/web/src/app/types/footer'
@@ -67,30 +66,29 @@ const License = () => {
 	}, [showLicenseLogo])
 	return (
 		<>
-			<div className='license'>
+			<div className='bottom-license'>
 				<div>
 					{showLicenseLogo && (
 						<>
 							<div className='title'>
 								{t('Label_Gaming_License')}
-								<Image
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/license_tick.png`}
+								<img
+									className='icon-tick'
+									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/license-tick.png`}
 									alt='vaild gaming license'
-									width={30}
-									height={30}
 								/>
 							</div>
 							<div>
 								<div
 									id={`apg-${CuracaoScript}`}
 									data-apg-seal-id={CuracaoScript}
-									data-apg-image-size='128'
+									data-apg-image-size='48'
 									data-apg-image-type='basic-small'
 								/>
 								<div
 									id={`xcm-${XCMScript}`}
 									data-xcm-seal-id={XCMScript}
-									data-xcm-image-size='128'
+									data-xcm-image-size='36'
 									data-xcm-image-type='basic-small'
 								/>
 								<div>
@@ -99,12 +97,9 @@ const License = () => {
 										target='_blank'
 										rel='noreferrer'
 									>
-										<Image
-											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/aware.png`}
-											alt=''
-											width={115}
-											height={23}
-											style={{ width: '115px', height: '23px' }}
+										<img
+											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/aware.png`}
+											alt='begambleaware'
 										/>
 									</a>
 								</div>
@@ -116,12 +111,10 @@ const License = () => {
 			<Head>
 				<script
 					src={`https://${CuracaoScript}.snippet.antillephone.com/apg-seal.js`}
-					async
 					defer
 				/>
 				<script
 					src={`https://${XCMScript}.seals-xcm.certria.com/xcm-seal.js`}
-					async
 					defer
 				/>
 			</Head>

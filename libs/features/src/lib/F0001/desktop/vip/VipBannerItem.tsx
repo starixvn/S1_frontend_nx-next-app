@@ -4,7 +4,7 @@ import { capitalize } from 'lodash-es'
 import { IBannerByCurrencyData, VipLevelEnum } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
-import { isUrl } from '@nx-next-app/utils'
+import { isUrl, numberFormatExcludeString } from '@nx-next-app/utils'
 import { VipBannerInfo } from '@nx-next-app/service'
 
 interface IVipBannerItemProps {
@@ -36,17 +36,19 @@ const VipBannerItem = ({
 					{level === VipLevelEnum.VINTAGE || level === VipLevelEnum.Highest
 						? null
 						: currencyName}
-					{upDeposit ? upDeposit.split('.')[0] : t('Label_Vip_NoRestrictions')}
+					{upDeposit
+						? numberFormatExcludeString(upDeposit)
+						: t('Label_Vip_NoRestrictions')}
 				</span>
 				{upBonus && (
 					<div className='rewardinfo'>
-						{t('Label_Vip_Tier_Maintenance_Requirement')}
+						{t('Label_Vip_Tier_UpGrade_Bonus')}
 						<span>
 							{/* vintage Club 與 Nova Club 在後台是不能編輯的且是文字或null 故這裡不顯示 currency */}
 							{level === VipLevelEnum.VINTAGE || level === VipLevelEnum.Highest
 								? null
 								: currencyName}{' '}
-							{upBonus ? upBonus.split('.')[0] : null}
+							{upBonus && numberFormatExcludeString(upBonus)}
 						</span>
 					</div>
 				)}

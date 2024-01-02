@@ -256,3 +256,11 @@ export interface ICustEWalletInfoData {
 	sysId: number
 	accountNo: string
 }
+
+export interface IWalletInfoData {
+	balance: number
+	isHideBalance: boolean
+	lastLoginTime: string
+	lastTransaction: string
+	tpWallets: ITpWalletInfoData[]
+}

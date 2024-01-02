@@ -157,3 +157,8 @@ export interface ISetDepositPromotionQueueArgs {
 	bonusCode: string
 	deviceType: number
 }
+
+export interface IGetPopUpPromotionArgs {
+	deviceType: number
+	langId: string
+}

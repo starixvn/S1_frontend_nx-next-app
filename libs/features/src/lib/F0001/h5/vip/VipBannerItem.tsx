@@ -3,7 +3,7 @@ import { capitalize } from 'lodash-es'
 import { IBannerByCurrencyData } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
-import { isUrl } from '@nx-next-app/utils'
+import { isUrl, numberFormatExcludeString } from '@nx-next-app/utils'
 import { VipBannerInfo } from '@nx-next-app/service'
 
 interface IVipBannerItemProps {
@@ -28,31 +28,31 @@ const VipBannerItem = ({
 
 	return (
 		<div className={`swiper-slide ${levelText}`} key={level}>
-			{isUrl(url) ? (
+			{isUrl(url) && (
 				<Image
 					className='vipbanner'
 					width={1020}
 					height={1230}
 					src={url}
-					alt=''
+					alt='vipbanner'
 				/>
-			) : (
-				<img src={url} alt='' />
 			)}
 			<div className='vipinfo'>
 				{t('Label_Vip_Monthly_Minimum_Deposit')}
 				<span>
 					{/* vintage Club 與 Nova Club 在後台是不能編輯的且是文字或null 故這裡不顯示 currency */}
 					{level === 1 || level === 6 ? null : currencyName}
-					{upDeposit ? upDeposit.split('.')[0] : t('Label_Vip_NoRestrictions')}
+					{upDeposit
+						? numberFormatExcludeString(upDeposit)
+						: t('Label_Vip_NoRestrictions')}
 				</span>
 				{upBonus && (
 					<div className='rewardinfo'>
-						{t('Label_Vip_Tier_Maintenance_Requirement')}
+						{t('Label_Vip_Tier_UpGrade_Bonus')}
 						<span>
 							{/* vintage Club 與 Nova Club 在後台是不能編輯的且是文字或null 故這裡不顯示 currency */}
 							{level === 1 || level === 6 ? null : currencyName}{' '}
-							{upBonus ? upBonus.split('.')[0] : null}
+							{upBonus && numberFormatExcludeString(upBonus)}
 						</span>
 					</div>
 				)}

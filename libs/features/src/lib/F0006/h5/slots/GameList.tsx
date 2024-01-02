@@ -41,7 +41,7 @@ const GameList = () => {
 							({ tpId: vendorTpId }) => vendorTpId === tpId
 						)?.tpName
 						const resultImgName = imgName[langId] ?? imgName['en']
-						const resultImgUrl = `${imgUrl}/${resultTpName}/${resultImgName}`
+						const resultImgUrl = `${imgUrl}/${resultGameImgDisplayText}/${resultImgName}`
 						const resultGameName = gameName[langId] ?? gameName['en']
 						return (
 							<div
