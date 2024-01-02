@@ -3,7 +3,6 @@ import { useTranslation } from 'next-i18next'
 import Breadcrumb from '@nx-next-app/components/H0001/breadcrumb'
 import { useStatement } from '@nx-next-app/features/F0001/providers/statement-context'
 import { Header } from '@nx-next-app/components/H0001'
-import { QuickPickEnum } from '@nx-next-app/types'
 
 const StatementHeader = () => {
 	const { t } = useTranslation()
@@ -11,6 +10,7 @@ const StatementHeader = () => {
 		HEADER_TAGS,
 		activeTab,
 		breadcrumbs,
+		activePeriod,
 		onTabChange,
 		QUICK_PICK_LIST,
 		tabsRef,
@@ -33,9 +33,8 @@ const StatementHeader = () => {
 			<Header.Tags tags={tags} />
 			<Header.Tag
 				quickSelect={quickSelect}
-				onQuickSelectChange={key =>
-					onQuickPickChange(key as QuickPickEnum, true)
-				}
+				activeQuickSelect={activePeriod}
+				onQuickSelectChange={key => onQuickPickChange(key as number, true)}
 				onTabsScroll={onTabsScroll}
 				ref={tabsRef}
 			/>
