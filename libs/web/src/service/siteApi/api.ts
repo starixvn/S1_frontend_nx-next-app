@@ -164,12 +164,19 @@ export const siteApi = rootApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
+		getIpCountry: builder.query<IAxiosResponse<{ code: string }>, null>({
+			query: () => ({
+				url: siteApiUrl.getIpCountry,
+				method: 'POST',
+			}),
+		}),
 	}),
 })
 
 export const {
 	useGetProductTpIdsQuery,
 	useGetTpMaintainListQuery,
+	useLazyGetIpCountryQuery,
 	useSetForgetPasswordMutation,
 	useLazyExistsUserNameQuery,
 	useLazyExistsEmailQuery,

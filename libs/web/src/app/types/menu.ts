@@ -80,6 +80,7 @@ export type IMenuData = {
 				period: { start: null | string; end: null | string }
 			}[]
 			menuActionType: MenuActionTypeEnum
+			allowCurrencies?: CurrenciesEnum[] | boolean // * 透過布林值決定手機顯示, true: 顯示, false: 不顯示
 		}
 		desktop: {
 			className?: string
@@ -89,17 +90,17 @@ export type IMenuData = {
 			eventIcons?: MenuEventIcon[]
 			menuType?: 'menu' | 'banner'
 			menuActionType: MenuActionTypeEnum
+			allowCurrencies?: boolean // * 透過布林值決定桌機顯示, true: 顯示, false: 不顯示
 		}
 		displayKey?: string
 		displayText?: string
 		product?: IStaticProduct
 		query?: { provider: string; type: string }
 		pathname?: string
-		allowCurrencies?: CurrenciesEnum[] | boolean // * true: 全開, false: 全關
+		allowCurrencies?: CurrenciesEnum[] | boolean // * 決定幣別, true: 全開, false: 全關
 		subMenuSort?: {
 			[key: number]: string[]
 		}
-
 		subMenuAllowCurrenciesWithAuth: boolean // * 決定是否需要登入後才過濾
 		subMenu?: ISubMenu[]
 	}

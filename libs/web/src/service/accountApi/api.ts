@@ -26,6 +26,7 @@ import {
 	IEWalletData,
 	IGetReferralArgs,
 	IReferralData,
+	IWalletInfoData,
 } from './type'
 
 export const accountApiUrl = {
@@ -56,6 +57,7 @@ export const accountApiUrl = {
 	getWalletTransferStatus: 'Account/GetWalletTransferStatus',
 	setWalletTransferStatus: 'Account/SetWalletTransferStatus',
 	getCustVIPProgress: 'Account/GetCustVIPProgress',
+	getWalletInfo: 'Account/GetWalletInfo',
 }
 
 const accountApi = rootApi.injectEndpoints({
@@ -313,6 +315,12 @@ const accountApi = rootApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
+		getWalletInfo: builder.query<IAxiosResponse<IWalletInfoData>, null>({
+			query: () => ({
+				url: accountApiUrl.getWalletInfo,
+				method: 'POST',
+			}),
+		}),
 	}),
 })
 
@@ -345,4 +353,5 @@ export const {
 	useGetWalletTransferStatusQuery,
 	useSetWalletTransferStatusMutation,
 	useGetCustVIPProgressQuery,
+	useLazyGetWalletInfoQuery,
 } = accountApi

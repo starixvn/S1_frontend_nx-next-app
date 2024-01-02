@@ -55,7 +55,7 @@ const Tag = forwardRef(
 	) => {
 		const router = useRouter()
 		const [quickSelectValue, setQuickSelectValue] = useState(
-			head(quickSelect)?.key
+			activeQuickSelect ?? head(quickSelect)?.key
 		)
 
 		return (

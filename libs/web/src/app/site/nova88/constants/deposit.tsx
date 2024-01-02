@@ -1,5 +1,4 @@
-import { DepositChannelIdEnum, DepositPaymentEnum } from '@nx-next-app/types'
-import { TFunction } from 'next-i18next'
+import { DepositPaymentEnum } from '@nx-next-app/types'
 
 /**
  * 存款選項的開關與排序
@@ -13,6 +12,8 @@ export const DEPOSIT_PAYMENT_ORDERS = [
 	DepositPaymentEnum.CryptoPay,
 	DepositPaymentEnum.QRPay,
 	DepositPaymentEnum.TopUpCardPay,
+	DepositPaymentEnum.QuickTransfer,
+	DepositPaymentEnum.ChatTransfer,
 ]
 
 export const DEPOSIT_PAYMENT_OPTIONS = {
@@ -56,27 +57,14 @@ export const DEPOSIT_PAYMENT_OPTIONS = {
 		timeDisplayKey: 'Label_General_Instant',
 		icon: 'icon icon-topup',
 	},
+	[DepositPaymentEnum.QuickTransfer]: {
+		labelDisplayKey: 'Quick Transfer',
+		timeDisplayKey: 'Label_General_Instant',
+		icon: 'icon-quick',
+	},
+	[DepositPaymentEnum.ChatTransfer]: {
+		labelDisplayKey: 'ChatTransfer',
+		timeDisplayKey: 'Label_General_Instant',
+		icon: 'icon-dou',
+	},
 }
-
-export const DEPOSIT_CHANNEL_OPTIONS = ({ t }: { t: TFunction }) => [
-	{
-		label: t('Label_Deposit_DepositChannelOption1'),
-		value: DepositChannelIdEnum.OnlineBanking,
-	},
-	{
-		label: t('Label_Deposit_DepositChannelOption2'),
-		value: DepositChannelIdEnum.CashDepositMachine,
-	},
-	{
-		label: t('Label_Deposit_DepositChannelOption3'),
-		value: DepositChannelIdEnum.ATM,
-	},
-	{
-		label: t('Label_Deposit_DepositChannelOption4'),
-		value: DepositChannelIdEnum.OverTheCounter,
-	},
-	{
-		label: t('Label_Deposit_DepositChannelOption5'),
-		value: DepositChannelIdEnum.BankQR,
-	},
-]

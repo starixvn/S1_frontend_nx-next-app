@@ -17,6 +17,10 @@ import {
 	IPaymentTopUpCardPayData,
 	useGetPaymentAutoDepositListQuery,
 	IPaymentAutoDepositData,
+	useGetDepositQuickTransferQuery,
+	IDepositQuickTransferData,
+	useGetDepositChatTransferQuery,
+	IDepositChatTransferData,
 } from '@nx-next-app/service'
 import {
 	CurrenciesEnum,
@@ -40,8 +44,9 @@ interface DepositContextInterface {
 		[DepositPaymentEnum.CryptoPay]: IDepositPaymentOption
 		[DepositPaymentEnum.QRPay]: IDepositPaymentOption
 		[DepositPaymentEnum.TopUpCardPay]: IDepositPaymentOption
+		[DepositPaymentEnum.QuickTransfer]: IDepositPaymentOption
+		[DepositPaymentEnum.ChatTransfer]: IDepositPaymentOption
 	}
-	DEPOSIT_CHANNEL_OPTIONS: SelectOptionType[]
 	loading: boolean
 	payments: {
 		[DepositPaymentEnum.AutoDeposit]?: IPaymentAutoDepositData[]
@@ -52,6 +57,8 @@ interface DepositContextInterface {
 		[DepositPaymentEnum.CryptoPay]?: IPaymentCryptoPayData[]
 		[DepositPaymentEnum.QRPay]?: IPaymentQRPayData[]
 		[DepositPaymentEnum.TopUpCardPay]?: IPaymentTopUpCardPayData[]
+		[DepositPaymentEnum.QuickTransfer]?: IDepositQuickTransferData[]
+		[DepositPaymentEnum.ChatTransfer]?: IDepositChatTransferData[]
 	}
 	promotionOptions: SelectOptionType[]
 	refetchPaymentBankTransferList: () => void
@@ -61,6 +68,8 @@ interface DepositContextInterface {
 	refetchPaymentQRPayList: () => void
 	refetchPaymentTopUpCardPayList: () => void
 	refetchPaymentAutoDepositList: () => void
+	refetchDepositQuickTransfer: () => void
+	refetchDepositChatTransfer: () => void
 }
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -81,8 +90,10 @@ interface IDepositProviderProps {
 		[DepositPaymentEnum.CryptoPay]: IDepositPaymentOption
 		[DepositPaymentEnum.QRPay]: IDepositPaymentOption
 		[DepositPaymentEnum.TopUpCardPay]: IDepositPaymentOption
+		[DepositPaymentEnum.QuickTransfer]: IDepositPaymentOption
+		[DepositPaymentEnum.ChatTransfer]: IDepositPaymentOption
 	}
-	DEPOSIT_CHANNEL_OPTIONS: SelectOptionType[]
+
 	// * 排序與開關
 	depositPaymentOrders: DepositPaymentEnum[]
 }
@@ -92,7 +103,6 @@ interface IDepositProviderProps {
 export const DepositProvider = ({
 	children,
 	DEPOSIT_PAYMENT_OPTIONS,
-	DEPOSIT_CHANNEL_OPTIONS,
 	depositPaymentOrders,
 }: IDepositProviderProps) => {
 	const { pathname, query, push } = useRouter()
@@ -168,6 +178,22 @@ export const DepositProvider = ({
 		skip: !includes(depositPaymentOrders, DepositPaymentEnum.TopUpCardPay),
 	})
 
+	const {
+		data: depositQuickTransferResponse,
+		isLoading: isGetDepositQuickTransferLoading,
+		refetch: refetchDepositQuickTransfer,
+	} = useGetDepositQuickTransferQuery()
+	const quickTransferPayList =
+		depositQuickTransferResponse?.data?.QuickTransfer?.data || []
+
+	const {
+		data: depositChatTransferResponse,
+		isLoading: isGetDepositChatTransferLoading,
+		refetch: refetchDepositChatTransfer,
+	} = useGetDepositChatTransferQuery()
+	const chatTransferPayList =
+		depositChatTransferResponse?.data?.ChatTransfer?.data || []
+
 	// * 用於 'Choose Available Promotion'
 	const { data: { data: depositPromotionList = [] } = {} } =
 		useGetDepositPromotionListQuery({
@@ -192,6 +218,8 @@ export const DepositProvider = ({
 		[DepositPaymentEnum.LinePay]: paymentLinePayInfo,
 		[DepositPaymentEnum.QRPay]: paymentQRPayList,
 		[DepositPaymentEnum.TopUpCardPay]: paymentTopUpCardPayList,
+		[DepositPaymentEnum.QuickTransfer]: quickTransferPayList,
+		[DepositPaymentEnum.ChatTransfer]: chatTransferPayList,
 	}
 
 	const defaultSavedInfo = (useReadLocalStorage(
@@ -217,11 +245,12 @@ export const DepositProvider = ({
 		isGetPaymentLinePayInfoLoading ||
 		isGetPaymentQRPayListLoading ||
 		isGetPaymentTopUpCardPayListLoading ||
-		isGetPaymentAutoDepositListLoading
+		isGetPaymentAutoDepositListLoading ||
+		isGetDepositQuickTransferLoading ||
+		isGetDepositChatTransferLoading
 
 	const value: DepositContextInterface = {
 		DEPOSIT_PAYMENT_OPTIONS,
-		DEPOSIT_CHANNEL_OPTIONS,
 		loading,
 		payments,
 		promotionOptions,
@@ -232,6 +261,8 @@ export const DepositProvider = ({
 		refetchPaymentQRPayList,
 		refetchPaymentTopUpCardPayList,
 		refetchPaymentAutoDepositList,
+		refetchDepositQuickTransfer,
+		refetchDepositChatTransfer,
 	}
 
 	// * 初始資料完後，設定默認 Deposit Payment

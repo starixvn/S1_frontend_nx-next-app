@@ -240,7 +240,7 @@ const useQRPayForm = ({
 		}
 
 		push(url, undefined, { shallow: true })
-	}, [debouncedLoading, queryPaymentType, queryPaymentName])
+	}, [debouncedLoading, queryPaymentType, queryPaymentName, queryChannelId])
 
 	return {
 		formMethods,

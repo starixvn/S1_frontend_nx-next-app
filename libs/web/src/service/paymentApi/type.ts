@@ -382,7 +382,6 @@ export interface IPostDepositBankTransferReqArgs {
 	sysId?: number
 	fromChannel?: number
 	fromSysId?: number
-	fromAccountNum?: string
 	hasPromotion: boolean
 	bankId?: number
 }
@@ -446,6 +445,49 @@ export interface IPaymentTopUpCardPayData {
 	minAmount: number
 	mode: number
 	payName: string
+}
+
+interface IDepositBankInfo {
+	sysId: number
+	bankName: string
+	bankCode: string
+	bankLogo: string
+	minAmount: number
+	maxAmount: number
+}
+
+export interface IDepositQuickTransferData {
+	selectBank: boolean
+	supportBanks: IDepositBankInfo[]
+	payId: number
+	payName: string
+	groupId: number
+	groupName: string | null
+	channelId: number
+	channelName: string
+	mode: number
+	minAmount: number
+	maxAmount: number
+	amountRule: number
+	amountList: number[]
+	depositType: number
+}
+
+export interface IDepositChatTransferData {
+	selectBank: boolean
+	supportBanks: IDepositBankInfo[]
+	payId: number
+	payName: string
+	groupId: number
+	groupName: string | null
+	channelId: number
+	channelName: string
+	mode: number
+	minAmount: number
+	maxAmount: number
+	amountRule: number
+	amountList: number[]
+	depositType: number
 }
 
 export interface IChannelTopUpCardPayData {
