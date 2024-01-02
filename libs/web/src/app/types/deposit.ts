@@ -8,6 +8,8 @@ export enum DepositPaymentEnum {
 	CryptoPay = 'CryptoPay',
 	QRPay = 'QRPay',
 	TopUpCardPay = 'TopUpCardPay',
+	QuickTransfer = 'QuickTransfer',
+	ChatTransfer = 'ChatTransfer',
 }
 
 export enum DepositActionModeEnum {

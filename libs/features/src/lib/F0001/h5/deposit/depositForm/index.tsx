@@ -10,6 +10,8 @@ import MobilePayForm from './MobilePayForm.tsx'
 import CryptoPayForm from './CryptoPayForm'
 import QRPayForm from './QRPayForm'
 import TopUpCardForm from './TopUpCardForm'
+import QuickTransferForm from './QuickTransferForm'
+import ChatTransferForm from './ChatTransferForm'
 import AutoDepositForm from './AutoDepositForm'
 import LinePayForm from './LinePayForm'
 
@@ -22,6 +24,8 @@ const {
 	LinePay,
 	QRPay,
 	TopUpCardPay,
+	QuickTransfer,
+	ChatTransfer,
 } = DepositPaymentEnum
 
 const DepositForm = () => {
@@ -112,6 +116,18 @@ const DepositForm = () => {
 			{paymentType === TopUpCardPay && (
 				<TopUpCardForm
 					dataSource={payments[DepositPaymentEnum.TopUpCardPay] || []}
+				/>
+			)}
+
+			{paymentType === QuickTransfer && (
+				<QuickTransferForm
+					dataSource={payments[DepositPaymentEnum.QuickTransfer] || []}
+				/>
+			)}
+
+			{paymentType === ChatTransfer && (
+				<ChatTransferForm
+					dataSource={payments[DepositPaymentEnum.ChatTransfer] || []}
 				/>
 			)}
 		</div>
