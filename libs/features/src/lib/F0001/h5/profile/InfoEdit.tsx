@@ -4,7 +4,8 @@ import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { useSetProfileMutation } from '@nx-next-app/service'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth } from '@nx-next-app/data-access'
+import { REALNAME_REGEX } from '@nx-next-app/site/nova88'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { PrevPageEnum, PREV_PAGE, AREA_CODE } from '@nx-next-app/constants'
 import {
@@ -23,7 +24,6 @@ const InfoEdit = () => {
 	const { prevPage } = query
 
 	const { modal } = useGlobalModal()
-	const { REALNAME_REGEX } = useStaticData()
 
 	const { handlePhoneErrorTip } = useCheckPhone()
 

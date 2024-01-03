@@ -3,13 +3,14 @@ import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { useFormContext } from 'react-hook-form'
 import { numberFormat } from '@nx-next-app/utils'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth } from '@nx-next-app/data-access'
 import { paths, AREA_CODE } from '@nx-next-app/constants'
 import { useSendOTPEmailMutation } from '@nx-next-app/service'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import DateSelector from 'libs/web/src/components/D0001/dateSelector'
 import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
 import { useCheckPhone } from '@nx-next-app/features/F0001/hooks'
+import { REALNAME_REGEX } from '@nx-next-app/site/nova88'
 import { PhoneOtpModal } from './PhoneOtpModal'
 
 interface IInfoProps {
@@ -21,7 +22,6 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 	const { t } = useTranslation()
 
 	const { modal } = useGlobalModal()
-	const { REALNAME_REGEX } = useStaticData()
 
 	const {
 		userInfo: {
