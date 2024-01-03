@@ -20,6 +20,11 @@ import {
 	RECAPTCHAT_LANG_BY_LANG_ID,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
 } from '@nx-next-app/constants'
+import {
+	USERNAME_REGEX,
+	REALNAME_REGEX,
+	PASSWORD_REGEX,
+} from '@nx-next-app/site/nova88'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
 import {
@@ -42,13 +47,7 @@ interface IJoinProps {
 const Form = ({ cookies }: IJoinProps) => {
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
-	const {
-		LANG_GROUPS,
-		TERMS_CONDITIONS,
-		USERNAME_REGEX,
-		PASSWORD_REGEX,
-		REALNAME_REGEX,
-	} = useStaticData()
+	const { LANG_GROUPS, TERMS_CONDITIONS } = useStaticData()
 	const router = useRouter()
 	const { query } = router
 
