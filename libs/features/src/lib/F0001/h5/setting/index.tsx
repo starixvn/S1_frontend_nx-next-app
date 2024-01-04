@@ -104,12 +104,7 @@ const Setting = () => {
 					{includes(ALLOWED_CURRENCIES['REWARDS'], currencyId) && (
 						<SettingCollapse.Item
 							prefixIcon='title icon icon-star-full'
-							onClick={() =>
-								window.open(
-									`${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/rewards/`,
-									'rewards'
-								)
-							}
+							onClick={() => window.open(`/rewards/`, 'rewards')}
 							header={
 								<>
 									{t('Label_General_Rewards')}

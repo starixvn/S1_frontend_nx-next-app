@@ -19,11 +19,7 @@ const Logo = ({ logoUrl, rewardsUrl, showSpLogo }: ILogoProps) => {
 			{showSpLogo && <a className='splogo' />}
 
 			{process.env['NEXT_PUBLIC_SHOW_REWARD'] === 'true' && (
-				<Link
-					href={`${process.env['NEXT_PUBLIC_REWARD_HOST']}`}
-					className='logo'
-					passHref
-				>
+				<Link href='/rewards' className='logo' passHref>
 					<a target='_blank' rel='noopener noreferrer' className='rewardsLogo'>
 						<Image src={rewardsUrl} alt='88reward' width={65} height={65} />
 					</a>

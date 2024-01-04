@@ -3,7 +3,7 @@ import FishingList from './FishingList'
 
 const Fishing = () => {
 	return (
-		<main className='fishinginside'>
+		<main className='lobby'>
 			<FishingBanner />
 			<FishingList />
 		</main>

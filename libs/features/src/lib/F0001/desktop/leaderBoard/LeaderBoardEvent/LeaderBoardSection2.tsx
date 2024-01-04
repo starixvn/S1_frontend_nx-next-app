@@ -1,17 +1,18 @@
-import React from 'react'
 import { useTranslation } from 'next-i18next'
 
 interface ILeaderBoardSection2Props {
-	item: { rank: string; point: string; bonus: string }
+	rank: string
+	point: string
+	bonus: string
 	index: number
 }
-
 const LeaderBoardSection2 = ({
-	item: { rank, point, bonus },
+	rank,
+	point,
+	bonus,
 	index,
 }: ILeaderBoardSection2Props) => {
 	const { t } = useTranslation()
-
 	return (
 		<li key={`leaderBoard-event-${rank}`}>
 			<div>

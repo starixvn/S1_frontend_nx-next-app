@@ -28,10 +28,15 @@ export const useRedirectDevice = (context: GetServerSidePropsContext) => {
 
 		if (isMobile) {
 			// 手機改手機 CName
-			targetDomain = reqDomain.replace(desktopCName, mobileCName)
+			// 相同則不改
+			targetDomain = reqDomain.startsWith(mobileCName)
+				? reqDomain
+				: reqDomain.replace(desktopCName, mobileCName)
 		} else {
 			// 桌機改桌機 CName
-			targetDomain = reqDomain.replace(mobileCName, desktopCName)
+			targetDomain = reqDomain.startsWith(desktopCName)
+				? reqDomain
+				: reqDomain.replace(mobileCName, desktopCName)
 		}
 
 		// 如果跟當前不同則回傳導轉連結
