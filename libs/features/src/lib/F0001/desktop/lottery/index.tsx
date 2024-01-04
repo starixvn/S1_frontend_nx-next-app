@@ -3,7 +3,7 @@ import LotteryList from './LotteryList'
 
 const Lottery = () => {
 	return (
-		<main className='lotteryinside'>
+		<main className='lobby'>
 			<LotteryBanner />
 			<LotteryList />
 		</main>

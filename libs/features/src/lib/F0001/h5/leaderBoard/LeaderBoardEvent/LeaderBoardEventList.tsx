@@ -1,15 +1,31 @@
-import React from 'react'
 import { useTranslation } from 'next-i18next'
 import LeaderBoardSection1 from '@nx-next-app/features/F0001/h5/leaderBoard/LeaderBoardEvent/LeaderBoardSection1'
 import LeaderBoardSection2 from '@nx-next-app/features/F0001/h5/leaderBoard/LeaderBoardEvent/LeaderBoardSection2'
 import { useLeaderBoard } from '@nx-next-app/features/F0001/providers/leaderBoard-context'
+import { useAuth } from '@nx-next-app/data-access'
+import { useGetLeaderBoardSettingQuery } from '@nx-next-app/service'
 
 const LeaderBoardEventList = () => {
 	const { t } = useTranslation()
+	const { handleTermAndConditionClick } = useLeaderBoard()
+
 	const {
-		rewardData: { section1, section2 },
-		handleTermAndConditionClick,
-	} = useLeaderBoard()
+		userInfo: { currencyId },
+	} = useAuth()
+
+	const { data: leaderBoardSettingResponseData } =
+		useGetLeaderBoardSettingQuery({
+			siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']),
+			currencyId,
+		})
+
+	const { leaderBoardPointCalculation, leaderBoardRankingBonus = [] } =
+		leaderBoardSettingResponseData?.data || {}
+	const {
+		sportTurnover = null,
+		slotTurnover = null,
+		liveCasinoTurnover = null,
+	} = leaderBoardPointCalculation || {}
 
 	return (
 		<div className='rankEvent active'>
@@ -25,9 +41,11 @@ const LeaderBoardEventList = () => {
 						<div>{t('Label_LeaderBoard_Valid_Turnover')}</div>
 						<div>{t('Label_LeaderBoard_Point')}</div>
 					</li>
-					{section1.map(item => (
-						<LeaderBoardSection1 item={item} />
-					))}
+					<LeaderBoardSection1
+						sportTurnover={sportTurnover}
+						slotTurnover={slotTurnover}
+						liveCasinoTurnover={liveCasinoTurnover}
+					/>
 				</ul>
 				<div className='title'>{t('Label_LeaderBoard_Monthly_Tournament')}</div>
 				<ul>
@@ -36,8 +54,14 @@ const LeaderBoardEventList = () => {
 						<div>{t('Label_LeaderBoard_Min_Point')}</div>
 						<div>{t('Label_LeaderBoard_Bonus_Credit')}</div>
 					</li>
-					{section2.map((item, index) => (
-						<LeaderBoardSection2 item={item} index={index} />
+					{leaderBoardRankingBonus.map((rankingData, index) => (
+						<LeaderBoardSection2
+							key={`${rankingData.siteId}-${rankingData.currencyId}-${rankingData.ranking}`}
+							index={index}
+							rank={rankingData.ranking}
+							point={rankingData.minPoint}
+							bonus={rankingData.bonus}
+						/>
 					))}
 				</ul>
 			</div>
