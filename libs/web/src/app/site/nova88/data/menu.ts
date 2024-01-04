@@ -154,7 +154,7 @@ export const MENU_DATA = ({
 				menuActionType: MenuActionTypeEnum.WindowOpen,
 				allowCurrencies: true,
 			},
-			pathname: `${process.env['NEXT_PUBLIC_REWARD_HOST']}`,
+			pathname: `/rewards`,
 			subMenuAllowCurrenciesWithAuth: false,
 			allowCurrencies: ALLOWED_CURRENCIES['REWARDS'],
 		},
