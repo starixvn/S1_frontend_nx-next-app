@@ -4,7 +4,7 @@ import { store } from '@nx-next-app/store'
 import { appWithTranslation } from 'next-i18next'
 import { UIProvider } from '@nx-next-app/components/config-provider'
 import { StaticDataProvider } from '@nx-next-app/data-access'
-import { ThirdPartyJS } from '@nx-next-app/features/F0006/desktop'
+import NextNProgress from 'nextjs-progressbar'
 
 // * supply localized format options
 // * https://day.js.org/docs/en/plugin/localized-format
@@ -19,15 +19,13 @@ import {
 	LANG_GROUPS,
 	MENU_DATA,
 	META_DATA,
-	PASSWORD_REGEX,
-	REALNAME_REGEX,
-	SLOT_TP_GAME_TYPE,
 	TERMS_CONDITIONS,
-	USERNAME_REGEX,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	VIP_CLUB_IMAGES,
 	BANNER_IMAGE_LIST,
 	LEFT_MENU_DATA,
+	LIVE_CHAT_ID_BY_LANG_ID,
+	ThirdPartyJS,
 } from '@nx-next-app/site/yashbet'
 
 import 'react-datepicker/dist/react-datepicker.css'
@@ -50,6 +48,7 @@ dayjs.extend(utc)
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
+			<NextNProgress color='#a56a28' />
 			<Provider store={store}>
 				{/* 提供 Component 狀態管理 */}
 				<UIProvider>
@@ -58,7 +57,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
 						META_DATA={META_DATA}
 						PRODUCTS={PRODUCTS}
 						ALLOWED_CURRENCIES={ALLOWED_CURRENCIES}
-						SLOT_TP_GAME_TYPE={SLOT_TP_GAME_TYPE}
 						LANG_GROUPS={LANG_GROUPS}
 						CURRENCY_TO_TIMEZONE={CURRENCY_TO_TIMEZONE}
 						VIP_CLUB_IMAGES={VIP_CLUB_IMAGES}
@@ -67,11 +65,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
 						}
 						FEATURE_BONUS={FEATURE_BONUS}
 						TERMS_CONDITIONS={TERMS_CONDITIONS}
-						USERNAME_REGEX={USERNAME_REGEX}
-						PASSWORD_REGEX={PASSWORD_REGEX}
-						REALNAME_REGEX={REALNAME_REGEX}
 						BANNER_IMAGE_LIST={BANNER_IMAGE_LIST}
 						LEFT_MENU_DATA={LEFT_MENU_DATA}
+						LIVE_CHAT_ID_BY_LANG_ID={LIVE_CHAT_ID_BY_LANG_ID}
 					>
 						<Component {...pageProps} />
 					</StaticDataProvider>

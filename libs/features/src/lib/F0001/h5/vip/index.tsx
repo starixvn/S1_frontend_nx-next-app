@@ -36,7 +36,7 @@ const Vip = ({
 	return (
 		<>
 			<Header className='header'>
-				<Header.Tag title='VIP' />
+				<Header.Tag title='VIP' back />
 			</Header>
 
 			<main className='main vip'>

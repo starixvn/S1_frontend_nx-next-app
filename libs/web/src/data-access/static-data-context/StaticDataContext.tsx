@@ -8,7 +8,6 @@ import {
 	IStaticAllowedCurrencies,
 	IStaticLangGroups,
 	IStaticProduct,
-	IStaticSlotTpGameType,
 	ITermsConditions,
 	ILeftMenuData,
 	IMenuData,
@@ -28,7 +27,6 @@ export interface IStaticDataContext {
 	}
 	LEFT_MENU_DATA: ILeftMenuData
 	ALLOWED_CURRENCIES: IStaticAllowedCurrencies
-	SLOT_TP_GAME_TYPE: IStaticSlotTpGameType
 	LANG_GROUPS: IStaticLangGroups
 	CURRENCY_TO_TIMEZONE: { [key: number]: string }
 	VIP_CLUB_IMAGES: IImageData[]
@@ -37,10 +35,10 @@ export interface IStaticDataContext {
 	) => IBannerByCurrencyData[]
 	FEATURE_BONUS: { [key: number]: string }
 	TERMS_CONDITIONS: ({ langId }: { langId: string }) => ITermsConditions
-	USERNAME_REGEX: RegExp
-	PASSWORD_REGEX: RegExp
-	REALNAME_REGEX: RegExp
 	BANNER_IMAGE_LIST: { [lang: string]: string }
+	LIVE_CHAT_ID_BY_LANG_ID: {
+		[langId: string]: number
+	}
 }
 
 const StaticDataContext = createContext<IStaticDataContext>(null!)
@@ -55,36 +53,30 @@ const StaticDataProvider = ({
 	META_DATA,
 	PRODUCTS,
 	ALLOWED_CURRENCIES,
-	SLOT_TP_GAME_TYPE,
 	LANG_GROUPS,
 	CURRENCY_TO_TIMEZONE,
 	VIP_CLUB_IMAGES,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	FEATURE_BONUS,
 	TERMS_CONDITIONS,
-	USERNAME_REGEX,
-	PASSWORD_REGEX,
-	REALNAME_REGEX,
 	BANNER_IMAGE_LIST,
 	LEFT_MENU_DATA,
+	LIVE_CHAT_ID_BY_LANG_ID,
 }: IStaticDataProviderProps) => {
 	const value: IStaticDataContext = {
 		MENU_DATA,
 		META_DATA,
 		PRODUCTS,
 		ALLOWED_CURRENCIES,
-		SLOT_TP_GAME_TYPE,
 		LANG_GROUPS,
 		CURRENCY_TO_TIMEZONE,
 		VIP_CLUB_IMAGES,
 		VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 		FEATURE_BONUS,
 		TERMS_CONDITIONS,
-		USERNAME_REGEX,
-		PASSWORD_REGEX,
-		REALNAME_REGEX,
 		BANNER_IMAGE_LIST,
 		LEFT_MENU_DATA,
+		LIVE_CHAT_ID_BY_LANG_ID,
 	}
 
 	return (

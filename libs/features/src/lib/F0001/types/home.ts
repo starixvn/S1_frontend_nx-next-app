@@ -35,9 +35,10 @@ export enum MobileHomeComponentsEnum {
 	// 跑馬燈
 	Marquee = 'Marquee',
 	// Promotion 跑馬燈
-	PromotionMarquee = 'PromotionMarquee',
+	PromotionSwiper = 'PromotionSwiper',
 	HotEventSwiper = 'HotEventSwiper',
-	HotGameMarquee = 'HotGameMarquee',
+	HotGameSwiper = 'HotGameSwiper',
+	JackPotSwiper = 'JackPotSwiper',
 	// 最近的遊戲，有登入才有
 	RecentlyViewGames = 'RecentlyViewGames',
 	// 登入才有
@@ -45,6 +46,7 @@ export enum MobileHomeComponentsEnum {
 	Jackpot = 'Jackpot',
 	LuckyWheel = 'LuckyWheel',
 	AppDownload = 'AppDownload',
+	PartnerBlock = 'PartnerBlock',
 	// 代言人頭像
 	FooterBlock = 'FooterBlock',
 	// 簡易 Footer , 與 Footer 只可擇一添加

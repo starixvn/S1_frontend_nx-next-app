@@ -104,6 +104,9 @@ export const paths = {
 	fishing: {
 		root: '/fishing',
 	},
+	fourD: {
+		root: '/4D',
+	},
 	game: {
 		root: '/game',
 	},

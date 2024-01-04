@@ -29,5 +29,3 @@ export { default as Announcement } from './announcement'
 export { default as AppDownload } from './appDownload'
 export { default as History } from './history'
 export { default as News } from './news'
-
-export * as ThirdPartyJS from './thirdPartyJS'

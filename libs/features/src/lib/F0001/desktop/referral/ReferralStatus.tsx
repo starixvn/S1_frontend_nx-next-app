@@ -19,7 +19,13 @@ const ReferralStatus = () => {
 			<div className='title'>
 				{t('Label_Referral_YourReferralStatus')}
 
-				<Link href={paths.history.root} passHref>
+				<Link
+					href={{
+						pathname: paths.history.root,
+						query: { queryTabId: 4 },
+					}}
+					passHref
+				>
 					<a className='refer-history' rel='noopener noreferrer'>
 						{t('Label_General_History')}
 					</a>

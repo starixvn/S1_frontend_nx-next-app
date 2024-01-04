@@ -1,5 +1,5 @@
-import React from 'react'
-import { IImageData } from '@nx-next-app/types'
+import classNames from 'classnames'
+import type { IImageData } from '@nx-next-app/types'
 import { useStaticData } from '@nx-next-app/data-access'
 import { useTranslation } from 'next-i18next'
 
@@ -14,11 +14,11 @@ const VipMedal = ({ activeTab, onChange }: IVipMedalProps) => {
 	return (
 		<div className='medal'>
 			{VIP_CLUB_IMAGES.map(
-				({ url, displayKey, levelTabsName, level, alt }: IImageData) => (
+				({ url, displayKey, levelTabsName, level }: IImageData) => (
 					<div
-						className={`medal-item ${
-							level === activeTab ? levelTabsName : null
-						}`}
+						className={classNames('medal-item', {
+							[`${levelTabsName}`]: level === activeTab,
+						})}
 						key={`VIPLevelList-${displayKey}`}
 						onClick={() => onChange(level as number)}
 					>

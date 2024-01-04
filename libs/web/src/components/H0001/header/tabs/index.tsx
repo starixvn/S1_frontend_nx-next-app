@@ -11,7 +11,7 @@ type TagOptionType = {
 
 interface ITagProps {
 	title?: string
-	back?: string
+	back?: string | boolean
 	activeQuickSelect?: string | number
 	quickSelect?: TagOptionType[]
 	onQuickSelectChange?: (key: string | number) => void
@@ -53,9 +53,9 @@ const Tag = forwardRef(
 		}: ITagProps,
 		ref
 	) => {
-		const { push } = useRouter()
+		const router = useRouter()
 		const [quickSelectValue, setQuickSelectValue] = useState(
-			head(quickSelect)?.key
+			activeQuickSelect ?? head(quickSelect)?.key
 		)
 
 		return (
@@ -67,7 +67,17 @@ const Tag = forwardRef(
 						})}
 					>
 						{back && (
-							<a role='link' aria-hidden onClick={() => push(back)}>
+							<a
+								role='link'
+								aria-hidden
+								onClick={() => {
+									if (typeof back === 'boolean') {
+										router.back()
+									} else if (typeof back === 'string') {
+										router.push(back)
+									}
+								}}
+							>
 								<i className='icon icon-keyboard_arrow_left' />
 							</a>
 						)}

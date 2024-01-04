@@ -7,7 +7,7 @@ import {
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
 import { Layout, Vip } from '@nx-next-app/features/F0006/desktop'
-import { CurrenciesEnum, IFooterData } from '@nx-next-app/types'
+import { IFooterData } from '@nx-next-app/types'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -15,7 +15,7 @@ import {
 import { includes } from 'lodash'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IVipBannerData } from '@nx-next-app/service'
-import { FOOTER_DATA } from '@nx-next-app/site/yashbet'
+import { ALLOWED_CURRENCIES, FOOTER_DATA } from '@nx-next-app/site/yashbet'
 
 interface IVipPageProps extends InitialPropsInterface {
 	vipBannerData: IVipBannerData
@@ -54,12 +54,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	)
 
 	// * 只支援 MYR IDR THB 幣別
-	if (
-		!includes(
-			[CurrenciesEnum.MYR, CurrenciesEnum.IDR, CurrenciesEnum.THB],
-			Number(currencyId)
-		)
-	) {
+	if (!includes(ALLOWED_CURRENCIES['VIP'], Number(currencyId))) {
 		return {
 			redirect: {
 				destination: '/',

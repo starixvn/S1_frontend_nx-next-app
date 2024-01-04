@@ -654,7 +654,7 @@ export const MENU_DATA = ({
 			desktop: {
 				className: 'eSportsbtn',
 				subMenuClassName: 'eSportsList',
-				menuActionType: MenuActionTypeEnum.Null,
+				menuActionType,
 			},
 			displayKey: 'Label_General_ESports',
 			pathname: paths.eSport.root,
@@ -872,7 +872,7 @@ export const MENU_DATA = ({
 			desktop: {
 				className: 'livecasinobtn icon icon-newicon',
 				subMenuClassName: 'livecasinoList',
-				menuActionType: MenuActionTypeEnum.Null,
+				menuActionType,
 			},
 			displayKey: 'Label_General_LiveCasino',
 			pathname: paths.liveCasino.root,
@@ -2577,7 +2577,7 @@ export const MENU_DATA = ({
 			},
 			desktop: {
 				subMenuClassName: 'livecasinoList',
-				menuActionType: MenuActionTypeEnum.Null,
+				menuActionType,
 			},
 			displayKey: 'Label_General_Games',
 			pathname: paths.game.root,
@@ -3043,7 +3043,7 @@ export const MENU_DATA = ({
 			desktop: {
 				className: 'fishbtn',
 				subMenuClassName: 'fishList',
-				menuActionType: MenuActionTypeEnum.Null,
+				menuActionType,
 			},
 			displayKey: 'Label_General_Fishing',
 			pathname: paths.fishing.root,
@@ -3388,7 +3388,7 @@ export const MENU_DATA = ({
 			},
 			desktop: {
 				subMenuClassName: 'gameList',
-				menuActionType: MenuActionTypeEnum.Null,
+				menuActionType,
 			},
 			displayKey: 'Label_General_Lottery',
 			pathname: paths.lottery.root,

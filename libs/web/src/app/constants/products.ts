@@ -1,3 +1,5 @@
+import { LoginGameTypeEnum } from '@nx-next-app/types'
+
 export const PRODUCTS = {
 	// * SPORTS
 	SPORTS: {
@@ -215,6 +217,10 @@ export const PRODUCTS = {
 		TP_ID: 39,
 		TP_GAME_TYPE: 67,
 	},
+	SLOTS_AMIGO: {
+		TP_ID: 60,
+		TP_GAME_TYPE: 112,
+	},
 	SLOTS_ES: {
 		TP_ID: 49,
 		TP_GAME_TYPE: 98,
@@ -423,6 +429,15 @@ export const PRODUCTS = {
 		NAME: 'Fishing_Alien_Hunter',
 		TP_GAME_TYPE: 31,
 	},
+
+	// * 4D => FOUR_D
+	FOUR_D_GRAND_DRAGON: {
+		TP_ID: 58,
+		GAME_ID: 'HL',
+		TP_GAME_TYPE: 110,
+		LOGIN_GAME_TYPE: LoginGameTypeEnum.returnGameUrl,
+	},
+
 	// * COCKFIGHTING_VN
 	COCKFIGHTING_VN: {
 		TP_ID: 17,

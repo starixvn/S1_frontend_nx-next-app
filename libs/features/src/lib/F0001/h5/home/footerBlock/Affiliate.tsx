@@ -12,7 +12,7 @@ const Affiliate = () => {
 	} = useHome()
 
 	return (
-		<div className='aff'>
+		<div className='home-bottom-aff'>
 			<a
 				className='title'
 				style={

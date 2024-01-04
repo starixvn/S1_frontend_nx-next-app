@@ -21,7 +21,7 @@ const Menu = () => {
 
 	return (
 		<>
-			<div className='sideBar'>
+			<div className='home-sidebar'>
 				{Object.entries(menuData).map(
 					([
 						key,
@@ -43,7 +43,7 @@ const Menu = () => {
 						// * subMenu 不能給預設值，用 ?. 的邏輯才能將 「以 icon 呈現」和 「submenu 沒有值」區隔開來
 						if (displayKey && subMenu?.length === 0) return null
 
-						const { icon: mainEventIcon } =
+						const { icon: mainEventIcon, text: mainEventText } =
 							getMainEventIcon({ eventIcons, subMenu }) ?? {}
 
 						return (
@@ -74,18 +74,20 @@ const Menu = () => {
 									)
 								}}
 							>
-								{icon && <i className={classNames(icon)} />}
-								{img && (
-									<Image
-										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}${img}`}
-										alt={`img-${img}`}
-										width={30}
-										height={30}
-									/>
-								)}
+								{/* {icon && <i className={classNames(icon)} />} */}
+								<i className={classNames(mainEventIcon)}>{mainEventText}</i>
+								<div className='btn-circle'>
+									{img && (
+										<Image
+											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/${img}`}
+											alt={`img-${img}`}
+											width={30}
+											height={30}
+										/>
+									)}
+								</div>
 
 								<div>{displayKey ? t(displayKey) : displayText}</div>
-								<i className={classNames(mainEventIcon)} />
 							</button>
 						)
 					}

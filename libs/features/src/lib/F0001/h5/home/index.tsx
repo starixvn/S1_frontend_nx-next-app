@@ -18,17 +18,18 @@ import { CurrenciesEnum } from '@nx-next-app/types'
 import { multiEqual } from '@nx-next-app/utils'
 import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
 import Menu from './menu'
-import { LoginBlock } from './LoginBlock'
-import { PromotionMarquee } from './PromotionMarquee'
+
+import { PromotionSwiper } from './PromotionSwiper'
 import { HotEventSwiper } from './HotEventSwiper'
-import { HotGameMarquee } from './HotGameMarquee'
+import { HotGameSwiper } from './HotGameSwiper'
 import { RecentlyViewGames } from './RecentlyViewGames'
 import { FriendReferral } from './FriendReferral'
 import CarouselBanner from '../common/carouselBanner'
-import { HeaderQuickLink } from './HeaderQuickLink'
 import { AppDownload } from './AppDownload'
 import { SimpleFooter } from './SimpleFooter'
 import { FooterBlock } from './footerBlock'
+import { JackPotSwiper } from './JackPotSwiper'
+import { PartnerBlock } from './PartnerBlock'
 
 interface IHomeProps {
 	persistAppDownloadHint: string
@@ -41,7 +42,6 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 
 	const {
 		userInfo: { langId, currencyId },
-		auth: { isLogin },
 	} = useAuth()
 
 	const {
@@ -72,11 +72,13 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 
 	const homeComponents = {
 		[MobileHomeComponentsEnum.CarouselBanner]: (
-			<CarouselBanner
-				bannerList={bannerData}
-				pagination={false}
-				navigation={false}
-			/>
+			<div className='home-mainbanner'>
+				<CarouselBanner
+					bannerList={bannerData}
+					pagination={false}
+					navigation={false}
+				/>
+			</div>
 		),
 		[MobileHomeComponentsEnum.Marquee]: (
 			<Marquee
@@ -88,9 +90,9 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 				}
 			/>
 		),
-		[MobileHomeComponentsEnum.PromotionMarquee]: <PromotionMarquee />,
+		[MobileHomeComponentsEnum.PromotionSwiper]: <PromotionSwiper />,
 		[MobileHomeComponentsEnum.HotEventSwiper]: <HotEventSwiper />,
-		[MobileHomeComponentsEnum.HotGameMarquee]: <HotGameMarquee />,
+		[MobileHomeComponentsEnum.HotGameSwiper]: <HotGameSwiper />,
 		[MobileHomeComponentsEnum.RecentlyViewGames]: <RecentlyViewGames />,
 		[MobileHomeComponentsEnum.FriendReferral]: <FriendReferral />,
 		[MobileHomeComponentsEnum.Jackpot]: includes(
@@ -101,6 +103,8 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 		[MobileHomeComponentsEnum.AppDownload]: <AppDownload />,
 		[MobileHomeComponentsEnum.FooterBlock]: <FooterBlock />,
 		[MobileHomeComponentsEnum.SimpleFooter]: <SimpleFooter />,
+		[MobileHomeComponentsEnum.JackPotSwiper]: <JackPotSwiper />,
+		[MobileHomeComponentsEnum.PartnerBlock]: <PartnerBlock />,
 	}
 
 	// banner 區塊，目前只有兩個
@@ -148,18 +152,14 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 					active: isAppDownloadHintActive,
 				})}
 			>
-				{isLogin && <HeaderQuickLink />}
 				{bannerBlockOrders.map(component =>
 					homeComponents[component] ? homeComponents[component] : null
 				)}
 
-				{!isLogin && <LoginBlock />}
-				<div id='content'>
-					<Menu />
-					{contentOrders.map(component =>
-						homeComponents[component] ? homeComponents[component] : null
-					)}
-				</div>
+				<Menu />
+				{contentOrders.map(component =>
+					homeComponents[component] ? homeComponents[component] : null
+				)}
 			</main>
 		</>
 	)

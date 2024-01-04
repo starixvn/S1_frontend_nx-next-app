@@ -14,6 +14,8 @@ import QRPayForm from './QRPayForm'
 import TopUpCardForm from './TopUpCardForm'
 import AutoDepositForm from './AutoDepositForm'
 import DepositAutoRemember from '../DepositAutoRemember'
+import QuickTransferForm from './QuickTransferForm'
+import ChatTransferForm from './ChatTransferForm'
 
 const {
 	AutoDeposit,
@@ -23,6 +25,8 @@ const {
 	CryptoPay,
 	QRPay,
 	TopUpCardPay,
+	QuickTransfer,
+	ChatTransfer,
 } = DepositPaymentEnum
 
 const DepositLinePayModal = dynamic(
@@ -127,6 +131,18 @@ const DepositForm = () => {
 			{paymentType === TopUpCardPay && (
 				<TopUpCardForm
 					dataSource={payments[DepositPaymentEnum.TopUpCardPay] || []}
+				/>
+			)}
+
+			{paymentType === QuickTransfer && (
+				<QuickTransferForm
+					dataSource={payments[DepositPaymentEnum.QuickTransfer] || []}
+				/>
+			)}
+
+			{paymentType === ChatTransfer && (
+				<ChatTransferForm
+					dataSource={payments[DepositPaymentEnum.ChatTransfer] || []}
 				/>
 			)}
 		</div>

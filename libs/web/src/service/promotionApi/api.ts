@@ -5,6 +5,7 @@ import { rootApi } from '../rootApi/api'
 import { ICustSpecificBonusData } from '../accountApi/type'
 import {
 	IDepositPromotionData,
+	IGetPopUpPromotionArgs,
 	IGetPromotionDetailArgs,
 	IPromotionData,
 	IRebateExcludeGameData,
@@ -18,6 +19,7 @@ export const promotionApiUrl = {
 	getRebateExcludeGameList: 'Promotion/GetRebateExcludeGameList',
 	getSpecialPromotionList: 'Promotion/GetSpecialPromotionListV2',
 	getDepositPromotionList: 'Promotion/GetDepositPromotionList',
+	getPopUpPromotion: 'Promotion/GetPopUpPromotion',
 	setSpecialCode: 'Promotion/SetSpecialCode',
 	setClaimPromotion: 'Promotion/SetClaimPromotion',
 	setDepositPromotionQueue: 'Promotion/SetDepositPromotionQueue',
@@ -124,6 +126,18 @@ export const promotionApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
+		getPopUpPromotion: builder.query<
+			IAxiosResponse<{
+				bonusCode: null | string
+			}>,
+			IGetPopUpPromotionArgs
+		>({
+			query: ({ deviceType, langId }) => ({
+				url: `${promotionApiUrl.getPopUpPromotion}/${langId}`,
+				method: 'POST',
+				data: { deviceType },
+			}),
+		}),
 	}),
 })
 
@@ -215,6 +229,7 @@ export const updatePromotionDetail = ({
 }
 
 export const {
+	useLazyGetPopUpPromotionQuery,
 	useGetPromotionListV3Query,
 	useLazyGetPromotionListV3Query,
 	useLazyGetPromotionDetailQuery,

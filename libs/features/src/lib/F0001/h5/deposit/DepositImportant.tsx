@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTranslation, Trans } from 'next-i18next'
 import { openLiveChat } from '@nx-next-app/utils'
+import { upperFirst } from 'lodash-es'
 
 const DepositImportant = () => {
 	const { t } = useTranslation()
@@ -28,6 +29,9 @@ const DepositImportant = () => {
 						components={{
 							span: <span />,
 						}}
+						values={{
+							site: upperFirst(process.env['NEXT_PUBLIC_SITE_NAME'] || ''),
+						}}
 					/>
 				</li>
 				<li>
@@ -42,7 +46,7 @@ const DepositImportant = () => {
 					<Trans
 						i18nKey='Label_Deposit_ImportantNoticeContent6'
 						components={{
-							a: <button onClick={() => openLiveChat()} />,
+							Link: <a onClick={() => openLiveChat()} />,
 						}}
 					/>
 				</li>

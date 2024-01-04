@@ -8,6 +8,11 @@ import {
 	useLazyAffiliateCheckQuery,
 	useLazyExistsUserNameQuery,
 } from '@nx-next-app/service'
+import {
+	USERNAME_REGEX,
+	PASSWORD_REGEX,
+	REALNAME_REGEX,
+} from '@nx-next-app/site/nova88'
 
 interface IStep1Props {
 	cookies: TmpCookiesObj
@@ -19,8 +24,7 @@ const Step1 = ({ cookies, setStep }: IStep1Props) => {
 	const router = useRouter()
 	const { query } = router
 
-	const { TERMS_CONDITIONS, USERNAME_REGEX, PASSWORD_REGEX, REALNAME_REGEX } =
-		useStaticData()
+	const { TERMS_CONDITIONS } = useStaticData()
 	const {
 		userInfo: { langId },
 	} = useAuth()
