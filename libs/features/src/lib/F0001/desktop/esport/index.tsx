@@ -1,13 +1,15 @@
-import EsportBanner from './EsportBanner'
-import EsportList from './EsportList'
+import ESportBanner from './ESportBanner'
+import ESportFooterList from './ESportFooterList'
+import ESportList from './ESportList'
 
-const Esport = () => {
+const ESport = () => {
 	return (
-		<main className='esportinside'>
-			<EsportBanner />
-			<EsportList />
+		<main className='lobby'>
+			<ESportBanner />
+			<ESportList />
+			<ESportFooterList />
 		</main>
 	)
 }
 
-export default Esport
+export default ESport
