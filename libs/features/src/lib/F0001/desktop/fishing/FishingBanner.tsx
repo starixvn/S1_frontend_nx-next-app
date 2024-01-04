@@ -1,14 +1,22 @@
 import Image from 'next/future/image'
 
+const baseUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/lobby-fishing`
+
 const FishingBanner = () => {
 	return (
-		<div className='mainBanner'>
-			<Image
-				alt='fishmainbanner'
-				height={500}
-				width={1920}
-				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/fishing/fishmainbanner.jpg`}
-			/>
+		<div className='lobby-banner'>
+			<div className='swiper-container'>
+				<div className='swiper-wrapper'>
+					<div className='swiper-slide'>
+						<Image
+							alt='fish-banner-img'
+							height={500}
+							width={1920}
+							src={`${baseUrl}/fishlobby-bn.png`}
+						/>
+					</div>
+				</div>
+			</div>
 		</div>
 	)
 }

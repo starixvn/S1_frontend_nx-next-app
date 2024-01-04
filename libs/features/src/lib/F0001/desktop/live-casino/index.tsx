@@ -3,7 +3,7 @@ import LiveCasinoList from './LiveCasinoList'
 
 const LiveCasino = () => {
 	return (
-		<main className='livecasinoinside newDesign'>
+		<main className='lobby'>
 			<LiveCasinoBanner />
 			<LiveCasinoList />
 		</main>
