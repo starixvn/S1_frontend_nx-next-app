@@ -16,7 +16,7 @@ const Index = () => {
 	const { menuData, onMenuOpen } = useMenu()
 	const { modal } = useGlobalModal()
 
-	const sportMenu = menuData.Sports.subMenu
+	const sportMenu = menuData.Sports?.subMenu
 
 	const soccerGame = find(
 		sportMenu,
