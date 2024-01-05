@@ -5,7 +5,6 @@ import { useTranslation } from 'next-i18next'
 import { IHotEventData } from '@nx-next-app/service'
 import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
 import Link from 'next/link'
-import { uniqueId } from 'lodash-es'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
@@ -110,7 +109,7 @@ const HotEventSwiper = () => {
 
 	const rows = hotEventData?.map(eventData => (
 		<Item
-			key={`${eventData.sportLeaguesTitle}-${uniqueId()}`}
+			key={`${eventData.sportLeaguesTitle}-${eventData.matchId}`}
 			data={eventData}
 		/>
 	))
