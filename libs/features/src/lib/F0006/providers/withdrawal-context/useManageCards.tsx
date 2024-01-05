@@ -94,17 +94,15 @@ const useManageCards = ({ accountName, bankData }: IUseManageCardsProps) => {
 			const { data: bankInfo = [] } = await getBankInfoSysList(null).unwrap()
 			const dropDownOptions: ISelectProps['options'] = bankInfo.map(
 				({ bankName, sysId, bankLogo }) => {
+					const logoSrc = bankLogo
+						? `${
+								process.env['NEXT_PUBLIC_PAYMENT_HOST']
+						  }/square/${bankLogo.toLowerCase()}`
+						: ''
 					return {
 						value: sysId,
 						label: bankName,
-						prefixOptionIcon: (
-							<img
-								src={`${
-									process.env['NEXT_PUBLIC_PAYMENT_HOST']
-								}/square/${bankLogo.toLowerCase()}`}
-								alt=''
-							/>
-						),
+						prefixOptionIcon: <img src={logoSrc} alt='' />,
 					}
 				}
 			)
@@ -127,17 +125,16 @@ const useManageCards = ({ accountName, bankData }: IUseManageCardsProps) => {
 			const { data: eWalletData = [] } = await getEWalletInfoList(null).unwrap()
 			const dropDownOptions: ISelectProps['options'] = eWalletData.map(
 				({ eWalletName, sysId, eWalletLogo }) => {
+					const logoSrc = eWalletLogo
+						? `${
+								process.env['NEXT_PUBLIC_PAYMENT_HOST']
+						  }/square/${eWalletLogo.toLowerCase()}`
+						: ''
+
 					return {
 						value: sysId,
 						label: eWalletName,
-						prefixOptionIcon: (
-							<img
-								src={`${
-									process.env['NEXT_PUBLIC_PAYMENT_HOST']
-								}/square/${eWalletLogo.toLowerCase()}`}
-								alt=''
-							/>
-						),
+						prefixOptionIcon: <img src={logoSrc} alt='' />,
 					}
 				}
 			)
