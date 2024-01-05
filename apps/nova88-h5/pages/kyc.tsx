@@ -40,10 +40,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
 	const { currentHeaderCookies } = initialProps
 
-	const withdrawalBlockSetting = await getWithdrawalBlockSetting({
-		headers: { cookie: currentHeaderCookies },
-	})
-
 	if (!initialProps.originIsSignIn) {
 		return {
 			redirect: {
@@ -52,6 +48,10 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			},
 		}
 	}
+
+	const withdrawalBlockSetting = await getWithdrawalBlockSetting({
+		headers: { cookie: currentHeaderCookies },
+	})
 
 	return {
 		props: {
