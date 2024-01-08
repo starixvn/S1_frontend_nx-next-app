@@ -2527,6 +2527,7 @@ export const MENU_DATA = ({
 				},
 			],
 			subMenuAllowCurrenciesWithAuth: false,
+			allowCurrencies: [MYR],
 		},
 		[MenuKeyEnum.Lottery]: {
 			display: 'all',
