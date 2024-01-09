@@ -36,7 +36,7 @@ const HotEventSwiper = () => {
 		<>
 			<div className='moduleTitle'>{t('Label_General_UpcomingMatches')}</div>
 			<Carousel {...config}>
-				{hotEventData.map(eventData => {
+				{hotEventData?.map(eventData => {
 					const {
 						backgroundPic,
 						sportLeaguesTitle,

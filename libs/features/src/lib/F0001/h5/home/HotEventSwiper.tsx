@@ -40,7 +40,7 @@ const HotEventSwiper = () => {
 			</div>
 			<div className='home-hotmatch-swiper'>
 				<DynamicSwiper {...config}>
-					{hotEventData.map(eventData => {
+					{hotEventData?.map(eventData => {
 						const {
 							sportLeaguesTitle,
 							homeTeamPic,
