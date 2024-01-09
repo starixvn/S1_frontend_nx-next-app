@@ -17,9 +17,7 @@ const GameList = () => {
 	const { modal } = useGlobalModal()
 	const { t } = useTranslation()
 	const {
-		menuData: {
-			Game: { subMenu },
-		},
+		menuData: { Game: { subMenu } = {} },
 		onMenuOpen,
 	} = useMenu()
 

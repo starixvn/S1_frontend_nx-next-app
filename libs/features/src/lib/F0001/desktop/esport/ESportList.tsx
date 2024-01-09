@@ -25,9 +25,7 @@ const ESportList = () => {
 	const { modal } = useGlobalModal()
 	const { t } = useTranslation()
 	const {
-		menuData: {
-			ESports: { subMenu },
-		},
+		menuData: { ESports: { subMenu } = {} },
 		onMenuOpen,
 	} = useMenu()
 
