@@ -8,8 +8,10 @@ import {
 export const getHotEvent = async ({
 	langId,
 }: IGetHotEventListArgs): Promise<IHotEventData[]> => {
-	const { data: { data = [] } = {} } = await baseAxios.post(
+	const {
+		data: { data },
+	}: { data: { data: IHotEventData[] | null } } = await baseAxios.post(
 		`${hotEventApiUrl.getHotEventList}/${langId}`
 	)
-	return data
+	return data || []
 }
