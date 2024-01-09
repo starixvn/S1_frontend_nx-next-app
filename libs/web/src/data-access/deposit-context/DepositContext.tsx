@@ -36,16 +36,16 @@ import { ENV_LOCAL_STORAGE_NAMES } from '../../app/constants/Names'
 
 interface DepositContextInterface {
 	DEPOSIT_PAYMENT_OPTIONS: {
-		[DepositPaymentEnum.AutoDeposit]: IDepositPaymentOption
-		[DepositPaymentEnum.BankTransfer]: IDepositPaymentOption
-		[DepositPaymentEnum.LinePay]: IDepositPaymentOption
-		[DepositPaymentEnum.OnlineBanking]: IDepositPaymentOption
-		[DepositPaymentEnum.MobilePay]: IDepositPaymentOption
-		[DepositPaymentEnum.CryptoPay]: IDepositPaymentOption
-		[DepositPaymentEnum.QRPay]: IDepositPaymentOption
-		[DepositPaymentEnum.TopUpCardPay]: IDepositPaymentOption
-		[DepositPaymentEnum.QuickTransfer]: IDepositPaymentOption
-		[DepositPaymentEnum.ChatTransfer]: IDepositPaymentOption
+		[DepositPaymentEnum.AutoDeposit]?: IDepositPaymentOption
+		[DepositPaymentEnum.BankTransfer]?: IDepositPaymentOption
+		[DepositPaymentEnum.LinePay]?: IDepositPaymentOption
+		[DepositPaymentEnum.OnlineBanking]?: IDepositPaymentOption
+		[DepositPaymentEnum.MobilePay]?: IDepositPaymentOption
+		[DepositPaymentEnum.CryptoPay]?: IDepositPaymentOption
+		[DepositPaymentEnum.QRPay]?: IDepositPaymentOption
+		[DepositPaymentEnum.TopUpCardPay]?: IDepositPaymentOption
+		[DepositPaymentEnum.QuickTransfer]?: IDepositPaymentOption
+		[DepositPaymentEnum.ChatTransfer]?: IDepositPaymentOption
 	}
 	loading: boolean
 	payments: {
@@ -82,16 +82,16 @@ export const useDepositContext = () => {
 interface IDepositProviderProps {
 	children: ReactNode
 	DEPOSIT_PAYMENT_OPTIONS: {
-		[DepositPaymentEnum.AutoDeposit]: IDepositPaymentOption
-		[DepositPaymentEnum.BankTransfer]: IDepositPaymentOption
-		[DepositPaymentEnum.LinePay]: IDepositPaymentOption
-		[DepositPaymentEnum.OnlineBanking]: IDepositPaymentOption
-		[DepositPaymentEnum.MobilePay]: IDepositPaymentOption
-		[DepositPaymentEnum.CryptoPay]: IDepositPaymentOption
-		[DepositPaymentEnum.QRPay]: IDepositPaymentOption
-		[DepositPaymentEnum.TopUpCardPay]: IDepositPaymentOption
-		[DepositPaymentEnum.QuickTransfer]: IDepositPaymentOption
-		[DepositPaymentEnum.ChatTransfer]: IDepositPaymentOption
+		[DepositPaymentEnum.AutoDeposit]?: IDepositPaymentOption
+		[DepositPaymentEnum.BankTransfer]?: IDepositPaymentOption
+		[DepositPaymentEnum.LinePay]?: IDepositPaymentOption
+		[DepositPaymentEnum.OnlineBanking]?: IDepositPaymentOption
+		[DepositPaymentEnum.MobilePay]?: IDepositPaymentOption
+		[DepositPaymentEnum.CryptoPay]?: IDepositPaymentOption
+		[DepositPaymentEnum.QRPay]?: IDepositPaymentOption
+		[DepositPaymentEnum.TopUpCardPay]?: IDepositPaymentOption
+		[DepositPaymentEnum.QuickTransfer]?: IDepositPaymentOption
+		[DepositPaymentEnum.ChatTransfer]?: IDepositPaymentOption
 	}
 
 	// * 排序與開關
