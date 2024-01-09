@@ -1,12 +1,9 @@
 import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
 import Image from 'next/future/image'
-import { paths } from '@nx-next-app/constants'
 import { useMenu } from '@nx-next-app/features/F0006/hooks'
 import { find, isUndefined } from 'lodash-es'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import dynamic from 'next/dynamic'
-import { isUrl } from '@nx-next-app/utils'
 
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0006/desktop/modal/LoginModal'),
@@ -17,11 +14,14 @@ const LoginModal = dynamic(
 
 const LiveCasino = () => {
 	const { t } = useTranslation()
-	const { menuData, onMenuOpen } = useMenu()
+	const {
+		menuData: { Casino: { subMenu: casinoSubMenu } = {} } = {},
+		onMenuOpen,
+	} = useMenu()
 	const { modal } = useGlobalModal()
 
 	const casinoDG = find(
-		menuData.Casino.subMenu,
+		casinoSubMenu,
 		menu => menu.productKey === 'LIVE_CASINO_DG'
 	)
 

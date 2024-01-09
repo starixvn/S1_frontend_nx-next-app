@@ -30,13 +30,16 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 	const { menuData, onMenuOpen } = useMenu()
 
 	const renderSubMenu = (key: string) => {
+		const menu = menuData[key as MenuKeyEnum]
+		if (!menu) return null
+
 		const {
 			desktop: { menuType, subMenuClassName, menuActionType },
 			subMenu,
 			pathname,
 			product,
 			query,
-		} = menuData[key as MenuKeyEnum]
+		} = menu
 
 		// * AppDownload 的元件較獨特，非 menu 也非 banner, 因此先獨立出來實作
 		// * 更新：關閉此功能

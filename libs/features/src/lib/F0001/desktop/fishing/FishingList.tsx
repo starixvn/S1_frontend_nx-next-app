@@ -17,9 +17,7 @@ const FishingList = () => {
 	const { modal } = useGlobalModal()
 	const { t } = useTranslation()
 	const {
-		menuData: {
-			Fishing: { subMenu },
-		},
+		menuData: { Fishing: { subMenu } = {} },
 		onMenuOpen,
 	} = useMenu()
 

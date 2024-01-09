@@ -16,8 +16,8 @@ const Sports = () => {
 	} = useAuth()
 	const {
 		menuData: {
-			Sports: { subMenu: sportSubmenu = [] },
-			Lottery: { subMenu: lotterySubmenu = [] },
+			Sports: { subMenu: sportSubmenu = [] } = {},
+			Lottery: { subMenu: lotterySubmenu = [] } = {},
 		},
 		onDefaultEnterPage,
 	} = useMenu()
