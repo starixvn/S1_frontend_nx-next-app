@@ -8,7 +8,6 @@ import { paths } from '@nx-next-app/constants'
 const VipBottom = () => {
 	const { t } = useTranslation()
 	const {
-		userInfo: { langId },
 		auth: { isLogin },
 	} = useAuth()
 	return (
@@ -16,7 +15,7 @@ const VipBottom = () => {
 			<div className='vip-bottom-item' style={{ cursor: 'pointer' }}>
 				{/* Link 包在最外層會覆蓋到 css 故分別包在裡面 */}
 				<Link
-					href={`/${langId}/${paths.join.root}`}
+					href={paths.join.root}
 					style={isLogin ? { pointerEvents: 'none' } : {}}
 				>
 					<Image
@@ -30,7 +29,7 @@ const VipBottom = () => {
 			</div>
 			<div className='vip-bottom-item' style={{ cursor: 'pointer' }}>
 				<Link
-					href={`/${langId}/${paths.join.root}`}
+					href={paths.join.root}
 					style={isLogin ? { pointerEvents: 'none' } : {}}
 				>
 					<Image
@@ -44,7 +43,7 @@ const VipBottom = () => {
 			</div>
 			<div className='vip-bottom-item' style={{ cursor: 'pointer' }}>
 				<Link
-					href={`/${langId}/${paths.join.root}`}
+					href={paths.join.root}
 					style={isLogin ? { pointerEvents: 'none' } : {}}
 				>
 					<Image
@@ -58,7 +57,7 @@ const VipBottom = () => {
 			</div>
 			<div className='vip-bottom-item' style={{ cursor: 'pointer' }}>
 				<Link
-					href={`/${langId}/${paths.join.root}`}
+					href={paths.join.root}
 					style={isLogin ? { pointerEvents: 'none' } : {}}
 				>
 					<Image
