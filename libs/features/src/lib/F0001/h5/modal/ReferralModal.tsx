@@ -40,7 +40,7 @@ const ReferralModal = ({ referralCode }: { referralCode: string }) => {
 
 	const currentLocation = window !== undefined ? window.location.origin : ''
 
-	const refLink = `${currentLocation}/${userInfo.langId}/${paths.join.root}?AffId=${referralCode}`
+	const refLink = `${currentLocation}/${userInfo.langId}${paths.join.root}?AffId=${referralCode}`
 
 	const copyText = () => {
 		const virtualInput = document.createElement('input')
