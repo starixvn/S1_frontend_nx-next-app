@@ -596,35 +596,6 @@ export const MENU_DATA = ({
 						},
 					],
 				},
-				{
-					h5: {
-						img: '/h5/img/esportTFG.png',
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					desktop: {
-						headerMenuImgList: [
-							{
-								className: 'List-npc',
-								imgUrl: 'esportTFG.png',
-							},
-						],
-						lobbyPage: {
-							bgImg: 'esposts-inplaymatrix.png',
-							hoverBgImg: 'esposts-inplaymatrixa.png',
-						},
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					productKey: 'SPORTS_E_SPORTS_TFG',
-					displayKey: 'TFGaming',
-					product: PRODUCTS['SPORTS_E_SPORTS_TFG'],
-					eventIcons: [
-						{
-							icon: 'new-icon',
-							text: 'NEW',
-							period: PRODUCT_EVENT_PERIOD['SPORTS_E_SPORTS_TFG'],
-						},
-					],
-				},
 			],
 		},
 		[MenuKeyEnum.Casino]: {
