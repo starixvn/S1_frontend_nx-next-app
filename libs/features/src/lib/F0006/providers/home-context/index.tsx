@@ -169,7 +169,7 @@ export const HomeProvider = ({
 	persistAnnouncementData,
 	persistBannerData,
 	persistPromotionData,
-	persistHotEventData,
+	persistHotEventData = [],
 	persistLatestHighlightVideo,
 	persistHotGameData,
 	persistNewsData,
