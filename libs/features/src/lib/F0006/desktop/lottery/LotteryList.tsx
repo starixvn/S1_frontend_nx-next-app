@@ -20,9 +20,7 @@ const LotteryList = () => {
 	const { modal } = useGlobalModal()
 	const { t } = useTranslation()
 	const {
-		menuData: {
-			Lottery: { subMenu },
-		},
+		menuData: { Lottery: { subMenu } = {} },
 		onMenuOpen,
 	} = useMenu()
 

@@ -17,9 +17,7 @@ const LiveCasinoList = () => {
 	const { modal } = useGlobalModal()
 	const { t } = useTranslation()
 	const {
-		menuData: {
-			Casino: { subMenu },
-		},
+		menuData: { Casino: { subMenu } = {} },
 		onMenuOpen,
 	} = useMenu()
 

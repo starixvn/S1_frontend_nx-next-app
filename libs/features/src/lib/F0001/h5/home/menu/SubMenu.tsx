@@ -17,10 +17,13 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 	const { menuData, onMenuOpen } = useMenu()
 
 	const renderSubMenu = (key: string) => {
+		const menu = menuData[key as MenuKeyEnum]
+		if (!menu) return null
+
 		const {
 			h5: { subMenuClassName },
 			subMenu,
-		} = menuData[key as MenuKeyEnum]
+		} = menu
 
 		return (
 			<div
