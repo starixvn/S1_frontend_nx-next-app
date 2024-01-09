@@ -34,16 +34,15 @@ const HotGame = () => {
 	const {
 		userInfo: { currencyId, langId },
 	} = useAuth()
-	const { menuData, onMenuOpen } = useMenu()
+	const { menuData: { Slot: { subMenu: slotSubMenu } = {} } = {}, onMenuOpen } =
+		useMenu()
 	const { modal } = useGlobalModal()
 
 	const [showHotGameNavigation, setShowHotGameNavigation] = useState(false)
 	const [showJackpotNavigation, setShowJackpotNavigation] = useState(false)
 
-	const slotMenu = menuData.Slot.subMenu
-
-	const slotPP = find(slotMenu, menu => menu.productKey === 'SLOTS_PP')
-	const slotSG = find(slotMenu, menu => menu.productKey === 'SLOTS_SG')
+	const slotPP = find(slotSubMenu, menu => menu.productKey === 'SLOTS_PP')
+	const slotSG = find(slotSubMenu, menu => menu.productKey === 'SLOTS_SG')
 
 	const hotGameSwiperConfig = {
 		slidesPerView: 3,

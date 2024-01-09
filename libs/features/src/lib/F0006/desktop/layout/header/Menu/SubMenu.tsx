@@ -1,13 +1,11 @@
-import QRCode from 'qrcode.react'
-import Image from 'next/future/image'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import { useAuth } from '@nx-next-app/data-access'
 import { getSubMenuEventIcon, useMenu } from '@nx-next-app/features/F0006/hooks'
-import { uniqueId, upperCase } from 'lodash-es'
+import { uniqueId } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { Dispatch, SetStateAction } from 'react'
-import { useGetAppDownloadLinksQuery } from '@nx-next-app/service'
+
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { MenuKeyEnum } from '@nx-next-app/types'
 
@@ -30,17 +28,21 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 	} = useAuth()
 	const { modal } = useGlobalModal()
 	const { menuData, onMenuOpen } = useMenu()
-	const { data: { data: appDownloadLinks } = {} } =
-		useGetAppDownloadLinksQuery(null)
+
+	// const { data: { data: appDownloadLinks } = {} } =
+	// 	useGetAppDownloadLinksQuery(null)
 
 	const renderSubMenu = (key: string) => {
+		const menu = menuData[key as MenuKeyEnum]
+		if (!menu) return null
+
 		const {
 			desktop: { menuType, subMenuClassName, menuActionType },
 			subMenu,
 			pathname,
 			product,
 			query,
-		} = menuData[key as MenuKeyEnum]
+		} = menu
 
 		// * AppDownload 的元件較獨特，非 menu 也非 banner, 因此先獨立出來實作
 		// if (key === MenuKeyEnum.AppDownload) {
