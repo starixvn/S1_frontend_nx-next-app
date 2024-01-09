@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, Esport } from '@nx-next-app/features/F0001/desktop'
+import { Layout, ESport } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -24,7 +24,7 @@ const ESportPage = ({
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
-					<Esport />
+					<ESport />
 				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>

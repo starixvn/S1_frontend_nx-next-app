@@ -13,13 +13,11 @@ const LoginModal = dynamic(
 	}
 )
 
-const FishingList = () => {
+const FourDList = () => {
 	const { modal } = useGlobalModal()
 	const { t } = useTranslation()
 	const {
-		menuData: {
-			FourD: { subMenu },
-		},
+		menuData: { FourD: { subMenu } = {} },
 		onMenuOpen,
 	} = useMenu()
 
@@ -66,4 +64,4 @@ const FishingList = () => {
 	)
 }
 
-export default FishingList
+export default FourDList

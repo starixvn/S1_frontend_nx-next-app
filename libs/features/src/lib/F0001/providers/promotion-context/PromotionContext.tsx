@@ -138,10 +138,15 @@ export const PromotionProvider = ({
 	const { setClaimPromotionHandler } = useSetClaimPromotionFetcher()
 
 	const { data: { data: specialPromotionList = [] } = {} } =
-		useGetSpecialPromotionListQuery({
-			langId,
-			deviceType,
-		})
+		useGetSpecialPromotionListQuery(
+			{
+				langId,
+				deviceType,
+			},
+			{
+				skip: !isLogin,
+			}
+		)
 
 	const onUpdatePromotionData = async ({
 		bonusCode,

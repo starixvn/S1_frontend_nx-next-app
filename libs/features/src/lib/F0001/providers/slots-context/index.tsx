@@ -153,8 +153,9 @@ const SlotsProvider = ({
 	const [activeVendorTpId, setActiveVendorTpId] = useState<
 		number | string | null
 	>(null)
-	const vendorList: IVendorData[] =
+	const [vendorList, setVendorList] = useState<IVendorData[]>(
 		persistSlotsGameData.providerList as IVendorData[]
+	)
 	const [searchCategoryText, setSearchCategoryText] = useState('')
 	const [activeCategoryKey, setActiveCategoryKey] =
 		useState<keyof ISlotsGameData>('all')
@@ -382,13 +383,28 @@ const SlotsProvider = ({
 
 			const targetIndex = findIndex(vendorList, { tpId: Number(queryTpId) })
 
-			// * 當指定廠牌不在頁面上時,展開下拉
 			if (targetIndex !== -1) {
-				if (targetIndex > 5) {
-					setIsActiveDropdown(true)
-				} else {
-					setIsActiveDropdown(false)
+				if (
+					Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Desktop
+				) {
+					// * 當指定廠牌不在頁面上時,展開下拉
+					if (targetIndex > 5) {
+						setIsActiveDropdown(true)
+					} else {
+						setIsActiveDropdown(false)
+					}
 				}
+				if (
+					Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Mobile
+				) {
+					// * 將 queryTpId 找到的 vendor slice 到第一個選項並 selected
+					const newVendorList = [
+						...vendorList.slice(targetIndex),
+						...vendorList.slice(0, targetIndex),
+					]
+					setVendorList(newVendorList)
+				}
+
 				setActiveVendorTpId(vendorList[targetIndex].tpId)
 			}
 		}

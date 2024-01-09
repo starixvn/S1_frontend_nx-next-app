@@ -14,7 +14,7 @@ const Announcement = () => {
 	const { data: { data: announcementList = [] } = {} } =
 		useGetAnnouncementQuery({ langId, currencyId })
 
-	const showAnnouncements = announcementList.map(item => {
+	const showAnnouncements = announcementList?.map(item => {
 		const isToday = dayjs(item.startTime).format('L') === dayjs().format('L')
 
 		const displayTime = isToday
