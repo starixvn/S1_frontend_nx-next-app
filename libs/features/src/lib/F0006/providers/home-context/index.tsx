@@ -66,7 +66,7 @@ export interface HomeContextInterface {
 	announcementData: IAnnouncementData[] | null
 	promotionData: IPromotionData[]
 	bannerData: IBannerData[]
-	hotEventData: IHotEventData[]
+	hotEventData: IHotEventData[] | null
 	latestHighlightVideo: IHighlightData
 	jackPotCurrencies: CurrenciesEnum[]
 	hotGameData: IHotGame[]
