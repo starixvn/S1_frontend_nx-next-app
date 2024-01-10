@@ -40,7 +40,7 @@ const ReferralStatus = () => {
 					{toUpper(t('Label_Referral_AccumulateRewardAmount') || '')}
 					<div>
 						<span>{currencyName}</span>
-						{numberFormat(referralSummaryData?.amountSum || 0, currencyId)}
+						{numberFormat(referralSummaryData?.amountSum || 0, currencyId, 0)}
 					</div>
 				</div>
 			</div>
