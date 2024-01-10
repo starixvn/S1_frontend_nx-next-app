@@ -3378,7 +3378,7 @@ export const MENU_DATA = ({
 				},
 			],
 			subMenuAllowCurrenciesWithAuth: false,
-			allowCurrencies: true,
+			allowCurrencies: false,
 		},
 		[MenuKeyEnum.Lottery]: {
 			display: 'all',
