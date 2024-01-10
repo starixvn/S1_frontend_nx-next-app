@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { MenuActionTypeEnum } from '@nx-next-app/types'
+import { useHome } from '@nx-next-app/features/F0001/providers'
 
 const LoginModal = dynamic(() => import('../modal/LoginModal'), {
 	ssr: false,
@@ -19,7 +20,9 @@ const WelcomeInfo = () => {
 	const {
 		auth: { isLogin },
 	} = useAuth()
-
+	const {
+		affiliateData: { link },
+	} = useHome()
 	// 開法跟 menuData 內定義的不同，故另外寫物件餵給 onMenuOpen
 	const sportItem = {
 		product: PRODUCTS['SPORTS'],
@@ -46,7 +49,12 @@ const WelcomeInfo = () => {
 							<div>{t('Label_General_Affiliate')}</div>
 							<span>{t('Label_Affiliate_Program_desc')}</span>
 						</div>
-						<a href='' className='welcome-btn' target='_blank' rel='noreferrer'>
+						<a
+							href={link}
+							className='welcome-btn'
+							target='_blank'
+							rel='noreferrer'
+						>
 							{t('Label_General_MoreInfo')}
 						</a>
 					</>
