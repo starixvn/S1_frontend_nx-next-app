@@ -7,7 +7,7 @@ import { useLeaderBoard } from '@nx-next-app/features/F0006/providers/leaderBoar
 const LeaderBoardEventList = () => {
 	const { t } = useTranslation()
 	const {
-		rewardData: { section1, section2 },
+		rewardData: { section1, section2 } = {},
 		handleTermAndConditionClick,
 	} = useLeaderBoard()
 
@@ -25,7 +25,7 @@ const LeaderBoardEventList = () => {
 						<div>{t('Label_LeaderBoard_Valid_Turnover')}</div>
 						<div>{t('Label_LeaderBoard_Point')}</div>
 					</li>
-					{section1.map(item => (
+					{section1?.map(item => (
 						<LeaderBoardSection1 item={item} />
 					))}
 				</ul>
@@ -36,7 +36,7 @@ const LeaderBoardEventList = () => {
 						<div>{t('Label_LeaderBoard_Min_Point')}</div>
 						<div>{t('Label_LeaderBoard_Bonus_Credit')}</div>
 					</li>
-					{section2.map((item, index) => (
+					{section2?.map((item, index) => (
 						<LeaderBoardSection2 item={item} index={index} />
 					))}
 				</ul>

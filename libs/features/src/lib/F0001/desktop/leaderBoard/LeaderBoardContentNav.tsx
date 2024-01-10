@@ -65,15 +65,11 @@ const LeaderBoardContentNav = () => {
 			return newPeriodList && newPeriodList.length > 0 ? (
 				<div className='rankTag'>
 					<div>{t('Label_LeaderBoard_Month')}</div>
-					<div className='inputBox-blue'>
-						<Select
-							value={
-								find(newPeriodList, { value: activePeriodId })?.value ?? ''
-							}
-							options={newPeriodList}
-							onChange={e => onPeriodIdChange(e as string)}
-						/>
-					</div>
+					<Select
+						value={find(newPeriodList, { value: activePeriodId })?.value ?? ''}
+						options={newPeriodList}
+						onChange={e => onPeriodIdChange(e as string)}
+					/>
 				</div>
 			) : null
 		default:

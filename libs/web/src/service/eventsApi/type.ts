@@ -43,8 +43,8 @@ export type ILeaderBoardRankingData = {
 	bonus: number
 }
 export interface ILeaderBoardSettingData {
-	leaderBoardPointCalculation: ILeaderBoardCalculationData
-	leaderBoardRankingBonus: ILeaderBoardRankingData[]
+	leaderboardPointCalculation: ILeaderBoardCalculationData
+	leaderboardRankingBonus: ILeaderBoardRankingData[]
 }
 
 export interface IGetLeaderBoardData {

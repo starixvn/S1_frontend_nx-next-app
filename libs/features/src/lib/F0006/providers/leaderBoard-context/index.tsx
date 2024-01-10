@@ -172,7 +172,7 @@ const LeaderBoardProvider = ({
 	const { push } = useRouter()
 	const rewardData =
 		currencyId === CurrenciesEnum.INR
-			? LEADER_BOARD_REWARD_DATA['MYR']
+			? LEADER_BOARD_REWARD_DATA[CurrenciesEnum.MYR]
 			: LEADER_BOARD_REWARD_DATA[currencyId]
 
 	const [rankList, setRankList] = useState<
@@ -396,7 +396,9 @@ const LeaderBoardProvider = ({
 			setActiveRankTime(LeaderBoardDayEnum.Today)
 
 			if (activeTab === LeaderBoardTabsEnum.Result) {
-				const targetPeriodId = periodList[periodList.length - 1].id
+				// 獲取當前期間內的前一筆資料,故用長度-2,不取用最新期間值
+				const targetPeriodId =
+					periodList[periodList.length > 1 ? periodList.length - 2 : 0]?.id
 				await getRankMonthData(targetPeriodId)
 				setActivePeriodId(targetPeriodId)
 				setActiveGameType(LeaderBoardGameTypeEnum.All)
