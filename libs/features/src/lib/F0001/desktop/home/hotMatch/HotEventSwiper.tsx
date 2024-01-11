@@ -85,7 +85,7 @@ const Item = ({ data }: { data: IHotEventData }) => {
 const HotEventSwiper = () => {
 	const { hotEventData } = useHome()
 	const [showNavigation, setShowNavigation] = useState(false)
-	const debouncedNavigation = useDebounce<boolean>(showNavigation, 1000)
+	const debouncedNavigation = useDebounce<boolean>(showNavigation, 3000)
 	const [shouldSwiperUpdate, setShouldSwiperUpdate] = useState(false)
 
 	const config = {
