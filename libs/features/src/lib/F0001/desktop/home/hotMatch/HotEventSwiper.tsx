@@ -1,11 +1,12 @@
 import dayjs from 'dayjs'
 import dynamic from 'next/dynamic'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { IHotEventData } from '@nx-next-app/service'
 import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
 import Link from 'next/link'
 import { useHome } from '@nx-next-app/features/F0001/providers'
+import { useDebounce } from 'usehooks-ts'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -84,11 +85,13 @@ const Item = ({ data }: { data: IHotEventData }) => {
 const HotEventSwiper = () => {
 	const { hotEventData } = useHome()
 	const [showNavigation, setShowNavigation] = useState(false)
+	const debouncedNavigation = useDebounce<boolean>(showNavigation, 1000)
+	const [shouldSwiperUpdate, setShouldSwiperUpdate] = useState(false)
 
 	const config = {
 		slidesPerView: 4.1,
 		spaceBetween: 10,
-		shouldSwiperUpdate: true,
+		shouldSwiperUpdate,
 		navigation: {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
