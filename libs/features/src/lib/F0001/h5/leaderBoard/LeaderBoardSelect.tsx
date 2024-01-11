@@ -11,7 +11,7 @@ const LeaderBoardSelect = ({ options, onChange }: ILeaderBoardSelectProps) => {
 	const [selectedOption, setSelectedOption] = useState<{
 		label: string
 		value: string
-	}>(options[options.length - 1])
+	}>(options[options.length > 1 ? options.length - 2 : 0])
 	const [isShow, setIsShow] = useState(false)
 	const ref = useRef(null)
 

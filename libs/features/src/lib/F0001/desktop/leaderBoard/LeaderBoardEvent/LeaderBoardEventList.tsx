@@ -20,13 +20,13 @@ const LeaderBoardEventList = () => {
 			currencyId,
 		})
 
-	const { leaderBoardPointCalculation, leaderBoardRankingBonus = [] } =
+	const { leaderboardPointCalculation, leaderboardRankingBonus = [] } =
 		leaderBoardSettingResponseData?.data || {}
 	const {
 		sportTurnover = null,
 		slotTurnover = null,
 		liveCasinoTurnover = null,
-	} = leaderBoardPointCalculation || {}
+	} = leaderboardPointCalculation || {}
 
 	return (
 		<div className='eventRule active'>
@@ -55,7 +55,7 @@ const LeaderBoardEventList = () => {
 						<div>{t('Label_LeaderBoard_Min_Point')}</div>
 						<div>{t('Label_LeaderBoard_Bonus_Credit')}</div>
 					</li>
-					{leaderBoardRankingBonus.map((rankingData, index) => (
+					{leaderboardRankingBonus.map((rankingData, index) => (
 						<LeaderBoardSection2
 							key={`${rankingData.siteId}-${rankingData.currencyId}-${rankingData.ranking}`}
 							index={index}
