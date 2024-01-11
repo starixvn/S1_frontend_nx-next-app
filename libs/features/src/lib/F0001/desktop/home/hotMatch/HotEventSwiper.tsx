@@ -1,12 +1,12 @@
 import dayjs from 'dayjs'
 import dynamic from 'next/dynamic'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { IHotEventData } from '@nx-next-app/service'
 import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
 import Link from 'next/link'
 import { useHome } from '@nx-next-app/features/F0001/providers'
-import { useDebounce } from 'usehooks-ts'
+import { useTimeout } from 'usehooks-ts'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -85,8 +85,8 @@ const Item = ({ data }: { data: IHotEventData }) => {
 const HotEventSwiper = () => {
 	const { hotEventData } = useHome()
 	const [showNavigation, setShowNavigation] = useState(false)
-	const debouncedNavigation = useDebounce<boolean>(showNavigation, 3000)
 	const [shouldSwiperUpdate, setShouldSwiperUpdate] = useState(false)
+	const memoHotEventData = useMemo(() => hotEventData, [hotEventData])
 
 	const config = {
 		slidesPerView: 4.1,
@@ -119,12 +119,9 @@ const HotEventSwiper = () => {
 	))
 
 	useEffect(() => {
-		if (!debouncedNavigation) {
-			setShouldSwiperUpdate(true)
-		} else {
-			setShouldSwiperUpdate(false)
-		}
-	}, [debouncedNavigation])
+		setShouldSwiperUpdate(true)
+		useTimeout(() => setShouldSwiperUpdate(false), 5000)
+	}, [memoHotEventData])
 
 	return rows.length > 0 ? (
 		<div
