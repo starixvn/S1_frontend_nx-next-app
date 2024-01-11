@@ -6,7 +6,6 @@ import { IHotEventData } from '@nx-next-app/service'
 import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
 import Link from 'next/link'
 import { useHome } from '@nx-next-app/features/F0001/providers'
-import { useTimeout } from 'usehooks-ts'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -120,7 +119,7 @@ const HotEventSwiper = () => {
 
 	useEffect(() => {
 		setShouldSwiperUpdate(true)
-		useTimeout(() => setShouldSwiperUpdate(false), 5000)
+		setTimeout(() => setShouldSwiperUpdate(false), 5000)
 	}, [memoHotEventData])
 
 	return rows.length > 0 ? (
