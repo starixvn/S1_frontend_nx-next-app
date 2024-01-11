@@ -107,7 +107,8 @@ export const PromotionProvider = ({
 	const { modal } = useGlobalModal()
 	const { query, replace } = useRouter()
 
-	const { BonusCode: queryBonus } = query
+	// * 不管 query 是大寫小寫都要吃得到 bonusCode 並打開彈窗
+	const { BonusCode: queryBonus, bonusCode: queryBonusCode } = query
 
 	const [activeFilterType, setActiveFilterType] = useState<PromotionFilterEnum>(
 		PromotionFilterEnum.All
@@ -313,13 +314,15 @@ export const PromotionProvider = ({
 	)
 
 	useEffect(() => {
+		// * 大駝峰小駝峰都需判斷，有其一就需打開彈窗
+		const effectBonusCode = queryBonus || queryBonusCode
 		// 如果 query 有帶 bonusCode 需直接打開 detail 彈窗
-		if (!isUndefined(queryBonus)) {
-			onGetPromotionDetail({ bonusCode: queryBonus as string })
+		if (!isUndefined(effectBonusCode)) {
+			onGetPromotionDetail({ bonusCode: effectBonusCode as string })
 			// 打開後就洗掉 query , 避免重複觸發
 			replace(paths.promotion.root, undefined, { shallow: true })
 		}
-	}, [queryBonus])
+	}, [queryBonus, queryBonusCode])
 
 	const value: PromotionContextInterface = {
 		persistPromotionData,
