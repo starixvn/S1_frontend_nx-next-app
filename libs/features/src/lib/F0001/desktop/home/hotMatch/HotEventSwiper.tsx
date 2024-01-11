@@ -111,7 +111,6 @@ const HotEventSwiper = () => {
 	}
 
 	if (!hotEventData) return null
-
 	const rows = hotEventData?.map(eventData => (
 		<Item
 			key={`${eventData.sportLeaguesTitle}-${eventData.matchId}`}
@@ -119,19 +118,25 @@ const HotEventSwiper = () => {
 		/>
 	))
 
-	return (
-		rows.length > 0 && (
-			<div
-				className='hotmatchswiper'
-				onMouseOver={() => setShowNavigation(true)}
-				onMouseOut={() => setShowNavigation(false)}
-				onFocus={() => 0}
-				onBlur={() => 0}
-			>
-				<DynamicSwiper {...config}>{rows}</DynamicSwiper>
-			</div>
-		)
-	)
+	useEffect(() => {
+		if (!debouncedNavigation) {
+			setShouldSwiperUpdate(true)
+		} else {
+			setShouldSwiperUpdate(false)
+		}
+	}, [debouncedNavigation])
+
+	return rows.length > 0 ? (
+		<div
+			className='hotmatchswiper'
+			onMouseOver={() => setShowNavigation(true)}
+			onMouseOut={() => setShowNavigation(false)}
+			onFocus={() => 0}
+			onBlur={() => 0}
+		>
+			<DynamicSwiper {...config}>{rows}</DynamicSwiper>
+		</div>
+	) : null
 }
 
 export { HotEventSwiper }
