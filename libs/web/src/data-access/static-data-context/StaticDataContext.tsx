@@ -39,7 +39,7 @@ export interface IStaticDataContext {
 	LIVE_CHAT_ID_BY_LANG_ID: {
 		[langId: string]: number
 	}
-	GET_AFFILIATE_LINK: ({
+	GET_AFFILIATE_LINK?: ({
 		currencyId,
 		langId,
 	}: {
