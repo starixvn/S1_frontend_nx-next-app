@@ -1,6 +1,6 @@
 import DepositItem from '@nx-next-app/features/F0006/h5/history/historyItems/DepositItem'
 import { useDepositRecentHistory } from '@nx-next-app/data-access'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { useBoolean } from 'usehooks-ts'
 import classNames from 'classnames'
 import { useRouter } from 'next/router'
@@ -41,7 +41,7 @@ const DepositRecentHistory = () => {
 						className='orange recentBtn'
 						onClick={() => push(paths.depositHistory.root)}
 					>
-						All Transactions
+						{t('Label_General_AllTranscations')}
 					</a>
 				</div>
 			</div>

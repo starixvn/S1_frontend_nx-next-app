@@ -76,6 +76,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 					bankName={bankAccountInfo?.bankName}
 					bankSite={bankAccountInfo?.bankSite}
 					accountName={bankAccountInfo?.accountName}
+					code={bankAccountInfo?.code}
 					accountNo={bankAccountInfo?.accountNo}
 					onSubmit={({ transId, receipt }) => {
 						if (receipt) setValue('receipt', receipt)
@@ -125,6 +126,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 					})}
 				</DepositModule.SubModuleButtonGroup>
 			</DepositModule>
+
 			{bankAccountInfo && (
 				<DepositModule
 					title={t('Label_General_BankAccount')}
@@ -136,6 +138,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 						bankHref={bankAccountInfo.bankSite}
 						accountName={bankAccountInfo.accountName}
 						accountNumber={bankAccountInfo.accountNo}
+						code={bankAccountInfo.code}
 						qrCode={watchQrCodeUrl}
 					/>
 				</DepositModule>

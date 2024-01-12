@@ -165,13 +165,14 @@ const DepositItem = ({
 							onClick={() =>
 								modal.open(
 									<DepositBankSlipModal
-										{...{
-											bankInfo,
-											depositRep,
-											amount,
-											transId,
-											depositReceipt,
-										}}
+										bankName={bankInfo?.bankName}
+										bankSite={bankInfo?.bankSite}
+										accountName={depositRep?.accountName}
+										accountNo={depositRep?.accountNo}
+										code={depositRep?.code}
+										amount={amount}
+										transId={transId}
+										depositReceipt={depositReceipt}
 										onSubmit={onUploadReceipt}
 									/>,
 									{ className: 'statuspop' }
