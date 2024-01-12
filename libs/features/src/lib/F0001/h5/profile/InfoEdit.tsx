@@ -198,7 +198,7 @@ const InfoEdit = () => {
 			if (isExistsEmail) {
 				setError('formEmail', {
 					type: 'duplicate',
-					message: t('Label_MailExisted') ?? '',
+					message: t('Label_Profile_MailExisted') ?? '',
 				})
 			}
 		} catch (error) {
@@ -206,36 +206,33 @@ const InfoEdit = () => {
 		}
 	}
 
-	const EmailFieldRenderer = () => {
-		const renderEmailContent = () => {
-			if (email) {
-				return <div>{email}</div>
-			}
-			return (
-				<InputBox
-					register={register('formEmail', {
-						required: { value: true, message: t('Label_EmailReq') },
-						pattern: {
-							value: EMAIL_REGEX,
-							message: t('Label_MailWrongFormat') || '',
-						},
-						onBlur: checkEmail,
-					})}
-					icon='icon icon-email txt-blue'
-					placeholder={t('Label_General_Email') as string}
-					loading={existsEmailLoading}
-					errorMessage={errors['formEmail']?.message as any}
-					error={!!errors['formEmail']}
-					touched={!!touchedFields['formEmail']}
-				/>
-			)
+	const emailFieldRenderer = () => {
+		if (email) {
+			return <div>{email}</div>
 		}
-		return <div>{renderEmailContent()}</div>
+		return (
+			<InputBox
+				register={register('formEmail', {
+					required: { value: true, message: t('Label_Profile_EmailReq') },
+					pattern: {
+						value: EMAIL_REGEX,
+						message: t('Label_Profile_MailWrongFormat') || '',
+					},
+					onBlur: checkEmail,
+				})}
+				icon='icon icon-email txt-blue'
+				placeholder={t('Label_General_Email') as string}
+				loading={existsEmailLoading}
+				errorMessage={errors['formEmail']?.message as any}
+				error={!!errors['formEmail']}
+				touched={!!touchedFields['formEmail']}
+			/>
+		)
 	}
 
 	return (
 		<Form onSubmit={handleSubmit(handleSubmitForm)}>
-			{!email && <EmailFieldRenderer />}
+			{!email && <div>{emailFieldRenderer()}</div>}
 			{!birthDay && (
 				<div className='infoModule parts'>
 					<Select

@@ -122,7 +122,6 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 	}))
 
 	const legalBirth = dayjs().subtract(18, 'year')
-	// new
 
 	const checkEmail = async () => {
 		await trigger('formEmail')
@@ -139,7 +138,7 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 			if (isExistsEmail) {
 				setError('formEmail', {
 					type: 'duplicate',
-					message: t('Label_MailExisted') ?? '',
+					message: t('Label_Profile_MailExisted') ?? '',
 				})
 			}
 		} catch (error) {
@@ -147,63 +146,55 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 		}
 	}
 
-	const EmailFieldRenderer = () => {
-		const renderEmailContent = () => {
-			if (email) {
-				return (
-					<div>
-						{email}
-						{emailVerified ? (
-							<span className='icon icon-Shield' />
-						) : (
-							<button
-								type='button'
-								className='icon icon-envelope btn-org'
-								onClick={onEmailVerify}
-							>
-								{t('Label_Profile_EmailVerification')}
-								<div className='description'>
-									<div className='title'>
-										{t('Label_Profile_EmailVerification')}
-									</div>
-									<div>{t('Label_Profile_EmailVerificationHint1')}</div>
-									<div>
-										{t('Label_Profile_EmailVerificationHint2', {
-											currency: currencyName,
-											amount: numberFormat(emailReward ?? 0, currencyId),
-										})}
-									</div>
-								</div>
-							</button>
-						)}
-					</div>
-				)
-			}
+	const emailFieldRenderer = () => {
+		if (email) {
 			return (
 				<div>
-					<InputBox
-						register={register('formEmail', {
-							required: { value: true, message: t('Label_EmailReq') },
-							pattern: {
-								value: EMAIL_REGEX,
-								message: t('Label_MailWrongFormat') || '',
-							},
-							onBlur: checkEmail,
-						})}
-						icon='icon icon-email txt-blue'
-						placeholder={t('Label_General_Email') as string}
-						loading={existsEmailLoading}
-						errorMessage={errors['formEmail']?.message as string}
-						error={!!errors['formEmail']}
-						touched={!!touchedFields['formEmail']}
-					/>
+					{email}
+					{emailVerified ? (
+						<span className='icon icon-Shield' />
+					) : (
+						<button
+							type='button'
+							className='icon icon-envelope btn-org'
+							onClick={onEmailVerify}
+						>
+							{t('Label_Profile_EmailVerification')}
+							<div className='description'>
+								<div className='title'>
+									{t('Label_Profile_EmailVerification')}
+								</div>
+								<div>{t('Label_Profile_EmailVerificationHint1')}</div>
+								<div>
+									{t('Label_Profile_EmailVerificationHint2', {
+										currency: currencyName,
+										amount: numberFormat(emailReward ?? 0, currencyId),
+									})}
+								</div>
+							</div>
+						</button>
+					)}
 				</div>
 			)
 		}
 		return (
 			<div>
-				<div>{t('Label_General_Email')}</div>
-				{renderEmailContent()}
+				<InputBox
+					register={register('formEmail', {
+						required: { value: true, message: t('Label_Profile_EmailReq') },
+						pattern: {
+							value: EMAIL_REGEX,
+							message: t('Label_Profile_MailWrongFormat') || '',
+						},
+						onBlur: checkEmail,
+					})}
+					icon='icon icon-email txt-blue'
+					placeholder={t('Label_General_Email') as string}
+					loading={existsEmailLoading}
+					errorMessage={errors['formEmail']?.message as string}
+					error={!!errors['formEmail']}
+					touched={!!touchedFields['formEmail']}
+				/>
 			</div>
 		)
 	}
@@ -327,7 +318,10 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 				)}
 			</div>
 
-			<EmailFieldRenderer />
+			<div>
+				<div>{t('Label_General_Email')}</div>
+				{emailFieldRenderer()}
+			</div>
 
 			<div>
 				<div>{t('Label_Profile_RegisterTime')}</div>
