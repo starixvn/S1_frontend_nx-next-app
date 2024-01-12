@@ -122,6 +122,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 						bankName={bankAccountInfo.bankName}
 						accountName={bankAccountInfo.accountName}
 						accountNumber={bankAccountInfo.accountNo}
+						code={bankAccountInfo.code}
 					/>
 				)}
 

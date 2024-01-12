@@ -375,6 +375,7 @@ export interface IBankAccountInfoData {
 	minAmount: number
 	postScript: string
 	transId: string
+	code: string | null
 }
 
 export interface IPostDepositBankTransferReqArgs {
