@@ -3,17 +3,18 @@ import { useCopyToClipboard } from 'usehooks-ts'
 
 interface IDepositBankAccountProps {
 	bankName: string
-
 	accountName: string
 	accountNumber: string
 	bankLogo?: string
+	code: string | null
 }
+
 const DepositBankAccount = ({
 	bankName,
-
 	accountName,
 	accountNumber,
 	bankLogo,
+	code,
 }: IDepositBankAccountProps) => {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [_, copy] = useCopyToClipboard()
@@ -50,6 +51,18 @@ const DepositBankAccount = ({
 						onClick={() => copy(accountNumber)}
 					/>
 				</li>
+
+				{code && (
+					<li>
+						<div>
+							<span>{code}</span>
+						</div>
+						<button
+							className='icon icon-files-empty clickBtn copyBtn'
+							onClick={() => copy(code)}
+						/>
+					</li>
+				)}
 			</ul>
 		</div>
 	)

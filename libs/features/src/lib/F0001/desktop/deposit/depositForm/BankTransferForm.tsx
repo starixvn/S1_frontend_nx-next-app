@@ -136,6 +136,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 						bankHref={bankAccountInfo.bankSite}
 						accountName={bankAccountInfo.accountName}
 						accountNumber={bankAccountInfo.accountNo}
+						code={bankAccountInfo.code}
 						qrCode={watchQrCodeUrl}
 					/>
 				</DepositModule>

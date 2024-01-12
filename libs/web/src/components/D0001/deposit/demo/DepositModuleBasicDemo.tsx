@@ -121,6 +121,7 @@ const App = () => {
 					accountName='Chang KoK Hua'
 					accountNumber='7631162904'
 					qrCode='pay-qrcode/1679470299.png'
+					code='xcxcv123'
 				/>
 			</DepositModule>
 
@@ -166,6 +167,9 @@ const App = () => {
 				/>
 
 				<DepositModule.ShortcutList
+					minAmount={100}
+					maxAmount={200}
+					shortcut={150}
 					shortcutList={[10, 20, 30, 50, 100, 200, 300, 500, 1000]}
 				/>
 			</DepositModule>
@@ -211,6 +215,9 @@ const App = () => {
 				</div>
 
 				<DepositModule.ShortcutList
+					minAmount={100}
+					maxAmount={200}
+					shortcut={150}
 					shortcutList={[10, 20, 30, 50, 100, 200, 300, 500, 1000]}
 				/>
 			</DepositModule>
