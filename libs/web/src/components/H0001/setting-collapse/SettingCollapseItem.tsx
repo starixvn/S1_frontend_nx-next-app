@@ -5,37 +5,34 @@ import { useBoolean } from 'usehooks-ts'
 interface ISettingCollapseItemProps extends HTMLAttributes<HTMLDivElement> {
 	children?: ReactNode
 	header: string | ReactNode
-	prefixIcon: string
+	imgName: string
+	defaultActive?: boolean
 }
 
 const SettingCollapseItem = ({
 	children,
 	header,
-	prefixIcon,
+	imgName,
+	defaultActive,
 	...props
 }: ISettingCollapseItemProps) => {
-	const { value: isActive, toggle } = useBoolean()
+	const { value: isActive, toggle } = useBoolean(defaultActive)
 
 	return (
-		<div {...props}>
-			{children ? (
-				<button
-					onClick={toggle}
-					className={classNames(prefixIcon, {
-						active: isActive,
-					})}
-				>
-					{header}
-
-					<i className='icon icon-keyboard_arrow_down' />
-				</button>
-			) : (
-				<a role='link' aria-hidden className={classNames(prefixIcon)}>
-					{header}
-				</a>
-			)}
-
-			{children}
+		<div
+			{...props}
+			className={classNames('menu-bottom-item', { active: isActive })}
+		>
+			<div onClick={toggle} className='info'>
+				<img
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/${imgName}.png`}
+					alt={imgName}
+				/>
+				<div>{header}</div>
+			</div>
+			<div className='option'>
+				<div className='option-item'>{children}</div>
+			</div>
 		</div>
 	)
 }

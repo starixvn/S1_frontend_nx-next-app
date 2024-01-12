@@ -8,7 +8,7 @@ interface ICollapseProps extends HTMLAttributes<HTMLDivElement> {
 
 const SettingCollapse = ({ children, className, ...props }: ICollapseProps) => {
 	return (
-		<div {...props} className={classNames('accordion', className)}>
+		<div {...props} className={classNames('menu-bottom', className)}>
 			{children}
 		</div>
 	)
