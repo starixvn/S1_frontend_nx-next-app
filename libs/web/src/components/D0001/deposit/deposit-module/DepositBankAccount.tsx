@@ -6,13 +6,16 @@ interface IDepositBankAccountProps {
 	bankHref: string
 	accountName: string
 	accountNumber: string
+	code: string | null
 	qrCode?: string
 }
+
 const DepositBankAccount = ({
 	bankName,
 	bankHref,
 	accountName,
 	accountNumber,
+	code,
 	qrCode,
 }: IDepositBankAccountProps) => {
 	const { t } = useTranslation()
@@ -52,6 +55,16 @@ const DepositBankAccount = ({
 							onClick={() => copy(accountNumber)}
 						/>
 					</ul>
+					{code && (
+						<ul className='remark'>
+							<li>{t('Label_General_Remark')}</li>
+							<li>{code}</li>
+							<button
+								className='icon icon-files-empty copyBtn'
+								onClick={() => copy(code)}
+							/>
+						</ul>
+					)}
 				</div>
 			</div>
 

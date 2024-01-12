@@ -6372,6 +6372,21 @@ input[type=file] {
   font-weight: 700;
   text-align: left;
 }
+.smallList .remark {
+  background: rgba(255, 255, 255, 0.5);
+  width: 300px;
+  border-radius: 5px;
+  margin: 5px 0 5px -5px;
+  padding: 2px 8px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.smallList .remark li {
+  margin: 0 !important;
+}
+.smallList .remark + .tip {
+  padding: 0;
+}
 
 .directions {
   border-bottom: 1px solid #b2b2b2;
@@ -7652,7 +7667,7 @@ input[type=file] {
   padding: 5px 10px;
   margin-right: 10px;
   border: 1px solid rgba(255, 255, 255, 0.9);
-  z-index: 1;
+  z-index: 3;
   color: white;
   font-weight: normal;
   width: -webkit-max-content;
@@ -18676,7 +18691,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
   white-space: nowrap;
-  color: #cf0404;
 }
 .profileModule > div.profile > div > div > span {
   color: #009810;
