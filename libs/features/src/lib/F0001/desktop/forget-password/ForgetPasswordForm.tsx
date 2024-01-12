@@ -50,7 +50,7 @@ const ForgetPasswordForm = ({
 								site: upperFirst(process.env['NEXT_PUBLIC_SITE_NAME'] || ''),
 							}) || ''
 						}
-						errorMessage={errors['email']?.message as string}
+						errorMessage={errors['email']?.['message']}
 						error={!!errors['email']}
 					/>
 				</div>
