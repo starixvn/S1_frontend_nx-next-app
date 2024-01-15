@@ -1,9 +1,9 @@
 import { useTranslation } from 'next-i18next'
 
 interface ILeaderBoardSection1Props {
-	sportTurnover: number | null
-	slotTurnover: number | null
-	liveCasinoTurnover: number | null
+	sportTurnover?: number
+	slotTurnover?: number
+	liveCasinoTurnover?: number
 }
 
 const baseURL = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/ranking/`

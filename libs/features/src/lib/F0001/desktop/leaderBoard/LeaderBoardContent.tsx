@@ -1,6 +1,6 @@
-import React from 'react'
 import { useTranslation } from 'next-i18next'
-import { useLeaderBoard } from '@nx-next-app/features/F0001/providers/leaderBoard-context'
+import { useLeaderBoard } from '@nx-next-app/data-access'
+import { Loading } from '@nx-next-app/components/D0001'
 import LeaderBoardContentNav from './LeaderBoardContentNav'
 import LeaderBoardRankList from './LeaderBoardRanks/LeaderBoardRankList'
 
@@ -25,11 +25,18 @@ const LeaderBoardContent = () => {
 		>
 			<LeaderBoardContentNav />
 			<div className='rankModule'>
-				{rankList.length > 0 && !loading ? (
-					<LeaderBoardRankList rankList={rankList} activeTab={activeTab} />
+				{loading ? (
+					<Loading />
 				) : (
-					<div className='icon icon-nodata'>{t('Label_General_NoData')}</div>
+					rankList.length === 0 && (
+						<div className='icon icon-nodata'>{t('Label_General_NoData')}</div>
+					)
 				)}
+
+				{rankList.length > 0 && (
+					<LeaderBoardRankList rankList={rankList} activeTab={activeTab} />
+				)}
+
 				{!(activeTab === LeaderBoardTabsEnum.Result) && (
 					<>
 						<div className='lastUpdate'>

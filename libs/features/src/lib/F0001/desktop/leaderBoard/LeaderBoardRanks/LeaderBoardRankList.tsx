@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'next-i18next'
-import { useLeaderBoard } from '@nx-next-app/features/F0001/providers'
+import { useLeaderBoard } from '@nx-next-app/data-access'
 import LeaderBoardRankItem from './LeaderBoardRankItem'
 
 interface ILeaderBoardRankListProps {
