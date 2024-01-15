@@ -4,8 +4,11 @@ import { useTranslation } from 'next-i18next'
 import { useFormContext } from 'react-hook-form'
 import { numberFormat } from '@nx-next-app/utils'
 import { useAuth } from '@nx-next-app/data-access'
-import { paths, AREA_CODE } from '@nx-next-app/constants'
-import { useSendOTPEmailMutation } from '@nx-next-app/service'
+import { paths, AREA_CODE, EMAIL_REGEX } from '@nx-next-app/constants'
+import {
+	useLazyExistsEmailQuery,
+	useSendOTPEmailMutation,
+} from '@nx-next-app/service'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import DateSelector from 'libs/web/src/components/D0001/dateSelector'
 import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
@@ -51,11 +54,16 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 		register,
 		getValues,
 		clearErrors,
+		setError,
 		getFieldState,
 	} = useFormContext()
+
 	const { errors, touchedFields } = formState
 
 	const [phoneErrorTip, setPhoneErrorTip] = useState<string | undefined>('')
+
+	const [checkExistsEmail, { isFetching: existsEmailLoading }] =
+		useLazyExistsEmailQuery()
 
 	const [sendOTPEmail] = useSendOTPEmailMutation()
 
@@ -114,6 +122,82 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 	}))
 
 	const legalBirth = dayjs().subtract(18, 'year')
+
+	const checkEmail = async () => {
+		await trigger('formEmail')
+		const { error } = getFieldState('formEmail')
+		const formEmail = getValues('formEmail')
+		if (error) return
+
+		// check email duplicate from api
+		try {
+			const { data: isExistsEmail } = await checkExistsEmail({
+				email: formEmail,
+			}).unwrap()
+
+			if (isExistsEmail) {
+				setError('formEmail', {
+					type: 'duplicate',
+					message: t('Label_Profile_MailExisted') ?? '',
+				})
+			}
+		} catch (error) {
+			// error
+		}
+	}
+
+	const emailFieldRenderer = () => {
+		if (email) {
+			return (
+				<div>
+					{email}
+					{emailVerified ? (
+						<span className='icon icon-Shield' />
+					) : (
+						<button
+							type='button'
+							className='icon icon-envelope btn-org'
+							onClick={onEmailVerify}
+						>
+							{t('Label_Profile_EmailVerification')}
+							<div className='description'>
+								<div className='title'>
+									{t('Label_Profile_EmailVerification')}
+								</div>
+								<div>{t('Label_Profile_EmailVerificationHint1')}</div>
+								<div>
+									{t('Label_Profile_EmailVerificationHint2', {
+										currency: currencyName,
+										amount: numberFormat(emailReward ?? 0, currencyId),
+									})}
+								</div>
+							</div>
+						</button>
+					)}
+				</div>
+			)
+		}
+		return (
+			<div>
+				<InputBox
+					register={register('formEmail', {
+						required: { value: true, message: t('Label_Profile_EmailReq') },
+						pattern: {
+							value: EMAIL_REGEX,
+							message: t('Label_Profile_MailWrongFormat') || '',
+						},
+						onBlur: checkEmail,
+					})}
+					icon='icon icon-email txt-blue'
+					placeholder={t('Label_General_Email') as string}
+					loading={existsEmailLoading}
+					errorMessage={errors['formEmail']?.message as string}
+					error={!!errors['formEmail']}
+					touched={!!touchedFields['formEmail']}
+				/>
+			</div>
+		)
+	}
 
 	return (
 		<div className='profile'>
@@ -233,35 +317,12 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 					</div>
 				)}
 			</div>
+
 			<div>
 				<div>{t('Label_General_Email')}</div>
-				{email}
-				<div>
-					{emailVerified ? (
-						<span className='icon icon-Shield' />
-					) : (
-						<button
-							type='button'
-							className='icon icon-envelope btn-org'
-							onClick={onEmailVerify}
-						>
-							{t('Label_Profile_EmailVerification')}
-							<div className='description'>
-								<div className='title'>
-									{t('Label_Profile_EmailVerification')}
-								</div>
-								<div>{t('Label_Profile_EmailVerificationHint1')}</div>
-								<div>
-									{t('Label_Profile_EmailVerificationHint2', {
-										currency: currencyName,
-										amount: numberFormat(emailReward ?? 0, currencyId),
-									})}
-								</div>
-							</div>
-						</button>
-					)}
-				</div>
+				{emailFieldRenderer()}
 			</div>
+
 			<div>
 				<div>{t('Label_Profile_RegisterTime')}</div>
 				<div>{dayjs(regTime).format('DD/MM/YYYY HH:mm:ss')}</div>

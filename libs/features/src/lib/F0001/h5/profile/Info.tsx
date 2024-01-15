@@ -68,22 +68,24 @@ const Info = () => {
 					)}
 				</div>
 			)}
-			<div>
-				<div>{t('Label_General_Email')}</div>
+			{email && (
 				<div>
-					{email}
-					{emailVerified ? (
-						<span className='icon icon-Shield' />
-					) : (
-						<button
-							className='icon btn-org icon-envelope'
-							onClick={onEmailVerify}
-						>
-							<span>{t('Label_Profile_EmailVerification')}</span>
-						</button>
-					)}
+					<div>{t('Label_General_Email')}</div>
+					<div>
+						{email}
+						{emailVerified ? (
+							<span className='icon icon-Shield' />
+						) : (
+							<button
+								className='icon btn-org icon-envelope'
+								onClick={onEmailVerify}
+							>
+								<span>{t('Label_Profile_EmailVerification')}</span>
+							</button>
+						)}
+					</div>
 				</div>
-			</div>
+			)}
 			{accountName && (
 				<div>
 					<div>{t('Label_General_RealName')}</div>
