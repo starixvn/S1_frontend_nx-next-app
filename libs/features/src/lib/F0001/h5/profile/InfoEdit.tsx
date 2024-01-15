@@ -3,11 +3,19 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
-import { useSetProfileMutation } from '@nx-next-app/service'
+import {
+	useLazyExistsEmailQuery,
+	useSetProfileMutation,
+} from '@nx-next-app/service'
 import { useAuth } from '@nx-next-app/data-access'
 import { REALNAME_REGEX } from '@nx-next-app/site/nova88'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { PrevPageEnum, PREV_PAGE, AREA_CODE } from '@nx-next-app/constants'
+import {
+	PrevPageEnum,
+	PREV_PAGE,
+	AREA_CODE,
+	EMAIL_REGEX,
+} from '@nx-next-app/constants'
 import {
 	Form,
 	Select,
@@ -31,8 +39,12 @@ const InfoEdit = () => {
 
 	const [phoneErrorTip, setPhoneErrorTip] = useState<string | undefined>('')
 
+	const [checkExistsEmail, { isFetching: existsEmailLoading }] =
+		useLazyExistsEmailQuery()
+
 	const {
 		userInfo: {
+			email,
 			phoneNo,
 			areaCode,
 			accountName,
@@ -50,6 +62,7 @@ const InfoEdit = () => {
 		trigger,
 		setValue,
 		register,
+		setError,
 		getValues,
 		clearErrors,
 		getFieldState,
@@ -62,6 +75,7 @@ const InfoEdit = () => {
 			formRealName: '',
 			formPhone: '',
 			formAreaCode: '',
+			formEmail: '',
 		},
 	})
 	const { errors, touchedFields } = formState
@@ -96,7 +110,7 @@ const InfoEdit = () => {
 
 	const handleSubmitForm = () => {
 		const setFormProfile = async () => {
-			const { formAreaCode, formPhone, formRealName } = getValues()
+			const { formAreaCode, formPhone, formRealName, formEmail } = getValues()
 
 			try {
 				//* 既有的資料依然需要傳進 api
@@ -107,6 +121,7 @@ const InfoEdit = () => {
 					Birth_m: birthMonth ?? String(getValues('formBirthMonth')),
 					Birth_y: birthYear ?? String(getValues('formBirthYear')),
 					PhoneNo: phoneNo ?? formPhone,
+					Email: email ?? formEmail,
 				})
 
 				if (!phoneVerified) {
@@ -169,8 +184,55 @@ const InfoEdit = () => {
 
 	const showSubmitBtn = !accountName || !phoneNo || !birthDay
 
+	const checkEmail = async () => {
+		await trigger('formEmail')
+		const { error } = getFieldState('formEmail')
+		const formEmail = getValues('formEmail')
+		if (error) return
+		// check email duplicate from api
+		try {
+			const { data: isExistsEmail } = await checkExistsEmail({
+				email: formEmail,
+			}).unwrap()
+
+			if (isExistsEmail) {
+				setError('formEmail', {
+					type: 'duplicate',
+					message: t('Label_Profile_MailExisted') ?? '',
+				})
+			}
+		} catch (error) {
+			// error
+		}
+	}
+
+	const emailFieldRenderer = () => {
+		if (email) {
+			return <div>{email}</div>
+		}
+		return (
+			<InputBox
+				register={register('formEmail', {
+					required: { value: true, message: t('Label_Profile_EmailReq') },
+					pattern: {
+						value: EMAIL_REGEX,
+						message: t('Label_Profile_MailWrongFormat') || '',
+					},
+					onBlur: checkEmail,
+				})}
+				icon='icon icon-email txt-blue'
+				placeholder={t('Label_General_Email') as string}
+				loading={existsEmailLoading}
+				errorMessage={errors['formEmail']?.message as any}
+				error={!!errors['formEmail']}
+				touched={!!touchedFields['formEmail']}
+			/>
+		)
+	}
+
 	return (
 		<Form onSubmit={handleSubmit(handleSubmitForm)}>
+			{!email && <div>{emailFieldRenderer()}</div>}
 			{!birthDay && (
 				<div className='infoModule parts'>
 					<Select
@@ -209,6 +271,7 @@ const InfoEdit = () => {
 					infoMessage={t('Label_General_RemindForName') as string}
 				/>
 			)}
+
 			{!phoneNo && (
 				<div className='phone'>
 					<Select
@@ -235,6 +298,7 @@ const InfoEdit = () => {
 					/>
 				</div>
 			)}
+
 			{showSubmitBtn && (
 				<div className='btn-group'>
 					<button type='submit'>{t('Label_General_Submit')}</button>
