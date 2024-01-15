@@ -54,6 +54,7 @@ export interface ISignUpArgs {
 	affId?: string
 	areaCode: string
 	currencyId: number
+	email?: string
 	phoneNo: string
 	realName: string
 	reCaptchaToken: string
