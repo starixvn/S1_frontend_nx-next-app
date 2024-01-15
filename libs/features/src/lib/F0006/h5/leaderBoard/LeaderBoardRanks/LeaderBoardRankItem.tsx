@@ -1,8 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import { numberFormat } from '@nx-next-app/utils'
-import { useAuth } from '@nx-next-app/data-access'
-import { useLeaderBoard } from '@nx-next-app/features/F0006/providers/leaderBoard-context'
+import { useAuth, useLeaderBoard } from '@nx-next-app/data-access'
 
 interface ILeaderBoardRankItemProps {
 	item: any

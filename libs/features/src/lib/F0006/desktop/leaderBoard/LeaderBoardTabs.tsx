@@ -1,7 +1,12 @@
 import React from 'react'
 import classNames from 'classnames'
+import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
-import { useLeaderBoard } from '@nx-next-app/features/F0006/providers/leaderBoard-context'
+import { useLeaderBoard } from '@nx-next-app/data-access'
+
+const LoginModal = dynamic(() => import('../modal/LoginModal'), {
+	ssr: false,
+})
 
 const LeaderBoardTabs = () => {
 	const { t } = useTranslation()
@@ -13,7 +18,7 @@ const LeaderBoardTabs = () => {
 				<button
 					key={`leaderBoard-${id}`}
 					className={classNames({ active: id === activeTab })}
-					onClick={() => onTabsChange(id)}
+					onClick={() => onTabsChange(id, <LoginModal />)}
 				>
 					{t(displayKey)}
 				</button>

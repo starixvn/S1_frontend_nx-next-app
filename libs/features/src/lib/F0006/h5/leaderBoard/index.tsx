@@ -1,7 +1,7 @@
 import { paths } from '@nx-next-app/constants'
 import LeaderBoardEventList from '@nx-next-app/features/F0006/h5/leaderBoard/LeaderBoardEvent/LeaderBoardEventList'
 import LeaderBoardContent from '@nx-next-app/features/F0006/h5/leaderBoard/LeaderBoardContent'
-import { useLeaderBoard } from '@nx-next-app/features/F0006/providers/leaderBoard-context'
+import { useLeaderBoard } from '@nx-next-app/data-access'
 import { useTranslation } from 'next-i18next'
 import { Header, TagOptionType } from '@nx-next-app/components/H0006'
 

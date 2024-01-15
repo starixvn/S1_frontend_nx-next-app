@@ -1,32 +1,15 @@
 import { useTranslation } from 'next-i18next'
-import { useLeaderBoard } from '@nx-next-app/features/F0001/providers/leaderBoard-context'
-import { useAuth } from '@nx-next-app/data-access'
-import { useGetLeaderBoardSettingQuery } from '@nx-next-app/service'
+import { useLeaderBoard } from '@nx-next-app/data-access'
 import LeaderBoardSection1 from './LeaderBoardSection1'
 import LeaderBoardSection2 from './LeaderBoardSection2'
 
 const LeaderBoardEventList = () => {
 	const { t } = useTranslation()
+	const { leaderBoardSettingResponseData, handleTermAndConditionClick } =
+		useLeaderBoard()
 
-	const {
-		userInfo: { currencyId },
-	} = useAuth()
-
-	const { handleTermAndConditionClick } = useLeaderBoard()
-
-	const { data: leaderBoardSettingResponseData } =
-		useGetLeaderBoardSettingQuery({
-			siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']),
-			currencyId,
-		})
-
-	const { leaderboardPointCalculation, leaderboardRankingBonus = [] } =
-		leaderBoardSettingResponseData?.data || {}
-	const {
-		sportTurnover = null,
-		slotTurnover = null,
-		liveCasinoTurnover = null,
-	} = leaderboardPointCalculation || {}
+	const { sportTurnover, slotTurnover, liveCasinoTurnover } =
+		leaderBoardSettingResponseData?.leaderboardPointCalculation || {}
 
 	return (
 		<div className='eventRule active'>
@@ -55,15 +38,17 @@ const LeaderBoardEventList = () => {
 						<div>{t('Label_LeaderBoard_Min_Point')}</div>
 						<div>{t('Label_LeaderBoard_Bonus_Credit')}</div>
 					</li>
-					{leaderboardRankingBonus.map((rankingData, index) => (
-						<LeaderBoardSection2
-							key={`${rankingData.siteId}-${rankingData.currencyId}-${rankingData.ranking}`}
-							index={index}
-							rank={rankingData.ranking}
-							point={rankingData.minPoint.toString()}
-							bonus={rankingData.bonus.toString()}
-						/>
-					))}
+					{leaderBoardSettingResponseData?.leaderboardRankingBonus.map(
+						(rankingData, index) => (
+							<LeaderBoardSection2
+								key={`${rankingData.siteId}-${rankingData.currencyId}-${rankingData.ranking}`}
+								index={index}
+								rank={rankingData.ranking}
+								point={rankingData.minPoint}
+								bonus={rankingData.bonus}
+							/>
+						)
+					)}
 				</ul>
 				<button onClick={handleTermAndConditionClick}>
 					{t('Label_LeaderBoard_Terms&Conditions')}

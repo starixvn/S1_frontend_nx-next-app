@@ -1,31 +1,15 @@
 import { useTranslation } from 'next-i18next'
 import LeaderBoardSection1 from '@nx-next-app/features/F0001/h5/leaderBoard/LeaderBoardEvent/LeaderBoardSection1'
 import LeaderBoardSection2 from '@nx-next-app/features/F0001/h5/leaderBoard/LeaderBoardEvent/LeaderBoardSection2'
-import { useLeaderBoard } from '@nx-next-app/features/F0001/providers/leaderBoard-context'
-import { useAuth } from '@nx-next-app/data-access'
-import { useGetLeaderBoardSettingQuery } from '@nx-next-app/service'
+import { useLeaderBoard } from '@nx-next-app/data-access'
 
 const LeaderBoardEventList = () => {
 	const { t } = useTranslation()
-	const { handleTermAndConditionClick } = useLeaderBoard()
+	const { leaderBoardSettingResponseData, handleTermAndConditionClick } =
+		useLeaderBoard()
 
-	const {
-		userInfo: { currencyId },
-	} = useAuth()
-
-	const { data: leaderBoardSettingResponseData } =
-		useGetLeaderBoardSettingQuery({
-			siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']),
-			currencyId,
-		})
-
-	const { leaderboardPointCalculation, leaderboardRankingBonus = [] } =
-		leaderBoardSettingResponseData?.data || {}
-	const {
-		sportTurnover = null,
-		slotTurnover = null,
-		liveCasinoTurnover = null,
-	} = leaderboardPointCalculation || {}
+	const { sportTurnover, slotTurnover, liveCasinoTurnover } =
+		leaderBoardSettingResponseData?.leaderboardPointCalculation || {}
 
 	return (
 		<div className='rankEvent active'>
@@ -54,15 +38,17 @@ const LeaderBoardEventList = () => {
 						<div>{t('Label_LeaderBoard_Min_Point')}</div>
 						<div>{t('Label_LeaderBoard_Bonus_Credit')}</div>
 					</li>
-					{leaderboardRankingBonus.map((rankingData, index) => (
-						<LeaderBoardSection2
-							key={`${rankingData.siteId}-${rankingData.currencyId}-${rankingData.ranking}`}
-							index={index}
-							rank={rankingData.ranking}
-							point={rankingData.minPoint}
-							bonus={rankingData.bonus}
-						/>
-					))}
+					{leaderBoardSettingResponseData?.leaderboardRankingBonus.map(
+						(rankingData, index) => (
+							<LeaderBoardSection2
+								key={`${rankingData.siteId}-${rankingData.currencyId}-${rankingData.ranking}`}
+								index={index}
+								rank={rankingData.ranking}
+								point={rankingData.minPoint}
+								bonus={rankingData.bonus}
+							/>
+						)
+					)}
 				</ul>
 			</div>
 			<div className='btn-group'>
