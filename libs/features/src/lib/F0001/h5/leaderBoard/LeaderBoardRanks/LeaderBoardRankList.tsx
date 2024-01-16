@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'next-i18next'
 import LeaderBoardRankItem from '@nx-next-app/features/F0001/h5/leaderBoard/LeaderBoardRanks/LeaderBoardRankItem'
-import { useLeaderBoard } from '@nx-next-app/features/F0001/providers/leaderBoard-context'
+import { useLeaderBoard } from '@nx-next-app/data-access'
 
 interface ILeaderBoardRankListProps {
 	rankList: {
