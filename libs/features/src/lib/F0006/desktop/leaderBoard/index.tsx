@@ -1,5 +1,5 @@
 import LeaderBoardTabs from '@nx-next-app/features/F0006/desktop/leaderBoard/LeaderBoardTabs'
-import { useLeaderBoard } from '@nx-next-app/features/F0006/providers/leaderBoard-context'
+import { useLeaderBoard } from '@nx-next-app/data-access'
 import LeaderBoardContent from './LeaderBoardContent'
 import LeaderBoardEventList from './LeaderBoardEvent/LeaderBoardEventList'
 

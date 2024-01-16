@@ -39,6 +39,13 @@ export interface IStaticDataContext {
 	LIVE_CHAT_ID_BY_LANG_ID: {
 		[langId: string]: number
 	}
+	GET_AFFILIATE_LINK?: ({
+		currencyId,
+		langId,
+	}: {
+		currencyId: number
+		langId: string
+	}) => string
 }
 
 const StaticDataContext = createContext<IStaticDataContext>(null!)
@@ -62,6 +69,7 @@ const StaticDataProvider = ({
 	BANNER_IMAGE_LIST,
 	LEFT_MENU_DATA,
 	LIVE_CHAT_ID_BY_LANG_ID,
+	GET_AFFILIATE_LINK,
 }: IStaticDataProviderProps) => {
 	const value: IStaticDataContext = {
 		MENU_DATA,
@@ -77,6 +85,7 @@ const StaticDataProvider = ({
 		BANNER_IMAGE_LIST,
 		LEFT_MENU_DATA,
 		LIVE_CHAT_ID_BY_LANG_ID,
+		GET_AFFILIATE_LINK,
 	}
 
 	return (

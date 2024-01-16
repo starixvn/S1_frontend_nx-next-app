@@ -2,31 +2,56 @@ import React from 'react'
 import { useTranslation } from 'next-i18next'
 
 interface ILeaderBoardSection1Props {
-	item: {
-		turnover: string
-		point: string
-		displayName: string
-		img: string
-	}
+	sportTurnover?: number
+	slotTurnover?: number
+	liveCasinoTurnover?: number
 }
 
+const baseURL = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/ranking/`
+
+const point = 1
+
 const LeaderBoardSection1 = ({
-	item: { turnover, point, displayName, img },
+	sportTurnover,
+	slotTurnover,
+	liveCasinoTurnover,
 }: ILeaderBoardSection1Props) => {
 	const { t } = useTranslation()
 
+	const items = [
+		{
+			img: 'ball.png',
+			label: t('Label_General_Sports'),
+			displayName: t('Label_General_Sports'),
+			turnover: sportTurnover,
+		},
+		{
+			img: 'slot.png',
+			label: t('Label_General_Slots'),
+			displayName: t('Label_General_Slots'),
+			turnover: slotTurnover,
+		},
+		{
+			img: 'casino.png',
+			label: t('Label_General_LiveCasino'),
+			displayName: t('Label_General_LiveCasino'),
+			turnover: liveCasinoTurnover,
+		},
+	]
+
 	return (
-		<li key={`leaderBoard-event-${img}`}>
-			<div>
-				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/ranking/${img}.png`}
-					alt={img}
-				/>
-				{t(displayName).toUpperCase()}
-			</div>
-			<div>{turnover}</div>
-			<div>{point}</div>
-		</li>
+		<>
+			{items.map(item => (
+				<li key={item.label}>
+					<div>
+						<img src={baseURL + item.img} alt={item.label} />
+						{item.displayName.toUpperCase()}
+					</div>
+					<div>{item.turnover}</div>
+					<div>{point}</div>
+				</li>
+			))}
+		</>
 	)
 }
 

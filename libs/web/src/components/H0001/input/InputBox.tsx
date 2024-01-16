@@ -22,6 +22,7 @@ export interface IInputBoxProps
 	buttonBox?: boolean
 	buttonBoxSource?: React.ReactNode[]
 	onInfoClick?: () => void
+	loading?: boolean
 }
 
 /**
