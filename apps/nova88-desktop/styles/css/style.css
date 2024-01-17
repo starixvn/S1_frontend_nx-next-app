@@ -19826,6 +19826,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin-bottom: 5px;
 }
 
+form .profileModule .vipLv .vipname {
+  color: white;
+}
+
 .accountSafety {
   display: -webkit-box;
   display: -ms-flexbox;
