@@ -2449,6 +2449,57 @@ export const MENU_DATA = ({
 			subMenuAllowCurrenciesWithAuth: false,
 			allowCurrencies: true,
 		},
+		[MenuKeyEnum.FourD]: {
+			display: 'all',
+			h5: {
+				icon: '',
+				className: 'btn-four',
+				img: '4.0/four-icon.png',
+				menuActionType,
+			},
+			desktop: {
+				className: '',
+				subMenuClassName: 'fourList',
+				menuActionType,
+			},
+			displayText: '4D',
+			pathname: paths.fourD.root,
+			subMenu: [
+				{
+					h5: {
+						img: '4.0/dropdown/4d/haolong.png',
+						menuActionType: MenuActionTypeEnum.UseGoToGame,
+					},
+					desktop: {
+						className: '',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'haolong.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'haolong.png',
+						},
+						menuActionType: MenuActionTypeEnum.UseGoToGame,
+					},
+					productKey: 'FOUR_D_GRAND_DRAGON',
+					// * Grand Dragon 目前不分語系
+					displayText: 'Grand Dragon',
+					product: PRODUCTS['FOUR_D_GRAND_DRAGON'],
+					allowCurrencies: ALLOWED_CURRENCIES['FOUR_D_GRAND_DRAGON'],
+					eventIcons: [
+						{
+							icon: 'new-icon',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['FOUR_D_GRAND_DRAGON'],
+						},
+					],
+				},
+			],
+			subMenuAllowCurrenciesWithAuth: false,
+			allowCurrencies: [MYR],
+		},
 		[MenuKeyEnum.Lottery]: {
 			display: 'all',
 			h5: {
@@ -2642,57 +2693,7 @@ export const MENU_DATA = ({
 			subMenuAllowCurrenciesWithAuth: false,
 			allowCurrencies: true,
 		},
-		[MenuKeyEnum.FourD]: {
-			display: 'all',
-			h5: {
-				icon: '',
-				className: 'btn-four',
-				img: '4.0/four-icon.png',
-				menuActionType,
-			},
-			desktop: {
-				className: '',
-				subMenuClassName: 'fourList',
-				menuActionType,
-			},
-			displayText: '4D',
-			pathname: paths.fourD.root,
-			subMenu: [
-				{
-					h5: {
-						img: '4.0/dropdown/4d/haolong.png',
-						menuActionType: MenuActionTypeEnum.UseGoToGame,
-					},
-					desktop: {
-						className: '',
-						headerMenuImgList: [
-							{
-								className: 'List-npc',
-								imgUrl: 'haolong.png',
-							},
-						],
-						lobbyPage: {
-							npcImg: 'haolong.png',
-						},
-						menuActionType: MenuActionTypeEnum.UseGoToGame,
-					},
-					productKey: 'FOUR_D_GRAND_DRAGON',
-					// * Grand Dragon 目前不分語系
-					displayText: 'Grand Dragon',
-					product: PRODUCTS['FOUR_D_GRAND_DRAGON'],
-					allowCurrencies: ALLOWED_CURRENCIES['FOUR_D_GRAND_DRAGON'],
-					eventIcons: [
-						{
-							icon: 'new-icon',
-							text: 'NEW',
-							period: PRODUCT_EVENT_PERIOD['FOUR_D_GRAND_DRAGON'],
-						},
-					],
-				},
-			],
-			subMenuAllowCurrenciesWithAuth: false,
-			allowCurrencies: [MYR],
-		},
+
 		[MenuKeyEnum.Promotion]: {
 			display: 'desktop',
 			h5: {
