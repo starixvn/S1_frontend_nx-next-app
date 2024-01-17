@@ -7,6 +7,7 @@ import {
 	isShowPromotionProgressBar,
 } from '@nx-next-app/utils'
 import { usePromotion } from '@nx-next-app/features/F0006/providers'
+import { includes } from 'lodash-es'
 import classNames from 'classnames'
 import { PromotionFilterEnum, PromotionTypeEnum } from '@nx-next-app/types'
 import PromotionProgressBar from './PromotionProgressBar'
@@ -53,6 +54,12 @@ const PromotionList = () => {
 						periodFrom,
 						periodTo,
 					})
+
+				// * 是否顯示 ClaimNowButton
+				const isShowClaimNowButton = includes(
+					[PromotionTypeEnum.Cashback, PromotionTypeEnum.RetentionFreeBet],
+					promotionType
+				)
 
 				const expiryTime = getExpiryTime({
 					custExpiryTime,
@@ -118,7 +125,7 @@ const PromotionList = () => {
 										className='orange'
 										onClick={() => setClaimPromotionHandler(item)}
 									>
-										{promotionType === PromotionTypeEnum.Cashback
+										{isShowClaimNowButton
 											? t('Label_Promotion_ClaimNow')
 											: t('Label_General_JoinNow')}
 									</button>

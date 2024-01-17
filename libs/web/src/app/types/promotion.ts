@@ -7,6 +7,7 @@ export enum PromotionTypeEnum {
 	Rebate = 6,
 	Cashback = 7,
 	SpecialBonus = 8,
+	RetentionFreeBet = 9,
 	PromoCode = 9001,
 }
 
