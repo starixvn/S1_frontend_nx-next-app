@@ -91,6 +91,7 @@ const PromotionList = () => {
 									isPromotionNew({
 										canJoin,
 										periodFrom,
+										activeFilterType,
 									}),
 							})}
 						/>
