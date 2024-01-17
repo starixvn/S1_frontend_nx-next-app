@@ -24,7 +24,7 @@ const AppDownload = () => {
 							height={100}
 						/>
 					</a>
-					<Link href={paths.home.root}>
+					<Link href={paths.home.root} passHref>
 						<a>
 							<i className='icon icon-keyboard_arrow_left' />
 						</a>
