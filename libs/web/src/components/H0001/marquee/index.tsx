@@ -15,25 +15,25 @@ const Marquee = ({ data, configs, onMarqueeClick }: IMarqueeProps) => {
 		direction: 'left' as const,
 		pauseOnHover: true,
 		speed: 50,
+		className: 'marquee-run',
+		style: { zIndex: 0 },
 		...configs,
 	}
 	return (
 		<div id='Marquee'>
 			<div className='marquee-box'>
-				<div className='marquee-run' style={{ width: '100%', left: -200 }}>
-					<ReactMarquee {...defaultConfig}>
-						{data?.map(({ id, subject }) => (
-							<button
-								className='white'
-								key={`announcement-${id}`}
-								style={{ paddingLeft: '2rem' }}
-								onClick={onMarqueeClick}
-							>
-								{subject}
-							</button>
-						))}
-					</ReactMarquee>
-				</div>
+				<ReactMarquee {...defaultConfig}>
+					{data?.map(({ id, subject }) => (
+						<button
+							className='white'
+							key={`announcement-${id}`}
+							style={{ paddingLeft: '2rem' }}
+							onClick={onMarqueeClick}
+						>
+							{subject}
+						</button>
+					))}
+				</ReactMarquee>
 			</div>
 		</div>
 	)
