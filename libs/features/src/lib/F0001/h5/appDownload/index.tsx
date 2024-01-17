@@ -23,6 +23,9 @@ const AppDownload = () => {
 							height={100}
 						/>
 					</a>
+					<a href={paths.home.root}>
+						<i className='icon icon-keyboard_arrow_left' />
+					</a>
 				</div>
 				<div className='appPage'>
 					<div className='appTitle'>{t('Label_APP_DOWNLOAD')}</div>
