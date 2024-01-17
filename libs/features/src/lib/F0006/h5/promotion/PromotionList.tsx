@@ -7,6 +7,7 @@ import {
 	isShowPromotionProgressBar,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
+import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import PromotionProgressBar from './PromotionProgressBar'
 
@@ -51,6 +52,12 @@ const PromotionList = () => {
 						periodFrom,
 						periodTo,
 					})
+
+				// * 是否顯示 ClaimNowButton
+				const isShowClaimNowButton = includes(
+					[PromotionTypeEnum.Cashback, PromotionTypeEnum.RetentionFreeBet],
+					promotionType
+				)
 
 				return (
 					<div
@@ -108,7 +115,7 @@ const PromotionList = () => {
 									className='orange'
 									onClick={() => setClaimPromotionHandler(item)}
 								>
-									{promotionType === PromotionTypeEnum.Cashback
+									{isShowClaimNowButton
 										? t('Label_Promotion_ClaimNow')
 										: t('Label_General_JoinNow')}
 								</button>

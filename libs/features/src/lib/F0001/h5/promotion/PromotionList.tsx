@@ -1,5 +1,6 @@
 import { usePromotion } from '@nx-next-app/features/F0001/providers'
 import { PromotionFilterEnum, PromotionTypeEnum } from '@nx-next-app/types'
+import { includes } from 'lodash-es'
 import {
 	getIsHidePromotionJoinButton,
 	isPromotionClaimed,
@@ -51,6 +52,12 @@ const PromotionList = () => {
 						periodFrom,
 						periodTo,
 					})
+
+				// * 是否顯示 ClaimNowButton
+				const isShowClaimNowButton = includes(
+					[PromotionTypeEnum.Cashback, PromotionTypeEnum.RetentionFreeBet],
+					promotionType
+				)
 
 				return (
 					<div
@@ -108,7 +115,7 @@ const PromotionList = () => {
 									className='orange'
 									onClick={() => setClaimPromotionHandler(item)}
 								>
-									{promotionType === PromotionTypeEnum.Cashback
+									{isShowClaimNowButton
 										? t('Label_Promotion_ClaimNow')
 										: t('Label_General_JoinNow')}
 								</button>
