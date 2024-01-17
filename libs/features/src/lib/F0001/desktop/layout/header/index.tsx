@@ -47,13 +47,10 @@ const LayoutHeader = () => {
 	const handleSignOut = async () => {
 		try {
 			await onSignOut()
+			await router.push(paths.home.root)
 			modal.info(t('Label_General_LoggedOut'), {
 				icon: 'icon icon-exit',
 				title: t('Label_General_LogOut'),
-				onOK: () => {
-					router.push(paths.home.root)
-					router.reload()
-				},
 			})
 		} catch (error) {
 			modal.info((error as Error).message)
