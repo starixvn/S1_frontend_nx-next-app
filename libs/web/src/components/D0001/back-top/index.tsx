@@ -25,7 +25,12 @@ const BackTop = () => {
 	}, [])
 
 	return !isVisible ? null : (
-		<button type='button' id='goTop' onClick={scrollToTop}>
+		<button
+			type='button'
+			id='goTop'
+			onClick={scrollToTop}
+			style={{ zIndex: 2 }}
+		>
 			<i className='icon icon-arrow-up2' />
 		</button>
 	)
