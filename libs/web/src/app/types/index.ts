@@ -108,6 +108,7 @@ export interface IStaticAllowedCurrencies {
 	FISHING_CQ9_ONE_SHOT_FISHING?: CurrenciesEnum[]
 	FISHING_HUNTING_HAPPY_FISH_5?: CurrenciesEnum[]
 	FISHING_HAIBA?: CurrenciesEnum[]
+	FISHING_HUNTING_MONSTER_AWAKEN?: CurrenciesEnum[]
 
 	FOUR_D_GRAND_DRAGON?: CurrenciesEnum[]
 

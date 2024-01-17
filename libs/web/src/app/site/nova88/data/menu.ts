@@ -2260,7 +2260,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'fishSGwar.png',
+							bgImg: 'fishSG.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2421,6 +2421,7 @@ export const MENU_DATA = ({
 					productKey: 'FISHING_HUNTING_MONSTER_AWAKEN',
 					displayKey: 'Label_Fishing_Hunting_Monster_Awaken',
 					product: PRODUCTS['FISHING_HUNTING_MONSTER_AWAKEN'],
+					allowCurrencies: ALLOWED_CURRENCIES['FISHING_HUNTING_MONSTER_AWAKEN'],
 				},
 				{
 					h5: {
@@ -2436,7 +2437,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'fishof.png',
+							bgImg: 'oneshotfishing.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
