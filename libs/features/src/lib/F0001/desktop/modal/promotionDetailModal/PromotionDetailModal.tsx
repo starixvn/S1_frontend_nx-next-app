@@ -98,6 +98,12 @@ const PromotionDetailModal = ({
 		periodTo,
 	})
 
+	// * 是否顯示 ClaimNowButton
+	const isShowClaimNowButton = includes(
+		[PromotionTypeEnum.Cashback, PromotionTypeEnum.RetentionFreeBet],
+		promotionDetail.promotionType
+	)
+
 	return (
 		<div className='promoInfoPop active'>
 			<div className='promoInfoPopMask active' onClick={closeModal} />
@@ -120,7 +126,7 @@ const PromotionDetailModal = ({
 										setClaimPromotionHandler(promotionDetail)
 									}}
 								>
-									{promotionDetail.promotionType === PromotionTypeEnum.Cashback
+									{isShowClaimNowButton
 										? toUpper(t('Label_Promotion_ClaimNow') || '')
 										: toUpper(t('Label_General_JoinNow') || '')}
 								</button>
