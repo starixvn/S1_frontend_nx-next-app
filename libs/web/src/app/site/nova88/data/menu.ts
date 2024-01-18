@@ -2499,7 +2499,7 @@ export const MENU_DATA = ({
 				},
 			],
 			subMenuAllowCurrenciesWithAuth: false,
-			allowCurrencies: [MYR],
+			allowCurrencies: true,
 		},
 		[MenuKeyEnum.Lottery]: {
 			display: 'all',
