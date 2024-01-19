@@ -68,45 +68,41 @@ const License = () => {
 		<>
 			<div className='bottom-license'>
 				<div>
-					{showLicenseLogo && (
-						<>
-							<div className='title'>
-								{t('Label_Gaming_License')}
-								<img
-									className='icon-tick'
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/license-tick.png`}
-									alt='vaild gaming license'
-								/>
-							</div>
-							<div>
-								<div
-									id={`apg-${CuracaoScript}`}
-									data-apg-seal-id={CuracaoScript}
-									data-apg-image-size='48'
-									data-apg-image-type='basic-small'
-								/>
-								<div
-									id={`xcm-${XCMScript}`}
-									data-xcm-seal-id={XCMScript}
-									data-xcm-image-size='36'
-									data-xcm-image-type='basic-small'
-								/>
-								<div>
-									<a
-										href='https://www.begambleaware.org/'
-										target='_blank'
-										rel='noreferrer'
-									>
-										<img
-											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/aware.png`}
-											alt='begambleaware'
-										/>
-									</a>
-								</div>
-							</div>
-						</>
-					)}
+					{t('Label_Gaming_License')}
+					<img
+						className='icon-tick'
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/license-tick.png`}
+						alt='vaild gaming license'
+					/>
 				</div>
+				{showLicenseLogo && (
+					<div>
+						<div
+							id={`apg-${CuracaoScript}`}
+							data-apg-seal-id={CuracaoScript}
+							data-apg-image-size='48'
+							data-apg-image-type='basic-small'
+						/>
+						<div
+							id={`xcm-${XCMScript}`}
+							data-xcm-seal-id={XCMScript}
+							data-xcm-image-size='36'
+							data-xcm-image-type='basic-small'
+						/>
+						<div>
+							<a
+								href='https://www.begambleaware.org/'
+								target='_blank'
+								rel='noreferrer'
+							>
+								<img
+									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/aware.png`}
+									alt='begambleaware'
+								/>
+							</a>
+						</div>
+					</div>
+				)}
 			</div>
 			<Head>
 				<script

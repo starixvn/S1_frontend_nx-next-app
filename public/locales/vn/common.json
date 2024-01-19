@@ -144,6 +144,7 @@
   "Label_Deposit_ReceivedAmount": "Số tiền nhận được",
   "Label_Deposit_ReferFriendsRewards": "GIỚI THIỆU BẠN BÈ, TƯNG BỪNG NHẬN THƯỞNG ",
   "Label_Deposit_ReferenceNo": "",
+  "Label_Deposit_RemarkHint": "Vui lòng ghi chú tại phần thông tin người nhận khi chuyển tiền",
   "Label_Deposit_RememberLastMode": "Ghi nhớ chế độ đã sử dụng cuối cùng của tôi",
   "Label_Deposit_RememberLastModeInfo": "Ghi nhớ ngân hàng được sử dụng cho lần nạp tiền cuối cùng của bạn. Nếu ngân hàng bạn đã chọn đã đóng, vui lòng chọn lại.",
   "Label_Deposit_ScanAndPay": "Quét và Thanh toán",

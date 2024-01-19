@@ -144,6 +144,7 @@
   "Label_Deposit_ReceivedAmount": "จำนวนเงินที่ได้รับ",
   "Label_Deposit_ReferFriendsRewards": "รางวัลสำหรับแนะนำเพื่อน",
   "Label_Deposit_ReferenceNo": "",
+  "Label_Deposit_RemarkHint": "โปรดแนบหมายเหตุในช่องอ้างอิงผู้รับระหว่างทำการโอน\n",
   "Label_Deposit_RememberLastMode": "จำโหมดที่ใช้ล่าสุดของฉัน",
   "Label_Deposit_RememberLastModeInfo": "จำธนาคารที่ใช้สำหรับการฝากเงินครั้งสุดท้ายของคุณ หากธนาคารที่คุณเลือกถูกปิดโปรดเลือกอีกครั้ง",
   "Label_Deposit_ScanAndPay": "",

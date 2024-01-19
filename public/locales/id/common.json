@@ -144,6 +144,7 @@
   "Label_Deposit_ReceivedAmount": "Jumlah yang diterima",
   "Label_Deposit_ReferFriendsRewards": "Hadiah Refer Friend",
   "Label_Deposit_ReferenceNo": "",
+  "Label_Deposit_RemarkHint": "Silahkan lampirkan catatan pada kolom refrensi penerima saat transfer.",
   "Label_Deposit_RememberLastMode": "Ingat mode terakhir yang digunakan",
   "Label_Deposit_RememberLastModeInfo": "Ingat bank yang Anda gunakan untuk deposit terakhir. Jika bank yang Anda pilih sudah tutup, mohon pilih kembali.",
   "Label_Deposit_ScanAndPay": "",

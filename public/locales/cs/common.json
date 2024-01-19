@@ -144,6 +144,7 @@
   "Label_Deposit_ReceivedAmount": "到账金额",
   "Label_Deposit_ReferFriendsRewards": "推荐好友奖励",
   "Label_Deposit_ReferenceNo": "",
+  "Label_Deposit_RemarkHint": "在转账过程中，请将备注附加到收款方参考字段处",
   "Label_Deposit_RememberLastMode": "储存我最后一次交易模式",
   "Label_Deposit_RememberLastModeInfo": "储存最后一笔存款交易银行。若您选择的银行已结业，请再重新选择。",
   "Label_Deposit_ScanAndPay": "扫码付款",

@@ -144,6 +144,7 @@
   "Label_Deposit_ReceivedAmount": "प्राप्त राशि",
   "Label_Deposit_ReferFriendsRewards": "मिञो के पुरस्कारों का संदर्भ लें",
   "Label_Deposit_ReferenceNo": "",
+  "Label_Deposit_RemarkHint": "कृपया स्थानांतरण के दौरान टिप्पणी को प्राप्तकर्ता संदर्भ फ़ील्ड में संलग्न करें",
   "Label_Deposit_RememberLastMode": "मेरा पिछला इस्तेमाल किया हुआ मोड याद रखें",
   "Label_Deposit_RememberLastModeInfo": "आपकी पिछली जमा राशि के लिए इस्तेमाल किया गया बैंक याद रखें। यदि आपके द्वारा चयनित बैंक बंद कर दिया गया है, तो कृपया फिर से चयन करें।",
   "Label_Deposit_ScanAndPay": "",

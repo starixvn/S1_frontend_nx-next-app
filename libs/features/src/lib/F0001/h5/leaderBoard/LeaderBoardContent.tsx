@@ -27,7 +27,9 @@ const LeaderBoardContent = () => {
 				{rankList && rankList.length > 0 ? (
 					<LeaderBoardRankList rankList={rankList} activeTab={activeTab} />
 				) : (
-					<div className='icon icon-nodata'>{t('Label_General_NoData')}</div>
+					<div className='nodata icon icon-nodata'>
+						<div className='txt-white'>{t('Label_General_NoData')}</div>
+					</div>
 				)}
 				{!(activeTab === LeaderBoardTabsEnum.Result) && (
 					<>

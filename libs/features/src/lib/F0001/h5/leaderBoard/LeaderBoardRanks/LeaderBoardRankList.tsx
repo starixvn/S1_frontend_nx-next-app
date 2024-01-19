@@ -26,13 +26,13 @@ const LeaderBoardRankList = ({
 			<ul>
 				<li>
 					<div>{t('Label_LeaderBoard_Ranking')}</div>
-					<div>{t('Label_General_Username')}</div>
+					<div>{t('Label_General_Username').toUpperCase()}</div>
 					{activeTab === LeaderBoardTabsEnum.Result ? null : (
 						// 日排名隱藏status欄位，等ＰＭ通知再修正回顯示
 						<div> {` `}</div>
 						// <div>{t("lbl_Status")}</div>
 					)}
-					<div>{t('Label_LeaderBoard_Points')}</div>
+					<div>{t('Label_LeaderBoard_Points').toUpperCase()}</div>
 				</li>
 				{rankList?.map((item, index) => (
 					<LeaderBoardRankItem

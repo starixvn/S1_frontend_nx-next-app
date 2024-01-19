@@ -144,6 +144,7 @@
   "Label_Deposit_ReceivedAmount": "প্রাপ্তির পরিমাণ",
   "Label_Deposit_ReferFriendsRewards": "বন্ধুদের পুরস্কার উল্লেখ করুন",
   "Label_Deposit_ReferenceNo": "",
+  "Label_Deposit_RemarkHint": "ট্রান্সফারের সময়, দয়া করে মন্তব্যটি প্রাপকের রেফারেন্স ফীল্ডে সংযুক্ত করুন।\n",
   "Label_Deposit_RememberLastMode": "আমার শেষ ব্যবহৃত পদ্ধতি মনে রাখবেন",
   "Label_Deposit_RememberLastModeInfo": "আপনার শেষ আমানতের জন্য ব্যবহৃত ব্যাংক মনে রাখবেন। আপনার নির্বাচিত ব্যাংক বন্ধ হয়ে গেলে, অনুগ্রহ করে আবার নির্বাচন করুন।",
   "Label_Deposit_ScanAndPay": "",
