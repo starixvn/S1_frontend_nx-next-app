@@ -946,7 +946,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'casino-EB.png',
+							bgImg: 'casino-we.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
