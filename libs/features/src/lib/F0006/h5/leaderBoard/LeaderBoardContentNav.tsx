@@ -30,7 +30,7 @@ const LeaderBoardContentNav = () => {
 								className={classNames({ active: activeRankTime === id })}
 								onClick={() => onRankTimeChange(id)}
 							>
-								{t(displayKey)}
+								{t(displayKey).toUpperCase()}
 							</button>
 						)
 					})}

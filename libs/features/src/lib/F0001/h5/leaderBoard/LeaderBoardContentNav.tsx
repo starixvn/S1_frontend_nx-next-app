@@ -30,7 +30,7 @@ const LeaderBoardContentNav = () => {
 								className={classNames({ active: activeRankTime === id })}
 								onClick={() => onRankTimeChange(id)}
 							>
-								{t(displayKey)}
+								{t(displayKey).toUpperCase()}
 							</button>
 						)
 					})}
@@ -48,7 +48,7 @@ const LeaderBoardContentNav = () => {
 									onGameTypeChange(id)
 								}}
 							>
-								{t(displayKey)}
+								{t(displayKey).toUpperCase()}
 							</button>
 						)
 					})}
