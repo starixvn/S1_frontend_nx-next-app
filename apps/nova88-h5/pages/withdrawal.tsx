@@ -60,8 +60,34 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		({ type }) => type === IWithdrawalTypeEnum.BankCard
 	)?.status
 
+	const eWithdrawalAllowed = find(
+		withdrawalBlockSetting,
+		({ type }) => type === IWithdrawalTypeEnum.EWallet
+	)?.status
+
+	const cryptoWithdrawalAllowed = find(
+		withdrawalBlockSetting,
+		({ type }) => type === IWithdrawalTypeEnum.Crypto
+	)?.status
+
 	// 沒開放就轉到 withdrawal history
 	if (!withdrawalAllowed) {
+		if (eWithdrawalAllowed) {
+			return {
+				redirect: {
+					destination: paths.eWalletWithdrawal.root,
+					permanent: false,
+				},
+			}
+		}
+		if (cryptoWithdrawalAllowed) {
+			return {
+				redirect: {
+					destination: paths.cryptoWithdrawal.root,
+					permanent: false,
+				},
+			}
+		}
 		return {
 			redirect: {
 				destination: paths.withdrawalHistory.root,
