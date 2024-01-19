@@ -24,6 +24,7 @@ export interface IAxiosError extends globalThis.Error {
 // 這裡定義前端預給的 Header
 const preHeaders = {
 	'ai-host': `${process.env['NEXT_PUBLIC_REFERER_HOST']}`,
+	'origin-host': typeof window !== 'undefined' ? window?.location?.origin : '',
 }
 
 // used in clientside rtk query
