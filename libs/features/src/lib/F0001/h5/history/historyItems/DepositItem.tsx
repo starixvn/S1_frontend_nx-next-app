@@ -34,8 +34,8 @@ const DepositItem = ({
 	status,
 	thirdId,
 	depositMessageDetail,
-	bankInfo,
-	depositRep,
+	bankInfo: { bankName, bankSite },
+	depositRep: { accountName, accountNo, code },
 	depositReceipt,
 }: IDepositInfoHistoryData) => {
 	const { t } = useTranslation()
@@ -160,18 +160,20 @@ const DepositItem = ({
 						>
 							{t('Label_General_Cancel')}
 						</button>
+
 						<button
 							className='orange openPopup'
 							onClick={() =>
 								modal.open(
 									<DepositBankSlipModal
-										{...{
-											bankInfo,
-											depositRep,
-											amount,
-											transId,
-											depositReceipt,
-										}}
+										bankName={bankName}
+										bankSite={bankSite}
+										accountName={accountName}
+										accountNo={accountNo}
+										code={code}
+										amount={amount}
+										transId={transId}
+										depositReceipt={depositReceipt}
 										onSubmit={onUploadReceipt}
 									/>,
 									{ className: 'statuspop' }

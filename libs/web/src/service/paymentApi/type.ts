@@ -385,6 +385,7 @@ export interface IPostDepositBankTransferReqArgs {
 	fromSysId?: number
 	hasPromotion: boolean
 	bankId?: number
+	code?: string | null
 }
 export interface IDepositBankTransferReqData {
 	bankName: string

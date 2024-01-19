@@ -55,7 +55,7 @@ const DepositBankAccount = ({
 						/>
 					</ul>
 					{code && (
-						<ul>
+						<ul className='remark'>
 							<li>{t('Label_General_Remark')}</li>
 							<li>{code}</li>
 							<button

@@ -77,6 +77,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 					bankSite={bankAccountInfo?.bankSite}
 					accountName={bankAccountInfo?.accountName}
 					accountNo={bankAccountInfo?.accountNo}
+					code={bankAccountInfo?.code}
 					onSubmit={({ transId, receipt }) => {
 						if (receipt) setValue('receipt', receipt)
 					}}

@@ -72,6 +72,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 					bankName={bankAccountInfo?.bankName}
 					bankSite={bankAccountInfo?.bankSite}
 					accountName={bankAccountInfo?.accountName}
+					code={bankAccountInfo?.code}
 					accountNo={bankAccountInfo?.accountNo}
 					onSubmit={({ transId, receipt }) => {
 						if (receipt) setValue('receipt', receipt)
@@ -128,11 +129,14 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 
 				{watchQrCodeUrl && <DepositModule.ScanQR qrCode={watchQrCodeUrl} />}
 
-				<div className='btn-group'>
-					<button onClick={onOpenBankSlipModal}>
-						{t('Label_General_UploadReceipt')}
-					</button>
+				<div className='infoModule'>
+					<div className='btn-group'>
+						<button onClick={onOpenBankSlipModal}>
+							{t('Label_General_UploadReceipt')}
+						</button>
+					</div>
 				</div>
+
 				{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
 					<DepositModule
 						title={t('Label_General_DepositAmount')}
