@@ -218,6 +218,7 @@ const defaultMobileHomeOrders = [
 	MobileHomeComponentsEnum.PartnerBlock,
 	MobileHomeComponentsEnum.FooterBlock,
 	MobileHomeComponentsEnum.LuckyWheel,
+	MobileHomeComponentsEnum.LiveStreamingLink,
 ]
 
 export const HomeProvider = ({

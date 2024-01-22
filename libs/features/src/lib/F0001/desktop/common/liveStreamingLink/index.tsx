@@ -4,9 +4,9 @@ import { useAuth } from '@nx-next-app/data-access'
 import { CURRENCY_TO_LANG_KEY } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useLazyGetDataListQuery } from 'libs/web/src/service/liveStreamingApi/api'
-import LiveStreamingModal from '@nx-next-app/features/F0001/desktop/common/liveStreamingLink/LiveStreamingModal'
 import { LANG_TO_CURRENCY } from '@apps/nova88-desktop/middleware'
 import { ILiveStreamingData } from 'libs/web/src/service/liveStreamingApi/type'
+import LiveStreamingModal from './LiveStreamingModal'
 
 const LiveStreamingLink = () => {
 	const { modal } = useGlobalModal()
