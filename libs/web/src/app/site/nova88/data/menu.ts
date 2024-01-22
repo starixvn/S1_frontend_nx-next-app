@@ -1737,7 +1737,7 @@ export const MENU_DATA = ({
 					},
 					productKey: 'SLOTS_AMB',
 					pathname: paths.slots.root,
-					displayText: 'AskmeSlot',
+					displayText: 'AMBSlot',
 					query: {
 						tpId: PRODUCTS['SLOTS_AMB'].TP_ID,
 					},
@@ -2499,7 +2499,7 @@ export const MENU_DATA = ({
 				},
 			],
 			subMenuAllowCurrenciesWithAuth: false,
-			allowCurrencies: true,
+			allowCurrencies: ALLOWED_CURRENCIES['FOUR_D_GRAND_DRAGON'],
 		},
 		[MenuKeyEnum.Lottery]: {
 			display: 'all',
@@ -2694,7 +2694,6 @@ export const MENU_DATA = ({
 			subMenuAllowCurrenciesWithAuth: false,
 			allowCurrencies: true,
 		},
-
 		[MenuKeyEnum.Promotion]: {
 			display: 'desktop',
 			h5: {
