@@ -1,9 +1,11 @@
+import classNames from 'classnames'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
-import { InputBox } from '@nx-next-app/components/H0001'
+import { InputBox, ISelectProps } from '@nx-next-app/components/H0001'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { FLAG_PREFIX_ICON_BY_CURRENCIES } from '@nx-next-app/constants'
 import {
 	useLazyAffiliateCheckQuery,
 	useLazyExistsUserNameQuery,
@@ -16,10 +18,21 @@ import {
 
 interface IStep1Props {
 	cookies: TmpCookiesObj
+	siteCurrencyList: number[]
+	currencySelectOptions: ISelectProps['options']
 	setStep: (step: number) => void
+	selectCurrency: (newCurrencyId: ISelectProps['value']) => void
+	setCurrencyOptions: (options: ISelectProps['options']) => void
 }
 
-const Step1 = ({ cookies, setStep }: IStep1Props) => {
+const Step1 = ({
+	cookies,
+	siteCurrencyList,
+	currencySelectOptions,
+	setStep,
+	selectCurrency,
+	setCurrencyOptions,
+}: IStep1Props) => {
 	const { t } = useTranslation()
 	const router = useRouter()
 	const { query } = router
@@ -33,8 +46,15 @@ const Step1 = ({ cookies, setStep }: IStep1Props) => {
 	const urlAffCode = query['AffCode'] || cookies['AffCode']
 	const urlAffiliate = urlAffId || urlAffCode
 
-	const { formState, register, trigger, setError, getValues, getFieldState } =
-		useFormContext()
+	const {
+		formState,
+		trigger,
+		register,
+		setError,
+		getValues,
+		clearErrors,
+		getFieldState,
+	} = useFormContext()
 	const { errors, touchedFields } = formState
 
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
@@ -84,7 +104,32 @@ const Step1 = ({ cookies, setStep }: IStep1Props) => {
 
 		// check affiliate is qualified from api
 		try {
-			await affiliateCheck({ affCode: formAffiliate }).unwrap()
+			const { data: affCurrencyId } = await affiliateCheck({
+				affCode: formAffiliate,
+			}).unwrap()
+
+			if (Number(affCurrencyId)) {
+				selectCurrency(affCurrencyId as ISelectProps['value'])
+
+				const options = siteCurrencyList
+					.filter(currencyId => currencyId === Number(affCurrencyId))
+					.map(currencyId => ({
+						value: currencyId,
+						label: t(`Label_General_Currency_${currencyId}`),
+						prefixOptionIcon: (
+							<div
+								className={classNames(
+									'flag',
+									FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
+								)}
+							/>
+						),
+					}))
+
+				setCurrencyOptions(options)
+			}
+
+			clearErrors('affiliate')
 			return true
 		} catch (error) {
 			// error

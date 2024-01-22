@@ -4,11 +4,17 @@ import Link from 'next/link'
 import { paths } from '@nx-next-app/constants'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { numFormatToDigits } from '@nx-next-app/utils'
+import { IWithdrawalSetting } from '@nx-next-app/service'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
+import { useWalletAllowed } from '@nx-next-app/features/F0001/hooks'
 import { Header, SpinButton } from '@nx-next-app/components/H0001'
 
-const Wallet = () => {
+interface IWalletPageProps {
+	withdrawalBlockSetting: IWithdrawalSetting[]
+}
+
+const Wallet = ({ withdrawalBlockSetting }: IWalletPageProps) => {
 	const { t } = useTranslation()
 
 	const { ALLOWED_CURRENCIES } = useStaticData()
@@ -18,6 +24,10 @@ const Wallet = () => {
 	} = useAuth()
 
 	const {
+		cardAllowed: { bankCardAllowed, eWalletCardAllowed },
+	} = useWalletAllowed({ withdrawalBlockSetting })
+
+	const {
 		mainWalletInfo,
 		totalWalletBalance,
 		custBonusWalletList,
@@ -25,13 +35,19 @@ const Wallet = () => {
 		onRefetchAllWallet,
 	} = useTpWalletBalanceListFetcher({ langId })
 
+	let bankInfoPath = paths.bankInfo.root
+	if (!bankCardAllowed)
+		bankInfoPath = eWalletCardAllowed
+			? paths.eWallet.root
+			: paths.cryptoWallet.root
+
 	return (
 		<>
 			<Header className='header'>
 				<Header.Tags
 					tags={[
 						{ href: paths.wallet.root, label: t('Label_General_MyWallet') },
-						{ href: paths.bankInfo.root, label: t('Label_General_BankInfo') },
+						{ href: bankInfoPath, label: t('Label_General_BankInfo') },
 					]}
 				/>
 			</Header>
