@@ -36,10 +36,11 @@ const BankInfoPage = ({
 					<Layout
 						persistSEOData={persistSEOData}
 						footerData={persistFooterData}
+						withdrawalBlockSetting={withdrawalBlockSetting}
 					>
 						<main>
 							<section className='inside'>
-								<LeftMenu />
+								<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 								<BankInfo />
 							</section>
 						</main>

@@ -15,6 +15,7 @@ import {
 	getNews,
 	getSlotGamePage,
 	SlotGameCategoryEnum,
+	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
@@ -29,6 +30,7 @@ import {
 	INewsData,
 	IPromotionData,
 	ISlotsGameData,
+	IWithdrawalSetting,
 } from '@nx-next-app/service'
 import { BannerTypeEnum, IFooterData } from '@nx-next-app/types'
 import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
@@ -55,6 +57,7 @@ interface IHomePageProps extends InitialPropsInterface {
 	persistSlotsGameData: ISlotsGameData
 	persistNewsData: INewsData[]
 	persistFooterData: IFooterData
+	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
 const HomePage = ({
@@ -70,6 +73,7 @@ const HomePage = ({
 	persistSlotsGameData,
 	persistNewsData,
 	persistFooterData,
+	withdrawalBlockSetting,
 }: IHomePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
@@ -78,6 +82,7 @@ const HomePage = ({
 					showFooter
 					persistSEOData={persistSEOData}
 					footerData={persistFooterData}
+					withdrawalBlockSetting={withdrawalBlockSetting}
 				>
 					<HomeProvider
 						persistAnnouncementData={persistAnnouncementData}
@@ -154,6 +159,10 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		pageNumber: 1,
 	})
 
+	const withdrawalBlockSetting = await getWithdrawalBlockSetting({
+		headers: { cookie: currentHeaderCookies },
+	})
+
 	return {
 		props: {
 			persistBannerData,
@@ -165,6 +174,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			persistNewsData,
 			persistSlotsGameData,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
+			withdrawalBlockSetting,
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 		},

@@ -40,10 +40,11 @@ const CryptoWalletPage = ({
 					<Layout
 						persistSEOData={persistSEOData}
 						footerData={persistFooterData}
+						withdrawalBlockSetting={withdrawalBlockSetting}
 					>
 						<main>
 							<section className='inside'>
-								<LeftMenu />
+								<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 								<CryptoWallet />
 							</section>
 						</main>

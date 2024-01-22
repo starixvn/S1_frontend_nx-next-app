@@ -11,14 +11,24 @@ import {
 	useGetMsgCountQuery,
 	useGetPopupMsgQuery,
 	useGetCustVIPProgressQuery,
+	IWithdrawalSetting,
 } from '@nx-next-app/service'
+import { useWalletAllowed } from '@nx-next-app/features/F0001/hooks'
 
-const Profile = () => {
+interface ISettingProfileProps {
+	withdrawalBlockSetting: IWithdrawalSetting[]
+}
+
+const Profile = ({ withdrawalBlockSetting }: ISettingProfileProps) => {
 	const { t } = useTranslation()
 
 	const {
 		userInfo: { currencyId, langId, userName, currencyName },
 	} = useAuth()
+
+	const {
+		cardAllowed: { bankCardAllowed },
+	} = useWalletAllowed({ withdrawalBlockSetting })
 
 	const { data: { data: popupMsg } = {} } = useGetPopupMsgQuery(null)
 	const { data: { data: msgCount = 0 } = {} } = useGetMsgCountQuery(null)
@@ -155,17 +165,19 @@ const Profile = () => {
 							<div>{t('Label_General_FinancialLog')}</div>
 						</a>
 					</Link>
-					<Link href={paths.bankInfo.root}>
-						<a>
-							<Image
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/bankinfo.png`}
-								width={39}
-								height={39}
-								alt='bankinfo'
-							/>
-							<div>{t('Label_General_BankInfo')}</div>
-						</a>
-					</Link>
+					{bankCardAllowed && (
+						<Link href={paths.bankInfo.root}>
+							<a>
+								<Image
+									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/bankinfo.png`}
+									width={39}
+									height={39}
+									alt='bankinfo'
+								/>
+								<div>{t('Label_General_BankInfo')}</div>
+							</a>
+						</Link>
+					)}
 				</div>
 				{custBonusWalletList && custBonusWalletList?.length > 0 && (
 					<div className='casino-wallet'>
@@ -178,7 +190,9 @@ const Profile = () => {
 								return (
 									<div key={bonusId} className='casino-wallet-item'>
 										<div className='money'>
-											<div>{t(`lbl_BonusWallet_${promoCategoryId}`)}</div>
+											<div>
+												{t(`Label_Wallet_BonusWallet_${promoCategoryId}`)}
+											</div>
 											<div>
 												{currencyName} {numberFormat(bonus, currencyId)}
 											</div>
