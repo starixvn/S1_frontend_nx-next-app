@@ -17,6 +17,10 @@ import CarouselBanner from '../common/carouselBanner'
 
 const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
 
+const LiveStreamingLink = dynamic(() => import('../common/liveStreamingLink'), {
+	ssr: false,
+})
+
 const QuickDownload = dynamic(() => import('./widgets/QuickDownload'), {
 	ssr: false,
 })
@@ -63,6 +67,7 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.OfficialPartner]: <OfficialPartner />,
 		[DesktopHomeComponentsEnum.ProviderBlock]: <ProvidersBlock />,
 		[DesktopHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
+		[DesktopHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
 		[DesktopHomeComponentsEnum.QuickDownload]: <QuickDownload />,
 		[DesktopHomeComponentsEnum.QuickLink]: (
 			<QuickLink socialChannelList={socialChannelList} />
