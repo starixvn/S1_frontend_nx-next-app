@@ -144,15 +144,17 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 							</a>
 						</Link>
 
-						<Link href={paths.bankInfo.root} passHref>
-							<a>
-								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/bankinfo.png`}
-									alt='img-bank-info'
-								/>
-								{t('Label_General_BankInfo')}
-							</a>
-						</Link>
+						{includes(ALLOWED_CURRENCIES['BANK_INFO'], currencyId) && (
+							<Link href={paths.bankInfo.root} passHref>
+								<a>
+									<img
+										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/bankinfo.png`}
+										alt='img-bank-info'
+									/>
+									{t('Label_General_BankInfo')}
+								</a>
+							</Link>
+						)}
 
 						<Link href={paths.cryptoWallet.root} passHref>
 							<a>

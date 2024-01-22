@@ -16,6 +16,7 @@ export interface ISelectProps {
 	infoMessage?: string
 	onChange?: (value: SelectOptionType['value']) => void
 	showValue?: boolean
+	btnClassName?: string
 }
 
 const Select = (props: ISelectProps) => {
@@ -31,6 +32,7 @@ const Select = (props: ISelectProps) => {
 		infoMessage,
 		errorMessage,
 		showValue,
+		btnClassName,
 		onChange,
 	} = props
 	const { value: isActive, toggle, setFalse } = useBoolean()
@@ -94,7 +96,11 @@ const Select = (props: ISelectProps) => {
 				ref={ref}
 			>
 				{prefixIcon}
-				<button type='button' className='dropdown btn'>
+
+				<button
+					type='button'
+					className={classNames('dropdown btn', btnClassName)}
+				>
 					{/* 如 prefixOptionIcon 為 Image 會造成跑版，所以使用 style 調整 */}
 					<div style={{ display: 'flex', alignItems: 'center' }}>
 						{currentOption?.prefixOptionIcon}

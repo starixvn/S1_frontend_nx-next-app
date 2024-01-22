@@ -2,7 +2,6 @@ import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { Header } from '@nx-next-app/components/H0001'
 import { useBankInfo } from '@nx-next-app/features/F0001/providers'
-
 import { AddCard } from './AddCard'
 import { CardList } from './CardList'
 
@@ -12,6 +11,7 @@ const BankInfo = () => {
 		isShowCards,
 		cardAllowed: { bankCardAllowed, eWalletCardAllowed, cryptoCardAllowed },
 	} = useBankInfo()
+
 	return (
 		<>
 			<Header className='header'>
