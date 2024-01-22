@@ -83,7 +83,11 @@ const AddWalletModal = ({
 			},
 		})
 
-		if (errorMsg) modal.error(errorMsg)
+		if (errorMsg) {
+			modal.error(errorMsg)
+		} else {
+			closeModal()
+		}
 	}
 
 	const cryptoNetworkOptions = cryptoNetworkList

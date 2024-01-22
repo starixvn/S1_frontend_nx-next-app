@@ -43,7 +43,7 @@ const CryptoWalletPage = ({
 					>
 						<main>
 							<section className='inside'>
-								<LeftMenu />
+								<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 								<CryptoWallet />
 							</section>
 						</main>
