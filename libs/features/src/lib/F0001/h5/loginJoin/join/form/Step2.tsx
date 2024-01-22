@@ -1,24 +1,15 @@
 import ReCAPTCHA from 'react-google-recaptcha'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
-import {
-	Select,
-	InputBox,
-	InputPhone,
-	ISelectProps,
-} from '@nx-next-app/components/H0001'
+import { Select, InputPhone, ISelectProps } from '@nx-next-app/components/H0001'
 import {
 	AREA_CODE,
-	EMAIL_REGEX,
 	PHONE_DIGITS_LIMIT,
 	PHONE_LENGTH_REGEX,
 	RECAPTCHAT_LANG_BY_LANG_ID,
 } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import {
-	useLazyExistsEmailQuery,
-	useGetRecaptchaInfoQuery,
-} from '@nx-next-app/service'
+import { useGetRecaptchaInfoQuery } from '@nx-next-app/service'
 
 interface IStep2Props {
 	selectCurrency: (newCurrencyId: ISelectProps['value']) => void
@@ -47,29 +38,7 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 	const { errors, touchedFields } = formState
 	const watchCurrencyId = watch('currencyId')
 
-	const [checkExistsEmail] = useLazyExistsEmailQuery()
-
 	const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery()
-
-	const checkEmail = async () => {
-		await trigger('email')
-		const { error } = getFieldState('email')
-		if (error) return
-
-		// check email duplicate from api
-		const formEmail = getValues('email')
-
-		try {
-			const { data: isExistsEmail, message: existsEmailMsg } =
-				await checkExistsEmail({ email: formEmail }).unwrap()
-
-			if (isExistsEmail) {
-				setError('email', { type: 'duplicate', message: existsEmailMsg })
-			}
-		} catch (error) {
-			// error
-		}
-	}
 
 	const checkPhone = async () => {
 		await trigger('phone')
@@ -119,22 +88,6 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 
 	return (
 		<>
-			<InputBox
-				register={register('email', {
-					required: { value: true, message: t('Label_Join_MailWrongFormat') },
-					pattern: {
-						value: EMAIL_REGEX,
-						message: t('Label_Join_MailWrongFormat') as string,
-					},
-					onBlur: checkEmail,
-				})}
-				icon='icon icon-email txt-blue'
-				placeholder={t('Label_General_Email') as string}
-				errorMessage={errors['email']?.message as string}
-				error={!!errors['email']}
-				touched={!!touchedFields['email']}
-				infoMessage={t('Label_Join_EmailToolTip') as string}
-			/>
 			<Select
 				options={currencySelectOptions}
 				value={getValues('currencyId')}

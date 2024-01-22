@@ -57,6 +57,7 @@ export interface ISetProfileArgs {
 	Birth_m: string
 	Birth_y: string
 	PhoneNo: string
+	Email: string
 }
 
 export interface ISetProfileAddressArgs {

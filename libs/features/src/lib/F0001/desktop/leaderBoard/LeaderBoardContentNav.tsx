@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { find } from 'lodash-es'
 import { Select } from '@nx-next-app/components/D0001'
-import { useLeaderBoard } from '@nx-next-app/features/F0001/providers/leaderBoard-context'
+import { useLeaderBoard } from '@nx-next-app/data-access'
 
 const LeaderBoardContentNav = () => {
 	const { t } = useTranslation()

@@ -275,7 +275,7 @@ const useMenu = () => {
 		// * 這裡的遊戲不需要登入，執行完直接 return 出去
 		if (
 			tpId === 1 &&
-			(gameId < 100 || includes([161, 180, 192, 2002], gameId))
+			(Number(gameId) < 100 || includes([161, 180, 192, 2002], gameId))
 		) {
 			return push(entPageUrl)
 		}

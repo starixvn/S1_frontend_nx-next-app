@@ -19,6 +19,7 @@ import {
 	VIP_CLUB_IMAGES,
 	TERMS_CONDITIONS,
 	BANNER_IMAGE_LIST,
+	GET_AFFILIATE_LINK,
 	ALLOWED_CURRENCIES,
 	LIVE_CHAT_ID_BY_LANG_ID,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
@@ -44,6 +45,7 @@ const {
 	GTMScript,
 	JackpotsScript,
 	GoogleTagManagerScript,
+	PixelCodeScript,
 } = ThirdPartyJS
 
 function CustomApp({ Component, pageProps }: AppProps) {
@@ -64,6 +66,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 						}
 						FEATURE_BONUS={FEATURE_BONUS}
 						TERMS_CONDITIONS={TERMS_CONDITIONS}
+						GET_AFFILIATE_LINK={GET_AFFILIATE_LINK}
 						BANNER_IMAGE_LIST={BANNER_IMAGE_LIST}
 						LEFT_MENU_DATA={LEFT_MENU_DATA}
 						LIVE_CHAT_ID_BY_LANG_ID={LIVE_CHAT_ID_BY_LANG_ID}
@@ -80,6 +83,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			<GTMScript />
 			<JackpotsScript />
 			<GoogleTagManagerScript />
+			<PixelCodeScript />
 		</>
 	)
 }

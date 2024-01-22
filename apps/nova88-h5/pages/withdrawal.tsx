@@ -41,6 +41,15 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
 	const { currentHeaderCookies } = initialProps
 
+	if (!initialProps.originIsSignIn) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false,
+			},
+		}
+	}
+
 	// 因為手機版要提前在 serverside 做導轉，故將此 api fetching 直接拉到 serverSide 處理
 	const withdrawalBlockSetting = await getWithdrawalBlockSetting({
 		headers: { cookie: currentHeaderCookies },
@@ -51,17 +60,34 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		({ type }) => type === IWithdrawalTypeEnum.BankCard
 	)?.status
 
-	if (!initialProps.originIsSignIn) {
-		return {
-			redirect: {
-				destination: '/',
-				permanent: false,
-			},
-		}
-	}
+	const eWithdrawalAllowed = find(
+		withdrawalBlockSetting,
+		({ type }) => type === IWithdrawalTypeEnum.EWallet
+	)?.status
+
+	const cryptoWithdrawalAllowed = find(
+		withdrawalBlockSetting,
+		({ type }) => type === IWithdrawalTypeEnum.Crypto
+	)?.status
 
 	// 沒開放就轉到 withdrawal history
 	if (!withdrawalAllowed) {
+		if (eWithdrawalAllowed) {
+			return {
+				redirect: {
+					destination: paths.eWalletWithdrawal.root,
+					permanent: false,
+				},
+			}
+		}
+		if (cryptoWithdrawalAllowed) {
+			return {
+				redirect: {
+					destination: paths.cryptoWithdrawal.root,
+					permanent: false,
+				},
+			}
+		}
 		return {
 			redirect: {
 				destination: paths.withdrawalHistory.root,

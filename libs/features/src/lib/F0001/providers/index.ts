@@ -1,5 +1,4 @@
 export * from './home-context'
-export * from './leaderBoard-context'
 export * from './slots-context'
 export * from './promotion-context'
 export * from './referral-context'

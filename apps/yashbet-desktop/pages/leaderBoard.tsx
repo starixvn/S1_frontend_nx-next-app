@@ -9,7 +9,6 @@ import {
 	LEADER_BOARD_GAME_POINT_NAV,
 	LEADER_BOARD_MONTHS,
 	LEADER_BOARD_RANK_NUM,
-	LEADER_BOARD_REWARD_DATA,
 	LEADER_BOARD_RANK_NAV,
 	LEADER_BOARD_TABS,
 	LeaderBoardDayEnum,
@@ -17,9 +16,12 @@ import {
 	LeaderBoardTabsEnum,
 } from '@nx-next-app/site/yashbet/data/leaderBoard'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import {
+	AuthProvider,
+	GlobalDataProvider,
+	LeaderBoardProvider,
+} from '@nx-next-app/data-access'
 import { Layout, LeaderBoard } from '@nx-next-app/features/F0006/desktop'
-import { LeaderBoardProvider } from '@nx-next-app/features/F0006/providers'
 import { FOOTER_DATA } from '@nx-next-app/site/yashbet'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IFooterData } from '@nx-next-app/types'
@@ -43,7 +45,6 @@ const LeaderBoardPage = ({
 						LEADER_BOARD_GAME_POINT_NAV={LEADER_BOARD_GAME_POINT_NAV}
 						LEADER_BOARD_MONTHS={LEADER_BOARD_MONTHS}
 						LEADER_BOARD_RANK_NUM={LEADER_BOARD_RANK_NUM}
-						LEADER_BOARD_REWARD_DATA={LEADER_BOARD_REWARD_DATA}
 						LEADER_BOARD_RANK_NAV={LEADER_BOARD_RANK_NAV}
 						LEADER_BOARD_TABS={LEADER_BOARD_TABS}
 						LeaderBoardDayEnum={LeaderBoardDayEnum}

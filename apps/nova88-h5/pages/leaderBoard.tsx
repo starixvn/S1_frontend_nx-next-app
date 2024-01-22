@@ -5,9 +5,12 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import {
+	AuthProvider,
+	GlobalDataProvider,
+	LeaderBoardProvider,
+} from '@nx-next-app/data-access'
 import { Layout, LeaderBoard } from '@nx-next-app/features/F0001/h5'
-import { LeaderBoardProvider } from '@nx-next-app/features/F0001/providers'
 
 import {
 	LEADER_BOARD_EVENT_CODE,
@@ -15,7 +18,6 @@ import {
 	LEADER_BOARD_MONTHS,
 	LEADER_BOARD_RANK_NAV,
 	LEADER_BOARD_RANK_NUM,
-	LEADER_BOARD_REWARD_DATA,
 	LEADER_BOARD_TABS,
 	LeaderBoardDayEnum,
 	LeaderBoardGameTypeEnum,
@@ -38,7 +40,6 @@ const LeaderBoardPage = ({
 						LEADER_BOARD_GAME_POINT_NAV={LEADER_BOARD_GAME_POINT_NAV}
 						LEADER_BOARD_MONTHS={LEADER_BOARD_MONTHS}
 						LEADER_BOARD_RANK_NUM={LEADER_BOARD_RANK_NUM}
-						LEADER_BOARD_REWARD_DATA={LEADER_BOARD_REWARD_DATA}
 						LEADER_BOARD_RANK_NAV={LEADER_BOARD_RANK_NAV}
 						LEADER_BOARD_TABS={LEADER_BOARD_TABS}
 						LeaderBoardDayEnum={LeaderBoardDayEnum}

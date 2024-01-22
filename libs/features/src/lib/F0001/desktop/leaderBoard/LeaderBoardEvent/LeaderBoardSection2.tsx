@@ -2,8 +2,8 @@ import { useTranslation } from 'next-i18next'
 
 interface ILeaderBoardSection2Props {
 	rank: string
-	point: string
-	bonus: string
+	point: number
+	bonus: number
 	index: number
 }
 const LeaderBoardSection2 = ({

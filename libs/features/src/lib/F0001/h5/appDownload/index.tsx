@@ -5,6 +5,7 @@ import QRCode from 'qrcode.react'
 import { paths } from '@nx-next-app/constants'
 import { Carousel } from '@nx-next-app/components/D0001'
 import { useAppDownload } from '@nx-next-app/features/F0001/providers/appDownload-context'
+import Link from 'next/link'
 
 const AppDownload = () => {
 	const { IOSDownloadUrl, androidDownLoadUrl, APP_DOWNLOAD_LIST } =
@@ -23,6 +24,11 @@ const AppDownload = () => {
 							height={100}
 						/>
 					</a>
+					<Link href={paths.home.root} passHref>
+						<a>
+							<i className='icon icon-keyboard_arrow_left' />
+						</a>
+					</Link>
 				</div>
 				<div className='appPage'>
 					<div className='appTitle'>{t('Label_APP_DOWNLOAD')}</div>

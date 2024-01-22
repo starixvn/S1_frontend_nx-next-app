@@ -147,7 +147,7 @@ export const FOOTER_DATA = ({
 			},
 			{
 				productKey: 'SLOTS_BNG',
-				imgName: 'bnga',
+				imgName: 'bng',
 			},
 			{
 				productKey: 'SLOTS_PEGASUS',
