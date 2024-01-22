@@ -5,7 +5,7 @@ import {
 	useLazyGetLineUserIdQuery,
 } from '@nx-next-app/service'
 import { useInterval } from 'usehooks-ts'
-import { setCookies } from 'cookies-next'
+import { setCookie } from 'cookies-next'
 import { paths } from '../app/constants/paths'
 import { ENV_COOKIE_NAMES } from '../app/constants/Names'
 
@@ -88,12 +88,12 @@ export const useCheckLineDirect = ({ langId }: { langId: string }) => {
 
 						const { type, userId } = lineRegisterData
 						if (type === LineLoginDirectTypeEnum.Register) {
-							redirectPath = `/${langId}/${paths.join.root}`
-							setCookies(ENV_COOKIE_NAMES.LineUserId, userId)
+							redirectPath = paths.join.root
+							setCookie(ENV_COOKIE_NAMES.LineUserId, userId)
 						} else if (type === LineLoginDirectTypeEnum.Login) {
-							redirectPath = `/${langId}/${paths.deposit.root}`
+							redirectPath = paths.deposit.root
 						} else if (type === LineLoginDirectTypeEnum.Binding) {
-							redirectPath = `/${langId}/${paths.profile.root}`
+							redirectPath = paths.profile.root
 						}
 					} catch (error) {
 						// eslint-disable-next-line no-console
