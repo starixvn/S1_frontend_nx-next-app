@@ -60,6 +60,7 @@ const LiveStreamingModal = ({
 						matchId,
 					}) => (
 						<div
+							key={`${tpId}_${gameId}_${matchId}`}
 							className={`livesports-item ${
 								isWithinTwoHours(battleTime) ? '' : 'next'
 							}`}
