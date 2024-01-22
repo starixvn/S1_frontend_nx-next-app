@@ -204,6 +204,7 @@ const defaultDesktopHomeOrders = [
 	DesktopHomeComponentsEnum.ProviderBlock,
 	DesktopHomeComponentsEnum.OfficialPartner,
 	DesktopHomeComponentsEnum.LuckyWheel,
+	DesktopHomeComponentsEnum.LiveStreamingLink,
 ]
 
 const defaultMobileHomeOrders = [
