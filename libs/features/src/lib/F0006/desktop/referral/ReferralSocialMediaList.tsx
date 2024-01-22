@@ -18,7 +18,6 @@ const ReferralSocialMediaList = () => {
 						key={item.img}
 						onClick={() => onWindowOpen(item.url)}
 						src={item.img}
-						hoverImg={item.hoverImg}
 						alt='img'
 					/>
 				))}

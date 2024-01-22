@@ -1,10 +1,10 @@
-import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
+import { toUpper } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { useReferral } from '@nx-next-app/features/F0006/providers'
 import { numberFormat } from '@nx-next-app/utils'
-import { toUpper } from 'lodash-es'
+import { useReferral } from '@nx-next-app/features/F0006/providers'
 
 const ReferralStatus = () => {
 	const { t } = useTranslation()
@@ -15,11 +15,14 @@ const ReferralStatus = () => {
 	const { referralSummaryData } = useReferral()
 
 	return (
-		<div className='referstatus'>
+		<>
 			<div className='title'>
-				{t('Label_Referral_YourReferralStatus')}
+				{t('Label_Referral_YourReferralStatus')?.toUpperCase()}
 
-				<Link href={paths.history.root} passHref>
+				<Link
+					href={{ pathname: paths.history.root, query: { queryTabId: 4 } }}
+					passHref
+				>
 					<a className='refer-history' rel='noopener noreferrer'>
 						{t('Label_General_History')}
 					</a>
@@ -38,7 +41,7 @@ const ReferralStatus = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 
