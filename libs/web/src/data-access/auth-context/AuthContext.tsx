@@ -103,6 +103,20 @@ export const AuthProvider = ({
 		const { platform } = navigator
 		const { userAgent } = navigator
 		const screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`
+		let di = ''
+		let bi = ''
+		let detecasAnalysis = ''
+		let sessionKey = ''
+		let token = ''
+
+		// * di, bi, detecasAnalysis, sessionKey, token 引用第三方 js: //*/activator.ashx
+		di = (document.getElementById('__di') as HTMLInputElement)?.value
+		bi = (document.getElementById('__bi') as HTMLInputElement)?.value
+		detecasAnalysis = (
+			document.getElementById('detecas-analysis') as HTMLInputElement
+		)?.value
+		sessionKey = (document.getElementById('__fdi') as HTMLInputElement)?.value // * fdi = sessionKey
+		token = (document.getElementById('__tk') as HTMLInputElement)?.value // * 默認為 empty
 
 		await signIn({
 			userName,
@@ -112,6 +126,13 @@ export const AuthProvider = ({
 			platform,
 			userAgent,
 			screen,
+			FPSRequest: {
+				di,
+				bi,
+				detecasAnalysis,
+				sessionKey,
+				token,
+			},
 		}).unwrap()
 
 		setAuth({ isLogin: true })
@@ -133,6 +154,7 @@ export const AuthProvider = ({
 		(process.env.NODE_ENV === 'production'
 			? host
 			: process.env['NEXT_PUBLIC_ENV_DB_HOST']) || ''
+
 	// * 處理登入狀態同步使用者 cookie, 未登入不做同步
 	useSynchronizeCookiesEffect(userInfo)
 	// * 處理路由導轉
