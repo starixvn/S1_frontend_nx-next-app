@@ -176,6 +176,8 @@ const Form = ({ cookies }: IJoinProps) => {
 		// check affiliate is qualified from api
 		try {
 			await affiliateCheck({ affCode: formAffiliate }).unwrap()
+			clearErrors('affiliate')
+
 			return true
 		} catch (error) {
 			// error
