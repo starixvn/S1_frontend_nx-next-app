@@ -1,20 +1,26 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
 import { useTranslation } from 'next-i18next'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, LeftMenu, Referral } from '@nx-next-app/features/F0001/desktop'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { IFooterData } from '@nx-next-app/types'
+import {
+	AuthProvider,
+	GlobalDataProvider,
+	getWithdrawalBlockSetting,
+} from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { IWithdrawalSetting } from '@nx-next-app/service'
+import { Layout, LeftMenu, Referral } from '@nx-next-app/features/F0001/desktop'
 import { ReferralProvider } from '@nx-next-app/features/F0001/providers'
 import { FOOTER_DATA } from '@nx-next-app/site/nova88'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { IFooterData } from '@nx-next-app/types'
 
 interface IReferralPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
+	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
 const ReferralPage = ({
@@ -22,6 +28,7 @@ const ReferralPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	withdrawalBlockSetting,
 }: IReferralPageProps) => {
 	const { t } = useTranslation()
 
@@ -64,10 +71,11 @@ const ReferralPage = ({
 					<Layout
 						persistSEOData={persistSEOData}
 						footerData={persistFooterData}
+						withdrawalBlockSetting={withdrawalBlockSetting}
 					>
 						<main>
 							<section className='inside'>
-								<LeftMenu />
+								<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 								<Referral />
 							</section>
 						</main>
@@ -80,10 +88,16 @@ const ReferralPage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
+	const { currentHeaderCookies } = initialProps
+
 	const langId = initialProps.originCookies[ENV_COOKIE_NAMES.LangId]
 	const currencyId = Number(
 		initialProps.originCookies[ENV_COOKIE_NAMES.CurrencyId]
 	)
+
+	const withdrawalBlockSetting = await getWithdrawalBlockSetting({
+		headers: { cookie: currentHeaderCookies },
+	})
 
 	if (!initialProps.originIsSignIn) {
 		return {
@@ -97,6 +111,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	return {
 		props: {
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
+			withdrawalBlockSetting,
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 		},

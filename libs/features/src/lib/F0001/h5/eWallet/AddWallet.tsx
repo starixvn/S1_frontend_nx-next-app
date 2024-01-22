@@ -54,6 +54,7 @@ const AddWallet = () => {
 				errorMessage={errors['sysId']?.message as string}
 				defaultValue={eWalletSysOptions[0].value}
 				onChange={sysId => setValue('sysId', sysId)}
+				btnClassName='dropdownbank'
 			/>
 			<InputBox
 				register={register('accountNo', {

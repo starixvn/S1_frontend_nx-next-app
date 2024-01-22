@@ -35,13 +35,17 @@ const WithdrawalPage = ({
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
+				<Layout
+					persistSEOData={persistSEOData}
+					footerData={persistFooterData}
+					withdrawalBlockSetting={withdrawalBlockSetting}
+				>
 					<WithdrawalProvider withdrawalBlockSetting={withdrawalBlockSetting}>
 						{/* 因為需使用 cryptoWallet 的 hooks ,故需多包此層 */}
 						<CryptoWalletProvider
 							withdrawalBlockSetting={withdrawalBlockSetting}
 						>
-							<Withdrawal />
+							<Withdrawal withdrawalBlockSetting={withdrawalBlockSetting} />
 						</CryptoWalletProvider>
 					</WithdrawalProvider>
 				</Layout>

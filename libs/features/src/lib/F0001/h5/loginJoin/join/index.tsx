@@ -43,6 +43,9 @@ const Join = ({ cookies }: IJoinProps) => {
 	} = useAuth()
 
 	const [step, setStep] = useState<number>(1)
+	const [currencyOptions, setCurrencyOptions] = useState<
+		ISelectProps['options']
+	>([])
 
 	const formMethods = useForm()
 	const { setError, setValue, getValues, clearErrors, handleSubmit } =
@@ -60,6 +63,27 @@ const Join = ({ cookies }: IJoinProps) => {
 	const [signUp] = useSignupMutation()
 
 	const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery()
+
+	const currencySelectOptions = siteCurrencyList
+		.filter(currencyId => {
+			const affiliate = getValues('affiliate')
+			const formCurrencyId = getValues('currencyId')
+
+			// If affId qualified, only show currencyId from api in select
+			return urlAffId && affiliate ? currencyId === formCurrencyId : true
+		})
+		.map(currencyId => ({
+			value: currencyId,
+			label: t(`Label_General_Currency_${currencyId}`),
+			prefixOptionIcon: (
+				<div
+					className={classNames(
+						'flag',
+						FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
+					)}
+				/>
+			),
+		}))
 
 	const checkLineRegister = () => {
 		if (!cookieLineUserId) return
@@ -124,6 +148,8 @@ const Join = ({ cookies }: IJoinProps) => {
 		// check affiliate is qualified from api
 		try {
 			await affiliateCheck({ affCode: formAffiliate }).unwrap()
+			clearErrors('affiliate')
+
 			return true
 		} catch (error) {
 			// error
@@ -239,27 +265,6 @@ const Join = ({ cookies }: IJoinProps) => {
 		checkLineRegister()
 	}, [siteCurrencyList])
 
-	const currencySelectOptions = siteCurrencyList
-		.filter(currencyId => {
-			const affiliate = getValues('affiliate')
-			const formCurrencyId = getValues('currencyId')
-
-			// If affId qualified, only show currencyId from api in select
-			return urlAffId && affiliate ? currencyId === formCurrencyId : true
-		})
-		.map(currencyId => ({
-			value: currencyId,
-			label: t(`Label_General_Currency_${currencyId}`),
-			prefixOptionIcon: (
-				<div
-					className={classNames(
-						'flag',
-						FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
-					)}
-				/>
-			),
-		}))
-
 	return (
 		<>
 			<StepBar step={step} />
@@ -267,10 +272,24 @@ const Join = ({ cookies }: IJoinProps) => {
 			<div className='Join'>
 				<FormProvider {...formMethods}>
 					<form onSubmit={handleSubmit(handleSubmitForm)}>
-						{step === 1 && <Step1 cookies={cookies} setStep={setStep} />}
+						{step === 1 && (
+							<Step1
+								cookies={cookies}
+								siteCurrencyList={siteCurrencyList}
+								currencySelectOptions={currencySelectOptions}
+								setStep={setStep}
+								selectCurrency={selectCurrency}
+								setCurrencyOptions={setCurrencyOptions}
+							/>
+						)}
 						{step === 2 && (
 							<Step2
-								currencySelectOptions={currencySelectOptions}
+								// * 如果 Aff Input 有相對應的幣別，則使用 currencyOptions（Aff 過濾的幣別選項）
+								currencySelectOptions={
+									currencyOptions.length === 0
+										? currencySelectOptions
+										: currencyOptions
+								}
 								selectCurrency={selectCurrency}
 							/>
 						)}

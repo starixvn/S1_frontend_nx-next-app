@@ -2499,7 +2499,7 @@ export const MENU_DATA = ({
 				},
 			],
 			subMenuAllowCurrenciesWithAuth: false,
-			allowCurrencies: [MYR],
+			allowCurrencies: ALLOWED_CURRENCIES['FOUR_D_GRAND_DRAGON'],
 		},
 		[MenuKeyEnum.Lottery]: {
 			display: 'all',

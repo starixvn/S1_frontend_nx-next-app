@@ -34,7 +34,7 @@ const AddCard = () => {
 					<Image
 						src={`${
 							process.env['NEXT_PUBLIC_PAYMENT_HOST']
-						}/square/${bankLogo.toLowerCase()}`}
+						}/square/${bankLogo?.toLowerCase()}`}
 						alt={bankName}
 						width={45}
 						height={45}
@@ -62,6 +62,7 @@ const AddCard = () => {
 				onChange={sysId => setValue('sysId', sysId)}
 				errorMessage={errors['sysId']?.message as string}
 				defaultValue={bankSysOptions[0].value}
+				btnClassName='dropdownbank'
 			/>
 			<InputBox
 				register={register('accountNo', {
