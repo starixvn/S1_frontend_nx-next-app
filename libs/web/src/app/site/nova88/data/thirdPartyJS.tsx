@@ -87,3 +87,35 @@ export const GoogleTagManagerScript = () => (
 		/>
 	</noscript>
 )
+
+export const PixelCodeScript = () => {
+	return (
+		<Script async defer id='PixelCode'>
+			{`!(function (p, l, o, w, i, n, g) {
+					if (!p[i]) {
+						p.GlobalSnowplowNamespace =
+							p.GlobalSnowplowNamespace || [];
+						p.GlobalSnowplowNamespace.push(i);
+						p[i] = function () {
+							(p[i].q = p[i].q || []).push(arguments);
+						};
+						p[i].q = p[i].q || [];
+						n = l.createElement(o);
+						g = l.getElementsByTagName(o)[0];
+						n.async = 1;
+						n.src = w;
+						g.parentNode.insertBefore(n, g);
+					}
+				})(
+					window,
+					document,
+					"script",
+					"//res-odx.op-mobile.opera.com/sp.js",
+					"otag"
+				)
+
+				otag("init", "adv10336204001664")
+			`}
+		</Script>
+	)
+}
