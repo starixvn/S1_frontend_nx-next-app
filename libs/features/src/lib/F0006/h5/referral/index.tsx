@@ -8,8 +8,8 @@ const Referral = () => {
 			<ReferralBanner />
 
 			<div className='refer'>
-				<ReferralStatus />
 				<ReferralInfo />
+				<ReferralStatus />
 			</div>
 		</main>
 	)
