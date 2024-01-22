@@ -10,7 +10,7 @@ const ReferralBanner = () => {
 	const { onGetReferralDetail } = useReferral()
 
 	// * 跟著 langId 的 banner 圖片
-	const topBannerImg = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/referral-topBanner-H5-${langId}.jpg`
+	const topBannerImg = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/referral-topbanner-${langId}.jpg`
 
 	return (
 		<Img

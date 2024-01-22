@@ -16,7 +16,6 @@ export interface ReferralContextInterface {
 	referralSummaryData: IReferralSummaryData | undefined
 	referralInfoList: {
 		img: string
-		hoverImg?: string
 		url: string
 	}[]
 	onGetReferralDetail: () => Promise<void>
@@ -26,7 +25,6 @@ interface IReferralProviderProps {
 	children: ReactNode
 	referralInfoList: {
 		img: string
-		hoverImg?: string
 		url: string
 	}[]
 }

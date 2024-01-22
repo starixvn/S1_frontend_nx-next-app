@@ -13,7 +13,9 @@ const ReferralStatus = () => {
 
 	return (
 		<div className='referstatus'>
-			<div className='title'>{t('Label_Referral_YourReferralStatus')}</div>
+			<div className='title'>
+				{toUpper(t('Label_Referral_YourReferralStatus') || '')}
+			</div>
 			<div className='referstatus-item'>
 				<div className='card'>
 					{toUpper(t('Label_Referral_NoOfAchievements') || '')}

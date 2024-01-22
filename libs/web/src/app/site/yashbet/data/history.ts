@@ -23,7 +23,7 @@ export const HISTORY_TABS = [
 	{
 		displayKey: 'Label_History_Referral',
 		id: HistoryTabsEnum.Referral,
-		allowCurrencies: [],
+		allowCurrencies: ALLOWED_CURRENCIES.REFER_FRIENDS,
 	},
 ]
 
