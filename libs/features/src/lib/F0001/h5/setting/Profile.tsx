@@ -178,7 +178,7 @@ const Profile = () => {
 								return (
 									<div key={bonusId} className='casino-wallet-item'>
 										<div className='money'>
-											<div>{t(`lbl_BonusWallet_${promoCategoryId}`)}</div>
+											<div>{t(`Label_BonusWallet_${promoCategoryId}`)}</div>
 											<div>
 												{currencyName} {numberFormat(bonus, currencyId)}
 											</div>
