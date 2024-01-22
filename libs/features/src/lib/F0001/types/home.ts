@@ -22,6 +22,8 @@ export enum DesktopHomeComponentsEnum {
 	OfficialPartner = 'OfficialPartner',
 	// LuckyWheel
 	LuckyWheel = 'LuckyWheel',
+	// 直播
+	LiveStreamingLink = 'LiveStreamingLink',
 	// 左側快速下載標籤，底下 2 個新版用不到
 	QuickDownload = 'QuickDownload',
 	// 右側社群連結
@@ -45,6 +47,7 @@ export enum MobileHomeComponentsEnum {
 	FriendReferral = 'FriendReferral',
 	Jackpot = 'Jackpot',
 	LuckyWheel = 'LuckyWheel',
+	LiveStreamingLink = 'LiveStreamingLink',
 	AppDownload = 'AppDownload',
 	PartnerBlock = 'PartnerBlock',
 	// 代言人頭像
