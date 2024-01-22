@@ -19,7 +19,13 @@ export interface IGetLineUserIdTypeArgs {
 		platform?: string
 		userAgent?: string
 		screen?: string
-		di?: string
+		FPSRequest?: {
+			di?: string
+			bi?: string
+			detecasAnalysis?: string
+			sessionKey?: string
+			token?: string
+		}
 	}
 }
 
