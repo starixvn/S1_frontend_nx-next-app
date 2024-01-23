@@ -3,9 +3,11 @@ import dayjs from 'dayjs'
 import { useAuth } from '@nx-next-app/data-access'
 import { CURRENCY_TO_LANG_KEY } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useLazyGetDataListQuery } from 'libs/web/src/service/liveStreamingApi/api'
-import { LANG_TO_CURRENCY } from '@apps/nova88-h5/middleware'
-import { ILiveStreamingData } from 'libs/web/src/service/liveStreamingApi/type'
+import {
+	useLazyGetDataListQuery,
+	ILiveStreamingData,
+} from '@nx-next-app/service'
+import { LANG_TO_CURRENCY } from '@nx-next-app/site/nova88'
 import LiveStreamingModal from './LiveStreamingModal'
 
 const LiveStreamingLink = () => {

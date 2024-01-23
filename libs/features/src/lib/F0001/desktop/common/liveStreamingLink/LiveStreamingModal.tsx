@@ -5,9 +5,9 @@ import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { ILiveStreamingData } from 'libs/web/src/service/liveStreamingApi/type'
 import { LANG_TO_CURRENCY } from '@apps/nova88-desktop/middleware'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import { ILiveStreamingData } from '@nx-next-app/service'
 
 const LiveStreamingModal = ({
 	liveStreamingList,
