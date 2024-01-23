@@ -34,8 +34,8 @@ const DepositItem = ({
 	status,
 	thirdId,
 	depositMessageDetail,
-	bankInfo: { bankName, bankSite },
-	depositRep: { accountName, accountNo, code },
+	bankInfo,
+	depositRep,
 	depositReceipt,
 }: IDepositInfoHistoryData) => {
 	const { t } = useTranslation()
@@ -165,11 +165,11 @@ const DepositItem = ({
 							onClick={() =>
 								modal.open(
 									<DepositBankSlipModal
-										bankName={bankName}
-										bankSite={bankSite}
-										accountName={accountName}
-										accountNo={accountNo}
-										code={code}
+										bankName={bankInfo?.bankName}
+										bankSite={bankInfo?.bankSite}
+										accountName={depositRep?.accountName}
+										accountNo={depositRep?.accountNo}
+										code={depositRep?.code}
 										amount={amount}
 										transId={transId}
 										depositReceipt={depositReceipt}
