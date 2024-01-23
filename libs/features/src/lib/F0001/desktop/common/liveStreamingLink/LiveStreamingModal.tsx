@@ -23,6 +23,9 @@ const LiveStreamingModal = ({
 	const { LANG_TO_CURRENCY } = useStaticData()
 
 	const getClassNameByCurrencyId = () => {
+		if (!LANG_TO_CURRENCY) {
+			return ''
+		}
 		const currencyClassNames = {
 			[LANG_TO_CURRENCY['vn']]: (_langId: string) =>
 				_langId === 'en' ? 'vn-en' : 'vn',

@@ -15,7 +15,7 @@ const LiveStreamingLink = () => {
 		userInfo: { currencyId, langId },
 		auth: { isLogin },
 	} = useAuth()
-	const { LANG_TO_CURRENCY } = useStaticData()
+	const { LANG_TO_CURRENCY = {} } = useStaticData()
 	const [isShowLiveStreaming, setIsShowLiveStreaming] = useState(false)
 	const [liveStreamingList, setLiveStreamingList] = useState<
 		ILiveStreamingData[]

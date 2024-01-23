@@ -26,7 +26,7 @@ export interface IStaticDataContext {
 		[key: string]: IStaticProduct
 	}
 	LEFT_MENU_DATA: ILeftMenuData
-	LANG_TO_CURRENCY: { [key: string]: number }
+	LANG_TO_CURRENCY?: { [key: string]: number }
 	ALLOWED_CURRENCIES: IStaticAllowedCurrencies
 	LANG_GROUPS: IStaticLangGroups
 	CURRENCY_TO_TIMEZONE: { [key: number]: string }
