@@ -26,6 +26,7 @@ export interface IStaticDataContext {
 		[key: string]: IStaticProduct
 	}
 	LEFT_MENU_DATA: ILeftMenuData
+	LANG_TO_CURRENCY: { [key: string]: number }
 	ALLOWED_CURRENCIES: IStaticAllowedCurrencies
 	LANG_GROUPS: IStaticLangGroups
 	CURRENCY_TO_TIMEZONE: { [key: number]: string }
@@ -68,6 +69,7 @@ const StaticDataProvider = ({
 	TERMS_CONDITIONS,
 	BANNER_IMAGE_LIST,
 	LEFT_MENU_DATA,
+	LANG_TO_CURRENCY,
 	LIVE_CHAT_ID_BY_LANG_ID,
 	GET_AFFILIATE_LINK,
 }: IStaticDataProviderProps) => {
@@ -84,6 +86,7 @@ const StaticDataProvider = ({
 		TERMS_CONDITIONS,
 		BANNER_IMAGE_LIST,
 		LEFT_MENU_DATA,
+		LANG_TO_CURRENCY,
 		LIVE_CHAT_ID_BY_LANG_ID,
 		GET_AFFILIATE_LINK,
 	}

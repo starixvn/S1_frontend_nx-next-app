@@ -3,9 +3,8 @@ import dayjs from 'dayjs'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { LANG_TO_CURRENCY } from '@nx-next-app/site/nova88'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { ILiveStreamingData } from '@nx-next-app/service'
 
@@ -21,6 +20,7 @@ const LiveStreamingModal = ({
 	const { t } = useTranslation()
 	const { onEnterPage } = useMenu()
 	const { closeModal } = useGlobalModal()
+	const { LANG_TO_CURRENCY } = useStaticData()
 
 	const getClassNameByCurrencyId = () => {
 		const currencyClassNames = {
