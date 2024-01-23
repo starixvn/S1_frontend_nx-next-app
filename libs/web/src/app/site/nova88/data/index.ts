@@ -131,6 +131,7 @@ export const LANG_TO_CURRENCY: { [key: string]: number } = {
 	hi: 61,
 	kh: 72,
 	bd: 74,
+	vn: 51,
 }
 
 export const CURRENCY_PAYMENT_LIST: {
