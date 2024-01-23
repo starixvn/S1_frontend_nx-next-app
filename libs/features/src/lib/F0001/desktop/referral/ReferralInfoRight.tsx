@@ -2,6 +2,7 @@ import QRCode from 'qrcode.react'
 import { toUpper } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useCopyToClipboard } from 'usehooks-ts'
+import { paths } from '@nx-next-app/constants'
 import { useReferral } from '@nx-next-app/features/F0001/providers'
 import ReferralSocialMediaList from './ReferralSocialMediaList'
 
@@ -11,7 +12,12 @@ const ReferralInfoRight = () => {
 	const [_, copy] = useCopyToClipboard()
 	const { referralCode } = useReferral()
 
-	const referralLink = `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/join?AffId=${referralCode}`
+	const origin =
+		typeof window !== 'undefined' && window.location.origin
+			? window.location.origin
+			: ''
+
+	const referralLink = `${origin}${paths.join.root}?AffId=${referralCode}`
 
 	return (
 		<div className='referinfo-right'>
