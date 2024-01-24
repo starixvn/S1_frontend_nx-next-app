@@ -19,6 +19,7 @@ import DepositSlip from './DepositSlip'
 import DepositMenu from './DepositMenu'
 import PromotionProgressBar from '../../promotion/PromotionProgressBar'
 import PromoRule from './PromoRule'
+import PromoMission from './PromoMission'
 
 const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
@@ -134,52 +135,56 @@ const PromotionDetailModal = ({
 							)}
 						</div>
 					</div>
+					{isShowCashbackInfo && (
+						<CashbackInfo
+							bonusCode={bonusCode}
+							cashBackDetails={cashBackDetails}
+						/>
+					)}
+
+					{isShowDepositSlip && (
+						<DepositSlip depositAmount={depositAmount} refList={refList} />
+					)}
+
+					{isShowDepositMenu && (
+						<DepositMenu depositId={depositId} depositAmount={depositAmount} />
+					)}
+
+					{isShowPromotionProgressBar({
+						isJoin,
+						status,
+						promotionType,
+					}) && (
+						<PromotionProgressBar
+							custTurnOver={custTurnOver}
+							custRollOver={custRollOver}
+							onSpinButton={() =>
+								onUpdatePromotionDetail({
+									bonusCode,
+									tpId,
+									promoCategoryId: String(categoryId),
+								})
+							}
+						/>
+					)}
+					{promotionType === PromotionTypeEnum.MissionBonus && !isJoin && (
+						<PromoMission promotionDetail={promotionDetail} />
+					)}
+
+					{promotionType !== PromotionTypeEnum.MissionBonus && (
+						<PromoRule promotionDetail={promotionDetail} />
+					)}
+
+					{details && (
+						<div
+							className='proDataBody'
+							// eslint-disable-next-line react/no-danger
+							dangerouslySetInnerHTML={{
+								__html: details,
+							}}
+						/>
+					)}
 				</div>
-
-				{isShowCashbackInfo && (
-					<CashbackInfo
-						bonusCode={bonusCode}
-						cashBackDetails={cashBackDetails}
-					/>
-				)}
-
-				{isShowDepositSlip && (
-					<DepositSlip depositAmount={depositAmount} refList={refList} />
-				)}
-
-				{isShowDepositMenu && (
-					<DepositMenu depositId={depositId} depositAmount={depositAmount} />
-				)}
-
-				{isShowPromotionProgressBar({
-					isJoin,
-					status,
-					promotionType,
-				}) && (
-					<PromotionProgressBar
-						custTurnOver={custTurnOver}
-						custRollOver={custRollOver}
-						onSpinButton={() =>
-							onUpdatePromotionDetail({
-								bonusCode,
-								tpId,
-								promoCategoryId: String(categoryId),
-							})
-						}
-					/>
-				)}
-
-				<PromoRule promotionDetail={promotionDetail} />
-
-				{details && (
-					<div
-						className='proDataBody'
-						// eslint-disable-next-line react/no-danger
-						dangerouslySetInnerHTML={{
-							__html: details,
-						}}
-					/>
-				)}
 			</div>
 		</div>
 	)
