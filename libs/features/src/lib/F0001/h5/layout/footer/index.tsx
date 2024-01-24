@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useGetMsgCountQuery } from '@nx-next-app/service'
 
 const FOOTER_HOME_DOMAIN = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/footer`
 
@@ -15,10 +16,15 @@ const LayoutFooter = () => {
 		useBoolean()
 	const {
 		userInfo: { langId, currencyId },
+		auth: { isLogin },
 	} = useAuth()
 	const router = useRouter()
 	const { pathname } = router
 	const { ALLOWED_CURRENCIES, LIVE_CHAT_ID_BY_LANG_ID } = useStaticData()
+
+	const { data: { data: msgCount = 0 } = {} } = useGetMsgCountQuery(null, {
+		skip: !isLogin,
+	})
 
 	// * 根據語系有不同的 LIVE CHAT ID, 默認為 en
 	const liveChatUrl = `https://direct.lc.chat/${
@@ -81,6 +87,7 @@ const LayoutFooter = () => {
 					<a
 						className={classNames('footer-item', {
 							active: pathname === paths.setting.root,
+							me: msgCount > 0,
 						})}
 					>
 						<img

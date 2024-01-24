@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { CURRENCY_TO_LANG_KEY } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useLazyGetDataListQuery } from 'libs/web/src/service/liveStreamingApi/api'
-import { LANG_TO_CURRENCY } from '@apps/nova88-h5/middleware'
-import { ILiveStreamingData } from 'libs/web/src/service/liveStreamingApi/type'
+import {
+	useLazyGetDataListQuery,
+	ILiveStreamingData,
+} from '@nx-next-app/service'
 import LiveStreamingModal from './LiveStreamingModal'
 
 const LiveStreamingLink = () => {
@@ -14,6 +15,7 @@ const LiveStreamingLink = () => {
 		userInfo: { currencyId, langId },
 		auth: { isLogin },
 	} = useAuth()
+	const { LANG_TO_CURRENCY = {} } = useStaticData()
 	const [isShowLiveStreaming, setIsShowLiveStreaming] = useState(false)
 	const [liveStreamingList, setLiveStreamingList] = useState<
 		ILiveStreamingData[]

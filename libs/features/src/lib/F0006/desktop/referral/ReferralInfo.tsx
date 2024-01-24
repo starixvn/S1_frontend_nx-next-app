@@ -5,6 +5,7 @@ import { Img } from '@nx-next-app/components/D0006'
 import QRCode from 'qrcode.react'
 import ReferralSocialMediaList from '@nx-next-app/features/F0006/desktop/referral/ReferralSocialMediaList'
 import { useCopyToClipboard } from 'usehooks-ts'
+import { paths } from '@nx-next-app/constants'
 
 const referralStep01Img = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/referral-step-01.svg`
 const referralStep02Img = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/referral-step-02.svg`
@@ -16,7 +17,12 @@ const ReferralInfo = () => {
 	const [_, copy] = useCopyToClipboard()
 	const { referralCode } = useReferral()
 
-	const referralLink = `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/join?AffId=${referralCode}`
+	const origin =
+		typeof window !== 'undefined' && window.location.origin
+			? window.location.origin
+			: ''
+
+	const referralLink = `${origin}${paths.join.root}?AffId=${referralCode}`
 
 	return (
 		<>
