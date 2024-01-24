@@ -1,4 +1,5 @@
 import dayjs from 'dayjs'
+import { isEmpty } from 'lodash-es'
 import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { useForm, FormProvider } from 'react-hook-form'
@@ -29,6 +30,7 @@ const Profile = () => {
 			areaCode,
 			accountName,
 			phoneVerified,
+			email,
 			birth_d: birthDay,
 			birth_m: birthMonth,
 			birth_y: birthYear,
@@ -42,7 +44,7 @@ const Profile = () => {
 
 	const handleSubmitForm = () => {
 		const setFormProfile = async () => {
-			const { formAreaCode, formPhone, formRealName } = getValues()
+			const { formAreaCode, formPhone, formRealName, formEmail } = getValues()
 
 			try {
 				//* 既有的資料依然需要傳進 api
@@ -53,6 +55,7 @@ const Profile = () => {
 					Birth_m: birthMonth ?? dayjs(formBirth).format('MM'),
 					Birth_y: birthYear ?? dayjs(formBirth).format('YYYY'),
 					PhoneNo: phoneNo ?? formPhone,
+					Email: isEmpty(email) ? formEmail : email,
 				})
 
 				if (!phoneVerified) {
@@ -96,7 +99,7 @@ const Profile = () => {
 		})
 	}
 
-	const showSubmitBtn = !accountName || !phoneNo || !birthDay
+	const showSubmitBtn = !accountName || !phoneNo || !birthDay || !email
 
 	// * 等待 response 回來才渲染元件，確保不會發生 react-hydration-error
 	if (!accountName) return <Loading />
