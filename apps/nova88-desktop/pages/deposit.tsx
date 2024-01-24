@@ -38,7 +38,7 @@ const DepositPage = ({
 						// * 排序與開關
 						depositPaymentOrders={DEPOSIT_PAYMENT_ORDERS}
 					>
-						<Deposit options={{ showReferralButton: false }} />
+						<Deposit options={{ showReferralButton: true }} />
 					</DepositProvider>
 				</Layout>
 			</GlobalDataProvider>

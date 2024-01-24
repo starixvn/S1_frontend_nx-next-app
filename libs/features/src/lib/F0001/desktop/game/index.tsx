@@ -3,7 +3,7 @@ import GameList from './GameList'
 
 const Game = () => {
 	return (
-		<main className='gameinside'>
+		<main className='lobby'>
 			<GameBanner />
 			<GameList />
 		</main>

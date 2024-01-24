@@ -18,10 +18,7 @@ import {
 	LANG_GROUPS,
 	MENU_DATA,
 	META_DATA,
-	PASSWORD_REGEX,
-	REALNAME_REGEX,
 	TERMS_CONDITIONS,
-	USERNAME_REGEX,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY_DESKTOP,
 	VIP_CLUB_IMAGES,
 	BANNER_IMAGE_LIST,
@@ -46,6 +43,7 @@ const {
 	GTMScript,
 	JackpotsScript,
 	GoogleTagManagerScript,
+	PixelCodeScript,
 } = ThirdPartyJS
 
 function CustomApp({ Component, pageProps }: AppProps) {
@@ -67,9 +65,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
 						}
 						FEATURE_BONUS={FEATURE_BONUS}
 						TERMS_CONDITIONS={TERMS_CONDITIONS}
-						USERNAME_REGEX={USERNAME_REGEX}
-						PASSWORD_REGEX={PASSWORD_REGEX}
-						REALNAME_REGEX={REALNAME_REGEX}
 						BANNER_IMAGE_LIST={BANNER_IMAGE_LIST}
 						LIVE_CHAT_ID_BY_LANG_ID={LIVE_CHAT_ID_BY_LANG_ID}
 						LEFT_MENU_DATA={LEFT_MENU_DATA}
@@ -85,6 +80,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			<GTMScript />
 			<JackpotsScript />
 			<GoogleTagManagerScript />
+			<PixelCodeScript />
 
 			{/* // TODO: <SEO /> */}
 		</>

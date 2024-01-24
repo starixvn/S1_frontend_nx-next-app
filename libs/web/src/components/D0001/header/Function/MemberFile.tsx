@@ -109,7 +109,7 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 							{/* // * vip 等級最高時顯示 ReachedTheHighestLevel */}
 							{isVipLevelHighest ? (
 								<Link href={paths.vip.root} className='highest-text'>
-									<a>{t('Label_Vip_NextMilestone')}</a>
+									<a>{t('Label_Vip_ReachedTheHighestLevel')}</a>
 								</Link>
 							) : (
 								<>

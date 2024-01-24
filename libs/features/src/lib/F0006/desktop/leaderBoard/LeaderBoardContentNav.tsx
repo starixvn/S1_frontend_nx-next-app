@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { find } from 'lodash-es'
 import { Select } from '@nx-next-app/components/D0006'
-import { useLeaderBoard } from '@nx-next-app/features/F0006/providers/leaderBoard-context'
+import { useLeaderBoard } from '@nx-next-app/data-access'
 
 const LeaderBoardContentNav = () => {
 	const { t } = useTranslation()
@@ -65,15 +65,11 @@ const LeaderBoardContentNav = () => {
 			return newPeriodList && newPeriodList.length > 0 ? (
 				<div className='rankTag'>
 					<div>{t('Label_LeaderBoard_Month')}</div>
-					<div className='inputBox-blue'>
-						<Select
-							value={
-								find(newPeriodList, { value: activePeriodId })?.value ?? ''
-							}
-							options={newPeriodList}
-							onChange={e => onPeriodIdChange(e as string)}
-						/>
-					</div>
+					<Select
+						value={find(newPeriodList, { value: activePeriodId })?.value ?? ''}
+						options={newPeriodList}
+						onChange={e => onPeriodIdChange(e as string)}
+					/>
 				</div>
 			) : null
 		default:

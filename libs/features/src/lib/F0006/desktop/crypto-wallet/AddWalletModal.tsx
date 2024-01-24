@@ -129,8 +129,6 @@ const AddWalletModal = ({
 						/>
 						<InputBox
 							register={register('nickName')}
-							errorMessage={errors['nickName']?.message as string}
-							error={!!errors['nickName']}
 							touched={!!touchedFields['nickName']}
 							title={t('Label_CryptoWallet_CryptoWalletNickName') as string}
 							placeholder={t('Label_Profile_Option2') as string}
@@ -152,15 +150,8 @@ const AddWalletModal = ({
 								{/* 使用 form 導致跑版，所以額外用 style 調整 */}
 								<InputBox
 									style={{ paddingRight: '80px' }}
-									register={register('otpCode', {
-										required: {
-											value: true,
-											message: t('Label_CryptoWallet_PleaseEnterWalletAddress'),
-										},
-										onBlur: () => trigger('otpCode'),
-									})}
+									register={register('otpCode')}
 									title='OTP'
-									error={!!errors['otpCode']}
 									touched={!!touchedFields['otpCode']}
 								/>
 							</div>

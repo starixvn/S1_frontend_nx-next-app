@@ -18,10 +18,11 @@ const LiveCasino = () => {
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
-	const { menuData, onMenuOpen } = useMenu()
+	const {
+		menuData: { Casino: { subMenu: liveCasinoMenu } = {} } = {},
+		onMenuOpen,
+	} = useMenu()
 	const { modal } = useGlobalModal()
-
-	const liveCasinoMenu = menuData.Casino.subMenu
 
 	const ppCasino = find(
 		liveCasinoMenu,

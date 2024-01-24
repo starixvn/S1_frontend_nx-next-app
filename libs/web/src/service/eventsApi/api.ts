@@ -11,12 +11,15 @@ import {
 	IGetLeaderBoardData,
 	IGetLeaderBoardListArgs,
 	IGetLeaderBoardListMonthArgs,
+	IGetLeaderBoardSettingArgs,
 	ILeaderBoardMonthData,
+	ILeaderBoardSettingData,
 } from './type'
 
 export const eventApiUrl = {
 	getLeaderBoardListMonth: 'Events/GetLeaderboardListMonth',
 	getLeaderBoardList: 'Events/GetLeaderboardList',
+	getLeaderBoardSetting: 'Events/GetLeaderboardSetting',
 	getCustRank: 'Events/GetCustRank',
 	getCustRankMonth: 'Events/GetCustRankMonth',
 	checkDrawPrize: 'Events/CheckDrawPrize',
@@ -43,6 +46,16 @@ export const eventsApi = rootApi.injectEndpoints({
 		>({
 			query: data => ({
 				url: eventApiUrl.getLeaderBoardList,
+				method: 'POST',
+				data,
+			}),
+		}),
+		getLeaderBoardSetting: builder.query<
+			IAxiosResponse<ILeaderBoardSettingData>,
+			IGetLeaderBoardSettingArgs
+		>({
+			query: data => ({
+				url: eventApiUrl.getLeaderBoardSetting,
 				method: 'POST',
 				data,
 			}),
@@ -125,6 +138,7 @@ export const eventsApi = rootApi.injectEndpoints({
 export const {
 	useLazyGetLeaderBoardListMonthQuery,
 	useLazyGetLeaderBoardListQuery,
+	useGetLeaderBoardSettingQuery,
 	useLazyGetCustRankQuery,
 	useLazyGetCustRankMonthQuery,
 	useCheckDrawPrizeQuery,

@@ -1,11 +1,10 @@
 import dayjs from 'dayjs'
 import dynamic from 'next/dynamic'
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { IHotEventData } from '@nx-next-app/service'
 import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
 import Link from 'next/link'
-import { uniqueId } from 'lodash-es'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
@@ -85,11 +84,13 @@ const Item = ({ data }: { data: IHotEventData }) => {
 const HotEventSwiper = () => {
 	const { hotEventData } = useHome()
 	const [showNavigation, setShowNavigation] = useState(false)
+	const [shouldSwiperUpdate, setShouldSwiperUpdate] = useState(false)
+	const memoHotEventData = useMemo(() => hotEventData, [hotEventData])
 
 	const config = {
 		slidesPerView: 4.1,
 		spaceBetween: 10,
-		shouldSwiperUpdate: true,
+		shouldSwiperUpdate,
 		navigation: {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
@@ -108,12 +109,18 @@ const HotEventSwiper = () => {
 		),
 	}
 
+	if (!hotEventData) return null
 	const rows = hotEventData?.map(eventData => (
 		<Item
-			key={`${eventData.sportLeaguesTitle}-${uniqueId()}`}
+			key={`${eventData.sportLeaguesTitle}-${eventData.matchId}`}
 			data={eventData}
 		/>
 	))
+
+	useEffect(() => {
+		setShouldSwiperUpdate(true)
+		setTimeout(() => setShouldSwiperUpdate(false), 5000)
+	}, [memoHotEventData])
 
 	return rows.length > 0 ? (
 		<div

@@ -5,35 +5,31 @@ import React, {
 	useEffect,
 	useState,
 } from 'react'
-import { useAuth } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
+	LeaderBoardDayEnum,
+	LeaderBoardGameTypeEnum,
+	LeaderBoardTabsEnum,
+} from '@nx-next-app/types'
+import dayjs, { Dayjs } from 'dayjs'
+import { useTranslation } from 'next-i18next'
+import { useAuth } from '@nx-next-app/data-access'
+import {
+	ModalContentType,
+	useGlobalModal,
+} from '@nx-next-app/components/config-provider'
+import { useRouter } from 'next/router'
+import {
+	ILeaderBoardSettingData,
+	useGetLeaderBoardSettingQuery,
 	useLazyGetCustRankMonthQuery,
 	useLazyGetCustRankQuery,
 	useLazyGetLeaderBoardListMonthQuery,
 	useLazyGetLeaderBoardListQuery,
 } from '@nx-next-app/service'
-import dayjs, { Dayjs } from 'dayjs'
-import { find, includes } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
-import dynamic from 'next/dynamic'
-import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import {
-	LeaderBoardDayEnum,
-	LeaderBoardGameTypeEnum,
-	LeaderBoardTabsEnum,
-} from '@nx-next-app/site/nova88/data/leaderBoard'
-import { useRouter } from 'next/router'
 import { useDebounce } from 'usehooks-ts'
 import { getTermsConditionsLangId } from '@nx-next-app/utils'
-
-const LoginModal = dynamic(
-	() => import('@nx-next-app/features/F0006/desktop/modal/LoginModal'),
-	{
-		ssr: false,
-	}
-)
+import { find, includes } from 'lodash-es'
+import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
 
 interface ILeaderBoardProviderProps {
 	children: ReactNode
@@ -45,17 +41,6 @@ interface ILeaderBoardProviderProps {
 	}[]
 	LEADER_BOARD_MONTHS: { [key: number]: string }
 	LEADER_BOARD_RANK_NUM: { [key: string]: number }
-	LEADER_BOARD_REWARD_DATA: {
-		[currencyName: string]: {
-			section1: {
-				turnover: string
-				point: string
-				displayName: string
-				img: string
-			}[]
-			section2: { rank: string; point: string; bonus: string }[]
-		}
-	}
 	LEADER_BOARD_RANK_NAV: { id: number; displayKey: string }[]
 	LEADER_BOARD_TABS: { id: number; displayKey: string }[]
 	LeaderBoardDayEnum: typeof LeaderBoardDayEnum
@@ -65,15 +50,7 @@ interface ILeaderBoardProviderProps {
 
 export interface LeaderBoardContextInterface {
 	loading: boolean
-	rewardData: {
-		section1: {
-			turnover: string
-			point: string
-			displayName: string
-			img: string
-		}[]
-		section2: { rank: string; point: string; bonus: string }[]
-	}
+	leaderBoardSettingResponseData?: ILeaderBoardSettingData
 	handleTermAndConditionClick: () => void
 	backgroundImg: string
 	rankList: {
@@ -96,7 +73,7 @@ export interface LeaderBoardContextInterface {
 	onRankTimeChange: (newRankTime: number) => void
 	onGameTypeChange: (newGameType: number) => void
 	onPeriodIdChange: (newPeriodId: string) => void
-	onTabsChange: (id: number) => void
+	onTabsChange: (id: number, loginModal?: ModalContentType) => void
 	LEADER_BOARD_GAME_POINT_NAV: {
 		id: LeaderBoardGameTypeEnum
 		displayKey: string
@@ -150,13 +127,21 @@ const getPeriodList = (leaderBoardMonths: { [key: number]: string }) => {
 	return monthDataList
 }
 
+const getFormattedUpdateTime = () => {
+	const now = dayjs()
+	const startOfHour = dayjs().startOf('hour')
+	const threshold = startOfHour.add(30, 'minute')
+	const displayTime = now.isAfter(threshold) ? threshold : startOfHour
+
+	return displayTime.format('YYYY/MM/DD HH:mm:ss')
+}
+
 const LeaderBoardProvider = ({
 	children,
 	LEADER_BOARD_EVENT_CODE,
 	LEADER_BOARD_GAME_POINT_NAV,
 	LEADER_BOARD_MONTHS,
 	LEADER_BOARD_RANK_NUM,
-	LEADER_BOARD_REWARD_DATA,
 	LEADER_BOARD_RANK_NAV,
 	LEADER_BOARD_TABS,
 	LeaderBoardDayEnum,
@@ -170,11 +155,6 @@ const LeaderBoardProvider = ({
 	} = useAuth()
 	const { modal } = useGlobalModal()
 	const { push } = useRouter()
-	const rewardData =
-		currencyId === CurrenciesEnum.INR
-			? LEADER_BOARD_REWARD_DATA['MYR']
-			: LEADER_BOARD_REWARD_DATA[currencyId]
-
 	const [rankList, setRankList] = useState<
 		{
 			custId?: number
@@ -204,6 +184,12 @@ const LeaderBoardProvider = ({
 	const [getCustRankMonthData, { isFetching: isGetCustRankMonthFetching }] =
 		useLazyGetCustRankMonthQuery()
 
+	const { data: { data: leaderBoardSettingResponseData } = {} } =
+		useGetLeaderBoardSettingQuery({
+			siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']),
+			currencyId,
+		})
+
 	const loading =
 		isGetLeaderBoardListMonthFetching ||
 		isGetLeaderBoardListFetching ||
@@ -226,16 +212,9 @@ const LeaderBoardProvider = ({
 	const handleTermAndConditionClick = () => {
 		const targetLangId = getTermsConditionsLangId({ langId, currencyId })
 		window.open(
+			// * 如果之後有不同間品牌用到，要改為更通用的路徑 (把 NovaPromotion 刪掉只透過 NEXT_PUBLIC_BANNER_HOST 分專案路徑
 			`${process.env['NEXT_PUBLIC_BANNER_HOST']}/NovaPromotion/ranking_new_tnc/${targetLangId}.html`
 		)
-	}
-
-	const getFormattedUpdateTime = () => {
-		const now = dayjs()
-		const startOfHour = dayjs().startOf('hour')
-		const threshold = startOfHour.add(30, 'minute')
-		const displayTime = now.isAfter(threshold) ? threshold : startOfHour
-		return displayTime.format('YYYY/MM/DD HH:mm:ss')
 	}
 
 	const getRankMonthData = async (targetPeriodId: string) => {
@@ -290,7 +269,9 @@ const LeaderBoardProvider = ({
 				setRankList([])
 			}
 		} catch (error) {
-			modal.error((error as Error).message)
+			// * 當 api 失敗，以無資料呈現
+			// modal.error((error as Error).message)
+			setRankList([])
 		}
 	}
 
@@ -349,7 +330,9 @@ const LeaderBoardProvider = ({
 				setRankList([])
 			}
 		} catch (error) {
-			modal.error((error as Error).message)
+			// * 當 api 失敗，以無資料呈現
+			// modal.error((error as Error).message)
+			setRankList([])
 		}
 	}
 
@@ -374,12 +357,12 @@ const LeaderBoardProvider = ({
 		}
 	}
 
-	const onTabsChange = (id: number) => {
+	const onTabsChange = (id: number, loginModal?: ModalContentType) => {
 		if (id !== LeaderBoardTabsEnum.Event && !auth.isLogin) {
 			if (
 				Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Desktop
 			) {
-				modal.open(<LoginModal />)
+				modal.open(loginModal)
 			}
 
 			if (Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Mobile)
@@ -396,7 +379,9 @@ const LeaderBoardProvider = ({
 			setActiveRankTime(LeaderBoardDayEnum.Today)
 
 			if (activeTab === LeaderBoardTabsEnum.Result) {
-				const targetPeriodId = periodList[periodList.length - 1].id
+				// 獲取當前期間內的前一筆資料,故用長度-2,不取用最新期間值
+				const targetPeriodId =
+					periodList[periodList.length > 1 ? periodList.length - 2 : 0]?.id
 				await getRankMonthData(targetPeriodId)
 				setActivePeriodId(targetPeriodId)
 				setActiveGameType(LeaderBoardGameTypeEnum.All)
@@ -428,9 +413,9 @@ const LeaderBoardProvider = ({
 
 	const value: LeaderBoardContextInterface = {
 		loading: debouncedLoading,
+		leaderBoardSettingResponseData,
 		rankList,
 		activeTab,
-		rewardData,
 		newPeriodList,
 		backgroundImg,
 		activeRankTime,

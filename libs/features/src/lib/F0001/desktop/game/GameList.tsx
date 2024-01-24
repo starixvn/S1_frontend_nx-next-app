@@ -17,9 +17,7 @@ const GameList = () => {
 	const { modal } = useGlobalModal()
 	const { t } = useTranslation()
 	const {
-		menuData: {
-			Game: { subMenu },
-		},
+		menuData: { Game: { subMenu } = {} },
 		onMenuOpen,
 	} = useMenu()
 
@@ -30,28 +28,24 @@ const GameList = () => {
 	}
 
 	return (
-		<section className='inside'>
-			<div className='rightModule'>
-				{subMenu?.map((item: ISubMenu) => (
-					<GameListItem
-						className={classNames('gameItem', { active: item.isTpMaintain })}
-						style={{ pointerEvents: item.isTpMaintain ? 'none' : 'auto' }}
-						alt={item.displayKey as string}
-						key={item?.product?.GAME_ID}
-						hoverImgSrc={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/game/${item?.desktop?.lobbyPage?.hoverBgImg}`}
-						imgSrc={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/game/${item?.desktop?.lobbyPage?.bgImg}`}
-						displayName={
-							item.displayKey
-								? (t(item.displayKey) as string)
-								: item.displayText
-						}
-						onItemClick={() => onItemClick(item)}
-						gameTextClassName='name'
-						eventIcons={item?.eventIcons}
-					/>
-				))}
-			</div>
-		</section>
+		<div className='lobby-content'>
+			{subMenu?.map(item => (
+				<GameListItem
+					key={item?.product?.GAME_ID}
+					alt={`img-${t(item.displayKey || '') || item.displayText}`}
+					className={classNames('lobby-content-item', {
+						under: item.isTpMaintain,
+					})}
+					imgSrc={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/lobby-games/${item?.desktop?.lobbyPage?.bgImg}`}
+					displayName={
+						item.displayKey ? (t(item.displayKey) as string) : item.displayText
+					}
+					eventIcons={item?.eventIcons}
+					onItemClick={() => onItemClick(item)}
+					isTpMaintain={item.isTpMaintain}
+				/>
+			))}
+		</div>
 	)
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
-import { useLeaderBoard } from '@nx-next-app/features/F0001/providers/leaderBoard-context'
+import { useLeaderBoard } from '@nx-next-app/data-access'
 import LeaderBoardSelect from '@nx-next-app/features/F0001/h5/leaderBoard/LeaderBoardSelect'
 
 const LeaderBoardContentNav = () => {

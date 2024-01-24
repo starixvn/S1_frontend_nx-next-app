@@ -19,6 +19,34 @@ export interface IGetLeaderBoardListArgs {
 	EventCode: string
 }
 
+export interface IGetLeaderBoardSettingArgs {
+	siteId: number
+	currencyId: number
+}
+
+export type ILeaderBoardCalculationData = {
+	data: string
+	siteId: number
+	currencyId: number
+	sportTurnover: number
+	slotTurnover: number
+	liveCasinoTurnover: number
+}
+
+export type ILeaderBoardRankingData = {
+	siteId: number
+	siteName: string
+	currency: string
+	currencyId: number
+	ranking: string
+	minPoint: number
+	bonus: number
+}
+export interface ILeaderBoardSettingData {
+	leaderboardPointCalculation: ILeaderBoardCalculationData
+	leaderboardRankingBonus: ILeaderBoardRankingData[]
+}
+
 export interface IGetLeaderBoardData {
 	custId: number
 	userName: string

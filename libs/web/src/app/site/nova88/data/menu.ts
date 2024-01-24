@@ -154,7 +154,7 @@ export const MENU_DATA = ({
 				menuActionType: MenuActionTypeEnum.WindowOpen,
 				allowCurrencies: true,
 			},
-			pathname: `${process.env['NEXT_PUBLIC_REWARD_HOST']}`,
+			pathname: `/rewards`,
 			subMenuAllowCurrenciesWithAuth: false,
 			allowCurrencies: ALLOWED_CURRENCIES['REWARDS'],
 		},
@@ -539,8 +539,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'esposts-saba.png',
-							hoverBgImg: 'esposts-sabaa.png',
+							bgImg: 'esportlobby-saba.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -561,8 +560,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'esposts-inplaymatrix.png',
-							hoverBgImg: 'esposts-inplaymatrixa.png',
+							bgImg: 'esportlobby-tfg.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -583,8 +581,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'esposts-inplaymatrix.png',
-							hoverBgImg: 'esposts-inplaymatrixa.png',
+							bgImg: 'esportlobby-im.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -715,8 +712,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_pp.png',
-							hoverBgImg: 'animation_img.png',
+							bgImg: 'casino-PP.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -739,8 +735,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_bg.png',
-							hoverBgImg: 'animation_img.png',
+							bgImg: 'casino-bg.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -769,8 +764,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_yb.png',
-							hoverBgImg: 'animation_img.png',
+							bgImg: 'casino-yb.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -792,8 +786,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_sk.png',
-							hoverBgImg: 'animation_img.png',
+							bgImg: 'casino-SK.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -816,8 +809,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_mg.png',
-							hoverBgImg: 'animation_img.png',
+							bgImg: 'casino-mg.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -840,8 +832,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_ev.png',
-							hoverBgImg: 'animation_img.png',
+							bgImg: 'casino-ev.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -863,8 +854,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_pt.png',
-							hoverBgImg: 'animation_img.png',
+							bgImg: 'casino-pt.png',
 						},
 						menuActionType: MenuActionTypeEnum.UseGoToGame,
 					},
@@ -887,8 +877,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_n2.png',
-							hoverBgImg: 'animation_img.png',
+							bgImg: 'casino-n2.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -911,8 +900,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_wm.png',
-							hoverBgImg: 'animation_img.png',
+							bgImg: 'casino-WM.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -935,8 +923,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_ab.png',
-							hoverBgImg: 'animation_img.png',
+							bgImg: 'casino-ALL.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -959,8 +946,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino-we.png',
-							hoverBgImg: 'animation_img.png',
+							bgImg: 'casino-we.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -982,8 +968,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_sa.png',
-							hoverBgImg: 'animation_img.png',
+							bgImg: 'casino-SA.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -1006,8 +991,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_ae.png',
-							hoverBgImg: 'animation_img.png',
+							bgImg: 'casino-AE.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -1029,8 +1013,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_dg.png',
-							hoverBgImg: 'animation_img.png',
+							bgImg: 'casino-DG.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -1053,8 +1036,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							npcImg: 'casino_ag.png',
-							hoverBgImg: 'animation_img.png',
+							bgImg: 'casino-ag.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -1922,7 +1904,6 @@ export const MENU_DATA = ({
 						],
 						lobbyPage: {
 							bgImg: 'gamemp.png',
-							hoverBgImg: 'gamempa.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -1946,7 +1927,6 @@ export const MENU_DATA = ({
 						],
 						lobbyPage: {
 							bgImg: 'gameamb.png',
-							hoverBgImg: 'gameamba.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -1969,8 +1949,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'gamevg.png',
-							hoverBgImg: 'gamevga.png',
+							bgImg: 'vg.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -1992,8 +1971,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'gamekim.png',
-							hoverBgImg: 'gamekima.png',
+							bgImg: 'km.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2045,8 +2023,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'gamespribe-aciator.png',
-							hoverBgImg: 'gamespribe-aciatora.png',
+							bgImg: 'gameSpribeAviator.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2069,8 +2046,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'gamespribe-mines.png',
-							hoverBgImg: 'gamespribe-minesa.png',
+							bgImg: 'gameSpribeMines.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2093,8 +2069,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'gamespribe-goal.png',
-							hoverBgImg: 'gamespribe-goala.png',
+							bgImg: 'gameSpribeGoal.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2117,8 +2092,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'gamespribe-dice.png',
-							hoverBgImg: 'gamespribe-dicea.png',
+							bgImg: 'gameSpribeDice.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2141,7 +2115,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: '',
+							bgImg: 'pp.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2164,8 +2138,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'gameap.png',
-							hoverBgImg: 'gameapa.png',
+							bgImg: 'ap.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2187,8 +2160,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'gamejili.png',
-							hoverBgImg: 'gamejilia.png',
+							bgImg: 'jili.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2288,8 +2260,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'fishfg.png',
-							hoverBgImg: 'fishfga.png',
+							bgImg: 'fishSG.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2312,8 +2283,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'fishfw.png',
-							hoverBgImg: 'fishfwa.png',
+							bgImg: 'fishSGwar.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2379,8 +2349,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'fishpd.png',
-							hoverBgImg: 'fishpda.png',
+							bgImg: 'paradise.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2401,8 +2370,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'fishhb.png',
-							hoverBgImg: 'fishhba.png',
+							bgImg: 'hb.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2424,8 +2392,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'fishhf.png',
-							hoverBgImg: 'fishhfa.png',
+							bgImg: 'hf5.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2447,14 +2414,14 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'fishma.png',
-							hoverBgImg: 'fishmaa.png',
+							bgImg: 'ma.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					productKey: 'FISHING_HUNTING_MONSTER_AWAKEN',
 					displayKey: 'Label_Fishing_Hunting_Monster_Awaken',
 					product: PRODUCTS['FISHING_HUNTING_MONSTER_AWAKEN'],
+					allowCurrencies: ALLOWED_CURRENCIES['FISHING_HUNTING_MONSTER_AWAKEN'],
 				},
 				{
 					h5: {
@@ -2470,8 +2437,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'fishof.png',
-							hoverBgImg: 'fishofa.png',
+							bgImg: 'oneshotfishing.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2533,6 +2499,7 @@ export const MENU_DATA = ({
 				},
 			],
 			subMenuAllowCurrenciesWithAuth: false,
+			allowCurrencies: [MYR],
 		},
 		[MenuKeyEnum.Lottery]: {
 			display: 'all',
@@ -2559,8 +2526,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'lotterygpikeno.png',
-							hoverBgImg: 'lotterygpikenoa.png',
+							bgImg: 'lo-gpikeno.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2582,7 +2548,6 @@ export const MENU_DATA = ({
 						],
 						lobbyPage: {
 							bgImg: 'lotterygpithai.png',
-							hoverBgImg: 'lotterygpithaia.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2604,8 +2569,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'lotterygpifast3.png',
-							hoverBgImg: 'lotterygpifast3a.png',
+							bgImg: 'lo-gpifast3.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2628,8 +2592,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'lotterytc.png',
-							hoverBgImg: 'lotterytca.png',
+							bgImg: 'lo-tcg.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2651,8 +2614,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'lotteryke.png',
-							hoverBgImg: 'lotterykea.png',
+							bgImg: 'lo-keno.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2674,8 +2636,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'lotterylo.png',
-							hoverBgImg: 'lotteryloa.png',
+							bgImg: 'lo-lottery.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -2697,8 +2658,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'lotterynu.png',
-							hoverBgImg: 'lotterynua.png',
+							bgImg: 'lo-numberGame.png',
 						},
 						menuActionType: MenuActionTypeEnum.Link,
 					},
@@ -2721,8 +2681,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'lotteryta.png',
-							hoverBgImg: 'lotterytaa.png',
+							bgImg: 'lo-tableGame.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},

@@ -1,16 +1,27 @@
-import React from 'react'
 import { useTranslation } from 'next-i18next'
 
 interface ILeaderBoardSection2Props {
-	item: { rank: string; point: string; bonus: string }
+	rank: string
+	point: number
+	bonus: number
 	index: number
 }
-
 const LeaderBoardSection2 = ({
-	item: { rank, point, bonus },
+	rank,
+	point,
+	bonus,
 	index,
 }: ILeaderBoardSection2Props) => {
 	const { t } = useTranslation()
+	const getRankName = () => {
+		if (Number(index) === 0) {
+			return t('Label_LeaderBoard_RankChampion')
+		}
+		if (Number(index) === 8) {
+			return t('Label_LeaderBoard_Rank9_30')
+		}
+		return t(`Label_LeaderBoard_Rank${index}`)
+	}
 
 	return (
 		<li key={`leaderBoard-event-${rank}`}>
@@ -22,7 +33,7 @@ const LeaderBoardSection2 = ({
 					}.png`}
 					alt='top_ranking'
 				/>
-				{t(rank)}
+				{getRankName()}
 			</div>
 			<div>{point}</div>
 			<div>{bonus}</div>

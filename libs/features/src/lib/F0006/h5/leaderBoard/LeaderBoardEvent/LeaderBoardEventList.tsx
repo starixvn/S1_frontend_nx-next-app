@@ -2,14 +2,15 @@ import React from 'react'
 import { useTranslation } from 'next-i18next'
 import LeaderBoardSection1 from '@nx-next-app/features/F0006/h5/leaderBoard/LeaderBoardEvent/LeaderBoardSection1'
 import LeaderBoardSection2 from '@nx-next-app/features/F0006/h5/leaderBoard/LeaderBoardEvent/LeaderBoardSection2'
-import { useLeaderBoard } from '@nx-next-app/features/F0006/providers/leaderBoard-context'
+import { useLeaderBoard } from '@nx-next-app/data-access'
 
 const LeaderBoardEventList = () => {
 	const { t } = useTranslation()
-	const {
-		rewardData: { section1, section2 },
-		handleTermAndConditionClick,
-	} = useLeaderBoard()
+	const { leaderBoardSettingResponseData, handleTermAndConditionClick } =
+		useLeaderBoard()
+
+	const { sportTurnover, slotTurnover, liveCasinoTurnover } =
+		leaderBoardSettingResponseData?.leaderboardPointCalculation || {}
 
 	return (
 		<div className='rankEvent active'>
@@ -25,9 +26,11 @@ const LeaderBoardEventList = () => {
 						<div>{t('Label_LeaderBoard_Valid_Turnover')}</div>
 						<div>{t('Label_LeaderBoard_Point')}</div>
 					</li>
-					{section1.map(item => (
-						<LeaderBoardSection1 item={item} />
-					))}
+					<LeaderBoardSection1
+						sportTurnover={sportTurnover}
+						slotTurnover={slotTurnover}
+						liveCasinoTurnover={liveCasinoTurnover}
+					/>
 				</ul>
 				<div className='title'>{t('Label_LeaderBoard_Monthly_Tournament')}</div>
 				<ul>
@@ -36,9 +39,17 @@ const LeaderBoardEventList = () => {
 						<div>{t('Label_LeaderBoard_Min_Point')}</div>
 						<div>{t('Label_LeaderBoard_Bonus_Credit')}</div>
 					</li>
-					{section2.map((item, index) => (
-						<LeaderBoardSection2 item={item} index={index} />
-					))}
+					{leaderBoardSettingResponseData?.leaderboardRankingBonus.map(
+						(rankingData, index) => (
+							<LeaderBoardSection2
+								key={`${rankingData.siteId}-${rankingData.currencyId}-${rankingData.ranking}`}
+								index={index}
+								rank={rankingData.ranking}
+								point={rankingData.minPoint}
+								bonus={rankingData.bonus}
+							/>
+						)
+					)}
 				</ul>
 			</div>
 			<div className='btn-group'>

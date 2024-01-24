@@ -11,7 +11,6 @@ import { CurrenciesEnum } from '@nx-next-app/types'
 import {
 	paths,
 	AREA_CODE,
-	EMAIL_REGEX,
 	ENV_COOKIE_NAMES,
 	PHONE_DIGITS_LIMIT,
 	PHONE_LENGTH_REGEX,
@@ -20,11 +19,15 @@ import {
 	RECAPTCHAT_LANG_BY_LANG_ID,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
 } from '@nx-next-app/constants'
+import {
+	USERNAME_REGEX,
+	REALNAME_REGEX,
+	PASSWORD_REGEX,
+} from '@nx-next-app/site/nova88'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
 import {
 	useSignupMutation,
-	useLazyExistsEmailQuery,
 	useGetRecaptchaInfoQuery,
 	useLazyAffiliateCheckQuery,
 	useLazyExistsUserNameQuery,
@@ -42,13 +45,7 @@ interface IJoinProps {
 const Form = ({ cookies }: IJoinProps) => {
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
-	const {
-		LANG_GROUPS,
-		TERMS_CONDITIONS,
-		USERNAME_REGEX,
-		PASSWORD_REGEX,
-		REALNAME_REGEX,
-	} = useStaticData()
+	const { LANG_GROUPS, TERMS_CONDITIONS } = useStaticData()
 	const router = useRouter()
 	const { query } = router
 
@@ -90,9 +87,6 @@ const Form = ({ cookies }: IJoinProps) => {
 	const [checkExistsUsername, { isFetching: existsUsernameLoading }] =
 		useLazyExistsUserNameQuery()
 
-	const [checkExistsEmail, { isFetching: existsEmailLoading }] =
-		useLazyExistsEmailQuery()
-
 	const [signUp] = useSignupMutation()
 
 	const [phoneErrorTip, setPhoneErrorTip] = useState<string | undefined>('')
@@ -129,25 +123,6 @@ const Form = ({ cookies }: IJoinProps) => {
 				type: 'mismatch',
 				message: t('Label_Join_ConfirmPwdNotMatch') || '',
 			})
-		}
-	}
-
-	const checkEmail = async () => {
-		await trigger('email')
-		const { error } = getFieldState('email')
-		const formEmail = getValues('email')
-		if (error) return
-
-		// check email duplicate from api
-		try {
-			const { data: isExistsEmail, message: existsEmailMsg } =
-				await checkExistsEmail({ email: formEmail }).unwrap()
-
-			if (isExistsEmail) {
-				setError('email', { type: 'duplicate', message: existsEmailMsg })
-			}
-		} catch (error) {
-			// error
 		}
 	}
 
@@ -309,7 +284,6 @@ const Form = ({ cookies }: IJoinProps) => {
 			username,
 			password,
 			realName,
-			email,
 			currencyId: formCurrencyId,
 			areaCode,
 			phone,
@@ -347,7 +321,6 @@ const Form = ({ cookies }: IJoinProps) => {
 				affId: affId as string,
 				areaCode,
 				currencyId: formCurrencyId,
-				email,
 				phoneNo: phone,
 				realName,
 				reCaptchaToken,
@@ -473,24 +446,6 @@ const Form = ({ cookies }: IJoinProps) => {
 					error={!!errors['realName']}
 					touched={!!touchedFields['realName']}
 					infoMessage={t('Label_General_RemindForName') as string}
-				/>
-				<InputBox
-					register={register('email', {
-						required: { value: true, message: t('Label_Join_MailWrongFormat') },
-						pattern: {
-							value: EMAIL_REGEX,
-							message: t('Label_Join_MailWrongFormat') as string,
-						},
-						onBlur: checkEmail,
-					})}
-					icon='icon icon-email txt-blue'
-					placeholder={t('Label_General_Email') as string}
-					loading={existsEmailLoading}
-					errorMessage={errors['email']?.message as string}
-					error={!!errors['email']}
-					touched={!!touchedFields['email']}
-					successMessage={t('Label_Join_CantChangeEmail') as string}
-					infoMessage={t('Label_Join_EmailToolTip') as string}
 				/>
 				<Select
 					options={currencySelectOptions}

@@ -15,7 +15,7 @@ const AppDownload = () => {
 					<div>{t('Label_APP_DOWNLOAD')}</div>
 					<div>
 						<Trans
-							i18nKey='Label_AppDownload_Title'
+							i18nKey='Label_APP_DOWNLOAD_Title'
 							components={{
 								span: <span />,
 							}}

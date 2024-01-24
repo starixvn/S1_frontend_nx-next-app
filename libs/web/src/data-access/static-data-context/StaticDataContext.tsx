@@ -35,13 +35,17 @@ export interface IStaticDataContext {
 	) => IBannerByCurrencyData[]
 	FEATURE_BONUS: { [key: number]: string }
 	TERMS_CONDITIONS: ({ langId }: { langId: string }) => ITermsConditions
-	USERNAME_REGEX: RegExp
-	PASSWORD_REGEX: RegExp
-	REALNAME_REGEX: RegExp
 	BANNER_IMAGE_LIST: { [lang: string]: string }
 	LIVE_CHAT_ID_BY_LANG_ID: {
 		[langId: string]: number
 	}
+	GET_AFFILIATE_LINK?: ({
+		currencyId,
+		langId,
+	}: {
+		currencyId: number
+		langId: string
+	}) => string
 }
 
 const StaticDataContext = createContext<IStaticDataContext>(null!)
@@ -62,12 +66,10 @@ const StaticDataProvider = ({
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	FEATURE_BONUS,
 	TERMS_CONDITIONS,
-	USERNAME_REGEX,
-	PASSWORD_REGEX,
-	REALNAME_REGEX,
 	BANNER_IMAGE_LIST,
 	LEFT_MENU_DATA,
 	LIVE_CHAT_ID_BY_LANG_ID,
+	GET_AFFILIATE_LINK,
 }: IStaticDataProviderProps) => {
 	const value: IStaticDataContext = {
 		MENU_DATA,
@@ -80,12 +82,10 @@ const StaticDataProvider = ({
 		VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 		FEATURE_BONUS,
 		TERMS_CONDITIONS,
-		USERNAME_REGEX,
-		PASSWORD_REGEX,
-		REALNAME_REGEX,
 		BANNER_IMAGE_LIST,
 		LEFT_MENU_DATA,
 		LIVE_CHAT_ID_BY_LANG_ID,
+		GET_AFFILIATE_LINK,
 	}
 
 	return (
