@@ -9,6 +9,8 @@ export const baseAxios = axios.create({
 	headers: {
 		common: {
 			'ai-host': `${process.env['NEXT_PUBLIC_REFERER_HOST']}`, // 預設 referrer
+			'origin-host':
+				typeof window !== 'undefined' ? window?.location?.origin : undefined,
 		},
 	},
 })

@@ -52,7 +52,22 @@
 							return response.json()
 						})
 						.then(function (myJson) {
-							const { Maintain, UTCTimeStart, UTCTimeEnd } = myJson
+							const {
+								Maintain,
+								UTCTimeStart,
+								UTCTimeEnd,
+								ExcludeDomain = [],
+							} = myJson
+
+							// * 當前 domain 是否匹配 ExcludeDomain 的任何一組 domain，匹配則不進入維護頁
+							// * ExcludeDomain 可讓後端決定指定 domain 是否可跳過維護邏輯
+							const isExcludeDomain = ExcludeDomain.some(
+								domain => !!url.match(domain)
+							)
+							if (isExcludeDomain) {
+								return
+							}
+
 							// * 如果該頁面結束維護，回首頁
 							if (!Maintain) {
 								document.location.href = window.location.origin

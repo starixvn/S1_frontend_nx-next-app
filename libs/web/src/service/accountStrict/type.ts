@@ -57,7 +57,7 @@ export interface ISetProfileArgs {
 	Birth_m: string
 	Birth_y: string
 	PhoneNo: string
-	Email: string
+	Email?: string // * 兼容 Profile UI
 }
 
 export interface ISetProfileAddressArgs {

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { useHistory } from '@nx-next-app/features/F0006/providers/history-context'
+import { useRouter } from 'next/router'
 
 const HistoryTabs = () => {
 	const { activeTab, onTabChange, HISTORY_TABS } = useHistory()
@@ -10,6 +11,14 @@ const HistoryTabs = () => {
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
+	const router = useRouter()
+	const { queryTabId } = router.query || {}
+
+	useEffect(() => {
+		if (queryTabId) {
+			onTabChange(Number(queryTabId))
+		}
+	}, [queryTabId])
 
 	return (
 		<div className='btnGroup historyTag'>

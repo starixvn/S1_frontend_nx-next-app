@@ -17,6 +17,7 @@ import {
 	useGetReferralSettingQuery,
 	useGetSocialChannelQuery,
 	useLazyGetIpCountryQuery,
+	useLazyGetPopUpDataListQuery,
 	useLazyGetPopUpPromotionQuery,
 	useLazyGetWalletInfoQuery,
 } from '@nx-next-app/service'
@@ -174,6 +175,11 @@ const DesktopHomePromotionModal = dynamic(
 	{ ssr: false }
 )
 
+const DesktopBigWinProfitModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/BigWinProfitModal'),
+	{ ssr: false }
+)
+
 const H5SponsorShipModal = dynamic(
 	() => import('@nx-next-app/features/F0001/h5/modal/SponsorShipModal'),
 	{ ssr: false }
@@ -186,6 +192,11 @@ const H5HomePromotionModal = dynamic(
 
 const H5DisClaimerVndModal = dynamic(
 	() => import('@nx-next-app/features/F0001/h5/modal/DisclaimerVndModal'),
+	{ ssr: false }
+)
+
+const H5BigWinProfitModal = dynamic(
+	() => import('@nx-next-app/features/F0001/h5/modal/BigWinProfitModal'),
 	{ ssr: false }
 )
 
@@ -204,6 +215,7 @@ const defaultDesktopHomeOrders = [
 	DesktopHomeComponentsEnum.ProviderBlock,
 	DesktopHomeComponentsEnum.OfficialPartner,
 	DesktopHomeComponentsEnum.LuckyWheel,
+	DesktopHomeComponentsEnum.LiveStreamingLink,
 ]
 
 const defaultMobileHomeOrders = [
@@ -217,6 +229,7 @@ const defaultMobileHomeOrders = [
 	MobileHomeComponentsEnum.PartnerBlock,
 	MobileHomeComponentsEnum.FooterBlock,
 	MobileHomeComponentsEnum.LuckyWheel,
+	MobileHomeComponentsEnum.LiveStreamingLink,
 ]
 
 export const HomeProvider = ({
@@ -311,6 +324,8 @@ export const HomeProvider = ({
 	const [getIpCountry] = useLazyGetIpCountryQuery()
 
 	const [getWalletInfo] = useLazyGetWalletInfoQuery()
+
+	const [getBigWinProfit] = useLazyGetPopUpDataListQuery()
 
 	const referralData = {
 		referralBonus: head(referralSetting)?.bonusAmount ?? null,
@@ -614,11 +629,62 @@ export const HomeProvider = ({
 			}
 		}
 
+		const bigWinProfitPopup = async () => {
+			const cookieName = `BigWinProfit${userName}`
+
+			if (
+				isLogin &&
+				getCookie(cookieName) !== '1' &&
+				currencyId === CurrenciesEnum.IDR
+			) {
+				try {
+					const { data: bigWinData } = await getBigWinProfit({
+						deviceType,
+					}).unwrap()
+
+					// 該userName回傳null表示不顯示彈窗
+					if (bigWinData.userName !== null) {
+						setCookie(cookieName, '1', { maxAge: cookieMaxAge })
+						switch (deviceType) {
+							case DeviceTypeEnum.Desktop:
+								modal.open(
+									<DesktopBigWinProfitModal
+										bigWinData={bigWinData}
+										closeCallback={openNextPopup}
+									/>
+								)
+								break
+
+							case DeviceTypeEnum.Mobile:
+								modal.open(
+									<H5BigWinProfitModal
+										bigWinData={bigWinData}
+										closeCallback={openNextPopup}
+									/>,
+									{ className: 'bigwinpop' }
+								)
+								break
+
+							default:
+								break
+						}
+					} else {
+						openNextPopup()
+					}
+				} catch (error) {
+					modal.error((error as Error).message)
+				}
+			} else {
+				openNextPopup()
+			}
+		}
+
 		const popStack = [
 			depositPopup,
 			sponsorshipPopup,
 			promotionPopup,
 			disclaimerForVnd,
+			bigWinProfitPopup,
 		]
 
 		const openNextPopup = () => {

@@ -23,10 +23,7 @@ const VipMedal = ({ activeTab, onChange }: IVipMedalProps) => {
 						onClick={() => onChange(level as number)}
 					>
 						<img src={url} alt={displayKey} />
-						<div>
-							{t(displayKey as string)}
-							<span>{t('Label_Vip_Club')}</span>
-						</div>
+						<div>{t(displayKey as string)}</div>
 					</div>
 				)
 			)}

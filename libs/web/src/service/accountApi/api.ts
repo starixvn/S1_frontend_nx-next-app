@@ -348,6 +348,7 @@ export const {
 	useGetReferralSummaryQuery,
 	useLazyGetReferralSettingDetailQuery,
 	useLazyGetReferralQuery,
+	useGetReferralQuery,
 	useGetCustBankInfoQuery,
 	useGetCustEWalletInfoQuery,
 	useGetWalletTransferStatusQuery,
