@@ -45,8 +45,9 @@ const Profile = () => {
 	const currentVipLevelInfo = VIP_CLUB_IMAGES[currentVipLevel - 1]
 	const nextVipLevelInfo = VIP_CLUB_IMAGES[currentVipLevel]
 
-	const { headerUrl, displayKey, levelTabsName } = currentVipLevelInfo || {}
-	const levelText = t(displayKey || '').replace('CLUB', '')
+	const { headerUrl, levelTabsName, settingDisplayKey } =
+		currentVipLevelInfo || {}
+	const levelText = t(settingDisplayKey || '')
 
 	return (
 		<>
