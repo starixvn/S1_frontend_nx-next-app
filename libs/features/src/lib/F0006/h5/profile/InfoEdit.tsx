@@ -1,12 +1,21 @@
 import dayjs from 'dayjs'
+import { isEmpty } from 'lodash-es'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
-import { useSetProfileMutation } from '@nx-next-app/service'
+import {
+	useSetProfileMutation,
+	useLazyExistsEmailQuery,
+} from '@nx-next-app/service'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { PrevPageEnum, PREV_PAGE, AREA_CODE } from '@nx-next-app/constants'
+import {
+	PrevPageEnum,
+	PREV_PAGE,
+	AREA_CODE,
+	EMAIL_REGEX,
+} from '@nx-next-app/constants'
 import {
 	Form,
 	Select,
@@ -29,6 +38,8 @@ const InfoEdit = () => {
 
 	const [setProfile] = useSetProfileMutation()
 
+	const [checkExistsEmail] = useLazyExistsEmailQuery()
+
 	const [phoneErrorTip, setPhoneErrorTip] = useState<string | undefined>('')
 
 	const {
@@ -37,6 +48,7 @@ const InfoEdit = () => {
 			areaCode,
 			accountName,
 			phoneVerified,
+			email = '',
 			birth_d: birthDay,
 			birth_m: birthMonth,
 			birth_y: birthYear,
@@ -54,6 +66,7 @@ const InfoEdit = () => {
 		clearErrors,
 		getFieldState,
 		handleSubmit,
+		setError,
 	} = useForm({
 		defaultValues: {
 			formBirthDay: 1,
@@ -62,6 +75,7 @@ const InfoEdit = () => {
 			formRealName: '',
 			formPhone: '',
 			formAreaCode: '',
+			formEmail: '',
 		},
 	})
 	const { errors, touchedFields } = formState
@@ -73,6 +87,26 @@ const InfoEdit = () => {
 
 			const formPhone = getValues('formPhone')
 			if (formPhone) checkPhone()
+		}
+	}
+
+	const checkEmail = async () => {
+		await trigger('formEmail')
+		const { error } = getFieldState('formEmail')
+		if (error) return
+
+		// check email duplicate from api
+		const formEmail = getValues('formEmail')
+
+		try {
+			const { data: isExistsEmail, message: existsEmailMsg } =
+				await checkExistsEmail({ email: formEmail }).unwrap()
+
+			if (isExistsEmail) {
+				setError('formEmail', { type: 'duplicate', message: existsEmailMsg })
+			}
+		} catch (error) {
+			// error
 		}
 	}
 
@@ -96,7 +130,7 @@ const InfoEdit = () => {
 
 	const handleSubmitForm = () => {
 		const setFormProfile = async () => {
-			const { formAreaCode, formPhone, formRealName } = getValues()
+			const { formAreaCode, formPhone, formRealName, formEmail } = getValues()
 
 			try {
 				//* 既有的資料依然需要傳進 api
@@ -107,6 +141,7 @@ const InfoEdit = () => {
 					Birth_m: birthMonth ?? String(getValues('formBirthMonth')),
 					Birth_y: birthYear ?? String(getValues('formBirthYear')),
 					PhoneNo: phoneNo ?? formPhone,
+					Email: isEmpty(email) ? formEmail : email,
 				})
 
 				if (!phoneVerified) {
@@ -167,7 +202,7 @@ const InfoEdit = () => {
 		label: `${el.AreaCode} ${el.Name}`,
 	}))
 
-	const showSubmitBtn = !accountName || !phoneNo || !birthDay
+	const showSubmitBtn = !accountName || !phoneNo || !birthDay || !email
 
 	return (
 		<Form onSubmit={handleSubmit(handleSubmitForm)}>
@@ -234,6 +269,24 @@ const InfoEdit = () => {
 						infoMessage={t('Label_Join_CantChangePhone') as string}
 					/>
 				</div>
+			)}
+			{!email && (
+				<InputBox
+					register={register('formEmail', {
+						required: { value: true, message: t('Label_Join_MailWrongFormat') },
+						pattern: {
+							value: EMAIL_REGEX,
+							message: t('Label_Join_MailWrongFormat') as string,
+						},
+						onBlur: checkEmail,
+					})}
+					icon='icon icon-email txt-blue'
+					placeholder={t('Label_General_Email') as string}
+					errorMessage={errors['formEmail']?.message as string}
+					error={!!errors['formEmail']}
+					touched={!!touchedFields['formEmail']}
+					infoMessage={t('Label_Join_EmailToolTip') as string}
+				/>
 			)}
 			{showSubmitBtn && (
 				<div className='btn-group'>

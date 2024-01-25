@@ -44,6 +44,15 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
 	const { currentHeaderCookies } = initialProps
 
+	if (!initialProps.originIsSignIn) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false,
+			},
+		}
+	}
+
 	// 因為手機版要提前在 serverside 做導轉，故將此 api fetching 直接拉到 serverSide 處理
 	const withdrawalBlockSetting = await getWithdrawalBlockSetting({
 		headers: { cookie: currentHeaderCookies },
@@ -53,15 +62,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		withdrawalBlockSetting,
 		({ type }) => type === IWithdrawalTypeEnum.BankCard
 	)?.status
-
-	if (!initialProps.originIsSignIn) {
-		return {
-			redirect: {
-				destination: '/',
-				permanent: false,
-			},
-		}
-	}
 
 	// 預設 localCard 不應該關閉，若關閉先導至 wallet 防呆
 	if (!localCardAllowed) {

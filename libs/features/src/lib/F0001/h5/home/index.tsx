@@ -37,6 +37,10 @@ interface IHomeProps {
 
 const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
 
+const LiveStreamingLink = dynamic(() => import('../common/liveStreamingLink'), {
+	ssr: false,
+})
+
 const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 	const { push } = useRouter()
 
@@ -100,6 +104,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 			currencyId
 		) && <JackPot onClick={() => push(paths.slots.root)} isRoot />,
 		[MobileHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
+		[MobileHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
 		[MobileHomeComponentsEnum.AppDownload]: <AppDownload />,
 		[MobileHomeComponentsEnum.FooterBlock]: <FooterBlock />,
 		[MobileHomeComponentsEnum.SimpleFooter]: <SimpleFooter />,

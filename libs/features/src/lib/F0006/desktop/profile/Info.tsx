@@ -4,8 +4,11 @@ import { useTranslation } from 'next-i18next'
 import { useFormContext } from 'react-hook-form'
 import { numberFormat } from '@nx-next-app/utils'
 import { useAuth } from '@nx-next-app/data-access'
-import { paths, AREA_CODE } from '@nx-next-app/constants'
-import { useSendOTPEmailMutation } from '@nx-next-app/service'
+import { paths, AREA_CODE, EMAIL_REGEX } from '@nx-next-app/constants'
+import {
+	useSendOTPEmailMutation,
+	useLazyExistsEmailQuery,
+} from '@nx-next-app/service'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import DateSelector from 'libs/web/src/components/D0006/dateSelector'
 import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0006'
@@ -52,12 +55,16 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 		getValues,
 		clearErrors,
 		getFieldState,
+		setError,
 	} = useFormContext()
 	const { errors, touchedFields } = formState
 
 	const [phoneErrorTip, setPhoneErrorTip] = useState<string | undefined>('')
 
 	const [sendOTPEmail] = useSendOTPEmailMutation()
+
+	const [checkExistsEmail, { isFetching: existsEmailLoading }] =
+		useLazyExistsEmailQuery()
 
 	const onPhoneVerify = () => {
 		modal.open(<PhoneOtpModal />)
@@ -73,6 +80,25 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 	}
 
 	const { handlePhoneErrorTip } = useCheckPhone()
+
+	const checkEmail = async () => {
+		await trigger('formEmail')
+		const { error } = getFieldState('formEmail')
+		const formEmail = getValues('formEmail')
+		if (error) return
+
+		// check email duplicate from api
+		try {
+			const { data: isExistsEmail, message: existsEmailMsg } =
+				await checkExistsEmail({ email: formEmail }).unwrap()
+
+			if (isExistsEmail) {
+				setError('formEmail', { type: 'duplicate', message: existsEmailMsg })
+			}
+		} catch (error) {
+			// error
+		}
+	}
 
 	const checkPhone = async () => {
 		await trigger('formPhone')
@@ -235,32 +261,58 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 			</div>
 			<div>
 				<div>{t('Label_General_Email')}</div>
-				{email}
-				<div>
-					{emailVerified ? (
-						<span className='icon icon-Shield' />
-					) : (
-						<button
-							type='button'
-							className='icon icon-envelope btn-org'
-							onClick={onEmailVerify}
-						>
-							{t('Label_Profile_EmailVerification')}
-							<div className='description'>
-								<div className='title'>
-									{t('Label_Profile_EmailVerification')}
+				{email ?? (
+					<div>
+						<InputBox
+							register={register('formEmail', {
+								required: {
+									value: true,
+									message: t('Label_Join_MailWrongFormat'),
+								},
+								pattern: {
+									value: EMAIL_REGEX,
+									message: t('Label_Join_MailWrongFormat') as string,
+								},
+								onBlur: checkEmail,
+							})}
+							icon='icon icon-email txt-blue'
+							placeholder={t('Label_General_Email') as string}
+							loading={existsEmailLoading}
+							errorMessage={errors['formEmail']?.message as string}
+							error={!!errors['formEmail']}
+							touched={!!touchedFields['formEmail']}
+							successMessage={t('Label_Join_CantChangeEmail') as string}
+							infoMessage={t('Label_Join_EmailToolTip') as string}
+						/>
+					</div>
+				)}
+				{!!email && (
+					<div>
+						{emailVerified ? (
+							<span className='icon icon-Shield' />
+						) : (
+							<button
+								type='button'
+								className='icon icon-envelope btn-org'
+								onClick={onEmailVerify}
+							>
+								{t('Label_Profile_EmailVerification')}
+								<div className='description'>
+									<div className='title'>
+										{t('Label_Profile_EmailVerification')}
+									</div>
+									<div>{t('Label_Profile_EmailVerificationHint1')}</div>
+									<div>
+										{t('Label_Profile_EmailVerificationHint2', {
+											currency: currencyName,
+											amount: numberFormat(emailReward ?? 0, currencyId),
+										})}
+									</div>
 								</div>
-								<div>{t('Label_Profile_EmailVerificationHint1')}</div>
-								<div>
-									{t('Label_Profile_EmailVerificationHint2', {
-										currency: currencyName,
-										amount: numberFormat(emailReward ?? 0, currencyId),
-									})}
-								</div>
-							</div>
-						</button>
-					)}
-				</div>
+							</button>
+						)}
+					</div>
+				)}
 			</div>
 			<div>
 				<div>{t('Label_Profile_RegisterTime')}</div>

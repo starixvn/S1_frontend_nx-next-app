@@ -47,7 +47,7 @@ const HistoryItem = ({ item }: { item: IWithdrawalRecentInfoData }) => {
 						className='white'
 						onClick={() =>
 							modal.confirm(t('Label_History_CancelConfirm'), {
-								onOK: () => cancelWithdrawal(transId ),
+								onOK: () => cancelWithdrawal(transId),
 							})
 						}
 					>
@@ -72,7 +72,7 @@ const HistoryItem = ({ item }: { item: IWithdrawalRecentInfoData }) => {
 				</li>
 				<li>
 					<span className='title'>
-						{t('Label_History_Time')} ({timeZone})
+						{t('Label_General_Time')} ({timeZone})
 					</span>
 					<span>
 						{dayjs(createTime).utcOffset(timeZone).format(detailTimeFormat)}

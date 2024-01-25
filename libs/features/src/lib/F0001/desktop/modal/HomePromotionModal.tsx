@@ -31,7 +31,7 @@ const HomePromotionModal = ({
 					<button
 						className='popgo'
 						onClick={() => {
-							push(`${paths.promotion.root}?bonusCode=${bonusCode}`)
+							push(`${paths.promotion.root}?BonusCode=${bonusCode}`)
 							closeModal()
 						}}
 					>
