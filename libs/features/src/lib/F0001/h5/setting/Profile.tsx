@@ -45,9 +45,8 @@ const Profile = () => {
 	const currentVipLevelInfo = VIP_CLUB_IMAGES[currentVipLevel - 1]
 	const nextVipLevelInfo = VIP_CLUB_IMAGES[currentVipLevel]
 
-	const { headerUrl, levelTabsName, settingDisplayKey } =
-		currentVipLevelInfo || {}
-	const levelText = t(settingDisplayKey || '')
+	const { headerUrl, displayKey, levelTabsName } = currentVipLevelInfo || {}
+	const levelText = t(displayKey || '').replace('CLUB', '')
 
 	return (
 		<>
@@ -179,7 +178,9 @@ const Profile = () => {
 								return (
 									<div key={bonusId} className='casino-wallet-item'>
 										<div className='money'>
-											<div>{t(`Label_BonusWallet_${promoCategoryId}`)}</div>
+											<div>
+												{t(`Label_Wallet_BonusWallet_${promoCategoryId}`)}
+											</div>
 											<div>
 												{currencyName} {numberFormat(bonus, currencyId)}
 											</div>
