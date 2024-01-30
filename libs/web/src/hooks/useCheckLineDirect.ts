@@ -36,7 +36,7 @@ export const useCheckLineDirect = ({ langId }: { langId: string }) => {
 			const handleLineDirectCheck = async () => {
 				if (typeof window === undefined) return
 
-				let redirectPath = paths.home.root
+				let redirectPath
 
 				const url = window.location.origin
 				const { platform } = navigator
@@ -100,7 +100,7 @@ export const useCheckLineDirect = ({ langId }: { langId: string }) => {
 						// * 不另外做錯誤處裡
 					} finally {
 						// * 不管成功與否都需導轉到某個路徑 ( 默認為首頁，或其他 )
-						push(redirectPath)
+						push(redirectPath || paths.home.root)
 						setIsChecked(true)
 					}
 				}
