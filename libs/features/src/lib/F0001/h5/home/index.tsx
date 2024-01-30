@@ -180,6 +180,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 				)}
 
 				<Menu />
+
 				{contentOrders.map(component =>
 					homeComponents[component] ? homeComponents[component] : null
 				)}

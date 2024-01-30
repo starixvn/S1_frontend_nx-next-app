@@ -73,7 +73,7 @@ const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 		bannerLink,
 		tpGameType,
 	}: IBannerData) => {
-		if (Number(tpId) === PRODUCTS['SLOTS_PT'].TP_ID) {
+		if (Number(tpId) === PRODUCTS.NewPlayTechSlot.tpId) {
 			onGoToGame(
 				{
 					tpId: Number(tpId),

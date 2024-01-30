@@ -1,30 +1,51 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
-import { head, includes, isArray } from 'lodash-es'
+import { includes, find } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { paths, PRODUCTS } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useMenuData } from '@nx-next-app/hooks'
 import {
-	ISubMenu,
-	MenuEventIcon,
 	DeviceTypeEnum,
 	LoginGameTypeEnum,
 	MenuActionTypeEnum,
+	MenuKeyEnum,
 } from '@nx-next-app/types'
 import {
 	IAxiosError,
 	IGotoGameArg,
 	useLazyGotoGameQuery,
 } from '@nx-next-app/service'
-import { isEventPeriod, onWindowOpenProduct } from '@nx-next-app/utils'
+import { MENU_DATA } from '@nx-next-app/site/yashbet'
+import { getIsTpMaintain, onWindowOpenProduct } from '@nx-next-app/utils'
+import type {
+	IStaticSubMenuItem,
+	IDynamicSubMenuItem,
+	IDynamicSubMenuLinkType,
+} from '@nx-next-app/features/F0006/types/menu'
 
 type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void
 
+export type IMergedMenuData = {
+	display?: 'h5' | 'desktop' | 'all'
+	displayKey?: string
+	pathname?: string
+	lobbyCategoryId?: number | undefined
+	subMenuAllowCurrenciesWithAuth?: boolean | undefined // * 決定是否需要登入後才過濾
+	query?: { provider: string }
+	category?: MenuKeyEnum | undefined
+	h5?: {
+		subMenuClassName?: string
+		icon: string
+	}
+	desktop?: {
+		subMenuClassName?: string | undefined
+	}
+	subMenu: IDynamicSubMenuItem[]
+}
+
 const SPECIAL_LOGIN_GAME_TYPE: { [key in LoginGameTypeEnum]: number[] } = {
 	[LoginGameTypeEnum.returnGameUrl]: [],
-	[LoginGameTypeEnum.returnHtml]: [PRODUCTS.SLOTS_PG.TP_ID],
+	[LoginGameTypeEnum.returnHtml]: [PRODUCTS.PGSoft.tpId],
 }
 
 export const open9WSports = ({
@@ -63,49 +84,6 @@ export const open9WSports = ({
 }
 
 /**
- * @returns desktop、h5 回傳 menu event icon
- */
-export const getMainEventIcon = ({
-	eventIcons,
-	subMenu,
-}: {
-	eventIcons?: MenuEventIcon[]
-	subMenu?: ISubMenu[]
-}) => {
-	// * 渲染第一個活動期間的事件 icon，假設同時有 [NEW,HOT] ,會用前者
-	const menuEventIcon =
-		eventIcons && head(eventIcons.filter(({ period }) => isEventPeriod(period)))
-
-	// * 輪詢一次 subMenu，抓回遇到的第一個活動期間的 eventIcons 資訊
-	const firstEventProduct = subMenu?.find(
-		item =>
-			isArray(item.eventIcons) &&
-			head(item.eventIcons.filter(({ period }) => isEventPeriod(period)))
-	)
-	const subMenuEventIcon =
-		firstEventProduct &&
-		firstEventProduct?.eventIcons &&
-		// * 拿第一個活動內的 eventIcons
-		head(
-			firstEventProduct.eventIcons.filter(({ period }) => isEventPeriod(period))
-		)
-
-	const eventIcon = subMenuEventIcon || menuEventIcon
-
-	return eventIcon
-}
-
-/**
- * @returns desktop、h5 回傳 sub menu event icon
- * @description 渲染第一個活動期間的事件 icon，假設同時有 [NEW,HOT] ,會用前者
- */
-export const getSubMenuEventIcon = (eventIcons?: MenuEventIcon[]) => {
-	return (
-		eventIcons && head(eventIcons.filter(({ period }) => isEventPeriod(period)))
-	)
-}
-
-/**
  * * useMenu 的 function 共用於裝置，不共用於品牌，每間品牌的開啟遊戲方式不同
  */
 const useMenu = () => {
@@ -114,8 +92,37 @@ const useMenu = () => {
 		auth,
 		userInfo: { langId },
 	} = useAuth()
-	const menuData = useMenuData()
+	const { tpMaintainList } = useGlobalData()
+	const { LobberHeaderMenuList, isLobbyHeaderError } = useMenuData()
 	const [gotoGame] = useLazyGotoGameQuery()
+
+	// * 塞入前端相關參數
+	const mergedMenus = (): IMergedMenuData[] => {
+		return LobberHeaderMenuList?.map(mainMenuItem => {
+			const defMainMenuItem = find(MENU_DATA, {
+				lobbyCategoryId: mainMenuItem.lobbyCategoryId,
+			})
+
+			const {
+				data = [],
+				subMenu = [],
+				...rest
+			} = { ...mainMenuItem, ...(defMainMenuItem && defMainMenuItem) }
+
+			const subMenus = data.map(subMenuItem => {
+				// * subMenu 是插入的相關資料 因此不會影響順序
+				subMenu.forEach(defSubItem => {
+					if (subMenuItem.tpGameIdNo === defSubItem.tpGameIdNo) {
+						Object.assign(subMenuItem, defSubItem)
+					}
+				})
+				//* mutating 方法無法讓 typescript 自行推斷 故用 assertion
+				return { ...(subMenuItem as IDynamicSubMenuItem) }
+			})
+
+			return { ...rest, subMenu: subMenus }
+		})
+	}
 
 	/**
 	 * 專門打開 Slots 遊戲
@@ -129,7 +136,7 @@ const useMenu = () => {
 		}: {
 			tpId: string
 			tpGameType?: string
-			gameId?: string
+			gameId?: string | number
 			isFree?: boolean
 		},
 		{ loginCallback }: { loginCallback: LoginCallbackType }
@@ -181,7 +188,7 @@ const useMenu = () => {
 			searchParams.set('tpGameType', tpGameType)
 		}
 		if (gameId) {
-			searchParams.set('gameId', gameId)
+			searchParams.set('gameId', String(gameId))
 		}
 
 		const entPageUrl = `${dbHost}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&${searchParams.toString()}`
@@ -239,9 +246,7 @@ const useMenu = () => {
 			)
 		}
 
-		const entPageUrl = `${dbHost}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&CashierUrl=${cashierUrl}&${searchParams.toString()}`
-
-		return entPageUrl
+		return `${dbHost}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&CashierUrl=${cashierUrl}&${searchParams.toString()}`
 	}
 
 	const onEnterPage = (
@@ -376,10 +381,61 @@ const useMenu = () => {
 			}
 		}
 	}
+	/**
+	 *
+	 * @param item -- 靜態遊戲產品 ex: ...PRODUCTS.CryptoSports
+	 * @param loginCallback -- 登入彈窗
+	 * @param underMaintenanceCallback -- 維護彈窗
+	 * @param messageCallBack -- gotoGame api error handling 彈窗
+	 */
+	const onStaticMenuOpen = (
+		item: IStaticSubMenuItem | undefined,
+		{
+			loginCallback,
+			underMaintenanceCallback,
+			messageCallBack,
+		}: {
+			loginCallback: () => void
+			underMaintenanceCallback: () => void
+			messageCallBack: (message: string) => void
+		}
+	) => {
+		if (!item) return
+		// * 插入 maintenance
+		const isTpMaintain = getIsTpMaintain({
+			tpMaintainList,
+			tpId: item.tpId,
+			tpGameType: item.tpGameType,
+		})
 
+		if (isTpMaintain) {
+			underMaintenanceCallback()
+		} else {
+			onMenuOpen(item, {
+				loginCallback,
+				messageCallBack,
+			})
+		}
+	}
+
+	/**
+	 *
+	 * @param item
+	 * @param loginCallback -- 登入彈窗
+	 * @param messageCallBack -- gotoGame api error handling 彈窗
+	 *
+	 * ISubMenuItem 為動態遊戲產品(lobbyHeader api 來的)
+	 *
+	 * undefined 是動態遊戲找不到對應的定義檔 (會在這層 return 掉)
+	 *
+	 * IStaticSubMenuItem 為靜態產品(配合需求彈性調整) 產品＋導向 組合而成
+	 *
+	 * 目的是為了減少 find 造成 performance 低落以及明確的把動態靜態區分開，code 看起來可以更乾淨
+	 *
+	 * example : PRODUCTS.PragmaticPlaySlot | {... PRODUCTS.PragmaticPlaySlot,desktop: { menuActionType: MenuActionTypeEnum.UseGoToGame }}
+	 */
 	const onMenuOpen = (
-		// * 目前只有在 Sports 才會需要這個參數 (products 有 hasDesktopLink)
-		item: ISubMenu & { appType?: number },
+		item: IDynamicSubMenuItem | IStaticSubMenuItem | undefined,
 		{
 			loginCallback,
 			messageCallBack,
@@ -388,78 +444,102 @@ const useMenu = () => {
 			messageCallBack?: MessageCallbackType
 		}
 	) => {
-		const { desktop, h5, pathname = '/', query, product, appType } = item || {}
+		if (!item) return
 
-		const { menuActionType } =
-			Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DeviceTypeEnum.Desktop
-				? desktop || {}
-				: h5 || {}
+		const isDynamic = (
+			item: IDynamicSubMenuItem | IStaticSubMenuItem
+		): item is IDynamicSubMenuItem => {
+			return (item as IDynamicSubMenuItem)?.isTpMaintain !== undefined
+		}
 
-		switch (menuActionType) {
-			case MenuActionTypeEnum.Link:
+		// * 動態靜態共用導轉 methods
+		const redirectAction = (
+			product: IDynamicSubMenuItem | IStaticSubMenuItem
+		) => {
+			const { desktop, h5, tpId, gameId, tpGameType, betType } = product || {}
+
+			const { menuActionType } =
+				Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) ===
+				DeviceTypeEnum.Desktop
+					? desktop || {}
+					: h5 || {}
+
+			const linkMethod = () => {
+				const { pathname = '/', query } =
+					(item as IDynamicSubMenuLinkType) || {}
 				push({
 					pathname,
 					query,
 				})
-
-				break
-
-			case MenuActionTypeEnum.EnterPage:
-				if (product) {
-					const { TP_ID, GAME_ID, TP_GAME_TYPE, BET_TYPE } = product
-
-					onEnterPage(
-						{
-							langId,
-							tpId: TP_ID,
-							gameId: GAME_ID,
-							tpGameType: TP_GAME_TYPE,
-							bettype: BET_TYPE,
-							appType,
+			}
+			const enterPageMethod = () => {
+				onEnterPage(
+					{
+						langId,
+						tpId,
+						gameId,
+						tpGameType,
+						bettype: betType,
+					},
+					{ loginCallback }
+				)
+			}
+			const goToGameMethod = () => {
+				onGoToGame(
+					{
+						tpId,
+						langId,
+						inputs: {
+							gameId,
+							fun: '0',
+							gameType: tpId === PRODUCTS.NewPlayTechSlot.tpId ? 'slot' : '',
+							tpGameType,
 						},
-						{ loginCallback }
-					)
-				}
-
-				break
-
-			case MenuActionTypeEnum.UseGoToGame:
-				if (product) {
-					const { TP_ID, GAME_ID, GAME_TYPE, TP_GAME_TYPE } = product
-					onGoToGame(
-						{
-							tpId: TP_ID,
-							langId,
-							inputs: {
-								gameId: GAME_ID,
-								fun: '0',
-								gameType: GAME_TYPE,
-								tpGameType: TP_GAME_TYPE,
-							},
-						},
-						{ loginCallback, messageCallBack }
-					)
-				}
-				break
-
-			case MenuActionTypeEnum.WindowOpen:
+					},
+					{ loginCallback, messageCallBack }
+				)
+			}
+			const windowOpenMethod = () => {
 				if (window !== undefined) {
+					const { pathname = '/' } = (item as IDynamicSubMenuLinkType) || {}
 					window.open(pathname, pathname)
 				}
-				break
+			}
 
-			default:
-				break
+			const switchMethod = {
+				[MenuActionTypeEnum.Link]: linkMethod,
+				[MenuActionTypeEnum.EnterPage]: enterPageMethod,
+				[MenuActionTypeEnum.UseGoToGame]: goToGameMethod,
+				[MenuActionTypeEnum.WindowOpen]: windowOpenMethod,
+
+				// * 靜態遊戲 enterPage 走 Default
+				Null: () => enterPageMethod(),
+			}
+
+			return (switchMethod[menuActionType!] || switchMethod.Null)()
 		}
+
+		if (isDynamic(item)) {
+			const { isTpMaintain } = item || {}
+
+			if (isTpMaintain) return
+
+			redirectAction(item)
+		}
+
+		// * 靜態 (isTpMaintain noPlay 會在 onStaticMenuOpen 擋掉)
+		redirectAction(item)
 	}
 
 	return {
-		menuData,
+		menuList: mergedMenus(),
+		onStaticMenuOpen,
 		onMenuOpen,
 		onEnterPage,
 		onGoToGame,
 		onEnterSlotsPage,
 		onDefaultEnterPage,
+		isLobbyHeaderError,
 	}
 }
 
