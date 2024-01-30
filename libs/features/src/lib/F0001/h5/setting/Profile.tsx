@@ -155,17 +155,19 @@ const Profile = () => {
 							<div>{t('Label_General_FinancialLog')}</div>
 						</a>
 					</Link>
-					<Link href={paths.bankInfo.root}>
-						<a>
-							<Image
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/bankinfo.png`}
-								width={39}
-								height={39}
-								alt='bankinfo'
-							/>
-							<div>{t('Label_General_BankInfo')}</div>
-						</a>
-					</Link>
+					{includes(ALLOWED_CURRENCIES['BANK_INFO'], currencyId) && (
+						<Link href={paths.bankInfo.root}>
+							<a>
+								<Image
+									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/bankinfo.png`}
+									width={39}
+									height={39}
+									alt='bankinfo'
+								/>
+								<div>{t('Label_General_BankInfo')}</div>
+							</a>
+						</Link>
+					)}
 				</div>
 				{custBonusWalletList && custBonusWalletList?.length > 0 && (
 					<div className='casino-wallet'>
