@@ -1,101 +1,103 @@
-import { getSubMenuEventIcon, useMenu } from '@nx-next-app/features/F0006/hooks'
-import { DeviceTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
 import classNames from 'classnames'
-import process from 'process'
-import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
+import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
-import { uniqueId } from 'lodash-es'
+import { useAuth } from '@nx-next-app/data-access'
+import { isEventPeriod } from '@nx-next-app/utils'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { MenuKeyEnum, MenuIconTypeEnum } from '@nx-next-app/types'
+import { type IMergedMenuData } from '@nx-next-app/features/F0006/hooks'
+import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0006/types'
 
 interface ISubMenuProps {
-	menuKey: keyof typeof MenuKeyEnum | ''
+	menuList: IMergedMenuData[]
+	onMenuOpen: (
+		item: IDynamicSubMenuItem | undefined,
+		{
+			loginCallback,
+			messageCallBack,
+		}: {
+			loginCallback: () => void
+			messageCallBack?: (message: string) => void | undefined
+		}
+	) => void
+	menuKey: keyof typeof MenuKeyEnum | undefined
 }
 
-const SubMenu = ({ menuKey }: ISubMenuProps) => {
-	const { t } = useTranslation()
+const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
+	const {
+		userInfo: { langId },
+	} = useAuth()
 	const { push } = useRouter()
-	const { menuData, onMenuOpen } = useMenu()
+	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
 
-	const renderSubMenu = (key: string) => {
-		const {
-			h5: { subMenuClassName },
-			subMenu,
-		} = menuData[key as MenuKeyEnum]
-
+	const renderSubMenu = menuList.map(mainMenuItem => {
+		const { h5, category, subMenu } = mainMenuItem || {}
+		const { subMenuClassName } = h5 || {}
 		return (
 			<div
-				key={key}
-				className={classNames(subMenuClassName, { active: key === menuKey })}
+				key={category}
+				className={classNames(subMenuClassName, {
+					active: menuKey === category,
+				})}
 			>
-				{subMenu?.map(item => {
+				{subMenu?.map(subMenuItem => {
 					const {
-						h5: { className, hasDesktopLink, headerMenuImgList, img } = {},
-						eventIcons,
-						displayKey,
-						displayText,
-						productKey,
-					} = item
+						tpGameIdNo,
+						productName,
+						iconType,
+						iconStartTime,
+						iconEndTime,
+						isTpMaintain,
+						mobileHeaderPicUrl,
+						h5,
+					} = subMenuItem || {}
+					const { hasDesktopLink } = h5 || {}
 
-					const subMenuEventIcon = getSubMenuEventIcon(eventIcons)
+					const displayName =
+						subMenuItem?.currencyGameName &&
+						subMenuItem?.currencyGameName[langId] &&
+						subMenuItem?.currencyGameName[langId]
 
+					// * 後端這裡是字串格式 需做處理
+					const suBMenuImage =
+						mobileHeaderPicUrl && JSON.parse(mobileHeaderPicUrl)[0]
+
+					const isNew =
+						isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
+						iconType === MenuIconTypeEnum.New
 					return (
-						<div
-							style={{
-								// * 如果維護中取消點擊事件
-								pointerEvents: item.isTpMaintain ? 'none' : 'auto',
-							}}
-							key={productKey || uniqueId()}
-							className={classNames(className, {
-								active: item.isTpMaintain,
-							})}
+						<button
+							key={tpGameIdNo}
+							className={classNames({ active: isTpMaintain })}
 							onClick={() => {
-								onMenuOpen(item, {
+								onMenuOpen(subMenuItem, {
 									loginCallback: () => {
 										push(paths.login.root)
 									},
-									messageCallBack: message => null,
+									messageCallBack: message => modal.error(message),
 								})
 							}}
 						>
-							{eventIcons && (
-								<i className={classNames(subMenuEventIcon?.icon)} />
-							)}
+							{isNew && <i className='icon icon-new' />}
 
-							{img && (
-								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}${img}`}
-									alt={productKey || 'menu-item-img'}
-								/>
-							)}
+							<img src={suBMenuImage} alt={productName} />
 
-							{headerMenuImgList?.map(img => (
-								<img
-									key={img.imgUrl}
-									className={classNames(img.className)}
-									alt={img.imgUrl}
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/dropdown/${img.imgUrl}`}
-								/>
-							))}
+							<div>{displayName || productName}</div>
 
-							<div>{displayKey ? t(displayKey) : displayText}</div>
 							{hasDesktopLink && (
 								<div className='switchbtn'>
 									<button
-										disabled={item.isTpMaintain}
+										disabled={isTpMaintain}
 										onClick={e => {
 											e.stopPropagation()
-											onMenuOpen(
-												{
-													...item,
-													appType: DeviceTypeEnum.Desktop,
+											onMenuOpen(subMenuItem, {
+												loginCallback: () => {
+													push(paths.login.root)
 												},
-												{
-													loginCallback: () => {
-														push(paths.login.root)
-													},
-													messageCallBack: message => null,
-												}
-											)
+												messageCallBack: message => modal.error(message),
+											})
 										}}
 									>
 										{t('Label_General_Desktop')}
@@ -103,19 +105,20 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 									<button>{t('Label_General_PlayNow')}</button>
 								</div>
 							)}
-							<div className='under'>{t('Label_General_UnderMaintenance')}</div>
-						</div>
+
+							{isTpMaintain && (
+								<div className='under'>
+									{t('Label_General_UnderMaintenance')}
+								</div>
+							)}
+						</button>
 					)
 				})}
 			</div>
 		)
-	}
+	})
 
-	return (
-		<div className='gameList'>
-			{Object.keys(menuData).map(key => renderSubMenu(key))}
-		</div>
-	)
+	return <div className='gameList'>{renderSubMenu}</div>
 }
 
 export default SubMenu

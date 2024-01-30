@@ -1,50 +1,76 @@
+import { ReactNode, useRef } from 'react'
+import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
-import { useRef } from 'react'
-import { useHover } from 'usehooks-ts'
-import head from 'lodash/head'
+import { useAuth } from '@nx-next-app/data-access'
+import { isEventPeriod } from '@nx-next-app/utils'
+import { MenuIconTypeEnum } from '@nx-next-app/types'
+import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0006/types'
 
 interface IListItemProps {
-	alt: string
-	className: string
-	displayName?: string
-	hoverImgSrc: string
-	imgSrc: string
-	onItemClick: () => void
-	style: React.CSSProperties
-	gameTextClassName: string
-	eventIcons?: {
-		icon: string
-	}[]
+	subMenuItemClassName?: string
+	gameTextClassName?: string
+	subMenuItem: IDynamicSubMenuItem
+	onItemClick: (item: IDynamicSubMenuItem) => void
+}
+
+// * Lobby Icon 共用樣式
+export const lobbyIconEnum: { [p: number]: ReactNode | null } = {
+	[MenuIconTypeEnum.NO_ICON]: null,
+	[MenuIconTypeEnum.New]: <div className='icon icon-new'>New</div>,
+}
+
+// * Get Lobby Icon 共用涵式
+export const switchLobbyIcon = (iconType: MenuIconTypeEnum) => {
+	return lobbyIconEnum[iconType] || null
 }
 
 const GameListItem = ({
-	alt,
-	className,
-	displayName,
-	hoverImgSrc,
-	imgSrc,
+	subMenuItemClassName,
+	gameTextClassName = 'name',
+	subMenuItem,
 	onItemClick,
-	style,
-	gameTextClassName,
-	eventIcons,
 }: IListItemProps) => {
-	const { t } = useTranslation()
 	const hoverRef = useRef(null)
-	const isHover = useHover(hoverRef)
+
+	const { t } = useTranslation()
+	const {
+		userInfo: { langId },
+	} = useAuth()
+
+	const displayName =
+		subMenuItem?.currencyGameName &&
+		subMenuItem?.currencyGameName[langId] &&
+		subMenuItem?.currencyGameName[langId]
+
+	// * 後端這裡是字串格式 需做處理
+	const suBMenuLobbyImage =
+		subMenuItem?.pcLobbyPicUrl && JSON.parse(subMenuItem?.pcLobbyPicUrl)[0]
+
+	const { iconType, iconStartTime, iconEndTime, isTpMaintain } =
+		subMenuItem || {}
+
+	const lobbyIcon =
+		(isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
+			switchLobbyIcon(iconType)) ||
+		null
+
 	return (
 		<div
 			ref={hoverRef}
-			className={className}
-			style={style}
-			onClick={onItemClick}
+			className={classNames(subMenuItemClassName, {
+				active: isTpMaintain,
+			})}
+			onClick={() => onItemClick(subMenuItem)}
 		>
-			{/* 舊專案只會顯示一個 new Icon , 先這樣寫未來有需要再擴充 */}
-			{eventIcons && head(eventIcons)?.icon && (
-				<div className={head(eventIcons)?.icon} />
+			{lobbyIcon}
+			<img src={suBMenuLobbyImage} alt={subMenuItem?.productName} />
+			{isTpMaintain && (
+				<div className='under'>{t('Label_underMaintenance')}</div>
 			)}
-			<img src={isHover ? hoverImgSrc : imgSrc} alt={alt} />
-			<div className='under'>{t('Label_General_UnderMaintenance')}</div>
-			<h2 className={gameTextClassName}>{displayName}</h2>
+
+			<h2 className={gameTextClassName}>
+				{displayName || subMenuItem?.productName}
+			</h2>
 		</div>
 	)
 }
