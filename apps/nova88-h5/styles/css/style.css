@@ -16785,6 +16785,14 @@ main.casino .banner {
           box-sizing: border-box;
   text-align: center;
 }
+.after .btn-logout {
+  background: white;
+  border-radius: 30px;
+  width: 80vw;
+  padding: 3vw 0;
+  color: #D1D1D1;
+  margin: 5vw 0 0;
+}
 
 .react-datepicker-wrapper {
   -webkit-box-flex: 1;
