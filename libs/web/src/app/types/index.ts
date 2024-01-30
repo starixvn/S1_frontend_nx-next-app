@@ -39,16 +39,6 @@ export interface IBannerByCurrencyData {
 	levelText: string
 }
 
-export interface IStaticProduct {
-	TP_ID: number
-	GAME_ID?: number | string
-	TP_GAME_TYPE?: number | null
-	BET_TYPE?: number
-	NAME?: string
-	GAME_TYPE?: string
-	LOGIN_GAME_TYPE?: LoginGameTypeEnum // * 決定 onGoToGame function 要如何開啟遊戲
-}
-
 export interface IStaticLangGroups {
 	[lang: string]: { displayText: string; value: string; currencyId: number }[]
 }
@@ -173,26 +163,9 @@ export enum BonusTypeEnum {
 	Amount,
 }
 
-export enum MenuKeyEnum {
-	'Sports' = 'Sports',
-	'Reward' = 'Reward',
-	'Casino' = 'Casino',
-	'Exchange' = 'Exchange',
-	'Home' = 'Home',
-	// 'AppDownload' = 'AppDownload',
-	// 'CryptoSports' = 'CryptoSports',
-	'ESports' = 'ESports',
-	'Slot' = 'Slot',
-	'Game' = 'Game',
-	'Fishing' = 'Fishing',
-	// * 識別碼或關鍵字不可直接接在數字常值後面。ts(1351)，4D => FourD
-	'FourD' = 'FourD',
-	// '4D' = '4D',
-	'Lottery' = 'Lottery',
-	'Promotion' = 'Promotion',
-	'VIP' = 'VIP',
-	'LeaderBoard' = 'LeaderBoard',
-	'Affiliates' = 'Affiliates',
+export enum MainMenuIcon {
+	newTag = 'newTag',
+	hotTag = 'hotTag',
 }
 
 export enum TpGameType {

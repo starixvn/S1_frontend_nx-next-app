@@ -1,4 +1,4 @@
-import { PRODUCTS } from '@nx-next-app/constants'
+import { IProduct } from '@nx-next-app/constants'
 
 export interface IFooterData {
 	copyRightList?: ICopyRightData[]
@@ -21,8 +21,7 @@ interface IQuickLinksData {
 
 type ICopyRightData = IQuickLinksData
 
-export interface IPlatformListData {
-	productKey: keyof typeof PRODUCTS
+export interface IPlatformListData extends IProduct {
 	imgName: string
 	hoverImgName?: string
 }

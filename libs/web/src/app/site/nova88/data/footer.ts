@@ -1,4 +1,5 @@
 import { CurrenciesEnum, IFooterData } from '@nx-next-app/types'
+import { PRODUCTS } from '@nx-next-app/constants'
 
 export const FOOTER_DATA = ({
 	langId,
@@ -19,154 +20,155 @@ export const FOOTER_DATA = ({
 	}
 
 	return {
-		// * platformList 渲染時需透過 tpIds、allowCurrencies 過濾一次
+		// * platformList 須經過 useMenu(已包含 排序、tpIds、allowCurrencies) 過濾
 		platformList: [
 			{
-				productKey: 'SPORTS_SOCCER',
+				...PRODUCTS.Soccer,
 				imgName: 'saba',
 			},
 			{
-				productKey: 'LIVE_CASINO_ALL_BET',
+				...PRODUCTS.Allbet,
 				imgName: 'all',
 			},
 			{
-				productKey: 'LIVE_CASINO_DG',
+				...PRODUCTS.DreamGaming,
 				imgName: 'dg',
 			},
 			{
-				productKey: 'LIVE_CASINO_AG',
+				...PRODUCTS.AsiaGaming,
 				imgName: 'ag',
 			},
 			{
-				productKey: 'LIVE_CASINO_AE',
+				...PRODUCTS.AESexy,
 				imgName: 'sexy',
 			},
 			{
-				productKey: 'LIVE_CASINO_SA',
+				...PRODUCTS.SAGaming,
 				imgName: 'sa',
 			},
 			{
-				productKey: 'SLOTS_PP',
+				...PRODUCTS.PragmaticPlayCasino,
 				imgName: 'pp',
 			},
 			{
-				productKey: 'LIVE_CASINO_BG',
+				...PRODUCTS.BigGaming,
 				imgName: 'bg',
 			},
 			{
-				productKey: 'LIVE_CASINO_YEE_BET',
+				// ??
+				...PRODUCTS.YeebetCasino,
 				imgName: 'yb',
 			},
 			{
-				productKey: 'SLOTS_MGPSW',
+				...PRODUCTS.MicrogamingSlot,
 				imgName: 'mic',
 			},
 			{
-				productKey: 'SLOTS_PT',
+				...PRODUCTS.NewPlayTechSlot,
 				imgName: 'pt',
 			},
 			{
-				productKey: 'SLOTS_YGG',
+				...PRODUCTS.YGGDrassil,
 				imgName: 'ygg',
 			},
 			{
-				productKey: 'SLOTS_JOKER',
+				...PRODUCTS.Joker,
 				imgName: 'joker',
 			},
 			{
-				productKey: 'SLOTS_SG',
+				...PRODUCTS.Spadegaming,
 				imgName: 'spad',
 			},
 			{
-				productKey: 'SLOTS_JILI',
+				...PRODUCTS.JILI,
 				imgName: 'jili',
 			},
 			{
-				productKey: 'LOTTERY_TCG',
+				...PRODUCTS.TCGaming,
 				imgName: 'tc',
 			},
 			{
-				productKey: 'SLOTS_RED_TIGER',
+				...PRODUCTS.RedTiger,
 				imgName: 'red',
 			},
 			{
-				productKey: 'SLOTS_NET_ENT',
+				...PRODUCTS.NetEnt,
 				imgName: 'net',
 			},
 			{
-				productKey: 'SLOTS_ADVANT_PLAY',
+				...PRODUCTS.AdvantPlay,
 				imgName: 'ap',
 			},
 			{
-				productKey: 'LIVE_CASINO_EVO',
+				...PRODUCTS.EvolutionGaming,
 				imgName: 'evo',
 			},
 			{
-				productKey: 'SLOTS_HABANERO',
+				...PRODUCTS.Habanero,
 				imgName: 'ha',
 			},
 			{
-				productKey: 'SLOTS_SIMPLE_PLAY',
+				...PRODUCTS.SimplePlay,
 				imgName: 'simple',
 			},
 			{
-				productKey: 'SLOTS_SKY_WIND',
+				...PRODUCTS.SkywindSlot,
 				imgName: 'sky',
 			},
 			{
-				productKey: 'SLOTS_NEXT_SPIN',
+				...PRODUCTS.Nextspin,
 				imgName: 'next',
 			},
 			{
-				productKey: 'SPORTS_E_IMESPORTS',
+				...PRODUCTS.IMESports,
 				imgName: 'im-esports',
 			},
 			{
-				productKey: 'SLOTS_SPRIBE',
+				...PRODUCTS.SPRIBE,
 				imgName: 'spribe',
 			},
 			{
-				productKey: 'SLOTS_PNG',
+				...PRODUCTS.PlaynGO,
 				imgName: 'png',
 			},
 			{
-				productKey: 'SLOTS_ES',
+				...PRODUCTS.ES,
 				imgName: 'es',
 			},
 			{
-				productKey: 'LIVE_CASINO_WE',
+				...PRODUCTS.WE,
 				imgName: 'we',
 			},
 			{
-				productKey: 'SLOTS_AMB',
-				imgName: 'askme',
+				...PRODUCTS.AskmeSlot,
+				imgName: 'casino_askme',
 			},
 			{
-				productKey: 'SLOTS_FA_CHAI',
+				...PRODUCTS.FaChai,
 				imgName: 'fachai',
 			},
 			{
-				productKey: 'SLOTS_BNG',
+				...PRODUCTS.BNG,
 				imgName: 'bng',
 			},
 			{
-				productKey: 'SLOTS_PEGASUS',
+				...PRODUCTS.Pegasus,
 				imgName: 'pegasus',
 			},
 			{
-				productKey: 'GAMES_V8_POKER',
+				...PRODUCTS.V8Poker,
 				imgName: 'v8',
 			},
 			{
-				productKey: 'SPORTS_E_SPORTS_TFG',
+				...PRODUCTS.TFGaming,
 				imgName: 'tfg',
 			},
 			{
-				productKey: 'SLOTS_NO_LIMIT_CITY',
+				...PRODUCTS.NoLimitCity,
 				imgName: 'nlc',
 			},
 			{
-				productKey: 'SLOTS_AMIGO',
+				...PRODUCTS.AmigoGaming,
 				imgName: 'amigo',
 			},
 		],

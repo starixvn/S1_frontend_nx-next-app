@@ -1,50 +1,86 @@
-import head from 'lodash/head'
-import { useHover } from 'usehooks-ts'
 import { useRef } from 'react'
+import { useHover } from 'usehooks-ts'
+import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
+import { useAuth } from '@nx-next-app/data-access'
+import { isEventPeriod } from '@nx-next-app/utils'
+import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0006/types'
+import { switchLobbyIcon } from '@nx-next-app/components/D0006/game-list-item'
 
 interface IListItemProps {
-	alt: string
-	imgSrc: string
-	className: string
-	hoverImgSrc: string
-	displayName?: string
-	style: React.CSSProperties
-	eventIcons?: {
-		icon: string
-	}[]
-	onItemClick: () => void
+	subMenuItemClassName: string
+	subMenuItem: IDynamicSubMenuItem
+	onItemClick: (item: IDynamicSubMenuItem) => void
 }
 
 const LotteryListItem = ({
-	alt,
-	style,
-	imgSrc,
-	className,
-	eventIcons,
-	displayName,
-	hoverImgSrc,
+	subMenuItemClassName,
+	subMenuItem,
 	onItemClick,
 }: IListItemProps) => {
 	const { t } = useTranslation()
 	const hoverRef = useRef(null)
+	const {
+		userInfo: { langId },
+	} = useAuth()
 	const isHover = useHover(hoverRef)
+
+	const displayName =
+		subMenuItem?.currencyGameName &&
+		subMenuItem?.currencyGameName[langId] &&
+		subMenuItem?.currencyGameName[langId]
+
+	// * 後端這裡是字串格式 需做處理
+	const suBMenuLobbyImage =
+		subMenuItem?.pcLobbyPicUrl && JSON.parse(subMenuItem?.pcLobbyPicUrl)[0]
+
+	const { iconType, iconStartTime, iconEndTime, isTpMaintain, desktop } =
+		subMenuItem || {}
+	const { lobbyPage } = desktop || {}
+
+	const lobbyIcon =
+		(isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
+			switchLobbyIcon(iconType)) ||
+		null
+
 	return (
 		<div
 			ref={hoverRef}
-			className={className}
-			style={style}
-			onClick={onItemClick}
+			className={subMenuItemClassName}
+			onClick={() => onItemClick(subMenuItem)}
 		>
-			{eventIcons && head(eventIcons)?.icon && (
-				<div className={head(eventIcons)?.icon} />
-			)}
+			{lobbyIcon}
 
 			<div className='name' style={{ marginTop: '30px' }}>
-				{displayName}
+				{displayName || subMenuItem?.productName}
 			</div>
-			<img src={isHover ? hoverImgSrc : imgSrc} alt={alt} />
-			<div className='under'>{t('Label_General_UnderMaintenance')}</div>
+
+			{/* <Image */}
+			{/* 	src={suBMenuLobbyImage} */}
+			{/* 	width={250} */}
+			{/* 	height={344} */}
+			{/* 	alt={subMenuItem?.productName} */}
+			{/* /> */}
+
+			{isHover ? (
+				<Image
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/lottery/${lobbyPage?.hoverBgImg}`}
+					alt={subMenuItem?.productName}
+					width={200}
+					height={275}
+				/>
+			) : (
+				<Image
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/lottery/${lobbyPage?.npcImg}`}
+					alt={subMenuItem?.productName}
+					width={200}
+					height={275}
+				/>
+			)}
+
+			{isTpMaintain && (
+				<div className='under'>{t('Label_General_UnderMaintenance')}</div>
+			)}
 			<div>{t('Label_PlayNow')}</div>
 		</div>
 	)

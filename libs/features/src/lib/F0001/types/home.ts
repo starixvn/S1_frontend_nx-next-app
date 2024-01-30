@@ -28,6 +28,8 @@ export enum DesktopHomeComponentsEnum {
 	QuickDownload = 'QuickDownload',
 	// 右側社群連結
 	QuickLink = 'QuickLink',
+	// 最近遊玩的遊戲，有登入才有
+	RecentlyViewGames = 'RecentlyViewGames',
 }
 
 // 手機首頁元件 enum
@@ -41,7 +43,7 @@ export enum MobileHomeComponentsEnum {
 	HotEventSwiper = 'HotEventSwiper',
 	HotGameSwiper = 'HotGameSwiper',
 	JackPotSwiper = 'JackPotSwiper',
-	// 最近的遊戲，有登入才有
+	// 最近遊玩的遊戲，有登入才有
 	RecentlyViewGames = 'RecentlyViewGames',
 	// 登入才有
 	FriendReferral = 'FriendReferral',

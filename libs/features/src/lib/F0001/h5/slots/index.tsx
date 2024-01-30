@@ -9,6 +9,7 @@ import { paths } from '@nx-next-app/constants'
 import { useTranslation } from 'next-i18next'
 import { Header } from '@nx-next-app/components/H0001'
 import { useSlots } from '@nx-next-app/features/F0001/providers'
+import { MenuKeyEnum } from '@nx-next-app/types'
 
 const Slots = () => {
 	const {
@@ -29,7 +30,7 @@ const Slots = () => {
 			<Header className='header'>
 				<Header.Tag
 					title={t('Label_General_Slots') as string}
-					back={paths.home.root}
+					back={`${paths.home.root}/?prevPageRecord=${MenuKeyEnum.Slot}`}
 					onSearchBarChange={onSearchCategoryTextChange}
 					searchText={searchCategoryText}
 					isShowSearchInput={isShowSearchInput}

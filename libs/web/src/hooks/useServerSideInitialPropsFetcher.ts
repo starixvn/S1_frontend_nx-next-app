@@ -1,5 +1,5 @@
 import { ParsedUrlQuery } from 'querystring'
-import { assign, isEmpty } from 'lodash-es'
+import { assign, includes, isEmpty } from 'lodash-es'
 import { getCookies } from 'cookies-next'
 import { GetServerSidePropsContext, PreviewData } from 'next'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
@@ -85,7 +85,8 @@ export const useServerSideInitialPropsFetcher = async (
 	if (
 		// * 判斷是否為為直播主帳號，直播主只允許進入home與slots頁面
 		originIsSignIn &&
-		![paths.slots.root, paths.home.root, paths.setting.root].includes(
+		!includes(
+			[paths.home.root, paths.slots.root],
 			String(context.resolvedUrl.split('?')[0])
 		)
 	) {
