@@ -1,8 +1,8 @@
-import { useTranslation } from 'next-i18next'
-import { useMenu } from '@nx-next-app/features/F0006/hooks'
-import { find, isUndefined } from 'lodash-es'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import dynamic from 'next/dynamic'
+import { useTranslation } from 'next-i18next'
+import { PRODUCTS } from '@nx-next-app/constants'
+import { useMenu } from '@nx-next-app/features/F0006/hooks'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0006/desktop/modal/LoginModal'),
@@ -11,18 +11,17 @@ const LoginModal = dynamic(
 	}
 )
 
+const UnderMaintainModal = dynamic(
+	() => import('@nx-next-app/features/F0006/desktop/modal/UnderMaintainModal'),
+	{
+		ssr: false,
+	}
+)
+
 const LiveCasino = () => {
 	const { t } = useTranslation()
-	const {
-		menuData: { Casino: { subMenu: casinoSubMenu } = {} } = {},
-		onMenuOpen,
-	} = useMenu()
+	const { onStaticMenuOpen } = useMenu()
 	const { modal } = useGlobalModal()
-
-	const casinoDG = find(
-		casinoSubMenu,
-		menu => menu.productKey === 'LIVE_CASINO_DG'
-	)
 
 	return (
 		<div className='liveTv'>
@@ -38,11 +37,12 @@ const LiveCasino = () => {
 					{/* </Link> */}
 					<button
 						onClick={() => {
-							if (!isUndefined(casinoDG)) {
-								onMenuOpen(casinoDG, {
-									loginCallback: () => modal.open(<LoginModal />),
-								})
-							}
+							onStaticMenuOpen(PRODUCTS.DreamGaming, {
+								loginCallback: () => modal.open(<LoginModal />),
+								underMaintenanceCallback: () =>
+									modal.open(<UnderMaintainModal />),
+								messageCallBack: message => modal.error(message),
+							})
 						}}
 					>
 						{t('Label_General_PlayNow')}
