@@ -7405,6 +7405,15 @@ input[type=file] {
 #popup .livesportspop.vn-en {
   background: url(https://banner.0814media.net/desktop/img/4.0/livesports-vnbg-en.png) no-repeat center/100% !important;
 }
+#popup .livesportspop.my-en {
+  background: url(https://banner.0814media.net/desktop/img/4.0/livesports-mybg-en.png) no-repeat center/100% !important;
+}
+#popup .livesportspop.my {
+  background: url(https://banner.0814media.net/desktop/img/4.0/livesports-mybg-my.png) no-repeat center/100% !important;
+}
+#popup .livesportspop.my-cs {
+  background: url(https://banner.0814media.net/desktop/img/4.0/livesports-mybg-cs.png) no-repeat center/100% !important;
+}
 
 .Submit,
 .poker,
@@ -8617,6 +8626,28 @@ input[type=file] {
   text-align: left;
 }
 .addAddresspop > div .txt-blue {
+  padding-left: 5px;
+}
+.addAddresspop form > div {
+  width: 100%;
+  border-bottom: 1px solid #BFCCE2;
+  padding-bottom: 20px;
+}
+.addAddresspop form > div .inputModuleRow > .btnGroup {
+  margin: 10px 0;
+}
+.addAddresspop form > div .inputModuleRow > .btnGroup button {
+  margin-right: 0;
+  min-width: 100px;
+}
+.addAddresspop form > div.btnGroup {
+  border: 0;
+  margin: 20px 0 0;
+}
+.addAddresspop form > div .tip {
+  text-align: left;
+}
+.addAddresspop form > div .txt-blue {
   padding-left: 5px;
 }
 
