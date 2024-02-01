@@ -54,8 +54,8 @@
 	}
 
 	// Constants
-	var getStatusUrl = 'https://tp.aiking88.net/BTI/Status'
-	var getRefreshUrl = 'https://tp.aiking88.net/BTI/Refresh'
+	var getStatusUrl = 'https://tp.aiking88dev.net/BTI/Status'
+	var getRefreshUrl = 'https://tp.aiking88dev.net/BTI/Refresh'
 	var URL_PARAM_NAME_TOKEN = 'operatorToken'
 	var COOKIE_PARAM_NAME_TOKEN = 'operatorToken'
 	var SESSION_PARAM_NAME_TOKEN = 'operatorToken'
