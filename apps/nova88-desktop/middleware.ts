@@ -1,4 +1,4 @@
-import type { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { siteMiddleware } from '@nx-next-app/middleware'
 
 // langToCurrency 在 middleware 就要使用到，next 規定 middleware 使用的資源要寫在裡面才 build 得過
@@ -23,5 +23,12 @@ const config = {
 }
 
 export const middleware = (request: NextRequest) => {
+	if (
+		request.nextUrl.pathname.startsWith('/api/') ||
+		request.nextUrl.pathname.startsWith('/health')
+	) {
+		return NextResponse.next()
+	}
+
 	return siteMiddleware({ request, config })
 }
