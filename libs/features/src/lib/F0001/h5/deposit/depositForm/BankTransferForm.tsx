@@ -142,52 +142,54 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 						className='infoModule'
 						required
 					>
-						<InputBox
-							type='number'
-							register={register('amount', {
-								valueAsNumber: true,
-								required: {
-									value: true,
-									message: t('Label_General_AmountLessThan', {
-										value1: numberFormat(convertedMinAmount, currencyId, 0),
-									}),
-								},
-								min: {
-									value: watchMinAmount,
-									message: t('Label_General_AmountLessThan', {
-										value1: numberFormat(convertedMinAmount, currencyId, 0),
-									}),
-								},
-								max: {
-									value: watchMaxAmount,
-									message: t('Label_General_NotInLimit'),
-								},
-							})}
-							format={isConvert(currencyId)}
-							placeholder={
-								t('Label_General_AmountMinMaxLimit', {
-									value1: watchMinAmount,
-									value2: watchMaxAmount,
-								}) || ''
-							}
-							touched={!!touchedFields['amount']}
-							errorMessage={errors['amount']?.message || ''}
-							error={!!errors['amount']}
-						/>
-						{/* // ! 加這行 tip 用來防止 InputBox 與 ShortcutList 跑版 */}
-						<div className='tip' />
-						<DepositModule.ShortcutList
-							minAmount={watchMinAmount}
-							maxAmount={watchMaxAmount}
-							shortcut={Number(watchAmount)}
-							shortcutList={generateShortcutList({
-								minAmount: watchMinAmount,
-							})}
-							onChange={value => {
-								setValue('amount', value)
-								trigger('amount')
-							}}
-						/>
+						<div className='infoModule'>
+							<InputBox
+								type='number'
+								register={register('amount', {
+									valueAsNumber: true,
+									required: {
+										value: true,
+										message: t('Label_General_AmountLessThan', {
+											value1: numberFormat(convertedMinAmount, currencyId, 0),
+										}),
+									},
+									min: {
+										value: watchMinAmount,
+										message: t('Label_General_AmountLessThan', {
+											value1: numberFormat(convertedMinAmount, currencyId, 0),
+										}),
+									},
+									max: {
+										value: watchMaxAmount,
+										message: t('Label_General_NotInLimit'),
+									},
+								})}
+								format={isConvert(currencyId)}
+								placeholder={
+									t('Label_General_AmountMinMaxLimit', {
+										value1: watchMinAmount,
+										value2: watchMaxAmount,
+									}) || ''
+								}
+								touched={!!touchedFields['amount']}
+								errorMessage={errors['amount']?.message || ''}
+								error={!!errors['amount']}
+							/>
+							{/* // ! 加這行 tip 用來防止 InputBox 與 ShortcutList 跑版 */}
+							<div className='tip' />
+							<DepositModule.ShortcutList
+								minAmount={watchMinAmount}
+								maxAmount={watchMaxAmount}
+								shortcut={Number(watchAmount)}
+								shortcutList={generateShortcutList({
+									minAmount: watchMinAmount,
+								})}
+								onChange={value => {
+									setValue('amount', value)
+									trigger('amount')
+								}}
+							/>
+						</div>
 					</DepositModule>
 				)}
 			</DepositModule>

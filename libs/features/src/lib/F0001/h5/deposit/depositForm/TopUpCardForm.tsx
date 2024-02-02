@@ -44,7 +44,6 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 			formState: { touchedFields, errors },
 		},
 		isFormValid,
-		channelTopUpCardPayList = [],
 		onTopUpCardPayFormSubmit,
 	} = useTopUpCardForm({ dataSource })
 
@@ -70,32 +69,6 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 								imgName={`${toLower(groupName)}.png`}
 								matchValue={groupName}
 								key={groupName}
-							>
-								<div>
-									{t('Label_General_Min')}：
-									{numberFormat(minAmount, currencyId, 0)}
-								</div>
-								<div>
-									{t('Label_General_Min')}：
-									{numberFormat(maxAmount, currencyId, 0)}
-								</div>
-							</DepositModule.SubModuleButton>
-						)
-					})}
-				</DepositModule.SubModuleButtonGroup>
-			</DepositModule>
-
-			<DepositModule title={t('Label_Deposit_SelectChannel')} required>
-				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
-					{channelTopUpCardPayList.map(item => {
-						const { channelId, channelName, minAmount, maxAmount } = item
-
-						return (
-							<DepositModule.SubModuleButton
-								label={channelName}
-								imgName={`${toLower(channelName)}.png`}
-								matchValue={String(channelId)}
-								key={channelId}
 							>
 								<div>
 									{t('Label_General_Min')}：

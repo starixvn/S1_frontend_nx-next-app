@@ -313,6 +313,24 @@ export interface IPaymentOnlineBankingData {
 	selBank: boolean
 }
 
+export interface IPaymentOnlineBankInfoSysData {
+	accountName: string
+	accountNo: string
+	bankCode: string
+	bankId: number
+	bankLogo: string
+	bankName: string
+	bankSite: string
+	groupIds: string
+	ifscCode: string
+	maxAmount: number
+	minAmount: number
+	qrCodeUrl: null | string
+	status: number
+	supportChannel: null | string
+	sysId: number
+}
+
 export interface IPaymentMobilePayData {
 	channelName: string
 	gSort: number
