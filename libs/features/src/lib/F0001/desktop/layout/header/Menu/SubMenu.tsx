@@ -15,6 +15,10 @@ const LoginModal = dynamic(
 		ssr: false,
 	}
 )
+const LiveStreamingModalDesktop = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/LiveStreamingModal'),
+	{ ssr: false }
+)
 
 interface ISubMenuProps {
 	debouncedMenuKey: string | undefined
@@ -128,6 +132,8 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 							{
 								loginCallback: () => modal.open(<LoginModal />),
 								messageCallBack: message => modal.error(message),
+								liveStreamingCallback: () =>
+									modal.open(<LiveStreamingModalDesktop />),
 							}
 						)
 					}
@@ -171,6 +177,8 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 								onMenuOpen(item, {
 									loginCallback: () => modal.open(<LoginModal />),
 									messageCallBack: message => modal.error(message),
+									liveStreamingCallback: () =>
+										modal.open(<LiveStreamingModalDesktop />),
 								})
 							}}
 						>
