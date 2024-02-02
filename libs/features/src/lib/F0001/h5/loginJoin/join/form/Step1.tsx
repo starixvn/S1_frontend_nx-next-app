@@ -109,7 +109,7 @@ const Step1 = ({
 			}).unwrap()
 
 			if (Number(affCurrencyId)) {
-				selectCurrency(affCurrencyId as ISelectProps['value'])
+				selectCurrency(Number(affCurrencyId))
 
 				const options = siteCurrencyList
 					.filter(currencyId => currencyId === Number(affCurrencyId))
