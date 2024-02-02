@@ -3,7 +3,7 @@
 import { head, includes, isArray } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { paths, PRODUCTS } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useMenuData } from '@nx-next-app/hooks'
 import {
 	ISubMenu,
@@ -21,6 +21,7 @@ import { isEventPeriod, onWindowOpenProduct } from '@nx-next-app/utils'
 
 type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void
+type liveStreamingCallbackType = () => void
 
 const SPECIAL_LOGIN_GAME_TYPE: { [key in LoginGameTypeEnum]: number[] } = {
 	[LoginGameTypeEnum.returnGameUrl]: [],
@@ -114,7 +115,7 @@ const useMenu = () => {
 		auth,
 		userInfo: { langId },
 	} = useAuth()
-
+	const { custGameTypeSettingList } = useGlobalData()
 	const menuData = useMenuData()
 	const [gotoGame] = useLazyGotoGameQuery()
 
@@ -383,9 +384,11 @@ const useMenu = () => {
 		{
 			loginCallback,
 			messageCallBack,
+			liveStreamingCallback,
 		}: {
 			loginCallback: LoginCallbackType
 			messageCallBack?: MessageCallbackType
+			liveStreamingCallback?: liveStreamingCallbackType
 		}
 	) => {
 		const { desktop, h5, pathname = '/', query, product, appType } = item || {}
@@ -395,6 +398,18 @@ const useMenu = () => {
 				? desktop || {}
 				: h5 || {}
 
+		if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
+			custGameTypeSettingList.forEach(settingItem => {
+				if (
+					product?.TP_ID === settingItem.tpId &&
+					product?.TP_GAME_TYPE === settingItem.gameType &&
+					settingItem.noPlay &&
+					liveStreamingCallback
+				) {
+					return liveStreamingCallback()
+				}
+			})
+		}
 		switch (menuActionType) {
 			case MenuActionTypeEnum.Link:
 				push({
