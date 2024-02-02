@@ -398,17 +398,21 @@ const useMenu = () => {
 				? desktop || {}
 				: h5 || {}
 
-		if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
-			custGameTypeSettingList.forEach(settingItem => {
-				if (
+		if (
+			custGameTypeSettingList &&
+			custGameTypeSettingList.length > 0 &&
+			liveStreamingCallback
+		) {
+			const shouldInvokeCallback = custGameTypeSettingList.some(
+				settingItem =>
 					product?.TP_ID === settingItem.tpId &&
 					product?.TP_GAME_TYPE === settingItem.gameType &&
-					settingItem.noPlay &&
-					liveStreamingCallback
-				) {
-					return liveStreamingCallback()
-				}
-			})
+					settingItem.noPlay
+			)
+			if (shouldInvokeCallback) {
+				liveStreamingCallback()
+				return
+			}
 		}
 		switch (menuActionType) {
 			case MenuActionTypeEnum.Link:
