@@ -118,6 +118,9 @@ const BankSelect = () => {
 				{banksIcon}
 				{addCardIcon}
 			</div>
+			{withdrawalType === WithdrawalBankCardEnum.EWallet && (
+				<div className='text'>{t('Label_Withdrawal_EWalletSubmitNote')}</div>
+			)}
 			{showIFSC && (
 				<div className='ifsc'>
 					{t('Label_BankInfo_IFSCCode')}:
