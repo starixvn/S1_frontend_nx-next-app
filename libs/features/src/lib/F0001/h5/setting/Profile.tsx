@@ -11,14 +11,24 @@ import {
 	useGetMsgCountQuery,
 	useGetPopupMsgQuery,
 	useGetCustVIPProgressQuery,
+	IWithdrawalSetting,
 } from '@nx-next-app/service'
+import { useWalletAllowed } from '@nx-next-app/features/F0001/hooks'
 
-const Profile = () => {
+interface ISettingProfileProps {
+	withdrawalBlockSetting: IWithdrawalSetting[]
+}
+
+const Profile = ({ withdrawalBlockSetting }: ISettingProfileProps) => {
 	const { t } = useTranslation()
 
 	const {
 		userInfo: { currencyId, langId, userName, currencyName },
 	} = useAuth()
+
+	const {
+		cardAllowed: { bankCardAllowed },
+	} = useWalletAllowed({ withdrawalBlockSetting })
 
 	const { data: { data: popupMsg } = {} } = useGetPopupMsgQuery(null)
 	const { data: { data: msgCount = 0 } = {} } = useGetMsgCountQuery(null)
@@ -155,7 +165,7 @@ const Profile = () => {
 							<div>{t('Label_General_FinancialLog')}</div>
 						</a>
 					</Link>
-					{includes(ALLOWED_CURRENCIES['BANK_INFO'], currencyId) && (
+					{bankCardAllowed && (
 						<Link href={paths.bankInfo.root}>
 							<a>
 								<Image

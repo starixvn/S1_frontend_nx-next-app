@@ -90,7 +90,37 @@ const Form = ({ cookies }: IJoinProps) => {
 	const [signUp] = useSignupMutation()
 
 	const [phoneErrorTip, setPhoneErrorTip] = useState<string | undefined>('')
+	const [currencyOptions, setCurrencyOptions] = useState<
+		ISelectProps['options']
+	>([])
+
 	const watchCurrencyId = watch('currencyId')
+
+	const currencySelectOptions = siteCurrencyList
+		.filter(currencyId => {
+			const affiliate = getValues('affiliate')
+			const formCurrencyId = getValues('currencyId')
+
+			// if affId qualified, only show currencyId from api
+			return urlAffId && affiliate ? currencyId === formCurrencyId : true
+		})
+		.map(currencyId => ({
+			value: currencyId,
+			label: t(`Label_General_Currency_${currencyId}`),
+			prefixOptionIcon: (
+				<div
+					className={classNames(
+						'flag',
+						FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
+					)}
+				/>
+			),
+		}))
+
+	const areaCodeSelectOptions = Object.values(AREA_CODE).map(el => ({
+		value: el.AreaCode,
+		label: `${el.AreaCode} ${el.Name}`,
+	}))
 
 	const checkUsername = async () => {
 		await trigger('username')
@@ -175,9 +205,32 @@ const Form = ({ cookies }: IJoinProps) => {
 
 		// check affiliate is qualified from api
 		try {
-			await affiliateCheck({ affCode: formAffiliate }).unwrap()
-			clearErrors('affiliate')
+			const { data: affCurrencyId } = await affiliateCheck({
+				affCode: formAffiliate,
+			}).unwrap()
 
+			if (Number(affCurrencyId)) {
+				selectCurrency(affCurrencyId as ISelectProps['value'])
+
+				const options = siteCurrencyList
+					.filter(currencyId => currencyId === Number(affCurrencyId))
+					.map(currencyId => ({
+						value: currencyId,
+						label: t(`Label_General_Currency_${currencyId}`),
+						prefixOptionIcon: (
+							<div
+								className={classNames(
+									'flag',
+									FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
+								)}
+							/>
+						),
+					}))
+
+				setCurrencyOptions(options)
+			}
+
+			clearErrors('affiliate')
 			return true
 		} catch (error) {
 			// error
@@ -342,32 +395,6 @@ const Form = ({ cookies }: IJoinProps) => {
 		}
 	}
 
-	const currencySelectOptions = siteCurrencyList
-		.filter(currencyId => {
-			const affiliate = getValues('affiliate')
-			const formCurrencyId = getValues('currencyId')
-
-			// if affId qualified, only show currencyId from api
-			return urlAffId && affiliate ? currencyId === formCurrencyId : true
-		})
-		.map(currencyId => ({
-			value: currencyId,
-			label: t(`Label_General_Currency_${currencyId}`),
-			prefixOptionIcon: (
-				<div
-					className={classNames(
-						'flag',
-						FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
-					)}
-				/>
-			),
-		}))
-
-	const areaCodeSelectOptions = Object.values(AREA_CODE).map(el => ({
-		value: el.AreaCode,
-		label: `${el.AreaCode} ${el.Name}`,
-	}))
-
 	useEffect(() => {
 		checkUrlAffiliate()
 	}, [])
@@ -450,7 +477,12 @@ const Form = ({ cookies }: IJoinProps) => {
 					infoMessage={t('Label_General_RemindForName') as string}
 				/>
 				<Select
-					options={currencySelectOptions}
+					// * 如果 Aff Input 有相對應的幣別，則使用 currencyOptions（Aff 過濾的幣別選項）
+					options={
+						currencyOptions.length === 0
+							? currencySelectOptions
+							: currencyOptions
+					}
 					value={getValues('currencyId')}
 					placeholder={t('Label_Join_PrefferedCurrency') as string}
 					prefixIcon={<i className='icon icon-coin-dollar txt-blue' />}
