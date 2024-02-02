@@ -1,3 +1,4 @@
+import { numFormatToDigits } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { uniqueId } from 'lodash-es'
 
@@ -41,7 +42,9 @@ const DepositShortcutList = ({
 							onChange && onChange(value)
 						}}
 					>
-						{format ? `${value} ('000)` : value}
+						{format
+							? `${numFormatToDigits(value, 0)} ('000)`
+							: numFormatToDigits(value, 0)}
 					</button>
 				)
 			})}

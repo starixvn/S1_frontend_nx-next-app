@@ -46,6 +46,7 @@ import {
 	IWithdrawalSetting,
 	IDepositQuickTransferData,
 	IDepositChatTransferData,
+	IPaymentOnlineBankInfoSysData,
 } from './type'
 
 export const paymentApiUrl = {
@@ -77,6 +78,7 @@ export const paymentApiUrl = {
 	getPaymentAutoDepositList: 'Payment/GetAutoChannelBankGroupList',
 	getPaymentBankTransferList: 'Payment/GetBankInfoOffList',
 	getPaymentOnlineBankingList: 'Payment/GetOnlinePaymentList',
+	getPaymentOnlineBankInfoSysList: 'Payment/GetOnlineBankInfoSysList',
 	getPaymentMobilePayList: 'Payment/GetMobilePayGroupList',
 	getChannelMobilePayList: 'Payment/GetMobilePayInfoList',
 	getPaymentCryptoPayList: 'Payment/GetCryptoPayInfoList',
@@ -333,6 +335,17 @@ const paymentApi = rootApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
+		// * Deposit OnlineBanking 第二層
+		getPaymentOnlineBankInfoSysList: builder.query<
+			IAxiosResponse<IPaymentOnlineBankInfoSysData[]>,
+			{ payId?: number }
+		>({
+			query: data => ({
+				url: paymentApiUrl.getPaymentOnlineBankInfoSysList,
+				method: 'POST',
+				data,
+			}),
+		}),
 		// * Deposit MobilePay 第一層
 		getPaymentMobilePayList: builder.query<
 			IAxiosResponse<IPaymentMobilePayData[]>,
@@ -537,6 +550,7 @@ export const {
 	useGetPaymentAutoDepositListQuery,
 	useGetPaymentBankTransferListQuery,
 	useGetPaymentOnlineBankingListQuery,
+	useGetPaymentOnlineBankInfoSysListQuery,
 	useGetPaymentMobilePayListQuery,
 	useGetChannelMobilePayListQuery,
 	useGetPaymentCryptoPayListQuery,
