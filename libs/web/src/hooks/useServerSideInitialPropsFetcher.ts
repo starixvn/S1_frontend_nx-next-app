@@ -175,7 +175,9 @@ export const useServerSideInitialPropsFetcher = async (
 	} else if (
 		// * 判斷是否為為直播主帳號，直播主只允許進入home與slots頁面
 		originIsSignIn &&
-		![paths.slots.root, paths.home.root].includes(String(context.resolvedUrl))
+		![paths.slots.root, paths.home.root].includes(
+			String(context.resolvedUrl.split('?')[0])
+		)
 	) {
 		// * getCustProfile 在沒登入的情況下不打 api
 		const profile = await getCustProfile(null, {
