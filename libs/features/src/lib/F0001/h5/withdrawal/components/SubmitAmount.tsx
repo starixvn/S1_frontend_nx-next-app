@@ -18,15 +18,14 @@ const SubmitAmount = () => {
 		handleSubmitAmount,
 		amountForm,
 		checkAmount,
+		withdrawalType,
 	} = useWithdrawal()
 
 	const { register, formState, getValues, handleSubmit } = amountForm
 
 	const { touchedFields, errors } = formState
 
-	const { type } = selectedBankInfo
-
-	const isEWalletSelected = type === WithdrawalBankCardEnum.EWallet
+	const isEWalletSelected = withdrawalType === WithdrawalBankCardEnum.EWallet
 
 	const {
 		withdrawalTimes = 0,
@@ -49,7 +48,7 @@ const SubmitAmount = () => {
 
 	const withdrawalMinMaxLimitHint = `${t('Label_Withdrawal_DailyMinMaxAmount', {
 		min: numberFormat(
-			type === WithdrawalBankCardEnum.Crypto
+			withdrawalType === WithdrawalBankCardEnum.Crypto
 				? cryptoLimit?.withdrawalMin ?? 0
 				: withdrawalMin,
 			currencyId,
