@@ -52,6 +52,7 @@ export const promotionApi = rootApi.injectEndpoints({
 				method: 'POST',
 				data,
 			}),
+			providesTags: ['PROMOTION_GET_PROMOTION_LIST'],
 		}),
 		getRebateExcludeGameList: builder.query<
 			IAxiosResponse<IRebateExcludeGameData[]>,

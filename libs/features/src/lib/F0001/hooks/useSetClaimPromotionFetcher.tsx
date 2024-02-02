@@ -20,7 +20,7 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useRouter } from 'next/router'
 import { every, includes } from 'lodash-es'
 import { paths } from '@nx-next-app/constants'
-import { numberFormat } from '@nx-next-app/utils'
+import { numberFormat, numFormatToDigits } from '@nx-next-app/utils'
 
 const LoginModal = dynamic(() => import('../desktop/modal/LoginModal'), {
 	ssr: false,
@@ -116,25 +116,47 @@ const useSetClaimPromotionFetcher = () => {
 			return
 		}
 
-		// * 如果可以加入且 promotion 為 Redeposit 或 FirstDeposit 需要先輸入金額彈窗才能進行下一步
+		// * 如果可以加入且 promotion 為 Redeposit 或 FirstDeposit 或 MissionBonus 需要先輸入金額彈窗才能進行下一步
 		if (
 			canJoin &&
 			includes(
-				[PromotionTypeEnum.Redeposit, PromotionTypeEnum.FirstDeposit],
+				[
+					PromotionTypeEnum.Redeposit,
+					PromotionTypeEnum.FirstDeposit,
+					PromotionTypeEnum.MissionBonus,
+				],
 				promotionType
 			)
 		) {
 			const tierAmountListSelectOptions: SelectOptionType[] =
-				canJoinTierAmountList.map(item => ({
-					value: numberFormat(item.lockedAmount, currencyId),
-					label: `${t('Label_General_DepositAmount')} ${numberFormat(
-						item.requiredAmount,
-						currencyId
-					)} / ${t('Label_General_BonusAmount')} ${numberFormat(
-						item.bonusAmount,
-						currencyId
-					)}`,
-				}))
+				canJoinTierAmountList.map(item => {
+					const displayText = item.requiredAmount
+						? `${t('Label_General_DepositAmount')} ${numFormatToDigits(
+								item.requiredAmount,
+								0
+						  )} / ${t('Label_General_BonusAmount')} ${numFormatToDigits(
+								item.bonusAmount,
+								0
+						  )}`
+						: `${t('Label_General_Turnover')} ${numFormatToDigits(
+								item.requiredTurnover,
+								0
+						  )} / ${t('Label_General_BonusAmount')} ${numFormatToDigits(
+								item.bonusAmount,
+								0
+						  )}`
+
+					return {
+						value: numberFormat(
+							// 後端期望promotionType為missionBonus的話帶bonusAmount
+							promotionType === PromotionTypeEnum.MissionBonus
+								? item.bonusAmount
+								: item.lockedAmount,
+							currencyId
+						),
+						label: displayText,
+					}
+				})
 
 			modal.open(
 				Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) ===
