@@ -392,8 +392,8 @@ const SlotsProvider = ({
 							.map(item => item.tpId)
 					)
 				)
-				tempVendorList = vendorList.filter(({ tpId }) =>
-					uniqueTpIds.includes(tpId)
+				tempVendorList = vendorList.filter(
+					({ tpId }) => !uniqueTpIds.includes(tpId)
 				)
 			}
 
@@ -411,6 +411,7 @@ const SlotsProvider = ({
 					} else {
 						setIsActiveDropdown(false)
 					}
+					setVendorList(tempVendorList)
 				}
 
 				if (
@@ -489,8 +490,8 @@ const SlotsProvider = ({
 						.map(item => item.tpId)
 				)
 			)
-			originGameList = originGameList.filter(({ tpId }) =>
-				uniqueTpIds.includes(tpId)
+			originGameList = originGameList.filter(
+				({ tpId }) => !uniqueTpIds.includes(tpId)
 			)
 		}
 		// * 過濾當前 tpId 與 searchCategoryText
