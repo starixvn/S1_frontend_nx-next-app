@@ -36,14 +36,14 @@ const ProgramList = ({
 		}
 
 		switch (hotKeyName) {
-			case 'Label_JoinNow':
+			case 'Label_General_JoinNow':
 				return (
 					// * role 設為 link，讓爬蟲略過此標籤
 					<a role='link' aria-hidden onClick={linkToReferral}>{`${t(
 						hotKeyName
 					)} >`}</a>
 				)
-			case 'Label_Apply_Now':
+			case 'Label_General_ApplyNow':
 				return (
 					<a
 						href={applyNowLink}
@@ -58,7 +58,7 @@ const ProgramList = ({
 						{`${t(hotKeyName)} >`}
 					</a>
 				)
-			case 'Label_More_Info':
+			case 'Label_General_MoreInfo':
 				return (
 					<a
 						href={`/${langId}/${paths.vip.root}`}
@@ -68,7 +68,7 @@ const ProgramList = ({
 								: { pointerEvents: 'none' }
 						}
 					>
-						{`${t('Label_More_Info')} >`}
+						{`${t('Label_General_MoreInfo')} >`}
 					</a>
 				)
 			case 'Label_Chat_Now':
