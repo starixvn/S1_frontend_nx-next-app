@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { paths } from '@nx-next-app/constants'
+import { IWithdrawalSetting } from '@nx-next-app/service'
 import { useDepositContext } from '@nx-next-app/data-access'
 import { useTranslation } from 'next-i18next'
 import { Loading } from '@nx-next-app/components/D0001'
@@ -13,9 +14,10 @@ interface IDepositProps {
 		// * 是否顯示 referral 按鈕
 		showReferralButton: boolean
 	}
+	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
-const Deposit = ({ options }: IDepositProps) => {
+const Deposit = ({ options, withdrawalBlockSetting }: IDepositProps) => {
 	const { t } = useTranslation()
 	const { loading } = useDepositContext()
 	const { showReferralButton } = options
@@ -23,7 +25,7 @@ const Deposit = ({ options }: IDepositProps) => {
 	return (
 		<main>
 			<section className='inside'>
-				<LeftMenu />
+				<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 				{loading ? (
 					<Loading />
 				) : (

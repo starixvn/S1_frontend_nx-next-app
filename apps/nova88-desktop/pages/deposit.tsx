@@ -46,7 +46,10 @@ const DepositPage = ({
 						// * 排序與開關
 						depositPaymentOrders={DEPOSIT_PAYMENT_ORDERS}
 					>
-						<Deposit options={{ showReferralButton: true }} />
+						<Deposit
+							options={{ showReferralButton: true }}
+							withdrawalBlockSetting={withdrawalBlockSetting}
+						/>
 					</DepositProvider>
 				</Layout>
 			</GlobalDataProvider>
