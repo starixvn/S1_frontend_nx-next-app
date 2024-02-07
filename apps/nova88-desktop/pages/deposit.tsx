@@ -5,6 +5,7 @@ import {
 	AuthProvider,
 	DepositProvider,
 	GlobalDataProvider,
+	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
@@ -18,9 +19,11 @@ import {
 } from '@nx-next-app/site/nova88'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IFooterData } from '@nx-next-app/types'
+import { IWithdrawalSetting } from '@nx-next-app/service'
 
 interface IDepositPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
+	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
 const DepositPage = ({
@@ -28,11 +31,16 @@ const DepositPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	withdrawalBlockSetting,
 }: IDepositPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
+				<Layout
+					persistSEOData={persistSEOData}
+					footerData={persistFooterData}
+					withdrawalBlockSetting={withdrawalBlockSetting}
+				>
 					<DepositProvider
 						DEPOSIT_PAYMENT_OPTIONS={DEPOSIT_PAYMENT_OPTIONS}
 						// * 排序與開關
@@ -48,11 +56,16 @@ const DepositPage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
-	const { originCookies } = initialProps
+	const { originCookies, currentHeaderCookies } = initialProps
+
 	const { langId, currencyId } = {
 		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
+
+	const withdrawalBlockSetting = await getWithdrawalBlockSetting({
+		headers: { cookie: currentHeaderCookies },
+	})
 
 	if (!initialProps.originIsSignIn) {
 		return {
@@ -66,6 +79,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	return {
 		props: {
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
+			withdrawalBlockSetting,
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 		},

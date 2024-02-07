@@ -4,7 +4,6 @@ import {
 	LeftMenuKeyEnum,
 } from '@nx-next-app/types'
 import { paths } from '@nx-next-app/constants'
-
 import { ALLOWED_CURRENCIES } from './allowCurrency'
 
 export const LEFT_MENU_DATA: ILeftMenuData = {
