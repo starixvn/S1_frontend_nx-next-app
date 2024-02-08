@@ -2,11 +2,7 @@ import React from 'react'
 import { includes } from 'lodash-es'
 import { GetServerSideProps } from 'next'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import {
-	AuthProvider,
-	GlobalDataProvider,
-	getWithdrawalBlockSetting,
-} from '@nx-next-app/data-access'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout, LuckyWheel } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
@@ -20,11 +16,9 @@ import {
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { LuckWheelProvider } from '@nx-next-app/features/F0001/providers'
 import { IFooterData } from '@nx-next-app/types'
-import { IWithdrawalSetting } from '@nx-next-app/service'
 
 interface ILuckyWheelPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
-	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
 const LuckyWheelPage = ({
@@ -32,16 +26,11 @@ const LuckyWheelPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
-	withdrawalBlockSetting,
 }: ILuckyWheelPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout
-					persistSEOData={persistSEOData}
-					footerData={persistFooterData}
-					withdrawalBlockSetting={withdrawalBlockSetting}
-				>
+				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<LuckWheelProvider>
 						<LuckyWheel eventPeriod={EVENT_PERIOD.LUCKY_WHEEL} />
 					</LuckWheelProvider>
@@ -53,16 +42,12 @@ const LuckyWheelPage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
-	const { originCookies, currentHeaderCookies } = initialProps
+	const { originCookies } = initialProps
 
 	const { langId, currencyId } = {
 		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
-
-	const withdrawalBlockSetting = await getWithdrawalBlockSetting({
-		headers: { cookie: currentHeaderCookies },
-	})
 
 	if (!includes(ALLOWED_CURRENCIES['LUCKY_WHEEL'], Number(currencyId))) {
 		return {
@@ -76,7 +61,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	return {
 		props: {
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
-			withdrawalBlockSetting,
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 		},

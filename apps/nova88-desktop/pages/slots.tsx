@@ -11,11 +11,10 @@ import {
 	AuthProvider,
 	GlobalDataProvider,
 	getSlotGamePage,
-	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { ISlotsGameData, IWithdrawalSetting } from '@nx-next-app/service'
+import { ISlotsGameData } from '@nx-next-app/service'
 import { IFooterData } from '@nx-next-app/types'
 import { CATEGORY_SORT } from '@nx-next-app/site/nova88/data/slots'
 
@@ -23,7 +22,6 @@ type ISlotsPageProps = InitialPropsInterface & {
 	footerData: IFooterData
 	persistSlotsGameData: ISlotsGameData
 	persistSlotsCategoryData: ISlotsGameData
-	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
 const SlotsPage = ({
@@ -33,7 +31,6 @@ const SlotsPage = ({
 	footerData,
 	persistSlotsGameData,
 	persistSlotsCategoryData,
-	withdrawalBlockSetting,
 }: ISlotsPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
@@ -42,11 +39,7 @@ const SlotsPage = ({
 					persistSlotsGameData={persistSlotsGameData}
 					persistSlotsCategoryData={persistSlotsCategoryData}
 				>
-					<Layout
-						persistSEOData={persistSEOData}
-						footerData={footerData}
-						withdrawalBlockSetting={withdrawalBlockSetting}
-					>
+					<Layout persistSEOData={persistSEOData} footerData={footerData}>
 						<Slots />
 					</Layout>
 				</SlotsProvider>
@@ -69,16 +62,11 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		{ headers: { cookie: currentHeaderCookies } }
 	)
 
-	const withdrawalBlockSetting = await getWithdrawalBlockSetting({
-		headers: { cookie: currentHeaderCookies },
-	})
-
 	return {
 		props: {
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 			persistSlotsGameData,
-			withdrawalBlockSetting,
 			persistSlotsCategoryData: pick(persistSlotsGameData, CATEGORY_SORT),
 		},
 	}

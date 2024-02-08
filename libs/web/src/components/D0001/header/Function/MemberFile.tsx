@@ -7,25 +7,17 @@ import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import { includes, head, find } from 'lodash'
 import { useLanguageGroup } from '@nx-next-app/hooks'
-import {
-	useGetCustVIPProgressQuery,
-	IWithdrawalSetting,
-} from '@nx-next-app/service'
-import { useWalletAllowed } from '@nx-next-app/features/F0001/hooks'
+import { useGetCustVIPProgressQuery } from '@nx-next-app/service'
 import { useAuth, useStaticData } from '../../../../data-access'
 import { paths } from '../../../../app/constants'
 import { Img } from '../../image'
 import Country from './Country'
 
 interface IMemberFileProps {
-	withdrawalBlockSetting: IWithdrawalSetting[]
 	onSignOut: () => void
 }
 
-const MemberFile = ({
-	withdrawalBlockSetting,
-	onSignOut,
-}: IMemberFileProps) => {
+const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 	const ref = useRef(null)
 	const { t } = useTranslation()
 	const { pathname } = useRouter()
@@ -41,10 +33,6 @@ const MemberFile = ({
 	})?.displayText
 
 	const { ALLOWED_CURRENCIES, VIP_CLUB_IMAGES } = useStaticData()
-
-	const {
-		cardAllowed: { bankCardAllowed, cryptoCardAllowed },
-	} = useWalletAllowed({ withdrawalBlockSetting })
 
 	const { data: { data: custVIPProgress } = {} } = useGetCustVIPProgressQuery(
 		null,
@@ -156,30 +144,27 @@ const MemberFile = ({
 							</a>
 						</Link>
 
-						{bankCardAllowed &&
-							includes(ALLOWED_CURRENCIES['BANK_INFO'], currencyId) && (
-								<Link href={paths.bankInfo.root} passHref>
-									<a>
-										<img
-											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/bankinfo.png`}
-											alt='img-bank-info'
-										/>
-										{t('Label_General_BankInfo')}
-									</a>
-								</Link>
-							)}
-
-						{cryptoCardAllowed && (
-							<Link href={paths.cryptoWallet.root} passHref>
+						{includes(ALLOWED_CURRENCIES['BANK_INFO'], currencyId) && (
+							<Link href={paths.bankInfo.root} passHref>
 								<a>
 									<img
-										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/cryptowallet.png`}
+										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/bankinfo.png`}
 										alt='img-bank-info'
 									/>
-									{t('Label_General_CryptoWallet')}
+									{t('Label_General_BankInfo')}
 								</a>
 							</Link>
 						)}
+
+						<Link href={paths.cryptoWallet.root} passHref>
+							<a>
+								<img
+									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/cryptowallet.png`}
+									alt='img-bank-info'
+								/>
+								{t('Label_General_CryptoWallet')}
+							</a>
+						</Link>
 
 						<Link href={paths.referral.root} passHref>
 							<a>
