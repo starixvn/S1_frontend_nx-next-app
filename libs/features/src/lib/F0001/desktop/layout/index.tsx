@@ -10,7 +10,6 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import LayoutHeader from '@nx-next-app/features/F0001/desktop/layout/header'
 import LayoutFooter from '@nx-next-app/features/F0001/desktop/layout/footer'
 import { IFooterData } from '@nx-next-app/types'
-import { IWithdrawalSetting } from '@nx-next-app/service'
 
 interface ILayoutProps {
 	children: ReactNode
@@ -18,7 +17,6 @@ interface ILayoutProps {
 	footerData?: IFooterData
 	showFooter?: boolean
 	hasGoTopBtn?: boolean
-	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
 const ChangePasswordModal = dynamic(
@@ -32,7 +30,6 @@ export function Layout({
 	footerData,
 	showFooter = true, // * 判斷是否顯示 footer
 	hasGoTopBtn = true,
-	withdrawalBlockSetting,
 }: ILayoutProps) {
 	const { globalModal, closeModal, modal } = useGlobalModal()
 
@@ -44,7 +41,7 @@ export function Layout({
 		<>
 			<MetaData persistSEOData={persistSEOData} />
 
-			<LayoutHeader withdrawalBlockSetting={withdrawalBlockSetting} />
+			<LayoutHeader />
 
 			{children}
 

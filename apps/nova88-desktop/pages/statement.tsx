@@ -37,11 +37,7 @@ const StatementPage = ({
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout
-					persistSEOData={persistSEOData}
-					footerData={persistFooterData}
-					withdrawalBlockSetting={withdrawalBlockSetting}
-				>
+				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<StatementProvider QUICK_PICK_LIST={QUICK_PICK_LIST} HEADER_TAGS={[]}>
 						<main>
 							<section className='inside'>

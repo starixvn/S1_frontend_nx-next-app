@@ -6,7 +6,6 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import {
-	IWithdrawalSetting,
 	LineLoginDirectTypeEnum,
 	useLazyGetLineLoginDirectUrlQuery,
 } from '@nx-next-app/service'
@@ -18,11 +17,7 @@ import Country from './Country'
 import Wallet from './Wallet'
 import Menu from './Menu'
 
-interface ILayoutHeaderProps {
-	withdrawalBlockSetting: IWithdrawalSetting[]
-}
-
-const LayoutHeader = ({ withdrawalBlockSetting }: ILayoutHeaderProps) => {
+const LayoutHeader = () => {
 	const { t } = useTranslation()
 	const router = useRouter()
 
@@ -95,10 +90,7 @@ const LayoutHeader = ({ withdrawalBlockSetting }: ILayoutHeaderProps) => {
 			<Header.Function>
 				{auth.isLogin ? (
 					<>
-						<Header.Function.MemberFile
-							withdrawalBlockSetting={withdrawalBlockSetting}
-							onSignOut={handleSignOut}
-						/>
+						<Header.Function.MemberFile onSignOut={handleSignOut} />
 						<MsgPopUp />
 						<div className='line' />
 						<Wallet />

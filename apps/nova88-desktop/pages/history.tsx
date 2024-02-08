@@ -36,11 +36,7 @@ const HistoryPage = ({
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout
-					persistSEOData={persistSEOData}
-					footerData={persistFooterData}
-					withdrawalBlockSetting={withdrawalBlockSetting}
-				>
+				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<HistoryProvider
 						HISTORY_TABS={HISTORY_TABS}
 						QUICK_PICK_LIST={QUICK_PICK_LIST}

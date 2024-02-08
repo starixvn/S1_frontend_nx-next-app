@@ -5,7 +5,6 @@ import {
 	AuthProvider,
 	getPromotion,
 	GlobalDataProvider,
-	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
@@ -14,14 +13,13 @@ import {
 import { Layout, Promotion } from '@nx-next-app/features/F0001/desktop'
 import { PromotionProvider } from '@nx-next-app/features/F0001/providers'
 import { DeviceTypeEnum, IFooterData } from '@nx-next-app/types'
-import { IPromotionData, IWithdrawalSetting } from '@nx-next-app/service'
+import { IPromotionData } from '@nx-next-app/service'
 import { FOOTER_DATA, PROMOTION_SELECT_OPTIONS } from '@nx-next-app/site/nova88'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 
 interface IPromotionPageProps extends InitialPropsInterface {
 	persistPromotionData: IPromotionData[]
 	persistFooterData: IFooterData
-	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
 const PromotionPage = ({
@@ -30,16 +28,11 @@ const PromotionPage = ({
 	persistSEOData,
 	persistFooterData,
 	persistPromotionData,
-	withdrawalBlockSetting,
 }: IPromotionPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout
-					persistSEOData={persistSEOData}
-					footerData={persistFooterData}
-					withdrawalBlockSetting={withdrawalBlockSetting}
-				>
+				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<PromotionProvider
 						persistPromotionData={persistPromotionData}
 						PROMOTION_SELECT_OPTIONS={PROMOTION_SELECT_OPTIONS}
@@ -72,15 +65,10 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		{ headers: { cookie: currentHeaderCookies } }
 	)
 
-	const withdrawalBlockSetting = await getWithdrawalBlockSetting({
-		headers: { cookie: currentHeaderCookies },
-	})
-
 	return {
 		props: {
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			persistPromotionData,
-			withdrawalBlockSetting,
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 		},

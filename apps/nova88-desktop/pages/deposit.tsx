@@ -36,11 +36,7 @@ const DepositPage = ({
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout
-					persistSEOData={persistSEOData}
-					footerData={persistFooterData}
-					withdrawalBlockSetting={withdrawalBlockSetting}
-				>
+				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<DepositProvider
 						DEPOSIT_PAYMENT_OPTIONS={DEPOSIT_PAYMENT_OPTIONS}
 						// * 排序與開關

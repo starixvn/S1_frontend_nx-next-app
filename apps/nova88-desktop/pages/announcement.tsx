@@ -35,11 +35,7 @@ const AnnouncementPage = ({
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout
-					persistSEOData={persistSEOData}
-					footerData={persistFooterData}
-					withdrawalBlockSetting={withdrawalBlockSetting}
-				>
+				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<main>
 						<section className='inside'>
 							<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />

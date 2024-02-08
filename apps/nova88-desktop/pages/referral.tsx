@@ -71,7 +71,6 @@ const ReferralPage = ({
 					<Layout
 						persistSEOData={persistSEOData}
 						footerData={persistFooterData}
-						withdrawalBlockSetting={withdrawalBlockSetting}
 					>
 						<main>
 							<section className='inside'>

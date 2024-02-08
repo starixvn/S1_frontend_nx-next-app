@@ -5,7 +5,6 @@ import {
 	AuthProvider,
 	getVipBanner,
 	GlobalDataProvider,
-	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
 import { Layout, Vip } from '@nx-next-app/features/F0001/desktop'
 import { CurrenciesEnum, IFooterData } from '@nx-next-app/types'
@@ -15,13 +14,12 @@ import {
 } from '@nx-next-app/hooks'
 import { includes } from 'lodash'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { IVipBannerData, IWithdrawalSetting } from '@nx-next-app/service'
+import { IVipBannerData } from '@nx-next-app/service'
 import { FOOTER_DATA } from '@nx-next-app/site/nova88'
 
 interface IVipPageProps extends InitialPropsInterface {
 	vipBannerData: IVipBannerData
 	persistFooterData: IFooterData
-	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
 const VipPage = ({
@@ -30,16 +28,11 @@ const VipPage = ({
 	persistSEOData,
 	persistFooterData,
 	vipBannerData,
-	withdrawalBlockSetting,
 }: IVipPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<Layout
-					persistSEOData={persistSEOData}
-					footerData={persistFooterData}
-					withdrawalBlockSetting={withdrawalBlockSetting}
-				>
+				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<Vip vipBannerData={vipBannerData} />
 				</Layout>
 			</GlobalDataProvider>
@@ -59,11 +52,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		},
 		{ headers: { cookie: currentHeaderCookies } }
 	)
-
-	const withdrawalBlockSetting = await getWithdrawalBlockSetting({
-		headers: { cookie: currentHeaderCookies },
-	})
-
 	// * 只支援 MYR IDR THB 幣別
 	if (
 		!includes(
@@ -83,7 +71,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		props: {
 			vipBannerData,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
-			withdrawalBlockSetting,
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 		},
