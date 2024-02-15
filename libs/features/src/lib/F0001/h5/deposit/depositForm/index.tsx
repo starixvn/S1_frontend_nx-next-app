@@ -43,8 +43,11 @@ const DepositForm = () => {
 			<DepositModule title='Deposit Option' required>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentType'>
 					{Object.keys(payments).map(key => {
-						const { labelDisplayKey, timeDisplayKey, icon } =
+						const depositPayment =
 							DEPOSIT_PAYMENT_OPTIONS[key as DepositPaymentEnum]
+
+						if (!depositPayment) return
+						const { labelDisplayKey, timeDisplayKey, icon } = depositPayment
 
 						return (
 							<DepositModule.SubModuleButton
