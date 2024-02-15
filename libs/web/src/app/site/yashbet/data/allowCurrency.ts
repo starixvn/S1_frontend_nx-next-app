@@ -5,7 +5,7 @@ const { INR, BDT } = CurrenciesEnum
 export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 	VIP: [],
 	AFFILIATE: [INR, BDT],
-	EXCHANGE: [INR, BDT],
+	EXCHANGE: [INR],
 	REWARDS: [],
 	LEADER_BOARD: [],
 	APP_DOWNLOAD: [],
@@ -29,6 +29,10 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 
 	GAMES_POKER_M_POKER: [],
 	GAMES_POKER_AMB_POKER: [],
+	GAME_AVIATOR: [INR],
+	GAME_MINES: [INR],
+	GAME_GOAL: [INR],
+	GAME_DICE: [INR],
 
 	FISHING_SG: [INR, BDT],
 	FISHING_CQ9_ONE_SHOT_FISHING: [INR, BDT],
