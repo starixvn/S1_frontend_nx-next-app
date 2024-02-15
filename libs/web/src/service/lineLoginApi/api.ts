@@ -1,6 +1,6 @@
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
-import { IGetLineUserIdTypeArgs } from './type'
+import { IGetLineUserIdTypeArgs, LineLoginDirectTypeEnum } from './type'
 
 export const lineLoginApiUrl = {
 	lineLoginDirect: 'LineLogin/LineLoginDirect',
@@ -21,7 +21,13 @@ export const lineLoginApi = rootApi.injectEndpoints({
 			}),
 		}),
 		// * 拿到回傳的 userId 存起來，以及用 type 去做導轉
-		getLineUserId: build.query<IAxiosResponse<string>, IGetLineUserIdTypeArgs>({
+		getLineUserId: build.query<
+			IAxiosResponse<{
+				type: LineLoginDirectTypeEnum
+				userId: string
+			}>,
+			IGetLineUserIdTypeArgs
+		>({
 			query: ({ langId, lineLoginResponse, loginData }) => ({
 				url: `${lineLoginApiUrl.lineCallback}/${langId}`,
 				method: 'POST',

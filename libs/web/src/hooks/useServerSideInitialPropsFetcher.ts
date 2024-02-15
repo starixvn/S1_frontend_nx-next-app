@@ -1,18 +1,16 @@
 import { ParsedUrlQuery } from 'querystring'
-import { IncomingHttpHeaders } from 'http'
 import { assign, isEmpty } from 'lodash-es'
-import { getCookies, setCookies } from 'cookies-next'
+import { getCookies } from 'cookies-next'
 import { GetServerSidePropsContext, PreviewData } from 'next'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
 import {
 	checkSignIn,
 	getCustProfile,
-	getLineUserId,
 	getSEOData,
 } from '@nx-next-app/data-access'
 
 import { ISEOData } from '../data-access/type'
-import { LineLoginDirectTypeEnum, UserInfoMemberType } from '../service'
+import { UserInfoMemberType } from '../service'
 import { paths, ENV_COOKIE_NAMES } from '../app/constants'
 import { useRedirectDevice } from './useRedirectDevice'
 import { useRedirectMaintain } from './useRedirectMaintain'
@@ -51,90 +49,12 @@ const transferCookiesObj = (cookies: TmpCookiesObj): string => {
 		.join(';')
 }
 
-interface IQueryInterface extends ParsedUrlQuery {
-	code?: string
-	state?: string
-	error?: string
-	description?: string
-	errormessage?: string
-}
-
-type CookieType = IncomingHttpHeaders['cookie']
-
-const handleLineDirectCheck = async ({
-	query,
-	cookie,
-	langId,
-}: {
-	query: IQueryInterface
-	cookie: CookieType
-	langId?: string
-}) => {
-	const { code, state, error, description, errormessage } = query
-	let redirectPath = ''
-
-	if (code || state || error) {
-		let url
-		let platform
-		let userAgent
-		let screen
-		let di = ''
-
-		if (typeof window !== 'undefined') {
-			url = window.location.origin
-			platform = navigator.platform
-			userAgent = navigator.userAgent
-			screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`
-			const element = document.getElementById('__di') as HTMLInputElement | null
-			di = element?.value as string
-		}
-
-		const lineRegisterData = await getLineUserId(
-			{
-				langId,
-				lineLoginResponse: {
-					code,
-					state,
-					error,
-					description,
-					errormessage,
-				},
-				loginData: {
-					isPersistent: true,
-					url,
-					platform,
-					userAgent,
-					screen,
-					di,
-				},
-			},
-			{
-				headers: { cookie },
-			}
-		)
-
-		const { type, userId } = lineRegisterData
-
-		if (type === LineLoginDirectTypeEnum.Register) {
-			redirectPath = `/${langId}/${paths.join.root}`
-			setCookies(ENV_COOKIE_NAMES.LineUserId, userId)
-		} else if (type === LineLoginDirectTypeEnum.Login) {
-			redirectPath = `/${langId}/${paths.deposit.root}`
-		} else if (type === LineLoginDirectTypeEnum.Binding) {
-			redirectPath = `/${langId}/${paths.profile.root}`
-		}
-	}
-
-	return redirectPath
-}
-
 export const useServerSideInitialPropsFetcher = async (
 	context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
 ): Promise<InitialPropsInterface | undefined> => {
 	// 裝置導轉邏輯
 	useRedirectDevice(context)
 
-	const { query } = context
 	const middlewareCookies = context.res.getHeader('set-cookie')
 	let cookiesFromServer = {}
 	if (middlewareCookies) {
@@ -162,17 +82,7 @@ export const useServerSideInitialPropsFetcher = async (
 		headers: { cookie: currentHeaderCookies },
 	})
 
-	const lineRedirectPath = await handleLineDirectCheck({
-		query,
-		cookie: currentHeaderCookies,
-		langId: originCookies[ENV_COOKIE_NAMES.LangId],
-	})
-
-	if (lineRedirectPath) {
-		// 302 redirect
-		context.res.writeHead(302, { Location: lineRedirectPath })
-		context.res.end()
-	} else if (
+	if (
 		// * 判斷是否為為直播主帳號，直播主只允許進入home與slots頁面
 		originIsSignIn &&
 		![paths.slots.root, paths.home.root].includes(String(context.resolvedUrl))
