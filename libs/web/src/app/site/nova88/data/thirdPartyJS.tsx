@@ -29,6 +29,15 @@ export const IovationScript = () => (
 	</>
 )
 
+export const ActivatorScript = () => (
+	<Script
+		async
+		defer
+		src='//scqa2.detecas.com/activator.ashx'
+		type='text/javascript'
+	/>
+)
+
 export const PlayTechScript = () => (
 	<Script
 		async

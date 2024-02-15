@@ -6,4 +6,11 @@ export interface ISignInArgs {
 	platform: string
 	userAgent: string
 	screen: string
+	FPSRequest?: {
+		di?: string
+		bi?: string
+		detecasAnalysis?: string
+		sessionKey?: string
+		token?: string
+	}
 }
