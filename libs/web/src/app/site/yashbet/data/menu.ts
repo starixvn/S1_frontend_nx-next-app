@@ -2818,6 +2818,7 @@ export const MENU_DATA = ({
 							period: PRODUCT_EVENT_PERIOD['IM'],
 						},
 					],
+					allowCurrencies: ALLOWED_CURRENCIES['GAME_AVIATOR'],
 				},
 				{
 					h5: {
@@ -2863,6 +2864,7 @@ export const MENU_DATA = ({
 							period: PRODUCT_EVENT_PERIOD['IM'],
 						},
 					],
+					allowCurrencies: ALLOWED_CURRENCIES['GAME_MINES'],
 				},
 				{
 					h5: {
@@ -2908,6 +2910,7 @@ export const MENU_DATA = ({
 							period: PRODUCT_EVENT_PERIOD['IM'],
 						},
 					],
+					allowCurrencies: ALLOWED_CURRENCIES['GAME_GOAL'],
 				},
 				{
 					h5: {
@@ -2953,6 +2956,7 @@ export const MENU_DATA = ({
 							period: PRODUCT_EVENT_PERIOD['IM'],
 						},
 					],
+					allowCurrencies: ALLOWED_CURRENCIES['GAME_DICE'],
 				},
 				{
 					h5: {
