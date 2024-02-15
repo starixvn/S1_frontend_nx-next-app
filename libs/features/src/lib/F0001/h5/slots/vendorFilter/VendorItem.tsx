@@ -24,11 +24,9 @@ const VendorItem = ({
 			className={classNames({ active: tpId === activeVendorTpId })}
 		>
 			<img
-				src={`${
-					process.env['NEXT_PUBLIC_BANNER_HOST']
-				}/desktop/img/venderlogo/${item.imgName}${
-					tpId === activeVendorTpId ? 'a' : ''
-				}.png`}
+				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/venderlogo/${
+					item.imgName
+				}${tpId === activeVendorTpId ? 'a' : ''}.png`}
 				alt={displayText}
 			/>
 		</a>
