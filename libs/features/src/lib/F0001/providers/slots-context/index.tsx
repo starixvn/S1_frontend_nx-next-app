@@ -519,7 +519,13 @@ const SlotsProvider = ({
 
 		setSlotsGameList(filteredGameList)
 		setIsProcess(false)
-	}, [activeCategoryKey, queryTpId, searchCategoryText, myFavorites])
+	}, [
+		activeCategoryKey,
+		queryTpId,
+		searchCategoryText,
+		myFavorites,
+		tpMaintainList, // * 當 tpMaintainList 資料更新時也應該更新 UI
+	])
 
 	// 更新遊戲列表預設給定40筆資料
 	useEffect(() => {
