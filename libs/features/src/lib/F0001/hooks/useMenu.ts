@@ -388,7 +388,20 @@ const useMenu = () => {
 			messageCallBack?: MessageCallbackType
 		}
 	) => {
-		const { desktop, h5, pathname = '/', query, product, appType } = item || {}
+		const {
+			desktop,
+			h5,
+			pathname = '/',
+			query,
+			product,
+			appType,
+			isTpMaintain,
+		} = item || {}
+
+		// * 維護的話不能打開遊戲
+		if (isTpMaintain) {
+			return
+		}
 
 		const { menuActionType } =
 			Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DeviceTypeEnum.Desktop

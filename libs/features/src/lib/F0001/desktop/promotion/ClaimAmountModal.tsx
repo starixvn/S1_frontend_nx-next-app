@@ -102,7 +102,8 @@ const ClaimAmountModal = ({
 					)}
 
 					{/* // * 如果 promotionType 為 Redeposit 則提供 距級 的 Dropdown 提供選擇 */}
-					{promotionType === PromotionTypeEnum.Redeposit && (
+					{(promotionType === PromotionTypeEnum.Redeposit ||
+						promotionType === PromotionTypeEnum.MissionBonus) && (
 						<>
 							<div className=''>{t('Label_Promotion_SelectPreferAmount')}</div>
 

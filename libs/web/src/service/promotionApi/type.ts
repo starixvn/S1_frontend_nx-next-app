@@ -31,6 +31,7 @@ export interface IPromotionData {
 		bonusAmount: number
 		lockedAmount: number
 		requiredAmount: number
+		requiredTurnover: number
 	}[]
 	cashBackDetails: ICashBackDetail
 	categoryId: number
@@ -65,6 +66,7 @@ export interface IPromotionData {
 	status: number
 	tierAmountList: {
 		requiredAmount: number
+		requiredTurnover: number
 		bonus: number
 		maxBonus: number
 		winOver: number
@@ -74,6 +76,11 @@ export interface IPromotionData {
 	tpId: number
 	walletType: number
 	winOver: number
+	periodType: number
+	missionBonusProgress: {
+		depositAmountSum: number
+		turnoverSum: number
+	}
 }
 
 // promotion detail
