@@ -3,7 +3,7 @@ import { CurrenciesEnum, IStaticAllowedCurrencies } from '@nx-next-app/types'
 const { INR, BDT } = CurrenciesEnum
 
 export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
-	VIP: [],
+	VIP: [INR, BDT],
 	AFFILIATE: [INR, BDT],
 	EXCHANGE: [INR],
 	REWARDS: [],

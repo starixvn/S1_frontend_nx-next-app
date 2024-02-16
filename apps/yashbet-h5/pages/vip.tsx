@@ -49,20 +49,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		{ headers: { cookie: currentHeaderCookies } }
 	)
 
-	if (
-		!includes(
-			[CurrenciesEnum.MYR, CurrenciesEnum.IDR, CurrenciesEnum.THB],
-			Number(currencyId)
-		)
-	) {
-		return {
-			redirect: {
-				destination: '/',
-				permanent: false,
-			},
-		}
-	}
-
 	return {
 		props: {
 			vipBannerData,
