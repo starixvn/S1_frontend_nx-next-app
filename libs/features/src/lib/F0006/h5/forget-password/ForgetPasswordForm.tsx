@@ -38,7 +38,6 @@ const ForgetPasswordForm = ({
 						},
 					})}
 					touched={!!touchedFields['userName']}
-					loading={loading}
 					placeholder={t('Label_General_Username') as string}
 					infoMessage={t('Label_ForgetPsw_UserNameInfo') as string}
 					errorMessage={errors['userName']?.message as string}
@@ -55,7 +54,6 @@ const ForgetPasswordForm = ({
 						},
 					})}
 					touched={!!touchedFields['phone']}
-					loading={loading}
 					placeholder={t('Label_General_Phone') as string}
 					infoMessage={t('Label_ForgetPsw_PhoneInfo') as string}
 					errorMessage={errors['phone']?.message as string}
