@@ -24,6 +24,7 @@ import {
 	LIVE_CHAT_ID_BY_LANG_ID,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	ThirdPartyJS,
+	LANG_TO_CURRENCY,
 } from '@nx-next-app/site/nova88'
 
 import 'react-datepicker/dist/react-datepicker.css'
@@ -46,6 +47,7 @@ const {
 	JackpotsScript,
 	GoogleTagManagerScript,
 	PixelCodeScript,
+	ActivatorScript,
 } = ThirdPartyJS
 
 function CustomApp({ Component, pageProps }: AppProps) {
@@ -70,6 +72,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 						BANNER_IMAGE_LIST={BANNER_IMAGE_LIST}
 						LEFT_MENU_DATA={LEFT_MENU_DATA}
 						LIVE_CHAT_ID_BY_LANG_ID={LIVE_CHAT_ID_BY_LANG_ID}
+						LANG_TO_CURRENCY={LANG_TO_CURRENCY}
 					>
 						<Component {...pageProps} />
 					</StaticDataProvider>
@@ -84,6 +87,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			<JackpotsScript />
 			<GoogleTagManagerScript />
 			<PixelCodeScript />
+			<ActivatorScript />
 		</>
 	)
 }

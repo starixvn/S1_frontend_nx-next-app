@@ -54,7 +54,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 		},
 		loading,
 		selBank,
-		paymentBankTransferList,
+		paymentOnlineBankInfoSysList,
 		onOnlineBankingFormSubmit,
 	} = useOnlineBankingForm({
 		dataSource,
@@ -108,7 +108,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 					required
 				>
 					<DepositModule.SubModuleButtonGroup matchKey='sysId'>
-						{paymentBankTransferList.map(item => {
+						{paymentOnlineBankInfoSysList.map(item => {
 							const { bankName, bankLogo, minAmount, maxAmount, sysId } = item
 
 							return (

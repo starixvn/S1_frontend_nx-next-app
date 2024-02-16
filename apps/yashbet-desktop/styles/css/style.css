@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -6372,6 +6372,21 @@ input[type=file] {
   font-weight: 700;
   text-align: left;
 }
+.smallList .remark {
+  background: rgba(255, 255, 255, 0.5);
+  width: 300px;
+  border-radius: 5px;
+  margin: 5px 0 5px -5px;
+  padding: 2px 8px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.smallList .remark li {
+  margin: 0 !important;
+}
+.smallList .remark + .tip {
+  padding: 0;
+}
 
 .directions {
   border-bottom: 1px solid #b2b2b2;
@@ -7652,7 +7667,7 @@ input[type=file] {
   padding: 5px 10px;
   margin-right: 10px;
   border: 1px solid rgba(255, 255, 255, 0.9);
-  z-index: 1;
+  z-index: 3;
   color: white;
   font-weight: normal;
   width: -webkit-max-content;
@@ -10500,8 +10515,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin: 0 auto 10px;
   line-height: 1.2;
   position: relative;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(56%, rgba(255, 255, 255, 0.1)), color-stop(94%, rgb(228, 244, 255)));
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 56%, rgb(228, 244, 255) 94%);
+  background: #fff;
 }
 .rightModule .refer-topbanner {
   border-radius: 5px 5px 60px 60px;
@@ -10515,29 +10529,22 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .rightModule .refer-history {
   display: inline-block;
-  font-size: 14px;
+  font-size: 12px;
   background: #fff;
-  padding: 5px 15px;
-  color: #7591C1;
-  border: 2px solid #7591C1;
+  padding: 10px 20px;
+  min-width: 100px;
+  color: #0a0a0a;
+  border: 2px solid #0a0a0a;
   border-radius: 20px;
   position: absolute;
-  right: 100px;
+  right: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
-.rightModule .refer-history::after {
-  content: "";
-  background: url(https://banner.leoking88.net/desktop/img/icon-right.svg) no-repeat center/12px 12px;
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  margin: 2px 0 0 12px;
-}
 .rightModule .refer-history:hover {
-  color: #F77900;
-  border: 2px solid #F77900;
+  color: #d7ae78;
+  border: 2px solid #d7ae78;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -10551,13 +10558,29 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   font-size: 14px;
 }
 .rightModule .refer .referstatus {
-  border-radius: 50px 50px 0px 0px;
-  background: white;
   text-align: center;
   padding: 0 0 40px 0;
+  border-radius: 0px 0px 10px 10px;
   width: calc(100% - 140px);
-  margin: -100px auto 0;
+  background: #f8f8f8;
   position: relative;
+  margin: auto;
+}
+.rightModule .refer .referstatus .title {
+  width: calc(100% - 160px);
+  margin: 0 auto 20px;
+  position: relative;
+}
+.rightModule .refer .referstatus .title::after {
+  position: absolute;
+  bottom: -10px;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 5px;
+  margin: 20px auto 10px;
+  background: -webkit-gradient(linear, left top, right top, from(rgb(215, 174, 120)), color-stop(65%, rgb(247, 227, 191)), to(rgb(151, 105, 68)));
+  background: linear-gradient(90deg, rgb(215, 174, 120) 0%, rgb(247, 227, 191) 65%, rgb(151, 105, 68) 100%);
 }
 .rightModule .refer .referstatus-item {
   color: #777;
@@ -10580,14 +10603,26 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   font-weight: 500;
   color: #777;
   background: #FBFBFB;
-  -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   min-height: 130px;
-  padding-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-top: unset;
 }
 .rightModule .refer .referstatus-item .card:first-child {
@@ -10596,7 +10631,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .rightModule .refer .referstatus-item div {
   font-size: 25px;
   font-weight: bold;
-  color: #F77900;
+  color: #ff2a56;
   margin-top: 30.2px;
 }
 .rightModule .refer .referstatus-item div span {
@@ -10614,7 +10649,24 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  margin: 10px auto 50px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: -200px auto 0;
+  border-radius: 10px 10px 0px 0px;
+  background: #f8f8f8;
+  position: relative;
+}
+.rightModule .refer .referinfo > .title {
+  width: 100%;
+}
+.rightModule .refer .referinfo > .title::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 5px;
+  margin: 20px auto 10px;
+  background: -webkit-gradient(linear, left top, right top, from(rgb(215, 174, 120)), color-stop(65%, rgb(247, 227, 191)), to(rgb(151, 105, 68)));
+  background: linear-gradient(90deg, rgb(215, 174, 120) 0%, rgb(247, 227, 191) 65%, rgb(151, 105, 68) 100%);
 }
 .rightModule .refer .referinfo-left {
   -webkit-box-flex: 1;
@@ -10642,22 +10694,71 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           align-items: center;
   line-height: 1.2;
   margin-bottom: 55px;
+  background: #fff;
+  padding: 15px 20px;
+  position: relative;
+  border-radius: 10px 0 10px 0;
+  -webkit-box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.rightModule .refer .referinfo-step::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: -40px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 20px 10px 0 10px;
+  border-color: #0a0a0a transparent transparent transparent;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+.rightModule .refer .referinfo-step:last-child::after {
+  display: none;
+}
+.rightModule .refer .referinfo-step .subtitle {
+  color: #ff2a56;
+}
+.rightModule .refer .referinfo-step .number {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.rightModule .refer .referinfo-step .number span {
+  top: 5px;
+  right: 8px;
+  position: absolute;
+  z-index: 1;
+}
+.rightModule .refer .referinfo-step .number::after {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 40px 40px 0;
+  border-color: transparent #0a0a0a transparent transparent;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  z-index: 0;
 }
 .rightModule .refer .referinfo-step .icon {
   width: 70px;
   height: 70px;
-  position: relative;
-}
-.rightModule .refer .referinfo-step .icon::after {
-  content: "";
-  display: block;
-  background: url(https://banner.leoking88.net/desktop/img/refer-dashLine.svg) no-repeat center;
-  padding: 5px 0px;
-  width: 3px;
-  height: 45px;
-  position: absolute;
-  top: 70px;
-  left: calc(50% - 1.5px);
 }
 .rightModule .refer .referinfo-step:last-child .icon::after {
   display: none;
@@ -10673,7 +10774,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  background-color: #fff;
   border-radius: 5px;
 }
 .rightModule .refer .referinfo-list {
@@ -10685,15 +10785,17 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .rightModule .refer .referinfo-list .inputcopy input {
   width: calc(100% - 24px);
-  border-radius: 20px;
-  border: 1px solid #bababa;
+  border-radius: 5px;
   padding: 10px 12px;
+  border: 0;
   display: block;
   color: #777;
   font-size: 13px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  -webkit-box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 .rightModule .refer .referinfo-list .inputcopy input:focus-visible {
   border: 1px solid #bababa;
@@ -10715,10 +10817,12 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   background: url(https://banner.leoking88.net/desktop/img/icon-copy-1.svg) no-repeat center/20px 20px;
 }
 .rightModule .refer .referinfo-list-qr {
-  width: 90px;
-  padding: 2px;
-  border: 1px solid rgba(180, 180, 180, 0.9333333333);
-  border-radius: 3px;
+  width: 120px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 .rightModule .refer .referinfo-share {
   display: -webkit-box;
@@ -18587,7 +18691,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
   white-space: nowrap;
-  color: #cf0404;
 }
 .profileModule > div.profile > div > div > span {
   color: #009810;

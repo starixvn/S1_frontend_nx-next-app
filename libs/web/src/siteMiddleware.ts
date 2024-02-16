@@ -22,6 +22,7 @@ export const getIpCountry = async (originHeader: Headers): Promise<any> => {
 		new URL(`${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/api/Site/GetIpCountry`),
 		{
 			headers: newHeaders,
+			method: 'POST',
 		}
 	)
 		.then(res => res.json())
@@ -58,9 +59,16 @@ const countryCodeMap: {
 // 此 middleware 僅處理未初始化的 cookie，再進入 'default' 時會給予固定 defaultLang 內的 locale
 // 若透過指定語系進入，則會給予指定語系的 locale
 export const siteMiddleware = async ({ request, config }: ISiteMiddleware) => {
+	if (
+		request.nextUrl.pathname.startsWith('/api/') ||
+		request.nextUrl.pathname.startsWith('/health') ||
+		request.nextUrl.pathname.startsWith('/_next/')
+	) {
+		return NextResponse.next()
+	}
+
 	const { defaultCurrency, defaultLocale, langToCurrency } = config
 	const response = NextResponse.next()
-
 	const { locale } = request.nextUrl
 	const hasLangId = request.cookies.has(ENV_COOKIE_NAMES.LangId)
 	const cookieLang = request.cookies.get(ENV_COOKIE_NAMES.LangId)

@@ -22,7 +22,6 @@ export const isConvert = (currencyId: CurrenciesEnum) =>
  * ```tsx
  * numberFormat(5000000, CurrenciesEnum.MYR) // 5,000,000
  * numberFormat(5000000, CurrenciesEnum.VND) // 5,000 ('000)
- * numberFormat(5000000, CurrenciesEnum.VND) // 5,000 ('000));
  * numberFormat(5000000, CurrenciesEnum.VND, 0) // 5,000 ('000));
  * numberFormat(5000000, CurrenciesEnum.VND, 0, false) // 5,000;
  * ```
