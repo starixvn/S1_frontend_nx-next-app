@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import dayjs from 'dayjs'
+import { includes } from 'lodash-es'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useBoolean, useDebounce, useOnClickOutside } from 'usehooks-ts'
@@ -10,6 +11,7 @@ import {
 	ITpWalletInfoData,
 } from '@nx-next-app/service'
 import { numberFormat, numFormatToDigits } from '@nx-next-app/utils'
+import { ALLOWED_CURRENCIES } from '@nx-next-app/site/yashbet'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { SpinButton } from '../../button'
@@ -153,9 +155,11 @@ const Wallet = ({
 					<Link href={paths.deposit.root} passHref>
 						<a className='orange'>{t('Label_General_Deposit')}</a>
 					</Link>
-					<Link href={paths.transferFunds.root} passHref>
-						<a className='orange'>{t('Label_General_TransferFunds')}</a>
-					</Link>
+					{includes(ALLOWED_CURRENCIES.TRANSFER, currencyId) && (
+						<Link href={paths.transferFunds.root} passHref>
+							<a className='orange'>{t('Label_General_TransferFunds')}</a>
+						</Link>
+					)}
 				</div>
 				<div className='loginLog'>
 					<span>{t('Label_General_LastLogin')}</span>
