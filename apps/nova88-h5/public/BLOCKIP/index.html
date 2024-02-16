@@ -121,5 +121,22 @@
         </div>
     </div>
 </div>
+<script>
+  let url = `${window.location.origin}/api/Site/GetIpCountry`
+  fetch(url , {
+    method : "POST"
+  }).then(res => res.json())
+    .then(response => {
+      const isAccess = response?.data?.isAccess
+      // 可以進入就回首頁
+      if(isAccess){
+        document.location.href = window.location.origin
+      }
+    })
+    // * 加入 catch 防止第一次渲染時 (cookie中沒有 langId、currencyId) 會因 api 錯誤引發畫面錯誤
+    .catch(error => {
+      console.error({ getIpCountry: error })
+    })
+</script>
 </body>
 </html>
