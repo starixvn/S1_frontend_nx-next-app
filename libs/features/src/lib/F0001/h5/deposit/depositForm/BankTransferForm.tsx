@@ -95,7 +95,8 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 							sysId,
 							canSubmit,
 						} = item
-
+						const min = numberFormat(minAmount, currencyId, 0, false)
+						const max = numberFormat(maxAmount, currencyId, 0, false)
 						return (
 							<DepositModule.SubModuleButton
 								label={bankName}
@@ -104,14 +105,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 								key={sysId}
 								canSubmit={canSubmit}
 							>
-								<div>
-									{t('Label_General_Min')}：
-									{numberFormat(minAmount, currencyId, 0)}
-								</div>
-								<div>
-									{t('Label_General_Min')}：
-									{numberFormat(maxAmount, currencyId, 0)}
-								</div>
+								<div>{`${min} ~ ${max}`}</div>
 							</DepositModule.SubModuleButton>
 						)
 					})}

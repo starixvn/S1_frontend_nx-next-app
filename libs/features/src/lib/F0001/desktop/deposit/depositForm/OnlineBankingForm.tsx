@@ -79,7 +79,8 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{dataSource.map(item => {
 						const { payName, minAmount, maxAmount } = item
-
+						const min = numberFormat(minAmount, currencyId, 0, false)
+						const max = numberFormat(maxAmount, currencyId, 0, false)
 						return (
 							<DepositModule.SubModuleButton
 								label={payName}
@@ -87,14 +88,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 								matchValue={payName}
 								key={payName}
 							>
-								<div>
-									{t('Label_General_Min')}：
-									{numberFormat(minAmount, currencyId, 0)}
-								</div>
-								<div>
-									{t('Label_General_Min')}：
-									{numberFormat(maxAmount, currencyId, 0)}
-								</div>
+								<div>{`${min} ~ ${max}`}</div>
 							</DepositModule.SubModuleButton>
 						)
 					})}
@@ -110,7 +104,8 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 					<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 						{paymentOnlineBankInfoSysList.map(item => {
 							const { bankName, bankLogo, minAmount, maxAmount, sysId } = item
-
+							const min = numberFormat(minAmount, currencyId, 0, false)
+							const max = numberFormat(maxAmount, currencyId, 0, false)
 							return (
 								<DepositModule.SubModuleButton
 									label={bankName}
@@ -118,14 +113,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 									matchValue={String(sysId)}
 									key={sysId}
 								>
-									<div>
-										{t('Label_General_Min')}：
-										{numberFormat(minAmount, currencyId, 0)}
-									</div>
-									<div>
-										{t('Label_General_Min')}：
-										{numberFormat(maxAmount, currencyId, 0)}
-									</div>
+									<div>{`${min} ~ ${max}`}</div>
 								</DepositModule.SubModuleButton>
 							)
 						})}
