@@ -4,11 +4,8 @@ import { useTranslation } from 'next-i18next'
 import { useFormContext } from 'react-hook-form'
 import { numberFormat } from '@nx-next-app/utils'
 import { useAuth } from '@nx-next-app/data-access'
-import { paths, AREA_CODE, EMAIL_REGEX } from '@nx-next-app/constants'
-import {
-	useSendOTPEmailMutation,
-	useLazyExistsEmailQuery,
-} from '@nx-next-app/service'
+import { AREA_CODE, EMAIL_REGEX } from '@nx-next-app/constants'
+import { useLazyExistsEmailQuery } from '@nx-next-app/service'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import DateSelector from 'libs/web/src/components/D0006/dateSelector'
 import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0006'
@@ -35,12 +32,10 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 			userName,
 			lastLogin,
 			currencyId,
-			emailReward,
 			phoneReward,
 			accountName,
 			currencyName,
 			phoneVerified,
-			emailVerified,
 			birth_d: birthDay,
 			birth_m: birthMonth,
 			birth_y: birthYear,
@@ -61,22 +56,11 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 
 	const [phoneErrorTip, setPhoneErrorTip] = useState<string | undefined>('')
 
-	const [sendOTPEmail] = useSendOTPEmailMutation()
-
 	const [checkExistsEmail, { isFetching: existsEmailLoading }] =
 		useLazyExistsEmailQuery()
 
 	const onPhoneVerify = () => {
 		modal.open(<PhoneOtpModal />)
-	}
-
-	const onEmailVerify = async () => {
-		try {
-			await sendOTPEmail({ route: paths.profile.root }).unwrap()
-			modal.info(t('Label_Profile_EmailOTPHint1'))
-		} catch (error) {
-			modal.error((error as Error).message)
-		}
 	}
 
 	const { handlePhoneErrorTip } = useCheckPhone()
@@ -284,33 +268,6 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 							successMessage={t('Label_Join_CantChangeEmail') as string}
 							infoMessage={t('Label_Join_EmailToolTip') as string}
 						/>
-					</div>
-				)}
-				{!!email && (
-					<div>
-						{emailVerified ? (
-							<span className='icon icon-Shield' />
-						) : (
-							<button
-								type='button'
-								className='icon icon-envelope btn-org'
-								onClick={onEmailVerify}
-							>
-								{t('Label_Profile_EmailVerification')}
-								<div className='description'>
-									<div className='title'>
-										{t('Label_Profile_EmailVerification')}
-									</div>
-									<div>{t('Label_Profile_EmailVerificationHint1')}</div>
-									<div>
-										{t('Label_Profile_EmailVerificationHint2', {
-											currency: currencyName,
-											amount: numberFormat(emailReward ?? 0, currencyId),
-										})}
-									</div>
-								</div>
-							</button>
-						)}
 					</div>
 				)}
 			</div>

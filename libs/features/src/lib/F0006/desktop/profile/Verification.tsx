@@ -21,7 +21,6 @@ const Verification = () => {
 		userInfo: {
 			userLevel,
 			currencyId,
-			emailReward,
 			phoneReward,
 			accountName,
 			currencyName,
@@ -95,22 +94,6 @@ const Verification = () => {
 							</div>
 							<div>{t('Label_Profile_ProfileVerificationHint1')}</div>
 							<div>({t('Label_Profile_ProfileVerificationHint2')})</div>
-						</div>
-					</div>
-					<div
-						className={classNames('icon icon-email', { active: emailVerified })}
-					>
-						<div className='description'>
-							<div className='title'>
-								{t('Label_Profile_EmailVerification')}
-							</div>
-							<div>{t('Label_Profile_EmailVerificationHint1')}</div>
-							<div>
-								{t('Label_Profile_EmailVerificationHint2', {
-									currency: currencyName,
-									amount: numberFormat(emailReward ?? 0, currencyId),
-								})}
-							</div>
 						</div>
 					</div>
 					<div
