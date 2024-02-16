@@ -22,6 +22,7 @@ export const getIpCountry = async (originHeader: Headers): Promise<any> => {
 		new URL(`${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/api/Site/GetIpCountry`),
 		{
 			headers: newHeaders,
+			method: 'POST',
 		}
 	)
 		.then(res => res.json())
