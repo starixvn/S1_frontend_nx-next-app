@@ -1,35 +1,17 @@
-import React from 'react'
-import { IImageData } from '@nx-next-app/types'
 import { useStaticData } from '@nx-next-app/data-access'
 import { useTranslation } from 'next-i18next'
 
-interface IVipMedalProps {
-	activeTab: number
-	onChange: (tab: number) => void
-}
-
-const VipMedal = ({ activeTab, onChange }: IVipMedalProps) => {
+const VipMedal = () => {
 	const { t } = useTranslation()
 	const { VIP_CLUB_IMAGES } = useStaticData()
 	return (
 		<div className='medal'>
-			{VIP_CLUB_IMAGES.map(
-				({ url, displayKey, levelTabsName, level, alt }: IImageData) => (
-					<div
-						className={`medal-item ${
-							level === activeTab ? levelTabsName : null
-						}`}
-						key={`VIPLevelList-${displayKey}`}
-						onClick={() => onChange(level as number)}
-					>
-						<img src={url} alt={displayKey} />
-						<div>
-							{t(displayKey as string)}
-							<span>{t('Label_Vip_Club')}</span>
-						</div>
-					</div>
-				)
-			)}
+			{VIP_CLUB_IMAGES.map(item => (
+				<div key={`${item.displayKey}-${item.alt}`}>
+					<img src={item.url} alt={item.alt} />
+					{t(item.displayKey || '')}
+				</div>
+			))}
 		</div>
 	)
 }

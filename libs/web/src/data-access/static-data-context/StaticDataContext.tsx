@@ -32,7 +32,8 @@ export interface IStaticDataContext {
 	CURRENCY_TO_TIMEZONE: { [key: number]: string }
 	VIP_CLUB_IMAGES: IImageData[]
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY: (
-		langId: string | number
+		langId: string | number,
+		currencyId?: string | number
 	) => IBannerByCurrencyData[]
 	FEATURE_BONUS: { [key: number]: string }
 	TERMS_CONDITIONS: ({ langId }: { langId: string }) => ITermsConditions
