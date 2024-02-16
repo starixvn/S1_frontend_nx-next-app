@@ -7,7 +7,7 @@ import {
 import { useBoolean, useDebounce } from 'usehooks-ts'
 import {
 	IPaymentOnlineBankingData,
-	useGetPaymentBankTransferListQuery,
+	useGetPaymentOnlineBankInfoSysListQuery,
 	useLazyCheckDepositSpecialCodeQuery,
 	useLazyGetDepositOnlineBankingReqInfoQuery,
 } from '@nx-next-app/service'
@@ -76,9 +76,11 @@ const useOnlineBankingForm = ({
 		useDepositContext()
 
 	const {
-		data: { data: paymentBankTransferList = [] } = {},
-		isFetching: isGetPaymentBankTransferListFetching,
-	} = useGetPaymentBankTransferListQuery()
+		data: { data: paymentOnlineBankInfoSysList = [] } = {},
+		isFetching: isGetPaymentOnlineBankInfoSysListFetching,
+	} = useGetPaymentOnlineBankInfoSysListQuery({
+		payId: getValues('payId'),
+	})
 
 	const [
 		checkDepositSpecialCode,
@@ -92,7 +94,7 @@ const useOnlineBankingForm = ({
 
 	const loading =
 		contextLoading ||
-		isGetPaymentBankTransferListFetching ||
+		isGetPaymentOnlineBankInfoSysListFetching ||
 		isCheckDepositSpecialCodeFetching ||
 		isGetDepositOnlineBankingReqInfoFetching
 
@@ -200,8 +202,8 @@ const useOnlineBankingForm = ({
 			sysId,
 			minAmount: selBankMinAmount = 0,
 			maxAmount: selBankMaxAmount = 0,
-		} = find(paymentBankTransferList, { sysId: Number(querySysId) }) ||
-		head(paymentBankTransferList) ||
+		} = find(paymentOnlineBankInfoSysList, { sysId: Number(querySysId) }) ||
+		head(paymentOnlineBankInfoSysList) ||
 		{}
 
 		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
@@ -261,7 +263,7 @@ const useOnlineBankingForm = ({
 		formMethods,
 		loading: debouncedLoading,
 		selBank: getValues('selBank'),
-		paymentBankTransferList,
+		paymentOnlineBankInfoSysList,
 		onOnlineBankingFormSubmit,
 	}
 }

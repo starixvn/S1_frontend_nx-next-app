@@ -17,6 +17,7 @@ import CashbackInfo from './CashbackInfo'
 import DepositSlip from './DepositSlip'
 import DepositMenu from './DepositMenu'
 import PromotionProgressBar from '../../promotion/PromotionProgressBar'
+import PromotionMission from './PromotionMission'
 
 const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
@@ -43,7 +44,8 @@ const PromotionDetailModal = ({
 		deviceType,
 	})
 
-	const { onUpdatePromotionDetail } = useSetClaimPromotionFetcher()
+	const { onUpdatePromotionDetail, setClaimPromotionHandler } =
+		useSetClaimPromotionFetcher()
 
 	if (!promotionDetail) return null
 
@@ -103,7 +105,12 @@ const PromotionDetailModal = ({
 				<div className='proInfomodule'>
 					<div className='btn-group'>
 						{!isHideJoinButton && (
-							<button className='orange'>
+							<button
+								className='orange'
+								onClick={() => {
+									setClaimPromotionHandler(promotionDetail)
+								}}
+							>
 								{promotionDetail.promotionType === PromotionTypeEnum.Cashback
 									? toUpper(t('Label_Promotion_ClaimNow') || '')
 									: toUpper(t('Label_General_JoinNow') || '')}
@@ -130,8 +137,13 @@ const PromotionDetailModal = ({
 							}
 						/>
 					)}
+					{promotionType === PromotionTypeEnum.MissionBonus && !isJoin && (
+						<PromotionMission promotionDetail={promotionDetail} />
+					)}
 
-					<PromotionRule promotionDetail={promotionDetail} />
+					{promotionType !== PromotionTypeEnum.MissionBonus && (
+						<PromotionRule promotionDetail={promotionDetail} />
+					)}
 
 					{isShowDepositSlip && (
 						<DepositSlip depositAmount={depositAmount} refList={refList} />

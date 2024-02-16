@@ -89,78 +89,87 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
 				<DepositModule title={depositAmountText} required>
-					<div className='column' />
-					<InputBox
-						type='number'
-						className='inputBox-white'
-						register={register('amount', {
-							valueAsNumber: true,
-							required: {
-								value: true,
-								message: t('Label_General_AmountLessThan', {
+					<div className='infoModule'>
+						<div className='column' />
+						<InputBox
+							type='number'
+							className='inputBox-white'
+							register={register('amount', {
+								valueAsNumber: true,
+								required: {
+									value: true,
+									message: t('Label_General_AmountLessThan', {
+										value1: numberFormat(convertedMinAmount, currencyId, 0),
+									}),
+								},
+								min: {
+									value: watchMinAmount,
+									message: t('Label_General_AmountLessThan', {
+										value1: numberFormat(convertedMinAmount, currencyId, 0),
+									}),
+								},
+								max: {
+									value: watchMaxAmount,
+									message: t('Label_General_NotInLimit'),
+								},
+							})}
+							format={isConvert(currencyId)}
+							placeholder={
+								t('Label_General_AmountMinMaxLimit', {
+									value1: watchMinAmount,
+									value2: watchMaxAmount,
+								}) || ''
+							}
+							touched={!!touchedFields['amount']}
+							errorMessage={errors['amount']?.message || ''}
+							error={!!errors['amount']}
+							infoMessage={
+								t('Label_General_AmountLessThan', {
 									value1: numberFormat(convertedMinAmount, currencyId, 0),
-								}),
-							},
-							min: {
-								value: watchMinAmount,
-								message: t('Label_General_AmountLessThan', {
-									value1: numberFormat(convertedMinAmount, currencyId, 0),
-								}),
-							},
-							max: {
-								value: watchMaxAmount,
-								message: t('Label_General_NotInLimit'),
-							},
-						})}
-						format={isConvert(currencyId)}
-						placeholder={
-							t('Label_General_AmountMinMaxLimit', {
-								value1: watchMinAmount,
-								value2: watchMaxAmount,
-							}) || ''
-						}
-						touched={!!touchedFields['amount']}
-						errorMessage={errors['amount']?.message || ''}
-						error={!!errors['amount']}
-					/>
+								}) || ''
+							}
+						/>
 
-					{/* // ! 加這行 tip 用來防止 InputBox 與 ShortcutList 跑版 */}
-					<div className='tip' />
+						{/* // ! 加這行 tip 用來防止 InputBox 與 ShortcutList 跑版 */}
+						<div className='tip' />
 
-					<DepositModule.ShortcutList
-						minAmount={watchMinAmount}
-						maxAmount={watchMaxAmount}
-						shortcut={Number(watchAmount)}
-						shortcutList={generateShortcutList({
-							minAmount: watchMinAmount,
-						})}
-						onChange={value => {
-							setValue('amount', value)
-							trigger('amount')
-						}}
-					/>
+						<DepositModule.ShortcutList
+							minAmount={watchMinAmount}
+							maxAmount={watchMaxAmount}
+							shortcut={Number(watchAmount)}
+							shortcutList={generateShortcutList({
+								minAmount: watchMinAmount,
+							})}
+							onChange={value => {
+								setValue('amount', value)
+								trigger('amount')
+							}}
+						/>
+					</div>
 				</DepositModule>
 			)}
 
 			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
-				<Select
-					value={watchBonusCode}
-					options={promotionOptions}
-					onChange={value => {
-						setValue('bonusCode', String(value))
-						setValue('promoCode', undefined)
-					}}
-				/>
+				<div className='infoModule'>
+					<Select
+						value={watchBonusCode}
+						options={promotionOptions}
+						onChange={value => {
+							setValue('bonusCode', String(value))
+							setValue('promoCode', undefined)
+						}}
+					/>
 
-				<InputBox
-					className='inputBox-white'
-					register={register('promoCode')}
-					placeholder={t('Label_Promotions_PromoCode') || ''}
-					touched={!!touchedFields['promoCode']}
-					onChange={() => {
-						setValue('bonusCode', undefined)
-					}}
-				/>
+					<InputBox
+						className='inputBox-white'
+						register={register('promoCode')}
+						placeholder={t('Label_Promotions_PromoCode') || ''}
+						touched={!!touchedFields['promoCode']}
+						onChange={() => {
+							setValue('bonusCode', undefined)
+						}}
+					/>
+				</div>
 			</DepositModule>
 
 			<Form onSubmit={handleSubmit(onAutoDepositFormSubmit)}>

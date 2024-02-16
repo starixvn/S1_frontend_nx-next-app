@@ -7,6 +7,7 @@ export enum PromotionTypeEnum {
 	Rebate = 6,
 	Cashback = 7,
 	SpecialBonus = 8,
+	MissionBonus = 11,
 	PromoCode = 9001,
 }
 
@@ -46,4 +47,10 @@ export enum PromotionCategoryIdEnum {
 export enum PromotionWalletType {
 	Transfer = 0,
 	Seamless,
+}
+
+export enum PromotionPeriodType {
+	Daily = 1,
+	Weekly,
+	Monthly,
 }
