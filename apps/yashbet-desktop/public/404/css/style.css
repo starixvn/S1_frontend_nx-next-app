@@ -13,7 +13,7 @@ img{
   display: block;
   width: max-content;
 }
-body{  
+body{
   background: url(../img/bg.jpg)no-repeat top center / cover;
   animation: bgimg 5s ease-in-out infinite;
 }
@@ -41,6 +41,10 @@ body{
   filter: drop-shadow(0 0 2px #0a0a0a);
   width: 300px;
 }
+.wallpaper > a > img {
+  border-radius: 5px;
+  border: 1px solid #0a0a0a;
+}
 @media screen and (max-width: 1024px) and (orientation: portrait){
   body{
     background: url(../img/bgm.jpg)no-repeat center / cover;
@@ -65,10 +69,10 @@ body{
   }
   .title{
     font-size: 9vw;
-    margin: 0 0 3vw;
+    margin: 5vw 0 3vw;
   }
   .stitle{
-    font-size: 6vw;
+    font-size: 5vw;
     margin: 0 0 3vw;
   }
 }
