@@ -1,10 +1,12 @@
 import Link from 'next/link'
+import { includes } from 'lodash-es'
 import classNames from 'classnames'
 import { useBoolean } from 'usehooks-ts'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
+import { ALLOWED_CURRENCIES } from '@nx-next-app/site/yashbet'
 import MsgPopup from './MsgPopup'
 
 const LayoutFooter = () => {
@@ -12,7 +14,7 @@ const LayoutFooter = () => {
 	const { value: isWalletActive, toggle: onToggleWalletActive } = useBoolean()
 	const {
 		auth: { isLogin },
-		userInfo: { langId },
+		userInfo: { langId, currencyId },
 	} = useAuth()
 	const router = useRouter()
 	const { pathname } = router
@@ -102,12 +104,14 @@ const LayoutFooter = () => {
 							<span>{t('Label_General_Deposit')}</span>
 						</a>
 					</Link>
-					<Link href={paths.transferFunds.root}>
-						<a className='icon icon-icon32px_Funds-transfer'>
-							<div className='circleAnimation' />
-							<span>{t('Label_General_Transfer')}</span>
-						</a>
-					</Link>
+					{includes(ALLOWED_CURRENCIES.TRANSFER, currencyId) && (
+						<Link href={paths.transferFunds.root}>
+							<a className='icon icon-icon32px_Funds-transfer'>
+								<div className='circleAnimation' />
+								<span>{t('Label_General_Transfer')}</span>
+							</a>
+						</Link>
+					)}
 					<Link href={paths.statement.root}>
 						<a className='icon icon-icon32px_History'>
 							<div className='circleAnimation' />

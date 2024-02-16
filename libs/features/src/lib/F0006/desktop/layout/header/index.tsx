@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { includes } from 'lodash-es'
 import { Header, LoginFormType } from '@nx-next-app/components/D0006'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useRouter } from 'next/router'
@@ -7,6 +8,7 @@ import { useAuth } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
 import { FieldErrors } from 'react-hook-form'
 import { renderFieldError } from '@nx-next-app/utils'
+import { ALLOWED_CURRENCIES } from '@nx-next-app/site/yashbet'
 import MemberFile from './MemberFile'
 import MsgPopUp from './MsgPopUp'
 import Country from './Country'
@@ -20,6 +22,9 @@ const LayoutHeader = () => {
 	const { modal } = useGlobalModal()
 
 	const { auth, onSignIn, onSignOut } = useAuth()
+	const {
+		userInfo: { currencyId },
+	} = useAuth()
 
 	const handleSignIn = async (payload: {
 		userName: string
@@ -61,11 +66,13 @@ const LayoutHeader = () => {
 			<Header.Function>
 				{auth.isLogin ? (
 					<>
-						<Link href={paths.transferFunds.root}>
-							<a>
-								<span>{t('Label_General_TransferFunds')}</span>
-							</a>
-						</Link>
+						{includes(ALLOWED_CURRENCIES.TRANSFER, currencyId) && (
+							<Link href={paths.transferFunds.root}>
+								<a>
+									<span>{t('Label_General_TransferFunds')}</span>
+								</a>
+							</Link>
+						)}
 
 						<Link href={paths.withdrawal.root}>
 							<a>
