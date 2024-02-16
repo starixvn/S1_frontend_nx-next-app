@@ -14,14 +14,14 @@ const ReferralDetailModal = ({
 	const { closeModal } = useGlobalModal()
 	const {
 		referralContent,
-		referralReward,
-		invitationLimit,
-		agentDeposit,
-		agentValidBet,
-		memberReward,
-		deposit,
-		vaildBet,
-		periodDays,
+		// referralReward,
+		// invitationLimit,
+		// agentDeposit,
+		// agentValidBet,
+		// memberReward,
+		// deposit,
+		// vaildBet,
+		// periodDays,
 	} = referralSettingDetail ?? {}
 
 	return (

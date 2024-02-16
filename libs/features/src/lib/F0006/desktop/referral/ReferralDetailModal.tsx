@@ -1,7 +1,7 @@
 import { isNull } from 'lodash-es'
 import { Img } from '@nx-next-app/components/D0006'
 import { IReferralSettingDetailData } from '@nx-next-app/service'
-import { useTranslation } from 'next-i18next'
+// import { useTranslation } from 'next-i18next'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 
 interface IReferralDetailModalProps {
@@ -10,18 +10,18 @@ interface IReferralDetailModalProps {
 const ReferralDetailModal = ({
 	referralSettingDetail,
 }: IReferralDetailModalProps) => {
-	const { t } = useTranslation()
+	// const { t } = useTranslation()
 	const { closeModal } = useGlobalModal()
 	const {
 		referralContent,
-		referralReward,
-		invitationLimit,
-		agentDeposit,
-		agentValidBet,
-		memberReward,
-		deposit,
-		vaildBet,
-		periodDays,
+		// referralReward,
+		// invitationLimit,
+		// agentDeposit,
+		// agentValidBet,
+		// memberReward,
+		// deposit,
+		// vaildBet,
+		// periodDays,
 	} = referralSettingDetail ?? {}
 
 	return (
