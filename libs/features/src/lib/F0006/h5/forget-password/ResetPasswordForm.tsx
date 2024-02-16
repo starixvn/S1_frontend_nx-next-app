@@ -34,7 +34,6 @@ const ResetPasswordForm = ({ loading, onSubmit }: IResetPasswordFormProps) => {
 							},
 						})}
 						touched={!!touchedFields['otpCode']}
-						loading={loading}
 						placeholder={t('Label_OTP') as string}
 						infoMessage={t('Label_Profile_EnterOTPCode') as string}
 						errorMessage={errors['otpCode']?.message as string}
@@ -48,7 +47,6 @@ const ResetPasswordForm = ({ loading, onSubmit }: IResetPasswordFormProps) => {
 							},
 						})}
 						touched={!!touchedFields['password']}
-						loading={loading}
 						placeholder={t('Label_ChangePassword_NewPassword') as string}
 						errorMessage={errors['password']?.message as string}
 						error={!!errors['password']}
@@ -62,7 +60,6 @@ const ResetPasswordForm = ({ loading, onSubmit }: IResetPasswordFormProps) => {
 							validate: value => value === password,
 						})}
 						touched={!!touchedFields['confirmPassword']}
-						loading={loading}
 						placeholder={t('Label_Join_ConfirmPassword') as string}
 						errorMessage={errors['confirmPassword']?.message as string}
 						error={!!errors['confirmPassword']}
