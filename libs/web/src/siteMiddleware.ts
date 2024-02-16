@@ -25,6 +25,7 @@ export const getIpCountry = async (originHeader: Headers): Promise<any> => {
 			),
 			{
 				headers: newHeaders,
+				method: 'POST',
 			}
 		)
 			.then(res => res.json())
