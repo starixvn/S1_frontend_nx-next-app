@@ -1,41 +1,67 @@
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
-import { FlagEnum, useSetForgetPasswordMutation } from '@nx-next-app/service'
-import { EMAIL_REGEX, paths } from '@nx-next-app/constants'
-import { Form, Header, InputBox } from '@nx-next-app/components/H0006'
+import {
+	useResetPwdByOTPMutation,
+	useResetPwdVerifyOTPMutation,
+} from '@nx-next-app/service'
+import { Header } from '@nx-next-app/components/H0006'
 import { useTranslation } from 'next-i18next'
-import { useForm } from 'react-hook-form'
-import { upperFirst } from 'lodash-es'
+import { ForgetPasswordStepEnum } from '@nx-next-app/features/F0006/types'
+import { AREA_CODE, CURRENCY_TO_LANG_KEY, paths } from '@nx-next-app/constants'
+import {
+	ForgetPasswordForm,
+	ForgetPasswordFormType,
+} from './ForgetPasswordForm'
+import { ResetPasswordForm, ResetPasswordFormType } from './ResetPasswordForm'
 
 const ForgetPassword = () => {
 	const { t } = useTranslation()
 	const { push } = useRouter()
 	const { modal } = useGlobalModal()
 	const {
-		userInfo: { langId },
+		userInfo: { currencyId },
 	} = useAuth()
-	const [setForgetPassword] = useSetForgetPasswordMutation()
 
-	const { register, handleSubmit, formState, trigger } = useForm<{
-		email: string
-	}>()
-	const { errors, touchedFields } = formState
-	const onCancel = () => {
-		push(paths.login.root)
+	const [step, setStep] = useState(ForgetPasswordStepEnum.ForgetPassword)
+	const [OTPUserName, setOTPUserName] = useState<string>('')
+	const [resetPwdByOTP, { isLoading: isResetPwdByOTPLoading }] =
+		useResetPwdByOTPMutation()
+
+	const [resetPwdVerifyOTP, { isLoading: isResetPwdVerifyOTPLoading }] =
+		useResetPwdVerifyOTPMutation()
+
+	const getOTP = async ({ userName, phone }: ForgetPasswordFormType) => {
+		try {
+			const { errorCode } = await resetPwdByOTP({
+				userName,
+				phoneNo: phone,
+				areaCode:
+					AREA_CODE[CURRENCY_TO_LANG_KEY[currencyId].toUpperCase()].AreaCode,
+			}).unwrap()
+			if (errorCode === 0) {
+				setStep(ForgetPasswordStepEnum.ResetPassword)
+				setOTPUserName(userName)
+			}
+		} catch (error) {
+			modal.error((error as Error).message)
+		}
 	}
 
-	const onSubmit = async ({ email }: { email: string }) => {
+	const handleResetPassword = async ({
+		otpCode,
+		password,
+	}: ResetPasswordFormType) => {
 		try {
-			await setForgetPassword({
-				langId,
-				email,
-				// 目前舊前台固定給1
-				flag: FlagEnum.hasLang,
+			const { errorCode, message } = await resetPwdVerifyOTP({
+				inputOTPcode: otpCode,
+				userName: OTPUserName,
+				newPassword: password,
 			}).unwrap()
-			modal.info(t('Label_General_ForgotPwdMailSent'), {
-				title: t('Label_General_ForgetPsw'),
-			})
+			if (errorCode === 0) {
+				modal.info(message, { onOK: () => push(paths.home.root) })
+			}
 		} catch (error) {
 			modal.error((error as Error).message)
 		}
@@ -44,51 +70,21 @@ const ForgetPassword = () => {
 	return (
 		<>
 			<Header className='header'>
-				<Header.Tag title={t('Label_General_ForgetPassword') as string} />
+				<Header.Tag title={t('Label_ForgetPsw') as string} />
 			</Header>
 			<main className='main'>
-				<Form onSubmit={handleSubmit(onSubmit)}>
-					<InputBox
-						register={register('email', {
-							required: {
-								value: true,
-								message: t('Label_Join_MailWrongFormat'),
-							},
-							pattern: {
-								value: EMAIL_REGEX,
-								message: t('Label_Join_MailWrongFormat'),
-							},
-							onBlur: async () => {
-								await trigger('email')
-							},
-						})}
-						icon='icon-email'
-						placeholder={t('Label_Email') || ''}
-						touched={!!touchedFields['email']}
-						title={t('Label_General_Email') || ''}
-						infoMessage={
-							t('Label_General_ResetPasswordMsg', {
-								site: upperFirst(process.env['NEXT_PUBLIC_SITE_NAME'] || ''),
-							}) || ''
-						}
-						errorMessage={errors['email']?.message as string}
-						error={!!errors['email']}
+				{step === ForgetPasswordStepEnum.ForgetPassword && (
+					<ForgetPasswordForm
+						loading={isResetPwdByOTPLoading}
+						onSubmit={getOTP}
 					/>
-					<div className='btn-group'>
-						<button
-							className='white'
-							onClick={() => {
-								onCancel()
-							}}
-							type='button'
-						>
-							{t('Label_General_Back')}
-						</button>
-						<button onClick={handleSubmit(onSubmit)} type='submit'>
-							{t('Label_General_Submit')}
-						</button>
-					</div>
-				</Form>
+				)}
+				{step === ForgetPasswordStepEnum.ResetPassword && (
+					<ResetPasswordForm
+						loading={isResetPwdVerifyOTPLoading}
+						onSubmit={handleResetPassword}
+					/>
+				)}
 			</main>
 		</>
 	)
