@@ -24,8 +24,7 @@ const ForgetPassword = () => {
 
 	const [step, setStep] = useState(ForgetPasswordStepEnum.ForgetPassword)
 	const [OTPUserName, setOTPUserName] = useState<string>('')
-	const [resetPwdByOTP, { isLoading: isResetPwdByOTPLoading }] =
-		useResetPwdByOTPMutation()
+	const [resetPwdByOTP] = useResetPwdByOTPMutation()
 
 	const [resetPwdVerifyOTP, { isLoading: isResetPwdVerifyOTPLoading }] =
 		useResetPwdVerifyOTPMutation()
@@ -81,10 +80,7 @@ const ForgetPassword = () => {
 								/>
 							</div>
 							{step === ForgetPasswordStepEnum.ForgetPassword && (
-								<ForgetPasswordForm
-									loading={isResetPwdByOTPLoading}
-									onSubmit={getOTP}
-								/>
+								<ForgetPasswordForm onSubmit={getOTP} />
 							)}
 							{step === ForgetPasswordStepEnum.ResetPassword && (
 								<ResetPasswordForm
