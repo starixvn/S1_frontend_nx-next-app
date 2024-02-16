@@ -44,7 +44,7 @@ const ReferralDetailModal = ({
 						</div>
 					</div>
 
-					<div className='rolloverList'>
+					{/* <div className='rolloverList'>
 						<div>
 							<div>{t('Label_Referral_ReferralReward')}</div>
 							<div>{referralReward}</div>
@@ -61,8 +61,8 @@ const ReferralDetailModal = ({
 							<div>{t('Label_Referral_ValidBetRequirement')}</div>
 							<div>{agentValidBet}</div>
 						</div>
-					</div>
-
+					</div> */}
+					{/* 
 					<div className='rolloverList'>
 						<div>
 							<div>{t('Label_Referral_ReferredFreeCredit')}</div>
@@ -82,7 +82,7 @@ const ReferralDetailModal = ({
 								{periodDays} {t('Label_General_Days')}
 							</div>
 						</div>
-					</div>
+					</div> */}
 
 					{/* // * 確保資料不是 null 才顯示元件 */}
 					{!!referralContent?.detail && (
