@@ -447,7 +447,7 @@ export const MENU_DATA = ({
 
 							{
 								className: 'list-npc',
-								imgUrl: 'sports-cryptosport.png',
+								imgUrl: 'sports-badminton.png',
 							},
 							{
 								className: 'list-title',
