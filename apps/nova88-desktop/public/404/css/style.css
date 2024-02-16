@@ -13,7 +13,7 @@ img{
   display: block;
   width: max-content;
 }
-body{  
+body{
   background: url(../img/bg.jpg)no-repeat top center / cover;
   animation: bgimg 5s ease-in-out infinite;
 }
@@ -27,19 +27,15 @@ body{
 .title{
   font-size: 50px;
   font-weight: bold;
-  color: #0A0A0A;
+  color: #1e85ec;
   margin: 30px 0 5px;
   text-transform:uppercase;
 }
 .stitle{
   font-size: 30px;
   font-weight: bold;
-  color: #0A0A0A;
+  color: #1e85ec;
   margin: 0 0 30px;
-}
-.wallpaper > img {
-  filter: drop-shadow(0 0 2px #0a0a0a);
-  width: 300px;
 }
 @media screen and (max-width: 1024px) and (orientation: portrait){
   body{
@@ -53,11 +49,6 @@ body{
     transform: translateY(0%);
     width: calc(100% - 4vw);
   }
-  .wallpaper>img {
-    width: 50vw;
-    margin-bottom: 3vw;
-  }
-
   img{
     display: unset;
     margin: 7vw 0;

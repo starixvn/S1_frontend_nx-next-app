@@ -2,7 +2,6 @@ import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { paths } from '@nx-next-app/constants'
-import { CurrenciesEnum } from '@nx-next-app/types'
 import { numFormatToDigits } from '@nx-next-app/utils'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
@@ -93,10 +92,7 @@ const Wallet = () => {
 							{t('Label_General_Deposit')}
 						</a>
 					</Link>
-					{includes(
-						ALLOWED_CURRENCIES['TRANSFER'] as CurrenciesEnum[],
-						currencyId
-					) && (
+					{includes(ALLOWED_CURRENCIES.TRANSFER, currencyId) && (
 						<Link href={paths.transferFunds.root} passHref>
 							<a className='icon icon-transfer white'>
 								{t('Label_General_Transfer')}

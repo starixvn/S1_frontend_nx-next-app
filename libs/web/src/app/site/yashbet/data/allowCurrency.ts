@@ -10,7 +10,7 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 	LEADER_BOARD: [],
 	APP_DOWNLOAD: [],
 
-	TRANSFER: [INR, BDT],
+	TRANSFER: [INR],
 	BANK_INFO: [INR, BDT],
 
 	GAMES_MPOKER: [],
