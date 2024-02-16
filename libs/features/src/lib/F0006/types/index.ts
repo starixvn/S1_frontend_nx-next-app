@@ -88,4 +88,10 @@ export enum KycStatusEnum {
 	KycPending,
 }
 
+// 僅於forget-password判斷step流程
+export enum ForgetPasswordStepEnum {
+	ForgetPassword = 1,
+	ResetPassword,
+}
+
 export * from './home'
