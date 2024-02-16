@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'

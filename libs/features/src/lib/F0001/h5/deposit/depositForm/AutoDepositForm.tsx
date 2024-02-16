@@ -173,11 +173,11 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			</DepositModule>
 
 			<Form onSubmit={handleSubmit(onAutoDepositFormSubmit)}>
-				<div className='btnGroup'>
+				<div className='btn-group'>
 					<button
 						type='submit'
 						style={{ pointerEvents: isValid ? 'auto' : 'none' }}
-						className={classNames({
+						className={classNames('orange', {
 							darkGray: !isValid,
 							'btn-check': isValid,
 						})}
