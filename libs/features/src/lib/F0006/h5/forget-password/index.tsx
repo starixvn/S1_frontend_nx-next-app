@@ -26,11 +26,8 @@ const ForgetPassword = () => {
 
 	const [step, setStep] = useState(ForgetPasswordStepEnum.ForgetPassword)
 	const [OTPUserName, setOTPUserName] = useState<string>('')
-	const [resetPwdByOTP, { isLoading: isResetPwdByOTPLoading }] =
-		useResetPwdByOTPMutation()
-
-	const [resetPwdVerifyOTP, { isLoading: isResetPwdVerifyOTPLoading }] =
-		useResetPwdVerifyOTPMutation()
+	const [resetPwdByOTP] = useResetPwdByOTPMutation()
+	const [resetPwdVerifyOTP] = useResetPwdVerifyOTPMutation()
 
 	const getOTP = async ({ userName, phone }: ForgetPasswordFormType) => {
 		try {
@@ -74,16 +71,10 @@ const ForgetPassword = () => {
 			</Header>
 			<main className='main'>
 				{step === ForgetPasswordStepEnum.ForgetPassword && (
-					<ForgetPasswordForm
-						loading={isResetPwdByOTPLoading}
-						onSubmit={getOTP}
-					/>
+					<ForgetPasswordForm onSubmit={getOTP} />
 				)}
 				{step === ForgetPasswordStepEnum.ResetPassword && (
-					<ResetPasswordForm
-						loading={isResetPwdVerifyOTPLoading}
-						onSubmit={handleResetPassword}
-					/>
+					<ResetPasswordForm onSubmit={handleResetPassword} />
 				)}
 			</main>
 		</>
