@@ -165,7 +165,7 @@ const Setting = () => {
 											{LANG_GROUP_COUNTRY[lang]}
 										</div>
 
-										{items.map(languageItem => {
+										{items?.map(languageItem => {
 											return (
 												<button
 													key={`${languageItem.value}-${languageItem.currencyId}`}
