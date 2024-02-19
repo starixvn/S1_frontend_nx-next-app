@@ -2,7 +2,8 @@ import classNames from 'classnames'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Image from 'next/future/image'
-import { numberFormat, getSafetyLv } from '@nx-next-app/utils'
+import { numberFormat } from '@nx-next-app/utils'
+import { getSafetyLv } from '@nx-next-app/site/yashbet'
 import {
 	LineLoginDirectTypeEnum,
 	useLazyGetLineLoginDirectUrlQuery,
@@ -25,7 +26,6 @@ const Verification = () => {
 			accountName,
 			currencyName,
 			phoneVerified,
-			emailVerified,
 			isLineBinding,
 		},
 	} = useAuth()
@@ -51,7 +51,6 @@ const Verification = () => {
 	const { safetyLv, safetyDisplayKey } = getSafetyLv({
 		accountName,
 		phoneVerified,
-		emailVerified,
 	})
 
 	return (
@@ -80,7 +79,6 @@ const Verification = () => {
 			<div className='safetyLv'>
 				<span className={classNames({ active: safetyLv >= 1 })} />
 				<span className={classNames({ active: safetyLv >= 2 })} />
-				<span className={classNames({ active: safetyLv >= 3 })} />
 			</div>
 			<div className='userVerification'>
 				<div>{t('Label_Profile_UserVerification')}:</div>

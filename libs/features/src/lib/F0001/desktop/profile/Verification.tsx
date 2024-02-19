@@ -2,7 +2,8 @@ import classNames from 'classnames'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Image from 'next/future/image'
-import { numberFormat, getSafetyLv } from '@nx-next-app/utils'
+import { numberFormat } from '@nx-next-app/utils'
+import { getSafetyLv } from '@nx-next-app/site/nova88'
 import {
 	LineLoginDirectTypeEnum,
 	useLazyGetLineLoginDirectUrlQuery,

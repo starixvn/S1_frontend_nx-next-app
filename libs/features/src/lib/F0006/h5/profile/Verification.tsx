@@ -4,8 +4,9 @@ import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import Image from 'next/future/image'
 import { CurrenciesEnum } from '@nx-next-app/types'
-import { numberFormat, getSafetyLv } from '@nx-next-app/utils'
+import { numberFormat } from '@nx-next-app/utils'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { getSafetyLv } from '@nx-next-app/site/yashbet'
 
 const Verification = () => {
 	const { t } = useTranslation()
@@ -19,7 +20,6 @@ const Verification = () => {
 			accountName,
 			currencyName,
 			phoneVerified,
-			emailVerified,
 		},
 	} = useAuth()
 
@@ -35,7 +35,6 @@ const Verification = () => {
 	const { safetyLv, safetyDisplayKey } = getSafetyLv({
 		accountName,
 		phoneVerified,
-		emailVerified,
 	})
 
 	return (
@@ -63,7 +62,6 @@ const Verification = () => {
 			<div className='safetyLv'>
 				<span className={classNames({ active: safetyLv >= 1 })} />
 				<span className={classNames({ active: safetyLv >= 2 })} />
-				<span className={classNames({ active: safetyLv >= 3 })} />
 			</div>
 			<div className='userVerification'>
 				<div>{t('Label_Profile_UserVerification')}：</div>
