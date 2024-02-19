@@ -245,31 +245,33 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 			</div>
 			<div>
 				<div>{t('Label_General_Email')}</div>
-				{email ?? (
-					<div>
-						<InputBox
-							register={register('formEmail', {
-								required: {
-									value: true,
-									message: t('Label_Join_MailWrongFormat'),
-								},
-								pattern: {
-									value: EMAIL_REGEX,
-									message: t('Label_Join_MailWrongFormat') as string,
-								},
-								onBlur: checkEmail,
-							})}
-							icon='icon icon-email txt-blue'
-							placeholder={t('Label_General_Email') as string}
-							loading={existsEmailLoading}
-							errorMessage={errors['formEmail']?.message as string}
-							error={!!errors['formEmail']}
-							touched={!!touchedFields['formEmail']}
-							successMessage={t('Label_Join_CantChangeEmail') as string}
-							infoMessage={t('Label_Join_EmailToolTip') as string}
-						/>
-					</div>
-				)}
+				<div>
+					{email ?? (
+						<div>
+							<InputBox
+								register={register('formEmail', {
+									required: {
+										value: true,
+										message: t('Label_Join_MailWrongFormat'),
+									},
+									pattern: {
+										value: EMAIL_REGEX,
+										message: t('Label_Join_MailWrongFormat') as string,
+									},
+									onBlur: checkEmail,
+								})}
+								icon='icon icon-email txt-blue'
+								placeholder={t('Label_General_Email') as string}
+								loading={existsEmailLoading}
+								errorMessage={errors['formEmail']?.message as string}
+								error={!!errors['formEmail']}
+								touched={!!touchedFields['formEmail']}
+								successMessage={t('Label_Join_CantChangeEmail') as string}
+								infoMessage={t('Label_Join_EmailToolTip') as string}
+							/>
+						</div>
+					)}
+				</div>
 			</div>
 			<div>
 				<div>{t('Label_Profile_RegisterTime')}</div>
