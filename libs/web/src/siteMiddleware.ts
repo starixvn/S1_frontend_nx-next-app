@@ -18,21 +18,29 @@ export const getIpCountry = async (originHeader: Headers): Promise<any> => {
 	const newHeaders = new Headers(originHeader)
 	newHeaders.set('ai-host', `${process.env['NEXT_PUBLIC_REFERER_HOST']}`)
 
-	const countryCode = fetch(
-		new URL(`${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/api/Site/GetIpCountry`),
-		{
-			headers: newHeaders,
-			method: 'POST',
-		}
-	)
-		.then(res => res.json())
-		.then(response => response?.data?.code)
-		// * 加入 catch 防止第一次渲染時 (cookie中沒有 langId、currencyId) 會因 api 錯誤引發畫面錯誤
-		.catch(error => {
-			console.error({ getIpCountry: error })
-		})
+	return (
+		fetch(
+			new URL(
+				`${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/api/Site/GetIpCountry`
+			),
+			{
+				headers: newHeaders,
+        method: 'POST',
 
-	return countryCode
+      }
+		)
+			.then(res => res.json())
+			.then(response => {
+				return {
+					countryCode: response?.data?.code,
+					isAccess: response?.data?.isAccess,
+				}
+			})
+			// * 加入 catch 防止第一次渲染時 (cookie中沒有 langId、currencyId) 會因 api 錯誤引發畫面錯誤
+			.catch(error => {
+				console.error({ getIpCountry: error })
+			})
+	)
 }
 
 // * middleware 使用之資源定義在該位置
@@ -62,7 +70,8 @@ export const siteMiddleware = async ({ request, config }: ISiteMiddleware) => {
 	if (
 		request.nextUrl.pathname.startsWith('/api/') ||
 		request.nextUrl.pathname.startsWith('/health') ||
-		request.nextUrl.pathname.startsWith('/_next/')
+		request.nextUrl.pathname.startsWith('/_next/') ||
+		request.nextUrl.pathname.startsWith('/BLOCKIP/')
 	) {
 		return NextResponse.next()
 	}
@@ -75,10 +84,17 @@ export const siteMiddleware = async ({ request, config }: ISiteMiddleware) => {
 
 	// * 使用幣別語系權重: cookie => ip => default
 	// * 沒有 cookie 資料，且無指定語系
+	const { isAccess = true, countryCode } =
+		(await getIpCountry(request.headers)) ?? {}
+
+	if (!isAccess && process.env.NODE_ENV === 'production') {
+		// 只有在線上會 work
+		const url = new URL('/BLOCKIP/index.html', request.url)
+		return NextResponse.redirect(url)
+	}
 
 	if (!hasLangId) {
 		if (locale === 'default') {
-			const countryCode = await getIpCountry(request.headers)
 			const locale = countryCodeMap[countryCode]?.langId || defaultLocale
 			const currencyId =
 				countryCodeMap[countryCode]?.currencyId || defaultCurrency

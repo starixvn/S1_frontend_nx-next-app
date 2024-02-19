@@ -1,38 +1,20 @@
-import React from 'react'
 import { Carousel } from '@nx-next-app/components/D0006'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import VipBannerItem from '@nx-next-app/features/F0006/desktop/vip/VipBannerItem'
-import { IVipBannerData } from '@nx-next-app/service'
 
-const VipBanner = ({
-	vipBannerData,
-}: Omit<IVipBannerData, 'lastUpdateTime'>) => {
+const VipBanner = () => {
 	const {
-		userInfo: { langId },
+		userInfo: { langId, currencyId },
 	} = useAuth()
 	const { VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY } = useStaticData()
+	const banners = VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY(langId, currencyId)
 
 	return (
 		<Carousel pagination={false}>
-			{VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY(langId)
-				.map(item => {
-					const vipBannerInfo = vipBannerData.find(
-						vip => vip.level === item.level
-					)
-
-					if (!vipBannerInfo) {
-						return []
-					}
-
-					return (
-						<VipBannerItem
-							vipBannerInfo={vipBannerInfo}
-							BannerByCurrencyData={item}
-							key={item.level}
-						/>
-					)
-				})
-				.flat()}
+			{banners.map(banner => (
+				<div key={banner.url}>
+					<img src={banner.url} alt={`VIP Level ${banner.levelText}`} />
+				</div>
+			))}
 		</Carousel>
 	)
 }
