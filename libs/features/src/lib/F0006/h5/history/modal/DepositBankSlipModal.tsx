@@ -16,6 +16,7 @@ interface IBankSlipModalProps {
 	bankSite?: string
 	accountName?: string
 	accountNo?: string
+	code?: string | null
 	amount?: number
 	transId?: string
 	depositReceipt?: IDepositInfoHistoryData['depositReceipt']
@@ -34,6 +35,7 @@ const DepositBankSlipModal = ({
 	bankSite,
 	accountName,
 	accountNo,
+	code,
 	amount,
 	transId,
 	depositReceipt = [],
@@ -105,6 +107,18 @@ const DepositBankSlipModal = ({
 								onClick={() => copy(accountNo || '')}
 							/>
 						</li>
+						{code && (
+							<li>
+								<div>
+									<span className='title'>{t('Label_General_Remark')}</span>
+									<span>{code}</span>
+								</div>
+								<button
+									className='icon icon-files-empty clickBtn copyBtn'
+									onClick={() => copy(code?.toString())}
+								/>
+							</li>
+						)}
 						{amount && (
 							<li>
 								<div>

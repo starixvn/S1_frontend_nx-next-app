@@ -29,7 +29,7 @@ const HistoryMsgModal = dynamic(
 const DepositBankSlipModal = dynamic(
 	() =>
 		import(
-			'@nx-next-app/features/F0001/desktop/history/modal/DepositBankSlipModal'
+			'@nx-next-app/features/F0006/desktop/history/modal/DepositBankSlipModal'
 		),
 	{
 		ssr: false,
@@ -176,6 +176,7 @@ const DepositHistoryTable = ({
 											accountName={item.depositRep.accountName}
 											accountNo={item.depositRep.accountNo}
 											transId={item.transId}
+											code={item.depositRep.code}
 											depositReceipt={item.depositReceipt}
 											onSubmit={onSubmit}
 										/>
