@@ -137,6 +137,7 @@ const useDepositBankTransferForm = ({
 				fromSysId,
 				bankId: Number(bankId),
 				hasPromotion: Boolean(bonusCode),
+				code: bankAccountInfo?.code,
 			}).unwrap()
 
 			if (transId) {
