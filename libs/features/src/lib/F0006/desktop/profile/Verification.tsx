@@ -2,7 +2,8 @@ import classNames from 'classnames'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Image from 'next/future/image'
-import { numberFormat, getSafetyLv } from '@nx-next-app/utils'
+import { numberFormat } from '@nx-next-app/utils'
+import { getSafetyLv } from '@nx-next-app/site/yashbet'
 import {
 	LineLoginDirectTypeEnum,
 	useLazyGetLineLoginDirectUrlQuery,
@@ -21,12 +22,10 @@ const Verification = () => {
 		userInfo: {
 			userLevel,
 			currencyId,
-			emailReward,
 			phoneReward,
 			accountName,
 			currencyName,
 			phoneVerified,
-			emailVerified,
 			isLineBinding,
 		},
 	} = useAuth()
@@ -52,7 +51,6 @@ const Verification = () => {
 	const { safetyLv, safetyDisplayKey } = getSafetyLv({
 		accountName,
 		phoneVerified,
-		emailVerified,
 	})
 
 	return (
@@ -81,7 +79,6 @@ const Verification = () => {
 			<div className='safetyLv'>
 				<span className={classNames({ active: safetyLv >= 1 })} />
 				<span className={classNames({ active: safetyLv >= 2 })} />
-				<span className={classNames({ active: safetyLv >= 3 })} />
 			</div>
 			<div className='userVerification'>
 				<div>{t('Label_Profile_UserVerification')}:</div>
@@ -95,22 +92,6 @@ const Verification = () => {
 							</div>
 							<div>{t('Label_Profile_ProfileVerificationHint1')}</div>
 							<div>({t('Label_Profile_ProfileVerificationHint2')})</div>
-						</div>
-					</div>
-					<div
-						className={classNames('icon icon-email', { active: emailVerified })}
-					>
-						<div className='description'>
-							<div className='title'>
-								{t('Label_Profile_EmailVerification')}
-							</div>
-							<div>{t('Label_Profile_EmailVerificationHint1')}</div>
-							<div>
-								{t('Label_Profile_EmailVerificationHint2', {
-									currency: currencyName,
-									amount: numberFormat(emailReward ?? 0, currencyId),
-								})}
-							</div>
 						</div>
 					</div>
 					<div
