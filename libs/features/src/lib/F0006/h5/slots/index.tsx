@@ -37,7 +37,6 @@ const Slots = () => {
 					onInputClose={onInputClose}
 				/>
 			</Header>
-			ㄑ
 			<main className='main casino'>
 				{!isGetBannerV3Fetching && (
 					<CarouselBanner bannerList={bannerList} navigation={false} />
