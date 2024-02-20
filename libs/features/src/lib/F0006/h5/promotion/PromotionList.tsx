@@ -21,6 +21,14 @@ const PromotionList = () => {
 		onUpdatePromotionData,
 	} = usePromotion()
 
+	if (promotionData.length === 0) {
+		return (
+			<div className='nodata icon icon-nodata'>
+				<div className='txt-white'>{t('Label_General_NoData')}</div>
+			</div>
+		)
+	}
+
 	return (
 		<>
 			{promotionData.map(item => {
