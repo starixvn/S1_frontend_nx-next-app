@@ -1,9 +1,7 @@
 import dayjs from 'dayjs'
 import { useTranslation } from 'next-i18next'
-import { useSendOTPEmailMutation } from '@nx-next-app/service'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { paths } from '@nx-next-app/constants'
 import { Loading } from '@nx-next-app/components/D0006'
 import { PhoneOtpModal } from './PhoneOtpModal'
 
@@ -22,26 +20,14 @@ const Info = () => {
 			lastLogin,
 			accountName,
 			phoneVerified,
-			emailVerified,
 			birth_d: birthDay,
 			birth_m: birthMonth,
 			birth_y: birthYear,
 		},
 	} = useAuth()
 
-	const [sendOTPEmail] = useSendOTPEmailMutation()
-
 	const onPhoneVerify = () => {
 		modal.open(<PhoneOtpModal />)
-	}
-
-	const onEmailVerify = async () => {
-		try {
-			await sendOTPEmail({ route: paths.profile.root }).unwrap()
-			modal.info(t('Label_Profile_EmailOTPHint1'))
-		} catch (error) {
-			modal.error((error as Error).message)
-		}
 	}
 
 	if (!lastLogin) return <Loading />
@@ -70,21 +56,7 @@ const Info = () => {
 			)}
 			<div>
 				<div>{t('Label_General_Email')}</div>
-				{!!email && (
-					<div>
-						{email}
-						{emailVerified ? (
-							<span className='icon icon-Shield' />
-						) : (
-							<button
-								className='icon btn-org icon-envelope'
-								onClick={onEmailVerify}
-							>
-								<span>{t('Label_Profile_EmailVerification')}</span>
-							</button>
-						)}
-					</div>
-				)}
+				{!!email && <div>{email}</div>}
 			</div>
 			{accountName && (
 				<div>
