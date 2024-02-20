@@ -105,8 +105,8 @@ const getMonthsBetween = (startDate: Dayjs, endDate: Dayjs): Dayjs[] => {
 }
 
 const getPeriodList = (leaderBoardMonths: { [key: number]: string }) => {
-	// * 月排名暫時顯示四月到當前月份，等ＰＭ通知再修正回起始月份 "2023-01-01"
-	const startDate = dayjs('2023-04-01')
+	// * 過去的資料已經不可獲取,故以2024年為查詢起點
+	const startDate = dayjs('2024-01-01')
 	const currentDate = dayjs()
 	const months = getMonthsBetween(startDate, currentDate)
 	const monthDataList = months
