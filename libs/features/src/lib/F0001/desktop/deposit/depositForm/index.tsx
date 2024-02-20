@@ -57,11 +57,11 @@ const DepositForm = () => {
 				<DepositModule.SubModuleButtonGroup matchKey='paymentType'>
 					{Object.keys(payments).map(key => {
 						const { labelDisplayKey, timeDisplayKey, icon } =
-							DEPOSIT_PAYMENT_OPTIONS[key as DepositPaymentEnum]
+							DEPOSIT_PAYMENT_OPTIONS[key as DepositPaymentEnum] || {}
 
 						return (
 							<DepositModule.SubModuleButton
-								label={t(labelDisplayKey)}
+								label={t(labelDisplayKey || '')}
 								icon={classNames(icon)}
 								matchValue={key}
 								key={labelDisplayKey}
@@ -86,7 +86,7 @@ const DepositForm = () => {
 								}}
 							>
 								<div>
-									{t('Label_General_CreditTime')} ： {t(timeDisplayKey)}
+									{t('Label_General_CreditTime')} ： {t(timeDisplayKey || '')}
 								</div>
 							</DepositModule.SubModuleButton>
 						)

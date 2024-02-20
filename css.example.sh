@@ -36,6 +36,11 @@ do
   do
     designPath="${DESIGN_PROJECT}/$site/$device/public/css"
     projectPath="${PROJECT}/apps/$site-$device/styles"
+
+    if [ $site = "LEOBET" ] || [ $site = "leobet" ]
+    then
+      projectPath="${PROJECT}/apps/yashbet-$device/styles" # 將設計專案的 Leobet 改為 yashbet
+    fi
     echo $designPath "->" $projectPath
     cp -R ${designPath} ${projectPath}
   done

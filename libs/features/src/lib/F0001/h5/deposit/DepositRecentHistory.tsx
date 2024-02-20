@@ -41,7 +41,7 @@ const DepositRecentHistory = () => {
 						className='orange recentBtn'
 						onClick={() => push(paths.depositHistory.root)}
 					>
-						All Transactions
+						{t('Label_General_AllTranscations')}
 					</a>
 				</div>
 			</div>

@@ -175,6 +175,7 @@ const DepositHistoryTable = ({
 											bankSite={item.bankInfo.bankSite}
 											accountName={item.depositRep.accountName}
 											accountNo={item.depositRep.accountNo}
+											code={item.depositRep.code}
 											transId={item.transId}
 											depositReceipt={item.depositReceipt}
 											onSubmit={onSubmit}
