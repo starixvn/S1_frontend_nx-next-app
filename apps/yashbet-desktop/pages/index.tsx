@@ -66,6 +66,7 @@ const HomePage = ({
 	persistNewsData,
 	persistFooterData,
 }: IHomePageProps) => {
+	console.log('testing')
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
