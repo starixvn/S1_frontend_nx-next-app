@@ -12,17 +12,7 @@ const ReferralDetailModal = ({
 }: IReferralDetailModalProps) => {
 	const { t } = useTranslation()
 	const { closeModal } = useGlobalModal()
-	const {
-		referralContent,
-		referralReward,
-		invitationLimit,
-		agentDeposit,
-		agentValidBet,
-		memberReward,
-		deposit,
-		vaildBet,
-		periodDays,
-	} = referralSettingDetail ?? {}
+	const { referralContent } = referralSettingDetail ?? {}
 
 	return (
 		<div className='pop'>
@@ -40,44 +30,46 @@ const ReferralDetailModal = ({
 					<div className='protitle'>{referralContent?.title}</div>
 					<div className='text'>{referralContent?.description}</div>
 
-					<div className='rolloverList'>
-						<div>
-							<div>{t('Label_Referral_ReferralReward')}</div>
-							<div>{referralReward}</div>
-						</div>
-						<div>
-							<div>{t('Label_Referral_FriendsInvitationLimit')}</div>
-							<div>{invitationLimit}</div>
-						</div>
-						<div>
-							<div>{t('Label_Referral_DepositRequirement')}</div>
-							<div>{agentDeposit}</div>
-						</div>
-						<div>
-							<div>{t('Label_Referral_ValidBetRequirement')}</div>
-							<div>{agentValidBet}</div>
-						</div>
-					</div>
+					{/* 暫時關閉 */}
+
+					{/* <div className='rolloverList'> */}
+					{/* 	<div> */}
+					{/* 		<div>{t('Label_Referral_ReferralReward')}</div> */}
+					{/* 		<div>{referralReward}</div> */}
+					{/* 	</div> */}
+					{/* 	<div> */}
+					{/* 		<div>{t('Label_Referral_FriendsInvitationLimit')}</div> */}
+					{/* 		<div>{invitationLimit}</div> */}
+					{/* 	</div> */}
+					{/* 	<div> */}
+					{/* 		<div>{t('Label_Referral_DepositRequirement')}</div> */}
+					{/* 		<div>{agentDeposit}</div> */}
+					{/* 	</div> */}
+					{/* 	<div> */}
+					{/* 		<div>{t('Label_Referral_ValidBetRequirement')}</div> */}
+					{/* 		<div>{agentValidBet}</div> */}
+					{/* 	</div> */}
+					{/* </div> */}
 
 					<div className='rolloverList'>
-						<div>
-							<div>{t('Label_Referral_ReferredFreeCredit')}</div>
-							<div>{memberReward}</div>
-						</div>
-						<div>
-							<div>{t('Label_Referral_DepositRequirement')}</div>
-							<div>{deposit}</div>
-						</div>
-						<div>
-							<div>{t('Label_Referral_ValidBetRequirement')}</div>
-							<div>{vaildBet}</div>
-						</div>
-						<div>
-							<div>{t('Label_Referral_TermPeriodWithin')}</div>
-							<div>
-								{periodDays} {t('Label_General_Days')}
-							</div>
-						</div>
+						{/* <div> */}
+						{/* 	<div>{t('Label_Referral_ReferredFreeCredit')}</div> */}
+						{/* 	<div>{memberReward}</div> */}
+						{/* </div> */}
+						{/* <div> */}
+						{/* 	<div>{t('Label_Referral_DepositRequirement')}</div> */}
+						{/* 	<div>{deposit}</div> */}
+						{/* </div> */}
+						{/* <div> */}
+						{/* 	<div>{t('Label_Referral_ValidBetRequirement')}</div> */}
+						{/* 	<div>{vaildBet}</div> */}
+						{/* </div> */}
+						{/* <div> */}
+						{/* 	<div>{t('Label_Referral_TermPeriodWithin')}</div> */}
+						{/* 	<div> */}
+						{/* 		{periodDays} {t('Label_General_Days')} */}
+						{/* 	</div> */}
+						{/* </div> */}
 
 						{/* // * 確保資料不是 null 才顯示元件 */}
 						{!!referralContent?.detail && (
