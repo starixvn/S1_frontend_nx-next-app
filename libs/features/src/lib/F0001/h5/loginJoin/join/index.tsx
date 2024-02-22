@@ -276,7 +276,6 @@ const Join = ({ cookies }: IJoinProps) => {
 							<Step1
 								cookies={cookies}
 								siteCurrencyList={siteCurrencyList}
-								currencySelectOptions={currencySelectOptions}
 								setStep={setStep}
 								selectCurrency={selectCurrency}
 								setCurrencyOptions={setCurrencyOptions}
