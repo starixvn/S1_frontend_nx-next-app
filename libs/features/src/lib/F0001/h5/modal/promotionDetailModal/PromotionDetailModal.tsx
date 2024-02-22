@@ -117,7 +117,7 @@ const PromotionDetailModal = ({
 									setClaimPromotionHandler(promotionDetail)
 								}}
 							>
-								{promotionDetail.promotionType === PromotionTypeEnum.Cashback
+								{isShowClaimNowButton
 									? toUpper(t('Label_Promotion_ClaimNow') || '')
 									: toUpper(t('Label_General_JoinNow') || '')}
 							</button>
