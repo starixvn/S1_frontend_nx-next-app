@@ -2,9 +2,16 @@ import classNames from 'classnames'
 import { isArray, includes, uniqueId } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
+import { paths } from '@nx-next-app/constants'
+import { IWithdrawalSetting } from '@nx-next-app/service'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useWalletAllowed } from '@nx-next-app/features/F0001/hooks'
 
-const LeftMenu = () => {
+interface ILeftMenuProps {
+	withdrawalBlockSetting: IWithdrawalSetting[]
+}
+
+const LeftMenu = ({ withdrawalBlockSetting }: ILeftMenuProps) => {
 	const { t } = useTranslation()
 	const { pathname: routerPath, push } = useRouter()
 
@@ -13,10 +20,25 @@ const LeftMenu = () => {
 		userInfo: { currencyId },
 	} = useAuth()
 
+	const {
+		cardAllowed: { bankCardAllowed, cryptoCardAllowed },
+	} = useWalletAllowed({ withdrawalBlockSetting })
+
 	const menuList = Object.values(LEFT_MENU_DATA).map(
 		({ displayKey, subMenu }) => {
-			const submenuList = Object.values(subMenu).map(
-				({ displayKey, pathname, allowCurrencies }) => {
+			const submenuList = Object.values(subMenu)
+				.filter(({ pathname, allowCurrencies }) => {
+					let isShow = true
+					if (isArray(allowCurrencies))
+						isShow = includes(allowCurrencies, currencyId)
+
+					//* 與 api 的 withdrawal payment 同步
+					if (pathname === paths.bankInfo.root) isShow = bankCardAllowed
+					if (pathname === paths.cryptoWallet.root) isShow = cryptoCardAllowed
+
+					return isShow
+				})
+				.map(({ displayKey, pathname, allowCurrencies }) => {
 					const matchPath = routerPath.match(pathname)
 					const isMatchCurrency = isArray(allowCurrencies)
 						? includes(allowCurrencies, currencyId)
@@ -36,8 +58,7 @@ const LeftMenu = () => {
 							</a>
 						)
 					)
-				}
-			)
+				})
 
 			return (
 				<div className='menuModule' key={uniqueId()}>
