@@ -19,6 +19,7 @@ interface INewsPageProps extends InitialPropsInterface {
 	persistNewsDetail: INewsDetailData
 	persistFooterData: IFooterData
 }
+
 const NewsPage = ({
 	originIsSignIn,
 	originCookies,

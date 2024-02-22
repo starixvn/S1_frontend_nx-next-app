@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { includes } from 'lodash-es'
 import classNames from 'classnames'
 import { useBoolean } from 'usehooks-ts'
 import { useRouter } from 'next/router'
@@ -14,12 +15,12 @@ const LayoutFooter = () => {
 	const { value: isFooterPopupActive, toggle: toggleIsFooterPopupActive } =
 		useBoolean()
 	const {
-		userInfo: { langId },
+		userInfo: { langId, currencyId },
 		auth: { isLogin },
 	} = useAuth()
 	const router = useRouter()
 	const { pathname } = router
-	const { LIVE_CHAT_ID_BY_LANG_ID } = useStaticData()
+	const { ALLOWED_CURRENCIES, LIVE_CHAT_ID_BY_LANG_ID } = useStaticData()
 
 	const { data: { data: msgCount = 0 } = {} } = useGetMsgCountQuery(null, {
 		skip: !isLogin,
@@ -130,21 +131,23 @@ const LayoutFooter = () => {
 						{t('Label_General_Withdrawal')}
 					</div>
 				</div>
-				<div className='footer-popup-item'>
-					<Link href={paths.transferFunds.root}>
-						<a>
-							<div className='footer-popup-img'>
-								<img
-									src={`${FOOTER_HOME_DOMAIN}/transfer.png`}
-									alt='Transfer'
-								/>
-							</div>
-						</a>
-					</Link>
-					<div className='footer-popup-title'>
-						{t('Label_General_Transfer')}
+				{includes(ALLOWED_CURRENCIES['TRANSFER'], currencyId) && (
+					<div className='footer-popup-item'>
+						<Link href={paths.transferFunds.root}>
+							<a>
+								<div className='footer-popup-img'>
+									<img
+										src={`${FOOTER_HOME_DOMAIN}/transfer.png`}
+										alt='Transfer'
+									/>
+								</div>
+							</a>
+						</Link>
+						<div className='footer-popup-title'>
+							{t('Label_General_Transfer')}
+						</div>
 					</div>
-				</div>
+				)}
 				<div className='footer-popup-item'>
 					<Link href={paths.message.root}>
 						<a>
