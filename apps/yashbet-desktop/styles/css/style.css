@@ -1900,68 +1900,14 @@ input:-webkit-autofill:active, input:-webkit-autofill:focus, input:-webkit-autof
   height: 100%;
   display: block;
 }
-.header > div.menu .subMenu-Wrapper-new .cryptoList {
-  width: 100%;
-  background: url(https://banner.leoking88.net/desktop/img/cryptosports_en.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList::before {
-  display: block;
-  content: "";
-  height: 210px;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.en {
-  background: url(https://banner.leoking88.net/desktop/img/cryptosports_en.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.th {
-  background: url(https://banner.leoking88.net/desktop/img/cryptosports_th.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.id {
-  background: url(https://banner.leoking88.net/desktop/img/cryptosports_id.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.cs {
-  background: url(https://banner.leoking88.net/desktop/img/cryptosports_cs.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.vn {
-  background: url(https://banner.leoking88.net/desktop/img/cryptosports_vn.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance {
-  background: url(https://banner.leoking88.net/desktop/img/cryptosports_en_um.jpg);
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.en {
-  background: url(https://banner.leoking88.net/desktop/img/cryptosports_en_um.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.en {
-  background: url(https://banner.leoking88.net/desktop/img/cryptosports_vn_um.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.th {
-  background: url(https://banner.leoking88.net/desktop/img/cryptosports_th_um.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.id {
-  background: url(https://banner.leoking88.net/desktop/img/cryptosports_id_um.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.cs {
-  background: url(https://banner.leoking88.net/desktop/img/cryptosports_cs_um.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.vn {
-  background: url(https://banner.leoking88.net/desktop/img/cryptosports_vn_um.jpg) no-repeat center/auto;
-}
 .header > div.menu .subMenu-Wrapper-new .vipList.en {
-  background: url(https://banner.leoking88.net/desktop/img/vipdropdown.png) no-repeat center/auto;
+  background: url(https://banner.leoking88.net/desktop/img/vipdropdown-en.png) no-repeat center/auto;
 }
-.header > div.menu .subMenu-Wrapper-new .vipList.my {
-  background: url(https://banner.leoking88.net/desktop/img/vipdropdown-my.png) no-repeat center/auto;
+.header > div.menu .subMenu-Wrapper-new .vipList.bd {
+  background: url(https://banner.leoking88.net/desktop/img/vipdropdown-bd.png) no-repeat center/auto;
 }
-.header > div.menu .subMenu-Wrapper-new .vipList.cs {
-  background: url(https://banner.leoking88.net/desktop/img/vipdropdown-cs.png) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .vipList.id {
-  background: url(https://banner.leoking88.net/desktop/img/vipdropdown-id.png) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .vipList.th {
-  background: url(https://banner.leoking88.net/desktop/img/vipdropdown-th.png) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .vipList.vn {
-  background: url(https://banner.leoking88.net/desktop/img/vipdropdown-vn.png) no-repeat center/auto;
+.header > div.menu .subMenu-Wrapper-new .vipList.hi {
+  background: url(https://banner.leoking88.net/desktop/img/vipdropdown-hi.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList > div {
   margin: 0 auto 0 100px;
@@ -18846,9 +18792,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 .userVerification > div:last-child > div {
   width: 35px;
