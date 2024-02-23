@@ -9,6 +9,8 @@ import {
 	ISocialChannelData,
 	IVipBannerData,
 	IGetVipBannerArgs,
+	IResetPwdByOTPArgs,
+	IResetPwdVerifyOTPArgs,
 } from './type'
 
 export const siteApiUrl = {
@@ -28,6 +30,8 @@ export const siteApiUrl = {
 	getSeo: 'Site/seo',
 	getVipBanner: 'Site/GetVipBanner',
 	getIpCountry: 'Site/GetIpCountry',
+	reSetPwdByOTP: 'Site/ReSetPwdByOTP',
+	reSetPwdVerifyOTP: 'Site/ReSetPwdVerifyOTP',
 }
 
 export const siteApi = rootApi.injectEndpoints({
@@ -170,6 +174,23 @@ export const siteApi = rootApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
+		resetPwdByOTP: builder.mutation<IAxiosResponse<any>, IResetPwdByOTPArgs>({
+			query: data => ({
+				url: siteApiUrl.reSetPwdByOTP,
+				method: 'POST',
+				data,
+			}),
+		}),
+		resetPwdVerifyOTP: builder.mutation<
+			IAxiosResponse<any>,
+			IResetPwdVerifyOTPArgs
+		>({
+			query: data => ({
+				url: siteApiUrl.reSetPwdVerifyOTP,
+				method: 'POST',
+				data,
+			}),
+		}),
 	}),
 })
 
@@ -189,4 +210,6 @@ export const {
 	useGetSocialChannelQuery,
 	useGetTpIdsQuery,
 	useGetSeoQuery,
+	useResetPwdByOTPMutation,
+	useResetPwdVerifyOTPMutation,
 } = siteApi

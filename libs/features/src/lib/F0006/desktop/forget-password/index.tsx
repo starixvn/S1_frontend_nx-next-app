@@ -1,41 +1,64 @@
 import Image from 'next/future/image'
-import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-import { paths } from '@nx-next-app/constants'
-import { FlagEnum, useSetForgetPasswordMutation } from '@nx-next-app/service'
+import { useState } from 'react'
+import { AREA_CODE, CURRENCY_TO_LANG_KEY, paths } from '@nx-next-app/constants'
+import {
+	useResetPwdByOTPMutation,
+	useResetPwdVerifyOTPMutation,
+} from '@nx-next-app/service'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { ForgetPasswordStepEnum } from '@nx-next-app/features/F0006/types'
 import {
 	ForgetPasswordForm,
 	ForgetPasswordFormType,
 } from './ForgetPasswordForm'
-
-const ForgetPasswordModal = dynamic(
-	() => import('../modal/ForgetPasswordModal'),
-	{ ssr: false }
-)
+import { ResetPasswordForm, ResetPasswordFormType } from './ResetPasswordForm'
 
 const ForgetPassword = () => {
-	const router = useRouter()
+	const { push } = useRouter()
 	const { modal } = useGlobalModal()
 	const {
-		userInfo: { langId },
+		userInfo: { currencyId },
 	} = useAuth()
-	const [setForgetPassword, { isLoading: isSetForgetPasswordLoading }] =
-		useSetForgetPasswordMutation()
-	const handleCancel = () => {
-		router.push(paths.home.root)
+
+	const [step, setStep] = useState(ForgetPasswordStepEnum.ForgetPassword)
+	const [OTPUserName, setOTPUserName] = useState<string>('')
+	const [resetPwdByOTP] = useResetPwdByOTPMutation()
+
+	const [resetPwdVerifyOTP, { isLoading: isResetPwdVerifyOTPLoading }] =
+		useResetPwdVerifyOTPMutation()
+
+	const getOTP = async ({ userName, phone }: ForgetPasswordFormType) => {
+		try {
+			const { errorCode } = await resetPwdByOTP({
+				userName,
+				phoneNo: phone,
+				areaCode:
+					AREA_CODE[CURRENCY_TO_LANG_KEY[currencyId].toUpperCase()].AreaCode,
+			}).unwrap()
+			if (errorCode === 0) {
+				setStep(ForgetPasswordStepEnum.ResetPassword)
+				setOTPUserName(userName)
+			}
+		} catch (error) {
+			modal.error((error as Error).message)
+		}
 	}
 
-	const handleSubmit = async ({ email }: ForgetPasswordFormType) => {
+	const handleResetPassword = async ({
+		otpCode,
+		password,
+	}: ResetPasswordFormType) => {
 		try {
-			await setForgetPassword({
-				langId,
-				email,
-				// 目前舊前台固定給1
-				flag: FlagEnum.hasLang,
+			const { errorCode, message } = await resetPwdVerifyOTP({
+				inputOTPcode: otpCode,
+				userName: OTPUserName,
+				newPassword: password,
 			}).unwrap()
-			modal.open(<ForgetPasswordModal />)
+			if (errorCode === 0) {
+				modal.info(message, { onOK: () => push(paths.home.root) })
+			}
 		} catch (error) {
 			modal.error((error as Error).message)
 		}
@@ -56,11 +79,15 @@ const ForgetPassword = () => {
 									style={{ width: '439px', height: '400px' }}
 								/>
 							</div>
-							<ForgetPasswordForm
-								loading={isSetForgetPasswordLoading}
-								onCancel={handleCancel}
-								onSubmit={handleSubmit}
-							/>
+							{step === ForgetPasswordStepEnum.ForgetPassword && (
+								<ForgetPasswordForm onSubmit={getOTP} />
+							)}
+							{step === ForgetPasswordStepEnum.ResetPassword && (
+								<ResetPasswordForm
+									loading={isResetPwdVerifyOTPLoading}
+									onSubmit={handleResetPassword}
+								/>
+							)}
 						</div>
 					</div>
 				</div>
