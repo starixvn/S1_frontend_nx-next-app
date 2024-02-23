@@ -39,7 +39,7 @@ const BankInfoPage = ({
 					>
 						<main>
 							<section className='inside'>
-								<LeftMenu />
+								<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 								<BankInfo />
 							</section>
 						</main>

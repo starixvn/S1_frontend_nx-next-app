@@ -105,7 +105,7 @@ export const BankInfoProvider = ({
 				sysId: sysId ?? (selBank?.sysId as number),
 				accountName: custBankInfo?.accountName as string,
 				IFSCCode: ifscCode,
-			})
+			}).unwrap()
 
 			Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DeviceTypeEnum.Desktop
 				? setStep(1)

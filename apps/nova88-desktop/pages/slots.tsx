@@ -61,6 +61,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		},
 		{ headers: { cookie: currentHeaderCookies } }
 	)
+
 	return {
 		props: {
 			...initialProps,
