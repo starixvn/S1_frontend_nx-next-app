@@ -9,7 +9,11 @@ const BalanceInfo = () => {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { withdrawalBalance } = useWithdrawal()
-	const { balance, deduction, availableBalance } = withdrawalBalance
+	const {
+		balance = 0,
+		deduction = 0,
+		availableBalance = 0,
+	} = withdrawalBalance ?? {}
 
 	return (
 		<div className='formula'>
