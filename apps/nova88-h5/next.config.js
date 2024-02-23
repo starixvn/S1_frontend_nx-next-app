@@ -62,6 +62,8 @@ const nextConfig = {
 	output: 'standalone',
 	experimental: {
 		outputFileTracingRoot: path.join(__dirname, '../../'),
+		// 提高 serverside page props data threshold , 避免 128kb 警告
+		largePageDataBytes: 128 * 10000,
 	},
 }
 
