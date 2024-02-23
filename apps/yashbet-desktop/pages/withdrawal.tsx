@@ -1,6 +1,10 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import {
+	AuthProvider,
+	getWithdrawalBlockSetting,
+	GlobalDataProvider,
+} from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Layout, Withdrawal } from '@nx-next-app/features/F0006/desktop'
 import {
@@ -14,9 +18,11 @@ import {
 import { FOOTER_DATA } from '@nx-next-app/site/yashbet'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IFooterData } from '@nx-next-app/types'
+import { IWithdrawalSetting } from '@nx-next-app/service'
 
 interface IWithdrawalPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
+	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
 const WithdrawalPage = ({
@@ -24,15 +30,18 @@ const WithdrawalPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	withdrawalBlockSetting,
 }: IWithdrawalPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
-					<WithdrawalProvider>
+					<WithdrawalProvider withdrawalBlockSetting={withdrawalBlockSetting}>
 						{/* 因為需使用 cryptoWallet 的 hooks ,故需多包此層 */}
-						<CryptoWalletProvider>
-							<Withdrawal />
+						<CryptoWalletProvider
+							withdrawalBlockSetting={withdrawalBlockSetting}
+						>
+							<Withdrawal withdrawalBlockSetting={withdrawalBlockSetting} />
 						</CryptoWalletProvider>
 					</WithdrawalProvider>
 				</Layout>
@@ -43,6 +52,7 @@ const WithdrawalPage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
+	const { currentHeaderCookies } = initialProps
 	const langId = initialProps.originCookies[ENV_COOKIE_NAMES.LangId]
 	const currencyId = Number(
 		initialProps.originCookies[ENV_COOKIE_NAMES.CurrencyId]
@@ -57,8 +67,13 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		}
 	}
 
+	const withdrawalBlockSetting = await getWithdrawalBlockSetting({
+		headers: { cookie: currentHeaderCookies },
+	})
+
 	return {
 		props: {
+			withdrawalBlockSetting,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
