@@ -1,76 +1,58 @@
 import { useTranslation } from 'next-i18next'
 import { useForm } from 'react-hook-form'
-import { InputBox, Form } from '@nx-next-app/components/D0006'
-import { EMAIL_REGEX } from '@nx-next-app/constants'
-import { upperFirst } from 'lodash-es'
+import { Form } from '@nx-next-app/components/D0006'
+import { AREA_CODE, CURRENCY_TO_LANG_KEY } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
 
 type ForgetPasswordFormType = {
-	email: string
+	userName: string
+	phone: string
 }
 interface IForgetPasswordFormProps {
-	loading: boolean
-	onCancel: () => void
 	onSubmit: (value: ForgetPasswordFormType) => void
 }
-const ForgetPasswordForm = ({
-	loading,
-	onCancel,
-	onSubmit,
-}: IForgetPasswordFormProps) => {
+const ForgetPasswordForm = ({ onSubmit }: IForgetPasswordFormProps) => {
+	const {
+		userInfo: { currencyId },
+	} = useAuth()
 	const { t } = useTranslation()
-	const { register, handleSubmit, formState, trigger } =
-		useForm<ForgetPasswordFormType>()
-	const { errors, touchedFields } = formState
+	const { register, handleSubmit } = useForm<ForgetPasswordFormType>()
 
 	return (
 		<div className='joinloginFunction'>
 			<Form onSubmit={handleSubmit(onSubmit)}>
-				<div className='title txt-blue'>{t('Label_Header_ForgetPassword')}</div>
+				<div className='title txt-blue'>{t('Label_ForgetPsw')} !</div>
 				<div className='inputModule'>
-					<InputBox
-						register={register('email', {
-							required: {
-								value: true,
-								message: t('Label_Join_MailWrongFormat'),
-							},
-							pattern: {
-								value: EMAIL_REGEX,
-								message: t('Label_Join_MailWrongFormat'),
-							},
-							onBlur: async () => {
-								await trigger('email')
-							},
-						})}
-						loading={loading}
-						icon='txt-blue icon-email'
-						title={t('Label_General_Email') || ''}
-						touched={!!touchedFields['email']}
-						infoMessage={
-							t('Label_General_ResetPasswordMsg', {
-								site: upperFirst(process.env['NEXT_PUBLIC_SITE_NAME'] || ''),
-							}) || ''
-						}
-						errorMessage={errors['email']?.message as string}
-						error={!!errors['email']}
-					/>
+					<div className='inputBox-blue'>
+						<input
+							{...register('userName')}
+							placeholder={t('Label_General_Username') as string}
+						/>
+					</div>
+
+					<div className='phone'>
+						<div className='inputBox-blue'>
+							<i className='icon icon-phone txt-blue' />
+							<input
+								value={
+									AREA_CODE[CURRENCY_TO_LANG_KEY[currencyId].toUpperCase()]
+										.AreaCode
+								}
+								readOnly
+							/>
+						</div>
+						<div className='inputBox-blue'>
+							<input
+								{...register('phone')}
+								placeholder={t('Label_General_Phone') as string}
+							/>
+						</div>
+					</div>
+
+					<div className='tip active'>{t('Label_ForgetPsw_Tip')}</div>
 				</div>
 				<div className='btnGroup'>
-					<button
-						className='gray'
-						onClick={() => {
-							onCancel()
-						}}
-						type='button'
-					>
-						{t('Label_General_Cancel')}
-					</button>
-					<button
-						className='orange'
-						onClick={handleSubmit(onSubmit)}
-						type='submit'
-					>
-						{t('Label_General_Submit')}
-					</button>
+					<button className='orange'>{t('Label_Get_OTP')}</button>
 				</div>
 			</Form>
 		</div>
