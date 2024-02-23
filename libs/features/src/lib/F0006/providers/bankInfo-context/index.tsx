@@ -7,9 +7,11 @@ import {
 	useSetLocalBankInfoMutation,
 	useDeleteBankCardMutation,
 	IBankInfoSysData,
+	IWithdrawalSetting,
 } from '@nx-next-app/service'
 import { DeviceTypeEnum } from '@nx-next-app/types'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useWalletAllowed } from '@nx-next-app/features/F0006/hooks'
 
 type ISelBank = {
 	sysId: number
@@ -43,10 +45,16 @@ interface IBankInfoContext {
 		ifscCode?: string
 		accountNo: string
 	}) => void
+	cardAllowed: {
+		bankCardAllowed: boolean
+		eWalletCardAllowed: boolean
+		cryptoCardAllowed: boolean
+	}
 }
 
 interface IBankInfoProviderProps {
 	children: ReactNode
+	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
 const BankInfoContext = createContext<IBankInfoContext>(
@@ -56,7 +64,10 @@ const BankInfoContext = createContext<IBankInfoContext>(
 
 export const useBankInfo = () => useContext(BankInfoContext)
 
-export const BankInfoProvider = ({ children }: IBankInfoProviderProps) => {
+export const BankInfoProvider = ({
+	children,
+	withdrawalBlockSetting,
+}: IBankInfoProviderProps) => {
 	const { t } = useTranslation()
 
 	const { modal } = useGlobalModal()
@@ -94,7 +105,7 @@ export const BankInfoProvider = ({ children }: IBankInfoProviderProps) => {
 				sysId: sysId ?? (selBank?.sysId as number),
 				accountName: custBankInfo?.accountName as string,
 				IFSCCode: ifscCode,
-			})
+			}).unwrap()
 
 			Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DeviceTypeEnum.Desktop
 				? setStep(1)
@@ -135,6 +146,8 @@ export const BankInfoProvider = ({ children }: IBankInfoProviderProps) => {
 
 	const { bankInfoDetail = [] } = custBankInfo ?? {}
 
+	const { cardAllowed } = useWalletAllowed({ withdrawalBlockSetting })
+
 	const loading =
 		isGetCustBankInfoFetching ||
 		isGetBankInfoSysListFetching ||
@@ -148,6 +161,7 @@ export const BankInfoProvider = ({ children }: IBankInfoProviderProps) => {
 		isShowCards,
 		bankInfoDetail,
 		bankInfoSysList,
+		cardAllowed,
 		setStep,
 		setSelBank,
 		setIsShowCards,

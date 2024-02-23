@@ -1,6 +1,10 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import {
+	AuthProvider,
+	getWithdrawalBlockSetting,
+	GlobalDataProvider,
+} from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Layout, LeftMenu, BankInfo } from '@nx-next-app/features/F0006/desktop'
 import { BankInfoProvider } from '@nx-next-app/features/F0006/providers'
@@ -11,28 +15,31 @@ import {
 import { FOOTER_DATA } from '@nx-next-app/site/yashbet'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IFooterData } from '@nx-next-app/types'
+import { IWithdrawalSetting } from '@nx-next-app/service'
 
 interface IBankInfoPage extends InitialPropsInterface {
 	persistFooterData: IFooterData
+	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
 const BankInfoPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	withdrawalBlockSetting,
 	persistFooterData,
 }: IBankInfoPage) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
-				<BankInfoProvider>
+				<BankInfoProvider withdrawalBlockSetting={withdrawalBlockSetting}>
 					<Layout
 						persistSEOData={persistSEOData}
 						footerData={persistFooterData}
 					>
 						<main>
 							<section className='inside'>
-								<LeftMenu />
+								<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 								<BankInfo />
 							</section>
 						</main>
@@ -45,7 +52,7 @@ const BankInfoPage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
-	const { originCookies } = initialProps
+	const { originCookies, currentHeaderCookies } = initialProps
 	const { langId, currencyId } = {
 		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
@@ -60,8 +67,13 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		}
 	}
 
+	const withdrawalBlockSetting = await getWithdrawalBlockSetting({
+		headers: { cookie: currentHeaderCookies },
+	})
+
 	return {
 		props: {
+			withdrawalBlockSetting,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
