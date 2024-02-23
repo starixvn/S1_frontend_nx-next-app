@@ -42,6 +42,7 @@ const WithdrawalHeader = () => {
 					{
 						href: paths.withdrawal.root,
 						label: t('Label_General_Withdrawal'),
+						subPaths: bankCardTags.map(({ href }) => href),
 					},
 					{
 						href: paths.withdrawalHistory.root,
