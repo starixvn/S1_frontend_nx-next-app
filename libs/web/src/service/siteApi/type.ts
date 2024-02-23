@@ -123,3 +123,15 @@ export interface IVipBannerData {
 	lastUpdateTime: string
 	vipBannerData: VipBannerInfo[]
 }
+
+export interface IResetPwdByOTPArgs {
+	userName: string
+	areaCode: string
+	phoneNo: string
+}
+
+export interface IResetPwdVerifyOTPArgs {
+	userName: string
+	inputOTPcode: string
+	newPassword: string
+}
