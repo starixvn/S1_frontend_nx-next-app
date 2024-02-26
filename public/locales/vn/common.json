@@ -87,6 +87,7 @@
   "Label_DepositType8": "Ví tiền ảo",
   "Label_DepositType9": "Quick Transfer",
   "Label_Deposit_5Mins": "5 phút",
+  "Label_Deposit_AdditionalInfo": "",
   "Label_Deposit_AutoDeposit": "Nạp tiền tự động",
   "Label_Deposit_BankAccountDescription": "Chuyển tiền đến tài khoản.",
   "Label_Deposit_BankTransfer": "Ngân hàng trong nước",

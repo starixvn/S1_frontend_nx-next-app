@@ -87,6 +87,7 @@
   "Label_DepositType8": "Dompet Crypto",
   "Label_DepositType9": "",
   "Label_Deposit_5Mins": "5 menit",
+  "Label_Deposit_AdditionalInfo": "",
   "Label_Deposit_AutoDeposit": "Deposit Otomatis",
   "Label_Deposit_BankAccountDescription": "Silakan Transfer Jumlah dana ke akun",
   "Label_Deposit_BankTransfer": "Bank Lokal",
