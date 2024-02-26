@@ -81,8 +81,9 @@ const LayoutFooter = () => {
 			</footer>
 
 			<div
-				className={classNames('walletMenu five-style', {
+				className={classNames('walletMenu', {
 					active: isWalletActive,
+					'five-style': includes(ALLOWED_CURRENCIES.TRANSFER, currencyId),
 				})}
 			>
 				<div className='walletModule'>

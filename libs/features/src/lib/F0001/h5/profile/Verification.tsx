@@ -4,7 +4,8 @@ import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import Image from 'next/future/image'
 import { CurrenciesEnum } from '@nx-next-app/types'
-import { numberFormat, getSafetyLv } from '@nx-next-app/utils'
+import { numberFormat } from '@nx-next-app/utils'
+import { getSafetyLv } from '@nx-next-app/site/nova88'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 
 const Verification = () => {

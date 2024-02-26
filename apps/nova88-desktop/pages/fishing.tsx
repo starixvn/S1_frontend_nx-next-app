@@ -34,10 +34,12 @@ const FishingPage = ({
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
 	const { originCookies } = initialProps
+
 	const { langId, currencyId } = {
 		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
+
 	return {
 		props: {
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),

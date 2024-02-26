@@ -41,7 +41,7 @@ const WithdrawalPage = ({
 						<CryptoWalletProvider
 							withdrawalBlockSetting={withdrawalBlockSetting}
 						>
-							<Withdrawal />
+							<Withdrawal withdrawalBlockSetting={withdrawalBlockSetting} />
 						</CryptoWalletProvider>
 					</WithdrawalProvider>
 				</Layout>
