@@ -127,7 +127,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip6.png`,
-		displayKey: 'Label_Yashbet_Club',
+		displayKey: 'Label_Highest_Club',
 		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-nova.png`,
 		levelTabsName: 'nova',
 		level: VipLevelEnum.Highest,
