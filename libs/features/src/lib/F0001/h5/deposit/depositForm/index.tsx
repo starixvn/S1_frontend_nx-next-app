@@ -48,7 +48,11 @@ const DepositForm = () => {
 
 						if (!paymentOption) return null
 
-						const { labelDisplayKey, timeDisplayKey, icon } = paymentOption
+						const {
+							icon,
+							labelDisplayKey,
+							// timeDisplayKey
+						} = paymentOption
 
 						return (
 							<DepositModule.SubModuleButton
@@ -67,9 +71,14 @@ const DepositForm = () => {
 									}
 								}}
 							>
-								<div>
+								{/* 
+								// * 處理時間區塊
+								// * 隱藏簡化畫面，未來有可能再打開
+								*/}
+								<div />
+								{/* <div>
 									{t('Label_General_CreditTime')} ： {t(timeDisplayKey)}
-								</div>
+								</div> */}
 							</DepositModule.SubModuleButton>
 						)
 					})}
