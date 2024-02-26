@@ -67,7 +67,8 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{dataSource.map(item => {
 						const { channelName, channelId, minAmount, maxAmount } = item
-
+						const min = numberFormat(minAmount, currencyId, 0, false)
+						const max = numberFormat(maxAmount, currencyId, 0, false)
 						return (
 							<DepositModule.SubModuleButton
 								label={channelName}
@@ -75,14 +76,7 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 								matchValue={String(channelId)}
 								key={channelName}
 							>
-								<div>
-									{t('Label_General_Min')}：
-									{numberFormat(minAmount, currencyId, 0)}
-								</div>
-								<div>
-									{t('Label_General_Min')}：
-									{numberFormat(maxAmount, currencyId, 0)}
-								</div>
+								<div>{`${min} ~ ${max}`}</div>
 							</DepositModule.SubModuleButton>
 						)
 					})}
@@ -98,7 +92,8 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 					<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 						{supportBanks.map(item => {
 							const { sysId, bankName, minAmount, maxAmount } = item
-
+							const min = numberFormat(minAmount, currencyId, 0, false)
+							const max = numberFormat(maxAmount, currencyId, 0, false)
 							return (
 								<DepositModule.SubModuleButton
 									label={bankName}
@@ -106,14 +101,7 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 									matchValue={String(sysId)}
 									key={sysId}
 								>
-									<div>
-										{t('Label_General_Min')}：
-										{numberFormat(minAmount, currencyId, 0)}
-									</div>
-									<div>
-										{t('Label_General_Min')}：
-										{numberFormat(maxAmount, currencyId, 0)}
-									</div>
+									<div>{`${min} ~ ${max}`}</div>
 								</DepositModule.SubModuleButton>
 							)
 						})}

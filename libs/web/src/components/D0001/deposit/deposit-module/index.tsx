@@ -1,5 +1,8 @@
 import classNames from 'classnames'
 import { ReactNode } from 'react'
+import { useTranslation } from 'next-i18next'
+import { isConvert } from '@nx-next-app/utils'
+import { useAuth } from '@nx-next-app/data-access'
 import DepositBankAccount from './DepositBankAccount'
 import DepositBankSlipButton from './DepositBankSlipButton'
 import DepositShortcutList from './DepositShortcutList'
@@ -23,12 +26,18 @@ const DepositModule = ({
 	required = false,
 	className = '',
 }: IDepositModuleProps) => {
+	const { t } = useTranslation()
+	const {
+		userInfo: { currencyId },
+	} = useAuth()
 	return (
 		<>
 			<div className='subModuleTitle'>
 				{required && <i className='txt-blue'>*</i>}
-
 				{title}
+				{isConvert(currencyId) && (
+					<div className='info'>{t('Label_Deposit_AdditionalInfo')}</div>
+				)}
 				{extra}
 			</div>
 			<div
