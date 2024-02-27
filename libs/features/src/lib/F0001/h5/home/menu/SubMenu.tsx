@@ -6,6 +6,13 @@ import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 import { uniqueId } from 'lodash-es'
+import dynamic from 'next/dynamic'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+
+const LiveStreamingModalH5 = dynamic(
+	() => import('@nx-next-app/features/F0001/h5/modal/LiveStreamingModal'),
+	{ ssr: false }
+)
 
 interface ISubMenuProps {
 	menuKey: keyof typeof MenuKeyEnum | ''
@@ -14,6 +21,7 @@ interface ISubMenuProps {
 const SubMenu = ({ menuKey }: ISubMenuProps) => {
 	const { t } = useTranslation()
 	const { push } = useRouter()
+	const { modal } = useGlobalModal()
 	const { menuData, onMenuOpen } = useMenu()
 
 	const renderSubMenu = (key: string) => {
@@ -55,6 +63,8 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 										push(paths.login.root)
 									},
 									messageCallBack: message => null,
+									liveStreamingCallback: () =>
+										modal.open(<LiveStreamingModalH5 />),
 								})
 							}}
 						>

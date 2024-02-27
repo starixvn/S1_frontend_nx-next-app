@@ -27,6 +27,7 @@ import {
 	IGetReferralArgs,
 	IReferralData,
 	IWalletInfoData,
+	ITpGameTypeData,
 } from './type'
 
 export const accountApiUrl = {
@@ -58,6 +59,7 @@ export const accountApiUrl = {
 	setWalletTransferStatus: 'Account/SetWalletTransferStatus',
 	getCustVIPProgress: 'Account/GetCustVIPProgress',
 	getWalletInfo: 'Account/GetWalletInfo',
+	getCustTpGameTypeSetting: 'Account/GetCustTpGameTypeSetting',
 }
 
 const accountApi = rootApi.injectEndpoints({
@@ -321,6 +323,15 @@ const accountApi = rootApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
+		getCustTpGameTypeSetting: builder.query<
+			IAxiosResponse<ITpGameTypeData[]>,
+			null
+		>({
+			query: () => ({
+				url: accountApiUrl.getCustTpGameTypeSetting,
+				method: 'POST',
+			}),
+		}),
 	}),
 })
 
@@ -355,4 +366,5 @@ export const {
 	useSetWalletTransferStatusMutation,
 	useGetCustVIPProgressQuery,
 	useLazyGetWalletInfoQuery,
+	useGetCustTpGameTypeSettingQuery,
 } = accountApi

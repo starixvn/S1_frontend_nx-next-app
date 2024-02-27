@@ -36,6 +36,7 @@ import {
 } from 'lodash-es'
 import { getIsTpMaintain } from '@nx-next-app/utils'
 import { BannerTypeEnum } from '@nx-next-app/types'
+import { CategoryEnum } from '@nx-next-app/features/F0001/types'
 
 interface ISlotsProviderProps {
 	children: ReactNode
@@ -144,7 +145,7 @@ const SlotsProvider = ({
 	} = useRouter()
 	const { modal } = useGlobalModal()
 	const { onEnterSlotsPage } = useMenu()
-	const { tpMaintainList } = useGlobalData()
+	const { tpMaintainList, custGameTypeSettingList } = useGlobalData()
 	const isFirstRender = useIsFirstRender()
 	const { ref: gameListRef, isInView: isGameListInView } = useInView({})
 	const { ref: navRef, isInView: isNavInView } = useInView({
@@ -381,7 +382,24 @@ const SlotsProvider = ({
 				prev => `${prev}${myFavorites && result ? '&' : ''}${result}`
 			)
 
-			const targetIndex = findIndex(vendorList, { tpId: Number(queryTpId) })
+			// 篩選直播主vendorList
+			let tempVendorList = vendorList
+			if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
+				const uniqueTpIds = Array.from(
+					new Set(
+						custGameTypeSettingList
+							.filter(item => item.categoryId === CategoryEnum.SLOTS)
+							.map(item => item.tpId)
+					)
+				)
+				tempVendorList = vendorList.filter(
+					({ tpId }) => !uniqueTpIds.includes(tpId)
+				)
+			}
+
+			const targetIndex = findIndex(tempVendorList, {
+				tpId: Number(queryTpId),
+			})
 
 			if (targetIndex !== -1) {
 				if (
@@ -393,19 +411,23 @@ const SlotsProvider = ({
 					} else {
 						setIsActiveDropdown(false)
 					}
+					setVendorList(tempVendorList)
 				}
+
 				if (
 					Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Mobile
 				) {
 					// * 將 queryTpId 找到的 vendor slice 到第一個選項並 selected
 					const newVendorList = [
-						...vendorList.slice(targetIndex),
-						...vendorList.slice(0, targetIndex),
+						...tempVendorList.slice(targetIndex),
+						...tempVendorList.slice(0, targetIndex),
 					]
 					setVendorList(newVendorList)
 				}
 
-				setActiveVendorTpId(vendorList[targetIndex].tpId)
+				setActiveVendorTpId(tempVendorList[targetIndex].tpId)
+			} else {
+				setVendorList(tempVendorList)
 			}
 		}
 	}, [isFirstRender])
@@ -455,11 +477,23 @@ const SlotsProvider = ({
 					}
 				})
 			})
-		const originGameList =
+		let originGameList =
 			activeCategoryKey === 'myFavorite'
 				? removeDuplicates(resultList)
 				: ((persistSlotsCategoryData[activeCategoryKey] || []) as IGameData[])
 
+		if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
+			const uniqueTpIds = Array.from(
+				new Set(
+					custGameTypeSettingList
+						.filter(item => item.categoryId === CategoryEnum.SLOTS)
+						.map(item => item.tpId)
+				)
+			)
+			originGameList = originGameList.filter(
+				({ tpId }) => !uniqueTpIds.includes(tpId)
+			)
+		}
 		// * 過濾當前 tpId 與 searchCategoryText
 		const filteredGameList = originGameList
 			.filter(({ tpId, gameName }) => {
