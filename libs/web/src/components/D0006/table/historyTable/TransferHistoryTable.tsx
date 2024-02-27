@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
-import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
-import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
+import Table, { ITableColumns } from '@nx-next-app/components/D0006/table/Table'
+import SpinButton from '@nx-next-app/components/D0006/button/SpinButton'
 import { ITransferHistoryData } from '@nx-next-app/service'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import { numberFormat, transferDirection } from '@nx-next-app/utils'
