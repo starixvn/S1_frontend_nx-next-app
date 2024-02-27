@@ -10,15 +10,15 @@ import {
 	ITransferHistoryData,
 	IWithdrawalInfoHistoryData,
 } from '@nx-next-app/service'
-import DepositHistoryTable from '@nx-next-app/components/D0001/table/historyTable/DepositHistoryTable'
-import WithdrawalHistoryTable from '@nx-next-app/components/D0001/table/historyTable/WithdrawalHistoryTable'
-import TransferHistoryTable from '@nx-next-app/components/D0001/table/historyTable/TransferHistoryTable'
-import FinancialHistoryTable from '@nx-next-app/components/D0001/table/historyTable/FinancialHistoryTable'
-import ReferralHistoryTable from '@nx-next-app/components/D0001/table/historyTable/ReferralHistoryTable'
-import DateRangeStatementTable from '@nx-next-app/components/D0001/table/statementTable/DateRangeStatementTable'
-import ByDayStatementTable from '@nx-next-app/components/D0001/table/statementTable/ByDayStatementTable'
-import ByCategoryStatementTable from '@nx-next-app/components/D0001/table/statementTable/ByCategoryStatementTable'
-import ByDetailStatementTable from '@nx-next-app/components/D0001/table/statementTable/ByDetailStatementTable'
+import DepositHistoryTable from '@nx-next-app/components/D0006/table/historyTable/DepositHistoryTable'
+import WithdrawalHistoryTable from '@nx-next-app/components/D0006/table/historyTable/WithdrawalHistoryTable'
+import TransferHistoryTable from '@nx-next-app/components/D0006/table/historyTable/TransferHistoryTable'
+import FinancialHistoryTable from '@nx-next-app/components/D0006/table/historyTable/FinancialHistoryTable'
+import ReferralHistoryTable from '@nx-next-app/components/D0006/table/historyTable/ReferralHistoryTable'
+import DateRangeStatementTable from '@nx-next-app/components/D0006/table/statementTable/DateRangeStatementTable'
+import ByDayStatementTable from '@nx-next-app/components/D0006/table/statementTable/ByDayStatementTable'
+import ByCategoryStatementTable from '@nx-next-app/components/D0006/table/statementTable/ByCategoryStatementTable'
+import ByDetailStatementTable from '@nx-next-app/components/D0006/table/statementTable/ByDetailStatementTable'
 
 const useTable = <T,>({
 	dataSource,

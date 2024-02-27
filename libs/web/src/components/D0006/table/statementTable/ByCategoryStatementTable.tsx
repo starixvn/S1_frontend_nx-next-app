@@ -5,8 +5,8 @@ import { useAuth } from '@nx-next-app/data-access'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import dayjs from 'dayjs'
 import { numberFormat } from '@nx-next-app/utils'
-import { Table } from '@nx-next-app/components/D0001/table'
-import { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
+import { Table } from '@nx-next-app/components/D0006/table'
+import { ITableColumns } from '@nx-next-app/components/D0006/table/Table'
 
 const ByCategoryStatementTable = ({
 	dataSource,
