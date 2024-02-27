@@ -153,7 +153,8 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{dataSource.map(item => {
 						const { groupName, minAmount, maxAmount } = item
-
+						const min = numberFormat(minAmount, currencyId, 0, false)
+						const max = numberFormat(maxAmount, currencyId, 0, false)
 						return (
 							<DepositModule.SubModuleButton
 								label={groupName}
@@ -161,14 +162,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 								matchValue={groupName}
 								key={groupName}
 							>
-								<div>
-									{t('Label_General_Min')}：
-									{numberFormat(minAmount, currencyId, 0)}
-								</div>
-								<div>
-									{t('Label_General_Min')}：
-									{numberFormat(maxAmount, currencyId, 0)}
-								</div>
+								<div>{`${min} ~ ${max}`}</div>
 							</DepositModule.SubModuleButton>
 						)
 					})}
@@ -179,7 +173,8 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{channelMobilePayList.map(item => {
 						const { channelId, channelName, minAmount, maxAmount } = item
-
+						const min = numberFormat(minAmount, currencyId, 0, false)
+						const max = numberFormat(maxAmount, currencyId, 0, false)
 						return (
 							<DepositModule.SubModuleButton
 								label={channelName}
@@ -187,14 +182,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 								matchValue={String(channelId)}
 								key={channelId}
 							>
-								<div>
-									{t('Label_General_Min')}：
-									{numberFormat(minAmount, currencyId, 0)}
-								</div>
-								<div>
-									{t('Label_General_Min')}：
-									{numberFormat(maxAmount, currencyId, 0)}
-								</div>
+								<div>{`${min} ~ ${max}`}</div>
 							</DepositModule.SubModuleButton>
 						)
 					})}

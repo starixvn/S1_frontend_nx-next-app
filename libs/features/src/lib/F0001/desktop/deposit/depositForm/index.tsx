@@ -56,8 +56,16 @@ const DepositForm = () => {
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentType'>
 					{Object.keys(payments).map(key => {
-						const { labelDisplayKey, timeDisplayKey, icon } =
-							DEPOSIT_PAYMENT_OPTIONS[key as DepositPaymentEnum] || {}
+						const paymentOption =
+							DEPOSIT_PAYMENT_OPTIONS[key as DepositPaymentEnum]
+
+						if (!paymentOption) return null
+
+						const {
+							icon,
+							labelDisplayKey,
+							// timeDisplayKey
+						} = paymentOption
 
 						return (
 							<DepositModule.SubModuleButton
@@ -85,9 +93,12 @@ const DepositForm = () => {
 									}
 								}}
 							>
-								<div>
-									{t('Label_General_CreditTime')} ： {t(timeDisplayKey || '')}
-								</div>
+								{/* // * 處理時間區塊 */}
+								{/* // *  隱藏簡化畫面，未來有可能再打開 */}
+								{/* <div>
+									{t('Label_General_CreditTime')} ： {t(timeDisplayKey)}
+								</div> */}
+								<div />
 							</DepositModule.SubModuleButton>
 						)
 					})}
