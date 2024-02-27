@@ -86,7 +86,7 @@ export const useServerSideInitialPropsFetcher = async (
 		// * 判斷是否為為直播主帳號，直播主只允許進入home與slots頁面
 		originIsSignIn &&
 		!includes(
-			[paths.home.root, paths.slots.root],
+			[paths.home.root, paths.slots.root, paths.setting.root],
 			String(context.resolvedUrl.split('?')[0])
 		)
 	) {
