@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react'
 import classNames from 'classnames'
-import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { useSlots } from '@nx-next-app/features/F0001/providers'
@@ -69,12 +68,7 @@ const GameList = () => {
 										})
 									}
 								>
-									<Image
-										src={resultImgUrl}
-										alt={resultGameName}
-										width={300}
-										height={300}
-									/>
+									<img src={resultImgUrl} alt={resultGameName} />
 								</button>
 								<span>{resultGameImgDisplayText}</span>
 								{isMaintain && (

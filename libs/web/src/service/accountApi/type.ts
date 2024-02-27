@@ -264,3 +264,11 @@ export interface IWalletInfoData {
 	lastTransaction: string
 	tpWallets: ITpWalletInfoData[]
 }
+
+export interface ITpGameTypeData {
+	categoryId: number
+	tpId: number
+	gameType: number
+	noShow: boolean
+	noPlay: boolean
+}

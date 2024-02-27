@@ -1903,7 +1903,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'gamemp.png',
+							bgImg: 'mp.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -1914,7 +1914,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '4.0/dropdown/games/amb.png',
+						img: '4.0/dropdown/games/am.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
@@ -1926,7 +1926,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'gameamb.png',
+							bgImg: 'am.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
