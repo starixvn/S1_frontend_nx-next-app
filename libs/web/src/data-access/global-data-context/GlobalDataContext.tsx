@@ -4,12 +4,16 @@ import {
 	useGetTpMaintainListQuery,
 	TpMaintainData,
 	useGetProductTpIdsQuery,
+	useGetCustTpGameTypeSettingQuery,
+	UserInfoMemberType,
+	ITpGameTypeData,
 } from '../../service'
 import { useAuth } from '../auth-context'
 
 interface IGlobalDataContext {
 	tpMaintainList: TpMaintainData[]
 	productTpIds?: number[]
+	custGameTypeSettingList?: ITpGameTypeData[]
 }
 
 const GlobalDataContext = createContext<IGlobalDataContext>(null!)
@@ -21,8 +25,8 @@ interface IGlobalDataProviderProps {
 const GlobalDataProvider = ({ children }: IGlobalDataProviderProps) => {
 	const {
 		auth: { isLogin },
+		userInfo: { memberType },
 	} = useAuth()
-
 	const { data: { data: tpMaintainList = [] } = {} } =
 		useGetTpMaintainListQuery(
 			isLogin // * 登入或登出時重打 api
@@ -33,9 +37,15 @@ const GlobalDataProvider = ({ children }: IGlobalDataProviderProps) => {
 		skip: !isLogin,
 	})
 
+	const { data: { data: custGameTypeSettingList = [] } = {} } =
+		useGetCustTpGameTypeSettingQuery(null, {
+			skip: !isLogin || memberType !== UserInfoMemberType.LiveStreaming,
+		})
+
 	const value: IGlobalDataContext = {
 		tpMaintainList,
 		productTpIds,
+		custGameTypeSettingList,
 	}
 	return (
 		<GlobalDataContext.Provider value={value}>
