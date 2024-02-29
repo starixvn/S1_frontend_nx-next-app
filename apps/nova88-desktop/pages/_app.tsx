@@ -4,7 +4,6 @@ import { store } from '@nx-next-app/store'
 import { appWithTranslation } from 'next-i18next'
 import { UIProvider } from '@nx-next-app/components/config-provider'
 import { StaticDataProvider } from '@nx-next-app/data-access'
-import NextNProgress from 'nextjs-progressbar'
 
 // * supply localized format options
 // * https://day.js.org/docs/en/plugin/localized-format
@@ -52,7 +51,6 @@ const {
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
-			<NextNProgress color='#ff7600' />
 			<Provider store={store}>
 				{/* 提供 Component 狀態管理 */}
 				<UIProvider>
