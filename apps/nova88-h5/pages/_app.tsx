@@ -35,6 +35,7 @@ import '../styles/css/font.css'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
 import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
+import NextNProgress from 'nextjs-progressbar'
 
 dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
@@ -53,6 +54,7 @@ const {
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
+			<NextNProgress color='#5574A7' />
 			<Provider store={store}>
 				<UIProvider>
 					<StaticDataProvider

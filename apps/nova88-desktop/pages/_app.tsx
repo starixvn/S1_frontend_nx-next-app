@@ -52,7 +52,7 @@ const {
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
-			<NextNProgress color='#ff7600' />
+			<NextNProgress color='#5574A7' />
 			<Provider store={store}>
 				{/* 提供 Component 狀態管理 */}
 				<UIProvider>
