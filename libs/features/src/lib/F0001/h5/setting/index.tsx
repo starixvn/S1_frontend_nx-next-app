@@ -3,17 +3,12 @@ import Link from 'next/link'
 import Image from 'next/future/image'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { IWithdrawalSetting } from '@nx-next-app/service'
 import { useRouter } from 'next/router'
 import List from './List'
 import Profile from './Profile'
 import Shortcut from './Shortcut'
 
-interface ISettingPageProps {
-	withdrawalBlockSetting: IWithdrawalSetting[]
-}
-
-const Setting = ({ withdrawalBlockSetting }: ISettingPageProps) => {
+const Setting = () => {
 	const { push } = useRouter()
 	const {
 		auth: { isLogin },
@@ -22,7 +17,7 @@ const Setting = ({ withdrawalBlockSetting }: ISettingPageProps) => {
 	return (
 		<main className={classNames('menu', { after: isLogin })}>
 			{isLogin ? (
-				<Profile withdrawalBlockSetting={withdrawalBlockSetting} />
+				<Profile />
 			) : (
 				<>
 					<button className='close-btn' onClick={() => push(paths.home.root)}>
