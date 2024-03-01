@@ -188,24 +188,6 @@ export const MENU_DATA = ({
 			subMenu: [
 				{
 					h5: {
-						img: '4.0/dropdown/sports/cryptosportNPC.png',
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					desktop: {
-						headerMenuImgList: [
-							{
-								className: 'List-npc',
-								imgUrl: 'cryptosportNPC.png',
-							},
-						],
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					productKey: 'SPORTS_CRYPTO_SPORTS',
-					displayKey: 'Label_General_CryptoSports',
-					product: PRODUCTS['SPORTS_CRYPTO_SPORTS'],
-				},
-				{
-					h5: {
 						img: '4.0/dropdown/sports/soccerNPC.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -350,7 +332,6 @@ export const MENU_DATA = ({
 			],
 			subMenuSort: {
 				[INR]: [
-					'SPORTS_CRYPTO_SPORTS',
 					'SPORTS_CRICKET',
 					'SPORTS_SOCCER',
 					'SPORTS_SABA_SOCCER',
@@ -359,7 +340,6 @@ export const MENU_DATA = ({
 					'VIRTUAL_SPORTS',
 				],
 				[BDT]: [
-					'SPORTS_CRYPTO_SPORTS',
 					'SPORTS_CRICKET',
 					'SPORTS_SOCCER',
 					'SPORTS_SABA_SOCCER',
@@ -870,29 +850,6 @@ export const MENU_DATA = ({
 					displayText: 'Playtech',
 					product: PRODUCTS['LIVE_CASINO_PT'],
 					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_PT'],
-				},
-				{
-					h5: {
-						img: '4.0/dropdown/casino/casino-n2.png',
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					desktop: {
-						className: 'casino_N2LIVE',
-						headerMenuImgList: [
-							{
-								className: 'List-npc',
-								imgUrl: 'casino-n2.png',
-							},
-						],
-						lobbyPage: {
-							bgImg: 'casino-n2.png',
-						},
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					productKey: 'LIVE_CASINO_N2',
-					displayText: 'n2-LIVE',
-					product: PRODUCTS['LIVE_CASINO_N2'],
-					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_N2'],
 				},
 				{
 					h5: {
