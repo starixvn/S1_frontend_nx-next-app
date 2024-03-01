@@ -519,6 +519,11 @@ export const PRODUCTS = {
 		TP_ID: 11,
 		TP_GAME_TYPE: 52,
 	},
+	GAMES_93_CONNECT: {
+		TP_ID: 62,
+		GAME_ID: 'LOBBY',
+		TP_GAME_TYPE: 114,
+	},
 	GAMES_V8_POKER: {
 		TP_ID: 25,
 		TP_GAME_TYPE: 47,

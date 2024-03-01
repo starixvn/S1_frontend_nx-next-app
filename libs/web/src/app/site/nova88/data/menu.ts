@@ -65,6 +65,10 @@ const PRODUCT_EVENT_PERIOD: {
 		start: null,
 		end: '2023/12/31 23:59:59',
 	},
+	GAMES_93_CONNECT: {
+		start: null,
+		end: '2024/12/31 23:59:59',
+	},
 }
 
 const { MYR, INR, IDR, BDT, THB } = CurrenciesEnum
@@ -1978,6 +1982,35 @@ export const MENU_DATA = ({
 					productKey: 'GAMES_POKER_KINGMAKER',
 					displayText: 'King Maker',
 					product: PRODUCTS['GAMES_POKER_KINGMAKER'],
+				},
+				{
+					h5: {
+						img: '4.0/dropdown/games/93connect.png',
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: '93connect.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: '93connect.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'GAMES_93_CONNECT',
+					displayText: '93 Connect',
+					product: PRODUCTS['GAMES_93_CONNECT'],
+					eventIcons: [
+						{
+							icon: 'new-icon',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['GAMES_93_CONNECT'],
+						},
+					],
 				},
 				{
 					h5: {
