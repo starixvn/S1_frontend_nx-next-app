@@ -33,7 +33,7 @@ export const ActivatorScript = () => (
 	<Script
 		async
 		defer
-		src='//scqa2.detecas.com/activator.ashx'
+		src='//sc.detecas.com/di/activator.ashx'
 		type='text/javascript'
 	/>
 )

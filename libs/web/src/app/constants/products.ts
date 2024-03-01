@@ -194,10 +194,11 @@ export const PRODUCTS = {
 		GAME_ID: 208,
 		TP_GAME_TYPE: 4,
 	},
+	// 新的 Slot PlayTech (Seamless Wallet)
 	SLOTS_PT: {
-		TP_ID: 27,
-		GAME_ID: 0,
-		TP_GAME_TYPE: 46,
+		TP_ID: 51,
+		GAME_ID: '0',
+		TP_GAME_TYPE: 100,
 		GAME_TYPE: 'slots',
 	},
 	SLOTS_MGPSW: {
@@ -303,10 +304,11 @@ export const PRODUCTS = {
 		TP_ID: 28,
 		TP_GAME_TYPE: 45,
 	},
+	// 新的 casino PlayTech (Seamless Wallet)
 	LIVE_CASINO_PT: {
 		GAME_ID: '0',
-		TP_ID: 27,
-		TP_GAME_TYPE: 48,
+		TP_ID: 51,
+		TP_GAME_TYPE: 101,
 		GAME_TYPE: 'slots',
 	},
 	LIVE_CASINO_EVO: {
@@ -516,6 +518,11 @@ export const PRODUCTS = {
 	GAMES_POKER_KINGMAKER: {
 		TP_ID: 11,
 		TP_GAME_TYPE: 52,
+	},
+	GAMES_MAX_GAME: {
+		TP_ID: 61,
+		TP_GAME_TYPE: 113,
+		GAME_ID: 0,
 	},
 	GAMES_V8_POKER: {
 		TP_ID: 25,
