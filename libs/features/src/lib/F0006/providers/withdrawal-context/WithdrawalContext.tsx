@@ -8,7 +8,7 @@ import {
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
-import { find, head, includes, isUndefined } from 'lodash-es'
+import { find, head, isUndefined } from 'lodash-es'
 import {
 	IAxiosError,
 	IBankInfoData,
@@ -20,6 +20,8 @@ import {
 	IWithdrawalAvailableBalanceData,
 	IWithdrawalLimitData,
 	IWithdrawalRecentInfoData,
+	IWithdrawalSetting,
+	IWithdrawalTypeEnum,
 	useGetCustBankInfoQuery,
 	useGetCustEWalletInfoQuery,
 	useGetWithdrawalAvailableBalanceQuery,
@@ -31,7 +33,7 @@ import {
 	useSubmitWithdrawalMutation,
 	useUploadCustPhotoMutation,
 } from '@nx-next-app/service'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	KycStatusEnum,
@@ -40,7 +42,7 @@ import {
 } from '@nx-next-app/features/F0006/types'
 import { useTranslation } from 'next-i18next'
 import { isConvert, numberFormat } from '@nx-next-app/utils'
-import { CurrenciesEnum, DeviceTypeEnum } from '@nx-next-app/types'
+import { DeviceTypeEnum } from '@nx-next-app/types'
 import { useForm, UseFormReturn } from 'react-hook-form'
 import { useManageCards } from '@nx-next-app/features/F0006/providers/withdrawal-context/useManageCards'
 import { useWithdrawalHistory } from '@nx-next-app/features/F0006/providers/withdrawal-context/useWithdrawalHistory'
@@ -63,6 +65,7 @@ const WithdrawalConfirmModal = dynamic(
 
 interface IWithdrawalProviderProps {
 	children: ReactNode
+	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
 export type ISelectedBankInfo = {
@@ -99,6 +102,7 @@ interface WithdrawalContextInterface {
 	withdrawalAllowed: {
 		bankCardAllowed: boolean
 		eWalletCardAllowed: boolean
+		cryptoCardAllowed: boolean
 	}
 	// 這樣寫是為了表示 api response 本身存在 undefined 而非此資料為 optional
 	withdrawalLimit: IWithdrawalLimitData | undefined
@@ -128,12 +132,14 @@ export const useWithdrawal = () => {
 
 const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
-export const WithdrawalProvider = ({ children }: IWithdrawalProviderProps) => {
+export const WithdrawalProvider = ({
+	children,
+	withdrawalBlockSetting,
+}: IWithdrawalProviderProps) => {
 	const { t } = useTranslation()
 	const { pathname } = useRouter()
 	const { modal, closeModal } = useGlobalModal()
 	const { push } = useRouter()
-	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	// 手機使用的，用來監測當前 path 來判斷 withdrawalType , 桌機用不到
 	const withdrawalType = (() => {
@@ -232,18 +238,27 @@ export const WithdrawalProvider = ({ children }: IWithdrawalProviderProps) => {
 	}
 
 	/* <-- 判斷能否使用該出款方式 --> */
-	const bankCardAllowed = includes(
-		ALLOWED_CURRENCIES['BANK_CARD'] as CurrenciesEnum[],
-		currencyId
-	)
+	// withdrawal 邏輯與 wallet 略有差異，故單獨撰寫
+	const bankCardAllowed = !!find(
+		withdrawalBlockSetting,
+		({ type }) => type === IWithdrawalTypeEnum.BankCard
+	)?.status
 
 	const eWalletCardAllowed =
-		includes(ALLOWED_CURRENCIES['E_WALLET'] as CurrenciesEnum[], currencyId) &&
-		!!withdrawalLimit?.eWalletStatus
+		!!find(
+			withdrawalBlockSetting,
+			({ type }) => type === IWithdrawalTypeEnum.EWallet
+		)?.status && !!withdrawalLimit?.eWalletStatus
+
+	const cryptoCardAllowed = !!find(
+		withdrawalBlockSetting,
+		({ type }) => type === IWithdrawalTypeEnum.Crypto
+	)?.status
 
 	const withdrawalAllowed = {
 		bankCardAllowed,
 		eWalletCardAllowed,
+		cryptoCardAllowed,
 	}
 
 	/* <--用戶卡片管理邏輯--> */
@@ -675,8 +690,9 @@ export const WithdrawalProvider = ({ children }: IWithdrawalProviderProps) => {
 		// h5 版本才需要的 effect , 初始化首選 card
 		if (deviceType === DeviceTypeEnum.Mobile && !bankCardLoading) {
 			// localBank 初始化
+			// localBank 改成找第一個沒有 disabled 的選項
 			const initLocalCard = () => {
-				const headItem = head(bankInfoDetail)
+				const headItem = find(bankInfoDetail, item => !item.disabled)
 				if (headItem) {
 					const { bankName, accountNo, sysId, ifscCode } = headItem
 					handleSelectCard({
