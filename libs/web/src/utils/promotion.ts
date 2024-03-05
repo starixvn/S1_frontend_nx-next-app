@@ -1,4 +1,8 @@
-import { PromotionStatusEnum, PromotionTypeEnum } from '@nx-next-app/types'
+import {
+	PromotionFilterEnum,
+	PromotionStatusEnum,
+	PromotionTypeEnum,
+} from '@nx-next-app/types'
 import dayjs from 'dayjs'
 import { floor, includes, multiply } from 'lodash-es'
 import { TFunction } from 'next-i18next'
@@ -16,10 +20,17 @@ import { TFunction } from 'next-i18next'
 export const isPromotionNew = ({
 	canJoin,
 	periodFrom,
+	activeFilterType,
 }: {
 	canJoin: boolean
 	periodFrom: number
-}) => canJoin && dayjs(periodFrom).isAfter(dayjs().subtract(15, 'days').unix())
+	activeFilterType?: number
+}) => {
+	return (
+		!(activeFilterType === PromotionFilterEnum.PromoCode && !canJoin) &&
+		dayjs(periodFrom).isAfter(dayjs().subtract(15, 'days').unix())
+	)
+}
 
 /**
  * @description 回傳此優惠活動是否已申請過

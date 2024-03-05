@@ -19,7 +19,6 @@ import {
 interface IStep1Props {
 	cookies: TmpCookiesObj
 	siteCurrencyList: number[]
-	currencySelectOptions: ISelectProps['options']
 	setStep: (step: number) => void
 	selectCurrency: (newCurrencyId: ISelectProps['value']) => void
 	setCurrencyOptions: (options: ISelectProps['options']) => void
@@ -28,7 +27,6 @@ interface IStep1Props {
 const Step1 = ({
 	cookies,
 	siteCurrencyList,
-	currencySelectOptions,
 	setStep,
 	selectCurrency,
 	setCurrencyOptions,

@@ -43,6 +43,9 @@ const Join = ({ cookies }: IJoinProps) => {
 	} = useAuth()
 
 	const [step, setStep] = useState<number>(1)
+	const [currencyOptions, setCurrencyOptions] = useState<
+		ISelectProps['options']
+	>([])
 
 	const formMethods = useForm()
 	const { setError, setValue, getValues, clearErrors, handleSubmit } =
@@ -267,10 +270,23 @@ const Join = ({ cookies }: IJoinProps) => {
 			<div className='Join'>
 				<FormProvider {...formMethods}>
 					<form onSubmit={handleSubmit(handleSubmitForm)}>
-						{step === 1 && <Step1 cookies={cookies} setStep={setStep} />}
+						{step === 1 && (
+							<Step1
+								cookies={cookies}
+								siteCurrencyList={siteCurrencyList}
+								setStep={setStep}
+								selectCurrency={selectCurrency}
+								setCurrencyOptions={setCurrencyOptions}
+							/>
+						)}
 						{step === 2 && (
 							<Step2
-								currencySelectOptions={currencySelectOptions}
+								// * 如果 Aff Input 有相對應的幣別，則使用 currencyOptions（Aff 過濾的幣別選項）
+								currencySelectOptions={
+									currencyOptions.length === 0
+										? currencySelectOptions
+										: currencyOptions
+								}
 								selectCurrency={selectCurrency}
 							/>
 						)}

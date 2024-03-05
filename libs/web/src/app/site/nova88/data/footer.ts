@@ -86,6 +86,10 @@ export const FOOTER_DATA = ({
 				imgName: 'tc',
 			},
 			{
+				productKey: 'GAMES_POKER_M_POKER',
+				imgName: 'mp',
+			},
+			{
 				productKey: 'SLOTS_RED_TIGER',
 				imgName: 'red',
 			},
@@ -168,6 +172,10 @@ export const FOOTER_DATA = ({
 			{
 				productKey: 'SLOTS_AMIGO',
 				imgName: 'amigo',
+			},
+			{
+				productKey: 'FOUR_D_GRAND_DRAGON',
+				imgName: 'haolong',
 			},
 		],
 		quickLinks: [
