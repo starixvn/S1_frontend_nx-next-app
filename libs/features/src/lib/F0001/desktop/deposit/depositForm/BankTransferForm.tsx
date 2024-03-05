@@ -69,7 +69,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
 	const onOpenBankSlipModal = () => {
-		if (bankAccountInfo?.bankName && bankAccountInfo?.bankSite) {
+		if (bankAccountInfo?.bankName) {
 			modal.open(
 				<DepositBankSlipModal
 					defaultReceipt={watchReceipt}
