@@ -14,14 +14,14 @@ const ReferralDetailModal = ({
 	const { closeModal } = useGlobalModal()
 	const {
 		referralContent,
-		referralReward,
-		invitationLimit,
-		agentDeposit,
-		agentValidBet,
-		memberReward,
-		deposit,
-		vaildBet,
-		periodDays,
+		// referralReward,
+		// invitationLimit,
+		// agentDeposit,
+		// agentValidBet,
+		// memberReward,
+		// deposit,
+		// vaildBet,
+		// periodDays,
 	} = referralSettingDetail ?? {}
 
 	return (
@@ -40,7 +40,7 @@ const ReferralDetailModal = ({
 					<div className='protitle'>{referralContent?.title}</div>
 					<div className='text'>{referralContent?.description}</div>
 
-					<div className='rolloverList'>
+					{/* <div className='rolloverList'>
 						<div>
 							<div>{t('Label_Referral_ReferralReward')}</div>
 							<div>{referralReward}</div>
@@ -57,9 +57,9 @@ const ReferralDetailModal = ({
 							<div>{t('Label_Referral_ValidBetRequirement')}</div>
 							<div>{agentValidBet}</div>
 						</div>
-					</div>
+					</div> */}
 
-					<div className='rolloverList'>
+					{/* <div className='rolloverList'>
 						<div>
 							<div>{t('Label_Referral_ReferredFreeCredit')}</div>
 							<div>{memberReward}</div>
@@ -77,19 +77,19 @@ const ReferralDetailModal = ({
 							<div>
 								{periodDays} {t('Label_General_Days')}
 							</div>
-						</div>
+						</div> */}
 
-						{/* // * 確保資料不是 null 才顯示元件 */}
-						{!!referralContent?.detail && (
-							<div
-								className='text'
-								// eslint-disable-next-line react/no-danger
-								dangerouslySetInnerHTML={{
-									__html: referralContent?.detail,
-								}}
-							/>
-						)}
-					</div>
+					{/* // * 確保資料不是 null 才顯示元件 */}
+					{!!referralContent?.detail && (
+						<div
+							className='text'
+							// eslint-disable-next-line react/no-danger
+							dangerouslySetInnerHTML={{
+								__html: referralContent?.detail,
+							}}
+						/>
+					)}
+					{/* </div> */}
 				</div>
 			</div>
 		</div>
