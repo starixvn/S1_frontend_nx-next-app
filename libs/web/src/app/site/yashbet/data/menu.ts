@@ -2322,7 +2322,7 @@ export const MENU_DATA = ({
 					},
 					productKey: 'SLOTS_AMB',
 					pathname: paths.slots.root,
-					displayText: 'AMBSlot',
+					displayText: 'AskmeSlot',
 					query: {
 						tpId: PRODUCTS['SLOTS_AMB'].TP_ID,
 					},
