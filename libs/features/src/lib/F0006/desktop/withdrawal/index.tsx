@@ -1,5 +1,6 @@
 import { useTranslation } from 'next-i18next'
-import { Loading } from '@nx-next-app/components/D0006'
+import { IWithdrawalSetting } from '@nx-next-app/service'
+import { Loading } from '@nx-next-app/components/D0001'
 import { useWithdrawal } from '@nx-next-app/features/F0006/providers'
 import { KycStatusEnum } from '@nx-next-app/features/F0006/types'
 import { ImportNotice } from './ImportNotice'
@@ -9,14 +10,18 @@ import { RecentHistory } from './history/RecentHistory'
 import { WalletPanel } from './walletPanel'
 import { KycPanel } from './KycPanel'
 
-const index = () => {
+interface IWithdrawalProps {
+	withdrawalBlockSetting: IWithdrawalSetting[]
+}
+
+const index = ({ withdrawalBlockSetting }: IWithdrawalProps) => {
 	const { t } = useTranslation()
 	const { restoreAll, loading, kycStatus } = useWithdrawal()
 
 	return (
 		<main>
 			<section className='inside'>
-				<LeftMenu />
+				<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 				{loading ? (
 					<Loading />
 				) : (

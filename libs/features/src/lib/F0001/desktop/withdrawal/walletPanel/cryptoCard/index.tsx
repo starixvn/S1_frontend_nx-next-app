@@ -3,7 +3,8 @@ import {
 	useCryptoWallet,
 	useWithdrawal,
 } from '@nx-next-app/features/F0001/providers'
-import { CryptoCardItem } from '@nx-next-app/features/F0001/desktop/withdrawal/walletPanel/cryptoCard/CryptoCardItem'
+
+import { CryptoCardItem } from './CryptoCardItem'
 
 // 因 Crypto 卡片元件跟其他兩種不同，故獨立寫在此區
 const CryptoCard = () => {

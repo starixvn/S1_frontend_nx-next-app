@@ -335,7 +335,7 @@ const useMenu = () => {
 				inputs: {
 					gameId,
 					fun,
-					gameType,
+					gameType: tpId === PRODUCTS.LIVE_CASINO_PT.TP_ID ? 'slots' : '',
 					tpGameType: String(tpGameType),
 					loginGameType,
 				},
