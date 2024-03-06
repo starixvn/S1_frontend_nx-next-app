@@ -58,7 +58,11 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 
 	return (
 		<>
-			<DepositModule title={t('Label_Payment_Method')} required>
+			<DepositModule
+				title={t('Label_Payment_Method')}
+				required
+				hasAdditionalInfo
+			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{dataSource.map(item => {
 						const { groupName, minAmount, maxAmount } = item
@@ -140,9 +144,9 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
 				<DepositModule title={t('Label_General_DepositAmount')} required>
 					{/* <div className='input-column'>
-						
 
-						
+
+
 						<div>
 							<InputBox
 								register={register('serial', {

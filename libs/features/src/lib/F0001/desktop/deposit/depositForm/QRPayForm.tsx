@@ -75,6 +75,7 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 				title={t('Label_Payment_Method')}
 				layout='vertical'
 				required
+				hasAdditionalInfo
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{dataSource.map(item => {
@@ -99,6 +100,7 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 				title={t('Label_Deposit_SelectChannel')}
 				layout='vertical'
 				required
+				hasAdditionalInfo
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{channelQrPayList.map(item => {

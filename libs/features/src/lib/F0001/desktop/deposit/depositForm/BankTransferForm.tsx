@@ -93,6 +93,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 				title={t('Label_BankInfo_SelectBank')}
 				layout='horizontal'
 				required
+				hasAdditionalInfo
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 					{dataSource.map(item => {
@@ -127,6 +128,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 					title={t('Label_General_BankAccount')}
 					className='bankQR'
 					required
+					hasAdditionalInfo
 				>
 					<DepositModule.BankAccount
 						bankName={bankAccountInfo.bankName}
