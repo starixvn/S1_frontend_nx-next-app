@@ -1,21 +1,30 @@
-import { useTranslation } from 'next-i18next'
+import React from 'react'
+import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import Image from 'next/future/image'
-import dynamic from 'next/dynamic'
+import { isUrl } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { Carousel } from '@nx-next-app/components/D0006'
-import { isUrl } from '@nx-next-app/utils'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useHome } from '@nx-next-app/features/F0006/providers'
+import useRecentlyViewed from '@nx-next-app/features/F0006/hooks/useRecentlyViewed'
 
 const LoginModal = dynamic(() => import('../modal/LoginModal'), {
 	ssr: false,
 })
 
+const UnderMaintenanceModal = dynamic(
+	() => import('../modal/UnderMaintainModal'),
+	{
+		ssr: false,
+	}
+)
+
 const RecentlyViewGames = () => {
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
-	const { recentlyViewedList, handleRecentlyViewGameClick } = useHome()
+	const { recentlyViewedList, onCLickRecentlyViewGame } = useRecentlyViewed()
+
 	const {
 		userInfo: { langId },
 	} = useAuth()
@@ -37,25 +46,21 @@ const RecentlyViewGames = () => {
 		<>
 			<div className='moduleTitle'>{t('Label_General_RecentlyViewed')}</div>
 			<Carousel {...config}>
-				{recentlyViewedList.map(
-					({
-						gameLogo,
-						tpLogo,
-						gameName,
-						tpId,
-						tpGameType,
-						isMaintain,
-						tpGameIdNo,
-					}) => (
+				{recentlyViewedList.map(recentlyViewedGameItem => {
+					const { tpId, tpGameType, isMaintain, gameLogo, tpLogo, gameName } =
+						recentlyViewedGameItem || {}
+					return (
 						<div
 							className='swiper-slide'
-							key={tpGameIdNo}
-							onClick={() =>
-								handleRecentlyViewGameClick(
-									{ tpId, tpGameType, isMaintain },
-									{ loginCallback: () => modal.open(<LoginModal />) }
-								)
-							}
+							key={`recently-game-${tpId}-${tpGameType}`}
+							onClick={() => {
+								onCLickRecentlyViewGame(recentlyViewedGameItem, {
+									loginCallback: () => modal.open(<LoginModal />),
+									underMaintenanceCallback: () =>
+										modal.open(<UnderMaintenanceModal />),
+									messageCallBack: message => modal.error(message),
+								})
+							}}
 						>
 							<div
 								className={classNames('recently-game', {
@@ -68,14 +73,14 @@ const RecentlyViewGames = () => {
 										src={gameLogo[langId] ?? gameLogo['en']}
 										width={300}
 										height={300}
-										alt=''
+										alt='recently-image'
 									/>
 									{isUrl(tpLogo) ? (
 										<Image
 											src={tpLogo}
 											width={87}
 											height={55}
-											alt=''
+											alt='recently-brand'
 											className='recently-brand'
 										/>
 									) : (
@@ -94,7 +99,7 @@ const RecentlyViewGames = () => {
 							</div>
 						</div>
 					)
-				)}
+				})}
 			</Carousel>
 		</>
 	)
