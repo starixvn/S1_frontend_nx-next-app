@@ -7,24 +7,16 @@ import {
 	IMetaData,
 	IStaticAllowedCurrencies,
 	IStaticLangGroups,
-	IStaticProduct,
 	ITermsConditions,
 	ILeftMenuData,
 	IMenuData,
 } from '@nx-next-app/types'
+import { type IProducts } from '@nx-next-app/constants'
 
 export interface IStaticDataContext {
-	MENU_DATA: ({
-		currencyId,
-		langId,
-	}: {
-		currencyId: number
-		langId: string
-	}) => IMenuData
+	MENU_DATA: IMenuData[]
 	META_DATA: IMetaData
-	PRODUCTS: {
-		[key: string]: IStaticProduct
-	}
+	PRODUCTS: IProducts
 	LEFT_MENU_DATA: ILeftMenuData
 	LANG_TO_CURRENCY?: { [key: string]: number }
 	ALLOWED_CURRENCIES: IStaticAllowedCurrencies

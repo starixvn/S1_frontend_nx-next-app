@@ -1,12 +1,12 @@
-import classNames from 'classnames'
+import { find } from 'lodash-es'
 import dynamic from 'next/dynamic'
-import { DynamicSwiper } from '@nx-next-app/components/D0006/carousel'
-import { ICarouselProps } from '@nx-next-app/components/D0006'
+import { MenuKeyEnum } from '@nx-next-app/types'
 import { ReactIdSwiperProps } from 'react-id-swiper'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useMenu } from '@nx-next-app/features/F0006/hooks'
-import { useTranslation } from 'next-i18next'
-import { ISubMenu } from '@nx-next-app/types'
+import { ICarouselProps } from '@nx-next-app/components/D0006'
+import { DynamicSwiper } from '@nx-next-app/components/D0006/carousel'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0006/types'
 import LotteryListItem from './LotteryListItem'
 
 const LoginModal = dynamic(
@@ -18,15 +18,16 @@ const LoginModal = dynamic(
 
 const LotteryList = () => {
 	const { modal } = useGlobalModal()
-	const { t } = useTranslation()
-	const {
-		menuData: { Lottery: { subMenu } = {} },
-		onMenuOpen,
-	} = useMenu()
+	const { menuList = [], onMenuOpen } = useMenu()
 
-	const onItemClick = (item: ISubMenu) => {
+	const lotterySubMenus = find(menuList, {
+		category: MenuKeyEnum.Lottery,
+	})?.subMenu
+
+	const onItemClick = (item: IDynamicSubMenuItem) => {
 		onMenuOpen(item, {
 			loginCallback: () => modal.open(<LoginModal />),
+			messageCallBack: message => modal.error(message),
 		})
 	}
 
@@ -53,23 +54,12 @@ const LotteryList = () => {
 		<section className='inside'>
 			<div className='rightModule'>
 				<Carousel>
-					{subMenu?.map((item: ISubMenu) => (
+					{lotterySubMenus?.map(subMenuItem => (
 						<LotteryListItem
-							className={classNames('swiper-slide', {
-								active: item.isTpMaintain,
-							})}
-							style={{ pointerEvents: item.isTpMaintain ? 'none' : 'auto' }}
-							alt={item.displayKey as string}
-							key={item?.product?.GAME_ID}
-							hoverImgSrc={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/lottery/${item?.desktop?.lobbyPage?.hoverBgImg}`}
-							imgSrc={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/lottery/${item?.desktop?.lobbyPage?.bgImg}`}
-							displayName={
-								item.displayKey
-									? (t(item.displayKey) as string)
-									: item.displayText
-							}
-							onItemClick={() => onItemClick(item)}
-							eventIcons={item?.eventIcons}
+							subMenuItemClassName='swiper-slider'
+							key={subMenuItem?.tpGameIdNo}
+							subMenuItem={subMenuItem}
+							onItemClick={onItemClick}
 						/>
 					))}
 				</Carousel>

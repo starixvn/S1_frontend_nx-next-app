@@ -1,9 +1,8 @@
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import Image from 'next/future/image'
-import { find, isUndefined } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { paths } from '@nx-next-app/constants'
+import { paths, PRODUCTS } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
@@ -13,41 +12,32 @@ const LoginModal = dynamic(() => import('../modal/LoginModal'), {
 	ssr: false,
 })
 
+const LiveStreamingModalDesktop = dynamic(
+	() => import('../modal/LiveStreamingModal'),
+	{ ssr: false }
+)
+
+const UnderMaintenanceModal = dynamic(
+	() => import('../modal/UnderMaintainModal'),
+	{
+		ssr: false,
+	}
+)
+
 const LiveCasino = () => {
 	const { t } = useTranslation()
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
-	const {
-		menuData: { Casino: { subMenu: liveCasinoMenu } = {} } = {},
-		onMenuOpen,
-	} = useMenu()
+	const { onStaticMenuOpen } = useMenu()
 	const { modal } = useGlobalModal()
 
-	const ppCasino = find(
-		liveCasinoMenu,
-		menu => menu.productKey === 'LIVE_CASINO_PP'
-	)
-
-	const aeCasino = find(
-		liveCasinoMenu,
-		menu => menu.productKey === 'LIVE_CASINO_AE'
-	)
-
-	const evoCasino = find(
-		liveCasinoMenu,
-		menu => menu.productKey === 'LIVE_CASINO_EVO'
-	)
-
-	const sgCasino = find(
-		liveCasinoMenu,
-		menu => menu.productKey === 'LIVE_CASINO_SA'
-	)
-
-	const dgCasino = find(
-		liveCasinoMenu,
-		menu => menu.productKey === 'LIVE_CASINO_DG'
-	)
+	// * 靜態遊戲
+	const ppCasino = PRODUCTS.PragmaticPlayCasino
+	const aeCasino = PRODUCTS.AESexy
+	const evoCasino = PRODUCTS.EvolutionGaming
+	const dgCasino = PRODUCTS.DreamGaming
+	const sgCasino = PRODUCTS.SAGaming
 
 	return (
 		<div className='mainlivecasino'>
@@ -71,11 +61,14 @@ const LiveCasino = () => {
 					<button
 						className='all-btn'
 						onClick={() => {
-							if (!isUndefined(sgCasino)) {
-								onMenuOpen(sgCasino, {
-									loginCallback: () => modal.open(<LoginModal />),
-								})
-							}
+							onStaticMenuOpen(sgCasino, {
+								loginCallback: () => modal.open(<LoginModal />),
+								underMaintenanceCallback: () =>
+									modal.open(<UnderMaintenanceModal />),
+								messageCallBack: message => modal.error(message),
+								liveStreamingCallback: () =>
+									modal.open(<LiveStreamingModalDesktop />),
+							})
 						}}
 					>
 						{t('Label_General_PlayNow')}
@@ -92,11 +85,14 @@ const LiveCasino = () => {
 					<button
 						className='all-btn'
 						onClick={() => {
-							if (!isUndefined(ppCasino)) {
-								onMenuOpen(ppCasino, {
-									loginCallback: () => modal.open(<LoginModal />),
-								})
-							}
+							onStaticMenuOpen(ppCasino, {
+								loginCallback: () => modal.open(<LoginModal />),
+								underMaintenanceCallback: () =>
+									modal.open(<UnderMaintenanceModal />),
+								messageCallBack: message => modal.error(message),
+								liveStreamingCallback: () =>
+									modal.open(<LiveStreamingModalDesktop />),
+							})
 						}}
 					>
 						{t('Label_General_PlayNow')}
@@ -115,11 +111,14 @@ const LiveCasino = () => {
 					<button
 						className='all-btn'
 						onClick={() => {
-							if (!isUndefined(aeCasino)) {
-								onMenuOpen(aeCasino, {
-									loginCallback: () => modal.open(<LoginModal />),
-								})
-							}
+							onStaticMenuOpen(aeCasino, {
+								loginCallback: () => modal.open(<LoginModal />),
+								underMaintenanceCallback: () =>
+									modal.open(<UnderMaintenanceModal />),
+								messageCallBack: message => modal.error(message),
+								liveStreamingCallback: () =>
+									modal.open(<LiveStreamingModalDesktop />),
+							})
 						}}
 					>
 						{t('Label_General_PlayNow')}
@@ -135,11 +134,14 @@ const LiveCasino = () => {
 					<button
 						className='all-btn'
 						onClick={() => {
-							if (!isUndefined(evoCasino)) {
-								onMenuOpen(evoCasino, {
-									loginCallback: () => modal.open(<LoginModal />),
-								})
-							}
+							onStaticMenuOpen(evoCasino, {
+								loginCallback: () => modal.open(<LoginModal />),
+								underMaintenanceCallback: () =>
+									modal.open(<UnderMaintenanceModal />),
+								messageCallBack: message => modal.error(message),
+								liveStreamingCallback: () =>
+									modal.open(<LiveStreamingModalDesktop />),
+							})
 						}}
 					>
 						{t('Label_General_PlayNow')}
@@ -157,11 +159,14 @@ const LiveCasino = () => {
 						<button
 							className='all-btn'
 							onClick={() => {
-								if (!isUndefined(sgCasino)) {
-									onMenuOpen(sgCasino, {
-										loginCallback: () => modal.open(<LoginModal />),
-									})
-								}
+								onStaticMenuOpen(sgCasino, {
+									loginCallback: () => modal.open(<LoginModal />),
+									underMaintenanceCallback: () =>
+										modal.open(<UnderMaintenanceModal />),
+									messageCallBack: message => modal.error(message),
+									liveStreamingCallback: () =>
+										modal.open(<LiveStreamingModalDesktop />),
+								})
 							}}
 						>
 							{t('Label_General_PlayNow')}
@@ -178,11 +183,14 @@ const LiveCasino = () => {
 						<button
 							className='all-btn'
 							onClick={() => {
-								if (!isUndefined(dgCasino)) {
-									onMenuOpen(dgCasino, {
-										loginCallback: () => modal.open(<LoginModal />),
-									})
-								}
+								onStaticMenuOpen(dgCasino, {
+									loginCallback: () => modal.open(<LoginModal />),
+									underMaintenanceCallback: () =>
+										modal.open(<UnderMaintenanceModal />),
+									messageCallBack: message => modal.error(message),
+									liveStreamingCallback: () =>
+										modal.open(<LiveStreamingModalDesktop />),
+								})
 							}}
 						>
 							{t('Label_General_PlayNow')}

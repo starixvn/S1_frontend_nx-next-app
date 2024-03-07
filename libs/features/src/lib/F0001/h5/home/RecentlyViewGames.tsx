@@ -1,16 +1,24 @@
-import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
-import { useHome } from '@nx-next-app/features/F0001/providers'
-import { Carousel } from '@nx-next-app/components/H0001'
-import { useRouter } from 'next/router'
-import { paths } from '@nx-next-app/constants'
+import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import Image from 'next/future/image'
+import { useRouter } from 'next/router'
 import { isUrl } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
+import { useAuth } from '@nx-next-app/data-access'
+import { paths } from '@nx-next-app/constants'
+import { Carousel } from '@nx-next-app/components/H0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import useRecentlyViewed from '@nx-next-app/features/F0001/hooks/useRecentlyViewed'
+
+const LiveStreamingModalH5 = dynamic(
+	() => import('../modal/LiveStreamingModal'),
+	{ ssr: false }
+)
 
 const RecentlyViewGames = () => {
 	const { t } = useTranslation()
-	const { recentlyViewedList, handleRecentlyViewGameClick } = useHome()
+	const { modal } = useGlobalModal()
+	const { recentlyViewedList, onCLickRecentlyViewGame } = useRecentlyViewed()
 	const { push } = useRouter()
 	const {
 		userInfo: { langId },
@@ -33,24 +41,22 @@ const RecentlyViewGames = () => {
 		<>
 			<div className='moduleTitle'>{t('Label_General_RecentlyViewed')}</div>
 			<Carousel {...config}>
-				{recentlyViewedList.map(
-					({
-						gameLogo,
-						tpLogo,
-						gameName,
-						tpId,
-						tpGameType,
-						isMaintain,
-						tpGameIdNo,
-					}) => (
+				{recentlyViewedList.map(recentlyViewedGameItem => {
+					const { gameLogo, tpLogo, gameName, isMaintain, tpGameIdNo } =
+						recentlyViewedGameItem || {}
+					return (
 						<div
 							className='swiper-slide'
 							key={tpGameIdNo}
 							onClick={() =>
-								handleRecentlyViewGameClick(
-									{ tpId, tpGameType, isMaintain },
-									{ loginCallback: () => push(paths.login.root) }
-								)
+								onCLickRecentlyViewGame(recentlyViewedGameItem, {
+									loginCallback: () => {
+										push(paths.login.root)
+									},
+									messageCallBack: message => modal.error(message),
+									liveStreamingCallback: () =>
+										modal.open(<LiveStreamingModalH5 />),
+								})
 							}
 						>
 							<div
@@ -90,7 +96,7 @@ const RecentlyViewGames = () => {
 							</div>
 						</div>
 					)
-				)}
+				})}
 			</Carousel>
 		</>
 	)
