@@ -9,9 +9,9 @@ import {
 	IStaticLangGroups,
 	ITermsConditions,
 	ILeftMenuData,
+	IMenuData,
 } from '@nx-next-app/types'
 import { type IProducts } from '@nx-next-app/constants'
-import { IMenuData } from '@nx-next-app/site/nova88'
 
 export interface IStaticDataContext {
 	MENU_DATA: IMenuData[]
