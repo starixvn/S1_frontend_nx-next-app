@@ -1,54 +1,37 @@
 import dynamic from 'next/dynamic'
 import Image from 'next/future/image'
+import { find, isUndefined } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { MenuActionTypeEnum } from '@nx-next-app/types'
-import { PRODUCTS, paths } from '@nx-next-app/constants'
+
 import { HotEventSwiper } from './HotEventSwiper'
 
 const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
 	ssr: false,
 })
 
-const LiveStreamingModalDesktop = dynamic(
-	() => import('../../modal/LiveStreamingModal'),
-	{ ssr: false }
-)
-
-const UnderMaintenanceModal = dynamic(
-	() => import('../../modal/UnderMaintainModal'),
-	{
-		ssr: false,
-	}
-)
-
 const Index = () => {
 	const { t } = useTranslation()
-	const { onStaticMenuOpen } = useMenu()
+	const { menuData, onMenuOpen } = useMenu()
 	const { modal } = useGlobalModal()
 
-	// * 靜態遊戲
-	const soccerItem = {
-		...PRODUCTS.Soccer,
-		desktop: { menuActionType: MenuActionTypeEnum.Link },
-		pathname: paths.sports.root,
-		query: { provider: 'Soccer' },
-	}
+	const sportMenu = menuData.Sports?.subMenu
 
-	const basketballItem = {
-		...PRODUCTS.Basketball,
-		desktop: { menuActionType: MenuActionTypeEnum.Link },
-		pathname: paths.sports.root,
-		query: { provider: 'Basketball' },
-	}
+	const soccerGame = find(
+		sportMenu,
+		menu => menu.productKey === 'SPORTS_SOCCER'
+	)
 
-	const badmintonSportItem = {
-		...PRODUCTS.Badminton,
-		pathname: paths.sports.root,
-		query: { provider: 'Badminton' },
-		desktop: { menuActionType: MenuActionTypeEnum.Link },
-	}
+	const badmintonSport = find(
+		sportMenu,
+		menu => menu.productKey === 'SPORTS_BADMINTON'
+	)
+
+	const basketBallGame = find(
+		sportMenu,
+		menu => menu.productKey === 'SPORTS_BASKETBALL'
+	)
 
 	return (
 		<div className='hotmatch'>
@@ -72,14 +55,11 @@ const Index = () => {
 						<button
 							className='all-btn'
 							onClick={() => {
-								onStaticMenuOpen(soccerItem, {
-									loginCallback: () => modal.open(<LoginModal />),
-									underMaintenanceCallback: () =>
-										modal.open(<UnderMaintenanceModal />),
-									messageCallBack: message => modal.error(message),
-									liveStreamingCallback: () =>
-										modal.open(<LiveStreamingModalDesktop />),
-								})
+								if (!isUndefined(soccerGame)) {
+									onMenuOpen(soccerGame, {
+										loginCallback: () => modal.open(<LoginModal />),
+									})
+								}
 							}}
 						>
 							{t('Label_General_BetNow')}
@@ -87,22 +67,19 @@ const Index = () => {
 					</div>
 					<div className='hotsports-item'>
 						<Image
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-sports-crypto.png`}
-							alt='sports-crypto'
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-sports-badminton.png`}
+							alt='sports-badminton'
 							width={900}
 							height={600}
 						/>
 						<button
 							className='all-btn'
 							onClick={() => {
-								onStaticMenuOpen(badmintonSportItem, {
-									loginCallback: () => modal.open(<LoginModal />),
-									underMaintenanceCallback: () =>
-										modal.open(<UnderMaintenanceModal />),
-									messageCallBack: message => modal.error(message),
-									liveStreamingCallback: () =>
-										modal.open(<LiveStreamingModalDesktop />),
-								})
+								if (!isUndefined(badmintonSport)) {
+									onMenuOpen(badmintonSport, {
+										loginCallback: () => modal.open(<LoginModal />),
+									})
+								}
 							}}
 						>
 							{t('Label_General_BetNow')}
@@ -118,14 +95,11 @@ const Index = () => {
 						<button
 							className='all-btn'
 							onClick={() => {
-								onStaticMenuOpen(basketballItem, {
-									loginCallback: () => modal.open(<LoginModal />),
-									underMaintenanceCallback: () =>
-										modal.open(<UnderMaintenanceModal />),
-									messageCallBack: message => modal.error(message),
-									liveStreamingCallback: () =>
-										modal.open(<LiveStreamingModalDesktop />),
-								})
+								if (!isUndefined(basketBallGame)) {
+									onMenuOpen(basketBallGame, {
+										loginCallback: () => modal.open(<LoginModal />),
+									})
+								}
 							}}
 						>
 							{t('Label_General_BetNow')}

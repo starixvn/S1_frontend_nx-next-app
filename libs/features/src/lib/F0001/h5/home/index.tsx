@@ -12,11 +12,13 @@ import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import { useSetHideBalanceMutation } from '@nx-next-app/service'
 import { useHome } from '@nx-next-app/features/F0001/providers'
+import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
+
 import dynamic from 'next/dynamic'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { multiEqual } from '@nx-next-app/utils'
-import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
 import Menu from './menu'
+
 import { PromotionSwiper } from './PromotionSwiper'
 import { HotEventSwiper } from './HotEventSwiper'
 import { HotGameSwiper } from './HotGameSwiper'
@@ -160,7 +162,6 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 				)}
 
 				<Menu />
-
 				{contentOrders.map(component =>
 					homeComponents[component] ? homeComponents[component] : null
 				)}

@@ -1,29 +1,28 @@
 import Link from 'next/link'
+import { Header, LoginFormType } from '@nx-next-app/components/D0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
-import { FieldErrors } from 'react-hook-form'
 import { useAuth } from '@nx-next-app/data-access'
 import {
 	LineLoginDirectTypeEnum,
 	useLazyGetLineLoginDirectUrlQuery,
 } from '@nx-next-app/service'
 import { paths } from '@nx-next-app/constants'
+import { FieldErrors } from 'react-hook-form'
 import { renderFieldError } from '@nx-next-app/utils'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { Header, LoginFormType } from '@nx-next-app/components/D0001'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import Menu from './Menu'
-import Wallet from './Wallet'
-import Country from './Country'
 import MsgPopUp from './MsgPopUp'
+import Country from './Country'
+import Wallet from './Wallet'
+import Menu from './Menu'
 
 const LayoutHeader = () => {
 	const { t } = useTranslation()
 	const router = useRouter()
 
 	const { modal } = useGlobalModal()
-	const { menuList = [], onMenuOpen, isLobbyHeaderError } = useMenu()
+
 	const {
 		auth,
 		onSignIn,
@@ -113,11 +112,7 @@ const LayoutHeader = () => {
 				)}
 			</Header.Function>
 
-			<Menu
-				menuList={menuList}
-				onMenuOpen={onMenuOpen}
-				isLobbyHeaderError={isLobbyHeaderError}
-			/>
+			<Menu />
 		</Header>
 	)
 }

@@ -1,12 +1,12 @@
-import { find } from 'lodash-es'
+import classNames from 'classnames'
 import dynamic from 'next/dynamic'
-import { MenuKeyEnum } from '@nx-next-app/types'
-import { ReactIdSwiperProps } from 'react-id-swiper'
-import { useMenu } from '@nx-next-app/features/F0006/hooks'
-import { ICarouselProps } from '@nx-next-app/components/D0006'
 import { DynamicSwiper } from '@nx-next-app/components/D0006/carousel'
+import { ICarouselProps } from '@nx-next-app/components/D0006'
+import { ReactIdSwiperProps } from 'react-id-swiper'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0006/types'
+import { useMenu } from '@nx-next-app/features/F0006/hooks'
+import { useTranslation } from 'next-i18next'
+import { ISubMenu } from '@nx-next-app/types'
 import LotteryListItem from './LotteryListItem'
 
 const LoginModal = dynamic(
@@ -18,16 +18,15 @@ const LoginModal = dynamic(
 
 const LotteryList = () => {
 	const { modal } = useGlobalModal()
-	const { menuList = [], onMenuOpen } = useMenu()
+	const { t } = useTranslation()
+	const {
+		menuData: { Lottery: { subMenu } = {} },
+		onMenuOpen,
+	} = useMenu()
 
-	const lotterySubMenus = find(menuList, {
-		category: MenuKeyEnum.Lottery,
-	})?.subMenu
-
-	const onItemClick = (item: IDynamicSubMenuItem) => {
+	const onItemClick = (item: ISubMenu) => {
 		onMenuOpen(item, {
 			loginCallback: () => modal.open(<LoginModal />),
-			messageCallBack: message => modal.error(message),
 		})
 	}
 
@@ -54,12 +53,23 @@ const LotteryList = () => {
 		<section className='inside'>
 			<div className='rightModule'>
 				<Carousel>
-					{lotterySubMenus?.map(subMenuItem => (
+					{subMenu?.map((item: ISubMenu) => (
 						<LotteryListItem
-							subMenuItemClassName='swiper-slider'
-							key={subMenuItem?.tpGameIdNo}
-							subMenuItem={subMenuItem}
-							onItemClick={onItemClick}
+							className={classNames('swiper-slide', {
+								active: item.isTpMaintain,
+							})}
+							style={{ pointerEvents: item.isTpMaintain ? 'none' : 'auto' }}
+							alt={item.displayKey as string}
+							key={item?.product?.GAME_ID}
+							hoverImgSrc={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/lottery/${item?.desktop?.lobbyPage?.hoverBgImg}`}
+							imgSrc={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/lottery/${item?.desktop?.lobbyPage?.bgImg}`}
+							displayName={
+								item.displayKey
+									? (t(item.displayKey) as string)
+									: item.displayText
+							}
+							onItemClick={() => onItemClick(item)}
+							eventIcons={item?.eventIcons}
 						/>
 					))}
 				</Carousel>

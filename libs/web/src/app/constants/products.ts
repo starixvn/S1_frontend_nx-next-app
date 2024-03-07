@@ -1,728 +1,587 @@
-/**
- * 所有產品(包含所有品牌)
- * 按照 tpGameIdNo 排序
- */
-export interface IProduct {
-	tpGameIdNo: number | undefined
-	tpId: number
-	tpGameType: number
-	gameId?: number | string
-	betType?: number
-	name?: string
-}
+import { LoginGameTypeEnum } from '@nx-next-app/types'
 
 export const PRODUCTS = {
-	Soccer: {
-		tpGameIdNo: 1,
-		tpId: 41,
-		tpGameType: 69,
-		gameId: 1,
-	},
-	SabaSoccer: {
-		tpGameIdNo: 2,
-		tpId: 41,
-		tpGameType: 69,
-		gameId: 997,
-	},
-	Basketball: {
-		tpGameIdNo: 3,
-		tpId: 41,
-		tpGameType: 69,
-		gameId: 2,
-	},
-	Tennis: {
-		tpGameIdNo: 4,
-		tpId: 41,
-		tpGameType: 69,
-		gameId: 5,
-	},
-	Cricket: {
-		tpGameIdNo: 5,
-		tpId: 41,
-		tpGameType: 69,
-		gameId: 50,
-	},
-	ESportALL: {
-		tpGameIdNo: 6,
-		tpId: 41,
-		tpGameType: 69,
-		gameId: 43,
-	},
-	LOL: {
-		tpGameIdNo: 7,
-		tpId: 41,
-		tpGameType: 69,
-		gameId: 43,
-		betType: 2,
-	},
-	Dota2: {
-		tpGameIdNo: 8,
-		tpId: 41,
-		tpGameType: 69,
-		gameId: 43,
-		betType: 1,
-	},
-	KingOfGlory: {
-		tpGameIdNo: 9,
-		tpId: 41,
-		tpGameType: 69,
-		gameId: 43,
-		betType: 4,
-	},
-	CSGO: {
-		tpGameIdNo: 10,
-		tpId: 41,
-		tpGameType: 69,
-		gameId: 43,
-		betType: 3,
-	},
-	NumberGame: {
-		tpGameIdNo: 11,
-		tpId: 41,
-		tpGameType: 70,
-		gameId: 161,
-	},
-	OWVirtualSports: {
-		tpGameIdNo: 12,
-		tpId: 41,
-		tpGameType: 71,
-		gameId: -99,
-	},
-	Keno: {
-		tpGameIdNo: 14,
-		tpId: 41,
-		tpGameType: 73,
-		gameId: 202,
-	},
-	Lottery: {
-		tpGameIdNo: 15,
-		tpId: 41,
-		tpGameType: 74,
-		gameId: 220,
-	},
-	OWCardClub: {
-		tpGameIdNo: 17,
-		tpId: 41,
-		tpGameType: 96,
-		gameId: -99,
-	},
-	TableGame: {
-		tpGameIdNo: 19,
-		tpId: 41,
-		tpGameType: 75,
-		gameId: 222,
-	},
-	VirtualSports: {
-		tpGameIdNo: 20,
-		tpId: 41,
-		tpGameType: 72,
-		gameId: 192,
-	},
-	Vgaming: {
-		tpGameIdNo: 24,
-		tpId: 41,
-		tpGameType: 95,
-		gameId: 171,
-	},
-	SAGaming: {
-		tpGameIdNo: 28,
-		tpId: 2,
-		tpGameType: 9,
-		gameId: 2,
-	},
-	AsiaGaming: {
-		tpGameIdNo: 29,
-		tpId: 3,
-		tpGameType: 8,
-		gameId: 3,
-	},
-	DreamGaming: {
-		tpGameIdNo: 30,
-		tpId: 4,
-		tpGameType: 10,
-		gameId: 4,
-	},
-	PragmaticPlaySlot: {
-		tpGameIdNo: 31,
-		tpId: 5,
-		tpGameType: 7,
-		gameId: -1,
-	},
-	PragmaticPlayCasino: {
-		tpGameIdNo: 32,
-		tpId: 5,
-		tpGameType: 16,
-		gameId: 101,
-	},
-	GamePlay: {
-		tpGameIdNo: 33,
-		tpId: 6,
-		tpGameType: 11,
-		gameId: -1,
-	},
-	GPIKeno: {
-		tpGameIdNo: 34,
-		tpId: 6,
-		tpGameType: 88,
-		gameId: 'keno',
-	},
-	VNLottery: {
-		tpGameIdNo: 35,
-		tpId: 6,
-		tpGameType: 89,
-		gameId: 'sode',
-	},
-	ThaiLottery: {
-		tpGameIdNo: 36,
-		tpId: 6,
-		tpGameType: 90,
-		gameId: 'thailottery',
-	},
-	Fast3: {
-		tpGameIdNo: 37,
-		tpId: 6,
-		tpGameType: 91,
-		gameId: 'fast3',
-	},
-	FishingWorld: {
-		tpGameIdNo: 38,
-		tpId: 7,
-		tpGameType: 12,
-		gameId: 10,
-		name: 'Fishing World',
-	},
-	YGGDrassil: {
-		tpGameIdNo: 39,
-		tpId: 8,
-		tpGameType: 14,
-		gameId: -1,
-	},
-	Joker: {
-		tpGameIdNo: 40,
-		tpId: 9,
-		tpGameType: 13,
-		gameId: -1,
-	},
-	FishHaiba: {
-		tpGameIdNo: 41,
-		tpId: 9,
-		tpGameType: 66,
-		gameId: 'kk8nqm3cfwtng',
-	},
-	HappyFish5: {
-		tpGameIdNo: 42,
-		tpId: 9,
-		tpGameType: 66,
-		gameId: 'st5cmuqnaxycn',
-	},
-	MonsterAwaken: {
-		tpGameIdNo: 43,
-		tpId: 9,
-		tpGameType: 66,
-		gameId: '1jeqx59c7ztqg',
-	},
-	Spadegaming: {
-		tpGameIdNo: 44,
-		tpId: 10,
-		tpGameType: 15,
-		gameId: -1,
-	},
-	FishingWar: {
-		tpGameIdNo: 45,
-		tpId: 10,
-		tpGameType: 31,
-		gameId: 'F-SF02',
-		name: 'Fishing War',
-	},
-	FishingGod: {
-		tpGameIdNo: 46,
-		tpId: 10,
-		tpGameType: 31,
-		gameId: 'F-SF01',
-	},
-	KingMaker: {
-		tpGameIdNo: 47,
-		tpId: 11,
-		tpGameType: 52,
-		gameId: '',
-	},
-	Allbet: {
-		tpGameIdNo: 48,
-		tpId: 12,
-		tpGameType: 6,
-		gameId: 12,
-	},
-	OneGamingPoker: {
-		tpGameIdNo: 49,
-		tpId: 13,
-		tpGameType: 41,
-		gameId: 0,
-	},
-	PGSoft: {
-		tpGameIdNo: 50,
-		tpId: 14,
-		tpGameType: 17,
-		gameId: -1,
-	},
-	AESexy: {
-		tpGameIdNo: 51,
-		tpId: 15,
-		tpGameType: 18,
-		gameId: 15,
-	},
-	CQ9: {
-		tpGameIdNo: 52,
-		tpId: 16,
-		tpGameType: 29,
-		gameId: -1,
-	},
-	Paradise: {
-		tpGameIdNo: 53,
-		tpId: 16,
-		tpGameType: 44,
-		gameId: 'AB3',
-	},
-	OneshotFishing: {
-		tpGameIdNo: 54,
-		tpId: 16,
-		tpGameType: 44,
-		gameId: 'AT01',
-	},
-	WE: {
-		tpGameIdNo: 55,
-		tpId: 18,
-		tpGameType: 28,
-		gameId: 18,
-	},
-	WMCasino: {
-		tpGameIdNo: 56,
-		tpId: 20,
-		tpGameType: 32,
-		gameId: 20,
-	},
-	Kiss918: {
-		tpGameIdNo: 57,
-		tpId: 21,
-		tpGameType: 33,
-		gameId: -1,
-	},
-	Mega888: {
-		tpGameIdNo: 58,
-		tpId: 22,
-		tpGameType: 34,
-		gameId: 0,
-	},
-	AstroTech: {
-		tpGameIdNo: 59,
-		tpId: 24,
-		tpGameType: 39,
-		gameId: -1,
-	},
-	DragonballFishing: {
-		tpGameIdNo: 60,
-		tpId: 24,
-		tpGameType: 40,
-		gameId: 'cmf0001',
-	},
-	TheTyrantAndThePrincess: {
-		tpGameIdNo: 61,
-		tpId: 24,
-		tpGameType: 40,
-		gameId: 'cmf0006',
-	},
-	FishingOfSaviors: {
-		tpGameIdNo: 62,
-		tpId: 24,
-		tpGameType: 40,
-		gameId: 'cmf0002',
-	},
-	// * 舊的 目前沒有在用
-	PlaytechSlot: {
-		tpGameIdNo: 63,
-		tpId: 27,
-		tpGameType: 46,
-		gameId: -1,
-	},
-	// * 舊的 目前沒有在用
-	PlaytechCasino: {
-		tpGameIdNo: 64,
-		tpId: 27,
-		tpGameType: 48,
-		gameId: 0,
-	},
-	n2LIVE: {
-		tpGameIdNo: 65,
-		tpId: 28,
-		tpGameType: 45,
-		gameId: '',
-	},
-	BtiSport: {
-		tpGameIdNo: 66,
-		tpId: 29,
-		tpGameType: 49,
-		gameId: '',
-	},
-	AMBPoker: {
-		tpGameIdNo: 67,
-		tpId: 30,
-		tpGameType: 50,
-		gameId: '',
-	},
-	AskmeSlot: {
-		tpGameIdNo: 68,
-		tpId: 30,
-		tpGameType: 76,
-		gameId: -1,
-	},
-	Nova88Exchange: {
-		tpGameIdNo: 69,
-		tpId: 31,
-		tpGameType: 51,
-		gameId: '',
-	},
-	JILI: {
-		tpGameIdNo: 70,
-		tpId: 32,
-		tpGameType: 53,
-		gameId: -1,
-	},
-	TCGaming: {
-		tpGameIdNo: 71,
-		tpId: 33,
-		tpGameType: 54,
-		gameId: '',
-	},
-	TCG: {
-		tpGameIdNo: 72,
-		tpId: 33,
-		tpGameType: 55,
-		gameId: '',
-	},
-	MicrogamingSlot: {
-		tpGameIdNo: 73,
-		tpId: 34,
-		tpGameType: 57,
-		gameId: -1,
-	},
-	MicrogamingCasino: {
-		tpGameIdNo: 74,
-		tpId: 34,
-		tpGameType: 58,
-		gameId: 0,
-	},
-	MPPoker: {
-		tpGameIdNo: 75,
-		tpId: 35,
-		tpGameType: 60,
-		gameId: '',
-	},
-	EvolutionGaming: {
-		tpGameIdNo: 76,
-		tpId: 36,
-		tpGameType: 63,
-		gameId: 0,
-	},
-	NetEnt: {
-		tpGameIdNo: 77,
-		tpId: 37,
-		tpGameType: 64,
-		gameId: -1,
-	},
-	RedTiger: {
-		tpGameIdNo: 78,
-		tpId: 38,
-		tpGameType: 65,
-		gameId: -1,
-	},
-	AdvantPlay: {
-		tpGameIdNo: 79,
-		tpId: 39,
-		tpGameType: 67,
-		gameId: -1,
-	},
-	Habanero: {
-		tpGameIdNo: 80,
-		tpId: 40,
-		tpGameType: 68,
-		gameId: -1,
-	},
-	SBOBET: {
-		tpGameIdNo: 88,
-		tpId: 42,
-		tpGameType: 77,
-		gameId: '',
-	},
-	SkywindSlot: {
-		tpGameIdNo: 89,
-		tpId: 43,
-		tpGameType: 82,
-		gameId: -1,
-	},
-	SkywindCasino: {
-		tpGameIdNo: 90,
-		tpId: 43,
-		tpGameType: 84,
-		gameId: 0,
-	},
-	OceanRuler: {
-		tpGameIdNo: 91,
-		tpId: 43,
-		tpGameType: 85,
-		gameId: 'sw_or',
-	},
-	FlyJet: {
-		tpGameIdNo: 92,
-		tpId: 43,
-		tpGameType: 85,
-		gameId: 'sw_fj',
-	},
-	CaiShenDaHai: {
-		tpGameIdNo: 93,
-		tpId: 43,
-		tpGameType: 85,
-		gameId: 'sw_cashdaha',
-	},
-	SimplePlay: {
-		tpGameIdNo: 94,
-		tpId: 44,
-		tpGameType: 86,
-		gameId: -1,
-	},
-	CryptoSports: {
-		tpGameIdNo: 95,
-		tpId: 45,
-		tpGameType: 87,
-		gameId: '',
-	},
-	WorldCup: {
-		tpGameIdNo: 96,
-		tpId: 41,
-		tpGameType: 69,
-		gameId: 2002,
-	},
-	YeebetCasino: {
-		tpGameIdNo: 97,
-		tpId: 46,
-		tpGameType: 93,
-		gameId: 0,
-	},
-	BigGaming: {
-		tpGameIdNo: 98,
-		tpId: 47,
-		tpGameType: 94,
-		gameId: 0,
-	},
-	TFGaming: {
-		tpGameIdNo: 99,
-		tpId: 48,
-		tpGameType: 97,
-		gameId: 0,
-	},
-	V8Poker: {
-		tpGameIdNo: 100,
-		tpId: 25,
-		tpGameType: 47,
-		gameId: 0,
-	},
-	'789SeDie': {
-		tpGameIdNo: 101,
-		tpId: 23,
-		tpGameType: 37,
-		gameId: 2,
-		name: '789 Se Die',
-	},
-	TraditionalLottery: {
-		tpGameIdNo: 102,
-		tpId: 23,
-		tpGameType: 35,
-		gameId: 0,
-		name: 'Traditional Lottery',
-	},
-	ES: {
-		tpGameIdNo: 103,
-		tpId: 49,
-		tpGameType: 98,
-		gameId: -1,
-		name: 'ES',
-	},
-	// * 新的 PlayTech (Seamless Wallet)
-	NewPlayTechSlot: {
-		tpGameIdNo: 104,
-		tpId: 51,
-		tpGameType: 100,
-		gameId: -1,
-	},
-	// * 新的 PlayTech (Seamless Wallet)
-	NewPlayTechCasino: {
-		tpGameIdNo: 105,
-		tpId: 51,
-		tpGameType: 101,
-		gameId: 'bal',
-	},
-	Nextspin: {
-		tpGameIdNo: 106,
-		tpId: 50,
-		tpGameType: 99,
-		gameId: -1,
-	},
-	Volleyball: {
-		tpGameIdNo: 107,
-		tpId: 41,
-		tpGameType: 69,
-		gameId: 6,
-	},
-	Badminton: {
-		tpGameIdNo: 108,
-		tpId: 41,
-		tpGameType: 69,
-		gameId: 9,
-	},
-	IMESports: {
-		tpGameIdNo: 109,
-		tpId: 52,
-		tpGameType: 102,
-		gameId: 'ESPORTSBULL',
-	},
-	IMSports: {
-		tpGameIdNo: 110,
-		tpId: 52,
-		tpGameType: 103,
-		gameId: 'IMSB',
-		name: 'IM Sports',
-	},
-	SPRIBE: {
-		tpGameIdNo: 111,
-		tpId: 53,
-		tpGameType: 104,
-		gameId: -1,
-		name: 'SPRIBE',
-	},
-	Aviator: {
-		tpGameIdNo: 112,
-		tpId: 53,
-		tpGameType: 104,
-		gameId: 'imgame12001',
-	},
-	Mines: {
-		tpGameIdNo: 113,
-		tpId: 53,
-		tpGameType: 104,
-		gameId: 'imgame12002',
-	},
-	Goal: {
-		tpGameIdNo: 114,
-		tpId: 53,
-		tpGameType: 104,
-		gameId: 'imgame12003',
-	},
-	Dice: {
-		tpGameIdNo: 115,
-		tpId: 53,
-		tpGameType: 104,
-		gameId: 'imgame12004',
-	},
-	PlaynGO: {
-		tpGameIdNo: 116,
-		tpId: 54,
-		tpGameType: 105,
-		gameId: -1,
-	},
-	Pegasus: {
-		tpGameIdNo: 117,
-		tpId: 56,
-		tpGameType: 107,
-		gameId: -1,
-	},
-	ZombieParty: {
-		tpGameIdNo: 118,
-		tpId: 10,
-		tpGameType: 31,
-		gameId: 'F-ZP01',
-	},
-	AlienHunter: {
-		tpGameIdNo: 119,
-		tpId: 10,
-		tpGameType: 31,
-		gameId: 'F-AH01',
-		name: 'Alien Hunter',
-	},
-	Spaceman: {
-		tpGameIdNo: 120,
-		tpId: 5,
-		tpGameType: 7,
-		gameId: 1302,
-	},
-	Crash: {
-		tpGameIdNo: 121,
-		tpId: 39,
-		tpGameType: 67,
-		gameId: 'Crash',
-	},
-	GoRush: {
-		tpGameIdNo: 122,
-		tpId: 32,
-		tpGameType: 53,
-		gameId: 224,
-	},
-	FaChai: {
-		tpGameIdNo: 123,
-		tpId: 55,
-		tpGameType: 106,
-		gameId: -1,
-	},
-	BNG: {
-		tpGameIdNo: 124,
-		tpId: 57,
-		tpGameType: 108,
-		gameId: -1,
-	},
-	GrandDragon: {
-		tpGameIdNo: 125,
-		tpId: 58,
-		tpGameType: 110,
-		gameId: 'HL',
-	},
-	NoLimitCity: {
-		tpGameIdNo: 126,
-		tpId: 59,
-		tpGameType: 111,
-		gameId: -1,
-	},
-	AmigoGaming: {
-		tpGameIdNo: 127,
-		tpId: 60,
-		tpGameType: 112,
-		gameId: -1,
-		name: 'Amigo Gaming',
-	},
-	MaxGame: {
-		tpGameIdNo: 128,
-		tpId: 61,
-		tpGameType: 113,
-		gameId: 0,
-	},
-	// * Footer 靜態遊戲入口
-	BaseBall: {
-		tpGameIdNo: undefined, // DB 沒有定義
-		gameId: 8,
-		tpId: 41,
-		name: 'baseball',
-		tpGameType: 69,
-	},
-	Football: {
-		tpGameIdNo: undefined, // DB 沒有定義
-		gameId: 3,
-		tpId: 41,
-		name: 'football',
-		tpGameType: 69,
-	},
-	Hockey: {
-		tpGameIdNo: undefined, // DB 沒有定義
-		gameId: 4,
-		tpId: 41,
-		name: 'hockey',
-		tpGameType: 69,
-	},
-} as const
+	// * SPORTS
+	SPORTS: {
+		TP_ID: 41,
+		GAME_ID: 1,
+		TP_GAME_TYPE: 69,
+	},
+	SPORTS_SABA_CLUB: {
+		TP_ID: 41,
+		GAME_ID: 171,
+		TP_GAME_TYPE: 95,
+	},
+	SPORTS_9W_SPORTS: {
+		TP_ID: 31,
+		TP_GAME_TYPE: 51,
+	},
+	SPORTS_SOCCER: {
+		GAME_ID: 1,
+		TP_ID: 41,
+		TP_GAME_TYPE: 69,
+	},
+	SPORTS_SABA_SOCCER: {
+		GAME_ID: 997,
+		TP_ID: 41,
+		TP_GAME_TYPE: 69,
+	},
+	SPORTS_BASKETBALL: {
+		GAME_ID: 2,
+		TP_ID: 41,
+		TP_GAME_TYPE: 69,
+	},
+	SPORTS_BADMINTON: {
+		GAME_ID: 9,
+		TP_ID: 41,
+		TP_GAME_TYPE: 69,
+	},
+	SPORTS_FOOTBALL: {
+		GAME_ID: 3,
+		TP_ID: 41,
+		TP_GAME_TYPE: 69,
+	},
+	SPORTS_TENNIS: {
+		GAME_ID: 5,
+		TP_ID: 41,
+		TP_GAME_TYPE: 69,
+	},
+	SPORTS_HOCKEY: {
+		GAME_ID: 4,
+		TP_ID: 41,
+		TP_GAME_TYPE: 69,
+	},
+	SPORTS_BASEBALL: {
+		GAME_ID: 8,
+		TP_ID: 41,
+		TP_GAME_TYPE: 69,
+	},
+	SPORTS_VOLLEYBALL: {
+		GAME_ID: 6,
+		TP_ID: 41,
+		TP_GAME_TYPE: 69,
+	},
+	SPORTS_CRICKET: {
+		GAME_ID: 50,
+		TP_ID: 41,
+		TP_GAME_TYPE: 69,
+	},
+	SPORTS_E_SPORT: {
+		TP_ID: 41,
+		GAME_ID: 43,
+		TP_GAME_TYPE: 69,
+	},
+	SPORTS_E_SPORT_ALL: {
+		TP_ID: 41,
+		GAME_ID: 43,
+		TP_GAME_TYPE: 69,
+	},
+	SPORTS_E_SPORT_DOTA2: {
+		TP_ID: 41,
+		GAME_ID: 43,
+		TP_GAME_TYPE: 69,
+		BET_TYPE: 1,
+	},
+	SPORTS_E_SPORT_LOL: {
+		TP_ID: 41,
+		GAME_ID: 43,
+		TP_GAME_TYPE: 69,
+		BET_TYPE: 2,
+	},
+	SPORTS_E_SPORT_CSGO: {
+		TP_ID: 41,
+		GAME_ID: 43,
+		TP_GAME_TYPE: 69,
+		BET_TYPE: 3,
+	},
+	SPORTS_E_SPORT_KOG: {
+		TP_ID: 41,
+		GAME_ID: 43,
+		TP_GAME_TYPE: 69,
+		BET_TYPE: 4,
+	},
+	// add new item
+	SPORTS_E_SABA: {
+		TP_ID: 41,
+		GAME_ID: 43,
+		TP_GAME_TYPE: 69,
+		BET_TYPE: 4,
+	},
+	SPORTS_E_IMESPORTS: {
+		TP_ID: 52,
+		GAME_ID: 'ESPORTSBULL',
+		TP_GAME_TYPE: 102,
+		BET_TYPE: 4,
+	},
+	SPORTS_WORLD_CUP: {
+		TP_ID: 41,
+		GAME_ID: 2002,
+		TP_GAME_TYPE: 1,
+	},
+	SPORTS_CRYPTO_SPORTS: {
+		TP_ID: 45,
+		TP_GAME_TYPE: 87,
+	},
+	SPORTS_E_SPORTS_TFG: {
+		TP_ID: 48,
+		GAME_ID: 0,
+		TP_GAME_TYPE: 97,
+	},
+	// * SLOTS
+	SLOTS_JILI: {
+		TP_ID: 32,
+		NAME: 'JILI',
+		TP_GAME_TYPE: 53,
+	},
+	SLOTS_PP: {
+		TP_ID: 5,
+		TP_GAME_TYPE: 7,
+	},
+	SLOTS_ICG: {
+		TP_ID: 24,
+		TP_GAME_TYPE: 39,
+	},
+	SLOTS_ENDORPHINA: {
+		TP_ID: 49,
+		TP_GAME_TYPE: 98,
+	},
+	SLOTS_PEGASUS: {
+		TP_ID: 56,
+		TP_GAME_TYPE: 107,
+	},
+	SLOTS_NO_LIMIT_CITY: {
+		TP_ID: 59,
+		TP_GAME_TYPE: 107,
+	},
+	SLOTS_JOKER: {
+		TP_ID: 9,
+		TP_GAME_TYPE: 13,
+	},
+	SLOTS_CQ9: {
+		TP_ID: 16,
+		TP_GAME_TYPE: 29,
+	},
+	SLOTS_PNG: {
+		TP_ID: 54,
+		TP_GAME_TYPE: 105,
+	},
+	SLOTS_GPI: {
+		TP_ID: 6,
+		TP_GAME_TYPE: 11,
+	},
+	SLOTS_YGG: {
+		TP_ID: 8,
+		TP_GAME_TYPE: 14,
+	},
+	SLOTS_AMB: {
+		TP_ID: 30,
+		TP_GAME_TYPE: 76,
+	},
+	SLOTS_SG: {
+		TP_ID: 10,
+		TP_GAME_TYPE: 15,
+	},
+	SLOTS_PG: {
+		TP_ID: 14,
+		TP_GAME_TYPE: 17,
+	},
+	SLOTS_BNG: {
+		TP_ID: 57,
+		TP_GAME_TYPE: 108,
+	},
+	SLOTS_OW: {
+		TP_ID: 41,
+		GAME_ID: 208,
+		TP_GAME_TYPE: 4,
+	},
+	// 新的 Slot PlayTech (Seamless Wallet)
+	SLOTS_PT: {
+		TP_ID: 51,
+		GAME_ID: '0',
+		TP_GAME_TYPE: 100,
+		GAME_TYPE: 'slots',
+	},
+	SLOTS_MGPSW: {
+		TP_ID: 34,
+		GAME_ID: '',
+		TP_GAME_TYPE: 57,
+	},
+	SLOTS_RED_TIGER: {
+		TP_ID: 38,
+		TP_GAME_TYPE: 65,
+	},
+	SLOTS_NET_ENT: {
+		TP_ID: 37,
+		TP_GAME_TYPE: 64,
+	},
+	SLOTS_ADVANT_PLAY: {
+		TP_ID: 39,
+		TP_GAME_TYPE: 67,
+	},
+	SLOTS_AMIGO: {
+		TP_ID: 60,
+		TP_GAME_TYPE: 112,
+	},
+	SLOTS_ES: {
+		TP_ID: 49,
+		TP_GAME_TYPE: 98,
+	},
+	SLOTS_NEXT_SPIN: {
+		TP_ID: 50,
+		TP_GAME_TYPE: 99,
+	},
+	SLOTS_FA_CHAI: {
+		TP_ID: 55,
+		TP_GAME_TYPE: 106,
+	},
+	SLOTS_HABANERO: {
+		TP_ID: 40,
+		TP_GAME_TYPE: 68,
+	},
+	SLOTS_SIMPLE_PLAY: {
+		TP_ID: 44,
+		TP_GAME_TYPE: 86,
+	},
+	SLOTS_SKY_WIND: {
+		TP_ID: 43,
+		TP_GAME_TYPE: 82,
+	},
+	SLOTS_SPRIBE: {
+		TP_ID: 53,
+		TP_GAME_TYPE: 104,
+	},
+	// * LIVE CASINO
+	LIVE_CASINO_WM: {
+		TP_ID: 20,
+		GAME_ID: 20,
+		TP_GAME_TYPE: 32,
+	},
+	LIVE_CASINO_ALL_BET: {
+		GAME_ID: 12,
+		TP_ID: 12,
+		TP_GAME_TYPE: 6,
+	},
+	LIVE_CASINO_WE: {
+		GAME_ID: 18,
+		TP_ID: 18,
+		TP_GAME_TYPE: 28,
+	},
+	LIVE_CASINO_SA: {
+		GAME_ID: 2,
+		TP_ID: 2,
+		TP_GAME_TYPE: 9,
+	},
+	LIVE_CASINO_AE: {
+		GAME_ID: 15,
+		TP_ID: 15,
+		TP_GAME_TYPE: 18,
+	},
+	LIVE_CASINO_PP: {
+		GAME_ID: 101,
+		TP_ID: 5,
+		TP_GAME_TYPE: 16,
+	},
+	LIVE_CASINO_BG: {
+		GAME_ID: 0,
+		TP_ID: 47,
+		TP_GAME_TYPE: 94,
+	},
+	LIVE_CASINO_DG: {
+		GAME_ID: 4,
+		TP_ID: 4,
+		TP_GAME_TYPE: 10,
+	},
+	LIVE_CASINO_AG: {
+		GAME_ID: 3,
+		TP_ID: 3,
+		TP_GAME_TYPE: 8,
+	},
+	LIVE_CASINO_MW: {
+		GAME_ID: 105,
+		TP_ID: 5,
+	},
+	LIVE_CASINO_N2: {
+		TP_ID: 28,
+		TP_GAME_TYPE: 45,
+	},
+	// 新的 casino PlayTech (Seamless Wallet)
+	LIVE_CASINO_PT: {
+		GAME_ID: '0',
+		TP_ID: 51,
+		TP_GAME_TYPE: 101,
+		GAME_TYPE: 'slots',
+	},
+	LIVE_CASINO_EVO: {
+		GAME_ID: 0,
+		TP_ID: 36,
+		TP_GAME_TYPE: 63,
+	},
+	LIVE_CASINO_MG: {
+		TP_ID: 34,
+		GAME_ID: 0,
+		TP_GAME_TYPE: 58,
+	},
+	LIVE_CASINO_SKY_WIND: {
+		GAME_ID: 0,
+		TP_ID: 43,
+		TP_GAME_TYPE: 84,
+	},
+	LIVE_CASINO_YEE_BET: {
+		GAME_ID: 0,
+		TP_ID: 46,
+		TP_GAME_TYPE: 93,
+	},
+	// * FISHING
+	FISHING: {
+		TP_ID: 7,
+		GAME_ID: 10,
+		TP_GAME_TYPE: 12,
+	},
+	FISHING_ICG_DRAGON_BALL: {
+		TP_ID: 24,
+		GAME_ID: 'cmf0001',
+		TP_GAME_TYPE: 40,
+	},
+	FISHING_SG: {
+		TP_ID: 10,
+		GAME_ID: 'F-SF01',
+		TP_GAME_TYPE: 31,
+	},
+	FISHING_SGW: {
+		GAME_ID: 'F-SF02',
+		TP_ID: 10,
+		TP_GAME_TYPE: 31,
+	},
+	FISHING_HAIBA: {
+		GAME_ID: 'kk8nqm3cfwtng',
+		TP_ID: 9,
+		TP_GAME_TYPE: 66,
+	},
+	FISHING_HUNTING_HAPPY_FISH_5: {
+		GAME_ID: 'st5cmuqnaxycn',
+		TP_ID: 9,
+		TP_GAME_TYPE: 66,
+	},
+	FISHING_HUNTING_MONSTER_AWAKEN: {
+		GAME_ID: '1jeqx59c7ztqg',
+		TP_ID: 9,
+		TP_GAME_TYPE: 66,
+	},
+	FISHING_CQ9_PARADISE: {
+		GAME_ID: 'AB3',
+		TP_ID: 16,
+		NAME: 'CQ9_Paradise',
+		TP_GAME_TYPE: 44,
+	},
+	FISHING_CQ9_LUCKY_FISHING: {
+		GAME_ID: 'AT05',
+		TP_ID: 16,
+		NAME: 'CQ9_Lucky_Fishing',
+		TP_GAME_TYPE: 44,
+	},
+	FISHING_CQ9_WATER_MARGIN_FISHING: {
+		GAME_ID: 'AT06',
+		TP_ID: 16,
+		NAME: 'CQ9_Water_Margin_Fishing',
+		TP_GAME_TYPE: 44,
+	},
+	FISHING_CQ9_THUNDER_FIGHTER: {
+		GAME_ID: 'AT04',
+		TP_ID: 16,
+		NAME: 'CQ9_Thunder_Fighter:',
+		TP_GAME_TYPE: 44,
+	},
+	FISHING_ICG_FISHING_OF_SAVIORS: {
+		TP_ID: 24,
+		GAME_ID: 'cmf0002',
+		TP_GAME_TYPE: 40,
+	},
+	FISHING_ICG_THE_TYRANT_AND_THE_PRINCESS: {
+		TP_ID: 24,
+		GAME_ID: 'cmf0006',
+		TP_GAME_TYPE: 40,
+	},
+	FISHING_CQ9_ONE_SHOT_FISHING: {
+		GAME_ID: 'AT01',
+		TP_ID: 16,
+		NAME: 'CQ9_Oneshot_Fishing',
+		TP_GAME_TYPE: 44,
+	},
+	FISHING_SKY_WIND_OCEAN_RULER: {
+		GAME_ID: 'sw_or',
+		TP_ID: 43,
+		NAME: 'Skywind_Ocean_Ruler',
+		TP_GAME_TYPE: 85,
+	},
+	FISHING_SKY_WIND_CAI_SHEN_DA_HAI: {
+		GAME_ID: 'sw_cashdaha',
+		TP_ID: 43,
+		NAME: 'Skywind_Cai_Shen_Da_Hai',
+		TP_GAME_TYPE: 85,
+	},
+	FISHING_ZOMBIE_PARTY: {
+		GAME_ID: 'F-ZP01',
+		TP_ID: 10,
+		NAME: 'Fishing_Zombie_Party',
+		TP_GAME_TYPE: 31,
+	},
+	FISHING_ALIEN_HUNTER: {
+		GAME_ID: 'F-AH01',
+		TP_ID: 10,
+		NAME: 'Fishing_Alien_Hunter',
+		TP_GAME_TYPE: 31,
+	},
 
-export type IProducts = typeof PRODUCTS
+	// * 4D => FOUR_D
+	FOUR_D_GRAND_DRAGON: {
+		TP_ID: 58,
+		GAME_ID: 'HL',
+		TP_GAME_TYPE: 110,
+		LOGIN_GAME_TYPE: LoginGameTypeEnum.returnGameUrl,
+	},
+
+	// * COCKFIGHTING_VN
+	COCKFIGHTING_VN: {
+		TP_ID: 17,
+		TP_GAME_TYPE: 27,
+	},
+	COCKFIGHTING: {
+		TP_ID: 19,
+		GAME_ID: 19,
+		TP_GAME_TYPE: 30,
+	},
+	// * LOTTERY
+	LOTTERY: {
+		TP_ID: 41,
+		GAME_ID: 220,
+		TP_GAME_TYPE: 74,
+	},
+	LOTTERY_KENO: {
+		TP_ID: 41,
+		GAME_ID: 202,
+		TP_GAME_TYPE: 73,
+	},
+	LOTTERY_TABLE_GAME: {
+		GAME_ID: 222,
+		TP_ID: 41,
+		TP_GAME_TYPE: 75,
+	},
+	LOTTERY_NUMBER_GAME: {
+		TP_ID: 41,
+		GAME_ID: 161,
+		TP_GAME_TYPE: 70,
+	},
+	LOTTERY_INDO4D: {
+		GAME_ID: 223,
+		TP_ID: 41,
+		TP_GAME_TYPE: 20,
+	},
+	LOTTERY_TCG: {
+		TP_ID: 33,
+		TP_GAME_TYPE: 54,
+	},
+	LOTTERY_GPI_KENO: {
+		TP_ID: 6,
+		GAME_ID: 'keno',
+		TP_GAME_TYPE: 88,
+	},
+	LOTTERY_GPI_THAILOTTERY: {
+		TP_ID: 6,
+		GAME_ID: 'thailottery',
+		TP_GAME_TYPE: 90,
+	},
+	LOTTERY_GPI_FAST3: {
+		TP_ID: 6,
+		GAME_ID: 'fast3',
+		TP_GAME_TYPE: 91,
+	},
+	// * VIRTUAL GAME
+	VIRTUAL_GAME: {
+		TP_ID: 41,
+		GAME_ID: 245,
+		TP_GAME_TYPE: 22,
+	},
+	VIRTUAL_SPORTS: {
+		TP_ID: 41,
+		GAME_ID: 192,
+		TP_GAME_TYPE: 72,
+	},
+	// * POKER
+	POKER: {
+		TP_ID: 13,
+		TP_GAME_TYPE: 41,
+	},
+	GAMES_POKER_AMB_POKER: {
+		TP_ID: 30,
+		TP_GAME_TYPE: 50,
+	},
+	GAMES_POKER_KINGMAKER: {
+		TP_ID: 11,
+		TP_GAME_TYPE: 52,
+	},
+	GAMES_93_CONNECT: {
+		TP_ID: 62,
+		GAME_ID: 'LOBBY',
+		TP_GAME_TYPE: 114,
+	},
+	GAMES_MAX_GAME: {
+		TP_ID: 61,
+		TP_GAME_TYPE: 113,
+		GAME_ID: 0,
+	},
+	GAMES_V8_POKER: {
+		TP_ID: 25,
+		TP_GAME_TYPE: 47,
+		GAME_ID: 0,
+	},
+	GAMES_POKER_M_POKER: {
+		TP_ID: 35,
+		TP_GAME_TYPE: 60,
+	},
+	GAME_POKER_MAX_GAME: {
+		TP_ID: 41,
+		GAME_ID: 237,
+		TP_GAME_TYPE: 83,
+	},
+	// add
+	GAME_VGAMING: {
+		TP_ID: 41,
+		GAME_ID: 171,
+		TP_GAME_TYPE: 95,
+	},
+	GAME_AVIATOR: {
+		TP_ID: 53,
+		GAME_ID: 'imgame12001',
+		TP_GAME_TYPE: 104,
+	},
+	GAME_MINES: {
+		TP_ID: 53,
+		GAME_ID: 'imgame12002',
+		TP_GAME_TYPE: 104,
+	},
+	GAME_GOAL: {
+		TP_ID: 53,
+		GAME_ID: 'imgame12003',
+		TP_GAME_TYPE: 104,
+	},
+	GAME_DICE: {
+		TP_ID: 53,
+		GAME_ID: 'imgame12004',
+		TP_GAME_TYPE: 104,
+	},
+	GAME_CRASH: {
+		TP_ID: 39,
+		GAME_ID: 'Crash',
+		TP_GAME_TYPE: 67,
+	},
+	GAME_SPACEMAN: {
+		TP_ID: 5,
+		GAME_ID: 1302,
+		TP_GAME_TYPE: 7,
+	},
+	GAME_GORUSH: {
+		TP_ID: 32,
+		GAME_ID: 224,
+		TP_GAME_TYPE: 53,
+	},
+}

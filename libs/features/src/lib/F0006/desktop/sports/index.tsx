@@ -9,36 +9,36 @@ const Sports = () => {
 	const isClient = useIsClient()
 
 	const {
-		query: {
-			provider: queryProvider,
-			tpId: queryTpiD,
-			gameId: queryGameId,
-			matchId,
-		},
+		query: { provider: queryProvider, type: queryType },
 	} = useRouter()
 	const {
 		userInfo: { langId },
 	} = useAuth()
-	const { onDefaultEnterPage } = useMenu()
+	const {
+		menuData: {
+			Sports: { subMenu: sportSubmenu = [] } = {},
+			Lottery: { subMenu: lotterySubmenu = [] } = {},
+		},
+		onDefaultEnterPage,
+	} = useMenu()
 
-	// Casting index: (menu 的遊戲列會帶 queryProvider)
-	const product = PRODUCTS[queryProvider as keyof typeof PRODUCTS]
+	const subMenu = [...sportSubmenu, ...lotterySubmenu]
 
-	const hotEventProduct = find(
-		PRODUCTS,
-		({ tpId, gameId }) =>
-			tpId === Number(queryTpiD) && gameId === Number(queryGameId)
-	)
-
-	const { tpId, gameId, tpGameType } =
-		product || hotEventProduct || PRODUCTS.Soccer
+	const {
+		product: {
+			TP_ID: tpId = NaN,
+			GAME_ID: gameId = '',
+			TP_GAME_TYPE: tpGameType = PRODUCTS['SPORTS'].TP_GAME_TYPE,
+		} = {},
+	} =
+		find(subMenu, {
+			query: { provider: String(queryProvider), type: String(queryType) },
+		}) ?? {}
 
 	const iframeUrl = onDefaultEnterPage({
 		langId,
 		tpId,
 		gameId,
-		// * 移除 query 會拿到 string[] 的型態
-		matchid: matchId ? String(matchId) : '',
 		tpGameType,
 	})
 

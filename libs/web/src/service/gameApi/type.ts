@@ -58,9 +58,9 @@ export interface IGetRecentlyViewedArgs {
 }
 
 export type IViewedGameData = {
-	betType?: number
+	betType: string
 	categoryId: number
-	gameId?: string | number
+	gameId: string
 	gameLogo: {
 		[lang: string]: string
 	}
@@ -68,7 +68,7 @@ export type IViewedGameData = {
 		[lang: string]: string
 	}
 	isMaintain: boolean
-	tpGameIdNo: number | undefined
+	tpGameIdNo: number
 	tpGameType: number
 	tpId: number
 	tpLogo: string
@@ -78,27 +78,4 @@ export interface IRecentlyViewedData {
 	bannerUrl: string
 	imgUrl: string
 	recentlyViewedList: IViewedGameData[]
-}
-
-export interface ISubMenuData {
-	lobbyCategory: string
-	tpId: number
-	tpName: string
-	productName: string
-	tpGameIdNo: number | undefined
-	gameId?: number | string
-	tpGameType: number
-	currencyGameName: Record<string, string> | null
-	pcHeaderPicUrl: string
-	pcLobbyPicUrl: string
-	mobileHeaderPicUrl: string
-	mobileLobbyPicUrl: string
-	sort: number
-	iconEndTime: string
-	iconStartTime: string
-	iconType: number
-}
-export interface ILobbyHeaderData {
-	lobbyCategoryId: number
-	data: ISubMenuData[]
 }

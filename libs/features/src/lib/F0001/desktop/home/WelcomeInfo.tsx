@@ -12,12 +12,6 @@ import { useHome } from '@nx-next-app/features/F0001/providers'
 const LoginModal = dynamic(() => import('../modal/LoginModal'), {
 	ssr: false,
 })
-
-const LiveStreamingModalDesktop = dynamic(
-	() => import('../modal/LiveStreamingModal'),
-	{ ssr: false }
-)
-
 const WelcomeInfo = () => {
 	const { t } = useTranslation()
 	const { PRODUCTS } = useStaticData()
@@ -30,9 +24,12 @@ const WelcomeInfo = () => {
 		affiliateData: { link },
 	} = useHome()
 	// 開法跟 menuData 內定義的不同，故另外寫物件餵給 onMenuOpen
-	const sportSoccerItem = {
-		...PRODUCTS.Soccer,
+	const sportItem = {
+		product: PRODUCTS['SPORTS'],
 		desktop: {
+			menuActionType: MenuActionTypeEnum.EnterPage,
+		},
+		h5: {
 			menuActionType: MenuActionTypeEnum.EnterPage,
 		},
 	}
@@ -95,11 +92,8 @@ const WelcomeInfo = () => {
 				<button
 					className='welcome-btn'
 					onClick={() => {
-						onMenuOpen(sportSoccerItem, {
+						onMenuOpen(sportItem, {
 							loginCallback: () => modal.open(<LoginModal />),
-							messageCallBack: message => modal.error(message),
-							liveStreamingCallback: () =>
-								modal.open(<LiveStreamingModalDesktop />),
 						})
 					}}
 				>

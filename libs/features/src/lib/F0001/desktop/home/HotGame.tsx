@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import Image from 'next/future/image'
-import { find } from 'lodash-es'
+import { find, isUndefined } from 'lodash-es'
 import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useHome } from '@nx-next-app/features/F0001/providers'
-import { paths, PRODUCTS } from '@nx-next-app/constants'
+import { paths } from '@nx-next-app/constants'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import dynamic from 'next/dynamic'
 
@@ -26,11 +26,6 @@ const UnderMaintenanceModal = dynamic(
 	}
 )
 
-const LiveStreamingModalDesktop = dynamic(
-	() => import('@nx-next-app/features/F0001/desktop/modal/LiveStreamingModal'),
-	{ ssr: false }
-)
-
 const HotGame = () => {
 	const { t } = useTranslation()
 	const { hotGameData, slotGameData, handleHotGameClick, handleSlotGamePlay } =
@@ -39,12 +34,15 @@ const HotGame = () => {
 	const {
 		userInfo: { currencyId, langId },
 	} = useAuth()
-	const { onStaticMenuOpen } = useMenu()
-
+	const { menuData: { Slot: { subMenu: slotSubMenu } = {} } = {}, onMenuOpen } =
+		useMenu()
 	const { modal } = useGlobalModal()
 
 	const [showHotGameNavigation, setShowHotGameNavigation] = useState(false)
 	const [showJackpotNavigation, setShowJackpotNavigation] = useState(false)
+
+	const slotPP = find(slotSubMenu, menu => menu.productKey === 'SLOTS_PP')
+	const slotSG = find(slotSubMenu, menu => menu.productKey === 'SLOTS_SG')
 
 	const hotGameSwiperConfig = {
 		slidesPerView: 3,
@@ -121,14 +119,11 @@ const HotGame = () => {
 									<button
 										className='all-btn'
 										onClick={() => {
-											onStaticMenuOpen(PRODUCTS.Spadegaming, {
-												loginCallback: () => modal.open(<LoginModal />),
-												underMaintenanceCallback: () =>
-													modal.open(<UnderMaintenanceModal />),
-												messageCallBack: message => modal.error(message),
-												liveStreamingCallback: () =>
-													modal.open(<LiveStreamingModalDesktop />),
-											})
+											if (!isUndefined(slotSG)) {
+												onMenuOpen(slotSG, {
+													loginCallback: () => modal.open(<LoginModal />),
+												})
+											}
 										}}
 									>
 										{t('Label_General_PlayNow')}
@@ -146,14 +141,11 @@ const HotGame = () => {
 									<button
 										className='all-btn'
 										onClick={() => {
-											onStaticMenuOpen(PRODUCTS.PragmaticPlaySlot, {
-												loginCallback: () => modal.open(<LoginModal />),
-												underMaintenanceCallback: () =>
-													modal.open(<UnderMaintenanceModal />),
-												messageCallBack: message => modal.error(message),
-												liveStreamingCallback: () =>
-													modal.open(<LiveStreamingModalDesktop />),
-											})
+											if (!isUndefined(slotPP)) {
+												onMenuOpen(slotPP, {
+													loginCallback: () => modal.open(<LoginModal />),
+												})
+											}
 										}}
 									>
 										{t('Label_General_PlayNow')}

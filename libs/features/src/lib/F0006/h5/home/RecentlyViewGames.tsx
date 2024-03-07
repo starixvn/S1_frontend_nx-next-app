@@ -1,17 +1,16 @@
+import { useTranslation } from 'next-i18next'
+import { useAuth } from '@nx-next-app/data-access'
+import { useHome } from '@nx-next-app/features/F0006/providers'
+import { Carousel } from '@nx-next-app/components/H0006'
+import { useRouter } from 'next/router'
+import { paths } from '@nx-next-app/constants'
 import classNames from 'classnames'
 import Image from 'next/future/image'
 import { isUrl } from '@nx-next-app/utils'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
-import { Carousel } from '@nx-next-app/components/H0006'
-import { paths } from '@nx-next-app/constants'
-import useRecentlyViewed from '@nx-next-app/features/F0006/hooks/useRecentlyViewed'
 
 const RecentlyViewGames = () => {
 	const { t } = useTranslation()
-	const { recentlyViewedList, onCLickRecentlyViewGame } = useRecentlyViewed()
-
+	const { recentlyViewedList, handleRecentlyViewGameClick } = useHome()
 	const { push } = useRouter()
 	const {
 		userInfo: { langId },
@@ -34,17 +33,24 @@ const RecentlyViewGames = () => {
 		<>
 			<div className='moduleTitle'>{t('Label_General_RecentlyViewed')}</div>
 			<Carousel {...config}>
-				{recentlyViewedList.map(recentlyViewedGameItem => {
-					const { gameLogo, tpLogo, gameName, isMaintain, tpGameIdNo } =
-						recentlyViewedGameItem || {}
-					return (
+				{recentlyViewedList.map(
+					({
+						gameLogo,
+						tpLogo,
+						gameName,
+						tpId,
+						tpGameType,
+						isMaintain,
+						tpGameIdNo,
+					}) => (
 						<div
 							className='swiper-slide'
 							key={tpGameIdNo}
 							onClick={() =>
-								onCLickRecentlyViewGame(recentlyViewedGameItem, {
-									loginCallback: () => push(paths.login.root),
-								})
+								handleRecentlyViewGameClick(
+									{ tpId, tpGameType, isMaintain },
+									{ loginCallback: () => push(paths.login.root) }
+								)
 							}
 						>
 							<div
@@ -58,22 +64,18 @@ const RecentlyViewGames = () => {
 										src={gameLogo[langId] ?? gameLogo['en']}
 										width={300}
 										height={300}
-										alt='recently-image'
+										alt=''
 									/>
 									{isUrl(tpLogo) ? (
 										<Image
 											src={tpLogo}
 											width={87}
 											height={55}
-											alt='recently-brand'
+											alt=''
 											className='recently-brand'
 										/>
 									) : (
-										<img
-											className='recently-brand'
-											src={tpLogo}
-											alt='recently-brand'
-										/>
+										<img className='recently-brand' src={tpLogo} alt='' />
 									)}
 
 									<div className='recently-title'>
@@ -88,7 +90,7 @@ const RecentlyViewGames = () => {
 							</div>
 						</div>
 					)
-				})}
+				)}
 			</Carousel>
 		</>
 	)
