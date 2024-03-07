@@ -1,5 +1,4 @@
 import { CurrenciesEnum, IFooterData } from '@nx-next-app/types'
-import { PRODUCTS } from '@nx-next-app/constants'
 
 export const FOOTER_DATA = ({
 	langId,
@@ -20,165 +19,164 @@ export const FOOTER_DATA = ({
 	}
 
 	return {
-		// * platformList 須經過 useMenu(已包含 排序、tpIds、allowCurrencies) 過濾
+		// * platformList 渲染時需透過 tpIds、allowCurrencies 過濾一次
 		platformList: [
 			{
-				...PRODUCTS.Soccer,
+				productKey: 'SPORTS_SOCCER',
 				imgName: 'saba',
 			},
 			{
-				...PRODUCTS.Allbet,
+				productKey: 'LIVE_CASINO_ALL_BET',
 				imgName: 'all',
 			},
 			{
-				...PRODUCTS.DreamGaming,
+				productKey: 'LIVE_CASINO_DG',
 				imgName: 'dg',
 			},
 			{
-				...PRODUCTS.AsiaGaming,
+				productKey: 'LIVE_CASINO_AG',
 				imgName: 'ag',
 			},
 			{
-				...PRODUCTS.AESexy,
+				productKey: 'LIVE_CASINO_AE',
 				imgName: 'sexy',
 			},
 			{
-				...PRODUCTS.SAGaming,
+				productKey: 'LIVE_CASINO_SA',
 				imgName: 'sa',
 			},
 			{
-				...PRODUCTS.PragmaticPlayCasino,
+				productKey: 'SLOTS_PP',
 				imgName: 'pp',
 			},
 			{
-				...PRODUCTS.BigGaming,
+				productKey: 'LIVE_CASINO_BG',
 				imgName: 'bg',
 			},
 			{
-				// ??
-				...PRODUCTS.YeebetCasino,
+				productKey: 'LIVE_CASINO_YEE_BET',
 				imgName: 'yb',
 			},
 			{
-				...PRODUCTS.MicrogamingSlot,
+				productKey: 'SLOTS_MGPSW',
 				imgName: 'mic',
 			},
 			{
-				...PRODUCTS.NewPlayTechSlot,
+				productKey: 'SLOTS_PT',
 				imgName: 'pt',
 			},
 			{
-				...PRODUCTS.YGGDrassil,
+				productKey: 'SLOTS_YGG',
 				imgName: 'ygg',
 			},
 			{
-				...PRODUCTS.Joker,
+				productKey: 'SLOTS_JOKER',
 				imgName: 'joker',
 			},
 			{
-				...PRODUCTS.Spadegaming,
+				productKey: 'SLOTS_SG',
 				imgName: 'spad',
 			},
 			{
-				...PRODUCTS.JILI,
+				productKey: 'SLOTS_JILI',
 				imgName: 'jili',
 			},
 			{
-				...PRODUCTS.TCGaming,
+				productKey: 'LOTTERY_TCG',
 				imgName: 'tc',
 			},
 			{
-				...PRODUCTS.RedTiger,
+				productKey: 'GAMES_POKER_M_POKER',
+				imgName: 'mp',
+			},
+			{
+				productKey: 'SLOTS_RED_TIGER',
 				imgName: 'red',
 			},
 			{
-				...PRODUCTS.NetEnt,
+				productKey: 'SLOTS_NET_ENT',
 				imgName: 'net',
 			},
 			{
-				...PRODUCTS.AdvantPlay,
+				productKey: 'SLOTS_ADVANT_PLAY',
 				imgName: 'ap',
 			},
 			{
-				...PRODUCTS.EvolutionGaming,
+				productKey: 'LIVE_CASINO_EVO',
 				imgName: 'evo',
 			},
 			{
-				...PRODUCTS.Habanero,
+				productKey: 'SLOTS_HABANERO',
 				imgName: 'ha',
 			},
 			{
-				...PRODUCTS.SimplePlay,
+				productKey: 'SLOTS_SIMPLE_PLAY',
 				imgName: 'simple',
 			},
 			{
-				...PRODUCTS.SkywindSlot,
+				productKey: 'SLOTS_SKY_WIND',
 				imgName: 'sky',
 			},
 			{
-				...PRODUCTS.Nextspin,
+				productKey: 'SLOTS_NEXT_SPIN',
 				imgName: 'next',
 			},
 			{
-				...PRODUCTS.IMESports,
+				productKey: 'SPORTS_E_IMESPORTS',
 				imgName: 'im-esports',
 			},
 			{
-				...PRODUCTS.SPRIBE,
+				productKey: 'SLOTS_SPRIBE',
 				imgName: 'spribe',
 			},
 			{
-				...PRODUCTS.PlaynGO,
+				productKey: 'SLOTS_PNG',
 				imgName: 'png',
 			},
 			{
-				...PRODUCTS.ES,
+				productKey: 'SLOTS_ES',
 				imgName: 'es',
 			},
 			{
-				...PRODUCTS.WE,
+				productKey: 'LIVE_CASINO_WE',
 				imgName: 'we',
 			},
 			{
-				...PRODUCTS.AskmeSlot,
-				imgName: 'casino_askme',
+				productKey: 'SLOTS_AMB',
+				imgName: 'askme',
 			},
 			{
-				...PRODUCTS.FaChai,
+				productKey: 'SLOTS_FA_CHAI',
 				imgName: 'fachai',
 			},
 			{
-				...PRODUCTS.BNG,
+				productKey: 'SLOTS_BNG',
 				imgName: 'bng',
 			},
 			{
-				...PRODUCTS.Pegasus,
+				productKey: 'SLOTS_PEGASUS',
 				imgName: 'pegasus',
 			},
 			{
-				...PRODUCTS.V8Poker,
+				productKey: 'GAMES_V8_POKER',
 				imgName: 'v8',
 			},
 			{
-				...PRODUCTS.TFGaming,
+				productKey: 'SPORTS_E_SPORTS_TFG',
 				imgName: 'tfg',
 			},
 			{
-				...PRODUCTS.NoLimitCity,
+				productKey: 'SLOTS_NO_LIMIT_CITY',
 				imgName: 'nlc',
 			},
 			{
-				...PRODUCTS.AmigoGaming,
+				productKey: 'SLOTS_AMIGO',
 				imgName: 'amigo',
 			},
-      {
-				...PRODUCTS.MPPoker,
-				imgName: 'mp',
-			},
-      {
-				...PRODUCTS.GrandDragon,
+			{
+				productKey: 'FOUR_D_GRAND_DRAGON',
 				imgName: 'haolong',
-			}
+			},
 		],
 		quickLinks: [
 			{

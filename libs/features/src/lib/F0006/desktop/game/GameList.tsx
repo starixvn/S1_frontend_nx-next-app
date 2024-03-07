@@ -1,10 +1,10 @@
-import { find } from 'lodash-es'
-import dynamic from 'next/dynamic'
-import { MenuKeyEnum } from '@nx-next-app/types'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useMenu } from '@nx-next-app/features/F0006/hooks'
+import dynamic from 'next/dynamic'
 import GameListItem from '@nx-next-app/components/D0006/game-list-item'
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0006/types'
+import { useTranslation } from 'next-i18next'
+import classNames from 'classnames'
+import { ISubMenu } from '@nx-next-app/types'
 
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0006/desktop/modal/LoginModal'),
@@ -15,29 +15,39 @@ const LoginModal = dynamic(
 
 const GameList = () => {
 	const { modal } = useGlobalModal()
-	const { menuList = [], onMenuOpen } = useMenu()
+	const { t } = useTranslation()
+	const {
+		menuData: {
+			Game: { subMenu },
+		},
+		onMenuOpen,
+	} = useMenu()
 
-	const gamesSubMenus = find(menuList, {
-		category: MenuKeyEnum.Game,
-	})?.subMenu
-
-	const onItemClick = (item: IDynamicSubMenuItem) => {
+	const onItemClick = (item: ISubMenu) => {
 		onMenuOpen(item, {
 			loginCallback: () => modal.open(<LoginModal />),
-			messageCallBack: message => modal.error(message),
 		})
 	}
 
 	return (
 		<section className='inside'>
 			<div className='rightModule'>
-				{gamesSubMenus?.map(subMenuItem => (
+				{subMenu?.map((item: ISubMenu) => (
 					<GameListItem
-						key={subMenuItem?.tpGameIdNo}
-						subMenuItemClassName='gameItem'
-						imageCategory='game'
-						subMenuItem={subMenuItem}
-						onItemClick={onItemClick}
+						className={classNames('gameItem', { active: item.isTpMaintain })}
+						style={{ pointerEvents: item.isTpMaintain ? 'none' : 'auto' }}
+						alt={item.displayKey as string}
+						key={item?.product?.GAME_ID}
+						hoverImgSrc={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/game/${item?.desktop?.lobbyPage?.hoverBgImg}`}
+						imgSrc={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/game/${item?.desktop?.lobbyPage?.bgImg}`}
+						displayName={
+							item.displayKey
+								? (t(item.displayKey) as string)
+								: item.displayText
+						}
+						onItemClick={() => onItemClick(item)}
+						gameTextClassName='name'
+						eventIcons={item?.eventIcons}
 					/>
 				))}
 			</div>

@@ -7,9 +7,6 @@ export enum CategoryEnum {
 	LOTTERY,
 	VIRTUAL_SPORTS,
 	POKER,
-	Crypto,
-	Games,
-	ESports,
 }
 
 export enum SocialChannelEnum {
@@ -103,4 +100,3 @@ export enum KycStatusEnum {
 }
 
 export * from './home'
-export * from './menu'

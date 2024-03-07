@@ -4,6 +4,7 @@ import { Marquee } from '@nx-next-app/components/D0001'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { DesktopHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
+
 import { HotGame } from './HotGame'
 import { HotMatch } from './hotMatch'
 import { WelcomeInfo } from './WelcomeInfo'
@@ -13,7 +14,6 @@ import { LiveCasino } from './LiveCasino'
 import { ProvidersBlock } from './ProvidersBlock'
 import { OfficialPartner } from './OfficialPartner'
 import CarouselBanner from '../common/carouselBanner'
-import { RecentlyViewGames } from './RecentlyViewGames'
 
 const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
 
@@ -39,7 +39,6 @@ const Home = () => {
 		desktopHomeOrders,
 		handleMarqueeClick,
 	} = useHome()
-
 	const { modal } = useGlobalModal()
 	const homeComponents = {
 		[DesktopHomeComponentsEnum.CarouselBanner]: (
@@ -64,7 +63,6 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.HotMatch]: <HotMatch />,
 		[DesktopHomeComponentsEnum.LiveCasino]: <LiveCasino />,
 		[DesktopHomeComponentsEnum.HotGame]: <HotGame />,
-		[DesktopHomeComponentsEnum.RecentlyViewGames]: <RecentlyViewGames />,
 		[DesktopHomeComponentsEnum.AppDownloadBanner]: <AppDownloadBanner />,
 		[DesktopHomeComponentsEnum.OfficialPartner]: <OfficialPartner />,
 		[DesktopHomeComponentsEnum.ProviderBlock]: <ProvidersBlock />,

@@ -1,24 +1,17 @@
-import dayjs from 'dayjs'
-import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
-import { filter, find, head } from 'lodash-es'
-import { paths } from '@nx-next-app/constants'
-import isBetween from 'dayjs/plugin/isBetween'
 import React, { createContext, useContext, ReactNode } from 'react'
-import { useMenu } from '@nx-next-app/features/F0006/hooks'
-import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
-	type IAnnouncementData,
-	type IBannerData,
-	type IHighlightData,
-	type IHotEventData,
-	type IHotGame,
-	type INewsData,
-	type IPromotionData,
-	type ISocialChannelData,
+	IAnnouncementData,
+	IBannerData,
+	IHighlightData,
+	IHotEventData,
+	IHotGame,
+	INewsData,
+	IPromotionData,
+	ISocialChannelData,
+	IViewedGameData,
 	useGetAnnouncementQuery,
 	useGetHotEventListQuery,
+	useGetRecentlyViewedQuery,
 	useGetReferralCodeQuery,
 	useGetReferralSettingQuery,
 	useGetSocialChannelQuery,
@@ -26,8 +19,12 @@ import {
 import {
 	CurrenciesEnum,
 	DeviceTypeEnum,
-	type IFooterData,
+	IFooterData,
+	ISubMenu,
 } from '@nx-next-app/types'
+import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
+import dynamic from 'next/dynamic'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	CategoryEnum,
 	DesktopHomeComponentsEnum,
@@ -35,6 +32,12 @@ import {
 	GameTypeEnum,
 	SocialChannelEnum,
 } from '@nx-next-app/features/F0006/types'
+import { paths } from '@nx-next-app/constants'
+import { useRouter } from 'next/router'
+import { filter, find, head } from 'lodash-es'
+import dayjs from 'dayjs'
+import isBetween from 'dayjs/plugin/isBetween'
+import { useMenu } from '@nx-next-app/features/F0006/hooks'
 
 dayjs.extend(isBetween)
 interface IHomeProviderProps {
@@ -68,6 +71,7 @@ export interface HomeContextInterface {
 	jackPotCurrencies: CurrenciesEnum[]
 	hotGameData: IHotGame[]
 	newsData: INewsData[]
+	recentlyViewedList: IViewedGameData[]
 	socialChannelList: ISocialChannelData[]
 	footerSocialChannelList: ISocialChannelData[]
 	licenseData: IFooterData['licenseData']
@@ -75,6 +79,22 @@ export interface HomeContextInterface {
 	referralData: { referralBonus: number | null; referralCode: string }
 	handlePromotionClick: (bonusCode: string) => void
 	handleMarqueeClick: ({ loginCallback }: { loginCallback: () => void }) => void
+	handleRecentlyViewGameClick: (
+		{
+			tpId,
+			tpGameType,
+			isMaintain,
+		}: {
+			tpId: number
+			tpGameType: number
+			isMaintain: boolean
+		},
+		{
+			loginCallback,
+		}: {
+			loginCallback: () => void
+		}
+	) => void
 	handleHotGameClick: (
 		{
 			game,
@@ -159,7 +179,7 @@ export const HomeProvider = ({
 	mobileHomeOrders = defaultMobileHomeOrders,
 }: IHomeProviderProps) => {
 	const { push } = useRouter()
-	const { onEnterSlotsPage, onEnterPage } = useMenu()
+	const { onEnterSlotsPage, onEnterPage, menuData, onMenuOpen } = useMenu()
 	const { tpMaintainList } = useGlobalData()
 	const {
 		auth: { isLogin },
@@ -187,6 +207,16 @@ export const HomeProvider = ({
 			}
 		)
 
+	const { data: { data: recentlyViewData } = {} } = useGetRecentlyViewedQuery(
+		{
+			currencyId,
+			deviceType,
+		},
+		{
+			skip: !isLogin,
+		}
+	)
+
 	const { data: { data: socialChannelList = [] } = {} } =
 		useGetSocialChannelQuery({
 			currencyId: currencyId as number,
@@ -206,6 +236,8 @@ export const HomeProvider = ({
 				skip: deviceType !== DeviceTypeEnum.Mobile,
 			}
 		)
+
+	const { recentlyViewedList = [] } = recentlyViewData ?? {}
 
 	const { data: { data: referralSetting = [] } = {} } =
 		useGetReferralSettingQuery(null, { skip: !isLogin })
@@ -312,10 +344,45 @@ export const HomeProvider = ({
 		}
 	}
 
+	const handleRecentlyViewGameClick = (
+		{
+			tpId,
+			tpGameType,
+			isMaintain,
+		}: {
+			tpId: number
+			tpGameType: number
+			isMaintain: boolean
+		},
+		{
+			loginCallback,
+		}: {
+			loginCallback: () => void
+		}
+	) => {
+		if (!isMaintain) {
+			// 非 Maintain 才做動作
+			let subMenu: ISubMenu | undefined
+			Object.values(menuData).forEach((item: any) => {
+				const result = item.subMenu?.find(
+					({ product }: ISubMenu) =>
+						product?.TP_ID === tpId && product?.TP_GAME_TYPE === tpGameType
+				)
+				if (result !== undefined) {
+					subMenu = result
+				}
+			})
+			if (subMenu !== undefined) {
+				onMenuOpen(subMenu, { loginCallback })
+			}
+		}
+	}
+
 	const value: HomeContextInterface = {
 		desktopHomeOrders,
 		mobileHomeOrders,
 		announcementData,
+		recentlyViewedList,
 		jackPotCurrencies,
 		socialChannelList,
 		footerSocialChannelList,
@@ -331,6 +398,7 @@ export const HomeProvider = ({
 		handlePromotionClick,
 		handleMarqueeClick,
 		handleHotGameClick,
+		handleRecentlyViewGameClick,
 		formatHdp,
 	}
 

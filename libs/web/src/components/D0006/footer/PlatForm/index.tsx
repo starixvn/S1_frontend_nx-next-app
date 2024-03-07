@@ -1,10 +1,10 @@
-import { find } from 'lodash-es'
-import React, { useState } from 'react'
-import dynamic from 'next/dynamic'
-import Image from 'next/future/image'
-import { useMenu } from '@nx-next-app/features/F0006/hooks'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import type { IFooterData } from '@nx-next-app/types'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import { IFooterData } from '@nx-next-app/types'
+import Image from 'next/future/image'
+import dynamic from 'next/dynamic'
+import { useState } from 'react'
+import { find } from 'lodash-es'
 
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
@@ -18,59 +18,55 @@ const PlatForm = ({
 }: {
 	platformList: IFooterData['platformList']
 }) => {
-	const [onMouseOverImg, setOnMouseOverImg] = useState<string>('')
+	const [onMouseOverImg, setOnMouseOverImg] = useState({})
 	const { modal } = useGlobalModal()
-	const { menuList, onMenuOpen } = useMenu()
+	const { menuData, onMenuOpen } = useMenu()
 
-	const showPlatFormList = menuList.flatMap(mainMenuItem => {
-		const { subMenu } = mainMenuItem || {}
-
-		return subMenu?.flatMap(subMenuItem => {
-			const defPlatformList = find(platformList, {
-				tpGameIdNo: subMenuItem?.tpGameIdNo,
-			})
-			if (defPlatformList) {
-				return {
-					...subMenuItem,
-					...defPlatformList,
-				}
-			}
-
-			return []
-		})
-	})
+	const allSubMenu = Object.values(menuData).flatMap(item => item.subMenu)
 
 	return (
 		<div className='platform'>
-			{showPlatFormList.map(prodictItem => {
-				const { imgName, tpGameIdNo, hoverImgName } = prodictItem || {}
+			{platformList.map(({ productKey, imgName, hoverImgName }) => {
 				const displayImgName =
 					onMouseOverImg === imgName ? hoverImgName : imgName
 
+				const subMenu = find(allSubMenu, { productKey })
+
+				if (!subMenu?.desktop) return null
+
+				const {
+					desktop: { menuActionType },
+					pathname,
+					query,
+					product,
+				} = subMenu
+
 				return (
-					imgName && (
-						<button
-							key={tpGameIdNo}
-							className={imgName}
-							style={{ width: 'auto', height: '55px' }}
-							onClick={() =>
-								onMenuOpen(prodictItem, {
+					<button
+						key={productKey}
+						type='button'
+						className={displayImgName}
+						style={{ width: 'auto', height: '55px' }}
+						onClick={() => {
+							onMenuOpen(
+								{ desktop: { menuActionType }, pathname, query, product },
+								{
 									loginCallback: () => modal.open(<LoginModal />),
 									messageCallBack: message => modal.error(message),
-								})
-							}
-						>
-							<Image
-								style={{ width: 'auto', height: '55px' }}
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/venderlogo/${displayImgName}.png`}
-								alt={`logo ${imgName}`}
-								width={80}
-								height={55}
-								onMouseOver={() => setOnMouseOverImg(imgName)}
-								onMouseOut={() => setOnMouseOverImg('')}
-							/>
-						</button>
-					)
+								}
+							)
+						}}
+					>
+						<Image
+							style={{ width: 'auto', height: '55px' }}
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/venderlogo/${displayImgName}.png`}
+							alt={`logo ${displayImgName}`}
+							width={80}
+							height={55}
+							onMouseOver={() => setOnMouseOverImg(imgName)}
+							onMouseOut={() => setOnMouseOverImg({})}
+						/>
+					</button>
 				)
 			})}
 		</div>

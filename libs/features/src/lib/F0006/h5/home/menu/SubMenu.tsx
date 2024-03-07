@@ -1,147 +1,101 @@
+import { getSubMenuEventIcon, useMenu } from '@nx-next-app/features/F0006/hooks'
+import { DeviceTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
 import classNames from 'classnames'
-import { includes } from 'lodash-es'
-import Image from 'next/future/image'
-import { useRouter } from 'next/router'
+import process from 'process'
 import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import { isEventPeriod, isUrl } from '@nx-next-app/utils'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { MenuKeyEnum, MenuIconTypeEnum } from '@nx-next-app/types'
-import { type IMergedMenuData } from '@nx-next-app/features/F0006/hooks'
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0006/types'
-import type {
-	IHeaderSubMenuImg,
-	ISunMenuNpcImage,
-} from '@nx-next-app/site/yashbet'
+import { uniqueId } from 'lodash-es'
 
 interface ISubMenuProps {
-	menuList: IMergedMenuData[]
-	onMenuOpen: (
-		item: IDynamicSubMenuItem | undefined,
-		{
-			loginCallback,
-			messageCallBack,
-		}: {
-			loginCallback: () => void
-			messageCallBack?: (message: string) => void | undefined
-		}
-	) => void
-	menuKey: keyof typeof MenuKeyEnum | undefined
+	menuKey: keyof typeof MenuKeyEnum | ''
 }
 
-const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
-	const {
-		userInfo: { langId },
-	} = useAuth()
-	const { push } = useRouter()
+const SubMenu = ({ menuKey }: ISubMenuProps) => {
 	const { t } = useTranslation()
-	const { modal } = useGlobalModal()
+	const { push } = useRouter()
+	const { menuData, onMenuOpen } = useMenu()
 
-	const renderSubMenu = menuList.map(mainMenuItem => {
-		const { h5, category, subMenu } = mainMenuItem || {}
-		const { subMenuClassName } = h5 || {}
+	const renderSubMenu = (key: string) => {
+		const {
+			h5: { subMenuClassName },
+			subMenu,
+		} = menuData[key as MenuKeyEnum]
+
 		return (
 			<div
-				key={category}
-				className={classNames(subMenuClassName, {
-					active: menuKey === category,
-				})}
+				key={key}
+				className={classNames(subMenuClassName, { active: key === menuKey })}
 			>
-				{subMenu?.map(subMenuItem => {
+				{subMenu?.map(item => {
 					const {
-						tpGameIdNo,
-						productName,
-						iconType,
-						iconStartTime,
-						iconEndTime,
-						isTpMaintain,
-						mobileHeaderPicUrl,
-						h5,
-					} = subMenuItem || {}
-					const { headerMenuImgList, hasDesktopLink } = h5 || {}
+						h5: { className, hasDesktopLink, headerMenuImgList, img } = {},
+						eventIcons,
+						displayKey,
+						displayText,
+						productKey,
+					} = item
 
-					const displayName =
-						subMenuItem?.currencyGameName &&
-						subMenuItem?.currencyGameName[langId] &&
-						subMenuItem?.currencyGameName[langId]
+					const subMenuEventIcon = getSubMenuEventIcon(eventIcons)
 
-					// * 後端這裡是字串格式 需做處理
-					const suBMenuImage =
-						mobileHeaderPicUrl && JSON.parse(mobileHeaderPicUrl)[0]
-
-					const isNew =
-						isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
-						iconType === MenuIconTypeEnum.New
 					return (
-						<button
-							key={tpGameIdNo}
-							className={classNames({ active: isTpMaintain })}
+						<div
+							style={{
+								// * 如果維護中取消點擊事件
+								pointerEvents: item.isTpMaintain ? 'none' : 'auto',
+							}}
+							key={productKey || uniqueId()}
+							className={classNames(className, {
+								active: item.isTpMaintain,
+							})}
 							onClick={() => {
-								onMenuOpen(subMenuItem, {
+								onMenuOpen(item, {
 									loginCallback: () => {
 										push(paths.login.root)
 									},
-									messageCallBack: message => modal.error(message),
+									messageCallBack: message => null,
 								})
 							}}
 						>
-							{isNew && <i className='icon icon-new' />}
+							{eventIcons && (
+								<i className={classNames(subMenuEventIcon?.icon)} />
+							)}
 
-							{headerMenuImgList?.map(image => {
-								const isNpc = (
-									img: IHeaderSubMenuImg
-								): img is ISunMenuNpcImage => {
-									return includes(img?.className, 'npc')
-								}
+							{img && (
+								<img
+									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}${img}`}
+									alt={productKey || 'menu-item-img'}
+								/>
+							)}
 
-								if (isNpc(image)) {
-									return (
-										<Image
-											key={image.remoteImgUrl}
-											className={classNames(image.className)}
-											alt={image.remoteImgUrl}
-											width={102}
-											height={136}
-											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/dropdown/${image.remoteImgUrl}`}
-										/>
-										// TODO : 用 yashbet 資料時須改回來
-										// isUrl(suBMenuImage) ?
-										// <Image
-										//   src={suBMenuImage}
-										//   alt={productName}
-										//   width={86}
-										//   height={86}
-										// /> : <img src={suBMenuImage} alt={productName} />
-									)
-								}
+							{headerMenuImgList?.map(img => (
+								<img
+									key={img.imgUrl}
+									className={classNames(img.className)}
+									alt={img.imgUrl}
+									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/dropdown/${img.imgUrl}`}
+								/>
+							))}
 
-								return (
-									<Image
-										key={image.imgUrl}
-										className={classNames(image.className)}
-										alt={image.imgUrl}
-										width={102}
-										height={136}
-										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/dropdown/${image.imgUrl}`}
-									/>
-								)
-							})}
-
-							<div>{displayName || productName}</div>
-
+							<div>{displayKey ? t(displayKey) : displayText}</div>
 							{hasDesktopLink && (
 								<div className='switchbtn'>
 									<button
-										disabled={isTpMaintain}
+										disabled={item.isTpMaintain}
 										onClick={e => {
 											e.stopPropagation()
-											onMenuOpen(subMenuItem, {
-												loginCallback: () => {
-													push(paths.login.root)
+											onMenuOpen(
+												{
+													...item,
+													appType: DeviceTypeEnum.Desktop,
 												},
-												messageCallBack: message => modal.error(message),
-											})
+												{
+													loginCallback: () => {
+														push(paths.login.root)
+													},
+													messageCallBack: message => null,
+												}
+											)
 										}}
 									>
 										{t('Label_General_Desktop')}
@@ -149,20 +103,19 @@ const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
 									<button>{t('Label_General_PlayNow')}</button>
 								</div>
 							)}
-
-							{isTpMaintain && (
-								<div className='under'>
-									{t('Label_General_UnderMaintenance')}
-								</div>
-							)}
-						</button>
+							<div className='under'>{t('Label_General_UnderMaintenance')}</div>
+						</div>
 					)
 				})}
 			</div>
 		)
-	})
+	}
 
-	return <div className='gameList'>{renderSubMenu}</div>
+	return (
+		<div className='gameList'>
+			{Object.keys(menuData).map(key => renderSubMenu(key))}
+		</div>
+	)
 }
 
 export default SubMenu

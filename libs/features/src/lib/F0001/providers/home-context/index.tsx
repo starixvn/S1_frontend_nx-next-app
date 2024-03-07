@@ -9,8 +9,10 @@ import {
 	IPromotionData,
 	ISlotsGameData,
 	ISocialChannelData,
+	IViewedGameData,
 	useGetAnnouncementQuery,
 	useGetHotEventListQuery,
+	useGetRecentlyViewedQuery,
 	useGetReferralCodeQuery,
 	useGetReferralSettingQuery,
 	useGetSocialChannelQuery,
@@ -19,7 +21,12 @@ import {
 	useLazyGetPopUpPromotionQuery,
 	useLazyGetWalletInfoQuery,
 } from '@nx-next-app/service'
-import { CurrenciesEnum, DeviceTypeEnum, IFooterData } from '@nx-next-app/types'
+import {
+	CurrenciesEnum,
+	DeviceTypeEnum,
+	IFooterData,
+	ISubMenu,
+} from '@nx-next-app/types'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -72,6 +79,7 @@ export interface HomeContextInterface {
 	jackPotCurrencies: CurrenciesEnum[]
 	hotGameData: IHotGame[]
 	newsData: INewsData[]
+	recentlyViewedList: IViewedGameData[]
 	socialChannelList: ISocialChannelData[]
 	footerSocialChannelList: ISocialChannelData[]
 	slotGameData?: ISlotsGameData
@@ -81,6 +89,22 @@ export interface HomeContextInterface {
 	referralData: { referralBonus: number | null; referralCode: string }
 	handlePromotionClick: (bonusCode: string) => void
 	handleMarqueeClick: ({ loginCallback }: { loginCallback: () => void }) => void
+	handleRecentlyViewGameClick: (
+		{
+			tpId,
+			tpGameType,
+			isMaintain,
+		}: {
+			tpId: number
+			tpGameType: number
+			isMaintain: boolean
+		},
+		{
+			loginCallback,
+		}: {
+			loginCallback: () => void
+		}
+	) => void
 	handleHotGameClick: (
 		{
 			game,
@@ -187,7 +211,6 @@ const defaultDesktopHomeOrders = [
 	DesktopHomeComponentsEnum.HotMatch,
 	DesktopHomeComponentsEnum.LiveCasino,
 	DesktopHomeComponentsEnum.HotGame,
-	DesktopHomeComponentsEnum.RecentlyViewGames,
 	DesktopHomeComponentsEnum.AppDownloadBanner,
 	DesktopHomeComponentsEnum.ProviderBlock,
 	DesktopHomeComponentsEnum.OfficialPartner,
@@ -226,7 +249,7 @@ export const HomeProvider = ({
 	mobileHomeOrders = defaultMobileHomeOrders,
 }: IHomeProviderProps) => {
 	const { push } = useRouter()
-	const { onEnterSlotsPage, onEnterPage } = useMenu()
+	const { onEnterSlotsPage, onEnterPage, menuData, onMenuOpen } = useMenu()
 	const { tpMaintainList } = useGlobalData()
 
 	const {
@@ -255,6 +278,16 @@ export const HomeProvider = ({
 			}
 		)
 
+	const { data: { data: recentlyViewData } = {} } = useGetRecentlyViewedQuery(
+		{
+			currencyId,
+			deviceType,
+		},
+		{
+			skip: !isLogin,
+		}
+	)
+
 	const { data: { data: socialChannelList = [] } = {} } =
 		useGetSocialChannelQuery({
 			currencyId: currencyId as number,
@@ -274,6 +307,8 @@ export const HomeProvider = ({
 				skip: deviceType !== DeviceTypeEnum.Mobile,
 			}
 		)
+
+	const { recentlyViewedList = [] } = recentlyViewData ?? {}
 
 	const { data: { data: referralSetting = [] } = {} } =
 		useGetReferralSettingQuery(null, { skip: !isLogin })
@@ -422,6 +457,40 @@ export const HomeProvider = ({
 			},
 			{ loginCallback }
 		)
+	}
+
+	const handleRecentlyViewGameClick = (
+		{
+			tpId,
+			tpGameType,
+			isMaintain,
+		}: {
+			tpId: number
+			tpGameType: number
+			isMaintain: boolean
+		},
+		{
+			loginCallback,
+		}: {
+			loginCallback: () => void
+		}
+	) => {
+		if (!isMaintain) {
+			// 非 Maintain 才做動作
+			let subMenu: ISubMenu | undefined
+			Object.values(menuData).forEach((item: any) => {
+				const result = item.subMenu?.find(
+					({ product }: ISubMenu) =>
+						product?.TP_ID === tpId && product?.TP_GAME_TYPE === tpGameType
+				)
+				if (result !== undefined) {
+					subMenu = result
+				}
+			})
+			if (subMenu !== undefined) {
+				onMenuOpen(subMenu, { loginCallback })
+			}
+		}
 	}
 
 	useEffect(() => {
@@ -634,6 +703,7 @@ export const HomeProvider = ({
 		desktopHomeOrders,
 		mobileHomeOrders,
 		announcementData,
+		recentlyViewedList,
 		jackPotCurrencies,
 		socialChannelList,
 		footerSocialChannelList,
@@ -651,6 +721,7 @@ export const HomeProvider = ({
 		handlePromotionClick,
 		handleMarqueeClick,
 		handleHotGameClick,
+		handleRecentlyViewGameClick,
 		handleSlotGamePlay,
 		formatHdp,
 	}

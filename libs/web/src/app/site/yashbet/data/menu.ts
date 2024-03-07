@@ -1,9 +1,58 @@
 import {
+	CurrenciesEnum,
+	DeviceTypeEnum,
+	IEventPeriod,
+	IMenuData,
 	MenuActionTypeEnum,
 	MenuKeyEnum,
-	LobbyCategoryEnum,
 } from '@nx-next-app/types'
-import { paths, PRODUCTS, type IProduct } from '@nx-next-app/constants'
+import { paths, PRODUCTS } from '@nx-next-app/constants'
+import { ALLOWED_CURRENCIES } from './allowCurrency'
+
+/**
+ * 定義 menu 的活動時間，只存在於 menu.ts
+ */
+const PRODUCT_EVENT_PERIOD: {
+	[key: string]: IEventPeriod
+} = {
+	SPORTS_9W: {
+		start: null,
+		end: '2023/12/31 22:59:59',
+	},
+	LIVE_CASINO_BG: {
+		start: null,
+		end: '2023/12/31 22:59:59',
+	},
+	PROMOS: { start: null, end: '2023/12/31 22:59:59' },
+	LUCKY_WHEEL: { start: '2021/12/13 00:00:00', end: null },
+	VIP: {
+		start: '2021/02/05 12:00:00',
+		end: null,
+	},
+	RANKING: {
+		start: '2021/03/01 12:00:00',
+		end: null,
+	},
+	TV: {
+		start: '2021/03/30 00:00:00',
+		end: null,
+	},
+	PROMO: {
+		start: '2021/11/11 00:00:00',
+		end: null,
+	},
+	IM: {
+		start: null,
+		end: '2023/12/31 22:59:59',
+	},
+}
+
+const { MYR, INR, IDR, BDT, THB } = CurrenciesEnum
+
+const menuActionType =
+	Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DeviceTypeEnum.Desktop
+		? MenuActionTypeEnum.Link
+		: MenuActionTypeEnum.Null
 
 const desktopSubmenuBackground = [
 	{
@@ -31,3193 +80,3711 @@ const h5SubmenuBackground = [
 	},
 ]
 
-export const desktopSubMenuVipImageList = [
-	...desktopSubmenuBackground,
-	{
-		className: 'List-npc',
-		imgUrl: 'home-vip.png',
-	},
-	{
-		className: 'List-bg',
-		imgUrl: 'vipbg.png',
-	},
-]
+export const MENU_DATA = ({
+	currencyId,
+	langId,
+}: {
+	currencyId: number
+	langId: string
+}): IMenuData => {
+	return {
+		[MenuKeyEnum.Reward]: {
+			display: 'h5',
+			h5: {
+				className: 'reward',
+				img: '/h5/img/88rewards.png',
+				menuActionType: MenuActionTypeEnum.WindowOpen,
+			},
+			desktop: { menuActionType: MenuActionTypeEnum.WindowOpen },
+			pathname: `${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/rewards/`,
+			allowCurrencies: [],
+			subMenuAllowCurrenciesWithAuth: false,
+		},
+		[MenuKeyEnum.Home]: {
+			display: 'desktop',
+			h5: { menuActionType: MenuActionTypeEnum.Link },
+			desktop: {
+				className: 'icon icon-home',
+				subMenuClassName: 'homeList',
+				menuActionType: MenuActionTypeEnum.Link,
+			},
+			pathname: paths.home.root,
+			allowCurrencies: true,
+			subMenuAllowCurrenciesWithAuth: false,
+			subMenu: [
+				{
+					h5: { menuActionType: MenuActionTypeEnum.Link },
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'home-vip.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'vipbg.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					displayText: 'VIP',
+					pathname: paths.vip.root,
+					allowCurrencies: ALLOWED_CURRENCIES['VIP'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['VIP'],
+						},
+					],
+				},
+				{
+					h5: { menuActionType: MenuActionTypeEnum.Link },
+					desktop: {
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'home-ranking.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'rankingbg.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					displayKey: 'Label_General_LeaderBoard',
+					pathname: paths.leaderBoard.root,
+					allowCurrencies: ALLOWED_CURRENCIES['LEADER_BOARD'],
+				},
+				{
+					h5: { menuActionType: MenuActionTypeEnum.EnterPage },
+					desktop: {
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'home-refer.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'referbg.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					displayKey: 'Label_General_Referral',
+					needLogin: true,
+					pathname: paths.referral.root,
+					allowCurrencies: [],
+				},
+			],
+		},
+		// [MenuKeyEnum.AppDownload]: {
+		// 	display: 'desktop',
+		// 	h5: { menuActionType: MenuActionTypeEnum.Link },
+		// 	desktop: {
+		// 		className: 'icon icon-mobile',
+		// 		subMenuClassName: 'appList',
+		// 		menuActionType: MenuActionTypeEnum.Link,
+		// 	},
+		// 	pathname: paths.appDownload.root,
+		// 	allowCurrencies: [],
+		// 	subMenuAllowCurrenciesWithAuth: false,
+		// },
+		// [MenuKeyEnum.CryptoSports]: {
+		// 	display: 'all',
+		// 	h5: {
+		// 		className: 'crypto',
+		// 		img: '/h5/img/cryptosports.png',
+		// 		menuActionType: MenuActionTypeEnum.EnterPage,
+		// 	},
+		// 	desktop: {
+		// 		className: 'cryptobtn',
+		// 		menuType: 'banner',
+		// 		subMenuClassName: 'cryptoList',
+		// 		menuActionType: MenuActionTypeEnum.EnterPage,
+		// 	},
+		// 	product: PRODUCTS['SPORTS_CRYPTO_SPORTS'],
+		// 	allowCurrencies: [],
+		// 	subMenuAllowCurrenciesWithAuth: false,
+		// },
 
-export const desktopSubMenuLeaderBoardImageList = [
-	{
-		className: 'List-npc',
-		imgUrl: 'home-ranking.png',
-	},
-	{
-		className: 'List-bg',
-		imgUrl: 'rankingbg.png',
-	},
-]
+		[MenuKeyEnum.Sports]: {
+			display: 'all',
+			h5: {
+				icon: 'icon icon-soccer',
+				menuActionType,
+			},
+			desktop: {
+				className: 'sportsbtn',
+				subMenuClassName: 'sportsList',
+				menuActionType,
+			},
+			displayKey: 'Label_General_Sports',
+			pathname: paths.sports.root,
+			allowCurrencies: true,
+			product: PRODUCTS['SPORTS'],
+			query: { provider: 'saba', type: 'soccer' },
+			subMenu: [
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
 
-export const desktopSunMenuReferralImageList = [
-	{
-		className: 'List-npc',
-		imgUrl: 'home-refer.png',
-	},
-	{
-		className: 'List-bg',
-		imgUrl: 'referbg.png',
-	},
-]
+							{
+								className: 'list-bg',
+								imgUrl: 'sports-bg-soccer.png',
+							},
 
-export type ISubMenuExcludeNpc = {
-	className: Exclude<`${string}`, `${string}-npc`>
-	imgUrl: string
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-cryptosport.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'cryptosportNPC.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'SPORTS_CRYPTO_SPORTS',
+					displayKey: 'Label_General_CryptoSports',
+					product: PRODUCTS['SPORTS_CRYPTO_SPORTS'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						hasDesktopLink: true,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-bg',
+								imgUrl: 'sports-bg-soccer.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-soccer.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'soccerNPC.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'soccerBG.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SPORTS_SOCCER',
+					displayKey: 'Label_General_Soccer',
+					pathname: paths.sports.root,
+					query: { provider: 'saba', type: 'soccer' },
+					product: PRODUCTS['SPORTS_SOCCER'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						hasDesktopLink: true,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'sports-bg-soccer.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-sabssoccer.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'sabssoccerNPC.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'soccerBG.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+
+					productKey: 'SPORTS_SABA_SOCCER',
+					displayKey: 'Label_General_SabaSoccer',
+					pathname: paths.sports.root,
+					query: { provider: 'saba', type: 'saba-soccer' },
+					product: PRODUCTS['SPORTS_SABA_SOCCER'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						hasDesktopLink: true,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'sports-bg-basketball.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-basketball.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'basketballNPC.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'basketballBG.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SPORTS_BASKETBALL',
+					displayKey: 'Label_General_Basketball',
+					pathname: paths.sports.root,
+					query: { provider: 'saba', type: 'basketball' },
+					product: PRODUCTS['SPORTS_BASKETBALL'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						hasDesktopLink: true,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'sports-bg-cricket.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-cricket.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'cricketNPC.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'cricketBG.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SPORTS_CRICKET',
+					displayKey: 'Label_General_Cricket',
+					pathname: paths.sports.root,
+					query: { provider: 'saba', type: 'cricket' },
+					product: PRODUCTS['SPORTS_CRICKET'],
+					allowCurrencies: ALLOWED_CURRENCIES['SPORTS_CRICKET'],
+				},
+
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						hasDesktopLink: true,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'sports-bg-soccer.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-badminton.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'badmintonNPC.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'badmintonBG.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SPORTS_BADMINTON',
+					displayKey: 'Label_General_Badminton',
+					pathname: paths.sports.root,
+					query: { provider: 'saba', type: 'badminton' },
+					product: PRODUCTS['SPORTS_BADMINTON'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						hasDesktopLink: true,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'sports-bg-soccer.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-cryptosport.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'volleyballNPC.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'volleyballBG.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SPORTS_VOLLEYBALL',
+					displayKey: 'Label_General_Volleyball',
+					pathname: paths.sports.root,
+					query: { provider: 'saba', type: 'volleyball' },
+					product: PRODUCTS['SPORTS_VOLLEYBALL'],
+					allowCurrencies: ALLOWED_CURRENCIES['SPORTS_VOLLEYBALL'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'sports-bg-soccer.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-betradarsoccer.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'betradarsoccerNPC.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'soccerBG.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'VIRTUAL_SPORTS',
+					displayKey: 'Label_General_VirtualSports',
+					pathname: paths.sports.root,
+					query: { provider: 'saba', type: 'virtual-sports' },
+					product: PRODUCTS['VIRTUAL_SPORTS'],
+				},
+			],
+			subMenuSort: {
+				[INR]: [
+					'SPORTS_CRYPTO_SPORTS',
+					'SPORTS_SOCCER',
+					'SPORTS_SABA_SOCCER',
+					'SPORTS_BASKETBALL',
+					'SPORTS_CRICKET',
+					'SPORTS_BADMINTON',
+					'SPORTS_VOLLEYBALL',
+					'VIRTUAL_SPORTS',
+				],
+				[BDT]: [
+					'SPORTS_CRYPTO_SPORTS',
+					'SPORTS_CRICKET',
+					'SPORTS_SOCCER',
+					'SPORTS_SABA_SOCCER',
+					'SPORTS_BASKETBALL',
+					'SPORTS_BADMINTON',
+					'SPORTS_VOLLEYBALL',
+					'VIRTUAL_SPORTS',
+				],
+			},
+
+			subMenuAllowCurrenciesWithAuth: false,
+		},
+
+		[MenuKeyEnum.Exchange]: {
+			display: 'all',
+			h5: {
+				icon: 'icon icon-sports',
+				menuActionType: MenuActionTypeEnum.Null,
+			},
+			desktop: {
+				className: 'exchange',
+				subMenuClassName: 'exchangeList',
+				menuActionType: MenuActionTypeEnum.Null,
+			},
+			displayKey: 'Label_General_Exchange',
+			allowCurrencies: ALLOWED_CURRENCIES['EXCHANGE'],
+			subMenuAllowCurrenciesWithAuth: false,
+			subMenu: [
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.UseGoToGame,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-npc',
+								imgUrl: 'sports-9w.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'sports-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: '9wnpc.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'cricketBG.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.UseGoToGame,
+					},
+					productKey: 'SPORTS_9W_SPORTS',
+					displayText: 'Exchange',
+					product: PRODUCTS['SPORTS_9W_SPORTS'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['SPORTS_9W'],
+						},
+					],
+					needLogin: true,
+				},
+			],
+		},
+		[MenuKeyEnum.ESports]: {
+			display: 'all',
+			h5: {
+				icon: 'icon icon-sports',
+				menuActionType,
+			},
+			desktop: {
+				className: 'eSportsbtn',
+				subMenuClassName: 'eSportsList',
+				menuActionType,
+			},
+			displayKey: 'Label_General_ESports',
+			pathname: paths.eSport.root,
+			allowCurrencies: true,
+			subMenuAllowCurrenciesWithAuth: false,
+			subMenu: [
+				// {
+				// 	h5: { img: '/h5/img/esportALL.png' },
+				// 	desktop: {
+				// 		headerMenuImgList: [
+				// 			{
+				// 				className: 'List-npc',
+				// 				imgUrl: 'esportALL.png',
+				// 			},
+				// 			{
+				// 				className: 'List-bg',
+				// 				imgUrl: 'eSportsListHover.png',
+				// 			},
+				// 		],
+				// 		lobbyPage: {
+				// 			bgImg: 'esposts-all.png',
+				// 			hoverBgImg: 'esposts-alla.png',
+				// 		},
+				// 	},
+				// 	productKey: 'SPORTS_E_SPORT_ALL',
+				// 	displayKey: 'Label_General_All',
+				// 	menuActionType: MenuActionTypeEnum.EnterPage,
+				// 	product: PRODUCTS['SPORTS_E_SPORT_ALL'],
+				// },
+				// {
+				// 	h5: { img: '/h5/img/esportDOTA2.png' },
+				// 	desktop: {
+				// 		headerMenuImgList: [
+				// 			{
+				// 				className: 'List-npc',
+				// 				imgUrl: 'esportDOTA2.png',
+				// 			},
+				// 			{
+				// 				className: 'List-bg',
+				// 				imgUrl: 'eSportsListHover.png',
+				// 			},
+				// 		],
+				// 		lobbyPage: {
+				// 			bgImg: 'esposts-dota.png',
+				// 			hoverBgImg: 'esposts-dotaa.png',
+				// 		},
+				// 	},
+				// 	productKey: 'SPORTS_E_SPORT_DOTA2',
+				// 	displayKey: 'Label_Product_Dota2',
+				// 	menuActionType: MenuActionTypeEnum.EnterPage,
+				// 	product: PRODUCTS['SPORTS_E_SPORT_DOTA2'],
+				// },
+				// {
+				// 	h5: { img: '/h5/img/esportLOL.png' },
+				// 	desktop: {
+				// 		headerMenuImgList: [
+				// 			{
+				// 				className: 'List-npc',
+				// 				imgUrl: 'esportLOL.png',
+				// 			},
+				// 			{
+				// 				className: 'List-bg',
+				// 				imgUrl: 'eSportsListHover.png',
+				// 			},
+				// 		],
+				// 		lobbyPage: {
+				// 			bgImg: 'esposts-lol.png',
+				// 			hoverBgImg: 'esposts-lola.png',
+				// 		},
+				// 	},
+				// 	productKey: 'SPORTS_E_SPORT_LOL',
+				// 	displayKey: 'Label_Product_LOL',
+				// 	menuActionType: MenuActionTypeEnum.EnterPage,
+				// 	product: PRODUCTS['SPORTS_E_SPORT_LOL'],
+				// },
+				// {
+				// 	h5: { img: '/h5/img/esportCS.png' },
+				// 	desktop: {
+				// 		headerMenuImgList: [
+				// 			{
+				// 				className: 'List-npc',
+				// 				imgUrl: 'esportCS.png',
+				// 			},
+				// 			{
+				// 				className: 'List-bg',
+				// 				imgUrl: 'eSportsListHover.png',
+				// 			},
+				// 		],
+				// 		lobbyPage: {
+				// 			bgImg: 'esposts-cs.png',
+				// 			hoverBgImg: 'esposts-csa.png',
+				// 		},
+				// 	},
+				// 	productKey: 'SPORTS_E_SPORT_CSGO',
+				// 	displayKey: 'Label_Product_CSGO',
+				// 	menuActionType: MenuActionTypeEnum.EnterPage,
+				// 	product: PRODUCTS['SPORTS_E_SPORT_CSGO'],
+				// },
+				// {
+				// 	h5: { img: '/h5/img/esportKOG.png' },
+				// 	desktop: {
+				// 		headerMenuImgList: [
+				// 			{
+				// 				className: 'List-npc',
+				// 				imgUrl: 'esportKOG.png',
+				// 			},
+				// 			{
+				// 				className: 'List-bg',
+				// 				imgUrl: 'eSportsListHover.png',
+				// 			},
+				// 		],
+				// 		lobbyPage: {
+				// 			bgImg: 'esposts-kog.png',
+				// 			hoverBgImg: 'esposts-koga.png',
+				// 		},
+				// 	},
+				// 	productKey: 'SPORTS_E_SPORT_KOG',
+				// 	displayKey: 'Label_Product_Kog',
+				// 	menuActionType: MenuActionTypeEnum.EnterPage,
+				// 	product: PRODUCTS['SPORTS_E_SPORT_KOG'],
+				// },
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-npc',
+								imgUrl: 'esports-saba.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'esports-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'esportSABA.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'eSportsListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'esposts-saba.png',
+							hoverBgImg: 'esposts-sabaa.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'SPORTS_E_SABA',
+					displayKey: 'Saba',
+					product: PRODUCTS['SPORTS_E_SABA'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-npc',
+								imgUrl: 'esports-im.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'esports-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'esportInplayMatrix.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'eSportsListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'esposts-inplaymatrix.png',
+							hoverBgImg: 'esposts-inplaymatrixa.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'SPORTS_E_IMESPORTS',
+					displayKey: 'IM E-Sports',
+					product: PRODUCTS['SPORTS_E_IMESPORTS'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['IM'],
+						},
+					],
+				},
+			],
+		},
+
+		/// //////////////////////////////////////
+
+		[MenuKeyEnum.Casino]: {
+			display: 'all',
+			h5: {
+				icon: 'icon icon-livecasino',
+				menuActionType,
+			},
+			desktop: {
+				className: 'livecasinobtn icon icon-newicon',
+				subMenuClassName: 'livecasinoList',
+				menuActionType,
+			},
+			displayKey: 'Label_General_LiveCasino',
+			pathname: paths.liveCasino.root,
+			allowCurrencies: true,
+			subMenuAllowCurrenciesWithAuth: false,
+			subMenuSort: {
+				[MYR]: [
+					'LIVE_CASINO_PP',
+					'LIVE_CASINO_BG',
+					'LIVE_CASINO_YEE_BET',
+					'LIVE_CASINO_SKY_WIND',
+					'LIVE_CASINO_MG',
+					'LIVE_CASINO_EVO',
+					'LIVE_CASINO_PT',
+					'LIVE_CASINO_DG',
+					'LIVE_CASINO_AE',
+					'LIVE_CASINO_SA',
+					'LIVE_CASINO_ALL_BET',
+					'LIVE_CASINO_AG',
+					'LIVE_CASINO_WM',
+					'LIVE_CASINO_E_BET',
+					'LIVE_CASINO_N2',
+				],
+				[THB]: [
+					'LIVE_CASINO_PP',
+					'LIVE_CASINO_BG',
+					'LIVE_CASINO_YEE_BET',
+					'LIVE_CASINO_SKY_WIND',
+					'LIVE_CASINO_MG',
+					'LIVE_CASINO_EVO',
+					'LIVE_CASINO_PT',
+					'LIVE_CASINO_DG',
+					'LIVE_CASINO_AE',
+					'LIVE_CASINO_SA',
+					'LIVE_CASINO_ALL_BET',
+					'LIVE_CASINO_AG',
+					'LIVE_CASINO_WM',
+					'LIVE_CASINO_E_BET',
+					'LIVE_CASINO_N2',
+				],
+				[IDR]: [
+					'LIVE_CASINO_PP',
+					'LIVE_CASINO_BG',
+					'LIVE_CASINO_YEE_BET',
+					'LIVE_CASINO_SKY_WIND',
+					'LIVE_CASINO_MG',
+					'LIVE_CASINO_EVO',
+					'LIVE_CASINO_PT',
+					'LIVE_CASINO_DG',
+					'LIVE_CASINO_AE',
+					'LIVE_CASINO_SA',
+					'LIVE_CASINO_ALL_BET',
+					'LIVE_CASINO_AG',
+					'LIVE_CASINO_WM',
+					'LIVE_CASINO_E_BET',
+					'LIVE_CASINO_N2',
+				],
+				[INR]: [
+					'LIVE_CASINO_PP',
+					'LIVE_CASINO_BG',
+					'LIVE_CASINO_YEE_BET',
+					'LIVE_CASINO_SKY_WIND',
+					'LIVE_CASINO_MG',
+					'LIVE_CASINO_EVO',
+					'LIVE_CASINO_PT',
+					'LIVE_CASINO_DG',
+					'LIVE_CASINO_AE',
+					'LIVE_CASINO_SA',
+					'LIVE_CASINO_ALL_BET',
+					'LIVE_CASINO_AG',
+					'LIVE_CASINO_WM',
+					'LIVE_CASINO_E_BET',
+					'LIVE_CASINO_N2',
+				],
+				[BDT]: [
+					'LIVE_CASINO_PP',
+					'LIVE_CASINO_BG',
+					'LIVE_CASINO_YEE_BET',
+					'LIVE_CASINO_SKY_WIND',
+					'LIVE_CASINO_MG',
+					'LIVE_CASINO_EVO',
+					'LIVE_CASINO_PT',
+					'LIVE_CASINO_DG',
+					'LIVE_CASINO_AE',
+					'LIVE_CASINO_SA',
+					'LIVE_CASINO_ALL_BET',
+					'LIVE_CASINO_E_BET',
+					'LIVE_CASINO_N2',
+				],
+			},
+			subMenu: [
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-pp.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-pp.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'livePP',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-PP.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'ppBG.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'livecasinListHover.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'casino_pp.png',
+							hoverBgImg: 'animation_img.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LIVE_CASINO_PP',
+					displayText: 'Pragmatic Play',
+					product: PRODUCTS['LIVE_CASINO_PP'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-bg.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-bg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'liveBG',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-bg.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'bgbg.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'livecasinListHover.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'casino_bg.png',
+							hoverBgImg: 'animation_img.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LIVE_CASINO_BG',
+					displayText: 'Big Gaming',
+					product: PRODUCTS['LIVE_CASINO_BG'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['LIVE_CASINO_BG'],
+						},
+					],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-yb.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-yb.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'casino-yb',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-yb.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'ybBG.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'livecasinListHover.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'casino_yb.png',
+							hoverBgImg: 'animation_img.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LIVE_CASINO_YEE_BET',
+					displayText: 'YeeBet',
+					product: PRODUCTS['LIVE_CASINO_YEE_BET'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-sk.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-sk.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'casino_Skywind',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-SK.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'skbg.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'livecasinListHover.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'casino_sk.png',
+							hoverBgImg: 'animation_img.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LIVE_CASINO_SKY_WIND',
+					displayText: 'Skywind',
+					product: PRODUCTS['LIVE_CASINO_SKY_WIND'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-mg.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-mg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'casino_MG',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-mg.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'mgbg.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'livecasinListHover.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'casino_mg.png',
+							hoverBgImg: 'animation_img.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LIVE_CASINO_MG',
+					displayText: 'Microgaming',
+					product: PRODUCTS['LIVE_CASINO_MG'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-ev.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-ev.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'casino_EVO',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-ev.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'evbg.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'livecasinListHover.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'casino_ev.png',
+							hoverBgImg: 'animation_img.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LIVE_CASINO_EVO',
+					displayText: 'Evolution Gaming',
+					product: PRODUCTS['LIVE_CASINO_EVO'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.UseGoToGame,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-pt.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-pt.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'casino_PT',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-pt.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'ptbg.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'livecasinListHover.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'casino_pt.png',
+							hoverBgImg: 'animation_img.png',
+						},
+						menuActionType: MenuActionTypeEnum.UseGoToGame,
+					},
+					productKey: 'LIVE_CASINO_PT',
+					displayText: 'Playtech',
+					product: PRODUCTS['LIVE_CASINO_PT'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-n2.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-n2.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'casino_N2LIVE',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-n2.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'n2bg.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'livecasinListHover.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'casino_n2.png',
+							hoverBgImg: 'animation_img.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LIVE_CASINO_N2',
+					displayText: 'n2-LIVE',
+					product: PRODUCTS['LIVE_CASINO_N2'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-wm.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-wm.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'liveWM',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-WM.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'wmBG.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'livecasinListHover.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'casino_wm.png',
+							hoverBgImg: 'animation_img.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LIVE_CASINO_WM',
+					displayText: 'WM Casino',
+					product: PRODUCTS['LIVE_CASINO_WM'],
+					// allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_WM'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-ab.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-ab.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'liveALL',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-ALL.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'allBG.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'livecasinListHover.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'casino_ab.png',
+							hoverBgImg: 'animation_img.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LIVE_CASINO_ALL_BET',
+					displayText: 'Allbet',
+					product: PRODUCTS['LIVE_CASINO_ALL_BET'],
+					// allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_ALL_BET'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-eb.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-eb.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'liveEB',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-EB.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'ebBG.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'livecasinListHover.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'casino_eb.png',
+							hoverBgImg: 'animation_img.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LIVE_CASINO_WE',
+					displayText: 'eBET',
+					product: PRODUCTS['LIVE_CASINO_WE'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-sa.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-sa.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'liveSA',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-SA.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'saBG.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'livecasinListHover.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'casino_sa.png',
+							hoverBgImg: 'animation_img.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LIVE_CASINO_SA',
+					displayText: 'SA Gaming',
+					product: PRODUCTS['LIVE_CASINO_SA'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-dg.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-dg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'liveDG',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-DG.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'dgBG.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'livecasinListHover.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'casino_dg.png',
+							hoverBgImg: 'animation_img.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LIVE_CASINO_DG',
+					displayText: 'Dream Gaming',
+					product: PRODUCTS['LIVE_CASINO_DG'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-ae.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-ae.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'liveAE',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-AE.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'aeBG.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'livecasinListHover.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'casino_ae.png',
+							hoverBgImg: 'animation_img.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LIVE_CASINO_AE',
+					displayText: 'AE Sexy',
+					product: PRODUCTS['LIVE_CASINO_AE'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+
+							{
+								className: 'list-bg',
+								imgUrl: 'casino-bg-ag.png',
+							},
+
+							{
+								className: 'list-npc',
+								imgUrl: 'casino-ag.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'casino-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'liveAG',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-AG.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'agBG.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'livecasinListHover.png',
+							},
+						],
+						lobbyPage: {
+							npcImg: 'casino_ag.png',
+							hoverBgImg: 'animation_img.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LIVE_CASINO_AG',
+					displayText: 'Asia Gaming',
+					product: PRODUCTS['LIVE_CASINO_AG'],
+					allowCurrencies: [],
+				},
+			],
+		},
+		[MenuKeyEnum.Slot]: {
+			display: 'all',
+			h5: {
+				icon: 'icon icon-icon_777',
+				menuActionType,
+			},
+			desktop: {
+				className: 'slotbtn',
+				subMenuClassName: 'livecasinoList',
+				menuActionType,
+			},
+			displayKey: 'Label_General_Slots',
+			pathname: paths.slots.root,
+			subMenuAllowCurrenciesWithAuth: false,
+			subMenuSort: {
+				[THB]: [
+					'SLOTS_PP',
+					'SLOTS_SG',
+					'SLOTS_ADVANT_PLAY',
+					'SLOTS_PG',
+					'SLOTS_MGPSW',
+					'SLOTS_JILI',
+					'SLOTS_JOKER',
+					'SLOTS_RED_TIGER',
+					'SLOTS_NET_ENT',
+					'SLOTS_CQ9',
+					'SLOTS_GPI',
+					'SLOTS_YGG',
+					'SLOTS_AMB',
+					'SLOTS_HABANERO',
+					'SLOTS_SIMPLE_PLAY',
+					'SLOTS_SKY_WIND',
+					'SLOTS_PT',
+					'SLOTS_ICG',
+					'SLOTS_OW',
+				],
+				[MYR]: [
+					'SLOTS_PP',
+					'SLOTS_SG',
+					'SLOTS_ADVANT_PLAY',
+					'SLOTS_PG',
+					'SLOTS_MGPSW',
+					'SLOTS_JILI',
+					'SLOTS_JOKER',
+					'SLOTS_RED_TIGER',
+					'SLOTS_NET_ENT',
+					'SLOTS_CQ9',
+					'SLOTS_GPI',
+					'SLOTS_YGG',
+					'SLOTS_AMB',
+					'SLOTS_HABANERO',
+					'SLOTS_SIMPLE_PLAY',
+					'SLOTS_SKY_WIND',
+					'SLOTS_PT',
+					'SLOTS_ICG',
+					'SLOTS_OW',
+				],
+				[IDR]: [
+					'SLOTS_PP',
+					'SLOTS_SG',
+					'SLOTS_ADVANT_PLAY',
+					'SLOTS_PG',
+					'SLOTS_MGPSW',
+					'SLOTS_JILI',
+					'SLOTS_JOKER',
+					'SLOTS_RED_TIGER',
+					'SLOTS_NET_ENT',
+					'SLOTS_CQ9',
+					'SLOTS_GPI',
+					'SLOTS_YGG',
+					'SLOTS_AMB',
+					'SLOTS_HABANERO',
+					'SLOTS_SIMPLE_PLAY',
+					'SLOTS_SKY_WIND',
+					'SLOTS_PT',
+					'SLOTS_ICG',
+					'SLOTS_OW',
+				],
+				[INR]: [
+					'SLOTS_PP',
+					'SLOTS_SG',
+					'SLOTS_ADVANT_PLAY',
+					'SLOTS_PG',
+					'SLOTS_MGPSW',
+					'SLOTS_JILI',
+					'SLOTS_JOKER',
+					'SLOTS_RED_TIGER',
+					'SLOTS_NET_ENT',
+					'SLOTS_CQ9',
+					'SLOTS_GPI',
+					'SLOTS_YGG',
+					'SLOTS_AMB',
+					'SLOTS_HABANERO',
+					'SLOTS_SIMPLE_PLAY',
+					'SLOTS_SKY_WIND',
+					'SLOTS_PT',
+					'SLOTS_ICG',
+					'SLOTS_OW',
+				],
+				[BDT]: [
+					'SLOTS_PP',
+					'SLOTS_SG',
+					'SLOTS_ADVANT_PLAY',
+					'SLOTS_PG',
+					'SLOTS_MGPSW',
+					'SLOTS_JILI',
+					'SLOTS_JOKER',
+					'SLOTS_RED_TIGER',
+					'SLOTS_NET_ENT',
+					'SLOTS_CQ9',
+					'SLOTS_GPI',
+					'SLOTS_YGG',
+					'SLOTS_AMB',
+					'SLOTS_HABANERO',
+					'SLOTS_SIMPLE_PLAY',
+					'SLOTS_SKY_WIND',
+					'SLOTS_PT',
+					'SLOTS_ICG',
+					'SLOTS_OW',
+				],
+			},
+			subMenu: [
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-pp.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_PP',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'slotPP.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_PP',
+					pathname: paths.slots.root,
+					displayText: 'Pragmatic Play',
+					query: {
+						tpId: PRODUCTS['SLOTS_PP'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_PP'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-sg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_SG',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'slotSG.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_SG',
+					pathname: paths.slots.root,
+					displayText: 'Spadegaming',
+					query: {
+						tpId: PRODUCTS['SLOTS_SG'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_SG'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-apnew.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_AdvantPlay',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'slotapnew.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_ADVANT_PLAY',
+					pathname: paths.slots.root,
+					displayText: 'AdvantPlay',
+
+					query: {
+						tpId: PRODUCTS['SLOTS_ADVANT_PLAY'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_ADVANT_PLAY'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-pg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_PG',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'slotPG.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_PG',
+					pathname: paths.slots.root,
+					displayText: 'PG Soft',
+
+					query: {
+						tpId: PRODUCTS['SLOTS_PG'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_PG'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-mg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_MGPSW',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'slotmg.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_MGPSW',
+					pathname: paths.slots.root,
+					displayText: 'Microgaming',
+					query: {
+						tpId: PRODUCTS['SLOTS_MGPSW'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_MGPSW'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-pp.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_JI',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'slotji.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_JILI',
+					pathname: paths.slots.root,
+					displayText: 'Jili',
+					query: {
+						tpId: PRODUCTS['SLOTS_JILI'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_JILI'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-joker.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_JOKER',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'slotJOKER.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_JOKER',
+					pathname: paths.slots.root,
+					displayText: 'Joker',
+					query: {
+						tpId: PRODUCTS['SLOTS_JOKER'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_JOKER'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-rt.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_RedTiger',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'slotrt.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_RED_TIGER',
+					pathname: paths.slots.root,
+					displayText: 'Red Tiger',
+					query: {
+						tpId: PRODUCTS['SLOTS_RED_TIGER'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_RED_TIGER'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-nt.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_NetEnt',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'slotnt.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_NET_ENT',
+					pathname: paths.slots.root,
+					displayText: 'NetEnt',
+					query: {
+						tpId: PRODUCTS['SLOTS_NET_ENT'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_NET_ENT'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-cq9.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_CQ9',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'slotCQ9.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_CQ9',
+					pathname: paths.slots.root,
+					displayText: 'CQ9',
+					query: {
+						tpId: PRODUCTS['SLOTS_CQ9'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_CQ9'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-gpi.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_GPI',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'slotGPI.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_GPI',
+					pathname: paths.slots.root,
+					displayText: 'Game Play',
+					query: {
+						tpId: PRODUCTS['SLOTS_GPI'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_GPI'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-ygg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_YGG',
+						...desktopSubmenuBackground,
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotYGG.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_YGG',
+					pathname: paths.slots.root,
+					displayText: 'YGGDrassil',
+					query: {
+						tpId: PRODUCTS['SLOTS_YGG'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_YGG'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-am.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_AMB',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotam.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_AMB',
+					pathname: paths.slots.root,
+					displayText: 'AskmeSlot',
+					query: {
+						tpId: PRODUCTS['SLOTS_AMB'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_AMB'],
+					// allowCurrencies: ALLOWED_CURRENCIES['SLOTS_AMB'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-ho.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_Habanero',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotho.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_HABANERO',
+					pathname: paths.slots.root,
+					displayText: 'Habanero',
+					query: {
+						tpId: PRODUCTS['SLOTS_HABANERO'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_HABANERO'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-simpleplay.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_SimplePlay',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotSimplePlay.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_SIMPLE_PLAY',
+					pathname: paths.slots.root,
+					displayText: 'SimplePlay',
+					query: {
+						tpId: PRODUCTS['SLOTS_SIMPLE_PLAY'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_SIMPLE_PLAY'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-skywind.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_Skywind',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotsk.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_SKY_WIND',
+					pathname: paths.slots.root,
+					displayText: 'Skywind',
+					query: {
+						tpId: PRODUCTS['SLOTS_SKY_WIND'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_SKY_WIND'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-pt.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_PT',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'slotpt.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_PT',
+					pathname: paths.slots.root,
+					displayText: 'Playtech',
+					query: {
+						tpId: PRODUCTS['SLOTS_PT'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_PT'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-spribe.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_SPRIBE',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'slotSPRIBE.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_SPRIBE',
+					pathname: paths.slots.root,
+					displayText: 'SPRIBE',
+					query: {
+						tpId: PRODUCTS['SLOTS_SPRIBE'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_SPRIBE'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_SPRIBE'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.Link,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'slot-endorphina.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'slot-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'slot_Endorphina',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'slotEndorphina.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'slotListHover.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'SLOTS_ENDORPHINA',
+					pathname: paths.slots.root,
+					displayText: 'Endorphina',
+					query: {
+						tpId: PRODUCTS['SLOTS_ENDORPHINA'].TP_ID,
+					},
+					product: PRODUCTS['SLOTS_ENDORPHINA'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: { start: null, end: null },
+						},
+					],
+				},
+			],
+			allowCurrencies: true,
+		},
+		[MenuKeyEnum.Game]: {
+			display: 'all',
+			h5: {
+				icon: 'icon icon-play',
+				menuActionType,
+			},
+			desktop: {
+				subMenuClassName: 'livecasinoList',
+				menuActionType,
+			},
+			displayKey: 'Label_General_Games',
+			pathname: paths.game.root,
+			// * 整理完之後看起來都一樣，留著以防之後要用
+			// subMenuSort: {
+			// 	[THB]: [
+			// 		'GAMES_POKER_M_POKER',
+			// 		'GAMES_POKER_AMB_POKER',
+			// 		'GAME_POKER_MAX_GAME',
+			// 		'GAMES_POKER_KINGMAKER',
+			// 	],
+			// 	[MYR]: [
+			// 		'GAMES_POKER_M_POKER',
+			// 		'GAMES_POKER_AMB_POKER',
+			// 		'GAME_POKER_MAX_GAME',
+			// 		'GAMES_POKER_KINGMAKER',
+			// 	],
+			// 	[IDR]: [
+			// 		'GAMES_POKER_M_POKER',
+			// 		'GAMES_POKER_AMB_POKER',
+			// 		'GAME_POKER_MAX_GAME',
+			// 		'GAMES_POKER_KINGMAKER',
+			// 	],
+			// 	[INR]: [
+			// 		'GAMES_POKER_M_POKER',
+			// 		'GAMES_POKER_AMB_POKER',
+			// 		'GAME_POKER_MAX_GAME',
+			// 		'GAMES_POKER_KINGMAKER',
+			// 	],
+			// 	[BDT]: [
+			// 		'GAMES_POKER_M_POKER',
+			// 		'GAMES_POKER_AMB_POKER',
+			// 		'GAME_POKER_MAX_GAME',
+			// 		'GAMES_POKER_KINGMAKER',
+			// 	],
+			// },
+			subMenuAllowCurrenciesWithAuth: false,
+			subMenu: [
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-mp.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'mp',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+
+							{
+								className: 'List-npc',
+								imgUrl: 'mp.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamemp.png',
+							hoverBgImg: 'gamempa.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'GAMES_POKER_M_POKER',
+					displayText: 'MPoker',
+					product: PRODUCTS['GAMES_POKER_M_POKER'],
+					// allowCurrencies: ALLOWED_CURRENCIES['GAMES_POKER_M_POKER'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-amb.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'am.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gameamb.png',
+							hoverBgImg: 'gameamba.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'GAMES_POKER_AMB_POKER',
+					displayText: 'AMB Poker',
+					product: PRODUCTS['GAMES_POKER_AMB_POKER'],
+					// allowCurrencies: ALLOWED_CURRENCIES['GAMES_POKER_AMB_POKER'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-vg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'vg.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamevg.png',
+							hoverBgImg: 'gamevga.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'SPORTS_SABA_CLUB',
+					displayText: 'Vgaming',
+					product: PRODUCTS['SPORTS_SABA_CLUB'],
+					allowCurrencies: ALLOWED_CURRENCIES['SPORTS_SABA_CLUB'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-km.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'km.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamekim.png',
+							hoverBgImg: 'gamekima.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'GAMES_POKER_KINGMAKER',
+					displayText: 'King Maker',
+					product: PRODUCTS['GAMES_POKER_KINGMAKER'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-spribe-aviator.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'gameSpribeAviator.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamespribe-aciator.png',
+							hoverBgImg: 'gamespribe-aciatora.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'GAME_AVIATOR',
+					displayText: 'Aviator',
+					product: PRODUCTS['GAME_AVIATOR'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['IM'],
+						},
+					],
+					allowCurrencies: ALLOWED_CURRENCIES['GAME_AVIATOR'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-spribe-mines.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'gameSpribeMines.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamespribe-mines.png',
+							hoverBgImg: 'gamespribe-minesa.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'GAME_MINES',
+					displayText: 'Mines',
+					product: PRODUCTS['GAME_MINES'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['IM'],
+						},
+					],
+					allowCurrencies: ALLOWED_CURRENCIES['GAME_MINES'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-spribe-goal.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'gameSpribeGoal.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamespribe-goal.png',
+							hoverBgImg: 'gamespribe-goala.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'GAME_GOAL',
+					displayText: 'Goal',
+					product: PRODUCTS['GAME_GOAL'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['IM'],
+						},
+					],
+					allowCurrencies: ALLOWED_CURRENCIES['GAME_GOAL'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-spribe-dice.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'gameSpribeDice.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamespribe-dice.png',
+							hoverBgImg: 'gamespribe-dicea.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'GAME_DICE',
+					displayText: 'DICE',
+					product: PRODUCTS['GAME_DICE'],
+					eventIcons: [
+						{
+							icon: 'icon icon-new',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['IM'],
+						},
+					],
+					allowCurrencies: ALLOWED_CURRENCIES['GAME_DICE'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-ap.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'ap.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gameap.png',
+							hoverBgImg: 'gameapa.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'GAME_CRASH',
+					displayText: 'Crash',
+					product: PRODUCTS['GAME_CRASH'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'games-spribe-goal.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'games-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'jili.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'tablelisthover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'gamejili.png',
+							hoverBgImg: 'gamejilia.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'GAME_GORUSH',
+					displayText: 'Go Rush',
+					product: PRODUCTS['GAME_GORUSH'],
+					allowCurrencies: [],
+				},
+			],
+			allowCurrencies: true,
+		},
+		[MenuKeyEnum.Fishing]: {
+			display: 'all',
+			h5: {
+				icon: 'icon icon-game',
+				menuActionType,
+			},
+			desktop: {
+				className: 'fishbtn',
+				subMenuClassName: 'fishList',
+				menuActionType,
+			},
+			displayKey: 'Label_General_Fishing',
+			pathname: paths.fishing.root,
+			subMenuSort: {
+				[THB]: [
+					'FISHING_SGW',
+					'FISHING_CQ9_PARADISE',
+					'FISHING',
+					'FISHING_SKY_WIND_OCEAN_RULER',
+					'FISHING_ICG_DRAGON_BALL',
+					'FISHING_HAIBA',
+					'FISHING_HUNTING_HAPPY_FISH_5',
+					'FISHING_HUNTING_MONSTER_AWAKEN',
+					'FISHING_SG',
+					'FISHING_CQ9_ONE_SHOT_FISHING',
+					'FISHING_ICG_THE_TYRANT_AND_THE_PRINCESS',
+					'FISHING_ICG_FISHING_OF_SAVIORS',
+				],
+				[MYR]: [
+					'FISHING_SGW',
+					'FISHING_CQ9_PARADISE',
+					'FISHING',
+					'FISHING_SKY_WIND_OCEAN_RULER',
+					'FISHING_ICG_DRAGON_BALL',
+					'FISHING_HAIBA',
+					'FISHING_HUNTING_HAPPY_FISH_5',
+					'FISHING_HUNTING_MONSTER_AWAKEN',
+				],
+				[IDR]: [
+					'FISHING_SGW',
+					'FISHING_CQ9_PARADISE',
+					'FISHING',
+					'FISHING_SKY_WIND_OCEAN_RULER',
+					'FISHING_ICG_DRAGON_BALL',
+					'FISHING_HAIBA',
+					'FISHING_HUNTING_HAPPY_FISH_5',
+					'FISHING_HUNTING_MONSTER_AWAKEN',
+				],
+				[INR]: [
+					'FISHING_SGW',
+					'FISHING_CQ9_PARADISE',
+					'FISHING',
+					'FISHING_SKY_WIND_OCEAN_RULER',
+					'FISHING_ICG_DRAGON_BALL',
+					'FISHING_HAIBA',
+					'FISHING_HUNTING_HAPPY_FISH_5',
+					'FISHING_HUNTING_MONSTER_AWAKEN',
+					'FISHING_SG',
+					'FISHING_CQ9_ONE_SHOT_FISHING',
+					'FISHING_ICG_THE_TYRANT_AND_THE_PRINCESS',
+					'FISHING_ICG_FISHING_OF_SAVIORS',
+				],
+			},
+			subMenu: [
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'fish-hb.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'fish-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'hb.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'fishListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'fishhb.png',
+							hoverBgImg: 'fishhba.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'FISHING_HAIBA',
+					displayKey: 'Label_Product_Haiba',
+					product: PRODUCTS['FISHING_HAIBA'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'fish-hf5.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'fish-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'hf5.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'fishListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'fishhf.png',
+							hoverBgImg: 'fishhfa.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'FISHING_HUNTING_HAPPY_FISH_5',
+					displayKey: 'Label_Fishing_Hunting_Happy_Fish_5',
+					product: PRODUCTS['FISHING_HUNTING_HAPPY_FISH_5'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'fish-ma.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'fish-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'ma.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'fishListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'fishma.png',
+							hoverBgImg: 'fishmaa.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'FISHING_HUNTING_MONSTER_AWAKEN',
+					displayKey: 'Label_Fishing_Hunting_Monster_Awaken',
+					product: PRODUCTS['FISHING_HUNTING_MONSTER_AWAKEN'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'fish-pd.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'fish-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'paradise.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'fishListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'fishpd.png',
+							hoverBgImg: 'fishpda.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'FISHING_CQ9_PARADISE',
+					displayKey: 'Label_Paradise',
+					product: PRODUCTS['FISHING_CQ9_PARADISE'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'fish-fwo.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'fish-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'fgg',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'fishGG.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'fishListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'fishgg.png',
+							hoverBgImg: 'fishgga.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'FISHING',
+					displayKey: 'Label_FishingGG',
+					product: PRODUCTS['FISHING'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'fishSGwar.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'fishListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'fishfw.png',
+							hoverBgImg: 'fishfwa.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'FISHING_SGW',
+					displayKey: 'Label_Fishing_FishingWar',
+					product: PRODUCTS['FISHING_SGW'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						className: 'fsg',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'fishSG.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'fishListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'fishfg.png',
+							hoverBgImg: 'fishfga.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'FISHING_SG',
+					displayKey: 'Label_Fishing_FishingGod',
+					product: PRODUCTS['FISHING_SG'],
+					// allowCurrencies: ALLOWED_CURRENCIES['FISHING_SG'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						className: 'fsg',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'oneshotfishing.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'fishListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'fishof.png',
+							hoverBgImg: 'fishofa.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'FISHING_CQ9_ONE_SHOT_FISHING',
+					displayKey: 'Label_Oneshot_Fishing',
+					product: PRODUCTS['FISHING_CQ9_ONE_SHOT_FISHING'],
+					// allowCurrencies: ALLOWED_CURRENCIES['FISHING_CQ9_ONE_SHOT_FISHING'],
+					allowCurrencies: [],
+				},
+			],
+			subMenuAllowCurrenciesWithAuth: false,
+			allowCurrencies: false,
+		},
+		[MenuKeyEnum.Lottery]: {
+			display: 'all',
+			h5: {
+				icon: 'icon icon-kelo',
+				menuActionType,
+			},
+			desktop: {
+				subMenuClassName: 'gameList',
+				menuActionType,
+			},
+			displayKey: 'Label_General_Lottery',
+			pathname: paths.lottery.root,
+			subMenu: [
+				{
+					h5: {
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'lo-gpikeno.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'lottery-list-title.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'lo-gpikeno.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'gameListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'lotterygpikeno.png',
+							hoverBgImg: 'lotterygpikenoa.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LOTTERY_GPI_KENO',
+					displayKey: 'Label_Product_GPI_Keno',
+					product: PRODUCTS['LOTTERY_GPI_KENO'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'lo-gpithaiv.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'lottery-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'lo-gpithai.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'gameListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'lotterygpithai.png',
+							hoverBgImg: 'lotterygpithaia.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LOTTERY_GPI_THAILOTTERY',
+					displayKey: 'Label_Product_GPI_ThaiLottery',
+					product: PRODUCTS['LOTTERY_GPI_THAILOTTERY'],
+					// allowCurrencies: ALLOWED_CURRENCIES['LOTTERY_GPI_THAILOTTERY'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'lo-gpifast3.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'lottery-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'lo-gpifast3.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'gameListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'lotterygpifast3.png',
+							hoverBgImg: 'lotterygpifast3a.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LOTTERY_GPI_FAST3',
+					displayKey: 'Label_Product_GPI_Fast3',
+					product: PRODUCTS['LOTTERY_GPI_FAST3'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'lo-tcg.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'lottery-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'indo',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'lo-tcg.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'gameListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'lotterytc.png',
+							hoverBgImg: 'lotterytca.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LOTTERY_TCG',
+					displayKey: 'Label_Product_TcGame',
+					product: PRODUCTS['LOTTERY_TCG'],
+					allowCurrencies: [],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'lo-keno.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'lottery-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'keno',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'lo-keno.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'gameListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'lotteryke.png',
+							hoverBgImg: 'lotterykea.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LOTTERY_KENO',
+					displayKey: 'Label_Product_Keno',
+					product: PRODUCTS['LOTTERY_KENO'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'lo-lottery.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'lottery-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'lottery',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'lo-lottery.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'gameListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'lotterylo.png',
+							hoverBgImg: 'lotteryloa.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LOTTERY',
+					displayKey: 'Label_General_Lottery',
+					product: PRODUCTS['LOTTERY'],
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'lo-numbergame.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'lottery-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'numberGame',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'lo-numberGame.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'gameListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'lotterynu.png',
+							hoverBgImg: 'lotterynua.png',
+						},
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					productKey: 'LOTTERY_NUMBER_GAME',
+					displayKey: 'Label_Product_NumberGame',
+					product: PRODUCTS['LOTTERY_NUMBER_GAME'],
+					pathname: paths.sports.root,
+					query: { provider: 'saba', type: 'number-game' },
+				},
+				{
+					h5: {
+						menuActionType: MenuActionTypeEnum.EnterPage,
+						headerMenuImgList: [
+							...h5SubmenuBackground,
+							{
+								className: 'list-npc',
+								imgUrl: 'lo-tablegame.png',
+							},
+							{
+								className: 'list-title',
+								imgUrl: 'lottery-list-title.png',
+							},
+						],
+					},
+					desktop: {
+						className: 'numberGame',
+						headerMenuImgList: [
+							...desktopSubmenuBackground,
+							{
+								className: 'List-npc',
+								imgUrl: 'lo-tableGame.png',
+							},
+							{
+								className: 'List-bg',
+								imgUrl: 'gameListHover.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'lotteryta.png',
+							hoverBgImg: 'lotterytaa.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LOTTERY_TABLE_GAME',
+					displayKey: 'Label_Product_TableGame',
+					product: PRODUCTS['LOTTERY_TABLE_GAME'],
+					// query: { provider: 'saba', type: 'number-game' },
+				},
+			],
+			subMenuAllowCurrenciesWithAuth: false,
+			allowCurrencies: true,
+		},
+		[MenuKeyEnum.Promotion]: {
+			display: 'desktop',
+			h5: { menuActionType: MenuActionTypeEnum.Link },
+			desktop: {
+				subMenuClassName: 'promoList',
+				menuType: 'banner',
+				eventIcons: [
+					{
+						icon: 'icon icon-mediafire',
+						text: 'HOT',
+						period: PRODUCT_EVENT_PERIOD['PROMOS'],
+					},
+				],
+				menuActionType: MenuActionTypeEnum.Link,
+			},
+			displayKey: 'Label_General_Promos',
+			pathname: paths.promotion.root,
+
+			subMenuAllowCurrenciesWithAuth: false,
+			allowCurrencies: true,
+		},
+		[MenuKeyEnum.Affiliates]: {
+			display: 'h5',
+			h5: {
+				icon: 'icon icon-affiliate',
+				menuActionType: MenuActionTypeEnum.WindowOpen,
+			},
+			desktop: { menuActionType: MenuActionTypeEnum.WindowOpen },
+			displayKey: 'Label_General_Affiliate',
+			pathname: (() => {
+				if (Number(currencyId) === CurrenciesEnum.MYR) {
+					return `https://aff.nova88mas102.com/?lang=${langId}`
+				}
+
+				if (Number(currencyId) === CurrenciesEnum.INR) {
+					return `https://aff.nova88india.com/?lang=${langId}`
+				}
+
+				return `https://aff.nova88bkk.com/?lang=${langId}`
+			})(),
+			subMenuAllowCurrenciesWithAuth: false,
+			allowCurrencies: ALLOWED_CURRENCIES['AFFILIATE'],
+		},
+		[MenuKeyEnum.VIP]: {
+			display: 'all',
+			h5: {
+				icon: 'icon icon-vip',
+				menuActionType: MenuActionTypeEnum.Link,
+			},
+			desktop: {
+				menuType: 'banner',
+				subMenuClassName: 'vipList',
+				menuActionType: MenuActionTypeEnum.Link,
+			},
+			displayText: 'VIP',
+			pathname: paths.vip.root,
+
+			subMenuAllowCurrenciesWithAuth: false,
+			allowCurrencies: ALLOWED_CURRENCIES['VIP'],
+		},
+		[MenuKeyEnum.LeaderBoard]: {
+			display: 'all',
+			h5: {
+				icon: 'icon icon-ranking',
+				menuActionType: MenuActionTypeEnum.Link,
+			},
+			desktop: {
+				menuType: 'banner',
+				subMenuClassName: 'rankingList',
+				menuActionType: MenuActionTypeEnum.Link,
+			},
+			displayKey: 'Label_LeaderBoard',
+			pathname: paths.leaderBoard.root,
+			subMenuAllowCurrenciesWithAuth: false,
+			allowCurrencies: ALLOWED_CURRENCIES['LEADER_BOARD'],
+		},
+	}
 }
-
-export type ISunMenuNpcImage = {
-	className: `${string}-npc`
-	remoteImgUrl: string
-}
-export type IHeaderSubMenuImg = ISubMenuExcludeNpc | ISunMenuNpcImage
-
-export interface ISubMenu extends IProduct {
-	h5: {
-		hasLobby: boolean
-		menuActionType: keyof typeof MenuActionTypeEnum
-		headerMenuImgList?: Array<IHeaderSubMenuImg>
-		hasDesktopLink?: boolean
-	}
-	desktop: {
-		hasLobby: boolean
-		menuActionType: keyof typeof MenuActionTypeEnum
-		headerMenuImgList?: Array<IHeaderSubMenuImg>
-		subMenuImageClassName?: string
-		// TODO ⚠ lobbyPage 之後必須拔掉，因現在用 nova 資料，
-		// TODO ⚠ hoverBgImg 也可以考慮重 api 送 ， 要馬要是都寫在前端，不然就都重 api 送
-		lobbyPage?: { npcImg: string; hoverBgImg: string }
-	}
-	pathname?: string
-	query?: {
-		provider?: string
-		type?: string
-		tpId?: string | number
-	}
-	needLogin?: boolean
-}
-
-export type IMenuData = {
-	display: 'h5' | 'desktop' | 'all'
-	displayKey: string
-	pathname?: string
-	lobbyCategoryId: number
-	subMenuAllowCurrenciesWithAuth: boolean // * 決定是否需要登入後才過濾(暫時沒有用到)
-	query?: { provider: string }
-	subMenu: ISubMenu[]
-	category: MenuKeyEnum
-	h5: {
-		icon: string
-		subMenuClassName?: string
-	}
-	desktop: {
-		subMenuClassName: string
-		menuType?: 'menu' | 'banner'
-	}
-}
-
-export const MENU_DATA: IMenuData[] = [
-	{
-		display: 'all',
-		lobbyCategoryId: LobbyCategoryEnum.Sports,
-		category: MenuKeyEnum.Sports,
-		displayKey: 'Label_General_Sports',
-		pathname: paths.sports.root,
-		query: { provider: 'Soccer' },
-		desktop: {
-			subMenuClassName: 'sportsList',
-		},
-		h5: {
-			icon: 'icon icon-soccer',
-			subMenuClassName: 'sports',
-		},
-		subMenu: [
-			{
-				...PRODUCTS.CryptoSports,
-				desktop: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'cryptosportNPC.png',
-						},
-					],
-				},
-				h5: {
-					hasLobby: false,
-					hasDesktopLink: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'sports-bg-soccer.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'sports-cryptosport.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
-				},
-			},
-			{
-				...PRODUCTS.Soccer,
-				pathname: paths.sports.root,
-				query: { provider: 'Soccer' },
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'soccerNPC.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'soccerBG.png',
-						},
-					],
-				},
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'sports-bg-soccer.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'sports-soccer.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
-				},
-			},
-			{
-				...PRODUCTS.SabaSoccer,
-				pathname: paths.sports.root,
-				query: { provider: 'SabaSoccer' },
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'sabssoccerNPC.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'soccerBG.png',
-						},
-					],
-				},
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'sports-bg-soccer.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'sports-sabssoccer.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
-				},
-			},
-			{
-				...PRODUCTS.Basketball,
-				pathname: paths.sports.root,
-				query: { provider: 'Basketball' },
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'basketballNPC.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'basketballBG.png',
-						},
-					],
-				},
-				h5: {
-					hasLobby: false,
-					hasDesktopLink: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'sports-bg-basketball.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'sports-basketball.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
-				},
-			},
-			{
-				...PRODUCTS.Cricket,
-				pathname: paths.sports.root,
-				query: { provider: 'Cricket' },
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'cricketNPC.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'cricketBG.png',
-						},
-					],
-				},
-				h5: {
-					hasLobby: false,
-					hasDesktopLink: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'sports-bg-cricket.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'sports-cricket.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
-				},
-			},
-			{
-				...PRODUCTS.Badminton,
-				pathname: paths.sports.root,
-				query: { provider: 'Badminton' },
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'badmintonNPC.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'badmintonBG.png',
-						},
-					],
-				},
-				h5: {
-					hasLobby: false,
-					hasDesktopLink: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'list-bg',
-							imgUrl: 'sports-bg-soccer.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'sports-cryptosport.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
-				},
-			},
-			{
-				...PRODUCTS.Volleyball,
-				pathname: paths.sports.root,
-				query: { provider: 'Volleyball' },
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'volleyballNPC.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'volleyballBG.png',
-						},
-					],
-				},
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'list-bg',
-							imgUrl: 'sports-bg-soccer.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'sports-cryptosport.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
-				},
-			},
-			{
-				pathname: paths.sports.root,
-				query: { provider: 'VirtualSports' },
-				...PRODUCTS.VirtualSports,
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'betradarsoccerNPC.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'soccerBG.png',
-						},
-					],
-				},
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'list-bg',
-							imgUrl: 'sports-bg-soccer.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'sports-betradarsoccer.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
-				},
-			},
-		],
-		subMenuAllowCurrenciesWithAuth: false,
-	},
-	{
-		display: 'all',
-		displayKey: 'Label_General_Exchange',
-		category: MenuKeyEnum.Exchange,
-		subMenuAllowCurrenciesWithAuth: false,
-		lobbyCategoryId: LobbyCategoryEnum.Exchange,
-		desktop: {
-			subMenuClassName: 'exchangeList',
-		},
-		h5: {
-			icon: 'icon icon-sports',
-			subMenuClassName: 'exchange',
-		},
-		subMenu: [
-			{
-				...PRODUCTS.Nova88Exchange,
-				needLogin: true,
-				desktop: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.UseGoToGame,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: '9wnpc.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'cricketBG.png',
-						},
-					],
-				},
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.UseGoToGame,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'sports-9w.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
-				},
-			},
-		],
-	},
-	{
-		display: 'all',
-		displayKey: 'Label_General_ESports',
-		category: MenuKeyEnum.ESports,
-		pathname: paths.eSport.root,
-		subMenuAllowCurrenciesWithAuth: false,
-		lobbyCategoryId: LobbyCategoryEnum.ESports,
-		desktop: {
-			subMenuClassName: 'eSportsList',
-		},
-		h5: {
-			icon: 'icon icon-sports',
-			subMenuClassName: 'esport',
-		},
-		subMenu: [
-			{
-				...PRODUCTS.ESportALL,
-				pathname: paths.eSport.root,
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'esportSABA.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'eSportsListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'esposts-saba.png',
-						hoverBgImg: 'esposts-sabaa.png',
-					},
-				},
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'esports-saba.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'esports-list-title.png',
-						},
-					],
-				},
-			},
-			{
-				...PRODUCTS.IMESports,
-				pathname: paths.eSport.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'esports-im.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'esports-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'esportInplayMatrix.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'eSportsListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'esposts-inplaymatrix.png',
-						hoverBgImg: 'esposts-inplaymatrixa.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.TFGaming,
-				pathname: paths.eSport.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-			},
-		],
-	},
-	{
-		display: 'all',
-		h5: {
-			icon: 'icon icon-livecasino',
-			subMenuClassName: '',
-		},
-		desktop: {
-			subMenuClassName: 'livecasinoList',
-		},
-		category: MenuKeyEnum.Casino,
-		displayKey: 'Label_General_LiveCasino',
-		pathname: paths.liveCasino.root,
-		subMenuAllowCurrenciesWithAuth: false,
-		lobbyCategoryId: LobbyCategoryEnum.Casino,
-		subMenu: [
-			{
-				...PRODUCTS.PragmaticPlayCasino,
-				pathname: paths.liveCasino.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-pp.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-pp.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'livePP',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-PP.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'ppBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_pp.png',
-						hoverBgImg: 'animation_img.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.BigGaming,
-				pathname: paths.liveCasino.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-bg.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-bg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'liveBG',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-bg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'bgbg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_bg.png',
-						hoverBgImg: 'animation_img.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.YeebetCasino,
-				pathname: paths.liveCasino.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-yb.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-yb.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'casino-yb',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-yb.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'ybBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_yb.png',
-						hoverBgImg: 'animation_img.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.SkywindCasino,
-				pathname: paths.liveCasino.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-sk.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-sk.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'casino_Skywind',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-SK.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'skbg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_sk.png',
-						hoverBgImg: 'animation_img.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.MicrogamingCasino,
-				pathname: paths.liveCasino.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-mg.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-mg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'casino_MG',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-mg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'mgbg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_mg.png',
-						hoverBgImg: 'animation_img.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.EvolutionGaming,
-				pathname: paths.liveCasino.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-ev.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-ev.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'casino_EVO',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-ev.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'evbg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_ev.png',
-						hoverBgImg: 'animation_img.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.PlaytechCasino,
-				pathname: paths.liveCasino.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.UseGoToGame,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-pt.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-pt.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'casino_PT',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.UseGoToGame,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-pt.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'ptbg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_pt.png',
-						hoverBgImg: 'animation_img.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.n2LIVE,
-				pathname: paths.liveCasino.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-n2.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-n2.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'casino_N2LIVE',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-n2.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'n2bg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_n2.png',
-						hoverBgImg: 'animation_img.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.WMCasino,
-				pathname: paths.liveCasino.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-wm.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-wm.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'liveWM',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-WM.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'wmBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_wm.png',
-						hoverBgImg: 'animation_img.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.Allbet,
-				pathname: paths.liveCasino.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-ab.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-ab.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'liveALL',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-ALL.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'allBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_ab.png',
-						hoverBgImg: 'animation_img.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.WE,
-				pathname: paths.liveCasino.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-eb.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-eb.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'liveEB',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-EB.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'ebBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_eb.png',
-						hoverBgImg: 'animation_img.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.SAGaming,
-				pathname: paths.liveCasino.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-sa.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-sa.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'liveSA',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-SA.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'saBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_sa.png',
-						hoverBgImg: 'animation_img.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.AESexy,
-				pathname: paths.liveCasino.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-ae.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-ae.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'liveAE',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-AE.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'aeBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_ae.png',
-						hoverBgImg: 'animation_img.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.DreamGaming,
-				pathname: paths.liveCasino.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-dg.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-dg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'liveDG',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-DG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'dgBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_dg.png',
-						hoverBgImg: 'animation_img.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.AsiaGaming,
-				pathname: paths.liveCasino.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-ag.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-ag.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'liveAG',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-AG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'agBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_ag.png',
-						hoverBgImg: 'animation_img.png',
-					},
-				},
-			},
-		],
-	},
-	{
-		display: 'all',
-		h5: {
-			icon: 'icon icon-icon_777',
-			subMenuClassName: 'slot',
-		},
-		desktop: {
-			subMenuClassName: 'livecasinoList',
-		},
-		category: MenuKeyEnum.Slot,
-		displayKey: 'Label_General_Slots',
-		pathname: paths.slots.root,
-		subMenuAllowCurrenciesWithAuth: false,
-		lobbyCategoryId: LobbyCategoryEnum.SLOTS,
-		subMenu: [
-			{
-				...PRODUCTS.PragmaticPlaySlot,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-pp.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_PP',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotPP.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.PragmaticPlaySlot.tpId,
-				},
-			},
-			{
-				...PRODUCTS.Spadegaming,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-sg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_SG',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotSG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.Spadegaming.tpId,
-				},
-			},
-			{
-				...PRODUCTS.AdvantPlay,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-apnew.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_AdvantPlay',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotapnew.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.AdvantPlay.tpId,
-				},
-			},
-			{
-				...PRODUCTS.AmigoGaming,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-				},
-				desktop: { hasLobby: true, menuActionType: MenuActionTypeEnum.Link },
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.AmigoGaming.tpId,
-				},
-			},
-			{
-				...PRODUCTS.ES,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-endorphina.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_Endorphina',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotEndorphina.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.ES.tpId,
-				},
-			},
-			{
-				...PRODUCTS.Nextspin,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-				},
-				desktop: { hasLobby: true, menuActionType: MenuActionTypeEnum.Link },
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.Nextspin.tpId,
-				},
-			},
-			{
-				...PRODUCTS.PGSoft,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-pg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_PG',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotPG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.PGSoft.tpId,
-				},
-			},
-			{
-				...PRODUCTS.BNG,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-				},
-				desktop: { hasLobby: true, menuActionType: MenuActionTypeEnum.Link },
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.BNG.tpId,
-				},
-			},
-			{
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-				},
-				desktop: { hasLobby: true, menuActionType: MenuActionTypeEnum.Link },
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.FaChai.tpId,
-				},
-				...PRODUCTS.FaChai,
-			},
-			{
-				...PRODUCTS.MicrogamingSlot,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-mg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_MGPSW',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotmg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.MicrogamingSlot.tpId,
-				},
-			},
-			{
-				...PRODUCTS.JILI,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-pp.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_JI',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotji.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.JILI.tpId,
-				},
-			},
-			{
-				...PRODUCTS.SPRIBE,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-spribe.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_SPRIBE',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotSPRIBE.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.SPRIBE.tpId,
-				},
-			},
-			{
-				...PRODUCTS.Joker,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-joker.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_JOKER',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotJOKER.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.Joker.tpId,
-				},
-			},
-			{
-				...PRODUCTS.Pegasus,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-				},
-				desktop: { hasLobby: true, menuActionType: MenuActionTypeEnum.Link },
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.Pegasus.tpId,
-				},
-			},
-			{
-				...PRODUCTS.NoLimitCity,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.NoLimitCity.tpId,
-				},
-			},
-			{
-				...PRODUCTS.RedTiger,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-rt.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_RedTiger',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotrt.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.RedTiger.tpId,
-				},
-			},
-			{
-				...PRODUCTS.NetEnt,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-nt.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_NetEnt',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotnt.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.NetEnt.tpId,
-				},
-			},
-			{
-				...PRODUCTS.CQ9,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-cq9.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_CQ9',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotCQ9.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.CQ9.tpId,
-				},
-			},
-			{
-				...PRODUCTS.PlaynGO,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-				},
-				desktop: { hasLobby: true, menuActionType: MenuActionTypeEnum.Link },
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.PlaynGO.tpId,
-				},
-			},
-			{
-				...PRODUCTS.GamePlay,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-gpi.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_GPI',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotGPI.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.GamePlay.tpId,
-				},
-			},
-			{
-				...PRODUCTS.YGGDrassil,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-ygg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_YGG',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotYGG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.YGGDrassil.tpId,
-				},
-			},
-			{
-				...PRODUCTS.AMBPoker,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-am.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_AMB',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotam.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.AMBPoker.tpId,
-				},
-			},
-			{
-				...PRODUCTS.Habanero,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-ho.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_Habanero',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotho.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.Habanero.tpId,
-				},
-			},
-			{
-				...PRODUCTS.SimplePlay,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-simpleplay.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_SimplePlay',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotSimplePlay.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.SimplePlay.tpId,
-				},
-			},
-			{
-				...PRODUCTS.SkywindSlot,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-skywind.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_Skywind',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotsk.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.SkywindSlot.tpId,
-				},
-			},
-			{
-				...PRODUCTS.PlaytechSlot,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-pt.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'slot_PT',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotpt.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
-				},
-				pathname: paths.slots.root,
-				query: {
-					tpId: PRODUCTS.PlaytechSlot.tpId,
-				},
-			},
-		],
-	},
-	{
-		display: 'all',
-		h5: {
-			icon: 'icon icon-play',
-			subMenuClassName: 'play',
-		},
-		desktop: { subMenuClassName: 'tableList' },
-		category: MenuKeyEnum.Game,
-		displayKey: 'Label_General_Games',
-		pathname: paths.game.root,
-		subMenuAllowCurrenciesWithAuth: false,
-		lobbyCategoryId: LobbyCategoryEnum.Game,
-		subMenu: [
-			{
-				...PRODUCTS.MPPoker,
-				pathname: paths.game.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-mp.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'mp.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gamemp.png',
-						hoverBgImg: 'gamempa.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.AMBPoker,
-				pathname: paths.game.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-amb.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'am.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gameamb.png',
-						hoverBgImg: 'gameamba.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.Vgaming,
-				pathname: paths.game.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-vg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'vg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gamevg.png',
-						hoverBgImg: 'gamevga.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.KingMaker,
-				pathname: paths.game.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-km.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'km.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gamekim.png',
-						hoverBgImg: 'gamekima.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.V8Poker,
-				pathname: paths.game.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-			},
-			{
-				...PRODUCTS.Aviator,
-				pathname: paths.game.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-spribe-aviator.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'gameSpribeAviator.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gamespribe-aciator.png',
-						hoverBgImg: 'gamespribe-aciatora.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.Mines,
-				pathname: paths.game.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-spribe-mines.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'gameSpribeMines.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gamespribe-mines.png',
-						hoverBgImg: 'gamespribe-minesa.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.Goal,
-				pathname: paths.game.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-spribe-goal.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'gameSpribeGoal.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gamespribe-goal.png',
-						hoverBgImg: 'gamespribe-goala.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.Dice,
-				pathname: paths.game.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-spribe-dice.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'gameSpribeDice.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gamespribe-dice.png',
-						hoverBgImg: 'gamespribe-dicea.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.Spaceman,
-				pathname: paths.game.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-			},
-			{
-				...PRODUCTS.Crash,
-				pathname: paths.game.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-ap.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'ap.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gameap.png',
-						hoverBgImg: 'gameapa.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.GoRush,
-				pathname: paths.game.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-spribe-goal.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'jili.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gamejili.png',
-						hoverBgImg: 'gamejilia.png',
-					},
-				},
-			},
-		],
-	},
-	{
-		display: 'all',
-		h5: {
-			icon: 'icon icon-game',
-			subMenuClassName: 'fishing',
-		},
-		desktop: {
-			subMenuClassName: 'fishList',
-		},
-		category: MenuKeyEnum.Fishing,
-		displayKey: 'Label_General_Fishing',
-		pathname: paths.fishing.root,
-		lobbyCategoryId: LobbyCategoryEnum.Fishing,
-		subMenu: [
-			{
-				...PRODUCTS.FishingGod,
-				pathname: paths.fishing.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'fish-fwo.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'fish-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					subMenuImageClassName: 'fsg',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							imgUrl: 'fishSG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'fishListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'fishfg.png',
-						hoverBgImg: 'fishfga.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.FishingWar,
-				pathname: paths.fishing.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-				desktop: {
-					subMenuImageClassName: 'fsgw',
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'fishSGwar.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'fishListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'fishfw.png',
-						hoverBgImg: 'fishfwa.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.ZombieParty,
-				pathname: paths.fishing.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-			},
-			{
-				...PRODUCTS.AlienHunter,
-				pathname: paths.fishing.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-			},
-			{
-				...PRODUCTS.Paradise,
-				pathname: paths.fishing.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'fish-pd.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'fish-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'paradise.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'fishListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'fishpd.png',
-						hoverBgImg: 'fishpda.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.FishHaiba,
-				pathname: paths.fishing.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'fish-hb.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'fish-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'hb.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'fishListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'fishhb.png',
-						hoverBgImg: 'fishhba.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.HappyFish5,
-				pathname: paths.fishing.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'fish-hf5.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'fish-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'hf5.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'fishListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'fishhf.png',
-						hoverBgImg: 'fishhfa.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.MonsterAwaken,
-				pathname: paths.fishing.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'fish-ma.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'fish-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'ma.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'fishListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'fishma.png',
-						hoverBgImg: 'fishmaa.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.OneshotFishing,
-				pathname: paths.fishing.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'oneshotfishing.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'fishListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'fishof.png',
-						hoverBgImg: 'fishofa.png',
-					},
-				},
-			},
-		],
-		subMenuAllowCurrenciesWithAuth: false,
-	},
-	{
-		display: 'all',
-		h5: {
-			icon: 'four',
-			subMenuClassName: '',
-		},
-		desktop: {
-			subMenuClassName: 'fourList',
-		},
-		displayKey: 'Label_General_FourD',
-		pathname: paths.fourD.root,
-		category: MenuKeyEnum.FourD,
-		lobbyCategoryId: LobbyCategoryEnum.FourD,
-		subMenu: [
-			{
-				...PRODUCTS.GrandDragon,
-				pathname: paths.fourD.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.UseGoToGame,
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.UseGoToGame,
-				},
-			},
-		],
-		subMenuAllowCurrenciesWithAuth: false,
-	},
-	{
-		display: 'all',
-		h5: {
-			icon: 'icon icon-kelo',
-			subMenuClassName: 'lottery',
-		},
-		desktop: { subMenuClassName: 'gameList' },
-		displayKey: 'Label_General_Lottery',
-		pathname: paths.lottery.root,
-		category: MenuKeyEnum.Lottery,
-		lobbyCategoryId: LobbyCategoryEnum.Lottery,
-		subMenu: [
-			{
-				...PRODUCTS.GPIKeno,
-				pathname: paths.lottery.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-gpikeno.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'lottery-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-gpikeno.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'gameListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'lotterygpikeno.png',
-						hoverBgImg: 'lotterygpikenoa.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.ThaiLottery,
-				pathname: paths.lottery.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-gpithaiv.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'lottery-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-gpithai.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'gameListHover.png',
-						},
-					],
-				},
-			},
-			{
-				...PRODUCTS.Fast3,
-				pathname: paths.lottery.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-gpifast3.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'lottery-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-gpifast3.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'gameListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'lotterygpifast3.png',
-						hoverBgImg: 'lotterygpifast3a.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.TCG,
-				pathname: paths.lottery.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-tcg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'lottery-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-tcg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'gameListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'lotterytc.png',
-						hoverBgImg: 'lotterytca.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.Keno,
-				pathname: paths.lottery.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-keno.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'lottery-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-keno.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'gameListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'lotteryke.png',
-						hoverBgImg: 'lotterykea.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.Lottery,
-				pathname: paths.lottery.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-lottery.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'lottery-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-lottery.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'gameListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'lotterylo.png',
-						hoverBgImg: 'lotteryloa.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.NumberGame,
-				pathname: paths.sports.root,
-				query: { provider: 'NumberGame' },
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-numbergame.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'lottery-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-numberGame.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'gameListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'lotterynu.png',
-						hoverBgImg: 'lotterynua.png',
-					},
-				},
-			},
-			{
-				...PRODUCTS.TableGame,
-				pathname: paths.lottery.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-tablegame.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'lottery-list-title.png',
-						},
-					],
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							imgUrl: 'lo-tableGame.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'gameListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'lotteryta.png',
-						hoverBgImg: 'lotterytaa.png',
-					},
-				},
-			},
-		],
-		subMenuAllowCurrenciesWithAuth: false,
-	},
-]

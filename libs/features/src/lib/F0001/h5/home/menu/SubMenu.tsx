@@ -1,106 +1,112 @@
+import { getSubMenuEventIcon, useMenu } from '@nx-next-app/features/F0001/hooks'
+import { MenuKeyEnum } from '@nx-next-app/types'
 import classNames from 'classnames'
-import Image from 'next/future/image'
+import process from 'process'
+import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
-import dynamic from 'next/dynamic'
 import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import { isEventPeriod } from '@nx-next-app/utils'
+import { uniqueId } from 'lodash-es'
+import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { MenuKeyEnum, MenuIconTypeEnum } from '@nx-next-app/types'
-import { type IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 
 const LiveStreamingModalH5 = dynamic(
-	() => import('../../modal/LiveStreamingModal'),
+	() => import('@nx-next-app/features/F0001/h5/modal/LiveStreamingModal'),
 	{ ssr: false }
 )
 
 interface ISubMenuProps {
-	menuList: IMergedMenuData[]
-	onMenuOpen: (
-		item: IDynamicSubMenuItem | undefined,
-		{
-			loginCallback,
-			messageCallBack,
-			liveStreamingCallback,
-		}: {
-			loginCallback: () => void
-			messageCallBack?: (message: string) => void | undefined
-			liveStreamingCallback: () => void
-		}
-	) => void
-	menuKey: keyof typeof MenuKeyEnum | undefined
+	menuKey: keyof typeof MenuKeyEnum | ''
 }
 
-const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
-	const {
-		userInfo: { langId },
-	} = useAuth()
+const SubMenu = ({ menuKey }: ISubMenuProps) => {
+	const { t } = useTranslation()
 	const { push } = useRouter()
 	const { modal } = useGlobalModal()
-	const submenus =
-		menuList?.find(({ category }) => category === menuKey)?.subMenu || []
+	const { menuData, onMenuOpen } = useMenu()
 
-	const renderSubMenu = (
-		<div className={`${menuKey} active`}>
-			{submenus.map(subMenuItem => {
-				const {
-					tpGameIdNo,
-					productName,
-					iconType,
-					iconStartTime,
-					iconEndTime,
-					isTpMaintain,
-					mobileHeaderPicUrl,
-				} = subMenuItem || {}
+	const renderSubMenu = (key: string) => {
+		const menu = menuData[key as MenuKeyEnum]
+		if (!menu) return null
 
-				const displayName =
-					subMenuItem?.currencyGameName &&
-					subMenuItem?.currencyGameName[langId] &&
-					subMenuItem?.currencyGameName[langId]
+		const {
+			h5: { subMenuClassName },
+			subMenu,
+		} = menu
 
-				// * 後端這裡是字串格式 需做處理
-				const suBMenuImage =
-					mobileHeaderPicUrl && JSON.parse(mobileHeaderPicUrl)[0]
+		return (
+			<div
+				key={key}
+				className={classNames(subMenuClassName, { active: key === menuKey })}
+			>
+				{subMenu?.map(item => {
+					const {
+						h5: { className, headerMenuImgList, img } = {},
+						eventIcons,
+						productKey,
+					} = item
 
-				const isNew =
-					isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
-					iconType === MenuIconTypeEnum.New
+					const subMenuEventIcon = getSubMenuEventIcon(eventIcons)
 
-				return (
-					<button
-						key={tpGameIdNo}
-						className={classNames('gamelist-item', {
-							under: isTpMaintain,
-						})}
-						onClick={() => {
-							onMenuOpen(subMenuItem, {
-								loginCallback: () => {
-									push(paths.login.root)
-								},
-								messageCallBack: message => modal.error(message),
-								liveStreamingCallback: () =>
-									modal.open(<LiveStreamingModalH5 />),
-							})
-						}}
-					>
-						<div className='gamelist-img'>
-							{isNew && <div className='new-icon'>New</div>}
-							<Image
-								src={suBMenuImage}
-								alt={productName}
-								width={86}
-								height={86}
-							/>
-							<div className='gamelist-title'>{displayName || productName}</div>
-						</div>
-					</button>
-				)
-			})}
+					return (
+						<button
+							style={{
+								// * 如果維護中取消點擊事件
+								pointerEvents: item.isTpMaintain ? 'none' : 'auto',
+							}}
+							key={productKey || uniqueId()}
+							className={classNames('gamelist-item', className, {
+								under: item.isTpMaintain,
+							})}
+							onClick={() => {
+								onMenuOpen(item, {
+									loginCallback: () => {
+										push(paths.login.root)
+									},
+									messageCallBack: message => null,
+									liveStreamingCallback: () =>
+										modal.open(<LiveStreamingModalH5 />),
+								})
+							}}
+						>
+							{eventIcons && (
+								<i className={classNames(subMenuEventIcon?.icon)}>
+									{subMenuEventIcon?.text}
+								</i>
+							)}
+
+							<div className='gamelist-img'>
+								{img && (
+									<img
+										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/${img}`}
+										alt={productKey || 'menu-item-img'}
+									/>
+								)}
+
+								{headerMenuImgList?.map(img => (
+									<img
+										key={img.imgUrl}
+										className={classNames(img.className)}
+										alt={img.imgUrl}
+										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/dropdown/${img.imgUrl}`}
+									/>
+								))}
+
+								<div className='gamelist-title'>
+									{t(item.displayKey || '') || item.displayText}
+								</div>
+							</div>
+						</button>
+					)
+				})}
+			</div>
+		)
+	}
+
+	return (
+		<div className='home-gamelist'>
+			{Object.keys(menuData).map(key => renderSubMenu(key))}
 		</div>
 	)
-
-	return <div className='home-gamelist'>{renderSubMenu}</div>
 }
 
 export default SubMenu
