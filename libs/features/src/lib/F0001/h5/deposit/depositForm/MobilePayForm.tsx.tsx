@@ -149,7 +149,11 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 	}
 	return (
 		<>
-			<DepositModule title={t('Label_Payment_Method')} required>
+			<DepositModule
+				title={t('Label_Payment_Method')}
+				required
+				hasAdditionalInfo
+			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{dataSource.map(item => {
 						const { groupName, minAmount, maxAmount } = item
@@ -169,7 +173,11 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				</DepositModule.SubModuleButtonGroup>
 			</DepositModule>
 
-			<DepositModule title={t('Label_Deposit_SelectChannel')} required>
+			<DepositModule
+				title={t('Label_Deposit_SelectChannel')}
+				required
+				hasAdditionalInfo
+			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{channelMobilePayList.map(item => {
 						const { channelId, channelName, minAmount, maxAmount } = item
