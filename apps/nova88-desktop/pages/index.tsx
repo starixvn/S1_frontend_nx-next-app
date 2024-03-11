@@ -89,7 +89,7 @@ const HomePage = ({
 						persistNewsData={persistNewsData}
 						persistSlotsGameData={persistSlotsGameData}
 						persistLicenseData={persistFooterData.licenseData}
-						persistProgramList={persistFooterData.programList}
+						persistQuickLinksList={persistFooterData.quickLinks}
 						persistPlatformList={persistFooterData.platformList}
 						desktopHomeOrders={DESKTOP_HOME_ORDERS}
 					>

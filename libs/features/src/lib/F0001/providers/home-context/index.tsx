@@ -58,7 +58,7 @@ interface IHomeProviderProps {
 	persistSlotsGameData?: ISlotsGameData
 	// For H5
 	persistLicenseData: IFooterData['licenseData']
-	persistProgramList: IFooterData['programList']
+	persistQuickLinksList: IFooterData['quickLinks']
 	persistPlatformList: IFooterData['platformList']
 	// 桌機排序與開關
 	desktopHomeOrders?: DesktopHomeComponentsEnum[]
@@ -235,7 +235,7 @@ const defaultMobileHomeOrders = [
 export const HomeProvider = ({
 	children,
 	persistNewsData,
-	persistProgramList,
+	persistQuickLinksList,
 	persistPlatformList,
 	persistBannerData,
 	persistPromotionData,
@@ -336,9 +336,9 @@ export const HomeProvider = ({
 		allowCurrencies: ALLOWED_CURRENCIES['AFFILIATE'] as CurrenciesEnum[],
 		link:
 			find(
-				persistProgramList,
+				persistQuickLinksList,
 				({ displayKey }) => displayKey === 'Label_Affiliate_Program'
-			)?.applyNowLink ?? '',
+			)?.href ?? '',
 	}
 
 	const jackPotCurrencies = ALLOWED_CURRENCIES['JACKPOT'] as CurrenciesEnum[]
