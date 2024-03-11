@@ -1133,7 +1133,7 @@ div[tabindex="-1"] {
   transition: -webkit-transition;
   transition: transition;
   transition: transition, -webkit-transition;
-  z-index: 11;
+  z-index: 10;
   background: white;
   overflow: scroll;
   visibility: hidden;
@@ -1941,7 +1941,7 @@ main .gameList .icon-new {
   width: calc(100% - 16vw);
   height: calc(100% - 16vw);
   position: fixed;
-  z-index: 10;
+  z-index: 11;
   top: 0;
   left: 0;
   -webkit-box-align: center;
@@ -16773,7 +16773,28 @@ main.casino .banner {
           box-sizing: border-box;
   text-align: center;
 }
-.after .btn-logout {
+
+.react-datepicker-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+.react-datepicker-wrapper input {
+  width: 100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+input[type=number] .btn-logout {
   background: white;
   border-radius: 30px;
   width: 80vw;
