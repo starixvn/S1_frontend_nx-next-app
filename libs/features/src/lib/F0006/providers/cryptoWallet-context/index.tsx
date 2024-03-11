@@ -10,6 +10,7 @@ import {
 	useLazyGetOTPVerifyInfoQuery,
 	useGetSupportCryptoInfoQuery,
 	useSetCustCryptoWalletMutation,
+	IWithdrawalSetting,
 } from '@nx-next-app/service'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -17,10 +18,16 @@ import { DeviceTypeEnum } from '@nx-next-app/types'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { AddWalletModal as DesktopAddWalletModal } from '@nx-next-app/features/F0006/desktop/crypto-wallet/AddWalletModal'
 import { AddWalletModal as H5AddWalletModal } from '@nx-next-app/features/F0006/h5/crypto-wallet/AddWalletModal'
+import { useWalletAllowed } from '@nx-next-app/features/F0006/hooks'
 
 interface ICryptoWalletContextValue {
 	loading: boolean
 	USDTDetail: IUSDTDetail[]
+	cardAllowed: {
+		bankCardAllowed: boolean
+		eWalletCardAllowed: boolean
+		cryptoCardAllowed: boolean
+	}
 	cryptoNetworkList: ICryptoNetwork[]
 	cryptoCurrencyOptions: { value: number; label: string }[]
 	handleAddWallet: () => void
@@ -35,7 +42,13 @@ const CryptoWalletContext = createContext<ICryptoWalletContextValue>(
 
 export const useCryptoWallet = () => useContext(CryptoWalletContext)
 
-export const CryptoWalletProvider = ({ children }: { children: ReactNode }) => {
+export const CryptoWalletProvider = ({
+	children,
+	withdrawalBlockSetting,
+}: {
+	children: ReactNode
+	withdrawalBlockSetting: IWithdrawalSetting[]
+}) => {
 	const { t } = useTranslation()
 	const { push } = useRouter()
 
@@ -132,6 +145,7 @@ export const CryptoWalletProvider = ({ children }: { children: ReactNode }) => {
 			)
 		}
 	}
+	const { cardAllowed } = useWalletAllowed({ withdrawalBlockSetting })
 
 	const loading =
 		isGetCustBankInfoFetching ||
@@ -143,6 +157,7 @@ export const CryptoWalletProvider = ({ children }: { children: ReactNode }) => {
 		USDTDetail,
 		cryptoNetworkList,
 		cryptoCurrencyOptions,
+		cardAllowed,
 		handleAddWallet,
 		handleGetOtpInfo,
 		handleSetCustCryptoWallet,

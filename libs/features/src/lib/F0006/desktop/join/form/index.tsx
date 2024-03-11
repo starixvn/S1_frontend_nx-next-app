@@ -90,6 +90,10 @@ const Form = ({ cookies }: IJoinProps) => {
 	const [signUp] = useSignupMutation()
 
 	const [phoneErrorTip, setPhoneErrorTip] = useState<string | undefined>('')
+	const [currencyOptions, setCurrencyOptions] = useState<
+		ISelectProps['options']
+	>([])
+
 	const watchCurrencyId = watch('currencyId')
 
 	const checkUsername = async () => {
@@ -174,7 +178,32 @@ const Form = ({ cookies }: IJoinProps) => {
 
 		// check affiliate is qualified from api
 		try {
-			await affiliateCheck({ affCode: formAffiliate }).unwrap()
+			const { data: affCurrencyId } = await affiliateCheck({
+				affCode: formAffiliate,
+			}).unwrap()
+
+			if (Number(affCurrencyId)) {
+				selectCurrency(Number(affCurrencyId))
+
+				const options = siteCurrencyList
+					.filter(currencyId => currencyId === Number(affCurrencyId))
+					.map(currencyId => ({
+						value: currencyId,
+						label: t(`Label_General_Currency_${currencyId}`),
+						prefixOptionIcon: (
+							<div
+								className={classNames(
+									'flag',
+									FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
+								)}
+							/>
+						),
+					}))
+
+				setCurrencyOptions(options)
+			}
+
+			clearErrors('affiliate')
 			return true
 		} catch (error) {
 			// error
@@ -447,7 +476,12 @@ const Form = ({ cookies }: IJoinProps) => {
 					infoMessage={t('Label_General_RemindForName') as string}
 				/>
 				<Select
-					options={currencySelectOptions}
+					// * 如果 Aff Input 有相對應的幣別，則使用 currencyOptions（Aff 過濾的幣別選項）
+					options={
+						currencyOptions.length === 0
+							? currencySelectOptions
+							: currencyOptions
+					}
 					value={getValues('currencyId')}
 					placeholder={t('Label_Join_PrefferedCurrency') as string}
 					prefixIcon={<i className='icon icon-coin-dollar txt-blue' />}

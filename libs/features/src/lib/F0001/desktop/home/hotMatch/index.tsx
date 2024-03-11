@@ -23,9 +23,9 @@ const Index = () => {
 		menu => menu.productKey === 'SPORTS_SOCCER'
 	)
 
-	const cryptoSport = find(
+	const badmintonSport = find(
 		sportMenu,
-		menu => menu.productKey === 'SPORTS_CRYPTO_SPORTS'
+		menu => menu.productKey === 'SPORTS_BADMINTON'
 	)
 
 	const basketBallGame = find(
@@ -67,16 +67,16 @@ const Index = () => {
 					</div>
 					<div className='hotsports-item'>
 						<Image
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-sports-crypto.png`}
-							alt='sports-crypto'
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-sports-badminton.png`}
+							alt='sports-badminton'
 							width={900}
 							height={600}
 						/>
 						<button
 							className='all-btn'
 							onClick={() => {
-								if (!isUndefined(cryptoSport)) {
-									onMenuOpen(cryptoSport, {
+								if (!isUndefined(badmintonSport)) {
+									onMenuOpen(badmintonSport, {
 										loginCallback: () => modal.open(<LoginModal />),
 									})
 								}

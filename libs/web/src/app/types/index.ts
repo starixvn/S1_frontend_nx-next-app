@@ -29,6 +29,7 @@ export interface IImageData {
 	alt: string
 	headerUrl?: string
 	displayKey?: string
+	settingDisplayKey?: string
 	levelTabsName?: string
 	level?: number
 }

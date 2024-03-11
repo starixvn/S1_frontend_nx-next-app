@@ -65,6 +65,10 @@ const PRODUCT_EVENT_PERIOD: {
 		start: null,
 		end: '2023/12/31 23:59:59',
 	},
+	GAMES_MAX_GAME: {
+		start: null,
+		end: '2024/04/07 23:59:59',
+	},
 }
 
 const { MYR, INR, IDR, BDT, THB } = CurrenciesEnum
@@ -178,24 +182,6 @@ export const MENU_DATA = ({
 			product: PRODUCTS['SPORTS'],
 			query: { provider: 'saba', type: 'soccer' },
 			subMenu: [
-				{
-					h5: {
-						img: '4.0/dropdown/sports/cryptosportNPC.png',
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					desktop: {
-						headerMenuImgList: [
-							{
-								className: 'List-npc',
-								imgUrl: 'cryptosportNPC.png',
-							},
-						],
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					productKey: 'SPORTS_CRYPTO_SPORTS',
-					displayKey: 'Label_General_CryptoSports',
-					product: PRODUCTS['SPORTS_CRYPTO_SPORTS'],
-				},
 				{
 					h5: {
 						img: '4.0/dropdown/sports/soccerNPC.png',
@@ -342,7 +328,6 @@ export const MENU_DATA = ({
 			],
 			subMenuSort: {
 				[INR]: [
-					'SPORTS_CRYPTO_SPORTS',
 					'SPORTS_CRICKET',
 					'SPORTS_SOCCER',
 					'SPORTS_SABA_SOCCER',
@@ -351,7 +336,6 @@ export const MENU_DATA = ({
 					'VIRTUAL_SPORTS',
 				],
 				[BDT]: [
-					'SPORTS_CRYPTO_SPORTS',
 					'SPORTS_CRICKET',
 					'SPORTS_SOCCER',
 					'SPORTS_SABA_SOCCER',
@@ -862,29 +846,6 @@ export const MENU_DATA = ({
 					displayText: 'Playtech',
 					product: PRODUCTS['LIVE_CASINO_PT'],
 					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_PT'],
-				},
-				{
-					h5: {
-						img: '4.0/dropdown/casino/casino-n2.png',
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					desktop: {
-						className: 'casino_N2LIVE',
-						headerMenuImgList: [
-							{
-								className: 'List-npc',
-								imgUrl: 'casino-n2.png',
-							},
-						],
-						lobbyPage: {
-							bgImg: 'casino-n2.png',
-						},
-						menuActionType: MenuActionTypeEnum.EnterPage,
-					},
-					productKey: 'LIVE_CASINO_N2',
-					displayText: 'n2-LIVE',
-					product: PRODUCTS['LIVE_CASINO_N2'],
-					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_N2'],
 				},
 				{
 					h5: {
@@ -1737,7 +1698,7 @@ export const MENU_DATA = ({
 					},
 					productKey: 'SLOTS_AMB',
 					pathname: paths.slots.root,
-					displayText: 'AMBSlot',
+					displayText: 'AskmeSlot',
 					query: {
 						tpId: PRODUCTS['SLOTS_AMB'].TP_ID,
 					},
@@ -1978,6 +1939,35 @@ export const MENU_DATA = ({
 					productKey: 'GAMES_POKER_KINGMAKER',
 					displayText: 'King Maker',
 					product: PRODUCTS['GAMES_POKER_KINGMAKER'],
+				},
+				{
+					h5: {
+						img: '4.0/dropdown/games/maxgame.png',
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						className: 'fsgw',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'maxgame.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'maxgame.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'GAMES_MAX_GAME',
+					displayText: 'Max Game',
+					product: PRODUCTS['GAMES_MAX_GAME'],
+					eventIcons: [
+						{
+							icon: 'new-icon',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['GAMES_MAX_GAME'],
+						},
+					],
 				},
 				{
 					h5: {
@@ -2694,6 +2684,7 @@ export const MENU_DATA = ({
 			subMenuAllowCurrenciesWithAuth: false,
 			allowCurrencies: true,
 		},
+
 		[MenuKeyEnum.Promotion]: {
 			display: 'desktop',
 			h5: {

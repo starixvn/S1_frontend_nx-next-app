@@ -11,24 +11,14 @@ import {
 	useGetMsgCountQuery,
 	useGetPopupMsgQuery,
 	useGetCustVIPProgressQuery,
-	IWithdrawalSetting,
 } from '@nx-next-app/service'
-import { useWalletAllowed } from '@nx-next-app/features/F0001/hooks'
 
-interface ISettingProfileProps {
-	withdrawalBlockSetting: IWithdrawalSetting[]
-}
-
-const Profile = ({ withdrawalBlockSetting }: ISettingProfileProps) => {
+const Profile = () => {
 	const { t } = useTranslation()
 
 	const {
 		userInfo: { currencyId, langId, userName, currencyName },
 	} = useAuth()
-
-	const {
-		cardAllowed: { bankCardAllowed },
-	} = useWalletAllowed({ withdrawalBlockSetting })
 
 	const { data: { data: popupMsg } = {} } = useGetPopupMsgQuery(null)
 	const { data: { data: msgCount = 0 } = {} } = useGetMsgCountQuery(null)
@@ -55,8 +45,9 @@ const Profile = ({ withdrawalBlockSetting }: ISettingProfileProps) => {
 	const currentVipLevelInfo = VIP_CLUB_IMAGES[currentVipLevel - 1]
 	const nextVipLevelInfo = VIP_CLUB_IMAGES[currentVipLevel]
 
-	const { headerUrl, displayKey, levelTabsName } = currentVipLevelInfo || {}
-	const levelText = t(displayKey || '').replace('CLUB', '')
+	const { headerUrl, levelTabsName, settingDisplayKey } =
+		currentVipLevelInfo || {}
+	const levelText = t(settingDisplayKey || '')
 
 	return (
 		<>
@@ -165,19 +156,17 @@ const Profile = ({ withdrawalBlockSetting }: ISettingProfileProps) => {
 							<div>{t('Label_General_FinancialLog')}</div>
 						</a>
 					</Link>
-					{bankCardAllowed && (
-						<Link href={paths.bankInfo.root}>
-							<a>
-								<Image
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/bankinfo.png`}
-									width={39}
-									height={39}
-									alt='bankinfo'
-								/>
-								<div>{t('Label_General_BankInfo')}</div>
-							</a>
-						</Link>
-					)}
+					<Link href={paths.bankInfo.root}>
+						<a>
+							<Image
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/bankinfo.png`}
+								width={39}
+								height={39}
+								alt='bankinfo'
+							/>
+							<div>{t('Label_General_BankInfo')}</div>
+						</a>
+					</Link>
 				</div>
 				{custBonusWalletList && custBonusWalletList?.length > 0 && (
 					<div className='casino-wallet'>

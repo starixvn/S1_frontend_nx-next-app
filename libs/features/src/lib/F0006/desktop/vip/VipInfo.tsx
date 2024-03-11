@@ -1,17 +1,14 @@
+import { useTranslation } from 'next-i18next'
+
 const VipInfo = () => {
+	const { t } = useTranslation()
 	return (
 		<div className='vipInfo'>
-			<div className='vipTitle'>VIP Programme</div>
-			Yashbet has launched a VIP rewards programme so that member can indulge in
-			better rewards, faster and easier. Discover greater perks and entitlements
-			when you upgrade to higher level!
-			<div className='vipTitle'>Overview</div>
-			We have classified the membership tiers to Vintage Club, Silver Club, Gold
-			Club, Titanium Club, Diamond Club and Nova Club. Enjoy all our privillege
-			products and services when you achieve higher membership.
-			<div className='vipTitle'>
-				Enjoy the benefits and privileges with difference membership tier.
-			</div>
+			<div className='vipTitle'>{t('Label_Vip_Info_Title_1')}</div>
+			{t('Label_Vip_ProgramContent1')}
+			<div className='vipTitle'>{t('Label_Vip_Info_Title_2')}</div>
+			{t('Label_Vip_ProgramContent2')}
+			<div className='vipTitle'>{t('Label_Vip_ProgramContent3')}</div>
 		</div>
 	)
 }

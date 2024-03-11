@@ -9,7 +9,8 @@ const WithdrawalHeader = () => {
 
 	// 根據 allowed 權限生成上方 tags
 	const bankCardTags = (() => {
-		const { bankCardAllowed, eWalletCardAllowed } = withdrawalAllowed
+		const { bankCardAllowed, eWalletCardAllowed, cryptoCardAllowed } =
+			withdrawalAllowed
 		const tags = []
 
 		if (bankCardAllowed) {
@@ -24,10 +25,13 @@ const WithdrawalHeader = () => {
 				label: t('Label_General_EWalletWithdrawal'),
 			})
 		}
-		tags.push({
-			href: paths.cryptoWithdrawal.root,
-			label: t('Label_General_CryptoWithdrawal'),
-		})
+		if (cryptoCardAllowed) {
+			tags.push({
+				href: paths.cryptoWithdrawal.root,
+				label: t('Label_General_CryptoWithdrawal'),
+			})
+		}
+
 		return tags
 	})()
 
@@ -38,6 +42,7 @@ const WithdrawalHeader = () => {
 					{
 						href: paths.withdrawal.root,
 						label: t('Label_General_Withdrawal'),
+						subPaths: bankCardTags.map(({ href }) => href),
 					},
 					{
 						href: paths.withdrawalHistory.root,
