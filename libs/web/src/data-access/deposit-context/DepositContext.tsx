@@ -25,14 +25,27 @@ import {
 import {
 	CurrenciesEnum,
 	DepositPaymentEnum,
+	DeviceTypeEnum,
 	IDepositPaymentOption,
 	SelectOptionType,
 } from '@nx-next-app/types'
-import { head, includes, isArray } from 'lodash-es'
+import { head, includes, isArray, isUndefined } from 'lodash-es'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useRouter } from 'next/router'
 import { createContext, ReactNode, useContext, useEffect } from 'react'
 import { useReadLocalStorage } from 'usehooks-ts'
-import { ENV_LOCAL_STORAGE_NAMES } from '../../app/constants/Names'
+import dynamic from 'next/dynamic'
+import { ENV_LOCAL_STORAGE_NAMES, paths } from '@nx-next-app/constants'
+
+const DesktopUpdateProfileModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/UpdateProfileModal'),
+	{ ssr: false }
+)
+
+const H5UpdateProfileModal = dynamic(
+	() => import('@nx-next-app/features/F0001/h5/modal/UpdateProfileModal'),
+	{ ssr: false }
+)
 
 interface DepositContextInterface {
 	DEPOSIT_PAYMENT_OPTIONS: {
@@ -105,10 +118,12 @@ export const DepositProvider = ({
 	DEPOSIT_PAYMENT_OPTIONS,
 	depositPaymentOrders,
 }: IDepositProviderProps) => {
+	const { modal } = useGlobalModal()
 	const { pathname, query, push } = useRouter()
 
 	const {
-		userInfo: { langId, currencyId, userName, accountName },
+		userInfo: { langId, currencyId, userName, accountName, phoneNo, email },
+		auth: { isLogin },
 	} = useAuth()
 
 	// * 確保 userName 不是訪客
@@ -281,6 +296,30 @@ export const DepositProvider = ({
 			)
 		}
 	}, [loading, query['paymentType']])
+
+	useEffect(() => {
+		// 初始化檢查用戶狀態，缺少資料則導去 Profile 頁面更新資料
+		const checkUserInfo = () => {
+			const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
+			if (isLogin) {
+				if (
+					(!accountName && !isUndefined(accountName)) ||
+					(!phoneNo && !isUndefined(phoneNo)) ||
+					(!email && !isUndefined(email))
+				) {
+					if (deviceType === DeviceTypeEnum.Desktop) {
+						modal.open(
+							<DesktopUpdateProfileModal prevPage={paths.deposit.root} />
+						)
+					} else if (deviceType === DeviceTypeEnum.Mobile) {
+						modal.open(<H5UpdateProfileModal prevPage={paths.deposit.root} />)
+					}
+				}
+			}
+		}
+
+		checkUserInfo()
+	}, [])
 
 	return (
 		<DepositContext.Provider value={value}>{children}</DepositContext.Provider>
