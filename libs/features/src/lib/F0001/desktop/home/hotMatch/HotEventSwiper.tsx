@@ -73,7 +73,7 @@ const Item = ({ data }: { data: IHotEventData }) => {
 						</div>
 					</div>
 				</div>
-				<Link href={`${paths.sports.root}${searchParams.toString()}`}>
+				<Link href={`${paths.sports.root}/?${searchParams.toString()}`}>
 					<button className='bet-btn'>{t('Label_General_BetNow')}</button>
 				</Link>
 			</div>
