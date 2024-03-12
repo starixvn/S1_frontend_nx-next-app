@@ -406,6 +406,7 @@
   "Label_General_Unlimited": "ไม่จำกัด",
   "Label_General_UpcomingMatches": "การแข่งขันที่จะเกิดขึ้น",
   "Label_General_UpdatePersonalDetail": "อัปเดตข้อมูลส่วนบุคคล",
+  "Label_General_UpdatePersonalInfoDeposit": "กรุณากรอกข้อมูลส่วนตัวให้เรียบร้อยก่อนทำรายการฝาก",
   "Label_General_UpdatePersonalInfoWithdrawal": "กรุณากรอกข้อมูลส่วนตัวให้เรียบร้อยก่อนทำรายการถอน",
   "Label_General_UpdateProfileInfo": "กรุณากรอกข้อมูลส่วนตัวให้เรียบร้อยก่อนเข้าร่วมกิจกรรม",
   "Label_General_UpdateSuccessful": "อัพเดทสำเร็จ",
