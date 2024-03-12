@@ -63,6 +63,16 @@ const WithdrawalConfirmModal = dynamic(
 	{ ssr: false }
 )
 
+const DesktopUpdateProfileModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/UpdateProfileModal'),
+	{ ssr: false }
+)
+
+const H5UpdateProfileModal = dynamic(
+	() => import('@nx-next-app/features/F0001/h5/modal/UpdateProfileModal'),
+	{ ssr: false }
+)
+
 interface IWithdrawalProviderProps {
 	children: ReactNode
 	withdrawalBlockSetting: IWithdrawalSetting[]
@@ -338,12 +348,13 @@ export const WithdrawalProvider = ({
 				(!phoneNo && !isUndefined(phoneNo)) ||
 				(!email && !isUndefined(email))
 			) {
-				modal.confirm(t('Label_General_UpdatePersonalInfoWithdrawal'), {
-					okText: t('Label_General_UpdatePersonalDetail'),
-					onOK: () => {
-						push(paths.profile.root)
-					},
-				})
+				if (deviceType === DeviceTypeEnum.Desktop) {
+					modal.open(
+						<DesktopUpdateProfileModal prevPage={paths.withdrawal.root} />
+					)
+				} else if (deviceType === DeviceTypeEnum.Mobile) {
+					modal.open(<H5UpdateProfileModal prevPage={paths.withdrawal.root} />)
+				}
 			}
 		}
 	}
