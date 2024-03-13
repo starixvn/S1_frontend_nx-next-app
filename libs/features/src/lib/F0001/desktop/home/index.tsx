@@ -6,13 +6,11 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { DesktopHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
 
 // Page Components
-const ProvidersBlock = dynamic(() => import('./ProvidersBlock'))
+const ProvidersBlock = dynamic(() => import('./ProvidersBlock'), { ssr: false })
 
 const WelcomeInfo = dynamic(() => import('./WelcomeInfo'))
 
-const CarouselBanner = dynamic(() => import('../common/carouselBanner'), {
-	ssr: false,
-})
+const CarouselBanner = dynamic(() => import('../common/carouselBanner'))
 
 const HotMatch = dynamic(() => import('./hotMatch'))
 
@@ -26,7 +24,9 @@ const AppDownloadBanner = dynamic(() => import('./AppDownloadBanner'), {
 
 const PromotionSwiper = dynamic(() => import('./PromotionSwiper'))
 
-const OfficialPartner = dynamic(() => import('./OfficialPartner'))
+const OfficialPartner = dynamic(() => import('./OfficialPartner'), {
+	ssr: false,
+})
 
 const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
 
