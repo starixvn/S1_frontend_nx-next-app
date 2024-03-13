@@ -86,7 +86,7 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 				</div>
 				<div
 					className={classNames('home-profile', {
-						highest: !isVipLevelHighest,
+						highest: isVipLevelHighest,
 					})}
 				>
 					{isShowVip && (
