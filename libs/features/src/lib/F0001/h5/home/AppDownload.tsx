@@ -66,4 +66,4 @@ const AppDownload = () => {
 	)
 }
 
-export { AppDownload }
+export default AppDownload
