@@ -88,4 +88,4 @@ const HotGameSwiper = () => {
 	) : null
 }
 
-export { HotGameSwiper }
+export default HotGameSwiper

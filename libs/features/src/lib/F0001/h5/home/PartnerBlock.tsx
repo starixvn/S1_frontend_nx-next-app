@@ -36,4 +36,4 @@ const PartnerBlock = () => {
 	)
 }
 
-export { PartnerBlock }
+export default PartnerBlock

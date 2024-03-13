@@ -14,4 +14,4 @@ const SimpleFooter = () => {
 	)
 }
 
-export { SimpleFooter }
+export default SimpleFooter
