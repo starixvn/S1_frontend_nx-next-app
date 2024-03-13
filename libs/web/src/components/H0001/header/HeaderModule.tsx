@@ -78,17 +78,15 @@ const HeaderModule = ({
 			{!auth.isLogin && (
 				<>
 					<div className='home-btn-group header-login'>
-						<Link href={paths.login.root}>
+						<Link href={paths.login.root} prefetch>
 							<a className='btn-login'>{t('Label_General_LogIn')}</a>
 						</Link>
-						<Link href={paths.join.root}>
-							<a className='btn-register' href='/cs/join'>
-								{t('Label_General_Register')}
-							</a>
+						<Link href={paths.join.root} prefetch>
+							<a className='btn-register'>{t('Label_General_Register')}</a>
 						</Link>
 					</div>
 
-					<Link href={paths.setting.root}>
+					<Link href={paths.setting.root} prefetch>
 						<a className='btn-menu'>
 							<img
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/menu.png`}

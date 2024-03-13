@@ -5,6 +5,7 @@ import { TmpCookiesObj } from 'cookies-next/lib/types'
 import { useAuth } from '@nx-next-app/data-access'
 import { useTranslation } from 'next-i18next'
 import { isString } from 'lodash-es'
+import Link from 'next/link'
 import SwitchButton from './SwitchButton'
 import Login from './login'
 import Join from './join'
@@ -32,9 +33,12 @@ const LoginJoin = ({ cookies }: ILoginJoinProps) => {
 
 	return (
 		<div className='logoSwitch active'>
-			<button onClick={() => push(fromRoute)}>
-				<div className='icon icon-close' />
-			</button>
+			<Link href={fromRoute} prefetch>
+				<button>
+					<div className='icon icon-close' />
+				</button>
+			</Link>
+
 			<img src={logoUrl} alt='logo' />
 
 			<SwitchButton
