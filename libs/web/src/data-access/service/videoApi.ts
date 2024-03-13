@@ -8,8 +8,12 @@ import {
 export const getLatestHighlightVideo = async ({
 	langId,
 }: IGetLatestHighlightDataArgs): Promise<IHighlightData> => {
-	const { data: { data } = {} } = await baseAxios.post(
-		`${videoApiUrl.getLatestHighlight}/${langId}`
-	)
-	return data
+	try {
+		const { data: { data } = {} } = await baseAxios.post(
+			`${videoApiUrl.getLatestHighlight}/${langId}`
+		)
+		return data || {}
+	} catch (error) {
+		return {} as IHighlightData
+	}
 }

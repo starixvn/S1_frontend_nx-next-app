@@ -9,10 +9,8 @@ import {
 	getAnnouncement,
 	getBanner,
 	getPromotion,
-	getLatestHighlightVideo,
 	getHotEvent,
 	getHotGame,
-	getNews,
 	getSlotGamePage,
 	SlotGameCategoryEnum,
 } from '@nx-next-app/data-access'
@@ -23,10 +21,8 @@ import {
 import {
 	IAnnouncementData,
 	IBannerData,
-	IHighlightData,
 	IHotEventData,
 	IHotGame,
-	INewsData,
 	IPromotionData,
 	ISlotsGameData,
 } from '@nx-next-app/service'
@@ -49,11 +45,9 @@ interface IHomePageProps extends InitialPropsInterface {
 	persistAnnouncementData: IAnnouncementData[]
 	persistBannerData: IBannerData[]
 	persistPromotionData: IPromotionData[]
-	persistLatestHighlightVideo: IHighlightData
 	persistHotEventData: IHotEventData[]
 	persistHotGameData: IHotGame[]
 	persistSlotsGameData: ISlotsGameData
-	persistNewsData: INewsData[]
 	persistFooterData: IFooterData
 }
 
@@ -64,11 +58,9 @@ const HomePage = ({
 	persistAnnouncementData,
 	persistBannerData,
 	persistPromotionData,
-	persistLatestHighlightVideo,
 	persistHotEventData,
 	persistHotGameData,
 	persistSlotsGameData,
-	persistNewsData,
 	persistFooterData,
 }: IHomePageProps) => {
 	return (
@@ -83,10 +75,8 @@ const HomePage = ({
 						persistAnnouncementData={persistAnnouncementData}
 						persistBannerData={persistBannerData}
 						persistPromotionData={persistPromotionData}
-						persistLatestHighlightVideo={persistLatestHighlightVideo}
 						persistHotEventData={persistHotEventData}
 						persistHotGameData={persistHotGameData}
-						persistNewsData={persistNewsData}
 						persistSlotsGameData={persistSlotsGameData}
 						persistLicenseData={persistFooterData.licenseData}
 						persistQuickLinksList={persistFooterData.quickLinks}
@@ -108,61 +98,56 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
-	const persistAnnouncementData = await getAnnouncement({ langId, currencyId })
 
-	const persistBannerData = await getBanner(
-		{
-			langId,
-			currencyId,
-			bannerTypes: [BannerTypeEnum.Main],
-		},
-		{ headers: { cookie: currentHeaderCookies } }
-	)
-	const persistPromotionData = await getPromotion(
-		{
-			langId,
-			currencyId,
+	const [
+		persistAnnouncementData,
+		persistBannerData,
+		persistPromotionData,
+		persistHotEventData,
+		hotGameData,
+		persistSlotsGameData,
+	] = await Promise.all([
+		getAnnouncement({ langId, currencyId }),
+		getBanner(
+			{
+				langId,
+				currencyId,
+				bannerTypes: [BannerTypeEnum.Main],
+			},
+			{ headers: { cookie: currentHeaderCookies } }
+		),
+		getPromotion(
+			{
+				langId,
+				currencyId,
+				deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
+			},
+			{ headers: { cookie: currentHeaderCookies } }
+		),
+		getHotEvent({ langId }),
+		getHotGame({
 			deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
-		},
-		{ headers: { cookie: currentHeaderCookies } }
-	)
-
-	const persistLatestHighlightVideo = await getLatestHighlightVideo({ langId })
-
-	const persistHotEventData = await getHotEvent({ langId })
-
-	const hotGameData = await getHotGame({
-		deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
-		currencyId,
-	})
+			currencyId,
+		}),
+		getSlotGamePage(
+			{
+				deviceType: DEVICE_TYPE.Desktop,
+				currencyId,
+				slotGameCategoryList: [SlotGameCategoryEnum.Jackpot],
+			},
+			{ headers: { cookie: currentHeaderCookies } }
+		),
+	])
 
 	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
-
-	const persistSlotsGameData = await getSlotGamePage(
-		{
-			deviceType: DEVICE_TYPE.Desktop,
-			currencyId,
-			slotGameCategoryList: [SlotGameCategoryEnum.Jackpot],
-		},
-		{ headers: { cookie: currentHeaderCookies } }
-	)
-
-	const persistNewsData = await getNews({
-		langId,
-		currencyId,
-		pageSize: 2,
-		pageNumber: 1,
-	})
 
 	return {
 		props: {
 			persistBannerData,
 			persistAnnouncementData,
 			persistPromotionData,
-			persistLatestHighlightVideo,
 			persistHotEventData,
 			persistHotGameData,
-			persistNewsData,
 			persistSlotsGameData,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
