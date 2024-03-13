@@ -8,8 +8,12 @@ import {
 export const getHotEvent = async ({
 	langId,
 }: IGetHotEventListArgs): Promise<IHotEventData[]> => {
-	const { data: { data = [] } = {} } = await baseAxios.post(
-		`${hotEventApiUrl.getHotEventList}/${langId}`
-	)
-	return data
+	try {
+		const { data: { data = [] } = {} } = await baseAxios.post(
+			`${hotEventApiUrl.getHotEventList}/${langId}`
+		)
+		return data
+	} catch (error) {
+		return []
+	}
 }

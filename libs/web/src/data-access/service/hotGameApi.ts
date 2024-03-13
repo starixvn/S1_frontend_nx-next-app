@@ -9,9 +9,13 @@ export const getHotGame = async ({
 	deviceType,
 	currencyId,
 }: IGetHotGameListArgs): Promise<IHotGameData> => {
-	const { data: { data = {} } = {} } = await baseAxios.post(
-		hotGameApiUrl.getHotGameList,
-		{ deviceType, currencyId }
-	)
-	return data
+	try {
+		const { data: { data = {} } = {} } = await baseAxios.post(
+			hotGameApiUrl.getHotGameList,
+			{ deviceType, currencyId }
+		)
+		return data
+	} catch (error) {
+		return {} as IHotGameData
+	}
 }
