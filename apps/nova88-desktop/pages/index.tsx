@@ -35,6 +35,8 @@ import { DESKTOP_HOME_ORDERS, FOOTER_DATA } from '@nx-next-app/site/nova88'
 // https://nextjs.org/docs/pages/api-reference/next-config-js/output
 // https://github.com/nrwl/nx/issues/9017
 import path from 'path'
+import { filter } from 'lodash-es'
+import dayjs from 'dayjs'
 
 // path.resolve 會把指定路徑解析成絕對路徑
 // 這樣解析是為了讓 next 輸出時可以正確吃到當前 project 的 next.config
@@ -102,7 +104,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	const [
 		persistAnnouncementData,
 		persistBannerData,
-		persistPromotionData,
+		rawPromotionData,
 		persistHotEventData,
 		hotGameData,
 		persistSlotsGameData,
@@ -140,6 +142,13 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	])
 
 	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
+
+	const persistPromotionData = filter(
+		rawPromotionData,
+		({ displayFrom, displayTo }) => {
+			return dayjs().isBetween(dayjs.unix(displayFrom), dayjs.unix(displayTo))
+		}
+	)
 
 	return {
 		props: {

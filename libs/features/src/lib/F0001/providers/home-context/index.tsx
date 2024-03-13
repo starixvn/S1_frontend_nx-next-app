@@ -37,7 +37,7 @@ import {
 } from '@nx-next-app/features/F0001/types'
 import { paths } from '@nx-next-app/constants'
 import { useRouter } from 'next/router'
-import { filter, find, head } from 'lodash-es'
+import { find, head } from 'lodash-es'
 import dayjs from 'dayjs'
 import isBetween from 'dayjs/plugin/isBetween'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
@@ -370,13 +370,6 @@ export const HomeProvider = ({
 		}
 	}
 
-	const promotionData = filter(
-		persistPromotionData,
-		({ displayFrom, displayTo }) => {
-			return dayjs().isBetween(dayjs.unix(displayFrom), dayjs.unix(displayTo))
-		}
-	)
-
 	const formatHdp = (hdp: number) => {
 		if (hdp === 0) return hdp
 
@@ -699,7 +692,7 @@ export const HomeProvider = ({
 		jackPotCurrencies,
 		socialChannelList,
 		footerSocialChannelList,
-		promotionData,
+		promotionData: persistPromotionData,
 		hotEventData,
 		slotGameData: persistSlotsGameData,
 		licenseData: persistLicenseData,

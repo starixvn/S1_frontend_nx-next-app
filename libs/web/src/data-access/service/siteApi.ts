@@ -15,13 +15,17 @@ export const getSEOData = async (
 	params: null,
 	config: AxiosRequestConfig
 ): Promise<ISEOData> => {
-	const { data: { data } = {} } = await baseAxios.post(
-		siteApiUrl.getSeo,
-		params,
-		config
-	)
+	try {
+		const { data: { data } = {} } = await baseAxios.post(
+			siteApiUrl.getSeo,
+			params,
+			config
+		)
 
-	return data
+		return data
+	} catch (error) {
+		return {} as ISEOData
+	}
 }
 
 export const getTpIds = async (

@@ -35,6 +35,8 @@ import { FOOTER_DATA, MOBILE_HOME_ORDERS } from '@nx-next-app/site/nova88'
 // https://nextjs.org/docs/pages/api-reference/next-config-js/output
 // https://github.com/nrwl/nx/issues/9017
 import path from 'path'
+import { filter } from 'lodash-es'
+import dayjs from 'dayjs'
 
 path.resolve('./next.config.js')
 
@@ -97,7 +99,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	const [
 		persistAnnouncementData,
 		persistBannerData,
-		persistPromotionData,
+		rawPromotionData,
 		persistHotEventData,
 		hotGameData,
 		persistSlotsGameData,
@@ -135,6 +137,13 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	])
 
 	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
+
+	const persistPromotionData = filter(
+		rawPromotionData,
+		({ displayFrom, displayTo }) => {
+			return dayjs().isBetween(dayjs.unix(displayFrom), dayjs.unix(displayTo))
+		}
+	)
 
 	return {
 		props: {
