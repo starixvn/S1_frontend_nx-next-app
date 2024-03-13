@@ -9,7 +9,14 @@ const Sports = () => {
 	const isClient = useIsClient()
 
 	const {
-		query: { provider: queryProvider, type: queryType },
+		query: {
+			provider: queryProvider,
+			type: queryType = '',
+			tpId: queryTpId = '',
+			matchId: queryMatchId = '',
+			gameId: queryGameId = '',
+			tpGameType: queryTpGameType = '',
+		},
 	} = useRouter()
 	const {
 		userInfo: { langId },
@@ -26,9 +33,9 @@ const Sports = () => {
 
 	const {
 		product: {
-			TP_ID: tpId = NaN,
-			GAME_ID: gameId = '',
-			TP_GAME_TYPE: tpGameType = PRODUCTS['SPORTS'].TP_GAME_TYPE,
+			TP_ID: productTpId = NaN,
+			GAME_ID: productGameId = '',
+			TP_GAME_TYPE: productTpGameType = PRODUCTS['SPORTS'].TP_GAME_TYPE,
 		} = {},
 	} =
 		find(subMenu, {
@@ -37,9 +44,10 @@ const Sports = () => {
 
 	const iframeUrl = onDefaultEnterPage({
 		langId,
-		tpId,
-		gameId,
-		tpGameType,
+		tpId: Number(queryTpId) || productTpId,
+		gameId: String(queryGameId) || productGameId,
+		tpGameType: Number(queryTpGameType) || productTpGameType,
+		matchid: String(queryMatchId) || '',
 	})
 
 	// * iframe 沒有 target 參數 --> 使用 data attributes 注入參數
