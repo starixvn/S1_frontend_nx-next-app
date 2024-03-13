@@ -145,4 +145,4 @@ const WelcomeInfo = () => {
 	)
 }
 
-export { WelcomeInfo }
+export default WelcomeInfo

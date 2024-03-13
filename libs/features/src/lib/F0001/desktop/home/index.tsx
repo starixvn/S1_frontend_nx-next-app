@@ -5,15 +5,28 @@ import { useHome } from '@nx-next-app/features/F0001/providers'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { DesktopHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
 
-import { HotGame } from './HotGame'
-import { HotMatch } from './hotMatch'
-import { WelcomeInfo } from './WelcomeInfo'
-import { AppDownloadBanner } from './AppDownloadBanner'
-import { PromotionSwiper } from './PromotionSwiper'
-import { LiveCasino } from './LiveCasino'
-import { ProvidersBlock } from './ProvidersBlock'
-import { OfficialPartner } from './OfficialPartner'
-import CarouselBanner from '../common/carouselBanner'
+// Page Components
+const ProvidersBlock = dynamic(() => import('./ProvidersBlock'))
+
+const WelcomeInfo = dynamic(() => import('./WelcomeInfo'))
+
+const CarouselBanner = dynamic(() => import('../common/carouselBanner'), {
+	ssr: false,
+})
+
+const HotMatch = dynamic(() => import('./hotMatch'))
+
+const LiveCasino = dynamic(() => import('./LiveCasino'))
+
+const HotGame = dynamic(() => import('./HotGame'))
+
+const AppDownloadBanner = dynamic(() => import('./AppDownloadBanner'), {
+	ssr: false,
+})
+
+const PromotionSwiper = dynamic(() => import('./PromotionSwiper'))
+
+const OfficialPartner = dynamic(() => import('./OfficialPartner'))
 
 const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
 

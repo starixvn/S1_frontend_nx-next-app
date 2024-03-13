@@ -45,4 +45,4 @@ const OfficialPartner = () => {
 	)
 }
 
-export { OfficialPartner }
+export default OfficialPartner

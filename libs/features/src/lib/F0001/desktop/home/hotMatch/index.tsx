@@ -111,4 +111,4 @@ const Index = () => {
 	)
 }
 
-export { Index as HotMatch }
+export default Index
