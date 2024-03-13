@@ -82,4 +82,4 @@ const AppDownloadBanner = () => {
 	)
 }
 
-export { AppDownloadBanner }
+export default AppDownloadBanner

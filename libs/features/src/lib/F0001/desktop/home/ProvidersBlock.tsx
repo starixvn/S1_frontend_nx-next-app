@@ -3,6 +3,7 @@ import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { find, isUndefined } from 'lodash-es'
 import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import Image from 'next/future/image'
 import { useHome } from '../../providers'
 
 const LoginModal = dynamic(() => import('../modal/LoginModal'), {
@@ -44,9 +45,11 @@ const ProvidersBlock = () => {
 							}}
 							key={imgName}
 						>
-							<img
+							<Image
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/providers-logo/${imgName}.png`}
 								alt={`img-${imgName}`}
+								width={186}
+								height={78}
 							/>
 						</a>
 					)
@@ -56,4 +59,4 @@ const ProvidersBlock = () => {
 	)
 }
 
-export { ProvidersBlock }
+export default ProvidersBlock
