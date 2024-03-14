@@ -1,4 +1,3 @@
-import Image from 'next/future/image'
 import { useAuth } from '@nx-next-app/data-access'
 import { IVipBannerData } from '@nx-next-app/service'
 import VipBanner from '@nx-next-app/features/F0001/desktop/vip/VipBanner'
@@ -25,7 +24,7 @@ const Vip = ({
 		<main className='vip'>
 			<VipBanner vipBannerData={vipBannerData} />
 			<div className='newvipinfo'>
-				<Image src={vipInfoImageUrl} width={1920} height={438} alt='vipInfo' />
+				<img src={vipInfoImageUrl} alt='vipInfo' />
 			</div>
 			<VipTable vipBannerData={vipBannerData} lastUpdateTime={lastUpdateTime} />
 			<VipBottom />

@@ -1,5 +1,4 @@
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 import Link from 'next/link'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -9,7 +8,6 @@ import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0006/hooks'
 import {
 	getIsHidePromotionJoinButton,
 	isShowPromotionProgressBar,
-	isUrl,
 } from '@nx-next-app/utils'
 import { paths } from '@nx-next-app/constants'
 import { PromotionTypeEnum } from '@nx-next-app/types'
@@ -108,9 +106,7 @@ const PromotionDetailModal = ({
 			<div className='promoInfoPopMask active' onClick={closeModal} />
 			<div className='promotionsInfo'>
 				<div className='icon icon-close' onClick={closeModal} />
-				{isUrl(banner) ? (
-					<Image src={banner} alt={title} width={1920} height={500} />
-				) : null}
+				<img src={banner} alt={title} />
 				<div className='proData'>
 					<div className='proDataTitle'>
 						<div className='txt-darkBlue'>

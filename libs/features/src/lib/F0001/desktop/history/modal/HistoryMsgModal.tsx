@@ -3,7 +3,6 @@ import { useTranslation } from 'next-i18next'
 import dayjs from 'dayjs'
 import { cloneDeep, uniqueId } from 'lodash-es'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import Image from 'next/future/image'
 
 export interface IHistoryMsgModalProps {
 	transId: string
@@ -21,9 +20,7 @@ const HistoryMsgModal = ({ transId, messageDetail }: IHistoryMsgModalProps) => {
 	const cloneMessageDetail = cloneDeep(messageDetail)
 	return (
 		<div className='statuspop'>
-			<Image
-				width={512}
-				height={512}
+			<img
 				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/noticea.png`}
 				alt=''
 			/>

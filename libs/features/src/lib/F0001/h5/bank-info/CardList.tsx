@@ -1,6 +1,5 @@
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { useBankInfo } from '@nx-next-app/features/F0001/providers'
@@ -22,12 +21,7 @@ const CardList = () => {
 		<>
 			{userLevelImageInfo?.url ? (
 				<div className='vip_mark'>
-					<Image
-						src={userLevelImageInfo?.url}
-						alt={userLevelImageInfo?.alt}
-						width={126}
-						height={106}
-					/>
+					<img src={userLevelImageInfo?.url} alt={userLevelImageInfo?.alt} />
 					{includes(
 						ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],
 						currencyId
@@ -62,13 +56,11 @@ const CardList = () => {
 							({ bankName, bankLogo, accountNo, sysId, ifscCode }) => (
 								<div className='account' key={`${sysId}-${accountNo}`}>
 									<div className='bankLogo'>
-										<Image
+										<img
 											alt={bankName}
 											src={`${
 												process.env['NEXT_PUBLIC_PAYMENT_HOST']
 											}/square/${bankLogo.toLowerCase()}`}
-											width={31}
-											height={31}
 										/>
 									</div>
 									<div className='info'>

@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 import { useBankInfo } from '@nx-next-app/features/F0001/providers'
+import { Img } from '@nx-next-app/components/D0001'
 
 const Step2 = () => {
 	const { t } = useTranslation()
@@ -23,13 +23,11 @@ const Step2 = () => {
 							{bankInfoSysList.map(({ bankLogo, bankName, sysId }) => (
 								<li key={sysId}>
 									<a>
-										<Image
+										<Img
 											src={`${
 												process.env['NEXT_PUBLIC_PAYMENT_HOST']
 											}/square/${bankLogo.toLowerCase()}`}
 											alt={bankName}
-											width={43}
-											height={43}
 											onClick={() => {
 												setSelBank({ bankLogo, bankName, sysId })
 												setStep(3)

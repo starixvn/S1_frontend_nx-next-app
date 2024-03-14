@@ -5,7 +5,6 @@ import { Carousel } from '@nx-next-app/components/H0001'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 import classNames from 'classnames'
-import Image from 'next/future/image'
 import { isUrl } from '@nx-next-app/utils'
 
 const RecentlyViewGames = () => {
@@ -59,21 +58,13 @@ const RecentlyViewGames = () => {
 								})}
 							>
 								<div>
-									<Image
+									<img
 										className='recently-image'
 										src={gameLogo[langId] ?? gameLogo['en']}
-										width={300}
-										height={300}
 										alt=''
 									/>
 									{isUrl(tpLogo) ? (
-										<Image
-											src={tpLogo}
-											width={87}
-											height={55}
-											alt=''
-											className='recently-brand'
-										/>
+										<img src={tpLogo} alt='' className='recently-brand' />
 									) : (
 										<img className='recently-brand' src={tpLogo} alt='' />
 									)}

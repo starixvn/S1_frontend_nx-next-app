@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 import { useEWallet } from '@nx-next-app/features/F0001/providers'
 import { Form, Select, InputBox, Loading } from '@nx-next-app/components/H0001'
 
@@ -23,13 +22,11 @@ const AddWallet = () => {
 			label: eWalletName,
 			prefixOptionIcon: (
 				<div className='bankLogo'>
-					<Image
+					<img
 						src={`${
 							process.env['NEXT_PUBLIC_PAYMENT_HOST']
 						}/square/${eWalletLogo.toLowerCase()}`}
 						alt={eWalletName}
-						width={45}
-						height={45}
 					/>
 				</div>
 			),

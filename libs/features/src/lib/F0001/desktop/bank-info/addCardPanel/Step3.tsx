@@ -1,6 +1,5 @@
 import { useTranslation } from 'next-i18next'
 import { useForm } from 'react-hook-form'
-import Image from 'next/future/image'
 import { useAuth } from '@nx-next-app/data-access'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { IFSC_CODE_REGEX, BANK_ACCOUNT_REGEX } from '@nx-next-app/constants'
@@ -47,13 +46,11 @@ const Step3 = () => {
 					>
 						<div>
 							<div className='bankName'>
-								<Image
+								<img
 									src={`${
 										process.env['NEXT_PUBLIC_PAYMENT_HOST']
 									}/square/${bankLogo.toLowerCase()}`}
 									alt={bankName}
-									width={43}
-									height={43}
 								/>
 							</div>
 						</div>

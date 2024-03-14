@@ -4,7 +4,6 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { useCopyToClipboard } from 'usehooks-ts'
-import Image from 'next/future/image'
 import { uniqueId } from 'lodash-es'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { IDepositInfoHistoryData } from '@nx-next-app/service'
@@ -150,12 +149,7 @@ const DepositBankSlipModal = ({
 									onChange={onImageFileChange}
 								/>
 								{imageFile ? (
-									<Image
-										width={121}
-										height={80}
-										src={URL.createObjectURL(imageFile)}
-										alt='Selected'
-									/>
+									<img src={URL.createObjectURL(imageFile)} alt='Selected' />
 								) : (
 									<i className='icon icon-plus' />
 								)}
@@ -167,9 +161,7 @@ const DepositBankSlipModal = ({
 								className='upload_img'
 							>
 								<input type='file' />
-								{depositPic ? (
-									<Image width={121} height={80} src={depositPic} alt='' />
-								) : null}
+								{depositPic ? <img src={depositPic} alt='' /> : null}
 							</label>
 						))}
 					</div>
@@ -181,12 +173,7 @@ const DepositBankSlipModal = ({
 					>
 						<input type='file' accept='image/*' onChange={onImageFileChange} />
 						{imageFile ? (
-							<Image
-								width={121}
-								height={80}
-								src={URL.createObjectURL(imageFile)}
-								alt='Selected'
-							/>
+							<img src={URL.createObjectURL(imageFile)} alt='Selected' />
 						) : (
 							<i className='icon icon-plus' />
 						)}
