@@ -1,6 +1,4 @@
 import QRCode from 'qrcode.react'
-import Image from 'next/future/image'
-
 import { Trans, useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { paths } from '@nx-next-app/constants'
@@ -71,11 +69,9 @@ const AppDownloadBanner = () => {
 				</div>
 			</div>
 			<div className='player'>
-				<Image
+				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/player.png`}
 					alt='img-player'
-					width={766}
-					height={579}
 				/>
 			</div>
 		</div>
