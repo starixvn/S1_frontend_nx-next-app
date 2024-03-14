@@ -15,9 +15,6 @@ export const getAnnouncement = async (
 			`${messageApiUrl.announcement}${langId}`,
 			{
 				data: { currencyId },
-			},
-			{
-				log: true,
 			}
 		)
 
