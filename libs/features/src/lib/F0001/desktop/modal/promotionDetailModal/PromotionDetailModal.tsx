@@ -1,5 +1,4 @@
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 import Link from 'next/link'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -109,9 +108,7 @@ const PromotionDetailModal = ({
 			<div className='promoInfoPopMask active' onClick={closeModal} />
 			<div className='promotionsInfo'>
 				<div className='icon icon-close' onClick={closeModal} />
-				{isUrl(banner) ? (
-					<Image src={banner} alt={title} width={1920} height={500} />
-				) : null}
+				{isUrl(banner) ? <img src={banner} alt={title} /> : null}
 				<div className='proData'>
 					<div className='proDataTitle'>
 						<div className='txt-darkBlue'>

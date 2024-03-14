@@ -1,5 +1,4 @@
 import dayjs from 'dayjs'
-import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
 import { IHotEventData } from '@nx-next-app/service'
 import { isUrl } from '@nx-next-app/utils'
@@ -46,12 +45,7 @@ const Item = ({ data }: { data: IHotEventData }) => {
 		<div className='swiper-slide'>
 			<div className='hotevent'>
 				{isUrl(backgroundPic) && (
-					<Image
-						src={backgroundPic}
-						alt='hotevent-bg-img'
-						width={300}
-						height={183}
-					/>
+					<img src={backgroundPic} alt='hotevent-bg-img' />
 				)}
 
 				<div className='team'>
@@ -60,12 +54,7 @@ const Item = ({ data }: { data: IHotEventData }) => {
 						<div className='teamL'>
 							<div>
 								{isUrl(homeTeamPic) && (
-									<Image
-										src={homeTeamPic}
-										alt={homeTeamName}
-										width={653}
-										height={944}
-									/>
+									<img src={homeTeamPic} alt={homeTeamName} />
 								)}
 							</div>
 							<div>{homeTeamName}</div>
@@ -81,12 +70,7 @@ const Item = ({ data }: { data: IHotEventData }) => {
 							<div>
 								{/* <img src={awayTeamPic} alt={awayTeamName} /> */}
 								{isUrl(awayTeamPic) && (
-									<Image
-										src={awayTeamPic}
-										alt={awayTeamName}
-										width={653}
-										height={944}
-									/>
+									<img src={awayTeamPic} alt={awayTeamName} />
 								)}
 							</div>
 							<div> {awayTeamName}</div>

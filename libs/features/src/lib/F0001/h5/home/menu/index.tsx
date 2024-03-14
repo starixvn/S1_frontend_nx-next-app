@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Image from 'next/future/image'
 import classNames from 'classnames'
 import { getMainEventIcon, useMenu } from '@nx-next-app/features/F0001/hooks'
 
@@ -78,11 +77,9 @@ const Menu = () => {
 								<i className={classNames(mainEventIcon)}>{mainEventText}</i>
 								<div className='btn-circle'>
 									{img && (
-										<Image
+										<img
 											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/${img}`}
 											alt={`img-${img}`}
-											width={30}
-											height={30}
 										/>
 									)}
 								</div>

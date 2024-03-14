@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import Image from 'next/future/image'
 import { useSlots } from '@nx-next-app/features/F0001/providers'
 import VendorItem from './VendorItem'
 
@@ -34,11 +33,9 @@ const VendorFilter = () => {
 				))}
 			</div>
 			<button onClick={() => onToggleDropdown()}>
-				<Image
+				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/lobby-slots/down.png`}
 					alt=''
-					width={18}
-					height={18}
 				/>
 			</button>
 		</div>

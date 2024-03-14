@@ -1,4 +1,3 @@
-import Image from 'next/future/image'
 import { useBankInfo } from '@nx-next-app/features/F0001/providers'
 
 const CardList = () => {
@@ -14,13 +13,11 @@ const CardList = () => {
 						<div className='addBankName' key={sysId}>
 							<div className='addBankInfo'>
 								<div className='bankName'>
-									<Image
+									<img
 										alt={bankName}
 										src={`${
 											process.env['NEXT_PUBLIC_PAYMENT_HOST']
 										}/square/${bankLogo.toLowerCase()}`}
-										width={45}
-										height={45}
 										style={{ width: '45px', height: '45px' }}
 									/>
 								</div>

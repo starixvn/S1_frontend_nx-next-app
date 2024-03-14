@@ -2,7 +2,6 @@ import classNames from 'classnames'
 import { includes } from 'lodash-es'
 import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { numberFormat } from '@nx-next-app/utils'
 import { getSafetyLv } from '@nx-next-app/site/nova88'
@@ -44,12 +43,7 @@ const Verification = () => {
 		<>
 			{userLevelImageInfo?.url ? (
 				<div className='vip_mark'>
-					<Image
-						src={userLevelImageInfo?.url}
-						alt={userLevelImageInfo?.alt}
-						width={126}
-						height={106}
-					/>
+					<img src={userLevelImageInfo?.url} alt={userLevelImageInfo?.alt} />
 					{includes(
 						ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],
 						currencyId

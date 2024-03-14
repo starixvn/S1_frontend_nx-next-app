@@ -1,6 +1,5 @@
 import { paths } from '@nx-next-app/constants'
 import classNames from 'classnames'
-import Image from 'next/future/image'
 import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 
@@ -28,11 +27,9 @@ const AppDownload = ({
 				className='icon icon-close'
 				onClick={onCloseAppDownloadHint}
 			/>
-			<Image
+			<img
 				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/app/appicon.jpg`}
 				alt='appicon-img'
-				height={36}
-				width={34}
 			/>
 			<div>
 				<div>{t('Label_AppDownload_DownloadAppNow')}</div>

@@ -1,5 +1,3 @@
-import Image from 'next/future/image'
-
 const baseUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/lobby-lottery`
 
 const LotteryBanner = () => {
@@ -8,10 +6,8 @@ const LotteryBanner = () => {
 			<div className='swiper-container'>
 				<div className='swiper-wrapper'>
 					<div className='swiper-slide'>
-						<Image
+						<img
 							alt='lottery-banner-img'
-							width={1920}
-							height={500}
 							src={`${baseUrl}/lotterylobby_bn.png`}
 						/>
 					</div>

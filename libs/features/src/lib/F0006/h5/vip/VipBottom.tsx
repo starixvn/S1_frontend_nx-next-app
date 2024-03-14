@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
@@ -17,10 +16,8 @@ const VipBottom = () => {
 					href={paths.join.root}
 					style={isLogin ? { pointerEvents: 'none' } : {}}
 				>
-					<Image
+					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/benefit-1.png`}
-						width={300}
-						height={282}
 						alt=''
 					/>
 				</Link>
@@ -31,10 +28,8 @@ const VipBottom = () => {
 					href={paths.join.root}
 					style={isLogin ? { pointerEvents: 'none' } : {}}
 				>
-					<Image
+					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/benefit-2.png`}
-						width={300}
-						height={282}
 						alt=''
 					/>
 				</Link>
@@ -45,10 +40,8 @@ const VipBottom = () => {
 					href={paths.join.root}
 					style={isLogin ? { pointerEvents: 'none' } : {}}
 				>
-					<Image
+					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/benefit-3.png`}
-						width={300}
-						height={282}
 						alt=''
 					/>
 				</Link>
@@ -59,10 +52,8 @@ const VipBottom = () => {
 					href={paths.join.root}
 					style={isLogin ? { pointerEvents: 'none' } : {}}
 				>
-					<Image
+					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/benefit-4.png`}
-						width={300}
-						height={282}
 						alt=''
 					/>
 				</Link>

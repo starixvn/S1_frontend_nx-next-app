@@ -1,8 +1,6 @@
 import { useState } from 'react'
-import Image from 'next/future/image'
 import classNames from 'classnames'
 import { getMainEventIcon, useMenu } from '@nx-next-app/features/F0006/hooks'
-
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 import { useTranslation } from 'next-i18next'
@@ -72,11 +70,9 @@ const Menu = () => {
 							>
 								{icon && <i className={classNames(icon)} />}
 								{img && (
-									<Image
+									<img
 										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}${img}`}
 										alt={`img-${img}`}
-										width={30}
-										height={30}
 									/>
 								)}
 

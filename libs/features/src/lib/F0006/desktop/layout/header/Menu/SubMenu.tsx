@@ -84,20 +84,18 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 		// 								includeMargin
 		// 							/>
 		// 							{item.appTypeName === 'Andriod' && (
-		// 								<Image
+		// 								<img
 		// 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/appdownload_and.jpg`}
 		// 									alt='Andriod Download'
-		// 									height={100}
-		// 									width={100}
+		//
 		// 								/>
 		// 							)}
 
 		// 							{item.appTypeName === 'IOS' && (
-		// 								<Image
+		// 								<img
 		// 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/appdownload_ios.jpg`}
 		// 									alt='IOS Download'
-		// 									height={100}
-		// 									width={100}
+		//
 		// 								/>
 		// 							)}
 		// 						</div>

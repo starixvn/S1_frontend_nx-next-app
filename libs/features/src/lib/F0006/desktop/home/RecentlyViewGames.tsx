@@ -1,10 +1,8 @@
 import { useTranslation } from 'next-i18next'
 import classNames from 'classnames'
-import Image from 'next/future/image'
 import dynamic from 'next/dynamic'
 import { useAuth } from '@nx-next-app/data-access'
 import { Carousel } from '@nx-next-app/components/D0006'
-import { isUrl } from '@nx-next-app/utils'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useHome } from '@nx-next-app/features/F0006/providers'
 
@@ -63,24 +61,12 @@ const RecentlyViewGames = () => {
 								})}
 							>
 								<div>
-									<Image
+									<img
 										className='recently-image'
 										src={gameLogo[langId] ?? gameLogo['en']}
-										width={300}
-										height={300}
 										alt=''
 									/>
-									{isUrl(tpLogo) ? (
-										<Image
-											src={tpLogo}
-											width={87}
-											height={55}
-											alt=''
-											className='recently-brand'
-										/>
-									) : (
-										<img className='recently-brand' src={tpLogo} alt='' />
-									)}
+									<img src={tpLogo} alt='' className='recently-brand' />
 
 									<div className='recently-title'>
 										{gameName[langId] ?? gameName['en']}
