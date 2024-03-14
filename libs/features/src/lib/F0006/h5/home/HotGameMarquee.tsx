@@ -1,9 +1,7 @@
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 import ReactMarquee from 'react-fast-marquee'
 import { useHome } from '@nx-next-app/features/F0006/providers'
 import { uniqueId } from 'lodash-es'
-import { isUrl } from '@nx-next-app/utils'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -19,17 +17,9 @@ const HotGameMarquee = () => {
 
 		return (
 			<div key={uniqueId()} className='hotGamModule'>
-				{isUrl(gameLogo) ? (
-					<Image src={gameLogo} width={260} height={151} alt={gameName} />
-				) : (
-					<img src={gameLogo} alt={gameName} />
-				)}
+				<img src={gameLogo} alt={gameName} />
 				<div className='hotgametitle'>
-					{isUrl(tpLogo) ? (
-						<Image src={tpLogo} alt={tpName} width={120} height={55} />
-					) : (
-						<img alt={tpName} src={tpLogo} />
-					)}
+					<img src={tpLogo} alt={tpName} />
 					<div>
 						<div className='hotgame-name'>{gameName}</div>
 						<div>

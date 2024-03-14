@@ -1,7 +1,6 @@
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
-import Image from 'next/future/image'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
@@ -25,20 +24,16 @@ const Shortcut = () => {
 	return (
 		<div className='menu-center'>
 			<a onClick={() => navigatePath(paths.profile.root)}>
-				<Image
+				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/profile.png`}
-					width={43}
-					height={43}
 					alt='profile'
 				/>
 				<span>{t('Label_General_Profile')}</span>
 			</a>
 			<Link href={paths.promotion.root}>
 				<a>
-					<Image
+					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/promos.png`}
-						width={43}
-						height={43}
 						alt='promos'
 					/>
 					<span>{t('Label_General_Promotion')}</span>
@@ -47,10 +42,8 @@ const Shortcut = () => {
 			{includes(ALLOWED_CURRENCIES['VIP'], currencyId) && (
 				<Link href={paths.vip.root}>
 					<a>
-						<Image
+						<img
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/vip.png`}
-							width={43}
-							height={43}
 							alt='vip'
 						/>
 						<span>VIP</span>
@@ -63,10 +56,8 @@ const Shortcut = () => {
 					target='_blank'
 					rel='noreferrer'
 				>
-					<Image
+					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/88reward.png`}
-						width={43}
-						height={43}
 						alt='88reward'
 					/>
 					<span>{t('Label_General_88Reward')}</span>
@@ -75,10 +66,8 @@ const Shortcut = () => {
 			{includes(ALLOWED_CURRENCIES['LEADER_BOARD'], currencyId) && (
 				<Link href={paths.leaderBoard.root}>
 					<a>
-						<Image
+						<img
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/ranking.png`}
-							width={43}
-							height={43}
 							alt='ranking'
 						/>
 						<span>{t('Label_General_LeaderBoard')}</span>
@@ -86,10 +75,8 @@ const Shortcut = () => {
 				</Link>
 			)}
 			<a onClick={() => navigatePath(paths.referral.root)}>
-				<Image
+				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/referral.png`}
-					width={43}
-					height={43}
 					alt='referral'
 				/>
 				<span>{t('Label_General_Referral')}</span>
@@ -101,10 +88,8 @@ const Shortcut = () => {
 				target='_blank'
 				rel='noreferrer'
 			>
-				<Image
+				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/livechat-2.png`}
-					width={43}
-					height={43}
 					alt='livechat'
 				/>
 				<span>{t('Label_General_LiveChat')}</span>
@@ -115,10 +100,8 @@ const Shortcut = () => {
 					target='_blank'
 					rel='noreferrer noopener'
 				>
-					<Image
+					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/aff.png`}
-						width={43}
-						height={43}
 						alt='aff'
 					/>
 					<span>{t('Label_Affiliate_Program')}</span>

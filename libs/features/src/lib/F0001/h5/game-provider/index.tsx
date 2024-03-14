@@ -3,7 +3,6 @@ import { IFooterData } from '@nx-next-app/types'
 import { Header } from '@nx-next-app/components/H0001'
 import { useTranslation } from 'next-i18next'
 import { find } from 'lodash-es'
-import Image from 'next/future/image'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { paths } from '@nx-next-app/constants'
@@ -58,12 +57,10 @@ const GameProvider = ({
 								)
 							}}
 						>
-							<Image
+							<img
 								style={{ width: 'auto', height: '55px' }}
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/venderlogo/${imgName}.png`}
 								alt={`logo ${imgName}`}
-								width={80}
-								height={55}
 							/>
 						</button>
 					)

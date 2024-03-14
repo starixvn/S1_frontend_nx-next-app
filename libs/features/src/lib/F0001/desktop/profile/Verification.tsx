@@ -1,7 +1,6 @@
 import classNames from 'classnames'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 import { numberFormat } from '@nx-next-app/utils'
 import { getSafetyLv } from '@nx-next-app/site/nova88'
 import {
@@ -60,12 +59,7 @@ const Verification = () => {
 		<div className='vipLv'>
 			<div className='vipbg'>
 				{userLevelImageInfo?.url ? (
-					<Image
-						src={userLevelImageInfo?.url}
-						alt={userLevelImageInfo?.alt}
-						width={150}
-						height={127}
-					/>
+					<img src={userLevelImageInfo?.url} alt={userLevelImageInfo?.alt} />
 				) : (
 					<div className='icon icon-member' />
 				)}

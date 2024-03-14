@@ -2,7 +2,6 @@ import classNames from 'classnames'
 import { isEqual } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
-import Image from 'next/future/image'
 import { useRouter } from 'next/router'
 import { useAuth } from '@nx-next-app/data-access'
 import { useLanguageGroup } from '@nx-next-app/hooks'
@@ -45,10 +44,8 @@ const List = () => {
 							>
 								<div className='country-title'>
 									<div>
-										<Image
+										<img
 											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/${lang}.jpg`}
-											width={31}
-											height={31}
 											alt={lang}
 										/>
 									</div>

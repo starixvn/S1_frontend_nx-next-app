@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 import { useAuth } from '@nx-next-app/data-access'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { IFSC_CODE_REGEX, BANK_ACCOUNT_REGEX } from '@nx-next-app/constants'
@@ -31,13 +30,11 @@ const AddCard = () => {
 			label: bankName,
 			prefixOptionIcon: (
 				<div className='bankLogo'>
-					<Image
+					<img
 						src={`${
 							process.env['NEXT_PUBLIC_PAYMENT_HOST']
 						}/square/${bankLogo?.toLowerCase()}`}
 						alt={bankName}
-						width={45}
-						height={45}
 					/>
 				</div>
 			),

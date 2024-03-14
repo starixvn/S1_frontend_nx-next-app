@@ -31,7 +31,7 @@ const Announcement = () => {
 		}
 	}
 
-	const arr = announcementList.map(item => {
+	const arr = announcementList?.map(item => {
 		const isOpen = selectedAnnouncement === item.id
 		return (
 			<div className={classNames('account', { active: isOpen })}>

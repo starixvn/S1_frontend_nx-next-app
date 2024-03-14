@@ -1,6 +1,5 @@
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { useEWallet } from '@nx-next-app/features/F0006/providers'
@@ -21,12 +20,7 @@ const WalletList = () => {
 	return (
 		<>
 			<div className='vip_mark'>
-				<Image
-					src={userLevelImageInfo?.url}
-					alt={userLevelImageInfo?.alt}
-					width={126}
-					height={106}
-				/>
+				<img src={userLevelImageInfo?.url} alt={userLevelImageInfo?.alt} />
 				{includes(
 					ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],
 					currencyId
@@ -57,13 +51,11 @@ const WalletList = () => {
 							({ sysId, accountNo, eWalletLogo, eWalletName }) => (
 								<div className='account' key={`${sysId}-${accountNo}`}>
 									<div className='bankLogo'>
-										<Image
+										<img
 											alt={eWalletName}
 											src={`${
 												process.env['NEXT_PUBLIC_PAYMENT_HOST']
 											}/square/${eWalletLogo.toLowerCase()}`}
-											width={31}
-											height={31}
 										/>
 									</div>
 									<div className='info'>

@@ -1,5 +1,4 @@
 import QRCode from 'qrcode.react'
-import Image from 'next/future/image'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useDownloadLinks } from '@nx-next-app/hooks'
 
@@ -39,7 +38,7 @@ const CenterBanner = () => {
 					</div>
 				)}
 			</div>
-			<Image src={imgUrl} alt='IndexCenterBanner' width={1400} height={500} />
+			<img src={imgUrl} alt='IndexCenterBanner' />
 		</div>
 	)
 }

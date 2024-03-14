@@ -1,4 +1,3 @@
-import Image from 'next/future/image'
 import Link from 'next/link'
 import { paths } from '../../../app/constants'
 
@@ -21,7 +20,7 @@ const Logo = ({ logoUrl, rewardsUrl, showSpLogo }: ILogoProps) => {
 			{process.env['NEXT_PUBLIC_SHOW_REWARD'] === 'true' && (
 				<Link href='/rewards' className='logo' passHref>
 					<a target='_blank' rel='noopener noreferrer' className='rewardsLogo'>
-						<Image src={rewardsUrl} alt='88reward' width={65} height={65} />
+						<img src={rewardsUrl} alt='88reward' />
 					</a>
 				</Link>
 			)}

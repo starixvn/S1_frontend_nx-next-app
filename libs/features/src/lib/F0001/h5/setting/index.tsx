@@ -1,6 +1,5 @@
 import classNames from 'classnames'
 import Link from 'next/link'
-import Image from 'next/future/image'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useRouter } from 'next/router'
@@ -21,10 +20,8 @@ const Setting = () => {
 			) : (
 				<>
 					<button className='close-btn' onClick={() => push(paths.home.root)}>
-						<Image
+						<img
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/close-icon.png`}
-							width={14}
-							height={14}
 							alt='close'
 						/>
 					</button>

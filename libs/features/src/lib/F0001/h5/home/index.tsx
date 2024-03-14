@@ -12,12 +12,10 @@ import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import { useSetHideBalanceMutation } from '@nx-next-app/service'
 import { useHome } from '@nx-next-app/features/F0001/providers'
-
 import dynamic from 'next/dynamic'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { multiEqual } from '@nx-next-app/utils'
 import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
-
 import Menu from './menu'
 
 interface IHomeProps {
