@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/future/image'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
@@ -97,45 +96,30 @@ const LoginModal = () => {
 			<div className='loginpop active'>
 				<div className='joinloginModule'>
 					<div className='loginAnimation'>
-						<Image
+						<img
 							className='animationlogo'
 							alt='animationlogo'
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/logo_en_w.png`}
-							width={135}
-							height={59}
-							style={{ width: '135px', height: '59px' }}
 						/>
-						<Image
+						<img
 							className='npc1'
 							alt='npc1'
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/loginNpc01.png`}
-							width={181}
-							height={335}
-							style={{ width: '181px', height: '335px' }}
 						/>
-						<Image
+						<img
 							className='npc2'
 							alt='npc2'
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/loginNpc02.png`}
-							width={400}
-							height={367}
-							style={{ width: '400px', height: '367px' }}
 						/>
-						<Image
+						<img
 							className='welcome'
 							alt='welcome'
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/welcome.png`}
-							width={49}
-							height={313}
-							style={{ width: '49px', height: '313px' }}
 						/>
-						<Image
+						<img
 							className='back'
 							alt='back'
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/back.png`}
-							width={17}
-							height={57}
-							style={{ width: '17px', height: '57px' }}
 						/>
 					</div>
 					<form

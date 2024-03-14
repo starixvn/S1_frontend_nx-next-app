@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
@@ -39,11 +38,9 @@ const WelcomeInfo = () => {
 			<div className='welcomeinfo-content join'>
 				{isLogin ? (
 					<>
-						<Image
+						<img
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/welcome-affiliate.png`}
 							alt='welcome-affilate'
-							width={400}
-							height={450}
 						/>
 						<div className='welcomeinfo-content-text'>
 							<div>{t('Label_General_Affiliate')}</div>
@@ -60,11 +57,9 @@ const WelcomeInfo = () => {
 					</>
 				) : (
 					<>
-						<Image
+						<img
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/welcome-join.png`}
 							alt='welcome-join'
-							width={400}
-							height={450}
 						/>
 						<div className='welcomeinfo-content-text'>
 							<div>{t('Label_General_Join')}</div>
@@ -79,11 +74,9 @@ const WelcomeInfo = () => {
 				)}
 			</div>
 			<div className='welcomeinfo-content winning'>
-				<Image
+				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/welcome-winning.png`}
 					alt='welcome-winning'
-					width={400}
-					height={450}
 				/>
 				<div className='welcomeinfo-content-text'>
 					<div>{t('Label_Home_StartWinning')}</div>
@@ -101,11 +94,9 @@ const WelcomeInfo = () => {
 				</button>
 			</div>
 			<div className='welcomeinfo-content reward'>
-				<Image
+				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/welcome-vip.png`}
 					alt='welcome-vip'
-					width={400}
-					height={450}
 				/>
 				<div className='welcomeinfo-content-text'>
 					<div>{t('Label_Home_GetReward')}</div>
@@ -116,11 +107,9 @@ const WelcomeInfo = () => {
 				</Link>
 			</div>
 			<div className='welcomeinfo-content referral'>
-				<Image
+				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/welcome-referral.png`}
 					alt='welcome-referral'
-					width={400}
-					height={450}
 				/>
 				<div className='welcomeinfo-content-text'>
 					<div>{t('Label_Home_SimpleReferral')}</div>
@@ -145,4 +134,4 @@ const WelcomeInfo = () => {
 	)
 }
 
-export { WelcomeInfo }
+export default WelcomeInfo

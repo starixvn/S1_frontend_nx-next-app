@@ -44,4 +44,4 @@ const PromotionSwiper = () => {
 	)
 }
 
-export { PromotionSwiper }
+export default PromotionSwiper

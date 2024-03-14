@@ -5,11 +5,14 @@ export const checkSignIn = async (
 	params: null,
 	config: AxiosRequestConfig
 ): Promise<boolean> => {
-	const { data: { errorCode } = {} } = await baseAxios.post(
-		authApiUrl.checkSignIn,
-		params,
-		config
-	)
-	const isSignIn = errorCode === 0
-	return isSignIn
+	try {
+		const { data: { errorCode } = {} } = await baseAxios.post(
+			authApiUrl.checkSignIn,
+			params,
+			config
+		)
+		return errorCode === 0
+	} catch (error) {
+		return false
+	}
 }

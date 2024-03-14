@@ -11,11 +11,15 @@ export const getNews = async ({
 	langId,
 	...args
 }: IGetNewsArgs): Promise<INewsData[]> => {
-	const { data: { data = [] } = {} } = await baseAxios.post(
-		`${newsApiUrl.getNewsList}/${langId}`,
-		{ ...args }
-	)
-	return data
+	try {
+		const { data: { data = [] } = {} } = await baseAxios.post(
+			`${newsApiUrl.getNewsList}/${langId}`,
+			{ ...args }
+		)
+		return data
+	} catch (error) {
+		return []
+	}
 }
 
 export const getNewsById = async ({
