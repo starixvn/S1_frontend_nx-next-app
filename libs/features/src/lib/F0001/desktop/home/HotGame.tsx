@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/future/image'
 import { find, isUndefined } from 'lodash-es'
 import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
@@ -109,12 +108,10 @@ const HotGame = () => {
 							{/* // * 幣別 INR 顯示 SG 遊戲，其餘顯示 PP */}
 							{currencyId === CurrenciesEnum.INR ? (
 								<>
-									<Image
+									<img
 										className='left-bn'
 										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/hotgame-bn-spad.png`}
 										alt='hotGame-bn-spad'
-										width={900}
-										height={600}
 									/>
 									<button
 										className='all-btn'
@@ -131,12 +128,10 @@ const HotGame = () => {
 								</>
 							) : (
 								<>
-									<Image
+									<img
 										className='left-bn'
 										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/hotgame-bn-pp.png`}
 										alt='hotgame-pp'
-										width={900}
-										height={600}
 									/>
 									<button
 										className='all-btn'
@@ -154,12 +149,10 @@ const HotGame = () => {
 							)}
 						</div>
 						<div className='hotgame-content-item'>
-							<Image
+							<img
 								className='right-bn'
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/hotgame-bn-royal.png`}
 								alt='hotgame-royal'
-								width={6971}
-								height={3189}
 							/>
 
 							<div
@@ -254,4 +247,4 @@ const HotGame = () => {
 	)
 }
 
-export { HotGame }
+export default HotGame
