@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/future/image'
 import { capitalize } from 'lodash-es'
 import { IBannerByCurrencyData, VipLevelEnum } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
@@ -54,7 +53,7 @@ const VipBannerItem = ({
 				)}
 			</div>
 			{isUrl(url) ? (
-				<Image className='vipbg' src={url} alt='' width={2560} height={669} />
+				<img className='vipbg' src={url} alt='' />
 			) : (
 				<img className='vipbg' src={url} alt='' />
 			)}

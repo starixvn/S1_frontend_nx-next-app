@@ -1,5 +1,4 @@
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 
 const baseUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/game`
 
@@ -8,12 +7,7 @@ const GameBanner = () => {
 
 	return (
 		<div className='mainBanner'>
-			<Image
-				alt='fishmainbanner'
-				height={500}
-				width={1920}
-				src={`${baseUrl}/games_mainbanner_bg.jpg`}
-			/>
+			<img alt='fishmainbanner' src={`${baseUrl}/games_mainbanner_bg.jpg`} />
 
 			<div className='bannerInfo'>
 				<div className='text'>
@@ -23,24 +17,18 @@ const GameBanner = () => {
 				</div>
 
 				<div className='animation'>
-					<Image
+					<img
 						className='card'
-						width={317}
-						height={345}
 						src={`${baseUrl}/animation_img/card.png`}
 						alt='banner-card'
 					/>
-					<Image
+					<img
 						className='dice1'
-						width={214}
-						height={217}
 						src={`${baseUrl}/animation_img/dice1.png`}
 						alt='banner-dice1'
 					/>
-					<Image
+					<img
 						className='dice2'
-						width={126}
-						height={133}
 						src={`${baseUrl}/animation_img/dice2.png`}
 						alt='banner-dice2'
 					/>

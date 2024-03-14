@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 import { useAuth } from '@nx-next-app/data-access'
 import { useSlots } from '@nx-next-app/features/F0001/providers'
 
@@ -59,7 +58,7 @@ const GameList = () => {
 								)}
 
 								<div className='img-wrapper'>
-									<Image src={resultImgUrl} alt='' width={220} height={220} />
+									<img src={resultImgUrl} alt='' />
 									<div className='btn-container'>
 										<button
 											className='btn-play'
@@ -104,15 +103,13 @@ const GameList = () => {
 											})
 										}
 									>
-										<Image
+										<img
 											src={`${
 												process.env['NEXT_PUBLIC_BANNER_HOST']
 											}/desktop/img/4.0/lobby-slots/star-icon${
 												isFavorite ? '-active' : ''
 											}.png`}
 											alt=''
-											width={23}
-											height={23}
 										/>
 									</div>
 								</div>
@@ -125,11 +122,9 @@ const GameList = () => {
 		</Suspense>
 	) : (
 		<div className='nodata'>
-			<Image
+			<img
 				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/nodata-icon.png`}
 				alt=''
-				width={60}
-				height={60}
 			/>
 			<div>{t('Label_General_NoData')}</div>
 		</div>

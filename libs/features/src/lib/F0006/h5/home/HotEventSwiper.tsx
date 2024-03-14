@@ -7,7 +7,6 @@ import { useMenu } from '@nx-next-app/features/F0006/hooks'
 import { useAuth } from '@nx-next-app/data-access'
 import { useRouter } from 'next/router'
 import { isUrl } from '@nx-next-app/utils'
-import Image from 'next/future/image'
 
 const HotEventSwiper = () => {
 	const { t } = useTranslation()
@@ -62,11 +61,9 @@ const HotEventSwiper = () => {
 						<div key={`${sportLeaguesTitle}-${matchId}`}>
 							<div className='teamNew'>
 								{isUrl(backgroundPic) && (
-									<Image
+									<img
 										src={backgroundPic}
 										alt='hotevent-bg-img'
-										width={360}
-										height={219}
 										// 不能加這行 style ，元件會壞去
 										// style={{ width: 360, height: 219 }}
 									/>
@@ -76,12 +73,7 @@ const HotEventSwiper = () => {
 									<div className='teamL'>
 										<div>
 											{isUrl(homeTeamPic) && (
-												<Image
-													src={homeTeamPic}
-													alt={homeTeamName}
-													width={653}
-													height={944}
-												/>
+												<img src={homeTeamPic} alt={homeTeamName} />
 											)}
 										</div>
 										<div>{homeTeamName}</div>
@@ -110,12 +102,7 @@ const HotEventSwiper = () => {
 									<div className='teamR'>
 										<div>
 											{isUrl(awayTeamPic) && (
-												<Image
-													src={awayTeamPic}
-													alt={awayTeamName}
-													width={653}
-													height={944}
-												/>
+												<img src={awayTeamPic} alt={awayTeamName} />
 											)}
 										</div>
 										<div>{awayTeamName}</div>

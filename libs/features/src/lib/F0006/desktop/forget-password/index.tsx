@@ -1,4 +1,3 @@
-import Image from 'next/future/image'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { AREA_CODE, CURRENCY_TO_LANG_KEY, paths } from '@nx-next-app/constants'
@@ -71,11 +70,9 @@ const ForgetPassword = () => {
 					<div className='loginpop'>
 						<div className='joinloginModule'>
 							<div className='loginAnimation'>
-								<Image
+								<img
 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/forgetpasswordbg.png`}
 									alt='forget-password-background'
-									width={439}
-									height={400}
 									style={{ width: '439px', height: '400px' }}
 								/>
 							</div>

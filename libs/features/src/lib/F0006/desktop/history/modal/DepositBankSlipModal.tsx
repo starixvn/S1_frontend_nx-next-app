@@ -9,7 +9,6 @@ import {
 } from '@nx-next-app/utils'
 import { useAuth } from '@nx-next-app/data-access'
 import { useCopyToClipboard } from 'usehooks-ts'
-import Image from 'next/future/image'
 import { IDepositInfoHistoryData } from '@nx-next-app/service'
 import { useImageFile } from '@nx-next-app/hooks'
 
@@ -164,12 +163,7 @@ const DepositBankSlipModal = ({
 										onChange={onImageFileChange}
 									/>
 									{imageFile ? (
-										<Image
-											width={121}
-											height={80}
-											src={URL.createObjectURL(imageFile)}
-											alt='Selected'
-										/>
+										<img src={URL.createObjectURL(imageFile)} alt='Selected' />
 									) : (
 										<i className='icon icon-plus' />
 									)}
@@ -178,9 +172,7 @@ const DepositBankSlipModal = ({
 							{depositReceipt.map(({ receiptNo, depositPic }) => (
 								<label key={receiptNo} className='upload_img'>
 									<input type='file' />
-									{depositPic ? (
-										<Image width={121} height={80} src={depositPic} alt='' />
-									) : null}
+									{depositPic ? <img src={depositPic} alt='' /> : null}
 								</label>
 							))}
 						</div>
@@ -197,12 +189,7 @@ const DepositBankSlipModal = ({
 							/>
 
 							{imageFile ? (
-								<Image
-									width={121}
-									height={80}
-									src={URL.createObjectURL(imageFile)}
-									alt='Selected'
-								/>
+								<img src={URL.createObjectURL(imageFile)} alt='Selected' />
 							) : (
 								<i className='icon icon-plus' />
 							)}

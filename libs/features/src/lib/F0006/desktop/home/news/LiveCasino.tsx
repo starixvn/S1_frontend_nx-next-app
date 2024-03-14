@@ -1,5 +1,4 @@
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 import { useMenu } from '@nx-next-app/features/F0006/hooks'
 import { find, isUndefined } from 'lodash-es'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -49,11 +48,9 @@ const LiveCasino = () => {
 						{t('Label_General_PlayNow')}
 					</button>
 				</div>
-				<Image
+				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/homepage/livecasinobg.jpg`}
 					alt='livecasinobg-img'
-					width={605}
-					height={330}
 					// * 給予符合長寬比的數據，以利SEO，
 					// * https://developer.chrome.com/docs/lighthouse/best-practices/image-aspect-ratio/?utm_source=lighthouse&utm_medium=devtools
 					style={{ width: 605, height: 330 }}

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
 import { isNaN } from 'lodash-es'
 import classNames from 'classnames'
@@ -104,7 +103,7 @@ const JackPot = ({
 							<button>{t('Label_General_PlayNow')}</button>
 						</div>
 						<div className='jpot-item'>
-							<Image
+							<img
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
 									Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) ===
 									DeviceTypeEnum.Desktop
@@ -112,8 +111,6 @@ const JackPot = ({
 										: 'h5'
 								}/img/homepage/jpot-item.png`}
 								alt=''
-								width={382}
-								height={324}
 							/>
 						</div>
 					</>

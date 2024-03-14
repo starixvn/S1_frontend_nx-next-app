@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Image from 'next/future/image'
 import dayjs from 'dayjs'
 import { useTranslation } from 'next-i18next'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
@@ -43,9 +42,7 @@ const Vip = ({
 				<VipBanner vipBannerData={vipBannerData} />
 				<div className='vipprogram'>
 					{/* 目前只用 en 圖 */}
-					<Image
-						width={818}
-						height={430}
+					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/vipbox.png`}
 						alt='vipbox'
 					/>
