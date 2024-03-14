@@ -108,6 +108,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				title={t('Label_Payment_Method')}
 				layout='vertical'
 				required
+				hasAdditionalInfo
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{dataSource.map(item => {
@@ -132,6 +133,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				title={t('Label_Deposit_SelectChannel')}
 				layout='vertical'
 				required
+				hasAdditionalInfo
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{channelMobilePayList.map(item => {

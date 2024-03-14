@@ -61,7 +61,11 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 
 	return (
 		<>
-			<DepositModule title={t('Label_BankInfo_SelectBank')} required>
+			<DepositModule
+				title={t('Label_BankInfo_SelectBank')}
+				required
+				hasAdditionalInfo
+			>
 				<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 					{dataSource.map(item => {
 						const { bankName, bankLogo, minAmount, maxAmount, sysId } = item

@@ -584,4 +584,18 @@ export const PRODUCTS = {
 		GAME_ID: 224,
 		TP_GAME_TYPE: 53,
 	},
+	GAME_MaxGame: {
+		TP_ID: 61,
+		GAME_ID: 0,
+		TP_GAME_TYPE: 113,
+	},
+	GAME_GACockFighting: {
+		TP_ID: 63,
+		TP_GAME_TYPE: 115,
+	},
+	GAME_93Connect: {
+		TP_ID: 62,
+		GAME_ID: 'LOBBY',
+		TP_GAME_TYPE: 114,
+	},
 }

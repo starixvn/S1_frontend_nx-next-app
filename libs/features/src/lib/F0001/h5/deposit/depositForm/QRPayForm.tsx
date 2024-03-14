@@ -110,7 +110,11 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 	}
 	return (
 		<>
-			<DepositModule title={t('Label_Payment_Method')} required>
+			<DepositModule
+				title={t('Label_Payment_Method')}
+				required
+				hasAdditionalInfo
+			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{dataSource.map(item => {
 						const { groupName, minAmount, maxAmount } = item
@@ -130,7 +134,11 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 				</DepositModule.SubModuleButtonGroup>
 			</DepositModule>
 
-			<DepositModule title={t('Label_Deposit_SelectChannel')} required>
+			<DepositModule
+				title={t('Label_Deposit_SelectChannel')}
+				required
+				hasAdditionalInfo
+			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{channelQrPayList.map(item => {
 						const { channelId, channelName, minAmount, maxAmount } = item

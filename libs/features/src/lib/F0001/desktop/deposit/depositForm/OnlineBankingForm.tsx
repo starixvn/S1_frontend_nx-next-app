@@ -75,6 +75,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 				title={t('Label_Payment_Method')}
 				layout='vertical'
 				required
+				hasAdditionalInfo
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{dataSource.map(item => {
@@ -100,6 +101,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 					title={t('Label_BankInfo_SelectBank')}
 					layout='horizontal'
 					required
+					hasAdditionalInfo
 				>
 					<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 						{paymentOnlineBankInfoSysList.map(item => {

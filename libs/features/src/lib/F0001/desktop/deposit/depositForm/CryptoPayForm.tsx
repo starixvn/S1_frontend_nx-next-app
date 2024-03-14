@@ -79,6 +79,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 				title={t('Label_Payment_Method')}
 				layout='vertical'
 				required
+				hasAdditionalInfo
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{cryptoPaymentList.map(item => {
@@ -103,6 +104,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 				title={t('Label_Deposit_SelectChannel')}
 				layout='vertical'
 				required
+				hasAdditionalInfo
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{cryptoChannelList.map(item => {
