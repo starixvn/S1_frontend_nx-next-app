@@ -1133,7 +1133,7 @@ div[tabindex="-1"] {
   transition: -webkit-transition;
   transition: transition;
   transition: transition, -webkit-transition;
-  z-index: 11;
+  z-index: 10;
   background: white;
   overflow: scroll;
   visibility: hidden;
@@ -1941,7 +1941,7 @@ main .gameList .icon-new {
   width: calc(100% - 16vw);
   height: calc(100% - 16vw);
   position: fixed;
-  z-index: 10;
+  z-index: 11;
   top: 0;
   left: 0;
   -webkit-box-align: center;
@@ -16831,14 +16831,39 @@ main.casino .banner {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-align: center;
+<<<<<<< HEAD
+=======
 }
-.after .btn-logout {
+
+.react-datepicker-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+.react-datepicker-wrapper input {
+  width: 100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+>>>>>>> feat/(Nova88)-new-structure-adjustment
+}
+input[type=number] .btn-logout {
   background: white;
   border-radius: 30px;
   width: 80vw;
   padding: 3vw 0;
   color: #D1D1D1;
   margin: 5vw 0 0;
+<<<<<<< HEAD
 }
 
 .dragonegg-event {
@@ -18122,4 +18147,6 @@ main.casino .banner {
     -webkit-transform: rotate(0);
             transform: rotate(0);
   }
+=======
+>>>>>>> feat/(Nova88)-new-structure-adjustment
 }/*# sourceMappingURL=style.css.map */
