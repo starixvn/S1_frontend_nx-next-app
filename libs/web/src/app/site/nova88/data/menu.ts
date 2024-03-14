@@ -552,6 +552,7 @@ export const MENU_DATA = ({
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
+					allowCurrencies: ALLOWED_CURRENCIES['ESPORT_IM_E_SPORT'],
 					productKey: 'SPORTS_E_IMESPORTS',
 					displayKey: 'IM E-Sports',
 					product: PRODUCTS['SPORTS_E_IMESPORTS'],
