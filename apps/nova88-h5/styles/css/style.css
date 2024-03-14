@@ -16831,8 +16831,14 @@ main.casino .banner {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-align: center;
-<<<<<<< HEAD
-=======
+}
+.after .btn-logout {
+  background: white;
+  border-radius: 30px;
+  width: 80vw;
+  padding: 3vw 0;
+  color: #D1D1D1;
+  margin: 5vw 0 0;
 }
 
 .react-datepicker-wrapper {
@@ -16842,28 +16848,6 @@ main.casino .banner {
 }
 .react-datepicker-wrapper input {
   width: 100%;
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
->>>>>>> feat/(Nova88)-new-structure-adjustment
-}
-input[type=number] .btn-logout {
-  background: white;
-  border-radius: 30px;
-  width: 80vw;
-  padding: 3vw 0;
-  color: #D1D1D1;
-  margin: 5vw 0 0;
-<<<<<<< HEAD
 }
 
 .dragonegg-event {
@@ -18147,6 +18131,17 @@ input[type=number] .btn-logout {
     -webkit-transform: rotate(0);
             transform: rotate(0);
   }
-=======
->>>>>>> feat/(Nova88)-new-structure-adjustment
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+input[type=number] .btn-logout {
+  background: white;
+  border-radius: 30px;
+  width: 80vw;
+  padding: 3vw 0;
+  color: #D1D1D1;
+  margin: 5vw 0 0;
 }/*# sourceMappingURL=style.css.map */
