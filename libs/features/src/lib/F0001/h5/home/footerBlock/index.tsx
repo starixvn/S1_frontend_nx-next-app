@@ -32,4 +32,4 @@ const index = () => {
 	)
 }
 
-export { index as FooterBlock }
+export default index

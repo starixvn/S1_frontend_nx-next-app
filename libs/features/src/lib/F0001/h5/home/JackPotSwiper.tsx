@@ -67,4 +67,4 @@ const JackPotSwiper = () => {
 	)
 }
 
-export { JackPotSwiper }
+export default JackPotSwiper

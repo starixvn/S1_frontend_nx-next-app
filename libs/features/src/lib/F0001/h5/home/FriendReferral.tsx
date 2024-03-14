@@ -58,4 +58,4 @@ const FriendReferral = () => {
 	)
 }
 
-export { FriendReferral }
+export default FriendReferral

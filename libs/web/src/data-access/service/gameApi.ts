@@ -12,11 +12,14 @@ export const getSlotGamePage = async (
 	},
 	config: AxiosRequestConfig
 ) => {
-	const { data: { data: initSlotsGameData } = {} } = await baseAxios.post(
-		`${gameApiUrl.getSlotGamePage}`,
-		params,
-		config
-	)
-
-	return initSlotsGameData
+	try {
+		const { data: { data: initSlotsGameData } = {} } = await baseAxios.post(
+			`${gameApiUrl.getSlotGamePage}`,
+			params,
+			config
+		)
+		return initSlotsGameData || {}
+	} catch (error) {
+		return {}
+	}
 }

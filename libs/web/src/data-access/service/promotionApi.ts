@@ -11,10 +11,15 @@ export const getPromotion = async (
 	config: AxiosRequestConfig
 ): Promise<IPromotionData[]> => {
 	const { langId, currencyId, deviceType } = params
-	const { data: { data } = {} } = await baseAxios.post(
-		`${promotionApiUrl.getPromotionListV3}/${langId}`,
-		{ currencyId, deviceType },
-		config
-	)
-	return data
+
+	try {
+		const { data: { data } = {} } = await baseAxios.post(
+			`${promotionApiUrl.getPromotionListV3}/${langId}`,
+			{ currencyId, deviceType },
+			config
+		)
+		return data || []
+	} catch (error) {
+		return []
+	}
 }

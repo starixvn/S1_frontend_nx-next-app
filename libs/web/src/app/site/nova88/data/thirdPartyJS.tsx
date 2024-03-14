@@ -2,7 +2,7 @@ import Script from 'next/script'
 import process from 'process'
 
 export const LiveChatScript = () => (
-	<Script async id='liveChat-script'>
+	<Script strategy='lazyOnload' id='liveChat-script'>
 		{`window.__lc = window.__lc || {};
          window.__lc.license = ${process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']};
          window.__lc.chat_between_groups = false;
@@ -13,7 +13,7 @@ export const LiveChatScript = () => (
 
 export const IovationScript = () => (
 	<>
-		<Script async id='iovation-script'>
+		<Script strategy='lazyOnload' id='iovation-script'>
 			{`
                          window.IGLOO = window.IGLOO || {
                          "enable_flash" : false,
@@ -25,14 +25,13 @@ export const IovationScript = () => (
                  `}
 		</Script>
 
-		<Script async src='/js/loader_only.js' />
+		<Script strategy='lazyOnload' src='/js/loader_only.js' />
 	</>
 )
 
 export const ActivatorScript = () => (
 	<Script
-		async
-		defer
+		strategy='lazyOnload'
 		src='//sc.detecas.com/di/activator.ashx'
 		type='text/javascript'
 	/>
@@ -40,7 +39,7 @@ export const ActivatorScript = () => (
 
 export const PlayTechScript = () => (
 	<Script
-		async
+		strategy='lazyOnload'
 		src='https://login-am.htsp123.com/jswrapper/hotspin88am/integration.js'
 		type='text/javascript'
 	/>
@@ -48,7 +47,7 @@ export const PlayTechScript = () => (
 
 export const GTMScript = () => (
 	<>
-		<Script async id='GTM-script'>
+		<Script strategy='lazyOnload' id='GTM-script'>
 			{`(function (w, d, s, l, i) {
 				w[l] = w[l] || [];
 				w[l].push({
@@ -64,10 +63,10 @@ export const GTMScript = () => (
 			})(window, document, "script", "dataLayer", "GTM-5VD4484")`}
 		</Script>
 		<Script
-			async
+			strategy='lazyOnload'
 			src='https://www.googletagmanager.com/gtag/js?id=G-B22CGGG5KJ'
 		/>
-		<Script async id='dataLayer-script'>
+		<Script strategy='lazyOnload' id='dataLayer-script'>
 			{`  window.dataLayer = window.dataLayer || [];
 				function gtag(){dataLayer.push(arguments);}
 				gtag('js', new Date());
@@ -79,7 +78,7 @@ export const GTMScript = () => (
 
 export const JackpotsScript = () => (
 	<Script
-		async
+		strategy='lazyOnload'
 		type='text/javascript'
 		src='https://tickers2.playtech.com/jackpots/new_jackpotjs.js'
 	/>
@@ -99,7 +98,7 @@ export const GoogleTagManagerScript = () => (
 
 export const PixelCodeScript = () => {
 	return (
-		<Script async defer id='PixelCode'>
+		<Script strategy='lazyOnload' id='PixelCode'>
 			{`!(function (p, l, o, w, i, n, g) {
 					if (!p[i]) {
 						p.GlobalSnowplowNamespace =

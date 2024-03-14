@@ -74,13 +74,14 @@ export const useServerSideInitialPropsFetcher = async (
 	// 帶進 api config 使用的 cookie
 	const currentHeaderCookies = transferCookiesObj(originCookies)
 
-	const originIsSignIn = await checkSignIn(null, {
-		headers: { cookie: currentHeaderCookies },
-	})
-
-	const persistSEOData = await getSEOData(null, {
-		headers: { cookie: currentHeaderCookies },
-	})
+	const [originIsSignIn, persistSEOData] = await Promise.all([
+		checkSignIn(null, {
+			headers: { cookie: currentHeaderCookies },
+		}),
+		getSEOData(null, {
+			headers: { cookie: currentHeaderCookies },
+		}),
+	])
 
 	if (
 		// * 判斷是否為為直播主帳號，直播主只允許進入home與slots頁面

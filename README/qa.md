@@ -1,9 +1,8 @@
 ## Table of Contents
 
 1. [如何另開頁面](#如何另開頁面)
-2. [如何渲染圖片](#如何渲染圖片)
-3. [如何加入使用者驗證](#如何加入使用者驗證)
-4. [如何正確使用第三方Script](#如何正確使用三方Script)
+2. [如何加入使用者驗證](#如何加入使用者驗證)
+3. [如何正確使用第三方Script](#如何正確使用三方Script)
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -19,24 +18,6 @@
 </Link>
 ```
 
-#### 如何渲染圖片
-
-- next/future/image
-  `next/image` 渲染出來時元素會多包一層 `span` ，會讓設計提供的設計搞稿跑版，故使用 `next/future/image` 渲染圖片(不會有 span tag)
-
-```tsx
-// 使用 `next/future/image` 渲染圖片
-import Image from 'next/future/image'
-```
-
-```tsx
-
-// 先用原生 img 查看寬高，再給予定寬高
-<img src={logoUrl} alt='logoUrl' />
-
-// 改為
-<Image src={logoUrl} alt='logo' width={150} height={66} />
-```
 
 #### 如果加入使用者驗證
 

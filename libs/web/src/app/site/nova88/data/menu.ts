@@ -2537,7 +2537,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'lotterygpithai.png',
+							bgImg: 'lo-gpithai.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
