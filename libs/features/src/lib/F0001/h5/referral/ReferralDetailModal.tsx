@@ -77,7 +77,7 @@ const ReferralDetailModal = ({
 								className='text'
 								// eslint-disable-next-line react/no-danger
 								dangerouslySetInnerHTML={{
-									__html: referralContent?.detail,
+									__html: `<pre>${referralContent?.detail}</pre>`,
 								}}
 							/>
 						)}

@@ -6,7 +6,7 @@ import {
 	Select,
 } from '@nx-next-app/components/H0001'
 import {
-	IOnlineBankingForm,
+	// IOnlineBankingForm,
 	useAuth,
 	useDepositContext,
 	useOnlineBankingForm,
@@ -38,7 +38,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { t } = useTranslation()
-	const { modal, closeModal } = useGlobalModal()
+	const { modal } = useGlobalModal()
 	const { promotionOptions } = useDepositContext()
 
 	const {
@@ -62,49 +62,49 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 	const watchMinAmount = watch('minAmount')
 	const watchMaxAmount = watch('maxAmount')
 	const watchBonusCode = watch('bonusCode')
-	const watchBankLogo = watch('bankLogo')
+	// const watchBankLogo = watch('bankLogo')
 
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
-	// * 手機版邏輯：送出前打開確認彈窗
-	const handleOnlineBankingFormSubmit = (values: IOnlineBankingForm) => {
-		const convertedAmount = isConvert(currencyId)
-			? watchAmount * 1000
-			: watchAmount
+	// * 手機版邏輯修正：直接另開視窗，沒有彈窗確認
+	// const handleOnlineBankingFormSubmit = (values: IOnlineBankingForm) => {
+	// 	const convertedAmount = isConvert(currencyId)
+	// 		? watchAmount * 1000
+	// 		: watchAmount
 
-		modal.confirm(
-			<>
-				<p>{t('Label_Deposit_ConfirmDeposit')}</p>
-				<img
-					className='bankimg'
-					src={`${process.env['NEXT_PUBLIC_PAYMENT_HOST']}/square/${toLower(
-						watchBankLogo
-					)}`}
-					alt='img-bank-logo'
-				/>
-				<div>
-					<span>{t('Label_General_DepositAmount')}：</span>{' '}
-					{numberFormat(convertedAmount, currencyId, 0)}
-				</div>
-			</>,
-			{
-				footer: [
-					<button className='white' onClick={closeModal}>
-						{t('Label_General_Cancel')}
-					</button>,
-					<button
-						className='orange'
-						onClick={() => {
-							onOnlineBankingFormSubmit(values)
-							closeModal()
-						}}
-					>
-						{t('Label_General_Submit')}
-					</button>,
-				],
-			}
-		)
-	}
+	// 	modal.confirm(
+	// 		<>
+	// 			<p>{t('Label_Deposit_ConfirmDeposit')}</p>
+	// 			<img
+	// 				className='bankimg'
+	// 				src={`${process.env['NEXT_PUBLIC_PAYMENT_HOST']}/square/${toLower(
+	// 					watchBankLogo
+	// 				)}`}
+	// 				alt='img-bank-logo'
+	// 			/>
+	// 			<div>
+	// 				<span>{t('Label_General_DepositAmount')}：</span>{' '}
+	// 				{numberFormat(convertedAmount, currencyId, 0)}
+	// 			</div>
+	// 		</>,
+	// 		{
+	// 			footer: [
+	// 				<button className='white' onClick={closeModal}>
+	// 					{t('Label_General_Cancel')}
+	// 				</button>,
+	// 				<button
+	// 					className='orange'
+	// 					onClick={() => {
+	// 						onOnlineBankingFormSubmit(values)
+	// 						closeModal()
+	// 					}}
+	// 				>
+	// 					{t('Label_General_Submit')}
+	// 				</button>,
+	// 			],
+	// 		}
+	// 	)
+	// }
 
 	return (
 		<>
@@ -227,7 +227,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 				</div>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(handleOnlineBankingFormSubmit)}>
+			<Form onSubmit={handleSubmit(onOnlineBankingFormSubmit)}>
 				<div className='btn-group'>
 					<button
 						type='submit'
