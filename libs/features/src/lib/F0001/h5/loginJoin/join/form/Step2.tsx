@@ -124,7 +124,8 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 					showValue
 				/>
 			)}
-			{recaptchaInfo?.siteKey && recaptchaInfo.country !== 'CN' && (
+			{/*
+      	{recaptchaInfo?.siteKey && recaptchaInfo.country !== 'CN' && (
 				<div className='g-recaptcha'>
 					<ReCAPTCHA
 						sitekey={recaptchaInfo.siteKey}
@@ -135,6 +136,7 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 					/>
 				</div>
 			)}
+      */}
 			<div className='btn-group'>
 				<button type='submit'>{t('Label_General_Join')}</button>
 			</div>
