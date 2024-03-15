@@ -1,7 +1,6 @@
 import { includes } from 'lodash-es'
 import classNames from 'classnames'
 import Link from 'next/link'
-import Image from 'next/future/image'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
@@ -116,11 +115,9 @@ const SubMenu = ({
 								}}
 							>
 								{submenuIcon}
-								<Image
+								<img
 									className='List-npc'
 									src={suBMenuImage}
-									width={150}
-									height={150}
 									alt={subMenuItem?.productName}
 								/>
 								<span>{displayName || subMenuItem?.productName}</span>
@@ -149,12 +146,10 @@ const SubMenu = ({
 				{includes(ALLOWED_CURRENCIES.VIP, Number(currencyId)) && (
 					<Link href={paths.vip.root}>
 						<a>
-							<Image
+							<img
 								className='List-npc'
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-vip.png`}
 								alt='vip'
-								width={150}
-								height={200}
 							/>
 							<span>{t('VIP')}</span>
 						</a>
@@ -163,12 +158,10 @@ const SubMenu = ({
 				{includes(ALLOWED_CURRENCIES.LEADER_BOARD, Number(currencyId)) && (
 					<Link href={paths.leaderBoard.root}>
 						<a>
-							<Image
+							<img
 								className='List-npc'
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-ranking.png`}
 								alt='leaderBoard'
-								width={150}
-								height={200}
 							/>
 							<span>{t('Label_General_LeaderBoard')}</span>
 						</a>
@@ -181,12 +174,10 @@ const SubMenu = ({
 							: () => push(`/${langId}/${paths.referral.root}`)
 					}
 				>
-					<Image
+					<img
 						className='List-npc'
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-refer.png`}
 						alt='referral'
-						width={150}
-						height={200}
 					/>
 					<span>{t('Label_General_Referral')}</span>
 				</button>
@@ -194,18 +185,22 @@ const SubMenu = ({
 
 			{menus}
 
-			<button
+			<div
 				className={classNames(`promoList ${langId}`, {
 					active: debouncedMenuKey === 'Promotion',
 				})}
 				onClick={() => push(paths.promotion.root)}
+				onMouseEnter={() => setMenuKey('Promotion')}
+				onMouseLeave={() => setMenuKey(undefined)}
 			>
 				<div />
-			</button>
+			</div>
 			<div
 				className={classNames(`vipList ${langId}`, {
 					active: debouncedMenuKey === 'VIP',
 				})}
+				onMouseEnter={() => setMenuKey('VIP')}
+				onMouseLeave={() => setMenuKey(undefined)}
 			>
 				<div />
 			</div>
@@ -214,6 +209,8 @@ const SubMenu = ({
 					active: debouncedMenuKey === 'LeaderBoard',
 				})}
 				onClick={() => push(paths.leaderBoard.root)}
+				onMouseEnter={() => setMenuKey('LeaderBoard')}
+				onMouseLeave={() => setMenuKey(undefined)}
 			>
 				<div />
 			</button>
