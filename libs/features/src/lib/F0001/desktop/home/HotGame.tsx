@@ -255,4 +255,4 @@ const HotGame = () => {
 	)
 }
 
-export { HotGame }
+export default HotGame

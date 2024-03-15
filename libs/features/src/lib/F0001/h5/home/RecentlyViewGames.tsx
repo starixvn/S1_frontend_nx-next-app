@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import { useRouter } from 'next/router'
-import { isUrl } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
@@ -70,7 +69,7 @@ const RecentlyViewGames = () => {
 										alt=''
 									/>
 
-										<img src={tpLogo} alt='' className='recently-brand' />
+									<img src={tpLogo} alt='' className='recently-brand' />
 
 									<div className='recently-title'>
 										{gameName[langId] ?? gameName['en']}
@@ -90,4 +89,4 @@ const RecentlyViewGames = () => {
 	)
 }
 
-export { RecentlyViewGames }
+export default RecentlyViewGames

@@ -189,4 +189,4 @@ const LiveCasino = () => {
 	)
 }
 
-export { LiveCasino }
+export default LiveCasino

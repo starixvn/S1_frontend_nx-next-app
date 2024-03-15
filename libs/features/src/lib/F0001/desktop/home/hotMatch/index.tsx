@@ -22,7 +22,7 @@ const UnderMaintenanceModal = dynamic(
 	}
 )
 
-const Index = () => {
+const HotMatch = () => {
 	const { t } = useTranslation()
 	const { onStaticMenuOpen } = useMenu()
 	const { modal } = useGlobalModal()
@@ -130,4 +130,4 @@ const Index = () => {
 	)
 }
 
-export { Index as HotMatch }
+export default HotMatch
