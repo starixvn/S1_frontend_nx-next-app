@@ -2449,7 +2449,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '4.0/dropdown/fishing/of.png',
+						img: '4.0/dropdown/fishing/oneshotfishing.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
