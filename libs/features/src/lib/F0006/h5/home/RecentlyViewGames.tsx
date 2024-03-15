@@ -54,10 +54,10 @@ const RecentlyViewGames = () => {
 									<img
 										className='recently-image'
 										src={gameLogo[langId] ?? gameLogo['en']}
-										alt='recently-image'
+										alt='recently'
 									/>
 
-                  <img src={tpLogo} alt='' className='recently-brand' />
+									<img src={tpLogo} alt='' className='recently-brand' />
 
 									<div className='recently-title'>
 										{gameName[langId] ?? gameName['en']}

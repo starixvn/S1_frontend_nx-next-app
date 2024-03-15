@@ -71,7 +71,7 @@ const RecentlyViewGames = () => {
 										src={gameLogo[langId] ?? gameLogo['en']}
 										width={300}
 										height={300}
-										alt='recently-image'
+										alt='recently'
 									/>
 
 									<img src={tpLogo} alt='' className='recently-brand' />
