@@ -10,7 +10,7 @@ import {
 	IMainWalletInfoData,
 	ITpWalletInfoData,
 } from '@nx-next-app/service'
-import { numberFormat, numFormatToDigits } from '@nx-next-app/utils'
+import { numberFormat } from '@nx-next-app/utils'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { SpinButton } from '../../button'
@@ -81,7 +81,7 @@ const Wallet = ({
 			<div className='balance-money'>
 				<SpinButton className='icon-spinner' onClick={onRefetchAllWallet} />
 				{`${currencyName} `}
-				{!isHideBalance ? numFormatToDigits(totalWalletBalance) : '****'}
+				{!isHideBalance && numberFormat(totalWalletBalance, currencyId)}
 
 				<button
 					className={classNames('icon', {
