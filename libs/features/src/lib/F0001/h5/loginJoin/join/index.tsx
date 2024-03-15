@@ -214,8 +214,8 @@ const Join = ({ cookies }: IJoinProps) => {
 
 		// currency & recaptcha & affiliate cannot use form required check
 		if (
-			!reCaptchaToken ||
-			recaptchaInfo?.country === 'CN' ||
+			// !reCaptchaToken ||
+			// recaptchaInfo?.country === 'CN' ||
 			!currencyCheck ||
 			!affCodeCheck
 		)
@@ -241,7 +241,7 @@ const Join = ({ cookies }: IJoinProps) => {
 				currencyId: formCurrencyId,
 				phoneNo: phone,
 				realName,
-				reCaptchaToken,
+				// reCaptchaToken,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,
