@@ -351,8 +351,8 @@ const Form = ({ cookies }: IJoinProps) => {
 
 		// currency & recaptcha & affiliate cannot use form required check
 		if (
-			!reCaptchaToken ||
-			recaptchaInfo?.country === 'CN' ||
+			// !reCaptchaToken ||
+			// recaptchaInfo?.country === 'CN' ||
 			!currencyCheck ||
 			!affCodeCheck
 		)
@@ -378,7 +378,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				currencyId: formCurrencyId,
 				phoneNo: phone,
 				realName,
-				reCaptchaToken,
+				// reCaptchaToken,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,
@@ -543,7 +543,8 @@ const Form = ({ cookies }: IJoinProps) => {
 					/>
 				)}
 			</div>
-			{recaptchaInfo?.siteKey && recaptchaInfo.country !== 'CN' && (
+			{/*
+      		{recaptchaInfo?.siteKey && recaptchaInfo.country !== 'CN' && (
 				<div className='g-recaptcha'>
 					<ReCAPTCHA
 						sitekey={recaptchaInfo.siteKey}
@@ -554,6 +555,7 @@ const Form = ({ cookies }: IJoinProps) => {
 					/>
 				</div>
 			)}
+      */}
 			<div className='Terms'>
 				{t('Label_Join_SignUpTerms1')}
 				<a
