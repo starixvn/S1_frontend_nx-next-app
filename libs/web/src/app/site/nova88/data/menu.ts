@@ -2457,7 +2457,7 @@ export const MENU_DATA = ({
 						headerMenuImgList: [
 							{
 								className: 'List-npc',
-								imgUrl: 'oneshot-fishing.png',
+								imgUrl: 'oneshotfishing.png',
 							},
 						],
 						lobbyPage: {
