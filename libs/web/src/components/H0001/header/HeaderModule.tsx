@@ -5,12 +5,12 @@ import { useAuth } from '@nx-next-app/data-access'
 import { HTMLAttributes, useEffect } from 'react'
 import { useTranslation } from 'next-i18next'
 import { useBoolean, useDebounce } from 'usehooks-ts'
+import { numberFormat } from '@nx-next-app/utils'
 import {
 	ICustBonusWalletData,
 	IMainWalletInfoData,
 	ITpWalletInfoData,
 } from '@nx-next-app/service'
-import { numFormatToDigits } from '@nx-next-app/utils'
 import { SpinButton } from '../button'
 
 interface IHeaderModuleProps extends HTMLAttributes<HTMLDivElement> {
@@ -40,7 +40,7 @@ const HeaderModule = ({
 
 	const {
 		auth,
-		userInfo: { currencyName, userName },
+		userInfo: { currencyName, userName, currencyId },
 	} = useAuth()
 
 	const {
@@ -111,10 +111,8 @@ const HeaderModule = ({
 					<div className='header-balance'>
 						<span>{currencyName}</span>
 						<div>
-							{isHideBalance ? (
-								`*****`
-							) : (
-								<>${numFormatToDigits(totalWalletBalance)}</>
+							{!isHideBalance && (
+								<>${numberFormat(totalWalletBalance, currencyId)}</>
 							)}
 
 							<SpinButton
