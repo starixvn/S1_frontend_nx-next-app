@@ -6,7 +6,6 @@ import { paths } from '@nx-next-app/constants'
 import { useGetMsgCountQuery } from '@nx-next-app/service'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { includes } from 'lodash-es'
-import Image from 'next/future/image'
 import { CurrenciesEnum } from '@nx-next-app/types'
 
 const MyAccount = () => {
@@ -31,12 +30,7 @@ const MyAccount = () => {
 			<main className='main'>
 				{userLevelImageInfo?.url ? (
 					<div className='vip_mark'>
-						<Image
-							src={userLevelImageInfo?.url}
-							alt={userLevelImageInfo?.alt}
-							width={126}
-							height={106}
-						/>
+						<img src={userLevelImageInfo?.url} alt={userLevelImageInfo?.alt} />
 						{includes(
 							ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],
 							currencyId

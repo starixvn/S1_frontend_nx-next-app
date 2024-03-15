@@ -1,6 +1,5 @@
 import { IFooterData, ISeoData } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 import { useEffect } from 'react'
 import Head from 'next/head'
 
@@ -39,11 +38,9 @@ const License = ({
 							<>
 								<div className='title'>
 									{t('Label_Gaming_License')}
-									<Image
+									<img
 										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/license_tick.png`}
 										alt='vaild gaming license'
-										width={30}
-										height={30}
 									/>
 								</div>
 								<div>
@@ -65,11 +62,9 @@ const License = ({
 											target='_blank'
 											rel='noreferrer'
 										>
-											<Image
+											<img
 												src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/aware.png`}
 												alt=''
-												width={115}
-												height={23}
 												style={{ width: '115px', height: '23px' }}
 											/>
 										</a>
@@ -83,21 +78,17 @@ const License = ({
 					{/*	<div> */}
 					{/*		<div>{t('Label_JOE_COLE')}</div> */}
 					{/*		<div>{t('Label_Brand_Ambassador')}</div> */}
-					{/*		<Image */}
+					{/*		<img */}
 					{/*			src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/joecole_w.png`} */}
 					{/*			alt='joecole_signature' */}
-					{/*			width={65} */}
-					{/*			height={57} */}
 					{/*		/> */}
 					{/*		<div>{t('Label_Former_Chelsea_Liverpool')}</div> */}
 					{/*		<div>{t('Label_England_International')}</div> */}
 					{/*	</div> */}
-					{/*	<Image */}
+					{/*	<img */}
 					{/*		className='star' */}
 					{/*		src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/jc.png`} */}
 					{/*		alt='joecole_photo' */}
-					{/*		width={219} */}
-					{/*		height={337} */}
 					{/*	/> */}
 					{/* </div> */}
 				</div>

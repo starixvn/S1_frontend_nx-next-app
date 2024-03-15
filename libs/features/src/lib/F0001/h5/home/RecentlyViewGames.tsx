@@ -1,8 +1,6 @@
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
-import Image from 'next/future/image'
 import { useRouter } from 'next/router'
-import { isUrl } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
@@ -65,24 +63,13 @@ const RecentlyViewGames = () => {
 								})}
 							>
 								<div>
-									<Image
+									<img
 										className='recently-image'
 										src={gameLogo[langId] ?? gameLogo['en']}
-										width={300}
-										height={300}
 										alt=''
 									/>
-									{isUrl(tpLogo) ? (
-										<Image
-											src={tpLogo}
-											width={87}
-											height={55}
-											alt=''
-											className='recently-brand'
-										/>
-									) : (
-										<img className='recently-brand' src={tpLogo} alt='' />
-									)}
+
+									<img src={tpLogo} alt='' className='recently-brand' />
 
 									<div className='recently-title'>
 										{gameName[langId] ?? gameName['en']}
@@ -102,4 +89,4 @@ const RecentlyViewGames = () => {
 	)
 }
 
-export { RecentlyViewGames }
+export default RecentlyViewGames

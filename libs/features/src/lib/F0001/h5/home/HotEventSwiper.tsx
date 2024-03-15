@@ -121,4 +121,4 @@ const HotEventSwiper = () => {
 	)
 }
 
-export { HotEventSwiper }
+export default HotEventSwiper

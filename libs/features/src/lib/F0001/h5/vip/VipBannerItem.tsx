@@ -1,4 +1,3 @@
-import Image from 'next/future/image'
 import { capitalize } from 'lodash-es'
 import { IBannerByCurrencyData } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
@@ -28,15 +27,7 @@ const VipBannerItem = ({
 
 	return (
 		<div className={`swiper-slide ${levelText}`} key={level}>
-			{isUrl(url) && (
-				<Image
-					className='vipbanner'
-					width={1020}
-					height={1230}
-					src={url}
-					alt='vipbanner'
-				/>
-			)}
+			{isUrl(url) && <img className='vipbanner' src={url} alt='vipbanner' />}
 			<div className='vipinfo'>
 				{t('Label_Vip_Monthly_Minimum_Deposit')}
 				<span>

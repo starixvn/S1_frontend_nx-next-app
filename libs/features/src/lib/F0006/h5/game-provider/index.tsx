@@ -1,6 +1,5 @@
 import React from 'react'
 import { find } from 'lodash-es'
-import Image from 'next/future/image'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -57,11 +56,9 @@ const GameProvider = ({
 									})
 								}
 							>
-								<Image
+								<img
 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/venderlogo/${imgName}.png`}
 									alt={imgName}
-									width={80}
-									height={55}
 								/>
 							</button>
 						)

@@ -1,10 +1,10 @@
 import { find } from 'lodash-es'
 import React, { useState } from 'react'
 import dynamic from 'next/dynamic'
-import Image from 'next/future/image'
 import { useMenu } from '@nx-next-app/features/F0006/hooks'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import type { IFooterData } from '@nx-next-app/types'
+import { Img } from '../../image'
 
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
@@ -60,12 +60,10 @@ const PlatForm = ({
 								})
 							}
 						>
-							<Image
+							<Img
 								style={{ width: 'auto', height: '55px' }}
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/venderlogo/${displayImgName}.png`}
 								alt={`logo ${imgName}`}
-								width={80}
-								height={55}
 								onMouseOver={() => setOnMouseOverImg(imgName)}
 								onMouseOut={() => setOnMouseOverImg('')}
 							/>

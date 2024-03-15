@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import Image from 'next/future/image'
 import Head from 'next/head'
 import { useTranslation } from 'next-i18next'
 import { ISeoData } from 'libs/web/src/app/types/footer'
@@ -73,11 +72,9 @@ const License = () => {
 						<>
 							<div className='title'>
 								{t('Label_Gaming_License')}
-								<Image
+								<img
 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/license_tick.png`}
 									alt='vaild gaming license'
-									width={30}
-									height={30}
 								/>
 							</div>
 							<div>
@@ -99,11 +96,9 @@ const License = () => {
 										target='_blank'
 										rel='noreferrer'
 									>
-										<Image
+										<img
 											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/aware.png`}
 											alt=''
-											width={115}
-											height={23}
 											style={{ width: '115px', height: '23px' }}
 										/>
 									</a>

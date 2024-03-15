@@ -1,7 +1,6 @@
 import { useTranslation } from 'next-i18next'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { CurrenciesEnum } from '@nx-next-app/types'
-import Image from 'next/future/image'
 import { includes } from 'lodash-es'
 import { SpinButton } from '@nx-next-app/components/H0001'
 import { numberFormat } from '@nx-next-app/utils'
@@ -22,12 +21,7 @@ const WalletInfo = () => {
 		<>
 			{userLevelImageInfo?.url ? (
 				<div className='vip_mark'>
-					<Image
-						src={userLevelImageInfo?.url}
-						alt={userLevelImageInfo?.alt}
-						width={126}
-						height={106}
-					/>
+					<img src={userLevelImageInfo?.url} alt={userLevelImageInfo?.alt} />
 					{includes(
 						ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],
 						currencyId

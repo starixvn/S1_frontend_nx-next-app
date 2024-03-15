@@ -1,5 +1,4 @@
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 
 const Features = () => {
@@ -40,44 +39,34 @@ const Features = () => {
 				</ul>
 			</div>
 			<div className='joinAnimation'>
-				<Image
+				<img
 					className='animationlogo'
 					alt='logo'
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/logo.png`}
-					width={187}
-					height={40}
 					style={{ width: '187px', height: '40px' }}
 				/>
-				<Image
+				<img
 					className='npc1'
 					alt='npc1'
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/joinNpc01.png`}
-					width={187}
-					height={274}
 					style={{ width: '187px', height: '274px' }}
 				/>
-				<Image
+				<img
 					className='npc2'
 					alt='npc2'
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/joinNpc02.png`}
-					width={306}
-					height={233}
 					style={{ width: '306px', height: '233px' }}
 				/>
-				<Image
+				<img
 					className='welcome'
 					alt='welcome'
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/welcome.png`}
-					width={49}
-					height={313}
 					style={{ width: '49px', height: '313px' }}
 				/>
-				<Image
+				<img
 					className='back'
 					alt='back'
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/back.png`}
-					width={17}
-					height={57}
 					style={{ width: '17px', height: '57px' }}
 				/>
 			</div>

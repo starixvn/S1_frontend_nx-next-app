@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { useSlots } from '@nx-next-app/features/F0006/providers'
@@ -22,11 +21,9 @@ const GameInfo = () => {
 	return (
 		<div className='slotpopup active' style={{ zIndex: 10 }}>
 			<div className='slotFunction'>
-				<Image
+				<img
 					src={`${imgUrl}/${activeGame?.resultTpName}/${activeGame?.imgName[langId]}`}
 					alt={activeGame?.resultGameName as string}
-					width={300}
-					height={300}
 				/>
 
 				<div className='gameTitle'>

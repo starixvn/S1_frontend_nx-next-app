@@ -1,4 +1,3 @@
-import Image from 'next/future/image'
 import Carousel from '..'
 
 const IMAGE_LIST: { alt: string; url: string }[] = []
@@ -9,7 +8,7 @@ export const BasicCarousel = () => {
 		<Carousel>
 			{IMAGE_LIST.map(item => (
 				<div key={item.alt}>
-					<Image src={item.url} alt={item.alt} height={365} width={1400} />
+					<img src={item.url} alt={item.alt} />
 				</div>
 			))}
 		</Carousel>
@@ -22,7 +21,7 @@ export const BasicWithNoCore = () => {
 		<Carousel navigation={false} pagination={false} autoplay={false}>
 			{IMAGE_LIST.map(item => (
 				<div key={item.alt}>
-					<Image src={item.url} alt={item.alt} height={365} width={1400} />
+					<img src={item.url} alt={item.alt} height={365} width={1400} />
 				</div>
 			))}
 		</Carousel>
@@ -35,7 +34,7 @@ export const BasicWithClassName = () => {
 		<Carousel className='testClassName'>
 			{IMAGE_LIST.map(item => (
 				<div key={item.alt}>
-					<Image src={item.url} alt={item.alt} height={365} width={1400} />
+					<img src={item.url} alt={item.alt} />
 				</div>
 			))}
 		</Carousel>

@@ -1,6 +1,4 @@
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
-
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { isUrl } from '@nx-next-app/utils'
 import { useRouter } from 'next/router'
@@ -53,7 +51,7 @@ const HotGameSwiper = () => {
 				<a>
 					<div className='hotgame-item'>
 						{isUrl(gameLogo) ? (
-							<Image src={gameLogo} width={300} height={300} alt={gameName} />
+							<img src={gameLogo} alt={gameName} />
 						) : (
 							<img src={gameLogo} alt={gameName} />
 						)}
@@ -88,4 +86,4 @@ const HotGameSwiper = () => {
 	) : null
 }
 
-export { HotGameSwiper }
+export default HotGameSwiper

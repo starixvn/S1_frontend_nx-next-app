@@ -17,17 +17,6 @@ import { CurrenciesEnum } from '@nx-next-app/types'
 import { multiEqual } from '@nx-next-app/utils'
 import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
 import Menu from './menu'
-import { PromotionSwiper } from './PromotionSwiper'
-import { HotEventSwiper } from './HotEventSwiper'
-import { HotGameSwiper } from './HotGameSwiper'
-import { RecentlyViewGames } from './RecentlyViewGames'
-import { FriendReferral } from './FriendReferral'
-import CarouselBanner from '../common/carouselBanner'
-import { AppDownload } from './AppDownload'
-import { SimpleFooter } from './SimpleFooter'
-import { FooterBlock } from './footerBlock'
-import { JackPotSwiper } from './JackPotSwiper'
-import { PartnerBlock } from './PartnerBlock'
 
 interface IHomeProps {
 	persistAppDownloadHint: string
@@ -38,6 +27,32 @@ const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
 const LiveStreamingLink = dynamic(() => import('../common/liveStreamingLink'), {
 	ssr: false,
 })
+
+const CarouselBanner = dynamic(() => import('../common/carouselBanner'), {
+	ssr: false,
+})
+
+const PromotionSwiper = dynamic(() => import('./PromotionSwiper'))
+
+const HotEventSwiper = dynamic(() => import('./HotEventSwiper'))
+
+const HotGameSwiper = dynamic(() => import('./HotGameSwiper'))
+
+const RecentlyViewGames = dynamic(() => import('./RecentlyViewGames'), {
+	ssr: false,
+})
+
+const FriendReferral = dynamic(() => import('./FriendReferral'), { ssr: false })
+
+const AppDownload = dynamic(() => import('./AppDownload'))
+
+const SimpleFooter = dynamic(() => import('./SimpleFooter'))
+
+const FooterBlock = dynamic(() => import('./footerBlock'))
+
+const JackPotSwiper = dynamic(() => import('./JackPotSwiper'), { ssr: false })
+
+const PartnerBlock = dynamic(() => import('./PartnerBlock'))
 
 const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 	const { push } = useRouter()

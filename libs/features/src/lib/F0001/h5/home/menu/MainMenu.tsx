@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import Image from 'next/future/image'
 import { useRouter } from 'next/router'
 import { useState, useEffect, startTransition } from 'react'
 import { useTranslation } from 'next-i18next'
@@ -8,7 +7,7 @@ import { paths } from '@nx-next-app/constants'
 import { MenuIconTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 import { type IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
-import SubMenu from '@nx-next-app/features/F0001/h5/home/menu/SubMenu'
+import SubMenu from './SubMenu'
 
 interface IMenuProps {
 	menuList: IMergedMenuData[]
@@ -81,11 +80,9 @@ const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 						>
 							{hasNewIcon && <div className='new-icon'>New</div>}
 							<div className='btn-circle'>
-								<Image
+								<img
 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/${icon}-icon.png`}
 									alt={icon!}
-									width={30}
-									height={30}
 								/>
 							</div>
 							<div>{menuText}</div>
@@ -102,11 +99,9 @@ const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 						}}
 					>
 						<div className='btn-circle'>
-							<Image
+							<img
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/slots-icon.png`}
 								alt='Slots'
-								width={30}
-								height={30}
 							/>
 						</div>
 						<div>{t('Label_General_Slots')}</div>

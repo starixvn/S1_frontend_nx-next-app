@@ -76,4 +76,4 @@ const ProvidersBlock = () => {
 	)
 }
 
-export { ProvidersBlock }
+export default ProvidersBlock

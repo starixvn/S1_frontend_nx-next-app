@@ -2,7 +2,6 @@ import classNames from 'classnames'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
-import Image from 'next/future/image'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
@@ -55,10 +54,8 @@ const Profile = () => {
 				<div className='menu-top-profile'>
 					<div className='profile-item'>
 						<div>
-							<Image
+							<img
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/profile-2.png`}
-								width={31}
-								height={31}
 								alt='profile'
 							/>
 							<div>
@@ -72,10 +69,8 @@ const Profile = () => {
 						</div>
 						<Link href={paths.message.root}>
 							<a className={classNames('message', { active: msgCount > 0 })}>
-								<Image
+								<img
 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/message-2.png`}
-									width={23}
-									height={23}
 									alt='message'
 								/>
 								{popupMsg?.id && (
@@ -125,10 +120,8 @@ const Profile = () => {
 				<div className='bank-list'>
 					<Link href={paths.withdrawal.root}>
 						<a>
-							<Image
+							<img
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/withdrawal-2.png`}
-								width={39}
-								height={39}
 								alt='withdrawal'
 							/>
 							<div>{t('Label_General_Withdrawal')}</div>
@@ -136,10 +129,8 @@ const Profile = () => {
 					</Link>
 					<Link href={paths.statement.root}>
 						<a>
-							<Image
+							<img
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/statement.png`}
-								width={39}
-								height={39}
 								alt='statement'
 							/>
 							<div>{t('Label_General_Statement')}</div>
@@ -147,10 +138,8 @@ const Profile = () => {
 					</Link>
 					<Link href={paths.financialLog.root}>
 						<a>
-							<Image
+							<img
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/financial.png`}
-								width={39}
-								height={39}
 								alt='financial'
 							/>
 							<div>{t('Label_General_FinancialLog')}</div>
@@ -158,10 +147,8 @@ const Profile = () => {
 					</Link>
 					<Link href={paths.bankInfo.root}>
 						<a>
-							<Image
+							<img
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/bankinfo.png`}
-								width={39}
-								height={39}
 								alt='bankinfo'
 							/>
 							<div>{t('Label_General_BankInfo')}</div>
@@ -213,12 +200,7 @@ const Profile = () => {
 						</div>
 					</div>
 					<div className='right'>
-						<Image
-							src={headerUrl as string}
-							width={66}
-							height={66}
-							alt={levelTabsName as string}
-						/>
+						<img src={headerUrl as string} alt={levelTabsName as string} />
 						{!isVipLevelHighest && (
 							<>
 								<div className='dot-progress'>
@@ -226,10 +208,8 @@ const Profile = () => {
 										<div className='progress-now-vertical' />
 									</div>
 								</div>
-								<Image
+								<img
 									src={nextVipLevelInfo?.headerUrl as string}
-									width={66}
-									height={66}
 									alt={nextVipLevelInfo?.levelTabsName as string}
 								/>
 							</>

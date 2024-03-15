@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic'
-import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -23,7 +22,7 @@ const UnderMaintenanceModal = dynamic(
 	}
 )
 
-const Index = () => {
+const HotMatch = () => {
 	const { t } = useTranslation()
 	const { onStaticMenuOpen } = useMenu()
 	const { modal } = useGlobalModal()
@@ -63,11 +62,9 @@ const Index = () => {
 				<HotEventSwiper />
 				<div className='hotsports'>
 					<div className='hotsports-item'>
-						<Image
+						<img
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-sports-soccer.png`}
 							alt='sports-soccer'
-							width={900}
-							height={600}
 						/>
 						<button
 							className='all-btn'
@@ -86,11 +83,9 @@ const Index = () => {
 						</button>
 					</div>
 					<div className='hotsports-item'>
-						<Image
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-sports-crypto.png`}
-							alt='sports-crypto'
-							width={900}
-							height={600}
+						<img
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-sports-badminton.png`}
+							alt='sports-badminton'
 						/>
 						<button
 							className='all-btn'
@@ -109,11 +104,9 @@ const Index = () => {
 						</button>
 					</div>
 					<div className='hotsports-item'>
-						<Image
+						<img
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-sports-basketball.png`}
 							alt='sports-basketball'
-							width={900}
-							height={600}
 						/>
 						<button
 							className='all-btn'
@@ -137,4 +130,4 @@ const Index = () => {
 	)
 }
 
-export { Index as HotMatch }
+export default HotMatch

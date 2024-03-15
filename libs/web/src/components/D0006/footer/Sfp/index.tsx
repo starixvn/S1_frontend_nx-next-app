@@ -1,4 +1,3 @@
-import Image from 'next/future/image'
 import { footerImgName } from 'libs/features/src/lib/F0001/types'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
@@ -40,11 +39,10 @@ const Sfp = ({
 					<div>
 						{socialChannelList.map(({ link, channelName, title }) => (
 							<a key={channelName} href={link} target='_blank' rel='noreferrer'>
-								<Image
+								<img
 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${footerImgName[channelName]}`}
 									alt={title}
-									width={30}
-									height={30}
+									style={{ height: 30, width: 30 }}
 								/>
 							</a>
 						))}
@@ -56,16 +54,8 @@ const Sfp = ({
 				<div>
 					<div className='title'>{t('Label_Suggested_Browser')}</div>
 					<div>
-						{suggestedBrowser.map(({ imageSrc, alt, width, height }) => {
-							return (
-								<Image
-									key={alt}
-									src={imageSrc}
-									alt={alt}
-									width={width}
-									height={height}
-								/>
-							)
+						{suggestedBrowser.map(({ imageSrc, alt }) => {
+							return <img key={alt} src={imageSrc} alt={alt} />
 						})}
 					</div>
 				</div>
@@ -77,7 +67,7 @@ const Sfp = ({
 					<div className='paymentLogo'>
 						{paymentMethods.map(({ name, img }) => (
 							<a role='link' aria-hidden key={name}>
-								<Image src={img} alt={name} width={50} height={32} />
+								<img src={img} alt={name} />
 							</a>
 						))}
 					</div>

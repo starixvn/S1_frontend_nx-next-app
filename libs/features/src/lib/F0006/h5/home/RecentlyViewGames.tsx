@@ -1,6 +1,4 @@
 import classNames from 'classnames'
-import Image from 'next/future/image'
-import { isUrl } from '@nx-next-app/utils'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
@@ -53,28 +51,13 @@ const RecentlyViewGames = () => {
 								})}
 							>
 								<div>
-									<Image
+									<img
 										className='recently-image'
 										src={gameLogo[langId] ?? gameLogo['en']}
-										width={300}
-										height={300}
 										alt='recently-image'
 									/>
-									{isUrl(tpLogo) ? (
-										<Image
-											src={tpLogo}
-											width={87}
-											height={55}
-											alt='recently-brand'
-											className='recently-brand'
-										/>
-									) : (
-										<img
-											className='recently-brand'
-											src={tpLogo}
-											alt='recently-brand'
-										/>
-									)}
+
+                  <img src={tpLogo} alt='' className='recently-brand' />
 
 									<div className='recently-title'>
 										{gameName[langId] ?? gameName['en']}

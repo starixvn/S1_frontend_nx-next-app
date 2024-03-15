@@ -2,7 +2,6 @@ import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { isUrl } from '@nx-next-app/utils'
-import Image from 'next/future/image'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -31,7 +30,7 @@ const PromotionSwiper = () => {
 						>
 							<div>
 								{isUrl(banner) ? (
-									<Image src={banner} alt={title} width={1920} height={500} />
+									<img src={banner} alt={title} />
 								) : (
 									<img src={banner} alt={title} />
 								)}
@@ -44,4 +43,4 @@ const PromotionSwiper = () => {
 	)
 }
 
-export { PromotionSwiper }
+export default PromotionSwiper

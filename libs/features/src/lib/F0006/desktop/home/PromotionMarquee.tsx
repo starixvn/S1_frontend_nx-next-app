@@ -1,8 +1,6 @@
-import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
 import ReactMarquee from 'react-fast-marquee'
 import { paths } from '@nx-next-app/constants'
-import { isUrl } from '@nx-next-app/utils'
 import { useHome } from '@nx-next-app/features/F0006/providers'
 import { toUpper } from 'lodash-es'
 import { useRouter } from 'next/router'
@@ -41,14 +39,7 @@ const PromotionMarquee = () => {
 												}}
 											>
 												<div>
-													{isUrl(banner) ? (
-														<Image
-															src={banner}
-															alt={title}
-															width={1920}
-															height={500}
-														/>
-													) : null}
+													<img src={banner} alt={title} />
 												</div>
 												<div className='title'>{title}</div>
 												<div className='btnGroup'>

@@ -4,7 +4,6 @@ import { useTranslation } from 'next-i18next'
 import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
-import Image from 'next/future/image'
 import { includes } from 'lodash'
 import { useAuth } from '../../../../data-access'
 import { paths } from '../../../../app/constants'
@@ -46,12 +45,7 @@ const MemberFile = ({ userLevelImageInfo }: IMemberFileProps) => {
 							}
 						}}
 					>
-						<Image
-							src={userLevelImageInfo.url}
-							alt={userLevelImageInfo.alt}
-							width={30}
-							height={25}
-						/>
+						<img src={userLevelImageInfo.url} alt={userLevelImageInfo.alt} />
 					</a>
 				</Link>
 			) : (

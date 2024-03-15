@@ -1,6 +1,5 @@
 import { IFooterData, ISeoData } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 import { useEffect } from 'react'
 import Head from 'next/head'
 
@@ -53,11 +52,9 @@ const License = ({
 								target='_blank'
 								rel='noreferrer'
 							>
-								<Image
+								<img
 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/aware.png`}
 									alt=''
-									width={115}
-									height={23}
 									style={{ width: '115px', height: '23px' }}
 								/>
 							</a>

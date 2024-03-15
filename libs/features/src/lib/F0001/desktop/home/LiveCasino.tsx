@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
 import { paths, PRODUCTS } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -52,11 +51,9 @@ const LiveCasino = () => {
 			</div>
 			{currencyId === CurrenciesEnum.INR ? (
 				<div className='livecasino-bn'>
-					<Image
+					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-livecasino-sg-2.png`}
 						alt='casino_SA'
-						width={1920}
-						height={749}
 					/>
 					<button
 						className='all-btn'
@@ -76,11 +73,9 @@ const LiveCasino = () => {
 				</div>
 			) : (
 				<div className='livecasino-bn'>
-					<Image
+					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-livecasino-pp.png`}
 						alt='casino_PP'
-						width={1920}
-						height={749}
 					/>
 					<button
 						className='all-btn'
@@ -102,11 +97,9 @@ const LiveCasino = () => {
 
 			<div className='main-livecasino-item'>
 				<div className='hotlivecasino'>
-					<Image
+					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-livecasino-sexy.png`}
 						alt='casino_AE'
-						width={900}
-						height={602}
 					/>
 					<button
 						className='all-btn'
@@ -125,11 +118,9 @@ const LiveCasino = () => {
 					</button>
 				</div>
 				<div className='hotlivecasino'>
-					<Image
+					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-livecasino-evo.png`}
 						alt='casino_EVO'
-						width={900}
-						height={602}
 					/>
 					<button
 						className='all-btn'
@@ -150,11 +141,9 @@ const LiveCasino = () => {
 				{/* // * BDT幣別不支援 DG，改為開始 SG 產品 */}
 				{currencyId === CurrenciesEnum.BDT ? (
 					<div className='hotlivecasino'>
-						<Image
+						<img
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-livecasino-sg.png`}
 							alt='casino_SG'
-							width={900}
-							height={602}
 						/>
 						<button
 							className='all-btn'
@@ -174,11 +163,9 @@ const LiveCasino = () => {
 					</div>
 				) : (
 					<div className='hotlivecasino'>
-						<Image
+						<img
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-livecasino-dg.png`}
 							alt='casino_DG'
-							width={900}
-							height={602}
 						/>
 						<button
 							className='all-btn'
@@ -202,4 +189,4 @@ const LiveCasino = () => {
 	)
 }
 
-export { LiveCasino }
+export default LiveCasino

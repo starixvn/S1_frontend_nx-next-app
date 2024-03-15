@@ -2,10 +2,8 @@ import React, { createContext, ReactNode, useContext, useEffect } from 'react'
 import {
 	IAnnouncementData,
 	IBannerData,
-	IHighlightData,
 	IHotEventData,
 	IHotGame,
-	INewsData,
 	IPromotionData,
 	ISlotsGameData,
 	ISocialChannelData,
@@ -32,7 +30,7 @@ import {
 } from '@nx-next-app/features/F0001/types'
 import { paths } from '@nx-next-app/constants'
 import { useRouter } from 'next/router'
-import { filter, find, head } from 'lodash-es'
+import { find, head } from 'lodash-es'
 import dayjs from 'dayjs'
 import isBetween from 'dayjs/plugin/isBetween'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
@@ -44,10 +42,8 @@ interface IHomeProviderProps {
 	persistAnnouncementData: IAnnouncementData[]
 	persistBannerData: IBannerData[]
 	persistPromotionData: IPromotionData[]
-	persistLatestHighlightVideo: IHighlightData
 	persistHotEventData: IHotEventData[]
 	persistHotGameData: IHotGame[]
-	persistNewsData: INewsData[]
 	persistSlotsGameData?: ISlotsGameData
 	// For H5
 	persistLicenseData: IFooterData['licenseData']
@@ -68,10 +64,8 @@ export interface HomeContextInterface {
 	promotionData: IPromotionData[]
 	bannerData: IBannerData[]
 	hotEventData: IHotEventData[] | null
-	latestHighlightVideo: IHighlightData
 	jackPotCurrencies: CurrenciesEnum[]
 	hotGameData: IHotGame[]
-	newsData: INewsData[]
 	socialChannelList: ISocialChannelData[]
 	footerSocialChannelList: ISocialChannelData[]
 	slotGameData?: ISlotsGameData
@@ -187,7 +181,6 @@ const defaultDesktopHomeOrders = [
 	DesktopHomeComponentsEnum.HotMatch,
 	DesktopHomeComponentsEnum.LiveCasino,
 	DesktopHomeComponentsEnum.HotGame,
-	DesktopHomeComponentsEnum.RecentlyViewGames,
 	DesktopHomeComponentsEnum.AppDownloadBanner,
 	DesktopHomeComponentsEnum.ProviderBlock,
 	DesktopHomeComponentsEnum.OfficialPartner,
@@ -211,7 +204,6 @@ const defaultMobileHomeOrders = [
 
 export const HomeProvider = ({
 	children,
-	persistNewsData,
 	persistQuickLinksList,
 	persistPlatformList,
 	persistBannerData,
@@ -220,7 +212,6 @@ export const HomeProvider = ({
 	persistHotGameData,
 	persistLicenseData,
 	persistAnnouncementData,
-	persistLatestHighlightVideo,
 	persistSlotsGameData = {},
 	desktopHomeOrders = defaultDesktopHomeOrders,
 	mobileHomeOrders = defaultMobileHomeOrders,
@@ -342,13 +333,6 @@ export const HomeProvider = ({
 			loginCallback()
 		}
 	}
-
-	const promotionData = filter(
-		persistPromotionData,
-		({ displayFrom, displayTo }) => {
-			return dayjs().isBetween(dayjs.unix(displayFrom), dayjs.unix(displayTo))
-		}
-	)
 
 	const formatHdp = (hdp: number) => {
 		if (hdp === 0) return hdp
@@ -637,15 +621,13 @@ export const HomeProvider = ({
 		jackPotCurrencies,
 		socialChannelList,
 		footerSocialChannelList,
-		promotionData,
+		promotionData: persistPromotionData,
 		hotEventData,
 		slotGameData: persistSlotsGameData,
 		licenseData: persistLicenseData,
 		platformList: persistPlatformList,
 		bannerData: persistBannerData,
-		latestHighlightVideo: persistLatestHighlightVideo,
 		hotGameData: persistHotGameData,
-		newsData: persistNewsData,
 		referralData,
 		affiliateData,
 		handlePromotionClick,
