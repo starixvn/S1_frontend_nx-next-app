@@ -3,7 +3,6 @@ import { includes } from 'lodash-es'
 import { paths } from '@nx-next-app/constants'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
-import Image from 'next/future/image'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
@@ -129,13 +128,11 @@ const SubMenu = ({
 
 									if (isNpc(img)) {
 										return (
-											<Image
+											<img
 												key={img.remoteImgUrl}
 												className={classNames(img.className)}
 												alt={img.remoteImgUrl}
 												src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${img.remoteImgUrl}`}
-												width={150}
-												height={200}
 											/>
 
 											// TODO : 目前使用 nova 資料的圖片，之後需更換成 yashbet
@@ -153,13 +150,11 @@ const SubMenu = ({
 										)
 									}
 									return (
-										<Image
+										<img
 											key={img.imgUrl}
 											className={classNames(img.className)}
 											alt={img.imgUrl}
 											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${img.imgUrl}`}
-											width={150}
-											height={200}
 										/>
 									)
 								})}
@@ -193,12 +188,10 @@ const SubMenu = ({
 						<a>
 							{desktopSubMenuVipImageList.map(({ imgUrl, className }) => {
 								return (
-									<Image
+									<img
 										className={className}
 										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${imgUrl}`}
 										alt='vip'
-										width={150}
-										height={200}
 									/>
 								)
 							})}
@@ -212,12 +205,10 @@ const SubMenu = ({
 							{desktopSubMenuLeaderBoardImageList.map(
 								({ imgUrl, className }) => {
 									return (
-										<Image
+										<img
 											className={className}
 											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${imgUrl}`}
 											alt='leaderBoard'
-											width={150}
-											height={200}
 										/>
 									)
 								}
@@ -235,12 +226,10 @@ const SubMenu = ({
 				>
 					{desktopSunMenuReferralImageList.map(({ imgUrl, className }) => {
 						return (
-							<Image
+							<img
 								className={className}
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${imgUrl}`}
 								alt='referral'
-								width={150}
-								height={200}
 							/>
 						)
 					})}

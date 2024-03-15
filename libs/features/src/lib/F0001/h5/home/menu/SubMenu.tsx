@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import Image from 'next/future/image'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { paths } from '@nx-next-app/constants'
@@ -86,12 +85,7 @@ const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
 					>
 						<div className='gamelist-img'>
 							{isNew && <div className='new-icon'>New</div>}
-							<Image
-								src={suBMenuImage}
-								alt={productName}
-								width={86}
-								height={86}
-							/>
+							<img src={suBMenuImage} alt={productName} />
 							<div className='gamelist-title'>{displayName || productName}</div>
 						</div>
 					</button>

@@ -185,7 +185,7 @@ const SubMenu = ({
 
 			{menus}
 
-			<div
+			<a
 				className={classNames(`promoList ${langId}`, {
 					active: debouncedMenuKey === 'Promotion',
 				})}
@@ -194,7 +194,7 @@ const SubMenu = ({
 				onMouseLeave={() => setMenuKey(undefined)}
 			>
 				<div />
-			</div>
+			</a>
 			<div
 				className={classNames(`vipList ${langId}`, {
 					active: debouncedMenuKey === 'VIP',
@@ -204,7 +204,7 @@ const SubMenu = ({
 			>
 				<div />
 			</div>
-			<button
+			<a
 				className={classNames(`rankingList ${langId}`, {
 					active: debouncedMenuKey === 'LeaderBoard',
 				})}
@@ -213,7 +213,7 @@ const SubMenu = ({
 				onMouseLeave={() => setMenuKey(undefined)}
 			>
 				<div />
-			</button>
+			</a>
 		</div>
 	)
 }

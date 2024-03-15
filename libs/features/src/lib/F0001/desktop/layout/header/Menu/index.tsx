@@ -12,6 +12,7 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	LobbyCategoryEnum,
 	MainMenuIcon,
+	MenuActionTypeEnum,
 	MenuIconTypeEnum,
 } from '@nx-next-app/types'
 import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
@@ -94,7 +95,7 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 		// * 目前動態 menu 只支援 New
 		const icon = (hasNewIcon && switchMainMenuIcon(MainMenuIcon.newTag)) || null
 
-		// * 特例 Sport Soccer
+		// * 特例 Sport Soccer (需轉 EnterPage)
 		if (lobbyCategoryId === LobbyCategoryEnum.Sports) {
 			const soccerItem = subMenu?.find(
 				sportSubItem => sportSubItem.tpGameIdNo === PRODUCTS.Soccer.tpGameIdNo
@@ -106,12 +107,18 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 					type='button'
 					aria-label='menu-item'
 					onClick={() =>
-						onMenuOpen(soccerItem, {
-							loginCallback: () => modal.open(<LoginModal />),
-							messageCallBack: message => modal.error(message),
-							liveStreamingCallback: () =>
-								modal.open(<LiveStreamingModalDesktop />),
-						})
+						onMenuOpen(
+							{
+								...soccerItem,
+								desktop: { menuActionType: MenuActionTypeEnum.EnterPage },
+							} as IDynamicSubMenuItem,
+							{
+								loginCallback: () => modal.open(<LoginModal />),
+								messageCallBack: message => modal.error(message),
+								liveStreamingCallback: () =>
+									modal.open(<LiveStreamingModalDesktop />),
+							}
+						)
 					}
 					onMouseEnter={() => setMenuKey(category)}
 				>

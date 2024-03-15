@@ -1,6 +1,5 @@
 import classNames from 'classnames'
 import { includes } from 'lodash-es'
-import Image from 'next/future/image'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
@@ -97,12 +96,10 @@ const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
 
 								if (isNpc(image)) {
 									return (
-										<Image
+										<img
 											key={image.remoteImgUrl}
 											className={classNames(image.className)}
 											alt={image.remoteImgUrl}
-											width={102}
-											height={136}
 											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/dropdown/${image.remoteImgUrl}`}
 										/>
 										// TODO : 用 yashbet 資料時須改回來
@@ -117,12 +114,10 @@ const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
 								}
 
 								return (
-									<Image
+									<img
 										key={image.imgUrl}
 										className={classNames(image.className)}
 										alt={image.imgUrl}
-										width={102}
-										height={136}
 										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/dropdown/${image.imgUrl}`}
 									/>
 								)
