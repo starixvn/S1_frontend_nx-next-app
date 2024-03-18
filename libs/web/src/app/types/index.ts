@@ -69,6 +69,8 @@ export interface IStaticAllowedCurrencies {
 
 	JACKPOT?: CurrenciesEnum[]
 
+	ESPORT_IM_E_SPORT?: CurrenciesEnum[]
+
 	SPORTS_CRICKET?: CurrenciesEnum[]
 	SPORTS_SABA_CLUB?: CurrenciesEnum[]
 	SPORTS_VOLLEYBALL?: CurrenciesEnum[]
