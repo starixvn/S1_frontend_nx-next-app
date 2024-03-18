@@ -174,7 +174,7 @@ export const MENU_DATA = ({
 			desktop: {
 				className: 'sportsbtn',
 				subMenuClassName: 'sportsList',
-				menuActionType,
+				menuActionType: MenuActionTypeEnum.EnterPage,
 			},
 			displayKey: 'Label_General_Sports',
 			pathname: paths.sports.root,
