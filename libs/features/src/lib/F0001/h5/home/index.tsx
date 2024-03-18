@@ -16,7 +16,6 @@ import dynamic from 'next/dynamic'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { multiEqual } from '@nx-next-app/utils'
 import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
-import Menu from './menu'
 
 interface IHomeProps {
 	persistAppDownloadHint: string
@@ -53,6 +52,8 @@ const FooterBlock = dynamic(() => import('./footerBlock'))
 const JackPotSwiper = dynamic(() => import('./JackPotSwiper'), { ssr: false })
 
 const PartnerBlock = dynamic(() => import('./PartnerBlock'))
+
+const Menu = dynamic(() => import('./menu'), { ssr: false })
 
 const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 	const { push } = useRouter()
