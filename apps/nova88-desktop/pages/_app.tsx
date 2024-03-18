@@ -2,6 +2,7 @@ import { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import { store } from '@nx-next-app/store'
 import { appWithTranslation } from 'next-i18next'
+import NextNProgress from 'nextjs-progressbar'
 import { UIProvider } from '@nx-next-app/components/config-provider'
 import { StaticDataProvider } from '@nx-next-app/data-access'
 
@@ -51,6 +52,7 @@ const {
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
+			<NextNProgress color='#2b66e6' />
 			<Provider store={store}>
 				{/* 提供 Component 狀態管理 */}
 				<UIProvider>
