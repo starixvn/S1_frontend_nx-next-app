@@ -108,7 +108,11 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 
 	return (
 		<>
-			<DepositModule title={t('Label_Payment_Method')} required>
+			<DepositModule
+				title={t('Label_Payment_Method')}
+				required
+				hasAdditionalInfo
+			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{dataSource.map(item => {
 						const { payName, minAmount, maxAmount } = item
@@ -129,7 +133,11 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 			</DepositModule>
 
 			{selBank && (
-				<DepositModule title={t('Label_BankInfo_SelectBank')} required>
+				<DepositModule
+					title={t('Label_BankInfo_SelectBank')}
+					required
+					hasAdditionalInfo
+				>
 					<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 						{paymentOnlineBankInfoSysList.map(item => {
 							const { bankCode, bankLogo, minAmount, maxAmount, sysId } = item

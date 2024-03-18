@@ -23,7 +23,7 @@ const PRODUCT_EVENT_PERIOD: {
 		start: null,
 		end: '2023/12/31 22:59:59',
 	},
-	PROMOS: { start: null, end: '2023/12/31 22:59:59' },
+	PROMOS: { start: '2020/12/31 22:59:59', end: null },
 	LUCKY_WHEEL: { start: '2021/12/13 00:00:00', end: null },
 	VIP: {
 		start: '2021/02/05 12:00:00',
@@ -174,7 +174,7 @@ export const MENU_DATA = ({
 			desktop: {
 				className: 'sportsbtn',
 				subMenuClassName: 'sportsList',
-				menuActionType,
+				menuActionType: MenuActionTypeEnum.EnterPage,
 			},
 			displayKey: 'Label_General_Sports',
 			pathname: paths.sports.root,
@@ -548,6 +548,7 @@ export const MENU_DATA = ({
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
+					allowCurrencies: ALLOWED_CURRENCIES['ESPORT_IM_E_SPORT'],
 					productKey: 'SPORTS_E_IMESPORTS',
 					displayKey: 'IM E-Sports',
 					product: PRODUCTS['SPORTS_E_IMESPORTS'],
@@ -2415,7 +2416,7 @@ export const MENU_DATA = ({
 				},
 				{
 					h5: {
-						img: '4.0/dropdown/fishing/of.png',
+						img: '4.0/dropdown/fishing/oneshotfishing.png',
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {

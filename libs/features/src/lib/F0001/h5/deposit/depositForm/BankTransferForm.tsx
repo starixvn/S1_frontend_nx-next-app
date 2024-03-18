@@ -65,7 +65,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
 	const onOpenBankSlipModal = () => {
-		if (bankAccountInfo?.bankName && bankAccountInfo?.bankSite) {
+		if (bankAccountInfo?.bankName) {
 			modal.open(
 				<DepositBankSlipModal
 					defaultReceipt={watchReceipt}
@@ -84,7 +84,11 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 
 	return (
 		<>
-			<DepositModule title={t('Label_BankInfo_SelectBank')} required>
+			<DepositModule
+				title={t('Label_BankInfo_SelectBank')}
+				required
+				hasAdditionalInfo
+			>
 				<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 					{dataSource.map(item => {
 						const {

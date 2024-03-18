@@ -61,7 +61,7 @@ export const cashierApi = createApi({
 			IPostDepositLoadCardPayReqArgs
 		>({
 			query: ({ langId, ...data }) => ({
-				url: `${langId}/${cashierApiUrl.getDepositReqCryptoLocalPay}`,
+				url: `${langId}/${cashierApiUrl.postDepositLoadCardPayReq}`,
 				method: 'POST',
 				data,
 			}),

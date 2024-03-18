@@ -1,7 +1,7 @@
-import { IFooterData, ISeoData } from '@nx-next-app/types'
-import { useTranslation } from 'next-i18next'
+import Script from 'next/script'
 import { useEffect } from 'react'
-import Head from 'next/head'
+import { useTranslation } from 'next-i18next'
+import { IFooterData, ISeoData } from '@nx-next-app/types'
 
 const License = ({
 	licenseData: { defaultScript, defaultXCMScript },
@@ -63,18 +63,14 @@ const License = ({
 				)}
 			</div>
 
-			<Head>
-				<script
-					src={`https://${CuracaoScript}.snippet.antillephone.com/apg-seal.js`}
-					async
-					defer
-				/>
-				<script
-					src={`https://${XCMScript}.seals-xcm.certria.com/xcm-seal.js`}
-					async
-					defer
-				/>
-			</Head>
+			<Script
+				src={`https://${CuracaoScript}.snippet.antillephone.com/apg-seal.js`}
+				strategy='lazyOnload'
+			/>
+			<Script
+				src={`https://${XCMScript}.seals-xcm.certria.com/xcm-seal.js`}
+				strategy='lazyOnload'
+			/>
 		</>
 	)
 }
