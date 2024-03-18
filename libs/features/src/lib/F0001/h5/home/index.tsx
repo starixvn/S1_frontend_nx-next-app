@@ -33,9 +33,9 @@ const CarouselBanner = dynamic(() => import('../common/carouselBanner'), {
 
 const PromotionSwiper = dynamic(() => import('./PromotionSwiper'))
 
-const HotEventSwiper = dynamic(() => import('./HotEventSwiper'), { ssr: false })
+const HotEventSwiper = dynamic(() => import('./HotEventSwiper'))
 
-const HotGameSwiper = dynamic(() => import('./HotGameSwiper'), { ssr: false })
+const HotGameSwiper = dynamic(() => import('./HotGameSwiper'))
 
 const RecentlyViewGames = dynamic(() => import('./RecentlyViewGames'), {
 	ssr: false,
@@ -43,15 +43,15 @@ const RecentlyViewGames = dynamic(() => import('./RecentlyViewGames'), {
 
 const FriendReferral = dynamic(() => import('./FriendReferral'), { ssr: false })
 
-const AppDownload = dynamic(() => import('./AppDownload'), { ssr: false })
+const AppDownload = dynamic(() => import('./AppDownload'))
 
-const SimpleFooter = dynamic(() => import('./SimpleFooter'), { ssr: false })
+const SimpleFooter = dynamic(() => import('./SimpleFooter'))
 
 const FooterBlock = dynamic(() => import('./footerBlock'))
 
 const JackPotSwiper = dynamic(() => import('./JackPotSwiper'), { ssr: false })
 
-const PartnerBlock = dynamic(() => import('./PartnerBlock'), { ssr: false })
+const PartnerBlock = dynamic(() => import('./PartnerBlock'))
 
 const Menu = dynamic(() => import('./menu'), { ssr: false })
 
