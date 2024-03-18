@@ -163,7 +163,10 @@ const useTopUpCardForm = ({
 			// * 存款 api 某些情境的錯誤會塞在 rawMessage
 			const { rawMessage, message } = error as IAxiosError
 
-			modal.error(rawMessage || message)
+			modal.error(rawMessage || message, {
+				icon: 'icon icon-bell',
+				title: t('Label_General_Information'),
+			})
 		}
 	}
 

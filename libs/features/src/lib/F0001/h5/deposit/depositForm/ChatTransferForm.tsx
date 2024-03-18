@@ -54,7 +54,11 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 
 	return (
 		<>
-			<DepositModule title={t('Label_Deposit_SelectChannel')} required>
+			<DepositModule
+				title={t('Label_Deposit_SelectChannel')}
+				required
+				hasAdditionalInfo
+			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{dataSource.map(item => {
 						const { channelName, channelId, minAmount, maxAmount } = item
@@ -75,7 +79,11 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 			</DepositModule>
 
 			{supportBanks.length > 0 && (
-				<DepositModule title={t('Label_BankInfo_SelectBank')} required>
+				<DepositModule
+					title={t('Label_BankInfo_SelectBank')}
+					required
+					hasAdditionalInfo
+				>
 					<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 						{supportBanks.map(item => {
 							const { sysId, bankName, minAmount, maxAmount } = item

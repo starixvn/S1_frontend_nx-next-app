@@ -63,6 +63,7 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 				title={t('Label_Deposit_SelectChannel')}
 				layout='vertical'
 				required
+				hasAdditionalInfo
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{dataSource.map(item => {
@@ -88,6 +89,7 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 					title={t('Label_BankInfo_SelectBank')}
 					layout='horizontal'
 					required
+					hasAdditionalInfo
 				>
 					<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 						{supportBanks.map(item => {
