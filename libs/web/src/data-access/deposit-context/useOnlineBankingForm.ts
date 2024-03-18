@@ -78,9 +78,12 @@ const useOnlineBankingForm = ({
 	const {
 		data: { data: paymentOnlineBankInfoSysList = [] } = {},
 		isFetching: isGetPaymentOnlineBankInfoSysListFetching,
-	} = useGetPaymentOnlineBankInfoSysListQuery({
-		payId: getValues('payId'),
-	})
+	} = useGetPaymentOnlineBankInfoSysListQuery(
+		{
+			payId: getValues('payId'),
+		},
+		{ skip: !getValues('payId') }
+	)
 
 	const [
 		checkDepositSpecialCode,
@@ -257,7 +260,7 @@ const useOnlineBankingForm = ({
 		}
 
 		push(url, undefined, { shallow: true })
-	}, [debouncedLoading, queryPaymentType, queryPaymentName])
+	}, [debouncedLoading, queryPaymentType, queryPaymentName, querySysId])
 
 	return {
 		formMethods,

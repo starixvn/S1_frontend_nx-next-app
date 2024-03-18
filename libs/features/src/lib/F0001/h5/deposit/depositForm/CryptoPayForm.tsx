@@ -113,7 +113,11 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 
 	return (
 		<>
-			<DepositModule title={t('Label_Payment_Method')} required>
+			<DepositModule
+				title={t('Label_Payment_Method')}
+				required
+				hasAdditionalInfo
+			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{cryptoPaymentList.map(item => {
 						const { groupName, minAmount, maxAmount } = item
@@ -133,7 +137,11 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 				</DepositModule.SubModuleButtonGroup>
 			</DepositModule>
 
-			<DepositModule title={t('Label_Deposit_SelectChannel')} required>
+			<DepositModule
+				title={t('Label_Deposit_SelectChannel')}
+				required
+				hasAdditionalInfo
+			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{cryptoChannelList.map(item => {
 						const { channelId, channelName, minAmount, maxAmount } = item
