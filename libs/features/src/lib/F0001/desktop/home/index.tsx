@@ -16,7 +16,7 @@ const HotMatch = dynamic(() => import('./hotMatch'))
 
 const LiveCasino = dynamic(() => import('./LiveCasino'))
 
-const HotGame = dynamic(() => import('./HotGame'))
+const HotGame = dynamic(() => import('./HotGame'), { ssr: false })
 
 const AppDownloadBanner = dynamic(() => import('./AppDownloadBanner'), {
 	ssr: false,
