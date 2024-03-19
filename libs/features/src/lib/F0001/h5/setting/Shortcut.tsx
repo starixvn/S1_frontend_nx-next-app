@@ -51,15 +51,13 @@ const Shortcut = () => {
 				</Link>
 			)}
 			{includes(ALLOWED_CURRENCIES['REWARDS'], currencyId) && (
-				<Link href='/rewards' passHref>
-					<a target='_blank' rel='noreferrer'>
-						<img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/88reward.png`}
-							alt='88reward'
-						/>
-						<span>{t('Label_General_88Reward')}</span>
-					</a>
-				</Link>
+				<a href='/rewards' target='_blank' rel='noreferrer'>
+					<img
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/88reward.png`}
+						alt='88reward'
+					/>
+					<span>{t('Label_General_88Reward')}</span>
+				</a>
 			)}
 			{includes(ALLOWED_CURRENCIES['LEADER_BOARD'], currencyId) && (
 				<Link href={paths.leaderBoard.root}>
