@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { CURRENCY_TO_LANG_KEY } from '@nx-next-app/constants'
+import { LIVESTREAM_CURRENCY_TO_LANG_KEY } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	useLazyGetDataListQuery,
@@ -53,7 +53,8 @@ const LiveStreamingLink = () => {
 		// 當currencyId為vn或th時顯示直播icon
 		if (
 			currencyId === LANG_TO_CURRENCY['vn'] ||
-			currencyId === LANG_TO_CURRENCY['th']
+			currencyId === LANG_TO_CURRENCY['th'] ||
+			currencyId === LANG_TO_CURRENCY['my']
 		) {
 			handleGetLiveStreamingList()
 		}
@@ -67,7 +68,7 @@ const LiveStreamingLink = () => {
 			/>
 			<button onClick={handleLiveSteamingModalOpen}>
 				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/livesports-${CURRENCY_TO_LANG_KEY[currencyId]}.png`}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/livesports-${LIVESTREAM_CURRENCY_TO_LANG_KEY[currencyId]}.png`}
 					alt='livesports'
 				/>
 			</button>
