@@ -32,13 +32,16 @@ export const getTpIds = async (
 	params: null,
 	config: AxiosRequestConfig
 ): Promise<number[]> => {
-	const { data: { data } = {} } = await baseAxios.post(
-		siteApiUrl.getTpIds,
-		params,
-		config
-	)
-
-	return data
+	try {
+		const { data: { data } = {} } = await baseAxios.post(
+			siteApiUrl.getTpIds,
+			params,
+			config
+		)
+		return data || []
+	} catch (error) {
+		return []
+	}
 }
 
 export const getBanner = async (
@@ -75,11 +78,19 @@ export const getVipBanner = async (
 	params: IGetVipBannerArgs,
 	config: AxiosRequestConfig
 ): Promise<IVipBannerData> => {
-	const { data: { data } = {} } = await baseAxios.post(
-		siteApiUrl.getVipBanner,
-		params,
-		config
-	)
+	const defaultVipBannerData: IVipBannerData = {
+		lastUpdateTime: '',
+		vipBannerData: [],
+	}
 
-	return data
+	try {
+		const { data: { data } = {} } = await baseAxios.post(
+			siteApiUrl.getVipBanner,
+			params,
+			config
+		)
+		return data || defaultVipBannerData
+	} catch (error) {
+		return defaultVipBannerData
+	}
 }
