@@ -246,9 +246,11 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 					</div>
 				)}
 			</Form>
-			<div className='text-center'>
-				{t('Label_Deposit_ProcessingDescription')}
-			</div>
+			{!watchCanSubmit && (
+				<div className='text-center' style={{ color: '#5574a7' }}>
+					{t('Label_Deposit_ProcessingDescription')}
+				</div>
+			)}
 		</>
 	)
 }
