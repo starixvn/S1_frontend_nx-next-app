@@ -6,7 +6,6 @@ import { HomeProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	AuthProvider,
 	GlobalDataProvider,
-	getAnnouncement,
 	getBanner,
 	getPromotion,
 	getHotEvent,
@@ -19,7 +18,6 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import {
-	IAnnouncementData,
 	IBannerData,
 	IHotEventData,
 	IHotGame,
@@ -44,7 +42,6 @@ import dayjs from 'dayjs'
 path.resolve('./next.config.js')
 
 interface IHomePageProps extends InitialPropsInterface {
-	persistAnnouncementData: IAnnouncementData[]
 	persistBannerData: IBannerData[]
 	persistPromotionData: IPromotionData[]
 	persistHotEventData: IHotEventData[]
@@ -57,7 +54,6 @@ const HomePage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-	persistAnnouncementData,
 	persistBannerData,
 	persistPromotionData,
 	persistHotEventData,
@@ -74,7 +70,6 @@ const HomePage = ({
 					footerData={persistFooterData}
 				>
 					<HomeProvider
-						persistAnnouncementData={persistAnnouncementData}
 						persistBannerData={persistBannerData}
 						persistPromotionData={persistPromotionData}
 						persistHotEventData={persistHotEventData}
@@ -102,14 +97,12 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	}
 
 	const [
-		persistAnnouncementData,
 		persistBannerData,
 		rawPromotionData,
 		persistHotEventData,
 		hotGameData,
 		persistSlotsGameData,
 	] = await Promise.all([
-		getAnnouncement({ langId, currencyId }),
 		getBanner(
 			{
 				langId,
@@ -153,7 +146,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	return {
 		props: {
 			persistBannerData,
-			persistAnnouncementData,
 			persistPromotionData,
 			persistHotEventData,
 			persistHotGameData,
