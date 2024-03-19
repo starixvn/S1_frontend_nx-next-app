@@ -8639,6 +8639,28 @@ input[type=file] {
 .addAddresspop > div .txt-blue {
   padding-left: 5px;
 }
+.addAddresspop form > div {
+  width: 100%;
+  border-bottom: 1px solid #BFCCE2;
+  padding-bottom: 20px;
+}
+.addAddresspop form > div .inputModuleRow > .btnGroup {
+  margin: 10px 0;
+}
+.addAddresspop form > div .inputModuleRow > .btnGroup button {
+  margin-right: 0;
+  min-width: 100px;
+}
+.addAddresspop form > div.btnGroup {
+  border: 0;
+  margin: 20px 0 0;
+}
+.addAddresspop form > div .tip {
+  text-align: left;
+}
+.addAddresspop form > div .txt-blue {
+  padding-left: 5px;
+}
 
 .txt {
   width: calc(100% - 10px);
