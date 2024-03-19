@@ -3,7 +3,6 @@ import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import {
 	AuthProvider,
-	getAnnouncement,
 	getBanner,
 	getHotEvent,
 	getHotGame,
@@ -20,7 +19,6 @@ import {
 import { Layout, Home } from '@nx-next-app/features/F0001/h5'
 import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
-	IAnnouncementData,
 	IBannerData,
 	IHotEventData,
 	IHotGame,
@@ -41,7 +39,6 @@ import dayjs from 'dayjs'
 path.resolve('./next.config.js')
 
 interface IHomePageProps extends InitialPropsInterface {
-	persistAnnouncementData: IAnnouncementData[]
 	persistBannerData: IBannerData[]
 	persistPromotionData: IPromotionData[]
 	persistHotEventData: IHotEventData[]
@@ -54,7 +51,6 @@ const HomePage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-	persistAnnouncementData,
 	persistBannerData,
 	persistPromotionData,
 	persistHotEventData,
@@ -69,7 +65,6 @@ const HomePage = ({
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData}>
 					<HomeProvider
-						persistAnnouncementData={persistAnnouncementData}
 						persistBannerData={persistBannerData}
 						persistPromotionData={persistPromotionData}
 						persistHotEventData={persistHotEventData}
@@ -97,14 +92,12 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
 	const [
-		persistAnnouncementData,
 		persistBannerData,
 		rawPromotionData,
 		persistHotEventData,
 		hotGameData,
 		persistSlotsGameData,
 	] = await Promise.all([
-		getAnnouncement({ langId, currencyId }),
 		getBanner(
 			{
 				langId,
@@ -148,7 +141,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	return {
 		props: {
 			persistBannerData,
-			persistAnnouncementData,
 			persistPromotionData,
 			persistHotEventData,
 			persistHotGameData,

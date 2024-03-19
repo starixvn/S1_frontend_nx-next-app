@@ -46,7 +46,6 @@ import { getCookie, setCookie } from 'cookies-next'
 dayjs.extend(isBetween)
 interface IHomeProviderProps {
 	children: ReactNode
-	persistAnnouncementData: IAnnouncementData[]
 	persistBannerData: IBannerData[]
 	persistPromotionData: IPromotionData[]
 	persistHotEventData: IHotEventData[]
@@ -235,7 +234,6 @@ export const HomeProvider = ({
 	persistHotEventData,
 	persistHotGameData,
 	persistLicenseData,
-	persistAnnouncementData,
 	persistSlotsGameData = {},
 	desktopHomeOrders = defaultDesktopHomeOrders,
 	mobileHomeOrders = defaultMobileHomeOrders,
