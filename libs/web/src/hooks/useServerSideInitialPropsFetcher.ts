@@ -10,7 +10,7 @@ import {
 } from '@nx-next-app/data-access'
 
 import { ISEOData } from '../data-access/type'
-import { UserInfoMemberType } from '../service'
+import { setServerSideHeaders, UserInfoMemberType } from '../service'
 import { paths, ENV_COOKIE_NAMES } from '../app/constants'
 import { useRedirectDevice } from './useRedirectDevice'
 import { useRedirectMaintain } from './useRedirectMaintain'
@@ -55,6 +55,10 @@ export const useServerSideInitialPropsFetcher = async (
 	// 裝置導轉邏輯
 	useRedirectDevice(context)
 
+	// 設定必要的 header
+	setServerSideHeaders(context)
+
+	// 來自 middleware 的 cookie , 用來更替用戶 cookie lang
 	const middlewareCookies = context.res.getHeader('set-cookie')
 	let cookiesFromServer = {}
 	if (middlewareCookies) {

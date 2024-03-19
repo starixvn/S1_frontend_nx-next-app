@@ -51,11 +51,7 @@ const Shortcut = () => {
 				</Link>
 			)}
 			{includes(ALLOWED_CURRENCIES['REWARDS'], currencyId) && (
-				<a
-					href={`${process.env['NEXT_PUBLIC_OPEN_URL']}/rewards/`}
-					target='_blank'
-					rel='noreferrer'
-				>
+				<a href='/rewards' target='_blank' rel='noreferrer'>
 					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/88reward.png`}
 						alt='88reward'
@@ -96,7 +92,9 @@ const Shortcut = () => {
 			</a>
 			{includes(ALLOWED_CURRENCIES['AFFILIATE'], currencyId) && (
 				<a
-					href={GET_AFFILIATE_LINK({ currencyId, langId })}
+					href={
+						GET_AFFILIATE_LINK ? GET_AFFILIATE_LINK({ currencyId, langId }) : ''
+					}
 					target='_blank'
 					rel='noreferrer noopener'
 				>

@@ -11,6 +11,7 @@ import {
 	useGetHotEventListQuery,
 	useGetReferralCodeQuery,
 	useGetReferralSettingQuery,
+	useGetSlotGamePageQuery,
 	useGetSocialChannelQuery,
 	useLazyGetIpCountryQuery,
 	useLazyGetPopUpDataListQuery,
@@ -18,7 +19,7 @@ import {
 	useLazyGetWalletInfoQuery,
 } from '@nx-next-app/service'
 import { CurrenciesEnum, DeviceTypeEnum, IFooterData } from '@nx-next-app/types'
-import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
+import { SlotGameCategoryEnum,useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
@@ -39,12 +40,10 @@ import { getCookie, setCookie } from 'cookies-next'
 dayjs.extend(isBetween)
 interface IHomeProviderProps {
 	children: ReactNode
-	persistAnnouncementData: IAnnouncementData[]
 	persistBannerData: IBannerData[]
 	persistPromotionData: IPromotionData[]
 	persistHotEventData: IHotEventData[]
 	persistHotGameData: IHotGame[]
-	persistSlotsGameData?: ISlotsGameData
 	// For H5
 	persistLicenseData: IFooterData['licenseData']
 	persistQuickLinksList: IFooterData['quickLinks']
@@ -211,8 +210,6 @@ export const HomeProvider = ({
 	persistHotEventData,
 	persistHotGameData,
 	persistLicenseData,
-	persistAnnouncementData,
-	persistSlotsGameData = {},
 	desktopHomeOrders = defaultDesktopHomeOrders,
 	mobileHomeOrders = defaultMobileHomeOrders,
 }: IHomeProviderProps) => {
@@ -229,7 +226,13 @@ export const HomeProvider = ({
 
 	const { modal } = useGlobalModal()
 
-	const { data: { data: announcementData = persistAnnouncementData } = {} } =
+	const { data: { data: slotGameData = {} } = {} } = useGetSlotGamePageQuery({
+		deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
+		currencyId,
+		slotGameCategoryList: [SlotGameCategoryEnum.Jackpot],
+	})
+
+	const { data: { data: announcementData = [] } = {} } =
 		useGetAnnouncementQuery(
 			{ currencyId, langId },
 			{
@@ -393,7 +396,7 @@ export const HomeProvider = ({
 	) => {
 		// * 從 slotGameData 中的 providerList 找對應的 tpGameType
 		const { tpGameType = '' } =
-			find(persistSlotsGameData.providerList, {
+			find(slotGameData.providerList, {
 				tpId,
 			}) || {}
 
@@ -621,9 +624,9 @@ export const HomeProvider = ({
 		jackPotCurrencies,
 		socialChannelList,
 		footerSocialChannelList,
-		promotionData: persistPromotionData,
 		hotEventData,
-		slotGameData: persistSlotsGameData,
+		slotGameData,
+		promotionData: persistPromotionData,
 		licenseData: persistLicenseData,
 		platformList: persistPlatformList,
 		bannerData: persistBannerData,
