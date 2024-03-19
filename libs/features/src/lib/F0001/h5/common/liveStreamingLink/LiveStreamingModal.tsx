@@ -31,6 +31,16 @@ const LiveStreamingModal = ({
 				_langId === 'en' ? 'vn-en' : 'vn',
 			[LANG_TO_CURRENCY['th']]: (_langId: string) =>
 				_langId === 'en' ? 'th-en' : 'th',
+			[LANG_TO_CURRENCY['my']]: (_langId: string) => {
+				switch (_langId) {
+					case 'en':
+						return 'my-en'
+					case 'cs':
+						return 'my-cs'
+					default:
+						return 'my'
+				}
+			},
 		}
 		const getClassName = currencyClassNames[currencyId]
 		if (getClassName) {
