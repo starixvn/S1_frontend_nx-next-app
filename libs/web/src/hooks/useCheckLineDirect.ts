@@ -100,7 +100,9 @@ export const useCheckLineDirect = ({ langId }: { langId: string }) => {
 					} catch (error) {
 						// eslint-disable-next-line no-console
 						// * 不另外做錯誤處裡
-						modal.error((error as Error)?.message)
+						modal.info((error as Error)?.message, {
+							icon: 'icon icon-library',
+						})
 					} finally {
 						// * 不管成功與否都需導轉到某個路徑 ( 默認為首頁，或其他 )
 						push(redirectPath)
