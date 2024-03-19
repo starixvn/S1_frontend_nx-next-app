@@ -12,7 +12,7 @@ export const getAnnouncement = async (
 	const { langId, currencyId } = params
 	try {
 		const response = await baseAxios.post(
-			`${messageApiUrl.announcement}${langId}`,
+			`${messageApiUrl.announcement}/${langId}`,
 			{
 				data: { currencyId },
 			}
