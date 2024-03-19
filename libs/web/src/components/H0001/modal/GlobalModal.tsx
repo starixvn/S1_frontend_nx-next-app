@@ -25,13 +25,14 @@ const GlobalModal = ({
 
 	switch (type) {
 		case 'info':
-			mergedTitle = title || 'Information'
+			mergedTitle = title || t('Label_General_Information')
 			mergeOkText = okText || t('Label_General_OK')
 
 			break
 
 		case 'error':
 			mergedTitle = title || 'Error'
+			mergeOkText = okText || t('Label_General_Close')
 			break
 
 		case 'confirm':
