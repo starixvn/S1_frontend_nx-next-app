@@ -9,11 +9,14 @@ export const getCustProfile = async (
 	params: null,
 	config: AxiosRequestConfig
 ): Promise<IUserInfoData> => {
-	const { data: { data } = {} } = await baseAxios.post(
-		accountStrictApiUrl.getCustProfile,
-		params,
-		config
-	)
-
-	return data
+	try {
+		const { data: { data } = {} } = await baseAxios.post(
+			accountStrictApiUrl.getCustProfile,
+			params,
+			config
+		)
+		return data || {}
+	} catch (error) {
+		return {} as IUserInfoData
+	}
 }

@@ -3,14 +3,11 @@ import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import {
 	AuthProvider,
-	getAnnouncement,
 	getBanner,
 	getHotEvent,
 	getHotGame,
 	getPromotion,
-	getSlotGamePage,
 	GlobalDataProvider,
-	SlotGameCategoryEnum,
 } from '@nx-next-app/data-access'
 import { HomeProvider } from '@nx-next-app/features/F0001/providers'
 import {
@@ -18,14 +15,12 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { Layout, Home } from '@nx-next-app/features/F0001/h5'
-import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
-	IAnnouncementData,
 	IBannerData,
 	IHotEventData,
 	IHotGame,
 	IPromotionData,
-	ISlotsGameData,
 } from '@nx-next-app/service'
 import { BannerTypeEnum, IFooterData } from '@nx-next-app/types'
 import { FOOTER_DATA, MOBILE_HOME_ORDERS } from '@nx-next-app/site/nova88'
@@ -41,25 +36,21 @@ import dayjs from 'dayjs'
 path.resolve('./next.config.js')
 
 interface IHomePageProps extends InitialPropsInterface {
-	persistAnnouncementData: IAnnouncementData[]
 	persistBannerData: IBannerData[]
 	persistPromotionData: IPromotionData[]
 	persistHotEventData: IHotEventData[]
 	persistHotGameData: IHotGame[]
 	persistFooterData: IFooterData
-	persistSlotsGameData: ISlotsGameData
 }
 
 const HomePage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-	persistAnnouncementData,
 	persistBannerData,
 	persistPromotionData,
 	persistHotEventData,
 	persistHotGameData,
-	persistSlotsGameData,
 	persistFooterData,
 }: IHomePageProps) => {
 	const persistAppDownloadHint = originCookies[ENV_COOKIE_NAMES.AppDownloadHint]
@@ -69,14 +60,12 @@ const HomePage = ({
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData}>
 					<HomeProvider
-						persistAnnouncementData={persistAnnouncementData}
 						persistBannerData={persistBannerData}
 						persistPromotionData={persistPromotionData}
 						persistHotEventData={persistHotEventData}
 						persistHotGameData={persistHotGameData}
 						persistLicenseData={persistFooterData.licenseData}
 						persistQuickLinksList={persistFooterData.quickLinks}
-						persistSlotsGameData={persistSlotsGameData}
 						persistPlatformList={persistFooterData.platformList}
 						mobileHomeOrders={MOBILE_HOME_ORDERS}
 					>
@@ -97,14 +86,11 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
 	const [
-		persistAnnouncementData,
 		persistBannerData,
 		rawPromotionData,
 		persistHotEventData,
 		hotGameData,
-		persistSlotsGameData,
 	] = await Promise.all([
-		getAnnouncement({ langId, currencyId }),
 		getBanner(
 			{
 				langId,
@@ -126,14 +112,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
 			currencyId,
 		}),
-		getSlotGamePage(
-			{
-				deviceType: DEVICE_TYPE.Mobile,
-				currencyId,
-				slotGameCategoryList: [SlotGameCategoryEnum.Jackpot],
-			},
-			{ headers: { cookie: currentHeaderCookies } }
-		),
 	])
 
 	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
@@ -148,11 +126,9 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	return {
 		props: {
 			persistBannerData,
-			persistAnnouncementData,
 			persistPromotionData,
 			persistHotEventData,
 			persistHotGameData,
-			persistSlotsGameData,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),

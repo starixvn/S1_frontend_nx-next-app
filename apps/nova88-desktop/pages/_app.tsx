@@ -52,7 +52,7 @@ const {
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
-			<NextNProgress color='#2b66e6' />
+			<NextNProgress showOnShallow color='#2b66e6' />
 			<Provider store={store}>
 				{/* 提供 Component 狀態管理 */}
 				<UIProvider>
