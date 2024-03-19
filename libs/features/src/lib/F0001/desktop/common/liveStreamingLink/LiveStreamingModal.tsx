@@ -5,7 +5,6 @@ import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { ILiveStreamingData } from '@nx-next-app/service'
 
 const LiveStreamingModal = ({
@@ -18,7 +17,6 @@ const LiveStreamingModal = ({
 	} = useAuth()
 	const { push } = useRouter()
 	const { t } = useTranslation()
-	const { onEnterPage } = useMenu()
 	const { closeModal } = useGlobalModal()
 	const { LANG_TO_CURRENCY } = useStaticData()
 
@@ -68,19 +66,15 @@ const LiveStreamingModal = ({
 								className={`livesports-item ${
 									isWithinTwoHours(battleTime) ? '' : 'next'
 								}`}
-								onClick={() =>
-									onEnterPage(
-										{
-											tpId: Number(tpId),
-											gameId,
-											matchid: String(matchId),
-											langId,
-											// 原本的就這樣寫
-											tpGameType: 1,
-										},
-										{ loginCallback: () => push(paths.login.root) }
-									)
-								}
+								onClick={() => {
+									const searchParams = new URLSearchParams({
+										tpId,
+										matchId: matchId ? String(matchId) : '',
+										gameId,
+									})
+									push(`${paths.sports.root}/?${searchParams.toString()}`)
+									closeModal()
+								}}
 							>
 								<div className='top'>
 									<div>{sportLeaguesTitle}</div>

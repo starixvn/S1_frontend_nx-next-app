@@ -5,8 +5,8 @@ import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { ILiveStreamingData } from '@nx-next-app/service'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
 
 const LiveStreamingModal = ({
 	liveStreamingList,
@@ -17,8 +17,8 @@ const LiveStreamingModal = ({
 		userInfo: { currencyId, langId },
 	} = useAuth()
 	const { push } = useRouter()
-	const { t } = useTranslation()
 	const { onEnterPage } = useMenu()
+	const { t } = useTranslation()
 	const { closeModal } = useGlobalModal()
 	const { LANG_TO_CURRENCY } = useStaticData()
 
@@ -67,7 +67,7 @@ const LiveStreamingModal = ({
 							className={`livesports-item ${
 								isWithinTwoHours(battleTime) ? '' : 'next'
 							}`}
-							onClick={() =>
+							onClick={() => {
 								onEnterPage(
 									{
 										tpId: Number(tpId),
@@ -79,7 +79,8 @@ const LiveStreamingModal = ({
 									},
 									{ loginCallback: () => push(paths.login.root) }
 								)
-							}
+								closeModal()
+							}}
 						>
 							<div className='top'>
 								<div>{sportLeaguesTitle}</div>
