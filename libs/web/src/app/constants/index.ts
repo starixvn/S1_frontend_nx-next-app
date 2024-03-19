@@ -22,6 +22,20 @@ export const CURRENCY_TO_LANG_KEY: {
 	51: 'vn',
 }
 
+export const LIVESTREAM_CURRENCY_TO_LANG_KEY: {
+	[key: string | number]: string
+} = {
+	2: 'my',
+	3: 'global',
+	4: 'th',
+	13: 'cs',
+	15: 'id',
+	51: 'vn',
+	61: 'hi',
+	72: 'kh',
+	74: 'bd',
+}
+
 export const LANG_GROUP_COUNTRY: {
 	[key: string]: string
 } = {
