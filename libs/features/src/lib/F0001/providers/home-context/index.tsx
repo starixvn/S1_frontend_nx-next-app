@@ -253,7 +253,7 @@ export const HomeProvider = ({
 
 	const { modal } = useGlobalModal()
 
-	const { data: { data: announcementData = persistAnnouncementData } = {} } =
+	const { data: { data: announcementData = [] } = {} } =
 		useGetAnnouncementQuery(
 			{ currencyId, langId },
 			{
