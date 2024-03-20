@@ -57,6 +57,8 @@ const LiveStreamingLink = () => {
 			currencyId === LANG_TO_CURRENCY['my']
 		) {
 			handleGetLiveStreamingList()
+		} else {
+			setIsShowLiveStreaming(false)
 		}
 	}, [langId, isLogin, currencyId])
 
