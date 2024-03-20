@@ -31,10 +31,6 @@ const HotEventSwiper = () => {
 		<div className='home-hotmatch'>
 			<div className='home-hotmatch-wrapper'>
 				<div className='top'>
-					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/hotmatch-logo.png`}
-						alt=''
-					/>
 					<div>{t('Label_General_Sports').toUpperCase()}</div>
 				</div>
 			</div>
