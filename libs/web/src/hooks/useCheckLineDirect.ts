@@ -6,6 +6,7 @@ import {
 } from '@nx-next-app/service'
 import { useInterval } from 'usehooks-ts'
 import { setCookie } from 'cookies-next'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '../app/constants/paths'
 import { ENV_COOKIE_NAMES } from '../app/constants/Names'
 
@@ -17,6 +18,7 @@ import { ENV_COOKIE_NAMES } from '../app/constants/Names'
  *
  */
 export const useCheckLineDirect = ({ langId }: { langId: string }) => {
+	const { modal } = useGlobalModal()
 	const {
 		query: {
 			code = '',
@@ -59,7 +61,7 @@ export const useCheckLineDirect = ({ langId }: { langId: string }) => {
 				token = (document.getElementById('__tk') as HTMLInputElement)?.value // * 默認為 empty
 
 				// * di 為基準，等到 di 有值，才撈取 line path
-				if (di && (code || state || error)) {
+				if (code || state || error) {
 					try {
 						const { data: lineRegisterData } = await getLineUserId({
 							langId,
@@ -98,6 +100,9 @@ export const useCheckLineDirect = ({ langId }: { langId: string }) => {
 					} catch (error) {
 						// eslint-disable-next-line no-console
 						// * 不另外做錯誤處裡
+						modal.info((error as Error)?.message, {
+							icon: 'icon icon-library',
+						})
 					} finally {
 						// * 不管成功與否都需導轉到某個路徑 ( 默認為首頁，或其他 )
 						push(redirectPath || paths.home.root)
