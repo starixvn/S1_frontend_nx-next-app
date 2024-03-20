@@ -169,7 +169,10 @@ const Form = ({ cookies }: IJoinProps) => {
 			errorTip = error.message || ''
 		} else if (!formAreaCode) {
 			errorTip = t('Label_Join_PhoneRequired')
-		} else if (!PHONE_LENGTH_REGEX.test(formAreaCode + formPhone)) {
+		} else if (
+			Object.values(AREA_CODE_BY_CURRENCY).includes(formAreaCode) &&
+			!PHONE_LENGTH_REGEX.test(formAreaCode + formPhone)
+		) {
 			// phone number check length by area code, so can't use pattern
 			const limitRange = PHONE_DIGITS_LIMIT[formAreaCode]
 			errorTip = t('Label_Join_PhoneNumberErrorTip', {
@@ -517,6 +520,7 @@ const Form = ({ cookies }: IJoinProps) => {
 								placeholder={t('Label_General_Phone') as string}
 								error={!!errors['phone'] || !!phoneErrorTip}
 								touched={!!touchedFields['phone']}
+								type='number'
 							/>
 						</div>
 						<div className={`tip active${phoneErrorTip && ' txt-red'}`}>
