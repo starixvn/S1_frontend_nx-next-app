@@ -10,7 +10,7 @@ import { useRouter } from 'next/router'
 import { useGetMsgCountQuery } from '@nx-next-app/service'
 
 const Setting = () => {
-	const { push } = useRouter()
+	const { push, reload } = useRouter()
 	const { t } = useTranslation()
 	const {
 		userInfo: { currencyId, langId },
@@ -27,7 +27,7 @@ const Setting = () => {
 
 	const handleSignOut = async () => {
 		await onSignOut()
-		push(paths.home.root)
+		push(paths.home.root).then(() => reload())
 	}
 
 	return (

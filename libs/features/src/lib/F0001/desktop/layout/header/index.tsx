@@ -48,10 +48,6 @@ const LayoutHeader = () => {
 		try {
 			await onSignOut()
 			await router.push(paths.home.root).then(() => router.reload())
-			modal.info(t('Label_General_LoggedOut'), {
-				icon: 'icon icon-exit',
-				title: t('Label_General_LogOut'),
-			})
 		} catch (error) {
 			modal.info((error as Error).message)
 		}
