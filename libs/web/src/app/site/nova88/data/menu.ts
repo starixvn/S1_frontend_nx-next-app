@@ -77,6 +77,43 @@ const PRODUCT_EVENT_PERIOD: {
 
 const { MYR, INR, IDR, BDT, THB } = CurrenciesEnum
 
+export const mainMenuSort: { [p: number]: string[] } = {
+	[INR]: [
+		MenuKeyEnum.Home,
+		MenuKeyEnum.Reward,
+		MenuKeyEnum.Exchange,
+		MenuKeyEnum.Sports,
+		MenuKeyEnum.ESports,
+		MenuKeyEnum.Casino,
+		MenuKeyEnum.Slot,
+		MenuKeyEnum.Game,
+		MenuKeyEnum.Fishing,
+		MenuKeyEnum.FourD,
+		MenuKeyEnum.Lottery,
+		MenuKeyEnum.Promotion,
+		MenuKeyEnum.Affiliates,
+		MenuKeyEnum.VIP,
+		MenuKeyEnum.LeaderBoard,
+	],
+	[BDT]: [
+		MenuKeyEnum.Home,
+		MenuKeyEnum.Reward,
+		MenuKeyEnum.Exchange,
+		MenuKeyEnum.Sports,
+		MenuKeyEnum.ESports,
+		MenuKeyEnum.Casino,
+		MenuKeyEnum.Slot,
+		MenuKeyEnum.Game,
+		MenuKeyEnum.Fishing,
+		MenuKeyEnum.FourD,
+		MenuKeyEnum.Lottery,
+		MenuKeyEnum.Promotion,
+		MenuKeyEnum.Affiliates,
+		MenuKeyEnum.VIP,
+		MenuKeyEnum.LeaderBoard,
+	],
+}
+
 const menuActionType =
 	Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DeviceTypeEnum.Desktop
 		? MenuActionTypeEnum.Link
@@ -2718,7 +2755,6 @@ export const MENU_DATA = ({
 			subMenuAllowCurrenciesWithAuth: false,
 			allowCurrencies: true,
 		},
-
 		[MenuKeyEnum.Promotion]: {
 			display: 'desktop',
 			h5: {

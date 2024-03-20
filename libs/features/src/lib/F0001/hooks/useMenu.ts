@@ -2,6 +2,7 @@
 
 import { head, includes, isArray } from 'lodash-es'
 import { useRouter } from 'next/router'
+import { mainMenuSort } from '@nx-next-app/site/nova88'
 import { paths, PRODUCTS } from '@nx-next-app/constants'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useMenuData } from '@nx-next-app/hooks'
@@ -113,11 +114,26 @@ const useMenu = () => {
 	const { push } = useRouter()
 	const {
 		auth,
-		userInfo: { langId },
+		userInfo: { langId, currencyId },
 	} = useAuth()
 	const { custGameTypeSettingList } = useGlobalData()
 	const menuData = useMenuData()
 	const [gotoGame] = useLazyGotoGameQuery()
+
+	const sortMainMenu = () => {
+		return Object.entries(menuData)
+			?.sort((a, b) => {
+				let indexA = mainMenuSort[currencyId]?.indexOf(a[0] || '')
+				indexA = indexA === -1 ? 999 : indexA // * 不在排序內的選項排到最後面
+				let indexB = mainMenuSort[currencyId]?.indexOf(b[0] || '')
+				indexB = indexA === -1 ? 999 : indexB // * 不在排序內的選項排到最後面
+
+				return indexA - indexB
+			})
+			?.reduce((acc, cur) => {
+				return { ...acc, [cur[0]]: { ...cur[1] } }
+			}, {})
+	}
 
 	/**
 	 * 專門打開 Slots 遊戲
@@ -488,7 +504,7 @@ const useMenu = () => {
 	}
 
 	return {
-		menuData,
+		menuData: sortMainMenu(),
 		onMenuOpen,
 		onEnterPage,
 		onGoToGame,
