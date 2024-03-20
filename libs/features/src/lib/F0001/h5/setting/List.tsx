@@ -11,7 +11,7 @@ import { SettingCollapse } from '@nx-next-app/components/H0001'
 const List = () => {
 	const { t } = useTranslation()
 
-	const { push } = useRouter()
+	const { push, reload } = useRouter()
 
 	const {
 		userInfo: { currencyId, langId },
@@ -23,7 +23,7 @@ const List = () => {
 
 	const handleSignOut = async () => {
 		await onSignOut()
-		push(paths.home.root)
+		push(paths.home.root).then(() => reload())
 	}
 
 	return (
