@@ -37,7 +37,9 @@ const Info = () => {
 
 	const onEmailVerify = async () => {
 		try {
-			await sendOTPEmail({ route: paths.profile.root }).unwrap()
+			const route = paths.profile.root.slice(1)
+
+			await sendOTPEmail({ route }).unwrap()
 			modal.info(t('Label_Profile_EmailOTPHint1'))
 		} catch (error) {
 			modal.error((error as Error).message)
