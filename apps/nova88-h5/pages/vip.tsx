@@ -51,7 +51,12 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
 	if (
 		!includes(
-			[CurrenciesEnum.MYR, CurrenciesEnum.IDR, CurrenciesEnum.THB],
+			[
+				CurrenciesEnum.MYR,
+				CurrenciesEnum.IDR,
+				CurrenciesEnum.THB,
+				CurrenciesEnum.VND,
+			],
 			Number(currencyId)
 		)
 	) {
