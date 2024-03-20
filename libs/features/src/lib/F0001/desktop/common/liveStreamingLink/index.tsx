@@ -60,7 +60,7 @@ const LiveStreamingLink = () => {
 		} else {
 			setIsShowLiveStreaming(false)
 		}
-	}, [langId, isLogin])
+	}, [langId, isLogin, currencyId])
 
 	return isShowLiveStreaming && !isGetLiveStreamingListFetching ? (
 		<div className='livesports'>
