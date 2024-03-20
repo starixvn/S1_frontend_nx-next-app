@@ -123,16 +123,11 @@ const useMenu = () => {
 	const sortMainMenu = () => {
 		return Object.entries(menuData)
 			?.sort((a, b) => {
-				let indexA = mainMenuSort[currencyId]?.indexOf(a[0] || '')
-				indexA = indexA === -1 ? 999 : indexA // * 不在排序內的選項排到最後面
-				let indexB = mainMenuSort[currencyId]?.indexOf(b[0] || '')
-				indexB = indexA === -1 ? 999 : indexB // * 不在排序內的選項排到最後面
-
+				const indexA = mainMenuSort[currencyId]?.indexOf(a[0] || '') ?? 999
+				const indexB = mainMenuSort[currencyId]?.indexOf(b[0] || '') ?? 999
 				return indexA - indexB
 			})
-			?.reduce((acc, cur) => {
-				return { ...acc, [cur[0]]: { ...cur[1] } }
-			}, {})
+			?.reduce((acc, [key, value]) => ({ ...acc, [key]: { ...value } }), {})
 	}
 
 	/**
