@@ -463,10 +463,10 @@ const Form = ({ cookies }: IJoinProps) => {
 				<InputBox
 					register={register('realName', {
 						required: { value: true, message: t('Label_Join_RealNameReq') },
-						// pattern: {
-						// 	value: REALNAME_REGEX,
-						// 	message: t('Label_Join_EnterRealName') || '',
-						// },
+						pattern: {
+							value: REALNAME_REGEX,
+							message: t('Label_Join_EnterRealName') || '',
+						},
 						onBlur: () => trigger('realName'),
 					})}
 					icon='icon-member txt-blue'
