@@ -123,6 +123,8 @@ export interface IStaticAllowedCurrencies {
 	E_WALLET?: CurrenciesEnum[]
 	ADDRESS?: CurrenciesEnum[]
 	REFER_FRIENDS?: CurrenciesEnum[]
+
+	RECEIPT: CurrenciesEnum[]
 }
 
 export interface ITermsConditions {
