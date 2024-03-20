@@ -6,6 +6,7 @@ import {
 	AREA_CODE,
 	PHONE_DIGITS_LIMIT,
 	PHONE_LENGTH_REGEX,
+	AREA_CODE_BY_CURRENCY,
 	RECAPTCHAT_LANG_BY_LANG_ID,
 } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -53,7 +54,10 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 				type: 'required',
 				message: t('Label_Join_PhoneRequired') as string,
 			})
-		} else if (!PHONE_LENGTH_REGEX.test(formAreaCode + formPhone)) {
+		} else if (
+			Object.values(AREA_CODE_BY_CURRENCY).includes(formAreaCode) &&
+			!PHONE_LENGTH_REGEX.test(formAreaCode + formPhone)
+		) {
 			const limitRange = PHONE_DIGITS_LIMIT[formAreaCode]
 			if (limitRange) {
 				setError('phone', {
@@ -122,6 +126,7 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 					onChangeSelect={areaCode => selectAreaCode(areaCode)}
 					selectValue={getValues('areaCode')}
 					showValue
+					type='number'
 				/>
 			)}
 			{recaptchaInfo?.siteKey && recaptchaInfo.country !== 'CN' && (
