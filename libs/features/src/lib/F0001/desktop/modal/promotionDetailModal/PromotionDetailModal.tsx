@@ -1,10 +1,9 @@
 import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useGetPromotionDetailQuery } from '@nx-next-app/service'
 import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
-
+import { useRouter } from 'next/router'
 import {
 	getIsHidePromotionJoinButton,
 	isShowPromotionProgressBar,
@@ -33,6 +32,7 @@ const PromotionDetailModal = ({
 	isHideAllPromoButton = false,
 }: IPromotionDetailModalProps) => {
 	const { t } = useTranslation()
+	const { push } = useRouter()
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
@@ -130,11 +130,15 @@ const PromotionDetailModal = ({
 							)}
 
 							{!isHideAllPromoButton && (
-								<Link href={paths.promotion.root}>
-									<button className='btn-check'>
-										{t('Label_Promotion_AllPromos')}
-									</button>
-								</Link>
+								<button
+									className='btn-check'
+									onClick={() => {
+										push(paths.promotion.root)
+										closeModal()
+									}}
+								>
+									{t('Label_Promotion_AllPromos')}
+								</button>
 							)}
 						</div>
 					</div>
