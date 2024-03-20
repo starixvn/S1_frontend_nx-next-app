@@ -67,4 +67,7 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 
 	// === Profile method ===
 	ADDRESS: [MYR, USD, THB, CNY, IDR, VND, INR, KHM, BDT, USDT],
+
+	// Deposit
+	RECEIPT: [THB],
 }
