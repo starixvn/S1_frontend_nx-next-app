@@ -88,6 +88,7 @@ export const siteApi = rootApi.injectEndpoints({
 			query: ({ langId, ...data }) => ({
 				url: `${siteApiUrl.forgetPassword}/${langId}`,
 				method: 'POST',
+				data,
 			}),
 		}),
 		existsUserName: builder.query<
