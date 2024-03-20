@@ -12,6 +12,7 @@ import {
 	DeviceTypeEnum,
 	LoginGameTypeEnum,
 	MenuActionTypeEnum,
+	IMenuData,
 } from '@nx-next-app/types'
 import {
 	IAxiosError,
@@ -499,7 +500,7 @@ const useMenu = () => {
 	}
 
 	return {
-		menuData: sortMainMenu(),
+		menuData: sortMainMenu() as IMenuData,
 		onMenuOpen,
 		onEnterPage,
 		onGoToGame,
