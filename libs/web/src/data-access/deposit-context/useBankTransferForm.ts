@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useBoolean, useDebounce } from 'usehooks-ts'
+import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
 import {
 	IAxiosError,
 	IPaymentBankTransferData,
@@ -13,7 +14,7 @@ import {
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
-import { every, find, head, isEmpty } from 'lodash-es'
+import { every, find, head, includes, isEmpty } from 'lodash-es'
 import { useAuth, useDepositSavedLocalStorage } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useDepositContext } from './DepositContext'
@@ -102,7 +103,13 @@ const useDepositBankTransferForm = ({
 	const debouncedLoading = useDebounce(loading, 50)
 
 	// * Form 的 isValid 驗證 + Submit Bank Slip 為必填
-	const isFormValid = isValid && watchReceipt
+	const receiptValid = includes(
+		ALLOWED_CURRENCIES['RECEIPT'],
+		Number(currencyId)
+	)
+		? watchReceipt
+		: true
+	const isFormValid = isValid && receiptValid
 
 	// * 1. 檢查是否有 specialCode，specialCode 與bonusCode 只能擇一
 	// * 2. 建立單據取得 transId
