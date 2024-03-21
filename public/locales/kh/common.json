@@ -27,7 +27,6 @@
   "Label_BankInfo_IFSCCodeLength": "លេខកូដ IFSC ត្រូវតែមាន ១១ តួអក្សរ",
   "Label_BankInfo_NeedAccountNo": "ត្រូវការលេខគណនី",
   "Label_BankInfo_NumberOfBankAccounts": "ចំនួនគណនីធនាគារ",
-  "Label_BankInfo_PleaseEnterIFSCCode": "សូមបញ្ចូលលេខកូដ IFSC",
   "Label_BankInfo_SelectBank": "ជ្រើសរើសធនាគារ",
   "Label_BankInfo_UpdateBankInfo": "សូមធ្វើបច្ចុប្បន្នភាពព័ត៌មានលម្អិតគណនីធនាគាររបស់អ្នក មុននឹងធ្វើការដកប្រាក់។",
   "Label_Banner_Game_SubTitle": "ទស្សនៈថ្មីនៃជីវិត ",

@@ -27,7 +27,6 @@
   "Label_BankInfo_IFSCCodeLength": "IFSC code must be 11 characters",
   "Label_BankInfo_NeedAccountNo": "Need Account Number",
   "Label_BankInfo_NumberOfBankAccounts": "Number of bank accounts",
-  "Label_BankInfo_PleaseEnterIFSCCode": "Please enter the IFSC code.",
   "Label_BankInfo_SelectBank": "Select Bank",
   "Label_BankInfo_UpdateBankInfo": "Please update your bank account details before making withdrawal.",
   "Label_Banner_Game_SubTitle": "A New Perspective of Life",

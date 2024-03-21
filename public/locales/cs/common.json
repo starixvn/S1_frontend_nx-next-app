@@ -27,7 +27,6 @@
   "Label_BankInfo_IFSCCodeLength": "IFSC 代码需有 11字元",
   "Label_BankInfo_NeedAccountNo": "需要账户号码",
   "Label_BankInfo_NumberOfBankAccounts": "银行帐户数目",
-  "Label_BankInfo_PleaseEnterIFSCCode": "请输入 IFSC 代码",
   "Label_BankInfo_SelectBank": "选择银行",
   "Label_BankInfo_UpdateBankInfo": "请在提现前完成更新银行资讯",
   "Label_Banner_Game_SubTitle": "焕新生活全新视觉！",

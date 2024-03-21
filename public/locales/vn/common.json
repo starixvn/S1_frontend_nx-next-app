@@ -27,7 +27,6 @@
   "Label_BankInfo_IFSCCodeLength": "Mã IFSC phải có 11 ký tự",
   "Label_BankInfo_NeedAccountNo": "Cần nhập số tài khoản",
   "Label_BankInfo_NumberOfBankAccounts": "Số lượng tài khoản Ngân hàng",
-  "Label_BankInfo_PleaseEnterIFSCCode": "Vui lòng nhập mã IFSC.",
   "Label_BankInfo_SelectBank": "Chọn ngân hàng",
   "Label_BankInfo_UpdateBankInfo": "Vui lòng cập nhật thông tin tài khoản ngân hàng của bạn trước khi rút tiền.",
   "Label_Banner_Game_SubTitle": "",

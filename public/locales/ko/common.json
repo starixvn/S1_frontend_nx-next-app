@@ -27,7 +27,6 @@
   "Label_BankInfo_IFSCCodeLength": "IFSC 코드는 11자여야 합니다.",
   "Label_BankInfo_NeedAccountNo": "계좌 번호 필요",
   "Label_BankInfo_NumberOfBankAccounts": "은행 계좌 수",
-  "Label_BankInfo_PleaseEnterIFSCCode": "IFSC 코드를 입력하시기 바랍니다.",
   "Label_BankInfo_SelectBank": "은행 선택",
   "Label_BankInfo_UpdateBankInfo": "출금하기 전에 은행 계좌 정보를 업데이트하시기 바랍니다.",
   "Label_Banner_Game_SubTitle": "인생에 대한 새로운 관점",

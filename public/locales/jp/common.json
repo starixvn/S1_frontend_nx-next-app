@@ -27,7 +27,6 @@
   "Label_BankInfo_IFSCCodeLength": "IFSCコードは11文字です。",
   "Label_BankInfo_NeedAccountNo": "口座番号が必要",
   "Label_BankInfo_NumberOfBankAccounts": "銀行口座数",
-  "Label_BankInfo_PleaseEnterIFSCCode": "IFSCコードを入力してください。",
   "Label_BankInfo_SelectBank": "銀行を選択",
   "Label_BankInfo_UpdateBankInfo": "お引出しの前に、銀行口座情報を更新してください。",
   "Label_Banner_Game_SubTitle": "新しい人生観",
