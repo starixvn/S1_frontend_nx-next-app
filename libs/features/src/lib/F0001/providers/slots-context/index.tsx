@@ -525,10 +525,10 @@ const SlotsProvider = ({
 		setIsProcess(false)
 	}, [activeCategoryKey, queryTpId, searchCategoryText, myFavorites])
 
-	// 更新遊戲列表預設給定50筆資料
+	// 更新遊戲列表預設給定40筆資料
 	useEffect(() => {
 		if (!isProcess) {
-			setPageSize(50)
+			setPageSize(40)
 			setIsProcess(true)
 		}
 	}, [activeCategoryKey, queryTpId, searchCategoryText, slotsGameList.length])
