@@ -10,6 +10,7 @@ import {
 	ISetLocalBankInfoArgs,
 	ISetEWalletInfoArgs,
 	ISetCustCryptoWalletArgs,
+	IVerifyEmailArgs,
 } from './type'
 
 export const accountStrictApiUrl = {
@@ -27,6 +28,7 @@ export const accountStrictApiUrl = {
 	setEWalletInfo: 'AccountStrict/SetCustEWalletInfo',
 	uploadCustPhoto: 'AccountStrict/UploadCustPhotoId',
 	resetPassword: 'AccountStrict/ResetPassword',
+	verifyEmail: 'AccountStrict/VerifyEmail',
 }
 
 export const accountStrictApi = rootApi.injectEndpoints({
@@ -171,6 +173,14 @@ export const accountStrictApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
+		verifyEmail: builder.mutation<IAxiosResponse<string>, IVerifyEmailArgs>({
+			query: data => ({
+				url: accountStrictApiUrl.verifyEmail,
+				method: 'POST',
+				data,
+			}),
+			invalidatesTags: ['ACCOUNT_STRICT_GET_USER_INFO'],
+		}),
 	}),
 })
 
@@ -189,4 +199,5 @@ export const {
 	useUploadCustPhotoMutation,
 	useSetCustCryptoWalletMutation,
 	useResetPasswordMutation,
+	useVerifyEmailMutation,
 } = accountStrictApi
