@@ -32,6 +32,7 @@ export const siteApiUrl = {
 	getIpCountry: 'Site/GetIpCountry',
 	reSetPwdByOTP: 'Site/ReSetPwdByOTP',
 	reSetPwdVerifyOTP: 'Site/ReSetPwdVerifyOTP',
+	checkResetPwdToken: 'Site/CheckResetPwdToken',
 }
 
 export const siteApi = rootApi.injectEndpoints({
@@ -192,6 +193,13 @@ export const siteApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
+		checkResetPwdToken: builder.mutation<IAxiosResponse<void>, FormData>({
+			query: data => ({
+				url: siteApiUrl.checkResetPwdToken,
+				method: 'POST',
+				data,
+			}),
+		}),
 	}),
 })
 
@@ -213,4 +221,5 @@ export const {
 	useGetSeoQuery,
 	useResetPwdByOTPMutation,
 	useResetPwdVerifyOTPMutation,
+	useCheckResetPwdTokenMutation,
 } = siteApi
