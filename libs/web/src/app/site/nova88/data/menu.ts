@@ -2671,7 +2671,7 @@ export const MENU_DATA = ({
 				{
 					h5: {
 						img: '4.0/dropdown/lottery/lo-numberGame.png',
-						menuActionType: MenuActionTypeEnum.Link,
+						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
 					desktop: {
 						className: 'numberGame',
