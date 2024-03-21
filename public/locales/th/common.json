@@ -27,7 +27,6 @@
   "Label_BankInfo_IFSCCodeLength": "รหัส IFSC ต้องมีอักขระ 11 ตัว",
   "Label_BankInfo_NeedAccountNo": "ต้องใส่หมายเลขบัญชี",
   "Label_BankInfo_NumberOfBankAccounts": "จำนวนบัญชีธนาคาร",
-  "Label_BankInfo_PleaseEnterIFSCCode": "กรุณากรอกรหัส IFSC",
   "Label_BankInfo_SelectBank": "เลือกธนาคาร",
   "Label_BankInfo_UpdateBankInfo": "โปรดอัปเดตรายละเอียดบัญชีธนาคารของคุณก่อนทำการถอนเงิน",
   "Label_Banner_Game_SubTitle": "Perspektif Baru Kehidupan",
