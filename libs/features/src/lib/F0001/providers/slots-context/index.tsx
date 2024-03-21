@@ -516,10 +516,6 @@ const SlotsProvider = ({
 				}),
 				isFavorite: isFavorite({ tpId: gameObj.tpId, gameId: gameObj.gameId }),
 			}))
-			.sort(
-				(a, b) =>
-					new Date(b.launchDate).getTime() - new Date(a.launchDate).getTime()
-			)
 
 		setSlotsGameList(filteredGameList)
 		setIsProcess(false)
