@@ -63,6 +63,8 @@ const nextConfig = {
 		// 提高 serverside page props data threshold , 避免 128kb 警告
 		// largePageDataBytes: 128 * 10000,
 	},
+	// 只在 stage 開啟
+	productionBrowserSourceMaps: true,
 }
 
 module.exports = withNx(nextConfig)
