@@ -11,6 +11,7 @@ import { LineBinding } from './LineBinding'
 
 const Profile = () => {
 	const { t } = useTranslation()
+
 	return (
 		<>
 			<Header className='header'>
