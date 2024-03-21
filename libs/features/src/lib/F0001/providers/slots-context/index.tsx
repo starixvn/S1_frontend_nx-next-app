@@ -516,15 +516,19 @@ const SlotsProvider = ({
 				}),
 				isFavorite: isFavorite({ tpId: gameObj.tpId, gameId: gameObj.gameId }),
 			}))
+			.sort(
+				(a, b) =>
+					new Date(b.launchDate).getTime() - new Date(a.launchDate).getTime()
+			)
 
 		setSlotsGameList(filteredGameList)
 		setIsProcess(false)
 	}, [activeCategoryKey, queryTpId, searchCategoryText, myFavorites])
 
-	// 更新遊戲列表預設給定40筆資料
+	// 更新遊戲列表預設給定50筆資料
 	useEffect(() => {
 		if (!isProcess) {
-			setPageSize(40)
+			setPageSize(50)
 			setIsProcess(true)
 		}
 	}, [activeCategoryKey, queryTpId, searchCategoryText, slotsGameList.length])
