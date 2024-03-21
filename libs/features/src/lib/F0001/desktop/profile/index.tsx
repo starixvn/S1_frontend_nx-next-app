@@ -8,6 +8,7 @@ import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useSetProfileMutation } from '@nx-next-app/service'
 import { PrevPageEnum, PREV_PAGE } from '@nx-next-app/constants'
+import { useVerifyEmail } from '@nx-next-app/features/F0001/hooks'
 import { PhoneOtpModal } from './PhoneOtpModal'
 import { Info } from './Info'
 import { Address } from './Address'
@@ -35,6 +36,8 @@ const Profile = () => {
 			birth_y: birthYear,
 		},
 	} = useAuth()
+
+	const { tokenPassed } = useVerifyEmail()
 
 	//* DatePicker 使用 react-hook-form 會有日期更新緩慢的狀況，所以改用 useState
 	const [formBirth, setFormBirth] = useState<Date | null>(null)
@@ -104,32 +107,34 @@ const Profile = () => {
 	if (!accountName) return <Loading />
 
 	return (
-		<div className='rightModule'>
-			<div className='infoModule'>
-				<div className='inside-title'>
-					<span className='icon icon-icon32px_Profile'>
-						{t('Label_General_Profile')}
-					</span>
-					<div>{t('Label_Profile_ProfileModifyWarning')}</div>
-				</div>
-				<FormProvider {...formMethods}>
-					<form onSubmit={handleSubmit(handleSubmitForm)}>
-						<div className='profileModule'>
-							<Verification />
-							<Info formBirth={formBirth} setFormBirth={setFormBirth} />
-						</div>
-						{showSubmitBtn && (
-							<div className='btnGroup'>
-								<button className='btn-check' type='submit'>
-									{t('Label_General_Submit')}
-								</button>
+		tokenPassed && (
+			<div className='rightModule'>
+				<div className='infoModule'>
+					<div className='inside-title'>
+						<span className='icon icon-icon32px_Profile'>
+							{t('Label_General_Profile')}
+						</span>
+						<div>{t('Label_Profile_ProfileModifyWarning')}</div>
+					</div>
+					<FormProvider {...formMethods}>
+						<form onSubmit={handleSubmit(handleSubmitForm)}>
+							<div className='profileModule'>
+								<Verification />
+								<Info formBirth={formBirth} setFormBirth={setFormBirth} />
 							</div>
-						)}
-					</form>
-				</FormProvider>
-				<Address />
+							{showSubmitBtn && (
+								<div className='btnGroup'>
+									<button className='btn-check' type='submit'>
+										{t('Label_General_Submit')}
+									</button>
+								</div>
+							)}
+						</form>
+					</FormProvider>
+					<Address />
+				</div>
 			</div>
-		</div>
+		)
 	)
 }
 
