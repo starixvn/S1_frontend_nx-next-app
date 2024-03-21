@@ -98,3 +98,9 @@ export interface ISetCustCryptoWalletArgs {
 	network: string
 	nickName?: string
 }
+
+export interface IVerifyEmailArgs {
+	langId: string
+	key: string
+	code: string
+}
