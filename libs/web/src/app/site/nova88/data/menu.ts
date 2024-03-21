@@ -2723,6 +2723,7 @@ export const MENU_DATA = ({
 						},
 						menuActionType: MenuActionTypeEnum.Link,
 					},
+					pathname: paths.sports.root,
 					productKey: 'LOTTERY_NUMBER_GAME',
 					displayKey: 'Label_Product_NumberGame',
 					product: PRODUCTS['LOTTERY_NUMBER_GAME'],
