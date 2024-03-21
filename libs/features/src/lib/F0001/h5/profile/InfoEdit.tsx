@@ -7,6 +7,10 @@ import {
 	useLazyExistsEmailQuery,
 	useSetProfileMutation,
 } from '@nx-next-app/service'
+import {
+	useVerifyEmail,
+	useCheckPhone,
+} from '@nx-next-app/features/F0001/hooks'
 import { useAuth } from '@nx-next-app/data-access'
 import { REALNAME_REGEX } from '@nx-next-app/site/nova88'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -22,7 +26,7 @@ import {
 	InputBox,
 	ISelectProps,
 } from '@nx-next-app/components/H0001'
-import { useCheckPhone } from '@nx-next-app/features/F0001/hooks'
+
 import { PhoneOtpModal } from './PhoneOtpModal'
 
 const InfoEdit = () => {
@@ -33,6 +37,7 @@ const InfoEdit = () => {
 
 	const { modal } = useGlobalModal()
 
+	const { tokenPassed } = useVerifyEmail()
 	const { handlePhoneErrorTip } = useCheckPhone()
 
 	const [setProfile] = useSetProfileMutation()
@@ -232,7 +237,7 @@ const InfoEdit = () => {
 
 	return (
 		<Form onSubmit={handleSubmit(handleSubmitForm)}>
-			{!email && <div>{emailFieldRenderer()}</div>}
+			{!email && tokenPassed && <div>{emailFieldRenderer()}</div>}
 			{!birthDay && (
 				<div className='infoModule parts'>
 					<Select
