@@ -16,16 +16,16 @@ const Profile = () => {
 	const { tokenPassed } = useVerifyEmail()
 
 	return (
-		tokenPassed && (
-			<>
-				<Header className='header'>
-					<Header.Tags
-						tags={[
-							{ href: paths.profile.root, label: t('Label_General_Profile') },
-							{ href: paths.message.root, label: t('Label_General_Message') },
-						]}
-					/>
-				</Header>
+		<>
+			<Header className='header'>
+				<Header.Tags
+					tags={[
+						{ href: paths.profile.root, label: t('Label_General_Profile') },
+						{ href: paths.message.root, label: t('Label_General_Message') },
+					]}
+				/>
+			</Header>
+			{tokenPassed && (
 				<main className='main'>
 					<Verification />
 					<AddressEdit />
@@ -39,8 +39,8 @@ const Profile = () => {
 					</div>
 					<LineBinding />
 				</main>
-			</>
-		)
+			)}
+		</>
 	)
 }
 
