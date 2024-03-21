@@ -65,7 +65,7 @@ const useVerifyEmail = () => {
 	useEffect(() => {
 		onVerifyEmail({
 			key: query['key'] as string,
-			code: query['code'] as string,
+			code: query['emailcode'] as string,
 		})
 	}, [])
 
