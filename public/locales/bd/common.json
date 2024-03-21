@@ -27,7 +27,6 @@
   "Label_BankInfo_IFSCCodeLength": "আই এফ এস সি কোড ১১ অক্ষরের হতে হবে",
   "Label_BankInfo_NeedAccountNo": "অ্যাকাউন্ট নম্বর প্রয়োজন",
   "Label_BankInfo_NumberOfBankAccounts": "ব্যাংক অ্যাকাউন্টের সংখ্যা",
-  "Label_BankInfo_PleaseEnterIFSCCode": "অনুগ্রহ করে আই এফ এস সি কোড লিখুন।",
   "Label_BankInfo_SelectBank": "ব্যাংক নির্বাচন করুন",
   "Label_BankInfo_UpdateBankInfo": "উত্তোলনের আগে অনুগ্রহ করে আপনার ব্যাংক অ্যাকাউন্টের বিবরণ হালনাগাদ করুন।",
   "Label_Banner_Game_SubTitle": "জীবন সম্পর্কে একটি নতুন দৃষ্টিভঙ্গি",

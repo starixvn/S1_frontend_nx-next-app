@@ -27,7 +27,6 @@
   "Label_BankInfo_IFSCCodeLength": "IFSC कोड 11 अक्षर का होना चाहिए",
   "Label_BankInfo_NeedAccountNo": "खाता संख्या चाहिए",
   "Label_BankInfo_NumberOfBankAccounts": "बैंक खातों की संख्या",
-  "Label_BankInfo_PleaseEnterIFSCCode": "कृपया IFSC कोड दर्ज करें",
   "Label_BankInfo_SelectBank": "बैंक का चयन करें",
   "Label_BankInfo_UpdateBankInfo": "निकासी करने से पहले कृपया अपने बैंक खाते का विवरण अपडेट करें।",
   "Label_Banner_Game_SubTitle": "जीवन का एक नया दृष्टिकोण",

@@ -27,7 +27,6 @@
   "Label_BankInfo_IFSCCodeLength": "Kode IFSC harus 11 karakter",
   "Label_BankInfo_NeedAccountNo": "Butuh Nomor Rekening",
   "Label_BankInfo_NumberOfBankAccounts": "Jumlah rekening Anda",
-  "Label_BankInfo_PleaseEnterIFSCCode": "Silakan masukkan kode IFSC",
   "Label_BankInfo_SelectBank": "Pilih Bank",
   "Label_BankInfo_UpdateBankInfo": "Silakan perbarui keterangan akun bank anda sebelum anda melakukan penarikan.",
   "Label_Banner_Game_SubTitle": "Sebuah Sudut Pandang Kehidupan Baru",
