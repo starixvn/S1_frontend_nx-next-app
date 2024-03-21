@@ -20,7 +20,7 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useRouter } from 'next/router'
 import { every, includes } from 'lodash-es'
 import { paths } from '@nx-next-app/constants'
-import { numberFormat, numFormatToDigits } from '@nx-next-app/utils'
+import { numFormatToDigits } from '@nx-next-app/utils'
 
 const LoginModal = dynamic(() => import('../desktop/modal/LoginModal'), {
 	ssr: false,
@@ -147,13 +147,10 @@ const useSetClaimPromotionFetcher = () => {
 						  )}`
 
 					return {
-						value: numberFormat(
-							// 後端期望promotionType為missionBonus的話帶bonusAmount
+						value:
 							promotionType === PromotionTypeEnum.MissionBonus
-								? item.bonusAmount
-								: item.lockedAmount,
-							currencyId
-						),
+								? String(item.bonusAmount)
+								: String(item.lockedAmount),
 						label: displayText,
 					}
 				})
