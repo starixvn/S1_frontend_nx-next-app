@@ -2,7 +2,7 @@ import { Form, InputBox, Select } from '@nx-next-app/components/H0001'
 import { PromotionTypeEnum, SelectOptionType } from '@nx-next-app/types'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
-import { numberFormat } from '@nx-next-app/utils'
+import { numberFormat, revertNumberFormat } from '@nx-next-app/utils'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { replace } from 'lodash-es'
@@ -41,7 +41,13 @@ const ClaimAmountModal = ({
 	const max = numberFormat(maxAmount, currencyId)
 
 	const onSubmit = ({ amount }: { amount: string | undefined }) => {
-		if (amount) {
+		if (promotionType === PromotionTypeEnum.FirstDeposit) {
+			const lockedAmount = revertNumberFormat(amount, currencyId)
+			onSetClaimPromotion({
+				bonusCode,
+				lockedAmount: Number(lockedAmount),
+			})
+		} else if (amount) {
 			onSetClaimPromotion({
 				bonusCode,
 				lockedAmount: Number(amount),
