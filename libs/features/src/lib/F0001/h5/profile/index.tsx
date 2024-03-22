@@ -1,7 +1,10 @@
+import { useEffect } from 'react'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 import { Header } from '@nx-next-app/components/H0001'
+import { useAuth } from '@nx-next-app/data-access'
 import { Info } from './Info'
 import { InfoEdit } from './InfoEdit'
 import { Address } from './Address'
@@ -11,6 +14,15 @@ import { LineBinding } from './LineBinding'
 
 const Profile = () => {
 	const { t } = useTranslation()
+	const { push } = useRouter()
+
+	const {
+		auth: { isLogin },
+	} = useAuth()
+
+	useEffect(() => {
+		if (!isLogin) push(paths.home.root)
+	}, [])
 
 	return (
 		<>

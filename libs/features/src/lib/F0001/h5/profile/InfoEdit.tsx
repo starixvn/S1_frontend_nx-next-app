@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
-import { useState } from 'react'
+import { isUndefined } from 'lodash-es'
+import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
@@ -33,11 +34,11 @@ const InfoEdit = () => {
 	const { t } = useTranslation()
 
 	const { push, query } = useRouter()
-	const { prevPage } = query
+	const { key, emailcode, prevPage } = query
 
 	const { modal } = useGlobalModal()
 
-	const { tokenPassed } = useVerifyEmail()
+	const { onVerifyEmail } = useVerifyEmail()
 	const { handlePhoneErrorTip } = useCheckPhone()
 
 	const [setProfile] = useSetProfileMutation()
@@ -235,9 +236,18 @@ const InfoEdit = () => {
 		)
 	}
 
+	useEffect(() => {
+		if (!isUndefined(key) && !isUndefined(emailcode)) {
+			onVerifyEmail({
+				key: key as string,
+				code: emailcode as string,
+			})
+		}
+	}, [key, emailcode])
+
 	return (
 		<Form onSubmit={handleSubmit(handleSubmitForm)}>
-			{!email && tokenPassed && <div>{emailFieldRenderer()}</div>}
+			{!email && <div>{emailFieldRenderer()}</div>}
 			{!birthDay && (
 				<div className='infoModule parts'>
 					<Select
