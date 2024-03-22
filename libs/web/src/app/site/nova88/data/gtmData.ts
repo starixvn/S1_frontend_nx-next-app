@@ -11,6 +11,7 @@ export const getGTMId = (host: string | undefined) => {
 		],
 		// Thailand
 		'GTM-KSND4MPX': [
+			'nova88dev.com',
 			'nova88bkk.com',
 			'nova88bkk101.com',
 			'nova88bkk102.com',
@@ -89,8 +90,11 @@ export const getGTMId = (host: string | undefined) => {
 		'GTM-5MGRSFJP': ['nova88901.net'],
 	}
 
+	// 取得主域名
+	const mainDomain = host?.split('.').slice(-2).join('.')
+
 	const gtmId = Object.entries(gtmMap).find(([key, domains]) =>
-		domains.includes(host as string)
+		domains.includes(mainDomain as string)
 	)
 	return gtmId ? gtmId[0] : defaultGTMId
 }
