@@ -5,10 +5,11 @@ import { useAuth } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
 import { IAxiosError, useVerifyEmailMutation } from '@nx-next-app/service'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { isUndefined } from 'lodash-es'
 
 const useVerifyEmail = () => {
 	const { query, push, reload } = useRouter()
-
+	const { key, emailcode } = query
 	const { t } = useTranslation()
 	const {
 		userInfo: { langId },
@@ -43,8 +44,10 @@ const useVerifyEmail = () => {
 					key,
 					code,
 				}).unwrap()
-
-				setTokenPassed(true)
+        setTokenPassed(true)
+				push({ pathname: paths.profile.root, query: {} }, undefined, {
+					shallow: true,
+				}).then(() => reload())
 			} catch (error) {
 				const { message, errorCode } = error as IAxiosError
 
@@ -56,18 +59,20 @@ const useVerifyEmail = () => {
 					redirectToHome({ message })
 				}
 			}
-		} else {
-			// * 沒有要驗證 Email，直接通過
-			setTokenPassed(true)
 		}
 	}
 
 	useEffect(() => {
-		onVerifyEmail({
-			key: query['key'] as string,
-			code: query['emailcode'] as string,
-		})
-	}, [])
+		if (!isUndefined(key) && !isUndefined(emailcode)) {
+			onVerifyEmail({
+				key: key as string,
+				code: emailcode as string,
+			})
+		} else {
+			// * 沒有要驗證 Email，直接通過
+			setTokenPassed(true)
+		}
+	}, [key, emailcode])
 
 	return { tokenPassed }
 }

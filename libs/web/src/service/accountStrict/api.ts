@@ -27,6 +27,7 @@ export const accountStrictApiUrl = {
 	setLocalBankInfo: 'AccountStrict/SetCustBankInfo',
 	setEWalletInfo: 'AccountStrict/SetCustEWalletInfo',
 	uploadCustPhoto: 'AccountStrict/UploadCustPhotoId',
+	resetPassword: 'AccountStrict/ResetPassword',
 	verifyEmail: 'AccountStrict/VerifyEmail',
 }
 
@@ -162,6 +163,16 @@ export const accountStrictApi = rootApi.injectEndpoints({
 			}),
 			invalidatesTags: ['ACCOUNT_GET_USER_CRYPTO_WALLET_INFO'],
 		}),
+		resetPassword: builder.mutation<
+			IAxiosResponse<void>,
+			{ newPassword: string }
+		>({
+			query: data => ({
+				url: accountStrictApiUrl.resetPassword,
+				method: 'POST',
+				data,
+			}),
+		}),
 		verifyEmail: builder.mutation<IAxiosResponse<string>, IVerifyEmailArgs>({
 			query: data => ({
 				url: accountStrictApiUrl.verifyEmail,
@@ -187,5 +198,6 @@ export const {
 	useSetEWalletInfoMutation,
 	useUploadCustPhotoMutation,
 	useSetCustCryptoWalletMutation,
+	useResetPasswordMutation,
 	useVerifyEmailMutation,
 } = accountStrictApi

@@ -165,7 +165,7 @@ const SlotsProvider = ({
 	)
 	const [slotsGameList, setSlotsGameList] = useState<IDisplayGameData[]>([])
 	// 初始渲染40筆資料
-	const [pageSize, setPageSize] = useState(40)
+	const [pageSize, setPageSize] = useState(50)
 	const [isProcess, setIsProcess] = useState(true)
 	const [myFavorites, setMyFavorites] = useLocalStorage('myFavorites', '')
 	const [isShowSearchInput, setIsShowSearchInput] = useState<boolean>(false)
@@ -516,6 +516,10 @@ const SlotsProvider = ({
 				}),
 				isFavorite: isFavorite({ tpId: gameObj.tpId, gameId: gameObj.gameId }),
 			}))
+			.sort(
+				(a, b) =>
+					new Date(b.launchDate).getTime() - new Date(a.launchDate).getTime()
+			)
 
 		setSlotsGameList(filteredGameList)
 		setIsProcess(false)
@@ -530,7 +534,7 @@ const SlotsProvider = ({
 	// 更新遊戲列表預設給定40筆資料
 	useEffect(() => {
 		if (!isProcess) {
-			setPageSize(40)
+			setPageSize(50)
 			setIsProcess(true)
 		}
 	}, [activeCategoryKey, queryTpId, searchCategoryText, slotsGameList.length])
