@@ -41,7 +41,8 @@ const CardItem = ({
 
 	const checked =
 		accountNo === selectedBankInfo.accountNo &&
-		bankName === selectedBankInfo.bankName
+		bankName === selectedBankInfo.bankName &&
+		type === selectedBankInfo.type
 
 	const bankLogo = String(rawBankLogo).toLowerCase()
 	return (
@@ -82,7 +83,7 @@ const CardItem = ({
 				<div className='checkbox'>
 					<input
 						type='checkbox'
-						id={accountNo}
+						id={`${accountNo}-${type}`}
 						onChange={() => {
 							handleSelectCard({
 								bankName,
@@ -95,7 +96,10 @@ const CardItem = ({
 						checked={checked}
 						disabled={disabled}
 					/>
-					<label htmlFor={accountNo} className='icon icon-checkbox-checked' />
+					<label
+						htmlFor={`${accountNo}-${type}`}
+						className='icon icon-checkbox-checked'
+					/>
 				</div>
 			</div>
 			{withdrawalStatus === WithdrawalPanelStatusEnum.Confirm ? null : (
