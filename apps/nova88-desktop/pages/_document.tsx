@@ -16,6 +16,7 @@ class MyDocument extends Document<CustomDocumentProps> {
 	static async getInitialProps(ctx: DocumentContext) {
 		const initialProps = await Document.getInitialProps(ctx)
 		const host = ctx.req && ctx.req.headers ? ctx.req.headers.host : ''
+		console.log('host', host)
 		return { ...initialProps, host }
 	}
 
