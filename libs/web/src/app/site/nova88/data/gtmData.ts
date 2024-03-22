@@ -11,7 +11,6 @@ export const getGTMId = (host: string | undefined) => {
 		],
 		// Thailand
 		'GTM-KSND4MPX': [
-			'nova88dev.com',
 			'nova88bkk.com',
 			'nova88bkk101.com',
 			'nova88bkk102.com',
