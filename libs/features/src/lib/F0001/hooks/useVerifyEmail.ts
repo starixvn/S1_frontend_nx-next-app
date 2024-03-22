@@ -1,15 +1,12 @@
-import { useEffect, useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { useAuth } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
 import { IAxiosError, useVerifyEmailMutation } from '@nx-next-app/service'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { isUndefined } from 'lodash-es'
 
 const useVerifyEmail = () => {
-	const { query, push, reload } = useRouter()
-	const { key, emailcode } = query
+	const { push, reload } = useRouter()
 	const { t } = useTranslation()
 	const {
 		userInfo: { langId },
@@ -17,8 +14,6 @@ const useVerifyEmail = () => {
 	} = useAuth()
 
 	const { modal } = useGlobalModal()
-
-	const [tokenPassed, setTokenPassed] = useState(false)
 
 	const [verifyEmail] = useVerifyEmailMutation()
 
@@ -62,19 +57,7 @@ const useVerifyEmail = () => {
 		}
 	}
 
-	useEffect(() => {
-		if (!isUndefined(key) && !isUndefined(emailcode)) {
-			onVerifyEmail({
-				key: key as string,
-				code: emailcode as string,
-			})
-		} else {
-			// * 沒有要驗證 Email，直接通過
-			setTokenPassed(true)
-		}
-	}, [key, emailcode])
-
-	return { tokenPassed }
+	return { onVerifyEmail }
 }
 
 export { useVerifyEmail }
