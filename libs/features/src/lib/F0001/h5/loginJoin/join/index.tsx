@@ -51,8 +51,10 @@ const Join = ({ cookies }: IJoinProps) => {
 	const { setError, setValue, getValues, clearErrors, handleSubmit } =
 		formMethods
 
-	const urlAffId = query['AffId'] || cookies['AffId']
-	const urlAffCode = query['AffCode'] || cookies['AffCode']
+	const { affId, affCode } = query
+
+	const urlAffId = affId || cookies['AffId']
+	const urlAffCode = affCode || cookies['AffCode']
 	const urlAffiliate = urlAffId || urlAffCode
 	const cookieLineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
 
