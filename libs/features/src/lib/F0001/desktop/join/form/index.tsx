@@ -35,6 +35,7 @@ import {
 	useLazyGetAffiliateAgentQuery,
 } from '@nx-next-app/service'
 import { includes } from 'lodash-es'
+import { getQueryParam } from '@nx-next-app/utils'
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
 
@@ -48,7 +49,8 @@ const Form = ({ cookies }: IJoinProps) => {
 	const { LANG_GROUPS, TERMS_CONDITIONS } = useStaticData()
 	const router = useRouter()
 	const { query } = router
-	const { affId, affCode } = query
+	const affId = getQueryParam(query, 'affId')
+	const affCode = getQueryParam(query, 'affCode')
 
 	const urlAffId = affId || cookies['AffId']
 	const urlAffCode = affCode || cookies['AffCode']
