@@ -125,7 +125,7 @@ const PromotionDetailModal = ({
 								>
 									{isShowClaimNowButton
 										? toUpper(t('Label_Promotion_ClaimNow') || '')
-										: toUpper(t('Label_General_JoinNow') || '')}
+										: toUpper(t('Label_Promotion_JoinNow') || '')}
 								</button>
 							)}
 
