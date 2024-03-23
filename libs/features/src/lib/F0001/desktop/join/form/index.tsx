@@ -48,9 +48,10 @@ const Form = ({ cookies }: IJoinProps) => {
 	const { LANG_GROUPS, TERMS_CONDITIONS } = useStaticData()
 	const router = useRouter()
 	const { query } = router
+	const { affId, affCode } = query
 
-	const urlAffId = query['AffId'] || cookies['AffId']
-	const urlAffCode = query['AffCode'] || cookies['AffCode']
+	const urlAffId = affId || cookies['AffId']
+	const urlAffCode = affCode || cookies['AffCode']
 	const urlAffiliate = urlAffId || urlAffCode
 	const lineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
 
