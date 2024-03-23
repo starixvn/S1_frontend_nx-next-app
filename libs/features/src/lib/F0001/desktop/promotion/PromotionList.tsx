@@ -128,7 +128,7 @@ const PromotionList = () => {
 									>
 										{isShowClaimNowButton
 											? t('Label_Promotion_ClaimNow')
-											: t('Label_General_JoinNow')}
+											: t('Label_Promotion_JoinNow')}
 									</button>
 								)}
 
