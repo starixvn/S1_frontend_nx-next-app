@@ -39,7 +39,6 @@ const useVerifyEmail = () => {
 					key,
 					code,
 				}).unwrap()
-        setTokenPassed(true)
 				push({ pathname: paths.profile.root, query: {} }, undefined, {
 					shallow: true,
 				}).then(() => reload())
