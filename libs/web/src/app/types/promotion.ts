@@ -55,3 +55,8 @@ export enum PromotionPeriodType {
 	Weekly,
 	Monthly,
 }
+
+export enum PromotionActionType {
+	Link = 0,
+	Detail,
+}
