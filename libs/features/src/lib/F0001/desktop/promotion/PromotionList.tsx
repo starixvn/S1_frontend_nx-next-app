@@ -137,14 +137,9 @@ const PromotionList = () => {
 											: t('Label_Promotion_JoinNow')}
 									</button>
 								)}
-								{promotionAction === PromotionActionType.Detail ? (
-									<button
-										className='btn-check'
-										onClick={() => onGetPromotionDetail({ bonusCode })}
-									>
-										{t('Label_General_MoreInfo')}
-									</button>
-								) : (
+								{/* 只有 Special Bonus 有 Link Type 另開視窗 */}
+								{promotionType === PromotionTypeEnum.SpecialBonus &&
+								promotionAction === PromotionActionType.Link ? (
 									<a
 										href={promotionLink as string}
 										target='_blank'
@@ -153,6 +148,13 @@ const PromotionList = () => {
 									>
 										{t('Label_General_MoreInfo')}
 									</a>
+								) : (
+									<button
+										className='btn-check'
+										onClick={() => onGetPromotionDetail({ bonusCode })}
+									>
+										{t('Label_General_MoreInfo')}
+									</button>
 								)}
 							</div>
 						</div>
