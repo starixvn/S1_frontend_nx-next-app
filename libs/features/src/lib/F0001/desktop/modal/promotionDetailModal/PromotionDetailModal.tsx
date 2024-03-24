@@ -1,14 +1,15 @@
 import { useTranslation } from 'next-i18next'
+import {
+	openLiveChat,
+	getIsHidePromotionJoinButton,
+	isShowPromotionProgressBar,
+	isUrl,
+} from '@nx-next-app/utils'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useGetPromotionDetailQuery } from '@nx-next-app/service'
 import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
 import { useRouter } from 'next/router'
-import {
-	getIsHidePromotionJoinButton,
-	isShowPromotionProgressBar,
-	isUrl,
-} from '@nx-next-app/utils'
 import { paths } from '@nx-next-app/constants'
 import { PromotionTypeEnum } from '@nx-next-app/types'
 import { includes, toUpper } from 'lodash-es'
@@ -103,6 +104,10 @@ const PromotionDetailModal = ({
 		promotionDetail.promotionType
 	)
 
+	// * 只有 Special Bonus 顯示 Apply Now 按鈕
+	const isShowApplyNowButton =
+		PromotionTypeEnum.SpecialBonus === promotionDetail.promotionType
+
 	return (
 		<div className='promoInfoPop active'>
 			<div className='promoInfoPopMask active' onClick={closeModal} />
@@ -116,7 +121,7 @@ const PromotionDetailModal = ({
 							<div className='txt-gray'>{description}</div>
 						</div>
 						<div className='btnGroup'>
-							{!isHideJoinButton && (
+							{!isHideJoinButton && !isShowApplyNowButton && (
 								<button
 									className='orange'
 									onClick={() => {
@@ -128,7 +133,11 @@ const PromotionDetailModal = ({
 										: toUpper(t('Label_Promotion_JoinNow') || '')}
 								</button>
 							)}
-
+							{isShowApplyNowButton && (
+								<button className='red' onClick={openLiveChat}>
+									{t('Label_Promotion_ApplyNow')}
+								</button>
+							)}
 							{!isHideAllPromoButton && (
 								<button
 									className='btn-check'
