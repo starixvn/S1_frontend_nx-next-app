@@ -9,7 +9,11 @@ import {
 import { usePromotion } from '@nx-next-app/features/F0006/providers'
 import { includes } from 'lodash-es'
 import classNames from 'classnames'
-import { PromotionFilterEnum, PromotionTypeEnum } from '@nx-next-app/types'
+import {
+	PromotionActionType,
+	PromotionFilterEnum,
+	PromotionTypeEnum,
+} from '@nx-next-app/types'
 import PromotionProgressBar from './PromotionProgressBar'
 
 const PromotionList = () => {
@@ -42,6 +46,8 @@ const PromotionList = () => {
 					description,
 					tpId,
 					categoryId,
+					promotionLink,
+					promotionAction,
 				} = item
 
 				// * activeFilterType 只存在在 List，所以不加進 getIsHidePromotionJoinButton 的邏輯裡
@@ -130,13 +136,23 @@ const PromotionList = () => {
 											: t('Label_General_JoinNow')}
 									</button>
 								)}
-
-								<button
-									className='btn-check'
-									onClick={() => onGetPromotionDetail({ bonusCode })}
-								>
-									{t('Label_General_MoreInfo')}
-								</button>
+								{promotionAction === PromotionActionType.Detail ? (
+									<button
+										className='btn-check'
+										onClick={() => onGetPromotionDetail({ bonusCode })}
+									>
+										{t('Label_General_MoreInfo')}
+									</button>
+								) : (
+									<a
+										href={promotionLink as string}
+										target='_blank'
+										rel='noreferrer'
+										className='btn-check'
+									>
+										{t('Label_General_MoreInfo')}
+									</a>
+								)}
 							</div>
 						</div>
 
