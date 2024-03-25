@@ -6,7 +6,7 @@ import Document, {
 	DocumentContext,
 	DocumentInitialProps,
 } from 'next/document'
-import { getGTMId } from '@nx-next-app/site/nova88/data'
+import { getGA4ID, getGTMId } from '@nx-next-app/site/nova88/data'
 
 interface CustomDocumentProps extends DocumentInitialProps {
 	host?: string
@@ -22,6 +22,7 @@ class MyDocument extends Document<CustomDocumentProps> {
 	render() {
 		const { host } = this.props
 		const gtmId = getGTMId(host)
+		const ga4Id = getGA4ID(host)
 		return (
 			<Html>
 				<Head>
@@ -46,6 +47,22 @@ class MyDocument extends Document<CustomDocumentProps> {
 						rel='stylesheet'
 					/>
 
+					{/* GA4 */}
+					<script
+						async
+						src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}
+					/>
+					<script
+						dangerouslySetInnerHTML={{
+							__html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', '${ga4Id}');
+              `,
+						}}
+					/>
 					{/* Google Tag Manager - GTAG paste in the <head> */}
 					<script
 						dangerouslySetInnerHTML={{
