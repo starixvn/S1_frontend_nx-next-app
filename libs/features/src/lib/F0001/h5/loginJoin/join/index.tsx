@@ -218,8 +218,8 @@ const Join = ({ cookies }: IJoinProps) => {
 
 		// currency & recaptcha & affiliate cannot use form required check
 		if (
-			// * 中國地區不支援 recaptcha，只檢查非中國地區的 reCaptchaToken
-			(!reCaptchaToken && recaptchaInfo?.country !== 'CN') ||
+			// !reCaptchaToken ||
+			// recaptchaInfo?.country === 'CN' ||
 			!currencyCheck ||
 			!affCodeCheck
 		)
@@ -245,7 +245,7 @@ const Join = ({ cookies }: IJoinProps) => {
 				currencyId: formCurrencyId,
 				phoneNo: phone,
 				realName,
-				reCaptchaToken,
+				// reCaptchaToken,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,
