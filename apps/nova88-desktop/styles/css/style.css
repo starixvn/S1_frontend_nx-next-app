@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -2039,6 +2039,20 @@ header input:focus-within {
   -ms-flex-item-align: center;
       align-self: center;
 }
+.logo.eurocup::before {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 10px;
+  width: 175px;
+  height: 95px;
+  pointer-events: none;
+  background: url(https://banner.0814media.net/desktop/img/event/eurocup/logo-euro-ball.gif) center/cover;
+}
+.logo.eurocup .splogo {
+  -webkit-animation: eurologo 7.5s running infinite 0.5s;
+          animation: eurologo 7.5s running infinite 0.5s;
+}
 
 .splogo {
   position: absolute;
@@ -2117,6 +2131,106 @@ header input:focus-within {
   }
   100% {
     background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes eurologo {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 0.1;
+  }
+  2% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 1;
+  }
+  27% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 1;
+  }
+  31% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 0;
+  }
+  32% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0.1;
+  }
+  34% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 1;
+  }
+  62% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 1;
+  }
+  65% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0;
+  }
+  66% {
+    background: url(https://banner.0814media.net/desktop/img/event/eurocup/euro-logo.png) center/cover;
+    opacity: 0.1;
+  }
+  69% {
+    background: url(https://banner.0814media.net/desktop/img/event/eurocup/euro-logo.png) center/cover;
+    opacity: 1;
+  }
+  97% {
+    background: url(https://banner.0814media.net/desktop/img/event/eurocup/euro-logo.png) center/cover;
+    opacity: 1;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/event/eurocup/euro-logo.png) center/cover;
+    opacity: 0;
+  }
+}
+@keyframes eurologo {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 0.1;
+  }
+  2% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 1;
+  }
+  27% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 1;
+  }
+  31% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 0;
+  }
+  32% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0.1;
+  }
+  34% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 1;
+  }
+  62% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 1;
+  }
+  65% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0;
+  }
+  66% {
+    background: url(https://banner.0814media.net/desktop/img/event/eurocup/euro-logo.png) center/cover;
+    opacity: 0.1;
+  }
+  69% {
+    background: url(https://banner.0814media.net/desktop/img/event/eurocup/euro-logo.png) center/cover;
+    opacity: 1;
+  }
+  97% {
+    background: url(https://banner.0814media.net/desktop/img/event/eurocup/euro-logo.png) center/cover;
+    opacity: 1;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/event/eurocup/euro-logo.png) center/cover;
     opacity: 0;
   }
 }
@@ -2921,6 +3035,11 @@ main .promosswiper .swiper-button-prev::after {
 }
 .hotmatch .hotsports .hotsports-item img {
   width: 451px;
+}
+.hotmatch .hotsports .hotsports-item div {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
 }
 
 .all-btn {
@@ -4193,7 +4312,7 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
   text-align: right;
 }
 
-.inputBox, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event, .worldcupEvent .event .event-content .inputBox-event, .inputBox-blue, .inputBox-white, .inputBox-org {
+.inputBox, .euro .inputBox-event, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event, .worldcupEvent .event .event-content .inputBox-event, .inputBox-blue, .inputBox-white, .inputBox-org {
   width: calc(100% - 22px);
   border-radius: 5px;
   position: relative;
@@ -4208,19 +4327,19 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
   z-index: 2;
   border: 1px solid transparent;
 }
-.inputBox.error, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event, .worldcupEvent .event .event-content .error.inputBox-event, .error.inputBox-blue, .error.inputBox-white, .error.inputBox-org {
+.inputBox.error, .euro .error.inputBox-event, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event, .worldcupEvent .event .event-content .error.inputBox-event, .error.inputBox-blue, .error.inputBox-white, .error.inputBox-org {
   border-color: #cf0404;
 }
-.inputBox.error + .tip, .worldcupEvent .event .event-content .error.inputBox-event + .tip, .error.inputBox-blue + .tip, .error.inputBox-white + .tip, .error.inputBox-org + .tip {
+.inputBox.error + .tip, .euro .error.inputBox-event + .tip, .worldcupEvent .event .event-content .error.inputBox-event + .tip, .error.inputBox-blue + .tip, .error.inputBox-white + .tip, .error.inputBox-org + .tip {
   color: #cf0404;
 }
-.inputBox:focus-within, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event:focus-within, .worldcupEvent .event .event-content .inputBox-event:focus-within, .inputBox-blue:focus-within, .inputBox-white:focus-within, .inputBox-org:focus-within {
+.inputBox:focus-within, .euro .inputBox-event:focus-within, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event:focus-within, .worldcupEvent .event .event-content .inputBox-event:focus-within, .inputBox-blue:focus-within, .inputBox-white:focus-within, .inputBox-org:focus-within {
   border: 1px solid #1E85EC;
   outline: #1E85EC;
   border: 1px solid #BFCCE2;
   outline: #BFCCE2;
 }
-.inputBox input, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event input, .worldcupEvent .event .event-content .inputBox-event input, .inputBox-blue input, .inputBox-white input, .inputBox-org input {
+.inputBox input, .euro .inputBox-event input, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event input, .worldcupEvent .event .event-content .inputBox-event input, .inputBox-blue input, .inputBox-white input, .inputBox-org input {
   background: transparent;
   border: 0;
   padding-left: 5px;
@@ -4230,37 +4349,37 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
       -ms-flex: auto;
           flex: auto;
 }
-.inputBox input::-webkit-input-placeholder, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .inputBox-event input::-webkit-input-placeholder, .inputBox-blue input::-webkit-input-placeholder, .inputBox-white input::-webkit-input-placeholder, .inputBox-org input::-webkit-input-placeholder {
+.inputBox input::-webkit-input-placeholder, .euro .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .inputBox-event input::-webkit-input-placeholder, .inputBox-blue input::-webkit-input-placeholder, .inputBox-white input::-webkit-input-placeholder, .inputBox-org input::-webkit-input-placeholder {
   color: #5574A7;
 }
-.inputBox input::-moz-placeholder, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .inputBox-event input::-moz-placeholder, .inputBox-blue input::-moz-placeholder, .inputBox-white input::-moz-placeholder, .inputBox-org input::-moz-placeholder {
+.inputBox input::-moz-placeholder, .euro .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .inputBox-event input::-moz-placeholder, .inputBox-blue input::-moz-placeholder, .inputBox-white input::-moz-placeholder, .inputBox-org input::-moz-placeholder {
   color: #5574A7;
 }
-.inputBox input:-ms-input-placeholder, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .inputBox-event input:-ms-input-placeholder, .inputBox-blue input:-ms-input-placeholder, .inputBox-white input:-ms-input-placeholder, .inputBox-org input:-ms-input-placeholder {
+.inputBox input:-ms-input-placeholder, .euro .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .inputBox-event input:-ms-input-placeholder, .inputBox-blue input:-ms-input-placeholder, .inputBox-white input:-ms-input-placeholder, .inputBox-org input:-ms-input-placeholder {
   color: #5574A7;
 }
-.inputBox input::-ms-input-placeholder, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .inputBox-event input::-ms-input-placeholder, .inputBox-blue input::-ms-input-placeholder, .inputBox-white input::-ms-input-placeholder, .inputBox-org input::-ms-input-placeholder {
+.inputBox input::-ms-input-placeholder, .euro .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .inputBox-event input::-ms-input-placeholder, .inputBox-blue input::-ms-input-placeholder, .inputBox-white input::-ms-input-placeholder, .inputBox-org input::-ms-input-placeholder {
   color: #5574A7;
 }
-.inputBox input::placeholder, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event input::placeholder, .worldcupEvent .event .event-content .inputBox-event input::placeholder, .inputBox-blue input::placeholder, .inputBox-white input::placeholder, .inputBox-org input::placeholder {
+.inputBox input::placeholder, .euro .inputBox-event input::placeholder, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event input::placeholder, .worldcupEvent .event .event-content .inputBox-event input::placeholder, .inputBox-blue input::placeholder, .inputBox-white input::placeholder, .inputBox-org input::placeholder {
   color: #5574A7;
 }
-.inputBox input[type=date]::-webkit-inner-spin-button, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event input[type=date]::-webkit-inner-spin-button, .worldcupEvent .event .event-content .inputBox-event input[type=date]::-webkit-inner-spin-button, .inputBox-blue input[type=date]::-webkit-inner-spin-button, .inputBox-white input[type=date]::-webkit-inner-spin-button, .inputBox-org input[type=date]::-webkit-inner-spin-button, .inputBox input[type=date]::-webkit-calendar-picker-indicator, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event input[type=date]::-webkit-calendar-picker-indicator, .worldcupEvent .event .event-content .inputBox-event input[type=date]::-webkit-calendar-picker-indicator, .inputBox-blue input[type=date]::-webkit-calendar-picker-indicator, .inputBox-white input[type=date]::-webkit-calendar-picker-indicator, .inputBox-org input[type=date]::-webkit-calendar-picker-indicator {
+.inputBox input[type=date]::-webkit-inner-spin-button, .euro .inputBox-event input[type=date]::-webkit-inner-spin-button, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event input[type=date]::-webkit-inner-spin-button, .worldcupEvent .event .event-content .inputBox-event input[type=date]::-webkit-inner-spin-button, .inputBox-blue input[type=date]::-webkit-inner-spin-button, .inputBox-white input[type=date]::-webkit-inner-spin-button, .inputBox-org input[type=date]::-webkit-inner-spin-button, .inputBox input[type=date]::-webkit-calendar-picker-indicator, .euro .inputBox-event input[type=date]::-webkit-calendar-picker-indicator, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event input[type=date]::-webkit-calendar-picker-indicator, .worldcupEvent .event .event-content .inputBox-event input[type=date]::-webkit-calendar-picker-indicator, .inputBox-blue input[type=date]::-webkit-calendar-picker-indicator, .inputBox-white input[type=date]::-webkit-calendar-picker-indicator, .inputBox-org input[type=date]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
-.inputBox .iconModule, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event .iconModule, .worldcupEvent .event .event-content .inputBox-event .iconModule, .inputBox-blue .iconModule, .inputBox-white .iconModule, .inputBox-org .iconModule {
+.inputBox .iconModule, .euro .inputBox-event .iconModule, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event .iconModule, .worldcupEvent .event .event-content .inputBox-event .iconModule, .inputBox-blue .iconModule, .inputBox-white .iconModule, .inputBox-org .iconModule {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.inputBox .iconModule .icon:before, .worldcupEvent .event .event-content .inputBox-event .iconModule .icon:before, .inputBox-blue .iconModule .icon:before, .inputBox-white .iconModule .icon:before, .inputBox-org .iconModule .icon:before {
+.inputBox .iconModule .icon:before, .euro .inputBox-event .iconModule .icon:before, .worldcupEvent .event .event-content .inputBox-event .iconModule .icon:before, .inputBox-blue .iconModule .icon:before, .inputBox-white .iconModule .icon:before, .inputBox-org .iconModule .icon:before {
   font-weight: normal;
 }
-.inputBox .iconModule .icon.icon-cross:before, .worldcupEvent .event .event-content .inputBox-event .iconModule .icon.icon-cross:before, .inputBox-blue .iconModule .icon.icon-cross:before, .inputBox-white .iconModule .icon.icon-cross:before, .inputBox-org .iconModule .icon.icon-cross:before {
+.inputBox .iconModule .icon.icon-cross:before, .euro .inputBox-event .iconModule .icon.icon-cross:before, .worldcupEvent .event .event-content .inputBox-event .iconModule .icon.icon-cross:before, .inputBox-blue .iconModule .icon.icon-cross:before, .inputBox-white .iconModule .icon.icon-cross:before, .inputBox-org .iconModule .icon.icon-cross:before {
   color: #cf0404;
   font-size: 12px;
 }
-.inputBox .iconModule .icon.icon-checkmark:before, .worldcupEvent .event .event-content .inputBox-event .iconModule .icon.icon-checkmark:before, .inputBox-blue .iconModule .icon.icon-checkmark:before, .inputBox-white .iconModule .icon.icon-checkmark:before, .inputBox-org .iconModule .icon.icon-checkmark:before {
+.inputBox .iconModule .icon.icon-checkmark:before, .euro .inputBox-event .iconModule .icon.icon-checkmark:before, .worldcupEvent .event .event-content .inputBox-event .iconModule .icon.icon-checkmark:before, .inputBox-blue .iconModule .icon.icon-checkmark:before, .inputBox-white .iconModule .icon.icon-checkmark:before, .inputBox-org .iconModule .icon.icon-checkmark:before {
   color: #42AC5E;
 }
 
@@ -4632,6 +4751,15 @@ input[type=file] {
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
+.eventLink.eurocup {
+  bottom: 195px;
+  left: 20px;
+}
+.eventLink.eurocup img {
+  width: 158px;
+  -webkit-animation: livesports 4s ease-in-out infinite;
+          animation: livesports 4s ease-in-out infinite;
+}
 .eventLink .icon-close {
   width: 20px;
   height: 20px;
@@ -4741,134 +4869,6 @@ input[type=file] {
     opacity: 1;
   }
 }
-.eventLink .angpaoLink {
-  width: 190px;
-  height: 190px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  cursor: pointer;
-}
-.eventLink .angpaoLink:hover {
-  -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-.eventLink .angpaoLink img {
-  position: absolute;
-  z-index: 1;
-}
-.eventLink .angpaoLink img.eventlinkimg {
-  z-index: 0;
-  margin: 5px 10px 0 0;
-  width: 140px;
-  -webkit-animation: angpao-shake 1.5s ease infinite alternate;
-          animation: angpao-shake 1.5s ease infinite alternate;
-}
-@-webkit-keyframes angpao-shake {
-  0% {
-    -webkit-transform: rotateZ(15deg);
-            transform: rotateZ(15deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  10% {
-    -webkit-transform: rotateZ(-15deg);
-            transform: rotateZ(-15deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  20% {
-    -webkit-transform: rotateZ(20deg);
-            transform: rotateZ(20deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  30% {
-    -webkit-transform: rotateZ(-20deg);
-            transform: rotateZ(-20deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  40% {
-    -webkit-transform: rotateZ(15deg);
-            transform: rotateZ(15deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  50% {
-    -webkit-transform: rotateZ(-15deg);
-            transform: rotateZ(-15deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  60% {
-    -webkit-transform: rotateZ(0);
-            transform: rotateZ(0);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  100% {
-    -webkit-transform: rotateZ(0);
-            transform: rotateZ(0);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-}
-@keyframes angpao-shake {
-  0% {
-    -webkit-transform: rotateZ(15deg);
-            transform: rotateZ(15deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  10% {
-    -webkit-transform: rotateZ(-15deg);
-            transform: rotateZ(-15deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  20% {
-    -webkit-transform: rotateZ(20deg);
-            transform: rotateZ(20deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  30% {
-    -webkit-transform: rotateZ(-20deg);
-            transform: rotateZ(-20deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  40% {
-    -webkit-transform: rotateZ(15deg);
-            transform: rotateZ(15deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  50% {
-    -webkit-transform: rotateZ(-15deg);
-            transform: rotateZ(-15deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  60% {
-    -webkit-transform: rotateZ(0);
-            transform: rotateZ(0);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  100% {
-    -webkit-transform: rotateZ(0);
-            transform: rotateZ(0);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-}
 
 @-webkit-keyframes eventLink {
   0% {
@@ -4903,6 +4903,9 @@ input[type=file] {
   position: fixed;
   bottom: 135px;
   z-index: 1;
+}
+.livesports.eurocup {
+  bottom: 320px;
 }
 .livesports img {
   -webkit-animation: livesports 4s ease-in-out infinite;
@@ -8160,7 +8163,7 @@ input[type=file] {
       -ms-flex-align: center;
           align-items: center;
 }
-.walletTransfer .inputBox, .walletTransfer .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event, .worldcupEvent .event .event-content .ticket-item.finished .walletTransfer .inputBox-event, .walletTransfer .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .walletTransfer .inputBox-event, .walletTransfer .inputBox-org, .walletTransfer .inputBox-white, .walletTransfer .inputBox-blue {
+.walletTransfer .inputBox, .walletTransfer .euro .inputBox-event, .euro .walletTransfer .inputBox-event, .walletTransfer .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event, .worldcupEvent .event .event-content .ticket-item.finished .walletTransfer .inputBox-event, .walletTransfer .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .walletTransfer .inputBox-event, .walletTransfer .inputBox-org, .walletTransfer .inputBox-white, .walletTransfer .inputBox-blue {
   float: left;
   width: calc(100% - 161px);
   margin-right: 10px;
@@ -8634,6 +8637,28 @@ input[type=file] {
 .addAddresspop > div .txt-blue {
   padding-left: 5px;
 }
+.addAddresspop form > div {
+  width: 100%;
+  border-bottom: 1px solid #BFCCE2;
+  padding-bottom: 20px;
+}
+.addAddresspop form > div .inputModuleRow > .btnGroup {
+  margin: 10px 0;
+}
+.addAddresspop form > div .inputModuleRow > .btnGroup button {
+  margin-right: 0;
+  min-width: 100px;
+}
+.addAddresspop form > div.btnGroup {
+  border: 0;
+  margin: 20px 0 0;
+}
+.addAddresspop form > div .tip {
+  text-align: left;
+}
+.addAddresspop form > div .txt-blue {
+  padding-left: 5px;
+}
 
 .txt {
   width: calc(100% - 10px);
@@ -8707,20 +8732,21 @@ input[type=file] {
 .quickSelect .btnGroup {
   margin: 10px 0;
 }
-.quickSelect > div.inputBox, .worldcupEvent .event .event-content .ticket-item.finished .quickSelect > div.inputBox-event, .worldcupEvent .event .event-content .quickSelect > div.inputBox-event, .quickSelect > div.inputBox-org, .quickSelect > div.inputBox-white, .quickSelect > div.inputBox-blue,
+.quickSelect > div.inputBox, .euro .quickSelect > div.inputBox-event, .worldcupEvent .event .event-content .ticket-item.finished .quickSelect > div.inputBox-event, .worldcupEvent .event .event-content .quickSelect > div.inputBox-event, .quickSelect > div.inputBox-org, .quickSelect > div.inputBox-white, .quickSelect > div.inputBox-blue,
 .quickSelect > div:first-child {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   margin-right: 5px;
 }
-.quickSelect > div.inputBox.promoType, .worldcupEvent .event .event-content .quickSelect > div.promoType.inputBox-event, .quickSelect > div.promoType.inputBox-org, .quickSelect > div.promoType.inputBox-white, .quickSelect > div.promoType.inputBox-blue,
+.quickSelect > div.inputBox.promoType, .euro .quickSelect > div.promoType.inputBox-event, .worldcupEvent .event .event-content .quickSelect > div.promoType.inputBox-event, .quickSelect > div.promoType.inputBox-org, .quickSelect > div.promoType.inputBox-white, .quickSelect > div.promoType.inputBox-blue,
 .quickSelect > div:first-child.promoType {
   max-width: none;
   display: block;
 }
-.quickSelect > div.inputBox.promoType button, .worldcupEvent .event .event-content .quickSelect > div.promoType.inputBox-event button, .quickSelect > div.promoType.inputBox-org button, .quickSelect > div.promoType.inputBox-white button, .quickSelect > div.promoType.inputBox-blue button,
+.quickSelect > div.inputBox.promoType button, .euro .quickSelect > div.promoType.inputBox-event button, .worldcupEvent .event .event-content .quickSelect > div.promoType.inputBox-event button, .quickSelect > div.promoType.inputBox-org button, .quickSelect > div.promoType.inputBox-white button, .quickSelect > div.promoType.inputBox-blue button,
 .quickSelect > div.inputBox.promoType a,
+.euro .quickSelect > div.promoType.inputBox-event a,
 .worldcupEvent .event .event-content .quickSelect > div.promoType.inputBox-event a,
 .quickSelect > div.promoType.inputBox-org a,
 .quickSelect > div.promoType.inputBox-white a,
@@ -8729,12 +8755,12 @@ input[type=file] {
 .quickSelect > div:first-child.promoType a {
   float: left;
 }
-.quickSelect > div.inputBox.promoType button.orange, .worldcupEvent .event .event-content .quickSelect > div.promoType.inputBox-event button.orange, .quickSelect > div.promoType.inputBox-org button.orange, .quickSelect > div.promoType.inputBox-white button.orange, .quickSelect > div.promoType.inputBox-blue button.orange,
+.quickSelect > div.inputBox.promoType button.orange, .euro .quickSelect > div.promoType.inputBox-event button.orange, .worldcupEvent .event .event-content .quickSelect > div.promoType.inputBox-event button.orange, .quickSelect > div.promoType.inputBox-org button.orange, .quickSelect > div.promoType.inputBox-white button.orange, .quickSelect > div.promoType.inputBox-blue button.orange,
 .quickSelect > div:first-child.promoType button.orange {
   position: relative;
   margin-left: 25px;
 }
-.quickSelect > div.inputBox.promoType button.orange:before, .worldcupEvent .event .event-content .quickSelect > div.promoType.inputBox-event button.orange:before, .quickSelect > div.promoType.inputBox-org button.orange:before, .quickSelect > div.promoType.inputBox-white button.orange:before, .quickSelect > div.promoType.inputBox-blue button.orange:before,
+.quickSelect > div.inputBox.promoType button.orange:before, .euro .quickSelect > div.promoType.inputBox-event button.orange:before, .worldcupEvent .event .event-content .quickSelect > div.promoType.inputBox-event button.orange:before, .quickSelect > div.promoType.inputBox-org button.orange:before, .quickSelect > div.promoType.inputBox-white button.orange:before, .quickSelect > div.promoType.inputBox-blue button.orange:before,
 .quickSelect > div:first-child.promoType button.orange:before {
   content: "｜";
   color: #1E85EC;
@@ -8747,7 +8773,7 @@ input[type=file] {
   position: relative;
   max-width: 322px;
 }
-.quickSelect > div:first-child .inputBox, .quickSelect > div:first-child .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .quickSelect > div:first-child .inputBox-event, .quickSelect > div:first-child .inputBox-org, .quickSelect > div:first-child .inputBox-white, .quickSelect > div:first-child .inputBox-blue {
+.quickSelect > div:first-child .inputBox, .quickSelect > div:first-child .euro .inputBox-event, .euro .quickSelect > div:first-child .inputBox-event, .quickSelect > div:first-child .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .quickSelect > div:first-child .inputBox-event, .quickSelect > div:first-child .inputBox-org, .quickSelect > div:first-child .inputBox-white, .quickSelect > div:first-child .inputBox-blue {
   position: absolute;
   -webkit-box-align: start;
       -ms-flex-align: start;
@@ -10172,7 +10198,7 @@ article p {
   margin-right: 0;
   color: #b2b2b2;
 }
-.rdt .inputBox, .rdt .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event, .worldcupEvent .event .event-content .ticket-item.finished .rdt .inputBox-event, .rdt .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .rdt .inputBox-event, .rdt .inputBox-org, .rdt .inputBox-white, .rdt .inputBox-blue {
+.rdt .inputBox, .rdt .euro .inputBox-event, .euro .rdt .inputBox-event, .rdt .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event, .worldcupEvent .event .event-content .ticket-item.finished .rdt .inputBox-event, .rdt .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .rdt .inputBox-event, .rdt .inputBox-org, .rdt .inputBox-white, .rdt .inputBox-blue {
   width: 100%;
 }
 
@@ -17269,6 +17295,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .rolloverListNew > div > div:last-child {
   border-right: 0;
 }
+.rolloverListNew.mission {
+  margin-top: 20px;
+}
 
 .rolloverList div div {
   display: -webkit-box;
@@ -17302,6 +17331,91 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.mission-content {
+  margin: 20px 0;
+}
+.mission-title {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(17, 34, 64)), color-stop(50%, rgb(42, 79, 164)), to(rgb(17, 34, 64)));
+  background: linear-gradient(90deg, rgb(17, 34, 64) 0%, rgb(42, 79, 164) 50%, rgb(17, 34, 64) 100%);
+  padding: 12px 0;
+  text-align: center;
+  font-size: 20px;
+}
+.mission-progress {
+  background: #efefef;
+  padding: 20px 0 30px 25px;
+  color: #2a4fa4;
+  font-weight: 600;
+}
+.mission-progress > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.mission-progress > div .state {
+  background: #000;
+  height: 25px;
+  width: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5px;
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+  border-radius: 20px 0 0 20px;
+}
+.mission-progress > div .state.completed {
+  background: #2A4FA4;
+}
+.mission-progress > div .state.undone {
+  background: #858585;
+}
+.mission-progress-item .progress {
+  background: white;
+  height: 8px;
+  width: 650px;
+  border-radius: 20px;
+}
+.mission-progress-item .progress .progress-bar {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(42, 79, 164)), color-stop(70%, rgb(113, 156, 255)));
+  background: linear-gradient(90deg, rgb(42, 79, 164) 0%, rgb(113, 156, 255) 70%);
+  height: 8px;
+  border-radius: 20px;
+}
+.mission-progress-item.turnover .progress-bar {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(53, 105, 227)), color-stop(70%, rgb(248, 69, 255)));
+  background: linear-gradient(90deg, rgb(53, 105, 227) 0%, rgb(248, 69, 255) 70%);
+}
+.mission-progress-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.mission-progress-text > div:first-child {
+  margin-bottom: 5px;
+}
+.mission-progress-text > div:last-child {
+  font-size: 12px;
+  color: #8d8d8d;
 }
 
 .countdown {
@@ -19673,7 +19787,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 180px;
 }
 .profileModule > div.profile > div > div:last-child {
-  width: 310px;
+  width: 330px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -19691,15 +19805,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin-left: 5px;
   width: auto;
   max-width: revert;
-}
-.profileModule > div.profile > div > div:last-child .tip {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-  white-space: nowrap;
-  color: #cf0404;
 }
 .profileModule > div.profile > div > div > span {
   color: #009810;
@@ -19775,6 +19880,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   color: #1E85EC;
   font-size: 14px;
   margin-bottom: 5px;
+}
+
+form .profileModule .vipLv .vipname {
+  color: white;
 }
 
 .accountSafety {
@@ -23026,4 +23135,903 @@ input[type=number] {
 .lobby .nodata img {
   width: 60px;
   margin-bottom: 10px;
+}
+
+.euro {
+  background: #143CDB;
+  padding-top: 176px;
+}
+.euro .wrapper {
+  padding-top: 150px;
+  min-height: 1900px;
+  background: #143CDB url(https://banner.0814media.net/desktop/img/event/eurocup/top-bg.jpg) no-repeat bottom/cover;
+  position: relative;
+}
+@media (min-width: 2000px) {
+  .euro .wrapper {
+    min-height: 2500px;
+  }
+}
+.euro .wrapper::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 512px;
+  z-index: 0;
+  background: url(https://banner.0814media.net/desktop/img/event/eurocup/top-item.png) no-repeat center/cover;
+}
+@media (min-width: 2000px) {
+  .euro .wrapper::before {
+    height: 650px;
+  }
+}
+.euro > .title {
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #F9BF4B;
+  text-align: center;
+  margin: 50px auto;
+}
+.euro > .title span {
+  display: block;
+  color: #fff;
+  font-size: 25px;
+  margin: 10px auto 20px;
+}
+.euro .logo {
+  width: 500px;
+  display: block;
+  margin: 0 auto 50px;
+}
+.euro .event-title {
+  width: 800px;
+  font-size: 80px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.euro .event-date {
+  font-size: 30px;
+  font-weight: normal;
+  color: #F9BF4B;
+  display: block;
+  text-transform: capitalize;
+  margin-top: 20px;
+}
+.euro .banner {
+  margin-top: -200px;
+  pointer-events: none;
+}
+@media (max-width: 1920px) {
+  .euro .banner {
+    margin-top: -90px;
+  }
+}
+.euro-predition {
+  margin: -500px 0 120px;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 2000px) {
+  .euro-predition {
+    margin-top: -700px;
+  }
+}
+.euro-predition-content {
+  position: relative;
+}
+.euro-predition-content.end > .mask {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro-predition-content > .mask {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 100%;
+  border-radius: 15px;
+  max-width: 1355px;
+  height: 100%;
+  padding: 0 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 20px;
+  background: rgba(14, 42, 153, 0.75);
+  z-index: 5;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro-predition .title {
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #F9BF4B;
+  margin-bottom: 10px;
+}
+.euro-predition .title span {
+  display: block;
+}
+.euro-predition .subtitle {
+  width: 500px;
+  font-size: 26px;
+  line-height: 1.2;
+  color: #fff;
+}
+.euro-predition .top {
+  margin: 0 auto 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro-predition .top > div {
+  margin-right: 50px;
+}
+.euro-predition .top img {
+  width: 438px;
+}
+.euro-mission {
+  max-width: 1350px;
+  margin: 0 auto 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+.euro-mission.end > .mask {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro-mission > .mask {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 100%;
+  border-radius: 15px;
+  max-width: 1355px;
+  height: 100%;
+  padding: 0 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 20px;
+  background: rgba(14, 42, 153, 0.75);
+  z-index: 5;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro-mission-item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 49%;
+          flex: 0 0 49%;
+  padding: 30px 50px;
+  margin-right: 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #0E2A99;
+  border-radius: 15px;
+}
+.euro-mission-item:last-child {
+  margin-right: 0;
+}
+.euro-mission .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 26px;
+  color: #fff;
+  text-transform: capitalize;
+  position: relative;
+}
+.euro-mission .title::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -10px;
+  background: #fff;
+  width: 100%;
+  height: 1px;
+}
+.euro-mission .title a, .euro-mission .title button {
+  color: #143CDA;
+  background: #F9BF4B;
+  padding: 10px;
+  display: inline-block;
+  min-width: 157px;
+  text-align: center;
+  border-radius: 50px;
+  font-size: 16px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.euro-mission .title a:hover, .euro-mission .title button:hover {
+  background: #fff;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.euro-mission .progressBar {
+  margin: 150px auto 100px;
+  margin-right: 25px;
+  position: relative;
+  background: #e1e1e1;
+  border-radius: 4px;
+}
+.euro-mission .progressBar .progressItem {
+  width: 50%;
+  height: 10px;
+  border-radius: 10px;
+  position: relative;
+  background: #e1e1e1;
+}
+.euro-mission .progressBar .progressItem:before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0E2A99;
+  position: absolute;
+  right: -9px;
+  top: -4px;
+  z-index: 2;
+}
+.euro-mission .progressBar .progressItem:after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  right: -13px;
+  top: -8px;
+  z-index: 1;
+}
+.euro-mission .progressBar .progressItem .value {
+  position: absolute;
+  color: #F9BF4B;
+  font-size: 16px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  width: 150px;
+  right: 0;
+  top: -35px;
+  -webkit-transform: translateX(calc(50% - 10px));
+          transform: translateX(calc(50% - 10px));
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro-mission .progressBar .progressItem .value:before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  width: 55px;
+  height: 25px;
+  background: url(https://banner.0814media.net/desktop/img/event/eurocup/tickets-1.png) no-repeat center/cover;
+}
+.euro-mission .progressBar .progressItem.active:after {
+  background: #F9BF4B;
+}
+.euro-mission .progressBar .progressValue {
+  position: absolute;
+  background: #F9BF4B;
+  height: 8px;
+  border-radius: 4px;
+  left: 0;
+  z-index: 1;
+}
+.euro-mission .progressBar .progressValue .number {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  font-size: 16px;
+  font-weight: bold;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  background: #F9BF4B;
+  color: #143CDB;
+  border-radius: 3px;
+  padding: 3px 10px;
+}
+.euro-mission .progressBar .progressValue .number::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 12px;
+  height: 10px;
+  -webkit-transform: translateX(-55%);
+          transform: translateX(-55%);
+  background: url(https://banner.0814media.net/desktop/img/event/eurocup/frame.png) no-repeat center/cover;
+}
+.euro-poll {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #0E2A99;
+  max-width: 1350px;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 30px 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.euro-poll .title {
+  font-size: 26px;
+  color: #fff;
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+.euro-poll .title::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -10px;
+  background: #fff;
+  width: 100%;
+  height: 1px;
+}
+.euro-poll-item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 23%;
+          flex: 0 0 23%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px 0 0;
+  margin-top: 15px;
+  position: relative;
+}
+.euro-poll-item img {
+  width: 110px;
+  margin-bottom: 20px;
+}
+.euro-poll-item .title {
+  color: #000;
+  text-transform: capitalize;
+  text-align: center;
+}
+.euro-poll-item .close-icon {
+  display: none;
+  opacity: 0;
+  width: 45px;
+}
+.euro-poll-item .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(14, 42, 153, 0.75);
+  z-index: 4;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro-poll-item.closed .close-icon {
+  display: block;
+  opacity: 1;
+}
+.euro-poll-item.closed .mask {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro-poll-item.finished {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.euro-poll-item.finished .inputBox-event {
+  background: #143CDB;
+  border: 0;
+}
+.euro-poll-item.finished .inputBox-event .dropdown {
+  text-align: center;
+}
+.euro-poll-item.finished .inputBox-event .dropdown > .btn {
+  color: #fff;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: text;
+}
+.euro-poll-item.finished .inputBox-event .dropdown > .btn::after {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+.euro-poll-item.finished .dropdown-container.active {
+  display: none;
+}
+.euro-poll-item.finished .btn-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100px;
+}
+.euro-poll-item.finished .btn-group img {
+  width: 30px;
+  margin-bottom: 12px;
+}
+.euro .inputBox-group {
+  width: 100%;
+  padding: 0 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.euro .inputBox-event {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: #EEEEEE;
+  color: #000;
+  z-index: unset;
+}
+.euro .inputBox-event.active {
+  border: 1px solid #143CDB;
+  border-bottom: 0;
+}
+.euro .inputBox-event.active .dropdown > .btn:after {
+  -webkit-transform: scaleY(-1);
+          transform: scaleY(-1);
+}
+.euro .inputBox-event:nth-child(2) {
+  z-index: 3 !important;
+}
+.euro .inputBox-event .dropdown > .btn {
+  color: #000;
+  font-size: 15px;
+}
+.euro .inputBox-event .dropdown > .btn:after {
+  width: 22px;
+  height: 22px;
+  background: url(https://banner.0814media.net/desktop/img/event/eurocup/arrow-icon.png) no-repeat center/cover;
+  border: 0;
+}
+.euro .inputBox-event .dropdown .dropdown-container {
+  position: absolute;
+  top: 27px;
+  left: -6px;
+  background: #EEEEEE;
+  border: 1px solid #143CDB;
+  border-top: 0;
+  border-radius: 0 0 10px 10px;
+  padding-top: 5px;
+  z-index: 4;
+}
+.euro .inputBox-event .dropdown .dropdown-container .dropdown-item {
+  padding-left: 15px;
+  font-size: 15px;
+  color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro .inputBox-event .dropdown .dropdown-container .dropdown-item img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 25px;
+  margin: 0 5px 0 0;
+}
+.euro .inputBox-event .dropdown .dropdown-container .dropdown-item:hover {
+  background: #143CDB;
+  color: #fff;
+}
+.euro .inputBox-event .icon:before {
+  color: #FF004E;
+}
+.euro .btn-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #F9BF4B;
+  width: 100%;
+  height: 100px;
+  padding: 20px 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 0 0 10px 10px;
+}
+.euro .btn-group .btn-cancel, .euro .btn-group .btn-submit {
+  border-radius: 10px;
+  padding: 15px 10px;
+  background: #fff;
+  min-width: 100px;
+  margin-right: 10px;
+}
+.euro .btn-group .btn-submit {
+  background: #143CDB;
+  color: #fff;
+  margin-right: 0;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.euro .btn-group .btn-submit:hover {
+  -webkit-filter: brightness(1.2);
+          filter: brightness(1.2);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.euro .btn-group .btn-submit.disable {
+  background: #EEEEEE;
+  color: #8f8f8f;
+  cursor: initial;
+}
+.euro .btn-group .btn-submit.disable:hover {
+  -webkit-filter: brightness(1);
+          filter: brightness(1);
+  background: #EEEEEE;
+}
+.euro .btn-group .btn-cancel:hover {
+  background: #EEEEEE;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.euro-reward {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 1350px;
+  margin: 0 auto 120px;
+}
+.euro-reward-item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 32%;
+          flex: 0 0 32%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.euro-reward-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 5px 20px;
+  min-height: 75px;
+}
+.euro-reward-top.first {
+  background: #FF0100;
+}
+.euro-reward-top.second {
+  background: #00BA5D;
+}
+.euro-reward-top.third {
+  background: #5375FF;
+}
+.euro-reward-top .title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+.euro-reward-top .title span {
+  font-size: 14px;
+  display: block;
+  font-weight: normal;
+}
+.euro-reward-top img {
+  width: 75px;
+  margin: -10px 0 5px;
+  display: block;
+}
+.euro-reward-content {
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px 0;
+}
+.euro-reward-content img {
+  width: 170px;
+  margin-right: 30px;
+  border-radius: 20px;
+}
+.euro-reward-content .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.euro-reward-content .info .subtitle {
+  color: #C2C2C2;
+  font-size: 14px;
+}
+.euro-reward-content .info .reward {
+  color: #143CDB;
+  font-size: 20px;
+  width: 150px;
+  margin-bottom: 20px;
+}
+.euro-reward-result {
+  background: #C2C2C2;
+  text-align: center;
+  padding: 10px;
+  line-height: 1.2;
+  font-weight: bold;
+  border-radius: 0 0 20px 20px;
+  height: 85px;
+}
+.euro-reward-result span {
+  display: block;
+}
+.euro-reward-result.active {
+  background: #F9BF4B;
+  color: #143CDB;
+}
+.euro-reward-result.active.one > div > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
+}
+.euro-reward-result.active.one > div span {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
+  font-size: 18px;
+}
+.euro-reward-result.active > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  font-size: 16px;
+  width: 100%;
+}
+.euro-reward-result.active > div > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 30%;
+          flex: 1 0 30%;
+}
+.euro-reward-result.active > div span {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 80%;
+          flex: 1 0 80%;
+  position: relative;
+  padding: 10px 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100%;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro-reward-result.active > div span::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  top: 0;
+  left: 0;
+  background: #143CDB;
+}
+.euro-extra-reward {
+  max-width: 1350px;
+  margin: 0 auto 120px;
+}
+.euro-extra-reward > div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.euro-extra-reward-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #143CDB;
+  background: #F8F8F8;
+  font-size: 20px;
+  font-weight: bold;
+}
+.euro-extra-reward-item:nth-child(even) {
+  background: #F9BF4B;
+}
+.euro-extra-reward-item .subtitle {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 20%;
+          flex: 1 0 20%;
+  border-right: 3px solid #fff;
+  padding: 10px 10px 10px 20px;
+}
+.euro-extra-reward-item .reward {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 80%;
+          flex: 1 0 80%;
+  padding: 10px 10px 10px 20px;
+}
+.euro-extra-reward-rule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 0;
+  width: 75%;
+  margin: 30px auto;
+}
+.euro-extra-reward-rule-item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px 30px;
+  font-size: 20px;
+}
+.euro-extra-reward-rule-item:first-child {
+  color: #F9BF4B;
+  font-size: 20px;
+  font-weight: bold;
+}
+.euro-extra-reward-rule-item:last-child {
+  position: relative;
+}
+.euro-extra-reward-rule-item:last-child::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -50px;
+  height: calc(100% - 40px);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 1px;
+  background: #fff;
+}
+.euro-extra-reward-rule-item > div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.euro-tnc {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+.euro-tnc ul {
+  font-size: 16px;
+}
+.euro-tnc ul li {
+  margin-bottom: 20px;
+}
+.euro-footer {
+  background: #143CDA;
 }/*# sourceMappingURL=style.css.map */

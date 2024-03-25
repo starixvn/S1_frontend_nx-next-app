@@ -27,7 +27,10 @@ const LuckyWheel = () => {
 				onClick={() => setDisplay(false)}
 			/>
 
-			<div onClick={() => push(paths.luckyWheel.root)} className='wheelModule'>
+			<div
+				onClick={() => push(paths.luckyWheel.root)}
+				className='wheelModule small'
+			>
 				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/wheel/eventlinkbg.png`}
 					alt='luckywheel-img-eventlinkbg'
