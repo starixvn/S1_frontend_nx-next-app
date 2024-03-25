@@ -42,7 +42,6 @@ const {
 	LiveChatScript,
 	IovationScript,
 	PlayTechScript,
-	GTMScript,
 	JackpotsScript,
 	PixelCodeScript,
 	ActivatorScript,
@@ -81,7 +80,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			<LiveChatScript />
 			<IovationScript />
 			<PlayTechScript />
-			<GTMScript />
+			{/* <GTMScript /> */}
 			<JackpotsScript />
 			{/* <GoogleTagManagerScript /> */}
 			<PixelCodeScript />
