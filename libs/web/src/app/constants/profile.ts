@@ -1,9 +1,9 @@
 import { paths } from '@nx-next-app/constants'
 
 export enum PrevPageEnum {
-	'Withdrawal' = 'withdrawal',
-	'Promotion' = 'promotion',
-	'Deposit' = 'deposit',
+	'Withdrawal' = '/withdrawal',
+	'Promotion' = '/promotion',
+	'Deposit' = '/deposit',
 }
 
 type IPrevPage = {

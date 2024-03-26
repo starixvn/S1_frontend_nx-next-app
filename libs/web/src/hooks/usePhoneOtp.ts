@@ -29,9 +29,9 @@ const usePhoneOtp = () => {
 		let errorMsg = ''
 
 		try {
-			await verifyOtp({ otpCode }).unwrap()
+			const { errorCode } = await verifyOtp({ otpCode }).unwrap()
 
-			callbackFn && callbackFn()
+			if (errorCode === 0 && callbackFn) callbackFn()
 		} catch (error) {
 			const { errorCode, message } =
 				(error as {
@@ -47,6 +47,7 @@ const usePhoneOtp = () => {
 				errorMsg = t('Label_Profile_OTPInvalid')
 			}
 		}
+
 		return errorMsg
 	}
 
@@ -55,7 +56,13 @@ const usePhoneOtp = () => {
 			await sendOtpSMS().unwrap()
 			setTimer(true)
 		} catch (error) {
-			modal.error((error as Error).message)
+			const { errorCode, message } =
+				(error as {
+					errorCode: number
+					message: string
+					status: number
+				}) || {}
+			modal.error(`[${errorCode}] ${message}`)
 		}
 	}
 
