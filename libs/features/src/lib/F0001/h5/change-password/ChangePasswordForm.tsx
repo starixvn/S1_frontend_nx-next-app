@@ -21,13 +21,10 @@ const ChangePasswordForm = ({
 		<Form onSubmit={handleSubmit(onSubmit)}>
 			<InputBox
 				register={register('oldPassword', {
+					// 舊密碼不用驗證 PASSWORD_REGEX 因後台 reset 亂數產生碼是六位數英文數字(ex:有可能全英 違反正規)
 					required: {
 						value: true,
 						message: t('Label_ChangePassword_PasswordReq'),
-					},
-					pattern: {
-						value: PASSWORD_REGEX,
-						message: t('Label_General_PasswordValidate'),
 					},
 				})}
 				icon='icon-key'
