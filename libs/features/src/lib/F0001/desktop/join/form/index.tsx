@@ -35,6 +35,7 @@ import {
 	useLazyGetAffiliateAgentQuery,
 } from '@nx-next-app/service'
 import { includes } from 'lodash-es'
+import { getQueryParam } from '@nx-next-app/utils'
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
 
@@ -48,9 +49,11 @@ const Form = ({ cookies }: IJoinProps) => {
 	const { LANG_GROUPS, TERMS_CONDITIONS } = useStaticData()
 	const router = useRouter()
 	const { query } = router
+	const affId = getQueryParam(query, 'affId')
+	const affCode = getQueryParam(query, 'affCode')
 
-	const urlAffId = query['AffId'] || cookies['AffId']
-	const urlAffCode = query['AffCode'] || cookies['AffCode']
+	const urlAffId = affId || cookies['AffId']
+	const urlAffCode = affCode || cookies['AffCode']
 	const urlAffiliate = urlAffId || urlAffCode
 	const lineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
 
@@ -354,8 +357,8 @@ const Form = ({ cookies }: IJoinProps) => {
 
 		// currency & recaptcha & affiliate cannot use form required check
 		if (
-			// * 中國地區不支援 recaptcha，只檢查非中國地區的 reCaptchaToken
-			// (!reCaptchaToken && recaptchaInfo?.country !== 'CN') ||
+			// !reCaptchaToken ||
+			// recaptchaInfo?.country === 'CN' ||
 			!currencyCheck ||
 			!affCodeCheck
 		)

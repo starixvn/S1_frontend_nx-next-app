@@ -107,6 +107,9 @@ export const getTermsConditionsLangId = ({
 		if (currencyId === CurrenciesEnum.IDR) {
 			return 'id_en'
 		}
+		if (currencyId === CurrenciesEnum.VND) {
+			return 'vn_en'
+		}
 	}
 	return langId
 }

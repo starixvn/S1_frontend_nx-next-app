@@ -141,6 +141,11 @@ const useMenu = () => {
 		},
 		{ loginCallback }: { loginCallback: LoginCallbackType }
 	) => {
+		if (loginCallback && !auth.isLogin) {
+			loginCallback()
+			return
+		}
+
 		if (
 			SPECIAL_LOGIN_GAME_TYPE[LoginGameTypeEnum.returnHtml].includes(
 				Number(tpId)
@@ -163,10 +168,6 @@ const useMenu = () => {
 			return
 		}
 
-		if (loginCallback && !auth.isLogin) {
-			loginCallback()
-			return
-		}
 		const host = typeof window === 'undefined' ? null : window.location.origin
 		const dbHost =
 			process.env.NODE_ENV === 'production'
