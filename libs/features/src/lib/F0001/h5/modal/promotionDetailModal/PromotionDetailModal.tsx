@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useTranslation } from 'next-i18next'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
@@ -36,6 +36,7 @@ const PromotionDetailModal = ({
 		userInfo: { langId, currencyId },
 	} = useAuth()
 	const { closeModal } = useGlobalModal()
+	const { LIVE_CHAT_ID_BY_LANG_ID } = useStaticData()
 
 	const { data: { data: promotionDetail } = {} } = useGetPromotionDetailQuery({
 		currencyId,
@@ -101,6 +102,10 @@ const PromotionDetailModal = ({
 		promotionDetail.promotionType
 	)
 
+	// * 只有 Special Bonus 顯示 Apply Now 按鈕
+	const isShowApplyNowButton =
+		PromotionTypeEnum.SpecialBonus === promotionDetail.promotionType
+
 	return (
 		<div className='pop'>
 			<div className='popTit'>
@@ -110,7 +115,7 @@ const PromotionDetailModal = ({
 			<div className='promotions'>
 				<div className='proInfomodule'>
 					<div className='btn-group'>
-						{!isHideJoinButton && (
+						{!isHideJoinButton && !isShowApplyNowButton && (
 							<button
 								className='orange'
 								onClick={() => {
@@ -119,8 +124,20 @@ const PromotionDetailModal = ({
 							>
 								{isShowClaimNowButton
 									? toUpper(t('Label_Promotion_ClaimNow') || '')
-									: toUpper(t('Label_General_JoinNow') || '')}
+									: toUpper(t('Label_Promotion_JoinNow') || '')}
 							</button>
+						)}
+						{isShowApplyNowButton && (
+							<a
+								className='red'
+								rel='noreferrer'
+								target='_blank'
+								href={`https://direct.lc.chat/${
+									process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']
+								}/${LIVE_CHAT_ID_BY_LANG_ID[langId] || 'en'}`}
+							>
+								{t('Label_Promotion_ApplyNow')}
+							</a>
 						)}
 					</div>
 					<div className='protitle'>{title}</div>

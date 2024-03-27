@@ -24,7 +24,7 @@ const Amount = () => {
 
 	const { register, formState, getValues, handleSubmit } = amountForm
 
-	const { touchedFields, errors } = formState
+	const { dirtyFields, errors } = formState
 
 	const { type } = selectedBankInfo
 
@@ -70,7 +70,7 @@ const Amount = () => {
 
 	const isButtonDisabled =
 		!!errors['amount'] ||
-		!touchedFields['amount'] ||
+		!dirtyFields['amount'] ||
 		(currencyId === CurrenciesEnum.INR && !phoneVerified) ||
 		(maxTimes > 0 && withdrawalTimes >= maxTimes)
 
@@ -118,7 +118,7 @@ const Amount = () => {
 							onChange: checkAmount,
 							onBlur: checkAmount,
 						})}
-						touched={!!touchedFields['amount']}
+						touched={!!dirtyFields['amount']}
 						title={t('Label_Withdrawal_Amount') ?? ''}
 						type='number'
 						placeholder={

@@ -71,7 +71,7 @@ const PRODUCT_EVENT_PERIOD: {
 	},
 	GAMES_93_CONNECT: {
 		start: null,
-		end: '2024/12/31 23:59:59',
+		end: '2024/04/21 23:59:59',
 	},
 }
 

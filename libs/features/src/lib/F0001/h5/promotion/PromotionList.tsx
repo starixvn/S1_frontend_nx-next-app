@@ -131,7 +131,7 @@ const PromotionList = () => {
 								>
 									{isShowClaimNowButton
 										? t('Label_Promotion_ClaimNow')
-										: t('Label_General_JoinNow')}
+										: t('Label_Promotion_JoinNow')}
 								</button>
 							)}
 							{/* 只有 Special Bonus 有 Link Type 另開視窗 */}

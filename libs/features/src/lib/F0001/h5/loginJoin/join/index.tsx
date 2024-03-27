@@ -24,6 +24,7 @@ import {
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
 } from '@nx-next-app/service'
+import { getQueryParam } from '@nx-next-app/utils'
 import { Step1, Step2, Step3, StepBar, Features, LineRegister } from './form'
 
 interface IJoinProps {
@@ -51,8 +52,11 @@ const Join = ({ cookies }: IJoinProps) => {
 	const { setError, setValue, getValues, clearErrors, handleSubmit } =
 		formMethods
 
-	const urlAffId = query['AffId'] || cookies['AffId']
-	const urlAffCode = query['AffCode'] || cookies['AffCode']
+	const affId = getQueryParam(query, 'affId')
+	const affCode = getQueryParam(query, 'affCode')
+
+	const urlAffId = affId || cookies['AffId']
+	const urlAffCode = affCode || cookies['AffCode']
 	const urlAffiliate = urlAffId || urlAffCode
 	const cookieLineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
 

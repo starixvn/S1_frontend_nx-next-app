@@ -1,5 +1,6 @@
 import dayjs from 'dayjs'
-import { useState } from 'react'
+import { isUndefined } from 'lodash-es'
+import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
@@ -7,6 +8,10 @@ import {
 	useLazyExistsEmailQuery,
 	useSetProfileMutation,
 } from '@nx-next-app/service'
+import {
+	useVerifyEmail,
+	useCheckPhone,
+} from '@nx-next-app/features/F0001/hooks'
 import { useAuth } from '@nx-next-app/data-access'
 import { REALNAME_REGEX } from '@nx-next-app/site/nova88'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -22,17 +27,18 @@ import {
 	InputBox,
 	ISelectProps,
 } from '@nx-next-app/components/H0001'
-import { useCheckPhone } from '@nx-next-app/features/F0001/hooks'
+
 import { PhoneOtpModal } from './PhoneOtpModal'
 
 const InfoEdit = () => {
 	const { t } = useTranslation()
 
 	const { push, query } = useRouter()
-	const { prevPage } = query
+	const { key, emailcode, prevPage } = query
 
 	const { modal } = useGlobalModal()
 
+	const { onVerifyEmail } = useVerifyEmail()
 	const { handlePhoneErrorTip } = useCheckPhone()
 
 	const [setProfile] = useSetProfileMutation()
@@ -229,6 +235,15 @@ const InfoEdit = () => {
 			/>
 		)
 	}
+
+	useEffect(() => {
+		if (!isUndefined(key) && !isUndefined(emailcode)) {
+			onVerifyEmail({
+				key: key as string,
+				code: emailcode as string,
+			})
+		}
+	}, [key, emailcode])
 
 	return (
 		<Form onSubmit={handleSubmit(handleSubmitForm)}>

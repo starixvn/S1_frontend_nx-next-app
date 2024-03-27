@@ -42,9 +42,7 @@ const {
 	LiveChatScript,
 	IovationScript,
 	PlayTechScript,
-	GTMScript,
 	JackpotsScript,
-	GoogleTagManagerScript,
 	PixelCodeScript,
 	ActivatorScript,
 } = ThirdPartyJS
@@ -82,9 +80,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			<LiveChatScript />
 			<IovationScript />
 			<PlayTechScript />
-			<GTMScript />
+			{/* <GTMScript /> */}
 			<JackpotsScript />
-			<GoogleTagManagerScript />
+			{/* <GoogleTagManagerScript /> */}
 			<PixelCodeScript />
 			<ActivatorScript />
 

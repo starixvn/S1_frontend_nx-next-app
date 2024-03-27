@@ -1,13 +1,15 @@
 import dayjs from 'dayjs'
-import { useState } from 'react'
+import { isUndefined } from 'lodash-es'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'next-i18next'
 import { useForm, FormProvider } from 'react-hook-form'
 import { useRouter } from 'next/router'
+import { paths, PrevPageEnum, PREV_PAGE } from '@nx-next-app/constants'
 import { Loading } from '@nx-next-app/components/D0001'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useSetProfileMutation } from '@nx-next-app/service'
-import { PrevPageEnum, PREV_PAGE } from '@nx-next-app/constants'
+import { useVerifyEmail } from '@nx-next-app/features/F0001/hooks'
 import { PhoneOtpModal } from './PhoneOtpModal'
 import { Info } from './Info'
 import { Address } from './Address'
@@ -16,7 +18,7 @@ import { Verification } from './Verification'
 const Profile = () => {
 	const { t } = useTranslation()
 	const { push, query } = useRouter()
-	const { prevPage } = query
+	const { key, emailcode, prevPage } = query
 
 	const formMethods = useForm()
 	const { getValues, handleSubmit } = formMethods
@@ -24,6 +26,7 @@ const Profile = () => {
 	const { modal } = useGlobalModal()
 
 	const {
+		auth: { isLogin },
 		userInfo: {
 			email,
 			phoneNo,
@@ -35,6 +38,8 @@ const Profile = () => {
 			birth_y: birthYear,
 		},
 	} = useAuth()
+
+	const { onVerifyEmail } = useVerifyEmail()
 
 	//* DatePicker 使用 react-hook-form 會有日期更新緩慢的狀況，所以改用 useState
 	const [formBirth, setFormBirth] = useState<Date | null>(null)
@@ -99,6 +104,17 @@ const Profile = () => {
 	}
 
 	const showSubmitBtn = !accountName || !phoneNo || !birthDay || !email
+
+	useEffect(() => {
+		if (!isUndefined(key) && !isUndefined(emailcode)) {
+			onVerifyEmail({
+				key: key as string,
+				code: emailcode as string,
+			})
+		}
+	}, [key, emailcode])
+
+	if (!isLogin) push(paths.home.root)
 
 	// * 等待 response 回來才渲染元件，確保不會發生 react-hydration-error
 	if (!accountName) return <Loading />

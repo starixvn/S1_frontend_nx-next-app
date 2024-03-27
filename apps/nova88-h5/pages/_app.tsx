@@ -43,9 +43,7 @@ dayjs.extend(utc)
 const {
 	IovationScript,
 	PlayTechScript,
-	GTMScript,
 	JackpotsScript,
-	GoogleTagManagerScript,
 	PixelCodeScript,
 	ActivatorScript,
 } = ThirdPartyJS
@@ -83,9 +81,8 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			{/* <LiveChatScript /> */}
 			<IovationScript />
 			<PlayTechScript />
-			<GTMScript />
+			{/* <GTMScript /> */}
 			<JackpotsScript />
-			<GoogleTagManagerScript />
 			<PixelCodeScript />
 			<ActivatorScript />
 		</>

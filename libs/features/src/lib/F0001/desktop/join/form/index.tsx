@@ -35,6 +35,7 @@ import {
 	useLazyGetAffiliateAgentQuery,
 } from '@nx-next-app/service'
 import { includes } from 'lodash-es'
+import { getQueryParam } from '@nx-next-app/utils'
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
 
@@ -48,9 +49,11 @@ const Form = ({ cookies }: IJoinProps) => {
 	const { LANG_GROUPS, TERMS_CONDITIONS } = useStaticData()
 	const router = useRouter()
 	const { query } = router
+	const affId = getQueryParam(query, 'affId')
+	const affCode = getQueryParam(query, 'affCode')
 
-	const urlAffId = query['AffId'] || cookies['AffId']
-	const urlAffCode = query['AffCode'] || cookies['AffCode']
+	const urlAffId = affId || cookies['AffId']
+	const urlAffCode = affCode || cookies['AffCode']
 	const urlAffiliate = urlAffId || urlAffCode
 	const lineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
 
@@ -169,7 +172,10 @@ const Form = ({ cookies }: IJoinProps) => {
 			errorTip = error.message || ''
 		} else if (!formAreaCode) {
 			errorTip = t('Label_Join_PhoneRequired')
-		} else if (!PHONE_LENGTH_REGEX.test(formAreaCode + formPhone)) {
+		} else if (
+			Object.values(AREA_CODE_BY_CURRENCY).includes(formAreaCode) &&
+			!PHONE_LENGTH_REGEX.test(formAreaCode + formPhone)
+		) {
 			// phone number check length by area code, so can't use pattern
 			const limitRange = PHONE_DIGITS_LIMIT[formAreaCode]
 			errorTip = t('Label_Join_PhoneNumberErrorTip', {
@@ -517,6 +523,7 @@ const Form = ({ cookies }: IJoinProps) => {
 								placeholder={t('Label_General_Phone') as string}
 								error={!!errors['phone'] || !!phoneErrorTip}
 								touched={!!touchedFields['phone']}
+								type='number'
 							/>
 						</div>
 						<div className={`tip active${phoneErrorTip && ' txt-red'}`}>
