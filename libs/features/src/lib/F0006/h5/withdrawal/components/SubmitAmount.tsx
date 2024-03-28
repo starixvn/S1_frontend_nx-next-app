@@ -22,7 +22,7 @@ const SubmitAmount = () => {
 
 	const { register, formState, getValues, handleSubmit } = amountForm
 
-	const { touchedFields, errors } = formState
+	const { dirtyFields, errors } = formState
 
 	const { type } = selectedBankInfo
 
@@ -62,7 +62,7 @@ const SubmitAmount = () => {
 
 	const isButtonDisabled =
 		!!errors['amount'] ||
-		!touchedFields['amount'] ||
+		!dirtyFields['amount'] ||
 		(currencyId === CurrenciesEnum.INR && !phoneVerified) ||
 		(maxTimes > 0 && withdrawalTimes >= maxTimes)
 
@@ -84,7 +84,7 @@ const SubmitAmount = () => {
 					onBlur: checkAmount,
 				})}
 				type='number'
-				touched={!!touchedFields['amount']}
+				touched={!!dirtyFields['amount']}
 				infoMessage={withdrawalMinMaxLimitHint}
 				placeholder={
 					isEWalletSelected
