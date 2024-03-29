@@ -67,8 +67,11 @@ const useDepositBankTransferForm = ({
 
 	const watchReceipt = watch('receipt')
 
-	const { loading: contextLoading, refetchPaymentBankTransferList } =
-		useDepositContext()
+	const {
+		loading: contextLoading,
+		refetchPaymentBankTransferList,
+		handleYuriPurchaseClick,
+	} = useDepositContext()
 
 	const { data: { data: bankAccountInfo } = {} } = useGetBankAccountInfoQuery(
 		{
@@ -116,6 +119,7 @@ const useDepositBankTransferForm = ({
 	// * 3. 透過 transId 上傳圖片以及 bonusCode
 	// * 4. savedChecked = true 時記住銀行資訊
 	const onBankTransferFormSubmit = async (values: IBankTransferForm) => {
+		handleYuriPurchaseClick()
 		try {
 			const {
 				amount,
