@@ -72,8 +72,11 @@ const useOnlineBankingForm = ({
 
 	const { setValue, resetField, getValues } = formMethods
 
-	const { loading: contextLoading, refetchPaymentOnlineBankingList } =
-		useDepositContext()
+	const {
+		loading: contextLoading,
+		refetchPaymentOnlineBankingList,
+		handleYuriPurchaseClick,
+	} = useDepositContext()
 
 	const {
 		data: { data: paymentOnlineBankInfoSysList = [] } = {},
@@ -108,6 +111,7 @@ const useOnlineBankingForm = ({
 	// * 3. mode = 其他，window.open()
 	// * 4. savedChecked = true 時記住銀行資訊
 	const onOnlineBankingFormSubmit = (values: IOnlineBankingForm) => {
+		handleYuriPurchaseClick()
 		const {
 			mode,
 			sysId = 0,

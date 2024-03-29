@@ -83,6 +83,7 @@ interface DepositContextInterface {
 	refetchPaymentAutoDepositList: () => void
 	refetchDepositQuickTransfer: () => void
 	refetchDepositChatTransfer: () => void
+	handleYuriPurchaseClick: () => void
 }
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -252,6 +253,13 @@ export const DepositProvider = ({
 			return { ...acc, [cur]: paymentData }
 		}, {})
 
+	// 廣告商用的事件記錄器，綁在所有 deposit submit 底下
+	const handleYuriPurchaseClick = () => {
+		if ((window as any)._yuri_track) {
+			;(window as any)._yuri_track('Purchase')
+		}
+	}
+
 	const loading =
 		isGetPaymentBankTransferListLoading ||
 		isGetPaymentOnlineBankingListLoading ||
@@ -278,6 +286,7 @@ export const DepositProvider = ({
 		refetchPaymentAutoDepositList,
 		refetchDepositQuickTransfer,
 		refetchDepositChatTransfer,
+		handleYuriPurchaseClick,
 	}
 
 	// * 初始資料完後，設定默認 Deposit Payment
