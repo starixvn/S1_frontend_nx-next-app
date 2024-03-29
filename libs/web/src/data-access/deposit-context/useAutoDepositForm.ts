@@ -36,8 +36,11 @@ const useAutoDepositForm = ({
 	const { query, pathname, push } = useRouter()
 	const { paymentType: queryPaymentType, sysId: querySysId } = query
 
-	const { loading: contextLoading, refetchPaymentAutoDepositList } =
-		useDepositContext()
+	const {
+		loading: contextLoading,
+		refetchPaymentAutoDepositList,
+		handleYuriPurchaseClick,
+	} = useDepositContext()
 
 	const formMethods = useForm<IAutoDepositForm>()
 
@@ -58,6 +61,7 @@ const useAutoDepositForm = ({
 	// * 2. window.open() only
 	// * 3. savedChecked = true 時記住銀行資訊
 	const onAutoDepositFormSubmit = async (values: IAutoDepositForm) => {
+		handleYuriPurchaseClick()
 		try {
 			const {
 				amount = 0,

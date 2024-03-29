@@ -51,8 +51,11 @@ const useChatTransferForm = ({
 		onSavedDepositLocalStorageSavedInfo,
 	} = useDepositSavedLocalStorage()
 
-	const { loading: contextLoading, refetchDepositQuickTransfer } =
-		useDepositContext()
+	const {
+		loading: contextLoading,
+		refetchDepositQuickTransfer,
+		handleYuriPurchaseClick,
+	} = useDepositContext()
 
 	const formMethods = useForm<IChatTransferForm>({ mode: 'all' })
 
@@ -73,6 +76,7 @@ const useChatTransferForm = ({
 	// * 3. fetch refetchDepositQuickTransfer
 	// * 4. savedChecked = true 時記住銀行資訊
 	const onFormSubmit = async (values: IChatTransferForm) => {
+		handleYuriPurchaseClick()
 		try {
 			const {
 				amount = 0,

@@ -61,8 +61,11 @@ const useQRPayForm = ({
 		onSavedDepositLocalStorageSavedInfo,
 	} = useDepositSavedLocalStorage()
 
-	const { loading: contextLoading, refetchPaymentQRPayList } =
-		useDepositContext()
+	const {
+		loading: contextLoading,
+		refetchPaymentQRPayList,
+		handleYuriPurchaseClick,
+	} = useDepositContext()
 
 	const formMethods = useForm<IQRPayForm>({ mode: 'all' })
 
@@ -93,6 +96,7 @@ const useQRPayForm = ({
 	// * 3. mode = 其他，window.open()
 	// * 4. savedChecked = true 時記住銀行資訊
 	const onQRPayFormSubmit = async (values: IQRPayForm) => {
+		onQRPayFormSubmit()
 		try {
 			const {
 				amount = 0,
