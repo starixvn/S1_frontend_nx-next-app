@@ -26,6 +26,13 @@ const LayoutFooter = () => {
 		skip: !isLogin,
 	})
 
+	// 廣告商用的事件記錄器，綁在 DepositButton 底下
+	const handleYuriAddToCartClick = () => {
+		if ((window as any)._yuri_track) {
+			;(window as any)._yuri_track('AddToCart')
+		}
+	}
+
 	// * 根據語系有不同的 LIVE CHAT ID, 默認為 en
 	const liveChatUrl = `https://direct.lc.chat/${
 		process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']
@@ -108,7 +115,7 @@ const LayoutFooter = () => {
 			>
 				<div className='footer-popup-item'>
 					<Link href={paths.deposit.root}>
-						<a>
+						<a onClick={handleYuriAddToCartClick}>
 							<div className='footer-popup-img'>
 								<img src={`${FOOTER_HOME_DOMAIN}/deposit.png`} alt='Deposit' />
 							</div>
