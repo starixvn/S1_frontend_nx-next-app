@@ -40,7 +40,7 @@ const DepositForm = () => {
 
 	return (
 		<div className='depositModule active'>
-			<DepositModule title='Deposit Option' required>
+			<DepositModule title={t('Label_Deposit_DepositOptions')} required>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentType'>
 					{Object.keys(payments).map(key => {
 						const paymentOption =
@@ -71,7 +71,7 @@ const DepositForm = () => {
 									}
 								}}
 							>
-								{/* 
+								{/*
 								// * 處理時間區塊
 								// * 隱藏簡化畫面，未來有可能再打開
 								*/}
