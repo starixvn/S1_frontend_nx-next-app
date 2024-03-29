@@ -96,7 +96,7 @@ const useQRPayForm = ({
 	// * 3. mode = 其他，window.open()
 	// * 4. savedChecked = true 時記住銀行資訊
 	const onQRPayFormSubmit = async (values: IQRPayForm) => {
-		onQRPayFormSubmit()
+		handleYuriPurchaseClick()
 		try {
 			const {
 				amount = 0,
