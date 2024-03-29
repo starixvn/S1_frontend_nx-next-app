@@ -19,11 +19,11 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ISelectProps } from '@nx-next-app/components/H0006'
 import {
 	useSignupMutation,
-	useGetRecaptchaInfoQuery,
 	useLazyAffiliateCheckQuery,
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
 } from '@nx-next-app/service'
+import { getQueryParam } from '@nx-next-app/utils'
 import { Step1, Step2, Step3, StepBar, Features, LineRegister } from './form'
 
 interface IJoinProps {
@@ -51,8 +51,11 @@ const Join = ({ cookies }: IJoinProps) => {
 	const { setError, setValue, getValues, clearErrors, handleSubmit } =
 		formMethods
 
-	const urlAffId = query['AffId'] || cookies['AffId']
-	const urlAffCode = query['AffCode'] || cookies['AffCode']
+	const affId = getQueryParam(query, 'affId')
+	const affCode = getQueryParam(query, 'affCode')
+
+	const urlAffId = affId || cookies['AffId']
+	const urlAffCode = affCode || cookies['AffCode']
 	const urlAffiliate = urlAffId || urlAffCode
 	const cookieLineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
 
@@ -62,7 +65,26 @@ const Join = ({ cookies }: IJoinProps) => {
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 	const [signUp] = useSignupMutation()
 
-	const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery()
+	const currencySelectOptions = siteCurrencyList
+		.filter(currencyId => {
+			const affiliate = getValues('affiliate')
+			const formCurrencyId = getValues('currencyId')
+
+			// If affId qualified, only show currencyId from api in select
+			return urlAffId && affiliate ? currencyId === formCurrencyId : true
+		})
+		.map(currencyId => ({
+			value: currencyId,
+			label: t(`Label_General_Currency_${currencyId}`),
+			prefixOptionIcon: (
+				<div
+					className={classNames(
+						'flag',
+						FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
+					)}
+				/>
+			),
+		}))
 
 	const checkLineRegister = () => {
 		if (!cookieLineUserId) return
@@ -127,6 +149,8 @@ const Join = ({ cookies }: IJoinProps) => {
 		// check affiliate is qualified from api
 		try {
 			await affiliateCheck({ affCode: formAffiliate }).unwrap()
+			clearErrors('affiliate')
+
 			return true
 		} catch (error) {
 			// error
@@ -183,20 +207,13 @@ const Join = ({ cookies }: IJoinProps) => {
 			areaCode,
 			phone,
 			affiliate,
-			reCaptchaToken,
 		} = getValues()
 
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
 		// currency & recaptcha & affiliate cannot use form required check
-		if (
-			!reCaptchaToken ||
-			recaptchaInfo?.country === 'CN' ||
-			!currencyCheck ||
-			!affCodeCheck
-		)
-			return
+		if (!currencyCheck || !affCodeCheck) return
 
 		const affId = affiliate && urlAffId ? affiliate : null
 		const affCode = !urlAffId && affCodeCheck ? affiliate : null
@@ -218,7 +235,6 @@ const Join = ({ cookies }: IJoinProps) => {
 				currencyId: formCurrencyId,
 				phoneNo: phone,
 				realName,
-				reCaptchaToken,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,
@@ -241,27 +257,6 @@ const Join = ({ cookies }: IJoinProps) => {
 	useEffect(() => {
 		checkLineRegister()
 	}, [siteCurrencyList])
-
-	const currencySelectOptions = siteCurrencyList
-		.filter(currencyId => {
-			const affiliate = getValues('affiliate')
-			const formCurrencyId = getValues('currencyId')
-
-			// If affId qualified, only show currencyId from api in select
-			return urlAffId && affiliate ? currencyId === formCurrencyId : true
-		})
-		.map(currencyId => ({
-			value: currencyId,
-			label: t(`Label_General_Currency_${currencyId}`),
-			prefixOptionIcon: (
-				<div
-					className={classNames(
-						'flag',
-						FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
-					)}
-				/>
-			),
-		}))
 
 	return (
 		<>

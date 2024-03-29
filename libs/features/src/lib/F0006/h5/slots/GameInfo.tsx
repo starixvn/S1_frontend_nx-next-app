@@ -48,7 +48,7 @@ const GameInfo = () => {
 								onGamePlay({
 									tpId: activeGame.tpId,
 									gameId: activeGame.gameId,
-									playFree: activeGame?.playFree,
+									playFree: false,
 								})
 							}
 						}}

@@ -1,14 +1,15 @@
 import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
-import { useAuth } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useGetPromotionDetailQuery } from '@nx-next-app/service'
-import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0006/hooks'
 import {
 	openLiveChat,
 	getIsHidePromotionJoinButton,
 	isShowPromotionProgressBar,
+	isUrl,
 } from '@nx-next-app/utils'
+import { useAuth } from '@nx-next-app/data-access'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useGetPromotionDetailQuery } from '@nx-next-app/service'
+import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0006/hooks'
+import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 import { PromotionTypeEnum } from '@nx-next-app/types'
 import { includes, toUpper } from 'lodash-es'
@@ -17,6 +18,7 @@ import DepositSlip from './DepositSlip'
 import DepositMenu from './DepositMenu'
 import PromotionProgressBar from '../../promotion/PromotionProgressBar'
 import PromoRule from './PromoRule'
+import PromoMission from './PromoMission'
 
 const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
@@ -31,6 +33,7 @@ const PromotionDetailModal = ({
 	isHideAllPromoButton = false,
 }: IPromotionDetailModalProps) => {
 	const { t } = useTranslation()
+	const { push } = useRouter()
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
@@ -98,7 +101,7 @@ const PromotionDetailModal = ({
 	// * 是否顯示 ClaimNowButton
 	const isShowClaimNowButton = includes(
 		[PromotionTypeEnum.Cashback, PromotionTypeEnum.RetentionFreeBet],
-		promotionType
+		promotionDetail.promotionType
 	)
 
 	// * 只有 Special Bonus 顯示 Apply Now 按鈕
@@ -110,7 +113,7 @@ const PromotionDetailModal = ({
 			<div className='promoInfoPopMask active' onClick={closeModal} />
 			<div className='promotionsInfo'>
 				<div className='icon icon-close' onClick={closeModal} />
-				<img src={banner} alt={title} />
+				{isUrl(banner) ? <img src={banner} alt={title} /> : null}
 				<div className='proData'>
 					<div className='proDataTitle'>
 						<div className='txt-darkBlue'>
@@ -136,60 +139,68 @@ const PromotionDetailModal = ({
 								</button>
 							)}
 							{!isHideAllPromoButton && (
-								<Link href={paths.promotion.root}>
-									<button className='btn-check'>
-										{t('Label_Promotion_AllPromos')}
-									</button>
-								</Link>
+								<button
+									className='btn-check'
+									onClick={() => {
+										push(paths.promotion.root)
+										closeModal()
+									}}
+								>
+									{t('Label_Promotion_AllPromos')}
+								</button>
 							)}
 						</div>
 					</div>
+					{isShowCashbackInfo && (
+						<CashbackInfo
+							bonusCode={bonusCode}
+							cashBackDetails={cashBackDetails}
+						/>
+					)}
+
+					{isShowDepositSlip && (
+						<DepositSlip depositAmount={depositAmount} refList={refList} />
+					)}
+
+					{isShowDepositMenu && (
+						<DepositMenu depositId={depositId} depositAmount={depositAmount} />
+					)}
+
+					{isShowPromotionProgressBar({
+						isJoin,
+						status,
+						promotionType,
+					}) && (
+						<PromotionProgressBar
+							custTurnOver={custTurnOver}
+							custRollOver={custRollOver}
+							onSpinButton={() =>
+								onUpdatePromotionDetail({
+									bonusCode,
+									tpId,
+									promoCategoryId: String(categoryId),
+								})
+							}
+						/>
+					)}
+					{promotionType === PromotionTypeEnum.MissionBonus && !isJoin && (
+						<PromoMission promotionDetail={promotionDetail} />
+					)}
+
+					{promotionType !== PromotionTypeEnum.MissionBonus && (
+						<PromoRule promotionDetail={promotionDetail} />
+					)}
+
+					{details && (
+						<div
+							className='proDataBody'
+							// eslint-disable-next-line react/no-danger
+							dangerouslySetInnerHTML={{
+								__html: details,
+							}}
+						/>
+					)}
 				</div>
-
-				{isShowCashbackInfo && (
-					<CashbackInfo
-						bonusCode={bonusCode}
-						cashBackDetails={cashBackDetails}
-					/>
-				)}
-
-				{isShowDepositSlip && (
-					<DepositSlip depositAmount={depositAmount} refList={refList} />
-				)}
-
-				{isShowDepositMenu && (
-					<DepositMenu depositId={depositId} depositAmount={depositAmount} />
-				)}
-
-				{isShowPromotionProgressBar({
-					isJoin,
-					status,
-					promotionType,
-				}) && (
-					<PromotionProgressBar
-						custTurnOver={custTurnOver}
-						custRollOver={custRollOver}
-						onSpinButton={() =>
-							onUpdatePromotionDetail({
-								bonusCode,
-								tpId,
-								promoCategoryId: String(categoryId),
-							})
-						}
-					/>
-				)}
-
-				<PromoRule promotionDetail={promotionDetail} />
-
-				{details && (
-					<div
-						className='proDataBody'
-						// eslint-disable-next-line react/no-danger
-						dangerouslySetInnerHTML={{
-							__html: details,
-						}}
-					/>
-				)}
 			</div>
 		</div>
 	)

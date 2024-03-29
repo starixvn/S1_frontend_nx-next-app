@@ -3,18 +3,18 @@ import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
-import { FLAG_PREFIX_ICON_BY_CURRENCIES } from '@nx-next-app/constants'
 import { InputBox, ISelectProps } from '@nx-next-app/components/H0006'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import {
+	FLAG_PREFIX_ICON_BY_CURRENCIES,
+	USERNAME_REGEX,
+	PASSWORD_REGEX,
+	REALNAME_REGEX,
+} from '@nx-next-app/constants'
 import {
 	useLazyAffiliateCheckQuery,
 	useLazyExistsUserNameQuery,
 } from '@nx-next-app/service'
-import {
-	USERNAME_REGEX,
-	PASSWORD_REGEX,
-	REALNAME_REGEX,
-} from '@nx-next-app/site/yashbet'
 
 interface IStep1Props {
 	cookies: TmpCookiesObj
@@ -46,8 +46,8 @@ const Step1 = ({
 
 	const {
 		formState,
-		register,
 		trigger,
+		register,
 		setError,
 		getValues,
 		clearErrors,
