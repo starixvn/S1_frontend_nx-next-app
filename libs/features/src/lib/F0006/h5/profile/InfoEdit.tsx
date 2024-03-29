@@ -15,6 +15,7 @@ import {
 	PREV_PAGE,
 	AREA_CODE,
 	EMAIL_REGEX,
+	REALNAME_REGEX,
 } from '@nx-next-app/constants'
 import {
 	Form,
@@ -22,7 +23,6 @@ import {
 	InputBox,
 	ISelectProps,
 } from '@nx-next-app/components/H0006'
-import { REALNAME_REGEX } from '@nx-next-app/site/yashbet'
 import { useCheckPhone } from '@nx-next-app/features/F0006/hooks'
 import { PhoneOtpModal } from './PhoneOtpModal'
 

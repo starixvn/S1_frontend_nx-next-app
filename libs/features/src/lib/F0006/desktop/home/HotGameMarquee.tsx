@@ -70,4 +70,4 @@ const HotGameMarquee = () => {
 	) : null
 }
 
-export { HotGameMarquee }
+export default HotGameMarquee

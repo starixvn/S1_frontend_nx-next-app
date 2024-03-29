@@ -10,4 +10,4 @@ const index = () => {
 	)
 }
 
-export { index as NewsBlock }
+export default index
