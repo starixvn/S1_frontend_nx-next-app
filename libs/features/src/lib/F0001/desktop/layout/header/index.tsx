@@ -76,6 +76,13 @@ const LayoutHeader = () => {
 	// * line 登入按鈕的顯示邏輯
 	const showLineLogin = currencyId === CurrenciesEnum.THB
 
+	// 廣告商用的事件記錄器，綁在 DepositButton 底下
+	const handleYuriAddToCartClick = () => {
+		if ((window as any)._yuri_track) {
+			;(window as any)._yuri_track('AddToCart')
+		}
+	}
+
 	return (
 		<Header>
 			<Header.Logo
@@ -91,7 +98,7 @@ const LayoutHeader = () => {
 						<div className='line' />
 						<Wallet />
 						<Link href={paths.deposit.root}>
-							<a className='deposit-btn'>
+							<a className='deposit-btn' onClick={handleYuriAddToCartClick}>
 								<span>{t('Label_Deposit')}</span>
 							</a>
 						</Link>

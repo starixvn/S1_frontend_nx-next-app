@@ -43,4 +43,6 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 	// === Profile method ===
 	ADDRESS: [],
 	REFER_FRIENDS: [INR, BDT],
+	// Deposit
+	RECEIPT: [],
 }

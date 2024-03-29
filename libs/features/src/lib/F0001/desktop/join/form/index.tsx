@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import ReCAPTCHA from 'react-google-recaptcha'
 import { isNumber } from 'lodash'
 import { useForm } from 'react-hook-form'
 import { useState, useEffect } from 'react'
@@ -16,7 +15,6 @@ import {
 	PHONE_LENGTH_REGEX,
 	CURRENCY_TO_LANG_KEY,
 	AREA_CODE_BY_CURRENCY,
-	RECAPTCHAT_LANG_BY_LANG_ID,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
 } from '@nx-next-app/constants'
 import {
@@ -28,7 +26,6 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
 import {
 	useSignupMutation,
-	useGetRecaptchaInfoQuery,
 	useLazyAffiliateCheckQuery,
 	useLazyExistsUserNameQuery,
 	useGetSiteCurrencyListQuery,
@@ -81,8 +78,6 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const { data: { data: siteCurrencyList = [] } = {} } =
 		useGetSiteCurrencyListQuery()
-
-	const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery()
 
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
@@ -349,20 +344,13 @@ const Form = ({ cookies }: IJoinProps) => {
 			areaCode,
 			phone,
 			affiliate,
-			reCaptchaToken,
 		} = getValues()
 
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
 		// currency & recaptcha & affiliate cannot use form required check
-		if (
-			// !reCaptchaToken ||
-			// recaptchaInfo?.country === 'CN' ||
-			!currencyCheck ||
-			!affCodeCheck
-		)
-			return
+		if (!currencyCheck || !affCodeCheck) return
 
 		const affId = affiliate && urlAffId ? affiliate : null
 		const affCode = !urlAffId && affCodeCheck ? affiliate : null

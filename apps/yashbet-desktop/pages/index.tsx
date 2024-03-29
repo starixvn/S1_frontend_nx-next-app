@@ -6,7 +6,6 @@ import { HomeProvider } from '@nx-next-app/features/F0006/providers'
 import {
 	AuthProvider,
 	GlobalDataProvider,
-	getAnnouncement,
 	getBanner,
 	getPromotion,
 	getLatestHighlightVideo,
@@ -19,7 +18,6 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import {
-	IAnnouncementData,
 	IBannerData,
 	IHighlightData,
 	IHotEventData,
@@ -36,6 +34,8 @@ import { DESKTOP_HOME_ORDERS, FOOTER_DATA } from '@nx-next-app/site/yashbet'
 // https://nextjs.org/docs/pages/api-reference/next-config-js/output
 // https://github.com/nrwl/nx/issues/9017
 import path from 'path'
+import { filter } from 'lodash-es'
+import dayjs from 'dayjs'
 
 // path.resolve 會把指定路徑解析成絕對路徑
 // 這樣解析是為了讓 next 輸出時可以正確吃到當前 project 的 next.config
@@ -43,7 +43,6 @@ import path from 'path'
 path.resolve('./next.config.js')
 
 interface IHomePageProps extends InitialPropsInterface {
-	persistAnnouncementData: IAnnouncementData[]
 	persistBannerData: IBannerData[]
 	persistPromotionData: IPromotionData[]
 	persistLatestHighlightVideo: IHighlightData
@@ -57,7 +56,6 @@ const HomePage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-	persistAnnouncementData,
 	persistBannerData,
 	persistPromotionData,
 	persistLatestHighlightVideo,
@@ -76,7 +74,6 @@ const HomePage = ({
 					footerData={persistFooterData}
 				>
 					<HomeProvider
-						persistAnnouncementData={persistAnnouncementData}
 						persistBannerData={persistBannerData}
 						persistPromotionData={persistPromotionData}
 						persistLatestHighlightVideo={persistLatestHighlightVideo}
@@ -102,7 +99,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
-	const persistAnnouncementData = await getAnnouncement({ langId, currencyId })
 
 	const persistBannerData = await getBanner(
 		{
@@ -112,13 +108,20 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		},
 		{ headers: { cookie: currentHeaderCookies } }
 	)
-	const persistPromotionData = await getPromotion(
+	const rawPromotionData = await getPromotion(
 		{
 			langId,
 			currencyId,
 			deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
 		},
 		{ headers: { cookie: currentHeaderCookies } }
+	)
+
+	const persistPromotionData = filter(
+		rawPromotionData,
+		({ displayFrom, displayTo }) => {
+			return dayjs().isBetween(dayjs.unix(displayFrom), dayjs.unix(displayTo))
+		}
 	)
 
 	const persistLatestHighlightVideo = await getLatestHighlightVideo({ langId })
@@ -142,7 +145,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	return {
 		props: {
 			persistBannerData,
-			persistAnnouncementData,
 			persistPromotionData,
 			persistLatestHighlightVideo,
 			persistHotEventData,

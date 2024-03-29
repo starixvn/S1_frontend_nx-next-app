@@ -43,4 +43,4 @@ const CenterBanner = () => {
 	)
 }
 
-export { CenterBanner }
+export default CenterBanner

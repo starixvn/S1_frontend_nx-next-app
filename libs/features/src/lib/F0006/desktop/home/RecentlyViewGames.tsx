@@ -86,4 +86,4 @@ const RecentlyViewGames = () => {
 	)
 }
 
-export { RecentlyViewGames }
+export default RecentlyViewGames

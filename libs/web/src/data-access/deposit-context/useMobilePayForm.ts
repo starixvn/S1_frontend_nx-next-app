@@ -86,8 +86,11 @@ const useMobilePayForm = ({
 		onSavedDepositLocalStorageSavedInfo,
 	} = useDepositSavedLocalStorage()
 
-	const { loading: contextLoading, refetchPaymentMobilePayList } =
-		useDepositContext()
+	const {
+		loading: contextLoading,
+		refetchPaymentMobilePayList,
+		handleYuriPurchaseClick,
+	} = useDepositContext()
 
 	const formMethods = useForm<IMobilePayForm>({ mode: 'all' })
 
@@ -120,6 +123,7 @@ const useMobilePayForm = ({
 	// * 4. mode = 其他，window.open()
 	// * 5. savedChecked = true 時記住銀行資訊
 	const onMobilePayFormSubmit = async (values: IMobilePayForm) => {
+		handleYuriPurchaseClick()
 		try {
 			const {
 				mode,

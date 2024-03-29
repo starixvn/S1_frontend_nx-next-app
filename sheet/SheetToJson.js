@@ -3,7 +3,6 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable import/no-extraneous-dependencies */
 const { extractSheets } = require('spreadsheet-to-json')
-const { merge } = require('lodash')
 const path = require('path')
 const fs = require('fs-extra')
 const auth = require('../ailab-resources-385807-220772b7ea81.json')
@@ -27,9 +26,16 @@ const getContents = data => {
 
 			for (const lang in content) {
 				if (lang !== 'key') {
-					merge(contents, {
-						[lang]: { [fileName]: { [displayKey]: content[lang] || '' } },
-					})
+					const value = content[lang]
+					if (typeof value === 'string' && value.trim() !== '') {
+						if (!contents[lang]) {
+							contents[lang] = {}
+						}
+						if (!contents[lang][fileName]) {
+							contents[lang][fileName] = {}
+						}
+						contents[lang][fileName][displayKey] = value
+					}
 				}
 			}
 		}
