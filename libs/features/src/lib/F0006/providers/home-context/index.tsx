@@ -34,7 +34,7 @@ import {
 } from '@nx-next-app/features/F0006/types'
 import { paths } from '@nx-next-app/constants'
 import { useRouter } from 'next/router'
-import { filter, find, head } from 'lodash-es'
+import { find, head } from 'lodash-es'
 import dayjs from 'dayjs'
 import isBetween from 'dayjs/plugin/isBetween'
 import { useMenu } from '@nx-next-app/features/F0006/hooks'
@@ -42,7 +42,6 @@ import { useMenu } from '@nx-next-app/features/F0006/hooks'
 dayjs.extend(isBetween)
 interface IHomeProviderProps {
 	children: ReactNode
-	persistAnnouncementData: IAnnouncementData[]
 	persistBannerData: IBannerData[]
 	persistPromotionData: IPromotionData[]
 	persistLatestHighlightVideo: IHighlightData
@@ -166,7 +165,6 @@ const defaultMobileHomeOrders = [
 
 export const HomeProvider = ({
 	children,
-	persistAnnouncementData,
 	persistBannerData,
 	persistPromotionData,
 	persistHotEventData,
@@ -190,7 +188,7 @@ export const HomeProvider = ({
 
 	const { modal } = useGlobalModal()
 
-	const { data: { data: announcementData = persistAnnouncementData } = {} } =
+	const { data: { data: announcementData = [] } = {} } =
 		useGetAnnouncementQuery(
 			{ currencyId, langId },
 			{
@@ -299,13 +297,6 @@ export const HomeProvider = ({
 		}
 	}
 
-	const promotionData = filter(
-		persistPromotionData,
-		({ displayFrom, displayTo }) => {
-			return dayjs().isBetween(dayjs.unix(displayFrom), dayjs.unix(displayTo))
-		}
-	)
-
 	const formatHdp = (hdp: number) => {
 		if (hdp === 0) return hdp
 
@@ -385,9 +376,9 @@ export const HomeProvider = ({
 		recentlyViewedList,
 		jackPotCurrencies,
 		socialChannelList,
-		footerSocialChannelList,
-		promotionData,
 		hotEventData,
+		footerSocialChannelList,
+		promotionData: persistPromotionData,
 		licenseData: persistLicenseData,
 		bannerData: persistBannerData,
 		latestHighlightVideo: persistLatestHighlightVideo,

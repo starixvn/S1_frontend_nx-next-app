@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from 'next-i18next'
 import { InputBox, Form } from '@nx-next-app/components/H0006'
 import { useForm } from 'react-hook-form'
-import { PASSWORD_REGEX } from '@nx-next-app/site/yashbet'
+import { PASSWORD_REGEX } from '@nx-next-app/constants'
 
 type ResetPasswordFormType = {
 	otpCode: string
