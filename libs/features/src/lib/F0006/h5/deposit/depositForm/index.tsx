@@ -36,7 +36,7 @@ const DepositForm = () => {
 
 	return (
 		<div className='depositModule active'>
-			<DepositModule title='Deposit Option' required>
+			<DepositModule title={t('Label_Deposit_DepositOptions')} required>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentType'>
 					{Object.keys(payments).map(key => {
 						const paymentOption =
