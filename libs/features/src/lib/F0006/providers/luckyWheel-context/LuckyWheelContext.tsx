@@ -133,7 +133,7 @@ export const LuckWheelProvider = ({ children }: ILuckWheelProviderProps) => {
 									</div>
 									<div>
 										{t('Label_LuckyWheel_Rewarded', {
-											value1: data['prizeName'],
+											prizeName: data['prizeName'],
 										})}
 									</div>
 									<div className='am'>{data['prizeName']}</div>
@@ -145,7 +145,7 @@ export const LuckWheelProvider = ({ children }: ILuckWheelProviderProps) => {
 					if (deviceType === DEVICE_TYPE.Mobile)
 						modal.info(
 							t('Label_LuckyWheel_Rewarded', {
-								value1: data['prizeName'],
+								prizeName: data['prizeName'],
 							})
 						)
 					break
