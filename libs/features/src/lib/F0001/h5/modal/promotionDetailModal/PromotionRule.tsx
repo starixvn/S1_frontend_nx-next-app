@@ -34,7 +34,7 @@ const PromotionRule = ({ promotionDetail }: IPromotionRuleProps) => {
 	const isPercentage = bonusType === BonusTypeEnum.Percentage
 
 	const numberWithCurrency = (value: number) =>
-		`${currencyName} ${numberFormat(value, currencyId, 0)}`
+		`${currencyName} ${numberFormat(value, currencyId)}`
 
 	const expiryTime = getExpiryTime({
 		custExpiryTime,
