@@ -37,7 +37,7 @@ export const numberFormat = (
 
 	if (isConvert(currencyId)) {
 		return `${numFormatToDigits(Number(value) / 1000, digits)} ${
-			format ? `('000)'` : ''
+			format ? `('000)` : ''
 		}`
 	}
 
