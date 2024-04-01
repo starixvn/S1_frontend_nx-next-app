@@ -18073,7 +18073,7 @@ input[type=number] .btn-logout {
 }
 .euro .wrapper {
   padding-top: 20vw;
-  min-height: 1900px;
+  min-height: 200vw;
   background: #143CDB url(https://banner.0814media.net/h5/img/event/eurocup/top-bg.jpg) no-repeat bottom/contain;
   position: relative;
 }
@@ -18476,7 +18476,7 @@ input[type=number] .btn-logout {
   width: 101%;
   height: 101%;
   background: rgba(14, 42, 153, 0.75);
-  z-index: 4;
+  z-index: 3;
   display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -18565,9 +18565,6 @@ input[type=number] .btn-logout {
   -webkit-transform-origin: center;
           transform-origin: center;
 }
-.euro .inputBox-event:nth-child(2) {
-  z-index: 3 !important;
-}
 .euro .inputBox-event .dropdown {
   padding: 0;
 }
@@ -18613,6 +18610,7 @@ input[type=number] .btn-logout {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: 1.5vw 0 0;
 }
 .euro .inputBox-event .dropdown .dropdown-container .dropdown-item img {
   display: -webkit-box;
@@ -18903,6 +18901,7 @@ input[type=number] .btn-logout {
   margin: 8vw auto;
 }
 .euro-extra-reward-rule-item {
+  width: 100%;
   -webkit-box-flex: 1;
       -ms-flex: 1 1;
           flex: 1 1;
