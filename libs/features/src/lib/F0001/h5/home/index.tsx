@@ -27,6 +27,10 @@ const LiveStreamingLink = dynamic(() => import('../common/liveStreamingLink'), {
 	ssr: false,
 })
 
+const EuroCupEntry = dynamic(() => import('../common/EuroCupEntry'), {
+	ssr: false,
+})
+
 const CarouselBanner = dynamic(() => import('../common/carouselBanner'), {
 	ssr: false,
 })
@@ -117,6 +121,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 			jackPotCurrencies,
 			currencyId
 		) && <JackPot onClick={() => push(paths.slots.root)} isRoot />,
+		[MobileHomeComponentsEnum.EuropeCupEntry]: <EuroCupEntry />,
 		[MobileHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
 		[MobileHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
 		[MobileHomeComponentsEnum.AppDownload]: <AppDownload />,

@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import ReCAPTCHA from 'react-google-recaptcha'
 import { isNumber } from 'lodash'
 import { useForm } from 'react-hook-form'
 import { useState, useEffect } from 'react'
@@ -16,25 +15,24 @@ import {
 	PHONE_LENGTH_REGEX,
 	CURRENCY_TO_LANG_KEY,
 	AREA_CODE_BY_CURRENCY,
-	RECAPTCHAT_LANG_BY_LANG_ID,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
-} from '@nx-next-app/constants'
-import {
 	USERNAME_REGEX,
-	PASSWORD_REGEX,
 	REALNAME_REGEX,
-} from '@nx-next-app/site/yashbet'
+	PASSWORD_REGEX,
+} from '@nx-next-app/constants'
+
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0006'
 import {
 	useSignupMutation,
-	useGetRecaptchaInfoQuery,
 	useLazyAffiliateCheckQuery,
 	useLazyExistsUserNameQuery,
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
 } from '@nx-next-app/service'
 import { includes } from 'lodash-es'
+import { getQueryParam } from '@nx-next-app/utils'
+
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
 
@@ -48,9 +46,11 @@ const Form = ({ cookies }: IJoinProps) => {
 	const { LANG_GROUPS, TERMS_CONDITIONS } = useStaticData()
 	const router = useRouter()
 	const { query } = router
+	const affId = getQueryParam(query, 'affId')
+	const affCode = getQueryParam(query, 'affCode')
 
-	const urlAffId = query['AffId'] || cookies['AffId']
-	const urlAffCode = query['AffCode'] || cookies['AffCode']
+	const urlAffId = affId || cookies['AffId']
+	const urlAffCode = affCode || cookies['AffCode']
 	const urlAffiliate = urlAffId || urlAffCode
 	const lineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
 
@@ -79,8 +79,6 @@ const Form = ({ cookies }: IJoinProps) => {
 	const { data: { data: siteCurrencyList = [] } = {} } =
 		useGetSiteCurrencyListQuery()
 
-	const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery()
-
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 
@@ -95,6 +93,32 @@ const Form = ({ cookies }: IJoinProps) => {
 	>([])
 
 	const watchCurrencyId = watch('currencyId')
+
+	const currencySelectOptions = siteCurrencyList
+		.filter(currencyId => {
+			const affiliate = getValues('affiliate')
+			const formCurrencyId = getValues('currencyId')
+
+			// if affId qualified, only show currencyId from api
+			return urlAffId && affiliate ? currencyId === formCurrencyId : true
+		})
+		.map(currencyId => ({
+			value: currencyId,
+			label: t(`Label_General_Currency_${currencyId}`),
+			prefixOptionIcon: (
+				<div
+					className={classNames(
+						'flag',
+						FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
+					)}
+				/>
+			),
+		}))
+
+	const areaCodeSelectOptions = Object.values(AREA_CODE).map(el => ({
+		value: el.AreaCode,
+		label: `${el.AreaCode} ${el.Name}`,
+	}))
 
 	const checkUsername = async () => {
 		await trigger('username')
@@ -129,6 +153,7 @@ const Form = ({ cookies }: IJoinProps) => {
 			})
 		}
 	}
+
 	const checkPhone = async () => {
 		await trigger('phone')
 		const { error } = getFieldState('phone')
@@ -142,7 +167,10 @@ const Form = ({ cookies }: IJoinProps) => {
 			errorTip = error.message || ''
 		} else if (!formAreaCode) {
 			errorTip = t('Label_Join_PhoneRequired')
-		} else if (!PHONE_LENGTH_REGEX.test(formAreaCode + formPhone)) {
+		} else if (
+			Object.values(AREA_CODE_BY_CURRENCY).includes(formAreaCode) &&
+			!PHONE_LENGTH_REGEX.test(formAreaCode + formPhone)
+		) {
 			// phone number check length by area code, so can't use pattern
 			const limitRange = PHONE_DIGITS_LIMIT[formAreaCode]
 			errorTip = t('Label_Join_PhoneNumberErrorTip', {
@@ -316,20 +344,13 @@ const Form = ({ cookies }: IJoinProps) => {
 			areaCode,
 			phone,
 			affiliate,
-			reCaptchaToken,
 		} = getValues()
 
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
 		// currency & recaptcha & affiliate cannot use form required check
-		if (
-			!reCaptchaToken ||
-			recaptchaInfo?.country === 'CN' ||
-			!currencyCheck ||
-			!affCodeCheck
-		)
-			return
+		if (!currencyCheck || !affCodeCheck) return
 
 		const affId = affiliate && urlAffId ? affiliate : null
 		const affCode = !urlAffId && affCodeCheck ? affiliate : null
@@ -351,7 +372,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				currencyId: formCurrencyId,
 				phoneNo: phone,
 				realName,
-				reCaptchaToken,
+				// reCaptchaToken,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,
@@ -367,32 +388,6 @@ const Form = ({ cookies }: IJoinProps) => {
 			modal.error((error as Error).message)
 		}
 	}
-
-	const currencySelectOptions = siteCurrencyList
-		.filter(currencyId => {
-			const affiliate = getValues('affiliate')
-			const formCurrencyId = getValues('currencyId')
-
-			// if affId qualified, only show currencyId from api
-			return urlAffId && affiliate ? currencyId === formCurrencyId : true
-		})
-		.map(currencyId => ({
-			value: currencyId,
-			label: t(`Label_General_Currency_${currencyId}`),
-			prefixOptionIcon: (
-				<div
-					className={classNames(
-						'flag',
-						FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
-					)}
-				/>
-			),
-		}))
-
-	const areaCodeSelectOptions = Object.values(AREA_CODE).map(el => ({
-		value: el.AreaCode,
-		label: `${el.AreaCode} ${el.Name}`,
-	}))
 
 	useEffect(() => {
 		checkUrlAffiliate()
@@ -516,6 +511,7 @@ const Form = ({ cookies }: IJoinProps) => {
 								placeholder={t('Label_General_Phone') as string}
 								error={!!errors['phone'] || !!phoneErrorTip}
 								touched={!!touchedFields['phone']}
+								type='number'
 							/>
 						</div>
 						<div className={`tip active${phoneErrorTip && ' txt-red'}`}>
@@ -542,17 +538,6 @@ const Form = ({ cookies }: IJoinProps) => {
 					/>
 				)}
 			</div>
-			{recaptchaInfo?.siteKey && recaptchaInfo.country !== 'CN' && (
-				<div className='g-recaptcha'>
-					<ReCAPTCHA
-						sitekey={recaptchaInfo.siteKey}
-						onChange={token => {
-							setValue('reCaptchaToken', token)
-						}}
-						hl={RECAPTCHAT_LANG_BY_LANG_ID[langId]}
-					/>
-				</div>
-			)}
 			<div className='Terms'>
 				{t('Label_Join_SignUpTerms1')}
 				<a

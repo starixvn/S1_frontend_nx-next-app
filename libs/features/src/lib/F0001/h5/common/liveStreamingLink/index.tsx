@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
+import React, { useEffect, useState } from 'react'
+import classNames from 'classnames'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { LIVESTREAM_CURRENCY_TO_LANG_KEY } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -7,6 +8,8 @@ import {
 	useLazyGetDataListQuery,
 	ILiveStreamingData,
 } from '@nx-next-app/service'
+import { isEventPeriod } from '@nx-next-app/utils'
+import { EUROPE_EVENT_PERIOD } from '@nx-next-app/site/nova88'
 import LiveStreamingModal from './LiveStreamingModal'
 
 const LiveStreamingLink = () => {
@@ -63,7 +66,11 @@ const LiveStreamingLink = () => {
 	}, [langId, isLogin])
 
 	return isShowLiveStreaming && !isGetLiveStreamingListFetching ? (
-		<div className='eventLink livesports'>
+		<div
+			className={classNames('eventLink livesports', {
+				eurocup: isEventPeriod(EUROPE_EVENT_PERIOD),
+			})}
+		>
 			<button
 				className='icon icon-close'
 				onClick={() => setIsShowLiveStreaming(false)}

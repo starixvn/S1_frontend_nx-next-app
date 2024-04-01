@@ -137,6 +137,9 @@ export const paths = {
 	gameProvider: {
 		root: '/game-provider',
 	},
+  europeCup: {
+		root: '/euro-cup',
+	},
 } as const
 
 export type IRootpath = (typeof paths)[keyof typeof paths]['root']

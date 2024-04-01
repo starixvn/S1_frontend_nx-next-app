@@ -183,6 +183,7 @@ const defaultDesktopHomeOrders = [
 	DesktopHomeComponentsEnum.AppDownloadBanner,
 	DesktopHomeComponentsEnum.ProviderBlock,
 	DesktopHomeComponentsEnum.OfficialPartner,
+	DesktopHomeComponentsEnum.EuropeCupEntry,
 	DesktopHomeComponentsEnum.LuckyWheel,
 	DesktopHomeComponentsEnum.LiveStreamingLink,
 ]
@@ -197,6 +198,7 @@ const defaultMobileHomeOrders = [
 	MobileHomeComponentsEnum.AppDownload,
 	MobileHomeComponentsEnum.PartnerBlock,
 	MobileHomeComponentsEnum.FooterBlock,
+	MobileHomeComponentsEnum.EuropeCupEntry,
 	MobileHomeComponentsEnum.LuckyWheel,
 	MobileHomeComponentsEnum.LiveStreamingLink,
 ]

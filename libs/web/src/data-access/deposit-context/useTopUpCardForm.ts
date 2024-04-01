@@ -61,8 +61,11 @@ const useTopUpCardForm = ({
 		onSavedDepositLocalStorageSavedInfo,
 	} = useDepositSavedLocalStorage()
 
-	const { loading: contextLoading, refetchPaymentTopUpCardPayList } =
-		useDepositContext()
+	const {
+		loading: contextLoading,
+		refetchPaymentTopUpCardPayList,
+		handleYuriPurchaseClick,
+	} = useDepositContext()
 
 	const formMethods = useForm<ITopUpCardPayForm>({ mode: 'all' })
 
@@ -98,6 +101,7 @@ const useTopUpCardForm = ({
 	// * 3. mode = 其他，window.open()
 	// * 4. savedChecked = true 時記住銀行資訊
 	const onTopUpCardPayFormSubmit = async (values: ITopUpCardPayForm) => {
+		handleYuriPurchaseClick()
 		try {
 			const {
 				mode,

@@ -63,4 +63,4 @@ const PromotionMarquee = () => {
 	)
 }
 
-export { PromotionMarquee }
+export default PromotionMarquee

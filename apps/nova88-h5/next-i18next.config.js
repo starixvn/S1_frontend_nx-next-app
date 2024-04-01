@@ -6,6 +6,7 @@ module.exports = {
 		locales: ['default', 'en', 'cs', 'th', 'my', 'bd', 'id', 'kh', 'hi', 'vn'],
 		defaultNS: process.env.NEXT_PUBLIC_SITE_NAME,
 		fallbackNS: 'common',
+		fallbackLng: 'en',
 	},
 	reloadOnPrerender: isDevelopment,
 }

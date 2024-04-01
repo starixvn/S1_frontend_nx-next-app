@@ -1,4 +1,3 @@
-import ReCAPTCHA from 'react-google-recaptcha'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import { Select, InputPhone, ISelectProps } from '@nx-next-app/components/H0006'
@@ -6,10 +5,8 @@ import {
 	AREA_CODE,
 	PHONE_DIGITS_LIMIT,
 	PHONE_LENGTH_REGEX,
-	RECAPTCHAT_LANG_BY_LANG_ID,
+	AREA_CODE_BY_CURRENCY,
 } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import { useGetRecaptchaInfoQuery } from '@nx-next-app/service'
 
 interface IStep2Props {
 	selectCurrency: (newCurrencyId: ISelectProps['value']) => void
@@ -18,10 +15,6 @@ interface IStep2Props {
 
 const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 	const { t } = useTranslation()
-
-	const {
-		userInfo: { langId },
-	} = useAuth()
 
 	const {
 		formState,
@@ -37,7 +30,6 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 
 	const { errors, touchedFields } = formState
 	const watchCurrencyId = watch('currencyId')
-	const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery()
 
 	const checkPhone = async () => {
 		await trigger('phone')
@@ -52,7 +44,10 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 				type: 'required',
 				message: t('Label_Join_PhoneRequired') as string,
 			})
-		} else if (!PHONE_LENGTH_REGEX.test(formAreaCode + formPhone)) {
+		} else if (
+			Object.values(AREA_CODE_BY_CURRENCY).includes(formAreaCode) &&
+			!PHONE_LENGTH_REGEX.test(formAreaCode + formPhone)
+		) {
 			const limitRange = PHONE_DIGITS_LIMIT[formAreaCode]
 			if (limitRange) {
 				setError('phone', {
@@ -121,18 +116,8 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 					onChangeSelect={areaCode => selectAreaCode(areaCode)}
 					selectValue={getValues('areaCode')}
 					showValue
+					type='number'
 				/>
-			)}
-			{recaptchaInfo?.siteKey && recaptchaInfo.country !== 'CN' && (
-				<div className='g-recaptcha'>
-					<ReCAPTCHA
-						sitekey={recaptchaInfo.siteKey}
-						onChange={token => {
-							setValue('reCaptchaToken', token)
-						}}
-						hl={RECAPTCHAT_LANG_BY_LANG_ID[langId]}
-					/>
-				</div>
 			)}
 			<div className='btn-group'>
 				<button type='submit'>{t('Label_General_Join')}</button>

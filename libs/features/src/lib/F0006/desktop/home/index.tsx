@@ -4,13 +4,22 @@ import { Marquee } from '@nx-next-app/components/D0006'
 import { useHome } from '@nx-next-app/features/F0006/providers'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { DesktopHomeComponentsEnum } from '@nx-next-app/features/F0006/types'
-import { PromotionMarquee } from './PromotionMarquee'
-import { LatestVideoAndEvent } from './latestVideoAndEvent'
-import { HotGameMarquee } from './HotGameMarquee'
-import { NewsBlock } from './news'
-import { RecentlyViewGames } from './RecentlyViewGames'
-import CarouselBanner from '../common/carouselBanner'
-import { CenterBanner } from './CenterBanner'
+
+const CarouselBanner = dynamic(() => import('../common/carouselBanner'))
+
+const PromotionMarquee = dynamic(() => import('./PromotionMarquee'))
+
+const LatestVideoAndEvent = dynamic(() => import('./latestVideoAndEvent'))
+
+const HotGameMarquee = dynamic(() => import('./HotGameMarquee'), { ssr: false })
+
+const NewsBlock = dynamic(() => import('./news'))
+
+const RecentlyViewGames = dynamic(() => import('./RecentlyViewGames'), {
+	ssr: false,
+})
+
+const CenterBanner = dynamic(() => import('./CenterBanner'), { ssr: false })
 
 const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
 
@@ -25,6 +34,8 @@ const LoginModal = dynamic(() => import('../modal/LoginModal'), {
 })
 
 const Home = () => {
+	const { modal } = useGlobalModal()
+
 	const {
 		bannerData,
 		announcementData,
@@ -32,7 +43,7 @@ const Home = () => {
 		desktopHomeOrders,
 		handleMarqueeClick,
 	} = useHome()
-	const { modal } = useGlobalModal()
+
 	const homeComponents = {
 		[DesktopHomeComponentsEnum.CarouselBanner]: (
 			<CarouselBanner

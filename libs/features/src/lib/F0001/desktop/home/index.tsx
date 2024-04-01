@@ -34,6 +34,10 @@ const OfficialPartner = dynamic(() => import('./OfficialPartner'), {
 
 const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
 
+const EuropeCupEntry = dynamic(() => import('../common/EuropeCupEntry'), {
+	ssr: false,
+})
+
 const LiveStreamingLink = dynamic(() => import('../common/liveStreamingLink'), {
 	ssr: false,
 })
@@ -85,6 +89,7 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.AppDownloadBanner]: <AppDownloadBanner />,
 		[DesktopHomeComponentsEnum.OfficialPartner]: <OfficialPartner />,
 		[DesktopHomeComponentsEnum.ProviderBlock]: <ProvidersBlock />,
+		[DesktopHomeComponentsEnum.EuropeCupEntry]: <EuropeCupEntry />,
 		[DesktopHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
 		[DesktopHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
 		[DesktopHomeComponentsEnum.QuickDownload]: <QuickDownload />,

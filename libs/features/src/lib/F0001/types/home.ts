@@ -30,6 +30,8 @@ export enum DesktopHomeComponentsEnum {
 	QuickLink = 'QuickLink',
 	// 最近遊玩的遊戲，有登入才有
 	RecentlyViewGames = 'RecentlyViewGames',
+	//  歐冠活動入口
+	EuropeCupEntry = 'EuropeCupEntry',
 }
 
 // 手機首頁元件 enum
@@ -56,4 +58,6 @@ export enum MobileHomeComponentsEnum {
 	FooterBlock = 'FooterBlock',
 	// 簡易 Footer , 與 Footer 只可擇一添加
 	SimpleFooter = 'SimpleFooter',
+	//  歐冠活動入口
+	EuropeCupEntry = 'EuropeCupEntry',
 }
