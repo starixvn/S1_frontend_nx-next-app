@@ -10,6 +10,9 @@ import { CurrenciesEnum } from '@nx-next-app/types'
 import {
 	paths,
 	AREA_CODE,
+	USERNAME_REGEX,
+	REALNAME_REGEX,
+	PASSWORD_REGEX,
 	ENV_COOKIE_NAMES,
 	PHONE_DIGITS_LIMIT,
 	PHONE_LENGTH_REGEX,
@@ -17,11 +20,6 @@ import {
 	AREA_CODE_BY_CURRENCY,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
 } from '@nx-next-app/constants'
-import {
-	USERNAME_REGEX,
-	REALNAME_REGEX,
-	PASSWORD_REGEX,
-} from '@nx-next-app/site/nova88'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
 import {
@@ -538,19 +536,6 @@ const Form = ({ cookies }: IJoinProps) => {
 					/>
 				)}
 			</div>
-			{/*
-      		{recaptchaInfo?.siteKey && recaptchaInfo.country !== 'CN' && (
-				<div className='g-recaptcha'>
-					<ReCAPTCHA
-						sitekey={recaptchaInfo.siteKey}
-						onChange={token => {
-							setValue('reCaptchaToken', token)
-						}}
-						hl={RECAPTCHAT_LANG_BY_LANG_ID[langId]}
-					/>
-				</div>
-			)}
-      */}
 			<div className='Terms'>
 				{t('Label_Join_SignUpTerms1')}
 				<a

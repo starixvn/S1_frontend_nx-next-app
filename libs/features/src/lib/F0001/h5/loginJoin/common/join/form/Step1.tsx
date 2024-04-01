@@ -5,16 +5,16 @@ import { useRouter } from 'next/router'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
 import { InputBox, ISelectProps } from '@nx-next-app/components/H0001'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { FLAG_PREFIX_ICON_BY_CURRENCIES } from '@nx-next-app/constants'
-import {
-	useLazyAffiliateCheckQuery,
-	useLazyExistsUserNameQuery,
-} from '@nx-next-app/service'
 import {
 	USERNAME_REGEX,
 	PASSWORD_REGEX,
 	REALNAME_REGEX,
-} from '@nx-next-app/site/nova88'
+	FLAG_PREFIX_ICON_BY_CURRENCIES,
+} from '@nx-next-app/constants'
+import {
+	useLazyAffiliateCheckQuery,
+	useLazyExistsUserNameQuery,
+} from '@nx-next-app/service'
 
 interface IStep1Props {
 	cookies: TmpCookiesObj

@@ -19,7 +19,6 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ISelectProps } from '@nx-next-app/components/H0001'
 import {
 	useSignupMutation,
-	useGetRecaptchaInfoQuery,
 	useLazyAffiliateCheckQuery,
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
@@ -65,8 +64,6 @@ const Join = ({ cookies }: IJoinProps) => {
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 	const [signUp] = useSignupMutation()
-
-	const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery()
 
 	const currencySelectOptions = siteCurrencyList
 		.filter(currencyId => {
@@ -210,7 +207,6 @@ const Join = ({ cookies }: IJoinProps) => {
 			areaCode,
 			phone,
 			affiliate,
-			reCaptchaToken,
 		} = getValues()
 
 		const currencyCheck = checkCurrency()
