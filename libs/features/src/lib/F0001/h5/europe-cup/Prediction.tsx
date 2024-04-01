@@ -9,12 +9,19 @@ import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useEuropeCup } from '@nx-next-app/features/F0001/hooks/useEuropeCup'
 import { CupEventUserTicketStatus, type IGroupData } from '@nx-next-app/service'
 import { Form } from '@nx-next-app/components/H0001'
-import { MenuActionTypeEnum } from '@nx-next-app/types'
+import dynamic from 'next/dynamic'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import Select from './components/Select'
+
+const LiveStreamingModalH5 = dynamic(
+	() => import('../modal/LiveStreamingModal'),
+	{ ssr: false }
+)
 
 const Prediction = () => {
 	const { t } = useTranslation()
 	const { push } = useRouter()
+	const { modal } = useGlobalModal()
 	const {
 		auth: { isLogin },
 	} = useAuth()
@@ -214,19 +221,16 @@ const Prediction = () => {
 						<div className='title'>
 							{t('Label_EuropeCup_Turnover_Mission')}
 							<button
-								onClick={() => {
-									onMenuOpen(
-										{
-											h5: { menuActionType: MenuActionTypeEnum.EnterPage },
-											product: PRODUCTS['SPORTS'],
+								onClick={() =>
+									onMenuOpen(PRODUCTS.Soccer, {
+										loginCallback: () => {
+											push(paths.login.root)
 										},
-										{
-											loginCallback: () => {
-												push(paths.login.root)
-											},
-										}
-									)
-								}}
+										messageCallBack: message => modal.error(message),
+										liveStreamingCallback: () =>
+											modal.open(<LiveStreamingModalH5 />),
+									})
+								}
 							>
 								{t('Label_General_BetNow')}
 							</button>
