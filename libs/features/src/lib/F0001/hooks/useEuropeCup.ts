@@ -105,10 +105,9 @@ const useEuropeCup = () => {
 	)
 
 	const isParticipate =
-		isEventPeriod(EUROPE_EVENT_AFTER_PREDICT) && usedTickets >= 0
+		isEventPeriod(EUROPE_EVENT_AFTER_PREDICT) && usedTickets > 0
 	const isUnParticipate =
-		(isEventPeriod(EUROPE_EVENT_AFTER_PREDICT) && usedTickets === 0) ||
-		isEventPeriod(EUROPE_EVENT_AFTER_PREDICT)
+		isEventPeriod(EUROPE_EVENT_AFTER_PREDICT) && usedTickets === 0
 
 	// * prediction 需要的資料及狀態
 	const userCountryWithTicket1 = find(userTicketResult?.ticketList, {

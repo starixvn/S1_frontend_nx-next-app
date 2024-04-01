@@ -166,10 +166,9 @@ const Prediction = () => {
 			>
 				{/* 任務成就 */}
 				<div className='mask'>{t('Label_EuropeCup_Prediction_Dateline')}</div>
-				{/* isUnParticipate 的層級大於 isParticipate 所以如果 isUnParticipate 是 true ， 在 euro-predition-content + end 即可 */}
 				<div
 					className={classNames('euro-mission', {
-						end: isUnParticipate ? false : isParticipate,
+						end: isParticipate,
 					})}
 				>
 					<div className='mask'>{t('Label_EuropeCup_Prediction_Dateline')}</div>
