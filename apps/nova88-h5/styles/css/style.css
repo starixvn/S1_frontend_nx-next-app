@@ -12517,6 +12517,9 @@ span.important {
 .flag.gb:before {
   background: url(https://banner.0814media.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
 }
+.flag.kh:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
+}
 
 .addressModule {
   margin-top: 5vw;
@@ -14439,6 +14442,27 @@ input:-webkit-autofill:active {
   border-top: 1px dotted #1E85EC;
 }
 
+.react-datepicker-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+.react-datepicker-wrapper input {
+  width: 100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .btn-group {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15249,6 +15273,8 @@ main.casino .banner {
   padding: 0 2vw;
   margin-top: 2vw;
   background: none;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .home-gamelist > div {
   display: -webkit-box;
@@ -15274,7 +15300,6 @@ main.casino .banner {
 .home-gamelist > div .gamelist-item .gamelist-img {
   color: #000;
   text-align: center;
-  font-weight: 500;
 }
 .home-gamelist > div .gamelist-item .gamelist-img img {
   width: 100%;
@@ -15333,6 +15358,7 @@ main.casino .banner {
           filter: drop-shadow(0 0 5px black);
   z-index: 2;
   top: 10vw;
+  font-size: 2.5vw;
 }
 .under img {
   -webkit-filter: grayscale(1) !important;
@@ -16469,6 +16495,12 @@ main.casino .banner {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.after .menu-top .profile-item .message-popup > div {
+  width: 25vw;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .after .menu-top .profile-item .message-popup::before {
   position: absolute;
@@ -18041,7 +18073,7 @@ input[type=number] .btn-logout {
 }
 .euro .wrapper {
   padding-top: 20vw;
-  min-height: 200vw;
+  min-height: 1900px;
   background: #143CDB url(https://banner.0814media.net/h5/img/event/eurocup/top-bg.jpg) no-repeat bottom/contain;
   position: relative;
 }
@@ -18444,7 +18476,7 @@ input[type=number] .btn-logout {
   width: 101%;
   height: 101%;
   background: rgba(14, 42, 153, 0.75);
-  z-index: 3;
+  z-index: 4;
   display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -18533,6 +18565,9 @@ input[type=number] .btn-logout {
   -webkit-transform-origin: center;
           transform-origin: center;
 }
+.euro .inputBox-event:nth-child(2) {
+  z-index: 3 !important;
+}
 .euro .inputBox-event .dropdown {
   padding: 0;
 }
@@ -18578,7 +18613,6 @@ input[type=number] .btn-logout {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 1.5vw 0 0;
 }
 .euro .inputBox-event .dropdown .dropdown-container .dropdown-item img {
   display: -webkit-box;
@@ -18869,7 +18903,6 @@ input[type=number] .btn-logout {
   margin: 8vw auto;
 }
 .euro-extra-reward-rule-item {
-  width: 100%;
   -webkit-box-flex: 1;
       -ms-flex: 1 1;
           flex: 1 1;
