@@ -2,12 +2,14 @@ import { Form, InputBox, Select } from '@nx-next-app/components/D0001'
 import { PromotionTypeEnum, SelectOptionType } from '@nx-next-app/types'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
-import { numberFormat, revertNumberFormat } from '@nx-next-app/utils'
+import {
+	numberFormat,
+	replaceStringToNumber,
+	revertNumberFormat,
+} from '@nx-next-app/utils'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { replace } from 'lodash-es'
 import { ISetClaimPromotionArgs } from '@nx-next-app/service'
-import { INTEGER_ONLY_REGEX } from '@nx-next-app/constants'
 
 const ClaimAmountModal = ({
 	bonusCode,
@@ -78,14 +80,14 @@ const ClaimAmountModal = ({
 									},
 									min: {
 										// * 只拿整數
-										value: replace(String(min), INTEGER_ONLY_REGEX, ''),
+										value: replaceStringToNumber(min ?? ''),
 										message: t('Label_General_AmountLessThan', {
 											value1: min,
 										}),
 									},
 									max: {
 										// * 只拿整數
-										value: replace(String(max), INTEGER_ONLY_REGEX, ''),
+										value: replaceStringToNumber(max ?? ''),
 										message: t('Label_General_NotInLimit'),
 									},
 									onBlur: () => trigger('amount'),
