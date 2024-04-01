@@ -283,6 +283,10 @@ const Prediction = () => {
 									value={watch('ticket1.group')}
 									defaultValue={userTicket1tsData?.group}
 									options={groupsOptions}
+									disabled={
+										userTicket1tsData?.ticketStatus !==
+										CupEventUserTicketStatus.Active
+									}
 									onChange={value => {
 										setValue('ticket1.group', value)
 										// 清掉第二層狀態
@@ -293,6 +297,10 @@ const Prediction = () => {
 									value={watch('ticket1.countryId') || undefined}
 									options={watchTicketOptions1 || []}
 									placeholder={userTicket1tsData?.countryName}
+									disabled={
+										userTicket1tsData?.ticketStatus !==
+										CupEventUserTicketStatus.Active
+									}
 									onChange={value => {
 										setValue('ticket1.countryId', value as number)
 									}}
@@ -337,6 +345,10 @@ const Prediction = () => {
 									value={watch('ticket2.group')}
 									defaultValue={userTicket2tsData?.group}
 									options={groupsOptions}
+									disabled={
+										userTicket2tsData?.ticketStatus !==
+										CupEventUserTicketStatus.Active
+									}
 									onChange={value => {
 										setValue('ticket2.group', value)
 										// 清掉第二層狀態
@@ -347,6 +359,10 @@ const Prediction = () => {
 									value={watch('ticket2.countryId') || undefined}
 									options={watchTicketOptions2 || []}
 									placeholder={userTicket2tsData?.countryName}
+									disabled={
+										userTicket2tsData?.ticketStatus !==
+										CupEventUserTicketStatus.Active
+									}
 									onChange={value => {
 										setValue('ticket2.countryId', value as number)
 									}}
@@ -391,6 +407,10 @@ const Prediction = () => {
 									value={watch('ticket3.group')}
 									defaultValue={userTicket3tsData?.group}
 									options={groupsOptions}
+									disabled={
+										userTicket3tsData?.ticketStatus !==
+										CupEventUserTicketStatus.Active
+									}
 									onChange={value => {
 										setValue('ticket3.group', value)
 										// 清掉第二層狀態
@@ -401,6 +421,10 @@ const Prediction = () => {
 									value={watch('ticket3.countryId') || undefined}
 									options={watchTicketOptions3 || []}
 									placeholder={userTicket3tsData?.countryName}
+									disabled={
+										userTicket3tsData?.ticketStatus !==
+										CupEventUserTicketStatus.Active
+									}
 									onChange={value => {
 										setValue('ticket3.countryId', value as number)
 									}}
@@ -445,6 +469,10 @@ const Prediction = () => {
 									value={watch('ticket4.group')}
 									defaultValue={userTicket4tsData?.group}
 									options={groupsOptions}
+									disabled={
+										userTicket4tsData?.ticketStatus !==
+										CupEventUserTicketStatus.Active
+									}
 									onChange={value => {
 										setValue('ticket4.group', value)
 										// 清掉第二層狀態
@@ -455,6 +483,10 @@ const Prediction = () => {
 									value={watch('ticket4.countryId') || undefined}
 									options={watchTicketOptions4 || []}
 									placeholder={userTicket4tsData?.countryName}
+									disabled={
+										userTicket4tsData?.ticketStatus !==
+										CupEventUserTicketStatus.Active
+									}
 									onChange={value => {
 										setValue('ticket4.countryId', value as number)
 									}}

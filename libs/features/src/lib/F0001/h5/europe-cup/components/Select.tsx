@@ -16,6 +16,7 @@ export interface ISelectProps {
 	defaultValue?: string | number
 	options: SelectOptionType[]
 	placeholder?: string
+	disabled?: boolean
 	onChange?: (value: SelectOptionType['value']) => void
 }
 
@@ -27,6 +28,7 @@ const Select = (props: ISelectProps) => {
 		defaultValue,
 		options,
 		placeholder = t('Label_General_None'),
+		disabled = false,
 		onChange,
 	} = props
 	const { value: isActive, toggle, setFalse } = useBoolean()
@@ -65,7 +67,10 @@ const Select = (props: ISelectProps) => {
 				className='dropdown'
 				onClick={e => {
 					if (!(e?.target as HTMLInputElement)?.className.includes('search'))
-						toggle()
+						if (!disabled) {
+							// 加在 button 會破壞樣式，所以加在這
+							toggle()
+						}
 				}}
 			>
 				<button type='button' className='btn'>
