@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { upperFirst } from 'lodash-es'
 
-const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
+const LoginModal = dynamic(() => import('../../../modal/LoginModal'), {
 	ssr: false,
 })
 

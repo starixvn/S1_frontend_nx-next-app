@@ -1,6 +1,6 @@
 import { TmpCookiesObj } from 'cookies-next/lib/types'
-import { Features } from './Features'
-import { Form } from './form'
+import { Features } from '../common/Features'
+import { Form } from '../common/form'
 
 interface IJoinProps {
 	cookies: TmpCookiesObj

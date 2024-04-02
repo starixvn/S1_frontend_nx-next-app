@@ -6,9 +6,9 @@ import { useAuth } from '@nx-next-app/data-access'
 import { useTranslation } from 'next-i18next'
 import { isString } from 'lodash-es'
 import Link from 'next/link'
-import SwitchButton from './SwitchButton'
-import Login from './login'
-import Join from './join'
+import SwitchButton from '../common/SwitchButton'
+import Login from '../common/login'
+import Join from '../common/join'
 
 interface ILoginJoinProps {
 	cookies: TmpCookiesObj
