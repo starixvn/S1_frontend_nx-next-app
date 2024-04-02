@@ -8,7 +8,8 @@ import {
 	getWithdrawalBlockSetting,
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
-import { Layout, Withdrawal } from '@nx-next-app/features/F0001/h5'
+import { Withdrawal } from '@nx-next-app/features/F0001/h5'
+import { Layout } from '@nx-next-app/features/F0006/h5'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { WithdrawalProvider } from '@nx-next-app/features/F0001/providers'
 import { find } from 'lodash-es'

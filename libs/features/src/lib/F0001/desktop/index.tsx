@@ -1,4 +1,4 @@
-export { default as Layout } from './layout/nova88'
+export { default as Layout } from './layout'
 export { default as Home } from './home'
 export { default as Vip } from './vip'
 export { default as Slots } from './slots'
