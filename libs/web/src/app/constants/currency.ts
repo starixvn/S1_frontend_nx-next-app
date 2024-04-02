@@ -10,6 +10,8 @@ export const AREA_CODE_BY_CURRENCY: { [key: number]: string } = {
 	[CurrenciesEnum.USD]: '',
 	[CurrenciesEnum.KHM]: '+855',
 	[CurrenciesEnum.VND]: '+84',
+	[CurrenciesEnum.KRW]: '+82',
+	[CurrenciesEnum.BRL]: '+55',
 }
 
 export const PHONE_DIGITS_LIMIT: { [key: string]: string } = {
@@ -21,6 +23,8 @@ export const PHONE_DIGITS_LIMIT: { [key: string]: string } = {
 	[AREA_CODE_BY_CURRENCY[CurrenciesEnum.CNY]]: '10',
 	[AREA_CODE_BY_CURRENCY[CurrenciesEnum.KHM]]: '8-9',
 	[AREA_CODE_BY_CURRENCY[CurrenciesEnum.VND]]: '9',
+	[AREA_CODE_BY_CURRENCY[CurrenciesEnum.KRW]]: '10',
+	[AREA_CODE_BY_CURRENCY[CurrenciesEnum.BRL]]: '9',
 }
 
 export const FLAG_PREFIX_ICON_BY_CURRENCIES: { [key: number]: string } = {
@@ -33,6 +37,7 @@ export const FLAG_PREFIX_ICON_BY_CURRENCIES: { [key: number]: string } = {
 	[CurrenciesEnum.KHM]: 'kh',
 	[CurrenciesEnum.BDT]: 'bd',
 	[CurrenciesEnum.VND]: 'vn',
+	// TODO
 }
 
 export const RECAPTCHAT_LANG_BY_LANG_ID: { [key: string]: string } = {
