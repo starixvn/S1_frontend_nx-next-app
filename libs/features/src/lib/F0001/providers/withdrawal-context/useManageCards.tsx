@@ -20,7 +20,7 @@ import dynamic from 'next/dynamic'
 const AddBankCardModal = dynamic(
 	() =>
 		import(
-			'@nx-next-app/features/F0001/desktop/withdrawal/modal/AddBankCardModal'
+			'@nx-next-app/features/F0001/desktop/withdrawal/common/modal/AddBankCardModal'
 		),
 	{ ssr: false }
 )

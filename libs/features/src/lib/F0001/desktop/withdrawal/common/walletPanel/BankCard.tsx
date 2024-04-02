@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next'
 import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
-import { CardItem } from '@nx-next-app/features/F0001/desktop/withdrawal/walletPanel/CardItem'
 import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import { CardItem } from './CardItem'
 
 const BankCard = () => {
 	const { t } = useTranslation()

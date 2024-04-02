@@ -2,9 +2,9 @@ import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { useBoolean } from 'usehooks-ts'
 import classNames from 'classnames'
-import { useWithdrawal } from '@nx-next-app/features/F0006/providers'
 import { numberFormat } from '@nx-next-app/utils'
-import { SpinButton } from '@nx-next-app/components/D0006'
+import { SpinButton } from '@nx-next-app/components/D0001'
+import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
 
 const WalletInfo = () => {
 	const { t } = useTranslation()
