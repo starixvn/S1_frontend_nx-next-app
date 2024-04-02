@@ -6,7 +6,8 @@ import {
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, Withdrawal } from '@nx-next-app/features/F0006/desktop'
+import { Withdrawal } from '@nx-next-app/features/F0001/desktop'
+import { Layout } from '@nx-next-app/features/F0006/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -14,7 +15,7 @@ import {
 import {
 	CryptoWalletProvider,
 	WithdrawalProvider,
-} from '@nx-next-app/features/F0006/providers'
+} from '@nx-next-app/features/F0001/providers'
 import { FOOTER_DATA } from '@nx-next-app/site/yashbet'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IFooterData } from '@nx-next-app/types'

@@ -3,7 +3,7 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { KycWaiting, Layout } from '@nx-next-app/features/F0006/h5'
+import { KycWaiting, Layout } from '@nx-next-app/features/F0001/h5'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 

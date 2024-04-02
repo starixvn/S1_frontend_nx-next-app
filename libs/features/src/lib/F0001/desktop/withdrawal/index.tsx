@@ -3,12 +3,12 @@ import { IWithdrawalSetting } from '@nx-next-app/service'
 import { Loading } from '@nx-next-app/components/D0001'
 import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
 import { KycStatusEnum } from '@nx-next-app/features/F0001/types'
-import { ImportNotice } from './ImportNotice'
-import { WalletInfo } from './WalletInfo'
+import { ImportNotice } from './common/ImportNotice'
+import { WalletInfo } from './common/WalletInfo'
+import { RecentHistory } from './common/history/RecentHistory'
+import { WalletPanel } from './common/walletPanel'
+import { KycPanel } from './common/KycPanel'
 import LeftMenu from '../leftMenu'
-import { RecentHistory } from './history/RecentHistory'
-import { WalletPanel } from './walletPanel'
-import { KycPanel } from './KycPanel'
 
 interface IWithdrawalProps {
 	withdrawalBlockSetting: IWithdrawalSetting[]

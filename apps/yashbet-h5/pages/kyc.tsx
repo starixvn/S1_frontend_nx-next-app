@@ -7,8 +7,8 @@ import {
 	getWithdrawalBlockSetting,
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
-import { Kyc, Layout } from '@nx-next-app/features/F0006/h5'
-import { WithdrawalProvider } from '@nx-next-app/features/F0006/providers'
+import { Kyc, Layout } from '@nx-next-app/features/F0001/h5'
+import { WithdrawalProvider } from '@nx-next-app/features/F0001/providers'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
