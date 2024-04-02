@@ -2,6 +2,7 @@ import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { paths } from '@nx-next-app/constants'
 import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
+
 import WithdrawalHistoryTable from '@nx-next-app/components/D0001/table/historyTable/WithdrawalHistoryTable'
 
 const RecentHistory = () => {

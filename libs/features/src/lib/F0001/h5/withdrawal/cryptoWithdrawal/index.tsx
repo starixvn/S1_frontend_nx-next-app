@@ -8,7 +8,7 @@ import {
 	WalletInfo,
 	WithdrawalHeader,
 	SubmitAmount,
-} from '../components'
+} from '../common/components'
 import { CryptoWalletSelect } from './CryptoWalletSelect'
 
 // CryptoWithdrawal 需要多包 cryptoWallet provider 且內容與 Local/E Wallet 有些許差異，故基於流量優化與 UI 考量，獨立拉出來寫

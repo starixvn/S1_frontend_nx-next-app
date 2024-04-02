@@ -50,7 +50,7 @@ import { useWithdrawalHistory } from '@nx-next-app/features/F0001/providers/with
 const WithdrawalSuccessModal = dynamic(
 	() =>
 		import(
-			'@nx-next-app/features/F0001/desktop/withdrawal/modal/WithdrawalSuccessModal'
+			'@nx-next-app/features/F0001/desktop/withdrawal/common/modal/WithdrawalSuccessModal'
 		),
 	{ ssr: false }
 )
@@ -58,7 +58,7 @@ const WithdrawalSuccessModal = dynamic(
 const WithdrawalConfirmModal = dynamic(
 	() =>
 		import(
-			'@nx-next-app/features/F0001/h5/withdrawal/components/modal/WithdrawalConfirmModal'
+			'@nx-next-app/features/F0001/h5/withdrawal/common/components/modal/WithdrawalConfirmModal'
 		),
 	{ ssr: false }
 )
