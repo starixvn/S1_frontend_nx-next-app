@@ -8,9 +8,11 @@ const CURRENCY_TO_LANG_KEY: { [key: number]: string } = {
 	4: 'th',
 	13: 'cs',
 	15: 'id',
+	45: 'ko',
 	61: 'hi',
 	72: 'kh',
 	74: 'bd',
+	82: 'br',
 }
 export const useRedirectMaintain = async (
 	context: GetServerSidePropsContext,

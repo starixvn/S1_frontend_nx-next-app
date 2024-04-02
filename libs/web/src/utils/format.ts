@@ -22,7 +22,9 @@ export const numFormatToDigits = (value: number, digits = 20): string => {
 }
 
 export const isConvert = (currencyId: CurrenciesEnum) =>
-	[CurrenciesEnum.IDR, CurrenciesEnum.VND].includes(currencyId)
+	[CurrenciesEnum.IDR, CurrenciesEnum.VND, CurrenciesEnum.KRW].includes(
+		currencyId
+	)
 
 /**
  * @returns string

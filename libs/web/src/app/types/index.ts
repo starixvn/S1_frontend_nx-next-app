@@ -11,10 +11,12 @@ export enum CurrenciesEnum {
 	THB = 4,
 	CNY = 13,
 	IDR = 15,
+	KRW = 45,
 	VND = 51,
 	INR = 61,
 	KHM = 72,
 	BDT = 74,
+	BRL = 82,
 	USDT = 96,
 }
 
@@ -116,15 +118,21 @@ export interface IStaticAllowedCurrencies {
 	FOUR_D_GRAND_DRAGON?: CurrenciesEnum[]
 
 	LOTTERY_GPI_THAILOTTERY?: CurrenciesEnum[]
-	LUCKY_WHEEL?: CurrenciesEnum[]
 	LOTTERY_GPI_FAST3?: CurrenciesEnum[]
 
 	BANK_CARD?: CurrenciesEnum[]
 	E_WALLET?: CurrenciesEnum[]
-	ADDRESS?: CurrenciesEnum[]
 	REFER_FRIENDS?: CurrenciesEnum[]
 
+	// === Profile method ===
+	ADDRESS?: CurrenciesEnum[]
+
+	// Deposit
 	RECEIPT: CurrenciesEnum[]
+
+	// Home
+	LIVE_STREAMING_LINK: CurrenciesEnum[]
+	LUCKY_WHEEL?: CurrenciesEnum[]
 }
 
 export interface ITermsConditions {
