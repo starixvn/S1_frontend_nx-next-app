@@ -26,6 +26,7 @@ const useLanguageGroup = () => {
 			displayText: string
 			value: string
 			currencyId: number
+			mainLanguage?: boolean
 		}>
 	}>(LANG_GROUPS)
 

@@ -23,6 +23,7 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 	const { pathname } = useRouter()
 	const {
 		userInfo: { userName, currencyId, langId, currencyName },
+		auth: { isLogin },
 	} = useAuth()
 	const { value: isActive, toggle, setFalse } = useBoolean(false)
 
@@ -197,6 +198,7 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 						>
 							<Country
 								icon={icon}
+								isLogin={isLogin}
 								isActive={isLangActive}
 								langGroup={languageGroup}
 								selectedText={`${selectedLangText} (${currencyName})`}

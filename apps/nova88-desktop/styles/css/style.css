@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* http://meyerweb.com/eric/tools/css/reset/
+/* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -1614,25 +1614,50 @@ header input:focus-within {
 .header > div.function .country {
   margin-left: 30px;
 }
-.header > div.function .countryList {
-  display: none;
-  position: absolute;
-  margin-top: 40px;
-  background: white;
+.header > div.function .country-current {
+  margin: 6px 0;
+  background: #fff;
   border-radius: 15px;
-  padding: 0 20px;
-  right: 0;
-  top: 55px;
-  border: 1px solid white;
-  z-index: 2;
-  -webkit-box-shadow: 0 0 10px rgba(10, 27, 56, 0.6196078431);
-          box-shadow: 0 0 10px rgba(10, 27, 56, 0.6196078431);
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.header > div.function .countryList .countryName {
-  font-weight: bold;
+.header > div.function .country-current .flag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.header > div.function .countryList button, .header > div.function .countryList a, .header > div.function .countryList div {
-  margin: 10px 0;
+.header > div.function .country-current .flag:before {
+  width: 38px;
+  height: 38px;
+  margin-right: 14px;
+  bottom: 1px;
+  border-color: #dadada;
+}
+.header > div.function .country-current button {
+  font-size: 12px;
+  color: #878787;
+}
+.header > div.function .country-current .country-info {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.header > div.function .country-current .country-name {
+  color: #0A1B38;
+}
+.header > div.function .country-current div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1645,18 +1670,123 @@ header input:focus-within {
       -ms-flex-flow: row;
           flex-flow: row;
 }
-.header > div.function .countryList button button, .header > div.function .countryList a button, .header > div.function .countryList div button {
+.header > div.function .country-current div button {
   border-right: 1px solid #5574A7;
-  padding: 0 5px;
+  border-right-color: #878787;
+  padding: 0 8px;
 }
-.header > div.function .countryList button button:last-child, .header > div.function .countryList a button:last-child, .header > div.function .countryList div button:last-child {
+.header > div.function .country-current div button:last-child {
   border-right: 0;
-  padding: 0 0 0 5px;
+  padding: 0 0 0 8px;
 }
-.header > div.function .countryList button button:hover, .header > div.function .countryList a button:hover, .header > div.function .countryList div button:hover {
+.header > div.function .country-current div button:first-child {
+  padding: 0 8px 0 0;
+}
+.header > div.function .country-current div button:hover {
   color: #f77900;
 }
-.header > div.function .countryList.active {
+.header > div.function .country-list {
+  min-width: 280px;
+  display: none;
+  position: absolute;
+  margin-top: 40px;
+  background: #ECECEC;
+  border-radius: 15px;
+  padding: 0 6px;
+  right: 0;
+  top: 55px;
+  z-index: 3;
+  -webkit-box-shadow: 0 0 10px rgba(10, 27, 56, 0.6196078431);
+          box-shadow: 0 0 10px rgba(10, 27, 56, 0.6196078431);
+}
+.header > div.function .country-list .country-option {
+  height: 350px;
+  overflow-y: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  background: #fff;
+  border-radius: 15px;
+  padding: 10px 20px;
+  margin: 6px 0;
+  font-size: 14px;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.header > div.function .country-list .country-option::-webkit-scrollbar {
+  width: 5px;
+}
+.header > div.function .country-list .country-option::-webkit-scrollbar-track {
+  background: transparent;
+}
+.header > div.function .country-list .country-option::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 15px;
+}
+.header > div.function .country-list .country-option::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.header > div.function .country-list .country-option button, .header > div.function .country-list .country-option div {
+  margin: 6px 0;
+}
+.header > div.function .country-list .country-option .flag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.header > div.function .country-list .country-option .flag:before {
+  width: 25px;
+  height: 25px;
+  margin-right: 14px;
+  bottom: 1px;
+  border-color: #dadada;
+}
+.header > div.function .country-list .country-name {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.header > div.function .country-list button, .header > div.function .country-list a, .header > div.function .country-list div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #0A1B38;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+}
+.header > div.function .country-list button button, .header > div.function .country-list a button, .header > div.function .country-list div button {
+  border-right: 1px solid #5574A7;
+  border-right-color: #878787;
+  padding: 0 8px;
+}
+.header > div.function .country-list button button:last-child, .header > div.function .country-list a button:last-child, .header > div.function .country-list div button:last-child {
+  border-right: 0;
+  padding: 0 0 0 8px;
+}
+.header > div.function .country-list button button:first-child, .header > div.function .country-list a button:first-child, .header > div.function .country-list div button:first-child {
+  padding: 0 8px 0 0;
+}
+.header > div.function .country-list button button:hover, .header > div.function .country-list a button:hover, .header > div.function .country-list div button:hover {
+  color: #f77900;
+}
+.header > div.function .country-list.active {
   display: block;
 }
 .header > div.function .flag {
@@ -1786,7 +1916,7 @@ header input:focus-within {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 10px;
-  z-index: 1;
+  z-index: 3;
   -webkit-box-shadow: 0 0 3px #797979;
           box-shadow: 0 0 3px #797979;
 }
@@ -2370,17 +2500,22 @@ header input:focus-within {
   -webkit-transition: 0.35s;
   transition: 0.35s;
 }
-.home-profile .home-profile-bottom .home-profile-country .countryList {
+.home-profile .home-profile-bottom .home-profile-country .country-list {
   position: unset;
-  background: none;
-  border: 0;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  min-width: unset;
+  margin-top: unset;
+  background: transparent;
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
   padding: 0;
-  margin-top: 20px;
 }
-.home-profile .home-profile-bottom .home-profile-country .countryList .countryName {
-  font-weight: 600;
+.home-profile .home-profile-bottom .home-profile-country .country-current {
+  padding: 15px 10px;
+}
+.home-profile .home-profile-bottom .home-profile-country .country-current .flag::before {
+  width: 30px;
+  height: 30px;
+  margin-right: 7px;
 }
 .home-profile .home-profile-bottom .logout-btn {
   display: -webkit-box;
@@ -4234,6 +4369,15 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
 }
 .flag.gb:before {
   background: url(https://banner.0814media.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
+}
+.flag.br:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/br.jpg) no-repeat top left/cover;
+}
+.flag.ko:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/ko.jpg) no-repeat top left/cover;
+}
+.flag.jp:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/jp.jpg) no-repeat top left/cover;
 }
 
 .txt-orange {
@@ -23484,12 +23628,12 @@ input[type=number] {
 .euro-mission .progressBar .progressValue .number::before {
   content: "";
   position: absolute;
-  top: -10px;
+  top: -7px;
   left: 50%;
-  width: 12px;
-  height: 10px;
-  -webkit-transform: translateX(-55%);
-          transform: translateX(-55%);
+  width: 10px;
+  height: 9px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   background: url(https://banner.0814media.net/desktop/img/event/eurocup/frame.png) no-repeat center/cover;
 }
 .euro-poll {
