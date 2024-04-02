@@ -7,7 +7,7 @@ import {
 } from '@nx-next-app/hooks'
 import { BackTop, GlobalModal, MetaData } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import LayoutHeader from '@nx-next-app/features/F0001/desktop/layout/common/header'
+import LayoutHeader from '@nx-next-app/features/F0001/desktop/layout/yashbet/custom/header'
 import LayoutFooter from '@nx-next-app/features/F0001/desktop/layout/yashbet/custom/footer'
 import { IFooterData } from '@nx-next-app/types'
 

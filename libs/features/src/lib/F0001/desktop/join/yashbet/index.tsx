@@ -17,4 +17,4 @@ const Join = ({ cookies }: IJoinProps) => {
 	)
 }
 
-export default Join
+export { Join }
