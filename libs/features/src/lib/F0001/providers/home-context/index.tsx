@@ -550,7 +550,7 @@ export const HomeProvider = ({
 			const hasBalance =
 				!!balance || tpWallets?.filter(tp => tp.balance > 0).length >= 1
 			// 儲值彈窗只有桌機有
-			if (hasBalance && deviceType === DeviceTypeEnum.Desktop) {
+			if (!hasBalance && deviceType === DeviceTypeEnum.Desktop) {
 				modal.open(<DesktopDepositHintModal closeCallback={openNextPopup} />)
 				setCookie(cookieName, '1', { maxAge: cookieMaxAge })
 			} else {
