@@ -46,6 +46,7 @@ export const PlayTechScript = () => (
 )
 
 export const GTMScript = () => (
+	// 公司用的 nova ga , 用來計算總數量。
 	<>
 		{/* <Script strategy='lazyOnload' id='GTM-script'> */}
 		{/*	{`(function (w, d, s, l, i) { */}
