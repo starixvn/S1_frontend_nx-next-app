@@ -10,6 +10,7 @@ import {
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ISetClaimPromotionArgs } from '@nx-next-app/service'
+import { debounce } from 'lodash-es'
 
 const ClaimAmountModal = ({
 	bonusCode,
@@ -38,11 +39,12 @@ const ClaimAmountModal = ({
 	const { formState, register, trigger, handleSubmit, setValue } = useForm<{
 		amount: string | undefined
 	}>()
+	const debounceTrigger = debounce(trigger, 200)
 
 	const min = numberFormat(minAmount, currencyId)
 	const max = numberFormat(maxAmount, currencyId)
 
-	const onSubmit = ({ amount }: { amount: string | undefined }) => {
+	const onSubmit = ({ amount }: { amount: string | undefined | number }) => {
 		if (promotionType === PromotionTypeEnum.FirstDeposit) {
 			const lockedAmount = revertNumberFormat(amount, currencyId)
 			onSetClaimPromotion({
@@ -71,6 +73,7 @@ const ClaimAmountModal = ({
 
 							<InputBox
 								className='inputBox-blue'
+								type='number'
 								register={register('amount', {
 									required: {
 										value: true,
@@ -90,12 +93,12 @@ const ClaimAmountModal = ({
 										value: replaceStringToNumber(max ?? ''),
 										message: t('Label_General_NotInLimit'),
 									},
-									onBlur: () => trigger('amount'),
-									onChange: e => {
-										setValue('amount', e.target.value)
+
+									onChange: () => {
+										debounceTrigger('amount')
 									},
 								})}
-								touched={!!formState.touchedFields['amount']}
+								touched={!!formState.dirtyFields['amount']}
 								errorMessage={formState.errors['amount']?.message as string}
 								error={!!formState.errors['amount']}
 								showIconModule={false}
