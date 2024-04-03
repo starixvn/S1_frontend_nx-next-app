@@ -54,11 +54,13 @@ class MyDocument extends Document<CustomDocumentProps> {
 						}}
 					/>
 
-					{/* GA4 */}
+					{/* GA4 市場區分 domain 的 ga4 */}
 					<script
 						async
 						src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}
 					/>
+
+					{/* Google Tag Manager - 市場區分 domain 的 google tag */}
 					<script
 						dangerouslySetInnerHTML={{
 							__html: `
@@ -70,7 +72,7 @@ class MyDocument extends Document<CustomDocumentProps> {
               `,
 						}}
 					/>
-					{/* Google Tag Manager - GTAG paste in the <head> */}
+					{/* Google Tag Manager (noscript) - 市場區分 domain 的 google tag */}
 					<script
 						dangerouslySetInnerHTML={{
 							__html: `
