@@ -274,17 +274,27 @@ export interface ICustTpBetRecordDetailListbyGameTypeArgs {
 }
 
 export interface IPaymentAutoDepositData {
-	bankId: number
-	sysId: number
-	bankCode: string
-	bankName: string
-	ifscCode: null | string
-	bankLogo: string
-	bankSite: null | string
 	minAmount: number
 	maxAmount: number
-	status: number
-	qrCodeUrl: null | string
+	selectBank: boolean
+	supportBanks: {
+		sysId: number
+		bankName: string
+		bankCode: string
+		bankLogo: string
+		minAmount: number
+		maxAmount: number
+	}[]
+	payId: number
+	payName: string
+	groupId: number
+	groupName?: null | string
+	channelId: number
+	channelName: string
+	mode: number
+	amountRule: number
+	amountList: number[]
+	depositType: number
 }
 export interface IPaymentBankTransferData {
 	bankCode: string
