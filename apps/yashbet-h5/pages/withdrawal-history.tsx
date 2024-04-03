@@ -7,8 +7,9 @@ import {
 } from '@nx-next-app/hooks'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, History } from '@nx-next-app/features/F0006/h5'
-import { HistoryProvider } from '@nx-next-app/features/F0006/providers'
+import { History } from '@nx-next-app/features/F0001/h5'
+import { Layout } from '@nx-next-app/features/F0006/h5'
+import { HistoryProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	HISTORY_TABS,
 	QUICK_PICK_LIST,

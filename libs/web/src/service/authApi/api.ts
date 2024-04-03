@@ -1,3 +1,4 @@
+import { trim } from 'lodash-es'
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
 import { ISignInArgs } from './type'
@@ -21,10 +22,11 @@ export const authApi = rootApi.injectEndpoints({
 		}),
 		// * 登入
 		signIn: builder.mutation<IAxiosResponse<void>, ISignInArgs>({
-			query: data => ({
+			query: ({ userName, userpwd, ...rest }) => ({
 				url: authApiUrl.signIn,
 				method: 'POST',
-				data,
+				// 防呆，userName 去空白
+				data: { userName: trim(userName), userpwd: trim(userpwd), ...rest },
 			}),
 			invalidatesTags: ['AUTH_API_POST'],
 		}),
