@@ -120,6 +120,7 @@ const useMenu = () => {
 	} = useAuth()
 	const { custGameTypeSettingList } = useGlobalData()
 	const menuData = useMenuData()
+	const { modal } = useGlobalModal()
 	const [gotoGame] = useLazyGotoGameQuery()
 
 	const sortMainMenu = () => {
@@ -337,7 +338,6 @@ const useMenu = () => {
 			messageCallBack?: MessageCallbackType
 		}
 	) => {
-		const { modal } = useGlobalModal()
 		if (loginCallback && !auth.isLogin) {
 			loginCallback()
 			return
