@@ -15,6 +15,7 @@ import {
 	IBankInfoData,
 	IEWalletData,
 	IUsdtDetailData,
+	IPaymentCustBankInfoData,
 } from '@nx-next-app/service'
 
 interface IAddBankCardForm {
@@ -31,9 +32,9 @@ const AddBankCardModal = ({
 }: {
 	type: WithdrawalBankCardEnum
 	bankData: {
-		custEWalletInfo: IEWalletData[]
-		bankInfoDetail: IBankInfoData[]
-		usdtDetail: IUsdtDetailData[]
+		custEWalletInfo?: IEWalletData[]
+		bankInfoDetail?: IBankInfoData[] | IPaymentCustBankInfoData[]
+		usdtDetail?: IUsdtDetailData[]
 	}
 	bankDropDown: ISelectProps['options']
 	onSubmitCard: ({
