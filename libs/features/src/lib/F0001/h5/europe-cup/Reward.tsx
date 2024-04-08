@@ -59,7 +59,7 @@ const Reward = () => {
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/event/eurocup/bali.jpg`}
 							alt='eurocup-bali'
 						/>
-						<div className='info'>
+						<div className='euro-reward-info'>
 							<div>
 								<div className='subtitle'>{t('Label_EuropeCup_Prize')}</div>
 								<div className='reward'>
@@ -94,7 +94,7 @@ const Reward = () => {
 							src='https://banner.0814media.net/h5/img/event/eurocup/cost.jpg'
 							alt='eurocup-cost'
 						/>
-						<div className='info'>
+						<div className='euro-reward-info'>
 							<div>
 								<div className='subtitle'>{t('Label_EuropeCup_Prize')}</div>
 								<div className='reward'>
