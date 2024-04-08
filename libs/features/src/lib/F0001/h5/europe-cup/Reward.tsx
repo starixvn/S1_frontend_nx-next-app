@@ -24,7 +24,7 @@ const Reward = () => {
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/event/eurocup/watch.jpg`}
 							alt='eurocup-watch'
 						/>
-						<div className='info'>
+						<div className='euro-reward-info'>
 							<div>
 								<div className='subtitle'>{t('Label_EuropeCup_Prize')}</div>
 								<div className='reward'>

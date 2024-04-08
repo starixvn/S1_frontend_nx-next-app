@@ -24727,6 +24727,7 @@ input[type=number] {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 20px 0;
+  height: 200px;
 }
 .euro-reward-content img {
   width: 170px;

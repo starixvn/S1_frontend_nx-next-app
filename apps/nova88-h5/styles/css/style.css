@@ -18745,7 +18745,7 @@ input[type=number] .btn-logout {
   margin-right: 5vw;
   border-radius: 3vw;
 }
-.euro-reward-content .info {
+.euro-reward-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18754,18 +18754,15 @@ input[type=number] .btn-logout {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.euro-reward-content .info .subtitle {
+.euro-reward-info .subtitle {
   color: #C2C2C2;
   font-size: 3vw;
 }
-.euro-reward-content .info .reward {
+.euro-reward-info .reward {
   color: #143CDB;
   font-size: 5vw;
   width: 36vw;
   height: auto;
-  text-overflow: unset;
-  overflow: unset;
-  white-space: wrap;
   font-weight: bold;
   margin-bottom: 5vw;
 }
