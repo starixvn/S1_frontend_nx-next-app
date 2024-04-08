@@ -2,7 +2,8 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, Join } from '@nx-next-app/features/F0006/desktop'
+import { Join } from '@nx-next-app/features/F0001/desktop/join/yashbet'
+import { Layout } from '@nx-next-app/features/F0006/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,

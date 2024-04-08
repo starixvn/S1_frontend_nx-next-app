@@ -10,12 +10,13 @@ import {
 	getWithdrawalBlockSetting,
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
-import { Layout, CryptoWithdrawal } from '@nx-next-app/features/F0006/h5'
+import { CryptoWithdrawal } from '@nx-next-app/features/F0001/h5'
+import { Layout } from '@nx-next-app/features/F0006/h5'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import {
 	CryptoWalletProvider,
 	WithdrawalProvider,
-} from '@nx-next-app/features/F0006/providers'
+} from '@nx-next-app/features/F0001/providers'
 import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
 
 interface ICryptoWithdrawalProps extends InitialPropsInterface {

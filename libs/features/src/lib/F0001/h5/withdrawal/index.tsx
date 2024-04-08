@@ -9,7 +9,7 @@ import {
 	ImportantNotice,
 	RecentHistory,
 	SubmitAmount,
-} from './components'
+} from './common/components'
 
 const Withdrawal = () => {
 	const { loading } = useWithdrawal()
