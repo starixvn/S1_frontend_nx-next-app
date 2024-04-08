@@ -10,12 +10,18 @@ import {
 	IAxiosError,
 	IPaymentMobilePayData,
 	IDepositCashierQRCodeInfo,
+	useGetCustEWalletInfoQuery,
+	useGetPaymentCustBankInfoQuery,
 	useGetChannelMobilePayListQuery,
 	usePostDepositLocalPayReqMutation,
 	useLazyCheckDepositSpecialCodeQuery,
 	useLazyGetDepositReqMobilePayInfoQuery,
 } from '@nx-next-app/service'
-import { CurrenciesEnum, DepositActionModeEnum } from '@nx-next-app/types'
+import {
+	CurrenciesEnum,
+	DepositActionModeEnum,
+	DepositExtraDataTypeEnum,
+} from '@nx-next-app/types'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
 import { every, find, head, isEmpty } from 'lodash-es'
 import { useRouter } from 'next/router'
@@ -37,6 +43,8 @@ export interface IMobilePayForm {
 	payName?: string | null
 	channelName?: string
 	amountRule?: number
+	custEWalletAccount?: string
+	custBankAccount?: string
 }
 
 const useMobilePayForm = ({
@@ -94,7 +102,18 @@ const useMobilePayForm = ({
 
 	const formMethods = useForm<IMobilePayForm>({ mode: 'all' })
 
-	const { setValue, resetField } = formMethods
+	const { setValue, setError, resetField } = formMethods
+
+	const { data: { data: custEWalletList = [] } = {} } =
+		useGetCustEWalletInfoQuery(null)
+
+	const {
+		data: { data: custBankInfo = [] } = {},
+		isFetching: isGetCustBankInfoFetching,
+	} = useGetPaymentCustBankInfoQuery(
+		{ channelId: Number(queryChannelId) },
+		{ skip: !queryChannelId }
+	)
 
 	const [
 		checkDepositSpecialCode,
@@ -117,6 +136,28 @@ const useMobilePayForm = ({
 		isFetching: isGetChannelMobilePayListFetching,
 	} = useGetChannelMobilePayListQuery({ groupId }, { skip: !groupId })
 
+	const selectedChannel = find(channelMobilePayList, {
+		channelId: Number(queryChannelId),
+	})
+
+	const eWalletRequired =
+		selectedChannel?.extraDataType === DepositExtraDataTypeEnum.eWallt
+
+	const eWalletOptions = custEWalletList.map(({ eWalletName, accountNo }) => ({
+		label: `${eWalletName} - ${accountNo}`,
+		value: accountNo,
+	}))
+
+	const bankCardRequired =
+		selectedChannel?.extraDataType === DepositExtraDataTypeEnum.bankCard
+
+	const bankCardOptions = custBankInfo
+		.filter(({ disabled }) => !disabled)
+		.map(({ bankName, accountNo }) => ({
+			label: `${bankName} - ${accountNo}`,
+			value: accountNo,
+		}))
+
 	// * 1. 檢查是否有 specialCode，specialCode 與bonusCode 只能擇一
 	// * 2. channelId = -1 (假渠道), fetch postDepositLocalPayReq 並打開 QRcode 彈窗
 	// * 3. mode = 3，開啟 QR CODE modal
@@ -131,11 +172,29 @@ const useMobilePayForm = ({
 				groupName,
 				channelId,
 				channelName,
+				custBankAccount,
+				custEWalletAccount,
 				bonusCode: originBonusCode = '',
 				UPIPayAccount = '',
 				promoCode,
 			} = values
 			const convertedAmount = isConvert(currencyId) ? amount * 1000 : amount
+
+			// * 如果需選擇銀行卡但未選需跳錯誤提醒
+			if (bankCardRequired && !custBankAccount) {
+				setError('custBankAccount', {
+					message: t('Label_Withdrawal_SelectBankRequired') as string,
+				})
+				return
+			}
+
+			// * 如果需選擇 E-Wallet 但未選需跳錯誤提醒
+			if (eWalletRequired && !custEWalletAccount) {
+				setError('custEWalletAccount', {
+					message: t('Label_Withdrawal_SelectBankRequired') as string,
+				})
+				return
+			}
 
 			let bonusCode: string = originBonusCode
 			// * 如果有 promoCode，必須先透過 promoCode 來取得 bonusCode
@@ -148,12 +207,29 @@ const useMobilePayForm = ({
 					bonusCode = data?.bonusCode
 				}
 			}
+
+			// * 如有 UPI 或 銀行卡 或 EWallet 需選擇，則需傳用戶 Account 進去，銀行卡 或 EWallet 會需要再傳 sysId
+			let sysId = '0'
+			let payAccount = UPIPayAccount
+			if (eWalletRequired) {
+				payAccount = String(custEWalletAccount)
+				sysId = String(
+					find(custEWalletList, { accountNo: String(payAccount) })?.sysId
+				)
+			} else if (bankCardRequired) {
+				payAccount = String(custBankAccount)
+				sysId = String(
+					find(custBankInfo, { accountNo: String(payAccount) })?.sysId
+				)
+			}
+
 			const errorUrl = `${dbHost}/404/index_${langId}.html`
 			const searchParams = new URLSearchParams({
 				ChannelId: String(channelId),
 				Amount: String(convertedAmount),
 				BonusCode: bonusCode,
-				PayAccount: UPIPayAccount,
+				PayAccount: payAccount,
+				SysId: String(sysId),
 				errorUrl,
 			})
 			const paramsUrl = searchParams.toString()
@@ -192,7 +268,7 @@ const useMobilePayForm = ({
 					info: depositReqMobilePayInfo,
 				})
 			} else {
-				const baseUrl = `${dbHost}/${langId}/Cashier/DepositReqMobilePay`
+				const baseUrl = `${dbHost}/${langId}/Cashier/DepositReq`
 				window.open(`${baseUrl}?${paramsUrl}`)
 			}
 
@@ -218,7 +294,8 @@ const useMobilePayForm = ({
 		contextLoading ||
 		isCheckDepositSpecialCodeFetching ||
 		isPostDepositLocalPayReqLoading ||
-		isGetChannelMobilePayListFetching
+		isGetChannelMobilePayListFetching ||
+		isGetCustBankInfoFetching
 
 	const debouncedLoading = useDebounce(loading, 50)
 
@@ -308,6 +385,12 @@ const useMobilePayForm = ({
 
 	return {
 		formMethods,
+		custBankInfo,
+		eWalletOptions,
+		custEWalletList,
+		bankCardOptions,
+		eWalletRequired,
+		bankCardRequired,
 		loading: debouncedLoading,
 		channelMobilePayList,
 		onMobilePayFormSubmit,
