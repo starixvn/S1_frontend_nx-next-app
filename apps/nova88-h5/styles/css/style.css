@@ -18742,6 +18742,15 @@ input[type=number] .btn-logout {
   font-weight: bold;
   border-radius: 0 0 4vw 4vw;
   height: 15vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .euro-reward-result span {
   display: block;
