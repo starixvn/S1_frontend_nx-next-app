@@ -42,7 +42,7 @@ const Reward = () => {
 					<div className='euro-reward-result'>
 						<div>
 							<div>{t('Label_EuropeCup_Winners')}</div>
-							<span />
+							<span>{t('Label_EuropeCup_Drawn_Out_Time')}</span>
 						</div>
 					</div>
 				</div>
@@ -77,7 +77,7 @@ const Reward = () => {
 					<div className='euro-reward-result'>
 						<div>
 							<div>{t('Label_EuropeCup_Winners')}</div>
-							<span />
+							<span>{t('Label_EuropeCup_Drawn_Out_Time')}</span>
 						</div>
 					</div>
 				</div>
@@ -112,7 +112,7 @@ const Reward = () => {
 					<div className='euro-reward-result'>
 						<div>
 							<div>{t('Label_EuropeCup_Winners')}</div>
-							<span />
+							<span>{t('Label_EuropeCup_Drawn_Out_Time')}</span>
 						</div>
 					</div>
 				</div>
