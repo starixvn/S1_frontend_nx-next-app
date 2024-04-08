@@ -18,7 +18,7 @@ import {
 	useGetBannerV3Query,
 	useSetFavoriteGameMutation,
 } from '@nx-next-app/service'
-import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
+import { DEVICE_TYPE, paths, PRODUCTS } from '@nx-next-app/constants'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useInView } from '@nx-next-app/hooks'
@@ -35,7 +35,7 @@ import {
 	trim,
 } from 'lodash-es'
 import { getIsTpMaintain } from '@nx-next-app/utils'
-import { BannerTypeEnum } from '@nx-next-app/types'
+import { BannerTypeEnum, CurrenciesEnum } from '@nx-next-app/types'
 import { CategoryEnum } from '@nx-next-app/features/F0001/types'
 
 interface ISlotsProviderProps {
@@ -505,17 +505,32 @@ const SlotsProvider = ({
 						))
 				)
 			})
-			.map(gameObj => ({
-				...gameObj,
-				isMaintain: getIsTpMaintain({
+			.map(gameObj => {
+				// TODO , 客製化需求，無期限移除 VND 與 IDR 的 PG , 之後再重新開放
+				const pgMaintainCurrency = [CurrenciesEnum.VND, CurrenciesEnum.IDR]
+				let isMaintain = getIsTpMaintain({
 					tpMaintainList,
 					tpId: gameObj.tpId,
 					tpGameType: find(persistSlotsGameData.providerList, {
 						tpId: gameObj.tpId,
 					})?.tpGameType,
-				}),
-				isFavorite: isFavorite({ tpId: gameObj.tpId, gameId: gameObj.gameId }),
-			}))
+				})
+
+				if (
+					gameObj.tpId === PRODUCTS['PGSoft']?.tpId &&
+					pgMaintainCurrency.includes(currencyId)
+				) {
+					isMaintain = true
+				}
+				return {
+					...gameObj,
+					isMaintain,
+					isFavorite: isFavorite({
+						tpId: gameObj.tpId,
+						gameId: gameObj.gameId,
+					}),
+				}
+			})
 			.sort(
 				(a, b) =>
 					new Date(b.launchDate).getTime() - new Date(a.launchDate).getTime()
