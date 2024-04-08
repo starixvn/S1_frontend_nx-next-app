@@ -1,7 +1,9 @@
+import { useTranslation } from 'next-i18next'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useDepositSavedLocalStorage } from '@nx-next-app/data-access'
 import {
 	IAxiosError,
+	useGetPaymentCustBankInfoQuery,
 	IPaymentAutoDepositData,
 	useLazyCheckDepositSpecialCodeQuery,
 } from '@nx-next-app/service'
@@ -11,13 +13,16 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useBoolean, useDebounce } from 'usehooks-ts'
+import { DepositExtraDataTypeEnum } from '@nx-next-app/types'
 import { useDepositContext } from './DepositContext'
 
 interface IAutoDepositForm {
 	amount: number
 	sysId?: number
+	channelId?: number
 	minAmount?: number
 	maxAmount?: number
+	custBankAccount?: string
 	bonusCode?: string
 	promoCode?: string
 }
@@ -27,6 +32,7 @@ const useAutoDepositForm = ({
 }: {
 	dataSource: IPaymentAutoDepositData[]
 }) => {
+	const { t } = useTranslation()
 	const {
 		userInfo: { langId, currencyId },
 		dbHost,
@@ -34,7 +40,11 @@ const useAutoDepositForm = ({
 	const { modal } = useGlobalModal()
 	const { value: isFirstEffect, toggle: toggleIsFirstEffect } = useBoolean(true)
 	const { query, pathname, push } = useRouter()
-	const { paymentType: queryPaymentType, sysId: querySysId } = query
+	const {
+		paymentType: queryPaymentType,
+		channelId: queryChannelId,
+		sysId: querySysId,
+	} = query
 
 	const {
 		loading: contextLoading,
@@ -44,7 +54,15 @@ const useAutoDepositForm = ({
 
 	const formMethods = useForm<IAutoDepositForm>()
 
-	const { setValue, resetField } = formMethods
+	const { setValue, setError, resetField } = formMethods
+
+	const {
+		data: { data: custBankInfo = [] } = {},
+		isFetching: isGetCustBankInfoFetching,
+	} = useGetPaymentCustBankInfoQuery(
+		{ channelId: Number(queryChannelId) },
+		{ skip: !queryChannelId }
+	)
 
 	const [
 		checkDepositSpecialCode,
@@ -57,6 +75,18 @@ const useAutoDepositForm = ({
 		onSavedDepositLocalStorageSavedInfo,
 	} = useDepositSavedLocalStorage()
 
+	const { supportBanks = [], extraDataType } =
+		find(dataSource, {
+			channelId: Number(queryChannelId),
+		}) ?? {}
+
+	const bankCardRequired = extraDataType === DepositExtraDataTypeEnum.bankCard
+
+	const bankCardOptions = custBankInfo.map(({ bankName, accountNo }) => ({
+		label: `${bankName} - ${accountNo}`,
+		value: accountNo,
+	}))
+
 	// * 1. 檢查是否有 specialCode，specialCode 與bonusCode 只能擇一
 	// * 2. window.open() only
 	// * 3. savedChecked = true 時記住銀行資訊
@@ -65,10 +95,20 @@ const useAutoDepositForm = ({
 		try {
 			const {
 				amount = 0,
-				sysId,
+				channelId = '',
+				sysId: bankSysId = '',
+				custBankAccount,
 				bonusCode: originBonusCode = '',
 				promoCode,
 			} = values
+
+			// * 如果需選擇銀行卡但未選需跳錯誤提醒
+			if (bankCardRequired && !custBankAccount) {
+				setError('custBankAccount', {
+					message: t('Label_Withdrawal_SelectBankRequired') as string,
+				})
+				return
+			}
 
 			const convertedAmount = isConvert(currencyId) ? amount * 1000 : amount
 
@@ -84,17 +124,26 @@ const useAutoDepositForm = ({
 				}
 			}
 
+			// * 如果需要用戶提供銀行卡，則傳入該銀行卡的 sysId，否則傳入一般存款管道銀行 sysId
+			let sysId = bankSysId
+			if (bankCardRequired)
+				sysId = String(
+					find(custBankInfo, { accountNo: String(custBankAccount) })?.sysId
+				)
+
 			const errorUrl = `${dbHost}/404/index_${langId}.html`
 			const searchParams = new URLSearchParams({
+				ChannelId: String(channelId),
 				SysId: String(sysId),
 				Amount: String(convertedAmount),
 				BonusCode: bonusCode,
+				PayAccount: bankCardRequired ? String(custBankAccount) : '',
 				errorUrl,
 			})
 			const paramsUrl = searchParams.toString()
 
 			// * window.open only
-			const baseUrl = `${dbHost}/${langId}/Cashier/DepositReqBankAutoChannel`
+			const baseUrl = `${dbHost}/${langId}/Cashier/DepositReq`
 			window.open(`${baseUrl}?${paramsUrl}`)
 
 			resetField('amount')
@@ -103,6 +152,7 @@ const useAutoDepositForm = ({
 			if (isDepositLocalStorageSavedChecked) {
 				onSavedDepositLocalStorageSavedInfo({
 					paymentType: queryPaymentType,
+					channelId,
 					sysId,
 				})
 			}
@@ -114,7 +164,10 @@ const useAutoDepositForm = ({
 		}
 	}
 
-	const loading = isCheckDepositSpecialCodeFetching || contextLoading
+	const loading =
+		isCheckDepositSpecialCodeFetching ||
+		isGetCustBankInfoFetching ||
+		contextLoading
 
 	const debouncedLoading = useDebounce(loading, 50)
 
@@ -127,33 +180,42 @@ const useAutoDepositForm = ({
 		resetField('amount')
 
 		const {
-			sysId,
+			channelId,
 			minAmount = 0,
 			maxAmount = 0,
-		} = find(dataSource, { sysId: Number(querySysId) }) ||
+			supportBanks,
+		} = find(dataSource, { channelId: Number(queryChannelId) }) ||
 		head(dataSource) ||
 		{}
 
-		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
-		const convertMinAmount = minAmount / (isConvert(currencyId) ? 1000 : 1)
-		const convertMaxAmount = maxAmount / (isConvert(currencyId) ? 1000 : 1)
+		const banksInfo =
+			find(supportBanks, { sysId: Number(querySysId) }) || head(supportBanks)
 
-		setValue('sysId', sysId)
+		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
+		// * minAmount 與 maxAmount 優先使用 banksInfo > dataSource
+		const convertMinAmount =
+			(banksInfo?.minAmount || minAmount) / (isConvert(currencyId) ? 1000 : 1)
+		const convertMaxAmount =
+			(banksInfo?.maxAmount || maxAmount) / (isConvert(currencyId) ? 1000 : 1)
+
+		setValue('channelId', channelId)
 		setValue('minAmount', convertMinAmount)
 		setValue('maxAmount', convertMaxAmount)
+		setValue('sysId', banksInfo?.sysId)
 
 		let url = {
 			pathname,
 			query: {
 				paymentType: queryPaymentType,
-				sysId,
+				channelId,
+				sysId: banksInfo?.sysId,
 			},
 		}
 
 		// * 如果當前 isDepositLocalStorageSavedChecked = true 及 depositLocalStorageSavedInfo 有值 及 query url (除了 paymentType 之外)需要的 key 皆為空值時給予 local storage 的值
 		// * isFirstEffect: 設定過一次後將 isFirstEffect 由 true 變為 false
 		// * isPrepared: url 都有值，才算準備好，如果進到 localStorage 裡要把初始值蓋過去
-		const isPrepared = every([queryPaymentType, querySysId])
+		const isPrepared = every([queryPaymentType, queryChannelId])
 		if (
 			isPrepared &&
 			isFirstEffect &&
@@ -166,16 +228,24 @@ const useAutoDepositForm = ({
 				pathname,
 				query: {
 					paymentType: queryPaymentType,
-					sysId: depositLocalStorageSavedInfo.sysId,
+					channelId: depositLocalStorageSavedInfo?.channelId,
+					sysId: depositLocalStorageSavedInfo?.sysId,
 				},
 			}
 			toggleIsFirstEffect()
 		}
 
 		push(url, undefined, { shallow: true })
-	}, [debouncedLoading, queryPaymentType, querySysId])
+	}, [debouncedLoading, queryPaymentType, queryChannelId, querySysId])
 
-	return { formMethods, loading: debouncedLoading, onAutoDepositFormSubmit }
+	return {
+		formMethods,
+		supportBanks,
+		bankCardOptions,
+		bankCardRequired,
+		loading: debouncedLoading,
+		onAutoDepositFormSubmit,
+	}
 }
 
 export { useAutoDepositForm }

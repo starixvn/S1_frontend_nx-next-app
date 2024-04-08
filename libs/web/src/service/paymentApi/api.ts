@@ -47,6 +47,7 @@ import {
 	IDepositQuickTransferData,
 	IDepositChatTransferData,
 	IPaymentOnlineBankInfoSysData,
+	IPaymentCustBankInfoData,
 } from './type'
 
 export const paymentApiUrl = {
@@ -75,7 +76,7 @@ export const paymentApiUrl = {
 	withdrawalEWallet: 'Payment/WithdrawalEWalletReq',
 	// Crypto withdrawal
 	withdrawalCrypto: 'Payment/WithdrawalCryptoReq',
-	getPaymentAutoDepositList: 'Payment/GetAutoChannelBankGroupList',
+	getAutoDepositGroupList: 'Payment/GetAutoDepositGroupList',
 	getPaymentBankTransferList: 'Payment/GetBankInfoOffList',
 	getPaymentOnlineBankingList: 'Payment/GetOnlinePaymentList',
 	getPaymentOnlineBankInfoSysList: 'Payment/GetOnlineBankInfoSysList',
@@ -95,6 +96,7 @@ export const paymentApiUrl = {
 	postDepositLocalPayReq: 'Payment/DepositReqLocalPay',
 	checkDepositSpecialCode: 'Payment/CheckDepositSpecialCode',
 	getWithdrawalBlockSetting: 'Payment/GetWithdrawalBlockSetting',
+	getCustBankInfo: 'Payment/GetCustBankInfo',
 }
 
 const paymentApi = rootApi.injectEndpoints({
@@ -303,12 +305,12 @@ const paymentApi = rootApi.injectEndpoints({
 			providesTags: ['ACCOUNT_GET_USER_EWALLET_INFO'],
 		}),
 		// * Deposit autoDeposit 第一層
-		getPaymentAutoDepositList: builder.query<
+		getAutoDepositGroupList: builder.query<
 			IAxiosResponse<IPaymentAutoDepositData[]>,
 			void
 		>({
 			query: data => ({
-				url: paymentApiUrl.getPaymentAutoDepositList,
+				url: paymentApiUrl.getAutoDepositGroupList,
 				method: 'POST',
 				data,
 			}),
@@ -519,6 +521,16 @@ const paymentApi = rootApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
+		getPaymentCustBankInfo: builder.query<
+			IAxiosResponse<IPaymentCustBankInfoData[]>,
+			{ channelId?: number }
+		>({
+			query: data => ({
+				url: paymentApiUrl.getCustBankInfo,
+				method: 'POST',
+				data,
+			}),
+		}),
 	}),
 })
 
@@ -547,7 +559,7 @@ export const {
 	useSubmitEWalletWithdrawalMutation,
 	useGetSupportCryptoInfoQuery,
 	useGetEWalletInfoSysListQuery,
-	useGetPaymentAutoDepositListQuery,
+	useGetAutoDepositGroupListQuery,
 	useGetPaymentBankTransferListQuery,
 	useGetPaymentOnlineBankingListQuery,
 	useGetPaymentOnlineBankInfoSysListQuery,
@@ -567,4 +579,5 @@ export const {
 	usePostDepositBankTransferReqMutation,
 	usePostDepositLocalPayReqMutation,
 	useGetWithdrawalBlockSettingQuery,
+	useGetPaymentCustBankInfoQuery,
 } = paymentApi

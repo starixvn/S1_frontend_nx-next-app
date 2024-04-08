@@ -26,7 +26,7 @@ const Step2 = () => {
 										<Img
 											src={`${
 												process.env['NEXT_PUBLIC_PAYMENT_HOST']
-											}/square/${bankLogo.toLowerCase()}`}
+											}/square/${bankLogo?.toLowerCase()}`}
 											alt={bankName}
 											onClick={() => {
 												setSelBank({ bankLogo, bankName, sysId })
