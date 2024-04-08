@@ -23,6 +23,7 @@ import type {
 	IStaticSubMenuItem,
 	IDynamicSubMenuLinkType,
 } from '@nx-next-app/features/F0001/types'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 
 type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void
@@ -96,6 +97,7 @@ const useMenu = () => {
 	} = useAuth()
 	const { LobberHeaderMenuList, isLobbyHeaderError } = useMenuData()
 	const { tpMaintainList } = useGlobalData()
+	const { modal } = useGlobalModal()
 	const [gotoGame] = useLazyGotoGameQuery()
 	const { data: { data: tpGameTypeSettingList = [] } = {} } =
 		useGetCustTpGameTypeSettingQuery(null, {
@@ -376,11 +378,12 @@ const useMenu = () => {
 		} catch (error) {
 			const { message, errorCode } = error as IAxiosError
 			if (errorCode === 3000) {
-				window.open(
-					message,
-					'Under Maintenance',
-					'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0'
-				)
+				modal.error('Under Maintenance')
+				// window.open(
+				// 	message,
+				// 	'Under Maintenance',
+				// 	'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0'
+				// )
 			} else if (messageCallBack) {
 				messageCallBack(message)
 			}
