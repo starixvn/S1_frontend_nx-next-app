@@ -60,6 +60,8 @@ const countryCodeMap: {
 	CNY_CH: { currencyId: CurrenciesEnum.CNY, langId: 'cs' },
 	USD: { currencyId: CurrenciesEnum.USD, langId: 'en' },
 	CS: { currencyId: CurrenciesEnum.USD, langId: 'en' },
+	KR: { currencyId: CurrenciesEnum.KRW, langId: 'ko' },
+	BR: { currencyId: CurrenciesEnum.BRL, langId: 'br' },
 	TW: { currencyId: CurrenciesEnum.USD, langId: 'en' }, // * TW for 前端部門組員測試用
 }
 

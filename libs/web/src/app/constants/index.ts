@@ -16,10 +16,12 @@ export const CURRENCY_TO_LANG_KEY: {
 	4: 'th',
 	13: 'cs',
 	15: 'id',
+	45: 'ko',
+	51: 'vn',
 	61: 'in',
 	72: 'kh',
 	74: 'bd',
-	51: 'vn',
+	82: 'br',
 }
 
 export const LIVESTREAM_CURRENCY_TO_LANG_KEY: {
@@ -30,10 +32,12 @@ export const LIVESTREAM_CURRENCY_TO_LANG_KEY: {
 	4: 'th',
 	13: 'cs',
 	15: 'id',
+	45: 'ko',
 	51: 'vn',
 	61: 'hi',
 	72: 'kh',
 	74: 'bd',
+	82: 'br',
 }
 
 export const LANG_GROUP_COUNTRY: {
@@ -48,6 +52,8 @@ export const LANG_GROUP_COUNTRY: {
 	bd: 'Bangladesh',
 	kh: 'Cambodia',
 	vn: 'Vietnam',
+	br: 'Brazil',
+	ko: 'Korea',
 }
 
 export const DEVICE_TYPE = {
@@ -57,6 +63,7 @@ export const DEVICE_TYPE = {
 }
 
 export const CURRENCY_TO_TIMEZONE: { [key: number]: string } = {
+	// TODO
 	2: '+08:00',
 	4: '+07:00',
 	15: '+07:00',

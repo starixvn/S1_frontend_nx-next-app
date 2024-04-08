@@ -283,6 +283,7 @@ export const FOOTER_DATA = ({
 			},
 		],
 		paymentMethodsByCurrencyId: {
+			// TODO
 			[CurrenciesEnum.MYR]: [
 				{
 					name: 'Maybank',
