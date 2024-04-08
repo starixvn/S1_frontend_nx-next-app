@@ -16,6 +16,7 @@ import { useDepositContext } from './DepositContext'
 interface IAutoDepositForm {
 	amount: number
 	sysId?: number
+	channelId?: number
 	minAmount?: number
 	maxAmount?: number
 	bonusCode?: string
@@ -34,7 +35,11 @@ const useAutoDepositForm = ({
 	const { modal } = useGlobalModal()
 	const { value: isFirstEffect, toggle: toggleIsFirstEffect } = useBoolean(true)
 	const { query, pathname, push } = useRouter()
-	const { paymentType: queryPaymentType, sysId: querySysId } = query
+	const {
+		paymentType: queryPaymentType,
+		channelId: queryChannelId,
+		sysId: querySysId,
+	} = query
 
 	const {
 		loading: contextLoading,
@@ -65,7 +70,8 @@ const useAutoDepositForm = ({
 		try {
 			const {
 				amount = 0,
-				sysId,
+				channelId = '',
+				sysId = '',
 				bonusCode: originBonusCode = '',
 				promoCode,
 			} = values
@@ -86,6 +92,7 @@ const useAutoDepositForm = ({
 
 			const errorUrl = `${dbHost}/404/index_${langId}.html`
 			const searchParams = new URLSearchParams({
+				ChannelId: String(channelId),
 				SysId: String(sysId),
 				Amount: String(convertedAmount),
 				BonusCode: bonusCode,
@@ -103,6 +110,7 @@ const useAutoDepositForm = ({
 			if (isDepositLocalStorageSavedChecked) {
 				onSavedDepositLocalStorageSavedInfo({
 					paymentType: queryPaymentType,
+					channelId,
 					sysId,
 				})
 			}
@@ -113,6 +121,11 @@ const useAutoDepositForm = ({
 			modal.error(rawMessage || message)
 		}
 	}
+
+	const { supportBanks = [] } =
+		find(dataSource, {
+			channelId: Number(queryChannelId),
+		}) ?? {}
 
 	const loading = isCheckDepositSpecialCodeFetching || contextLoading
 
@@ -127,33 +140,42 @@ const useAutoDepositForm = ({
 		resetField('amount')
 
 		const {
-			sysId,
+			channelId,
 			minAmount = 0,
 			maxAmount = 0,
-		} = find(dataSource, { sysId: Number(querySysId) }) ||
+			supportBanks,
+		} = find(dataSource, { channelId: Number(queryChannelId) }) ||
 		head(dataSource) ||
 		{}
 
-		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
-		const convertMinAmount = minAmount / (isConvert(currencyId) ? 1000 : 1)
-		const convertMaxAmount = maxAmount / (isConvert(currencyId) ? 1000 : 1)
+		const banksInfo =
+			find(supportBanks, { sysId: Number(querySysId) }) || head(supportBanks)
 
-		setValue('sysId', sysId)
+		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
+		// * minAmount 與 maxAmount 優先使用 banksInfo > dataSource
+		const convertMinAmount =
+			(banksInfo?.minAmount || minAmount) / (isConvert(currencyId) ? 1000 : 1)
+		const convertMaxAmount =
+			(banksInfo?.maxAmount || maxAmount) / (isConvert(currencyId) ? 1000 : 1)
+
+		setValue('channelId', channelId)
 		setValue('minAmount', convertMinAmount)
 		setValue('maxAmount', convertMaxAmount)
+		setValue('sysId', banksInfo?.sysId)
 
 		let url = {
 			pathname,
 			query: {
 				paymentType: queryPaymentType,
-				sysId,
+				channelId,
+				sysId: banksInfo?.sysId,
 			},
 		}
 
 		// * 如果當前 isDepositLocalStorageSavedChecked = true 及 depositLocalStorageSavedInfo 有值 及 query url (除了 paymentType 之外)需要的 key 皆為空值時給予 local storage 的值
 		// * isFirstEffect: 設定過一次後將 isFirstEffect 由 true 變為 false
 		// * isPrepared: url 都有值，才算準備好，如果進到 localStorage 裡要把初始值蓋過去
-		const isPrepared = every([queryPaymentType, querySysId])
+		const isPrepared = every([queryPaymentType, queryChannelId])
 		if (
 			isPrepared &&
 			isFirstEffect &&
@@ -166,16 +188,22 @@ const useAutoDepositForm = ({
 				pathname,
 				query: {
 					paymentType: queryPaymentType,
-					sysId: depositLocalStorageSavedInfo.sysId,
+					channelId: depositLocalStorageSavedInfo?.channelId,
+					sysId: depositLocalStorageSavedInfo?.sysId,
 				},
 			}
 			toggleIsFirstEffect()
 		}
 
 		push(url, undefined, { shallow: true })
-	}, [debouncedLoading, queryPaymentType, querySysId])
+	}, [debouncedLoading, queryPaymentType, queryChannelId, querySysId])
 
-	return { formMethods, loading: debouncedLoading, onAutoDepositFormSubmit }
+	return {
+		formMethods,
+		supportBanks,
+		loading: debouncedLoading,
+		onAutoDepositFormSubmit,
+	}
 }
 
 export { useAutoDepositForm }

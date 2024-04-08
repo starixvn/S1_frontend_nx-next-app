@@ -75,7 +75,7 @@ export const paymentApiUrl = {
 	withdrawalEWallet: 'Payment/WithdrawalEWalletReq',
 	// Crypto withdrawal
 	withdrawalCrypto: 'Payment/WithdrawalCryptoReq',
-	getPaymentAutoDepositList: 'Payment/GetAutoChannelBankGroupList',
+	getAutoDepositGroupList: 'Payment/GetAutoDepositGroupList',
 	getPaymentBankTransferList: 'Payment/GetBankInfoOffList',
 	getPaymentOnlineBankingList: 'Payment/GetOnlinePaymentList',
 	getPaymentOnlineBankInfoSysList: 'Payment/GetOnlineBankInfoSysList',
@@ -303,12 +303,12 @@ const paymentApi = rootApi.injectEndpoints({
 			providesTags: ['ACCOUNT_GET_USER_EWALLET_INFO'],
 		}),
 		// * Deposit autoDeposit 第一層
-		getPaymentAutoDepositList: builder.query<
+		getAutoDepositGroupList: builder.query<
 			IAxiosResponse<IPaymentAutoDepositData[]>,
 			void
 		>({
 			query: data => ({
-				url: paymentApiUrl.getPaymentAutoDepositList,
+				url: paymentApiUrl.getAutoDepositGroupList,
 				method: 'POST',
 				data,
 			}),
@@ -547,7 +547,7 @@ export const {
 	useSubmitEWalletWithdrawalMutation,
 	useGetSupportCryptoInfoQuery,
 	useGetEWalletInfoSysListQuery,
-	useGetPaymentAutoDepositListQuery,
+	useGetAutoDepositGroupListQuery,
 	useGetPaymentBankTransferListQuery,
 	useGetPaymentOnlineBankingListQuery,
 	useGetPaymentOnlineBankInfoSysListQuery,

@@ -125,10 +125,9 @@ export const renderFieldError = (errors: FieldErrors = {}): string => {
 // console.log(replaceStringToNumber("1988.88 ('000)")); // 應該輸出: 1988.88
 // console.log(replaceStringToNumber("3000")); // 應該輸出: 3000
 
-export function replaceStringToNumber(str: string) {
-	// 這個正則表達式會匹配括號內含有 "'000" 的模式，並且前面可能有空格
-	// 也能匹配小數點及數字
-	const regex = /\s*\('000\)$/
+export const replaceStringToNumber = (str: string) => {
+	// 匹配 , 和 ('000)
+	const regex = /\s*\('000\)$|,/g
 
 	// 使用 replace 方法將匹配到的部分替換為空字串
 	return str.replace(regex, '')
