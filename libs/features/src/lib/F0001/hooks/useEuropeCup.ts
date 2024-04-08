@@ -50,7 +50,11 @@ const useEuropeCup = () => {
 	const { modal, closeModal } = useGlobalModal()
 	const {
 		data: { data: europeEventTicketData = {} as ICupEventTicketData } = {},
-	} = useGetCupEventTicketQuery(null, { skip: !isLogin })
+	} = useGetCupEventTicketQuery(null, {
+		skip: !isLogin,
+		// 確保每次進來頁面都拉最新的資料
+		refetchOnMountOrArgChange: true,
+	})
 
 	const [setUserPollTickets] = useSetUserPollTicketsMutation()
 
