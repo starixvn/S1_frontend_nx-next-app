@@ -70,9 +70,14 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			setValue,
 			watch,
 			register,
+			clearErrors,
 			formState: { touchedFields, errors, isValid },
 		},
+		eWalletOptions,
+		eWalletRequired,
 		channelMobilePayList = [],
+		bankCardOptions,
+		bankCardRequired,
 		onMobilePayFormSubmit,
 	} = useMobilePayForm({
 		dataSource,
@@ -90,6 +95,8 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 	const watchMinAmount = watch('minAmount')
 	const watchMaxAmount = watch('maxAmount')
 	const watchAmountRule = watch('amountRule')
+	const watchCustBankAccount = watch('custBankAccount')
+	const watchCustEWalletAccount = watch('custEWalletAccount')
 
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
@@ -227,6 +234,50 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 							}}
 						/>
 					)}
+				</DepositModule>
+			)}
+
+			{bankCardRequired && (
+				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+					<Select
+						value={watchCustBankAccount}
+						options={bankCardOptions}
+						onChange={value => {
+							trigger('custBankAccount')
+							setValue('custBankAccount', String(value))
+							clearErrors('custBankAccount')
+						}}
+						errorMessage={errors['custBankAccount']?.message as string}
+					/>
+					<div
+						className={classNames('tip', {
+							active: errors['custBankAccount'],
+						})}
+					>
+						{errors['custBankAccount']?.message}
+					</div>
+				</DepositModule>
+			)}
+
+			{eWalletRequired && (
+				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+					<Select
+						value={watchCustEWalletAccount}
+						options={eWalletOptions}
+						onChange={value => {
+							trigger('custEWalletAccount')
+							setValue('custEWalletAccount', String(value))
+							clearErrors('custEWalletAccount')
+						}}
+						errorMessage={errors['custEWalletAccount']?.message as string}
+					/>
+					<div
+						className={classNames('tip', {
+							active: errors['custEWalletAccount'],
+						})}
+					>
+						{errors['custEWalletAccount']?.message}
+					</div>
 				</DepositModule>
 			)}
 
