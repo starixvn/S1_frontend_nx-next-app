@@ -14,6 +14,7 @@ import {
 	reduce,
 	values,
 	flatMap,
+	upperFirst,
 } from 'lodash-es'
 import {
 	type ICupEventTicketData,
@@ -46,10 +47,12 @@ const useEuropeCup = () => {
 	const { t } = useTranslation()
 	const {
 		auth: { isLogin },
+		userInfo: { langId },
 	} = useAuth()
 	const { modal, closeModal } = useGlobalModal()
 	const {
 		data: { data: europeEventTicketData = {} as ICupEventTicketData } = {},
+		refetch: refetchCupEventTicket,
 	} = useGetCupEventTicketQuery(null, {
 		skip: !isLogin,
 		// 確保每次進來頁面都拉最新的資料
@@ -150,16 +153,21 @@ const useEuropeCup = () => {
 		return selectOptions[groupName]
 	}
 
-	const groupsOptions = keys(selectOptions).map(item => ({
-		value: item,
-		label: item,
-	}))
+	const groupsOptions = keys(selectOptions).map(item => {
+		// group 是 key 後端無法翻譯，需在前端套用 i18n
+		const groupLabel = `Label_EuropeCup_${upperFirst(item)}`
+		return {
+			value: item,
+			label: t(groupLabel),
+		}
+	})
 
 	const userTicketData = reduce(
 		selectOptions,
 		(result, value, key) => {
-			const newData = value.map(group => ({ ...group, group: key }))
-
+			// group 是 key 後端無法翻譯，需在前端套用 i18n
+			const groupLabel = `Label_EuropeCup_${upperFirst(key)}`
+			const newData = value.map(group => ({ ...group, group: t(groupLabel) }))
 			return { ...result, [key]: newData }
 		},
 		{}
@@ -215,6 +223,11 @@ const useEuropeCup = () => {
 			})
 		}
 	}, [errorCode])
+
+	// 切換語系重撈 (因為這支 payload 不帶 currencyId langId，沒有辦法自動重撈)
+	useEffect(() => {
+		refetchCupEventTicket()
+	}, [langId])
 
 	return {
 		europeEventTicketData,

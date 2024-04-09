@@ -297,7 +297,7 @@ const Prediction = () => {
 							<div className='inputBox-group'>
 								<Select
 									value={watch('ticket1.group')}
-									defaultValue={userTicket1tsData?.group}
+									placeholder={userTicket1tsData?.group}
 									options={groupsOptions}
 									disabled={
 										userTicket1tsData?.ticketStatus !==
@@ -359,7 +359,7 @@ const Prediction = () => {
 							<div className='inputBox-group'>
 								<Select
 									value={watch('ticket2.group')}
-									defaultValue={userTicket2tsData?.group}
+									placeholder={userTicket2tsData?.group}
 									options={groupsOptions}
 									disabled={
 										userTicket2tsData?.ticketStatus !==
@@ -421,7 +421,7 @@ const Prediction = () => {
 							<div className='inputBox-group'>
 								<Select
 									value={watch('ticket3.group')}
-									defaultValue={userTicket3tsData?.group}
+									placeholder={userTicket3tsData?.group}
 									options={groupsOptions}
 									disabled={
 										userTicket3tsData?.ticketStatus !==
@@ -483,7 +483,7 @@ const Prediction = () => {
 							<div className='inputBox-group'>
 								<Select
 									value={watch('ticket4.group')}
-									defaultValue={userTicket4tsData?.group}
+									placeholder={userTicket4tsData?.group}
 									options={groupsOptions}
 									disabled={
 										userTicket4tsData?.ticketStatus !==
