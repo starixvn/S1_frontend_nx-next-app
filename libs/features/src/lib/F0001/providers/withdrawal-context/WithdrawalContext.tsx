@@ -42,7 +42,7 @@ import {
 } from '@nx-next-app/features/F0001/types'
 import { useTranslation } from 'next-i18next'
 import { isConvert, numberFormat } from '@nx-next-app/utils'
-import { DeviceTypeEnum } from '@nx-next-app/types'
+import { CurrenciesEnum, DeviceTypeEnum } from '@nx-next-app/types'
 import { useForm, UseFormReturn } from 'react-hook-form'
 import { useManageCards } from '@nx-next-app/features/F0001/providers/withdrawal-context/useManageCards'
 import { useWithdrawalHistory } from '@nx-next-app/features/F0001/providers/withdrawal-context/useWithdrawalHistory'
@@ -341,7 +341,7 @@ export const WithdrawalProvider = ({
 
 	// 初始化檢查用戶狀態，缺少資料則導去 Profile 頁面更新資料
 	const checkUserInfo = () => {
-		const { accountName, phoneNo, email } = userInfo
+		const { accountName, phoneNo, email, phoneVerified } = userInfo
 		if (isLogin) {
 			if (
 				(!accountName && !isUndefined(accountName)) ||
@@ -355,6 +355,15 @@ export const WithdrawalProvider = ({
 				} else if (deviceType === DeviceTypeEnum.Mobile) {
 					modal.open(<H5UpdateProfileModal prevPage={paths.withdrawal.root} />)
 				}
+			}
+			if (currencyId === CurrenciesEnum.INR && !phoneVerified) {
+				modal.confirm(t('Label_Withdrawal_PhoneVerificationHint'), {
+					title: t('Label_General_Withdrawal'),
+					icon: 'icon icon-icon32px_Profile',
+					okText: t('Label_Profile_VertifyNow'),
+					cancelText: t('Label_Profile_Later'),
+					onOK: () => push(paths.profile.root),
+				})
 			}
 		}
 	}
