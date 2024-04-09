@@ -70,7 +70,7 @@ const GlobalModal = ({
 								<>
 									<button
 										type='button'
-										className='white'
+										className='blue'
 										onClick={() => {
 											closeModal()
 											onOK && onOK()
@@ -80,7 +80,7 @@ const GlobalModal = ({
 									</button>
 									{type === 'confirm' && (
 										<button
-											className='btn-cancel'
+											className='gray'
 											onClick={() => {
 												closeModal()
 												onCancel && onCancel()
