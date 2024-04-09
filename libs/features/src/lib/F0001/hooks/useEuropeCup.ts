@@ -14,6 +14,7 @@ import {
 	reduce,
 	values,
 	flatMap,
+	upperFirst,
 } from 'lodash-es'
 import {
 	type ICupEventTicketData,
@@ -150,10 +151,14 @@ const useEuropeCup = () => {
 		return selectOptions[groupName]
 	}
 
-	const groupsOptions = keys(selectOptions).map(item => ({
-		value: item,
-		label: item,
-	}))
+	const groupsOptions = keys(selectOptions).map(item => {
+		// group 是 key 後端無法翻譯，需在前端套用 i18n
+		const groupLabel = `Label_EuropeCup_${upperFirst(item)}`
+		return {
+			value: item,
+			label: t(groupLabel),
+		}
+	})
 
 	const userTicketData = reduce(
 		selectOptions,
