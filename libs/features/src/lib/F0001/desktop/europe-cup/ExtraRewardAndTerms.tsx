@@ -6,10 +6,7 @@ const ExtraRewardAndTerms = () => {
 
 	return (
 		<>
-			<div className='title'>
-				{t('Label_EuropeCup_Win_Euro_Matches')}{' '}
-				<span>{t('Label_EuropeCup_Payout_After_Euro_Ends')}</span>
-			</div>
+			<div className='title'>{t('Label_EuropeCup_Win_Euro_Matches')} </div>
 			<div className='euro-extra-reward'>
 				<div>
 					<div className='euro-extra-reward-item'>
@@ -41,9 +38,15 @@ const ExtraRewardAndTerms = () => {
 				</div>
 				<div className='euro-extra-reward-rule'>
 					<div className='euro-extra-reward-rule-item'>
-						{t('Label_EuropeCup_Exclusive_VIP_Privileges')}
+						<div>{t('Label_EuropeCup_Bet_And_Get_Extra_Rewards')}</div>
+						<div>{t('Label_EuropeCup_Payout_After_Euro_Ends')}</div>
 					</div>
 					<div className='euro-extra-reward-rule-item'>
+						<div>
+							<div className='subtitle'>
+								{t('Label_EuropeCup_Exclusive_VIP_Privileges')}
+							</div>
+						</div>
 						<div>
 							<div>{t('Label_EuropeCup_Vintage_Silver_Club')}</div>
 							<span>{t('Label_EuropeCup_Vintage_Silver_Club_Value')}</span>

@@ -53,6 +53,7 @@ const useEuropeCup = () => {
 	const {
 		data: { data: europeEventTicketData = {} as ICupEventTicketData } = {},
 		refetch: refetchCupEventTicket,
+		isUninitialized: isEuropeEventTicketUninitialized,
 	} = useGetCupEventTicketQuery(null, {
 		skip: !isLogin,
 		// 確保每次進來頁面都拉最新的資料
@@ -226,8 +227,10 @@ const useEuropeCup = () => {
 
 	// 切換語系重撈 (因為這支 payload 不帶 currencyId langId，沒有辦法自動重撈)
 	useEffect(() => {
-		refetchCupEventTicket()
-	}, [langId])
+		if (!isEuropeEventTicketUninitialized) {
+			refetchCupEventTicket()
+		}
+	}, [langId, isEuropeEventTicketUninitialized])
 
 	return {
 		europeEventTicketData,

@@ -23982,13 +23982,10 @@ input[type=number] {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 0;
-  width: 75%;
+  width: 80%;
   margin: 30px auto;
 }
 .euro-extra-reward-rule-item {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1;
-          flex: 1 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24006,11 +24003,22 @@ input[type=number] {
   font-size: 20px;
 }
 .euro-extra-reward-rule-item:first-child {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 60%;
+          flex: 0 0 60%;
+  padding-right: 60px;
   color: #F9BF4B;
   font-size: 20px;
   font-weight: bold;
 }
+.euro-extra-reward-rule-item:first-child div {
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
 .euro-extra-reward-rule-item:last-child {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+          flex: 0 0 40%;
   position: relative;
 }
 .euro-extra-reward-rule-item:last-child::before {
@@ -24032,6 +24040,10 @@ input[type=number] {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+.euro-extra-reward-rule-item .subtitle {
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 .euro-tnc {
   max-width: 1350px;
