@@ -10,6 +10,7 @@ import { useEuropeCup } from '@nx-next-app/features/F0001/hooks/useEuropeCup'
 import { CupEventUserTicketStatus, type IGroupData } from '@nx-next-app/service'
 import { Form } from '@nx-next-app/components/H0001'
 import { MenuActionTypeEnum } from '@nx-next-app/types'
+import { numFormatToDigits } from '@nx-next-app/utils'
 import Select from './components/Select'
 
 const Prediction = () => {
@@ -190,7 +191,9 @@ const Prediction = () => {
 									style={{ width: `${depositProgressPercentage}%` }}
 								>
 									<div className='number'>
-										{cupEventPromotionMissionProgress?.depositAmount || 0}
+										{numFormatToDigits(
+											cupEventPromotionMissionProgress?.depositAmount || 0
+										)}
 									</div>
 								</div>
 								<div
@@ -198,14 +201,18 @@ const Prediction = () => {
 										active: mission1Completed,
 									})}
 								>
-									<div className='value'>{mission1}</div>
+									<div className='value'>
+										{numFormatToDigits(mission1 || 0)}
+									</div>
 								</div>
 								<div
 									className={classNames('progressItem', {
 										active: mission2Completed,
 									})}
 								>
-									<div className='value'>{mission2}</div>
+									<div className='value'>
+										{numFormatToDigits(mission2 || 0)}
+									</div>
 								</div>
 							</div>
 						</div>
@@ -238,7 +245,9 @@ const Prediction = () => {
 									style={{ width: `${turnoverProgressPercentage}%` }}
 								>
 									<div className='number'>
-										{cupEventPromotionMissionProgress?.turnoverSum || 0}
+										{numFormatToDigits(
+											cupEventPromotionMissionProgress?.turnoverSum || 0
+										)}
 									</div>
 								</div>
 								<div
@@ -246,14 +255,18 @@ const Prediction = () => {
 										active: mission3Completed,
 									})}
 								>
-									<div className='value'>{mission3}</div>
+									<div className='value'>
+										{numFormatToDigits(mission3 || 0)}
+									</div>
 								</div>
 								<div
 									className={classNames('progressItem', {
 										active: mission4Completed,
 									})}
 								>
-									<div className='value'>{mission4}</div>
+									<div className='value'>
+										{numFormatToDigits(mission4 || 0)}
+									</div>
 								</div>
 							</div>
 						</div>
