@@ -1,8 +1,12 @@
 import React from 'react'
 import { useTranslation } from 'next-i18next'
+import { useAuth } from '@nx-next-app/data-access'
 
 const ExtraRewardAndTerms = () => {
 	const { t } = useTranslation()
+	const {
+		userInfo: { currencyId },
+	} = useAuth()
 
 	return (
 		<>
@@ -20,12 +24,14 @@ const ExtraRewardAndTerms = () => {
 					<div className='euro-extra-reward-item'>
 						<div className='subtitle'>{t('Label_EuropeCup_Min_Payout')}</div>
 						<div className='reward'>
-							{t('Label_EuropeCup_Min_Payout_Value')}
+							{t(`Label_EuropeCup_Min_Payout_Value_${currencyId}`)}
 						</div>
 					</div>
 					<div className='euro-extra-reward-item'>
 						<div className='subtitle'>{t('Label_EuropeCup_Max_Bonus')}</div>
-						<div className='reward'>{t('Label_EuropeCup_Max_Bonus_Value')}</div>
+						<div className='reward'>
+							{t(`Label_EuropeCup_Max_Bonus_Value_${currencyId}`)}
+						</div>
 					</div>
 					<div className='euro-extra-reward-item'>
 						<div className='subtitle'>{t('Label_EuropeCup_Product')}</div>

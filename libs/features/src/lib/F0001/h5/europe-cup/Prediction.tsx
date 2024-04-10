@@ -197,7 +197,7 @@ const Prediction = () => {
 									style={{ width: `${depositProgressPercentage}%` }}
 								>
 									<div className='number'>
-										{cupEventPromotionMissionProgress?.depositAmount}
+										{cupEventPromotionMissionProgress?.depositAmount || 0}
 									</div>
 								</div>
 								<div
@@ -242,7 +242,7 @@ const Prediction = () => {
 									style={{ width: `${turnoverProgressPercentage}%` }}
 								>
 									<div className='number'>
-										{cupEventPromotionMissionProgress?.turnoverSum}
+										{cupEventPromotionMissionProgress?.turnoverSum || 0}
 									</div>
 								</div>
 								<div
