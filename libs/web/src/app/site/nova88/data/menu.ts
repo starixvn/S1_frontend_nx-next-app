@@ -269,6 +269,18 @@ export const MENU_DATA: IMenuData[] = [
 				},
 			},
 			{
+				...PRODUCTS.WonCasino,
+				pathname: paths.liveCasino.root,
+				h5: {
+					hasLobby: false,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+				desktop: {
+					hasLobby: true,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+			},
+			{
 				...PRODUCTS.BigGaming,
 				pathname: paths.liveCasino.root,
 				h5: {

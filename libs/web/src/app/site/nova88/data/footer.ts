@@ -51,6 +51,10 @@ export const FOOTER_DATA = ({
 				imgName: 'pp',
 			},
 			{
+				...PRODUCTS.WonCasino,
+				imgName: 'woncasino',
+			},
+			{
 				...PRODUCTS.BigGaming,
 				imgName: 'bg',
 			},
