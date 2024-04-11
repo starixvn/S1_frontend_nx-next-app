@@ -20,6 +20,7 @@ import {
 	useLazyGotoGameQuery,
 } from '@nx-next-app/service'
 import { isEventPeriod, onWindowOpenProduct } from '@nx-next-app/utils'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 
 type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void
@@ -371,22 +372,13 @@ const useMenu = () => {
 					window.open(message)
 				}
 			} else {
-				// * 非 9W, 直接由後端給的 message 當路徑直接另開頁面
-				window.open(
-					message,
-					'Under Maintenance',
-					'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0'
-				)
+				modal.error('Under Maintenance')
 			}
 		} catch (error) {
 			const { message, errorCode } = error as IAxiosError
 
 			if (errorCode === 3000) {
-				window.open(
-					message,
-					'Under Maintenance',
-					'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0'
-				)
+				modal.error('Under Maintenance')
 			} else if (messageCallBack) {
 				messageCallBack(message)
 			}
