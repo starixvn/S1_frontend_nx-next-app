@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -1275,15 +1275,15 @@ div[tabindex="-1"] {
   width: 16px;
   height: 16px;
 }
-.Join .inputBox i.icon.icon-minus, .Join .worldcupEvent .event .event-content .inputBox-event i.icon.icon-minus, .worldcupEvent .event .event-content .Join .inputBox-event i.icon.icon-minus, .Join .inputBox i.icon.icon-plus, .Join .worldcupEvent .event .event-content .inputBox-event i.icon.icon-plus, .worldcupEvent .event .event-content .Join .inputBox-event i.icon.icon-plus {
+.Join .inputBox i.icon.icon-minus, .Join .euro .inputBox-event i.icon.icon-minus, .euro .Join .inputBox-event i.icon.icon-minus, .Join .worldcupEvent .event .event-content .inputBox-event i.icon.icon-minus, .worldcupEvent .event .event-content .Join .inputBox-event i.icon.icon-minus, .Join .inputBox i.icon.icon-plus, .Join .euro .inputBox-event i.icon.icon-plus, .euro .Join .inputBox-event i.icon.icon-plus, .Join .worldcupEvent .event .event-content .inputBox-event i.icon.icon-plus, .worldcupEvent .event .event-content .Join .inputBox-event i.icon.icon-plus {
   display: none;
 }
-.Join .inputBox i.icon.icon-key + input + div > .icon-minus, .Join .worldcupEvent .event .event-content .inputBox-event i.icon.icon-key + input + div > .icon-minus, .worldcupEvent .event .event-content .Join .inputBox-event i.icon.icon-key + input + div > .icon-minus {
+.Join .inputBox i.icon.icon-key + input + div > .icon-minus, .Join .euro .inputBox-event i.icon.icon-key + input + div > .icon-minus, .euro .Join .inputBox-event i.icon.icon-key + input + div > .icon-minus, .Join .worldcupEvent .event .event-content .inputBox-event i.icon.icon-key + input + div > .icon-minus, .worldcupEvent .event .event-content .Join .inputBox-event i.icon.icon-key + input + div > .icon-minus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.Join .inputBox i.icon.icon-key + input + div > .icon-plus, .Join .worldcupEvent .event .event-content .inputBox-event i.icon.icon-key + input + div > .icon-plus, .worldcupEvent .event .event-content .Join .inputBox-event i.icon.icon-key + input + div > .icon-plus {
+.Join .inputBox i.icon.icon-key + input + div > .icon-plus, .Join .euro .inputBox-event i.icon.icon-key + input + div > .icon-plus, .euro .Join .inputBox-event i.icon.icon-key + input + div > .icon-plus, .Join .worldcupEvent .event .event-content .inputBox-event i.icon.icon-key + input + div > .icon-plus, .worldcupEvent .event .event-content .Join .inputBox-event i.icon.icon-key + input + div > .icon-plus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3799,12 +3799,12 @@ main .gameList .icon-new {
   width: 0;
   opacity: 0;
 }
-.header .title.searchBar .infoModule .inputBox, .header .title.searchBar .infoModule .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .header .title.searchBar .infoModule .inputBox-event {
+.header .title.searchBar .infoModule .inputBox, .header .title.searchBar .infoModule .euro .inputBox-event, .euro .header .title.searchBar .infoModule .inputBox-event, .header .title.searchBar .infoModule .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .header .title.searchBar .infoModule .inputBox-event {
   background: #c6d4f1;
   margin-left: 15vw;
   height: 8vw;
 }
-.header .title.searchBar .infoModule .inputBox input, .header .title.searchBar .infoModule .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .header .title.searchBar .infoModule .inputBox-event input {
+.header .title.searchBar .infoModule .inputBox input, .header .title.searchBar .infoModule .euro .inputBox-event input, .euro .header .title.searchBar .infoModule .inputBox-event input, .header .title.searchBar .infoModule .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .header .title.searchBar .infoModule .inputBox-event input {
   padding: 0;
   height: 8vw;
 }
@@ -4502,39 +4502,39 @@ main .gameList .icon-new {
   display: flex;
   width: 100%;
 }
-.infoModule.parts .phone .inputBox input, .infoModule.parts .phone .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .infoModule.parts .phone .inputBox-event input {
+.infoModule.parts .phone .inputBox input, .infoModule.parts .phone .euro .inputBox-event input, .euro .infoModule.parts .phone .inputBox-event input, .infoModule.parts .phone .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .infoModule.parts .phone .inputBox-event input {
   width: 100%;
 }
-.infoModule.parts .phone .inputBox .dropdown, .infoModule.parts .phone .worldcupEvent .event .event-content .inputBox-event .dropdown, .worldcupEvent .event .event-content .infoModule.parts .phone .inputBox-event .dropdown {
+.infoModule.parts .phone .inputBox .dropdown, .infoModule.parts .phone .euro .inputBox-event .dropdown, .euro .infoModule.parts .phone .inputBox-event .dropdown, .infoModule.parts .phone .worldcupEvent .event .event-content .inputBox-event .dropdown, .worldcupEvent .event .event-content .infoModule.parts .phone .inputBox-event .dropdown {
   width: 130px;
 }
-.infoModule.parts .phone .inputBox .dropdown .icon, .infoModule.parts .phone .worldcupEvent .event .event-content .inputBox-event .dropdown .icon, .worldcupEvent .event .event-content .infoModule.parts .phone .inputBox-event .dropdown .icon {
+.infoModule.parts .phone .inputBox .dropdown .icon, .infoModule.parts .phone .euro .inputBox-event .dropdown .icon, .euro .infoModule.parts .phone .inputBox-event .dropdown .icon, .infoModule.parts .phone .worldcupEvent .event .event-content .inputBox-event .dropdown .icon, .worldcupEvent .event .event-content .infoModule.parts .phone .inputBox-event .dropdown .icon {
   position: absolute;
   right: 0;
 }
 .infoModule.parts .phone .dropdown-container {
   width: 83.5vw;
 }
-.infoModule.parts .phone .dropdown-container .inputBox, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event {
+.infoModule.parts .phone .dropdown-container .inputBox, .infoModule.parts .phone .dropdown-container .euro .inputBox-event, .euro .infoModule.parts .phone .dropdown-container .inputBox-event, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event {
   border-radius: 0;
   background: rgba(255, 255, 255, 0.6);
   margin-top: 0;
   position: sticky;
   top: 0;
 }
-.infoModule.parts .phone .dropdown-container .inputBox input::-webkit-input-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::-webkit-input-placeholder {
+.infoModule.parts .phone .dropdown-container .inputBox input::-webkit-input-placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input::-webkit-input-placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input::-webkit-input-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::-webkit-input-placeholder {
   color: #6b6b6b;
 }
-.infoModule.parts .phone .dropdown-container .inputBox input::-moz-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::-moz-placeholder {
+.infoModule.parts .phone .dropdown-container .inputBox input::-moz-placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input::-moz-placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input::-moz-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::-moz-placeholder {
   color: #6b6b6b;
 }
-.infoModule.parts .phone .dropdown-container .inputBox input:-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input:-ms-input-placeholder {
+.infoModule.parts .phone .dropdown-container .inputBox input:-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input:-ms-input-placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input:-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input:-ms-input-placeholder {
   color: #6b6b6b;
 }
-.infoModule.parts .phone .dropdown-container .inputBox input::-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::-ms-input-placeholder {
+.infoModule.parts .phone .dropdown-container .inputBox input::-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input::-ms-input-placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input::-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::-ms-input-placeholder {
   color: #6b6b6b;
 }
-.infoModule.parts .phone .dropdown-container .inputBox input::placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::placeholder {
+.infoModule.parts .phone .dropdown-container .inputBox input::placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input::placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input::placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::placeholder {
   color: #6b6b6b;
 }
 .infoModule.parts .phone .dropdown-container .dropdown-item {
@@ -4543,26 +4543,26 @@ main .gameList .icon-new {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.infoModule.parts .phone .inputInfo + .inputBox .icon-phone + input, .infoModule.parts .phone .worldcupEvent .event .event-content .inputInfo + .inputBox-event .icon-phone + input, .worldcupEvent .event .event-content .infoModule.parts .phone .inputInfo + .inputBox-event .icon-phone + input {
+.infoModule.parts .phone .inputInfo + .inputBox .icon-phone + input, .infoModule.parts .phone .euro .inputInfo + .inputBox-event .icon-phone + input, .euro .infoModule.parts .phone .inputInfo + .inputBox-event .icon-phone + input, .infoModule.parts .phone .worldcupEvent .event .event-content .inputInfo + .inputBox-event .icon-phone + input, .worldcupEvent .event .event-content .infoModule.parts .phone .inputInfo + .inputBox-event .icon-phone + input {
   width: 100%;
 }
-.infoModule.parts .inputBox, .infoModule.parts .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule.parts .inputBox-event {
+.infoModule.parts .inputBox, .infoModule.parts .euro .inputBox-event, .euro .infoModule.parts .inputBox-event, .infoModule.parts .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule.parts .inputBox-event {
   -webkit-box-flex: 1;
       -ms-flex: auto;
           flex: auto;
   -ms-flex-flow: nowrap;
       flex-flow: nowrap;
 }
-.infoModule.parts .inputBox:nth-child(n+2), .infoModule.parts .worldcupEvent .event .event-content .inputBox-event:nth-child(n+2), .worldcupEvent .event .event-content .infoModule.parts .inputBox-event:nth-child(n+2) {
+.infoModule.parts .inputBox:nth-child(n+2), .infoModule.parts .euro .inputBox-event:nth-child(n+2), .euro .infoModule.parts .inputBox-event:nth-child(n+2), .infoModule.parts .worldcupEvent .event .event-content .inputBox-event:nth-child(n+2), .worldcupEvent .event .event-content .infoModule.parts .inputBox-event:nth-child(n+2) {
   margin: 1vw 0 1vw 1vw;
 }
-.infoModule.parts label.inputBox, .infoModule.parts .worldcupEvent .event .event-content label.inputBox-event, .worldcupEvent .event .event-content .infoModule.parts label.inputBox-event {
+.infoModule.parts label.inputBox, .infoModule.parts .euro label.inputBox-event, .euro .infoModule.parts label.inputBox-event, .infoModule.parts .worldcupEvent .event .event-content label.inputBox-event, .worldcupEvent .event .event-content .infoModule.parts label.inputBox-event {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
   color: #5574A7;
 }
-.infoModule.parts label.inputBox .icon-folder-upload, .infoModule.parts .worldcupEvent .event .event-content label.inputBox-event .icon-folder-upload, .worldcupEvent .event .event-content .infoModule.parts label.inputBox-event .icon-folder-upload {
+.infoModule.parts label.inputBox .icon-folder-upload, .infoModule.parts .euro label.inputBox-event .icon-folder-upload, .euro .infoModule.parts label.inputBox-event .icon-folder-upload, .infoModule.parts .worldcupEvent .event .event-content label.inputBox-event .icon-folder-upload, .worldcupEvent .event .event-content .infoModule.parts label.inputBox-event .icon-folder-upload {
   margin: 0 1vw 0 0;
 }
 .infoModule.parts .btn-group {
@@ -4580,22 +4580,22 @@ main .gameList .icon-new {
       -ms-flex-order: -1;
           order: -1;
 }
-.infoModule.parts .inputInfo + .inputBox, .infoModule.parts .worldcupEvent .event .event-content .inputInfo + .inputBox-event, .worldcupEvent .event .event-content .infoModule.parts .inputInfo + .inputBox-event {
+.infoModule.parts .inputInfo + .inputBox, .infoModule.parts .euro .inputInfo + .inputBox-event, .euro .infoModule.parts .inputInfo + .inputBox-event, .infoModule.parts .worldcupEvent .event .event-content .inputInfo + .inputBox-event, .worldcupEvent .event .event-content .infoModule.parts .inputInfo + .inputBox-event {
   width: 23vw;
 }
-.infoModule.parts .inputInfo + .inputBox .icon-phone + input, .infoModule.parts .worldcupEvent .event .event-content .inputInfo + .inputBox-event .icon-phone + input, .worldcupEvent .event .event-content .infoModule.parts .inputInfo + .inputBox-event .icon-phone + input {
+.infoModule.parts .inputInfo + .inputBox .icon-phone + input, .infoModule.parts .euro .inputInfo + .inputBox-event .icon-phone + input, .euro .infoModule.parts .inputInfo + .inputBox-event .icon-phone + input, .infoModule.parts .worldcupEvent .event .event-content .inputInfo + .inputBox-event .icon-phone + input, .worldcupEvent .event .event-content .infoModule.parts .inputInfo + .inputBox-event .icon-phone + input {
   width: 23vw;
 }
-.infoModule.parts-xs .inputBox, .infoModule.parts-xs .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule.parts-xs .inputBox-event {
+.infoModule.parts-xs .inputBox, .infoModule.parts-xs .euro .inputBox-event, .euro .infoModule.parts-xs .inputBox-event, .infoModule.parts-xs .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule.parts-xs .inputBox-event {
   -ms-flex-flow: nowrap;
       flex-flow: nowrap;
 }
-.infoModule.parts-xs .inputBox:nth-child(1), .infoModule.parts-xs .worldcupEvent .event .event-content .inputBox-event:nth-child(1), .worldcupEvent .event .event-content .infoModule.parts-xs .inputBox-event:nth-child(1) {
+.infoModule.parts-xs .inputBox:nth-child(1), .infoModule.parts-xs .euro .inputBox-event:nth-child(1), .euro .infoModule.parts-xs .inputBox-event:nth-child(1), .infoModule.parts-xs .worldcupEvent .event .event-content .inputBox-event:nth-child(1), .worldcupEvent .event .event-content .infoModule.parts-xs .inputBox-event:nth-child(1) {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 23vw;
           flex: 0 0 23vw;
 }
-.infoModule.parts-xs .inputBox:nth-child(n+2), .infoModule.parts-xs .worldcupEvent .event .event-content .inputBox-event:nth-child(n+2), .worldcupEvent .event .event-content .infoModule.parts-xs .inputBox-event:nth-child(n+2) {
+.infoModule.parts-xs .inputBox:nth-child(n+2), .infoModule.parts-xs .euro .inputBox-event:nth-child(n+2), .euro .infoModule.parts-xs .inputBox-event:nth-child(n+2), .infoModule.parts-xs .worldcupEvent .event .event-content .inputBox-event:nth-child(n+2), .worldcupEvent .event .event-content .infoModule.parts-xs .inputBox-event:nth-child(n+2) {
   margin: 1vw 0 1vw 1vw;
 }
 .infoModule + .text-org span {
@@ -4622,7 +4622,7 @@ main .gameList .icon-new {
   display: block;
 }
 
-.inputBox, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event, .worldcupEvent .event .event-content .inputBox-event {
+.inputBox, .euro .inputBox-event, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event, .worldcupEvent .event .event-content .inputBox-event {
   position: relative;
   margin: 1vw 0;
   padding: 0 2vw;
@@ -4640,17 +4640,17 @@ main .gameList .icon-new {
           justify-content: space-between;
   border-radius: 3px;
 }
-.inputBox.active, .worldcupEvent .event .event-content .ticket-item.finished .active.inputBox-event, .worldcupEvent .event .event-content .active.inputBox-event {
+.inputBox.active, .euro .active.inputBox-event, .worldcupEvent .event .event-content .ticket-item.finished .active.inputBox-event, .worldcupEvent .event .event-content .active.inputBox-event {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
   z-index: 1;
 }
-.inputBox.readonly, .worldcupEvent .event .event-content .ticket-item.finished .readonly.inputBox-event, .worldcupEvent .event .event-content .readonly.inputBox-event {
+.inputBox.readonly, .euro .readonly.inputBox-event, .worldcupEvent .event .event-content .ticket-item.finished .readonly.inputBox-event, .worldcupEvent .event .event-content .readonly.inputBox-event {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
   z-index: 0;
 }
-.inputBox .bankLogo, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event .bankLogo, .worldcupEvent .event .event-content .inputBox-event .bankLogo {
+.inputBox .bankLogo, .euro .inputBox-event .bankLogo, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event .bankLogo, .worldcupEvent .event .event-content .inputBox-event .bankLogo {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -4661,41 +4661,41 @@ main .gameList .icon-new {
       -ms-flex-align: center;
           align-items: center;
 }
-.inputBox .bankLogo img, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event .bankLogo img, .worldcupEvent .event .event-content .inputBox-event .bankLogo img {
+.inputBox .bankLogo img, .euro .inputBox-event .bankLogo img, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event .bankLogo img, .worldcupEvent .event .event-content .inputBox-event .bankLogo img {
   border-radius: 5px;
 }
-.inputBox .bankLogo + span, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event .bankLogo + span, .worldcupEvent .event .event-content .inputBox-event .bankLogo + span {
+.inputBox .bankLogo + span, .euro .inputBox-event .bankLogo + span, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event .bankLogo + span, .worldcupEvent .event .event-content .inputBox-event .bankLogo + span {
   -webkit-box-flex: 4;
       -ms-flex: 4;
           flex: 4;
   text-align: left;
   margin: 0 0 0 2vw;
 }
-.inputBox.error, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event, .worldcupEvent .event .event-content .error.inputBox-event {
+.inputBox.error, .euro .error.inputBox-event, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event, .worldcupEvent .event .event-content .error.inputBox-event {
   border-color: #e92529;
 }
-.inputBox.error i.icon, .worldcupEvent .event .event-content .error.inputBox-event i.icon {
+.inputBox.error i.icon, .euro .error.inputBox-event i.icon, .worldcupEvent .event .event-content .error.inputBox-event i.icon {
   color: #e92529;
 }
-.inputBox.error ~ .tip, .worldcupEvent .event .event-content .error.inputBox-event ~ .tip {
+.inputBox.error ~ .tip, .euro .error.inputBox-event ~ .tip, .worldcupEvent .event .event-content .error.inputBox-event ~ .tip {
   display: block;
 }
-.inputBox.error input::-webkit-input-placeholder, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .error.inputBox-event input::-webkit-input-placeholder {
+.inputBox.error input::-webkit-input-placeholder, .euro .error.inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .error.inputBox-event input::-webkit-input-placeholder {
   color: #e92529;
 }
-.inputBox.error input::-moz-placeholder, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .error.inputBox-event input::-moz-placeholder {
+.inputBox.error input::-moz-placeholder, .euro .error.inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .error.inputBox-event input::-moz-placeholder {
   color: #e92529;
 }
-.inputBox.error input:-ms-input-placeholder, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .error.inputBox-event input:-ms-input-placeholder {
+.inputBox.error input:-ms-input-placeholder, .euro .error.inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .error.inputBox-event input:-ms-input-placeholder {
   color: #e92529;
 }
-.inputBox.error input::-ms-input-placeholder, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .error.inputBox-event input::-ms-input-placeholder {
+.inputBox.error input::-ms-input-placeholder, .euro .error.inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .error.inputBox-event input::-ms-input-placeholder {
   color: #e92529;
 }
-.inputBox.error input::placeholder, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event input::placeholder, .worldcupEvent .event .event-content .error.inputBox-event input::placeholder {
+.inputBox.error input::placeholder, .euro .error.inputBox-event input::placeholder, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event input::placeholder, .worldcupEvent .event .event-content .error.inputBox-event input::placeholder {
   color: #e92529;
 }
-.inputBox i.icon, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event i.icon, .worldcupEvent .event .event-content .inputBox-event i.icon {
+.inputBox i.icon, .euro .inputBox-event i.icon, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event i.icon, .worldcupEvent .event .event-content .inputBox-event i.icon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4708,18 +4708,18 @@ main .gameList .icon-new {
   color: #5574A7;
   font-weight: normal;
 }
-.inputBox > .icon-module, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event > .icon-module, .worldcupEvent .event .event-content .inputBox-event > .icon-module {
+.inputBox > .icon-module, .euro .inputBox-event > .icon-module, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event > .icon-module, .worldcupEvent .event .event-content .inputBox-event > .icon-module {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.inputBox > .icon-module i.icon, .worldcupEvent .event .event-content .inputBox-event > .icon-module i.icon {
+.inputBox > .icon-module i.icon, .euro .inputBox-event > .icon-module i.icon, .worldcupEvent .event .event-content .inputBox-event > .icon-module i.icon {
   margin: 0 0 0 1vw;
 }
-.inputBox > .icon-module .icon-checkmark, .worldcupEvent .event .event-content .inputBox-event > .icon-module .icon-checkmark {
+.inputBox > .icon-module .icon-checkmark, .euro .inputBox-event > .icon-module .icon-checkmark, .worldcupEvent .event .event-content .inputBox-event > .icon-module .icon-checkmark {
   color: #007224;
 }
-.inputBox .icon-keyboard_arrow_down, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event .icon-keyboard_arrow_down, .worldcupEvent .event .event-content .inputBox-event .icon-keyboard_arrow_down {
+.inputBox .icon-keyboard_arrow_down, .euro .inputBox-event .icon-keyboard_arrow_down, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event .icon-keyboard_arrow_down, .worldcupEvent .event .event-content .inputBox-event .icon-keyboard_arrow_down {
   color: #F77A00;
   max-height: 16px;
 }
@@ -4746,7 +4746,7 @@ main .gameList .icon-new {
   -ms-flex-flow: nowrap;
       flex-flow: nowrap;
 }
-.quickSelect + .functionList .infoModule.parts .inputBox, .quickSelect + .functionList .infoModule.parts .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .quickSelect + .functionList .infoModule.parts .inputBox-event {
+.quickSelect + .functionList .infoModule.parts .inputBox, .quickSelect + .functionList .infoModule.parts .euro .inputBox-event, .euro .quickSelect + .functionList .infoModule.parts .inputBox-event, .quickSelect + .functionList .infoModule.parts .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .quickSelect + .functionList .infoModule.parts .inputBox-event {
   max-width: 28vw;
 }
 .quickSelect + .functionList .icon-icon32px_1 {
@@ -6518,7 +6518,7 @@ span.important {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
 }
-.promotions .promodule .inputBox, .promotions .promodule .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .promotions .promodule .inputBox-event, .promotions .proInfomodule .inputBox, .promotions .proInfomodule .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .promotions .proInfomodule .inputBox-event {
+.promotions .promodule .inputBox, .promotions .promodule .euro .inputBox-event, .euro .promotions .promodule .inputBox-event, .promotions .promodule .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .promotions .promodule .inputBox-event, .promotions .proInfomodule .inputBox, .promotions .proInfomodule .euro .inputBox-event, .euro .promotions .proInfomodule .inputBox-event, .promotions .proInfomodule .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .promotions .proInfomodule .inputBox-event {
   margin: 0;
 }
 .promotions .promodule .btn-cancel, .promotions .proInfomodule .btn-cancel {
@@ -7056,7 +7056,7 @@ span.important {
   color: white;
   margin: 2vw 0 0;
 }
-.installGuide section .copyinfo .inputBox, .installGuide section .copyinfo .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .installGuide section .copyinfo .inputBox-event {
+.installGuide section .copyinfo .inputBox, .installGuide section .copyinfo .euro .inputBox-event, .euro .installGuide section .copyinfo .inputBox-event, .installGuide section .copyinfo .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .installGuide section .copyinfo .inputBox-event {
   background: white;
   border: 1px solid #c211a1;
   margin: 0;
@@ -7195,7 +7195,7 @@ span.important {
 .installGuide.mega {
   background: url(https://banner.0814media.net/h5/img/megabg.jpg) no-repeat center top/cover;
 }
-.installGuide.mega section .copyinfo .inputBox, .installGuide.mega section .copyinfo .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .installGuide.mega section .copyinfo .inputBox-event {
+.installGuide.mega section .copyinfo .inputBox, .installGuide.mega section .copyinfo .euro .inputBox-event, .euro .installGuide.mega section .copyinfo .inputBox-event, .installGuide.mega section .copyinfo .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .installGuide.mega section .copyinfo .inputBox-event {
   border: 1px solid #0ad9f5;
 }
 .installGuide.mega section .copyinfo .btn-group button {
@@ -8776,22 +8776,22 @@ span.important {
 .depositModule .selectModule.inner .infoModule {
   margin: 1vw 0 0;
 }
-.depositModule .selectModule.inner .infoModule .inputBox, .depositModule .selectModule.inner .infoModule .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .depositModule .selectModule.inner .infoModule .inputBox-event {
+.depositModule .selectModule.inner .infoModule .inputBox, .depositModule .selectModule.inner .infoModule .euro .inputBox-event, .euro .depositModule .selectModule.inner .infoModule .inputBox-event, .depositModule .selectModule.inner .infoModule .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .depositModule .selectModule.inner .infoModule .inputBox-event {
   margin-right: 1vw;
 }
-.depositModule .selectModule .parts .inputBox, .depositModule .selectModule .parts .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .depositModule .selectModule .parts .inputBox-event {
+.depositModule .selectModule .parts .inputBox, .depositModule .selectModule .parts .euro .inputBox-event, .euro .depositModule .selectModule .parts .inputBox-event, .depositModule .selectModule .parts .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .depositModule .selectModule .parts .inputBox-event {
   margin: 0;
 }
-.depositModule .selectModule .parts .inputBox .dropdown, .depositModule .selectModule .parts .worldcupEvent .event .event-content .inputBox-event .dropdown, .worldcupEvent .event .event-content .depositModule .selectModule .parts .inputBox-event .dropdown {
+.depositModule .selectModule .parts .inputBox .dropdown, .depositModule .selectModule .parts .euro .inputBox-event .dropdown, .euro .depositModule .selectModule .parts .inputBox-event .dropdown, .depositModule .selectModule .parts .worldcupEvent .event .event-content .inputBox-event .dropdown, .worldcupEvent .event .event-content .depositModule .selectModule .parts .inputBox-event .dropdown {
   width: 50vw;
   text-align: left;
   padding-right: 5vw;
 }
-.depositModule .selectModule .parts .inputBox .dropdown i, .depositModule .selectModule .parts .worldcupEvent .event .event-content .inputBox-event .dropdown i, .worldcupEvent .event .event-content .depositModule .selectModule .parts .inputBox-event .dropdown i {
+.depositModule .selectModule .parts .inputBox .dropdown i, .depositModule .selectModule .parts .euro .inputBox-event .dropdown i, .euro .depositModule .selectModule .parts .inputBox-event .dropdown i, .depositModule .selectModule .parts .worldcupEvent .event .event-content .inputBox-event .dropdown i, .worldcupEvent .event .event-content .depositModule .selectModule .parts .inputBox-event .dropdown i {
   position: absolute;
   right: 0;
 }
-.depositModule .selectModule .parts .inputBox .dropdown-container, .depositModule .selectModule .parts .worldcupEvent .event .event-content .inputBox-event .dropdown-container, .worldcupEvent .event .event-content .depositModule .selectModule .parts .inputBox-event .dropdown-container {
+.depositModule .selectModule .parts .inputBox .dropdown-container, .depositModule .selectModule .parts .euro .inputBox-event .dropdown-container, .euro .depositModule .selectModule .parts .inputBox-event .dropdown-container, .depositModule .selectModule .parts .worldcupEvent .event .event-content .inputBox-event .dropdown-container, .worldcupEvent .event .event-content .depositModule .selectModule .parts .inputBox-event .dropdown-container {
   top: 11vw;
   max-height: 50vw;
   min-height: 11vw;
@@ -8919,14 +8919,14 @@ span.important {
   display: block;
   bottom: 0;
 }
-.depositModule .selectModule .inputBox, .depositModule .selectModule .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .depositModule .selectModule .inputBox-event {
+.depositModule .selectModule .inputBox, .depositModule .selectModule .euro .inputBox-event, .euro .depositModule .selectModule .inputBox-event, .depositModule .selectModule .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .depositModule .selectModule .inputBox-event {
   margin: 1.5vw 0;
   padding: 0 1.2vw;
 }
-.depositModule .selectModule .inputBox input, .depositModule .selectModule .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .depositModule .selectModule .inputBox-event input {
+.depositModule .selectModule .inputBox input, .depositModule .selectModule .euro .inputBox-event input, .euro .depositModule .selectModule .inputBox-event input, .depositModule .selectModule .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .depositModule .selectModule .inputBox-event input {
   padding: 1.5vw;
 }
-.depositModule .selectModule .inputBox button, .depositModule .selectModule .worldcupEvent .event .event-content .inputBox-event button, .worldcupEvent .event .event-content .depositModule .selectModule .inputBox-event button {
+.depositModule .selectModule .inputBox button, .depositModule .selectModule .euro .inputBox-event button, .euro .depositModule .selectModule .inputBox-event button, .depositModule .selectModule .worldcupEvent .event .event-content .inputBox-event button, .worldcupEvent .event .event-content .depositModule .selectModule .inputBox-event button {
   padding: 1.5vw;
   min-height: 7.75vw;
 }
@@ -9008,7 +9008,7 @@ span.important {
       -ms-flex-align: center;
           align-items: center;
 }
-.depositModule .input-group .inputBox, .depositModule .input-group .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .depositModule .input-group .inputBox-event {
+.depositModule .input-group .inputBox, .depositModule .input-group .euro .inputBox-event, .euro .depositModule .input-group .inputBox-event, .depositModule .input-group .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .depositModule .input-group .inputBox-event {
   width: 76vw;
 }
 .depositModule .cardinfo {
@@ -9830,7 +9830,7 @@ span.important {
 .eventLink {
   position: fixed;
   right: 1vw;
-  bottom: 30vw;
+  bottom: 25vw;
   z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9842,7 +9842,7 @@ span.important {
   color: white;
   position: absolute;
   right: 1vw;
-  top: -5vw;
+  top: -1vw;
   z-index: 4;
   background: #f06d4f;
   border-radius: 100%;
@@ -9878,6 +9878,12 @@ span.important {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.eventLink .wheelModule.small {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+  -webkit-transform-origin: right;
+          transform-origin: right;
 }
 .eventLink .wheelModule > img {
   width: 100%;
@@ -9953,147 +9959,36 @@ span.important {
     opacity: 1;
   }
 }
-.eventLink.angpaoLink {
-  width: 28vw;
-  height: 28vw;
-  bottom: 50vw;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  cursor: pointer;
+.eventLink.eurocup {
+  bottom: 65vw;
 }
-.eventLink.angpaoLink:hover {
-  -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+.eventLink.eurocup img {
+  width: 20vw;
+  -webkit-animation: livesports 4s ease-in-out infinite 1s;
+          animation: livesports 4s ease-in-out infinite 1s;
 }
-.eventLink.angpaoLink img {
-  position: absolute;
-  z-index: 1;
-}
-.eventLink.angpaoLink img.eventlinkimg {
-  z-index: 0;
-  margin: 5px 10px 0 0;
-  width: 30vw;
-  -webkit-animation: angpao-shake 1.5s ease infinite alternate;
-          animation: angpao-shake 1.5s ease infinite alternate;
-}
-@-webkit-keyframes angpao-shake {
-  0% {
-    -webkit-transform: rotateZ(15deg);
-            transform: rotateZ(15deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  10% {
-    -webkit-transform: rotateZ(-15deg);
-            transform: rotateZ(-15deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  20% {
-    -webkit-transform: rotateZ(20deg);
-            transform: rotateZ(20deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  30% {
-    -webkit-transform: rotateZ(-20deg);
-            transform: rotateZ(-20deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  40% {
-    -webkit-transform: rotateZ(15deg);
-            transform: rotateZ(15deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  50% {
-    -webkit-transform: rotateZ(-15deg);
-            transform: rotateZ(-15deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  60% {
-    -webkit-transform: rotateZ(0);
-            transform: rotateZ(0);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  100% {
-    -webkit-transform: rotateZ(0);
-            transform: rotateZ(0);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-}
-@keyframes angpao-shake {
-  0% {
-    -webkit-transform: rotateZ(15deg);
-            transform: rotateZ(15deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  10% {
-    -webkit-transform: rotateZ(-15deg);
-            transform: rotateZ(-15deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  20% {
-    -webkit-transform: rotateZ(20deg);
-            transform: rotateZ(20deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  30% {
-    -webkit-transform: rotateZ(-20deg);
-            transform: rotateZ(-20deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  40% {
-    -webkit-transform: rotateZ(15deg);
-            transform: rotateZ(15deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  50% {
-    -webkit-transform: rotateZ(-15deg);
-            transform: rotateZ(-15deg);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  60% {
-    -webkit-transform: rotateZ(0);
-            transform: rotateZ(0);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
-  100% {
-    -webkit-transform: rotateZ(0);
-            transform: rotateZ(0);
-    -webkit-transform-origin: 50% 70%;
-            transform-origin: 50% 70%;
-  }
+.eventLink.eurocup .icon-close {
+  top: -5vw;
+  right: 0;
+  z-index: 4;
 }
 .eventLink.livesports {
   bottom: 64vw;
-  left: 64vw;
+}
+.eventLink.livesports.eurocup {
+  bottom: 88vw;
+}
+.eventLink.livesports.eurocup img {
+  width: 30vw;
 }
 .eventLink.livesports img {
   -webkit-animation: livesports 4s ease-in-out infinite;
           animation: livesports 4s ease-in-out infinite;
   width: 40vw;
   z-index: 1;
+  margin-right: -5vw;
 }
 .eventLink.livesports .icon-close {
-  right: 2vw;
   top: 0;
   z-index: 4;
 }
@@ -11720,7 +11615,7 @@ span.important {
 .addAddresspop .tip {
   margin: 0 0 1vw;
 }
-.addAddresspop .infoModule.parts .inputBox, .addAddresspop .infoModule.parts .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .addAddresspop .infoModule.parts .inputBox-event {
+.addAddresspop .infoModule.parts .inputBox, .addAddresspop .infoModule.parts .euro .inputBox-event, .euro .addAddresspop .infoModule.parts .inputBox-event, .addAddresspop .infoModule.parts .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .addAddresspop .infoModule.parts .inputBox-event {
   margin: 0;
 }
 .addAddresspop .infoModule.parts .btn-group {
@@ -14242,7 +14137,7 @@ input:-webkit-autofill:active {
   display: block;
   position: absolute;
   bottom: -0.2vw;
-  height: 1px;
+  height: 2px;
   width: 100%;
   background: #7591c1;
 }
@@ -14841,6 +14736,23 @@ input[type=number] {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+.header-module .header-logo {
+  position: relative;
+}
+.header-module .header-logo.eurocup::before {
+  content: "";
+  position: absolute;
+  left: 2.25vw;
+  top: -3.5vw;
+  width: 28vw;
+  height: 16vw;
+  pointer-events: none;
+  background: url(https://banner.0814media.net/h5/img/event/eurocup/logo-euro-ball.gif) center/cover;
+}
+.header-module .header-logo.eurocup + .splogo {
+  -webkit-animation: eurologo 7.5s running infinite 0.5s;
+          animation: eurologo 7.5s running infinite 0.5s;
+}
 .header-module .header-logo img {
   display: block;
   width: 25vw;
@@ -14932,6 +14844,106 @@ input[type=number] {
   }
   100% {
     background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes eurologo {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 0.1;
+  }
+  2% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 1;
+  }
+  27% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 1;
+  }
+  31% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 0;
+  }
+  32% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0.1;
+  }
+  34% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 1;
+  }
+  62% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 1;
+  }
+  65% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0;
+  }
+  66% {
+    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+    opacity: 0.1;
+  }
+  69% {
+    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+    opacity: 1;
+  }
+  97% {
+    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+    opacity: 1;
+  }
+  100% {
+    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+    opacity: 0;
+  }
+}
+@keyframes eurologo {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 0.1;
+  }
+  2% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 1;
+  }
+  27% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 1;
+  }
+  31% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 0;
+  }
+  32% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0.1;
+  }
+  34% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 1;
+  }
+  62% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 1;
+  }
+  65% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0;
+  }
+  66% {
+    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+    opacity: 0.1;
+  }
+  69% {
+    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+    opacity: 1;
+  }
+  97% {
+    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+    opacity: 1;
+  }
+  100% {
+    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
     opacity: 0;
   }
 }
@@ -18063,76 +18075,6 @@ main.casino .banner {
   border-radius: 0 0 5vw 5vw;
 }
 
-.eventLink.dragonegg-float {
-  bottom: 38vw;
-  right: 1vw;
-}
-.eventLink.dragonegg-float .icon-close {
-  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
-          box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
-  top: -3vw;
-}
-.eventLink .dragonegg-egg {
-  width: 28vw;
-  height: 28vw;
-}
-.eventLink .dragonegg-egg > img {
-  -webkit-animation: dragonegg-egg-img 0.4s infinite;
-          animation: dragonegg-egg-img 0.4s infinite;
-}
-@-webkit-keyframes dragonegg-egg-img {
-  0% {
-    -webkit-transform: rotate(0.5deg);
-            transform: rotate(0.5deg);
-  }
-  20% {
-    -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
-  }
-  40% {
-    -webkit-transform: rotate(-2deg);
-            transform: rotate(-2deg);
-  }
-  60% {
-    -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
-  }
-  80% {
-    -webkit-transform: rotate(-2deg);
-            transform: rotate(-2deg);
-  }
-  100% {
-    -webkit-transform: rotate(0);
-            transform: rotate(0);
-  }
-}
-@keyframes dragonegg-egg-img {
-  0% {
-    -webkit-transform: rotate(0.5deg);
-            transform: rotate(0.5deg);
-  }
-  20% {
-    -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
-  }
-  40% {
-    -webkit-transform: rotate(-2deg);
-            transform: rotate(-2deg);
-  }
-  60% {
-    -webkit-transform: rotate(2deg);
-            transform: rotate(2deg);
-  }
-  80% {
-    -webkit-transform: rotate(-2deg);
-            transform: rotate(-2deg);
-  }
-  100% {
-    -webkit-transform: rotate(0);
-            transform: rotate(0);
-  }
-}
-
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
@@ -18144,4 +18086,909 @@ input[type=number] .btn-logout {
   padding: 3vw 0;
   color: #D1D1D1;
   margin: 5vw 0 0;
+}
+
+.euro {
+  background: #143CDB;
+}
+.euro .wrapper {
+  padding-top: 20vw;
+  min-height: 200vw;
+  background: #143CDB url(https://banner.0814media.net/h5/img/event/eurocup/top-bg.jpg) no-repeat bottom/contain;
+  position: relative;
+}
+.euro .wrapper::before {
+  position: absolute;
+  top: 1vw;
+  left: 0;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 27vw;
+  z-index: 0;
+  background: url(https://banner.0814media.net/h5/img/event/eurocup/top-item.png) no-repeat center/cover;
+}
+.euro > .title {
+  font-size: 7vw;
+  font-weight: bold;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #F9BF4B;
+  text-align: left;
+  margin: 10vw auto 5vw;
+  padding-left: 5vw;
+}
+.euro > .title span {
+  display: block;
+  color: #fff;
+  font-size: 3vw;
+  font-weight: normal;
+  margin: 5vw auto 10vw;
+}
+.euro .logo {
+  width: 50vw;
+  display: block;
+  margin: 0 auto 5vw;
+}
+.euro .event-title {
+  width: 75vw;
+  font-size: 8vw;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.euro .event-date {
+  font-size: 5vw;
+  font-weight: normal;
+  color: #F9BF4B;
+  display: block;
+  text-transform: capitalize;
+  margin-top: 5vw;
+}
+.euro .banner {
+  pointer-events: none;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10vw;
+}
+.euro-predition {
+  margin: -20vw 0 10vw;
+  position: relative;
+  z-index: 2;
+}
+.euro-predition-content {
+  position: relative;
+}
+.euro-predition-content.end > .mask {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro-predition-content > .mask {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: calc(100% - 10vw);
+  border-radius: 15px;
+  height: 100%;
+  padding: 0 5vw;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 5vw;
+  text-align: center;
+  background: rgba(14, 42, 153, 0.75);
+  z-index: 5;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro-predition .title {
+  font-size: 8vw;
+  font-weight: bold;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #F9BF4B;
+  margin-bottom: 2vw;
+  padding-left: 5vw;
+}
+.euro-predition .subtitle {
+  font-size: 4vw;
+  line-height: 1.2;
+  color: #fff;
+  padding-left: 5vw;
+}
+.euro-predition .top {
+  margin: 0 auto 10vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+.euro-predition .top img {
+  width: 50vw;
+  margin-bottom: 5vw;
+}
+.euro-mission {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+.euro-mission.end > .mask {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro-mission > .mask {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: calc(100% - 10vw);
+  border-radius: 15px;
+  padding: 0 5vw;
+  text-align: center;
+  height: calc(100% - 3vw);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 5vw;
+  background: rgba(14, 42, 153, 0.75);
+  z-index: 5;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro-mission-item {
+  padding: 3vw;
+  margin: 0 5vw 3vw;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #0E2A99;
+  border-radius: 25px;
+}
+.euro-mission .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 4vw;
+  color: #fff;
+  text-transform: capitalize;
+  position: relative;
+  padding-left: 0;
+}
+.euro-mission .title::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2vw;
+  background: #fff;
+  width: 100%;
+  height: 2px;
+}
+.euro-mission .title a, .euro-mission .title button {
+  color: #143CDA;
+  background: #F9BF4B;
+  padding: 2vw;
+  display: inline-block;
+  min-width: 25vw;
+  text-align: center;
+  border-radius: 50px;
+  font-size: 3vw;
+}
+.euro-mission .progressBar {
+  margin: 20vw auto 10vw 2vw;
+  position: relative;
+  background: #e1e1e1;
+  border-radius: 5vw;
+  width: calc(100% - 15vw);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro-mission .progressBar .progressItem {
+  width: 50%;
+  height: 1.5vw;
+  border-radius: 1.5vw;
+  position: relative;
+  background: #e1e1e1;
+}
+.euro-mission .progressBar .progressItem:before {
+  content: "";
+  display: block;
+  width: 3vw;
+  height: 3vw;
+  border-radius: 50%;
+  background: #0E2A99;
+  position: absolute;
+  right: -1.55vw;
+  top: -0.5vw;
+  z-index: 2;
+}
+.euro-mission .progressBar .progressItem:after {
+  content: "";
+  display: block;
+  width: 4vw;
+  height: 4vw;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  right: -2vw;
+  top: -1vw;
+  z-index: 1;
+}
+.euro-mission .progressBar .progressItem .value {
+  position: absolute;
+  color: #F9BF4B;
+  font-size: 3vw;
+  width: 22vw;
+  right: 0;
+  top: -6vw;
+  -webkit-transform: translateX(calc(50% - 1vw));
+          transform: translateX(calc(50% - 1vw));
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro-mission .progressBar .progressItem .value:before {
+  content: "";
+  position: absolute;
+  top: -6vw;
+  width: 10vw;
+  height: 5vw;
+  background: url(https://banner.0814media.net/h5/img/event/eurocup/tickets-1.png) no-repeat center/cover;
+}
+.euro-mission .progressBar .progressItem.active:after {
+  background: #F9BF4B;
+}
+.euro-mission .progressBar .progressValue {
+  position: absolute;
+  background: #F9BF4B;
+  height: 1.5vw;
+  border-radius: 1.5vw;
+  left: 0;
+  z-index: 1;
+}
+.euro-mission .progressBar .progressValue .number {
+  position: absolute;
+  top: 4vw;
+  right: 0;
+  font-size: 3vw;
+  font-weight: bold;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  background: #F9BF4B;
+  color: #143CDB;
+  border-radius: 10px;
+  padding: 1vw 3vw;
+}
+.euro-mission .progressBar .progressValue .number::before {
+  content: "";
+  position: absolute;
+  top: -1.25vw;
+  left: 50%;
+  width: 2vw;
+  height: 1.8vw;
+  -webkit-transform: translateX(-55%);
+          transform: translateX(-55%);
+  background: url(https://banner.0814media.net/h5/img/event/eurocup/frame.png) no-repeat center/cover;
+}
+.euro-poll {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #0E2A99;
+  margin: 0 5vw 3vw;
+  border-radius: 25px;
+  padding: 5vw 3vw;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.euro-poll .title {
+  font-size: 4vw;
+  color: #fff;
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-left: 0;
+  text-transform: capitalize;
+}
+.euro-poll .title::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2vw;
+  background: #fff;
+  width: 100%;
+  height: 2px;
+}
+.euro-poll-item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(50% - 1.5vw);
+          flex: 0 0 calc(50% - 1.5vw);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #fff;
+  border-radius: 3vw;
+  padding: 3vw 0 0;
+  margin: 3vw 3vw 0 0;
+  position: relative;
+}
+.euro-poll-item:nth-child(odd) {
+  margin-right: 0;
+}
+.euro-poll-item img {
+  width: 15vw;
+  margin-bottom: 3vw;
+}
+.euro-poll-item .title {
+  color: #000;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 5vw;
+}
+.euro-poll-item .close-icon {
+  display: none;
+  opacity: 0;
+  width: 10vw;
+}
+.euro-poll-item .mask {
+  position: absolute;
+  top: -0.5vw;
+  left: 0;
+  width: 101%;
+  height: 101%;
+  background: rgba(14, 42, 153, 0.75);
+  z-index: 3;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro-poll-item.closed .close-icon {
+  display: block;
+  opacity: 1;
+}
+.euro-poll-item.closed .mask {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro-poll-item.finished {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.euro-poll-item.finished .inputBox-event {
+  background: #143CDB;
+  border: 0;
+  border-radius: 3vw;
+}
+.euro-poll-item.finished .inputBox-event .dropdown {
+  text-align: center;
+}
+.euro-poll-item.finished .inputBox-event .dropdown > .btn {
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: text;
+  font-size: 3.5vw;
+}
+.euro-poll-item.finished .inputBox-event .dropdown > .btn::after {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+.euro-poll-item.finished .dropdown-container {
+  display: none;
+}
+.euro-poll-item.finished .dropdown-container.active {
+  display: none;
+}
+.euro-poll-item.finished .btn-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.euro-poll-item.finished .btn-group img {
+  width: 5vw;
+  margin-bottom: 2vw;
+}
+.euro .inputBox-group {
+  width: 100%;
+  padding: 0 2vw;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.euro .inputBox-event {
+  border: 1px solid transparent;
+  border-radius: 3vw;
+  background: #EEEEEE;
+  color: #000;
+  z-index: unset !important;
+  -webkit-filter: unset !important;
+          filter: unset !important;
+}
+.euro .inputBox-event.active {
+  border-radius: 3vw 3vw 0 0;
+}
+.euro .inputBox-event.active .dropdown > .btn:after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+.euro .inputBox-event .dropdown {
+  padding: 0;
+}
+.euro .inputBox-event .dropdown > .btn {
+  width: 100%;
+  color: #000;
+  font-size: 3.5vw;
+  text-align: left;
+  position: relative;
+  padding: 1vw;
+}
+.euro .inputBox-event .dropdown > .btn:after {
+  content: "";
+  position: absolute;
+  top: 2vw;
+  right: 1vw;
+  display: block;
+  width: 4vw;
+  height: 4vw;
+  background: url(https://banner.0814media.net/h5/img/event/eurocup/arrow-icon.png) no-repeat center/cover;
+  border: 0;
+}
+.euro .inputBox-event .dropdown .dropdown-container {
+  display: none;
+  width: 36vw;
+  position: absolute;
+  top: 6.5vw;
+  left: -2vw;
+  background: #EEEEEE;
+  -webkit-filter: drop-shadow(0px 10px 2px rgba(0, 0, 0, 0.2));
+          filter: drop-shadow(0px 10px 2px rgba(0, 0, 0, 0.2));
+  border-radius: 0 0 3vw 3vw;
+  padding: 2vw 0;
+  z-index: 4;
+}
+.euro .inputBox-event .dropdown .dropdown-container.active {
+  display: block;
+}
+.euro .inputBox-event .dropdown .dropdown-container .dropdown-item {
+  padding-left: 3vw;
+  font-size: 3.5vw;
+  color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1.5vw 0 0;
+}
+.euro .inputBox-event .dropdown .dropdown-container .dropdown-item img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 5vw;
+  margin: 0 1vw 0 0;
+}
+.euro .inputBox-event .dropdown .dropdown-container .dropdown-item:hover {
+  background: #143CDB;
+  color: #fff;
+}
+.euro .inputBox-event .icon:before {
+  color: #FF004E;
+}
+.euro .btn-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #F9BF4B;
+  width: 100%;
+  padding: 3vw 2vw;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 0 0 3vw 3vw;
+  height: 15vw;
+  margin: 0 auto;
+}
+.euro .btn-group p {
+  font-size: 2.5vw;
+}
+.euro .btn-group .btn-cancel, .euro .btn-group .btn-submit {
+  border-radius: 2.5vw;
+  padding: 1.5vw 1vw;
+  background: #fff;
+  color: #000;
+}
+.euro .btn-group .btn-submit {
+  background: #143CDB;
+  color: #fff;
+}
+.euro .btn-group .btn-submit.disable {
+  background: #EEEEEE;
+  color: #8f8f8f;
+  cursor: initial;
+}
+.euro-reward {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto 5vw;
+  padding: 0 5vw;
+}
+.euro-reward-item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 32%;
+          flex: 0 0 32%;
+  border-radius: 4vw;
+  margin-bottom: 3vw;
+  overflow: hidden;
+}
+.euro-reward-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2vw 5vw;
+}
+.euro-reward-top.first {
+  background: #FF0100;
+}
+.euro-reward-top.second {
+  background: #00BA5D;
+}
+.euro-reward-top.third {
+  background: #5375FF;
+}
+.euro-reward-top .title {
+  font-size: 4vw;
+  font-weight: bold;
+  color: #fff;
+}
+.euro-reward-top .title span {
+  font-size: 3vw;
+  display: block;
+  font-weight: normal;
+}
+.euro-reward-top img {
+  width: 12vw;
+  margin: -10px 0 5px;
+  display: block;
+}
+.euro-reward-content {
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5vw 0;
+}
+.euro-reward-content img {
+  width: 40vw;
+  margin-right: 5vw;
+  border-radius: 3vw;
+}
+.euro-reward-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.euro-reward-info .subtitle {
+  color: #C2C2C2;
+  font-size: 3vw;
+}
+.euro-reward-info .reward {
+  color: #143CDB;
+  font-size: 5vw;
+  width: 36vw;
+  height: auto;
+  font-weight: bold;
+  margin-bottom: 5vw;
+}
+.euro-reward-result {
+  background: #C2C2C2;
+  text-align: center;
+  padding: 3vw;
+  line-height: 1.2;
+  font-weight: bold;
+  border-radius: 0 0 4vw 4vw;
+  height: 15vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro-reward-result span {
+  display: block;
+}
+.euro-reward-result.active {
+  background: #F9BF4B;
+  color: #143CDB;
+}
+.euro-reward-result.active.one > div > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
+}
+.euro-reward-result.active.one > div span {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
+  font-size: 4vw;
+}
+.euro-reward-result.active > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  font-size: 16px;
+  width: 100%;
+}
+.euro-reward-result.active > div > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 30%;
+          flex: 1 0 30%;
+  font-size: 4vw;
+}
+.euro-reward-result.active > div span {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 80%;
+          flex: 1 0 80%;
+  position: relative;
+  padding: 3vw 4vw;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100%;
+  font-size: 2.75vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro-reward-result.active > div span::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  top: 0;
+  left: 0;
+  background: #143CDB;
+}
+.euro-extra-reward {
+  margin: 0 auto 5vw;
+  padding: 0 5vw;
+}
+.euro-extra-reward > div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 3vw;
+  overflow: hidden;
+}
+.euro-extra-reward-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #143CDB;
+  background: #F8F8F8;
+  font-size: 3.5vw;
+  font-weight: bold;
+}
+.euro-extra-reward-item:nth-child(even) {
+  background: #F9BF4B;
+}
+.euro-extra-reward-item .subtitle {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+  border-right: 3px solid #fff;
+  padding: 2vw;
+}
+.euro-extra-reward-item .reward {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 65%;
+          flex: 0 0 65%;
+  padding: 2vw;
+}
+.euro-extra-reward-rule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 0;
+  width: 100%;
+  margin: 8vw auto;
+}
+.euro-extra-reward-rule-item {
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 3.5vw;
+}
+.euro-extra-reward-rule-item:first-child {
+  color: #F9BF4B;
+  font-size: 4vw;
+  font-weight: bold;
+  margin-bottom: 3vw;
+  padding-bottom: 1vw;
+  border-bottom: 1px solid #fff;
+}
+.euro-extra-reward-rule-item:first-child div {
+  line-height: 1.2;
+  margin-bottom: 2vw;
+  font-size: 4vw;
+}
+.euro-extra-reward-rule-item:last-child {
+  position: relative;
+}
+.euro-extra-reward-rule-item > div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.euro-extra-reward-rule-item .subtitle {
+  font-weight: bold;
+  margin-bottom: 0.5vw;
+}
+.euro-tnc {
+  margin: 0 auto;
+  padding: 0 5vw 10vw;
+}
+.euro-tnc ul {
+  font-size: 3.5vw;
+}
+.euro-tnc ul li {
+  margin-bottom: 4vw;
+}
+.euro-footer {
+  background: #143CDA;
+}
+.euro-footer img {
+  width: 100%;
+  display: block;
 }/*# sourceMappingURL=style.css.map */

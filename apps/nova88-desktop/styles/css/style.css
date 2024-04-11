@@ -23484,12 +23484,12 @@ input[type=number] {
 .euro-mission .progressBar .progressValue .number::before {
   content: "";
   position: absolute;
-  top: -10px;
+  top: -7px;
   left: 50%;
-  width: 12px;
-  height: 10px;
-  -webkit-transform: translateX(-55%);
-          transform: translateX(-55%);
+  width: 10px;
+  height: 9px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   background: url(https://banner.0814media.net/desktop/img/event/eurocup/frame.png) no-repeat center/cover;
 }
 .euro-poll {
