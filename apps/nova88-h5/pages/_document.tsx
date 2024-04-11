@@ -6,7 +6,7 @@ import Document, {
 	DocumentContext,
 	DocumentInitialProps,
 } from 'next/document'
-import { getGTMId } from '@nx-next-app/site/nova88/data'
+import { getGA4ID, getGTMId } from '@nx-next-app/site/nova88/data'
 
 interface CustomDocumentProps extends DocumentInitialProps {
 	host?: string
@@ -22,6 +22,7 @@ class MyDocument extends Document<CustomDocumentProps> {
 	render() {
 		const { host } = this.props
 		const gtmId = getGTMId(host)
+		const ga4Id = getGA4ID(host)
 		return (
 			<Html>
 				<Head>
@@ -49,7 +50,13 @@ class MyDocument extends Document<CustomDocumentProps> {
 						}}
 					/>
 
-					{/* Google Tag Manager - GTAG paste in the <head> */}
+					{/* GA4 市場區分 domain 的 ga4 */}
+					<script
+						async
+						src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}
+					/>
+
+					{/* Google Tag Manager - 市場區分 domain 的 google tag */}
 					<script
 						dangerouslySetInnerHTML={{
 							__html: `
@@ -63,7 +70,7 @@ class MyDocument extends Document<CustomDocumentProps> {
 					/>
 				</Head>
 				<body>
-					{/* Google Tag Manager (noscript) - GTAG paste in the <body> */}
+					{/* Google Tag Manager (noscript) - 市場區分 domain 的 google tag */}
 					<noscript>
 						<iframe
 							src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
