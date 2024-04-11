@@ -110,7 +110,7 @@ const HeaderModule = ({
 						<span>{currencyName}</span>
 						<div>
 							{!isHideBalance && (
-								<>${numberFormat(totalWalletBalance, currencyId)}</>
+								<>${numberFormat(totalWalletBalance, currencyId, 2)}</>
 							)}
 
 							<SpinButton
