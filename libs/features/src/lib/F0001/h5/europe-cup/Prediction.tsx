@@ -151,6 +151,15 @@ const Prediction = () => {
 		onSelectedGroup(watch('ticket4.group'))
 	)
 
+	const handleDeposit = () => {
+		if (!isLogin) {
+			push(paths.login.root)
+			return
+		}
+
+		push(paths.deposit.root)
+	}
+
 	return (
 		<div className='euro-predition'>
 			<div className='top'>
@@ -183,11 +192,7 @@ const Prediction = () => {
 					<div className='euro-mission-item'>
 						<div className='title'>
 							{t('Label_EuropeCup_Deposit_Mission')}
-							<button
-								onClick={() => {
-									isLogin && push(paths.deposit.root)
-								}}
-							>
+							<button onClick={handleDeposit}>
 								{t('Label_EuropeCup_Deposit_Now')}
 							</button>
 						</div>

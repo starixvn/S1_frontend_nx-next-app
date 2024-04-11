@@ -9,11 +9,21 @@ import { useEuropeCup } from '@nx-next-app/features/F0001/hooks/useEuropeCup'
 import { type IGroupData, CupEventUserTicketStatus } from '@nx-next-app/service'
 import { useAuth } from '@nx-next-app/data-access'
 import { numFormatToDigits } from '@nx-next-app/utils'
+import dynamic from 'next/dynamic'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import Select from './components/Select'
+
+const LoginModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
+	{
+		ssr: false,
+	}
+)
 
 const Prediction = () => {
 	const { t } = useTranslation()
 	const { push } = useRouter()
+	const { modal } = useGlobalModal()
 	const {
 		auth: { isLogin },
 	} = useAuth()
@@ -142,6 +152,15 @@ const Prediction = () => {
 		onSelectedGroup(watch('ticket4.group'))
 	)
 
+	const handleDeposit = () => {
+		if (!isLogin) {
+			modal.open(<LoginModal />)
+			return
+		}
+
+		push(paths.deposit.root)
+	}
+
 	return (
 		<div className='euro-predition'>
 			<div className='top'>
@@ -175,7 +194,7 @@ const Prediction = () => {
 					<div className='euro-mission-item'>
 						<div className='title'>
 							{t('Label_EuropeCup_Deposit_Mission')}
-							<button onClick={() => isLogin && push(paths.deposit.root)}>
+							<button onClick={handleDeposit}>
 								{t('Label_EuropeCup_Deposit_Now')}
 							</button>
 						</div>

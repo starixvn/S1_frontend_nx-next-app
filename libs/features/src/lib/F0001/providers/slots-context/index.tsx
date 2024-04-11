@@ -505,24 +505,17 @@ const SlotsProvider = ({
 						))
 				)
 			})
-			.map(gameObj => {
-				const isMaintain = getIsTpMaintain({
+			.map(gameObj => ({
+				...gameObj,
+				isMaintain: getIsTpMaintain({
 					tpMaintainList,
 					tpId: gameObj.tpId,
 					tpGameType: find(persistSlotsGameData.providerList, {
 						tpId: gameObj.tpId,
 					})?.tpGameType,
-				})
-
-				return {
-					...gameObj,
-					isMaintain,
-					isFavorite: isFavorite({
-						tpId: gameObj.tpId,
-						gameId: gameObj.gameId,
-					}),
-				}
-			})
+				}),
+				isFavorite: isFavorite({ tpId: gameObj.tpId, gameId: gameObj.gameId }),
+			}))
 			.sort(
 				(a, b) =>
 					new Date(b.launchDate).getTime() - new Date(a.launchDate).getTime()
@@ -530,13 +523,7 @@ const SlotsProvider = ({
 
 		setSlotsGameList(filteredGameList)
 		setIsProcess(false)
-	}, [
-		activeCategoryKey,
-		queryTpId,
-		searchCategoryText,
-		myFavorites,
-		tpMaintainList, // * 當 tpMaintainList 資料更新時也應該更新 UI
-	])
+	}, [activeCategoryKey, queryTpId, searchCategoryText, myFavorites])
 
 	// 更新遊戲列表預設給定40筆資料
 	useEffect(() => {
