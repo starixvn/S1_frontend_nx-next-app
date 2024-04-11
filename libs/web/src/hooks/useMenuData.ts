@@ -6,8 +6,6 @@ import {
 	type ISubMenuData,
 } from '@nx-next-app/service'
 import { memberTypeEnum } from 'libs/web/src/app/constants/userInfo'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { PRODUCTS } from '@nx-next-app/constants'
 
 export interface IAddLiveStreamingProps {
 	isTpMaintain: boolean
@@ -54,8 +52,6 @@ const useMenuData = () => {
 		return lobbyHeaderList.map(mainMenuItem => {
 			const { lobbyCategoryId, data = [] } = mainMenuItem || {}
 
-			// TODO , 客製化需求，無期限移除 VND 與 IDR 的 PG , 之後再重新開放
-			const pgMaintainCurrency = [CurrenciesEnum.VND, CurrenciesEnum.IDR]
 			const mergedSubMenus = data.map(subMenuItem => {
 				// * 插入直播主
 				const newSettingItem = tpGameTypeSettingList.find(
@@ -64,18 +60,11 @@ const useMenuData = () => {
 						settingItem.tpId === subMenuItem.tpId
 				)
 				// * 插入 maintenance
-				let isTpMaintain = getIsTpMaintain({
+				const isTpMaintain = getIsTpMaintain({
 					tpMaintainList,
 					tpId: subMenuItem.tpId,
 					tpGameType: subMenuItem.tpGameType,
 				})
-
-				if (
-					subMenuItem.tpId === PRODUCTS['PGSoft']?.tpId &&
-					pgMaintainCurrency.includes(currencyId)
-				) {
-					isTpMaintain = true
-				}
 
 				const { noPlay, noShow } = newSettingItem || {}
 
