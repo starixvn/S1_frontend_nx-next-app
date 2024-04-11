@@ -212,6 +212,7 @@ const defaultDesktopHomeOrders = [
 	DesktopHomeComponentsEnum.AppDownloadBanner,
 	DesktopHomeComponentsEnum.ProviderBlock,
 	DesktopHomeComponentsEnum.OfficialPartner,
+	DesktopHomeComponentsEnum.EuropeCupEntry,
 	DesktopHomeComponentsEnum.LuckyWheel,
 	DesktopHomeComponentsEnum.LiveStreamingLink,
 ]
@@ -226,6 +227,7 @@ const defaultMobileHomeOrders = [
 	MobileHomeComponentsEnum.AppDownload,
 	MobileHomeComponentsEnum.PartnerBlock,
 	MobileHomeComponentsEnum.FooterBlock,
+	MobileHomeComponentsEnum.EuropeCupEntry,
 	MobileHomeComponentsEnum.LuckyWheel,
 	MobileHomeComponentsEnum.LiveStreamingLink,
 ]
@@ -550,7 +552,7 @@ export const HomeProvider = ({
 			const hasBalance =
 				!!balance || tpWallets?.filter(tp => tp.balance > 0).length >= 1
 			// 儲值彈窗只有桌機有
-			if (hasBalance && deviceType === DeviceTypeEnum.Desktop) {
+			if (!hasBalance && deviceType === DeviceTypeEnum.Desktop) {
 				modal.open(<DesktopDepositHintModal closeCallback={openNextPopup} />)
 				setCookie(cookieName, '1', { maxAge: cookieMaxAge })
 			} else {
