@@ -85,7 +85,7 @@ const Profile = () => {
 				<div className='menu-top-balance'>
 					<div>{t('Label_General_Balance')}</div>
 					<div>
-						{currencyName} {numberFormat(totalWalletBalance, currencyId)}
+						{currencyName} {numberFormat(totalWalletBalance, currencyId, 2)}
 						<Link href={paths.deposit.root}>
 							<a>{t('Label_General_Deposit')}</a>
 						</Link>
