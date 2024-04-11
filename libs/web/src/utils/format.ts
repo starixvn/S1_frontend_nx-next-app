@@ -11,7 +11,11 @@ export const numFormatToDigits = (value: number, digits = 20): string => {
 		minimumFractionDigits: digits,
 	})
 
-	let formattedValue = formatter.format(Number(value.toFixed(digits)))
+	// 無條捨棄
+	const factor = 10 ** digits
+	const truncated = Math.floor(value * factor) / factor
+
+	let formattedValue = formatter.format(Number(truncated.toFixed(digits)))
 
 	// 取到小數點後第一個非 0 數字後面捨棄
 	formattedValue = formattedValue.replace(/(\.\d*?[1-9])0+$/, '$1')
