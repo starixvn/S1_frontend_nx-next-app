@@ -103,7 +103,7 @@ const Wallet = ({
 				<div className='balance'>
 					<span>{currencyName}</span>
 					<span>
-						{numberFormat(totalWalletBalance, currencyId)}
+						{numberFormat(totalWalletBalance, currencyId, 2)}
 						<SpinButton onClick={onRefetchAllWallet} />
 					</span>
 				</div>
