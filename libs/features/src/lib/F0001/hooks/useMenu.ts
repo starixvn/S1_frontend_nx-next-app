@@ -20,7 +20,6 @@ import {
 	useLazyGotoGameQuery,
 } from '@nx-next-app/service'
 import { isEventPeriod, onWindowOpenProduct } from '@nx-next-app/utils'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 
 type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void
@@ -383,12 +382,11 @@ const useMenu = () => {
 			const { message, errorCode } = error as IAxiosError
 
 			if (errorCode === 3000) {
-				modal.error('Under Maintenance')
-				// window.open(
-				// 	message,
-				// 	'Under Maintenance',
-				// 	'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0'
-				// )
+				window.open(
+					message,
+					'Under Maintenance',
+					'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0'
+				)
 			} else if (messageCallBack) {
 				messageCallBack(message)
 			}

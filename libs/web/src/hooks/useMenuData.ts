@@ -1,16 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMemo } from 'react'
-import {
-	CurrenciesEnum,
-	DeviceTypeEnum,
-	IMenuData,
-	MenuKeyEnum,
-} from '@nx-next-app/types'
+import { DeviceTypeEnum, IMenuData, MenuKeyEnum } from '@nx-next-app/types'
 import { assign, cloneDeep, includes, isArray, isBoolean } from 'lodash-es'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { getIsTpMaintain } from '@nx-next-app/utils'
 import { getSubMenuEventIcon } from '@nx-next-app/features/F0001/hooks'
-import { PRODUCTS } from '@nx-next-app/constants'
 
 const deviceType: DeviceTypeEnum = Number(
 	process.env['NEXT_PUBLIC_DEVICE_TYPE']
@@ -101,24 +95,12 @@ const useMenuData = () => {
 
 					// * 規則4: 最後將排序或已過濾出來的產品加入是否維護中參數，在 Menu 的 SubMenu 加入 isTpMaintain 參數
 					// * 規則5: 透過 getSubMenuEventIcon 驗證還在活動中的第一個 eventIcon
-					// TODO
-					// 特殊規則，暫時無限期將 VND , IDR, PG 掛 maintain , 之後再回來改
-					const pgMaintainCurrency = [CurrenciesEnum.VND, CurrenciesEnum.IDR]
 					newSubMenu = newSubMenu.map(item => {
-						let isTpMaintain = getIsTpMaintain({
+						const isTpMaintain = getIsTpMaintain({
 							tpMaintainList,
 							tpId: item.product?.TP_ID,
 							tpGameType: item.product?.TP_GAME_TYPE,
 						})
-
-						// 特殊規則，暫時無限期將 VND , IDR, PG 掛 maintain , 之後再回來改
-						if (
-							item.product?.TP_ID === PRODUCTS['SLOTS_PG']?.TP_ID &&
-							pgMaintainCurrency.includes(currencyId)
-						) {
-							isTpMaintain = true
-						}
-
 						const subMenuEventIcon = getSubMenuEventIcon(item.eventIcons)
 
 						return {
