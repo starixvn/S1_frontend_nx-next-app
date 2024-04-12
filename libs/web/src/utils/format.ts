@@ -6,7 +6,7 @@ import { INTEGER_ONLY_REGEX } from '../app/constants/regex'
 /**
  * @returns 數字 format 到特定小數點，預設為第二位
  */
-export const numFormatToDigits = (value: number, digits = 20): string => {
+export const numFormatToDigits = (value: number, digits = 2): string => {
 	// 轉換為整數
 	const integerValue = Math.trunc(value)
 
@@ -54,7 +54,7 @@ export const numberFormat = (
 	if (isNaN(Number(value))) return undefined
 
 	if (isConvert(currencyId)) {
-		return `${numFormatToDigits(Number(value) / 1000, digits)} ${
+		return `${numFormatToDigits(Number(value) / 1000, digits ?? 20)} ${
 			format ? `('000)` : ''
 		}`
 	}
