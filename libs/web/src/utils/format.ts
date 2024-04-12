@@ -54,7 +54,7 @@ export const numberFormat = (
 	if (isNaN(Number(value))) return undefined
 
 	if (isConvert(currencyId)) {
-		return `${numFormatToDigits(Number(value) / 1000, digits)} ${
+		return `${numFormatToDigits(Number(value) / 1000, digits ?? 20)} ${
 			format ? `('000)` : ''
 		}`
 	}
