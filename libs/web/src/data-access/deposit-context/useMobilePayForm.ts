@@ -186,13 +186,6 @@ const useMobilePayForm = ({
 				return
 			}
 
-			console.log(
-				'eWalletRequired',
-				eWalletRequired,
-				'custEWalletAccount',
-				custEWalletAccount
-			)
-
 			// * 如果需選擇 E-Wallet 但未選需跳錯誤提醒
 			if (eWalletRequired && !custEWalletAccount) {
 				setError('custEWalletAccount', {

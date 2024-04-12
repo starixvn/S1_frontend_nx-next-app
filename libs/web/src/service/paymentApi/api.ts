@@ -47,7 +47,7 @@ import {
 	IDepositQuickTransferData,
 	IDepositChatTransferData,
 	IPaymentOnlineBankInfoSysData,
-	ICustBankInfoData,
+	IPaymentCustBankInfoData,
 } from './type'
 
 export const paymentApiUrl = {
@@ -522,7 +522,7 @@ const paymentApi = rootApi.injectEndpoints({
 			}),
 		}),
 		getPaymentCustBankInfo: builder.query<
-			IAxiosResponse<ICustBankInfoData[]>,
+			IAxiosResponse<IPaymentCustBankInfoData[]>,
 			{ channelId?: number }
 		>({
 			query: data => ({

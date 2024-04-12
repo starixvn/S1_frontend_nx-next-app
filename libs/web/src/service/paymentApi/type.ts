@@ -612,7 +612,7 @@ export enum IWithdrawalTypeEnum {
 	Crypto = 4,
 }
 
-export interface ICustBankInfoData {
+export interface IPaymentCustBankInfoData {
 	bankName: string
 	bankLogo: string
 	disabled: boolean
