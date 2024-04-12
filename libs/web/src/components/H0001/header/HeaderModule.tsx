@@ -5,12 +5,13 @@ import { useAuth } from '@nx-next-app/data-access'
 import { HTMLAttributes, useEffect } from 'react'
 import { useTranslation } from 'next-i18next'
 import { useBoolean, useDebounce } from 'usehooks-ts'
-import { numberFormat } from '@nx-next-app/utils'
+import { isEventPeriod, numberFormat } from '@nx-next-app/utils'
 import {
 	ICustBonusWalletData,
 	IMainWalletInfoData,
 	ITpWalletInfoData,
 } from '@nx-next-app/service'
+import { EUROPE_EVENT_PERIOD } from '@nx-next-app/site/nova88'
 import { SpinButton } from '../button'
 
 interface IHeaderModuleProps extends HTMLAttributes<HTMLDivElement> {
@@ -65,7 +66,12 @@ const HeaderModule = ({
 	return (
 		<div className={classNames('header-module', className)} {...props}>
 			{/* 用 a link 讓畫面重新整理 */}
-			<a href={paths.home.root} className='header-logo'>
+			<a
+				href={paths.home.root}
+				className={classNames('header-logo', {
+					eurocup: isEventPeriod(EUROPE_EVENT_PERIOD),
+				})}
+			>
 				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w.png`}
 					alt='logo'
