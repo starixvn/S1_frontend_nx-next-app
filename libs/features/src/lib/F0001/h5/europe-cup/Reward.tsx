@@ -109,9 +109,7 @@ const Reward = () => {
 								<div className='subtitle'>
 									{t('Label_EuropeCup_Prize_Count')}
 								</div>
-								<div className='reward'>
-									{t('Label_EuropeCup_Semi_Finals_Amount')}
-								</div>
+								<div className='reward'>10</div>
 							</div>
 						</div>
 					</div>

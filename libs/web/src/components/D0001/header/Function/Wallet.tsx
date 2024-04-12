@@ -81,7 +81,7 @@ const Wallet = ({
 			<div className='balance-money'>
 				<SpinButton className='icon-spinner' onClick={onRefetchAllWallet} />
 				{`${currencyName} `}
-				{!isHideBalance && numberFormat(totalWalletBalance, currencyId)}
+				{!isHideBalance && numberFormat(totalWalletBalance, currencyId, 2)}
 
 				<button
 					className={classNames('icon', {
@@ -100,7 +100,7 @@ const Wallet = ({
 					<div className='balance'>
 						<span>{currencyName}</span>
 						<span>
-							{numberFormat(totalWalletBalance, currencyId)}
+							{numberFormat(totalWalletBalance, currencyId, 2)}
 							<SpinButton onClick={onRefetchAllWallet} />
 						</span>
 					</div>
