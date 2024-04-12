@@ -1,7 +1,9 @@
+import { useTranslation } from 'next-i18next'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useDepositSavedLocalStorage } from '@nx-next-app/data-access'
 import {
 	IAxiosError,
+	useGetPaymentCustBankInfoQuery,
 	IPaymentAutoDepositData,
 	useLazyCheckDepositSpecialCodeQuery,
 } from '@nx-next-app/service'
@@ -11,6 +13,7 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useBoolean, useDebounce } from 'usehooks-ts'
+import { DepositExtraDataTypeEnum } from '@nx-next-app/types'
 import { useDepositContext } from './DepositContext'
 
 interface IAutoDepositForm {
@@ -19,6 +22,7 @@ interface IAutoDepositForm {
 	channelId?: number
 	minAmount?: number
 	maxAmount?: number
+	custBankAccount?: string
 	bonusCode?: string
 	promoCode?: string
 }
@@ -28,6 +32,7 @@ const useAutoDepositForm = ({
 }: {
 	dataSource: IPaymentAutoDepositData[]
 }) => {
+	const { t } = useTranslation()
 	const {
 		userInfo: { langId, currencyId },
 		dbHost,
@@ -49,7 +54,15 @@ const useAutoDepositForm = ({
 
 	const formMethods = useForm<IAutoDepositForm>()
 
-	const { setValue, resetField } = formMethods
+	const { setValue, setError, resetField } = formMethods
+
+	const {
+		data: { data: custBankInfo = [] } = {},
+		isFetching: isGetCustBankInfoFetching,
+	} = useGetPaymentCustBankInfoQuery(
+		{ channelId: Number(queryChannelId) },
+		{ skip: !queryChannelId }
+	)
 
 	const [
 		checkDepositSpecialCode,
@@ -62,6 +75,18 @@ const useAutoDepositForm = ({
 		onSavedDepositLocalStorageSavedInfo,
 	} = useDepositSavedLocalStorage()
 
+	const { supportBanks = [], extraDataType } =
+		find(dataSource, {
+			channelId: Number(queryChannelId),
+		}) ?? {}
+
+	const bankCardRequired = extraDataType === DepositExtraDataTypeEnum.bankCard
+
+	const bankCardOptions = custBankInfo.map(({ bankName, accountNo }) => ({
+		label: `${bankName} - ${accountNo}`,
+		value: accountNo,
+	}))
+
 	// * 1. 檢查是否有 specialCode，specialCode 與bonusCode 只能擇一
 	// * 2. window.open() only
 	// * 3. savedChecked = true 時記住銀行資訊
@@ -71,10 +96,19 @@ const useAutoDepositForm = ({
 			const {
 				amount = 0,
 				channelId = '',
-				sysId = '',
+				sysId: bankSysId = '',
+				custBankAccount,
 				bonusCode: originBonusCode = '',
 				promoCode,
 			} = values
+
+			// * 如果需選擇銀行卡但未選需跳錯誤提醒
+			if (bankCardRequired && !custBankAccount) {
+				setError('custBankAccount', {
+					message: t('Label_Withdrawal_SelectBankRequired') as string,
+				})
+				return
+			}
 
 			const convertedAmount = isConvert(currencyId) ? amount * 1000 : amount
 
@@ -90,18 +124,26 @@ const useAutoDepositForm = ({
 				}
 			}
 
+			// * 如果需要用戶提供銀行卡，則傳入該銀行卡的 sysId，否則傳入一般存款管道銀行 sysId
+			let sysId = bankSysId
+			if (bankCardRequired)
+				sysId = String(
+					find(custBankInfo, { accountNo: String(custBankAccount) })?.sysId
+				)
+
 			const errorUrl = `${dbHost}/404/index_${langId}.html`
 			const searchParams = new URLSearchParams({
 				ChannelId: String(channelId),
 				SysId: String(sysId),
 				Amount: String(convertedAmount),
 				BonusCode: bonusCode,
+				PayAccount: bankCardRequired ? String(custBankAccount) : '',
 				errorUrl,
 			})
 			const paramsUrl = searchParams.toString()
 
 			// * window.open only
-			const baseUrl = `${dbHost}/${langId}/Cashier/DepositReqBankAutoChannel`
+			const baseUrl = `${dbHost}/${langId}/Cashier/DepositReq`
 			window.open(`${baseUrl}?${paramsUrl}`)
 
 			resetField('amount')
@@ -122,12 +164,10 @@ const useAutoDepositForm = ({
 		}
 	}
 
-	const { supportBanks = [] } =
-		find(dataSource, {
-			channelId: Number(queryChannelId),
-		}) ?? {}
-
-	const loading = isCheckDepositSpecialCodeFetching || contextLoading
+	const loading =
+		isCheckDepositSpecialCodeFetching ||
+		isGetCustBankInfoFetching ||
+		contextLoading
 
 	const debouncedLoading = useDebounce(loading, 50)
 
@@ -201,6 +241,8 @@ const useAutoDepositForm = ({
 	return {
 		formMethods,
 		supportBanks,
+		bankCardOptions,
+		bankCardRequired,
 		loading: debouncedLoading,
 		onAutoDepositFormSubmit,
 	}

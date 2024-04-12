@@ -1,3 +1,4 @@
+import { DepositExtraDataTypeEnum } from '@nx-next-app/types'
 import { DepositActionModeEnum } from '../../app/types/deposit'
 
 export interface IBankInfoSysData {
@@ -295,6 +296,7 @@ export interface IPaymentAutoDepositData {
 	amountRule: number
 	amountList: number[]
 	depositType: number
+	extraDataType: DepositExtraDataTypeEnum
 }
 export interface IPaymentBankTransferData {
 	bankCode: string
@@ -390,6 +392,7 @@ export interface IChannelMobilePayData {
 	payName: null | string
 	pointLevel: number
 	sSort: number
+	extraDataType: number
 }
 
 export interface IBankAccountInfoData {
@@ -607,4 +610,13 @@ export enum IWithdrawalTypeEnum {
 	BankCard = 1,
 	EWallet = 3,
 	Crypto = 4,
+}
+
+export interface ICustBankInfoData {
+	bankName: string
+	bankLogo: string
+	disabled: boolean
+	sysId: number
+	accountNo: string
+	ifscCode: string
 }

@@ -41,9 +41,12 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			setValue,
 			watch,
 			register,
+			clearErrors,
 			formState: { touchedFields, errors, isValid },
 		},
 		supportBanks,
+		bankCardOptions,
+		bankCardRequired,
 		onAutoDepositFormSubmit,
 	} = useAutoDepositForm({
 		dataSource,
@@ -53,6 +56,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 	const watchBonusCode = watch('bonusCode')
 	const watchMinAmount = watch('minAmount')
 	const watchMaxAmount = watch('maxAmount')
+	const watchCustBankAccount = watch('custBankAccount')
 
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
@@ -170,6 +174,30 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 								trigger('amount')
 							}}
 						/>
+					</div>
+				</DepositModule>
+			)}
+
+			{bankCardRequired && (
+				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+					<div className='infoModule'>
+						<Select
+							value={watchCustBankAccount}
+							options={bankCardOptions}
+							onChange={value => {
+								trigger('custBankAccount')
+								setValue('custBankAccount', String(value))
+								clearErrors('custBankAccount')
+							}}
+							errorMessage={errors['custBankAccount']?.message as string}
+						/>
+						<div
+							className={classNames('tip', {
+								active: errors['custBankAccount'],
+							})}
+						>
+							{errors['custBankAccount']?.message}
+						</div>
 					</div>
 				</DepositModule>
 			)}

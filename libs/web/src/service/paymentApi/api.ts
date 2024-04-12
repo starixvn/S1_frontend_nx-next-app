@@ -47,6 +47,7 @@ import {
 	IDepositQuickTransferData,
 	IDepositChatTransferData,
 	IPaymentOnlineBankInfoSysData,
+	ICustBankInfoData,
 } from './type'
 
 export const paymentApiUrl = {
@@ -95,6 +96,7 @@ export const paymentApiUrl = {
 	postDepositLocalPayReq: 'Payment/DepositReqLocalPay',
 	checkDepositSpecialCode: 'Payment/CheckDepositSpecialCode',
 	getWithdrawalBlockSetting: 'Payment/GetWithdrawalBlockSetting',
+	getCustBankInfo: 'Payment/GetCustBankInfo',
 }
 
 const paymentApi = rootApi.injectEndpoints({
@@ -519,6 +521,16 @@ const paymentApi = rootApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
+		getPaymentCustBankInfo: builder.query<
+			IAxiosResponse<ICustBankInfoData[]>,
+			{ channelId?: number }
+		>({
+			query: data => ({
+				url: paymentApiUrl.getCustBankInfo,
+				method: 'POST',
+				data,
+			}),
+		}),
 	}),
 })
 
@@ -567,4 +579,5 @@ export const {
 	usePostDepositBankTransferReqMutation,
 	usePostDepositLocalPayReqMutation,
 	useGetWithdrawalBlockSettingQuery,
+	useGetPaymentCustBankInfoQuery,
 } = paymentApi

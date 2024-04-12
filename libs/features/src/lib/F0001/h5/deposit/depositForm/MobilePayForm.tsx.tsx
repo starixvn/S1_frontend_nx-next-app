@@ -68,8 +68,14 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			setValue,
 			watch,
 			register,
+			clearErrors,
+			setError,
 			formState: { touchedFields, errors, isValid },
 		},
+		eWalletOptions,
+		eWalletRequired,
+		bankCardOptions,
+		bankCardRequired,
 		channelMobilePayList = [],
 		onMobilePayFormSubmit,
 	} = useMobilePayForm({
@@ -98,6 +104,8 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 	const watchMaxAmount = watch('maxAmount')
 	const watchAmountRule = watch('amountRule')
 	const watchGroupName = watch('groupName')
+	const watchCustBankAccount = watch('custBankAccount')
+	const watchCustEWalletAccount = watch('custEWalletAccount')
 
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
@@ -111,6 +119,22 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 
 	// * 手機版邏輯：送出前打開確認彈窗
 	const handleMobilePayFormSubmit = (values: IMobilePayForm) => {
+		// * 如果需選擇 E-Wallet 但未選需跳錯誤提醒
+		if (eWalletRequired && !watchCustEWalletAccount) {
+			setError('custEWalletAccount', {
+				message: t('Label_Withdrawal_SelectBankRequired') as string,
+			})
+			return
+		}
+
+		// * 如果需選擇銀行卡但未選需跳錯誤提醒
+		if (bankCardRequired && !watchCustBankAccount) {
+			setError('custBankAccount', {
+				message: t('Label_Withdrawal_SelectBankRequired') as string,
+			})
+			return
+		}
+
 		const convertedAmount = isConvert(currencyId)
 			? watchAmount * 1000
 			: watchAmount
@@ -139,6 +163,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 						className='orange'
 						onClick={() => {
 							onMobilePayFormSubmit(values)
+							closeModal()
 						}}
 					>
 						{t('Label_General_Submit')}
@@ -277,6 +302,54 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 								}}
 							/>
 						)}
+					</div>
+				</DepositModule>
+			)}
+
+			{bankCardRequired && (
+				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+					<div className='infoModule'>
+						<Select
+							value={watchCustBankAccount}
+							options={bankCardOptions}
+							onChange={value => {
+								trigger('custBankAccount')
+								setValue('custBankAccount', String(value))
+								clearErrors('custBankAccount')
+							}}
+							errorMessage={errors['custBankAccount']?.message as string}
+						/>
+						<div
+							className={classNames('tip', {
+								active: errors['custBankAccount'],
+							})}
+						>
+							{errors['custBankAccount']?.message}
+						</div>
+					</div>
+				</DepositModule>
+			)}
+
+			{eWalletRequired && (
+				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+					<div className='infoModule'>
+						<Select
+							value={watchCustEWalletAccount}
+							options={eWalletOptions}
+							onChange={value => {
+								trigger('custEWalletAccount')
+								setValue('custEWalletAccount', String(value))
+								clearErrors('custEWalletAccount')
+							}}
+							errorMessage={errors['custEWalletAccount']?.message as string}
+						/>
+						<div
+							className={classNames('tip', {
+								active: errors['custEWalletAccount'],
+							})}
+						>
+							{errors['custEWalletAccount']?.message}
+						</div>
 					</div>
 				</DepositModule>
 			)}
