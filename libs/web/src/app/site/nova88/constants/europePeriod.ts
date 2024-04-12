@@ -1,6 +1,6 @@
 // 賽事期間
 export const EUROPE_EVENT_PERIOD: { start: string; end: string | null } = {
-	start: '2024/04/15 00:00:00',
+	start: '2024/03/15 00:00:00',
 	end: '2024/07/20 23:59:59',
 }
 
