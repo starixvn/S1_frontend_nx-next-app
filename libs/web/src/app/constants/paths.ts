@@ -137,4 +137,7 @@ export const paths = {
 	gameProvider: {
 		root: '/game-provider',
 	},
+	europeCup: {
+		root: '/euro-cup',
+	},
 }
