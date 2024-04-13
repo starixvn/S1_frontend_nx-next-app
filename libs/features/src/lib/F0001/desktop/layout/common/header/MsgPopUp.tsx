@@ -20,19 +20,19 @@ const MsgPopUp = () => {
 	const isPopupMsgActive = !!popupMsg?.id && isMessagePage
 
 	return (
-		<div className={classNames('message active')}>
+        <div className={classNames('message active')}>
 			<Link
 				href={{
 					pathname: paths.message.root,
 				}}
 			>
-				<a>
-					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/message.png`}
-						alt=''
-					/>
-				</a>
-			</Link>
+
+                <img
+                    src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/message.png`}
+                    alt=''
+                />
+
+            </Link>
 			{isPopupCountActive && <div className='message-text' />}
 			{isPopupMsgActive && !isHided && (
 				<div className='msgPop'>
@@ -62,7 +62,7 @@ const MsgPopUp = () => {
 				</div>
 			)}
 		</div>
-	)
+    );
 }
 
 export default MsgPopUp

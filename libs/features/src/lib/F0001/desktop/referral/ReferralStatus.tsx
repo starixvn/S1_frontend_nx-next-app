@@ -15,21 +15,22 @@ const ReferralStatus = () => {
 	const { referralSummaryData } = useReferral()
 
 	return (
-		<div className='referstatus'>
+        <div className='referstatus'>
 			<div className='title'>
 				{t('Label_Referral_YourReferralStatus')}
 
 				<Link
-					href={{
+                    href={{
 						pathname: paths.history.root,
 						query: { queryTabId: 4 },
 					}}
-					passHref
-				>
-					<a className='refer-history' rel='noopener noreferrer'>
-						{t('Label_General_History')}
-					</a>
-				</Link>
+                    passHref
+                    className='refer-history'
+                    rel='noopener noreferrer'>
+
+                    {t('Label_General_History')}
+
+                </Link>
 			</div>
 			<div className='referstatus-item'>
 				<div className='card'>
@@ -45,7 +46,7 @@ const ReferralStatus = () => {
 				</div>
 			</div>
 		</div>
-	)
+    );
 }
 
 export default ReferralStatus

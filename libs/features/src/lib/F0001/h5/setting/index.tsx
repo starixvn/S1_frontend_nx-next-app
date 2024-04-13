@@ -14,7 +14,7 @@ const Setting = () => {
 	} = useAuth()
 
 	return (
-		<main className={classNames('menu', { after: isLogin })}>
+        <main className={classNames('menu', { after: isLogin })}>
 			{isLogin ? (
 				<Profile />
 			) : (
@@ -26,21 +26,21 @@ const Setting = () => {
 						/>
 					</button>
 					<Link href={paths.home.root}>
-						<a>
-							<div className='menu-logo'>
-								<div>Wellcome to</div>
-								<div>
-									NOVA<span>88</span>
-								</div>
-							</div>
-						</a>
-					</Link>
+
+                        <div className='menu-logo'>
+                            <div>Wellcome to</div>
+                            <div>
+                                NOVA<span>88</span>
+                            </div>
+                        </div>
+
+                    </Link>
 				</>
 			)}
 			<Shortcut />
 			<List />
 		</main>
-	)
+    );
 }
 
 export default Setting

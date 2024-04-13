@@ -21,24 +21,23 @@ const TabsHeaderTag = ({
 	...props
 }: ITabsHeaderProps) => {
 	return (
-		<div className={className} {...props}>
+        <div className={className} {...props}>
 			{tabsHeaderItem.map(({ tabPath, label, isShow = true }) => {
-				return (
-					isShow && (
-						<Link href={tabPath} passHref>
-							<a
-								className={classNames({
-									active: currentPath.split('/')[1] === tabPath,
-								})}
-							>
-								{label}
-							</a>
-						</Link>
-					)
-				)
+				return isShow && (
+                    (<Link
+                        href={tabPath}
+                        passHref
+                        className={classNames({
+                            active: currentPath.split('/')[1] === tabPath,
+                        })}>
+
+                        {label}
+
+                    </Link>)
+                );
 			})}
 		</div>
-	)
+    );
 }
 
 const TabsTag = ({
@@ -48,24 +47,23 @@ const TabsTag = ({
 	...props
 }: ITabsTagProps) => {
 	return (
-		<div className={className} {...props}>
+        <div className={className} {...props}>
 			{tabsTagItem.map(({ tabPath, label, isShow = true }) => {
-				return (
-					isShow && (
-						<Link href={tabPath} passHref>
-							<a
-								className={classNames({
-									active: currentPath.split('/')[1] === tabPath,
-								})}
-							>
-								{label}
-							</a>
-						</Link>
-					)
-				)
+				return isShow && (
+                    (<Link
+                        href={tabPath}
+                        passHref
+                        className={classNames({
+                            active: currentPath.split('/')[1] === tabPath,
+                        })}>
+
+                        {label}
+
+                    </Link>)
+                );
 			})}
 		</div>
-	)
+    );
 }
 
 export { TabsHeaderTag, TabsTag }

@@ -15,7 +15,7 @@ const HomeJackPot = () => {
 	const { push } = useRouter()
 
 	return (
-		<div className='jpotModule'>
+        <div className='jpotModule'>
 			{includes(jackPotCurrencies, currencyId) ? (
 				<>
 					<div className='moduleTitle'>{t('Label_General_Jackpot')}</div>
@@ -24,22 +24,22 @@ const HomeJackPot = () => {
 			) : (
 				<>
 					<div className='moduleTitle'>{t('Label_General_Slots')}</div>
-					<Link href={paths.slots.root}>
-						<a className='slotsbox'>
-							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/indexslots_bg_${langId}.jpg`}
-								alt='slots-bg'
-							/>
-							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/indexslots_items.png`}
-								alt='slots-items'
-							/>
-						</a>
-					</Link>
+					<Link href={paths.slots.root} className='slotsbox'>
+
+                        <img
+                            src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/indexslots_bg_${langId}.jpg`}
+                            alt='slots-bg'
+                        />
+                        <img
+                            src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/indexslots_items.png`}
+                            alt='slots-items'
+                        />
+
+                    </Link>
 				</>
 			)}
 		</div>
-	)
+    );
 }
 
 export default HomeJackPot

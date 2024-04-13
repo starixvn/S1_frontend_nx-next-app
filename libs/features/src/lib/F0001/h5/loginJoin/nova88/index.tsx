@@ -32,8 +32,8 @@ const LoginJoin = ({ cookies }: ILoginJoinProps) => {
 	const fromRoute = isString(query['from']) ? query['from'] : paths.home.root
 
 	return (
-		<div className='logoSwitch active'>
-			<Link href={fromRoute} prefetch>
+        <div className='logoSwitch active'>
+			<Link href={fromRoute} prefetch legacyBehavior>
 				<button>
 					<div className='icon icon-close' />
 				</button>
@@ -66,7 +66,7 @@ const LoginJoin = ({ cookies }: ILoginJoinProps) => {
 			{formType === 'left' && <Login />}
 			{formType === 'right' && <Join cookies={cookies} />}
 		</div>
-	)
+    );
 }
 
 export default LoginJoin

@@ -13,25 +13,23 @@ const RecentHistory = () => {
 		cancelWithdrawal,
 	} = useWithdrawal()
 
-	return (
-		<>
-			{withdrawalRecentInfo.length > 0 ? (
-				<WithdrawalHistoryTable
-					classNames='list'
-					dataSource={withdrawalRecentInfo}
-					onReload={refetchWithdrawalRecentInfo}
-					onCancel={cancelWithdrawal}
-				/>
-			) : (
-				<div className='nodata icon icon-nodata'>
-					<div>{t('Label_General_NoData')}</div>
-				</div>
-			)}
-			<Link href={paths.history.root}>
-				<a className='icon icon-books' />
-			</Link>
-		</>
-	)
+	return <>
+        {withdrawalRecentInfo.length > 0 ? (
+            <WithdrawalHistoryTable
+                classNames='list'
+                dataSource={withdrawalRecentInfo}
+                onReload={refetchWithdrawalRecentInfo}
+                onCancel={cancelWithdrawal}
+            />
+        ) : (
+            <div className='nodata icon icon-nodata'>
+                <div>{t('Label_General_NoData')}</div>
+            </div>
+        )}
+        <Link href={paths.history.root} className='icon icon-books'>
+
+        </Link>
+    </>;
 }
 
 export { RecentHistory }

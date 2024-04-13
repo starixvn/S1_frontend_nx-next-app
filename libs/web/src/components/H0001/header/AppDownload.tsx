@@ -17,7 +17,7 @@ const AppDownload = ({
 	const { t } = useTranslation()
 	if (!showAppDownload) return null
 	return (
-		<div
+        <div
 			className={classNames('appdownload', {
 				active: isAppDownloadHintActive,
 			})}
@@ -36,10 +36,10 @@ const AppDownload = ({
 				<div>{t('Label_AppDownload_BestMobileExperience')}</div>
 			</div>
 			<Link href={paths.appDownload.root} passHref>
-				<a>{t('Label_General_Download')}</a>
+				{t('Label_General_Download')}
 			</Link>
 		</div>
-	)
+    );
 }
 
 export default AppDownload

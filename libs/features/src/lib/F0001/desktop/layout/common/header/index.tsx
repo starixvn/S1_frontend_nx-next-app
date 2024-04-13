@@ -84,7 +84,7 @@ const LayoutHeader = () => {
 	}
 
 	return (
-		<Header>
+        <Header>
 			<Header.Logo
 				logoUrl={logoUrl}
 				rewardsUrl={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/88rewards.png`}
@@ -97,11 +97,14 @@ const LayoutHeader = () => {
 						<MsgPopUp />
 						<div className='line' />
 						<Wallet />
-						<Link href={paths.deposit.root}>
-							<a className='deposit-btn' onClick={handleYuriAddToCartClick}>
-								<span>{t('Label_Deposit')}</span>
-							</a>
-						</Link>
+						<Link
+                            href={paths.deposit.root}
+                            className='deposit-btn'
+                            onClick={handleYuriAddToCartClick}>
+
+                            <span>{t('Label_Deposit')}</span>
+
+                        </Link>
 					</>
 				) : (
 					<>
@@ -117,7 +120,7 @@ const LayoutHeader = () => {
 
 			<Menu />
 		</Header>
-	)
+    );
 }
 
 export default LayoutHeader

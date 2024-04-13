@@ -72,7 +72,7 @@ const Wallet = ({
 	const { balance, lastTransaction } = mainWalletInfo ?? {}
 
 	return (
-		<div
+        <div
 			ref={ref}
 			className={classNames('wallet icon icon-balance', {
 				active: isWalletActive,
@@ -152,12 +152,12 @@ const Wallet = ({
 				))}
 
 				<div className='btnGroup'>
-					<Link href={paths.deposit.root} passHref>
-						<a className='orange'>{t('Label_General_Deposit')}</a>
+					<Link href={paths.deposit.root} passHref className='orange'>
+						{t('Label_General_Deposit')}
 					</Link>
 					{includes(ALLOWED_CURRENCIES.TRANSFER, currencyId) && (
-						<Link href={paths.transferFunds.root} passHref>
-							<a className='orange'>{t('Label_General_TransferFunds')}</a>
+						<Link href={paths.transferFunds.root} passHref className='orange'>
+							{t('Label_General_TransferFunds')}
 						</Link>
 					)}
 				</div>
@@ -174,7 +174,7 @@ const Wallet = ({
 				</div>
 			</div>
 		</div>
-	)
+    );
 }
 
 export default Wallet

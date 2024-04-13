@@ -55,37 +55,35 @@ const Login = () => {
 		}
 	}
 
-	return (
-		<>
-			{currencyId === CurrenciesEnum.THB && (
-				<div className='register-line'>
-					<div className='btn-group'>
-						<button
-							className='btn-line'
-							type='button'
-							onClick={handleLineLogin}
-						>
-							<i className='icon icon-line-bold' />
-							{t('Label_General_LogIn')}
-						</button>
-					</div>
-				</div>
-			)}
-			<FormProvider {...formMethods}>
-				<Form onSubmit={handleSubmit(handleSignIn)}>
-					<LoginForm />
-				</Form>
-			</FormProvider>
-			<Link href={paths.home.root}>
-				<a>
-					<div className='visit'>
-						{t('Label_Join_IWouldLikeToVisit')}
-						<i className='icon icon-visit' />
-					</div>
-				</a>
-			</Link>
-		</>
-	)
+	return <>
+        {currencyId === CurrenciesEnum.THB && (
+            <div className='register-line'>
+                <div className='btn-group'>
+                    <button
+                        className='btn-line'
+                        type='button'
+                        onClick={handleLineLogin}
+                    >
+                        <i className='icon icon-line-bold' />
+                        {t('Label_General_LogIn')}
+                    </button>
+                </div>
+            </div>
+        )}
+        <FormProvider {...formMethods}>
+            <Form onSubmit={handleSubmit(handleSignIn)}>
+                <LoginForm />
+            </Form>
+        </FormProvider>
+        <Link href={paths.home.root}>
+
+            <div className='visit'>
+                {t('Label_Join_IWouldLikeToVisit')}
+                <i className='icon icon-visit' />
+            </div>
+
+        </Link>
+    </>;
 }
 
 export default Login

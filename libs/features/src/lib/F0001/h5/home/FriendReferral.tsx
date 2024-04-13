@@ -23,39 +23,37 @@ const FriendReferral = () => {
 
 	if (!isLogin) return null
 
-	return (
-		<>
-			<div className='moduleTitle icon icon-friend'>
-				{t('Label_General_FriendReferral').toUpperCase()}
-			</div>
-			<div className='friendReferral'>
-				<div>
-					<div className='title'>
-						{`${t('Label_General_Free')} ${t(`Label_Currency_${currencyId}`)} `}
-						{referralBonus}
-					</div>
-					<div>{t('Label_Referral_ReferralIntro')}</div>
-					<br />
-					<Link href={paths.referral.root}>
-						{t('Label_Referral_ToReferral')}
-					</Link>
-				</div>
-				<div>
-					<div>{referralCode}</div>
-					<div
-						className='btn-group'
-						onClick={() =>
-							modal.open(<ReferralModal referralCode={referralCode} />, {
-								className: 'referralShare',
-							})
-						}
-					>
-						<button className='title'>{t('Label_General_Share')}</button>
-					</div>
-				</div>
-			</div>
-		</>
-	)
+	return <>
+        <div className='moduleTitle icon icon-friend'>
+            {t('Label_General_FriendReferral').toUpperCase()}
+        </div>
+        <div className='friendReferral'>
+            <div>
+                <div className='title'>
+                    {`${t('Label_General_Free')} ${t(`Label_Currency_${currencyId}`)} `}
+                    {referralBonus}
+                </div>
+                <div>{t('Label_Referral_ReferralIntro')}</div>
+                <br />
+                <Link href={paths.referral.root} legacyBehavior>
+                    {t('Label_Referral_ToReferral')}
+                </Link>
+            </div>
+            <div>
+                <div>{referralCode}</div>
+                <div
+                    className='btn-group'
+                    onClick={() =>
+                        modal.open(<ReferralModal referralCode={referralCode} />, {
+                            className: 'referralShare',
+                        })
+                    }
+                >
+                    <button className='title'>{t('Label_General_Share')}</button>
+                </div>
+            </div>
+        </div>
+    </>;
 }
 
 export default FriendReferral

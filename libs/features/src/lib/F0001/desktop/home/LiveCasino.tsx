@@ -49,14 +49,14 @@ const LiveCasino = () => {
 	)
 
 	return (
-		<div className='mainlivecasino'>
+        <div className='mainlivecasino'>
 			<div className='maintitle'>
 				{t('Label_General_CasinoWithLive').toUpperCase()}
-				<Link href={paths.liveCasino.root} passHref>
+				<Link href={paths.liveCasino.root} passHref style={{ zIndex: 1 }}>
 					{/* 避免 More 文字低於圖片層級導致無法點擊 */}
-					<a style={{ zIndex: 1 }}>{`${t(
+					{`${t(
 						'Label_General_More'
-					).toUpperCase()}`}</a>
+					).toUpperCase()}`}
 				</Link>
 			</div>
 			{currencyId === CurrenciesEnum.INR ? (
@@ -178,7 +178,7 @@ const LiveCasino = () => {
 				)}
 			</div>
 		</div>
-	)
+    );
 }
 
 export default LiveCasino

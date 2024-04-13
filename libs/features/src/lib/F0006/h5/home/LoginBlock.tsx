@@ -5,15 +5,15 @@ import { paths } from '@nx-next-app/constants'
 const LoginBlock = () => {
 	const { t } = useTranslation()
 	return (
-		<div className='headerButton'>
-			<Link href={paths.join.root}>
-				<a className='joinBtn'>{t('Label_Promotion_JoinNow').toUpperCase()}</a>
+        <div className='headerButton'>
+			<Link href={paths.join.root} className='joinBtn'>
+				{t('Label_Promotion_JoinNow').toUpperCase()}
 			</Link>
-			<Link href={paths.login.root}>
-				<a className='loginBtn'>{t('Label_General_LogIn').toUpperCase()}</a>
+			<Link href={paths.login.root} className='loginBtn'>
+				{t('Label_General_LogIn').toUpperCase()}
 			</Link>
 		</div>
-	)
+    );
 }
 
 export { LoginBlock }

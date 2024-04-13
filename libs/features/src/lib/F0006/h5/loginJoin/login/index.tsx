@@ -31,23 +31,21 @@ const Login = () => {
 		}
 	}
 
-	return (
-		<>
-			<FormProvider {...formMethods}>
-				<Form onSubmit={handleSubmit(handleSignIn)}>
-					<LoginForm />
-				</Form>
-			</FormProvider>
-			<Link href={paths.home.root}>
-				<a>
-					<div className='visit'>
-						{t('Label_Join_IWouldLikeToVisit')}
-						<i className='icon icon-visit' />
-					</div>
-				</a>
-			</Link>
-		</>
-	)
+	return <>
+        <FormProvider {...formMethods}>
+            <Form onSubmit={handleSubmit(handleSignIn)}>
+                <LoginForm />
+            </Form>
+        </FormProvider>
+        <Link href={paths.home.root}>
+
+            <div className='visit'>
+                {t('Label_Join_IWouldLikeToVisit')}
+                <i className='icon icon-visit' />
+            </div>
+
+        </Link>
+    </>;
 }
 
 export default Login

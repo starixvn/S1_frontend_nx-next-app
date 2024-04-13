@@ -8,7 +8,7 @@ const UpdateProfileModal = ({ prevPage }: { prevPage: string }) => {
 	const { closeModal } = useGlobalModal()
 
 	return (
-		<div className='pop'>
+        <div className='pop'>
 			<div className='popTit'>{t('Label_General_ImportantNote')}</div>
 			<div className='popTxt'>
 				<div>
@@ -17,7 +17,7 @@ const UpdateProfileModal = ({ prevPage }: { prevPage: string }) => {
 						: t('Label_General_UpdatePersonalInfoDeposit')}
 				</div>
 				<div className='btn-group'>
-					<Link href={paths.profile.root}>
+					<Link href={paths.profile.root} legacyBehavior>
 						<button className='btn-check' onClick={closeModal}>
 							{t('Label_General_UpdatePersonalDetail')}
 						</button>
@@ -25,7 +25,7 @@ const UpdateProfileModal = ({ prevPage }: { prevPage: string }) => {
 				</div>
 			</div>
 		</div>
-	)
+    );
 }
 
 export default UpdateProfileModal

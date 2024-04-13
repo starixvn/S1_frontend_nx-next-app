@@ -48,39 +48,37 @@ const PromotionSwiper = () => {
 		setTimeout(() => setShouldSwiperUpdate(false), 5000)
 	}, [memoPromotionData])
 
-	return (
-		<>
-			<div className='maintitle'>
-				{t('Label_General_Promotion')}
-				<Link href={paths.promotion.root} passHref>
-					<a>{toUpper(t('Label_General_More') || '')}</a>
-				</Link>
-			</div>
-			{promotionData?.length > 0 && (
-				<div
-					className='promosswiper'
-					onMouseOver={() => setShowNavigation(true)}
-					onMouseOut={() => setShowNavigation(false)}
-					onFocus={() => 0}
-					onBlur={() => 0}
-				>
-					<DynamicSwiper {...swipperConfig}>
-						{promotionData.map(
-							({ bonusCode, categoryId, tpId, banner, title }) => (
-								<div
-									key={`promotion.list-${bonusCode}-${categoryId}-${tpId}`}
-									className='promos-item'
-									onClick={() => handlePromotionClick(bonusCode)}
-								>
-									{isUrl(banner) ? <img src={banner} alt={title} /> : null}
-								</div>
-							)
-						)}
-					</DynamicSwiper>
-				</div>
-			)}
-		</>
-	)
+	return <>
+        <div className='maintitle'>
+            {t('Label_General_Promotion')}
+            <Link href={paths.promotion.root} passHref>
+                {toUpper(t('Label_General_More') || '')}
+            </Link>
+        </div>
+        {promotionData?.length > 0 && (
+            <div
+                className='promosswiper'
+                onMouseOver={() => setShowNavigation(true)}
+                onMouseOut={() => setShowNavigation(false)}
+                onFocus={() => 0}
+                onBlur={() => 0}
+            >
+                <DynamicSwiper {...swipperConfig}>
+                    {promotionData.map(
+                        ({ bonusCode, categoryId, tpId, banner, title }) => (
+                            <div
+                                key={`promotion.list-${bonusCode}-${categoryId}-${tpId}`}
+                                className='promos-item'
+                                onClick={() => handlePromotionClick(bonusCode)}
+                            >
+                                {isUrl(banner) ? <img src={banner} alt={title} /> : null}
+                            </div>
+                        )
+                    )}
+                </DynamicSwiper>
+            </div>
+        )}
+    </>;
 }
 
 export default PromotionSwiper

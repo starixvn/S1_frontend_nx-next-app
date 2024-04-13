@@ -9,7 +9,7 @@ const AppDownload = () => {
 		useDownloadLinks()
 
 	return (
-		<div className='home-appdownload'>
+        <div className='home-appdownload'>
 			<div className='home-appdownload-content'>
 				<div className='text'>
 					<div>{t('Label_APP_DOWNLOAD')}</div>
@@ -41,7 +41,7 @@ const AppDownload = () => {
 							</button>
 						</a>
 					)}
-					<Link href={paths.appDownload.root}>
+					<Link href={paths.appDownload.root} legacyBehavior>
 						{t('Label_AppDownload_Instructions')}
 					</Link>
 				</div>
@@ -57,13 +57,13 @@ const AppDownload = () => {
 							</button>
 						</a>
 					)}
-					<Link href={paths.appDownload.root}>
+					<Link href={paths.appDownload.root} legacyBehavior>
 						{t('Label_AppDownload_Instructions')}
 					</Link>
 				</div>
 			</div>
 		</div>
-	)
+    );
 }
 
 export default AppDownload

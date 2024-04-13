@@ -63,7 +63,7 @@ const HeaderModule = ({
 	}, [originIsHideBalance])
 
 	return (
-		<div className={classNames('header-module', className)} {...props}>
+        <div className={classNames('header-module', className)} {...props}>
 			{/* 用 a link 讓畫面重新整理 */}
 			<a href={paths.home.root} className='header-logo'>
 				<img
@@ -78,22 +78,22 @@ const HeaderModule = ({
 			{!auth.isLogin && (
 				<>
 					<div className='home-btn-group header-login'>
-						<Link href={paths.login.root} prefetch>
-							<a className='btn-login'>{t('Label_General_LogIn')}</a>
+						<Link href={paths.login.root} prefetch className='btn-login'>
+							{t('Label_General_LogIn')}
 						</Link>
-						<Link href={paths.join.root} prefetch>
-							<a className='btn-register'>{t('Label_General_Register')}</a>
+						<Link href={paths.join.root} prefetch className='btn-register'>
+							{t('Label_General_Register')}
 						</Link>
 					</div>
 
-					<Link href={paths.setting.root} prefetch>
-						<a className='btn-menu'>
-							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/menu.png`}
-								alt='setting'
-							/>
-						</a>
-					</Link>
+					<Link href={paths.setting.root} prefetch className='btn-menu'>
+
+                        <img
+                            src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/menu.png`}
+                            alt='setting'
+                        />
+
+                    </Link>
 				</>
 			)}
 
@@ -102,8 +102,8 @@ const HeaderModule = ({
 				<div className='header-info'>
 					<div>
 						{`${t('Label_General_Welcome')}, `}
-						<Link href={paths.profile.root}>
-							<a className='MemberID'>{userName}</a>
+						<Link href={paths.profile.root} className='MemberID'>
+							{userName}
 						</Link>
 					</div>
 					<div className='header-balance'>
@@ -142,7 +142,7 @@ const HeaderModule = ({
 				</div>
 			)}
 		</div>
-	)
+    );
 }
 
 export default HeaderModule

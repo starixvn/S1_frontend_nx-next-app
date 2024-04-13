@@ -27,7 +27,7 @@ const List = () => {
 	}
 
 	return (
-		<SettingCollapse>
+        <SettingCollapse>
 			<SettingCollapse.Item
 				imgName='languages'
 				header={t('Label_General_Languages')}
@@ -172,7 +172,7 @@ const List = () => {
 				</a>
 
 				<Link href={paths.gameProvider.root}>
-					<a>{t('Label_General_GameProvider')}</a>
+					{t('Label_General_GameProvider')}
 				</Link>
 			</SettingCollapse.Item>
 
@@ -182,7 +182,7 @@ const List = () => {
 				</button>
 			)}
 		</SettingCollapse>
-	)
+    );
 }
 
 export default List

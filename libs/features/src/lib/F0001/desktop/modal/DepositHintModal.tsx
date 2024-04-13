@@ -11,7 +11,7 @@ const DepositHintModal = ({
 	const { t } = useTranslation()
 	const { closeModal } = useGlobalModal()
 	return (
-		<div className='pop'>
+        <div className='pop'>
 			<div className='Cancel active'>
 				<div className='icon icon-bell' />
 				<div className='title'>{t('Label_General_Information')}</div>
@@ -26,15 +26,19 @@ const DepositHintModal = ({
 					>
 						{t('Label_Profile_Later')}
 					</button>
-					<Link href={`${paths.deposit.root}`} passHref>
-						<a className='btn-check' onClick={closeModal}>
-							{t('Label_Profile_DepositNow')}
-						</a>
-					</Link>
+					<Link
+                        href={`${paths.deposit.root}`}
+                        passHref
+                        className='btn-check'
+                        onClick={closeModal}>
+
+                        {t('Label_Profile_DepositNow')}
+
+                    </Link>
 				</div>
 			</div>
 		</div>
-	)
+    );
 }
 
 export default DepositHintModal

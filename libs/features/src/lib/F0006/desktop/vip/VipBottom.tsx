@@ -10,13 +10,13 @@ const VipBottom = () => {
 		auth: { isLogin },
 	} = useAuth()
 	return (
-		<div className='vip-bottom'>
+        <div className='vip-bottom'>
 			<div className='vip-bottom-item' style={{ cursor: 'pointer' }}>
 				{/* Link 包在最外層會覆蓋到 css 故分別包在裡面 */}
 				<Link
-					href={paths.join.root}
-					style={isLogin ? { pointerEvents: 'none' } : {}}
-				>
+                    href={paths.join.root}
+                    style={isLogin ? { pointerEvents: 'none' } : {}}
+                    legacyBehavior>
 					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/benefit-1.png`}
 						alt=''
@@ -26,9 +26,9 @@ const VipBottom = () => {
 			</div>
 			<div className='vip-bottom-item' style={{ cursor: 'pointer' }}>
 				<Link
-					href={paths.join.root}
-					style={isLogin ? { pointerEvents: 'none' } : {}}
-				>
+                    href={paths.join.root}
+                    style={isLogin ? { pointerEvents: 'none' } : {}}
+                    legacyBehavior>
 					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/benefit-2.png`}
 						alt=''
@@ -38,9 +38,9 @@ const VipBottom = () => {
 			</div>
 			<div className='vip-bottom-item' style={{ cursor: 'pointer' }}>
 				<Link
-					href={paths.join.root}
-					style={isLogin ? { pointerEvents: 'none' } : {}}
-				>
+                    href={paths.join.root}
+                    style={isLogin ? { pointerEvents: 'none' } : {}}
+                    legacyBehavior>
 					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/benefit-3.png`}
 						alt=''
@@ -50,9 +50,9 @@ const VipBottom = () => {
 			</div>
 			<div className='vip-bottom-item' style={{ cursor: 'pointer' }}>
 				<Link
-					href={paths.join.root}
-					style={isLogin ? { pointerEvents: 'none' } : {}}
-				>
+                    href={paths.join.root}
+                    style={isLogin ? { pointerEvents: 'none' } : {}}
+                    legacyBehavior>
 					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/benefit-4.png`}
 						alt=''
@@ -61,7 +61,7 @@ const VipBottom = () => {
 				<span>{t('Label_Vip_LifetimeMembership')}</span>
 			</div>
 		</div>
-	)
+    );
 }
 
 export default VipBottom

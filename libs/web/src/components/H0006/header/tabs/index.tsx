@@ -153,26 +153,26 @@ const Tags = ({ tags = [], className = 'headerTag', ...props }: ITagsProps) => {
 	const { pathname } = useRouter()
 
 	return (
-		<div className={className} {...props}>
+        <div className={className} {...props}>
 			{tags.map(({ href, label, isShow = true, active, subPaths }) => {
-				return (
-					isShow && (
-						<Link key={label} href={href} passHref>
-							<a
-								className={classNames({
-									active: isUndefined(active)
-										? pathname === href || includes(subPaths, pathname)
-										: active,
-								})}
-							>
-								{label}
-							</a>
-						</Link>
-					)
-				)
+				return isShow && (
+                    (<Link
+                        key={label}
+                        href={href}
+                        passHref
+                        className={classNames({
+                            active: isUndefined(active)
+                                ? pathname === href || includes(subPaths, pathname)
+                                : active,
+                        })}>
+
+                        {label}
+
+                    </Link>)
+                );
 			})}
 		</div>
-	)
+    );
 }
 
 export { Tags, Tag }

@@ -18,7 +18,7 @@ const ChangePasswordForm = ({
 	const { register, handleSubmit, formState } = changePasswordForm
 	const { errors, touchedFields, isSubmitting, isDirty, isValid } = formState
 	return (
-		<Form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
 			<InputBox
 				register={register('oldPassword', {
 					required: {
@@ -58,7 +58,7 @@ const ChangePasswordForm = ({
 			/>
 
 			<div className='btn-group'>
-				<Link className='white' href={paths.profile.root}>
+				<Link className='white' href={paths.profile.root} legacyBehavior>
 					{t('Label_General_Back')}
 				</Link>
 				<button
@@ -72,7 +72,7 @@ const ChangePasswordForm = ({
 				</button>
 			</div>
 		</Form>
-	)
+    );
 }
 
 export { ChangePasswordForm }

@@ -18,7 +18,7 @@ const ChangePasswordForm = ({
 	const { register, handleSubmit, formState } = changePasswordForm
 	const { errors, touchedFields, isSubmitting, isDirty, isValid } = formState
 	return (
-		<Form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
 			<InputBox
 				register={register('oldPassword', {
 					// 舊密碼不用驗證 PASSWORD_REGEX 因後台 reset 亂數產生碼是六位數英文數字(ex:有可能全英 違反正規)
@@ -55,7 +55,7 @@ const ChangePasswordForm = ({
 			/>
 
 			<div className='btn-group'>
-				<Link className='white' href={paths.profile.root}>
+				<Link className='white' href={paths.profile.root} legacyBehavior>
 					{t('Label_General_Back')}
 				</Link>
 				<button
@@ -69,7 +69,7 @@ const ChangePasswordForm = ({
 				</button>
 			</div>
 		</Form>
-	)
+    );
 }
 
 export { ChangePasswordForm }

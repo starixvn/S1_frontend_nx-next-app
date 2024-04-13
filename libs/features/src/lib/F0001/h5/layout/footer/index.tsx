@@ -38,137 +38,138 @@ const LayoutFooter = () => {
 		process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']
 	}/${LIVE_CHAT_ID_BY_LANG_ID[langId] || 'en'}`
 
-	return (
-		<>
-			<footer id='footer' className='footer'>
-				<Link href={paths.home.root} passHref>
-					<a
-						className={classNames('footer-item', {
-							active: pathname === paths.home.root,
-						})}
-					>
-						<img
-							src={`${FOOTER_HOME_DOMAIN}/home${
-								pathname === paths.home.root ? '-dark' : ''
-							}.png`}
-							alt='img-home'
-						/>
-						<span className='footer-title'>{t('Label_General_Home')}</span>
-					</a>
-				</Link>
+	return <>
+        <footer id='footer' className='footer'>
+            <Link
+                href={paths.home.root}
+                passHref
+                className={classNames('footer-item', {
+                    active: pathname === paths.home.root,
+                })}>
 
-				<Link href={paths.promotion.root} passHref>
-					<a
-						className={classNames('footer-item', {
-							active: pathname === paths.promotion.root,
-						})}
-					>
-						<img
-							src={`${FOOTER_HOME_DOMAIN}/gift${
-								pathname === paths.promotion.root ? '-dark' : ''
-							}.png`}
-							alt='img-gift'
-						/>
-						<span className='footer-title'>{t('Label_General_Promotion')}</span>
-					</a>
-				</Link>
+                <img
+                    src={`${FOOTER_HOME_DOMAIN}/home${
+                        pathname === paths.home.root ? '-dark' : ''
+                    }.png`}
+                    alt='img-home'
+                />
+                <span className='footer-title'>{t('Label_General_Home')}</span>
 
-				<a
-					className={classNames('footer-item plus', {
-						active: isFooterPopupActive,
-					})}
-					onClick={toggleIsFooterPopupActive}
-				/>
+            </Link>
 
-				<a
-					rel='noreferrer'
-					target='_blank'
-					href={liveChatUrl}
-					className='footer-item'
-				>
-					<img src={`${FOOTER_HOME_DOMAIN}/livechat.png`} alt='img-livechat' />
-					<span className='footer-title'>{t('Label_General_LiveChat')}</span>
-				</a>
+            <Link
+                href={paths.promotion.root}
+                passHref
+                className={classNames('footer-item', {
+                    active: pathname === paths.promotion.root,
+                })}>
 
-				<Link href={paths.setting.root} passHref>
-					<a
-						className={classNames('footer-item', {
-							active: pathname === paths.setting.root,
-							me: msgCount > 0,
-						})}
-					>
-						<img
-							src={`${FOOTER_HOME_DOMAIN}/me${
-								pathname === paths.setting.root ? '-dark' : ''
-							}.png`}
-							alt='img-setting'
-						/>
-						<span className='footer-title'>{t('Label_General_Me')}</span>
-					</a>
-				</Link>
-			</footer>
+                <img
+                    src={`${FOOTER_HOME_DOMAIN}/gift${
+                        pathname === paths.promotion.root ? '-dark' : ''
+                    }.png`}
+                    alt='img-gift'
+                />
+                <span className='footer-title'>{t('Label_General_Promotion')}</span>
 
-			<div
-				className={classNames('footer-popup', {
-					active: isFooterPopupActive,
-				})}
-			>
-				<div className='footer-popup-item'>
-					<Link href={paths.deposit.root}>
-						<a onClick={handleYuriAddToCartClick}>
-							<div className='footer-popup-img'>
-								<img src={`${FOOTER_HOME_DOMAIN}/deposit.png`} alt='Deposit' />
-							</div>
-						</a>
-					</Link>
-					<div className='footer-popup-title'>{t('Label_General_Deposit')}</div>
-				</div>
-				<div className='footer-popup-item'>
-					<Link href={paths.withdrawal.root}>
-						<a>
-							<div className='footer-popup-img'>
-								<img
-									src={`${FOOTER_HOME_DOMAIN}/withdrawal.png`}
-									alt='Withdrawal'
-								/>
-							</div>
-						</a>
-					</Link>
-					<div className='footer-popup-title'>
-						{t('Label_General_Withdrawal')}
-					</div>
-				</div>
-				{includes(ALLOWED_CURRENCIES['TRANSFER'], currencyId) && (
-					<div className='footer-popup-item'>
-						<Link href={paths.transferFunds.root}>
-							<a>
-								<div className='footer-popup-img'>
-									<img
-										src={`${FOOTER_HOME_DOMAIN}/transfer.png`}
-										alt='Transfer'
-									/>
-								</div>
-							</a>
-						</Link>
-						<div className='footer-popup-title'>
-							{t('Label_General_Transfer')}
-						</div>
-					</div>
-				)}
-				<div className='footer-popup-item'>
-					<Link href={paths.message.root}>
-						<a>
-							<div className='footer-popup-img'>
-								<img src={`${FOOTER_HOME_DOMAIN}/massage.png`} alt='Message' />
-							</div>
-						</a>
-					</Link>
+            </Link>
 
-					<div className='footer-popup-title'>{t('Label_General_Message')}</div>
-				</div>
-			</div>
-		</>
-	)
+            <a
+                className={classNames('footer-item plus', {
+                    active: isFooterPopupActive,
+                })}
+                onClick={toggleIsFooterPopupActive}
+            />
+
+            <a
+                rel='noreferrer'
+                target='_blank'
+                href={liveChatUrl}
+                className='footer-item'
+            >
+                <img src={`${FOOTER_HOME_DOMAIN}/livechat.png`} alt='img-livechat' />
+                <span className='footer-title'>{t('Label_General_LiveChat')}</span>
+            </a>
+
+            <Link
+                href={paths.setting.root}
+                passHref
+                className={classNames('footer-item', {
+                    active: pathname === paths.setting.root,
+                    me: msgCount > 0,
+                })}>
+
+                <img
+                    src={`${FOOTER_HOME_DOMAIN}/me${
+                        pathname === paths.setting.root ? '-dark' : ''
+                    }.png`}
+                    alt='img-setting'
+                />
+                <span className='footer-title'>{t('Label_General_Me')}</span>
+
+            </Link>
+        </footer>
+
+        <div
+            className={classNames('footer-popup', {
+                active: isFooterPopupActive,
+            })}
+        >
+            <div className='footer-popup-item'>
+                <Link href={paths.deposit.root} onClick={handleYuriAddToCartClick}>
+
+                    <div className='footer-popup-img'>
+                        <img src={`${FOOTER_HOME_DOMAIN}/deposit.png`} alt='Deposit' />
+                    </div>
+
+                </Link>
+                <div className='footer-popup-title'>{t('Label_General_Deposit')}</div>
+            </div>
+            <div className='footer-popup-item'>
+                <Link href={paths.withdrawal.root}>
+
+                    <div className='footer-popup-img'>
+                        <img
+                            src={`${FOOTER_HOME_DOMAIN}/withdrawal.png`}
+                            alt='Withdrawal'
+                        />
+                    </div>
+
+                </Link>
+                <div className='footer-popup-title'>
+                    {t('Label_General_Withdrawal')}
+                </div>
+            </div>
+            {includes(ALLOWED_CURRENCIES['TRANSFER'], currencyId) && (
+                <div className='footer-popup-item'>
+                    <Link href={paths.transferFunds.root}>
+
+                        <div className='footer-popup-img'>
+                            <img
+                                src={`${FOOTER_HOME_DOMAIN}/transfer.png`}
+                                alt='Transfer'
+                            />
+                        </div>
+
+                    </Link>
+                    <div className='footer-popup-title'>
+                        {t('Label_General_Transfer')}
+                    </div>
+                </div>
+            )}
+            <div className='footer-popup-item'>
+                <Link href={paths.message.root}>
+
+                    <div className='footer-popup-img'>
+                        <img src={`${FOOTER_HOME_DOMAIN}/massage.png`} alt='Message' />
+                    </div>
+
+                </Link>
+
+                <div className='footer-popup-title'>{t('Label_General_Message')}</div>
+            </div>
+        </div>
+    </>;
 }
 
 export default LayoutFooter

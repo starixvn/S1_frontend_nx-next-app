@@ -20,7 +20,7 @@ const TransferFunds = () => {
 	if (loading) return <Loading />
 
 	return (
-		<div className='rightModule'>
+        <div className='rightModule'>
 			<div className='rightModule'>
 				<div className='infoModule'>
 					<div className='inside-title'>
@@ -44,11 +44,11 @@ const TransferFunds = () => {
 					dataSource={transferHistory}
 					onReload={handleGetTransferRecent}
 				/>
-				<Link href={paths.history.root} passHref>
-					<a className='icon icon-books' />
-				</Link>
+				<Link href={paths.history.root} passHref className='icon icon-books'>
+
+                </Link>
 			</div>
 		</div>
-	)
+    );
 }
 export default TransferFunds

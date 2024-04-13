@@ -54,7 +54,7 @@ const LayoutHeader = () => {
 	const logoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/logo.png`
 
 	return (
-		<Header>
+        <Header>
 			<Header.Logo
 				logoUrl={logoUrl}
 				rewardsUrl={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/88rewards.png`}
@@ -63,30 +63,30 @@ const LayoutHeader = () => {
 				{auth.isLogin ? (
 					<>
 						{includes(ALLOWED_CURRENCIES.TRANSFER, currencyId) && (
-							<Link href={paths.transferFunds.root}>
-								<a>
-									<span>{t('Label_General_TransferFunds')}</span>
-								</a>
-							</Link>
+							(<Link href={paths.transferFunds.root}>
+
+                                <span>{t('Label_General_TransferFunds')}</span>
+
+                            </Link>)
 						)}
 
 						<Link href={paths.withdrawal.root}>
-							<a>
-								<span>{t('Label_General_Withdrawal')}</span>
-							</a>
-						</Link>
+
+                            <span>{t('Label_General_Withdrawal')}</span>
+
+                        </Link>
 
 						<Link href={paths.history.root}>
-							<a>
-								<span>{t('Label_General_History')}</span>
-							</a>
-						</Link>
+
+                            <span>{t('Label_General_History')}</span>
+
+                        </Link>
 
 						<Link href={paths.deposit.root}>
-							<a>
-								<span>{t('Label_General_Deposit')}</span>
-							</a>
-						</Link>
+
+                            <span>{t('Label_General_Deposit')}</span>
+
+                        </Link>
 
 						<Wallet />
 
@@ -109,8 +109,8 @@ const LayoutHeader = () => {
 							onLoginInvalid={handleLoginInvalid}
 						/>
 						<Country />
-						<Link href={paths.forgetPassword.root}>
-							<a className='forgot'>{t('Label_Header_ForgetPassword')}</a>
+						<Link href={paths.forgetPassword.root} className='forgot'>
+							{t('Label_Header_ForgetPassword')}
 						</Link>
 					</>
 				)}
@@ -118,7 +118,7 @@ const LayoutHeader = () => {
 
 			<Menu />
 		</Header>
-	)
+    );
 }
 
 export default LayoutHeader

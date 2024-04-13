@@ -23,7 +23,7 @@ const Deposit = ({ options, withdrawalBlockSetting }: IDepositProps) => {
 	const { showReferralButton } = options
 
 	return (
-		<main>
+        <main>
 			<section className='inside'>
 				<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 				{loading ? (
@@ -38,11 +38,11 @@ const Deposit = ({ options, withdrawalBlockSetting }: IDepositProps) => {
 								<div>{t('Label_Deposit_SubTitle')}</div>
 
 								{showReferralButton && (
-									<Link href={paths.referral.root} passHref>
-										<a className='icon icon-friend'>
-											<span>{t('Label_Deposit_ReferFriendsRewards')}</span>
-										</a>
-									</Link>
+									(<Link href={paths.referral.root} passHref className='icon icon-friend'>
+
+                                        <span>{t('Label_Deposit_ReferFriendsRewards')}</span>
+
+                                    </Link>)
 								)}
 							</div>
 
@@ -54,7 +54,7 @@ const Deposit = ({ options, withdrawalBlockSetting }: IDepositProps) => {
 				)}
 			</section>
 		</main>
-	)
+    );
 }
 
 export default Deposit

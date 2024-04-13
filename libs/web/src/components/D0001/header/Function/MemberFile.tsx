@@ -61,163 +61,161 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 
 	useOnClickOutside(ref, setFalse)
 
-	return (
-		<>
-			<Link href={paths.profile.root}>
-				<a className='memberinfo'>
-					<Img src={headerUrl} alt='img-vip' />
-				</a>
-			</Link>
+	return <>
+        <Link href={paths.profile.root} className='memberinfo'>
 
-			<div
-				ref={ref}
-				className={classNames('grade', levelTabsName || '', {
-					active: isActive,
-				})}
-				onClick={toggle}
-			>
-				<a className='grade-text'>
-					{/* Hello 不用做多語系 */}
-					Hello, {userName}
-				</a>
-				<div className='grade-color'>
-					<div className='dots' />
-					<div className='gradecolor-text'>{levelText}</div>
-				</div>
-				<div
-					className={classNames('home-profile', {
-						highest: isVipLevelHighest,
-					})}
-				>
-					{isShowVip && (
-						<div className='home-profile-top'>
-							<div className='vip-img'>
-								<Img
-									src={currentVipLevelInfo?.headerUrl}
-									alt='img-current-vip'
-								/>
-								{!isVipLevelHighest && (
-									<img
-										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/dot-2.png`}
-										alt='img-dot'
-									/>
-								)}
+            <Img src={headerUrl} alt='img-vip' />
 
-								<Img src={nextVipLevelInfo?.headerUrl} alt='img-next-vip' />
-							</div>
+        </Link>
 
-							{/* // * vip 等級最高時顯示 ReachedTheHighestLevel */}
-							{isVipLevelHighest ? (
-								<Link href={paths.vip.root} className='highest-text'>
-									<a>{t('Label_Vip_ReachedTheHighestLevel')}</a>
-								</Link>
-							) : (
-								<>
-									<div className='progress'>
-										<div
-											className='progress-bar'
-											style={{ width: `${Math.min(progress, 100)}%` }}
-										/>
-									</div>
-									<div className='progress-number'>
-										<div>
-											{numberFormat(actualDeposit, currencyId)}/{' '}
-											{numberFormat(upDeposit, currencyId)}
-										</div>
-										<Link href={paths.vip.root}>
-											<a>{t('Label_Vip_NextMilestone')}</a>
-										</Link>
-									</div>
-								</>
-							)}
-						</div>
-					)}
+        <div
+            ref={ref}
+            className={classNames('grade', levelTabsName || '', {
+                active: isActive,
+            })}
+            onClick={toggle}
+        >
+            <a className='grade-text'>
+                {/* Hello 不用做多語系 */}
+                Hello, {userName}
+            </a>
+            <div className='grade-color'>
+                <div className='dots' />
+                <div className='gradecolor-text'>{levelText}</div>
+            </div>
+            <div
+                className={classNames('home-profile', {
+                    highest: isVipLevelHighest,
+                })}
+            >
+                {isShowVip && (
+                    <div className='home-profile-top'>
+                        <div className='vip-img'>
+                            <Img
+                                src={currentVipLevelInfo?.headerUrl}
+                                alt='img-current-vip'
+                            />
+                            {!isVipLevelHighest && (
+                                <img
+                                    src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/dot-2.png`}
+                                    alt='img-dot'
+                                />
+                            )}
 
-					<div className='home-profile-bottom'>
-						<Link href={paths.profile.root} passHref>
-							<a>
-								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/profile.png`}
-									alt='img-profile'
-								/>
-								{t('Label_General_Profile')}
-							</a>
-						</Link>
+                            <Img src={nextVipLevelInfo?.headerUrl} alt='img-next-vip' />
+                        </div>
 
-						{includes(ALLOWED_CURRENCIES['BANK_INFO'], currencyId) && (
-							<Link href={paths.bankInfo.root} passHref>
-								<a>
-									<img
-										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/bankinfo.png`}
-										alt='img-bank-info'
-									/>
-									{t('Label_General_BankInfo')}
-								</a>
-							</Link>
-						)}
+                        {/* // * vip 等級最高時顯示 ReachedTheHighestLevel */}
+                        {isVipLevelHighest ? (
+                            <Link href={paths.vip.root} className='highest-text'>
+                                {t('Label_Vip_ReachedTheHighestLevel')}
+                            </Link>
+                        ) : (
+                            <>
+                                <div className='progress'>
+                                    <div
+                                        className='progress-bar'
+                                        style={{ width: `${Math.min(progress, 100)}%` }}
+                                    />
+                                </div>
+                                <div className='progress-number'>
+                                    <div>
+                                        {numberFormat(actualDeposit, currencyId)}/{' '}
+                                        {numberFormat(upDeposit, currencyId)}
+                                    </div>
+                                    <Link href={paths.vip.root}>
+                                        {t('Label_Vip_NextMilestone')}
+                                    </Link>
+                                </div>
+                            </>
+                        )}
+                    </div>
+                )}
 
-						<Link href={paths.cryptoWallet.root} passHref>
-							<a>
-								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/cryptowallet.png`}
-									alt='img-bank-info'
-								/>
-								{t('Label_General_CryptoWallet')}
-							</a>
-						</Link>
+                <div className='home-profile-bottom'>
+                    <Link href={paths.profile.root} passHref>
 
-						<Link href={paths.referral.root} passHref>
-							<a>
-								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/referfriends.png`}
-									alt='img-refer-friends'
-								/>
-								{t('Label_General_ReferFriends')}
-							</a>
-						</Link>
+                        <img
+                            src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/profile.png`}
+                            alt='img-profile'
+                        />
+                        {t('Label_General_Profile')}
 
-						<Link href={paths.changePassword.root} passHref>
-							<a>
-								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/changepassword.png`}
-									alt='img-change-password'
-								/>
-								{t('Label_General_ChangePassword')}
-							</a>
-						</Link>
+                    </Link>
 
-						<div
-							className='home-profile-country'
-							onClick={e => {
-								// * 停止 toggle
-								if (!includes(pathname, paths.profile.root)) {
-									e.stopPropagation()
-								}
-							}}
-						>
-							<Country
-								icon={icon}
-								isActive={isLangActive}
-								langGroup={languageGroup}
-								selectedText={`${selectedLangText} (${currencyName})`}
-								toggle={toggleIsLangActive}
-								onSetLanguage={onSetLanguage}
-							/>
-						</div>
-						<button className='logout-btn' onClick={onSignOut}>
-							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/logout.png`}
-								alt='img-logout'
-							/>
-							{t('Label_General_LogOut')}
-						</button>
-					</div>
-				</div>
-			</div>
+                    {includes(ALLOWED_CURRENCIES['BANK_INFO'], currencyId) && (
+                        (<Link href={paths.bankInfo.root} passHref>
 
-			{/* <Country /> */}
-		</>
-	)
+                            <img
+                                src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/bankinfo.png`}
+                                alt='img-bank-info'
+                            />
+                            {t('Label_General_BankInfo')}
+
+                        </Link>)
+                    )}
+
+                    <Link href={paths.cryptoWallet.root} passHref>
+
+                        <img
+                            src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/cryptowallet.png`}
+                            alt='img-bank-info'
+                        />
+                        {t('Label_General_CryptoWallet')}
+
+                    </Link>
+
+                    <Link href={paths.referral.root} passHref>
+
+                        <img
+                            src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/referfriends.png`}
+                            alt='img-refer-friends'
+                        />
+                        {t('Label_General_ReferFriends')}
+
+                    </Link>
+
+                    <Link href={paths.changePassword.root} passHref>
+
+                        <img
+                            src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/changepassword.png`}
+                            alt='img-change-password'
+                        />
+                        {t('Label_General_ChangePassword')}
+
+                    </Link>
+
+                    <div
+                        className='home-profile-country'
+                        onClick={e => {
+                            // * 停止 toggle
+                            if (!includes(pathname, paths.profile.root)) {
+                                e.stopPropagation()
+                            }
+                        }}
+                    >
+                        <Country
+                            icon={icon}
+                            isActive={isLangActive}
+                            langGroup={languageGroup}
+                            selectedText={`${selectedLangText} (${currencyName})`}
+                            toggle={toggleIsLangActive}
+                            onSetLanguage={onSetLanguage}
+                        />
+                    </div>
+                    <button className='logout-btn' onClick={onSignOut}>
+                        <img
+                            src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/logout.png`}
+                            alt='img-logout'
+                        />
+                        {t('Label_General_LogOut')}
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        {/* <Country /> */}
+    </>;
 }
 
 export default MemberFile

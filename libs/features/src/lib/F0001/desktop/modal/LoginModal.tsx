@@ -92,7 +92,7 @@ const LoginModal = () => {
 	}
 
 	return (
-		<div className='pop'>
+        <div className='pop'>
 			<div className='loginpop active'>
 				<div className='joinloginModule'>
 					<div className='loginAnimation'>
@@ -129,11 +129,11 @@ const LoginModal = () => {
 						<div className='title txt-orange'>{t('Label_General_LogIn')}</div>
 						<div className='noAccount'>
 							{t('Label_Join_DontHaveAccount')}
-							<Link href={paths.join.root}>
-								<a className='txt-orange' onClick={closeModal}>
-									{t('Label_General_Join')}
-								</a>
-							</Link>
+							<Link href={paths.join.root} className='txt-orange' onClick={closeModal}>
+
+                                {t('Label_General_Join')}
+
+                            </Link>
 						</div>
 						<div className='inputModule'>
 							<InputBox
@@ -166,11 +166,11 @@ const LoginModal = () => {
 								error={!!errors['password']}
 								touched={!!touchedFields['password']}
 							/>
-							<Link href={paths.forgetPassword.root}>
-								<a className='forgot' onClick={closeModal}>
-									{t('Label_Header_ForgetPassword')}
-								</a>
-							</Link>
+							<Link href={paths.forgetPassword.root} className='forgot' onClick={closeModal}>
+
+                                {t('Label_Header_ForgetPassword')}
+
+                            </Link>
 						</div>
 						<div className='btnGroup'>
 							<button className='btn-cancel' type='button' onClick={closeModal}>
@@ -184,7 +184,7 @@ const LoginModal = () => {
 				</div>
 			</div>
 		</div>
-	)
+    );
 }
 
 export default LoginModal

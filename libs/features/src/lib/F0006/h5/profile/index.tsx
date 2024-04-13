@@ -11,31 +11,29 @@ import { LineBinding } from './LineBinding'
 
 const Profile = () => {
 	const { t } = useTranslation()
-	return (
-		<>
-			<Header className='header'>
-				<Header.Tags
-					tags={[
-						{ href: paths.profile.root, label: t('Label_General_Profile') },
-						{ href: paths.message.root, label: t('Label_General_Message') },
-					]}
-				/>
-			</Header>
-			<main className='main'>
-				<Verification />
-				<AddressEdit />
-				<InfoEdit />
-				<Info />
-				<Address />
-				<div className='btn-group'>
-					<Link href={paths.changePassword.root} passHref>
-						<a>{t('Label_General_ChangePassword')}</a>
-					</Link>
-				</div>
-				<LineBinding />
-			</main>
-		</>
-	)
+	return <>
+        <Header className='header'>
+            <Header.Tags
+                tags={[
+                    { href: paths.profile.root, label: t('Label_General_Profile') },
+                    { href: paths.message.root, label: t('Label_General_Message') },
+                ]}
+            />
+        </Header>
+        <main className='main'>
+            <Verification />
+            <AddressEdit />
+            <InfoEdit />
+            <Info />
+            <Address />
+            <div className='btn-group'>
+                <Link href={paths.changePassword.root} passHref>
+                    {t('Label_General_ChangePassword')}
+                </Link>
+            </div>
+            <LineBinding />
+        </main>
+    </>;
 }
 
 export default Profile

@@ -34,7 +34,7 @@ const WelcomeInfo = () => {
 	}
 
 	return (
-		<div className='welcomeinfo'>
+        <div className='welcomeinfo'>
 			<div className='welcomeinfo-content join'>
 				{isLogin ? (
 					<>
@@ -65,7 +65,7 @@ const WelcomeInfo = () => {
 							<div>{t('Label_General_Join')}</div>
 							<span>{t('Label_Home_JoinDescription')}</span>
 						</div>
-						<Link href={`${paths.join.root}`}>
+						<Link href={`${paths.join.root}`} legacyBehavior>
 							<button className='welcome-btn'>
 								{t('Label_General_MoreInfo')}
 							</button>
@@ -102,7 +102,7 @@ const WelcomeInfo = () => {
 					<div>{t('Label_Home_GetReward')}</div>
 					<span>{t('Label_Home_GetRewardDescription')}</span>
 				</div>
-				<Link href={`${paths.promotion.root}`}>
+				<Link href={`${paths.promotion.root}`} legacyBehavior>
 					<button className='welcome-btn'>{t('Label_General_MoreInfo')}</button>
 				</Link>
 			</div>
@@ -116,7 +116,7 @@ const WelcomeInfo = () => {
 					<span>{t('Label_Home_SimpleReferralDescription')}</span>
 				</div>
 				{isLogin ? (
-					<Link href={`${paths.referral.root}`}>
+					<Link href={`${paths.referral.root}`} legacyBehavior>
 						<button className='welcome-btn'>
 							{t('Label_General_MoreInfo')}
 						</button>
@@ -131,7 +131,7 @@ const WelcomeInfo = () => {
 				)}
 			</div>
 		</div>
-	)
+    );
 }
 
 export default WelcomeInfo

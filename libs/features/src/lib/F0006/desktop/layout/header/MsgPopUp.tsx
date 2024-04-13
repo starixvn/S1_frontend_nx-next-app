@@ -20,47 +20,45 @@ const MsgPopUp = () => {
 	const isPopupMsgActive = !!popupMsg?.id && isMessagePage
 
 	return (
-		<Link
-			href={{
+        (<Link
+            href={{
 				pathname: paths.message.root,
 			}}
-		>
-			<a
-				className={classNames('icon icon-email', {
-					active: isPopupCountActive,
-				})}
-			>
-				{isPopupMsgActive && !isHided && (
-					<div className='msgPop'>
-						<div
-							onClick={() => {
-								router.push({
-									pathname: paths.message.root,
-									query: {
-										msgId: popupMsg?.id ? popupMsg.id : undefined,
-										popUpPageNumber: popupMsg.pageNumber
-											? popupMsg.pageNumber
-											: undefined,
-									},
-								})
-							}}
-						>
-							{popupMsg?.popupMessage}
-						</div>
+            className={classNames('icon icon-email', {
+                active: isPopupCountActive,
+            })}>
 
-						<button
-							className='icon icon-close'
-							onClick={e => {
-								e.preventDefault()
-								e.stopPropagation()
-								setTrue()
-							}}
-						/>
-					</div>
-				)}
-			</a>
-		</Link>
-	)
+            {isPopupMsgActive && !isHided && (
+                <div className='msgPop'>
+                    <div
+                        onClick={() => {
+                            router.push({
+                                pathname: paths.message.root,
+                                query: {
+                                    msgId: popupMsg?.id ? popupMsg.id : undefined,
+                                    popUpPageNumber: popupMsg.pageNumber
+                                        ? popupMsg.pageNumber
+                                        : undefined,
+                                },
+                            })
+                        }}
+                    >
+                        {popupMsg?.popupMessage}
+                    </div>
+
+                    <button
+                        className='icon icon-close'
+                        onClick={e => {
+                            e.preventDefault()
+                            e.stopPropagation()
+                            setTrue()
+                        }}
+                    />
+                </div>
+            )}
+
+        </Link>)
+    );
 }
 
 export default MsgPopUp

@@ -12,7 +12,7 @@ const AppDownload = () => {
 	const { t } = useTranslation()
 
 	return (
-		<main className='main apppage'>
+        <main className='main apppage'>
 			<div className='app'>
 				<div className='appHeader'>
 					<a href={paths.home.root}>
@@ -24,10 +24,10 @@ const AppDownload = () => {
 						/>
 					</a>
 					<Link href={paths.home.root} passHref>
-						<a>
-							<i className='icon icon-keyboard_arrow_left' />
-						</a>
-					</Link>
+
+                        <i className='icon icon-keyboard_arrow_left' />
+
+                    </Link>
 				</div>
 				<div className='appPage'>
 					<div className='appTitle'>{t('Label_APP_DOWNLOAD')}</div>
@@ -118,7 +118,7 @@ const AppDownload = () => {
 				</div>
 			</div>
 		</main>
-	)
+    );
 }
 
 export default AppDownload

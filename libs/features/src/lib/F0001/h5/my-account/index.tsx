@@ -22,70 +22,68 @@ const MyAccount = () => {
 
 	const userLevelImageInfo = VIP_CLUB_IMAGES[(userLevel as number) - 1]
 
-	return (
-		<>
-			<Header className='header'>
-				<Header.Tag title={t('Label_General_MyAccount') as string} />
-			</Header>
-			<main className='main'>
-				{userLevelImageInfo?.url ? (
-					<div className='vip_mark'>
-						<img src={userLevelImageInfo?.url} alt={userLevelImageInfo?.alt} />
-						{includes(
-							ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],
-							currencyId
-						) && <div>{t(userLevelImageInfo?.displayKey as string)}</div>}
-					</div>
-				) : (
-					<div className='icon icon-member' />
-				)}
-				<div className='name'>{userName}</div>
-				<div className='myAccount'>
-					<Link href={paths.profile.root}>
-						<a>
-							<div className='icon icon-member' />
-							<div>{t('Label_General_Profile')}</div>
-						</a>
-					</Link>
-					{includes(ALLOWED_CURRENCIES['REFER_FRIENDS'], currencyId) && (
-						<Link href={paths.referral.root}>
-							<a>
-								<div className='icon icon-friendreferral' />
-								<div>{t('Label_General_ReferFriends')}</div>
-							</a>
-						</Link>
-					)}
+	return <>
+        <Header className='header'>
+            <Header.Tag title={t('Label_General_MyAccount') as string} />
+        </Header>
+        <main className='main'>
+            {userLevelImageInfo?.url ? (
+                <div className='vip_mark'>
+                    <img src={userLevelImageInfo?.url} alt={userLevelImageInfo?.alt} />
+                    {includes(
+                        ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],
+                        currencyId
+                    ) && <div>{t(userLevelImageInfo?.displayKey as string)}</div>}
+                </div>
+            ) : (
+                <div className='icon icon-member' />
+            )}
+            <div className='name'>{userName}</div>
+            <div className='myAccount'>
+                <Link href={paths.profile.root}>
 
-					<Link href={paths.changePassword.root}>
-						<a>
-							<div className='icon icon-icon32px_password' />
-							<div>{t('Label_General_ChangePassword')}</div>
-						</a>
-					</Link>
-					<Link href={paths.message.root}>
-						<a>
-							<div className='icon icon-envelope'>
-								{msgCount > 0 && <i className='quantity'>{msgCount}</i>}
-							</div>
-							<div>{t('Label_General_Message')}</div>
-						</a>
-					</Link>
-					<Link href={paths.wallet.root}>
-						<a>
-							<div className='icon icon-icon32px_wallet' />
-							<div>{t('Label_General_MyWallet')}</div>
-						</a>
-					</Link>
-					<Link href={paths.bankInfo.root}>
-						<a>
-							<div className='icon icon-icon32px_bank-account' />
-							<div>{t('Label_General_BankInfo')}</div>
-						</a>
-					</Link>
-				</div>
-			</main>
-		</>
-	)
+                    <div className='icon icon-member' />
+                    <div>{t('Label_General_Profile')}</div>
+
+                </Link>
+                {includes(ALLOWED_CURRENCIES['REFER_FRIENDS'], currencyId) && (
+                    (<Link href={paths.referral.root}>
+
+                        <div className='icon icon-friendreferral' />
+                        <div>{t('Label_General_ReferFriends')}</div>
+
+                    </Link>)
+                )}
+
+                <Link href={paths.changePassword.root}>
+
+                    <div className='icon icon-icon32px_password' />
+                    <div>{t('Label_General_ChangePassword')}</div>
+
+                </Link>
+                <Link href={paths.message.root}>
+
+                    <div className='icon icon-envelope'>
+                        {msgCount > 0 && <i className='quantity'>{msgCount}</i>}
+                    </div>
+                    <div>{t('Label_General_Message')}</div>
+
+                </Link>
+                <Link href={paths.wallet.root}>
+
+                    <div className='icon icon-icon32px_wallet' />
+                    <div>{t('Label_General_MyWallet')}</div>
+
+                </Link>
+                <Link href={paths.bankInfo.root}>
+
+                    <div className='icon icon-icon32px_bank-account' />
+                    <div>{t('Label_General_BankInfo')}</div>
+
+                </Link>
+            </div>
+        </main>
+    </>;
 }
 
 export default MyAccount

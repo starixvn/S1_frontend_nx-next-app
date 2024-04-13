@@ -265,48 +265,46 @@ const Join = ({ cookies }: IJoinProps) => {
 		checkLineRegister()
 	}, [siteCurrencyList])
 
-	return (
-		<>
-			<StepBar step={step} />
-			{currencyId === CurrenciesEnum.THB && <LineRegister />}
-			<div className='Join'>
-				<FormProvider {...formMethods}>
-					<form onSubmit={handleSubmit(handleSubmitForm)}>
-						{step === 1 && (
-							<Step1
-								cookies={cookies}
-								siteCurrencyList={siteCurrencyList}
-								setStep={setStep}
-								selectCurrency={selectCurrency}
-								setCurrencyOptions={setCurrencyOptions}
-							/>
-						)}
-						{step === 2 && (
-							<Step2
-								// * 如果 Aff Input 有相對應的幣別，則使用 currencyOptions（Aff 過濾的幣別選項）
-								currencySelectOptions={
-									currencyOptions.length === 0
-										? currencySelectOptions
-										: currencyOptions
-								}
-								selectCurrency={selectCurrency}
-							/>
-						)}
-					</form>
-				</FormProvider>
-				{step === 3 && <Step3 />}
-				<Link href={paths.home.root}>
-					<a>
-						<div className='visit'>
-							{t('Label_Join_IWouldLikeToVisit')}
-							<i className='icon icon-visit' />
-						</div>
-					</a>
-				</Link>
-			</div>
-			{step !== 3 && <Features />}
-		</>
-	)
+	return <>
+        <StepBar step={step} />
+        {currencyId === CurrenciesEnum.THB && <LineRegister />}
+        <div className='Join'>
+            <FormProvider {...formMethods}>
+                <form onSubmit={handleSubmit(handleSubmitForm)}>
+                    {step === 1 && (
+                        <Step1
+                            cookies={cookies}
+                            siteCurrencyList={siteCurrencyList}
+                            setStep={setStep}
+                            selectCurrency={selectCurrency}
+                            setCurrencyOptions={setCurrencyOptions}
+                        />
+                    )}
+                    {step === 2 && (
+                        <Step2
+                            // * 如果 Aff Input 有相對應的幣別，則使用 currencyOptions（Aff 過濾的幣別選項）
+                            currencySelectOptions={
+                                currencyOptions.length === 0
+                                    ? currencySelectOptions
+                                    : currencyOptions
+                            }
+                            selectCurrency={selectCurrency}
+                        />
+                    )}
+                </form>
+            </FormProvider>
+            {step === 3 && <Step3 />}
+            <Link href={paths.home.root}>
+
+                <div className='visit'>
+                    {t('Label_Join_IWouldLikeToVisit')}
+                    <i className='icon icon-visit' />
+                </div>
+
+            </Link>
+        </div>
+        {step !== 3 && <Features />}
+    </>;
 }
 
 export default Join

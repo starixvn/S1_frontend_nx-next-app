@@ -10,7 +10,7 @@ const AppDownloadBanner = () => {
 		useDownloadLinks()
 
 	return (
-		<div className='appdownload'>
+        <div className='appdownload'>
 			<div className='appdownload-text'>
 				<div>{t('Label_APP_DOWNLOAD')}</div>
 				<div>
@@ -42,7 +42,7 @@ const AppDownloadBanner = () => {
 						<span>{iosTypeName}</span>
 					</div>
 
-					<Link href={paths.appDownload.root}>
+					<Link href={paths.appDownload.root} legacyBehavior>
 						{t('Label_AppDownload_Instructions')}
 					</Link>
 				</div>
@@ -63,7 +63,7 @@ const AppDownloadBanner = () => {
 						/>
 						<span>{androidTypeName}</span>
 					</div>
-					<Link href={paths.appDownload.root}>
+					<Link href={paths.appDownload.root} legacyBehavior>
 						{t('Label_AppDownload_Instructions')}
 					</Link>
 				</div>
@@ -75,7 +75,7 @@ const AppDownloadBanner = () => {
 				/>
 			</div>
 		</div>
-	)
+    );
 }
 
 export default AppDownloadBanner

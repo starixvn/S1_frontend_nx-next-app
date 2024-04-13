@@ -63,7 +63,7 @@ const HeaderModule = ({
 	}, [originIsHideBalance])
 
 	return (
-		<div className={classNames('headerModule', className)} {...props}>
+        <div className={classNames('headerModule', className)} {...props}>
 			{/* 用 a link 讓畫面重新整理 */}
 			<a href='/'>
 				<img
@@ -77,8 +77,8 @@ const HeaderModule = ({
 				<div>
 					<div className='headerInfo'>
 						{t('Label_General_Welcome')}
-						<Link href={paths.profile.root}>
-							<a className='MemberID'>{userName}</a>
+						<Link href={paths.profile.root} className='MemberID'>
+							{userName}
 						</Link>
 					</div>
 					<div className='Balance'>
@@ -109,7 +109,7 @@ const HeaderModule = ({
 				</div>
 			)}
 		</div>
-	)
+    );
 }
 
 export default HeaderModule

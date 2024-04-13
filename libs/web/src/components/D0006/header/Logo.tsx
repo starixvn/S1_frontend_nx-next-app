@@ -8,25 +8,26 @@ interface ILogoProps {
 
 const Logo = ({ logoUrl, rewardsUrl }: ILogoProps) => {
 	return (
-		<div className='logo'>
+        <div className='logo'>
 			<Link className='logo' href={paths.home.root}>
-				<a>
-					<img src={logoUrl} alt='logo' />
-				</a>
-			</Link>
+
+                <img src={logoUrl} alt='logo' />
+
+            </Link>
 			{process.env['NEXT_PUBLIC_SHOW_REWARD'] === 'true' && (
-				<Link
-					href={`${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/rewards/`}
-					className='logo'
-					passHref
-				>
-					<a target='_blank' rel='noopener noreferrer' className='rewardsLogo'>
-						<img src={rewardsUrl} alt='88reward' />
-					</a>
-				</Link>
+				(<Link
+                    href={`${process.env['NEXT_PUBLIC_ENV_DB_HOST']}/rewards/`}
+                    className='logo'
+                    passHref
+                    target='_blank'
+                    rel='noopener noreferrer'>
+
+                    <img src={rewardsUrl} alt='88reward' />
+
+                </Link>)
 			)}
 		</div>
-	)
+    );
 }
 
 export default Logo

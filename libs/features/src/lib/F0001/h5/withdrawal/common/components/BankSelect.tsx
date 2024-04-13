@@ -23,16 +23,16 @@ const BankSelect = () => {
 		switch (withdrawalType) {
 			case WithdrawalBankCardEnum.LocalBank:
 				return bankInfoDetail?.length < 3 ? (
-					<Link href={paths.bankInfo.root}>
-						<a />
-					</Link>
-				) : null
+					(<Link href={paths.bankInfo.root}>
+
+                    </Link>)
+				) : null;
 			case WithdrawalBankCardEnum.EWallet:
 				return custEWalletInfo?.length < 3 ? (
-					<Link href={paths.eWallet.root}>
-						<a />
-					</Link>
-				) : null
+					(<Link href={paths.eWallet.root}>
+
+                    </Link>)
+				) : null;
 			default:
 				return null
 		}

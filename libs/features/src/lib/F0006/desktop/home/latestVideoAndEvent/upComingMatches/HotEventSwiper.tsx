@@ -42,7 +42,7 @@ const Item = ({ data }: { data: IHotEventData }) => {
 	const awayTeamHandicap = formatHdp(handicap * -1)
 
 	return (
-		<div className='swiper-slide'>
+        <div className='swiper-slide'>
 			<div className='hotevent'>
 				{isUrl(backgroundPic) && (
 					<img src={backgroundPic} alt='hotevent-bg-img' />
@@ -62,7 +62,7 @@ const Item = ({ data }: { data: IHotEventData }) => {
 							<div>{homeTeamHandicap}</div>
 						</div>
 						<div className='btnGroup'>
-							<Link href={`${paths.sports.root}${params}`}>
+							<Link href={`${paths.sports.root}${params}`} legacyBehavior>
 								<button className='orange'>{t('Label_General_BetNow')}</button>
 							</Link>
 						</div>
@@ -94,7 +94,7 @@ const Item = ({ data }: { data: IHotEventData }) => {
 				</div>
 			</div>
 		</div>
-	)
+    );
 }
 
 const HotEventSwiper = () => {

@@ -5,20 +5,18 @@ import { paths } from '@nx-next-app/constants'
 const Step3 = () => {
 	const { t } = useTranslation()
 
-	return (
-		<>
-			<div className='congrats'>
-				<p>{t('Label_Join_Congratulations')}</p>
-				{t('Label_Join_BecomingDistinguishedPlayer')}
-			</div>
-			<div className='Terms'>{t('Label_Join_AfterJoinHint')}</div>
-			<Link href={paths.deposit.root}>
-				<a className='btn-group'>
-					<button>{t('Label_Join_DepositNow')}</button>
-				</a>
-			</Link>
-		</>
-	)
+	return <>
+        <div className='congrats'>
+            <p>{t('Label_Join_Congratulations')}</p>
+            {t('Label_Join_BecomingDistinguishedPlayer')}
+        </div>
+        <div className='Terms'>{t('Label_Join_AfterJoinHint')}</div>
+        <Link href={paths.deposit.root} className='btn-group'>
+
+            <button>{t('Label_Join_DepositNow')}</button>
+
+        </Link>
+    </>;
 }
 
 export { Step3 }

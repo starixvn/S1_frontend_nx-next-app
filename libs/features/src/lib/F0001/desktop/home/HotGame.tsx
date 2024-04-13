@@ -94,13 +94,13 @@ const HotGame = () => {
 	if (hotGameData?.length === 0 && jackpot?.length === 0) return null
 
 	return (
-		<div className='hotgame'>
+        <div className='hotgame'>
 			{hotGameData.length > 0 && (
 				<>
 					<div className='maintitle'>
 						{t('Label_General_HotGames')}
 						<Link href={paths.slots.root} passHref>
-							<a>{t('Label_General_More')}</a>
+							{t('Label_General_More')}
 						</Link>
 					</div>
 					<div className='hotgame-content'>
@@ -199,7 +199,7 @@ const HotGame = () => {
 				<>
 					<div className='maintitle'>
 						{t('Label_General_Jackpot')}
-						<Link href={paths.slots.root}>{t('Label_General_More')}</Link>
+						<Link href={paths.slots.root} legacyBehavior>{t('Label_General_More')}</Link>
 					</div>
 
 					<div
@@ -244,7 +244,7 @@ const HotGame = () => {
 				</>
 			)}
 		</div>
-	)
+    );
 }
 
 export default HotGame
