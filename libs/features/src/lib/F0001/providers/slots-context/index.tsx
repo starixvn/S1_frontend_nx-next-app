@@ -362,6 +362,56 @@ const SlotsProvider = ({
 		setIsActiveDropdown(prev => !prev)
 	}
 
+	const updateVendorList = () => {
+		// 篩選直播主vendorList
+		let tempVendorList = vendorList
+		if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
+			const uniqueTpIds = Array.from(
+				new Set(
+					custGameTypeSettingList
+						.filter(item => item.categoryId === CategoryEnum.SLOTS)
+						.map(item => item.tpId)
+				)
+			)
+			tempVendorList = vendorList.filter(
+				({ tpId }) => !uniqueTpIds.includes(tpId)
+			)
+		}
+
+		const targetIndex = findIndex(tempVendorList, {
+			tpId: Number(queryTpId),
+		})
+
+		if (targetIndex !== -1) {
+			if (
+				Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Desktop
+			) {
+				// * 當指定廠牌不在頁面上時,展開下拉
+				if (targetIndex > 5) {
+					setIsActiveDropdown(true)
+				} else {
+					setIsActiveDropdown(false)
+				}
+				setVendorList(tempVendorList)
+			}
+
+			if (
+				Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Mobile
+			) {
+				// * 將 queryTpId 找到的 vendor slice 到第一個選項並 selected
+				const newVendorList = [
+					...tempVendorList.slice(targetIndex),
+					...tempVendorList.slice(0, targetIndex),
+				]
+				setVendorList(newVendorList)
+			}
+
+			setActiveVendorTpId(tempVendorList[targetIndex].tpId)
+		} else {
+			setVendorList(tempVendorList)
+		}
+	}
+
 	useEffect(() => {
 		// * 首次進入slots計算整理myFavorites
 		if (isFirstRender) {
@@ -381,54 +431,7 @@ const SlotsProvider = ({
 			setMyFavorites(
 				prev => `${prev}${myFavorites && result ? '&' : ''}${result}`
 			)
-
-			// 篩選直播主vendorList
-			let tempVendorList = vendorList
-			if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
-				const uniqueTpIds = Array.from(
-					new Set(
-						custGameTypeSettingList
-							.filter(item => item.categoryId === CategoryEnum.SLOTS)
-							.map(item => item.tpId)
-					)
-				)
-				tempVendorList = vendorList.filter(
-					({ tpId }) => !uniqueTpIds.includes(tpId)
-				)
-			}
-
-			const targetIndex = findIndex(tempVendorList, {
-				tpId: Number(queryTpId),
-			})
-
-			if (targetIndex !== -1) {
-				if (
-					Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Desktop
-				) {
-					// * 當指定廠牌不在頁面上時,展開下拉
-					if (targetIndex > 5) {
-						setIsActiveDropdown(true)
-					} else {
-						setIsActiveDropdown(false)
-					}
-					setVendorList(tempVendorList)
-				}
-
-				if (
-					Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Mobile
-				) {
-					// * 將 queryTpId 找到的 vendor slice 到第一個選項並 selected
-					const newVendorList = [
-						...tempVendorList.slice(targetIndex),
-						...tempVendorList.slice(0, targetIndex),
-					]
-					setVendorList(newVendorList)
-				}
-
-				setActiveVendorTpId(tempVendorList[targetIndex].tpId)
-			} else {
-				setVendorList(tempVendorList)
-			}
+			updateVendorList()
 		}
 	}, [isFirstRender])
 
@@ -457,6 +460,16 @@ const SlotsProvider = ({
 
 		updateCategoryKeys()
 		setActiveCategoryKey('all')
+	}, [queryTpId])
+
+	useEffect(() => {
+		if (
+			queryTpId &&
+			!isFirstRender &&
+			Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Desktop
+		) {
+			updateVendorList()
+		}
 	}, [queryTpId])
 
 	// * vendor、category 更新時初始 input
