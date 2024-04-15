@@ -62,7 +62,7 @@ const countryCodeMap: {
 	CS: { currencyId: CurrenciesEnum.USD, langId: 'en' },
 	KR: { currencyId: CurrenciesEnum.KRW, langId: 'ko' },
 	BR: { currencyId: CurrenciesEnum.BRL, langId: 'br' },
-	TW: { currencyId: CurrenciesEnum.USD, langId: 'en' }, // * TW for 前端部門組員測試用
+	// TW: { currencyId: CurrenciesEnum.INR, langId: 'en' }, 測試使用，測試時才打開，否則一率使用預設
 }
 
 // 此 middleware 僅處理未初始化的 cookie，再進入 'default' 時會給予固定 defaultLang 內的 locale
