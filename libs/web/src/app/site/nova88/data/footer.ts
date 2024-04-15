@@ -1,4 +1,5 @@
 import { CurrenciesEnum, IFooterData } from '@nx-next-app/types'
+import { GET_AFFILIATE_LINK } from './affiliate'
 
 export const FOOTER_DATA = ({
 	langId,
@@ -8,16 +9,6 @@ export const FOOTER_DATA = ({
 	currencyId: number
 }): IFooterData => {
 	// * 根據幣別決定路徑，每間品牌不同
-	const getApplyNowLink = (currencyId: number, langId: string) => {
-		if (currencyId === CurrenciesEnum.MYR) {
-			return ` https://aff.nova88mas102.com/?lang=${langId}`
-		}
-		if (currencyId === CurrenciesEnum.INR) {
-			return `https://aff.nova88india.com/?lang=${langId}`
-		}
-		return `https://aff.nova88bkk.com/?lang=${langId}`
-	}
-
 	return {
 		// * platformList 渲染時需透過 tpIds、allowCurrencies 過濾一次
 		platformList: [
@@ -189,7 +180,7 @@ export const FOOTER_DATA = ({
 			},
 			{
 				displayKey: 'Label_Affiliate_Program',
-				href: getApplyNowLink(currencyId, langId),
+				href: GET_AFFILIATE_LINK({ currencyId, langId }),
 			},
 			{
 				displayKey: 'Label_ContactUs',
