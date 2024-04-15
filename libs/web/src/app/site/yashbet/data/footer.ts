@@ -8,10 +8,6 @@ export const FOOTER_DATA = ({
 	currencyId: number
 }): IFooterData => {
 	// * 根據幣別決定路徑，每間品牌不同
-	const getApplyNowLink = (currencyId: number) => {
-		return `https://aff.yashbet.com/?lang=${langId}`
-	}
-
 	return {
 		copyRightList: [
 			{
@@ -157,28 +153,36 @@ export const FOOTER_DATA = ({
 		],
 		programList: [
 			{
-				applyNowLink: getApplyNowLink(currencyId),
+				applyNowLink: `${process.env['NEXT_PUBLIC_AFFILIATE_DOMAIN']}?lang=${
+					langId || 'en'
+				}`,
 				icon: 'icon-friendreferral',
 				displayKey: 'Label_Referral_Program',
 				description: 'Label_Referral_Program_desc',
 				hotKeyName: 'Label_General_JoinNow',
 			},
 			{
-				applyNowLink: getApplyNowLink(currencyId),
+				applyNowLink: `${process.env['NEXT_PUBLIC_AFFILIATE_DOMAIN']}?lang=${
+					langId || 'en'
+				}`,
 				icon: 'icon-affiliate',
 				displayKey: 'Label_Affiliate_Program',
 				description: 'Label_Affiliate_Program_desc',
 				hotKeyName: 'Label_General_ApplyNow',
 			},
 			{
-				applyNowLink: getApplyNowLink(currencyId),
+				applyNowLink: `${process.env['NEXT_PUBLIC_AFFILIATE_DOMAIN']}?lang=${
+					langId || 'en'
+				}`,
 				icon: 'icon-vip',
 				displayKey: 'Label_VIP_Program',
 				description: 'Label_VIP_Program_desc',
 				hotKeyName: 'Label_General_MoreInfo',
 			},
 			{
-				applyNowLink: getApplyNowLink(currencyId),
+				applyNowLink: `${process.env['NEXT_PUBLIC_AFFILIATE_DOMAIN']}?lang=${
+					langId || 'en'
+				}`,
 				icon: 'icon-livechat1',
 				displayKey: 'Label_Customer_Support',
 				description: 'Label_Customer_Support_desc',
