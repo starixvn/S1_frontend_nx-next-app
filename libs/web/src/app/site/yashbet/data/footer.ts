@@ -10,13 +10,7 @@ export const FOOTER_DATA = ({
 }): IFooterData => {
 	// * 根據幣別決定路徑，每間品牌不同
 	const getApplyNowLink = (currencyId: number) => {
-		// if (currencyId === CurrenciesEnum.MYR) {
-		// 	return ` https://aff.nova88mas102.com/?lang=${currentLang}`
-		// }
-		if (currencyId === CurrenciesEnum.INR) {
-			return `https://aff.nova88india.com/?lang=${langId}`
-		}
-		return `https://aff.nova88bkk.com/?lang=${langId}`
+		return `https://aff.yashbet.com/?lang=${langId}`
 	}
 
 	return {
