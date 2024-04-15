@@ -100,7 +100,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
-	const showShortcutList = watchAmountRule !== 3
+	const showShortcutList = watchAmountRule === 3
 
 	const showUPI = currencyId === CurrenciesEnum.INR && watchPayName === 'TenPay'
 
@@ -186,6 +186,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				<DepositModule title={depositAmountText} required>
 					<div className='column' />
 					<InputBox
+						disabled={showShortcutList}
 						type='number'
 						className='inputBox-white'
 						register={register('amount', {
@@ -222,20 +223,18 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 					{/* // ! 加這行 tip 用來防止 InputBox 與 ShortcutList 跑版 */}
 					<div className='tip' />
 
-					{showShortcutList && (
-						<DepositModule.ShortcutList
-							minAmount={watchMinAmount}
-							maxAmount={watchMaxAmount}
-							shortcut={Number(watchAmount)}
-							shortcutList={generateShortcutList({
-								minAmount: watchMinAmount,
-							})}
-							onChange={value => {
-								setValue('amount', value)
-								trigger('amount')
-							}}
-						/>
-					)}
+					<DepositModule.ShortcutList
+						minAmount={watchMinAmount}
+						maxAmount={watchMaxAmount}
+						shortcut={Number(watchAmount)}
+						shortcutList={generateShortcutList({
+							minAmount: watchMinAmount,
+						})}
+						onChange={value => {
+							setValue('amount', value)
+							trigger('amount')
+						}}
+					/>
 				</DepositModule>
 			)}
 
