@@ -1,4 +1,5 @@
 const isDevelopment = process.env.NODE_ENV !== 'production'
+const path = require('path')
 
 module.exports = {
 	i18n: {
@@ -7,6 +8,9 @@ module.exports = {
 		defaultNS: process.env.NEXT_PUBLIC_SITE_NAME,
 		fallbackNS: 'common',
 		fallbackLng: 'en',
+		localePath: isDevelopment
+			? path.resolve('../../public/locales')
+			: './public/locales',
 	},
 	reloadOnPrerender: isDevelopment,
 }

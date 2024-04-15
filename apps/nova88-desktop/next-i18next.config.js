@@ -1,4 +1,5 @@
 /* eslint-disable */
+const path = require('path')
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 module.exports = {
@@ -10,8 +11,8 @@ module.exports = {
 		fallbackLng: 'en',
 		// 更新後因爲 nx 的資料夾層級改變， i18next 無法正確抓到 root 層的 public/locale資料，故作此修改
 		localePath: isDevelopment
-			? require('path').resolve('../../public/locales')
-			: '/locales',
+			? path.resolve('../../public/locales')
+			: './public/locales',
 	},
 	reloadOnPrerender: isDevelopment,
 }

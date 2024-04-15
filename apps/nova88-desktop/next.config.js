@@ -52,6 +52,7 @@ const nextConfig = {
 		localeDetection: false, // * 不根據用戶語言環境自動導轉
 		// * https://nextjs.org/docs/advanced-features/i18n-routing#disabling-automatic-locale-detection
 	},
+	output: 'standalone',
 }
 
 const plugins = [withNx]

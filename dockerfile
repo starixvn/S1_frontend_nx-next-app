@@ -1,4 +1,4 @@
-FROM node:16.20.0-alpine AS builder
+FROM node:18-alpine AS builder
 
 # alpine 輕量化 Image 不包含必要的 python 資源，需另外加載才可正確執行 npm 安裝指令
 RUN apk add --no-cache libc6-compat python3 make g++
@@ -17,11 +17,11 @@ COPY . .
 COPY ./apps/${project_name}/.env.${env} ./apps/${project_name}/.env
 
 # install
-RUN npm ci
+RUN npm ci --prefer-offline --no-audit --progress=false
 RUN nx clear-cache
 RUN app=${project_name} npm run build
 
-FROM node:16.20.0-alpine AS serve-step
+FROM node:18-alpine AS serve-step
 
 ARG project_name
 ARG port
