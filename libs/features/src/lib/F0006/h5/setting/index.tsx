@@ -134,7 +134,7 @@ const Setting = () => {
 						<SettingCollapse.Item
 							prefixIcon='title icon icon-affiliate'
 							onClick={() =>
-								push(
+								window.open(
 									`${process.env['NEXT_PUBLIC_AFFILIATE_DOMAIN']}?lang=${
 										langId || 'en'
 									}`
