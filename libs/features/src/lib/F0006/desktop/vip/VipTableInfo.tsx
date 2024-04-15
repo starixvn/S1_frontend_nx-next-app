@@ -116,25 +116,25 @@ const VipTableInfo = ({
 				<tr>
 					<td>{capitalize(t('Label_Vip_Sport_Rebate') || '')}</td>
 					{vipBannerData?.map(item => (
-						<td key={item.level}>{item?.rebateCategory[0].percentage}%</td>
+						<td key={item.level}>{item?.rebateCategory[0]?.percentage}%</td>
 					))}
 				</tr>
 				<tr>
 					<td>{capitalize(t('Label_Vip_Live_Casino_Rebate') || '')}</td>
 					{vipBannerData?.map(item => (
-						<td key={item.level}>{item?.rebateCategory[2].percentage}%</td>
+						<td key={item.level}>{item?.rebateCategory[2]?.percentage}%</td>
 					))}
 				</tr>
 				<tr>
 					<td>{capitalize(t('Label_Vip_Slot_Fishing_Rebate') || '')}</td>
 					{vipBannerData?.map(item => (
-						<td key={item.level}>{item?.rebateCategory[1].percentage}%</td>
+						<td key={item.level}>{item?.rebateCategory[1]?.percentage}%</td>
 					))}
 				</tr>
 				<tr>
 					<td>{capitalize(t('Label_Vip_Virtual_Sport_Rebate') || '')}</td>
 					{vipBannerData?.map(item => (
-						<td key={item.level}>{item?.rebateCategory[3].percentage}%</td>
+						<td key={item.level}>{item?.rebateCategory[3]?.percentage}%</td>
 					))}
 				</tr>
 				<tr className='title'>
