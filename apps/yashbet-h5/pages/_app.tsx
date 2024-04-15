@@ -76,7 +76,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			{/* <LiveChatScript /> */}
 			<IovationScript />
 			<PlayTechScript />
-			{/*<GTMScript />*/}
+			{/* <GTMScript /> */}
 			<JackpotsScript />
 			<GoogleTagManagerScript />
 		</>
