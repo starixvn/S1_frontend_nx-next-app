@@ -19,6 +19,7 @@ import {
 	isConvert,
 	numberFormat,
 	revertNumberFormat,
+	limitedShortcutAmountList,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
@@ -97,6 +98,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 	const watchAmountRule = watch('amountRule')
 	const watchCustBankAccount = watch('custBankAccount')
 	const watchCustEWalletAccount = watch('custEWalletAccount')
+	const watchAmountList = watch('amountList')
 
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
@@ -107,8 +109,6 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 	const depositAmountText = `${t('Label_General_DepositAmount')} ${
 		currencyId === IDR ? t('Label_Deposit_IDRAmountHint') : ''
 	}`
-
-	console.log('watchCustEWalletAccount', watchCustEWalletAccount)
 
 	return (
 		<>
@@ -185,56 +185,75 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
 				<DepositModule title={depositAmountText} required>
 					<div className='column' />
-					<InputBox
-						disabled={showShortcutList}
-						type='number'
-						className='inputBox-white'
-						register={register('amount', {
-							valueAsNumber: true,
-							required: {
-								value: true,
-								message: t('Label_General_AmountLessThan', {
-									value1: numberFormat(convertedMinAmount, currencyId, 0),
-								}),
-							},
-							min: {
-								value: watchMinAmount,
-								message: t('Label_General_AmountLessThan', {
-									value1: numberFormat(convertedMinAmount, currencyId, 0),
-								}),
-							},
-							max: {
-								value: watchMaxAmount,
-								message: t('Label_General_NotInLimit'),
-							},
-						})}
-						format={isConvert(currencyId)}
-						placeholder={
-							t('Label_General_AmountMinMaxLimit', {
-								value1: watchMinAmount,
-								value2: watchMaxAmount,
-							}) || ''
-						}
-						touched={!!touchedFields['amount']}
-						errorMessage={errors['amount']?.message || ''}
-						error={!!errors['amount']}
-					/>
+					{!showShortcutList && (
+						<InputBox
+							type='number'
+							className='inputBox-white'
+							register={register('amount', {
+								valueAsNumber: true,
+								required: {
+									value: true,
+									message: t('Label_General_AmountLessThan', {
+										value1: numberFormat(convertedMinAmount, currencyId, 0),
+									}),
+								},
+								min: {
+									value: watchMinAmount,
+									message: t('Label_General_AmountLessThan', {
+										value1: numberFormat(convertedMinAmount, currencyId, 0),
+									}),
+								},
+								max: {
+									value: watchMaxAmount,
+									message: t('Label_General_NotInLimit'),
+								},
+							})}
+							format={isConvert(currencyId)}
+							placeholder={
+								t('Label_General_AmountMinMaxLimit', {
+									value1: watchMinAmount,
+									value2: watchMaxAmount,
+								}) || ''
+							}
+							touched={!!touchedFields['amount']}
+							errorMessage={errors['amount']?.message || ''}
+							error={!!errors['amount']}
+						/>
+					)}
 
 					{/* // ! 加這行 tip 用來防止 InputBox 與 ShortcutList 跑版 */}
 					<div className='tip' />
 
-					<DepositModule.ShortcutList
-						minAmount={watchMinAmount}
-						maxAmount={watchMaxAmount}
-						shortcut={Number(watchAmount)}
-						shortcutList={generateShortcutList({
-							minAmount: watchMinAmount,
-						})}
-						onChange={value => {
-							setValue('amount', value)
-							trigger('amount')
-						}}
-					/>
+					{showShortcutList ? (
+						<DepositModule.ShortcutList
+							minAmount={watchMinAmount}
+							maxAmount={watchMaxAmount}
+							shortcut={Number(watchAmount)}
+							shortcutList={limitedShortcutAmountList({
+								minAmount: watchMinAmount,
+								maxAmount: watchMaxAmount,
+								amountList: watchAmountList,
+							})}
+							format={isConvert(currencyId)}
+							onChange={value => {
+								setValue('amount', value)
+								trigger('amount')
+							}}
+						/>
+					) : (
+						<DepositModule.ShortcutList
+							minAmount={watchMinAmount}
+							maxAmount={watchMaxAmount}
+							shortcut={Number(watchAmount)}
+							shortcutList={generateShortcutList({
+								minAmount: watchMinAmount,
+							})}
+							onChange={value => {
+								setValue('amount', value)
+								trigger('amount')
+							}}
+						/>
+					)}
 				</DepositModule>
 			)}
 
