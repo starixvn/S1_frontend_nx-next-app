@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import {
 	DepositModule,
 	Form,
@@ -20,6 +21,7 @@ import {
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
+import { paths } from '@nx-next-app/constants'
 
 const { IDR } = CurrenciesEnum
 
@@ -45,6 +47,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			formState: { touchedFields, errors, isValid },
 		},
 		supportBanks,
+		custBankInfo,
 		bankCardOptions,
 		bankCardRequired,
 		onAutoDepositFormSubmit,
@@ -198,6 +201,13 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 						>
 							{errors['custBankAccount']?.message}
 						</div>
+						{custBankInfo.length < 3 && (
+							<div className='btn-group'>
+								<Link href={paths.bankInfo.root}>
+									<a>+</a>
+								</Link>
+							</div>
+						)}
 					</div>
 				</DepositModule>
 			)}
@@ -230,7 +240,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 					<button
 						type='submit'
 						style={{ pointerEvents: isValid ? 'auto' : 'none' }}
-						className={classNames('orange', {
+						className={classNames({
 							darkGray: !isValid,
 							'btn-check': isValid,
 						})}

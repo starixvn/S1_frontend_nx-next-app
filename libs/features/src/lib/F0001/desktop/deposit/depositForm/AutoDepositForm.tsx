@@ -20,6 +20,8 @@ import {
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
+import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import { useManageCards } from '@nx-next-app/features/F0001/providers/withdrawal-context/useManageCards'
 
 const { IDR } = CurrenciesEnum
 
@@ -29,7 +31,7 @@ interface IAutoDepositFormProps {
 
 const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 	const {
-		userInfo: { currencyId },
+		userInfo: { currencyId, accountName },
 	} = useAuth()
 	const { t } = useTranslation()
 	const { promotionOptions } = useDepositContext()
@@ -44,12 +46,20 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			clearErrors,
 			formState: { touchedFields, errors, isValid },
 		},
+		custBankInfo,
 		supportBanks,
-		onAutoDepositFormSubmit,
 		bankCardOptions,
 		bankCardRequired,
+		onAutoDepositFormSubmit,
 	} = useAutoDepositForm({
 		dataSource,
+	})
+
+	const bankData = { bankInfoDetail: custBankInfo }
+
+	const { handleAddCards } = useManageCards({
+		accountName: String(accountName),
+		bankData,
 	})
 
 	const watchAmount = watch('amount')
@@ -187,6 +197,16 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 						}}
 						errorMessage={errors['custBankAccount']?.message as string}
 					/>
+					{custBankInfo.length < 3 && (
+						<div className='btnGroup'>
+							<button
+								className='btn-check'
+								onClick={() => handleAddCards(WithdrawalBankCardEnum.LocalBank)}
+							>
+								+
+							</button>
+						</div>
+					)}
 					<div
 						className={classNames('tip', {
 							active: errors['custBankAccount'],

@@ -530,6 +530,7 @@ const paymentApi = rootApi.injectEndpoints({
 				method: 'POST',
 				data,
 			}),
+			providesTags: ['WITHDRAWAL_BANKCARD_POST'],
 		}),
 	}),
 })

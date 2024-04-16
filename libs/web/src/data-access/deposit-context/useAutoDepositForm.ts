@@ -3,8 +3,8 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useDepositSavedLocalStorage } from '@nx-next-app/data-access'
 import {
 	IAxiosError,
-	useGetPaymentCustBankInfoQuery,
 	IPaymentAutoDepositData,
+	useGetPaymentCustBankInfoQuery,
 	useLazyCheckDepositSpecialCodeQuery,
 } from '@nx-next-app/service'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
@@ -82,10 +82,12 @@ const useAutoDepositForm = ({
 
 	const bankCardRequired = extraDataType === DepositExtraDataTypeEnum.bankCard
 
-	const bankCardOptions = custBankInfo.map(({ bankName, accountNo }) => ({
-		label: `${bankName} - ${accountNo}`,
-		value: accountNo,
-	}))
+	const bankCardOptions = custBankInfo
+		.filter(({ disabled }) => !disabled)
+		.map(({ bankName, accountNo }) => ({
+			label: `${bankName} - ${accountNo}`,
+			value: accountNo,
+		}))
 
 	// * 1. 檢查是否有 specialCode，specialCode 與bonusCode 只能擇一
 	// * 2. window.open() only
@@ -240,6 +242,7 @@ const useAutoDepositForm = ({
 
 	return {
 		formMethods,
+		custBankInfo,
 		supportBanks,
 		bankCardOptions,
 		bankCardRequired,

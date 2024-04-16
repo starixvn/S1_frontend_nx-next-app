@@ -1,5 +1,5 @@
+import Link from 'next/link'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-
 import {
 	DepositModule,
 	Form,
@@ -18,13 +18,13 @@ import { CurrenciesEnum } from '@nx-next-app/types'
 import {
 	generateShortcutList,
 	isConvert,
-	limitedShortcutAmountList,
 	numberFormat,
 	revertNumberFormat,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
+import { paths } from '@nx-next-app/constants'
 
 const { IDR } = CurrenciesEnum
 
@@ -73,8 +73,10 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			setError,
 			formState: { touchedFields, errors, isValid },
 		},
+		custBankInfo,
 		eWalletOptions,
 		eWalletRequired,
+		custEWalletList,
 		bankCardOptions,
 		bankCardRequired,
 		channelMobilePayList = [],
@@ -107,11 +109,10 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 	const watchGroupName = watch('groupName')
 	const watchCustBankAccount = watch('custBankAccount')
 	const watchCustEWalletAccount = watch('custEWalletAccount')
-	const watchAmountList = watch('amountList')
 
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
-	const showShortcutList = watchAmountRule === 3
+	const showShortcutList = watchAmountRule !== 3
 
 	const showUPI = currencyId === CurrenciesEnum.INR && watchPayName === 'TenPay'
 
@@ -248,65 +249,49 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
 				<DepositModule title={depositAmountText} required>
 					<div className='infoModule'>
-						{!showShortcutList && (
-							<InputBox
-								type='number'
-								icon='icon icon-pencil'
-								register={register('amount', {
-									valueAsNumber: true,
-									required: {
-										value: true,
-										message: t('Label_General_AmountLessThan', {
-											value1: numberFormat(convertedMinAmount, currencyId, 0),
-										}),
-									},
-									min: {
-										value: watchMinAmount,
-										message: t('Label_General_AmountLessThan', {
-											value1: numberFormat(convertedMinAmount, currencyId, 0),
-										}),
-									},
-									max: {
-										value: watchMaxAmount,
-										message: t('Label_General_NotInLimit'),
-									},
-								})}
-								format={isConvert(currencyId)}
-								placeholder={
-									t('Label_General_AmountMinMaxLimit', {
-										value1: watchMinAmount,
-										value2: watchMaxAmount,
-									}) || ''
-								}
-								touched={!!touchedFields['amount']}
-								errorMessage={errors['amount']?.message || ''}
-								error={!!errors['amount']}
-								infoMessage={
-									t('Label_General_AmountLessThan', {
+						<InputBox
+							type='number'
+							icon='icon icon-pencil'
+							register={register('amount', {
+								valueAsNumber: true,
+								required: {
+									value: true,
+									message: t('Label_General_AmountLessThan', {
 										value1: numberFormat(convertedMinAmount, currencyId, 0),
-									}) || ''
-								}
-							/>
-						)}
+									}),
+								},
+								min: {
+									value: watchMinAmount,
+									message: t('Label_General_AmountLessThan', {
+										value1: numberFormat(convertedMinAmount, currencyId, 0),
+									}),
+								},
+								max: {
+									value: watchMaxAmount,
+									message: t('Label_General_NotInLimit'),
+								},
+							})}
+							format={isConvert(currencyId)}
+							placeholder={
+								t('Label_General_AmountMinMaxLimit', {
+									value1: watchMinAmount,
+									value2: watchMaxAmount,
+								}) || ''
+							}
+							touched={!!touchedFields['amount']}
+							errorMessage={errors['amount']?.message || ''}
+							error={!!errors['amount']}
+							infoMessage={
+								t('Label_General_AmountLessThan', {
+									value1: numberFormat(convertedMinAmount, currencyId, 0),
+								}) || ''
+							}
+						/>
 
 						{/* // ! 加這行 tip 用來防止 InputBox 與 ShortcutList 跑版 */}
 						<div className='tip' />
-						{showShortcutList ? (
-							<DepositModule.ShortcutList
-								minAmount={watchMinAmount}
-								maxAmount={watchMaxAmount}
-								shortcut={Number(watchAmount)}
-								shortcutList={limitedShortcutAmountList({
-									minAmount: watchMinAmount,
-									maxAmount: watchMaxAmount,
-									amountList: watchAmountList,
-								})}
-								onChange={value => {
-									setValue('amount', value)
-									trigger('amount')
-								}}
-							/>
-						) : (
+
+						{showShortcutList && (
 							<DepositModule.ShortcutList
 								minAmount={watchMinAmount}
 								maxAmount={watchMaxAmount}
@@ -344,6 +329,13 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 						>
 							{errors['custBankAccount']?.message}
 						</div>
+						{custBankInfo.length < 3 && (
+							<div className='btn-group'>
+								<Link href={paths.bankInfo.root}>
+									<a>+</a>
+								</Link>
+							</div>
+						)}
 					</div>
 				</DepositModule>
 			)}
@@ -368,6 +360,13 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 						>
 							{errors['custEWalletAccount']?.message}
 						</div>
+						{custEWalletList.length < 3 && (
+							<div className='btn-group'>
+								<Link href={paths.eWallet.root}>
+									<a>+</a>
+								</Link>
+							</div>
+						)}
 					</div>
 				</DepositModule>
 			)}

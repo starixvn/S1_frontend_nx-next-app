@@ -45,7 +45,6 @@ export interface IMobilePayForm {
 	amountRule?: number
 	custEWalletAccount?: string
 	custBankAccount?: string
-	amountList?: number[] | null
 }
 
 const useMobilePayForm = ({
@@ -152,10 +151,12 @@ const useMobilePayForm = ({
 	const bankCardRequired =
 		selectedChannel?.extraDataType === DepositExtraDataTypeEnum.bankCard
 
-	const bankCardOptions = custBankInfo.map(({ bankName, accountNo }) => ({
-		label: `${bankName} - ${accountNo}`,
-		value: accountNo,
-	}))
+	const bankCardOptions = custBankInfo
+		.filter(({ disabled }) => !disabled)
+		.map(({ bankName, accountNo }) => ({
+			label: `${bankName} - ${accountNo}`,
+			value: accountNo,
+		}))
 
 	// * 1. 檢查是否有 specialCode，specialCode 與bonusCode 只能擇一
 	// * 2. channelId = -1 (假渠道), fetch postDepositLocalPayReq 並打開 QRcode 彈窗
@@ -320,7 +321,6 @@ const useMobilePayForm = ({
 			minAmount = 0,
 			maxAmount = 0,
 			amountRule,
-			amountList = [],
 		} = find(channelMobilePayList, { channelId: Number(queryChannelId) }) ||
 		head(channelMobilePayList) ||
 		{}
@@ -337,7 +337,6 @@ const useMobilePayForm = ({
 		setValue('maxAmount', convertMaxAmount)
 		setValue('payName', payName)
 		setValue('amountRule', amountRule)
-		setValue('amountList', amountList)
 
 		let url = {
 			pathname,
@@ -386,7 +385,9 @@ const useMobilePayForm = ({
 
 	return {
 		formMethods,
+		custBankInfo,
 		eWalletOptions,
+		custEWalletList,
 		bankCardOptions,
 		eWalletRequired,
 		bankCardRequired,
