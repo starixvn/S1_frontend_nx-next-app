@@ -234,7 +234,6 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 								maxAmount: watchMaxAmount,
 								amountList: watchAmountList,
 							})}
-							format={isConvert(currencyId)}
 							onChange={value => {
 								setValue('amount', value)
 								trigger('amount')
