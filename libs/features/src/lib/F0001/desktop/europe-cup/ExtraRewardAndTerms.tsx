@@ -1,6 +1,8 @@
 import React from 'react'
+import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
+import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
 
 const ExtraRewardAndTerms = () => {
 	const { t } = useTranslation()
@@ -49,25 +51,27 @@ const ExtraRewardAndTerms = () => {
 						<div>{t('Label_EuropeCup_Bet_And_Get_Extra_Rewards')}</div>
 						<div>{t('Label_EuropeCup_Payout_After_Euro_Ends')}</div>
 					</div>
-					<div className='euro-extra-reward-rule-item'>
-						<div>
-							<div className='subtitle'>
-								{t('Label_EuropeCup_Exclusive_VIP_Privileges')}
+					{includes(ALLOWED_CURRENCIES.VIP, currencyId) && (
+						<div className='euro-extra-reward-rule-item'>
+							<div>
+								<div className='subtitle'>
+									{t('Label_EuropeCup_Exclusive_VIP_Privileges')}
+								</div>
+							</div>
+							<div>
+								<div>{t('Label_EuropeCup_Vintage_Silver_Club')}</div>
+								<span>{t('Label_EuropeCup_Vintage_Silver_Club_Value')}</span>
+							</div>
+							<div>
+								<div>{t('Label_EuropeCup_Gold_Titanium_Club')}</div>
+								<span>{t('Label_EuropeCup_Gold_Titanium_Club_Value')}</span>
+							</div>
+							<div>
+								<div>{t('Label_EuropeCup_Diamond_Nova_Club')}</div>
+								<span>{t('Label_EuropeCup_Diamond_Nova_Club_Value')}</span>
 							</div>
 						</div>
-						<div>
-							<div>{t('Label_EuropeCup_Vintage_Silver_Club')}</div>
-							<span>{t('Label_EuropeCup_Vintage_Silver_Club_Value')}</span>
-						</div>
-						<div>
-							<div>{t('Label_EuropeCup_Gold_Titanium_Club')}</div>
-							<span>{t('Label_EuropeCup_Gold_Titanium_Club_Value')}</span>
-						</div>
-						<div>
-							<div>{t('Label_EuropeCup_Diamond_Nova_Club')}</div>
-							<span>{t('Label_EuropeCup_Diamond_Nova_Club_Value')}</span>
-						</div>
-					</div>
+					)}
 				</div>
 			</div>
 			<div className='title'>{t('Label_EuropeCup_Terms_And_Conditions')}</div>
