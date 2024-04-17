@@ -37,6 +37,7 @@ export interface IMobilePayForm {
 	payName?: string | null
 	channelName?: string
 	amountRule?: number
+	amountList?: number[] | null
 }
 
 const useMobilePayForm = ({
@@ -244,6 +245,7 @@ const useMobilePayForm = ({
 			minAmount = 0,
 			maxAmount = 0,
 			amountRule,
+			amountList = [],
 		} = find(channelMobilePayList, { channelId: Number(queryChannelId) }) ||
 		head(channelMobilePayList) ||
 		{}
@@ -260,6 +262,7 @@ const useMobilePayForm = ({
 		setValue('maxAmount', convertMaxAmount)
 		setValue('payName', payName)
 		setValue('amountRule', amountRule)
+		setValue('amountList', amountList)
 
 		let url = {
 			pathname,
