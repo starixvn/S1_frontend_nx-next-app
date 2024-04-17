@@ -6,13 +6,12 @@ import {
 	Select,
 } from '@nx-next-app/components/H0001'
 import {
-	ICryptoForm,
+	IQRPayForm,
 	useAuth,
-	useCryptoPayForm,
 	useDepositContext,
+	useQRPayForm,
 } from '@nx-next-app/data-access'
-
-import { IPaymentCryptoPayData } from '@nx-next-app/service'
+import { IPaymentQRPayData } from '@nx-next-app/service'
 import {
 	generateShortcutList,
 	isConvert,
@@ -24,17 +23,19 @@ import { isNumber, toLower } from 'lodash-es'
 import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
 
-interface ICryptoPayFormProps {
-	dataSource: IPaymentCryptoPayData[]
+interface IQRPayFormProps {
+	dataSource: IPaymentQRPayData[]
 }
 
-const DepositQRCodeModal = dynamic(
+const DepositMobilePayBankQRModal = dynamic(
 	() =>
-		import('@nx-next-app/features/F0001/h5/deposit/modal/DepositQRCodeModal'),
+		import(
+			'@nx-next-app/features/F0001/h5/deposit/common/modal/DepositMobilePayBankQRModal'
+		),
 	{ ssr: false }
 )
 
-const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
+const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
@@ -51,29 +52,26 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 			register,
 			formState: { touchedFields, errors, isValid },
 		},
-		cryptoPaymentList,
-		cryptoChannelList,
-		onCryptoPayFormSubmit,
-	} = useCryptoPayForm({
+		channelQrPayList = [],
+		onQRPayFormSubmit,
+	} = useQRPayForm({
 		dataSource,
-		onQRCodeModalCallback: values =>
-			modal.open(<DepositQRCodeModal {...values} />, {
-				className: 'dragonPayPop',
+		onDepositMobilePayBankQRModalCallback: values =>
+			modal.open(<DepositMobilePayBankQRModal {...values} />, {
+				className: 'duitnowPayPop',
 			}),
 	})
+
 	const watchAmount = watch('amount') || 0
 	const watchBonusCode = watch('bonusCode')
+	const watchGroupName = watch('groupName')
 	const watchMinAmount = watch('minAmount')
 	const watchMaxAmount = watch('maxAmount')
-	const watchAmountRule = watch('amountRule')
-	const watchChannelName = watch('channelName')
 
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
-	const showShortcutList = watchAmountRule !== 3
-
 	// * 手機版邏輯：送出前打開確認彈窗
-	const handleMobilePayFormSubmit = (values: ICryptoForm) => {
+	const handleQRPayFormSubmit = (values: IQRPayForm) => {
 		const convertedAmount = isConvert(currencyId)
 			? watchAmount * 1000
 			: watchAmount
@@ -84,7 +82,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 				<img
 					className='bankimg'
 					src={`${process.env['NEXT_PUBLIC_PAYMENT_HOST']}/${toLower(
-						watchChannelName
+						watchGroupName
 					)}.png`}
 					alt='img-bank-logo'
 				/>
@@ -101,7 +99,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 					<button
 						className='orange'
 						onClick={() => {
-							onCryptoPayFormSubmit(values)
+							onQRPayFormSubmit(values)
 						}}
 					>
 						{t('Label_General_Submit')}
@@ -110,7 +108,6 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 			}
 		)
 	}
-
 	return (
 		<>
 			<DepositModule
@@ -119,7 +116,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 				hasAdditionalInfo
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
-					{cryptoPaymentList.map(item => {
+					{dataSource.map(item => {
 						const { groupName, minAmount, maxAmount } = item
 						const min = numberFormat(minAmount, currencyId, 0, false)
 						const max = numberFormat(maxAmount, currencyId, 0, false)
@@ -143,7 +140,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 				hasAdditionalInfo
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
-					{cryptoChannelList.map(item => {
+					{channelQrPayList.map(item => {
 						const { channelId, channelName, minAmount, maxAmount } = item
 						const min = numberFormat(minAmount, currencyId, 0, false)
 						const max = numberFormat(maxAmount, currencyId, 0, false)
@@ -163,6 +160,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
 				<DepositModule title={t('Label_General_DepositAmount')} required>
+					<div className='column' />
 					<InputBox
 						type='number'
 						icon='icon icon-pencil'
@@ -174,7 +172,6 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 									value1: numberFormat(convertedMinAmount, currencyId, 0),
 								}),
 							},
-
 							min: {
 								value: watchMinAmount,
 								message: t('Label_General_AmountLessThan', {
@@ -206,21 +203,18 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 					{/* // ! 加這行 tip 用來防止 InputBox 與 ShortcutList 跑版 */}
 					<div className='tip' />
 
-					{showShortcutList && (
-						<DepositModule.ShortcutList
-							minAmount={watchMinAmount}
-							maxAmount={watchMaxAmount}
-							shortcut={Number(watchAmount)}
-							shortcutList={generateShortcutList({
-								minAmount: watchMinAmount,
-								isConvert: false,
-							})}
-							onChange={value => {
-								setValue('amount', value)
-								trigger('amount')
-							}}
-						/>
-					)}
+					<DepositModule.ShortcutList
+						minAmount={watchMinAmount}
+						maxAmount={watchMaxAmount}
+						shortcut={Number(watchAmount)}
+						shortcutList={generateShortcutList({
+							minAmount: watchMinAmount,
+						})}
+						onChange={value => {
+							setValue('amount', value)
+							trigger('amount')
+						}}
+					/>
 				</DepositModule>
 			)}
 
@@ -247,7 +241,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 				</div>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(handleMobilePayFormSubmit)}>
+			<Form onSubmit={handleSubmit(handleQRPayFormSubmit)}>
 				<div className='btn-group'>
 					<button
 						type='submit'
@@ -265,4 +259,4 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 	)
 }
 
-export default CryptoPayForm
+export default QRPayForm

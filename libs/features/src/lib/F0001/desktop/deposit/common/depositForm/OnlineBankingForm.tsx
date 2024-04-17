@@ -26,7 +26,7 @@ import { useTranslation } from 'next-i18next'
 const DepositQRCodeModal = dynamic(
 	() =>
 		import(
-			'@nx-next-app/features/F0001/desktop/deposit/modal/DepositQRCodeModal'
+			'@nx-next-app/features/F0001/desktop/deposit/common/modal/DepositQRCodeModal'
 		),
 	{ ssr: false }
 )

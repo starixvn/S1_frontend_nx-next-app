@@ -34,14 +34,16 @@ interface IMobilePayFormProps {
 
 const DepositQRCodeModal = dynamic(
 	() =>
-		import('@nx-next-app/features/F0001/h5/deposit/modal/DepositQRCodeModal'),
+		import(
+			'@nx-next-app/features/F0001/h5/deposit/common/modal/DepositQRCodeModal'
+		),
 	{ ssr: false }
 )
 
 const DepositMobilePayEWalletQRModal = dynamic(
 	() =>
 		import(
-			'@nx-next-app/features/F0001/h5/deposit/modal/DepositMobilePayEWalletQRModal'
+			'@nx-next-app/features/F0001/h5/deposit/common/modal/DepositMobilePayEWalletQRModal'
 		),
 	{ ssr: false }
 )
@@ -49,7 +51,7 @@ const DepositMobilePayEWalletQRModal = dynamic(
 const DepositMobilePayBankQRModal = dynamic(
 	() =>
 		import(
-			'@nx-next-app/features/F0001/h5/deposit/modal/DepositMobilePayBankQRModal'
+			'@nx-next-app/features/F0001/h5/deposit/common/modal/DepositMobilePayBankQRModal'
 		),
 	{ ssr: false }
 )

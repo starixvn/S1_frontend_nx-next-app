@@ -3,10 +3,10 @@ import {
 	DepositModule,
 	Form,
 	InputBox,
+	Loading,
 	Select,
-} from '@nx-next-app/components/H0001'
+} from '@nx-next-app/components/D0001'
 import {
-	IQRPayForm,
 	useAuth,
 	useDepositContext,
 	useQRPayForm,
@@ -30,7 +30,7 @@ interface IQRPayFormProps {
 const DepositMobilePayBankQRModal = dynamic(
 	() =>
 		import(
-			'@nx-next-app/features/F0001/h5/deposit/modal/DepositMobilePayBankQRModal'
+			'@nx-next-app/features/F0001/desktop/deposit/common/modal/DepositMobilePayBankQRModal'
 		),
 	{ ssr: false }
 )
@@ -40,7 +40,7 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { t } = useTranslation()
-	const { modal, closeModal } = useGlobalModal()
+	const { modal } = useGlobalModal()
 	const { promotionOptions } = useDepositContext()
 
 	const {
@@ -52,66 +52,28 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 			register,
 			formState: { touchedFields, errors, isValid },
 		},
+		loading,
 		channelQrPayList = [],
 		onQRPayFormSubmit,
 	} = useQRPayForm({
 		dataSource,
 		onDepositMobilePayBankQRModalCallback: values =>
-			modal.open(<DepositMobilePayBankQRModal {...values} />, {
-				className: 'duitnowPayPop',
-			}),
+			modal.open(<DepositMobilePayBankQRModal {...values} />),
 	})
 
-	const watchAmount = watch('amount') || 0
+	const watchAmount = watch('amount')
 	const watchBonusCode = watch('bonusCode')
-	const watchGroupName = watch('groupName')
 	const watchMinAmount = watch('minAmount')
 	const watchMaxAmount = watch('maxAmount')
 
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
-	// * 手機版邏輯：送出前打開確認彈窗
-	const handleQRPayFormSubmit = (values: IQRPayForm) => {
-		const convertedAmount = isConvert(currencyId)
-			? watchAmount * 1000
-			: watchAmount
-
-		modal.confirm(
-			<>
-				<p>{t('Label_Deposit_ConfirmDeposit')}</p>
-				<img
-					className='bankimg'
-					src={`${process.env['NEXT_PUBLIC_PAYMENT_HOST']}/${toLower(
-						watchGroupName
-					)}.png`}
-					alt='img-bank-logo'
-				/>
-				<div>
-					<span>{t('Label_General_DepositAmount')}：</span>{' '}
-					{numberFormat(convertedAmount, currencyId, 0)}
-				</div>
-			</>,
-			{
-				footer: [
-					<button className='white' onClick={closeModal}>
-						{t('Label_General_Cancel')}
-					</button>,
-					<button
-						className='orange'
-						onClick={() => {
-							onQRPayFormSubmit(values)
-						}}
-					>
-						{t('Label_General_Submit')}
-					</button>,
-				],
-			}
-		)
-	}
 	return (
 		<>
+			{loading && <Loading />}
 			<DepositModule
 				title={t('Label_Payment_Method')}
+				layout='vertical'
 				required
 				hasAdditionalInfo
 			>
@@ -136,6 +98,7 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 
 			<DepositModule
 				title={t('Label_Deposit_SelectChannel')}
+				layout='vertical'
 				required
 				hasAdditionalInfo
 			>
@@ -163,7 +126,7 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 					<div className='column' />
 					<InputBox
 						type='number'
-						icon='icon icon-pencil'
+						className='inputBox-white'
 						register={register('amount', {
 							valueAsNumber: true,
 							required: {
@@ -193,11 +156,6 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 						touched={!!touchedFields['amount']}
 						errorMessage={errors['amount']?.message || ''}
 						error={!!errors['amount']}
-						infoMessage={
-							t('Label_General_AmountLessThan', {
-								value1: numberFormat(convertedMinAmount, currencyId, 0),
-							}) || ''
-						}
 					/>
 
 					{/* // ! 加這行 tip 用來防止 InputBox 與 ShortcutList 跑版 */}
@@ -219,36 +177,35 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 			)}
 
 			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
-				<div className='infoModule'>
-					<Select
-						value={watchBonusCode}
-						options={promotionOptions}
-						onChange={value => {
-							// * bonusCode 與 promoCode 擇一使用因此清空 promoCode
-							setValue('bonusCode', String(value))
-							setValue('promoCode', undefined)
-						}}
-					/>
+				<Select
+					value={watchBonusCode}
+					options={promotionOptions}
+					onChange={value => {
+						// * bonusCode 與 promoCode 擇一使用因此清空 promoCode
+						setValue('bonusCode', String(value))
+						setValue('promoCode', undefined)
+					}}
+				/>
 
-					<InputBox
-						register={register('promoCode')}
-						placeholder={t('Label_Promotions_PromoCode') || ''}
-						touched={!!touchedFields['promoCode']}
-						onChange={() => {
-							setValue('bonusCode', undefined)
-						}}
-					/>
-				</div>
+				<InputBox
+					className='inputBox-white'
+					register={register('promoCode')}
+					placeholder={t('Label_Promotions_PromoCode') || ''}
+					touched={!!touchedFields['promoCode']}
+					onChange={() => {
+						setValue('bonusCode', undefined)
+					}}
+				/>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(handleQRPayFormSubmit)}>
-				<div className='btn-group'>
+			<Form onSubmit={handleSubmit(onQRPayFormSubmit)}>
+				<div className='btnGroup'>
 					<button
 						type='submit'
 						style={{ pointerEvents: isValid ? 'auto' : 'none' }}
 						className={classNames({
-							gray: !isValid,
-							orange: isValid,
+							darkGray: !isValid,
+							'btn-check': isValid,
 						})}
 					>
 						{t('Label_General_Submit')}

@@ -8,54 +8,35 @@ import {
 } from '@nx-next-app/components/D0001'
 import {
 	useAuth,
+	useCryptoPayForm,
 	useDepositContext,
-	useMobilePayForm,
 } from '@nx-next-app/data-access'
-import dynamic from 'next/dynamic'
-import { IPaymentMobilePayData } from '@nx-next-app/service'
-import { CurrenciesEnum } from '@nx-next-app/types'
+
+import { IPaymentCryptoPayData } from '@nx-next-app/service'
 import {
 	generateShortcutList,
 	isConvert,
 	numberFormat,
 	revertNumberFormat,
-	limitedShortcutAmountList,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
+import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
 
-interface IMobilePayFormProps {
-	dataSource: IPaymentMobilePayData[]
+interface ICryptoPayFormProps {
+	dataSource: IPaymentCryptoPayData[]
 }
-
-const { IDR } = CurrenciesEnum
 
 const DepositQRCodeModal = dynamic(
 	() =>
 		import(
-			'@nx-next-app/features/F0001/desktop/deposit/modal/DepositQRCodeModal'
+			'@nx-next-app/features/F0001/desktop/deposit/common/modal/DepositQRCodeModal'
 		),
 	{ ssr: false }
 )
 
-const DepositMobilePayEWalletQRModal = dynamic(
-	() =>
-		import(
-			'@nx-next-app/features/F0001/desktop/deposit/modal/DepositMobilePayEWalletQRModal'
-		),
-	{ ssr: false }
-)
-
-const DepositMobilePayBankQRModal = dynamic(
-	() =>
-		import(
-			'@nx-next-app/features/F0001/desktop/deposit/modal/DepositMobilePayBankQRModal'
-		),
-	{ ssr: false }
-)
-
-const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
+const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
@@ -64,7 +45,6 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 	const { promotionOptions } = useDepositContext()
 
 	const {
-		loading,
 		formMethods: {
 			trigger,
 			handleSubmit,
@@ -73,35 +53,24 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			register,
 			formState: { touchedFields, errors, isValid },
 		},
-		channelMobilePayList = [],
-		onMobilePayFormSubmit,
-	} = useMobilePayForm({
+		loading,
+		cryptoPaymentList,
+		cryptoChannelList,
+		onCryptoPayFormSubmit,
+	} = useCryptoPayForm({
 		dataSource,
 		onQRCodeModalCallback: values =>
 			modal.open(<DepositQRCodeModal {...values} />),
-		onDepositMobilePayEWalletQRModalCallback: values =>
-			modal.open(<DepositMobilePayEWalletQRModal {...values} />),
-		onDepositMobilePayBankQRModalCallback: values =>
-			modal.open(<DepositMobilePayBankQRModal {...values} />),
 	})
-
 	const watchAmount = watch('amount')
 	const watchBonusCode = watch('bonusCode')
-	const watchPayName = watch('payName')
 	const watchMinAmount = watch('minAmount')
 	const watchMaxAmount = watch('maxAmount')
 	const watchAmountRule = watch('amountRule')
-	const watchAmountList = watch('amountList')
 
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
-	const showShortcutList = watchAmountRule === 3
-
-	const showUPI = currencyId === CurrenciesEnum.INR && watchPayName === 'TenPay'
-
-	const depositAmountText = `${t('Label_General_DepositAmount')} ${
-		currencyId === IDR ? t('Label_Deposit_IDRAmountHint') : ''
-	}`
+	const showShortcutList = watchAmountRule !== 3
 
 	return (
 		<>
@@ -113,7 +82,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				hasAdditionalInfo
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
-					{dataSource.map(item => {
+					{cryptoPaymentList.map(item => {
 						const { groupName, minAmount, maxAmount } = item
 						const min = numberFormat(minAmount, currencyId, 0, false)
 						const max = numberFormat(maxAmount, currencyId, 0, false)
@@ -138,7 +107,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				hasAdditionalInfo
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
-					{channelMobilePayList.map(item => {
+					{cryptoChannelList.map(item => {
 						const { channelId, channelName, minAmount, maxAmount } = item
 						const min = numberFormat(minAmount, currencyId, 0, false)
 						const max = numberFormat(maxAmount, currencyId, 0, false)
@@ -156,89 +125,55 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				</DepositModule.SubModuleButtonGroup>
 			</DepositModule>
 
-			{showUPI && (
-				<DepositModule title='UPI' required>
+			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
+				<DepositModule title={t('Label_General_DepositAmount')} required>
 					<div className='column' />
 					<InputBox
+						type='number'
 						className='inputBox-white'
-						register={register('UPIPayAccount', {
+						register={register('amount', {
+							valueAsNumber: true,
 							required: {
 								value: true,
-								message: t('Label_Deposit_PleaseEnterUPI'),
+								message: t('Label_General_AmountLessThan', {
+									value1: numberFormat(convertedMinAmount, currencyId, 0),
+								}),
+							},
+
+							min: {
+								value: watchMinAmount,
+								message: t('Label_General_AmountLessThan', {
+									value1: numberFormat(convertedMinAmount, currencyId, 0),
+								}),
+							},
+							max: {
+								value: watchMaxAmount,
+								message: t('Label_General_NotInLimit'),
 							},
 						})}
-						placeholder={t('Label_Deposit_EnterYourUPI') || ''}
-						touched={!!touchedFields['UPIPayAccount']}
-						errorMessage={errors['UPIPayAccount']?.message || ''}
-						error={!!errors['UPIPayAccount']}
+						format={isConvert(currencyId)}
+						placeholder={
+							t('Label_General_AmountMinMaxLimit', {
+								value1: watchMinAmount,
+								value2: watchMaxAmount,
+							}) || ''
+						}
+						touched={!!touchedFields['amount']}
+						errorMessage={errors['amount']?.message || ''}
+						error={!!errors['amount']}
 					/>
-				</DepositModule>
-			)}
-
-			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
-				<DepositModule title={depositAmountText} required>
-					<div className='column' />
-					{!showShortcutList && (
-						<InputBox
-							type='number'
-							className='inputBox-white'
-							register={register('amount', {
-								valueAsNumber: true,
-								required: {
-									value: true,
-									message: t('Label_General_AmountLessThan', {
-										value1: numberFormat(convertedMinAmount, currencyId, 0),
-									}),
-								},
-								min: {
-									value: watchMinAmount,
-									message: t('Label_General_AmountLessThan', {
-										value1: numberFormat(convertedMinAmount, currencyId, 0),
-									}),
-								},
-								max: {
-									value: watchMaxAmount,
-									message: t('Label_General_NotInLimit'),
-								},
-							})}
-							format={isConvert(currencyId)}
-							placeholder={
-								t('Label_General_AmountMinMaxLimit', {
-									value1: watchMinAmount,
-									value2: watchMaxAmount,
-								}) || ''
-							}
-							touched={!!touchedFields['amount']}
-							errorMessage={errors['amount']?.message || ''}
-							error={!!errors['amount']}
-						/>
-					)}
 
 					{/* // ! 加這行 tip 用來防止 InputBox 與 ShortcutList 跑版 */}
 					<div className='tip' />
 
-					{showShortcutList ? (
-						<DepositModule.ShortcutList
-							minAmount={watchMinAmount}
-							maxAmount={watchMaxAmount}
-							shortcut={Number(watchAmount)}
-							shortcutList={limitedShortcutAmountList({
-								minAmount: watchMinAmount,
-								maxAmount: watchMaxAmount,
-								amountList: watchAmountList,
-							})}
-							onChange={value => {
-								setValue('amount', value)
-								trigger('amount')
-							}}
-						/>
-					) : (
+					{showShortcutList && (
 						<DepositModule.ShortcutList
 							minAmount={watchMinAmount}
 							maxAmount={watchMaxAmount}
 							shortcut={Number(watchAmount)}
 							shortcutList={generateShortcutList({
 								minAmount: watchMinAmount,
+								isConvert: false,
 							})}
 							onChange={value => {
 								setValue('amount', value)
@@ -271,7 +206,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				/>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(onMobilePayFormSubmit)}>
+			<Form onSubmit={handleSubmit(onCryptoPayFormSubmit)}>
 				<div className='btnGroup'>
 					<button
 						type='submit'
@@ -289,4 +224,4 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 	)
 }
 
-export default MobilePayForm
+export default CryptoPayForm
