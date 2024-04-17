@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { useHover } from 'usehooks-ts'
-import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { isEventPeriod } from '@nx-next-app/utils'
@@ -63,18 +62,14 @@ const LotteryListItem = ({
 			{/* /> */}
 
 			{isHover ? (
-				<Image
+				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/lottery/${lobbyPage?.hoverBgImg}`}
 					alt={subMenuItem?.productName}
-					width={200}
-					height={275}
 				/>
 			) : (
-				<Image
+				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/lottery/${lobbyPage?.npcImg}`}
 					alt={subMenuItem?.productName}
-					width={200}
-					height={275}
 				/>
 			)}
 
