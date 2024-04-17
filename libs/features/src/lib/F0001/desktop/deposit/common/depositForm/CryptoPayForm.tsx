@@ -8,10 +8,11 @@ import {
 } from '@nx-next-app/components/D0001'
 import {
 	useAuth,
+	useCryptoPayForm,
 	useDepositContext,
-	useQRPayForm,
 } from '@nx-next-app/data-access'
-import { IPaymentQRPayData } from '@nx-next-app/service'
+
+import { IPaymentCryptoPayData } from '@nx-next-app/service'
 import {
 	generateShortcutList,
 	isConvert,
@@ -23,19 +24,19 @@ import { isNumber, toLower } from 'lodash-es'
 import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
 
-interface IQRPayFormProps {
-	dataSource: IPaymentQRPayData[]
+interface ICryptoPayFormProps {
+	dataSource: IPaymentCryptoPayData[]
 }
 
-const DepositMobilePayBankQRModal = dynamic(
+const DepositQRCodeModal = dynamic(
 	() =>
 		import(
-			'@nx-next-app/features/F0001/desktop/deposit/modal/DepositMobilePayBankQRModal'
+			'@nx-next-app/features/F0001/desktop/deposit/common/modal/DepositQRCodeModal'
 		),
 	{ ssr: false }
 )
 
-const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
+const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
@@ -53,20 +54,23 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 			formState: { touchedFields, errors, isValid },
 		},
 		loading,
-		channelQrPayList = [],
-		onQRPayFormSubmit,
-	} = useQRPayForm({
+		cryptoPaymentList,
+		cryptoChannelList,
+		onCryptoPayFormSubmit,
+	} = useCryptoPayForm({
 		dataSource,
-		onDepositMobilePayBankQRModalCallback: values =>
-			modal.open(<DepositMobilePayBankQRModal {...values} />),
+		onQRCodeModalCallback: values =>
+			modal.open(<DepositQRCodeModal {...values} />),
 	})
-
 	const watchAmount = watch('amount')
 	const watchBonusCode = watch('bonusCode')
 	const watchMinAmount = watch('minAmount')
 	const watchMaxAmount = watch('maxAmount')
+	const watchAmountRule = watch('amountRule')
 
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
+
+	const showShortcutList = watchAmountRule !== 3
 
 	return (
 		<>
@@ -78,7 +82,7 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 				hasAdditionalInfo
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
-					{dataSource.map(item => {
+					{cryptoPaymentList.map(item => {
 						const { groupName, minAmount, maxAmount } = item
 						const min = numberFormat(minAmount, currencyId, 0, false)
 						const max = numberFormat(maxAmount, currencyId, 0, false)
@@ -103,7 +107,7 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 				hasAdditionalInfo
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
-					{channelQrPayList.map(item => {
+					{cryptoChannelList.map(item => {
 						const { channelId, channelName, minAmount, maxAmount } = item
 						const min = numberFormat(minAmount, currencyId, 0, false)
 						const max = numberFormat(maxAmount, currencyId, 0, false)
@@ -135,6 +139,7 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 									value1: numberFormat(convertedMinAmount, currencyId, 0),
 								}),
 							},
+
 							min: {
 								value: watchMinAmount,
 								message: t('Label_General_AmountLessThan', {
@@ -161,18 +166,21 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 					{/* // ! 加這行 tip 用來防止 InputBox 與 ShortcutList 跑版 */}
 					<div className='tip' />
 
-					<DepositModule.ShortcutList
-						minAmount={watchMinAmount}
-						maxAmount={watchMaxAmount}
-						shortcut={Number(watchAmount)}
-						shortcutList={generateShortcutList({
-							minAmount: watchMinAmount,
-						})}
-						onChange={value => {
-							setValue('amount', value)
-							trigger('amount')
-						}}
-					/>
+					{showShortcutList && (
+						<DepositModule.ShortcutList
+							minAmount={watchMinAmount}
+							maxAmount={watchMaxAmount}
+							shortcut={Number(watchAmount)}
+							shortcutList={generateShortcutList({
+								minAmount: watchMinAmount,
+								isConvert: false,
+							})}
+							onChange={value => {
+								setValue('amount', value)
+								trigger('amount')
+							}}
+						/>
+					)}
 				</DepositModule>
 			)}
 
@@ -198,7 +206,7 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 				/>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(onQRPayFormSubmit)}>
+			<Form onSubmit={handleSubmit(onCryptoPayFormSubmit)}>
 				<div className='btnGroup'>
 					<button
 						type='submit'
@@ -216,4 +224,4 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 	)
 }
 
-export default QRPayForm
+export default CryptoPayForm

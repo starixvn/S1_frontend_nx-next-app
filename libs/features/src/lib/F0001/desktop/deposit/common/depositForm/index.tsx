@@ -8,7 +8,7 @@ import { DepositPaymentEnum } from '@nx-next-app/types'
 import { DepositModule } from '@nx-next-app/components/D0001'
 import BankTransferForm from './BankTransferForm'
 import OnlineBankingForm from './OnlineBankingForm'
-import MobilePayForm from './MobilePayForm.tsx'
+import MobilePayForm from './MobilePayForm'
 import CryptoPayForm from './CryptoPayForm'
 import QRPayForm from './QRPayForm'
 import TopUpCardForm from './TopUpCardForm'
@@ -32,7 +32,7 @@ const {
 const DepositLinePayModal = dynamic(
 	() =>
 		import(
-			'@nx-next-app/features/F0001/desktop/deposit/modal/DepositLinePayModal'
+			'@nx-next-app/features/F0001/desktop/deposit/common/modal/DepositLinePayModal'
 		),
 	{ ssr: false }
 )

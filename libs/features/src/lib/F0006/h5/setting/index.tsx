@@ -8,6 +8,7 @@ import { includes, isEqual } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { useGetMsgCountQuery } from '@nx-next-app/service'
+import { GET_AFFILIATE_LINK } from '@nx-next-app/site/yashbet'
 
 const Setting = () => {
 	const { push, reload } = useRouter()
@@ -134,10 +135,8 @@ const Setting = () => {
 						<SettingCollapse.Item
 							prefixIcon='title icon icon-affiliate'
 							onClick={() =>
-								push(
-									`${process.env['NEXT_PUBLIC_AFFILIATE_DOMAIN']}?lang=${
-										langId || 'en'
-									}`
+								window.open(
+									GET_AFFILIATE_LINK ? GET_AFFILIATE_LINK({ langId }) : ''
 								)
 							}
 							header={t('Label_General_Affiliate')}
