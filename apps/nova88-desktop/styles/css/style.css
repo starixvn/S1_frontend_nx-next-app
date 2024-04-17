@@ -13060,6 +13060,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
       flex-flow: wrap;
   position: relative;
 }
+.subModuleListColumn > .subModule .inputBox-blue {
+  z-index: unset;
+}
 .subModuleListColumn > .subModule .dropdown {
   min-width: 190px;
 }
@@ -13080,6 +13083,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   border-top: 0;
   margin-left: 0;
   overflow: hidden;
+  z-index: 3;
 }
 .subModuleListColumn > .subModule .dropdown .dropdown-container .dropdown-item {
   margin: 0;
