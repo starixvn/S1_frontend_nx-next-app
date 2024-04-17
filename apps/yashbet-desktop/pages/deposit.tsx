@@ -11,7 +11,8 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Deposit, Layout } from '@nx-next-app/features/F0006/desktop'
+import { Layout } from '@nx-next-app/features/F0006/desktop'
+import { Deposit } from '@nx-next-app/features/F0001/desktop'
 import {
 	DEPOSIT_PAYMENT_OPTIONS,
 	DEPOSIT_PAYMENT_ORDERS,
