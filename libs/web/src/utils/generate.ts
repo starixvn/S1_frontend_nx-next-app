@@ -28,3 +28,18 @@ export const generateShortcutList = ({
 
 		return roundedAmount
 	})
+
+// 在 amountRule = 3 時使用的固定金額點擊列，因為 api 裡的 amountList 有可能會很多所以需先篩選
+export const limitedShortcutAmountList = ({
+	minAmount,
+	maxAmount,
+	amountList = [],
+}: {
+	minAmount: number
+	maxAmount: number
+	amountList: number[] | null | undefined
+}) => {
+	if (!amountList) return []
+
+	return amountList.filter(amount => amount >= minAmount && amount <= maxAmount)
+}
