@@ -1,7 +1,6 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
-import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper'
@@ -72,19 +71,15 @@ const RecentlyViewGames = () => {
 									})}
 								>
 									<div>
-										<Image
+										<img
 											className='recently-image'
 											src={gameLogo[langId]}
 											alt='gameName'
-											width={183}
-											height={183}
 										/>
-										<Image
+										<img
 											className='recently-brand'
 											src={tpLogo}
 											alt='recently-brand'
-											width={120}
-											height={55}
 										/>
 										<div className='recently-title'>{gameName[langId]}</div>
 									</div>

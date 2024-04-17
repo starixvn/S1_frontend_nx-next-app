@@ -1,5 +1,4 @@
 import { useRef } from 'react'
-import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { isEventPeriod } from '@nx-next-app/utils'
@@ -55,11 +54,9 @@ const LiveCasinoListItem = ({
 
 			<div className='animationImg'>
 				{/* // TODO: 等 yashbet 有資料後需更換  */}
-				<Image
+				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/livecasino/${lobbyPage?.hoverBgImg}`}
 					alt='animation-img'
-					width={260}
-					height={330}
 				/>
 			</div>
 			{/* // TODO: 等 yashbet 有資料後需更換  */}
@@ -69,10 +66,8 @@ const LiveCasinoListItem = ({
 			{/* 	height={330} */}
 			{/* 	alt={subMenuItem?.productName} */}
 			{/* /> */}
-			<Image
+			<img
 				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/livecasino/${lobbyPage?.npcImg}`}
-				width={260}
-				height={330}
 				alt={subMenuItem?.productName}
 			/>
 			{isTpMaintain && (

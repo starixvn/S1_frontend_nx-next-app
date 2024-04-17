@@ -1,8 +1,6 @@
 import { ReactNode, useRef } from 'react'
 import classNames from 'classnames'
-import Image from 'next/future/image'
 import { useHover } from 'usehooks-ts'
-import { Translation } from 'react-i18next'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { isEventPeriod } from '@nx-next-app/utils'
@@ -73,18 +71,14 @@ const GameListItem = ({
 			{lobbyIcon}
 
 			{isHover ? (
-				<Image
+				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${imageCategory}/${lobbyPage?.hoverBgImg}`}
 					alt={subMenuItem?.productName}
-					width={300}
-					height={375}
 				/>
 			) : (
-				<Image
+				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${imageCategory}/${lobbyPage?.npcImg}`}
 					alt={subMenuItem?.productName}
-					width={300}
-					height={375}
 				/>
 			)}
 			{/* // TODO: 等 yashbet 有資料後需更換  */}
