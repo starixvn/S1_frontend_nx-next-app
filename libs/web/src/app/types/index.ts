@@ -53,7 +53,12 @@ export interface IStaticProduct {
 }
 
 export interface IStaticLangGroups {
-	[lang: string]: { displayText: string; value: string; currencyId: number }[]
+	[lang: string]: {
+		displayText: string
+		value: string
+		currencyId: number
+		mainLanguage?: boolean
+	}[]
 }
 
 export interface IStaticAllowedCurrencies {

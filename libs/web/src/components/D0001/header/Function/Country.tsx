@@ -5,7 +5,7 @@ import { Fragment } from 'react'
 interface ICountryProps {
 	icon: string | null
 	isActive: boolean
-	selectedText?: string
+	isLogin?: boolean
 	toggle: () => void
 	onSetLanguage: ({
 		langCode,
@@ -14,11 +14,13 @@ interface ICountryProps {
 		langCode: string
 		currencyId: number
 	}) => void
+	selectedText?: string
 	langGroup: {
 		[key: string]: Array<{
 			displayText: string
 			value: string
 			currencyId: number
+			mainLanguage?: boolean
 		}>
 	}
 }
@@ -26,10 +28,11 @@ interface ICountryProps {
 const Country = ({
 	icon,
 	isActive,
+	isLogin = false,
 	langGroup,
-	selectedText,
 	toggle,
 	onSetLanguage,
+	selectedText,
 }: ICountryProps) => {
 	return (
 		<>
@@ -40,36 +43,69 @@ const Country = ({
 				onClick={toggle}
 				style={{ whiteSpace: 'nowrap' }}
 			>
-				{selectedText && selectedText}
+				<span>{selectedText && selectedText}</span>
 			</button>
-
-			<div className={classNames('countryList', { active: isActive })}>
-				{Object.entries(langGroup).map(([lang, item]) => (
-					<Fragment key={lang}>
-						<div className='countryName' key={lang}>
-							{LANG_GROUP_COUNTRY[lang]}
+			<div className={classNames('country-list', { active: isActive })}>
+				<div className='country-current'>
+					<div className={classNames('flag', icon)} />
+					<div className='country-info'>
+						<div className='country-name'>
+							{LANG_GROUP_COUNTRY[icon || 'ch']}
 						</div>
-						<div className={classNames('flag', lang)} key={`flag_${lang}`}>
-							{item?.map(({ value, currencyId, displayText }) => {
-								return (
-									<button
-										key={`${lang}_${value}`}
-										type='button'
-										onClick={() => {
-											onSetLanguage({
-												langCode: value,
-												currencyId,
-											})
-											toggle()
-										}}
-									>
-										{displayText}
-									</button>
-								)
-							})}
+						<div>
+							{langGroup[icon || 'ch'].map(
+								({ displayText, currencyId, value }) => {
+									return (
+										<div key={displayText}>
+											<button
+												type='button'
+												onClick={() => {
+													onSetLanguage({
+														langCode: value,
+														currencyId,
+													})
+													toggle()
+												}}
+											>
+												{displayText}
+											</button>
+										</div>
+									)
+								}
+							)}
 						</div>
-					</Fragment>
-				))}
+					</div>
+				</div>
+				{!isLogin && (
+					<div className='country-option'>
+						{Object.entries(langGroup).map(([lang, item]) => (
+							<Fragment key={lang}>
+								<div className={classNames('flag', lang)} key={`flag_${lang}`}>
+									{item?.map(
+										({ value, currencyId, displayText, mainLanguage }) => {
+											if (!mainLanguage) return
+											return (
+												<button
+													key={`${lang}_${value}`}
+													type='button'
+													onClick={() => {
+														onSetLanguage({
+															langCode: value,
+															currencyId,
+														})
+														toggle()
+													}}
+												>
+													{displayText}
+												</button>
+											)
+										}
+									)}
+								</div>
+							</Fragment>
+						))}
+					</div>
+				)}
 			</div>
 		</>
 	)
