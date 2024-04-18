@@ -161,7 +161,7 @@ const Setting = () => {
 												src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/${lang}.jpg`}
 												alt={lang}
 											/>
-											{LANG_GROUP_COUNTRY[lang]}
+											{LANG_GROUP_COUNTRY[lang || 'ch']}
 										</div>
 
 										{items?.map(languageItem => {
