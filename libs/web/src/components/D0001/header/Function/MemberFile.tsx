@@ -103,7 +103,9 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 									/>
 								)}
 
-								<Img src={nextVipLevelInfo?.headerUrl} alt='img-next-vip' />
+								{!isVipLevelHighest && (
+									<Img src={nextVipLevelInfo?.headerUrl} alt='img-next-vip' />
+								)}
 							</div>
 
 							{/* // * vip 等級最高時顯示 ReachedTheHighestLevel */}
