@@ -99,7 +99,7 @@ export const useHome = () => {
 const DesktopPromotionDetailModal = dynamic(
 	() =>
 		import(
-			'@nx-next-app/features/F0006/desktop/modal/promotionDetailModal/PromotionDetailModal'
+			'@nx-next-app/features/F0001/desktop/modal/promotionDetailModal/PromotionDetailModal'
 		),
 	{ ssr: false }
 )
@@ -107,7 +107,7 @@ const DesktopPromotionDetailModal = dynamic(
 const H5PromotionDetailModal = dynamic(
 	() =>
 		import(
-			'@nx-next-app/features/F0006/h5/modal/promotionDetailModal/PromotionDetailModal'
+			'@nx-next-app/features/F0001/h5/modal/promotionDetailModal/PromotionDetailModal'
 		),
 	{ ssr: false }
 )
