@@ -10,8 +10,9 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout, Promotion } from '@nx-next-app/features/F0006/h5'
-import { PromotionProvider } from '@nx-next-app/features/F0006/providers'
+import { Layout } from '@nx-next-app/features/F0006/h5'
+import { Promotion } from '@nx-next-app/features/F0001/h5'
+import { PromotionProvider } from '@nx-next-app/features/F0001/providers'
 import { DeviceTypeEnum } from '@nx-next-app/types'
 import { IPromotionData } from '@nx-next-app/service'
 import { PROMOTION_SELECT_OPTIONS } from '@nx-next-app/site/yashbet'
