@@ -35,6 +35,7 @@ export interface ITransferArgs {
 	toTpId: number
 	fromTpId: number
 	transferAction: number
+	langId: string
 }
 
 export interface ITransferData {
