@@ -33,13 +33,8 @@ import '../styles/css/style.css'
 import '../styles/css/swiper.css'
 import '../styles/css/font.css'
 
-const {
-	LiveChatScript,
-	IovationScript,
-	PlayTechScript,
-	JackpotsScript,
-	GoogleTagManagerScript,
-} = ThirdPartyJS
+const { LiveChatScript, IovationScript, PlayTechScript, JackpotsScript } =
+	ThirdPartyJS
 
 dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
@@ -76,9 +71,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			<LiveChatScript />
 			<IovationScript />
 			<PlayTechScript />
-			{/*<GTMScript />*/}
+			{/* <GTMScript /> */}
 			<JackpotsScript />
-			<GoogleTagManagerScript />
+			{/* <GoogleTagManagerScript /> */}
 
 			{/* // TODO: <SEO /> */}
 		</>

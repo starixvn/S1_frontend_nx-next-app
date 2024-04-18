@@ -38,12 +38,7 @@ dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
 dayjs.extend(utc)
 
-const {
-	IovationScript,
-	PlayTechScript,
-	JackpotsScript,
-	GoogleTagManagerScript,
-} = ThirdPartyJS
+const { IovationScript, PlayTechScript, JackpotsScript } = ThirdPartyJS
 
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
@@ -78,7 +73,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			<PlayTechScript />
 			{/* <GTMScript /> */}
 			<JackpotsScript />
-			<GoogleTagManagerScript />
+			{/* <GoogleTagManagerScript /> */}
 		</>
 	)
 }
