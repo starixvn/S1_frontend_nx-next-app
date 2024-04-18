@@ -203,6 +203,7 @@ export const TransferFundsProvider = ({
 				toTpId,
 				fromTpId,
 				transferAction,
+				langId,
 			}).unwrap()
 
 			if (errorCode === 9) {
@@ -254,6 +255,7 @@ export const TransferFundsProvider = ({
 							toTpId: TransferWalletTpId.mainWallet,
 							fromTpId: tpId,
 							transferAction: TransferTypeEnum.restoreAll,
+							langId,
 						})
 					)
 			)
@@ -264,6 +266,7 @@ export const TransferFundsProvider = ({
 					toTpId: walletTpId,
 					fromTpId: TransferWalletTpId.mainWallet,
 					transferAction: TransferTypeEnum.restoreAll,
+					langId,
 				})
 			}
 
@@ -276,6 +279,7 @@ export const TransferFundsProvider = ({
 							toTpId: walletTpId,
 							fromTpId: tpId,
 							transferAction: TransferTypeEnum.restoreAll,
+							langId,
 						})
 					)
 			)
@@ -358,6 +362,7 @@ export const TransferFundsProvider = ({
 			toTpId: walletTo || 0,
 			fromTpId: walletFrom || 0,
 			transferAction: TransferTypeEnum.transfer,
+			langId,
 		})
 
 		if (success) resetField('amount')
