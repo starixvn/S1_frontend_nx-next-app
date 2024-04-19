@@ -16,7 +16,7 @@ import PromotionRule from './PromotionRule'
 import CashbackInfo from './CashbackInfo'
 import DepositSlip from './DepositSlip'
 import DepositMenu from './DepositMenu'
-import PromotionProgressBar from '../../promotion/PromotionProgressBar'
+import PromotionProgressBar from '../../promotion/common/PromotionProgressBar'
 import PromotionMission from './PromotionMission'
 
 const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])

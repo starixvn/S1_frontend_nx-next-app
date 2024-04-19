@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next'
-import PromotionList from './PromotionList'
-import PromotionFilter from './PromotionFilter'
+import PromotionList from './common/PromotionList'
+import PromotionFilter from './common/PromotionFilter'
 
 const Promotion = () => {
 	const { t } = useTranslation()
