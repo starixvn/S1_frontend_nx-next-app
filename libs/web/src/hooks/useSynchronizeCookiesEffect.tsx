@@ -3,9 +3,15 @@ import { setCookies } from 'cookies-next'
 import { IUserInfoData } from '../service'
 import { ENV_COOKIE_NAMES } from '../app/constants/Names'
 
+declare global {
+	interface Window {
+		gtag: any
+	}
+}
 /**
  *
  * 傳入 userInfo , 使其在登入後自動同步正確 userInfo Cookie，目前僅會同步 langId 與 currencyId，可在於此 effect 內增加
+ * 增加 gtag userId 傳送
  */
 
 export const useSynchronizeCookiesEffect = (userInfo: IUserInfoData) => {
@@ -14,9 +20,17 @@ export const useSynchronizeCookiesEffect = (userInfo: IUserInfoData) => {
 	// 故直接判斷 userName 若非 "guest" 時做設定，實務上登入後便不會一直異動該值
 	useEffect(() => {
 		if (userInfo.userName !== 'guest') {
-			const { langId, currencyId } = userInfo
+			const { langId, currencyId, custId } = userInfo
 			setCookies(ENV_COOKIE_NAMES.LangId, langId)
 			setCookies(ENV_COOKIE_NAMES.CurrencyId, currencyId)
+
+			// PRD 環境且有載入才執行
+			if (
+				process.env['NEXT_PUBLIC_ENV'] === 'DEV' &&
+				typeof window.gtag === 'function'
+			) {
+				window.gtag('set', { user_id: custId })
+			}
 		}
 	}, [userInfo.userName])
 }
