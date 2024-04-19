@@ -1436,6 +1436,12 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .promoList.vn {
   background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-vn.jpg) no-repeat center/auto;
 }
+.header > div.menu .subMenu-Wrapper-new .promoList.br {
+  background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-br.jpg) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .promoList.ko {
+  background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-ko.jpg) no-repeat center/auto;
+}
 .header > div.menu .subMenu-Wrapper-new .promoList > div {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -1511,6 +1517,12 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.vn {
   background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-vn.jpg) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .rankingList.br {
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-br.jpg) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .rankingList.ko {
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-ko.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList > div,
 .header > div.menu .subMenu-Wrapper-new .rankingList > a {
@@ -2517,15 +2529,6 @@ header input:focus-within {
   margin-left: 50px;
   -webkit-transition: 0.35s;
   transition: 0.35s;
-}
-.home-profile .home-profile-bottom .home-profile-country .country-list {
-  position: unset;
-  min-width: unset;
-  margin-top: unset;
-  background: transparent;
-  -webkit-box-shadow: unset;
-          box-shadow: unset;
-  padding: 0;
 }
 .home-profile .home-profile-bottom .home-profile-country .country-current {
   padding: 15px 10px;
