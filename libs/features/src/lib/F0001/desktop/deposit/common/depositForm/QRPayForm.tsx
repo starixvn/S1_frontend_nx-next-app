@@ -1,16 +1,17 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	DepositModule,
 	Form,
 	InputBox,
+	Loading,
 	Select,
-} from '@nx-next-app/components/D0006'
+} from '@nx-next-app/components/D0001'
 import {
 	useAuth,
-	useAutoDepositForm,
 	useDepositContext,
+	useQRPayForm,
 } from '@nx-next-app/data-access'
-import { IPaymentAutoDepositData } from '@nx-next-app/service'
-import { CurrenciesEnum } from '@nx-next-app/types'
+import { IPaymentQRPayData } from '@nx-next-app/service'
 import {
 	generateShortcutList,
 	isConvert,
@@ -19,19 +20,27 @@ import {
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
+import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
 
-const { IDR } = CurrenciesEnum
-
-interface IAutoDepositFormProps {
-	dataSource: IPaymentAutoDepositData[]
+interface IQRPayFormProps {
+	dataSource: IPaymentQRPayData[]
 }
 
-const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
+const DepositMobilePayBankQRModal = dynamic(
+	() =>
+		import(
+			'@nx-next-app/features/F0001/desktop/deposit/common/modal/DepositMobilePayBankQRModal'
+		),
+	{ ssr: false }
+)
+
+const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
 	const { promotionOptions } = useDepositContext()
 
 	const {
@@ -43,9 +52,13 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			register,
 			formState: { touchedFields, errors, isValid },
 		},
-		onAutoDepositFormSubmit,
-	} = useAutoDepositForm({
+		loading,
+		channelQrPayList = [],
+		onQRPayFormSubmit,
+	} = useQRPayForm({
 		dataSource,
+		onDepositMobilePayBankQRModalCallback: values =>
+			modal.open(<DepositMobilePayBankQRModal {...values} />),
 	})
 
 	const watchAmount = watch('amount')
@@ -55,38 +68,53 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
-	const depositAmountText = `${t('Label_General_DepositAmount')} ${
-		currencyId === IDR ? t('Label_Deposit_IDRAmountHint') : ''
-	}`
-
 	return (
 		<>
-			<div />
-
+			{loading && <Loading />}
 			<DepositModule
-				title={t('Label_BankInfo_SelectBank')}
-				layout='horizontal'
+				title={t('Label_Payment_Method')}
+				layout='vertical'
 				required
+				hasAdditionalInfo
 			>
-				<DepositModule.SubModuleButtonGroup matchKey='sysId'>
+				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{dataSource.map(item => {
-						const { bankName, bankLogo, minAmount, maxAmount, sysId } = item
-
+						const { groupName, minAmount, maxAmount } = item
+						const min = numberFormat(minAmount, currencyId, 0, false)
+						const max = numberFormat(maxAmount, currencyId, 0, false)
 						return (
 							<DepositModule.SubModuleButton
-								label={bankName}
-								imgName={`square/${toLower(bankLogo)}`}
-								matchValue={String(sysId)}
-								key={sysId}
+								label={groupName}
+								imgName={`${toLower(groupName)}.png`}
+								matchValue={groupName}
+								key={groupName}
 							>
-								<div>
-									{t('Label_General_Min')}：
-									{numberFormat(minAmount, currencyId, 0)}
-								</div>
-								<div>
-									{t('Label_General_Min')}：
-									{numberFormat(maxAmount, currencyId, 0)}
-								</div>
+								<div>{`${min} ~ ${max}`}</div>
+							</DepositModule.SubModuleButton>
+						)
+					})}
+				</DepositModule.SubModuleButtonGroup>
+			</DepositModule>
+
+			<DepositModule
+				title={t('Label_Deposit_SelectChannel')}
+				layout='vertical'
+				required
+				hasAdditionalInfo
+			>
+				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
+					{channelQrPayList.map(item => {
+						const { channelId, channelName, minAmount, maxAmount } = item
+						const min = numberFormat(minAmount, currencyId, 0, false)
+						const max = numberFormat(maxAmount, currencyId, 0, false)
+						return (
+							<DepositModule.SubModuleButton
+								label={channelName}
+								imgName={`${toLower(channelName)}.png`}
+								matchValue={String(channelId)}
+								key={channelId}
+							>
+								<div>{`${min} ~ ${max}`}</div>
 							</DepositModule.SubModuleButton>
 						)
 					})}
@@ -94,7 +122,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			</DepositModule>
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
-				<DepositModule title={depositAmountText} required>
+				<DepositModule title={t('Label_General_DepositAmount')} required>
 					<div className='column' />
 					<InputBox
 						type='number'
@@ -153,6 +181,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 					value={watchBonusCode}
 					options={promotionOptions}
 					onChange={value => {
+						// * bonusCode 與 promoCode 擇一使用因此清空 promoCode
 						setValue('bonusCode', String(value))
 						setValue('promoCode', undefined)
 					}}
@@ -169,7 +198,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 				/>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(onAutoDepositFormSubmit)}>
+			<Form onSubmit={handleSubmit(onQRPayFormSubmit)}>
 				<div className='btnGroup'>
 					<button
 						type='submit'
@@ -187,4 +216,4 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 	)
 }
 
-export default AutoDepositForm
+export default QRPayForm

@@ -1,17 +1,21 @@
 import classNames from 'classnames'
+import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { useDepositContext } from '@nx-next-app/data-access'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { DepositPaymentEnum } from '@nx-next-app/types'
-import { DepositModule } from '@nx-next-app/components/H0006'
+import { DepositModule } from '@nx-next-app/components/D0001'
 import BankTransferForm from './BankTransferForm'
 import OnlineBankingForm from './OnlineBankingForm'
-import MobilePayForm from './MobilePayForm.tsx'
+import MobilePayForm from './MobilePayForm'
 import CryptoPayForm from './CryptoPayForm'
 import QRPayForm from './QRPayForm'
 import TopUpCardForm from './TopUpCardForm'
 import AutoDepositForm from './AutoDepositForm'
-import LinePayForm from './LinePayForm'
+import DepositAutoRemember from '../DepositAutoRemember'
+import QuickTransferForm from './QuickTransferForm'
+import ChatTransferForm from './ChatTransferForm'
 
 const {
 	AutoDeposit,
@@ -19,11 +23,19 @@ const {
 	OnlineBanking,
 	MobilePay,
 	CryptoPay,
-	LinePay,
 	QRPay,
 	TopUpCardPay,
+	QuickTransfer,
+	ChatTransfer,
 } = DepositPaymentEnum
 
+const DepositLinePayModal = dynamic(
+	() =>
+		import(
+			'@nx-next-app/features/F0001/desktop/deposit/common/modal/DepositLinePayModal'
+		),
+	{ ssr: false }
+)
 const DepositForm = () => {
 	const { t } = useTranslation()
 	const {
@@ -32,11 +44,16 @@ const DepositForm = () => {
 		query: { paymentType },
 	} = useRouter()
 
+	const { modal } = useGlobalModal()
+
 	const { payments, DEPOSIT_PAYMENT_OPTIONS } = useDepositContext()
 
 	return (
-		<div className='depositModule active'>
-			<DepositModule title={t('Label_Deposit_DepositOptions')} required>
+		<div className='subModuleListColumn'>
+			<DepositModule
+				title={t('Label_Deposit_DepositOptions')}
+				extra={<DepositAutoRemember />}
+			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentType'>
 					{Object.keys(payments).map(key => {
 						const paymentOption =
@@ -44,15 +61,28 @@ const DepositForm = () => {
 
 						if (!paymentOption) return null
 
-						const { labelDisplayKey, timeDisplayKey, icon } = paymentOption
+						const {
+							icon,
+							labelDisplayKey,
+							// timeDisplayKey
+						} = paymentOption
 
 						return (
 							<DepositModule.SubModuleButton
-								label={t(labelDisplayKey)}
+								label={t(labelDisplayKey || '')}
 								icon={classNames(icon)}
 								matchValue={key}
 								key={labelDisplayKey}
 								onClick={() => {
+									if (key === DepositPaymentEnum.LinePay) {
+										modal.open(
+											<DepositLinePayModal
+												link={payments[DepositPaymentEnum.LinePay]?.link}
+											/>
+										)
+										return
+									}
+
 									if (paymentType !== key) {
 										const url = {
 											pathname,
@@ -63,9 +93,12 @@ const DepositForm = () => {
 									}
 								}}
 							>
-								<div>
+								{/* // * 處理時間區塊 */}
+								{/* // *  隱藏簡化畫面，未來有可能再打開 */}
+								{/* <div>
 									{t('Label_General_CreditTime')} ： {t(timeDisplayKey)}
-								</div>
+								</div> */}
+								<div />
 							</DepositModule.SubModuleButton>
 						)
 					})}
@@ -78,12 +111,11 @@ const DepositForm = () => {
 				/>
 			)}
 
-			{paymentType === LinePay &&
-				payments[DepositPaymentEnum.LinePay]?.link && (
-					<LinePayForm
-						redirectLink={payments[DepositPaymentEnum.LinePay]?.link}
-					/>
-				)}
+			{paymentType === BankTransfer && (
+				<BankTransferForm
+					dataSource={payments[DepositPaymentEnum.BankTransfer] || []}
+				/>
+			)}
 
 			{paymentType === OnlineBanking && (
 				<OnlineBankingForm
@@ -103,12 +135,6 @@ const DepositForm = () => {
 				/>
 			)}
 
-			{paymentType === BankTransfer && (
-				<BankTransferForm
-					dataSource={payments[DepositPaymentEnum.BankTransfer] || []}
-				/>
-			)}
-
 			{paymentType === QRPay && (
 				<QRPayForm dataSource={payments[DepositPaymentEnum.QRPay] || []} />
 			)}
@@ -116,6 +142,18 @@ const DepositForm = () => {
 			{paymentType === TopUpCardPay && (
 				<TopUpCardForm
 					dataSource={payments[DepositPaymentEnum.TopUpCardPay] || []}
+				/>
+			)}
+
+			{paymentType === QuickTransfer && (
+				<QuickTransferForm
+					dataSource={payments[DepositPaymentEnum.QuickTransfer] || []}
+				/>
+			)}
+
+			{paymentType === ChatTransfer && (
+				<ChatTransferForm
+					dataSource={payments[DepositPaymentEnum.ChatTransfer] || []}
 				/>
 			)}
 		</div>
