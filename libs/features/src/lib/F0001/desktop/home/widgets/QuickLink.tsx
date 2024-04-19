@@ -18,6 +18,7 @@ const QuickLink = ({ socialChannelList }: IQuickLinkProps) => {
 
 	// 這裡不能用 useHover 搭配 useRef , 因為 Icon 數量非固定的，透過 map 生成 hooks 可能會導致 hook 生成數量每次不固定進而報錯
 	// Error: Rendered more hooks than during the previous render.
+	// test
 
 	const [activeIcon, setActiveIcon] = useState<string | null>(null)
 
