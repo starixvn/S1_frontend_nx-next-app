@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -2529,6 +2529,15 @@ header input:focus-within {
   margin-left: 50px;
   -webkit-transition: 0.35s;
   transition: 0.35s;
+}
+.home-profile .home-profile-bottom .home-profile-country .country-list {
+  position: unset;
+  min-width: unset;
+  margin-top: unset;
+  background: transparent;
+  -webkit-box-shadow: unset;
+          box-shadow: unset;
+  padding: 0;
 }
 .home-profile .home-profile-bottom .home-profile-country .country-current {
   padding: 15px 10px;
