@@ -26,7 +26,7 @@ export const useSynchronizeCookiesEffect = (userInfo: IUserInfoData) => {
 
 			// PRD 環境且有載入才執行
 			if (
-				process.env['NEXT_PUBLIC_ENV'] === 'DEV' &&
+				process.env['NEXT_PUBLIC_ENV'] === 'PRD' &&
 				typeof window.gtag === 'function'
 			) {
 				window.gtag('set', { user_id: custId })
