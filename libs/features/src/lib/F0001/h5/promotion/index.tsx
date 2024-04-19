@@ -1,7 +1,7 @@
 import { Header } from '@nx-next-app/components/H0001'
-import PromotionCode from './PromotionCode'
-import PromotionFilter from './PromotionFilter'
-import PromotionList from './PromotionList'
+import PromotionCode from './common/PromotionCode'
+import PromotionFilter from './common/PromotionFilter'
+import PromotionList from './common/PromotionList'
 
 const Promotion = () => {
 	return (

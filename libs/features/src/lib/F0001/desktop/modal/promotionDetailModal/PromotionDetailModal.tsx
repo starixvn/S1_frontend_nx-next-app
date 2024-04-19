@@ -16,7 +16,7 @@ import { includes, toUpper } from 'lodash-es'
 import CashbackInfo from './CashbackInfo'
 import DepositSlip from './DepositSlip'
 import DepositMenu from './DepositMenu'
-import PromotionProgressBar from '../../promotion/PromotionProgressBar'
+import PromotionProgressBar from '../../promotion/common/PromotionProgressBar'
 import PromoRule from './PromoRule'
 import PromoMission from './PromoMission'
 

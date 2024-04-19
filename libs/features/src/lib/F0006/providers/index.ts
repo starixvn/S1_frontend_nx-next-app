@@ -1,6 +1,5 @@
 export * from './home-context'
 export * from './slots-context'
-export * from './promotion-context'
 export * from './referral-context'
 export * from './history-context'
 export * from './luckyWheel-context'

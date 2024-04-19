@@ -27,14 +27,14 @@ const LoginModal = dynamic(() => import('../desktop/modal/LoginModal'), {
 })
 
 const DesktopClaimAmountModal = dynamic(
-	() => import('../desktop/promotion/ClaimAmountModal'),
+	() => import('../desktop/promotion/common/ClaimAmountModal'),
 	{
 		ssr: false,
 	}
 )
 
 const H5ClaimAmountModal = dynamic(
-	() => import('../h5/promotion/ClaimAmountModal'),
+	() => import('../h5/promotion/common/ClaimAmountModal'),
 	{
 		ssr: false,
 	}
