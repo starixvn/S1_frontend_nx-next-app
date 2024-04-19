@@ -37,7 +37,8 @@ export const FLAG_PREFIX_ICON_BY_CURRENCIES: { [key: number]: string } = {
 	[CurrenciesEnum.KHM]: 'kh',
 	[CurrenciesEnum.BDT]: 'bd',
 	[CurrenciesEnum.VND]: 'vn',
-	// TODO
+	[CurrenciesEnum.KRW]: 'ko',
+	[CurrenciesEnum.BRL]: 'br',
 }
 
 export const RECAPTCHAT_LANG_BY_LANG_ID: { [key: string]: string } = {
