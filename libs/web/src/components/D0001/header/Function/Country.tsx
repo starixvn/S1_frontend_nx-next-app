@@ -56,20 +56,19 @@ const Country = ({
 							{langGroup[icon || 'ch'].map(
 								({ displayText, currencyId, value }) => {
 									return (
-										<div key={displayText}>
-											<button
-												type='button'
-												onClick={() => {
-													onSetLanguage({
-														langCode: value,
-														currencyId,
-													})
-													toggle()
-												}}
-											>
-												{displayText}
-											</button>
-										</div>
+										<button
+											key={displayText}
+											type='button'
+											onClick={() => {
+												onSetLanguage({
+													langCode: value,
+													currencyId,
+												})
+												toggle()
+											}}
+										>
+											{displayText}
+										</button>
 									)
 								}
 							)}
