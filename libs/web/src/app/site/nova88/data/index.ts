@@ -16,6 +16,111 @@ export * from './gtmData'
 export * as ThirdPartyJS from './thirdPartyJS'
 
 export const LANG_GROUPS: IStaticLangGroups = {
+	bd: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.BDT,
+		},
+		{
+			displayText: 'বাংলা',
+			value: 'bd',
+			currencyId: CurrenciesEnum.BDT,
+			mainLanguage: true,
+		},
+	],
+	br: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.BRL,
+		},
+		{
+			displayText: 'Portugese',
+			value: 'br',
+			currencyId: CurrenciesEnum.BRL,
+			mainLanguage: true,
+		},
+	],
+	cs: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.CNY,
+		},
+		{
+			displayText: '简体中文',
+			value: 'cs',
+			currencyId: CurrenciesEnum.CNY,
+			mainLanguage: true,
+		},
+	],
+	gb: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.USD,
+			mainLanguage: true,
+		},
+		{
+			displayText: '简体中文',
+			value: 'cs',
+			currencyId: CurrenciesEnum.USD,
+		},
+	],
+	id: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.IDR,
+		},
+		{
+			displayText: 'Indonesian',
+			value: 'id',
+			currencyId: CurrenciesEnum.IDR,
+			mainLanguage: true,
+		},
+	],
+	in: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.INR,
+		},
+		{
+			displayText: 'हिंदी',
+			value: 'hi',
+			currencyId: CurrenciesEnum.INR,
+			mainLanguage: true,
+		},
+	],
+	// 日本語位置
+	kh: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.KHM,
+		},
+		{
+			displayText: 'ខ្មែរ',
+			value: 'kh',
+			currencyId: CurrenciesEnum.KHM,
+			mainLanguage: true,
+		},
+	],
+	ko: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.KRW,
+		},
+		{
+			displayText: '한국어',
+			value: 'ko',
+			currencyId: CurrenciesEnum.KRW,
+			mainLanguage: true,
+		},
+	],
 	ch: [
 		{
 			displayText: 'English',
@@ -31,6 +136,7 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			displayText: 'Malay',
 			value: 'my',
 			currencyId: CurrenciesEnum.MYR,
+			mainLanguage: true,
 		},
 	],
 	th: [
@@ -39,7 +145,12 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			value: 'en',
 			currencyId: CurrenciesEnum.THB,
 		},
-		{ displayText: 'ไทย', value: 'th', currencyId: CurrenciesEnum.THB },
+		{
+			displayText: 'ภาษาไทย',
+			value: 'th',
+			currencyId: CurrenciesEnum.THB,
+			mainLanguage: true,
+		},
 	],
 	vn: [
 		{
@@ -47,104 +158,11 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			value: 'en',
 			currencyId: CurrenciesEnum.VND,
 		},
-		{ displayText: 'Tiếng Việt', value: 'vn', currencyId: CurrenciesEnum.VND },
-	],
-	id: [
 		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.IDR,
-		},
-		{
-			displayText: 'Bhs Indonesia',
-			value: 'id',
-			currencyId: CurrenciesEnum.IDR,
-		},
-	],
-	in: [
-		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.INR,
-		},
-		{
-			displayText: 'हिंदी',
-			value: 'hi',
-			currencyId: CurrenciesEnum.INR,
-		},
-	],
-	bd: [
-		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.BDT,
-		},
-		{
-			displayText: 'বাংলা',
-			value: 'bd',
-			currencyId: CurrenciesEnum.BDT,
-		},
-	],
-	kh: [
-		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.KHM,
-		},
-		{
-			displayText: 'ខ្មែរ',
-			value: 'kh',
-			currencyId: CurrenciesEnum.KHM,
-		},
-	],
-	cs: [
-		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.CNY,
-		},
-		{
-			displayText: '简体中文',
-			value: 'cs',
-			currencyId: CurrenciesEnum.CNY,
-		},
-	],
-	gb: [
-		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.USD,
-		},
-		{
-			displayText: '简体中文',
-			value: 'cs',
-			currencyId: CurrenciesEnum.USD,
-		},
-	],
-	ko: [
-		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.KRW,
-		},
-		{
-			// TODO
-			displayText: '韓文',
-			value: 'ko',
-			currencyId: CurrenciesEnum.KRW,
-		},
-	],
-	br: [
-		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.BRL,
-		},
-		{
-			// TODO
-			displayText: '巴西',
-			value: 'br',
-			currencyId: CurrenciesEnum.BRL,
+			displayText: 'Tiếng Việt',
+			value: 'vn',
+			currencyId: CurrenciesEnum.VND,
+			mainLanguage: true,
 		},
 	],
 }

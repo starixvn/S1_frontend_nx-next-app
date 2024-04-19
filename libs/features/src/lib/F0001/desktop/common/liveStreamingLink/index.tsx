@@ -9,11 +9,11 @@ import {
 	useLazyGetDataListQuery,
 	ILiveStreamingData,
 } from '@nx-next-app/service'
-import {
-	ALLOWED_CURRENCIES,
-	EUROPE_EVENT_PERIOD,
-} from '@nx-next-app/site/nova88'
 import { isEventPeriod } from '@nx-next-app/utils'
+import {
+	EUROPE_EVENT_PERIOD,
+	ALLOWED_CURRENCIES,
+} from '@nx-next-app/site/nova88'
 import LiveStreamingModal from './LiveStreamingModal'
 
 const LiveStreamingLink = () => {

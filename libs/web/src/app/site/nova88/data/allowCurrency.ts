@@ -4,8 +4,8 @@ const { MYR, THB, CNY, IDR, INR, KHM, BDT, VND, USD, USDT, KRW, BRL } =
 	CurrenciesEnum
 
 export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
-	VIP: [MYR, USD, THB, CNY, IDR, VND, INR, KHM, BDT,KRW, BRL],
-	AFFILIATE: [MYR, THB, IDR, CNY, BDT, USD, INR, VND, KHM],
+	VIP: [MYR, USD, THB, CNY, IDR, VND, INR, KHM, BDT, KRW, BRL],
+	AFFILIATE: [MYR, THB, IDR, CNY, BDT, USD, INR, VND, KHM, KRW, BRL],
 	EXCHANGE: [INR, BDT, USD],
 	REWARDS: [MYR, THB, IDR],
 	LEADER_BOARD: [MYR, IDR, THB, VND, KRW, BRL],
@@ -88,7 +88,7 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 	LOTTERY_GPI_FAST3: [MYR, THB, KHM, IDR, INR, BDT, CNY, USD, KRW, BRL],
 
 	// === Profile method ===
-	ADDRESS: [MYR, USD, THB, CNY, IDR, VND, INR, KHM, BDT, USDT, KRW, BRL],
+	ADDRESS: [MYR, USD, THB, CNY, IDR, VND, INR, KHM, BDT, USDT],
 
 	// Deposit
 	RECEIPT: [THB, KRW, BRL],

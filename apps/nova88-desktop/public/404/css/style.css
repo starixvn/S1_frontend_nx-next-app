@@ -13,7 +13,7 @@ img{
   display: block;
   width: max-content;
 }
-body{
+body{  
   background: url(../img/bg.jpg)no-repeat top center / cover;
   animation: bgimg 5s ease-in-out infinite;
 }
@@ -27,14 +27,14 @@ body{
 .title{
   font-size: 50px;
   font-weight: bold;
-  color: #1e85ec;
+  color: #cf242a;
   margin: 30px 0 5px;
   text-transform:uppercase;
 }
 .stitle{
   font-size: 30px;
   font-weight: bold;
-  color: #1e85ec;
+  color: #cf242a;
   margin: 0 0 30px;
 }
 @media screen and (max-width: 1024px) and (orientation: portrait){
@@ -48,6 +48,9 @@ body{
     text-align: center;
     transform: translateY(0%);
     width: calc(100% - 4vw);
+  }
+  .logo{
+    width: 70vw;
   }
   img{
     display: unset;
