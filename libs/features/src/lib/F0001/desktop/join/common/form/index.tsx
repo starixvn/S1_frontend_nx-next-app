@@ -28,6 +28,7 @@ import {
 	useLazyExistsUserNameQuery,
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
+	useGetRecaptchaInfoQuery,
 } from '@nx-next-app/service'
 import { includes } from 'lodash-es'
 import {
@@ -80,6 +81,10 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const { data: { data: siteCurrencyList = [] } = {} } =
 		useGetSiteCurrencyListQuery()
+
+	const { data: { data: token = [] } = {} } = useGetRecaptchaInfoQuery()
+
+	console.log(token)
 
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
