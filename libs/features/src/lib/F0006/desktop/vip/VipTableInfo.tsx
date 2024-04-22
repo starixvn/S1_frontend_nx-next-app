@@ -1,8 +1,8 @@
 import { capitalize } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
-import { numberFormat } from '@nx-next-app/utils'
 import { IVipBannerData } from '@nx-next-app/service'
+import { numberFormatExcludeString } from '@nx-next-app/utils'
 
 const VipTableInfo = ({
 	vipBannerData,
@@ -70,11 +70,7 @@ const VipTableInfo = ({
 					</td>
 					{vipBannerData?.map(item => (
 						<td key={item.level}>
-							{numberFormat(
-								Number(item.withdrawalMax.split('.')[0]),
-								currencyId,
-								0
-							)}
+							{numberFormatExcludeString(item.withdrawalMax)}
 						</td>
 					))}
 				</tr>
@@ -97,13 +93,7 @@ const VipTableInfo = ({
 					<td>{capitalize(t('Label_Vip_Tier_UpGrade_Bonus') || '')}</td>
 					{vipBannerData?.map(item => (
 						<td key={item.level}>
-							{item?.upBonus
-								? numberFormat(
-										Number(item.upBonus.split('.')[0]),
-										currencyId,
-										0
-								  )
-								: null}
+							{item?.upBonus && numberFormatExcludeString(item.upBonus)}
 						</td>
 					))}
 				</tr>
@@ -165,13 +155,7 @@ const VipTableInfo = ({
 					<td>{capitalize(t('Label_Vip_Monthly_Minimum_Deposit') || '')}</td>
 					{vipBannerData?.map(item => (
 						<td key={item.level}>
-							{item?.upDeposit
-								? numberFormat(
-										Number(item.upDeposit.split('.')[0]),
-										currencyId,
-										0
-								  )
-								: null}
+							{item?.upDeposit && numberFormatExcludeString(item.upDeposit)}
 						</td>
 					))}
 				</tr>
@@ -192,13 +176,9 @@ const VipTableInfo = ({
 					</td>
 					{vipBannerData?.map(item => (
 						<td key={item.level}>
-							{item?.downDeposit && Number(item?.downDeposit) !== 0
-								? numberFormat(
-										Number(item.downDeposit.split('.')[0]),
-										currencyId,
-										0
-								  )
-								: null}
+							{item?.downDeposit &&
+								Number(item?.downDeposit) !== 0 &&
+								numberFormatExcludeString(item.downDeposit)}
 						</td>
 					))}
 				</tr>
@@ -210,13 +190,9 @@ const VipTableInfo = ({
 					</td>
 					{vipBannerData?.map(item => (
 						<td key={item.level}>
-							{item?.downTurnover && Number(item?.downTurnover) !== 0
-								? numberFormat(
-										Number(item.downTurnover.split('.')[0]),
-										currencyId,
-										0
-								  )
-								: null}
+							{item?.downTurnover &&
+								Number(item?.downTurnover) !== 0 &&
+								numberFormatExcludeString(item.downTurnover)}
 						</td>
 					))}
 				</tr>
