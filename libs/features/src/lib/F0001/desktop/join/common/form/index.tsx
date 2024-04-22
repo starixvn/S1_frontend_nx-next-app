@@ -76,7 +76,6 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const { data: { data: siteCurrencyList = [] } = {} } =
 		useGetSiteCurrencyListQuery()
-
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 
@@ -92,7 +91,16 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const watchCurrencyId = watch('currencyId')
 
-	const currencySelectOptions = siteCurrencyList
+	// TODO Release 測試，上正式需移除
+	const filterSiteCurrencyList = () => {
+		// 巴西，韓國，日本 沒有 enums
+		const filterCurrency = [82, 45, 32]
+		return siteCurrencyList.filter(
+			currencyId => !includes(filterCurrency, currencyId)
+		)
+	}
+
+	const currencySelectOptions = filterSiteCurrencyList()
 		.filter(currencyId => {
 			const affiliate = getValues('affiliate')
 			const formCurrencyId = getValues('currencyId')
@@ -211,7 +219,7 @@ const Form = ({ cookies }: IJoinProps) => {
 			if (Number(affCurrencyId)) {
 				selectCurrency(Number(affCurrencyId))
 
-				const options = siteCurrencyList
+				const options = filterSiteCurrencyList()
 					.filter(currencyId => currencyId === Number(affCurrencyId))
 					.map(currencyId => ({
 						value: currencyId,
@@ -306,7 +314,7 @@ const Form = ({ cookies }: IJoinProps) => {
 	const checkLineRegister = () => {
 		if (!lineUserId) return
 
-		if (siteCurrencyList.length > 0) {
+		if (filterSiteCurrencyList().length > 0) {
 			selectCurrency(CurrenciesEnum.THB)
 		}
 	}
