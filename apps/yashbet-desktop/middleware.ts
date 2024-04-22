@@ -12,7 +12,7 @@ export const LANG_TO_CURRENCY: { [key: string]: number } = {
 // 若透過指定語系進入，則會給予指定語系的 locale
 const config = {
 	defaultLocale: 'en',
-	defaultCurrency: 61,
+	defaultCurrency: 74,
 	langToCurrency: LANG_TO_CURRENCY,
 }
 
