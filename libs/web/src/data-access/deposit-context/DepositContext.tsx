@@ -15,7 +15,7 @@ import {
 	IPaymentLinePayInfo,
 	IPaymentQRPayData,
 	IPaymentTopUpCardPayData,
-	useGetPaymentAutoDepositListQuery,
+	useGetAutoDepositGroupListQuery,
 	IPaymentAutoDepositData,
 	useGetDepositQuickTransferQuery,
 	IDepositQuickTransferData,
@@ -134,7 +134,7 @@ export const DepositProvider = ({
 		data: { data: paymentAutoDepositList = [] } = {},
 		isLoading: isGetPaymentAutoDepositListLoading,
 		refetch: refetchPaymentAutoDepositList,
-	} = useGetPaymentAutoDepositListQuery(undefined, {
+	} = useGetAutoDepositGroupListQuery(undefined, {
 		skip: !includes(depositPaymentOrders, DepositPaymentEnum.AutoDeposit),
 	})
 

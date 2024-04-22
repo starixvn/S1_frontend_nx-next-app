@@ -24,6 +24,8 @@ import {
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
+import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import { useManageCards } from '@nx-next-app/features/F0001/providers/withdrawal-context/useManageCards'
 
 interface IMobilePayFormProps {
 	dataSource: IPaymentMobilePayData[]
@@ -57,7 +59,7 @@ const DepositMobilePayBankQRModal = dynamic(
 
 const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 	const {
-		userInfo: { currencyId },
+		userInfo: { currencyId, accountName },
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
@@ -71,9 +73,16 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			setValue,
 			watch,
 			register,
+			clearErrors,
 			formState: { touchedFields, errors, isValid },
 		},
+		custBankInfo,
+		eWalletOptions,
+		custEWalletList,
+		eWalletRequired,
 		channelMobilePayList = [],
+		bankCardOptions,
+		bankCardRequired,
 		onMobilePayFormSubmit,
 	} = useMobilePayForm({
 		dataSource,
@@ -85,6 +94,16 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			modal.open(<DepositMobilePayBankQRModal {...values} />),
 	})
 
+	const bankData = {
+		bankInfoDetail: custBankInfo,
+		custEWalletInfo: custEWalletList,
+	}
+
+	const { handleAddCards } = useManageCards({
+		accountName: String(accountName),
+		bankData,
+	})
+
 	const watchAmount = watch('amount')
 	const watchBonusCode = watch('bonusCode')
 	const watchPayName = watch('payName')
@@ -92,6 +111,8 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 	const watchMaxAmount = watch('maxAmount')
 	const watchAmountRule = watch('amountRule')
 	const watchAmountList = watch('amountList')
+	const watchCustBankAccount = watch('custBankAccount')
+	const watchCustEWalletAccount = watch('custEWalletAccount')
 
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
@@ -246,6 +267,70 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 							}}
 						/>
 					)}
+				</DepositModule>
+			)}
+
+			{bankCardRequired && (
+				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+					<Select
+						value={watchCustBankAccount}
+						options={bankCardOptions}
+						onChange={value => {
+							trigger('custBankAccount')
+							setValue('custBankAccount', String(value))
+							clearErrors('custBankAccount')
+						}}
+						errorMessage={errors['custBankAccount']?.message as string}
+					/>
+					{custBankInfo.length < 3 && (
+						<div className='btnGroup'>
+							<button
+								className='btn-check'
+								onClick={() => handleAddCards(WithdrawalBankCardEnum.LocalBank)}
+							>
+								+
+							</button>
+						</div>
+					)}
+					<div
+						className={classNames('tip', {
+							active: errors['custBankAccount'],
+						})}
+					>
+						{errors['custBankAccount']?.message}
+					</div>
+				</DepositModule>
+			)}
+
+			{eWalletRequired && (
+				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+					<Select
+						value={watchCustEWalletAccount}
+						options={eWalletOptions}
+						onChange={value => {
+							trigger('custEWalletAccount')
+							setValue('custEWalletAccount', String(value))
+							clearErrors('custEWalletAccount')
+						}}
+						errorMessage={errors['custEWalletAccount']?.message as string}
+					/>
+					{custEWalletList.length < 3 && (
+						<div className='btnGroup'>
+							<button
+								className='btn-check'
+								onClick={() => handleAddCards(WithdrawalBankCardEnum.EWallet)}
+							>
+								+
+							</button>
+						</div>
+					)}
+					<div
+						className={classNames('tip', {
+							active: errors['custEWalletAccount'],
+						})}
+					>
+						{errors['custEWalletAccount']?.message}
+					</div>
 				</DepositModule>
 			)}
 
