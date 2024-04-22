@@ -6,6 +6,7 @@ import {
 	IDeleteEWalletCardArgs,
 	IEWalletData,
 	IUsdtDetailData,
+	IPaymentCustBankInfoData,
 	useDeleteBankCardMutation,
 	useDeleteEWalletCardMutation,
 	useLazyGetBankInfoSysListQuery,
@@ -18,19 +19,16 @@ import { ISelectProps } from '@nx-next-app/components/D0001'
 import dynamic from 'next/dynamic'
 
 const AddBankCardModal = dynamic(
-	() =>
-		import(
-			'@nx-next-app/features/F0001/desktop/withdrawal/common/modal/AddBankCardModal'
-		),
+	() => import('@nx-next-app/features/F0001/desktop/modal/AddBankCardModal'),
 	{ ssr: false }
 )
 
 interface IUseManageCardsProps {
 	accountName: string
 	bankData: {
-		custEWalletInfo: IEWalletData[]
-		bankInfoDetail: IBankInfoData[]
-		usdtDetail: IUsdtDetailData[]
+		custEWalletInfo?: IEWalletData[]
+		bankInfoDetail?: IBankInfoData[] | IPaymentCustBankInfoData[]
+		usdtDetail?: IUsdtDetailData[]
 	}
 }
 

@@ -20,6 +20,8 @@ import {
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
+import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import { useManageCards } from '@nx-next-app/features/F0001/providers/withdrawal-context/useManageCards'
 
 const { IDR } = CurrenciesEnum
 
@@ -29,7 +31,7 @@ interface IAutoDepositFormProps {
 
 const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 	const {
-		userInfo: { currencyId },
+		userInfo: { currencyId, accountName },
 	} = useAuth()
 	const { t } = useTranslation()
 	const { promotionOptions } = useDepositContext()
@@ -41,17 +43,30 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			setValue,
 			watch,
 			register,
+			clearErrors,
 			formState: { touchedFields, errors, isValid },
 		},
+		custBankInfo,
+		supportBanks,
+		bankCardOptions,
+		bankCardRequired,
 		onAutoDepositFormSubmit,
 	} = useAutoDepositForm({
 		dataSource,
+	})
+
+	const bankData = { bankInfoDetail: custBankInfo }
+
+	const { handleAddCards } = useManageCards({
+		accountName: String(accountName),
+		bankData,
 	})
 
 	const watchAmount = watch('amount')
 	const watchBonusCode = watch('bonusCode')
 	const watchMinAmount = watch('minAmount')
 	const watchMaxAmount = watch('maxAmount')
+	const watchCustBankAccount = watch('custBankAccount')
 
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
@@ -64,22 +79,22 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			<div />
 
 			<DepositModule
-				title={t('Label_BankInfo_SelectBank')}
-				layout='horizontal'
+				title={t('Label_Payment_Method')}
+				layout='vertical'
 				required
 				hasAdditionalInfo
 			>
-				<DepositModule.SubModuleButtonGroup matchKey='sysId'>
+				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{dataSource.map(item => {
-						const { bankName, bankLogo, minAmount, maxAmount, sysId } = item
+						const { minAmount, maxAmount, channelName, channelId } = item
 						const min = numberFormat(minAmount, currencyId, 0, false)
 						const max = numberFormat(maxAmount, currencyId, 0, false)
 						return (
 							<DepositModule.SubModuleButton
-								label={bankName}
-								imgName={`square/${toLower(bankLogo)}`}
-								matchValue={String(sysId)}
-								key={sysId}
+								label={channelName}
+								imgName={`${toLower(channelName)}.png`}
+								matchValue={String(channelId)}
+								key={channelId}
 							>
 								<div>{`${min} ~ ${max}`}</div>
 							</DepositModule.SubModuleButton>
@@ -87,6 +102,33 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 					})}
 				</DepositModule.SubModuleButtonGroup>
 			</DepositModule>
+
+			{supportBanks.length > 0 && (
+				<DepositModule
+					title={t('Label_BankInfo_SelectBank')}
+					layout='horizontal'
+					required
+					hasAdditionalInfo
+				>
+					<DepositModule.SubModuleButtonGroup matchKey='sysId'>
+						{supportBanks.map(item => {
+							const { bankName, bankLogo, minAmount, maxAmount, sysId } = item
+							const min = numberFormat(minAmount, currencyId, 0, false)
+							const max = numberFormat(maxAmount, currencyId, 0, false)
+							return (
+								<DepositModule.SubModuleButton
+									label={bankName}
+									imgName={`square/${toLower(bankLogo)}`}
+									matchValue={String(sysId)}
+									key={sysId}
+								>
+									<div>{`${min} ~ ${max}`}</div>
+								</DepositModule.SubModuleButton>
+							)
+						})}
+					</DepositModule.SubModuleButtonGroup>
+				</DepositModule>
+			)}
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
 				<DepositModule title={depositAmountText} required>
@@ -140,6 +182,38 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 							trigger('amount')
 						}}
 					/>
+				</DepositModule>
+			)}
+
+			{bankCardRequired && (
+				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+					<Select
+						value={watchCustBankAccount}
+						options={bankCardOptions}
+						onChange={value => {
+							trigger('custBankAccount')
+							setValue('custBankAccount', String(value))
+							clearErrors('custBankAccount')
+						}}
+						errorMessage={errors['custBankAccount']?.message as string}
+					/>
+					{custBankInfo.length < 3 && (
+						<div className='btnGroup'>
+							<button
+								className='btn-check'
+								onClick={() => handleAddCards(WithdrawalBankCardEnum.LocalBank)}
+							>
+								+
+							</button>
+						</div>
+					)}
+					<div
+						className={classNames('tip', {
+							active: errors['custBankAccount'],
+						})}
+					>
+						{errors['custBankAccount']?.message}
+					</div>
 				</DepositModule>
 			)}
 
