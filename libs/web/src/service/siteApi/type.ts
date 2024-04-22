@@ -57,7 +57,7 @@ export interface ISignUpArgs {
 	email?: string
 	phoneNo: string
 	realName: string
-	// reCaptchaToken: string
+	reCaptchaAction: string
 	referralUrl?: string
 	userLang: string
 	userName: string
@@ -153,4 +153,9 @@ export interface IResetPwdVerifyOTPArgs {
 	userName: string
 	inputOTPcode: string
 	newPassword: string
+}
+
+export interface IRecaptchaInfoData {
+	siteKey: string
+	country: string
 }

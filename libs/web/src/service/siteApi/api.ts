@@ -11,6 +11,7 @@ import {
 	IGetVipBannerArgs,
 	IResetPwdByOTPArgs,
 	IResetPwdVerifyOTPArgs,
+	IRecaptchaInfoData,
 } from './type'
 
 export const siteApiUrl = {
@@ -132,13 +133,7 @@ export const siteApi = rootApi.injectEndpoints({
 				data: { affCode },
 			}),
 		}),
-		getRecaptchaInfo: builder.query<
-			IAxiosResponse<{
-				siteKey: string
-				country: string
-			}>,
-			void
-		>({
+		getRecaptchaInfo: builder.query<IAxiosResponse<IRecaptchaInfoData>, void>({
 			query: () => ({
 				url: siteApiUrl.getRecaptchaInfo,
 				method: 'POST',
