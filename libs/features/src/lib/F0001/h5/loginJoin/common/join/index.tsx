@@ -236,7 +236,7 @@ const Join = ({ cookies }: IJoinProps) => {
 
 		// use register currency to get langId, if not exist, use default en
 		const userLang =
-			LANG_GROUPS[CURRENCY_TO_LANG_KEY[currencyId] as string].find(
+			LANG_GROUPS[CURRENCY_TO_LANG_KEY[formCurrencyId] as string].find(
 				({ value }) => value === langId
 			)?.value ?? 'en'
 
@@ -257,7 +257,7 @@ const Join = ({ cookies }: IJoinProps) => {
 				userName: username,
 				userpwd: password,
 				blackbox,
-				langId,
+				langId: userLang,
 				lineUserId: cookieLineUserId as string,
 			}).unwrap()
 
