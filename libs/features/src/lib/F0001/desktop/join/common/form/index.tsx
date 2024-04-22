@@ -29,6 +29,7 @@ import {
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
 	useGetRecaptchaInfoQuery,
+	IRecaptchaInfoData,
 } from '@nx-next-app/service'
 import { includes } from 'lodash-es'
 import {
@@ -82,9 +83,8 @@ const Form = ({ cookies }: IJoinProps) => {
 	const { data: { data: siteCurrencyList = [] } = {} } =
 		useGetSiteCurrencyListQuery()
 
-	const { data: { data: token = [] } = {} } = useGetRecaptchaInfoQuery()
-
-	console.log(token)
+	const { data: { data: reCaptchaToken = {} as IRecaptchaInfoData } = {} } =
+		useGetRecaptchaInfoQuery()
 
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
@@ -357,7 +357,13 @@ const Form = ({ cookies }: IJoinProps) => {
 		const affCodeCheck = await checkAffiliate()
 
 		// currency & recaptcha & affiliate cannot use form required check
-		if (!currencyCheck || !affCodeCheck) return
+		if (
+			!reCaptchaToken ||
+			reCaptchaToken?.country === 'CN' ||
+			!currencyCheck ||
+			!affCodeCheck
+		)
+			return
 
 		const affId = affiliate && urlAffId ? affiliate : null
 		const affCode = !urlAffId && affCodeCheck ? affiliate : null
@@ -380,7 +386,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				currencyId: formCurrencyId,
 				phoneNo: phone,
 				realName,
-				// reCaptchaToken,
+				reCaptchaAction: reCaptchaToken?.siteKey,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,
