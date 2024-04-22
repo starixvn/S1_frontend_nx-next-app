@@ -362,8 +362,9 @@ const Form = ({ cookies }: IJoinProps) => {
 		const affCode = !urlAffId && affCodeCheck ? affiliate : null
 
 		// use register currency to get langId, if not exist, use default en
+		// 在 signUp 時 formCurrencyId 為必填，所以不會是 undefined
 		const userLang =
-			LANG_GROUPS[CURRENCY_TO_LANG_KEY[currencyId] as string].find(
+			LANG_GROUPS[CURRENCY_TO_LANG_KEY[formCurrencyId] as string]?.find(
 				({ value }) => value === langId
 			)?.value ?? 'en'
 
@@ -384,7 +385,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				userName: username,
 				userpwd: password,
 				blackbox,
-				langId,
+				langId: userLang,
 				lineUserId: lineUserId as string,
 			}).unwrap()
 
