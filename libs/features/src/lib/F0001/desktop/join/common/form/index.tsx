@@ -357,9 +357,9 @@ const Form = ({ cookies }: IJoinProps) => {
 		const affCodeCheck = await checkAffiliate()
 
 		// currency & recaptcha & affiliate cannot use form required check
+		// 在中國地區不支援 Recaptcha
 		if (
-			!reCaptchaToken ||
-			reCaptchaToken?.country === 'CN' ||
+			(reCaptchaToken?.country !== 'CN' && !reCaptchaToken) ||
 			!currencyCheck ||
 			!affCodeCheck
 		)
