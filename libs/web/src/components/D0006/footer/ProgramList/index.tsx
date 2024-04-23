@@ -8,7 +8,7 @@ import { IFooterData } from 'libs/web/src/app/types/footer'
 import { openLiveChat } from '@nx-next-app/utils'
 
 const LoginModal = dynamic(
-	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
+	() => import('@nx-next-app/features/F0006/desktop/modal/LoginModal'),
 	{
 		ssr: false,
 	}
