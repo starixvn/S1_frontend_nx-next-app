@@ -53,7 +53,7 @@ const Country = ({
 							{LANG_GROUP_COUNTRY[icon || 'ch']}
 						</div>
 						<div>
-							{langGroup[icon || 'ch'].map(
+							{langGroup[icon || 'ch']?.map(
 								({ displayText, currencyId, value }) => {
 									return (
 										<button

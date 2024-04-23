@@ -46,7 +46,7 @@ const List = () => {
 						<div>
 							<div>{LANG_GROUP_COUNTRY[icon || 'ch']}</div>
 							<div>
-								{languageGroup[icon || 'ch'].map(
+								{languageGroup[icon || 'ch']?.map(
 									({ displayText, currencyId, value }) => {
 										return (
 											<button
