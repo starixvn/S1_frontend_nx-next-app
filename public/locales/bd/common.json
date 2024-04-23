@@ -117,6 +117,7 @@
   "Label_Deposit_PaymentTimeLeft": "অর্থ প্রদানের সময় বাকি",
   "Label_Deposit_ProcessingDescription": "আমানত প্রক্রিয়াকরণ অনুগ্রহ করে নীচের তথ্য হালনাগাদ করুন বা আমানত ফলাফল দেখতে ইতিহাস লিঙ্কে ক্লিক করুন ।",
   "Label_Deposit_ProvideBankSlip": "অনুগ্রহ করে আমাদের এখানে ব্যাংক স্লিপ দিন যাতে আমরা দ্রুত আপনার অনুরোধ প্রক্রিয়া করতে পারি।",
+  "Label_Deposit_QR_Pay": "QR Pay",
   "Label_Deposit_ReceivedAmount": "প্রাপ্তির পরিমাণ",
   "Label_Deposit_ReferFriendsRewards": "বন্ধুদের পুরস্কার উল্লেখ করুন",
   "Label_Deposit_RemarkHint": "ট্রান্সফারের সময়, দয়া করে মন্তব্যটি প্রাপকের রেফারেন্স ফীল্ডে সংযুক্ত করুন।\n",
