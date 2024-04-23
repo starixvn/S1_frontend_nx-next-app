@@ -13,7 +13,7 @@ const RebateExclude = () => {
 		<div>
 			<div className='subheader'>
 				<div className='subheader__container'>
-					<a href='https://www.nova88.net/' />
+					<a href='/' />
 				</div>
 			</div>
 
