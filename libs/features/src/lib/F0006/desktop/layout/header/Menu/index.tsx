@@ -9,7 +9,7 @@ import { useDebounce } from 'usehooks-ts'
 import SubMenu from './SubMenu'
 
 const LoginModal = dynamic(
-	() => import('@nx-next-app/features/F0006/desktop/modal/LoginModal'),
+	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
 	{
 		ssr: false,
 	}

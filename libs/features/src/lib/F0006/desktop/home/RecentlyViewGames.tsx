@@ -6,9 +6,12 @@ import { Carousel } from '@nx-next-app/components/D0006'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useHome } from '@nx-next-app/features/F0006/providers'
 
-const LoginModal = dynamic(() => import('../modal/LoginModal'), {
-	ssr: false,
-})
+const LoginModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
+	{
+		ssr: false,
+	}
+)
 
 const RecentlyViewGames = () => {
 	const { t } = useTranslation()

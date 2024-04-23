@@ -3,9 +3,12 @@ import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { upperFirst } from 'lodash-es'
 
-const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
-	ssr: false,
-})
+const LoginModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
+	{
+		ssr: false,
+	}
+)
 
 const LoginHint = () => {
 	const { t } = useTranslation()
