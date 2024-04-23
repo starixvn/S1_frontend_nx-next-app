@@ -84,6 +84,7 @@
   "Label_DepositType3": "银行卡",
   "Label_DepositType4": "加密货币",
   "Label_DepositType6": "QR Pay",
+  "Label_DepositType7": "Auto Deposit",
   "Label_DepositType8": "加密钱包",
   "Label_Deposit_5Mins": "5分鐘",
   "Label_Deposit_AutoDeposit": "Auto Deposit",
