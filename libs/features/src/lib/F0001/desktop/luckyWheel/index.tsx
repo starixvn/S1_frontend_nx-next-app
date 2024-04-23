@@ -76,8 +76,8 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 						</div>
 						<div>
 							{t('Label_General_Start')}:{' '}
-							{dayjs(eventPeriod.start).format('YYYY-MM-DD HH:mm:ss')} GMT
-							{dayjs().format('Z')}
+							{dayjs(eventPeriod.start).format('YYYY-MM-DD HH:mm:ss')}
+							GMT+08:00
 						</div>
 						<div>{t('Label_LuckyWheel_DepositToday')}</div>
 					</div>
