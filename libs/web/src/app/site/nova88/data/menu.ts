@@ -73,6 +73,10 @@ const PRODUCT_EVENT_PERIOD: {
 		start: null,
 		end: '2024/04/21 23:59:59',
 	},
+	LIVE_CASINO_WON: {
+		start: null,
+		end: '2024/07/09 23:59:59',
+	},
 }
 
 const { MYR, INR, IDR, BDT, THB } = CurrenciesEnum
@@ -746,6 +750,36 @@ export const MENU_DATA = ({
 					displayText: 'Pragmatic Play',
 					product: PRODUCTS['LIVE_CASINO_PP'],
 					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_PP'],
+				},
+				{
+					h5: {
+						img: '4.0/dropdown/casino/casino-woncasino.png',
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					desktop: {
+						className: 'liveWoncasino',
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'casino-woncasino.png',
+							},
+						],
+						lobbyPage: {
+							bgImg: 'casino-woncasino.png',
+						},
+						menuActionType: MenuActionTypeEnum.EnterPage,
+					},
+					productKey: 'LIVE_CASINO_WON',
+					displayText: 'Won Casino',
+					product: PRODUCTS['LIVE_CASINO_WON'],
+					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_WON'],
+					eventIcons: [
+						{
+							icon: 'new-icon',
+							text: 'NEW',
+							period: PRODUCT_EVENT_PERIOD['LIVE_CASINO_WON'],
+						},
+					],
 				},
 				{
 					h5: {

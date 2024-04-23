@@ -168,6 +168,10 @@ export const FOOTER_DATA = ({
 				productKey: 'FOUR_D_GRAND_DRAGON',
 				imgName: 'haolong',
 			},
+			{
+				productKey: 'LIVE_CASINO_WON',
+				imgName: 'woncasino',
+			},
 		],
 		quickLinks: [
 			{
