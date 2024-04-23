@@ -391,6 +391,9 @@ body::before {
 .flag.kh::before {
   background: url(https://banner.0814media.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
 }
+.flag.br::before {
+  background: url(https://banner.0814media.net/desktop/img/flag/br.jpg) no-repeat top left/cover;
+}
 .flag.ko::before {
   background: url(https://banner.0814media.net/desktop/img/flag/ko.jpg) no-repeat top left/cover;
 }/*# sourceMappingURL=style.css.map */
