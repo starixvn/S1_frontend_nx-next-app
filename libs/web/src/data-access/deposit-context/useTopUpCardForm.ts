@@ -7,7 +7,7 @@ import {
 	IPostDepositLoadCardPayReqArgs,
 	useGetChannelTopUpCardPayListQuery,
 	useLazyCheckDepositSpecialCodeQuery,
-	usePostDepositLoadCardPayReqMutation,
+	useLazyGetDepositLoadCardPayReqQuery,
 } from '@nx-next-app/service'
 import { DepositActionModeEnum } from '@nx-next-app/types'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
@@ -94,7 +94,7 @@ const useTopUpCardForm = ({
 	const [
 		postDepositLoadCardPayReq,
 		{ isLoading: isPostDepositLoadCardPayReqLoading },
-	] = usePostDepositLoadCardPayReqMutation()
+	] = useLazyGetDepositLoadCardPayReqQuery()
 
 	// * 1. 檢查是否有 specialCode，specialCode 與bonusCode 只能擇一
 	// * 2. mode = 3，fetch postDepositLoadCardPayReq
@@ -117,6 +117,7 @@ const useTopUpCardForm = ({
 			const convertedAmount = isConvert(currencyId) ? amount * 1000 : amount
 
 			let bonusCode: string = originBonusCode
+
 			// * 如果有 promoCode，必須先透過 promoCode 來取得 bonusCode
 			if (promoCode) {
 				const { data } = await checkDepositSpecialCode({
@@ -128,6 +129,23 @@ const useTopUpCardForm = ({
 				}
 			}
 
+			const searchParams = bonusCode
+				? new URLSearchParams({
+						ChannelId: String(channelId),
+						Code: String(code),
+						Serial: String(serial),
+						Amount: String(convertedAmount),
+						BonusCode: bonusCode,
+				  })
+				: new URLSearchParams({
+						ChannelId: String(channelId),
+						Code: String(code),
+						Serial: String(serial),
+						Amount: String(convertedAmount),
+				  })
+
+			const paramsUrl = searchParams.toString()
+
 			if (mode === DepositActionModeEnum.QrCode) {
 				const payload: IPostDepositLoadCardPayReqArgs = {
 					langId,
@@ -135,20 +153,12 @@ const useTopUpCardForm = ({
 					code,
 					serial,
 					amount: convertedAmount,
+					paramsUrl,
 				}
 				await postDepositLoadCardPayReq(payload).unwrap()
 
 				modal.info(t('Label_General_Success'))
 			} else {
-				const searchParams = new URLSearchParams({
-					ChannelId: String(channelId),
-					Code: String(code),
-					Serial: String(serial),
-					Amount: String(convertedAmount),
-					BonusCode: bonusCode,
-				})
-				const paramsUrl = searchParams.toString()
-
 				const baseUrl = `${dbHost}/${langId}/${cashierApiUrl.postDepositLoadCardPayReq}`
 				window.open(`${baseUrl}?${paramsUrl}`)
 			}
