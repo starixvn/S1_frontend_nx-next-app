@@ -23,4 +23,5 @@ export interface IPostDepositLoadCardPayReqArgs {
 	code?: string
 	serial?: string
 	amount: number
+	paramsUrl: string
 }

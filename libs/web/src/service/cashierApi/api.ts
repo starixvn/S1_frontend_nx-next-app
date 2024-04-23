@@ -56,13 +56,13 @@ export const cashierApi = createApi({
 			}),
 		}),
 		// * 建立 LocalCardPay 存款單
-		postDepositLoadCardPayReq: builder.mutation<
+		getDepositLoadCardPayReq: builder.query<
 			IAxiosResponse<void>,
 			IPostDepositLoadCardPayReqArgs
 		>({
-			query: ({ langId, ...data }) => ({
-				url: `${langId}/${cashierApiUrl.postDepositLoadCardPayReq}`,
-				method: 'POST',
+			query: ({ langId, paramsUrl, ...data }) => ({
+				url: `${langId}/${cashierApiUrl.postDepositLoadCardPayReq}?${paramsUrl}`,
+				method: 'GET',
 				data,
 			}),
 		}),
@@ -74,5 +74,5 @@ export const {
 	useLazyGetDepositReqMobilePayInfoQuery,
 	useLazyGetDepositReqCryptoPayInfoQuery,
 	useLazyGetDepositReqCryptoLocalPayInfoQuery,
-	usePostDepositLoadCardPayReqMutation,
+	useLazyGetDepositLoadCardPayReqQuery,
 } = cashierApi
