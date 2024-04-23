@@ -192,6 +192,17 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 				/>
 			</DepositModule>
 
+			<div className='note'>
+				<ol>
+					<li className='title'>
+						<span className='icon icon-warning' />
+						{t('Label_General_ImportantNotes')}
+					</li>
+					<li>{t('Label_Deposit_DepositLoadCardNoticeContent1')}</li>
+					<li>{t('Label_Deposit_DepositLoadCardNoticeContent1')}</li>
+				</ol>
+			</div>
+
 			<Form onSubmit={handleSubmit(onTopUpCardPayFormSubmit)}>
 				<div className='btnGroup'>
 					<button

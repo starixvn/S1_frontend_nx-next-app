@@ -120,6 +120,7 @@
   "Label_Deposit_PleaseEnterUPI": "कृपया UPI दर्ज करें।",
   "Label_Deposit_ProcessingDescription": "प्रसंस्करण जमा कृपया नीचे अद्यतन करें या जमा परिणाम देखने के लिए इतिहास लिंक पर क्लिक करें।",
   "Label_Deposit_ProvideBankSlip": "कृपया हमें यहां बैंक स्लिप प्रदान करें ताकि हम आपके अनुरोध को शीघ्रता से संसाधित कर सकें।",
+  "Label_Deposit_QR_Pay": "QR Pay",
   "Label_Deposit_ReceivedAmount": "प्राप्त राशि",
   "Label_Deposit_ReferFriendsRewards": "मिञो के पुरस्कारों का संदर्भ लें",
   "Label_Deposit_RemarkHint": "कृपया स्थानांतरण के दौरान टिप्पणी को प्राप्तकर्ता संदर्भ फ़ील्ड में संलग्न करें",
