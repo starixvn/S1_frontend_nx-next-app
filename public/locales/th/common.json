@@ -129,6 +129,7 @@
   "Label_Deposit_PaymentTimeLeft": "เหลือเวลาชำระเงิน",
   "Label_Deposit_ProcessingDescription": "กำลังดำเนินรายการฝากของคุณ กรุณาอัปเดตด้านล่างหรือคลิ๊กที่ลิงค์ประวัติเพื่อตรวจสอบผลธุรกรรมการฝาก",
   "Label_Deposit_ProvideBankSlip": "โปรดแนบสลิปธนาคารที่นี่เพื่อให้เราดำเนินการตามคำขอของคุณได้อย่างรวดเร็ว",
+  "Label_Deposit_QR_Pay": "QR Pay",
   "Label_Deposit_ReceivedAmount": "จำนวนเงินที่ได้รับ",
   "Label_Deposit_ReferFriendsRewards": "รางวัลสำหรับแนะนำเพื่อน",
   "Label_Deposit_RemarkHint": "โปรดแนบหมายเหตุในช่องอ้างอิงผู้รับระหว่างทำการโอน\n",
