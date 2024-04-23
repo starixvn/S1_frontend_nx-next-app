@@ -1463,6 +1463,24 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .vipList.vn {
   background: url(https://banner.0814media.net/desktop/img/4.0/vipdropdown-vn.png) no-repeat center/auto;
 }
+.header > div.menu .subMenu-Wrapper-new .vipList.hi {
+  background: url(https://banner.0814media.net/desktop/img/4.0/vipdropdown-hi.png) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .vipList.bd {
+  background: url(https://banner.0814media.net/desktop/img/4.0/vipdropdown-bd.png) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .vipList.kh {
+  background: url(https://banner.0814media.net/desktop/img/4.0/vipdropdown-kh.png) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .vipList.br {
+  background: url(https://banner.0814media.net/desktop/img/4.0/vipdropdown-br.png) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .vipList.ko {
+  background: url(https://banner.0814media.net/desktop/img/4.0/vipdropdown-ko.png) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .vipList.jp {
+  background: url(https://banner.0814media.net/desktop/img/4.0/vipdropdown-jp.png) no-repeat center/auto;
+}
 .header > div.menu .subMenu-Wrapper-new .vipList > div {
   margin: 0 auto 0 100px;
   -webkit-box-pack: center;

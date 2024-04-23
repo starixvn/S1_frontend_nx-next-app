@@ -11,10 +11,10 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { Layout, Vip } from '@nx-next-app/features/F0006/h5'
-import { includes } from 'lodash'
-import { CurrenciesEnum } from '@nx-next-app/types'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IVipBannerData } from '@nx-next-app/service'
+import { includes } from 'lodash'
+import { ALLOWED_CURRENCIES } from '@nx-next-app/site/yashbet'
 
 interface IVipPageProps extends InitialPropsInterface {
 	vipBannerData: IVipBannerData
@@ -48,6 +48,15 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		},
 		{ headers: { cookie: currentHeaderCookies } }
 	)
+
+	if (!includes(ALLOWED_CURRENCIES['VIP'], Number(currencyId))) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false,
+			},
+		}
+	}
 
 	return {
 		props: {
