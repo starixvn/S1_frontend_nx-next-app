@@ -596,7 +596,7 @@
   "Label_Profile_EmailReq": "メールアドレスは必須です。",
   "Label_Profile_EmailVerification": "メール認証",
   "Label_Profile_EmailVerificationHint1": "より高いセキュリティレベルのために「メールアドレス」を確認してください。",
-  "Label_Profile_EmailVerificationHint2": "そして{{{currency}} {{amount}}の報酬を得ます。",
+  "Label_Profile_EmailVerificationHint2": "そして{{currency}} {{amount}}の報酬を得ます。",
   "Label_Profile_EnterAddress": "住所を入力してください。",
   "Label_Profile_EnterCity": "都市名を入力してください。",
   "Label_Profile_EnterCountry": "国を入力してください。",
