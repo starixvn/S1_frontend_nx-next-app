@@ -21,7 +21,7 @@ import { useRouter } from 'next/router'
 const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
 const LoginModal = dynamic(
-	() => import('@nx-next-app/features/F0006/desktop/modal/LoginModal'),
+	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
 	{
 		ssr: false,
 	}

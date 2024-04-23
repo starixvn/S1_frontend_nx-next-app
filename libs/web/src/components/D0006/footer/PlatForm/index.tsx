@@ -7,7 +7,7 @@ import { find } from 'lodash-es'
 import { Img } from '../../image'
 
 const LoginModal = dynamic(
-	() => import('@nx-next-app/features/F0006/desktop/modal/LoginModal'),
+	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
 	{
 		ssr: false,
 	}

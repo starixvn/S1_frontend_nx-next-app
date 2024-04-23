@@ -4,9 +4,12 @@ import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
 import { useLeaderBoard } from '@nx-next-app/data-access'
 
-const LoginModal = dynamic(() => import('../modal/LoginModal'), {
-	ssr: false,
-})
+const LoginModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
+	{
+		ssr: false,
+	}
+)
 
 const LeaderBoardTabs = () => {
 	const { t } = useTranslation()

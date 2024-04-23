@@ -23,7 +23,7 @@ import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useInView } from '@nx-next-app/hooks'
 import { useMenu } from '@nx-next-app/features/F0006/hooks'
-import LoginModal from '@nx-next-app/features/F0006/desktop/modal/LoginModal'
+import LoginModal from '@nx-next-app/features/F0001/desktop/modal/LoginModal'
 import {
 	camelCase,
 	filter,
