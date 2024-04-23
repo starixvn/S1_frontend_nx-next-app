@@ -120,6 +120,7 @@
   "Label_Deposit_PaymentTimeLeft": "MASA PEMBAYARAN YANG TINGGAL",
   "Label_Deposit_ProcessingDescription": "Sedang memproses deposit, sila kemas kini di bawah atau tekan pada pautan sejarah untuk melihat status deposit.",
   "Label_Deposit_ProvideBankSlip": "Sila serahkan slip bank di sini supaya kami boleh memproses pohonan anda dengan lebih cepat.",
+  "Label_Deposit_QR_Pay": "QR Pay",
   "Label_Deposit_ReceivedAmount": "Amaun Yang Sudah Diterima",
   "Label_Deposit_ReferFriendsRewards": "Ganjaran Rujuk Rakan",
   "Label_Deposit_RemarkHint": "Sila lampirkan catatan ke dalam ruang rujukan penerima semasa pemindahan.",

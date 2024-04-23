@@ -121,6 +121,7 @@
   "Label_Deposit_PaymentTimeLeft": "转账剩余时间",
   "Label_Deposit_ProcessingDescription": "存款处理中，请更新以下表格或单点历史链接以查看存款结果。",
   "Label_Deposit_ProvideBankSlip": "请提供转账收据以便更快捷处理您的交易",
+  "Label_Deposit_QR_Pay": "QR Pay",
   "Label_Deposit_ReceivedAmount": "到账金额",
   "Label_Deposit_ReferFriendsRewards": "推荐好友奖励",
   "Label_Deposit_RemarkHint": "在转账过程中，请将备注附加到收款方参考字段处",
