@@ -48,17 +48,17 @@ export const DEPOSIT_PAYMENT_OPTIONS = {
 		icon: 'icon icon-USDT',
 	},
 	[DepositPaymentEnum.QRPay]: {
-		labelDisplayKey: 'QR Pay',
+		labelDisplayKey: 'Label_Deposit_QR_Pay',
 		timeDisplayKey: 'Label_General_Instant',
 		icon: 'icon icon-qrpay',
 	},
 	[DepositPaymentEnum.TopUpCardPay]: {
-		labelDisplayKey: 'TOP-UP CARD',
+		labelDisplayKey: 'Label_Deposit_Top_Up_Card',
 		timeDisplayKey: 'Label_General_Instant',
 		icon: 'icon icon-topup',
 	},
 	[DepositPaymentEnum.QuickTransfer]: {
-		labelDisplayKey: 'Quick Transfer',
+		labelDisplayKey: 'Label_Deposit_Quick_Transfer',
 		timeDisplayKey: 'Label_General_Instant',
 		icon: 'icon-quick',
 	},
