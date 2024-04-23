@@ -11,6 +11,7 @@ const VipTableInfo = ({
 		userInfo: { currencyId },
 	} = useAuth()
 	const { t } = useTranslation()
+	console.log('vip')
 	return (
 		<table className='eventList'>
 			<tbody>
