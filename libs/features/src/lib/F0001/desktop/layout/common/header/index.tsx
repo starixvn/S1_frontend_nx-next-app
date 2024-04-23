@@ -78,6 +78,7 @@ const LayoutHeader = () => {
 
 	// 廣告商用的事件記錄器，綁在 DepositButton 底下
 	const handleYuriAddToCartClick = () => {
+		/* eslint no-underscore-dangle: 0 */
 		if ((window as any)._yuri_track) {
 			;(window as any)._yuri_track('AddToCart')
 		}
