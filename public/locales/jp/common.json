@@ -634,7 +634,7 @@
   "Label_Profile_Option2": "オプション",
   "Label_Profile_PhoneVerification": "電話番号認証",
   "Label_Profile_PhoneVerificationHint1": "より高いセキュリティレベルのために「メールアドレス」を確認してください。",
-  "Label_Profile_PhoneVerificationHint2": "そして{{{currency}} {{amount}}の報酬を得ます。",
+  "Label_Profile_PhoneVerificationHint2": "そして{{currency}} {{amount}}の報酬を得ます。",
   "Label_Profile_PostCode": "郵便番号",
   "Label_Profile_ProfileModifyWarning": "アカウントの安全性を確保し、入力後に個人情報を変更することはできません。",
   "Label_Profile_ProfileVerification": "プロフィール検証",
