@@ -7,7 +7,7 @@ import classNames from 'classnames'
 import { ISubMenu } from '@nx-next-app/types'
 
 const LoginModal = dynamic(
-	() => import('@nx-next-app/features/F0006/desktop/modal/LoginModal'),
+	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
 	{
 		ssr: false,
 	}
@@ -17,9 +17,7 @@ const EsportList = () => {
 	const { modal } = useGlobalModal()
 	const { t } = useTranslation()
 	const {
-		menuData: {
-			ESports: { subMenu },
-		},
+		menuData: { ESports: { subMenu } = {} },
 		onMenuOpen,
 	} = useMenu()
 

@@ -29,9 +29,12 @@ const QuickDownload = dynamic(() => import('./widgets/QuickDownload'), {
 
 const QuickLink = dynamic(() => import('./widgets/QuickLink'), { ssr: false })
 
-const LoginModal = dynamic(() => import('../modal/LoginModal'), {
-	ssr: false,
-})
+const LoginModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
+	{
+		ssr: false,
+	}
+)
 
 const Home = () => {
 	const { modal } = useGlobalModal()
