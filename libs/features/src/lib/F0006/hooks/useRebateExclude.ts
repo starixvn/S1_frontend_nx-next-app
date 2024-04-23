@@ -25,10 +25,7 @@ const useRebateExclude = () => {
 			const newResult = cloneDeep(result)
 			newResult[value.tpGameTypeName] = {
 				tpGameTypeName,
-				gameName: [
-					...(result[value.tpGameTypeName]?.gameName || []),
-					gameName || 'All Game',
-				],
+				gameName: [...(result[value.tpGameTypeName]?.gameName ?? []), gameName],
 			}
 			return newResult
 		},
