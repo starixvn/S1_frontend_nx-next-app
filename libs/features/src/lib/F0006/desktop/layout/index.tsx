@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 import { ReactNode } from 'react'
-import { ISEOData } from '@nx-next-app/data-access'
+import { ISEOData, useAuth } from '@nx-next-app/data-access'
 import {
 	useAffiliateReferralEffect,
 	useChangePasswordModalEffect,
@@ -10,6 +10,10 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import LayoutHeader from '@nx-next-app/features/F0006/desktop/layout/header'
 import LayoutFooter from '@nx-next-app/features/F0006/desktop/layout/footer'
 import { IFooterData } from '@nx-next-app/types'
+import {
+	LIVE_CHAT_ID_BY_LANG_ID,
+	ThirdPartyJS,
+} from '@nx-next-app/site/yashbet'
 
 interface ILayoutProps {
 	children: ReactNode
@@ -33,7 +37,11 @@ export function Layout({
 	isFullFooter = false, // * 判斷是否顯示全版 footer
 	hasGoTopBtn = true,
 }: ILayoutProps) {
+	const {
+		userInfo: { langId },
+	} = useAuth()
 	const { globalModal, closeModal, modal } = useGlobalModal()
+	const { LiveChatScript } = ThirdPartyJS
 
 	useChangePasswordModalEffect(() => modal.open(<ChangePasswordModal />))
 
@@ -55,6 +63,8 @@ export function Layout({
 			<GlobalModal {...globalModal} closeModal={closeModal} />
 
 			{hasGoTopBtn && <BackTop />}
+
+			<LiveChatScript liveChatId={LIVE_CHAT_ID_BY_LANG_ID[langId] || 12} />
 		</>
 	)
 }
