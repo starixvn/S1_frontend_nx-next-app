@@ -73,6 +73,6 @@ export const CURRENCY_TO_TIMEZONE: { [key: number]: string } = {
 	13: '+08:00',
 	51: '+07:00',
 	82: '-03:00',
-	45: '+08:00',
+	45: '+09:00',
 	32: '+09:00',
 }
