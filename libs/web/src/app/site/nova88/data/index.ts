@@ -179,4 +179,7 @@ export const LIVE_CHAT_ID_BY_LANG_ID: {
 	ko: 13,
 	br: 14,
 	jp: 15,
+	vn: 9,
+	bd: 10,
+	my: 12,
 }
