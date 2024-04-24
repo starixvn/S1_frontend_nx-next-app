@@ -1,15 +1,19 @@
 import dayjs from 'dayjs'
+import { includes } from 'lodash-es'
+import { useAuth } from '@nx-next-app/data-access'
 import React, { useEffect, useState } from 'react'
 import classNames from 'classnames'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { LIVESTREAM_CURRENCY_TO_LANG_KEY } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	useLazyGetDataListQuery,
 	ILiveStreamingData,
 } from '@nx-next-app/service'
+import {
+	ALLOWED_CURRENCIES,
+	EUROPE_EVENT_PERIOD,
+} from '@nx-next-app/site/nova88'
 import { isEventPeriod } from '@nx-next-app/utils'
-import { EUROPE_EVENT_PERIOD } from '@nx-next-app/site/nova88'
 import LiveStreamingModal from './LiveStreamingModal'
 
 const LiveStreamingLink = () => {
@@ -18,7 +22,6 @@ const LiveStreamingLink = () => {
 		userInfo: { currencyId, langId },
 		auth: { isLogin },
 	} = useAuth()
-	const { LANG_TO_CURRENCY = {} } = useStaticData()
 	const [isShowLiveStreaming, setIsShowLiveStreaming] = useState(false)
 	const [liveStreamingList, setLiveStreamingList] = useState<
 		ILiveStreamingData[]
@@ -56,11 +59,7 @@ const LiveStreamingLink = () => {
 
 	useEffect(() => {
 		// 當currencyId為vn或th時顯示直播icon
-		if (
-			currencyId === LANG_TO_CURRENCY['vn'] ||
-			currencyId === LANG_TO_CURRENCY['th'] ||
-			currencyId === LANG_TO_CURRENCY['my']
-		) {
+		if (includes(ALLOWED_CURRENCIES.LIVE_STREAMING_LINK, currencyId)) {
 			handleGetLiveStreamingList()
 		}
 	}, [langId, isLogin])

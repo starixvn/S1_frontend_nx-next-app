@@ -16,6 +16,111 @@ export * from './gtmData'
 export * as ThirdPartyJS from './thirdPartyJS'
 
 export const LANG_GROUPS: IStaticLangGroups = {
+	bd: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.BDT,
+		},
+		{
+			displayText: 'বাংলা',
+			value: 'bd',
+			currencyId: CurrenciesEnum.BDT,
+			mainLanguage: true,
+		},
+	],
+	br: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.BRL,
+		},
+		{
+			displayText: 'Portugese',
+			value: 'br',
+			currencyId: CurrenciesEnum.BRL,
+			mainLanguage: true,
+		},
+	],
+	cs: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.CNY,
+		},
+		{
+			displayText: '简体中文',
+			value: 'cs',
+			currencyId: CurrenciesEnum.CNY,
+			mainLanguage: true,
+		},
+	],
+	gb: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.USD,
+			mainLanguage: true,
+		},
+		{
+			displayText: '简体中文',
+			value: 'cs',
+			currencyId: CurrenciesEnum.USD,
+		},
+	],
+	id: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.IDR,
+		},
+		{
+			displayText: 'Indonesian',
+			value: 'id',
+			currencyId: CurrenciesEnum.IDR,
+			mainLanguage: true,
+		},
+	],
+	in: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.INR,
+		},
+		{
+			displayText: 'हिंदी',
+			value: 'hi',
+			currencyId: CurrenciesEnum.INR,
+			mainLanguage: true,
+		},
+	],
+	// 日本語位置
+	kh: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.KHM,
+		},
+		{
+			displayText: 'ខ្មែរ',
+			value: 'kh',
+			currencyId: CurrenciesEnum.KHM,
+			mainLanguage: true,
+		},
+	],
+	ko: [
+		{
+			displayText: 'English',
+			value: 'en',
+			currencyId: CurrenciesEnum.KRW,
+		},
+		{
+			displayText: '한국어',
+			value: 'ko',
+			currencyId: CurrenciesEnum.KRW,
+			mainLanguage: true,
+		},
+	],
 	ch: [
 		{
 			displayText: 'English',
@@ -31,6 +136,7 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			displayText: 'Malay',
 			value: 'my',
 			currencyId: CurrenciesEnum.MYR,
+			mainLanguage: true,
 		},
 	],
 	th: [
@@ -39,7 +145,12 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			value: 'en',
 			currencyId: CurrenciesEnum.THB,
 		},
-		{ displayText: 'ไทย', value: 'th', currencyId: CurrenciesEnum.THB },
+		{
+			displayText: 'ภาษาไทย',
+			value: 'th',
+			currencyId: CurrenciesEnum.THB,
+			mainLanguage: true,
+		},
 	],
 	vn: [
 		{
@@ -47,197 +158,11 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			value: 'en',
 			currencyId: CurrenciesEnum.VND,
 		},
-		{ displayText: 'Tiếng Việt', value: 'vn', currencyId: CurrenciesEnum.VND },
-	],
-	id: [
 		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.IDR,
-		},
-		{
-			displayText: 'Bhs Indonesia',
-			value: 'id',
-			currencyId: CurrenciesEnum.IDR,
-		},
-	],
-	in: [
-		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.INR,
-		},
-		{
-			displayText: 'हिंदी',
-			value: 'hi',
-			currencyId: CurrenciesEnum.INR,
-		},
-	],
-	bd: [
-		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.BDT,
-		},
-		{
-			displayText: 'বাংলা',
-			value: 'bd',
-			currencyId: CurrenciesEnum.BDT,
-		},
-	],
-	kh: [
-		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.KHM,
-		},
-		{
-			displayText: 'ខ្មែរ',
-			value: 'kh',
-			currencyId: CurrenciesEnum.KHM,
-		},
-	],
-	cs: [
-		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.CNY,
-		},
-		{
-			displayText: '简体中文',
-			value: 'cs',
-			currencyId: CurrenciesEnum.CNY,
-		},
-	],
-	gb: [
-		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.USD,
-		},
-		{
-			displayText: '简体中文',
-			value: 'cs',
-			currencyId: CurrenciesEnum.USD,
-		},
-	],
-}
-
-export const LANG_TO_CURRENCY: { [key: string]: number } = {
-	en: 2,
-	cs: 2,
-	my: 2,
-	th: 4,
-	id: 15,
-	hi: 61,
-	kh: 72,
-	bd: 74,
-	vn: 51,
-}
-
-export const CURRENCY_PAYMENT_LIST: {
-	[currency: string]: { name: string; img: string }[]
-} = {
-	MYR: [
-		{
-			name: 'help2pay',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/help2pay.png`,
-		},
-		{
-			name: 'fpay',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/fpay.png`,
-		},
-		{
-			name: 'truepay',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/truepay.png`,
-		},
-		{
-			name: 'tngqr',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/tngqr.png`,
-		},
-		{
-			name: 'duitnowqr',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/duitnowqr.png`,
-		},
-	],
-	THB: [
-		{
-			name: 'help2pay',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/help2pay.png`,
-		},
-		{
-			name: 'thaiqr',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/thaiqr.png`,
-		},
-	],
-	IDR: [
-		{
-			name: 'help2pay',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/help2pay.png`,
-		},
-		{
-			name: 'ovo',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/ovo.png`,
-		},
-		{
-			name: 'gopay',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/gopay.png`,
-		},
-		{
-			name: 'dana',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/dana.png`,
-		},
-		{
-			name: 'sakuku',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/sakuku.png`,
-		},
-		{
-			name: 'linkaja',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/linkaja.png`,
-		},
-		{
-			name: 'shopeepay',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/shopeepay.png`,
-		},
-		{
-			name: 'doku',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/doku.png`,
-		},
-	],
-	INR: [
-		{
-			name: 'tenpay',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/tenpay.png`,
-		},
-	],
-	BDT: [
-		{
-			name: 'DirePay',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/direpay.png`,
-		},
-		{
-			name: 'FxBit',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/fxbit.png`,
-		},
-	],
-	CNY: [
-		{
-			name: 'DirePay',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/direpay.png`,
-		},
-		{
-			name: 'FxBit',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/fxbit.png`,
-		},
-	],
-	USD: [
-		{
-			name: 'DirePay',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/direpay.png`,
-		},
-		{
-			name: 'FxBit',
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/fxbit.png`,
+			displayText: 'Tiếng Việt',
+			value: 'vn',
+			currencyId: CurrenciesEnum.VND,
+			mainLanguage: true,
 		},
 	],
 }
@@ -251,7 +176,7 @@ export const LIVE_CHAT_ID_BY_LANG_ID: {
 	cs: 3,
 	th: 4,
 	hi: 8,
-	vn: 9,
-	bd: 10,
-	my: 12,
+	ko: 13,
+	br: 14,
+	jp: 15,
 }

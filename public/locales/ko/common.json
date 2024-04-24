@@ -88,6 +88,7 @@
   "Label_DepositType8": "크립토 월렛",
   "Label_DepositType9": "퀵 이체",
   "Label_Deposit_5Mins": "5분",
+  "Label_Deposit_AdditionalInfo": "(000') 추가 정보는 여기에 있습니다.",
   "Label_Deposit_AutoDeposit": "자동 예금",
   "Label_Deposit_BankAccountDescription": "계좌로 금액을 이체하시기 바랍니다.",
   "Label_Deposit_BankTransfer": "은행 이체",
