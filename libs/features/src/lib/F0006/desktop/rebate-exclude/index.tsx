@@ -1,7 +1,7 @@
 import { isArray } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { Loading } from '@nx-next-app/components/D0006'
-import { useRebateExclude } from '@nx-next-app/features/F0006/hooks'
+import { useRebateExclude } from '@nx-next-app/features/F0001/hooks'
 
 const RebateExclude = () => {
 	const { t } = useTranslation()
@@ -13,7 +13,7 @@ const RebateExclude = () => {
 		<div>
 			<div className='subheader'>
 				<div className='subheader__container'>
-					<a href='https://www.nova88.net/' />
+					<a href='/' />
 				</div>
 			</div>
 
@@ -30,11 +30,11 @@ const RebateExclude = () => {
 
 						{Object.values(rebateExcludeGameList || {}).map(
 							({ tpGameTypeName, gameName }) => (
-								<div className='exclude__table__item'>
+								<div key={tpGameTypeName} className='exclude__table__item'>
 									<div>{tpGameTypeName}</div>
 									<div>
 										{isArray(gameName) &&
-											gameName.map(value => <span>{value}</span>)}
+											gameName.map(value => <span key={value}>{value}</span>)}
 									</div>
 								</div>
 							)
