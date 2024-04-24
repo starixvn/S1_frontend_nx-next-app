@@ -30,11 +30,11 @@ const RebateExclude = () => {
 
 						{Object.values(rebateExcludeGameList || {}).map(
 							({ tpGameTypeName, gameName }) => (
-								<div key={tpGameTypeName} className='exclude__table__item'>
+								<div className='exclude__table__item'>
 									<div>{tpGameTypeName}</div>
 									<div>
 										{isArray(gameName) &&
-											gameName.map(value => <span key={value}>{value}</span>)}
+											gameName.map(value => <span>{value}</span>)}
 									</div>
 								</div>
 							)

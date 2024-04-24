@@ -20,12 +20,18 @@ const useRebateExclude = () => {
 	const rebateExcludeGameList = reduce(
 		originRebateExcludeGameList,
 		(result, value) => {
-			const { tpGameTypeName, gameName } = value
+			const { tpGameTypeName, gameName, tpCategoryName } = value
 			const newResult = cloneDeep(result)
 
 			newResult[tpGameTypeName] = {
 				tpGameTypeName,
-				gameName: [...(result[tpGameTypeName]?.gameName ?? []), gameName],
+				gameName:
+					tpCategoryName === 'Live Casino'
+						? ['All Blackjack']
+						: [
+								...(result[tpGameTypeName]?.gameName || []),
+								gameName || 'All Game',
+						  ],
 			}
 			return newResult
 		},
