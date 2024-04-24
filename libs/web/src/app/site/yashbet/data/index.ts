@@ -130,7 +130,7 @@ export const LANG_TO_CURRENCY: { [key: string]: number } = {
 export const LIVE_CHAT_ID_BY_LANG_ID: {
 	[langId: string]: number
 } = {
-	en: 11,
+	en: 12,
 	hi: 11,
 	bd: 12,
 }
