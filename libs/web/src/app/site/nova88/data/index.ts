@@ -251,4 +251,7 @@ export const LIVE_CHAT_ID_BY_LANG_ID: {
 	cs: 3,
 	th: 4,
 	hi: 8,
+	vn: 9,
+	bd: 10,
+	my: 12,
 }
