@@ -16,7 +16,9 @@ const useDepositRecentHistory = () => {
 	const {
 		data: { data: depositInfoRecentList = [] } = {},
 		refetch: refetchDepositInfoRecentList,
-	} = useGetDepositInfoRecentListQuery()
+	} = useGetDepositInfoRecentListQuery(undefined, {
+		refetchOnMountOrArgChange: true,
+	})
 
 	const [setDepositCancel, { isLoading: isSetDepositCancelLoading }] =
 		useSetDepositCancelMutation()
