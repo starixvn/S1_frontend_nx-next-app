@@ -1695,7 +1695,7 @@ header input:focus-within {
   padding: 0 6px;
   right: 0;
   top: 55px;
-  z-index: 2;
+  z-index: 3;
   -webkit-box-shadow: 0 0 10px rgba(10, 27, 56, 0.6196078431);
           box-shadow: 0 0 10px rgba(10, 27, 56, 0.6196078431);
 }

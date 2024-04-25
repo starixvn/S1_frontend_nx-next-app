@@ -91,7 +91,7 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 	ADDRESS: [MYR, USD, THB, CNY, IDR, VND, INR, KHM, BDT, USDT],
 
 	// Deposit
-	RECEIPT: [THB, KRW, BRL],
+	RECEIPT: [THB],
 
 	// Home
 	LIVE_STREAMING_LINK: [MYR, THB, VND],
