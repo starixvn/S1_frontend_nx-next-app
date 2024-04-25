@@ -136,6 +136,7 @@ export const DepositProvider = ({
 		refetch: refetchPaymentAutoDepositList,
 	} = useGetAutoDepositGroupListQuery(undefined, {
 		skip: !includes(depositPaymentOrders, DepositPaymentEnum.AutoDeposit),
+		refetchOnMountOrArgChange: true,
 	})
 
 	const {
@@ -144,6 +145,7 @@ export const DepositProvider = ({
 		refetch: refetchPaymentBankTransferList,
 	} = useGetPaymentBankTransferListQuery(undefined, {
 		skip: !includes(depositPaymentOrders, DepositPaymentEnum.BankTransfer),
+		refetchOnMountOrArgChange: true,
 	})
 
 	const {
@@ -152,6 +154,7 @@ export const DepositProvider = ({
 		refetch: refetchPaymentOnlineBankingList,
 	} = useGetPaymentOnlineBankingListQuery(null, {
 		skip: !includes(depositPaymentOrders, DepositPaymentEnum.OnlineBanking),
+		refetchOnMountOrArgChange: true,
 	})
 
 	const {
@@ -160,6 +163,7 @@ export const DepositProvider = ({
 		refetch: refetchPaymentMobilePayList,
 	} = useGetPaymentMobilePayListQuery(null, {
 		skip: !includes(depositPaymentOrders, DepositPaymentEnum.MobilePay),
+		refetchOnMountOrArgChange: true,
 	})
 
 	const {
@@ -168,6 +172,7 @@ export const DepositProvider = ({
 		refetch: refetchPaymentCryptoPayList,
 	} = useGetPaymentCryptoPayListQuery(null, {
 		skip: !includes(depositPaymentOrders, DepositPaymentEnum.CryptoPay),
+		refetchOnMountOrArgChange: true,
 	})
 
 	// * LinePay support THB only
@@ -176,6 +181,7 @@ export const DepositProvider = ({
 		isLoading: isGetPaymentLinePayInfoLoading,
 	} = useGetPaymentLinePayInfoQuery(undefined, {
 		skip: currencyId !== CurrenciesEnum.THB,
+		refetchOnMountOrArgChange: true,
 	})
 
 	const {
@@ -184,6 +190,7 @@ export const DepositProvider = ({
 		refetch: refetchPaymentQRPayList,
 	} = useGetPaymentQRPayListQuery(undefined, {
 		skip: !includes(depositPaymentOrders, DepositPaymentEnum.QRPay),
+		refetchOnMountOrArgChange: true,
 	})
 
 	const {
@@ -192,6 +199,7 @@ export const DepositProvider = ({
 		refetch: refetchPaymentTopUpCardPayList,
 	} = useGetPaymentTopUpCardPayListQuery(undefined, {
 		skip: !includes(depositPaymentOrders, DepositPaymentEnum.TopUpCardPay),
+		refetchOnMountOrArgChange: true,
 	})
 
 	const {
