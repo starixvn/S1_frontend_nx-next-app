@@ -7,6 +7,7 @@ const ReferralSocialMediaList = () => {
 	const { t } = useTranslation()
 	const { referralInfoList } = useReferral()
 
+	if (referralInfoList.length === 0) return null
 	return (
 		<div className='referinfo-list'>
 			<div className='subtitle'>
