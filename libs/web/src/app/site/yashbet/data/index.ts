@@ -53,18 +53,18 @@ export const LANG_GROUPS: IStaticLangGroups = {
 	// 		currencyId: CurrenciesEnum.IDR,
 	// 	},
 	// ],
-	in: [
-		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.INR,
-		},
-		{
-			displayText: 'हिंदी',
-			value: 'hi',
-			currencyId: CurrenciesEnum.INR,
-		},
-	],
+	// in: [
+	// 	{
+	// 		displayText: 'English',
+	// 		value: 'en',
+	// 		currencyId: CurrenciesEnum.INR,
+	// 	},
+	// 	{
+	// 		displayText: 'हिंदी',
+	// 		value: 'hi',
+	// 		currencyId: CurrenciesEnum.INR,
+	// 	},
+	// ],
 	bd: [
 		{
 			displayText: 'English',
