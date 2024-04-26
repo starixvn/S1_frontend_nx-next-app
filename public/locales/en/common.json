@@ -909,6 +909,7 @@
   "Label_Withdrawal_SubmitPhotoId": "Submit Photo ID",
   "Label_Withdrawal_SubmitPhotoIdHint": "Please submit your photo id before making withdrawal!",
   "Label_Withdrawal_SubmitPhotoIdListTitle": "Kindly submit either one of the ID listed as below:",
+  "Label_Withdrawal_TouchGo_Validation": "Invalid E-wallet account number",
   "Label_Withdrawal_UpdateBankInfo": "Please update your bank account details before making withdrawal.",
   "Label_Withdrawal_WaitKYC": "Verification is in progress",
   "Label_Withdrawal_WaitKYCHint": "Thank you for submitting the required document, kindly bear with us for a moment while the verification is in progress.",
