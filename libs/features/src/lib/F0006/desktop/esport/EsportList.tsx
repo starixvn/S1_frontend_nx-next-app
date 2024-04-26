@@ -38,7 +38,7 @@ const EsportList = () => {
 							})}
 							style={{ pointerEvents: item.isTpMaintain ? 'none' : 'auto' }}
 							alt={item.displayKey as string}
-							key={item?.product?.GAME_ID}
+							key={`${item?.product?.GAME_ID}-${item?.product?.TP_GAME_TYPE}-${item?.product?.TP_ID}`}
 							hoverImgSrc={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/esport/${item?.desktop?.lobbyPage?.hoverBgImg}`}
 							imgSrc={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/esport/${item?.desktop?.lobbyPage?.bgImg}`}
 							displayName={
