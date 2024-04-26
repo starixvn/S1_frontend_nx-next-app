@@ -4946,5 +4946,392 @@ export const META_DATA: IMetaData = {
 				},
 			],
 		},
+		th: {
+			title: `Nova88 | หวย ออนไลน์ | เกมส์คาสิโน`,
+			description: `Nova88 คีโน หวย เกมตัวเลข และเกมโต๊ะที่รวดเร็ว สนุก และเล่นง่าย การออกรางวัลแต่ละครั้งใช้เวลาเพียงไม่กี่นาทีและการปรับยอดอย่างรวดเร็ว`,
+			keyword: `หวยออนไลน์, หวย, เกมหมายเลข, เกมโต๊ะ, หวยไทย TC gaming, คีโน, เกมคาสิโนเล่นเงินจริง`,
+			links: [
+				{ rel: 'canonical', href: `https://www.nova88.net/th/lottery` },
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/lottery',
+					hrefLang: 'en-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/lottery',
+					hrefLang: 'ms-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/lottery',
+					hrefLang: 'id-ID',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/lottery',
+					hrefLang: 'th-TH',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/lottery',
+					hrefLang: 'hi-IN',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/lottery',
+					hrefLang: 'zh-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/lottery',
+					hrefLang: 'bn-BD',
+				},
+			],
+		},
+		id: {
+			title: `Nova88 | Togel Online | Casino Online`,
+			description: `Nova88 Menawarkan Permainan Keno, Togel, Number Game Dan Permainan Meja Yang Cepat, Menyenangkan Dan Mudah Dimainkan. Setiap Undian Hanya Berlangsung Beberapa Menit Dan Withdraw Juga Cepat.`,
+			keyword: `Togel Online, Togel, Number Game, Table Game, Permainan TC, Keno, Game Casino Uang Asli`,
+			links: [
+				{ rel: 'canonical', href: `https://www.nova88.net/id/lottery` },
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/lottery',
+					hrefLang: 'en-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/lottery',
+					hrefLang: 'ms-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/lottery',
+					hrefLang: 'id-ID',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/lottery',
+					hrefLang: 'th-TH',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/lottery',
+					hrefLang: 'hi-IN',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/lottery',
+					hrefLang: 'zh-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/lottery',
+					hrefLang: 'bn-BD',
+				},
+			],
+		},
+		hi: {
+			title: `Nova88 | ऑनलाइन लॉटरी | कैसीनो गेम्स`,
+			description: `Nova88 पेश करता है केनो, लॉटरी, नंबर गेम और टेबल गेम जो तेज़, मज़ेदार और खेलने में आसान हैं। प्रत्येक ड्रा केवल कुछ मिनटों तक रहता है और निपटान तेज़ है।`,
+			keyword: `लॉटरी ऑनलाइन, लॉटरी, नंबर गेम, टेबल गेम, टीसी गेमिंग, केनो, रियल मनी कैसीनो गेम`,
+			links: [
+				{ rel: 'canonical', href: `https://www.nova88.net/hi/lottery` },
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/lottery',
+					hrefLang: 'en-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/lottery',
+					hrefLang: 'ms-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/lottery',
+					hrefLang: 'id-ID',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/lottery',
+					hrefLang: 'th-TH',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/lottery',
+					hrefLang: 'hi-IN',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/lottery',
+					hrefLang: 'zh-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/lottery',
+					hrefLang: 'bn-BD',
+				},
+			],
+		},
+		cs: {
+			title: `Nova88 | 线上彩票 | 真人娱乐游戏`,
+			description: `Nova88 提供节奏快速、有趣且容易上手的 彩票类和桌面游戏。开奖结算时间几分钟内完成。`,
+			keyword: `在线彩票、彩票、数字游戏、桌面游戏、TC Gaming、Keno、真钱赌场游戏`,
+			links: [
+				{ rel: 'canonical', href: `https://www.nova88.net/cs/lottery` },
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/lottery',
+					hrefLang: 'en-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/lottery',
+					hrefLang: 'ms-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/lottery',
+					hrefLang: 'id-ID',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/lottery',
+					hrefLang: 'th-TH',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/lottery',
+					hrefLang: 'hi-IN',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/lottery',
+					hrefLang: 'zh-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/lottery',
+					hrefLang: 'bn-BD',
+				},
+			],
+		},
+		bd: {
+			title: `নোভা ৮৮, অনলাইন লটারি, ক্যাসিনো গেমস `,
+			description: `নোভা৮৮ অফার করে কেনো , লটারি, নম্বর গেম এবং টেবিল গেম যা দ্রুত, মজাদার এবং খেলার জন্য সহজ। প্রতিটি ড্র মাত্র কয়েক মিনিট স্থায়ী হয় এবং নিষ্পত্তি দ্রুত হয়`,
+			keyword: `লটারি অনলাইন, লটারি, নম্বর গেম, টেবিল গেম, টিসি গেমিং, কেনো, রিয়েল মানি ক্যাসিনো গেম`,
+			links: [
+				{ rel: 'canonical', href: `https://www.nova88.net/bd/lottery` },
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/lottery',
+					hrefLang: 'en-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/lottery',
+					hrefLang: 'ms-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/lottery',
+					hrefLang: 'id-ID',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/lottery',
+					hrefLang: 'th-TH',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/lottery',
+					hrefLang: 'hi-IN',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/lottery',
+					hrefLang: 'zh-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/lottery',
+					hrefLang: 'bn-BD',
+				},
+			],
+		},
+		kh: {
+			title: `Nova88 |  ឆ្នោតអនឡាញ |  ហ្គេមកាស៊ីណូ`,
+			description: `Nova88 ផ្តល់ជូន Keno ឆ្នោត ហ្គេមលេខ និង ហ្គេមលើតុ ដែលលឿន សប្បាយ និងងាយស្រួលលេង។ ការចាប់ឆ្នោតនីមួយៗមានរយៈពេលត្រឹមតែពីរបីនាទីប៉ុណ្ណោះ ហើយការទូទាត់គឺលឿន។`,
+			keyword: `"ឆ្នោតអនឡាញ, ឆ្នោត, ហ្គេមលេខ, ហ្គេមលើតុ, TC Gaming, Keno, ហ្គេមកាស៊ីណូលុយពិត"`,
+			links: [
+				{ rel: 'canonical', href: `https://www.nova88.net/kh/lottery` },
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/lottery',
+					hrefLang: 'en-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/lottery',
+					hrefLang: 'ms-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/lottery',
+					hrefLang: 'id-ID',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/lottery',
+					hrefLang: 'th-TH',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/lottery',
+					hrefLang: 'hi-IN',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/lottery',
+					hrefLang: 'zh-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/lottery',
+					hrefLang: 'bn-BD',
+				},
+			],
+		},
+		vn: {
+			title: `Nova88 | Xổ số trực tuyến | Game casino`,
+			description: `Nova88 có Keno, xổ số, game số, và game bàn nhanh chóng, hứng khởi, dễ chơi, và đặc biệt là chỉ kéo dài vài phút, bạn có thể thắng cược ngay. `,
+			keyword: `Xổ số online, xổ số, game số, game bàn, TC Gaming, Keno, game casino ăn tiền thật, xổ số malaysia online`,
+			links: [
+				{ rel: 'canonical', href: `https://www.nova88.net/vn/lottery` },
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/lottery',
+					hrefLang: 'en-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/lottery',
+					hrefLang: 'ms-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/lottery',
+					hrefLang: 'id-ID',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/lottery',
+					hrefLang: 'th-TH',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/lottery',
+					hrefLang: 'hi-IN',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/lottery',
+					hrefLang: 'zh-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/lottery',
+					hrefLang: 'bn-BD',
+				},
+			],
+		},
+		ko: {
+			title: `Nova88 | 온라인 복권 | 카지노 게임`,
+			description: `복권은 당신의 운을 시험하는 가장 클래식한 게임 중 하나입니다. Nova88은(는) 매일 복권 추첨을 제공하여 플레이어들에게 큰 상금을 획득할 기회를 제공합니다.`,
+			keyword: `온라인 복권, 복권, 숫자 게임, 테이블 게임, 키노, 리얼 머니 카지노 게임`,
+			links: [
+				{ rel: 'canonical', href: `https://www.nova88.net/ko/lottery` },
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/lottery',
+					hrefLang: 'en-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/lottery',
+					hrefLang: 'ms-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/lottery',
+					hrefLang: 'id-ID',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/lottery',
+					hrefLang: 'th-TH',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/lottery',
+					hrefLang: 'hi-IN',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/lottery',
+					hrefLang: 'zh-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/lottery',
+					hrefLang: 'bn-BD',
+				},
+			],
+		},
+		br: {
+			title: `Nova88 | Loteria Online | Jogo de Cassino`,
+			description: `A loteria é um dos jogos mais clássicos para testar sua sorte. A Nova88 oferece um sorteio diário de loteria, dando aos jogadores a chance de ganhar grandes prêmios.`,
+			keyword: `Loteria Online, Loteria, Jogo de Números, Jogo de Mesa, Quina, Jogo de Cassino por Dinheiro Real`,
+			links: [
+				{ rel: 'canonical', href: `https://www.nova88.net/br/lottery` },
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/lottery',
+					hrefLang: 'en-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/lottery',
+					hrefLang: 'ms-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/lottery',
+					hrefLang: 'id-ID',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/lottery',
+					hrefLang: 'th-TH',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/lottery',
+					hrefLang: 'hi-IN',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/lottery',
+					hrefLang: 'zh-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/lottery',
+					hrefLang: 'bn-BD',
+				},
+			],
+		},
 	},
 }
