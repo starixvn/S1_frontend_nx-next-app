@@ -33,7 +33,7 @@ const LiveCasinoList = () => {
 				<div className='livecasino newDesign'>
 					{subMenu?.map((item: ISubMenu) => (
 						<LiveCasinoListItem
-							key={item?.product?.GAME_ID}
+							key={`${item?.product?.GAME_ID}-${item?.product?.TP_GAME_TYPE}-${item?.product?.TP_ID}`}
 							alt={item.displayKey as string}
 							className={classNames({ active: item.isTpMaintain })}
 							style={{ pointerEvents: item.isTpMaintain ? 'none' : 'auto' }}
