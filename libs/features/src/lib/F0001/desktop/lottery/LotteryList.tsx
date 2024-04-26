@@ -31,7 +31,7 @@ const LotteryList = () => {
 		<div className='lobby-content'>
 			{subMenu?.map(item => (
 				<GameListItem
-					key={item?.product?.GAME_ID}
+					key={`${item?.product?.GAME_ID}-${item?.product?.TP_GAME_TYPE}-${item?.product?.TP_ID}`}
 					alt={`img-${t(item.displayKey || '') || item.displayText}`}
 					className={classNames('lobby-content-item', {
 						under: item.isTpMaintain,
