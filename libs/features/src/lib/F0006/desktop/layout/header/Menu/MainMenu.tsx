@@ -20,7 +20,7 @@ import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0006/types'
 import SubMenu from './SubMenu'
 
 const LoginModal = dynamic(
-	() => import('@nx-next-app/features/F0006/desktop/modal/LoginModal'),
+	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
 	{
 		ssr: false,
 	}

@@ -21,9 +21,12 @@ import {
 import type { IMergedMenuData } from '@nx-next-app/features/F0006/hooks'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0006/types'
 
-const LoginModal = dynamic(() => import('../../../modal/LoginModal'), {
-	ssr: false,
-})
+const LoginModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
+	{
+		ssr: false,
+	}
+)
 
 interface ISubMenuProps {
 	menuList: IMergedMenuData[]

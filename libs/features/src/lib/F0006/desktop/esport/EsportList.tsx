@@ -7,7 +7,7 @@ import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0006/types'
 import GameListItem from '@nx-next-app/components/D0006/game-list-item'
 
 const LoginModal = dynamic(
-	() => import('@nx-next-app/features/F0006/desktop/modal/LoginModal'),
+	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
 	{
 		ssr: false,
 	}
