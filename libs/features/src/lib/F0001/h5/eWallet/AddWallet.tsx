@@ -3,9 +3,15 @@ import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import { useEWallet } from '@nx-next-app/features/F0001/providers'
 import { Form, Select, InputBox, Loading } from '@nx-next-app/components/H0001'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { E_WALLET_SYSID, TOUCH_GO_REGEX } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
 
 const AddWallet = () => {
 	const { t } = useTranslation()
+	const {
+		userInfo: { currencyId },
+	} = useAuth()
 
 	const { trigger, register, handleSubmit, getValues, setValue, formState } =
 		useForm()
@@ -15,6 +21,10 @@ const AddWallet = () => {
 		useEWallet()
 
 	if (!eWalletInfoSysList) return <Loading />
+
+	const isTouchNGoIsValid =
+		currencyId === CurrenciesEnum.MYR &&
+		getValues('sysId') === E_WALLET_SYSID.TouchNGO
 
 	const eWalletSysOptions = eWalletInfoSysList.map(
 		({ eWalletLogo, eWalletName, sysId }) => ({
@@ -59,6 +69,12 @@ const AddWallet = () => {
 						value: true,
 						message: t('Label_BankInfo_NeedAccountNo'),
 					},
+					pattern: isTouchNGoIsValid
+						? {
+								value: TOUCH_GO_REGEX,
+								message: t('Label_Withdrawal_TouchGo_Validation'),
+						  }
+						: undefined,
 					onBlur: () => trigger('accountNo'),
 				})}
 				type='number'

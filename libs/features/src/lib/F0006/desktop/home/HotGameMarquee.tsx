@@ -5,9 +5,12 @@ import { useTranslation } from 'next-i18next'
 import { useHome } from '@nx-next-app/features/F0006/providers'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 
-const LoginModal = dynamic(() => import('../modal/LoginModal'), {
-	ssr: false,
-})
+const LoginModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
+	{
+		ssr: false,
+	}
+)
 
 const UnderMaintenanceModal = dynamic(
 	() => import('../modal/UnderMaintainModal'),

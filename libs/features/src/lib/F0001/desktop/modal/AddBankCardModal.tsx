@@ -17,6 +17,7 @@ import {
 	IUsdtDetailData,
 	IPaymentCustBankInfoData,
 } from '@nx-next-app/service'
+import { TOUCH_GO_REGEX, E_WALLET_SYSID } from '@nx-next-app/constants'
 
 interface IAddBankCardForm {
 	sysId: number
@@ -78,6 +79,10 @@ const AddBankCardModal = ({
 	})
 	const { touchedFields, errors } = formState
 	const { closeModal } = useGlobalModal()
+
+	const isTouchNGoIsValid =
+		currencyId === CurrenciesEnum.MYR &&
+		getValues('sysId') === E_WALLET_SYSID.TouchNGO
 
 	const handleSelectBankCard = (sysId: ISelectProps['value']) => {
 		const currentSysId = getValues('sysId')
@@ -172,6 +177,12 @@ const AddBankCardModal = ({
 								value: true,
 								message: t('Label_Withdrawal_NeedAccountNo'),
 							},
+							pattern: isTouchNGoIsValid
+								? {
+										value: TOUCH_GO_REGEX,
+										message: t('Label_Withdrawal_TouchGo_Validation'),
+								  }
+								: undefined,
 							onBlur: checkAccountNo,
 						})}
 						title={

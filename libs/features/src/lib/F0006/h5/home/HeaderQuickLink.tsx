@@ -11,11 +11,19 @@ const HeaderQuickLink = () => {
 	} = useAuth()
 	const { ALLOWED_CURRENCIES } = useStaticData()
 
+	// 廣告商用的事件記錄器，綁在 DepositButton 底下
+	const handleYuriAddToCartClick = () => {
+		/* eslint no-underscore-dangle: 0 */
+		if ((window as any)._yuri_track) {
+			;(window as any)._yuri_track('AddToCart')
+		}
+	}
+
 	return (
 		<div className='submenu'>
 			<div className='thBar'>
 				<Link href={paths.deposit.root}>
-					<a>
+					<a onClick={handleYuriAddToCartClick}>
 						<i className='icon icon-deposit' />
 						<span>{t('Label_General_Deposit')}</span>
 					</a>

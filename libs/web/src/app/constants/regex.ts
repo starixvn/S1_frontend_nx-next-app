@@ -23,3 +23,6 @@ export const INTEGER_ONLY_REGEX = /(\..*)|[^0-9]/g
 export const IFSC_CODE_REGEX = /^[A-Za-z0-9]{11}$/
 
 export const BANK_ACCOUNT_REGEX = /^[A-Za-z0-9]+$/g
+
+// 開頭不為 0，且至少為 12 位數
+export const TOUCH_GO_REGEX = /^[1-9]\d{11,}$/

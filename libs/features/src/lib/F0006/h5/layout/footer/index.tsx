@@ -20,6 +20,14 @@ const LayoutFooter = () => {
 	const { pathname } = router
 	const { LIVE_CHAT_ID_BY_LANG_ID } = useStaticData()
 
+	// 廣告商用的事件記錄器，綁在 DepositButton 底下
+	const handleYuriAddToCartClick = () => {
+		/* eslint no-underscore-dangle: 0 */
+		if ((window as any)._yuri_track) {
+			;(window as any)._yuri_track('AddToCart')
+		}
+	}
+
 	// * 根據語系有不同的 LIVE CHAT ID, 默認為 en
 	const liveChatUrl = `https://direct.lc.chat/${
 		process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']
@@ -100,7 +108,10 @@ const LayoutFooter = () => {
 						</a>
 					</Link>
 					<Link href={paths.deposit.root}>
-						<a className='icon icon-icon32px_deposit'>
+						<a
+							onClick={handleYuriAddToCartClick}
+							className='icon icon-icon32px_deposit'
+						>
 							<div className='circleAnimation' />
 							<span>{t('Label_General_Deposit')}</span>
 						</a>

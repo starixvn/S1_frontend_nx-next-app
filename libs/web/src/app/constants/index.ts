@@ -7,6 +7,7 @@ export * from './timeFormat'
 export * from './profile'
 export * from './transferFunds'
 export * from './products'
+export * from './eWallet'
 
 export const CURRENCY_TO_LANG_KEY: {
 	[key: string | number]: string
