@@ -843,6 +843,7 @@
   "Label_Withdrawal_SubmitPhotoId": "Hantar ID Foto",
   "Label_Withdrawal_SubmitPhotoIdHint": "Sila sertakan id foto anda sebelum buat pengeluaran!",
   "Label_Withdrawal_SubmitPhotoIdListTitle": "Sila sertakan salah satu daripada ID yang disenaraikan seperti di bawah:",
+  "Label_Withdrawal_TouchGo_Validation": "Nombor akaun e-wallet tidak sah",
   "Label_Withdrawal_UpdateBankInfo": "Sila kemas kini butiran akaun bank anda sebelum buat pengeluaran dana.",
   "Label_Withdrawal_WaitKYC": "Pengesahan sedang diproses",
   "Label_Withdrawal_WaitKYCHint": "Terima kasih untuk serahkan dokumen yang diperlukan, sila tunggu sebentar sementara pengesahan sedang diproses.",
