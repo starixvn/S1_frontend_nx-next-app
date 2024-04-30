@@ -12517,6 +12517,15 @@ span.important {
 .flag.gb:before {
   background: url(https://banner.0814media.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
 }
+.flag.br:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/br.jpg) no-repeat top left/cover;
+}
+.flag.ko:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/ko.jpg) no-repeat top left/cover;
+}
+.flag.jp:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/jp.jpg) no-repeat top left/cover;
+}
 
 .addressModule {
   margin-top: 5vw;
@@ -14439,6 +14448,27 @@ input:-webkit-autofill:active {
   border-top: 1px dotted #1E85EC;
 }
 
+.react-datepicker-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+.react-datepicker-wrapper input {
+  width: 100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .btn-group {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15249,6 +15279,8 @@ main.casino .banner {
   padding: 0 2vw;
   margin-top: 2vw;
   background: none;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .home-gamelist > div {
   display: -webkit-box;
@@ -15274,7 +15306,6 @@ main.casino .banner {
 .home-gamelist > div .gamelist-item .gamelist-img {
   color: #000;
   text-align: center;
-  font-weight: 500;
 }
 .home-gamelist > div .gamelist-item .gamelist-img img {
   width: 100%;
@@ -15333,6 +15364,7 @@ main.casino .banner {
           filter: drop-shadow(0 0 5px black);
   z-index: 2;
   top: 10vw;
+  font-size: 2.5vw;
 }
 .under img {
   -webkit-filter: grayscale(1) !important;
@@ -15947,7 +15979,7 @@ main.casino .banner {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 12vw;
           flex: 0 0 12vw;
-  padding: 3vw;
+  padding: 2vw;
   margin-top: -3.5vw;
 }
 .footer .plus img {
@@ -16205,7 +16237,7 @@ main.casino .banner {
 .menu-bottom-item .option {
   display: none;
   background: white;
-  color: #585858;
+  color: #000;
   font-weight: 500;
 }
 .menu-bottom-item .option .country {
@@ -16218,18 +16250,43 @@ main.casino .banner {
       -ms-flex-align: center;
           align-items: center;
 }
+.menu-bottom-item .option .country-current {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 5vw;
+  background-color: #ECECEC;
+  border-radius: 4vw;
+  padding: 6vw;
+}
+.menu-bottom-item .option .country-current .country-item {
+  margin-left: 0;
+}
+.menu-bottom-item .option .country-current .country-item button {
+  margin-top: 2vw;
+  color: #878787;
+  font-size: 3vw;
+}
+.menu-bottom-item .option .country-current .country-title img {
+  width: 12vw;
+  border-radius: 50%;
+  border: 1px solid #D1D1D1;
+}
+.menu-bottom-item .option .country-current.after {
+  background-color: transparent;
+  margin: 0;
+  padding: 0 6vw;
+}
 .menu-bottom-item .option .country-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 3vw 0;
-  width: 100%;
+  padding: 2vw 0;
+  margin-left: 6vw;
 }
 .menu-bottom-item .option .country-item > div:last-child {
   width: 60vw;
@@ -16247,19 +16304,12 @@ main.casino .banner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 2vw;
-  width: 20vw;
+  padding: 0 4vw 0 0;
 }
 .menu-bottom-item .option .country-title > div {
-  border-radius: 50px;
-  border: 1px solid #D1D1D1;
   margin-bottom: 1vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -16273,20 +16323,29 @@ main.casino .banner {
 }
 .menu-bottom-item .option .country-title img {
   width: 8vw;
-  border-radius: 30px;
+  border-radius: 50%;
+  border: 1px solid #D1D1D1;
 }
 .menu-bottom-item .option-item {
-  padding: 5vw 0;
+  padding: 5vw;
+}
+.menu-bottom-item .option div {
+  font-size: 3.5vw;
+  font-weight: 600;
 }
 .menu-bottom-item .option button {
+  font-size: 3.5vw;
   color: #585858;
   font-weight: 500;
-  margin: 1vw;
   border-right: 1px solid #D1D1D1;
-  padding-right: 2vw;
+  padding: 0 2vw;
+}
+.menu-bottom-item .option button:first-child {
+  padding-left: 0;
 }
 .menu-bottom-item .option button:last-child {
-  border: 0;
+  padding-right: 0;
+  border-right: 0;
 }
 .menu-bottom-item .option a {
   color: #A7A7A7;
@@ -16469,6 +16528,12 @@ main.casino .banner {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.after .menu-top .profile-item .message-popup > div {
+  width: 25vw;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .after .menu-top .profile-item .message-popup::before {
   position: absolute;
