@@ -154,7 +154,7 @@ const Prediction = () => {
 	}
 
 	return (
-		<div className='euro-predition'>
+		<div className='euro-predition active'>
 			<div className='top'>
 				<div>
 					<div className='title'>
