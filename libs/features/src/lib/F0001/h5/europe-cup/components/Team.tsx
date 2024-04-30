@@ -1,0 +1,28 @@
+const fallbackImgUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/event/eurocup/empty.svg`
+
+interface ITeamProps {
+	position?: string
+	countryName?: string
+	imageName?: string
+}
+
+const Team = ({ countryName, imageName, position }: ITeamProps) => {
+	const imgSrc = imageName
+		? `https://sportsimgs.0814media.net/Country%20Team/${imageName}`
+		: fallbackImgUrl
+
+	return (
+		<div className='team'>
+			<img
+				src={imgSrc}
+				alt=''
+				onError={e => {
+					e.currentTarget.src = fallbackImgUrl
+				}}
+			/>
+			<div>{countryName || position}</div>
+		</div>
+	)
+}
+
+export default Team
