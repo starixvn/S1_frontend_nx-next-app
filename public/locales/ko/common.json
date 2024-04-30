@@ -127,7 +127,7 @@
   "Label_Deposit_ImportantNoticeContent1": "입금하기 전에 최신 활성 입금 은행 세부 정보를 확인하시기 바랍니다.",
   "Label_Deposit_ImportantNoticeContent2": "은행 송금 입금 옵션을 사용하려면 거래 지연을 피하기 위해 거래를 제출하기 전에 <span>송금</span>을 완료하시기 바랍니다.",
   "Label_Deposit_ImportantNoticeContent3": "예금자 성명은 전표의 등록자 이름 또는 참조 번호를 포함한 확인 기준을 충족해야 합니다.",
-  "Label_Deposit_ImportantNoticeContent4": "플레이어의 보안과 개인 정보 보호가 가장 중요합니다. Nova88은 플레이어의 자금과 개인 정보를 보호하기 위한 보안 조치를 취하고 있습니다.",
+  "Label_Deposit_ImportantNoticeContent4": "온라인 거래에서는 <span>{{site}}</span> 또는 도박과 관련된 민감한 단어를 참조/비고로 사용하지 마십시오.",
   "Label_Deposit_ImportantNoticeContent5": "출금이 처리되기 전에 이루어진 모든 입금에 대해 1x 롤오버가 필요하다는 점에 유의하시기 바랍니다.",
   "Label_Deposit_ImportantNoticeContent6": "거래가 5분 이상 보류 중인 경우 <Link>24/7 LIVECHAT</Link>에 문의하시기 바랍니다.",
   "Label_Deposit_ImportantNoticeContent7": "EDC 거래는 최소 3시간 이상 처리됩니다.",
