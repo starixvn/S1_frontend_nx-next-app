@@ -199,7 +199,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 						{t('Label_General_ImportantNotes')}
 					</li>
 					<li>{t('Label_Deposit_DepositLoadCardNoticeContent1')}</li>
-					<li>{t('Label_Deposit_DepositLoadCardNoticeContent1')}</li>
+					<li>{t('Label_Deposit_DepositLoadCardNoticeContent2')}</li>
 				</ol>
 			</div>
 

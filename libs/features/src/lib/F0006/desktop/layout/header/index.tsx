@@ -53,6 +53,14 @@ const LayoutHeader = () => {
 
 	const logoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/logo.png`
 
+	// 廣告商用的事件記錄器，綁在 DepositButton 底下
+	const handleYuriAddToCartClick = () => {
+		/* eslint no-underscore-dangle: 0 */
+		if ((window as any)._yuri_track) {
+			;(window as any)._yuri_track('AddToCart')
+		}
+	}
+
 	return (
 		<Header>
 			<Header.Logo
@@ -83,7 +91,7 @@ const LayoutHeader = () => {
 						</Link>
 
 						<Link href={paths.deposit.root}>
-							<a>
+							<a className='deposit-btn' onClick={handleYuriAddToCartClick}>
 								<span>{t('Label_General_Deposit')}</span>
 							</a>
 						</Link>
