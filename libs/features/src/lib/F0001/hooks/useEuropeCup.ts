@@ -126,10 +126,9 @@ const useEuropeCup = () => {
 		refetchOnMountOrArgChange: true,
 	})
 
-	const cupEventPredictionSetting = useGetCupEventPredictionSettingQuery(
-		{ langId },
-		{ refetchOnMountOrArgChange: true }
-	)
+	const cupEventPredictionSetting = useGetCupEventPredictionSettingQuery({
+		langId,
+	})
 
 	const europeEventPredictionSettingData = cupEventPredictionSetting?.data?.data
 
