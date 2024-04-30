@@ -768,7 +768,7 @@ export const MENU_DATA: IMenuData[] = [
 				},
 			},
 			{
-				...PRODUCTS.PlaytechSlot,
+				...PRODUCTS.NewPlayTechSlot,
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
@@ -776,7 +776,7 @@ export const MENU_DATA: IMenuData[] = [
 				desktop: { hasLobby: true, menuActionType: MenuActionTypeEnum.Link },
 				pathname: paths.slots.root,
 				query: {
-					tpId: PRODUCTS.PlaytechSlot.tpId,
+					tpId: PRODUCTS.NewPlayTechSlot.tpId,
 				},
 			},
 		],
