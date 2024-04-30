@@ -1,10 +1,10 @@
-import React, { useLayoutEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { EUROPE_EVENT_PERIOD } from '@nx-next-app/site/nova88'
 import { isEventPeriod } from '@nx-next-app/utils'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 import Banner from './Banner'
-import Prediction from './Prediction'
+import Tabs from './Tabs'
 import Reward from './Reward'
 import ExtraRewardAndTerms from './ExtraRewardAndTerms'
 
@@ -19,7 +19,7 @@ const EuroCup = () => {
 	return (
 		<main className='euro'>
 			<Banner />
-			<Prediction />
+			<Tabs />
 			<Reward />
 			<ExtraRewardAndTerms />
 		</main>

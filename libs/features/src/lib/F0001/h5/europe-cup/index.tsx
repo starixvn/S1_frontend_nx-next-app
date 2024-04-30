@@ -8,9 +8,9 @@ import { useAuth } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import { useSetHideBalanceMutation } from '@nx-next-app/service'
 import Banner from './Banner'
-import Prediction from './Prediction'
 import Reward from './Reward'
 import ExtraRewardAndTerms from './ExtraRewardAndTerms'
+import Tabs from './Tabs'
 
 const EventEuropeCup = () => {
 	const {
@@ -51,7 +51,7 @@ const EventEuropeCup = () => {
 			</Header>
 			<main className='euro'>
 				<Banner />
-				<Prediction />
+				<Tabs />
 				<Reward />
 				<ExtraRewardAndTerms />
 			</main>
