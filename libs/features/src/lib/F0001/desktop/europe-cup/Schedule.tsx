@@ -1,13 +1,17 @@
 import { useTranslation } from 'react-i18next'
-import { useEuropeCup } from '../../hooks/useEuropeCup'
+import { UseEuropeCupProps } from '../../hooks/useEuropeCup'
 import Team from './components/Team'
 import Group from './components/Group'
 
-const Schedule = () => {
+interface IScheduleProps {
+	europeCupProps: UseEuropeCupProps
+}
+
+const Schedule = ({ europeCupProps }: IScheduleProps) => {
 	const { t } = useTranslation()
 	const {
 		schedule: { brackets, selectOptions },
-	} = useEuropeCup()
+	} = europeCupProps
 
 	const getPropsForPosition = (position: string) => {
 		const team = brackets[position]

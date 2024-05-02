@@ -3,15 +3,24 @@ import { useTranslation } from 'next-i18next'
 import classNames from 'classnames'
 import Prediction from './Prediction'
 import Schedule from './Schedule'
-
-const tabs = [
-	{ label: 'Prediction', component: <Prediction /> },
-	{ label: 'Schedule', component: <Schedule /> },
-]
+import { useEuropeCup } from '../../hooks/useEuropeCup'
 
 const Tabs = () => {
 	const { t } = useTranslation()
 	const [selectedTabIndex, setSelectedTabIndex] = useState(0)
+
+	const europeCupProps = useEuropeCup()
+
+	const tabs = [
+		{
+			label: 'Prediction',
+			component: <Prediction europeCupProps={europeCupProps} />,
+		},
+		{
+			label: 'Schedule',
+			component: <Schedule europeCupProps={europeCupProps} />,
+		},
+	]
 
 	return (
 		<>
