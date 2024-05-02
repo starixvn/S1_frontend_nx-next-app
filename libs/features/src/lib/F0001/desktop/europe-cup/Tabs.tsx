@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
+import classNames from 'classnames'
 import Prediction from './Prediction'
 import Schedule from './Schedule'
 
@@ -19,7 +20,7 @@ const Tabs = () => {
 					<button
 						key={label}
 						onClick={() => setSelectedTabIndex(index)}
-						className={selectedTabIndex === index ? 'active' : undefined}
+						className={classNames({ active: selectedTabIndex === index })}
 					>
 						{t(`Label_EuropeCup_${label}`)}
 					</button>

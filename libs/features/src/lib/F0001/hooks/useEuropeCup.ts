@@ -25,6 +25,7 @@ import {
 	ITeamData,
 } from '@nx-next-app/service'
 import { EUROPE_EVENT_AFTER_PREDICT } from '@nx-next-app/site/nova88'
+import dayjs from 'dayjs'
 
 // 每場比賽的參賽隊伍 [主, 客]
 const MATCHES = {
@@ -126,30 +127,15 @@ const useEuropeCup = () => {
 		refetchOnMountOrArgChange: true,
 	})
 
-	const cupEventPredictionSetting = useGetCupEventPredictionSettingQuery({
-		langId,
-	})
-
-	const europeEventPredictionSettingData = cupEventPredictionSetting?.data?.data
+	const { data: { data: europeEventPredictionSettingData } = {} } =
+		useGetCupEventPredictionSettingQuery({ langId })
 
 	const schedule = {
 		brackets: {} as Record<string, ITeamData & { position: string }>,
-		roundOf16: [] as ITeamData[],
-		quarterFinals: [] as ITeamData[],
-		semiFinals: [] as ITeamData[],
-		final: [] as ITeamData[],
-		selectOptions: {} as {
-			[key in
-				| 'groupA'
-				| 'groupB'
-				| 'groupC'
-				| 'groupD'
-				| 'groupE'
-				| 'groupF']: (ITeamData & { countryId: number })[]
-		},
+		selectOptions: {} as Record<string, (ITeamData & { countryId: number })[]>,
 		matches: [] as {
 			name: string
-			time: Date
+			time: string
 			teams: ITeamData[]
 		}[],
 	}
@@ -190,9 +176,9 @@ const useEuropeCup = () => {
 			const teams = MATCHES[matchName].map(
 				position => schedule.brackets[position]
 			)
-			return { name: matchName, time: new Date(matchTime), teams }
+			return { name: matchName, time: matchTime, teams }
 		})
-		schedule.matches.sort((a, b) => a.time.getTime() - b.time.getTime())
+		schedule.matches.sort((a, b) => dayjs(a.time).unix() - dayjs(b.time).unix())
 	}
 
 	const [setUserPollTickets] = useSetUserPollTicketsMutation()

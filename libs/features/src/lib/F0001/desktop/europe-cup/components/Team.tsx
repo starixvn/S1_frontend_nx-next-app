@@ -21,7 +21,7 @@ const Team = ({
 		<div className={className}>
 			<img
 				src={imgSrc}
-				alt=''
+				alt='country-flag'
 				onError={e => {
 					e.currentTarget.src = fallbackImgUrl
 				}}

@@ -19,15 +19,15 @@ const Schedule = () => {
 			<div className='group-left'>
 				<div className='group-col'>
 					<Group
-						teams={selectOptions.groupA}
+						teams={selectOptions['groupA']}
 						name={t('Label_EuropeCup_GroupA')}
 					/>
 					<Group
-						teams={selectOptions.groupB}
+						teams={selectOptions['groupB']}
 						name={t('Label_EuropeCup_GroupB')}
 					/>
 					<Group
-						teams={selectOptions.groupC}
+						teams={selectOptions['groupC']}
 						name={t('Label_EuropeCup_GroupC')}
 					/>
 				</div>
@@ -101,15 +101,15 @@ const Schedule = () => {
 			<div className='group-right'>
 				<div className='group-col'>
 					<Group
-						teams={selectOptions.groupD}
+						teams={selectOptions['groupD']}
 						name={t('Label_EuropeCup_GroupD')}
 					/>
 					<Group
-						teams={selectOptions.groupE}
+						teams={selectOptions['groupE']}
 						name={t('Label_EuropeCup_GroupE')}
 					/>
 					<Group
-						teams={selectOptions.groupF}
+						teams={selectOptions['groupF']}
 						name={t('Label_EuropeCup_GroupF')}
 					/>
 				</div>

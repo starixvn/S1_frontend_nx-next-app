@@ -15,7 +15,7 @@ const Team = ({ countryName, imageName, position }: ITeamProps) => {
 		<div className='team'>
 			<img
 				src={imgSrc}
-				alt=''
+				alt='country-flag'
 				onError={e => {
 					e.currentTarget.src = fallbackImgUrl
 				}}
