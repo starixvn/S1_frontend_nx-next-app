@@ -46,8 +46,8 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 					description: data?.meta,
 					links: META_DATA?.[langId]?.['links'],
 				}
-			} else if (META_DATA[pathArr[1]]) {
-				const rootPath = META_DATA[pathArr[1]]
+			} else if (META_DATA[`/${pathArr[1]}`]) {
+				const rootPath = META_DATA[`/${pathArr[1]}`]
 				seoData = {
 					...data,
 					title: rootPath?.[langId]?.title ?? rootPath?.['en']?.title,
