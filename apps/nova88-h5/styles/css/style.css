@@ -3715,6 +3715,7 @@ main .gameList .icon-new {
           align-items: center;
   font-weight: bold;
   font-size: 4vw;
+  text-align: center;
 }
 .header .headerTag > a.active, .header .headerTag > button.active {
   color: white;
