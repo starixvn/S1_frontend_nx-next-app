@@ -1,11 +1,11 @@
 import classNames from 'classnames'
 import { upperFirst } from 'lodash-es'
 import { useRouter } from 'next/router'
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { Form } from '@nx-next-app/components/D0001'
-import { UseEuropeCupProps } from '@nx-next-app/features/F0001/hooks/useEuropeCup'
+import { useEuropeCup } from '@nx-next-app/features/F0001/hooks/useEuropeCup'
 import { type IGroupData, CupEventUserTicketStatus } from '@nx-next-app/service'
 import { useAuth } from '@nx-next-app/data-access'
 import { numFormatToDigits } from '@nx-next-app/utils'
@@ -20,11 +20,7 @@ const LoginModal = dynamic(
 	}
 )
 
-interface IPredictionProps {
-	europeCupProps: UseEuropeCupProps
-}
-
-const Prediction = ({ europeCupProps }: IPredictionProps) => {
+const Prediction = () => {
 	const { t } = useTranslation()
 	const { push } = useRouter()
 	const { modal } = useGlobalModal()
@@ -54,7 +50,7 @@ const Prediction = ({ europeCupProps }: IPredictionProps) => {
 			onSelectedGroup,
 			onSubmitForm,
 		},
-	} = europeCupProps
+	} = useEuropeCup()
 
 	const { cupEventPromotionMissionProgress } = europeEventTicketData || {}
 

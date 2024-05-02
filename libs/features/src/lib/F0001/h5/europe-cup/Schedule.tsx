@@ -5,19 +5,14 @@ import { CURRENCY_TO_TIMEZONE, timeFormat } from '@nx-next-app/constants'
 import { ITeamData } from '@nx-next-app/service'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
-import { UseEuropeCupProps } from '../../hooks/useEuropeCup'
+import { useEuropeCup } from '../../hooks/useEuropeCup'
 import Team from './components/Team'
 
-interface IScheduleProps {
-	europeCupProps: UseEuropeCupProps
-}
-
-const Schedule = ({ europeCupProps }: IScheduleProps) => {
+const Schedule = () => {
 	const { t } = useTranslation()
-
 	const {
 		schedule: { matches },
-	} = europeCupProps
+	} = useEuropeCup()
 
 	const {
 		userInfo: { currencyId },
