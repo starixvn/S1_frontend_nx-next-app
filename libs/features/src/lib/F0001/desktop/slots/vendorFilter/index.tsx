@@ -17,7 +17,7 @@ const VendorFilter = () => {
 			})}`}
 		>
 			<div className='provider-list'>
-				{vendorList.map(({ tpId, openPath, tpName, imgName, displayText }) => (
+				{vendorList?.map(({ tpId, openPath, tpName, imgName, displayText }) => (
 					<VendorItem
 						key={`slot-swiper-${tpId}`}
 						onClick={() =>

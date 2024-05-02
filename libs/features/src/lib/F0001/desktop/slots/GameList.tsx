@@ -33,7 +33,7 @@ const GameList = () => {
 						isFavorite,
 						...rest
 					}) => {
-						const resultGameImgDisplayText = vendorList.find(
+						const resultGameImgDisplayText = vendorList?.find(
 							({ tpId: vendorTpId }) => vendorTpId === tpId
 						)?.gameImgDisplayText
 						const resultImgName = imgName[langId] ?? imgName['en']

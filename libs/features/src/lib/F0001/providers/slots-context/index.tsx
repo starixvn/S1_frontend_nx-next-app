@@ -16,6 +16,7 @@ import {
 	ISlotsGameData,
 	IVendorData,
 	useGetBannerV3Query,
+	useGetSlotGamePageQuery,
 	useSetFavoriteGameMutation,
 } from '@nx-next-app/service'
 import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
@@ -30,6 +31,7 @@ import {
 	find,
 	findIndex,
 	includes,
+	pick,
 	random,
 	some,
 	trim,
@@ -37,11 +39,10 @@ import {
 import { getIsTpMaintain } from '@nx-next-app/utils'
 import { BannerTypeEnum } from '@nx-next-app/types'
 import { CategoryEnum } from '@nx-next-app/features/F0001/types'
+import { CATEGORY_SORT } from '@nx-next-app/site/nova88'
 
 interface ISlotsProviderProps {
 	children: ReactNode
-	persistSlotsGameData: ISlotsGameData
-	persistSlotsCategoryData: ISlotsGameData
 }
 
 export interface SlotsContextInterface {
@@ -130,11 +131,7 @@ const removeDuplicates = (data: IGameData[]) => {
 	return uniqueData
 }
 
-const SlotsProvider = ({
-	children,
-	persistSlotsGameData,
-	persistSlotsCategoryData,
-}: ISlotsProviderProps) => {
+const SlotsProvider = ({ children }: ISlotsProviderProps) => {
 	const {
 		auth: { isLogin },
 		userInfo: { currencyId, langId },
@@ -154,15 +151,10 @@ const SlotsProvider = ({
 	const [activeVendorTpId, setActiveVendorTpId] = useState<
 		number | string | null
 	>(null)
-	const [vendorList, setVendorList] = useState<IVendorData[]>(
-		persistSlotsGameData.providerList as IVendorData[]
-	)
 	const [searchCategoryText, setSearchCategoryText] = useState('')
 	const [activeCategoryKey, setActiveCategoryKey] =
 		useState<keyof ISlotsGameData>('all')
-	const [categoryKeys, setCategoryKeys] = useState(
-		Object.keys(persistSlotsCategoryData)
-	)
+
 	const [slotsGameList, setSlotsGameList] = useState<IDisplayGameData[]>([])
 	// 初始渲染40筆資料
 	const [pageSize, setPageSize] = useState(50)
@@ -178,6 +170,20 @@ const SlotsProvider = ({
 		| null
 	>(null)
 	const [isActiveDropdown, setIsActiveDropdown] = useState(false)
+
+	const { data: { data: slotGameData = {} } = {} } = useGetSlotGamePageQuery({
+		deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
+		currencyId,
+	})
+
+	const [vendorList, setVendorList] = useState<IVendorData[]>(
+		slotGameData?.providerList as IVendorData[]
+	)
+
+	const slotsCategoryData = pick(slotGameData, CATEGORY_SORT) as ISlotsGameData
+	const [categoryKeys, setCategoryKeys] = useState(
+		Object.keys(slotsCategoryData)
+	)
 
 	const [setFavoriteGame, { isLoading: isSetFavoriteGameLoading }] =
 		useSetFavoriteGameMutation()
@@ -242,7 +248,7 @@ const SlotsProvider = ({
 	}) => {
 		// * 從 slotGameData 中的 providerList 找對應的 tpGameType
 		const { tpGameType = '' } =
-			find(persistSlotsGameData.providerList, {
+			find(slotGameData?.providerList, {
 				tpId,
 			}) || {}
 
@@ -262,10 +268,10 @@ const SlotsProvider = ({
 			if (isLogin) {
 				const categoryData =
 					queryTpId !== undefined
-						? filter(persistSlotsCategoryData['all'], {
+						? filter(slotsCategoryData['all'], {
 								tpId: Number(queryTpId),
 						  }) || []
-						: persistSlotsCategoryData['all'] || []
+						: slotsCategoryData['all'] || []
 				const randomGame = categoryData[random(categoryData.length)]
 				onGamePlay(randomGame)
 			} else {
@@ -416,7 +422,7 @@ const SlotsProvider = ({
 		// * 首次進入slots計算整理myFavorites
 		if (isFirstRender) {
 			const responseMyFavorites =
-				persistSlotsCategoryData.myFavorite?.map(({ tpId, gameId }) => {
+				slotsCategoryData.myFavorite?.map(({ tpId, gameId }) => {
 					return `${tpId}#${gameId}`
 				}) ?? []
 			const existingValue = new Set(myFavorites.split('&'))
@@ -440,7 +446,7 @@ const SlotsProvider = ({
 		const updateCategoryKeys = () => {
 			const newCategoryKeys: string[] = []
 			if (queryTpId) {
-				Object.entries(persistSlotsCategoryData).forEach(([key, value]) => {
+				Object.entries(slotsCategoryData).forEach(([key, value]) => {
 					const result = value.find(
 						(item: IGameData) => String(item.tpId) === queryTpId
 					)
@@ -454,7 +460,7 @@ const SlotsProvider = ({
 				}
 				setCategoryKeys(newCategoryKeys)
 			} else {
-				setCategoryKeys(Object.keys(persistSlotsCategoryData))
+				setCategoryKeys(Object.keys(slotsCategoryData))
 			}
 		}
 
@@ -484,7 +490,7 @@ const SlotsProvider = ({
 			.split('&')
 			.map(string => string.split('#'))
 			.forEach(([tpId, gameId]) => {
-				persistSlotsCategoryData.all?.forEach(item => {
+				slotsCategoryData.all?.forEach(item => {
 					if (String(item.tpId) === tpId && item.gameId === gameId) {
 						resultList.push(item)
 					}
@@ -493,7 +499,7 @@ const SlotsProvider = ({
 		let originGameList =
 			activeCategoryKey === 'myFavorite'
 				? removeDuplicates(resultList)
-				: ((persistSlotsCategoryData[activeCategoryKey] || []) as IGameData[])
+				: ((slotsCategoryData[activeCategoryKey] || []) as IGameData[])
 
 		if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
 			const uniqueTpIds = Array.from(
@@ -523,7 +529,7 @@ const SlotsProvider = ({
 				isMaintain: getIsTpMaintain({
 					tpMaintainList,
 					tpId: gameObj.tpId,
-					tpGameType: find(persistSlotsGameData.providerList, {
+					tpGameType: find(slotGameData?.providerList, {
 						tpId: gameObj.tpId,
 					})?.tpGameType,
 				}),
@@ -556,9 +562,14 @@ const SlotsProvider = ({
 		}
 	}, [isGameListInView])
 
+	useEffect(() => {
+		if (!slotGameData?.providerList) return
+		setVendorList(slotGameData?.providerList)
+	}, [])
+
 	const value: SlotsContextInterface = {
 		slotsGameList: slotsGameList.slice(0, pageSize),
-		imgUrl: persistSlotsGameData.imgUrl,
+		imgUrl: slotGameData?.imgUrl,
 		bannerList,
 		vendorList,
 		categoryKeys,
