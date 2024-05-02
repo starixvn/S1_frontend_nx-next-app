@@ -390,3 +390,5 @@ const useEuropeCup = () => {
 }
 
 export { useEuropeCup }
+
+export type UseEuropeCupProps = ReturnType<typeof useEuropeCup>
