@@ -188,7 +188,7 @@ export const FOOTER_DATA = ({
 			},
 			{
 				displayKey: 'Label_General_Milestone',
-				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${langId}/milestones`,
+				href: `/${langId}/milestones`,
 			},
 		],
 		promotionTextList: [
