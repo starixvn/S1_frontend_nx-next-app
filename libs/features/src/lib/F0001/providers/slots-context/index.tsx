@@ -171,14 +171,15 @@ const SlotsProvider = ({ children }: ISlotsProviderProps) => {
 	>(null)
 	const [isActiveDropdown, setIsActiveDropdown] = useState(false)
 
-	const { data: { data: slotGameData = {} } = {} } = useGetSlotGamePageQuery({
+	const {
+		data: { data: slotGameData = {} } = {},
+		isFetching: isSlotGameDataFetching,
+	} = useGetSlotGamePageQuery({
 		deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
 		currencyId,
 	})
 
-	const [vendorList, setVendorList] = useState<IVendorData[]>(
-		slotGameData?.providerList as IVendorData[]
-	)
+	const [vendorList, setVendorList] = useState<IVendorData[]>([])
 
 	const slotsCategoryData = pick(slotGameData, CATEGORY_SORT) as ISlotsGameData
 	const [categoryKeys, setCategoryKeys] = useState(
@@ -565,7 +566,8 @@ const SlotsProvider = ({ children }: ISlotsProviderProps) => {
 	useEffect(() => {
 		if (!slotGameData?.providerList) return
 		setVendorList(slotGameData?.providerList)
-	}, [])
+		setCategoryKeys(Object.keys(slotsCategoryData))
+	}, [isSlotGameDataFetching])
 
 	const value: SlotsContextInterface = {
 		slotsGameList: slotsGameList.slice(0, pageSize),
