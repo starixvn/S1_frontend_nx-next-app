@@ -10,11 +10,11 @@ import React, {
 import { useRouter } from 'next/router'
 import { useIsFirstRender, useLocalStorage } from 'usehooks-ts'
 import {
-	IBannerData,
-	IDisplayGameData,
-	IGameData,
-	ISlotsGameData,
-	IVendorData,
+	type IBannerData,
+	type IDisplayGameData,
+	type IGameData,
+	type ISlotsGameData,
+	type IVendorData,
 	useGetBannerV3Query,
 	useGetSlotGamePageQuery,
 	useSetFavoriteGameMutation,
@@ -29,8 +29,10 @@ import {
 	camelCase,
 	filter,
 	find,
+	remove,
 	findIndex,
 	includes,
+	isEmpty,
 	pick,
 	random,
 	some,
@@ -138,7 +140,7 @@ const SlotsProvider = ({ children }: ISlotsProviderProps) => {
 	} = useAuth()
 	const {
 		push,
-		query: { tpId: queryTpId },
+		query: { tpId: queryTpId, category: queryCategory = 'all' },
 	} = useRouter()
 	const { modal } = useGlobalModal()
 	const { onEnterSlotsPage } = useMenu()
@@ -152,14 +154,9 @@ const SlotsProvider = ({ children }: ISlotsProviderProps) => {
 		number | string | null
 	>(null)
 	const [searchCategoryText, setSearchCategoryText] = useState('')
-	const [activeCategoryKey, setActiveCategoryKey] =
-		useState<keyof ISlotsGameData>('all')
-
-	const [slotsGameList, setSlotsGameList] = useState<IDisplayGameData[]>([])
-	// 初始渲染40筆資料
+	// 初始渲染50筆資料
 	const [pageSize, setPageSize] = useState(50)
-	const [isProcess, setIsProcess] = useState(true)
-	const [myFavorites, setMyFavorites] = useLocalStorage('myFavorites', '')
+	const [myFavorites, setMyFavorites] = useLocalStorage('myFavorites', '[]')
 	const [isShowSearchInput, setIsShowSearchInput] = useState<boolean>(false)
 	const [activeGame, setActiveGame] = useState<
 		| (IDisplayGameData & {
@@ -171,20 +168,103 @@ const SlotsProvider = ({ children }: ISlotsProviderProps) => {
 	>(null)
 	const [isActiveDropdown, setIsActiveDropdown] = useState(false)
 
-	const {
-		data: { data: slotGameData = {} } = {},
-		isFetching: isSlotGameDataFetching,
-	} = useGetSlotGamePageQuery({
+	const { data: { data: slotGameData = {} } = {} } = useGetSlotGamePageQuery({
 		deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
 		currencyId,
 	})
+	const { providerList } = slotGameData
 
-	const [vendorList, setVendorList] = useState<IVendorData[]>([])
+	// 第一層 providers
+	const filteredProvidersList = (): IVendorData[] | [] => {
+		if (!providerList) return []
+		// 是直播主的的用戶需篩除不允許的 providers
+		if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
+			const uniqueTpIds = Array.from(
+				new Set(
+					custGameTypeSettingList
+						.filter(item => item.categoryId === CategoryEnum.SLOTS)
+						.map(item => item.tpId)
+				)
+			)
+			return providerList.filter(({ tpId }) => !uniqueTpIds.includes(tpId))
+		}
+		return providerList
+	}
+
+	// 第二層 categories
+	const categoriesKeys = () => {
+		const newCategoryKeys: string[] = []
+		if (queryTpId) {
+			Object.entries(slotsCategoryData).forEach(([key, value]) => {
+				const result = value.find(
+					(item: IGameData) => String(item.tpId) === queryTpId
+				)
+
+				if (result !== undefined) {
+					newCategoryKeys.push(key)
+				}
+			})
+			if (!newCategoryKeys.includes('myFavorite')) {
+				newCategoryKeys.push('myFavorite')
+			}
+		}
+		return isEmpty(newCategoryKeys)
+			? Object.keys(slotsCategoryData)
+			: newCategoryKeys
+	}
+
+	// 第三層 GamesList
+	const filteredSlotsGameList = () => {
+		const resultList: IGameData[] = []
+		const myLocalStoragesFavorites = JSON.parse(myFavorites) as {
+			tpId: number
+			gameId: string
+		}[]
+		myLocalStoragesFavorites.forEach(
+			({ tpId: favoriteTpId, gameId: favoriteGameId }) => {
+				slotsCategoryData.all?.forEach(game => {
+					if (game.tpId === favoriteTpId && game.gameId === favoriteGameId) {
+						resultList.push(game)
+					}
+				})
+			}
+		)
+
+		const slotGamesList =
+			queryCategory === 'myFavorite'
+				? removeDuplicates(resultList)
+				: (slotsCategoryData[
+						queryCategory as keyof ISlotsGameData
+				  ] as IGameData[]) || []
+
+		return slotGamesList
+			.filter(({ tpId, gameName }) => {
+				return (
+					(queryTpId ? String(tpId) === queryTpId : true) &&
+					(searchCategoryText === '' ||
+						some(Object.values(gameName), name =>
+							camelCase(trim(name)).match(camelCase(trim(searchCategoryText)))
+						))
+				)
+			})
+			.map(gameObj => ({
+				...gameObj,
+				isMaintain: getIsTpMaintain({
+					tpMaintainList,
+					tpId: gameObj.tpId,
+					tpGameType: find(filteredProvidersList(), {
+						tpId: gameObj.tpId,
+					})?.tpGameType,
+				}),
+				isFavorite: isFavorite({ tpId: gameObj.tpId, gameId: gameObj.gameId }),
+			}))
+			.sort(
+				(a, b) =>
+					new Date(b.launchDate).getTime() - new Date(a.launchDate).getTime()
+			)
+	}
 
 	const slotsCategoryData = pick(slotGameData, CATEGORY_SORT) as ISlotsGameData
-	const [categoryKeys, setCategoryKeys] = useState(
-		Object.keys(slotsCategoryData)
-	)
 
 	const [setFavoriteGame, { isLoading: isSetFavoriteGameLoading }] =
 		useSetFavoriteGameMutation()
@@ -198,6 +278,22 @@ const SlotsProvider = ({ children }: ISlotsProviderProps) => {
 		langId,
 	})
 
+	const onSearchCategoryTextChange = (value: string) => {
+		setSearchCategoryText(value)
+	}
+
+	const handleLoginCallback = () => {
+		if (
+			Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Desktop
+		) {
+			modal.open(<LoginModal />)
+		}
+		if (Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Mobile) {
+			push(paths.login.root)
+		}
+	}
+
+	// 第一層點擊事件
 	const onVendorChange = ({
 		tpId,
 		openPath,
@@ -221,49 +317,10 @@ const SlotsProvider = ({ children }: ISlotsProviderProps) => {
 				})
 			}
 		}
+		setPageSize(50)
 	}
 
-	const onSearchCategoryTextChange = (value: string) => {
-		setSearchCategoryText(value)
-	}
-
-	const handleLoginCallback = () => {
-		if (
-			Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Desktop
-		) {
-			modal.open(<LoginModal />)
-		}
-		if (Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Mobile) {
-			push(paths.login.root)
-		}
-	}
-
-	const onGamePlay = ({
-		tpId,
-		gameId,
-		playFree,
-	}: {
-		tpId: number
-		gameId: string
-		playFree: boolean
-	}) => {
-		// * 從 slotGameData 中的 providerList 找對應的 tpGameType
-		const { tpGameType = '' } =
-			find(slotGameData?.providerList, {
-				tpId,
-			}) || {}
-
-		onEnterSlotsPage(
-			{
-				tpId: String(tpId),
-				tpGameType: String(tpGameType),
-				gameId,
-				isFree: playFree,
-			},
-			{ loginCallback: handleLoginCallback }
-		)
-	}
-
+	// 第二層點擊事件
 	const onCategoryChange = (value: string) => {
 		if (value === 'random') {
 			if (isLogin) {
@@ -279,67 +336,79 @@ const SlotsProvider = ({ children }: ISlotsProviderProps) => {
 				handleLoginCallback()
 			}
 		} else {
-			setActiveCategoryKey(value as keyof ISlotsGameData)
+			push(
+				{
+					pathname: paths.slots.root,
+					query: { tpId: queryTpId, category: value },
+				},
+				undefined,
+				{
+					shallow: true,
+				}
+			)
 		}
+		setPageSize(50)
 	}
 
-	const isFavorite = ({
-		tpId: targetTpId,
-		gameId: targetGameId,
+	// 第三層點擊事件
+	const onGamePlay = ({
+		tpId,
+		gameId,
+		playFree,
 	}: {
-		gameId: string
 		tpId: number
+		gameId: string
+		playFree: boolean
 	}) => {
-		return Boolean(
-			myFavorites
-				.split('&')
-				.map(string => string.split('#'))
-				.find(
-					([tpId, gameId]) =>
-						String(targetTpId) === tpId && targetGameId === gameId
-				)
+		// * 從 slotGameData 中的 providerList 找對應的 tpGameType
+		const { tpGameType = '' } =
+			find(filteredProvidersList(), {
+				tpId,
+			}) || {}
+
+		onEnterSlotsPage(
+			{
+				tpId: String(tpId),
+				tpGameType: String(tpGameType),
+				gameId,
+				isFree: playFree,
+			},
+			{ loginCallback: handleLoginCallback }
 		)
+		setPageSize(50)
+	}
+
+	const isFavorite = ({ tpId, gameId }: { gameId: string; tpId: number }) => {
+		return Boolean(find(JSON.parse(myFavorites), { tpId, gameId }))
 	}
 
 	const onFavoritesToggle = async ({
-		tpId: newTpId,
-		gameId: newGameId,
+		tpId,
+		gameId,
 	}: {
 		tpId: number
 		gameId: string
 	}) => {
-		const isRemove = Boolean(
-			myFavorites
-				.split('&')
-				.map(string => string.split('#'))
-				.find(
-					([tpId, gameId]) => String(newTpId) === tpId && newGameId === gameId
+		const hasFavoriteGame = isFavorite({ tpId, gameId })
+		if (hasFavoriteGame) {
+			setMyFavorites(prev => {
+				return JSON.stringify(
+					filter(
+						JSON.parse(prev),
+						game => game.gameId !== gameId && game.tpId !== String(tpId)
+					)
 				)
-		)
-
-		if (isRemove) {
-			const filteredMyFavoriteStr = myFavorites
-				.split('&')
-				.map(string => string.split('#'))
-				.filter(
-					([tpId, gameId]) =>
-						!(String(newTpId) === tpId && newGameId === gameId)
-				)
-				.map(([tpId, gameId]) => `${tpId}#${gameId}`)
-				.join('&')
-
-			setMyFavorites(trim(filteredMyFavoriteStr))
+			})
 		} else {
-			const newFavorite = `${
-				myFavorites === '' ? '' : '&'
-			}${newTpId}#${newGameId}`
-			setMyFavorites(prev => `${prev}${newFavorite}`)
+			setMyFavorites(prev => {
+				return JSON.stringify(JSON.parse(prev).concat({ tpId, gameId }))
+			})
 		}
 		if (isLogin && !isSetFavoriteGameLoading) {
 			await setFavoriteGame({
-				providerId: newTpId,
-				gameId: newGameId,
-				isRemove,
+				providerId: tpId,
+				gameId,
+				isRemove: hasFavoriteGame,
 			}).unwrap()
 		}
 	}
@@ -369,215 +438,181 @@ const SlotsProvider = ({ children }: ISlotsProviderProps) => {
 		setIsActiveDropdown(prev => !prev)
 	}
 
-	const updateVendorList = () => {
-		// 篩選直播主vendorList
-		let tempVendorList = vendorList
-		if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
-			const uniqueTpIds = Array.from(
-				new Set(
-					custGameTypeSettingList
-						.filter(item => item.categoryId === CategoryEnum.SLOTS)
-						.map(item => item.tpId)
-				)
-			)
-			tempVendorList = vendorList.filter(
-				({ tpId }) => !uniqueTpIds.includes(tpId)
-			)
-		}
+	// const updateVendorList = () => {
+	// 	// 篩選直播主vendorList
+	// 	let tempVendorList = providerList as IVendorData[]
+	// 	if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
+	// 		const uniqueTpIds = Array.from(
+	// 			new Set(
+	// 				custGameTypeSettingList
+	// 					.filter(item => item.categoryId === CategoryEnum.SLOTS)
+	// 					.map(item => item.tpId)
+	// 			)
+	// 		)
+	// 		if (!providerList) return
+	// 		tempVendorList = providerList.filter(
+	// 			({ tpId }) => !uniqueTpIds.includes(tpId)
+	// 		)
+	// 	}
+	//
+	// 	const targetIndex = findIndex(tempVendorList, {
+	// 		tpId: Number(queryTpId),
+	// 	})
+	//
+	// 	if (targetIndex !== -1) {
+	// 		if (
+	// 			Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Desktop
+	// 		) {
+	// 			// * 當指定廠牌不在頁面上時,展開下拉
+	// 			if (targetIndex > 5) {
+	// 				setIsActiveDropdown(true)
+	// 			} else {
+	// 				setIsActiveDropdown(false)
+	// 			}
+	// 			// setVendorList(tempVendorList)
+	// 		}
+	//
+	// 		if (
+	// 			Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Mobile
+	// 		) {
+	// 			// * 將 queryTpId 找到的 vendor slice 到第一個選項並 selected
+	// 			// const newVendorList = [
+	// 			// 	...tempVendorList.slice(targetIndex),
+	// 			// 	...tempVendorList.slice(0, targetIndex),
+	// 			// ]
+	// 			// setVendorList(newVendorList)
+	// 		}
+	//
+	// 		setActiveVendorTpId(tempVendorList[targetIndex].tpId)
+	// 	} else {
+	// 		// setVendorList(tempVendorList)
+	// 	}
+	// }
 
-		const targetIndex = findIndex(tempVendorList, {
-			tpId: Number(queryTpId),
-		})
+	// useEffect(() => {
+	// 	// * 首次進入slots計算整理myFavorites
+	// 	if (isFirstRender) {
+	// 		const responseMyFavorites =
+	// 			slotsCategoryData.myFavorite?.map(({ tpId, gameId }) => {
+	// 				return `${tpId}#${gameId}`
+	// 			}) ?? []
+	// 		const existingValue = new Set(myFavorites.split('&'))
+	// 		let result = ''
+	//
+	// 		responseMyFavorites.forEach(str => {
+	// 			if (!existingValue.has(str)) {
+	// 				result += `${result === '' ? '' : '&'}${str}`
+	// 				existingValue.add(str)
+	// 			}
+	// 		})
+	// 		// setMyFavorites(
+	// 		// 	prev => `${prev}${myFavorites && result ? '&' : ''}${result}`
+	// 		// )
+	// 		// updateVendorList()
+	// 	}
+	// }, [isFirstRender])
 
-		if (targetIndex !== -1) {
-			if (
-				Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Desktop
-			) {
-				// * 當指定廠牌不在頁面上時,展開下拉
-				if (targetIndex > 5) {
-					setIsActiveDropdown(true)
-				} else {
-					setIsActiveDropdown(false)
-				}
-				setVendorList(tempVendorList)
-			}
-
-			if (
-				Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Mobile
-			) {
-				// * 將 queryTpId 找到的 vendor slice 到第一個選項並 selected
-				const newVendorList = [
-					...tempVendorList.slice(targetIndex),
-					...tempVendorList.slice(0, targetIndex),
-				]
-				setVendorList(newVendorList)
-			}
-
-			setActiveVendorTpId(tempVendorList[targetIndex].tpId)
-		} else {
-			setVendorList(tempVendorList)
-		}
-	}
-
-	useEffect(() => {
-		// * 首次進入slots計算整理myFavorites
-		if (isFirstRender) {
-			const responseMyFavorites =
-				slotsCategoryData.myFavorite?.map(({ tpId, gameId }) => {
-					return `${tpId}#${gameId}`
-				}) ?? []
-			const existingValue = new Set(myFavorites.split('&'))
-			let result = ''
-
-			responseMyFavorites.forEach(str => {
-				if (!existingValue.has(str)) {
-					result += `${result === '' ? '' : '&'}${str}`
-					existingValue.add(str)
-				}
-			})
-			setMyFavorites(
-				prev => `${prev}${myFavorites && result ? '&' : ''}${result}`
-			)
-			updateVendorList()
-		}
-	}, [isFirstRender])
-
-	// * 根據廠商過濾遊戲類型
-	useEffect(() => {
-		const updateCategoryKeys = () => {
-			const newCategoryKeys: string[] = []
-			if (queryTpId) {
-				Object.entries(slotsCategoryData).forEach(([key, value]) => {
-					const result = value.find(
-						(item: IGameData) => String(item.tpId) === queryTpId
-					)
-
-					if (result !== undefined) {
-						newCategoryKeys.push(key)
-					}
-				})
-				if (!newCategoryKeys.includes('myFavorite')) {
-					newCategoryKeys.push('myFavorite')
-				}
-				setCategoryKeys(newCategoryKeys)
-			} else {
-				setCategoryKeys(Object.keys(slotsCategoryData))
-			}
-		}
-
-		updateCategoryKeys()
-		setActiveCategoryKey('all')
-	}, [queryTpId])
-
-	useEffect(() => {
-		if (
-			queryTpId &&
-			!isFirstRender &&
-			Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Desktop
-		) {
-			updateVendorList()
-		}
-	}, [queryTpId])
+	// useEffect(() => {
+	// 	if (
+	// 		queryTpId &&
+	// 		!isFirstRender &&
+	// 		Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Desktop
+	// 	) {
+	// 		updateVendorList()
+	// 	}
+	// }, [queryTpId])
 
 	// * vendor、category 更新時初始 input
-	useEffect(() => {
-		onSearchCategoryTextChange('')
-	}, [queryTpId, activeCategoryKey])
+	// useEffect(() => {
+	// 	onSearchCategoryTextChange('')
+	// }, [queryTpId, activeCategoryKey])
 
 	// * 更新遊戲列表
-	useEffect(() => {
-		const resultList: IGameData[] = []
-		myFavorites
-			.split('&')
-			.map(string => string.split('#'))
-			.forEach(([tpId, gameId]) => {
-				slotsCategoryData.all?.forEach(item => {
-					if (String(item.tpId) === tpId && item.gameId === gameId) {
-						resultList.push(item)
-					}
-				})
-			})
-		let originGameList =
-			activeCategoryKey === 'myFavorite'
-				? removeDuplicates(resultList)
-				: ((slotsCategoryData[activeCategoryKey] || []) as IGameData[])
-
-		if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
-			const uniqueTpIds = Array.from(
-				new Set(
-					custGameTypeSettingList
-						.filter(item => item.categoryId === CategoryEnum.SLOTS)
-						.map(item => item.tpId)
-				)
-			)
-			originGameList = originGameList.filter(
-				({ tpId }) => !uniqueTpIds.includes(tpId)
-			)
-		}
-		// * 過濾當前 tpId 與 searchCategoryText
-		const filteredGameList = originGameList
-			.filter(({ tpId, gameName }) => {
-				return (
-					(queryTpId ? String(tpId) === queryTpId : true) &&
-					(searchCategoryText === '' ||
-						some(Object.values(gameName), name =>
-							camelCase(trim(name)).match(camelCase(trim(searchCategoryText)))
-						))
-				)
-			})
-			.map(gameObj => ({
-				...gameObj,
-				isMaintain: getIsTpMaintain({
-					tpMaintainList,
-					tpId: gameObj.tpId,
-					tpGameType: find(slotGameData?.providerList, {
-						tpId: gameObj.tpId,
-					})?.tpGameType,
-				}),
-				isFavorite: isFavorite({ tpId: gameObj.tpId, gameId: gameObj.gameId }),
-			}))
-			.sort(
-				(a, b) =>
-					new Date(b.launchDate).getTime() - new Date(a.launchDate).getTime()
-			)
-
-		setSlotsGameList(filteredGameList)
-		setIsProcess(false)
-	}, [activeCategoryKey, queryTpId, searchCategoryText, myFavorites])
+	// useEffect(() => {
+	// 	const resultList: IGameData[] = []
+	// 	myFavorites
+	// 		.split('&')
+	// 		.map(string => string.split('#'))
+	// 		.forEach(([tpId, gameId]) => {
+	// 			slotsCategoryData.all?.forEach(item => {
+	// 				if (String(item.tpId) === tpId && item.gameId === gameId) {
+	// 					resultList.push(item)
+	// 				}
+	// 			})
+	// 		})
+	// 	let originGameList =
+	// 		queryCategory === 'myFavorite'
+	// 			? removeDuplicates(resultList)
+	// 			: ((slotsCategoryData[queryCategory as keyof ISlotsGameData] ||
+	// 					[]) as IGameData[])
+	//
+	// 	if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
+	// 		const uniqueTpIds = Array.from(
+	// 			new Set(
+	// 				custGameTypeSettingList
+	// 					.filter(item => item.categoryId === CategoryEnum.SLOTS)
+	// 					.map(item => item.tpId)
+	// 			)
+	// 		)
+	// 		originGameList = originGameList.filter(
+	// 			({ tpId }) => !uniqueTpIds.includes(tpId)
+	// 		)
+	// 	}
+	// 	// * 過濾當前 tpId 與 searchCategoryText
+	// 	const filteredGameList = originGameList
+	// 		.filter(({ tpId, gameName }) => {
+	// 			return (
+	// 				(queryTpId ? String(tpId) === queryTpId : true) &&
+	// 				(searchCategoryText === '' ||
+	// 					some(Object.values(gameName), name =>
+	// 						camelCase(trim(name)).match(camelCase(trim(searchCategoryText)))
+	// 					))
+	// 			)
+	// 		})
+	// 		.map(gameObj => ({
+	// 			...gameObj,
+	// 			isMaintain: getIsTpMaintain({
+	// 				tpMaintainList,
+	// 				tpId: gameObj.tpId,
+	// 				tpGameType: find(filteredProvidersList(), {
+	// 					tpId: gameObj.tpId,
+	// 				})?.tpGameType,
+	// 			}),
+	// 			isFavorite: isFavorite({ tpId: gameObj.tpId, gameId: gameObj.gameId }),
+	// 		}))
+	// 		.sort(
+	// 			(a, b) =>
+	// 				new Date(b.launchDate).getTime() - new Date(a.launchDate).getTime()
+	// 		)
+	// }, [queryCategory, queryTpId, searchCategoryText, myFavorites])
 
 	// 更新遊戲列表預設給定40筆資料
-	useEffect(() => {
-		if (!isProcess) {
-			setPageSize(50)
-			setIsProcess(true)
-		}
-	}, [activeCategoryKey, queryTpId, searchCategoryText, slotsGameList.length])
+	// useEffect(() => {
+	// 	if (!isProcess) {
+	// 		setPageSize(50)
+	// 		setIsProcess(true)
+	// 	}
+	// }, [queryCategory, queryTpId, searchCategoryText, slotsGameList.length])
 
 	// 每次向下更新25筆資料
 	useEffect(() => {
 		if (isGameListInView) {
-			if (pageSize >= slotsGameList.length) {
+			if (pageSize >= filteredSlotsGameList().length) {
 				return
 			}
 			setPageSize(prev => prev + 25)
 		}
 	}, [isGameListInView])
 
-	useEffect(() => {
-		if (!slotGameData?.providerList) return
-		setVendorList(slotGameData?.providerList)
-		setCategoryKeys(Object.keys(slotsCategoryData))
-	}, [isSlotGameDataFetching])
-
 	const value: SlotsContextInterface = {
-		slotsGameList: slotsGameList.slice(0, pageSize),
+		slotsGameList: filteredSlotsGameList().slice(0, pageSize),
 		imgUrl: slotGameData?.imgUrl,
 		bannerList,
-		vendorList,
-		categoryKeys,
+		vendorList: filteredProvidersList(),
+		categoryKeys: categoriesKeys(),
 		isGetBannerV3Fetching,
 		activeVendorTpId,
-		activeCategoryKey,
+		activeCategoryKey: queryCategory as string,
 		activeGame,
 		searchCategoryText,
 		myFavorites,
@@ -586,7 +621,9 @@ const SlotsProvider = ({ children }: ISlotsProviderProps) => {
 		isShowSearchInput,
 		isNavInView,
 		isGameListInView,
-		isFavorite: includes(myFavorites, activeGame?.gameId),
+		isFavorite: some(JSON.parse(myFavorites), {
+			gameId: activeGame?.gameId,
+		}),
 		isActiveDropdown,
 		onVendorChange,
 		onCategoryChange,

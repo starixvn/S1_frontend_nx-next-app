@@ -10,6 +10,7 @@ const VendorFilter = () => {
 		onVendorChange,
 		onToggleDropdown,
 	} = useSlots()
+
 	return (
 		<div
 			className={`provider ${classNames({
