@@ -174,3 +174,14 @@ export const secondsToTime = (secondsInTime: number) => {
 export const scrollToTop = () => {
 	window !== undefined && window.scrollTo({ top: 0, behavior: 'smooth' })
 }
+
+// 預防其他情況 如：JSON.parse('') 時會 runtime error
+export const safeJsonParse = <T>(str: string) => {
+	try {
+		const jsonValue: T = JSON.parse(str)
+
+		return jsonValue
+	} catch {
+		return [] as T
+	}
+}

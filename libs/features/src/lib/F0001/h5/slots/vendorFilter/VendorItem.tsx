@@ -22,6 +22,15 @@ const VendorItem = ({
 		<a
 			onClick={() => onClick(item)}
 			className={classNames({ active: tpId === activeVendorTpId })}
+			ref={node => {
+				if (node && tpId === activeVendorTpId) {
+					node.scrollIntoView({
+						behavior: 'smooth',
+						block: 'nearest',
+						inline: 'center',
+					})
+				}
+			}}
 		>
 			<img
 				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/venderlogo/${

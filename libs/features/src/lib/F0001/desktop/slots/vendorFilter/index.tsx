@@ -1,4 +1,6 @@
+import { useEffect } from 'react'
 import classNames from 'classnames'
+import { findIndex } from 'lodash-es'
 import { useSlots } from '@nx-next-app/features/F0001/providers'
 import VendorItem from './VendorItem'
 
@@ -9,7 +11,22 @@ const VendorFilter = () => {
 		isActiveDropdown,
 		onVendorChange,
 		onToggleDropdown,
+		setIsActiveDropdown,
 	} = useSlots()
+
+	const vendorItemIndex = findIndex(vendorList, {
+		tpId: Number(activeVendorTpId),
+	})
+
+	useEffect(() => {
+		if (vendorItemIndex === -1) return
+		// 這裡因為 vendor 沒有做響應式，不會根據視窗大小增減的一排的 vendor，不然不太因該這樣寫
+		if (vendorItemIndex > 5) {
+			setIsActiveDropdown(true)
+		} else {
+			setIsActiveDropdown(false)
+		}
+	}, [activeVendorTpId])
 
 	return (
 		<div
@@ -20,7 +37,7 @@ const VendorFilter = () => {
 			<div className='provider-list'>
 				{vendorList?.map(({ tpId, openPath, tpName, imgName, displayText }) => (
 					<VendorItem
-						key={`slot-swiper-${tpId}`}
+						key={tpId}
 						onClick={() =>
 							onVendorChange({
 								tpId,
