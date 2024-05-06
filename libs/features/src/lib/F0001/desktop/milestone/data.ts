@@ -1,0 +1,47 @@
+import { IMilestone, ISlide } from './type'
+
+export const milestones: IMilestone[] = [
+	{ year: '2020', index: 0, imgSrc: 'phone.png' },
+	{ year: '2021', index: 1, imgSrc: 'amber.png' },
+	{ year: '2022', index: 2, imgSrc: 'joe.png' },
+	{ year: '2023', index: 3, imgSrc: 'fc.png' },
+	{ year: 'Present', index: 4, imgSrc: 'milan.png' },
+]
+
+export const SlideData: ISlide = [
+	{
+		title: 'Label_Milestone_2020',
+		subtitle: 'Label_Milestone_2020_Subtitle',
+		content: 'Label_Milestone_2020_Content',
+		imgSrc: 'phone.png',
+		className: 'swiper-slide two',
+	},
+	{
+		title: 'Label_Milestone_2021',
+		subtitle: 'Label_Milestone_2021_Subtitle',
+		content: 'Label_Milestone_2021_Content',
+		imgSrc: 'amber.png',
+		className: 'swiper-slide three',
+	},
+	{
+		title: 'Label_Milestone_2022',
+		subtitle: 'Label_Milestone_2022_Subtitle',
+		content: 'Label_Milestone_2022_Content',
+		imgSrc: 'joe.png',
+		className: 'swiper-slide four',
+	},
+	{
+		title: 'Label_Milestone_2023',
+		subtitle: 'Label_Milestone_2023_Subtitle',
+		content: 'Label_Milestone_2023_Content',
+		imgSrc: 'fc.png',
+		className: 'swiper-slide five',
+	},
+	{
+		title: 'Label_Milestone_Present',
+		subtitle: 'Label_Milestone_2023_Subtitle',
+		content: 'Label_Milestone_Collaboration',
+		imgSrc: 'milan.png',
+		className: 'swiper-slide six',
+	},
+]

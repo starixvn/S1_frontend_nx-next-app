@@ -6,6 +6,9 @@ import { useReferral } from '@nx-next-app/features/F0006/providers'
 const ReferralSocialMediaList = () => {
 	const { t } = useTranslation()
 	const { referralInfoList } = useReferral()
+
+	if (referralInfoList.length === 0) return null
+
 	return (
 		<div className='referinfo-list'>
 			<div className='subtitle'>

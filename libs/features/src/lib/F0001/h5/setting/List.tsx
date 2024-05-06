@@ -215,6 +215,8 @@ const List = () => {
 					{t('Label_General_ContactUs')}
 				</a>
 
+				<a href={`/${langId}/milestones`}>{t('Label_General_Milestone')}</a>
+
 				<Link href={paths.gameProvider.root}>
 					<a>{t('Label_General_GameProvider')}</a>
 				</Link>

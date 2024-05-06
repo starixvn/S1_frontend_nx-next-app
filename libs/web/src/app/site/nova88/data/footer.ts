@@ -192,6 +192,10 @@ export const FOOTER_DATA = ({
 				displayKey: 'Label_ContactUs',
 				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html`,
 			},
+			{
+				displayKey: 'Label_General_Milestone',
+				href: `/${langId}/milestones`,
+			},
 		],
 		promotionTextList: [
 			{

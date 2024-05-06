@@ -33,7 +33,7 @@ const Sfp = ({
 
 	return (
 		<div className='sfp'>
-			{!!socialChannelList && (
+			{!!socialChannelList && socialChannelList.length > 0 && (
 				<div>
 					<div className='title'>{t('Label_Follow_Us')}</div>
 					<div>
