@@ -25608,7 +25608,7 @@ input[type=number] {
 }
 .milestones-home {
   height: 100vh;
-  background: url(../img/milestones/top-bg.jpg) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/milestones/top-bg.jpg) no-repeat center/cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25752,7 +25752,7 @@ input[type=number] {
 .milestones .milestones-swiper .swiper-slide.two, .milestones .milestones-swiper .swiper-slide.three, .milestones .milestones-swiper .swiper-slide.four, .milestones .milestones-swiper .swiper-slide.five, .milestones .milestones-swiper .swiper-slide.six {
   height: 100vh;
   width: 100%;
-  background: url(../img/milestones/two-bg.jpg) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/milestones/two-bg.jpg) no-repeat center/cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25762,6 +25762,13 @@ input[type=number] {
 }
 .milestones .milestones-swiper .swiper-slide.two .page-item, .milestones .milestones-swiper .swiper-slide.three .page-item, .milestones .milestones-swiper .swiper-slide.four .page-item, .milestones .milestones-swiper .swiper-slide.five .page-item, .milestones .milestones-swiper .swiper-slide.six .page-item {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .milestones .milestones-swiper .swiper-slide.two .page-item > div:first-child, .milestones .milestones-swiper .swiper-slide.three .page-item > div:first-child, .milestones .milestones-swiper .swiper-slide.four .page-item > div:first-child, .milestones .milestones-swiper .swiper-slide.five .page-item > div:first-child, .milestones .milestones-swiper .swiper-slide.six .page-item > div:first-child {
   position: absolute;
@@ -25773,9 +25780,8 @@ input[type=number] {
   padding: 0 10px;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 110px;
   left: 180px;
-  bottom: 80px;
+  bottom: 250px;
 }
 .milestones .milestones-swiper .swiper-slide.two .page-item > div:nth-child(2), .milestones .milestones-swiper .swiper-slide.three .page-item > div:nth-child(2), .milestones .milestones-swiper .swiper-slide.four .page-item > div:nth-child(2), .milestones .milestones-swiper .swiper-slide.five .page-item > div:nth-child(2), .milestones .milestones-swiper .swiper-slide.six .page-item > div:nth-child(2) {
   position: absolute;
@@ -25806,7 +25812,7 @@ input[type=number] {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  top: 380px;
+  top: 390px;
   left: 210px;
 }
 .milestones .milestones-swiper .swiper-slide.two .page-item > div:last-child a, .milestones .milestones-swiper .swiper-slide.three .page-item > div:last-child a, .milestones .milestones-swiper .swiper-slide.four .page-item > div:last-child a, .milestones .milestones-swiper .swiper-slide.five .page-item > div:last-child a, .milestones .milestones-swiper .swiper-slide.six .page-item > div:last-child a {
@@ -25851,6 +25857,7 @@ input[type=number] {
 .milestones .milestones-swiper .swiper-slide.two .page-img, .milestones .milestones-swiper .swiper-slide.three .page-img, .milestones .milestones-swiper .swiper-slide.four .page-img, .milestones .milestones-swiper .swiper-slide.five .page-img, .milestones .milestones-swiper .swiper-slide.six .page-img {
   position: absolute;
   bottom: 0;
+  left: 70%;
 }
 @media (min-width: 2560px) {
   .milestones .milestones-swiper .swiper-slide.two .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.three .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.four .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.five .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.six .page-item > div:last-child {
@@ -25859,7 +25866,7 @@ input[type=number] {
 }
 @media (max-width: 1440px) {
   .milestones .milestones-swiper .swiper-slide.two .page-item > div:first-child, .milestones .milestones-swiper .swiper-slide.three .page-item > div:first-child, .milestones .milestones-swiper .swiper-slide.four .page-item > div:first-child, .milestones .milestones-swiper .swiper-slide.five .page-item > div:first-child, .milestones .milestones-swiper .swiper-slide.six .page-item > div:first-child {
-    bottom: 70px;
+    bottom: 200px;
   }
   .milestones .milestones-swiper .swiper-slide.two .page-item > div:nth-child(2), .milestones .milestones-swiper .swiper-slide.three .page-item > div:nth-child(2), .milestones .milestones-swiper .swiper-slide.four .page-item > div:nth-child(2), .milestones .milestones-swiper .swiper-slide.five .page-item > div:nth-child(2), .milestones .milestones-swiper .swiper-slide.six .page-item > div:nth-child(2) {
     width: 800px;
@@ -25890,12 +25897,7 @@ input[type=number] {
     height: 1100px;
   }
 }
-@media (min-width: 1920px) {
-  .milestones .milestones-swiper .swiper-slide.two .page-img {
-    right: -50px;
-  }
-}
-@media (min-width: 1440px) {
+@media (max-width: 1440px) {
   .milestones .milestones-swiper .swiper-slide.two .page-item > div:nth-child(2) span:first-child {
     width: 800px;
   }
@@ -25903,15 +25905,15 @@ input[type=number] {
     width: 700px;
   }
   .milestones .milestones-swiper .swiper-slide.two .page-img {
-    width: 560px;
-    height: 700px;
-    right: -90px;
+    width: 545px;
+    height: 650px;
+    left: 66%;
   }
 }
 .milestones .milestones-swiper .swiper-slide.three {
   height: 100vh;
   width: 100%;
-  background: url(../img/milestones/three-bg.jpg) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/milestones/three-bg.jpg) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-slide.three .page-item > div:first-child {
   color: #FF6000;
@@ -25938,17 +25940,17 @@ input[type=number] {
     height: 1150px;
   }
 }
-@media (min-width: 1440px) {
+@media (max-width: 1440px) {
   .milestones .milestones-swiper .swiper-slide.three .page-img {
-    width: 495px;
-    height: 740px;
+    width: 460px;
+    height: 720px;
     right: -20px;
   }
 }
 .milestones .milestones-swiper .swiper-slide.four {
   height: 100vh;
   width: 100%;
-  background: url(../img/milestones/four-bg.jpg) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/milestones/four-bg.jpg) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-slide.four .page-item > div:first-child {
   color: #4747AE;
@@ -25983,18 +25985,18 @@ input[type=number] {
     height: 1200px;
   }
 }
-@media (min-width: 1440px) {
+@media (max-width: 1440px) {
   .milestones .milestones-swiper .swiper-slide.four .page-img {
-    width: 535px;
+    width: 525px;
     height: 740px;
     bottom: -72px;
-    right: -70px;
+    left: 68%;
   }
 }
 .milestones .milestones-swiper .swiper-slide.five {
   height: 100vh;
   width: 100%;
-  background: url(../img/milestones/five-bg.jpg) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/milestones/five-bg.jpg) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-slide.five .page-item > div:first-child {
   color: #AE0000;
@@ -26026,23 +26028,26 @@ input[type=number] {
     height: 1050px;
   }
 }
-@media (min-width: 1440px) {
+@media (max-width: 1440px) {
   .milestones .milestones-swiper .swiper-slide.five .page-item > div:nth-child(2) span:first-child {
     width: 800px;
   }
   .milestones .milestones-swiper .swiper-slide.five .page-item > div:nth-child(2) span:nth-child(2) {
     width: 700px;
   }
+  .milestones .milestones-swiper .swiper-slide.five .page-item > div:nth-child(2) span:nth-child(2) span:first-child {
+    width: 1000px;
+  }
   .milestones .milestones-swiper .swiper-slide.five .page-img {
-    width: 530px;
+    width: 520px;
     height: 665px;
-    right: -70px;
+    left: 67%;
   }
 }
 .milestones .milestones-swiper .swiper-slide.six {
   height: 100vh;
   width: 100%;
-  background: url(../img/milestones/six-bg.jpg) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/milestones/six-bg.jpg) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-slide.six .page-item > div:first-child {
   color: #01156D;
@@ -26050,6 +26055,9 @@ input[type=number] {
 .milestones .milestones-swiper .swiper-slide.six .page-item > div:nth-child(2) {
   line-height: 80px;
   bottom: -210px;
+}
+.milestones .milestones-swiper .swiper-slide.six .page-item > div:nth-child(2) span:first-child {
+  width: 1000px;
 }
 .milestones .milestones-swiper .swiper-slide.six .page-item > div:nth-child(2) span:last-child {
   line-height: 30px;
@@ -26074,14 +26082,17 @@ input[type=number] {
     height: 1000px;
   }
 }
-@media (min-width: 1440px) {
+@media (max-width: 1440px) {
+  .milestones .milestones-swiper .swiper-slide.six .page-item > div:nth-child(2) span:first-child {
+    width: 750px;
+  }
   .milestones .milestones-swiper .swiper-slide.six .page-item > div:nth-child(2) span:nth-child(2) {
     width: 750px;
   }
   .milestones .milestones-swiper .swiper-slide.six .page-img {
     width: 570px;
     height: 655px;
-    right: -65px;
+    left: 65%;
   }
 }
 .milestones .milestones-swiper .swiper-button-next, .milestones .milestones-swiper .swiper-button-prev {
@@ -26090,21 +26101,21 @@ input[type=number] {
   height: 50px;
 }
 .milestones .milestones-swiper .swiper-button-next {
-  background: url(../img/milestones/right-btn.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/milestones/right-btn.png) no-repeat center/cover;
   top: 90%;
   right: 35%;
 }
-@media (min-width: 1440px) {
+@media (max-width: 1440px) {
   .milestones .milestones-swiper .swiper-button-next {
-    right: 31%;
+    right: 32%;
   }
 }
 .milestones .milestones-swiper .swiper-button-prev {
-  background: url(../img/milestones/left-btn.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/milestones/left-btn.png) no-repeat center/cover;
   top: 90%;
   left: 58%;
 }
-@media (min-width: 1440px) {
+@media (max-width: 1440px) {
   .milestones .milestones-swiper .swiper-button-prev {
     left: 60%;
   }
