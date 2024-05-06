@@ -18,7 +18,7 @@ export const useRedirectDevice = (context: GetServerSidePropsContext) => {
 	if (locale === 'default') {
 		requestUrl = req.url
 	} else {
-		requestUrl = `${req.url}/${locale}`
+		requestUrl = `/${locale}${req.url}`
 	}
 
 	if (reqDomain && userAgent) {
