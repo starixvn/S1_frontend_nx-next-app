@@ -49,6 +49,10 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 	REFER_FRIENDS: [INR, BDT],
 	// Deposit
 	RECEIPT: [],
+
 	// Home
 	LIVE_STREAMING_LINK: [],
+
+	// Euro-Cup
+	Euro_Cup: [],
 }

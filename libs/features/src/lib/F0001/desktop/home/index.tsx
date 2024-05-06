@@ -1,9 +1,12 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
+import { includes } from 'lodash-es'
 import { Marquee } from '@nx-next-app/components/D0001'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { DesktopHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
+import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
+import { useAuth } from '@nx-next-app/data-access'
 
 // Page Components
 const ProvidersBlock = dynamic(() => import('./ProvidersBlock'), { ssr: false })
@@ -60,6 +63,9 @@ const Home = () => {
 		desktopHomeOrders,
 		handleMarqueeClick,
 	} = useHome()
+	const {
+		userInfo: { currencyId },
+	} = useAuth()
 
 	const { modal } = useGlobalModal()
 	const homeComponents = {
@@ -89,7 +95,12 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.AppDownloadBanner]: <AppDownloadBanner />,
 		[DesktopHomeComponentsEnum.OfficialPartner]: <OfficialPartner />,
 		[DesktopHomeComponentsEnum.ProviderBlock]: <ProvidersBlock />,
-		[DesktopHomeComponentsEnum.EuropeCupEntry]: <EuropeCupEntry />,
+		[DesktopHomeComponentsEnum.EuropeCupEntry]: includes(
+			ALLOWED_CURRENCIES.Euro_Cup,
+			currencyId
+		) ? (
+			<EuropeCupEntry />
+		) : null,
 		[DesktopHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
 		[DesktopHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
 		[DesktopHomeComponentsEnum.QuickDownload]: <QuickDownload />,

@@ -96,4 +96,7 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 	// Home
 	LIVE_STREAMING_LINK: [MYR, THB, VND],
 	LUCKY_WHEEL: [MYR, THB, IDR],
+
+	// Euro-Cup
+	Euro_Cup: [MYR, THB, CNY, IDR, INR, KHM, BDT, VND, USD, USDT],
 }
