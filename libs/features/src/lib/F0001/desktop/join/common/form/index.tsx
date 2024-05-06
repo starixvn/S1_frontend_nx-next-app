@@ -91,16 +91,7 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const watchCurrencyId = watch('currencyId')
 
-	// TODO Release 測試，上正式需移除
-	const filterSiteCurrencyList = () => {
-		// 巴西，韓國，日本 沒有 enums
-		const filterCurrency = [82, 45, 32]
-		return siteCurrencyList.filter(
-			currencyId => !includes(filterCurrency, currencyId)
-		)
-	}
-
-	const currencySelectOptions = filterSiteCurrencyList()
+	const currencySelectOptions = siteCurrencyList
 		.filter(currencyId => {
 			const affiliate = getValues('affiliate')
 			const formCurrencyId = getValues('currencyId')
@@ -219,7 +210,7 @@ const Form = ({ cookies }: IJoinProps) => {
 			if (Number(affCurrencyId)) {
 				selectCurrency(Number(affCurrencyId))
 
-				const options = filterSiteCurrencyList()
+				const options = siteCurrencyList
 					.filter(currencyId => currencyId === Number(affCurrencyId))
 					.map(currencyId => ({
 						value: currencyId,
@@ -314,7 +305,7 @@ const Form = ({ cookies }: IJoinProps) => {
 	const checkLineRegister = () => {
 		if (!lineUserId) return
 
-		if (filterSiteCurrencyList().length > 0) {
+		if (siteCurrencyList.length > 0) {
 			selectCurrency(CurrenciesEnum.THB)
 		}
 	}

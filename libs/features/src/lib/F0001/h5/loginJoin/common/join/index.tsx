@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import classNames from 'classnames'
 import { isNumber } from 'lodash'
-import { includes } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { useState, useEffect } from 'react'
@@ -66,16 +65,7 @@ const Join = ({ cookies }: IJoinProps) => {
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 	const [signUp] = useSignupMutation()
 
-	// TODO Release 測試，上正式需移除
-	const filterSiteCurrencyList = () => {
-		// 巴西，韓國，日本 沒有 enums
-		const filterCurrency = [82, 45, 32]
-		return siteCurrencyList.filter(
-			currencyId => !includes(filterCurrency, currencyId)
-		)
-	}
-
-	const currencySelectOptions = filterSiteCurrencyList()
+	const currencySelectOptions = siteCurrencyList
 		.filter(currencyId => {
 			const affiliate = getValues('affiliate')
 			const formCurrencyId = getValues('currencyId')
@@ -99,7 +89,7 @@ const Join = ({ cookies }: IJoinProps) => {
 	const checkLineRegister = () => {
 		if (!cookieLineUserId) return
 
-		if (filterSiteCurrencyList().length > 0) {
+		if (siteCurrencyList.length > 0) {
 			selectCurrency(CurrenciesEnum.THB)
 		}
 	}
@@ -285,7 +275,7 @@ const Join = ({ cookies }: IJoinProps) => {
 						{step === 1 && (
 							<Step1
 								cookies={cookies}
-								siteCurrencyList={filterSiteCurrencyList()}
+								siteCurrencyList={siteCurrencyList}
 								setStep={setStep}
 								selectCurrency={selectCurrency}
 								setCurrencyOptions={setCurrencyOptions}
