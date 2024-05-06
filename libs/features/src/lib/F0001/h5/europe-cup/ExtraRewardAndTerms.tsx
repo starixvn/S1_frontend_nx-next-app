@@ -17,7 +17,10 @@ const ExtraRewardAndTerms = () => {
 				<div>
 					<div className='euro-extra-reward-item'>
 						<div className='subtitle'>{t('Label_EuropeCup_Bonus')}</div>
-						<div className='reward'>{t('Label_EuropeCup_Bonus_Value')}</div>
+						<div className='reward'>
+							{' '}
+							{t(`Label_EuropeCup_Bonus_Value_${currencyId}`)}
+						</div>
 					</div>
 					<div className='euro-extra-reward-item'>
 						<div className='subtitle'>{t('Label_EuropeCup_Bet_Type')}</div>
