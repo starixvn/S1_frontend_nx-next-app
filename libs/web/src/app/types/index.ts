@@ -138,6 +138,9 @@ export interface IStaticAllowedCurrencies {
 	// Home
 	LIVE_STREAMING_LINK: CurrenciesEnum[]
 	LUCKY_WHEEL?: CurrenciesEnum[]
+
+	// Euro-Cup
+	Euro_Cup: CurrenciesEnum[]
 }
 
 export interface ITermsConditions {
