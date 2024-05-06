@@ -2,7 +2,7 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout } from '@nx-next-app/features/F0001/desktop'
+import { Layout, MilestoneContent } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -10,7 +10,10 @@ import {
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { FOOTER_DATA } from '@nx-next-app/site/nova88'
 import { IFooterData } from '@nx-next-app/types'
-import MilestoneContent from '@nx-next-app/features/F0001/desktop/milestone'
+import {
+	slideData,
+	milestonesData,
+} from '@nx-next-app/site/nova88/data/milestoneData'
 
 interface IJoinPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
@@ -27,7 +30,10 @@ const MilestonePage = ({
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<main className='milestones'>
-						<MilestoneContent />
+						<MilestoneContent
+							milestonesData={milestonesData}
+							slideData={slideData}
+						/>
 					</main>
 				</Layout>
 			</GlobalDataProvider>

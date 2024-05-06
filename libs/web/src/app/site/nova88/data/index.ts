@@ -13,6 +13,7 @@ export * from './eventPeriod'
 export * from './allowCurrency'
 export * from './termsConditions'
 export * from './gtmData'
+export * from './milestoneData'
 export * as ThirdPartyJS from './thirdPartyJS'
 
 export const LANG_GROUPS: IStaticLangGroups = {
