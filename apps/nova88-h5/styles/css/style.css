@@ -18145,7 +18145,7 @@ input[type=number] .btn-logout {
   margin: 0 auto 5vw;
 }
 .euro .event-title {
-  width: 75vw;
+  width: 80vw;
   font-size: 8vw;
   font-weight: bold;
   color: #fff;
@@ -19072,13 +19072,14 @@ input[type=number] .btn-logout {
           justify-content: center;
   text-transform: uppercase;
   line-height: 1.2;
-  padding: 2vw 5vw;
+  padding: 2vw 0;
   margin-right: 2vw;
   font-size: 3vw;
   font-weight: bold;
   background: #0024B2;
   border-radius: 3vw;
   color: #143CDB;
+  min-width: 17vw;
 }
 .euro-match-date.active {
   background: #fff;
