@@ -3,7 +3,7 @@ import * as process from 'process'
 
 export const useRedirectDevice = (context: GetServerSidePropsContext) => {
 	// production 才執行這個 hooks
-	// if (process.env.NODE_ENV !== 'production') return
+	if (process.env.NODE_ENV !== 'production') return
 
 	const { req, locale } = context
 	const reqDomain = req.headers.host
