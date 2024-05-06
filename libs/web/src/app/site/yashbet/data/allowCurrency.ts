@@ -46,5 +46,9 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 	// Deposit
 	RECEIPT: [],
 
+	// Home
 	LIVE_STREAMING_LINK: [],
+
+	// Euro-Cup
+	Euro_Cup: [],
 }
