@@ -25786,7 +25786,7 @@ input[type=number] {
 .milestones .milestones-swiper .swiper-slide.two .page-item > div:nth-child(2), .milestones .milestones-swiper .swiper-slide.three .page-item > div:nth-child(2), .milestones .milestones-swiper .swiper-slide.four .page-item > div:nth-child(2), .milestones .milestones-swiper .swiper-slide.five .page-item > div:nth-child(2), .milestones .milestones-swiper .swiper-slide.six .page-item > div:nth-child(2) {
   position: absolute;
   left: 180px;
-  bottom: -150px;
+  bottom: -180px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25796,14 +25796,15 @@ input[type=number] {
           flex-direction: column;
 }
 .milestones .milestones-swiper .swiper-slide.two .page-item > div:nth-child(2) span:first-child, .milestones .milestones-swiper .swiper-slide.three .page-item > div:nth-child(2) span:first-child, .milestones .milestones-swiper .swiper-slide.four .page-item > div:nth-child(2) span:first-child, .milestones .milestones-swiper .swiper-slide.five .page-item > div:nth-child(2) span:first-child, .milestones .milestones-swiper .swiper-slide.six .page-item > div:nth-child(2) span:first-child {
-  font-size: 65px;
+  font-size: 55px;
   font-weight: 900;
   line-height: 70px;
+  width: 805px;
 }
 .milestones .milestones-swiper .swiper-slide.two .page-item > div:nth-child(2) span:last-child, .milestones .milestones-swiper .swiper-slide.three .page-item > div:nth-child(2) span:last-child, .milestones .milestones-swiper .swiper-slide.four .page-item > div:nth-child(2) span:last-child, .milestones .milestones-swiper .swiper-slide.five .page-item > div:nth-child(2) span:last-child, .milestones .milestones-swiper .swiper-slide.six .page-item > div:nth-child(2) span:last-child {
   color: #E6E6E6;
   font-size: 20px;
-  width: 750px;
+  width: 800px;
   font-weight: 400;
 }
 .milestones .milestones-swiper .swiper-slide.two .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.three .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.four .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.five .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.six .page-item > div:last-child {
@@ -25893,9 +25894,6 @@ input[type=number] {
   margin-bottom: 40px;
 }
 @media (min-width: 2560px) {
-  .milestones .milestones-swiper .swiper-slide.two .page-item > div:nth-child(2) span:nth-child(2) {
-    width: 800px;
-  }
   .milestones .milestones-swiper .swiper-slide.two .page-img {
     right: 0;
     width: 870px;
@@ -25903,12 +25901,6 @@ input[type=number] {
   }
 }
 @media (max-width: 1600px) {
-  .milestones .milestones-swiper .swiper-slide.two .page-item > div:nth-child(2) span:first-child {
-    width: 800px;
-  }
-  .milestones .milestones-swiper .swiper-slide.two .page-item > div:nth-child(2) span:nth-child(2) {
-    width: 700px;
-  }
   .milestones .milestones-swiper .swiper-slide.two .page-img {
     width: 545px;
     height: 650px;
@@ -25962,7 +25954,6 @@ input[type=number] {
 }
 .milestones .milestones-swiper .swiper-slide.four .page-item > div:nth-child(2) {
   line-height: 80px;
-  bottom: -160px;
 }
 .milestones .milestones-swiper .swiper-slide.four .page-item > div:nth-child(2) span:first-child {
   width: 850px;
@@ -26007,13 +25998,12 @@ input[type=number] {
   color: #AE0000;
 }
 .milestones .milestones-swiper .swiper-slide.five .page-item > div:nth-child(2) {
+  bottom: -220px;
   line-height: 80px;
-  bottom: -210px;
 }
 .milestones .milestones-swiper .swiper-slide.five .page-item > div:nth-child(2) span:last-child {
   line-height: 30px;
   margin-top: 30px;
-  width: 1000px;
 }
 .milestones .milestones-swiper .swiper-slide.five .page-item > div:last-child {
   border-bottom: 5px solid #AF0E0E;
@@ -26034,14 +26024,8 @@ input[type=number] {
   }
 }
 @media (max-width: 1600px) {
-  .milestones .milestones-swiper .swiper-slide.five .page-item > div:nth-child(2) span:first-child {
-    width: 800px;
-  }
-  .milestones .milestones-swiper .swiper-slide.five .page-item > div:nth-child(2) span:nth-child(2) {
-    width: 700px;
-  }
-  .milestones .milestones-swiper .swiper-slide.five .page-item > div:nth-child(2) span:nth-child(2) span:first-child {
-    width: 1000px;
+  .milestones .milestones-swiper .swiper-slide.five .page-item > div:nth-child(2) {
+    bottom: -195px;
   }
   .milestones .milestones-swiper .swiper-slide.five .page-img {
     width: 520px;
@@ -26059,15 +26043,10 @@ input[type=number] {
 }
 .milestones .milestones-swiper .swiper-slide.six .page-item > div:nth-child(2) {
   line-height: 80px;
-  bottom: -210px;
-}
-.milestones .milestones-swiper .swiper-slide.six .page-item > div:nth-child(2) span:first-child {
-  width: 1000px;
 }
 .milestones .milestones-swiper .swiper-slide.six .page-item > div:nth-child(2) span:last-child {
   line-height: 30px;
   margin-top: 30px;
-  width: 1000px;
 }
 .milestones .milestones-swiper .swiper-slide.six .page-item > div:last-child {
   border-bottom: 5px solid #01156D;
@@ -26088,12 +26067,6 @@ input[type=number] {
   }
 }
 @media (max-width: 1600px) {
-  .milestones .milestones-swiper .swiper-slide.six .page-item > div:nth-child(2) span:first-child {
-    width: 750px;
-  }
-  .milestones .milestones-swiper .swiper-slide.six .page-item > div:nth-child(2) span:nth-child(2) {
-    width: 750px;
-  }
   .milestones .milestones-swiper .swiper-slide.six .page-img {
     width: 570px;
     height: 655px;
