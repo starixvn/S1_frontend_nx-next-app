@@ -3,10 +3,17 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { useTranslation } from 'next-i18next'
 // ts要求引入SwiperClass
 import { Swiper as SwiperClass } from 'swiper'
-import { SlideData, milestones } from './data'
-import { IMilestone } from './type'
+import { IMilestone, ISlide } from '@nx-next-app/types'
 
-const MilestoneContent = () => {
+interface IMilestoneContentProps {
+	milestonesData: IMilestone[]
+	slideData: ISlide
+}
+
+const MilestoneContent = ({
+	milestonesData,
+	slideData,
+}: IMilestoneContentProps) => {
 	const hostImgUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/milestones`
 	const { t } = useTranslation()
 	const [swiper, setSwiper] = useState<SwiperClass | null>(null)
@@ -21,7 +28,7 @@ const MilestoneContent = () => {
 			prevEl: '.swiper-button-prev',
 		},
 		onSlideChange: (swiper: SwiperClass) => {
-			const milestone = milestones[swiper.activeIndex]
+			const milestone = milestonesData[swiper.activeIndex]
 			setActiveYear(milestone.year)
 		},
 	}
@@ -43,7 +50,7 @@ const MilestoneContent = () => {
 
 	const Date = () => (
 		<div className='page-date'>
-			{milestones.map(milestone => (
+			{milestonesData.map(milestone => (
 				<a
 					key={milestone.year}
 					className={activeYear === milestone.year ? 'active' : ''}
@@ -75,9 +82,8 @@ const MilestoneContent = () => {
 					className='swiper-container'
 					id='page-two'
 					onSwiper={setSwiper}
-					style={{ background: 'black' }}
 				>
-					{SlideData.map(slide => (
+					{slideData.map(slide => (
 						<SwiperSlide key={slide.imgSrc} className={slide.className}>
 							<Date />
 							<div className='page-title'>

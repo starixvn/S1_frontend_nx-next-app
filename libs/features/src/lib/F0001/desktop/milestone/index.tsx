@@ -3,10 +3,17 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { useTranslation } from 'next-i18next'
 // ts要求引入SwiperClass
 import { Swiper as SwiperClass } from 'swiper'
-import { IMilestone } from './type'
-import { SlideData, milestones } from './data'
+import { IMilestone, ISlide } from 'libs/web/src/app/types/milestone'
 
-const MilestoneContent = () => {
+interface IMilestoneContentProps {
+	milestonesData: IMilestone[]
+	slideData: ISlide
+}
+
+const MilestoneContent = ({
+	milestonesData,
+	slideData,
+}: IMilestoneContentProps) => {
 	const { t } = useTranslation()
 	const [swiper, setSwiper] = useState<SwiperClass | null>(null)
 	const [activeYear, setActiveYear] = useState<string>('2020')
@@ -21,7 +28,7 @@ const MilestoneContent = () => {
 			prevEl: '.swiper-button-prev',
 		},
 		onSlideChange: (swiper: SwiperClass) => {
-			const milestone = milestones[swiper.activeIndex]
+			const milestone = milestonesData[swiper.activeIndex]
 			setActiveYear(milestone.year)
 		},
 	}
@@ -43,7 +50,7 @@ const MilestoneContent = () => {
 
 	const Date = () => (
 		<div>
-			{milestones.map(milestone => (
+			{milestonesData.map(milestone => (
 				<a
 					key={milestone.year}
 					className={activeYear === milestone.year ? 'active' : ''}
@@ -75,7 +82,7 @@ const MilestoneContent = () => {
 					className='swiper-container'
 					onSwiper={setSwiper}
 				>
-					{SlideData.map(slide => (
+					{slideData.map(slide => (
 						<SwiperSlide key={slide.imgSrc} className={slide.className}>
 							<div className='page-item'>
 								<div>{t(slide.title)}</div>

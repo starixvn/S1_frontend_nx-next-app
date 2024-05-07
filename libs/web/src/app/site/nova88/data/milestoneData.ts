@@ -1,6 +1,6 @@
-import { IMilestone, ISlide } from './type'
+import { IMilestone, ISlide } from '@nx-next-app/types'
 
-export const milestones: IMilestone[] = [
+export const milestonesData: IMilestone[] = [
 	{ year: '2020', index: 0, imgSrc: 'phone.png' },
 	{ year: '2021', index: 1, imgSrc: 'amber.png' },
 	{ year: '2022', index: 2, imgSrc: 'joe.png' },
@@ -8,7 +8,7 @@ export const milestones: IMilestone[] = [
 	{ year: 'Present', index: 4, imgSrc: 'milan.png' },
 ]
 
-export const SlideData: ISlide = [
+export const slideData: ISlide = [
 	{
 		title: 'Label_Milestone_2020',
 		subtitle: 'Label_Milestone_2020_Subtitle',
