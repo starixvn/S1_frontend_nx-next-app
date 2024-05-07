@@ -7,11 +7,15 @@ import {
 import { useBoolean, useDebounce } from 'usehooks-ts'
 import {
 	IPaymentOnlineBankingData,
+	useGetPaymentCustBankInfoQuery,
 	useGetPaymentOnlineBankInfoSysListQuery,
 	useLazyCheckDepositSpecialCodeQuery,
 	useLazyGetDepositOnlineBankingReqInfoQuery,
 } from '@nx-next-app/service'
-import { DepositActionModeEnum } from '@nx-next-app/types'
+import {
+	DepositActionModeEnum,
+	DepositExtraDataTypeEnum,
+} from '@nx-next-app/types'
 import { every, find, head, isEmpty } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
@@ -34,6 +38,7 @@ export interface IOnlineBankingForm {
 	promoCode?: string
 	selBank?: boolean
 	bankLogo?: string
+	custBankAccount?: string
 }
 
 const useOnlineBankingForm = ({
@@ -55,6 +60,7 @@ const useOnlineBankingForm = ({
 			paymentType: queryPaymentType,
 			paymentName: queryPaymentName,
 			sysId: querySysId,
+			channelId: queryChannelId,
 		},
 		pathname,
 		push,
@@ -70,7 +76,7 @@ const useOnlineBankingForm = ({
 		mode: 'all',
 	})
 
-	const { setValue, resetField, getValues } = formMethods
+	const { setValue, setError, resetField, getValues } = formMethods
 
 	const {
 		loading: contextLoading,
@@ -98,11 +104,34 @@ const useOnlineBankingForm = ({
 		{ isFetching: isGetDepositOnlineBankingReqInfoFetching },
 	] = useLazyGetDepositOnlineBankingReqInfoQuery()
 
+	const {
+		data: { data: custBankInfo = [] } = {},
+		isFetching: isGetCustBankInfoFetching,
+	} = useGetPaymentCustBankInfoQuery(
+		{ channelId: Number(queryChannelId) },
+		{ skip: !queryChannelId }
+	)
+
+	const bankCardOptions = custBankInfo
+		.filter(({ disabled }) => !disabled)
+		.map(({ bankName, accountNo }) => ({
+			label: `${bankName} - ${accountNo}`,
+			value: accountNo,
+		}))
+
+	const { extraDataType } =
+		find(dataSource, { payName: String(queryPaymentName) }) ||
+		head(dataSource) ||
+		{}
+
+	const bankCardRequired = extraDataType === DepositExtraDataTypeEnum.bankCard
+
 	const loading =
 		contextLoading ||
 		isGetPaymentOnlineBankInfoSysListFetching ||
 		isCheckDepositSpecialCodeFetching ||
-		isGetDepositOnlineBankingReqInfoFetching
+		isGetDepositOnlineBankingReqInfoFetching ||
+		isGetCustBankInfoFetching
 
 	const debouncedLoading = useDebounce(loading, 50)
 
@@ -114,14 +143,22 @@ const useOnlineBankingForm = ({
 		handleYuriPurchaseClick()
 		const {
 			mode,
-			sysId = 0,
-			payId,
+			sysId: bankSysId = 0,
 			channelId,
 			amount = 0,
 			bonusCode: originBonusCode = '',
 			promoCode,
 			payName,
+			custBankAccount,
 		} = values
+
+		// * 如果需選擇銀行卡但未選需跳錯誤提醒
+		if (bankCardRequired && !custBankAccount) {
+			setError('custBankAccount', {
+				message: t('Label_Withdrawal_SelectBankRequired') as string,
+			})
+			return
+		}
 
 		const convertedAmount = isConvert(currencyId) ? amount * 1000 : amount
 
@@ -139,13 +176,20 @@ const useOnlineBankingForm = ({
 					}
 				}
 
+				// * 如果需要用戶提供銀行卡，則傳入該銀行卡的 sysId，否則傳入一般存款管道銀行 sysId
+				let sysId = bankSysId
+				if (bankCardRequired)
+					sysId =
+						find(custBankInfo, { accountNo: String(custBankAccount) })?.sysId ??
+						0
+
 				const errorUrl = `${dbHost}/404/index_${langId}.html`
 				const searchParams = new URLSearchParams({
 					sysId: String(sysId),
-					payId: String(payId),
-					ChannelId: String(channelId),
-					Amount: String(convertedAmount),
-					BonusCode: bonusCode,
+					payAccount: bankCardRequired ? String(custBankAccount) : '',
+					channelId: String(channelId),
+					amount: String(convertedAmount),
+					bonusCode,
 					errorUrl,
 				})
 				const paramsUrl = searchParams.toString()
@@ -160,7 +204,7 @@ const useOnlineBankingForm = ({
 						info: depositOnlineBankingReqInfo,
 					})
 				} else {
-					const baseUrl = `${dbHost}/${langId}/Cashier/DepositReqOnlineBanking`
+					const baseUrl = `${dbHost}/${langId}/Cashier/DepositReq`
 					window.open(`${baseUrl}?${paramsUrl}`)
 				}
 
@@ -237,6 +281,7 @@ const useOnlineBankingForm = ({
 				paymentType: queryPaymentType,
 				paymentName: payName,
 				sysId,
+				channelId,
 			},
 		}
 
@@ -258,6 +303,7 @@ const useOnlineBankingForm = ({
 					paymentType: queryPaymentType,
 					paymentName: depositLocalStorageSavedInfo.payName,
 					sysId: depositLocalStorageSavedInfo?.sysId,
+					channelId: depositLocalStorageSavedInfo?.channelId,
 				},
 			}
 			toggleIsFirstEffect()
@@ -271,6 +317,9 @@ const useOnlineBankingForm = ({
 		loading: debouncedLoading,
 		selBank: getValues('selBank'),
 		paymentOnlineBankInfoSysList,
+		custBankInfo,
+		bankCardOptions,
+		bankCardRequired,
 		onOnlineBankingFormSubmit,
 	}
 }
