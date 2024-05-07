@@ -21,9 +21,76 @@ import {
 	type IGroupData,
 	useGetCupEventTicketQuery,
 	useSetUserPollTicketsMutation,
+	useGetCupEventPredictionSettingQuery,
+	ITeamData,
 } from '@nx-next-app/service'
 import { EUROPE_EVENT_AFTER_PREDICT } from '@nx-next-app/site/nova88'
+import dayjs from 'dayjs'
 
+// 每場比賽的參賽隊伍 [主, 客]
+const MATCHES = {
+	// Round of 16
+	'Match 38': ['2A', '2B'],
+	'Match 37': ['1A', '2C'],
+	'Match 40': ['1C', '3D/E/F'],
+	'Match 39': ['1B', '3A/D/E/F'],
+	'Match 42': ['2D', '2E'],
+	'Match 41': ['1F', '3A/B/C'],
+	'Match 43': ['1E', '3A/B/C/D'],
+	'Match 44': ['1D', '2F'],
+	// Quarter-finals
+	'Match 45': ['W39', 'W37'],
+	'Match 46': ['W41', 'W42'],
+	'Match 48': ['W40', 'W38'],
+	'Match 47': ['W43', 'W44'],
+	// Semi-finals
+	'Match 49': ['W45', 'W46'],
+	'Match 50': ['W47', 'W48'],
+	// Final
+	'Match 51': ['W49', 'W50'],
+} as Record<string, [string, string]>
+
+// 後端給的排序對應的隊伍
+const SORT_NUMBERS = {
+	ROUND_OF_16: {
+		1: '1A',
+		2: '2C',
+		3: '1B',
+		4: '3A/D/E/F',
+		5: '2A',
+		6: '2B',
+		7: '1C',
+		8: '3D/E/F',
+		9: '2D',
+		10: '2E',
+		11: '1F',
+		12: '3A/B/C',
+		13: '1D',
+		14: '2F',
+		15: '1E',
+		16: '3A/B/C/D',
+	} as Record<number, string>,
+	QUARTER_FINALS: {
+		1: 'W39',
+		2: 'W37',
+		3: 'W40',
+		4: 'W38',
+		5: 'W41',
+		6: 'W42',
+		7: 'W43',
+		8: 'W44',
+	} as Record<number, string>,
+	SEMI_FINALS: {
+		1: 'W45',
+		2: 'W48',
+		3: 'W47',
+		4: 'W46',
+	} as Record<number, string>,
+	FINAL: {
+		1: 'W49',
+		2: 'W50',
+	} as Record<number, string>,
+}
 interface ITicketsData {
 	ticket1: {
 		group: string | number | undefined
@@ -59,6 +126,60 @@ const useEuropeCup = () => {
 		// 確保每次進來頁面都拉最新的資料
 		refetchOnMountOrArgChange: true,
 	})
+
+	const { data: { data: europeEventPredictionSettingData } = {} } =
+		useGetCupEventPredictionSettingQuery({ langId })
+
+	const schedule = {
+		brackets: {} as Record<string, ITeamData & { position: string }>,
+		selectOptions: {} as Record<string, (ITeamData & { countryId: number })[]>,
+		matches: [] as {
+			name: string
+			time: string
+			teams: ITeamData[]
+		}[],
+	}
+
+	if (europeEventPredictionSettingData) {
+		const {
+			roundOf16,
+			quarterFinals,
+			semiFinals,
+			final,
+			selectOptions,
+			matchTimes,
+		} = europeEventPredictionSettingData
+
+		roundOf16.forEach(({ sort, ...data }) => {
+			const position = SORT_NUMBERS.ROUND_OF_16[sort]
+			if (!position) return
+			schedule.brackets[position] = { position, ...data }
+		})
+		quarterFinals.forEach(({ sort, ...data }) => {
+			const position = SORT_NUMBERS.QUARTER_FINALS[sort]
+			if (!position) return
+			schedule.brackets[position] = { position, ...data }
+		})
+		semiFinals.forEach(({ sort, ...data }) => {
+			const position = SORT_NUMBERS.SEMI_FINALS[sort]
+			if (!position) return
+			schedule.brackets[position] = { position, ...data }
+		})
+		final.forEach(({ sort, ...data }) => {
+			const position = SORT_NUMBERS.FINAL[sort]
+			if (!position) return
+			schedule.brackets[position] = { position, ...data }
+		})
+		schedule.selectOptions = selectOptions
+
+		schedule.matches = matchTimes.map(({ matchName, matchTime }) => {
+			const teams = MATCHES[matchName].map(
+				position => schedule.brackets[position]
+			)
+			return { name: matchName, time: matchTime, teams }
+		})
+		schedule.matches.sort((a, b) => dayjs(a.time).unix() - dayjs(b.time).unix())
+	}
 
 	const [setUserPollTickets] = useSetUserPollTicketsMutation()
 
@@ -264,7 +385,10 @@ const useEuropeCup = () => {
 			onSelectedGroup,
 			onSubmitForm: handleSubmitForm,
 		},
+		schedule,
 	}
 }
 
 export { useEuropeCup }
+
+export type UseEuropeCupProps = ReturnType<typeof useEuropeCup>
