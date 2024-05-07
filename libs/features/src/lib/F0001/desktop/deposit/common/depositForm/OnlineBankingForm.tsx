@@ -22,6 +22,8 @@ import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
+import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import { useManageCards } from '@nx-next-app/features/F0001/providers/withdrawal-context/useManageCards'
 
 const DepositQRCodeModal = dynamic(
 	() =>
@@ -37,12 +39,11 @@ interface IOnlineBankingFormProps {
 
 const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 	const {
-		userInfo: { currencyId },
+		userInfo: { currencyId, accountName },
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
 	const { promotionOptions } = useDepositContext()
-
 	const {
 		formMethods: {
 			trigger,
@@ -50,21 +51,34 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 			setValue,
 			watch,
 			register,
+			clearErrors,
 			formState: { touchedFields, errors, isValid },
 		},
 		loading,
 		selBank,
 		paymentOnlineBankInfoSysList,
+		custBankInfo,
+		bankCardOptions,
+		bankCardRequired,
 		onOnlineBankingFormSubmit,
 	} = useOnlineBankingForm({
 		dataSource,
 		onQRCodeModalCallback: values =>
 			modal.open(<DepositQRCodeModal {...values} />),
 	})
+
+	const bankData = { bankInfoDetail: custBankInfo }
+
+	const { handleAddCards } = useManageCards({
+		accountName: String(accountName),
+		bankData,
+	})
+
 	const watchAmount = watch('amount')
 	const watchMinAmount = watch('minAmount')
 	const watchMaxAmount = watch('maxAmount')
 	const watchBonusCode = watch('bonusCode')
+	const watchCustBankAccount = watch('custBankAccount')
 
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
@@ -175,6 +189,38 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 							trigger('amount')
 						}}
 					/>
+				</DepositModule>
+			)}
+
+			{bankCardRequired && (
+				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+					<Select
+						value={watchCustBankAccount}
+						options={bankCardOptions}
+						onChange={value => {
+							trigger('custBankAccount')
+							setValue('custBankAccount', String(value))
+							clearErrors('custBankAccount')
+						}}
+						errorMessage={errors['custBankAccount']?.message as string}
+					/>
+					{custBankInfo.length < 3 && (
+						<div className='btnGroup'>
+							<button
+								className='btn-check'
+								onClick={() => handleAddCards(WithdrawalBankCardEnum.LocalBank)}
+							>
+								+
+							</button>
+						</div>
+					)}
+					<div
+						className={classNames('tip', {
+							active: errors['custBankAccount'],
+						})}
+					>
+						{errors['custBankAccount']?.message}
+					</div>
 				</DepositModule>
 			)}
 
