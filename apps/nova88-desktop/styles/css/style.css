@@ -25812,7 +25812,7 @@ input[type=number] {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  top: 370px;
+  top: 340px;
   left: 210px;
 }
 .milestones .milestones-swiper .swiper-slide.two .page-item > div:last-child a, .milestones .milestones-swiper .swiper-slide.three .page-item > div:last-child a, .milestones .milestones-swiper .swiper-slide.four .page-item > div:last-child a, .milestones .milestones-swiper .swiper-slide.five .page-item > div:last-child a, .milestones .milestones-swiper .swiper-slide.six .page-item > div:last-child a {
@@ -25864,7 +25864,7 @@ input[type=number] {
     top: 490px;
   }
 }
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
   .milestones .milestones-swiper .swiper-slide.two .page-item > div:first-child, .milestones .milestones-swiper .swiper-slide.three .page-item > div:first-child, .milestones .milestones-swiper .swiper-slide.four .page-item > div:first-child, .milestones .milestones-swiper .swiper-slide.five .page-item > div:first-child, .milestones .milestones-swiper .swiper-slide.six .page-item > div:first-child {
     bottom: 200px;
   }
@@ -25897,7 +25897,7 @@ input[type=number] {
     height: 1100px;
   }
 }
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
   .milestones .milestones-swiper .swiper-slide.two .page-item > div:nth-child(2) span:first-child {
     width: 800px;
   }
@@ -25940,7 +25940,7 @@ input[type=number] {
     height: 1150px;
   }
 }
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
   .milestones .milestones-swiper .swiper-slide.three .page-img {
     width: 460px;
     height: 720px;
@@ -25985,7 +25985,7 @@ input[type=number] {
     height: 1200px;
   }
 }
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
   .milestones .milestones-swiper .swiper-slide.four .page-img {
     width: 525px;
     height: 740px;
@@ -26028,7 +26028,7 @@ input[type=number] {
     height: 1050px;
   }
 }
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
   .milestones .milestones-swiper .swiper-slide.five .page-item > div:nth-child(2) span:first-child {
     width: 800px;
   }
@@ -26082,7 +26082,7 @@ input[type=number] {
     height: 1000px;
   }
 }
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
   .milestones .milestones-swiper .swiper-slide.six .page-item > div:nth-child(2) span:first-child {
     width: 750px;
   }
@@ -26105,7 +26105,7 @@ input[type=number] {
   top: 90%;
   right: 35%;
 }
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
   .milestones .milestones-swiper .swiper-button-next {
     right: 32%;
   }
@@ -26115,7 +26115,7 @@ input[type=number] {
   top: 90%;
   left: 58%;
 }
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
   .milestones .milestones-swiper .swiper-button-prev {
     left: 60%;
   }
