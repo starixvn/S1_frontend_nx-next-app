@@ -1,13 +1,16 @@
 import React from 'react'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout } from '@nx-next-app/features/F0001/h5'
+import { Layout, MilestoneConent } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import MilestoneConent from '@nx-next-app/features/F0001/h5/milestones'
+import {
+	slideData,
+	milestonesData,
+} from '@nx-next-app/site/nova88/data/milestoneData'
 
 type ILuckyWheelPageProps = InitialPropsInterface
 
@@ -21,7 +24,10 @@ const MilestonesPage = ({
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData}>
 					<main className='milestones'>
-						<MilestoneConent />
+						<MilestoneConent
+							slideData={slideData}
+							milestonesData={milestonesData}
+						/>
 					</main>
 				</Layout>
 			</GlobalDataProvider>
