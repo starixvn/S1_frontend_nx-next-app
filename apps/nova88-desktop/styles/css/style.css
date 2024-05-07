@@ -25865,6 +25865,11 @@ input[type=number] {
   }
 }
 @media (max-width: 1600px) {
+  .milestones .milestones-swiper .swiper-slide.two .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.three .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.four .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.five .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.six .page-item > div:last-child {
+    top: 260px;
+  }
+}
+@media (max-width: 1400px) {
   .milestones .milestones-swiper .swiper-slide.two .page-item > div:first-child, .milestones .milestones-swiper .swiper-slide.three .page-item > div:first-child, .milestones .milestones-swiper .swiper-slide.four .page-item > div:first-child, .milestones .milestones-swiper .swiper-slide.five .page-item > div:first-child, .milestones .milestones-swiper .swiper-slide.six .page-item > div:first-child {
     bottom: 200px;
   }
