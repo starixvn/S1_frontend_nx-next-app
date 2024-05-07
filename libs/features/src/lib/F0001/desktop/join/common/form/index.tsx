@@ -33,6 +33,7 @@ import { includes } from 'lodash-es'
 import { getQueryParam } from '@nx-next-app/utils'
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
+import { PixelTracker } from '../../../common/pixelTracker'
 
 interface IJoinProps {
 	cookies: TmpCookiesObj
@@ -380,6 +381,9 @@ const Form = ({ cookies }: IJoinProps) => {
 				langId: userLang,
 				lineUserId: lineUserId as string,
 			}).unwrap()
+
+			// opera pixel tracker:
+			PixelTracker('register')
 
 			router.push(`/${userLang}/${paths.deposit.root}`)
 		} catch (error) {
