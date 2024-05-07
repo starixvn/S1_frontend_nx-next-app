@@ -25812,7 +25812,7 @@ input[type=number] {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  top: 390px;
+  top: 308px;
   left: 210px;
 }
 .milestones .milestones-swiper .swiper-slide.two .page-item > div:last-child a, .milestones .milestones-swiper .swiper-slide.three .page-item > div:last-child a, .milestones .milestones-swiper .swiper-slide.four .page-item > div:last-child a, .milestones .milestones-swiper .swiper-slide.five .page-item > div:last-child a, .milestones .milestones-swiper .swiper-slide.six .page-item > div:last-child a {
@@ -25861,7 +25861,7 @@ input[type=number] {
 }
 @media (min-width: 2560px) {
   .milestones .milestones-swiper .swiper-slide.two .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.three .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.four .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.five .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.six .page-item > div:last-child {
-    top: 540px;
+    top: 490px;
   }
 }
 @media (max-width: 1440px) {
