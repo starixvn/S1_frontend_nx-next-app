@@ -1,20 +1,37 @@
-import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+import { head } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useEWallet } from '@nx-next-app/features/F0001/providers'
 import { Form, Select, InputBox, Loading } from '@nx-next-app/components/H0001'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { E_WALLET_SYSID, TOUCH_GO_REGEX } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
 
 const AddWallet = () => {
 	const { t } = useTranslation()
-
-	const { trigger, register, handleSubmit, getValues, setValue, formState } =
-		useForm()
-	const { errors, touchedFields } = formState
+	const {
+		userInfo: { currencyId },
+	} = useAuth()
 
 	const { eWalletInfoSysList, setIsShowCards, handleSetCustEWallet } =
 		useEWallet()
 
+	const { trigger, register, handleSubmit, getValues, setValue, formState } =
+		useForm<{
+			sysId: number
+			accountNo: string
+		}>({
+			defaultValues: {
+				sysId: head(eWalletInfoSysList)?.sysId,
+			},
+		})
+	const { errors, touchedFields } = formState
+
 	if (!eWalletInfoSysList) return <Loading />
+
+	const isTouchNGoIsValid =
+		currencyId === CurrenciesEnum.MYR &&
+		getValues('sysId') === E_WALLET_SYSID.TouchNGO
 
 	const eWalletSysOptions = eWalletInfoSysList.map(
 		({ eWalletLogo, eWalletName, sysId }) => ({
@@ -38,10 +55,6 @@ const AddWallet = () => {
 		handleSetCustEWallet({ sysId, accountNo })
 	}
 
-	useEffect(() => {
-		setValue('sysId', eWalletSysOptions[0].value)
-	}, [])
-
 	return (
 		<Form onSubmit={handleSubmit(handleSubmitForm)}>
 			<Select
@@ -49,8 +62,8 @@ const AddWallet = () => {
 				options={eWalletSysOptions}
 				placeholder={t('Label_BankInfo_SelectBank') as string}
 				errorMessage={errors['sysId']?.message as string}
-				defaultValue={eWalletSysOptions[0].value}
-				onChange={sysId => setValue('sysId', sysId)}
+				defaultValue={head(eWalletSysOptions)?.value}
+				onChange={sysId => setValue('sysId', sysId as number)}
 				btnClassName='dropdownbank'
 			/>
 			<InputBox
@@ -59,6 +72,12 @@ const AddWallet = () => {
 						value: true,
 						message: t('Label_BankInfo_NeedAccountNo'),
 					},
+					pattern: isTouchNGoIsValid
+						? {
+								value: TOUCH_GO_REGEX,
+								message: t('Label_Withdrawal_TouchGo_Validation'),
+						  }
+						: undefined,
 					onBlur: () => trigger('accountNo'),
 				})}
 				type='number'
