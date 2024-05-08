@@ -97,6 +97,7 @@ export interface IStaticAllowedCurrencies {
 	SLOTS_PT?: CurrenciesEnum[]
 	SLOTS_MGPSW?: CurrenciesEnum[]
 	SLOTS_SIMPLE_PLAY?: CurrenciesEnum[]
+	SLOTS_END?: CurrenciesEnum[]
 
 	GAMES_V8_POKER?: CurrenciesEnum[]
 	GAMES_POKER_M_POKER?: CurrenciesEnum[]
