@@ -31,9 +31,9 @@ import {
 } from '@nx-next-app/service'
 import { includes } from 'lodash-es'
 import { getQueryParam } from '@nx-next-app/utils'
+import { PixelTracker } from 'libs/web/src/utils/tracker'
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
-import { PixelTracker } from '../../../common/pixelTracker'
 
 interface IJoinProps {
 	cookies: TmpCookiesObj
