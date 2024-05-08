@@ -19168,7 +19168,7 @@ input[type=number] .btn-logout {
 }
 .milestones .milestones-swiper .swiper-slide.two .page-text > div, .milestones .milestones-swiper .swiper-slide.three .page-text > div, .milestones .milestones-swiper .swiper-slide.four .page-text > div, .milestones .milestones-swiper .swiper-slide.five .page-text > div, .milestones .milestones-swiper .swiper-slide.six .page-text > div {
   text-align: center;
-  padding: 27vw 5vw 34vw;
+  padding: 25vw 5vw 45vw;
   height: 8vw;
   color: #E6E6E6;
   font-weight: 400;
@@ -19283,7 +19283,7 @@ input[type=number] .btn-logout {
 }
 .milestones .milestones-swiper .swiper-button-next, .milestones .milestones-swiper .swiper-button-prev {
   position: absolute;
-  top: 185vw;
+  top: 190vw;
   width: 6vw;
   height: 6vw;
 }
