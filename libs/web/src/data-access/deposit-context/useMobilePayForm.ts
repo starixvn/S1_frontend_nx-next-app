@@ -98,7 +98,7 @@ const useMobilePayForm = ({
 	const {
 		loading: contextLoading,
 		refetchPaymentMobilePayList,
-		handleYuriPurchaseClick,
+		handleDepositTracker,
 	} = useDepositContext()
 
 	const formMethods = useForm<IMobilePayForm>({ mode: 'all' })
@@ -165,7 +165,7 @@ const useMobilePayForm = ({
 	// * 4. mode = 其他，window.open()
 	// * 5. savedChecked = true 時記住銀行資訊
 	const onMobilePayFormSubmit = async (values: IMobilePayForm) => {
-		handleYuriPurchaseClick()
+		handleDepositTracker()
 		try {
 			const {
 				mode,

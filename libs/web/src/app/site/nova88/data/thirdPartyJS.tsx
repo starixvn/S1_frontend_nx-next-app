@@ -102,7 +102,7 @@ export const GoogleTagManagerScript = () => (
 )
 
 export const PixelCodeScript = () => {
-	return (
+	return process.env['NEXT_PUBLIC_ENV'] === 'PRD' ? (
 		<Script strategy='lazyOnload' id='PixelCode'>
 			{`!(function (p, l, o, w, i, n, g) {
 					if (!p[i]) {
@@ -130,5 +130,5 @@ export const PixelCodeScript = () => {
 				otag("init", "adv10336204001664")
 			`}
 		</Script>
-	)
+	) : null
 }

@@ -36,6 +36,7 @@ import { createContext, ReactNode, useContext, useEffect } from 'react'
 import { useReadLocalStorage } from 'usehooks-ts'
 import dynamic from 'next/dynamic'
 import { ENV_LOCAL_STORAGE_NAMES, paths } from '@nx-next-app/constants'
+import { PixelTracker } from '../../utils/tracker'
 
 const DesktopUpdateProfileModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/UpdateProfileModal'),
@@ -83,7 +84,7 @@ interface DepositContextInterface {
 	refetchPaymentAutoDepositList: () => void
 	refetchDepositQuickTransfer: () => void
 	refetchDepositChatTransfer: () => void
-	handleYuriPurchaseClick: () => void
+	handleDepositTracker: () => void
 }
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -254,10 +255,14 @@ export const DepositProvider = ({
 		}, {})
 
 	// 廣告商用的事件記錄器，綁在所有 deposit submit 底下
-	const handleYuriPurchaseClick = () => {
+	const handleDepositTracker = () => {
+		/* eslint no-underscore-dangle: 0 */
 		if ((window as any)._yuri_track) {
 			;(window as any)._yuri_track('Purchase')
 		}
+
+		// opera pixel tracker:
+		PixelTracker('deposit')
 	}
 
 	const loading =
@@ -286,7 +291,7 @@ export const DepositProvider = ({
 		refetchPaymentAutoDepositList,
 		refetchDepositQuickTransfer,
 		refetchDepositChatTransfer,
-		handleYuriPurchaseClick,
+		handleDepositTracker,
 	}
 
 	// * 初始資料完後，設定默認 Deposit Payment
