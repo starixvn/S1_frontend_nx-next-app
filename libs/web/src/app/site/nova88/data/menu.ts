@@ -614,6 +614,7 @@ export const MENU_DATA = ({
 					productKey: 'SPORTS_E_SPORTS_TFG',
 					displayKey: 'TFGaming',
 					product: PRODUCTS['SPORTS_E_SPORTS_TFG'],
+					allowCurrencies: ALLOWED_CURRENCIES['SPORTS_E_SPORTS_TFG'],
 					eventIcons: [
 						{
 							icon: 'new-icon',
@@ -768,6 +769,7 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_BG',
 					displayText: 'Big Gaming',
 					product: PRODUCTS['LIVE_CASINO_BG'],
+					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_BG'],
 					eventIcons: [
 						{
 							icon: 'new-icon',
@@ -1257,6 +1259,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_SG'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_SG'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_SG'],
 				},
 				{
 					h5: {
@@ -1303,6 +1306,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_AMIGO'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_AMIGO'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_AMIGO'],
 				},
 				{
 					h5: {
@@ -1327,6 +1331,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_ES'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_ES'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_ES'],
 				},
 				{
 					h5: {
@@ -2351,6 +2356,7 @@ export const MENU_DATA = ({
 					productKey: 'FISHING_SGW',
 					displayKey: 'Label_Fishing_FishingWar',
 					product: PRODUCTS['FISHING_SGW'],
+					allowCurrencies: ALLOWED_CURRENCIES['FISHING_SGW'],
 				},
 				{
 					h5: {
@@ -2373,6 +2379,7 @@ export const MENU_DATA = ({
 					productKey: 'FISHING_ZOMBIE_PARTY',
 					displayKey: 'Label_Fishing_ZombieParty',
 					product: PRODUCTS['FISHING_ZOMBIE_PARTY'],
+					allowCurrencies: ALLOWED_CURRENCIES['FISHING_ZOMBIE_PARTY'],
 				},
 				{
 					h5: {
@@ -2395,6 +2402,7 @@ export const MENU_DATA = ({
 					productKey: 'FISHING_ALIEN_HUNTER',
 					displayKey: 'Label_Fishing_AlienHunter',
 					product: PRODUCTS['FISHING_ALIEN_HUNTER'],
+					allowCurrencies: ALLOWED_CURRENCIES['FISHING_ALIEN_HUNTER'],
 				},
 				{
 					h5: {
