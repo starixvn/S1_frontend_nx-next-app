@@ -77,6 +77,7 @@ export interface IStaticAllowedCurrencies {
 	JACKPOT?: CurrenciesEnum[]
 
 	ESPORT_IM_E_SPORT?: CurrenciesEnum[]
+	SPORTS_E_SPORTS_TFG?: CurrenciesEnum[]
 
 	SPORTS_CRICKET?: CurrenciesEnum[]
 	SPORTS_SABA_CLUB?: CurrenciesEnum[]
@@ -93,6 +94,7 @@ export interface IStaticAllowedCurrencies {
 	LIVE_CASINO_DG?: CurrenciesEnum[]
 	LIVE_CASINO_MG?: CurrenciesEnum[]
 	LIVE_CASINO_SA?: CurrenciesEnum[]
+	LIVE_CASINO_BG?: CurrenciesEnum[]
 	LIVE_CASINO_WON?: CurrenciesEnum[]
 
 	SLOTS_PP?: CurrenciesEnum[]
@@ -105,6 +107,9 @@ export interface IStaticAllowedCurrencies {
 	SLOTS_PT?: CurrenciesEnum[]
 	SLOTS_MGPSW?: CurrenciesEnum[]
 	SLOTS_SIMPLE_PLAY?: CurrenciesEnum[]
+	SLOTS_SG?: CurrenciesEnum[]
+	SLOTS_AMIGO?: CurrenciesEnum[]
+	SLOTS_ES?: CurrenciesEnum[]
 	SLOTS_END?: CurrenciesEnum[]
 
 	GAMES_V8_POKER?: CurrenciesEnum[]
@@ -121,6 +126,9 @@ export interface IStaticAllowedCurrencies {
 	FISHING_HUNTING_HAPPY_FISH_5?: CurrenciesEnum[]
 	FISHING_HAIBA?: CurrenciesEnum[]
 	FISHING_HUNTING_MONSTER_AWAKEN?: CurrenciesEnum[]
+	FISHING_SGW?: CurrenciesEnum[]
+	FISHING_ZOMBIE_PARTY?: CurrenciesEnum[]
+	FISHING_ALIEN_HUNTER?: CurrenciesEnum[]
 
 	FOUR_D_GRAND_DRAGON?: CurrenciesEnum[]
 
