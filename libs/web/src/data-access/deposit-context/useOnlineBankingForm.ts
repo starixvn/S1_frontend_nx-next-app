@@ -81,7 +81,7 @@ const useOnlineBankingForm = ({
 	const {
 		loading: contextLoading,
 		refetchPaymentOnlineBankingList,
-		handleYuriPurchaseClick,
+		handleDepositTracker,
 	} = useDepositContext()
 
 	const {
@@ -140,7 +140,7 @@ const useOnlineBankingForm = ({
 	// * 3. mode = 其他，window.open()
 	// * 4. savedChecked = true 時記住銀行資訊
 	const onOnlineBankingFormSubmit = (values: IOnlineBankingForm) => {
-		handleYuriPurchaseClick()
+		handleDepositTracker()
 		const {
 			mode,
 			sysId: bankSysId = 0,

@@ -26,6 +26,7 @@ import {
 	useGetRecaptchaInfoQuery,
 } from '@nx-next-app/service'
 import { getQueryParam } from '@nx-next-app/utils'
+import { PixelTracker } from 'libs/web/src/utils/tracker'
 import { Step1, Step2, Step3, StepBar, Features, LineRegister } from './form'
 
 interface IJoinProps {
@@ -253,8 +254,9 @@ const Join = ({ cookies }: IJoinProps) => {
 				langId: userLang,
 				lineUserId: cookieLineUserId as string,
 			}).unwrap()
-
 			setStep(3)
+
+			PixelTracker('register')
 		} catch (error) {
 			modal.error((error as Error).message)
 		}
