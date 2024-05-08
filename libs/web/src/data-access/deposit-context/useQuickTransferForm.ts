@@ -54,7 +54,7 @@ const useQuickTransferForm = ({
 	const {
 		loading: contextLoading,
 		refetchDepositQuickTransfer,
-		handleYuriPurchaseClick,
+		handleDepositTracker,
 	} = useDepositContext()
 
 	const formMethods = useForm<IQuickTransferForm>({ mode: 'all' })
@@ -76,7 +76,7 @@ const useQuickTransferForm = ({
 	// * 3. fetch refetchDepositQuickTransfer
 	// * 4. savedChecked = true 時記住銀行資訊
 	const onFormSubmit = async (values: IQuickTransferForm) => {
-		handleYuriPurchaseClick()
+		handleDepositTracker()
 		try {
 			const {
 				amount = 0,
