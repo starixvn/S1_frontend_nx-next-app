@@ -92,7 +92,6 @@ export interface IStaticAllowedCurrencies {
 	SLOTS_FA_CHAI?: CurrenciesEnum[]
 	SLOTS_SKY_WIND?: CurrenciesEnum[]
 	SLOTS_JOKER?: CurrenciesEnum[]
-	SLOTS_SPRIBE?: CurrenciesEnum[]
 	SLOTS_PT?: CurrenciesEnum[]
 	SLOTS_MGPSW?: CurrenciesEnum[]
 	SLOTS_SIMPLE_PLAY?: CurrenciesEnum[]
