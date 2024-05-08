@@ -49,7 +49,7 @@ const useAutoDepositForm = ({
 	const {
 		loading: contextLoading,
 		refetchPaymentAutoDepositList,
-		handleYuriPurchaseClick,
+		handleDepositTracker,
 	} = useDepositContext()
 
 	const formMethods = useForm<IAutoDepositForm>()
@@ -93,7 +93,7 @@ const useAutoDepositForm = ({
 	// * 2. window.open() only
 	// * 3. savedChecked = true 時記住銀行資訊
 	const onAutoDepositFormSubmit = async (values: IAutoDepositForm) => {
-		handleYuriPurchaseClick()
+		handleDepositTracker()
 		try {
 			const {
 				amount = 0,
