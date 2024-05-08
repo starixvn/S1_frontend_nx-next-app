@@ -1982,6 +1982,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_PG'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_PG'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_PG'],
 				},
 				{
 					h5: {
@@ -2565,9 +2566,9 @@ export const MENU_DATA = ({
 							period: { start: null, end: null },
 						},
 					],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_END'],
 				},
 			],
-			allowCurrencies: true,
 		},
 		[MenuKeyEnum.Game]: {
 			display: 'all',
