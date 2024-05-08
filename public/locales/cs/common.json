@@ -852,6 +852,7 @@
   "Label_Withdrawal_SubmitPhotoId": "提交附有照片的身份证",
   "Label_Withdrawal_SubmitPhotoIdHint": "请上传国家政府发行证件以完成提款验证流程：",
   "Label_Withdrawal_SubmitPhotoIdListTitle": "下列中，请上传其一证件：",
+  "Label_Withdrawal_TouchGo_Validation": "无效电子钱包账户号",
   "Label_Withdrawal_UpdateBankInfo": "请在提现前完成更新银行资讯",
   "Label_Withdrawal_WaitKYC": "审查流程进行中",
   "Label_Withdrawal_WaitKYCHint": "感谢您上传所需文件，审查流程正进行中，恳请稍后",
