@@ -1510,7 +1510,6 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_SPRIBE'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_SPRIBE'],
-					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_SPRIBE'],
 				},
 				{
 					h5: {
