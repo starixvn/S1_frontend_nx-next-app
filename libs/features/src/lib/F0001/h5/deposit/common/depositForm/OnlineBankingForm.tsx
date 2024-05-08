@@ -22,6 +22,8 @@ import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { paths } from '@nx-next-app/constants'
 
 const DepositQRCodeModal = dynamic(
 	() =>
@@ -50,10 +52,14 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 			setValue,
 			watch,
 			register,
+			clearErrors,
 			formState: { touchedFields, errors, isValid },
 		},
 		selBank,
 		paymentOnlineBankInfoSysList,
+		custBankInfo,
+		bankCardOptions,
+		bankCardRequired,
 		onOnlineBankingFormSubmit,
 	} = useOnlineBankingForm({
 		dataSource,
@@ -64,6 +70,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 	const watchMinAmount = watch('minAmount')
 	const watchMaxAmount = watch('maxAmount')
 	const watchBonusCode = watch('bonusCode')
+	const watchCustBankAccount = watch('custBankAccount')
 	// const watchBankLogo = watch('bankLogo')
 
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
@@ -211,6 +218,37 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 								trigger('amount')
 							}}
 						/>
+					</div>
+				</DepositModule>
+			)}
+
+			{bankCardRequired && (
+				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+					<div className='infoModule'>
+						<Select
+							value={watchCustBankAccount}
+							options={bankCardOptions}
+							onChange={value => {
+								trigger('custBankAccount')
+								setValue('custBankAccount', String(value))
+								clearErrors('custBankAccount')
+							}}
+							errorMessage={errors['custBankAccount']?.message as string}
+						/>
+						<div
+							className={classNames('tip', {
+								active: errors['custBankAccount'],
+							})}
+						>
+							{errors['custBankAccount']?.message}
+						</div>
+						{custBankInfo.length < 3 && (
+							<div className='btn-group'>
+								<Link href={paths.bankInfo.root}>
+									<a>+</a>
+								</Link>
+							</div>
+						)}
 					</div>
 				</DepositModule>
 			)}
