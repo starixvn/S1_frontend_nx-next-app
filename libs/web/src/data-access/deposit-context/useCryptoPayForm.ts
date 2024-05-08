@@ -74,7 +74,7 @@ const useCryptoPayForm = ({
 	const {
 		loading: contextLoading,
 		refetchPaymentCryptoPayList,
-		handleYuriPurchaseClick,
+		handleDepositTracker,
 	} = useDepositContext()
 
 	const formMethods = useForm<ICryptoForm>({ mode: 'all' })
@@ -126,7 +126,7 @@ const useCryptoPayForm = ({
 	// * 4. mode = 其他，window.open()
 	// * 5. savedChecked = true 時記住銀行資訊
 	const onCryptoPayFormSubmit = async (values: ICryptoForm) => {
-		handleYuriPurchaseClick()
+		handleDepositTracker()
 		try {
 			const {
 				mode,
