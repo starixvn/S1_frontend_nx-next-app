@@ -331,6 +331,11 @@ export const PRODUCTS = {
 		TP_ID: 46,
 		TP_GAME_TYPE: 93,
 	},
+	LIVE_CASINO_WON: {
+		GAME_ID: 0,
+		TP_ID: 64,
+		TP_GAME_TYPE: 116,
+	},
 	// * FISHING
 	FISHING: {
 		TP_ID: 7,
