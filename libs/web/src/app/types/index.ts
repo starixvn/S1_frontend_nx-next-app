@@ -86,6 +86,7 @@ export interface IStaticAllowedCurrencies {
 	LIVE_CASINO_DG?: CurrenciesEnum[]
 	LIVE_CASINO_MG?: CurrenciesEnum[]
 	LIVE_CASINO_SA?: CurrenciesEnum[]
+	LIVE_CASINO_WON?: CurrenciesEnum[]
 
 	SLOTS_PP?: CurrenciesEnum[]
 	SLOTS_AMB?: CurrenciesEnum[]
