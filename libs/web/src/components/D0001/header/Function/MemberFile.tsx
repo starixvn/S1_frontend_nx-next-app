@@ -78,7 +78,7 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 			>
 				<a className='grade-text'>
 					{/* Hello 不用做多語系 */}
-					Hello, {userName}
+					{t('Label_General_Hello')}, {userName}
 				</a>
 				<div className='grade-color'>
 					<div className='dots' />
