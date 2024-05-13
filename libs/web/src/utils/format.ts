@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { FieldErrors } from 'react-hook-form'
 import { isNaN, replace } from 'lodash-es'
@@ -138,4 +139,10 @@ export const replaceStringToNumber = (str: string) => {
 
 	// 使用 replace 方法將匹配到的部分替換為空字串
 	return str.replace(regex, '')
+}
+
+export const revertTimeZone = (time: string) => {
+	const originalTimezone = time.slice(-6)
+
+	return dayjs(time).utcOffset(originalTimezone)
 }

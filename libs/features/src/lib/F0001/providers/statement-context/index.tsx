@@ -7,6 +7,7 @@ import React, {
 	useState,
 } from 'react'
 import dayjs from 'dayjs'
+import { revertTimeZone } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import {
@@ -272,7 +273,7 @@ const StatementProvider = ({
 		const args = {
 			pageNumber: pageNumber ?? currentPage,
 			pageSize: 10,
-			selDate: dayjs(selDate).format('YYYY-MM-DD'),
+			selDate: revertTimeZone(selDate).format('YYYY-MM-DD'),
 		}
 		let result: IAxiosResponse<
 			(
