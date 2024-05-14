@@ -273,7 +273,7 @@ const StatementProvider = ({
 		const args = {
 			pageNumber: pageNumber ?? currentPage,
 			pageSize: 10,
-			selDate: revertTimeZone(selDate).format('YYYY-MM-DD'),
+			selDate: selDate && revertTimeZone(selDate).format('YYYY-MM-DD'),
 		}
 		let result: IAxiosResponse<
 			(

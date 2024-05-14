@@ -3,8 +3,7 @@ import { ICustTpBetRecordDetailListbyGameTypeData } from '@nx-next-app/service'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
-import dayjs from 'dayjs'
-import { numberFormat } from '@nx-next-app/utils'
+import { numberFormat, revertTimeZone } from '@nx-next-app/utils'
 import { Table } from '@nx-next-app/components/D0006/table'
 import { ITableColumns } from '@nx-next-app/components/D0006/table/Table'
 import { useStatement } from '@nx-next-app/features/F0006/providers/statement-context'
@@ -67,9 +66,7 @@ const ByDetailStatementTable = ({
 			dataIndex: 'settledTime',
 			key: 'settledTime',
 			render: ({ item: { settledTime } }: { item: { settledTime: string } }) =>
-				dayjs(settledTime)
-					.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
-					.format('YYYY-MM-DD HH:mm:ss'),
+				revertTimeZone(settledTime).format('YYYY-MM-DD HH:mm:ss'),
 		},
 	]
 

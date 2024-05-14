@@ -141,6 +141,9 @@ export const replaceStringToNumber = (str: string) => {
 	return str.replace(regex, '')
 }
 
+// 因days.js 在使用時會自動判斷時區，所以需把時區補回來，
+// 用於後端 api 有帶時區的時間 ex: 2024-04-29T00:00:00+07:00
+// 之後在根據情況 format 即可
 export const revertTimeZone = (time: string) => {
 	const originalTimezone = time.slice(-6)
 
