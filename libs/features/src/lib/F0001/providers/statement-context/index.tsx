@@ -270,6 +270,7 @@ const StatementProvider = ({
 		newEndDate?: Date
 		period?: number
 	}) => {
+		console.log(selDate)
 		const args = {
 			pageNumber: pageNumber ?? currentPage,
 			pageSize: 10,
