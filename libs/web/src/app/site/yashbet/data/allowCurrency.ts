@@ -26,6 +26,8 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 
 	SLOTS_AMB: [],
 	SLOTS_SPRIBE: [INR],
+	SLOTS_PG: [],
+	SLOTS_END: [],
 
 	GAMES_POKER_M_POKER: [],
 	GAMES_POKER_AMB_POKER: [],
