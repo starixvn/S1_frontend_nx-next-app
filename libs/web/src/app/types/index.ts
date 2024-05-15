@@ -110,6 +110,7 @@ export interface IStaticAllowedCurrencies {
 	SLOTS_AMIGO?: CurrenciesEnum[]
 	SLOTS_ES?: CurrenciesEnum[]
 	SLOTS_END?: CurrenciesEnum[]
+	SLOTS_SPRIBE?: CurrenciesEnum[]
 
 	GAMES_V8_POKER?: CurrenciesEnum[]
 	GAMES_POKER_M_POKER?: CurrenciesEnum[]
@@ -274,7 +275,6 @@ export * from './deposit'
 export * from './menu'
 export * from './vip'
 export * from './leaderBoard'
-export * from './milestone'
 
 // * 在 Deposit 中如果 extraDataType 為 1 需顯示銀行卡下拉、2 需顯示 E-Wallet 下拉、0 則不顯示任何下拉
 export enum DepositExtraDataTypeEnum {
