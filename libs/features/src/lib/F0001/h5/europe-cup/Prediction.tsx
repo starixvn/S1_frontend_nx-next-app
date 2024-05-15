@@ -1,19 +1,23 @@
 import classNames from 'classnames'
 import { upperFirst } from 'lodash-es'
 import { useRouter } from 'next/router'
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { paths, PRODUCTS } from '@nx-next-app/constants'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { useEuropeCup } from '@nx-next-app/features/F0001/hooks/useEuropeCup'
+import { UseEuropeCupProps } from '@nx-next-app/features/F0001/hooks/useEuropeCup'
 import { CupEventUserTicketStatus, type IGroupData } from '@nx-next-app/service'
 import { Form } from '@nx-next-app/components/H0001'
 import { MenuActionTypeEnum } from '@nx-next-app/types'
 import { numFormatToDigits } from '@nx-next-app/utils'
 import Select from './components/Select'
 
-const Prediction = () => {
+interface IPredictionProps {
+	europeCupProps: UseEuropeCupProps
+}
+
+const Prediction = ({ europeCupProps }: IPredictionProps) => {
 	const { t } = useTranslation()
 	const { push } = useRouter()
 	const {
@@ -44,7 +48,7 @@ const Prediction = () => {
 			onSelectedGroup,
 			onSubmitForm,
 		},
-	} = useEuropeCup()
+	} = europeCupProps
 
 	const { cupEventPromotionMissionProgress } = europeEventTicketData || {}
 
@@ -154,7 +158,7 @@ const Prediction = () => {
 	}
 
 	return (
-		<div className='euro-predition'>
+		<div className='euro-predition active'>
 			<div className='top'>
 				<div>
 					<div className='title'>

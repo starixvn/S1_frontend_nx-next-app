@@ -53,3 +53,44 @@ export interface IGetUserPollTicketArgs {
 	ticketType: number
 	countryId: number
 }
+
+export interface ITeamData {
+	countryName: string
+	imageName: string
+}
+
+export interface ITeamDataWithSort extends ITeamData {
+	sort: number
+}
+
+export interface ICupEventPredictionSettingData {
+	data: {
+		top24Team: ITeamDataWithSort[]
+		roundOf16: ITeamDataWithSort[]
+		quarterFinals: ITeamDataWithSort[]
+		semiFinals: ITeamDataWithSort[]
+		'3rdPlace': ITeamDataWithSort[]
+		final: ITeamDataWithSort[]
+		matchTimes: {
+			matchName: string
+			matchTime: string
+		}[]
+		selectOptions: {
+			[key in
+				| 'groupA'
+				| 'groupB'
+				| 'groupC'
+				| 'groupD'
+				| 'groupE'
+				| 'groupF']: (ITeamData & { countryId: number })[]
+		}
+	}
+	errorCode: number
+	message: string
+	rawErrorCode: string
+	rawMessage: string
+}
+
+export interface IGetCupEventPredictionSettingArgs {
+	langId: string
+}
