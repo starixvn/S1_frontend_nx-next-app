@@ -32,6 +32,7 @@ const StatementItem = ({
 	bonusId,
 	bonusCode,
 }: IStatementItemProps) => {
+	console.log(settledDate)
 	const { activeTab, onDetails } = useStatement()
 	const { t } = useTranslation()
 	const {
