@@ -147,9 +147,10 @@ export const replaceStringToNumber = (str: string) => {
 // 用於後端 api 有帶時區的時間 ex: 2024-04-29T00:00:00+07:00
 // 之後在根據情況 format 即可
 export const revertTimeZone = (time: string) => {
+	console.log(time)
 	// 因目前有點難判斷 2024-04-29T00:00:00+07:00 的格式，所以先用字數長度判斷
 	if (time?.length < 25) return dayjs(time)
-	const originalTimezone = time.slice(-6)
+	const originalTimezone = time?.slice(-6)
 
 	return dayjs(time).utcOffset(originalTimezone)
 }
