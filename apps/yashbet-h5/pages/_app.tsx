@@ -9,6 +9,7 @@ import { StaticDataProvider } from '@nx-next-app/data-access'
 // * https://day.js.org/docs/en/plugin/localized-format
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
 
 import {
 	META_DATA,
@@ -37,6 +38,7 @@ import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
 dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
 dayjs.extend(utc)
+dayjs.extend(customParseFormat)
 
 const { IovationScript, PlayTechScript, JackpotsScript } = ThirdPartyJS
 
