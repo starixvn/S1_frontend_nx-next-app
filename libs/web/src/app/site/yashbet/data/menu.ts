@@ -20,17 +20,6 @@ const desktopSubmenuBackground = [
 	},
 ]
 
-const h5SubmenuBackground = [
-	{
-		className: 'list-bg-left',
-		imgUrl: 'list-left.png',
-	},
-	{
-		className: 'list-bg-right',
-		imgUrl: 'list-right.png',
-	},
-]
-
 export const desktopSubMenuVipImageList = [
 	...desktopSubmenuBackground,
 	{
@@ -65,32 +54,16 @@ export const desktopSunMenuReferralImageList = [
 	},
 ]
 
-export type ISubMenuExcludeNpc = {
-	className: Exclude<`${string}`, `${string}-npc`>
-	imgUrl: string
-}
-
-export type ISunMenuNpcImage = {
-	className: `${string}-npc`
-	remoteImgUrl: string
-}
-export type IHeaderSubMenuImg = ISubMenuExcludeNpc | ISunMenuNpcImage
-
 export interface ISubMenu extends IProduct {
 	h5: {
 		hasLobby: boolean
 		menuActionType: keyof typeof MenuActionTypeEnum
-		headerMenuImgList?: Array<IHeaderSubMenuImg>
 		hasDesktopLink?: boolean
 	}
 	desktop: {
 		hasLobby: boolean
 		menuActionType: keyof typeof MenuActionTypeEnum
-		headerMenuImgList?: Array<IHeaderSubMenuImg>
 		subMenuImageClassName?: string
-		// TODO ⚠ lobbyPage 之後必須拔掉，因現在用 nova 資料，
-		// TODO ⚠ hoverBgImg 也可以考慮重 api 送 ， 要馬要是都寫在前端，不然就都重 api 送
-		lobbyPage?: { npcImg: string; hoverBgImg: string }
 	}
 	pathname?: string
 	query?: {
@@ -141,33 +114,11 @@ export const MENU_DATA: IMenuData[] = [
 				desktop: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'cryptosportNPC.png',
-						},
-					],
 				},
 				h5: {
 					hasLobby: false,
 					hasDesktopLink: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'sports-bg-soccer.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'sports-cryptosport.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
 				},
 			},
 			{
@@ -177,36 +128,10 @@ export const MENU_DATA: IMenuData[] = [
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'soccerNPC.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'soccerBG.png',
-						},
-					],
 				},
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'sports-bg-soccer.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'sports-soccer.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
 				},
 			},
 			{
@@ -216,36 +141,10 @@ export const MENU_DATA: IMenuData[] = [
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'sabssoccerNPC.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'soccerBG.png',
-						},
-					],
 				},
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'sports-bg-soccer.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'sports-sabssoccer.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
 				},
 			},
 			{
@@ -255,37 +154,11 @@ export const MENU_DATA: IMenuData[] = [
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'basketballNPC.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'basketballBG.png',
-						},
-					],
 				},
 				h5: {
 					hasLobby: false,
 					hasDesktopLink: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'sports-bg-basketball.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'sports-basketball.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
 				},
 			},
 			{
@@ -295,37 +168,11 @@ export const MENU_DATA: IMenuData[] = [
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'cricketNPC.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'cricketBG.png',
-						},
-					],
 				},
 				h5: {
 					hasLobby: false,
 					hasDesktopLink: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'sports-bg-cricket.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'sports-cricket.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
 				},
 			},
 			{
@@ -335,39 +182,11 @@ export const MENU_DATA: IMenuData[] = [
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'badmintonNPC.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'badmintonBG.png',
-						},
-					],
 				},
 				h5: {
 					hasLobby: false,
 					hasDesktopLink: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'list-bg',
-							imgUrl: 'sports-bg-soccer.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'sports-cryptosport.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
 				},
 			},
 			{
@@ -377,38 +196,10 @@ export const MENU_DATA: IMenuData[] = [
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'volleyballNPC.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'volleyballBG.png',
-						},
-					],
 				},
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'list-bg',
-							imgUrl: 'sports-bg-soccer.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'sports-cryptosport.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
 				},
 			},
 			{
@@ -418,38 +209,10 @@ export const MENU_DATA: IMenuData[] = [
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'betradarsoccerNPC.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'soccerBG.png',
-						},
-					],
 				},
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'list-bg',
-							imgUrl: 'sports-bg-soccer.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'sports-betradarsoccer.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
 				},
 			},
 		],
@@ -475,33 +238,10 @@ export const MENU_DATA: IMenuData[] = [
 				desktop: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.UseGoToGame,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: '9wnpc.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'cricketBG.png',
-						},
-					],
 				},
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.UseGoToGame,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'sports-9w.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'sports-list-title.png',
-						},
-					],
 				},
 			},
 		],
@@ -527,36 +267,10 @@ export const MENU_DATA: IMenuData[] = [
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'esportSABA.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'eSportsListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'esposts-saba.png',
-						hoverBgImg: 'esposts-sabaa.png',
-					},
 				},
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'esports-saba.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'esports-list-title.png',
-						},
-					],
 				},
 			},
 			{
@@ -565,37 +279,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'esports-im.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'esports-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'esportInplayMatrix.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'eSportsListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'esposts-inplaymatrix.png',
-						hoverBgImg: 'esposts-inplaymatrixa.png',
-					},
 				},
 			},
 			{
@@ -633,45 +320,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-pp.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-pp.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'livePP',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-PP.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'ppBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_pp.png',
-						hoverBgImg: 'animation_img.png',
-					},
 				},
 			},
 			{
@@ -680,46 +333,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-bg.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-bg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'liveBG',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-bg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'bgbg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_bg.png',
-						hoverBgImg: 'animation_img.png',
-					},
 				},
 			},
 			{
@@ -728,46 +346,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-yb.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-yb.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'casino-yb',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-yb.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'ybBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_yb.png',
-						hoverBgImg: 'animation_img.png',
-					},
 				},
 			},
 			{
@@ -776,45 +359,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-sk.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-sk.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'casino_Skywind',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-SK.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'skbg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_sk.png',
-						hoverBgImg: 'animation_img.png',
-					},
 				},
 			},
 			{
@@ -823,47 +372,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-mg.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-mg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'casino_MG',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-mg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'mgbg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_mg.png',
-						hoverBgImg: 'animation_img.png',
-					},
 				},
 			},
 			{
@@ -872,47 +385,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-ev.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-ev.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'casino_EVO',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-ev.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'evbg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_ev.png',
-						hoverBgImg: 'animation_img.png',
-					},
 				},
 			},
 			{
@@ -921,46 +398,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.UseGoToGame,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-pt.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-pt.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'casino_PT',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.UseGoToGame,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-pt.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'ptbg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_pt.png',
-						hoverBgImg: 'animation_img.png',
-					},
 				},
 			},
 			{
@@ -969,45 +411,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-n2.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-n2.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'casino_N2LIVE',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-n2.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'n2bg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_n2.png',
-						hoverBgImg: 'animation_img.png',
-					},
 				},
 			},
 			{
@@ -1016,46 +424,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-wm.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-wm.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'liveWM',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-WM.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'wmBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_wm.png',
-						hoverBgImg: 'animation_img.png',
-					},
 				},
 			},
 			{
@@ -1064,45 +437,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-ab.png',
-						},
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-ab.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'liveALL',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-ALL.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'allBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_ab.png',
-						hoverBgImg: 'animation_img.png',
-					},
 				},
 			},
 			{
@@ -1111,46 +450,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-eb.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-eb.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'liveEB',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-EB.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'ebBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_eb.png',
-						hoverBgImg: 'animation_img.png',
-					},
 				},
 			},
 			{
@@ -1159,47 +463,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-sa.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-sa.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'liveSA',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-SA.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'saBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_sa.png',
-						hoverBgImg: 'animation_img.png',
-					},
 				},
 			},
 			{
@@ -1208,46 +476,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-ae.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-ae.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'liveAE',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-AE.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'aeBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_ae.png',
-						hoverBgImg: 'animation_img.png',
-					},
 				},
 			},
 			{
@@ -1256,46 +489,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-dg.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-dg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'liveDG',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-DG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'dgBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_dg.png',
-						hoverBgImg: 'animation_img.png',
-					},
 				},
 			},
 			{
@@ -1304,46 +502,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'list-bg',
-							imgUrl: 'casino-bg-ag.png',
-						},
-
-						{
-							className: 'list-npc',
-							remoteImgUrl: 'casino-ag.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'casino-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'liveAG',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'casino-AG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'agBG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'livecasinListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'casino_ag.png',
-						hoverBgImg: 'animation_img.png',
-					},
 				},
 			},
 		],
@@ -1368,33 +531,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-pp.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_PP',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotPP.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -1406,33 +547,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-sg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_SG',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotSG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -1444,33 +563,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-apnew.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_AdvantPlay',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotapnew.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -1494,33 +591,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-endorphina.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_Endorphina',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotEndorphina.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -1544,33 +619,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-pg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_PG',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotPG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -1606,33 +659,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-mg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_MGPSW',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotmg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -1644,33 +675,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-pp.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_JI',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotji.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -1682,33 +691,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-spribe.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_SPRIBE',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotSPRIBE.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -1720,33 +707,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-joker.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_JOKER',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotJOKER.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -1785,33 +750,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-rt.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_RedTiger',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotrt.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -1823,33 +766,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-nt.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_NetEnt',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotnt.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -1861,33 +782,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-cq9.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_CQ9',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotCQ9.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -1911,33 +810,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-gpi.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_GPI',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotGPI.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -1949,32 +826,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-ygg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_YGG',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotYGG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -1986,32 +842,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-am.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_AMB',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotam.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -2023,32 +858,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-ho.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_Habanero',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotho.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -2060,32 +874,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-simpleplay.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_SimplePlay',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotSimplePlay.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -2097,32 +890,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-skywind.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_Skywind',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotsk.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -2134,32 +906,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slot-pt.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'slot-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'slot_PT',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'slotpt.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'slotListHover.png',
-						},
-					],
 				},
 				pathname: paths.slots.root,
 				query: {
@@ -2187,37 +938,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-mp.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'mp.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gamemp.png',
-						hoverBgImg: 'gamempa.png',
-					},
 				},
 			},
 			{
@@ -2226,36 +950,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-amb.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'am.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gameamb.png',
-						hoverBgImg: 'gameamba.png',
-					},
 				},
 			},
 			{
@@ -2264,36 +962,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-vg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'vg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gamevg.png',
-						hoverBgImg: 'gamevga.png',
-					},
 				},
 			},
 			{
@@ -2302,36 +974,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-km.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'km.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gamekim.png',
-						hoverBgImg: 'gamekima.png',
-					},
 				},
 			},
 			{
@@ -2352,36 +998,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-spribe-aviator.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'gameSpribeAviator.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gamespribe-aciator.png',
-						hoverBgImg: 'gamespribe-aciatora.png',
-					},
 				},
 			},
 			{
@@ -2390,36 +1010,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-spribe-mines.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'gameSpribeMines.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gamespribe-mines.png',
-						hoverBgImg: 'gamespribe-minesa.png',
-					},
 				},
 			},
 			{
@@ -2428,36 +1022,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-spribe-goal.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'gameSpribeGoal.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gamespribe-goal.png',
-						hoverBgImg: 'gamespribe-goala.png',
-					},
 				},
 			},
 			{
@@ -2466,36 +1034,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-spribe-dice.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'gameSpribeDice.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gamespribe-dice.png',
-						hoverBgImg: 'gamespribe-dicea.png',
-					},
 				},
 			},
 			{
@@ -2516,36 +1058,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-ap.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'ap.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gameap.png',
-						hoverBgImg: 'gameapa.png',
-					},
 				},
 			},
 			{
@@ -2554,36 +1070,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'games-spribe-goal.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'games-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'jili.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'tablelisthover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'gamejili.png',
-						hoverBgImg: 'gamejilia.png',
-					},
 				},
 			},
 		],
@@ -2608,37 +1098,11 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'fish-fwo.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'fish-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					subMenuImageClassName: 'fsg',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							imgUrl: 'fishSG.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'fishListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'fishfg.png',
-						hoverBgImg: 'fishfga.png',
-					},
 				},
 			},
 			{
@@ -2652,21 +1116,6 @@ export const MENU_DATA: IMenuData[] = [
 					subMenuImageClassName: 'fsgw',
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'fishSGwar.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'fishListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'fishfw.png',
-						hoverBgImg: 'fishfwa.png',
-					},
 				},
 			},
 			{
@@ -2699,36 +1148,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'fish-pd.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'fish-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'paradise.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'fishListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'fishpd.png',
-						hoverBgImg: 'fishpda.png',
-					},
 				},
 			},
 			{
@@ -2737,36 +1160,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'fish-hb.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'fish-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'hb.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'fishListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'fishhb.png',
-						hoverBgImg: 'fishhba.png',
-					},
 				},
 			},
 			{
@@ -2775,36 +1172,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'fish-hf5.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'fish-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'hf5.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'fishListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'fishhf.png',
-						hoverBgImg: 'fishhfa.png',
-					},
 				},
 			},
 			{
@@ -2813,36 +1184,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'fish-ma.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'fish-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'ma.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'fishListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'fishma.png',
-						hoverBgImg: 'fishmaa.png',
-					},
 				},
 			},
 			{
@@ -2855,21 +1200,6 @@ export const MENU_DATA: IMenuData[] = [
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'oneshotfishing.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'fishListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'fishof.png',
-						hoverBgImg: 'fishofa.png',
-					},
 				},
 			},
 		],
@@ -2922,36 +1252,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-gpikeno.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'lottery-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-gpikeno.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'gameListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'lotterygpikeno.png',
-						hoverBgImg: 'lotterygpikenoa.png',
-					},
 				},
 			},
 			{
@@ -2960,32 +1264,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-gpithaiv.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'lottery-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-gpithai.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'gameListHover.png',
-						},
-					],
 				},
 			},
 			{
@@ -2994,36 +1276,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-gpifast3.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'lottery-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-gpifast3.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'gameListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'lotterygpifast3.png',
-						hoverBgImg: 'lotterygpifast3a.png',
-					},
 				},
 			},
 			{
@@ -3032,36 +1288,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-tcg.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'lottery-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-tcg.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'gameListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'lotterytc.png',
-						hoverBgImg: 'lotterytca.png',
-					},
 				},
 			},
 			{
@@ -3070,36 +1300,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-keno.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'lottery-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-keno.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'gameListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'lotteryke.png',
-						hoverBgImg: 'lotterykea.png',
-					},
 				},
 			},
 			{
@@ -3108,36 +1312,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-lottery.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'lottery-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-lottery.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'gameListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'lotterylo.png',
-						hoverBgImg: 'lotteryloa.png',
-					},
 				},
 			},
 			{
@@ -3147,36 +1325,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-numbergame.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'lottery-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.Link,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-numberGame.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'gameListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'lotterynu.png',
-						hoverBgImg: 'lotterynua.png',
-					},
 				},
 			},
 			{
@@ -3185,36 +1337,10 @@ export const MENU_DATA: IMenuData[] = [
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...h5SubmenuBackground,
-						{
-							className: 'List-npc',
-							remoteImgUrl: 'lo-tablegame.png',
-						},
-						{
-							className: 'list-title',
-							imgUrl: 'lottery-list-title.png',
-						},
-					],
 				},
 				desktop: {
 					hasLobby: true,
 					menuActionType: MenuActionTypeEnum.EnterPage,
-					headerMenuImgList: [
-						...desktopSubmenuBackground,
-						{
-							className: 'List-npc',
-							imgUrl: 'lo-tableGame.png',
-						},
-						{
-							className: 'List-bg',
-							imgUrl: 'gameListHover.png',
-						},
-					],
-					lobbyPage: {
-						npcImg: 'lotteryta.png',
-						hoverBgImg: 'lotterytaa.png',
-					},
 				},
 			},
 		],

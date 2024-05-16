@@ -30,9 +30,7 @@ const useMenuData = () => {
 
 	const { data: lobbyHeaderList = [], isError } = useGetLobbyHeaderQuery(
 		{
-			// TODO 因 Yashbet 目前沒有資料，之後需改回來
-			siteId: 1,
-			// siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']),
+			siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']),
 			currencyId,
 		},
 		{

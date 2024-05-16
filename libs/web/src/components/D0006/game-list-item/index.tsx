@@ -1,8 +1,5 @@
 import { ReactNode, useRef } from 'react'
 import classNames from 'classnames'
-import Image from 'next/future/image'
-import { useHover } from 'usehooks-ts'
-import { Translation } from 'react-i18next'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { isEventPeriod } from '@nx-next-app/utils'
@@ -11,7 +8,6 @@ import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0006/types'
 
 interface IListItemProps {
 	subMenuItemClassName?: string
-	imageCategory: string
 	gameTextClassName?: string
 	subMenuItem: IDynamicSubMenuItem
 	onItemClick: (item: IDynamicSubMenuItem) => void
@@ -30,13 +26,11 @@ export const switchLobbyIcon = (iconType: MenuIconTypeEnum) => {
 
 const GameListItem = ({
 	subMenuItemClassName,
-	imageCategory,
 	gameTextClassName = 'name',
 	subMenuItem,
 	onItemClick,
 }: IListItemProps) => {
 	const hoverRef = useRef(null)
-	const isHover = useHover(hoverRef)
 
 	const { t } = useTranslation()
 	const {
@@ -52,10 +46,8 @@ const GameListItem = ({
 	const suBMenuLobbyImage =
 		subMenuItem?.pcLobbyPicUrl && JSON.parse(subMenuItem?.pcLobbyPicUrl)[0]
 
-	const { iconType, iconStartTime, iconEndTime, isTpMaintain, desktop } =
+	const { iconType, iconStartTime, iconEndTime, isTpMaintain } =
 		subMenuItem || {}
-
-	const { lobbyPage } = desktop || {}
 
 	const lobbyIcon =
 		(isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
@@ -71,29 +63,7 @@ const GameListItem = ({
 			onClick={() => onItemClick(subMenuItem)}
 		>
 			{lobbyIcon}
-
-			{isHover ? (
-				<Image
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${imageCategory}/${lobbyPage?.hoverBgImg}`}
-					alt={subMenuItem?.productName}
-					width={300}
-					height={375}
-				/>
-			) : (
-				<Image
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${imageCategory}/${lobbyPage?.npcImg}`}
-					alt={subMenuItem?.productName}
-					width={300}
-					height={375}
-				/>
-			)}
-			{/* // TODO: 等 yashbet 有資料後需更換  */}
-			{/* <Image */}
-			{/*   src={suBMenuLobbyImage} */}
-			{/*   width={250} */}
-			{/*   height={344} */}
-			{/*   alt={subMenuItem?.productName} */}
-			{/* /> */}
+			<img src={suBMenuLobbyImage} alt={subMenuItem?.productName} />
 			{isTpMaintain && (
 				<div className='under'>{t('Label_underMaintenance')}</div>
 			)}

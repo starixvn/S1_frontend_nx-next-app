@@ -35,7 +35,6 @@ const GameList = () => {
 					<GameListItem
 						key={subMenuItem?.tpGameIdNo}
 						subMenuItemClassName='gameItem'
-						imageCategory='game'
 						subMenuItem={subMenuItem}
 						onItemClick={onItemClick}
 					/>

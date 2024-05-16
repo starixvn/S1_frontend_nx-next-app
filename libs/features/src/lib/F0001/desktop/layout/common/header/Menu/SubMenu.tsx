@@ -99,7 +99,7 @@ const SubMenu = ({
 							null
 						return (
 							<button
-								key={`tpGameIdNo-${subMenuItem?.tpGameIdNo}`}
+								key={subMenuItem?.tpGameIdNo}
 								className={classNames({
 									active: subMenuItem?.isTpMaintain,
 								})}

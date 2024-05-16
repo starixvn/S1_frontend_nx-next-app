@@ -1,18 +1,13 @@
 import classNames from 'classnames'
-import { includes } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { isEventPeriod, isUrl } from '@nx-next-app/utils'
+import { isEventPeriod } from '@nx-next-app/utils'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { MenuKeyEnum, MenuIconTypeEnum } from '@nx-next-app/types'
 import { type IMergedMenuData } from '@nx-next-app/features/F0006/hooks'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0006/types'
-import type {
-	IHeaderSubMenuImg,
-	ISunMenuNpcImage,
-} from '@nx-next-app/site/yashbet'
 
 interface ISubMenuProps {
 	menuList: IMergedMenuData[]
@@ -58,7 +53,7 @@ const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
 						mobileHeaderPicUrl,
 						h5,
 					} = subMenuItem || {}
-					const { headerMenuImgList, hasDesktopLink } = h5 || {}
+					const { hasDesktopLink } = h5 || {}
 
 					const displayName =
 						subMenuItem?.currencyGameName &&
@@ -87,41 +82,7 @@ const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
 						>
 							{isNew && <i className='icon icon-new' />}
 
-							{headerMenuImgList?.map(image => {
-								const isNpc = (
-									img: IHeaderSubMenuImg
-								): img is ISunMenuNpcImage => {
-									return includes(img?.className, 'npc')
-								}
-
-								if (isNpc(image)) {
-									return (
-										<img
-											key={image.remoteImgUrl}
-											className={classNames(image.className)}
-											alt={image.remoteImgUrl}
-											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/dropdown/${image.remoteImgUrl}`}
-										/>
-										// TODO : 用 yashbet 資料時須改回來
-										// isUrl(suBMenuImage) ?
-										// <Image
-										//   src={suBMenuImage}
-										//   alt={productName}
-										//   width={86}
-										//   height={86}
-										// /> : <img src={suBMenuImage} alt={productName} />
-									)
-								}
-
-								return (
-									<img
-										key={image.imgUrl}
-										className={classNames(image.className)}
-										alt={image.imgUrl}
-										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/dropdown/${image.imgUrl}`}
-									/>
-								)
-							})}
+							<img src={suBMenuImage} alt={productName} />
 
 							<div>{displayName || productName}</div>
 

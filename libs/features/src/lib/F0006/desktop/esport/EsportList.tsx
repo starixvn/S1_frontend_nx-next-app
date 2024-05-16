@@ -35,7 +35,6 @@ const EsportList = () => {
 					{eSportSubMenus?.map(subMenuItem => (
 						<GameListItem
 							subMenuItemClassName='esport-item'
-							imageCategory='esport'
 							gameTextClassName='esport-name'
 							key={subMenuItem?.tpGameIdNo}
 							subMenuItem={subMenuItem}
