@@ -95,6 +95,7 @@ export interface IStaticAllowedCurrencies {
 	LIVE_CASINO_MG?: CurrenciesEnum[]
 	LIVE_CASINO_SA?: CurrenciesEnum[]
 	LIVE_CASINO_BG?: CurrenciesEnum[]
+	LIVE_CASINO_EVO?: CurrenciesEnum[]
 
 	SLOTS_PP?: CurrenciesEnum[]
 	SLOTS_AMB?: CurrenciesEnum[]
@@ -109,6 +110,12 @@ export interface IStaticAllowedCurrencies {
 	SLOTS_AMIGO?: CurrenciesEnum[]
 	SLOTS_ES?: CurrenciesEnum[]
 	SLOTS_SPRIBE?: CurrenciesEnum[]
+	SLOTS_ADVANT_PLAY?: CurrenciesEnum[]
+	SLOTS_BNG?: CurrenciesEnum[]
+	SLOTS_JILI?: CurrenciesEnum[]
+	SLOTS_NO_LIMIT_CITY?: CurrenciesEnum[]
+	SLOTS_RED_TIGER?: CurrenciesEnum[]
+	SLOTS_NET_ENT?: CurrenciesEnum[]
 
 	GAMES_V8_POKER?: CurrenciesEnum[]
 	GAMES_POKER_M_POKER?: CurrenciesEnum[]
@@ -118,6 +125,10 @@ export interface IStaticAllowedCurrencies {
 	GAME_MINES?: CurrenciesEnum[]
 	GAME_GOAL?: CurrenciesEnum[]
 	GAME_DICE?: CurrenciesEnum[]
+	GAMES_MAX_GAME?: CurrenciesEnum[]
+	GAMES_93_CONNECT?: CurrenciesEnum[]
+	GAME_CRASH?: CurrenciesEnum[]
+	GAME_GORUSH?: CurrenciesEnum[]
 
 	FISHING_SG?: CurrenciesEnum[]
 	FISHING_CQ9_ONE_SHOT_FISHING?: CurrenciesEnum[]
@@ -132,6 +143,7 @@ export interface IStaticAllowedCurrencies {
 
 	LOTTERY_GPI_THAILOTTERY?: CurrenciesEnum[]
 	LOTTERY_GPI_FAST3?: CurrenciesEnum[]
+	LOTTERY_TCG?: CurrenciesEnum[]
 
 	BANK_CARD?: CurrenciesEnum[]
 	E_WALLET?: CurrenciesEnum[]
