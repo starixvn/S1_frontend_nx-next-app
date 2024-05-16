@@ -12,6 +12,7 @@ import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
 import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
 import {
 	ALLOWED_CURRENCIES,
@@ -38,6 +39,8 @@ const { IovationScript, PlayTechScript, JackpotsScript } = ThirdPartyJS
 dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
 dayjs.extend(utc)
+dayjs.extend(customParseFormat)
+
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
