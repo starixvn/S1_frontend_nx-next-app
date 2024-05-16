@@ -6,9 +6,12 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0006/types'
 import GameListItem from '@nx-next-app/components/D0006/game-list-item'
 
-const LoginModal = dynamic(() => import('../modal/LoginModal'), {
-	ssr: false,
-})
+const LoginModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
+	{
+		ssr: false,
+	}
+)
 
 const FishingList = () => {
 	const { modal } = useGlobalModal()
