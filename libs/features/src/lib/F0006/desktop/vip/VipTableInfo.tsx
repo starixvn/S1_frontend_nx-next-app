@@ -1,8 +1,8 @@
 import { capitalize } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
-import { IVipBannerData } from '@nx-next-app/service'
 import { numberFormatExcludeString } from '@nx-next-app/utils'
+import { IVipBannerData } from '@nx-next-app/service'
 
 const VipTableInfo = ({
 	vipBannerData,
@@ -25,9 +25,7 @@ const VipTableInfo = ({
 					<td>{capitalize(t('Label_Vip_Deposit_Priority') || '')}</td>
 					{vipBannerData?.map(item => (
 						<td key={item.level}>
-							{item?.depositPriority ? (
-								<i className='icon icon-checkmark' />
-							) : null}
+							{item?.depositPriority && <i className='icon icon-checkmark' />}
 							{item?.depositPriority}
 						</td>
 					))}
@@ -36,9 +34,9 @@ const VipTableInfo = ({
 					<td>{capitalize(t('Label_Vip_WithDrawal_Priority') || '')}</td>
 					{vipBannerData?.map(item => (
 						<td key={item.level}>
-							{item?.withdrawalPriority ? (
+							{item?.withdrawalPriority && (
 								<i className='icon icon-checkmark' />
-							) : null}
+							)}
 							{item?.withdrawalPriority}
 						</td>
 					))}
@@ -47,9 +45,7 @@ const VipTableInfo = ({
 					<td>{capitalize(t('Label_Vip_Service_Support_At_Date') || '')}</td>
 					{vipBannerData?.map(item => (
 						<td key={item.level}>
-							{item?.serviceSupport ? (
-								<i className='icon icon-checkmark' />
-							) : null}
+							{item?.serviceSupport && <i className='icon icon-checkmark' />}
 							{item?.serviceSupport}
 						</td>
 					))}
