@@ -194,10 +194,12 @@ const Profile = () => {
 					<div className='left'>
 						<div>{t('Label_VIP_YourVIPIs')}</div>
 						<div>{levelText}</div>
-						<div>
-							{numberFormat(actualDeposit, currencyId)}
-							<div>/{numberFormat(Number(upDeposit), currencyId)}</div>
-						</div>
+						{!isVipLevelHighest && (
+							<div>
+								{numberFormat(actualDeposit, currencyId)}
+								<div>/{numberFormat(Number(upDeposit), currencyId)}</div>
+							</div>
+						)}
 					</div>
 					<div className='right'>
 						<img src={headerUrl as string} alt={levelTabsName as string} />

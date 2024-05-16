@@ -53,7 +53,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		{ headers: { cookie: currentHeaderCookies } }
 	)
 
-	// * 只支援 MYR IDR THB 幣別
 	if (!includes(ALLOWED_CURRENCIES['VIP'], Number(currencyId))) {
 		return {
 			redirect: {
