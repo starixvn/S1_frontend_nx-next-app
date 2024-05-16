@@ -7,6 +7,7 @@ import { numberFormat, revertTimeZone } from '@nx-next-app/utils'
 
 interface IStatementItemProps {
 	settledDate?: string
+	settledTime?: string
 	turnOver?: number
 	validBet?: number
 	winlostAmount?: number
@@ -21,6 +22,7 @@ interface IStatementItemProps {
 
 const StatementItem = ({
 	settledDate,
+	settledTime,
 	turnOver,
 	validBet,
 	winlostAmount,
@@ -32,7 +34,6 @@ const StatementItem = ({
 	bonusId,
 	bonusCode,
 }: IStatementItemProps) => {
-	console.log(settledDate)
 	const { activeTab, onDetails } = useStatement()
 	const { t } = useTranslation()
 	const {
@@ -177,7 +178,7 @@ const StatementItem = ({
 							CURRENCY_TO_TIMEZONE[currencyId]
 						})`}</span>
 						<span>
-							{revertTimeZone(settledDate ?? '').format('YYYY-MM-DD HH:mm:ss')}
+							{revertTimeZone(settledTime ?? '').format('YYYY-MM-DD HH:mm:ss')}
 						</span>
 					</li>
 					<li>
