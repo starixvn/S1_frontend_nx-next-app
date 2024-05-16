@@ -901,6 +901,7 @@ export const MENU_DATA = ({
 					productKey: 'LIVE_CASINO_EVO',
 					displayText: 'Evolution Gaming',
 					product: PRODUCTS['LIVE_CASINO_EVO'],
+					allowCurrencies: ALLOWED_CURRENCIES['LIVE_CASINO_EVO'],
 				},
 				{
 					h5: {
@@ -1317,6 +1318,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_ADVANT_PLAY'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_ADVANT_PLAY'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_ADVANT_PLAY'],
 				},
 				{
 					h5: {
@@ -1443,6 +1445,7 @@ export const MENU_DATA = ({
 							period: PRODUCT_EVENT_PERIOD['SLOTS_BNG'],
 						},
 					],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_BNG'],
 				},
 				{
 					h5: {
@@ -1521,6 +1524,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_JILI'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_JILI'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_JILI'],
 				},
 				{
 					h5: {
@@ -1622,6 +1626,7 @@ export const MENU_DATA = ({
 							period: PRODUCT_EVENT_PERIOD['SLOTS_NO_LIMIT_CITY'],
 						},
 					],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_NO_LIMIT_CITY'],
 				},
 				{
 					h5: {
@@ -1645,6 +1650,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_RED_TIGER'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_RED_TIGER'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_RED_TIGER'],
 				},
 				{
 					h5: {
@@ -1668,6 +1674,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_NET_ENT'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_NET_ENT'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_NET_ENT'],
 				},
 				{
 					h5: {
@@ -2048,6 +2055,7 @@ export const MENU_DATA = ({
 							period: PRODUCT_EVENT_PERIOD['GAMES_93_CONNECT'],
 						},
 					],
+					allowCurrencies: ALLOWED_CURRENCIES['GAMES_93_CONNECT'],
 				},
 				{
 					h5: {
@@ -2077,6 +2085,7 @@ export const MENU_DATA = ({
 							period: PRODUCT_EVENT_PERIOD['GAMES_MAX_GAME'],
 						},
 					],
+					allowCurrencies: ALLOWED_CURRENCIES['GAMES_MAX_GAME'],
 				},
 				{
 					h5: {
@@ -2244,6 +2253,7 @@ export const MENU_DATA = ({
 					productKey: 'GAME_CRASH',
 					displayText: 'Crash',
 					product: PRODUCTS['GAME_CRASH'],
+					allowCurrencies: ALLOWED_CURRENCIES['GAME_CRASH'],
 				},
 				{
 					h5: {
@@ -2266,6 +2276,7 @@ export const MENU_DATA = ({
 					productKey: 'GAME_GORUSH',
 					displayText: 'Go Rush',
 					product: PRODUCTS['GAME_GORUSH'],
+					allowCurrencies: ALLOWED_CURRENCIES['GAME_GORUSH'],
 				},
 			],
 			allowCurrencies: true,
@@ -2701,6 +2712,7 @@ export const MENU_DATA = ({
 					productKey: 'LOTTERY_TCG',
 					displayKey: 'Label_Product_TcGame',
 					product: PRODUCTS['LOTTERY_TCG'],
+					allowCurrencies: ALLOWED_CURRENCIES['LOTTERY_TCG'],
 				},
 				{
 					h5: {
