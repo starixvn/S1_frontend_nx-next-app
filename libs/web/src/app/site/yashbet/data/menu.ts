@@ -925,7 +925,7 @@ export const MENU_DATA: IMenuData[] = [
 			icon: 'icon icon-play',
 			subMenuClassName: 'play',
 		},
-		desktop: { subMenuClassName: 'tableList' },
+		desktop: { subMenuClassName: 'livecasinoList' },
 		category: MenuKeyEnum.Game,
 		displayKey: 'Label_General_Games',
 		pathname: paths.game.root,

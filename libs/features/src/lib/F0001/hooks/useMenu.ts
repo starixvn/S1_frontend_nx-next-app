@@ -95,7 +95,7 @@ const useMenu = () => {
 		auth,
 		userInfo: { langId, memberType },
 	} = useAuth()
-  const { modal } = useGlobalModal()
+	const { modal } = useGlobalModal()
 	const { LobberHeaderMenuList, isLobbyHeaderError } = useMenuData()
 	const { tpMaintainList } = useGlobalData()
 	const [gotoGame] = useLazyGotoGameQuery()
@@ -522,11 +522,10 @@ const useMenu = () => {
 				[MenuActionTypeEnum.EnterPage]: enterPageMethod,
 				[MenuActionTypeEnum.UseGoToGame]: goToGameMethod,
 				[MenuActionTypeEnum.WindowOpen]: windowOpenMethod,
-
 				// * 靜態遊戲 enterPage 走 Default
-				Null: () => enterPageMethod(),
+				[MenuActionTypeEnum.Null]: enterPageMethod,
 			}
-			return (switchMethod[menuActionType!] || switchMethod.Null)()
+			return switchMethod[menuActionType ?? MenuActionTypeEnum.Null]()
 		}
 
 		if (isDynamic(item)) {

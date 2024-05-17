@@ -31,7 +31,7 @@ const LotteryListItem = ({
 	const suBMenuLobbyImage =
 		subMenuItem?.pcLobbyPicUrl && JSON.parse(subMenuItem?.pcLobbyPicUrl)[0]
 
-	const { iconType, iconStartTime, iconEndTime, isTpMaintain } =
+	const { iconType, iconStartTime, iconEndTime, isTpMaintain, productName } =
 		subMenuItem || {}
 
 	const lobbyIcon =
@@ -48,10 +48,10 @@ const LotteryListItem = ({
 			{lobbyIcon}
 
 			<div className='name' style={{ marginTop: '30px' }}>
-				{displayName || subMenuItem?.productName}
+				{displayName || productName}
 			</div>
 
-			<img src={suBMenuLobbyImage} alt={subMenuItem?.productName} />
+			<img src={suBMenuLobbyImage} alt={productName} />
 
 			{isTpMaintain && (
 				<div className='under'>{t('Label_General_UnderMaintenance')}</div>

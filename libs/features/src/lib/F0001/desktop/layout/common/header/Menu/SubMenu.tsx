@@ -71,7 +71,7 @@ const SubMenu = ({
 		if (subMenu) {
 			return (
 				<div
-					key={`lobbyCategoryId-${lobbyCategoryId}`}
+					key={lobbyCategoryId}
 					className={classNames(`${subMenuClassName} ${langId}`, {
 						active,
 					})}

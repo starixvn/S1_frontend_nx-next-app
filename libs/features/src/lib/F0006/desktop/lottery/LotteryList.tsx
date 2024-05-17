@@ -56,7 +56,7 @@ const LotteryList = () => {
 				<Carousel>
 					{lotterySubMenus?.map(subMenuItem => (
 						<LotteryListItem
-							subMenuItemClassName='swiper-slider'
+							subMenuItemClassName='swiper-slide'
 							key={subMenuItem?.tpGameIdNo}
 							subMenuItem={subMenuItem}
 							onItemClick={onItemClick}

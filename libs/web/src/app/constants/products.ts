@@ -701,6 +701,19 @@ export const PRODUCTS = {
 		tpGameType: 113,
 		gameId: 0,
 	},
+	'93Connect': {
+		tpGameIdNo: 129,
+		tpId: 62,
+		tpGameType: 114,
+		gameId: 'LOBBY',
+	},
+	WonCasino: {
+		tpGameIdNo: 131,
+		tpId: 64,
+		tpGameType: 116,
+		gameId: 0,
+	},
+
 	// * Footer 靜態遊戲入口
 	BaseBall: {
 		tpGameIdNo: 0, // DB 沒有定義 // 先訂 0 build 的時候會不給過

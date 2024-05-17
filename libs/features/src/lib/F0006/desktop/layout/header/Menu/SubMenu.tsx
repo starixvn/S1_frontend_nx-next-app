@@ -220,14 +220,6 @@ const SubMenu = ({
 			>
 				<div />
 			</div>
-			<button
-				className={classNames(`rankingList ${langId}`, {
-					active: debouncedMenuKey === 'LeaderBoard',
-				})}
-				onClick={() => push(paths.leaderBoard.root)}
-			>
-				<div />
-			</button>
 		</div>
 	)
 }

@@ -269,6 +269,19 @@ export const MENU_DATA: IMenuData[] = [
 				},
 			},
 			{
+				...PRODUCTS.WonCasino,
+				pathname: paths.liveCasino.root,
+				h5: {
+					hasLobby: false,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+				desktop: {
+					hasLobby: true,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+			},
+
+			{
 				...PRODUCTS.BigGaming,
 				pathname: paths.liveCasino.root,
 				h5: {
@@ -329,7 +342,7 @@ export const MENU_DATA: IMenuData[] = [
 				},
 			},
 			{
-				...PRODUCTS.PlaytechCasino,
+				...PRODUCTS.NewPlayTechCasino,
 				pathname: paths.liveCasino.root,
 				h5: {
 					hasLobby: false,
@@ -756,7 +769,7 @@ export const MENU_DATA: IMenuData[] = [
 				},
 			},
 			{
-				...PRODUCTS.PlaytechSlot,
+				...PRODUCTS.NewPlayTechSlot,
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.Link,
@@ -764,7 +777,7 @@ export const MENU_DATA: IMenuData[] = [
 				desktop: { hasLobby: true, menuActionType: MenuActionTypeEnum.Link },
 				pathname: paths.slots.root,
 				query: {
-					tpId: PRODUCTS.PlaytechSlot.tpId,
+					tpId: PRODUCTS.NewPlayTechSlot.tpId,
 				},
 			},
 		],
@@ -915,6 +928,30 @@ export const MENU_DATA: IMenuData[] = [
 			},
 			{
 				...PRODUCTS.GoRush,
+				pathname: paths.game.root,
+				h5: {
+					hasLobby: false,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+				desktop: {
+					hasLobby: true,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+			},
+			{
+				...PRODUCTS.MaxGame,
+				pathname: paths.game.root,
+				h5: {
+					hasLobby: false,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+				desktop: {
+					hasLobby: true,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+			},
+			{
+				...PRODUCTS['93Connect'],
 				pathname: paths.game.root,
 				h5: {
 					hasLobby: false,
