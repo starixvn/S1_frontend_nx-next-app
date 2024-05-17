@@ -106,6 +106,7 @@ export interface SlotsContextInterface {
 		playFree: boolean
 	}) => void
 	onToggleDropdown: () => void
+	isNewGame: () => void
 }
 
 export const SlotsContext = createContext<SlotsContextInterface>(
@@ -159,7 +160,7 @@ const SlotsProvider = ({
 	)
 	const [searchCategoryText, setSearchCategoryText] = useState('')
 	const [activeCategoryKey, setActiveCategoryKey] =
-		useState<keyof ISlotsGameData>('all')
+		useState<keyof ISlotsGameData>('featured')
 	const [categoryKeys, setCategoryKeys] = useState(
 		Object.keys(persistSlotsCategoryData)
 	)
@@ -412,6 +413,15 @@ const SlotsProvider = ({
 		}
 	}
 
+	// 將New Game的gameId存在一個陣列，可以讓其他類別的遊戲比對是不是剛好也含有New Game的遊戲
+	const isNewGame = () => {
+		const newGamesArr: string[] = []
+		persistSlotsCategoryData['new']?.map(value =>
+			newGamesArr.push(value.gameId)
+		)
+		return newGamesArr
+	}
+
 	useEffect(() => {
 		// * 首次進入slots計算整理myFavorites
 		if (isFirstRender) {
@@ -444,7 +454,6 @@ const SlotsProvider = ({
 					const result = value.find(
 						(item: IGameData) => String(item.tpId) === queryTpId
 					)
-
 					if (result !== undefined) {
 						newCategoryKeys.push(key)
 					}
@@ -459,7 +468,11 @@ const SlotsProvider = ({
 		}
 
 		updateCategoryKeys()
-		setActiveCategoryKey('all')
+		setActiveCategoryKey('featured') // 一進畫面先顯示哪個類別的遊戲
+		// 如果featured裡面沒有資料，直接帶ALL的
+		if (persistSlotsCategoryData['featured']?.length === 0) {
+			setActiveCategoryKey('all')
+		}
 	}, [queryTpId])
 
 	useEffect(() => {
@@ -507,7 +520,7 @@ const SlotsProvider = ({
 				({ tpId }) => !uniqueTpIds.includes(tpId)
 			)
 		}
-		// * 過濾當前 tpId 與 searchCategoryText
+		// * 過濾當前 tpId 與 searchCategoryText  🟠遊戲排序
 		const filteredGameList = originGameList
 			.filter(({ tpId, gameName }) => {
 				return (
@@ -533,7 +546,6 @@ const SlotsProvider = ({
 				(a, b) =>
 					new Date(b.launchDate).getTime() - new Date(a.launchDate).getTime()
 			)
-
 		setSlotsGameList(filteredGameList)
 		setIsProcess(false)
 	}, [activeCategoryKey, queryTpId, searchCategoryText, myFavorites])
@@ -584,6 +596,7 @@ const SlotsProvider = ({
 		onGameActive,
 		onGamePlay,
 		onToggleDropdown,
+		isNewGame,
 	}
 
 	return <SlotsContext.Provider value={value}>{children}</SlotsContext.Provider>
