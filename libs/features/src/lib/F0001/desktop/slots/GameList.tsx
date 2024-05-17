@@ -9,15 +9,16 @@ const GameList = () => {
 		slotsGameList,
 		vendorList,
 		imgUrl,
-		activeCategoryKey,
 		gameListRef,
 		onGamePlay,
 		onFavoritesToggle,
+		isNewGame,
 	} = useSlots()
 	const {
 		userInfo: { langId },
 	} = useAuth()
 	const { t } = useTranslation()
+	const newGamesArr = isNewGame()
 
 	return slotsGameList && slotsGameList.length > 0 ? (
 		<Suspense>
@@ -53,7 +54,7 @@ const GameList = () => {
 										{t('Label_General_UnderMaintenance')}
 									</div>
 								)}
-								{activeCategoryKey === 'new' && (
+								{Array.isArray(newGamesArr) && newGamesArr.includes(gameId) && (
 									<div className='new-icon'>{t('Label_General_New')}</div>
 								)}
 

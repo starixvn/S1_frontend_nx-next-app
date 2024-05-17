@@ -2,13 +2,17 @@ import React from 'react'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useSlots } from '@nx-next-app/features/F0001/providers'
+import { moveItem } from '@nx-next-app/utils'
 
 const CategoryFilter = () => {
 	const { categoryKeys, activeCategoryKey, onCategoryChange } = useSlots()
 	const { t } = useTranslation()
+
+	const newCategoryKeys = moveItem(categoryKeys, 5, 1)
+
 	return (
 		<div className='select-bar'>
-			{categoryKeys.map(value => {
+			{newCategoryKeys.map(value => {
 				return (
 					<div
 						key={`casino-nav-${value}`}
