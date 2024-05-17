@@ -280,6 +280,7 @@ export const MENU_DATA: IMenuData[] = [
 					menuActionType: MenuActionTypeEnum.EnterPage,
 				},
 			},
+
 			{
 				...PRODUCTS.BigGaming,
 				pathname: paths.liveCasino.root,
@@ -341,7 +342,7 @@ export const MENU_DATA: IMenuData[] = [
 				},
 			},
 			{
-				...PRODUCTS.PlaytechCasino,
+				...PRODUCTS.NewPlayTechCasino,
 				pathname: paths.liveCasino.root,
 				h5: {
 					hasLobby: false,
@@ -927,6 +928,30 @@ export const MENU_DATA: IMenuData[] = [
 			},
 			{
 				...PRODUCTS.GoRush,
+				pathname: paths.game.root,
+				h5: {
+					hasLobby: false,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+				desktop: {
+					hasLobby: true,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+			},
+			{
+				...PRODUCTS.MaxGame,
+				pathname: paths.game.root,
+				h5: {
+					hasLobby: false,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+				desktop: {
+					hasLobby: true,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+			},
+			{
+				...PRODUCTS['93Connect'],
 				pathname: paths.game.root,
 				h5: {
 					hasLobby: false,

@@ -59,14 +59,18 @@ export interface ITeamData {
 	imageName: string
 }
 
+export interface ITeamDataWithSort extends ITeamData {
+	sort: number
+}
+
 export interface ICupEventPredictionSettingData {
 	data: {
-		top24Team: (ITeamData & { sort: number })[]
-		roundOf16: (ITeamData & { sort: number })[]
-		quarterFinals: (ITeamData & { sort: number })[]
-		semiFinals: (ITeamData & { sort: number })[]
-		'3rdPlace': (ITeamData & { sort: number })[]
-		final: (ITeamData & { sort: number })[]
+		top24Team: ITeamDataWithSort[]
+		roundOf16: ITeamDataWithSort[]
+		quarterFinals: ITeamDataWithSort[]
+		semiFinals: ITeamDataWithSort[]
+		'3rdPlace': ITeamDataWithSort[]
+		final: ITeamDataWithSort[]
 		matchTimes: {
 			matchName: string
 			matchTime: string

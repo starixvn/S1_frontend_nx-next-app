@@ -6,17 +6,15 @@ import classNames from 'classnames'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
-import { Dispatch, ReactNode, SetStateAction } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import { MenuIconTypeEnum } from '@nx-next-app/types'
-import { isEventPeriod, isUrl } from '@nx-next-app/utils'
+import { isEventPeriod } from '@nx-next-app/utils'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	ALLOWED_CURRENCIES,
 	desktopSubMenuVipImageList,
 	desktopSubMenuLeaderBoardImageList,
 	desktopSunMenuReferralImageList,
-	type IHeaderSubMenuImg,
-	type ISunMenuNpcImage,
 } from '@nx-next-app/site/yashbet'
 import type { IMergedMenuData } from '@nx-next-app/features/F0006/hooks'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0006/types'
@@ -92,13 +90,10 @@ const SubMenu = ({
 							iconType,
 							iconStartTime,
 							iconEndTime,
-							desktop,
 							productName,
 							isTpMaintain,
 							tpGameIdNo,
 						} = subMenuItem || {}
-
-						const { headerMenuImgList } = desktop || {}
 
 						const switchSubMenuIcon = (iconType: MenuIconTypeEnum) => {
 							return subMenuIcon[iconType] || ''
@@ -112,7 +107,9 @@ const SubMenu = ({
 						return (
 							<button
 								key={tpGameIdNo}
-								className={classNames(submenuIcon, { active: isTpMaintain })}
+								className={classNames({
+									active: subMenuItem?.isTpMaintain,
+								})}
 								onMouseEnter={() => setMenuKey(debouncedMenuKey)}
 								onMouseLeave={() => setMenuKey(undefined)}
 								onClick={() => {
@@ -122,48 +119,13 @@ const SubMenu = ({
 									})
 								}}
 							>
-								{headerMenuImgList?.map(img => {
-									const isNpc = (
-										img: IHeaderSubMenuImg
-									): img is ISunMenuNpcImage => {
-										return includes(img?.className, 'npc')
-									}
-
-									if (isNpc(img)) {
-										return (
-											<img
-												key={img.remoteImgUrl}
-												className={classNames(img.className)}
-												alt={img.remoteImgUrl}
-												src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${img.remoteImgUrl}`}
-											/>
-
-											// TODO : 目前使用 nova 資料的圖片，之後需更換成 yashbet
-											// isUrl(suBMenuImage) ? (
-											// 	<Image
-											// 		className='List-npc'
-											// 		src={suBMenuImage}
-											// 		width={150}
-											// 		height={150}
-											// 		alt={productName}
-											// 	/>
-											// ) : (
-											// 	<img src={suBMenuImage} alt='productName' />
-											// )
-										)
-									}
-									return (
-										<img
-											key={img.imgUrl}
-											className={classNames(img.className)}
-											alt={img.imgUrl}
-											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${img.imgUrl}`}
-										/>
-									)
-								})}
-
+								{submenuIcon}
+								<img
+									className='List-npc'
+									src={suBMenuImage}
+									alt={productName}
+								/>
 								<span>{displayName || productName}</span>
-
 								{isTpMaintain && (
 									<div className='under'>
 										{t('Label_General_UnderMaintenance')}
@@ -258,14 +220,6 @@ const SubMenu = ({
 			>
 				<div />
 			</div>
-			<button
-				className={classNames(`rankingList ${langId}`, {
-					active: debouncedMenuKey === 'LeaderBoard',
-				})}
-				onClick={() => push(paths.leaderBoard.root)}
-			>
-				<div />
-			</button>
 		</div>
 	)
 }

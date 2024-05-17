@@ -73,6 +73,8 @@ export interface IStaticAllowedCurrencies {
 	SPORTS_SABA_CLUB?: CurrenciesEnum[]
 	SPORTS_VOLLEYBALL?: CurrenciesEnum[]
 	SLOTS_PEGASUS?: CurrenciesEnum[]
+	SLOTS_SPRIBE?: CurrenciesEnum[]
+	SLOTS_END?: CurrenciesEnum[]
 
 	LIVE_CASINO_PP?: CurrenciesEnum[]
 	LIVE_CASINO_WM?: CurrenciesEnum[]

@@ -33,9 +33,8 @@ const LiveCasinoListItem = ({
 	const suBMenuLobbyImage =
 		subMenuItem?.pcLobbyPicUrl && JSON.parse(subMenuItem?.pcLobbyPicUrl)[0]
 
-	const { iconType, iconStartTime, iconEndTime, isTpMaintain, desktop } =
+	const { iconType, iconStartTime, iconEndTime, isTpMaintain } =
 		subMenuItem || {}
-	const { lobbyPage } = desktop || {}
 
 	const lobbyIcon =
 		(isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
@@ -51,25 +50,7 @@ const LiveCasinoListItem = ({
 			onClick={() => onItemClick(subMenuItem)}
 		>
 			{lobbyIcon}
-
-			<div className='animationImg'>
-				{/* // TODO: 等 yashbet 有資料後需更換  */}
-				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/livecasino/${lobbyPage?.hoverBgImg}`}
-					alt='animation-img'
-				/>
-			</div>
-			{/* // TODO: 等 yashbet 有資料後需更換  */}
-			{/* <Image */}
-			{/* 	src={suBMenuLobbyImage} */}
-			{/* 	width={260} */}
-			{/* 	height={330} */}
-			{/* 	alt={subMenuItem?.productName} */}
-			{/* /> */}
-			<img
-				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/livecasino/${lobbyPage?.npcImg}`}
-				alt={subMenuItem?.productName}
-			/>
+			<img src={suBMenuLobbyImage} alt={subMenuItem?.productName} />
 			{isTpMaintain && (
 				<div className='under'>{t('Label_General_UnderMaintenance')}</div>
 			)}

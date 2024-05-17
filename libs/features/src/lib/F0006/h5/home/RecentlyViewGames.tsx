@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
-import { Carousel } from '@nx-next-app/components/H0006'
+import { Carousel, Img } from '@nx-next-app/components/H0006'
 import { paths } from '@nx-next-app/constants'
 import useRecentlyViewed from '@nx-next-app/features/F0006/hooks/useRecentlyViewed'
 
@@ -51,10 +51,10 @@ const RecentlyViewGames = () => {
 								})}
 							>
 								<div>
-									<img
+									<Img
 										className='recently-image'
 										src={gameLogo[langId] ?? gameLogo['en']}
-										alt='recently'
+										alt='recently-image'
 									/>
 
 									<img src={tpLogo} alt='' className='recently-brand' />

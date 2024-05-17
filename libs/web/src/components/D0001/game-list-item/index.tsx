@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 import { useTranslation } from 'next-i18next'
 import classNames from 'classnames'
+import Image from 'next/future/image'
 import { useAuth } from '@nx-next-app/data-access'
 import { isEventPeriod } from '@nx-next-app/utils'
 import { MenuIconTypeEnum } from '@nx-next-app/types'
@@ -64,7 +65,12 @@ const GameListItem = ({ subMenuItem, onItemClick }: IListItemProps) => {
 			{lobbyIcon}
 
 			<div className='img-wrapper'>
-				<img src={suBMenuLobbyImage} alt={subMenuItem?.productName} />
+				<Image
+					src={suBMenuLobbyImage}
+					width={260}
+					height={260}
+					alt={subMenuItem?.productName}
+				/>
 				<div className='btn-container'>
 					<button>{t('Label_PlayNow')}</button>
 				</div>

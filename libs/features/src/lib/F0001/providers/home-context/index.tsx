@@ -19,7 +19,12 @@ import {
 	useLazyGetWalletInfoQuery,
 } from '@nx-next-app/service'
 import { CurrenciesEnum, DeviceTypeEnum, IFooterData } from '@nx-next-app/types'
-import { SlotGameCategoryEnum,useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
+import {
+	SlotGameCategoryEnum,
+	useAuth,
+	useGlobalData,
+	useStaticData,
+} from '@nx-next-app/data-access'
 import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
@@ -180,6 +185,7 @@ const defaultDesktopHomeOrders = [
 	DesktopHomeComponentsEnum.HotMatch,
 	DesktopHomeComponentsEnum.LiveCasino,
 	DesktopHomeComponentsEnum.HotGame,
+	DesktopHomeComponentsEnum.RecentlyViewGames,
 	DesktopHomeComponentsEnum.AppDownloadBanner,
 	DesktopHomeComponentsEnum.ProviderBlock,
 	DesktopHomeComponentsEnum.OfficialPartner,

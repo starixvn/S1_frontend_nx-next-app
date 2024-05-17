@@ -11,7 +11,7 @@ export const FOOTER_DATA = ({
 }): IFooterData => {
 	// * 根據幣別決定路徑，每間品牌不同
 	return {
-		// * platformList 渲染時需透過 tpIds、allowCurrencies 過濾一次
+		// * platformList 須經過 useMenu(已包含 排序、tpIds、allowCurrencies) 過濾
 		platformList: [
 			{
 				...PRODUCTS.Soccer,
@@ -40,10 +40,6 @@ export const FOOTER_DATA = ({
 			{
 				...PRODUCTS.PragmaticPlayCasino,
 				imgName: 'pp',
-			},
-			{
-				...PRODUCTS.WonCasino,
-				imgName: 'woncasino',
 			},
 			{
 				...PRODUCTS.BigGaming,

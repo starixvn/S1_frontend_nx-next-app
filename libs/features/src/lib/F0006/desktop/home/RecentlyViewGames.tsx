@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
-import { Carousel } from '@nx-next-app/components/D0006'
+import { Carousel, Img } from '@nx-next-app/components/D0006'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import useRecentlyViewed from '@nx-next-app/features/F0006/hooks/useRecentlyViewed'
 
@@ -69,12 +69,10 @@ const RecentlyViewGames = () => {
 								})}
 							>
 								<div>
-									<img
+									<Img
 										className='recently-image'
 										src={gameLogo[langId] ?? gameLogo['en']}
-										width={300}
-										height={300}
-										alt='recently'
+										alt='recently-image'
 									/>
 
 									<img src={tpLogo} alt='' className='recently-brand' />

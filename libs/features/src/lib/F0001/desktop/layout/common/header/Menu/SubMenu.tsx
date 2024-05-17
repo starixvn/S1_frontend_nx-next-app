@@ -71,7 +71,7 @@ const SubMenu = ({
 		if (subMenu) {
 			return (
 				<div
-					key={`lobbyCategoryId-${lobbyCategoryId}`}
+					key={lobbyCategoryId}
 					className={classNames(`${subMenuClassName} ${langId}`, {
 						active,
 					})}
@@ -99,7 +99,7 @@ const SubMenu = ({
 							null
 						return (
 							<button
-								key={`tpGameIdNo-${subMenuItem?.tpGameIdNo}`}
+								key={subMenuItem?.tpGameIdNo}
 								className={classNames({
 									active: subMenuItem?.isTpMaintain,
 								})}

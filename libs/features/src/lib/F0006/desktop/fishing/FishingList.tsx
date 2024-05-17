@@ -35,7 +35,6 @@ const FishingList = () => {
 					{fishingSubMenus?.map(subMenuItem => (
 						<GameListItem
 							key={subMenuItem?.tpGameIdNo}
-							imageCategory='fishing'
 							subMenuItem={subMenuItem}
 							onItemClick={onItemClick}
 						/>

@@ -15,6 +15,7 @@ import {
 	useGetCustTpGameTypeSettingQuery,
 	useLazyGotoGameQuery,
 } from '@nx-next-app/service'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { getIsTpMaintain, onWindowOpenProduct } from '@nx-next-app/utils'
 import { MENU_DATA } from '@nx-next-app/site/nova88'
 import { memberTypeEnum } from 'libs/web/src/app/constants/userInfo'
@@ -23,7 +24,6 @@ import type {
 	IStaticSubMenuItem,
 	IDynamicSubMenuLinkType,
 } from '@nx-next-app/features/F0001/types'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 
 type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void
@@ -95,9 +95,9 @@ const useMenu = () => {
 		auth,
 		userInfo: { langId, memberType },
 	} = useAuth()
+	const { modal } = useGlobalModal()
 	const { LobberHeaderMenuList, isLobbyHeaderError } = useMenuData()
 	const { tpMaintainList } = useGlobalData()
-	const { modal } = useGlobalModal()
 	const [gotoGame] = useLazyGotoGameQuery()
 	const { data: { data: tpGameTypeSettingList = [] } = {} } =
 		useGetCustTpGameTypeSettingQuery(null, {
@@ -521,11 +521,10 @@ const useMenu = () => {
 				[MenuActionTypeEnum.EnterPage]: enterPageMethod,
 				[MenuActionTypeEnum.UseGoToGame]: goToGameMethod,
 				[MenuActionTypeEnum.WindowOpen]: windowOpenMethod,
-
 				// * 靜態遊戲 enterPage 走 Default
-				Null: () => enterPageMethod(),
+				[MenuActionTypeEnum.Null]: enterPageMethod,
 			}
-			return (switchMethod[menuActionType!] || switchMethod.Null)()
+			return switchMethod[menuActionType ?? MenuActionTypeEnum.Null]()
 		}
 
 		if (isDynamic(item)) {
