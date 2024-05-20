@@ -15686,6 +15686,9 @@ main.casino .banner {
 .home-appdownload-content .text div:nth-child(3) {
   color: #A4A4A4;
 }
+.home-appdownload-content .text div.fullname {
+  font-weight: 600;
+}
 .home-appdownload .btn-download {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15737,6 +15740,14 @@ main.casino .banner {
 .home-appdownload .btn-download > div a {
   color: #0066CC;
   margin-top: 1.5vw;
+}
+
+.fullname {
+  white-space: nowrap;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: inline;
 }
 
 .home-partner {
