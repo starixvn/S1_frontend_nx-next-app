@@ -34,7 +34,7 @@ import {
 	some,
 	trim,
 } from 'lodash-es'
-import { getIsTpMaintain } from '@nx-next-app/utils'
+import { getIsTpMaintain, moveItem } from '@nx-next-app/utils'
 import { BannerTypeEnum } from '@nx-next-app/types'
 import { CategoryEnum } from '@nx-next-app/features/F0001/types'
 
@@ -106,7 +106,7 @@ export interface SlotsContextInterface {
 		playFree: boolean
 	}) => void
 	onToggleDropdown: () => void
-	isNewGame: () => void
+	isNewGame: () => string[]
 }
 
 export const SlotsContext = createContext<SlotsContextInterface>(
@@ -573,7 +573,7 @@ const SlotsProvider = ({
 		imgUrl: persistSlotsGameData.imgUrl,
 		bannerList,
 		vendorList,
-		categoryKeys,
+		categoryKeys: moveItem(categoryKeys, 5, 1),
 		isGetBannerV3Fetching,
 		activeVendorTpId,
 		activeCategoryKey,

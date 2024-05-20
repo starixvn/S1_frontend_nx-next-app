@@ -54,7 +54,7 @@ const GameList = () => {
 										{t('Label_General_UnderMaintenance')}
 									</div>
 								)}
-								{Array.isArray(newGamesArr) && newGamesArr.includes(gameId) && (
+								{newGamesArr.includes(gameId) && (
 									<div className='new-icon'>{t('Label_General_New')}</div>
 								)}
 

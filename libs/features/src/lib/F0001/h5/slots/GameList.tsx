@@ -48,7 +48,7 @@ const GameList = () => {
 								className={classNames('info', { 'star active': isMaintain })}
 								key={`slots-game-${tpId}-${gameId}`}
 							>
-								{Array.isArray(newGamesArr) && newGamesArr.includes(gameId) ? (
+								{newGamesArr.includes(gameId) ? (
 									<i className='icon  icon-new' />
 								) : null}
 
