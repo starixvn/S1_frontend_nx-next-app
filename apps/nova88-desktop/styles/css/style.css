@@ -3490,6 +3490,14 @@ main .promosswiper .swiper-button-prev::after {
   width: 623px;
 }
 
+.fullname {
+  white-space: nowrap;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: inline;
+}
+
 .partner-title {
   color: #0A1B38;
   width: 1400px;
