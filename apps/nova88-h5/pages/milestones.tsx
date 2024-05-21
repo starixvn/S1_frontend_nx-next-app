@@ -23,12 +23,10 @@ const MilestonesPage = ({
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData}>
-					<main className='milestones'>
-						<MilestoneConent
-							slideData={slideData}
-							milestonesData={milestonesData}
-						/>
-					</main>
+					<MilestoneConent
+						slideData={slideData}
+						milestonesData={milestonesData}
+					/>
 				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>
