@@ -62,52 +62,66 @@ const MilestoneContent = ({
 		</div>
 	)
 
+	const goBack = () => {
+		window.history.back()
+	}
+
 	return (
 		<>
-			<div className='milestones-home' id='homepage'>
-				<div>
-					<div>
-						Nova<span>88</span>
-					</div>
-					<span>{t('Label_Milestone_Title')}</span>
-					<div>{t('Label_Milestone_MainTitleDetail')}</div>
+			<div className='header'>
+				<div className='title'>
+					<a role='link' aria-hidden='true'>
+						<i className='icon icon-keyboard_arrow_left' onClick={goBack} />
+					</a>
+					{t('Label_General_Milestone')}
 				</div>
-				<a href='#page-two' className='top-btn' onClick={handleClickButton}>
-					<img src={`${hostImgUrl}/top-btn.png`} alt='button-img' />
-				</a>
 			</div>
-			<div className='milestones-swiper'>
-				<Swiper
-					{...swiperConfig}
-					className='swiper-container'
-					id='page-two'
-					onSwiper={setSwiper}
-				>
-					{slideData.map(slide => (
-						<SwiperSlide key={slide.imgSrc} className={slide.className}>
-							<Date />
-							<div className='page-title'>
-								<div>{t(slide.title)}</div>
-								<div>{t(slide.subtitle)}</div>
-								<img
-									className='page-img'
-									src={`${hostImgUrl}/${slide.imgSrc}`}
-									alt={`milestone-img-${slide.imgSrc}`}
-								/>
-							</div>
-							<div className='page-text'>
-								<div>{t(slide.content)}</div>
-							</div>
-						</SwiperSlide>
-					))}
-					<div className='swiper-button-next'>
-						<div className='circle-outline' />
+			<main className='milestones'>
+				<div className='milestones-home' id='homepage'>
+					<div>
+						<div>
+							Nova<span>88</span>
+						</div>
+						<span>{t('Label_Milestone_Title')}</span>
+						<div>{t('Label_Milestone_MainTitleDetail')}</div>
 					</div>
-					<div className='swiper-button-prev'>
-						<div className='circle-outline' />
-					</div>
-				</Swiper>
-			</div>
+					<a href='#page-two' className='top-btn' onClick={handleClickButton}>
+						<img src={`${hostImgUrl}/top-btn.png`} alt='button-img' />
+					</a>
+				</div>
+				<div className='milestones-swiper'>
+					<Swiper
+						{...swiperConfig}
+						className='swiper-container'
+						id='page-two'
+						onSwiper={setSwiper}
+					>
+						{slideData.map(slide => (
+							<SwiperSlide key={slide.imgSrc} className={slide.className}>
+								<Date />
+								<div className='page-title'>
+									<div>{t(slide.title)}</div>
+									<div>{t(slide.subtitle)}</div>
+									<img
+										className='page-img'
+										src={`${hostImgUrl}/${slide.imgSrc}`}
+										alt={`milestone-img-${slide.imgSrc}`}
+									/>
+								</div>
+								<div className='page-text'>
+									<div>{t(slide.content)}</div>
+								</div>
+							</SwiperSlide>
+						))}
+						<div className='swiper-button-next'>
+							<div className='circle-outline' />
+						</div>
+						<div className='swiper-button-prev'>
+							<div className='circle-outline' />
+						</div>
+					</Swiper>
+				</div>
+			</main>
 		</>
 	)
 }
