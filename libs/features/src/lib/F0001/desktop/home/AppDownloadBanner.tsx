@@ -15,6 +15,7 @@ const AppDownloadBanner = () => {
 				<div>{t('Label_APP_DOWNLOAD')}</div>
 				<div>
 					<Trans
+						className='fullname'
 						i18nKey='Label_APP_DOWNLOAD_Title'
 						components={{
 							span: <span />,
