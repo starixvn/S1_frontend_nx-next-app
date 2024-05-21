@@ -179,6 +179,10 @@ const SlotsProvider = ({
 		| null
 	>(null)
 	const [isActiveDropdown, setIsActiveDropdown] = useState(false)
+	// 找出featured的位置
+	const featuredIdx = categoryKeys.findIndex(value => {
+		return value === 'featured'
+	})
 
 	const [setFavoriteGame, { isLoading: isSetFavoriteGameLoading }] =
 		useSetFavoriteGameMutation()
@@ -520,7 +524,7 @@ const SlotsProvider = ({
 				({ tpId }) => !uniqueTpIds.includes(tpId)
 			)
 		}
-		// * 過濾當前 tpId 與 searchCategoryText  🟠遊戲排序
+		// * 過濾當前 tpId 與 searchCategoryText
 		const filteredGameList = originGameList
 			.filter(({ tpId, gameName }) => {
 				return (
@@ -573,7 +577,11 @@ const SlotsProvider = ({
 		imgUrl: persistSlotsGameData.imgUrl,
 		bannerList,
 		vendorList,
-		categoryKeys: moveItem(categoryKeys, 5, 1),
+		categoryKeys: moveItem(
+			categoryKeys,
+			featuredIdx === -1 ? 5 : featuredIdx,
+			1
+		),
 		isGetBannerV3Fetching,
 		activeVendorTpId,
 		activeCategoryKey,
