@@ -34,7 +34,7 @@ import {
 	some,
 	trim,
 } from 'lodash-es'
-import { getIsTpMaintain } from '@nx-next-app/utils'
+import { getIsTpMaintain, moveItem } from '@nx-next-app/utils'
 import { BannerTypeEnum } from '@nx-next-app/types'
 import { CategoryEnum } from '@nx-next-app/features/F0001/types'
 
@@ -106,6 +106,7 @@ export interface SlotsContextInterface {
 		playFree: boolean
 	}) => void
 	onToggleDropdown: () => void
+	isNewGame: () => string[]
 }
 
 export const SlotsContext = createContext<SlotsContextInterface>(
@@ -159,7 +160,7 @@ const SlotsProvider = ({
 	)
 	const [searchCategoryText, setSearchCategoryText] = useState('')
 	const [activeCategoryKey, setActiveCategoryKey] =
-		useState<keyof ISlotsGameData>('all')
+		useState<keyof ISlotsGameData>('featured')
 	const [categoryKeys, setCategoryKeys] = useState(
 		Object.keys(persistSlotsCategoryData)
 	)
@@ -178,6 +179,10 @@ const SlotsProvider = ({
 		| null
 	>(null)
 	const [isActiveDropdown, setIsActiveDropdown] = useState(false)
+	// 找出featured的位置
+	const featuredIdx = categoryKeys.findIndex(value => {
+		return value === 'featured'
+	})
 
 	const [setFavoriteGame, { isLoading: isSetFavoriteGameLoading }] =
 		useSetFavoriteGameMutation()
@@ -412,6 +417,15 @@ const SlotsProvider = ({
 		}
 	}
 
+	// 將New Game的gameId存在一個陣列，可以讓其他類別的遊戲比對是不是剛好也含有New Game的遊戲
+	const isNewGame = () => {
+		const newGamesArr: string[] = []
+		persistSlotsCategoryData['new']?.map(value =>
+			newGamesArr.push(value.gameId)
+		)
+		return newGamesArr
+	}
+
 	useEffect(() => {
 		// * 首次進入slots計算整理myFavorites
 		if (isFirstRender) {
@@ -444,7 +458,6 @@ const SlotsProvider = ({
 					const result = value.find(
 						(item: IGameData) => String(item.tpId) === queryTpId
 					)
-
 					if (result !== undefined) {
 						newCategoryKeys.push(key)
 					}
@@ -459,7 +472,11 @@ const SlotsProvider = ({
 		}
 
 		updateCategoryKeys()
-		setActiveCategoryKey('all')
+		setActiveCategoryKey('featured') // 一進畫面先顯示哪個類別的遊戲
+		// 如果featured裡面沒有資料，直接帶ALL的
+		if (persistSlotsCategoryData['featured']?.length === 0) {
+			setActiveCategoryKey('all')
+		}
 	}, [queryTpId])
 
 	useEffect(() => {
@@ -533,7 +550,6 @@ const SlotsProvider = ({
 				(a, b) =>
 					new Date(b.launchDate).getTime() - new Date(a.launchDate).getTime()
 			)
-
 		setSlotsGameList(filteredGameList)
 		setIsProcess(false)
 	}, [activeCategoryKey, queryTpId, searchCategoryText, myFavorites])
@@ -561,7 +577,11 @@ const SlotsProvider = ({
 		imgUrl: persistSlotsGameData.imgUrl,
 		bannerList,
 		vendorList,
-		categoryKeys,
+		categoryKeys: moveItem(
+			categoryKeys,
+			featuredIdx === -1 ? 5 : featuredIdx,
+			1
+		),
 		isGetBannerV3Fetching,
 		activeVendorTpId,
 		activeCategoryKey,
@@ -584,6 +604,7 @@ const SlotsProvider = ({
 		onGameActive,
 		onGamePlay,
 		onToggleDropdown,
+		isNewGame,
 	}
 
 	return <SlotsContext.Provider value={value}>{children}</SlotsContext.Provider>
