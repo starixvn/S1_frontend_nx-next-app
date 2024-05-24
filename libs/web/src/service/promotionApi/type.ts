@@ -169,3 +169,11 @@ export interface IGetPopUpPromotionArgs {
 	deviceType: number
 	langId: string
 }
+
+export interface IGetRetentionPromotionArgs {
+	deviceType: number
+	langId: string
+}
+
+
+
