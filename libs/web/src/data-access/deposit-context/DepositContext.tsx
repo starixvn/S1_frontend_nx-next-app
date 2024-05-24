@@ -261,7 +261,7 @@ export const DepositProvider = ({
 			;(window as any)._yuri_track('Purchase')
 		}
 
-		// opera pixel tracker:
+		// opera and meta pixel tracker
 		PixelTracker('deposit')
 	}
 

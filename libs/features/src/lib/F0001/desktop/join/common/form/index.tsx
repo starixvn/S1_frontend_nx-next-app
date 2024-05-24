@@ -382,7 +382,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				lineUserId: lineUserId as string,
 			}).unwrap()
 
-			// opera pixel tracker:
+			// opera and meta pixel tracker
 			PixelTracker('register')
 
 			router.push(`/${userLang}/${paths.deposit.root}`)

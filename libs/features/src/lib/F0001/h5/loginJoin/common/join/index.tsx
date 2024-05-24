@@ -253,6 +253,7 @@ const Join = ({ cookies }: IJoinProps) => {
 			}).unwrap()
 			setStep(3)
 
+			// opera and meta pixel tracker
 			PixelTracker('register')
 		} catch (error) {
 			modal.error((error as Error).message)

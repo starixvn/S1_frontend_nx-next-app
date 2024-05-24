@@ -101,34 +101,60 @@ export const GoogleTagManagerScript = () => (
 	</noscript>
 )
 
-export const PixelCodeScript = () => {
+export const OperaPixelCodeScript = () => {
 	return process.env['NEXT_PUBLIC_ENV'] === 'PRD' ? (
-		<Script strategy='lazyOnload' id='PixelCode'>
+		<Script strategy='lazyOnload' id='OperaPixelCode'>
 			{`!(function (p, l, o, w, i, n, g) {
-					if (!p[i]) {
-						p.GlobalSnowplowNamespace =
-							p.GlobalSnowplowNamespace || [];
-						p.GlobalSnowplowNamespace.push(i);
-						p[i] = function () {
-							(p[i].q = p[i].q || []).push(arguments);
-						};
-						p[i].q = p[i].q || [];
-						n = l.createElement(o);
-						g = l.getElementsByTagName(o)[0];
-						n.async = 1;
-						n.src = w;
-						g.parentNode.insertBefore(n, g);
-					}
-				})(
-					window,
-					document,
-					"script",
-					"//res-odx.op-mobile.opera.com/sp.js",
-					"otag"
-				)
+                    if (!p[i]) {
+                        p.GlobalSnowplowNamespace =
+                            p.GlobalSnowplowNamespace || [];
+                        p.GlobalSnowplowNamespace.push(i);
+                        p[i] = function () {
+                            (p[i].q = p[i].q || []).push(arguments);
+                        };
+                        p[i].q = p[i].q || [];
+                        n = l.createElement(o);
+                        g = l.getElementsByTagName(o)[0];
+                        n.async = 1;
+                        n.src = w;
+                        g.parentNode.insertBefore(n, g);
+                    }
+                })(
+                    window,
+                    document,
+                    "script",
+                    "//res-odx.op-mobile.opera.com/sp.js",
+                    "otag"
+                )
 
-				otag("init", "adv10336204001664")
-			`}
+                otag("init", "adv10336204001664")
+            `}
+		</Script>
+	) : null
+}
+
+export const MetaPixelCodeScript = () => {
+	return process.env['NEXT_PUBLIC_ENV'] === 'PRD' ? (
+		<Script strategy='lazyOnload' id='MetaPixelCode'>
+			{`!(function (f, b, e, v, n, t, s) {
+                    if (f.fbq) return
+                    n = f.fbq = function () {
+                        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    }
+                    if (!f._fbq) f._fbq = n
+                    n.push = n
+                    n.loaded = !0
+                    n.version = '2.0'
+                    n.queue = []
+                    t = b.createElement(e)
+                    t.async = !0
+                    t.src = v
+                    s = b.getElementsByTagName(e)[0]
+                    s.parentNode.insertBefore(t, s)
+                })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
+                fbq('init', '499913589025927')
+                fbq('track', 'PageView')
+            `}
 		</Script>
 	) : null
 }
