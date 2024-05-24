@@ -140,4 +140,7 @@ export const paths = {
 	europeCup: {
 		root: '/euro-cup',
 	},
+	retention:{
+		root: '/retention',
+	},
 }

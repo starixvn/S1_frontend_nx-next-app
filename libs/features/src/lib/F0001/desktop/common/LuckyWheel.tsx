@@ -27,20 +27,14 @@ const LuckyWheel = () => {
 				onClick={() => setDisplay(false)}
 			/>
 
-			<div onClick={() => push(paths.luckyWheel.root)} className='wheelModule'>
+			<div
+				onClick={() => push(paths.luckyWheel.root)}
+				className='wheelModule'
+				style={{ cursor: 'pointer' }}
+			>
 				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/wheel/eventlinkbg.png`}
-					alt='luckywheel-img-eventlinkbg'
-				/>
-				<img
-					className='eventlinkimg'
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/wheel/eventlinkimg.png`}
-					alt='luckywheel-img-eventlinkimg'
-				/>
-				<img
-					className='eventlinkwin'
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/wheel/eventlinkwin.png`}
-					alt='luckywheel-img-eventlinkwin'
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/retention/eventlink.webp`}
+					alt='home-chest'
 				/>
 			</div>
 		</div>

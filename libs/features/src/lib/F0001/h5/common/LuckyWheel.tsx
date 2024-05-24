@@ -19,33 +19,19 @@ const LuckyWheel = () => {
 	if (!allowedCurrency || !display) return null
 
 	return (
-		<div className='eventLink'>
+		<div className='eventLink retentionlink'>
 			<button
 				type='button'
 				aria-label='event-link'
 				className='icon icon-close'
 				onClick={() => setDisplay(false)}
 			/>
-
-			<div
-				onClick={() => push(paths.luckyWheel.root)}
-				className='wheelModule small'
-			>
+			<a onClick={() => push(paths.luckyWheel.root)}>
 				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/wheel/eventlinkbg.png`}
-					alt='luckywheel-img-eventlinkbg'
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/retention/eventlink.webp`}
+					alt='chest-eventlinkbg'
 				/>
-				<img
-					className='eventlinkimg'
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/wheel/eventlinkimg.png`}
-					alt='luckywheel-img-eventlinkimg'
-				/>
-				<img
-					className='eventlinkwin'
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/wheel/eventlinkwin.png`}
-					alt='luckywheel-img-eventlinkwin'
-				/>
-			</div>
+			</a>
 		</div>
 	)
 }
