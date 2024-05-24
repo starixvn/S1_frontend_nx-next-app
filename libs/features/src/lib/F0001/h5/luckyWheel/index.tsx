@@ -18,7 +18,12 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 		auth: { isLogin },
 		userInfo: { currencyName },
 	} = useAuth()
+
 	const { t } = useTranslation()
+
+	const handleWheelClick = () => {
+		push(paths.retention.root)
+	}
 
 	const {
 		loading,
@@ -42,6 +47,12 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 			</Header>
 
 			<main className='main wheelEvent'>
+				<div className='eventpage-tap'>
+					<button className='active'> {t('Label_LuckyWheel_Title')}</button>
+					<button className='' onClick={handleWheelClick}>
+						{t('Label_Retention_SurpriseReward')}
+					</button>
+				</div>
 				<div className='eventPage'>
 					<div className='eventTitleBg'>
 						<div className='eventTitle'>LUCKY WHEEL</div>
@@ -164,3 +175,6 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 }
 
 export default LuckyWheel
+function push(root: string) {
+	throw new Error('Function not implemented.')
+}
