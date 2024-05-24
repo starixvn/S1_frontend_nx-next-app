@@ -31,7 +31,7 @@ import {
 } from '@nx-next-app/service'
 import { includes } from 'lodash-es'
 import { getQueryParam } from '@nx-next-app/utils'
-import { PixelTracker } from 'libs/web/src/utils/tracker'
+import { OperaPixelTracker, MetaPixelTracker } from 'libs/web/src/utils/tracker'
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
 
@@ -383,7 +383,8 @@ const Form = ({ cookies }: IJoinProps) => {
 			}).unwrap()
 
 			// opera and meta pixel tracker
-			PixelTracker('register')
+			OperaPixelTracker('register')
+			MetaPixelTracker('registerSubmit')
 
 			router.push(`/${userLang}/${paths.deposit.root}`)
 		} catch (error) {

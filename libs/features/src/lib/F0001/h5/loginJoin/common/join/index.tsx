@@ -24,7 +24,7 @@ import {
 	useLazyGetAffiliateAgentQuery,
 } from '@nx-next-app/service'
 import { getQueryParam } from '@nx-next-app/utils'
-import { PixelTracker } from 'libs/web/src/utils/tracker'
+import { OperaPixelTracker, MetaPixelTracker } from 'libs/web/src/utils/tracker'
 import { Step1, Step2, Step3, StepBar, Features, LineRegister } from './form'
 
 interface IJoinProps {
@@ -254,7 +254,8 @@ const Join = ({ cookies }: IJoinProps) => {
 			setStep(3)
 
 			// opera and meta pixel tracker
-			PixelTracker('register')
+			OperaPixelTracker('register')
+			MetaPixelTracker('registerSubmit')
 		} catch (error) {
 			modal.error((error as Error).message)
 		}

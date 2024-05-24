@@ -36,7 +36,7 @@ import { createContext, ReactNode, useContext, useEffect } from 'react'
 import { useReadLocalStorage } from 'usehooks-ts'
 import dynamic from 'next/dynamic'
 import { ENV_LOCAL_STORAGE_NAMES, paths } from '@nx-next-app/constants'
-import { PixelTracker } from '../../utils/tracker'
+import { OperaPixelTracker, MetaPixelTracker } from '../../utils/tracker'
 
 const DesktopUpdateProfileModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/UpdateProfileModal'),
@@ -262,7 +262,8 @@ export const DepositProvider = ({
 		}
 
 		// opera and meta pixel tracker
-		PixelTracker('deposit')
+		OperaPixelTracker('deposit')
+		MetaPixelTracker('depositSubmit')
 	}
 
 	const loading =
