@@ -625,6 +625,7 @@ export const MENU_DATA = ({
 							period: PRODUCT_EVENT_PERIOD['SPORTS_E_SPORTS_TFG'],
 						},
 					],
+					allowCurrencies: ALLOWED_CURRENCIES['ESPORT_TF_GAMING'],
 				},
 			],
 		},
