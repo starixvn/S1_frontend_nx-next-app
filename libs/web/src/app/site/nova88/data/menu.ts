@@ -589,7 +589,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'esportlobby-tfg.png',
+							bgImg: 'esportlobby-im.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
@@ -611,7 +611,7 @@ export const MENU_DATA = ({
 							},
 						],
 						lobbyPage: {
-							bgImg: 'esportlobby-im.png',
+							bgImg: 'esportlobby-tfg.png',
 						},
 						menuActionType: MenuActionTypeEnum.EnterPage,
 					},
