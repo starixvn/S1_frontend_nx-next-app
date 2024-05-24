@@ -30,8 +30,11 @@ import {
 	useLazyGetAffiliateAgentQuery,
 } from '@nx-next-app/service'
 import { includes } from 'lodash-es'
-import { getQueryParam } from '@nx-next-app/utils'
-import { OperaPixelTracker, MetaPixelTracker } from 'libs/web/src/utils/tracker'
+import {
+	getQueryParam,
+	OperaPixelTracker,
+	MetaPixelTracker,
+} from '@nx-next-app/utils'
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
 
