@@ -17,6 +17,9 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 
 	JACKPOT: [MYR, USD, THB, CNY, IDR, VND, INR, KHM, USDT],
 
+	// 市場反應 TFG 一直輸錢，CNY 跟 USD 先關起來
+	ESPORT_TF_GAMING: [MYR, THB, IDR, INR, KHM, BDT, VND, USDT],
+
 	SPORTS_CRICKET: [BDT, INR],
 	SPORTS_VOLLEYBALL: [MYR, THB, IDR, USD, CNY, KHM],
 
