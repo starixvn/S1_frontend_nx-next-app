@@ -1,54 +1,68 @@
-import React from 'react'
 import { useRouter } from 'next/router'
 import { Header } from '@nx-next-app/components/H0001'
 import { useTranslation } from 'react-i18next'
 import { paths } from '@nx-next-app/constants'
-import { useSetHideBalanceMutation } from '@nx-next-app/service'
-import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
+import {
+	useGetPromotionDetailQuery,
+	useGetRetentionPromotionQuery,
+} from '@nx-next-app/service'
 import { useAuth } from '@nx-next-app/data-access'
+import { getPromotionPercentage, numberFormat } from '@nx-next-app/utils'
+import { useSetClaimPromotionFetcher } from '../../hooks'
+
+const imgHost = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5`
+const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
 const RetentionContent = () => {
-	const {
-		userInfo: { langId },
-	} = useAuth()
-
 	const { push } = useRouter()
-
 	const { t } = useTranslation()
+
+	const {
+		userInfo: { langId, currencyId, currencyName },
+	} = useAuth()
 
 	const handleWheelClick = () => {
 		push(paths.luckyWheel.root)
 	}
 
+	const { data: { data: { bonusCode = '' } = {} } = {} } =
+		useGetRetentionPromotionQuery({
+			deviceType,
+			langId,
+		})
+	// console.log('retiontion', bonusCode)
+	const { data: { data: promotionDetail } = {} } = useGetPromotionDetailQuery({
+		currencyId,
+		langId,
+		bonusCode,
+		deviceType,
+	})
+	// console.log('detail', promotionDetail)
 	const {
-		isLoading: isTpWalletBalanceListLoading,
-		isHideBalance,
-		totalWalletBalance,
-		mainWalletInfo,
-		custBonusWalletList,
-		tpWalletBalanceList,
-		onRefetchAllWallet,
-	} = useTpWalletBalanceListFetcher({ langId })
-
-	const [setHideBalance] = useSetHideBalanceMutation()
+		isJoin = false,
+		canJoin = true,
+		custTurnOver = 0,
+		custRollOver = 0,
+	} = promotionDetail ?? {}
+	// claim promotion
+	const { setClaimPromotionHandler } = useSetClaimPromotionFetcher()
+	// progress bar logics
+	const percentage = getPromotionPercentage({
+		turnOver: custTurnOver,
+		rollOver: custRollOver,
+	})
 
 	return (
 		<>
-			<Header>
-				<Header.HeaderModule
-					isTpWalletBalanceListLoading={isTpWalletBalanceListLoading}
-					originIsHideBalance={isHideBalance}
-					totalWalletBalance={totalWalletBalance}
-					mainWalletInfo={mainWalletInfo}
-					custBonusWalletList={custBonusWalletList}
-					tpWalletBalanceList={tpWalletBalanceList}
-					onRefetchAllWallet={onRefetchAllWallet}
-					onSetHideBalance={setHideBalance}
+			<Header className='header' style={{ zIndex: '4' }}>
+				<Header.Tag
+					title={t('Label_Retention') as string}
+					back={paths.home.root}
 				/>
 			</Header>
 
 			<main className='retention'>
-				<div className='eventpage-tap' style={{ zIndex: '5' }}>
+				<div className='eventpage-tap' style={{ zIndex: '3' }}>
 					<button onClick={handleWheelClick}>
 						{t('Label_LuckyWheel_Title')}
 					</button>
@@ -60,38 +74,57 @@ const RetentionContent = () => {
 					<div className='top'>
 						<img
 							className='top-item'
-							src='https://banner.0814media.net/h5/img/event/retention/top-item.webp'
+							src={`${imgHost}/img/event/retention/top-item.webp`}
 							alt='banner-retention'
 						/>
-						<button className='top-btn '>
-							{t('Label_Promotion_ClaimNow')}
-						</button>
+						{promotionDetail && canJoin === true && (
+							<button
+								className='top-btn'
+								onClick={() => {
+									setClaimPromotionHandler(promotionDetail)
+								}}
+							>
+								{t('Label_Promotion_ClaimNow')}
+							</button>
+						)}
 					</div>
 					<div className='retention-title'>
 						{t('Label_Retention_Title')}
 						<div>{t('Label_Retention_Content')}</div>
 					</div>
-					<div className='turnover-progress'>
-						<div className='turnover-title'>Turnover Accumulated</div>
-						<div className='turnover-item'>
-							<div>
-								<div className='number'>
-									<div>THB 10,000</div>
-									<div>/ Req. THB 300</div>
+					{isJoin === true && (
+						<div className='turnover-progress'>
+							<div className='turnover-title'>
+								{t('Label_Retention_TurnoverTitle')}
+							</div>
+							<div className='turnover-item'>
+								<div>
+									<div className='number'>
+										<div>
+											{currencyName} {numberFormat(custTurnOver, currencyId)}
+										</div>
+										<div>
+											/ {t('Label_General_Req')}. {currencyName}
+											{numberFormat(custRollOver, currencyId)}{' '}
+										</div>
+									</div>
+									<div className='progress'>
+										<div
+											className='progress-bar'
+											style={{ width: `${percentage}%` }}
+										/>
+									</div>
+									<div className='percent'>{percentage}%</div>
 								</div>
-								<div className='progress'>
-									<div className='progress-bar' style={{ width: '25%' }}></div>
-								</div>
-								<div className='percent'>1.05%</div>
 							</div>
 						</div>
-					</div>
-					<div className='bonus-list'>
+					)}
+					{/* <div className='bonus-list'>
 						<div className='title'>
 							<div>Bonus Play Conditions</div>
 							<div></div>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</main>
 		</>

@@ -11,9 +11,7 @@ import { useGetRetentionPromotionQuery } from '@nx-next-app/service'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 
-const imgHost = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop`
 const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
-
 interface ILuckyWheelProps {
 	eventPeriod: IEventPeriod
 }
@@ -41,32 +39,25 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 	} = useLuckWheelContext()
 
 	const { value: isSpinning, setValue: setIsSpinning } = useBoolean(false)
-
 	// call getRetentionPromotion api to see if users are qualified to get retention promotion
-
-	const { data } = useGetRetentionPromotionQuery({
-		deviceType,
-		langId,
-	})
-
+	const { data: { data: { bonusCode = '' } = {} } = {} } =
+		useGetRetentionPromotionQuery({
+			deviceType,
+			langId,
+		})
 	// seee if data is existed
-
-	console.log('retention', data)
-
+	// console.log('retention', bonusCode)
 	if (loading) return <Loading />
 
 	return (
 		<main className='wheelEvent'>
 			<div className='eventpage-tap'>
 				<button className='active'> {t('Label_LuckyWheel_Title')}</button>
-				{data &&
-					data.data.bonusCode &&
-					data.data.bonusCode !== null &&
-					data.data.bonusCode.length > 0 && (
-						<button className='' onClick={handleRetentionClick}>
-							{t('Label_Retention_SurpriseReward')}
-						</button>
-					)}
+				{bonusCode && (
+					<button className='' onClick={handleRetentionClick}>
+						{t('Label_Retention_SurpriseReward')}
+					</button>
+				)}
 			</div>
 
 			<div className='eventPage'>
