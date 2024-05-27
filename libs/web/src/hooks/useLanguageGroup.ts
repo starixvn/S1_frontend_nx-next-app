@@ -44,16 +44,22 @@ const useLanguageGroup = () => {
 		// 選擇沒變則 return
 		if (currencyId === currentCurrency && langCode === currentLang) return
 
+		if (isInApp) {
+			if (currencyId !== currentCurrency) {
+				setAppCurrency(currencyId)
+			}
+
+			if (langCode !== currentLang) {
+				setAppLanguage(langCode)
+			}
+		}
+
 		if (auth.isLogin) {
 			// 有登入狀態，透過 setLang 完成語系切換，不在此處做 router.push
 			await setLanguage({ langId: langCode }).unwrap()
 		} else {
 			setCookie(ENV_COOKIE_NAMES.LangId, langCode)
 			setCookie(ENV_COOKIE_NAMES.CurrencyId, currencyId)
-			if (isInApp) {
-				setAppCurrency(currencyId)
-				setAppLanguage(langCode)
-			}
 			push({ pathname, query }, asPath, {
 				locale: langCode,
 			})
