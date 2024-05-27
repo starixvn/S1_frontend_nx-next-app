@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { useTranslation } from 'next-i18next'
+import { useTranslation, Trans } from 'next-i18next'
 // ts要求引入SwiperClass
 import { Swiper as SwiperClass } from 'swiper'
 import { IMilestone, ISlide } from 'libs/web/src/app/types/milestone'
@@ -88,7 +88,16 @@ const MilestoneContent = ({
 								<div>{t(slide.title)}</div>
 								<div>
 									<span>{t(slide.subtitle)}</span>
-									<span>{t(slide.content)}</span>
+									<span>
+										<Trans
+											i18nKey={t(slide.content)}
+											components={{
+												Link: (
+													<a href='https://www.inter.it/en/news/inter-nova88-official-regional-partner-asia' />
+												),
+											}}
+										/>
+									</span>
 								</div>
 								<Date />
 							</div>
