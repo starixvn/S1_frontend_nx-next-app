@@ -47,7 +47,7 @@ class MyDocument extends Document<CustomDocumentProps> {
 						rel='stylesheet'
 					/>
 
-					{process.env['NEXT_PUBLIC_ENV'] === 'DEV' && (
+					{process.env['NEXT_PUBLIC_ENV'] === 'PRD' && (
 						<>
 							{/* Yuri Track , 市場廣告商使用的追蹤碼 */}
 							<script
@@ -116,7 +116,7 @@ class MyDocument extends Document<CustomDocumentProps> {
 				</Head>
 				<body>
 					{/* Google Tag Manager (noscript) - GTAG paste in the <body> */}
-					{process.env['NEXT_PUBLIC_ENV'] === 'DEV' && (
+					{process.env['NEXT_PUBLIC_ENV'] === 'PRD' && (
 						<noscript>
 							<iframe
 								src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
