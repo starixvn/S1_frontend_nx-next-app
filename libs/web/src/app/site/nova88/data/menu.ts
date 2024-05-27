@@ -184,6 +184,21 @@ export const MENU_DATA = ({
 					needLogin: true,
 					pathname: paths.referral.root,
 				},
+				{
+					h5: { menuActionType: MenuActionTypeEnum.EnterPage },
+					desktop: {
+						headerMenuImgList: [
+							{
+								className: 'List-npc',
+								imgUrl: 'home-milestone.png',
+							},
+						],
+						menuActionType: MenuActionTypeEnum.Link,
+					},
+					displayKey: 'Label_General_Milestone',
+					needLogin: false,
+					pathname: paths.milestones.root,
+				},
 			],
 		},
 		[MenuKeyEnum.Reward]: {
