@@ -114,7 +114,15 @@ const MilestoneContent = ({
 											i18nKey={t(slide.content)}
 											components={{
 												Link: (
-													<a href='https://www.inter.it/en/news/inter-nova88-official-regional-partner-asia' />
+													<a
+														href='https://www.inter.it/en/news/inter-nova88-official-regional-partner-asia'
+														rel='noreferrer'
+														target='_blank'
+														style={{
+															color: 'rgb(230, 230, 230)',
+															textDecoration: 'underline',
+														}}
+													/>
 												),
 											}}
 										/>
