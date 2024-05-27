@@ -3,11 +3,11 @@ import { useStatement } from '@nx-next-app/features/F0001/providers/statement-co
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
-import { numberFormat } from '@nx-next-app/utils'
-import dayjs from 'dayjs'
+import { numberFormat, revertTimeZone } from '@nx-next-app/utils'
 
 interface IStatementItemProps {
 	settledDate?: string
+	settledTime?: string
 	turnOver?: number
 	validBet?: number
 	winlostAmount?: number
@@ -22,6 +22,7 @@ interface IStatementItemProps {
 
 const StatementItem = ({
 	settledDate,
+	settledTime,
 	turnOver,
 	validBet,
 	winlostAmount,
@@ -46,7 +47,9 @@ const StatementItem = ({
 						<span className='title'>{`${t('Label_General_SettledDate')} (${
 							CURRENCY_TO_TIMEZONE[currencyId]
 						})`}</span>
-						<span>{dayjs(settledDate).format('YYYY-MM-DD')}</span>
+						<span>
+							{revertTimeZone(settledDate ?? '').format('YYYY-MM-DD')}
+						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_Turnover')}</span>
@@ -84,7 +87,9 @@ const StatementItem = ({
 						<span className='title'>{`${t('Label_General_SettledDate')} (${
 							CURRENCY_TO_TIMEZONE[currencyId]
 						})`}</span>
-						<span>{dayjs(settledDate).format('YYYY-MM-DD')}</span>
+						<span>
+							{revertTimeZone(settledDate ?? '').format('YYYY-MM-DD')}
+						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_CategoryName')}</span>
@@ -127,7 +132,9 @@ const StatementItem = ({
 						<span className='title'>{`${t('Label_General_SettledDate')} (${
 							CURRENCY_TO_TIMEZONE[currencyId]
 						})`}</span>
-						<span>{dayjs(settledDate).format('YYYY-MM-DD')}</span>
+						<span>
+							{revertTimeZone(settledDate ?? '').format('YYYY-MM-DD')}
+						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_GameTypeName')}</span>
@@ -170,7 +177,9 @@ const StatementItem = ({
 						<span className='title'>{`${t('Label_General_SettledDate')} (${
 							CURRENCY_TO_TIMEZONE[currencyId]
 						})`}</span>
-						<span>{dayjs(settledDate).format('YYYY-MM-DD HH:mm:ss')}</span>
+						<span>
+							{revertTimeZone(settledTime ?? '').format('YYYY-MM-DD HH:mm:ss')}
+						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_Turnover')}</span>
