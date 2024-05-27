@@ -8,23 +8,18 @@ import classNames from 'classnames'
 import { toUpper, upperFirst } from 'lodash-es'
 import dayjs from 'dayjs'
 import { paths } from '@nx-next-app/constants'
+import { useGetRetentionPromotionQuery } from '@nx-next-app/service'
+import { useRouter } from 'next/router'
 
 interface ILuckyWheelProps {
 	eventPeriod: IEventPeriod
 }
 
+const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
+
 const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
-	const {
-		auth: { isLogin },
-		userInfo: { currencyName },
-	} = useAuth()
-
 	const { t } = useTranslation()
-
-	const handleWheelClick = () => {
-		push(paths.retention.root)
-	}
-
+	const { push } = useRouter()
 	const {
 		loading,
 		isCheckDrawPrizeError,
@@ -33,13 +28,30 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 		onDrawPrize,
 	} = useLuckWheelContext()
 
-	const { value: isSpinning, setValue: setIsSpinning } = useBoolean(false)
+	const {
+		auth: { isLogin },
+		userInfo: { currencyName, langId },
+	} = useAuth()
 
+	const handleWheelClick = () => {
+		push(paths.retention.root)
+	}
+
+	const { value: isSpinning, setValue: setIsSpinning } = useBoolean(false)
+	// call getRetentionPromotion api to see if users are qualified to get retention promotion
+	const { data: { data: { bonusCode = '' } = {} } = {} } =
+		useGetRetentionPromotionQuery({
+			deviceType,
+			langId,
+		})
+	// seee if data is existed
+	// console.log('retention', bonusCode)
+	// seee if data is existed
 	if (loading) return <Loading />
 
 	return (
 		<>
-			<Header className='header'>
+			<Header className='header' style={{ zIndex: 4 }}>
 				<Header.Tag
 					title={t('Label_LuckyWheel_Title') as string}
 					back={paths.home.root}
@@ -47,11 +59,13 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 			</Header>
 
 			<main className='main wheelEvent'>
-				<div className='eventpage-tap'>
+				<div className='eventpage-tap' style={{ zIndex: 3 }}>
 					<button className='active'> {t('Label_LuckyWheel_Title')}</button>
-					<button className='' onClick={handleWheelClick}>
-						{t('Label_Retention_SurpriseReward')}
-					</button>
+					{bonusCode && (
+						<button className='' onClick={handleWheelClick}>
+							{t('Label_Retention_SurpriseReward')}
+						</button>
+					)}
 				</div>
 				<div className='eventPage'>
 					<div className='eventTitleBg'>
@@ -175,6 +189,3 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 }
 
 export default LuckyWheel
-function push(root: string) {
-	throw new Error('Function not implemented.')
-}
