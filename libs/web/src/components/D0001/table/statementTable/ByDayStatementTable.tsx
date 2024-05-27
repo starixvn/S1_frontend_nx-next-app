@@ -3,8 +3,7 @@ import { ICustTpBetRecordListOneDayData } from '@nx-next-app/service'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
-import dayjs from 'dayjs'
-import { numberFormat } from '@nx-next-app/utils'
+import { numberFormat, revertTimeZone } from '@nx-next-app/utils'
 import { Table } from '@nx-next-app/components/D0001/table'
 import { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
 
@@ -42,9 +41,7 @@ const ByDayStatementTable = ({
 			dataIndex: 'settledDate',
 			key: 'settledDate',
 			render: ({ item: { settledDate } }: { item: { settledDate: string } }) =>
-				dayjs(settledDate)
-					.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
-					.format('YYYY-MM-DD'),
+				revertTimeZone(settledDate).format('YYYY-MM-DD'),
 		},
 		{
 			title: t('Label_General_CategoryName'),

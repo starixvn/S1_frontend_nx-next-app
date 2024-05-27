@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { FieldErrors } from 'react-hook-form'
 import { isNaN, replace } from 'lodash-es'
@@ -138,4 +139,12 @@ export const replaceStringToNumber = (str: string) => {
 
 	// 使用 replace 方法將匹配到的部分替換為空字串
 	return str.replace(regex, '')
+}
+
+// 因days.js 在使用時會自動判斷時區，所以需移除後面的時區，
+// 用於後端 api 有帶時區的時間 ex: 2024-04-29T00:00:00+07:00
+// 之後在根據情況 format 即可
+export const revertTimeZone = (time: string) => {
+	// 因為後端有可能會送 2024-05-12 這鬼東西或 2024-04-29T00:00:00+07:00 完整時區，所以需補個 fallback 以完全符合 YYY-MM-DD HH:mm:ss
+	return dayjs(`${time} 00:00:00`, 'YYYY-MM-DD HH:mm:ss').utcOffset(0, true)
 }

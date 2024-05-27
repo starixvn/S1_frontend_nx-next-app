@@ -3,8 +3,7 @@ import { ICustTpBetRecordListDateRangeData } from '@nx-next-app/service'
 import { useTranslation } from 'next-i18next'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import dayjs from 'dayjs'
-import { numberFormat } from '@nx-next-app/utils'
+import { numberFormat, revertTimeZone } from '@nx-next-app/utils'
 import { Table } from '@nx-next-app/components/D0001/table'
 import { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
 
@@ -46,9 +45,7 @@ const DateRangeStatementTable = ({
 			}: {
 				item: { settledDate: string }
 			}) => {
-				return dayjs(settledDate)
-					.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
-					.format('YYYY-MM-DD')
+				return revertTimeZone(settledDate).format('YYYY-MM-DD')
 			},
 		},
 		{
