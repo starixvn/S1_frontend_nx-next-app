@@ -11,10 +11,12 @@ export enum CurrenciesEnum {
 	THB = 4,
 	CNY = 13,
 	IDR = 15,
+	KRW = 45,
 	VND = 51,
 	INR = 61,
 	KHM = 72,
 	BDT = 74,
+	BRL = 82,
 	USDT = 96,
 }
 
@@ -51,7 +53,12 @@ export interface IStaticProduct {
 }
 
 export interface IStaticLangGroups {
-	[lang: string]: { displayText: string; value: string; currencyId: number }[]
+	[lang: string]: {
+		displayText: string
+		value: string
+		currencyId: number
+		mainLanguage?: boolean
+	}[]
 }
 
 export interface IStaticAllowedCurrencies {
@@ -87,6 +94,8 @@ export interface IStaticAllowedCurrencies {
 	LIVE_CASINO_DG?: CurrenciesEnum[]
 	LIVE_CASINO_MG?: CurrenciesEnum[]
 	LIVE_CASINO_SA?: CurrenciesEnum[]
+	LIVE_CASINO_BG?: CurrenciesEnum[]
+	LIVE_CASINO_EVO?: CurrenciesEnum[]
 	LIVE_CASINO_WON?: CurrenciesEnum[]
 
 	SLOTS_PP?: CurrenciesEnum[]
@@ -95,10 +104,19 @@ export interface IStaticAllowedCurrencies {
 	SLOTS_FA_CHAI?: CurrenciesEnum[]
 	SLOTS_SKY_WIND?: CurrenciesEnum[]
 	SLOTS_JOKER?: CurrenciesEnum[]
-	SLOTS_SPRIBE?: CurrenciesEnum[]
 	SLOTS_PT?: CurrenciesEnum[]
 	SLOTS_MGPSW?: CurrenciesEnum[]
 	SLOTS_SIMPLE_PLAY?: CurrenciesEnum[]
+	SLOTS_SG?: CurrenciesEnum[]
+	SLOTS_AMIGO?: CurrenciesEnum[]
+	SLOTS_ES?: CurrenciesEnum[]
+	SLOTS_SPRIBE?: CurrenciesEnum[]
+	SLOTS_ADVANT_PLAY?: CurrenciesEnum[]
+	SLOTS_BNG?: CurrenciesEnum[]
+	SLOTS_JILI?: CurrenciesEnum[]
+	SLOTS_NO_LIMIT_CITY?: CurrenciesEnum[]
+	SLOTS_RED_TIGER?: CurrenciesEnum[]
+	SLOTS_NET_ENT?: CurrenciesEnum[]
 	SLOTS_END?: CurrenciesEnum[]
 
 	GAMES_V8_POKER?: CurrenciesEnum[]
@@ -109,25 +127,42 @@ export interface IStaticAllowedCurrencies {
 	GAME_MINES?: CurrenciesEnum[]
 	GAME_GOAL?: CurrenciesEnum[]
 	GAME_DICE?: CurrenciesEnum[]
+	GAMES_MAX_GAME?: CurrenciesEnum[]
+	GAMES_93_CONNECT?: CurrenciesEnum[]
+	GAME_CRASH?: CurrenciesEnum[]
+	GAME_GORUSH?: CurrenciesEnum[]
 
 	FISHING_SG?: CurrenciesEnum[]
 	FISHING_CQ9_ONE_SHOT_FISHING?: CurrenciesEnum[]
 	FISHING_HUNTING_HAPPY_FISH_5?: CurrenciesEnum[]
 	FISHING_HAIBA?: CurrenciesEnum[]
 	FISHING_HUNTING_MONSTER_AWAKEN?: CurrenciesEnum[]
+	FISHING_SGW?: CurrenciesEnum[]
+	FISHING_ZOMBIE_PARTY?: CurrenciesEnum[]
+	FISHING_ALIEN_HUNTER?: CurrenciesEnum[]
 
 	FOUR_D_GRAND_DRAGON?: CurrenciesEnum[]
 
 	LOTTERY_GPI_THAILOTTERY?: CurrenciesEnum[]
-	LUCKY_WHEEL?: CurrenciesEnum[]
 	LOTTERY_GPI_FAST3?: CurrenciesEnum[]
+	LOTTERY_TCG?: CurrenciesEnum[]
 
 	BANK_CARD?: CurrenciesEnum[]
 	E_WALLET?: CurrenciesEnum[]
-	ADDRESS?: CurrenciesEnum[]
 	REFER_FRIENDS?: CurrenciesEnum[]
 
+	// === Profile method ===
+	ADDRESS?: CurrenciesEnum[]
+
+	// Deposit
 	RECEIPT: CurrenciesEnum[]
+
+	// Home
+	LIVE_STREAMING_LINK: CurrenciesEnum[]
+	LUCKY_WHEEL?: CurrenciesEnum[]
+
+	// Euro-Cup
+	Euro_Cup: CurrenciesEnum[]
 }
 
 export interface ITermsConditions {
