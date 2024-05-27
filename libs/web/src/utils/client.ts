@@ -3,7 +3,7 @@ type ReactNativeWebViewMessage =
 	| { type: 'SyncLanguage'; payload: string }
 
 interface IReactNativeWebView {
-	postMessage: (message: ReactNativeWebViewMessage) => void
+	postMessage: (message: string) => void
 }
 
 export const isReactNativeWebView = () =>
@@ -21,7 +21,7 @@ const postMsgToApp = (message: ReactNativeWebViewMessage) => {
 	const { postMessage } = ReactNativeWebView ?? {}
 
 	if (typeof postMessage === 'function') {
-		postMessage(message)
+		postMessage(JSON.stringify(message))
 	}
 }
 
