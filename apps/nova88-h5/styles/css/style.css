@@ -3680,6 +3680,7 @@ main .gameList .icon-new {
           align-items: center;
   font-weight: bold;
   font-size: 4vw;
+  text-align: center;
 }
 .header .headerTag > a.active, .header .headerTag > button.active {
   color: white;
@@ -12517,6 +12518,15 @@ span.important {
 .flag.gb:before {
   background: url(https://banner.0814media.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
 }
+.flag.br:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/br.jpg) no-repeat top left/cover;
+}
+.flag.ko:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/ko.jpg) no-repeat top left/cover;
+}
+.flag.jp:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/jp.jpg) no-repeat top left/cover;
+}
 
 .addressModule {
   margin-top: 5vw;
@@ -14439,6 +14449,27 @@ input:-webkit-autofill:active {
   border-top: 1px dotted #1E85EC;
 }
 
+.react-datepicker-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+.react-datepicker-wrapper input {
+  width: 100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .btn-group {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15653,6 +15684,9 @@ main.casino .banner {
 .home-appdownload-content .text div:nth-child(3) {
   color: #A4A4A4;
 }
+.home-appdownload-content .text div.fullname {
+  font-weight: 600;
+}
 .home-appdownload .btn-download {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15704,6 +15738,14 @@ main.casino .banner {
 .home-appdownload .btn-download > div a {
   color: #0066CC;
   margin-top: 1.5vw;
+}
+
+.fullname {
+  white-space: nowrap;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: inline;
 }
 
 .home-partner {
@@ -15947,7 +15989,7 @@ main.casino .banner {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 12vw;
           flex: 0 0 12vw;
-  padding: 3vw;
+  padding: 2vw;
   margin-top: -3.5vw;
 }
 .footer .plus img {
@@ -18063,6 +18105,19 @@ input[type=number] .btn-logout {
   border-radius: 0 0 5vw 5vw;
 }
 
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+input[type=number] .btn-logout {
+  background: white;
+  border-radius: 30px;
+  width: 80vw;
+  padding: 3vw 0;
+  color: #D1D1D1;
+  margin: 5vw 0 0;
+}
+
 .euro {
   background: #143CDB;
 }
@@ -18106,7 +18161,7 @@ input[type=number] .btn-logout {
   margin: 0 auto 5vw;
 }
 .euro .event-title {
-  width: 75vw;
+  width: 80vw;
   font-size: 8vw;
   font-weight: bold;
   color: #fff;
@@ -18132,9 +18187,13 @@ input[type=number] .btn-logout {
   margin-bottom: 10vw;
 }
 .euro-predition {
-  margin: -20vw 0 10vw;
+  margin: 10vw 0;
   position: relative;
   z-index: 2;
+  display: none;
+}
+.euro-predition.active {
+  display: block;
 }
 .euro-predition-content {
   position: relative;
@@ -18966,4 +19025,144 @@ input[type=number] .btn-logout {
 .euro-footer img {
   width: 100%;
   display: block;
+}
+.euro-tab {
+  color: #fff;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: -20vw;
+  position: relative;
+  z-index: 1;
+}
+.euro-tab button {
+  font-size: 4vw;
+  font-weight: bold;
+  padding-bottom: 1vw;
+  border-bottom: 3px solid #fff;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  text-align: center;
+  opacity: 0.5;
+}
+.euro-tab button.active {
+  opacity: 1;
+}
+.euro-fixture {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+.euro-fixture.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro-match-bar {
+  width: 100%;
+  overflow-x: scroll;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 5vw auto;
+}
+.euro-match-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-transform: uppercase;
+  line-height: 1.2;
+  padding: 2vw 0;
+  margin-right: 2vw;
+  font-size: 3vw;
+  font-weight: bold;
+  background: #0024B2;
+  border-radius: 3vw;
+  color: #143CDB;
+  min-width: 17vw;
+}
+.euro-match-date.active {
+  background: #fff;
+}
+.euro-match-date .date {
+  font-size: 7vw;
+  font-weight: bold;
+}
+.euro-match-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.euro-match-order {
+  font-weight: bold;
+  font-size: 4vw;
+  margin-bottom: 2vw;
+}
+.euro-match-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5vw;
+  border-bottom: 1px solid #1D49FB;
+}
+.euro-match-item > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.euro-match-item .team {
+  text-align: center;
+}
+.euro-match-item .team img {
+  width: 10vw;
+}
+.euro-match-item .team > div {
+  width: 35vw;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 3.5vw;
+  font-weight: bold;
+}
+.euro-match-item .time {
+  text-align: center;
+  line-height: 1;
+  width: 20vw;
+}
+.euro-match-item .time span {
+  display: block;
+  width: 100%;
+  font-size: 7vw;
+  font-weight: bold;
+  margin-bottom: 0.75vw;
 }/*# sourceMappingURL=style.css.map */
