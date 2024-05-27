@@ -70,14 +70,14 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	const homeComponents = {
-		[MobileHomeComponentsEnum.CarouselBanner]: (
+		[MobileHomeComponentsEnum.CarouselBanner]: () => (
 			<CarouselBanner
 				bannerList={bannerData}
 				pagination={false}
 				navigation={false}
 			/>
 		),
-		[MobileHomeComponentsEnum.Marquee]: (
+		[MobileHomeComponentsEnum.Marquee]: () => (
 			<Marquee
 				data={announcementData}
 				onMarqueeClick={() =>
@@ -87,19 +87,19 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 				}
 			/>
 		),
-		[MobileHomeComponentsEnum.PromotionMarquee]: <PromotionMarquee />,
-		[MobileHomeComponentsEnum.HotEventSwiper]: <HotEventSwiper />,
-		[MobileHomeComponentsEnum.HotGameMarquee]: <HotGameMarquee />,
-		[MobileHomeComponentsEnum.RecentlyViewGames]: <RecentlyViewGames />,
-		[MobileHomeComponentsEnum.FriendReferral]: <FriendReferral />,
-		[MobileHomeComponentsEnum.Jackpot]: includes(
-			jackPotCurrencies,
-			currencyId
-		) && <JackPot onClick={() => push(paths.slots.root)} isRoot />,
-		[MobileHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
-		[MobileHomeComponentsEnum.AppDownload]: <AppDownload />,
-		[MobileHomeComponentsEnum.FooterBlock]: <FooterBlock />,
-		[MobileHomeComponentsEnum.SimpleFooter]: <SimpleFooter />,
+		[MobileHomeComponentsEnum.PromotionMarquee]: () => <PromotionMarquee />,
+		[MobileHomeComponentsEnum.HotEventSwiper]: () => <HotEventSwiper />,
+		[MobileHomeComponentsEnum.HotGameMarquee]: () => <HotGameMarquee />,
+		[MobileHomeComponentsEnum.RecentlyViewGames]: () => <RecentlyViewGames />,
+		[MobileHomeComponentsEnum.FriendReferral]: () => <FriendReferral />,
+		[MobileHomeComponentsEnum.Jackpot]: () =>
+			includes(jackPotCurrencies, currencyId) ? (
+				<JackPot onClick={() => push(paths.slots.root)} isRoot />
+			) : null,
+		[MobileHomeComponentsEnum.LuckyWheel]: () => <LuckyWheel />,
+		[MobileHomeComponentsEnum.AppDownload]: () => <AppDownload />,
+		[MobileHomeComponentsEnum.FooterBlock]: () => <FooterBlock />,
+		[MobileHomeComponentsEnum.SimpleFooter]: () => <SimpleFooter />,
 	}
 
 	// banner 區塊，目前只有兩個
@@ -148,16 +148,18 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 				})}
 			>
 				{isLogin && <HeaderQuickLink />}
-				{bannerBlockOrders.map(component =>
-					homeComponents[component] ? homeComponents[component] : null
-				)}
+				{bannerBlockOrders.map(component => {
+					const Component = homeComponents[component]
+					return Component ? <Component key={component} /> : null
+				})}
 
 				{!isLogin && <LoginBlock />}
 				<div id='content'>
 					<Menu />
-					{contentOrders.map(component =>
-						homeComponents[component] ? homeComponents[component] : null
-					)}
+					{contentOrders.map(component => {
+						const Component = homeComponents[component]
+						return Component ? <Component key={component} /> : null
+					})}
 				</div>
 			</main>
 		</>

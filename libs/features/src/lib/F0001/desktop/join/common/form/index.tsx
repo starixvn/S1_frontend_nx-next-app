@@ -32,8 +32,11 @@ import {
 	IRecaptchaInfoData,
 } from '@nx-next-app/service'
 import { includes } from 'lodash-es'
-import { getQueryParam } from '@nx-next-app/utils'
-import { PixelTracker } from 'libs/web/src/utils/tracker'
+import {
+	getQueryParam,
+	OperaPixelTracker,
+	MetaPixelTracker,
+} from '@nx-next-app/utils'
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
 
@@ -393,10 +396,11 @@ const Form = ({ cookies }: IJoinProps) => {
 				lineUserId: lineUserId as string,
 			}).unwrap()
 
-			// opera pixel tracker:
-			PixelTracker('register')
+			// opera and meta pixel tracker
+			OperaPixelTracker('register')
+			MetaPixelTracker('registerSubmit')
 
-			router.push(`/${userLang}/${paths.deposit.root}`)
+			router.push(`/${userLang}${paths.deposit.root}`)
 		} catch (error) {
 			// error
 			modal.error((error as Error).message)
