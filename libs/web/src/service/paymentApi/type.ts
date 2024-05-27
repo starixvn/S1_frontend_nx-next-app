@@ -323,6 +323,7 @@ export interface IPaymentOnlineBankingData {
 	payId: number
 	payName: string
 	selBank: boolean
+	extraDataType: number
 }
 
 export interface IPaymentOnlineBankInfoSysData {

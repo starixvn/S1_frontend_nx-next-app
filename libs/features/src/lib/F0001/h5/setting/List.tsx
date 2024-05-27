@@ -33,55 +33,99 @@ const List = () => {
 				header={t('Label_General_Languages')}
 				defaultActive
 			>
-				<div className='country'>
-					{Object.entries(languageGroup).map(([lang, items]) => {
-						return (
-							<div
-								key={`${lang}-${items}`}
-								className={classNames('country-item', {
-									active: lang === icon,
-								})}
-							>
-								<div className='country-title'>
-									<div>
-										<img
-											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/${lang}.jpg`}
-											alt={lang}
-										/>
-									</div>
-									{LANG_GROUP_COUNTRY[lang]}
-								</div>
-								<div>
-									{items.map(languageItem => {
+				<div className={classNames('country-current', { after: isLogin })}>
+					<div className='country-item'>
+						<div className='country-title'>
+							<div>
+								<img
+									src={`https://banner.0814media.net/h5/img/${icon}.jpg`}
+									alt='country'
+								/>
+							</div>
+						</div>
+						<div>
+							<div>{LANG_GROUP_COUNTRY[icon || 'ch']}</div>
+							<div>
+								{languageGroup[icon || 'ch']?.map(
+									({ displayText, currencyId, value }) => {
 										return (
 											<button
-												key={`${languageItem.value}-${languageItem.currencyId}`}
+												onClick={() =>
+													onSetLanguage({
+														langCode: value,
+														currencyId,
+													})
+												}
 												className={classNames({
 													active: isEqual(
 														{ langId, currencyId },
 														{
-															langId: languageItem.value,
-															currencyId: languageItem.currencyId,
+															langId: value,
+															currencyId,
 														}
 													),
 												})}
-												type='button'
-												onClick={() => {
-													onSetLanguage({
-														langCode: languageItem.value,
-														currencyId: languageItem.currencyId,
-													})
-												}}
 											>
-												{languageItem.displayText}
+												{displayText}
 											</button>
 										)
-									})}
-								</div>
+									}
+								)}
 							</div>
-						)
-					})}
+						</div>
+					</div>
 				</div>
+				{!isLogin && (
+					<div className='country'>
+						{Object.entries(languageGroup).map(([lang, items]) => {
+							return (
+								<div
+									key={`${lang}-${items}`}
+									className={classNames('country-item', {
+										active: lang === icon,
+									})}
+								>
+									<div className='country-title'>
+										<div>
+											<img
+												src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/${lang}.jpg`}
+												alt={lang}
+											/>
+										</div>
+									</div>
+									<div>
+										{items.map(languageItem => {
+											if (!languageItem?.mainLanguage) return
+											return (
+												<button
+													key={`${languageItem.value}-${languageItem.currencyId}`}
+													className={classNames({
+														active: isEqual(
+															{ langId, currencyId },
+															{
+																langId: languageItem.value,
+																currencyId: languageItem.currencyId,
+															}
+														),
+													})}
+													type='button'
+													onClick={() => {
+														onSetLanguage({
+															langCode: languageItem.value,
+															currencyId: languageItem.currencyId,
+														})
+													}}
+												>
+													{languageItem.displayText}
+												</button>
+											)
+										})}
+									</div>
+								</div>
+							)
+						})}
+					</div>
+				)}
 			</SettingCollapse.Item>
 
 			<SettingCollapse.Item

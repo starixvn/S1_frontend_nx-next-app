@@ -27,8 +27,8 @@ import {
 	LEFT_MENU_DATA,
 	LIVE_CHAT_ID_BY_LANG_ID,
 	ThirdPartyJS,
-	LANG_TO_CURRENCY,
 } from '@nx-next-app/site/nova88'
+import { LANG_TO_CURRENCY } from '@apps/nova88-desktop/middleware'
 
 import 'react-datepicker/dist/react-datepicker.css'
 import '../styles/css/style.css'
