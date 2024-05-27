@@ -618,7 +618,6 @@ export const MENU_DATA = ({
 					productKey: 'SPORTS_E_SPORTS_TFG',
 					displayKey: 'TFGaming',
 					product: PRODUCTS['SPORTS_E_SPORTS_TFG'],
-					allowCurrencies: ALLOWED_CURRENCIES['SPORTS_E_SPORTS_TFG'],
 					eventIcons: [
 						{
 							icon: 'new-icon',
