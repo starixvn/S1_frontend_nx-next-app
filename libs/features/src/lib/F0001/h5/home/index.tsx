@@ -92,7 +92,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	const homeComponents = {
-		[MobileHomeComponentsEnum.CarouselBanner]: (
+		[MobileHomeComponentsEnum.CarouselBanner]: () => (
 			<div className='home-mainbanner'>
 				<CarouselBanner
 					bannerList={bannerData}
@@ -101,7 +101,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 				/>
 			</div>
 		),
-		[MobileHomeComponentsEnum.Marquee]: (
+		[MobileHomeComponentsEnum.Marquee]: () => (
 			<Marquee
 				data={announcementData}
 				onMarqueeClick={() =>
@@ -111,28 +111,28 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 				}
 			/>
 		),
-		[MobileHomeComponentsEnum.PromotionSwiper]: <PromotionSwiper />,
-		[MobileHomeComponentsEnum.HotEventSwiper]: <HotEventSwiper />,
-		[MobileHomeComponentsEnum.HotGameSwiper]: <HotGameSwiper />,
-		[MobileHomeComponentsEnum.RecentlyViewGames]: <RecentlyViewGames />,
-		[MobileHomeComponentsEnum.FriendReferral]: <FriendReferral />,
-		[MobileHomeComponentsEnum.Jackpot]: includes(
-			jackPotCurrencies,
-			currencyId
-		) && <JackPot onClick={() => push(paths.slots.root)} isRoot />,
-		[MobileHomeComponentsEnum.EuropeCupEntry]: includes(
-			ALLOWED_CURRENCIES.Euro_Cup,
-			currencyId
-		) ? (
-			<EuroCupEntry />
-		) : null,
-		[MobileHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
-		[MobileHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
-		[MobileHomeComponentsEnum.AppDownload]: <AppDownload />,
-		[MobileHomeComponentsEnum.FooterBlock]: <FooterBlock />,
-		[MobileHomeComponentsEnum.SimpleFooter]: <SimpleFooter />,
-		[MobileHomeComponentsEnum.JackPotSwiper]: <JackPotSwiper />,
-		[MobileHomeComponentsEnum.PartnerBlock]: <PartnerBlock />,
+		[MobileHomeComponentsEnum.PromotionSwiper]: () => <PromotionSwiper />,
+		[MobileHomeComponentsEnum.HotEventSwiper]: () => <HotEventSwiper />,
+		[MobileHomeComponentsEnum.HotGameSwiper]: () => <HotGameSwiper />,
+		[MobileHomeComponentsEnum.RecentlyViewGames]: () => <RecentlyViewGames />,
+		[MobileHomeComponentsEnum.FriendReferral]: () => <FriendReferral />,
+		[MobileHomeComponentsEnum.Jackpot]: () =>
+			includes(jackPotCurrencies, currencyId) ? (
+				<JackPot onClick={() => push(paths.slots.root)} isRoot />
+			) : null,
+		[MobileHomeComponentsEnum.EuropeCupEntry]: () =>  includes(
+      ALLOWED_CURRENCIES.Euro_Cup,
+      currencyId
+    ) ? (
+      <EuroCupEntry />
+    ) : null,
+		[MobileHomeComponentsEnum.LuckyWheel]: () => <LuckyWheel />,
+		[MobileHomeComponentsEnum.LiveStreamingLink]: () => <LiveStreamingLink />,
+		[MobileHomeComponentsEnum.AppDownload]: () => <AppDownload />,
+		[MobileHomeComponentsEnum.FooterBlock]: () => <FooterBlock />,
+		[MobileHomeComponentsEnum.SimpleFooter]: () => <SimpleFooter />,
+		[MobileHomeComponentsEnum.JackPotSwiper]: () => <JackPotSwiper />,
+		[MobileHomeComponentsEnum.PartnerBlock]: () => <PartnerBlock />,
 	}
 
 	// banner 區塊，目前只有兩個
@@ -180,14 +180,16 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 					active: isAppDownloadHintActive,
 				})}
 			>
-				{bannerBlockOrders.map(component =>
-					homeComponents[component] ? homeComponents[component] : null
-				)}
+				{bannerBlockOrders.map(component => {
+					const Component = homeComponents[component]
+					return Component ? <Component key={component} /> : null
+				})}
 
 				<Menu />
-				{contentOrders.map(component =>
-					homeComponents[component] ? homeComponents[component] : null
-				)}
+				{contentOrders.map(component => {
+					const Component = homeComponents[component]
+					return Component ? <Component key={component} /> : null
+				})}
 			</main>
 		</>
 	)

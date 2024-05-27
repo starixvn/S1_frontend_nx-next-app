@@ -66,7 +66,7 @@ const LoginModal = () => {
 			}).unwrap()
 
 			closeModal()
-			router.push(`/${langId}/${paths.deposit.root}`)
+			router.push(`/${langId}${paths.deposit.root}`)
 		} catch (error) {
 			const { errorCode, message } =
 				(error as {

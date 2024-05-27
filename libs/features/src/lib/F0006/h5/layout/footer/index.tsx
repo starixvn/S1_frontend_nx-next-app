@@ -51,7 +51,7 @@ const LayoutFooter = () => {
 					<a
 						className={classNames('icon icon-gift', {
 							active:
-								pathname.startsWith(`/${paths.promotion.root}`) &&
+								pathname.startsWith(`${paths.promotion.root}`) &&
 								!isWalletActive,
 						})}
 					>

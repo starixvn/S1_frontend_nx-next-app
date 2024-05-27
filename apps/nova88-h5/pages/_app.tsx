@@ -46,7 +46,7 @@ const {
 	IovationScript,
 	PlayTechScript,
 	JackpotsScript,
-	PixelCodeScript,
+	OperaPixelCodeScript,
 	ActivatorScript,
 	GTMScript,
 } = ThirdPartyJS
@@ -86,7 +86,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			<PlayTechScript />
 			<GTMScript />
 			<JackpotsScript />
-			<PixelCodeScript />
+			<OperaPixelCodeScript />
 			<ActivatorScript />
 		</>
 	)
