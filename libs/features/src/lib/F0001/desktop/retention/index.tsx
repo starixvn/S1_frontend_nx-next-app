@@ -30,7 +30,7 @@ const RetentionContent = () => {
 			langId,
 		})
 
-	// console.log('useGetRetentionPromotionQuery', bonusCode)
+	// console.log('retiontion', bonusCode)
 
 	const { data: { data: promotionDetail } = {} } = useGetPromotionDetailQuery({
 		currencyId,
@@ -38,7 +38,7 @@ const RetentionContent = () => {
 		bonusCode,
 		deviceType,
 	})
-	// console.log('useGetPromotionDetailQuery', promotionDetail)
+	// console.log('detail', promotionDetail)
 	const {
 		isJoin = false,
 		canJoin = true,
@@ -48,12 +48,6 @@ const RetentionContent = () => {
 	// claim promotion
 	const { setClaimPromotionHandler } = useSetClaimPromotionFetcher()
 	// progress bar logics
-
-	// const progressPercentage =
-	// 	custTurnOver && custRollOver
-	// 		? ((custTurnOver / custRollOver) * 100).toFixed(2)
-	// 		: 0
-	// const progressBarWidth = `${progressPercentage}%`
 	const percentage = getPromotionPercentage({
 		turnOver: custTurnOver,
 		rollOver: custRollOver,
@@ -77,19 +71,18 @@ const RetentionContent = () => {
 						alt='retention-banner'
 					/>
 
-					<button
+					{/* <button
 						className='top-btn'
 						onClick={() => {
-							push(`${paths.promotion.root}?BonusCode=${bonusCode}`)
+							push(`${paths.promotion.root}?BonusCode=mars_retention_F`)
 						}}
 						// data?.bonusCode
 						// mars_retention_F
 					>
-						{/* {t('Label_Promotion_ClaimNow')} */}
 						test get promotion link
-					</button>
+					</button> */}
 
-					{promotionDetail && canJoin === false && (
+					{promotionDetail && canJoin === true && (
 						<button
 							className='top-btn'
 							onClick={() => {
