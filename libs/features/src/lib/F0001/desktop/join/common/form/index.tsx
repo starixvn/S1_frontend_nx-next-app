@@ -92,10 +92,10 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const watchCurrencyId = watch('currencyId')
 
-	// TODO Release 測試，上正式需移除
+	// TODO 日本語系上限需移除
 	const filterSiteCurrencyList = () => {
 		// 巴西，韓國，日本 沒有 enums
-		const filterCurrency = [82, 45, 32]
+		const filterCurrency = [32]
 		return siteCurrencyList.filter(
 			currencyId => !includes(filterCurrency, currencyId)
 		)
