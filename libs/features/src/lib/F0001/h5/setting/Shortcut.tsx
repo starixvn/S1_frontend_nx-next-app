@@ -105,6 +105,15 @@ const Shortcut = () => {
 					<span>{t('Label_Affiliate_Program')}</span>
 				</a>
 			)}
+			<Link href={paths.milestones.root}>
+				<a>
+					<img
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/milestone.png`}
+						alt='milestone'
+					/>
+					<span>{t('Label_General_Milestone')}</span>
+				</a>
+			</Link>
 		</div>
 	)
 }
