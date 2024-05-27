@@ -389,7 +389,7 @@ const Form = ({ cookies }: IJoinProps) => {
 			OperaPixelTracker('register')
 			MetaPixelTracker('registerSubmit')
 
-			router.push(`/${userLang}/${paths.deposit.root}`)
+			router.push(`/${userLang}${paths.deposit.root}`)
 		} catch (error) {
 			// error
 			modal.error((error as Error).message)
