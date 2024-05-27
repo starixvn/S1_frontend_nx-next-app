@@ -24,8 +24,11 @@ import {
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
 } from '@nx-next-app/service'
-import { getQueryParam } from '@nx-next-app/utils'
-import { PixelTracker } from 'libs/web/src/utils/tracker'
+import {
+	getQueryParam,
+	OperaPixelTracker,
+	MetaPixelTracker,
+} from '@nx-next-app/utils'
 import { Step1, Step2, Step3, StepBar, Features, LineRegister } from './form'
 
 interface IJoinProps {
@@ -263,7 +266,9 @@ const Join = ({ cookies }: IJoinProps) => {
 			}).unwrap()
 			setStep(3)
 
-			PixelTracker('register')
+			// opera and meta pixel tracker
+			OperaPixelTracker('register')
+			MetaPixelTracker('registerSubmit')
 		} catch (error) {
 			modal.error((error as Error).message)
 		}
