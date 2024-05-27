@@ -48,14 +48,14 @@ const Home = () => {
 	} = useHome()
 
 	const homeComponents = {
-		[DesktopHomeComponentsEnum.CarouselBanner]: (
+		[DesktopHomeComponentsEnum.CarouselBanner]: () => (
 			<CarouselBanner
 				bannerList={bannerData}
 				pagination={false}
 				navigation={false}
 			/>
 		),
-		[DesktopHomeComponentsEnum.Marquee]: (
+		[DesktopHomeComponentsEnum.Marquee]: () => (
 			<Marquee
 				data={announcementData}
 				onMarqueeClick={() =>
@@ -65,23 +65,26 @@ const Home = () => {
 				}
 			/>
 		),
-		[DesktopHomeComponentsEnum.PromotionMarquee]: <PromotionMarquee />,
-		[DesktopHomeComponentsEnum.LatestVideoAndEvent]: <LatestVideoAndEvent />,
-		[DesktopHomeComponentsEnum.HotGameMarquee]: <HotGameMarquee />,
-		[DesktopHomeComponentsEnum.RecentlyViewGames]: <RecentlyViewGames />,
-		[DesktopHomeComponentsEnum.NewsBlock]: <NewsBlock />,
-		[DesktopHomeComponentsEnum.CenterBanner]: <CenterBanner />,
-		[DesktopHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
-		[DesktopHomeComponentsEnum.QuickDownload]: <QuickDownload />,
-		[DesktopHomeComponentsEnum.QuickLink]: (
+		[DesktopHomeComponentsEnum.PromotionMarquee]: () => <PromotionMarquee />,
+		[DesktopHomeComponentsEnum.LatestVideoAndEvent]: () => (
+			<LatestVideoAndEvent />
+		),
+		[DesktopHomeComponentsEnum.HotGameMarquee]: () => <HotGameMarquee />,
+		[DesktopHomeComponentsEnum.RecentlyViewGames]: () => <RecentlyViewGames />,
+		[DesktopHomeComponentsEnum.NewsBlock]: () => <NewsBlock />,
+		[DesktopHomeComponentsEnum.CenterBanner]: () => <CenterBanner />,
+		[DesktopHomeComponentsEnum.LuckyWheel]: () => <LuckyWheel />,
+		[DesktopHomeComponentsEnum.QuickDownload]: () => <QuickDownload />,
+		[DesktopHomeComponentsEnum.QuickLink]: () => (
 			<QuickLink socialChannelList={socialChannelList} />
 		),
 	}
 	return (
 		<main>
-			{desktopHomeOrders.map(component =>
-				homeComponents[component] ? homeComponents[component] : null
-			)}
+			{desktopHomeOrders.map(component => {
+				const Component = homeComponents[component]
+				return Component ? <Component key={component} /> : null
+			})}
 		</main>
 	)
 }
