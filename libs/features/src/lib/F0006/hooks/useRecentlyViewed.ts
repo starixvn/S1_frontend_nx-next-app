@@ -20,16 +20,10 @@ const useRecentlyViewed = () => {
 		userInfo: { currencyId, langId },
 	} = useAuth()
 	const { onEnterSlotsPage } = useMenu()
-	const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
 	const { data: { data: recentlyViewData } = {} } = useGetRecentlyViewedQuery(
-		{
-			currencyId,
-			deviceType,
-		},
-		{
-			skip: !isLogin,
-		}
+		{ currencyId },
+		{ skip: !isLogin }
 	)
 	const { recentlyViewedList = [] } = recentlyViewData ?? {}
 

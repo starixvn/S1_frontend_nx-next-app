@@ -235,7 +235,6 @@ export const HomeProvider = ({
 	const { modal } = useGlobalModal()
 
 	const { data: { data: slotGameData = {} } = {} } = useGetSlotGamePageQuery({
-		deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
 		currencyId,
 		slotGameCategoryList: [SlotGameCategoryEnum.Jackpot],
 	})
@@ -434,7 +433,6 @@ export const HomeProvider = ({
 			}
 
 			const { data: { bonusCode = null } = {} } = await getPopUpPromotion({
-				deviceType,
 				langId,
 			}).unwrap()
 

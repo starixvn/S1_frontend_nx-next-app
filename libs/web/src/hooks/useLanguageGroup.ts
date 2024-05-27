@@ -1,10 +1,11 @@
 import { isEqual } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { useSetLanguageMutation } from '@nx-next-app/service'
 import { setCookie } from 'cookies-next'
 import { CURRENCY_TO_LANG_KEY, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { setAppCurrency, setAppLanguage } from '../utils'
 
 /**
  * @description 處理設置語系相關邏輯
@@ -31,6 +32,7 @@ const useLanguageGroup = () => {
 	}>(LANG_GROUPS)
 
 	const [setLanguage] = useSetLanguageMutation()
+	const { isInApp } = useGlobalData()
 
 	const onSetLanguage = async ({
 		langCode,
@@ -48,6 +50,10 @@ const useLanguageGroup = () => {
 		} else {
 			setCookie(ENV_COOKIE_NAMES.LangId, langCode)
 			setCookie(ENV_COOKIE_NAMES.CurrencyId, currencyId)
+			if (isInApp) {
+				setAppCurrency(currencyId)
+				setAppLanguage(langCode)
+			}
 			push({ pathname, query }, asPath, {
 				locale: langCode,
 			})

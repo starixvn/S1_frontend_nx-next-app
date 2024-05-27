@@ -1,5 +1,3 @@
-import { DeviceTypeEnum } from '@nx-next-app/types'
-
 export interface IGetPromotionArgs {
 	langId: string
 	currencyId: number
@@ -84,7 +82,8 @@ export interface IPromotionData {
 }
 
 // promotion detail
-export interface IGetPromotionDetailArgs extends IGetPromotionArgs {
+export interface IGetPromotionDetailArgs
+	extends Omit<IGetPromotionArgs, 'deviceType'> {
 	bonusCode: string
 }
 
@@ -99,7 +98,6 @@ export interface IRebateExcludeGameData {
 export interface ISetClaimPromotionArgs {
 	langId: string
 	bonusCode: string
-	deviceType: DeviceTypeEnum
 	lockedAmount: number
 }
 
@@ -162,10 +160,8 @@ export interface ISetDepositPromotionQueueArgs {
 	langId: string
 	transId: string
 	bonusCode: string
-	deviceType: number
 }
 
 export interface IGetPopUpPromotionArgs {
-	deviceType: number
 	langId: string
 }

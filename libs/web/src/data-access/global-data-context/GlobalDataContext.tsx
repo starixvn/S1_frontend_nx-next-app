@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { createContext, ReactNode } from 'react'
+import { createContext, ReactNode, useEffect, useState } from 'react'
 import {
 	useGetTpMaintainListQuery,
 	TpMaintainData,
@@ -9,20 +9,23 @@ import {
 	ITpGameTypeData,
 } from '../../service'
 import { useAuth } from '../auth-context'
+import { isReactNativeWebView } from '../../utils/client'
 
 interface IGlobalDataContext {
 	tpMaintainList: TpMaintainData[]
 	productTpIds?: number[]
 	custGameTypeSettingList?: ITpGameTypeData[]
+	isInApp: boolean | null
 }
 
 const GlobalDataContext = createContext<IGlobalDataContext>(null!)
-
 interface IGlobalDataProviderProps {
 	children: ReactNode
 }
 
 const GlobalDataProvider = ({ children }: IGlobalDataProviderProps) => {
+	const [isInApp, setIsInApp] = useState<boolean | null>(null)
+
 	const {
 		auth: { isLogin },
 		userInfo: { memberType },
@@ -46,7 +49,11 @@ const GlobalDataProvider = ({ children }: IGlobalDataProviderProps) => {
 		tpMaintainList,
 		productTpIds,
 		custGameTypeSettingList,
+		isInApp,
 	}
+
+	useEffect(() => setIsInApp(isReactNativeWebView()), [])
+
 	return (
 		<GlobalDataContext.Provider value={value}>
 			{children}
