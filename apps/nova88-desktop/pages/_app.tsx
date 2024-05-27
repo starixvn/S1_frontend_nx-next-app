@@ -12,6 +12,7 @@ import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
 import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
 import {
 	ALLOWED_CURRENCIES,
@@ -26,8 +27,8 @@ import {
 	LEFT_MENU_DATA,
 	LIVE_CHAT_ID_BY_LANG_ID,
 	ThirdPartyJS,
-	LANG_TO_CURRENCY,
 } from '@nx-next-app/site/nova88'
+import { LANG_TO_CURRENCY } from '@apps/nova88-desktop/middleware'
 
 import 'react-datepicker/dist/react-datepicker.css'
 import '../styles/css/style.css'
@@ -37,6 +38,7 @@ import '../styles/css/font.css'
 dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
 dayjs.extend(utc)
+dayjs.extend(customParseFormat)
 
 const {
 	LiveChatScript,

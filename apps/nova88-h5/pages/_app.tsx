@@ -9,6 +9,7 @@ import { StaticDataProvider } from '@nx-next-app/data-access'
 // * https://day.js.org/docs/en/plugin/localized-format
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
 
 import {
 	META_DATA,
@@ -24,8 +25,8 @@ import {
 	LIVE_CHAT_ID_BY_LANG_ID,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	ThirdPartyJS,
-	LANG_TO_CURRENCY,
 } from '@nx-next-app/site/nova88'
+import { LANG_TO_CURRENCY } from '@apps/nova88-h5/middleware'
 
 import 'react-datepicker/dist/react-datepicker.css'
 import '../styles/css/style-dark.css'
@@ -39,6 +40,7 @@ import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
 dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
 dayjs.extend(utc)
+dayjs.extend(customParseFormat)
 
 const {
 	IovationScript,

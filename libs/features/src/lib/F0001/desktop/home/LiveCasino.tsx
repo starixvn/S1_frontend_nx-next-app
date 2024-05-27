@@ -118,24 +118,45 @@ const LiveCasino = () => {
 						{t('Label_General_PlayNow')}
 					</button>
 				</div>
-				<div className='hotlivecasino'>
-					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-livecasino-evo.png`}
-						alt='casino_EVO'
-					/>
-					<button
-						className='all-btn'
-						onClick={() => {
-							if (!isUndefined(evoCasino)) {
-								onMenuOpen(evoCasino, {
-									loginCallback: () => modal.open(<LoginModal />),
-								})
-							}
-						}}
-					>
-						{t('Label_General_PlayNow')}
-					</button>
-				</div>
+				{currencyId === CurrenciesEnum.BRL ? (
+					<div className='hotlivecasino'>
+						<img
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-livecasino-sg.png`}
+							alt='casino_SG'
+						/>
+						<button
+							className='all-btn'
+							onClick={() => {
+								if (!isUndefined(sgCasino)) {
+									onMenuOpen(sgCasino, {
+										loginCallback: () => modal.open(<LoginModal />),
+									})
+								}
+							}}
+						>
+							{t('Label_General_PlayNow')}
+						</button>
+					</div>
+				) : (
+					<div className='hotlivecasino'>
+						<img
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-livecasino-evo.png`}
+							alt='casino_EVO'
+						/>
+						<button
+							className='all-btn'
+							onClick={() => {
+								if (!isUndefined(evoCasino)) {
+									onMenuOpen(evoCasino, {
+										loginCallback: () => modal.open(<LoginModal />),
+									})
+								}
+							}}
+						>
+							{t('Label_General_PlayNow')}
+						</button>
+					</div>
+				)}
 				{/* // * BDT幣別不支援 DG，改為開始 SG 產品 */}
 				{currencyId === CurrenciesEnum.BDT ? (
 					<div className='hotlivecasino'>
