@@ -65,14 +65,14 @@ const Home = () => {
 
 	const { modal } = useGlobalModal()
 	const homeComponents = {
-		[DesktopHomeComponentsEnum.CarouselBanner]: (
+		[DesktopHomeComponentsEnum.CarouselBanner]: () => (
 			<CarouselBanner
 				className='homebanner'
 				bannerList={bannerData}
 				navigation={false}
 			/>
 		),
-		[DesktopHomeComponentsEnum.Marquee]: (
+		[DesktopHomeComponentsEnum.Marquee]: () => (
 			<Marquee
 				data={announcementData}
 				onMarqueeClick={() =>
@@ -82,32 +82,33 @@ const Home = () => {
 				}
 			/>
 		),
-		[DesktopHomeComponentsEnum.PromotionSwiper]: <PromotionSwiper />,
-		[DesktopHomeComponentsEnum.WelcomeInfo]: <WelcomeInfo />,
-		[DesktopHomeComponentsEnum.HotMatch]: <HotMatch />,
-		[DesktopHomeComponentsEnum.LiveCasino]: <LiveCasino />,
-		[DesktopHomeComponentsEnum.HotGame]: <HotGame />,
-		[DesktopHomeComponentsEnum.AppDownloadBanner]: <AppDownloadBanner />,
-		[DesktopHomeComponentsEnum.OfficialPartner]: <OfficialPartner />,
-		[DesktopHomeComponentsEnum.ProviderBlock]: <ProvidersBlock />,
-		[DesktopHomeComponentsEnum.EuropeCupEntry]: includes(
-			ALLOWED_CURRENCIES.Euro_Cup,
-			currencyId
-		) ? (
-			<EuropeCupEntry />
-		) : null,
-		[DesktopHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
-		[DesktopHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
-		[DesktopHomeComponentsEnum.QuickDownload]: <QuickDownload />,
-		[DesktopHomeComponentsEnum.QuickLink]: (
+		[DesktopHomeComponentsEnum.PromotionSwiper]: () => <PromotionSwiper />,
+		[DesktopHomeComponentsEnum.WelcomeInfo]: () => <WelcomeInfo />,
+		[DesktopHomeComponentsEnum.HotMatch]: () => <HotMatch />,
+		[DesktopHomeComponentsEnum.LiveCasino]: () => <LiveCasino />,
+		[DesktopHomeComponentsEnum.HotGame]: () => <HotGame />,
+		[DesktopHomeComponentsEnum.AppDownloadBanner]: () => <AppDownloadBanner />,
+		[DesktopHomeComponentsEnum.OfficialPartner]: () => <OfficialPartner />,
+		[DesktopHomeComponentsEnum.ProviderBlock]: () => <ProvidersBlock />,
+		[DesktopHomeComponentsEnum.EuropeCupEntry]: () => includes(
+      ALLOWED_CURRENCIES.Euro_Cup,
+      currencyId
+    ) ? (
+      <EuropeCupEntry />
+    ) : null,
+		[DesktopHomeComponentsEnum.LuckyWheel]: () => <LuckyWheel />,
+		[DesktopHomeComponentsEnum.LiveStreamingLink]: () => <LiveStreamingLink />,
+		[DesktopHomeComponentsEnum.QuickDownload]: () => <QuickDownload />,
+		[DesktopHomeComponentsEnum.QuickLink]: () => (
 			<QuickLink socialChannelList={socialChannelList} />
 		),
 	}
 	return (
 		<main>
-			{desktopHomeOrders.map(component =>
-				homeComponents[component] ? homeComponents[component] : null
-			)}
+			{desktopHomeOrders.map(component => {
+				const Component = homeComponents[component]
+				return Component ? <Component key={component} /> : null
+			})}
 		</main>
 	)
 }

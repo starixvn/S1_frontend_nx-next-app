@@ -32,7 +32,7 @@ const MsgPopup = ({ isWalletActive }: { isWalletActive: boolean }) => {
 		<a
 			className={classNames('icon icon-menu', {
 				active:
-					router.pathname.startsWith(`/${paths.setting.root}`) &&
+					router.pathname.startsWith(`${paths.setting.root}`) &&
 					!isWalletActive,
 			})}
 			role='link'

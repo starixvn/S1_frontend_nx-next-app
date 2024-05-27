@@ -31,7 +31,7 @@ const ProgramList = ({
 		const linkToReferral = () => {
 			// todo:呼叫登錄彈窗
 			auth.isLogin
-				? router.push(`/${langId}/${paths.referral.root}`)
+				? router.push(`/${langId}${paths.referral.root}`)
 				: modal.open(<LoginModal />)
 		}
 
@@ -61,7 +61,7 @@ const ProgramList = ({
 			case 'Label_General_MoreInfo':
 				return (
 					<a
-						href={`/${langId}/${paths.vip.root}`}
+						href={`/${langId}${paths.vip.root}`}
 						style={
 							ALLOWED_CURRENCIES?.VIP?.includes(currencyId as number)
 								? {}
