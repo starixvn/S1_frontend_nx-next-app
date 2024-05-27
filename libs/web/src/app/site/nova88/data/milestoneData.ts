@@ -5,7 +5,7 @@ export const milestonesData: IMilestone[] = [
 	{ year: '2021', index: 1, imgSrc: 'amber.png' },
 	{ year: '2022', index: 2, imgSrc: 'joe.png' },
 	{ year: '2023', index: 3, imgSrc: 'fc.png' },
-	{ year: 'Present', index: 4, imgSrc: 'milan.png' },
+	{ year: '2024', index: 4, imgSrc: 'milan.png' },
 ]
 
 export const slideData: ISlide = [
@@ -38,9 +38,9 @@ export const slideData: ISlide = [
 		className: 'swiper-slide five',
 	},
 	{
-		title: 'Label_Milestone_Present',
-		subtitle: 'Label_Milestone_2023_Subtitle',
-		content: 'Label_Milestone_Collaboration',
+		title: 'Label_Milestone_2024',
+		subtitle: 'Label_Milestone_2024_Subtitle',
+		content: 'Label_Milestone_2024_Content',
 		imgSrc: 'milan.png',
 		className: 'swiper-slide six',
 	},
