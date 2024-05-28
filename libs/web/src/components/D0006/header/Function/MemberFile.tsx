@@ -69,6 +69,9 @@ const MemberFile = ({ userLevelImageInfo }: IMemberFileProps) => {
 				<Link href={paths.changePassword.root} passHref>
 					<a className=''>{t('Label_General_ChangePassword')}</a>
 				</Link>
+				<Link href={paths.selfExclusion.root} passHref>
+					<a className=''>{t('Label_General_SelfExclusion')}</a>
+				</Link>
 			</div>
 		</div>
 	)

@@ -74,6 +74,9 @@ export const paths = {
 	changePassword: {
 		root: '/change-password',
 	},
+	selfExclusion: {
+		root: '/self-exclusion',
+	},
 	bankInfo: {
 		root: '/bank-info',
 	},
