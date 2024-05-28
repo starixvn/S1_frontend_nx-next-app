@@ -19,8 +19,6 @@ import DepositMenu from './DepositMenu'
 import PromotionProgressBar from '../../promotion/common/PromotionProgressBar'
 import PromotionMission from './PromotionMission'
 
-const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
-
 interface IPromotionDetailModalProps {
 	bonusCode: string
 	// 是否隱藏全部優惠的 button , 預設為 false
@@ -42,7 +40,6 @@ const PromotionDetailModal = ({
 		currencyId,
 		langId,
 		bonusCode,
-		deviceType,
 	})
 
 	const { onUpdatePromotionDetail, setClaimPromotionHandler } =

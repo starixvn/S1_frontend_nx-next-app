@@ -8,7 +8,7 @@ import {
 	useAppDownload,
 } from '@nx-next-app/components/H0001'
 import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import { useSetHideBalanceMutation } from '@nx-next-app/service'
 import { useHome } from '@nx-next-app/features/F0001/providers'
@@ -89,6 +89,8 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 		Boolean(persistAppDownloadHint)
 	)
 
+	const { isInApp } = useGlobalData()
+
 	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	const homeComponents = {
@@ -120,15 +122,14 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 			includes(jackPotCurrencies, currencyId) ? (
 				<JackPot onClick={() => push(paths.slots.root)} isRoot />
 			) : null,
-		[MobileHomeComponentsEnum.EuropeCupEntry]: () =>  includes(
-      ALLOWED_CURRENCIES.Euro_Cup,
-      currencyId
-    ) ? (
-      <EuroCupEntry />
-    ) : null,
+		[MobileHomeComponentsEnum.EuropeCupEntry]: () =>
+			includes(ALLOWED_CURRENCIES.Euro_Cup, currencyId) ? (
+				<EuroCupEntry />
+			) : null,
 		[MobileHomeComponentsEnum.LuckyWheel]: () => <LuckyWheel />,
 		[MobileHomeComponentsEnum.LiveStreamingLink]: () => <LiveStreamingLink />,
-		[MobileHomeComponentsEnum.AppDownload]: () => <AppDownload />,
+		[MobileHomeComponentsEnum.AppDownload]: () =>
+			isInApp === false ? <AppDownload /> : null,
 		[MobileHomeComponentsEnum.FooterBlock]: () => <FooterBlock />,
 		[MobileHomeComponentsEnum.SimpleFooter]: () => <SimpleFooter />,
 		[MobileHomeComponentsEnum.JackPotSwiper]: () => <JackPotSwiper />,
@@ -148,16 +149,16 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 		component => !includes(bannerBlockOrders, component)
 	)
 
-	const showAppDownload = includes(
-		ALLOWED_CURRENCIES['APP_DOWNLOAD'] as CurrenciesEnum[],
-		currencyId
-	)
+	const showAppDownload =
+		isInApp === false &&
+		isAppDownloadHintActive &&
+		includes(ALLOWED_CURRENCIES['APP_DOWNLOAD'] as CurrenciesEnum[], currencyId)
 
 	return (
 		<>
 			<Header>
 				<Header.AppDownLoad
-					isAppDownloadHintActive={isAppDownloadHintActive}
+					isAppDownloadHintActive={showAppDownload}
 					onCloseAppDownloadHint={onCloseAppDownloadHint}
 					showAppDownload={showAppDownload}
 				/>
@@ -176,9 +177,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 
 			<main
 				// * 當 Header.AppDownLoad 顯示時要加入 'active' class name
-				className={classNames({
-					active: isAppDownloadHintActive,
-				})}
+				className={classNames({ active: showAppDownload })}
 			>
 				{bannerBlockOrders.map(component => {
 					const Component = homeComponents[component]

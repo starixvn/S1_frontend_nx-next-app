@@ -135,7 +135,6 @@ const useDepositBankTransferForm = ({
 
 			if (promoCode) {
 				const { data: { data } = {} } = await checkDepositSpecialCode({
-					deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
 					specialCode: promoCode,
 				})
 
@@ -154,13 +153,7 @@ const useDepositBankTransferForm = ({
 			if (transId) {
 				await Promise.all([
 					receipt && uploadReceipt({ transId, receipt }),
-					bonusCode &&
-						setDepositPromotionQueue({
-							langId,
-							transId,
-							bonusCode,
-							deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
-						}),
+					bonusCode && setDepositPromotionQueue({ langId, transId, bonusCode }),
 				])
 			}
 
