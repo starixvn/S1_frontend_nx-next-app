@@ -143,6 +143,9 @@ export const paths = {
 	milestones: {
 		root: '/milestones',
 	},
+	retention: {
+		root: '/retention',
+	},
 } as const
 
 export type IRootpath = (typeof paths)[keyof typeof paths]['root']

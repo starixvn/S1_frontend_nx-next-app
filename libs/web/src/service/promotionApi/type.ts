@@ -165,3 +165,8 @@ export interface ISetDepositPromotionQueueArgs {
 export interface IGetPopUpPromotionArgs {
 	langId: string
 }
+
+export interface IGetRetentionPromotionArgs {
+	deviceType: number
+	langId: string
+}

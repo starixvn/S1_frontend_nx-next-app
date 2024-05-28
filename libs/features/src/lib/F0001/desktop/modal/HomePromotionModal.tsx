@@ -27,11 +27,21 @@ const HomePromotionModal = ({
 						}/desktop/img/promosBackPopup/promosPopup-${langId || 'en'}.png`}
 						alt='img-promosPopup'
 					/>
-
+					{/* 
 					<button
 						className='popgo'
 						onClick={() => {
 							push(`${paths.promotion.root}?BonusCode=${bonusCode}`)
+							closeModal()
+						}}
+					>
+						{t('Label_Promotion_ClaimNow')}
+					</button> */}
+
+					<button
+						className='popgo'
+						onClick={() => {
+							push(`${paths.retention.root}`)
 							closeModal()
 						}}
 					>

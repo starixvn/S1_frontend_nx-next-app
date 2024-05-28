@@ -7,6 +7,11 @@ import { useTranslation } from 'next-i18next'
 import { toUpper, upperFirst } from 'lodash-es'
 import { IEventPeriod } from '@nx-next-app/types'
 import { useLuckWheelContext } from '@nx-next-app/features/F0001/providers'
+import { useGetRetentionPromotionQuery } from '@nx-next-app/service'
+import { useRouter } from 'next/router'
+import { paths } from '@nx-next-app/constants'
+
+const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
 interface ILuckyWheelProps {
 	eventPeriod: IEventPeriod
@@ -15,8 +20,15 @@ interface ILuckyWheelProps {
 const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 	const {
 		auth: { isLogin },
-		userInfo: { currencyName },
+		userInfo: { currencyName, langId },
 	} = useAuth()
+
+	const { push } = useRouter()
+
+	const handleRetentionClick = () => {
+		push(paths.retention.root)
+	}
+
 	const { t } = useTranslation()
 
 	const {
@@ -28,11 +40,32 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 	} = useLuckWheelContext()
 
 	const { value: isSpinning, setValue: setIsSpinning } = useBoolean(false)
-
+	// call getRetentionPromotion api to see if users are qualified to get retention promotion
+	const { data: { data: { bonusCode = '' } = {} } = {} } =
+		useGetRetentionPromotionQuery(
+			{
+				deviceType,
+				langId,
+			},
+			{
+				skip: !langId,
+			}
+		)
+	// seee if data is existed
+	// console.log('retention', bonusCode)
 	if (loading) return <Loading />
 
 	return (
 		<main className='wheelEvent'>
+			<div className='eventpage-tap'>
+				<button className='active'> {t('Label_LuckyWheel_Title')}</button>
+				{bonusCode && (
+					<button className='' onClick={handleRetentionClick}>
+						{t('Label_Retention_SurpriseReward')}
+					</button>
+				)}
+			</div>
+
 			<div className='eventPage'>
 				<div className='eventTitleBg'>
 					<div className='eventTitle'>{t('Label_LuckyWheel_Title')}</div>
