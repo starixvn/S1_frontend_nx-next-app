@@ -1,4 +1,3 @@
-import { DeviceTypeEnum } from '@nx-next-app/types'
 import { cloneDeep, findIndex } from 'lodash-es'
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
@@ -12,6 +11,7 @@ import {
 	ISetClaimPromotionArgs,
 	ISetDepositPromotionQueueArgs,
 } from './type'
+import { getDeviceType } from '../../utils/client'
 
 export const promotionApiUrl = {
 	getPromotionListV3: 'Promotion/GetPromotionListV3',
@@ -30,16 +30,12 @@ export const promotionApi = rootApi.injectEndpoints({
 		getPromotionListV3: builder.query<
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			IAxiosResponse<IPromotionData[]>,
-			{
-				langId: string
-				currencyId: number
-				deviceType: DeviceTypeEnum
-			}
+			{ langId: string; currencyId: number }
 		>({
-			query: ({ langId, ...data }) => ({
+			query: ({ langId, currencyId }) => ({
 				url: `${promotionApiUrl.getPromotionListV3}/${langId}`,
 				method: 'POST',
-				data,
+				data: { deviceType: getDeviceType(), currencyId },
 			}),
 			providesTags: ['PROMOTION_GET_PROMOTION_LIST'],
 		}),
@@ -50,7 +46,7 @@ export const promotionApi = rootApi.injectEndpoints({
 			query: ({ langId, ...data }) => ({
 				url: `${promotionApiUrl.getPromotionDetail}/${langId}`,
 				method: 'POST',
-				data,
+				data: { deviceType: getDeviceType(), ...data },
 			}),
 			providesTags: ['PROMOTION_GET_PROMOTION_LIST'],
 		}),
@@ -66,43 +62,33 @@ export const promotionApi = rootApi.injectEndpoints({
 		}),
 		getSpecialPromotionList: builder.query<
 			IAxiosResponse<IPromotionData[]>,
-			{
-				langId: string
-				deviceType: DeviceTypeEnum
-			}
+			{ langId: string }
 		>({
 			query: ({ langId, ...data }) => ({
 				url: `${promotionApiUrl.getSpecialPromotionList}/${langId}`,
 				method: 'POST',
-				data,
+				data: { deviceType: getDeviceType(), ...data },
 			}),
 			providesTags: ['PROMOTION_GET_SPECIAL_PROMOTION_LIST'],
 		}),
 		getDepositPromotionList: builder.query<
 			IAxiosResponse<IDepositPromotionData[]>,
-			{
-				langId: string
-				deviceType: DeviceTypeEnum
-			}
+			{ langId: string }
 		>({
 			query: ({ langId, ...data }) => ({
 				url: `${promotionApiUrl.getDepositPromotionList}/${langId}`,
 				method: 'POST',
-				data,
+				data: { deviceType: getDeviceType(), ...data },
 			}),
 		}),
 		setSpecialCode: builder.mutation<
 			IAxiosResponse<void>,
-			{
-				langId: string
-				deviceType: DeviceTypeEnum
-				specialCode: string
-			}
+			{ langId: string; specialCode: string }
 		>({
 			query: ({ langId, ...data }) => ({
 				url: `${promotionApiUrl.setSpecialCode}/${langId}`,
 				method: 'POST',
-				data,
+				data: { deviceType: getDeviceType(), ...data },
 			}),
 			invalidatesTags: ['PROMOTION_GET_SPECIAL_PROMOTION_LIST'],
 		}),
@@ -113,7 +99,7 @@ export const promotionApi = rootApi.injectEndpoints({
 			query: ({ langId, ...data }) => ({
 				url: `${promotionApiUrl.setClaimPromotion}/${langId}`,
 				method: 'POST',
-				data,
+				data: { deviceType: getDeviceType(), ...data },
 			}),
 			invalidatesTags: ['PROMOTION_GET_PROMOTION_LIST'],
 		}),
@@ -124,19 +110,17 @@ export const promotionApi = rootApi.injectEndpoints({
 			query: ({ langId, ...data }) => ({
 				url: `${promotionApiUrl.setDepositPromotionQueue}/${langId}`,
 				method: 'POST',
-				data,
+				data: { deviceType: getDeviceType(), ...data },
 			}),
 		}),
 		getPopUpPromotion: builder.query<
-			IAxiosResponse<{
-				bonusCode: null | string
-			}>,
+			IAxiosResponse<{ bonusCode: null | string }>,
 			IGetPopUpPromotionArgs
 		>({
-			query: ({ deviceType, langId }) => ({
+			query: ({ langId }) => ({
 				url: `${promotionApiUrl.getPopUpPromotion}/${langId}`,
 				method: 'POST',
-				data: { deviceType },
+				data: { deviceType: getDeviceType() },
 			}),
 		}),
 	}),
@@ -148,7 +132,6 @@ export const promotionApi = rootApi.injectEndpoints({
 export const updatePromotionData = ({
 	langId,
 	currencyId,
-	deviceType,
 	bonusCode,
 	bonusData: {
 		bonus,
@@ -161,13 +144,12 @@ export const updatePromotionData = ({
 }: {
 	langId: string
 	currencyId: number
-	deviceType: DeviceTypeEnum
 	bonusCode: string
 	bonusData: ICustSpecificBonusData
 }) => {
 	return promotionApi.util.updateQueryData(
 		'getPromotionListV3',
-		{ langId, currencyId, deviceType },
+		{ langId, currencyId },
 		response => {
 			const index = findIndex(response.data, { bonusCode })
 			// * cloneDeep 之前會是 Proxy(Array)格式
@@ -192,7 +174,6 @@ export const updatePromotionData = ({
 export const updatePromotionDetail = ({
 	langId,
 	currencyId,
-	deviceType,
 	bonusCode,
 	bonusData: {
 		bonus,
@@ -205,13 +186,12 @@ export const updatePromotionDetail = ({
 }: {
 	langId: string
 	currencyId: number
-	deviceType: DeviceTypeEnum
 	bonusCode: string
 	bonusData: ICustSpecificBonusData
 }) => {
 	return promotionApi.util.updateQueryData(
 		'getPromotionDetail',
-		{ bonusCode, langId, currencyId, deviceType },
+		{ bonusCode, langId, currencyId },
 		response => {
 			// * cloneDeep 之前會是 Proxy(Array)格式
 			let newData = cloneDeep(response.data)

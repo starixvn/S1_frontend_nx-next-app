@@ -206,13 +206,8 @@ export const HomeProvider = ({
 		)
 
 	const { data: { data: recentlyViewData } = {} } = useGetRecentlyViewedQuery(
-		{
-			currencyId,
-			deviceType,
-		},
-		{
-			skip: !isLogin,
-		}
+		{ currencyId },
+		{ skip: !isLogin }
 	)
 
 	const { data: { data: socialChannelList = [] } = {} } =
