@@ -15,8 +15,6 @@ interface ILuckyWheelProps {
 	eventPeriod: IEventPeriod
 }
 
-const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
-
 const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 	const { t } = useTranslation()
 	const { push } = useRouter()
@@ -41,7 +39,6 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 	// call getRetentionPromotion api to see if users are qualified to get retention promotion
 	const { data: { data: { bonusCode = '' } = {} } = {} } =
 		useGetRetentionPromotionQuery({
-			deviceType,
 			langId,
 		})
 	// seee if data is existed

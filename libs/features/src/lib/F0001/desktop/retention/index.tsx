@@ -13,7 +13,6 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useSetClaimPromotionFetcher } from '../../hooks'
 
 const imgHost = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop`
-const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
 const RetentionContent = () => {
 	const { push } = useRouter()
@@ -42,7 +41,6 @@ const RetentionContent = () => {
 			currencyId,
 			langId,
 			bonusCode: retentionBonusCode as string,
-			deviceType,
 		},
 		{
 			skip: !retentionBonusCode,
@@ -68,7 +66,7 @@ const RetentionContent = () => {
 		const init = async () => {
 			try {
 				const { data: { bonusCode = null } = {} } = await getRetentionPromotion(
-					{ deviceType, langId }
+					{ langId }
 				).unwrap()
 				if (bonusCode) {
 					setRetentionBonusCode(bonusCode)

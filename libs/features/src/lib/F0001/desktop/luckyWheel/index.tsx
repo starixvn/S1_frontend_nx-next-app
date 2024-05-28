@@ -11,8 +11,6 @@ import { useGetRetentionPromotionQuery } from '@nx-next-app/service'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 
-const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
-
 interface ILuckyWheelProps {
 	eventPeriod: IEventPeriod
 }
@@ -44,7 +42,6 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 	const { data: { data: { bonusCode = '' } = {} } = {} } =
 		useGetRetentionPromotionQuery(
 			{
-				deviceType,
 				langId,
 			},
 			{
