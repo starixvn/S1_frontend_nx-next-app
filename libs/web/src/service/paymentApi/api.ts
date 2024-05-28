@@ -1,4 +1,3 @@
-import { DeviceTypeEnum } from '@nx-next-app/types'
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
 import {
@@ -49,6 +48,7 @@ import {
 	IPaymentOnlineBankInfoSysData,
 	IPaymentCustBankInfoData,
 } from './type'
+import { getDeviceType } from '../../utils/client'
 
 export const paymentApiUrl = {
 	kycCheck: 'Payment/KycCheck',
@@ -479,12 +479,12 @@ const paymentApi = rootApi.injectEndpoints({
 		// * 透過 specialCode 取得 bonusCode
 		checkDepositSpecialCode: builder.query<
 			IAxiosResponse<{ bonusCode: string }>,
-			{ deviceType: DeviceTypeEnum; specialCode: string }
+			{ specialCode: string }
 		>({
 			query: data => ({
 				url: paymentApiUrl.checkDepositSpecialCode,
 				method: 'POST',
-				data,
+				data: { deviceType: getDeviceType(), ...data },
 			}),
 		}),
 		// * 建立 LocalPay 存款單

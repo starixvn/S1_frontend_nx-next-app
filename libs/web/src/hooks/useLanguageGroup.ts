@@ -1,10 +1,11 @@
 import { isEqual } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { useSetLanguageMutation } from '@nx-next-app/service'
 import { setCookie } from 'cookies-next'
 import { CURRENCY_TO_LANG_KEY, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { setAppCurrency, setAppLanguage } from '../utils'
 
 /**
  * @description 處理設置語系相關邏輯
@@ -31,6 +32,7 @@ const useLanguageGroup = () => {
 	}>(LANG_GROUPS)
 
 	const [setLanguage] = useSetLanguageMutation()
+	const { isInApp } = useGlobalData()
 
 	const onSetLanguage = async ({
 		langCode,
@@ -41,6 +43,16 @@ const useLanguageGroup = () => {
 	}) => {
 		// 選擇沒變則 return
 		if (currencyId === currentCurrency && langCode === currentLang) return
+
+		if (isInApp) {
+			if (currencyId !== currentCurrency) {
+				setAppCurrency(currencyId)
+			}
+
+			if (langCode !== currentLang) {
+				setAppLanguage(langCode)
+			}
+		}
 
 		if (auth.isLogin) {
 			// 有登入狀態，透過 setLang 完成語系切換，不在此處做 router.push

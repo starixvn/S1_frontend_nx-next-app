@@ -6,6 +6,7 @@ import {
 	ISlotsGameData,
 } from './type'
 import { IAxiosResponse } from '../axiosBaseQuery'
+import { getDeviceType } from '../../utils/client'
 
 export const gameApiUrl = {
 	getSlotGamePage: 'Game/GetSlotGamePage',
@@ -17,7 +18,6 @@ export const gameApi = rootApi.injectEndpoints({
 		getSlotGamePage: builder.query<
 			IAxiosResponse<ISlotsGameData>,
 			{
-				deviceType: number
 				currencyId: number
 				slotGameCategoryList?: SlotGameCategoryEnum[]
 			}
@@ -25,7 +25,7 @@ export const gameApi = rootApi.injectEndpoints({
 			query: data => ({
 				url: gameApiUrl.getSlotGamePage,
 				method: 'POST',
-				data,
+				data: { deviceType: getDeviceType(), ...data },
 			}),
 			providesTags: ['SLOTS_GAME_DATA'],
 		}),
@@ -36,7 +36,7 @@ export const gameApi = rootApi.injectEndpoints({
 			query: data => ({
 				url: gameApiUrl.getRecentlyViewed,
 				method: 'POST',
-				data,
+				data: { deviceType: getDeviceType(), ...data },
 			}),
 		}),
 	}),

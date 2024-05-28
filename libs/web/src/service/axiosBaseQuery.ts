@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { BaseQueryFn } from '@reduxjs/toolkit/query'
 import axios, { AxiosRequestConfig } from 'axios'
+import { getDeviceType } from '../utils/client'
 
 export interface IAxiosResponse<T> {
 	data: T
@@ -63,7 +64,7 @@ export const axiosBaseQuery =
 				method,
 				data,
 				params,
-				headers: { ...preHeaders, ...headers },
+				headers: { ...preHeaders, ...headers, 'ai-device': getDeviceType() },
 				responseType,
 			})
 

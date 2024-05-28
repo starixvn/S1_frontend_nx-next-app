@@ -121,11 +121,7 @@ export const PromotionProvider = ({
 
 	const { data: { data: promotionList = persistPromotionData } = {} } =
 		useGetPromotionListV3Query(
-			{
-				langId,
-				currencyId,
-				deviceType,
-			},
+			{ langId, currencyId },
 			{
 				pollingInterval: 60000,
 				refetchOnMountOrArgChange: true,
@@ -140,10 +136,7 @@ export const PromotionProvider = ({
 
 	const { data: { data: specialPromotionList = [] } = {} } =
 		useGetSpecialPromotionListQuery(
-			{
-				langId,
-				deviceType,
-			},
+			{ langId },
 			{
 				skip: !isLogin,
 			}
@@ -165,7 +158,6 @@ export const PromotionProvider = ({
 				updatePromotionData({
 					langId,
 					currencyId,
-					deviceType,
 					bonusCode,
 					bonusData: custSpecificBonus,
 				})
@@ -219,7 +211,6 @@ export const PromotionProvider = ({
 		try {
 			await setSpecialCode({
 				langId,
-				deviceType: DeviceTypeEnum.Desktop,
 				specialCode: trim(specialCode),
 			}).unwrap()
 		} catch (error) {
