@@ -130,10 +130,10 @@ export const promotionApi = rootApi.injectEndpoints({
 			}>,
 			IGetPopUpPromotionArgs
 		>({
-			query: ({ deviceType, langId }) => ({
+			query: ({ langId }) => ({
 				url: `${promotionApiUrl.getRetentionPromotion}/${langId}`,
 				method: 'POST',
-				data: { deviceType },
+				data: { deviceType: getDeviceType() },
 			}),
 		}),
 	}),

@@ -1,56 +1,40 @@
 import { useRouter } from 'next/router'
-import { Header } from '@nx-next-app/components/H0001'
+import { Header, Loading } from '@nx-next-app/components/H0001'
 import { useTranslation } from 'react-i18next'
 import { paths } from '@nx-next-app/constants'
-import {
-	useGetPromotionDetailQuery,
-	useGetRetentionPromotionQuery,
-} from '@nx-next-app/service'
 import { useAuth } from '@nx-next-app/data-access'
-import { getPromotionPercentage, numberFormat } from '@nx-next-app/utils'
-import { useSetClaimPromotionFetcher } from '../../hooks'
+import { numberFormat } from '@nx-next-app/utils'
+import {
+	useRetentionLandingPage,
+	useSetClaimPromotionFetcher,
+} from '../../hooks'
 
 const imgHost = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5`
-const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
 const RetentionContent = () => {
 	const { push } = useRouter()
 	const { t } = useTranslation()
 
+	const { promotionDetail, percentage, loading } = useRetentionLandingPage()
+	// claim promotion
+	const { setClaimPromotionHandler } = useSetClaimPromotionFetcher()
+
 	const {
-		userInfo: { langId, currencyId, currencyName },
+		userInfo: { currencyId, currencyName },
 	} = useAuth()
 
 	const handleWheelClick = () => {
 		push(paths.luckyWheel.root)
 	}
 
-	const { data: { data: { bonusCode = '' } = {} } = {} } =
-		useGetRetentionPromotionQuery({
-			deviceType,
-			langId,
-		})
-	// console.log('retiontion', bonusCode)
-	const { data: { data: promotionDetail } = {} } = useGetPromotionDetailQuery({
-		currencyId,
-		langId,
-		bonusCode,
-		deviceType,
-	})
-	// console.log('detail', promotionDetail)
 	const {
 		isJoin = false,
-		canJoin = true,
+		canJoin = false,
 		custTurnOver = 0,
 		custRollOver = 0,
 	} = promotionDetail ?? {}
-	// claim promotion
-	const { setClaimPromotionHandler } = useSetClaimPromotionFetcher()
-	// progress bar logics
-	const percentage = getPromotionPercentage({
-		turnOver: custTurnOver,
-		rollOver: custRollOver,
-	})
+
+	if (loading) return <Loading />
 
 	return (
 		<>
@@ -77,7 +61,7 @@ const RetentionContent = () => {
 							src={`${imgHost}/img/event/retention/top-item.webp`}
 							alt='banner-retention'
 						/>
-						{promotionDetail && canJoin === true && (
+						{promotionDetail && canJoin && (
 							<button
 								className='top-btn'
 								onClick={() => {
@@ -92,7 +76,7 @@ const RetentionContent = () => {
 						{t('Label_Retention_Title')}
 						<div>{t('Label_Retention_Content')}</div>
 					</div>
-					{isJoin === true && (
+					{isJoin && (
 						<div className='turnover-progress'>
 							<div className='turnover-title'>
 								{t('Label_Retention_TurnoverTitle')}
