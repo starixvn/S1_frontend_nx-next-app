@@ -65,6 +65,11 @@ export const LEFT_MENU_DATA: ILeftMenuData = {
 				pathname: paths.changePassword.root,
 				allowCurrencies: false,
 			},
+			selfExclusion: {
+				displayKey: 'Label_General_SelfExclusion',
+				pathname: paths.selfExclusion.root,
+				allowCurrencies: false,
+			},
 		},
 	},
 	[LeftMenuKeyEnum.Message]: {
