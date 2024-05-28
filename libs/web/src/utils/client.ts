@@ -2,8 +2,12 @@ type ReactNativeWebViewMessage =
 	| { type: 'SyncCurrency'; payload: number }
 	| { type: 'SyncLanguage'; payload: string }
 
-interface IReactNativeWebView {
+type ReactNativeWebView = {
 	postMessage: (message: string) => void
+}
+
+type ReactNativeWebViewWindow = typeof window & {
+	ReactNativeWebView: ReactNativeWebView
 }
 
 export const isReactNativeWebView = () =>
@@ -12,16 +16,14 @@ export const isReactNativeWebView = () =>
 	window.ReactNativeWebView != null
 
 const postMsgToApp = (message: ReactNativeWebViewMessage) => {
-	if (!isReactNativeWebView()) return
-
-	const { ReactNativeWebView } = window as typeof window & {
-		ReactNativeWebView?: IReactNativeWebView
-	}
-
-	const { postMessage } = ReactNativeWebView ?? {}
-
-	if (typeof postMessage === 'function') {
-		postMessage(JSON.stringify(message))
+	if (
+		isReactNativeWebView() &&
+		typeof (window as ReactNativeWebViewWindow)?.ReactNativeWebView
+			?.postMessage === 'function'
+	) {
+		;(window as ReactNativeWebViewWindow).ReactNativeWebView.postMessage(
+			JSON.stringify(message)
+		)
 	}
 }
 
