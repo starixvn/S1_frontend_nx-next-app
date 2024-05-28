@@ -12,6 +12,7 @@ import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 
 const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
+
 interface ILuckyWheelProps {
 	eventPeriod: IEventPeriod
 }
@@ -41,10 +42,15 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 	const { value: isSpinning, setValue: setIsSpinning } = useBoolean(false)
 	// call getRetentionPromotion api to see if users are qualified to get retention promotion
 	const { data: { data: { bonusCode = '' } = {} } = {} } =
-		useGetRetentionPromotionQuery({
-			deviceType,
-			langId,
-		})
+		useGetRetentionPromotionQuery(
+			{
+				deviceType,
+				langId,
+			},
+			{
+				skip: !langId,
+			}
+		)
 	// seee if data is existed
 	// console.log('retention', bonusCode)
 	if (loading) return <Loading />
