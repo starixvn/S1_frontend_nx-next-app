@@ -23,8 +23,8 @@ export const PHONE_DIGITS_LIMIT: { [key: string]: string } = {
 	[AREA_CODE_BY_CURRENCY[CurrenciesEnum.CNY]]: '10',
 	[AREA_CODE_BY_CURRENCY[CurrenciesEnum.KHM]]: '8-9',
 	[AREA_CODE_BY_CURRENCY[CurrenciesEnum.VND]]: '9',
-	[AREA_CODE_BY_CURRENCY[CurrenciesEnum.KRW]]: '10',
-	[AREA_CODE_BY_CURRENCY[CurrenciesEnum.BRL]]: '9',
+	[AREA_CODE_BY_CURRENCY[CurrenciesEnum.KRW]]: '9-10',
+	[AREA_CODE_BY_CURRENCY[CurrenciesEnum.BRL]]: '10-11',
 }
 
 export const FLAG_PREFIX_ICON_BY_CURRENCIES: { [key: number]: string } = {
