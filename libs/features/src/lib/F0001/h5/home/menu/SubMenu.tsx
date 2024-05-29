@@ -8,6 +8,7 @@ import { paths } from '@nx-next-app/constants'
 import { uniqueId } from 'lodash-es'
 import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useGlobalData } from '@nx-next-app/data-access'
 
 const LiveStreamingModalH5 = dynamic(
 	() => import('@nx-next-app/features/F0001/h5/modal/LiveStreamingModal'),
@@ -23,6 +24,7 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 	const { push } = useRouter()
 	const { modal } = useGlobalModal()
 	const { menuData, onMenuOpen } = useMenu()
+	const { isInApp } = useGlobalData()
 
 	const renderSubMenu = (key: string) => {
 		const menu = menuData[key as MenuKeyEnum]
@@ -44,6 +46,15 @@ const SubMenu = ({ menuKey }: ISubMenuProps) => {
 						eventIcons,
 						productKey,
 					} = item
+
+					// 因 PlayTech 在 App 內無法開啟，暫時在正式環境隱藏
+					if (
+						process.env['NEXT_PUBLIC_ENV'] === 'PRD' &&
+						productKey === 'LIVE_CASINO_PT' &&
+						isInApp
+					) {
+						return
+					}
 
 					const subMenuEventIcon = getSubMenuEventIcon(eventIcons)
 
