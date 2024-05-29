@@ -40,8 +40,6 @@ const H5ClaimAmountModal = dynamic(
 	}
 )
 
-const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
-
 const useSetClaimPromotionFetcher = () => {
 	const {
 		auth,
@@ -73,7 +71,6 @@ const useSetClaimPromotionFetcher = () => {
 			await setClaimPromotion({
 				langId,
 				bonusCode,
-				deviceType,
 				lockedAmount,
 			}).unwrap()
 
@@ -204,7 +201,6 @@ const useSetClaimPromotionFetcher = () => {
 				updatePromotionData({
 					langId,
 					currencyId,
-					deviceType,
 					bonusCode,
 					bonusData: custSpecificBonus,
 				})
@@ -214,7 +210,6 @@ const useSetClaimPromotionFetcher = () => {
 				updatePromotionDetail({
 					langId,
 					currencyId,
-					deviceType,
 					bonusCode,
 					bonusData: custSpecificBonus,
 				})

@@ -221,10 +221,7 @@ export const DepositProvider = ({
 
 	// * 用於 'Choose Available Promotion'
 	const { data: { data: depositPromotionList = [] } = {} } =
-		useGetDepositPromotionListQuery({
-			deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
-			langId,
-		})
+		useGetDepositPromotionListQuery({ langId })
 
 	// * 格式化成符合 SelectOptionType 的型態
 	const promotionOptions: SelectOptionType[] = depositPromotionList.map(

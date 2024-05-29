@@ -93,7 +93,6 @@ const useQuickTransferForm = ({
 			// * 如果有 promoCode，必須先透過 promoCode 來取得 bonusCode
 			if (promoCode) {
 				const { data } = await checkDepositSpecialCode({
-					deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
 					specialCode: promoCode,
 				}).unwrap()
 				if (data?.bonusCode) {
