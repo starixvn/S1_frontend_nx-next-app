@@ -1,6 +1,5 @@
 import { find } from 'lodash-es'
 import dynamic from 'next/dynamic'
-import Image from 'next/future/image'
 import { useTranslation } from 'next-i18next'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -61,11 +60,9 @@ const ProvidersBlock = () => {
 								}
 								key={imgName}
 							>
-								<Image
+								<img
 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/providers-logo/${imgName}.png`}
 									alt={imgName}
-									width={186}
-									height={78}
 								/>
 							</button>
 						)

@@ -707,6 +707,12 @@ export const PRODUCTS = {
 		tpGameType: 114,
 		gameId: 'LOBBY',
 	},
+	GACockFighting: {
+		tpGameIdNo: 130,
+		tpId: 63,
+		tpGameType: 115,
+		gameId: -1,
+	},
 	WonCasino: {
 		tpGameIdNo: 131,
 		tpId: 64,

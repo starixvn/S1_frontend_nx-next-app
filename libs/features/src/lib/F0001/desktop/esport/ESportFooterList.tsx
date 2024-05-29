@@ -1,8 +1,8 @@
 import { find } from 'lodash-es'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
+import { Img } from '@nx-next-app/components/D0001'
 import { useTranslation } from 'next-i18next'
-import Image from 'next/future/image'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useStaticData } from '@nx-next-app/data-access'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
@@ -60,12 +60,10 @@ const ESportFooterList = () => {
 					</div>
 				)}
 				{eSportSabaIcon}
-				<Image
+				<Img
 					onClick={() => onItemClick(eSportSabaItem)}
 					src={`${baseurl}/lol.png`}
 					alt='lol'
-					width={400}
-					height={200}
 				/>
 			</a>
 			<a className={classNames({ under: eSportSabaItem?.isTpMaintain })}>
@@ -73,12 +71,10 @@ const ESportFooterList = () => {
 					<div className='under-text'>{t('lbl_underMaintenance')}</div>
 				)}
 				{eSportSabaIcon}
-				<Image
+				<Img
 					onClick={() => onItemClick(eSportSabaItem)}
 					src={`${baseurl}/king.png`}
 					alt='king'
-					width={400}
-					height={200}
 				/>
 			</a>
 			<a className={classNames({ under: eSportSabaItem?.isTpMaintain })}>
@@ -86,12 +82,10 @@ const ESportFooterList = () => {
 					<div className='under-text'>{t('lbl_underMaintenance')}</div>
 				)}
 				{eSportSabaIcon}
-				<Image
+				<Img
 					onClick={() => onItemClick(eSportSabaItem)}
 					src={`${baseurl}/cs.png`}
 					alt='cs'
-					width={400}
-					height={200}
 				/>
 			</a>
 			<a className={classNames({ under: eSportSabaItem?.isTpMaintain })}>
@@ -99,12 +93,10 @@ const ESportFooterList = () => {
 					<div className='under-text'>{t('lbl_underMaintenance')}</div>
 				)}
 				{eSportSabaIcon}
-				<Image
+				<Img
 					onClick={() => onItemClick(eSportSabaItem)}
 					src={`${baseurl}/dota.png`}
 					alt='dota'
-					width={400}
-					height={200}
 				/>
 			</a>
 		</div>
