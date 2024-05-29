@@ -16238,6 +16238,9 @@ main.casino .banner {
   line-height: 4vw;
   margin-top: 2vw;
 }
+.menu-center a .exclusion-icon {
+  width: 10vw;
+}
 .menu-bottom {
   background: #F0F0F0;
   margin-top: 12vw;
@@ -19538,4 +19541,53 @@ input[type=number] .btn-logout {
 .milestones .milestones-swiper .swiper-button-prev {
   background: url(../img/milestones/left-btn.png) no-repeat center/100%;
   left: 42%;
+}
+
+.exclusion-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.exclusion-text > div {
+  color: #0a1b38;
+  font-size: 3.5vw;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+.exclusion-text a, .exclusion-text button {
+  margin-bottom: 3vw;
+  background: #D9BB9B;
+  font-size: 4vw;
+  font-weight: 700;
+  padding: 2vw 1vw;
+  border-radius: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 50vw;
+  color: #0a1b38;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.exclusion-text a img, .exclusion-text button img {
+  width: 5vw;
+  margin-right: 2vw;
+  margin-top: 0.75vw;
 }/*# sourceMappingURL=style.css.map */

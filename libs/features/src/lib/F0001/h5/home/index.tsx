@@ -120,12 +120,10 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 			includes(jackPotCurrencies, currencyId) ? (
 				<JackPot onClick={() => push(paths.slots.root)} isRoot />
 			) : null,
-		[MobileHomeComponentsEnum.EuropeCupEntry]: () => includes(
-			ALLOWED_CURRENCIES.Euro_Cup,
-			currencyId
-		) ? (
-			<EuroCupEntry />
-		) : null,
+		[MobileHomeComponentsEnum.EuropeCupEntry]: () =>
+			includes(ALLOWED_CURRENCIES.Euro_Cup, currencyId) ? (
+				<EuroCupEntry />
+			) : null,
 		[MobileHomeComponentsEnum.LuckyWheel]: () => <LuckyWheel />,
 		[MobileHomeComponentsEnum.LiveStreamingLink]: () => <LiveStreamingLink />,
 		[MobileHomeComponentsEnum.AppDownload]: () => <AppDownload />,
