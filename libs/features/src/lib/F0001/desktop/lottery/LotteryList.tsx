@@ -1,10 +1,10 @@
-import classNames from 'classnames'
 import dynamic from 'next/dynamic'
 import { GameListItem } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { useTranslation } from 'next-i18next'
-import { ISubMenu } from '@nx-next-app/types'
+import { MenuKeyEnum } from '@nx-next-app/types'
+import { find } from 'lodash-es'
+import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
@@ -13,34 +13,34 @@ const LoginModal = dynamic(
 	}
 )
 
+const LiveStreamingModalDesktop = dynamic(
+	() => import('../modal/LiveStreamingModal'),
+	{ ssr: false }
+)
+
 const LotteryList = () => {
 	const { modal } = useGlobalModal()
-	const { t } = useTranslation()
-	const {
-		menuData: { Lottery: { subMenu } = {} },
-		onMenuOpen,
-	} = useMenu()
+	const { menuList = [], onMenuOpen } = useMenu()
 
-	const onItemClick = (item: ISubMenu) => {
+	const eSportSubMenus = find(menuList, {
+		category: MenuKeyEnum.Lottery,
+	})?.subMenu
+
+	const onItemClick = (item: IDynamicSubMenuItem) => {
 		onMenuOpen(item, {
 			loginCallback: () => modal.open(<LoginModal />),
+			messageCallBack: message => modal.error(message),
+			liveStreamingCallback: () => modal.open(<LiveStreamingModalDesktop />),
 		})
 	}
 
 	return (
 		<div className='lobby-content'>
-			{subMenu?.map(item => (
+			{eSportSubMenus?.map(subMenuItem => (
 				<GameListItem
-					key={`${item?.product?.GAME_ID}-${item?.product?.TP_GAME_TYPE}-${item?.product?.TP_ID}`}
-					alt={`img-${t(item.displayKey || '') || item.displayText}`}
-					className={classNames('lobby-content-item', {
-						under: item.isTpMaintain,
-					})}
-					imgSrc={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/lobby-lottery/${item?.desktop?.lobbyPage?.bgImg}`}
-					displayName={t(item.displayKey || '') || item.displayText}
-					eventIcons={item?.eventIcons}
-					onItemClick={() => onItemClick(item)}
-					isTpMaintain={item.isTpMaintain}
+					key={subMenuItem?.tpGameIdNo}
+					subMenuItem={subMenuItem}
+					onItemClick={onItemClick}
 				/>
 			))}
 		</div>

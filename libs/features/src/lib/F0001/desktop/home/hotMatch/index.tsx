@@ -1,36 +1,53 @@
 import dynamic from 'next/dynamic'
-import { find, isUndefined } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-
+import { MenuActionTypeEnum } from '@nx-next-app/types'
+import { PRODUCTS, paths } from '@nx-next-app/constants'
 import { HotEventSwiper } from './HotEventSwiper'
 
 const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
 	ssr: false,
 })
 
-const Index = () => {
+const LiveStreamingModalDesktop = dynamic(
+	() => import('../../modal/LiveStreamingModal'),
+	{ ssr: false }
+)
+
+const UnderMaintenanceModal = dynamic(
+	() => import('../../modal/UnderMaintainModal'),
+	{
+		ssr: false,
+	}
+)
+
+const HotMatch = () => {
 	const { t } = useTranslation()
-	const { menuData, onMenuOpen } = useMenu()
+	const { onStaticMenuOpen } = useMenu()
 	const { modal } = useGlobalModal()
 
-	const sportMenu = menuData.Sports?.subMenu
+	// * 靜態遊戲
+	const soccerItem = {
+		...PRODUCTS.Soccer,
+		desktop: { menuActionType: MenuActionTypeEnum.Link },
+		pathname: paths.sports.root,
+		query: { provider: 'Soccer' },
+	}
 
-	const soccerGame = find(
-		sportMenu,
-		menu => menu.productKey === 'SPORTS_SOCCER'
-	)
+	const basketballItem = {
+		...PRODUCTS.Basketball,
+		desktop: { menuActionType: MenuActionTypeEnum.Link },
+		pathname: paths.sports.root,
+		query: { provider: 'Basketball' },
+	}
 
-	const badmintonSport = find(
-		sportMenu,
-		menu => menu.productKey === 'SPORTS_BADMINTON'
-	)
-
-	const basketBallGame = find(
-		sportMenu,
-		menu => menu.productKey === 'SPORTS_BASKETBALL'
-	)
+	const badmintonSportItem = {
+		...PRODUCTS.Badminton,
+		pathname: paths.sports.root,
+		query: { provider: 'Badminton' },
+		desktop: { menuActionType: MenuActionTypeEnum.Link },
+	}
 
 	return (
 		<div className='hotmatch'>
@@ -52,11 +69,14 @@ const Index = () => {
 						<button
 							className='all-btn'
 							onClick={() => {
-								if (!isUndefined(soccerGame)) {
-									onMenuOpen(soccerGame, {
-										loginCallback: () => modal.open(<LoginModal />),
-									})
-								}
+								onStaticMenuOpen(soccerItem, {
+									loginCallback: () => modal.open(<LoginModal />),
+									underMaintenanceCallback: () =>
+										modal.open(<UnderMaintenanceModal />),
+									messageCallBack: message => modal.error(message),
+									liveStreamingCallback: () =>
+										modal.open(<LiveStreamingModalDesktop />),
+								})
 							}}
 						>
 							{t('Label_General_BetNow')}
@@ -70,11 +90,14 @@ const Index = () => {
 						<button
 							className='all-btn'
 							onClick={() => {
-								if (!isUndefined(badmintonSport)) {
-									onMenuOpen(badmintonSport, {
-										loginCallback: () => modal.open(<LoginModal />),
-									})
-								}
+								onStaticMenuOpen(badmintonSportItem, {
+									loginCallback: () => modal.open(<LoginModal />),
+									underMaintenanceCallback: () =>
+										modal.open(<UnderMaintenanceModal />),
+									messageCallBack: message => modal.error(message),
+									liveStreamingCallback: () =>
+										modal.open(<LiveStreamingModalDesktop />),
+								})
 							}}
 						>
 							{t('Label_General_BetNow')}
@@ -88,11 +111,14 @@ const Index = () => {
 						<button
 							className='all-btn'
 							onClick={() => {
-								if (!isUndefined(basketBallGame)) {
-									onMenuOpen(basketBallGame, {
-										loginCallback: () => modal.open(<LoginModal />),
-									})
-								}
+								onStaticMenuOpen(basketballItem, {
+									loginCallback: () => modal.open(<LoginModal />),
+									underMaintenanceCallback: () =>
+										modal.open(<UnderMaintenanceModal />),
+									messageCallBack: message => modal.error(message),
+									liveStreamingCallback: () =>
+										modal.open(<LiveStreamingModalDesktop />),
+								})
 							}}
 						>
 							{t('Label_General_BetNow')}
@@ -104,4 +130,4 @@ const Index = () => {
 	)
 }
 
-export default Index
+export default HotMatch

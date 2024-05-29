@@ -25,6 +25,10 @@ const AppDownloadBanner = dynamic(() => import('./AppDownloadBanner'), {
 	ssr: false,
 })
 
+const RecentlyViewGames = dynamic(() => import('./RecentlyViewGames'), {
+	ssr: false,
+})
+
 const PromotionSwiper = dynamic(() => import('./PromotionSwiper'))
 
 const OfficialPartner = dynamic(() => import('./OfficialPartner'), {
@@ -87,6 +91,7 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.HotMatch]: () => <HotMatch />,
 		[DesktopHomeComponentsEnum.LiveCasino]: () => <LiveCasino />,
 		[DesktopHomeComponentsEnum.HotGame]: () => <HotGame />,
+    [DesktopHomeComponentsEnum.RecentlyViewGames]: () => <RecentlyViewGames />,
 		[DesktopHomeComponentsEnum.AppDownloadBanner]: () => <AppDownloadBanner />,
 		[DesktopHomeComponentsEnum.OfficialPartner]: () => <OfficialPartner />,
 		[DesktopHomeComponentsEnum.ProviderBlock]: () => <ProvidersBlock />,

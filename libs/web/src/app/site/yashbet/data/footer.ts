@@ -1,4 +1,5 @@
 import { CurrenciesEnum, IFooterData } from '@nx-next-app/types'
+import { PRODUCTS } from '@nx-next-app/constants'
 import { GET_AFFILIATE_LINK } from './affiliate'
 
 export const FOOTER_DATA = ({
@@ -24,130 +25,131 @@ export const FOOTER_DATA = ({
 				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/Terms.html`,
 			},
 		],
-		// * platformList 渲染時需透過 tpIds、allowCurrencies 過濾一次
 		platformList: [
 			{
-				productKey: 'SPORTS_SOCCER',
+				...PRODUCTS.Soccer,
 				imgName: 'saba',
 				hoverImgName: 'sabab',
 			},
 			{
-				productKey: 'LIVE_CASINO_ALL_BET',
+				...PRODUCTS.Allbet,
 				imgName: 'ab',
 				hoverImgName: 'aba',
 			},
 			{
-				productKey: 'LIVE_CASINO_DG',
+				...PRODUCTS.DreamGaming,
 				imgName: 'dg',
 				hoverImgName: 'dga',
 			},
 			{
-				productKey: 'LIVE_CASINO_AG',
+				...PRODUCTS.AsiaGaming,
 				imgName: 'ag',
 				hoverImgName: 'aga',
 			},
 			{
-				productKey: 'LIVE_CASINO_AE',
+				...PRODUCTS.AESexy,
 				imgName: 'ae',
 				hoverImgName: 'aea',
 			},
 			{
-				productKey: 'LIVE_CASINO_SA',
+				...PRODUCTS.SAGaming,
 				imgName: 'sa',
 				hoverImgName: 'saa',
 			},
 			{
-				productKey: 'SLOTS_PP',
+				...PRODUCTS.PragmaticPlayCasino,
 				imgName: 'casino_pp',
 				hoverImgName: 'casino_ppa',
 			},
 			{
-				productKey: 'LIVE_CASINO_BG',
+				...PRODUCTS.BigGaming,
 				imgName: 'bg',
 				hoverImgName: 'bga',
 			},
 			{
-				productKey: 'LIVE_CASINO_YEE_BET',
+				...PRODUCTS.YeebetCasino,
 				imgName: 'yb',
 				hoverImgName: 'yba',
 			},
 			{
-				productKey: 'SLOTS_MGPSW',
+				...PRODUCTS.MicrogamingSlot,
 				imgName: 'casino_mg',
 				hoverImgName: 'casino_mga',
 			},
 			{
-				productKey: 'SLOTS_PT',
+				...PRODUCTS.NewPlayTechSlot,
 				imgName: 'pt',
 				hoverImgName: 'pta',
 			},
 			{
-				productKey: 'SLOTS_YGG',
+				...PRODUCTS.YGGDrassil,
 				imgName: 'casino_ygg',
 				hoverImgName: 'casino_ygga',
 			},
 			{
-				productKey: 'SLOTS_JOKER',
+				...PRODUCTS.Joker,
 				imgName: 'casino_joker',
 				hoverImgName: 'casino_jokera',
 			},
 			{
-				productKey: 'SLOTS_SG',
+				...PRODUCTS.Spadegaming,
 				imgName: 'casino_sg',
 				hoverImgName: 'casino_sga',
 			},
 			{
-				productKey: 'SLOTS_JILI',
+				...PRODUCTS.JILI,
 				imgName: 'casino_jili',
 				hoverImgName: 'casino_jilia',
 			},
 			{
-				productKey: 'LOTTERY_TCG',
+				// ?
+				...PRODUCTS.TCG,
 				imgName: 'tc',
 				hoverImgName: 'tcb',
 			},
 			{
-				productKey: 'GAMES_POKER_M_POKER',
+				...PRODUCTS.MPPoker,
 				imgName: 'mp',
 				hoverImgName: 'mpa',
 			},
 			{
-				productKey: 'SLOTS_RED_TIGER',
+				...PRODUCTS.RedTiger,
 				imgName: 'casino_redtiger',
 				hoverImgName: 'casino_redtigera',
 			},
 			{
-				productKey: 'SLOTS_NET_ENT',
+				...PRODUCTS.NetEnt,
 				imgName: 'casino_netent',
 				hoverImgName: 'casino_netenta',
 			},
 			{
-				productKey: 'SLOTS_ADVANT_PLAY',
+				...PRODUCTS.AdvantPlay,
 				imgName: 'casino_ap',
 				hoverImgName: 'casino_apa',
 			},
 			{
-				productKey: 'LIVE_CASINO_EVO',
+				...PRODUCTS.EvolutionGaming,
 				imgName: 'ev',
 				hoverImgName: 'eva',
 			},
 			{
-				productKey: 'SLOTS_HABANERO',
+				...PRODUCTS.Habanero,
 				imgName: 'casino_hb',
 				hoverImgName: 'casino_hba',
 			},
+			// {
+			// 	// ??
+			// 	...PRODUCTS.SimplePlay,
+			// 	imgName: 'liveCasino_simpleplay',
+			// 	hoverImgName: 'liveCasino_simpleplaya',
+			// },
 			{
-				productKey: 'SLOTS_SIMPLE_PLAY',
-				imgName: 'liveCasino_simpleplay',
-				hoverImgName: 'liveCasino_simpleplaya',
-			},
-			{
-				productKey: 'SLOTS_AMB',
+				...PRODUCTS.AMBPoker,
 				imgName: 'liveCasino_amb',
 				hoverImgName: 'liveCasino_amba',
 			},
 			{
-				productKey: 'SLOTS_SKY_WIND',
+				...PRODUCTS.SkywindSlot,
 				imgName: 'sk',
 				hoverImgName: 'ska',
 			},

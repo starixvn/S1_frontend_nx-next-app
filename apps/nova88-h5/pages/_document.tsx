@@ -26,6 +26,12 @@ class MyDocument extends Document<CustomDocumentProps> {
 		return (
 			<Html>
 				<Head>
+					{/* Viewport meta tag */}
+					<meta
+						name='viewport'
+						content='initial-scale=1.0, maximum-scale=1.0'
+					/>
+
 					<link
 						href='https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;600&display=swap'
 						rel='stylesheet'

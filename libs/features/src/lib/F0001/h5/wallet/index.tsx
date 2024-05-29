@@ -35,7 +35,7 @@ const Wallet = ({ withdrawalBlockSetting }: IWalletPageProps) => {
 		onRefetchAllWallet,
 	} = useTpWalletBalanceListFetcher({ langId })
 
-	let bankInfoPath = paths.bankInfo.root
+	let bankInfoPath
 	if (!bankCardAllowed)
 		bankInfoPath = eWalletCardAllowed
 			? paths.eWallet.root
@@ -47,7 +47,10 @@ const Wallet = ({ withdrawalBlockSetting }: IWalletPageProps) => {
 				<Header.Tags
 					tags={[
 						{ href: paths.wallet.root, label: t('Label_General_MyWallet') },
-						{ href: bankInfoPath, label: t('Label_General_BankInfo') },
+						{
+							href: bankInfoPath || paths.bankInfo.root,
+							label: t('Label_General_BankInfo'),
+						},
 					]}
 				/>
 			</Header>

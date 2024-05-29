@@ -7,6 +7,7 @@ const ESport = () => {
 		<main className='lobby'>
 			<ESportBanner />
 			<ESportList />
+			{/* // TODO */}
 			<ESportFooterList />
 		</main>
 	)
