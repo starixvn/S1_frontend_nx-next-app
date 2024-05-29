@@ -24751,11 +24751,10 @@ input[type=number] {
   background: #D9BB9B;
   font-size: 18px;
   font-weight: 700;
-  padding: 10px 5px;
+  padding: 10px 45px;
   border-radius: 50px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 200px;
   color: #0a1b38;
   display: -webkit-box;
   display: -ms-flexbox;
