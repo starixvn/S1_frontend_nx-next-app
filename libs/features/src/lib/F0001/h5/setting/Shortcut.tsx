@@ -114,15 +114,13 @@ const Shortcut = () => {
 					<span>{t('Label_General_Milestone')}</span>
 				</a>
 			</Link>
-			<Link href={paths.selfExclusion.root}>
-				<a>
-					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/exclusion.png`}
-						alt='vip'
-					/>
-					<span>{t('Label_General_SelfExclusion')}</span>
-				</a>
-			</Link>
+			<a onClick={() => navigatePath(paths.selfExclusion.root)}>
+				<img
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/exclusion.png`}
+					alt='exclusion'
+				/>
+				<span>{t('Label_General_SelfExclusion')}</span>
+			</a>
 		</div>
 	)
 }

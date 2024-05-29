@@ -25848,7 +25848,7 @@ input[type=number] {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  top: 340px;
+  top: 380px;
   left: 210px;
 }
 .milestones .milestones-swiper .swiper-slide.two .page-item > div:last-child a, .milestones .milestones-swiper .swiper-slide.three .page-item > div:last-child a, .milestones .milestones-swiper .swiper-slide.four .page-item > div:last-child a, .milestones .milestones-swiper .swiper-slide.five .page-item > div:last-child a, .milestones .milestones-swiper .swiper-slide.six .page-item > div:last-child a {
@@ -25897,7 +25897,7 @@ input[type=number] {
 }
 @media (min-width: 2560px) {
   .milestones .milestones-swiper .swiper-slide.two .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.three .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.four .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.five .page-item > div:last-child, .milestones .milestones-swiper .swiper-slide.six .page-item > div:last-child {
-    top: 490px;
+    top: 530px;
   }
 }
 @media (max-width: 1600px) {
@@ -26600,11 +26600,10 @@ input[type=number] {
   background: #D9BB9B;
   font-size: 18px;
   font-weight: 700;
-  padding: 10px 5px;
+  padding: 10px 45px;
   border-radius: 50px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 200px;
   color: #0a1b38;
   display: -webkit-box;
   display: -ms-flexbox;
