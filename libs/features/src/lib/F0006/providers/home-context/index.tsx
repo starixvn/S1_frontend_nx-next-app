@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-import { filter, find, head } from 'lodash-es'
+import { find, head } from 'lodash-es'
 import { paths } from '@nx-next-app/constants'
 import isBetween from 'dayjs/plugin/isBetween'
 import React, { createContext, useContext, ReactNode } from 'react'
