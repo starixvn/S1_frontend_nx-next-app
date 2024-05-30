@@ -83,8 +83,6 @@ const HomePage = ({
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
-	const { res } = context
-
 	const initialProps = await useServerSideInitialPropsFetcher(context)
 	const { originCookies, currentHeaderCookies } = initialProps
 	const { langId, currencyId } = {
@@ -128,11 +126,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		({ displayFrom, displayTo }) => {
 			return dayjs().isBetween(dayjs.unix(displayFrom), dayjs.unix(displayTo))
 		}
-	)
-
-	res.setHeader(
-		'Cache-Control',
-		'public, s-maxage=10, stale-while-revalidate=59'
 	)
 
 	return {
