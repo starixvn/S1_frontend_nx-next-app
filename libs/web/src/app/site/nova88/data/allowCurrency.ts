@@ -119,4 +119,6 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 
 	// Euro-Cup
 	Euro_Cup: [MYR, THB, CNY, IDR, INR, KHM, BDT, VND, USD, USDT],
+	// Retention Floating Action Button
+	Retention: [MYR, THB, CNY, IDR, INR, KHM, BDT, VND, USD, USDT, KRW, BRL],
 }

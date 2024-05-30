@@ -8,6 +8,7 @@ import {
 	useRetentionLandingPage,
 	useSetClaimPromotionFetcher,
 } from '../../hooks'
+import RetentionEntry from '../common/RetentionEntry'
 
 const imgHost = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5`
 
@@ -45,6 +46,8 @@ const RetentionContent = () => {
 					back={paths.home.root}
 				/>
 			</Header>
+
+			<RetentionEntry />
 
 			<main className='retention'>
 				<div className='eventpage-tap' style={{ zIndex: '3' }}>

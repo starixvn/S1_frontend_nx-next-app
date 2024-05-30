@@ -32,4 +32,5 @@ export const MOBILE_HOME_ORDERS = [
 	MobileHomeComponentsEnum.LiveStreamingLink,
 	MobileHomeComponentsEnum.EuropeCupEntry,
 	MobileHomeComponentsEnum.LuckyWheel,
+	MobileHomeComponentsEnum.Retention,
 ]

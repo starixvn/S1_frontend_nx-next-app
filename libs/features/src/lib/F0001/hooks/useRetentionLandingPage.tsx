@@ -54,6 +54,7 @@ export const useRetentionLandingPage = () => {
 				).unwrap()
 				if (bonusCode) {
 					setRetentionBonusCode(bonusCode)
+					// set cookie as value 1 , valid for 1 day
 				} else {
 					// 如果沒 bonusCode , 需要正確導回去 LuckyWheel
 					push(paths.luckyWheel.root)
@@ -72,6 +73,7 @@ export const useRetentionLandingPage = () => {
 
 	return {
 		loading,
+		retentionBonusCode,
 		promotionDetail,
 		percentage,
 	}
