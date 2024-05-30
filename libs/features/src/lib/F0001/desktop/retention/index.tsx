@@ -52,6 +52,7 @@ const RetentionContent = () => {
 		canJoin = false,
 		custTurnOver = 0,
 		custRollOver = 0,
+		details = '',
 	} = promotionDetail ?? {}
 
 	// claim promotion
@@ -104,7 +105,6 @@ const RetentionContent = () => {
 						src={`${imgHost}/img/event/retention/top-item.webp`}
 						alt='retention-banner'
 					/>
-
 					{promotionDetail && canJoin && (
 						<button
 							className='top-btn'
@@ -147,11 +147,19 @@ const RetentionContent = () => {
 						</div>
 					</div>
 				)}
-				{/* <div className='bonus-list'>
-						<div className='title'>
-							<div>{t('Label_Retention_BonusTitle')}</div>
-						</div>
-					</div> */}
+				<div className='bonus-list'>
+					<div className='title'>
+						<div>{t('Label_Retention_BonusTitle')}</div>
+						<div></div>
+					</div>
+					{details && (
+						<div
+							dangerouslySetInnerHTML={{
+								__html: `<div>${details}</pre>`,
+							}}
+						/>
+					)}
+				</div>
 				<div className='chip'>
 					<img
 						src={`${imgHost}/img/event/retention/chip-one.png`}

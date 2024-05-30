@@ -56,14 +56,15 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 			</Header>
 
 			<main className='main wheelEvent'>
-				<div className='eventpage-tap' style={{ zIndex: 3 }}>
-					<button className='active'> {t('Label_LuckyWheel_Title')}</button>
-					{bonusCode && (
+				{bonusCode && (
+					<div className='eventpage-tap' style={{ zIndex: 3 }}>
+						<button className='active'> {t('Label_LuckyWheel_Title')}</button>
+
 						<button className='' onClick={handleWheelClick}>
 							{t('Label_Retention_SurpriseReward')}
 						</button>
-					)}
-				</div>
+					</div>
+				)}
 				<div className='eventPage'>
 					<div className='eventTitleBg'>
 						<div className='eventTitle'>LUCKY WHEEL</div>
