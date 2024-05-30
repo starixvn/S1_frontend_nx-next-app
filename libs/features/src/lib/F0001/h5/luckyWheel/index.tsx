@@ -8,7 +8,6 @@ import classNames from 'classnames'
 import { toUpper, upperFirst } from 'lodash-es'
 import dayjs from 'dayjs'
 import { paths } from '@nx-next-app/constants'
-import { useGetRetentionPromotionQuery } from '@nx-next-app/service'
 import { useRouter } from 'next/router'
 
 interface ILuckyWheelProps {
@@ -24,26 +23,21 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 		displayDrawPrizeList,
 		custDrawPrizeList,
 		onDrawPrize,
+		bonusCode,
 	} = useLuckWheelContext()
 
 	const {
 		auth: { isLogin },
-		userInfo: { currencyName, langId },
+		userInfo: { currencyName },
 	} = useAuth()
 
 	const handleWheelClick = () => {
 		push(paths.retention.root)
 	}
 
+	// console.log('bonusCode',bonusCode )
+
 	const { value: isSpinning, setValue: setIsSpinning } = useBoolean(false)
-	// call getRetentionPromotion api to see if users are qualified to get retention promotion
-	const { data: { data: { bonusCode = '' } = {} } = {} } =
-		useGetRetentionPromotionQuery({
-			langId,
-		})
-	// seee if data is existed
-	// console.log('retention', bonusCode)
-	// seee if data is existed
 	if (loading) return <Loading />
 
 	return (

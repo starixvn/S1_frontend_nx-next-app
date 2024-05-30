@@ -7,7 +7,7 @@ import { useTranslation } from 'next-i18next'
 import { toUpper, upperFirst } from 'lodash-es'
 import { IEventPeriod } from '@nx-next-app/types'
 import { useLuckWheelContext } from '@nx-next-app/features/F0001/providers'
-import { useGetRetentionPromotionQuery } from '@nx-next-app/service'
+// import { useGetRetentionPromotionQuery } from '@nx-next-app/service'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 
@@ -18,7 +18,7 @@ interface ILuckyWheelProps {
 const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 	const {
 		auth: { isLogin },
-		userInfo: { currencyName, langId },
+		userInfo: { currencyName },
 	} = useAuth()
 
 	const { push } = useRouter()
@@ -35,19 +35,20 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 		displayDrawPrizeList,
 		custDrawPrizeList,
 		onDrawPrize,
+		bonusCode,
 	} = useLuckWheelContext()
 
 	const { value: isSpinning, setValue: setIsSpinning } = useBoolean(false)
 	// call getRetentionPromotion api to see if users are qualified to get retention promotion
-	const { data: { data: { bonusCode = '' } = {} } = {} } =
-		useGetRetentionPromotionQuery(
-			{
-				langId,
-			},
-			{
-				skip: !langId,
-			}
-		)
+	// const { data: { data: { bonusCode = '' } = {} } = {} } =
+	// 	useGetRetentionPromotionQuery(
+	// 		{
+	// 			langId,
+	// 		},
+	// 		{
+	// 			skip: !langId,
+	// 		}
+	// 	)
 	// seee if data is existed
 	// console.log('retention', bonusCode)
 	if (loading) return <Loading />

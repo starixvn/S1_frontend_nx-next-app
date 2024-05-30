@@ -4,18 +4,18 @@ import { useRouter } from 'next/router'
 // import { useRetentionLandingPage } from '../../hooks'
 import { includes } from 'lodash-es'
 import { paths } from '@nx-next-app/constants'
-import { useRetentionLandingPage } from '../../hooks'
+// import { useRetentionLandingPage } from '../../hooks'
 
 const RetentionEntry = () => {
 	const {
-		userInfo: { currencyId, langId },
+		userInfo: { currencyId },
 	} = useAuth()
 	const { ALLOWED_CURRENCIES } = useStaticData()
 	const router = useRouter()
 	const [display, setDisplay] = useState(true)
 
 	const allowedCurrency = includes(ALLOWED_CURRENCIES['Retention'], currencyId)
-	const { retentionBonusCode } = useRetentionLandingPage()
+	// const { retentionBonusCode } = useRetentionLandingPage()
 	// const { data: { data: { bonusCode = '' } = {} } = {} } =
 	// 	useGetRetentionPromotionQuery(
 	// 		{
@@ -28,33 +28,33 @@ const RetentionEntry = () => {
 
 	if (!allowedCurrency || !display) return null
 
-	console.log('retentionBonusCode', retentionBonusCode)
+	// console.log('retentionBonusCode', retentionBonusCode)
 
 	return (
 		<>
-			{retentionBonusCode ? (
+			(
+			<div
+				className='eventLink'
+				style={{ borderLeft: '300px', background: 'aqua' }}
+			>
+				<button
+					type='button'
+					aria-label='event-link'
+					className='icon icon-close'
+					onClick={() => setDisplay(false)}
+				/>
 				<div
-					className='eventLink'
-					style={{ borderLeft: '300px', background: 'aqua' }}
+					onClick={() => router.push(paths.retention.root)}
+					className='wheelModule'
+					style={{ cursor: 'pointer' }}
 				>
-					<button
-						type='button'
-						aria-label='event-link'
-						className='icon icon-close'
-						onClick={() => setDisplay(false)}
+					<img
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/retention/eventlink.webp`}
+						alt='home-chest'
 					/>
-					<div
-						onClick={() => router.push(paths.retention.root)}
-						className='wheelModule'
-						style={{ cursor: 'pointer' }}
-					>
-						<img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/retention/eventlink.webp`}
-							alt='home-chest'
-						/>
-					</div>
 				</div>
-			) : null}
+			</div>
+			)
 		</>
 	)
 }
