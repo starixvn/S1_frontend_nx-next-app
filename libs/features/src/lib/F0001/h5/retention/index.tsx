@@ -31,6 +31,7 @@ const RetentionContent = () => {
 		isJoin = false,
 		canJoin = false,
 		custTurnOver = 0,
+		details = '',
 		custRollOver = 0,
 	} = promotionDetail ?? {}
 
@@ -103,12 +104,19 @@ const RetentionContent = () => {
 							</div>
 						</div>
 					)}
-					{/* <div className='bonus-list'>
+					<div className='bonus-list'>
 						<div className='title'>
-							<div>Bonus Play Conditions</div>
+							<div>{t('Label_Retention_BonusTitle')}</div>
 							<div></div>
 						</div>
-					</div> */}
+						{details && (
+							<div
+								dangerouslySetInnerHTML={{
+									__html: `<pre>${details}</pre>`,
+								}}
+							/>
+						)}
+					</div>
 				</div>
 			</main>
 		</>
