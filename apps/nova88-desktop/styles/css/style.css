@@ -26179,7 +26179,7 @@ input[type=number] {
           align-items: center;
 }
 .retention-wrapper .top-item {
-  width: 800px;
+  width: 750px;
   -webkit-animation: baloon_1 2s infinite;
           animation: baloon_1 2s infinite;
   position: relative;
