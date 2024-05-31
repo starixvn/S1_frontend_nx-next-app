@@ -19539,12 +19539,9 @@ input[type=number] .btn-logout {
 }
 
 .retention {
-  background: #0f1f3b;
-  background: url(https://banner.0814media.net/h5/img/event/retention/top-bg.jpg) no-repeat center/cover;
+  background: #0f1f3b url(https://banner.0814media.net/h5/img/event/retention/top-bg.jpg) no-repeat top/contain;
   position: relative;
   padding: 0 0 10vw;
-  margin-top: 15vw;
-  width: 100%;
 }
 .retention-wrapper {
   padding: 0 5vw;
@@ -19891,6 +19888,7 @@ input[type=number] .btn-logout {
   border-radius: 20vw;
   width: 90vw;
   left: calc(50% - 45vw);
+  top: 30vw;
 }
 .eventpage-tap > button {
   font-size: 4vw;
