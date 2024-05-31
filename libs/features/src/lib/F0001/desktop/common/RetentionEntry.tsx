@@ -13,45 +13,33 @@ const RetentionEntry = () => {
 	const { push } = useRouter()
 	const [display, setDisplay] = useState(true)
 
-	const allowedCurrency = includes(
-		ALLOWED_CURRENCIES['Retention'],
-		currencyId
-	)
-	if (!allowedCurrency || !display) return null
+	const allowedCurrency = includes(ALLOWED_CURRENCIES['Retention'], currencyId)
 
 	const { retentionBonusCode } = useRetentionLandingPage()
-	
+
+	if (!allowedCurrency || !display) return null
+
 	return (
-		<>
-			{retentionBonusCode ? (
+		retentionBonusCode && (
+			<div className='eventLink'>
+				<button
+					type='button'
+					aria-label='event-link'
+					className='icon icon-close'
+					onClick={() => setDisplay(false)}
+				/>
 				<div
-					// className='eventLink'
-					className='eventLink'
-					style={{ borderLeft: '300px', background: 'aqua' }}
+					onClick={() => push(paths.retention.root)}
+					className='wheelModule'
+					style={{ cursor: 'pointer' }}
 				>
-					<button
-						type='button'
-						aria-label='event-link'
-						className='icon icon-close'
-						onClick={() => setDisplay(false)}
+					<img
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/retention/eventlink.webp`}
+						alt='home-chest'
 					/>
-					<div
-						onClick={() => push(paths.retention.root)}
-						// className='wheelModule'
-						className='123'
-						style={{ cursor: 'pointer' }}
-					>
-						<img
-							// src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/retention/eventlink.webp`}
-							src='https://www.shutterstock.com/image-illustration/jakarta-indonesia-december-10-2020-260nw-1871169331.jpg'
-							alt='home-chest'
-						/>
-					</div>
 				</div>
-			) : (
-				''
-			)}
-		</>
+			</div>
+		)
 	)
 }
 

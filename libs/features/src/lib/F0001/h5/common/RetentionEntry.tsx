@@ -4,18 +4,17 @@ import { useRouter } from 'next/router'
 // import { useRetentionLandingPage } from '../../hooks'
 import { includes } from 'lodash-es'
 import { paths } from '@nx-next-app/constants'
-// import { useRetentionLandingPage } from '../../hooks'
+import { useRetentionLandingPage } from '../../hooks'
 
 const RetentionEntry = () => {
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { ALLOWED_CURRENCIES } = useStaticData()
-	const router = useRouter()
+	const { push } = useRouter()
 	const [display, setDisplay] = useState(true)
-
 	const allowedCurrency = includes(ALLOWED_CURRENCIES['Retention'], currencyId)
-	// const { retentionBonusCode } = useRetentionLandingPage()
+	const { retentionBonusCode } = useRetentionLandingPage()
 	// const { data: { data: { bonusCode = '' } = {} } = {} } =
 	// 	useGetRetentionPromotionQuery(
 	// 		{
@@ -28,15 +27,9 @@ const RetentionEntry = () => {
 
 	if (!allowedCurrency || !display) return null
 
-	// console.log('retentionBonusCode', retentionBonusCode)
-
 	return (
-		<>
-			(
-			<div
-				className='eventLink'
-				style={{ borderLeft: '300px', background: 'aqua' }}
-			>
+		retentionBonusCode && (
+			<div className='eventLink'>
 				<button
 					type='button'
 					aria-label='event-link'
@@ -44,7 +37,7 @@ const RetentionEntry = () => {
 					onClick={() => setDisplay(false)}
 				/>
 				<div
-					onClick={() => router.push(paths.retention.root)}
+					onClick={() => push(paths.retention.root)}
 					className='wheelModule'
 					style={{ cursor: 'pointer' }}
 				>
@@ -54,8 +47,7 @@ const RetentionEntry = () => {
 					/>
 				</div>
 			</div>
-			)
-		</>
+		)
 	)
 }
 
