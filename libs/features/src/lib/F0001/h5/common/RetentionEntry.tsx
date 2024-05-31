@@ -4,31 +4,33 @@ import { useRouter } from 'next/router'
 // import { useRetentionLandingPage } from '../../hooks'
 import { includes } from 'lodash-es'
 import { paths } from '@nx-next-app/constants'
-import { useRetentionLandingPage } from '../../hooks'
+// import { useRetentionLandingPage } from '../../hooks'
+import { useGetRetentionPromotionQuery } from '@nx-next-app/service'
 
 const RetentionEntry = () => {
 	const {
-		userInfo: { currencyId },
+		userInfo: { currencyId, langId },
+		auth: { isLogin },
 	} = useAuth()
 	const { ALLOWED_CURRENCIES } = useStaticData()
 	const { push } = useRouter()
 	const [display, setDisplay] = useState(true)
 	const allowedCurrency = includes(ALLOWED_CURRENCIES['Retention'], currencyId)
-	const { retentionBonusCode } = useRetentionLandingPage()
-	// const { data: { data: { bonusCode = '' } = {} } = {} } =
-	// 	useGetRetentionPromotionQuery(
-	// 		{
-	// 			langId,
-	// 		},
-	// 		{
-	// 			skip: !langId,
-	// 		}
-	// 	)
+	// const { retentionBonusCode } = useRetentionLandingPage()
+	const { data: { data: { bonusCode = '' } = {} } = {} } =
+		useGetRetentionPromotionQuery(
+			{
+				langId,
+			},
+			{
+				skip: !langId || !isLogin,
+			}
+		)
 
 	if (!allowedCurrency || !display) return null
 
 	return (
-		retentionBonusCode && (
+		bonusCode && (
 			<div className='eventLink'>
 				<button
 					type='button'
