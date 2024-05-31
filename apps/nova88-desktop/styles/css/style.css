@@ -24180,6 +24180,9 @@ input[type=number] {
       -ms-flex-align: center;
           align-items: center;
 }
+.retention-wrapper .bonus-list > div:last-child {
+  width: 1000px;
+}
 .retention-wrapper .bonus-list .title {
   display: -webkit-box;
   display: -ms-flexbox;
