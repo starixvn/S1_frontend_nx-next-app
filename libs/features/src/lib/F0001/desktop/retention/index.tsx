@@ -1,51 +1,39 @@
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 import { paths } from '@nx-next-app/constants'
-import {
-	useGetPromotionDetailQuery,
-	useLazyGetRetentionPromotionQuery,
-} from '@nx-next-app/service'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { Loading } from '@nx-next-app/components/D0001'
-import { getPromotionPercentage, numberFormat } from '@nx-next-app/utils'
-import { useEffect, useState } from 'react'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useSetClaimPromotionFetcher } from '../../hooks'
+import { numberFormat } from '@nx-next-app/utils'
+
+import {
+	useRetentionLandingPage,
+	useSetClaimPromotionFetcher,
+} from '../../hooks'
+import { includes } from 'lodash-es'
 
 const imgHost = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop`
 
 const RetentionContent = () => {
 	const { push } = useRouter()
 	const { t } = useTranslation()
-	const { modal } = useGlobalModal()
-	const [retentionBonusCode, setRetentionBonusCode] = useState<
-		string | undefined
-	>(undefined)
+
+	const { ALLOWED_CURRENCIES } = useStaticData()
+
+	const { promotionDetail, percentage, loading } = useRetentionLandingPage()
+	// claim promotion
+	const { setClaimPromotionHandler } = useSetClaimPromotionFetcher()
 
 	const {
-		userInfo: { langId, currencyId, currencyName },
+		userInfo: { currencyId, currencyName },
 	} = useAuth()
+
+	const showSwitchBar = includes(ALLOWED_CURRENCIES['LUCKY_WHEEL'], currencyId)
 
 	const handleWheelClick = () => {
 		push(paths.luckyWheel.root)
 	}
 
-	const [getRetentionPromotion, { isLoading: isGetRetentionPromotionLoading }] =
-		useLazyGetRetentionPromotionQuery()
-
-	const {
-		data: { data: promotionDetail } = {},
-		isLoading: isGetPromotionDetailLoading,
-	} = useGetPromotionDetailQuery(
-		{
-			currencyId,
-			langId,
-			bonusCode: retentionBonusCode as string,
-		},
-		{
-			skip: !retentionBonusCode,
-		}
-	)
+	if (loading || !promotionDetail) return <Loading />
 
 	const {
 		isJoin = false,
@@ -55,49 +43,20 @@ const RetentionContent = () => {
 		details = '',
 	} = promotionDetail ?? {}
 
-	// claim promotion
-	const { setClaimPromotionHandler } = useSetClaimPromotionFetcher()
-	// progress bar logics
-	const percentage = getPromotionPercentage({
-		turnOver: custTurnOver,
-		rollOver: custRollOver,
-	})
-
-	useEffect(() => {
-		const init = async () => {
-			try {
-				const { data: { bonusCode = null } = {} } = await getRetentionPromotion(
-					{ langId }
-				).unwrap()
-				if (bonusCode) {
-					setRetentionBonusCode(bonusCode)
-				} else {
-					// 如果沒 bonusCode , 需要正確導回去 LuckyWheel
-					push(paths.luckyWheel.root)
-				}
-			} catch (error) {
-				modal.error((error as Error).message)
-			}
-		}
-
-		if (langId) {
-			init()
-		}
-	}, [langId])
-
-	if (isGetRetentionPromotionLoading || isGetPromotionDetailLoading)
-		return <Loading />
+	if (loading) return <Loading />
 
 	return (
 		<main className='retention'>
-			<div className='eventpage-tap'>
-				<button onClick={handleWheelClick}>
-					{t('Label_LuckyWheel_Title')}
-				</button>
-				<button className='active'>
-					{t('Label_Retention_SurpriseReward')}
-				</button>
-			</div>
+			{showSwitchBar && (
+				<div className='eventpage-tap'>
+					<button onClick={handleWheelClick}>
+						{t('Label_LuckyWheel_Title')}
+					</button>
+					<button className='active'>
+						{t('Label_Retention_SurpriseReward')}
+					</button>
+				</div>
+			)}
 			<div className='retention-wrapper'>
 				<div className='top'>
 					<img
