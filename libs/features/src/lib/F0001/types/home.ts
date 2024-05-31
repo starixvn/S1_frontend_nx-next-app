@@ -32,6 +32,8 @@ export enum DesktopHomeComponentsEnum {
 	RecentlyViewGames = 'RecentlyViewGames',
 	//  歐冠活動入口
 	EuropeCupEntry = 'EuropeCupEntry',
+	// RetentionFloatingButton
+	Retention = 'Retention',
 }
 
 // 手機首頁元件 enum
@@ -60,4 +62,6 @@ export enum MobileHomeComponentsEnum {
 	SimpleFooter = 'SimpleFooter',
 	//  歐冠活動入口
 	EuropeCupEntry = 'EuropeCupEntry',
+	// RetentionFloatingButton
+	Retention = 'Retention',
 }

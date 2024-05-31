@@ -97,7 +97,6 @@ const RetentionContent = () => {
 					back={paths.home.root}
 				/>
 			</Header>
-
 			<main className='retention'>
 				<div className='eventpage-tap' style={{ zIndex: '3' }}>
 					<button onClick={handleWheelClick}>

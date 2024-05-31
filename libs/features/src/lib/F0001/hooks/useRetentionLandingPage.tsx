@@ -72,6 +72,7 @@ export const useRetentionLandingPage = () => {
 
 	return {
 		loading,
+		retentionBonusCode,
 		promotionDetail,
 		percentage,
 	}

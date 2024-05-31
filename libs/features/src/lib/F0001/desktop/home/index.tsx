@@ -41,6 +41,10 @@ const EuropeCupEntry = dynamic(() => import('../common/EuropeCupEntry'), {
 	ssr: false,
 })
 
+const Retention = dynamic(() => import('../common/RetentionEntry'), {
+	ssr: false,
+})
+
 const LiveStreamingLink = dynamic(() => import('../common/liveStreamingLink'), {
 	ssr: false,
 })
@@ -100,6 +104,7 @@ const Home = () => {
 				<EuropeCupEntry />
 			) : null,
 		[DesktopHomeComponentsEnum.LuckyWheel]: () => <LuckyWheel />,
+		[DesktopHomeComponentsEnum.Retention]: () => <Retention />,
 		[DesktopHomeComponentsEnum.LiveStreamingLink]: () => <LiveStreamingLink />,
 		[DesktopHomeComponentsEnum.QuickDownload]: () => <QuickDownload />,
 		[DesktopHomeComponentsEnum.QuickLink]: () => (
