@@ -35,7 +35,7 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 		push(paths.retention.root)
 	}
 
-	// console.log('bonusCode',bonusCode )
+	const inlineStyle = !bonusCode ? { paddingTop: 0 } : {}
 
 	const { value: isSpinning, setValue: setIsSpinning } = useBoolean(false)
 	if (loading) return <Loading />
@@ -49,7 +49,7 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 				/>
 			</Header>
 
-			<main className='main wheelEvent'>
+			<main className='main wheelEvent' style={inlineStyle}>
 				{bonusCode && (
 					<div className='eventpage-tap' style={{ zIndex: 3 }}>
 						<button className='active'> {t('Label_LuckyWheel_Title')}</button>
