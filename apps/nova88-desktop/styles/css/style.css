@@ -24132,10 +24132,9 @@ input[type=number] {
           align-items: center;
 }
 .retention-wrapper .top-item {
-  width: 1050px;
+  width: 800px;
   -webkit-animation: baloon_1 2s infinite;
           animation: baloon_1 2s infinite;
-  margin-right: 55px;
   position: relative;
 }
 .retention-wrapper .top-item-two {
@@ -24145,7 +24144,7 @@ input[type=number] {
 }
 .retention-wrapper .top-btn {
   background: url(https://banner.0814media.net/desktop/img/event/retention/btn-bg.png) no-repeat center/100%;
-  width: 500px;
+  width: 350px;
   height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -24157,11 +24156,11 @@ input[type=number] {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 10px;
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 700;
   color: white;
   text-shadow: 0 0 10px #ffce57;
-  margin-top: -100px;
+  margin-top: -70px;
   -webkit-animation: livesports 1.5s ease-in-out infinite;
           animation: livesports 1.5s ease-in-out infinite;
 }
@@ -24188,7 +24187,6 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 1300px;
 }
 .retention-wrapper .bonus-list .title > div:first-child {
   color: white;
@@ -24204,12 +24202,11 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 310px;
 }
 .retention-wrapper .bonus-list .title > div:last-child {
   background: #4689FF;
   height: 2px;
-  width: 900px;
+  width: 670px;
   margin: 20px 0 0 30px;
 }
 .retention-wrapper .bonus-list .sheet {
@@ -24287,21 +24284,21 @@ input[type=number] {
 .retention-wrapper .turnover-progress .turnover-title {
   background: -webkit-gradient(linear, left top, right top, from(rgb(255, 109, 0)), to(rgb(255, 198, 2)));
   background: linear-gradient(90deg, rgb(255, 109, 0) 0%, rgb(255, 198, 2) 100%);
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 700;
   letter-spacing: 1px;
   padding: 25px 20px 25px 50px;
   border-radius: 55px 55px 0 0;
-  width: 1200px;
+  width: 900px;
 }
 .retention-wrapper .turnover-progress .turnover-item {
   background: -webkit-gradient(linear, left top, right top, from(rgb(255, 236, 171)), to(rgb(255, 109, 0)));
   background: linear-gradient(90deg, rgb(255, 236, 171) 0%, rgb(255, 109, 0) 100%);
-  width: 1300px;
+  width: 1050px;
   border-radius: 55px;
   margin-top: -10px;
   padding: 8px;
-  height: 300px;
+  height: 250px;
 }
 .retention-wrapper .turnover-progress .turnover-item > div {
   display: -webkit-box;
@@ -24320,7 +24317,7 @@ input[type=number] {
   font-size: 25px;
   font-weight: 700;
   border-radius: 55px;
-  height: 300px;
+  height: 250px;
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(10, 63, 157)), to(rgb(9, 33, 77)));
   background: linear-gradient(180deg, rgb(10, 63, 157) 0%, rgb(9, 33, 77) 100%);
 }
@@ -24328,7 +24325,7 @@ input[type=number] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 1160px;
+  width: 920px;
   margin-bottom: 20px;
 }
 .retention-wrapper .turnover-progress .turnover-item > div .number > div:last-child {
@@ -24338,7 +24335,7 @@ input[type=number] {
 .retention-wrapper .turnover-progress .turnover-item > div .progress {
   height: 30px;
   background: #000;
-  width: 1160px;
+  width: 920px;
   border-radius: 50px;
 }
 .retention-wrapper .turnover-progress .turnover-item > div .progress-bar {
@@ -24351,7 +24348,7 @@ input[type=number] {
 }
 .retention-wrapper .turnover-progress .turnover-item > div .percent {
   color: #FFC602;
-  width: 1160px;
+  width: 920px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24403,7 +24400,7 @@ input[type=number] {
   margin-bottom: 15px;
 }
 .retention-title {
-  font-size: 100px;
+  font-size: 70px;
   font-weight: 800;
   text-shadow: 0 0 30px #FFD268;
   display: -webkit-box;
@@ -24418,12 +24415,11 @@ input[type=number] {
           align-items: center;
   width: 1200px;
   text-align: center;
-  line-height: 110px;
-  margin-top: 50px;
+  line-height: 85px;
 }
 .retention-title > div {
-  margin-bottom: 15px;
-  font-size: 30px;
+  margin-bottom: 10px;
+  font-size: 22px;
   text-shadow: none;
   font-weight: 500;
 }
