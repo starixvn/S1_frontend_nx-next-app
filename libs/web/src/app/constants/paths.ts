@@ -143,11 +143,11 @@ export const paths = {
 	europeCup: {
 		root: '/euro-cup',
 	},
+	retention:{
+		root: '/retention',
+	},
 	milestones: {
 		root: '/milestones',
-	},
-	retention: {
-		root: '/retention',
 	},
 } as const
 

@@ -8,13 +8,13 @@ import {
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-type ILuckyWheelPageProps = InitialPropsInterface
+type IRetentionPageProps = InitialPropsInterface
 
 const RetentionPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-}: ILuckyWheelPageProps) => {
+}: IRetentionPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>

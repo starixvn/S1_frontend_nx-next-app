@@ -9,6 +9,7 @@ import {
 	useRetentionLandingPage,
 	useSetClaimPromotionFetcher,
 } from '../../hooks'
+import { useEffect } from 'react'
 
 const imgHost = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5`
 
@@ -18,6 +19,7 @@ const RetentionContent = () => {
 	const { ALLOWED_CURRENCIES } = useStaticData()
 	const {
 		userInfo: { currencyId, currencyName },
+		auth: { isLogin },
 	} = useAuth()
 
 	const showSwitchBar = includes(ALLOWED_CURRENCIES['LUCKY_WHEEL'], currencyId)
@@ -29,6 +31,12 @@ const RetentionContent = () => {
 	const handleWheelClick = () => {
 		push(paths.luckyWheel.root)
 	}
+
+	useEffect(() => {
+		if (!isLogin) {
+			push(paths.home.root)
+		}
+	}, [isLogin])
 
 	const {
 		isJoin = false,

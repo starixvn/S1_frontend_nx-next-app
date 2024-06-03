@@ -11,7 +11,7 @@ import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { FOOTER_DATA } from '@nx-next-app/site/nova88'
 import { IFooterData } from '@nx-next-app/types'
 
-interface IJoinPageProps extends InitialPropsInterface {
+interface IRetentionPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
 }
 
@@ -20,7 +20,7 @@ const RetentionPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
-}: IJoinPageProps) => {
+}: IRetentionPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
