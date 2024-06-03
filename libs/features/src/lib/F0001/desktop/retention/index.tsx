@@ -10,6 +10,7 @@ import {
 	useSetClaimPromotionFetcher,
 } from '../../hooks'
 import { includes } from 'lodash-es'
+import { useEffect } from 'react'
 
 const imgHost = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop`
 
@@ -25,6 +26,7 @@ const RetentionContent = () => {
 
 	const {
 		userInfo: { currencyId, currencyName },
+		auth:{isLogin }
 	} = useAuth()
 
 	const showSwitchBar = includes(ALLOWED_CURRENCIES['LUCKY_WHEEL'], currencyId)
@@ -32,6 +34,14 @@ const RetentionContent = () => {
 	const handleWheelClick = () => {
 		push(paths.luckyWheel.root)
 	}
+
+	useEffect(() => {
+		if (!isLogin) {
+			push(paths.home.root)
+		}
+	}, [isLogin])
+
+
 
 	if (loading || !promotionDetail) return <Loading />
 

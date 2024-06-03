@@ -1,7 +1,6 @@
 import React from 'react'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, Retention, EuroCup } from '@nx-next-app/features/F0001/h5'
+import { Layout, Retention } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -9,13 +8,13 @@ import {
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-type ILuckyWheelPageProps = InitialPropsInterface
+type IRetentionPageProps = InitialPropsInterface
 
 const RetentionPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-}: ILuckyWheelPageProps) => {
+}: IRetentionPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>

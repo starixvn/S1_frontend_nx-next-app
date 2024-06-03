@@ -16306,7 +16306,7 @@ main.casino .banner {
 .menu-bottom-item .option {
   display: none;
   background: white;
-  color: #000;
+  color: #585858;
   font-weight: 500;
 }
 .menu-bottom-item .option .country {
@@ -16319,43 +16319,18 @@ main.casino .banner {
       -ms-flex-align: center;
           align-items: center;
 }
-.menu-bottom-item .option .country-current {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 5vw;
-  background-color: #ECECEC;
-  border-radius: 4vw;
-  padding: 6vw;
-}
-.menu-bottom-item .option .country-current .country-item {
-  margin-left: 0;
-}
-.menu-bottom-item .option .country-current .country-item button {
-  margin-top: 2vw;
-  color: #878787;
-  font-size: 3vw;
-}
-.menu-bottom-item .option .country-current .country-title img {
-  width: 12vw;
-  border-radius: 50%;
-  border: 1px solid #D1D1D1;
-}
-.menu-bottom-item .option .country-current.after {
-  background-color: transparent;
-  margin: 0;
-  padding: 0 6vw;
-}
 .menu-bottom-item .option .country-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 2vw 0;
-  margin-left: 6vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 3vw 0;
+  width: 100%;
 }
 .menu-bottom-item .option .country-item > div:last-child {
   width: 60vw;
@@ -16373,12 +16348,19 @@ main.casino .banner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 4vw 0 0;
+  margin-right: 2vw;
+  width: 20vw;
 }
 .menu-bottom-item .option .country-title > div {
+  border-radius: 50px;
+  border: 1px solid #D1D1D1;
   margin-bottom: 1vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -16392,29 +16374,20 @@ main.casino .banner {
 }
 .menu-bottom-item .option .country-title img {
   width: 8vw;
-  border-radius: 50%;
-  border: 1px solid #D1D1D1;
+  border-radius: 30px;
 }
 .menu-bottom-item .option-item {
-  padding: 5vw;
-}
-.menu-bottom-item .option div {
-  font-size: 3.5vw;
-  font-weight: 600;
+  padding: 5vw 0;
 }
 .menu-bottom-item .option button {
-  font-size: 3.5vw;
   color: #585858;
   font-weight: 500;
+  margin: 1vw;
   border-right: 1px solid #D1D1D1;
-  padding: 0 2vw;
-}
-.menu-bottom-item .option button:first-child {
-  padding-left: 0;
+  padding-right: 2vw;
 }
 .menu-bottom-item .option button:last-child {
-  padding-right: 0;
-  border-right: 0;
+  border: 0;
 }
 .menu-bottom-item .option a {
   color: #A7A7A7;
