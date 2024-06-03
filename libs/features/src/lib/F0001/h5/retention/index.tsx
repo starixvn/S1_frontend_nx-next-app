@@ -124,6 +124,7 @@ const RetentionContent = () => {
 						</div>
 						{details && (
 							<div
+							style={{ width: '100%' }}
 								dangerouslySetInnerHTML={{
 									__html: `<pre>${details}</pre>`,
 								}}
