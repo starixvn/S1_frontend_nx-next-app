@@ -4,6 +4,7 @@ import {
 	IGetRecentlyViewedArgs,
 	IRecentlyViewedData,
 	ISlotsGameData,
+	ILobbyHeaderData,
 } from './type'
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { getDeviceType } from '../../utils/client'
@@ -11,6 +12,7 @@ import { getDeviceType } from '../../utils/client'
 export const gameApiUrl = {
 	getSlotGamePage: 'Game/GetSlotGamePage',
 	getRecentlyViewed: 'Game/GetRecentlyViewed',
+	getLobbyHeader: 'Game/GetLobbyHeader',
 }
 
 export const gameApi = rootApi.injectEndpoints({
@@ -39,7 +41,24 @@ export const gameApi = rootApi.injectEndpoints({
 				data: { deviceType: getDeviceType(), ...data },
 			}),
 		}),
+		getLobbyHeader: builder.query<
+			IAxiosResponse<ILobbyHeaderData[]>,
+			{
+				siteId: number
+				currencyId: number
+			}
+		>({
+			query: data => ({
+				url: gameApiUrl.getLobbyHeader,
+				method: 'POST',
+				data,
+			}),
+		}),
 	}),
 })
 
-export const { useGetSlotGamePageQuery, useGetRecentlyViewedQuery } = gameApi
+export const {
+	useGetSlotGamePageQuery,
+	useGetRecentlyViewedQuery,
+	useGetLobbyHeaderQuery,
+} = gameApi

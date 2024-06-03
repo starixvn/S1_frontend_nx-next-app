@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import { upperFirst } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { ReactNode } from 'react'
+import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { paths, PRODUCTS } from '@nx-next-app/constants'
@@ -9,9 +10,14 @@ import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { UseEuropeCupProps } from '@nx-next-app/features/F0001/hooks/useEuropeCup'
 import { CupEventUserTicketStatus, type IGroupData } from '@nx-next-app/service'
 import { Form } from '@nx-next-app/components/H0001'
-import { MenuActionTypeEnum } from '@nx-next-app/types'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { numFormatToDigits } from '@nx-next-app/utils'
 import Select from './components/Select'
+
+const LiveStreamingModalH5 = dynamic(
+	() => import('../modal/LiveStreamingModal'),
+	{ ssr: false }
+)
 
 interface IPredictionProps {
 	europeCupProps: UseEuropeCupProps
@@ -19,6 +25,7 @@ interface IPredictionProps {
 
 const Prediction = ({ europeCupProps }: IPredictionProps) => {
 	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
 	const { push } = useRouter()
 	const {
 		auth: { isLogin },
@@ -230,19 +237,16 @@ const Prediction = ({ europeCupProps }: IPredictionProps) => {
 						<div className='title'>
 							{t('Label_EuropeCup_Turnover_Mission')}
 							<button
-								onClick={() => {
-									onMenuOpen(
-										{
-											h5: { menuActionType: MenuActionTypeEnum.EnterPage },
-											product: PRODUCTS['SPORTS'],
+								onClick={() =>
+									onMenuOpen(PRODUCTS.Soccer, {
+										loginCallback: () => {
+											push(paths.login.root)
 										},
-										{
-											loginCallback: () => {
-												push(paths.login.root)
-											},
-										}
-									)
-								}}
+										messageCallBack: message => modal.error(message),
+										liveStreamingCallback: () =>
+											modal.open(<LiveStreamingModalH5 />),
+									})
+								}
 							>
 								{t('Label_General_BetNow')}
 							</button>
