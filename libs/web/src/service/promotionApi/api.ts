@@ -20,6 +20,7 @@ export const promotionApiUrl = {
 	getSpecialPromotionList: 'Promotion/GetSpecialPromotionListV2',
 	getDepositPromotionList: 'Promotion/GetDepositPromotionList',
 	getPopUpPromotion: 'Promotion/GetPopUpPromotion',
+	getRetentionPromotion: 'Promotion/GetRetentionPromotion',
 	setSpecialCode: 'Promotion/SetSpecialCode',
 	setClaimPromotion: 'Promotion/SetClaimPromotion',
 	setDepositPromotionQueue: 'Promotion/SetDepositPromotionQueue',
@@ -123,6 +124,18 @@ export const promotionApi = rootApi.injectEndpoints({
 				data: { deviceType: getDeviceType() },
 			}),
 		}),
+		getRetentionPromotion: builder.query<
+			IAxiosResponse<{
+				bonusCode: null | string
+			}>,
+			IGetPopUpPromotionArgs
+		>({
+			query: ({ langId }) => ({
+				url: `${promotionApiUrl.getRetentionPromotion}/${langId}`,
+				method: 'POST',
+				data: { deviceType: getDeviceType() },
+			}),
+		}),
 	}),
 })
 
@@ -211,6 +224,8 @@ export const updatePromotionDetail = ({
 
 export const {
 	useLazyGetPopUpPromotionQuery,
+	useGetRetentionPromotionQuery,
+	useLazyGetRetentionPromotionQuery,
 	useGetPromotionListV3Query,
 	useLazyGetPromotionListV3Query,
 	useLazyGetPromotionDetailQuery,
