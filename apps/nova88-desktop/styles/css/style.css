@@ -26231,13 +26231,13 @@ input[type=number] {
   width: 1000px;
 }
 .retention-wrapper .bonus-list .title {
-  width:100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
 }
 .retention-wrapper .bonus-list .title > div:first-child {
   color: white;
@@ -26319,73 +26319,6 @@ input[type=number] {
 .retention-wrapper .bonus-list .sheet > div:last-child > div:last-child {
   border-radius: 0 0 20px 0;
 }
-
-/* =================標題================== */
-
-/* 標題 */
-.retention-wrapper .bonus-list p strong span {
-  color: white !important; /* 白色 */
-  font-weight: bold !important; /* 粗體 */
-}
-
-/* 標題可能的結構*/
-.retention-wrapper .bonus-list p span strong {
-  color: white !important; /* 白色 */
-  font-weight: bold !important; /* 粗體 */
-}
-
-/* =================內文================== */
-
-/* 內文設為白色 */
-.retention-wrapper .bonus-list p,
-.retention-wrapper .bonus-list span {
-  color: white !important; /* 白色 */
-}
-
-/* =================超連結================== */
-
-/* 連結文字設為藍色 */
-.retention-wrapper .bonus-list p a span {
-  color: #1155cc !important; /* 藍色 */
-}
-
-/* 連結文字設為藍色 */
-.retention-wrapper .bonus-list p span a {
-  color: #1155cc !important; /* 藍色 */
-}
-
-/* =================table================== */
-
-/* table寬度設定 */
-.retention-wrapper .bonus-list table {
-  width: 100% !important; 
-}
-
-/* table欄位文字藍色 */
-.retention-wrapper .bonus-list table tr p span {
-  color:  rgb(17, 34, 64) !important; /* 藍色 */
-}
-/* table欄位文字藍色 */
-.retention-wrapper .bonus-list table tr p span span {
-  color: rgb(17, 34, 64) !important; /* 藍色 */
-}
-
- /* table欄位文字藍色  */
-.retention-wrapper .bonus-list table tr td span {
-  color: rgb(17, 34, 64) !important; /* 藍色 */
-}
-
-/* table欄位標題白色 */
-.retention-wrapper .bonus-list table tr:first-child p span {
-  color: #ffffff !important; /* 白色 */
-}
-
-/* 設置表格標題背景為深藍色 */
-.retention-wrapper .bonus-list table tr:first-child td {
-  background-color: rgb(17, 63, 144) !important; /* 背景深藍色 */
-}
-
-
 .retention-wrapper .turnover-progress {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -26693,4 +26626,52 @@ input[type=number] {
   background: #cfaf8c;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+}
+
+.retention-wrapper .bonus-list p strong span {
+  color: white !important;
+  font-weight: bold !important;
+}
+
+/* 標題可能的結構*/
+.retention-wrapper .bonus-list p span strong {
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.retention-wrapper .bonus-list p,
+.retention-wrapper .bonus-list span {
+  color: white !important;
+}
+
+.retention-wrapper .bonus-list p a span {
+  color: #1155cc !important;
+}
+
+.retention-wrapper .bonus-list p span a {
+  color: #1155cc !important;
+}
+
+.retention-wrapper .bonus-list table {
+  width: 100% !important;
+}
+
+.retention-wrapper .bonus-list table tr p span {
+  color: rgb(17, 34, 64) !important;
+}
+
+.retention-wrapper .bonus-list table tr p span span {
+  color: rgb(17, 34, 64) !important;
+}
+
+.retention-wrapper .bonus-list table tr td span {
+  color: rgb(17, 34, 64) !important;
+}
+
+.retention-wrapper .bonus-list table tr:first-child p span {
+  color: #ffffff !important;
+}
+
+.retention-wrapper .bonus-list table tr:first-child td {
+  background-color: rgb(17, 63, 144) !important;
 }/*# sourceMappingURL=style.css.map */
