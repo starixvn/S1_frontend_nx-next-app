@@ -1,11 +1,11 @@
 import dayjs from 'dayjs'
-import dynamic from 'next/dynamic'
-import { useEffect, useMemo, useState } from 'react'
-import { useTranslation } from 'next-i18next'
-import { IHotEventData } from '@nx-next-app/service'
-import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
+import { useTranslation } from 'next-i18next'
+import { useEffect, useMemo, useState } from 'react'
+import { IHotEventData } from '@nx-next-app/service'
 import { useHome } from '@nx-next-app/features/F0001/providers'
+import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,

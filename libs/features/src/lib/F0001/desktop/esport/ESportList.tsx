@@ -1,54 +1,43 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { useTranslation } from 'next-i18next'
+import { find } from 'lodash-es'
 import dynamic from 'next/dynamic'
-import classNames from 'classnames'
-import { ISubMenu } from '@nx-next-app/types'
+import { MenuKeyEnum } from '@nx-next-app/types'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 import ESportListItem from './ESportListItem'
 
-const LoginModal = dynamic(
-	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
-	{
-		ssr: false,
-	}
-)
+const LoginModal = dynamic(() => import('../modal/LoginModal'), {
+	ssr: false,
+})
 
-export interface IGameInfoProps {
-	langId: string
-	TP_ID: number
-	GAME_ID: number
-	TP_GAME_TYPE: number
-	gameInfo?: string
-}
+const LiveStreamingModalDesktop = dynamic(
+	() => import('../modal/LiveStreamingModal'),
+	{ ssr: false }
+)
 
 const ESportList = () => {
 	const { modal } = useGlobalModal()
-	const { t } = useTranslation()
-	const {
-		menuData: { ESports: { subMenu } = {} },
-		onMenuOpen,
-	} = useMenu()
+	const { menuList = [], onMenuOpen } = useMenu()
 
-	const onItemClick = (item: ISubMenu) => {
+	const eSportSubMenus = find(menuList, {
+		category: MenuKeyEnum.ESports,
+	})?.subMenu
+
+	const onItemClick = (item: IDynamicSubMenuItem) => {
 		onMenuOpen(item, {
 			loginCallback: () => modal.open(<LoginModal />),
+			messageCallBack: message => modal.error(message),
+			liveStreamingCallback: () => modal.open(<LiveStreamingModalDesktop />),
 		})
 	}
 
 	return (
 		<div className='lobby-content esports'>
-			{subMenu?.map(item => (
+			{eSportSubMenus?.map(subMenuItem => (
 				<ESportListItem
-					key={`${item?.product?.GAME_ID}-${item?.product?.TP_GAME_TYPE}-${item?.product?.TP_ID}`}
-					alt={`img-${t(item.displayKey || '') || item.displayText}`}
-					className={classNames('lobby-content-item', {
-						under: item.isTpMaintain,
-					})}
-					imgSrc={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/lobby-esports/${item?.desktop?.lobbyPage?.bgImg}`}
-					displayName={t(item.displayKey || '') || item.displayText}
-					eventIcons={item?.eventIcons}
-					onItemClick={() => onItemClick(item)}
-					isTpMaintain={item.isTpMaintain}
+					key={subMenuItem?.tpGameIdNo}
+					subMenuItem={subMenuItem}
+					onItemClick={onItemClick}
 				/>
 			))}
 		</div>
