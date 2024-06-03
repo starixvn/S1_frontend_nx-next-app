@@ -111,6 +111,7 @@ const RetentionContent = () => {
 						<div>{t('Label_Retention_BonusTitle')}</div>
 						<div></div>
 					</div>
+					{!details && <div></div>}
 					{details && (
 						<div
 							dangerouslySetInnerHTML={{
