@@ -19345,4 +19345,52 @@ input[type=number] .btn-logout {
   height: 1vw;
   width: 35vw;
   bottom: -3vw;
+}
+
+.retention-wrapper .bonus-list p strong span {
+  color: white !important;
+  font-weight: bold !important;
+}
+
+/* 標題可能的結構*/
+.retention-wrapper .bonus-list p span strong {
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.retention-wrapper .bonus-list p,
+.retention-wrapper .bonus-list span {
+  color: white !important;
+}
+
+.retention-wrapper .bonus-list p a span {
+  color: #1155cc !important;
+}
+
+.retention-wrapper .bonus-list p span a {
+  color: #1155cc !important;
+}
+
+.retention-wrapper .bonus-list table {
+  width: 100% !important;
+}
+
+.retention-wrapper .bonus-list table tr p span {
+  color: rgb(17, 34, 64) !important;
+}
+
+.retention-wrapper .bonus-list table tr p span span {
+  color: rgb(17, 34, 64) !important;
+}
+
+.retention-wrapper .bonus-list table tr td span {
+  color: rgb(17, 34, 64) !important;
+}
+
+.retention-wrapper .bonus-list table tr:first-child p span {
+  color: #ffffff !important;
+}
+
+.retention-wrapper .bonus-list table tr:first-child td {
+  background-color: rgb(17, 63, 144) !important;
 }/*# sourceMappingURL=style.css.map */
