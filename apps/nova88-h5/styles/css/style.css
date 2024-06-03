@@ -16306,7 +16306,7 @@ main.casino .banner {
 .menu-bottom-item .option {
   display: none;
   background: white;
-  color: #585858;
+  color: #000;
   font-weight: 500;
 }
 .menu-bottom-item .option .country {
@@ -16319,18 +16319,43 @@ main.casino .banner {
       -ms-flex-align: center;
           align-items: center;
 }
+.menu-bottom-item .option .country-current {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 5vw;
+  background-color: #ECECEC;
+  border-radius: 4vw;
+  padding: 6vw;
+}
+.menu-bottom-item .option .country-current .country-item {
+  margin-left: 0;
+}
+.menu-bottom-item .option .country-current .country-item button {
+  margin-top: 2vw;
+  color: #878787;
+  font-size: 3vw;
+}
+.menu-bottom-item .option .country-current .country-title img {
+  width: 12vw;
+  border-radius: 50%;
+  border: 1px solid #D1D1D1;
+}
+.menu-bottom-item .option .country-current.after {
+  background-color: transparent;
+  margin: 0;
+  padding: 0 6vw;
+}
 .menu-bottom-item .option .country-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 3vw 0;
-  width: 100%;
+  padding: 2vw 0;
+  margin-left: 6vw;
 }
 .menu-bottom-item .option .country-item > div:last-child {
   width: 60vw;
@@ -16348,19 +16373,12 @@ main.casino .banner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 2vw;
-  width: 20vw;
+  padding: 0 4vw 0 0;
 }
 .menu-bottom-item .option .country-title > div {
-  border-radius: 50px;
-  border: 1px solid #D1D1D1;
   margin-bottom: 1vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -16374,20 +16392,29 @@ main.casino .banner {
 }
 .menu-bottom-item .option .country-title img {
   width: 8vw;
-  border-radius: 30px;
+  border-radius: 50%;
+  border: 1px solid #D1D1D1;
 }
 .menu-bottom-item .option-item {
-  padding: 5vw 0;
+  padding: 5vw;
+}
+.menu-bottom-item .option div {
+  font-size: 3.5vw;
+  font-weight: 600;
 }
 .menu-bottom-item .option button {
+  font-size: 3.5vw;
   color: #585858;
   font-weight: 500;
-  margin: 1vw;
   border-right: 1px solid #D1D1D1;
-  padding-right: 2vw;
+  padding: 0 2vw;
+}
+.menu-bottom-item .option button:first-child {
+  padding-left: 0;
 }
 .menu-bottom-item .option button:last-child {
-  border: 0;
+  padding-right: 0;
+  border-right: 0;
 }
 .menu-bottom-item .option a {
   color: #A7A7A7;
@@ -19581,4 +19608,440 @@ input[type=number] .btn-logout {
   width: 5vw;
   margin-right: 2vw;
   margin-top: 0.75vw;
+}
+
+.retention {
+  background: #0f1f3b url(https://banner.0814media.net/h5/img/event/retention/top-bg.jpg) no-repeat top/contain;
+  position: relative;
+  padding: 0 0 10vw;
+}
+.retention-wrapper {
+  padding: 0 5vw;
+}
+.retention-wrapper .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  margin-top: 15vw;
+}
+.retention-wrapper .top-item {
+  width: 100vw;
+  -webkit-animation: baloon_1 2s infinite;
+          animation: baloon_1 2s infinite;
+}
+.retention-wrapper .top-btn {
+  position: absolute;
+  bottom: -18vw;
+  background: url(https://banner.0814media.net/h5/img/event/retention/btn-bg.png) no-repeat center/100%;
+  width: 50vw;
+  height: 20vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 4.5vw;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 0 10px #ffce57;
+  -webkit-animation: livesports 1.5s ease-in-out infinite;
+          animation: livesports 1.5s ease-in-out infinite;
+}
+.retention-wrapper .top-btn.close {
+  display: none;
+}
+.retention-wrapper .bonus-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 0 5vw;
+  margin-top: 3vw;
+}
+.retention-wrapper .bonus-list .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+.retention-wrapper .bonus-list .title > div:first-child {
+  color: white;
+  background: url(https://banner.0814media.net/h5/img/event/retention/title-bg.png) no-repeat center/100%;
+  padding: 4vw 0 2vw 6vw;
+  font-size: 4vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50vw;
+  line-height: 5vw;
+}
+.retention-wrapper .bonus-list .title > div:last-child {
+  background: #4689FF;
+  height: 0.5vw;
+  width: 38vw;
+  margin: 1vw 0 0 3vw;
+}
+.retention-wrapper .bonus-list .sheet-wrapper {
+  width: 100%;
+  overflow-x: scroll;
+  margin-top: 3vw;
+}
+.retention-wrapper .bonus-list .sheet-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.retention-wrapper .bonus-list .sheet-item > div {
+  border-right: 2px solid #4689FF;
+}
+.retention-wrapper .bonus-list .sheet-item > div > div {
+  padding: 2vw 3vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  width: 100vw;
+}
+.retention-wrapper .bonus-list .sheet-item > div > div:first-child {
+  background: #113F90;
+  font-size: 4vw;
+  font-weight: 700;
+  height: 8vw;
+}
+.retention-wrapper .bonus-list .sheet-item > div > div:last-child {
+  background: #E9E9E9;
+  color: #112240;
+  font-size: 3.5vw;
+  font-weight: 600;
+  height: 14vw;
+}
+.retention-wrapper .bonus-list .sheet-item > div:first-child > div:first-child {
+  border-radius: 2vw 0 0 0;
+}
+.retention-wrapper .bonus-list .sheet-item > div:first-child > div:last-child {
+  border-radius: 0 0 0 2vw;
+}
+.retention-wrapper .bonus-list .sheet-item > div:last-child {
+  border-right: none;
+}
+.retention-wrapper .bonus-list .sheet-item > div:last-child > div:first-child {
+  border-radius: 0 2vw 0 0;
+}
+.retention-wrapper .bonus-list .sheet-item > div:last-child > div:last-child {
+  border-radius: 0 0 2vw 0;
+}
+.retention-wrapper .turnover-progress {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 4vw 0 8vw;
+}
+.retention-wrapper .turnover-progress .turnover-title {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(255, 109, 0)), to(rgb(255, 198, 2)));
+  background: linear-gradient(90deg, rgb(255, 109, 0) 0%, rgb(255, 198, 2) 100%);
+  font-size: 4vw;
+  font-weight: 700;
+  padding: 4vw 0 4vw 4vw;
+  border-radius: 7vw 7vw 0 0;
+  width: 85vw;
+}
+.retention-wrapper .turnover-progress .turnover-item {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(255, 236, 171)), to(rgb(255, 109, 0)));
+  background: linear-gradient(90deg, rgb(255, 236, 171) 0%, rgb(255, 109, 0) 100%);
+  width: 90vw;
+  border-radius: 6vw;
+  margin-top: -10px;
+  padding: 1vw;
+  height: 38vw;
+}
+.retention-wrapper .turnover-progress .turnover-item > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 3.5vw;
+  font-weight: 700;
+  border-radius: 5vw;
+  height: 38vw;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(10, 63, 157)), to(rgb(9, 33, 77)));
+  background: linear-gradient(180deg, rgb(10, 63, 157) 0%, rgb(9, 33, 77) 100%);
+}
+.retention-wrapper .turnover-progress .turnover-item > div .number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80vw;
+  margin-bottom: 2vw;
+}
+.retention-wrapper .turnover-progress .turnover-item > div .number > div:last-child {
+  color: #2C69D8;
+}
+.retention-wrapper .turnover-progress .turnover-item > div .progress {
+  height: 5vw;
+  background: #000;
+  width: 80vw;
+  border-radius: 20vw;
+}
+.retention-wrapper .turnover-progress .turnover-item > div .progress-bar {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(255, 109, 0)), to(rgb(255, 255, 255)));
+  background: linear-gradient(90deg, rgb(255, 109, 0) 0%, rgb(255, 255, 255) 100%);
+  height: 5vw;
+  border-radius: 20vw;
+  -webkit-box-shadow: 0 0 9px #FFB12A;
+          box-shadow: 0 0 9px #FFB12A;
+}
+.retention-wrapper .turnover-progress .turnover-item > div .percent {
+  color: #FFC602;
+  width: 80vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  margin-top: 1.5vw;
+}
+.retention-wrapper .chip img {
+  position: absolute;
+}
+.retention-wrapper .chip img:first-child {
+  width: 200px;
+  bottom: calc(50% - 750px);
+  left: calc(50% - 1100px);
+  -webkit-animation: baloon_1 4.5s infinite;
+          animation: baloon_1 4.5s infinite;
+}
+.retention-wrapper .chip img:nth-child(2) {
+  width: 180px;
+  top: calc(50% - 500px);
+  right: calc(50% - 850px);
+  -webkit-animation: baloon_1 3s infinite;
+          animation: baloon_1 3s infinite;
+}
+.retention-wrapper .chip img:last-child {
+  width: 220px;
+  bottom: calc(50% - 1200px);
+  right: 0;
+  -webkit-animation: baloon_1 6.5s infinite;
+          animation: baloon_1 6.5s infinite;
+}
+.retention-wrapper .bottom {
+  margin-top: 4vw;
+}
+.retention-wrapper .bottom-title {
+  font-size: 4.5vw;
+  font-weight: 700;
+  margin-bottom: 3vw;
+}
+.retention-wrapper .bottom > div {
+  margin-bottom: 8vw;
+}
+.retention-wrapper .bottom > div ul {
+  color: #BCBCBC;
+}
+.retention-wrapper .bottom > div ul li {
+  margin-bottom: 2vw;
+  line-height: 4.5vw;
+}
+.retention-title {
+  font-size: 8vw;
+  font-weight: 800;
+  text-shadow: 0 0 30px #FFD268;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  line-height: 9vw;
+  margin-top: 22vw;
+}
+.retention-title > div {
+  width: 80vw;
+  line-height: 6vw;
+  margin: 3vw 0;
+  font-size: 3.5vw;
+  text-shadow: none;
+  font-weight: 500;
+}
+@-webkit-keyframes baloon_1 {
+  0% {
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
+  }
+  50% {
+    -webkit-transform: translateY(15vw);
+            transform: translateY(15vw);
+  }
+  100% {
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
+  }
+}
+@keyframes baloon_1 {
+  0% {
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
+  }
+  50% {
+    -webkit-transform: translateY(15vw);
+            transform: translateY(15vw);
+  }
+  100% {
+    -webkit-transform: translateY(5vw);
+            transform: translateY(5vw);
+  }
+}
+
+.eventpage-tap {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7607843137);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 3vw 0;
+  border-radius: 20vw;
+  width: 90vw;
+  left: calc(50% - 45vw);
+  top: 30vw;
+}
+.eventpage-tap > button {
+  font-size: 4vw;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 40vw;
+  color: #979797;
+}
+.eventpage-tap > button.active {
+  color: #112240;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.eventpage-tap > button.active::after {
+  position: absolute;
+  display: block;
+  content: "";
+  background: #FF7600;
+  height: 1vw;
+  width: 35vw;
+  bottom: -3vw;
+}
+
+.retention-wrapper .bonus-list p strong span {
+  color: white !important;
+  font-weight: bold !important;
+}
+
+/* 標題可能的結構*/
+.retention-wrapper .bonus-list p span strong {
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.retention-wrapper .bonus-list p,
+.retention-wrapper .bonus-list span {
+  color: white !important;
+}
+
+.retention-wrapper .bonus-list p a span {
+  color: #1155cc !important;
+}
+
+.retention-wrapper .bonus-list p span a {
+  color: #1155cc !important;
+}
+
+.retention-wrapper .bonus-list table {
+  width: 100% !important;
+}
+
+.retention-wrapper .bonus-list table tr p span {
+  color: rgb(17, 34, 64) !important;
+}
+
+.retention-wrapper .bonus-list table tr p span span {
+  color: rgb(17, 34, 64) !important;
+}
+
+.retention-wrapper .bonus-list table tr td span {
+  color: rgb(17, 34, 64) !important;
+}
+
+.retention-wrapper .bonus-list table tr:first-child p span {
+  color: #ffffff !important;
+}
+
+.retention-wrapper .bonus-list table tr:first-child td {
+  background-color: rgb(17, 63, 144) !important;
 }/*# sourceMappingURL=style.css.map */
