@@ -1782,6 +1782,7 @@ export const MENU_DATA = ({
 						tpId: PRODUCTS['SLOTS_YGG'].TP_ID,
 					},
 					product: PRODUCTS['SLOTS_YGG'],
+					allowCurrencies: ALLOWED_CURRENCIES['SLOTS_YGG'],
 				},
 				{
 					h5: {
