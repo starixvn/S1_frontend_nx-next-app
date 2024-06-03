@@ -242,7 +242,7 @@ const Prediction = ({ europeCupProps }: IPredictionProps) => {
 								onClick={() =>
 									push({
 										pathname: paths.sports.root,
-										query: { provider: 'saba', type: 'soccer' },
+										query: { provider: 'Soccer' },
 									})
 								}
 							>

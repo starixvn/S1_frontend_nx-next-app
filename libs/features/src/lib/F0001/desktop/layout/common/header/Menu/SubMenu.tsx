@@ -1,13 +1,18 @@
-import dynamic from 'next/dynamic'
+import { includes } from 'lodash-es'
 import classNames from 'classnames'
-import { useAuth } from '@nx-next-app/data-access'
-import { getSubMenuEventIcon, useMenu } from '@nx-next-app/features/F0001/hooks'
-import { toLower, uniqueId } from 'lodash-es'
+import Link from 'next/link'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
-import { Dispatch, SetStateAction } from 'react'
-
+import { paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { Dispatch, SetStateAction, ReactNode } from 'react'
+import { MenuIconTypeEnum } from '@nx-next-app/types'
+import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
+import { isEventPeriod } from '@nx-next-app/utils'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { MenuKeyEnum } from '@nx-next-app/types'
+import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
+import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
@@ -15,199 +20,210 @@ const LoginModal = dynamic(
 		ssr: false,
 	}
 )
+
 const LiveStreamingModalDesktop = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LiveStreamingModal'),
 	{ ssr: false }
 )
 
 interface ISubMenuProps {
+	menuList: IMergedMenuData[]
+	onMenuOpen: (
+		item: IDynamicSubMenuItem,
+		{
+			loginCallback,
+			messageCallBack,
+		}: {
+			loginCallback: () => void
+			messageCallBack?: (message: string) => void | undefined
+			liveStreamingCallback: () => void
+		}
+	) => void
 	debouncedMenuKey: string | undefined
 	setMenuKey: Dispatch<SetStateAction<string | undefined>>
 }
 
-const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
+const subMenuIcon: { [p: number]: ReactNode | null } = {
+	[MenuIconTypeEnum.NO_ICON as number]: null,
+	[MenuIconTypeEnum.New as number]: <div className='new-icon'>NEW</div>,
+}
+
+const SubMenu = ({
+	debouncedMenuKey,
+	setMenuKey,
+	menuList,
+	onMenuOpen,
+}: ISubMenuProps) => {
 	const { t } = useTranslation()
 	const {
-		userInfo: { langId },
+		userInfo: { langId, currencyId },
+		auth: { isLogin },
 	} = useAuth()
+	const { push } = useRouter()
 	const { modal } = useGlobalModal()
-	const { menuData, onMenuOpen } = useMenu()
 
-	const renderSubMenu = (key: string) => {
-		const menu = menuData[key as MenuKeyEnum]
-		if (!menu) return null
+	const menus = menuList.map(mainMenuItem => {
+		const { lobbyCategoryId, desktop, subMenu, category } = mainMenuItem || {}
+		const { subMenuClassName } = desktop || {}
 
-		const {
-			desktop: { menuType, subMenuClassName, menuActionType },
-			subMenu,
-			pathname,
-			product,
-			query,
-		} = menu
+		const active = debouncedMenuKey === String(category)
 
-		// * AppDownload 的元件較獨特，非 menu 也非 banner, 因此先獨立出來實作
-		// * 更新：關閉此功能
-		// if (key === MenuKeyEnum.AppDownload) {
-		// 	return (
-		// 		<button
-		// 			key={key}
-		// 			className={classNames(subMenuClassName, {
-		// 				active: key === debouncedMenuKey,
-		// 			})}
-		// 			onMouseEnter={() => setMenuKey(key)}
-		// 			onMouseLeave={() => setMenuKey(undefined)}
-		// 			onClick={() =>
-		// 				onMenuOpen(
-		// 					{
-		// 						desktop: { menuActionType },
-		// 						pathname,
-		// 						query,
-		// 						product,
-		// 					},
-		// 					{
-		// 						loginCallback: () => modal.open(<LoginModal />),
-		// 						messageCallBack: message => modal.error(message),
-		// 					}
-		// 				)
-		// 			}
-		// 		>
-		// 			<div>
-		// 				<div className='txt-orange'>
-		// 					{upperCase(process.env['NEXT_PUBLIC_SITE_NAME'])}
-		// 				</div>
-		// 				<div>{t('Label_APP_DOWNLOAD_Title')}</div>
-		// 				<div className='appListQrcode'>
-		// 					{appDownloadLinks?.map(item => (
-		// 						<div key={item.downloadLink}>
-		// 							<QRCode
-		// 								value={item.downloadLink}
-		// 								renderAs='svg'
-		// 								size={112}
-		// 								includeMargin
-		// 							/>
-		// 							{item.appTypeName === 'Andriod' && (
-		// 								<img
-		// 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/appdownload_and.jpg`}
-		// 									alt='Andriod Download'
-		//
-		// 								/>
-		// 							)}
-
-		// 							{item.appTypeName === 'IOS' && (
-		// 								<img
-		// 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/appdownload_ios.jpg`}
-		// 									alt='IOS Download'
-		// 								/>
-		// 							)}
-		// 						</div>
-		// 					))}
-		// 				</div>
-		// 			</div>
-		// 		</button>
-		// 	)
-		// }
-
-		if (menuType === 'banner') {
+		if (subMenu) {
 			return (
-				<a
-					role='link'
-					aria-hidden
-					key={key}
-					className={classNames(subMenuClassName, langId, {
-						active: key === debouncedMenuKey,
+				<div
+					key={lobbyCategoryId}
+					className={classNames(`${subMenuClassName} ${langId}`, {
+						active,
 					})}
-					onMouseEnter={() => setMenuKey(key)}
-					onMouseLeave={() => setMenuKey(undefined)}
-					onClick={() =>
-						onMenuOpen(
-							{
-								desktop: { menuActionType },
-								pathname,
-								query,
-								product,
-							},
-							{
-								loginCallback: () => modal.open(<LoginModal />),
-								messageCallBack: message => modal.error(message),
-								liveStreamingCallback: () =>
-									modal.open(<LiveStreamingModalDesktop />),
-							}
-						)
-					}
 				>
-					<div />
-				</a>
+					{subMenu?.map(subMenuItem => {
+						// * 後端這裡是字串格式 需做處理
+						const suBMenuImage =
+							subMenuItem?.pcHeaderPicUrl &&
+							JSON.parse(subMenuItem?.pcHeaderPicUrl)[0]
+
+						const displayName =
+							subMenuItem?.currencyGameName &&
+							subMenuItem?.currencyGameName[langId] &&
+							subMenuItem?.currencyGameName[langId]
+
+						const { iconType, iconStartTime, iconEndTime } = subMenuItem || {}
+
+						const switchSubMenuIcon = (iconType: MenuIconTypeEnum) => {
+							return subMenuIcon[iconType] || null
+						}
+
+						const submenuIcon =
+							(isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
+								switchSubMenuIcon(iconType)) ||
+							null
+						return (
+							<button
+								key={subMenuItem?.tpGameIdNo}
+								className={classNames({
+									active: subMenuItem?.isTpMaintain,
+								})}
+								onMouseEnter={() => setMenuKey(debouncedMenuKey)}
+								onMouseLeave={() => setMenuKey(undefined)}
+								onClick={() => {
+									onMenuOpen(subMenuItem, {
+										loginCallback: () => modal.open(<LoginModal />),
+										messageCallBack: message => modal.error(message),
+										liveStreamingCallback: () =>
+											modal.open(<LiveStreamingModalDesktop />),
+									})
+								}}
+							>
+								{submenuIcon}
+								<img
+									className='List-npc'
+									src={suBMenuImage}
+									alt={subMenuItem?.productName}
+								/>
+								<span>{displayName || subMenuItem?.productName}</span>
+								{subMenuItem?.isTpMaintain && (
+									<div className='under'>
+										{t('Label_General_UnderMaintenance')}
+									</div>
+								)}
+							</button>
+						)
+					})}
+				</div>
 			)
 		}
 
-		return (
-			<div
-				key={key}
-				className={classNames(subMenuClassName, {
-					active: key === debouncedMenuKey,
-				})}
-				onMouseEnter={() => setMenuKey(key)}
-				onMouseLeave={() => setMenuKey(undefined)}
-			>
-				{subMenu?.map(item => {
-					const {
-						desktop: { className, headerMenuImgList } = {},
-						eventIcons,
-						displayKey,
-						displayText,
-						productKey,
-					} = item
-
-					const subMenuEventIcon = getSubMenuEventIcon(eventIcons)
-
-					return (
-						<button
-							style={{
-								// * 如果維護中取消點擊事件
-								pointerEvents: item.isTpMaintain ? 'none' : 'auto',
-							}}
-							key={productKey || uniqueId()}
-							className={classNames(className, {
-								active: item.isTpMaintain,
-							})}
-							onClick={() => {
-								onMenuOpen(item, {
-									loginCallback: () => modal.open(<LoginModal />),
-									messageCallBack: message => modal.error(message),
-									liveStreamingCallback: () =>
-										modal.open(<LiveStreamingModalDesktop />),
-								})
-							}}
-						>
-							{subMenuEventIcon && (
-								<div className={subMenuEventIcon?.icon}>
-									{subMenuEventIcon?.text}
-								</div>
-							)}
-
-							{headerMenuImgList?.map(img => (
-								<img
-									key={img.imgUrl}
-									className={classNames(img.className)}
-									alt={img.imgUrl}
-									src={`${
-										process.env['NEXT_PUBLIC_BANNER_HOST']
-									}/desktop/img/4.0/dropdown/${toLower(key)}/${img.imgUrl}`}
-								/>
-							))}
-
-							<span>{displayKey ? t(displayKey) : displayText}</span>
-							<div className='under'>{t('Label_General_UnderMaintenance')}</div>
-						</button>
-					)
-				})}
-			</div>
-		)
-	}
+		return null
+	})
 
 	return (
 		<div className='subMenu-Wrapper-new'>
-			{Object.keys(menuData).map(key => renderSubMenu(key))}
+			<div
+				className={classNames(`homeList ${langId}`, {
+					active: debouncedMenuKey === 'Home',
+				})}
+			>
+				{includes(ALLOWED_CURRENCIES.VIP, Number(currencyId)) && (
+					<Link href={paths.vip.root}>
+						<a>
+							<img
+								className='List-npc'
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-vip.png`}
+								alt='vip'
+							/>
+							<span>{t('VIP')}</span>
+						</a>
+					</Link>
+				)}
+				{includes(ALLOWED_CURRENCIES.LEADER_BOARD, Number(currencyId)) && (
+					<Link href={paths.leaderBoard.root}>
+						<a>
+							<img
+								className='List-npc'
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-ranking.png`}
+								alt='leaderBoard'
+							/>
+							<span>{t('Label_General_LeaderBoard')}</span>
+						</a>
+					</Link>
+				)}
+				<button
+					onClick={
+						!isLogin
+							? () => modal.open(<LoginModal />)
+							: () => push(`/${langId}/${paths.referral.root}`)
+					}
+				>
+					<img
+						className='List-npc'
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-refer.png`}
+						alt='referral'
+					/>
+					<span>{t('Label_General_Referral')}</span>
+				</button>
+				<Link href={paths.milestones.root}>
+					<a>
+						<img
+							className='List-npc'
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/dropdown/home/home-milestone.png`}
+							alt='home-milestone'
+						/>
+						<span>{t('Label_General_Milestone')}</span>
+					</a>
+				</Link>
+			</div>
+
+			{menus}
+
+			<a
+				className={classNames(`promoList ${langId}`, {
+					active: debouncedMenuKey === 'Promotion',
+				})}
+				onClick={() => push(paths.promotion.root)}
+				onMouseEnter={() => setMenuKey('Promotion')}
+				onMouseLeave={() => setMenuKey(undefined)}
+			>
+				<div />
+			</a>
+			<div
+				className={classNames(`vipList ${langId}`, {
+					active: debouncedMenuKey === 'VIP',
+				})}
+				onMouseEnter={() => setMenuKey('VIP')}
+				onMouseLeave={() => setMenuKey(undefined)}
+			>
+				<div />
+			</div>
+			<a
+				className={classNames(`rankingList ${langId}`, {
+					active: debouncedMenuKey === 'LeaderBoard',
+				})}
+				onClick={() => push(paths.leaderBoard.root)}
+				onMouseEnter={() => setMenuKey('LeaderBoard')}
+				onMouseLeave={() => setMenuKey(undefined)}
+			>
+				<div />
+			</a>
 		</div>
 	)
 }

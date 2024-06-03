@@ -1,44 +1,77 @@
+import { ReactNode } from 'react'
 import { useTranslation } from 'next-i18next'
-import head from 'lodash/head'
+import classNames from 'classnames'
+import { useAuth } from '@nx-next-app/data-access'
+import { isEventPeriod } from '@nx-next-app/utils'
+import { MenuIconTypeEnum } from '@nx-next-app/types'
+import { Translation } from 'react-i18next'
+import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 
 interface IListItemProps {
-	alt: string
-	className: string
-	displayName?: string
-	imgSrc: string
-	onItemClick: () => void
-	eventIcons?: {
-		icon: string
-		text: string
-	}[]
-	isTpMaintain?: boolean
+	subMenuItem: IDynamicSubMenuItem
+	onItemClick: (item: IDynamicSubMenuItem) => void
 }
 
-const GameListItem = ({
-	alt,
-	className,
-	displayName,
-	imgSrc,
-	onItemClick,
-	eventIcons,
-	isTpMaintain,
-}: IListItemProps) => {
+// * Lobby Icon 共用樣式
+export const lobbyIconEnum: { [p: number]: ReactNode | null } = {
+	[MenuIconTypeEnum.NO_ICON]: null,
+	[MenuIconTypeEnum.New]: (
+		<Translation>
+			{t => <div className='new-icon'>{t('Label_General_New')}</div>}
+		</Translation>
+	),
+}
+
+// * Get Lobby Icon 共用涵式
+export const switchLobbyIcon = (iconType: MenuIconTypeEnum) => {
+	return lobbyIconEnum[iconType] || null
+}
+
+const GameListItem = ({ subMenuItem, onItemClick }: IListItemProps) => {
 	const { t } = useTranslation()
+	const {
+		userInfo: { langId },
+	} = useAuth()
+
+	const displayName =
+		subMenuItem?.currencyGameName &&
+		subMenuItem?.currencyGameName[langId] &&
+		subMenuItem?.currencyGameName[langId]
+
+	// * 後端這裡是字串格式 需做處理
+	const suBMenuLobbyImage =
+		subMenuItem?.pcLobbyPicUrl && JSON.parse(subMenuItem?.pcLobbyPicUrl)[0]
+
+	const { iconType, iconStartTime, iconEndTime, isTpMaintain } =
+		subMenuItem || {}
+
+	const lobbyIcon =
+		(isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
+			switchLobbyIcon(iconType)) ||
+		null
+
 	return (
-		<div className={className} onClick={onItemClick}>
+		<div
+			className={classNames('lobby-content-item', {
+				under: isTpMaintain,
+			})}
+			onClick={() => onItemClick(subMenuItem)}
+		>
 			{isTpMaintain && (
 				<div className='under-text'>{t('Label_underMaintenance')}</div>
 			)}
+
+			{lobbyIcon}
+
 			<div className='img-wrapper'>
-				{eventIcons && head(eventIcons)?.icon && (
-					<div className={head(eventIcons)?.icon}>{head(eventIcons)?.text}</div>
-				)}
-				<img src={imgSrc} alt={alt} />
+				<img src={suBMenuLobbyImage} alt={subMenuItem?.productName} />
 				<div className='btn-container'>
 					<button>{t('Label_PlayNow')}</button>
 				</div>
 			</div>
-			<h2 className='lobby-title'>{displayName}</h2>
+			<div className='lobby-title'>
+				{displayName || subMenuItem?.productName}
+			</div>
 		</div>
 	)
 }
