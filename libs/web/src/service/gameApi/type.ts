@@ -54,6 +54,7 @@ export interface IDisplayGameData extends IGameData {
 
 export interface IGetRecentlyViewedArgs {
 	currencyId: number
+	deviceType: number
 }
 
 export type IViewedGameData = {
