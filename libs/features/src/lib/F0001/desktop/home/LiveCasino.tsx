@@ -117,47 +117,51 @@ const LiveCasino = () => {
 						{t('Label_General_PlayNow')}
 					</button>
 				</div>
-        {currencyId === CurrenciesEnum.BRL ? <div className='hotlivecasino'>
-					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-livecasino-evo.png`}
-						alt='casino_EVO'
-					/>
-					<button
-						className='all-btn'
-						onClick={() => {
-							onStaticMenuOpen(sgCasino, {
-								loginCallback: () => modal.open(<LoginModal />),
-								underMaintenanceCallback: () =>
-									modal.open(<UnderMaintenanceModal />),
-								messageCallBack: message => modal.error(message),
-								liveStreamingCallback: () =>
-									modal.open(<LiveStreamingModalDesktop />),
-							})
-						}}
-					>
-						{t('Label_General_PlayNow')}
-					</button>
-				</div> : <div className='hotlivecasino'>
-					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-livecasino-evo.png`}
-						alt='casino_EVO'
-					/>
-					<button
-						className='all-btn'
-						onClick={() => {
-							onStaticMenuOpen(evoCasino, {
-								loginCallback: () => modal.open(<LoginModal />),
-								underMaintenanceCallback: () =>
-									modal.open(<UnderMaintenanceModal />),
-								messageCallBack: message => modal.error(message),
-								liveStreamingCallback: () =>
-									modal.open(<LiveStreamingModalDesktop />),
-							})
-						}}
-					>
-						{t('Label_General_PlayNow')}
-					</button>
-				</div>}
+				{currencyId === CurrenciesEnum.BRL ? (
+					<div className='hotlivecasino'>
+						<img
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-livecasino-sg.png`}
+							alt='casino_SG'
+						/>
+						<button
+							className='all-btn'
+							onClick={() => {
+								onStaticMenuOpen(sgCasino, {
+									loginCallback: () => modal.open(<LoginModal />),
+									underMaintenanceCallback: () =>
+										modal.open(<UnderMaintenanceModal />),
+									messageCallBack: message => modal.error(message),
+									liveStreamingCallback: () =>
+										modal.open(<LiveStreamingModalDesktop />),
+								})
+							}}
+						>
+							{t('Label_General_PlayNow')}
+						</button>
+					</div>
+				) : (
+					<div className='hotlivecasino'>
+						<img
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-livecasino-evo.png`}
+							alt='casino_EVO'
+						/>
+						<button
+							className='all-btn'
+							onClick={() => {
+								onStaticMenuOpen(evoCasino, {
+									loginCallback: () => modal.open(<LoginModal />),
+									underMaintenanceCallback: () =>
+										modal.open(<UnderMaintenanceModal />),
+									messageCallBack: message => modal.error(message),
+									liveStreamingCallback: () =>
+										modal.open(<LiveStreamingModalDesktop />),
+								})
+							}}
+						>
+							{t('Label_General_PlayNow')}
+						</button>
+					</div>
+				)}
 
 				{/* // * BDT幣別不支援 DG，改為開始 SG 產品 */}
 				{currencyId === CurrenciesEnum.BDT ? (
