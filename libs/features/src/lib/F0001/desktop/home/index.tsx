@@ -45,7 +45,6 @@ const Retention = dynamic(() => import('../common/RetentionEntry'), {
 	ssr: false,
 })
 
-
 const LiveStreamingLink = dynamic(() => import('../common/liveStreamingLink'), {
 	ssr: false,
 })

@@ -181,7 +181,6 @@ const SubMenu = ({
 					/>
 					<span>{t('Label_General_Referral')}</span>
 				</button>
-
 				<Link href={paths.milestones.root}>
 					<a>
 						<img

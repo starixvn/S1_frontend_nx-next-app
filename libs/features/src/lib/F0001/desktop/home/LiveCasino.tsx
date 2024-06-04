@@ -162,6 +162,7 @@ const LiveCasino = () => {
 						</button>
 					</div>
 				)}
+
 				{/* // * BDT幣別不支援 DG，改為開始 SG 產品 */}
 				{currencyId === CurrenciesEnum.BDT ? (
 					<div className='hotlivecasino'>
@@ -172,7 +173,7 @@ const LiveCasino = () => {
 						<button
 							className='all-btn'
 							onClick={() => {
-								onStaticMenuOpen(sgCasino, {
+								onStaticMenuOpen(evoCasino, {
 									loginCallback: () => modal.open(<LoginModal />),
 									underMaintenanceCallback: () =>
 										modal.open(<UnderMaintenanceModal />),

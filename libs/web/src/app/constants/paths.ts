@@ -143,7 +143,7 @@ export const paths = {
 	europeCup: {
 		root: '/euro-cup',
 	},
-	retention:{
+	retention: {
 		root: '/retention',
 	},
 	milestones: {
