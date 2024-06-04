@@ -14,6 +14,7 @@ import {
 	IAxiosError,
 	ICustDrawPrizeData,
 	IDisplayDrawPrizeData,
+	useGetRetentionPromotionQuery,
 } from '@nx-next-app/service'
 import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
 import { useRouter } from 'next/router'
@@ -41,6 +42,7 @@ interface LuckWheelContextInterface {
 	isCheckDrawPrizeError: boolean
 	displayDrawPrizeList: IDisplayDrawPrizeData[]
 	custDrawPrizeList: ICustDrawPrizeData[]
+	bonusCode: string | null
 	onDrawPrize: () => void
 }
 
@@ -87,6 +89,12 @@ export const LuckWheelProvider = ({ children }: ILuckWheelProviderProps) => {
 			eventId: EVENT_ID,
 		})
 
+	const {
+		data: { data: { bonusCode = '' } = {} } = {},
+		isFetching: isRetentionPromotionFetching,
+	} = useGetRetentionPromotionQuery({
+		langId,
+	})
 	// * 切換語系後 refetch 資料
 	useEffect(() => {
 		refetchDisplayDrawPrizeList()
@@ -198,13 +206,17 @@ export const LuckWheelProvider = ({ children }: ILuckWheelProviderProps) => {
 		}, 3000)
 	}
 
-	const loading = iGetDisplayDrawPrizeListFetching || isCheckDrawPrizeFetching
+	const loading =
+		iGetDisplayDrawPrizeListFetching ||
+		isCheckDrawPrizeFetching ||
+		isRetentionPromotionFetching
 
 	const value: LuckWheelContextInterface = {
 		loading,
 		isCheckDrawPrizeError,
 		displayDrawPrizeList,
 		custDrawPrizeList,
+		bonusCode,
 		onDrawPrize,
 	}
 

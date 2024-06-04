@@ -8,40 +8,57 @@ import classNames from 'classnames'
 import { toUpper, upperFirst } from 'lodash-es'
 import dayjs from 'dayjs'
 import { paths } from '@nx-next-app/constants'
+import { useRouter } from 'next/router'
 
 interface ILuckyWheelProps {
 	eventPeriod: IEventPeriod
 }
 
 const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
-	const {
-		auth: { isLogin },
-		userInfo: { currencyName },
-	} = useAuth()
 	const { t } = useTranslation()
-
+	const { push } = useRouter()
 	const {
 		loading,
 		isCheckDrawPrizeError,
 		displayDrawPrizeList,
 		custDrawPrizeList,
 		onDrawPrize,
+		bonusCode,
 	} = useLuckWheelContext()
 
-	const { value: isSpinning, setValue: setIsSpinning } = useBoolean(false)
+	const {
+		auth: { isLogin },
+		userInfo: { currencyName },
+	} = useAuth()
 
+	const handleWheelClick = () => {
+		push(paths.retention.root)
+	}
+
+	const inlineStyle = !bonusCode ? { paddingTop: 0 } : {}
+
+	const { value: isSpinning, setValue: setIsSpinning } = useBoolean(false)
 	if (loading) return <Loading />
 
 	return (
 		<>
-			<Header className='header'>
+			<Header className='header' style={{ zIndex: 4 }}>
 				<Header.Tag
 					title={t('Label_LuckyWheel_Title') as string}
 					back={paths.home.root}
 				/>
 			</Header>
 
-			<main className='main wheelEvent'>
+			<main className='main wheelEvent' style={inlineStyle}>
+				{bonusCode && (
+					<div className='eventpage-tap' style={{ zIndex: 3 }}>
+						<button className='active'> {t('Label_LuckyWheel_Title')}</button>
+
+						<button className='' onClick={handleWheelClick}>
+							{t('Label_Retention_SurpriseReward')}
+						</button>
+					</div>
+				)}
 				<div className='eventPage'>
 					<div className='eventTitleBg'>
 						<div className='eventTitle'>LUCKY WHEEL</div>
