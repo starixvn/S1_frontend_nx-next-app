@@ -1,4 +1,3 @@
-import React from 'react'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useSlots } from '@nx-next-app/features/F0001/providers'
