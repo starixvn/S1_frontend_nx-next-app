@@ -32,6 +32,10 @@ const EuroCupEntry = dynamic(() => import('../common/EuroCupEntry'), {
 	ssr: false,
 })
 
+const Retention = dynamic(() => import('../common/RetentionEntry'), {
+	ssr: false,
+})
+
 const CarouselBanner = dynamic(() => import('../common/carouselBanner'), {
 	ssr: false,
 })
@@ -127,6 +131,8 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 				<EuroCupEntry />
 			) : null,
 		[MobileHomeComponentsEnum.LuckyWheel]: () => <LuckyWheel />,
+		[MobileHomeComponentsEnum.Retention]: () => <Retention />,
+
 		[MobileHomeComponentsEnum.LiveStreamingLink]: () => <LiveStreamingLink />,
 		[MobileHomeComponentsEnum.AppDownload]: () =>
 			isInApp === false ? <AppDownload /> : null,
