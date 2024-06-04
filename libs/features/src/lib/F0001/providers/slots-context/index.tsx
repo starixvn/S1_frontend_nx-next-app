@@ -473,11 +473,12 @@ const SlotsProvider = ({
 
 		updateCategoryKeys()
 		setActiveCategoryKey('featured') // 一進畫面先顯示哪個類別的遊戲
-		// 如果featured裡面沒有資料，直接帶ALL的
-		if (persistSlotsCategoryData['featured']?.length === 0) {
-			setActiveCategoryKey('all')
-		}
 	}, [queryTpId])
+
+	useEffect(() => {
+		// 如果featured裡面沒有資料，直接帶ALL的
+		if (featuredIdx === -1) setActiveCategoryKey('all')
+	}, [slotsGameList])
 
 	useEffect(() => {
 		if (
@@ -577,11 +578,7 @@ const SlotsProvider = ({
 		imgUrl: persistSlotsGameData.imgUrl,
 		bannerList,
 		vendorList,
-		categoryKeys: moveItem(
-			categoryKeys,
-			featuredIdx === -1 ? 5 : featuredIdx,
-			1
-		),
+		categoryKeys: moveItem(categoryKeys, featuredIdx, 1),
 		isGetBannerV3Fetching,
 		activeVendorTpId,
 		activeCategoryKey,
