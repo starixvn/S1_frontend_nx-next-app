@@ -20026,15 +20026,15 @@ input[type=number] .btn-logout {
 }
 
 .retention-wrapper .bonus-list table tr p span {
-  color: rgb(17, 34, 64) !important;
+  color: #112240 !important;
 }
 
 .retention-wrapper .bonus-list table tr p span span {
-  color: rgb(17, 34, 64) !important;
+  color: #112240 !important;
 }
 
 .retention-wrapper .bonus-list table tr td span {
-  color: rgb(17, 34, 64) !important;
+  color: #112240 !important;
 }
 
 .retention-wrapper .bonus-list table tr:first-child p span {
@@ -20042,9 +20042,18 @@ input[type=number] .btn-logout {
 }
 
 .retention-wrapper .bonus-list table tr:first-child td {
-  background-color: rgb(17, 63, 144) !important;
-}/*# sourceMappingURL=style.css.map */
+  background-color: #113F90 !important;
+}
 
 .retention-wrapper .bonus-list .table-wrapper {
   overflow-x: scroll !important;
 }
+
+.retention-wrapper .bonus-list strong span {
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.retention-wrapper .bonus-list span strong {
+  font-weight: bold !important;
+}/*# sourceMappingURL=style.css.map */
