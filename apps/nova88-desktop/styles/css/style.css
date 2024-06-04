@@ -25773,4 +25773,29 @@ input[type=number] {
 
 .retention-wrapper .bonus-list span strong {
   font-weight: bold !important;
+}
+
+.retention-wrapper .bonus-list table td {
+  border: none !important;
+  border-right: 2px solid #4689FF !important;
+}
+
+.retention-wrapper .bonus-list tr td:last-child {
+  border-right: none !important;
+}
+
+.retention-wrapper .bonus-list tr:first-child td:first-child {
+  border-top-left-radius: 10px !important;
+}
+
+.retention-wrapper .bonus-list tr:first-child td:last-child {
+  border-top-right-radius: 10px !important;
+}
+
+.retention-wrapper .bonus-list tr:last-child td:first-child {
+  border-bottom-left-radius: 10px !important;
+}
+
+.retention-wrapper .bonus-list tr:last-child td:last-child {
+  border-bottom-right-radius: 10px !important;
 }/*# sourceMappingURL=style.css.map */
