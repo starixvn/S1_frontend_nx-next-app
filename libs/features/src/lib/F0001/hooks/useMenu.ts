@@ -368,7 +368,11 @@ const useMenu = () => {
 					window.open(message)
 				}
 			} else {
-				modal.error('Under Maintenance')
+				window.open(
+					message,
+					'Under Maintenance',
+					'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0'
+				)
 			}
 		} catch (error) {
 			const { message, errorCode } = error as IAxiosError
