@@ -13,5 +13,6 @@ export const GET_AFFILIATE_LINK = ({
 	if (currencyId === CurrenciesEnum.INR) {
 		return `https://aff.nova88india.com/?lang=${langId}`
 	}
-	return `https://aff.nova88bkk.com/?lang=${langId}`
+	// return `https://aff.nova88bkk.com/?lang=${langId}`
+	return `https://aff.nova88gacor.com/?lang=${langId}`
 }
