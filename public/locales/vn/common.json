@@ -187,7 +187,7 @@
   "Label_General_AllTranscations": "Tất cả giao dịch",
   "Label_General_Amount": "Số tiền",
   "Label_General_AmountLessThan": "Số tiền không thể nhỏ hơn {{value1}}.",
-  "Label_General_AmountMinMaxLimit": "Giới hạn rút tiền hàng ngày: {{value1}}/{{value2}}",
+  "Label_General_AmountMinMaxLimit": "Giới hạn nạp tiền: {{value1}}/{{value2}}",
   "Label_General_Announcement": "Thông Báo",
   "Label_General_ApplyNow": "NỘP ĐƠN NGAY",
   "Label_General_Apr": "Tháng 4",
