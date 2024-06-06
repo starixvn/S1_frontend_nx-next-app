@@ -1205,7 +1205,7 @@ export const MENU_DATA: IMenuData[] = [
 				query: { provider: 'NumberGame' },
 				h5: {
 					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.Link,
+					menuActionType: MenuActionTypeEnum.EnterPage,
 				},
 				desktop: { hasLobby: true, menuActionType: MenuActionTypeEnum.Link },
 			},
