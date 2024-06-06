@@ -3,7 +3,7 @@ import { useAuth, useDepositSavedLocalStorage } from '@nx-next-app/data-access'
 import {
 	cashierApiUrl,
 	IAxiosError,
-	IDepositQuickTransferData,
+	IDepositChatTransferData,
 	useLazyCheckDepositSpecialCodeQuery,
 } from '@nx-next-app/service'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
@@ -27,7 +27,7 @@ export interface IChatTransferForm {
 const useChatTransferForm = ({
 	dataSource,
 }: {
-	dataSource: IDepositQuickTransferData[]
+	dataSource: IDepositChatTransferData[]
 }) => {
 	const {
 		userInfo: { langId, currencyId },
