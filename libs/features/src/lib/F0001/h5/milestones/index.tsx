@@ -76,7 +76,7 @@ const MilestoneContent = ({
 					{t('Label_General_Milestone')}
 				</div>
 			</div>
-			<main className='milestones'>
+			<main className='milestones after-footer'>
 				<div className='milestones-home' id='homepage'>
 					<div>
 						<div>

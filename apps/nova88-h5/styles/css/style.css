@@ -19542,6 +19542,9 @@ input[type=number] .btn-logout {
   background: url(../img/milestones/left-btn.png) no-repeat center/100%;
   left: 42%;
 }
+.milestones.after-footer {
+  padding-bottom: 11vw;
+}
 
 .exclusion-text {
   display: -webkit-box;
