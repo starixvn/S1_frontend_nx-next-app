@@ -36,6 +36,7 @@ import '../styles/css/font.css'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
 import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
+import Head from 'next/head'
 
 dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
@@ -54,6 +55,9 @@ const {
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
+			<Head>
+				<meta name='viewport' content='initial-scale=1.0, maximum-scale=1.0' />
+			</Head>
 			<Provider store={store}>
 				<UIProvider>
 					<StaticDataProvider
