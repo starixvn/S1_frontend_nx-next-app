@@ -132,7 +132,7 @@ export const FOOTER_DATA = ({
 			},
 			{
 				...PRODUCTS.AskmeSlot,
-				imgName: 'askme',
+				imgName: 'casino_askmea',
 			},
 			{
 				...PRODUCTS.FaChai,
