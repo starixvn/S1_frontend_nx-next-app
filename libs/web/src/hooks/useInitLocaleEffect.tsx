@@ -3,6 +3,7 @@ import { NextRouter } from 'next/router'
 import { getCookie } from 'cookies-next'
 import { IUserInfoData } from '../service'
 import { ENV_COOKIE_NAMES } from '../app/constants/Names'
+import { paths } from '../app/constants/paths'
 
 /**
  *
@@ -38,17 +39,17 @@ export const useInitLocaleEffect = ({
 			// 登入
 			const { langId } = userInfo
 			if (locale !== langId) {
-				router.push({ pathname, query }, asPath, {
-					locale: langId,
-				})
+				// 因此處切換語系的導轉會中斷原本登入頁導回首頁的行為，故在登入頁切語系時順便導回首頁
+				const isLoginPage = pathname === '/login'
+
+				router.push(
+					{ pathname, query },
+					isLoginPage ? paths.home.root : asPath,
+					{ locale: langId }
+				)
 			}
 		}
 	}
 
-	useEffect(() => {
-		// 到 client side 才做
-		if (window !== undefined) {
-			initLocale()
-		}
-	}, [cookieLang, isLogin, userInfo])
+	useEffect(initLocale, [cookieLang, isLogin, userInfo])
 }
