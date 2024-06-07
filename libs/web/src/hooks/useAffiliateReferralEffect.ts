@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { deleteCookie, setCookie } from 'cookies-next'
+import { setCookie } from 'cookies-next'
 import { useRouter } from 'next/router'
 import { getQueryParam } from '@nx-next-app/utils'
 
@@ -18,11 +18,6 @@ const useAffiliateReferralEffect = ({ expireDay }: { expireDay: number }) => {
 
 		const expires = new Date()
 		expires.setTime(expires.getTime() + 7 * 24 * 60 * 60 * 1000)
-
-		deleteCookie('AffId')
-		deleteCookie('RefId')
-		deleteCookie('Aff')
-		deleteCookie('AffCode')
 
 		if (affId) {
 			setCookie('AffId', affId, { expires })
