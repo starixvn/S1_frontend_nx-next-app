@@ -154,7 +154,7 @@ export interface IStaticAllowedCurrencies {
 	// Euro-Cup
 	Euro_Cup: CurrenciesEnum[]
 
-	Retention: CurrenciesEnum[]
+	Retention?: CurrenciesEnum[]
 }
 
 export interface ITermsConditions {
