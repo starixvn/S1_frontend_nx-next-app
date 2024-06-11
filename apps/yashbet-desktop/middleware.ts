@@ -10,7 +10,7 @@ export const LANG_TO_CURRENCY: { [key: string]: number } = {
 // 此 middleware 僅處理未初始化的 cookie，再進入 'default' 時會給予固定 defaultLang 內的 locale
 // 若透過指定語系進入，則會給予指定語系的 locale
 const config = {
-	defaultLocale: 'en',
+	defaultLocale: 'bd',
 	defaultCurrency: 74,
 	langToCurrency: LANG_TO_CURRENCY,
 }
