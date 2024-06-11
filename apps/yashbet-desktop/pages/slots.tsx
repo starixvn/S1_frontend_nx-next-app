@@ -5,7 +5,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { SlotsProvider } from '@nx-next-app/features/F0006/providers'
+import { SlotsProvider } from '@nx-next-app/features/F0001/providers'
 import { Layout, Slots } from '@nx-next-app/features/F0006/desktop'
 import {
 	AuthProvider,
