@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
-import { useSlots } from '@nx-next-app/features/F0006/providers'
+import { useSlots } from '@nx-next-app/features/F0001/providers'
 
 const GameList = () => {
 	const {
