@@ -83,12 +83,12 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{cryptoPaymentList.map(item => {
-						const { groupName, minAmount, maxAmount } = item
+						const { groupName, displayGroupName, minAmount, maxAmount } = item
 						const min = numberFormat(minAmount, currencyId, 0, false)
 						const max = numberFormat(maxAmount, currencyId, 0, false)
 						return (
 							<DepositModule.SubModuleButton
-								label={groupName}
+								label={displayGroupName}
 								imgName={`${toLower(groupName)}.png`}
 								matchValue={groupName}
 								key={groupName}
@@ -108,12 +108,18 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{cryptoChannelList.map(item => {
-						const { channelId, channelName, minAmount, maxAmount } = item
+						const {
+							channelId,
+							channelName,
+							displayChannelName,
+							minAmount,
+							maxAmount,
+						} = item
 						const min = numberFormat(minAmount, currencyId, 0, false)
 						const max = numberFormat(maxAmount, currencyId, 0, false)
 						return (
 							<DepositModule.SubModuleButton
-								label={channelName}
+								label={displayChannelName}
 								imgName={`${toLower(channelName)}.png`}
 								matchValue={String(channelId)}
 								key={channelId}

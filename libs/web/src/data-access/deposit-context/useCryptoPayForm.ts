@@ -23,6 +23,7 @@ import { useDepositContext } from './DepositContext'
 
 interface ICryptoPaymentData {
 	groupName: string
+	displayGroupName: string
 	maxAmount: number
 	minAmount: number
 }
@@ -99,15 +100,16 @@ const useCryptoPayForm = ({
 			dataSource,
 			(acc, cur) => {
 				const result = { ...acc }
-				const { groupName, maxAmount, minAmount } = cur
+				const { groupName, displayGroupName, maxAmount, minAmount } = cur
 
 				result[groupName] = result[groupName]
 					? {
 							groupName,
+							displayGroupName,
 							maxAmount: Math.max(maxAmount, result[groupName]?.maxAmount),
 							minAmount: Math.min(minAmount, result[groupName]?.minAmount),
 					  }
-					: { groupName, minAmount, maxAmount }
+					: { groupName, minAmount, maxAmount, displayGroupName }
 				return result
 			},
 			{} as { [key: string]: ICryptoPaymentData }

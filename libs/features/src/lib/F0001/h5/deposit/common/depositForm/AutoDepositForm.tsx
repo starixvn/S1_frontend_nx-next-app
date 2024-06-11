@@ -76,12 +76,18 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{dataSource.map(item => {
-						const { minAmount, maxAmount, channelName, channelId } = item
+						const {
+							minAmount,
+							maxAmount,
+							channelName,
+							displayChannelName,
+							channelId,
+						} = item
 						const min = numberFormat(minAmount, currencyId, 0, false)
 						const max = numberFormat(maxAmount, currencyId, 0, false)
 						return (
 							<DepositModule.SubModuleButton
-								label={channelName}
+								label={displayChannelName}
 								imgName={`${toLower(channelName)}.png`}
 								matchValue={String(channelId)}
 								key={channelId}
