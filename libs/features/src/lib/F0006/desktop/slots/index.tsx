@@ -4,7 +4,7 @@ import CategoryFilter from '@nx-next-app/features/F0006/desktop/slots/CategoryFi
 import SearchBox from '@nx-next-app/features/F0006/desktop/slots/SearchBox'
 import GameList from '@nx-next-app/features/F0006/desktop/slots/GameList'
 import { CarouselBanner } from '@nx-next-app/features/F0006/desktop/common'
-import { useSlots } from '@nx-next-app/features/F0006/providers'
+import { useSlots } from '@nx-next-app/features/F0001/providers'
 import { Loading } from '@nx-next-app/components/D0006'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { CurrenciesEnum } from '@nx-next-app/types'

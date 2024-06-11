@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { useSlots } from '@nx-next-app/features/F0006/providers'
+import { useSlots } from '@nx-next-app/features/F0001/providers'
 import VendorItem from './VendorItem'
 
 const VendorFilter = () => {
