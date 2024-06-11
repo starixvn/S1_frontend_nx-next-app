@@ -88,7 +88,6 @@ export const siteMiddleware = async ({ request, config }: ISiteMiddleware) => {
 	// const { isAccess = true, countryCode } =
 	// 	(await getIpCountry(request.headers)) ?? {}
 	const isAccess = true
-	const countryCode = 'MY'
 
 	if (!isAccess && process.env.NODE_ENV === 'production') {
 		// 只有在線上會 work
@@ -98,9 +97,8 @@ export const siteMiddleware = async ({ request, config }: ISiteMiddleware) => {
 
 	if (!hasLangId) {
 		if (locale === 'default') {
-			const locale = countryCodeMap[countryCode]?.langId || defaultLocale
-			const currencyId =
-				countryCodeMap[countryCode]?.currencyId || defaultCurrency
+			const locale = defaultLocale
+			const currencyId = defaultCurrency
 
 			response.cookies.set(ENV_COOKIE_NAMES.LangId, locale)
 			response.cookies.set(ENV_COOKIE_NAMES.CurrencyId, String(currencyId))
