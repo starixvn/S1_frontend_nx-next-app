@@ -148,6 +148,7 @@
   "Label_Deposit_ProcessingDescription": "Processing deposit please update the below or click on history link to view the deposit result.",
   "Label_Deposit_ProvideBankSlip": "Please provide us with the bank slip here so we can process your request quickly.",
   "Label_Deposit_QR_Pay": "QR Pay",
+  "Label_Deposit_Quick_ChatTransfer": "ChatTransfer",
   "Label_Deposit_Quick_Transfer": "Quick Transfer",
   "Label_Deposit_ReceivedAmount": "Received Amount",
   "Label_Deposit_ReferFriendsRewards": "Refer Friends Rewards",
