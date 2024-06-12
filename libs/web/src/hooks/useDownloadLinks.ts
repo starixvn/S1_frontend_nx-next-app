@@ -16,9 +16,9 @@ const useDownloadLinks = () => {
 			)
 			return {
 				data: {
-					androidDownLoadUrl: formatData['Andriod']?.downloadLink,
+					androidDownLoadUrl: formatData['Android']?.downloadLink,
 					iosDownloadUrl: formatData['IOS']?.downloadLink,
-					androidTypeName: formatData['Andriod']?.appTypeName,
+					androidTypeName: formatData['Android']?.appTypeName,
 					iosTypeName: formatData['IOS']?.appTypeName,
 				},
 			}
