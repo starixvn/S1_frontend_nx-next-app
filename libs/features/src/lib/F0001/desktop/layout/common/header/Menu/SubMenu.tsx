@@ -75,6 +75,7 @@ const SubMenu = ({
 					className={classNames(`${subMenuClassName} ${langId}`, {
 						active,
 					})}
+					onMouseLeave={() => setMenuKey(undefined)}
 				>
 					{subMenu?.map(subMenuItem => {
 						// * 後端這裡是字串格式 需做處理
@@ -104,7 +105,6 @@ const SubMenu = ({
 									active: subMenuItem?.isTpMaintain,
 								})}
 								onMouseEnter={() => setMenuKey(debouncedMenuKey)}
-								onMouseLeave={() => setMenuKey(undefined)}
 								onClick={() => {
 									onMenuOpen(subMenuItem, {
 										loginCallback: () => modal.open(<LoginModal />),
@@ -142,6 +142,7 @@ const SubMenu = ({
 				className={classNames(`homeList ${langId}`, {
 					active: debouncedMenuKey === 'Home',
 				})}
+				onMouseLeave={() => setMenuKey(undefined)}
 			>
 				{includes(ALLOWED_CURRENCIES.VIP, Number(currencyId)) && (
 					<Link href={paths.vip.root}>
@@ -201,7 +202,6 @@ const SubMenu = ({
 				})}
 				onClick={() => push(paths.promotion.root)}
 				onMouseEnter={() => setMenuKey('Promotion')}
-				onMouseLeave={() => setMenuKey(undefined)}
 			>
 				<div />
 			</a>
@@ -210,7 +210,6 @@ const SubMenu = ({
 					active: debouncedMenuKey === 'VIP',
 				})}
 				onMouseEnter={() => setMenuKey('VIP')}
-				onMouseLeave={() => setMenuKey(undefined)}
 			>
 				<div />
 			</div>
@@ -220,7 +219,6 @@ const SubMenu = ({
 				})}
 				onClick={() => push(paths.leaderBoard.root)}
 				onMouseEnter={() => setMenuKey('LeaderBoard')}
-				onMouseLeave={() => setMenuKey(undefined)}
 			>
 				<div />
 			</a>
