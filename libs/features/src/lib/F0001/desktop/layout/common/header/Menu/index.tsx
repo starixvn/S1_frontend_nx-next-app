@@ -143,6 +143,7 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 		}
 
 		return (
+			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 			<Link href={pathname!} key={lobbyCategoryId}>
 				<a onMouseEnter={() => setMenuKey(category)}>
 					{icon}
@@ -151,10 +152,9 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 			</Link>
 		)
 	})
-
 	return (
 		<div className='menu'>
-			<div>
+			<div onMouseLeave={() => setMenuKey(undefined)}>
 				<Link href={paths.home.root} passHref>
 					<a className='icon icon-home' onMouseEnter={() => setMenuKey('Home')}>
 						{' '}
