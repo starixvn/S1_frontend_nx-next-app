@@ -39,7 +39,7 @@ const useOnlineCheckInterval = ({
 				// })
 			}
 		},
-		isLogin ? 30000 : null
+		isLogin ? 600000 : null
 	)
 }
 
