@@ -48,7 +48,7 @@ const AppDownloadProvider = ({
 			)
 			return {
 				data: {
-					androidDownLoadUrl: formatData['Andriod']?.downloadLink,
+					androidDownLoadUrl: formatData['Android']?.downloadLink,
 					IOSDownloadUrl: formatData['IOS']?.downloadLink,
 				},
 			}
