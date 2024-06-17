@@ -25,7 +25,7 @@ const useOnlineCheckInterval = ({
 			try {
 				await onlineCheck(null).unwrap()
 			} catch (error) {
-				onResetAuth()
+				// onResetAuth()
 
 				console.log(error)
 
@@ -39,7 +39,7 @@ const useOnlineCheckInterval = ({
 				// })
 			}
 		},
-		isLogin ? 10000 : null
+		isLogin ? 30000 : null
 	)
 }
 

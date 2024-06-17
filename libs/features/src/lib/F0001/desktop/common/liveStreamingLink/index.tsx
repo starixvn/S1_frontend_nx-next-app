@@ -10,7 +10,10 @@ import {
 	ILiveStreamingData,
 } from '@nx-next-app/service'
 import { isEventPeriod } from '@nx-next-app/utils'
-import { EUROPE_EVENT_PERIOD,ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
+import {
+	EUROPE_EVENT_PERIOD,
+	ALLOWED_CURRENCIES,
+} from '@nx-next-app/site/nova88'
 import LiveStreamingModal from './LiveStreamingModal'
 
 const LiveStreamingLink = () => {
@@ -44,7 +47,7 @@ const LiveStreamingLink = () => {
 				setLiveStreamingList(filterList)
 			}
 		} catch (error) {
-			modal.error((error as Error).message)
+			console.log(error)
 		}
 	}
 
