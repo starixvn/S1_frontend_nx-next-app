@@ -1,5 +1,5 @@
 export interface IAppDownloadLinks {
 	appType: number
-	appTypeName: 'Andriod' | 'IOS'
+	appTypeName: 'Android' | 'IOS'
 	downloadLink: string
 }
