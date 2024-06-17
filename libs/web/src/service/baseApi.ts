@@ -20,6 +20,7 @@ export const baseAxios = axios.create({
 				typeof window !== 'undefined' ? window?.location?.origin : undefined,
 		},
 	},
+	timeout: 3000,
 })
 
 export function setServerSideHeaders(context: GetServerSidePropsContext): void {
