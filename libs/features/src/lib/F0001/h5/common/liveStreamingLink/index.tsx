@@ -9,7 +9,10 @@ import {
 	useLazyGetDataListQuery,
 	ILiveStreamingData,
 } from '@nx-next-app/service'
-import { ALLOWED_CURRENCIES,EUROPE_EVENT_PERIOD } from '@nx-next-app/site/nova88'
+import {
+	ALLOWED_CURRENCIES,
+	EUROPE_EVENT_PERIOD,
+} from '@nx-next-app/site/nova88'
 import { isEventPeriod } from '@nx-next-app/utils'
 import LiveStreamingModal from './LiveStreamingModal'
 
@@ -44,7 +47,7 @@ const LiveStreamingLink = () => {
 				setLiveStreamingList(filterList)
 			}
 		} catch (error) {
-			modal.error((error as Error).message)
+			console.log('LiveStreaming', error)
 		}
 	}
 
