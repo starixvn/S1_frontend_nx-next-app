@@ -101,7 +101,7 @@ const useMenu = () => {
 	} = useAuth()
 	const { modal } = useGlobalModal()
 	const { LobberHeaderMenuList, isLobbyHeaderError } = useMenuData()
-	const { tpMaintainList, isInLiff } = useGlobalData()
+	const { tpMaintainList, isInLiff, isInApp } = useGlobalData()
 	const [gotoGame] = useLazyGotoGameQuery()
 	const { data: { data: tpGameTypeSettingList = [] } = {} } =
 		useGetCustTpGameTypeSettingQuery(null, {
@@ -351,6 +351,26 @@ const useMenu = () => {
 		if (loginCallback && !auth.isLogin) {
 			loginCallback()
 			return
+		}
+
+		if (isInApp) {
+			const query = {
+				tpId,
+				langId,
+				gameId,
+				tpGameType,
+				loginGameType,
+			}
+
+			if (tpId === PRODUCTS.Nova88Exchange.tpId) {
+				push({ pathname: '/launcher/exchange', query })
+				return
+			}
+
+			if (tpId === PRODUCTS.PGSoft.tpId) {
+				push({ pathname: '/launcher/pg', query })
+				return
+			}
 		}
 
 		try {
