@@ -20,4 +20,4 @@ export const bonusListData = [
 		labelBonusGold: 'Label_Olympic_Bonus_8Gold',
 		redeemImg: 'gold-c',
 	},
-]
+] as const
