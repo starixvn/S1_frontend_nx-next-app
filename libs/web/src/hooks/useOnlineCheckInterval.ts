@@ -26,14 +26,17 @@ const useOnlineCheckInterval = ({
 				await onlineCheck(null).unwrap()
 			} catch (error) {
 				onResetAuth()
-				modal.info((error as Error).message || t('Label_General_LoggedOut'), {
-					icon: 'icon icon-exit',
-					title: t('Label_General_LogOut'),
-					onOK: () => {
-						push(paths.home.root)
-						reload()
-					},
-				})
+
+				console.log(error)
+
+				// modal.info((error as Error).message || t('Label_General_LoggedOut'), {
+				// 	icon: 'icon icon-exit',
+				// 	title: t('Label_General_LogOut'),
+				// 	onOK: () => {
+				// 		push(paths.home.root)
+				// 		reload()
+				// 	},
+				// })
 			}
 		},
 		isLogin ? 10000 : null
