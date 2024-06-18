@@ -47,7 +47,7 @@ const LiveStreamingLink = () => {
 				setLiveStreamingList(filterList)
 			}
 		} catch (error) {
-			modal.error((error as Error).message)
+			console.log('LiveStreaming', error)
 		}
 	}
 

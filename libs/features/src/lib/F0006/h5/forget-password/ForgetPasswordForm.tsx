@@ -51,7 +51,7 @@ const ForgetPasswordForm = ({ onSubmit }: IForgetPasswordFormProps) => {
 					</div>
 				</div>
 			</div>
-			<div className='tip active'>{t('Label_ForgetPsw_Tip')}</div>
+			<div className='tip active'>{t('Label_Enter_Account_And_Phone_No')}</div>
 			<div className='btn-group'>
 				<button>{t('Label_Get_OTP')}</button>
 			</div>

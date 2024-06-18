@@ -1,4 +1,3 @@
-import React from 'react'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'

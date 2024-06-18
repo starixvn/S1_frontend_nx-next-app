@@ -95,18 +95,15 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.HotMatch]: () => <HotMatch />,
 		[DesktopHomeComponentsEnum.LiveCasino]: () => <LiveCasino />,
 		[DesktopHomeComponentsEnum.HotGame]: () => <HotGame />,
-    [DesktopHomeComponentsEnum.RecentlyViewGames]: () => <RecentlyViewGames />,
+		[DesktopHomeComponentsEnum.RecentlyViewGames]: () => <RecentlyViewGames />,
 		[DesktopHomeComponentsEnum.AppDownloadBanner]: () => <AppDownloadBanner />,
 		[DesktopHomeComponentsEnum.OfficialPartner]: () => <OfficialPartner />,
 		[DesktopHomeComponentsEnum.ProviderBlock]: () => <ProvidersBlock />,
-	
-		
-		[DesktopHomeComponentsEnum.EuropeCupEntry]: () => includes(
-			ALLOWED_CURRENCIES.Euro_Cup,
-			currencyId
-		) ? (
-			<EuropeCupEntry />
-		) : null,
+
+		[DesktopHomeComponentsEnum.EuropeCupEntry]: () =>
+			includes(ALLOWED_CURRENCIES.Euro_Cup, currencyId) ? (
+				<EuropeCupEntry />
+			) : null,
 		[DesktopHomeComponentsEnum.LuckyWheel]: () => <LuckyWheel />,
 		[DesktopHomeComponentsEnum.Retention]: () => <Retention />,
 		[DesktopHomeComponentsEnum.LiveStreamingLink]: () => <LiveStreamingLink />,

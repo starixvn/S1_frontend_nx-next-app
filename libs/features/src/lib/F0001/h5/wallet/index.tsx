@@ -1,7 +1,7 @@
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
-import { paths } from '@nx-next-app/constants'
+import { IRootpath, paths } from '@nx-next-app/constants'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { numFormatToDigits } from '@nx-next-app/utils'
 import { IWithdrawalSetting } from '@nx-next-app/service'

@@ -43,22 +43,24 @@ const LayoutFooter = ({
 				pathname = window.location.pathname
 			}
 			const pathArr = pathname?.split('/').filter(str => str !== '')
-			const isHomePath = pathArr.length < 2
 			let seoData = {}
-			if (isHomePath) {
+			// 判斷 META_DATA 是否路徑
+			if (META_DATA[`/${pathArr[1]}`]) {
+				const rootPath = META_DATA[`/${pathArr[1]}`]
 				seoData = {
 					...data,
-					description: data?.meta,
-					links: META_DATA?.[langId]?.['links'],
-				}
-			} else if (META_DATA[pathArr[1]]) {
-				const rootPath = META_DATA[pathArr[1]]
-				seoData = {
 					title: rootPath?.[langId]?.title ?? rootPath?.['en']?.title,
 					keyword: rootPath?.[langId]?.keyword ?? rootPath?.['en']?.keyword,
 					description:
 						rootPath?.[langId]?.description ?? rootPath?.['en']?.description,
 					links: rootPath?.[langId]?.links ?? rootPath?.['en']?.links,
+				}
+			} else {
+				// 如果沒路徑就當作首頁處理
+				seoData = {
+					...data,
+					description: data?.meta,
+					links: META_DATA?.[langId]?.['links'],
 				}
 			}
 
