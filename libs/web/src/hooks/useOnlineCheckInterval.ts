@@ -1,4 +1,4 @@
-import { useLazyOnlineCheckQuery } from '@nx-next-app/service'
+import { IAxiosError, useLazyOnlineCheckQuery } from '@nx-next-app/service'
 import { paths } from '@nx-next-app/constants'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
@@ -25,21 +25,27 @@ const useOnlineCheckInterval = ({
 			try {
 				await onlineCheck(null).unwrap()
 			} catch (error) {
-				// onResetAuth()
-
-				console.log(error)
-
-				// modal.info((error as Error).message || t('Label_General_LoggedOut'), {
-				// 	icon: 'icon icon-exit',
-				// 	title: t('Label_General_LogOut'),
-				// 	onOK: () => {
-				// 		push(paths.home.root)
-				// 		reload()
-				// 	},
-				// })
+				// 此 errorCode 才需要做登出邏輯
+				if ((error as IAxiosError)?.errorCode === 1001) {
+					onResetAuth()
+					modal.info(
+						(error as IAxiosError).message || t('Label_General_LoggedOut'),
+						{
+							icon: 'icon icon-exit',
+							title: t('Label_General_LogOut'),
+							onOK: () => {
+								push(paths.home.root)
+								reload()
+							},
+						}
+					)
+				} else {
+					// 忽略
+					console.log(error)
+				}
 			}
 		},
-		isLogin ? 600000 : null
+		isLogin ? 60000 : null
 	)
 }
 
