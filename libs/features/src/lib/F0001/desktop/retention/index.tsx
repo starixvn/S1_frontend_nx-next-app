@@ -5,12 +5,12 @@ import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { Loading } from '@nx-next-app/components/D0001'
 import { numberFormat } from '@nx-next-app/utils'
 
+import { includes } from 'lodash-es'
+import { useEffect } from 'react'
 import {
 	useRetentionLandingPage,
 	useSetClaimPromotionFetcher,
 } from '../../hooks'
-import { includes } from 'lodash-es'
-import { useEffect } from 'react'
 
 const imgHost = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop`
 
@@ -26,7 +26,7 @@ const RetentionContent = () => {
 
 	const {
 		userInfo: { currencyId, currencyName },
-		auth:{isLogin }
+		auth: { isLogin },
 	} = useAuth()
 
 	const showSwitchBar = includes(ALLOWED_CURRENCIES['LUCKY_WHEEL'], currencyId)
@@ -40,8 +40,6 @@ const RetentionContent = () => {
 			push(paths.home.root)
 		}
 	}, [isLogin])
-
-
 
 	if (loading || !promotionDetail) return <Loading />
 
@@ -119,11 +117,12 @@ const RetentionContent = () => {
 				<div className='bonus-list'>
 					<div className='title'>
 						<div>{t('Label_Retention_BonusTitle')}</div>
-						<div></div>
+						<div />
 					</div>
-					{!details && <div></div>}
+					{!details && <div />}
 					{details && (
 						<div
+							// eslint-disable-next-line react/no-danger
 							dangerouslySetInnerHTML={{
 								__html: `<div>${details}</pre>`,
 							}}
