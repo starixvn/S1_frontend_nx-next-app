@@ -123,7 +123,7 @@ export const PromotionProvider = ({
 		useGetPromotionListV3Query(
 			{ langId, currencyId },
 			{
-				pollingInterval: 60000,
+				pollingInterval: 120000,
 				refetchOnMountOrArgChange: true,
 			}
 		)

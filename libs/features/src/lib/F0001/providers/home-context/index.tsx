@@ -243,7 +243,7 @@ export const HomeProvider = ({
 		useGetAnnouncementQuery(
 			{ currencyId, langId },
 			{
-				pollingInterval: 60000,
+				pollingInterval: 120000,
 			}
 		)
 
@@ -251,7 +251,7 @@ export const HomeProvider = ({
 		useGetHotEventListQuery(
 			{ langId },
 			{
-				pollingInterval: 60000,
+				pollingInterval: 120000,
 				skip: !langId,
 			}
 		)
