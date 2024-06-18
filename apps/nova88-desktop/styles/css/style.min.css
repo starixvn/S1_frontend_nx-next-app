@@ -2419,9 +2419,6 @@ header input:focus-within {
 }
 .logo.olympic::before {
 	content: '';
-	position: absolute;
-	right: 6px;
-	top: 15px;
 	width: 187px;
 	height: 80px;
 	pointer-events: none;
