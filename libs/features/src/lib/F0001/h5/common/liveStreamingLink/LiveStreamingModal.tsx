@@ -28,17 +28,17 @@ const LiveStreamingModal = ({
 		}
 		const currencyClassNames = {
 			[LANG_TO_CURRENCY['vn']]: (_langId: string) =>
-				_langId === 'en' ? 'vn-en' : 'vn',
+				_langId === 'en' ? 'vnbg-en' : 'vnbg-vn',
 			[LANG_TO_CURRENCY['th']]: (_langId: string) =>
-				_langId === 'en' ? 'th-en' : 'th',
+				_langId === 'en' ? 'thbg-en' : 'thbg-th',
 			[LANG_TO_CURRENCY['my']]: (_langId: string) => {
 				switch (_langId) {
 					case 'en':
-						return 'my-en'
+						return 'mybg-en'
 					case 'cs':
-						return 'my-cs'
+						return 'mybg-cs'
 					default:
-						return 'my'
+						return 'mybg-my'
 				}
 			},
 		}
@@ -58,84 +58,94 @@ const LiveStreamingModal = ({
 		)
 
 	return (
-		<div className={`livesports ${getClassNameByCurrencyId()}`}>
-			<div>
-				{liveStreamingList.map(
-					({
-						sportLeaguesTitle,
-						homeTeamPic,
-						homeTeamName,
-						battleTime,
-						awayTeamPic,
-						awayTeamName,
-						tpId,
-						gameId,
-						matchId,
-					}) => (
-						<div
-							key={`${tpId}_${gameId}_${matchId}`}
-							className={`livesports-item ${
-								isWithinTwoHours(battleTime) ? '' : 'next'
-							}`}
-							onClick={() => {
-								onEnterPage(
-									{
-										tpId: Number(tpId),
-										gameId,
-										matchid: String(matchId),
-										langId,
-										// 原本的就這樣寫
-										tpGameType: 1,
-									},
-									{ loginCallback: () => push(paths.login.root) }
-								)
-								closeModal()
-							}}
-						>
-							<div className='top'>
-								<div>{sportLeaguesTitle}</div>
-								<div>
-									{isWithinTwoHours(battleTime)
-										? // LIVE字樣不翻譯
-										  'LIVE'
-										: t('Label_General_Next')}
+		<div className='livesportspop'>
+			<div className='livesports'>
+				<div>
+					<img
+						src={`${
+							process.env['NEXT_PUBLIC_BANNER_HOST']
+						}/h5/img/4.0/livesports-${getClassNameByCurrencyId()}.png`}
+						alt=''
+					/>
+				</div>
+				<div>
+					{liveStreamingList.map(
+						({
+							sportLeaguesTitle,
+							homeTeamPic,
+							homeTeamName,
+							battleTime,
+							awayTeamPic,
+							awayTeamName,
+							tpId,
+							gameId,
+							matchId,
+						}) => (
+							<div
+								key={`${tpId}_${gameId}_${matchId}`}
+								className={`livesports-item ${
+									isWithinTwoHours(battleTime) ? '' : 'next'
+								}`}
+								onClick={() => {
+									onEnterPage(
+										{
+											tpId: Number(tpId),
+											gameId,
+											matchid: String(matchId),
+											langId,
+											// 原本的就這樣寫
+											tpGameType: 1,
+										},
+										{ loginCallback: () => push(paths.login.root) }
+									)
+									closeModal()
+								}}
+							>
+								<div className='top'>
+									<div>{sportLeaguesTitle}</div>
+									<div>
+										{isWithinTwoHours(battleTime)
+											? // LIVE字樣不翻譯
+											  'LIVE'
+											: t('Label_General_Next')}
+									</div>
+								</div>
+								<div className='bottom'>
+									<div className='bottom-team'>
+										<div>
+											<img src={homeTeamPic} alt={homeTeamName} />
+										</div>
+										<div>{homeTeamName}</div>
+									</div>
+									<div className='bottom-time'>
+										<img
+											src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/vs.png`}
+											alt=''
+										/>
+										<div>
+											<div>{dayjs(battleTime).format('DD MMM')}</div>
+											<div>{dayjs(battleTime).format('hh:mm A')}</div>
+										</div>
+									</div>
+									<div className='bottom-team'>
+										<div>
+											<img src={awayTeamPic} alt={awayTeamName} />
+										</div>
+										<div>{awayTeamName}</div>
+									</div>
 								</div>
 							</div>
-							<div className='bottom'>
-								<div className='bottom-team'>
-									<div>
-										<img src={homeTeamPic} alt={homeTeamName} />
-									</div>
-									<div>{homeTeamName}</div>
-								</div>
-								<div className='bottom-time'>
-									<img
-										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/vs.png`}
-										alt=''
-									/>
-									<div>
-										<div>{dayjs(battleTime).format('DD MMM')}</div>
-										<div>{dayjs(battleTime).format('hh:mm A')}</div>
-									</div>
-								</div>
-								<div className='bottom-team'>
-									<div>
-										<img src={awayTeamPic} alt={awayTeamName} />
-									</div>
-									<div>{awayTeamName}</div>
-								</div>
-							</div>
-						</div>
-					)
-				)}
+						)
+					)}
+				</div>
+				{/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+				<img
+					onClick={closeModal}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/promosBackPopup/delet.png`}
+					alt=''
+					className='closepop'
+				/>
 			</div>
-			{/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
-			<img
-				onClick={closeModal}
-				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/promosBackPopup/delet.png`}
-				alt=''
-				className='closepop'
-			/>
 		</div>
 	)
 }
