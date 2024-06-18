@@ -29,28 +29,26 @@ const RetentionEntry = () => {
 
 	if (!allowedCurrency || !display) return null
 
-	return (
-		bonusCode && (
-			<div className='eventLink'>
-				<button
-					type='button'
-					aria-label='event-link'
-					className='icon icon-close'
-					onClick={() => setDisplay(false)}
+	return bonusCode ? (
+		<div className='eventLink'>
+			<button
+				type='button'
+				aria-label='event-link'
+				className='icon icon-close'
+				onClick={() => setDisplay(false)}
+			/>
+			<div
+				onClick={() => push(paths.retention.root)}
+				className='wheelModule'
+				style={{ cursor: 'pointer' }}
+			>
+				<img
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/retention/eventlink.webp`}
+					alt='home-chest'
 				/>
-				<div
-					onClick={() => push(paths.retention.root)}
-					className='wheelModule'
-					style={{ cursor: 'pointer' }}
-				>
-					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/retention/eventlink.webp`}
-						alt='home-chest'
-					/>
-				</div>
 			</div>
-		)
-	)
+		</div>
+	) : null
 }
 
 export default RetentionEntry
