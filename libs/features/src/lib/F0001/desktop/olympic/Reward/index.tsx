@@ -4,6 +4,10 @@ import { paths } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
+import {
+	UseEuropeCupProps,
+	useOlympic,
+} from '@nx-next-app/features/F0001/hooks'
 import BonusList from './BonusList'
 import SignificantModal from '../modal/SignificantModal'
 
@@ -19,9 +23,16 @@ const Reward = () => {
 	const { modal } = useGlobalModal()
 	const { push } = useRouter()
 	const {
-		userInfo: { currencyId },
+		userInfo: { currencyId, currencyName },
 		auth: { isLogin },
 	} = useAuth()
+	const {
+		olympicEventTicketData,
+		userMoneyData,
+		missionTotal,
+		progressPercentage,
+	} = useOlympic() as UseEuropeCupProps
+	const { availableGoldMetals } = olympicEventTicketData
 
 	const handleDeposit = () => {
 		if (!isLogin) {
@@ -61,12 +72,15 @@ const Reward = () => {
 										<div className='text'>
 											<span>{t('Label_General_Deposit')}</span>
 											{/* TODO: 接後端api隨時更新玩家存款進度 */}
-											<span>MYR 0/4000</span>
+											<span>
+												{currencyName} {userMoneyData.deposit}/
+												{missionTotal.totalDeposit}
+											</span>
 										</div>
 										<div className='progress-bar'>
 											<div
 												className='progress-bar-inside'
-												style={{ width: '20%' }}
+												style={{ width: `${progressPercentage.deposit}%` }}
 											/>
 										</div>
 									</div>
@@ -79,12 +93,15 @@ const Reward = () => {
 										<div className='text'>
 											<span>{t('Label_General_Turnover')}</span>
 											{/* TODO: 接後端api隨時更新玩家有效流水進度 */}
-											<span>MYR 0/4000</span>
+											<span>
+												{currencyName} {userMoneyData.turnover}/
+												{missionTotal.totalTurnover}
+											</span>
 										</div>
 										<div className='progress-bar'>
 											<div
 												className='progress-bar-inside'
-												style={{ width: '20%' }}
+												style={{ width: `${progressPercentage.turnover}%` }}
 											/>
 										</div>
 									</div>
@@ -103,8 +120,8 @@ const Reward = () => {
 						<div className='medal'>
 							<div>
 								<span>{t('Label_Olympic_Gold_Medal')}</span>
-								{/* TODO: 接後端api隨時更新目前玩家擁有金牌數量 */}
-								<span>108</span>
+								{/* 接後端api隨時更新目前玩家擁有金牌數量 */}
+								<span>{availableGoldMetals}</span>
 							</div>
 						</div>
 					</div>
