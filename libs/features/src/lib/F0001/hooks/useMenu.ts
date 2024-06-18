@@ -340,22 +340,24 @@ const useMenu = () => {
 			return
 		}
 
+		// 因在 App 內彈窗開啟特定遊戲時會有問題，在此改導轉到專屬的開啟頁面
+		// 且 router.push() 在 App 內也有問題，改用 app team 建議的方法 (window.location = url)
 		if (isInApp) {
-			const query = {
-				tpId,
+			const params = new URLSearchParams({
+				tpId: String(tpId),
 				langId,
-				gameId,
-				tpGameType,
+				gameId: String(gameId),
+				tpGameType: String(tpGameType),
 				loginGameType,
-			}
+			}).toString()
 
 			if (tpId === PRODUCTS.Nova88Exchange.tpId) {
-				push({ pathname: '/launcher/exchange', query })
+				window.location = `/launcher/exchange?${params}` as unknown as Location
 				return
 			}
 
 			if (tpId === PRODUCTS.PGSoft.tpId) {
-				push({ pathname: '/launcher/pg', query })
+				window.location = `/launcher/pg?${params}` as unknown as Location
 				return
 			}
 		}
