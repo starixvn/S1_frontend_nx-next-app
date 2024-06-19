@@ -4,6 +4,7 @@ import {
 	IOlympicEventTicketData,
 	useGetOlympicEventTicketQuery,
 } from '@nx-next-app/service'
+import { numberFormat } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
 import { useEffect } from 'react'
 
@@ -11,7 +12,7 @@ const useOlympic = () => {
 	const { t } = useTranslation()
 	const {
 		auth: { isLogin },
-		userInfo: { langId },
+		userInfo: { langId, currencyId },
 	} = useAuth()
 	const { modal, closeModal } = useGlobalModal()
 	const {
@@ -26,20 +27,34 @@ const useOlympic = () => {
 
 	const {
 		olympicEventPromotionMissionProgress,
-		promotionMission = [],
+		promotionMission = [] || null,
 		errorCode,
 	} = olympicEventTicketData || {}
 
 	// 取得玩家已存金額(deposit)與已玩有效流水(turnover)
 	const userMoneyData = {
-		deposit: olympicEventPromotionMissionProgress?.depositAmount,
-		turnover: olympicEventPromotionMissionProgress?.turnoverSum,
+		deposit: numberFormat(
+			olympicEventPromotionMissionProgress?.depositAmount,
+			currencyId,
+			0,
+			true
+		),
+		turnover: numberFormat(
+			olympicEventPromotionMissionProgress?.turnoverSum,
+			currencyId,
+			0,
+			true
+		),
 	}
 
 	// 達成目標所需總額
 	const missionTotal = {
-		totalDeposit: promotionMission[0]?.depositAmount,
-		totalTurnover: promotionMission[1]?.turnoverAmount,
+		totalDeposit:
+			promotionMission &&
+			numberFormat(promotionMission[0]?.depositAmount, currencyId, 0, true),
+		totalTurnover:
+			promotionMission &&
+			numberFormat(promotionMission[1]?.turnoverAmount, currencyId, 0, true),
 	}
 
 	// progress bar的完成比例
@@ -48,11 +63,11 @@ const useOlympic = () => {
 	const progressPercentage = {
 		deposit: getProgressPercentage(
 			olympicEventPromotionMissionProgress?.depositAmount,
-			promotionMission[0]?.depositAmount
+			promotionMission?.[0]?.depositAmount || 0
 		),
 		turnover: getProgressPercentage(
 			olympicEventPromotionMissionProgress?.turnoverSum,
-			promotionMission[1]?.turnoverAmount
+			promotionMission?.[1]?.turnoverAmount || 0
 		),
 	}
 
@@ -77,9 +92,10 @@ const useOlympic = () => {
 		userMoneyData,
 		missionTotal,
 		progressPercentage,
+		errorCode,
 	}
 }
 
 export { useOlympic }
 
-export type UseEuropeCupProps = ReturnType<typeof useOlympic>
+export type UseOlympicProps = ReturnType<typeof useOlympic>

@@ -59,6 +59,10 @@ const LoginModal = dynamic(() => import('../modal/LoginModal'), {
 	ssr: false,
 })
 
+const OlympicEntry = dynamic(() => import('../common/OlympicEntry'), {
+	ssr: false,
+})
+
 const Home = () => {
 	const {
 		bannerData,
@@ -95,25 +99,23 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.HotMatch]: () => <HotMatch />,
 		[DesktopHomeComponentsEnum.LiveCasino]: () => <LiveCasino />,
 		[DesktopHomeComponentsEnum.HotGame]: () => <HotGame />,
-    [DesktopHomeComponentsEnum.RecentlyViewGames]: () => <RecentlyViewGames />,
+		[DesktopHomeComponentsEnum.RecentlyViewGames]: () => <RecentlyViewGames />,
 		[DesktopHomeComponentsEnum.AppDownloadBanner]: () => <AppDownloadBanner />,
 		[DesktopHomeComponentsEnum.OfficialPartner]: () => <OfficialPartner />,
 		[DesktopHomeComponentsEnum.ProviderBlock]: () => <ProvidersBlock />,
-	
-		
-		[DesktopHomeComponentsEnum.EuropeCupEntry]: () => includes(
-      ALLOWED_CURRENCIES.Euro_Cup,
-      currencyId
-    ) ? (
-      <EuropeCupEntry />
-    ) : null,
-		[DesktopHomeComponentsEnum.LuckyWheel]: () => <LuckyWheel/>,
+
+		[DesktopHomeComponentsEnum.EuropeCupEntry]: () =>
+			includes(ALLOWED_CURRENCIES.Euro_Cup, currencyId) ? (
+				<EuropeCupEntry />
+			) : null,
+		[DesktopHomeComponentsEnum.LuckyWheel]: () => <LuckyWheel />,
 		[DesktopHomeComponentsEnum.Retention]: () => <Retention />,
 		[DesktopHomeComponentsEnum.LiveStreamingLink]: () => <LiveStreamingLink />,
 		[DesktopHomeComponentsEnum.QuickDownload]: () => <QuickDownload />,
 		[DesktopHomeComponentsEnum.QuickLink]: () => (
 			<QuickLink socialChannelList={socialChannelList} />
 		),
+		[DesktopHomeComponentsEnum.OlympicEntry]: () => <OlympicEntry />,
 	}
 	return (
 		<main>

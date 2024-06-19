@@ -2220,16 +2220,6 @@ header input:focus-within {
   -webkit-animation: eurologo 7.5s running infinite 0.5s;
           animation: eurologo 7.5s running infinite 0.5s;
 }
-.logo.olympic a:first-child {
-  display: none;
-}
-.logo.olympic::before {
-  content: "";
-  width: 187px;
-  height: 80px;
-  pointer-events: none;
-  background: url(https://banner.0814media.net/desktop/img/event/olympic/logo-nova88.webp) center/cover;
-}
 .logo.olympic .splogo {
   -webkit-animation: olympiclogo 7.5s running infinite 0.5s;
           animation: olympiclogo 7.5s running infinite 0.5s;
