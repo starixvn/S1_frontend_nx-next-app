@@ -14876,22 +14876,10 @@ input[type=number] {
   -webkit-animation: eurologo 7.5s running infinite 0.5s;
           animation: eurologo 7.5s running infinite 0.5s;
 }
-.header-module .header-logo.olympic img {
-  display: none;
-}
-.header-module .header-logo.olympic::before {
-  content: "";
-  position: absolute;
-  left: 2.25vw;
-  top: -4.5vw;
-  width: 25vw;
-  height: 9vw;
-  pointer-events: none;
-  background: url(https://banner.0814media.net/h5/img/event/olympic/logo-nova88.webp) center/cover;
-}
 .header-module .header-logo.olympic + .splogo {
   -webkit-animation: olympic 7.5s running infinite 0.5s;
           animation: olympic 7.5s running infinite 0.5s;
+  margin-bottom: 1vw;
 }
 .header-module .header-logo img {
   display: block;

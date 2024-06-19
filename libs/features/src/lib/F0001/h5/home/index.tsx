@@ -62,6 +62,10 @@ const JackPotSwiper = dynamic(() => import('./JackPotSwiper'), { ssr: false })
 
 const PartnerBlock = dynamic(() => import('./PartnerBlock'))
 
+const OlympicEntry = dynamic(() => import('../common/OlympicEntry'), {
+	ssr: false,
+})
+
 const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 	const { push } = useRouter()
 
@@ -140,6 +144,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 		[MobileHomeComponentsEnum.SimpleFooter]: () => <SimpleFooter />,
 		[MobileHomeComponentsEnum.JackPotSwiper]: () => <JackPotSwiper />,
 		[MobileHomeComponentsEnum.PartnerBlock]: () => <PartnerBlock />,
+		[MobileHomeComponentsEnum.OlympicEntry]: () => <OlympicEntry />,
 	}
 
 	// banner 區塊，目前只有兩個

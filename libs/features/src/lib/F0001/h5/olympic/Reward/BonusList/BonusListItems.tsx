@@ -12,6 +12,8 @@ const BonusListItems = ({ currencyId }: IBonusListItemsProps) => {
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
 
+	// TODO: 待後端完成api後，實作按下Redeem之後兌換bonus的功能
+
 	// redeem成功時的彈窗
 	const onOpenRedeemModal = (redeemImg: string, bonusPrice: string) => {
 		modal.open(
@@ -51,44 +53,3 @@ const BonusListItems = ({ currencyId }: IBonusListItemsProps) => {
 }
 
 export default BonusListItems
-
-// <div className='bouns-content-item'>
-// 	<div className='money'>
-// 		<img
-// 			src='https://banner.0814media.net/desktop/img/event/olympic/gold-a.png'
-// 			alt=''
-// 		/>
-// 		<div>{t(`Label_Olympic_Bonus_3Gold_${currencyId}`)}</div>
-// 	</div>
-// 	<div className='redeem-btn'>
-// 		<div>3 {t('Label_Olympic_Gold_Medal')}</div>
-// 		{/* <button onClick={onOpenRedeemModal}> */}
-// 		<button>{t('Label_General_Redeem')}</button>
-// 	</div>
-// </div>
-// <div className='bouns-content-item'>
-// 	<div className='money'>
-// 		<img
-// 			src='https://banner.0814media.net/desktop/img/event/olympic/gold-b.png'
-// 			alt=''
-// 		/>
-// 		<div>{t(`Label_Olympic_Bonus_5Gold_${currencyId}`)}</div>
-// 	</div>
-// 	<div className='redeem-btn'>
-// 		<div>5 {t('Label_Olympic_Gold_Medal')}</div>
-// 		<button>{t('Label_General_Redeem')}</button>
-// 	</div>
-// </div>
-// <div className='bouns-content-item'>
-// 	<div className='money'>
-// 		<img
-// 			src='https://banner.0814media.net/desktop/img/event/olympic/gold-c.png'
-// 			alt=''
-// 		/>
-// 		<div>{t(`Label_Olympic_Bonus_8Gold_${currencyId}`)}</div>
-// 	</div>
-// 	<div className='redeem-btn'>
-// 		<div>8 {t('Label_Olympic_Gold_Medal')}</div>
-// 		<button>{t('Label_General_Redeem')}</button>
-// 	</div>
-// </div>

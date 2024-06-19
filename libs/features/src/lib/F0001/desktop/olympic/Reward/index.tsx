@@ -4,10 +4,7 @@ import { paths } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-import {
-	UseEuropeCupProps,
-	useOlympic,
-} from '@nx-next-app/features/F0001/hooks'
+import { UseOlympicProps, useOlympic } from '@nx-next-app/features/F0001/hooks'
 import BonusList from './BonusList'
 import SignificantModal from '../modal/SignificantModal'
 
@@ -26,12 +23,15 @@ const Reward = () => {
 		userInfo: { currencyId, currencyName },
 		auth: { isLogin },
 	} = useAuth()
+
+	// 取得從api來的相關資訊
 	const {
 		olympicEventTicketData,
 		userMoneyData,
 		missionTotal,
 		progressPercentage,
-	} = useOlympic() as UseEuropeCupProps
+		errorCode,
+	} = useOlympic() as UseOlympicProps
 	const { availableGoldMetals } = olympicEventTicketData
 
 	const handleDeposit = () => {
@@ -71,16 +71,20 @@ const Reward = () => {
 									<div className='progress-box-item'>
 										<div className='text'>
 											<span>{t('Label_General_Deposit')}</span>
-											{/* TODO: 接後端api隨時更新玩家存款進度 */}
+											{/* 接後端api隨時更新玩家存款進度 */}
 											<span>
-												{currencyName} {userMoneyData.deposit}/
+												{currencyName} {userMoneyData.deposit} /{' '}
 												{missionTotal.totalDeposit}
 											</span>
 										</div>
 										<div className='progress-bar'>
 											<div
 												className='progress-bar-inside'
-												style={{ width: `${progressPercentage.deposit}%` }}
+												style={{
+													width: `${
+														errorCode === 104 ? 0 : progressPercentage.deposit
+													}%`,
+												}}
 											/>
 										</div>
 									</div>
@@ -92,16 +96,20 @@ const Reward = () => {
 									<div className='progress-box-item'>
 										<div className='text'>
 											<span>{t('Label_General_Turnover')}</span>
-											{/* TODO: 接後端api隨時更新玩家有效流水進度 */}
+											{/* 接後端api隨時更新玩家有效流水進度 */}
 											<span>
-												{currencyName} {userMoneyData.turnover}/
+												{currencyName} {userMoneyData.turnover} /{' '}
 												{missionTotal.totalTurnover}
 											</span>
 										</div>
 										<div className='progress-bar'>
 											<div
 												className='progress-bar-inside'
-												style={{ width: `${progressPercentage.turnover}%` }}
+												style={{
+													width: `${
+														errorCode === 104 ? 0 : progressPercentage.turnover
+													}%`,
+												}}
 											/>
 										</div>
 									</div>
