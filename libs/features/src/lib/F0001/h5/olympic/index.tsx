@@ -4,9 +4,9 @@ import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import { useSetHideBalanceMutation } from '@nx-next-app/service'
-import { EUROPE_EVENT_PERIOD } from '@nx-next-app/site/nova88'
 import { isEventPeriod } from '@nx-next-app/utils'
 import { useRouter } from 'next/router'
+import { OLYMPIC_EVENT_PERIOD } from '@nx-next-app/site/nova88/constants/olympicPeriod'
 import Banner from './Banner'
 import RedemptionHistory from './RedemptionHistory'
 import Terms from './Terms'
@@ -21,7 +21,7 @@ const Olympic = () => {
 
 	// 不在活動時間倒回首頁
 	useLayoutEffect(() => {
-		if (!isEventPeriod(EUROPE_EVENT_PERIOD)) push(paths.home.root)
+		if (!isEventPeriod(OLYMPIC_EVENT_PERIOD)) push(paths.home.root)
 	}, [])
 
 	const {

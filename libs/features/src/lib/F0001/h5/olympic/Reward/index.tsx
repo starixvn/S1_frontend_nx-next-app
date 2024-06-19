@@ -3,6 +3,7 @@ import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useRouter } from 'next/router'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useOlympic, UseOlympicProps } from '@nx-next-app/features/F0001/hooks'
 import BonusList from './BonusList'
 import SignificantModal from '../modal/SignificantModal'
 
@@ -11,9 +12,19 @@ const Reward = () => {
 	const { push } = useRouter()
 	const { modal } = useGlobalModal()
 	const {
-		userInfo: { currencyId },
+		userInfo: { currencyId, currencyName },
 		auth: { isLogin },
 	} = useAuth()
+
+	// 取得從api來的相關資訊
+	const {
+		olympicEventTicketData,
+		userMoneyData,
+		missionTotal,
+		progressPercentage,
+		errorCode,
+	} = useOlympic() as UseOlympicProps
+	const { availableGoldMetals } = olympicEventTicketData
 
 	const handleDeposit = () => {
 		if (!isLogin) {
@@ -35,8 +46,8 @@ const Reward = () => {
 			<div className='olympic-center-wrapper'>
 				<div className='medal'>
 					<div>{t('Label_Olympic_Gold_Medal')}</div>
-					{/* TODO: 接後端api隨時更新目前玩家擁有金牌數量 */}
-					<div>0</div>
+					{/* 接後端api隨時更新目前玩家擁有金牌數量 */}
+					<div>{availableGoldMetals}</div>
 				</div>
 				<div className='tasks-title'>{t('Label_Olympic_Activity_Desp')}</div>
 				<div className='tasks'>
@@ -46,22 +57,42 @@ const Reward = () => {
 								<div>{t('Label_General_Deposit')}</div>
 								<div className='progress'>
 									{/* 使用width來控制目前存款數量長度 */}
-									<div className='progress-bar' style={{ width: '20%' }} />
+									<div
+										className='progress-bar'
+										style={{
+											width: `${
+												errorCode === 104 ? 0 : progressPercentage.deposit
+											}%`,
+										}}
+									/>
 								</div>
-								{/* TODO: 接後端api隨時更新玩家存款進度 */}
-								<div>MYR 2000/4000</div>
+								{/* 接後端api隨時更新玩家存款進度 */}
+								<div>
+									{currencyName} {userMoneyData.deposit} /{' '}
+									{missionTotal.totalDeposit}
+								</div>
 							</div>
 							<button onClick={handleDeposit}>{t('Label_Deposit_Now')}</button>
 						</div>
 						<div className='tasks-content-item'>
 							<div>
-								<div>Turnover</div>
+								<div>{t('Label_General_Turnover')}</div>
 								<div className='progress'>
 									{/* 使用width來控制目前有效流水長度 */}
-									<div className='progress-bar' style={{ width: '20%' }} />
+									<div
+										className='progress-bar'
+										style={{
+											width: `${
+												errorCode === 104 ? 0 : progressPercentage.turnover
+											}%`,
+										}}
+									/>
 								</div>
-								{/* TODO: 接後端api隨時更新玩家有效流水進度 */}
-								<div>MYR 0/4000</div>
+								{/* 接後端api隨時更新玩家有效流水進度 */}
+								<div>
+									{currencyName} {userMoneyData.turnover} /{' '}
+									{missionTotal.totalTurnover}
+								</div>
 							</div>
 							<button>{t('Label_General_BetNow')}</button>
 						</div>
