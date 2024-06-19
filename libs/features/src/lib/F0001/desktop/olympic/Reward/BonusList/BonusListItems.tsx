@@ -12,6 +12,8 @@ const BonusListItems = ({ currencyId }: IBonusListItemsProps) => {
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
 
+	// TODO: 待後端完成api後，實作按下Redeem之後兌換bonus的功能
+
 	// redeem成功時的彈窗
 	const onOpenRedeemModal = (redeemImg: string, bonusPrice: string) => {
 		modal.open(
