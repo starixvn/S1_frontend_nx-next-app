@@ -184,6 +184,7 @@ const useMenu = () => {
 				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
 		const signupUrl = `${host}${paths.join.root}`
 		const loginUrl = `${host}${paths.login.root}`
+		const lobbyUrl = `${host}${paths.slots.root}?tpId=${tpId}`
 
 		// * 只支援 en, cs, id, th
 		const errorUrl = `${dbHost}/404/index_${langId}.html`
@@ -198,6 +199,9 @@ const useMenu = () => {
 		}
 		if (gameId) {
 			searchParams.set('gameId', String(gameId))
+		}
+		if (Number(tpId) === PRODUCTS.PragmaticPlaySlot.tpId) {
+			searchParams.set('lobbyUrl', lobbyUrl)
 		}
 
 		const entPageUrl = `${dbHost}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&${searchParams.toString()}`
