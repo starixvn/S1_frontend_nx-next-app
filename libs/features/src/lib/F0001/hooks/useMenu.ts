@@ -201,7 +201,7 @@ const useMenu = () => {
 			searchParams.set('gameId', String(gameId))
 		}
 		if (Number(tpId) === PRODUCTS.PragmaticPlaySlot.tpId) {
-			searchParams.set('lobbyUrl', lobbyUrl)
+			searchParams.set('LobbyUrl', lobbyUrl)
 		}
 
 		const entPageUrl = `${dbHost}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&${searchParams.toString()}`
