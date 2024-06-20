@@ -37,3 +37,5 @@ export { default as GameListItem } from './game-list-item/index'
 export * from './image'
 
 export * from './countdown-timer'
+
+export { default as Survey } from './survey'
