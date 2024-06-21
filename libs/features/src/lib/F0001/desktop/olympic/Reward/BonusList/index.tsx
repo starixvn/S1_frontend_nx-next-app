@@ -2,10 +2,7 @@ import React from 'react'
 import { useTranslation } from 'next-i18next'
 import BonusListItems from './BonusListItems'
 
-interface IBonusListProps {
-	currencyId: number
-}
-const BonusList = ({ currencyId }: IBonusListProps) => {
+const BonusList = () => {
 	const { t } = useTranslation()
 
 	return (
@@ -13,7 +10,7 @@ const BonusList = ({ currencyId }: IBonusListProps) => {
 			<div className='bouns-title'>{t('Label_Olympic_Select_Bonus')}</div>
 			<div className='bouns'>
 				<div className='bouns-content'>
-					<BonusListItems currencyId={currencyId} />
+					<BonusListItems />
 				</div>
 			</div>
 		</>
