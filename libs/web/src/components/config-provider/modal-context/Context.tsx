@@ -1,4 +1,5 @@
 import React, { createContext, ReactNode, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 export type ModalContentType =
 	| string
@@ -60,6 +61,7 @@ export interface ModalContextInterface {
 const ModalContext = createContext<ModalContextInterface>(null!)
 
 const ModalProvider = ({ children }: { children: ReactNode }) => {
+	const { t } = useTranslation()
 	const [globalModal, setGlobalModal] = useState<GlobalModalType>({
 		type: null,
 		title: null,
@@ -93,8 +95,28 @@ const ModalProvider = ({ children }: { children: ReactNode }) => {
 				setGlobalModal({ type: 'default', content, ...config }),
 			info: (content, config) =>
 				setGlobalModal({ type: 'info', content, ...config }),
-			error: (content, config) =>
-				setGlobalModal({ type: 'error', content, ...config }),
+			error: (errorMessage, modalConfig) => {
+				// 非後端的錯誤訊息會在 axiosBaseQuery 替換 prefix 為 '[Client Error]'
+				const isClientError =
+					typeof errorMessage === 'string' &&
+					errorMessage.startsWith('[Client Error]')
+
+				// 將非後端錯誤 prefix 替換成「請求過於頻繁」
+				const content = isClientError
+					? errorMessage.replace(
+							'[Client Error]',
+							t('Label_Error_TooManyRequests')
+					  )
+					: errorMessage
+
+				// 帶入預設多語系標題 Oops
+				const config = {
+					title: t('Label_Error_Oops'),
+					...modalConfig,
+				}
+
+				setGlobalModal({ type: 'error', content, ...config })
+			},
 			confirm: (content, config) =>
 				setGlobalModal({ type: 'confirm', content, ...config }),
 		},
