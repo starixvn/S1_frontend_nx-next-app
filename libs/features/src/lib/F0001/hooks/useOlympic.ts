@@ -1,8 +1,10 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import {
+	IAxiosError,
 	IOlympicEventTicketData,
 	useGetOlympicEventTicketQuery,
+	useSetOlympicEventPrizeMutation,
 } from '@nx-next-app/service'
 import { numberFormat } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
@@ -24,6 +26,8 @@ const useOlympic = () => {
 		// 確保每次進來頁面都拉最新的資料
 		refetchOnMountOrArgChange: true,
 	})
+
+	const [setOlympicEventPrize] = useSetOlympicEventPrizeMutation()
 
 	const {
 		olympicEventPromotionMissionProgress,
@@ -71,6 +75,32 @@ const useOlympic = () => {
 		),
 	}
 
+	// 處理金牌兌換Bonus的function
+	const handleRedeem = async (
+		CustId: number | undefined,
+		UsedGoldMetalCount: number,
+		successModal: () => void,
+		insufficientModal: () => void
+	) => {
+		const data = { CustId: CustId ?? 0, UsedGoldMetalCount }
+		try {
+			await setOlympicEventPrize(data).unwrap()
+
+			// 如果成功用金牌兌換Bonus，就跳出對應的金額彈窗
+			successModal()
+		} catch (error) {
+			const { errorCode } = error as IAxiosError
+			if (errorCode === -1205) {
+				// 如果玩家身上還有Bonus未用完(含非奧運的Bonus)，跳錯誤警告訊息
+				// TODO: 待ＰＭ補上u18n記得再跑一次 sh locales.sh
+				modal.error(t('Label_Olympic_Still_Running_Bonus'))
+			} else {
+				// 如果金牌數量不夠兌換該Bonus，跳出數量不足彈窗
+				insufficientModal()
+			}
+		}
+	}
+
 	useEffect(() => {
 		// 還未驗證手機跟信箱的狀態先跳出錯誤訊息
 		if (errorCode === 104) {
@@ -93,6 +123,7 @@ const useOlympic = () => {
 		missionTotal,
 		progressPercentage,
 		errorCode,
+		handleRedeem,
 	}
 }
 

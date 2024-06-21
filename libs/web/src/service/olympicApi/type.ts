@@ -12,7 +12,7 @@ interface IPromotionMissionData {
 	isCompleted: boolean
 }
 
-export interface IOlympicEventTicketData {
+export type IOlympicEventTicketData = {
 	userName: string
 	promotionMission: IPromotionMissionData[]
 	olympicEventPromotionMissionProgress: {
@@ -21,4 +21,9 @@ export interface IOlympicEventTicketData {
 	}
 	availableGoldMetals: number
 	errorCode: number
+}
+
+export interface IGetOlympicEventPrizeArgs {
+	CustId: number | undefined
+	UsedGoldMetalCount: number
 }

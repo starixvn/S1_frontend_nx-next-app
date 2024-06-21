@@ -12,7 +12,7 @@ const Reward = () => {
 	const { push } = useRouter()
 	const { modal } = useGlobalModal()
 	const {
-		userInfo: { currencyId, currencyName },
+		userInfo: { currencyName },
 		auth: { isLogin },
 	} = useAuth()
 
@@ -47,7 +47,7 @@ const Reward = () => {
 				<div className='medal'>
 					<div>{t('Label_Olympic_Gold_Medal')}</div>
 					{/* 接後端api隨時更新目前玩家擁有金牌數量 */}
-					<div>{availableGoldMetals}</div>
+					<div>{availableGoldMetals ?? 0}</div>
 				</div>
 				<div className='tasks-title'>{t('Label_Olympic_Activity_Desp')}</div>
 				<div className='tasks'>
@@ -61,7 +61,9 @@ const Reward = () => {
 										className='progress-bar'
 										style={{
 											width: `${
-												errorCode === 104 ? 0 : progressPercentage.deposit
+												errorCode === 104 || !isLogin
+													? 0
+													: progressPercentage.deposit
 											}%`,
 										}}
 									/>
@@ -83,7 +85,9 @@ const Reward = () => {
 										className='progress-bar'
 										style={{
 											width: `${
-												errorCode === 104 ? 0 : progressPercentage.turnover
+												errorCode === 104 || !isLogin
+													? 0
+													: progressPercentage.turnover
 											}%`,
 										}}
 									/>
@@ -102,7 +106,7 @@ const Reward = () => {
 					</a>
 				</div>
 
-				<BonusList currencyId={currencyId} />
+				<BonusList />
 			</div>
 			<img
 				className='olympic-center-bn'
