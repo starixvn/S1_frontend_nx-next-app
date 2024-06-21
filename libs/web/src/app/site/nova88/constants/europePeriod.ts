@@ -1,7 +1,7 @@
 // 賽事期間
 export const EUROPE_EVENT_PERIOD: { start: string; end: string | null } = {
 	start: '2024/04/15 00:00:00',
-	end: '2024/05/20 23:59:59',
+	end: '2024/07/15 23:59:59',
 }
 
 // 賽事預測結束時間

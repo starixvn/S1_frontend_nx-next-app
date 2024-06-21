@@ -20,7 +20,7 @@ const Reward = () => {
 	const { modal } = useGlobalModal()
 	const { push } = useRouter()
 	const {
-		userInfo: { currencyId, currencyName },
+		userInfo: { currencyName },
 		auth: { isLogin },
 	} = useAuth()
 
@@ -33,7 +33,6 @@ const Reward = () => {
 		errorCode,
 	} = useOlympic() as UseOlympicProps
 	const { availableGoldMetals } = olympicEventTicketData
-
 	const handleDeposit = () => {
 		if (!isLogin) {
 			modal.open(<LoginModal />)
@@ -41,7 +40,6 @@ const Reward = () => {
 		}
 		push(paths.deposit.root)
 	}
-
 	// significant condition的彈窗
 	const onOpenSignificantModal = () => {
 		modal.open(<SignificantModal />, {
@@ -82,7 +80,9 @@ const Reward = () => {
 												className='progress-bar-inside'
 												style={{
 													width: `${
-														errorCode === 104 ? 0 : progressPercentage.deposit
+														errorCode === 104 || !isLogin
+															? 0
+															: progressPercentage.deposit
 													}%`,
 												}}
 											/>
@@ -107,7 +107,9 @@ const Reward = () => {
 												className='progress-bar-inside'
 												style={{
 													width: `${
-														errorCode === 104 ? 0 : progressPercentage.turnover
+														errorCode === 104 || !isLogin
+															? 0
+															: progressPercentage.turnover
 													}%`,
 												}}
 											/>
@@ -129,13 +131,13 @@ const Reward = () => {
 							<div>
 								<span>{t('Label_Olympic_Gold_Medal')}</span>
 								{/* 接後端api隨時更新目前玩家擁有金牌數量 */}
-								<span>{availableGoldMetals}</span>
+								<span>{availableGoldMetals ?? 0}</span>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<BonusList currencyId={currencyId} />
+				<BonusList />
 			</div>
 			<img
 				className='olympic-center-bn'
