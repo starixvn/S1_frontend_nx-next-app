@@ -149,12 +149,12 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 				>
 					<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 						{paymentOnlineBankInfoSysList.map(item => {
-							const { bankCode, bankLogo, minAmount, maxAmount, sysId } = item
+							const { bankName, bankLogo, minAmount, maxAmount, sysId } = item
 							const min = numberFormat(minAmount, currencyId, 0, false)
 							const max = numberFormat(maxAmount, currencyId, 0, false)
 							return (
 								<DepositModule.SubModuleButton
-									label={bankCode}
+									label={bankName}
 									imgName={`square/${toLower(bankLogo)}`}
 									matchValue={String(sysId)}
 									key={sysId}
