@@ -10,8 +10,7 @@ import {
 	ILiveStreamingData,
 } from '@nx-next-app/service'
 import { isEventPeriod } from '@nx-next-app/utils'
-import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
-import { OLYMPIC_EVENT_PERIOD } from '@nx-next-app/site/nova88/constants/olympicPeriod'
+import { ALLOWED_CURRENCIES, EVENT_PERIOD } from '@nx-next-app/site/nova88'
 import LiveStreamingModal from './LiveStreamingModal'
 
 const LiveStreamingLink = () => {
@@ -66,7 +65,7 @@ const LiveStreamingLink = () => {
 		// 有奧運的時候直播也要跟著調整 className
 		<div
 			className={classNames('livesports', {
-				olympic: isEventPeriod(OLYMPIC_EVENT_PERIOD),
+				olympic: isEventPeriod(EVENT_PERIOD.OLYMPIC),
 			})}
 		>
 			<button

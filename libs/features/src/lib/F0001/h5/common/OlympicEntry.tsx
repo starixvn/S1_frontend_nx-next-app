@@ -4,12 +4,12 @@ import { paths } from '@nx-next-app/constants'
 import { isEventPeriod } from '@nx-next-app/utils'
 import { Img } from '@nx-next-app/components/D0001'
 import { useRouter } from 'next/router'
-import { OLYMPIC_EVENT_PERIOD } from '@nx-next-app/site/nova88/constants/olympicPeriod'
+import { EVENT_PERIOD } from '@nx-next-app/site/nova88'
 
 const OlympicEntry = () => {
 	const [display, setDisplay] = useState(true)
 	const { push } = useRouter()
-	if (!display || !isEventPeriod(OLYMPIC_EVENT_PERIOD)) return null
+	if (!display || !isEventPeriod(EVENT_PERIOD.OLYMPIC)) return null
 
 	return (
 		<div className='eventLink olympic'>

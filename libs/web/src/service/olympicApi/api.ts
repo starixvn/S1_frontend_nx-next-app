@@ -38,5 +38,6 @@ export const olympicEventApi = rootApi.injectEndpoints({
 
 export const {
 	useGetOlympicEventTicketQuery,
+	useLazyGetOlympicEventTicketQuery,
 	useSetOlympicEventPrizeMutation,
 } = olympicEventApi
