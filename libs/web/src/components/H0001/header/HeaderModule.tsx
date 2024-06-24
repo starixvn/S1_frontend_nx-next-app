@@ -11,7 +11,7 @@ import {
 	IMainWalletInfoData,
 	ITpWalletInfoData,
 } from '@nx-next-app/service'
-import { OLYMPIC_EVENT_PERIOD } from '@nx-next-app/site/nova88/constants/olympicPeriod'
+import { EVENT_PERIOD } from '@nx-next-app/site/nova88'
 import { SpinButton } from '../button'
 
 interface IHeaderModuleProps extends HTMLAttributes<HTMLDivElement> {
@@ -68,7 +68,7 @@ const HeaderModule = ({
 			{/* 用 a link 讓畫面重新整理 */}
 			<Link href={paths.home.root}>
 				{/* 奧運期間使用奧運LOGO */}
-				{isEventPeriod(OLYMPIC_EVENT_PERIOD) ? (
+				{isEventPeriod(EVENT_PERIOD.OLYMPIC) ? (
 					<a className='header-logo'>
 						<img
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/event/olympic/logo-nova88.webp`}

@@ -4,7 +4,7 @@ import { paths } from '@nx-next-app/constants'
 import { useRouter } from 'next/router'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useOlympic, UseOlympicProps } from '@nx-next-app/features/F0001/hooks'
-import BonusList from './BonusList'
+import BonusList from './bonusList'
 import SignificantModal from '../modal/SignificantModal'
 
 const Reward = () => {
@@ -18,13 +18,11 @@ const Reward = () => {
 
 	// 取得從api來的相關資訊
 	const {
-		olympicEventTicketData,
+		availableGoldMetals,
 		userMoneyData,
 		missionTotal,
 		progressPercentage,
-		errorCode,
 	} = useOlympic() as UseOlympicProps
-	const { availableGoldMetals } = olympicEventTicketData
 
 	const handleDeposit = () => {
 		if (!isLogin) {
@@ -60,11 +58,7 @@ const Reward = () => {
 									<div
 										className='progress-bar'
 										style={{
-											width: `${
-												errorCode === 104 || !isLogin
-													? 0
-													: progressPercentage.deposit
-											}%`,
+											width: `${progressPercentage.deposit}%`,
 										}}
 									/>
 								</div>
@@ -84,11 +78,7 @@ const Reward = () => {
 									<div
 										className='progress-bar'
 										style={{
-											width: `${
-												errorCode === 104 || !isLogin
-													? 0
-													: progressPercentage.turnover
-											}%`,
+											width: `${progressPercentage.turnover}%`,
 										}}
 									/>
 								</div>
