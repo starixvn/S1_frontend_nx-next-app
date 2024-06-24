@@ -31,6 +31,13 @@ export function setServerSideHeaders(context: GetServerSidePropsContext): void {
 		'X-Client-IP': req.headers['x-client-ip'],
 		'cloudfront-viewer-address': req.headers['cloudfront-viewer-address'],
 		'origin-host': `https://${req.headers.host}`,
+		// headers added by CDN
+		'n88-visitor-site': req.headers['n88-visitor-site'],
+		'cdn-loop': req.headers['cdn-loop'],
+		'cf-connecting-ip': req.headers['cf-connecting-ip'],
+		'cf-ipcountry': req.headers['cf-ipcountry'],
+		'cf-ray': req.headers['cf-ray'],
+		'cf-visitor': req.headers['cf-visitor'],
 	}
 
 	// 為 baseAxios 實例設置預設 headers

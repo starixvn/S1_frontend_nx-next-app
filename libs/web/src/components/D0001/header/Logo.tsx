@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import classNames from 'classnames'
 import { isEventPeriod } from '@nx-next-app/utils'
-import { EUROPE_EVENT_PERIOD } from '@nx-next-app/site/nova88'
+import { EVENT_PERIOD } from '@nx-next-app/site/nova88'
 import { paths } from '../../../app/constants'
 
 interface ILogoProps {
@@ -12,15 +12,21 @@ interface ILogoProps {
 
 const Logo = ({ logoUrl, rewardsUrl, showSpLogo }: ILogoProps) => {
 	return (
-		<div
-			className={classNames('logo', {
-				eurocup: isEventPeriod(EUROPE_EVENT_PERIOD),
-			})}
-		>
-			<Link className='logo' href={paths.home.root}>
-				<a>
-					<img src={logoUrl} alt='logo' />
-				</a>
+		<div className={classNames('logo')}>
+			<Link href={paths.home.root}>
+				{/* 奧運期間使用奧運LOGO */}
+				{isEventPeriod(EVENT_PERIOD.OLYMPIC) ? (
+					<a>
+						<img
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/olympic/logo-nova88.webp`}
+							alt='olympic logo'
+						/>
+					</a>
+				) : (
+					<a>
+						<img src={logoUrl} alt='logo' />
+					</a>
+				)}
 			</Link>
 			{showSpLogo && <a className='splogo' />}
 

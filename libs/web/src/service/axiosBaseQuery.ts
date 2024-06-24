@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { BaseQueryFn } from '@reduxjs/toolkit/query'
-import axios, { AxiosRequestConfig } from 'axios'
+import axios, { AxiosError, AxiosRequestConfig } from 'axios'
 import { getDeviceType } from '../utils/client'
 
 export interface IAxiosResponse<T> {
@@ -69,20 +69,31 @@ export const axiosBaseQuery =
 			})
 
 			if (axiosData?.errorCode !== 0) {
-				const error: IAxiosError = new Error()
+				const error: IAxiosError & { isBackend?: boolean } = new Error()
 				error.message = axiosData?.message
 				error.status = status
 				error.statusText = statusText
 				error.errorCode = axiosData?.errorCode
 				error.data = axiosData?.data
 				error.rawMessage = axiosData?.rawMessage
+				error.isBackend = true
 
 				throw error
 			}
 
 			return { data: axiosData }
 		} catch (axiosError) {
-			const error = axiosError as IAxiosError
+			const { isBackend, ...error } = axiosError as IAxiosError & {
+				isBackend?: boolean
+			}
+
+			if (!isBackend) {
+				error.message = '[Client Error]'
+				const errorCode = (error as AxiosError).response?.status
+				if (errorCode) {
+					error.message += ` (${errorCode})`
+				}
+			}
 
 			return {
 				error,

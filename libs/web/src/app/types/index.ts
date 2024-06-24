@@ -251,6 +251,7 @@ export * from './menu'
 export * from './vip'
 export * from './leaderBoard'
 export * from './milestone'
+export * from './olympic'
 
 // * 在 Deposit 中如果 extraDataType 為 1 需顯示銀行卡下拉、2 需顯示 E-Wallet 下拉、0 則不顯示任何下拉
 export enum DepositExtraDataTypeEnum {
