@@ -11,18 +11,18 @@ export const META_DATA: IMetaData = {
 				{
 					// 定義標準網址路徑
 					rel: 'canonical',
-					href: `https://www.leoking88.net/en`,
+					href: `https://www.yashbet.com/en`,
 				},
 				{
 					// 讓 Google 知道網頁的所有語言及地區變化版本
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/en',
-					hrefLang: 'hi-IN',
+					href: 'https://www.yashbet.com/en',
+					hrefLang: 'bn-BD',
 				},
 				{
 					rel: 'alternate',
 					media: 'only screen and (max-width: 640px)',
-					href: `https://m.leoking88.net/en`,
+					href: `https://m.yashbet.com/en`,
 				},
 			],
 		},
@@ -34,18 +34,18 @@ export const META_DATA: IMetaData = {
 				{
 					// 定義標準網址路徑
 					rel: 'canonical',
-					href: `https://www.leoking88.net/hi`,
+					href: `https://www.yashbet.com/hi`,
 				},
 				{
 					// 讓 Google 知道網頁的所有語言及地區變化版本
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/hi',
+					href: 'https://www.yashbet.com/hi',
 					hrefLang: 'hi-IN',
 				},
 				{
 					rel: 'alternate',
 					media: 'only screen and (max-width: 640px)',
-					href: `https://m.leoking88.net/hi`,
+					href: `https://m.yashbet.com/hi`,
 				},
 			],
 		},
@@ -57,18 +57,18 @@ export const META_DATA: IMetaData = {
 				{
 					// 定義標準網址路徑
 					rel: 'canonical',
-					href: `https://www.leoking88.net/bd`,
+					href: `https://www.yashbet.com/bd`,
 				},
 				{
 					// 讓 Google 知道網頁的所有語言及地區變化版本
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/bd',
+					href: 'https://www.yashbet.com/bd',
 					hrefLang: 'bn-BD',
 				},
 				{
 					rel: 'alternate',
 					media: 'only screen and (max-width: 640px)',
-					href: `https://m.leoking88.net/bd`,
+					href: `https://m.yashbet.com/bd`,
 				},
 			],
 		},
@@ -79,18 +79,18 @@ export const META_DATA: IMetaData = {
 				{
 					// 定義標準網址路徑
 					rel: 'canonical',
-					href: `https://www.leoking88.net/en/join`,
+					href: `https://www.yashbet.com/en/join`,
 				},
 				{
 					// 讓 Google 知道網頁的所有語言及地區變化版本
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/en/join',
+					href: 'https://www.yashbet.com/en/join',
 					hrefLang: 'hi-IN',
 				},
 				{
 					rel: 'alternate',
 					media: 'only screen and (max-width: 640px)',
-					href: `https://m.leoking88.net/en/join`,
+					href: `https://m.yashbet.com/en/join`,
 				},
 			],
 		},
@@ -99,18 +99,18 @@ export const META_DATA: IMetaData = {
 				{
 					// 定義標準網址路徑
 					rel: 'canonical',
-					href: `https://www.leoking88.net/hi/join`,
+					href: `https://www.yashbet.com/hi/join`,
 				},
 				{
 					// 讓 Google 知道網頁的所有語言及地區變化版本
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/hi/join',
+					href: 'https://www.yashbet.com/hi/join',
 					hrefLang: 'hi-IN',
 				},
 				{
 					rel: 'alternate',
 					media: 'only screen and (max-width: 640px)',
-					href: `https://m.leoking88.net/hi/join`,
+					href: `https://m.yashbet.com/hi/join`,
 				},
 			],
 		},
@@ -119,18 +119,18 @@ export const META_DATA: IMetaData = {
 				{
 					// 定義標準網址路徑
 					rel: 'canonical',
-					href: `https://www.leoking88.net/bd/join`,
+					href: `https://www.yashbet.com/bd/join`,
 				},
 				{
 					// 讓 Google 知道網頁的所有語言及地區變化版本
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/bd/join',
+					href: 'https://www.yashbet.com/bd/join',
 					hrefLang: 'bn-BD',
 				},
 				{
 					rel: 'alternate',
 					media: 'only screen and (max-width: 640px)',
-					href: `https://m.leoking88.net/bd/join`,
+					href: `https://m.yashbet.com/bd/join`,
 				},
 			],
 		},
@@ -144,18 +144,18 @@ export const META_DATA: IMetaData = {
 				{
 					// 定義標準網址路徑
 					rel: 'canonical',
-					href: `https://www.leoking88.net/en/promotion`,
+					href: `https://www.yashbet.com/en/promotion`,
 				},
 				{
 					// 讓 Google 知道網頁的所有語言及地區變化版本
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/en/promotion',
+					href: 'https://www.yashbet.com/en/promotion',
 					hrefLang: 'hi-IN',
 				},
 				{
 					rel: 'alternate',
 					media: 'only screen and (max-width: 640px)',
-					href: `https://m.leoking88.net/en/promotion`,
+					href: `https://m.yashbet.com/en/promotion`,
 				},
 			],
 		},
@@ -167,18 +167,18 @@ export const META_DATA: IMetaData = {
 				{
 					// 定義標準網址路徑
 					rel: 'canonical',
-					href: `https://www.leoking88.net/hi/promotion`,
+					href: `https://www.yashbet.com/hi/promotion`,
 				},
 				{
 					// 讓 Google 知道網頁的所有語言及地區變化版本
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/hi/promotion',
+					href: 'https://www.yashbet.com/hi/promotion',
 					hrefLang: 'hi-IN',
 				},
 				{
 					rel: 'alternate',
 					media: 'only screen and (max-width: 640px)',
-					href: `https://m.leoking88.net/hi/promotion`,
+					href: `https://m.yashbet.com/hi/promotion`,
 				},
 			],
 		},
@@ -190,18 +190,18 @@ export const META_DATA: IMetaData = {
 				{
 					// 定義標準網址路徑
 					rel: 'canonical',
-					href: `https://www.leoking88.net/bd/promotion`,
+					href: `https://www.yashbet.com/bd/promotion`,
 				},
 				{
 					// 讓 Google 知道網頁的所有語言及地區變化版本
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/bd/promotion',
+					href: 'https://www.yashbet.com/bd/promotion',
 					hrefLang: 'bn-BD',
 				},
 				{
 					rel: 'alternate',
 					media: 'only screen and (max-width: 640px)',
-					href: `https://m.leoking88.net/bd/promotion`,
+					href: `https://m.yashbet.com/bd/promotion`,
 				},
 			],
 		},
@@ -238,24 +238,24 @@ export const META_DATA: IMetaData = {
 				{
 					// 定義標準網址路徑
 					rel: 'canonical',
-					href: `https://www.leoking88.net/en/sports?provider=saba&type=soccer`,
+					href: `https://www.yashbet.com/en/sports?provider=saba&type=soccer`,
 				},
 				{
 					// 讓 Google 知道網頁的所有語言及地區變化版本
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/hi/sports?provider=saba&type=soccer',
+					href: 'https://www.yashbet.com/hi/sports?provider=saba&type=soccer',
 					hrefLang: 'hi-IN',
 				},
 				{
 					// 讓 Google 知道網頁的所有語言及地區變化版本
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/bd/sports?provider=saba&type=soccer',
+					href: 'https://www.yashbet.com/bd/sports?provider=saba&type=soccer',
 					hrefLang: 'bn-BD',
 				},
 				{
 					rel: 'alternate',
 					media: 'only screen and (max-width: 640px)',
-					href: `https://m.leoking88.net/en`,
+					href: `https://m.yashbet.com/en`,
 				},
 			],
 		},
@@ -267,24 +267,24 @@ export const META_DATA: IMetaData = {
 				{
 					// 定義標準網址路徑
 					rel: 'canonical',
-					href: `https://www.leoking88.net/hi/sports?provider=saba&type=soccer`,
+					href: `https://www.yashbet.com/hi/sports?provider=saba&type=soccer`,
 				},
 				{
 					// 讓 Google 知道網頁的所有語言及地區變化版本
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/hi/sports?provider=saba&type=soccer',
+					href: 'https://www.yashbet.com/hi/sports?provider=saba&type=soccer',
 					hrefLang: 'hi-IN',
 				},
 				{
 					// 讓 Google 知道網頁的所有語言及地區變化版本
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/bd/sports?provider=saba&type=soccer',
+					href: 'https://www.yashbet.com/bd/sports?provider=saba&type=soccer',
 					hrefLang: 'bn-BD',
 				},
 				{
 					rel: 'alternate',
 					media: 'only screen and (max-width: 640px)',
-					href: `https://m.leoking88.net/en`,
+					href: `https://m.yashbet.com/en`,
 				},
 			],
 		},
@@ -296,24 +296,24 @@ export const META_DATA: IMetaData = {
 				{
 					// 定義標準網址路徑
 					rel: 'canonical',
-					href: `https://www.leoking88.net/bd/sports?provider=saba&type=soccer`,
+					href: `https://www.yashbet.com/bd/sports?provider=saba&type=soccer`,
 				},
 				{
 					// 讓 Google 知道網頁的所有語言及地區變化版本
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/hi/sports?provider=saba&type=soccer',
+					href: 'https://www.yashbet.com/hi/sports?provider=saba&type=soccer',
 					hrefLang: 'hi-IN',
 				},
 				{
 					// 讓 Google 知道網頁的所有語言及地區變化版本
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/bd/sports?provider=saba&type=soccer',
+					href: 'https://www.yashbet.com/bd/sports?provider=saba&type=soccer',
 					hrefLang: 'bn-BD',
 				},
 				{
 					rel: 'alternate',
 					media: 'only screen and (max-width: 640px)',
-					href: `https://m.leoking88.net/en`,
+					href: `https://m.yashbet.com/en`,
 				},
 			],
 		},
@@ -350,11 +350,11 @@ export const META_DATA: IMetaData = {
 			links: [
 				// {
 				// 	rel: 'canonical',
-				// 	href: `https://www.leoking88.net/en/liveCasino`,
+				// 	href: `https://www.yashbet.com/en/liveCasino`,
 				// },
 				// {
 				// 	rel: 'alternate',
-				// 	href: 'https://www.leoking88.bet/hi/liveCasino',
+				// 	href: 'https://www.yashbet.com/hi/liveCasino',
 				// 	hrefLang: 'hi-IN',
 				// },
 				// {
@@ -374,17 +374,17 @@ export const META_DATA: IMetaData = {
 				{
 					rel: 'alternate',
 					media: 'only screen and (max-width: 640px)',
-					href: `https://m.leoking88.net/en/slots`,
+					href: `https://m.yashbet.com/en/slots`,
 				},
-				{ rel: 'canonical', href: `https://www.leoking88.net/en/slots` },
+				{ rel: 'canonical', href: `https://www.yashbet.com/en/slots` },
 				{
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/hi/slots',
+					href: 'https://www.yashbet.com/hi/slots',
 					hrefLang: 'hi-IN',
 				},
 				{
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/bd/slots',
+					href: 'https://www.yashbet.com/bd/slots',
 					hrefLang: 'bn-BD',
 				},
 			],
@@ -397,17 +397,17 @@ export const META_DATA: IMetaData = {
 				{
 					rel: 'alternate',
 					media: 'only screen and (max-width: 640px)',
-					href: `https://m.leoking88.net/en/slots`,
+					href: `https://m.yashbet.com/en/slots`,
 				},
-				{ rel: 'canonical', href: `https://www.leoking88.net/en/slots` },
+				{ rel: 'canonical', href: `https://www.yashbet.com/en/slots` },
 				{
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/hi/slots',
+					href: 'https://www.yashbet.com/hi/slots',
 					hrefLang: 'hi-IN',
 				},
 				{
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/bd/slots',
+					href: 'https://www.yashbet.com/bd/slots',
 					hrefLang: 'bn-BD',
 				},
 			],
@@ -420,17 +420,17 @@ export const META_DATA: IMetaData = {
 				{
 					rel: 'alternate',
 					media: 'only screen and (max-width: 640px)',
-					href: `https://m.leoking88.net/en/slots`,
+					href: `https://m.yashbet.com/en/slots`,
 				},
-				{ rel: 'canonical', href: `https://www.leoking88.net/en/slots` },
+				{ rel: 'canonical', href: `https://www.yashbet.com/en/slots` },
 				{
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/hi/slots',
+					href: 'https://www.yashbet.com/hi/slots',
 					hrefLang: 'hi-IN',
 				},
 				{
 					rel: 'alternate',
-					href: 'https://www.leoking88.net/bd/slots',
+					href: 'https://www.yashbet.com/bd/slots',
 					hrefLang: 'bn-BD',
 				},
 			],
@@ -463,7 +463,7 @@ export const META_DATA: IMetaData = {
 			description: `Fishing Online At yashbet, Immerse Yourself Into The Deep of Sea. Select Some Juicy Bait, Shoot Down Various Sea Creatures To Collect Points And Rewards.`,
 			keyword: `Fishing Game, Fishing Online, Casino Fishing Game, Fishing Game Real Money, Arcade Fishing Game, Fishing War, Fish Haiba, Happy Fish 5, Monster Awaken, Fishing World, Paradise`,
 			links: [
-				// { rel: 'canonical', href: `https://www.leoking88.net/en/fishing` },
+				// { rel: 'canonical', href: `https://www.yashbet.com/en/fishing` },
 				// {
 				// 	rel: 'alternate',
 				// 	href: 'https://www.leoking88.com/hi/fishing',
@@ -471,7 +471,7 @@ export const META_DATA: IMetaData = {
 				// },
 				// {
 				// 	rel: 'alternate',
-				// 	href: 'https://www.leoking88.net/bd/fishing',
+				// 	href: 'https://www.yashbet.com/bd/fishing',
 				// 	hrefLang: 'bn-BD',
 				// },
 			],
