@@ -6,12 +6,12 @@ import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import { useSetHideBalanceMutation } from '@nx-next-app/service'
 import { isEventPeriod } from '@nx-next-app/utils'
 import { useRouter } from 'next/router'
-import { OLYMPIC_EVENT_PERIOD } from '@nx-next-app/site/nova88/constants/olympicPeriod'
+import { EVENT_PERIOD } from '@nx-next-app/site/nova88'
 import Banner from './Banner'
 import RedemptionHistory from './RedemptionHistory'
 import Terms from './Terms'
 import Footer from './Footer'
-import Reward from './Reward'
+import Reward from './reward'
 
 const Olympic = () => {
 	const {
@@ -21,7 +21,7 @@ const Olympic = () => {
 
 	// 不在活動時間倒回首頁
 	useLayoutEffect(() => {
-		if (!isEventPeriod(OLYMPIC_EVENT_PERIOD)) push(paths.home.root)
+		if (!isEventPeriod(EVENT_PERIOD.OLYMPIC)) push(paths.home.root)
 	}, [])
 
 	const {

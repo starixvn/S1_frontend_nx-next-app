@@ -24,6 +24,6 @@ export type IOlympicEventTicketData = {
 }
 
 export interface IGetOlympicEventPrizeArgs {
-	CustId: number | undefined
-	UsedGoldMetalCount: number
+	custId: number | undefined
+	usedGoldMetalCount: number
 }
