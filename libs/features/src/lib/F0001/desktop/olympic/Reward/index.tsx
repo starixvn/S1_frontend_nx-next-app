@@ -5,7 +5,7 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { UseOlympicProps, useOlympic } from '@nx-next-app/features/F0001/hooks'
-import BonusList from './BonusList'
+import BonusList from './bonusList'
 import SignificantModal from '../modal/SignificantModal'
 
 const LoginModal = dynamic(
@@ -26,13 +26,12 @@ const Reward = () => {
 
 	// 取得從api來的相關資訊
 	const {
-		olympicEventTicketData,
+		availableGoldMetals,
 		userMoneyData,
 		missionTotal,
 		progressPercentage,
-		errorCode,
 	} = useOlympic() as UseOlympicProps
-	const { availableGoldMetals } = olympicEventTicketData
+
 	const handleDeposit = () => {
 		if (!isLogin) {
 			modal.open(<LoginModal />)
@@ -46,7 +45,6 @@ const Reward = () => {
 			className: 'olympic-rule',
 		})
 	}
-
 	return (
 		<div className='olympic-center'>
 			<div className='olympic-center-wrapper'>
@@ -79,11 +77,7 @@ const Reward = () => {
 											<div
 												className='progress-bar-inside'
 												style={{
-													width: `${
-														errorCode === 104 || !isLogin
-															? 0
-															: progressPercentage.deposit
-													}%`,
+													width: `${progressPercentage.deposit}%`,
 												}}
 											/>
 										</div>
@@ -106,11 +100,7 @@ const Reward = () => {
 											<div
 												className='progress-bar-inside'
 												style={{
-													width: `${
-														errorCode === 104 || !isLogin
-															? 0
-															: progressPercentage.turnover
-													}%`,
+													width: `${progressPercentage.turnover}%`,
 												}}
 											/>
 										</div>

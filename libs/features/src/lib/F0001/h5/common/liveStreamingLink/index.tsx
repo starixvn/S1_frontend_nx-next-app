@@ -9,10 +9,7 @@ import {
 	useLazyGetDataListQuery,
 	ILiveStreamingData,
 } from '@nx-next-app/service'
-import {
-	ALLOWED_CURRENCIES,
-	EUROPE_EVENT_PERIOD,
-} from '@nx-next-app/site/nova88'
+import { ALLOWED_CURRENCIES, EVENT_PERIOD } from '@nx-next-app/site/nova88'
 import { isEventPeriod } from '@nx-next-app/utils'
 import LiveStreamingModal from './LiveStreamingModal'
 
@@ -67,7 +64,7 @@ const LiveStreamingLink = () => {
 	return isShowLiveStreaming && !isGetLiveStreamingListFetching ? (
 		<div
 			className={classNames('eventLink livesports', {
-				eurocup: isEventPeriod(EUROPE_EVENT_PERIOD),
+				eurocup: isEventPeriod(EVENT_PERIOD.EUROPE_CUP),
 			})}
 		>
 			<button
