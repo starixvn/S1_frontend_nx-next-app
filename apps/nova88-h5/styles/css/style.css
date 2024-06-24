@@ -1092,13 +1092,6 @@ img {
   content: "\e91d";
 }
 
-*,
-*::before,
-*::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
 body, html {
   background: white;
   height: 100%;
@@ -3404,6 +3397,8 @@ main .gameList .icon-new {
           flex-flow: unset;
   display: none;
   padding: 0 4vw;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 #popup.livesportspop.active {
   display: -webkit-box;
@@ -3428,6 +3423,8 @@ main .gameList .icon-new {
           align-items: center;
 }
 #popup.livesportspop .livesports > div {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
 }
 #popup.livesportspop .livesports > div:first-child {
