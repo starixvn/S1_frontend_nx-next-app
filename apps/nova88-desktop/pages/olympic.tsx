@@ -9,6 +9,7 @@ import {
 import { IFooterData } from '@nx-next-app/types'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { OlympicProvider } from '@nx-next-app/features/F0001/providers'
 
 interface IEuroCupProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
@@ -24,7 +25,9 @@ const OlympicPage = ({
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
-					<Olympic />
+					<OlympicProvider>
+						<Olympic />
+					</OlympicProvider>
 				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>
