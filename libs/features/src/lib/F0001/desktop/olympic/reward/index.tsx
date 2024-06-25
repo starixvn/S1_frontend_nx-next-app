@@ -53,8 +53,7 @@ const Reward = () => {
 					<div className='tasks-content'>
 						<div className='progress'>
 							<div className='progress-title'>
-								{/* TODO: 待翻譯提供 */}
-								<div>Game tasks</div>
+								<div>{t('Label_Olympic_Event_Mission')}</div>
 								<div
 									onClick={onOpenSignificantModal}
 									style={{ cursor: 'pointer' }}

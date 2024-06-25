@@ -39,6 +39,7 @@ const BonusListItems = () => {
 			{bonusListData.map(item => {
 				const { goldNum, imgUrlMoney, labelBonusGold, redeemImg } = item
 				const bonusPrice = t(`${labelBonusGold}_${currencyId}`)
+
 				return (
 					<div className='bouns-content-item'>
 						<div className='money'>

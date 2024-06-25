@@ -6,7 +6,6 @@ import { useOlympic } from '../../hooks'
 const RedemptionHistory = () => {
 	const { t } = useTranslation()
 	const { custRedeemHistoryList } = useOlympic()
-
 	return (
 		<>
 			<div className='olympic-bottom-title'>

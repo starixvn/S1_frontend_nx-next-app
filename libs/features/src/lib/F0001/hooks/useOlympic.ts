@@ -75,13 +75,13 @@ const useOlympic = () => {
 				// 達成目標所需總額
 				setMissionTotal({
 					totalDeposit: numberFormat(
-						promotionMission[0]?.depositAmount,
+						promotionMission && promotionMission[0]?.depositAmount,
 						currencyId,
 						0,
 						true
 					),
 					totalTurnover: numberFormat(
-						promotionMission[1]?.turnoverAmount,
+						promotionMission && promotionMission[1]?.turnoverAmount,
 						currencyId,
 						0,
 						true
