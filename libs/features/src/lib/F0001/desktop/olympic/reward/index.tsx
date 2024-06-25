@@ -5,7 +5,7 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { UseOlympicProps, useOlympic } from '@nx-next-app/features/F0001/hooks'
-import BonusList from './bonusList'
+import BonusList from './BonusList'
 import SignificantModal from '../modal/SignificantModal'
 
 const LoginModal = dynamic(
