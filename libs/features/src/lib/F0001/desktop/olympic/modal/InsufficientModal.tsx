@@ -17,8 +17,7 @@ const InsufficientModal = () => {
 							alt='Insufficient medal'
 						/>
 						<div>{t('Label_Olympic_Gold_Medal')}</div>
-						{/* TODO: 待ＰＭ補翻譯 */}
-						<div>Insufficient</div>
+						<div>{t('Label_Olympic_Insufficient')}</div>
 						<button onClick={closeModal}>{t('Label_General_Close')}</button>
 					</div>
 				</div>
