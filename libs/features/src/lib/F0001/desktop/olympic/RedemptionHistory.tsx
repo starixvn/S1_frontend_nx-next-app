@@ -1,9 +1,11 @@
 // import React from 'react'
 import { useTranslation } from 'next-i18next'
+import dayjs from 'dayjs'
+import { useOlympic } from '../../hooks'
 
 const RedemptionHistory = () => {
 	const { t } = useTranslation()
-
+	const { custRedeemHistoryList } = useOlympic()
 	return (
 		<>
 			<div className='olympic-bottom-title'>
@@ -18,56 +20,17 @@ const RedemptionHistory = () => {
 						<div>{t('Label_General_Rewards')}</div>
 					</div>
 					<div className='sheet-content-text'>
-						<div>
-							<div>3 Gold Medals</div>
-							<div>07/May/24 3:25 PM</div>
-							<div>MYR 80</div>
-						</div>
-						<div>
-							<div>3 Gold Medals</div>
-							<div>07/May/24 3:25 PM</div>
-							<div>MYR 80</div>
-						</div>
-						<div>
-							<div>3 Gold Medals</div>
-							<div>07/May/24 3:25 PM</div>
-							<div>MYR 80</div>
-						</div>
-						<div>
-							<div>3 Gold Medals</div>
-							<div>07/May/24 3:25 PM</div>
-							<div>MYR 80</div>
-						</div>
-						<div>
-							<div>3 Gold Medals</div>
-							<div>07/May/24 3:25 PM</div>
-							<div>MYR 80</div>
-						</div>
-						<div>
-							<div>3 Gold Medals</div>
-							<div>07/May/24 3:25 PM</div>
-							<div>MYR 80</div>
-						</div>
-						<div>
-							<div>3 Gold Medals</div>
-							<div>07/May/24 3:25 PM</div>
-							<div>MYR 80</div>
-						</div>
-						<div>
-							<div>3 Gold Medals</div>
-							<div>07/May/24 3:25 PM</div>
-							<div>MYR 80</div>
-						</div>
-						<div>
-							<div>3 Gold Medals</div>
-							<div>07/May/24 3:25 PM</div>
-							<div>MYR 80</div>
-						</div>
-						<div>
-							<div>3 Gold Medals</div>
-							<div>07/May/24 3:25 PM</div>
-							<div>MYR 80</div>
-						</div>
+						{custRedeemHistoryList?.map(item => {
+							const { drawTime, prizeName } = item
+							return (
+								<div key={`history Record-${drawTime}`}>
+									{/*  TODO: 後端會增加一個是換幾個金牌數的欄位 */}
+									<div>3 {t('Label_Olympic_Gold_Medal')}</div>
+									<div>{dayjs(drawTime).format('DD/MMMM/YY h:mm A')}</div>
+									<div>{prizeName}</div>
+								</div>
+							)
+						})}
 					</div>
 				</div>
 			</div>
