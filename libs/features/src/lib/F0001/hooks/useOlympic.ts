@@ -2,7 +2,7 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import {
 	IAxiosError,
-	// useGetCustDrawPrizeListQuery,
+	useGetCustDrawPrizeListQuery,
 	useLazyGetOlympicEventTicketQuery,
 	useSetOlympicEventPrizeMutation,
 } from '@nx-next-app/service'
@@ -15,7 +15,7 @@ import { numberFormat } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
 import { useEffect, useState } from 'react'
 
-// const EVENT_ID = 18
+const EVENT_ID = 18 // 代表Nova88站台  goal123是19  bwing是20
 const getProgressPercentage = (had: number, total: number) =>
 	had >= total ? '100' : ((had / total) * 100).toFixed(2)
 
@@ -124,11 +124,10 @@ const useOlympic = () => {
 	const [setOlympicEventPrize] = useSetOlympicEventPrizeMutation()
 
 	// 取得用戶兌換Bonus紀錄
-	// const { data: { data: custRedeemHistoryList } = {} } =
-	// 	useGetCustDrawPrizeListQuery({
-	// 		eventId: EVENT_ID,
-	// 	})
-	// console.log('custRedeemHistoryList :>> ', custRedeemHistoryList)
+	const { data: { data: custRedeemHistoryList } = {} } =
+		useGetCustDrawPrizeListQuery({
+			eventId: EVENT_ID,
+		})
 
 	// 處理金牌兌換Bonus的function
 	const handleRedeem = async (
@@ -147,7 +146,6 @@ const useOlympic = () => {
 			const { errorCode } = error as IAxiosError
 			if (errorCode === -1205) {
 				// 如果玩家身上還有Bonus未用完(含非奧運的Bonus)，跳錯誤警告訊息
-				// TODO: 待ＰＭ補上u18n記得再跑一次 sh locales.sh
 				modal.error(t('Label_Olympic_Still_Running_Bonus'))
 			} else {
 				// 如果金牌數量不夠兌換該Bonus，跳出數量不足彈窗
@@ -167,6 +165,7 @@ const useOlympic = () => {
 		userMoneyData,
 		missionTotal,
 		progressPercentage,
+		custRedeemHistoryList,
 		handleRedeem,
 	}
 }
