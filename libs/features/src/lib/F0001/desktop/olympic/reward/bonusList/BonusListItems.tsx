@@ -1,8 +1,11 @@
 import React from 'react'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useTranslation } from 'next-i18next'
-import { useOlympic, UseOlympicProps } from '@nx-next-app/features/F0001/hooks'
 import { useAuth } from '@nx-next-app/data-access'
+import {
+	UseOlympicProps,
+	useOlympic,
+} from '@nx-next-app/features/F0001/providers'
 import RedemptionModal from '../../modal/RedemptionModal'
 import { bonusListData } from '../../constants/selectBonus'
 import InsufficientModal from '../../modal/InsufficientModal'
@@ -14,7 +17,7 @@ const BonusListItems = () => {
 		userInfo: { currencyId, custId },
 	} = useAuth()
 
-	// TODO: 待後端完成api後，實作按下Redeem之後兌換bonus的功能 (20240621: 目前BonusCode 5跟8還沒創且現在只能測3的MYR THB VND)
+	// 按下Redeem之後兌換bonus的功能
 	const { handleRedeem } = useOlympic() as UseOlympicProps
 
 	// redeem成功時的彈窗
@@ -39,8 +42,9 @@ const BonusListItems = () => {
 			{bonusListData.map(item => {
 				const { goldNum, imgUrlMoney, labelBonusGold, redeemImg } = item
 				const bonusPrice = t(`${labelBonusGold}_${currencyId}`)
+
 				return (
-					<div className='bouns-content-item'>
+					<div key={redeemImg} className='bouns-content-item'>
 						<div className='money'>
 							<img src={imgUrlMoney} alt='gold pic' />
 							<div>{t(bonusPrice)}</div>

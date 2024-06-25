@@ -8,6 +8,7 @@ import Footer from './Footer'
 import RedemptionHistory from './RedemptionHistory'
 import Terms from './Terms'
 import Banner from './Banner'
+import { useOlympic } from '../../providers'
 
 const Olympic = () => {
 	const { push } = useRouter()
@@ -16,13 +17,22 @@ const Olympic = () => {
 	useLayoutEffect(() => {
 		if (!isEventPeriod(EVENT_PERIOD.OLYMPIC)) push(paths.home.root)
 	}, [])
+
+	// 判斷是否有兌換紀錄 並 取得玩家的兌換紀錄
+	const { custRedeemHistoryList } = useOlympic()
+	const hasRedeemHistory =
+		custRedeemHistoryList &&
+		custRedeemHistoryList.length > 0 &&
+		custRedeemHistoryList !== undefined
 	return (
 		<main className='olympic'>
 			<Banner />
 			<Reward />
 			<div className='olympic-bottom'>
 				<div className='olympic-bottom-wrapper'>
-					<RedemptionHistory />
+					{hasRedeemHistory && (
+						<RedemptionHistory custRedeemHistoryList={custRedeemHistoryList} />
+					)}
 					<Terms />
 				</div>
 			</div>

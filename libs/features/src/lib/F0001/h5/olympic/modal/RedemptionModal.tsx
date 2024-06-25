@@ -12,7 +12,7 @@ const RedemptionModal = ({ redeemImg, bonusPrice }: IRedemptionModalProps) => {
 	const { closeModal } = useGlobalModal()
 
 	return (
-		<div className='medalpop gold-a active'>
+		<div className={`medalpop ${redeemImg} active`}>
 			<div className='medalpop-content'>
 				<div className='medalpop-top' />
 				<div className='medalpop-item'>
