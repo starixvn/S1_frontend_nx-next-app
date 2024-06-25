@@ -9,15 +9,15 @@ const InsufficientModal = () => {
 		<div className='medalpop active'>
 			<div className='medalpop-content'>
 				<div className='medalpop-top' />
-			</div>
-			<div className='medalpop-item'>
-				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/event/olympic/gold-medal-a.png`}
-					alt='Insufficient medal'
-				/>
-				<div>{t('Label_Olympic_Gold_Medal')}</div>
-				<div>{t('Label_Olympic_Insufficient')}</div>
-				<button onClick={closeModal}>{t('Label_General_Close')}</button>
+				<div className='medalpop-item'>
+					<img
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/event/olympic/gold-medal-a.png`}
+						alt='Insufficient medal'
+					/>
+					<div>{t('Label_Olympic_Gold_Medal')}</div>
+					<div>{t('Label_Olympic_Insufficient')}</div>
+					<button onClick={closeModal}>{t('Label_General_Close')}</button>
+				</div>
 			</div>
 		</div>
 	)

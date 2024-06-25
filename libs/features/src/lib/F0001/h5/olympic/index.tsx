@@ -12,6 +12,7 @@ import RedemptionHistory from './RedemptionHistory'
 import Terms from './Terms'
 import Footer from './Footer'
 import Reward from './reward'
+import { useOlympic } from '../../providers'
 
 const Olympic = () => {
 	const {
@@ -35,6 +36,13 @@ const Olympic = () => {
 	} = useTpWalletBalanceListFetcher({ langId })
 
 	const [setHideBalance] = useSetHideBalanceMutation()
+
+	// 判斷是否有兌換紀錄 並 取得玩家的兌換紀錄
+	const { custRedeemHistoryList } = useOlympic()
+	const hasRedeemHistory =
+		custRedeemHistoryList &&
+		custRedeemHistoryList.length > 0 &&
+		custRedeemHistoryList !== undefined
 	return (
 		<>
 			<Header>
@@ -54,7 +62,11 @@ const Olympic = () => {
 				<Reward />
 				<div className='olympic-bottom'>
 					<div className='olympic-bottom-wrapper'>
-						<RedemptionHistory />
+						{hasRedeemHistory && (
+							<RedemptionHistory
+								custRedeemHistoryList={custRedeemHistoryList}
+							/>
+						)}
 						<Terms />
 					</div>
 				</div>

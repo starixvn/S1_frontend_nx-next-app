@@ -19,7 +19,6 @@ export const olympicEventApi = rootApi.injectEndpoints({
 				method: 'POST',
 				data,
 			}),
-			providesTags: ['OLYMPIC_EVENT_GET_TICKETS'],
 		}),
 		// 點下“Redeem”要用金牌兌換Bonus的mutation
 		setOlympicEventPrize: builder.mutation<

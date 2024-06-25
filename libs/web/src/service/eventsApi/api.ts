@@ -100,7 +100,7 @@ export const eventsApi = rootApi.injectEndpoints({
 				method: 'POST',
 				data,
 			}),
-			providesTags: ['LUCKY_WHEEL_DRAW_PRIZE'],
+			providesTags: ['LUCKY_WHEEL_DRAW_PRIZE', 'OLYMPIC_EVENT_GET_TICKETS'],
 		}),
 		// * 當前使用者抽獎資格
 		checkDrawPrize: builder.query<
