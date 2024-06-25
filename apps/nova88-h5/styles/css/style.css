@@ -1980,7 +1980,7 @@ main .gameList .icon-new {
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
 }
-#popup > div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo):not(.bigwin):not(.livesports):not(.rulepop):not(.olympic-medalpop):not(.medalpop) {
+#popup > div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo):not(.bigwin) {
   background: white;
   width: 100%;
 }
