@@ -97,7 +97,7 @@ const useMenu = () => {
 	} = useAuth()
 	const { modal } = useGlobalModal()
 	const { LobberHeaderMenuList, isLobbyHeaderError } = useMenuData()
-	const { tpMaintainList, isInApp, isInLiff } = useGlobalData()
+	const { tpMaintainList, isInApp } = useGlobalData()
 	const [gotoGame] = useLazyGotoGameQuery()
 	const { data: { data: tpGameTypeSettingList = [] } = {} } =
 		useGetCustTpGameTypeSettingQuery(null, {
@@ -297,17 +297,6 @@ const useMenu = () => {
 			(Number(gameId) < 100 || includes([161, 180, 192, 2002], gameId))
 		) {
 			return push(entPageUrl)
-		}
-
-		if (tpId === PRODUCTS.Joker.tpId && isInLiff) {
-			if (gameId === PRODUCTS.FishHaiba.gameId) {
-				window.location = entPageUrl
-				return
-			}
-			if (gameId === PRODUCTS.HappyFish5.gameId) {
-				push(entPageUrl)
-				return
-			}
 		}
 
 		if (
@@ -577,6 +566,8 @@ const useMenu = () => {
 				liveStreamingCallback()
 				return
 			}
+
+			redirectAction(item)
 		}
 
 		// * 靜態 (isTpMaintain noPlay 會在 onStaticMenuOpen 擋掉)
