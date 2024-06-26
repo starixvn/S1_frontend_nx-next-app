@@ -22,7 +22,9 @@ const GameInfo = () => {
 		<div className='slotpopup active' style={{ zIndex: 10 }}>
 			<div className='slotFunction'>
 				<img
-					src={`${imgUrl}/${activeGame?.resultTpName}/${activeGame?.imgName[langId]}`}
+					src={`${imgUrl}/${activeGame?.resultGameImgDisplayText}/${
+						activeGame?.imgName[langId] ?? activeGame?.imgName['en']
+					}`}
 					alt={activeGame?.resultGameName as string}
 				/>
 
