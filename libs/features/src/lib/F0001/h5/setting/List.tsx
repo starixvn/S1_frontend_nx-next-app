@@ -50,6 +50,7 @@ const List = () => {
 									({ displayText, currencyId, value }) => {
 										return (
 											<button
+												key={`languageGroup-${value}`}
 												onClick={() =>
 													onSetLanguage({
 														langCode: value,
