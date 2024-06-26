@@ -97,7 +97,7 @@ const useMenu = () => {
 	} = useAuth()
 	const { modal } = useGlobalModal()
 	const { LobberHeaderMenuList, isLobbyHeaderError } = useMenuData()
-	const { tpMaintainList, isInApp, isInLiff } = useGlobalData()
+	const { tpMaintainList, isInApp } = useGlobalData()
 	const [gotoGame] = useLazyGotoGameQuery()
 	const { data: { data: tpGameTypeSettingList = [] } = {} } =
 		useGetCustTpGameTypeSettingQuery(null, {
@@ -297,45 +297,6 @@ const useMenu = () => {
 			(Number(gameId) < 100 || includes([161, 180, 192, 2002], gameId))
 		) {
 			return push(entPageUrl)
-		}
-
-		if (tpId === PRODUCTS.Joker.tpId && isInLiff) {
-			let iframe = document.querySelector('iframe')
-			if (!iframe) {
-				iframe = document.createElement('iframe')
-				iframe.name = 'iframe'
-				iframe.style.position = 'fixed'
-				iframe.style.top = '0'
-				iframe.style.left = '0'
-				iframe.style.width = '100%'
-				iframe.style.height = '100%'
-				iframe.style.zIndex = '999'
-				iframe.style.backgroundColor = 'black'
-				document.body.appendChild(iframe)
-				const closeButton = document.createElement('button')
-				closeButton.innerHTML = '&times;'
-				closeButton.style.backgroundColor = 'red'
-				closeButton.style.color = 'white'
-				closeButton.style.fontSize = '20px'
-				closeButton.style.padding = '4px 8px'
-				closeButton.style.position = 'fixed'
-				closeButton.style.top = '0'
-				closeButton.style.right = '0'
-				closeButton.style.zIndex = '9999'
-				closeButton.onclick = () => {
-					iframe?.remove()
-					closeButton.remove()
-				}
-				document.body.appendChild(closeButton)
-			}
-
-			const { contentWindow } = iframe
-			if (contentWindow) {
-				contentWindow.location.href = entPageUrl
-				// window.open(entPageUrl, 'iframe')
-			}
-
-			return
 		}
 
 		if (
