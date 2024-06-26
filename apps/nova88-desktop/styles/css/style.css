@@ -20215,7 +20215,7 @@ form .profileModule .vipLv .vipname {
 
 #goTop {
   position: fixed;
-  bottom: 155px;
+  bottom: 175px;
   right: 10px;
   width: 60px;
   height: 60px;
@@ -25808,7 +25808,7 @@ input[type=number] {
 
 #survey {
   position: fixed;
-  bottom: 20px;
+  bottom: 35px;
   right: 70px;
   width: 345px;
   border-radius: 10px;
