@@ -1,7 +1,7 @@
 export { default as Layout } from './layout'
 export { default as Home } from './home'
 export { default as Vip } from './vip'
-export { default as Slots } from './slots'
+export { default as Slots } from './slots/common'
 export { default as Fishing } from './fishing/index'
 export { default as Referral } from './referral'
 export { default as Game } from './game/index'
