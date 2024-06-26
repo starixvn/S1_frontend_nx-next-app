@@ -4,12 +4,11 @@ import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { Header, Form } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { FieldErrors, SubmitHandler, useForm } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import { useSetQuestionnaireMutation } from '@nx-next-app/service'
-import { renderFieldError } from '@nx-next-app/utils'
 import { EMAIL_OR_PHONE_REGEX } from '@nx-next-app/constants'
 
-export type TSurveyForm = {
+type TSurveyForm = {
 	content: string
 	contactInfo: string
 }
@@ -18,8 +17,11 @@ const Survey = () => {
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
 	const router = useRouter()
-	const [isSubmit, setIsSubmit] = useState<boolean>(false)
-	const { register, handleSubmit, reset } = useForm<TSurveyForm>()
+	const [isSubmitted, setIsSubmit] = useState<boolean>(false)
+	const { register, handleSubmit, reset, formState } = useForm<TSurveyForm>({
+		mode: 'onBlur',
+	})
+	const { errors, isSubmitting, isDirty, isValid } = formState
 
 	const [setQuestionnaire] = useSetQuestionnaireMutation()
 
@@ -35,13 +37,16 @@ const Survey = () => {
 		}
 	}
 
-	const onSubmitInvalid = (errors: FieldErrors<TSurveyForm>) => {
-		modal.error(renderFieldError(errors))
-	}
-
 	const onCancel = () => {
 		reset()
 		router.back()
+	}
+
+	const renderInfoMessage = (errMsg: string) => {
+		if (errMsg) {
+			return <div className={classNames('tip', 'active')}>{errMsg}</div>
+		}
+		return null
 	}
 
 	return (
@@ -52,18 +57,14 @@ const Survey = () => {
 			<main className='main survey'>
 				<div
 					className={classNames('survey-before', {
-						close: isSubmit,
+						close: isSubmitted,
 					})}
 				>
 					<div>{t('Label_Survey_Title')}</div>
 					<div>{t('Label_Survey_Hint1')}</div>
-					<Form
-						className='survey-input'
-						onSubmit={handleSubmit(onSubmit, onSubmitInvalid)}
-					>
-						<fieldset>
+					<Form className='survey-input' onSubmit={handleSubmit(onSubmit)}>
+						<fieldset className={classNames({ error: !!errors['content'] })}>
 							<textarea
-								placeholder={t('Label_Survey_Phd_Content') ?? ''}
 								{...register('content', {
 									required: {
 										value: true,
@@ -71,10 +72,14 @@ const Survey = () => {
 									},
 									maxLength: 2000,
 								})}
+								placeholder={t('Label_Survey_Phd_Content') ?? ''}
 								maxLength={2000}
 							/>
+							{renderInfoMessage(errors['content']?.message as string)}
 						</fieldset>
-						<fieldset>
+						<fieldset
+							className={classNames({ error: !!errors['contactInfo'] })}
+						>
 							<input
 								{...register('contactInfo', {
 									required: {
@@ -89,9 +94,15 @@ const Survey = () => {
 								type='text'
 								placeholder={t('Label_Survey_Phd_Contact') ?? ''}
 							/>
+							{renderInfoMessage(errors['contactInfo']?.message as string)}
 						</fieldset>
 						<fieldset className='survey-btn'>
-							<button type='submit'>{t('Label_General_Submit')}</button>
+							<button
+								type='submit'
+								disabled={!isDirty || !isValid || isSubmitting}
+							>
+								{t('Label_General_Submit')}
+							</button>
 							<button type='button' onClick={onCancel}>
 								{t('Label_General_Cancel')}
 							</button>
@@ -100,7 +111,7 @@ const Survey = () => {
 				</div>
 				<div
 					className={classNames('survey-after', {
-						close: !isSubmit,
+						close: !isSubmitted,
 					})}
 				>
 					<div>

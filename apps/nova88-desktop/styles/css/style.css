@@ -25813,7 +25813,7 @@ input[type=number] {
   width: 345px;
   border-radius: 10px;
   color: white;
-  z-index: 2;
+  z-index: 5;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -25999,6 +25999,19 @@ input[type=number] {
 }
 #survey .survey-before fieldset:nth-child(2) {
   margin-top: 25px;
+}
+#survey .survey-before fieldset .tip {
+  display: none;
+}
+#survey .survey-before fieldset .tip.active {
+  display: block;
+  color: red;
+}
+#survey .survey-before fieldset.error textarea {
+  border: 2px solid red;
+}
+#survey .survey-before fieldset.error input {
+  border: 2px solid red;
 }
 #survey .survey-before .survey-input {
   margin-top: 3px;

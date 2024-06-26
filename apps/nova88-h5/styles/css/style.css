@@ -20071,6 +20071,7 @@ input[type=number] .btn-logout {
 .survey {
   background: #F8F8F8;
   color: #9C9C9C;
+  padding: 19vw 4vw;
 }
 .survey-before {
   display: -webkit-box;
@@ -20106,7 +20107,6 @@ input[type=number] .btn-logout {
   width: 75vw;
   border: 1px solid #ccc;
   background: #FFF;
-  margin: 0 0 5vw;
   padding: 3vw;
   color: #0A1B38;
   border-radius: 2vw;
@@ -20144,7 +20144,6 @@ input[type=number] .btn-logout {
   width: 75vw;
   border: 1px solid #e5e5e5;
   background: #FFF;
-  margin: 0 0 5vw;
   padding: 3vw;
   height: 50vw;
   max-width: 100%;
@@ -20188,6 +20187,26 @@ input[type=number] .btn-logout {
 .survey-before fieldset button:last-child {
   background: #DFDFDF;
   color: #9B9B9B;
+}
+.survey-before fieldset .tip {
+  display: none;
+  margin-top: 2vw;
+}
+.survey-before fieldset .tip.active {
+  display: block;
+  color: red;
+}
+.survey-before fieldset .tip.message {
+  margin-top: 1vw;
+}
+.survey-before fieldset.error textarea {
+  border: 2px solid red;
+}
+.survey-before fieldset.error input {
+  border: 2px solid red;
+}
+.survey-before fieldset:first-child {
+  margin-bottom: 5vw;
 }
 .survey-before .survey-input {
   margin-top: 3vw;

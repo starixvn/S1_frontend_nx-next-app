@@ -1,14 +1,13 @@
 import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import classNames from 'classnames'
-import { FieldErrors, SubmitHandler, useForm } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { renderFieldError } from '@nx-next-app/utils'
 import { EMAIL_OR_PHONE_REGEX } from '@nx-next-app/constants'
 import { useSetQuestionnaireMutation } from '@nx-next-app/service'
 import { useAuth } from '@nx-next-app/data-access'
 
-export type TSurveyForm = {
+type TSurveyForm = {
 	content: string
 	contactInfo: string
 }
@@ -16,12 +15,15 @@ export type TSurveyForm = {
 const Survey = () => {
 	const { t } = useTranslation()
 	const [isOpenSurvey, setIsOpenSurvey] = useState<boolean>(false)
-	const [isSubmit, setIsSubmit] = useState<boolean>(false)
+	const [isSubmitted, setIsSubmitted] = useState<boolean>(false)
 	const { modal } = useGlobalModal()
-	const { handleSubmit, register, reset } = useForm<TSurveyForm>()
 	const {
 		auth: { isLogin },
 	} = useAuth()
+	const { handleSubmit, register, reset, formState } = useForm<TSurveyForm>({
+		mode: 'onBlur',
+	})
+	const { errors, isSubmitting, isDirty, isValid } = formState
 
 	const [setQuestionnaire] = useSetQuestionnaireMutation()
 
@@ -31,20 +33,23 @@ const Survey = () => {
 				...data,
 			}).unwrap()
 			reset()
-			setIsSubmit(true)
+			setIsSubmitted(true)
 		} catch (error) {
 			modal.error((error as Error).message)
 		}
 	}
 
-	const onSubmitInvalid = (errors: FieldErrors<TSurveyForm>) => {
-		modal.error(renderFieldError(errors))
-	}
-
 	const onCloseSurvey = () => {
 		reset()
 		setIsOpenSurvey(false)
-		setIsSubmit(false)
+		setIsSubmitted(false)
+	}
+
+	const renderInfoMessage = (errMsg: string) => {
+		if (errMsg) {
+			return <div className={classNames('tip', 'active')}>{errMsg}</div>
+		}
+		return null
 	}
 
 	if (!isLogin) {
@@ -62,18 +67,14 @@ const Survey = () => {
 			<div className={classNames('survey-box', { active: isOpenSurvey })}>
 				<div
 					className={classNames('survey-before', {
-						close: isSubmit,
+						close: isSubmitted,
 					})}
 				>
 					<div>{t('Label_Survey_Title')}</div>
 					<div>{t('Label_Survey_Hint1')}</div>
-					<form
-						className='survey-input'
-						onSubmit={handleSubmit(onSubmit, onSubmitInvalid)}
-					>
-						<fieldset>
+					<form className='survey-input' onSubmit={handleSubmit(onSubmit)}>
+						<fieldset className={classNames({ error: !!errors['content'] })}>
 							<textarea
-								placeholder={t('Label_Survey_Phd_Content') ?? ''}
 								{...register('content', {
 									required: {
 										value: true,
@@ -81,10 +82,14 @@ const Survey = () => {
 									},
 									maxLength: 2000,
 								})}
+								placeholder={t('Label_Survey_Phd_Content') ?? ''}
 								maxLength={2000}
 							/>
+							{renderInfoMessage(errors['content']?.message as string)}
 						</fieldset>
-						<fieldset>
+						<fieldset
+							className={classNames({ error: !!errors['contactInfo'] })}
+						>
 							<input
 								{...register('contactInfo', {
 									required: {
@@ -99,9 +104,15 @@ const Survey = () => {
 								type='text'
 								placeholder={t('Label_Survey_Phd_Contact') ?? ''}
 							/>
+							{renderInfoMessage(errors['contactInfo']?.message as string)}
 						</fieldset>
 						<fieldset className='survey-btn'>
-							<button type='submit'>{t('Label_General_Submit')}</button>
+							<button
+								type='submit'
+								disabled={!isDirty || !isValid || isSubmitting}
+							>
+								{t('Label_General_Submit')}
+							</button>
 							<button type='button' onClick={onCloseSurvey}>
 								{t('Label_General_Cancel')}
 							</button>
@@ -110,7 +121,7 @@ const Survey = () => {
 				</div>
 				<div
 					className={classNames('survey-after', {
-						close: !isSubmit,
+						close: !isSubmitted,
 					})}
 				>
 					<button className='icon icon-close' onClick={onCloseSurvey} />
