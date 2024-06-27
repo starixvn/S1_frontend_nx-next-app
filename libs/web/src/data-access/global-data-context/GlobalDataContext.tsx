@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { createContext, ReactNode, useEffect, useState } from 'react'
+import liff from '@line/liff'
 import {
 	useGetTpMaintainListQuery,
 	TpMaintainData,
@@ -16,6 +17,7 @@ interface IGlobalDataContext {
 	productTpIds?: number[]
 	custGameTypeSettingList?: ITpGameTypeData[]
 	isInApp: boolean | null
+	isInLiff: boolean | null
 }
 
 const GlobalDataContext = createContext<IGlobalDataContext>(null!)
@@ -25,6 +27,7 @@ interface IGlobalDataProviderProps {
 
 const GlobalDataProvider = ({ children }: IGlobalDataProviderProps) => {
 	const [isInApp, setIsInApp] = useState<boolean | null>(null)
+	const [isInLiff, setIsInLiff] = useState<boolean | null>(null)
 
 	const {
 		auth: { isLogin },
@@ -50,9 +53,13 @@ const GlobalDataProvider = ({ children }: IGlobalDataProviderProps) => {
 		productTpIds,
 		custGameTypeSettingList,
 		isInApp,
+		isInLiff,
 	}
 
-	useEffect(() => setIsInApp(isReactNativeWebView()), [])
+	useEffect(() => {
+		setIsInApp(isReactNativeWebView())
+		setIsInLiff(liff.isInClient())
+	}, [])
 
 	return (
 		<GlobalDataContext.Provider value={value}>
