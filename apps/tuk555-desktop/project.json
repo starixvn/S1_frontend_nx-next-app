@@ -24,7 +24,7 @@
 			"options": {
 				"buildTarget": "tuk555-desktop:build",
 				"dev": true,
-				"port": 4005
+				"port": 4007
 			},
 			"configurations": {
 				"development": {
