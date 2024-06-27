@@ -12,7 +12,11 @@ interface ILogoProps {
 
 const Logo = ({ logoUrl, rewardsUrl, showSpLogo }: ILogoProps) => {
 	return (
-		<div className={classNames('logo')}>
+		<div
+			className={classNames('logo', {
+				olympic: isEventPeriod(EVENT_PERIOD.OLYMPIC),
+			})}
+		>
 			<Link href={paths.home.root}>
 				{/* 奧運期間使用奧運LOGO */}
 				{isEventPeriod(EVENT_PERIOD.OLYMPIC) ? (
