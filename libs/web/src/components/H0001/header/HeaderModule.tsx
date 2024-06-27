@@ -69,7 +69,7 @@ const HeaderModule = ({
 			<Link href={paths.home.root}>
 				{/* 奧運期間使用奧運LOGO */}
 				{isEventPeriod(EVENT_PERIOD.OLYMPIC) ? (
-					<a className='header-logo'>
+					<a className='header-logo olympic'>
 						<img
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/event/olympic/logo-nova88.webp`}
 							alt='olympic logo'
