@@ -14750,7 +14750,7 @@ input[type=number] {
   bottom: 2vw;
   width: 9vw !important;
   height: 9vw !important;
-  background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+  background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
   -webkit-animation: splogo 3.5s ease-in-out infinite;
           animation: splogo 3.5s ease-in-out infinite;
   -webkit-clip-path: none !important;
@@ -14828,102 +14828,22 @@ input[type=number] {
 }
 @-webkit-keyframes eurologo {
   0% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 0.1;
-  }
-  2% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 1;
-  }
-  27% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 1;
-  }
-  31% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 0;
-  }
-  32% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 0.1;
-  }
-  34% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 1;
-  }
-  62% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 1;
-  }
-  65% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 0;
-  }
-  66% {
-    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
-    opacity: 0.1;
-  }
-  69% {
-    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
-    opacity: 1;
-  }
-  97% {
     background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
   100% {
     background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
-    opacity: 0;
+    opacity: 1;
   }
 }
 @keyframes eurologo {
   0% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 0.1;
-  }
-  2% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 1;
-  }
-  27% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 1;
-  }
-  31% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 0;
-  }
-  32% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 0.1;
-  }
-  34% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 1;
-  }
-  62% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 1;
-  }
-  65% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 0;
-  }
-  66% {
-    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
-    opacity: 0.1;
-  }
-  69% {
-    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
-    opacity: 1;
-  }
-  97% {
     background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
   100% {
     background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
-    opacity: 0;
+    opacity: 1;
   }
 }
 .header-login {
