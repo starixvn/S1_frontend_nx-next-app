@@ -1,11 +1,13 @@
 // import React from 'react'
 import { useTranslation } from 'next-i18next'
 import dayjs from 'dayjs'
-import { useOlympic } from '../../hooks'
+import { ICustDrawPrizeData } from '@nx-next-app/service'
 
-const RedemptionHistory = () => {
+interface IRedemptionHistory {
+	custRedeemHistoryList: ICustDrawPrizeData[]
+}
+const RedemptionHistory = ({ custRedeemHistoryList }: IRedemptionHistory) => {
 	const { t } = useTranslation()
-	const { custRedeemHistoryList } = useOlympic()
 	return (
 		<>
 			<div className='olympic-bottom-title'>

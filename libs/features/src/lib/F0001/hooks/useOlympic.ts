@@ -121,13 +121,19 @@ const useOlympic = () => {
 		}
 	}
 
+	// 用金牌兌換Bonus api
 	const [setOlympicEventPrize] = useSetOlympicEventPrizeMutation()
 
 	// 取得用戶兌換Bonus紀錄
 	const { data: { data: custRedeemHistoryList } = {} } =
-		useGetCustDrawPrizeListQuery({
-			eventId: EVENT_ID,
-		})
+		useGetCustDrawPrizeListQuery(
+			{
+				eventId: EVENT_ID,
+			},
+			{
+				skip: !isLogin,
+			}
+		)
 
 	// 處理金牌兌換Bonus的function
 	const handleRedeem = async (

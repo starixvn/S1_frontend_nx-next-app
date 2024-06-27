@@ -41,7 +41,7 @@ const BonusListItems = () => {
 				const bonusPrice = t(`${labelBonusGold}_${currencyId}`)
 
 				return (
-					<div className='bouns-content-item'>
+					<div key={redeemImg} className='bouns-content-item'>
 						<div className='money'>
 							<img src={imgUrlMoney} alt='gold pic' />
 							<div>{t(bonusPrice)}</div>
