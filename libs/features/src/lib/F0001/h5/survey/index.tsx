@@ -44,7 +44,15 @@ const Survey = () => {
 
 	const renderInfoMessage = (errMsg: string) => {
 		if (errMsg) {
-			return <div className={classNames('tip', 'active')}>{errMsg}</div>
+			return (
+				<div
+					className={classNames('tip active', {
+						message: errMsg === t('Label_Survey_Req_Content'),
+					})}
+				>
+					{errMsg}
+				</div>
+			)
 		}
 		return null
 	}
