@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	useGetUserInfoQuery,
 	useLazyCheckSignInQuery,
@@ -14,7 +15,6 @@ import {
 	useSynchronizeCookiesEffect,
 } from '../../hooks'
 import { IUserInfoData } from '../../service/accountStrict/type'
-import { ENV_COOKIE_NAMES } from '../../app/constants/Names'
 
 export interface AuthContextInterface {
 	auth: { isLogin: boolean | undefined }

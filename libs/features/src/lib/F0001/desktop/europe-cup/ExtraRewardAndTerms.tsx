@@ -1,14 +1,14 @@
 import React from 'react'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
-import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 
 const ExtraRewardAndTerms = () => {
 	const { t } = useTranslation()
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
+	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	return (
 		<>

@@ -3,9 +3,8 @@ import { includes } from 'lodash-es'
 import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { CurrenciesEnum } from '@nx-next-app/types'
-import { numberFormat } from '@nx-next-app/utils'
+import { numberFormat, getSafetyLv } from '@nx-next-app/utils'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { getSafetyLv } from '@nx-next-app/site/yashbet'
 
 const Verification = () => {
 	const { t } = useTranslation()
@@ -31,9 +30,16 @@ const Verification = () => {
 
 	const userLevelImageInfo = VIP_CLUB_IMAGES[(userLevel as number) - 1]
 
+	const phoneVerification = {
+		exist: true,
+		value: phoneVerified,
+	}
+	const emailVerification = {
+		exist: false,
+	}
 	const { safetyLv, safetyDisplayKey } = getSafetyLv({
-		accountName,
-		phoneVerified,
+		phoneVerification,
+		emailVerification,
 	})
 
 	return (

@@ -2,7 +2,7 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, Join } from '@nx-next-app/features/F0001/desktop'
+import { Layout, JoinNova88 } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -26,7 +26,7 @@ const JoinPage = ({
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<main>
-						<Join cookies={originCookies} />
+						<JoinNova88 cookies={originCookies} />
 					</main>
 				</Layout>
 			</GlobalDataProvider>

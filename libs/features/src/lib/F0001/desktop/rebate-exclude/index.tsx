@@ -1,4 +1,4 @@
-import { isArray } from 'lodash-es'
+import { isArray, upperFirst } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { Loading } from '@nx-next-app/components/D0001'
 import { useRebateExclude } from '@nx-next-app/features/F0001/hooks'
@@ -6,6 +6,8 @@ import { useRebateExclude } from '@nx-next-app/features/F0001/hooks'
 const RebateExclude = () => {
 	const { t } = useTranslation()
 	const { loading, rebateExcludeGameList } = useRebateExclude()
+	const year = new Date().getFullYear()
+	const site = upperFirst(process.env['NEXT_PUBLIC_SITE_NAME'])
 
 	if (loading) return <Loading />
 
@@ -44,7 +46,9 @@ const RebateExclude = () => {
 			</main>
 
 			<div className='subcopyright'>
-				<span className='text'>{`© Copyright ${new Date().getFullYear()}. Nova88. All Rights Reserved.`}</span>
+				<span className='text'>
+					{t('Label_Footer_Copyright', { year, site })}
+				</span>
 			</div>
 		</div>
 	)
