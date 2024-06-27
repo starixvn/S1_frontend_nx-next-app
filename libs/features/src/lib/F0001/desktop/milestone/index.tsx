@@ -4,6 +4,7 @@ import { useTranslation, Trans } from 'next-i18next'
 // ts要求引入SwiperClass
 import { Swiper as SwiperClass } from 'swiper'
 import { IMilestone, ISlide } from 'libs/web/src/app/types/milestone'
+import { upperFirst } from 'lodash-es'
 
 interface IMilestoneContentProps {
 	milestonesData: IMilestone[]
