@@ -9,6 +9,7 @@ import { createContext, ReactNode, useContext } from 'react'
 import DesktopReferralDetailModal from '@nx-next-app/features/F0006/desktop/referral/ReferralDetailModal'
 import H5ReferralDetailModal from '@nx-next-app/features/F0006/h5/referral/ReferralDetailModal'
 import { DeviceTypeEnum } from '@nx-next-app/types'
+import { paths } from '@nx-next-app/constants'
 
 export interface ReferralContextInterface {
 	loading: boolean
@@ -90,6 +91,14 @@ const ReferralProvider = ({
 		} catch (error) {
 			modal.error((error as Error).message)
 		}
+	}
+
+	// 替換推薦連結中的 {{ref_url}} 為推薦連結
+	if (typeof window !== 'undefined' && referralCode) {
+		const refUrl = `${origin}${paths.join.root}?AffId=${referralCode}`
+		referralInfoList.forEach(item => {
+			item.url = item.url.replace('{{ref_url}}', refUrl)
+		})
 	}
 
 	const value: ReferralContextInterface = {
