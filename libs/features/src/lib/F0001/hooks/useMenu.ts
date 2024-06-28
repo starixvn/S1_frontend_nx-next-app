@@ -1,4 +1,4 @@
-import { includes, find } from 'lodash-es'
+import { includes, find, filter } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useMenuData } from '@nx-next-app/hooks'
 import { paths, PRODUCTS } from '@nx-next-app/constants'
@@ -16,7 +16,11 @@ import {
 	useLazyGotoGameQuery,
 } from '@nx-next-app/service'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { getIsTpMaintain, onWindowOpenProduct } from '@nx-next-app/utils'
+import {
+	getIsTpMaintain,
+	onWindowOpenProduct,
+	isGameExcludedFromLiff,
+} from '@nx-next-app/utils'
 import { MENU_DATA } from '@nx-next-app/site/nova88'
 import { memberTypeEnum } from 'libs/web/src/app/constants/userInfo'
 import type {
@@ -97,7 +101,7 @@ const useMenu = () => {
 	} = useAuth()
 	const { modal } = useGlobalModal()
 	const { LobberHeaderMenuList, isLobbyHeaderError } = useMenuData()
-	const { tpMaintainList } = useGlobalData()
+	const { tpMaintainList, isInLiff } = useGlobalData()
 	const [gotoGame] = useLazyGotoGameQuery()
 	const { data: { data: tpGameTypeSettingList = [] } = {} } =
 		useGetCustTpGameTypeSettingQuery(null, {
@@ -117,7 +121,12 @@ const useMenu = () => {
 				...rest
 			} = { ...mainMenuItem, ...(defMainMenuItem && defMainMenuItem) }
 
-			const subMenus = data.map(subMenuItem => {
+			// 排除在 liff 不支援的遊戲
+			const menuItems = isInLiff
+				? filter(data, ({ tpGameIdNo }) => !isGameExcludedFromLiff(tpGameIdNo))
+				: data
+
+			const subMenus = menuItems.map(subMenuItem => {
 				// * subMenu 是插入的相關資料 因此不會影響順序
 				subMenu.forEach(defSubItem => {
 					if (subMenuItem.tpGameIdNo === defSubItem.tpGameIdNo) {
@@ -546,8 +555,6 @@ const useMenu = () => {
 				liveStreamingCallback()
 				return
 			}
-
-			redirectAction(item)
 		}
 
 		// * 靜態 (isTpMaintain noPlay 會在 onStaticMenuOpen 擋掉)
