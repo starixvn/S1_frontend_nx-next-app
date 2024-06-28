@@ -8,7 +8,7 @@ import Footer from './Footer'
 import RedemptionHistory from './RedemptionHistory'
 import Terms from './Terms'
 import Banner from './Banner'
-import { useOlympic } from '../../hooks'
+import { useOlympic } from '../../providers'
 
 const Olympic = () => {
 	const { push } = useRouter()

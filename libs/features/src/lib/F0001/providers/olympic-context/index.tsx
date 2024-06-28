@@ -1,7 +1,15 @@
+import {
+	ReactNode,
+	createContext,
+	useContext,
+	useEffect,
+	useState,
+} from 'react'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import {
 	IAxiosError,
+	ICustDrawPrizeData,
 	useGetCustDrawPrizeListQuery,
 	useLazyGetOlympicEventTicketQuery,
 	useSetOlympicEventPrizeMutation,
@@ -13,13 +21,37 @@ import {
 } from '@nx-next-app/types'
 import { numberFormat } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
-import { useEffect, useState } from 'react'
+
+interface IOlympicContext {
+	availableGoldMetals: number
+	userMoneyData: IUserMoneyData
+	missionTotal: IMissionTotal
+	progressPercentage: IProgressPercentage
+	custRedeemHistoryList: ICustDrawPrizeData[] | undefined
+	handleRedeem: (
+		custId: number | undefined,
+		usedGoldMetalCount: number,
+		successModal: () => void,
+		insufficientModal: () => void
+	) => void
+}
+
+interface IOlympicProviderProps {
+	children: ReactNode
+}
+
+const OlympicContext = createContext<IOlympicContext>(
+	// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	null!
+)
 
 const EVENT_ID = 18 // 代表Nova88站台  goal123是19  bwing是20
 const getProgressPercentage = (had: number, total: number) =>
 	had >= total ? '100' : ((had / total) * 100).toFixed(2)
 
-const useOlympic = () => {
+export const useOlympic = () => useContext(OlympicContext)
+
+export const OlympicProvider = ({ children }: IOlympicProviderProps) => {
 	const { t } = useTranslation()
 	const {
 		auth: { isLogin },
@@ -39,7 +71,7 @@ const useOlympic = () => {
 			deposit: '0',
 			turnover: '0',
 		})
-	const [availableGoldMetals, setAvalableGoldMetals] = useState<number>(0)
+	const [availableGoldMetals, setAvailableGoldMetals] = useState<number>(0)
 
 	// 取得玩家目前存款與流水和金牌數量 api
 	const [getOlympicEventTicket] = useLazyGetOlympicEventTicketQuery()
@@ -48,6 +80,7 @@ const useOlympic = () => {
 			const { data: olympicEventTicketData } = await getOlympicEventTicket(
 				null
 			).unwrap()
+
 			const {
 				olympicEventPromotionMissionProgress,
 				promotionMission = [] || null,
@@ -107,7 +140,7 @@ const useOlympic = () => {
 				})
 
 				// 取得目前擁有金牌數量
-				setAvalableGoldMetals(availableGoldMetals)
+				setAvailableGoldMetals(availableGoldMetals)
 			}
 
 			// 還未驗證手機跟信箱的狀態先跳出錯誤訊息
@@ -125,15 +158,17 @@ const useOlympic = () => {
 	const [setOlympicEventPrize] = useSetOlympicEventPrizeMutation()
 
 	// 取得用戶兌換Bonus紀錄
-	const { data: { data: custRedeemHistoryList } = {} } =
-		useGetCustDrawPrizeListQuery(
-			{
-				eventId: EVENT_ID,
-			},
-			{
-				skip: !isLogin,
-			}
-		)
+	const {
+		data: { data: custRedeemHistoryList } = {},
+		refetch: refetchCustRedeemHistoryList,
+	} = useGetCustDrawPrizeListQuery(
+		{
+			eventId: EVENT_ID,
+		},
+		{
+			skip: !isLogin,
+		}
+	)
 
 	// 處理金牌兌換Bonus的function
 	const handleRedeem = async (
@@ -148,6 +183,7 @@ const useOlympic = () => {
 
 			// 如果成功用金牌兌換Bonus，就跳出對應的金額彈窗
 			successModal()
+			handleOlympicEventTicketData()
 		} catch (error) {
 			const { errorCode } = error as IAxiosError
 			if (errorCode === -1205) {
@@ -160,13 +196,14 @@ const useOlympic = () => {
 		}
 	}
 
-	// 呼叫getOlympicEventTicket api 並設置好所有會需要的state
+	// 呼叫getOlympicEventTicket && GetCustDrawPrizeList api
 	useEffect(() => {
 		if (!isLogin) return
-		handleOlympicEventTicketData()
+		handleOlympicEventTicketData() // 呼叫玩家目前資訊資料
+		refetchCustRedeemHistoryList() // 重新取得玩家兌換紀錄
 	}, [langId])
 
-	return {
+	const value = {
 		availableGoldMetals,
 		userMoneyData,
 		missionTotal,
@@ -174,8 +211,9 @@ const useOlympic = () => {
 		custRedeemHistoryList,
 		handleRedeem,
 	}
+	return (
+		<OlympicContext.Provider value={value}>{children}</OlympicContext.Provider>
+	)
 }
-
-export { useOlympic }
 
 export type UseOlympicProps = ReturnType<typeof useOlympic>

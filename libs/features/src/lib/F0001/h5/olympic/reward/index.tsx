@@ -3,7 +3,10 @@ import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useRouter } from 'next/router'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useOlympic, UseOlympicProps } from '@nx-next-app/features/F0001/hooks'
+import {
+	UseOlympicProps,
+	useOlympic,
+} from '@nx-next-app/features/F0001/providers'
 import SignificantModal from '../modal/SignificantModal'
 import BonusList from './bonusList'
 

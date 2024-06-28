@@ -7,6 +7,7 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { Layout, Olympic } from '@nx-next-app/features/F0001/h5'
+import { OlympicProvider } from '@nx-next-app/features/F0001/providers'
 
 type IEuroCupProps = InitialPropsInterface
 
@@ -19,7 +20,9 @@ const OlympicPage = ({
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider>
 				<Layout persistSEOData={persistSEOData}>
-					<Olympic />
+					<OlympicProvider>
+						<Olympic />
+					</OlympicProvider>
 				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>
