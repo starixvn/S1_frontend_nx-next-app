@@ -12,7 +12,7 @@ import RedemptionHistory from './RedemptionHistory'
 import Terms from './Terms'
 import Footer from './Footer'
 import Reward from './reward'
-import { useOlympic } from '../../hooks'
+import { useOlympic } from '../../providers'
 
 const Olympic = () => {
 	const {

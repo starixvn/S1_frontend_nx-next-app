@@ -16,18 +16,20 @@ const RedemptionHistory = ({ custRedeemHistoryList }: IRedemptionHistory) => {
 			<div className='sheet'>
 				<div className='sheet-content'>
 					<div className='sheet-content-title'>
-						{/* TODO: 串接後端api以取得玩家兌換bonus紀錄 */}
+						{/* 串接後端api以取得玩家兌換bonus紀錄 */}
 						<div>{t('Label_Olympic_Gold_Medal_Used')}</div>
 						<div>{t('Label_General_Day')}</div>
 						<div>{t('Label_General_Rewards')}</div>
 					</div>
 					<div className='sheet-content-text'>
 						{custRedeemHistoryList?.map(item => {
-							const { drawTime, prizeName } = item
+							const { drawTime, prizeName, prizeId } = item
 							return (
 								<div key={`history Record-${drawTime}`}>
-									{/*  TODO: 後端會增加一個是換幾個金牌數的欄位 */}
-									<div>3 {t('Label_Olympic_Gold_Medal')}</div>
+									{/*  後端會增加一個是換幾個金牌數的欄位，prizeId就是金牌數量 */}
+									<div>
+										{prizeId} {t('Label_Olympic_Gold_Medal')}
+									</div>
 									<div>{dayjs(drawTime).format('DD/MMMM/YY h:mm A')}</div>
 									<div>{prizeName}</div>
 								</div>

@@ -4,7 +4,10 @@ import { paths } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-import { UseOlympicProps, useOlympic } from '@nx-next-app/features/F0001/hooks'
+import {
+	UseOlympicProps,
+	useOlympic,
+} from '@nx-next-app/features/F0001/providers'
 import BonusList from './bonusList'
 import SignificantModal from '../modal/SignificantModal'
 
@@ -32,6 +35,7 @@ const Reward = () => {
 		progressPercentage,
 	} = useOlympic() as UseOlympicProps
 
+	// 按下deposit now按鈕
 	const handleDeposit = () => {
 		if (!isLogin) {
 			modal.open(<LoginModal />)
@@ -39,6 +43,16 @@ const Reward = () => {
 		}
 		push(paths.deposit.root)
 	}
+
+	// 按下bet now按鈕
+	const handleBetNow = () => {
+		if (!isLogin) {
+			modal.open(<LoginModal />)
+			return
+		}
+		push(paths.sports.root)
+	}
+
 	// significant condition的彈窗
 	const onOpenSignificantModal = () => {
 		modal.open(<SignificantModal />, {
@@ -104,13 +118,7 @@ const Reward = () => {
 											/>
 										</div>
 									</div>
-									<button
-										onClick={() =>
-											push({
-												pathname: paths.sports.root,
-											})
-										}
-									>
+									<button onClick={handleBetNow}>
 										{t('Label_General_BetNow')}
 									</button>
 								</div>
