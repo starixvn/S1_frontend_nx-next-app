@@ -15,12 +15,18 @@ import {
 	useSetOlympicEventPrizeMutation,
 } from '@nx-next-app/service'
 import {
+	CustPrizeListEventEnum,
+	DeviceTypeEnum,
 	IMissionTotal,
 	IProgressPercentage,
 	IUserMoneyData,
+	OlympicErrorCodeEnum,
 } from '@nx-next-app/types'
 import { numberFormat } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { paths } from '@nx-next-app/constants'
+import LoginModal from '../../desktop/modal/LoginModal'
 
 interface IOlympicContext {
 	availableGoldMetals: number
@@ -45,7 +51,8 @@ const OlympicContext = createContext<IOlympicContext>(
 	null!
 )
 
-const EVENT_ID = 18 // 代表Nova88站台  goal123是19  bwing是20
+const EVENT_ID = CustPrizeListEventEnum.Nova88 // 代表Nova88站台  goal123是19  bwing是20
+
 const getProgressPercentage = (had: number, total: number) =>
 	had >= total ? '100' : ((had / total) * 100).toFixed(2)
 
@@ -53,6 +60,7 @@ export const useOlympic = () => useContext(OlympicContext)
 
 export const OlympicProvider = ({ children }: IOlympicProviderProps) => {
 	const { t } = useTranslation()
+	const { push } = useRouter()
 	const {
 		auth: { isLogin },
 		userInfo: { langId, currencyId },
@@ -81,40 +89,39 @@ export const OlympicProvider = ({ children }: IOlympicProviderProps) => {
 				null
 			).unwrap()
 
-			const {
-				olympicEventPromotionMissionProgress,
-				promotionMission = [] || null,
-				availableGoldMetals,
-				errorCode,
-			} = olympicEventTicketData
+			const { errorCode } = olympicEventTicketData
 
-			if (olympicEventTicketData) {
+			// 如果有登入且登入的帳號是以驗證過手機和信箱的：
+			if (
+				olympicEventTicketData &&
+				!(
+					olympicEventTicketData?.errorCode ===
+					OlympicErrorCodeEnum.ProfileNotVerify
+				)
+			) {
+				const {
+					olympicEventPromotionMissionProgress: {
+						depositAmount = 0,
+						turnoverSum = 0,
+					} = {},
+					promotionMission: [
+						{ depositAmount: missionDepositAmount = 0 } = {},
+						{ turnoverAmount: missionTurnoverAmount = 0 } = {},
+					] = [],
+					availableGoldMetals,
+				} = olympicEventTicketData
+
 				// 取得玩家已存金額(deposit)與已玩有效流水(turnover)
 				setUserMoneyData({
-					deposit: numberFormat(
-						olympicEventPromotionMissionProgress?.depositAmount,
-						currencyId,
-						0,
-						true
-					),
-					turnover: numberFormat(
-						olympicEventPromotionMissionProgress?.turnoverSum,
-						currencyId,
-						0,
-						true
-					),
+					deposit: numberFormat(depositAmount, currencyId, 0, true),
+					turnover: numberFormat(turnoverSum, currencyId, 0, true),
 				})
 
 				// 達成目標所需總額
 				setMissionTotal({
-					totalDeposit: numberFormat(
-						promotionMission && promotionMission[0]?.depositAmount,
-						currencyId,
-						0,
-						true
-					),
+					totalDeposit: numberFormat(missionDepositAmount, currencyId, 0, true),
 					totalTurnover: numberFormat(
-						promotionMission && promotionMission[1]?.turnoverAmount,
+						missionTurnoverAmount,
 						currencyId,
 						0,
 						true
@@ -123,28 +130,16 @@ export const OlympicProvider = ({ children }: IOlympicProviderProps) => {
 
 				// progress bar的完成比例
 				setProgressPercentage({
-					deposit:
-						errorCode === 104 || !isLogin
-							? '0'
-							: getProgressPercentage(
-									olympicEventPromotionMissionProgress?.depositAmount,
-									promotionMission?.[0]?.depositAmount || 0
-							  ),
-					turnover:
-						errorCode === 104 || !isLogin
-							? '0'
-							: getProgressPercentage(
-									olympicEventPromotionMissionProgress?.turnoverSum,
-									promotionMission?.[1]?.turnoverAmount || 0
-							  ),
+					deposit: getProgressPercentage(depositAmount, missionDepositAmount),
+					turnover: getProgressPercentage(turnoverSum, missionTurnoverAmount),
 				})
 
 				// 取得目前擁有金牌數量
 				setAvailableGoldMetals(availableGoldMetals)
 			}
 
-			// 還未驗證手機跟信箱的狀態先跳出錯誤訊息
-			if (errorCode === 104) {
+			// 如果有登入但還未驗證手機跟信箱的狀態先跳出叮嚀訊息
+			if (errorCode === OlympicErrorCodeEnum.ProfileNotVerify) {
 				modal.info(t('Label_EuropeCup_Verify_Email_Phone'), {
 					onOK: () => closeModal(),
 				})
@@ -178,6 +173,20 @@ export const OlympicProvider = ({ children }: IOlympicProviderProps) => {
 		insufficientModal: () => void
 	) => {
 		const data = { custId: custId ?? 0, usedGoldMetalCount }
+
+		// 未登入時想兌換會告知使用者需登入
+		if (!isLogin) {
+			if (
+				Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) ===
+				DeviceTypeEnum.Desktop
+			) {
+				modal.open(<LoginModal />)
+			} else {
+				push(`${paths.login.root}?from=${paths.olympic.root}`)
+			}
+			return
+		}
+
 		try {
 			await setOlympicEventPrize(data).unwrap()
 
@@ -186,7 +195,7 @@ export const OlympicProvider = ({ children }: IOlympicProviderProps) => {
 			handleOlympicEventTicketData()
 		} catch (error) {
 			const { errorCode } = error as IAxiosError
-			if (errorCode === -1205) {
+			if (errorCode === OlympicErrorCodeEnum.BonusOngoing) {
 				// 如果玩家身上還有Bonus未用完(含非奧運的Bonus)，跳錯誤警告訊息
 				modal.error(t('Label_Olympic_Still_Running_Bonus'))
 			} else {

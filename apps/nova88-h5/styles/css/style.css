@@ -1980,7 +1980,7 @@ main .gameList .icon-new {
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
 }
-#popup > div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo):not(.bigwin) {
+#popup > div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo):not(.bigwin):not(.medalpop) {
   background: white;
   width: 100%;
 }
@@ -3695,7 +3695,7 @@ main .gameList .icon-new {
 }
 #popup.olympic-medalpop .medalpop-top {
   background: #FF8B21;
-  width: 85vw;
+  width: 100%;
   height: 14vw;
   border-radius: 4vw 4vw 0 0;
 }

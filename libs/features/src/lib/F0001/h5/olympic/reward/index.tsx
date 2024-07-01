@@ -27,12 +27,23 @@ const Reward = () => {
 		progressPercentage,
 	} = useOlympic() as UseOlympicProps
 
+	// 按下deposit now按鈕
 	const handleDeposit = () => {
 		if (!isLogin) {
 			push(paths.login.root)
 			return
 		}
 		push(paths.deposit.root)
+	}
+
+	// 按下bet now按鈕
+	const handleBetNow = () => {
+		if (!isLogin) {
+			push(paths.login.root)
+
+			return
+		}
+		push(paths.sports.root)
 	}
 
 	// significant condition的彈窗
@@ -91,7 +102,9 @@ const Reward = () => {
 									{missionTotal.totalTurnover}
 								</div>
 							</div>
-							<button>{t('Label_General_BetNow')}</button>
+							<button onClick={handleBetNow}>
+								{t('Label_General_BetNow')}
+							</button>
 						</div>
 					</div>
 					<a onClick={onOpenSignificantModal}>
