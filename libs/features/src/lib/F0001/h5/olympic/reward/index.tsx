@@ -7,6 +7,7 @@ import {
 	UseOlympicProps,
 	useOlympic,
 } from '@nx-next-app/features/F0001/providers'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import SignificantModal from '../modal/SignificantModal'
 import BonusList from './bonusList'
 
@@ -15,7 +16,7 @@ const Reward = () => {
 	const { push } = useRouter()
 	const { modal } = useGlobalModal()
 	const {
-		userInfo: { currencyName },
+		userInfo: { currencyName, currencyId, langId },
 		auth: { isLogin },
 	} = useAuth()
 
@@ -77,10 +78,16 @@ const Reward = () => {
 									/>
 								</div>
 								{/* 接後端api隨時更新玩家存款進度 */}
-								<div>
-									{currencyName} {userMoneyData.deposit} /{' '}
-									{missionTotal.totalDeposit}
-								</div>
+								{currencyId === CurrenciesEnum.THB && langId === 'th' ? (
+									<div>
+										{userMoneyData.deposit} / {missionTotal.totalDeposit} บาท
+									</div>
+								) : (
+									<div>
+										{currencyName} {userMoneyData.deposit} /{' '}
+										{missionTotal.totalDeposit}
+									</div>
+								)}
 							</div>
 							<button onClick={handleDeposit}>{t('Label_Deposit_Now')}</button>
 						</div>
@@ -97,10 +104,16 @@ const Reward = () => {
 									/>
 								</div>
 								{/* 接後端api隨時更新玩家有效流水進度 */}
-								<div>
-									{currencyName} {userMoneyData.turnover} /{' '}
-									{missionTotal.totalTurnover}
-								</div>
+								{currencyId === CurrenciesEnum.THB && langId === 'th' ? (
+									<div>
+										{userMoneyData.turnover} / {missionTotal.totalTurnover} บาท
+									</div>
+								) : (
+									<div>
+										{currencyName} {userMoneyData.turnover} /{' '}
+										{missionTotal.totalTurnover}
+									</div>
+								)}
 							</div>
 							<button onClick={handleBetNow}>
 								{t('Label_General_BetNow')}
