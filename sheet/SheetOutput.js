@@ -33,5 +33,5 @@ const outputSheet = async tab => {
 
 // * 可吃參數 ex: node SheetSort.js nova88 common
 const args = process.argv.slice(2)
-const tabs = args.length !== 0 ? args : ['common', 'nova88']
+const tabs = args.length !== 0 ? args : ['common', 'nova88', 'tuk555']
 tabs.forEach(tab => outputSheet(tab))

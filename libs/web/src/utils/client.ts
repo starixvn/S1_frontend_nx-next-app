@@ -1,4 +1,4 @@
-import { PRODUCTS } from '../app/constants/products'
+import { LIFF_EXCLUDED_TP_GAME_IDS } from '../app/constants'
 
 type ReactNativeWebViewMessage =
 	| { type: 'SyncCurrency'; payload: number }
@@ -40,11 +40,7 @@ export const setAppCurrency = (currencyId: number) =>
 export const setAppLanguage = (langCode: string) =>
 	postMsgToApp({ type: 'SyncLanguage', payload: langCode })
 
-const liffExcludedGameIds = new Set<number>([
-	PRODUCTS.FishHaiba.tpGameIdNo,
-	PRODUCTS.HappyFish5.tpGameIdNo,
-	PRODUCTS.MonsterAwaken.tpGameIdNo,
-])
+const liffExcludedGameIds = new Set<number>(LIFF_EXCLUDED_TP_GAME_IDS)
 
 export const isGameExcludedFromLiff = (tpGameIdNo?: number) =>
 	tpGameIdNo !== undefined && liffExcludedGameIds.has(tpGameIdNo)
