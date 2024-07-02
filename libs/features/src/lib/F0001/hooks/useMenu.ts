@@ -1,4 +1,4 @@
-import { includes, find } from 'lodash-es'
+import { includes, find, filter } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useMenuData } from '@nx-next-app/hooks'
 import { paths, PRODUCTS } from '@nx-next-app/constants'
@@ -123,7 +123,7 @@ const useMenu = () => {
 
 			// 排除在 liff 不支援的遊戲
 			const menuItems = isInLiff
-				? data.filter(({ tpGameIdNo }) => !isGameExcludedFromLiff(tpGameIdNo))
+				? filter(data, ({ tpGameIdNo }) => !isGameExcludedFromLiff(tpGameIdNo))
 				: data
 
 			const subMenus = menuItems.map(subMenuItem => {

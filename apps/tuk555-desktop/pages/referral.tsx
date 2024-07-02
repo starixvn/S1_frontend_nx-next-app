@@ -33,34 +33,33 @@ const ReferralPage = ({
 	const { t } = useTranslation()
 
 	// 使用 i18n, 因此需放在此處跟著 re-render 更新
+	// URL 內的 {{ref_url}} 會被替換為推薦連結
 	const referralInfoList = [
 		{
 			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/icon-Facebook.png`,
 			hoverImg: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/icon-Facebook-1.png`,
-			url: `https://www.facebook.com/sharer/sharer.php?u=${
-				process.env['NEXT_PUBLIC_ENV_DB_HOST']
-			}&quote=${t('Label_Referral_Welcome')}`,
+			url: `https://www.facebook.com/sharer/sharer.php?u={{ref_url}}&quote=${t(
+				'Label_Referral_Welcome'
+			)}`,
 		},
 		{
 			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/icon-WhatsApp.png`,
 			hoverImg: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/icon-WhatsApp-1.png`,
-			url: `https://wa.me/?&text=${t('Label_Referral_Welcome')} ${
-				process.env['NEXT_PUBLIC_ENV_DB_HOST']
-			}`,
+			url: `https://wa.me/?text=${t('Label_Referral_Welcome')} {{ref_url}}`,
 		},
 		{
 			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/icon-Telegram.png`,
 			hoverImg: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/icon-Telegram-1.png`,
-			url: `https://t.me/share/url?url=${
-				process.env['NEXT_PUBLIC_ENV_DB_HOST']
-			}&text=${t('Label_Referral_Welcome')}`,
+			url: `https://t.me/share/url?url={{ref_url}}&text=${t(
+				'Label_Referral_Welcome'
+			)}`,
 		},
 		{
 			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/icon-Line.png`,
 			hoverImg: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/icon-Line-1.png`,
 			url: `http://line.naver.jp/R/msg/text/?${t(
 				'Label_Referral_Welcome'
-			)}%0D%0A${process.env['NEXT_PUBLIC_ENV_DB_HOST']}`,
+			)}%0D%0A{{ref_url}}`,
 		},
 	]
 
