@@ -3,7 +3,7 @@ import { usePromotion } from '@nx-next-app/features/F0001/providers'
 import { useAuth } from '@nx-next-app/data-access'
 import classNames from 'classnames'
 import { PromotionFilterEnum } from '@nx-next-app/types'
-import { upperCase } from 'lodash-es'
+import { toUpper } from 'lodash-es'
 import { Form } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useTranslation } from 'next-i18next'
@@ -42,7 +42,8 @@ const PromotionFilter = () => {
 								})}
 								onClick={() => onChangeActiveFilterType(option.value)}
 							>
-								{upperCase(t(option.displayKey) || '')}
+								{/* 從upperCase改為toUpper，詳解請見：README/language.md */}
+								{toUpper(t(option.displayKey) || '')}
 							</button>
 						)
 					})}
