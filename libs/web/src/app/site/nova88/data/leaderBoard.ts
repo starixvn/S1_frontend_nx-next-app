@@ -80,7 +80,7 @@ export const LEADER_BOARD_GAME_POINT_NAV: {
 	{
 		id: LeaderBoardGameTypeEnum.Sports,
 		displayKey: 'Label_General_Sports',
-		imgName: 'ranking_new_sportsbg.jpg',
+		imgName: 'leaderboard_new_bg.jpg',
 	},
 	{
 		id: LeaderBoardGameTypeEnum.Casino,
