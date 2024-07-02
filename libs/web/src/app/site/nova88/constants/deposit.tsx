@@ -6,13 +6,13 @@ import { DepositPaymentEnum } from '@nx-next-app/types'
 export const DEPOSIT_PAYMENT_ORDERS = [
 	DepositPaymentEnum.AutoDeposit,
 	DepositPaymentEnum.BankTransfer,
-	DepositPaymentEnum.LinePay,
+	DepositPaymentEnum.QuickTransfer,
+	DepositPaymentEnum.QRPay,
 	DepositPaymentEnum.OnlineBanking,
+	DepositPaymentEnum.LinePay,
 	DepositPaymentEnum.MobilePay,
 	DepositPaymentEnum.CryptoPay,
-	DepositPaymentEnum.QRPay,
 	DepositPaymentEnum.TopUpCardPay,
-	DepositPaymentEnum.QuickTransfer,
 	DepositPaymentEnum.ChatTransfer,
 ]
 
