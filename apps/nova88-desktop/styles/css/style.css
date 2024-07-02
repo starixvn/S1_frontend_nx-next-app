@@ -1496,37 +1496,34 @@ header input:focus-within {
   font-weight: bold;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-en.jpg) no-repeat center/auto;
+  background: url(https://image.0814media.net/SiteSkin/img/leaderboardbanner-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.en {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-en.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.my {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-my.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-my.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.cs {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-cs.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-cs.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.th {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-th.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-th.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.id {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-id.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-id.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.kh {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-kh.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-kh.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.vn {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-vn.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-vn.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.br {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-br.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-br.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.ko {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-ko.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .rankingList.jp {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-jp.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-ko.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList > div,
 .header > div.menu .subMenu-Wrapper-new .rankingList > a {
@@ -18937,11 +18934,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .rankingNew {
-  background: url(https://banner.0814media.net/desktop/img/leaderboard_new_bg.jpg) no-repeat top center;
+  background: url(https://banner.0814media.net/desktop/img/ranking_new_sportsbg.jpg) no-repeat top center;
   background-position: top center;
   background-size: auto 100%;
   min-height: 1025px;
-  padding-top: 195px;
 }
 .rankingNew section {
   -webkit-box-orient: vertical;

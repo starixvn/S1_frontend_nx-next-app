@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { capitalize } from 'lodash-es'
 import { useAuth } from '@nx-next-app/data-access'
 import { numberFormatExcludeString } from '@nx-next-app/utils'
-import type { VipBannerInfo } from '@nx-next-app/service'
+import { VipBannerInfo, RebateCategoryEnum } from '@nx-next-app/service'
 
 interface IVipTableProps {
 	vipBannerInfo: VipBannerInfo | undefined
@@ -24,6 +24,7 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 			}`}
 		>
 			<div className='viptable-item'>
+				{/* === Service support ===  */}
 				<ul className='viptable-item-title'>
 					<li>{capitalize(t('Label_Vip_Service_Support') as string)}</li>
 				</ul>
@@ -82,6 +83,7 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 				</ul>
 			</div>
 			<div className='viptable-item'>
+				{/* === Exclusive bonusMYR ===  */}
 				<ul className='viptable-item-title'>
 					<li>
 						{capitalize(t('Label_Vip_Exclusive_Bonus') as string)}
@@ -96,27 +98,73 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 					</li>
 				</ul>
 			</div>
+			{/* === Special rebate ===  */}
 			<div className='viptable-item'>
 				<ul className='viptable-item-title'>
 					<li>{capitalize(t('Label_Vip_Special_Rebate') as string)}</li>
 				</ul>
+
+				{/* Sports */}
 				<ul className='viptable-item-text'>
 					<li>{capitalize(t('Label_Vip_Sport_Rebate') as string)}</li>
-					<li>{vipBannerInfo?.rebateCategory[0]?.percentage}%</li>
+					<li>
+						{
+							vipBannerInfo?.rebateCategory[RebateCategoryEnum.Sports]
+								?.percentage
+						}
+						%
+					</li>
 				</ul>
+
+				{/* LiveCasino */}
 				<ul className='viptable-item-text'>
 					<li>{capitalize(t('Label_Vip_Live_Casino_Rebate') as string)}</li>
-					<li>{vipBannerInfo?.rebateCategory[2]?.percentage}%</li>
+					<li>
+						{
+							vipBannerInfo?.rebateCategory[RebateCategoryEnum.LiveCasino]
+								?.percentage
+						}
+						%
+					</li>
 				</ul>
+
+				{/* Casino */}
 				<ul className='viptable-item-text'>
 					<li>{capitalize(t('Label_Vip_Slot_Fishing_Rebate') as string)}</li>
-					<li>{vipBannerInfo?.rebateCategory[1]?.percentage}%</li>
+					<li>
+						{
+							vipBannerInfo?.rebateCategory[RebateCategoryEnum.Casino]
+								?.percentage
+						}
+						%
+					</li>
 				</ul>
+
+				{/* VirtualSports */}
 				<ul className='viptable-item-text'>
 					<li>{capitalize(t('Label_Vip_Virtual_Sport_Rebate') as string)}</li>
-					<li>{vipBannerInfo?.rebateCategory[3]?.percentage}%</li>
+					<li>
+						{
+							vipBannerInfo?.rebateCategory[RebateCategoryEnum.VirtualSports]
+								?.percentage
+						}
+						%
+					</li>
+				</ul>
+
+				{/* ESports */}
+				<ul className='viptable-item-text'>
+					<li>{capitalize(t('Label_Vip_ESport_Rebate') as string)}</li>
+					<li>
+						{
+							vipBannerInfo?.rebateCategory[RebateCategoryEnum.ESports]
+								?.percentage
+						}
+						%
+					</li>
 				</ul>
 			</div>
+			{/* === Referral bonus program ===  */}
 			<div className='viptable-item'>
 				<ul className='viptable-item-title'>
 					<li>{capitalize(t('Label_Vip_Referral_Bonus_Program') as string)}</li>
@@ -126,6 +174,7 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 					<li className={`${vipBannerInfo?.referralBonus ? 'High' : null}`} />
 				</ul>
 			</div>
+			{/* === Tier upgrade requirementMYR ===  */}
 			<div className='viptable-item'>
 				<ul className='viptable-item-title'>
 					<li>
@@ -143,6 +192,7 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 					</li>
 				</ul>
 			</div>
+			{/* === Tier maintenance requirementMYR ===  */}
 			<div className='viptable-item'>
 				<ul className='viptable-item-title'>
 					<li>
