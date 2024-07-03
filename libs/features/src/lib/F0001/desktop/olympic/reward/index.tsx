@@ -8,6 +8,7 @@ import {
 	UseOlympicProps,
 	useOlympic,
 } from '@nx-next-app/features/F0001/providers'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import BonusList from './bonusList'
 import SignificantModal from '../modal/SignificantModal'
 
@@ -23,7 +24,7 @@ const Reward = () => {
 	const { modal } = useGlobalModal()
 	const { push } = useRouter()
 	const {
-		userInfo: { currencyName },
+		userInfo: { currencyName, currencyId, langId },
 		auth: { isLogin },
 	} = useAuth()
 
@@ -50,7 +51,7 @@ const Reward = () => {
 			modal.open(<LoginModal />)
 			return
 		}
-		push(paths.sports.root)
+		push(`${paths.sports.root}?provider=SabaSoccer`)
 	}
 
 	// significant condition的彈窗
@@ -81,10 +82,17 @@ const Reward = () => {
 										<div className='text'>
 											<span>{t('Label_General_Deposit')}</span>
 											{/* 接後端api隨時更新玩家存款進度 */}
-											<span>
-												{currencyName} {userMoneyData.deposit} /{' '}
-												{missionTotal.totalDeposit}
-											</span>
+											{currencyId === CurrenciesEnum.THB && langId === 'th' ? (
+												<span>
+													{userMoneyData.deposit} / {missionTotal.totalDeposit}{' '}
+													บาท
+												</span>
+											) : (
+												<span>
+													{currencyName} {userMoneyData.deposit} /{' '}
+													{missionTotal.totalDeposit}
+												</span>
+											)}
 										</div>
 										<div className='progress-bar'>
 											<div
@@ -104,10 +112,17 @@ const Reward = () => {
 										<div className='text'>
 											<span>{t('Label_General_Turnover')}</span>
 											{/* 接後端api隨時更新玩家有效流水進度 */}
-											<span>
-												{currencyName} {userMoneyData.turnover} /{' '}
-												{missionTotal.totalTurnover}
-											</span>
+											{currencyId === CurrenciesEnum.THB && langId === 'th' ? (
+												<span>
+													{userMoneyData.turnover} /{' '}
+													{missionTotal.totalTurnover} บาท
+												</span>
+											) : (
+												<span>
+													{currencyName} {userMoneyData.turnover} /{' '}
+													{missionTotal.totalTurnover}
+												</span>
+											)}
 										</div>
 										<div className='progress-bar'>
 											<div

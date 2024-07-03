@@ -2,12 +2,17 @@ import React from 'react'
 import { useTranslation } from 'next-i18next'
 import dayjs from 'dayjs'
 import { ICustDrawPrizeData } from '@nx-next-app/service'
+import { useAuth } from '@nx-next-app/data-access'
+import { numberFormat, isConvert } from '@nx-next-app/utils'
 
 interface IRedemptionHistory {
 	custRedeemHistoryList: ICustDrawPrizeData[]
 }
 const RedemptionHistory = ({ custRedeemHistoryList }: IRedemptionHistory) => {
 	const { t } = useTranslation()
+	const {
+		userInfo: { currencyName, currencyId },
+	} = useAuth()
 
 	return (
 		<>
@@ -17,7 +22,7 @@ const RedemptionHistory = ({ custRedeemHistoryList }: IRedemptionHistory) => {
 			<div className='sheet'>
 				<div className='sheet-content'>
 					{custRedeemHistoryList?.map(item => {
-						const { drawTime, prizeName, prizeId } = item
+						const { drawTime, prizeId, amount } = item
 						return (
 							<div key={`history Record-${drawTime}`} className='sheet-item'>
 								<div>
@@ -28,7 +33,15 @@ const RedemptionHistory = ({ custRedeemHistoryList }: IRedemptionHistory) => {
 										</span>
 										<span>{dayjs(drawTime).format('DD/MMMM/YY h:mm A')}</span>
 									</div>
-									<div>{prizeName}</div>
+									<div>
+										{currencyName}{' '}
+										{numberFormat(
+											isConvert(currencyId) ? amount * 1000 : amount,
+											currencyId,
+											0,
+											false
+										)}
+									</div>
 								</div>
 							</div>
 						)

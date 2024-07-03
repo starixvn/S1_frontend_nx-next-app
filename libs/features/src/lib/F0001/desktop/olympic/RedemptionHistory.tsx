@@ -2,12 +2,17 @@
 import { useTranslation } from 'next-i18next'
 import dayjs from 'dayjs'
 import { ICustDrawPrizeData } from '@nx-next-app/service'
+import { useAuth } from '@nx-next-app/data-access'
+import { isConvert, numberFormat } from '@nx-next-app/utils'
 
 interface IRedemptionHistory {
 	custRedeemHistoryList: ICustDrawPrizeData[]
 }
 const RedemptionHistory = ({ custRedeemHistoryList }: IRedemptionHistory) => {
 	const { t } = useTranslation()
+	const {
+		userInfo: { currencyName, currencyId },
+	} = useAuth()
 	return (
 		<>
 			<div className='olympic-bottom-title'>
@@ -23,7 +28,7 @@ const RedemptionHistory = ({ custRedeemHistoryList }: IRedemptionHistory) => {
 					</div>
 					<div className='sheet-content-text'>
 						{custRedeemHistoryList?.map(item => {
-							const { drawTime, prizeName, prizeId } = item
+							const { drawTime, prizeId, amount } = item
 							return (
 								<div key={`history Record-${drawTime}`}>
 									{/*  後端會增加一個是換幾個金牌數的欄位，prizeId就是金牌數量 */}
@@ -31,7 +36,15 @@ const RedemptionHistory = ({ custRedeemHistoryList }: IRedemptionHistory) => {
 										{prizeId} {t('Label_Olympic_Gold_Medal')}
 									</div>
 									<div>{dayjs(drawTime).format('DD/MMMM/YY h:mm A')}</div>
-									<div>{prizeName}</div>
+									<div>
+										{currencyName}{' '}
+										{numberFormat(
+											isConvert(currencyId) ? amount * 1000 : amount,
+											currencyId,
+											0,
+											false
+										)}
+									</div>
 								</div>
 							)
 						})}
