@@ -1,6 +1,6 @@
 import { useAuth } from '@nx-next-app/data-access'
 import { useTranslation } from 'next-i18next'
-import { paths } from '@nx-next-app/constants'
+import { PRODUCTS, paths } from '@nx-next-app/constants'
 import { useRouter } from 'next/router'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
@@ -8,8 +8,15 @@ import {
 	useOlympic,
 } from '@nx-next-app/features/F0001/providers'
 import { CurrenciesEnum } from '@nx-next-app/types'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import dynamic from 'next/dynamic'
 import SignificantModal from '../modal/SignificantModal'
 import BonusList from './bonusList'
+
+const LiveStreamingModalH5 = dynamic(
+	() => import('../../modal/LiveStreamingModal'),
+	{ ssr: false }
+)
 
 const Reward = () => {
 	const { t } = useTranslation()
@@ -19,6 +26,7 @@ const Reward = () => {
 		userInfo: { currencyName, currencyId, langId },
 		auth: { isLogin },
 	} = useAuth()
+	const { onMenuOpen } = useMenu()
 
 	// 取得從api來的相關資訊
 	const {
@@ -39,12 +47,13 @@ const Reward = () => {
 
 	// 按下bet now按鈕
 	const handleBetNow = () => {
-		if (!isLogin) {
-			push(paths.login.root)
-
-			return
-		}
-		push(paths.sports.root)
+		onMenuOpen(PRODUCTS.SabaSoccer, {
+			loginCallback: () => {
+				push(paths.login.root)
+			},
+			messageCallBack: message => modal.error(message),
+			liveStreamingCallback: () => modal.open(<LiveStreamingModalH5 />),
+		})
 	}
 
 	// significant condition的彈窗

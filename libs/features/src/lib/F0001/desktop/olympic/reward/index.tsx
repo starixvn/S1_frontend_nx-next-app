@@ -51,7 +51,7 @@ const Reward = () => {
 			modal.open(<LoginModal />)
 			return
 		}
-		push(paths.sports.root)
+		push(`${paths.sports.root}?provider=SabaSoccer`)
 	}
 
 	// significant condition的彈窗
