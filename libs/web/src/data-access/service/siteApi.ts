@@ -58,8 +58,8 @@ export const getBanner = async (
 				{
 					currencyId,
 					bannerType,
-					config,
-				}
+				},
+				config
 			)
 			result.push(...response.data.data)
 		} catch (error) {
