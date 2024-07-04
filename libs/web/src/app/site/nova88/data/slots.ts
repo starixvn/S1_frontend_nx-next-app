@@ -7,6 +7,7 @@ export const CATEGORY_SORT = [
 	'featured',
 	'jackpot',
 	'tableAndCards',
+	'arcade',
 	'buyFeaturesGames',
 	'megaways',
 	'myFavorite',
