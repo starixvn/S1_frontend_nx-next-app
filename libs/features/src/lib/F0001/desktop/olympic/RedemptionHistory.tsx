@@ -13,6 +13,17 @@ const RedemptionHistory = ({ custRedeemHistoryList }: IRedemptionHistory) => {
 	const {
 		userInfo: { currencyName, currencyId },
 	} = useAuth()
+
+	// 兌換歷史紀錄的金額顯示處理（要千分位小數點，且VND IDR KRW要特別注意轉換）
+	const bonusPrize = (amount: number) => {
+		return `${currencyName} ${numberFormat(
+			isConvert(currencyId) ? amount * 1000 : amount,
+			currencyId,
+			0,
+			false
+		)}`
+	}
+
 	return (
 		<>
 			<div className='olympic-bottom-title'>
@@ -36,15 +47,7 @@ const RedemptionHistory = ({ custRedeemHistoryList }: IRedemptionHistory) => {
 										{prizeId} {t('Label_Olympic_Gold_Medal')}
 									</div>
 									<div>{dayjs(drawTime).format('DD/MMMM/YY h:mm A')}</div>
-									<div>
-										{currencyName}{' '}
-										{numberFormat(
-											isConvert(currencyId) ? amount * 1000 : amount,
-											currencyId,
-											0,
-											false
-										)}
-									</div>
+									<div>{bonusPrize(amount)}</div>
 								</div>
 							)
 						})}
