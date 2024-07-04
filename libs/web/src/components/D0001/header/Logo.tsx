@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import classNames from 'classnames'
+// import classNames from 'classnames'
 import { isEventPeriod } from '@nx-next-app/utils'
 import { EVENT_PERIOD } from '@nx-next-app/site/nova88'
 import { paths } from '../../../app/constants'
@@ -11,28 +11,33 @@ interface ILogoProps {
 }
 
 const Logo = ({ logoUrl, rewardsUrl, showSpLogo }: ILogoProps) => {
-	console.log('testing OLYMPIC time', isEventPeriod(EVENT_PERIOD.OLYMPIC))
 	return (
 		<div
-			className={classNames('logo', {
-				olympic: showSpLogo && isEventPeriod(EVENT_PERIOD.OLYMPIC),
-			})}
+			className={`logo ${
+				isEventPeriod(EVENT_PERIOD.OLYMPIC) && showSpLogo && 'olympic'
+			}`}
+			// className={classNames('logo', {
+			// 	olympic: isEventPeriod(EVENT_PERIOD.OLYMPIC),
+			// })}
 		>
-			<Link href={paths.home.root}>
-				{/* 奧運期間使用奧運LOGO */}
-				{showSpLogo && isEventPeriod(EVENT_PERIOD.OLYMPIC) ? (
+			{/* 奧運期間使用奧運LOGO */}
+			{showSpLogo && isEventPeriod(EVENT_PERIOD.OLYMPIC) ? (
+				<Link href={paths.home.root}>
 					<a>
 						<img
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/olympic/logo-nova88.webp`}
 							alt='olympic logo'
 						/>
 					</a>
-				) : (
+				</Link>
+			) : (
+				<Link href={paths.home.root}>
 					<a>
 						<img src={logoUrl} alt='logo' />
 					</a>
-				)}
-			</Link>
+				</Link>
+			)}
+
 			{showSpLogo && isEventPeriod(EVENT_PERIOD.OLYMPIC) && (
 				<a className='splogo' />
 			)}

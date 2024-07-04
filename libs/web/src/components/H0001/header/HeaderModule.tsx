@@ -85,7 +85,7 @@ const HeaderModule = ({
 				)}
 			</Link>
 
-			<a className='splogo' />
+			{isEventPeriod(EVENT_PERIOD.OLYMPIC) && <a className='splogo' />}
 
 			{/* 登入前 */}
 			{!auth.isLogin && (
