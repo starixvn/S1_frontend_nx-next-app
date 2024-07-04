@@ -32,7 +32,9 @@ const Logo = ({ logoUrl, rewardsUrl, showSpLogo }: ILogoProps) => {
 					</a>
 				)}
 			</Link>
-			{showSpLogo && <a className='splogo' />}
+			{showSpLogo && isEventPeriod(EVENT_PERIOD.OLYMPIC) && (
+				<a className='splogo' />
+			)}
 
 			{process.env['NEXT_PUBLIC_SHOW_REWARD'] === 'true' && (
 				<Link href='/rewards' className='logo' passHref>
