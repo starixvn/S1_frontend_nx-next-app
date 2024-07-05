@@ -45,3 +45,15 @@ Thumbs.db
 .env.development
 
 css.sh
+
+# Yashbet-H5 PWA
+/apps/yashbet-h5/public/sw.js
+/apps/yashbet-h5/public/sw.js.map
+/apps/yashbet-h5/public/workbox-*.js
+/apps/yashbet-h5/public/workbox-*.js.map
+/apps/yashbet-h5/public/precache-manifest.*.js
+/apps/yashbet-h5/public/precache-manifest.*.js.map
+/apps/yashbet-h5/public/fallback.*.js
+/apps/yashbet-h5/public/fallback.*.js.map
+/apps/yashbet-h5/public/work-*.js
+/apps/yashbet-h5/public/work-*.js.map
