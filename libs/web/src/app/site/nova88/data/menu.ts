@@ -780,6 +780,18 @@ export const MENU_DATA: IMenuData[] = [
 					tpId: PRODUCTS.NewPlayTechSlot.tpId,
 				},
 			},
+			{
+				...PRODUCTS.AskmeSlot,
+				h5: {
+					hasLobby: false,
+					menuActionType: MenuActionTypeEnum.Link,
+				},
+				desktop: { hasLobby: true, menuActionType: MenuActionTypeEnum.Link },
+				pathname: paths.slots.root,
+				query: {
+					tpId: PRODUCTS.AskmeSlot.tpId,
+				},
+			},
 		],
 	},
 	{
