@@ -3,7 +3,8 @@ const withNx = require('@nrwl/next/plugins/with-nx')
 const path = require('path')
 const withPWA = require('next-pwa')({
 	dest: 'public',
-	disable: false,
+	// 可以先用 false 先測試，等到正式上線再改成 true
+	disable: process.env.NODE_ENV === 'development',
 	register: true,
 	skipWaiting: true,
 })
