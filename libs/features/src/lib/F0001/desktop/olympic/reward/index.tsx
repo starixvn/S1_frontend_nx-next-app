@@ -35,7 +35,6 @@ const Reward = () => {
 		missionTotal,
 		progressPercentage,
 	} = useOlympic() as UseOlympicProps
-
 	// 按下deposit now按鈕
 	const handleDeposit = () => {
 		if (!isLogin) {

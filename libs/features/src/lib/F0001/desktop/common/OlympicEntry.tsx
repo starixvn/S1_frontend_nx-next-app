@@ -12,7 +12,7 @@ const OlympicEntry = () => {
 	if (!display || !isEventPeriod(EVENT_PERIOD.OLYMPIC)) return null
 
 	return (
-		<div className='eventLink olympic'>
+		<div className='eventLink olympic' style={{ cursor: 'pointer' }}>
 			<a>
 				<button className='icon icon-close' onClick={() => setDisplay(false)} />
 				<Img
