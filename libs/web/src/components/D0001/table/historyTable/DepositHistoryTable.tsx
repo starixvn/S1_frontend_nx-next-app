@@ -160,7 +160,13 @@ const DepositHistoryTable = ({
 			render: ({ item }: { item: IDepositInfoHistoryData }) => {
 				let result = null
 				if (
-					item?.depositType === DepositTypeEnum.BankTransfer &&
+					// 存款方式
+					(item?.depositType === DepositTypeEnum.BankTransfer ||
+						item?.depositType === DepositTypeEnum.OnlineBanking ||
+						item?.depositType === DepositTypeEnum.MobilePayment ||
+						item?.depositType === DepositTypeEnum.CryptoPay ||
+						item?.depositType === DepositTypeEnum.QuickTransfer) &&
+					// 存款狀態
 					(item.status === DepositStatusEnum.Pending ||
 						item.status === DepositStatusEnum.OnHold)
 				)

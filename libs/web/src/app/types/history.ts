@@ -70,6 +70,7 @@ export enum DepositTypeEnum {
 	CryptoPay,
 	TopUpCard,
 	QRPay,
+	QuickTransfer,
 	CryptoWallet = 8,
 }
 

@@ -144,46 +144,54 @@ const DepositItem = ({
 				</div>
 			)}
 
-			{depositType === DepositTypeEnum.BankTransfer &&
-				(status === DepositStatusEnum.Pending ||
-					status === DepositStatusEnum.OnHold) && (
-					<div className='btn-group'>
-						<button
-							className='white'
-							onClick={() => {
-								modal.confirm(t('Label_History_CancelConfirm'), {
-									onOK: () => {
-										onDepositCancel(transId as string)
-									},
-								})
-							}}
-						>
-							{t('Label_General_Cancel')}
-						</button>
+			{
+				// 存款方式
+				(depositType === DepositTypeEnum.BankTransfer ||
+					depositType === DepositTypeEnum.OnlineBanking ||
+					depositType === DepositTypeEnum.MobilePayment ||
+					depositType === DepositTypeEnum.CryptoPay ||
+					depositType === DepositTypeEnum.QuickTransfer) &&
+					// 存款狀態
+					(status === DepositStatusEnum.Pending ||
+						status === DepositStatusEnum.OnHold) && (
+						<div className='btn-group'>
+							<button
+								className='white'
+								onClick={() => {
+									modal.confirm(t('Label_History_CancelConfirm'), {
+										onOK: () => {
+											onDepositCancel(transId as string)
+										},
+									})
+								}}
+							>
+								{t('Label_General_Cancel')}
+							</button>
 
-						<button
-							className='orange openPopup'
-							onClick={() =>
-								modal.open(
-									<DepositBankSlipModal
-										bankName={bankInfo?.bankName}
-										bankSite={bankInfo?.bankSite}
-										accountName={depositRep?.accountName}
-										accountNo={depositRep?.accountNo}
-										code={depositRep?.code}
-										amount={amount}
-										transId={transId}
-										depositReceipt={depositReceipt}
-										onSubmit={onUploadReceipt}
-									/>,
-									{ className: 'statuspop' }
-								)
-							}
-						>
-							{t('Label_Deposit_SubmitProof')}
-						</button>
-					</div>
-				)}
+							<button
+								className='orange openPopup'
+								onClick={() =>
+									modal.open(
+										<DepositBankSlipModal
+											bankName={bankInfo?.bankName}
+											bankSite={bankInfo?.bankSite}
+											accountName={depositRep?.accountName}
+											accountNo={depositRep?.accountNo}
+											code={depositRep?.code}
+											amount={amount}
+											transId={transId}
+											depositReceipt={depositReceipt}
+											onSubmit={onUploadReceipt}
+										/>,
+										{ className: 'statuspop' }
+									)
+								}
+							>
+								{t('Label_Deposit_SubmitProof')}
+							</button>
+						</div>
+					)
+			}
 		</div>
 	)
 }
