@@ -8,19 +8,28 @@ import { paths } from '../../../app/constants'
 interface ILogoProps {
 	logoUrl: string
 	rewardsUrl: string
-	showSpLogo: boolean
+	// showSpLogo: boolean
 }
 
-const Logo = ({ logoUrl, rewardsUrl, showSpLogo }: ILogoProps) => {
+const Logo = ({ logoUrl, rewardsUrl }: ILogoProps) => {
+	const [showSpLogo, setShowSpLogo] = useState(true)
 	const [isInOlympicPeriod, setIsInOlympicPeriod] = useState(false)
 
+	// TODO: 因為奧運結束後可能會有暫時沒有spLogo的情況，這時主Logo要改用沒有右邊分隔線的圖
+	const noSpLogoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/logo_w_noline.png`
+
 	useEffect(() => {
+		// 如果不在奧運期間又還沒有新的spLogo，就先設成false去顯示沒有右邊分隔線的圖
+		if (!isEventPeriod(EVENT_PERIOD.OLYMPIC)) {
+			setShowSpLogo(false)
+		}
+
 		setIsInOlympicPeriod(isEventPeriod(EVENT_PERIOD.OLYMPIC))
 	}, [])
 	return (
 		<div className={classNames('logo', { olympic: isInOlympicPeriod })}>
 			{/* 奧運期間使用奧運LOGO */}
-			<Link href={paths.home.root}>
+			<Link href={paths.home.root} style={{ cursor: 'pointer' }}>
 				<a>
 					{isInOlympicPeriod ? (
 						<img
@@ -28,7 +37,7 @@ const Logo = ({ logoUrl, rewardsUrl, showSpLogo }: ILogoProps) => {
 							alt='olympic logo'
 						/>
 					) : (
-						<img src={logoUrl} alt='logo' />
+						<img src={showSpLogo ? logoUrl : noSpLogoUrl} alt='logo' />
 					)}
 				</a>
 			</Link>
