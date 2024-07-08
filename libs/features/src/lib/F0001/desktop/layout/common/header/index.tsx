@@ -90,7 +90,6 @@ const LayoutHeader = () => {
 			<Header.Logo
 				logoUrl={logoUrl}
 				rewardsUrl={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/88rewards.png`}
-				showSpLogo
 			/>
 			<Header.Function>
 				{auth.isLogin ? (

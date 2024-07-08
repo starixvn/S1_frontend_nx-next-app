@@ -88,7 +88,6 @@ export const OlympicProvider = ({ children }: IOlympicProviderProps) => {
 			const { data: olympicEventTicketData } = await getOlympicEventTicket(
 				null
 			).unwrap()
-
 			const { errorCode } = olympicEventTicketData
 
 			// 如果有登入且登入的帳號是以驗證過手機和信箱的：
