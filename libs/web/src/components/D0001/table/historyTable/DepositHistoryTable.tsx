@@ -1,12 +1,15 @@
 import dynamic from 'next/dynamic'
+import { includes } from 'lodash-es'
 import {
 	DepositStatusClassName,
 	DepositStatusClassNameEnum,
 	DepositStatusEnum,
-	DepositTypeEnum,
 } from 'libs/web/src/app/types/history'
 import { IDepositInfoHistoryData } from '@nx-next-app/service'
-import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
+import {
+	CURRENCY_TO_TIMEZONE,
+	AllowUploadReceiptType,
+} from '@nx-next-app/constants'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import { numberFormat } from '@nx-next-app/utils'
@@ -161,11 +164,7 @@ const DepositHistoryTable = ({
 				let result = null
 				if (
 					// 存款方式
-					(item?.depositType === DepositTypeEnum.BankTransfer ||
-						item?.depositType === DepositTypeEnum.OnlineBanking ||
-						item?.depositType === DepositTypeEnum.MobilePayment ||
-						item?.depositType === DepositTypeEnum.CryptoPay ||
-						item?.depositType === DepositTypeEnum.QuickTransfer) &&
+					includes(AllowUploadReceiptType, item.depositType) &&
 					// 存款狀態
 					(item.status === DepositStatusEnum.Pending ||
 						item.status === DepositStatusEnum.OnHold)

@@ -1,12 +1,15 @@
 import React from 'react'
-import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
+import {
+	CURRENCY_TO_TIMEZONE,
+	AllowUploadReceiptType,
+} from '@nx-next-app/constants'
 import dayjs from 'dayjs'
+import { includes } from 'lodash-es'
 import { numberFormat } from '@nx-next-app/utils'
 import {
 	DepositStatusClassName,
 	DepositStatusClassNameEnum,
 	DepositStatusEnum,
-	DepositTypeEnum,
 } from 'libs/web/src/app/types/history'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
@@ -146,11 +149,7 @@ const DepositItem = ({
 
 			{
 				// 存款方式
-				(depositType === DepositTypeEnum.BankTransfer ||
-					depositType === DepositTypeEnum.OnlineBanking ||
-					depositType === DepositTypeEnum.MobilePayment ||
-					depositType === DepositTypeEnum.CryptoPay ||
-					depositType === DepositTypeEnum.QuickTransfer) &&
+				includes(AllowUploadReceiptType, depositType) &&
 					// 存款狀態
 					(status === DepositStatusEnum.Pending ||
 						status === DepositStatusEnum.OnHold) && (
