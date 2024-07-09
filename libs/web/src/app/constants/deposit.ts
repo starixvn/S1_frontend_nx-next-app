@@ -5,5 +5,6 @@ export const AllowUploadReceiptType = [
 	DepositTypeEnum.OnlineBanking,
 	DepositTypeEnum.QuickTransfer,
 	DepositTypeEnum.CryptoPay,
+	DepositTypeEnum.CryptoWallet,
 	DepositTypeEnum.MobilePayment,
 ]
