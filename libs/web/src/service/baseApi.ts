@@ -1,3 +1,4 @@
+import { DeviceTypeEnum } from '@nx-next-app/types'
 import axios from 'axios'
 import { GetServerSidePropsContext } from 'next'
 
@@ -41,7 +42,7 @@ export function setServerSideHeaders(context: GetServerSidePropsContext): void {
 		'cf-visitor': req.headers['cf-visitor'],
 		// LIFF requests have unique useragent (e.g. Line/14.6.3 LIFF)
 		'ai-device': userAgent?.includes('LIFF')
-			? 4
+			? DeviceTypeEnum.Liff
 			: process.env['NEXT_PUBLIC_DEVICE_TYPE'],
 	}
 
