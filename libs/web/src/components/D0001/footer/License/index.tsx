@@ -17,8 +17,7 @@ const License = ({
 
 	const XCMScript = seoData?.xcmScript ?? defaultXCMScript
 	const formattedXCMScript = XCMScript?.split('-').join('_')
-	console.log('formattedCuracaoScript :>> ', formattedCuracaoScript)
-	console.log('XCMScript :>> ', XCMScript)
+
 	useEffect(() => {
 		if (showLicenseLogo) {
 			/* eslint-disable @typescript-eslint/no-explicit-any */
@@ -66,11 +65,13 @@ const License = ({
 
 			<Script
 				src={`https://${CuracaoScript}.snippet.antillephone.com/apg-seal.js`}
-				strategy='lazyOnload'
+				// strategy='lazyOnload'
+				defer
 			/>
 			<Script
 				src={`https://${XCMScript}.seals-xcm.certria.com/xcm-seal.js`}
-				strategy='lazyOnload'
+				// strategy='lazyOnload'
+				defer
 			/>
 		</>
 	)
