@@ -31,8 +31,8 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 		displayPage: SocialChannelEnum.FOOTER,
 	})
 
-	const { data: seoData } = useGetSeoQuery(null, {
-		selectFromResult: ({ data: { data } = {} }) => {
+	const { data: seoData, isSuccess } = useGetSeoQuery(null, {
+		selectFromResult: ({ data: { data } = {}, isSuccess }) => {
 			let pathname = ''
 			if (typeof window !== 'undefined') {
 				pathname = window.location.pathname
@@ -59,7 +59,7 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 				}
 			}
 
-			return { data: seoData }
+			return { data: seoData, isSuccess }
 		},
 	})
 
@@ -72,7 +72,9 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 				)}
 			</div>
 			<div className='footer-center'>
-				<Footer.License licenseData={licenseData} seoData={seoData} />
+				{isSuccess && (
+					<Footer.License licenseData={licenseData} seoData={seoData} />
+				)}
 				<Footer.SuggestBrowser suggestedBrowser={suggestedBrowser} />
 				<Footer.PaymentMethod
 					paymentMethodsByCurrencyId={paymentMethodsByCurrencyId}
