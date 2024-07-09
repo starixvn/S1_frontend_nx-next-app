@@ -24,6 +24,7 @@ export const baseAxios = axios.create({
 export function setServerSideHeaders(context: GetServerSidePropsContext): void {
 	// 從 context 物件中解構出 req
 	const { req } = context
+	const userAgent = req.headers['user-agent']
 
 	const ipHeaders = {
 		'x-forwarded-for':
@@ -38,6 +39,10 @@ export function setServerSideHeaders(context: GetServerSidePropsContext): void {
 		'cf-ipcountry': req.headers['cf-ipcountry'],
 		'cf-ray': req.headers['cf-ray'],
 		'cf-visitor': req.headers['cf-visitor'],
+		// LIFF requests have unique useragent (e.g. Line/14.6.3 LIFF)
+		'ai-device': userAgent?.includes('LIFF')
+			? 4
+			: process.env['NEXT_PUBLIC_DEVICE_TYPE'],
 	}
 
 	// 為 baseAxios 實例設置預設 headers
