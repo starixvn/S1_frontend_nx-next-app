@@ -1,3 +1,5 @@
+import liff from '@line/liff'
+import { DeviceTypeEnum } from '@nx-next-app/types'
 import { LIFF_EXCLUDED_TP_GAME_IDS } from '../app/constants'
 
 type ReactNativeWebViewMessage =
@@ -31,8 +33,11 @@ const postMsgToApp = (message: ReactNativeWebViewMessage) => {
 
 export const isInApp = isReactNativeWebView
 
-export const getDeviceType = () =>
-	isInApp() ? 3 : Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
+export const getDeviceType = () => {
+	if (isInApp()) return DeviceTypeEnum.NativeAPP
+	if (liff.isInClient()) return DeviceTypeEnum.Liff
+	return Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
+}
 
 export const setAppCurrency = (currencyId: number) =>
 	postMsgToApp({ type: 'SyncCurrency', payload: currencyId })
