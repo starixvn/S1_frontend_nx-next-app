@@ -17,7 +17,8 @@ const License = ({
 
 	const XCMScript = seoData?.xcmScript ?? defaultXCMScript
 	const formattedXCMScript = XCMScript?.split('-').join('_')
-
+	console.log('formattedCuracaoScript :>> ', formattedCuracaoScript)
+	console.log('XCMScript :>> ', XCMScript)
 	useEffect(() => {
 		if (showLicenseLogo) {
 			/* eslint-disable @typescript-eslint/no-explicit-any */
