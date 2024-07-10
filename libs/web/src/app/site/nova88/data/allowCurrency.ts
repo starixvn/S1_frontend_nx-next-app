@@ -4,7 +4,7 @@ const { MYR, THB, CNY, IDR, INR, KHM, BDT, VND, USD, USDT, KRW, BRL } =
 	CurrenciesEnum
 
 export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
-	VIP: [MYR, THB, IDR, VND, KRW, BRL],
+	VIP: [MYR, THB, IDR, VND, KRW, BRL, INR],
 	AFFILIATE: [MYR, THB, IDR, CNY, BDT, USD, INR, VND, KHM, KRW, BRL],
 	EXCHANGE: [INR, BDT, USD],
 	REWARDS: [MYR, THB, IDR],

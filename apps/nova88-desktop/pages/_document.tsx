@@ -70,7 +70,7 @@ class MyDocument extends Document<CustomDocumentProps> {
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
 
-                window.gtag('config', '${ga4Id}');
+                gtag('config', '${ga4Id}');
               `,
 								}}
 							/>

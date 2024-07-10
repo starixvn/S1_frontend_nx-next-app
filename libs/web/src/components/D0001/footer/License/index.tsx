@@ -65,13 +65,11 @@ const License = ({
 
 			<Script
 				src={`https://${CuracaoScript}.snippet.antillephone.com/apg-seal.js`}
-				// strategy='lazyOnload'
-				defer
+				strategy='lazyOnload'
 			/>
 			<Script
 				src={`https://${XCMScript}.seals-xcm.certria.com/xcm-seal.js`}
-				// strategy='lazyOnload'
-				defer
+				strategy='lazyOnload'
 			/>
 		</>
 	)
