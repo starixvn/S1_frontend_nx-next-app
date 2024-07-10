@@ -59,6 +59,10 @@ const LoginModal = dynamic(() => import('../modal/LoginModal'), {
 	ssr: false,
 })
 
+const OlympicEntry = dynamic(() => import('../common/OlympicEntry'), {
+	ssr: false,
+})
+
 const Home = () => {
 	const {
 		bannerData,
@@ -111,6 +115,7 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.QuickLink]: () => (
 			<QuickLink socialChannelList={socialChannelList} />
 		),
+		[DesktopHomeComponentsEnum.OlympicEntry]: () => <OlympicEntry />,
 	}
 	return (
 		<main>

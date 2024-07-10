@@ -5,6 +5,7 @@
 */
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -1971,7 +1972,15 @@ main .gameList .icon-new {
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
-#popup > div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo):not(.bigwin) {
+#popup.olympic-rule {
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+#popup.olympic-medalpop {
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+#popup > div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo):not(.bigwin):not(.medalpop):not(.rulepop) {
   background: white;
   width: 100%;
 }
@@ -3634,6 +3643,146 @@ main .gameList .icon-new {
 }
 #popup.livesportspop > div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo) {
   background-color: unset;
+}
+#popup.olympic-rule .rulepop {
+  font-family: "Open Sans", sans-serif;
+}
+#popup.olympic-rule .rulepop.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#popup.olympic-rule .rulepop-content {
+  -webkit-animation: sponsor-content 0.3s linear 0.2s backwards;
+          animation: sponsor-content 0.3s linear 0.2s backwards;
+}
+#popup.olympic-rule .rulepop-content .close-btn {
+  background: white;
+  padding: 6vw 0 8vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 0 0 4vw 4vw;
+}
+#popup.olympic-rule .rulepop-content .close-btn button {
+  background: #FF8B21;
+  border-radius: 10vw;
+  padding: 1.5vw 2vw;
+  width: 30vw;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+#popup.olympic-rule .rulepop-content .close-btn button:hover {
+  background: #f97700;
+}
+#popup.olympic-rule .rulepop-title {
+  background: #FF8B21;
+  text-transform: uppercase;
+  font-size: 5vw;
+  font-weight: 700;
+  border-radius: 4vw 4vw 0 0;
+  padding: 3.5vw 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#popup.olympic-rule .rulepop-text {
+  font-size: 3.5vw;
+  font-weight: 500;
+}
+#popup.olympic-rule .rulepop-text ul {
+  background: white;
+  padding: 0 0 0 8vw;
+  height: 90vw;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+#popup.olympic-rule .rulepop-text ul::-webkit-scrollbar-thumb {
+  background-color: rgba(10, 0, 0, 0.329);
+}
+#popup.olympic-rule .rulepop-text ul li {
+  color: #301363;
+  margin: 6vw 0;
+  text-indent: -4vw;
+}
+#popup.olympic-medalpop .medalpop {
+  font-family: "Open Sans", sans-serif;
+}
+#popup.olympic-medalpop .medalpop-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#popup.olympic-medalpop .medalpop-top {
+  background: #FF8B21;
+  width: 100%;
+  height: 14vw;
+  border-radius: 4vw 4vw 0 0;
+}
+#popup.olympic-medalpop .medalpop-item {
+  width: 85vw;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5vw 0 10vw;
+  border-radius: 0 0 4vw 4vw;
+}
+#popup.olympic-medalpop .medalpop-item img {
+  width: 65vw;
+}
+#popup.olympic-medalpop .medalpop-item > div:nth-child(2) {
+  font-size: 7vw;
+  color: #301363;
+  margin-top: -4vw;
+  font-weight: 750;
+}
+#popup.olympic-medalpop .medalpop-item > div:nth-child(3) {
+  font-weight: 700;
+  font-size: 5vw;
+  color: #FF8B21;
+}
+#popup.olympic-medalpop .medalpop-item button {
+  background: #FF8B21;
+  border-radius: 10vw;
+  padding: 1.5vw 5vw;
+  width: 30vw;
+  color: white;
+  font-size: 3.5vw;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 6vw;
+}
+#popup.olympic-medalpop .medalpop.gold-a .medalpop-item img {
+  margin: -60px 0 30px;
+}
+#popup.olympic-medalpop .medalpop.gold-b .medalpop-item img {
+  margin: -50px 0 20px;
+}
+#popup.olympic-medalpop .medalpop.gold-c .medalpop-item img {
+  margin-bottom: 20px;
 }
 
 .blackInfo {
@@ -9949,6 +10098,19 @@ span.important {
     opacity: 1;
   }
 }
+.eventLink.olympic {
+  bottom: 65vw;
+}
+.eventLink.olympic img {
+  width: 20vw;
+  -webkit-animation: livesports 4s ease-in-out infinite 1s;
+          animation: livesports 4s ease-in-out infinite 1s;
+}
+.eventLink.olympic .icon-close {
+  top: -5vw;
+  right: 0;
+  z-index: 4;
+}
 .eventLink.eurocup {
   bottom: 65vw;
 }
@@ -9965,10 +10127,10 @@ span.important {
 .eventLink.livesports {
   bottom: 64vw;
 }
-.eventLink.livesports.eurocup {
+.eventLink.livesports.eurocup, .eventLink.livesports.olympic {
   bottom: 88vw;
 }
-.eventLink.livesports.eurocup img {
+.eventLink.livesports.eurocup img, .eventLink.livesports.olympic img {
   width: 30vw;
 }
 .eventLink.livesports img {
@@ -14770,6 +14932,10 @@ input[type=number] {
   -webkit-animation: eurologo 7.5s running infinite 0.5s;
           animation: eurologo 7.5s running infinite 0.5s;
 }
+.header-module .header-logo.olympic + .splogo {
+  -webkit-animation: olympic 7.5s running infinite 0.5s;
+          animation: olympic 7.5s running infinite 0.5s;
+}
 .header-module .header-logo img {
   display: block;
   width: 25vw;
@@ -14788,7 +14954,7 @@ input[type=number] {
   bottom: 2vw;
   width: 9vw !important;
   height: 9vw !important;
-  background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+  background: url(https://banner.0814media.net/h5/img/event/olympic/logo-paris.png) center/cover;
   -webkit-animation: splogo 3.5s ease-in-out infinite;
           animation: splogo 3.5s ease-in-out infinite;
   -webkit-clip-path: none !important;
@@ -14881,6 +15047,26 @@ input[type=number] {
   }
   100% {
     background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes olympic {
+  0% {
+    background: url(https://banner.0814media.net/h5/img/event/olympic/logo-paris.png) center/cover;
+    opacity: 1;
+  }
+  100% {
+    background: url(https://banner.0814media.net/h5/img/event/olympic/logo-paris.png) center/cover;
+    opacity: 1;
+  }
+}
+@keyframes olympic {
+  0% {
+    background: url(https://banner.0814media.net/h5/img/event/olympic/logo-paris.png) center/cover;
+    opacity: 1;
+  }
+  100% {
+    background: url(https://banner.0814media.net/h5/img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
 }
@@ -19993,4 +20179,401 @@ input[type=number] .btn-logout {
 
 .retention-wrapper .bonus-list tr:last-child td:last-child {
   border-bottom-right-radius: 2vw !important;
+}
+
+.olympic {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.1vw;
+}
+.olympic button {
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+}
+.olympic-top {
+  background: url(https://banner.0814media.net/h5/img/event/olympic/background-a.jpg) no-repeat center/cover;
+}
+.olympic-top-logo {
+  width: 25vw;
+  margin-left: 6vw;
+}
+.olympic-top-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 100vw 0 25vw;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  padding-bottom: 20vw;
+}
+.olympic-top-text img {
+  width: 30vw;
+}
+.olympic-top-text > div {
+  font-size: 4vw;
+  font-weight: 400;
+}
+.olympic-top-text > div:nth-child(2) {
+  margin: 6vw 0 3vw;
+  font-size: 6.5vw;
+  text-align: center;
+  width: 80vw;
+  color: #FF8B21;
+  line-height: 8vw;
+  font-weight: 700;
+}
+.olympic-center {
+  background: #FF8B21;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 35vw;
+}
+.olympic-center-wrapper {
+  padding: 0 3vw;
+  position: relative;
+  z-index: 1;
+}
+.olympic-center-wrapper .medal {
+  background: white;
+  color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 4vw;
+  position: relative;
+  padding: 30vw 0 5vw;
+  margin-bottom: 20vw;
+}
+.olympic-center-wrapper .medal > div:first-child {
+  font-size: 6vw;
+  color: #301363;
+}
+.olympic-center-wrapper .medal > div:last-child {
+  font-size: 20vw;
+  color: #FF8B21;
+}
+.olympic-center-wrapper .medal::before {
+  display: block;
+  content: "";
+  background: url(https://banner.0814media.net/h5/img/event/olympic/gold-medal.png) no-repeat center/cover;
+  width: 72vw;
+  height: 72vw;
+  position: absolute;
+  top: -40vw;
+}
+.olympic-center-wrapper .tasks-title {
+  font-size: 6vw;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 10vw 0 7vw;
+}
+.olympic-center-wrapper .tasks a {
+  background: #301363;
+  padding: 5vw;
+  border-radius: 0 0 4vw 4vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-transform: uppercase;
+  font-size: 3.5vw;
+}
+.olympic-center-wrapper .tasks a::after {
+  display: block;
+  content: "";
+  background: url(https://banner.0814media.net/h5/img/event/olympic/arrow.png) no-repeat center/cover;
+  width: 1.5vw;
+  height: 2.5vw;
+  margin-left: 2vw;
+}
+.olympic-center-wrapper .tasks-content {
+  background: white;
+  padding: 3vw;
+  border-radius: 4vw 4vw 0 0;
+}
+.olympic-center-wrapper .tasks-content-item {
+  color: #000;
+  background: #F5F5F5;
+  padding: 6vw;
+  border-radius: 3vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.olympic-center-wrapper .tasks-content-item > div {
+  width: 100%;
+}
+.olympic-center-wrapper .tasks-content-item > div > div {
+  color: #301363;
+}
+.olympic-center-wrapper .tasks-content-item > div > div:first-child {
+  font-size: 5.5vw;
+  font-weight: 750;
+}
+.olympic-center-wrapper .tasks-content-item > div > div:nth-child(3) {
+  font-size: 3.5vw;
+}
+.olympic-center-wrapper .tasks-content-item .progress {
+  background: #E1E1E1;
+  height: 3.5vw;
+  border-radius: 3vw;
+  margin: 2.5vw 0 2vw;
+}
+.olympic-center-wrapper .tasks-content-item .progress-bar {
+  background: #FF8B21;
+  height: 3.5vw;
+  border-radius: 4vw;
+}
+.olympic-center-wrapper .tasks-content-item button {
+  background: #FF8B21;
+  padding: 2.5vw 2vw;
+  width: 100%;
+  border-radius: 10vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 5vw;
+  font-size: 3.5vw;
+}
+.olympic-center-wrapper .tasks-content-item button::after {
+  display: block;
+  content: "";
+  background: url(https://banner.0814media.net/h5/img/event/olympic/arrow.png) no-repeat center/cover;
+  width: 1.5vw;
+  height: 2.5vw;
+  margin-left: 2vw;
+}
+.olympic-center-wrapper .tasks-content-item:last-child {
+  margin-top: 3vw;
+}
+.olympic-center-wrapper .bouns-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 3vw;
+  background: #301363;
+  padding: 2.5vw;
+  border-radius: 4vw;
+}
+.olympic-center-wrapper .bouns-item > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.olympic-center-wrapper .bouns-item > div:first-child {
+  color: #301363;
+  background: white;
+  padding: 3vw 5vw;
+  border-radius: 4vw;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 4.5vw;
+}
+.olympic-center-wrapper .bouns-item > div:first-child img {
+  width: 35vw;
+  margin-top: -3vw;
+}
+.olympic-center-wrapper .bouns-item > div:last-child {
+  padding: 0 5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.olympic-center-wrapper .bouns-item > div:last-child > div {
+  font-size: 6vw;
+  font-weight: 750;
+  text-align: center;
+}
+.olympic-center-wrapper .bouns-item > div:last-child button {
+  background: white;
+  padding: 2vw;
+  word-wrap: break-word;
+  width: 25vw;
+  color: #301363;
+  border-radius: 10vw;
+  margin-top: 5vw;
+  text-align: center;
+}
+.olympic-center-bn {
+  width: 100%;
+  margin-top: -35vw;
+}
+.olympic-bottom {
+  background: #301363;
+  padding-bottom: 20vw;
+}
+.olympic-bottom-wrapper {
+  max-width: 1350px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.olympic-bottom-title {
+  color: #FF8B21;
+  font-size: 6vw;
+  text-transform: uppercase;
+  margin: 12vw 0 8vw;
+}
+.olympic-bottom .sheet {
+  background: #FFEFE1;
+  padding: 3vw;
+  border-radius: 4vw;
+  font-weight: 600;
+}
+.olympic-bottom .sheet-content {
+  height: 115vw;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.olympic-bottom .sheet-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 3vw;
+}
+.olympic-bottom .sheet-item > div {
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0 3vw 3vw 0;
+  padding: 5vw;
+}
+.olympic-bottom .sheet-item > div > div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.olympic-bottom .sheet-item > div > div:first-child span:first-child {
+  font-size: 4.5vw;
+  color: #301363;
+  margin-bottom: 2vw;
+}
+.olympic-bottom .sheet-item > div > div:first-child span:last-child {
+  color: #A2A2A2;
+}
+.olympic-bottom .sheet-item > div > div:last-child {
+  color: #FF8B21;
+  font-size: 5.5vw;
+  margin-left: 10vw;
+}
+.olympic-bottom .sheet-item::before {
+  display: block;
+  content: "";
+  background: #FF8B21;
+  width: 2vw;
+  height: 22vw;
+  border-radius: 3vw 0 0 3vw;
+}
+.olympic-bottom .sheet-item:last-child {
+  margin-bottom: 0;
+}
+.olympic-bottom-tnc {
+  padding: 0 8vw;
+}
+.olympic-bottom-tnc ul li {
+  line-height: 7vw;
+  font-size: 3.5vw;
+  font-weight: 500;
+  margin-bottom: 6vw;
+  text-indent: -3.5vw;
+}
+.olympic-footer {
+  background: #301363;
+}
+.olympic-footer img {
+  width: 100%;
+}
+.olympic-footer > div {
+  background: #FF8B21;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.olympic-footer > div img {
+  width: 25vw;
+  padding: 6vw 0;
 }/*# sourceMappingURL=style.css.map */

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import classNames from 'classnames'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { HTMLAttributes, useEffect } from 'react'
+import { HTMLAttributes, useEffect, useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { useBoolean, useDebounce } from 'usehooks-ts'
 import { isEventPeriod, numberFormat } from '@nx-next-app/utils'
@@ -11,7 +11,7 @@ import {
 	IMainWalletInfoData,
 	ITpWalletInfoData,
 } from '@nx-next-app/service'
-import { EUROPE_EVENT_PERIOD } from '@nx-next-app/site/nova88'
+import { EVENT_PERIOD } from '@nx-next-app/site/nova88'
 import { SpinButton } from '../button'
 
 interface IHeaderModuleProps extends HTMLAttributes<HTMLDivElement> {
@@ -38,6 +38,8 @@ const HeaderModule = ({
 	...props
 }: IHeaderModuleProps) => {
 	const { t } = useTranslation()
+	const [isInOlympicPeriod, setIsInOlympicPeriod] = useState(false)
+	const [showSpLogo, setShowSpLogo] = useState(true)
 
 	const {
 		auth,
@@ -51,6 +53,9 @@ const HeaderModule = ({
 	} = useBoolean(originIsHideBalance)
 	const debouncedIsHideBalance = useDebounce(isHideBalance, 500)
 
+	// TODO: 因為奧運結束後可能會有暫時沒有spLogo的情況，這時主Logo要改用沒有右邊分隔線的圖
+	const noSpLogoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w_noline.png`
+
 	// * 使用者快速切換時，讓畫面順利切換，用 debounce 觸發最後的狀態
 	useEffect(() => {
 		if (auth.isLogin) {
@@ -63,22 +68,41 @@ const HeaderModule = ({
 		setIsHideBalanceValue(originIsHideBalance)
 	}, [originIsHideBalance])
 
+	useEffect(() => {
+		// 如果不在奧運期間又還沒有新的spLogo，就先設成false去顯示沒有右邊分隔線的圖
+		if (!isEventPeriod(EVENT_PERIOD.OLYMPIC)) {
+			setShowSpLogo(false)
+		}
+		setIsInOlympicPeriod(isEventPeriod(EVENT_PERIOD.OLYMPIC))
+	}, [])
+
 	return (
 		<div className={classNames('header-module', className)} {...props}>
 			{/* 用 a link 讓畫面重新整理 */}
-			<a
-				href={paths.home.root}
-				className={classNames('header-logo', {
-					eurocup: isEventPeriod(EUROPE_EVENT_PERIOD),
-				})}
-			>
-				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w.png`}
-					alt='logo'
-				/>
-			</a>
+			<Link href={paths.home.root}>
+				{/* 奧運期間使用奧運LOGO */}
+				{isInOlympicPeriod ? (
+					<a className='header-logo olympic'>
+						<img
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/event/olympic/logo-nova88.webp`}
+							alt='olympic logo'
+						/>
+					</a>
+				) : (
+					<a className='header-logo'>
+						<img
+							src={
+								showSpLogo
+									? `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w.png`
+									: noSpLogoUrl
+							}
+							alt='logo'
+						/>
+					</a>
+				)}
+			</Link>
 
-			<a className='splogo' />
+			{showSpLogo && isInOlympicPeriod && <a className='splogo' />}
 
 			{/* 登入前 */}
 			{!auth.isLogin && (
