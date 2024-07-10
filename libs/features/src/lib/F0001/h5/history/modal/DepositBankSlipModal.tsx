@@ -20,6 +20,7 @@ interface IBankSlipModalProps {
 	transId?: string
 	depositReceipt?: IDepositInfoHistoryData['depositReceipt']
 	defaultReceipt?: string
+	isShowReceiptInfo?: boolean
 	onSubmit: ({
 		transId,
 		receipt,
@@ -30,15 +31,16 @@ interface IBankSlipModalProps {
 }
 
 const DepositBankSlipModal = ({
-	bankName,
-	bankSite,
-	accountName,
-	accountNo,
-	code,
-	amount,
-	transId,
+	bankName = '',
+	bankSite = '',
+	accountName = '',
+	accountNo = '',
+	code = '',
+	amount = 0,
+	transId = '',
 	depositReceipt = [],
 	defaultReceipt,
+	isShowReceiptInfo = true,
 	onSubmit,
 }: IBankSlipModalProps) => {
 	const { t } = useTranslation()
@@ -73,40 +75,41 @@ const DepositBankSlipModal = ({
 	return (
 		<div className='active'>
 			<div className='bankSlip popUp active'>
-				<div className='info infoAccount'>
-					<ul>
-						<li>
-							<div>
-								<div className='bankLogo acb' />
-								<span>{bankName}</span>
-							</div>
-							<a href={bankSite} target='_blank' rel='noreferrer'>
-								<button className='icon icon-new-tab clickBtn' />
-							</a>
-						</li>
-						<li>
-							<div>
-								<span className='title'>
-									{t('Label_History_BankAccountName')}
-								</span>
-								<span>{accountName}</span>
-							</div>
-							<button
-								className='icon icon-files-empty clickBtn copyBtn'
-								onClick={() => copy(accountName || '')}
-							/>
-						</li>
-						<li>
-							<div>
-								<span className='title'>{t('Label_History_BankNumber')}</span>
-								<span>{accountNo}</span>
-							</div>
-							<button
-								className='icon icon-files-empty clickBtn copyBtn'
-								onClick={() => copy(accountNo || '')}
-							/>
-						</li>
-						{code && (
+				{isShowReceiptInfo && (
+					<div className='info infoAccount'>
+						<ul>
+							<li>
+								<div>
+									<div className='bankLogo acb' />
+									<span>{bankName}</span>
+								</div>
+								<a href={bankSite} target='_blank' rel='noreferrer'>
+									<button className='icon icon-new-tab clickBtn' />
+								</a>
+							</li>
+							<li>
+								<div>
+									<span className='title'>
+										{t('Label_History_BankAccountName')}
+									</span>
+									<span>{accountName}</span>
+								</div>
+								<button
+									className='icon icon-files-empty clickBtn copyBtn'
+									onClick={() => copy(accountName || '')}
+								/>
+							</li>
+							<li>
+								<div>
+									<span className='title'>{t('Label_History_BankNumber')}</span>
+									<span>{accountNo}</span>
+								</div>
+								<button
+									className='icon icon-files-empty clickBtn copyBtn'
+									onClick={() => copy(accountNo || '')}
+								/>
+							</li>
+
 							<li>
 								<div>
 									<span className='title'>{t('Label_General_Remark')}</span>
@@ -114,11 +117,10 @@ const DepositBankSlipModal = ({
 								</div>
 								<button
 									className='icon icon-files-empty clickBtn copyBtn'
-									onClick={() => copy(code)}
+									onClick={() => copy(code || '')}
 								/>
 							</li>
-						)}
-						{amount && (
+
 							<li>
 								<div>
 									<span className='title'>
@@ -131,9 +133,9 @@ const DepositBankSlipModal = ({
 									onClick={() => copy(amount?.toString())}
 								/>
 							</li>
-						)}
-					</ul>
-				</div>
+						</ul>
+					</div>
+				)}
 				<span className='text'>{t('Label_History_AttachFile')}</span>
 				{depositReceipt?.length > 0 ? (
 					<div className='uploadModule'>

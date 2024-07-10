@@ -8,3 +8,6 @@ export const AllowUploadReceiptType = [
 	DepositTypeEnum.CryptoWallet,
 	DepositTypeEnum.MobilePayment,
 ]
+
+// 只有 BankTransfer 才有銀行相關資料需要顯示
+export const WithReceiptInfoType = [DepositTypeEnum.BankTransfer]

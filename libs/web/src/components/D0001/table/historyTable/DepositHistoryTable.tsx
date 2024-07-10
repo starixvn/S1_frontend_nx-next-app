@@ -9,6 +9,7 @@ import { IDepositInfoHistoryData } from '@nx-next-app/service'
 import {
 	CURRENCY_TO_TIMEZONE,
 	AllowUploadReceiptType,
+	WithReceiptInfoType,
 } from '@nx-next-app/constants'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
@@ -161,6 +162,10 @@ const DepositHistoryTable = ({
 			key: 'action',
 			// eslint-disable-next-line react/no-unused-prop-types
 			render: ({ item }: { item: IDepositInfoHistoryData }) => {
+				const isShowReceiptInfo = includes(
+					WithReceiptInfoType,
+					item?.depositType
+				)
 				let result = null
 				if (
 					// 存款方式
@@ -176,13 +181,14 @@ const DepositHistoryTable = ({
 								onClick={() =>
 									modal.open(
 										<DepositBankSlipModal
-											bankName={item.bankInfo.bankName}
-											bankSite={item.bankInfo.bankSite}
-											accountName={item.depositRep.accountName}
-											accountNo={item.depositRep.accountNo}
-											code={item.depositRep.code}
-											transId={item.transId}
-											depositReceipt={item.depositReceipt}
+											bankName={item?.bankInfo?.bankName}
+											bankSite={item?.bankInfo?.bankSite}
+											accountName={item?.depositRep?.accountName}
+											accountNo={item?.depositRep?.accountNo}
+											code={item?.depositRep?.code}
+											transId={item?.transId}
+											depositReceipt={item?.depositReceipt}
+											isShowReceiptInfo={isShowReceiptInfo}
 											onSubmit={onSubmit}
 										/>
 									)

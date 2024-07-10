@@ -2,6 +2,7 @@ import React from 'react'
 import {
 	CURRENCY_TO_TIMEZONE,
 	AllowUploadReceiptType,
+	WithReceiptInfoType,
 } from '@nx-next-app/constants'
 import dayjs from 'dayjs'
 import { includes } from 'lodash-es'
@@ -51,6 +52,8 @@ const DepositItem = ({
 	const [uploadReceipt] = useUploadReceiptMutation()
 
 	const [setDepositCancel] = useSetDepositCancelMutation()
+
+	const isShowReceiptInfo = includes(WithReceiptInfoType, depositType)
 
 	const onDepositCancel = async (transId: string) => {
 		await setDepositCancel({ transId }).unwrap()
@@ -180,6 +183,7 @@ const DepositItem = ({
 											amount={amount}
 											transId={transId}
 											depositReceipt={depositReceipt}
+											isShowReceiptInfo={isShowReceiptInfo}
 											onSubmit={onUploadReceipt}
 										/>,
 										{ className: 'statuspop' }

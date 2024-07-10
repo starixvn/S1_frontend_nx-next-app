@@ -22,6 +22,7 @@ interface IBankSlipModalProps {
 	transId?: string
 	depositReceipt?: IDepositInfoHistoryData['depositReceipt']
 	defaultReceipt?: string
+	isShowReceiptInfo?: boolean
 	onSubmit: ({
 		transId,
 		receipt,
@@ -32,15 +33,16 @@ interface IBankSlipModalProps {
 }
 
 const DepositBankSlipModal = ({
-	bankName,
-	bankSite,
-	accountName,
-	accountNo,
-	code,
-	amount,
-	transId,
+	bankName = '',
+	bankSite = '',
+	accountName = '',
+	accountNo = '',
+	code = '',
+	amount = 0,
+	transId = '',
 	depositReceipt = [],
 	defaultReceipt,
+	isShowReceiptInfo = true,
 	onSubmit,
 }: IBankSlipModalProps) => {
 	const { t } = useTranslation()
@@ -76,63 +78,61 @@ const DepositBankSlipModal = ({
 		<div className='pop'>
 			<div className='upload_new active'>
 				<div className='icon icon-close' onClick={closeModal} />
-				<div className='smallList checkBankSlip'>
-					<div className='title'>{t('Label_History_BankAccount')}</div>
-					<div className='txt-lightgray'>
-						{t('Label_History_TransactionHint')}
-					</div>
-					<ul>
-						<li>{t('Label_History_BankName')}</li>
-						<li>{bankName}</li>
-						<li>
-							<a
-								target='_blank'
-								rel='noreferrer'
-								href={bankSite}
-								className='icon icon-new-tab'
-							/>
-						</li>
-					</ul>
-					<ul>
-						<li>{t('Label_History_BankAccountName')}</li>
-						<li>{accountName}</li>
-						<li>
-							<button
-								className='icon icon-files-empty copyBtn'
-								onClick={() => copy(accountName)}
-							>
-								<span>{t('Label_General_Copy')}</span>
-							</button>
-						</li>
-					</ul>
-					<ul>
-						<li>{t('Label_History_BankNumber')}</li>
-						<li>{accountNo}</li>
-						<li>
-							<button
-								className='icon icon-files-empty copyBtn'
-								onClick={() => copy(accountNo)}
-							>
-								<span>{t('Label_General_Copy')}</span>
-							</button>
-						</li>
-					</ul>
-					{code && (
+				{isShowReceiptInfo && (
+					<div className='smallList checkBankSlip'>
+						<div className='title'>{t('Label_History_BankAccount')}</div>
+						<div className='txt-lightgray'>
+							{t('Label_History_TransactionHint')}
+						</div>
+						<ul>
+							<li>{t('Label_History_BankName')}</li>
+							<li>{bankName}</li>
+							<li>
+								<a
+									target='_blank'
+									rel='noreferrer'
+									href={bankSite}
+									className='icon icon-new-tab'
+								/>
+							</li>
+						</ul>
+						<ul>
+							<li>{t('Label_History_BankAccountName')}</li>
+							<li>{accountName}</li>
+							<li>
+								<button
+									className='icon icon-files-empty copyBtn'
+									onClick={() => copy(accountName)}
+								>
+									<span>{t('Label_General_Copy')}</span>
+								</button>
+							</li>
+						</ul>
+						<ul>
+							<li>{t('Label_History_BankNumber')}</li>
+							<li>{accountNo}</li>
+							<li>
+								<button
+									className='icon icon-files-empty copyBtn'
+									onClick={() => copy(accountNo)}
+								>
+									<span>{t('Label_General_Copy')}</span>
+								</button>
+							</li>
+						</ul>
 						<ul>
 							<li>{t('Label_General_Remark')}</li>
 							<li>{code}</li>
 							<li>
 								<button
 									className='icon icon-files-empty copyBtn'
-									onClick={() => copy(code)}
+									onClick={() => copy(code || '')}
 								>
 									<span>{t('Label_General_Copy')}</span>
 								</button>
 							</li>
 						</ul>
-					)}
 
-					{amount && (
 						<ul>
 							<li>{t('Label_History_DepositAmount')}</li>
 							<li>{numberFormat(amount, currencyId, 0)}</li>
@@ -145,8 +145,8 @@ const DepositBankSlipModal = ({
 								</button>
 							</li>
 						</ul>
-					)}
-				</div>
+					</div>
+				)}
 				<div className='smallList checkBankSlip'>
 					<span className='title'>{t('Label_General_SubmitBankSlip')}</span>
 					<div className='txt-lightgray'>{t('Label_History_AttachFile')}</div>
