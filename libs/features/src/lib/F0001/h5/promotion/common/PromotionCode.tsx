@@ -15,6 +15,7 @@ const PromotionCode = () => {
 		<Form
 			onSubmit={promotionForm.handleSubmit(() => {
 				const { specialCode } = promotionForm.getValues()
+
 				onSetSpecialCode({
 					specialCode,
 					messageCallBack(message) {
@@ -25,7 +26,7 @@ const PromotionCode = () => {
 		>
 			<div className='infoModule parts'>
 				<div className='inputBox'>
-					<input {...promotionForm.register('specialCode')} />
+					<input {...promotionForm.register('specialCode')} required />
 				</div>
 				<div className='btn-group'>
 					<button>{t('Label_General_Submit')}</button>

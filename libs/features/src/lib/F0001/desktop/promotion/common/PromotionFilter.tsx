@@ -64,7 +64,7 @@ const PromotionFilter = () => {
 						})}
 					>
 						<div className='inputBox-white'>
-							<input {...promotionForm.register('specialCode')} />
+							<input {...promotionForm.register('specialCode')} required />
 						</div>
 						<div className='btnGroup'>
 							<button className='btn-check'>{t('Label_General_Submit')}</button>
