@@ -40,7 +40,11 @@ const Slots = () => {
 			</Header>
 			<main className='main casino'>
 				{!isGetBannerV3Fetching && (
-					<CarouselBanner bannerList={bannerList} navigation={false} />
+					<CarouselBanner
+						bannerList={bannerList}
+						navigation={false}
+						spaceBetween={100}
+					/>
 				)}
 
 				<div className={classNames('functionList', { active: !isNavInView })}>
