@@ -79,7 +79,7 @@ const DepositBankSlipModal = ({
 			<div className='upload_new active'>
 				<div className='icon icon-close' onClick={closeModal} />
 				{isShowReceiptInfo && (
-					<div className='smallList checkBankSlip'>
+					<div className='smallList checkBankSlip bankaccount'>
 						<div className='title'>{t('Label_History_BankAccount')}</div>
 						<div className='txt-lightgray'>
 							{t('Label_History_TransactionHint')}
