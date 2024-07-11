@@ -98,6 +98,12 @@ const Tag = forwardRef(
 											placeholder='Search'
 											value={searchText}
 											onChange={e => onSearchBarChange(e.target.value)}
+											// only for mobile users, to prevent keyboard from blocking the view
+											onKeyDown={e => {
+												if (e.key === 'Enter') {
+													e.currentTarget.blur()
+												}
+											}}
 										/>
 										<i className='icon icon-close' onClick={onInputClose} />
 									</div>
