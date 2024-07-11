@@ -70,8 +70,10 @@ export enum DepositTypeEnum {
 	CryptoPay,
 	TopUpCard,
 	QRPay,
-	QuickTransfer,
+	BankAutoChannel = 7,
 	CryptoWallet = 8,
+	QuickTransfer = 9,
+	ChatTransfer = 10,
 }
 
 export const DepositStatusClassName: Record<
