@@ -34,9 +34,9 @@ const postMsgToApp = (message: ReactNativeWebViewMessage) => {
 export const isInApp = isReactNativeWebView
 
 export const getDeviceType = () => {
-	if (isInApp()) return DeviceTypeEnum.NativeAPP
-	if (typeof window !== 'undefined' && liff.isInClient()) {
-		return DeviceTypeEnum.Liff
+	if (typeof window !== 'undefined') {
+		if (isInApp()) return DeviceTypeEnum.NativeAPP
+		if (liff.isInClient()) return DeviceTypeEnum.Liff
 	}
 	return Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 }
