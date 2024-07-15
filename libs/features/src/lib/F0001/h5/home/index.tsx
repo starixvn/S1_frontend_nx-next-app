@@ -122,7 +122,10 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 			/>
 		),
 		[MobileHomeComponentsEnum.PromotionSwiper]: () => <PromotionSwiper />,
-		[MobileHomeComponentsEnum.HotEventSwiper]: () => <HotEventSwiper />,
+		[MobileHomeComponentsEnum.HotEventSwiper]: () =>
+			includes(ALLOWED_CURRENCIES.SPORTS_SABA_CLUB, currencyId) ? (
+				<HotEventSwiper />
+			) : null,
 		[MobileHomeComponentsEnum.HotGameSwiper]: () => <HotGameSwiper />,
 		[MobileHomeComponentsEnum.RecentlyViewGames]: () => <RecentlyViewGames />,
 		[MobileHomeComponentsEnum.FriendReferral]: () => <FriendReferral />,
