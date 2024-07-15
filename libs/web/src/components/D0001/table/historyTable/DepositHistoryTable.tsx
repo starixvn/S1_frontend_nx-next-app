@@ -1,12 +1,16 @@
 import dynamic from 'next/dynamic'
+import { includes } from 'lodash-es'
 import {
 	DepositStatusClassName,
 	DepositStatusClassNameEnum,
 	DepositStatusEnum,
-	DepositTypeEnum,
 } from 'libs/web/src/app/types/history'
 import { IDepositInfoHistoryData } from '@nx-next-app/service'
-import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
+import {
+	CURRENCY_TO_TIMEZONE,
+	AllowUploadReceiptType,
+	WithReceiptInfoType,
+} from '@nx-next-app/constants'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import { numberFormat } from '@nx-next-app/utils'
@@ -158,9 +162,15 @@ const DepositHistoryTable = ({
 			key: 'action',
 			// eslint-disable-next-line react/no-unused-prop-types
 			render: ({ item }: { item: IDepositInfoHistoryData }) => {
+				const isShowReceiptInfo = includes(
+					WithReceiptInfoType,
+					item?.depositType
+				)
 				let result = null
 				if (
-					item?.depositType === DepositTypeEnum.BankTransfer &&
+					// 存款方式
+					includes(AllowUploadReceiptType, item.depositType) &&
+					// 存款狀態
 					(item.status === DepositStatusEnum.Pending ||
 						item.status === DepositStatusEnum.OnHold)
 				)
@@ -171,13 +181,14 @@ const DepositHistoryTable = ({
 								onClick={() =>
 									modal.open(
 										<DepositBankSlipModal
-											bankName={item.bankInfo.bankName}
-											bankSite={item.bankInfo.bankSite}
-											accountName={item.depositRep.accountName}
-											accountNo={item.depositRep.accountNo}
-											code={item.depositRep.code}
-											transId={item.transId}
-											depositReceipt={item.depositReceipt}
+											bankName={item?.bankInfo?.bankName}
+											bankSite={item?.bankInfo?.bankSite}
+											accountName={item?.depositRep?.accountName}
+											accountNo={item?.depositRep?.accountNo}
+											code={item?.depositRep?.code}
+											transId={item?.transId}
+											depositReceipt={item?.depositReceipt}
+											isShowReceiptInfo={isShowReceiptInfo}
 											onSubmit={onSubmit}
 										/>
 									)
