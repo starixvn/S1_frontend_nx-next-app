@@ -96,7 +96,10 @@ const Home = () => {
 		),
 		[DesktopHomeComponentsEnum.PromotionSwiper]: () => <PromotionSwiper />,
 		[DesktopHomeComponentsEnum.WelcomeInfo]: () => <WelcomeInfo />,
-		[DesktopHomeComponentsEnum.HotMatch]: () => <HotMatch />,
+		[DesktopHomeComponentsEnum.HotMatch]: () =>
+			includes(ALLOWED_CURRENCIES.SPORTS_SABA_CLUB, currencyId) ? (
+				<HotMatch />
+			) : null,
 		[DesktopHomeComponentsEnum.LiveCasino]: () => <LiveCasino />,
 		[DesktopHomeComponentsEnum.HotGame]: () => <HotGame />,
 		[DesktopHomeComponentsEnum.RecentlyViewGames]: () => <RecentlyViewGames />,

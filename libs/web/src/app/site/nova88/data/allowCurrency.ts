@@ -20,6 +20,8 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 
 	SPORTS_CRICKET: [BDT, INR, KRW, BRL],
 	SPORTS_VOLLEYBALL: [MYR, THB, IDR, USD, CNY, KHM, KRW, BRL],
+	// 市場反應 CNY 跟 USD 一直輸錢
+	SPORTS_SABA_CLUB: [MYR, THB, IDR, INR, KHM, BDT, VND, USDT, KRW, BRL],
 	// 市場反應 TFG 一直輸錢，CNY 跟 USD 先關起來
 	ESPORT_TF_GAMING: [MYR, THB, IDR, INR, KHM, BDT, VND, USDT],
 
