@@ -2923,7 +2923,7 @@ main .gameList .icon-new {
   }
 }
 #popup.promosback > div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo) {
-  background-color: unset;
+  background-color: unset !important;
 }
 #popup.vninfopop {
   background: rgba(0, 0, 0, 0.7);
