@@ -92,22 +92,22 @@ const Home = () => {
 		),
 		[DesktopHomeComponentsEnum.PromotionSwiper]: () => <PromotionSwiper />,
 		[DesktopHomeComponentsEnum.WelcomeInfo]: () => <WelcomeInfo />,
-		[DesktopHomeComponentsEnum.HotMatch]: () => <HotMatch />,
+		[DesktopHomeComponentsEnum.HotMatch]: () =>
+			includes(ALLOWED_CURRENCIES.SPORTS_SABA_CLUB, currencyId) ? (
+				<HotMatch />
+			) : null,
 		[DesktopHomeComponentsEnum.LiveCasino]: () => <LiveCasino />,
 		[DesktopHomeComponentsEnum.HotGame]: () => <HotGame />,
-    [DesktopHomeComponentsEnum.RecentlyViewGames]: () => <RecentlyViewGames />,
+		[DesktopHomeComponentsEnum.RecentlyViewGames]: () => <RecentlyViewGames />,
 		[DesktopHomeComponentsEnum.AppDownloadBanner]: () => <AppDownloadBanner />,
 		[DesktopHomeComponentsEnum.OfficialPartner]: () => <OfficialPartner />,
 		[DesktopHomeComponentsEnum.ProviderBlock]: () => <ProvidersBlock />,
-	
-		
-		[DesktopHomeComponentsEnum.EuropeCupEntry]: () => includes(
-      ALLOWED_CURRENCIES.Euro_Cup,
-      currencyId
-    ) ? (
-      <EuropeCupEntry />
-    ) : null,
-		[DesktopHomeComponentsEnum.LuckyWheel]: () => <LuckyWheel/>,
+
+		[DesktopHomeComponentsEnum.EuropeCupEntry]: () =>
+			includes(ALLOWED_CURRENCIES.Euro_Cup, currencyId) ? (
+				<EuropeCupEntry />
+			) : null,
+		[DesktopHomeComponentsEnum.LuckyWheel]: () => <LuckyWheel />,
 		[DesktopHomeComponentsEnum.Retention]: () => <Retention />,
 		[DesktopHomeComponentsEnum.LiveStreamingLink]: () => <LiveStreamingLink />,
 		[DesktopHomeComponentsEnum.QuickDownload]: () => <QuickDownload />,
