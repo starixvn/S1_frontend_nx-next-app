@@ -4,10 +4,11 @@ import { useState, useEffect, startTransition } from 'react'
 import { useTranslation } from 'next-i18next'
 import { isEventPeriod } from '@nx-next-app/utils'
 import { paths } from '@nx-next-app/constants'
-import { MenuIconTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
+import { CurrenciesEnum, MenuIconTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 import { type IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
 import SubMenu from './SubMenu'
+import { useAuth } from '@nx-next-app/data-access'
 
 interface IMenuProps {
 	menuList: IMergedMenuData[]
@@ -32,8 +33,16 @@ const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 		query: { prevPageRecord },
 		push,
 	} = useRouter()
+
+	const {
+		userInfo: { currencyId },
+	} = useAuth()
+
+	// 7/16/24 因應 hotfix遮蔽saba sport,根據語系設定初始 menuKey
+	const defaultMenuKey = (currencyId === CurrenciesEnum.USD || currencyId === CurrenciesEnum.CNY) ? 'Casino' : 'Sports';
+
 	const [menuKey, setMenuKey] = useState<keyof typeof MenuKeyEnum | undefined>(
-		'Sports'
+		defaultMenuKey
 	)
 
 	// * 若是之前進入過 slot 頁面 ，點左上角返回後 main Menu 須在 Slot
