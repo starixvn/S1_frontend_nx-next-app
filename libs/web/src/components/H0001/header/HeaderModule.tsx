@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import classNames from 'classnames'
-import { paths } from '@nx-next-app/constants'
+import { paths, EVENT_PERIOD } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { HTMLAttributes, useEffect, useState } from 'react'
 import { useTranslation } from 'next-i18next'
@@ -11,7 +11,6 @@ import {
 	IMainWalletInfoData,
 	ITpWalletInfoData,
 } from '@nx-next-app/service'
-import { EVENT_PERIOD } from '@nx-next-app/site/nova88'
 import { SpinButton } from '../button'
 
 interface IHeaderModuleProps extends HTMLAttributes<HTMLDivElement> {

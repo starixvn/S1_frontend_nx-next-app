@@ -2,15 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { includes } from 'lodash-es'
 import dayjs from 'dayjs'
 import classNames from 'classnames'
-import { useAuth } from '@nx-next-app/data-access'
-import { LIVESTREAM_CURRENCY_TO_LANG_KEY } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { LIVESTREAM_CURRENCY_TO_LANG_KEY, EVENT_PERIOD } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	useLazyGetDataListQuery,
 	ILiveStreamingData,
 } from '@nx-next-app/service'
 import { isEventPeriod } from '@nx-next-app/utils'
-import { ALLOWED_CURRENCIES, EVENT_PERIOD } from '@nx-next-app/site/nova88'
 import LiveStreamingModal from './LiveStreamingModal'
 
 const LiveStreamingLink = () => {
@@ -19,6 +18,7 @@ const LiveStreamingLink = () => {
 		userInfo: { currencyId, langId },
 		auth: { isLogin },
 	} = useAuth()
+	const { ALLOWED_CURRENCIES } = useStaticData()
 	const [isShowLiveStreaming, setIsShowLiveStreaming] = useState(false)
 	const [liveStreamingList, setLiveStreamingList] = useState<
 		ILiveStreamingData[]
@@ -44,7 +44,8 @@ const LiveStreamingLink = () => {
 				setLiveStreamingList(filterList)
 			}
 		} catch (error) {
-			console.log(error)
+			// eslint-disable-next-line no-console
+			console.error(error)
 		}
 	}
 

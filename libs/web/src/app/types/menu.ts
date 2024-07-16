@@ -1,3 +1,5 @@
+import { IProduct } from "@nx-next-app/constants"
+
 export enum MenuKeyEnum {
 	'Sports' = 'Sports',
 	'Casino' = 'Casino',
@@ -54,41 +56,41 @@ export type MenuEventIcon = {
 	period: { start: null | string; end: null | string }
 }
 
-// // * 子選單資訊，h5、desktop 內為分裝置的資訊，以外的是共用資訊
-// export interface ISubMenu extends IProduct {
-// 	h5?: {
-// 		menuActionType: keyof typeof MenuActionTypeEnum
-// 		hasDesktopLink?: boolean // * 決定是否有顯示 desktop & play now 按鈕
-// 	}
-// 	desktop?: {
-// 		menuActionType: keyof typeof MenuActionTypeEnum
-// 	}
-// 	pathname?: string
-// 	query?: {
-// 		provider?: string
-// 		type?: string
-// 		tpId?: string | number
-// 		tpGameType?: string | number
-// 	}
-// 	needLogin?: boolean
-// }
-//
-// // * 主選單資訊，h5、desktop 內為分裝置的資訊，以外的是共用資訊
-// export type IMenuData = {
-// 	display: 'h5' | 'desktop' | 'all'
-// 	displayKey: string
-// 	pathname?: string
-// 	lobbyCategoryId: number
-// 	subMenuAllowCurrenciesWithAuth: boolean // * 決定是否需要登入後才過濾
-// 	query?: { provider: string }
-// 	subMenu: ISubMenu[]
-// 	category: MenuKeyEnum
-// 	h5: {
-// 		icon: string
-// 		subMenuClassName?: string
-// 	}
-// 	desktop: {
-// 		subMenuClassName: string
-// 		menuType?: 'menu' | 'banner'
-// 	}
-// }
+export interface ISubMenu extends IProduct {
+	h5: {
+		hasLobby: boolean
+		menuActionType: keyof typeof MenuActionTypeEnum
+		hasDesktopLink?: boolean
+	}
+	desktop: {
+		hasLobby: boolean
+		menuActionType: keyof typeof MenuActionTypeEnum
+		subMenuImageClassName?: string
+	}
+	pathname?: string
+	query?: {
+		provider?: string
+		type?: string
+		tpId?: string | number
+	}
+	needLogin?: boolean
+}
+
+export type IMenuData = {
+	display: 'h5' | 'desktop' | 'all'
+	displayKey: string
+	pathname?: string
+	lobbyCategoryId: number
+	subMenuAllowCurrenciesWithAuth: boolean // * 決定是否需要登入後才過濾(暫時沒有用到)
+	query?: { provider: string }
+	subMenu: ISubMenu[]
+	category: MenuKeyEnum
+	h5: {
+		icon: string
+		subMenuClassName?: string
+	}
+	desktop: {
+		subMenuClassName: string
+		menuType?: 'menu' | 'banner'
+	}
+}

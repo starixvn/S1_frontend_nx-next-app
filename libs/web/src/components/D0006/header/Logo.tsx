@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { paths } from '../../../app/constants'
+import { paths } from '@nx-next-app/constants'
 
 interface ILogoProps {
 	logoUrl: string

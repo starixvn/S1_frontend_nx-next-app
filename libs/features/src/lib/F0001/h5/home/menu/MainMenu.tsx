@@ -4,11 +4,11 @@ import { useState, useEffect, startTransition } from 'react'
 import { useTranslation } from 'next-i18next'
 import { isEventPeriod } from '@nx-next-app/utils'
 import { paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
 import { CurrenciesEnum, MenuIconTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 import { type IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
 import SubMenu from './SubMenu'
-import { useAuth } from '@nx-next-app/data-access'
 
 interface IMenuProps {
 	menuList: IMergedMenuData[]

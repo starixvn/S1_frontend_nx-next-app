@@ -1,7 +1,7 @@
 import { ISEOData, useAuth, useStaticData } from '@nx-next-app/data-access'
 import { isNull, replace } from 'lodash-es'
 import { useRouter } from 'next/router'
-import { paths } from '../app/constants/paths'
+import { paths } from '@nx-next-app/constants'
 
 /**
  *

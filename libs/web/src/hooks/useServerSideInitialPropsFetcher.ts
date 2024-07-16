@@ -7,13 +7,12 @@ import {
 	checkSignIn,
 	getCustProfile,
 	getSEOData,
+	ISEOData
 } from '@nx-next-app/data-access'
-
-import { ISEOData } from '../data-access/type'
-import { setServerSideHeaders, UserInfoMemberType } from '../service'
-import { paths, ENV_COOKIE_NAMES } from '../app/constants'
+import { paths, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { useRedirectDevice } from './useRedirectDevice'
 import { useRedirectMaintain } from './useRedirectMaintain'
+import { setServerSideHeaders, UserInfoMemberType } from '../service'
 
 export interface InitialPropsInterface {
 	originLangId: string
