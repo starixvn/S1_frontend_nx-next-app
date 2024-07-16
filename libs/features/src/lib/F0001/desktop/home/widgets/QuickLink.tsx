@@ -3,15 +3,12 @@ import { useTranslation } from 'next-i18next'
 import { useHover } from 'usehooks-ts'
 import classNames from 'classnames'
 import QRCode from 'qrcode.react'
-import { ISocialChannelData } from '@nx-next-app/service'
 import { LinkTypeEnum } from '@nx-next-app/types'
 import { channelIconClass } from '@nx-next-app/features/F0001/types'
+import { useHome } from '@nx-next-app/features/F0001/providers'
 
-interface IQuickLinkProps {
-	socialChannelList: ISocialChannelData[]
-}
-
-const QuickLink = ({ socialChannelList }: IQuickLinkProps) => {
+const QuickLink = () => {
+	const { socialChannelList } = useHome()
 	const { t } = useTranslation()
 	const hoverRef = useRef(null)
 	const isHover = useHover(hoverRef)
