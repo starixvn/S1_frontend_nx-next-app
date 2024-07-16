@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next'
 import { IFooterData, ISeoData } from '@nx-next-app/types'
 
 const License = ({
-	licenseData: { defaultScript, defaultXCMScript },
+	licenseData: { defaultScript },
 	seoData,
 }: {
 	licenseData: IFooterData['licenseData']
@@ -15,16 +15,17 @@ const License = ({
 	const CuracaoScript = seoData?.script ?? defaultScript
 	const formattedCuracaoScript = CuracaoScript?.split('-').join('_')
 
-	const XCMScript = seoData?.xcmScript ?? defaultXCMScript
-	const formattedXCMScript = XCMScript?.split('-').join('_')
+	// 市場通之暫時移除 XCM License 2024/7/16
+	// const XCMScript = seoData?.xcmScript ?? defaultXCMScript
+	// const formattedXCMScript = XCMScript?.split('-').join('_')
 
 	useEffect(() => {
 		if (showLicenseLogo) {
 			/* eslint-disable @typescript-eslint/no-explicit-any */
 			const apgScript = (window as any)[`apg_${formattedCuracaoScript}`]
-			const xcmScript = (window as any)[`xcm_${formattedXCMScript}`]
+			// const xcmScript = (window as any)[`xcm_${formattedXCMScript}`]
 			apgScript?.init()
-			xcmScript?.init()
+			// xcmScript?.init()
 		}
 	}, [showLicenseLogo])
 
@@ -40,12 +41,12 @@ const License = ({
 							data-apg-image-size='128'
 							data-apg-image-type='basic-small'
 						/>
-						<div
-							id={`xcm-${XCMScript}`}
-							data-xcm-seal-id={XCMScript}
-							data-xcm-image-size='128'
-							data-xcm-image-type='basic-small'
-						/>
+						{/* <div */}
+						{/*	id={`xcm-${XCMScript}`} */}
+						{/*	data-xcm-seal-id={XCMScript} */}
+						{/*	data-xcm-image-size='128' */}
+						{/*	data-xcm-image-type='basic-small' */}
+						{/* /> */}
 						<div className='icon-aware'>
 							<a
 								href='https://www.begambleaware.org/'
@@ -67,10 +68,10 @@ const License = ({
 				src={`https://${CuracaoScript}.snippet.antillephone.com/apg-seal.js`}
 				strategy='lazyOnload'
 			/>
-			<Script
-				src={`https://${XCMScript}.seals-xcm.certria.com/xcm-seal.js`}
-				strategy='lazyOnload'
-			/>
+			{/* <Script */}
+			{/*	src={`https://${XCMScript}.seals-xcm.certria.com/xcm-seal.js`} */}
+			{/*	strategy='lazyOnload' */}
+			{/* /> */}
 		</>
 	)
 }
