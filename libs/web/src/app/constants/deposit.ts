@@ -10,6 +10,7 @@ export const AllowUploadReceiptType = [
 	DepositTypeEnum.ChatTransfer,
 	DepositTypeEnum.TopUpCard,
 	DepositTypeEnum.BankAutoChannel,
+	DepositTypeEnum.QRPay,
 ]
 
 // 只有 BankTransfer 才有銀行相關資料需要顯示
