@@ -64,7 +64,7 @@ const Home = () => {
 	const { bannerData, desktopHomeOrders } = useHome()
 
 	const {
-		userInfo: { currencyId },
+		userInfo: { langId, currencyId },
 	} = useAuth()
 	const { ALLOWED_CURRENCIES } = useStaticData()
 
@@ -117,7 +117,7 @@ const Home = () => {
 				<Fragment key={component}>{homeComponents[component]}</Fragment>
 			) : null
 		},
-		[currencyId]
+		[langId, currencyId]
 	)
 
 	return (
