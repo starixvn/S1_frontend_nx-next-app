@@ -80,7 +80,13 @@ const MilestoneContent = ({
 				<div className='milestones-home' id='homepage'>
 					<div>
 						<div>
-							Nova<span>88</span>
+							<Trans
+								className=''
+								i18nKey='Label_Milestone_Subtitle'
+								components={{
+									span: <span />,
+								}}
+							/>
 						</div>
 						<span>{t('Label_Milestone_Title')}</span>
 						<div>{t('Label_Milestone_MainTitleDetail')}</div>

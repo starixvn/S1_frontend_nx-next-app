@@ -2,45 +2,9 @@ import {
 	MenuActionTypeEnum,
 	MenuKeyEnum,
 	LobbyCategoryEnum,
+	IMenuData
 } from '@nx-next-app/types'
-import { paths, PRODUCTS, type IProduct } from '@nx-next-app/constants'
-
-export interface ISubMenu extends IProduct {
-	h5: {
-		hasLobby: boolean
-		menuActionType: keyof typeof MenuActionTypeEnum
-	}
-	desktop: {
-		hasLobby: boolean
-		menuActionType: keyof typeof MenuActionTypeEnum
-	}
-	pathname?: string
-	query?: {
-		provider?: string
-		type?: string
-		tpId?: string | number
-	}
-	needLogin?: boolean
-}
-
-export type IMenuData = {
-	display: 'h5' | 'desktop' | 'all'
-	displayKey: string
-	pathname?: string
-	lobbyCategoryId: number
-	subMenuAllowCurrenciesWithAuth: boolean // * 決定是否需要登入後才過濾(暫時沒有用到)
-	query?: { provider: string }
-	subMenu: ISubMenu[]
-	category: MenuKeyEnum
-	h5: {
-		icon: string
-		subMenuClassName?: string
-	}
-	desktop: {
-		subMenuClassName: string
-		menuType?: 'menu' | 'banner'
-	}
-}
+import { paths, PRODUCTS } from '@nx-next-app/constants'
 
 export const MENU_DATA: IMenuData[] = [
 	{

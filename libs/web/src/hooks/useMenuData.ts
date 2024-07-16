@@ -5,7 +5,7 @@ import {
 	useGetLobbyHeaderQuery,
 	type ISubMenuData,
 } from '@nx-next-app/service'
-import { memberTypeEnum } from 'libs/web/src/app/constants/userInfo'
+import { memberTypeEnum } from '@nx-next-app/constants'
 
 export interface IAddLiveStreamingProps {
 	isTpMaintain: boolean

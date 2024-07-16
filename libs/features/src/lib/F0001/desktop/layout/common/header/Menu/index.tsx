@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
 import { toUpper, includes } from 'lodash-es'
 import { useDebounce } from 'usehooks-ts'
 import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { isEventPeriod } from '@nx-next-app/utils'
 import { paths, PRODUCTS } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -15,7 +15,6 @@ import {
 	MenuActionTypeEnum,
 	MenuIconTypeEnum,
 } from '@nx-next-app/types'
-import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
 import SubMenu from './SubMenu'
@@ -62,6 +61,7 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
+	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	const menus = menuList.map(mainMenuItem => {
 		const {

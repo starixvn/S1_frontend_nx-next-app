@@ -2,7 +2,7 @@ import dayjs from 'dayjs'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { FieldErrors } from 'react-hook-form'
 import { isNaN, replace } from 'lodash-es'
-import { INTEGER_ONLY_REGEX } from '../app/constants/regex'
+import { INTEGER_ONLY_REGEX } from '@nx-next-app/constants'
 
 /**
  * @returns 數字 format 到特定小數點，預設為第二位

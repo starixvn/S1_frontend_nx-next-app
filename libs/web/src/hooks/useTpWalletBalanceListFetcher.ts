@@ -1,7 +1,7 @@
 import { sumBy } from 'lodash-es'
 import { useEffect, useState } from 'react'
 import { useInterval } from 'usehooks-ts'
-import { useAuth } from '../data-access/auth-context'
+import { useAuth } from '@nx-next-app/data-access'
 import {
 	useGetCustBonusWalletListQuery,
 	useGetMainWalletInfoQuery,

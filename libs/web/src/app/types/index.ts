@@ -147,16 +147,19 @@ export interface IStaticAllowedCurrencies {
 	ADDRESS?: CurrenciesEnum[]
 
 	// Deposit
-	RECEIPT: CurrenciesEnum[]
+	RECEIPT?: CurrenciesEnum[]
 
 	// Home
-	LIVE_STREAMING_LINK: CurrenciesEnum[]
+	LIVE_STREAMING_LINK?: CurrenciesEnum[]
 	LUCKY_WHEEL?: CurrenciesEnum[]
 
 	// Euro-Cup
-	Euro_Cup: CurrenciesEnum[]
+	Euro_Cup?: CurrenciesEnum[]
 
 	Retention?: CurrenciesEnum[]
+
+	// olympic
+	OLYMPIC?: CurrenciesEnum[]
 }
 
 export interface ITermsConditions {
@@ -265,6 +268,7 @@ export * from './menu'
 export * from './vip'
 export * from './leaderBoard'
 export * from './milestone'
+export * from './olympic'
 
 // * 在 Deposit 中如果 extraDataType 為 1 需顯示銀行卡下拉、2 需顯示 E-Wallet 下拉、0 則不顯示任何下拉
 export enum DepositExtraDataTypeEnum {

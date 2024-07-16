@@ -1,8 +1,7 @@
 import classNames from 'classnames'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { numberFormat } from '@nx-next-app/utils'
-import { getSafetyLv } from '@nx-next-app/site/nova88'
+import { numberFormat, getSafetyLv } from '@nx-next-app/utils'
 import {
 	LineLoginDirectTypeEnum,
 	useLazyGetLineLoginDirectUrlQuery,
@@ -49,10 +48,17 @@ const Verification = () => {
 
 	const userLevelImageInfo = VIP_CLUB_IMAGES[(userLevel as number) - 1 ?? 0]
 
+	const phoneVerification = {
+		exist: true,
+		value: phoneVerified,
+	}
+	const emailVerification = {
+		exist: true,
+		value: emailVerified,
+	}
 	const { safetyLv, safetyDisplayKey } = getSafetyLv({
-		accountName,
-		phoneVerified,
-		emailVerified,
+		phoneVerification,
+		emailVerification,
 	})
 
 	return (

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { setCookies } from 'cookies-next'
+import { setCookie } from 'cookies-next'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IUserInfoData } from '../service'
-import { ENV_COOKIE_NAMES } from '../app/constants/Names'
 
 declare global {
 	interface Window {
@@ -21,8 +21,8 @@ export const useSynchronizeCookiesEffect = (userInfo: IUserInfoData) => {
 	useEffect(() => {
 		if (userInfo.userName !== 'guest') {
 			const { langId, currencyId, custId } = userInfo
-			setCookies(ENV_COOKIE_NAMES.LangId, langId)
-			setCookies(ENV_COOKIE_NAMES.CurrencyId, currencyId)
+			setCookie(ENV_COOKIE_NAMES.LangId, langId)
+			setCookie(ENV_COOKIE_NAMES.CurrencyId, currencyId)
 
 			// PRD 環境且有載入才執行
 			if (

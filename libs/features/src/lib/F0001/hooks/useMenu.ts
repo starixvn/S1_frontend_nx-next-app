@@ -1,8 +1,8 @@
 import { includes, find, filter } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { useMenuData } from '@nx-next-app/hooks'
-import { paths, PRODUCTS } from '@nx-next-app/constants'
-import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import { paths, PRODUCTS, memberTypeEnum } from '@nx-next-app/constants'
+import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import {
 	DeviceTypeEnum,
 	LoginGameTypeEnum,
@@ -21,8 +21,6 @@ import {
 	onWindowOpenProduct,
 	isGameExcludedFromLiff,
 } from '@nx-next-app/utils'
-import { MENU_DATA } from '@nx-next-app/site/nova88'
-import { memberTypeEnum } from 'libs/web/src/app/constants/userInfo'
 import type {
 	IDynamicSubMenuItem,
 	IStaticSubMenuItem,
@@ -100,6 +98,7 @@ const useMenu = () => {
 		userInfo: { langId, memberType },
 	} = useAuth()
 	const { modal } = useGlobalModal()
+	const { MENU_DATA } = useStaticData()
 	const { LobberHeaderMenuList, isLobbyHeaderError } = useMenuData()
 	const { tpMaintainList, isInLiff } = useGlobalData()
 	const [gotoGame] = useLazyGotoGameQuery()

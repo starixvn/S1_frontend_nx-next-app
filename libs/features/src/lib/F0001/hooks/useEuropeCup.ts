@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { isEventPeriod } from '@nx-next-app/utils'
+import { EVENT_PERIOD } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	clamp,
@@ -24,7 +25,6 @@ import {
 	useGetCupEventPredictionSettingQuery,
 	ITeamData,
 } from '@nx-next-app/service'
-import { EUROPE_EVENT_AFTER_PREDICT } from '@nx-next-app/site/nova88'
 import dayjs from 'dayjs'
 
 // 每場比賽的參賽隊伍 [主, 客]
@@ -234,9 +234,9 @@ const useEuropeCup = () => {
 	)
 
 	const isParticipate =
-		isEventPeriod(EUROPE_EVENT_AFTER_PREDICT) && usedTickets > 0
+		isEventPeriod(EVENT_PERIOD.EUROPE_EVENT_AFTER_PREDICT) && usedTickets > 0
 	const isUnParticipate =
-		isEventPeriod(EUROPE_EVENT_AFTER_PREDICT) && usedTickets === 0
+		isEventPeriod(EVENT_PERIOD.EUROPE_EVENT_AFTER_PREDICT) && usedTickets === 0
 
 	// * prediction 需要的資料及狀態
 	const userCountryWithTicket1 = find(userTicketResult?.ticketList, {
