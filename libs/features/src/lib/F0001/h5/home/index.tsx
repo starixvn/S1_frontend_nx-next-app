@@ -1,18 +1,14 @@
+import { Fragment, useCallback } from 'react'
+import dynamic from 'next/dynamic'
 import { includes } from 'lodash-es'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
-import {
-	Header,
-	JackPot,
-	Marquee,
-	useAppDownload,
-} from '@nx-next-app/components/H0001'
+import { Header, JackPot, useAppDownload } from '@nx-next-app/components/H0001'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import { useSetHideBalanceMutation } from '@nx-next-app/service'
 import { useHome } from '@nx-next-app/features/F0001/providers'
-import dynamic from 'next/dynamic'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { multiEqual } from '@nx-next-app/utils'
 import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
@@ -40,6 +36,8 @@ const CarouselBanner = dynamic(() => import('../common/carouselBanner'), {
 	ssr: false,
 })
 
+const Announcement = dynamic(() => import('./Announcement'))
+
 const PromotionSwiper = dynamic(() => import('./PromotionSwiper'))
 
 const HotEventSwiper = dynamic(() => import('./HotEventSwiper'))
@@ -62,6 +60,10 @@ const JackPotSwiper = dynamic(() => import('./JackPotSwiper'), { ssr: false })
 
 const PartnerBlock = dynamic(() => import('./PartnerBlock'))
 
+const OlympicEntry = dynamic(() => import('../common/OlympicEntry'), {
+	ssr: false,
+})
+
 const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 	const { push } = useRouter()
 
@@ -69,13 +71,9 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 		userInfo: { langId, currencyId },
 	} = useAuth()
 
-	const {
-		bannerData,
-		announcementData,
-		handleMarqueeClick,
-		jackPotCurrencies,
-		mobileHomeOrders,
-	} = useHome()
+	// 因為有用useCallback避免render issue，因此這邊資料僅使用static＆serverSide data
+	// clientSide api fetch在元件內部呼叫
+	const { bannerData, mobileHomeOrders } = useHome()
 
 	const {
 		isLoading: isTpWalletBalanceListLoading,
@@ -98,7 +96,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	const homeComponents = {
-		[MobileHomeComponentsEnum.CarouselBanner]: () => (
+		[MobileHomeComponentsEnum.CarouselBanner]: (
 			<div className='home-mainbanner'>
 				<CarouselBanner
 					bannerList={bannerData}
@@ -107,49 +105,53 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 				/>
 			</div>
 		),
-		[MobileHomeComponentsEnum.Marquee]: () => (
-			<Marquee
-				data={announcementData}
-				onMarqueeClick={() =>
-					handleMarqueeClick({
-						loginCallback: () => push(paths.login.root),
-					})
-				}
-			/>
-		),
-		[MobileHomeComponentsEnum.PromotionSwiper]: () => <PromotionSwiper />,
-		[MobileHomeComponentsEnum.HotEventSwiper]: () =>
-			includes(ALLOWED_CURRENCIES.SPORTS_SABA_CLUB, currencyId) ? (
-				<HotEventSwiper />
-			) : null,
-		[MobileHomeComponentsEnum.HotGameSwiper]: () => <HotGameSwiper />,
-		[MobileHomeComponentsEnum.RecentlyViewGames]: () => <RecentlyViewGames />,
-		[MobileHomeComponentsEnum.FriendReferral]: () => <FriendReferral />,
-		[MobileHomeComponentsEnum.Jackpot]: () =>
-			includes(jackPotCurrencies, currencyId) ? (
-				<JackPot onClick={() => push(paths.slots.root)} isRoot />
-			) : null,
-		[MobileHomeComponentsEnum.EuropeCupEntry]: () =>
-			includes(ALLOWED_CURRENCIES.Euro_Cup, currencyId) ? (
-				<EuroCupEntry />
-			) : null,
-		[MobileHomeComponentsEnum.LuckyWheel]: () => <LuckyWheel />,
-		[MobileHomeComponentsEnum.Retention]: () => <Retention />,
+		[MobileHomeComponentsEnum.Announcement]: <Announcement />,
+		[MobileHomeComponentsEnum.PromotionSwiper]: <PromotionSwiper />,
+		[MobileHomeComponentsEnum.HotEventSwiper]: includes(
+			ALLOWED_CURRENCIES.SPORTS_SABA_CLUB,
+			currencyId
+		) ? (
+			<HotEventSwiper />
+		) : null,
+		[MobileHomeComponentsEnum.HotGameSwiper]: <HotGameSwiper />,
+		[MobileHomeComponentsEnum.RecentlyViewGames]: <RecentlyViewGames />,
+		[MobileHomeComponentsEnum.FriendReferral]: <FriendReferral />,
+		[MobileHomeComponentsEnum.Jackpot]: includes(
+			ALLOWED_CURRENCIES.JACKPOT,
+			currencyId
+		) ? (
+			<JackPot onClick={() => push(paths.slots.root)} isRoot />
+		) : null,
+		[MobileHomeComponentsEnum.EuropeCupEntry]: includes(
+			ALLOWED_CURRENCIES.Euro_Cup,
+			currencyId
+		) ? (
+			<EuroCupEntry />
+		) : null,
+		[MobileHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
+		[MobileHomeComponentsEnum.Retention]: <Retention />,
 
-		[MobileHomeComponentsEnum.LiveStreamingLink]: () => <LiveStreamingLink />,
-		[MobileHomeComponentsEnum.AppDownload]: () =>
+		[MobileHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
+		[MobileHomeComponentsEnum.AppDownload]:
 			isInApp === false ? <AppDownload /> : null,
-		[MobileHomeComponentsEnum.FooterBlock]: () => <FooterBlock />,
-		[MobileHomeComponentsEnum.SimpleFooter]: () => <SimpleFooter />,
-		[MobileHomeComponentsEnum.JackPotSwiper]: () => <JackPotSwiper />,
-		[MobileHomeComponentsEnum.PartnerBlock]: () => <PartnerBlock />,
+
+		[MobileHomeComponentsEnum.FooterBlock]: <FooterBlock />,
+		[MobileHomeComponentsEnum.SimpleFooter]: <SimpleFooter />,
+		[MobileHomeComponentsEnum.JackPotSwiper]: <JackPotSwiper />,
+		[MobileHomeComponentsEnum.PartnerBlock]: <PartnerBlock />,
+		[MobileHomeComponentsEnum.OlympicEntry]: includes(
+			ALLOWED_CURRENCIES.OLYMPIC,
+			currencyId
+		) ? (
+			<OlympicEntry />
+		) : null,
 	}
 
 	// banner 區塊，目前只有兩個
 	const bannerBlockOrders = mobileHomeOrders.filter(component =>
 		multiEqual(component, [
 			MobileHomeComponentsEnum.CarouselBanner,
-			MobileHomeComponentsEnum.Marquee,
+			MobileHomeComponentsEnum.Announcement,
 		])
 	)
 
@@ -162,6 +164,13 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 		isInApp === false &&
 		isAppDownloadHintActive &&
 		includes(ALLOWED_CURRENCIES['APP_DOWNLOAD'] as CurrenciesEnum[], currencyId)
+
+	// 避免map造成多次調用renderComponent因此用useCallback包起來
+	const renderComponent = useCallback((component: MobileHomeComponentsEnum) => {
+		return homeComponents[component] ? (
+			<Fragment key={component}>{homeComponents[component]}</Fragment>
+		) : null
+	}, [])
 
 	return (
 		<>
@@ -188,16 +197,11 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 				// * 當 Header.AppDownLoad 顯示時要加入 'active' class name
 				className={classNames({ active: showAppDownload })}
 			>
-				{bannerBlockOrders.map(component => {
-					const Component = homeComponents[component]
-					return Component ? <Component key={component} /> : null
-				})}
+				{bannerBlockOrders.map(component => renderComponent(component))}
 
 				<Menu />
-				{contentOrders.map(component => {
-					const Component = homeComponents[component]
-					return Component ? <Component key={component} /> : null
-				})}
+
+				{contentOrders.map(component => renderComponent(component))}
 			</main>
 		</>
 	)

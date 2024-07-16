@@ -1,10 +1,9 @@
+import { useState } from 'react'
 import classNames from 'classnames'
 import { includes } from 'lodash-es'
-import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { CurrenciesEnum } from '@nx-next-app/types'
-import { numberFormat } from '@nx-next-app/utils'
-import { getSafetyLv } from '@nx-next-app/site/nova88'
+import { numberFormat, getSafetyLv } from '@nx-next-app/utils'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 
 const Verification = () => {
@@ -33,10 +32,17 @@ const Verification = () => {
 
 	const userLevelImageInfo = VIP_CLUB_IMAGES[(userLevel as number) - 1]
 
+	const phoneVerification = {
+		exist: true,
+		value: phoneVerified,
+	}
+	const emailVerification = {
+		exist: true,
+		value: emailVerified,
+	}
 	const { safetyLv, safetyDisplayKey } = getSafetyLv({
-		accountName,
-		phoneVerified,
-		emailVerified,
+		phoneVerification,
+		emailVerification,
 	})
 
 	return (

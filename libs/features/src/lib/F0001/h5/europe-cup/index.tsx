@@ -1,9 +1,8 @@
 import { useLayoutEffect } from 'react'
-import { isEventPeriod } from '@nx-next-app/utils'
-import { EUROPE_EVENT_PERIOD } from '@nx-next-app/site/nova88'
-import { paths } from '@nx-next-app/constants'
-import { Header } from '@nx-next-app/components/H0001'
 import { useRouter } from 'next/router'
+import { isEventPeriod } from '@nx-next-app/utils'
+import { paths, EVENT_PERIOD } from '@nx-next-app/constants'
+import { Header } from '@nx-next-app/components/H0001'
 import { useAuth } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import { useSetHideBalanceMutation } from '@nx-next-app/service'
@@ -20,7 +19,7 @@ const EventEuropeCup = () => {
 
 	// 不在活動時間倒回首頁
 	useLayoutEffect(() => {
-		if (!isEventPeriod(EUROPE_EVENT_PERIOD)) push(paths.home.root)
+		if (!isEventPeriod(EVENT_PERIOD.EUROPE_CUP)) push(paths.home.root)
 	}, [])
 
 	const {

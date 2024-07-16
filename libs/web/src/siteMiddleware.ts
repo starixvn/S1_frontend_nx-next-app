@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import { CurrenciesEnum } from '@nx-next-app/types'
 import { NextRequest, NextResponse } from 'next/server'
-import { ENV_COOKIE_NAMES } from './app/constants/Names'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 
 interface ISiteMiddleware {
 	request: NextRequest

@@ -4,7 +4,6 @@ import { useTranslation, Trans } from 'next-i18next'
 // ts要求引入SwiperClass
 import { Swiper as SwiperClass } from 'swiper'
 import { IMilestone, ISlide } from 'libs/web/src/app/types/milestone'
-import { upperFirst } from 'lodash-es'
 
 interface IMilestoneContentProps {
 	milestonesData: IMilestone[]
@@ -68,7 +67,13 @@ const MilestoneContent = ({
 			<div className='milestones-home' id='homepage'>
 				<div>
 					<div>
-						Nova<span>88</span>
+						<Trans
+							className=''
+							i18nKey='Label_Milestone_Subtitle'
+							components={{
+								span: <span />,
+							}}
+						/>
 					</div>
 					<span>{t('Label_Milestone_Title')}</span>
 					<div>{t('Label_Milestone_MainTitleDetail')}</div>

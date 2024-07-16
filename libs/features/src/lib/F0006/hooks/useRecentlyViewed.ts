@@ -4,10 +4,13 @@ import {
 	useGetRecentlyViewedQuery,
 } from '@nx-next-app/service'
 import { useMenu } from '@nx-next-app/features/F0006/hooks/useMenu'
-import { useAuth } from '@nx-next-app/data-access'
-import { MENU_DATA, type ISubMenu } from '@nx-next-app/site/yashbet'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { CategoryEnum } from '@nx-next-app/features/F0006/types'
-import { DeviceTypeEnum, MenuActionTypeEnum } from '@nx-next-app/types'
+import {
+	DeviceTypeEnum,
+	ISubMenu,
+	MenuActionTypeEnum,
+} from '@nx-next-app/types'
 import { PRODUCTS } from '@nx-next-app/constants'
 
 interface IRecentlyViewReturnType extends IViewedGameData, ISubMenu {}
@@ -20,7 +23,7 @@ const useRecentlyViewed = () => {
 		userInfo: { currencyId, langId },
 	} = useAuth()
 	const { onEnterSlotsPage } = useMenu()
-
+	const { MENU_DATA } = useStaticData()
 	const { data: { data: recentlyViewData } = {} } = useGetRecentlyViewedQuery(
 		{
 			currencyId,
