@@ -1,8 +1,10 @@
 import { paths } from '@nx-next-app/constants'
 import { isEventPeriod } from '@nx-next-app/utils'
 import { useRouter } from 'next/router'
+import { includes } from 'lodash-es'
 import { useLayoutEffect } from 'react'
-import { EVENT_PERIOD } from '@nx-next-app/site/nova88'
+import { ALLOWED_CURRENCIES, EVENT_PERIOD } from '@nx-next-app/site/nova88'
+import { useAuth } from '@nx-next-app/data-access'
 import Reward from './reward'
 import Footer from './Footer'
 import RedemptionHistory from './RedemptionHistory'
@@ -12,10 +14,17 @@ import { useOlympic } from '../../providers'
 
 const Olympic = () => {
 	const { push } = useRouter()
+	const {
+		userInfo: { currencyId },
+	} = useAuth()
 
-	// 不在活動時間導回首頁
+	// 不在活動時間或currency是CNY or USD 導回首頁
 	useLayoutEffect(() => {
-		if (!isEventPeriod(EVENT_PERIOD.OLYMPIC)) push(paths.home.root)
+		if (
+			!isEventPeriod(EVENT_PERIOD.OLYMPIC) ||
+			!includes(ALLOWED_CURRENCIES.OLYMPIC, currencyId)
+		)
+			push(paths.home.root)
 	}, [])
 
 	// 判斷是否有兌換紀錄 並 取得玩家的兌換紀錄
