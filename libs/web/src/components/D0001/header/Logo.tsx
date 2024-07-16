@@ -11,15 +11,16 @@ interface ILogoProps {
 }
 
 const Logo = ({ logoUrl, rewardsUrl, showSpLogo }: ILogoProps) => {
+	console.log('testing OLYMPIC time', isEventPeriod(EVENT_PERIOD.OLYMPIC))
 	return (
 		<div
 			className={classNames('logo', {
-				olympic: isEventPeriod(EVENT_PERIOD.OLYMPIC),
+				olympic: showSpLogo && isEventPeriod(EVENT_PERIOD.OLYMPIC),
 			})}
 		>
 			<Link href={paths.home.root}>
 				{/* 奧運期間使用奧運LOGO */}
-				{isEventPeriod(EVENT_PERIOD.OLYMPIC) ? (
+				{showSpLogo && isEventPeriod(EVENT_PERIOD.OLYMPIC) ? (
 					<a>
 						<img
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/olympic/logo-nova88.webp`}
