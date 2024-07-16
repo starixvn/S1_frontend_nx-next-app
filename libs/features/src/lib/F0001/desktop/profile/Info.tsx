@@ -4,7 +4,12 @@ import { useTranslation } from 'next-i18next'
 import { useFormContext } from 'react-hook-form'
 import { numberFormat } from '@nx-next-app/utils'
 import { useAuth } from '@nx-next-app/data-access'
-import { paths, AREA_CODE, EMAIL_REGEX } from '@nx-next-app/constants'
+import {
+	paths,
+	AREA_CODE,
+	EMAIL_REGEX,
+	REALNAME_REGEX,
+} from '@nx-next-app/constants'
 import {
 	useLazyExistsEmailQuery,
 	useSendOTPEmailMutation,
@@ -13,7 +18,6 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import DateSelector from 'libs/web/src/components/D0001/dateSelector'
 import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
 import { useCheckPhone } from '@nx-next-app/features/F0001/hooks'
-import { REALNAME_REGEX } from '@nx-next-app/site/nova88'
 import { PhoneOtpModal } from './PhoneOtpModal'
 
 interface IInfoProps {

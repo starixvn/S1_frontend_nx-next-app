@@ -3,7 +3,7 @@ export enum DesktopHomeComponentsEnum {
 	// 首頁輪播
 	CarouselBanner = 'CarouselBanner',
 	// 跑馬燈
-	Marquee = 'Marquee',
+	Announcement = 'Announcement',
 	// Promotion 跑馬燈
 	PromotionSwiper = 'PromotionSwiper',
 	// 歡迎資訊
@@ -43,7 +43,7 @@ export enum MobileHomeComponentsEnum {
 	// 首頁輪播
 	CarouselBanner = 'CarouselBanner',
 	// 跑馬燈
-	Marquee = 'Marquee',
+	Announcement = 'Announcement',
 	// Promotion 跑馬燈
 	PromotionSwiper = 'PromotionSwiper',
 	HotEventSwiper = 'HotEventSwiper',

@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useBoolean, useDebounce } from 'usehooks-ts'
-import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
 import {
 	IAxiosError,
 	IPaymentBankTransferData,
@@ -15,7 +14,11 @@ import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
 import { every, find, head, includes, isEmpty } from 'lodash-es'
-import { useAuth, useDepositSavedLocalStorage } from '@nx-next-app/data-access'
+import {
+	useAuth,
+	useDepositSavedLocalStorage,
+	useStaticData,
+} from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useDepositContext } from './DepositContext'
 
@@ -48,7 +51,7 @@ const useDepositBankTransferForm = ({
 	const { value: isFirstEffect, toggle: toggleIsFirstEffect } = useBoolean(true)
 	const { query, pathname, push } = useRouter()
 	const { paymentType: queryPaymentType, sysId: querySysId } = query
-
+	const { ALLOWED_CURRENCIES } = useStaticData()
 	const {
 		isDepositLocalStorageSavedChecked,
 		depositLocalStorageSavedInfo,

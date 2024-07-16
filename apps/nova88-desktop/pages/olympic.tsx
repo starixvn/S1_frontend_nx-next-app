@@ -8,8 +8,9 @@ import {
 } from '@nx-next-app/hooks'
 import { IFooterData } from '@nx-next-app/types'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { ALLOWED_CURRENCIES, FOOTER_DATA } from '@nx-next-app/site/nova88'
 import { OlympicProvider } from '@nx-next-app/features/F0001/providers'
+import { includes } from 'lodash'
 
 interface IEuroCupProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
@@ -41,6 +42,15 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	const { langId, currencyId } = {
 		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
+	}
+
+	if (!includes(ALLOWED_CURRENCIES['OLYMPIC'], Number(currencyId))) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false,
+			},
+		}
 	}
 
 	return {

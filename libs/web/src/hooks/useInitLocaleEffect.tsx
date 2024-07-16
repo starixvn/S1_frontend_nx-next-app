@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
 import { NextRouter } from 'next/router'
 import { getCookie } from 'cookies-next'
+import { paths, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IUserInfoData } from '../service'
-import { ENV_COOKIE_NAMES } from '../app/constants/Names'
-import { paths } from '../app/constants/paths'
 
 /**
  *

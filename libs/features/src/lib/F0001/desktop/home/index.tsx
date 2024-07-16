@@ -1,12 +1,9 @@
-import React from 'react'
+import React, { Fragment, useCallback } from 'react'
 import dynamic from 'next/dynamic'
 import { includes } from 'lodash-es'
-import { Marquee } from '@nx-next-app/components/D0001'
 import { useHome } from '@nx-next-app/features/F0001/providers'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { DesktopHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
-import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 
 // Page Components
 const ProvidersBlock = dynamic(() => import('./ProvidersBlock'), { ssr: false })
@@ -20,6 +17,8 @@ const HotMatch = dynamic(() => import('./hotMatch'))
 const LiveCasino = dynamic(() => import('./LiveCasino'))
 
 const HotGame = dynamic(() => import('./HotGame'), { ssr: false })
+
+const Announcement = dynamic(() => import('./Announcement'), { ssr: false })
 
 const AppDownloadBanner = dynamic(() => import('./AppDownloadBanner'), {
 	ssr: false,
@@ -55,77 +54,75 @@ const QuickDownload = dynamic(() => import('./widgets/QuickDownload'), {
 
 const QuickLink = dynamic(() => import('./widgets/QuickLink'), { ssr: false })
 
-const LoginModal = dynamic(() => import('../modal/LoginModal'), {
-	ssr: false,
-})
-
 const OlympicEntry = dynamic(() => import('../common/OlympicEntry'), {
 	ssr: false,
 })
 
 const Home = () => {
-	const {
-		bannerData,
-		announcementData,
-		socialChannelList,
-		desktopHomeOrders,
-		handleMarqueeClick,
-	} = useHome()
-	const {
-		userInfo: { currencyId },
-	} = useAuth()
+	// 因為有用useCallback避免render issue，因此這邊資料僅使用static＆serverSide data
+	// clientSide api fetch在元件內部呼叫
+	const { bannerData, desktopHomeOrders } = useHome()
 
-	const { modal } = useGlobalModal()
+	const {
+		userInfo: { langId, currencyId },
+	} = useAuth()
+	const { ALLOWED_CURRENCIES } = useStaticData()
+
 	const homeComponents = {
-		[DesktopHomeComponentsEnum.CarouselBanner]: () => (
+		[DesktopHomeComponentsEnum.CarouselBanner]: (
 			<CarouselBanner
 				className='homebanner'
 				bannerList={bannerData}
 				navigation={false}
 			/>
 		),
-		[DesktopHomeComponentsEnum.Marquee]: () => (
-			<Marquee
-				data={announcementData}
-				onMarqueeClick={() =>
-					handleMarqueeClick({
-						loginCallback: () => modal.open(<LoginModal />),
-					})
-				}
-			/>
-		),
-		[DesktopHomeComponentsEnum.PromotionSwiper]: () => <PromotionSwiper />,
-		[DesktopHomeComponentsEnum.WelcomeInfo]: () => <WelcomeInfo />,
-		[DesktopHomeComponentsEnum.HotMatch]: () =>
-			includes(ALLOWED_CURRENCIES.SPORTS_SABA_CLUB, currencyId) ? (
-				<HotMatch />
-			) : null,
-		[DesktopHomeComponentsEnum.LiveCasino]: () => <LiveCasino />,
-		[DesktopHomeComponentsEnum.HotGame]: () => <HotGame />,
-		[DesktopHomeComponentsEnum.RecentlyViewGames]: () => <RecentlyViewGames />,
-		[DesktopHomeComponentsEnum.AppDownloadBanner]: () => <AppDownloadBanner />,
-		[DesktopHomeComponentsEnum.OfficialPartner]: () => <OfficialPartner />,
-		[DesktopHomeComponentsEnum.ProviderBlock]: () => <ProvidersBlock />,
-
-		[DesktopHomeComponentsEnum.EuropeCupEntry]: () =>
-			includes(ALLOWED_CURRENCIES.Euro_Cup, currencyId) ? (
-				<EuropeCupEntry />
-			) : null,
-		[DesktopHomeComponentsEnum.LuckyWheel]: () => <LuckyWheel />,
-		[DesktopHomeComponentsEnum.Retention]: () => <Retention />,
-		[DesktopHomeComponentsEnum.LiveStreamingLink]: () => <LiveStreamingLink />,
-		[DesktopHomeComponentsEnum.QuickDownload]: () => <QuickDownload />,
-		[DesktopHomeComponentsEnum.QuickLink]: () => (
-			<QuickLink socialChannelList={socialChannelList} />
-		),
-		[DesktopHomeComponentsEnum.OlympicEntry]: () => <OlympicEntry />,
+		[DesktopHomeComponentsEnum.Announcement]: <Announcement />,
+		[DesktopHomeComponentsEnum.PromotionSwiper]: <PromotionSwiper />,
+		[DesktopHomeComponentsEnum.WelcomeInfo]: <WelcomeInfo />,
+		[DesktopHomeComponentsEnum.HotMatch]: includes(
+			ALLOWED_CURRENCIES.SPORTS_SABA_CLUB,
+			currencyId
+		) ? (
+			<HotMatch />
+		) : null,
+		[DesktopHomeComponentsEnum.LiveCasino]: <LiveCasino />,
+		[DesktopHomeComponentsEnum.HotGame]: <HotGame />,
+		[DesktopHomeComponentsEnum.RecentlyViewGames]: <RecentlyViewGames />,
+		[DesktopHomeComponentsEnum.AppDownloadBanner]: <AppDownloadBanner />,
+		[DesktopHomeComponentsEnum.OfficialPartner]: <OfficialPartner />,
+		[DesktopHomeComponentsEnum.ProviderBlock]: <ProvidersBlock />,
+		[DesktopHomeComponentsEnum.EuropeCupEntry]: includes(
+			ALLOWED_CURRENCIES.Euro_Cup,
+			currencyId
+		) ? (
+			<EuropeCupEntry />
+		) : null,
+		[DesktopHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
+		[DesktopHomeComponentsEnum.Retention]: <Retention />,
+		[DesktopHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
+		[DesktopHomeComponentsEnum.QuickDownload]: <QuickDownload />,
+		[DesktopHomeComponentsEnum.QuickLink]: <QuickLink />,
+		[DesktopHomeComponentsEnum.OlympicEntry]: includes(
+			ALLOWED_CURRENCIES.OLYMPIC,
+			currencyId
+		) ? (
+			<OlympicEntry />
+		) : null,
 	}
+
+	// 避免map造成多次調用renderComponent因此用useCallback包起來
+	const renderComponent = useCallback(
+		(component: DesktopHomeComponentsEnum) => {
+			return homeComponents[component] ? (
+				<Fragment key={component}>{homeComponents[component]}</Fragment>
+			) : null
+		},
+		[langId, currencyId]
+	)
+
 	return (
 		<main>
-			{desktopHomeOrders.map(component => {
-				const Component = homeComponents[component]
-				return Component ? <Component key={component} /> : null
-			})}
+			{desktopHomeOrders.map(component => renderComponent(component))}
 		</main>
 	)
 }

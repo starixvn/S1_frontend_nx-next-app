@@ -4,11 +4,15 @@ import { useState, useEffect, startTransition } from 'react'
 import { useTranslation } from 'next-i18next'
 import { isEventPeriod } from '@nx-next-app/utils'
 import { paths } from '@nx-next-app/constants'
-import { CurrenciesEnum, MenuIconTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
+import { useAuth } from '@nx-next-app/data-access'
+import {
+	CurrenciesEnum,
+	MenuIconTypeEnum,
+	MenuKeyEnum,
+} from '@nx-next-app/types'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 import { type IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
 import SubMenu from './SubMenu'
-import { useAuth } from '@nx-next-app/data-access'
 
 interface IMenuProps {
 	menuList: IMergedMenuData[]
@@ -39,7 +43,10 @@ const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 	} = useAuth()
 
 	// 7/16/24 因應 hotfix遮蔽saba sport,根據語系設定初始 menuKey
-	const defaultMenuKey = (currencyId === CurrenciesEnum.USD || currencyId === CurrenciesEnum.CNY) ? 'Casino' : 'Sports';
+	const defaultMenuKey =
+		currencyId === CurrenciesEnum.USD || currencyId === CurrenciesEnum.CNY
+			? 'Casino'
+			: 'Sports'
 
 	const [menuKey, setMenuKey] = useState<keyof typeof MenuKeyEnum | undefined>(
 		defaultMenuKey
@@ -91,6 +98,7 @@ const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 							<div className='btn-circle'>
 								<img
 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/${icon}-icon.png`}
+									// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 									alt={icon!}
 								/>
 							</div>

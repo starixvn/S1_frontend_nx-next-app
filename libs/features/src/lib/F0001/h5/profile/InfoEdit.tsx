@@ -1,6 +1,6 @@
+import { useState, useEffect } from 'react'
 import dayjs from 'dayjs'
 import { isUndefined } from 'lodash-es'
-import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
@@ -13,13 +13,13 @@ import {
 	useCheckPhone,
 } from '@nx-next-app/features/F0001/hooks'
 import { useAuth } from '@nx-next-app/data-access'
-import { REALNAME_REGEX } from '@nx-next-app/site/nova88'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	PrevPageEnum,
 	PREV_PAGE,
 	AREA_CODE,
 	EMAIL_REGEX,
+	REALNAME_REGEX,
 } from '@nx-next-app/constants'
 import {
 	Form,

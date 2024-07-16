@@ -5,8 +5,8 @@ import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import { includes } from 'lodash'
-import { useAuth } from '../../../../data-access'
-import { paths } from '../../../../app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { paths } from '@nx-next-app/constants'
 
 interface IMemberFileProps {
 	userLevelImageInfo:

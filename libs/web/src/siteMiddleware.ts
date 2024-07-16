@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import { CurrenciesEnum } from '@nx-next-app/types'
 import { NextRequest, NextResponse } from 'next/server'
-import { ENV_COOKIE_NAMES } from './app/constants/Names'
+// import { CurrenciesEnum } from '@nx-next-app/types'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 
 interface ISiteMiddleware {
 	request: NextRequest
@@ -42,28 +42,28 @@ export const getIpCountry = async (originHeader: Headers): Promise<any> => {
 	)
 }
 
-// * middleware 使用之資源定義在該位置
-const countryCodeMap: {
-	[countryCode: string]: {
-		currencyId: number
-		langId: string
-	}
-} = {
-	TH: { currencyId: CurrenciesEnum.THB, langId: 'th' },
-	MY: { currencyId: CurrenciesEnum.MYR, langId: 'my' },
-	VN: { currencyId: CurrenciesEnum.VND, langId: 'vn' },
-	ID: { currencyId: CurrenciesEnum.IDR, langId: 'id' },
-	IN: { currencyId: CurrenciesEnum.INR, langId: 'hi' },
-	BDT: { currencyId: CurrenciesEnum.BDT, langId: 'bd' },
-	BD: { currencyId: CurrenciesEnum.BDT, langId: 'bd' },
-	KH: { currencyId: CurrenciesEnum.KHM, langId: 'kh' },
-	CNY_CH: { currencyId: CurrenciesEnum.CNY, langId: 'cs' },
-	USD: { currencyId: CurrenciesEnum.USD, langId: 'en' },
-	CS: { currencyId: CurrenciesEnum.USD, langId: 'en' },
-	KR: { currencyId: CurrenciesEnum.KRW, langId: 'ko' },
-	BR: { currencyId: CurrenciesEnum.BRL, langId: 'br' },
-	TW: { currencyId: CurrenciesEnum.USD, langId: 'en' }, // * TW for 前端部門組員測試用
-}
+// * middleware 使用之資源定義在該位置 (2024/7/16 未被使用 先註解)
+// const countryCodeMap: {
+// 	[countryCode: string]: {
+// 		currencyId: number
+// 		langId: string
+// 	}
+// } = {
+// 	TH: { currencyId: CurrenciesEnum.THB, langId: 'th' },
+// 	MY: { currencyId: CurrenciesEnum.MYR, langId: 'my' },
+// 	VN: { currencyId: CurrenciesEnum.VND, langId: 'vn' },
+// 	ID: { currencyId: CurrenciesEnum.IDR, langId: 'id' },
+// 	IN: { currencyId: CurrenciesEnum.INR, langId: 'hi' },
+// 	BDT: { currencyId: CurrenciesEnum.BDT, langId: 'bd' },
+// 	BD: { currencyId: CurrenciesEnum.BDT, langId: 'bd' },
+// 	KH: { currencyId: CurrenciesEnum.KHM, langId: 'kh' },
+// 	CNY_CH: { currencyId: CurrenciesEnum.CNY, langId: 'cs' },
+// 	USD: { currencyId: CurrenciesEnum.USD, langId: 'en' },
+// 	CS: { currencyId: CurrenciesEnum.USD, langId: 'en' },
+// 	KR: { currencyId: CurrenciesEnum.KRW, langId: 'ko' },
+// 	BR: { currencyId: CurrenciesEnum.BRL, langId: 'br' },
+// 	TW: { currencyId: CurrenciesEnum.USD, langId: 'en' }, // * TW for 前端部門組員測試用
+// }
 
 // 此 middleware 僅處理未初始化的 cookie，再進入 'default' 時會給予固定 defaultLang 內的 locale
 // 若透過指定語系進入，則會給予指定語系的 locale

@@ -146,16 +146,19 @@ export interface IStaticAllowedCurrencies {
 	ADDRESS?: CurrenciesEnum[]
 
 	// Deposit
-	RECEIPT: CurrenciesEnum[]
+	RECEIPT?: CurrenciesEnum[]
 
 	// Home
-	LIVE_STREAMING_LINK: CurrenciesEnum[]
+	LIVE_STREAMING_LINK?: CurrenciesEnum[]
 	LUCKY_WHEEL?: CurrenciesEnum[]
 
 	// Euro-Cup
-	Euro_Cup: CurrenciesEnum[]
+	Euro_Cup?: CurrenciesEnum[]
 
 	Retention?: CurrenciesEnum[]
+
+	// olympic
+	OLYMPIC?: CurrenciesEnum[]
 }
 
 export interface ITermsConditions {
