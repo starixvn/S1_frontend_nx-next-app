@@ -6,8 +6,7 @@ import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import { useSetHideBalanceMutation } from '@nx-next-app/service'
 import { isEventPeriod } from '@nx-next-app/utils'
 import { useRouter } from 'next/router'
-import { includes } from 'lodash-es'
-import { ALLOWED_CURRENCIES, EVENT_PERIOD } from '@nx-next-app/site/nova88'
+import { EVENT_PERIOD } from '@nx-next-app/site/nova88'
 import Banner from './Banner'
 import RedemptionHistory from './RedemptionHistory'
 import Terms from './Terms'
@@ -17,17 +16,13 @@ import { useOlympic } from '../../providers'
 
 const Olympic = () => {
 	const {
-		userInfo: { langId, currencyId },
+		userInfo: { langId },
 	} = useAuth()
 	const { push } = useRouter()
 
 	// 不在活動時間或currency是CNY or USD 導回首頁
 	useLayoutEffect(() => {
-		if (
-			!isEventPeriod(EVENT_PERIOD.OLYMPIC) ||
-			!includes(ALLOWED_CURRENCIES.OLYMPIC, currencyId)
-		)
-			push(paths.home.root)
+		if (!isEventPeriod(EVENT_PERIOD.OLYMPIC)) push(paths.home.root)
 	}, [])
 
 	const {
@@ -43,11 +38,8 @@ const Olympic = () => {
 	const [setHideBalance] = useSetHideBalanceMutation()
 
 	// 判斷是否有兌換紀錄 並 取得玩家的兌換紀錄
-	const { custRedeemHistoryList } = useOlympic()
-	const hasRedeemHistory =
-		custRedeemHistoryList &&
-		custRedeemHistoryList.length > 0 &&
-		custRedeemHistoryList !== undefined
+	const { custRedeemHistoryList = [] } = useOlympic()
+	const hasRedeemHistory = custRedeemHistoryList.length > 0
 	return (
 		<>
 			<Header>

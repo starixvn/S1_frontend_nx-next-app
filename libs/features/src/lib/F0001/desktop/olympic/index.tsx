@@ -18,7 +18,7 @@ const Olympic = () => {
 	}, [])
 
 	// 判斷是否有兌換紀錄 並 取得玩家的兌換紀錄
-	const { custRedeemHistoryList } = useOlympic()
+	const { custRedeemHistoryList = [] } = useOlympic()
 	const hasRedeemHistory = custRedeemHistoryList.length > 0
 	return (
 		<main className='olympic'>
