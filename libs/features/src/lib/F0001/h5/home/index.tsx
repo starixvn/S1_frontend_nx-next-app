@@ -172,7 +172,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 				<Fragment key={component}>{homeComponents[component]}</Fragment>
 			) : null
 		},
-		[currencyId]
+		[langId, currencyId]
 	)
 
 	return (
