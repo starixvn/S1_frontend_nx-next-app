@@ -147,7 +147,10 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 		[MobileHomeComponentsEnum.SimpleFooter]: () => <SimpleFooter />,
 		[MobileHomeComponentsEnum.JackPotSwiper]: () => <JackPotSwiper />,
 		[MobileHomeComponentsEnum.PartnerBlock]: () => <PartnerBlock />,
-		[MobileHomeComponentsEnum.OlympicEntry]: () => <OlympicEntry />,
+		[MobileHomeComponentsEnum.OlympicEntry]: () =>
+			includes(ALLOWED_CURRENCIES.OLYMPIC, currencyId) ? (
+				<OlympicEntry />
+			) : null,
 	}
 
 	// banner 區塊，目前只有兩個

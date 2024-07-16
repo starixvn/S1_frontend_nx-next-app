@@ -111,4 +111,7 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 	Euro_Cup: [MYR, THB, CNY, IDR, INR, KHM, BDT, VND, USD, USDT],
 	// Retention Floating Action Button (lucky wheel以外的幣別要顯示)
 	Retention: [CNY, INR, KHM, BDT, VND, USD, USDT, KRW, BRL],
+
+	// 奧運不准CNY USD
+	OLYMPIC: [MYR, THB, IDR, INR, KHM, BDT, VND, USDT, KRW, BRL],
 }
