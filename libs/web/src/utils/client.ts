@@ -1,6 +1,6 @@
 import liff from '@line/liff'
 import { DeviceTypeEnum } from '@nx-next-app/types'
-import { LIFF_EXCLUDED_TP_GAME_IDS } from '../app/constants'
+import { LIFF_EXCLUDED_TP_GAME_IDS } from '@nx-next-app/constants'
 
 type ReactNativeWebViewMessage =
 	| { type: 'SyncCurrency'; payload: number }

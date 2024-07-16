@@ -3,8 +3,7 @@ import dynamic from 'next/dynamic'
 import { includes } from 'lodash-es'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { DesktopHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
-import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 
 // Page Components
 const ProvidersBlock = dynamic(() => import('./ProvidersBlock'), { ssr: false })
@@ -67,6 +66,7 @@ const Home = () => {
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
+	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	const homeComponents = {
 		[DesktopHomeComponentsEnum.CarouselBanner]: (

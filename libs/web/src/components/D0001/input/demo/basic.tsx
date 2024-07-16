@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import { FieldValues } from 'react-hook-form/dist/types/fields'
+import { PASSWORD_REGEX } from '@nx-next-app/constants'
 import InputBox from '../InputBox'
 
-const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z!@#$%^&*\d]{6,15}$/
 const InputBasic = () => {
 	const {
 		handleSubmit,

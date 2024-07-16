@@ -2,8 +2,9 @@ import {
 	MenuActionTypeEnum,
 	MenuKeyEnum,
 	LobbyCategoryEnum,
+	IMenuData,
 } from '@nx-next-app/types'
-import { paths, PRODUCTS, type IProduct } from '@nx-next-app/constants'
+import { paths, PRODUCTS } from '@nx-next-app/constants'
 
 const desktopSubmenuBackground = [
 	{
@@ -53,45 +54,6 @@ export const desktopSunMenuReferralImageList = [
 		imgUrl: 'referbg.png',
 	},
 ]
-
-export interface ISubMenu extends IProduct {
-	h5: {
-		hasLobby: boolean
-		menuActionType: keyof typeof MenuActionTypeEnum
-		hasDesktopLink?: boolean
-	}
-	desktop: {
-		hasLobby: boolean
-		menuActionType: keyof typeof MenuActionTypeEnum
-		subMenuImageClassName?: string
-	}
-	pathname?: string
-	query?: {
-		provider?: string
-		type?: string
-		tpId?: string | number
-	}
-	needLogin?: boolean
-}
-
-export type IMenuData = {
-	display: 'h5' | 'desktop' | 'all'
-	displayKey: string
-	pathname?: string
-	lobbyCategoryId: number
-	subMenuAllowCurrenciesWithAuth: boolean // * 決定是否需要登入後才過濾(暫時沒有用到)
-	query?: { provider: string }
-	subMenu: ISubMenu[]
-	category: MenuKeyEnum
-	h5: {
-		icon: string
-		subMenuClassName?: string
-	}
-	desktop: {
-		subMenuClassName: string
-		menuType?: 'menu' | 'banner'
-	}
-}
 
 export const MENU_DATA: IMenuData[] = [
 	{

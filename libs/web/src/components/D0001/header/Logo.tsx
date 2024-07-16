@@ -1,9 +1,8 @@
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import classNames from 'classnames'
 import { isEventPeriod } from '@nx-next-app/utils'
-import { EVENT_PERIOD } from '@nx-next-app/site/nova88'
-import { useEffect, useState } from 'react'
-import { paths } from '../../../app/constants'
+import { paths, EVENT_PERIOD } from '@nx-next-app/constants'
 
 interface ILogoProps {
 	logoUrl: string

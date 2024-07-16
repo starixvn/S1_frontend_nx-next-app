@@ -1,8 +1,7 @@
-import { MenuActionTypeEnum } from '@nx-next-app/types'
+import { MenuActionTypeEnum, ISubMenu } from '@nx-next-app/types'
 import type { ISubMenuData } from '@nx-next-app/service'
 import type { IProduct, IRootpath } from '@nx-next-app/constants'
 import type { IAddLiveStreamingProps } from '@nx-next-app/hooks'
-import type { ISubMenu } from '@nx-next-app/site/yashbet'
 
 export type IMenuActionLinkType = Extract<
 	keyof typeof MenuActionTypeEnum,
