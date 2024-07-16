@@ -15,7 +15,7 @@ const License = () => {
 
 	const { META_DATA } = useStaticData()
 	const {
-		licenseData: { defaultScript, defaultXCMScript },
+		licenseData: { defaultScript },
 	} = useHome()
 
 	const { data: seoData } = useGetSeoQuery(null, {
@@ -52,16 +52,17 @@ const License = () => {
 	const CuracaoScript = seoData?.script ?? defaultScript
 	const formattedCuracaoScript = CuracaoScript?.split('-').join('_')
 
-	const XCMScript = seoData?.xcmScript ?? defaultXCMScript
-	const formattedXCMScript = XCMScript?.split('-').join('_')
+	// 市場通知暫時移除 XCM 2024/7/16
+	// const XCMScript = seoData?.xcmScript ?? defaultXCMScript
+	// const formattedXCMScript = XCMScript?.split('-').join('_')
 
 	useEffect(() => {
 		if (showLicenseLogo) {
 			/* eslint-disable @typescript-eslint/no-explicit-any */
 			const apgScript = (window as any)[`apg_${formattedCuracaoScript}`]
-			const xcmScript = (window as any)[`xcm_${formattedXCMScript}`]
+			// const xcmScript = (window as any)[`xcm_${formattedXCMScript}`]
 			apgScript?.init()
-			xcmScript?.init()
+			// xcmScript?.init()
 		}
 	}, [showLicenseLogo])
 	return (
@@ -85,12 +86,13 @@ const License = () => {
 								data-apg-image-size='48'
 								data-apg-image-type='basic-small'
 							/>
-							<div
-								id={`xcm-${XCMScript}`}
-								data-xcm-seal-id={XCMScript}
-								data-xcm-image-size='36'
-								data-xcm-image-type='basic-small'
-							/>
+							{/* 市場通知移除 XCM */}
+							{/* <div */}
+							{/*	id={`xcm-${XCMScript}`} */}
+							{/*	data-xcm-seal-id={XCMScript} */}
+							{/*	data-xcm-image-size='36' */}
+							{/*	data-xcm-image-type='basic-small' */}
+							{/* /> */}
 							<div>
 								<a
 									href='https://www.begambleaware.org/'
@@ -112,10 +114,11 @@ const License = () => {
 					src={`https://${CuracaoScript}.snippet.antillephone.com/apg-seal.js`}
 					defer
 				/>
-				<script
-					src={`https://${XCMScript}.seals-xcm.certria.com/xcm-seal.js`}
-					defer
-				/>
+				{/* 市場通知緊急移除 */}
+				{/* <script */}
+				{/*	src={`https://${XCMScript}.seals-xcm.certria.com/xcm-seal.js`} */}
+				{/*	defer */}
+				{/* /> */}
 			</Head>
 		</>
 	)
