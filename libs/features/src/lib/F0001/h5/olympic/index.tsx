@@ -20,7 +20,7 @@ const Olympic = () => {
 	} = useAuth()
 	const { push } = useRouter()
 
-	// 不在活動時間倒回首頁
+	// 不在活動時間或currency是CNY or USD 導回首頁
 	useLayoutEffect(() => {
 		if (!isEventPeriod(EVENT_PERIOD.OLYMPIC)) push(paths.home.root)
 	}, [])
@@ -38,11 +38,8 @@ const Olympic = () => {
 	const [setHideBalance] = useSetHideBalanceMutation()
 
 	// 判斷是否有兌換紀錄 並 取得玩家的兌換紀錄
-	const { custRedeemHistoryList } = useOlympic()
-	const hasRedeemHistory =
-		custRedeemHistoryList &&
-		custRedeemHistoryList.length > 0 &&
-		custRedeemHistoryList !== undefined
+	const { custRedeemHistoryList = [] } = useOlympic()
+	const hasRedeemHistory = custRedeemHistoryList.length > 0
 	return (
 		<>
 			<Header>
