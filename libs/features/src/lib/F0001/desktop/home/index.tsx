@@ -117,7 +117,7 @@ const Home = () => {
 				<Fragment key={component}>{homeComponents[component]}</Fragment>
 			) : null
 		},
-		[]
+		[currencyId]
 	)
 
 	return (
