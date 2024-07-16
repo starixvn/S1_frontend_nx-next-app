@@ -1,0 +1,99 @@
+﻿{"frames": {
+
+"BMP_136365d5_a210_40e8_add4_bd59badac591":
+{
+	"frame": {"x":836,"y":1217,"w":134,"h":161},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":134,"h":161},
+	"sourceSize": {"w":134,"h":161}
+},
+"BMP_514abf5e_0be7_473d_b3ad_9a95eecc3cf6":
+{
+	"frame": {"x":973,"y":1139,"w":117,"h":234},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":117,"h":234},
+	"sourceSize": {"w":117,"h":234}
+},
+"BMP_75e62a8e_f1ca_462f_9471_b021701dc351":
+{
+	"frame": {"x":1081,"y":836,"w":99,"h":198},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":99,"h":198},
+	"sourceSize": {"w":99,"h":198}
+},
+"BMP_9af8c00a_ed24_4c14_9198_316e55bdfb66":
+{
+	"frame": {"x":1081,"y":1036,"w":146,"h":88},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":146,"h":88},
+	"sourceSize": {"w":146,"h":88}
+},
+"BMP_c05a0e6a_036f_4f3a_985b_bef0081ac2d6":
+{
+	"frame": {"x":973,"y":836,"w":106,"h":301},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":106,"h":301},
+	"sourceSize": {"w":106,"h":301}
+},
+"BMP_c6afd884_c27d_4cea_bd7d_fa41fa973ecf":
+{
+	"frame": {"x":836,"y":836,"w":135,"h":379},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":135,"h":379},
+	"sourceSize": {"w":135,"h":379}
+},
+"BMP_d0dbc985_1ffc_482a_ad68_baea08abee0a":
+{
+	"frame": {"x":1182,"y":836,"w":115,"h":84},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":115,"h":84},
+	"sourceSize": {"w":115,"h":84}
+},
+"friut_04":
+{
+	"frame": {"x":0,"y":0,"w":834,"h":834},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":834,"h":834},
+	"sourceSize": {"w":834,"h":834}
+},
+"friut_05":
+{
+	"frame": {"x":0,"y":836,"w":834,"h":834},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":834,"h":834},
+	"sourceSize": {"w":834,"h":834}
+},
+"friut_06":
+{
+	"frame": {"x":836,"y":0,"w":834,"h":834},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":834,"h":834},
+	"sourceSize": {"w":834,"h":834}
+},
+"slotcontrol":
+{
+	"frame": {"x":1182,"y":922,"w":95,"h":95},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":95,"h":95},
+	"sourceSize": {"w":95,"h":95}
+}},
+"meta": {
+	"app": "Adobe Animate",
+	"version": "24.0.3.19",
+	"image": "slot_atlas_4.png",
+	"format": "undefined",
+	"size": {"w":2048,"h":2048},
+	"scale": "1"
+}
+}

@@ -1,0 +1,43 @@
+﻿{"frames": {
+
+"_7":
+{
+	"frame": {"x":0,"y":0,"w":834,"h":834},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":834,"h":834},
+	"sourceSize": {"w":834,"h":834}
+},
+"friut_01":
+{
+	"frame": {"x":0,"y":836,"w":834,"h":834},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":834,"h":834},
+	"sourceSize": {"w":834,"h":834}
+},
+"friut_02":
+{
+	"frame": {"x":836,"y":0,"w":834,"h":834},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":834,"h":834},
+	"sourceSize": {"w":834,"h":834}
+},
+"friut_03":
+{
+	"frame": {"x":836,"y":836,"w":834,"h":834},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":834,"h":834},
+	"sourceSize": {"w":834,"h":834}
+}},
+"meta": {
+	"app": "Adobe Animate",
+	"version": "24.0.3.19",
+	"image": "slot_atlas_3.png",
+	"format": "undefined",
+	"size": {"w":2048,"h":2048},
+	"scale": "1"
+}
+}
