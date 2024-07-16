@@ -4,7 +4,7 @@ import {
 } from '@nx-next-app/features/F0001/types'
 
 export const DESKTOP_HOME_ORDERS = [
-	DesktopHomeComponentsEnum.Marquee,
+	DesktopHomeComponentsEnum.Announcement,
 	DesktopHomeComponentsEnum.CarouselBanner,
 	DesktopHomeComponentsEnum.WelcomeInfo,
 	DesktopHomeComponentsEnum.PromotionSwiper,
@@ -23,7 +23,7 @@ export const DESKTOP_HOME_ORDERS = [
 ]
 
 export const MOBILE_HOME_ORDERS = [
-	MobileHomeComponentsEnum.Marquee,
+	MobileHomeComponentsEnum.Announcement,
 	MobileHomeComponentsEnum.CarouselBanner,
 	MobileHomeComponentsEnum.HotEventSwiper,
 	MobileHomeComponentsEnum.PromotionSwiper,
