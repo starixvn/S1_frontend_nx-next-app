@@ -39,7 +39,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
 	const currencyId = Number(originCookies[ENV_COOKIE_NAMES.CurrencyId])
 
-	if (!includes(ALLOWED_CURRENCIES['VIP'], Number(currencyId))) {
+	if (!includes(ALLOWED_CURRENCIES['OLYMPIC'], Number(currencyId))) {
 		return {
 			redirect: {
 				destination: '/',
