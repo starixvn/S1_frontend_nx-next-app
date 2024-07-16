@@ -118,7 +118,10 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.QuickLink]: () => (
 			<QuickLink socialChannelList={socialChannelList} />
 		),
-		[DesktopHomeComponentsEnum.OlympicEntry]: () => <OlympicEntry />,
+		[DesktopHomeComponentsEnum.OlympicEntry]: () =>
+			includes(ALLOWED_CURRENCIES.OLYMPIC, currencyId) ? (
+				<OlympicEntry />
+			) : null,
 	}
 	return (
 		<main>

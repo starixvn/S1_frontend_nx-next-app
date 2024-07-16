@@ -33,13 +33,13 @@ interface IOlympicContext {
 	userMoneyData: IUserMoneyData
 	missionTotal: IMissionTotal
 	progressPercentage: IProgressPercentage
-	custRedeemHistoryList: ICustDrawPrizeData[] | undefined
 	handleRedeem: (
 		custId: number | undefined,
 		usedGoldMetalCount: number,
 		successModal: () => void,
 		insufficientModal: () => void
 	) => void
+	custRedeemHistoryList: ICustDrawPrizeData[]
 }
 
 interface IOlympicProviderProps {
@@ -153,7 +153,7 @@ export const OlympicProvider = ({ children }: IOlympicProviderProps) => {
 
 	// 取得用戶兌換Bonus紀錄
 	const {
-		data: { data: custRedeemHistoryList } = {},
+		data: { data: custRedeemHistoryList = [] } = {},
 		refetch: refetchCustRedeemHistoryList,
 	} = useGetCustDrawPrizeListQuery(
 		{
