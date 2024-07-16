@@ -166,11 +166,14 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 		includes(ALLOWED_CURRENCIES['APP_DOWNLOAD'] as CurrenciesEnum[], currencyId)
 
 	// 避免map造成多次調用renderComponent因此用useCallback包起來
-	const renderComponent = useCallback((component: MobileHomeComponentsEnum) => {
-		return homeComponents[component] ? (
-			<Fragment key={component}>{homeComponents[component]}</Fragment>
-		) : null
-	}, [])
+	const renderComponent = useCallback(
+		(component: MobileHomeComponentsEnum) => {
+			return homeComponents[component] ? (
+				<Fragment key={component}>{homeComponents[component]}</Fragment>
+			) : null
+		},
+		[currencyId]
+	)
 
 	return (
 		<>
