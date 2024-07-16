@@ -18,7 +18,7 @@ export const getAnnouncement = async (
 			}
 		)
 
-		return response.data || []
+		return response.data.data || []
 	} catch (error) {
 		return []
 	}

@@ -68,7 +68,6 @@ export interface HomeContextInterface {
 	promotionData: IPromotionData[]
 	bannerData: IBannerData[]
 	hotEventData: IHotEventData[] | null
-	jackPotCurrencies: CurrenciesEnum[]
 	hotGameData: IHotGame[]
 	socialChannelList: ISocialChannelData[]
 	footerSocialChannelList: ISocialChannelData[]
@@ -178,7 +177,7 @@ const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
 // 如果沒指定則使用 default 排序並全開
 const defaultDesktopHomeOrders = [
-	DesktopHomeComponentsEnum.Marquee,
+	DesktopHomeComponentsEnum.Announcement,
 	DesktopHomeComponentsEnum.CarouselBanner,
 	DesktopHomeComponentsEnum.WelcomeInfo,
 	DesktopHomeComponentsEnum.PromotionSwiper,
@@ -195,7 +194,7 @@ const defaultDesktopHomeOrders = [
 ]
 
 const defaultMobileHomeOrders = [
-	MobileHomeComponentsEnum.Marquee,
+	MobileHomeComponentsEnum.Announcement,
 	MobileHomeComponentsEnum.CarouselBanner,
 	MobileHomeComponentsEnum.HotEventSwiper,
 	MobileHomeComponentsEnum.PromotionSwiper,
@@ -306,8 +305,6 @@ export const HomeProvider = ({
 				({ displayKey }) => displayKey === 'Label_Affiliate_Program'
 			)?.href ?? '',
 	}
-
-	const jackPotCurrencies = ALLOWED_CURRENCIES['JACKPOT'] as CurrenciesEnum[]
 
 	// promotion click 事件
 	const handlePromotionClick = async (bonusCode: string) => {
@@ -627,7 +624,6 @@ export const HomeProvider = ({
 		desktopHomeOrders,
 		mobileHomeOrders,
 		announcementData,
-		jackPotCurrencies,
 		socialChannelList,
 		footerSocialChannelList,
 		hotEventData,
