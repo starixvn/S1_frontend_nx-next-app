@@ -9,15 +9,16 @@ const GameList = () => {
 		slotsGameList,
 		vendorList,
 		imgUrl,
-		activeCategoryKey,
 		gameListRef,
 		onGameActive,
 		onFavoritesToggle,
+		isNewGame,
 	} = useSlots()
 	const {
 		userInfo: { langId },
 	} = useAuth()
 	const { t } = useTranslation()
+	const newGamesArr = isNewGame()
 
 	return slotsGameList && slotsGameList.length > 0 ? (
 		<Suspense>
@@ -47,7 +48,7 @@ const GameList = () => {
 								className={classNames('info', { 'star active': isMaintain })}
 								key={`slots-game-${tpId}-${gameId}`}
 							>
-								{activeCategoryKey === 'new' ? (
+								{newGamesArr.includes(gameId) ? (
 									<i className='icon  icon-new' />
 								) : null}
 

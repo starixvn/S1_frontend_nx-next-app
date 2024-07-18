@@ -5,6 +5,7 @@ import { useSlots } from '@nx-next-app/features/F0001/providers'
 const CategoryFilter = () => {
 	const { categoryKeys, activeCategoryKey, onCategoryChange } = useSlots()
 	const { t } = useTranslation()
+
 	return (
 		<div className='filterSelect'>
 			{categoryKeys.map(value => {
