@@ -100,7 +100,7 @@ const useMenu = () => {
 	const { modal } = useGlobalModal()
 	const { MENU_DATA } = useStaticData()
 	const { LobberHeaderMenuList, isLobbyHeaderError } = useMenuData()
-	const { tpMaintainList, isInLiff } = useGlobalData()
+	const { tpMaintainList, isInLiff, isInApp } = useGlobalData()
 	const [gotoGame] = useLazyGotoGameQuery()
 	const { data: { data: tpGameTypeSettingList = [] } = {} } =
 		useGetCustTpGameTypeSettingQuery(null, {
@@ -350,6 +350,28 @@ const useMenu = () => {
 		if (loginCallback && !auth.isLogin) {
 			loginCallback()
 			return
+		}
+
+		// 因在 App 內彈窗開啟特定遊戲時會有問題，在此改導轉到專屬的開啟頁面
+		// 且 router.push() 在 App 內也有問題，改用 app team 建議的方法 (window.location = url)
+		if (isInApp) {
+			const params = new URLSearchParams({
+				tpId: String(tpId),
+				langId,
+				gameId: String(gameId),
+				tpGameType: String(tpGameType),
+				loginGameType,
+			}).toString()
+
+			if (tpId === PRODUCTS.Nova88Exchange.tpId) {
+				window.location = `/launcher/exchange?${params}` as unknown as Location
+				return
+			}
+
+			if (tpId === PRODUCTS.PGSoft.tpId) {
+				window.location = `/launcher/pg?${params}` as unknown as Location
+				return
+			}
 		}
 
 		try {
