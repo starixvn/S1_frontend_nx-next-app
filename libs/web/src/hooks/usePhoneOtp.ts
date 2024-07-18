@@ -56,13 +56,8 @@ const usePhoneOtp = () => {
 			await sendOtpSMS().unwrap()
 			setTimer(true)
 		} catch (error) {
-			const { errorCode, message } =
-				(error as {
-					errorCode: number
-					message: string
-					status: number
-				}) || {}
-			modal.error(`[${errorCode}] ${message}`)
+			const { message } = (error as { message: string }) || {}
+			modal.error(message)
 		}
 	}
 
