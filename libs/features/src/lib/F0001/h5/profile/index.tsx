@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
 import { Header } from '@nx-next-app/components/H0001'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { Info } from './Info'
 import { InfoEdit } from './InfoEdit'
 import { Address } from './Address'
@@ -19,6 +19,8 @@ const Profile = () => {
 	const {
 		auth: { isLogin },
 	} = useAuth()
+
+	const { isInApp } = useGlobalData()
 
 	useEffect(() => {
 		if (!isLogin) push(paths.home.root)
@@ -45,7 +47,7 @@ const Profile = () => {
 						<a>{t('Label_General_ChangePassword')}</a>
 					</Link>
 				</div>
-				<LineBinding />
+				{isInApp === false && <LineBinding />}
 			</main>
 		</>
 	)
