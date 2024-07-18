@@ -19,7 +19,6 @@ const LineBinding = () => {
 	const [getLineLoginDirectUrl] = useLazyGetLineLoginDirectUrlQuery()
 
 	const handleLineBinding = async () => {
-		if (isLineBinding) return // 因按鈕的 disabled 樣式不太適合，所以先在這擋下
 		try {
 			const { data: lineLoginDirectUrl } = await getLineLoginDirectUrl({
 				type: LineLoginDirectTypeEnum.Binding,
