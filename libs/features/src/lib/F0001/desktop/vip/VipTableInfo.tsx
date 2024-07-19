@@ -2,7 +2,7 @@ import { capitalize } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { numberFormatExcludeString } from '@nx-next-app/utils'
-import { IVipBannerData } from '@nx-next-app/service'
+import { IVipBannerData, RebateCategoryEnum } from '@nx-next-app/service'
 
 const VipTableInfo = ({
 	vipBannerData,
@@ -11,9 +11,11 @@ const VipTableInfo = ({
 		userInfo: { currencyId },
 	} = useAuth()
 	const { t } = useTranslation()
+
 	return (
 		<table className='eventList'>
 			<tbody>
+				{/* === Service support ===  */}
 				<tr className='title'>
 					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
 						{capitalize(t('Label_Vip_Service_Support') || '')}
@@ -76,6 +78,7 @@ const VipTableInfo = ({
 						<td key={item.level}>{item?.times}</td>
 					))}
 				</tr>
+				{/* === Exclusive bonus(VND) ===  */}
 				<tr className='title'>
 					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
 						{capitalize(t('Label_Vip_Exclusive_Bonus') || '')}
@@ -93,36 +96,64 @@ const VipTableInfo = ({
 						</td>
 					))}
 				</tr>
+
+				{/* === Special rebate ===  */}
 				<tr className='title'>
 					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
 						{capitalize(t('Label_Vip_Special_Rebate') || '')}
 					</td>
 					<td colSpan={6} />
 				</tr>
+				{/* Sports */}
 				<tr>
 					<td>{capitalize(t('Label_Vip_Sport_Rebate') || '')}</td>
 					{vipBannerData?.map(item => (
-						<td key={item.level}>{item?.rebateCategory[0]?.percentage}%</td>
+						<td key={item.level}>
+							{item?.rebateCategory[RebateCategoryEnum.Sports]?.percentage}%
+						</td>
 					))}
 				</tr>
+				{/* LiveCasino */}
 				<tr>
 					<td>{capitalize(t('Label_Vip_Live_Casino_Rebate') || '')}</td>
 					{vipBannerData?.map(item => (
-						<td key={item.level}>{item?.rebateCategory[2]?.percentage}%</td>
+						<td key={item.level}>
+							{item?.rebateCategory[RebateCategoryEnum.LiveCasino]?.percentage}%
+						</td>
 					))}
 				</tr>
+				{/* Casino */}
 				<tr>
 					<td>{capitalize(t('Label_Vip_Slot_Fishing_Rebate') || '')}</td>
 					{vipBannerData?.map(item => (
-						<td key={item.level}>{item?.rebateCategory[1]?.percentage}%</td>
+						<td key={item.level}>
+							{item?.rebateCategory[RebateCategoryEnum.Casino]?.percentage}%
+						</td>
 					))}
 				</tr>
+				{/* VirtualSports */}
 				<tr>
 					<td>{capitalize(t('Label_Vip_Virtual_Sport_Rebate') || '')}</td>
 					{vipBannerData?.map(item => (
-						<td key={item.level}>{item?.rebateCategory[3]?.percentage}%</td>
+						<td key={item.level}>
+							{
+								item?.rebateCategory[RebateCategoryEnum.VirtualSports]
+									?.percentage
+							}
+							%
+						</td>
 					))}
 				</tr>
+				{/* ESports */}
+				<tr>
+					<td>{capitalize(t('Label_Vip_ESport_Rebate') || '')}</td>
+					{vipBannerData?.map(item => (
+						<td key={item.level}>
+							{item?.rebateCategory[RebateCategoryEnum.ESports]?.percentage}%
+						</td>
+					))}
+				</tr>
+				{/* === Referral bonus program ===  */}
 				<tr className='title'>
 					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
 						{capitalize(t('Label_Vip_Referral_Bonus_Program') || '')}
@@ -138,6 +169,7 @@ const VipTableInfo = ({
 						</td>
 					))}
 				</tr>
+				{/* === Tier upgrade requirement(VND) ===  */}
 				<tr className='title'>
 					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
 						{capitalize(t('Label_Vip_Tire_Upgrade_Requirement') || '')}
@@ -155,6 +187,7 @@ const VipTableInfo = ({
 						</td>
 					))}
 				</tr>
+				{/* === Tier maintenance requirement(VND) ===  */}
 				<tr className='title'>
 					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
 						{capitalize(t('Label_Vip_Tier_Maintenance_Requirement') || '')}

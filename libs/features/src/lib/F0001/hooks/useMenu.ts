@@ -100,7 +100,7 @@ const useMenu = () => {
 	const { modal } = useGlobalModal()
 	const { MENU_DATA } = useStaticData()
 	const { LobberHeaderMenuList, isLobbyHeaderError } = useMenuData()
-	const { tpMaintainList, isInApp, isInLiff } = useGlobalData()
+	const { tpMaintainList, isInLiff, isInApp } = useGlobalData()
 	const [gotoGame] = useLazyGotoGameQuery()
 	const { data: { data: tpGameTypeSettingList = [] } = {} } =
 		useGetCustTpGameTypeSettingQuery(null, {
