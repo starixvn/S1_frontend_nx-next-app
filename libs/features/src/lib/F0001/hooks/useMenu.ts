@@ -10,12 +10,9 @@ import {
 	MenuKeyEnum,
 } from '@nx-next-app/types'
 import {
-	type IAxiosError,
 	type IGotoGameArg,
 	useGetCustTpGameTypeSettingQuery,
-	useLazyGotoGameQuery,
 } from '@nx-next-app/service'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	getIsTpMaintain,
 	onWindowOpenProduct,
@@ -97,11 +94,9 @@ const useMenu = () => {
 		auth,
 		userInfo: { langId, memberType },
 	} = useAuth()
-	const { modal } = useGlobalModal()
 	const { MENU_DATA } = useStaticData()
 	const { LobberHeaderMenuList, isLobbyHeaderError } = useMenuData()
-	const { tpMaintainList, isInApp, isInLiff } = useGlobalData()
-	const [gotoGame] = useLazyGotoGameQuery()
+	const { tpMaintainList, isInLiff } = useGlobalData()
 	const { data: { data: tpGameTypeSettingList = [] } = {} } =
 		useGetCustTpGameTypeSettingQuery(null, {
 			skip: memberType !== memberTypeEnum.liveHost || memberType === undefined,
@@ -341,7 +336,6 @@ const useMenu = () => {
 		}: Omit<IGotoGameArg, 'appType'>,
 		{
 			loginCallback,
-			messageCallBack,
 		}: {
 			loginCallback: LoginCallbackType
 			messageCallBack?: MessageCallbackType
@@ -352,70 +346,17 @@ const useMenu = () => {
 			return
 		}
 
-		// 因在 App 內彈窗開啟特定遊戲時會有問題，在此改導轉到專屬的開啟頁面
-		// 且 router.push() 在 App 內也有問題，改用 app team 建議的方法 (window.location = url)
-		if (isInApp) {
-			const params = new URLSearchParams({
-				tpId: String(tpId),
-				langId,
-				gameId: String(gameId),
-				tpGameType: String(tpGameType),
-				loginGameType,
-			}).toString()
+		const params = new URLSearchParams({
+			tpId: String(tpId),
+			langId: String(langId),
+			gameId: String(gameId),
+			gameType: String(gameType),
+			tpGameType: String(tpGameType),
+			loginGameType: String(loginGameType),
+			fun: String(fun),
+		}).toString()
 
-			if (tpId === PRODUCTS.Nova88Exchange.tpId) {
-				window.location = `/launcher/exchange?${params}` as unknown as Location
-				return
-			}
-
-			if (tpId === PRODUCTS.PGSoft.tpId) {
-				window.location = `/launcher/pg?${params}` as unknown as Location
-				return
-			}
-		}
-
-		try {
-			const { message } = await gotoGame({
-				appType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
-				tpId,
-				langId,
-				inputs: {
-					gameId,
-					fun,
-					gameType: tpId === PRODUCTS.NewPlayTechSlot.tpId ? 'slots' : '',
-					tpGameType: String(tpGameType),
-					loginGameType,
-				},
-			}).unwrap()
-			if (
-				// * SPORT 9W 的開啟方式來自於代理商給的文件，因此需拉出單獨處理
-				tpId === 31 // SPORTS_9W_SPORTS TP_ID
-			) {
-				const result = JSON.parse(message)
-				const { url, key, userId } = result ?? {}
-				open9WSports({ url, key, userId })
-			} else if (loginGameType !== '') {
-				if (Number(loginGameType) === LoginGameTypeEnum.returnHtml) {
-					const newWindow = window.open()
-					newWindow?.document.write(message)
-				} else {
-					window.open(message)
-				}
-			} else {
-				window.open(
-					message,
-					'Under Maintenance',
-					'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0'
-				)
-			}
-		} catch (error) {
-			const { message, errorCode } = error as IAxiosError
-			if (errorCode === 3000) {
-				modal.error('Under Maintenance')
-			} else if (messageCallBack) {
-				messageCallBack(message)
-			}
-		}
+		window.open(`/launcher?${params}`, 'launcher')
 	}
 
 	const onStaticMenuOpen = (
