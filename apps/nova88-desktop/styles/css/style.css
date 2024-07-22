@@ -1443,6 +1443,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .promoList.ko {
   background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-ko.jpg) no-repeat center/auto;
 }
+.header > div.menu .subMenu-Wrapper-new .promoList.jp {
+  background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-jp.jpg) no-repeat center/auto;
+}
 .header > div.menu .subMenu-Wrapper-new .promoList > div {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
