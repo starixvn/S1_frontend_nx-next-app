@@ -297,6 +297,8 @@ export interface IPaymentAutoDepositData {
 	amountList: number[]
 	depositType: number
 	extraDataType: DepositExtraDataTypeEnum
+	displayChannelName: string
+	displayGroupName: string
 }
 export interface IPaymentBankTransferData {
 	bankCode: string
@@ -324,6 +326,8 @@ export interface IPaymentOnlineBankingData {
 	payName: string
 	selBank: boolean
 	extraDataType: number
+	displayChannelName: string
+	displayGroupName: string
 }
 
 export interface IPaymentOnlineBankInfoSysData {
@@ -352,6 +356,7 @@ export interface IPaymentMobilePayData {
 	maxAmount: number
 	minAmount: number
 	mode: number
+	displayGroupName: string
 }
 
 export interface IPaymentCryptoPayData {
@@ -373,6 +378,8 @@ export interface IPaymentCryptoPayData {
 	payName: string
 	pointLevel: number
 	sSort: number
+	displayChannelName: string
+	displayGroupName: string
 }
 
 export interface IChannelMobilePayData {
@@ -394,6 +401,8 @@ export interface IChannelMobilePayData {
 	pointLevel: number
 	sSort: number
 	extraDataType: number
+	displayChannelName: string
+	displayGroupName: string
 }
 
 export interface IBankAccountInfoData {
@@ -449,6 +458,7 @@ export interface IPaymentQRPayData {
 	maxAmount: number
 	minAmount: number
 	mode: number
+	displayGroupName: string
 }
 
 export interface IChannelQrPayData {
@@ -469,6 +479,8 @@ export interface IChannelQrPayData {
 	payName: string
 	pointLevel: number
 	sSort: number
+	displayChannelName: string
+	displayGroupName: string
 }
 
 export interface IPaymentTopUpCardPayData {
@@ -479,6 +491,7 @@ export interface IPaymentTopUpCardPayData {
 	minAmount: number
 	mode: number
 	payName: string
+	displayGroupName: string
 }
 
 interface IDepositBankInfo {
@@ -505,6 +518,8 @@ export interface IDepositQuickTransferData {
 	amountRule: number
 	amountList: number[]
 	depositType: number
+	displayChannelName: string
+	displayGroupName: string
 }
 
 export interface IDepositChatTransferData {
@@ -522,6 +537,8 @@ export interface IDepositChatTransferData {
 	amountRule: number
 	amountList: number[]
 	depositType: number
+	displayChannelName: string
+	displayGroupName: string
 }
 
 export interface IChannelTopUpCardPayData {
@@ -545,6 +562,8 @@ export interface IChannelTopUpCardPayData {
 	sSort: number
 	serial: null | string
 	updated_timestamp: number
+	displayChannelName: string
+	displayGroupName: string
 }
 
 export interface IDepositLocalPayReqData {

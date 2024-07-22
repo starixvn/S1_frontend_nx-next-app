@@ -61,12 +61,18 @@ const QuickTransferForm = ({ dataSource }: IQQuickTransferFormProps) => {
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{dataSource.map(item => {
-						const { channelName, channelId, minAmount, maxAmount } = item
+						const {
+							channelName,
+							displayChannelName,
+							channelId,
+							minAmount,
+							maxAmount,
+						} = item
 						const min = numberFormat(minAmount, currencyId, 0, false)
 						const max = numberFormat(maxAmount, currencyId, 0, false)
 						return (
 							<DepositModule.SubModuleButton
-								label={channelName}
+								label={displayChannelName}
 								imgName={`${toLower(channelName)}.png`}
 								matchValue={String(channelId)}
 								key={channelName}
