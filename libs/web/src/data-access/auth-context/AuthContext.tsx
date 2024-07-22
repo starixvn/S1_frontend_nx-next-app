@@ -85,9 +85,11 @@ export const AuthProvider = ({
 
 			if (errorCode === 0) {
 				setAuth({ isLogin: true })
+				setAppAuth('login')
 			}
 		} catch (error) {
 			setAuth({ isLogin: false })
+			setAppAuth('logout')
 		}
 	}
 
