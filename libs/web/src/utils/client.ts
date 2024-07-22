@@ -5,6 +5,7 @@ import { LIFF_EXCLUDED_TP_GAME_IDS } from '@nx-next-app/constants'
 type ReactNativeWebViewMessage =
 	| { type: 'SyncCurrency'; payload: number }
 	| { type: 'SyncLanguage'; payload: string }
+	| { type: 'SyncAuth'; payload: 'login' | 'logout' }
 
 type ReactNativeWebView = {
 	postMessage: (message: string) => void
@@ -46,6 +47,9 @@ export const setAppCurrency = (currencyId: number) =>
 
 export const setAppLanguage = (langCode: string) =>
 	postMsgToApp({ type: 'SyncLanguage', payload: langCode })
+
+export const setAppAuth = (payload: 'login' | 'logout') =>
+	postMsgToApp({ type: 'SyncAuth', payload })
 
 const liffExcludedGameIds = new Set<number>(LIFF_EXCLUDED_TP_GAME_IDS)
 

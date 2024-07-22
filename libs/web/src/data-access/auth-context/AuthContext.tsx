@@ -2,6 +2,7 @@ import { createContext, ReactNode, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { setAppAuth } from '@nx-next-app/utils'
 import {
 	useGetUserInfoQuery,
 	useLazyCheckSignInQuery,
@@ -138,6 +139,7 @@ export const AuthProvider = ({
 		}).unwrap()
 
 		setAuth({ isLogin: true })
+		setAppAuth('login')
 	}
 
 	const onSignOut = async () => {
@@ -147,6 +149,7 @@ export const AuthProvider = ({
 	}
 
 	const onResetAuth = () => {
+		setAppAuth('logout')
 		setAuth({ isLogin: undefined })
 	}
 
