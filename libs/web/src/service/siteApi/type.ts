@@ -48,6 +48,20 @@ export enum FlagEnum {
 	hasLang = 1,
 	unSetLang = 2,
 }
+/**
+ * 回饋類表
+ * @Sports 體育
+ * @Casino 賭場
+ * @LiveCasino 真人賭場
+ * @VirtualSports 虛擬體育
+ * @ESports 電子競技 */
+export enum RebateCategoryEnum {
+	Sports = 0,
+	Casino = 1,
+	LiveCasino = 2,
+	VirtualSports = 3,
+	ESports = 4,
+}
 
 export interface ISignUpArgs {
 	affCode?: string
