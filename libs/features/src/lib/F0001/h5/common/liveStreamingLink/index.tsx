@@ -68,7 +68,7 @@ const LiveStreamingLink = () => {
 	return isShowLiveStreaming && !isGetLiveStreamingListFetching ? (
 		<div
 			className={classNames('eventLink livesports', {
-				eurocup: isEventPeriod(EVENT_PERIOD.EUROPE_CUP),
+				olympic: isEventPeriod(EVENT_PERIOD.OLYMPIC),
 			})}
 		>
 			<button
