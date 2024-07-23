@@ -130,7 +130,7 @@ const HeaderModule = ({
 			{auth.isLogin && !isTpWalletBalanceListLoading && (
 				<div className='header-info'>
 					<div>
-						{`${t('Label_General_Welcome')}, `}
+						{`${t('Label_General_Hello')}, `}
 						<Link href={paths.profile.root}>
 							<a className='MemberID'>{userName}</a>
 						</Link>
