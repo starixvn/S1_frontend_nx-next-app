@@ -63,7 +63,7 @@ export const DEPOSIT_PAYMENT_OPTIONS = {
 		icon: 'icon-quick',
 	},
 	[DepositPaymentEnum.ChatTransfer]: {
-		labelDisplayKey: 'ChatTransfer',
+		labelDisplayKey: 'Label_Deposit_Quick_ChatTransfer',
 		timeDisplayKey: 'Label_General_Instant',
 		icon: 'icon-dou',
 	},
