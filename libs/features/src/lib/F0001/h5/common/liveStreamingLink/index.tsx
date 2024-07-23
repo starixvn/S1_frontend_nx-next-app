@@ -3,7 +3,10 @@ import dayjs from 'dayjs'
 import { includes } from 'lodash-es'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import classNames from 'classnames'
-import { LIVESTREAM_CURRENCY_TO_LANG_KEY, EVENT_PERIOD } from '@nx-next-app/constants'
+import {
+	LIVESTREAM_CURRENCY_TO_LANG_KEY,
+	EVENT_PERIOD,
+} from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	useLazyGetDataListQuery,
@@ -65,7 +68,7 @@ const LiveStreamingLink = () => {
 	return isShowLiveStreaming && !isGetLiveStreamingListFetching ? (
 		<div
 			className={classNames('eventLink livesports', {
-				eurocup: isEventPeriod(EVENT_PERIOD.EUROPE_CUP),
+				olympic: isEventPeriod(EVENT_PERIOD.OLYMPIC),
 			})}
 		>
 			<button
