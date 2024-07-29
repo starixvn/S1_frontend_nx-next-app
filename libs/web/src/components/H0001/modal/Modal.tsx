@@ -11,7 +11,12 @@ const Modal = (props: IModalProps) => {
 	const { open, children, className } = props
 
 	return (
-		<div id='popup' className={classNames(className, { active: open })}>
+		<div
+			id='popup'
+			className={classNames(className, { active: open })}
+			// 為隱藏頁面層的 scroll to top 鈕 (z-index: 4)
+			style={{ zIndex: 5 }}
+		>
 			{children}
 		</div>
 	)

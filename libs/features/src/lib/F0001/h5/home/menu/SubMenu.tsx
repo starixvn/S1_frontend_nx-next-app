@@ -41,7 +41,15 @@ const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
 		menuList?.find(({ category }) => category === menuKey)?.subMenu || []
 
 	const renderSubMenu = (
-		<div className={`${menuKey} active`}>
+		<div
+			className={`${menuKey} active`}
+			// 解決特定情況跑版，剩 3 列且最右側是空的，這裡改用 grid 來排版
+			style={{
+				display: 'grid',
+				gridTemplateColumns: 'repeat(4, 1fr)',
+				gap: '1vw',
+			}}
+		>
 			{submenus.map(subMenuItem => {
 				const {
 					tpGameIdNo,
@@ -69,9 +77,9 @@ const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
 				return (
 					<button
 						key={tpGameIdNo}
-						className={classNames('gamelist-item', {
-							under: isTpMaintain,
-						})}
+						className={classNames('gamelist-item', { under: isTpMaintain })}
+						// 為解決特定情況跑版，改以上層 grid gap 代替
+						style={{ margin: 0 }}
 						onClick={() => {
 							onMenuOpen(subMenuItem, {
 								loginCallback: () => {
@@ -86,7 +94,13 @@ const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
 						<div className='gamelist-img'>
 							{isNew && <div className='new-icon'>New</div>}
 							<img src={suBMenuImage} alt={productName} />
-							<div className='gamelist-title'>{displayName || productName}</div>
+							<div
+								className='gamelist-title'
+								// 為解決特定情況跑版，覆蓋原先 css 指定的寬度
+								style={{ width: 'auto' }}
+							>
+								{displayName || productName}
+							</div>
 						</div>
 					</button>
 				)
