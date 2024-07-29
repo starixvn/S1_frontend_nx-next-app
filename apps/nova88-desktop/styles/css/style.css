@@ -4,7 +4,6 @@
    License: none (public domain)
 */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -1443,6 +1442,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .promoList.ko {
   background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-ko.jpg) no-repeat center/auto;
 }
+.header > div.menu .subMenu-Wrapper-new .promoList.jp {
+  background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-jp.jpg) no-repeat center/auto;
+}
 .header > div.menu .subMenu-Wrapper-new .promoList > div {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -1496,37 +1498,37 @@ header input:focus-within {
   font-weight: bold;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-en.jpg) no-repeat center/auto;
+  background: url(https://image.0814media.net/SiteSkin/img/leaderboardbanner-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.en {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-en.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.my {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-my.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-my.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.cs {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-cs.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-cs.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.th {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-th.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-th.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.id {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-id.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-id.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.kh {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-kh.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-kh.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.vn {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-vn.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-vn.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.br {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-br.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-br.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.ko {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-ko.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-ko.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.jp {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-jp.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-jp.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList > div,
 .header > div.menu .subMenu-Wrapper-new .rankingList > a {
@@ -1602,7 +1604,9 @@ header input:focus-within {
   text-align: left;
   padding-left: 15px;
 }
-.header > div.function .login, .header > div.function .join, .header > div.function .line-login {
+.header > div.function .login,
+.header > div.function .join,
+.header > div.function .line-login {
   padding: 10px 0;
   border-radius: 50px;
   color: white;
@@ -1769,7 +1773,8 @@ header input:focus-within {
 .header > div.function .country-list .country-option::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-.header > div.function .country-list .country-option button, .header > div.function .country-list .country-option div {
+.header > div.function .country-list .country-option button,
+.header > div.function .country-list .country-option div {
   margin: 6px 0;
 }
 .header > div.function .country-list .country-option .flag {
@@ -1792,7 +1797,9 @@ header input:focus-within {
   font-size: 14px;
   margin-bottom: 4px;
 }
-.header > div.function .country-list button, .header > div.function .country-list a, .header > div.function .country-list div {
+.header > div.function .country-list button,
+.header > div.function .country-list a,
+.header > div.function .country-list div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1805,19 +1812,27 @@ header input:focus-within {
       -ms-flex-flow: row;
           flex-flow: row;
 }
-.header > div.function .country-list button button, .header > div.function .country-list a button, .header > div.function .country-list div button {
+.header > div.function .country-list button button,
+.header > div.function .country-list a button,
+.header > div.function .country-list div button {
   border-right: 1px solid #5574A7;
   border-right-color: #878787;
   padding: 0 8px;
 }
-.header > div.function .country-list button button:last-child, .header > div.function .country-list a button:last-child, .header > div.function .country-list div button:last-child {
+.header > div.function .country-list button button:last-child,
+.header > div.function .country-list a button:last-child,
+.header > div.function .country-list div button:last-child {
   border-right: 0;
   padding: 0 0 0 8px;
 }
-.header > div.function .country-list button button:first-child, .header > div.function .country-list a button:first-child, .header > div.function .country-list div button:first-child {
+.header > div.function .country-list button button:first-child,
+.header > div.function .country-list a button:first-child,
+.header > div.function .country-list div button:first-child {
   padding: 0 8px 0 0;
 }
-.header > div.function .country-list button button:hover, .header > div.function .country-list a button:hover, .header > div.function .country-list div button:hover {
+.header > div.function .country-list button button:hover,
+.header > div.function .country-list a button:hover,
+.header > div.function .country-list div button:hover {
   color: #f77900;
 }
 .header > div.function .country-list.active {
@@ -2217,10 +2232,6 @@ header input:focus-within {
   -webkit-animation: eurologo 7.5s running infinite 0.5s;
           animation: eurologo 7.5s running infinite 0.5s;
 }
-.logo.olympic .splogo {
-  -webkit-animation: olympiclogo 7.5s running infinite 0.5s;
-          animation: olympiclogo 7.5s running infinite 0.5s;
-}
 
 .splogo {
   position: absolute;
@@ -2228,7 +2239,7 @@ header input:focus-within {
   bottom: 30px;
   width: 60px;
   height: 60px;
-  background: url(https://banner.0814media.net/desktop/img/event/olympic/logo-paris.png) center/cover;
+  background: url(https://banner.0814media.net/desktop/img/event/eurocup/euro-logo.png) center/cover;
 }
 
 @-webkit-keyframes splogo {
@@ -2317,26 +2328,6 @@ header input:focus-within {
   }
   100% {
     background: url(https://banner.0814media.net/desktop/img/event/eurocup/euro-logo.png) center/cover;
-    opacity: 1;
-  }
-}
-@-webkit-keyframes olympiclogo {
-  0% {
-    background: url(https://banner.0814media.net/desktop/img/event/olympic/logo-paris.png) center/cover;
-    opacity: 1;
-  }
-  100% {
-    background: url(https://banner.0814media.net/desktop/img/event/olympic/logo-paris.png) center/cover;
-    opacity: 1;
-  }
-}
-@keyframes olympiclogo {
-  0% {
-    background: url(https://banner.0814media.net/desktop/img/event/olympic/logo-paris.png) center/cover;
-    opacity: 1;
-  }
-  100% {
-    background: url(https://banner.0814media.net/desktop/img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
 }
@@ -4891,15 +4882,6 @@ input[type=file] {
 .eventLink.eurocup.retention-link {
   bottom: 280px;
 }
-.eventLink.olympic {
-  bottom: 195px;
-  left: 20px;
-}
-.eventLink.olympic img {
-  width: 158px;
-  -webkit-animation: livesports 4s ease-in-out infinite;
-          animation: livesports 4s ease-in-out infinite;
-}
 .eventLink .icon-close {
   width: 20px;
   height: 20px;
@@ -5056,9 +5038,6 @@ input[type=file] {
 }
 .livesports.eurocup {
   bottom: 320px;
-}
-.livesports.olympic {
-  bottom: 330px;
 }
 .livesports.retention-link {
   bottom: 430px;
@@ -5445,7 +5424,10 @@ input[type=file] {
 .list .listBody .btnGroup button:before {
   margin-left: 0;
 }
-.list .listBody .approved, .list .listBody .pending, .list .listBody .reject, .list .listBody .cancel {
+.list .listBody .approved,
+.list .listBody .pending,
+.list .listBody .reject,
+.list .listBody .cancel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5456,7 +5438,10 @@ input[type=file] {
       -ms-flex-align: center;
           align-items: center;
 }
-.list .listBody .approved .infobtn, .list .listBody .pending .infobtn, .list .listBody .reject .infobtn, .list .listBody .cancel .infobtn {
+.list .listBody .approved .infobtn,
+.list .listBody .pending .infobtn,
+.list .listBody .reject .infobtn,
+.list .listBody .cancel .infobtn {
   background: url(https://banner.0814media.net/desktop/img/notice.png) no-repeat center/cover;
   width: 15px;
   height: 15px;
@@ -6115,14 +6100,6 @@ input[type=file] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-#popup.olympic-rule {
-  -webkit-backdrop-filter: blur(7px);
-          backdrop-filter: blur(7px);
-}
-#popup.olympic-medalpop {
-  -webkit-backdrop-filter: blur(7px);
-          backdrop-filter: blur(7px);
 }
 #popup .joinpop,
 #popup .loginpop {
@@ -7587,153 +7564,6 @@ input[type=file] {
     opacity: 1;
   }
 }
-#popup .rulepop {
-  background: none !important;
-  font-family: "Open Sans", sans-serif;
-  max-width: 1000px;
-}
-#popup .rulepop.active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-#popup .rulepop-content {
-  -webkit-animation: sponsor-content 0.3s linear 0.2s backwards;
-          animation: sponsor-content 0.3s linear 0.2s backwards;
-}
-#popup .rulepop-content .close-btn {
-  background: white;
-  padding: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-radius: 0 0 30px 30px;
-}
-#popup .rulepop-content .close-btn button {
-  background: #FF8B21;
-  border-radius: 50px;
-  padding: 10px;
-  width: 210px;
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-#popup .rulepop-content .close-btn button:hover {
-  background: #f97700;
-}
-#popup .rulepop-title {
-  background: #FF8B21;
-  text-transform: uppercase;
-  font-size: 35px;
-  font-weight: 700;
-  border-radius: 30px 30px 0 0;
-  padding: 15px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-#popup .rulepop-text {
-  font-size: 20px;
-  font-weight: 400;
-}
-#popup .rulepop-text ul {
-  background: white;
-  padding: 10px 50px;
-  height: 500px;
-  overflow: hidden;
-  overflow-y: scroll;
-}
-#popup .rulepop-text ul::-webkit-scrollbar-thumb {
-  background-color: rgba(10, 0, 0, 0.329);
-}
-#popup .rulepop-text ul li {
-  color: #301363;
-  margin: 50px 0;
-  text-indent: -22px;
-}
-#popup .medalpop {
-  background: none !important;
-  font-family: "Open Sans", sans-serif;
-}
-#popup .medalpop-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-#popup .medalpop-top {
-  background: #FF8B21;
-  width: 660px;
-  height: 85px;
-  border-radius: 30px 30px 0 0;
-}
-#popup .medalpop-item {
-  width: 660px;
-  background: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 10px 0 50px;
-  border-radius: 0 0 30px 30px;
-}
-#popup .medalpop-item img {
-  width: 300px;
-}
-#popup .medalpop-item > div {
-  font-weight: 700;
-}
-#popup .medalpop-item > div:nth-child(2) {
-  font-size: 40px;
-  color: #301363;
-  margin-top: -10px;
-}
-#popup .medalpop-item > div:nth-child(3) {
-  font-size: 30px;
-  color: #FF8B21;
-}
-#popup .medalpop-item button {
-  background: #FF8B21;
-  border-radius: 50px;
-  padding: 10px;
-  width: 210px;
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-top: 40px;
-}
-#popup .medalpop-item button:hover {
-  background: #f97700;
-}
-#popup .medalpop.gold-a .medalpop-item img {
-  margin: -60px 0 30px;
-}
-#popup .medalpop.gold-b .medalpop-item img {
-  margin: -50px 0 20px;
-}
-#popup .medalpop.gold-c .medalpop-item img {
-  margin-bottom: 20px;
-}
 
 .Submit,
 .poker,
@@ -8533,7 +8363,8 @@ input[type=file] {
   color: white;
   border-color: white;
 }
-.addBank .addBankName:hover .addBankInfo .icon-BTC, .addBank .addBankName:hover .addBankInfo .icon-USDT,
+.addBank .addBankName:hover .addBankInfo .icon-BTC,
+.addBank .addBankName:hover .addBankInfo .icon-USDT,
 .addBank .addBankName:hover .cryptoInfo .icon-BTC,
 .addBank .addBankName:hover .cryptoInfo .icon-USDT {
   color: white;
@@ -10078,7 +9909,8 @@ form {
 }
 .search-container .search {
   position: absolute;
-  left: 49px; /* Button width-1px (Not 50px/100% because that will sometimes show a 1px line between the search box and button) */
+  left: 49px;
+  /* Button width-1px (Not 50px/100% because that will sometimes show a 1px line between the search box and button) */
   background-color: white;
   outline: none;
   border: none;
@@ -10097,7 +9929,8 @@ form {
 }
 .search-container .expandright {
   left: auto;
-  right: 49px; /* Button width-1px */
+  right: 49px;
+  /* Button width-1px */
 }
 .search-container .expandright:focus {
   padding: 0 0 0 16px;
@@ -12649,26 +12482,32 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .list.refhistory .btnGroup a {
   padding: 0;
 }
-.list.refhistory .listHeader div:nth-child(2), .list.refhistory .listBody div:nth-child(2) {
+.list.refhistory .listHeader div:nth-child(2),
+.list.refhistory .listBody div:nth-child(2) {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 200px;
           flex: 0 0 200px;
 }
-.list.refhistory .listHeader div:nth-child(3), .list.refhistory .listHeader div:nth-child(4), .list.refhistory .listBody div:nth-child(3), .list.refhistory .listBody div:nth-child(4) {
+.list.refhistory .listHeader div:nth-child(3), .list.refhistory .listHeader div:nth-child(4),
+.list.refhistory .listBody div:nth-child(3),
+.list.refhistory .listBody div:nth-child(4) {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 220px;
           flex: 0 0 220px;
 }
-.list.refhistory .listHeader div:last-child, .list.refhistory .listBody div:last-child {
+.list.refhistory .listHeader div:last-child,
+.list.refhistory .listBody div:last-child {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
-.list.refhistory .listHeader div:last-child a, .list.refhistory .listBody div:last-child a {
+.list.refhistory .listHeader div:last-child a,
+.list.refhistory .listBody div:last-child a {
   text-decoration: underline;
   color: #7591C1;
 }
-.list.refhistory .listHeader div:last-child a:hover, .list.refhistory .listBody div:last-child a:hover {
+.list.refhistory .listHeader div:last-child a:hover,
+.list.refhistory .listBody div:last-child a:hover {
   color: #1a2e56;
 }
 .list.refhistory + .btnGroup {
@@ -13381,7 +13220,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .subModuleListColumn > .subModule .inputBox-white {
   width: 300px;
 }
-.subModuleListColumn > .subModule .inputBox-white + .icon-files-empty, .subModuleListColumn > .subModule .inputBox-white + span {
+.subModuleListColumn > .subModule .inputBox-white + .icon-files-empty,
+.subModuleListColumn > .subModule .inputBox-white + span {
   color: white;
   background: #5574A7;
   border-radius: 5px;
@@ -13390,10 +13230,12 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin: 10px 5px;
   font-size: 12px;
 }
-.subModuleListColumn > .subModule .inputBox-white + .icon-files-empty::before, .subModuleListColumn > .subModule .inputBox-white + span::before {
+.subModuleListColumn > .subModule .inputBox-white + .icon-files-empty::before,
+.subModuleListColumn > .subModule .inputBox-white + span::before {
   font-size: 15px;
 }
-.subModuleListColumn > .subModule .inputBox-white + .icon-files-empty:hover, .subModuleListColumn > .subModule .inputBox-white + span:hover {
+.subModuleListColumn > .subModule .inputBox-white + .icon-files-empty:hover,
+.subModuleListColumn > .subModule .inputBox-white + span:hover {
   background: #7591C1;
 }
 .subModuleListColumn > .subModule .input-column {
@@ -13749,7 +13591,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
       -ms-flex-align: center;
           align-items: center;
 }
-.subModuleListColumn > .subModule.bankQR .qrCode svg, .subModuleListColumn > .subModule.bankQR .qrCode img {
+.subModuleListColumn > .subModule.bankQR .qrCode svg,
+.subModuleListColumn > .subModule.bankQR .qrCode img {
   width: auto;
   height: 100%;
 }
@@ -14080,12 +13923,14 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   position: relative;
   cursor: pointer;
 }
-.recently:hover .swiper-button-next, .recently:hover .swiper-button-prev {
+.recently:hover .swiper-button-next,
+.recently:hover .swiper-button-prev {
   opacity: 1;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-.recently .swiper-button-next, .recently .swiper-button-prev {
+.recently .swiper-button-next,
+.recently .swiper-button-prev {
   background: #112240;
   font-family: "icomoon";
   width: 35px;
@@ -14106,7 +13951,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   transition: 0.5s;
   z-index: 2;
 }
-.recently .swiper-button-next::before, .recently .swiper-button-prev::before {
+.recently .swiper-button-next::before,
+.recently .swiper-button-prev::before {
   content: "\ea40";
 }
 .recently .swiper-button-next {
@@ -16061,7 +15907,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           filter: grayscale(1);
   pointer-events: none;
 }
-.jpotModule .jpot.active .jpot-btn, .jpotModule .jpot.active .number {
+.jpotModule .jpot.active .jpot-btn,
+.jpotModule .jpot.active .number {
   -webkit-filter: brightness(0.7);
           filter: brightness(0.7);
 }
@@ -18736,7 +18583,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .rankingNew {
-  background: url(https://banner.0814media.net/desktop/img/leaderboard_new_bg.jpg) no-repeat top center;
+  background: url(https://banner.0814media.net/desktop/img/ranking_new_sportsbg.jpg) no-repeat top center;
   background-position: top center;
   background-size: auto 100%;
   min-height: 1025px;
@@ -22145,7 +21992,8 @@ form .profileModule .vipLv .vipname {
       -ms-flex-align: center;
           align-items: center;
 }
-.duitnowPop > div.guide .qrCode svg, .duitnowPop > div.guide .qrCode img {
+.duitnowPop > div.guide .qrCode svg,
+.duitnowPop > div.guide .qrCode img {
   width: auto;
   height: 180px;
 }
@@ -22742,7 +22590,8 @@ form .profileModule .vipLv .vipname {
       -ms-flex-align: center;
           align-items: center;
 }
-.thiaPop > div.guide .qrCode svg, .thiaPop > div.guide .qrCode img {
+.thiaPop > div.guide .qrCode svg,
+.thiaPop > div.guide .qrCode img {
   width: auto;
   height: 160px;
 }
@@ -23693,7 +23542,8 @@ input[type=number] {
   width: 100%;
   height: 1px;
 }
-.euro-mission .title a, .euro-mission .title button {
+.euro-mission .title a,
+.euro-mission .title button {
   color: #143CDA;
   background: #F9BF4B;
   padding: 10px;
@@ -23705,7 +23555,8 @@ input[type=number] {
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
-.euro-mission .title a:hover, .euro-mission .title button:hover {
+.euro-mission .title a:hover,
+.euro-mission .title button:hover {
   background: #fff;
   -webkit-transition: 0.2s;
   transition: 0.2s;
@@ -24041,7 +23892,8 @@ input[type=number] {
           box-sizing: border-box;
   border-radius: 0 0 10px 10px;
 }
-.euro .btn-group .btn-cancel, .euro .btn-group .btn-submit {
+.euro .btn-group .btn-cancel,
+.euro .btn-group .btn-submit {
   border-radius: 10px;
   padding: 15px 10px;
   background: #fff;
@@ -25311,7 +25163,8 @@ input[type=number] {
     left: 65%;
   }
 }
-.milestones .milestones-swiper .swiper-button-next, .milestones .milestones-swiper .swiper-button-prev {
+.milestones .milestones-swiper .swiper-button-next,
+.milestones .milestones-swiper .swiper-button-prev {
   position: absolute;
   width: 50px;
   height: 50px;
@@ -25376,7 +25229,8 @@ input[type=number] {
   width: 500px;
   text-align: center;
 }
-.exclusion-text a, .exclusion-text button {
+.exclusion-text a,
+.exclusion-text button {
   margin-bottom: 15px;
   background: #D9BB9B;
   font-size: 18px;
@@ -25398,12 +25252,14 @@ input[type=number] {
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
-.exclusion-text a img, .exclusion-text button img {
+.exclusion-text a img,
+.exclusion-text button img {
   width: 20px;
   margin-right: 8px;
   margin-top: 3px;
 }
-.exclusion-text a:hover, .exclusion-text button:hover {
+.exclusion-text a:hover,
+.exclusion-text button:hover {
   background: #cfaf8c;
   -webkit-transition: 0.2s;
   transition: 0.2s;
@@ -25913,218 +25769,179 @@ input[type=number] {
   border-bottom-right-radius: 10px !important;
 }
 
-.olympic {
-  font-family: "Open Sans", sans-serif;
-}
-.olympic button {
-  text-transform: uppercase;
-}
-.olympic-top {
-  background: url(https://banner.0814media.net/desktop/img/event/olympic/background-a.jpg) no-repeat center/cover;
+.event-lottery-popup {
+  margin: 20px;
   position: relative;
+  border-radius: 15px 15px 15px 15px !important;
+  border: 1px solid #EB801D;
+  background-color: #383040 !important;
 }
-.olympic-top-logo {
-  width: 150px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 740px);
+.event-lottery-popup.d-none {
+  display: none !important;
 }
-.olympic-top-text {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 800px 0 280px;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
-}
-.olympic-top-text img {
-  width: 175px;
-  margin: 20px 0 8px;
-}
-.olympic-top-text > div {
-  font-size: 30px;
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-.olympic-top-text > div:nth-child(2) {
-  font-size: 50px;
-  color: #FF8B21;
-  font-weight: 700;
-  margin-bottom: 20px;
-  letter-spacing: -1px;
-}
-.olympic-top-text > div:nth-child(3) {
-  margin-bottom: 5px;
-}
-.olympic-center {
-  background: #FF8C01;
-  padding-top: 50px;
-}
-.olympic-center-wrapper {
-  max-width: 1350px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-.olympic-center .tasks-title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  font-size: 40px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  width: 900px;
-  margin: 0 0 40px 8px;
-}
-.olympic-center .tasks-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.olympic-center .tasks-content .progress-title {
-  background: #301363;
-  border-radius: 27px 27px 0 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 20px 40px;
-}
-.olympic-center .tasks-content .progress-title > div {
-  text-transform: uppercase;
-}
-.olympic-center .tasks-content .progress-title > div:first-child {
-  font-size: 30px;
-  font-weight: 700;
-}
-.olympic-center .tasks-content .progress-title > div:last-child {
-  font-size: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.olympic-center .tasks-content .progress-title > div:last-child::after {
-  display: block;
-  content: "";
-  background: url(https://banner.0814media.net/desktop/img/event/olympic/arrow.png) no-repeat center/cover;
-  width: 8px;
-  height: 13px;
-  margin: 2px 0 0 10px;
-}
-.olympic-center .tasks-content .progress-box {
-  background: white;
-  padding: 50px 40px 0;
-  border-radius: 0 0 27px 27px;
-}
-.olympic-center .tasks-content .progress-box > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding-bottom: 55px;
-}
-.olympic-center .tasks-content .progress-box-item .text {
-  width: 540px;
-  color: #301363;
-  font-weight: 700;
-  font-size: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-bottom: 10px;
-}
-.olympic-center .tasks-content .progress-box-item .progress-bar {
-  background: #E1E1E1;
-  width: 540px;
-  height: 26px;
-  border-radius: 9px;
-}
-.olympic-center .tasks-content .progress-box-item .progress-bar-inside {
-  background: #FF8B21;
-  height: 26px;
-  border-radius: 9px;
-}
-.olympic-center .tasks-content .progress-box button {
-  background: #FF8B21;
-  color: white;
-  font-size: 19px;
-  text-transform: uppercase;
-  padding: 12px 20px;
-  border-radius: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 250px;
-  margin-left: 50px;
-  word-wrap: break-word;
-  text-align: center;
-}
-.olympic-center .tasks-content .progress-box button::after {
-  display: block;
-  content: "";
-  background: url(https://banner.0814media.net/desktop/img/event/olympic/arrow.png) no-repeat center/cover;
-  width: 8px;
-  height: 13px;
-  margin: 0 0 0 10px;
-}
-.olympic-center .tasks-content .progress-box button:hover {
-  background: #f97700;
-}
-.olympic-center .tasks .medal {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-left: 40px;
+.event-lottery-popup * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-.olympic-center .tasks .medal > div {
-  background: white;
-  color: #301363;
+.event-lottery-popup .grid {
+  display: grid;
+  gap: 20px;
+  padding: 20px 40px;
+}
+.event-lottery-popup .grid.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.event-lottery-popup .grid.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.event-lottery-popup .icon {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  opacity: 0.4;
+}
+.event-lottery-popup .icon.active {
+  opacity: 1;
+}
+.event-lottery-popup .icon-close {
+  width: auto;
+  height: auto;
+  font-size: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  opacity: 1;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.event-lottery-popup .icon-close:hover {
+  opacity: 0.8;
+  color: #EB801D;
+}
+.event-lottery-popup .icon.rat {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/rat-defult.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.rat.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/rat-active.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.ox {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/ox-defult.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.ox.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/ox-active.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.tiger {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/tiger-defult.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.tiger.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/tiger-active.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.cat {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/cat-defult.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.cat.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/cat-active.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.dragon {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/dragon-defult.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.dragon.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/dragon-active.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.snake {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/snake-defult.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.snake.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/snake-active.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.horse {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/horse-defult.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.horse.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/horse-active.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.goat {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/goat-defult.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.goat.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/goat-active.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.monkey {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/monkey-defult.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.monkey.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/monkey-active.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.chicken {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/chicken-defult.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.chicken.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/chicken-active.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.dog {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/dog-defult.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.dog.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/dog-active.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.pig {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/pig-defult.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.pig.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/pig-active.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.plus {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/icon-plus.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.trophy {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/icon-trophy.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.sticker {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/icon-sticker-column-5.svg) no-repeat center/contain;
+}
+.event-lottery-popup button {
+  font-weight: 600;
+  background-color: #EB801D;
+  color: #fff;
+  padding: 10px 60px;
+  border-radius: 15px;
+  font-size: 20px;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+.event-lottery-popup button:hover {
+  opacity: 0.8;
+}
+.event-lottery-popup button.copy {
+  position: absolute;
+  left: -1px;
+  bottom: -50px;
+  background-color: #EB801D;
+  color: #fff;
+  font-size: 18px;
+  padding: 0 20px 0 40px;
+  height: 50px;
+  border-radius: 0 0 0 15px;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+.event-lottery-popup button.copy::after {
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/lottery-div-copy.svg) no-repeat center/100%;
+  position: absolute;
+  right: -50px;
+  top: 0;
+  width: 50px;
+  height: 50px;
+}
+.event-lottery-popup button.copy:hover {
+  color: #000;
+  opacity: 1;
+}
+.event-lottery-popup .popup-content {
+  padding: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26135,131 +25952,434 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-radius: 27px;
-  padding-bottom: 30px;
-  width: 360px;
-  height: 335px;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
+  gap: 30px;
+}
+.event-lottery-popup .popup-content .title {
+  font-size: 30px;
+  text-align: center;
+  color: #fff;
+}
+.event-lottery-popup.copy {
+  border-radius: 15px 15px 15px 0px !important;
+  min-height: 45dvh;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.event-lottery-popup.copy.trophy {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/trophy-winning-desktop.jpg) no-repeat center/cover;
+}
+.event-lottery-popup.copy.rat {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/rat-winning-desktop.jpg) no-repeat center/cover;
+}
+.event-lottery-popup.copy.ox {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/ox-winning-desktop.jpg) no-repeat center/cover;
+}
+.event-lottery-popup.copy.tiger {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/tiger-winning-desktop.jpg) no-repeat center/cover;
+}
+.event-lottery-popup.copy.cat {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/cat-winning-desktop.jpg) no-repeat center/cover;
+}
+.event-lottery-popup.copy.dragon {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/dragon-winning-desktop.jpg) no-repeat center/cover;
+}
+.event-lottery-popup.copy.snake {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/snake-winning-desktop.jpg) no-repeat center/cover;
+}
+.event-lottery-popup.copy.horse {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/horse-winning-desktop.jpg) no-repeat center/cover;
+}
+.event-lottery-popup.copy.goat {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/goat-winning-desktop.jpg) no-repeat center/cover;
+}
+.event-lottery-popup.copy.monkey {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/monkey-winning-desktop.jpg) no-repeat center/cover;
+}
+.event-lottery-popup.copy.chicken {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/chicken-winning-desktop.jpg) no-repeat center/cover;
+}
+.event-lottery-popup.copy.dog {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/dog-winning-desktop.jpg) no-repeat center/cover;
+}
+.event-lottery-popup.copy.pig {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/pig-winning-desktop.jpg) no-repeat center/cover;
+}
+.event-lottery-popup.copy .logo {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/NOVA-logo.svg) no-repeat center/contain;
+  width: 210px;
+  height: 90px;
+}
+.event-lottery-popup.copy .popup-content {
+  padding: 40px !important;
+}
+.event-lottery-popup.copy .popup-content .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.event-lottery-popup.copy .popup-content .wrapper > .title {
+  color: #EB801D;
+  font-size: 40px;
+  text-align: left;
+}
+.event-lottery-popup.copy .popup-content .wrapper .info-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 14px !important;
+  font-weight: 200 !important;
+}
+.event-lottery-popup.copy .popup-content .wrapper .info-group .title {
+  text-align: left;
+  font-size: 24px;
+}
+.event-lottery-popup.ticket {
+  background-color: #EB801D !important;
+}
+.event-lottery-popup.ticket .icon {
+  color: #000;
+}
+.event-lottery-popup.ticket .popup-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.event-lottery-popup.ticket .popup-content .title-group .title,
+.event-lottery-popup.ticket .popup-content .title-group p {
+  color: #000;
+}
+.event-lottery-popup.ticket .popup-content .title-group p {
+  font-size: 18px;
+}
+.event-lottery-popup.ticket .popup-content .ticket {
+  z-index: 99;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.event-lottery-popup.ticket .popup-content .ticket hr {
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  border-style: dashed;
+  border-color: #61566B;
+}
+.event-lottery-popup.ticket .popup-content .ticket-top {
+  padding: 20px;
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.event-lottery-popup.ticket .popup-content .ticket-top::before {
+  content: "";
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  position: absolute;
+  background-color: #383040;
+  --mask: radial-gradient(15px at 15px 100%, #0000 98%, #000) -15px;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+.event-lottery-popup.ticket .popup-content .ticket-bottom {
+  padding: 20px;
   position: relative;
 }
-.olympic-center .tasks .medal > div span:first-child {
-  font-size: 30px;
-  font-weight: 800;
-}
-.olympic-center .tasks .medal > div span:last-child {
-  font-size: 100px;
-  color: #FF8B21;
-  margin-top: 10px;
-  font-weight: 700;
-}
-.olympic-center .tasks .medal > div::before {
-  position: absolute;
-  display: block;
+.event-lottery-popup.ticket .popup-content .ticket-bottom::before {
   content: "";
-  background: url(https://banner.0814media.net/desktop/img/event/olympic/gold-medal.png) no-repeat center/cover;
-  width: 360px;
-  height: 360px;
-  top: -200px;
-}
-.olympic-center .bouns-title {
-  font-size: 40px;
-  font-weight: 700;
-  text-transform: uppercase;
+  border-radius: 15px;
   width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  position: absolute;
+  background-color: #383040;
+  --mask: radial-gradient(15px at 15px 0, #0000 98%, #000) -15px;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+.event-lottery-popup.ticket .popup-content .ticket-bottom .total {
+  color: #fff;
+  background-color: #61566B;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+}
+.event-lottery-popup.ticket .popup-content .ticket-bottom .total .title {
+  color: #fff;
+  font-size: 16px;
+}
+.event-lottery-popup.ticket .popup-content .ticket-bottom .total .quantity {
+  font-size: 24px;
+  font-weight: bold;
+}
+.event-lottery-popup.ticket .popup-content .ticket.sticker .ticket-top {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 110px 0 45px;
-}
-.olympic-center .bouns-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  padding: 0 160px;
-}
-.olympic-center .bouns-content-item {
-  width: 320px;
-}
-.olympic-center .bouns-content-item .money {
-  background: white;
-  padding: 0 0 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 15px 15px 0 0;
 }
-.olympic-center .bouns-content-item .money img {
-  width: 220px;
-}
-.olympic-center .bouns-content-item .money > div {
-  color: #301363;
-  font-size: 30px;
-  font-weight: 700;
-}
-.olympic-center .bouns-content-item .redeem-btn {
-  background: #301363;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 20px 0;
-  border-radius: 0 0 15px 15px;
-}
-.olympic-center .bouns-content-item .redeem-btn > div {
-  font-size: 30px;
-  color: white;
-  font-weight: 700;
-  margin-top: 10px;
+.event-lottery-popup.ticket .popup-content .ticket.sticker .ticket-top .title {
+  padding: 16px;
+  font-size: 18px;
   text-align: center;
 }
-.olympic-center .bouns-content-item .redeem-btn button {
-  background: white;
-  padding: 10px;
+.event-lottery-popup.ticket .popup-content .ticket.sticker .ticket-top .sticker-result {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+  background-color: #61566B;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40px;
+}
+.event-lottery-popup.rules {
+  width: 50%;
+  overflow: hidden;
+}
+.event-lottery-popup.rules .rules-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+.event-lottery-popup.rules .rules-item .title-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #61566B;
+  padding: 10px 20px 10px 40px;
+  border-radius: 100px;
+  border: 1px solid transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.event-lottery-popup.rules .rules-item .title-group .title {
+  font-size: 20px;
+}
+.event-lottery-popup.rules .rules-item .title-group .arrow {
+  background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) #958C9F no-repeat center 60%/60%;
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+  border-radius: 100px;
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+.event-lottery-popup.rules .rules-item .title-group:hover {
+  opacity: 1;
+  background-color: rgba(97, 86, 107, 0.5);
+  border: 1px solid #EB801D;
+}
+.event-lottery-popup.rules .rules-item .title-group:hover .arrow {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) #FF7600 no-repeat center 60%/60%;
+}
+.event-lottery-popup.rules .rules-item.active .arrow {
+  background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) #EB801D no-repeat center 60%/60%;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+.event-lottery-popup.rules .popup-content {
+  height: 60dvh;
+  overflow-y: scroll;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+.event-lottery-popup.rules .popup-content .content {
+  background-color: #61566B;
+  border-radius: 15px;
+  padding: 20px;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+.event-lottery-popup.rules .popup-content .content .wrapper {
+  color: rgba(255, 255, 255, 0.5);
+}
+.event-lottery-popup.rules .popup-content .content .wrapper .title {
+  color: #FF7600;
+  text-align: left;
+  padding: 20px;
+  font-size: 22px;
+}
+.event-lottery-popup.rules .popup-content .content .wrapper ul li {
+  list-style: disc;
+  margin-left: 40px;
+  font-weight: lighter;
+  line-height: 1.8;
+}
+.event-lottery-popup.rules .popup-content .content .wrapper ul li.title {
+  margin-left: 0;
+  color: #fff;
+  font-weight: 400;
+  list-style: none;
+  padding: 10px 20px;
   font-size: 16px;
-  border-radius: 50px;
-  width: 200px;
-  margin: 15px 20px;
-  color: #301363;
-  font-weight: 700;
 }
-.olympic-center .bouns-content-item .redeem-btn button:hover {
-  -webkit-box-shadow: 0 0 10px #eadeff;
-          box-shadow: 0 0 10px #eadeff;
-  color: #805cbf;
+.event-lottery-popup.rules .jackpot-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border: 1px solid #AEA6B7;
+  border-radius: 100px;
+  padding: 10px;
 }
-.olympic-center-bn {
-  margin-top: -200px;
+.event-lottery-popup.rules .jackpot-group .jackpot-title {
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  padding: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 100px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 24px;
+  background-color: #AEA6B7;
+  color: #61566B;
 }
-.olympic-bottom {
-  background: #301363;
-  padding-bottom: 150px;
+.event-lottery-popup.rules .jackpot-group .title {
+  color: #fff !important;
+  padding: 0px !important;
+  font-size: 14px !important;
 }
-.olympic-bottom-wrapper {
-  max-width: 1350px;
-  margin: 0 auto;
+.event-lottery-popup.rules .jackpot-group .icon {
+  opacity: 1;
+}
+.event-lottery-popup.rules .jackpot-group .icon.plus {
+  width: 30px;
+  height: 30px;
+}
+.event-lottery-popup.rules .jackpot-group .prize-group, .event-lottery-popup.rules .jackpot-group .sticker-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+.event-lottery-popup.rules .jackpot-group .sticker-group {
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5 1 auto;
+          flex: 0.5 1 auto;
+  padding-right: 40px;
+}
+.event-lottery-popup.rules .jackpot-group .sticker-group .icon {
+  width: 100%;
+}
+@media (max-width: 992px) {
+  .event-lottery-popup {
+    width: 100% !important;
+  }
+}
+
+.lottery {
+  padding: 200px 0 150px;
+  background: url("https://banner.0814media.net/desktop/img/event/lottery/bg.jpg") no-repeat top/100% #0c0515;
+  top: 0;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26270,83 +26390,1156 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 1;
+  border-bottom: 40px solid #EB801D;
 }
-.olympic-bottom-title {
-  color: #FF8B21;
+.lottery * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.lottery::after {
+  content: "";
+  position: absolute;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(12, 4, 21, 0.2)), to(rgba(12, 4, 21, 0.35))), url("https://banner.0814media.net/desktop/img/event/lottery/nova.svg") center/100% no-repeat;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(12, 4, 21, 0.2) 50%, rgba(12, 4, 21, 0.35) 100%), url("https://banner.0814media.net/desktop/img/event/lottery/nova.svg") center/100% no-repeat;
+  -webkit-transform: translateY(var(--parallax-offset, 0px));
+          transform: translateY(var(--parallax-offset, 0px));
+  -webkit-transition: -webkit-transform 0.8s ease-out;
+  transition: -webkit-transform 0.8s ease-out;
+  transition: transform 0.8s ease-out;
+  transition: transform 0.8s ease-out, -webkit-transform 0.8s ease-out;
+  will-change: transform;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.lottery-wrapper {
+  margin-top: 95px;
+}
+.lottery-wrapper .slot {
+  position: relative;
+  z-index: 99;
+}
+.lottery-wrapper .slot .animation-g {
+  position: relative;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.lottery #animation_container {
+  position: relative;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+.lottery #screenDiv {
+  background-color: rgba(250, 235, 215, 0.42);
+  /* 設置背景顏色和透明度 */
+  position: absolute;
+  margin: 0 auto;
+  z-index: 99;
+  left: 0 !important;
+  right: 0 !important;
+}
+.lottery .main-content .tab-content-result .result-list .result-item .share .icon, .lottery .main-content .tab-content-conditions .info button, .lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-bottom button, .lottery .main-content .lottery-div > .wrapper .lottery-footer button, .lottery .lottery-select select {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+.lottery .main-content .tab-content-result .result-list .result-item .share .icon:hover, .lottery .main-content .tab-content-conditions .info button:hover, .lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-bottom button:hover, .lottery .main-content .lottery-div > .wrapper .lottery-footer button:hover, .lottery .lottery-select select:hover {
+  opacity: 0.8;
+}
+.lottery .main-content .container {
+  max-width: 1350px;
+}
+.lottery .main-content .tab-content-result .result-list .result-item .share, .lottery .main-content .nav.nav-tabs .nav-item .nav-link, .lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-top, .lottery .main-content .lottery-div > .wrapper .lottery-content .prize .grid div, .lottery .main-content .lottery-div > .wrapper .lottery-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.lottery .main-content .tab-content-conditions .table.conditions thead .title-group.bonus .total, .lottery .main-content .lottery-info .round .progress-group .total, .lottery .main-content .lottery-info .round .progress-group .title, .lottery .main-content .lottery-info .round > .title, .lottery .main-content .lottery-info, .lottery .main-content .lottery-div > .wrapper .lottery-footer .ticket-total, .lottery .main-content .lottery-div > .wrapper .lottery-footer .consolation-prize .prize, .lottery .main-content .lottery-div > .wrapper .lottery-footer .consolation-prize, .lottery .main-content .lottery-div > .wrapper .lottery-footer, .lottery .table-group .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.lottery .main-content .lottery-info .round > .title .round-number, .lottery .main-content .lottery-div > .title {
+  font-size: 24px;
+}
+@-webkit-keyframes flickerOpacity {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.2;
+  }
+  70% {
+    opacity: 1;
+  }
+}
+@keyframes flickerOpacity {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.2;
+  }
+  70% {
+    opacity: 1;
+  }
+}
+.lottery .flicker, .lottery .main-content .lottery-div > .wrapper .lottery-content .prize .grid div.winning {
+  -webkit-animation: flickerOpacity 1.8s infinite ease;
+          animation: flickerOpacity 1.8s infinite ease;
+}
+.lottery .icon {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+.lottery .icon.money {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/icon-money.png) #fff no-repeat center/contain;
+}
+.lottery .icon.share {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/icon-share.png) no-repeat center/contain;
+}
+.lottery .icon.rat {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/rat-defult.svg) no-repeat center/contain;
+}
+.lottery .icon.rat.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/rat-active.svg) no-repeat center/contain;
+}
+.lottery .icon.ox {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/ox-defult.svg) no-repeat center/contain;
+}
+.lottery .icon.ox.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/ox-active.svg) no-repeat center/contain;
+}
+.lottery .icon.tiger {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/tiger-defult.svg) no-repeat center/contain;
+}
+.lottery .icon.tiger.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/tiger-active.svg) no-repeat center/contain;
+}
+.lottery .icon.cat {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/cat-defult.svg) no-repeat center/contain;
+}
+.lottery .icon.cat.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/cat-active.svg) no-repeat center/contain;
+}
+.lottery .icon.dragon {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/dragon-defult.svg) no-repeat center/contain;
+}
+.lottery .icon.dragon.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/dragon-active.svg) no-repeat center/contain;
+}
+.lottery .icon.snake {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/snake-defult.svg) no-repeat center/contain;
+}
+.lottery .icon.snake.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/snake-active.svg) no-repeat center/contain;
+}
+.lottery .icon.horse {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/horse-defult.svg) no-repeat center/contain;
+}
+.lottery .icon.horse.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/horse-active.svg) no-repeat center/contain;
+}
+.lottery .icon.goat {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/goat-defult.svg) no-repeat center/contain;
+}
+.lottery .icon.goat.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/goat-active.svg) no-repeat center/contain;
+}
+.lottery .icon.monkey {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/monkey-defult.svg) no-repeat center/contain;
+}
+.lottery .icon.monkey.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/monkey-active.svg) no-repeat center/contain;
+}
+.lottery .icon.chicken {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/chicken-defult.svg) no-repeat center/contain;
+}
+.lottery .icon.chicken.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/chicken-active.svg) no-repeat center/contain;
+}
+.lottery .icon.dog {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/dog-defult.svg) no-repeat center/contain;
+}
+.lottery .icon.dog.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/dog-active.svg) no-repeat center/contain;
+}
+.lottery .icon.pig {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/pig-defult.svg) no-repeat center/contain;
+}
+.lottery .icon.pig.active {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/pig-active.svg) no-repeat center/contain;
+}
+.lottery .d-none {
+  display: none !important;
+}
+.lottery .lottery-select {
+  position: relative;
+  display: inline-block;
+  grid-column: 5/7;
+}
+.lottery .lottery-select select {
+  width: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  color: #fff;
+  border-radius: 15px;
+  padding: 20px;
+}
+.lottery .lottery-select select:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.lottery .lottery-select::after {
+  content: "";
+  position: absolute;
+  background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) no-repeat 50%/cover;
+  top: 50%;
+  right: 20px;
+  width: 15px;
+  height: 15px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  pointer-events: none;
+}
+.lottery .table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.lottery .table th,
+.lottery .table td {
+  font-size: 18px;
+  padding: 16px;
+}
+.lottery .table thead tr th {
+  color: #EB801D;
+  font-weight: bolder;
+}
+.lottery .table tbody {
+  background-color: #61566B;
+  border-radius: 15px;
+}
+.lottery .table-group {
+  background-color: #383040;
+  border-radius: 15px;
+  padding: 30px;
+}
+.lottery .table-group .title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bolder;
+  margin-bottom: 30px;
+}
+.lottery .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #383040;
+  border-radius: 15px;
+  padding: 20px;
+}
+.lottery .card .title {
+  color: #fff;
+}
+.lottery .card .title-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.lottery .card .title-group .ranking {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.lottery .card .title-group .ranking .title {
   font-size: 40px;
-  font-weight: 700;
-  text-transform: uppercase;
+  color: #EB801D;
+}
+.lottery .card .title-group .ranking span {
+  font-size: 16px;
+  color: #EB801D;
+}
+.lottery .card .title-group .lucky-number {
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.lottery .card .title-group .lucky-number .title {
+  font-size: 12px;
+  color: #fff;
+}
+.lottery .card.first {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #EB801D;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  grid-column: span 2;
+}
+.lottery .card.first .ranking .title,
+.lottery .card.first .ranking span {
+  color: #fff;
+}
+.lottery .card.first .title-group {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+.lottery .card.first .trophy-img {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+.lottery .card.first .trophy-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.lottery .card.second {
+  grid-column: span 2;
+}
+.lottery .card.sticker {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  gap: 30px;
+}
+.lottery .card.sticker .title {
+  text-align: center;
+}
+.lottery .card.consolation {
+  grid-column: span 2;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  gap: 30px;
+}
+.lottery .card.consolation .title {
+  font-size: 18px;
+  text-align: center;
+}
+.lottery .card.consolation .grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.lottery .card.consolation .grid div {
+  text-align: center;
+}
+.lottery .card.small-prize {
+  grid-column: span 4;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  gap: 30px;
+}
+.lottery .card.small-prize .title {
+  font-size: 18px;
+  text-align: center;
+}
+.lottery .card.small-prize .grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.lottery .card.small-prize .grid div {
+  text-align: center;
+}
+.lottery .grid {
+  display: grid;
+  gap: 20px;
+}
+.lottery .grid.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.lottery .grid.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.lottery .main-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  padding: 60px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.lottery .main-content .flex-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 100px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.lottery .main-content .lottery-div {
+  margin: 160px 0;
+}
+.lottery .main-content .lottery-div > .title {
+  padding: 10px 60px;
+  background-color: #EB801D;
+  color: #fff;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 15px 0 0 0;
+  position: relative;
+  height: 50px;
+}
+.lottery .main-content .lottery-div > .title::after {
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/lottery-div-arrow.svg) no-repeat center/100%;
+  position: absolute;
+  right: -120px;
+  top: 0;
+  width: 120px;
+  height: 50px;
+}
+.lottery .main-content .lottery-div > .wrapper {
+  border-radius: 0 15px 15px 15px;
+  border: 1px solid #EB801D;
+  background-color: #383040;
+  overflow: hidden;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content {
+  padding: 20px;
+  min-height: 45dvh;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .title {
+  font-size: 30px;
+  text-align: center;
+  color: #fff;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .standby {
+  font-size: 50px;
+  color: #EB801D;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .top3 {
+  height: 45dvh;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 20px;
+  margin: -20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/top3-prize.jpg) no-repeat center/cover;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .top3 .wrapper {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .top3 .wrapper .title {
   margin-bottom: 50px;
 }
-.olympic-bottom .sheet {
-  background: #FF8B21;
-  padding: 15px;
-  border-radius: 30px;
-  margin-bottom: 95px;
-}
-.olympic-bottom .sheet-content-title {
-  border-radius: 15px 15px 0 0;
-  background: #FFBD81;
+.lottery .main-content .lottery-div > .wrapper .lottery-content .top3 .wrapper .ticket-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 30px;
-  font-weight: 700;
+  gap: 30px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.olympic-bottom .sheet-content-title > div {
-  padding: 15px 30px;
-  width: 350px;
+.lottery .main-content .lottery-div > .wrapper .lottery-content .top3 .wrapper .ticket-group div {
+  border-radius: 15px;
+  padding: 20px 60px;
+  font-size: 20px;
+  background-color: #383040;
   text-align: center;
 }
-.olympic-bottom .sheet-content-text {
-  height: 355px;
-  overflow: hidden;
-  overflow-y: scroll;
-  border-radius: 0 0 15px 15px;
+.lottery .main-content .lottery-div > .wrapper .lottery-content .prize {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
 }
-.olympic-bottom .sheet-content-text > div {
-  background: #FFEFE1;
+.lottery .main-content .lottery-div > .wrapper .lottery-content .prize .title-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 40px 80px;
+  margin: 0 40px;
+  border-bottom: 1px solid #fff;
+  font-size: 18px;
 }
-.olympic-bottom .sheet-content-text > div > div {
-  color: #301363;
+.lottery .main-content .lottery-div > .wrapper .lottery-content .prize .grid {
+  padding: 40px 80px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .prize .grid div {
+  letter-spacing: 2px;
+  font-size: 24px;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .prize .grid div.winning {
+  color: #FF7600;
+  opacity: 1;
+  font-weight: bold;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .prize .grid div.announced {
+  opacity: 1;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .prize.consolation .grid {
+  grid-template-rows: repeat(5, 1fr);
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .win {
+  height: 45dvh;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 20px;
+  margin: -20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/grand-prize.jpg) no-repeat center/cover;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .win .wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.third:before, .lottery .main-content .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.second:before, .lottery .main-content .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.first:before {
+  width: 100px;
+  height: 100px;
+  left: calc(50% - 50px);
+  top: -120px;
+  position: absolute;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div {
+  border-radius: 15px;
+  border: 3px solid #EB801D;
+  color: #000;
+  padding: 14px 40px;
   font-size: 20px;
-  padding: 20px 30px;
-  width: 350px;
+  background-color: #fff;
   text-align: center;
-  font-weight: 400;
-}
-.olympic-bottom .sheet-content-text > div:nth-child(odd) {
-  background: white;
-}
-.olympic-bottom .sheet-content-text > div:last-child {
-  border-radius: 0 0 15px 15px;
-}
-.olympic-bottom-tnc {
-  padding: 0 70px;
-}
-.olympic-bottom-tnc ul li {
-  line-height: 40px;
-  font-size: 20px;
   font-weight: 600;
-  margin-bottom: 45px;
-  text-indent: -22px;
 }
-.olympic-footer > div {
-  background: #FF8B21;
+.lottery .main-content .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.first {
+  padding: 18px 60px;
+  font-size: 24px;
+  position: relative;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.first:before {
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/first.svg) no-repeat center/cover;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.second {
+  position: relative;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.second:before {
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/second.svg) no-repeat center/cover;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.third {
+  position: relative;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.third:before {
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/thrid.svg) no-repeat center/cover;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .jackpot-group {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .jackpot-group .grid {
+  padding: 40px 100px;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .jackpot-group .icon {
+  width: 100%;
+  height: 100px;
+  margin: 20px 0;
+  opacity: 0.4;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .jackpot-group .icon.active {
+  opacity: 1;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-footer {
+  background-color: #EB801D;
+  padding: 20px;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-footer .consolation-prize {
+  gap: 20px;
+  font-size: 20px;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-footer .consolation-prize .prize {
+  gap: 20px;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-footer .consolation-prize .prize .title {
+  color: #fff;
+  font-weight: 600;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-footer .consolation-prize .prize .number {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-footer .ticket-total {
+  gap: 20px;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-footer .ticket-total .title {
+  font-size: 18px;
+  color: #fff;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-footer .ticket-total .ticket-container {
+  background-color: rgba(100, 46, 0, 0.56);
+  padding: 0 40px 0 100px;
+  border-radius: 15px;
+  font-size: 16px;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-footer .ticket-total .ticket-container .number {
+  font-size: 40px;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-footer button {
+  padding: 20px;
+  background-color: #fff;
+  font-size: 18px;
+  border-radius: 15px;
+  font-weight: bold;
+}
+.lottery .main-content .lottery-info {
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  gap: 60px;
+}
+.lottery .main-content .lottery-info .round {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 30px;
+}
+.lottery .main-content .lottery-info .round > .title {
+  border-bottom: 1px solid #fff;
+  padding: 30px 0;
+}
+.lottery .main-content .lottery-info .round > .title .round-number {
+  color: #EB801D !important;
+  font-size: 30px;
+}
+.lottery .main-content .lottery-info .round > .title .date {
+  color: #fff;
+}
+.lottery .main-content .lottery-info .round .progress-group .title {
+  color: #EB801D;
+}
+.lottery .main-content .lottery-info .round .progress-group .progress {
+  height: 10px;
+  width: 100%;
+  background: #fff;
+  border-radius: 20px;
+  position: relative;
+  margin: 20px auto;
+}
+.lottery .main-content .lottery-info .round .progress-group .progress-bar {
+  position: absolute;
+  background: #EB801D;
+  border-radius: 20px;
+  width: 30%;
+  height: 100%;
+  z-index: 1;
+  left: 0;
+}
+.lottery .main-content .lottery-info .round .progress-group .total {
+  color: #fff;
+}
+.lottery .main-content .lottery-info .ticket-group {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket hr {
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  border-style: dashed;
+  border-color: #61566B;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket-top {
+  padding: 20px;
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket-top::before {
+  content: "";
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  position: absolute;
+  background-color: #383040;
+  --mask: radial-gradient(15px at 15px 100%, #0000 98%, #000) -15px;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+.lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table tbody tr th, .lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table thead tr th:first-child {
+  width: 30%;
+  word-break: break-all;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket-top .table-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table {
+  width: 100%;
+  height: 100%;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table .title {
+  color: #EB801D;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table thead {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 60px;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table thead .number {
+  color: #fff;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table td {
+  text-align: center;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table thead,
+.lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table tbody tr {
+  display: table;
+  width: 100%;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table tbody {
+  background-color: #61566B;
+  display: block;
+  overflow-y: auto;
+  height: calc(100% - 60px);
+}
+.lottery .main-content .lottery-info .ticket-group .ticket-bottom {
+  padding: 20px;
+  position: relative;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket-bottom::before {
+  content: "";
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  position: absolute;
+  background-color: #383040;
+  --mask: radial-gradient(15px at 15px 0, #0000 98%, #000) -15px;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+.lottery .main-content .lottery-info .ticket-group .ticket-bottom .total {
+  color: #fff;
+  background-color: #61566B;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket-bottom .total .title {
+  color: #fff;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket-bottom .total .quantity {
+  font-size: 24px;
+  font-weight: bold;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-top {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-top .title {
+  color: #EB801D !important;
+  padding: 16px;
+  font-size: 18px;
+  text-align: center;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-top .sticker-result {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+  background-color: #61566B;
+  border-radius: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40px;
 }
-.olympic-footer > div img {
-  width: 220px;
-  padding: 40px 0;
+.lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-top .sticker-result img.defult {
+  opacity: 50%;
+}
+.lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-bottom button {
+  padding: 20px;
+  color: #fff;
+  background-color: #EB801D;
+  border-radius: 15px;
+  width: 100%;
+  font-size: 24px;
+  font-weight: bolder;
+}
+.lottery .main-content .nav.nav-tabs {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #fff;
+}
+.lottery .main-content .nav.nav-tabs .nav-item {
+  list-style: none;
+  width: 100%;
+}
+.lottery .main-content .nav.nav-tabs .nav-item .nav-link {
+  font-size: 24px;
+  -webkit-transition: 0.3s, ease, -webkit-transform;
+  transition: 0.3s, ease, -webkit-transform;
+  transition: transform, 0.3s, ease;
+  transition: transform, 0.3s, ease, -webkit-transform;
+  padding: 16px 32px;
+  border-radius: 15px 15px 0 0;
+  cursor: pointer;
+  color: #fff;
+}
+.lottery .main-content .nav.nav-tabs .nav-item .nav-link.active {
+  border-bottom: 6px solid #EB801D;
+}
+.lottery .main-content .nav.nav-tabs .nav-item .nav-link:hover {
+  opacity: 0.8;
+}
+.lottery .main-content .tab-content {
+  background-color: #0E0515;
+  padding: 30px 0;
+}
+.lottery .main-content .tab-content .pagination {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 10px;
+}
+.lottery .main-content .tab-content .pagination a {
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 4px;
+}
+.lottery .main-content .tab-content .pagination a:hover {
+  background-color: #EB801D;
+}
+.lottery .main-content .tab-content .pagination a.active {
+  background-color: #EB801D;
+}
+.lottery .main-content .tab-content-conditions .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.lottery .main-content .tab-content-conditions .info .trophy-img {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.lottery .main-content .tab-content-conditions .info .info-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 20px;
+  color: #BCBCBC;
+  margin-bottom: 30px;
+}
+.lottery .main-content .tab-content-conditions .info .info-content h3 {
+  color: #EB801D;
+  font-size: 30px;
+  font-weight: bold;
+}
+.lottery .main-content .tab-content-conditions .info button {
+  background-color: #EB801D;
+  color: #fff;
+  padding: 10px 60px;
+  border-radius: 15px;
+  font-size: 20px;
+}
+.lottery .main-content .tab-content-conditions .table.conditions thead .title-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #fff;
+  margin-bottom: 30px;
+}
+.lottery .main-content .tab-content-conditions .table.conditions thead .title-group .title {
+  color: #EB801D;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.lottery .main-content .tab-content-conditions .table.conditions thead .title-group.bonus .title {
+  color: #fff;
+}
+.lottery .main-content .tab-content-conditions .table.conditions thead .title-group.bonus .total {
+  background-color: #EB801D;
+  color: #fff;
+  border-radius: 50px;
+  padding: 8px 16px;
+  font-size: 24px;
+}
+.lottery .main-content .tab-content-conditions .table.conditions thead .title-group.bonus .total .icon {
+  border-radius: 20px;
+}
+.lottery .main-content .tab-content-conditions .table.conditions tbody tr th {
+  width: 20%;
+  text-align: left;
+  padding: 16px 32px;
+}
+.lottery .main-content .tab-content-conditions .table.conditions tbody tr td {
+  text-align: center;
+}
+.lottery .main-content .tab-content-conditions .table.conditions tbody tr:first-child th {
+  border-radius: 15px 0 0 0;
+}
+.lottery .main-content .tab-content-conditions .table.conditions tbody tr:first-child td:last-child {
+  border-radius: 0 15px 0 0;
+}
+.lottery .main-content .tab-content-conditions .table.conditions tbody tr:last-child th {
+  border-radius: 0 0 0 15px;
+}
+.lottery .main-content .tab-content-conditions .table.conditions tbody tr:last-child td:last-child {
+  border-radius: 0 0 15px 0;
+}
+.lottery .main-content .tab-content-history {
+  grid-column: span 2/7;
+}
+.lottery .main-content .tab-content-result .result-list {
+  display: grid;
+  grid-template-columns: -webkit-min-content repeat(3, minmax(0, 1fr));
+  grid-template-columns: min-content repeat(3, minmax(0, 1fr));
+  gap: 20px 0;
+  font-size: 16px;
+}
+.lottery .main-content .tab-content-result .result-list .result-head,
+.lottery .main-content .tab-content-result .result-list .result-item {
+  display: contents;
+}
+.lottery .main-content .tab-content-result .result-list .result-head div,
+.lottery .main-content .tab-content-result .result-list .result-item div {
+  text-align: center;
+}
+.lottery .main-content .tab-content-result .result-list .result-head {
+  font-weight: bold;
+  color: #EB801D;
+  padding: 10px;
+}
+.lottery .main-content .tab-content-result .result-list .result-head div:first-child {
+  padding: 0 30px;
+}
+.lottery .main-content .tab-content-result .result-list .result-item > div {
+  background-color: #383040;
+  padding: 30px;
+}
+.lottery .main-content .tab-content-result .result-list .result-item > div:first-child {
+  border-radius: 15px 0 0 15px;
+  background-color: #61566B;
+}
+.lottery .main-content .tab-content-result .result-list .result-item > div:last-child {
+  border-radius: 0 15px 15px 0;
+}
+.lottery .main-content .tab-content-result .result-list .result-item .share .icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.lottery .main-content .tab-content-result .result-list .result-item .share .icon:hover {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/icon-share-hover.png) no-repeat center/contain;
 }/*# sourceMappingURL=style.css.map */
