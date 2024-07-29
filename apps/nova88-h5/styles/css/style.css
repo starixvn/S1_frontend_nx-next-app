@@ -9002,6 +9002,7 @@ span.important {
   width: auto;
   max-width: 20vw;
   margin: 0 auto;
+  display: block;
 }
 .depositModule .selectModule .bankName .icon-icon32px_check {
   position: absolute;
