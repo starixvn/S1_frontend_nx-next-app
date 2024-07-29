@@ -2925,41 +2925,6 @@ main .gameList .icon-new {
 #popup.promosback > div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo) {
   background-color: unset !important;
 }
-#popup.detailpop {
-  width: 100%;
-  background: white;
-  padding: 0;
-  height: 100%;
-  overflow-y: auto;
-  top: 100%;
-  z-index: 3;
-}
-#popup.detailpop.active {
-  top: 0;
-}
-#popup.detailpop .pop .popTit {
-  position: fixed;
-  background: #ecf3fd;
-  padding: 2vw 0;
-  width: 100%;
-  text-align: center;
-  z-index: 1;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.7) 0 0 4px 0;
-          box-shadow: rgba(0, 0, 0, 0.7) 0 0 4px 0;
-  border: 0;
-}
-#popup.detailpop .pop .icon-close {
-  z-index: 2;
-  color: #233d67;
-  position: absolute;
-}
-#popup.detailpop .pop .infoList {
-  padding: 13vw 4vw 4vw;
-  width: calc(100% - 8vw) !important;
-}
-#popup.detailpop .pop .infoList .info {
-  margin: 2vw auto;
-}
 #popup.vninfopop {
   background: rgba(0, 0, 0, 0.7);
   width: 100%;
@@ -9037,6 +9002,7 @@ span.important {
   width: auto;
   max-width: 20vw;
   margin: 0 auto;
+  display: block;
 }
 .depositModule .selectModule .bankName .icon-icon32px_check {
   position: absolute;
@@ -12712,9 +12678,6 @@ span.important {
 }
 .flag.in:before {
   background: url(https://banner.0814media.net/desktop/img/flag/in.jpg) no-repeat top left/cover;
-}
-.flag.kh:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
 }
 .flag.bd:before {
   background: url(https://banner.0814media.net/desktop/img/flag/bd.jpg) no-repeat top left/cover;
@@ -17024,6 +16987,26 @@ main.casino .banner {
 }
 .react-datepicker-wrapper input {
   width: 100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+input[type=number] .btn-logout {
+  background: white;
+  border-radius: 30px;
+  width: 80vw;
+  padding: 3vw 0;
+  color: #D1D1D1;
+  margin: 5vw 0 0;
 }
 
 .dragonegg-event {
