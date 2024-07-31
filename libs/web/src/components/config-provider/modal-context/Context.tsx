@@ -101,13 +101,13 @@ const ModalProvider = ({ children }: { children: ReactNode }) => {
 					typeof errorMessage === 'string' &&
 					errorMessage.startsWith('[Client Error]')
 
-				// 將非後端錯誤 prefix 替換成「請求過於頻繁」
+				// 將非後端錯誤的 prefix 或空的錯誤訊息替換成「請求過於頻繁」
 				const content = isClientError
 					? errorMessage.replace(
 							'[Client Error]',
 							t('Label_Error_TooManyRequests')
 					  )
-					: errorMessage
+					: errorMessage || t('Label_Error_TooManyRequests')
 
 				// 帶入預設多語系標題 Oops
 				const config = {
