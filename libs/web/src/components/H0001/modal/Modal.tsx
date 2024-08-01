@@ -14,7 +14,7 @@ const Modal = (props: IModalProps) => {
 		<div
 			id='popup'
 			className={classNames(className, { active: open })}
-			// 為隱藏頁面層的 scroll to top 鈕 (z-index: 4)
+			// 為隱藏頁面層的 scroll to top 鈕 (z-index: 15)
 			style={{ zIndex: 15 }}
 		>
 			{children}
