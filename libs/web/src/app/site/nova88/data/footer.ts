@@ -604,10 +604,9 @@ export const FOOTER_DATA = ({
 					name: 'Nagad',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/nagad.jpg`,
 				},
-
 				{
-					name: 'DOGE',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+					name: 'BTC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
 				},
 				{
 					name: 'ETH',
@@ -632,6 +631,10 @@ export const FOOTER_DATA = ({
 				{
 					name: 'ADA',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+				},
+				{
+					name: 'DOGE',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
 				},
 			],
 			[CurrenciesEnum.KHM]: [
