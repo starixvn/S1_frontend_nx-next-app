@@ -650,7 +650,7 @@ export const PRODUCTS = {
 		tpGameIdNo: 120,
 		tpId: 5,
 		tpGameType: 7,
-		gameId: 1301,
+		gameId: 1302,
 	},
 	Crash: {
 		tpGameIdNo: 121,
