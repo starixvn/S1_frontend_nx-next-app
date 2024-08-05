@@ -5,6 +5,20 @@ export interface IEventPeriod {
 	end: null | string
 }
 
+/**
+ *   貨幣 Enum
+ * - MYR: 馬來西亞令吉
+ * - USD: 美元
+ * - THB: 泰銖
+ * - CNY: 人民幣
+ * - IDR: 印尼盾
+ * - KRW: 韓元
+ * - VND: 越南盾
+ * - INR: 印度盧比
+ * - KHM: 柬埔寨瑞爾
+ * - BDT: 孟加拉塔卡
+ * - BRL: 巴西雷亞爾
+ * - USDT: 泰達幣 (加密貨幣) */
 export enum CurrenciesEnum {
 	MYR = 2,
 	USD = 3,
