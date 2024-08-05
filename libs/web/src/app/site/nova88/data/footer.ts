@@ -282,7 +282,6 @@ export const FOOTER_DATA = ({
 			},
 		],
 		paymentMethodsByCurrencyId: {
-			// TODO
 			[CurrenciesEnum.MYR]: [
 				{
 					name: 'Maybank',
@@ -337,6 +336,31 @@ export const FOOTER_DATA = ({
 					name: 'Shopeepay',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/shopeepay.jpg`,
 				},
+
+				{
+					name: 'BTC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+				},
+				{
+					name: 'ETH',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+				},
+				{
+					name: 'USDT',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+				},
+				{
+					name: 'USDC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+				},
+				{
+					name: 'BNB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bnb.jpg`,
+				},
+				{
+					name: 'DOGE',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+				},
 			],
 			[CurrenciesEnum.THB]: [
 				{
@@ -366,6 +390,47 @@ export const FOOTER_DATA = ({
 				{
 					name: 'TrueMoney',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/truemoney.jpg`,
+				},
+
+				{
+					name: 'BigPayz',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bigpayz.jpg`,
+				},
+				{
+					name: 'RapidPay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/rapidpay.jpg`,
+				},
+				{
+					name: 'BTC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+				},
+				{
+					name: 'ETH',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+				},
+				{
+					name: 'USDT',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+				},
+				{
+					name: 'USDC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+				},
+				{
+					name: 'DAI',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+				},
+				{
+					name: 'EOS',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+				},
+				{
+					name: 'ADA',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+				},
+				{
+					name: 'DOGE',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
 				},
 			],
 			[CurrenciesEnum.IDR]: [
@@ -425,6 +490,31 @@ export const FOOTER_DATA = ({
 					name: 'DOKU',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doku.jpg`,
 				},
+
+				{
+					name: 'BTC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+				},
+				{
+					name: 'ETH',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+				},
+				{
+					name: 'USDT',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+				},
+				{
+					name: 'USDC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+				},
+				{
+					name: 'BNB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bnb.jpg`,
+				},
+				{
+					name: 'DOGE',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+				},
 			],
 			[CurrenciesEnum.INR]: [
 				{
@@ -455,6 +545,47 @@ export const FOOTER_DATA = ({
 					name: 'UPI',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/upi.jpg`,
 				},
+
+				{
+					name: 'Tenpay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/tenpay.jpg`,
+				},
+				{
+					name: 'VaderPay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/vaderpay.jpg`,
+				},
+				{
+					name: 'BTC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+				},
+				{
+					name: 'ETH',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+				},
+				{
+					name: 'USDT',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+				},
+				{
+					name: 'USDC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+				},
+				{
+					name: 'DAI',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+				},
+				{
+					name: 'EOS',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+				},
+				{
+					name: 'ADA',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+				},
+				{
+					name: 'DOGE',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+				},
 			],
 			[CurrenciesEnum.BDT]: [
 				{
@@ -472,6 +603,38 @@ export const FOOTER_DATA = ({
 				{
 					name: 'Nagad',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/nagad.jpg`,
+				},
+				{
+					name: 'BTC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+				},
+				{
+					name: 'ETH',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+				},
+				{
+					name: 'USDT',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+				},
+				{
+					name: 'USDC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+				},
+				{
+					name: 'DAI',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+				},
+				{
+					name: 'EOS',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+				},
+				{
+					name: 'ADA',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+				},
+				{
+					name: 'DOGE',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
 				},
 			],
 			[CurrenciesEnum.KHM]: [
@@ -494,6 +657,43 @@ export const FOOTER_DATA = ({
 				{
 					name: 'PIPAY',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/pipay.jpg`,
+				},
+
+				{
+					name: 'ACLEDA_Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/acledabank.jpg`,
+				},
+				{
+					name: 'BTC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+				},
+				{
+					name: 'ETH',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+				},
+				{
+					name: 'USDT',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+				},
+				{
+					name: 'USDC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+				},
+				{
+					name: 'DAI',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+				},
+				{
+					name: 'EOS',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+				},
+				{
+					name: 'ADA',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+				},
+				{
+					name: 'DOGE',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
 				},
 			],
 			[CurrenciesEnum.VND]: [
@@ -553,11 +753,117 @@ export const FOOTER_DATA = ({
 					name: 'ZALO',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/zalo.jpg`,
 				},
+
+				{
+					name: 'YuiPay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/yuipay.jpg`,
+				},
+				{
+					name: 'HonorPay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/honorpay.jpg`,
+				},
+				{
+					name: 'Wpay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/wpay.jpg`,
+				},
+				{
+					name: 'BTC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+				},
+				{
+					name: 'ETH',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+				},
+				{
+					name: 'USDT',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+				},
+				{
+					name: 'USDC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+				},
+				{
+					name: 'DAI',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+				},
+				{
+					name: 'EOS',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+				},
+				{
+					name: 'ADA',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+				},
+				{
+					name: 'DOGE',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+				},
 			],
 			[CurrenciesEnum.CNY]: [
 				{
 					name: '广西省农村信用社',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/kwangsi.jpg`,
+				},
+
+				{
+					name: 'ChangChenPay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/changchenpay.jpg`,
+				},
+				{
+					name: 'TenglongPay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/tenglongpay.jpg`,
+				},
+				{
+					name: 'Alipay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/alipay.jpg`,
+				},
+				{
+					name: 'QQPay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/qqpay.jpg`,
+				},
+				{
+					name: 'UnionPay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/unionpay.jpg`,
+				},
+				{
+					name: 'WechatPay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/wechatpay.jpg`,
+				},
+				{
+					name: 'DouDouPay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doudoupay.jpg`,
+				},
+				{
+					name: 'BTC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+				},
+				{
+					name: 'ETH',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+				},
+				{
+					name: 'USDT',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+				},
+				{
+					name: 'USDC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+				},
+				{
+					name: 'DAI',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+				},
+				{
+					name: 'EOS',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+				},
+				{
+					name: 'ADA',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+				},
+				{
+					name: 'DOGE',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
 				},
 			],
 			[CurrenciesEnum.USD]: [
@@ -600,6 +906,94 @@ export const FOOTER_DATA = ({
 				{
 					name: 'BTC',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+				},
+			],
+			[CurrenciesEnum.KRW]: [
+				{
+					name: 'HonorPay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/honorpay.jpg`,
+				},
+				{
+					name: 'SojuPay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/sojupay.jpg`,
+				},
+				{
+					name: 'BTC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+				},
+				{
+					name: 'ETH',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+				},
+				{
+					name: 'USDT',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+				},
+				{
+					name: 'USDC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+				},
+				{
+					name: 'DAI',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+				},
+				{
+					name: 'EOS',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+				},
+				{
+					name: 'ADA',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+				},
+				{
+					name: 'DOGE',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+				},
+			],
+			[CurrenciesEnum.BRL]: [
+				{
+					name: 'PIX',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/pix.jpg`,
+				},
+				{
+					name: 'BTC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+				},
+				{
+					name: 'ETH',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+				},
+				{
+					name: 'USDT',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+				},
+				{
+					name: 'USDC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+				},
+				{
+					name: 'EOS',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+				},
+				{
+					name: 'DAI',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+				},
+				{
+					name: 'DOGE',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+				},
+				{
+					name: 'SHIB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/shib.jpg`,
+				},
+				{
+					name: 'BUSD',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/busd.jpg`,
+				},
+				{
+					name: 'XRP',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/xrp.jpg`,
 				},
 			],
 		},
