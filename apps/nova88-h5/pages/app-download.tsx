@@ -1,4 +1,5 @@
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import { NovaAuthProvider } from '@nova88-h5/providers'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
 import { AppDownload, Layout } from '@nx-next-app/features/F0001/h5'
 import { AppDownloadProvider } from '@nx-next-app/features/F0001/providers'
 import {
@@ -18,7 +19,10 @@ const AppDownloadPage = ({
 	persistStaticFileDomainData,
 }: IAppDownloadPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -28,7 +32,7 @@ const AppDownloadPage = ({
 					</Layout>
 				</AppDownloadProvider>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

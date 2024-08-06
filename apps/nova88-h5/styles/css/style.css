@@ -71,7 +71,7 @@ img {
 }
 .icon:before, .icon:after {
   font-family: "icomoon";
-  font-size: 4vw;
+  font-size: 5vw;
 }
 
 .icon-moon:before {
@@ -1101,33 +1101,13 @@ body, html {
   color: white;
 }
 
-button, input {
+button {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
-button[disabled], input[disabled] {
+button[disabled] {
   background: #a5aab1 !important;
   color: #666 !important;
-}
-
-input::-webkit-input-placeholder {
-  font-size: 3.2vw;
-}
-
-input::-moz-placeholder {
-  font-size: 3.2vw;
-}
-
-input:-ms-input-placeholder {
-  font-size: 3.2vw;
-}
-
-input::-ms-input-placeholder {
-  font-size: 3.2vw;
-}
-
-input::placeholder {
-  font-size: 3.2vw;
 }
 
 #root {
@@ -1898,7 +1878,7 @@ main .gameList .icon-new {
   }
 }
 .icon + .dropdown ~ .dropdown-container .dropdown-item {
-  padding: 2vw;
+  padding: 2vw 2vw 2vw 9vw;
 }
 
 .dropdown {
@@ -1920,7 +1900,7 @@ main .gameList .icon-new {
       -ms-flex: auto;
           flex: auto;
   padding: 2vw 0 2vw 2vw;
-  font-size: 3.2vw;
+  font-size: 3vw;
   min-height: 8.27vw;
   color: #5574A7;
 }
@@ -4609,59 +4589,6 @@ main .gameList .icon-new {
           flex-flow: column;
   width: 100%;
 }
-.infoModule .phone, .infoModule .inputBox-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
-.infoModule .phone .inputBox input, .infoModule .phone .euro .inputBox-event input, .euro .infoModule .phone .inputBox-event input, .infoModule .phone .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .infoModule .phone .inputBox-event input, .infoModule .inputBox-row .inputBox input, .infoModule .inputBox-row .euro .inputBox-event input, .euro .infoModule .inputBox-row .inputBox-event input, .infoModule .inputBox-row .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .infoModule .inputBox-row .inputBox-event input {
-  width: 100%;
-}
-.infoModule .phone .inputBox .dropdown, .infoModule .phone .euro .inputBox-event .dropdown, .euro .infoModule .phone .inputBox-event .dropdown, .infoModule .phone .worldcupEvent .event .event-content .inputBox-event .dropdown, .worldcupEvent .event .event-content .infoModule .phone .inputBox-event .dropdown, .infoModule .inputBox-row .inputBox .dropdown, .infoModule .inputBox-row .euro .inputBox-event .dropdown, .euro .infoModule .inputBox-row .inputBox-event .dropdown, .infoModule .inputBox-row .worldcupEvent .event .event-content .inputBox-event .dropdown, .worldcupEvent .event .event-content .infoModule .inputBox-row .inputBox-event .dropdown {
-  width: 30.5vw;
-}
-.infoModule .phone .inputBox .dropdown .icon, .infoModule .phone .euro .inputBox-event .dropdown .icon, .euro .infoModule .phone .inputBox-event .dropdown .icon, .infoModule .phone .worldcupEvent .event .event-content .inputBox-event .dropdown .icon, .worldcupEvent .event .event-content .infoModule .phone .inputBox-event .dropdown .icon, .infoModule .inputBox-row .inputBox .dropdown .icon, .infoModule .inputBox-row .euro .inputBox-event .dropdown .icon, .euro .infoModule .inputBox-row .inputBox-event .dropdown .icon, .infoModule .inputBox-row .worldcupEvent .event .event-content .inputBox-event .dropdown .icon, .worldcupEvent .event .event-content .infoModule .inputBox-row .inputBox-event .dropdown .icon {
-  position: absolute;
-  right: 0;
-}
-.infoModule .phone .dropdown-container, .infoModule .inputBox-row .dropdown-container {
-  width: 83.5vw;
-}
-.infoModule .phone .dropdown-container .inputBox, .infoModule .phone .dropdown-container .euro .inputBox-event, .euro .infoModule .phone .dropdown-container .inputBox-event, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event, .infoModule .inputBox-row .dropdown-container .inputBox, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event {
-  border-radius: 0;
-  background: white;
-  margin-top: 0;
-  position: sticky;
-  top: 0;
-}
-.infoModule .phone .dropdown-container .inputBox input::-webkit-input-placeholder, .infoModule .phone .dropdown-container .euro .inputBox-event input::-webkit-input-placeholder, .euro .infoModule .phone .dropdown-container .inputBox-event input::-webkit-input-placeholder, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event input::-webkit-input-placeholder, .infoModule .inputBox-row .dropdown-container .inputBox input::-webkit-input-placeholder, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event input::-webkit-input-placeholder, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event input::-webkit-input-placeholder, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event input::-webkit-input-placeholder {
-  color: #6b6b6b;
-}
-.infoModule .phone .dropdown-container .inputBox input::-moz-placeholder, .infoModule .phone .dropdown-container .euro .inputBox-event input::-moz-placeholder, .euro .infoModule .phone .dropdown-container .inputBox-event input::-moz-placeholder, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event input::-moz-placeholder, .infoModule .inputBox-row .dropdown-container .inputBox input::-moz-placeholder, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event input::-moz-placeholder, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event input::-moz-placeholder, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event input::-moz-placeholder {
-  color: #6b6b6b;
-}
-.infoModule .phone .dropdown-container .inputBox input:-ms-input-placeholder, .infoModule .phone .dropdown-container .euro .inputBox-event input:-ms-input-placeholder, .euro .infoModule .phone .dropdown-container .inputBox-event input:-ms-input-placeholder, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event input:-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .inputBox input:-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event input:-ms-input-placeholder, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event input:-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event input:-ms-input-placeholder {
-  color: #6b6b6b;
-}
-.infoModule .phone .dropdown-container .inputBox input::-ms-input-placeholder, .infoModule .phone .dropdown-container .euro .inputBox-event input::-ms-input-placeholder, .euro .infoModule .phone .dropdown-container .inputBox-event input::-ms-input-placeholder, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event input::-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .inputBox input::-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event input::-ms-input-placeholder, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event input::-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event input::-ms-input-placeholder {
-  color: #6b6b6b;
-}
-.infoModule .phone .dropdown-container .inputBox input::placeholder, .infoModule .phone .dropdown-container .euro .inputBox-event input::placeholder, .euro .infoModule .phone .dropdown-container .inputBox-event input::placeholder, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::placeholder, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event input::placeholder, .infoModule .inputBox-row .dropdown-container .inputBox input::placeholder, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event input::placeholder, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event input::placeholder, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::placeholder, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event input::placeholder {
-  color: #6b6b6b;
-}
-.infoModule .phone .dropdown-container .dropdown-item, .infoModule .inputBox-row .dropdown-container .dropdown-item {
-  padding-left: 10px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.infoModule .phone .inputInfo + .inputBox .icon-phone + input, .infoModule .phone .euro .inputInfo + .inputBox-event .icon-phone + input, .euro .infoModule .phone .inputInfo + .inputBox-event .icon-phone + input, .infoModule .phone .worldcupEvent .event .event-content .inputInfo + .inputBox-event .icon-phone + input, .worldcupEvent .event .event-content .infoModule .phone .inputInfo + .inputBox-event .icon-phone + input, .infoModule .inputBox-row .inputInfo + .inputBox .icon-phone + input, .infoModule .inputBox-row .euro .inputInfo + .inputBox-event .icon-phone + input, .euro .infoModule .inputBox-row .inputInfo + .inputBox-event .icon-phone + input, .infoModule .inputBox-row .worldcupEvent .event .event-content .inputInfo + .inputBox-event .icon-phone + input, .worldcupEvent .event .event-content .infoModule .inputBox-row .inputInfo + .inputBox-event .icon-phone + input {
-  width: 100%;
-}
-.infoModule .inputBox-row .inputBox, .infoModule .inputBox-row .euro .inputBox-event, .euro .infoModule .inputBox-row .inputBox-event, .infoModule .inputBox-row .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule .inputBox-row .inputBox-event {
-  width: 100%;
-}
 .infoModule.parts {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -4673,6 +4600,56 @@ main .gameList .icon-new {
 }
 .infoModule.parts + span + div {
   color: #5574A7;
+}
+.infoModule.parts .phone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+.infoModule.parts .phone .inputBox input, .infoModule.parts .phone .euro .inputBox-event input, .euro .infoModule.parts .phone .inputBox-event input, .infoModule.parts .phone .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .infoModule.parts .phone .inputBox-event input {
+  width: 100%;
+}
+.infoModule.parts .phone .inputBox .dropdown, .infoModule.parts .phone .euro .inputBox-event .dropdown, .euro .infoModule.parts .phone .inputBox-event .dropdown, .infoModule.parts .phone .worldcupEvent .event .event-content .inputBox-event .dropdown, .worldcupEvent .event .event-content .infoModule.parts .phone .inputBox-event .dropdown {
+  width: 130px;
+}
+.infoModule.parts .phone .inputBox .dropdown .icon, .infoModule.parts .phone .euro .inputBox-event .dropdown .icon, .euro .infoModule.parts .phone .inputBox-event .dropdown .icon, .infoModule.parts .phone .worldcupEvent .event .event-content .inputBox-event .dropdown .icon, .worldcupEvent .event .event-content .infoModule.parts .phone .inputBox-event .dropdown .icon {
+  position: absolute;
+  right: 0;
+}
+.infoModule.parts .phone .dropdown-container {
+  width: 83.5vw;
+}
+.infoModule.parts .phone .dropdown-container .inputBox, .infoModule.parts .phone .dropdown-container .euro .inputBox-event, .euro .infoModule.parts .phone .dropdown-container .inputBox-event, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event {
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.6);
+  margin-top: 0;
+  position: sticky;
+  top: 0;
+}
+.infoModule.parts .phone .dropdown-container .inputBox input::-webkit-input-placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input::-webkit-input-placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input::-webkit-input-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::-webkit-input-placeholder {
+  color: #6b6b6b;
+}
+.infoModule.parts .phone .dropdown-container .inputBox input::-moz-placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input::-moz-placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input::-moz-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::-moz-placeholder {
+  color: #6b6b6b;
+}
+.infoModule.parts .phone .dropdown-container .inputBox input:-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input:-ms-input-placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input:-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input:-ms-input-placeholder {
+  color: #6b6b6b;
+}
+.infoModule.parts .phone .dropdown-container .inputBox input::-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input::-ms-input-placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input::-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::-ms-input-placeholder {
+  color: #6b6b6b;
+}
+.infoModule.parts .phone .dropdown-container .inputBox input::placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input::placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input::placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::placeholder {
+  color: #6b6b6b;
+}
+.infoModule.parts .phone .dropdown-container .dropdown-item {
+  padding-left: 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.infoModule.parts .phone .inputInfo + .inputBox .icon-phone + input, .infoModule.parts .phone .euro .inputInfo + .inputBox-event .icon-phone + input, .euro .infoModule.parts .phone .inputInfo + .inputBox-event .icon-phone + input, .infoModule.parts .phone .worldcupEvent .event .event-content .inputInfo + .inputBox-event .icon-phone + input, .worldcupEvent .event .event-content .infoModule.parts .phone .inputInfo + .inputBox-event .icon-phone + input {
+  width: 100%;
 }
 .infoModule.parts .inputBox, .infoModule.parts .euro .inputBox-event, .euro .infoModule.parts .inputBox-event, .infoModule.parts .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule.parts .inputBox-event {
   -webkit-box-flex: 1;
@@ -5388,7 +5365,7 @@ input {
   color: #5574A7;
   border: 0;
   outline: none;
-  font-size: 3.2vw;
+  font-size: 3.6vw;
 }
 input::-webkit-input-placeholder {
   color: #5574A7;
@@ -5921,7 +5898,7 @@ input[type=date] {
 
 .search {
   width: calc(100% - 10vw);
-  padding: 2vw 0 2vw 2vw;
+  padding: 2vw 0 2vw 8vw;
 }
 
 .icon-spinner11.active:before {
@@ -20603,12 +20580,16 @@ input[type=number] .btn-logout {
   padding: 6vw 0;
 }
 
-.survey {
-  background: #F8F8F8;
-  color: #9C9C9C;
-  padding: 19vw 4vw;
+.setting-container .bottom-line {
+  border-bottom: 1px solid #EFEFEF;
+  margin: 8vw 0;
 }
-.survey-before {
+.setting-content {
+  color: #949494;
+  margin-bottom: 8vw;
+  font-weight: 500;
+}
+.setting-checkbox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20616,180 +20597,254 @@ input[type=number] .btn-logout {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-left: 2vw;
+}
+.setting-checkbox .checkbox-content {
+  margin-top: 2vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 8vw;
-  padding: 0 6vw;
+  cursor: pointer;
 }
-.survey-before > div:first-child {
-  color: #0A1B38;
-  font-size: 4vw;
-  font-weight: 600;
+.setting-checkbox .checkbox-content input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
 }
-.survey-before > div:nth-child(2) {
-  text-align: center;
-  margin-top: 5vw;
-  line-height: 5.5vw;
+.setting-checkbox .checkbox-content .checkbox-icon {
+  width: 4vw;
+  height: 4vw;
+  background: white;
+  border: 1px solid #C2D9FF;
+  border-radius: 1vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 2vw;
+  padding: 0.2vw;
 }
-.survey-before fieldset {
-  border: medium none;
-  min-width: 100%;
-  padding: 0;
-  width: 100%;
-}
-.survey-before fieldset input {
-  width: 75vw;
-  border: 1px solid #ccc;
-  background: #FFF;
-  padding: 3vw;
-  color: #0A1B38;
-  border-radius: 2vw;
-}
-.survey-before fieldset input::-webkit-input-placeholder {
-  font-size: 3vw;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset input::-moz-placeholder {
-  font-size: 3vw;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset input:-ms-input-placeholder {
-  font-size: 3vw;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset input::-ms-input-placeholder {
-  font-size: 3vw;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset input::placeholder {
-  font-size: 3vw;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset input:focus {
-  outline: 0;
-  border: 2px solid #648DD6;
-}
-.survey-before fieldset textarea {
-  width: 75vw;
-  border: 1px solid #e5e5e5;
-  background: #FFF;
-  padding: 3vw;
-  height: 50vw;
-  max-width: 100%;
-  resize: none;
-  border-radius: 2vw;
-}
-.survey-before fieldset textarea::-webkit-input-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset textarea::-moz-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset textarea:-ms-input-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset textarea::-ms-input-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset textarea::placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset textarea:focus {
-  outline: 0;
-  border: 2px solid #648DD6;
-}
-.survey-before fieldset button {
-  background: #648DD6;
-  font-size: 3.5vw;
-  font-weight: 600;
-  border-radius: 2vw;
-  padding: 3vw 10vw;
-  width: 39.5vw;
-  margin-top: 8vw;
-  color: white;
-}
-.survey-before fieldset button:last-child {
-  background: #DFDFDF;
-  color: #9B9B9B;
-}
-.survey-before fieldset .tip {
+.setting-checkbox .checkbox-content .checkbox-icon::after {
+  content: "";
+  width: 1vw;
+  height: 2vw;
+  border: solid white;
+  border-width: 0 0.5vw 0.5vw 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   display: none;
+  margin-bottom: 1vw;
+}
+.setting-checkbox .checkbox-content input[type=checkbox]:checked ~ .checkbox-icon {
+  background: #2775FF;
+}
+.setting-checkbox .checkbox-content input[type=checkbox]:checked ~ .checkbox-icon::after {
+  display: block;
+}
+.setting-radiobox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 2vw;
+}
+.setting-radiobox .radio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 2vw;
 }
-.survey-before fieldset .tip.active {
-  display: block;
-  color: red;
+.setting-radiobox .radio input[type=radio] {
+  position: absolute;
+  opacity: 0;
 }
-.survey-before fieldset .tip.message {
-  margin-top: 1vw;
+.setting-radiobox .radio input[type=radio] + .radio-label::before {
+  content: "";
+  background: white;
+  border-radius: 100%;
+  border: 1px solid #2775FF;
+  display: inline-block;
+  width: 4vw;
+  height: 4vw;
+  position: relative;
+  margin-right: 2vw;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
 }
-.survey-before fieldset.error textarea {
-  border: 2px solid red;
+.setting-radiobox .radio input[type=radio]:checked + .radio-label::before {
+  background: #2775FF;
+  -webkit-box-shadow: inset 0 0 0 3px white;
+          box-shadow: inset 0 0 0 3px white;
 }
-.survey-before fieldset.error input {
-  border: 2px solid red;
+.setting-radiobox .radio input[type=radio]:focus + .radio-label::before {
+  outline: none;
+  border-color: #2775FF;
 }
-.survey-before fieldset:first-child {
-  margin-bottom: 5vw;
+.setting-radiobox .radio input[type=radio]:disabled + .radio-label::before {
+  -webkit-box-shadow: inset 0 0 0 3px #f4f4f4;
+          box-shadow: inset 0 0 0 3px #f4f4f4;
+  border-color: #b4b4b4;
+  background: white;
 }
-.survey-before .survey-input {
+.setting-radiobox .radio input[type=radio] + .radio-label:empty::before {
+  margin-right: 0;
+}
+.setting-radiobox .radio .radio-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.setting-title {
+  color: #112240;
+  font-weight: 700;
+  font-size: 3.5vw;
+  font-weight: 600;
+  margin: 0 0 2vw 2vw;
+}
+.setting-tip {
+  color: #949494;
+  font-size: 2.5vw;
+  font-weight: 100;
+  margin: 2vw 0 3vw 2vw;
+}
+.setting .changepassword {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.setting .changepassword-input {
+  height: 10vw;
+  padding: 0 0 0 3vw;
   margin-top: 3vw;
+  border-radius: 20vw;
+  border: 0;
+  background: #EFEFEF;
+  color: #5574A7;
+  font-size: 3vw;
 }
-.survey-before .survey-btn {
-  width: 100%;
+.setting .changepassword-input::-webkit-input-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-input::-moz-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-input:-ms-input-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-input::-ms-input-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-input::placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #0A1B38 inset;
+          box-shadow: 0 0 0px 1000px #0A1B38 inset;
+  -webkit-text-fill-color: white;
+}
+.setting .changepassword-input:focus-within {
+  border: 1px solid #C2D9FF;
+  outline: #C2D9FF;
+}
+.setting .changepassword .btn-group button {
+  height: 10vw;
+  border-radius: 2.5vw;
+  margin-top: 5vw;
+}
+.setting .connect-social .social-icon {
+  background: #EFEFEF;
+  border-radius: 20vw;
+  padding: 2vw 4vw 2vw 3vw;
+  margin-top: 4vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-.survey-before.close {
-  display: none;
-}
-.survey-after {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
-.survey-after img {
-  width: 45vw;
-  margin-top: 15vw;
+.setting .connect-social .social-icon > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.survey-after > div:first-child > div {
-  color: #0A1B38;
-  font-size: 4vw;
-  font-weight: 600;
-  text-align: center;
-  margin-top: 8vw;
+.setting .connect-social .social-icon > div img {
+  width: 10vw;
 }
-.survey-after > div:last-child {
-  text-align: center;
-  padding: 7vw 5vw 0;
-  line-height: 5.5vw;
+.setting .connect-social .social-icon > div span {
+  color: #5574A7;
+  margin-left: 2vw;
 }
-.survey-after.close {
+.setting .connect-social .social-icon button {
+  background: #2775FF;
+  color: white;
+  width: 25vw;
+  border-radius: 20vw;
+  height: 7vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.setting .connect-social .social-icon button::after {
+  display: block;
+  content: "";
+  background: url(https://banner.0814media.net/h5/img/4.0/down-1.png) no-repeat center/100%;
+  width: 2.5vw;
+  height: 2.5vw;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  margin-left: 1.5vw;
+}
+.setting .connect-social .social-icon button.active {
+  background: #9C9C9C;
+}
+.setting .connect-social .social-icon button.active::after {
   display: none;
-}
-
-#__next {
-  height: 100%;
 }/*# sourceMappingURL=style.css.map */

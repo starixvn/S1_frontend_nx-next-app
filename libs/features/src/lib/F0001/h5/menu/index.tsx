@@ -1,14 +1,14 @@
-import classNames from 'classnames'
-import { useRouter } from 'next/router'
-import { Trans } from 'next-i18next'
-import Link from 'next/link'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import classNames from 'classnames'
+import { Trans } from 'next-i18next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import List from './List'
 import Profile from './Profile'
 import Shortcut from './Shortcut'
 
-const Setting = () => {
+const Menu = () => {
 	const { push } = useRouter()
 	const {
 		auth: { isLogin },
@@ -50,4 +50,4 @@ const Setting = () => {
 	)
 }
 
-export default Setting
+export default Menu

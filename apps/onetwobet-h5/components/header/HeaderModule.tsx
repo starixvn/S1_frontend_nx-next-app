@@ -107,11 +107,11 @@ const HeaderModule = ({
 						</Link>
 					</div>
 
-					<Link href={paths.setting.root} prefetch>
+					<Link href={paths.menu.root} prefetch>
 						<a className='btn-menu'>
 							<img
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/menu.png`}
-								alt='setting'
+								alt='menu'
 							/>
 						</a>
 					</Link>

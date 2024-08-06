@@ -1,5 +1,6 @@
+import { NovaAuthProvider } from '@nova88-desktop/providers'
 import { ENV_COOKIE_NAMES, EVENT_PERIOD } from '@nx-next-app/constants'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout, LuckyWheel } from '@nx-next-app/features/F0001/desktop'
 import { LuckWheelProvider } from '@nx-next-app/features/F0001/providers'
 import {
@@ -24,7 +25,10 @@ const LuckyWheelPage = ({
 	persistStaticFileDomainData,
 }: ILuckyWheelPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -34,7 +38,7 @@ const LuckyWheelPage = ({
 					</LuckWheelProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

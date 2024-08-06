@@ -1,28 +1,32 @@
-import { createContext, ReactNode, useState } from 'react'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { setAppAuth } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { ReactNode, createContext, useEffect, useState } from 'react'
+import {
+	InitialPropsInterface,
+	useInitLocaleEffect,
+	useOnlineCheckInterval,
+	useOptimovePageEvent,
+	useSynchronizeCookiesEffect,
+} from '../../hooks'
 import {
 	useGetUserInfoQuery,
 	useLazyCheckSignInQuery,
 	useSignInMutation,
 	useSignOutMutation,
 } from '../../service'
-import {
-	InitialPropsInterface,
-	useInitLocaleEffect,
-	useOnlineCheckInterval,
-	useSynchronizeCookiesEffect,
-	useDepositWithdrawTracker,
-	useOptimovePageEvent,
-} from '../../hooks'
 import { IUserInfoData } from '../../service/accountStrict/type'
 
 export interface AuthContextInterface {
 	auth: { isLogin: boolean | undefined }
 	userInfo: IUserInfoData
 	dbHost: string
+	toastSetting: {
+		financeNotification: string | undefined
+		soundEffects: string | undefined
+		isLoadingUserInfo: boolean
+	}
 	onSignIn: ({
 		userName,
 		password,
@@ -41,12 +45,17 @@ export const AuthContext = createContext<AuthContextInterface>(null!)
 interface IAuthProviderProps
 	extends Pick<InitialPropsInterface, 'originIsSignIn' | 'originCookies'> {
 	children: ReactNode
+	onDepositOrWithdrawalSuccessful?: (
+		financeNotification: string | undefined,
+		soundEffects: string | undefined
+	) => Promise<void>
 }
 
 export const AuthProvider = ({
 	children,
 	originIsSignIn,
 	originCookies,
+	onDepositOrWithdrawalSuccessful,
 }: IAuthProviderProps) => {
 	const router = useRouter()
 	const { t } = useTranslation()
@@ -65,6 +74,7 @@ export const AuthProvider = ({
 				userName: 'guest',
 			},
 		} = {},
+		isLoading: isLoadingUserInfo,
 	} = useGetUserInfoQuery(null, {
 		// * 沒有登入時不打
 		skip: !auth.isLogin,
@@ -77,11 +87,15 @@ export const AuthProvider = ({
 		currencyName: t(`Label_General_Currency_${originUserInfo.currencyId}`),
 	}
 
+	/**
+	 *  使用者資訊中，吐司訊息的設定
+	 *  @financeNotification 是否顯示吐司訊息
+	 *  @soundEffects 是否播放吐司訊息音效  */
+	const { financeNotification, soundEffects } = originUserInfo
+
 	const [signIn] = useSignInMutation()
 
 	const [signOut] = useSignOutMutation()
-
-	const { checkDepositSuccessful } = useDepositWithdrawTracker()
 
 	const onCheckSignIn = async () => {
 		try {
@@ -142,8 +156,6 @@ export const AuthProvider = ({
 			},
 		}).unwrap()
 
-		/** 登入時確認使用者是否有存款成功，如果有成功，觸發 MetaPixelTracker 事件（ 臉書通知 ）通知市場 */
-		await checkDepositSuccessful()
 		setAuth({ isLogin: true })
 		setAppAuth('login')
 	}
@@ -171,14 +183,40 @@ export const AuthProvider = ({
 	// * 處理路由導轉
 	useInitLocaleEffect({ router, userInfo, isLogin: auth.isLogin })
 	// * 輪詢確認使用者是否保持線上狀態
-	useOnlineCheckInterval({ isLogin: auth.isLogin, onResetAuth })
+	useOnlineCheckInterval({
+		isLogin: auth.isLogin,
+		onResetAuth,
+		toastSetting: {
+			financeNotification,
+			soundEffects,
+			onDepositOrWithdrawalSuccessful,
+		},
+	})
 
 	useOptimovePageEvent(auth.isLogin, userInfo)
+
+	// ====== useEffect ======
+
+	/**
+	 * 當使用者登入時，檢查存/提款通知並觸發對應的吐司訊息。
+	 * @onDepositOrWithdrawalSuccessful 是由各平台自定義的回調函數，用於設置吐司通知樣式（不同平台可能有不同樣式，也可能不提供此功能）。
+	 * 如果該回調存在且使用者已登入，則檢查使用者的存/提款成功記錄，並依據回調函數發送對應的吐司訊息。 */
+	useEffect(() => {
+		// 資料尚未載入完成或是使用者未登入不處理
+		if (isLoadingUserInfo || !auth.isLogin) return
+		const checkNotification = async () => {
+			if (onDepositOrWithdrawalSuccessful) {
+				await onDepositOrWithdrawalSuccessful(financeNotification, soundEffects)
+			}
+		}
+		checkNotification()
+	}, [financeNotification, soundEffects])
 
 	const value: AuthContextInterface = {
 		auth,
 		userInfo,
 		dbHost,
+		toastSetting: { financeNotification, soundEffects, isLoadingUserInfo },
 		onCheckSignIn,
 		onSignIn,
 		onSignOut,

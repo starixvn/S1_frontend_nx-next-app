@@ -1,13 +1,11 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { AuthProvider } from '@nx-next-app/data-access'
+import { NovaAuthProvider } from '@nova88-desktop/providers'
 import {
 	InitialPropsInterface,
 	useCheckLineDirect,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 
 // * Line Callback
@@ -18,9 +16,12 @@ const Callback = ({ originIsSignIn, originCookies }: InitialPropsInterface) => {
 	useCheckLineDirect({ langId })
 
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			LINE CALLBACK ...
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

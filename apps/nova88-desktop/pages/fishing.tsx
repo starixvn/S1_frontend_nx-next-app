@@ -1,5 +1,6 @@
+import { NovaAuthProvider } from '@nova88-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
 import { Fishing, Layout } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
@@ -22,7 +23,10 @@ const FishingPage = ({
 	persistStaticFileDomainData,
 }: IFishingPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -30,7 +34,7 @@ const FishingPage = ({
 					<Fishing />
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

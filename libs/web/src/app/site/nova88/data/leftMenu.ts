@@ -1,9 +1,9 @@
+import { paths } from '@nx-next-app/constants'
 import {
-	ILeftMenuData,
 	CurrenciesEnum,
+	ILeftMenuData,
 	LeftMenuKeyEnum,
 } from '@nx-next-app/types'
-import { paths } from '@nx-next-app/constants'
 import { ALLOWED_CURRENCIES } from './allowCurrency'
 
 export const LEFT_MENU_DATA: ILeftMenuData = {
@@ -68,6 +68,12 @@ export const LEFT_MENU_DATA: ILeftMenuData = {
 			selfExclusion: {
 				displayKey: 'Label_General_SelfExclusion',
 				pathname: paths.selfExclusion.root,
+				allowCurrencies: false,
+			},
+			// todo:請 pm 補 i18n
+			setting: {
+				displayKey: 'Label_General_Setting',
+				pathname: paths.setting.root,
 				allowCurrencies: false,
 			},
 		},

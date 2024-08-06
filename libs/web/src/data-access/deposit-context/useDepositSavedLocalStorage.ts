@@ -45,8 +45,19 @@ const useDepositSavedLocalStorage = () => {
 			defaultSavedInfo || ({} as any)
 		)
 
+	/**
+	 *  點擊 button ，更新 setIsDepositLocalStorageSavedChecked 狀態。
+	 *  用於 deposit 頁的 “Remember my last used mode” 的 button 。 */
 	const onToggleDepositLocalStorageSavedChecked = () => {
 		setIsDepositLocalStorageSavedChecked(prev => !prev)
+	}
+
+	/**
+	 *  切換 select 根據值，更新 setIsDepositLocalStorageSavedChecked 狀態。
+	 *  用於 setting 頁的 “Remember my last used mode” 的 select 組件。
+	 *  @param value 頁面切換時，select 選項值 */
+	const onSelectDepositLocalStorageSavedChecked = (value: string) => {
+		setIsDepositLocalStorageSavedChecked(value === 'true')
 	}
 
 	const onSavedDepositLocalStorageSavedInfo = (info: IDepositSavedInfo) => {
@@ -56,6 +67,7 @@ const useDepositSavedLocalStorage = () => {
 	return {
 		isDepositLocalStorageSavedChecked,
 		depositLocalStorageSavedInfo,
+		onSelectDepositLocalStorageSavedChecked,
 		onToggleDepositLocalStorageSavedChecked,
 		onSavedDepositLocalStorageSavedInfo,
 	}

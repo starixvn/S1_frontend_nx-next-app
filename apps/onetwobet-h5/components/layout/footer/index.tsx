@@ -91,18 +91,18 @@ const LayoutFooter = () => {
 					<span className='footer-title'>{t('Label_General_LiveChat')}</span>
 				</a>
 
-				<Link href={paths.setting.root} passHref>
+				<Link href={paths.menu.root} passHref>
 					<a
 						className={classNames('footer-item', {
-							active: pathname === paths.setting.root,
+							active: pathname === paths.menu.root,
 							me: msgCount > 0,
 						})}
 					>
 						<img
 							src={`${FOOTER_HOME_DOMAIN}/me${
-								pathname === paths.setting.root ? '-dark' : ''
+								pathname === paths.menu.root ? '-dark' : ''
 							}.png`}
-							alt='img-setting'
+							alt='img-menu'
 						/>
 						<span className='footer-title'>{t('Label_General_Me')}</span>
 					</a>

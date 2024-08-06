@@ -1,9 +1,6 @@
+import { NovaAuthProvider } from '@nova88-desktop/providers'
 import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import {
-	AuthProvider,
-	GlobalDataProvider,
-	getSlotGamePage,
-} from '@nx-next-app/data-access'
+import { GlobalDataProvider, getSlotGamePage } from '@nx-next-app/data-access'
 import { Layout, Slots } from '@nx-next-app/features/F0001/desktop'
 import { SlotsProvider } from '@nx-next-app/features/F0001/providers'
 import {
@@ -33,7 +30,10 @@ const SlotsPage = ({
 	persistSlotsCategoryData,
 }: ISlotsPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -46,7 +46,7 @@ const SlotsPage = ({
 					</Layout>
 				</SlotsProvider>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 
