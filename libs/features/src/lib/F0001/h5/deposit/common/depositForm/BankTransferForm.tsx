@@ -20,6 +20,7 @@ import {
 	isConvert,
 	numberFormat,
 	revertNumberFormat,
+	numFormatToDigits,
 } from '@nx-next-app/utils'
 
 const DepositBankSlipModal = dynamic(
@@ -165,8 +166,8 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 								format={isConvert(currencyId)}
 								placeholder={
 									t('Label_General_AmountMinMaxLimit', {
-										value1: watchMinAmount,
-										value2: watchMaxAmount,
+										value1: numFormatToDigits(watchMinAmount),
+										value2: numFormatToDigits(watchMaxAmount),
 									}) || ''
 								}
 								touched={!!touchedFields['amount']}

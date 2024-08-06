@@ -9,9 +9,9 @@ export * from './transferFunds'
 export * from './products'
 export * from './eWallet'
 export * from './excludedProducts'
+export * from './deposit'
 export * from './eventPeriod'
 export * from './userInfo'
-export * from './deposit'
 
 export const CURRENCY_TO_LANG_KEY: {
 	[key: string | number]: string
