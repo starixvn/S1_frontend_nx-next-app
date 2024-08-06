@@ -39,3 +39,4 @@ export * from './image'
 export * from './countdown-timer'
 
 export { default as Survey } from './survey'
+export * from './toast'

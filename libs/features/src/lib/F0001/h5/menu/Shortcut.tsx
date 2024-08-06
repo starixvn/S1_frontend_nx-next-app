@@ -10,8 +10,7 @@ const Shortcut = () => {
 
 	const { push } = useRouter()
 
-	const { ALLOWED_CURRENCIES, LIVE_CHAT_ID_BY_LANG_ID, GET_AFFILIATE_LINK } =
-		useStaticData()
+	const { ALLOWED_CURRENCIES, GET_AFFILIATE_LINK } = useStaticData()
 
 	const {
 		userInfo: { currencyId, langId },
@@ -78,19 +77,17 @@ const Shortcut = () => {
 				/>
 				<span>{t('Label_General_Referral')}</span>
 			</a>
-			<a
-				href={`https://direct.lc.chat/${
-					process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']
-				}/${LIVE_CHAT_ID_BY_LANG_ID[langId] || 'en'}`}
-				target='_blank'
-				rel='noreferrer'
-			>
-				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/livechat-2.png`}
-					alt='livechat'
-				/>
-				<span>{t('Label_General_LiveChat')}</span>
-			</a>
+			{isLogin && (
+				<Link href={paths.setting.root}>
+					<a>
+						<img
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/setting.png`}
+							alt='setting'
+						/>
+						<span>{t('Label_General_Setting')}</span>
+					</a>
+				</Link>
+			)}
 			{includes(ALLOWED_CURRENCIES['AFFILIATE'], currencyId) && (
 				<a
 					href={

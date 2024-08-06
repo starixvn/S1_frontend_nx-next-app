@@ -1,14 +1,14 @@
-import Link from 'next/link'
-import classNames from 'classnames'
 import { Header, SettingCollapse } from '@nx-next-app/components/H0006'
 import { LANG_GROUP_COUNTRY, paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useLanguageGroup } from '@nx-next-app/hooks'
-import { includes, isEqual } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
 import { useGetMsgCountQuery } from '@nx-next-app/service'
 import { GET_AFFILIATE_LINK } from '@nx-next-app/site/yashbet'
+import classNames from 'classnames'
+import { includes, isEqual } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const Setting = () => {
 	const { push, reload } = useRouter()
@@ -49,7 +49,7 @@ const Setting = () => {
 							<Link
 								href={{
 									pathname: paths.profile.root,
-									query: { from: paths.setting.root },
+									query: { from: paths.menu.root },
 								}}
 							>
 								<a className='icon icon-member'>{t('Label_General_Profile')}</a>
@@ -67,7 +67,7 @@ const Setting = () => {
 							<Link
 								href={{
 									pathname: paths.join.root,
-									query: { from: paths.setting.root },
+									query: { from: paths.menu.root },
 								}}
 							>
 								<a>{t('Label_General_Join')}</a>
@@ -76,7 +76,7 @@ const Setting = () => {
 							<Link
 								href={{
 									pathname: paths.login.root,
-									query: { from: paths.setting.root },
+									query: { from: paths.menu.root },
 								}}
 							>
 								<a>{t('Label_General_LogIn')}</a>

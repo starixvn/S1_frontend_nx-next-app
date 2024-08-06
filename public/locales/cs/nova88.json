@@ -15,6 +15,7 @@
   "Label_BonusWallet_9": "体育钱包",
   "Label_Cookie_Reminder": "欧亚体育应用 cookies 优化您游览网站体验。浏览并继续访问我们的网站，意味着您同意在使用本司 cookies。",
   "Label_DepositFailed": "存款 {{orderId}} 未成功",
+  "Label_WithdrawFailed": "提款 {{orderId}} 未成功",
   "Label_DepositSuccessful": "存款 {{orderId}} 已审批",
   "Label_DownloadAppStep1": "从 Nova88 网站点击 Applie iOS 下载按钮",
   "Label_DownloadAppStep2": "点击 'Get the App' 以跳转至 App 审核页",
@@ -286,7 +287,6 @@
   "Label_Vip_Info_Content_2": "贵族等级分为古铜俱乐部，白银俱乐部，黄金俱乐部，钛金俱乐部，钻石俱乐部和欧亚俱乐部。解锁贵族等级以享有更多尊贵福利与独享服务。",
   "Label_Vip_ReachedTheHighestLevel": "已达最高阶级",
   "Label_Virtual_Sports_desc": "欧亚体育提供由 Inspired，Sportradar 和 沙巴足球 全年无休24/7 的运动赛事。其中包括 虚拟足球、虚拟篮球、虚拟赛马、虚拟赛狗、虚拟沙地摩托车、虚拟赛车、虚拟自行车、虚拟网球以及沙巴虚拟 PES 和 FIFA 20 足球。",
-  "Label_WithdrawFailed": "提款 {{orderId}} 未成功",
   "Label_WithdrawSuccessful": "提款 {{orderId}} 已审批",
   "lbl_Keno_Lottery_Betting_desc": "欧亚体育提供快速，欢乐有趣与简易的快乐彩、彩票、百练赛以及桌面游戏。每局游戏仅需短短几分钟完成且快速派彩。"
 }

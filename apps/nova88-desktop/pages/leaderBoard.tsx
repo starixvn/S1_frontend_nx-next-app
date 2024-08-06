@@ -1,6 +1,6 @@
+import { NovaAuthProvider } from '@nova88-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
-	AuthProvider,
 	GlobalDataProvider,
 	LeaderBoardProvider,
 } from '@nx-next-app/data-access'
@@ -37,7 +37,10 @@ const LeaderBoardPage = ({
 	persistStaticFileDomainData,
 }: ILeaderBoardPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -59,7 +62,7 @@ const LeaderBoardPage = ({
 					</LeaderBoardProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

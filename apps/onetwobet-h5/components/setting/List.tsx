@@ -1,4 +1,4 @@
-import { SettingCollapse } from '@nx-next-app/components/H0001'
+import { MenuCollapse } from '@nx-next-app/components/H0001'
 import { LANG_GROUP_COUNTRY, paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useLanguageGroup } from '@nx-next-app/hooks'
@@ -27,8 +27,8 @@ const List = () => {
 	}
 
 	return (
-		<SettingCollapse>
-			<SettingCollapse.Item
+		<MenuCollapse>
+			<MenuCollapse.Item
 				imgName='languages'
 				header={t('Label_General_Languages')}
 				defaultActive
@@ -127,9 +127,9 @@ const List = () => {
 						})}
 					</div>
 				)}
-			</SettingCollapse.Item>
+			</MenuCollapse.Item>
 
-			<SettingCollapse.Item
+			<MenuCollapse.Item
 				imgName='policies'
 				header={t('Label_General_OurPolicies')}
 			>
@@ -161,12 +161,9 @@ const List = () => {
 				>
 					{t('Label_General_CookiePolicy')}
 				</a>
-			</SettingCollapse.Item>
+			</MenuCollapse.Item>
 
-			<SettingCollapse.Item
-				imgName='help'
-				header={t('Label_General_HelpSupport')}
-			>
+			<MenuCollapse.Item imgName='help' header={t('Label_General_HelpSupport')}>
 				<a
 					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/RulesandRegulations.html`}
 					target='_blank'
@@ -188,9 +185,9 @@ const List = () => {
 				>
 					{t('Label_General_FAQ')}
 				</a>
-			</SettingCollapse.Item>
+			</MenuCollapse.Item>
 
-			<SettingCollapse.Item
+			<MenuCollapse.Item
 				imgName='nova88'
 				header={String(process.env['NEXT_PUBLIC_SITE_NAME']).toUpperCase()}
 			>
@@ -221,14 +218,14 @@ const List = () => {
 				<Link href={paths.gameProvider.root}>
 					<a>{t('Label_General_GameProvider')}</a>
 				</Link>
-			</SettingCollapse.Item>
+			</MenuCollapse.Item>
 
 			{isLogin && (
 				<button className='btn-logout primary' onClick={handleSignOut}>
 					{t('Label_General_LogOut')}
 				</button>
 			)}
-		</SettingCollapse>
+		</MenuCollapse>
 	)
 }
 

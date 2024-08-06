@@ -7,7 +7,7 @@ export { InputBox } from './input'
 
 export { default as Form } from './form'
 
-export { default as SettingCollapse } from './setting-collapse'
+export { default as MenuCollapse } from './menu-collapse'
 
 export * from './deposit'
 
@@ -18,7 +18,7 @@ export type { ISelectProps } from './select'
 
 export { InputPhone } from './input'
 
-export { Modal, GlobalModal, useModal } from './modal'
+export { GlobalModal, Modal, useModal } from './modal'
 
 export { Marquee } from './marquee'
 
@@ -29,5 +29,5 @@ export { default as JackPot } from './jackpot/index'
 
 export { default as Loading } from './loading'
 
-export * from './image'
 export * from './countdown-timer'
+export * from './image'

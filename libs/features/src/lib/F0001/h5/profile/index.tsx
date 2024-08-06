@@ -1,16 +1,15 @@
-import { useEffect } from 'react'
-import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { paths } from '@nx-next-app/constants'
 import { Header } from '@nx-next-app/components/H0001'
+import { paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
-import { Info } from './Info'
-import { InfoEdit } from './InfoEdit'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import { Address } from './Address'
 import { AddressEdit } from './AddressEdit'
-import { Verification } from './Verification'
+import { Info } from './Info'
+import { InfoEdit } from './InfoEdit'
 import { LineBinding } from './LineBinding'
+import { Verification } from './Verification'
 
 const Profile = () => {
 	const { t } = useTranslation()
@@ -42,11 +41,6 @@ const Profile = () => {
 				<InfoEdit />
 				<Info />
 				<Address />
-				<div className='btn-group'>
-					<Link href={paths.changePassword.root} passHref>
-						<a>{t('Label_General_ChangePassword')}</a>
-					</Link>
-				</div>
 				{isInApp === false && <LineBinding />}
 			</main>
 		</>
