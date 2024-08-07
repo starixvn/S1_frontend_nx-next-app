@@ -7,6 +7,7 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { MenuActionTypeEnum } from '@nx-next-app/types'
 import { useHome } from '@nx-next-app/features/F0001/providers'
+import { includes } from 'lodash-es'
 
 const LoginModal = dynamic(() => import('../modal/LoginModal'), {
 	ssr: false,
@@ -24,7 +25,9 @@ const WelcomeInfo = () => {
 	const { modal } = useGlobalModal()
 	const {
 		auth: { isLogin },
+		userInfo: { currencyId },
 	} = useAuth()
+	const { ALLOWED_CURRENCIES } = useStaticData()
 	const {
 		affiliateData: { link },
 	} = useHome()
@@ -35,6 +38,11 @@ const WelcomeInfo = () => {
 			menuActionType: MenuActionTypeEnum.EnterPage,
 		},
 	}
+
+	const isCurrencyAllowedInSabaSports = includes(
+		ALLOWED_CURRENCIES['SPORTS_SABA_CLUB'],
+		Number(currencyId)
+	)
 
 	return (
 		<div className='welcomeinfo'>
@@ -87,13 +95,18 @@ const WelcomeInfo = () => {
 				</div>
 				<button
 					className='welcome-btn'
+					style={{
+						cursor: isCurrencyAllowedInSabaSports ? 'pointer' : 'default',
+					}}
 					onClick={() => {
-						onMenuOpen(sportSoccerItem, {
-							loginCallback: () => modal.open(<LoginModal />),
-							messageCallBack: message => modal.error(message),
-							liveStreamingCallback: () =>
-								modal.open(<LiveStreamingModalDesktop />),
-						})
+						if (isCurrencyAllowedInSabaSports) {
+							onMenuOpen(sportSoccerItem, {
+								loginCallback: () => modal.open(<LoginModal />),
+								messageCallBack: message => modal.error(message),
+								liveStreamingCallback: () =>
+									modal.open(<LiveStreamingModalDesktop />),
+							})
+						}
 					}}
 				>
 					{t('Label_General_MoreInfo')}
