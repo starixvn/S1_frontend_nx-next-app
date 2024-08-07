@@ -7,6 +7,9 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
+import { includes } from 'lodash-es'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 
 const SportsPage = ({
 	originIsSignIn,
@@ -30,6 +33,17 @@ const SportsPage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
+	const { originCookies } = initialProps
+	const currencyId = Number(originCookies[ENV_COOKIE_NAMES.CurrencyId])
+
+	if (!includes(ALLOWED_CURRENCIES['SPORTS_SABA_CLUB'], Number(currencyId))) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false,
+			},
+		}
+	}
 
 	return {
 		props: {
