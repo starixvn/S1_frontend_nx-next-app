@@ -21,6 +21,7 @@ import {
 	limitedShortcutAmountList,
 	numberFormat,
 	revertNumberFormat,
+	numFormatToDigits,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
@@ -285,8 +286,8 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 								format={isConvert(currencyId)}
 								placeholder={
 									t('Label_General_AmountMinMaxLimit', {
-										value1: watchMinAmount,
-										value2: watchMaxAmount,
+										value1: numFormatToDigits(watchMinAmount),
+										value2: numFormatToDigits(watchMaxAmount),
 									}) || ''
 								}
 								touched={!!touchedFields['amount']}
