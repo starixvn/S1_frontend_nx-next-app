@@ -55,7 +55,7 @@ class MyDocument extends Document<CustomDocumentProps> {
                 n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
                 t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
                 document,'script','https://connect.facebook.net/en_US/fbevents.js');
-                fbq('init', '2408882522647748'); fbq('track', 'PageView');
+                fbq('init', '972527661315284'); fbq('track', 'PageView');
                 `,
 						}}
 					/>
