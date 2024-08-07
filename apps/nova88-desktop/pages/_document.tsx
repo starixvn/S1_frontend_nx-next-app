@@ -68,7 +68,7 @@ class MyDocument extends Document<CustomDocumentProps> {
 							height='1'
 							width='1'
 							style={{ display: 'none' }}
-							src='https://www.facebook.com/tr?id=2408882522647748&ev=PageView&noscript=1'
+							src='https://www.facebook.com/tr?id=972527661315284&ev=PageView&noscript=1'
 						/>
 					</noscript>
 
