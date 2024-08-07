@@ -1,5 +1,6 @@
 import classNames from 'classnames'
 import { uniqueId } from 'lodash-es'
+import { numFormatToDigits } from '@nx-next-app/utils'
 
 interface IDepositShortcutListProps {
 	minAmount: number
@@ -28,6 +29,7 @@ const DepositShortcutList = ({
 		<div className='btnGroup shortcut'>
 			{shortcutList.map(value => {
 				const disabled = isDisabled(value)
+				const formatValue = numFormatToDigits(value, 0)
 
 				return (
 					<button
@@ -41,7 +43,7 @@ const DepositShortcutList = ({
 							onChange && onChange(value)
 						}}
 					>
-						{format ? `${value} ('000)` : value}
+						{format ? `${formatValue} ('000)` : formatValue}
 					</button>
 				)
 			})}
