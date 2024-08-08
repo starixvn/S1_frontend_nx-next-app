@@ -14,6 +14,7 @@ import {
 	useInitLocaleEffect,
 	useOnlineCheckInterval,
 	useSynchronizeCookiesEffect,
+	useDepositWithdrawTracker,
 } from '../../hooks'
 import { IUserInfoData } from '../../service/accountStrict/type'
 
@@ -79,6 +80,8 @@ export const AuthProvider = ({
 
 	const [signOut] = useSignOutMutation()
 
+	const { checkDepositSuccessful } = useDepositWithdrawTracker()
+
 	const onCheckSignIn = async () => {
 		try {
 			const { errorCode } = await checkSignInQuery(null).unwrap()
@@ -138,6 +141,8 @@ export const AuthProvider = ({
 			},
 		}).unwrap()
 
+		/** 登入時確認使用者是否有存款成功，如果有成功，觸發 MetaPixelTracker 事件（ 臉書通知 ）通知市場 */
+		await checkDepositSuccessful()
 		setAuth({ isLogin: true })
 		setAppAuth('login')
 	}

@@ -9,6 +9,7 @@ export * from './transferFunds'
 export * from './products'
 export * from './eWallet'
 export * from './excludedProducts'
+export * from './deposit'
 export * from './eventPeriod'
 export * from './userInfo'
 
