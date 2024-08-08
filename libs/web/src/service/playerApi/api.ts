@@ -26,6 +26,9 @@ export const playerApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
+		// 當存在存款或提款單號時：
+		// 1. 每分鐘打一次此 api 確認是否有單號
+		// 2. 登入時，也會打一次此 api ( 有可能用戶存完款就登出 )，此時若有單號，則會通知用戶
 		gcetCustNotification: builder.query<
 			IAxiosResponse<TGetCustNotificationData>,
 			IGetCustNotificationArgs
@@ -36,6 +39,10 @@ export const playerApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
+		// 當存在存款或提款單號時：
+		// 1. 向市場發送通知。
+		// 2. 向用戶發送吐司訊息確認交易已處理。
+		// 3. 調用API移除該單號，防止之後再次獲得相同的單號。
 		setCustNotification: builder.query<
 			IAxiosResponse<TSetCustNotificationData>,
 			ISetCustNotificationArgs
