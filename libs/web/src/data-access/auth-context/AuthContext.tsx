@@ -14,7 +14,7 @@ import {
 	useInitLocaleEffect,
 	useOnlineCheckInterval,
 	useSynchronizeCookiesEffect,
-	useFBAdTracking,
+	useDepositWithdrawTracker,
 } from '../../hooks'
 import { IUserInfoData } from '../../service/accountStrict/type'
 
@@ -80,7 +80,7 @@ export const AuthProvider = ({
 
 	const [signOut] = useSignOutMutation()
 
-	const { checkDepositSuccessful } = useFBAdTracking()
+	const { checkDepositSuccessful } = useDepositWithdrawTracker()
 
 	const onCheckSignIn = async () => {
 		try {
