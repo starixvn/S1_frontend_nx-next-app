@@ -4,7 +4,7 @@ import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { useInterval } from 'usehooks-ts'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useFBAdTracking } from './index'
+import { useDepositWithdrawTracker } from './index'
 /**
  * @description 輪詢確認使用者是否保持線上狀態
  */
@@ -19,7 +19,7 @@ const useOnlineCheckInterval = ({
 	const { push, reload } = useRouter()
 	const { modal } = useGlobalModal()
 	const [onlineCheck] = useLazyOnlineCheckQuery()
-	const { checkDepositSuccessful } = useFBAdTracking()
+	const { checkDepositSuccessful } = useDepositWithdrawTracker()
 
 	useInterval(
 		async () => {

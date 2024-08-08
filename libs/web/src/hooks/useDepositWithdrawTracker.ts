@@ -6,7 +6,7 @@ import {
 import { MetaPixelTracker } from '@nx-next-app/utils'
 
 /** 此 hook 負責 FB 廣告追蹤，如果使用者存款成功，觸發 MetaPixelTracker 事件（ 臉書通知 ）通知市場 */
-const useFBAdTracking = () => {
+const useDepositWithdrawTracker = () => {
 	// ======= api =======
 
 	const [getCustNotification] = useLazyGcetCustNotificationQuery()
@@ -47,4 +47,4 @@ const useFBAdTracking = () => {
 	return { checkDepositSuccessful }
 }
 
-export { useFBAdTracking }
+export { useDepositWithdrawTracker }
