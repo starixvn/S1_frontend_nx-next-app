@@ -31,10 +31,10 @@ const useDepositWithdrawTracker = () => {
 
 			// 如果有存款成功的單號，觸發事件給市場，並根據 orders 長度調用 setCustNotification api
 			if (hasOrders) {
-				MetaPixelTracker('deposit_successful')
-
 				/** setCustNotification api 的 Promise Object 陣列 */
 				const promises = orders.map(orderId => {
+					// 根據存款單號數量，觸發 MetaPixelTracker 事件
+					MetaPixelTracker('deposit_successful')
 					return setCustNotification({
 						notificationType: NotificationTypeEnum.Deposit,
 						transId: orderId,
