@@ -1,36 +1,29 @@
-import { includes } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { Header, Loading } from '@nx-next-app/components/H0001'
 import { useTranslation } from 'react-i18next'
 import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth } from '@nx-next-app/data-access'
 import { numberFormat } from '@nx-next-app/utils'
+import { useEffect } from 'react'
 import {
 	useRetentionLandingPage,
 	useSetClaimPromotionFetcher,
 } from '../../hooks'
-import { useEffect } from 'react'
+import { EventTabs } from '../event'
 
 const imgHost = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5`
 
 const RetentionContent = () => {
 	const { push } = useRouter()
 	const { t } = useTranslation()
-	const { ALLOWED_CURRENCIES } = useStaticData()
 	const {
 		userInfo: { currencyId, currencyName },
 		auth: { isLogin },
 	} = useAuth()
 
-	const showSwitchBar = includes(ALLOWED_CURRENCIES['LUCKY_WHEEL'], currencyId)
-
 	const { promotionDetail, percentage, loading } = useRetentionLandingPage()
 	// claim promotion
 	const { setClaimPromotionHandler } = useSetClaimPromotionFetcher()
-
-	const handleWheelClick = () => {
-		push(paths.luckyWheel.root)
-	}
 
 	useEffect(() => {
 		if (!isLogin) {
@@ -57,17 +50,7 @@ const RetentionContent = () => {
 				/>
 			</Header>
 			<main className='retention'>
-				{showSwitchBar && (
-					<div className='eventpage-tap' style={{ zIndex: '3' }}>
-						<button onClick={handleWheelClick}>
-							{t('Label_LuckyWheel_Title')}
-						</button>
-						<button className='active'>
-							{t('Label_Retention_SurpriseReward')}
-						</button>
-					</div>
-				)}
-
+				<EventTabs />
 				<div className='retention-wrapper'>
 					<div className='top'>
 						<img
@@ -120,11 +103,11 @@ const RetentionContent = () => {
 					<div className='bonus-list'>
 						<div className='title'>
 							<div>{t('Label_Retention_BonusTitle')}</div>
-							<div></div>
 						</div>
 						{details && (
 							<div
-							style={{ width: '100%' }}
+								style={{ width: '100%' }}
+								// eslint-disable-next-line react/no-danger
 								dangerouslySetInnerHTML={{
 									__html: `<pre>${details}</pre>`,
 								}}

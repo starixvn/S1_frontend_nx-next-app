@@ -1,14 +1,14 @@
 import { Header, Img, Loading, SpinButton } from '@nx-next-app/components/H0001'
-import { useAuth } from '@nx-next-app/data-access'
-import { IEventPeriod } from '@nx-next-app/types'
-import { useTranslation } from 'next-i18next'
-import { useLuckWheelContext } from '@nx-next-app/features/F0001/providers'
-import { useBoolean } from 'usehooks-ts'
-import classNames from 'classnames'
-import { toUpper, upperFirst } from 'lodash-es'
-import dayjs from 'dayjs'
 import { paths } from '@nx-next-app/constants'
-import { useRouter } from 'next/router'
+import { useAuth } from '@nx-next-app/data-access'
+import { useLuckWheelContext } from '@nx-next-app/features/F0001/providers'
+import { IEventPeriod } from '@nx-next-app/types'
+import classNames from 'classnames'
+import dayjs from 'dayjs'
+import { toUpper, upperFirst } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useBoolean } from 'usehooks-ts'
+import { EventTabs } from '../event'
 
 interface ILuckyWheelProps {
 	eventPeriod: IEventPeriod
@@ -16,26 +16,18 @@ interface ILuckyWheelProps {
 
 const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 	const { t } = useTranslation()
-	const { push } = useRouter()
 	const {
 		loading,
 		isCheckDrawPrizeError,
 		displayDrawPrizeList,
 		custDrawPrizeList,
 		onDrawPrize,
-		bonusCode,
 	} = useLuckWheelContext()
 
 	const {
 		auth: { isLogin },
 		userInfo: { currencyName },
 	} = useAuth()
-
-	const handleWheelClick = () => {
-		push(paths.retention.root)
-	}
-
-	const inlineStyle = !bonusCode ? { paddingTop: 0 } : {}
 
 	const { value: isSpinning, setValue: setIsSpinning } = useBoolean(false)
 	if (loading) return <Loading />
@@ -49,17 +41,9 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 				/>
 			</Header>
 
-			<main className='main wheelEvent' style={inlineStyle}>
-				{bonusCode && (
-					<div className='eventpage-tap' style={{ zIndex: 3 }}>
-						<button className='active'> {t('Label_LuckyWheel_Title')}</button>
-
-						<button className='' onClick={handleWheelClick}>
-							{t('Label_Retention_SurpriseReward')}
-						</button>
-					</div>
-				)}
+			<main className='main wheelEvent'>
 				<div className='eventPage'>
+					<EventTabs />
 					<div className='eventTitleBg'>
 						<div className='eventTitle'>LUCKY WHEEL</div>
 					</div>

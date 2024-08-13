@@ -1,24 +1,22 @@
 import { useRouter } from 'next/router'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth } from '@nx-next-app/data-access'
 import { Loading } from '@nx-next-app/components/D0001'
 import { numberFormat } from '@nx-next-app/utils'
 
-import { includes } from 'lodash-es'
 import { useEffect } from 'react'
 import {
 	useRetentionLandingPage,
 	useSetClaimPromotionFetcher,
 } from '../../hooks'
+import { EventTabs } from '../event'
 
 const imgHost = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop`
 
 const RetentionContent = () => {
 	const { push } = useRouter()
 	const { t } = useTranslation()
-
-	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	const { promotionDetail, percentage, loading } = useRetentionLandingPage()
 	// claim promotion
@@ -28,12 +26,6 @@ const RetentionContent = () => {
 		userInfo: { currencyId, currencyName },
 		auth: { isLogin },
 	} = useAuth()
-
-	const showSwitchBar = includes(ALLOWED_CURRENCIES['LUCKY_WHEEL'], currencyId)
-
-	const handleWheelClick = () => {
-		push(paths.luckyWheel.root)
-	}
 
 	useEffect(() => {
 		if (!isLogin) {
@@ -55,16 +47,7 @@ const RetentionContent = () => {
 
 	return (
 		<main className='retention'>
-			{showSwitchBar && (
-				<div className='eventpage-tap'>
-					<button onClick={handleWheelClick}>
-						{t('Label_LuckyWheel_Title')}
-					</button>
-					<button className='active'>
-						{t('Label_Retention_SurpriseReward')}
-					</button>
-				</div>
-			)}
+			<EventTabs />
 			<div className='retention-wrapper'>
 				<div className='top'>
 					<img
