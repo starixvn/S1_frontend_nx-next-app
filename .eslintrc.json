@@ -79,7 +79,8 @@
 				"jsx-quotes": "off",
 				"no-mixed-spaces-and-tabs": "off",
 				"arrow-parens": "off",
-				"import/no-cycle": "off"
+				"import/no-cycle": "off",
+				"no-plusplus": [2, { "allowForLoopAfterthoughts": true }]
 			}
 		},
 		{

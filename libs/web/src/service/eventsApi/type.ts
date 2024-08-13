@@ -97,3 +97,72 @@ export interface ICheckDrawPrizeData {
 	prizeName: null | string
 	ticketCount: number
 }
+
+export interface ILotteryRoundInfo {
+	roundId: number
+	startDate: string
+	endDate: string
+	drawDate: string
+	status: number
+}
+
+export interface ILotteryTierList {
+	siteId: number
+	currencyId: number
+	level: number
+	turnOverStart: number
+	turnOverEnd: number
+}
+
+export interface ILotteryInfoData {
+	lotteryRoundInfo: ILotteryRoundInfo
+	lotteryTierList: ILotteryTierList[]
+	ticketNo: string[]
+	ticketCount: number
+	turnoverGoal: number
+	custTurnoverProccessing: number
+	custTurnoverSummary: number
+	jackpotAmount: number
+}
+
+export interface IChineseZodiacStickerData {
+	stickerId: number
+	stickerPrize: number
+	canBuy: boolean
+}
+
+export interface IBuyChineseZodiacStickerArgs {
+	stickerId: number
+}
+
+export interface IGetLotteryHistoryWinnerArgs {
+	roundId: number
+}
+
+export interface ILotteryWinnerList {
+	siteId: number
+	roundId: number
+	firstPrize: string[]
+	secondPrize: string[]
+	thirdPrize: string[]
+	consolationPrize: string[]
+	smallPrize: string[]
+	stickerId: number
+}
+
+export interface ILotteryRoundData {
+	siteId: number
+	roundId: number
+	startDate: string
+	endDate: string
+	drawDate: string
+}
+
+export interface ICustLotteryHistoryWinnerData {
+	roundId: number
+	startDate: string
+	endDate: string
+	prizeName: string
+	stickerId: number
+	jackpot: number
+}

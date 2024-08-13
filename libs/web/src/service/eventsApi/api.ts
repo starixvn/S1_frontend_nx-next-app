@@ -14,6 +14,13 @@ import {
 	IGetLeaderBoardSettingArgs,
 	ILeaderBoardMonthData,
 	ILeaderBoardSettingData,
+	IBuyChineseZodiacStickerArgs,
+	IChineseZodiacStickerData,
+	ICustLotteryHistoryWinnerData,
+	IGetLotteryHistoryWinnerArgs,
+	ILotteryInfoData,
+	ILotteryRoundData,
+	ILotteryWinnerList,
 } from './type'
 
 export const eventApiUrl = {
@@ -26,6 +33,13 @@ export const eventApiUrl = {
 	drawPrize: 'Events/DrawPrize',
 	getDisplayDrawPrizeList: 'Events/GetDisplayDrawPrizeList',
 	getCustDrawPrizeList: 'Events/GetCustDrawPrizeList',
+	getLotteryInfo: 'Events/GetLotteryInfo',
+	getChineseZodiacStickerList: 'Events/GetChineseZodiacStickerList',
+	buyChineseZodiacSticker: 'Events/BuyChineseZodiacSticker',
+	getLotteryWinnerList: 'Events/GetCurrentLotteryWinnerList',
+	getLotteryHistoryWinnerList: 'Events/GetLotteryHistoryWinnerList',
+	getLotteryRoundList: 'Events/GetLotteryRoundList',
+	getCustLotteryHistoryWinnerList: 'Events/GetCustLotteryHistoryWinnerList',
 }
 
 export const eventsApi = rootApi.injectEndpoints({
@@ -132,6 +146,69 @@ export const eventsApi = rootApi.injectEndpoints({
 			// * 更新 幸運輪盤抽獎紀錄 和 當前使用者抽獎資格
 			invalidatesTags: ['LUCKY_WHEEL_DRAW_PRIZE'],
 		}),
+		getLotteryInfo: builder.query<IAxiosResponse<ILotteryInfoData>, null>({
+			query: () => ({
+				url: eventApiUrl.getLotteryInfo,
+				method: 'POST',
+			}),
+		}),
+		getChineseZodiacStickerList: builder.query<
+			IAxiosResponse<IChineseZodiacStickerData>,
+			null
+		>({
+			query: () => ({
+				url: eventApiUrl.getChineseZodiacStickerList,
+				method: 'POST',
+			}),
+		}),
+		buyChineseZodiacSticker: builder.query<
+			IAxiosResponse<null>,
+			IBuyChineseZodiacStickerArgs
+		>({
+			query: data => ({
+				url: eventApiUrl.buyChineseZodiacSticker,
+				method: 'POST',
+				data,
+			}),
+		}),
+		getLotteryWinnerList: builder.query<
+			IAxiosResponse<ILotteryWinnerList>,
+			null
+		>({
+			query: () => ({
+				url: eventApiUrl.getLotteryWinnerList,
+				method: 'POST',
+				data: { siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']) },
+			}),
+		}),
+		getLotteryHistoryWinnerList: builder.query<
+			IAxiosResponse<ILotteryWinnerList>,
+			IGetLotteryHistoryWinnerArgs
+		>({
+			query: ({ roundId }) => ({
+				url: eventApiUrl.getLotteryHistoryWinnerList,
+				method: 'POST',
+				data: { siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']), roundId },
+			}),
+		}),
+		getLotteryRoundList: builder.query<
+			IAxiosResponse<ILotteryRoundData[]>,
+			null
+		>({
+			query: () => ({
+				url: eventApiUrl.getLotteryRoundList,
+				method: 'POST',
+			}),
+		}),
+		getCustLotteryHistoryWinnerList: builder.query<
+			IAxiosResponse<ICustLotteryHistoryWinnerData[]>,
+			null
+		>({
+			query: () => ({
+				url: eventApiUrl.getCustLotteryHistoryWinnerList,
+				method: 'POST',
+			}),
+		}),
 	}),
 })
 
@@ -145,4 +222,9 @@ export const {
 	useGetDisplayDrawPrizeListQuery,
 	useGetCustDrawPrizeListQuery,
 	useDrawPrizeMutation,
+	useGetLotteryInfoQuery,
+	useGetChineseZodiacStickerListQuery,
+	useBuyChineseZodiacStickerQuery,
+	useGetLotteryHistoryWinnerListQuery,
+	useGetCustLotteryHistoryWinnerListQuery,
 } = eventsApi
