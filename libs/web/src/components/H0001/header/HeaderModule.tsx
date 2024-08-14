@@ -72,7 +72,6 @@ const HeaderModule = ({
 		<div className={classNames('header-module', className)} {...props}>
 			{/* 用 a link 讓畫面重新整理 */}
 			<Link href={paths.home.root}>
-				{/* 奧運期間使用奧運LOGO */}
 				<a className='header-logo'>
 					<img
 						src={

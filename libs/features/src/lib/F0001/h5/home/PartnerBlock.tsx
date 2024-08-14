@@ -13,8 +13,8 @@ const PartnerBlock = () => {
 				<div className='home-partner-content'>
 					<a href='https://www.avfc.co.uk/' target='_blank' rel='noreferrer'>
 						<img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/sp-sevilla.png`}
-							alt='Sevilla FC'
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/sp-aston-villa.png`}
+							alt='Aston Villa'
 						/>
 					</a>
 					<div>
