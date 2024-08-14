@@ -83,6 +83,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 		custEWalletList,
 		bankCardOptions,
 		bankCardRequired,
+		bankCardOrEWalletRequired,
 		channelMobilePayList = [],
 		onMobilePayFormSubmit,
 	} = useMobilePayForm({
@@ -336,13 +337,16 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				</DepositModule>
 			)}
 
-			{bankCardRequired && (
+			{(bankCardRequired || bankCardOrEWalletRequired) && (
 				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
 					<div className='infoModule'>
 						<Select
 							value={watchCustBankAccount}
 							options={bankCardOptions}
 							onChange={value => {
+								if (bankCardOrEWalletRequired) {
+									setValue('custEWalletAccount', undefined)
+								}
 								trigger('custBankAccount')
 								setValue('custBankAccount', String(value))
 								clearErrors('custBankAccount')
@@ -367,13 +371,16 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				</DepositModule>
 			)}
 
-			{eWalletRequired && (
+			{(eWalletRequired || bankCardOrEWalletRequired) && (
 				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
 					<div className='infoModule'>
 						<Select
 							value={watchCustEWalletAccount}
 							options={eWalletOptions}
 							onChange={value => {
+								if (bankCardOrEWalletRequired) {
+									setValue('custBankAccount', undefined)
+								}
 								trigger('custEWalletAccount')
 								setValue('custEWalletAccount', String(value))
 								clearErrors('custEWalletAccount')

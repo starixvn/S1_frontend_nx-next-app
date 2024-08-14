@@ -288,4 +288,5 @@ export enum DepositExtraDataTypeEnum {
 	none,
 	bankCard,
 	eWallt,
+	bankCardOrEWallet,
 }
