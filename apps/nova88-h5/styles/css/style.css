@@ -14915,12 +14915,10 @@ input[type=number] {
 .splogo {
   position: absolute;
   left: 30vw;
-  bottom: 2vw;
-  width: 9vw !important;
-  height: 9vw !important;
-  background: url(https://banner.0814media.net/h5/img/event/olympic/logo-paris.png) center/cover;
-  -webkit-animation: splogo 3.5s ease-in-out infinite;
-          animation: splogo 3.5s ease-in-out infinite;
+  bottom: 1.5vw;
+  width: 10vw !important;
+  height: 10vw !important;
+  background: url(https://banner.0814media.net/h5/img/4.0/sp-aston-villa.png) center/cover;
   -webkit-clip-path: none !important;
           clip-path: none !important;
 }
@@ -15498,7 +15496,7 @@ main.casino .banner {
 .home-hotmatch::after {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/4.0/sports-bg.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/h5/img/4.0/sports-bg-new.png) no-repeat center/cover;
   height: 45vw;
   position: absolute;
   top: 0;
@@ -15766,7 +15764,7 @@ main.casino .banner {
   background: linear-gradient(180deg, #FFFFFF 20%, #F5F5F5);
   border-radius: 80px;
   height: auto;
-  margin: 1vw 0 8vw;
+  margin: 1vw 0 10vw;
   padding-bottom: 8vw;
 }
 .home-appdownload-content {
@@ -15875,7 +15873,7 @@ main.casino .banner {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 5vw;
+  margin-top: 6vw;
   text-align: center;
 }
 .home-partner-title {
@@ -15926,7 +15924,7 @@ main.casino .banner {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 5vw;
+  margin: 0 10vw;
 }
 .home-partner-content img {
   width: 15vw;
@@ -15953,12 +15951,29 @@ main.casino .banner {
   text-align: center;
 }
 .home-partner-content > div > div:last-child {
+  margin-top: -0.7vw;
+  font-size: 2.7vw;
+}
+.home-partner.sponsor .home-partner-content img {
+  width: 17vw;
+}
+.home-partner.sponsor .home-partner-content > div > div:first-child {
+  font-size: 4.2vw;
+  margin-top: 2vw;
+}
+.home-partner.sponsor .home-partner-content > div > div:nth-child(3) {
   margin-top: 1vw;
+}
+.home-partner-line {
+  margin: 10vw auto;
+  background: #E2E2E2;
+  height: 0.2vw;
+  width: 65vw;
 }
 
 .home-bottom {
   background: #0A1B38;
-  margin-top: 8vw;
+  margin-top: 12vw;
 }
 .home-bottom-aff {
   text-align: center;
