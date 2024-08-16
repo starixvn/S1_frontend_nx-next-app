@@ -19,7 +19,7 @@ import {
 	PREV_PAGE,
 	AREA_CODE,
 	EMAIL_REGEX,
-	REALNAME_REGEX
+	REALNAME_REGEX,
 } from '@nx-next-app/constants'
 import {
 	Form,
@@ -65,6 +65,7 @@ const InfoEdit = () => {
 
 	const {
 		formState,
+		watch,
 		trigger,
 		setValue,
 		register,
@@ -174,6 +175,8 @@ const InfoEdit = () => {
 		monthOptions.push({ label: t(`Label_Profile_Month${m}`), value: m })
 	}
 
+	watch('formBirthMonth')
+	watch('formBirthYear')
 	const dayOptions = []
 	const dayByMonth = dayjs()
 		.year(getValues('formBirthYear'))

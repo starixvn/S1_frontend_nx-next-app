@@ -1,11 +1,10 @@
 @font-face {
-  font-family: 'icomoon';
+  font-family: "icomoon";
   src: url("../fonts/icomoon.woff?v=202003") format("woff");
 }
-
 .icon:before, .icon:after {
-  font-family: 'icomoon';
-  font-size: 5vw;
+  font-family: "icomoon";
+  font-size: 4vw;
 }
 
 .icon-moon:before {
@@ -44,7 +43,7 @@
 .icon-new:before {
   font-size: 3vw;
   content: "New" !important;
-  font-family: 'Microsoft YaHei',sans-serif;
+  font-family: "Microsoft YaHei", sans-serif;
 }
 
 .icon-envelope:before {
@@ -74,10 +73,9 @@
   border-radius: 3px;
   font-size: 3vw;
 }
-
 .icon-live:before {
   content: "Live";
-  font-family: 'Microsoft YaHei',sans-serif;
+  font-family: "Microsoft YaHei", sans-serif;
 }
 
 .icon-line-bold:before {
@@ -1026,5 +1024,4 @@
 
 .icon-moon:before {
   content: "\e91d";
-}
-/*# sourceMappingURL=font.css.map */
+}/*# sourceMappingURL=font.css.map */

@@ -19,6 +19,7 @@ import {
 	CURRENCY_TO_LANG_KEY,
 	AREA_CODE_BY_CURRENCY,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
+	EMAIL_REGEX,
 } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
@@ -28,6 +29,8 @@ import {
 	useLazyExistsUserNameQuery,
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
+	useLazyExistsEmailQuery,
+	useGetCountryListQuery,
 } from '@nx-next-app/service'
 import { includes } from 'lodash-es'
 import {
@@ -35,6 +38,8 @@ import {
 	OperaPixelTracker,
 	MetaPixelTracker,
 } from '@nx-next-app/utils'
+import DateSelector from '@nx-next-app/components/D0001/dateSelector'
+import dayjs from 'dayjs'
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
 
@@ -81,21 +86,32 @@ const Form = ({ cookies }: IJoinProps) => {
 	const { data: { data: siteCurrencyList = [] } = {} } =
 		useGetSiteCurrencyListQuery()
 
+	const { data: { data: countryList = [] } = {} } = useGetCountryListQuery(null)
+
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 
 	const [checkExistsUsername, { isFetching: existsUsernameLoading }] =
 		useLazyExistsUserNameQuery()
 
+	const [checkExistsEmail, { isFetching: existsEmailLoading }] =
+		useLazyExistsEmailQuery()
+
 	const [signUp] = useSignupMutation()
 
+	const [formBirth, setFormBirth] = useState<Date | null>(null)
 	const [phoneErrorTip, setPhoneErrorTip] = useState<string | undefined>('')
 	const [currencyOptions, setCurrencyOptions] = useState<
 		ISelectProps['options']
 	>([])
 
+	const countrySelectOptions = countryList.map(item => {
+		return {
+			value: item,
+			label: item,
+		}
+	})
 	const watchCurrencyId = watch('currencyId')
-
 	const currencySelectOptions = siteCurrencyList
 		.filter(currencyId => {
 			const affiliate = getValues('affiliate')
@@ -154,6 +170,34 @@ const Form = ({ cookies }: IJoinProps) => {
 				message: t('Label_Join_ConfirmPwdNotMatch') || '',
 			})
 		}
+	}
+
+	const checkEmail = async () => {
+		await trigger('email')
+		const { error } = getFieldState('email')
+		const formEmail = getValues('email')
+		if (error) return
+
+		// check email duplicate from api
+		try {
+			const { data: isExistsEmail } = await checkExistsEmail({
+				email: formEmail,
+			}).unwrap()
+			if (isExistsEmail && formEmail !== '') {
+				setError('email', {
+					type: 'duplicate',
+					message: `${t('Label_Profile_MailExisted')}`,
+				})
+			}
+		} catch (error) {
+			// error
+		}
+	}
+
+	const legalBirth = dayjs().subtract(18, 'year')
+	const handleBirthChange = ({ date }: { date: Date | null }) => {
+		setFormBirth(date)
+		setValue('birth', date)
 	}
 
 	const checkPhone = async () => {
@@ -342,12 +386,14 @@ const Form = ({ cookies }: IJoinProps) => {
 			username,
 			password,
 			realName,
+			email,
+			birth,
+			nationality,
 			currencyId: formCurrencyId,
 			areaCode,
 			phone,
 			affiliate,
 		} = getValues()
-
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
@@ -375,6 +421,11 @@ const Form = ({ cookies }: IJoinProps) => {
 				currencyId: formCurrencyId,
 				phoneNo: phone,
 				realName,
+				email,
+				Birth_d: birth ? dayjs(birth).format('DD') : 0,
+				Birth_m: birth ? dayjs(birth).format('MM') : 0,
+				Birth_y: birth ? dayjs(birth).format('YYYY') : 0,
+				nationality,
 				// reCaptchaToken,
 				referralUrl: document.referrer,
 				userLang,
@@ -477,6 +528,59 @@ const Form = ({ cookies }: IJoinProps) => {
 					touched={!!touchedFields['realName']}
 					infoMessage={t('Label_General_RemindForName') as string}
 				/>
+				<InputBox
+					register={register('email', {
+						pattern: {
+							value: EMAIL_REGEX,
+							message: t('Label_Join_MailWrongFormat') || '',
+						},
+						onBlur: checkEmail,
+					})}
+					icon='icon-member txt-blue'
+					placeholder={t('Label_General_Email') || ''}
+					loading={existsEmailLoading}
+					errorMessage={errors['email']?.message as string}
+					error={!!errors['email']}
+					touched={!!touchedFields['email']}
+					successMessage={t('Label_Join_CantChangeEmail') || ''}
+					infoMessage={t('Label_Join_EmailToolTip') || ''}
+				/>
+
+				<div className='inputBox-row'>
+					<div
+						className='inputBox-blue'
+						style={{ width: 'auto', cursor: 'pointer' }}
+					>
+						<DateSelector
+							{...register('birth')}
+							selected={formBirth}
+							onChange={date => handleBirthChange({ date })}
+							maxDate={dayjs(legalBirth).toDate()}
+							placeholderText='DD/MM/YYYY'
+							closeOnScroll
+							showDisabledMonthNavigation
+							showYearDropdown
+						/>
+						<div className='iconModule'>
+							<i className='icon icon-calendar' />
+						</div>
+						{/* <div className='tip active txt-red'>
+							{errors['birth']?.message as string}
+						</div> */}
+					</div>
+					<Select
+						showSearch
+						options={countrySelectOptions}
+						value={getValues('nationality')}
+						placeholder={t('Label_Join_Nationality') as string} // TODO: 請ＰＭ給完整i18n
+						prefixIcon={<i className='icon icon-sphere txt-blue' />}
+						onChange={value => {
+							setValue('nationality', value)
+						}}
+						errorMessage={errors['nationality']?.message as string}
+					/>
+				</div>
+
 				<Select
 					// * 如果 Aff Input 有相對應的幣別，則使用 currencyOptions（Aff 過濾的幣別選項）
 					options={
