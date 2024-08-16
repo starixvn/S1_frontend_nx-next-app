@@ -1,11 +1,20 @@
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
+import { CurrenciesEnum } from '@nx-next-app/types'
 
 const OfficialPartner = () => {
 	const { t } = useTranslation()
 	const {
-		userInfo: { langId },
+		userInfo: { currencyId, langId },
 	} = useAuth()
+
+	/** 當前是否為巴西 */
+	const isBRL = currencyId === CurrenciesEnum.BRL
+	const imgUrl = isBRL
+		? `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/joe-cole.png`
+		: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/aston-villa-${langId}.png`
+
+	const imgAlt = isBRL ? 'Joe Cole' : 'Aston Villa'
 
 	return (
 		<div>
@@ -14,10 +23,7 @@ const OfficialPartner = () => {
 			</div>
 			<div className='officialpartner'>
 				<a href='https://www.avfc.co.uk/' target='_blank' rel='noreferrer'>
-					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/aston-villa-${langId}.png`}
-						alt='Aston Villa'
-					/>
+					<img src={`${imgUrl}`} alt={`${imgAlt}`} />
 				</a>
 				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/sevilla-fc-${langId}.png`}

@@ -2948,6 +2948,9 @@ main .promosswiper .swiper-button-prev::after {
   top: 20px;
   right: 0;
 }
+.hotmatch.br::after {
+  background: url(https://banner.0814media.net/desktop/img/4.0/hotmatch-bg.png) no-repeat center/cover;
+}
 .hotmatch .hotmatch-top {
   font-size: 90px;
   font-weight: 700;
