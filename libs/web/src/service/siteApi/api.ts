@@ -11,6 +11,7 @@ import {
 	IGetVipBannerArgs,
 	IResetPwdByOTPArgs,
 	IResetPwdVerifyOTPArgs,
+	ICountryListData,
 } from './type'
 
 export const siteApiUrl = {
@@ -201,7 +202,7 @@ export const siteApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
-		getCountryList: builder.query<IAxiosResponse<string[]>, null>({
+		getCountryList: builder.query<IAxiosResponse<ICountryListData[]>, null>({
 			query: () => ({
 				url: siteApiUrl.getCountryList,
 				method: 'GET',
@@ -214,6 +215,7 @@ export const {
 	useGetProductTpIdsQuery,
 	useGetTpMaintainListQuery,
 	useLazyGetIpCountryQuery,
+	useGetIpCountryQuery,
 	useSetForgetPasswordMutation,
 	useLazyExistsUserNameQuery,
 	useLazyExistsEmailQuery,

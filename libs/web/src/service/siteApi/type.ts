@@ -153,3 +153,8 @@ export interface IResetPwdVerifyOTPArgs {
 	inputOTPcode: string
 	newPassword: string
 }
+
+export interface ICountryListData {
+	code: string
+	country: string
+}
