@@ -6,8 +6,8 @@ interface OptimoveSDK {
 		setPageVisit: (
 			pageUrl: string,
 			pageTitle: string,
-			category?: string,
-			sdkId?: string
+			category?: string | null,
+			sdkId?: string | null
 		) => void
 	}
 }
@@ -31,9 +31,17 @@ export const OptimovePageVisitEvent = (category?: string, custId?: string) => {
 		const path: string = window.location.pathname
 		const query: string = window.location.search
 
+		const payloadCategory = category ?? null
+		const payloadCustId = custId ?? null
+
 		// 他們要求要 full url
 		const pageUrl = `${protocol}//${host}${path}${query}`
-		const pageTitle: string = document.title
-		window.optimoveSDK.API.setPageVisit(pageUrl, pageTitle, category, custId)
+		const pageTitle: string = document.title ?? ''
+		window.optimoveSDK.API.setPageVisit(
+			pageUrl,
+			pageTitle,
+			payloadCategory,
+			payloadCustId
+		)
 	}
 }

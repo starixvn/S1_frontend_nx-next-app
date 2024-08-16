@@ -18,7 +18,7 @@ const useOptimovePageEvent = (
 			}
 			OptimovePageVisitEvent(category, custId)
 		}
-	}, [isMounted])
+	}, [isMounted, isLogin])
 }
 
 export { useOptimovePageEvent }
