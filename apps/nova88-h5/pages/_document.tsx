@@ -99,13 +99,10 @@ class MyDocument extends Document<CustomDocumentProps> {
 									src='https://www.facebook.com/tr?id=499913589025927&ev=PageView&noscript=1'
 								/>
 							</noscript>
-						</>
-					)}
-
-					{/* Facebook Pixel - 存／提款成功事件 */}
-					<script
-						dangerouslySetInnerHTML={{
-							__html: `
+							{/* Facebook Pixel - 存／提款成功事件 */}
+							<script
+								dangerouslySetInnerHTML={{
+									__html: `
                 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
                 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
                 n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
@@ -113,17 +110,24 @@ class MyDocument extends Document<CustomDocumentProps> {
                 document,'script','https://connect.facebook.net/en_US/fbevents.js');
                 fbq('init', '1037896624403579'); fbq('track', 'PageView');
                 `,
-						}}
-					/>
+								}}
+							/>
 
-					<noscript>
-						<img
-							height='1'
-							width='1'
-							style={{ display: 'none' }}
-							src='https://www.facebook.com/tr?id=1037896624403579&ev=PageView&noscript=1'
-						/>
-					</noscript>
+							<noscript>
+								<img
+									height='1'
+									width='1'
+									style={{ display: 'none' }}
+									src='https://www.facebook.com/tr?id=1037896624403579&ev=PageView&noscript=1'
+								/>
+							</noscript>
+							{/* CRM System , Optimove */}
+							<script
+								async
+								src='https://sdk.optimove.net/websdk/?tenant_id=1431&tenant_token=792f0d9fbcc040c5880a3080c206515e'
+							/>
+						</>
+					)}
 				</Head>
 				<body>
 					{process.env['NEXT_PUBLIC_ENV'] === 'PRD' && (
