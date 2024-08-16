@@ -37,7 +37,8 @@ const HeaderModule = ({
 	...props
 }: IHeaderModuleProps) => {
 	const { t } = useTranslation()
-	const [isInOlympicPeriod, setIsInOlympicPeriod] = useState(false)
+
+	// 判斷是否要秀贊助商 LOGO，之後如果有其他的贊助商，可以使用日期判斷是否要更新此 state 狀態
 	const [showSpLogo, setShowSpLogo] = useState(true)
 
 	const {
@@ -67,41 +68,23 @@ const HeaderModule = ({
 		setIsHideBalanceValue(originIsHideBalance)
 	}, [originIsHideBalance])
 
-	useEffect(() => {
-		// 如果不在奧運期間又還沒有新的spLogo，就先設成false去顯示沒有右邊分隔線的圖
-		if (!isEventPeriod(EVENT_PERIOD.OLYMPIC)) {
-			setShowSpLogo(false)
-		}
-		setIsInOlympicPeriod(isEventPeriod(EVENT_PERIOD.OLYMPIC))
-	}, [])
-
 	return (
 		<div className={classNames('header-module', className)} {...props}>
 			{/* 用 a link 讓畫面重新整理 */}
 			<Link href={paths.home.root}>
-				{/* 奧運期間使用奧運LOGO */}
-				{isInOlympicPeriod ? (
-					<a className='header-logo olympic'>
-						<img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/event/olympic/logo-nova88.webp`}
-							alt='olympic logo'
-						/>
-					</a>
-				) : (
-					<a className='header-logo'>
-						<img
-							src={
-								showSpLogo
-									? `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w.png`
-									: noSpLogoUrl
-							}
-							alt='logo'
-						/>
-					</a>
-				)}
+				<a className='header-logo'>
+					<img
+						src={
+							showSpLogo
+								? `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w.png`
+								: noSpLogoUrl
+						}
+						alt='logo'
+					/>
+				</a>
 			</Link>
 
-			{showSpLogo && isInOlympicPeriod && <a className='splogo' />}
+			{showSpLogo && <a className='splogo' />}
 
 			{/* 登入前 */}
 			{!auth.isLogin && (
