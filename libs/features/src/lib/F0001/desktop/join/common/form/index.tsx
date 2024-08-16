@@ -31,6 +31,7 @@ import {
 	useLazyGetAffiliateAgentQuery,
 	useLazyExistsEmailQuery,
 	useGetCountryListQuery,
+	useGetIpCountryQuery,
 } from '@nx-next-app/service'
 import { includes } from 'lodash-es'
 import {
@@ -82,11 +83,23 @@ const Form = ({ cookies }: IJoinProps) => {
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
+	const [initNationality, setInitNationality] = useState<
+		string | number | undefined
+	>('')
 
 	const { data: { data: siteCurrencyList = [] } = {} } =
 		useGetSiteCurrencyListQuery()
 
 	const { data: { data: countryList = [] } = {} } = useGetCountryListQuery(null)
+
+	const { data: { data: { code = '' } = {} } = {} } = useGetIpCountryQuery(null)
+
+	// const [getIpCountry] = useLazyGetIpCountryQuery()
+	// const getIp = async () => {
+	// 	const data = await getIpCountry(null).unwrap()
+	// 	console.log('data :>> ', data)
+	// }
+	// console.log('getIp() :>> ', getIp())
 
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
@@ -107,10 +120,11 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const countrySelectOptions = countryList.map(item => {
 		return {
-			value: item,
-			label: item,
+			value: item.country,
+			label: item.country,
 		}
 	})
+
 	const watchCurrencyId = watch('currencyId')
 	const currencySelectOptions = siteCurrencyList
 		.filter(currencyId => {
@@ -447,6 +461,13 @@ const Form = ({ cookies }: IJoinProps) => {
 		}
 	}
 
+	// 根據使用者所在IP，一進畫面先預設該國籍，他要改再改
+	useEffect(() => {
+		const initCountry = countryList.find(item => item.code === code)
+		setInitNationality(initCountry?.country)
+		setValue('nationality', initCountry?.country)
+	}, [code])
+
 	useEffect(() => {
 		checkUrlAffiliate()
 	}, [])
@@ -571,6 +592,7 @@ const Form = ({ cookies }: IJoinProps) => {
 					<Select
 						showSearch
 						options={countrySelectOptions}
+						defaultValue={initNationality}
 						value={getValues('nationality')}
 						placeholder={t('Label_Join_Nationality') as string} // TODO: 請ＰＭ給完整i18n
 						prefixIcon={<i className='icon icon-sphere txt-blue' />}

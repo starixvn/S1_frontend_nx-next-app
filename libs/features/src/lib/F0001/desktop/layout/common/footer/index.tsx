@@ -62,7 +62,6 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 			return { data: seoData, isSuccess }
 		},
 	})
-
 	return (
 		<Footer>
 			<div className='footer-top'>
