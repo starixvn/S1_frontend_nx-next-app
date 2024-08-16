@@ -13,12 +13,10 @@ import {
 	AREA_CODE_BY_CURRENCY,
 	EMAIL_REGEX,
 } from '@nx-next-app/constants'
-import {
-	useGetCountryListQuery,
-	useLazyExistsEmailQuery,
-} from '@nx-next-app/service'
+import { useLazyExistsEmailQuery } from '@nx-next-app/service'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
+import { useJoin } from '@nx-next-app/features/F0001/hooks'
 
 dayjs.extend(customParseFormat)
 
@@ -29,6 +27,7 @@ interface IStep2Props {
 
 const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 	const { t } = useTranslation()
+	const { initNationality, countrySelectOptions } = useJoin()
 
 	const legalBirthYear = dayjs().subtract(18, 'year').year()
 
@@ -49,7 +48,6 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 
 	const [checkExistsEmail, { isFetching: existsEmailLoading }] =
 		useLazyExistsEmailQuery()
-	const { data: { data: countryList = [] } = {} } = useGetCountryListQuery(null)
 
 	const checkPhone = async () => {
 		await trigger('phone')
@@ -144,14 +142,6 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 		dayOptions.push({ label: d, value: d })
 	}
 
-	// Nationality
-	const countrySelectOptions = countryList.map(item => {
-		return {
-			value: item,
-			label: item,
-		}
-	})
-
 	return (
 		<>
 			<Select
@@ -231,6 +221,7 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 			<Select
 				showSearch
 				options={countrySelectOptions}
+				defaultValue={initNationality}
 				value={getValues('nationality')}
 				placeholder={t('Label_Join_Nationality') as string} // TODO: 請ＰＭ給完整i18n
 				prefixIcon={<i className='icon icon-sphere txt-blue' />}

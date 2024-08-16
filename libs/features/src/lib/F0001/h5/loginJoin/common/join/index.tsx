@@ -28,6 +28,7 @@ import {
 	OperaPixelTracker,
 	MetaPixelTracker,
 } from '@nx-next-app/utils'
+import { useJoin } from '@nx-next-app/features/F0001/hooks'
 import { Step1, Step2, Step3, StepBar, Features, LineRegister } from './form'
 
 interface IJoinProps {
@@ -45,6 +46,7 @@ const Join = ({ cookies }: IJoinProps) => {
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
+	const { initNationality } = useJoin()
 
 	const [step, setStep] = useState<number>(1)
 	const [currencyOptions, setCurrencyOptions] = useState<
@@ -254,7 +256,7 @@ const Join = ({ cookies }: IJoinProps) => {
 				Birth_d: formBirthDay ?? 0,
 				Birth_m: formBirthMonth ?? 0,
 				Birth_y: formBirthYear ?? 0,
-				nationality,
+				nationality: nationality ?? initNationality,
 				// reCaptchaToken,
 				referralUrl: document.referrer,
 				userLang,
