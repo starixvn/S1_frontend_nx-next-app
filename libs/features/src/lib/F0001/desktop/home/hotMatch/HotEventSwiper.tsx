@@ -43,8 +43,8 @@ const Item = ({ data }: { data: IHotEventData }) => {
 
 	return (
 		<div className='swiper-slide'>
-			<div className='hotmatch-item'>
-				<div className='hotmatch-item-title'>
+			<div className='hotmatch-item '>
+				<div className='hotmatch-item-title '>
 					<p>{sportLeaguesTitle}</p>
 					<div>
 						{date}
