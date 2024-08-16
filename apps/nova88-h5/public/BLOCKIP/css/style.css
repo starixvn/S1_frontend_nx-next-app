@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/
+/* http://meyerweb.com/eric/tools/css/reset/ 
 v2.0 | 20110126
 License: none (public domain)
 */
@@ -73,31 +73,42 @@ html, body {
 
 body {
   position: relative;
+  background: #112240;
 }
 body::before {
   content: "";
   display: block;
   position: absolute;
-  left: 0;
-  bottom: 0;
-  background: url(../img/bg.png) #fff no-repeat bottom left/contain;
-  width: 100%;
-  height: 100%;
+  left: -55px;
+  bottom: 265px;
+  background: url(../img/bg-new.png) no-repeat center/100%;
+  height: 600px;
+  width: 1000px;
   z-index: -1;
+}
+@media (max-width: 1023px) {
+  body::before {
+    bottom: 10px;
+    width: 1030px;
+  }
+}
+@media (max-width: 550px) {
+  body::before {
+    bottom: -65px;
+    width: 560px;
+  }
 }
 
 .logo {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  min-width: 170px;
+  width: 175px;
   margin: 0 auto;
 }
 
 .character {
-  width: 92%;
-  margin-left: -30px;
-  margin-bottom: -20px;
+  margin-top: -60px;
 }
 @media (max-width: 1023px) {
   .character {
@@ -164,14 +175,14 @@ body::before {
   }
 }
 .content-left .title {
-  color: #B8B8B8;
+  color: #ebebeb;
   font-weight: 800;
   text-align: center;
   font-size: 80px;
   font-weight: 900;
   line-height: 1.2;
   width: 500px;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 @media (max-width: 1980px) {
   .content-left .title {
@@ -189,7 +200,7 @@ body::before {
 @media (max-width: 550px) {
   .content-left .title {
     font-size: 12vw;
-    margin-bottom: 4vw;
+    margin: 6vw 0 6vw;
   }
 }
 .content-right {
@@ -207,9 +218,9 @@ body::before {
 .content-right::after {
   content: "";
   display: none;
-  width: 90vw;
-  height: 84vw;
-  background: url(../img/character.png) center/cover;
+  width: 94vw;
+  height: 90vw;
+  background: url(../img/character-new.png) center/cover;
 }
 @media (max-width: 1023px) {
   .content-right::after {
@@ -236,7 +247,7 @@ body::before {
 }
 
 .content-item {
-  background: #E6E6E6;
+  background: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -390,6 +401,9 @@ body::before {
 }
 .flag.kh::before {
   background: url(https://banner.0814media.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
+}
+.flag.br::before {
+  background: url(https://banner.0814media.net/desktop/img/flag/br.jpg) no-repeat top left/cover;
 }
 .flag.ko::before {
   background: url(https://banner.0814media.net/desktop/img/flag/ko.jpg) no-repeat top left/cover;
