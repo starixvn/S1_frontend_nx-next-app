@@ -13,10 +13,15 @@ const OfficialPartner = () => {
 				{t('Label_Home_OurOfficialPartnerOf')}
 			</div>
 			<div className='officialpartner'>
-				{/* // * 第三張圖確認只有 en，上面兩張有做多語系 */}
+				<a href='https://www.avfc.co.uk/' target='_blank' rel='noreferrer'>
+					<img
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/aston-villa-${langId}.png`}
+						alt='Aston Villa'
+					/>
+				</a>
 				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/sevilla-fc-${langId}.png`}
-					alt='img-sevilla-fc'
+					alt='Sevilla FC'
 				/>
 				<a
 					href='https://www.inter.it/en/news/inter-nova88-official-regional-partner-asia'
@@ -25,14 +30,9 @@ const OfficialPartner = () => {
 				>
 					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/inter-milan-${langId}.png`}
-						alt='img-inter-milan'
+						alt='Inter Milan'
 					/>
 				</a>
-
-				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/joe-cole.png`}
-					alt='img-joe-cole'
-				/>
 			</div>
 		</div>
 	)
