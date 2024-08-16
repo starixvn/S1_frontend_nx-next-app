@@ -30,8 +30,6 @@ import {
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
 	useLazyExistsEmailQuery,
-	useGetCountryListQuery,
-	useGetIpCountryQuery,
 } from '@nx-next-app/service'
 import { includes } from 'lodash-es'
 import {
@@ -41,6 +39,7 @@ import {
 } from '@nx-next-app/utils'
 import DateSelector from '@nx-next-app/components/D0001/dateSelector'
 import dayjs from 'dayjs'
+import { useJoin } from '@nx-next-app/features/F0001/hooks'
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
 
@@ -63,6 +62,7 @@ const Form = ({ cookies }: IJoinProps) => {
 	const lineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
 
 	const { ALLOWED_CURRENCIES } = useStaticData()
+	const { initNationality, countrySelectOptions } = useJoin()
 
 	const {
 		formState,
@@ -83,23 +83,9 @@ const Form = ({ cookies }: IJoinProps) => {
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
-	const [initNationality, setInitNationality] = useState<
-		string | number | undefined
-	>('')
 
 	const { data: { data: siteCurrencyList = [] } = {} } =
 		useGetSiteCurrencyListQuery()
-
-	const { data: { data: countryList = [] } = {} } = useGetCountryListQuery(null)
-
-	const { data: { data: { code = '' } = {} } = {} } = useGetIpCountryQuery(null)
-
-	// const [getIpCountry] = useLazyGetIpCountryQuery()
-	// const getIp = async () => {
-	// 	const data = await getIpCountry(null).unwrap()
-	// 	console.log('data :>> ', data)
-	// }
-	// console.log('getIp() :>> ', getIp())
 
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
@@ -117,13 +103,6 @@ const Form = ({ cookies }: IJoinProps) => {
 	const [currencyOptions, setCurrencyOptions] = useState<
 		ISelectProps['options']
 	>([])
-
-	const countrySelectOptions = countryList.map(item => {
-		return {
-			value: item.country,
-			label: item.country,
-		}
-	})
 
 	const watchCurrencyId = watch('currencyId')
 	const currencySelectOptions = siteCurrencyList
@@ -410,7 +389,6 @@ const Form = ({ cookies }: IJoinProps) => {
 		} = getValues()
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
-
 		// currency & recaptcha & affiliate cannot use form required check
 		if (!currencyCheck || !affCodeCheck) return
 
@@ -439,7 +417,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				Birth_d: birth ? dayjs(birth).format('DD') : 0,
 				Birth_m: birth ? dayjs(birth).format('MM') : 0,
 				Birth_y: birth ? dayjs(birth).format('YYYY') : 0,
-				nationality,
+				nationality: nationality ?? initNationality,
 				// reCaptchaToken,
 				referralUrl: document.referrer,
 				userLang,
@@ -460,13 +438,6 @@ const Form = ({ cookies }: IJoinProps) => {
 			modal.error((error as Error).message)
 		}
 	}
-
-	// 根據使用者所在IP，一進畫面先預設該國籍，他要改再改
-	useEffect(() => {
-		const initCountry = countryList.find(item => item.code === code)
-		setInitNationality(initCountry?.country)
-		setValue('nationality', initCountry?.country)
-	}, [code])
 
 	useEffect(() => {
 		checkUrlAffiliate()
