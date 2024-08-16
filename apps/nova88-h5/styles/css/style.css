@@ -3395,7 +3395,7 @@ main .gameList .icon-new {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: unset;
+  background: unset !important;
 }
 #popup.livesportspop .livesports > div {
   -webkit-box-sizing: border-box;
@@ -15393,8 +15393,6 @@ main.casino .banner {
   padding: 0 2vw;
   margin-top: 2vw;
   background: none;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 .home-gamelist > div {
   display: -webkit-box;
@@ -15420,6 +15418,7 @@ main.casino .banner {
 .home-gamelist > div .gamelist-item .gamelist-img {
   color: #000;
   text-align: center;
+  font-weight: 500;
 }
 .home-gamelist > div .gamelist-item .gamelist-img img {
   width: 100%;
@@ -15478,7 +15477,6 @@ main.casino .banner {
           filter: drop-shadow(0 0 5px black);
   z-index: 2;
   top: 10vw;
-  font-size: 2.5vw;
 }
 .under img {
   -webkit-filter: grayscale(1) !important;
@@ -15513,7 +15511,7 @@ main.casino .banner {
 }
 .home-hotmatch-wrapper .top {
   z-index: 1;
-  padding: 10vw 0 0 5vw;
+  padding: 15vw 0 0 5vw;
 }
 .home-hotmatch-wrapper .top div {
   font-weight: 700;
@@ -16673,12 +16671,6 @@ main.casino .banner {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-.after .menu-top .profile-item .message-popup > div {
-  width: 25vw;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 .after .menu-top .profile-item .message-popup::before {
   position: absolute;
@@ -18246,6 +18238,19 @@ input[type=number] .btn-logout {
   border-radius: 0 0 5vw 5vw;
 }
 
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+input[type=number] .btn-logout {
+  background: white;
+  border-radius: 30px;
+  width: 80vw;
+  padding: 3vw 0;
+  color: #D1D1D1;
+  margin: 5vw 0 0;
+}
+
 .euro {
   background: #143CDB;
 }
@@ -19653,6 +19658,55 @@ input[type=number] .btn-logout {
   padding-bottom: 11vw;
 }
 
+.exclusion-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.exclusion-text > div {
+  color: #0a1b38;
+  font-size: 3.5vw;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+.exclusion-text a, .exclusion-text button {
+  margin-bottom: 3vw;
+  background: #D9BB9B;
+  font-size: 4vw;
+  font-weight: 700;
+  padding: 2vw 1vw;
+  border-radius: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 50vw;
+  color: #0a1b38;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.exclusion-text a img, .exclusion-text button img {
+  width: 5vw;
+  margin-right: 2vw;
+  margin-top: 0.75vw;
+}
+
 .retention {
   background: #0f1f3b url(https://banner.0814media.net/h5/img/event/retention/top-bg.jpg) no-repeat top/contain;
   position: relative;
@@ -20038,55 +20092,6 @@ input[type=number] .btn-logout {
   height: 1vw;
   width: 35vw;
   bottom: -3vw;
-}
-
-.exclusion-text {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.exclusion-text > div {
-  color: #0a1b38;
-  font-size: 3.5vw;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-align: center;
-}
-.exclusion-text a, .exclusion-text button {
-  margin-bottom: 3vw;
-  background: #D9BB9B;
-  font-size: 4vw;
-  font-weight: 700;
-  padding: 2vw 1vw;
-  border-radius: 50px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 50vw;
-  color: #0a1b38;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.exclusion-text a img, .exclusion-text button img {
-  width: 5vw;
-  margin-right: 2vw;
-  margin-top: 0.75vw;
 }
 
 .retention-wrapper .bonus-list p strong span {
@@ -20570,191 +20575,4 @@ input[type=number] .btn-logout {
 .olympic-footer > div img {
   width: 25vw;
   padding: 6vw 0;
-}
-
-.survey {
-  background: #F8F8F8;
-  color: #9C9C9C;
-  padding: 19vw 4vw;
-}
-.survey-before {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 8vw;
-  padding: 0 6vw;
-}
-.survey-before > div:first-child {
-  color: #0A1B38;
-  font-size: 4vw;
-  font-weight: 600;
-}
-.survey-before > div:nth-child(2) {
-  text-align: center;
-  margin-top: 5vw;
-  line-height: 5.5vw;
-}
-.survey-before fieldset {
-  border: medium none;
-  min-width: 100%;
-  padding: 0;
-  width: 100%;
-}
-.survey-before fieldset input {
-  width: 75vw;
-  border: 1px solid #ccc;
-  background: #FFF;
-  padding: 3vw;
-  color: #0A1B38;
-  border-radius: 2vw;
-}
-.survey-before fieldset input::-webkit-input-placeholder {
-  font-size: 3vw;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset input::-moz-placeholder {
-  font-size: 3vw;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset input:-ms-input-placeholder {
-  font-size: 3vw;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset input::-ms-input-placeholder {
-  font-size: 3vw;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset input::placeholder {
-  font-size: 3vw;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset input:focus {
-  outline: 0;
-  border: 2px solid #648DD6;
-}
-.survey-before fieldset textarea {
-  width: 75vw;
-  border: 1px solid #e5e5e5;
-  background: #FFF;
-  padding: 3vw;
-  height: 50vw;
-  max-width: 100%;
-  resize: none;
-  border-radius: 2vw;
-}
-.survey-before fieldset textarea::-webkit-input-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset textarea::-moz-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset textarea:-ms-input-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset textarea::-ms-input-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset textarea::placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset textarea:focus {
-  outline: 0;
-  border: 2px solid #648DD6;
-}
-.survey-before fieldset button {
-  background: #648DD6;
-  font-size: 3.5vw;
-  font-weight: 600;
-  border-radius: 2vw;
-  padding: 3vw 10vw;
-  width: 39.5vw;
-  margin-top: 8vw;
-  color: white;
-}
-.survey-before fieldset button:last-child {
-  background: #DFDFDF;
-  color: #9B9B9B;
-}
-.survey-before fieldset .tip {
-  display: none;
-  margin-top: 2vw;
-}
-.survey-before fieldset .tip.active {
-  display: block;
-  color: red;
-}
-.survey-before fieldset .tip.message {
-  margin-top: 1vw;
-}
-.survey-before fieldset.error textarea {
-  border: 2px solid red;
-}
-.survey-before fieldset.error input {
-  border: 2px solid red;
-}
-.survey-before fieldset:first-child {
-  margin-bottom: 5vw;
-}
-.survey-before .survey-input {
-  margin-top: 3vw;
-}
-.survey-before .survey-btn {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.survey-before.close {
-  display: none;
-}
-.survey-after {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.survey-after img {
-  width: 45vw;
-  margin-top: 15vw;
-}
-.survey-after > div:first-child > div {
-  color: #0A1B38;
-  font-size: 4vw;
-  font-weight: 600;
-  text-align: center;
-  margin-top: 8vw;
-}
-.survey-after > div:last-child {
-  text-align: center;
-  padding: 7vw 5vw 0;
-  line-height: 5.5vw;
-}
-.survey-after.close {
-  display: none;
 }/*# sourceMappingURL=style.css.map */
