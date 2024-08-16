@@ -1,8 +1,10 @@
 import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
+import classNames from 'classnames'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { MenuActionTypeEnum } from '@nx-next-app/types'
+import { MenuActionTypeEnum, CurrenciesEnum } from '@nx-next-app/types'
+import { useAuth } from '@nx-next-app/data-access'
 import { PRODUCTS, paths } from '@nx-next-app/constants'
 import { HotEventSwiper } from './HotEventSwiper'
 
@@ -27,6 +29,13 @@ const HotMatch = () => {
 	const { onStaticMenuOpen } = useMenu()
 	const { modal } = useGlobalModal()
 
+	const {
+		userInfo: { currencyId },
+	} = useAuth()
+
+	/** 當前是否為巴西 */
+	const isBRL = currencyId === CurrenciesEnum.BRL
+
 	// * 靜態遊戲
 	const soccerItem = {
 		...PRODUCTS.Soccer,
@@ -50,9 +59,13 @@ const HotMatch = () => {
 	}
 
 	return (
-		<div className='hotmatch'>
-			<div className='hotmatch-wrapper'>
-				<div className='hotmatch-top'>
+		<div
+			className={classNames('hotmatch', {
+				br: isBRL,
+			})}
+		>
+			<div className='hotmatch-wrapper '>
+				<div className='hotmatch-top '>
 					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/hotmatch-logo.png`}
 						alt='logo'
