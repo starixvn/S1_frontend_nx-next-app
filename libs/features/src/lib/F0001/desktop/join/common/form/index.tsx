@@ -169,7 +169,7 @@ const Form = ({ cookies }: IJoinProps) => {
 		await trigger('email')
 		const { error } = getFieldState('email')
 		const formEmail = getValues('email')
-		if (error) return
+		if (error || !formEmail) return // email格式錯誤或是根本沒輸入值就不call api以節省效能
 		// check email duplicate from api
 		try {
 			const { data: isExistsEmail } = await checkExistsEmail({
