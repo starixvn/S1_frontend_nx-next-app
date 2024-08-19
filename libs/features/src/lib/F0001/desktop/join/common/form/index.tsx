@@ -170,7 +170,6 @@ const Form = ({ cookies }: IJoinProps) => {
 		const { error } = getFieldState('email')
 		const formEmail = getValues('email')
 		if (error) return
-
 		// check email duplicate from api
 		try {
 			const { data: isExistsEmail } = await checkExistsEmail({
@@ -528,12 +527,12 @@ const Form = ({ cookies }: IJoinProps) => {
 						},
 						onBlur: checkEmail,
 					})}
-					icon='icon-member txt-blue'
+					icon='icon-email txt-blue'
 					placeholder={t('Label_General_Email') || ''}
 					loading={existsEmailLoading}
 					errorMessage={errors['email']?.message as string}
 					error={!!errors['email']}
-					touched={!!touchedFields['email']}
+					touched={getValues('email') && !!touchedFields['email']}
 					successMessage={t('Label_Join_CantChangeEmail') || ''}
 					infoMessage={t('Label_Join_EmailToolTip') || ''}
 				/>
@@ -553,7 +552,7 @@ const Form = ({ cookies }: IJoinProps) => {
 							showDisabledMonthNavigation
 							showYearDropdown
 						/>
-						<div className='iconModule'>
+						<div className='iconModule' style={{ cursor: 'default' }}>
 							<i className='icon icon-calendar' />
 						</div>
 						{/* <div className='tip active txt-red'>
