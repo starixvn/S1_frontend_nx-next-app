@@ -24,19 +24,20 @@ const Logo = ({ logoUrl, rewardsUrl }: ILogoProps) => {
 	/** 當前是否為巴西 */
 	const isBRL = currencyId === CurrenciesEnum.BRL
 
+	// 僅有巴西沒有贊助球隊，所以秀 nova 原始 Logo
 	useEffect(() => {
 		if (isBRL) setShowSpLogo(false)
 	}, [currencyId])
 
 	return (
 		<div className={classNames('logo')}>
-			{/* 奧運期間使用奧運LOGO */}
 			<Link href={paths.home.root} style={{ cursor: 'pointer' }}>
 				<a>
 					<img src={showSpLogo ? logoUrl : noSpLogoUrl} alt='logo' />
 				</a>
 			</Link>
 
+			{/* 僅有巴西沒有 Aston Villa 贊助球隊 */}
 			{showSpLogo && <a className='splogo' />}
 
 			{process.env['NEXT_PUBLIC_SHOW_REWARD'] === 'true' && (

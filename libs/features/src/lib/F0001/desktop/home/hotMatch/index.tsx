@@ -59,6 +59,7 @@ const HotMatch = () => {
 	}
 
 	return (
+		// 巴西有加 br className，因為僅有巴西要去除 Aston Villa 贊助球隊
 		<div
 			className={classNames('hotmatch', {
 				br: isBRL,
