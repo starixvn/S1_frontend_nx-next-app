@@ -20,10 +20,15 @@ const PartnerBlock = () => {
 				{t('Label_Home_OurOfficialPartnerOf')}
 			</div>
 
+			{/* 僅有巴西沒有 Aston Villa 贊助球隊 */}
 			{!isBRL ? (
 				<div className='home-partner sponsor'>
 					<div className='home-partner-content'>
-						<a href='https://www.avfc.co.uk/' target='_blank' rel='noreferrer'>
+						<a
+							href='https://www.avfc.co.uk/news/2024/august/16/aston-villa-confirm-nova88-as-official-asian-betting-partner/'
+							target='_blank'
+							rel='noreferrer'
+						>
 							<img
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/sp-aston-villa.png`}
 								alt='Aston Villa'

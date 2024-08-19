@@ -67,6 +67,7 @@ const HeaderModule = ({
 		}
 	}, [debouncedIsHideBalance, auth.isLogin])
 
+	// 僅有巴西沒有贊助球隊，所以秀 nova 原始 Logo
 	useEffect(() => {
 		if (isBRL) setShowSpLogo(false)
 	}, [currencyId])
@@ -78,7 +79,7 @@ const HeaderModule = ({
 
 	return (
 		<div className={classNames('header-module', className)} {...props}>
-			{/* 用 a link 讓畫面重新整理 */}
+			{/* 用 a link 讓畫面重新整理，僅有巴西沒有贊助球隊，所以秀 nova 原始 Logo */}
 			<Link href={paths.home.root}>
 				<a className='header-logo'>
 					<img
