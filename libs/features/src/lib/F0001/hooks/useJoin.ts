@@ -6,9 +6,7 @@ import {
 import { useEffect, useState } from 'react'
 
 const useJoin = () => {
-	const [initNationality, setInitNationality] = useState<
-		string | number | undefined
-	>('')
+	const [initNationality, setInitNationality] = useState<string | undefined>('')
 	const { data: { data: countryList = [] } = {} } = useGetCountryListQuery(null)
 
 	const { data: { data: { code = '' } = {} } = {} } = useGetIpCountryQuery(null)

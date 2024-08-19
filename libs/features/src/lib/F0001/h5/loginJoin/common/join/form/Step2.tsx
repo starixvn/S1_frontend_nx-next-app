@@ -46,9 +46,7 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 	const { errors, touchedFields } = formState
 	const watchCurrencyId = watch('currencyId')
 
-	const [checkExistsEmail, { isFetching: existsEmailLoading }] =
-		useLazyExistsEmailQuery()
-
+	const [checkExistsEmail] = useLazyExistsEmailQuery()
 	const checkPhone = async () => {
 		await trigger('phone')
 		const { error } = getFieldState('phone')
@@ -136,7 +134,7 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 	const dayOptions = []
 	const dayByMonth = dayjs()
 		.year(getValues('formBirthYear') ?? legalBirthYear)
-		.month(getValues('formBirthMonth') - 1 ?? 1) // month start from 0 (January)
+		.month(getValues('formBirthMonth') - 1) // month start from 0 (January)
 		.daysInMonth()
 	for (let d = 1; d <= dayByMonth; d += 1) {
 		dayOptions.push({ label: d, value: d })
@@ -192,7 +190,6 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 				})}
 				icon='icon-member txt-blue'
 				placeholder={t('Label_General_Email') || ''}
-				loading={existsEmailLoading}
 				errorMessage={errors['email']?.message as string}
 				error={!!errors['email']}
 				touched={!!touchedFields['email']}
@@ -202,17 +199,21 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 			<div className='infoModule parts'>
 				<Select
 					options={monthOptions}
+					placeholder='MM'
+					defaultValue={0}
 					prefixIcon={<i className='icon icon-cake' />}
 					onChange={m => setValue('formBirthMonth', m as number)}
 					value={getValues('formBirthMonth')}
 				/>
 				<Select
 					options={dayOptions}
+					placeholder='DD'
 					onChange={d => setValue('formBirthDay', d as number)}
 					value={getValues('formBirthDay')}
 				/>
 				<Select
 					options={yearOptions}
+					placeholder='YYYY'
 					onChange={y => setValue('formBirthYear', y as number)}
 					value={getValues('formBirthYear')}
 				/>
