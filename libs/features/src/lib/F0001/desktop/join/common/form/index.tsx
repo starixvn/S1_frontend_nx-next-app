@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import ReCAPTCHA from 'react-google-recaptcha'
 import { isNumber } from 'lodash'
 import { useForm } from 'react-hook-form'
 import { useState, useEffect } from 'react'
@@ -18,6 +19,7 @@ import {
 	PHONE_LENGTH_REGEX,
 	CURRENCY_TO_LANG_KEY,
 	AREA_CODE_BY_CURRENCY,
+	RECAPTCHAT_LANG_BY_LANG_ID,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
 } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -28,6 +30,7 @@ import {
 	useLazyExistsUserNameQuery,
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
+	useGetRecaptchaInfoQuery,
 } from '@nx-next-app/service'
 import { includes } from 'lodash-es'
 import {
@@ -83,6 +86,7 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
+	const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery()
 
 	const [checkExistsUsername, { isFetching: existsUsernameLoading }] =
 		useLazyExistsUserNameQuery()
@@ -346,13 +350,20 @@ const Form = ({ cookies }: IJoinProps) => {
 			areaCode,
 			phone,
 			affiliate,
+			reCaptchaToken,
 		} = getValues()
 
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
 		// currency & recaptcha & affiliate cannot use form required check
-		if (!currencyCheck || !affCodeCheck) return
+		if (
+			// * 中國地區不支援 recaptcha，只檢查非中國地區的 reCaptchaToken
+			(!reCaptchaToken && recaptchaInfo?.country !== 'CN') ||
+			!currencyCheck ||
+			!affCodeCheck
+		)
+			return
 
 		const affId = affiliate && urlAffId ? affiliate : null
 		const affCode = !urlAffId && affCodeCheck ? affiliate : null
@@ -375,7 +386,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				currencyId: formCurrencyId,
 				phoneNo: phone,
 				realName,
-				// reCaptchaToken,
+				reCaptchaToken,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,
@@ -545,6 +556,17 @@ const Form = ({ cookies }: IJoinProps) => {
 					/>
 				)}
 			</div>
+			{recaptchaInfo?.siteKey && recaptchaInfo.country !== 'CN' && (
+				<div className='g-recaptcha'>
+					<ReCAPTCHA
+						sitekey={recaptchaInfo.siteKey}
+						onChange={token => {
+							setValue('reCaptchaToken', token)
+						}}
+						hl={RECAPTCHAT_LANG_BY_LANG_ID[langId]}
+					/>
+				</div>
+			)}
 			<div className='Terms'>
 				{t('Label_Join_SignUpTerms1')}
 				<a

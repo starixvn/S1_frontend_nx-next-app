@@ -22,6 +22,7 @@ import {
 	useLazyAffiliateCheckQuery,
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
+	useGetRecaptchaInfoQuery,
 } from '@nx-next-app/service'
 import {
 	getQueryParam,
@@ -68,6 +69,7 @@ const Join = ({ cookies }: IJoinProps) => {
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 	const [signUp] = useSignupMutation()
+	const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery()
 
 	const currencySelectOptions = siteCurrencyList
 		.filter(currencyId => {
@@ -211,6 +213,7 @@ const Join = ({ cookies }: IJoinProps) => {
 			areaCode,
 			phone,
 			affiliate,
+			reCaptchaToken,
 		} = getValues()
 
 		const currencyCheck = checkCurrency()
@@ -218,8 +221,8 @@ const Join = ({ cookies }: IJoinProps) => {
 
 		// currency & recaptcha & affiliate cannot use form required check
 		if (
-			// !reCaptchaToken ||
-			// recaptchaInfo?.country === 'CN' ||
+			!reCaptchaToken ||
+			recaptchaInfo?.country === 'CN' ||
 			!currencyCheck ||
 			!affCodeCheck
 		)
@@ -245,7 +248,7 @@ const Join = ({ cookies }: IJoinProps) => {
 				currencyId: formCurrencyId,
 				phoneNo: phone,
 				realName,
-				// reCaptchaToken,
+				reCaptchaToken,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,
