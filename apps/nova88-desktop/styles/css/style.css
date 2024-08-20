@@ -13579,7 +13579,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   border: 1px solid #BFCCE2;
   border-top: 0;
   margin-left: 0;
-  overflow: hidden;
+  overflow: auto;
+  height: 90px;
   z-index: 3;
 }
 .subModuleListColumn > .subModule .dropdown .dropdown-container .dropdown-item {
