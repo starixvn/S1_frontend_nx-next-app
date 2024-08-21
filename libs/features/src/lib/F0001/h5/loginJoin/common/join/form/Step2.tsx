@@ -1,3 +1,4 @@
+import ReCAPTCHA from 'react-google-recaptcha'
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
 import {
@@ -6,14 +7,19 @@ import {
 	ISelectProps,
 	InputBox,
 } from '@nx-next-app/components/H0001'
+import { useAuth } from '@nx-next-app/data-access'
 import {
 	AREA_CODE,
 	PHONE_DIGITS_LIMIT,
 	PHONE_LENGTH_REGEX,
 	AREA_CODE_BY_CURRENCY,
 	EMAIL_REGEX,
+	RECAPTCHAT_LANG_BY_LANG_ID,
 } from '@nx-next-app/constants'
-import { useLazyExistsEmailQuery } from '@nx-next-app/service'
+import {
+	useLazyExistsEmailQuery,
+	useGetRecaptchaInfoQuery,
+} from '@nx-next-app/service'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
@@ -30,6 +36,9 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 	const { initNationality, countrySelectOptions } = useJoin()
 
 	const legalBirthYear = dayjs().subtract(18, 'year').year()
+	const {
+		userInfo: { langId },
+	} = useAuth()
 
 	const {
 		formState,
@@ -45,6 +54,7 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 
 	const { errors, touchedFields } = formState
 	const watchCurrencyId = watch('currencyId')
+	const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery()
 
 	const [checkExistsEmail] = useLazyExistsEmailQuery()
 	const checkPhone = async () => {
@@ -232,6 +242,17 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 				errorMessage={errors['nationality']?.message as string}
 			/>
 
+			{recaptchaInfo?.siteKey && recaptchaInfo.country !== 'CN' && (
+				<div className='g-recaptcha'>
+					<ReCAPTCHA
+						sitekey={recaptchaInfo.siteKey}
+						onChange={token => {
+							setValue('reCaptchaToken', token)
+						}}
+						hl={RECAPTCHAT_LANG_BY_LANG_ID[langId]}
+					/>
+				</div>
+			)}
 			<div className='btn-group'>
 				<button type='submit'>{t('Label_General_Join')}</button>
 			</div>
