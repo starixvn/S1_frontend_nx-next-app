@@ -1,11 +1,15 @@
 import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
+import { CurrenciesEnum } from '@nx-next-app/types'
 
 const OfficialPartner = () => {
 	const { t } = useTranslation()
 	const {
-		userInfo: { langId },
+		userInfo: { currencyId, langId },
 	} = useAuth()
+
+	/** 當前是否為巴西 */
+	const isBRL = currencyId === CurrenciesEnum.BRL
 
 	return (
 		<div>
@@ -13,12 +17,24 @@ const OfficialPartner = () => {
 				{t('Label_Home_OurOfficialPartnerOf')}
 			</div>
 			<div className='officialpartner'>
-				<a href='https://www.avfc.co.uk/' target='_blank' rel='noreferrer'>
+				{/* 巴西沒有 Aston Villa 贊助球隊，所以用 Joe Cole 且沒有 link 連結 */}
+				{isBRL ? (
 					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/aston-villa-${langId}.png`}
-						alt='Aston Villa'
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/joe-cole.png`}
+						alt='Joe Cole'
 					/>
-				</a>
+				) : (
+					<a
+						href='https://www.avfc.co.uk/news/2024/august/16/aston-villa-confirm-nova88-as-official-asian-betting-partner/'
+						target='_blank'
+						rel='noreferrer'
+					>
+						<img
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/aston-villa-${langId}.png`}
+							alt='Aston Villa'
+						/>
+					</a>
+				)}
 				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/sevilla-fc-${langId}.png`}
 					alt='Sevilla FC'

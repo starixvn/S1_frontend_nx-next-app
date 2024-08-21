@@ -15,6 +15,7 @@ import {
 	useOnlineCheckInterval,
 	useSynchronizeCookiesEffect,
 	useDepositWithdrawTracker,
+	useOptimovePageEvent,
 } from '../../hooks'
 import { IUserInfoData } from '../../service/accountStrict/type'
 
@@ -171,6 +172,8 @@ export const AuthProvider = ({
 	useInitLocaleEffect({ router, userInfo, isLogin: auth.isLogin })
 	// * 輪詢確認使用者是否保持線上狀態
 	useOnlineCheckInterval({ isLogin: auth.isLogin, onResetAuth })
+
+	useOptimovePageEvent(auth.isLogin, userInfo)
 
 	const value: AuthContextInterface = {
 		auth,

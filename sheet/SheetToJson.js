@@ -50,7 +50,7 @@ extractSheets(
 		spreadsheetKey: SHEET_URL_ID,
 		// eslint-disable-next-line global-require
 		credentials: auth,
-		sheetsToExtract: args.length !== 0 ? args : ['nova88', 'common', 'tuk555'],
+		sheetsToExtract: args.length !== 0 ? args : ['nova88', 'common'],
 	},
 	(err, data) => {
 		if (err) throw err
