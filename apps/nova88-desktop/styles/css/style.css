@@ -4232,6 +4232,7 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
   margin-left: 0;
   overflow-x: hidden;
   z-index: 1;
+  height: 210px;
 }
 .joinpop .joinloginModule .joinloginFunction .dropdown .dropdown-container .dropdown-item {
   display: -webkit-box;
