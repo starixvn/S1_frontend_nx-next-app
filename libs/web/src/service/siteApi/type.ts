@@ -69,9 +69,13 @@ export interface ISignUpArgs {
 	areaCode: string
 	currencyId: number
 	email?: string
+	Birth_d?: string | number
+	Birth_m?: string | number
+	Birth_y?: string | number
+	nationality?: string
 	phoneNo: string
 	realName: string
-	reCaptchaAction: string
+	// reCaptchaAction: string
 	referralUrl?: string
 	userLang: string
 	userName: string
@@ -171,5 +175,8 @@ export interface IResetPwdVerifyOTPArgs {
 
 export interface IRecaptchaInfoData {
 	siteKey: string
+}
+export interface ICountryListData {
+	code: string
 	country: string
 }

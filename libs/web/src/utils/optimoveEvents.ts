@@ -6,8 +6,8 @@ interface OptimoveSDK {
 		setPageVisit: (
 			pageUrl: string,
 			pageTitle: string,
-			category?: string,
-			sdkId?: string
+			category?: string | null,
+			sdkId?: string | null
 		) => void
 	}
 }
@@ -24,7 +24,10 @@ declare global {
  * @param {string} category - 當前 category , 目前站內沒有明確區分，待編列
  * @param {string} custId - custId , 有登入時帶入此項供 Optimove 判斷使用者資訊
  */
-export const OptimovePageVisitEvent = (category?: string, custId?: string) => {
+export const OptimovePageVisitEvent = (
+	category: string | null,
+	custId: string | null
+) => {
 	if (window !== undefined && window.optimoveSDK !== undefined) {
 		const { protocol } = window.location
 		const { host } = window.location
@@ -33,7 +36,7 @@ export const OptimovePageVisitEvent = (category?: string, custId?: string) => {
 
 		// 他們要求要 full url
 		const pageUrl = `${protocol}//${host}${path}${query}`
-		const pageTitle: string = document.title
+		const pageTitle: string = document.title ?? ''
 		window.optimoveSDK.API.setPageVisit(pageUrl, pageTitle, category, custId)
 	}
 }

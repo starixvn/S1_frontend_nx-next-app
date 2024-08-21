@@ -22,14 +22,13 @@ import {
 	useLazyAffiliateCheckQuery,
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
-	IRecaptchaInfoData,
-	useGetRecaptchaInfoQuery,
 } from '@nx-next-app/service'
 import {
 	getQueryParam,
 	OperaPixelTracker,
 	MetaPixelTracker,
 } from '@nx-next-app/utils'
+import { useJoin } from '@nx-next-app/features/F0001/hooks'
 import { Step1, Step2, Step3, StepBar, Features, LineRegister } from './form'
 
 interface IJoinProps {
@@ -47,6 +46,7 @@ const Join = ({ cookies }: IJoinProps) => {
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
+	const { initNationality } = useJoin()
 
 	const [step, setStep] = useState<number>(1)
 	const [currencyOptions, setCurrencyOptions] = useState<
@@ -70,8 +70,6 @@ const Join = ({ cookies }: IJoinProps) => {
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 	const [signUp] = useSignupMutation()
-	const { data: { data: reCaptchaToken = {} as IRecaptchaInfoData } = {} } =
-		useGetRecaptchaInfoQuery()
 
 	const currencySelectOptions = siteCurrencyList
 		.filter(currencyId => {
@@ -211,6 +209,11 @@ const Join = ({ cookies }: IJoinProps) => {
 			username,
 			password,
 			realName,
+			email,
+			formBirthMonth,
+			formBirthDay,
+			formBirthYear,
+			nationality,
 			currencyId: formCurrencyId,
 			areaCode,
 			phone,
@@ -221,12 +224,7 @@ const Join = ({ cookies }: IJoinProps) => {
 		const affCodeCheck = await checkAffiliate()
 
 		// currency & recaptcha & affiliate cannot use form required check
-		if (
-			(reCaptchaToken?.country !== 'CN' && !reCaptchaToken) ||
-			!currencyCheck ||
-			!affCodeCheck
-		)
-			return
+		if (!currencyCheck || !affCodeCheck) return
 
 		const affId = affiliate && urlAffId ? affiliate : null
 		const affCode = !urlAffId && affCodeCheck ? affiliate : null
@@ -248,7 +246,12 @@ const Join = ({ cookies }: IJoinProps) => {
 				currencyId: formCurrencyId,
 				phoneNo: phone,
 				realName,
-				reCaptchaAction: reCaptchaToken.siteKey,
+				email,
+				Birth_d: formBirthDay ?? 0,
+				Birth_m: formBirthMonth ?? 0,
+				Birth_y: formBirthYear ?? 0,
+				nationality: nationality ?? initNationality,
+				// reCaptchaToken,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,

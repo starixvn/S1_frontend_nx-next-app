@@ -11,14 +11,15 @@ const useOptimovePageEvent = (
 	useEffect(() => {
 		// isMounted 確保用戶確實 visit page 並完成載入才做 event 推送
 		if (isMounted()) {
-			let custId: string | undefined
-			let category: string | undefined
-			if (isLogin) {
+			let custId: string | null = null
+			// 還沒編列 Category，先固定都給 null
+			const category: string | null = null
+			if (isLogin && userInfo.custId !== undefined) {
 				custId = String(userInfo.custId)
 			}
 			OptimovePageVisitEvent(category, custId)
 		}
-	}, [isMounted])
+	}, [isMounted, isLogin, userInfo.custId])
 }
 
 export { useOptimovePageEvent }

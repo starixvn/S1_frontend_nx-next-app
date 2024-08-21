@@ -1,9 +1,11 @@
 import dayjs from 'dayjs'
+import classNames from 'classnames'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { useTranslation } from 'next-i18next'
 import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useAuth } from '@nx-next-app/data-access'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 
@@ -22,13 +24,21 @@ const HotEventSwiper = () => {
 	const { t } = useTranslation()
 	const { hotEventData, formatHdp } = useHome()
 	const {
-		userInfo: { langId },
+		userInfo: { langId, currencyId },
 	} = useAuth()
 	const { push } = useRouter()
 	const { onEnterPage } = useMenu()
 
+	/** 當前是否為巴西 */
+	const isBRL = currencyId === CurrenciesEnum.BRL
+
 	return (
-		<div className='home-hotmatch'>
+		// 巴西有加 br className，因為僅有巴西需要去除 Aston Villa 贊助球隊
+		<div
+			className={classNames('home-hotmatch', {
+				br: isBRL,
+			})}
+		>
 			<div className='home-hotmatch-wrapper'>
 				<div className='top'>
 					<div>{t('Label_General_Sports').toUpperCase()}</div>

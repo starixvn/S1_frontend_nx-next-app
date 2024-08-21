@@ -1,12 +1,24 @@
 import { useFormContext } from 'react-hook-form'
 import { useTranslation } from 'next-i18next'
-import { Select, InputPhone, ISelectProps } from '@nx-next-app/components/H0001'
+import {
+	Select,
+	InputPhone,
+	ISelectProps,
+	InputBox,
+} from '@nx-next-app/components/H0001'
 import {
 	AREA_CODE,
 	PHONE_DIGITS_LIMIT,
 	PHONE_LENGTH_REGEX,
 	AREA_CODE_BY_CURRENCY,
+	EMAIL_REGEX,
 } from '@nx-next-app/constants'
+import { useLazyExistsEmailQuery } from '@nx-next-app/service'
+import dayjs from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+import { useJoin } from '@nx-next-app/features/F0001/hooks'
+
+dayjs.extend(customParseFormat)
 
 interface IStep2Props {
 	selectCurrency: (newCurrencyId: ISelectProps['value']) => void
@@ -15,6 +27,9 @@ interface IStep2Props {
 
 const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 	const { t } = useTranslation()
+	const { initNationality, countrySelectOptions } = useJoin()
+
+	const legalBirthYear = dayjs().subtract(18, 'year').year()
 
 	const {
 		formState,
@@ -31,6 +46,7 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 	const { errors, touchedFields } = formState
 	const watchCurrencyId = watch('currencyId')
 
+	const [checkExistsEmail] = useLazyExistsEmailQuery()
 	const checkPhone = async () => {
 		await trigger('phone')
 		const { error } = getFieldState('phone')
@@ -74,11 +90,55 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 			}
 		}
 	}
-
 	const areaCodeSelectOptions = Object.values(AREA_CODE).map(el => ({
 		value: el.AreaCode,
 		label: `${el.AreaCode} ${el.Name}`,
 	}))
+
+	// Email
+	const checkEmail = async () => {
+		await trigger('email')
+		const { error } = getFieldState('email')
+		const formEmail = getValues('email')
+		if (error) return
+
+		// check email duplicate from api
+		try {
+			const { data: isExistsEmail } = await checkExistsEmail({
+				email: formEmail,
+			}).unwrap()
+			if (isExistsEmail && formEmail !== '') {
+				setError('email', {
+					type: 'duplicate',
+					message: `${t('Label_Profile_MailExisted')}`,
+				})
+			}
+		} catch (error) {
+			// error
+		}
+	}
+
+	// Birth
+	const yearOptions = []
+	for (let y = legalBirthYear; y >= legalBirthYear - 59; y -= 1) {
+		yearOptions.push({ label: y, value: y })
+	}
+
+	const monthOptions = []
+	for (let m = 1; m <= 12; m += 1) {
+		monthOptions.push({ label: t(`Label_Profile_Month${m}`), value: m })
+	}
+
+	watch('formBirthMonth')
+	watch('formBirthYear')
+	const dayOptions = []
+	const dayByMonth = dayjs()
+		.year(getValues('formBirthYear') ?? legalBirthYear)
+		.month(getValues('formBirthMonth') - 1) // month start from 0 (January)
+		.daysInMonth()
+	for (let d = 1; d <= dayByMonth; d += 1) {
+		dayOptions.push({ label: d, value: d })
+	}
 
 	return (
 		<>
@@ -119,6 +179,59 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 					type='number'
 				/>
 			)}
+
+			<InputBox
+				register={register('email', {
+					pattern: {
+						value: EMAIL_REGEX,
+						message: t('Label_Join_MailWrongFormat') || '',
+					},
+					onBlur: checkEmail,
+				})}
+				icon='icon-member txt-blue'
+				placeholder={t('Label_General_Email') || ''}
+				errorMessage={errors['email']?.message as string}
+				error={!!errors['email']}
+				touched={!!touchedFields['email']}
+				infoMessage={t('Label_Join_EmailToolTip') || ''}
+			/>
+
+			<div className='infoModule parts'>
+				<Select
+					options={monthOptions}
+					placeholder='MM'
+					defaultValue={0}
+					prefixIcon={<i className='icon icon-cake' />}
+					onChange={m => setValue('formBirthMonth', m as number)}
+					value={getValues('formBirthMonth')}
+				/>
+				<Select
+					options={dayOptions}
+					placeholder='DD'
+					onChange={d => setValue('formBirthDay', d as number)}
+					value={getValues('formBirthDay')}
+				/>
+				<Select
+					options={yearOptions}
+					placeholder='YYYY'
+					onChange={y => setValue('formBirthYear', y as number)}
+					value={getValues('formBirthYear')}
+				/>
+			</div>
+
+			<Select
+				showSearch
+				options={countrySelectOptions}
+				defaultValue={initNationality}
+				value={getValues('nationality')}
+				placeholder={t('Label_Join_Nationality') as string} // TODO: 請ＰＭ給完整i18n
+				prefixIcon={<i className='icon icon-sphere txt-blue' />}
+				onChange={value => {
+					setValue('nationality', value)
+				}}
+				errorMessage={errors['nationality']?.message as string}
+			/>
+
 			<div className='btn-group'>
 				<button type='submit'>{t('Label_General_Join')}</button>
 			</div>

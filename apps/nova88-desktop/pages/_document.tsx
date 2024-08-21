@@ -186,13 +186,13 @@ class MyDocument extends Document<CustomDocumentProps> {
 									src='https://www.facebook.com/tr?id=1037896624403579&ev=PageView&noscript=1'
 								/>
 							</noscript>
+							{/* CRM System , Optimove */}
+							<script
+								async
+								src='https://sdk.optimove.net/websdk/?tenant_id=1431&tenant_token=792f0d9fbcc040c5880a3080c206515e'
+							/>
 						</>
 					)}
-					{/* CRM System , Optimove */}
-					<script
-						async
-						src='https://sdk.optimove.net/websdk/?tenant_id=1431&tenant_token=792f0d9fbcc040c5880a3080c206515e'
-					/>
 				</Head>
 				<body>
 					{/* Google Tag Manager (noscript) - GTAG paste in the <body> */}

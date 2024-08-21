@@ -1,11 +1,12 @@
 import Link from 'next/link'
 import classNames from 'classnames'
-import { paths, EVENT_PERIOD } from '@nx-next-app/constants'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { HTMLAttributes, useEffect, useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { useBoolean, useDebounce } from 'usehooks-ts'
-import { isEventPeriod, numberFormat } from '@nx-next-app/utils'
+import { numberFormat } from '@nx-next-app/utils'
 import {
 	ICustBonusWalletData,
 	IMainWalletInfoData,
@@ -56,12 +57,20 @@ const HeaderModule = ({
 	// TODO: 因為奧運結束後可能會有暫時沒有spLogo的情況，這時主Logo要改用沒有右邊分隔線的圖
 	const noSpLogoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w_noline.png`
 
+	/** 當前是否為巴西 */
+	const isBRL = currencyId === CurrenciesEnum.BRL
+
 	// * 使用者快速切換時，讓畫面順利切換，用 debounce 觸發最後的狀態
 	useEffect(() => {
 		if (auth.isLogin) {
 			onSetHideBalance(debouncedIsHideBalance)
 		}
 	}, [debouncedIsHideBalance, auth.isLogin])
+
+	// 僅有巴西沒有贊助球隊，所以秀 nova 原始 Logo
+	useEffect(() => {
+		if (isBRL) setShowSpLogo(false)
+	}, [currencyId])
 
 	// * fetching 結束後給予正確數值
 	useEffect(() => {
@@ -70,7 +79,7 @@ const HeaderModule = ({
 
 	return (
 		<div className={classNames('header-module', className)} {...props}>
-			{/* 用 a link 讓畫面重新整理 */}
+			{/* 用 a link 讓畫面重新整理，僅有巴西沒有贊助球隊，所以秀 nova 原始 Logo */}
 			<Link href={paths.home.root}>
 				<a className='header-logo'>
 					<img

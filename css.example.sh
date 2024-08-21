@@ -7,7 +7,7 @@ PROJECT=/Users/lukelin/Project/NX-NEXT-APP
 # 裝置
 DEVICE_LIST=(DESKTOP H5)
 # 目前既有品牌
-SITE_LIST=(YASHBET NOVA88 TUK555)
+SITE_LIST=(YASHBET NOVA88 ONETWOBET)
 
 # READ SITE
 echo "選擇品牌"
@@ -15,7 +15,7 @@ for i in ${SITE_LIST[@]}
 do
   echo "$i \c"
 done
-echo ",ex: YASHBET NOVA88 TUK555// 更新三個品牌，中間用空白鍵分隔、大小寫不拘"
+echo ",ex: YASHBET NOVA88 ONETWOBET// 更新三個品牌，中間用空白鍵分隔、大小寫不拘"
 read -p ": " site
 siteList=($(echo "$site" | tr ' ' '\n'))
 

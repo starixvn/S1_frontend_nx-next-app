@@ -527,6 +527,7 @@ export const HomeProvider = ({
 			const {
 				data: { code = '' },
 			} = await getIpCountry(null).unwrap()
+
 			if (code === 'VN') {
 				setCookie(cookieName, '1', { maxAge: cookieMaxAge })
 				switch (deviceType) {
