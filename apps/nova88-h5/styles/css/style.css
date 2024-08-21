@@ -15525,6 +15525,12 @@ main.casino .banner {
   top: 0;
   width: 100%;
 }
+.home-hotmatch.br::after {
+  background: url(https://banner.0814media.net/h5/img/4.0/sports-bg.png) no-repeat center/cover;
+}
+.home-hotmatch.br::after {
+  background: url(https://banner.0814media.net/h5/img/4.0/sports-bg.png) no-repeat center/cover;
+}
 .home-hotmatch-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
