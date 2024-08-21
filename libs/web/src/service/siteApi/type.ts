@@ -173,9 +173,6 @@ export interface IResetPwdVerifyOTPArgs {
 	newPassword: string
 }
 
-export interface IRecaptchaInfoData {
-	siteKey: string
-}
 export interface ICountryListData {
 	code: string
 	country: string
