@@ -125,14 +125,29 @@ export interface ILotteryInfoData {
 	jackpotAmount: number
 }
 
+export enum ChineseZodiacStickerId {
+	Rat = 1,
+	Ox,
+	Tiger,
+	Cat,
+	Dragon,
+	Snake,
+	Horse,
+	Goat,
+	Monkey,
+	Rooster,
+	Dog,
+	Pig,
+}
+
 export interface IChineseZodiacStickerData {
-	stickerId: number
+	stickerId: ChineseZodiacStickerId
 	stickerPrize: number
 	canBuy: boolean
 }
 
 export interface IBuyChineseZodiacStickerArgs {
-	stickerId: number
+	stickerId: ChineseZodiacStickerId
 }
 
 export interface IGetLotteryHistoryWinnerArgs {
@@ -147,7 +162,9 @@ export interface ILotteryWinnerList {
 	thirdPrize: string[]
 	consolationPrize: string[]
 	smallPrize: string[]
-	stickerId: number
+	stickerId: ChineseZodiacStickerId
+	ticketNo: string[]
+	custStickerId: ChineseZodiacStickerId
 }
 
 export interface ILotteryRoundData {
@@ -158,11 +175,20 @@ export interface ILotteryRoundData {
 	drawDate: string
 }
 
+export enum LotteryPrizeCategory {
+	FirstPrize = 1,
+	SecondPrize,
+	ThirdPrize,
+	ConsolationPrize,
+	SmallPrize,
+}
+
 export interface ICustLotteryHistoryWinnerData {
 	roundId: number
 	startDate: string
 	endDate: string
-	prizeName: string
-	stickerId: number
+	stickerId: ChineseZodiacStickerId
 	jackpot: number
+	ticketNo: string
+	lotteryPrizeCategory: LotteryPrizeCategory
 }

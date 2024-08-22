@@ -1,8 +1,11 @@
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
 import {
+	IBuyChineseZodiacStickerArgs,
 	ICheckDrawPrizeData,
+	IChineseZodiacStickerData,
 	ICustDrawPrizeData,
+	ICustLotteryHistoryWinnerData,
 	ICustRankData,
 	ICustRankMonthData,
 	IDisplayDrawPrizeData,
@@ -12,12 +15,9 @@ import {
 	IGetLeaderBoardListArgs,
 	IGetLeaderBoardListMonthArgs,
 	IGetLeaderBoardSettingArgs,
+	IGetLotteryHistoryWinnerArgs,
 	ILeaderBoardMonthData,
 	ILeaderBoardSettingData,
-	IBuyChineseZodiacStickerArgs,
-	IChineseZodiacStickerData,
-	ICustLotteryHistoryWinnerData,
-	IGetLotteryHistoryWinnerArgs,
 	ILotteryInfoData,
 	ILotteryRoundData,
 	ILotteryWinnerList,
@@ -160,8 +160,9 @@ export const eventsApi = rootApi.injectEndpoints({
 				url: eventApiUrl.getChineseZodiacStickerList,
 				method: 'POST',
 			}),
+			providesTags: ['LOTTERY_EVENT_GET_STICKER'],
 		}),
-		buyChineseZodiacSticker: builder.query<
+		buyChineseZodiacSticker: builder.mutation<
 			IAxiosResponse<null>,
 			IBuyChineseZodiacStickerArgs
 		>({
@@ -170,6 +171,7 @@ export const eventsApi = rootApi.injectEndpoints({
 				method: 'POST',
 				data,
 			}),
+			invalidatesTags: ['LOTTERY_EVENT_GET_STICKER'],
 		}),
 		getLotteryWinnerList: builder.query<
 			IAxiosResponse<ILotteryWinnerList>,
@@ -224,7 +226,7 @@ export const {
 	useDrawPrizeMutation,
 	useGetLotteryInfoQuery,
 	useGetChineseZodiacStickerListQuery,
-	useBuyChineseZodiacStickerQuery,
+	useBuyChineseZodiacStickerMutation,
 	useGetLotteryHistoryWinnerListQuery,
 	useGetCustLotteryHistoryWinnerListQuery,
 } = eventsApi
