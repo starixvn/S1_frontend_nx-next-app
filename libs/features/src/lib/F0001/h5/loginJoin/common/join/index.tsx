@@ -219,7 +219,6 @@ const Join = ({ cookies }: IJoinProps) => {
 			phone,
 			affiliate,
 		} = getValues()
-
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
@@ -242,7 +241,6 @@ const Join = ({ cookies }: IJoinProps) => {
 			)?.value ?? 'en'
 
 		const blackbox = await getBlackbox()
-
 		try {
 			await signUp({
 				// 因 cookies 有機會是 string[] 導致錯誤

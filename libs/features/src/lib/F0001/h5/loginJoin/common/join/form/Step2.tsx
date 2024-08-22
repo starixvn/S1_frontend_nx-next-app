@@ -17,6 +17,7 @@ import { useLazyExistsEmailQuery } from '@nx-next-app/service'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
+import { useEffect } from 'react'
 
 dayjs.extend(customParseFormat)
 
@@ -140,6 +141,12 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 		dayOptions.push({ label: d, value: d })
 	}
 
+	useEffect(() => {
+		setValue('formBirthMonth', 1)
+		setValue('formBirthDay', 1)
+		setValue('formBirthYear', 1990)
+	}, [])
+
 	return (
 		<>
 			<Select
@@ -200,7 +207,7 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 				<Select
 					options={monthOptions}
 					placeholder='MM'
-					defaultValue={0}
+					defaultValue={1}
 					prefixIcon={<i className='icon icon-cake' />}
 					onChange={m => setValue('formBirthMonth', m as number)}
 					value={getValues('formBirthMonth')}
@@ -208,12 +215,14 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 				<Select
 					options={dayOptions}
 					placeholder='DD'
+					defaultValue={1}
 					onChange={d => setValue('formBirthDay', d as number)}
 					value={getValues('formBirthDay')}
 				/>
 				<Select
 					options={yearOptions}
 					placeholder='YYYY'
+					defaultValue={1990}
 					onChange={y => setValue('formBirthYear', y as number)}
 					value={getValues('formBirthYear')}
 				/>
