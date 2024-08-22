@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router'
 import { Header, Loading } from '@nx-next-app/components/H0001'
-import { useTranslation } from 'react-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { numberFormat } from '@nx-next-app/utils'
+import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import {
 	useRetentionLandingPage,
 	useSetClaimPromotionFetcher,
@@ -103,6 +103,7 @@ const RetentionContent = () => {
 					<div className='bonus-list'>
 						<div className='title'>
 							<div>{t('Label_Retention_BonusTitle')}</div>
+							<div />
 						</div>
 						{details && (
 							<div
