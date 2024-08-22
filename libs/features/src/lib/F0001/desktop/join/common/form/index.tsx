@@ -103,7 +103,9 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const [signUp] = useSignupMutation()
 
-	const [formBirth, setFormBirth] = useState<Date | null>(null)
+	const [formBirth, setFormBirth] = useState<Date | null>(
+		new Date('1990-01-01')
+	)
 	const [phoneErrorTip, setPhoneErrorTip] = useState<string | undefined>('')
 	const [currencyOptions, setCurrencyOptions] = useState<
 		ISelectProps['options']
@@ -414,7 +416,6 @@ const Form = ({ cookies }: IJoinProps) => {
 			)?.value ?? 'en'
 
 		const blackbox = await getBlackbox()
-
 		try {
 			await signUp({
 				// 因 cookies 有機會是 string[] 導致錯誤
@@ -452,6 +453,7 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	useEffect(() => {
 		checkUrlAffiliate()
+		setValue('birth', formBirth) // 初始form裡面的生日值
 	}, [])
 
 	useEffect(() => {

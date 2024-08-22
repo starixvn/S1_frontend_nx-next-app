@@ -223,7 +223,6 @@ const Join = ({ cookies }: IJoinProps) => {
 			affiliate,
 			// reCaptchaToken,
 		} = getValues()
-
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
@@ -247,7 +246,6 @@ const Join = ({ cookies }: IJoinProps) => {
 			)?.value ?? 'en'
 
 		const blackbox = await getBlackbox()
-
 		try {
 			await signUp({
 				// 因 cookies 有機會是 string[] 導致錯誤
@@ -257,6 +255,11 @@ const Join = ({ cookies }: IJoinProps) => {
 				currencyId: formCurrencyId,
 				phoneNo: phone,
 				realName,
+				email,
+				Birth_d: formBirthDay ?? 0,
+				Birth_m: formBirthMonth ?? 0,
+				Birth_y: formBirthYear ?? 0,
+				nationality: nationality ?? initNationality,
 				// reCaptchaToken,
 				email,
 				Birth_d: formBirthDay ?? 0,

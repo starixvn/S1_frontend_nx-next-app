@@ -141,7 +141,7 @@ const List = () => {
 					{t('Label_General_ResponsibleGaming')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/TermsConditions.html`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/en/TermsConditions.html`} // 2024.8.22 需求說先改成統一導到en語系
 					target='_blank'
 					rel='noreferrer noopener'
 				>
