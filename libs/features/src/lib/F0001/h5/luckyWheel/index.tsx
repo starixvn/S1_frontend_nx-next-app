@@ -45,7 +45,9 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 				<div className='eventPage'>
 					<EventTabs />
 					<div className='eventTitleBg'>
-						<div className='eventTitle'>LUCKY WHEEL</div>
+						<div className='eventTitle' style={{ textTransform: 'uppercase' }}>
+							{t('Label_LuckyWheel_Title')}
+						</div>
 					</div>
 					<div className='wheelModule'>
 						<Img

@@ -49,7 +49,7 @@ const RetentionContent = () => {
 					back={paths.home.root}
 				/>
 			</Header>
-			<main className='retention'>
+			<main className='retention' style={{ backgroundPositionY: 'top' }}>
 				<EventTabs />
 				<div className='retention-wrapper'>
 					<div className='top'>
