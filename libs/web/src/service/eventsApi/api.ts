@@ -19,6 +19,7 @@ import {
 	ILeaderBoardMonthData,
 	ILeaderBoardSettingData,
 	ILotteryInfoData,
+	ILotteryMaintainData,
 	ILotteryRoundData,
 	ILotteryWinnerList,
 } from './type'
@@ -40,6 +41,7 @@ export const eventApiUrl = {
 	getLotteryHistoryWinnerList: 'Events/GetLotteryHistoryWinnerList',
 	getLotteryRoundList: 'Events/GetLotteryRoundList',
 	getCustLotteryHistoryWinnerList: 'Events/GetCustLotteryHistoryWinnerList',
+	getLotteryMaintain: 'Events/GetLotteryMaintain',
 }
 
 export const eventsApi = rootApi.injectEndpoints({
@@ -211,6 +213,15 @@ export const eventsApi = rootApi.injectEndpoints({
 				method: 'POST',
 			}),
 		}),
+		getLotteryMaintain: builder.query<
+			IAxiosResponse<ILotteryMaintainData>,
+			null
+		>({
+			query: () => ({
+				url: eventApiUrl.getLotteryMaintain,
+				method: 'POST',
+			}),
+		}),
 	}),
 })
 
@@ -229,4 +240,5 @@ export const {
 	useBuyChineseZodiacStickerMutation,
 	useGetLotteryHistoryWinnerListQuery,
 	useGetCustLotteryHistoryWinnerListQuery,
+	useGetLotteryMaintainQuery,
 } = eventsApi

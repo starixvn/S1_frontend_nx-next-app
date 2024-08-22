@@ -192,3 +192,7 @@ export interface ICustLotteryHistoryWinnerData {
 	ticketNo: string
 	lotteryPrizeCategory: LotteryPrizeCategory
 }
+
+export interface ILotteryMaintainData {
+	isMaintain: boolean
+}

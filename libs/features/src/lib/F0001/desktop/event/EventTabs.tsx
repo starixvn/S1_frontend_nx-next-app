@@ -1,6 +1,9 @@
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useGetRetentionPromotionQuery } from '@nx-next-app/service'
+import {
+	useGetLotteryMaintainQuery,
+	useGetRetentionPromotionQuery,
+} from '@nx-next-app/service'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
@@ -19,6 +22,9 @@ export const EventTabs = () => {
 		{ skip: !isLogin }
 	)?.data?.data?.bonusCode
 
+	const isLotteryUnderMaintenance =
+		useGetLotteryMaintainQuery(null)?.data?.data?.isMaintain ?? true
+
 	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	const tabs = [
@@ -31,6 +37,7 @@ export const EventTabs = () => {
 			name: t('Label_General_Lottery'),
 			path: paths.event.lottery.root,
 			access: isLogin,
+			underMaintenance: isLotteryUnderMaintenance,
 		},
 		{
 			name: t('Label_Retention_SurpriseReward'),
@@ -41,11 +48,12 @@ export const EventTabs = () => {
 
 	return tabs.length > 1 ? (
 		<div className='eventpage-tap' style={{ zIndex: 1 }}>
-			{tabs.map(({ name, path }) => (
+			{tabs.map(({ name, path, underMaintenance }) => (
 				<button
 					key={path}
 					onClick={() => push(path)}
 					className={path === pathname ? 'active' : undefined}
+					disabled={underMaintenance}
 				>
 					{name}
 				</button>
