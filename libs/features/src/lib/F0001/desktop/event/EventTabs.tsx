@@ -40,7 +40,7 @@ export const EventTabs = () => {
 	].filter(({ access }) => access)
 
 	return tabs.length > 1 ? (
-		<div className='eventpage-tap' style={{ zIndex: 4 }}>
+		<div className='eventpage-tap' style={{ zIndex: 1 }}>
 			{tabs.map(({ name, path }) => (
 				<button
 					key={path}
