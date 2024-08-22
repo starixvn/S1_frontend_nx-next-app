@@ -28,6 +28,11 @@ export const EventTabs = () => {
 			access: includes(ALLOWED_CURRENCIES['LUCKY_WHEEL'], currencyId),
 		},
 		{
+			name: t('Label_General_Lottery'),
+			path: paths.event.lottery.root,
+			access: isLogin,
+		},
+		{
 			name: t('Label_Retention_SurpriseReward'),
 			path: paths.retention.root,
 			access: hasRetentionBonus,
@@ -35,7 +40,7 @@ export const EventTabs = () => {
 	].filter(({ access }) => access)
 
 	return tabs.length > 1 ? (
-		<div className='eventpage-tap'>
+		<div className='eventpage-tap' style={{ zIndex: 4 }}>
 			{tabs.map(({ name, path }) => (
 				<button
 					key={path}
