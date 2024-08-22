@@ -100,7 +100,7 @@ class MyDocument extends Document<CustomDocumentProps> {
 								/>
 							</noscript>
 							{/* Facebook Pixel - 存／提款成功事件 */}
-							<script
+							{/* <script
 								dangerouslySetInnerHTML={{
 									__html: `
                 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -120,7 +120,7 @@ class MyDocument extends Document<CustomDocumentProps> {
 									style={{ display: 'none' }}
 									src='https://www.facebook.com/tr?id=1037896624403579&ev=PageView&noscript=1'
 								/>
-							</noscript>
+							</noscript> */}
 							{/* CRM System , Optimove */}
 							<script
 								async
