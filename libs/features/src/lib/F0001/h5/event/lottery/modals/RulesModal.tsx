@@ -17,15 +17,17 @@ const Collapsible = (props: { title: string; children: ReactNode }) => {
 }
 
 const parseContent = (content: string) =>
-	content.split('\n').map(line =>
-		line.startsWith('# ') ? (
-			<li key={line} className='title'>
-				{line.replace('# ', '')}
+	content.split('\n').map(line => {
+		if (!line) return null
+		const isHeading = line.startsWith('# ')
+		const className = isHeading ? 'title' : undefined
+		const text = isHeading ? line.slice(2) : line
+		return (
+			<li key={line} className={className}>
+				{text}
 			</li>
-		) : (
-			<li key={line}>{line}</li>
 		)
-	)
+	})
 
 const RulesModal = () => {
 	const { t } = useTranslation()

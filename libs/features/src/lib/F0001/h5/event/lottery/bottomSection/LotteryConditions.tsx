@@ -19,8 +19,8 @@ const LotteryConditions = () => {
 					/>
 				</div>
 				<div className='info-content'>
-					<h3>{t('Label_Event_HowToJoin')}</h3>
-					<p>{t('Label_Event_Lottery_HowToJoin_Content')}</p>
+					<h3>{t('Label_Event_Lottery_GameObjective')}</h3>
+					<p>{t('Label_Event_Lottery_GameObjective_Content')}</p>
 					<button onClick={() => modal.open(<RulesModal />)}>
 						{t('Label_Event_Rules')}
 					</button>
