@@ -1,58 +1,17 @@
-import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import {
-	useGetLotteryMaintainQuery,
-	useGetRetentionPromotionQuery,
-} from '@nx-next-app/service'
-import { includes } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
+import { useRetentionEvents } from '@nx-next-app/hooks'
 
 export const EventTabs = () => {
-	const { t } = useTranslation()
+	const { events } = useRetentionEvents()
 	const { pathname, push } = useRouter()
-
-	const {
-		userInfo: { currencyId, langId },
-		auth: { isLogin },
-	} = useAuth()
-
-	const hasRetentionBonus = useGetRetentionPromotionQuery(
-		{ langId },
-		{ skip: !isLogin }
-	)?.data?.data?.bonusCode
-
-	const isLotteryUnderMaintenance =
-		useGetLotteryMaintainQuery(null)?.data?.data?.isMaintain ?? true
-
-	const { ALLOWED_CURRENCIES } = useStaticData()
-
-	const tabs = [
-		{
-			name: t('Label_LuckyWheel_Title'),
-			path: paths.luckyWheel.root,
-			access: includes(ALLOWED_CURRENCIES['LUCKY_WHEEL'], currencyId),
-		},
-		{
-			name: t('Label_General_Lottery'),
-			path: paths.event.lottery.root,
-			access: isLogin,
-			underMaintenance: isLotteryUnderMaintenance,
-		},
-		{
-			name: t('Label_Retention_SurpriseReward'),
-			path: paths.retention.root,
-			access: hasRetentionBonus,
-		},
-	].filter(({ access }) => access)
-
-	return tabs.length > 1 ? (
+	return events.length > 1 ? (
 		<div className='eventpage-tap' style={{ zIndex: 1 }}>
-			{tabs.map(({ name, path, underMaintenance }) => (
+			{events.map(({ name, path, underMaintenance }) => (
 				<button
 					key={path}
 					onClick={() => push(path)}
-					className={path === pathname ? 'active' : undefined}
+					className={`${path === pathname ? 'active' : ''}
+					${underMaintenance === true ? 'disabled' : ''} `}
 					disabled={underMaintenance}
 				>
 					{name}
