@@ -4,6 +4,7 @@ import {
 	ICustLotteryHistoryWinnerData,
 	LotteryPrizeCategory,
 } from '@nx-next-app/service'
+import dayjs from 'dayjs'
 import { findLastIndex, includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
@@ -191,7 +192,7 @@ export const LotteryProgressProvider = ({
 	useEffect(() => {
 		if (!drawTime) return
 
-		const timeElapsedSinceDrawStarted = new Date().getTime() - drawTime
+		const timeElapsedSinceDrawStarted = dayjs().diff(drawTime)
 
 		if (timeElapsedSinceDrawStarted <= 0) {
 			const timer = setTimeout(reload, -timeElapsedSinceDrawStarted)
@@ -261,7 +262,10 @@ export const LotteryProgressProvider = ({
 			return
 		}
 
+		// 只在跑號碼時判斷是否進入下一階段
 		if (!stage.has(StageEvent.RunningNumbers)) return
+
+		// 若播放剪票動畫時則由動畫控制
 		if (stage.has(StageEvent.PlayTicketCutOffAnimation)) return
 
 		setRemainingTickets(tickets)

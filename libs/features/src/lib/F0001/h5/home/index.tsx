@@ -18,8 +18,6 @@ interface IHomeProps {
 	persistAppDownloadHint: string
 }
 
-const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
-
 const LiveStreamingLink = dynamic(() => import('../common/liveStreamingLink'), {
 	ssr: false,
 })
@@ -28,7 +26,7 @@ const EuroCupEntry = dynamic(() => import('../common/EuroCupEntry'), {
 	ssr: false,
 })
 
-const Retention = dynamic(() => import('../common/RetentionEntry'), {
+const RetentionEntry = dynamic(() => import('../common/RetentionEntry'), {
 	ssr: false,
 })
 
@@ -128,9 +126,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 		) ? (
 			<EuroCupEntry />
 		) : null,
-		[MobileHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
-		[MobileHomeComponentsEnum.Retention]: <Retention />,
-
+		[MobileHomeComponentsEnum.RetentionEntry]: <RetentionEntry />,
 		[MobileHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
 		[MobileHomeComponentsEnum.AppDownload]:
 			isInApp === false ? <AppDownload /> : null,

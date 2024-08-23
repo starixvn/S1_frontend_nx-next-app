@@ -20,8 +20,6 @@ export enum DesktopHomeComponentsEnum {
 	ProviderBlock = 'ProviderBlock',
 	// 合作夥伴
 	OfficialPartner = 'OfficialPartner',
-	// LuckyWheel
-	LuckyWheel = 'LuckyWheel',
 	// 直播
 	LiveStreamingLink = 'LiveStreamingLink',
 	// 左側快速下載標籤，底下 2 個新版用不到
@@ -32,8 +30,8 @@ export enum DesktopHomeComponentsEnum {
 	RecentlyViewGames = 'RecentlyViewGames',
 	//  歐冠活動入口
 	EuropeCupEntry = 'EuropeCupEntry',
-	// RetentionFloatingButton
-	Retention = 'Retention',
+	// Lucky Wheel, Lottery, Surprise Reward 懸浮入口
+	RetentionEntry = 'RetentionEntry',
 	// 2024巴黎奧運入口
 	OlympicEntry = 'OlympicEntry',
 }
@@ -54,7 +52,6 @@ export enum MobileHomeComponentsEnum {
 	// 登入才有
 	FriendReferral = 'FriendReferral',
 	Jackpot = 'Jackpot',
-	LuckyWheel = 'LuckyWheel',
 	LiveStreamingLink = 'LiveStreamingLink',
 	AppDownload = 'AppDownload',
 	PartnerBlock = 'PartnerBlock',
@@ -64,8 +61,8 @@ export enum MobileHomeComponentsEnum {
 	SimpleFooter = 'SimpleFooter',
 	//  歐冠活動入口
 	EuropeCupEntry = 'EuropeCupEntry',
-	// RetentionFloatingButton
-	Retention = 'Retention',
+	// Lucky Wheel, Lottery, Surprise Reward 懸浮入口
+	RetentionEntry = 'RetentionEntry',
 	// 2024巴黎奧運入口
 	OlympicEntry = 'OlympicEntry',
 }

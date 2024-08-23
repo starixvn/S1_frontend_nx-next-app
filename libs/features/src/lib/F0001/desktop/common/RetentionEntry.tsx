@@ -1,44 +1,25 @@
-import { useState } from 'react'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useRetentionEvents } from '@nx-next-app/hooks'
+import { find } from 'lodash-es'
 import { useRouter } from 'next/router'
-import { paths } from '@nx-next-app/constants'
-import { includes } from 'lodash-es'
-// import { useRetentionLandingPage } from '../../hooks'
-import { useGetRetentionPromotionQuery } from '@nx-next-app/service'
+import { useState } from 'react'
 
 const RetentionEntry = () => {
-	const {
-		userInfo: { currencyId, langId },
-		auth: { isLogin },
-	} = useAuth()
-	const { ALLOWED_CURRENCIES } = useStaticData()
 	const { push } = useRouter()
-	const [display, setDisplay] = useState(true)
+	const { events } = useRetentionEvents()
+	const [isVisible, setIsVisible] = useState(true)
 
-	const allowedCurrency = includes(ALLOWED_CURRENCIES['Retention'], currencyId)
+	const event = find(events, ({ underMaintenance }) => !underMaintenance)
 
-	const { data: { data: { bonusCode = '' } = {} } = {} } =
-		useGetRetentionPromotionQuery(
-			{
-				langId,
-			},
-			{
-				skip: !langId || !isLogin,
-			}
-		)
-
-	if (!allowedCurrency || !display) return null
-
-	return bonusCode ? (
+	return isVisible && event ? (
 		<div className='eventLink'>
 			<button
 				type='button'
 				aria-label='event-link'
 				className='icon icon-close'
-				onClick={() => setDisplay(false)}
+				onClick={() => setIsVisible(false)}
 			/>
 			<div
-				onClick={() => push(paths.retention.root)}
+				onClick={() => push(event.path)}
 				className='wheelModule'
 				style={{ cursor: 'pointer' }}
 			>
