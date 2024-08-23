@@ -28,16 +28,6 @@ export const getCustomLotteryDataForClient = async (
 		let roundList
 		let winnerList
 
-		// mock
-
-		// lotteryRoundList.unshift({
-		// 	siteId: 1,
-		// 	roundId: 3,
-		// 	startDate: '2024-08-15T00:00:00+08:00',
-		// 	endDate: '2024-08-30T23:59:59+08:00',
-		// 	drawDate: '2024-08-22T12:59:59+08:00',
-		// })
-
 		// lotteryRoundList 為降序排列，找到首個已開始且未過開獎日午夜的抽獎 drawDate 存入 activeDrawDate
 		// 已結束及之後的抽獎紀錄則存入 drawHistory 並跳出迴圈
 		for (let i = 0; i < lotteryRoundList.length; i++) {
@@ -70,19 +60,6 @@ export const getCustomLotteryDataForClient = async (
 				)
 				winnerList = response?.data?.data
 			}
-
-			// mock
-
-			// if (winnerList) {
-			// 	winnerList.ticketNo = [
-			// 		'6747217517',
-			// 		'6290547940',
-			// 		'8144034719',
-			// 		'4641792566',
-			// 	]
-			// 	winnerList.stickerId = 9
-			// 	winnerList.custStickerId = 9
-			// }
 		}
 
 		return {
