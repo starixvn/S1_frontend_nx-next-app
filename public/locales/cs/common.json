@@ -161,6 +161,8 @@
   "Label_Event_JackpotRule": "Jackpot 大奖",
   "Label_Event_JackpotSticker": "头奖图腾",
   "Label_Event_LotteryProgress": "抽奖环节",
+  "Label_Event_Lottery_GameObjective": "活动宗旨",
+  "Label_Event_Lottery_GameObjective_Content": "Lottery Event 是一款趣味十足的抽奖活动，旨在让活跃会员赢得更多奖金。投注越多，奖金越高。会员还可以购买生肖图腾来赢取 Jackpot 大奖！",
   "Label_Event_LuckyNumber": "幸运号码",
   "Label_Event_LuckyPlaces": "幸运区",
   "Label_Event_MyResults": "我的结果",

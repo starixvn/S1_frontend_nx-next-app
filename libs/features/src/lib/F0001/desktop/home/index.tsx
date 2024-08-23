@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback } from 'react'
+import { Fragment, useCallback } from 'react'
 import dynamic from 'next/dynamic'
 import { includes } from 'lodash-es'
 import { useHome } from '@nx-next-app/features/F0001/providers'
@@ -34,13 +34,11 @@ const OfficialPartner = dynamic(() => import('./OfficialPartner'), {
 	ssr: false,
 })
 
-const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
-
 const EuropeCupEntry = dynamic(() => import('../common/EuropeCupEntry'), {
 	ssr: false,
 })
 
-const Retention = dynamic(() => import('../common/RetentionEntry'), {
+const RetentionEntry = dynamic(() => import('../common/RetentionEntry'), {
 	ssr: false,
 })
 
@@ -97,8 +95,7 @@ const Home = () => {
 		) ? (
 			<EuropeCupEntry />
 		) : null,
-		[DesktopHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
-		[DesktopHomeComponentsEnum.Retention]: <Retention />,
+		[DesktopHomeComponentsEnum.RetentionEntry]: <RetentionEntry />,
 		[DesktopHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
 		[DesktopHomeComponentsEnum.QuickDownload]: <QuickDownload />,
 		[DesktopHomeComponentsEnum.QuickLink]: <QuickLink />,

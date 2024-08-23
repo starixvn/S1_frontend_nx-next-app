@@ -167,6 +167,8 @@
   "Label_Event_JackpotRule": "กฎของแจ็คพอต",
   "Label_Event_JackpotSticker": "สติกเกอร์แจ็คพอต",
   "Label_Event_LotteryProgress": "ความคืบหน้าลอตเตอรี่",
+  "Label_Event_Lottery_GameObjective": "วัตถุประสงค์ของเกม",
+  "Label_Event_Lottery_GameObjective_Content": "กิจกรรมลอตเตอรี่เป็นกิจกรรมลอตเตอรี่ที่น่าตื่นเต้นซึ่งสร้างขึ้นสำหรับสมาชิกที่ใช้งานจริงเพื่อลุ้นรางวัลต่างๆ ยิ่งคุณเดิมพันมากเท่าไหร่ โอกาสที่คุณจะได้รับรางวัลสูงขึ้นก็ยิ่งมากขึ้นเท่านั้น สมาชิกยังสามารถซื้อสติกเกอร์ราศีเพื่อลุ้นรางวัลแจ็กพอตได้อีกด้วย!",
   "Label_Event_LuckyNumber": "เลขนำโชค",
   "Label_Event_LuckyPlaces": "สถานที่นำโชค",
   "Label_Event_MyResults": "ผลงาน",

@@ -181,6 +181,8 @@
   "Label_Event_JackpotRule": "Quy Tắc Jackpot",
   "Label_Event_JackpotSticker": "Nhãn dán Jackpot",
   "Label_Event_LotteryProgress": "Tiến độ Xổ Số",
+  "Label_Event_Lottery_GameObjective": "Mục đích của hoạt động",
+  "Label_Event_Lottery_GameObjective_Content": "Sự kiện Xổ số là hoạt động hấp dẫn dành cho các thành viên tích cực, với cơ hội giành nhiều giải thưởng khác nhau. Càng đặt cược nhiều, cơ hội thắng giải lớn càng cao. Thành viên cũng có thể mua tem Cung Hoàng Đạo để có cơ hội giành Jackpot!",
   "Label_Event_LuckyNumber": "Số may mắn",
   "Label_Event_LuckyPlaces": "Nơi may mắn",
   "Label_Event_MyResults": "Kết quả của tôi",

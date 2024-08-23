@@ -189,7 +189,7 @@ const defaultDesktopHomeOrders = [
 	DesktopHomeComponentsEnum.ProviderBlock,
 	DesktopHomeComponentsEnum.OfficialPartner,
 	DesktopHomeComponentsEnum.EuropeCupEntry,
-	DesktopHomeComponentsEnum.LuckyWheel,
+	DesktopHomeComponentsEnum.RetentionEntry,
 	DesktopHomeComponentsEnum.LiveStreamingLink,
 ]
 
@@ -204,7 +204,7 @@ const defaultMobileHomeOrders = [
 	MobileHomeComponentsEnum.PartnerBlock,
 	MobileHomeComponentsEnum.FooterBlock,
 	MobileHomeComponentsEnum.EuropeCupEntry,
-	MobileHomeComponentsEnum.LuckyWheel,
+	MobileHomeComponentsEnum.RetentionEntry,
 	MobileHomeComponentsEnum.LiveStreamingLink,
 ]
 

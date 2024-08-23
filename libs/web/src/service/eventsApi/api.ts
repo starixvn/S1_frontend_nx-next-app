@@ -1,8 +1,11 @@
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
 import {
+	IBuyChineseZodiacStickerArgs,
 	ICheckDrawPrizeData,
+	IChineseZodiacStickerData,
 	ICustDrawPrizeData,
+	ICustLotteryHistoryWinnerData,
 	ICustRankData,
 	ICustRankMonthData,
 	IDisplayDrawPrizeData,
@@ -12,8 +15,13 @@ import {
 	IGetLeaderBoardListArgs,
 	IGetLeaderBoardListMonthArgs,
 	IGetLeaderBoardSettingArgs,
+	IGetLotteryHistoryWinnerArgs,
 	ILeaderBoardMonthData,
 	ILeaderBoardSettingData,
+	ILotteryInfoData,
+	ILotteryMaintainData,
+	ILotteryRoundData,
+	ILotteryWinnerList,
 } from './type'
 
 export const eventApiUrl = {
@@ -26,6 +34,14 @@ export const eventApiUrl = {
 	drawPrize: 'Events/DrawPrize',
 	getDisplayDrawPrizeList: 'Events/GetDisplayDrawPrizeList',
 	getCustDrawPrizeList: 'Events/GetCustDrawPrizeList',
+	getLotteryInfo: 'Events/GetLotteryInfo',
+	getChineseZodiacStickerList: 'Events/GetChineseZodiacStickerList',
+	buyChineseZodiacSticker: 'Events/BuyChineseZodiacSticker',
+	getLotteryWinnerList: 'Events/GetCurrentLotteryWinnerList',
+	getLotteryHistoryWinnerList: 'Events/GetLotteryHistoryWinnerList',
+	getLotteryRoundList: 'Events/GetLotteryRoundList',
+	getCustLotteryHistoryWinnerList: 'Events/GetCustLotteryHistoryWinnerList',
+	getLotteryMaintain: 'Events/GetLotteryMaintain',
 }
 
 export const eventsApi = rootApi.injectEndpoints({
@@ -132,6 +148,80 @@ export const eventsApi = rootApi.injectEndpoints({
 			// * 更新 幸運輪盤抽獎紀錄 和 當前使用者抽獎資格
 			invalidatesTags: ['LUCKY_WHEEL_DRAW_PRIZE'],
 		}),
+		getLotteryInfo: builder.query<IAxiosResponse<ILotteryInfoData>, null>({
+			query: () => ({
+				url: eventApiUrl.getLotteryInfo,
+				method: 'POST',
+			}),
+		}),
+		getChineseZodiacStickerList: builder.query<
+			IAxiosResponse<IChineseZodiacStickerData>,
+			null
+		>({
+			query: () => ({
+				url: eventApiUrl.getChineseZodiacStickerList,
+				method: 'POST',
+			}),
+			providesTags: ['LOTTERY_EVENT_GET_STICKER'],
+		}),
+		buyChineseZodiacSticker: builder.mutation<
+			IAxiosResponse<null>,
+			IBuyChineseZodiacStickerArgs
+		>({
+			query: data => ({
+				url: eventApiUrl.buyChineseZodiacSticker,
+				method: 'POST',
+				data,
+			}),
+			invalidatesTags: ['LOTTERY_EVENT_GET_STICKER'],
+		}),
+		getLotteryWinnerList: builder.query<
+			IAxiosResponse<ILotteryWinnerList>,
+			null
+		>({
+			query: () => ({
+				url: eventApiUrl.getLotteryWinnerList,
+				method: 'POST',
+				data: { siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']) },
+			}),
+		}),
+		getLotteryHistoryWinnerList: builder.query<
+			IAxiosResponse<ILotteryWinnerList>,
+			IGetLotteryHistoryWinnerArgs
+		>({
+			query: ({ roundId }) => ({
+				url: eventApiUrl.getLotteryHistoryWinnerList,
+				method: 'POST',
+				data: { siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']), roundId },
+			}),
+		}),
+		getLotteryRoundList: builder.query<
+			IAxiosResponse<ILotteryRoundData[]>,
+			null
+		>({
+			query: () => ({
+				url: eventApiUrl.getLotteryRoundList,
+				method: 'POST',
+			}),
+		}),
+		getCustLotteryHistoryWinnerList: builder.query<
+			IAxiosResponse<ICustLotteryHistoryWinnerData[]>,
+			null
+		>({
+			query: () => ({
+				url: eventApiUrl.getCustLotteryHistoryWinnerList,
+				method: 'POST',
+			}),
+		}),
+		getLotteryMaintain: builder.query<
+			IAxiosResponse<ILotteryMaintainData>,
+			null
+		>({
+			query: () => ({
+				url: eventApiUrl.getLotteryMaintain,
+				method: 'POST',
+			}),
+		}),
 	}),
 })
 
@@ -145,4 +235,10 @@ export const {
 	useGetDisplayDrawPrizeListQuery,
 	useGetCustDrawPrizeListQuery,
 	useDrawPrizeMutation,
+	useGetLotteryInfoQuery,
+	useGetChineseZodiacStickerListQuery,
+	useBuyChineseZodiacStickerMutation,
+	useGetLotteryHistoryWinnerListQuery,
+	useGetCustLotteryHistoryWinnerListQuery,
+	useGetLotteryMaintainQuery,
 } = eventsApi

@@ -183,6 +183,8 @@
   "Label_Event_JackpotRule": "Regra do Jackpot",
   "Label_Event_JackpotSticker": "Adesivo do Jackpot",
   "Label_Event_LotteryProgress": "Progresso da loteria",
+  "Label_Event_Lottery_GameObjective": "Objetivo do jogo",
+  "Label_Event_Lottery_GameObjective_Content": "O Evento de Loteria é uma atividade de loteria empolgante criada para os membros ativos ganharem uma variedade de prêmios. Quanto mais você apostar, maior será a sua chance de ganhar prêmios mais altos. Os membros também podem comprar adesivos do Zodíaco para ter a chance de ganhar o Jackpot!",
   "Label_Event_LuckyNumber": "Número da sorte",
   "Label_Event_LuckyPlaces": "área de sorte",
   "Label_Event_MyResults": "Meu resultado",

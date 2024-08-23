@@ -12,6 +12,7 @@ export * from './excludedProducts'
 export * from './deposit'
 export * from './eventPeriod'
 export * from './userInfo'
+export * from './event'
 
 export const CURRENCY_TO_LANG_KEY: {
 	[key: string | number]: string

@@ -1,0 +1,59 @@
+import dayjs from 'dayjs'
+import duration from 'dayjs/plugin/duration'
+import { useEffect, useState } from 'react'
+
+dayjs.extend(duration)
+
+const Countdown = ({ to }: { to: number }) => {
+	const [count, setCount] = useState(0)
+
+	useEffect(() => {
+		const millisecondsLeft = dayjs(to).diff(dayjs())
+		if (millisecondsLeft >= 0) {
+			const timer = setTimeout(() => setCount(millisecondsLeft), 1000)
+			return () => clearTimeout(timer)
+		}
+
+		return undefined
+	}, [count])
+
+	const formatted = dayjs.duration(count).format('DDHHmmss')
+
+	return count ? (
+		<div className='time'>
+			<div className='number-group'>
+				<div className='number'>
+					<div>{formatted[0]}</div>
+					<div>{formatted[1]}</div>
+				</div>
+				<div className='unit'>DAYS</div>
+			</div>
+			<div className='icon time-dots' />
+			<div className='number-group'>
+				<div className='number'>
+					<div>{formatted[2]}</div>
+					<div>{formatted[3]}</div>
+				</div>
+				<div className='unit'>HRS</div>
+			</div>
+			<div className='icon time-dots' />
+			<div className='number-group'>
+				<div className='number'>
+					<div>{formatted[4]}</div>
+					<div>{formatted[5]}</div>
+				</div>
+				<div className='unit'>MINS</div>
+			</div>
+			<div className='icon time-dots' />
+			<div className='number-group'>
+				<div className='number'>
+					<div>{formatted[6]}</div>
+					<div>{formatted[7]}</div>
+				</div>
+				<div className='unit'>SECS</div>
+			</div>
+		</div>
+	) : null
+}
+
+export default Countdown

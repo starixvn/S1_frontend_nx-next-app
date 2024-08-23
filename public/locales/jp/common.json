@@ -182,6 +182,8 @@
   "Label_Event_JackpotRule": "ジャックポットルール",
   "Label_Event_JackpotSticker": "ジャックポットステッカー",
   "Label_Event_LotteryProgress": "宝くじの進行状況",
+  "Label_Event_Lottery_GameObjective": "ゲームの目的",
+  "Label_Event_Lottery_GameObjective_Content": "ロト・イベントは、様々な賞品を獲得するために正会員のために作られたエキサイティングなロト・アクティビティです。ベットすればするほど、高額賞金獲得のチャンスが広がります。また、ジャックポット当選のチャンスとして、干支ステッカーを購入することもできます！",
   "Label_Event_LuckyNumber": "ラッキーナンバー",
   "Label_Event_LuckyPlaces": "ラッキーエリア",
   "Label_Event_MyResults": "私の結果",

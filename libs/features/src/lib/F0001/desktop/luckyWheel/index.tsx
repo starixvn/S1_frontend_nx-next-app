@@ -1,15 +1,14 @@
-import dayjs from 'dayjs'
-import classNames from 'classnames'
-import { useBoolean } from 'usehooks-ts'
-import { useAuth } from '@nx-next-app/data-access'
 import { Img, Loading, SpinButton } from '@nx-next-app/components/D0001'
-import { useTranslation } from 'next-i18next'
-import { toUpper, upperFirst } from 'lodash-es'
-import { IEventPeriod } from '@nx-next-app/types'
+import { useAuth } from '@nx-next-app/data-access'
 import { useLuckWheelContext } from '@nx-next-app/features/F0001/providers'
+import { IEventPeriod } from '@nx-next-app/types'
+import classNames from 'classnames'
+import dayjs from 'dayjs'
+import { toUpper, upperFirst } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useBoolean } from 'usehooks-ts'
 // import { useGetRetentionPromotionQuery } from '@nx-next-app/service'
-import { useRouter } from 'next/router'
-import { paths } from '@nx-next-app/constants'
+import { EventTabs } from '../event'
 
 interface ILuckyWheelProps {
 	eventPeriod: IEventPeriod
@@ -21,12 +20,6 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 		userInfo: { currencyName },
 	} = useAuth()
 
-	const { push } = useRouter()
-
-	const handleRetentionClick = () => {
-		push(paths.retention.root)
-	}
-
 	const { t } = useTranslation()
 
 	const {
@@ -35,7 +28,6 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 		displayDrawPrizeList,
 		custDrawPrizeList,
 		onDrawPrize,
-		bonusCode,
 	} = useLuckWheelContext()
 
 	const { value: isSpinning, setValue: setIsSpinning } = useBoolean(false)
@@ -54,18 +46,13 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 	if (loading) return <Loading />
 
 	return (
-		<main className='wheelEvent'>
-			{bonusCode && (
-				<div className='eventpage-tap'>
-					<button className='active'> {t('Label_LuckyWheel_Title')}</button>
-					<button className='' onClick={handleRetentionClick}>
-						{t('Label_Retention_SurpriseReward')}
-					</button>
-				</div>
-			)}
+		<main className='main wheelEvent'>
 			<div className='eventPage'>
+				<EventTabs />
 				<div className='eventTitleBg'>
-					<div className='eventTitle'>{t('Label_LuckyWheel_Title')}</div>
+					<div className='eventTitle' style={{ textTransform: 'uppercase' }}>
+						{t('Label_LuckyWheel_Title')}
+					</div>
 				</div>
 				<div className='wheelModule'>
 					<Img

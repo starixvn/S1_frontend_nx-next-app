@@ -155,6 +155,8 @@
   "Label_Event_JackpotRule": "জ্যাকপট নিয়ম",
   "Label_Event_JackpotSticker": "জ্যাকপট স্টিকার",
   "Label_Event_LotteryProgress": "লটারি অগ্রগতি",
+  "Label_Event_Lottery_GameObjective": "গেমসের উদ্দেশ্য",
+  "Label_Event_Lottery_GameObjective_Content": "লটারি ইভেন্টটি সক্রিয় সদস্যদের জন্য তৈরি একটি উত্তেজনাপূর্ণ লটারি কার্যক্রম, যেখানে বিভিন্ন পুরস্কার জেতার সুযোগ রয়েছে। আপনি যত বেশি বাজি ধরবেন, তত বেশি শীর্ষ পুরস্কার জেতার সম্ভাবনা থাকবে। সদস্যরা জ্যাকপট জেতার সুযোগ পেতে রাশিচক্র স্টিকারও কিনতে পারেন !",
   "Label_Event_LuckyNumber": "সৌভাগ্যবান সংখ্যা",
   "Label_Event_LuckyPlaces": "ভাগ্যবান অঞ্চল",
   "Label_Event_MyResults": "মার ফলাফল",

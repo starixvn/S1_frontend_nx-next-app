@@ -155,6 +155,13 @@ export const paths = {
 	survey: {
 		root: '/survey',
 	},
+	event: {
+		root: '/event',
+		lottery: {
+			root: '/event/lottery',
+			prize: '/event/lottery/prize',
+		},
+	},
 } as const
 
 export type IRootpath = (typeof paths)[keyof typeof paths]['root']
