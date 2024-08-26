@@ -75,8 +75,8 @@ const Select = (props: ISelectProps) => {
 	const filterOptions = filter(
 		options,
 		item =>
-			String(item.value) === filterValue ||
-			includes(String(item.label), filterValue)
+			String(item.value).toLowerCase() === filterValue ||
+			includes(String(item.label).toLowerCase(), filterValue)
 	)
 
 	return (
@@ -124,7 +124,7 @@ const Select = (props: ISelectProps) => {
 								type='text'
 								className='search'
 								placeholder='Search'
-								onChange={e => setFilterValue(e.target.value)}
+								onChange={e => setFilterValue(e.target.value.toLowerCase())}
 							/>
 						</div>
 					)}
