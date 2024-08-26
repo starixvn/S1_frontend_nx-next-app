@@ -66,12 +66,12 @@ const Select = (props: ISelectProps) => {
 	}, [defaultValue])
 
 	//* 絕對搜尋 value 與 模糊搜尋 label
-	const filterOptions = filter(
-		options,
-		item =>
-			String(item.value) === filterValue ||
-			includes(String(item.label), filterValue)
-	)
+	const filterOptions = filter(options, item => {
+		return (
+			String(item.value).toLowerCase() === filterValue ||
+			includes(String(item.label).toLowerCase(), filterValue)
+		)
+	})
 
 	let label = currentOption?.label ?? placeholder
 	if (isTranslation) {
@@ -105,7 +105,7 @@ const Select = (props: ISelectProps) => {
 								type='text'
 								className='search'
 								placeholder='Search'
-								onChange={e => setFilterValue(e.target.value)}
+								onChange={e => setFilterValue(e.target.value.toLowerCase())}
 							/>
 						</div>
 					)}
