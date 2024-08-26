@@ -73,7 +73,8 @@ const LotteryDraw = () => {
 										modal.open(
 											<TicketInfoModal
 												data={drawingRound}
-												totalTickets={winnerList?.ticketNo?.length}
+												stickerId={winnerList.custStickerId}
+												totalTickets={winnerList.ticketNo?.length}
 											/>
 										)
 								}}
