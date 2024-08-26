@@ -673,7 +673,7 @@ const Form = ({ cookies }: IJoinProps) => {
 					className='txt-blue'
 					target='_blank'
 					rel='noreferrer'
-					href={TERMS_CONDITIONS({ langId })['TermsConditions']}
+					href={TERMS_CONDITIONS({ langId: 'en' })['TermsConditions']}
 				>
 					{t('Label_Join_SignUpTerms2')}
 				</a>
