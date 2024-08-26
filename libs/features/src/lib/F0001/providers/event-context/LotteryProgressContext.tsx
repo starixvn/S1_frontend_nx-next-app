@@ -35,6 +35,7 @@ export enum StageEvent {
 	'FinalResult',
 }
 
+/** 各開獎階段事件 */
 const stages: Set<StageEvent>[] = [
 	[StageEvent.BeforeStart],
 	[StageEvent.PlayBootUpAnimation],
@@ -97,11 +98,6 @@ interface ILotteryProgressContext {
 const LotteryProgressContext = createContext<ILotteryProgressContext>(
 	{} as ILotteryProgressContext
 )
-
-const scheduledStageStarts = [
-	0, 1, 8988, 11112, 26276, 27558, 34773, 135994, 137274, 137288, 187863,
-	189165, 189177, 204318, 211524, 213576, 214000, 217000,
-]
 
 export const LotteryProgressProvider = ({
 	children,
@@ -177,10 +173,12 @@ export const LotteryProgressProvider = ({
 		if (stage.has(StageEvent.PlayTicketPrintAnimation)) setRunningNumberIndex(0)
 	}, [stage])
 
-	// to record the time of each stage
+	// 用於錄製各階段開獎時間
+	// 因第一個階段為開始前 ([StageEvent.BeforeStart])
+	// 為了方便跟 stages 索引同步，塞了一個 -1 在第一個
 
-	// const initTime = useRef<number>(0)
-	// const timetable = useRef<number[]>([])
+	// const initTime = useRef(0)
+	// const timetable = useRef<number[]>([-1])
 	// useEffect(() => {
 	// 	if (stageIndex === 1) {
 	// 		initTime.current = new Date().getTime()
@@ -188,6 +186,12 @@ export const LotteryProgressProvider = ({
 	// 	timetable.current.push(new Date().getTime() - initTime.current)
 	// 	console.log(timetable.current)
 	// }, [stageIndex])
+
+	/**	預先錄製的各階段開始時間 */
+	const scheduledStageStarts = [
+		-1, 0, 8988, 11112, 26276, 27558, 34773, 135994, 137274, 137288, 187863,
+		189165, 189177, 204318, 211524, 213576, 214000, 217000,
+	]
 
 	useEffect(() => {
 		if (!drawTime) return

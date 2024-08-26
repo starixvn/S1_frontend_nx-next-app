@@ -28,8 +28,10 @@ export const getCustomLotteryDataForClient = async (
 		let roundList
 		let winnerList
 
-		// lotteryRoundList 為降序排列，找到首個已開始且未過開獎日午夜的抽獎 drawDate 存入 activeDrawDate
-		// 已結束及之後的抽獎紀錄則存入 drawHistory 並跳出迴圈
+		// 開獎時間由 API 提供，結束時間為當日午夜
+		// lotteryRoundList 為降序排列，將首個已開始且未結束的開獎 round 資訊存入 drawingRound
+		// 將更後面的 rounds 視為已結束的抽獎紀錄，存入 drawHistory 並跳出迴圈
+
 		for (let i = 0; i < lotteryRoundList.length; i++) {
 			const round = lotteryRoundList[i]
 			const roundStart = dayjs(round.startDate)
@@ -45,6 +47,7 @@ export const getCustomLotteryDataForClient = async (
 			}
 		}
 
+		// 有正在進行的開獎才會撈取中獎名單，保險預留 5 分鐘
 		if (drawingRound) {
 			const fiveMinutesBeforeDraw = dayjs(drawingRound.drawDate).subtract(
 				5,
