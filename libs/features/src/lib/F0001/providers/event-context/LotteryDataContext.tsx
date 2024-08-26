@@ -43,6 +43,8 @@ export const LotteryDataProvider = ({
 	const drawDate = drawingRound?.drawDate
 
 	let drawTime
+
+	// 使用 server 的初始時間與抽獎開始的時間差來計算 client 的開獎時間，避免 client 時間與 server 時間不同步
 	if (drawDate && initialServerTime) {
 		const tillDraw = new Date(drawDate).getTime() - initialServerTime
 		drawTime = new Date().getTime() + tillDraw

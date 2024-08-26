@@ -15,8 +15,8 @@ import {
 	useEffect,
 	useState,
 } from 'react'
-import DesktopPrizeModal from '../../desktop/event/lottery/modals/PrizeModal'
-import MobilePrizeModal from '../../h5/event/lottery/modals/PrizeModal'
+import DesktopPrizeModal from '@nx-next-app/features/F0001/desktop/event/lottery/modals/PrizeModal'
+import MobilePrizeModal from '@nx-next-app/features/F0001/h5/event/lottery/modals/PrizeModal'
 import { useLotteryDataContext } from './LotteryDataContext'
 
 export enum StageEvent {
@@ -77,6 +77,12 @@ const stages: Set<StageEvent>[] = [
 	[StageEvent.DrawingJackpot, StageEvent.FinalResult],
 ].map(events => new Set(events))
 
+/**	預先錄製的各階段開始時間 */
+const scheduledStageStarts = [
+	-1, 0, 8988, 11112, 26276, 27558, 34773, 135994, 137274, 137288, 187863,
+	189165, 189177, 204318, 211524, 213576, 214000, 217000,
+]
+
 interface IWiningStatus {
 	ticket: string
 	prize: string
@@ -127,6 +133,7 @@ export const LotteryProgressProvider = ({
 
 	const PrizeModal = isDesktop ? DesktopPrizeModal : MobilePrizeModal
 
+	// 針對每次開完獎的號碼及獎項類別做處理，中獎彈窗
 	const handleSlotNumberFinish = (
 		announcedNumber: string,
 		lotteryPrizeCategory?: LotteryPrizeCategory
@@ -136,7 +143,7 @@ export const LotteryProgressProvider = ({
 		// 若無中獎號碼則直接返回
 		if (!includes(remainingTickets, announcedNumber)) return
 
-		// 開始的前三獎不顯示是第幾獎
+		// 開始的前三獎不顯示是第幾獎，僅顯示為「前三獎」
 		if (stage.has(StageEvent.DrawingTop3)) {
 			setWinning({
 				ticket: announcedNumber,
@@ -169,30 +176,12 @@ export const LotteryProgressProvider = ({
 		modal.open(<PrizeModal data={prizeData} />)
 	}
 
+	// 在播放印票動畫時，重置當前跑到第幾個數字
 	useEffect(() => {
 		if (stage.has(StageEvent.PlayTicketPrintAnimation)) setRunningNumberIndex(0)
 	}, [stage])
 
-	// 用於錄製各階段開獎時間
-	// 因第一個階段為開始前 ([StageEvent.BeforeStart])
-	// 為了方便跟 stages 索引同步，塞了一個 -1 在第一個
-
-	// const initTime = useRef(0)
-	// const timetable = useRef<number[]>([-1])
-	// useEffect(() => {
-	// 	if (stageIndex === 1) {
-	// 		initTime.current = new Date().getTime()
-	// 	}
-	// 	timetable.current.push(new Date().getTime() - initTime.current)
-	// 	console.log(timetable.current)
-	// }, [stageIndex])
-
-	/**	預先錄製的各階段開始時間 */
-	const scheduledStageStarts = [
-		-1, 0, 8988, 11112, 26276, 27558, 34773, 135994, 137274, 137288, 187863,
-		189165, 189177, 204318, 211524, 213576, 214000, 217000,
-	]
-
+	// 同步途中進場開獎進度
 	useEffect(() => {
 		if (!drawTime) return
 
@@ -245,6 +234,7 @@ export const LotteryProgressProvider = ({
 		return undefined
 	}, [])
 
+	// 控制開獎階段，當當前開獎數字跑完時進入下一階段
 	useEffect(() => {
 		if (!drawingRound || !winnerList) return
 
