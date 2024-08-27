@@ -3395,7 +3395,7 @@ main .gameList .icon-new {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: unset;
+  background: unset !important;
 }
 #popup.livesportspop .livesports > div {
   -webkit-box-sizing: border-box;
@@ -15393,8 +15393,6 @@ main.casino .banner {
   padding: 0 2vw;
   margin-top: 2vw;
   background: none;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 .home-gamelist > div {
   display: -webkit-box;
@@ -15420,6 +15418,7 @@ main.casino .banner {
 .home-gamelist > div .gamelist-item .gamelist-img {
   color: #000;
   text-align: center;
+  font-weight: 500;
 }
 .home-gamelist > div .gamelist-item .gamelist-img img {
   width: 100%;
@@ -15478,7 +15477,6 @@ main.casino .banner {
           filter: drop-shadow(0 0 5px black);
   z-index: 2;
   top: 10vw;
-  font-size: 2.5vw;
 }
 .under img {
   -webkit-filter: grayscale(1) !important;
@@ -15516,7 +15514,7 @@ main.casino .banner {
 }
 .home-hotmatch-wrapper .top {
   z-index: 1;
-  padding: 10vw 0 0 5vw;
+  padding: 15vw 0 0 5vw;
 }
 .home-hotmatch-wrapper .top div {
   font-weight: 700;
@@ -16676,12 +16674,6 @@ main.casino .banner {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-.after .menu-top .profile-item .message-popup > div {
-  width: 25vw;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 .after .menu-top .profile-item .message-popup::before {
   position: absolute;
@@ -18249,6 +18241,19 @@ input[type=number] .btn-logout {
   border-radius: 0 0 5vw 5vw;
 }
 
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+input[type=number] .btn-logout {
+  background: white;
+  border-radius: 30px;
+  width: 80vw;
+  padding: 3vw 0;
+  color: #D1D1D1;
+  margin: 5vw 0 0;
+}
+
 .euro {
   background: #143CDB;
 }
@@ -19656,6 +19661,55 @@ input[type=number] .btn-logout {
   padding-bottom: 11vw;
 }
 
+.exclusion-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.exclusion-text > div {
+  color: #0a1b38;
+  font-size: 3.5vw;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+.exclusion-text a, .exclusion-text button {
+  margin-bottom: 3vw;
+  background: #D9BB9B;
+  font-size: 4vw;
+  font-weight: 700;
+  padding: 2vw 1vw;
+  border-radius: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 50vw;
+  color: #0a1b38;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.exclusion-text a img, .exclusion-text button img {
+  width: 5vw;
+  margin-right: 2vw;
+  margin-top: 0.75vw;
+}
+
 .retention {
   background: #0f1f3b url(https://banner.0814media.net/h5/img/event/retention/top-bg.jpg) no-repeat top/contain;
   position: relative;
@@ -20041,55 +20095,6 @@ input[type=number] .btn-logout {
   height: 1vw;
   width: 35vw;
   bottom: -3vw;
-}
-
-.exclusion-text {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.exclusion-text > div {
-  color: #0a1b38;
-  font-size: 3.5vw;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-align: center;
-}
-.exclusion-text a, .exclusion-text button {
-  margin-bottom: 3vw;
-  background: #D9BB9B;
-  font-size: 4vw;
-  font-weight: 700;
-  padding: 2vw 1vw;
-  border-radius: 50px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 50vw;
-  color: #0a1b38;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.exclusion-text a img, .exclusion-text button img {
-  width: 5vw;
-  margin-right: 2vw;
-  margin-top: 0.75vw;
 }
 
 .retention-wrapper .bonus-list p strong span {

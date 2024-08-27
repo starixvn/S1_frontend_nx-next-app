@@ -122,6 +122,18 @@ const Shortcut = () => {
 				/>
 				<span>{t('Label_General_SelfExclusion')}</span>
 			</a>
+			{isLogin && (
+				<Link href={paths.survey.root}>
+					<a>
+						<img
+							className='exclusion-icon'
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/survey.png`}
+							alt='survey'
+						/>
+						<span>{t('Label_General_Survey')}</span>
+					</a>
+				</Link>
+			)}
 		</div>
 	)
 }
