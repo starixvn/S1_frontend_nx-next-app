@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-// import ReCAPTCHA from 'react-google-recaptcha'
+import ReCAPTCHA from 'react-google-recaptcha'
 import { isNumber } from 'lodash'
 import { useForm } from 'react-hook-form'
 import { useState, useEffect } from 'react'
@@ -19,7 +19,7 @@ import {
 	PHONE_LENGTH_REGEX,
 	CURRENCY_TO_LANG_KEY,
 	AREA_CODE_BY_CURRENCY,
-	// RECAPTCHAT_LANG_BY_LANG_ID,
+	RECAPTCHAT_LANG_BY_LANG_ID,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
 	EMAIL_REGEX,
 } from '@nx-next-app/constants'
@@ -32,7 +32,7 @@ import {
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
 	useLazyExistsEmailQuery,
-	// useGetRecaptchaInfoQuery,
+	useGetRecaptchaInfoQuery,
 } from '@nx-next-app/service'
 import { includes } from 'lodash-es'
 import {
@@ -93,7 +93,7 @@ const Form = ({ cookies }: IJoinProps) => {
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 	// TODO: Leo待後端修復好ＡＰＩ重新解開封印
-	// const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery()
+	const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery()
 
 	const [checkExistsUsername, { isFetching: existsUsernameLoading }] =
 		useLazyExistsUserNameQuery()
@@ -656,7 +656,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				)}
 			</div>
 			{/* TODO: Leo待後端修復好ＡＰＩ重新解開封印 */}
-			{/* {recaptchaInfo?.siteKey && recaptchaInfo.country !== 'CN' && (
+			{recaptchaInfo?.siteKey && recaptchaInfo.country !== 'CN' && (
 				<div className='g-recaptcha'>
 					<ReCAPTCHA
 						sitekey={recaptchaInfo.siteKey}
@@ -666,7 +666,7 @@ const Form = ({ cookies }: IJoinProps) => {
 						hl={RECAPTCHAT_LANG_BY_LANG_ID[langId]}
 					/>
 				</div>
-			)} */}
+			)}
 			<div className='Terms'>
 				{t('Label_Join_SignUpTerms1')}
 				<a
