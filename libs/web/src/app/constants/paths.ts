@@ -152,6 +152,9 @@ export const paths = {
 	olympic: {
 		root: '/olympic',
 	},
+	survey: {
+		root: '/survey',
+	},
 } as const
 
 export type IRootpath = (typeof paths)[keyof typeof paths]['root']
