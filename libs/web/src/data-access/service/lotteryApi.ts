@@ -61,7 +61,13 @@ export const getCustomLotteryDataForClient = async (
 					{ siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']) },
 					config
 				)
-				winnerList = response?.data?.data
+
+				const data = response?.data?.data
+
+				// 確保中獎名單是當前開獎的
+				if (data?.roundId === drawingRound.roundId) {
+					winnerList = data
+				}
 			}
 		}
 
