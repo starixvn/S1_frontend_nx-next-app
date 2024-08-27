@@ -14,7 +14,7 @@ const useJoin = () => {
 	const countrySelectOptions = countryList.map((item: ICountryListData) => {
 		return {
 			value: item.country,
-			label: item.country,
+			label: `Label_CountryName_${item.code}`,
 		}
 	})
 
