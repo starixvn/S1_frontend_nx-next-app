@@ -716,19 +716,19 @@ export const PRODUCTS = {
 		tpGameIdNo: 135,
 		tpId: 67,
 		tpGameType: 120,
-		gameId: 'GetSlotGamePage',
+		gameId: '-1',
 	},
 	Live22: {
 		tpGameIdNo: 136,
 		tpId: 68,
 		tpGameType: 121,
-		gameId: 'GetSlotGamePage',
+		gameId: '-1',
 	},
 	FastSpin: {
 		tpGameIdNo: 137,
 		tpId: 69,
 		tpGameType: 122,
-		gameId: 'GetSlotGamePage',
+		gameId: '-1',
 	},
 
 	// * Footer 靜態遊戲入口
