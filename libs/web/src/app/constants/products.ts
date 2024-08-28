@@ -1,16 +1,3 @@
-/**
- * 所有產品(包含所有品牌)
- * 按照 tpGameIdNo 排序
- */
-export interface IProduct {
-	tpGameIdNo: number | undefined
-	tpId: number
-	tpGameType: number
-	gameId?: number | string
-	betType?: number
-	name?: string
-}
-
 export const PRODUCTS = {
 	Soccer: {
 		tpGameIdNo: 1,
@@ -719,6 +706,30 @@ export const PRODUCTS = {
 		tpGameType: 116,
 		gameId: 0,
 	},
+	SabaPlay: {
+		tpGameIdNo: 134,
+		tpId: 66,
+		tpGameType: 119,
+		gameId: 0,
+	},
+	UuSlots: {
+		tpGameIdNo: 135,
+		tpId: 67,
+		tpGameType: 120,
+		gameId: '-1',
+	},
+	Live22: {
+		tpGameIdNo: 136,
+		tpId: 68,
+		tpGameType: 121,
+		gameId: '-1',
+	},
+	FastSpin: {
+		tpGameIdNo: 137,
+		tpId: 69,
+		tpGameType: 122,
+		gameId: '-1',
+	},
 
 	// * Footer 靜態遊戲入口
 	BaseBall: {
@@ -743,5 +754,18 @@ export const PRODUCTS = {
 		tpGameType: 69,
 	},
 } as const
+
+/**
+ * 所有產品(包含所有品牌)
+ * 按照 tpGameIdNo 排序
+ */
+export interface IProduct {
+	tpGameIdNo: number | undefined
+	tpId: number
+	tpGameType: number
+	gameId?: number | string
+	betType?: number
+	name?: string
+}
 
 export type IProducts = typeof PRODUCTS
