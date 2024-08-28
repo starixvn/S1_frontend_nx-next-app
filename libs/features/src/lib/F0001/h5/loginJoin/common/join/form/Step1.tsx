@@ -246,7 +246,7 @@ const Step1 = ({
 				<a
 					rel='noreferrer'
 					target='_blank'
-					href={TERMS_CONDITIONS({ langId })['TermsConditions']}
+					href={TERMS_CONDITIONS({ langId: 'en' })['TermsConditions']}
 				>
 					{t('Label_Join_SignUpTerms2')}
 				</a>

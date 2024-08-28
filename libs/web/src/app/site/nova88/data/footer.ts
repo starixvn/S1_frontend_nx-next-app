@@ -182,7 +182,7 @@ export const FOOTER_DATA = ({
 			},
 			{
 				displayKey: 'Label_TermsConditions',
-				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/Terms.html`,
+				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/en/TermsConditions.html`, // ms-9149需求希望統一只導到en頁
 			},
 			{
 				displayKey: 'Label_Affiliate_Program',

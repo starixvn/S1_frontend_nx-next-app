@@ -66,11 +66,11 @@ img {
   height: auto;
 }
 
-button {
+button, input {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
-button[disabled] {
+button[disabled], input[disabled] {
   background: #e2e2e2 !important;
   color: #b2b2b2 !important;
 }
@@ -2227,11 +2227,11 @@ header input:focus-within {
 
 .splogo {
   position: absolute;
-  right: -80px;
-  bottom: 22px;
-  width: 70px;
-  height: 70px;
-  background: url(https://banner.0814media.net/desktop/img/4.0/sp-aston-villa.png) center/cover;
+  right: -75px;
+  bottom: 30px;
+  width: 60px;
+  height: 60px;
+  background: url(https://banner.0814media.net/desktop/img/event/olympic/logo-paris.png) center/cover;
 }
 
 @-webkit-keyframes splogo {
@@ -2935,21 +2935,18 @@ main .promosswiper .swiper-button-prev::after {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  padding: 150px 0 80px;
+  padding: 100px 0 80px;
 }
 .hotmatch::after {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/desktop/img/4.0/hotmatch-bg-new.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/4.0/hotmatch-bg.png) no-repeat center/cover;
   width: 100%;
   height: 1000px;
-  margin-top: -90px;
+  margin-top: -120px;
   position: absolute;
   top: 20px;
   right: 0;
-}
-.hotmatch.br::after {
-  background: url(https://banner.0814media.net/desktop/img/4.0/hotmatch-bg.png) no-repeat center/cover;
 }
 .hotmatch .hotmatch-top {
   font-size: 90px;
@@ -4235,13 +4232,14 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
   margin-left: 0;
   overflow-x: hidden;
   z-index: 1;
+  height: 210px;
 }
 .joinpop .joinloginModule .joinloginFunction .dropdown .dropdown-container .dropdown-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: 0;
-  padding: 5px 0 5px 39px;
+  padding: 5px 0 5px 19px;
 }
 .joinpop .joinloginModule .joinloginFunction .dropdown .dropdown-container::-webkit-scrollbar {
   width: 3px;
@@ -11341,7 +11339,7 @@ button.icon-spinner11:before {
           transform: translateY(20px);
 }
 
-.phone {
+.phone, .inputBox-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11350,17 +11348,17 @@ button.icon-spinner11:before {
           align-items: flex-start;
   width: 100%;
 }
-.phone .tip {
+.phone .tip, .inputBox-row .tip {
   width: 100%;
 }
-.phone .txt-orange {
+.phone .txt-orange, .inputBox-row .txt-orange {
   font-size: 12px;
 }
-.phone > div:nth-child(1) {
+.phone > div:nth-child(1), .inputBox-row > div:nth-child(1) {
   margin-right: 5px;
   max-width: 160px;
 }
-.phone > div:nth-child(1) .dropdown-container {
+.phone > div:nth-child(1) .dropdown-container, .inputBox-row > div:nth-child(1) .dropdown-container {
   width: 422px;
   overflow-y: auto;
   max-height: 120px;
@@ -11368,33 +11366,39 @@ button.icon-spinner11:before {
       -ms-flex-align: start;
           align-items: flex-start;
 }
-.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar {
+.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar, .inputBox-row > div:nth-child(1) .dropdown-container::-webkit-scrollbar {
   width: 10px;
 }
-.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar-track {
+.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar-track, .inputBox-row > div:nth-child(1) .dropdown-container::-webkit-scrollbar-track {
   background: #D2E2F9;
   border-radius: 10px;
 }
-.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar-thumb {
+.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar-thumb, .inputBox-row > div:nth-child(1) .dropdown-container::-webkit-scrollbar-thumb {
   background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
   background: linear-gradient(to bottom, #435F8B, #6383B9);
   border-radius: 10px;
 }
-.phone > div:nth-child(1) .dropdown-container .dropdown-item {
+.phone > div:nth-child(1) .dropdown-container .dropdown-item, .inputBox-row > div:nth-child(1) .dropdown-container .dropdown-item {
   padding-left: 10px !important;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.phone > div:nth-child(1) .dropdown-container .inputBox-blue {
+.phone > div:nth-child(1) .dropdown-container .inputBox-blue, .inputBox-row > div:nth-child(1) .dropdown-container .inputBox-blue {
   width: 94%;
   border-radius: 3px;
   margin: 2px;
   position: sticky;
   top: 0;
 }
-.phone .btn {
+.phone .btn, .inputBox-row .btn {
   width: 70%;
+}
+
+.inputBox-row .inputBox-blue:last-child {
+  width: 50%;
+  max-width: unset !important;
+  margin-right: 0 !important;
 }
 
 .transferModule {
@@ -20339,10 +20343,10 @@ form .profileModule .vipLv .vipname {
 
 #goTop {
   position: fixed;
-  bottom: 175px;
-  right: 10px;
-  width: 60px;
-  height: 60px;
+  bottom: 150px;
+  right: 80px;
+  width: 40px;
+  height: 40px;
   background: #FF5E00;
   border-radius: 100%;
   z-index: 2;
@@ -20360,7 +20364,7 @@ form .profileModule .vipLv .vipname {
           justify-content: center;
 }
 #goTop i:before {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -26366,317 +26370,4 @@ input[type=number] {
 .olympic-footer > div img {
   width: 220px;
   padding: 40px 0;
-}
-
-#survey {
-  position: fixed;
-  bottom: 35px;
-  right: 70px;
-  width: 345px;
-  border-radius: 10px;
-  color: white;
-  z-index: 5;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-#survey .survey-icon-btn {
-  position: absolute;
-  bottom: 60px;
-  right: -60px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #0066CC;
-  border-radius: 100%;
-  padding: 15px;
-  width: 60px;
-  height: 60px;
-  -webkit-box-shadow: 0 3px 6px rgba(180, 187, 193, 0.8117647059);
-          box-shadow: 0 3px 6px rgba(180, 187, 193, 0.8117647059);
-}
-#survey .survey-icon-btn img {
-  width: 35px;
-  margin-left: 3px;
-}
-#survey .survey-icon-btn:hover {
-  background: #2685e3;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-#survey .survey-box {
-  position: absolute;
-  bottom: 45px;
-  right: -60px;
-  visibility: hidden;
-  background: #F8F8F8;
-  border-radius: 10px;
-  width: 400px;
-  opacity: 0;
-  -webkit-box-shadow: 0 0 6px rgba(128, 128, 128, 0.431372549);
-          box-shadow: 0 0 6px rgba(128, 128, 128, 0.431372549);
-}
-#survey .survey-box.active {
-  opacity: 1;
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease;
-  visibility: visible;
-}
-#survey .survey-before {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 20px;
-  padding: 20px 30px;
-}
-#survey .survey-before > div:nth-child(1) {
-  color: #0A1B38;
-  font-size: 17px;
-  font-weight: 600;
-  text-align: left;
-  width: 100%;
-}
-#survey .survey-before > div:nth-child(2) {
-  text-align: left;
-  width: 100%;
-  color: #9C9C9C;
-  margin: 25px 0 12px;
-  font-size: 12px;
-}
-#survey .survey-before fieldset {
-  border: medium none;
-  min-width: 100%;
-  padding: 0;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-#survey .survey-before fieldset input {
-  width: 100%;
-  border: 1px solid #e5e5e5;
-  background: #FFF;
-  margin: 0 0 5px;
-  padding: 10px 0 10px 8px;
-  color: #0A1B38;
-  border-radius: 5px;
-}
-#survey .survey-before fieldset input::-webkit-input-placeholder {
-  font-size: 12px;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-#survey .survey-before fieldset input::-moz-placeholder {
-  font-size: 12px;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-#survey .survey-before fieldset input:-ms-input-placeholder {
-  font-size: 12px;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-#survey .survey-before fieldset input::-ms-input-placeholder {
-  font-size: 12px;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-#survey .survey-before fieldset input::placeholder {
-  font-size: 12px;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-#survey .survey-before fieldset input:focus {
-  outline: 0;
-  border: 2px solid #648DD6;
-}
-#survey .survey-before fieldset textarea {
-  width: 100%;
-  height: 150px;
-  border: 1px solid #e5e5e5;
-  background: #FFF;
-  margin: 0 0 5px;
-  padding: 10px 0 10px 8px;
-  max-width: 100%;
-  resize: none;
-  border-radius: 5px;
-  font-size: 12px;
-}
-#survey .survey-before fieldset textarea::-webkit-input-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-#survey .survey-before fieldset textarea::-moz-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-#survey .survey-before fieldset textarea:-ms-input-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-#survey .survey-before fieldset textarea::-ms-input-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-#survey .survey-before fieldset textarea::placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-#survey .survey-before fieldset textarea:focus {
-  outline: 0;
-  border: 2px solid #648DD6;
-}
-#survey .survey-before fieldset button {
-  background: #648DD6;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 10px;
-  padding: 10px 25px;
-  margin: 50px 0 20px;
-  color: white;
-}
-#survey .survey-before fieldset button:last-child {
-  background: #DFDFDF;
-  color: #9B9B9B;
-  margin-left: 8px;
-}
-#survey .survey-before fieldset:nth-child(2) {
-  margin-top: 25px;
-}
-#survey .survey-before fieldset .tip {
-  display: none;
-}
-#survey .survey-before fieldset .tip.active {
-  display: block;
-  color: red;
-}
-#survey .survey-before fieldset.error textarea {
-  border: 2px solid red;
-}
-#survey .survey-before fieldset.error input {
-  border: 2px solid red;
-}
-#survey .survey-before .survey-input {
-  margin-top: 3px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-#survey .survey-before .survey-btn {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: right;
-      -ms-flex-pack: right;
-          justify-content: right;
-}
-#survey .survey-before .survey-btn button:first-child:hover {
-  background: #7b9fdf;
-}
-#survey .survey-before .survey-btn button:last-child:hover {
-  background: #d6d9df;
-}
-#survey .survey-before.close {
-  display: none;
-}
-#survey .survey-after {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 130px 30px;
-}
-#survey .survey-after img {
-  width: 150px;
-}
-#survey .survey-after .icon-close {
-  position: absolute;
-  background: rgba(128, 128, 128, 0.5803921569);
-  color: white;
-  border-radius: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 32px;
-  width: 32px;
-  font-size: 14px;
-  right: 15px;
-  top: 15px;
-}
-#survey .survey-after .icon-close:hover {
-  background: rgba(171, 171, 171, 0.6);
-}
-#survey .survey-after > div:nth-child(2) {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: #0A1B38;
-  font-size: 17px;
-  font-weight: 600;
-  text-align: left;
-}
-#survey .survey-after > div:nth-child(2) > div {
-  margin: 30px 0;
-}
-#survey .survey-after > div:last-child {
-  color: #9C9C9C;
-  font-size: 12px;
-  text-align: center;
-}
-#survey .survey-after.close {
-  display: none;
 }/*# sourceMappingURL=style.css.map */

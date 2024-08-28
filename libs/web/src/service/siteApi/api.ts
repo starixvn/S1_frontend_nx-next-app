@@ -11,6 +11,7 @@ import {
 	IGetVipBannerArgs,
 	IResetPwdByOTPArgs,
 	IResetPwdVerifyOTPArgs,
+	ICountryListData,
 } from './type'
 
 export const siteApiUrl = {
@@ -33,6 +34,7 @@ export const siteApiUrl = {
 	reSetPwdByOTP: 'Site/ReSetPwdByOTP',
 	reSetPwdVerifyOTP: 'Site/ReSetPwdVerifyOTP',
 	checkResetPwdToken: 'Site/CheckResetPwdToken',
+	getCountryList: 'GeoIp/GetCountryList',
 }
 
 export const siteApi = rootApi.injectEndpoints({
@@ -200,6 +202,12 @@ export const siteApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
+		getCountryList: builder.query<IAxiosResponse<ICountryListData[]>, null>({
+			query: () => ({
+				url: siteApiUrl.getCountryList,
+				method: 'GET',
+			}),
+		}),
 	}),
 })
 
@@ -207,6 +215,7 @@ export const {
 	useGetProductTpIdsQuery,
 	useGetTpMaintainListQuery,
 	useLazyGetIpCountryQuery,
+	useGetIpCountryQuery,
 	useSetForgetPasswordMutation,
 	useLazyExistsUserNameQuery,
 	useLazyExistsEmailQuery,
@@ -222,4 +231,5 @@ export const {
 	useResetPwdByOTPMutation,
 	useResetPwdVerifyOTPMutation,
 	useCheckResetPwdTokenMutation,
+	useGetCountryListQuery,
 } = siteApi
