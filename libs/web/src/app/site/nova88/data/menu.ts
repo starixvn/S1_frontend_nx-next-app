@@ -2,7 +2,7 @@ import {
 	MenuActionTypeEnum,
 	MenuKeyEnum,
 	LobbyCategoryEnum,
-	IMenuData
+	IMenuData,
 } from '@nx-next-app/types'
 import { paths, PRODUCTS } from '@nx-next-app/constants'
 
@@ -756,6 +756,42 @@ export const MENU_DATA: IMenuData[] = [
 					tpId: PRODUCTS.AskmeSlot.tpId,
 				},
 			},
+			{
+				...PRODUCTS.UuSlots,
+				h5: {
+					hasLobby: false,
+					menuActionType: MenuActionTypeEnum.Link,
+				},
+				desktop: { hasLobby: true, menuActionType: MenuActionTypeEnum.Link },
+				pathname: paths.slots.root,
+				query: {
+					tpId: PRODUCTS.UuSlots.tpId,
+				},
+			},
+			{
+				...PRODUCTS.Live22,
+				h5: {
+					hasLobby: false,
+					menuActionType: MenuActionTypeEnum.Link,
+				},
+				desktop: { hasLobby: true, menuActionType: MenuActionTypeEnum.Link },
+				pathname: paths.slots.root,
+				query: {
+					tpId: PRODUCTS.Live22.tpId,
+				},
+			},
+			{
+				...PRODUCTS.FastSpin,
+				h5: {
+					hasLobby: false,
+					menuActionType: MenuActionTypeEnum.Link,
+				},
+				desktop: { hasLobby: true, menuActionType: MenuActionTypeEnum.Link },
+				pathname: paths.slots.root,
+				query: {
+					tpId: PRODUCTS.FastSpin.tpId,
+				},
+			},
 		],
 	},
 	{
@@ -928,6 +964,18 @@ export const MENU_DATA: IMenuData[] = [
 			},
 			{
 				...PRODUCTS['93Connect'],
+				pathname: paths.game.root,
+				h5: {
+					hasLobby: false,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+				desktop: {
+					hasLobby: true,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+			},
+			{
+				...PRODUCTS.SabaPlay,
 				pathname: paths.game.root,
 				h5: {
 					hasLobby: false,
