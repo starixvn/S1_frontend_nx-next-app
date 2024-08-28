@@ -241,6 +241,7 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 
 			<Select
 				showSearch
+				isTranslation
 				options={countrySelectOptions}
 				defaultValue={initNationality}
 				value={getValues('nationality')}

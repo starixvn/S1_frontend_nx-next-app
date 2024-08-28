@@ -69,7 +69,7 @@ const Select = (props: ISelectProps) => {
 	const filterOptions = filter(options, item => {
 		return (
 			String(item.value).toLowerCase() === filterValue ||
-			includes(String(item.label).toLowerCase(), filterValue)
+			includes(t(String(item.label)).toLowerCase(), filterValue)
 		)
 	})
 

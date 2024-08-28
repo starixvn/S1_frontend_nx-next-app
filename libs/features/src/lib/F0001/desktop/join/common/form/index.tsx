@@ -575,6 +575,7 @@ const Form = ({ cookies }: IJoinProps) => {
 					</div>
 					<Select
 						showSearch
+						isTranslation
 						options={countrySelectOptions}
 						defaultValue={initNationality}
 						value={getValues('nationality')}

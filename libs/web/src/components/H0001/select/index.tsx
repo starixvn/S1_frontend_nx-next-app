@@ -12,6 +12,7 @@ export interface ISelectProps {
 	prefixIcon?: ReactNode
 	placeholder?: string
 	showSearch?: boolean
+	isTranslation?: boolean
 	errorMessage?: string
 	infoMessage?: string
 	onChange?: (value: SelectOptionType['value']) => void
@@ -29,6 +30,7 @@ const Select = (props: ISelectProps) => {
 		prefixIcon,
 		placeholder = t('Label_General_None'),
 		showSearch,
+		isTranslation,
 		infoMessage,
 		errorMessage,
 		showValue,
@@ -76,8 +78,15 @@ const Select = (props: ISelectProps) => {
 		options,
 		item =>
 			String(item.value).toLowerCase() === filterValue ||
-			includes(String(item.label).toLowerCase(), filterValue)
+			includes(t(String(item.label)).toLowerCase(), filterValue)
 	)
+
+	let label = currentOption?.label ?? placeholder
+	if (isTranslation) {
+		label = t(currentOption?.label as string) || t(placeholder || '')
+	} else if (showValue) {
+		label = currentOption?.value as string
+	}
 
 	return (
 		<>
@@ -104,11 +113,7 @@ const Select = (props: ISelectProps) => {
 					{/* 如 prefixOptionIcon 為 Image 會造成跑版，所以使用 style 調整 */}
 					<div style={{ display: 'flex', alignItems: 'center' }}>
 						{currentOption?.prefixOptionIcon}
-						<span className='text'>
-							{showValue
-								? currentOption?.value
-								: currentOption?.label || placeholder}
-						</span>
+						<span className='text'>{label}</span>
 					</div>
 					<i className='icon icon-keyboard_arrow_down' />
 				</button>
@@ -137,7 +142,11 @@ const Select = (props: ISelectProps) => {
 							onClick={() => handleOptionClick(option)}
 						>
 							{option.prefixOptionIcon}
-							<span className='text'> {option.label || ' '}</span>
+							<span className='text'>
+								{isTranslation
+									? t(option.label as string)
+									: option.label || ' '}
+							</span>
 						</div>
 					))}
 				</div>
