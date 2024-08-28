@@ -29,6 +29,7 @@ import {
 	OperaPixelTracker,
 	MetaPixelTracker,
 } from '@nx-next-app/utils'
+import { useJoin } from '@nx-next-app/features/F0001/hooks'
 import { Step1, Step2, Step3, StepBar, Features, LineRegister } from './form'
 
 interface IJoinProps {
@@ -46,6 +47,7 @@ const Join = ({ cookies }: IJoinProps) => {
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
+	const { initNationality } = useJoin()
 
 	const [step, setStep] = useState<number>(1)
 	const [currencyOptions, setCurrencyOptions] = useState<
@@ -217,12 +219,16 @@ const Join = ({ cookies }: IJoinProps) => {
 			username,
 			password,
 			realName,
+			email,
+			formBirthMonth,
+			formBirthDay,
+			formBirthYear,
+			nationality,
 			currencyId: formCurrencyId,
 			areaCode,
 			phone,
 			affiliate,
 		} = getValues()
-
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
@@ -245,7 +251,6 @@ const Join = ({ cookies }: IJoinProps) => {
 			)?.value ?? 'en'
 
 		const blackbox = await getBlackbox()
-
 		try {
 			await signUp({
 				// 因 cookies 有機會是 string[] 導致錯誤
@@ -255,6 +260,11 @@ const Join = ({ cookies }: IJoinProps) => {
 				currencyId: formCurrencyId,
 				phoneNo: phone,
 				realName,
+				email,
+				Birth_d: formBirthDay ?? 0,
+				Birth_m: formBirthMonth ?? 0,
+				Birth_y: formBirthYear ?? 0,
+				nationality: nationality ?? initNationality,
 				// reCaptchaToken,
 				referralUrl: document.referrer,
 				userLang,

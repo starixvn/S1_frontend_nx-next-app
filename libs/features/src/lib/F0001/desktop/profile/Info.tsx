@@ -4,7 +4,12 @@ import { useTranslation } from 'next-i18next'
 import { useFormContext } from 'react-hook-form'
 import { numberFormat } from '@nx-next-app/utils'
 import { useAuth } from '@nx-next-app/data-access'
-import { paths, AREA_CODE, EMAIL_REGEX, REALNAME_REGEX } from '@nx-next-app/constants'
+import {
+	paths,
+	AREA_CODE,
+	EMAIL_REGEX,
+	REALNAME_REGEX,
+} from '@nx-next-app/constants'
 import {
 	useLazyExistsEmailQuery,
 	useSendOTPEmailMutation,
