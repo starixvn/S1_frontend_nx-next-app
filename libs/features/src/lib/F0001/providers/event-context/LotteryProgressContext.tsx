@@ -77,7 +77,7 @@ const stages: Set<StageEvent>[] = [
 	[StageEvent.DrawingJackpot, StageEvent.FinalResult],
 ].map(events => new Set(events))
 
-/**	預先錄製的各階段開始時間 */
+/**	為了同步途中進場開獎進度，預先錄製的各階段開始時間 */
 const scheduledStageStarts = [
 	-1, 0, 8988, 11112, 26276, 27558, 34773, 135994, 137274, 137288, 187863,
 	189165, 189177, 204318, 211524, 213576, 214000, 217000,
@@ -234,7 +234,7 @@ export const LotteryProgressProvider = ({
 		return undefined
 	}, [])
 
-	// 控制開獎階段，當當前開獎數字跑完時進入下一階段
+	// 控制開獎階段，當前開獎數字跑完時進入下一階段
 	useEffect(() => {
 		if (!drawingRound || !winnerList) return
 
