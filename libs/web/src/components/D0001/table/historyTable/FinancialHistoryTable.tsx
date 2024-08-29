@@ -63,7 +63,7 @@ const FinancialHistoryTable = ({
 				item: { changeAmount },
 			}: {
 				item: { changeAmount: number }
-			}) => numberFormat(changeAmount, currencyId, 0),
+			}) => numberFormat(changeAmount, currencyId, 2),
 		},
 		{
 			title: t('Label_History_BeforeAmount'),
@@ -73,7 +73,7 @@ const FinancialHistoryTable = ({
 				item: { beforeAmount },
 			}: {
 				item: { beforeAmount: number }
-			}) => numberFormat(beforeAmount, currencyId, 0),
+			}) => numberFormat(beforeAmount, currencyId, 2),
 		},
 		{
 			title: (
@@ -85,7 +85,7 @@ const FinancialHistoryTable = ({
 			dataIndex: 'afterAmount',
 			key: 'afterAmount',
 			render: ({ item: { afterAmount } }: { item: { afterAmount: number } }) =>
-				numberFormat(afterAmount, currencyId, 0),
+				numberFormat(afterAmount, currencyId, 2),
 		},
 	]
 
