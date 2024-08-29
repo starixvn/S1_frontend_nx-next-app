@@ -1,5 +1,4 @@
 import classNames from 'classnames'
-import ReCAPTCHA from 'react-google-recaptcha'
 import { isNumber } from 'lodash'
 import { useForm } from 'react-hook-form'
 import { useState, useEffect } from 'react'
@@ -19,7 +18,6 @@ import {
 	PHONE_LENGTH_REGEX,
 	CURRENCY_TO_LANG_KEY,
 	AREA_CODE_BY_CURRENCY,
-	RECAPTCHAT_LANG_BY_LANG_ID,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
 } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
@@ -30,7 +28,6 @@ import {
 	useLazyExistsUserNameQuery,
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
-	useGetRecaptchaInfoQuery,
 } from '@nx-next-app/service'
 import { includes } from 'lodash-es'
 import {
@@ -40,6 +37,7 @@ import {
 } from '@nx-next-app/utils'
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 
 interface IJoinProps {
 	cookies: TmpCookiesObj
@@ -60,6 +58,7 @@ const Form = ({ cookies }: IJoinProps) => {
 	const lineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
 
 	const { ALLOWED_CURRENCIES } = useStaticData()
+	const { executeRecaptcha } = useGoogleReCaptcha()
 
 	const {
 		formState,
@@ -86,7 +85,6 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
-	const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery()
 
 	const [checkExistsUsername, { isFetching: existsUsernameLoading }] =
 		useLazyExistsUserNameQuery()
@@ -350,16 +348,17 @@ const Form = ({ cookies }: IJoinProps) => {
 			areaCode,
 			phone,
 			affiliate,
-			reCaptchaToken,
 		} = getValues()
 
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
+		if (!executeRecaptcha) return
+		const reCaptchaToken = await executeRecaptcha('signUp')
 
 		// currency & recaptcha & affiliate cannot use form required check
 		if (
 			// * 中國地區不支援 recaptcha，只檢查非中國地區的 reCaptchaToken
-			(!reCaptchaToken && recaptchaInfo?.country !== 'CN') ||
+			// (!reCaptchaToken && recaptchaInfo?.country !== 'CN') ||
 			!currencyCheck ||
 			!affCodeCheck
 		)
@@ -425,7 +424,10 @@ const Form = ({ cookies }: IJoinProps) => {
 			<div className='inputModule'>
 				<InputBox
 					register={register('username', {
-						required: { value: true, message: t('Label_General_UsernameReq') },
+						required: {
+							value: true,
+							message: t('Label_General_UsernameReq'),
+						},
 						pattern: {
 							value: USERNAME_REGEX,
 							message: t('Label_General_UserNameLength') || '',
@@ -556,17 +558,7 @@ const Form = ({ cookies }: IJoinProps) => {
 					/>
 				)}
 			</div>
-			{recaptchaInfo?.siteKey && recaptchaInfo.country !== 'CN' && (
-				<div className='g-recaptcha'>
-					<ReCAPTCHA
-						sitekey={recaptchaInfo.siteKey}
-						onChange={token => {
-							setValue('reCaptchaToken', token)
-						}}
-						hl={RECAPTCHAT_LANG_BY_LANG_ID[langId]}
-					/>
-				</div>
-			)}
+
 			<div className='Terms'>
 				{t('Label_Join_SignUpTerms1')}
 				<a
