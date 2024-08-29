@@ -56,15 +56,15 @@ const FinancialItem = ({
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_ChangeAmount')}</span>
-					<span>{numberFormat(changeAmount as number, currencyId, 0)}</span>
+					<span>{numberFormat(changeAmount as number, currencyId, 2)}</span>
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_BeforeAmount')}</span>
-					<span>{numberFormat(beforeAmount as number, currencyId, 0)}</span>
+					<span>{numberFormat(beforeAmount as number, currencyId, 2)}</span>
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_AfterAmount')}</span>
-					<span>{numberFormat(afterAmount as number, currencyId, 0)}</span>
+					<span>{numberFormat(afterAmount as number, currencyId, 2)}</span>
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_RefTransId')}</span>
