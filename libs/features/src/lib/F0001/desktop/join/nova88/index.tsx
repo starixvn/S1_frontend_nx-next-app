@@ -13,6 +13,8 @@ const Join = ({ cookies }: IJoinProps) => {
 			<div className='joinloginModule'>
 				<Features />
 				<GReCaptchaProviders>
+					{/* 控制位置在 GoogleReCaptchaProvider */}
+					<div id='g-reCaptcha' />
 					<Form cookies={cookies} />
 				</GReCaptchaProviders>
 			</div>

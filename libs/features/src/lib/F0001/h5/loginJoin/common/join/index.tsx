@@ -22,7 +22,6 @@ import {
 	useLazyAffiliateCheckQuery,
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
-	useGetRecaptchaInfoQuery,
 } from '@nx-next-app/service'
 import {
 	getQueryParam,
@@ -30,6 +29,7 @@ import {
 	MetaPixelTracker,
 } from '@nx-next-app/utils'
 import { Step1, Step2, Step3, StepBar, Features, LineRegister } from './form'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 
 interface IJoinProps {
 	cookies: TmpCookiesObj
@@ -69,7 +69,8 @@ const Join = ({ cookies }: IJoinProps) => {
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 	const [signUp] = useSignupMutation()
-	const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery()
+
+	const { executeRecaptcha } = useGoogleReCaptcha()
 
 	const currencySelectOptions = siteCurrencyList
 		.filter(currencyId => {
@@ -213,20 +214,22 @@ const Join = ({ cookies }: IJoinProps) => {
 			areaCode,
 			phone,
 			affiliate,
-			reCaptchaToken,
 		} = getValues()
 
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
+		// 目前只有 nova 需要 google recaptcha，因為 Yashbet 外面沒有包ㄧ層 GReCaptchaProviders
+		// 會找不到 executeRecaptcha 壞掉
+		// 需要在此排除
+		let reCaptchaToken
+		if (process.env['NEXT_PUBLIC_SITE_ID'] === '1') {
+			if (!executeRecaptcha) return
+			reCaptchaToken = await executeRecaptcha('signUp')
+		}
+
 		// currency & recaptcha & affiliate cannot use form required check
-		if (
-			!reCaptchaToken ||
-			recaptchaInfo?.country === 'CN' ||
-			!currencyCheck ||
-			!affCodeCheck
-		)
-			return
+		if (!currencyCheck || !affCodeCheck) return
 
 		const affId = affiliate && urlAffId ? affiliate : null
 		const affCode = !urlAffId && affCodeCheck ? affiliate : null
