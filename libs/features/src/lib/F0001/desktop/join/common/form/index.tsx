@@ -392,17 +392,18 @@ const Form = ({ cookies }: IJoinProps) => {
 		} = getValues()
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
-		if (!executeRecaptcha) return
-		const reCaptchaToken = await executeRecaptcha('signUp')
+
+		// 目前只有 nova 需要 google recaptcha，因為 Yashbet 外面沒有包ㄧ層 GReCaptchaProviders
+		// 會找不到 executeRecaptcha 壞掉
+		// 需要在此排除
+		let reCaptchaToken
+		if (process.env['NEXT_PUBLIC_SITE_ID'] === '1') {
+			if (!executeRecaptcha) return
+			reCaptchaToken = await executeRecaptcha('signUp')
+		}
 
 		// currency & recaptcha & affiliate cannot use form required check
-		if (
-			// * 中國地區不支援 recaptcha，只檢查非中國地區的 reCaptchaToken
-			// (!reCaptchaToken && recaptchaInfo?.country !== 'CN') ||
-			!currencyCheck ||
-			!affCodeCheck
-		)
-			return
+		if (!currencyCheck || !affCodeCheck) return
 
 		const affId = affiliate && urlAffId ? affiliate : null
 		const affCode = !urlAffId && affCodeCheck ? affiliate : null

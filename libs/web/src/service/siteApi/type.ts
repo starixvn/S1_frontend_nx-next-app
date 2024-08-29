@@ -75,7 +75,7 @@ export interface ISignUpArgs {
 	nationality?: string
 	phoneNo: string
 	realName: string
-	reCaptchaToken: string
+	reCaptchaToken: string | undefined
 	referralUrl?: string
 	userLang: string
 	userName: string

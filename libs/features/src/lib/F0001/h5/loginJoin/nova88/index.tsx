@@ -9,6 +9,7 @@ import Link from 'next/link'
 import SwitchButton from '../common/SwitchButton'
 import Login from '../common/login'
 import Join from '../common/join'
+import GReCaptchaProviders from '@nx-next-app/features/F0001/providers/googleReCaptcha-provider'
 
 interface ILoginJoinProps {
 	cookies: TmpCookiesObj
@@ -32,40 +33,43 @@ const LoginJoin = ({ cookies }: ILoginJoinProps) => {
 	const fromRoute = isString(query['from']) ? query['from'] : paths.home.root
 
 	return (
-		<div className='logoSwitch active'>
-			<Link href={fromRoute} prefetch>
-				<button>
-					<div className='icon icon-close' />
-				</button>
-			</Link>
+		<GReCaptchaProviders>
+			<div className='logoSwitch active'>
+				<Link href={fromRoute} prefetch>
+					<button>
+						<div className='icon icon-close' />
+					</button>
+				</Link>
 
-			<img src={logoUrl} alt='logo' />
+				<img src={logoUrl} alt='logo' />
 
-			<SwitchButton
-				checkedChildren={t('Label_General_LogIn')}
-				unCheckedChildren={t('Label_General_Join')}
-				defaultChecked={formType}
-				onChange={type => {
-					setFormType(type)
-					if (type === 'left') {
-						push(
-							{ pathname: paths.login.root, query: { from: fromRoute } },
-							undefined,
-							{ shallow: true }
-						)
-					} else if (type === 'right') {
-						push(
-							{ pathname: paths.join.root, query: { from: fromRoute } },
-							undefined,
-							{ shallow: true }
-						)
-					}
-				}}
-			/>
+				<SwitchButton
+					checkedChildren={t('Label_General_LogIn')}
+					unCheckedChildren={t('Label_General_Join')}
+					defaultChecked={formType}
+					onChange={type => {
+						setFormType(type)
+						if (type === 'left') {
+							push(
+								{ pathname: paths.login.root, query: { from: fromRoute } },
+								undefined,
+								{ shallow: true }
+							)
+						} else if (type === 'right') {
+							push(
+								{ pathname: paths.join.root, query: { from: fromRoute } },
+								undefined,
+								{ shallow: true }
+							)
+						}
+					}}
+				/>
 
-			{formType === 'left' && <Login />}
-			{formType === 'right' && <Join cookies={cookies} />}
-		</div>
+				{formType === 'left' && <Login />}
+				{formType === 'right' && <Join cookies={cookies} />}
+			</div>
+			<div id='g-reCaptcha' />
+		</GReCaptchaProviders>
 	)
 }
 
