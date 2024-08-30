@@ -16,7 +16,9 @@ export const LotteryPrizePage = () => {
 		ticketNo: String(query['ticketNo']),
 		jackpot: Number(query['jackpot']) ? 1 : 0,
 		stickerId: Number(query['stickerId']) as ChineseZodiacStickerId,
-		lotteryPrizeCategory: Number(query['prize']) as LotteryPrizeCategory,
+		lotteryPrizeCategory: Number(
+			query['lotteryPrizeCategory']
+		) as LotteryPrizeCategory,
 	}
 
 	return <LotteryPrize data={data} />

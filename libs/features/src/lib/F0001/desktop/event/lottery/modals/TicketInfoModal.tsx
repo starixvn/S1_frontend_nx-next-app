@@ -1,5 +1,5 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { ILotteryRoundData } from '@nx-next-app/service'
+import { ChineseZodiacStickerId, ILotteryRoundData } from '@nx-next-app/service'
 import dayjs from 'dayjs'
 import { useTranslation } from 'next-i18next'
 import LotterySticker from '../LotterySticker'
@@ -7,9 +7,11 @@ import LotterySticker from '../LotterySticker'
 const TicketInfoModal = ({
 	data,
 	totalTickets,
+	stickerId,
 }: {
 	data: ILotteryRoundData
 	totalTickets?: number
+	stickerId?: ChineseZodiacStickerId
 }) => {
 	const { t } = useTranslation()
 	const { closeModal } = useGlobalModal()
@@ -27,9 +29,11 @@ const TicketInfoModal = ({
 							{/* sticker-title */}
 							<div className='title'>{t('Label_Event_JackpotSticker')}</div>
 							{/* sticker-result */}
-							<div className='sticker-result'>
-								<LotterySticker stickerId={1} />
-							</div>
+							{stickerId ? (
+								<div className='sticker-result'>
+									<LotterySticker stickerId={stickerId} />
+								</div>
+							) : null}
 						</div>
 						{/* hr */}
 						<hr />

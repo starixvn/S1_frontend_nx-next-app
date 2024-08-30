@@ -9,48 +9,45 @@ import { useTranslation } from 'next-i18next'
 
 export const useRetentionEvents = () => {
 	const { t } = useTranslation()
-
+	const { ALLOWED_CURRENCIES } = useStaticData()
 	const {
 		userInfo: { currencyId, langId },
 		auth: { isLogin },
 	} = useAuth()
 
-	const retentionBonusCode = useGetRetentionPromotionQuery(
-		{ langId },
-		{ skip: !langId || !isLogin }
-	)?.data?.data?.bonusCode
+	const { data: LotteryStatus, isLoading: isLoadingLotteryStatus } =
+		useGetLotteryMaintainQuery(null)
+	const isLotteryUnderMaintenance = LotteryStatus?.data?.isMaintain ?? true
 
-	const isLotteryUnderMaintenance =
-		useGetLotteryMaintainQuery(null)?.data?.data?.isMaintain ?? false
+	const { data: retentionPromotion, isLoading: isLoadingRetentionPromotion } =
+		useGetRetentionPromotionQuery({ langId }, { skip: !langId || !isLogin })
+	const retentionBonusCode = retentionPromotion?.data?.bonusCode
 
-	const { ALLOWED_CURRENCIES } = useStaticData()
+	const isLoading = isLoadingLotteryStatus || isLoadingRetentionPromotion
 
-	const events: {
-		name: string
-		path: string
-		access: boolean
-		underMaintenance?: boolean
-	}[] = filter(
-		[
-			{
-				name: t('Label_LuckyWheel_Title'),
-				path: paths.luckyWheel.root,
-				access: includes(ALLOWED_CURRENCIES['LUCKY_WHEEL'], currencyId),
-			},
-			{
-				name: t('Label_General_Lottery'),
-				path: paths.event.lottery.root,
-				access: Boolean(isLogin),
-				underMaintenance: isLotteryUnderMaintenance,
-			},
-			{
-				name: t('Label_Retention_SurpriseReward'),
-				path: paths.retention.root,
-				access: Boolean(retentionBonusCode),
-			},
-		],
-		'access'
-	)
+	const events = isLoading
+		? []
+		: filter(
+				[
+					{
+						name: t('Label_LuckyWheel_Title'),
+						path: paths.luckyWheel.root,
+						access: includes(ALLOWED_CURRENCIES['LUCKY_WHEEL'], currencyId),
+					},
+					{
+						name: t('Label_General_Lottery'),
+						path: paths.event.lottery.root,
+						access: Boolean(isLogin),
+						underMaintenance: isLotteryUnderMaintenance,
+					},
+					{
+						name: t('Label_Retention_SurpriseReward'),
+						path: paths.retention.root,
+						access: Boolean(retentionBonusCode),
+					},
+				],
+				'access'
+		  )
 
 	return { events }
 }

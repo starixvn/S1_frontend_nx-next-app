@@ -43,7 +43,12 @@ const LotterySlotMachine = forwardRef<HTMLDivElement>((_, ref) => {
 				ref={iframeRef}
 				title='slot'
 				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/lottery-machine/index.html`}
-				style={{ width: '100%', height: 'auto', aspectRatio: '250 / 300' }}
+				style={{
+					width: '100%',
+					height: 'auto',
+					aspectRatio: '5 / 6',
+					pointerEvents: 'none',
+				}}
 			/>
 		</div>
 	)
