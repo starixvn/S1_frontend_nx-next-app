@@ -1,7 +1,7 @@
 import { TmpCookiesObj } from 'cookies-next/lib/types'
+import { GReCaptchaProviders } from '@nx-next-app/features/F0001/providers/googleReCaptcha-provider'
 import { Features } from '../common/Features'
 import { Form } from '../common/form'
-import GReCaptchaProviders from '@nx-next-app/features/F0001/providers/googleReCaptcha-provider'
 
 interface IJoinProps {
 	cookies: TmpCookiesObj

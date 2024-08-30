@@ -1,3 +1,4 @@
+import { GReCaptchaProviders } from '@nx-next-app/features/F0001/providers/googleReCaptcha-provider'
 import { paths } from '@nx-next-app/constants'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
@@ -9,7 +10,6 @@ import Link from 'next/link'
 import SwitchButton from '../common/SwitchButton'
 import Login from '../common/login'
 import Join from '../common/join'
-import GReCaptchaProviders from '@nx-next-app/features/F0001/providers/googleReCaptcha-provider'
 
 interface ILoginJoinProps {
 	cookies: TmpCookiesObj

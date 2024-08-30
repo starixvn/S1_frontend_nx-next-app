@@ -1,5 +1,5 @@
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
-import { Fragment, ReactNode } from 'react'
+import { ReactNode } from 'react'
 import { useGetRecaptchaInfoQuery } from '@nx-next-app/service'
 import { RECAPTCHAT_LANG_BY_LANG_ID } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -8,22 +8,23 @@ interface IGoogleReCaptchaProvidersProps {
 	children: ReactNode
 }
 
-export default function GReCaptchaProviders({
+function GReCaptchaProviders({
 	children,
 }: IGoogleReCaptchaProvidersProps): JSX.Element {
-	const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery()
+	const { data: { data: recaptchaInfoData } = {} } = useGetRecaptchaInfoQuery()
 	const {
 		userInfo: { langId },
 	} = useAuth()
 
 	// 不直接 return 是確保 api 失效不會整個元件都被 block
 	// 中國地區不需驗證
-	if (!recaptchaInfo?.siteKey && recaptchaInfo?.country !== 'CN')
-		return <Fragment>{children}</Fragment>
+	if (!recaptchaInfoData?.siteKey || recaptchaInfoData?.country === 'CN') {
+		return children as JSX.Element
+	}
 
 	return (
 		<GoogleReCaptchaProvider
-			reCaptchaKey={recaptchaInfo?.siteKey}
+			reCaptchaKey={recaptchaInfoData?.siteKey}
 			language={RECAPTCHAT_LANG_BY_LANG_ID[langId]}
 			container={{
 				// optional to render inside custom element
@@ -37,3 +38,5 @@ export default function GReCaptchaProviders({
 		</GoogleReCaptchaProvider>
 	)
 }
+
+export { GReCaptchaProviders }
