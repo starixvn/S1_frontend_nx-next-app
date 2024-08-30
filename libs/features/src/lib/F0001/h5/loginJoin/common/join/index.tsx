@@ -1,3 +1,4 @@
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import Link from 'next/link'
 import classNames from 'classnames'
 import { isNumber } from 'lodash'
@@ -22,6 +23,7 @@ import {
 	useLazyAffiliateCheckQuery,
 	useGetSiteCurrencyListQuery,
 	useLazyGetAffiliateAgentQuery,
+	useGetRecaptchaInfoQuery,
 } from '@nx-next-app/service'
 import {
 	getQueryParam,
@@ -30,7 +32,6 @@ import {
 } from '@nx-next-app/utils'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
 import { Step1, Step2, Step3, StepBar, Features, LineRegister } from './form'
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 
 interface IJoinProps {
 	cookies: TmpCookiesObj
@@ -43,6 +44,7 @@ const Join = ({ cookies }: IJoinProps) => {
 
 	const { LANG_GROUPS } = useStaticData()
 	const { modal } = useGlobalModal()
+	const { data: { data: recaptchaInfoData } = {} } = useGetRecaptchaInfoQuery()
 
 	const {
 		userInfo: { langId, currencyId },
@@ -227,10 +229,13 @@ const Join = ({ cookies }: IJoinProps) => {
 		const affCodeCheck = await checkAffiliate()
 
 		// 目前只有 nova 需要 google recaptcha，因為 Yashbet 外面沒有包ㄧ層 GReCaptchaProviders
-		// 會找不到 executeRecaptcha 壞掉
-		// 需要在此排除
+		// 會找不到 executeRecaptcha 壞掉 需要在此排除
+		// 中國地區不需驗證
 		let reCaptchaToken
-		if (process.env['NEXT_PUBLIC_SITE_ID'] === '1') {
+		if (
+			process.env['NEXT_PUBLIC_SITE_ID'] === '1' &&
+			recaptchaInfoData?.country !== 'CN'
+		) {
 			if (!executeRecaptcha) return
 			reCaptchaToken = await executeRecaptcha('signUp')
 		}
