@@ -24103,4 +24103,8 @@ input[type=number] .btn-logout {
 .lottery .main-content .tab-content-sticker .ticket-group .ticket.sticker .ticket-top .sticker-result img {
   height: 100%;
   width: 100%;
+}
+
+#g-reCaptcha .grecaptcha-badge {
+  z-index: 999;
 }/*# sourceMappingURL=style.css.map */
