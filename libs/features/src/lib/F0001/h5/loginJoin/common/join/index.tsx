@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { isNumber } from 'lodash'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
 import {
@@ -35,6 +35,8 @@ import { Step1, Step2, Step3, StepBar, Features, LineRegister } from './form'
 interface IJoinProps {
 	cookies: TmpCookiesObj
 }
+
+const reCaptchaAction = 'signup'
 
 const Join = ({ cookies }: IJoinProps) => {
 	const { t } = useTranslation()
@@ -207,6 +209,13 @@ const Join = ({ cookies }: IJoinProps) => {
 		return blackbox
 	}
 
+	// Create an event handler so you can call the verification on button click event or form submit
+	const generateReCaptcha = useCallback(() => {
+		if (!executeRecaptcha) return
+
+		return executeRecaptcha(reCaptchaAction)
+	}, [executeRecaptcha])
+
 	const handleSubmitForm = async () => {
 		const {
 			username,
@@ -224,14 +233,12 @@ const Join = ({ cookies }: IJoinProps) => {
 		// 目前只有 nova 需要 google recaptcha，因為 Yashbet 外面沒有包ㄧ層 GReCaptchaProviders
 		// 會找不到 executeRecaptcha 壞掉 需要在此排除
 		// 中國地區不需驗證
-		const reCaptchaAction = 'signup'
-		let reCaptchaToken
+		let reCaptchaToken: string | undefined
 		if (
 			process.env['NEXT_PUBLIC_SITE_ID'] === '1' &&
 			recaptchaInfoData?.country !== 'CN'
 		) {
-			if (!executeRecaptcha) return
-			reCaptchaToken = await executeRecaptcha(reCaptchaAction)
+			reCaptchaToken = await generateReCaptcha()
 		}
 
 		// currency & recaptcha & affiliate cannot use form required check
@@ -284,6 +291,11 @@ const Join = ({ cookies }: IJoinProps) => {
 	useEffect(() => {
 		checkLineRegister()
 	}, [siteCurrencyList])
+
+	// use useEffect to trigger the verification as soon as the component being loaded
+	useEffect(() => {
+		generateReCaptcha()
+	}, [generateReCaptcha])
 
 	return (
 		<>
