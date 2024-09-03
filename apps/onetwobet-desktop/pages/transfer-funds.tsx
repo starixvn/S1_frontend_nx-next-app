@@ -4,11 +4,7 @@ import {
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import {
-	Layout,
-	LeftMenu,
-	TransferFunds,
-} from '@nx-next-app/features/F0001/desktop'
+import { Layout, LeftMenu } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -20,6 +16,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import { TransferFundsProvider } from '@nx-next-app/features/F0001/providers'
 import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
+import TransferFunds from '../components/transfer-funds'
 
 interface ITransferFundsPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
