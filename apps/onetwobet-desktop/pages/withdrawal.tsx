@@ -4,7 +4,6 @@ import {
 	getWithdrawalBlockSetting,
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
-import { Layout, Withdrawal } from '@nx-next-app/features/F0001/desktop'
 import {
 	CryptoWalletProvider,
 	WithdrawalProvider,
@@ -18,6 +17,8 @@ import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+import { Layout, Withdrawal } from '../components'
 
 interface IWithdrawalPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
