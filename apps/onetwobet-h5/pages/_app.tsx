@@ -25,7 +25,7 @@ import {
 	LIVE_CHAT_ID_BY_LANG_ID,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	ThirdPartyJS,
-} from '@nx-next-app/site/nova88'
+} from '@nx-next-app/site/onetwobet'
 import { LANG_TO_CURRENCY } from '@apps/onetwobet-h5/middleware'
 
 import 'react-datepicker/dist/react-datepicker.css'

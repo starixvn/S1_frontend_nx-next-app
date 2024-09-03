@@ -14,7 +14,7 @@ import { Layout, Vip } from '@nx-next-app/features/F0001/h5'
 import { includes } from 'lodash'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IVipBannerData } from '@nx-next-app/service'
-import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
+import { ALLOWED_CURRENCIES } from '@nx-next-app/site/onetwobet'
 
 interface IVipPageProps extends InitialPropsInterface {
 	vipBannerData: IVipBannerData

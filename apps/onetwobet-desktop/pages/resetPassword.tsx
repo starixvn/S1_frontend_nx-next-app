@@ -9,7 +9,7 @@ import {
 import { IFooterData } from '@nx-next-app/types'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { ResetPassword, Layout } from '@nx-next-app/features/F0001/desktop'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 
 interface IResetPasswordPage extends InitialPropsInterface {
 	persistFooterData: IFooterData

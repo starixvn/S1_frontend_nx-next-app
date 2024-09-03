@@ -18,7 +18,7 @@ import {
 	SelfExclusion,
 	LeftMenu,
 } from '@nx-next-app/features/F0001/desktop'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 
 interface ISelfExclusionPage extends InitialPropsInterface {
 	persistFooterData: IFooterData

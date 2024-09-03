@@ -15,11 +15,11 @@ import {
 } from '@nx-next-app/hooks'
 import { HistoryProvider } from '@nx-next-app/features/F0001/providers'
 import { Layout, LeftMenu, History } from '@nx-next-app/features/F0001/desktop'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import {
 	HISTORY_TABS,
 	QUICK_PICK_LIST,
-} from '@nx-next-app/site/nova88/data/history'
+} from '@nx-next-app/site/onetwobet/data/history'
 
 interface IHistoryPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData

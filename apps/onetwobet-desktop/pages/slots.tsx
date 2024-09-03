@@ -16,7 +16,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { ISlotsGameData } from '@nx-next-app/service'
 import { IFooterData } from '@nx-next-app/types'
-import { CATEGORY_SORT } from '@nx-next-app/site/nova88/data/slots'
+import { CATEGORY_SORT } from '@nx-next-app/site/onetwobet/data/slots'
 
 type ISlotsPageProps = InitialPropsInterface & {
 	footerData: IFooterData

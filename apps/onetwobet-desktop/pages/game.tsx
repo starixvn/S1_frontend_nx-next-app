@@ -8,7 +8,7 @@ import {
 } from '@nx-next-app/hooks'
 import { IFooterData } from '@nx-next-app/types'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 
 interface IGamePageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData

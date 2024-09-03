@@ -11,7 +11,7 @@ import { HistoryProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	HISTORY_TABS,
 	QUICK_PICK_LIST,
-} from '@nx-next-app/site/nova88/data/history'
+} from '@nx-next-app/site/onetwobet/data/history'
 import { paths } from '@nx-next-app/constants'
 
 type IFinancialLogPagePageProps = InitialPropsInterface

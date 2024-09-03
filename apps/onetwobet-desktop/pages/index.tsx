@@ -23,7 +23,7 @@ import {
 } from '@nx-next-app/service'
 import { BannerTypeEnum, IFooterData } from '@nx-next-app/types'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { DESKTOP_HOME_ORDERS, FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { DESKTOP_HOME_ORDERS, FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 
 // 此為優化專案導出所需要的設定，因配合 nx 配置路徑衝突做的優化
 // 優化專案 build 出來的檔案結構，僅獨立輸出必要的資源而非整包 node_module , 控管 docker image 大小

@@ -13,8 +13,8 @@ import {
 import { IFooterData } from '@nx-next-app/types'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IWithdrawalSetting } from '@nx-next-app/service'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
-import { QUICK_PICK_LIST } from '@nx-next-app/site/nova88/data/history'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
+import { QUICK_PICK_LIST } from '@nx-next-app/site/onetwobet/data/history'
 import { StatementProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	Layout,

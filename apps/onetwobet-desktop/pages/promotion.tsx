@@ -14,7 +14,10 @@ import { Layout, Promotion } from '@nx-next-app/features/F0001/desktop'
 import { PromotionProvider } from '@nx-next-app/features/F0001/providers'
 import { DeviceTypeEnum, IFooterData } from '@nx-next-app/types'
 import { IPromotionData } from '@nx-next-app/service'
-import { FOOTER_DATA, PROMOTION_SELECT_OPTIONS } from '@nx-next-app/site/nova88'
+import {
+	FOOTER_DATA,
+	PROMOTION_SELECT_OPTIONS,
+} from '@nx-next-app/site/onetwobet'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 
 interface IPromotionPageProps extends InitialPropsInterface {

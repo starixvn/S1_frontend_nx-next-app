@@ -9,7 +9,7 @@ import {
 import { Layout, Olympic } from '@nx-next-app/features/F0001/h5'
 import { OlympicProvider } from '@nx-next-app/features/F0001/providers'
 import { includes } from 'lodash'
-import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
+import { ALLOWED_CURRENCIES } from '@nx-next-app/site/onetwobet'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 
 type IEuroCupProps = InitialPropsInterface

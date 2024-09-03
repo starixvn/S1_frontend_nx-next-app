@@ -14,7 +14,7 @@ import {
 	LeaderBoardDayEnum,
 	LeaderBoardGameTypeEnum,
 	LeaderBoardTabsEnum,
-} from '@nx-next-app/site/nova88/data/leaderBoard'
+} from '@nx-next-app/site/onetwobet/data/leaderBoard'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import {
 	AuthProvider,
@@ -22,7 +22,7 @@ import {
 	LeaderBoardProvider,
 } from '@nx-next-app/data-access'
 import { Layout, LeaderBoard } from '@nx-next-app/features/F0001/desktop'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IFooterData } from '@nx-next-app/types'
 
