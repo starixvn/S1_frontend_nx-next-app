@@ -1,14 +1,15 @@
 import { paths } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, Statement } from '@nx-next-app/features/F0001/h5'
-import { StatementProvider } from '@nx-next-app/features/F0001/providers'
+import { Layout } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { StatementProvider } from '@nx-next-app/operations'
 import { QUICK_PICK_LIST } from '@nx-next-app/site/onetwobet/data/history'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { Statement } from '../components/index'
 
 const StatementPage = ({
 	originIsSignIn,

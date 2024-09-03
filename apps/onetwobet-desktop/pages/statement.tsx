@@ -4,22 +4,20 @@ import {
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import {
-	Layout,
-	LeftMenu,
-	Statement,
-} from '@nx-next-app/features/F0001/desktop'
-import { StatementProvider } from '@nx-next-app/features/F0001/providers'
+import { LeftMenu } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { StatementProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { QUICK_PICK_LIST } from '@nx-next-app/site/onetwobet/data/history'
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { Layout } from '../components/layout'
+import Statement from '../components/statement'
 
 interface IStatementPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
