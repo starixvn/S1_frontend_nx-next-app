@@ -1,3 +1,5 @@
+export { default as History } from './history'
 export { default as Layout } from './layout'
+export { default as LeftMenu } from './leftMenu'
 export { default as LuckyWheel } from './luckyWheel'
 export { default as Withdrawal } from './withdrawal'

@@ -66,11 +66,11 @@ img {
   height: auto;
 }
 
-button, input {
+button {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
-button[disabled], input[disabled] {
+button[disabled] {
   background: #e2e2e2 !important;
   color: #b2b2b2 !important;
 }
@@ -2227,11 +2227,11 @@ header input:focus-within {
 
 .splogo {
   position: absolute;
-  right: -75px;
-  bottom: 30px;
-  width: 60px;
-  height: 60px;
-  background: url(https://banner.0814media.net/desktop/img/event/olympic/logo-paris.png) center/cover;
+  right: -80px;
+  bottom: 22px;
+  width: 70px;
+  height: 70px;
+  background: url(https://banner.0814media.net/desktop/img/4.0/sp-aston-villa.png) center/cover;
 }
 
 @-webkit-keyframes splogo {
@@ -2935,18 +2935,21 @@ main .promosswiper .swiper-button-prev::after {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  padding: 100px 0 80px;
+  padding: 150px 0 80px;
 }
 .hotmatch::after {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/desktop/img/4.0/hotmatch-bg.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/4.0/hotmatch-bg-new.png) no-repeat center/cover;
   width: 100%;
   height: 1000px;
-  margin-top: -120px;
+  margin-top: -90px;
   position: absolute;
   top: 20px;
   right: 0;
+}
+.hotmatch.br::after {
+  background: url(https://banner.0814media.net/desktop/img/4.0/hotmatch-bg.png) no-repeat center/cover;
 }
 .hotmatch .hotmatch-top {
   font-size: 90px;
@@ -4232,14 +4235,13 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
   margin-left: 0;
   overflow-x: hidden;
   z-index: 1;
-  height: 210px;
 }
 .joinpop .joinloginModule .joinloginFunction .dropdown .dropdown-container .dropdown-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: 0;
-  padding: 5px 0 5px 19px;
+  padding: 5px 0 5px 39px;
 }
 .joinpop .joinloginModule .joinloginFunction .dropdown .dropdown-container::-webkit-scrollbar {
   width: 3px;
@@ -11339,7 +11341,7 @@ button.icon-spinner11:before {
           transform: translateY(20px);
 }
 
-.phone, .inputBox-row {
+.phone {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11348,17 +11350,17 @@ button.icon-spinner11:before {
           align-items: flex-start;
   width: 100%;
 }
-.phone .tip, .inputBox-row .tip {
+.phone .tip {
   width: 100%;
 }
-.phone .txt-orange, .inputBox-row .txt-orange {
+.phone .txt-orange {
   font-size: 12px;
 }
-.phone > div:nth-child(1), .inputBox-row > div:nth-child(1) {
+.phone > div:nth-child(1) {
   margin-right: 5px;
   max-width: 160px;
 }
-.phone > div:nth-child(1) .dropdown-container, .inputBox-row > div:nth-child(1) .dropdown-container {
+.phone > div:nth-child(1) .dropdown-container {
   width: 422px;
   overflow-y: auto;
   max-height: 120px;
@@ -11366,39 +11368,33 @@ button.icon-spinner11:before {
       -ms-flex-align: start;
           align-items: flex-start;
 }
-.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar, .inputBox-row > div:nth-child(1) .dropdown-container::-webkit-scrollbar {
+.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar {
   width: 10px;
 }
-.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar-track, .inputBox-row > div:nth-child(1) .dropdown-container::-webkit-scrollbar-track {
+.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar-track {
   background: #D2E2F9;
   border-radius: 10px;
 }
-.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar-thumb, .inputBox-row > div:nth-child(1) .dropdown-container::-webkit-scrollbar-thumb {
+.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar-thumb {
   background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
   background: linear-gradient(to bottom, #435F8B, #6383B9);
   border-radius: 10px;
 }
-.phone > div:nth-child(1) .dropdown-container .dropdown-item, .inputBox-row > div:nth-child(1) .dropdown-container .dropdown-item {
+.phone > div:nth-child(1) .dropdown-container .dropdown-item {
   padding-left: 10px !important;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.phone > div:nth-child(1) .dropdown-container .inputBox-blue, .inputBox-row > div:nth-child(1) .dropdown-container .inputBox-blue {
+.phone > div:nth-child(1) .dropdown-container .inputBox-blue {
   width: 94%;
   border-radius: 3px;
   margin: 2px;
   position: sticky;
   top: 0;
 }
-.phone .btn, .inputBox-row .btn {
+.phone .btn {
   width: 70%;
-}
-
-.inputBox-row .inputBox-blue:last-child {
-  width: 50%;
-  max-width: unset !important;
-  margin-right: 0 !important;
 }
 
 .transferModule {

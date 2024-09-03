@@ -1,11 +1,10 @@
-import React from 'react'
-import { useTranslation } from 'next-i18next'
-import HistoryTabs from '@nx-next-app/features/F0001/desktop/history/HistoryTabs'
+import { Loading } from '@nx-next-app/components/D0001'
+import Pagination from '@nx-next-app/components/D0001/pagination'
 import HistoryFilter from '@nx-next-app/features/F0001/desktop/history/HistoryFilter'
 import HistoryTable from '@nx-next-app/features/F0001/desktop/history/HistoryTable'
-import Pagination from '@nx-next-app/components/D0001/pagination'
-import { useHistory } from '@nx-next-app/features/F0001/providers/history-context'
-import { Loading } from '@nx-next-app/components/D0001'
+import HistoryTabs from '@nx-next-app/features/F0001/desktop/history/HistoryTabs'
+import { useHistory } from '@nx-next-app/operations'
+import { useTranslation } from 'next-i18next'
 
 const History = () => {
 	const { displayColumns, currentPage, totalPage, isLoading, onPageChange } =
