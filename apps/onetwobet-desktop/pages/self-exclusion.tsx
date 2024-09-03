@@ -1,24 +1,23 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import {
+	Layout,
+	LeftMenu,
+	SelfExclusion,
+} from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { IFooterData } from '@nx-next-app/types'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IWithdrawalSetting } from '@nx-next-app/service'
-import {
-	Layout,
-	SelfExclusion,
-	LeftMenu,
-} from '@nx-next-app/features/F0001/desktop'
 import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
+import { IFooterData } from '@nx-next-app/types'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface ISelfExclusionPage extends InitialPropsInterface {
 	persistFooterData: IFooterData
@@ -30,11 +29,14 @@ const SelfExclusionPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	persistStaticFileDomainData,
 	withdrawalBlockSetting,
 }: ISelfExclusionPage) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<main className='exclusion'>
 						<section className='inside'>

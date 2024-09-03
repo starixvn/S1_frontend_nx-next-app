@@ -1,7 +1,7 @@
-import React from 'react'
 import { ENV_COOKIE_NAMES, EVENT_PERIOD } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout, LuckyWheel } from '@nx-next-app/features/F0001/h5'
+import { LuckWheelProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -10,7 +10,6 @@ import { ALLOWED_CURRENCIES } from '@nx-next-app/site/onetwobet'
 import { includes } from 'lodash-es'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { LuckWheelProvider } from '@nx-next-app/features/F0001/providers'
 
 type ILuckyWheelPageProps = InitialPropsInterface
 
@@ -18,10 +17,13 @@ const LuckyWheelPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: ILuckyWheelPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
 					<LuckWheelProvider>
 						<LuckyWheel eventPeriod={EVENT_PERIOD.LUCKY_WHEEL} />

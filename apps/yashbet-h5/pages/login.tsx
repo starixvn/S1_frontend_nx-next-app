@@ -1,13 +1,12 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import { Layout } from '@nx-next-app/features/F0001/h5'
+import { LoginJoin } from '@nx-next-app/features/F0001/h5/loginJoin/yashbet'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout } from '@nx-next-app/features/F0001/h5'
-import { LoginJoin } from '@nx-next-app/features/F0001/h5/loginJoin/yashbet'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 type IHomePageProps = InitialPropsInterface
 
@@ -15,10 +14,13 @@ const LoginPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: IHomePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
 					<LoginJoin cookies={originCookies} />
 				</Layout>

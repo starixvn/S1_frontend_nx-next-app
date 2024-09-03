@@ -1,30 +1,29 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
-import {
-	InitialPropsInterface,
-	useServerSideInitialPropsFetcher,
-} from '@nx-next-app/hooks'
-import {
-	LEADER_BOARD_EVENT_CODE,
-	LEADER_BOARD_GAME_POINT_NAV,
-	LEADER_BOARD_MONTHS,
-	LEADER_BOARD_RANK_NUM,
-	LEADER_BOARD_RANK_NAV,
-	LEADER_BOARD_TABS,
-	LeaderBoardDayEnum,
-	LeaderBoardGameTypeEnum,
-	LeaderBoardTabsEnum,
-} from '@nx-next-app/site/onetwobet/data/leaderBoard'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	LeaderBoardProvider,
 } from '@nx-next-app/data-access'
 import { Layout, LeaderBoard } from '@nx-next-app/features/F0001/desktop'
+import {
+	InitialPropsInterface,
+	useServerSideInitialPropsFetcher,
+} from '@nx-next-app/hooks'
 import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import {
+	LEADER_BOARD_EVENT_CODE,
+	LEADER_BOARD_GAME_POINT_NAV,
+	LEADER_BOARD_MONTHS,
+	LEADER_BOARD_RANK_NAV,
+	LEADER_BOARD_RANK_NUM,
+	LEADER_BOARD_TABS,
+	LeaderBoardDayEnum,
+	LeaderBoardGameTypeEnum,
+	LeaderBoardTabsEnum,
+} from '@nx-next-app/site/onetwobet/data/leaderBoard'
 import { IFooterData } from '@nx-next-app/types'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface ILeaderBoardPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
@@ -35,10 +34,13 @@ const LeaderBoardPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	persistStaticFileDomainData,
 }: ILeaderBoardPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<LeaderBoardProvider
 						LEADER_BOARD_EVENT_CODE={LEADER_BOARD_EVENT_CODE}

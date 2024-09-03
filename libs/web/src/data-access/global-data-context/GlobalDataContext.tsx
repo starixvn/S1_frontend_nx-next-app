@@ -1,18 +1,19 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { createContext, ReactNode, useEffect, useState } from 'react'
 import liff from '@line/liff'
+import { createContext, ReactNode, useEffect, useState } from 'react'
 import {
-	useGetTpMaintainListQuery,
-	TpMaintainData,
-	useGetProductTpIdsQuery,
-	useGetCustTpGameTypeSettingQuery,
-	UserInfoMemberType,
 	ITpGameTypeData,
+	TpMaintainData,
+	useGetCustTpGameTypeSettingQuery,
+	useGetProductTpIdsQuery,
+	useGetTpMaintainListQuery,
+	UserInfoMemberType,
 } from '../../service'
-import { useAuth } from '../auth-context'
 import { isReactNativeWebView } from '../../utils/client'
+import { useAuth } from '../auth-context'
+import { TStaticFileDomainData } from '../type'
 
-interface IGlobalDataContext {
+interface IGlobalDataContext extends TStaticFileDomainData {
 	tpMaintainList: TpMaintainData[]
 	productTpIds?: number[]
 	custGameTypeSettingList?: ITpGameTypeData[]
@@ -23,9 +24,13 @@ interface IGlobalDataContext {
 const GlobalDataContext = createContext<IGlobalDataContext>(null!)
 interface IGlobalDataProviderProps {
 	children: ReactNode
+	persistStaticFileDomainData: TStaticFileDomainData
 }
 
-const GlobalDataProvider = ({ children }: IGlobalDataProviderProps) => {
+const GlobalDataProvider = ({
+	children,
+	persistStaticFileDomainData,
+}: IGlobalDataProviderProps) => {
 	const [isInApp, setIsInApp] = useState<boolean | null>(null)
 	const [isInLiff, setIsInLiff] = useState<boolean | null>(null)
 
@@ -54,6 +59,7 @@ const GlobalDataProvider = ({ children }: IGlobalDataProviderProps) => {
 		custGameTypeSettingList,
 		isInApp,
 		isInLiff,
+		...persistStaticFileDomainData,
 	}
 
 	useEffect(() => {

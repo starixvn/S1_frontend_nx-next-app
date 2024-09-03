@@ -1,15 +1,15 @@
-import { useRouter } from 'next/router'
-import { isNumber } from 'lodash'
-import { paths } from '@nx-next-app/constants'
-import { IBannerData } from '@nx-next-app/service'
-import { BannerActionEnum } from '@nx-next-app/types'
-import { useMenu } from '@nx-next-app/features/F0006/hooks'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import Carousel, {
 	ICarouselProps,
 } from '@nx-next-app/components/D0006/carousel'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import LoginModal from '@nx-next-app/features/F0001/desktop/modal/LoginModal'
+import { useMenu } from '@nx-next-app/features/F0006/hooks'
+import { IBannerData } from '@nx-next-app/service'
+import { BannerActionEnum } from '@nx-next-app/types'
+import { isNumber } from 'lodash'
+import { useRouter } from 'next/router'
 import BannerItem from './BannerItem'
 
 interface ICarouselBannerProps extends ICarouselProps {
@@ -45,11 +45,7 @@ const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 				redirectLink = `${urlRouter}${params}`
 			}
 			if (redirectLink && redirectLink === paths.rewards.root) {
-				redirectLink = `${
-					process.env.NODE_ENV === 'production'
-						? window.location.origin
-						: process.env['NEXT_PUBLIC_OPEN_URL']
-				}${redirectLink}`
+				redirectLink = `${window.location.origin}${redirectLink}`
 			}
 
 			return {

@@ -1,26 +1,25 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
 import {
-	InitialPropsInterface,
-	useServerSideInitialPropsFetcher,
-} from '@nx-next-app/hooks'
-import { IFooterData } from '@nx-next-app/types'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { IWithdrawalSetting } from '@nx-next-app/service'
-import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
-import { QUICK_PICK_LIST } from '@nx-next-app/site/onetwobet/data/history'
-import { StatementProvider } from '@nx-next-app/features/F0001/providers'
-import {
 	Layout,
 	LeftMenu,
 	Statement,
 } from '@nx-next-app/features/F0001/desktop'
+import { StatementProvider } from '@nx-next-app/features/F0001/providers'
+import {
+	InitialPropsInterface,
+	useServerSideInitialPropsFetcher,
+} from '@nx-next-app/hooks'
+import { IWithdrawalSetting } from '@nx-next-app/service'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
+import { QUICK_PICK_LIST } from '@nx-next-app/site/onetwobet/data/history'
+import { IFooterData } from '@nx-next-app/types'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface IStatementPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
@@ -32,11 +31,14 @@ const StatementPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	persistStaticFileDomainData,
 	withdrawalBlockSetting,
 }: IStatementPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<StatementProvider QUICK_PICK_LIST={QUICK_PICK_LIST} HEADER_TAGS={[]}>
 						<main>

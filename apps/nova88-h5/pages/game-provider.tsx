@@ -1,16 +1,15 @@
-import React from 'react'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import { Layout } from '@nx-next-app/features/F0001/h5'
+import GameProvider from '@nx-next-app/features/F0001/h5/game-provider'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout } from '@nx-next-app/features/F0001/h5'
-import GameProvider from '@nx-next-app/features/F0001/h5/game-provider'
+import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { IFooterData } from '@nx-next-app/types'
 
 interface IGameProviderPageProps extends InitialPropsInterface {
 	persistPlatformList: IFooterData['platformList']
@@ -20,11 +19,14 @@ const GameProviderPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 	persistPlatformList,
 }: IGameProviderPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
 					<GameProvider platformList={persistPlatformList} />
 				</Layout>
