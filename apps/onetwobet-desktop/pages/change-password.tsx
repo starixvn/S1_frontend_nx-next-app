@@ -18,7 +18,7 @@ import {
 	ChangePassword,
 	LeftMenu,
 } from '@nx-next-app/features/F0001/desktop'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 
 interface IChangePasswordPage extends InitialPropsInterface {
 	persistFooterData: IFooterData

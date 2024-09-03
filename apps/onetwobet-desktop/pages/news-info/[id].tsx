@@ -13,7 +13,7 @@ import {
 import { Layout, News } from '@nx-next-app/features/F0001/desktop'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IFooterData } from '@nx-next-app/types'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 
 interface INewsPageProps extends InitialPropsInterface {
 	persistNewsDetail: INewsDetailData

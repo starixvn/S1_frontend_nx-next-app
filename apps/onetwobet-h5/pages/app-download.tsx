@@ -8,7 +8,7 @@ import {
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout, AppDownload } from '@nx-next-app/features/F0001/h5'
 import { AppDownloadProvider } from '@nx-next-app/features/F0001/providers'
-import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/nova88/data/appDownload'
+import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/onetwobet/data/appDownload'
 
 type IAppDownloadPageProps = InitialPropsInterface
 

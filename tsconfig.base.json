@@ -23,6 +23,7 @@
 			"@nx-next-app/features/*": ["libs/features/src/lib/*"],
 			"@nx-next-app/hooks": ["libs/web/src/hooks"],
 			"@nx-next-app/middleware": ["libs/web/src/siteMiddleware.ts"],
+			"@nx-next-app/operations": ["libs/operations/src/index.tsx"],
 			"@nx-next-app/service": ["libs/web/src/service"],
 			"@nx-next-app/site/*": ["libs/web/src/app/site/*"],
 			"@nx-next-app/store": ["libs/web/src/app/store"],

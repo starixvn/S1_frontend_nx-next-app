@@ -15,7 +15,7 @@ import {
 	CryptoWalletProvider,
 	WithdrawalProvider,
 } from '@nx-next-app/features/F0001/providers'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IFooterData } from '@nx-next-app/types'
 import { IWithdrawalSetting } from '@nx-next-app/service'

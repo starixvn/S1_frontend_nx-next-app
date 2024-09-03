@@ -8,7 +8,7 @@ import { Layout } from '@nx-next-app/features/F0001/h5'
 import GameProvider from '@nx-next-app/features/F0001/h5/game-provider'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IFooterData } from '@nx-next-app/types'
 

@@ -7,7 +7,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
+import { ALLOWED_CURRENCIES } from '@nx-next-app/site/onetwobet'
 import { includes } from 'lodash-es'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 

@@ -14,7 +14,7 @@ import { Deposit, Layout } from '@nx-next-app/features/F0001/h5'
 import {
 	DEPOSIT_PAYMENT_OPTIONS,
 	DEPOSIT_PAYMENT_ORDERS,
-} from '@nx-next-app/site/nova88'
+} from '@nx-next-app/site/onetwobet'
 
 const DepositPage = ({
 	originIsSignIn,

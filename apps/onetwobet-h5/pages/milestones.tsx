@@ -10,7 +10,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import {
 	slideData,
 	milestonesData,
-} from '@nx-next-app/site/nova88/data/milestoneData'
+} from '@nx-next-app/site/onetwobet/data/milestoneData'
 
 type ILuckyWheelPageProps = InitialPropsInterface
 

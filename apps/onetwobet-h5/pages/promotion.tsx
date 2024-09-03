@@ -14,7 +14,7 @@ import { Layout, Promotion } from '@nx-next-app/features/F0001/h5'
 import { PromotionProvider } from '@nx-next-app/features/F0001/providers'
 import { DeviceTypeEnum } from '@nx-next-app/types'
 import { IPromotionData } from '@nx-next-app/service'
-import { PROMOTION_SELECT_OPTIONS } from '@nx-next-app/site/nova88'
+import { PROMOTION_SELECT_OPTIONS } from '@nx-next-app/site/onetwobet'
 
 interface IPromotionPageProps extends InitialPropsInterface {
 	persistPromotionData: IPromotionData[]

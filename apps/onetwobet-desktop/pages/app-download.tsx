@@ -8,8 +8,8 @@ import {
 } from '@nx-next-app/hooks'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { AppDownloadProvider } from '@nx-next-app/features/F0001/providers'
-import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/nova88/data/appDownload'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/onetwobet/data/appDownload'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IFooterData } from '@nx-next-app/types'
 

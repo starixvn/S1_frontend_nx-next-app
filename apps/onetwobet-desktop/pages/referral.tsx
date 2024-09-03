@@ -16,7 +16,7 @@ import {
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import { Layout, LeftMenu, Referral } from '@nx-next-app/features/F0001/desktop'
 import { ReferralProvider } from '@nx-next-app/features/F0001/providers'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 
 interface IReferralPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData

@@ -7,7 +7,7 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { IFooterData } from '@nx-next-app/types'
 
 interface IFourPageProps extends InitialPropsInterface {

@@ -20,7 +20,7 @@ import {
 } from '@nx-next-app/features/F0001/desktop'
 
 import { TransferFundsProvider } from '@nx-next-app/features/F0001/providers'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 
 interface ITransferFundsPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
