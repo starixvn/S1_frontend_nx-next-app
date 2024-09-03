@@ -1,16 +1,15 @@
-import React from 'react'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout, MilestoneConent } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import {
+	milestonesData,
+	slideData,
+} from '@nx-next-app/site/onetwobet/data/milestoneData'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import {
-	slideData,
-	milestonesData,
-} from '@nx-next-app/site/onetwobet/data/milestoneData'
 
 type ILuckyWheelPageProps = InitialPropsInterface
 
@@ -18,10 +17,13 @@ const MilestonesPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: ILuckyWheelPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
 					<MilestoneConent
 						slideData={slideData}

@@ -1,7 +1,5 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Layout, Sports } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
@@ -9,16 +7,20 @@ import {
 } from '@nx-next-app/hooks'
 import { ALLOWED_CURRENCIES } from '@nx-next-app/site/onetwobet'
 import { includes } from 'lodash-es'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const SportsPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: InitialPropsInterface) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout hasGoTopBtn={false} persistSEOData={persistSEOData}>
 					<main>
 						<section className='inside'>

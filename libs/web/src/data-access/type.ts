@@ -32,3 +32,9 @@ export interface IDepositQRCodeModalProps {
 	convertedAmount: number
 	info: IDepositCashierQRCodeInfo
 }
+
+export type TStaticFileDomainData = {
+	bannerDomain: string
+	paymentDomain: string
+	imgDomain: string
+}

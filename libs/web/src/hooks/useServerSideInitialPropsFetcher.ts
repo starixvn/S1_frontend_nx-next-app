@@ -1,18 +1,20 @@
-import { ParsedUrlQuery } from 'querystring'
-import { assign, includes, isEmpty } from 'lodash-es'
-import { getCookies } from 'cookies-next'
-import { GetServerSidePropsContext, PreviewData } from 'next'
-import { TmpCookiesObj } from 'cookies-next/lib/types'
+import { ENV_COOKIE_NAMES, paths } from '@nx-next-app/constants'
 import {
+	ISEOData,
+	TStaticFileDomainData,
 	checkSignIn,
 	getCustProfile,
 	getSEOData,
-	ISEOData
+	getStaticFileDomain,
 } from '@nx-next-app/data-access'
-import { paths, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { getCookies } from 'cookies-next'
+import { TmpCookiesObj } from 'cookies-next/lib/types'
+import { assign, includes, isEmpty } from 'lodash-es'
+import { GetServerSidePropsContext, PreviewData } from 'next'
+import { ParsedUrlQuery } from 'querystring'
+import { UserInfoMemberType, setServerSideHeaders } from '../service'
 import { useRedirectDevice } from './useRedirectDevice'
 import { useRedirectMaintain } from './useRedirectMaintain'
-import { setServerSideHeaders, UserInfoMemberType } from '../service'
 
 export interface InitialPropsInterface {
 	originLangId: string
@@ -20,6 +22,7 @@ export interface InitialPropsInterface {
 	originIsSignIn: boolean
 	originCookies: TmpCookiesObj
 	persistSEOData: ISEOData
+	persistStaticFileDomainData: TStaticFileDomainData
 	currentHeaderCookies: string
 }
 
@@ -77,14 +80,18 @@ export const useServerSideInitialPropsFetcher = async (
 	// 帶進 api config 使用的 cookie
 	const currentHeaderCookies = transferCookiesObj(originCookies)
 
-	const [originIsSignIn, persistSEOData] = await Promise.all([
-		checkSignIn(null, {
-			headers: { cookie: currentHeaderCookies },
-		}),
-		getSEOData(null, {
-			headers: { cookie: currentHeaderCookies },
-		}),
-	])
+	const [originIsSignIn, persistSEOData, persistStaticFileDomainData] =
+		await Promise.all([
+			checkSignIn(null, {
+				headers: { cookie: currentHeaderCookies },
+			}),
+			getSEOData(null, {
+				headers: { cookie: currentHeaderCookies },
+			}),
+			getStaticFileDomain(null, {
+				headers: { cookie: currentHeaderCookies },
+			}),
+		])
 
 	if (
 		// * 判斷是否為為直播主帳號，直播主只允許進入home與slots頁面
@@ -111,6 +118,7 @@ export const useServerSideInitialPropsFetcher = async (
 		originIsSignIn,
 		originCookies,
 		persistSEOData,
+		persistStaticFileDomainData,
 		currentHeaderCookies,
 	}
 }

@@ -1,17 +1,16 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, AppDownload } from '@nx-next-app/features/F0001/desktop'
+import { AppDownload, Layout } from '@nx-next-app/features/F0001/desktop'
+import { AppDownloadProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { AppDownloadProvider } from '@nx-next-app/features/F0001/providers'
-import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/onetwobet/data/appDownload'
 import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/onetwobet/data/appDownload'
 import { IFooterData } from '@nx-next-app/types'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface IAppDownloadPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
@@ -22,10 +21,13 @@ const AppDownloadPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	persistStaticFileDomainData,
 }: IAppDownloadPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<AppDownloadProvider APP_DOWNLOAD_LIST={APP_DOWNLOAD_LIST}>
 					<Layout
 						persistSEOData={persistSEOData}

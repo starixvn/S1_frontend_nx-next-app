@@ -1,19 +1,18 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
 import { paths } from '@nx-next-app/constants'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import { History } from '@nx-next-app/features/F0001/h5'
+import { HistoryProvider } from '@nx-next-app/features/F0001/providers'
+import { Layout } from '@nx-next-app/features/F0006/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { History } from '@nx-next-app/features/F0001/h5'
-import { Layout } from '@nx-next-app/features/F0006/h5'
-import { HistoryProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	HISTORY_TABS,
 	QUICK_PICK_LIST,
 } from '@nx-next-app/site/yashbet/data/history'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 type IDepositHistoryPageProps = InitialPropsInterface
 
@@ -21,6 +20,7 @@ const WithdrawalHistoryPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: IDepositHistoryPageProps) => {
 	const HEADER_TAGS: { label: string; href: string }[] = [
 		{ label: 'Label_General_Withdrawal', href: paths.withdrawal.root },
@@ -32,7 +32,9 @@ const WithdrawalHistoryPage = ({
 
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
 					<HistoryProvider
 						HISTORY_TABS={HISTORY_TABS}

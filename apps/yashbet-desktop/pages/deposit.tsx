@@ -1,26 +1,25 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	DepositProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
+import { Deposit } from '@nx-next-app/features/F0001/desktop'
+import { Layout } from '@nx-next-app/features/F0006/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout } from '@nx-next-app/features/F0006/desktop'
-import { Deposit } from '@nx-next-app/features/F0001/desktop'
+import { IWithdrawalSetting } from '@nx-next-app/service'
 import {
 	DEPOSIT_PAYMENT_OPTIONS,
 	DEPOSIT_PAYMENT_ORDERS,
 	FOOTER_DATA,
 } from '@nx-next-app/site/yashbet'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IFooterData } from '@nx-next-app/types'
-import { IWithdrawalSetting } from '@nx-next-app/service'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface IDepositPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
@@ -32,11 +31,14 @@ const DepositPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	persistStaticFileDomainData,
 	withdrawalBlockSetting,
 }: IDepositPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<DepositProvider
 						DEPOSIT_PAYMENT_OPTIONS={DEPOSIT_PAYMENT_OPTIONS}

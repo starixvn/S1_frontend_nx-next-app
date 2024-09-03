@@ -24,11 +24,14 @@ const VipPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 	vipBannerData,
 }: IVipPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
 					<Vip vipBannerData={vipBannerData} />
 				</Layout>

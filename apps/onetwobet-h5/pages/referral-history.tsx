@@ -1,18 +1,17 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
 import { paths } from '@nx-next-app/constants'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import { History, Layout } from '@nx-next-app/features/F0001/h5'
+import { HistoryProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, History } from '@nx-next-app/features/F0001/h5'
-import { HistoryProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	HISTORY_TABS,
 	QUICK_PICK_LIST,
 } from '@nx-next-app/site/onetwobet/data/history'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 type IReferralHistoryPageProps = InitialPropsInterface
 
@@ -20,6 +19,7 @@ const ReferralHistoryPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: IReferralHistoryPageProps) => {
 	const HEADER_TAGS: { label: string; href: string }[] = [
 		{ label: 'Label_General_ReferFriends', href: paths.referral.root },
@@ -31,7 +31,9 @@ const ReferralHistoryPage = ({
 
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
 					<HistoryProvider
 						HISTORY_TABS={HISTORY_TABS}

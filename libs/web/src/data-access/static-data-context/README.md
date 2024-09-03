@@ -3,10 +3,10 @@
 StaticDataProvider 只存放靜態資料，強制提供，且不需要跟著 `re-render` 更新，因此放在 `_app` 讓每個 app 再開專案時就需強制提供給專案使用
 
 ```tsx
-const HomePage = ({ originIsSignIn, originCookies, persistSEOData }: IHomePageProps) => {
+const HomePage = ({ originIsSignIn, originCookies, persistSEOData, persistStaticFileDomainData }: IHomePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider persistStaticFileDomainData={persistStaticFileDomainData}>
 				<Layout persistSEOData={persistSEOData}>
 					<Home />
 				</Layout>

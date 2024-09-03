@@ -18,7 +18,7 @@ import {
 	FOOTER_DATA,
 	PROMOTION_SELECT_OPTIONS,
 } from '@nx-next-app/site/onetwobet'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'Ｆ
 
 interface IPromotionPageProps extends InitialPropsInterface {
 	persistPromotionData: IPromotionData[]
@@ -30,11 +30,14 @@ const PromotionPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	persistStaticFileDomainData,
 	persistPromotionData,
 }: IPromotionPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<PromotionProvider
 						persistPromotionData={persistPromotionData}

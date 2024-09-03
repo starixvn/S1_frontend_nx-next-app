@@ -1,19 +1,19 @@
-import { GetServerSideProps } from 'next'
+import { paths } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	getWithdrawalBlockSetting,
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import {
-	useServerSideInitialPropsFetcher,
-	InitialPropsInterface,
-} from '@nx-next-app/hooks'
+import { BankInfo, Layout } from '@nx-next-app/features/F0001/h5'
 import { BankInfoProvider } from '@nx-next-app/features/F0001/providers'
-import { Layout, BankInfo } from '@nx-next-app/features/F0001/h5'
-import { find } from 'lodash-es'
+import {
+	InitialPropsInterface,
+	useServerSideInitialPropsFetcher,
+} from '@nx-next-app/hooks'
 import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
-import { paths } from '@nx-next-app/constants'
+import { find } from 'lodash-es'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface IBankInfoPageProps extends InitialPropsInterface {
 	withdrawalBlockSetting: IWithdrawalSetting[]
@@ -24,10 +24,13 @@ const BankInfoPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: IBankInfoPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<BankInfoProvider withdrawalBlockSetting={withdrawalBlockSetting}>
 					<Layout persistSEOData={persistSEOData}>
 						<BankInfo />

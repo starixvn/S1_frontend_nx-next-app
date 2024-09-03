@@ -1,23 +1,22 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { IFooterData } from '@nx-next-app/types'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { IWithdrawalSetting } from '@nx-next-app/service'
-import {
-	InitialPropsInterface,
-	useServerSideInitialPropsFetcher,
-} from '@nx-next-app/hooks'
 import {
 	Layout,
 	LeftMenu,
 	TransferFunds,
 } from '@nx-next-app/features/F0001/desktop'
+import {
+	InitialPropsInterface,
+	useServerSideInitialPropsFetcher,
+} from '@nx-next-app/hooks'
+import { IWithdrawalSetting } from '@nx-next-app/service'
+import { IFooterData } from '@nx-next-app/types'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import { TransferFundsProvider } from '@nx-next-app/features/F0001/providers'
 import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
@@ -32,11 +31,14 @@ const TransferFundsPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	persistStaticFileDomainData,
 	withdrawalBlockSetting,
 }: ITransferFundsPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<TransferFundsProvider>
 					<Layout
 						persistSEOData={persistSEOData}

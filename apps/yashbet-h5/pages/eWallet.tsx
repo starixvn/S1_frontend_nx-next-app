@@ -1,20 +1,19 @@
-import React from 'react'
-import { find } from 'lodash-es'
-import { GetServerSideProps } from 'next'
 import { paths } from '@nx-next-app/constants'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
 import {
 	AuthProvider,
-	getWithdrawalBlockSetting,
 	GlobalDataProvider,
+	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
+import { EWallet, Layout } from '@nx-next-app/features/F0006/h5'
+import { EWalletProvider } from '@nx-next-app/features/F0006/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { EWalletProvider } from '@nx-next-app/features/F0006/providers'
-import { Layout, EWallet } from '@nx-next-app/features/F0006/h5'
+import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
+import { find } from 'lodash-es'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface IEWalletPageProps extends InitialPropsInterface {
 	withdrawalBlockSetting: IWithdrawalSetting[]
@@ -25,10 +24,13 @@ const EWalletPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: IEWalletPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<EWalletProvider withdrawalBlockSetting={withdrawalBlockSetting}>
 					<Layout persistSEOData={persistSEOData}>
 						<EWallet />
