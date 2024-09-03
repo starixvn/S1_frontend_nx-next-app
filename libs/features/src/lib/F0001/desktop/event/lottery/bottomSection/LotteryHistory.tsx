@@ -62,7 +62,7 @@ const LotteryHistory = () => {
 							<div className='title-group'>
 								<div className='ranking'>
 									<div className='title'>01</div>
-									<span>1st Prize</span>
+									<span>{t('Label_Event_1stPrize')}</span>
 								</div>
 								<div className='lucky-number'>
 									<span className='title'>{t('Label_Event_LuckyNumber')}</span>
@@ -80,7 +80,7 @@ const LotteryHistory = () => {
 							<div className='title-group'>
 								<div className='ranking'>
 									<div className='title'>02</div>
-									<span>2nd Prize</span>
+									<span>{t('Label_Event_2ndPrize')}</span>
 								</div>
 								<div className='lucky-number'>
 									<span className='title'>{t('Label_Event_LuckyNumber')}</span>
@@ -92,7 +92,7 @@ const LotteryHistory = () => {
 							<div className='title-group'>
 								<div className='ranking'>
 									<div className='title'>03</div>
-									<span>3rd Prize</span>
+									<span>{t('Label_Event_3rdPrize')}</span>
 								</div>
 								<div className='lucky-number'>
 									<span className='title'>{t('Label_Event_LuckyNumber')}</span>
@@ -104,10 +104,10 @@ const LotteryHistory = () => {
 							<div className='sticker-result'>
 								<LotterySticker stickerId={roundData.stickerId} />
 							</div>
-							<div className='title'>Sticker Prize</div>
+							<div className='title'>{t('Label_Event_JackpotSticker')}</div>
 						</div>
 						<div className='card consolation'>
-							<div className='title'>Consolation Prize</div>
+							<div className='title'>{t('Label_Event_ConsolationPrize')}</div>
 							<div className='grid grid-cols-2'>
 								{roundData.consolationPrize.map(prize => (
 									<div key={prize}>{prize}</div>
@@ -115,7 +115,7 @@ const LotteryHistory = () => {
 							</div>
 						</div>
 						<div className='card small-prize'>
-							<div className='title'>Small Prize</div>
+							<div className='title'>{t('Label_Event_SmallPrize')}</div>
 							<div className='grid grid-cols-4'>
 								{roundData.smallPrize.map(prize => (
 									<div key={prize}>{prize}</div>
