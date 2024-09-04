@@ -1,24 +1,23 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	getPromotion,
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
+import { Layout, Promotion } from '@nx-next-app/features/F0001/desktop'
+import { PromotionProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout, Promotion } from '@nx-next-app/features/F0001/desktop'
-import { PromotionProvider } from '@nx-next-app/features/F0001/providers'
-import { DeviceTypeEnum, IFooterData } from '@nx-next-app/types'
 import { IPromotionData } from '@nx-next-app/service'
 import {
 	FOOTER_DATA,
 	PROMOTION_SELECT_OPTIONS,
 } from '@nx-next-app/site/onetwobet'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'Ｆ
+import { DeviceTypeEnum, IFooterData } from '@nx-next-app/types'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface IPromotionPageProps extends InitialPropsInterface {
 	persistPromotionData: IPromotionData[]
