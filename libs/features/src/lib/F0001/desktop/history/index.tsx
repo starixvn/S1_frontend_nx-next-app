@@ -3,7 +3,7 @@ import Pagination from '@nx-next-app/components/D0001/pagination'
 import HistoryFilter from '@nx-next-app/features/F0001/desktop/history/HistoryFilter'
 import HistoryTable from '@nx-next-app/features/F0001/desktop/history/HistoryTable'
 import HistoryTabs from '@nx-next-app/features/F0001/desktop/history/HistoryTabs'
-import { useHistory } from '@nx-next-app/operations'
+import { useHistory } from '@nx-next-app/features/F0001/providers'
 import { useTranslation } from 'next-i18next'
 
 const History = () => {
