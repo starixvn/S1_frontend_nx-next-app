@@ -1,8 +1,8 @@
+import Select from '@12b-h5/components/common/select'
 import { Loading } from '@nx-next-app/components/H0001'
 import { useStatement } from '@nx-next-app/operations'
 import { uniqueId } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import Select from '../common/select'
 import StatementHeader from './header'
 import StatementItem from './statementItem'
 

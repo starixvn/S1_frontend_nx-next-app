@@ -1,5 +1,5 @@
+import useTable from '@12b-desktop/components/common/table/useTable'
 import { useStatement } from '@nx-next-app/operations'
-import useTable from '../common/table/useTable'
 
 const StatementTable = () => {
 	const { activeTab, displayColumns, onDetails } = useStatement()

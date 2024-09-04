@@ -1,10 +1,12 @@
+import { Layout } from '@12b-desktop/components/layout'
+import { LeftMenu } from '@12b-desktop/components/leftMenu'
+import Statement from '@12b-desktop/components/statement'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { LeftMenu } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -16,8 +18,6 @@ import { QUICK_PICK_LIST } from '@nx-next-app/site/onetwobet/data/history'
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout } from '../components/layout'
-import Statement from '../components/statement'
 
 interface IStatementPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
