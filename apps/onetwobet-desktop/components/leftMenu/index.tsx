@@ -1,6 +1,6 @@
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useWalletAllowed } from '@nx-next-app/features/F0001/hooks'
+import { useWalletAllowed } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import classNames from 'classnames'
 import { includes, isArray, uniqueId } from 'lodash-es'

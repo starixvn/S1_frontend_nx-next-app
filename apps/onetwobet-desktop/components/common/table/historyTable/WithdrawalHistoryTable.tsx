@@ -15,8 +15,7 @@ import dynamic from 'next/dynamic'
 import Table, { ITableColumns } from '../Table'
 
 const HistoryMsgModal = dynamic(
-	() =>
-		import('@nx-next-app/features/F0001/desktop/history/modal/HistoryMsgModal'),
+	() => import('../../../history/modal/HistoryMsgModal'),
 	{
 		ssr: false,
 	}

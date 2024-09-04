@@ -1,4 +1,3 @@
-import { Table } from '@nx-next-app/components/D0001/table'
 import { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -6,6 +5,7 @@ import { useStatement } from '@nx-next-app/features/F0001/providers/statement-co
 import { ICustTpBetRecordDetailListbyGameTypeData } from '@nx-next-app/service'
 import { numberFormat, revertTimeZone } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
+import { Table } from '..'
 
 const ByDetailStatementTable = ({
 	dataSource,

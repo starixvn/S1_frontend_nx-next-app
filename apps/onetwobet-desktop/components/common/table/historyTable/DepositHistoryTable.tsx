@@ -23,18 +23,14 @@ import Table, { ITableColumns } from '../Table'
 dayjs.extend(utc)
 
 const HistoryMsgModal = dynamic(
-	() =>
-		import('@nx-next-app/features/F0001/desktop/history/modal/HistoryMsgModal'),
+	() => import('../../../history/modal/HistoryMsgModal'),
 	{
 		ssr: false,
 	}
 )
 
 const DepositBankSlipModal = dynamic(
-	() =>
-		import(
-			'@nx-next-app/features/F0001/desktop/history/modal/DepositBankSlipModal'
-		),
+	() => import('../../../history/modal/DepositBankSlipModal'),
 	{
 		ssr: false,
 	}
