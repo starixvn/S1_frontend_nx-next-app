@@ -1,6 +1,6 @@
 import { SpinButton } from '@nx-next-app/components/H0001'
 import { TransferWalletTpId } from '@nx-next-app/constants'
-import { useTransferFunds } from '@nx-next-app/features/F0001/providers'
+import { useTransferFunds } from '@nx-next-app/operations'
 import { numFormatToDigits } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
 
@@ -12,7 +12,7 @@ const WalletList = () => {
 		handleGetTpWalletInfoByTpId,
 		mainWalletInfo,
 		tpWalletBalanceList,
-	} = useTransferFunds()
+	} = useTransferFunds() || {}
 
 	return (
 		<>
@@ -37,7 +37,7 @@ const WalletList = () => {
 					</button>
 				</div>
 			</div>
-			{tpWalletBalanceList.map(({ tpId, tpName, balance }) => (
+			{tpWalletBalanceList?.map(({ tpId, tpName, balance }) => (
 				<div className='account' key={tpId}>
 					<div className='info'>
 						<span className='title'>{tpName}</span>

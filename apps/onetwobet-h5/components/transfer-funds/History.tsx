@@ -1,5 +1,5 @@
 import { TranferHistoryStatusEnum, paths } from '@nx-next-app/constants'
-import { useTransferFunds } from '@nx-next-app/features/F0001/providers'
+import { useTransferFunds } from '@nx-next-app/operations'
 import { numFormatToDigits, transferDirection } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'

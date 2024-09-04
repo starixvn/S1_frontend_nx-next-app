@@ -1,4 +1,4 @@
-import { useTransferFunds } from '@nx-next-app/features/F0001/providers'
+import { useTransferFunds } from '@nx-next-app/operations'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useState } from 'react'
@@ -8,7 +8,7 @@ const AutoTransfer = () => {
 
 	const [tip, setTip] = useState<boolean>(false)
 
-	const { isAutoTransfer, handleAutoTransferStatus } = useTransferFunds()
+	const { isAutoTransfer, handleAutoTransferStatus } = useTransferFunds() || {}
 
 	return (
 		<div className='rememberMode'>

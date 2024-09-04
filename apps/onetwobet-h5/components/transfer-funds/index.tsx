@@ -1,18 +1,18 @@
-import { Header } from '@nx-next-app/components/H0001'
+import { Header, Loading } from '@nx-next-app/components/H0001'
 import { paths } from '@nx-next-app/constants'
+import { useTransferFunds } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 import { AutoTransfer } from './AutoTransfer'
 import { History } from './History'
 import { Transfer } from './Transfer'
 import TransferNotes from './TransferNotes'
 import { WalletList } from './WalletList'
-// import { useTransferFunds } from '@nx-next-app/operations'
 
 const TransferFunds = () => {
 	const { t } = useTranslation()
-	// const { loading, isTransferLoading } = useTransferFunds()
+	const { loading, isTransferLoading } = useTransferFunds()
 	// * 手機版的動畫與桌機版不同，不需將 loading 邏輯分開
-	// if (loading || isTransferLoading) return <Loading />
+	if (loading || isTransferLoading) return <Loading />
 
 	return (
 		<>
