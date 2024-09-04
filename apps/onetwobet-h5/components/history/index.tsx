@@ -1,3 +1,10 @@
+import {
+	DepositItem,
+	FinancialItem,
+	ReferralItem,
+	TransferItem,
+	WithdrawalItem,
+} from '@12b-h5/components/history/historyItems'
 import { BackTop } from '@nx-next-app/components/D0001'
 import Loading from '@nx-next-app/components/H0001/loading'
 import { useHistory } from '@nx-next-app/operations'
@@ -13,11 +20,6 @@ import { uniqueId } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import React from 'react'
 import HistoryHeader from './header'
-import DepositItem from './historyItems/DepositItem'
-import FinancialItem from './historyItems/FinancialItem'
-import ReferralItem from './historyItems/ReferralItem'
-import TransferItem from './historyItems/TransferItem'
-import WithdrawalItem from './historyItems/WithdrawalItem'
 
 const History = () => {
 	const {
