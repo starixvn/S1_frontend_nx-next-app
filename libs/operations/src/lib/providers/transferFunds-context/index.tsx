@@ -1,33 +1,33 @@
-import { ISelectProps } from '@nx-next-app/components/D0001'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import {
-	AutoTrasferStatusEnum,
-	CURRENCY_TO_TIMEZONE,
-	TransferTypeEnum,
-	TransferWalletTpId,
-} from '@nx-next-app/constants'
+import dayjs from 'dayjs'
+import { useState, ReactNode, createContext, useContext } from 'react'
+import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
-import { TurnoverModal as DesktopTurnoverModal } from '@nx-next-app/features/F0001/desktop/transfer-funds/TurnoverModal'
-import { TurnoverModal as H5TurnoverModal } from '@nx-next-app/features/F0001/h5/transfer-funds/TurnoverModal'
+import { DeviceTypeEnum } from '@nx-next-app/types'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import {
-	IMainWalletInfoData,
-	ITpWalletInfoData,
+	TransferTypeEnum,
+	TransferWalletTpId,
+	CURRENCY_TO_TIMEZONE,
+	AutoTrasferStatusEnum,
+} from '@nx-next-app/constants'
+import {
 	ITransferArgs,
 	ITransferHistoryData,
+	useTransferMutation,
 	useGetTransferRecentQuery,
-	useGetWalletTransferStatusQuery,
 	useLazyGetMainWalletInfoQuery,
+	useGetWalletTransferStatusQuery,
 	useLazyGetTpWalletInfoByTpIdQuery,
 	useSetWalletTransferStatusMutation,
-	useTransferMutation,
+	IMainWalletInfoData,
+	ITpWalletInfoData,
 } from '@nx-next-app/service'
-import { DeviceTypeEnum } from '@nx-next-app/types'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { ISelectProps } from '@nx-next-app/components/D0001'
+import { TurnoverModal as DesktopTurnoverModal } from '@nx-next-app/features/F0001/desktop/transfer-funds/TurnoverModal'
+import { TurnoverModal as H5TurnoverModal } from '@nx-next-app/features/F0001/h5/transfer-funds/TurnoverModal'
+import { useForm, UseFormReturn } from 'react-hook-form'
 import { isConvert } from '@nx-next-app/utils'
-import dayjs from 'dayjs'
-import { useTranslation } from 'next-i18next'
-import { ReactNode, createContext, useContext, useState } from 'react'
-import { UseFormReturn, useForm } from 'react-hook-form'
 
 interface IForm {
 	walletFrom?: number
