@@ -16,14 +16,11 @@ const PurchaseStickerModal = (props: { price: number; currency?: string }) => {
 	const handlePurchaseClick = async () => {
 		try {
 			await buyChineseZodiacSticker({ stickerId }).unwrap()
-			setMessage(t('Label_General_PurchaseSuccessful'))
+			setMessage(t('Label_General_Success'))
 		} catch (e) {
 			setMessage((e as Error).message)
 		}
-		// closeModal()
 	}
-
-	const handleBackClick = () => setMessage(null)
 
 	return (
 		<div id='popup' className='event-lottery-popup-mask active'>
@@ -39,7 +36,6 @@ const PurchaseStickerModal = (props: { price: number; currency?: string }) => {
 						<div className='prompt'>
 							<span>{message}</span>
 						</div>
-						<button onClick={handleBackClick}>{t('Label_General_Back')}</button>
 					</div>
 				) : (
 					<div className='popup-content'>
