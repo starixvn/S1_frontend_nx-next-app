@@ -142,11 +142,7 @@ const Select = (props: ISelectProps) => {
 							onClick={() => handleOptionClick(option)}
 						>
 							{option.prefixOptionIcon}
-							<span className='text'>
-								{isTranslation
-									? t(option.label as string)
-									: option.label || ' '}
-							</span>
+							{isTranslation ? t(option.label as string) : option.label || ' '}
 						</div>
 					))}
 				</div>
