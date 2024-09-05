@@ -13,12 +13,15 @@ import { isReactNativeWebView } from '../../utils/client'
 import { useAuth } from '../auth-context'
 import { TStaticFileDomainData } from '../type'
 
-interface IGlobalDataContext extends TStaticFileDomainData {
+interface IGlobalDataContext {
 	tpMaintainList: TpMaintainData[]
 	productTpIds?: number[]
 	custGameTypeSettingList?: ITpGameTypeData[]
 	isInApp: boolean | null
 	isInLiff: boolean | null
+	getBannerUrl: (url: string) => string
+	getImageUrl: (url: string) => string
+	getPaymentUrl: (url: string) => string
 }
 
 const GlobalDataContext = createContext<IGlobalDataContext>(null!)
@@ -53,13 +56,27 @@ const GlobalDataProvider = ({
 			skip: !isLogin || memberType !== UserInfoMemberType.LiveStreaming,
 		})
 
+	const { bannerDomain, imgDomain, paymentDomain } = persistStaticFileDomainData
+
+	const getBannerUrl = (url: string) => {
+		return bannerDomain ? `https://${bannerDomain}${url}` : url
+	}
+	const getImageUrl = (url: string) => {
+		return imgDomain ? `https://${imgDomain}${url}` : url
+	}
+	const getPaymentUrl = (url: string) => {
+		return paymentDomain ? `https://${paymentDomain}${url}` : url
+	}
+
 	const value: IGlobalDataContext = {
 		tpMaintainList,
 		productTpIds,
 		custGameTypeSettingList,
 		isInApp,
 		isInLiff,
-		...persistStaticFileDomainData,
+		getBannerUrl,
+		getImageUrl,
+		getPaymentUrl,
 	}
 
 	useEffect(() => {
