@@ -1,6 +1,5 @@
 export * from './arrayTools'
 export * from './client'
-export * from './fileUrl'
 export * from './format'
 export * from './generate'
 export * from './image'
