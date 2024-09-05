@@ -7,7 +7,7 @@ import {
 } from '@12b-h5/components/history/historyItems'
 import { BackTop } from '@nx-next-app/components/D0001'
 import Loading from '@nx-next-app/components/H0001/loading'
-import { useHistory } from '@nx-next-app/operations'
+import { HistoryTabsEnum, useHistory } from '@nx-next-app/operations'
 import {
 	IDepositInfoHistoryData,
 	IReferralData,
@@ -15,7 +15,6 @@ import {
 	ITransferHistoryData,
 	IWithdrawalInfoHistoryData,
 } from '@nx-next-app/service'
-import { HistoryTabsEnum } from 'libs/web/src/app/types/history'
 import { uniqueId } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import React from 'react'

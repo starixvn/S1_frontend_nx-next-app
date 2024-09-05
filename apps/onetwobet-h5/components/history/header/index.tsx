@@ -1,6 +1,5 @@
 import { Header } from '@nx-next-app/components/H0001'
-import { useHistory } from '@nx-next-app/operations'
-import { QuickPickEnum } from '@nx-next-app/types'
+import { QuickPickEnum, useHistory } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 import HistoryFilter from './HistoryFilter'
 

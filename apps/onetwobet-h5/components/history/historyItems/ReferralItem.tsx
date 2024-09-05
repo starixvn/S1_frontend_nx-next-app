@@ -1,8 +1,8 @@
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { ReferralStatusClassNameForMobile } from '@nx-next-app/operations'
 import { numberFormat } from '@nx-next-app/utils'
 import dayjs from 'dayjs'
-import { ReferralStatusClassNameForMobile } from 'libs/web/src/app/types/history'
 import { useTranslation } from 'next-i18next'
 
 interface IReferralItemProps {

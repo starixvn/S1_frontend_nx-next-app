@@ -6,17 +6,17 @@ import {
 } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import {
+	DepositStatusClassName,
+	DepositStatusClassNameEnum,
+	DepositStatusEnum,
+} from '@nx-next-app/operations'
+import {
 	IDepositInfoHistoryData,
 	useSetDepositCancelMutation,
 	useUploadReceiptMutation,
 } from '@nx-next-app/service'
 import { numberFormat } from '@nx-next-app/utils'
 import dayjs from 'dayjs'
-import {
-	DepositStatusClassName,
-	DepositStatusClassNameEnum,
-	DepositStatusEnum,
-} from 'libs/web/src/app/types/history'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
