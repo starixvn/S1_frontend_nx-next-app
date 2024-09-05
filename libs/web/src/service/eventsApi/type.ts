@@ -195,4 +195,5 @@ export interface ICustLotteryHistoryWinnerData {
 
 export interface ILotteryMaintainData {
 	isMaintain: boolean
+	isRestricted: boolean
 }
