@@ -1,3 +1,4 @@
+import { Layout } from '@12b-desktop/components/index'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
@@ -7,7 +8,7 @@ import {
 	getHotGame,
 	getPromotion,
 } from '@nx-next-app/data-access'
-import { Home, Layout } from '@nx-next-app/features/F0001/desktop'
+import { Home } from '@nx-next-app/features/F0001/desktop'
 import { HomeProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,

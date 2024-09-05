@@ -29,10 +29,10 @@
 			"@nx-next-app/store": ["libs/web/src/app/store"],
 			"@nx-next-app/types": ["libs/web/src/app/types"],
 			"@nx-next-app/utils": ["libs/web/src/utils"],
-      "@12b-h5/components/*" : ["apps/onetwobet-h5/components/*"],
-      "@12b-desktop/components/*" : ["apps/onetwobet-desktop/components/*"]
+			"@12b-h5/components/*": ["apps/onetwobet-h5/components/*"],
+			"@12b-desktop/components/*": ["apps/onetwobet-desktop/components/*"]
 		},
-      "jsx": "react"
-    },
+		"jsx": "react"
+	},
 	"exclude": ["node_modules", "tmp"]
 }

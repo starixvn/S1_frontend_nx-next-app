@@ -1,21 +1,16 @@
-import dynamic from 'next/dynamic'
-import { ReactNode } from 'react'
+import { BackTop, GlobalModal, MetaData } from '@nx-next-app/components/D0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ISEOData } from '@nx-next-app/data-access'
 import {
 	useAffiliateReferralEffect,
 	useChangePasswordModalEffect,
 } from '@nx-next-app/hooks'
-import {
-	BackTop,
-	GlobalModal,
-	MetaData,
-	Survey,
-} from '@nx-next-app/components/D0001'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { IFooterData } from '@nx-next-app/types'
+import dynamic from 'next/dynamic'
+import { ReactNode } from 'react'
 
-import LayoutHeader from './common/header/index'
 import LayoutFooter from './common/footer/index'
+import LayoutHeader from './common/header/index'
 
 interface ILayoutProps {
 	children: ReactNode
@@ -57,8 +52,6 @@ export function Layout({
 			<GlobalModal {...globalModal} closeModal={closeModal} />
 
 			{hasGoTopBtn && <BackTop />}
-
-			<Survey />
 		</>
 	)
 }
