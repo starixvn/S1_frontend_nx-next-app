@@ -1,4 +1,3 @@
-import React from 'react'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout, Retention } from '@nx-next-app/features/F0001/h5'
 import {
@@ -14,10 +13,13 @@ const RetentionPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: IRetentionPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
 					<Retention />
 				</Layout>

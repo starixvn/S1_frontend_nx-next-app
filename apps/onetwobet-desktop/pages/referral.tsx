@@ -1,22 +1,21 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { IFooterData } from '@nx-next-app/types'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
+import { Layout, LeftMenu, Referral } from '@nx-next-app/features/F0001/desktop'
+import { ReferralProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { IWithdrawalSetting } from '@nx-next-app/service'
-import { Layout, LeftMenu, Referral } from '@nx-next-app/features/F0001/desktop'
-import { ReferralProvider } from '@nx-next-app/features/F0001/providers'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
+import { IFooterData } from '@nx-next-app/types'
+import { GetServerSideProps } from 'next'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface IReferralPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
@@ -28,6 +27,7 @@ const ReferralPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	persistStaticFileDomainData,
 	withdrawalBlockSetting,
 }: IReferralPageProps) => {
 	const { t } = useTranslation()
@@ -65,7 +65,9 @@ const ReferralPage = ({
 
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<ReferralProvider referralInfoList={referralInfoList}>
 					<Layout
 						persistSEOData={persistSEOData}

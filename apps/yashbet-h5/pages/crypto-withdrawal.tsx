@@ -1,23 +1,23 @@
-import { GetServerSideProps } from 'next'
-import { find } from 'lodash-es'
 import { paths } from '@nx-next-app/constants'
 import {
-	InitialPropsInterface,
-	useServerSideInitialPropsFetcher,
-} from '@nx-next-app/hooks'
-import {
 	AuthProvider,
-	getWithdrawalBlockSetting,
 	GlobalDataProvider,
+	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
 import { CryptoWithdrawal } from '@nx-next-app/features/F0001/h5'
-import { Layout } from '@nx-next-app/features/F0006/h5'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import {
 	CryptoWalletProvider,
 	WithdrawalProvider,
 } from '@nx-next-app/features/F0001/providers'
+import { Layout } from '@nx-next-app/features/F0006/h5'
+import {
+	InitialPropsInterface,
+	useServerSideInitialPropsFetcher,
+} from '@nx-next-app/hooks'
 import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
+import { find } from 'lodash-es'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface ICryptoWithdrawalProps extends InitialPropsInterface {
 	withdrawalBlockSetting: IWithdrawalSetting[]
@@ -27,11 +27,14 @@ const CryptoWithdrawalPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 	withdrawalBlockSetting,
 }: ICryptoWithdrawalProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
 					<WithdrawalProvider withdrawalBlockSetting={withdrawalBlockSetting}>
 						<CryptoWalletProvider

@@ -1,21 +1,20 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	getWithdrawalBlockSetting,
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, LeftMenu, BankInfo } from '@nx-next-app/features/F0001/desktop'
+import { BankInfo, Layout, LeftMenu } from '@nx-next-app/features/F0001/desktop'
 import { BankInfoProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { IFooterData } from '@nx-next-app/types'
 import { IWithdrawalSetting } from '@nx-next-app/service'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
+import { IFooterData } from '@nx-next-app/types'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface IBankInfoPage extends InitialPropsInterface {
 	persistFooterData: IFooterData
@@ -28,10 +27,13 @@ const BankInfoPage = ({
 	persistSEOData,
 	withdrawalBlockSetting,
 	persistFooterData,
+	persistStaticFileDomainData,
 }: IBankInfoPage) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<BankInfoProvider withdrawalBlockSetting={withdrawalBlockSetting}>
 					<Layout
 						persistSEOData={persistSEOData}

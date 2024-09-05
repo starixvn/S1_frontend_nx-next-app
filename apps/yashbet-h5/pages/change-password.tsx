@@ -1,20 +1,23 @@
-import { GetServerSideProps } from 'next'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { ChangePassword, Layout } from '@nx-next-app/features/F0006/h5'
 import {
-	useServerSideInitialPropsFetcher,
 	InitialPropsInterface,
+	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout, ChangePassword } from '@nx-next-app/features/F0006/h5'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const ChangePasswordPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: InitialPropsInterface) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
 					<ChangePassword />
 				</Layout>

@@ -1,20 +1,20 @@
-import { GetServerSideProps } from 'next'
+import { paths } from '@nx-next-app/constants'
+import {
+	AuthProvider,
+	GlobalDataProvider,
+	getWithdrawalBlockSetting,
+} from '@nx-next-app/data-access'
+import { Withdrawal } from '@nx-next-app/features/F0001/h5'
+import { WithdrawalProvider } from '@nx-next-app/features/F0001/providers'
+import { Layout } from '@nx-next-app/features/F0006/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import {
-	AuthProvider,
-	getWithdrawalBlockSetting,
-	GlobalDataProvider,
-} from '@nx-next-app/data-access'
-import { Withdrawal } from '@nx-next-app/features/F0001/h5'
-import { Layout } from '@nx-next-app/features/F0006/h5'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { WithdrawalProvider } from '@nx-next-app/features/F0001/providers'
-import { find } from 'lodash-es'
 import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
-import { paths } from '@nx-next-app/constants'
+import { find } from 'lodash-es'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface IWithdrawalProps extends InitialPropsInterface {
 	withdrawalBlockSetting: IWithdrawalSetting[]
@@ -24,10 +24,13 @@ const WithdrawalPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: IWithdrawalProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
 					<WithdrawalProvider withdrawalBlockSetting={withdrawalBlockSetting}>
 						<Withdrawal />

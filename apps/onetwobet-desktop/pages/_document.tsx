@@ -9,7 +9,7 @@ import Document, {
 	DocumentContext,
 	DocumentInitialProps,
 } from 'next/document'
-import { getGA4ID, getGTMId } from '@nx-next-app/site/nova88/data'
+import { getGA4ID, getGTMId } from '@nx-next-app/site/onetwobet/data'
 
 interface CustomDocumentProps extends DocumentInitialProps {
 	host?: string

@@ -27,7 +27,7 @@ import {
 	LEFT_MENU_DATA,
 	LIVE_CHAT_ID_BY_LANG_ID,
 	ThirdPartyJS,
-} from '@nx-next-app/site/nova88'
+} from '@nx-next-app/site/onetwobet'
 import { LANG_TO_CURRENCY } from '@apps/onetwobet-desktop/middleware'
 
 import 'react-datepicker/dist/react-datepicker.css'
@@ -53,7 +53,7 @@ const {
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
-			<NextNProgress showOnShallow color='#2b66e6' />
+			<NextNProgress showOnShallow color='#C01D21' />
 			<Provider store={store}>
 				{/* 提供 Component 狀態管理 */}
 				<UIProvider>
