@@ -52,7 +52,7 @@ const WalletList = () => {
 						/>
 						<button
 							type='button'
-							className='transfer-btn ghost gold'
+							className='red ghost gold'
 							onClick={() => {
 								handleRestoreAll({ walletTpId: tpId })
 							}}

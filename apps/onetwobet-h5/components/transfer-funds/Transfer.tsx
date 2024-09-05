@@ -1,10 +1,12 @@
-import { Form, InputBox, Select } from '@nx-next-app/components/H0001'
+import { Form } from '@nx-next-app/components/H0001'
 import { useAuth } from '@nx-next-app/data-access'
 import { useTransferFunds } from '@nx-next-app/operations'
 import { isConvert } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useEffect } from 'react'
+import { InputBox } from '../common/input'
+import Select from '../common/select'
 
 const Transfer = () => {
 	const { t } = useTranslation()
