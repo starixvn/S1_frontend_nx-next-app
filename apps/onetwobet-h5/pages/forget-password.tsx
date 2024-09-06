@@ -1,5 +1,5 @@
+import { ForgetPassword, Layout } from '@12b-h5/components'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { ForgetPassword, Layout } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,

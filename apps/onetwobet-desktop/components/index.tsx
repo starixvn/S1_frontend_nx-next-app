@@ -1,3 +1,5 @@
+export * from './common'
+export { default as ForgetPassword } from './forget-password'
 export { default as History } from './history'
 export { default as Layout } from './layout'
 export { default as LeftMenu } from './leftMenu'
