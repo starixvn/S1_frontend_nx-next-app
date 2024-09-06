@@ -1,16 +1,15 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
-import {
-	InitialPropsInterface,
-	useServerSideInitialPropsFetcher,
-} from '@nx-next-app/hooks'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	LeaderBoardProvider,
 } from '@nx-next-app/data-access'
 import { Layout, LeaderBoard } from '@nx-next-app/features/F0001/h5'
+import {
+	InitialPropsInterface,
+	useServerSideInitialPropsFetcher,
+} from '@nx-next-app/hooks'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import {
 	LEADER_BOARD_EVENT_CODE,
@@ -22,7 +21,7 @@ import {
 	LeaderBoardDayEnum,
 	LeaderBoardGameTypeEnum,
 	LeaderBoardTabsEnum,
-} from '@nx-next-app/site/nova88/data/leaderBoard'
+} from '@nx-next-app/site/onetwobet/data/leaderBoard'
 
 type ILeaderBoardPageProps = InitialPropsInterface
 
@@ -30,10 +29,13 @@ const LeaderBoardPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: ILeaderBoardPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
 					<LeaderBoardProvider
 						LEADER_BOARD_EVENT_CODE={LEADER_BOARD_EVENT_CODE}

@@ -1,17 +1,17 @@
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
 import {
-	ISetForgetPasswordArgs,
-	TpMaintainData,
-	ISignUpArgs,
 	IBannerData,
-	ISeoData,
-	ISocialChannelData,
-	IVipBannerData,
+	ICountryListData,
 	IGetVipBannerArgs,
 	IResetPwdByOTPArgs,
 	IResetPwdVerifyOTPArgs,
-	ICountryListData,
+	ISeoData,
+	ISetForgetPasswordArgs,
+	ISignUpArgs,
+	ISocialChannelData,
+	IVipBannerData,
+	TpMaintainData,
 } from './type'
 
 export const siteApiUrl = {
@@ -35,6 +35,7 @@ export const siteApiUrl = {
 	reSetPwdVerifyOTP: 'Site/ReSetPwdVerifyOTP',
 	checkResetPwdToken: 'Site/CheckResetPwdToken',
 	getCountryList: 'GeoIp/GetCountryList',
+	getStaticFileDomain: 'Site/GetStaticFileDomain',
 }
 
 export const siteApi = rootApi.injectEndpoints({

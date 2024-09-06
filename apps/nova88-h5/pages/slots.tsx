@@ -1,21 +1,20 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
-import {
-	InitialPropsInterface,
-	useServerSideInitialPropsFetcher,
-} from '@nx-next-app/hooks'
-import { pick } from 'lodash-es'
-import { SlotsProvider } from '@nx-next-app/features/F0001/providers'
-import { Layout, Slots } from '@nx-next-app/features/F0001/h5'
+import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getSlotGamePage,
 } from '@nx-next-app/data-access'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { Layout, Slots } from '@nx-next-app/features/F0001/h5'
+import { SlotsProvider } from '@nx-next-app/features/F0001/providers'
+import {
+	InitialPropsInterface,
+	useServerSideInitialPropsFetcher,
+} from '@nx-next-app/hooks'
 import { ISlotsGameData } from '@nx-next-app/service'
 import { CATEGORY_SORT } from '@nx-next-app/site/nova88/data/slots'
+import { pick } from 'lodash-es'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 type ISlotsPageProps = InitialPropsInterface & {
 	persistSlotsGameData: ISlotsGameData
@@ -26,12 +25,15 @@ const SlotsPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 	persistSlotsGameData,
 	persistSlotsCategoryData,
 }: ISlotsPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<SlotsProvider
 					persistSlotsGameData={persistSlotsGameData}
 					persistSlotsCategoryData={persistSlotsCategoryData}

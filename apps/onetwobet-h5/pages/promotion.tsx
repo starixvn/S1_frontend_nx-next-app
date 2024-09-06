@@ -1,20 +1,19 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import {
 	AuthProvider,
 	getPromotion,
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
+import { Layout, Promotion } from '@nx-next-app/features/F0001/h5'
+import { PromotionProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout, Promotion } from '@nx-next-app/features/F0001/h5'
-import { PromotionProvider } from '@nx-next-app/features/F0001/providers'
-import { DeviceTypeEnum } from '@nx-next-app/types'
 import { IPromotionData } from '@nx-next-app/service'
-import { PROMOTION_SELECT_OPTIONS } from '@nx-next-app/site/nova88'
+import { PROMOTION_SELECT_OPTIONS } from '@nx-next-app/site/onetwobet'
+import { DeviceTypeEnum } from '@nx-next-app/types'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface IPromotionPageProps extends InitialPropsInterface {
 	persistPromotionData: IPromotionData[]
@@ -24,12 +23,14 @@ const PromotionPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-
+	persistStaticFileDomainData,
 	persistPromotionData,
 }: IPromotionPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
 					<PromotionProvider
 						persistPromotionData={persistPromotionData}

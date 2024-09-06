@@ -1,37 +1,37 @@
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
-import Link from 'next/link'
-import classNames from 'classnames'
-import { isNumber } from 'lodash'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
-import { useState, useEffect } from 'react'
-import { useForm, FormProvider } from 'react-hook-form'
-import { TmpCookiesObj } from 'cookies-next/lib/types'
-import {
-	paths,
-	ENV_COOKIE_NAMES,
-	CURRENCY_TO_LANG_KEY,
-	AREA_CODE_BY_CURRENCY,
-	FLAG_PREFIX_ICON_BY_CURRENCIES,
-} from '@nx-next-app/constants'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ISelectProps } from '@nx-next-app/components/H0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
-	useSignupMutation,
-	useLazyAffiliateCheckQuery,
-	useGetSiteCurrencyListQuery,
-	useLazyGetAffiliateAgentQuery,
-	useGetRecaptchaInfoQuery,
-} from '@nx-next-app/service'
-import {
-	getQueryParam,
-	OperaPixelTracker,
-	MetaPixelTracker,
-} from '@nx-next-app/utils'
+	AREA_CODE_BY_CURRENCY,
+	CURRENCY_TO_LANG_KEY,
+	ENV_COOKIE_NAMES,
+	FLAG_PREFIX_ICON_BY_CURRENCIES,
+	paths,
+} from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
-import { Step1, Step2, Step3, StepBar, Features, LineRegister } from './form'
+import {
+	useGetRecaptchaInfoQuery,
+	useGetSiteCurrencyListQuery,
+	useLazyAffiliateCheckQuery,
+	useLazyGetAffiliateAgentQuery,
+	useSignupMutation,
+} from '@nx-next-app/service'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import {
+	MetaPixelTracker,
+	OperaPixelTracker,
+	getQueryParam,
+} from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { TmpCookiesObj } from 'cookies-next/lib/types'
+import { isNumber } from 'lodash'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import { FormProvider, useForm } from 'react-hook-form'
+import { Features, LineRegister, Step1, Step2, Step3, StepBar } from './form'
 
 interface IJoinProps {
 	cookies: TmpCookiesObj

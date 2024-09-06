@@ -1,16 +1,15 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
+import { Header } from '@nx-next-app/components/H0001'
+import { paths } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Layout, Referral } from '@nx-next-app/features/F0006/h5'
+import { ReferralProvider } from '@nx-next-app/features/F0006/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { ReferralProvider } from '@nx-next-app/features/F0006/providers'
+import { GetServerSideProps } from 'next'
 import { useTranslation } from 'next-i18next'
-import { Header } from '@nx-next-app/components/H0001'
-import { paths } from '@nx-next-app/constants'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 type IReferralPageProps = InitialPropsInterface
 
@@ -18,6 +17,7 @@ const ReferralPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: IReferralPageProps) => {
 	const { t } = useTranslation()
 
@@ -29,7 +29,9 @@ const ReferralPage = ({
 
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<ReferralProvider referralInfoList={referralInfoList}>
 					<Layout persistSEOData={persistSEOData}>
 						<Header className='header'>

@@ -1,19 +1,19 @@
-import { GetServerSideProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import {
+	AuthProvider,
+	GlobalDataProvider,
+	getNewsById,
+} from '@nx-next-app/data-access'
+import { Layout, News } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { INewsDetailData } from '@nx-next-app/service'
-import {
-	AuthProvider,
-	getNewsById,
-	GlobalDataProvider,
-} from '@nx-next-app/data-access'
-import { Layout, News } from '@nx-next-app/features/F0001/desktop'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { IFooterData } from '@nx-next-app/types'
 import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { IFooterData } from '@nx-next-app/types'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface INewsPageProps extends InitialPropsInterface {
 	persistNewsDetail: INewsDetailData
@@ -25,11 +25,14 @@ const NewsPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	persistStaticFileDomainData,
 	persistNewsDetail,
 }: INewsPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout
 					showFooter
 					persistSEOData={persistSEOData}

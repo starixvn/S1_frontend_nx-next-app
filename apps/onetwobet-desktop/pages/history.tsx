@@ -1,25 +1,24 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { IFooterData } from '@nx-next-app/types'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { IWithdrawalSetting } from '@nx-next-app/service'
+import { History, Layout, LeftMenu } from '@nx-next-app/features/F0001/desktop'
+import { HistoryProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { HistoryProvider } from '@nx-next-app/features/F0001/providers'
-import { Layout, LeftMenu, History } from '@nx-next-app/features/F0001/desktop'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { IWithdrawalSetting } from '@nx-next-app/service'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import {
 	HISTORY_TABS,
 	QUICK_PICK_LIST,
-} from '@nx-next-app/site/nova88/data/history'
+} from '@nx-next-app/site/onetwobet/data/history'
+import { IFooterData } from '@nx-next-app/types'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface IHistoryPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
@@ -31,11 +30,14 @@ const HistoryPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	persistStaticFileDomainData,
 	withdrawalBlockSetting,
 }: IHistoryPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<HistoryProvider
 						HISTORY_TABS={HISTORY_TABS}

@@ -1,25 +1,23 @@
-import { useFormContext } from 'react-hook-form'
-import { useTranslation } from 'next-i18next'
 import {
-	Select,
-	InputPhone,
 	ISelectProps,
 	InputBox,
+	InputPhone,
+	Select,
 } from '@nx-next-app/components/H0001'
 import {
 	AREA_CODE,
-	PHONE_DIGITS_LIMIT,
-	PHONE_LENGTH_REGEX,
 	AREA_CODE_BY_CURRENCY,
 	EMAIL_REGEX,
+	PHONE_DIGITS_LIMIT,
+	PHONE_LENGTH_REGEX,
 } from '@nx-next-app/constants'
-import {
-	useLazyExistsEmailQuery,
-} from '@nx-next-app/service'
+import { useJoin } from '@nx-next-app/features/F0001/hooks'
+import { useLazyExistsEmailQuery } from '@nx-next-app/service'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
-import { useJoin } from '@nx-next-app/features/F0001/hooks'
+import { useTranslation } from 'next-i18next'
 import { useEffect } from 'react'
+import { useFormContext } from 'react-hook-form'
 
 dayjs.extend(customParseFormat)
 
