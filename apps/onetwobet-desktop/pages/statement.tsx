@@ -1,3 +1,6 @@
+import { Layout } from '@12b-desktop/components/layout'
+import { LeftMenu } from '@12b-desktop/components/leftMenu'
+import Statement from '@12b-desktop/components/statement'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
@@ -5,15 +8,10 @@ import {
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
 import {
-	Layout,
-	LeftMenu,
-	Statement,
-} from '@nx-next-app/features/F0001/desktop'
-import { StatementProvider } from '@nx-next-app/features/F0001/providers'
-import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { StatementProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { QUICK_PICK_LIST } from '@nx-next-app/site/onetwobet/data/history'
