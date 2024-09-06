@@ -7,7 +7,7 @@ PROJECT=/Users/lukelin/Project/NX-NEXT-APP
 # 裝置
 DEVICE_LIST=(DESKTOP H5)
 # 目前既有品牌
-SITE_LIST=(YASHBET NOVA88 ONETWOBET)
+SITE_LIST=(NOVA88 ONETWOBET YASHBET)
 
 # READ SITE
 echo "選擇品牌"
@@ -15,7 +15,7 @@ for i in ${SITE_LIST[@]}
 do
   echo "$i \c"
 done
-echo ",ex: YASHBET NOVA88 ONETWOBET// 更新三個品牌，中間用空白鍵分隔、大小寫不拘"
+echo ",ex: NOVA88 ONETWOBET YASHBET// 更新三個品牌，中間用空白鍵分隔、大小寫不拘"
 read -p ": " site
 siteList=($(echo "$site" | tr ' ' '\n'))
 
@@ -37,10 +37,6 @@ do
     designPath="${DESIGN_PROJECT}/$site/$device/public/css"
     projectPath="${PROJECT}/apps/$site-$device/styles"
 
-    if [ $site = "LEOBET" ] || [ $site = "leobet" ]
-    then
-      projectPath="${PROJECT}/apps/yashbet-$device/styles" # 將設計專案的 Leobet 改為 yashbet
-    fi
     echo $designPath "->" $projectPath
     cp -R ${designPath} ${projectPath}
   done

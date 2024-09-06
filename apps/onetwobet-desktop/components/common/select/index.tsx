@@ -1,6 +1,7 @@
 import { SelectOptionType } from '@nx-next-app/types'
 import classNames from 'classnames'
-import { filter, find, includes, uniqueId } from 'lodash'
+import { filter, find, includes } from 'lodash'
+import { uniqueId } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import { useBoolean, useOnClickOutside } from 'usehooks-ts'
