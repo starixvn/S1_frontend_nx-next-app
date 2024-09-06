@@ -1,5 +1,4 @@
 import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
-import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -13,10 +12,10 @@ import {
 } from 'libs/web/src/app/types/history'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
+import Table, { ITableColumns } from '../Table'
 
 const HistoryMsgModal = dynamic(
-	() =>
-		import('@nx-next-app/features/F0001/desktop/history/modal/HistoryMsgModal'),
+	() => import('../../../history/modal/HistoryMsgModal'),
 	{
 		ssr: false,
 	}
@@ -56,7 +55,7 @@ const WithdrawalHistoryTable = ({
 					{dayjs(createTime)
 						.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 						.format('MM/DD/YYYY')}
-					<span className='txt-blue'>
+					<span className='txt-gray'>
 						{dayjs(createTime)
 							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 							.format('hh:mm:ss A')}
@@ -151,7 +150,7 @@ const WithdrawalHistoryTable = ({
 					showingCancelBtn && (
 						<div className='btnGroup'>
 							<button
-								className='btn-cancel'
+								className='btn-cancel ghost dark'
 								onClick={() => {
 									modal.confirm(t('Label_History_CancelConfirm'), {
 										onOK: () => onCancel(transId),
