@@ -1,3 +1,12 @@
+import DepositHistoryTable from '@12b-desktop/components/common/table/historyTable/DepositHistoryTable'
+import FinancialHistoryTable from '@12b-desktop/components/common/table/historyTable/FinancialHistoryTable'
+import ReferralHistoryTable from '@12b-desktop/components/common/table/historyTable/ReferralHistoryTable'
+import TransferHistoryTable from '@12b-desktop/components/common/table/historyTable/TransferHistoryTable'
+import WithdrawalHistoryTable from '@12b-desktop/components/common/table/historyTable/WithdrawalHistoryTable'
+import ByCategoryStatementTable from '@12b-desktop/components/common/table/statementTable/ByCategoryStatementTable'
+import ByDayStatementTable from '@12b-desktop/components/common/table/statementTable/ByDayStatementTable'
+import ByDetailStatementTable from '@12b-desktop/components/common/table/statementTable/ByDetailStatementTable'
+import DateRangeStatementTable from '@12b-desktop/components/common/table/statementTable/DateRangeStatementTable'
 import {
 	ICustTpBetRecordDetailListbyGameTypeData,
 	ICustTpBetRecordListbyCategoryIdData,
@@ -9,15 +18,6 @@ import {
 	ITransferHistoryData,
 	IWithdrawalInfoHistoryData,
 } from '@nx-next-app/service'
-import DepositHistoryTable from '../historyTable/DepositHistoryTable'
-import FinancialHistoryTable from '../historyTable/FinancialHistoryTable'
-import ReferralHistoryTable from '../historyTable/ReferralHistoryTable'
-import TransferHistoryTable from '../historyTable/TransferHistoryTable'
-import WithdrawalHistoryTable from '../historyTable/WithdrawalHistoryTable'
-import ByCategoryStatementTable from '../statementTable/ByCategoryStatementTable'
-import ByDayStatementTable from '../statementTable/ByDayStatementTable'
-import ByDetailStatementTable from '../statementTable/ByDetailStatementTable'
-import DateRangeStatementTable from '../statementTable/DateRangeStatementTable'
 
 const useTable = <T,>({
 	dataSource,

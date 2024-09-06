@@ -1,5 +1,4 @@
 import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
-import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	AllowUploadReceiptType,
@@ -19,22 +18,19 @@ import {
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
+import Table, { ITableColumns } from '../Table'
 
 dayjs.extend(utc)
 
 const HistoryMsgModal = dynamic(
-	() =>
-		import('@nx-next-app/features/F0001/desktop/history/modal/HistoryMsgModal'),
+	() => import('../../../history/modal/HistoryMsgModal'),
 	{
 		ssr: false,
 	}
 )
 
 const DepositBankSlipModal = dynamic(
-	() =>
-		import(
-			'@nx-next-app/features/F0001/desktop/history/modal/DepositBankSlipModal'
-		),
+	() => import('../../../history/modal/DepositBankSlipModal'),
 	{
 		ssr: false,
 	}
@@ -80,7 +76,7 @@ const DepositHistoryTable = ({
 					{dayjs(createTime)
 						.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 						.format('MM/DD/YYYY')}
-					<span className='txt-blue'>
+					<span className='txt-gray'>
 						{dayjs(createTime)
 							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 							.format('hh:mm:ss A')}
@@ -177,7 +173,7 @@ const DepositHistoryTable = ({
 					result = (
 						<>
 							<button
-								className='orange icon icon-pencil'
+								className='white btn-check icon icon-pencil upload-btn'
 								onClick={() =>
 									modal.open(
 										<DepositBankSlipModal
@@ -197,7 +193,7 @@ const DepositHistoryTable = ({
 								{t('Label_General_SubmitBankSlip')}
 							</button>
 							<button
-								className='gray'
+								className='btn-cancel ghost dark'
 								onClick={() => {
 									modal.confirm(t('Label_History_CancelConfirm'), {
 										onOK: () => onCancel(item.transId),

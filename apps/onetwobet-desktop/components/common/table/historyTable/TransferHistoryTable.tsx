@@ -1,11 +1,11 @@
 import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
-import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { ITransferHistoryData } from '@nx-next-app/service'
 import { numberFormat, transferDirection } from '@nx-next-app/utils'
 import dayjs from 'dayjs'
 import { useTranslation } from 'next-i18next'
+import Table, { ITableColumns } from '../Table'
 
 const TransferHistoryTable = ({
 	dataSource,
@@ -35,7 +35,7 @@ const TransferHistoryTable = ({
 					{dayjs(createTime)
 						.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 						.format('MM/DD/YYYY')}
-					<span className='txt-blue'>
+					<span className='txt-gray'>
 						{dayjs(createTime)
 							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 							.format('hh:mm:ss A')}
@@ -67,7 +67,7 @@ const TransferHistoryTable = ({
 
 				return (
 					<>
-						<span className='txt-blue'>{startWallet}</span>
+						<span className='txt-gray'>{startWallet}</span>
 						{isAdjustment ? (
 							<i>&nbsp;&nbsp;</i>
 						) : (

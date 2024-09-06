@@ -4,8 +4,8 @@ import { IMetaData } from '@nx-next-app/types'
 export const META_DATA: IMetaData = {
 	[paths.home.root]: {
 		en: {
-			title: `Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Bet`,
-			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
+			title: `12BET壹貳博官網｜狼隊足球會合作夥伴`,
+			description: `12BET壹貳博官網｜狼隊足球會合作夥伴`,
 			keyword: `Asia Most Trusted Sportsbook, Live Casino, Slot Games, SABA Sports, Online Casino, Online Betting`,
 			links: [
 				{ rel: 'canonical', href: `https://www.nova88.net/en/` },
@@ -62,8 +62,8 @@ export const META_DATA: IMetaData = {
 			],
 		},
 		cs: {
-			title: `Nova88 欧亚体育 - 亚洲最佳体育博彩，真人娱乐与在线博彩。`,
-			description: `Nova88 欧亚体育 -亚洲知名品牌与最受信任的在线博彩网站。立即注册并享受顶尖的体育博彩，真人娱乐，电子游戏老虎机，彩票，快乐彩，和捕鱼游戏。`,
+			title: `12BET壹貳博官網｜狼隊足球會合作夥伴`,
+			description: `12BET壹貳博官網｜狼隊足球會合作夥伴`,
 			keyword: `Nova88 欧亚体育，Nova88 欧亚体育链接，在线博彩，在线赌博，马来西亚在线博彩，体育博彩，彩票，马来西亚真人娱乐场`,
 			links: [
 				{ rel: 'canonical', href: `https://www.nova88105.net/cs/` },

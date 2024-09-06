@@ -1,11 +1,11 @@
 import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
-import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { IStatementData } from '@nx-next-app/service'
 import { numberFormat } from '@nx-next-app/utils'
 import dayjs from 'dayjs'
 import { useTranslation } from 'next-i18next'
+import Table, { ITableColumns } from '../Table'
 
 const FinancialHistoryTable = ({
 	dataSource,
@@ -36,7 +36,7 @@ const FinancialHistoryTable = ({
 					{dayjs(createTime)
 						.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 						.format('MM/DD/YYYY')}
-					<span className='txt-blue'>
+					<span className='txt-gray'>
 						{dayjs(createTime)
 							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 							.format('hh:mm:ss A')}
