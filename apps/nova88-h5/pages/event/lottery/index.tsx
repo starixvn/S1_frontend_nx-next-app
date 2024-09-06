@@ -25,10 +25,13 @@ const LotteryPage = ({
 	originCookies,
 	persistSEOData,
 	lotteryData,
+	persistStaticFileDomainData,
 }: ILotteryPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
 					<LotteryDataProvider data={lotteryData}>
 						<LotteryProgressProvider>
