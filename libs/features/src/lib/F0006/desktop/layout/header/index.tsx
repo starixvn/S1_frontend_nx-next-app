@@ -1,19 +1,19 @@
-import Link from 'next/link'
-import { includes } from 'lodash-es'
 import { Header, LoginFormType } from '@nx-next-app/components/D0006'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
 import { paths } from '@nx-next-app/constants'
-import { FieldErrors } from 'react-hook-form'
-import { renderFieldError } from '@nx-next-app/utils'
+import { useAuth } from '@nx-next-app/data-access'
 import { ALLOWED_CURRENCIES } from '@nx-next-app/site/yashbet'
-import MemberFile from './MemberFile'
-import MsgPopUp from './MsgPopUp'
+import { renderFieldError } from '@nx-next-app/utils'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { FieldErrors } from 'react-hook-form'
 import Country from './Country'
-import Wallet from './Wallet'
+import MemberFile from './MemberFile'
 import Menu from './Menu'
+import MsgPopUp from './MsgPopUp'
+import Wallet from './Wallet'
 
 const LayoutHeader = () => {
 	const { t } = useTranslation()
@@ -43,7 +43,7 @@ const LayoutHeader = () => {
 			await onSignOut()
 			await router.push(paths.home.root).then(() => router.reload())
 		} catch (error) {
-			modal.info((error as Error).message)
+			modal.error((error as Error).message)
 		}
 	}
 

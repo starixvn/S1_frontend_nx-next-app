@@ -1,22 +1,22 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
-import { FieldErrors } from 'react-hook-form'
+import { Header, LoginFormType } from '@nx-next-app/components/D0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import {
 	LineLoginDirectTypeEnum,
 	useLazyGetLineLoginDirectUrlQuery,
 } from '@nx-next-app/service'
-import { paths } from '@nx-next-app/constants'
-import { renderFieldError } from '@nx-next-app/utils'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { CurrenciesEnum } from '@nx-next-app/types'
-import { Header, LoginFormType } from '@nx-next-app/components/D0001'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import Menu from './Menu'
-import Wallet from './Wallet'
+import { renderFieldError } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { FieldErrors } from 'react-hook-form'
 import Country from './Country'
+import Menu from './Menu'
 import MsgPopUp from './MsgPopUp'
+import Wallet from './Wallet'
 
 const LayoutHeader = () => {
 	const { t } = useTranslation()
@@ -50,7 +50,7 @@ const LayoutHeader = () => {
 			await onSignOut()
 			await router.push(paths.home.root).then(() => router.reload())
 		} catch (error) {
-			modal.info((error as Error).message)
+			modal.error((error as Error).message)
 		}
 	}
 
