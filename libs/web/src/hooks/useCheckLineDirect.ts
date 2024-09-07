@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import { useRouter } from 'next/router'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { ENV_COOKIE_NAMES, paths } from '@nx-next-app/constants'
 import {
 	LineLoginDirectTypeEnum,
 	useLazyGetLineUserIdQuery,
 } from '@nx-next-app/service'
-import { useInterval } from 'usehooks-ts'
 import { setCookie } from 'cookies-next'
-import { paths, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
+import { useInterval } from 'usehooks-ts'
 
 /**
  * 決定透過 line 登入後，後續應倒轉至哪個頁面並完成登入
@@ -98,7 +98,7 @@ export const useCheckLineDirect = ({ langId }: { langId: string }) => {
 						}
 					} catch (error) {
 						// * 不另外做錯誤處裡
-						modal.info((error as Error)?.message, {
+						modal.error((error as Error)?.message, {
 							icon: 'icon icon-library',
 						})
 					} finally {

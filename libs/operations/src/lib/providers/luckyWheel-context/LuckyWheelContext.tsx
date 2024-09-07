@@ -1,18 +1,18 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { createContext, ReactNode, useContext, useEffect } from 'react'
 import { useAuth } from '@nx-next-app/data-access'
-import { useTranslation } from 'next-i18next'
-import { delay, upperFirst } from 'lodash-es'
 import {
 	IAxiosError,
 	ICustDrawPrizeData,
 	IDisplayDrawPrizeData,
-	useGetRetentionPromotionQuery,
 	useCheckDrawPrizeQuery,
-	useGetDisplayDrawPrizeListQuery,
 	useDrawPrizeMutation,
 	useGetCustDrawPrizeListQuery,
+	useGetDisplayDrawPrizeListQuery,
+	useGetRetentionPromotionQuery,
 } from '@nx-next-app/service'
+import { delay, upperFirst } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { ReactNode, createContext, useContext, useEffect } from 'react'
 
 import { DEVICE_TYPE } from '@nx-next-app/constants'
 
@@ -181,7 +181,7 @@ export const LuckWheelProvider = ({ children }: ILuckWheelProviderProps) => {
 					</div>
 				)
 			} catch (error) {
-				modal.info((error as Error).message)
+				modal.error((error as Error).message)
 			}
 		}, 3000)
 	}
