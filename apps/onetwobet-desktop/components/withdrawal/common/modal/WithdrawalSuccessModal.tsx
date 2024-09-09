@@ -12,8 +12,8 @@ const WithdrawalSuccessModal = ({ onClick }: { onClick: () => void }) => {
 					<br />
 					{t('Label_Withdrawal_WithdrawalSuccessNotify')}
 				</div>
-				<div className='btnGroup'>
-					<button className='primary' onClick={onClick}>
+				<div className='btnGroup primary'>
+					<button className='btn-check' onClick={onClick}>
 						OK
 					</button>
 				</div>

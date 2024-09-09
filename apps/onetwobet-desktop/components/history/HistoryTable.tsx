@@ -1,6 +1,5 @@
 import useTable from '@12b-desktop/components/common/table/useTable'
-import { useHistory } from '@nx-next-app/operations'
-import { HistoryTabsEnum } from 'libs/web/src/app/types/history'
+import { HistoryTabsEnum, useHistory } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 
 const HistoryTable = () => {
