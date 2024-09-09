@@ -36,6 +36,11 @@ export interface ITransferArgs {
 	fromTpId: number
 	transferAction: number
 	langId: string
+	transferModalCallback?: (
+		turnover: number,
+		rollover: number,
+		percentage: number
+	) => void
 }
 
 export interface ITransferData {
