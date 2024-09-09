@@ -9433,7 +9433,7 @@ input[type=file] {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   border-top: 0;
-  color: #5574A7;
+  color: #caa66f;
 }
 .icon-nodata:before {
   font-size: 48px;
@@ -9446,7 +9446,7 @@ input[type=file] {
   width: max-content;
   margin: auto;
   margin-top: 10px;
-  color: #5574A7;
+  color: #caa66f;
 }
 
 .changePassWord,
