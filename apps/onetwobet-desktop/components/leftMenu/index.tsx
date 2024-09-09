@@ -7,7 +7,7 @@ interface ILeftMenuProps {
 	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
-export const LeftMenu = ({ withdrawalBlockSetting }: ILeftMenuProps) => {
+const LeftMenu = ({ withdrawalBlockSetting }: ILeftMenuProps) => {
 	const { t } = useTranslation()
 	const { menuList, handleMenuClick } = useLeftMenu({
 		withdrawalBlockSetting,
