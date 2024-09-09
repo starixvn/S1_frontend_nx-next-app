@@ -54,7 +54,7 @@ const HeaderModule = ({
 	} = useBoolean(originIsHideBalance)
 	const debouncedIsHideBalance = useDebounce(isHideBalance, 500)
 
-	// TODO: 因應中秋節更換ＬＯＧＯ（期間：2024.9.12~9.18）
+	// TODO: 因應中秋節更換ＬＯＧＯ（期間：2024.9.12~9.18）(之後若有其他活動也可以在此調整)
 	const logoUrl = isEventPeriod(EVENT_PERIOD.MIDAUTUMN)
 		? `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo-mid.png`
 		: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w.png`
