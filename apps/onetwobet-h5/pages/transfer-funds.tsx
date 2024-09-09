@@ -1,12 +1,13 @@
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, TransferFunds } from '@nx-next-app/features/F0001/h5'
-import { TransferFundsProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { TransferFundsProvider } from '@nx-next-app/operations'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { Layout } from '../components'
+import TransferFunds from '../components/transfer-funds'
 
 const TransferPage = ({
 	originIsSignIn,
