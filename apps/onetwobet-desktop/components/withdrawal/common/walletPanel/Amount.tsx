@@ -1,11 +1,11 @@
-import { InputBox } from '@nx-next-app/components/D0001'
 import { useAuth } from '@nx-next-app/data-access'
-import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
-import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import { useWithdrawal, WithdrawalBankCardEnum } from '@nx-next-app/operations'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { numberFormat } from '@nx-next-app/utils'
 import { find } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
+
+import { InputBox } from '../../../common'
 
 const Amount = () => {
 	const {
@@ -151,7 +151,7 @@ const Amount = () => {
 					<div className='btnGroup'>
 						<button
 							type='submit'
-							className='btn-check'
+							className='primary'
 							disabled={isButtonDisabled}
 						>
 							{t('Label_General_Submit')}

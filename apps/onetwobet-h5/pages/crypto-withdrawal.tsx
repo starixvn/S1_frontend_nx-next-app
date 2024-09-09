@@ -4,19 +4,19 @@ import {
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { CryptoWithdrawal, Layout } from '@nx-next-app/features/F0001/h5'
-import {
-	CryptoWalletProvider,
-	WithdrawalProvider,
-} from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import {
+	CryptoWalletProvider,
+	WithdrawalProvider,
+} from '@nx-next-app/operations'
 import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
 import { find } from 'lodash-es'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { CryptoWithdrawal, Layout } from '../components/index'
 
 interface ICryptoWithdrawalProps extends InitialPropsInterface {
 	withdrawalBlockSetting: IWithdrawalSetting[]

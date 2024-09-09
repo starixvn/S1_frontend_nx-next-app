@@ -1,9 +1,9 @@
-import { useAuth } from '@nx-next-app/data-access'
-import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import {
 	WithdrawalBankCardEnum,
 	WithdrawalPanelStatusEnum,
-} from '@nx-next-app/features/F0001/types'
+	useWithdrawal,
+} from '@nx-next-app/operations'
 import { IBankInfoData, IEWalletData } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import classNames from 'classnames'
@@ -20,6 +20,8 @@ const CardItem = ({
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
+	const { getPaymentUrl } = useGlobalData()
+
 	const {
 		selectedBankInfo,
 		withdrawalStatus,
@@ -56,10 +58,7 @@ const CardItem = ({
 
 			<div className='addBankInfo'>
 				<div className='bankName'>
-					<img
-						src={`${process.env['NEXT_PUBLIC_PAYMENT_HOST']}/square/${bankLogo}`}
-						alt=''
-					/>
+					<img src={getPaymentUrl(`/square/${bankLogo}`)} alt='' />
 
 					<div>
 						{bankName}

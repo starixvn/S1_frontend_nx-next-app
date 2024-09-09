@@ -1,8 +1,5 @@
-import {
-	useKycUploader,
-	useWithdrawal,
-} from '@nx-next-app/features/F0001/providers'
-import { KycStatusEnum } from '@nx-next-app/features/F0001/types'
+import { useKycUploader, useWithdrawal } from '@nx-next-app/operations'
+import { KycStatusEnum } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
 
 const PendingPanel = () => {
@@ -78,7 +75,7 @@ const KycPanel = () => {
 					</div>
 					<div className='btnGroup'>
 						<button
-							className={kycFile ? 'btn-check' : 'btn-cancel'}
+							className={kycFile ? 'primary' : 'ghost'}
 							onClick={onSubmit}
 							disabled={!kycFile}
 						>
