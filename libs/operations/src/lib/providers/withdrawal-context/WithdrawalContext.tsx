@@ -1,13 +1,6 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { useManageCards } from '@nx-next-app/features/F0001/providers/withdrawal-context/useManageCards'
-import { useWithdrawalHistory } from '@nx-next-app/features/F0001/providers/withdrawal-context/useWithdrawalHistory'
-import {
-	KycStatusEnum,
-	WithdrawalBankCardEnum,
-	WithdrawalPanelStatusEnum,
-} from '@nx-next-app/features/F0001/types'
 import {
 	IAxiosError,
 	IBankInfoData,
@@ -32,11 +25,10 @@ import {
 	useSubmitWithdrawalMutation,
 	useUploadCustPhotoMutation,
 } from '@nx-next-app/service'
-import { CurrenciesEnum, DeviceTypeEnum } from '@nx-next-app/types'
+import { DeviceTypeEnum } from '@nx-next-app/types'
 import { isConvert, numberFormat } from '@nx-next-app/utils'
 import { find, head, isUndefined } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import {
 	ReactNode,
@@ -46,32 +38,13 @@ import {
 	useState,
 } from 'react'
 import { UseFormReturn, useForm } from 'react-hook-form'
-
-const WithdrawalSuccessModal = dynamic(
-	() =>
-		import(
-			'@nx-next-app/features/F0001/desktop/withdrawal/common/modal/WithdrawalSuccessModal'
-		),
-	{ ssr: false }
-)
-
-const WithdrawalConfirmModal = dynamic(
-	() =>
-		import(
-			'@nx-next-app/features/F0001/h5/withdrawal/common/components/modal/WithdrawalConfirmModal'
-		),
-	{ ssr: false }
-)
-
-const DesktopUpdateProfileModal = dynamic(
-	() => import('@nx-next-app/features/F0001/desktop/modal/UpdateProfileModal'),
-	{ ssr: false }
-)
-
-const H5UpdateProfileModal = dynamic(
-	() => import('@nx-next-app/features/F0001/h5/modal/UpdateProfileModal'),
-	{ ssr: false }
-)
+import {
+	KycStatusEnum,
+	WithdrawalBankCardEnum,
+	WithdrawalPanelStatusEnum,
+} from './types'
+import { useManageCards } from './useManageCards'
+import { useWithdrawalHistory } from './useWithdrawalHistory'
 
 interface IWithdrawalProviderProps {
 	children: ReactNode
@@ -120,12 +93,46 @@ interface WithdrawalContextInterface {
 	withdrawalRecentInfo: IWithdrawalRecentInfoData[]
 	restoreAll: () => void
 	checkAmount: () => void
+	checkUserInfo: ({
+		unSuccessCallback,
+		optionalPhoneVerifiedCallback,
+	}: {
+		unSuccessCallback: () => void
+		optionalPhoneVerifiedCallback?: () => void
+	}) => void
 	refetchWithdrawalBalance: () => void
 	refetchWithdrawalRecentInfo: () => void
 	handleUploadKyc: (file: File) => void
-	handleWithdrawalConfirm: ({ amount }: { amount?: number }) => void
+	handleWithdrawalConfirm: (
+		{
+			amount,
+			exchangeAmount,
+			exchangeRate,
+		}: {
+			amount?: number
+			exchangeAmount?: number
+			exchangeRate?: number
+		},
+		{
+			successCallback,
+			errorCallback,
+		}: {
+			successCallback: (onFinish: () => void) => void
+			errorCallback: (errorMessage: string) => void
+		}
+	) => void
 	handleCancelSubmit: () => void
-	handleSubmitAmount: (amount: number) => void
+	handleSubmitAmount: (
+		amount: number,
+		submitCallback?: (props: {
+			selectedBankInfo: ISelectedBankInfo
+			amount: number
+			handleCancelSubmit: () => void
+			accountName: string
+			exchangeAmount: number
+			exchangeRate: number
+		}) => void
+	) => void
 	handleSelectCard: (bankInfo: ISelectedBankInfo) => void
 	handleDeleteBankCard: (args: IDeleteBankCardArgs) => void
 	handleAddCards: (type: WithdrawalBankCardEnum) => void
@@ -339,8 +346,14 @@ export const WithdrawalProvider = ({
 		setWithdrawalAmount(0)
 	}
 
-	// 初始化檢查用戶狀態，缺少資料則導去 Profile 頁面更新資料
-	const checkUserInfo = () => {
+	const checkUserInfo = ({
+		unSuccessCallback,
+		// 有傳入才會觸發驗證手機，沒傳入則忽略
+		optionalPhoneVerifiedCallback,
+	}: {
+		unSuccessCallback: () => void
+		optionalPhoneVerifiedCallback?: () => void
+	}) => {
 		const { accountName, phoneNo, email, phoneVerified } = userInfo
 		if (isLogin) {
 			if (
@@ -348,22 +361,10 @@ export const WithdrawalProvider = ({
 				(!phoneNo && !isUndefined(phoneNo)) ||
 				(!email && !isUndefined(email))
 			) {
-				if (deviceType === DeviceTypeEnum.Desktop) {
-					modal.open(
-						<DesktopUpdateProfileModal prevPage={paths.withdrawal.root} />
-					)
-				} else if (deviceType === DeviceTypeEnum.Mobile) {
-					modal.open(<H5UpdateProfileModal prevPage={paths.withdrawal.root} />)
-				}
+				unSuccessCallback()
 			}
-			if (currencyId === CurrenciesEnum.INR && !phoneVerified) {
-				modal.confirm(t('Label_Withdrawal_PhoneVerificationHint'), {
-					title: t('Label_General_Withdrawal'),
-					icon: 'icon icon-icon32px_Profile',
-					okText: t('Label_Profile_VertifyNow'),
-					cancelText: t('Label_Profile_Later'),
-					onOK: () => push(paths.profile.root),
-				})
+			if (!!optionalPhoneVerifiedCallback && !phoneVerified) {
+				optionalPhoneVerifiedCallback()
 			}
 		}
 	}
@@ -478,7 +479,18 @@ export const WithdrawalProvider = ({
 	}
 
 	// 送出 amount 確認
-	const handleSubmitAmount = async (amount: number) => {
+	const handleSubmitAmount = async (
+		amount: number,
+		// optional callback , 像是 h5 submit 後需要有彈窗確認，才會需要 call 此 callback
+		submitCallback?: (props: {
+			selectedBankInfo: ISelectedBankInfo
+			amount: number
+			handleCancelSubmit: () => void
+			accountName: string
+			exchangeAmount: number
+			exchangeRate: number
+		}) => void
+	) => {
 		const { getFieldState } = amountForm
 		// check
 		await checkAmount()
@@ -517,23 +529,16 @@ export const WithdrawalProvider = ({
 		// 桌機送到下一個確認畫面
 		setWithdrawalStatus(WithdrawalPanelStatusEnum.Confirm)
 
-		if (deviceType === DeviceTypeEnum.Mobile) {
-			// 手機會跳彈窗
-			// 避免層級混亂，Modal ( Layout 層 ) 所使用的資料均透過 props 正確傳遞
-			// 因為 setState 生命週期緣故，故彈窗控制須在此處便傳入指定 amount , exchangeAmount ,exchangeRate 等資料，以維持資料正確性
-			modal.open(
-				<WithdrawalConfirmModal
-					selectedBankInfo={selectedBankInfo}
-					withdrawalAmount={amount}
-					handleCancelSubmit={handleCancelSubmit}
-					accountName={accountName}
-					handleWithdrawalConfirm={() => {
-						handleWithdrawalConfirm({ amount, exchangeAmount, exchangeRate })
-						closeModal()
-					}}
-					exchangeAmount={exchangeAmount}
-				/>
-			)
+		if (submitCallback) {
+			// optional callback , 以 nova 架構來說只有手機版需要額外 callback 做後續處理，props 為submit 與顯示必須的相關資訊，由於須做到邏輯共用，並非所有參數都需要被使用到
+			submitCallback({
+				selectedBankInfo,
+				amount,
+				handleCancelSubmit,
+				accountName,
+				exchangeAmount,
+				exchangeRate,
+			})
 		}
 	}
 
@@ -569,15 +574,24 @@ export const WithdrawalProvider = ({
 	}
 
 	// 送出 Amount -> backend
-	const handleWithdrawalConfirm = async ({
-		amount = withdrawalAmount,
-		exchangeAmount = cryptoExchange.exchangeAmount,
-		exchangeRate = cryptoExchange.exchangeRate,
-	}: {
-		amount?: number
-		exchangeAmount?: number
-		exchangeRate?: number
-	}) => {
+	const handleWithdrawalConfirm = async (
+		{
+			amount = withdrawalAmount,
+			exchangeAmount = cryptoExchange.exchangeAmount,
+			exchangeRate = cryptoExchange.exchangeRate,
+		}: {
+			amount?: number
+			exchangeAmount?: number
+			exchangeRate?: number
+		},
+		{
+			successCallback,
+			errorCallback,
+		}: {
+			successCallback: (onFinish: () => void) => void
+			errorCallback: (errorMessage: string) => void
+		}
+	) => {
 		const {
 			type,
 			accountNo = '',
@@ -599,27 +613,17 @@ export const WithdrawalProvider = ({
 
 		// 成功彈窗，手控初始化時機
 		const onSuccess = () => {
-			if (deviceType === DeviceTypeEnum.Desktop) {
-				// 桌機才跳彈窗
-				modal.open(
-					<WithdrawalSuccessModal
-						onClick={() => {
-							setWithdrawalStatus(WithdrawalPanelStatusEnum.Init)
-							restoreAll()
-							handleInitData()
-							closeModal()
-						}}
-					/>
-				)
-			} else {
-				// 手機出金成功直接 reload 畫面
+			// success 可能有多種不同 UI 會顯示，onFinish 用來做最後結束的 clean up
+
+			const onFinish = () => {
 				setWithdrawalStatus(WithdrawalPanelStatusEnum.Init)
 				restoreAll()
 				handleInitData()
-				closeModal()
+				// reset form
+				amountForm.reset()
 			}
-			// reset form
-			amountForm.reset()
+
+			successCallback(onFinish)
 		}
 
 		// 真實的金額
@@ -664,27 +668,27 @@ export const WithdrawalProvider = ({
 				onSuccess()
 			} else if ((error as IAxiosError).errorCode === -1) {
 				// 實測這些狀態都會在前端被擋掉，但為求完整，還是先把這些移植過來。
-				modal.error(
+				errorCallback(
 					`${t('Label_Withdrawal_RolloverOverError')}: ${
 						(error as Error).message
 					}`
 				)
 			} else if ((error as IAxiosError).errorCode === -2) {
-				modal.error(
+				errorCallback(
 					`${t('Label_Withdrawal_DepositOverError')}: ${
 						(error as Error).message
 					}`
 				)
 			} else if ((error as IAxiosError).errorCode === -3) {
 				// 這個 error 是秀數字,所以才 parseInt
-				modal.error(
+				errorCallback(
 					`${t('Label_Withdrawal_WithdrawalOverError')}: ${parseInt(
 						(error as Error).message,
 						10
 					).toString()}`
 				)
 			} else {
-				modal.error((error as Error).message)
+				errorCallback((error as Error).message)
 			}
 		}
 	}
@@ -703,7 +707,6 @@ export const WithdrawalProvider = ({
 	useEffect(() => {
 		// init check
 		checkKyc()
-		checkUserInfo()
 	}, [])
 
 	useEffect(() => {
@@ -792,6 +795,7 @@ export const WithdrawalProvider = ({
 		refetchWithdrawalBalance,
 		refetchWithdrawalRecentInfo,
 		restoreAll,
+		checkUserInfo,
 		checkAmount,
 		cancelWithdrawal,
 		handleAddCards,

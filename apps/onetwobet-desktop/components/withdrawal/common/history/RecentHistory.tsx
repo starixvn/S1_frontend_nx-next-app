@@ -1,9 +1,9 @@
 import { paths } from '@nx-next-app/constants'
-import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
+import { useWithdrawal } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 
-import WithdrawalHistoryTable from '@nx-next-app/components/D0001/table/historyTable/WithdrawalHistoryTable'
+import WithdrawalHistoryTable from '@12b-desktop/components/common/table/historyTable/WithdrawalHistoryTable'
 
 const RecentHistory = () => {
 	const { t } = useTranslation()

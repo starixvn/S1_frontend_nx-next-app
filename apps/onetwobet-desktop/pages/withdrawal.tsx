@@ -5,20 +5,20 @@ import {
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
 import {
-	CryptoWalletProvider,
-	WithdrawalProvider,
-} from '@nx-next-app/features/F0001/providers'
-import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import {
+	CryptoWalletProvider,
+	WithdrawalProvider,
+} from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-import { Layout, Withdrawal } from '../components'
+import { Layout, Withdrawal } from '@12b-desktop/components/index'
 
 interface IWithdrawalPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData

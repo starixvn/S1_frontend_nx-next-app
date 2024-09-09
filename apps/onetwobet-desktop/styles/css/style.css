@@ -66,6 +66,91 @@ img {
   height: auto;
 }
 
+button.primary,
+a.primary {
+  color: #fff !important;
+  background: #C01D21 !important;
+}
+button.primary:hover,
+a.primary:hover {
+  background: #FF0000 !important;
+}
+button.secondary,
+a.secondary {
+  color: #fff !important;
+  background: #caa66f !important;
+}
+button.secondary:hover,
+a.secondary:hover {
+  background: #E3BA79 !important;
+}
+button.thrid,
+a.thrid {
+  color: #fff !important;
+  background: #1F1F1F !important;
+}
+button.thrid:hover,
+a.thrid:hover {
+  background: #5a5a5a !important;
+}
+button.ghost,
+a.ghost {
+  color: #AEACAC !important;
+  border: 1px solid #CCCCCC !important;
+  background: transparent !important;
+}
+button.ghost:hover,
+a.ghost:hover {
+  color: #fff !important;
+  border: 1px solid #fff !important;
+}
+button.ghost.dark,
+a.ghost.dark {
+  color: #4c5356 !important;
+  border: 1px solid #4c5356 !important;
+  background: transparent !important;
+}
+button.ghost.dark:hover,
+a.ghost.dark:hover {
+  color: #CCCCCC !important;
+  border: 1px solid #CCCCCC !important;
+}
+button.ghost.gold,
+a.ghost.gold {
+  color: #caa66f !important;
+  background: #000 !important;
+  border: 1px solid #caa66f !important;
+}
+button.ghost.gold:hover,
+a.ghost.gold:hover {
+  color: #dfc9a7 !important;
+  border: 1px solid #dfc9a7 !important;
+}
+button.white,
+a.white {
+  color: #caa66f !important;
+  background: #fff !important;
+  border: 1px solid #caa66f !important;
+}
+button.white:hover,
+a.white:hover {
+  color: #bc8f4a !important;
+}
+button.green,
+a.green {
+  color: #fff !important;
+  background: #4B902E !important;
+}
+button.green:hover,
+a.green:hover {
+  background: #83BA43 !important;
+}
+button button[disabled],
+a button[disabled] {
+  background: #666 !important;
+  color: white !important;
+}
+
 .btnGroup button.primary,
 .btnGroup a.primary {
   color: #fff !important;
@@ -145,9 +230,17 @@ img {
 .btnGroup a.green:hover {
   background: #83BA43 !important;
 }
+.btnGroup button[disabled] {
+  background: #666 !important;
+  color: white !important;
+}
 
 .txt-gray {
   color: #AEACAC !important;
+}
+
+#popup .smallList > ul li:first-child {
+  color: #4c5356 !important;
 }
 
 button {
@@ -4058,6 +4151,9 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
   margin-left: 25px;
   color: #5574A7;
 }
+.loginpop .joinloginModule .joinloginFunction .icon-warning::before {
+  color: #bc8f4a;
+}
 .loginpop .joinloginModule .joinloginFunction a,
 .loginpop .joinloginModule .joinloginFunction > div button.txt-orange {
   text-decoration: underline;
@@ -4635,6 +4731,10 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
 .inputBox-white i:not(.icon) {
   color: #caa66f;
 }
+.inputBox-white .iconModule .icon-eye,
+.inputBox-white .iconModule .icon-eye-blocked {
+  color: #1F1F1F;
+}
 .inputBox-white .dropdown button.btn {
   color: #5574A7;
 }
@@ -4879,12 +4979,11 @@ input[type=file] {
   font-size: 13px;
   padding: 5px 0 5px 5px;
   cursor: pointer;
-  color: #5574A7;
+  color: #000;
 }
 .dropdown > .dropdown-container .dropdown-item:hover {
-  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
-  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
-  color: white;
+  background: #caa66f;
+  color: #fff;
 }
 .dropdown > .btn {
   width: calc(100% - 31px);
@@ -4910,7 +5009,7 @@ input[type=file] {
   border-width: 5px 5px 0 5px;
   position: absolute;
   right: 15px;
-  border-color: #4c5356 transparent transparent transparent;
+  border-color: #AEACAC transparent transparent transparent;
 }
 
 .g-recaptcha {
@@ -5957,7 +6056,7 @@ input[type=file] {
 
 .platformName {
   width: calc(100% / 3 - 70px);
-  background: white;
+  background: #525252;
   float: left;
   margin-left: 30px;
   border-radius: 5px;
@@ -5974,11 +6073,11 @@ input[type=file] {
   -ms-flex-flow: wrap;
       flex-flow: wrap;
   position: relative;
-  border: 1px solid #1E85EC;
-  color: #5574a7;
+  border: 1px solid #caa66f;
+  color: #caa66f;
 }
 .platformName .icon-library {
-  color: #1E85EC;
+  color: #caa66f;
 }
 .platformName button.icon,
 .platformName a.icon {
@@ -5986,7 +6085,7 @@ input[type=file] {
   position: absolute;
   right: 0;
   bottom: -40px;
-  color: #5574A7;
+  color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6012,7 +6111,7 @@ input[type=file] {
   max-width: 90px;
 }
 .platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) {
-  background: #BFCCE2;
+  background: #1F1F1F;
   margin-bottom: 20px;
   margin-top: 0;
   border-radius: 5px;
@@ -6120,7 +6219,7 @@ input[type=file] {
   text-align: center;
 }
 .align-items-center .txt-lightgray + .upload_img:hover {
-  background: #5574A7;
+  background: #5a5a5a;
 }
 .align-items-center .txt-lightgray + .upload_img:hover .icon-plus {
   display: none;
@@ -6180,7 +6279,7 @@ input[type=file] {
   margin-right: 5px;
 }
 .bankName img + span {
-  color: #5574A7;
+  color: #caa66f;
 }
 .bankName i,
 .bankName a {
@@ -6188,7 +6287,7 @@ input[type=file] {
   right: -10px;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
-  color: #1E85EC;
+  color: #caa66f;
 }
 
 #popup {
@@ -6334,6 +6433,20 @@ input[type=file] {
 #popup .pop .updateSuccess,
 #popup .pop .update {
   width: 600px;
+  background: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 #popup .pop .Success {
   padding: 20px;
@@ -6418,6 +6531,8 @@ input[type=file] {
 }
 #popup .pop .title {
   margin-bottom: 20px;
+  color: #fff;
+  font-size: 16px;
 }
 #popup .pop .title + div {
   color: #AEACAC;
@@ -6506,7 +6621,7 @@ input[type=file] {
           align-items: center;
   width: auto;
   margin: 0;
-  color: #5574A7;
+  color: #CCCCCC;
 }
 #popup .pop .checkbox input[type=checkbox] + label {
   margin-right: 5px;
@@ -7902,7 +8017,7 @@ input[type=file] {
 .resetPassWordpop .icon,
 .noticepop .icon {
   font-size: 36px;
-  color: #CDAE8E;
+  color: #caa66f;
 }
 .Submit .icon.icon-bell,
 .poker .icon.icon-bell,
@@ -7920,7 +8035,7 @@ input[type=file] {
 .joinSuccess .icon.icon-bell,
 .resetPassWordpop .icon.icon-bell,
 .noticepop .icon.icon-bell {
-  color: #CDAE8E;
+  color: #caa66f;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
   -webkit-transform: rotate(20deg);
@@ -8055,15 +8170,15 @@ input[type=file] {
   margin: 0 auto 15px !important;
 }
 .noticepop .checkbox input[type=checkbox] + label {
-  border: 1px solid #f77900;
+  border: 1px solid #caa66f;
 }
 .noticepop .checkbox input[type=checkbox]:checked + label {
-  color: #f77900;
+  color: #caa66f;
   border-radius: 50%;
   overflow: hidden;
 }
 .noticepop .checkbox:hover input[type=checkbox] + label {
-  background: #f77900;
+  background: #caa66f;
 }
 
 .Success .progressBarModule {
@@ -8078,21 +8193,21 @@ input[type=file] {
   color: white;
 }
 .Success .progressBarModule .turnover span {
-  color: #f77900;
+  color: #caa66f;
 }
 .Success .progressBarModule .progressBar .bar {
-  border: 1px solid #f77900;
+  border: 1px solid #caa66f;
 }
 .Success .progressBarModule .progressBar .bar .progress {
-  background: #f77900;
+  background: #caa66f;
 }
 .Success .progressBarModule .progressBar .percentage {
-  color: #f77900;
+  color: #caa66f;
 }
 
 .title {
   font-weight: bold;
-  color: #112240;
+  color: #fff;
 }
 
 .smallList {
@@ -8132,7 +8247,7 @@ input[type=file] {
 
 .directions {
   border-bottom: 1px solid #666;
-  color: #4c5356;
+  color: #AEACAC;
   margin: 10px 0 20px;
   padding-bottom: 20px;
   max-width: 80%;
@@ -8266,7 +8381,7 @@ input[type=file] {
   width: auto;
 }
 .upload_img + .smallList ul li .icon {
-  color: #1E85EC;
+  color: #caa66f;
 }
 .upload_img + .smallList ul li:nth-child(1) {
   -webkit-box-flex: 1;
@@ -8310,7 +8425,7 @@ input[type=file] {
 }
 .slipInfo button.icon {
   font-size: 24px;
-  color: #5574A7;
+  color: #fff;
 }
 .slipInfo .smallList li {
   font-size: 16px;
@@ -8318,6 +8433,9 @@ input[type=file] {
 }
 .slipInfo .smallList li:first-child {
   font-weight: normal;
+}
+.slipInfo .smallList li:nth-child(odd) {
+  color: #4c5356;
 }
 
 .homebanner .swiper-container {
@@ -8763,6 +8881,7 @@ input[type=file] {
   font-size: 12px;
   width: 168px;
   margin: 0;
+  color: #4c5356;
 }
 .addBank .addBankName .cryptoInfo ~ button.icon.icon-bin {
   position: relative;
@@ -9132,7 +9251,7 @@ input[type=file] {
 }
 .kycHeight .icon {
   font-size: 48px;
-  color: #5574A7;
+  color: #caa66f;
 }
 
 .history {
@@ -9348,11 +9467,13 @@ input[type=file] {
 .forgetPassWord .lastChange {
   width: calc(100% - 5px);
   padding-left: 5px;
+  color: #fff;
 }
 .changePassWord .lastChange span,
 .forgetPassWord .lastChange span {
   color: #5574A7;
   margin-left: 10px;
+  color: #caa66f;
 }
 
 .forgetPassWord {
@@ -9393,13 +9514,13 @@ input[type=file] {
 }
 .vipLv > div.vipname {
   margin-top: 22px;
-  background: #112240;
-  padding: 5px 10px;
-  border-radius: 15px;
+  background: #C01D21;
+  padding: 8px 18px;
+  border-radius: 20px;
 }
 .vipLv .btnGroup + .txt-line {
   font-size: 12px;
-  color: #5574A7;
+  color: #fff;
   text-align: center;
 }
 
@@ -9488,7 +9609,7 @@ input[type=file] {
   left: 0;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
-  background: rgba(19, 77, 174, 0.9);
+  background: #caa66f;
   border-radius: 5px;
   padding: 5px 10px;
   margin-right: 10px;
@@ -9503,7 +9624,7 @@ input[type=file] {
 }
 .profile > div > div .inputBox-white .description:before,
 .profile > div > div .inputBox-blue .description:before {
-  border-color: rgba(19, 77, 174, 0.9) transparent transparent;
+  border-color: #caa66f transparent transparent;
   border-style: solid solid solid;
   border-width: 5px;
   bottom: 0;
@@ -9542,14 +9663,14 @@ input[type=file] {
 .accountName {
   padding: 20px 30px 0;
   margin-bottom: 30px;
-  color: #5574A7;
+  color: #4c5356;
 }
 .accountName span {
-  color: #5574A7;
+  color: #AEACAC;
   margin: 0 10px;
 }
 .accountName button {
-  color: #5574A7;
+  color: #caa66f;
 }
 .accountName .tip {
   padding-left: 0;
@@ -10908,7 +11029,7 @@ button.icon-spinner11:before {
   width: 100%;
 }
 .checkBankSlip.smallList ul li .icon {
-  color: #fff;
+  color: #caa66f;
   margin-left: 10px;
 }
 
@@ -10923,7 +11044,7 @@ button.icon-spinner11:before {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #5574A7;
+  color: #AEACAC;
 }
 
 #Loading {
@@ -11559,8 +11680,8 @@ button.icon-spinner11:before {
   left: -1px;
   width: calc(100% - 1px);
   border-radius: 5px;
-  background: #D2E2F9;
-  border: 1px solid #CDAE8E;
+  background: #fff;
+  border: 1px solid #525252;
   margin-left: 0;
   overflow: hidden;
 }
@@ -11569,8 +11690,7 @@ button.icon-spinner11:before {
   padding: 5px 33px 5px 0;
 }
 .transferModule .inputBox-org .dropdown-container .dropdown-item:hover, .transferModule .inputBox-org .dropdown-container .dropdown-item.active, .transferModule .inputBox-blue .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown-container .dropdown-item.active {
-  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
-  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
+  background: #caa66f;
   color: white;
 }
 .transferModule .inputBox-org .dropdown-item, .transferModule .inputBox-blue .dropdown-item {
@@ -12958,7 +13078,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: block;
 }
 #popup .statuspop .success:hover {
-  background: #92AED6;
+  background: #FF0000;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
@@ -13328,6 +13448,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   text-align: center;
   margin-top: 10px;
   padding: 10px 10px 0;
+  color: #4c5356;
 }
 
 .vipInfo {
@@ -17553,7 +17674,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 350px;
 }
 .dragonPayPop ul {
-  color: #5574A7;
+  color: #AEACAC;
 }
 .dragonPayPop ul li {
   margin-left: 15px;
@@ -17571,14 +17692,15 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .dragonPayPop > div {
   width: 100%;
-  color: #5574A7;
+  color: #AEACAC;
   margin: 2px 0;
 }
 .dragonPayPop > div span {
-  color: #1E85EC;
+  color: #fff;
+  font-weight: 500;
 }
 .dragonPayPop > div.popTit {
-  background: #5574A7;
+  background: #525252;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -17633,6 +17755,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .dragonPayPop > div.guide .qrCode {
   width: 200px;
   margin: 5px 0;
+  min-height: 200px;
 }
 
 .accountInfo {
@@ -17652,7 +17775,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .accountInfo > div button {
   padding: 2px 10px;
-  background: #5574A7;
+  background: #525252;
   color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -20205,7 +20328,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           justify-content: space-between;
 }
 .profileModule > div {
-  background: rgba(255, 255, 255, 0.4);
+  background: #525252;
   border-radius: 5px;
   padding: 40px;
 }
@@ -20244,6 +20367,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
       -ms-flex-flow: column;
           flex-flow: column;
 }
+.profileModule > div.profile .icon-warning::before,
+.profileModule > div.profile .icon-calendar::before {
+  color: #bc8f4a;
+}
 .profileModule > div.profile > div {
   margin: 0 0 30px;
 }
@@ -20257,6 +20384,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .profileModule > div.profile > div > div:first-child {
   width: 180px;
+  color: #AEACAC;
 }
 .profileModule > div.profile > div > div:last-child {
   width: 330px;
@@ -20269,6 +20397,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  color: #fff;
 }
 .profileModule > div.profile > div > div:last-child .inputBox-blue {
   border-radius: 3px;
@@ -20279,13 +20408,12 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   max-width: revert;
 }
 .profileModule > div.profile > div > div > span {
-  color: #009810;
+  color: #4B902E;
   font-size: 16px;
   margin: 0;
 }
 .profileModule > div.profile > div > div > button.icon {
-  background: -webkit-gradient(linear, left top, left bottom, from(#f77900), to(#f55c00));
-  background: linear-gradient(to bottom, #f77900, #f55c00);
+  background: #caa66f;
   color: white;
   padding: 3px 4px;
   border-radius: 3px;
@@ -20300,13 +20428,13 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .profileModule > div.profile > div > div > button.icon:hover .description {
   display: block;
-  border: 1px solid #f77900;
+  border: 1px solid #caa66f;
 }
 .profileModule > div.profile > div > div > button.icon:hover .description:before {
   border-color: transparent transparent #f77900;
 }
 .profileModule > div.profile > div > div > button.icon:hover .description .title {
-  color: #f77900;
+  color: #caa66f;
 }
 .profileModule > div.profile > div > div > button.icon:before {
   margin-left: 0;
@@ -20331,7 +20459,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .profileModule .description {
   position: absolute;
-  border: 1px solid #1E85EC;
+  border: 1px solid #caa66f;
   border-radius: 3px;
   background: white;
   font-size: 12px;
@@ -20341,7 +20469,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: -moz-max-content;
   width: max-content;
   text-align: center;
-  color: #5574A7;
+  color: #AEACAC;
   left: 0;
   top: 0;
   -webkit-transform: translate(-13px, 50%);
@@ -20349,7 +20477,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: none;
 }
 .profileModule .description .title {
-  color: #1E85EC;
+  color: #caa66f;
   font-size: 14px;
   margin-bottom: 5px;
 }
@@ -20367,6 +20495,9 @@ form .profileModule .vipLv .vipname {
       -ms-flex-align: center;
           align-items: center;
   margin: 20px 0;
+}
+.accountSafety div {
+  color: #fff;
 }
 .accountSafety div:first-child {
   font-weight: bold;
@@ -20397,6 +20528,7 @@ form .profileModule .vipLv .vipname {
   color: #5574A7;
   min-width: 135px;
   margin-bottom: 20px;
+  color: #fff;
 }
 .userVerification > div:first-child {
   font-weight: bold;
@@ -20462,12 +20594,12 @@ form .profileModule .vipLv .vipname {
   font-size: 20px;
 }
 .userVerification > div:last-child > div.active {
-  background: #5574A7;
+  background: #C01D21;
 }
 .userVerification > div:last-child > div.active:after {
   font-family: "icomoon";
   content: "\e98b";
-  background: #1E85EC;
+  background: #4B902E;
 }
 
 #goTop {
@@ -20522,7 +20654,7 @@ form .profileModule .vipLv .vipname {
   margin: 0 0 10px 0;
   padding: 0;
   background: transparent;
-  color: #5574a7;
+  color: #fff;
 }
 .addressModule .inside-title span::after {
   display: none;
@@ -20534,13 +20666,13 @@ form .profileModule .vipLv .vipname {
   margin: 0;
 }
 .addressModule .sub-title {
-  color: #5574A7;
+  color: #CCCCCC;
   font-size: 16px;
   margin: 10px 0 20px;
 }
 .addressModule .address-container {
   width: 640px;
-  background: rgba(255, 255, 255, 0.4);
+  background: #525252;
   padding: 20px 40px;
   border-radius: 5px;
 }
@@ -20554,6 +20686,7 @@ form .profileModule .vipLv .vipname {
 .addressModule .address-list > div > div:first-child {
   width: 100px;
   line-height: 30px;
+  color: #CCCCCC;
 }
 .addressModule .address-list > div > div:last-child {
   width: 310px;
@@ -20569,6 +20702,7 @@ form .profileModule .vipLv .vipname {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   position: relative;
+  color: #fff;
 }
 .addressModule .address-list > div > div:last-child .inputBox-blue {
   border-radius: 3px;
@@ -20592,7 +20726,7 @@ form .profileModule .vipLv .vipname {
   left: 0;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
-  background: rgba(19, 77, 174, 0.9);
+  background: #caa66f;
   border-radius: 5px;
   padding: 5px 10px;
   margin-right: 10px;
@@ -20607,7 +20741,7 @@ form .profileModule .vipLv .vipname {
 }
 .addressModule .inputBox-white .description:before,
 .addressModule .inputBox-blue .description:before {
-  border-color: rgba(19, 77, 174, 0.9) transparent transparent;
+  border-color: #caa66f transparent transparent;
   border-style: solid solid solid;
   border-width: 5px;
   bottom: 0;
@@ -22182,6 +22316,7 @@ form .profileModule .vipLv .vipname {
 .duitnowPop ul li {
   margin-left: 15px;
   list-style: decimal;
+  color: #fff;
 }
 .duitnowPop ul li button {
   font-size: 12px;
@@ -22205,7 +22340,7 @@ form .profileModule .vipLv .vipname {
   font-weight: bold;
 }
 .duitnowPop > div.popTit {
-  background: #5574A7;
+  background: #525252;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22235,6 +22370,7 @@ form .profileModule .vipLv .vipname {
 .duitnowPop > div .sisa {
   text-align: center;
   margin: 5px 0;
+  color: #fff;
 }
 .duitnowPop > div .sisa div:last-child {
   font-weight: bold;
@@ -22271,8 +22407,8 @@ form .profileModule .vipLv .vipname {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-top: 1px dotted #1E85EC;
-  border-bottom: 1px dotted #1E85EC;
+  border-top: 1px dotted #AEACAC;
+  border-bottom: 1px dotted #AEACAC;
   padding: 10px 0;
 }
 .duitnowPop > div.guide span {
@@ -22798,6 +22934,7 @@ form .profileModule .vipLv .vipname {
 .thiaPop ul li {
   margin-left: 15px;
   list-style: decimal;
+  color: #CCCCCC;
 }
 .thiaPop ul li button {
   font-size: 12px;
@@ -22864,7 +23001,7 @@ form .profileModule .vipLv .vipname {
   width: calc(100% - 14px);
   padding: 10px 7px;
   margin: 5px auto;
-  background: rgba(240, 247, 255, 0.7);
+  background: #1F1F1F;
 }
 .thiaPop > div.guide span {
   color: #cf0404;
@@ -22879,7 +23016,7 @@ form .profileModule .vipLv .vipname {
   width: 160px;
   height: 160px;
   padding: 5px;
-  background: rgba(240, 247, 255, 0.8);
+  background: #525252;
   overflow: hidden;
   margin: 5px 0;
   display: -webkit-box;
@@ -22921,14 +23058,15 @@ form .profileModule .vipLv .vipname {
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
+  color: #AEACAC;
 }
 .thiaPop .description input {
   border: 0;
-  background: rgba(117, 145, 193, 0.2);
+  background: #525252;
   padding: 3px 5px;
   border-radius: 3px;
   margin: 0 5px;
-  color: #112240;
+  color: #AEACAC;
 }
 .thiaPop .description input:focus {
   outline: none;
@@ -22938,7 +23076,7 @@ form .profileModule .vipLv .vipname {
 }
 .thiaPop .description button {
   border-radius: 3px;
-  background: #5574A7;
+  background: #caa66f;
   color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -22954,7 +23092,7 @@ form .profileModule .vipLv .vipname {
   transition: 0.3s;
 }
 .thiaPop .description button:hover {
-  background: #5574A7;
+  background: #E3BA79;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -22970,10 +23108,12 @@ form .profileModule .vipLv .vipname {
   font-size: 13px;
   margin: 4px auto;
   padding-bottom: 8px;
-  border-bottom: 1px dotted #1E85EC;
+  border-bottom: 1px dotted #AEACAC;
+  color: #CCCCCC;
 }
 .thiaPop .info div {
   margin: 10px auto 8px;
+  color: #CCCCCC;
 }
 .thiaPop .info .note {
   font-weight: bold;
@@ -25519,7 +25659,7 @@ input[type=number] {
           justify-content: center;
 }
 .exclusion-text > div {
-  color: #0a1b38;
+  color: #CCCCCC;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -25528,7 +25668,7 @@ input[type=number] {
 }
 .exclusion-text a, .exclusion-text button {
   margin-bottom: 15px;
-  background: #D9BB9B;
+  background: #caa66f;
   font-size: 18px;
   font-weight: 700;
   padding: 10px 45px;
@@ -25554,7 +25694,7 @@ input[type=number] {
   margin-top: 3px;
 }
 .exclusion-text a:hover, .exclusion-text button:hover {
-  background: #cfaf8c;
+  background: #E3BA79;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
