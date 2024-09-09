@@ -41,9 +41,12 @@ const LayoutHeader = () => {
 	const handleSignOut = async () => {
 		try {
 			await onSignOut()
-			await router.push(paths.home.root).then(() => router.reload())
+			await router.push(paths.home.root)
+			router.reload()
 		} catch (error) {
-			modal.error((error as Error).message)
+			// 因為會有已登出但畫面還未登出的情況，所以這裡不開彈窗接出錯誤訊息
+			router.reload()
+			// modal.error((error as Error).message)
 		}
 	}
 
