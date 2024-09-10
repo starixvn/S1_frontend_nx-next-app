@@ -1,4 +1,5 @@
 export { default as History } from './history'
+export { default as Deposit } from './deposit'
 export { default as Layout } from './layout'
 export { default as LeftMenu } from './leftMenu'
 export { default as LuckyWheel } from './luckyWheel'

@@ -16,7 +16,8 @@ import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
 import { find } from 'lodash-es'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { CryptoWithdrawal, Layout } from '../components/index'
+import { Layout } from '../components'
+import CryptoWithdrawal from '../components/withdrawal/cryptoWithdrawal'
 
 interface ICryptoWithdrawalProps extends InitialPropsInterface {
 	withdrawalBlockSetting: IWithdrawalSetting[]

@@ -1,4 +1,12 @@
 // 僅用於前端判斷卡片類型使用的 enum
+import { ISelectProps } from '@nx-next-app/components/D0001'
+import {
+	IBankInfoData,
+	IEWalletData,
+	IPaymentCustBankInfoData,
+	IUsdtDetailData,
+} from '@nx-next-app/service'
+
 export enum WithdrawalBankCardEnum {
 	Undefined,
 	LocalBank,
@@ -39,4 +47,25 @@ export const statusClassNames: { [status: number]: string } = {
 	[WithdrawalStatusEnum.Approved]: 'approved',
 	[WithdrawalStatusEnum.Rejected]: 'reject',
 	[WithdrawalStatusEnum.ToKyc]: 'pending',
+}
+
+export type IAddBankCardModalProps = {
+	type: WithdrawalBankCardEnum
+	bankData: {
+		custEWalletInfo?: IEWalletData[]
+		bankInfoDetail?: IBankInfoData[] | IPaymentCustBankInfoData[]
+		usdtDetail?: IUsdtDetailData[]
+	}
+	bankDropDown: ISelectProps['options']
+	onSubmitCard: ({
+		value,
+		type,
+	}: {
+		value: {
+			sysId: number
+			accountNo: string
+			isfcCode?: string
+		}
+		type: WithdrawalBankCardEnum
+	}) => void
 }

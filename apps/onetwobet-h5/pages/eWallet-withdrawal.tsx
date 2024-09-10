@@ -1,4 +1,5 @@
-import { Layout, Withdrawal } from '@12b-h5/components/index'
+import { Layout } from '@12b-h5/components/index'
+import Withdrawal from '@12b-h5/components/withdrawal'
 import { paths } from '@nx-next-app/constants'
 import {
 	AuthProvider,

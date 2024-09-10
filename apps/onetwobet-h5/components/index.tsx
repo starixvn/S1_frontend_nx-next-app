@@ -1,4 +1,5 @@
 export * from './common'
+export { default as Deposit } from './deposit'
 export { default as History } from './history'
 export { default as Layout } from './layout'
 export { default as Setting } from './setting'
