@@ -36,7 +36,9 @@ export const OptimovePageVisitEvent = (
 
 		// 他們要求要 full url
 		const pageUrl = `${protocol}//${host}${path}${query}`
-		const pageTitle: string = document.title ?? ''
-		window.optimoveSDK.API.setPageVisit(pageUrl, pageTitle, category, custId)
+		const pageTitle: string = document.title
+		if (pageTitle !== undefined) {
+			window.optimoveSDK.API.setPageVisit(pageUrl, pageTitle, category, custId)
+		}
 	}
 }
