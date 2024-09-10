@@ -57,14 +57,17 @@ const LotteryRoundInfo = () => {
 					</div>
 					<LotteryProgressBar
 						ratio={
-							lotteryInfo.custTurnoverProccessing / lotteryInfo.turnoverGoal
+							(lotteryInfo.custTurnoverProccessing % lotteryInfo.turnoverGoal) /
+							lotteryInfo.turnoverGoal
 						}
 					/>
 					<div className='total'>
 						<div>{t('Label_Event_Tickets')}</div>
 						<div>
 							{currencyName}{' '}
-							{lotteryInfo.custTurnoverProccessing?.toLocaleString()}
+							{(
+								lotteryInfo.custTurnoverProccessing % lotteryInfo.turnoverGoal
+							)?.toLocaleString()}
 							{' / '}
 							{lotteryInfo.turnoverGoal?.toLocaleString()}
 						</div>
@@ -149,7 +152,8 @@ const LotteryRoundInfo = () => {
 										<PurchaseStickerModal
 											price={stickerInfo.stickerPrize}
 											currency={currencyName}
-										/>
+										/>,
+										{ className: 'event-lottery-popup-mask' }
 									)
 								}
 							>

@@ -75,7 +75,8 @@ const LotteryDraw = () => {
 												data={drawingRound}
 												stickerId={winnerList.custStickerId}
 												totalTickets={winnerList.ticketNo?.length}
-											/>
+											/>,
+											{ className: 'event-lottery-popup-mask' }
 										)
 								}}
 							>

@@ -200,7 +200,8 @@ const LotteryRoundInfo = () => {
 													<PurchaseStickerModal
 														price={stickerInfo.stickerPrize}
 														currency={currencyName}
-													/>
+													/>,
+													{ className: 'event-lottery-popup-mask' }
 												)
 											}
 										>

@@ -16,51 +16,49 @@ const TicketInfoModal = ({
 	const { t } = useTranslation()
 	const { closeModal } = useGlobalModal()
 	return (
-		<div id='popup' className='event-lottery-popup-mask active'>
-			<div className='event-lottery-popup ticket'>
-				{/* close */}
-				<div className='icon icon-close' onClick={closeModal} />
-				{/* popup-content */}
-				<div className='popup-content'>
-					{/* ticket */}
-					<div className='ticket sticker'>
-						{/* ticket-top */}
-						<div className='ticket-top'>
-							{/* sticker-title */}
-							<div className='title'>{t('Label_Event_JackpotSticker')}</div>
-							{/* sticker-result */}
-							{stickerId ? (
-								<div className='sticker-result'>
-									<LotterySticker stickerId={stickerId} />
-								</div>
-							) : null}
-						</div>
-						{/* hr */}
-						<hr />
-						{/* ticket-bottom */}
-						<div className='ticket-bottom'>
-							{/* ticket-total */}
-							{typeof totalTickets === 'number' && (
-								<div className='total'>
-									<div className='title'>{t('Label_Event_TotalTickets')}</div>
-									<div className='quantity'>{totalTickets}</div>
-								</div>
-							)}
-						</div>
+		<div className='event-lottery-popup ticket'>
+			{/* close */}
+			<div className='icon icon-close' onClick={closeModal} />
+			{/* popup-content */}
+			<div className='popup-content'>
+				{/* ticket */}
+				<div className='ticket sticker'>
+					{/* ticket-top */}
+					<div className='ticket-top'>
+						{/* sticker-title */}
+						<div className='title'>{t('Label_Event_JackpotSticker')}</div>
+						{/* sticker-result */}
+						{stickerId ? (
+							<div className='sticker-result'>
+								<LotterySticker stickerId={stickerId} />
+							</div>
+						) : null}
 					</div>
-					{/* title-group */}
-					<div className='title-group'>
-						<div className='title'>
-							{t('Label_Event_TicketInfo')}
-							<br />
-							{t('Label_Event_Round')} {data.roundId}
-						</div>
-						<p>
-							{dayjs(data.startDate).format('YYYY/M/D')}
-							{' - '}
-							{dayjs(data.endDate).format('YYYY/M/D')}
-						</p>
+					{/* hr */}
+					<hr />
+					{/* ticket-bottom */}
+					<div className='ticket-bottom'>
+						{/* ticket-total */}
+						{typeof totalTickets === 'number' && (
+							<div className='total'>
+								<div className='title'>{t('Label_Event_TotalTickets')}</div>
+								<div className='quantity'>{totalTickets}</div>
+							</div>
+						)}
 					</div>
+				</div>
+				{/* title-group */}
+				<div className='title-group'>
+					<div className='title'>
+						{t('Label_Event_TicketInfo')}
+						<br />
+						{t('Label_Event_Round')} {data.roundId}
+					</div>
+					<p>
+						{dayjs(data.startDate).format('YYYY/M/D')}
+						{' - '}
+						{dayjs(data.endDate).format('YYYY/M/D')}
+					</p>
 				</div>
 			</div>
 		</div>

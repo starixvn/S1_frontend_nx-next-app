@@ -21,5 +21,9 @@ export const LotteryPrizePage = () => {
 		) as LotteryPrizeCategory,
 	}
 
-	return <LotteryPrize data={data} />
+	return (
+		<div id='popup' className='event-lottery-popup-mask active'>
+			<LotteryPrize data={data} />
+		</div>
+	)
 }

@@ -23,52 +23,50 @@ const PurchaseStickerModal = (props: { price: number; currency?: string }) => {
 	}
 
 	return (
-		<div id='popup' className='event-lottery-popup-mask active'>
-			<div className='event-lottery-popup jackpot'>
-				{/* close */}
-				<div className='icon icon-close' onClick={closeModal} />
-				{/* popup-content */}
-				{message ? (
-					<div className='popup-content'>
-						<div className='title-group'>
-							<div className='title'>{t('Label_Event_JackpotSticker')}</div>
-						</div>
-						<div className='prompt'>
-							<span>{message}</span>
+		<div className='event-lottery-popup jackpot'>
+			{/* close */}
+			<div className='icon icon-close' onClick={closeModal} />
+			{/* popup-content */}
+			{message ? (
+				<div className='popup-content'>
+					<div className='title-group'>
+						<div className='title'>{t('Label_Event_JackpotSticker')}</div>
+					</div>
+					<div className='prompt'>
+						<span>{message}</span>
+					</div>
+				</div>
+			) : (
+				<div className='popup-content'>
+					<div className='title-group'>
+						<div className='title'>{t('Label_Event_JackpotSticker')}</div>
+						<p>
+							{t('Label_Event_ChooseOneToPurchase', {
+								price: props.price.toLocaleString(),
+								currency: props.currency,
+							})}
+						</p>
+					</div>
+					<div className='jackpot-group'>
+						<div className='grid grid-cols-4'>
+							{Object.values(CHINESE_ZODIAC_STICKER_IDS).map(value => (
+								<div key={value} onClick={() => setStickerId(value)}>
+									<LotterySticker
+										stickerId={value}
+										active={stickerId === value}
+									/>
+								</div>
+							))}
 						</div>
 					</div>
-				) : (
-					<div className='popup-content'>
-						<div className='title-group'>
-							<div className='title'>{t('Label_Event_JackpotSticker')}</div>
-							<p>
-								{t('Label_Event_ChooseOneToPurchase', {
-									price: props.price.toLocaleString(),
-									currency: props.currency,
-								})}
-							</p>
-						</div>
-						<div className='jackpot-group'>
-							<div className='grid grid-cols-4'>
-								{Object.values(CHINESE_ZODIAC_STICKER_IDS).map(value => (
-									<div key={value} onClick={() => setStickerId(value)}>
-										<LotterySticker
-											stickerId={value}
-											active={stickerId === value}
-										/>
-									</div>
-								))}
-							</div>
-						</div>
-						<button
-							disabled={isLoading || !stickerId}
-							onClick={handlePurchaseClick}
-						>
-							{t('Label_General_BuyNow')}
-						</button>
-					</div>
-				)}
-			</div>
+					<button
+						disabled={isLoading || !stickerId}
+						onClick={handlePurchaseClick}
+					>
+						{t('Label_General_BuyNow')}
+					</button>
+				</div>
+			)}
 		</div>
 	)
 }
