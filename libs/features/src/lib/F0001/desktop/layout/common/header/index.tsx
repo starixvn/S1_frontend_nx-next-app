@@ -1,6 +1,6 @@
 import { Header, LoginFormType } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { EVENT_PERIOD, paths } from '@nx-next-app/constants'
+import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import {
@@ -8,7 +8,7 @@ import {
 	useLazyGetLineLoginDirectUrlQuery,
 } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
-import { isEventPeriod, renderFieldError } from '@nx-next-app/utils'
+import { renderFieldError } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -72,11 +72,6 @@ const LayoutHeader = () => {
 		}
 	}
 
-	// TODO: 因應中秋節更換ＬＯＧＯ（期間：2024.9.12~9.18）(之後若有其他活動也可以在此調整)
-	const logoUrl = isEventPeriod(EVENT_PERIOD.MIDAUTUMN)
-		? `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/logo-mid.png`
-		: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/logo_w.png`
-
 	// * line 登入按鈕的顯示邏輯
 	const showLineLogin = currencyId === CurrenciesEnum.THB
 
@@ -91,7 +86,6 @@ const LayoutHeader = () => {
 	return (
 		<Header>
 			<Header.Logo
-				logoUrl={logoUrl}
 				rewardsUrl={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/88rewards.png`}
 			/>
 			<Header.Function>

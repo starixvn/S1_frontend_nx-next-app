@@ -1,16 +1,16 @@
-import { EVENT_PERIOD, paths } from '@nx-next-app/constants'
+import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { useHeaderLogo } from '@nx-next-app/hooks'
 import {
 	ICustBonusWalletData,
 	IMainWalletInfoData,
 	ITpWalletInfoData,
 } from '@nx-next-app/service'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { isEventPeriod, numberFormat } from '@nx-next-app/utils'
+import { numberFormat } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
-import { HTMLAttributes, useEffect, useState } from 'react'
+import { HTMLAttributes, useEffect } from 'react'
 import { useBoolean, useDebounce } from 'usehooks-ts'
 import { SpinButton } from '../button'
 
@@ -38,9 +38,12 @@ const HeaderModule = ({
 	...props
 }: IHeaderModuleProps) => {
 	const { t } = useTranslation()
-
-	// 判斷是否要秀贊助商 LOGO，之後如果有其他的贊助商，可以使用日期判斷是否要更新此 state 狀態
-	const [showSpLogo, setShowSpLogo] = useState(true)
+	const { logoUrl, showSpLogo } = useHeaderLogo({
+		mainLogoUrl: {
+			original: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w.png`,
+			special: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo-mid.png`,
+		},
+	})
 
 	const {
 		auth,
@@ -54,16 +57,8 @@ const HeaderModule = ({
 	} = useBoolean(originIsHideBalance)
 	const debouncedIsHideBalance = useDebounce(isHideBalance, 500)
 
-	// TODO: 因應中秋節更換ＬＯＧＯ（期間：2024.9.12~9.18）(之後若有其他活動也可以在此調整)
-	const logoUrl = isEventPeriod(EVENT_PERIOD.MIDAUTUMN)
-		? `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo-mid.png`
-		: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w.png`
-
 	// TODO: 沒有贊助球隊時可能會有暫時沒有spLogo的情況，這時主Logo要改用沒有右邊分隔線的圖
 	const noSpLogoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w_noline.png`
-
-	/** 當前是否為巴西 */
-	const isBRL = currencyId === CurrenciesEnum.BRL
 
 	// * 使用者快速切換時，讓畫面順利切換，用 debounce 觸發最後的狀態
 	useEffect(() => {
@@ -71,11 +66,6 @@ const HeaderModule = ({
 			onSetHideBalance(debouncedIsHideBalance)
 		}
 	}, [debouncedIsHideBalance, auth.isLogin])
-
-	// 僅有巴西沒有贊助球隊，所以秀 nova 原始 Logo
-	useEffect(() => {
-		if (isBRL) setShowSpLogo(false)
-	}, [currencyId])
 
 	// * fetching 結束後給予正確數值
 	useEffect(() => {
