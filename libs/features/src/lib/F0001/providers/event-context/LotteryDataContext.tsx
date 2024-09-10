@@ -5,8 +5,9 @@ import {
 	ILotteryWinnerList,
 	useGetChineseZodiacStickerListQuery,
 	useGetLotteryInfoQuery,
+	useGetLotteryMaintainQuery,
 } from '@nx-next-app/service'
-import { createContext, ReactNode, useContext } from 'react'
+import { ReactNode, createContext, useContext } from 'react'
 
 export interface ILotteryData {
 	initialServerTime?: number | null
@@ -14,6 +15,7 @@ export interface ILotteryData {
 	drawingRound?: ILotteryRoundData | null
 	roundList?: ILotteryRoundData[] | null
 	isJackpot?: boolean
+	isUnderMaintenance?: boolean
 }
 
 interface ILotteryDataContext extends ILotteryData {
@@ -39,6 +41,10 @@ export const LotteryDataProvider = ({
 	const { data: { data: lotteryInfo } = {} } = useGetLotteryInfoQuery(null)
 	const { data: { data: stickerInfo } = {} } =
 		useGetChineseZodiacStickerListQuery(null)
+	const { data: { data: lotteryStatus } = {} } =
+		useGetLotteryMaintainQuery(null)
+
+	const isUnderMaintenance = Boolean(lotteryStatus?.isMaintain)
 
 	const drawDate = drawingRound?.drawDate
 
@@ -63,6 +69,7 @@ export const LotteryDataProvider = ({
 		roundList,
 		drawTime,
 		isJackpot,
+		isUnderMaintenance,
 	}
 
 	return (
