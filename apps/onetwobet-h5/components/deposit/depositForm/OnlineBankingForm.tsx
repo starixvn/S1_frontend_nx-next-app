@@ -269,7 +269,13 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 				</div>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(onOnlineBankingFormSubmit)}>
+			<Form
+				onSubmit={handleSubmit(values =>
+					onOnlineBankingFormSubmit(values, errorMessage =>
+						modal.error(errorMessage)
+					)
+				)}
+			>
 				<div className='btn-group'>
 					<button
 						type='submit'

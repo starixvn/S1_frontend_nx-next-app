@@ -1,8 +1,10 @@
+import { Layout, Withdrawal } from '@12b-desktop/components/index'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
-	getWithdrawalBlockSetting,
 	GlobalDataProvider,
+	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
@@ -18,9 +20,6 @@ import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-
-import { Layout, Withdrawal } from '@12b-desktop/components/index'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import dynamic from 'next/dynamic'
 
 const AddBankCardModal = dynamic(
@@ -70,6 +69,7 @@ const WithdrawalPage = ({
 					<WithdrawalProvider
 						withdrawalBlockSetting={withdrawalBlockSetting}
 						addBankCardModalCallBack={addBankCardModalCallBack}
+						errorCallback={errorMessage => modal.error(errorMessage)}
 					>
 						{/* 因為需使用 cryptoWallet 的 hooks ,故需多包此層 */}
 						<CryptoWalletProvider

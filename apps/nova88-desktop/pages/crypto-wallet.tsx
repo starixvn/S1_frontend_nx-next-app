@@ -9,11 +9,11 @@ import {
 	Layout,
 	LeftMenu,
 } from '@nx-next-app/features/F0001/desktop'
-import { CryptoWalletProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { CryptoWalletProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import { FOOTER_DATA } from '@nx-next-app/site/nova88'
 import { IFooterData } from '@nx-next-app/types'

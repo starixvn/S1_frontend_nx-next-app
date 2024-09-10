@@ -155,7 +155,9 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 					<button
 						className='orange'
 						onClick={() => {
-							onMobilePayFormSubmit(values)
+							onMobilePayFormSubmit(values, errorMessage =>
+								modal.error(errorMessage)
+							)
 							closeModal()
 						}}
 					>

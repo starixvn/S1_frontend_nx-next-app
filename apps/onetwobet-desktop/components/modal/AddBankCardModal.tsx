@@ -26,6 +26,8 @@ const AddBankCardModal = ({
 }: IAddBankCardModalProps) => {
 	const { t } = useTranslation()
 	const { userInfo } = useAuth()
+	const { modal } = useGlobalModal()
+
 	const { accountName, currencyId } = userInfo
 
 	const isLocal = type === WithdrawalBankCardEnum.LocalBank
@@ -114,7 +116,16 @@ const AddBankCardModal = ({
 		const { error: isfcCodeError } = getFieldState('isfcCode')
 
 		if (accountError || isfcCodeError) return
-		onSubmitCard({ type, value })
+		onSubmitCard({
+			type,
+			value,
+			successCallback: () =>
+				modal.info(t('Label_General_UpdateSuccessful'), {
+					title: t('Label_Withdrawal_AddBankAccount'),
+					icon: 'icon icon-library',
+				}),
+			errorCallback: errorMessage => modal.error(errorMessage),
+		})
 	}
 
 	return (
@@ -186,7 +197,7 @@ const AddBankCardModal = ({
 					)}
 					<div className='btnGroup'>
 						<button
-							className='btn-cancel'
+							className='btn-cancel ghost'
 							onClick={() => {
 								reset()
 								closeModal()
@@ -194,7 +205,7 @@ const AddBankCardModal = ({
 						>
 							{t('Label_General_Cancel')}
 						</button>
-						<button className='btn-check' type='submit'>
+						<button className='btn-check primary' type='submit'>
 							{t('Label_General_Submit')}
 						</button>
 					</div>

@@ -1,12 +1,26 @@
-import { Header } from '@nx-next-app/components/H0001'
+import { paths } from '@nx-next-app/constants'
+import {
+	KycStatusEnum,
+	useKycUploader,
+	useWithdrawal,
+} from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
-
-import { useKycUploader, useWithdrawal } from '@nx-next-app/operations'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import Header from '../../header'
 
 const Kyc = () => {
 	const { t } = useTranslation()
-	const { handleUploadKyc } = useWithdrawal()
+	const { push } = useRouter()
+	const { handleUploadKyc, kycStatus, checkKyc } = useWithdrawal()
 	const { onSubmit, kycFile, onChangeInput } = useKycUploader(handleUploadKyc)
+
+	useEffect(() => {
+		if (kycStatus === KycStatusEnum.KycPending) {
+			push(paths.kycWaiting.root)
+		}
+		checkKyc()
+	}, [kycStatus])
 
 	return (
 		<>
@@ -30,7 +44,10 @@ const Kyc = () => {
 						/>
 					</label>
 					<div className='btn-group'>
-						<button className={kycFile ? '' : 'gray'} onClick={onSubmit}>
+						<button
+							className={kycFile ? 'primary' : 'gray secondary'}
+							onClick={onSubmit}
+						>
 							{t('Label_General_Upload')}
 						</button>
 					</div>

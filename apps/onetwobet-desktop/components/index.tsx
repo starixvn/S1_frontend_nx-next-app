@@ -1,4 +1,6 @@
 export { default as Deposit } from './deposit'
+export { default as BankInfo } from './bank-info'
+export { default as CryptoWallet } from './crypto-wallet'
 export { default as History } from './history'
 export { default as Layout } from './layout'
 export { default as LeftMenu } from './leftMenu'
