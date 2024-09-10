@@ -1,5 +1,6 @@
-export * from './cryptoWallet-context'
 export * from './history-context'
+export * from './deposit-context'
+export * from './cryptoWallet-context'
 export * from './luckyWheel-context'
 export * from './statement-context'
 export * from './transferFunds-context'

@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import { useTranslation } from 'next-i18next'
-import { paths } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
 
 const UpdateProfileModal = ({ prevPage }: { prevPage: string }) => {
 	const { t } = useTranslation()

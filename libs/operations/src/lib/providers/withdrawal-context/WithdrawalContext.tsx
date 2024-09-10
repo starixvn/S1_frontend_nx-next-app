@@ -42,6 +42,7 @@ import {
 	KycStatusEnum,
 	WithdrawalBankCardEnum,
 	WithdrawalPanelStatusEnum,
+	type IAddBankCardModalProps,
 } from './types'
 import { useManageCards } from './useManageCards'
 import { useWithdrawalHistory } from './useWithdrawalHistory'
@@ -49,6 +50,12 @@ import { useWithdrawalHistory } from './useWithdrawalHistory'
 interface IWithdrawalProviderProps {
 	children: ReactNode
 	withdrawalBlockSetting: IWithdrawalSetting[]
+	addBankCardModalCallBack?: ({
+		type,
+		bankData,
+		bankDropDown,
+		onSubmitCard,
+	}: IAddBankCardModalProps) => void
 }
 
 export type ISelectedBankInfo = {
@@ -152,6 +159,7 @@ const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 export const WithdrawalProvider = ({
 	children,
 	withdrawalBlockSetting,
+	addBankCardModalCallBack,
 }: IWithdrawalProviderProps) => {
 	const { t } = useTranslation()
 	const { pathname } = useRouter()
@@ -281,7 +289,7 @@ export const WithdrawalProvider = ({
 	/* <--用戶卡片管理邏輯--> */
 	/* <--這裡刻意從此 context return 出去，使其保持同源並易於管理--> */
 	const { handleAddCards, handleDeleteEWalletCard, handleDeleteBankCard } =
-		useManageCards({ accountName, bankData })
+		useManageCards({ accountName, bankData, addBankCardModalCallBack })
 
 	/* <--出金紀錄管理邏輯--> */
 	/* <--這裡刻意從此 context return 出去，使其保持同源並易於管理--> */
