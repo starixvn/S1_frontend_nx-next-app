@@ -1,17 +1,17 @@
-import Link from 'next/link'
-import classNames from 'classnames'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { paths } from '@nx-next-app/constants'
+import { EVENT_PERIOD, paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { HTMLAttributes, useEffect, useState } from 'react'
-import { useTranslation } from 'next-i18next'
-import { useBoolean, useDebounce } from 'usehooks-ts'
-import { numberFormat } from '@nx-next-app/utils'
 import {
 	ICustBonusWalletData,
 	IMainWalletInfoData,
 	ITpWalletInfoData,
 } from '@nx-next-app/service'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { isEventPeriod, numberFormat } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { HTMLAttributes, useEffect, useState } from 'react'
+import { useBoolean, useDebounce } from 'usehooks-ts'
 import { SpinButton } from '../button'
 
 interface IHeaderModuleProps extends HTMLAttributes<HTMLDivElement> {
@@ -54,7 +54,12 @@ const HeaderModule = ({
 	} = useBoolean(originIsHideBalance)
 	const debouncedIsHideBalance = useDebounce(isHideBalance, 500)
 
-	// TODO: 因為奧運結束後可能會有暫時沒有spLogo的情況，這時主Logo要改用沒有右邊分隔線的圖
+	// TODO: 因應中秋節更換ＬＯＧＯ（期間：2024.9.12~9.18）(之後若有其他活動也可以在此調整)
+	const logoUrl = isEventPeriod(EVENT_PERIOD.MIDAUTUMN)
+		? `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo-mid.png`
+		: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w.png`
+
+	// TODO: 沒有贊助球隊時可能會有暫時沒有spLogo的情況，這時主Logo要改用沒有右邊分隔線的圖
 	const noSpLogoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w_noline.png`
 
 	/** 當前是否為巴西 */
@@ -82,14 +87,7 @@ const HeaderModule = ({
 			{/* 用 a link 讓畫面重新整理，僅有巴西沒有贊助球隊，所以秀 nova 原始 Logo */}
 			<Link href={paths.home.root}>
 				<a className='header-logo'>
-					<img
-						src={
-							showSpLogo
-								? `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w.png`
-								: noSpLogoUrl
-						}
-						alt='logo'
-					/>
+					<img src={showSpLogo ? logoUrl : noSpLogoUrl} alt='logo' />
 				</a>
 			</Link>
 

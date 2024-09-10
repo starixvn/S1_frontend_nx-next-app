@@ -171,10 +171,9 @@
 		</div>
 		<script>
 			try {
-				const redirectToHome = setInterval(() => {
+				setInterval(() => {
 					document.location.href = window?.location.origin
 				}, 30000)
-				redirectToHome()
 			} catch (e) {
 				console.error('BlockIP Error', e)
 			}

@@ -1,17 +1,17 @@
 import { paths } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { History, Layout } from '@nx-next-app/features/F0001/h5'
-import { HistoryProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { HistoryProvider } from '@nx-next-app/operations'
 import {
 	HISTORY_TABS,
 	QUICK_PICK_LIST,
 } from '@nx-next-app/site/onetwobet/data/history'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { History, Layout } from '../components'
 
 type ITransferHistoryPageProps = InitialPropsInterface
 
