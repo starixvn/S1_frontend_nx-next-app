@@ -18,6 +18,7 @@ export const useRetentionEvents = () => {
 	const { data: LotteryStatus, isLoading: isLoadingLotteryStatus } =
 		useGetLotteryMaintainQuery(null)
 	const isLotteryUnderMaintenance = LotteryStatus?.data?.isMaintain ?? true
+	const isRestrictedFromLottery = LotteryStatus?.data?.isRestricted ?? true
 
 	const { data: retentionPromotion, isLoading: isLoadingRetentionPromotion } =
 		useGetRetentionPromotionQuery({ langId }, { skip: !langId || !isLogin })
@@ -37,7 +38,7 @@ export const useRetentionEvents = () => {
 					{
 						name: t('Label_General_Lottery'),
 						path: paths.event.lottery.root,
-						access: Boolean(isLogin),
+						access: !isRestrictedFromLottery,
 						underMaintenance: isLotteryUnderMaintenance,
 					},
 					{

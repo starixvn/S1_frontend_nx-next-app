@@ -32,7 +32,11 @@ const LotteryResults = () => {
 						<div className='share'>
 							<div
 								className='icon share'
-								onClick={() => modal.open(<PrizeModal data={data} />)}
+								onClick={() =>
+									modal.open(<PrizeModal data={data} />, {
+										className: 'event-lottery-popup-mask',
+									})
+								}
 							/>
 						</div>
 					</div>

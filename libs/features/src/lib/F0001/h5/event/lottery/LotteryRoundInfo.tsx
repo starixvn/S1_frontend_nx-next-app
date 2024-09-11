@@ -68,8 +68,10 @@ const LotteryRoundInfo = () => {
 					<div className='total'>
 						<div>{t('Label_Event_Tickets')}</div>
 						<div>
-							{currencyName} {lotteryInfo.custTurnoverProccessing} /{' '}
-							{lotteryInfo.turnoverGoal}
+							{currencyName}{' '}
+							{lotteryInfo.custTurnoverProccessing?.toLocaleString()}
+							{' / '}
+							{lotteryInfo.turnoverGoal?.toLocaleString()}
 						</div>
 					</div>
 				</div>
@@ -91,8 +93,10 @@ const LotteryRoundInfo = () => {
 					<div className='total'>
 						<div>{t('Label_Event_ValidTurnoverTotal')}</div>
 						<div>
-							{currencyName} {totalTurnover}
-							{nextTier?.turnOverStart ? ` / ${nextTier?.turnOverStart}` : null}
+							{currencyName} {totalTurnover?.toLocaleString()}
+							{nextTier?.turnOverStart
+								? ` / ${nextTier.turnOverStart.toLocaleString()}`
+								: null}
 						</div>
 					</div>
 				</div>
@@ -196,7 +200,8 @@ const LotteryRoundInfo = () => {
 													<PurchaseStickerModal
 														price={stickerInfo.stickerPrize}
 														currency={currencyName}
-													/>
+													/>,
+													{ className: 'event-lottery-popup-mask' }
 												)
 											}
 										>

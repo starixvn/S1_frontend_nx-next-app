@@ -23,6 +23,7 @@ const LotteryRoundInfo = () => {
 			(totalTurnover < turnOverEnd || turnOverEnd === 0)
 	)
 
+	// 以 lotteryTierList 的 level 當 key 建立 Map 確保可以拿到正確的 tier，避免順序不對或是有少的情況
 	const tierMap = new Map(
 		lotteryInfo?.lotteryTierList.map(tier => [tier.level, tier])
 	)
@@ -56,15 +57,19 @@ const LotteryRoundInfo = () => {
 					</div>
 					<LotteryProgressBar
 						ratio={
-							lotteryInfo.custTurnoverProccessing / lotteryInfo.turnoverGoal
+							(lotteryInfo.custTurnoverProccessing % lotteryInfo.turnoverGoal) /
+							lotteryInfo.turnoverGoal
 						}
 					/>
 					<div className='total'>
 						<div>{t('Label_Event_Tickets')}</div>
 						<div>
-							{currencyName} {lotteryInfo.custTurnoverProccessing}
+							{currencyName}{' '}
+							{(
+								lotteryInfo.custTurnoverProccessing % lotteryInfo.turnoverGoal
+							)?.toLocaleString()}
 							{' / '}
-							{lotteryInfo.turnoverGoal}
+							{lotteryInfo.turnoverGoal?.toLocaleString()}
 						</div>
 					</div>
 				</div>
@@ -85,8 +90,10 @@ const LotteryRoundInfo = () => {
 					<div className='total'>
 						<div>{t('Label_Event_ValidTurnoverTotal')}</div>
 						<div>
-							{currencyName} {totalTurnover}
-							{nextTier?.turnOverStart ? ` / ${nextTier?.turnOverStart}` : null}
+							{currencyName} {totalTurnover?.toLocaleString()}
+							{nextTier?.turnOverStart
+								? ` / ${nextTier.turnOverStart.toLocaleString()}`
+								: null}
 						</div>
 					</div>
 				</div>
@@ -145,7 +152,8 @@ const LotteryRoundInfo = () => {
 										<PurchaseStickerModal
 											price={stickerInfo.stickerPrize}
 											currency={currencyName}
-										/>
+										/>,
+										{ className: 'event-lottery-popup-mask' }
 									)
 								}
 							>

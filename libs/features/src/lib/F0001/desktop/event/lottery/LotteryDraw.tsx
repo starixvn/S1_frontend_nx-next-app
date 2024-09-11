@@ -11,6 +11,7 @@ import DrawingConsolation from './stages/DrawingConsolation'
 import DrawingJackpot from './stages/DrawingJackpot'
 import DrawingSmall from './stages/DrawingSmall'
 import DrawingTop3 from './stages/DrawingTop3'
+import FinalResult from './stages/FinalResult'
 
 const LotteryDraw = () => {
 	const { t } = useTranslation()
@@ -19,23 +20,16 @@ const LotteryDraw = () => {
 	const { stage, remainingTickets, winning } = useLotteryProgressContext()
 
 	const renderDrawing = () => {
-		if (stage.has(StageEvent.BeforeStart))
+		if (stage.has(StageEvent.BeforeStart)) {
 			return <div className='standby'>{t('Label_Event_NotStartedYet')}</div>
+		}
 
 		if (stage.has(StageEvent.DrawingTop3)) return <DrawingTop3 />
-
 		if (stage.has(StageEvent.DrawingConsolation)) return <DrawingConsolation />
-
 		if (stage.has(StageEvent.DrawingSmall)) return <DrawingSmall />
-
 		if (stage.has(StageEvent.Drawing3rd1st2nd)) return <Drawing3rd1st2nd />
-
-		if (
-			stage.has(StageEvent.DrawingJackpot) ||
-			stage.has(StageEvent.FinalResult)
-		) {
-			return <DrawingJackpot />
-		}
+		if (stage.has(StageEvent.DrawingJackpot)) return <DrawingJackpot />
+		if (stage.has(StageEvent.FinalResult)) return <FinalResult />
 
 		return null
 	}
@@ -75,7 +69,8 @@ const LotteryDraw = () => {
 												data={drawingRound}
 												stickerId={winnerList.custStickerId}
 												totalTickets={winnerList.ticketNo?.length}
-											/>
+											/>,
+											{ className: 'event-lottery-popup-mask' }
 										)
 								}}
 							>

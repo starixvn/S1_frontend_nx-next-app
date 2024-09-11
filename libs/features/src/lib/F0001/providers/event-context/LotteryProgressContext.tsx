@@ -1,5 +1,4 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { DEVICE_TYPE, PRIZE_CATEGORY_I18N_KEYS } from '@nx-next-app/constants'
+import { PRIZE_CATEGORY_I18N_KEYS } from '@nx-next-app/constants'
 import {
 	ICustLotteryHistoryWinnerData,
 	LotteryPrizeCategory,
@@ -9,14 +8,12 @@ import { findLastIndex, includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import {
-	createContext,
 	ReactNode,
+	createContext,
 	useContext,
 	useEffect,
 	useState,
 } from 'react'
-import DesktopPrizeModal from '@nx-next-app/features/F0001/desktop/event/lottery/modals/PrizeModal'
-import MobilePrizeModal from '@nx-next-app/features/F0001/h5/event/lottery/modals/PrizeModal'
 import { useLotteryDataContext } from './LotteryDataContext'
 
 export enum StageEvent {
@@ -32,6 +29,7 @@ export enum StageEvent {
 	'PlayTicketPrintAnimation',
 	'PlayTicketCutOffAnimation',
 	'PlayShutdownAnimation',
+	'JackpotResult',
 	'FinalResult',
 }
 
@@ -66,15 +64,15 @@ const stages: Set<StageEvent>[] = [
 	[StageEvent.DrawingJackpot, StageEvent.RunningNumbers],
 	[
 		StageEvent.DrawingJackpot,
-		StageEvent.FinalResult,
+		StageEvent.JackpotResult,
 		StageEvent.PlayTicketCutOffAnimation,
 	],
 	[
 		StageEvent.DrawingJackpot,
-		StageEvent.FinalResult,
+		StageEvent.JackpotResult,
 		StageEvent.PlayShutdownAnimation,
 	],
-	[StageEvent.DrawingJackpot, StageEvent.FinalResult],
+	[StageEvent.FinalResult],
 ].map(events => new Set(events))
 
 /**	為了同步途中進場開獎進度，預先錄製的各階段開始時間 */
@@ -105,13 +103,16 @@ const LotteryProgressContext = createContext<ILotteryProgressContext>(
 	{} as ILotteryProgressContext
 )
 
+interface LotteryProgressProviderProps {
+	children: ReactNode
+	onWinning: (prizeData: ICustLotteryHistoryWinnerData) => void
+}
+
 export const LotteryProgressProvider = ({
 	children,
-}: {
-	children: ReactNode
-}) => {
+	onWinning,
+}: LotteryProgressProviderProps) => {
 	const { t } = useTranslation()
-	const { modal } = useGlobalModal()
 	const { reload } = useRouter()
 	const { drawTime } = useLotteryDataContext()
 	const [stageIndex, setStageIndex] = useState(0)
@@ -127,11 +128,6 @@ export const LotteryProgressProvider = ({
 	const [winning, setWinning] = useState<null | IWiningStatus>(null)
 	const handleSlotNumberChange = (num: string) =>
 		setRemainingTickets(prev => prev.filter(number => number.endsWith(num)))
-
-	const isDesktop =
-		Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Desktop
-
-	const PrizeModal = isDesktop ? DesktopPrizeModal : MobilePrizeModal
 
 	// 針對每次開完獎的號碼及獎項類別做處理，中獎彈窗
 	const handleSlotNumberFinish = (
@@ -173,7 +169,7 @@ export const LotteryProgressProvider = ({
 			stickerId: winnerList.stickerId,
 		}
 
-		modal.open(<PrizeModal data={prizeData} />)
+		onWinning?.(prizeData)
 	}
 
 	// 在播放印票動畫時，重置當前跑到第幾個數字
@@ -240,7 +236,7 @@ export const LotteryProgressProvider = ({
 
 		if (
 			isJackpot &&
-			stage.has(StageEvent.FinalResult) &&
+			stage.has(StageEvent.JackpotResult) &&
 			stage.has(StageEvent.PlayShutdownAnimation)
 		) {
 			const prizeData: ICustLotteryHistoryWinnerData = {
@@ -252,7 +248,7 @@ export const LotteryProgressProvider = ({
 				ticketNo: winnerList.firstPrize[0],
 				stickerId: winnerList.stickerId,
 			}
-			modal.open(<PrizeModal data={prizeData} />)
+			onWinning?.(prizeData)
 			return
 		}
 
@@ -280,7 +276,7 @@ export const LotteryProgressProvider = ({
 		}
 
 		if (stage.has(StageEvent.DrawingJackpot)) {
-			const timer = setTimeout(toNext, 3000)
+			const timer = setTimeout(toNext, 5000)
 			return () => clearTimeout(timer)
 		}
 

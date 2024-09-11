@@ -4,6 +4,7 @@ import {
 	useGetLotteryHistoryWinnerListQuery,
 } from '@nx-next-app/service'
 import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
 import { ReactNode, useState } from 'react'
 import LotterySticker from '../LotterySticker'
 
@@ -27,6 +28,7 @@ const Collapsable = ({
 }
 
 const LotteryHistory = () => {
+	const { t } = useTranslation()
 	const { roundList } = useLotteryDataContext()
 	const [isSelecting, setIsSelecting] = useState(false)
 	const [selectedRound, setSelectedRound] = useState<ILotteryRoundData | null>(
@@ -80,10 +82,10 @@ const LotteryHistory = () => {
 							<div className='title-group'>
 								<div className='ranking'>
 									<div className='title'>01</div>
-									<span>1st Prize</span>
+									<span>{t('Label_Event_1stPrize')}</span>
 								</div>
 								<div className='lucky-number'>
-									<span className='title'>Lucky Number</span>
+									<span className='title'>{t('Label_Event_LuckyNumber')}</span>
 									<span>{roundData.firstPrize}</span>
 								</div>
 							</div>
@@ -98,10 +100,10 @@ const LotteryHistory = () => {
 							<div className='title-group'>
 								<div className='ranking'>
 									<div className='title'>02</div>
-									<span>2nd Prize</span>
+									<span>{t('Label_Event_2ndPrize')}</span>
 								</div>
 								<div className='lucky-number'>
-									<span className='title'>Lucky Number</span>
+									<span className='title'>{t('Label_Event_LuckyNumber')}</span>
 									<span>{roundData.secondPrize}</span>
 								</div>
 							</div>
@@ -110,15 +112,15 @@ const LotteryHistory = () => {
 							<div className='title-group'>
 								<div className='ranking'>
 									<div className='title'>03</div>
-									<span>{roundData.thirdPrize}</span>
+									<span>{t('Label_Event_3rdPrize')}</span>
 								</div>
 								<div className='lucky-number'>
-									<span className='title'>Lucky Number</span>
-									<span>000000000</span>
+									<span className='title'>{t('Label_Event_LuckyNumber')}</span>
+									<span>{roundData.thirdPrize}</span>
 								</div>
 							</div>
 						</div>
-						<Collapsable title='Consolation Prize'>
+						<Collapsable title={t('Label_Event_ConsolationPrize')}>
 							<div className='card consolation'>
 								<div className='grid grid-cols-2'>
 									{roundData.consolationPrize.map(prize => (
@@ -127,7 +129,7 @@ const LotteryHistory = () => {
 								</div>
 							</div>
 						</Collapsable>
-						<Collapsable title='Small Prize'>
+						<Collapsable title={t('Label_Event_SmallPrize')}>
 							<div className='card small-prize'>
 								<div className='grid grid-cols-2'>
 									{roundData.smallPrize.map(prize => (
@@ -136,7 +138,7 @@ const LotteryHistory = () => {
 								</div>
 							</div>
 						</Collapsable>
-						<Collapsable title='Jackpot prize'>
+						<Collapsable title={t('Label_Event_Jackpot')}>
 							<div className='card sticker'>
 								<div className='sticker-result'>
 									<LotterySticker stickerId={roundData.stickerId} />

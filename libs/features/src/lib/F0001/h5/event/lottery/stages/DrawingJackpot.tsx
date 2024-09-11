@@ -54,7 +54,7 @@ const DrawingJackpot = () => {
 	const { t } = useTranslation()
 	const { stage } = useLotteryProgressContext()
 
-	if (stage.has(StageEvent.FinalResult)) {
+	if (stage.has(StageEvent.JackpotResult)) {
 		return (
 			<div className='jackpot-group'>
 				<div className='title'>{t('Label_General_Jackpot')}</div>

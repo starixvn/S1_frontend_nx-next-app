@@ -8,7 +8,6 @@ import { Layout, LotteryEventPage } from '@nx-next-app/features/F0001/desktop'
 import {
 	ILotteryData,
 	LotteryDataProvider,
-	LotteryProgressProvider,
 } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
@@ -29,25 +28,21 @@ const LotteryPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
-	lotteryData,
 	persistStaticFileDomainData,
-}: ILotteryPageProps) => {
-	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider
-				persistStaticFileDomainData={persistStaticFileDomainData}
-			>
-				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
-					<LotteryDataProvider data={lotteryData}>
-						<LotteryProgressProvider>
-							<LotteryEventPage />
-						</LotteryProgressProvider>
-					</LotteryDataProvider>
-				</Layout>
-			</GlobalDataProvider>
-		</AuthProvider>
-	)
-}
+	lotteryData,
+}: ILotteryPageProps) => (
+	<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<GlobalDataProvider
+			persistStaticFileDomainData={persistStaticFileDomainData}
+		>
+			<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
+				<LotteryDataProvider data={lotteryData}>
+					<LotteryEventPage />
+				</LotteryDataProvider>
+			</Layout>
+		</GlobalDataProvider>
+	</AuthProvider>
+)
 
 export const getServerSideProps: GetServerSideProps<
 	ILotteryPageProps
