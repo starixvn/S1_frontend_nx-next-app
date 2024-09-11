@@ -154,6 +154,11 @@ export interface IGetLotteryHistoryWinnerArgs {
 	roundId: number
 }
 
+interface CustLotteryTicket {
+	ticketNo: string
+	stickerId: ChineseZodiacStickerId
+	lotteryPrizeCategory: LotteryPrizeCategory
+}
 export interface ILotteryWinnerList {
 	siteId: number
 	roundId: number
@@ -165,6 +170,7 @@ export interface ILotteryWinnerList {
 	stickerId: ChineseZodiacStickerId
 	ticketNo: string[]
 	custStickerId: ChineseZodiacStickerId
+	custWinTicketNo: CustLotteryTicket | null
 }
 
 export interface ILotteryRoundData {
