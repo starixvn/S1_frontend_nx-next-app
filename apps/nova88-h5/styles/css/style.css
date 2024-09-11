@@ -21547,6 +21547,10 @@ input[type=number] .btn-logout {
   display: none;
 }
 
+#__next {
+  height: 100%;
+}
+
 .event-lottery-popup-mask {
   background: rgba(0, 0, 0, 0.6) !important;
   width: 100% !important;
