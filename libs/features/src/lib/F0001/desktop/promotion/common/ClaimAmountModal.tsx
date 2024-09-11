@@ -76,21 +76,21 @@ import {
 } from '@nx-next-app/utils'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useAuth } from '@nx-next-app/data-access'
 import { ISetClaimPromotionArgs } from '@nx-next-app/service'
-import { debounce } from 'lodash-es'
+import { PromotionTypeEnum, SelectOptionType } from '@nx-next-app/types'
+import { revertNumberFormat } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
+import { useForm } from 'react-hook-form'
 
 const ClaimAmountModal = ({
 	bonusCode,
 	promotionType,
-	minAmount,
-	maxAmount,
 	onSetClaimPromotion,
 	tierAmountListSelectOptions,
 }: {
 	bonusCode: string
 	promotionType: PromotionTypeEnum
-	minAmount: number
-	maxAmount: number
 	onSetClaimPromotion: ({
 		bonusCode,
 		lockedAmount,
@@ -103,13 +103,9 @@ const ClaimAmountModal = ({
 	} = useAuth()
 	const { closeModal } = useGlobalModal()
 
-	const { formState, register, trigger, handleSubmit, setValue } = useForm<{
+	const { handleSubmit, setValue } = useForm<{
 		amount: string | undefined
 	}>()
-	const debounceTrigger = debounce(trigger, 200)
-
-	const min = numberFormat(minAmount, currencyId)
-	const max = numberFormat(maxAmount, currencyId)
 
 	const onSubmit = ({ amount }: { amount: string | undefined | number }) => {
 		if (promotionType === PromotionTypeEnum.FirstDeposit) {
