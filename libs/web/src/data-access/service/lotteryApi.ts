@@ -29,7 +29,7 @@ export const getCustomLotteryDataForClient = async (
 		let winnerList
 
 		// 開獎時間由 API 提供，結束時間為當日午夜
-		// lotteryRoundList 為降序排列，將首個已開始且未結束的開獎 round 資訊存入 drawingRound
+		// lotteryRoundList 為照 drawDate 降序排列，將首個已開始且未結束的開獎 round 資訊存入 drawingRound
 		// 將更後面的 rounds 視為已結束的抽獎紀錄，存入 drawHistory 並跳出迴圈
 
 		for (let i = 0; i < lotteryRoundList.length; i++) {
