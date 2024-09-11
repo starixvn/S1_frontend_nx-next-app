@@ -156,14 +156,14 @@ const useSetClaimPromotionFetcher = () => {
 					DeviceTypeEnum.Desktop ? (
 					<DesktopClaimAmountModal
 						bonusCode={bonusCode}
-						promotionType={promotionType}
+						// promotionType={promotionType}
 						onSetClaimPromotion={onSetClaimPromotion}
 						tierAmountListSelectOptions={tierAmountListSelectOptions}
 					/>
 				) : (
 					<H5ClaimAmountModal
 						bonusCode={bonusCode}
-						promotionType={promotionType}
+						// promotionType={promotionType}
 						onSetClaimPromotion={onSetClaimPromotion}
 						tierAmountListSelectOptions={tierAmountListSelectOptions}
 					/>
