@@ -1,3 +1,4 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useTransferFunds } from '@nx-next-app/operations'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
@@ -5,10 +6,25 @@ import { useState } from 'react'
 
 const AutoTransfer = () => {
 	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
 
 	const [tip, setTip] = useState<boolean>(false)
 
 	const { isAutoTransfer, handleAutoTransferStatus } = useTransferFunds() || {}
+
+	const handleConfirm = () => {
+		modal.confirm(t('Label_TransferFunds_AutoTransferHint'), {
+			onOK: () => handleAutoTransferStatus(handleConfirm, handleError),
+		})
+	}
+
+	const handleError = (message: string) => {
+		modal.error(message)
+	}
+
+	const handleClick = () => {
+		handleAutoTransferStatus(handleConfirm, handleError)
+	}
 
 	return (
 		<div className='rememberMode'>
@@ -17,7 +33,7 @@ const AutoTransfer = () => {
 				<button
 					type='button'
 					className={classNames('switchBtn', { active: isAutoTransfer })}
-					onClick={handleAutoTransferStatus}
+					onClick={handleClick}
 				>
 					<span>ON</span>
 					<span>OFF</span>
