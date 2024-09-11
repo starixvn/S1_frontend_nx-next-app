@@ -1,15 +1,16 @@
 /* eslint-disable jsx-a11y/heading-has-content */
+import { Layout, LeftMenu, Profile } from '@12b-desktop/components/index'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { Layout, LeftMenu, Profile } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { ProfileInfoProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { IFooterData } from '@nx-next-app/types'
@@ -38,7 +39,9 @@ const ProfilePage = ({
 					<main>
 						<section className='inside'>
 							<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
-							<Profile />
+							<ProfileInfoProvider>
+								<Profile />
+							</ProfileInfoProvider>
 						</section>
 					</main>
 				</Layout>
