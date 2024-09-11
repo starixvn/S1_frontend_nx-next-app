@@ -1,5 +1,6 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import dynamic from 'next/dynamic'
 import {
 	IGetCustSpecificBonusArgs,
 	IPromotionData,
@@ -12,15 +13,14 @@ import {
 import { useAppDispatch } from '@nx-next-app/store'
 import {
 	DeviceTypeEnum,
-	SelectOptionType,
 	PromotionTypeEnum,
+	SelectOptionType,
 } from '@nx-next-app/types'
-import { useTranslation } from 'next-i18next'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useRouter } from 'next/router'
-import { every, includes } from 'lodash-es'
-import { paths } from '@nx-next-app/constants'
 import { numFormatToDigits } from '@nx-next-app/utils'
+import { every, includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 
 const LoginModal = dynamic(() => import('../desktop/modal/LoginModal'), {
 	ssr: false,
@@ -88,7 +88,6 @@ const useSetClaimPromotionFetcher = () => {
 			canJoin,
 			promotionType,
 			maxAmount = 0,
-			requiredAmount,
 			canJoinTierAmountList,
 		} = promotionData
 
@@ -158,8 +157,6 @@ const useSetClaimPromotionFetcher = () => {
 					<DesktopClaimAmountModal
 						bonusCode={bonusCode}
 						promotionType={promotionType}
-						minAmount={requiredAmount}
-						maxAmount={maxAmount}
 						onSetClaimPromotion={onSetClaimPromotion}
 						tierAmountListSelectOptions={tierAmountListSelectOptions}
 					/>
@@ -167,8 +164,6 @@ const useSetClaimPromotionFetcher = () => {
 					<H5ClaimAmountModal
 						bonusCode={bonusCode}
 						promotionType={promotionType}
-						minAmount={requiredAmount}
-						maxAmount={maxAmount}
 						onSetClaimPromotion={onSetClaimPromotion}
 						tierAmountListSelectOptions={tierAmountListSelectOptions}
 					/>
