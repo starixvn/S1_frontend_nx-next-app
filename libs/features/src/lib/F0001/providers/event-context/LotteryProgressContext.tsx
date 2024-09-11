@@ -29,6 +29,7 @@ export enum StageEvent {
 	'PlayTicketPrintAnimation',
 	'PlayTicketCutOffAnimation',
 	'PlayShutdownAnimation',
+	'JackpotResult',
 	'FinalResult',
 }
 
@@ -63,15 +64,15 @@ const stages: Set<StageEvent>[] = [
 	[StageEvent.DrawingJackpot, StageEvent.RunningNumbers],
 	[
 		StageEvent.DrawingJackpot,
-		StageEvent.FinalResult,
+		StageEvent.JackpotResult,
 		StageEvent.PlayTicketCutOffAnimation,
 	],
 	[
 		StageEvent.DrawingJackpot,
-		StageEvent.FinalResult,
+		StageEvent.JackpotResult,
 		StageEvent.PlayShutdownAnimation,
 	],
-	[StageEvent.DrawingJackpot, StageEvent.FinalResult],
+	[StageEvent.FinalResult],
 ].map(events => new Set(events))
 
 /**	為了同步途中進場開獎進度，預先錄製的各階段開始時間 */
@@ -235,7 +236,7 @@ export const LotteryProgressProvider = ({
 
 		if (
 			isJackpot &&
-			stage.has(StageEvent.FinalResult) &&
+			stage.has(StageEvent.JackpotResult) &&
 			stage.has(StageEvent.PlayShutdownAnimation)
 		) {
 			const prizeData: ICustLotteryHistoryWinnerData = {
@@ -275,7 +276,7 @@ export const LotteryProgressProvider = ({
 		}
 
 		if (stage.has(StageEvent.DrawingJackpot)) {
-			const timer = setTimeout(toNext, 3000)
+			const timer = setTimeout(toNext, 5000)
 			return () => clearTimeout(timer)
 		}
 
