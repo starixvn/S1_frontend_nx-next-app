@@ -78,19 +78,16 @@ import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import { ISetClaimPromotionArgs } from '@nx-next-app/service'
-import { PromotionTypeEnum, SelectOptionType } from '@nx-next-app/types'
-import { revertNumberFormat } from '@nx-next-app/utils'
+import { SelectOptionType } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
 import { useForm } from 'react-hook-form'
 
 const ClaimAmountModal = ({
 	bonusCode,
-	promotionType,
 	onSetClaimPromotion,
 	tierAmountListSelectOptions,
 }: {
 	bonusCode: string
-	promotionType: PromotionTypeEnum
 	onSetClaimPromotion: ({
 		bonusCode,
 		lockedAmount,
@@ -98,9 +95,7 @@ const ClaimAmountModal = ({
 	tierAmountListSelectOptions: SelectOptionType[]
 }) => {
 	const { t } = useTranslation()
-	const {
-		userInfo: { currencyId },
-	} = useAuth()
+
 	const { closeModal } = useGlobalModal()
 
 	const { handleSubmit, setValue } = useForm<{
@@ -108,18 +103,10 @@ const ClaimAmountModal = ({
 	}>()
 
 	const onSubmit = ({ amount }: { amount: string | undefined | number }) => {
-		if (promotionType === PromotionTypeEnum.FirstDeposit) {
-			const lockedAmount = revertNumberFormat(amount, currencyId)
-			onSetClaimPromotion({
-				bonusCode,
-				lockedAmount: Number(lockedAmount),
-			})
-		} else if (amount) {
-			onSetClaimPromotion({
-				bonusCode,
-				lockedAmount: Number(amount),
-			})
-		}
+		onSetClaimPromotion({
+			bonusCode,
+			lockedAmount: Number(amount),
+		})
 	}
 
 	return (
