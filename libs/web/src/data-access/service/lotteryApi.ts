@@ -1,3 +1,4 @@
+import { ILotteryData } from '@nx-next-app/features/F0001/providers/event-context'
 import {
 	baseAxios,
 	eventApiUrl,
@@ -6,7 +7,6 @@ import {
 } from '@nx-next-app/service'
 import { AxiosRequestConfig } from 'axios'
 import dayjs from 'dayjs'
-import { ILotteryData } from '../../../../features/src/lib/F0001/providers/event-context'
 
 export const getCustomLotteryDataForClient = async (
 	config?: AxiosRequestConfig
