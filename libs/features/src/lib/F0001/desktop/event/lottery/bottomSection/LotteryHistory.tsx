@@ -34,8 +34,9 @@ const LotteryHistory = () => {
 					>
 						{selectedRound && (
 							<button type='button' className='btn'>
-								Round {selectedRound.roundId} (
-								{dayjs(selectedRound.startDate).format('YYYY/M/D')} -{' '}
+								{t('Label_Event_Round')} {selectedRound.roundId} (
+								{dayjs(selectedRound.startDate).format('YYYY/M/D')}
+								{' - '}
 								{dayjs(selectedRound.endDate).format('YYYY/M/D')})
 							</button>
 						)}
@@ -48,7 +49,8 @@ const LotteryHistory = () => {
 										onClick={() => setSelectedRound(round)}
 									>
 										Round {round.roundId} (
-										{dayjs(round.startDate).format('YYYY/M/D')} -{' '}
+										{dayjs(round.startDate).format('YYYY/M/D')}
+										{' - '}
 										{dayjs(round.endDate).format('YYYY/M/D')})
 									</div>
 								))}
