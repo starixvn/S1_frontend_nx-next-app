@@ -28526,6 +28526,50 @@ input[type=number] {
 .event-lottery-popup.rules .jackpot-group .sticker-group .icon {
   width: 100%;
 }
+.event-lottery-popup.maintenance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #fff !important;
+  border: none !important;
+  min-height: 45dvh;
+  width: 35%;
+}
+.event-lottery-popup.maintenance .popup-content {
+  padding: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 30px;
+}
+.event-lottery-popup.maintenance .popup-content .maintenance-img img {
+  width: 150px;
+}
+.event-lottery-popup.maintenance .popup-content .title {
+  font-size: 30px;
+  text-align: center;
+  color: black;
+}
+.event-lottery-popup.maintenance .popup-content .title-group p {
+  text-align: center;
+}
 @media (max-width: 992px) {
   .event-lottery-popup {
     width: 100% !important;
@@ -28727,6 +28771,35 @@ input[type=number] {
   font-weight: bold;
 }
 .lottery-wrapper .slot .lottery-screen .screen.progress .subtitle {
+  font-size: calc(10px + 0.35vw);
+  color: #fff;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-weight: 600;
+}
+.lottery-wrapper .slot .lottery-screen .screen.lotteryresult {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.lottery-wrapper .slot .lottery-screen .screen.lotteryresult .title {
+  font-size: calc(18px + 0.65vw);
+  color: #fff;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+.lottery-wrapper .slot .lottery-screen .screen.lotteryresult .subtitle {
   font-size: calc(10px + 0.35vw);
   color: #fff;
   -ms-flex-item-align: center;
@@ -29164,6 +29237,39 @@ input[type=number] {
   font-weight: bold;
 }
 .lottery .main-content .lottery-div > .wrapper .lottery-content .progress .sub-title {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .lottery-result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .lottery-result .result {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #EB801D;
+  gap: 8px;
+  font-weight: bold;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: 36px;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .lottery-result .result .sub-title {
   font-size: 20px;
   text-align: center;
   font-weight: 600;
@@ -30028,6 +30134,7 @@ input[type=number] {
 }
 .lottery .main-content .tab-content-result .result-list .result-head div:first-child {
   padding: 0 30px;
+  white-space: nowrap;
 }
 .lottery .main-content .tab-content-result .result-list .result-item > div {
   background-color: #383040;

@@ -21815,6 +21815,50 @@ input[type=number] .btn-logout {
   color: #EB801D;
   font-weight: bold;
 }
+.event-lottery-popup.maintenance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #fff !important;
+  border: none !important;
+  min-height: 45dvh;
+  width: 35%;
+}
+.event-lottery-popup.maintenance .popup-content {
+  padding: 4.5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3vw;
+}
+.event-lottery-popup.maintenance .popup-content .maintenance-img img {
+  width: 30vw;
+}
+.event-lottery-popup.maintenance .popup-content .title {
+  font-size: calc(14px + 1.2vw);
+  text-align: center;
+  color: black;
+}
+.event-lottery-popup.maintenance .popup-content .title-group p {
+  text-align: center;
+}
 .event-lottery-popup.copy {
   border-radius: 15px 15px 15px 0px !important;
   min-height: 45dvh;
@@ -22905,6 +22949,39 @@ input[type=number] .btn-logout {
   font-weight: bold;
 }
 .lottery .main-content .lottery-div > .wrapper .lottery-content .progress .sub-title {
+  font-size: calc(10px + 0.8vw);
+  text-align: center;
+  font-weight: 600;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .lottery-result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .lottery-result .result {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #EB801D;
+  gap: 8px;
+  font-weight: bold;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: calc(16px + 1vw);
+}
+.lottery .main-content .lottery-div > .wrapper .lottery-content .lottery-result .result .sub-title {
   font-size: calc(10px + 0.8vw);
   text-align: center;
   font-weight: 600;
