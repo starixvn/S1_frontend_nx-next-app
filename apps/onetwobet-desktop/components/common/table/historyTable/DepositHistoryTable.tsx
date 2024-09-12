@@ -9,7 +9,6 @@ import { useAuth } from '@nx-next-app/data-access'
 import { IDepositInfoHistoryData } from '@nx-next-app/service'
 import { numberFormat } from '@nx-next-app/utils'
 import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
 import {
 	DepositStatusClassName,
 	DepositStatusClassNameEnum,
@@ -19,8 +18,6 @@ import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import Table, { ITableColumns } from '../Table'
-
-dayjs.extend(utc)
 
 const HistoryMsgModal = dynamic(
 	() => import('@12b-desktop/components/history/modal/HistoryMsgModal'),
