@@ -1126,6 +1126,21 @@ img {
   border: 1px solid #caa66f !important;
   color: #caa66f !important;
 }
+.white.borderless {
+  border: none !important;
+  color: #000 !important;
+}
+.white.borderless:hover {
+  background: #e6e6e6 !important;
+}
+
+.indigo {
+  background: #011FD4 !important;
+  color: #fff;
+}
+.indigo:hover {
+  background: #1549FF !important;
+}
 
 button[disabled] {
   background: #a5aab1 !important;
@@ -1160,6 +1175,20 @@ button[disabled] {
   background: #fff !important;
   border: 1px solid #caa66f !important;
   color: #caa66f !important;
+}
+.btn-group .white.borderless {
+  border: none !important;
+  color: #000 !important;
+}
+.btn-group .white.borderless:hover {
+  background: #e6e6e6 !important;
+}
+.btn-group .indigo {
+  background: #011FD4 !important;
+  color: #fff;
+}
+.btn-group .indigo:hover {
+  background: #1549FF !important;
 }
 .btn-group button[disabled] {
   background: #a5aab1 !important;
@@ -1414,7 +1443,7 @@ div[tabindex="-1"] {
   width: 50vw;
   height: 48vw;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/spread.png) no-repeat;
+  background: url(https://banner.picasso12.com/h5/img/spread.png) no-repeat;
   background-size: 100%;
   top: -5vw;
   left: 20vw;
@@ -2315,7 +2344,7 @@ main .gameList .icon-new {
   margin: 2vw 0 0;
 }
 #popup.ErrorPage {
-  background: url(https://banner.0814media.net/h5/img/errorBG.jpg) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/errorBG.jpg) no-repeat center/cover;
 }
 #popup.ErrorPage .icon-close {
   position: absolute;
@@ -2789,7 +2818,7 @@ main .gameList .icon-new {
 }
 #popup.promospop {
   width: 100%;
-  background: white;
+  background: #000;
   padding: 0;
   height: 100%;
   overflow-y: auto;
@@ -3489,7 +3518,7 @@ main .gameList .icon-new {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: url(https://banner.0814media.net/h5/img/4.0/username.png) no-repeat center/100%;
+  background: url(https://banner.picasso12.com/h5/img/4.0/username.png) no-repeat center/100%;
   height: 14vw;
   width: 47vw;
   color: white;
@@ -3532,34 +3561,34 @@ main .gameList .icon-new {
 }
 @-webkit-keyframes bigwinpopup-en {
   0% {
-    background: url(https://banner.0814media.net/h5/img/4.0/popup-en-2.png) no-repeat center/cover;
+    background: url(https://banner.picasso12.com/h5/img/4.0/popup-en-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/4.0/popup-en-1.png) no-repeat center/cover;
+    background: url(https://banner.picasso12.com/h5/img/4.0/popup-en-1.png) no-repeat center/cover;
   }
 }
 @keyframes bigwinpopup-en {
   0% {
-    background: url(https://banner.0814media.net/h5/img/4.0/popup-en-2.png) no-repeat center/cover;
+    background: url(https://banner.picasso12.com/h5/img/4.0/popup-en-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/4.0/popup-en-1.png) no-repeat center/cover;
+    background: url(https://banner.picasso12.com/h5/img/4.0/popup-en-1.png) no-repeat center/cover;
   }
 }
 @-webkit-keyframes bigwinpopup-id {
   0% {
-    background: url(https://banner.0814media.net/h5/img/4.0/popup-id-2.png) no-repeat center/cover;
+    background: url(https://banner.picasso12.com/h5/img/4.0/popup-id-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/4.0/popup-id-1.png) no-repeat center/cover;
+    background: url(https://banner.picasso12.com/h5/img/4.0/popup-id-1.png) no-repeat center/cover;
   }
 }
 @keyframes bigwinpopup-id {
   0% {
-    background: url(https://banner.0814media.net/h5/img/4.0/popup-id-2.png) no-repeat center/cover;
+    background: url(https://banner.picasso12.com/h5/img/4.0/popup-id-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/4.0/popup-id-1.png) no-repeat center/cover;
+    background: url(https://banner.picasso12.com/h5/img/4.0/popup-id-1.png) no-repeat center/cover;
   }
 }
 #popup.bigwinpop .money {
@@ -3658,7 +3687,7 @@ main .gameList .icon-new {
   border-radius: 3vw;
 }
 #popup.livesportspop .livesports > div .livesports-item {
-  background: url(https://banner.0814media.net/h5/img/4.0/team-bg.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/4.0/team-bg.png) no-repeat center/cover;
   height: 35vw;
   margin-bottom: 1.5vw;
   overflow: hidden;
@@ -4150,7 +4179,7 @@ main .gameList .icon-new {
   opacity: 0;
 }
 .header .title.searchBar .infoModule .inputBox, .header .title.searchBar .infoModule .euro .inputBox-event, .euro .header .title.searchBar .infoModule .inputBox-event, .header .title.searchBar .infoModule .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .header .title.searchBar .infoModule .inputBox-event {
-  background: #c6d4f1;
+  background: #fff;
   margin-left: 15vw;
   height: 8vw;
 }
@@ -4357,17 +4386,17 @@ main .gameList .icon-new {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #5574A7;
+  color: #4c5356;
   background: #E4E4E4;
   border-radius: 1vw;
   padding: 3vw;
 }
 .walletTotal span {
-  color: #112240;
+  color: #4c5356;
   margin: 0 2vw;
 }
 .walletTotal .icon {
-  color: #112240;
+  color: #000;
   background: none;
 }
 
@@ -5091,7 +5120,6 @@ main .gameList .icon-new {
   display: flex;
   padding: 5vw 8vw;
   width: calc(100% - 16vw);
-  border-bottom: 1px solid #5574A7;
   overflow: scroll;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -5236,7 +5264,7 @@ main .gameList .icon-new {
   z-index: 1;
 }
 .bankAccount .account .icon {
-  color: #E0E6E9;
+  color: #dfc9a7;
 }
 .bankAccount .account .icon.clickBtn::before {
   color: #fff;
@@ -5840,7 +5868,7 @@ button.clickBtn.secondary {
           justify-content: space-between;
   width: calc(100% - 20vw);
   position: fixed;
-  background: white;
+  background: #fff;
   left: -3vw;
   z-index: 2;
   top: 25vw;
@@ -6037,6 +6065,7 @@ button.clickBtn.secondary {
   top: calc(49vw + 2px);
   left: 0;
   position: absolute;
+  background-color: #000;
 }
 .casino .functionList.active {
   position: fixed;
@@ -6852,7 +6881,7 @@ span.important {
   z-index: 1;
   top: 3.5vw;
   left: -0.5vw;
-  background: #F77A00;
+  background: #4B902E;
   border-radius: 0 0 10px 0;
   width: 30px;
   height: 25px;
@@ -6868,7 +6897,7 @@ span.important {
   content: "CLAIMED";
 }
 .promotions .new {
-  border-color: #F77A00 transparent transparent transparent;
+  border-color: #4B902E transparent transparent transparent;
 }
 .promotions .new:before {
   content: "NEW";
@@ -6878,7 +6907,7 @@ span.important {
 .promotions .proInfomodule {
   padding: 3vw;
   border: 0;
-  background: #D2E2F9;
+  background: #fff;
   line-height: 24px;
   position: relative;
   margin: 3vw 0;
@@ -6895,7 +6924,7 @@ span.important {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: #e92529;
+  background: #4c5356;
 }
 .promotions .promodule.active .rollover,
 .promotions .proInfomodule.active .rollover {
@@ -6980,7 +7009,7 @@ span.important {
 .promotions .proInfomodule .protitle {
   margin: 1vw 0 0;
   font-size: 4vw;
-  color: #caa66f;
+  color: #000;
   font-weight: bold;
   padding-left: 1vw;
 }
@@ -7027,6 +7056,9 @@ span.important {
 .promotions .proInfomodule .account {
   line-height: initial;
   padding: 2vw;
+  background: #e6e6e6;
+  border-bottom: none;
+  border-radius: 1vw;
 }
 .promotions .promodule .account .info,
 .promotions .proInfomodule .account .info {
@@ -7040,11 +7072,18 @@ span.important {
 .promotions .promodule .account .info span:first-child,
 .promotions .proInfomodule .account .info span:first-child {
   font-weight: bold;
-  color: #b2b2b2;
+  color: #a19f9f;
+}
+.promotions .promodule .account span,
+.promotions .proInfomodule .account span {
+  color: #AEACAC;
 }
 .promotions .promodule strong,
 .promotions .proInfomodule strong {
   font-weight: bold !important;
+}
+.promotions .promodule.active {
+  opacity: 0.4;
 }
 .promotions .proInfomodule {
   background: transparent;
@@ -7246,12 +7285,12 @@ span.important {
   border-radius: 10px;
 }
 .progressBarModule .icon-spinner11 {
-  background: #5574A7;
+  background: #4B902E;
   color: white;
   border-radius: 100%;
   margin: 0 0 0 2vw;
-  width: 7vw;
-  height: 7vw;
+  width: 4.5vw;
+  height: 4.5vw;
 }
 .progressBarModule .icon-spinner11:before {
   font-size: 3vw;
@@ -7443,7 +7482,7 @@ span.important {
 }
 
 .installGuide {
-  background: #2d023a url(https://banner.0814media.net/h5/img/918/bg.jpg) no-repeat center top/180vw;
+  background: #2d023a url(https://banner.picasso12.com/h5/img/918/bg.jpg) no-repeat center top/180vw;
   width: calc(100% - 8vw);
   height: calc(100% - 40vw);
   padding: 20vw 4vw 20vw;
@@ -7610,7 +7649,7 @@ span.important {
   overflow: unset;
 }
 .installGuide.mega {
-  background: url(https://banner.0814media.net/h5/img/megabg.jpg) no-repeat center top/cover;
+  background: url(https://banner.picasso12.com/h5/img/megabg.jpg) no-repeat center top/cover;
 }
 .installGuide.mega section .copyinfo .inputBox, .installGuide.mega section .copyinfo .euro .inputBox-event, .euro .installGuide.mega section .copyinfo .inputBox-event, .installGuide.mega section .copyinfo .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .installGuide.mega section .copyinfo .inputBox-event {
   border: 1px solid #0ad9f5;
@@ -7836,7 +7875,7 @@ span.important {
 }
 .referral .title {
   font-size: 4.5vw;
-  color: #112240;
+  color: #fff;
   text-align: center;
   padding: 8vw 0 5.5vw 0;
 }
@@ -7853,13 +7892,12 @@ span.important {
   width: 100%;
   line-height: 1.2;
   position: relative;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(55%, rgb(228, 244, 255)), color-stop(75%, rgba(240, 249, 255, 0.3)), color-stop(95%, rgba(255, 255, 255, 0)));
-  background: linear-gradient(180deg, rgb(228, 244, 255) 55%, rgba(240, 249, 255, 0.3) 75%, rgba(255, 255, 255, 0) 95%);
+  background: #1F1F1F;
   margin: -8vw auto 0;
   border-radius: 6vw 6vw 0 0;
 }
 .refer .subtitle {
-  color: #112240;
+  color: #fff;
   font-weight: bold;
   margin-bottom: 10px;
   font-size: 3.5vw;
@@ -7880,7 +7918,7 @@ span.important {
   font-size: 3.2vw;
   line-height: 1.3;
   font-weight: 600;
-  color: #777;
+  color: #242526;
   background: #FBFBFB;
   -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
@@ -7896,7 +7934,7 @@ span.important {
 .refer .referstatus-item div {
   font-size: 5.6vw;
   font-weight: bold;
-  color: #F77900;
+  color: #caa66f;
   margin-top: 20px;
 }
 .refer .referstatus-item div span {
@@ -7939,7 +7977,7 @@ span.important {
 .refer .referinfo-step .icon::after {
   content: "";
   display: block;
-  background: url(https://banner.0814media.net/h5/img/refer-dashLine.svg) no-repeat center/2vw 10vw;
+  background: url(https://banner.picasso12.com/h5/img/refer-dashLine.svg) no-repeat center/2vw 10vw;
   padding: 1vw 0;
   width: 2vw;
   height: 10vw;
@@ -7957,7 +7995,7 @@ span.important {
   margin-left: 2vw;
 }
 .refer .referinfo p {
-  color: #777;
+  color: #4c5356;
   font-size: 3.2vw;
 }
 .refer .referinfo-down {
@@ -7991,7 +8029,7 @@ span.important {
 .refer .referinfo-list .inputcopy::after {
   content: "";
   display: inline-block;
-  background: url(https://banner.0814media.net/h5/img/icon-copy.svg) no-repeat center/5vw 5vw;
+  background: url(https://banner.picasso12.com/h5/img/icon-copy.svg) no-repeat center/5vw 5vw;
   width: 5vw;
   height: 5vw;
   position: absolute;
@@ -8994,7 +9032,7 @@ span.important {
 .vip .vipPage .viptable-item-text li.High::before {
   content: "";
   display: block;
-  background: url(https://banner.0814media.net/h5/img/check.png) no-repeat center/100%;
+  background: url(https://banner.picasso12.com/h5/img/check.png) no-repeat center/100%;
   height: 3vw;
   width: 3vw;
 }
@@ -9054,7 +9092,7 @@ span.important {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: url(https://banner.0814media.net/h5/img/vip-bottom-bg.png) no-repeat center/100%;
+  background: url(https://banner.picasso12.com/h5/img/vip-bottom-bg.png) no-repeat center/100%;
   height: 100%;
   padding-bottom: 20vw;
   margin-top: 10vw;
@@ -9147,7 +9185,7 @@ span.important {
 }
 .depositModule > .title.fast:after {
   content: "";
-  background: url(https://banner.0814media.net/desktop/img/fast-icon.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/desktop/img/fast-icon.png) no-repeat center/cover;
   display: block;
   width: 14vw;
   height: 4vw;
@@ -9301,7 +9339,7 @@ span.important {
 }
 .depositModule .selectModule .bankName.fast::after {
   content: "";
-  background: url(https://banner.0814media.net/desktop/img/fast-icon.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/desktop/img/fast-icon.png) no-repeat center/cover;
   display: block;
   width: 13vw;
   height: 4vw;
@@ -9519,7 +9557,7 @@ span.important {
   width: 10vw;
   height: 10vw;
   margin: 0 auto !important;
-  background: url(https://banner.0814media.net/h5/img/qrpay.png) center/cover;
+  background: url(https://banner.picasso12.com/h5/img/qrpay.png) center/cover;
 }
 
 .icon-topup::before {
@@ -9528,7 +9566,7 @@ span.important {
   width: 10vw;
   height: 10vw;
   margin: 0 auto !important;
-  background: url(https://banner.0814media.net/h5/img/topup.png) center/cover;
+  background: url(https://banner.picasso12.com/h5/img/topup.png) center/cover;
 }
 
 .icon-quick::before {
@@ -9537,7 +9575,7 @@ span.important {
   width: 10vw;
   height: 10vw;
   margin: 0 auto !important;
-  background: url(https://banner.0814media.net/h5/img/quick-transfer.png) center/cover;
+  background: url(https://banner.picasso12.com/h5/img/quick-transfer.png) center/cover;
 }
 
 .icon-dou::before {
@@ -9546,7 +9584,7 @@ span.important {
   width: 10vw;
   height: 10vw;
   margin: 0 auto !important;
-  background: url(https://banner.0814media.net/h5/img/4.0/chat-transfer.png) center/cover;
+  background: url(https://banner.picasso12.com/h5/img/4.0/chat-transfer.png) center/cover;
 }
 
 .submenu {
@@ -9688,7 +9726,7 @@ span.important {
 }
 
 .promos .promosModule {
-  background: url(https://banner.0814media.net/h5/img/homepage/promobg.jpg) no-repeat left/cover;
+  background: url(https://banner.picasso12.com/h5/img/homepage/promobg.jpg) no-repeat left/cover;
 }
 .promos .promosModule > div:nth-child(1) {
   width: 100%;
@@ -9746,34 +9784,34 @@ span.important {
 
 .friendReferral {
   margin: 2vw;
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-en.jpg) no-repeat center/100%;
+  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-en.jpg) no-repeat center/100%;
   min-height: 42.5vw;
   border-radius: 5px;
   border: 1px solid #d2e2f9;
 }
 .friendReferral.en {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-en.jpg) no-repeat center/100%;
+  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-en.jpg) no-repeat center/100%;
 }
 .friendReferral.cs {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-cs.jpg) no-repeat center/100%;
+  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-cs.jpg) no-repeat center/100%;
 }
 .friendReferral.th {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-th.jpg) no-repeat center/100%;
+  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-th.jpg) no-repeat center/100%;
 }
 .friendReferral.id {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-id.jpg) no-repeat center/100%;
+  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-id.jpg) no-repeat center/100%;
 }
 .friendReferral.hi {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-hi.jpg) no-repeat center/100%;
+  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-hi.jpg) no-repeat center/100%;
 }
 .friendReferral.bd {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-bd.jpg) no-repeat center/100%;
+  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-bd.jpg) no-repeat center/100%;
 }
 .friendReferral.kh {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-kh.jpg) no-repeat center/100%;
+  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-kh.jpg) no-repeat center/100%;
 }
 .friendReferral.vn {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-vn.jpg) no-repeat center/100%;
+  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-vn.jpg) no-repeat center/100%;
 }
 .friendReferral-btn {
   font-size: 2.8vw;
@@ -9842,7 +9880,7 @@ span.important {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: url(https://banner.0814media.net/h5/img/gamenamebg.png) no-repeat center top/cover;
+  background: url(https://banner.picasso12.com/h5/img/gamenamebg.png) no-repeat center top/cover;
 }
 @media (max-width: 325px) {
   .upcomingmatches .swiper-slide .teamNew .gamename {
@@ -10023,7 +10061,7 @@ span.important {
   font-size: 20vw;
 }
 .liveTv > .liveTvModule.active > .title {
-  background: url(https://banner.0814media.net/h5/img/livetvtitlebggold.png) no-repeat center/75% 100%;
+  background: url(https://banner.picasso12.com/h5/img/livetvtitlebggold.png) no-repeat center/75% 100%;
 }
 .liveTv > .liveTvModule.active > .title:before {
   color: red;
@@ -10041,7 +10079,7 @@ span.important {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: url(https://banner.0814media.net/h5/img/livetvtitlebg.png) no-repeat center/75% 100%;
+  background: url(https://banner.picasso12.com/h5/img/livetvtitlebg.png) no-repeat center/75% 100%;
   border-radius: 5px 5px 0 0;
   color: white;
   position: relative;
@@ -10109,7 +10147,7 @@ span.important {
   content: "";
   width: 64vw;
   height: 58vw;
-  background: url(https://banner.0814media.net/img/liveCasinoBox/girl.png) no-repeat;
+  background: url(https://banner.picasso12.com/img/liveCasinoBox/girl.png) no-repeat;
   position: absolute;
   right: -22vw;
   bottom: 0.5vw;
@@ -10259,7 +10297,7 @@ span.important {
 }
 
 .moduleTitle {
-  background: url(https://banner.0814media.net/h5/img/homepage/titlebg.png) no-repeat;
+  background: url(https://banner.picasso12.com/h5/img/homepage/titlebg.png) no-repeat;
   margin: 8vw 2vw 3vw;
   font-weight: bold;
   padding: 0 0 1vw 5vw;
@@ -10283,7 +10321,7 @@ span.important {
 }
 .moduleTitle > a::after {
   content: "";
-  background: url(https://banner.0814media.net/h5/img/homepage/more.png) no-repeat;
+  background: url(https://banner.picasso12.com/h5/img/homepage/more.png) no-repeat;
   width: 20px;
   height: 20px;
   margin: 1vw 1vw 0;
@@ -10914,7 +10952,7 @@ span.important {
   margin: 13vw 2vw 7vw;
   border-radius: 1vw;
   height: 37vw;
-  background: url(https://banner.0814media.net/h5/img/homepage/jpotbg-a.png) no-repeat 100%/cover;
+  background: url(https://banner.picasso12.com/h5/img/homepage/jpotbg-a.png) no-repeat 100%/cover;
 }
 .jpot.active {
   -webkit-filter: grayscale(1);
@@ -10943,7 +10981,7 @@ span.important {
   width: 100%;
 }
 .jpot > .number {
-  background: url(https://banner.0814media.net/h5/img/homepage/jpot-title.png) no-repeat;
+  background: url(https://banner.picasso12.com/h5/img/homepage/jpot-title.png) no-repeat;
   position: absolute;
   width: 67vw;
   height: 9.6vw;
@@ -10989,7 +11027,7 @@ span.important {
   content: "";
   display: block;
   position: absolute;
-  background: url(https://banner.0814media.net/h5/img/homepage/coin.png) no-repeat 70%;
+  background: url(https://banner.picasso12.com/h5/img/homepage/coin.png) no-repeat 70%;
   width: 10vw;
   height: 10vw;
   top: calc(50% - 5vw);
@@ -11038,25 +11076,25 @@ span.important {
 
 @-webkit-keyframes jpot {
   0% {
-    background: url(https://banner.0814media.net/h5/img/jpotbg.png) no-repeat center/cover;
+    background: url(https://banner.picasso12.com/h5/img/jpotbg.png) no-repeat center/cover;
   }
   50% {
-    background: url(https://banner.0814media.net/h5/img/jpotbga.png) no-repeat center/cover;
+    background: url(https://banner.picasso12.com/h5/img/jpotbga.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/jpotbg.png) no-repeat center/cover;
+    background: url(https://banner.picasso12.com/h5/img/jpotbg.png) no-repeat center/cover;
   }
 }
 
 @keyframes jpot {
   0% {
-    background: url(https://banner.0814media.net/h5/img/jpotbg.png) no-repeat center/cover;
+    background: url(https://banner.picasso12.com/h5/img/jpotbg.png) no-repeat center/cover;
   }
   50% {
-    background: url(https://banner.0814media.net/h5/img/jpotbga.png) no-repeat center/cover;
+    background: url(https://banner.picasso12.com/h5/img/jpotbga.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/jpotbg.png) no-repeat center/cover;
+    background: url(https://banner.picasso12.com/h5/img/jpotbg.png) no-repeat center/cover;
   }
 }
 .swithModule {
@@ -11219,7 +11257,7 @@ span.important {
   background: #97b4e0;
 }
 .apppage .app {
-  background: url(https://banner.0814media.net/h5/img/app/new-appbg.png) no-repeat top center/cover;
+  background: url(https://banner.picasso12.com/h5/img/app/new-appbg.png) no-repeat top center/cover;
 }
 .apppage .appHeader {
   height: 8vw;
@@ -11709,18 +11747,18 @@ span.important {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   height: 12vw;
-  -webkit-filter: brightness(70%) contrast(50%) sepia(1) hue-rotate(170deg);
-          filter: brightness(70%) contrast(50%) sepia(1) hue-rotate(170deg);
+  -webkit-filter: brightness(70%) contrast(50%) sepia(1) hue-rotate(0deg);
+          filter: brightness(70%) contrast(50%) sepia(1) hue-rotate(0deg);
 }
 
 .filterSelect {
   height: 10vw;
-  background: #e2e4e7;
+  background: #1F1F1F;
   margin-bottom: 0;
 }
 .filterSelect button,
 .filterSelect a {
-  color: #a1a1a1;
+  color: #AEACAC;
   width: auto;
   min-width: auto;
   margin: 0 2vw;
@@ -11731,18 +11769,18 @@ span.important {
 .filterSelect button.active,
 .filterSelect a.active {
   margin-top: 1vw;
-  color: #6c88b5;
-  border-bottom: 1vw #6c88b5 solid;
+  color: #caa66f;
+  border-bottom: 1vw #caa66f solid;
 }
 
 .partnerSelect button,
 .partnerSelect a {
-  background: #D2E2F9;
+  background: #4E4E4E;
   margin-right: 1vw;
 }
 .partnerSelect button.active,
 .partnerSelect a.active {
-  background: #284985;
+  background: #caa66f;
   color: white;
 }
 .partnerSelect button.active img,
@@ -11802,8 +11840,7 @@ span.important {
   margin: 7vw 0;
 }
 .mission-title {
-  background: -webkit-gradient(linear, left top, right top, from(rgb(17, 34, 64)), color-stop(70%, rgb(42, 79, 164)));
-  background: linear-gradient(90deg, rgb(17, 34, 64) 0%, rgb(42, 79, 164) 70%);
+  background: #525252;
   padding: 1vw 0 1vw 2vw;
 }
 .mission-progress {
@@ -11843,10 +11880,10 @@ span.important {
   border-radius: 20px 0 0 20px;
 }
 .mission-progress > div .state.completed {
-  background: #2A4FA4;
+  background: #4B902E;
 }
 .mission-progress > div .state.undone {
-  background: #858585;
+  background: #B0B3B8;
 }
 .mission-progress-item .progress {
   background: white;
@@ -11855,8 +11892,8 @@ span.important {
   border-radius: 20px;
 }
 .mission-progress-item .progress .progress-bar {
-  background: -webkit-gradient(linear, left top, right top, from(rgb(42, 79, 164)), color-stop(70%, rgb(113, 156, 255)));
-  background: linear-gradient(90deg, rgb(42, 79, 164) 0%, rgb(113, 156, 255) 70%);
+  background: -webkit-gradient(linear, left top, right top, from(#5E0000), to(#FF0000));
+  background: linear-gradient(to right, #5E0000, #FF0000);
   height: 2vw;
   border-radius: 20px;
 }
@@ -11866,8 +11903,8 @@ span.important {
   text-align: end;
 }
 .mission-progress-item.turnover .progress-bar {
-  background: -webkit-gradient(linear, left top, right top, from(rgb(53, 105, 227)), color-stop(70%, rgb(248, 69, 255)));
-  background: linear-gradient(90deg, rgb(53, 105, 227) 0%, rgb(248, 69, 255) 70%);
+  background: -webkit-gradient(linear, left top, right top, from(#8E4501), to(#D8BD93));
+  background: linear-gradient(to right, #8E4501 0%, #D8BD93 100%);
 }
 .mission-progress-text {
   display: -webkit-box;
@@ -11888,7 +11925,7 @@ span.important {
 
 /*checkspeed*/
 .checkspeed {
-  background: #0339a2 url(https://banner.0814media.net/h5/img/check_speed/bg.jpg) no-repeat center 24vw/100% auto;
+  background: #0339a2 url(https://banner.picasso12.com/h5/img/check_speed/bg.jpg) no-repeat center 24vw/100% auto;
   height: auto;
 }
 .checkspeed img {
@@ -12257,14 +12294,14 @@ span.important {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(https://banner.0814media.net/h5/img/event/wheel/bg.jpg) no-repeat top center/175vw, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
-  background: url(https://banner.0814media.net/h5/img/event/wheel/bg.jpg) no-repeat top center/175vw, linear-gradient(to right, #100d41, #250333);
+  background: url(https://banner.picasso12.com/h5/img/event/wheel/bg.jpg) no-repeat top center/175vw, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
+  background: url(https://banner.picasso12.com/h5/img/event/wheel/bg.jpg) no-repeat top center/175vw, linear-gradient(to right, #100d41, #250333);
   padding: 0 0 24vw;
 }
 .wheelEvent .eventTitleBg {
   width: 56vw;
   height: 13vw;
-  background: url(https://banner.0814media.net/h5/img/event/wheel/event_title_bg.png) no-repeat top center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/wheel/event_title_bg.png) no-repeat top center/cover;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12339,7 +12376,7 @@ span.important {
   width: 60vw;
   height: 60vw;
   position: absolute;
-  background: url(https://banner.0814media.net/h5/img/event/wheel/wheelbg.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/wheel/wheelbg.png) no-repeat center/cover;
   border-radius: 100%;
   margin-top: 1vw;
   font-weight: bold;
@@ -12702,7 +12739,7 @@ span.important {
   right: 50px;
   width: 60px;
   height: 46px;
-  background: url(https://banner.0814media.net/h5/img/event/wheel/coin.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/wheel/coin.png) no-repeat center/cover;
 }
 .wheelPopModule .wheelPop .animation .coin:nth-child(2) {
   top: 100px;
@@ -13109,43 +13146,43 @@ span.important {
   margin-right: 5px;
 }
 .flag.ch:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/ch.jpg) no-repeat top left/cover;
+  background: url(https://banner.picasso12.com/desktop/img/flag/ch.jpg) no-repeat top left/cover;
 }
 .flag.cs:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/cs.jpg) no-repeat top left/cover;
+  background: url(https://banner.picasso12.com/desktop/img/flag/cs.jpg) no-repeat top left/cover;
 }
 .flag.en:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/en.jpg) no-repeat top left/cover;
+  background: url(https://banner.picasso12.com/desktop/img/flag/en.jpg) no-repeat top left/cover;
 }
 .flag.th:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/th.jpg) no-repeat top left/cover;
+  background: url(https://banner.picasso12.com/desktop/img/flag/th.jpg) no-repeat top left/cover;
 }
 .flag.id:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/id.jpg) no-repeat top left/cover;
+  background: url(https://banner.picasso12.com/desktop/img/flag/id.jpg) no-repeat top left/cover;
 }
 .flag.vn:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/vn.jpg) no-repeat top left/cover;
+  background: url(https://banner.picasso12.com/desktop/img/flag/vn.jpg) no-repeat top left/cover;
 }
 .flag.in:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/in.jpg) no-repeat top left/cover;
+  background: url(https://banner.picasso12.com/desktop/img/flag/in.jpg) no-repeat top left/cover;
 }
 .flag.bd:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/bd.jpg) no-repeat top left/cover;
+  background: url(https://banner.picasso12.com/desktop/img/flag/bd.jpg) no-repeat top left/cover;
 }
 .flag.kh:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
+  background: url(https://banner.picasso12.com/desktop/img/flag/kh.jpg) no-repeat top left/cover;
 }
 .flag.gb:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
+  background: url(https://banner.picasso12.com/desktop/img/flag/gb.jpg) no-repeat top left/cover;
 }
 .flag.br:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/br.jpg) no-repeat top left/cover;
+  background: url(https://banner.picasso12.com/desktop/img/flag/br.jpg) no-repeat top left/cover;
 }
 .flag.ko:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/ko.jpg) no-repeat top left/cover;
+  background: url(https://banner.picasso12.com/desktop/img/flag/ko.jpg) no-repeat top left/cover;
 }
 .flag.jp:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/jp.jpg) no-repeat top left/cover;
+  background: url(https://banner.picasso12.com/desktop/img/flag/jp.jpg) no-repeat top left/cover;
 }
 
 .addressModule {
@@ -13197,11 +13234,11 @@ span.important {
 .worldcupEvent .eventPage.top {
   position: relative;
   height: 200vw;
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/bg.jpg) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/worldcup/bg.jpg) no-repeat center/cover;
 }
 .worldcupEvent .eventPage.middle {
   position: relative;
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/bg2.jpg) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/worldcup/bg2.jpg) no-repeat center/cover;
   text-align: center;
   padding: 10vw 0;
 }
@@ -13344,7 +13381,7 @@ span.important {
   display: block;
   width: 4vw;
   height: 4vw;
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/icon-fifa.svg) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/worldcup/icon-fifa.svg) no-repeat center/cover;
   position: absolute;
   left: -0.5vw;
   top: 1.05vw;
@@ -13353,8 +13390,8 @@ span.important {
   position: relative;
   padding: 5vw 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/fixturebg.jpg) no-repeat top center/contain, -webkit-gradient(linear, left top, left bottom, color-stop(50%, #300113), to(#4a031e));
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/fixturebg.jpg) no-repeat top center/contain, linear-gradient(180deg, #300113 50%, #4a031e 100%);
+  background: url(https://banner.picasso12.com/h5/img/event/worldcup/fixturebg.jpg) no-repeat top center/contain, -webkit-gradient(linear, left top, left bottom, color-stop(50%, #300113), to(#4a031e));
+  background: url(https://banner.picasso12.com/h5/img/event/worldcup/fixturebg.jpg) no-repeat top center/contain, linear-gradient(180deg, #300113 50%, #4a031e 100%);
 }
 .worldcupEvent .fixture .title {
   margin: 3vw auto 18vw;
@@ -13837,7 +13874,7 @@ span.important {
   left: 0;
   width: 10vw;
   height: 4.75vw;
-  background: url(https://banner.0814media.net/img/worldcup/ticket.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/img/worldcup/ticket.png) no-repeat center/cover;
 }
 .worldcupEvent .progressBar .progressItem.active .value {
   color: #02D2B8;
@@ -13933,7 +13970,7 @@ span.important {
   top: 2vw;
   width: 13vw;
   height: 2vw;
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/5deco.svg) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/worldcup/5deco.svg) no-repeat center/cover;
 }
 .worldcupEvent .info .subtitle:before {
   left: -15vw;
@@ -14201,12 +14238,12 @@ input:-webkit-autofill:active {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(https://banner.0814media.net/h5/img/event/angpao/bg-top.jpg) no-repeat top center/cover, #990100;
+  background: url(https://banner.picasso12.com/h5/img/event/angpao/bg-top.jpg) no-repeat top center/cover, #990100;
   min-height: 92vw;
 }
 .angpaoEvent .eventPage--bottom {
   min-width: 100%;
-  background: url(https://banner.0814media.net/h5/img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
+  background: url(https://banner.picasso12.com/h5/img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
   padding-top: 5vw;
   padding-bottom: 15vw;
 }
@@ -14305,7 +14342,7 @@ input:-webkit-autofill:active {
   font-size: 3.5vw;
   text-transform: uppercase;
   color: #fff;
-  background: url(https://banner.0814media.net/h5/img/event/angpao/btn.png) no-repeat top center/contain;
+  background: url(https://banner.picasso12.com/h5/img/event/angpao/btn.png) no-repeat top center/contain;
   width: 45vw;
   height: 12vw;
   line-height: 1;
@@ -14622,7 +14659,7 @@ input:-webkit-autofill:active {
   display: block;
   width: 130px;
   height: 58px;
-  background-image: url("https://banner.0814media.net/h5/img/logo_en_w.png");
+  background-image: url("https://banner.picasso12.com/h5/img/logo_en_w.png");
   background-size: 100%;
   background-repeat: no-repeat;
   -webkit-transition: ease 0.15s;
@@ -15403,7 +15440,7 @@ input[type=number] {
   width: 28vw;
   height: 16vw;
   pointer-events: none;
-  background: url(https://banner.0814media.net/h5/img/event/eurocup/logo-euro-ball.gif) center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/eurocup/logo-euro-ball.gif) center/cover;
 }
 .header-module .header-logo.eurocup + .splogo {
   -webkit-animation: eurologo 7.5s running infinite 0.5s;
@@ -15431,117 +15468,117 @@ input[type=number] {
   bottom: 1.5vw;
   width: 10vw !important;
   height: 10vw !important;
-  background: url(https://banner.0814media.net/h5/img/4.0/sp-aston-villa.png) center/cover;
+  background: url(https://banner.picasso12.com/h5/img/4.0/sp-aston-villa.png) center/cover;
   -webkit-clip-path: none !important;
           clip-path: none !important;
 }
 
 @-webkit-keyframes splogo {
   0% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0.1;
   }
   5% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   45% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   50% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0;
   }
   51% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0.1;
   }
   56% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   95% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0;
   }
 }
 
 @keyframes splogo {
   0% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0.1;
   }
   5% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   45% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   50% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0;
   }
   51% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0.1;
   }
   56% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   95% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0;
   }
 }
 @-webkit-keyframes eurologo {
   0% {
-    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(https://banner.picasso12.com/h5/img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(https://banner.picasso12.com/h5/img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
 }
 @keyframes eurologo {
   0% {
-    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(https://banner.picasso12.com/h5/img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(https://banner.picasso12.com/h5/img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
 }
 @-webkit-keyframes olympic {
   0% {
-    background: url(https://banner.0814media.net/h5/img/event/olympic/logo-paris.png) center/cover;
+    background: url(https://banner.picasso12.com/h5/img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/event/olympic/logo-paris.png) center/cover;
+    background: url(https://banner.picasso12.com/h5/img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
 }
 @keyframes olympic {
   0% {
-    background: url(https://banner.0814media.net/h5/img/event/olympic/logo-paris.png) center/cover;
+    background: url(https://banner.picasso12.com/h5/img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/event/olympic/logo-paris.png) center/cover;
+    background: url(https://banner.picasso12.com/h5/img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
 }
@@ -16009,14 +16046,14 @@ main.casino .banner {
 .home-hotmatch::after {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/4.0/sports-bg-new.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/4.0/sports-bg-new.png) no-repeat center/cover;
   height: 45vw;
   position: absolute;
   top: 0;
   width: 100%;
 }
 .home-hotmatch.br::after {
-  background: url(https://banner.0814media.net/h5/img/4.0/sports-bg.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/4.0/sports-bg.png) no-repeat center/cover;
 }
 .home-hotmatch-wrapper {
   display: -webkit-box;
@@ -16564,7 +16601,7 @@ main.casino .banner {
 }
 
 .footer {
-  background: url(https://banner.0814media.net/h5/img/4.0/footer-bg.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/4.0/footer-bg.png) no-repeat center/cover;
   height: 21.5vw;
   width: 100%;
   display: -webkit-box;
@@ -16890,7 +16927,7 @@ main.casino .banner {
 .menu-bottom-item .info::after {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/4.0/down.svg) no-repeat center/100%;
+  background: url(https://banner.picasso12.com/h5/img/4.0/down.svg) no-repeat center/100%;
   width: 3vw;
   height: 3vw;
   margin-left: 15vw;
@@ -17027,7 +17064,7 @@ main.casino .banner {
   border: 0;
 }
 .menu-bottom-item.active .info::after {
-  background: url(https://banner.0814media.net/h5/img/4.0/up.svg) no-repeat center/100%;
+  background: url(https://banner.picasso12.com/h5/img/4.0/up.svg) no-repeat center/100%;
 }
 .menu-bottom-item.active .option {
   display: block;
@@ -17048,7 +17085,7 @@ main.casino .banner {
 }
 
 .after .menu-top {
-  background: url(https://banner.0814media.net/h5/img/4.0/menu-after-bg.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/4.0/menu-after-bg.png) no-repeat center/cover;
   height: 55vw;
   border-radius: 0 0 20px 20px;
 }
@@ -17087,7 +17124,7 @@ main.casino .banner {
 .after .menu-top .profile-item > div > div a::after {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/4.0/right.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/4.0/right.png) no-repeat center/cover;
   height: 2vw;
   width: 2vw;
   margin-left: 1vw;
@@ -17246,37 +17283,37 @@ main.casino .banner {
   position: relative;
 }
 .after .menu-vip.vintage {
-  background: url(https://banner.0814media.net/h5/img/4.0/vintage-bg.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/4.0/vintage-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.vintage .right {
   background: #ffb773;
 }
 .after .menu-vip.silver {
-  background: url(https://banner.0814media.net/h5/img/4.0/silver-bg.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/4.0/silver-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.silver .right {
   background: #e9e9e9;
 }
 .after .menu-vip.gold {
-  background: url(https://banner.0814media.net/h5/img/4.0/gold-bg.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/4.0/gold-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.gold .right {
   background: #ffd965;
 }
 .after .menu-vip.titanium {
-  background: url(https://banner.0814media.net/h5/img/4.0/titanium-bg.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/4.0/titanium-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.titanium .right {
   background: #a5a5a5;
 }
 .after .menu-vip.diamond {
-  background: url(https://banner.0814media.net/h5/img/4.0/diamond-bg.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/4.0/diamond-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.diamond .right {
   background: #82F2FF;
 }
 .after .menu-vip.nova {
-  background: url(https://banner.0814media.net/h5/img/4.0/nova-bg.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/4.0/nova-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.nova .right {
   background: #efefef;
@@ -17341,12 +17378,12 @@ main.casino .banner {
   text-align: center;
 }
 .after .menu-vip .right .dot-progress .progress-bar-vertical {
-  background: url(https://banner.0814media.net/h5/img/4.0/dot-progress-bg.png) no-repeat left;
+  background: url(https://banner.picasso12.com/h5/img/4.0/dot-progress-bg.png) no-repeat left;
   height: 5vw;
   width: 100%;
 }
 .after .menu-vip .right .dot-progress .progress-now-vertical {
-  background: url(https://banner.0814media.net/h5/img/4.0/dot-progress.png) no-repeat left;
+  background: url(https://banner.picasso12.com/h5/img/4.0/dot-progress.png) no-repeat left;
   height: 5vw;
 }
 .after .menu-vip .vip-text {
@@ -17366,7 +17403,7 @@ main.casino .banner {
 .after .menu-vip .vip-text.next::after {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/4.0/right-2.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/4.0/right-2.png) no-repeat center/cover;
   width: 2vw;
   height: 2vw;
   margin-left: 1vw;
@@ -17544,28 +17581,28 @@ input[type=number] .btn-logout {
 }
 
 .dragonegg-event {
-  background: #BD0213 url(https://banner.0814media.net/h5/img/event/dragonegg/banner-en.jpg) no-repeat top/contain;
+  background: #BD0213 url(https://banner.picasso12.com/h5/img/event/dragonegg/banner-en.jpg) no-repeat top/contain;
   padding-top: 0;
   position: relative;
   height: auto;
 }
 .dragonegg-event.en {
-  background: #BD0213 url(https://banner.0814media.net/h5/img/event/dragonegg/banner-en.jpg) no-repeat top/contain;
+  background: #BD0213 url(https://banner.picasso12.com/h5/img/event/dragonegg/banner-en.jpg) no-repeat top/contain;
 }
 .dragonegg-event.my {
-  background: #BD0213 url(https://banner.0814media.net/h5/img/event/dragonegg/banner-my.jpg) no-repeat top/contain;
+  background: #BD0213 url(https://banner.picasso12.com/h5/img/event/dragonegg/banner-my.jpg) no-repeat top/contain;
 }
 .dragonegg-event.cs {
-  background: #BD0213 url(https://banner.0814media.net/h5/img/event/dragonegg/banner-cs.jpg) no-repeat top/contain;
+  background: #BD0213 url(https://banner.picasso12.com/h5/img/event/dragonegg/banner-cs.jpg) no-repeat top/contain;
 }
 .dragonegg-event.id {
-  background: #BD0213 url(https://banner.0814media.net/h5/img/event/dragonegg/banner-id.jpg) no-repeat top/contain;
+  background: #BD0213 url(https://banner.picasso12.com/h5/img/event/dragonegg/banner-id.jpg) no-repeat top/contain;
 }
 .dragonegg-event.th {
-  background: #BD0213 url(https://banner.0814media.net/h5/img/event/dragonegg/banner-th.jpg) no-repeat top/contain;
+  background: #BD0213 url(https://banner.picasso12.com/h5/img/event/dragonegg/banner-th.jpg) no-repeat top/contain;
 }
 .dragonegg-event.vn {
-  background: #BD0213 url(https://banner.0814media.net/h5/img/event/dragonegg/banner-vn.jpg) no-repeat top/contain;
+  background: #BD0213 url(https://banner.picasso12.com/h5/img/event/dragonegg/banner-vn.jpg) no-repeat top/contain;
 }
 .dragonegg-event .event-back {
   padding: 2vw 3vw;
@@ -17582,7 +17619,7 @@ input[type=number] .btn-logout {
 .dragonegg-event .event-back .icon-back::after {
   content: "";
   display: inline-block;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/icon-back.svg) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/icon-back.svg) no-repeat center/cover;
   width: 2vw;
   height: 3vw;
   position: absolute;
@@ -17627,7 +17664,7 @@ input[type=number] .btn-logout {
   display: inline-block;
   width: 6.8vw;
   height: 7.8vw;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/title-egg.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/title-egg.png) no-repeat center/cover;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%) rotate(-14deg);
@@ -17641,7 +17678,7 @@ input[type=number] .btn-logout {
   display: inline-block;
   width: 6.8vw;
   height: 7.8vw;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/title-egg.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/title-egg.png) no-repeat center/cover;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%) rotate(14deg);
@@ -17754,7 +17791,7 @@ input[type=number] .btn-logout {
   color: #949494;
 }
 .dragonegg-event .event-draw {
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/draw-bg-1.jpg) no-repeat center/contain;
+  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/draw-bg-1.jpg) no-repeat center/contain;
   position: relative;
   width: 100%;
   height: 70vw;
@@ -18001,7 +18038,7 @@ input[type=number] .btn-logout {
 .dragonegg-event .event-history::before {
   content: "";
   display: block;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/draw-bg-2.jpg) no-repeat center/contain;
+  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/draw-bg-2.jpg) no-repeat center/contain;
   width: 100%;
   height: 20vw;
   position: absolute;
@@ -18184,7 +18221,7 @@ input[type=number] .btn-logout {
 #popup.dragonegg-pop .close-btn::after {
   content: "";
   display: block;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/icon-close.svg) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/icon-close.svg) no-repeat center/cover;
   width: 6vw;
   height: 6vw;
   position: absolute;
@@ -18487,7 +18524,7 @@ input[type=number] .btn-logout {
 #popup.dragonegg-result-pop .close-btn::after {
   content: "";
   display: block;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/icon-close.svg) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/icon-close.svg) no-repeat center/cover;
   width: 6vw;
   height: 6vw;
   position: absolute;
@@ -18704,7 +18741,7 @@ input[type=number] .btn-logout {
 #popup .dragonegg-result-list::after {
   content: "";
   display: inline-block;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/popup-10-light.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/popup-10-light.png) no-repeat center/cover;
   width: 60vw;
   height: 60vw;
   position: absolute;
@@ -18735,7 +18772,7 @@ input[type=number] .btn-logout {
   display: inline-block;
   width: 18vw;
   height: 18vw;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/popup-10-reward.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/popup-10-reward.png) no-repeat center/cover;
   position: absolute;
   top: -9vw;
   left: 4lvw;
@@ -18747,7 +18784,7 @@ input[type=number] .btn-logout {
   display: inline-block;
   width: 18vw;
   height: 18vw;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/popup-10-reward.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/popup-10-reward.png) no-repeat center/cover;
   position: absolute;
   top: -9vw;
   right: 4lvw;
@@ -18776,7 +18813,7 @@ input[type=number] .btn-logout {
 .euro .wrapper {
   padding-top: 20vw;
   min-height: 200vw;
-  background: #143CDB url(https://banner.0814media.net/h5/img/event/eurocup/top-bg.jpg) no-repeat bottom/contain;
+  background: #143CDB url(https://banner.picasso12.com/h5/img/event/eurocup/top-bg.jpg) no-repeat bottom/contain;
   position: relative;
 }
 .euro .wrapper::before {
@@ -18788,7 +18825,7 @@ input[type=number] .btn-logout {
   width: 100%;
   height: 27vw;
   z-index: 0;
-  background: url(https://banner.0814media.net/h5/img/event/eurocup/top-item.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/eurocup/top-item.png) no-repeat center/cover;
 }
 .euro > .title {
   font-size: 7vw;
@@ -19067,7 +19104,7 @@ input[type=number] .btn-logout {
   top: -6vw;
   width: 10vw;
   height: 5vw;
-  background: url(https://banner.0814media.net/h5/img/event/eurocup/tickets-1.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/eurocup/tickets-1.png) no-repeat center/cover;
 }
 .euro-mission .progressBar .progressItem.active:after {
   background: #F9BF4B;
@@ -19102,7 +19139,7 @@ input[type=number] .btn-logout {
   height: 1.8vw;
   -webkit-transform: translateX(-55%);
           transform: translateX(-55%);
-  background: url(https://banner.0814media.net/h5/img/event/eurocup/frame.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/eurocup/frame.png) no-repeat center/cover;
 }
 .euro-poll {
   display: -webkit-box;
@@ -19291,7 +19328,7 @@ input[type=number] .btn-logout {
   display: block;
   width: 4vw;
   height: 4vw;
-  background: url(https://banner.0814media.net/h5/img/event/eurocup/arrow-icon.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/eurocup/arrow-icon.png) no-repeat center/cover;
   border: 0;
 }
 .euro .inputBox-event .dropdown .dropdown-container {
@@ -20232,7 +20269,7 @@ input[type=number] .btn-logout {
 }
 
 .retention {
-  background: #0f1f3b url(https://banner.0814media.net/h5/img/event/retention/top-bg.jpg) no-repeat top/contain;
+  background: #0f1f3b url(https://banner.picasso12.com/h5/img/event/retention/top-bg.jpg) no-repeat top/contain;
   position: relative;
   padding: 0 0 10vw;
 }
@@ -20261,7 +20298,7 @@ input[type=number] .btn-logout {
 .retention-wrapper .top-btn {
   position: absolute;
   bottom: -18vw;
-  background: url(https://banner.0814media.net/h5/img/event/retention/btn-bg.png) no-repeat center/100%;
+  background: url(https://banner.picasso12.com/h5/img/event/retention/btn-bg.png) no-repeat center/100%;
   width: 50vw;
   height: 20vw;
   display: -webkit-box;
@@ -20307,7 +20344,7 @@ input[type=number] .btn-logout {
 }
 .retention-wrapper .bonus-list .title > div:first-child {
   color: white;
-  background: url(https://banner.0814media.net/h5/img/event/retention/title-bg.png) no-repeat center/100%;
+  background: url(https://banner.picasso12.com/h5/img/event/retention/title-bg.png) no-repeat center/100%;
   padding: 4vw 0 2vw 6vw;
   font-size: 4vw;
   display: -webkit-box;
@@ -20715,7 +20752,7 @@ input[type=number] .btn-logout {
   font-weight: 700;
 }
 .olympic-top {
-  background: url(https://banner.0814media.net/h5/img/event/olympic/background-a.jpg) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/olympic/background-a.jpg) no-repeat center/cover;
 }
 .olympic-top-logo {
   width: 25vw;
@@ -20802,7 +20839,7 @@ input[type=number] .btn-logout {
 .olympic-center-wrapper .medal::before {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/event/olympic/gold-medal.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/olympic/gold-medal.png) no-repeat center/cover;
   width: 72vw;
   height: 72vw;
   position: absolute;
@@ -20833,7 +20870,7 @@ input[type=number] .btn-logout {
 .olympic-center-wrapper .tasks a::after {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/event/olympic/arrow.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/olympic/arrow.png) no-repeat center/cover;
   width: 1.5vw;
   height: 2.5vw;
   margin-left: 2vw;
@@ -20904,7 +20941,7 @@ input[type=number] .btn-logout {
 .olympic-center-wrapper .tasks-content-item button::after {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/event/olympic/arrow.png) no-repeat center/cover;
+  background: url(https://banner.picasso12.com/h5/img/event/olympic/arrow.png) no-repeat center/cover;
   width: 1.5vw;
   height: 2.5vw;
   margin-left: 2vw;
