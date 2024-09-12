@@ -1,5 +1,6 @@
+import { GlobalModal } from '@12b-h5/components/common'
 import { BackTop } from '@nx-next-app/components/D0001'
-import { GlobalModal, MetaData } from '@nx-next-app/components/H0001'
+import { MetaData } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { ISEOData, useAuth } from '@nx-next-app/data-access'

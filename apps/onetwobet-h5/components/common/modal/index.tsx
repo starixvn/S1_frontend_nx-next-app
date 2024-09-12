@@ -1,15 +1,15 @@
 import { IGlobalModalProps } from '@nx-next-app/components/config-provider'
+import classNames from 'classnames'
 import { isArray } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import Modal from './Modal'
 
 const GlobalModal = ({
-	icon,
 	title,
 	type,
 	content = null,
 	okText,
 	cancelText,
+	className,
 	footer,
 	onOK,
 	onCancel,
@@ -18,64 +18,61 @@ const GlobalModal = ({
 	const { t } = useTranslation()
 	const open = !!type
 
-	let mergedIcon
+	// let mergedIcon
 	let mergedTitle
-	let mergeOkText
+	let mergeOkText = okText || t('Label_General_Yes')
 	let mergeCancelText
 
 	switch (type) {
 		case 'info':
-			mergedIcon = icon || 'icon icon-bell'
 			mergedTitle = title || t('Label_General_Information')
 			mergeOkText = okText || t('Label_General_OK')
-
 			break
 
 		case 'error':
-			mergedIcon = icon || 'icon icon-bell'
-			mergedTitle = title || 'error'
+			mergedTitle = title || 'Error'
 			mergeOkText = okText || t('Label_General_Close')
-
 			break
 
 		case 'confirm':
-			mergedIcon = icon || 'icon icon-bell'
-			mergedTitle = title || t('Label_General_Oh')
+			mergedTitle = title || t('Label_General_ImportantNote')
 			mergeOkText = okText || t('Label_General_Yes')
 			mergeCancelText = cancelText || t('Label_General_No')
-
 			break
 
 		default:
-			mergedIcon = icon || ''
 			mergedTitle = title || null
-			mergeOkText = okText || t('Label_General_OK')
-			mergeCancelText = cancelText || t('Label_General_No')
+			break
 	}
 
 	return (
-		<Modal open={open}>
-			{type === 'default' && content}
-
-			{type !== 'default' && (
+		<div
+			id='popup'
+			className={classNames(className, { active: open })}
+			// 為隱藏頁面層的 scroll to top 鈕 (z-index: 4)
+			style={{ zIndex: 15 }}
+		>
+			{type === 'default' ? (
+				content
+			) : (
 				<div className='pop'>
-					<div className='Success active'>
-						<div className={mergedIcon} />
-						<div className='title'>{mergedTitle}</div>
+					<div className='popTit'>
+						<div className='icon icon-close' onClick={closeModal} />
+						{mergedTitle}
+					</div>
+					<div className='popTxt'>
 						<div>
-							{!isArray(content) && content}
-
-							{isArray(content) && content.map(val => <div>{val}</div>)}
+							{isArray(content)
+								? content.map(val => <div key={val}>{val}</div>)
+								: content}
 						</div>
 
-						<div className='btnGroup'>
-							{footer}
-
-							{!footer && (
+						<div className='btn-group'>
+							{footer || (
 								<>
 									<button
 										type='button'
-										className='btn-check primary'
+										className='primary'
 										onClick={() => {
 											closeModal()
 											onOK && onOK()
@@ -85,7 +82,8 @@ const GlobalModal = ({
 									</button>
 									{type === 'confirm' && (
 										<button
-											className='btn-cancel ghost'
+											className='ghost'
+											type='button'
 											onClick={() => {
 												closeModal()
 												onCancel && onCancel()
@@ -100,7 +98,7 @@ const GlobalModal = ({
 					</div>
 				</div>
 			)}
-		</Modal>
+		</div>
 	)
 }
 
