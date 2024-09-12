@@ -46,7 +46,7 @@ const Profile = () => {
 	 * @message - 錯誤訊息 */
 	const showErrorModal = (message: string) => modal.error(message)
 
-	/** 需要根據 prevPage 進行導向時，顯示跳轉頁面和彈出確認訊息
+	/** 根據 prevPage 進行導向時，顯示跳轉頁面和彈出確認訊息
 	 * @param path - 跳轉的路徑。
 	 * @param contentKey - 彈出確認框中顯示的內容 i18n key。
 	 * @param submitKey - 彈出確認框中 "確認" 按鈕顯示 i18n key。 */
