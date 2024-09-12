@@ -5,13 +5,17 @@ import {
 	useLotteryProgressContext,
 } from '@nx-next-app/features/F0001/providers'
 import { useTranslation } from 'next-i18next'
-import TicketInfoModal from './modals/TicketInfoModal'
+import dynamic from 'next/dynamic'
 import Drawing3rd1st2nd from './stages/Drawing3rd1st2nd'
 import DrawingConsolation from './stages/DrawingConsolation'
 import DrawingJackpot from './stages/DrawingJackpot'
 import DrawingSmall from './stages/DrawingSmall'
 import DrawingTop3 from './stages/DrawingTop3'
 import FinalResult from './stages/FinalResult'
+
+const TicketInfoModal = dynamic(() => import('./modals/TicketInfoModal'), {
+	ssr: false,
+})
 
 const LotteryDraw = () => {
 	const { t } = useTranslation()

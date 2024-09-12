@@ -5,6 +5,7 @@ import {
 	useLotteryDataContext,
 } from '@nx-next-app/features/F0001/providers'
 import { ICustLotteryHistoryWinnerData } from '@nx-next-app/service'
+import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { useEffect, useRef } from 'react'
 import { EventTabs } from '../EventTabs'
@@ -12,8 +13,14 @@ import LotteryDraw from './LotteryDraw'
 import LotteryRoundInfo from './LotteryRoundInfo'
 import LotterySlotMachine from './LotterySlotMachine'
 import LotteryBottomSection from './bottomSection'
-import MaintenanceModal from './modals/MaintenanceModal'
-import PrizeModal from './modals/PrizeModal'
+
+const MaintenanceModal = dynamic(() => import('./modals/MaintenanceModal'), {
+	ssr: false,
+})
+
+const PrizeModal = dynamic(() => import('./modals/PrizeModal'), {
+	ssr: false,
+})
 
 export const LotteryEventPage = () => {
 	const { push } = useRouter()

@@ -3,10 +3,15 @@ import { useAuth } from '@nx-next-app/data-access'
 import { useLotteryDataContext } from '@nx-next-app/features/F0001/providers'
 import dayjs from 'dayjs'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import LotteryProgressBar from './LotteryProgressBar'
 import LotterySticker from './LotterySticker'
-import PurchaseStickerModal from './modals/PurchaseStickerModal'
+
+const PurchaseStickerModal = dynamic(
+	() => import('./modals/PurchaseStickerModal'),
+	{ ssr: false }
+)
 
 const LotteryRoundInfo = () => {
 	const { t } = useTranslation()

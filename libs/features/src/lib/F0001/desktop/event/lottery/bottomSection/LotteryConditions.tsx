@@ -1,7 +1,9 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useLotteryDataContext } from '@nx-next-app/features/F0001/providers'
 import { useTranslation } from 'next-i18next'
-import RulesModal from '../modals/RulesModal'
+import dynamic from 'next/dynamic'
+
+const RulesModal = dynamic(() => import('../modals/RulesModal'), { ssr: false })
 
 const LotteryConditions = () => {
 	const { t } = useTranslation()
