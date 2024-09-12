@@ -1,5 +1,3 @@
-// export { default } from '@nx-next-app/features/F0001/desktop/event/lottery/stages/DrawingJackpot'
-
 import { CHINESE_ZODIAC_STICKER_IDS } from '@nx-next-app/constants'
 import {
 	StageEvent,
