@@ -1,5 +1,4 @@
-import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
-import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import { useWithdrawal, WithdrawalBankCardEnum } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 import { CardItem } from './CardItem'
 

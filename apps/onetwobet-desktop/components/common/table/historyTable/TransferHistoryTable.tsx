@@ -67,7 +67,6 @@ const TransferHistoryTable = ({
 
 				return (
 					<>
-						<span className='txt-gray'>{startWallet}</span>
 						{isAdjustment ? (
 							<i>&nbsp;&nbsp;</i>
 						) : (

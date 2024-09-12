@@ -23,14 +23,14 @@ import Table, { ITableColumns } from '../Table'
 dayjs.extend(utc)
 
 const HistoryMsgModal = dynamic(
-	() => import('../../../history/modal/HistoryMsgModal'),
+	() => import('@12b-desktop/components/history/modal/HistoryMsgModal'),
 	{
 		ssr: false,
 	}
 )
 
 const DepositBankSlipModal = dynamic(
-	() => import('../../../history/modal/DepositBankSlipModal'),
+	() => import('@12b-desktop/components/history/modal/DepositBankSlipModal'),
 	{
 		ssr: false,
 	}
@@ -193,7 +193,7 @@ const DepositHistoryTable = ({
 								{t('Label_General_SubmitBankSlip')}
 							</button>
 							<button
-								className='btn-cancel ghost dark'
+								className='ghost dark'
 								onClick={() => {
 									modal.confirm(t('Label_History_CancelConfirm'), {
 										onOK: () => onCancel(item.transId),

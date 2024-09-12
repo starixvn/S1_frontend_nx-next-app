@@ -1,11 +1,18 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
-import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
-import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import { useWithdrawal, WithdrawalBankCardEnum } from '@nx-next-app/operations'
 import { isConvert, numberFormat } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+
+const WithdrawalSuccessModal = dynamic(
+	() => import('../modal/WithdrawalSuccessModal'),
+	{ ssr: false }
+)
 
 const Confirm = () => {
 	const { t } = useTranslation()
+	const { modal, closeModal } = useGlobalModal()
 
 	const {
 		selectedBankInfo,
@@ -106,12 +113,31 @@ const Confirm = () => {
 					</>
 				)}
 				<div className='btnGroup'>
-					<button className='btn-cancel' onClick={handleCancelSubmit}>
+					<button className='ghost' onClick={handleCancelSubmit}>
 						{t('Label_General_Cancel')}
 					</button>
 					<button
-						className='btn-check'
-						onClick={() => handleWithdrawalConfirm({})}
+						className='primary'
+						onClick={() =>
+							handleWithdrawalConfirm(
+								{},
+								{
+									successCallback: onFinish => {
+										modal.open(
+											<WithdrawalSuccessModal
+												onClick={() => {
+													closeModal()
+													onFinish()
+												}}
+											/>
+										)
+									},
+									errorCallback: errorMessage => {
+										modal.error(errorMessage)
+									},
+								}
+							)
+						}
 					>
 						{t('Label_General_Submit')}
 					</button>

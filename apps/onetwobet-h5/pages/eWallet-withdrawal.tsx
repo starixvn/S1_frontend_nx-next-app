@@ -1,15 +1,16 @@
+import { Layout } from '@12b-h5/components/index'
+import Withdrawal from '@12b-h5/components/withdrawal'
 import { paths } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { Layout, Withdrawal } from '@nx-next-app/features/F0001/h5'
-import { WithdrawalProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { WithdrawalProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
 import { find } from 'lodash-es'
 import { GetServerSideProps } from 'next'

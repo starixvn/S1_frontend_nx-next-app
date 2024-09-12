@@ -1,8 +1,15 @@
 import { Loading } from '@nx-next-app/components/D0001'
-import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
-import { KycStatusEnum } from '@nx-next-app/features/F0001/types'
+import { useWithdrawal } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
+import { CurrenciesEnum, KycStatusEnum } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
+
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import LeftMenu from '../leftMenu'
 import { ImportNotice } from './common/ImportNotice'
 import { KycPanel } from './common/KycPanel'
@@ -14,9 +21,39 @@ interface IWithdrawalProps {
 	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
+const UpdateProfileModal = dynamic(
+	() => import('../modal/UpdateProfileModal'),
+	{ ssr: false }
+)
+
 const index = ({ withdrawalBlockSetting }: IWithdrawalProps) => {
 	const { t } = useTranslation()
-	const { restoreAll, loading, kycStatus } = useWithdrawal()
+	const { modal } = useGlobalModal()
+	const { userInfo } = useAuth()
+	const { currencyId } = userInfo
+	const { push } = useRouter()
+	const { restoreAll, loading, kycStatus, checkUserInfo } = useWithdrawal()
+
+	useEffect(() => {
+		checkUserInfo({
+			unSuccessCallback: () =>
+				modal.open(<UpdateProfileModal prevPage={paths.withdrawal.root} />),
+			optionalPhoneVerifiedCallback: () => {
+				// INR 才回傳 PhoneVerifiedCallback
+				if (currencyId === CurrenciesEnum.INR) {
+					return () =>
+						modal.confirm(t('Label_Withdrawal_PhoneVerificationHint'), {
+							title: t('Label_General_Withdrawal'),
+							icon: 'icon icon-icon32px_Profile',
+							okText: t('Label_Profile_VertifyNow'),
+							cancelText: t('Label_Profile_Later'),
+							onOK: () => push(paths.profile.root),
+						})
+				}
+				return undefined
+			},
+		})
+	}, [])
 
 	return (
 		<main>

@@ -1,15 +1,14 @@
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { ENV_COOKIE_NAMES, paths } from '@nx-next-app/constants'
 import {
 	AuthProvider,
-	DepositProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { Deposit, Layout } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { DepositProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import {
 	DEPOSIT_PAYMENT_OPTIONS,
@@ -19,11 +18,18 @@ import {
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import dynamic from 'next/dynamic'
+import { Deposit, Layout } from '../components'
 
 interface IDepositPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
 	withdrawalBlockSetting: IWithdrawalSetting[]
 }
+
+const DesktopUpdateProfileModal = dynamic(
+	() => import('@12b-desktop/components/modal/UpdateProfileModal'),
+	{ ssr: false }
+)
 
 const DepositPage = ({
 	originIsSignIn,
@@ -43,6 +49,9 @@ const DepositPage = ({
 						DEPOSIT_PAYMENT_OPTIONS={DEPOSIT_PAYMENT_OPTIONS}
 						// * 排序與開關
 						depositPaymentOrders={DEPOSIT_PAYMENT_ORDERS}
+						profileCallBackModal={
+							<DesktopUpdateProfileModal prevPage={paths.deposit.root} />
+						}
 					>
 						<Deposit
 							options={{ showReferralButton: true }}
