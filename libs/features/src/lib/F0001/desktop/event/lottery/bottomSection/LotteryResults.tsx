@@ -3,7 +3,9 @@ import { PRIZE_CATEGORY_I18N_KEYS } from '@nx-next-app/constants'
 import { useGetCustLotteryHistoryWinnerListQuery } from '@nx-next-app/service'
 import dayjs from 'dayjs'
 import { useTranslation } from 'next-i18next'
-import PrizeModal from '../modals/PrizeModal'
+import dynamic from 'next/dynamic'
+
+const PrizeModal = dynamic(() => import('../modals/PrizeModal'), { ssr: false })
 
 const LotteryResults = () => {
 	const { t } = useTranslation()
