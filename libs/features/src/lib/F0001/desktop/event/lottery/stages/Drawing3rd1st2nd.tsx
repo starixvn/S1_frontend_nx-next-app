@@ -26,10 +26,6 @@ const Drawing3rd1st2nd = () => {
 		(prize: LotteryPrizeCategory) => (ticketNumber: string) =>
 			handleSlotNumberFinish(ticketNumber, prize)
 
-	// useEffect(() => {
-	// 	if (runningNumberIndex >= 3) toNext()
-	// }, [runningNumberIndex])
-
 	return stage.has(StageEvent.RunningNumbers) ? (
 		<div className='win'>
 			<div className='wrapper'>
