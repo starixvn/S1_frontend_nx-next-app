@@ -1,8 +1,7 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { PREV_PAGE, PrevPageEnum } from '@nx-next-app/constants'
 import { usePhoneOtp } from '@nx-next-app/hooks'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+
 import { useForm } from 'react-hook-form'
 
 export const usePhoneOtpModal = () => {
@@ -10,8 +9,6 @@ export const usePhoneOtpModal = () => {
 	const { query } = useRouter()
 
 	const { prevPage } = query
-
-	const { closeModal } = useGlobalModal()
 
 	const { formState, trigger, setError, register, getValues, handleSubmit } =
 		useForm()
@@ -27,7 +24,8 @@ export const usePhoneOtpModal = () => {
 			path: string,
 			contentKey: string,
 			submitKey: string
-		) => void
+		) => void,
+		closeModal: () => void
 	) => {
 		const otpCode = getValues('otpCode')
 		const errorMsg = await handleVerifyOtp({
@@ -45,12 +43,6 @@ export const usePhoneOtpModal = () => {
 		if (errorMsg) setError('otpCode', { type: 'manual', message: errorMsg })
 	}
 
-	// ====== useEffect ======
-
-	useEffect(() => {
-		handleSendOtpSMS()
-	}, [])
-
 	return {
 		timer,
 		errors,
@@ -58,7 +50,6 @@ export const usePhoneOtpModal = () => {
 		trigger,
 		register,
 		setTimer,
-		closeModal,
 		handleSubmit,
 		handleSubmitForm,
 		handleSendOtpSMS,

@@ -1,4 +1,4 @@
-import { InputBox, Select } from '@nx-next-app/components/D0001'
+import { InputBox, Select } from '@12b-desktop/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { EMAIL_REGEX, REALNAME_REGEX } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -7,7 +7,7 @@ import { numberFormat } from '@nx-next-app/utils'
 import dayjs from 'dayjs'
 import DateSelector from 'libs/web/src/components/D0001/dateSelector'
 import { useTranslation } from 'next-i18next'
-import { PhoneOtpModal } from './PhoneOtpModal'
+import { PhoneOtpModal } from '../modal/PhoneOtpModal'
 
 const Info = () => {
 	// ====== 常數 ======
@@ -40,10 +40,8 @@ const Info = () => {
 	} = useAuth()
 
 	const {
-		errors,
 		formMethods,
 		watchedBirth,
-		touchedFields,
 		phoneErrorTip,
 		existsEmailLoading,
 		areaCodeSelectOptions,
@@ -53,9 +51,17 @@ const Info = () => {
 		selectAreaCode,
 	} = useProfileInfo()
 
-	const { trigger, setValue, register, getValues } = formMethods
+	const { trigger, setValue, register, getValues, formState } = formMethods
+
+	const { errors, touchedFields } = formState
 
 	// ====== 函數 ======
+
+	/**
+	 * 處理錯誤並顯示錯誤信息
+	 * 當發生錯誤時，會將錯誤訊息通過 modal 顯示給使用者
+	 * @message - 錯誤訊息 */
+	const showErrorModal = (message: string) => modal.error(message)
 
 	/**
 	 * 顯示電話驗證的彈出視窗
@@ -66,12 +72,6 @@ const Info = () => {
 	 * 顯示郵件驗證的提示信息
 	 * 當用戶成功請求 OTP 郵件後，顯示通知提示郵件已發送 */
 	const showInfoModal = () => modal.info(t('Label_Profile_EmailOTPHint1'))
-
-	/**
-	 * 處理錯誤並顯示錯誤信息
-	 * 當發生錯誤時，會將錯誤訊息通過 modal 顯示給使用者
-	 * @message - 錯誤訊息 */
-	const showErrorModal = (message: string) => modal.error(message)
 
 	/**
 	 * 渲染電子郵件欄位
@@ -232,7 +232,7 @@ const Info = () => {
 							showSearch
 							options={areaCodeSelectOptions}
 							prefixIcon={<i className='icon icon-phone txt-blue' />}
-							onChange={areaCode => selectAreaCode(areaCode)}
+							onChange={areaCode => selectAreaCode(areaCode as string)}
 							value={getValues('formAreaCode')}
 							errorMessage={phoneErrorTip}
 						/>

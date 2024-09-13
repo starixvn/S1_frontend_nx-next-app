@@ -1,16 +1,16 @@
-import { CountdownTimer } from '@nx-next-app/components/D0001'
+import { Form } from '@12b-h5/components/common'
+import { CountdownTimer } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { usePhoneOtpModal } from '@nx-next-app/operations'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 const PhoneOtpModal = () => {
-	// ====== hook ======
-
 	const { t } = useTranslation()
 	const { push } = useRouter()
-	const { modal } = useGlobalModal()
+	const { modal, closeModal } = useGlobalModal()
 	const {
 		timer,
 		errors,
@@ -18,7 +18,6 @@ const PhoneOtpModal = () => {
 		trigger,
 		register,
 		setTimer,
-		closeModal,
 		handleSubmit,
 		handleSubmitForm,
 		handleSendOtpSMS,
@@ -44,24 +43,32 @@ const PhoneOtpModal = () => {
 		})
 	}
 
+	// ====== useEffect ======
+
+	useEffect(() => {
+		handleSendOtpSMS()
+	}, [])
+
 	return (
 		<div className='pop'>
-			<div className='editSuccess active'>
-				<div className='icon icon-icon32px_notification' />
-				<div className='title'>{t('Label_General_ImportantNotes')}</div>
+			<div className='popTit'>
+				{t('Label_General_ImportantNotes')}
+				<div className='icon icon-close' onClick={closeModal} />
+			</div>
 
-				<div>
-					{t('Label_Profile_SendVerificationCode')} <br />
+			<div className='popTxt text-center'>
+				<div className='txt'>
+					{t('Label_Profile_SendVerificationCode')}.{' '}
 					{t('Label_Profile_CheckMobileAndEnter')}
 				</div>
-				<form
+				<Form
+					className='infoModule'
 					onSubmit={handleSubmit(() =>
-						handleSubmitForm(showPrevPageConfirmModal)
+						handleSubmitForm(showPrevPageConfirmModal, closeModal)
 					)}
-					style={{ display: 'contents' }}
 				>
 					<div
-						className={classNames('inputBox-white', {
+						className={classNames('inputBox', {
 							error: errors['otpCode'],
 						})}
 					>
@@ -80,41 +87,32 @@ const PhoneOtpModal = () => {
 							{errors['otpCode']?.message as string}
 						</div>
 					</div>
-					<div className='btnGroup'>
-						<button className='btn-cancel ghost' onClick={closeModal}>
-							{t('Label_General_Close')}
-						</button>
-						<button type='submit' className='btn-check primary'>
+
+					<div className='btn-group'>
+						<button type='submit' className='submit primary'>
 							{t('Label_General_Submit')}
 						</button>
 					</div>
-				</form>
-
-				<div className='resend'>
-					{timer ? (
-						<CountdownTimer
-							timer={timer}
-							startUnixTime={startUnixTime}
-							setTimer={setTimer}
-						/>
-					) : (
-						<>
-							{t('Label_Profile_OTPNotReceiveVerificationCode')}
-							<div className='btnGroup'>
-								<button
-									style={{
-										minHeight: '36px',
-										maxHeight: '36px',
-									}}
-									className='blue primary'
-									onClick={handleSendOtpSMS}
-								>
-									{t('Label_Profile_Retransmit')}
-								</button>
-							</div>
-						</>
-					)}
+				</Form>
+				{t('Label_Profile_OTPNotReceiveVerificationCode')}
+				<div className='btn-group'>
+					<button
+						className='primary'
+						// 有倒數時間就禁止按鈕
+						disabled={timer}
+						onClick={handleSendOtpSMS}
+					>
+						{t('Label_Profile_Retransmit')}
+					</button>
 				</div>
+
+				{timer && (
+					<CountdownTimer
+						timer={timer}
+						startUnixTime={startUnixTime}
+						setTimer={setTimer}
+					/>
+				)}
 			</div>
 		</div>
 	)

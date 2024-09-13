@@ -1,4 +1,3 @@
-import { ISelectProps } from '@nx-next-app/components/D0001'
 import {
 	AREA_CODE,
 	PREV_PAGE,
@@ -6,8 +5,7 @@ import {
 	paths,
 } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { useCheckPhone } from '@nx-next-app/features/F0001/hooks'
-import { useVerifyEmail } from '@nx-next-app/operations'
+import { usePhoneError } from '@nx-next-app/operations'
 import {
 	useLazyExistsEmailQuery,
 	useSendOTPEmailMutation,
@@ -15,36 +13,20 @@ import {
 } from '@nx-next-app/service'
 import { DeviceTypeEnum } from '@nx-next-app/types'
 import dayjs from 'dayjs'
-import { isUndefined } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
-import {
-	ReactNode,
-	createContext,
-	useContext,
-	useEffect,
-	useState,
-} from 'react'
+import { ReactNode, createContext, useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 interface IProfileInfoContext {
-	key: string | string[] | undefined
-	errors: any
-	email: string | undefined
-	phoneNo: string | undefined
-	birthDay: string | undefined
 	watchedBirth: Date | null
-	emailcode: string | string[] | undefined
 	initialBirth: Date
-	accountName: string | undefined
-	isLogin: boolean | undefined
 	dayOptions: { label: string | number; value: string | number }[] | null
 	yearOptions: { label: string | number; value: string | number }[] | null
 	monthOptions: { label: string | number; value: string | number }[] | null
 	formMethods: any
 	showSubmitBtn: boolean
 	phoneErrorTip: string | undefined
-	touchedFields: any
 	legalBirthYear: number
 	existsEmailLoading: boolean
 	areaCodeSelectOptions: { value: string; label: string }[]
@@ -54,8 +36,7 @@ interface IProfileInfoContext {
 		infoCallback: () => void,
 		errorCallback: (error: string) => void
 	) => Promise<void>
-	onVerifyEmail: (params: { key: string; code: string }) => Promise<void>
-	selectAreaCode: (newAreaCode: ISelectProps['value']) => void
+	selectAreaCode: (newAreaCode: string) => void
 	handleSubmitForm: (
 		confirmCallBack: () => void,
 		errorCallBack: (message: string) => void,
@@ -94,7 +75,6 @@ const ProfileInfoProvider = ({ children }: { children: ReactNode }) => {
 
 	const { t } = useTranslation()
 	const {
-		auth: { isLogin },
 		userInfo: {
 			email,
 			phoneNo,
@@ -131,7 +111,6 @@ const ProfileInfoProvider = ({ children }: { children: ReactNode }) => {
 	})
 
 	const {
-		formState,
 		watch,
 		trigger,
 		setValue,
@@ -141,15 +120,11 @@ const ProfileInfoProvider = ({ children }: { children: ReactNode }) => {
 		getFieldState,
 	} = formMethods
 
-	const { errors, touchedFields } = formState
-
-	const { onVerifyEmail } = useVerifyEmail()
-
-	const { handlePhoneErrorTip } = useCheckPhone()
+	const { handlePhoneErrorTip } = usePhoneError()
 
 	const { query } = useRouter()
 
-	const { key, emailcode, prevPage } = query
+	const { prevPage } = query
 
 	// ====== useState ======
 
@@ -251,6 +226,7 @@ const ProfileInfoProvider = ({ children }: { children: ReactNode }) => {
 					year: dayjs(watchedBirth).format('YYYY'),
 				}
 			}
+
 			const { day, month, year } = getBirthDateArgs()
 			try {
 				// 既有的資料依然需要傳進 api
@@ -260,8 +236,10 @@ const ProfileInfoProvider = ({ children }: { children: ReactNode }) => {
 					Birth_d: birthDay ?? day,
 					Birth_m: birthMonth ?? month,
 					Birth_y: birthYear ?? year,
-					PhoneNo: phoneNo ?? formPhone,
-					Email: email ?? formEmail,
+
+					// 有發現有些 Email 為空字串，所以使用 || 判斷
+					PhoneNo: phoneNo || formPhone,
+					Email: email || formEmail,
 				})
 
 				if (!phoneVerified) {
@@ -327,10 +305,10 @@ const ProfileInfoProvider = ({ children }: { children: ReactNode }) => {
 	 * 選擇區域代碼
 	 * 當用戶選擇新的區域代碼時觸發，並重新檢查電話號碼
 	 * @param newAreaCode - 新選擇的區域代碼 */
-	const selectAreaCode = (newAreaCode: ISelectProps['value']) => {
+	const selectAreaCode = (newAreaCode: string) => {
 		const formAreaCode = getValues('formAreaCode')
 		if (newAreaCode !== formAreaCode) {
-			setValue('formAreaCode', newAreaCode as string)
+			setValue('formAreaCode', newAreaCode)
 			const formPhone = getValues('formPhone')
 			if (formPhone) checkPhone()
 		}
@@ -361,42 +339,21 @@ const ProfileInfoProvider = ({ children }: { children: ReactNode }) => {
 		}
 	}
 
-	// ====== useEffect ======
-
-	useEffect(() => {
-		if (!isUndefined(key) && !isUndefined(emailcode)) {
-			onVerifyEmail({
-				key: key as string,
-				code: emailcode as string,
-			})
-		}
-	}, [key, emailcode])
-
 	const value: IProfileInfoContext = {
-		key,
-		errors,
-		email,
-		phoneNo,
-		birthDay,
 		watchedBirth,
-		emailcode,
 		initialBirth,
-		accountName,
-		isLogin,
 		dayOptions,
 		yearOptions,
 		monthOptions,
 		formMethods,
 		showSubmitBtn,
 		phoneErrorTip,
-		touchedFields,
 		legalBirthYear,
 		existsEmailLoading,
 		areaCodeSelectOptions,
 		checkEmail,
 		checkPhone,
 		onEmailVerify,
-		onVerifyEmail,
 		selectAreaCode,
 		handleSubmitForm,
 	}

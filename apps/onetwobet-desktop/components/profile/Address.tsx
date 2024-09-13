@@ -1,4 +1,5 @@
-import { Form, InputBox } from '@nx-next-app/components/D0001'
+import { InputBox } from '@12b-desktop/components/common'
+import { Form } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useAddress } from '@nx-next-app/operations'
@@ -6,7 +7,7 @@ import { CurrenciesEnum } from '@nx-next-app/types'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
-import { PhoneOtpModal } from './PhoneOtpModal'
+import { PhoneOtpModal } from '../modal/PhoneOtpModal'
 
 const Address = () => {
 	// ====== hook ======

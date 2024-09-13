@@ -1,22 +1,29 @@
 import { Loading } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useProfileInfo } from '@nx-next-app/operations'
+import { useAuth } from '@nx-next-app/data-access'
+import { useProfileInfo, useVerifyEmail } from '@nx-next-app/operations'
+import { isUndefined } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import { FormProvider } from 'react-hook-form'
+import { PhoneOtpModal } from '../modal/PhoneOtpModal'
 import { Address } from './Address'
 import { Info } from './Info'
-import { PhoneOtpModal } from './PhoneOtpModal'
 import { Verification } from './Verification'
 
 const Profile = () => {
 	// ====== hook ======
 
 	const { t } = useTranslation()
-	const { push } = useRouter()
+	const { onVerifyEmail } = useVerifyEmail()
+	const { query, push } = useRouter()
+	const { key, emailcode } = query
 	const { modal } = useGlobalModal()
-	const { isLogin, accountName, formMethods, showSubmitBtn, handleSubmitForm } =
-		useProfileInfo()
+	const {
+		userInfo: { accountName },
+	} = useAuth()
+	const { formMethods, showSubmitBtn, handleSubmitForm } = useProfileInfo()
 
 	const { handleSubmit } = formMethods
 
@@ -80,8 +87,17 @@ const Profile = () => {
 		})
 	}
 
-	// 登入檢查
-	if (!isLogin) push('/')
+	// ====== useEffect ======
+
+	useEffect(() => {
+		if (!isUndefined(key) && !isUndefined(emailcode)) {
+			onVerifyEmail({
+				key: key as string,
+				code: emailcode as string,
+				errorCallBack: showErrorModal,
+			})
+		}
+	}, [key, emailcode])
 
 	// 等待載入
 	if (!accountName) return <Loading />

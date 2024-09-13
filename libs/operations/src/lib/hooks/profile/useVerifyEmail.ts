@@ -1,4 +1,3 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { IAxiosError, useVerifyEmailMutation } from '@nx-next-app/service'
@@ -13,22 +12,21 @@ const useVerifyEmail = () => {
 		onSignOut,
 	} = useAuth()
 
-	const { modal } = useGlobalModal()
-
 	const [verifyEmail] = useVerifyEmailMutation()
 
 	const onVerifyEmail = async ({
 		key,
 		code,
+		errorCallBack,
 	}: {
 		key: string
 		code: string
+		errorCallBack: (message: string) => void
 	}) => {
 		const redirectToHome = async ({ message }: { message?: string } = {}) => {
 			await onSignOut()
 			push(paths.home.root).then(() => reload())
-
-			modal.error(message)
+			errorCallBack(message || '')
 		}
 
 		// * 驗證 Email 狀況下

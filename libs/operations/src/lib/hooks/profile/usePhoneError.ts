@@ -1,7 +1,7 @@
 import { PHONE_DIGITS_LIMIT, PHONE_LENGTH_REGEX } from '@nx-next-app/constants'
 import { useTranslation } from 'next-i18next'
 
-const useCheckPhone = () => {
+const usePhoneError = () => {
 	const { t } = useTranslation()
 
 	const handlePhoneErrorTip = ({
@@ -33,4 +33,4 @@ const useCheckPhone = () => {
 	return { handlePhoneErrorTip }
 }
 
-export { useCheckPhone }
+export { usePhoneError }

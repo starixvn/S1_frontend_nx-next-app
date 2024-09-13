@@ -1,10 +1,10 @@
-import { Loading } from '@nx-next-app/components/D0001'
+import { Loading } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import { useProfileInfo } from '@nx-next-app/operations'
 import dayjs from 'dayjs'
 import { useTranslation } from 'next-i18next'
-import { PhoneOtpModal } from './PhoneOtpModal'
+import { PhoneOtpModal } from '../modal/PhoneOtpModal'
 
 const Info = () => {
 	// ====== hook ======

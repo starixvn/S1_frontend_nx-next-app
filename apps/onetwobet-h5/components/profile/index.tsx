@@ -1,10 +1,8 @@
 import { Header } from '@nx-next-app/components/H0001'
 import { paths } from '@nx-next-app/constants'
-import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import { useGlobalData } from '@nx-next-app/data-access'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
 import { Address } from './Address'
 import { AddressEdit } from './AddressEdit'
 import { Info } from './Info'
@@ -14,18 +12,8 @@ import { Verification } from './Verification'
 
 const Profile = () => {
 	const { t } = useTranslation()
-	const { push } = useRouter()
-
-	const {
-		auth: { isLogin },
-	} = useAuth()
 
 	const { isInApp } = useGlobalData()
-
-	useEffect(() => {
-		if (!isLogin) push(paths.home.root)
-	}, [])
-
 	return (
 		<>
 			<Header className='header'>
@@ -49,7 +37,7 @@ const Profile = () => {
 						</a>
 					</Link>
 				</div>
-				{isInApp === false && <LineBinding />}
+				{!isInApp && <LineBinding />}
 			</main>
 		</>
 	)

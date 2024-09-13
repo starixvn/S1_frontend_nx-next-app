@@ -1,26 +1,26 @@
-import { Form, InputBox, Select } from '@nx-next-app/components/H0001'
+import { Form, InputBox, Select } from '@12b-h5/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { EMAIL_REGEX, REALNAME_REGEX } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
 import { useProfileInfo } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
-import { PhoneOtpModal } from './PhoneOtpModal'
+import { PhoneOtpModal } from '../modal/PhoneOtpModal'
 
 const InfoEdit = () => {
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
 	const { push } = useRouter()
+
 	const {
-		email,
-		errors,
-		phoneNo,
-		birthDay,
+		userInfo: { email, phoneNo, accountName, birth_d: birthDay },
+	} = useAuth()
+
+	const {
 		dayOptions,
 		yearOptions,
 		monthOptions,
 		formMethods,
-		accountName,
-		touchedFields,
 		phoneErrorTip,
 		showSubmitBtn,
 		existsEmailLoading,
@@ -31,9 +31,18 @@ const InfoEdit = () => {
 		handleSubmitForm,
 	} = useProfileInfo()
 
-	const { trigger, setValue, register, getValues, handleSubmit } = formMethods
+	const { trigger, setValue, register, getValues, handleSubmit, formState } =
+		formMethods
+
+	const { errors, touchedFields } = formState
 
 	// ======  函數	 ======
+
+	/**
+	 * 處理錯誤並顯示錯誤信息
+	 * 當發生錯誤時，會將錯誤訊息通過 modal 顯示給使用者
+	 * @message - 錯誤訊息 */
+	const showErrorModal = (message: string) => modal.error(message)
 
 	const emailFieldRenderer = () => {
 		if (email) return <div>{email}</div>
@@ -67,12 +76,6 @@ const InfoEdit = () => {
 			onOK: () => modal.open(<PhoneOtpModal />),
 		})
 	}
-
-	/**
-	 * 處理錯誤並顯示錯誤信息
-	 * 當發生錯誤時，會將錯誤訊息通過 modal 顯示給使用者
-	 * @message - 錯誤訊息 */
-	const showErrorModal = (message: string) => modal.error(message)
 
 	/** 根據 prevPage 進行導向時，顯示跳轉頁面和彈出確認訊息
 	 * @param path - 跳轉的路徑。
@@ -165,7 +168,7 @@ const InfoEdit = () => {
 						showSearch
 						options={areaCodeSelectOptions}
 						prefixIcon={<i className='icon icon-phone txt-blue' />}
-						onChange={areaCode => selectAreaCode(areaCode)}
+						onChange={areaCode => selectAreaCode(areaCode as string)}
 						value={getValues('formAreaCode')}
 						errorMessage={phoneErrorTip}
 					/>
