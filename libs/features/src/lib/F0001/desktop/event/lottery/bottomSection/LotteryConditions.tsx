@@ -46,7 +46,7 @@ const LotteryConditions = () => {
 									</span>
 									<div className='total'>
 										<div className='icon money' />
-										<div>{lotteryInfo?.jackpotAmount?.toLocaleString()}</div>
+										<div>{lotteryInfo?.jackpotAmount.toLocaleString()}</div>
 									</div>
 								</div>
 							</th>

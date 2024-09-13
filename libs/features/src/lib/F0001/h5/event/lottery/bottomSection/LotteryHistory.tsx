@@ -68,7 +68,7 @@ const LotteryHistory = () => {
 										className='dropdown-item'
 										onClick={() => setSelectedRound(round)}
 									>
-										Round {round.roundId} (
+										{t('Label_Event_Round')} {round.roundId} (
 										{dayjs(round.startDate).format('YYYY/M/D')}
 										{' - '}
 										{dayjs(round.endDate).format('YYYY/M/D')})
