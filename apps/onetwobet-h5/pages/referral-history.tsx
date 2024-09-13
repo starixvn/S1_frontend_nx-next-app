@@ -1,3 +1,4 @@
+import { History, Layout } from '@12b-h5/components/index'
 import { paths } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import {
@@ -11,7 +12,6 @@ import {
 } from '@nx-next-app/site/onetwobet/data/history'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { History, Layout } from '../components'
 
 type IReferralHistoryPageProps = InitialPropsInterface
 
