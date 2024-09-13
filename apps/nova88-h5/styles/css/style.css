@@ -20788,4 +20788,8 @@ input[type=number] .btn-logout {
 }
 .survey-after.close {
   display: none;
+}
+
+#__next {
+  height: 100%;
 }/*# sourceMappingURL=style.css.map */
