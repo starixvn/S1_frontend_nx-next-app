@@ -26,17 +26,6 @@ export enum DepositStatusEnum {
 	Processing,
 }
 
-export enum WithdrawalStatusEnum {
-	pending = 1,
-	onHold,
-	verify,
-	process,
-	cancelled,
-	approved,
-	rejected,
-	toKyc,
-}
-
 export enum HistoryTabsEnum {
 	Transfer,
 	Deposit,

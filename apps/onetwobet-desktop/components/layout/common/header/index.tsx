@@ -50,7 +50,7 @@ const LayoutHeader = () => {
 			await onSignOut()
 			await router.push(paths.home.root).then(() => router.reload())
 		} catch (error) {
-			modal.info((error as Error).message)
+			modal.error((error as Error).message)
 		}
 	}
 

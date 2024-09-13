@@ -1093,6 +1093,45 @@ img {
   content: "\e91d";
 }
 
+.primary {
+  background: #C01D21 !important;
+}
+
+.secondary {
+  background: #caa66f !important;
+}
+
+.thrid {
+  background: #1F1F1F !important;
+}
+
+.ghost {
+  background: transparent !important;
+  border: 1px solid #CCCCCC !important;
+  color: #AEACAC !important;
+}
+.ghost.gold {
+  border: 1px solid #caa66f !important;
+  color: #caa66f !important;
+  background: #000 !important;
+}
+.ghost.gold.red {
+  color: #fff !important;
+  border: 1px solid #e92529 !important;
+  background: #e92529 !important;
+}
+
+.white {
+  background: #fff !important;
+  border: 1px solid #caa66f !important;
+  color: #caa66f !important;
+}
+
+button[disabled] {
+  background: #a5aab1 !important;
+  color: #666 !important;
+}
+
 .btn-group .primary {
   background: #C01D21 !important;
 }
@@ -1128,11 +1167,11 @@ img {
 }
 
 .icon-information:before {
-  color: #e03035;
+  color: #e03035 !important;
 }
 
 .inputBox .icon-information:before, .euro .inputBox-event .icon-information:before, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event .icon-information:before, .worldcupEvent .event .event-content .inputBox-event .icon-information:before {
-  color: #bc8f4a;
+  color: #bc8f4a !important;
 }
 
 body,
@@ -2183,7 +2222,7 @@ main .gameList .icon-new {
           backdrop-filter: blur(5px);
 }
 #popup > div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo):not(.bigwin):not(.medalpop):not(.rulepop):not(.livesports) {
-  background: white;
+  background: #000;
   width: 100%;
 }
 #popup .pop .account {
@@ -2221,7 +2260,7 @@ main .gameList .icon-new {
   padding: 1vw 8vw 1vw 2vw;
   display: -webkit-box;
   border-bottom: 1px solid #CCCCCC;
-  color: #4c5356;
+  color: #fff;
   font-weight: bold;
   width: calc(100% - 10vw);
   line-height: 24px;
@@ -2240,13 +2279,13 @@ main .gameList .icon-new {
       -ms-flex-align: center;
           align-items: center;
   top: 0;
-  color: #4c5356;
+  color: #fff;
 }
 #popup .popTxt {
   padding: 4vw 2vw;
   border-radius: 0 0 3px 3px;
   width: calc(100% - 4vw);
-  color: #AEACAC;
+  color: #CCCCCC;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2314,15 +2353,15 @@ main .gameList .icon-new {
   font-size: 4vw;
   width: calc(100% - 8vw);
   padding: 3vw 5vw 3vw 3vw;
-  background: #233d67;
+  background: #000;
   color: white;
   max-height: 11vw;
 }
 #popup.backupDomain .pop .popTxt {
-  color: #a5aab1;
+  color: #E0E6E9;
   padding: 0;
   width: 100%;
-  background: white;
+  background: #000;
 }
 #popup.backupDomain .pop .popTxt > div {
   width: calc(100% - 8vw);
@@ -2355,11 +2394,11 @@ main .gameList .icon-new {
 }
 #popup.backupDomain .pop .popTxt .url .copyurl {
   border-radius: 30px;
-  color: white;
+  color: #fff;
   padding: 0.5vw 2.5vw 1vw;
   font-size: 3vw;
   right: 0.8vw;
-  background: #5574A7;
+  background: #caa66f;
   margin: auto 0 auto auto;
 }
 #popup.backupDomain .pop .popTxt .text-center {
@@ -2373,7 +2412,7 @@ main .gameList .icon-new {
 }
 #popup.backupDomain .pop .popTxt .text-center input[type=checkbox] + label {
   margin: 0vw 1vw 0 0;
-  border: 1px solid #F77A00;
+  border: 1px solid #C01D21;
   border-radius: 100%;
   width: 4vw;
   height: 4vw;
@@ -2393,13 +2432,13 @@ main .gameList .icon-new {
   border-radius: 100%;
 }
 #popup.backupDomain .pop .popTxt .text-center input[type=checkbox]:checked + label > div {
-  background: #F77A00;
+  background: #C01D21;
 }
 #popup.resetPassword .popTit {
   font-size: 4vw;
   width: calc(100% - 8vw);
   padding: 3vw 5vw 3vw 3vw;
-  background: #233d67;
+  background: #000;
   color: white;
   max-height: 11vw;
 }
@@ -2762,7 +2801,7 @@ main .gameList .icon-new {
 }
 #popup.promospop .pop .popTit {
   position: fixed;
-  background: #ecf3fd;
+  background: #000;
   padding: 2vw 0;
   width: 100%;
   text-align: center;
@@ -2773,7 +2812,7 @@ main .gameList .icon-new {
 }
 #popup.promospop .pop .icon-close {
   z-index: 2;
-  color: #233d67;
+  color: #fff;
   position: absolute;
 }
 #popup.promospop .pop .promotions {
@@ -2804,16 +2843,16 @@ main .gameList .icon-new {
 }
 #popup.statuspop .pop {
   background: #eaf1ff;
-  border: 1px solid #284985;
+  border: 1px solid #AEACAC;
   padding: 0;
   border-radius: 1vw;
 }
 #popup.statuspop .pop .statustitle {
   font-size: 4.5vw;
   padding: 2vw 9vw 2vw 4vw;
-  border-bottom: 1px solid #5574a7;
-  background: #284985;
-  color: white;
+  border-bottom: 1px solid #AEACAC;
+  background: #000;
+  color: #fff;
   position: relative;
 }
 #popup.statuspop .pop .statustitle .close {
@@ -2825,7 +2864,7 @@ main .gameList .icon-new {
   border-top: 0;
 }
 #popup.statuspop .pop .statuscontent > div {
-  border-bottom: 1px solid #c1cceb;
+  border-bottom: 1px solid #4c5356;
 }
 #popup.statuspop .pop .statuscontent > div .subtitle {
   font-size: 4vw;
@@ -2833,7 +2872,7 @@ main .gameList .icon-new {
 #popup.statuspop .pop .statuscontent > div > div {
   font-size: 3.5vw;
   margin-top: 3vw;
-  color: #052561;
+  color: #AEACAC;
 }
 #popup.statuspop .pop .statuscontent > div > div:last-child {
   margin: 1vw 0 3vw;
@@ -2859,7 +2898,7 @@ main .gameList .icon-new {
   width: max-content;
   margin: 2vw auto 3vw;
   text-align: center;
-  color: #233d67;
+  color: #CCCCCC;
   font-weight: normal;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2881,7 +2920,7 @@ main .gameList .icon-new {
 }
 #popup.noticepop .checkbox input[type=checkbox] + label {
   margin: 0vw 1vw 0 0;
-  border: 1px solid #F77A00;
+  border: 1px solid #C01D21;
   border-radius: 100%;
   width: 3.5vw;
   height: 3.5vw;
@@ -2901,7 +2940,7 @@ main .gameList .icon-new {
   border-radius: 100%;
 }
 #popup.noticepop .checkbox input[type=checkbox]:checked + label > div {
-  background: #F77A00;
+  background: #C01D21;
 }
 #popup.noticepop .btn-group {
   -webkit-box-pack: center;
@@ -2928,7 +2967,7 @@ main .gameList .icon-new {
 }
 #popup.detailpop .pop .popTit {
   position: fixed;
-  background: #ecf3fd;
+  background: #000;
   padding: 2vw 0;
   width: 100%;
   text-align: center;
@@ -2939,7 +2978,7 @@ main .gameList .icon-new {
 }
 #popup.detailpop .pop .icon-close {
   z-index: 2;
-  color: #233d67;
+  color: #fff;
   position: absolute;
 }
 #popup.detailpop .pop .infoList {
@@ -4052,7 +4091,7 @@ main .gameList .icon-new {
 .header .title {
   width: 100%;
   height: 12vw;
-  background: #000;
+  background: #C01D21;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4215,7 +4254,7 @@ main .gameList .icon-new {
   padding: 20vw 4vw;
 }
 .main > .icon-member {
-  background: #112240;
+  background: #242526;
   padding: 3vw;
   width: 13vw;
   height: 13vw;
@@ -4275,7 +4314,7 @@ main .gameList .icon-new {
   margin: 0 1vw 0 0;
 }
 .Wallet > .account {
-  background: #D2E2F9;
+  background: #1F1F1F;
 }
 .Wallet > .account .account {
   width: calc(100% - 8vw);
@@ -4812,10 +4851,10 @@ main .gameList .icon-new {
           flex-flow: row wrap;
 }
 .infoModule.parts + span {
-  color: #5574A7;
+  color: #bc8f4a;
 }
 .infoModule.parts + span + div {
-  color: #5574A7;
+  color: #bc8f4a;
 }
 .infoModule.parts .phone {
   display: -webkit-box;
@@ -5380,8 +5419,6 @@ main .gameList .icon-new {
 
 .recent {
   visibility: hidden;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
   opacity: 0;
   height: 0;
 }
@@ -5422,7 +5459,7 @@ main .gameList .icon-new {
 .account.active {
   margin: 0;
   padding: 0;
-  color: #112240;
+  color: #CCCCCC;
 }
 .account .bankLogo {
   -webkit-box-flex: 1;
@@ -5520,8 +5557,8 @@ main .gameList .icon-new {
   width: 25.3vw;
   height: 18vw;
   border-radius: 10px;
-  border: 1px solid #1e85ec;
-  background: rgba(117, 145, 193, 0.5);
+  border: 1px solid #AEACAC;
+  background: rgba(76, 83, 86, 0.5);
   margin: 0 1vw 1vw 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5563,7 +5600,7 @@ main .gameList .icon-new {
 }
 .bankSlip .upload_img .icon {
   font-size: 5vw;
-  color: #1e85ec;
+  color: #AEACAC;
 }
 .bankSlip .upload_img img {
   height: 100%;
@@ -5869,10 +5906,10 @@ button.clickBtn.secondary {
 .functionList ~ .account.active .info {
   margin: 0;
   padding: 5vw 4vw;
-  background: #E0E6E9;
+  background: #4E4E4E;
 }
 .functionList ~ .account.active .content {
-  background: #eff2f4;
+  background: #1F1F1F;
   visibility: visible;
   -webkit-transition: 0.7s;
   transition: 0.7s;
@@ -6943,7 +6980,7 @@ span.important {
 .promotions .proInfomodule .protitle {
   margin: 1vw 0 0;
   font-size: 4vw;
-  color: #5574A7;
+  color: #caa66f;
   font-weight: bold;
   padding-left: 1vw;
 }
@@ -7052,7 +7089,7 @@ span.important {
   font-size: 13vw;
   -webkit-animation: jump 0.3s infinite;
           animation: jump 0.3s infinite;
-  color: #A4A4A4;
+  color: #caa66f;
 }
 .kyc .icon-jump ~ div:nth-child(2) {
   background: #A4A4A4;
@@ -7196,7 +7233,7 @@ span.important {
 }
 .progressBarModule .bar {
   height: 2vw;
-  background: #D2E2F9;
+  background: #E0E6E9;
   border-radius: 10px;
   overflow: hidden;
   -webkit-box-flex: 1;
@@ -7204,7 +7241,7 @@ span.important {
           flex: auto;
 }
 .progressBarModule .bar .progress {
-  background: #5574A7;
+  background: #caa66f;
   height: 100%;
   border-radius: 10px;
 }
@@ -7220,7 +7257,7 @@ span.important {
   font-size: 3vw;
 }
 .progressBarModule .percentage {
-  color: #5574A7;
+  color: #caa66f;
   font-weight: bold;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
@@ -7247,8 +7284,7 @@ span.important {
       -ms-flex-align: center;
           align-items: center;
   margin: 2vw 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
-  background: linear-gradient(to bottom, #435F8B, #6383B9);
+  background: #caa66f;
   border-radius: 5px;
   padding: 2vw;
 }
@@ -10280,7 +10316,7 @@ span.important {
 }
 .referralShare .popTxt > div button i,
 .referralShare .popTxt > div a i {
-  background: #5574A7;
+  background: #caa66f;
   border-radius: 5px;
   padding: 3vw;
   display: -webkit-box;
@@ -10760,7 +10796,7 @@ span.important {
 }
 
 .cashBack {
-  background: #E4E4E4;
+  background: #eeeeee;
   padding: 2vw;
   border-radius: 2px;
   margin: 2vw 0;
@@ -10770,23 +10806,23 @@ span.important {
   margin: 1vw;
 }
 .cashBack table {
-  color: #5574A7;
+  color: #4c5356;
   font-size: 3vw;
   width: 100%;
   border-radius: 2px;
   overflow: hidden;
-  background: white;
+  background: #fff;
 }
 .cashBack table tr:nth-child(1) {
-  background: #112240;
-  color: white;
+  background: #4E4E4E;
+  color: #fff;
   font-weight: bold;
 }
 .cashBack table tr:nth-child(even) {
-  background: rgba(198, 212, 241, 0.3);
+  background: #F4F4F4;
 }
 .cashBack table tr:nth-last-child(3) {
-  border-top: 1px solid #D2E2F9;
+  border-top: 1px solid #E0E6E9;
 }
 .cashBack table tr:nth-last-child(-n+3) {
   font-weight: bold;
@@ -10803,7 +10839,7 @@ span.important {
   min-width: 25vw;
 }
 .cashBack table tr td {
-  border-right: 1px solid #D2E2F9;
+  border-right: 1px solid #E0E6E9;
   padding: 1vw;
   line-height: 18px;
 }
@@ -10814,7 +10850,7 @@ span.important {
   border-top: none;
 }
 .cashBack.newStyle table tr:nth-last-child(6) {
-  border-top: 1px solid #D2E2F9;
+  border-top: 1px solid #E0E6E9;
 }
 .cashBack.newStyle table tr:nth-last-child(-n+6) {
   font-weight: bold;
@@ -11508,7 +11544,7 @@ span.important {
 }
 
 .dragonPayPop ul {
-  color: #5574A7;
+  color: #bc8f4a;
 }
 .dragonPayPop ul li {
   margin-left: 4vw;
@@ -11521,10 +11557,10 @@ span.important {
   width: 100%;
 }
 .dragonPayPop .pop > div span {
-  color: #1E85EC;
+  color: #fff;
 }
 .dragonPayPop .pop > div.popTit {
-  background: #233d67;
+  background: #000;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -11576,7 +11612,7 @@ span.important {
 }
 .dragonPayPop .pop > div.popTxt .guide > button {
   padding: 0.5vw 2vw;
-  background: #5574A7;
+  background: #caa66f;
   color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11613,7 +11649,7 @@ span.important {
 }
 .accountInfo > div button {
   padding: 0.5vw 2vw;
-  background: #5574A7;
+  background: #caa66f;
   color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11744,7 +11780,7 @@ span.important {
 .rolloverList > div > div:nth-child(1),
 .minAmount > div > div:nth-child(1),
 .remainingTime > div > div:nth-child(1) {
-  background: #112240;
+  background: #4E4E4E;
   color: white;
 }
 .rolloverList > div > div:nth-child(2),
@@ -14003,7 +14039,7 @@ span.important {
 }
 
 .duitnowPayPop ul {
-  color: #5574A7;
+  color: #bc8f4a;
 }
 .duitnowPayPop ul li {
   margin-left: 4vw;
@@ -14019,14 +14055,14 @@ span.important {
   color: #1E85EC;
 }
 .duitnowPayPop .pop > div.popTit {
-  background: #233d67;
+  background: #000;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: white !important;
+  color: #fff !important;
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;
@@ -14053,7 +14089,7 @@ span.important {
   margin: 2vw 0 0;
 }
 .duitnowPayPop .pop > div.popTxt .sisa div {
-  color: #5574A7;
+  color: #AEACAC;
 }
 .duitnowPayPop .pop > div.popTxt .sisa div:last-child {
   font-weight: bold;
@@ -14074,7 +14110,7 @@ span.important {
   text-align: center;
 }
 .duitnowPayPop .pop > div.popTxt .amount span {
-  color: #5574A7;
+  color: #caa66f;
   font-weight: bold;
   font-size: 4vw;
   display: block;
@@ -14096,8 +14132,8 @@ span.important {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-top: 1px dotted #1E85EC;
-  border-bottom: 1px dotted #1E85EC;
+  border-top: 1px dotted #AEACAC;
+  border-bottom: 1px dotted #AEACAC;
   padding: 2vw 0;
   margin: 2vw 0 0;
 }
@@ -14126,7 +14162,7 @@ span.important {
           align-items: center;
   width: 53vw;
   height: 53vw;
-  background: rgba(198, 212, 241, 0.8);
+  background: #AEACAC;
   overflow: hidden;
   margin: 1vw 0;
 }
@@ -14840,7 +14876,7 @@ input:-webkit-autofill:active {
 }
 
 .thiaPop ul {
-  color: #5574A7;
+  color: #CCCCCC;
 }
 .thiaPop ul li {
   margin-left: 4vw;
@@ -14856,7 +14892,7 @@ input:-webkit-autofill:active {
   color: #1E85EC;
 }
 .thiaPop .pop > div.popTit {
-  background: #0D3E64;
+  background: #000;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -14921,7 +14957,7 @@ input:-webkit-autofill:active {
           align-items: center;
   padding: 2vw;
   margin: 1vw 0 0;
-  background: rgba(210, 226, 249, 0.4);
+  background: rgba(204, 204, 204, 0.4);
   border-radius: 1vw;
 }
 .thiaPop .pop > div .guide > button {
@@ -14949,7 +14985,7 @@ input:-webkit-autofill:active {
           align-items: center;
   width: 53vw;
   height: 53vw;
-  background: rgba(198, 212, 241, 0.8);
+  background: rgba(204, 204, 204, 0.8);
   overflow: hidden;
   margin: 1vw 0;
 }
@@ -14994,7 +15030,7 @@ input:-webkit-autofill:active {
 }
 .thiaPop .pop > div .description button {
   border-radius: 1vw;
-  background: #7591C1;
+  background: #caa66f;
   color: #fff;
   height: 6vw;
   width: 6vw;
@@ -15025,7 +15061,7 @@ input:-webkit-autofill:active {
   font-size: 3.25vw;
   margin: 1vw auto;
   padding-bottom: 1.5vw;
-  border-bottom: 1px dotted #1E85EC;
+  border-bottom: 1px dotted #AEACAC;
 }
 .thiaPop .pop > div .info div {
   margin: 2.5vw auto 2vw;
@@ -20160,7 +20196,7 @@ input[type=number] .btn-logout {
           justify-content: center;
 }
 .exclusion-text > div {
-  color: #0a1b38;
+  color: #E0E6E9;
   font-size: 3.5vw;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -20169,7 +20205,7 @@ input[type=number] .btn-logout {
 .exclusion-text a,
 .exclusion-text button {
   margin-bottom: 3vw;
-  background: #D9BB9B;
+  background: #caa66f;
   font-size: 4vw;
   font-weight: 700;
   padding: 2vw 1vw;
@@ -20177,7 +20213,7 @@ input[type=number] .btn-logout {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 50vw;
-  color: #0a1b38;
+  color: #1F1F1F;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

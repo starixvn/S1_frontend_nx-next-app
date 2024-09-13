@@ -1,22 +1,22 @@
-import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { createContext, ReactNode, useContext, useEffect } from 'react'
+import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { useTranslation } from 'next-i18next'
-import { delay, upperFirst } from 'lodash-es'
-import {
-	useCheckDrawPrizeQuery,
-	useGetDisplayDrawPrizeListQuery,
-	useDrawPrizeMutation,
-	useGetCustDrawPrizeListQuery,
-} from 'libs/web/src/service/eventsApi/api'
 import {
 	IAxiosError,
 	ICustDrawPrizeData,
 	IDisplayDrawPrizeData,
 } from '@nx-next-app/service'
-import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
+import {
+	useCheckDrawPrizeQuery,
+	useDrawPrizeMutation,
+	useGetCustDrawPrizeListQuery,
+	useGetDisplayDrawPrizeListQuery,
+} from 'libs/web/src/service/eventsApi/api'
+import { delay, upperFirst } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
+import { ReactNode, createContext, useContext, useEffect } from 'react'
 
 const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
@@ -193,7 +193,7 @@ export const LuckWheelProvider = ({ children }: ILuckWheelProviderProps) => {
 					</div>
 				)
 			} catch (error) {
-				modal.info((error as Error).message)
+				modal.error((error as Error).message)
 			}
 		}, 3000)
 	}

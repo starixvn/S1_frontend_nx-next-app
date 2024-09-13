@@ -1,7 +1,6 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useChangePasswordFetcher } from '@nx-next-app/hooks'
+import useChangePasswordFetcher from 'libs/web/src/hooks/useChangePasswordFetcher'
 import { useTranslation } from 'next-i18next'
-
 import { ChangePasswordForm } from '../change-password/ChangePasswordForm'
 
 const ChangePasswordModal = () => {

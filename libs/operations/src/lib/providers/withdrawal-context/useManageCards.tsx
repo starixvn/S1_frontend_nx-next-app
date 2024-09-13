@@ -16,12 +16,7 @@ import {
 	useSetLocalBankInfoMutation,
 } from '@nx-next-app/service'
 import { useTranslation } from 'next-i18next'
-import dynamic from 'next/dynamic'
-
-const AddBankCardModal = dynamic(
-	() => import('@nx-next-app/features/F0001/desktop/modal/AddBankCardModal'),
-	{ ssr: false }
-)
+import { IAddBankCardModalProps } from './types'
 
 interface IUseManageCardsProps {
 	accountName: string
@@ -30,10 +25,20 @@ interface IUseManageCardsProps {
 		bankInfoDetail?: IBankInfoData[] | IPaymentCustBankInfoData[]
 		usdtDetail?: IUsdtDetailData[]
 	}
+	addBankCardModalCallBack?: ({
+		type,
+		bankData,
+		bankDropDown,
+		onSubmitCard,
+	}: IAddBankCardModalProps) => void
 }
 
 // 管理增刪卡片的 hooks
-const useManageCards = ({ accountName, bankData }: IUseManageCardsProps) => {
+const useManageCards = ({
+	accountName,
+	bankData,
+	addBankCardModalCallBack,
+}: IUseManageCardsProps) => {
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
 
@@ -104,14 +109,14 @@ const useManageCards = ({ accountName, bankData }: IUseManageCardsProps) => {
 					}
 				}
 			)
-			modal.open(
-				<AddBankCardModal
-					type={WithdrawalBankCardEnum.LocalBank}
-					bankData={bankData}
-					bankDropDown={dropDownOptions}
-					onSubmitCard={handleSubmitAddCard}
-				/>
-			)
+			if (addBankCardModalCallBack) {
+				addBankCardModalCallBack({
+					type: WithdrawalBankCardEnum.LocalBank,
+					bankData,
+					bankDropDown: dropDownOptions,
+					onSubmitCard: handleSubmitAddCard,
+				})
+			}
 		} catch (error) {
 			modal.error((error as Error)?.message)
 		}
@@ -135,14 +140,14 @@ const useManageCards = ({ accountName, bankData }: IUseManageCardsProps) => {
 					}
 				}
 			)
-			modal.open(
-				<AddBankCardModal
-					type={WithdrawalBankCardEnum.EWallet}
-					bankData={bankData}
-					bankDropDown={dropDownOptions}
-					onSubmitCard={handleSubmitAddCard}
-				/>
-			)
+			if (addBankCardModalCallBack) {
+				addBankCardModalCallBack({
+					type: WithdrawalBankCardEnum.EWallet,
+					bankData,
+					bankDropDown: dropDownOptions,
+					onSubmitCard: handleSubmitAddCard,
+				})
+			}
 		} catch (error) {
 			modal.error((error as Error)?.message)
 		}

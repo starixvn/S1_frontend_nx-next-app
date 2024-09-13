@@ -1,6 +1,7 @@
 // CRM 系統 Optimove 的所有事件 trigger 寫在此處，因為事件較多，獨立拉一隻檔案撰寫
 
 // OptimoveSDK 的 3方物件巢狀長，照之前寫法判斷式要寫很長，先把 type 定義直接寫進 global
+
 interface OptimoveSDK {
 	API: {
 		setPageVisit: (

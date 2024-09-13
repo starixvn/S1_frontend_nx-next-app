@@ -12,7 +12,7 @@ import {
 } from '@nx-next-app/service'
 import { delay, upperFirst } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { createContext, ReactNode, useContext, useEffect } from 'react'
+import { ReactNode, createContext, useContext, useEffect } from 'react'
 
 import { DEVICE_TYPE } from '@nx-next-app/constants'
 
@@ -181,7 +181,7 @@ export const LuckWheelProvider = ({ children }: ILuckWheelProviderProps) => {
 					</div>
 				)
 			} catch (error) {
-				modal.info((error as Error).message)
+				modal.error((error as Error).message)
 			}
 		}, 3000)
 	}

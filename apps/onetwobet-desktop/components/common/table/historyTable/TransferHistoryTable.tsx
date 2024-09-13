@@ -57,7 +57,7 @@ const TransferHistoryTable = ({
 			}: {
 				item: { direction: number; isAdjustment: boolean; tpName: string }
 			}) => {
-				const { startWallet, endWallet } = transferDirection({
+				const { endWallet } = transferDirection({
 					direction,
 					displayMainWallet: t('Label_History_MainWallet'),
 					displayAdjustment: t('Label_Adjustment'),
@@ -67,7 +67,6 @@ const TransferHistoryTable = ({
 
 				return (
 					<>
-						<span className='txt-gray'>{startWallet}</span>
 						{isAdjustment ? (
 							<i>&nbsp;&nbsp;</i>
 						) : (

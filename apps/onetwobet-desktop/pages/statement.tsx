@@ -1,5 +1,5 @@
+import { LeftMenu } from '@12b-desktop/components/index'
 import { Layout } from '@12b-desktop/components/layout'
-import { LeftMenu } from '@12b-desktop/components/leftMenu'
 import Statement from '@12b-desktop/components/statement'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {

@@ -1,5 +1,5 @@
+import DateSelector from '@nx-next-app/components/D0001/dateSelector'
 import { useHistory } from '@nx-next-app/operations'
-import DateSelector from 'libs/web/src/components/D0001/dateSelector'
 import { useTranslation } from 'next-i18next'
 import { Select } from '../common'
 
