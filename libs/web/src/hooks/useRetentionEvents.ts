@@ -16,7 +16,7 @@ export const useRetentionEvents = () => {
 	} = useAuth()
 
 	const { data: LotteryStatus, isLoading: isLoadingLotteryStatus } =
-		useGetLotteryMaintainQuery(null)
+		useGetLotteryMaintainQuery(null, { skip: !isLogin })
 	const isLotteryUnderMaintenance = LotteryStatus?.data?.isMaintain ?? true
 	const isRestrictedFromLottery = LotteryStatus?.data?.isRestricted ?? true
 
