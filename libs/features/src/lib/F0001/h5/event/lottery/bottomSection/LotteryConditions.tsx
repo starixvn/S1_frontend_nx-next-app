@@ -41,7 +41,7 @@ const LotteryConditions = () => {
 					<span className='title'>{t('Label_Event_JackpotOfTheRound')}</span>
 					<div className='total'>
 						<div className='icon money' />
-						<div>{lotteryInfo?.jackpotAmount?.toLocaleString()}</div>
+						<div>{lotteryInfo?.jackpotAmount.toLocaleString()}</div>
 					</div>
 				</div>
 				{/* prize info */}
