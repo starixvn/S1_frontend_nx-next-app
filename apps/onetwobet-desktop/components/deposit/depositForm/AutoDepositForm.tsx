@@ -3,7 +3,6 @@ import { Form } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import {
-	WithdrawalBankCardEnum,
 	useAutoDepositForm,
 	useDepositContext,
 	useManageCards,
@@ -79,7 +78,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 		)
 	}
 
-	const { handleAddCards } = useManageCards({
+	const { handleAddBankCard } = useManageCards({
 		accountName: String(accountName),
 		bankData,
 		addBankCardModalCallBack,
@@ -230,7 +229,11 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 						<div className='btnGroup secondary'>
 							<button
 								className='btn-check secondary'
-								onClick={() => handleAddCards(WithdrawalBankCardEnum.LocalBank)}
+								onClick={() =>
+									handleAddBankCard({
+										errorCallback: errorMessage => modal.error(errorMessage),
+									})
+								}
 							>
 								+
 							</button>
@@ -267,7 +270,13 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 				/>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(onAutoDepositFormSubmit)}>
+			<Form
+				onSubmit={handleSubmit(values =>
+					onAutoDepositFormSubmit(values, errorMessage =>
+						modal.error(errorMessage)
+					)
+				)}
+			>
 				<div className='btnGroup primary'>
 					<button
 						type='submit'

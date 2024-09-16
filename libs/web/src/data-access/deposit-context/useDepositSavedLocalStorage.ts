@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import { useLocalStorage, useReadLocalStorage } from 'usehooks-ts'
 import { ENV_LOCAL_STORAGE_NAMES } from '@nx-next-app/constants'
+import { useLocalStorage, useReadLocalStorage } from 'usehooks-ts'
 import { useAuth } from '../auth-context'
 
 export interface IDepositSavedInfo {
@@ -51,7 +51,6 @@ const useDepositSavedLocalStorage = () => {
 
 	const onSavedDepositLocalStorageSavedInfo = (info: IDepositSavedInfo) => {
 		setDepositLocalStorageSavedInfo(info)
-		console.log('update deposit info localStorage', info)
 	}
 
 	return {

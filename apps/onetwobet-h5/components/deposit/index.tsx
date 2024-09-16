@@ -1,23 +1,32 @@
 import { Header } from '@nx-next-app/components/H0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { useCheckUserInfo } from '@nx-next-app/operations'
 import { useGetMainWalletInfoQuery } from '@nx-next-app/service'
 import { numberFormat } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import { useEffect } from 'react'
 import DepositAutoRemember from './DepositAutoRemember'
 import DepositImportant from './DepositImportant'
 import DepositRecentHistory from './DepositRecentHistory'
 import DepositForm from './depositForm'
 
+const UpdateProfileModal = dynamic(
+	() => import('../modal/UpdateProfileModal'),
+	{ ssr: false }
+)
+
 const Deposit = () => {
 	const { t } = useTranslation()
 	const {
+		userInfo: { currencyName, currencyId },
 		auth: { isLogin },
 	} = useAuth()
+	const { modal } = useGlobalModal()
+	const { checkUserInfo } = useCheckUserInfo()
 
-	const {
-		userInfo: { currencyName, currencyId },
-	} = useAuth()
 	const { data: { data: mainWalletInfo } = {} } = useGetMainWalletInfoQuery(
 		null,
 		{ skip: !isLogin }
@@ -27,6 +36,13 @@ const Deposit = () => {
 		mainWalletInfo?.balance || 0,
 		currencyId
 	)}`
+
+	useEffect(() => {
+		checkUserInfo({
+			onSuccessCallback: () =>
+				modal.open(<UpdateProfileModal prevPage={paths.deposit.root} />),
+		})
+	}, [])
 
 	return (
 		<>

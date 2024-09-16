@@ -93,7 +93,9 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 					<button
 						className='orange'
 						onClick={() => {
-							onCryptoPayFormSubmit(values)
+							onCryptoPayFormSubmit(values, errorMessage =>
+								modal.error(errorMessage)
+							)
 						}}
 					>
 						{t('Label_General_Submit')}

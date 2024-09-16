@@ -90,7 +90,9 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 					<button
 						className='orange'
 						onClick={() => {
-							onQRPayFormSubmit(values)
+							onQRPayFormSubmit(values, errorMessage =>
+								modal.error(errorMessage)
+							)
 						}}
 					>
 						{t('Label_General_Submit')}

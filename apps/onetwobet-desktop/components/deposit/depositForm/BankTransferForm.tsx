@@ -218,7 +218,13 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 					}}
 				/>
 			</DepositModule>
-			<Form onSubmit={handleSubmit(onBankTransferFormSubmit)}>
+			<Form
+				onSubmit={handleSubmit(values =>
+					onBankTransferFormSubmit(values, errorMessage =>
+						modal.error(errorMessage)
+					)
+				)}
+			>
 				{watchCanSubmit ? (
 					<div className='btnGroup primary'>
 						<button

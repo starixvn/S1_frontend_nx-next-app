@@ -196,7 +196,11 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 				/>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(onQRPayFormSubmit)}>
+			<Form
+				onSubmit={handleSubmit(values =>
+					onQRPayFormSubmit(values, errorMessage => modal.error(errorMessage))
+				)}
+			>
 				<div className='btnGroup primary'>
 					<button
 						type='submit'
