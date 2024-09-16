@@ -1,11 +1,19 @@
 import useTable from '@12b-desktop/components/common/table/useTable'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { HistoryTabsEnum, useHistory } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 
 const HistoryTable = () => {
-	const { activeTab, displayColumns, onSubmit, onReloadSpin, onDepositCancel } =
-		useHistory()
+	const {
+		activeTab,
+		displayColumns,
+		onSubmit: onHistorySubmit,
+		onReloadSpin,
+		onDepositCancel,
+	} = useHistory()
 	const { t } = useTranslation()
+	const { modal, closeModal } = useGlobalModal()
+
 	const {
 		TransferHistoryTable,
 		DepositHistoryTable,
@@ -14,7 +22,14 @@ const HistoryTable = () => {
 		ReferralHistoryTable,
 	} = useTable({
 		dataSource: displayColumns,
-		onSubmit,
+		onSubmit: ({ transId, receipt }) => {
+			onHistorySubmit({
+				transId,
+				receipt,
+				errorCallback: modal.error,
+				successCallback: () => closeModal(),
+			})
+		},
 		onCancel: onDepositCancel,
 		onReload: onReloadSpin,
 	})
