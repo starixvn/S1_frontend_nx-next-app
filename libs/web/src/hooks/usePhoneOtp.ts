@@ -1,11 +1,11 @@
-import { useState } from 'react'
-import { useTranslation } from 'next-i18next'
-import { OtpErrorCodeEnum } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { OtpErrorCodeEnum } from '@nx-next-app/constants'
 import {
-	useVerifyOTPMutation,
 	useSendOTPSMSMutation,
+	useVerifyOTPMutation,
 } from '@nx-next-app/service'
+import { useTranslation } from 'next-i18next'
+import { useState } from 'react'
 
 const usePhoneOtp = () => {
 	const { t } = useTranslation()
