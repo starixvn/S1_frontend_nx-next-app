@@ -1,5 +1,4 @@
 import DepositModule from '@12b-desktop/components/deposit/ui/deposit-module'
-import { Form } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import {
@@ -21,7 +20,7 @@ import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
-import { InputBox, Select } from '../../common'
+import { Form, InputBox, Select } from '../../common'
 
 const { IDR } = CurrenciesEnum
 

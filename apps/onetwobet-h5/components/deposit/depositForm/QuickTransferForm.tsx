@@ -1,4 +1,3 @@
-import { Form } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import {
@@ -16,7 +15,7 @@ import {
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { InputBox, Select } from '../../common'
+import { Form, InputBox, Select } from '../../common'
 import DepositModule from '../ui/deposit-module'
 
 interface IQQuickTransferFormProps {
