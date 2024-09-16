@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useState } from 'react'
+import React, { createContext, ReactNode, useContext, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 export type ModalContentType =
@@ -11,7 +11,7 @@ export type ModalContentType =
 export interface IGlobalModalProps {
 	icon?: string | null
 	title?: string | null
-	type?: 'default' | 'info' | 'error' | 'custom' | 'confirm' | null
+	type?: 'default' | 'info' | 'error' | 'confirm' | null
 	content: ModalContentType
 	okText?: string | null
 	cancelText?: string | null
@@ -22,9 +22,9 @@ export interface IGlobalModalProps {
 	closeModal: () => void
 }
 
-export type GlobalModalType = Omit<IGlobalModalProps, 'closeModal'>
+type GlobalModalType = Omit<IGlobalModalProps, 'closeModal'>
 
-export interface ModalContextInterface {
+interface IModalContextInterface {
 	globalModal: GlobalModalType
 	modal: {
 		open: (
@@ -54,13 +54,17 @@ export interface ModalContextInterface {
 		) => void
 	}
 	closeModal: () => void
-	setIsValid: (newIsValid: boolean) => void
 }
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-const ModalContext = createContext<ModalContextInterface>(null!)
+export const ModalContext = createContext<IModalContextInterface>(null!)
 
-const ModalProvider = ({ children }: { children: ReactNode }) => {
+export const useGlobalModal = () => {
+	return useContext(ModalContext)
+}
+
+// TODO: 之後處理 Nova88 拆分 UI 跟邏輯時再搬到 Operations
+export const ModalProvider = ({ children }: { children: ReactNode }) => {
 	const { t } = useTranslation()
 	const [globalModal, setGlobalModal] = useState<GlobalModalType>({
 		type: null,
@@ -71,10 +75,6 @@ const ModalProvider = ({ children }: { children: ReactNode }) => {
 		onOK: () => null,
 		onCancel: () => null,
 	})
-
-	const setIsValid = (newIsValid: boolean) => {
-		setGlobalModal(prev => ({ ...prev, isValid: newIsValid }))
-	}
 
 	const closeModal = () => {
 		setGlobalModal({
@@ -88,14 +88,14 @@ const ModalProvider = ({ children }: { children: ReactNode }) => {
 		})
 	}
 
-	const value: ModalContextInterface = {
+	const value: IModalContextInterface = {
 		globalModal,
 		modal: {
 			open: (content, config) =>
 				setGlobalModal({ type: 'default', content, ...config }),
 			info: (content, config) =>
 				setGlobalModal({ type: 'info', content, ...config }),
-			error: (errorMessage, modalConfig) => {
+			error: (errorMessage, config) => {
 				// 非後端的錯誤訊息會在 axiosBaseQuery 替換 prefix 為 '[Client Error]'
 				const isClientError =
 					typeof errorMessage === 'string' &&
@@ -110,21 +110,18 @@ const ModalProvider = ({ children }: { children: ReactNode }) => {
 					: errorMessage || t('Label_Error_TooManyRequests')
 
 				// 帶入預設多語系標題 Oops
-				const config = {
+				setGlobalModal({
+					type: 'error',
 					title: t('Label_Error_Oops'),
-					...modalConfig,
-				}
-
-				setGlobalModal({ type: 'error', content, ...config })
+					content,
+					...config,
+				})
 			},
 			confirm: (content, config) =>
 				setGlobalModal({ type: 'confirm', content, ...config }),
 		},
 		closeModal,
-		setIsValid,
 	}
 
 	return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
 }
-
-export { ModalContext, ModalProvider }
