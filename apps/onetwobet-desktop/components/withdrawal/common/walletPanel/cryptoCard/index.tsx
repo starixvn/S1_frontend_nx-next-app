@@ -1,4 +1,5 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
 import {
 	useCryptoWallet,
 	useWithdrawal,
@@ -6,6 +7,7 @@ import {
 } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 import { CryptoCardItem } from './CryptoCardItem'
 
 const AddWalletModal = dynamic(
@@ -25,6 +27,7 @@ const CryptoCard = () => {
 	// 與 CryptoWallet 共用
 	const { handleAddWallet } = useCryptoWallet()
 	const { modal } = useGlobalModal()
+	const { push } = useRouter()
 	const { usdtDetail } = bankData
 
 	const onAddWalletModal = ({
@@ -55,7 +58,18 @@ const CryptoCard = () => {
 					<div
 						key='add-bank'
 						className='addBankName noBank'
-						onClick={() => handleAddWallet(onAddWalletModal)}
+						onClick={() =>
+							handleAddWallet({
+								phoneVerifiedCallBack: () =>
+									modal.confirm(t('Label_CryptoWallet_CryptoOTP'), {
+										okText: t('Label_General_UpdatePersonalDetail'),
+										onOK: () => {
+											push(paths.profile.root)
+										},
+									}),
+								onAddWalletModal,
+							})
+						}
 					>
 						<div className='icon icon-plus' />
 						<div>{t('Label_Withdrawal_AddCryptoWallet')}</div>
