@@ -1,5 +1,5 @@
-import { GlobalModal } from '@12b-desktop/components/common'
-import { BackTop, MetaData } from '@nx-next-app/components/D0001'
+import { GlobalModal, MetaData } from '@12b-desktop/components/common'
+import { BackTop } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ISEOData } from '@nx-next-app/data-access'
 import {
