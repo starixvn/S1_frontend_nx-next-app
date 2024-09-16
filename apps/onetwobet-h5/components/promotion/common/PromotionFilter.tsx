@@ -1,4 +1,5 @@
-import { Header, TagOptionType } from '@nx-next-app/components/H0001'
+import { Header } from '@12b-h5/components/common'
+import { TagOptionType } from '@nx-next-app/components/H0001'
 import { usePromotion } from '@nx-next-app/features/F0001/providers'
 import { PromotionFilterEnum } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'

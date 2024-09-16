@@ -1,4 +1,5 @@
-import { Header, Loading, SpinButton } from '@nx-next-app/components/H0001'
+import { Header } from '@12b-h5/components/common'
+import { Loading, SpinButton } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { usePersonalMessage } from '@nx-next-app/operations'
