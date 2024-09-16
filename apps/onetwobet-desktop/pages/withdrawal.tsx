@@ -74,6 +74,7 @@ const WithdrawalPage = ({
 						{/* 因為需使用 cryptoWallet 的 hooks ,故需多包此層 */}
 						<CryptoWalletProvider
 							withdrawalBlockSetting={withdrawalBlockSetting}
+							errorCallback={errorMessage => modal.error(errorMessage)}
 						>
 							<Withdrawal withdrawalBlockSetting={withdrawalBlockSetting} />
 						</CryptoWalletProvider>
