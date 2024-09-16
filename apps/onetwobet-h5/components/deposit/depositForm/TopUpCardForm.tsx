@@ -9,7 +9,7 @@ import {
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { useBoolean } from 'usehooks-ts'
 import { InputBox, Select } from '../../common'
 import DepositModule from '../ui/deposit-module'

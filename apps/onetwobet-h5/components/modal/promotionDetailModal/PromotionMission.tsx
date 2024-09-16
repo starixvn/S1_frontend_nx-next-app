@@ -3,8 +3,8 @@ import { IPromotionData } from '@nx-next-app/service'
 import { PromotionPeriodType } from '@nx-next-app/types'
 import { numFormatToDigits } from '@nx-next-app/utils'
 import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
 import { useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next'
 
 interface IPromotionMissionProps {
 	promotionDetail: IPromotionData
