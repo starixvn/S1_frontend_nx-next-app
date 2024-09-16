@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 export * from './useAffiliateReferralEffect'
-export { default as useChangePasswordFetcher } from './useChangePasswordFetcher'
+export * from './useChangePasswordFetcher'
 export * from './useChangePasswordModalEffect'
 export * from './useCheckLineDirect'
 export * from './useDepositWithdrawTracker'

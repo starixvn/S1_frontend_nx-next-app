@@ -1,4 +1,5 @@
 export * from './profile'
+export * from './useJoin'
 export * from './useLeftMenu'
 export * from './useMenu'
 export * from './usePersonalMessage'

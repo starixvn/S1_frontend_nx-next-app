@@ -1,6 +1,5 @@
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { JoinNova88, Layout } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -9,6 +8,7 @@ import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { Join, Layout } from '../components'
 
 interface IJoinPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
@@ -28,7 +28,7 @@ const JoinPage = ({
 			>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<main>
-						<JoinNova88 cookies={originCookies} />
+						<Join />
 					</main>
 				</Layout>
 			</GlobalDataProvider>
