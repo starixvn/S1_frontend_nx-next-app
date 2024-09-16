@@ -1,5 +1,5 @@
+import { Header } from '@12b-h5/components/common'
 import { Layout, Referral } from '@12b-h5/components/index'
-import { Header } from '@nx-next-app/components/H0001'
 import { paths } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import {
