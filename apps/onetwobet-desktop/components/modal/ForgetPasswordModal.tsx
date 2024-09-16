@@ -12,7 +12,7 @@ const ForgetPasswordModal = () => {
 				<div className='title'>{t('Label_General_ForgetPsw')}</div>
 				<div>{t('Label_General_ForgotPwdMailSent')}</div>
 				<div className='btnGroup'>
-					<button className='btn-check' onClick={closeModal}>
+					<button className='btn-check primary' onClick={closeModal}>
 						{t('Label_General_OK')}
 					</button>
 				</div>

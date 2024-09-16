@@ -1,5 +1,7 @@
+export { default as ChangePassword } from './change-password'
 export * from './common'
 export { default as Deposit } from './deposit'
+export { default as ForgetPassword } from './forget-password'
 export { default as History } from './history'
 export { default as Layout } from './layout'
 export { default as PersonalMessage } from './message'
