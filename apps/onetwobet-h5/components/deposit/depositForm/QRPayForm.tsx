@@ -1,4 +1,3 @@
-import { Form } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { IQRPayForm, useAuth } from '@nx-next-app/data-access'
 import { useDepositContext, useQRPayForm } from '@nx-next-app/operations'
@@ -14,7 +13,7 @@ import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
-import { InputBox, Select } from '../../common'
+import { Form, InputBox, Select } from '../../common'
 import DepositModule from '../ui/deposit-module'
 
 interface IQRPayFormProps {

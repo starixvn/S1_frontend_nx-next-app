@@ -1,6 +1,6 @@
 import { useBankInfo } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
-import { Img } from '../../image'
+import { Img } from '../../common/image'
 
 const Step2 = () => {
 	const { t } = useTranslation()

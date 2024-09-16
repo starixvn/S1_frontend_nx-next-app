@@ -1,4 +1,3 @@
-import { Form, ISelectProps } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { E_WALLET_SYSID, TOUCH_GO_REGEX } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -10,7 +9,7 @@ import { CurrenciesEnum } from '@nx-next-app/types'
 import { find, head } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useForm } from 'react-hook-form'
-import { InputBox, Select } from '../common'
+import { Form, InputBox, Select, type ISelectProps } from '../common'
 
 interface IAddBankCardForm {
 	sysId: number

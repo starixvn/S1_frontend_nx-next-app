@@ -138,6 +138,7 @@ const AddWalletModal = ({
 						<div className='inputModuleRow'>
 							<div>
 								{/* 使用 form 導致跑版，所以額外用 style 調整 */}
+								{/* TODO */}
 								<InputBox
 									style={{ paddingRight: '80px' }}
 									register={register('otpCode')}

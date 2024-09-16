@@ -1,4 +1,3 @@
-import { Form, Img } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import { useDepositContext, useTopUpCardForm } from '@nx-next-app/operations'
@@ -12,7 +11,7 @@ import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'react-i18next'
 import { useBoolean } from 'usehooks-ts'
-import { InputBox, Select } from '../../common'
+import { Form, Img, InputBox, Select } from '../../common'
 import DepositModule from '../ui/deposit-module'
 
 interface ITopUpCardFormProps {

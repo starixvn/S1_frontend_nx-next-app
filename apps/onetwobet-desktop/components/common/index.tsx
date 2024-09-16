@@ -1,5 +1,6 @@
 export { CountdownTimer } from './countdown-timer'
 export { default as Form } from './form'
+export * from './image'
 export * from './input'
 export { default as GlobalModal } from './modal'
 export { default as Select } from './select'
