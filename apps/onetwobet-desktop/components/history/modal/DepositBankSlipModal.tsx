@@ -59,8 +59,11 @@ const DepositBankSlipModal = ({
 		e.preventDefault()
 		if (imageFile) {
 			const image = await convertFileToBase64(imageFile)
-			onSubmit({ transId, receipt: image as string })
-			closeModal()
+			onSubmit({
+				transId,
+				receipt: image as string,
+			})
+			// closeModal()
 		}
 	}
 
@@ -223,7 +226,11 @@ const DepositBankSlipModal = ({
 							>
 								{t('Label_General_Cancel')}
 							</button>
-							<button type='submit' className='btn-check primary'>
+							<button
+								type='submit'
+								className='btn-check primary'
+								disabled={!imageFile}
+							>
 								{t('Label_General_Submit')}
 							</button>
 						</div>

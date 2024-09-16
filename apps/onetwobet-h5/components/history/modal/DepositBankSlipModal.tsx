@@ -53,7 +53,10 @@ const DepositBankSlipModal = ({
 		e.preventDefault()
 		if (imageFile) {
 			const image = await convertFileToBase64(imageFile)
-			onSubmit({ transId, receipt: image as string })
+			onSubmit({
+				transId,
+				receipt: image as string,
+			})
 			closeModal()
 		}
 	}

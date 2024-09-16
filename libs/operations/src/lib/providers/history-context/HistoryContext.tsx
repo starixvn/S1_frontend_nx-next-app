@@ -1,4 +1,3 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { DEVICE_TYPE } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useInView } from '@nx-next-app/hooks'
@@ -74,9 +73,13 @@ export interface IHistoryContextInterface {
 	onSubmit: ({
 		transId,
 		receipt,
+		errorCallback,
+		successCallback,
 	}: {
 		transId?: string
 		receipt: string
+		errorCallback: (error: string) => void
+		successCallback: () => void
 	}) => void
 	onStartDateChange: (newDate: Date | null) => void
 	onEndDateChange: (newDate: Date | null) => void
@@ -102,7 +105,6 @@ const HistoryProvider = ({
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
-	const { modal } = useGlobalModal()
 	const tabsRef = useRef<HTMLDivElement | null>(null)
 	const { ref: historyListRef, isInView: isHistoryListInView } = useInView({})
 	const { pathname } = useRouter()
@@ -399,16 +401,21 @@ const HistoryProvider = ({
 	const onSubmit = async ({
 		transId,
 		receipt,
+		errorCallback,
+		successCallback,
 	}: {
 		transId?: string
 		receipt: string
+		errorCallback: (errorMessage: string) => void
+		successCallback: () => void
 	}) => {
 		try {
 			if (transId) {
 				await uploadReceipt({ transId, receipt }).unwrap()
 			}
+			successCallback()
 		} catch (error) {
-			modal.error((error as Error).message)
+			errorCallback((error as Error).message)
 		}
 	}
 
