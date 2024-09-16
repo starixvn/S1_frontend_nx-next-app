@@ -1,11 +1,12 @@
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Announcement, Layout } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { Layout } from '../components'
+import Announcement from '../components/announcement'
 
 type IAnnouncementPage = InitialPropsInterface
 
