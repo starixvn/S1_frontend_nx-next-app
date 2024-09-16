@@ -72,7 +72,7 @@ const LayoutHeader = () => {
 		}
 	}
 
-	const logoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/logo_w.png`
+	// const logoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/logo_w.png`
 
 	// * line 登入按鈕的顯示邏輯
 	const showLineLogin = currencyId === CurrenciesEnum.THB
@@ -88,7 +88,7 @@ const LayoutHeader = () => {
 	return (
 		<Header>
 			<Header.Logo
-				logoUrl={logoUrl}
+				// logoUrl={logoUrl}
 				rewardsUrl={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/88rewards.png`}
 			/>
 			<Header.Function>
