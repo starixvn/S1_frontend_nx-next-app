@@ -194,7 +194,7 @@ const AddBankCardModal = ({
 						>
 							{t('Label_General_Cancel')}
 						</button>
-						<button className='btn-check' type='submit'>
+						<button className='primary' type='submit'>
 							{t('Label_General_Submit')}
 						</button>
 					</div>
