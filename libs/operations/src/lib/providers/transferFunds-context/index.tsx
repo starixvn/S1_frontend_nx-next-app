@@ -1,5 +1,4 @@
 import { ISelectProps } from '@nx-next-app/components/D0001'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	AutoTrasferStatusEnum,
 	CURRENCY_TO_TIMEZONE,
@@ -32,6 +31,8 @@ interface IForm {
 	amount?: number
 }
 
+type TErrorCallback = (message: string) => void
+
 type TransferModalCallback = (
 	turnover: number,
 	rollover: number,
@@ -54,13 +55,18 @@ interface ITransferFundsContext {
 	onRefetchAllWallet: () => Promise<void>
 	handleTransfer: (args: ITransferArgs) => Promise<boolean>
 	getConvertedTime: (time: string) => dayjs.Dayjs
+
 	handleSubmitForm: (
+		selectSendingWalletCallback: () => void,
+		selectReceivingWalletCallback: () => void,
 		transferModalCallback: (
 			turnover: number,
 			rollover: number,
 			percentage: number
-		) => void
+		) => void,
+		errorCallback: TErrorCallback
 	) => void
+
 	handleCheckAmount: () => void
 	handleSelectWallet: ({
 		tpId,
@@ -71,10 +77,19 @@ interface ITransferFundsContext {
 	}) => void
 	handleRestoreAll: (args: { walletTpId: number }) => void
 	handleSetMaxAmount: (walletId: number) => void
-	handleGetMainWalletInfo: () => void
+	handleGetMainWalletInfo: (
+		modalErrorCallback: (message: string) => void
+	) => void
 	handleGetTransferRecent: () => void
-	handleAutoTransferStatus: () => void
-	handleGetTpWalletInfoByTpId: (tpId: number) => void
+	handleAutoTransferStatus: (
+		confirmCallBack: () => void,
+		errorCallback: TErrorCallback
+	) => void
+
+	handleGetTpWalletInfoByTpId: (
+		errorCallback: TErrorCallback,
+		tpId: number
+	) => void
 }
 
 const TransferFundsContext = createContext<ITransferFundsContext>(
@@ -116,8 +131,6 @@ export const TransferFundsProvider = ({
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
-
-	const { modal } = useGlobalModal()
 
 	const { mainWalletInfo, tpWalletBalanceList, onRefetchAllWallet } =
 		useTpWalletBalanceListFetcher({ langId })
@@ -161,7 +174,11 @@ export const TransferFundsProvider = ({
 
 	const getConvertedTime = (time: string) => dayjs(time).utcOffset(timezone)
 
-	const handleAutoTransferStatus = () => {
+	// used in desktop / h5
+	const handleAutoTransferStatus = (
+		confirmCallBack: () => void,
+		errorCallback: TErrorCallback
+	) => {
 		const setStatus = async () => {
 			const status =
 				Number(autoTransferStatus) === AutoTrasferStatusEnum.open
@@ -173,68 +190,15 @@ export const TransferFundsProvider = ({
 					autoTransfer: status,
 				})
 			} catch (error) {
-				modal.error((error as Error).message)
+				errorCallback((error as Error).message)
 			}
 		}
 
 		if (Number(autoTransferStatus) === AutoTrasferStatusEnum.close) {
-			modal.confirm(t('Label_TransferFunds_AutoTransferHint'), {
-				onOK: setStatus,
-			})
+			confirmCallBack()
 		} else {
 			setStatus()
 		}
-	}
-
-	const handleTransfer = async ({
-		amount,
-		toTpId,
-		fromTpId,
-		transferAction,
-		transferModalCallback,
-	}: ITransferArgs) => {
-		if (transferAction === TransferTypeEnum.transfer) {
-			//* tpId 有可能為 0 (Main Wallet)，所以不能用 !toTpId/fromTpId 判斷
-			if (toTpId === undefined) {
-				modal.error(t('Label_TransferFunds_PleaseSelectFromWallet'))
-				return false
-			}
-			if (fromTpId === undefined) {
-				modal.error(t('Label_TransferFunds_PleaseSelectToWallet'))
-				return false
-			}
-		}
-
-		setIsTransferLoading(true)
-
-		try {
-			const { data, errorCode } = await transfer({
-				amount,
-				toTpId,
-				fromTpId,
-				transferAction,
-				langId,
-			}).unwrap()
-
-			if (errorCode === 9) {
-				const { turnover, rollover } = data
-
-				let percentage =
-					turnover > rollover ? 100 : ((turnover / rollover) * 100).toFixed(2)
-				percentage = percentage === 'NaN' ? 0 : Number(percentage)
-
-				if (transferModalCallback) {
-					transferModalCallback(turnover, rollover, percentage)
-				}
-			}
-		} catch (error) {
-			modal.error((error as Error).message)
-		}
-
-		setIsTransferLoading(false)
-
-		//* 要 return true 才會 reset amount
-		return true
 	}
 
 	const handleRestoreAll = async ({ walletTpId }: { walletTpId: number }) => {
@@ -281,33 +245,42 @@ export const TransferFundsProvider = ({
 		onRefetchAllWallet()
 	}
 
+	// used in desktop
 	const handleGetTransferRecent = async () => {
 		try {
 			await getTransferRecent().unwrap()
 		} catch (error) {
-			modal.error((error as Error).message)
+			// 減少 modal 使用數量，拔除非必要錯誤彈窗
+			console.error('getTransferRecent(): ', (error as Error).message)
+			// modal.error((error as Error).message)
 		}
 	}
 
-	const handleGetTpWalletInfoByTpId = async (tpId: number) => {
+	// used in h5
+	const handleGetTpWalletInfoByTpId = async (
+		errorCallback: TErrorCallback,
+		tpId: number
+	) => {
 		try {
 			await getTpWalletInfoByTpId(tpId).unwrap()
 		} catch (error) {
-			modal.error((error as Error).message)
+			errorCallback((error as Error).message)
+			// modal.error((error as Error).message)
 		}
 	}
 
-	const handleGetMainWalletInfo = async () => {
+	// used in h5
+	const handleGetMainWalletInfo = async (errorCallback: TErrorCallback) => {
 		try {
 			await getMainWalletInfo(null).unwrap()
 		} catch (error) {
-			modal.error((error as Error).message)
+			errorCallback((error as Error).message)
+			// modal.error((error as Error).message)
 		}
 	}
 
 	const handleSetMaxAmount = (walletId: number) => {
 		let amount
-
 		if (walletId === TransferWalletTpId.mainWallet) {
 			amount = mainWalletInfo?.balance
 		} else {
@@ -315,7 +288,6 @@ export const TransferFundsProvider = ({
 				({ tpId }) => tpId === walletId
 			)?.balance
 		}
-
 		setMaxAmount(amount)
 	}
 
@@ -347,25 +319,97 @@ export const TransferFundsProvider = ({
 		}
 	}
 
+	// 註解暫時保留原本的modal error訊息
+
 	const handleSubmitForm = async (
-		transferModalCallback: TransferModalCallback
+		selectSendingWalletCallback: () => void,
+		selectReceivingCallback: () => void,
+		transferModalCallback: TransferModalCallback,
+		errorCallback: TErrorCallback
 	) => {
 		const { amount, walletTo, walletFrom } = getValues()
 
 		const success = await handleTransfer({
 			amount: isConvert(currencyId) ? Number(amount) * 1000 : Number(amount),
-			toTpId: walletTo || 0,
-			fromTpId: walletFrom || 0,
+			toTpId: walletTo,
+			fromTpId: walletFrom,
 			transferAction: TransferTypeEnum.transfer,
 			langId,
+			selectSendingWalletCallback,
+			selectReceivingCallback,
 			transferModalCallback,
+			errorCallback,
 		})
 
 		if (success) {
-			// success 才重 load 錢包資訊
+			// 如果成功則重置
 			onRefetchAllWallet()
 			resetField('amount')
 		}
+	}
+
+	const handleTransfer = async ({
+		amount,
+		toTpId,
+		fromTpId,
+		transferAction,
+		selectSendingWalletCallback,
+		selectReceivingCallback,
+		transferModalCallback,
+		errorCallback,
+	}: ITransferArgs) => {
+		if (transferAction === TransferTypeEnum.transfer) {
+			//* tpId 有可能為 0 (Main Wallet)，所以不能用 !toTpId/fromTpId 判斷
+
+			// callback存在且tpId只要不是數字就跳出( undefined, null)
+
+			if (selectSendingWalletCallback && typeof toTpId !== 'number') {
+				selectSendingWalletCallback()
+				return false
+			}
+			if (selectReceivingCallback && typeof fromTpId !== 'number') {
+				selectReceivingCallback()
+				return false
+			}
+		}
+
+		setIsTransferLoading(true)
+
+		// 09/16/24
+		// payload如果是undefined 他送出時會自動忽略 導致判斷不到，所以直接在payload轉換
+		// 不用預設值null 是因為 main wallet 是 0 會造成 falsy的問題 導致payload被替換成null
+
+		const transferParams = {
+			amount,
+			toTpId: toTpId !== undefined ? toTpId : null,
+			fromTpId: fromTpId !== undefined ? fromTpId : null,
+			transferAction,
+			langId,
+		}
+
+		try {
+			const { data, errorCode } = await transfer(transferParams).unwrap()
+
+			if (errorCode === 9) {
+				const { turnover, rollover } = data
+
+				let percentage =
+					turnover > rollover ? 100 : ((turnover / rollover) * 100).toFixed(2)
+				percentage = percentage === 'NaN' ? 0 : Number(percentage)
+
+				if (transferModalCallback) {
+					transferModalCallback(turnover, rollover, percentage)
+				}
+			}
+		} catch (error) {
+			if (errorCallback) {
+				errorCallback((error as Error).message)
+			}
+			// modal.error((error as Error).message)
+		}
+		setIsTransferLoading(false)
+		//* 要 return true 才會 reset amount
+		return true
 	}
 
 	const loading =

@@ -1,3 +1,4 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { SpinButton } from '@nx-next-app/components/H0001'
 import { TransferWalletTpId } from '@nx-next-app/constants'
 import { useTransferFunds } from '@nx-next-app/operations'
@@ -14,6 +15,12 @@ const WalletList = () => {
 		tpWalletBalanceList,
 	} = useTransferFunds() || {}
 
+	const { modal } = useGlobalModal()
+
+	const handleError = (message: string) => {
+		modal.error(message) // 顯示錯誤信息
+	}
+
 	return (
 		<>
 			<div className='account'>
@@ -24,7 +31,7 @@ const WalletList = () => {
 				<div className='btn-group transferAll'>
 					<SpinButton
 						className='icon icon-spinner11 clickBtn'
-						onClick={handleGetMainWalletInfo}
+						onClick={() => handleGetMainWalletInfo(handleError)}
 					/>
 					<button
 						type='button'
@@ -47,7 +54,7 @@ const WalletList = () => {
 						<SpinButton
 							className='icon icon-spinner11 clickBtn'
 							onClick={() => {
-								handleGetTpWalletInfoByTpId(tpId)
+								handleGetTpWalletInfoByTpId(handleError, tpId)
 							}}
 						/>
 						<button
