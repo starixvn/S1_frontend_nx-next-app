@@ -1,12 +1,11 @@
 import { Loading } from '@nx-next-app/components/D0001'
-import { useWithdrawal } from '@nx-next-app/operations'
-import { IWithdrawalSetting } from '@nx-next-app/service'
-import { CurrenciesEnum, KycStatusEnum } from '@nx-next-app/types'
-import { useTranslation } from 'next-i18next'
-
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { useCheckUserInfo, useWithdrawal } from '@nx-next-app/operations'
+import { IWithdrawalSetting } from '@nx-next-app/service'
+import { CurrenciesEnum, KycStatusEnum } from '@nx-next-app/types'
+import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
@@ -32,11 +31,12 @@ const index = ({ withdrawalBlockSetting }: IWithdrawalProps) => {
 	const { userInfo } = useAuth()
 	const { currencyId } = userInfo
 	const { push } = useRouter()
-	const { restoreAll, loading, kycStatus, checkUserInfo } = useWithdrawal()
+	const { restoreAll, loading, kycStatus, checkKyc } = useWithdrawal()
+	const { checkUserInfo } = useCheckUserInfo()
 
 	useEffect(() => {
 		checkUserInfo({
-			unSuccessCallback: () =>
+			onSuccessCallback: () =>
 				modal.open(<UpdateProfileModal prevPage={paths.withdrawal.root} />),
 			optionalPhoneVerifiedCallback: () => {
 				// INR 才回傳 PhoneVerifiedCallback
@@ -53,6 +53,7 @@ const index = ({ withdrawalBlockSetting }: IWithdrawalProps) => {
 				return undefined
 			},
 		})
+		checkKyc()
 	}, [])
 
 	return (

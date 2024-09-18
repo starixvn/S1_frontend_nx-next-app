@@ -1,4 +1,3 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ENV_LOCAL_STORAGE_NAMES } from '@nx-next-app/constants'
 import { IDepositSavedInfo, useAuth } from '@nx-next-app/data-access'
 import {
@@ -31,9 +30,9 @@ import {
 	SelectOptionType,
 } from '@nx-next-app/types'
 import { MetaPixelTracker, OperaPixelTracker } from '@nx-next-app/utils'
-import { head, includes, isArray, isUndefined } from 'lodash-es'
+import { head, includes, isArray } from 'lodash-es'
 import { useRouter } from 'next/router'
-import React, { ReactNode, createContext, useContext, useEffect } from 'react'
+import { ReactNode, createContext, useContext, useEffect } from 'react'
 import { useReadLocalStorage } from 'usehooks-ts'
 
 interface DepositContextInterface {
@@ -99,7 +98,6 @@ interface IDepositProviderProps {
 
 	// * 排序與開關
 	depositPaymentOrders: DepositPaymentEnum[]
-	profileCallBackModal: React.ReactElement
 }
 
 // * api 使用 isLoading 使初次 fetch  loading
@@ -108,14 +106,11 @@ export const DepositProvider = ({
 	children,
 	DEPOSIT_PAYMENT_OPTIONS,
 	depositPaymentOrders,
-	profileCallBackModal,
 }: IDepositProviderProps) => {
-	const { modal } = useGlobalModal()
 	const { pathname, query, push } = useRouter()
 
 	const {
-		userInfo: { langId, currencyId, userName, accountName, phoneNo, email },
-		auth: { isLogin },
+		userInfo: { langId, currencyId, userName, accountName },
 	} = useAuth()
 
 	// * 確保 userName 不是訪客
@@ -306,23 +301,6 @@ export const DepositProvider = ({
 			)
 		}
 	}, [loading, query['paymentType']])
-
-	useEffect(() => {
-		// 初始化檢查用戶狀態，缺少資料則導去 Profile 頁面更新資料
-		const checkUserInfo = () => {
-			if (isLogin) {
-				if (
-					(!accountName && !isUndefined(accountName)) ||
-					(!phoneNo && !isUndefined(phoneNo)) ||
-					(!email && !isUndefined(email))
-				) {
-					modal.open(profileCallBackModal)
-				}
-			}
-		}
-
-		checkUserInfo()
-	}, [])
 
 	return (
 		<DepositContext.Provider value={value}>{children}</DepositContext.Provider>

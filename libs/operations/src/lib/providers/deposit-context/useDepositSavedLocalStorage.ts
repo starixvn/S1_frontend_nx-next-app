@@ -51,7 +51,6 @@ const useDepositSavedLocalStorage = () => {
 
 	const onSavedDepositLocalStorageSavedInfo = (info: IDepositSavedInfo) => {
 		setDepositLocalStorageSavedInfo(info)
-		console.log('update deposit info localStorage', info)
 	}
 
 	return {

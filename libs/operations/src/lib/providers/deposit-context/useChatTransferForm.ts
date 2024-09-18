@@ -1,4 +1,3 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useDepositSavedLocalStorage } from '@nx-next-app/data-access'
 import {
 	IAxiosError,
@@ -33,7 +32,6 @@ const useChatTransferForm = ({
 		userInfo: { langId, currencyId },
 		dbHost,
 	} = useAuth()
-	const { modal } = useGlobalModal()
 	const { value: isFirstEffect, toggle: toggleIsFirstEffect } = useBoolean(true)
 	const {
 		query: {
@@ -75,7 +73,10 @@ const useChatTransferForm = ({
 	// * 2. window.open()
 	// * 3. fetch refetchDepositQuickTransfer
 	// * 4. savedChecked = true 時記住銀行資訊
-	const onFormSubmit = async (values: IChatTransferForm) => {
+	const onFormSubmit = async (
+		values: IChatTransferForm,
+		errorCallback: (errorMessage: string) => void
+	) => {
 		handleDepositTracker()
 		try {
 			const {
@@ -124,8 +125,7 @@ const useChatTransferForm = ({
 		} catch (error) {
 			// * 存款 api 某些情境的錯誤會塞在 rawMessage
 			const { rawMessage, message } = error as IAxiosError
-
-			modal.error(rawMessage || message)
+			errorCallback(rawMessage || message)
 		}
 	}
 

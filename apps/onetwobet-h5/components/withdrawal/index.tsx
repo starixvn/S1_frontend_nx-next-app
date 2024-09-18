@@ -2,7 +2,11 @@ import { Loading } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { useWithdrawal } from '@nx-next-app/operations'
+import {
+	KycStatusEnum,
+	useCheckUserInfo,
+	useWithdrawal,
+} from '@nx-next-app/operations'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
@@ -26,14 +30,15 @@ const UpdateProfileModal = dynamic(
 const Withdrawal = () => {
 	const { t } = useTranslation()
 	const { push } = useRouter()
-	const { loading, checkUserInfo } = useWithdrawal()
+	const { loading, checkKyc, kycStatus } = useWithdrawal()
 	const { modal } = useGlobalModal()
 	const { userInfo } = useAuth()
+	const { checkUserInfo } = useCheckUserInfo()
 	const { currencyId } = userInfo
 
 	useEffect(() => {
 		checkUserInfo({
-			unSuccessCallback: () =>
+			onSuccessCallback: () =>
 				modal.open(<UpdateProfileModal prevPage={paths.withdrawal.root} />),
 			optionalPhoneVerifiedCallback: () => {
 				// INR 才回傳 PhoneVerifiedCallback
@@ -51,6 +56,13 @@ const Withdrawal = () => {
 			},
 		})
 	}, [])
+
+	useEffect(() => {
+		if (kycStatus === KycStatusEnum.KycUpload) {
+			push(paths.kyc.root)
+		}
+		checkKyc()
+	}, [kycStatus])
 
 	if (loading) return <Loading />
 
