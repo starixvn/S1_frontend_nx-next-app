@@ -136,47 +136,6 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
 				<DepositModule title={t('Label_General_DepositAmount')} required>
-					{/* <div className='input-column'>
-
-
-
-						<div>
-							<InputBox
-								register={register('serial', {
-									required: true,
-								})}
-								placeholder={t('Label_Deposit_CardSerial') || ''}
-								touched={!!touchedFields['serial']}
-								error={!!errors['serial']}
-								onInfoClick={() => toggleIsCardInfoImgActive()}
-							/>
-							<button
-								className='icon icon-files-empty'
-								onClick={async () => {
-									const clipboardText =
-										navigator.clipboard &&
-										(await navigator.clipboard.readText())
-
-									setValue('serial', clipboardText)
-								}}
-							/>
-						</div>
-						<div className='tip active'>
-							{t('Label_Deposit_ProvideBankSlip')}
-						</div>
-					</div>
-
-					<div
-						className={classNames('tipImg', {
-							active: isCardInfoImgActive,
-						})}
-					>
-						<Img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/cardinfo.png`}
-							alt='img-cardinfo'
-						/>
-					</div> */}
-
 					<DepositModule.ShortcutList
 						minAmount={watchMinAmount}
 						maxAmount={watchMaxAmount}

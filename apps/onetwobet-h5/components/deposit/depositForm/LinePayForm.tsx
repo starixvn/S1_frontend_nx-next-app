@@ -36,18 +36,18 @@ const LinePayForm = ({ redirectLink }: ILinePayFormProps) => {
 
 					<a href={redirectLink} target='_blank' rel='noreferrer'>
 						<img
-							src={`${
-								process.env['NEXT_PUBLIC_BANNER_HOST']
-							}/h5/img/line/ling-2_${langId === 'th' ? 'th' : 'en'}.png`}
+							src={getBannerUrl(
+								`/h5/img/line/ling-2_${langId === 'th' ? 'th' : 'en'}.png`
+							)}
 							alt='img-ling'
 						/>
 					</a>
 
 					<a href={redirectLink} target='_blank' rel='noreferrer'>
 						<img
-							src={`${
-								process.env['NEXT_PUBLIC_BANNER_HOST']
-							}/h5/img/line/ling-3_${langId === 'th' ? 'th' : 'en'}.png`}
+							src={getBannerUrl(
+								`/h5/img/line/ling-3_${langId === 'th' ? 'th' : 'en'}.png`
+							)}
 							alt='img-ling'
 						/>
 					</a>
