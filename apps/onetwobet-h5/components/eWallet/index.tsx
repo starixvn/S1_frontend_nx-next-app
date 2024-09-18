@@ -1,7 +1,7 @@
 import { paths } from '@nx-next-app/constants'
 import { useEWallet } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
-import Header from '../header'
+import Header from '../common/header'
 import { AddWallet } from './AddWallet'
 import { WalletList } from './WalletList'
 
