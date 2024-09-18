@@ -65,9 +65,9 @@ const LotteryDraw = () => {
 									</div>
 								</div>
 							)}
-							<button
-								onClick={() => {
-									if (drawingRound)
+							{drawingRound && (
+								<button
+									onClick={() =>
 										modal.open(
 											<TicketInfoModal
 												data={drawingRound}
@@ -76,10 +76,11 @@ const LotteryDraw = () => {
 											/>,
 											{ className: 'event-lottery-popup-mask' }
 										)
-								}}
-							>
-								{t('Label_Event_TicketInfo')}
-							</button>
+									}
+								>
+									{t('Label_Event_TicketInfo')}
+								</button>
+							)}
 						</>
 					)}
 				</div>

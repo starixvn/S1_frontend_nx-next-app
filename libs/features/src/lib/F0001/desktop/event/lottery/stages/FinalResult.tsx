@@ -5,8 +5,7 @@ import { useTranslation } from 'next-i18next'
 
 const FinalResult = () => {
 	const { t } = useTranslation()
-	const { winnerList, lotteryInfo } = useLotteryDataContext()
-	const roundInfo = lotteryInfo?.lotteryRoundInfo
+	const { winnerList, drawingRound } = useLotteryDataContext()
 	const winningTicket = winnerList?.custWinTicketNo
 	return (
 		<div className='prize lottery-result '>
@@ -14,11 +13,11 @@ const FinalResult = () => {
 				<span className='title'>
 					{t('Label_Event_Round')} {winnerList?.roundId}
 				</span>
-				{roundInfo && (
+				{drawingRound && (
 					<span>
-						{dayjs(roundInfo.startDate).format('YYYY/M/D')}
+						{dayjs(drawingRound.startDate).format('YYYY/M/D')}
 						{' - '}
-						{dayjs(roundInfo.endDate).format('M/D')}
+						{dayjs(drawingRound.endDate).format('M/D')}
 					</span>
 				)}
 			</div>

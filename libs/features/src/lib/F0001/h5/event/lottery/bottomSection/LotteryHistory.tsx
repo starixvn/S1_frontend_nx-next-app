@@ -140,7 +140,7 @@ const LotteryHistory = () => {
 								</div>
 							</div>
 						</Collapsable>
-						<Collapsable title={t('Label_Event_Jackpot')}>
+						<Collapsable title={t('Label_Event_JackpotSticker')}>
 							<div className='card sticker'>
 								<div className='sticker-result'>
 									<LotterySticker stickerId={roundData.stickerId} />
