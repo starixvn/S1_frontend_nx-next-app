@@ -1,5 +1,5 @@
+import { Img } from '@12b-h5/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { Img } from '@nx-next-app/components/D0001'
 import { IReferralSettingDetailData } from '@nx-next-app/service'
 import { isNull } from 'lodash-es'
 import { useTranslation } from 'next-i18next'

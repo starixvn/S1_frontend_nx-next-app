@@ -1,4 +1,4 @@
-import { Img } from '@nx-next-app/components/D0001'
+import { Img } from '@12b-desktop/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { IReferralSettingDetailData } from '@nx-next-app/service'
 import { isNull } from 'lodash-es'

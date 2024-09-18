@@ -1,4 +1,4 @@
-import { Img } from '@nx-next-app/components/H0001'
+import { Img } from '@12b-h5/components/common'
 import { useGlobalData } from '@nx-next-app/data-access'
 import { useReferral } from '@nx-next-app/operations'
 import { toUpper } from 'lodash-es'
