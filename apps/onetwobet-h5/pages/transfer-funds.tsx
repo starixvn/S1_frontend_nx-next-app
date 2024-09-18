@@ -1,3 +1,4 @@
+import { Layout } from '@12b-h5/components/index'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
@@ -6,7 +7,6 @@ import {
 import { TransferFundsProvider } from '@nx-next-app/operations'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout } from '../components'
 import TransferFunds from '../components/transfer-funds'
 
 const TransferPage = ({

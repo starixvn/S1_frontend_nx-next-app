@@ -1,4 +1,3 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useDepositSavedLocalStorage } from '@nx-next-app/data-access'
 import {
 	IAxiosError,
@@ -37,7 +36,6 @@ const useAutoDepositForm = ({
 		userInfo: { langId, currencyId },
 		dbHost,
 	} = useAuth()
-	const { modal } = useGlobalModal()
 	const { value: isFirstEffect, toggle: toggleIsFirstEffect } = useBoolean(true)
 	const { query, pathname, push } = useRouter()
 	const {
@@ -92,7 +90,10 @@ const useAutoDepositForm = ({
 	// * 1. 檢查是否有 specialCode，specialCode 與bonusCode 只能擇一
 	// * 2. window.open() only
 	// * 3. savedChecked = true 時記住銀行資訊
-	const onAutoDepositFormSubmit = async (values: IAutoDepositForm) => {
+	const onAutoDepositFormSubmit = async (
+		values: IAutoDepositForm,
+		errorCallback: (errorMessage: string) => void
+	) => {
 		handleDepositTracker()
 		try {
 			const {
@@ -160,8 +161,7 @@ const useAutoDepositForm = ({
 		} catch (error) {
 			// * 存款 api 某些情境的錯誤會塞在 rawMessage
 			const { rawMessage, message } = error as IAxiosError
-
-			modal.error(rawMessage || message)
+			errorCallback(rawMessage || message)
 		}
 	}
 

@@ -1,4 +1,4 @@
-import { Form } from '@nx-next-app/components/H0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useAutoDepositForm, useDepositContext } from '@nx-next-app/operations'
@@ -15,7 +15,7 @@ import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
-import { InputBox, Select } from '../../common'
+import { Form, InputBox, Select } from '../../common'
 import DepositModule from '../ui/deposit-module'
 
 const { IDR } = CurrenciesEnum
@@ -29,6 +29,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
 	const { promotionOptions } = useDepositContext()
 
 	const {
@@ -236,7 +237,13 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 				</div>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(onAutoDepositFormSubmit)}>
+			<Form
+				onSubmit={handleSubmit(values =>
+					onAutoDepositFormSubmit(values, errorMessage =>
+						modal.error(errorMessage)
+					)
+				)}
+			>
 				<div className='btn-group'>
 					<button
 						type='submit'

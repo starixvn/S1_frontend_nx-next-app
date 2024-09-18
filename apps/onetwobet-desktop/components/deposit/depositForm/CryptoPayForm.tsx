@@ -202,7 +202,13 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 				/>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(onCryptoPayFormSubmit)}>
+			<Form
+				onSubmit={handleSubmit(values =>
+					onCryptoPayFormSubmit(values, errorMessage =>
+						modal.error(errorMessage)
+					)
+				)}
+			>
 				<div className='btnGroup primary'>
 					<button
 						type='submit'

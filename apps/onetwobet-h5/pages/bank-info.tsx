@@ -1,15 +1,16 @@
+import { BankInfo, Layout } from '@12b-h5/components/index'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import {
 	AuthProvider,
-	getWithdrawalBlockSetting,
 	GlobalDataProvider,
+	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { BankInfo, Layout } from '@nx-next-app/features/F0001/h5'
-import { BankInfoProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { BankInfoProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
 import { find } from 'lodash-es'
 import { GetServerSideProps } from 'next'
@@ -26,12 +27,16 @@ const BankInfoPage = ({
 	persistSEOData,
 	persistStaticFileDomainData,
 }: IBankInfoPageProps) => {
+	const { modal } = useGlobalModal()
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
-				<BankInfoProvider withdrawalBlockSetting={withdrawalBlockSetting}>
+				<BankInfoProvider
+					withdrawalBlockSetting={withdrawalBlockSetting}
+					errorCallback={errorMessage => modal.error(errorMessage)}
+				>
 					<Layout persistSEOData={persistSEOData}>
 						<BankInfo />
 					</Layout>

@@ -174,7 +174,7 @@ export const REALNAME_REGEX =
 	/^[\p{L}. \p{Script=Han}\p{Script=Hangul}\p{Script=Thai}\p{Script=Bengali}\p{Script=Devanagari}\p{Script=Latin}\p{Script=Cyrillic}\p{Script=Khmer}\p{Script=Hiragana}\p{Script=Katakana}]+$/u
 
 ```
-6. 補上相關 mapping 對應檔(constants index.ts 檔案裡所有相關的部分)
+6. 補上相關 mapping 對應檔(constants index.tsx 檔案裡所有相關的部分)
 
 ```ts
 export const CURRENCY_TO_LANG_KEY: {
@@ -198,7 +198,7 @@ export const CURRENCY_TO_LANG_KEY: {
  "Label_General_Currency_45": "KRW"
 ```
 8. footer payment option 定義黨 paymentMethodsByCurrencyId
-9. 在 web data index.ts 補上語系選取下拉單 LANG_GROUPS
+9. 在 web data index.tsx 補上語系選取下拉單 LANG_GROUPS
 ```ts
 {
 	ch: [

@@ -2,18 +2,14 @@ import { ISelectProps } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
 import {
-	IBankInfoData,
-	IDeleteBankCardArgs,
-	IDeleteEWalletCardArgs,
-	IEWalletData,
-	IPaymentCustBankInfoData,
-	IUsdtDetailData,
-	useDeleteBankCardMutation,
-	useDeleteEWalletCardMutation,
 	useLazyGetBankInfoSysListQuery,
 	useLazyGetEWalletInfoListQuery,
 	useSetEWalletInfoMutation,
 	useSetLocalBankInfoMutation,
+	type IBankInfoData,
+	type IEWalletData,
+	type IPaymentCustBankInfoData,
+	type IUsdtDetailData,
 } from '@nx-next-app/service'
 import { useTranslation } from 'next-i18next'
 import { IAddBankCardModalProps } from './types'
@@ -50,16 +46,14 @@ const useManageCards = ({
 	const [getBankInfoSysList] = useLazyGetBankInfoSysListQuery()
 	// 取得可新增的 EWallet 列表
 	const [getEWalletInfoList] = useLazyGetEWalletInfoListQuery()
-	// 刪 LocalBank
-	const [deleteBankCard] = useDeleteBankCardMutation()
-	// 刪 EWallet
-	const [deleteEWalletCard] = useDeleteEWalletCardMutation()
 
 	/* <--用戶卡片管理邏輯--> */
 	// 加卡片送出
 	const handleSubmitAddCard = async ({
 		type,
 		value,
+		successCallback,
+		errorCallback,
 	}: {
 		type: WithdrawalBankCardEnum
 		value: {
@@ -67,6 +61,8 @@ const useManageCards = ({
 			accountNo: string
 			isfcCode?: string
 		}
+		successCallback: () => void
+		errorCallback: (errorMessage: string) => void
 	}) => {
 		try {
 			if (type === WithdrawalBankCardEnum.LocalBank) {
@@ -82,17 +78,22 @@ const useManageCards = ({
 				const { accountNo, sysId } = value
 				await setEWalletInfo({ accountNo, sysId }).unwrap()
 			}
+			successCallback()
 			modal.info(t('Label_General_UpdateSuccessful'), {
 				title: t('Label_Withdrawal_AddBankAccount'),
 				icon: 'icon icon-library',
 			})
 		} catch (error) {
-			modal.error((error as Error)?.message)
+			errorCallback((error as Error)?.message)
 		}
 	}
 
 	// 新增 Local Bank
-	const handleAddBankCard = async () => {
+	const handleAddBankCard = async ({
+		errorCallback,
+	}: {
+		errorCallback: (errorMessage: string) => void
+	}) => {
 		try {
 			const { data: bankInfo = [] } = await getBankInfoSysList(null).unwrap()
 			const dropDownOptions: ISelectProps['options'] = bankInfo.map(
@@ -118,12 +119,16 @@ const useManageCards = ({
 				})
 			}
 		} catch (error) {
-			modal.error((error as Error)?.message)
+			errorCallback((error as Error)?.message)
 		}
 	}
 
 	// 新增 EWallet
-	const handleAddEWallet = async () => {
+	const handleAddEWallet = async ({
+		errorCallback,
+	}: {
+		errorCallback: (errorMessage: string) => void
+	}) => {
 		try {
 			const { data: eWalletData = [] } = await getEWalletInfoList(null).unwrap()
 			const dropDownOptions: ISelectProps['options'] = eWalletData.map(
@@ -149,68 +154,14 @@ const useManageCards = ({
 				})
 			}
 		} catch (error) {
-			modal.error((error as Error)?.message)
+			errorCallback((error as Error)?.message)
 		}
 	}
 
-	// 加卡片控制, 根據 type 顯示對應彈窗
-	const handleAddCards = (type: WithdrawalBankCardEnum) => {
-		switch (type) {
-			case WithdrawalBankCardEnum.LocalBank:
-				handleAddBankCard()
-				break
-			case WithdrawalBankCardEnum.EWallet:
-				handleAddEWallet()
-				break
-			default:
-				break
-		}
+	return {
+		handleAddBankCard,
+		handleAddEWallet,
 	}
-
-	// 刪 localBank
-	const handleDeleteBankCard = async (args: IDeleteBankCardArgs) => {
-		modal.confirm(
-			[
-				t('Label_Withdrawal_DeleteConfirm1') ?? '',
-				t('Label_Withdrawal_DeleteConfirm2') ?? '',
-			],
-			{
-				title: t('Label_General_Oh'),
-				onOK: async () => {
-					try {
-						await deleteBankCard(args).unwrap()
-					} catch (error) {
-						modal.error((error as Error).message)
-					}
-				},
-				okText: t('Label_General_Yes'),
-				cancelText: t('Label_General_No'),
-			}
-		)
-	}
-
-	// 刪 EWallet
-	const handleDeleteEWalletCard = async (args: IDeleteEWalletCardArgs) => {
-		modal.confirm(
-			[
-				t('Label_Withdrawal_DeleteConfirm1') ?? '',
-				t('Label_Withdrawal_DeleteConfirm2') ?? '',
-			],
-			{
-				title: t('Label_General_Oh'),
-				onOK: async () => {
-					try {
-						await deleteEWalletCard(args).unwrap()
-					} catch (error) {
-						modal.error((error as Error).message)
-					}
-				},
-				okText: t('Label_General_Yes'),
-				cancelText: t('Label_General_No'),
-			}
-		)
-	}
-	return { handleAddCards, handleDeleteBankCard, handleDeleteEWalletCard }
 }
 
 export { useManageCards }
