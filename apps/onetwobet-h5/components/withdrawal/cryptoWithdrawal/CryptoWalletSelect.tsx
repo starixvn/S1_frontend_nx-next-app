@@ -1,11 +1,14 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
 import {
 	useCryptoWallet,
 	useWithdrawal,
 	type IAddWalletModalArgs,
 } from '@nx-next-app/operations'
 import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 
 const AddWalletModal = dynamic(
 	() => import('../../crypto-wallet/AddWalletModal'),
@@ -19,6 +22,8 @@ const CryptoWalletSelect = () => {
 		useWithdrawal()
 	const { handleAddWallet } = useCryptoWallet()
 	const { modal } = useGlobalModal()
+	const { t } = useTranslation()
+	const { push } = useRouter()
 
 	const { usdtDetail } = bankData
 
@@ -89,7 +94,18 @@ const CryptoWalletSelect = () => {
 				<div
 					key='add bank'
 					className='account'
-					onClick={() => handleAddWallet(onAddWalletModal)}
+					onClick={() =>
+						handleAddWallet({
+							phoneVerifiedCallBack: () =>
+								modal.confirm(t('Label_CryptoWallet_CryptoOTP'), {
+									okText: t('Label_General_UpdatePersonalDetail'),
+									onOK: () => {
+										push(paths.profile.root)
+									},
+								}),
+							onAddWalletModal,
+						})
+					}
 				>
 					<div className='icon icon-plus text-org' />
 				</div>
