@@ -1,4 +1,8 @@
+export { default as Form } from './form'
+export { default as Header } from './header'
+export type { LoginFormType } from './header/Function/Login'
 export * from './input'
+export { default as MetaData } from './metaData'
 export { default as GlobalModal } from './modal'
 export { default as Select } from './select'
 export type { ISelectProps } from './select'

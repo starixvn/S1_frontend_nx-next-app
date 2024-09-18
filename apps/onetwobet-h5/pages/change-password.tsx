@@ -1,5 +1,5 @@
+import { ChangePassword, Layout } from '@12b-h5/components/index'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { ChangePassword, Layout } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
