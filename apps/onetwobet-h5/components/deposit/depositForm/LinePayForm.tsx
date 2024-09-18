@@ -1,5 +1,5 @@
 import { Carousel, ICarouselProps } from '@nx-next-app/components/H0001'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 
 interface ILinePayFormProps {
 	redirectLink?: string
@@ -9,6 +9,7 @@ const LinePayForm = ({ redirectLink }: ILinePayFormProps) => {
 	const {
 		userInfo: { langId },
 	} = useAuth()
+	const { getBannerUrl } = useGlobalData()
 
 	const params: ICarouselProps = {
 		spaceBetween: 200,
@@ -26,9 +27,9 @@ const LinePayForm = ({ redirectLink }: ILinePayFormProps) => {
 				<Carousel {...params}>
 					<a href={redirectLink} target='_blank' rel='noreferrer'>
 						<img
-							src={`${
-								process.env['NEXT_PUBLIC_BANNER_HOST']
-							}/h5/img/line/ling-1_${langId === 'th' ? 'th' : 'en'}.png`}
+							src={getBannerUrl(
+								`/h5/img/line/ling-1_${langId === 'th' ? 'th' : 'en'}.png`
+							)}
 							alt='img-ling'
 						/>
 					</a>

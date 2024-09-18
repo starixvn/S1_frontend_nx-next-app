@@ -1,5 +1,5 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useDepositContext, useTopUpCardForm } from '@nx-next-app/operations'
 import { IPaymentTopUpCardPayData } from '@nx-next-app/service'
 import {
@@ -24,6 +24,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
+	const { getBannerUrl } = useGlobalData()
 	const { promotionOptions } = useDepositContext()
 
 	const {
@@ -127,7 +128,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 			{isCardInfoImgActive && (
 				<div className='cardinfo'>
 					<Img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/cardinfo.png`}
+						src={getBannerUrl(`/desktop/img/cardinfo.png`)}
 						alt='img-cardinfo'
 					/>
 				</div>
