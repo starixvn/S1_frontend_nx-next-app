@@ -1,4 +1,3 @@
-import { useWalletAllowed } from '@nx-next-app/features/F0001/hooks'
 import {
 	IBankInfoDetail,
 	IBankInfoSysData,
@@ -9,6 +8,7 @@ import {
 	useSetLocalBankInfoMutation,
 } from '@nx-next-app/service'
 import { ReactNode, createContext, useContext, useState } from 'react'
+import { useWalletAllowed } from '../../hooks'
 
 type ISelBank = {
 	sysId: number
