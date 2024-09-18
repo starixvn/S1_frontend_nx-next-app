@@ -36,7 +36,6 @@ const BalanceInfo = () => {
 						<span>{numberFormat(deduction, currencyId)}</span>
 					</div>
 				</div>
-				3
 			</div>
 			<div>
 				<div>=</div>

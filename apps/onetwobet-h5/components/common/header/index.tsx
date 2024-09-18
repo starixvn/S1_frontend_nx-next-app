@@ -22,4 +22,3 @@ Header.Tags = Tags
 
 export default Header
 export type { TagOptionType } from './tabs'
-export { useAppDownload } from './useAppDownload'

@@ -3,7 +3,6 @@ import { Form, Loading } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import {
-	WithdrawalBankCardEnum,
 	useDepositContext,
 	useManageCards,
 	useOnlineBankingForm,
@@ -84,7 +83,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 		)
 	}
 
-	const { handleAddCards } = useManageCards({
+	const { handleAddBankCard } = useManageCards({
 		accountName: String(accountName),
 		bankData,
 		addBankCardModalCallBack,
@@ -224,7 +223,11 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 						<div className='btnGroup'>
 							<button
 								className='btn-check secondary'
-								onClick={() => handleAddCards(WithdrawalBankCardEnum.LocalBank)}
+								onClick={() =>
+									handleAddBankCard({
+										errorCallback: errorMessage => modal.error(errorMessage),
+									})
+								}
 							>
 								+
 							</button>
@@ -262,7 +265,13 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 				/>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(onOnlineBankingFormSubmit)}>
+			<Form
+				onSubmit={handleSubmit(values =>
+					onOnlineBankingFormSubmit(values, errorMessage =>
+						modal.error(errorMessage)
+					)
+				)}
+			>
 				<div className='btnGroup primary'>
 					<button
 						type='submit'

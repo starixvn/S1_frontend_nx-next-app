@@ -1,3 +1,4 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
@@ -5,20 +6,16 @@ import {
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
 import {
-	CryptoWallet,
-	Layout,
-	LeftMenu,
-} from '@nx-next-app/features/F0001/desktop'
-import { CryptoWalletProvider } from '@nx-next-app/features/F0001/providers'
-import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { CryptoWalletProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { CryptoWallet, Layout, LeftMenu } from '../components'
 
 interface ICryptoWalletPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
@@ -33,12 +30,16 @@ const CryptoWalletPage = ({
 	persistStaticFileDomainData,
 	withdrawalBlockSetting,
 }: ICryptoWalletPageProps) => {
+	const { modal } = useGlobalModal()
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
-				<CryptoWalletProvider withdrawalBlockSetting={withdrawalBlockSetting}>
+				<CryptoWalletProvider
+					withdrawalBlockSetting={withdrawalBlockSetting}
+					errorCallback={errorMessage => modal.error(errorMessage)}
+				>
 					<Layout
 						persistSEOData={persistSEOData}
 						footerData={persistFooterData}

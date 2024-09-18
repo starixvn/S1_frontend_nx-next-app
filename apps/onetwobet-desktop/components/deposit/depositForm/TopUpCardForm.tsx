@@ -1,6 +1,7 @@
 import DepositModule from '@12b-desktop/components/deposit/ui/deposit-module'
 import { Form, Img, Loading } from '@nx-next-app/components/D0001'
-import { useAuth } from '@nx-next-app/data-access'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useDepositContext, useTopUpCardForm } from '@nx-next-app/operations'
 import { IPaymentTopUpCardPayData } from '@nx-next-app/service'
 import {
@@ -23,6 +24,8 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { t } = useTranslation()
+	const { getBannerUrl } = useGlobalData()
+	const { modal } = useGlobalModal()
 
 	const { promotionOptions } = useDepositContext()
 
@@ -139,7 +142,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 						})}
 					>
 						<Img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/cardinfo.png`}
+							src={getBannerUrl(`/desktop/img/cardinfo.png`)}
 							alt='img-cardinfo'
 						/>
 					</div>
@@ -194,7 +197,13 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 				</ol>
 			</div>
 
-			<Form onSubmit={handleSubmit(onTopUpCardPayFormSubmit)}>
+			<Form
+				onSubmit={handleSubmit(values =>
+					onTopUpCardPayFormSubmit(values, errorMessage =>
+						modal.error(errorMessage)
+					)
+				)}
+			>
 				<div className='btnGroup primary'>
 					<button
 						type='submit'

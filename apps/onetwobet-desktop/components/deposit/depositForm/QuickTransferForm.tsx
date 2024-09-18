@@ -1,5 +1,6 @@
 import DepositModule from '@12b-desktop/components/deposit/ui/deposit-module'
 import { Form, Loading } from '@nx-next-app/components/D0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import {
 	useDepositContext,
@@ -27,6 +28,7 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
 
 	const { promotionOptions } = useDepositContext()
 
@@ -190,7 +192,11 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 				/>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(onFormSubmit)}>
+			<Form
+				onSubmit={handleSubmit(values =>
+					onFormSubmit(values, errorMessage => modal.error(errorMessage))
+				)}
+			>
 				<div className='btnGroup primary'>
 					<button
 						type='submit'

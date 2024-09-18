@@ -1,4 +1,3 @@
-import { Form, ISelectProps } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { E_WALLET_SYSID, TOUCH_GO_REGEX } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -10,7 +9,7 @@ import { CurrenciesEnum } from '@nx-next-app/types'
 import { find, head } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useForm } from 'react-hook-form'
-import { InputBox, Select } from '../common'
+import { Form, InputBox, Select, type ISelectProps } from '../common'
 
 interface IAddBankCardForm {
 	sysId: number
@@ -26,6 +25,8 @@ const AddBankCardModal = ({
 }: IAddBankCardModalProps) => {
 	const { t } = useTranslation()
 	const { userInfo } = useAuth()
+	const { modal } = useGlobalModal()
+
 	const { accountName, currencyId } = userInfo
 
 	const isLocal = type === WithdrawalBankCardEnum.LocalBank
@@ -114,7 +115,16 @@ const AddBankCardModal = ({
 		const { error: isfcCodeError } = getFieldState('isfcCode')
 
 		if (accountError || isfcCodeError) return
-		onSubmitCard({ type, value })
+		onSubmitCard({
+			type,
+			value,
+			successCallback: () =>
+				modal.info(t('Label_General_UpdateSuccessful'), {
+					title: t('Label_Withdrawal_AddBankAccount'),
+					icon: 'icon icon-library',
+				}),
+			errorCallback: errorMessage => modal.error(errorMessage),
+		})
 	}
 
 	return (
@@ -186,7 +196,7 @@ const AddBankCardModal = ({
 					)}
 					<div className='btnGroup'>
 						<button
-							className='btn-cancel'
+							className='btn-cancel ghost'
 							onClick={() => {
 								reset()
 								closeModal()

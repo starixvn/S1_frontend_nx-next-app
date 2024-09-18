@@ -1,12 +1,42 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import {
+	useCryptoWallet,
+	useWithdrawal,
+	type IAddWalletModalArgs,
+} from '@nx-next-app/operations'
 import classNames from 'classnames'
+import dynamic from 'next/dynamic'
 
-import { useCryptoWallet, useWithdrawal } from '@nx-next-app/operations'
+const AddWalletModal = dynamic(
+	() => import('../../crypto-wallet/AddWalletModal'),
+	{
+		ssr: false,
+	}
+)
 
 const CryptoWalletSelect = () => {
 	const { withdrawalType, bankData, selectedBankInfo, handleSelectCard } =
 		useWithdrawal()
-	const { usdtDetail } = bankData
 	const { handleAddWallet } = useCryptoWallet()
+	const { modal } = useGlobalModal()
+
+	const { usdtDetail } = bankData
+
+	const onAddWalletModal = ({
+		cryptoNetworkList,
+		cryptoCurrencyOptions,
+		handleGetOtpInfo,
+		handleSetCustCryptoWallet,
+	}: IAddWalletModalArgs) => {
+		modal.open(
+			<AddWalletModal
+				handleSetCustCryptoWallet={handleSetCustCryptoWallet}
+				cryptoNetworkList={cryptoNetworkList}
+				cryptoCurrencyOptions={cryptoCurrencyOptions}
+				handleGetOtpInfo={handleGetOtpInfo}
+			/>
+		)
+	}
 
 	const banks = (() => {
 		return usdtDetail.map(item => {
@@ -56,7 +86,11 @@ const CryptoWalletSelect = () => {
 		<div className='bankAccount'>
 			{banks}
 			{usdtDetail?.length < 3 && (
-				<div key='add bank' className='account' onClick={handleAddWallet}>
+				<div
+					key='add bank'
+					className='account'
+					onClick={() => handleAddWallet(onAddWalletModal)}
+				>
 					<div className='icon icon-plus text-org' />
 				</div>
 			)}

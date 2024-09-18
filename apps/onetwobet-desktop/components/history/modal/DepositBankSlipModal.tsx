@@ -63,7 +63,7 @@ const DepositBankSlipModal = ({
 				transId,
 				receipt: image as string,
 			})
-			// closeModal()
+			closeModal()
 		}
 	}
 

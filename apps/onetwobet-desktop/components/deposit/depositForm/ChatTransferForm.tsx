@@ -1,5 +1,6 @@
 import DepositModule from '@12b-desktop/components/deposit/ui/deposit-module'
 import { Form, Loading } from '@nx-next-app/components/D0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import { useChatTransferForm, useDepositContext } from '@nx-next-app/operations'
 import { IDepositChatTransferData } from '@nx-next-app/service'
@@ -24,7 +25,7 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { t } = useTranslation()
-
+	const { modal } = useGlobalModal()
 	const { promotionOptions } = useDepositContext()
 
 	const {
@@ -185,7 +186,11 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 				/>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(onFormSubmit)}>
+			<Form
+				onSubmit={handleSubmit(values =>
+					onFormSubmit(values, errorMessage => modal.error(errorMessage))
+				)}
+			>
 				<div className='btnGroup primary'>
 					<button
 						type='submit'

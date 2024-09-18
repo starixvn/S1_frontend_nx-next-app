@@ -2,17 +2,6 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import {
-	IAxiosError,
-	IBankInfoData,
-	IDeleteBankCardArgs,
-	IDeleteEWalletCardArgs,
-	IEWalletData,
-	IGetExchangeInfoArgs,
-	IUsdtDetailData,
-	IWithdrawalAvailableBalanceData,
-	IWithdrawalLimitData,
-	IWithdrawalRecentInfoData,
-	IWithdrawalSetting,
 	IWithdrawalTypeEnum,
 	useGetCustBankInfoQuery,
 	useGetCustEWalletInfoQuery,
@@ -24,10 +13,19 @@ import {
 	useSubmitEWalletWithdrawalMutation,
 	useSubmitWithdrawalMutation,
 	useUploadCustPhotoMutation,
+	type IAxiosError,
+	type IBankInfoData,
+	type IEWalletData,
+	type IGetExchangeInfoArgs,
+	type IUsdtDetailData,
+	type IWithdrawalAvailableBalanceData,
+	type IWithdrawalLimitData,
+	type IWithdrawalRecentInfoData,
+	type IWithdrawalSetting,
 } from '@nx-next-app/service'
 import { DeviceTypeEnum } from '@nx-next-app/types'
 import { isConvert, numberFormat } from '@nx-next-app/utils'
-import { find, head, isUndefined } from 'lodash-es'
+import { find, head } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import {
@@ -56,6 +54,7 @@ interface IWithdrawalProviderProps {
 		bankDropDown,
 		onSubmitCard,
 	}: IAddBankCardModalProps) => void
+	errorCallback: (errorMessage: string) => void
 }
 
 export type ISelectedBankInfo = {
@@ -100,13 +99,7 @@ interface WithdrawalContextInterface {
 	withdrawalRecentInfo: IWithdrawalRecentInfoData[]
 	restoreAll: () => void
 	checkAmount: () => void
-	checkUserInfo: ({
-		unSuccessCallback,
-		optionalPhoneVerifiedCallback,
-	}: {
-		unSuccessCallback: () => void
-		optionalPhoneVerifiedCallback?: () => void
-	}) => void
+	checkKyc: () => void
 	refetchWithdrawalBalance: () => void
 	refetchWithdrawalRecentInfo: () => void
 	handleUploadKyc: (file: File) => void
@@ -141,10 +134,17 @@ interface WithdrawalContextInterface {
 		}) => void
 	) => void
 	handleSelectCard: (bankInfo: ISelectedBankInfo) => void
-	handleDeleteBankCard: (args: IDeleteBankCardArgs) => void
-	handleAddCards: (type: WithdrawalBankCardEnum) => void
+	handleAddBankCard: ({
+		errorCallback,
+	}: {
+		errorCallback: (errorMessage: string) => void
+	}) => Promise<void>
+	handleAddEWallet: ({
+		errorCallback,
+	}: {
+		errorCallback: (errorMessage: string) => void
+	}) => Promise<void>
 	cancelWithdrawal: (transId: string) => void
-	handleDeleteEWalletCard: (args: IDeleteEWalletCardArgs) => void
 }
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -160,11 +160,11 @@ export const WithdrawalProvider = ({
 	children,
 	withdrawalBlockSetting,
 	addBankCardModalCallBack,
+	errorCallback,
 }: IWithdrawalProviderProps) => {
 	const { t } = useTranslation()
 	const { pathname } = useRouter()
 	const { modal, closeModal } = useGlobalModal()
-	const { push } = useRouter()
 
 	// 手機使用的，用來監測當前 path 來判斷 withdrawalType , 桌機用不到
 	const withdrawalType = (() => {
@@ -175,10 +175,7 @@ export const WithdrawalProvider = ({
 		return WithdrawalBankCardEnum.LocalBank
 	})()
 
-	const {
-		userInfo,
-		auth: { isLogin },
-	} = useAuth()
+	const { userInfo } = useAuth()
 	const { currencyId } = userInfo
 
 	const converted = isConvert(currencyId)
@@ -288,8 +285,11 @@ export const WithdrawalProvider = ({
 
 	/* <--用戶卡片管理邏輯--> */
 	/* <--這裡刻意從此 context return 出去，使其保持同源並易於管理--> */
-	const { handleAddCards, handleDeleteEWalletCard, handleDeleteBankCard } =
-		useManageCards({ accountName, bankData, addBankCardModalCallBack })
+	const { handleAddBankCard, handleAddEWallet } = useManageCards({
+		accountName,
+		bankData,
+		addBankCardModalCallBack,
+	})
 
 	/* <--出金紀錄管理邏輯--> */
 	/* <--這裡刻意從此 context return 出去，使其保持同源並易於管理--> */
@@ -310,18 +310,10 @@ export const WithdrawalProvider = ({
 		} catch (error) {
 			if ((error as IAxiosError).errorCode === 1) {
 				setKycStatus(KycStatusEnum.KycUpload)
-				if (deviceType === DeviceTypeEnum.Mobile) {
-					// 手機版要導轉至指定頁
-					push(paths.kyc.root)
-				}
 			} else if ((error as IAxiosError).errorCode === 2) {
 				setKycStatus(KycStatusEnum.KycPending)
-				if (deviceType === DeviceTypeEnum.Mobile) {
-					// 手機版要導轉至指定頁
-					push(paths.kycWaiting.root)
-				}
 			} else {
-				modal.error((error as Error)?.message)
+				errorCallback((error as Error)?.message)
 			}
 		}
 	}
@@ -352,29 +344,6 @@ export const WithdrawalProvider = ({
 		setSelectedBankInfo({ type: WithdrawalBankCardEnum.Undefined })
 		setCryptoExchange({ exchangeRate: 0, exchangeAmount: 0 })
 		setWithdrawalAmount(0)
-	}
-
-	const checkUserInfo = ({
-		unSuccessCallback,
-		// 有傳入才會觸發驗證手機，沒傳入則忽略
-		optionalPhoneVerifiedCallback,
-	}: {
-		unSuccessCallback: () => void
-		optionalPhoneVerifiedCallback?: () => void
-	}) => {
-		const { accountName, phoneNo, email, phoneVerified } = userInfo
-		if (isLogin) {
-			if (
-				(!accountName && !isUndefined(accountName)) ||
-				(!phoneNo && !isUndefined(phoneNo)) ||
-				(!email && !isUndefined(email))
-			) {
-				unSuccessCallback()
-			}
-			if (!!optionalPhoneVerifiedCallback && !phoneVerified) {
-				optionalPhoneVerifiedCallback()
-			}
-		}
 	}
 
 	/* <--出款邏輯--> */
@@ -594,10 +563,8 @@ export const WithdrawalProvider = ({
 		},
 		{
 			successCallback,
-			errorCallback,
 		}: {
 			successCallback: (onFinish: () => void) => void
-			errorCallback: (errorMessage: string) => void
 		}
 	) => {
 		const {
@@ -710,13 +677,6 @@ export const WithdrawalProvider = ({
 
 	const bankCardLoading = isCustBankInfoFetching || isCustEWalletInfoFetching
 
-	/* <-- useEffect --> */
-
-	useEffect(() => {
-		// init check
-		checkKyc()
-	}, [])
-
 	useEffect(() => {
 		// h5 版本才需要的 effect , 初始化首選 card
 		if (deviceType === DeviceTypeEnum.Mobile && !bankCardLoading) {
@@ -803,16 +763,15 @@ export const WithdrawalProvider = ({
 		refetchWithdrawalBalance,
 		refetchWithdrawalRecentInfo,
 		restoreAll,
-		checkUserInfo,
+		checkKyc,
 		checkAmount,
 		cancelWithdrawal,
-		handleAddCards,
+		handleAddBankCard,
+		handleAddEWallet,
 		handleUploadKyc,
 		handleCancelSubmit,
 		handleSubmitAmount,
 		handleSelectCard,
-		handleDeleteBankCard,
-		handleDeleteEWalletCard,
 		handleWithdrawalConfirm,
 	}
 

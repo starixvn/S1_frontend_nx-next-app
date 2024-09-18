@@ -1,4 +1,4 @@
-import { Form, Img } from '@nx-next-app/components/H0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import { useDepositContext, useTopUpCardForm } from '@nx-next-app/operations'
 import { IPaymentTopUpCardPayData } from '@nx-next-app/service'
@@ -11,7 +11,7 @@ import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useBoolean } from 'usehooks-ts'
-import { InputBox, Select } from '../../common'
+import { Form, Img, InputBox, Select } from '../../common'
 import DepositModule from '../ui/deposit-module'
 
 interface ITopUpCardFormProps {
@@ -23,7 +23,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { t } = useTranslation()
-
+	const { modal } = useGlobalModal()
 	const { promotionOptions } = useDepositContext()
 
 	const {
@@ -226,7 +226,13 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 				</div>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(onTopUpCardPayFormSubmit)}>
+			<Form
+				onSubmit={handleSubmit(values =>
+					onTopUpCardPayFormSubmit(values, errorMessage =>
+						modal.error(errorMessage)
+					)
+				)}
+			>
 				<div className='btn-group'>
 					<button
 						type='submit'
