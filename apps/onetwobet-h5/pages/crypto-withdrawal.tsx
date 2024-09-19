@@ -1,3 +1,5 @@
+import { Layout } from '@12b-h5/components/index'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import {
 	AuthProvider,
@@ -16,7 +18,6 @@ import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
 import { find } from 'lodash-es'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout } from '../components'
 import CryptoWithdrawal from '../components/withdrawal/cryptoWithdrawal'
 
 interface ICryptoWithdrawalProps extends InitialPropsInterface {
@@ -30,15 +31,20 @@ const CryptoWithdrawalPage = ({
 	persistStaticFileDomainData,
 	withdrawalBlockSetting,
 }: ICryptoWithdrawalProps) => {
+	const { modal } = useGlobalModal()
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
 				<Layout persistSEOData={persistSEOData}>
-					<WithdrawalProvider withdrawalBlockSetting={withdrawalBlockSetting}>
+					<WithdrawalProvider
+						withdrawalBlockSetting={withdrawalBlockSetting}
+						errorCallback={errorMessage => modal.error(errorMessage)}
+					>
 						<CryptoWalletProvider
 							withdrawalBlockSetting={withdrawalBlockSetting}
+							errorCallback={errorMessage => modal.error(errorMessage)}
 						>
 							<CryptoWithdrawal />
 						</CryptoWalletProvider>

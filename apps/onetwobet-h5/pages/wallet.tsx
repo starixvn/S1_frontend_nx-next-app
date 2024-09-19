@@ -3,7 +3,6 @@ import {
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { Layout, Wallet } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -11,6 +10,7 @@ import {
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { Layout, Wallet } from '../components'
 
 interface IWalletProps extends InitialPropsInterface {
 	withdrawalBlockSetting: IWithdrawalSetting[]

@@ -1,8 +1,8 @@
 import { paths } from '@nx-next-app/constants'
 import { useDepositRecentHistory } from '@nx-next-app/data-access'
 import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
-import { useTranslation } from 'react-i18next'
 import { useBoolean } from 'usehooks-ts'
 import DepositItem from '../history/historyItems/DepositItem'
 

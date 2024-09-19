@@ -279,6 +279,7 @@ export enum DepositExtraDataTypeEnum {
 	none,
 	bankCard,
 	eWallt,
+	bankCardOrEWallet,
 }
 
 export enum KycStatusEnum {

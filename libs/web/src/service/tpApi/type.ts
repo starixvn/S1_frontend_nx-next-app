@@ -32,15 +32,18 @@ export interface IGetTransferHistoryArgs {
 
 export interface ITransferArgs {
 	amount: number
-	toTpId: number
-	fromTpId: number
+	toTpId: number | null | undefined
+	fromTpId: number | null | undefined
 	transferAction: number
 	langId: string
+	selectSendingWalletCallback?: () => void
+	selectReceivingCallback?: () => void
 	transferModalCallback?: (
 		turnover: number,
 		rollover: number,
 		percentage: number
 	) => void
+	errorCallback?: (message: string) => void
 }
 
 export interface ITransferData {

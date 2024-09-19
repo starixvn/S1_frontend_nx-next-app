@@ -13357,9 +13357,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   background: #D2E2F9;
   padding: 20px;
   border-radius: 5px;
@@ -13367,6 +13367,12 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -ms-flex-flow: wrap;
       flex-flow: wrap;
   position: relative;
+}
+.subModuleListColumn > .subModule .subModule-item {
+  width: 50%;
+}
+.subModuleListColumn > .subModule .subModule-item .btnGroup {
+  margin: 10px 0;
 }
 .subModuleListColumn > .subModule .dropdown {
   min-width: 190px;
@@ -13387,7 +13393,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   border: 1px solid #BFCCE2;
   border-top: 0;
   margin-left: 0;
-  overflow: hidden;
+  overflow: auto;
+  height: 90px;
+  z-index: 3;
 }
 .subModuleListColumn > .subModule .dropdown .dropdown-container .dropdown-item {
   margin: 0;
@@ -13451,6 +13459,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .subModuleListColumn > .subModule .inputBox-blue + .btnGroup .btn-check {
   min-width: unset;
   width: 35px;
+  height: 35px;
 }
 .subModuleListColumn > .subModule + .btnGroup + .text-center {
   color: #5574A7;

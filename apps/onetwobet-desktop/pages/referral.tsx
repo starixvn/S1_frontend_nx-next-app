@@ -1,20 +1,20 @@
+import { Layout, LeftMenu, Referral } from '@12b-desktop/components/index'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { Layout, LeftMenu, Referral } from '@nx-next-app/features/F0001/desktop'
-import { ReferralProvider } from '@nx-next-app/features/F0001/providers'
+
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { ReferralProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
-import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface IReferralPageProps extends InitialPropsInterface {
@@ -30,45 +30,12 @@ const ReferralPage = ({
 	persistStaticFileDomainData,
 	withdrawalBlockSetting,
 }: IReferralPageProps) => {
-	const { t } = useTranslation()
-
-	// 使用 i18n, 因此需放在此處跟著 re-render 更新
-	// URL 內的 {{ref_url}} 會被替換為推薦連結
-	const referralInfoList = [
-		{
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/icon-Facebook.png`,
-			hoverImg: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/icon-Facebook-1.png`,
-			url: `https://www.facebook.com/sharer/sharer.php?u={{ref_url}}&quote=${t(
-				'Label_Referral_Welcome'
-			)}`,
-		},
-		{
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/icon-WhatsApp.png`,
-			hoverImg: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/icon-WhatsApp-1.png`,
-			url: `https://wa.me/?text=${t('Label_Referral_Welcome')} {{ref_url}}`,
-		},
-		{
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/icon-Telegram.png`,
-			hoverImg: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/icon-Telegram-1.png`,
-			url: `https://t.me/share/url?url={{ref_url}}&text=${t(
-				'Label_Referral_Welcome'
-			)}`,
-		},
-		{
-			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/icon-Line.png`,
-			hoverImg: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/icon-Line-1.png`,
-			url: `http://line.naver.jp/R/msg/text/?${t(
-				'Label_Referral_Welcome'
-			)}%0D%0A{{ref_url}}`,
-		},
-	]
-
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
-				<ReferralProvider referralInfoList={referralInfoList}>
+				<ReferralProvider>
 					<Layout
 						persistSEOData={persistSEOData}
 						footerData={persistFooterData}

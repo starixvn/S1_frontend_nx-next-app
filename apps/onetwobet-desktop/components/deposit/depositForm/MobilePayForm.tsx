@@ -3,7 +3,6 @@ import { Form, Loading } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import {
-	WithdrawalBankCardEnum,
 	useDepositContext,
 	useManageCards,
 	useMobilePayForm,
@@ -112,7 +111,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 		)
 	}
 
-	const { handleAddCards } = useManageCards({
+	const { handleAddBankCard, handleAddEWallet } = useManageCards({
 		accountName: String(accountName),
 		bankData,
 		addBankCardModalCallBack,
@@ -306,7 +305,11 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 						<div className='btnGroup'>
 							<button
 								className='btn-check secondary'
-								onClick={() => handleAddCards(WithdrawalBankCardEnum.LocalBank)}
+								onClick={() =>
+									handleAddBankCard({
+										errorCallback: errorMessage => modal.error(errorMessage),
+									})
+								}
 							>
 								+
 							</button>
@@ -338,7 +341,11 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 						<div className='btnGroup'>
 							<button
 								className='btn-check'
-								onClick={() => handleAddCards(WithdrawalBankCardEnum.EWallet)}
+								onClick={() =>
+									handleAddEWallet({
+										errorCallback: errorMessage => modal.error(errorMessage),
+									})
+								}
 							>
 								+
 							</button>
@@ -376,7 +383,13 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				/>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(onMobilePayFormSubmit)}>
+			<Form
+				onSubmit={handleSubmit(values =>
+					onMobilePayFormSubmit(values, errorMessage =>
+						modal.error(errorMessage)
+					)
+				)}
+			>
 				<div className='btnGroup primary'>
 					<button
 						type='submit'

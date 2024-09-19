@@ -1,4 +1,4 @@
-import { Header } from '@nx-next-app/components/H0001'
+import { Header } from '@12b-h5/components/common'
 import Breadcrumb from '@nx-next-app/components/H0001/breadcrumb'
 import { useStatement } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'

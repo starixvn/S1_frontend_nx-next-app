@@ -10,6 +10,7 @@ import { TurnoverModal } from './TurnoverModal'
 
 const Transfer = () => {
 	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
 
 	const {
 		userInfo: { currencyId },
@@ -25,8 +26,6 @@ const Transfer = () => {
 	} = useTransferFunds()
 	const { errors, touchedFields } = formState
 
-	const { modal } = useGlobalModal()
-
 	const showModal = (
 		turnover: number,
 		rollover: number,
@@ -41,8 +40,25 @@ const Transfer = () => {
 		)
 	}
 
+	const errorCallback = (message: string) => {
+		modal.confirm(message)
+	}
+
+	const selectSendWalletModal = () => {
+		modal.error(t('Label_TransferFunds_PleaseSelectFromWallet'))
+	}
+	// Label_TransferFunds_PleaseSelectFromWallet
+	const selectReceiveWalletModal = () => {
+		modal.error(t('Label_TransferFunds_PleaseSelectToWallet'))
+	}
+
 	const handleTransferFormSubmit = handleSubmit(() => {
-		handleSubmitForm(showModal)
+		handleSubmitForm(
+			selectSendWalletModal,
+			selectReceiveWalletModal,
+			showModal,
+			errorCallback
+		)
 	})
 
 	return (

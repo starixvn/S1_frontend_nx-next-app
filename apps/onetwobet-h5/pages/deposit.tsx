@@ -1,4 +1,4 @@
-import { paths } from '@nx-next-app/constants'
+import { Deposit, Layout } from '@12b-h5/components/index'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
@@ -11,13 +11,6 @@ import {
 } from '@nx-next-app/site/onetwobet'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import dynamic from 'next/dynamic'
-import { Deposit, Layout } from '../components'
-
-const H5UpdateProfileModal = dynamic(
-	() => import('@12b-h5/components/modal/UpdateProfileModal'),
-	{ ssr: false }
-)
 
 const DepositPage = ({
 	originIsSignIn,
@@ -35,9 +28,6 @@ const DepositPage = ({
 						DEPOSIT_PAYMENT_OPTIONS={DEPOSIT_PAYMENT_OPTIONS}
 						// * 排序與開關
 						depositPaymentOrders={DEPOSIT_PAYMENT_ORDERS}
-						profileCallBackModal={
-							<H5UpdateProfileModal prevPage={paths.deposit.root} />
-						}
 					>
 						<Deposit />
 					</DepositProvider>

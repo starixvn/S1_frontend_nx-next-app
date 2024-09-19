@@ -1,4 +1,5 @@
 import { Layout, Withdrawal } from '@12b-h5/components/index'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import {
 	AuthProvider,
@@ -25,13 +26,17 @@ const WithdrawalPage = ({
 	persistSEOData,
 	persistStaticFileDomainData,
 }: IWithdrawalProps) => {
+	const { modal } = useGlobalModal()
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
 				<Layout persistSEOData={persistSEOData}>
-					<WithdrawalProvider withdrawalBlockSetting={withdrawalBlockSetting}>
+					<WithdrawalProvider
+						withdrawalBlockSetting={withdrawalBlockSetting}
+						errorCallback={errorMessage => modal.error(errorMessage)}
+					>
 						<Withdrawal />
 					</WithdrawalProvider>
 				</Layout>

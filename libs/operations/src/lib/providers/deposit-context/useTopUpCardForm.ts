@@ -100,7 +100,10 @@ const useTopUpCardForm = ({
 	// * 2. mode = 3，fetch postDepositLoadCardPayReq
 	// * 3. mode = 其他，window.open()
 	// * 4. savedChecked = true 時記住銀行資訊
-	const onTopUpCardPayFormSubmit = async (values: ITopUpCardPayForm) => {
+	const onTopUpCardPayFormSubmit = async (
+		values: ITopUpCardPayForm,
+		errorCallback: (errorMessage: string) => void
+	) => {
 		handleDepositTracker()
 		try {
 			const {
@@ -175,11 +178,7 @@ const useTopUpCardForm = ({
 		} catch (error) {
 			// * 存款 api 某些情境的錯誤會塞在 rawMessage
 			const { rawMessage = 'System Error', message } = error as IAxiosError
-
-			modal.error(rawMessage || message, {
-				icon: 'icon icon-bell',
-				title: t('Label_General_Information'),
-			})
+			errorCallback(rawMessage || message)
 		}
 	}
 

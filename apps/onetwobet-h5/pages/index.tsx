@@ -1,13 +1,13 @@
+import { Home, Layout } from '@12b-h5/components/index'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
+	GlobalDataProvider,
 	getBanner,
 	getHotEvent,
 	getHotGame,
 	getPromotion,
-	GlobalDataProvider,
 } from '@nx-next-app/data-access'
-import { Home, Layout } from '@nx-next-app/features/F0001/h5'
 import { HomeProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,

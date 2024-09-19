@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next'
-import { Header } from '@nx-next-app/components/H0001'
+import Header from '../../header'
 
 const KycWaiting = () => {
 	const { t } = useTranslation()

@@ -19,20 +19,14 @@ import {
 	IWithdrawalInfoHistoryData,
 } from '@nx-next-app/service'
 
-const useTable = <T,>({
-	dataSource,
-	onReload,
-	onSubmit,
-	onCancel,
-	onDetails,
-}: {
+export interface IUseTableProps<T> {
 	dataSource: T[]
 	onReload?: () => void
 	onSubmit?: ({
 		transId,
 		receipt,
 	}: {
-		transId: string
+		transId?: string
 		receipt: string
 	}) => void
 	onCancel?: (transId: string) => void
@@ -49,7 +43,15 @@ const useTable = <T,>({
 		gameTypeId?: number
 		pageNumber?: number
 	}) => void
-}) => {
+}
+
+const useTable = <T,>({
+	dataSource,
+	onReload,
+	onSubmit,
+	onCancel,
+	onDetails,
+}: IUseTableProps<T>) => {
 	return {
 		TransferHistoryTable: () => (
 			<TransferHistoryTable
@@ -62,15 +64,7 @@ const useTable = <T,>({
 			<DepositHistoryTable
 				dataSource={dataSource as unknown as IDepositInfoHistoryData[]}
 				onReload={onReload as () => void}
-				onSubmit={
-					onSubmit as ({
-						transId,
-						receipt,
-					}: {
-						transId?: string
-						receipt: string
-					}) => void
-				}
+				onSubmit={onSubmit}
 				onCancel={onCancel as (transId: string) => void}
 			/>
 		),
