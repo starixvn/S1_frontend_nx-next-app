@@ -1,10 +1,18 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import {
 	WithdrawalBankCardEnum,
 	WithdrawalPanelStatusEnum,
 	useWithdrawal,
 } from '@nx-next-app/operations'
-import { IBankInfoData, IEWalletData } from '@nx-next-app/service'
+import {
+	IBankInfoData,
+	IDeleteBankCardArgs,
+	IDeleteEWalletCardArgs,
+	IEWalletData,
+	useDeleteBankCardMutation,
+	useDeleteEWalletCardMutation,
+} from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
@@ -21,15 +29,12 @@ const CardItem = ({
 		userInfo: { currencyId },
 	} = useAuth()
 	const { getPaymentUrl } = useGlobalData()
+	const { modal } = useGlobalModal()
 
-	const {
-		selectedBankInfo,
-		withdrawalStatus,
-		accountName,
-		handleDeleteBankCard,
-		handleDeleteEWalletCard,
-		handleSelectCard,
-	} = useWithdrawal()
+	const { selectedBankInfo, withdrawalStatus, accountName, handleSelectCard } =
+		useWithdrawal()
+	const [deleteBankCard] = useDeleteBankCardMutation()
+	const [deleteEWalletCard] = useDeleteEWalletCardMutation()
 
 	const { accountNo = '', sysId } = item
 
@@ -47,6 +52,50 @@ const CardItem = ({
 		type === selectedBankInfo.type
 
 	const bankLogo = String(rawBankLogo).toLowerCase()
+
+	// 刪 localBank
+	const handleDeleteBankCard = async (args: IDeleteBankCardArgs) => {
+		modal.confirm(
+			[
+				t('Label_Withdrawal_DeleteConfirm1') ?? '',
+				t('Label_Withdrawal_DeleteConfirm2') ?? '',
+			],
+			{
+				title: t('Label_General_Oh'),
+				onOK: async () => {
+					try {
+						await deleteBankCard(args).unwrap()
+					} catch (error) {
+						modal.error((error as Error).message)
+					}
+				},
+				okText: t('Label_General_Yes'),
+				cancelText: t('Label_General_No'),
+			}
+		)
+	}
+
+	const handleDeleteEWalletCard = async (args: IDeleteEWalletCardArgs) => {
+		modal.confirm(
+			[
+				t('Label_Withdrawal_DeleteConfirm1') ?? '',
+				t('Label_Withdrawal_DeleteConfirm2') ?? '',
+			],
+			{
+				title: t('Label_General_Oh'),
+				onOK: async () => {
+					try {
+						await deleteEWalletCard(args).unwrap()
+					} catch (error) {
+						modal.error((error as Error).message)
+					}
+				},
+				okText: t('Label_General_Yes'),
+				cancelText: t('Label_General_No'),
+			}
+		)
+	}
+
 	return (
 		<div
 			className={classNames('addBankName', { pending: disabled })}

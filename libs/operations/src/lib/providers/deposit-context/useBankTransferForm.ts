@@ -1,4 +1,3 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	useAuth,
 	useDepositSavedLocalStorage,
@@ -47,7 +46,6 @@ const useDepositBankTransferForm = ({
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
-	const { modal } = useGlobalModal()
 	const { value: isFirstEffect, toggle: toggleIsFirstEffect } = useBoolean(true)
 	const { query, pathname, push } = useRouter()
 	const { paymentType: queryPaymentType, sysId: querySysId } = query
@@ -121,7 +119,10 @@ const useDepositBankTransferForm = ({
 	// * 2. 建立單據取得 transId
 	// * 3. 透過 transId 上傳圖片以及 bonusCode
 	// * 4. savedChecked = true 時記住銀行資訊
-	const onBankTransferFormSubmit = async (values: IBankTransferForm) => {
+	const onBankTransferFormSubmit = async (
+		values: IBankTransferForm,
+		errorCallback: (errorMessage: string) => void
+	) => {
 		handleDepositTracker()
 		try {
 			const {
@@ -173,8 +174,7 @@ const useDepositBankTransferForm = ({
 		} catch (error) {
 			// * 存款 api 某些情境的錯誤會塞在 rawMessage
 			const { rawMessage, message } = error as IAxiosError
-
-			modal.error(rawMessage || message)
+			errorCallback(rawMessage || message)
 		}
 	}
 

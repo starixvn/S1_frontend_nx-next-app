@@ -1,4 +1,3 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	IDepositMobilePayBankQRModalProps,
 	useAuth,
@@ -43,7 +42,6 @@ const useQRPayForm = ({
 		userInfo: { langId, currencyId },
 		dbHost,
 	} = useAuth()
-	const { modal } = useGlobalModal()
 	const { value: isFirstEffect, toggle: toggleIsFirstEffect } = useBoolean(true)
 	const {
 		query: {
@@ -95,7 +93,10 @@ const useQRPayForm = ({
 	// * 2. channelId = -1 (假渠道), fetch postDepositLocalPayReq 並打開 QRcode 彈窗
 	// * 3. mode = 其他，window.open()
 	// * 4. savedChecked = true 時記住銀行資訊
-	const onQRPayFormSubmit = async (values: IQRPayForm) => {
+	const onQRPayFormSubmit = async (
+		values: IQRPayForm,
+		errorCallback: (errorMessage: string) => void
+	) => {
 		handleDepositTracker()
 		try {
 			const {
@@ -161,8 +162,7 @@ const useQRPayForm = ({
 		} catch (error) {
 			// * 存款 api 某些情境的錯誤會塞在 rawMessage
 			const { rawMessage, message } = error as IAxiosError
-
-			modal.error(rawMessage || message)
+			errorCallback(rawMessage || message)
 		}
 	}
 

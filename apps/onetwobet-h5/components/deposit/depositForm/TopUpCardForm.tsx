@@ -1,5 +1,5 @@
-import { Form, Img } from '@nx-next-app/components/H0001'
-import { useAuth } from '@nx-next-app/data-access'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useDepositContext, useTopUpCardForm } from '@nx-next-app/operations'
 import { IPaymentTopUpCardPayData } from '@nx-next-app/service'
 import {
@@ -9,9 +9,9 @@ import {
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { useBoolean } from 'usehooks-ts'
-import { InputBox, Select } from '../../common'
+import { Form, Img, InputBox, Select } from '../../common'
 import DepositModule from '../ui/deposit-module'
 
 interface ITopUpCardFormProps {
@@ -23,7 +23,8 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { t } = useTranslation()
-
+	const { modal } = useGlobalModal()
+	const { getBannerUrl } = useGlobalData()
 	const { promotionOptions } = useDepositContext()
 
 	const {
@@ -127,7 +128,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 			{isCardInfoImgActive && (
 				<div className='cardinfo'>
 					<Img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/cardinfo.png`}
+						src={getBannerUrl(`/desktop/img/cardinfo.png`)}
 						alt='img-cardinfo'
 					/>
 				</div>
@@ -135,47 +136,6 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
 				<DepositModule title={t('Label_General_DepositAmount')} required>
-					{/* <div className='input-column'>
-
-
-
-						<div>
-							<InputBox
-								register={register('serial', {
-									required: true,
-								})}
-								placeholder={t('Label_Deposit_CardSerial') || ''}
-								touched={!!touchedFields['serial']}
-								error={!!errors['serial']}
-								onInfoClick={() => toggleIsCardInfoImgActive()}
-							/>
-							<button
-								className='icon icon-files-empty'
-								onClick={async () => {
-									const clipboardText =
-										navigator.clipboard &&
-										(await navigator.clipboard.readText())
-
-									setValue('serial', clipboardText)
-								}}
-							/>
-						</div>
-						<div className='tip active'>
-							{t('Label_Deposit_ProvideBankSlip')}
-						</div>
-					</div>
-
-					<div
-						className={classNames('tipImg', {
-							active: isCardInfoImgActive,
-						})}
-					>
-						<Img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/cardinfo.png`}
-							alt='img-cardinfo'
-						/>
-					</div> */}
-
 					<DepositModule.ShortcutList
 						minAmount={watchMinAmount}
 						maxAmount={watchMaxAmount}
@@ -226,7 +186,13 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 				</div>
 			</DepositModule>
 
-			<Form onSubmit={handleSubmit(onTopUpCardPayFormSubmit)}>
+			<Form
+				onSubmit={handleSubmit(values =>
+					onTopUpCardPayFormSubmit(values, errorMessage =>
+						modal.error(errorMessage)
+					)
+				)}
+			>
 				<div className='btn-group'>
 					<button
 						type='submit'

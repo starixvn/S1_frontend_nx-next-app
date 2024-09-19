@@ -60,6 +60,8 @@ export type IAddBankCardModalProps = {
 	onSubmitCard: ({
 		value,
 		type,
+		successCallback,
+		errorCallback,
 	}: {
 		value: {
 			sysId: number
@@ -67,5 +69,7 @@ export type IAddBankCardModalProps = {
 			isfcCode?: string
 		}
 		type: WithdrawalBankCardEnum
+		successCallback: () => void
+		errorCallback: (errorMessage: string) => void
 	}) => void
 }

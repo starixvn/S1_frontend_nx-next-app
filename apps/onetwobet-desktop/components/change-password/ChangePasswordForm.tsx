@@ -1,9 +1,9 @@
-import { InputBox } from '@nx-next-app/components/D0001'
 import { PASSWORD_REGEX } from '@nx-next-app/constants'
 import classNames from 'classnames'
 import { ChangePasswordFormType } from 'libs/web/src/hooks/useChangePasswordFetcher'
 import { useTranslation } from 'next-i18next'
 import { UseFormReturn } from 'react-hook-form'
+import { InputBox } from '../common/input'
 
 interface IChangePasswordFormProps {
 	onSubmit: (value: ChangePasswordFormType) => void
@@ -65,7 +65,7 @@ const ChangePasswordForm = ({
 
 			<div className='btnGroup'>
 				<button
-					className='btn-check'
+					className='primary'
 					onClick={handleSubmit(onSubmit)}
 					type='submit'
 					// 有輸入 => 驗證有通過 => 防連點

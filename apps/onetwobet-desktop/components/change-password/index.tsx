@@ -1,4 +1,4 @@
-import useChangePasswordFetcher from 'libs/web/src/hooks/useChangePasswordFetcher'
+import { useChangePasswordFetcher } from '@nx-next-app/hooks'
 import { useTranslation } from 'next-i18next'
 import { ChangePasswordForm } from './ChangePasswordForm'
 

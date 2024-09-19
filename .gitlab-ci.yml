@@ -1,0 +1,7 @@
+include:
+  - project: "sre/gitlab-ci-configs"
+    ref: "main"
+    file: "/frontend-desktop/.gitlab-ci.yaml"
+  - project: "sre/gitlab-ci-configs"
+    ref: "main"
+    file: "/frontend-mobile/.gitlab-ci.yaml"

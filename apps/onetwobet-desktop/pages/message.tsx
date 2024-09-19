@@ -1,14 +1,11 @@
+import { LeftMenu, PersonalMessage } from '@12b-desktop/components/index'
+import { Layout } from '@12b-desktop/components/layout'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import {
-	Layout,
-	LeftMenu,
-	PersonalMessage,
-} from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,

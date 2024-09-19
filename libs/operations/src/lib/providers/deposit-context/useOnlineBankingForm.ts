@@ -1,4 +1,3 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	IDepositQRCodeModalProps,
 	useAuth,
@@ -53,7 +52,6 @@ const useOnlineBankingForm = ({
 		dbHost,
 	} = useAuth()
 	const { t } = useTranslation()
-	const { modal } = useGlobalModal()
 	const { value: isFirstEffect, toggle: toggleIsFirstEffect } = useBoolean(true)
 	const {
 		query: {
@@ -139,7 +137,10 @@ const useOnlineBankingForm = ({
 	// * 2. mode = 3，開啟 QR CODE modal
 	// * 3. mode = 其他，window.open()
 	// * 4. savedChecked = true 時記住銀行資訊
-	const onOnlineBankingFormSubmit = (values: IOnlineBankingForm) => {
+	const onOnlineBankingFormSubmit = (
+		values: IOnlineBankingForm,
+		errorCallback: (errorMessage: string) => void
+	) => {
 		handleDepositTracker()
 		const {
 			mode,
@@ -218,7 +219,7 @@ const useOnlineBankingForm = ({
 					})
 				}
 			} catch (error) {
-				modal.error((error as Error).message)
+				errorCallback((error as Error).message)
 			}
 		}
 

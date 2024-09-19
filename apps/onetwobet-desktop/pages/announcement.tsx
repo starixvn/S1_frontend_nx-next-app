@@ -5,11 +5,6 @@ import {
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
 import {
-	Announcement,
-	Layout,
-	LeftMenu,
-} from '@nx-next-app/features/F0001/desktop'
-import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
@@ -18,6 +13,8 @@ import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { Layout, LeftMenu } from '../components'
+import Announcement from '../components/announcement'
 
 interface IAnnouncementPage extends InitialPropsInterface {
 	persistFooterData: IFooterData

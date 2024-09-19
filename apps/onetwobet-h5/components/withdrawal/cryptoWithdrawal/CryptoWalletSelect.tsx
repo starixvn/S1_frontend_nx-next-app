@@ -1,12 +1,47 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import {
+	useCryptoWallet,
+	useWithdrawal,
+	type IAddWalletModalArgs,
+} from '@nx-next-app/operations'
 import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 
-import { useCryptoWallet, useWithdrawal } from '@nx-next-app/operations'
+const AddWalletModal = dynamic(
+	() => import('../../crypto-wallet/AddWalletModal'),
+	{
+		ssr: false,
+	}
+)
 
 const CryptoWalletSelect = () => {
 	const { withdrawalType, bankData, selectedBankInfo, handleSelectCard } =
 		useWithdrawal()
-	const { usdtDetail } = bankData
 	const { handleAddWallet } = useCryptoWallet()
+	const { modal } = useGlobalModal()
+	const { t } = useTranslation()
+	const { push } = useRouter()
+
+	const { usdtDetail } = bankData
+
+	const onAddWalletModal = ({
+		cryptoNetworkList,
+		cryptoCurrencyOptions,
+		handleGetOtpInfo,
+		handleSetCustCryptoWallet,
+	}: IAddWalletModalArgs) => {
+		modal.open(
+			<AddWalletModal
+				handleSetCustCryptoWallet={handleSetCustCryptoWallet}
+				cryptoNetworkList={cryptoNetworkList}
+				cryptoCurrencyOptions={cryptoCurrencyOptions}
+				handleGetOtpInfo={handleGetOtpInfo}
+			/>
+		)
+	}
 
 	const banks = (() => {
 		return usdtDetail.map(item => {
@@ -56,7 +91,22 @@ const CryptoWalletSelect = () => {
 		<div className='bankAccount'>
 			{banks}
 			{usdtDetail?.length < 3 && (
-				<div key='add bank' className='account' onClick={handleAddWallet}>
+				<div
+					key='add bank'
+					className='account'
+					onClick={() =>
+						handleAddWallet({
+							phoneVerifiedCallBack: () =>
+								modal.confirm(t('Label_CryptoWallet_CryptoOTP'), {
+									okText: t('Label_General_UpdatePersonalDetail'),
+									onOK: () => {
+										push(paths.profile.root)
+									},
+								}),
+							onAddWalletModal,
+						})
+					}
+				>
 					<div className='icon icon-plus text-org' />
 				</div>
 			)}

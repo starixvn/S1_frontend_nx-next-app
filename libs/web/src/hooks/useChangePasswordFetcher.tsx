@@ -1,7 +1,7 @@
-import { useForm } from 'react-hook-form'
-import { useTranslation } from 'next-i18next'
-import { useSetChangePasswordMutation } from '@nx-next-app/service'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useSetChangePasswordMutation } from '@nx-next-app/service'
+import { useTranslation } from 'next-i18next'
+import { useForm } from 'react-hook-form'
 
 export type ChangePasswordFormType = {
 	oldPassword: string
@@ -60,4 +60,4 @@ const useChangePasswordFetcher = ({
 	return { changePasswordForm, onSetChangePassword }
 }
 
-export default useChangePasswordFetcher
+export { useChangePasswordFetcher }

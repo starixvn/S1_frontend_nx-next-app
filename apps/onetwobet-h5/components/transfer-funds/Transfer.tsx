@@ -54,12 +54,27 @@ const Transfer = () => {
 		)
 	}
 
+	const errorCallback = (message: string) => {
+		modal.confirm(message)
+	}
+
+	const selectSendWalletModal = () => {
+		modal.error(t('Label_TransferFunds_PleaseSelectFromWallet'))
+	}
+
+	const selectReceiveWalletModal = () => {
+		modal.error(t('Label_TransferFunds_PleaseSelectToWallet'))
+	}
 	const handleTransferFormSubmit = handleSubmit(() => {
-		handleSubmitForm(showModal)
+		handleSubmitForm(
+			selectSendWalletModal,
+			selectReceiveWalletModal,
+			showModal,
+			errorCallback
+		)
 	})
 
 	// maxAmount 取整數
-
 	const removeDecimals = (value: number) => {
 		return Math.trunc(value)
 	}

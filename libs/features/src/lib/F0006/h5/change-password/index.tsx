@@ -1,6 +1,6 @@
-import { useTranslation } from 'next-i18next'
 import { Header } from '@nx-next-app/components/H0006'
-import useChangePasswordFetcher from 'libs/web/src/hooks/useChangePasswordFetcher'
+import { useChangePasswordFetcher } from '@nx-next-app/hooks'
+import { useTranslation } from 'next-i18next'
 import { ChangePasswordForm } from './ChangePasswordForm'
 
 const ChangePassword = () => {
