@@ -1,7 +1,7 @@
 include:
   - project: "sre/gitlab-ci-configs"
     ref: "main"
-    file: "/nova-desktop/.gitlab-ci.yaml"
+    file: "/frontend-desktop/.gitlab-ci.yaml"
   - project: "sre/gitlab-ci-configs"
     ref: "main"
-    file: "/nova-mobile/.gitlab-ci.yaml"
+    file: "/frontend-mobile/.gitlab-ci.yaml"
