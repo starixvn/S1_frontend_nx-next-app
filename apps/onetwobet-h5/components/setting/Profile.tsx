@@ -1,6 +1,6 @@
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
+import { useTpWalletBalanceListFetcher } from '@nx-next-app/operations'
 import {
 	useGetCustVIPProgressQuery,
 	useGetMsgCountQuery,

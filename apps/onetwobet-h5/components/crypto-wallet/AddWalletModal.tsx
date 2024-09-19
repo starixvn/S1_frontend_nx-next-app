@@ -1,5 +1,5 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { usePhoneOtp } from '@nx-next-app/hooks'
+import { usePhoneOtp } from '@nx-next-app/operations'
 import {
 	ICryptoNetwork,
 	IOTPSMSData,
@@ -62,6 +62,8 @@ const AddWalletModal = ({
 			setValue('cryptoNetwork', defaultNetwork)
 		}
 	}
+
+	const handleErrorModal = (message: string) => modal.error(message)
 
 	const handleSubmitForm = async () => {
 		const { otpCode, walletAddress, cryptoCurrency, cryptoNetwork, nickName } =
@@ -170,7 +172,9 @@ const AddWalletModal = ({
 								<button
 									type='button'
 									className='btn-check primary'
-									onClick={handleSendOtpSMS}
+									onClick={()=>{
+										handleSendOtpSMS(handleErrorModal)
+									}}
 								>
 									<span>{t('Label_Profile_Retransmit')}</span>
 								</button>

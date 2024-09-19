@@ -1,6 +1,6 @@
 import { Form, InputBox } from '@12b-h5/components/common'
 import { PASSWORD_REGEX, paths } from '@nx-next-app/constants'
-import { ChangePasswordFormType } from 'libs/web/src/hooks/useChangePasswordFetcher'
+import { ChangePasswordFormType } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { UseFormReturn } from 'react-hook-form'

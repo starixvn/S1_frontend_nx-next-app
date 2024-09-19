@@ -1,5 +1,5 @@
 import { InputBox } from '@12b-desktop/components/common'
-import { Form } from '@nx-next-app/components/D0001'
+import { Form } from '@12b-desktop/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useAddress } from '@nx-next-app/operations'

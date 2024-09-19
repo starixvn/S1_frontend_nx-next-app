@@ -1,6 +1,6 @@
-import { Form, InputBox, Select } from '@12b-desktop/components/common'
+import { Form, Img, InputBox, Select } from '@12b-desktop/components/common'
 import DepositModule from '@12b-desktop/components/deposit/ui/deposit-module'
-import { Img, Loading } from '@nx-next-app/components/D0001'
+import { Loading } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useDepositContext, useTopUpCardForm } from '@nx-next-app/operations'
