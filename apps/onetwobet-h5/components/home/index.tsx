@@ -20,7 +20,6 @@ interface IHomeProps {
 }
 
 // ======== 先放在 components 資料夾下面，新首頁如果不需要再刪除 =============
-const LuckyWheel = dynamic(() => import('../luckyWheel'), { ssr: false })
 
 const LiveStreamingLink = dynamic(() => import('../liveStreamingLink'), {
 	ssr: false,
@@ -135,9 +134,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 		) ? (
 			<EuropeCupEntry />
 		) : null,
-		[MobileHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
-		[MobileHomeComponentsEnum.Retention]: <RetentionEntry />,
-
+		[MobileHomeComponentsEnum.RetentionEntry]: <RetentionEntry />,
 		[MobileHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
 		[MobileHomeComponentsEnum.AppDownload]:
 			isInApp === false ? <AppDownload /> : null,
