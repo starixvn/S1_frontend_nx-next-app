@@ -274,6 +274,7 @@ export const TransferFundsProvider = ({
 		try {
 			await getMainWalletInfo(null).unwrap()
 		} catch (error) {
+      console.log('1')
 			errorCallback((error as Error).message)
 			// modal.error((error as Error).message)
 		}
