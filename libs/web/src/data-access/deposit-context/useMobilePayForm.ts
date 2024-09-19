@@ -152,6 +152,10 @@ const useMobilePayForm = ({
 	const bankCardRequired =
 		selectedChannel?.extraDataType === DepositExtraDataTypeEnum.bankCard
 
+	const bankCardOrEWalletRequired =
+		selectedChannel?.extraDataType ===
+		DepositExtraDataTypeEnum.bankCardOrEWallet
+
 	const bankCardOptions = custBankInfo
 		.filter(({ disabled }) => !disabled)
 		.map(({ bankName, accountNo }) => ({
@@ -181,7 +185,7 @@ const useMobilePayForm = ({
 			} = values
 			const convertedAmount = isConvert(currencyId) ? amount * 1000 : amount
 
-			// * 如果需選擇銀行卡但未選需跳錯誤提醒
+			// * extraDataType = 1，未選擇銀行卡
 			if (bankCardRequired && !custBankAccount) {
 				setError('custBankAccount', {
 					message: t('Label_Withdrawal_SelectBankRequired') as string,
@@ -189,8 +193,21 @@ const useMobilePayForm = ({
 				return
 			}
 
-			// * 如果需選擇 E-Wallet 但未選需跳錯誤提醒
+			// * extraDataType = 2，未選擇EWallet
 			if (eWalletRequired && !custEWalletAccount) {
+				setError('custEWalletAccount', {
+					message: t('Label_Withdrawal_SelectBankRequired') as string,
+				})
+				return
+			}
+
+			// * extraDataType = 3 未選擇銀行卡 || EWallet
+			if (
+				bankCardOrEWalletRequired &&
+				!custEWalletAccount &&
+				!custBankAccount
+			) {
+				// 拿第一個顯示 error
 				setError('custEWalletAccount', {
 					message: t('Label_Withdrawal_SelectBankRequired') as string,
 				})
@@ -221,6 +238,18 @@ const useMobilePayForm = ({
 				sysId = String(
 					find(custBankInfo, { accountNo: String(payAccount) })?.sysId
 				)
+			} else if (bankCardOrEWalletRequired) {
+				if (custEWalletAccount) {
+					payAccount = String(custEWalletAccount)
+					sysId = String(
+						find(custEWalletList, { accountNo: String(payAccount) })?.sysId
+					)
+				} else if (custBankAccount) {
+					payAccount = String(custBankAccount)
+					sysId = String(
+						find(custBankInfo, { accountNo: String(payAccount) })?.sysId
+					)
+				}
 			}
 
 			const errorUrl = `${dbHost}/404/index_${langId}.html`
@@ -233,7 +262,6 @@ const useMobilePayForm = ({
 				errorUrl,
 			})
 			const paramsUrl = searchParams.toString()
-
 			if (
 				channelId === -1 // * -1:假渠道
 			) {
@@ -273,6 +301,8 @@ const useMobilePayForm = ({
 			}
 
 			resetField('amount')
+			setValue('custBankAccount', undefined)
+			setValue('custEWalletAccount', undefined)
 			scrollToTop()
 			refetchPaymentMobilePayList()
 			if (isDepositLocalStorageSavedChecked) {
@@ -393,6 +423,7 @@ const useMobilePayForm = ({
 		bankCardOptions,
 		eWalletRequired,
 		bankCardRequired,
+		bankCardOrEWalletRequired,
 		loading: debouncedLoading,
 		channelMobilePayList,
 		onMobilePayFormSubmit,
