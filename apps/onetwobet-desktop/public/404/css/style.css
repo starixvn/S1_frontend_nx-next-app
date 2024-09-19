@@ -1,80 +1,125 @@
-@charset "UTF-8";
-html,body{
+html, body {
   width: 100%;
   height: 100%;
   color: #fff;
   font-size: 12px;
-  font-family: 'Arial',sans-serif;
+  font-family: "Arial", sans-serif;
 }
-#root,div[tabindex="-1"]{
+
+#root, div[tabindex="-1"] {
   height: 100%;
 }
-img{
+
+img {
   display: block;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
 }
-body{  
-  background: url(../img/bg.jpg)no-repeat top center / cover;
-  animation: bgimg 5s ease-in-out infinite;
+
+body {
+  -webkit-animation: bgimg 5s ease-in-out infinite;
+          animation: bgimg 5s ease-in-out infinite;
 }
 
-.wallpaper{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-100%);
+header {
+  background: #C01D21;
+  padding: 15px;
+  position: fixed;
+  width: 100%;
 }
-.title{
-  font-size: 50px;
-  font-weight: bold;
-  color: #cf242a;
-  margin: 30px 0 5px;
-  text-transform:uppercase;
+
+.wallpaper {
+  background: url(https://banner.picasso12.com/errorpage/404/img/bg.jpg) no-repeat top center/cover;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
-.stitle{
-  font-size: 30px;
+.wallpaper img:hover {
+  background: url(https://banner.picasso12.com/errorpage/404/img/button-hover.png) no-repeat top center/cover;
+}
+
+.title {
+  font-size: 80px;
   font-weight: bold;
-  color: #cf242a;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.stitle {
+  font-size: 25px;
+  color: #B0B3BB;
   margin: 0 0 30px;
 }
-@media screen and (max-width: 1024px) and (orientation: portrait){
-  body{
-    background: url(../img/bgm.jpg)no-repeat center / cover;
+
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+  header {
+    background: #C01D21;
+    position: fixed;
+    z-index: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 0;
   }
-  .wallpaper{
-    padding: 2vw;
-    top: 0;
-    left: 0;
-    text-align: center;
-    transform: translateY(0%);
-    width: calc(100% - 4vw);
-  }
-  .logo{
-    width: 70vw;
-  }
-  img{
-    display: unset;
-    margin: 7vw 0;
+  header img {
     width: 30vw;
+    padding: 3vw;
   }
-  .title{
-    font-size: 9vw;
-    margin: 0 0 3vw;
+  .wallpaper {
+    background: url(https://banner.picasso12.com/errorpage/404/img/bgm.jpg) no-repeat top center/cover;
+    height: 100%;
   }
-  .stitle{
-    font-size: 6vw;
-    margin: 0 0 3vw;
+  .wallpaper img {
+    width: 35vw;
+  }
+  .title {
+    font-size: 14vw;
+  }
+  .stitle {
+    font-size: 5vw;
+    margin: 0 0 5vw;
   }
 }
-
-@keyframes bgimg {
+@-webkit-keyframes bgimg {
   0% {
-   transform: scale(0.96 / 0.96);
+    -webkit-transform: scale(0.96/0.96);
+            transform: scale(0.96/0.96);
   }
   50% {
-    transform: scale(1 / 1);
-   }
+    -webkit-transform: scale(1/1);
+            transform: scale(1/1);
+  }
   100% {
-    transform: scale(0.96 / 0.96);
-   }
+    -webkit-transform: scale(0.96/0.96);
+            transform: scale(0.96/0.96);
+  }
 }
+@keyframes bgimg {
+  0% {
+    -webkit-transform: scale(0.96/0.96);
+            transform: scale(0.96/0.96);
+  }
+  50% {
+    -webkit-transform: scale(1/1);
+            transform: scale(1/1);
+  }
+  100% {
+    -webkit-transform: scale(0.96/0.96);
+            transform: scale(0.96/0.96);
+  }
+}/*# sourceMappingURL=style.css.map */
