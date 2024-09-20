@@ -104,10 +104,13 @@ const useMenu = () => {
 
 	// * 塞入前端相關參數
 	const mergedMenus = (): IMergedMenuData[] => {
-		return LobberHeaderMenuList?.map(mainMenuItem => {
+		const mergedMenu: IMergedMenuData[] = []
+		LobberHeaderMenuList?.forEach(mainMenuItem => {
 			const defMainMenuItem = find(MENU_DATA, {
 				lobbyCategoryId: mainMenuItem.lobbyCategoryId,
 			})
+
+			if (!defMainMenuItem) return
 
 			const {
 				data = [],
@@ -131,8 +134,9 @@ const useMenu = () => {
 				return { ...(subMenuItem as IDynamicSubMenuItem) }
 			})
 
-			return { ...rest, subMenu: subMenus }
+			mergedMenu.push({ ...rest, subMenu: subMenus })
 		})
+		return mergedMenu
 	}
 
 	/**
