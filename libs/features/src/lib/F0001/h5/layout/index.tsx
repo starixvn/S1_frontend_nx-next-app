@@ -1,21 +1,26 @@
-import React, { ReactNode } from 'react'
-import { useRouter } from 'next/router'
+import { BackTop } from '@nx-next-app/components/D0001'
+import { GlobalModal, MetaData } from '@nx-next-app/components/H0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { ISEOData, useAuth } from '@nx-next-app/data-access'
-import { MetaData, GlobalModal } from '@nx-next-app/components/H0001'
 import { useAffiliateReferralEffect } from '@nx-next-app/hooks'
 import { useChangePasswordModalEffect } from 'libs/web/src/hooks/useChangePasswordModalEffect'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { BackTop } from '@nx-next-app/components/D0001'
-import LayoutFooter from './footer'
+import { useRouter } from 'next/router'
+import { ReactNode } from 'react'
 import RotationHint from './RotationHint'
+import LayoutFooter from './footer'
 
 interface ILayoutProps {
 	children: ReactNode
 	persistSEOData: ISEOData
+	isFooter?: boolean
 }
 
-const Layout = ({ children, persistSEOData }: ILayoutProps) => {
+const Layout = ({
+	children,
+	persistSEOData,
+	isFooter = true,
+}: ILayoutProps) => {
 	const { globalModal, closeModal } = useGlobalModal()
 
 	const router = useRouter()
@@ -33,7 +38,7 @@ const Layout = ({ children, persistSEOData }: ILayoutProps) => {
 			<RotationHint />
 			{children}
 
-			{isLogin && <LayoutFooter />}
+			{isFooter && isLogin && <LayoutFooter />}
 
 			{/* 只需放在 Layout 來渲染全域彈窗 */}
 			<GlobalModal {...globalModal} closeModal={closeModal} />

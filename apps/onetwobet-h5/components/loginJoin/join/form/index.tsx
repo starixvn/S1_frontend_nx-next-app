@@ -1,6 +1,2 @@
-export * from '../Features'
+export * from './JoinForm'
 export * from './LineRegister'
-export * from './Step1'
-export * from './Step2'
-export * from './Step3'
-export * from './StepBar'

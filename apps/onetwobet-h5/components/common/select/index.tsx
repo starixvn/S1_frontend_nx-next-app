@@ -18,6 +18,7 @@ export interface ISelectProps {
 	onChange?: (value: SelectOptionType['value']) => void
 	showValue?: boolean
 	btnClassName?: string
+	requiredIcon?: boolean
 }
 
 const Select = (props: ISelectProps) => {
@@ -36,6 +37,7 @@ const Select = (props: ISelectProps) => {
 		showValue,
 		btnClassName,
 		onChange,
+		requiredIcon,
 	} = props
 	const { value: isActive, toggle, setFalse } = useBoolean()
 	const [currentOption, setCurrentOption] = useState<SelectOptionType>()
@@ -104,6 +106,7 @@ const Select = (props: ISelectProps) => {
 				onClick={toggle}
 				ref={ref}
 			>
+				{requiredIcon && <span className='required-tip'>*</span>}
 				{prefixIcon}
 
 				<button
@@ -113,7 +116,7 @@ const Select = (props: ISelectProps) => {
 					{/* 如 prefixOptionIcon 為 Image 會造成跑版，所以使用 style 調整 */}
 					<div style={{ display: 'flex', alignItems: 'center' }}>
 						{currentOption?.prefixOptionIcon}
-						<span className='text'>{label}</span>
+						<span>{label}</span>
 					</div>
 					<i className='icon icon-keyboard_arrow_down' />
 				</button>

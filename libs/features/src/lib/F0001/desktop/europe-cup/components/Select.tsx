@@ -1,8 +1,8 @@
+import classNames from 'classnames'
+import { find, uniqueId } from 'lodash'
+import { useTranslation } from 'next-i18next'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import { useBoolean, useOnClickOutside } from 'usehooks-ts'
-import { useTranslation } from 'next-i18next'
-import { find, uniqueId } from 'lodash'
-import classNames from 'classnames'
 
 export type SelectOptionType = {
 	value: string | number | undefined

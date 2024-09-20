@@ -1,7 +1,7 @@
 import { Form } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import {
 	LineLoginDirectTypeEnum,
 	useLazyGetLineLoginDirectUrlQuery,
@@ -15,7 +15,9 @@ import { LoginForm } from './form'
 
 const Login = () => {
 	const router = useRouter()
+	const { query } = router
 	const { t } = useTranslation()
+	const { getBannerUrl } = useGlobalData()
 
 	const {
 		onSignIn,
@@ -55,36 +57,40 @@ const Login = () => {
 		}
 	}
 
+	const fromRoute = query['from'] ? String(query['from']) : paths.home.root
+
 	return (
-		<>
-			{currencyId === CurrenciesEnum.THB && (
-				<div className='register-line'>
-					<div className='btn-group'>
-						<button
-							className='btn-line'
-							type='button'
-							onClick={handleLineLogin}
-						>
-							<i className='icon icon-line-bold' />
-							{t('Label_General_LogIn')}
-						</button>
-					</div>
+		<div style={{ height: '100vh' }}>
+			<main className='main login'>
+				<Link href={fromRoute} prefetch>
+					<button className='close-btn'>
+						<img src={getBannerUrl('/h5/img/4.0/close-icon.png')} alt='close' />
+					</button>
+				</Link>
+				<div className='logo'>
+					<img src={getBannerUrl('/h5/img/logo.png')} alt='logo' />
 				</div>
-			)}
-			<FormProvider {...formMethods}>
-				<Form onSubmit={handleSubmit(handleSignIn)}>
-					<LoginForm />
-				</Form>
-			</FormProvider>
-			<Link href={paths.home.root}>
-				<a>
-					<div className='visit'>
-						{t('Label_Join_IWouldLikeToVisit')}
-						<i className='icon icon-visit' />
+				{currencyId === CurrenciesEnum.THB && (
+					<div className='register-line'>
+						<div className='btn-group'>
+							<button
+								className='btn-line'
+								type='button'
+								onClick={handleLineLogin}
+							>
+								<i className='icon icon-line-bold' />
+								{t('Label_General_LogIn')}
+							</button>
+						</div>
 					</div>
-				</a>
-			</Link>
-		</>
+				)}
+				<FormProvider {...formMethods}>
+					<Form onSubmit={handleSubmit(handleSignIn)}>
+						<LoginForm />
+					</Form>
+				</FormProvider>
+			</main>
+		</div>
 	)
 }
 

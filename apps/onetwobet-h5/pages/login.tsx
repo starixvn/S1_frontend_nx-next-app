@@ -1,11 +1,12 @@
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, LoginJoin } from '@nx-next-app/features/F0001/h5'
+import { Layout } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { Login } from '../components/loginJoin'
 
 type IHomePageProps = InitialPropsInterface
 
@@ -20,8 +21,8 @@ const LoginPage = ({
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
-				<Layout persistSEOData={persistSEOData}>
-					<LoginJoin cookies={originCookies} />
+				<Layout persistSEOData={persistSEOData} isFooter={false}>
+					<Login />
 				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>
