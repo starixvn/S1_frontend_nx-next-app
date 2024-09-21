@@ -1,17 +1,18 @@
-import dayjs from 'dayjs'
-import dynamic from 'next/dynamic'
-import { useAppDispatch } from '@nx-next-app/store'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
 import {
 	IAxiosError,
 	IGetCustSpecificBonusArgs,
 	IPromotionData,
+	updatePromotionData,
 	useGetPromotionListV3Query,
 	useGetSpecialPromotionListQuery,
 	useLazyGetCustSpecificBonusQuery,
 	useSetSpecialCodeMutation,
-	updatePromotionData,
 } from '@nx-next-app/service'
+import { useAppDispatch } from '@nx-next-app/store'
 import {
 	DeviceTypeEnum,
 	PromotionCategoryIdEnum,
@@ -19,19 +20,18 @@ import {
 	PromotionTypeEnum,
 	PromotionWalletType,
 } from '@nx-next-app/types'
+import dayjs from 'dayjs'
+import { filter, includes, isUndefined, trim } from 'lodash-es'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 import {
-	createContext,
 	ReactNode,
+	createContext,
 	useContext,
 	useEffect,
 	useState,
 } from 'react'
-import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useForm, UseFormReturn } from 'react-hook-form'
-import { filter, includes, isUndefined, trim } from 'lodash-es'
-import { useRouter } from 'next/router'
-import { paths } from '@nx-next-app/constants'
+import { UseFormReturn, useForm } from 'react-hook-form'
 
 const DesktopPromotionDetailModal = dynamic(
 	() =>
@@ -228,15 +228,7 @@ export const PromotionProvider = ({
 
 	const promotionData = originPromotionData
 		// * 過濾掉已過期的 promotion
-		.filter(({ isJoin, promotionType, custExpiryTime, periodTo }) =>
-			isJoin &&
-			!includes(
-				[PromotionTypeEnum.Rebate, PromotionTypeEnum.Cashback],
-				promotionType
-			)
-				? dayjs(custExpiryTime).isAfter(dayjs())
-				: dayjs(dayjs.unix(periodTo)).isAfter(dayjs())
-		)
+		.filter(({ periodTo }) => dayjs(dayjs.unix(periodTo)).isAfter(dayjs()))
 		// * 根據選擇的 tab 過濾出相對應的 promotion 資料
 		.filter(({ promotionType, categoryId, walletType }) => {
 			let bol = false
