@@ -13,8 +13,12 @@
 						"allow": [],
 						"depConstraints": [
 							{
-								"sourceTag": "*",
-								"onlyDependOnLibsWithTags": ["*"]
+								"sourceTag": "type:app",
+								"onlyDependOnLibsWithTags": [
+									"type:feature",
+									"type:operation",
+									"type:web"
+								]
 							}
 						]
 					}
@@ -70,7 +74,7 @@
 				"jsx-a11y/click-events-have-key-events": "off",
 				"jsx-a11y/no-static-element-interactions": "off",
 				"react/button-has-type": "off",
-				"@nrwl/nx/enforce-module-boundaries": "off",
+				"@nrwl/nx/enforce-module-boundaries": "on",
 				"semi": "off",
 				"no-tabs": "off",
 				"react/jsx-indent-props": "off",
