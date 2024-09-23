@@ -12,8 +12,8 @@ export enum MenuKeyEnum {
 	'Fishing' = 'Fishing',
 	'FourD' = 'FourD',
 	'Lottery' = 'Lottery',
-	'NumberGame' = 'Number Game',
-	'Keno' = 'keno',
+	'NumberGame' = 'NumberGame',
+	'Keno' = 'Keno',
 	// 靜態 category
 	'Promotion' = 'Promotion',
 	'VIP' = 'VIP',

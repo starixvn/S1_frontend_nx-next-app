@@ -22,11 +22,6 @@ import {
 } from '@nx-next-app/utils'
 import { filter, find, includes } from 'lodash-es'
 import { useRouter } from 'next/router'
-import type {
-	IDynamicSubMenuItem,
-	IDynamicSubMenuLinkType,
-	IStaticSubMenuItem,
-} from './type'
 
 type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void
