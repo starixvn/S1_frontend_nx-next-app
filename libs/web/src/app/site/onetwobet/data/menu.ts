@@ -1,10 +1,10 @@
+import { PRODUCTS, paths } from '@nx-next-app/constants'
 import {
+	IMenuData,
+	LobbyCategoryEnum,
 	MenuActionTypeEnum,
 	MenuKeyEnum,
-	LobbyCategoryEnum,
-	IMenuData,
 } from '@nx-next-app/types'
-import { paths, PRODUCTS } from '@nx-next-app/constants'
 
 export const MENU_DATA: IMenuData[] = [
 	{
@@ -1152,18 +1152,6 @@ export const MENU_DATA: IMenuData[] = [
 		lobbyCategoryId: LobbyCategoryEnum.Lottery,
 		subMenu: [
 			{
-				...PRODUCTS.GPIKeno,
-				pathname: paths.lottery.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-			},
-			{
 				...PRODUCTS.ThaiLottery,
 				pathname: paths.lottery.root,
 				h5: {
@@ -1200,18 +1188,6 @@ export const MENU_DATA: IMenuData[] = [
 				},
 			},
 			{
-				...PRODUCTS.Keno,
-				pathname: paths.lottery.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-			},
-			{
 				...PRODUCTS.Lottery,
 				pathname: paths.lottery.root,
 				h5: {
@@ -1223,6 +1199,20 @@ export const MENU_DATA: IMenuData[] = [
 					menuActionType: MenuActionTypeEnum.EnterPage,
 				},
 			},
+		],
+		subMenuAllowCurrenciesWithAuth: false,
+	},
+	{
+		display: 'all',
+		h5: {
+			icon: 'lottery', // TODO 之後改新的
+		},
+		desktop: { subMenuClassName: 'gameList' },
+		displayKey: 'Label_Product_NumberGame',
+		pathname: paths.numberGame.root,
+		category: MenuKeyEnum.NumberGame,
+		lobbyCategoryId: LobbyCategoryEnum.NumberGame,
+		subMenu: [
 			{
 				...PRODUCTS.NumberGame,
 				pathname: paths.sports.root,
@@ -1233,9 +1223,47 @@ export const MENU_DATA: IMenuData[] = [
 				},
 				desktop: { hasLobby: true, menuActionType: MenuActionTypeEnum.Link },
 			},
+		],
+		subMenuAllowCurrenciesWithAuth: false,
+	},
+	{
+		display: 'all',
+		h5: {
+			icon: 'lottery', // TODO 之後改新的
+		},
+		desktop: { subMenuClassName: 'gameList' },
+		displayKey: 'Label_Product_Keno',
+		pathname: paths.keno.root,
+		category: MenuKeyEnum.Keno,
+		lobbyCategoryId: LobbyCategoryEnum.Keno,
+		subMenu: [
+			{
+				...PRODUCTS.GPIKeno,
+				pathname: paths.keno.root,
+				h5: {
+					hasLobby: false,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+				desktop: {
+					hasLobby: true,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+			},
+			{
+				...PRODUCTS.Keno,
+				pathname: paths.keno.root,
+				h5: {
+					hasLobby: false,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+				desktop: {
+					hasLobby: true,
+					menuActionType: MenuActionTypeEnum.EnterPage,
+				},
+			},
 			{
 				...PRODUCTS.TableGame,
-				pathname: paths.lottery.root,
+				pathname: paths.keno.root,
 				h5: {
 					hasLobby: false,
 					menuActionType: MenuActionTypeEnum.EnterPage,

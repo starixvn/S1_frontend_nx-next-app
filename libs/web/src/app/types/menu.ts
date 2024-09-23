@@ -1,4 +1,4 @@
-import { IProduct } from "@nx-next-app/constants"
+import { IProduct } from '@nx-next-app/constants'
 
 export enum MenuKeyEnum {
 	'Sports' = 'Sports',
@@ -10,6 +10,8 @@ export enum MenuKeyEnum {
 	'Fishing' = 'Fishing',
 	'FourD' = 'FourD',
 	'Lottery' = 'Lottery',
+	'NumberGame' = 'Number Game',
+	'Keno' = 'keno',
 	// 靜態 category
 	'Promotion' = 'Promotion',
 	'VIP' = 'VIP',
@@ -27,6 +29,8 @@ export const LobbyCategoryEnum = {
 	Lottery: 8,
 	Exchange: 9,
 	FourD: 10,
+	NumberGame: 81,
+	Keno: 82,
 } as const
 
 export enum MenuIconTypeEnum {
