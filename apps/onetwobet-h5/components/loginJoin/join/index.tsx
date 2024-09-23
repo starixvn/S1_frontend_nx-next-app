@@ -2,7 +2,6 @@ import { ISelectProps } from '@apps/onetwobet-h5/components/common/select'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	CURRENCY_TO_LANG_KEY,
-	ENV_COOKIE_NAMES,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
 	paths,
 } from '@nx-next-app/constants'
@@ -13,7 +12,6 @@ import {
 	useLazyGetAffiliateAgentQuery,
 	useSignupMutation,
 } from '@nx-next-app/service'
-import { CurrenciesEnum } from '@nx-next-app/types'
 import {
 	MetaPixelTracker,
 	OperaPixelTracker,
@@ -29,7 +27,7 @@ import { useEffect, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { Header } from '../../common'
 import Banner from './Banner'
-import { JoinForm, LineRegister } from './form'
+import { JoinForm } from './form'
 import JoinSuccessModal from './form/JoinSuccesModal'
 
 export enum JoinMethod {
@@ -46,7 +44,7 @@ const Join = () => {
 	const { modal } = useGlobalModal()
 
 	const {
-		userInfo: { langId, currencyId },
+		userInfo: { langId },
 	} = useAuth()
 
 	const [currencyOptions, setCurrencyOptions] = useState<
@@ -65,7 +63,6 @@ const Join = () => {
 	const urlAffId = affId || cookies['AffId']
 	const urlAffCode = affCode || cookies['AffCode']
 	const urlAffiliate = urlAffId || urlAffCode
-	const cookieLineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
 
 	const { data: { data: siteCurrencyList = [] } = {} } =
 		useGetSiteCurrencyListQuery()
@@ -93,14 +90,6 @@ const Join = () => {
 				/>
 			),
 		}))
-
-	const checkLineRegister = () => {
-		if (!cookieLineUserId) return
-
-		if (siteCurrencyList.length > 0) {
-			selectCurrency(CurrenciesEnum.THB)
-		}
-	}
 
 	const checkUrlAffiliate = async () => {
 		if (!urlAffiliate) return
@@ -249,7 +238,6 @@ const Join = () => {
 				userpwd: password,
 				blackbox,
 				langId: userLang,
-				lineUserId: cookieLineUserId as string,
 			}).unwrap()
 
 			// opera and meta pixel tracker
@@ -264,10 +252,6 @@ const Join = () => {
 	useEffect(() => {
 		checkUrlAffiliate()
 	}, [])
-
-	useEffect(() => {
-		checkLineRegister()
-	}, [siteCurrencyList])
 
 	const { by: joinBy } = query
 
@@ -290,7 +274,6 @@ const Join = () => {
 			</Header>
 			<main className='main registration'>
 				<Banner />
-				{currencyId === CurrenciesEnum.THB && <LineRegister />}
 				<div className='tab' style={{ textTransform: 'uppercase' }}>
 					{/* inner <a /> are for css selectors (a.active) to work */}
 					<Link href={`?by=${JoinMethod.Number}`}>

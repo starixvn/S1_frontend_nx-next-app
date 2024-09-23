@@ -4,7 +4,6 @@ import {
 	AREA_CODE_BY_CURRENCY,
 	CURRENCY_TO_LANG_KEY,
 	EMAIL_REGEX,
-	ENV_COOKIE_NAMES,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
 	PASSWORD_REGEX,
 	PHONE_DIGITS_LIMIT,
@@ -37,7 +36,6 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { ISelectProps, InputBox, Select } from '../../common'
-import { LineRegister } from './LineRegister'
 
 enum JoinMethod {
 	Email = 'email',
@@ -59,7 +57,6 @@ const Form = () => {
 	const urlAffId = affId || cookies['AffId']
 	const urlAffCode = affCode || cookies['AffCode']
 	const urlAffiliate = urlAffId || urlAffCode
-	const lineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
 
 	const { ALLOWED_CURRENCIES } = useStaticData()
 
@@ -304,14 +301,6 @@ const Form = () => {
 		}
 	}
 
-	const checkLineRegister = () => {
-		if (!lineUserId) return
-
-		if (siteCurrencyList.length > 0) {
-			selectCurrency(CurrenciesEnum.THB)
-		}
-	}
-
 	const getBlackbox = async () => {
 		let blackbox = ''
 		if (
@@ -371,7 +360,6 @@ const Form = () => {
 				userpwd: password,
 				blackbox,
 				langId: userLang,
-				lineUserId: lineUserId as string,
 			}).unwrap()
 
 			// opera and meta pixel tracker
@@ -389,14 +377,10 @@ const Form = () => {
 		checkUrlAffiliate()
 	}, [])
 
-	useEffect(() => {
-		checkLineRegister()
-	}, [siteCurrencyList])
-
 	const { by: joinBy } = query
 
 	useEffect(() => {
-		if (![JoinMethod.Email, JoinMethod.Number].includes(joinBy as JoinMethod)) {
+		if (joinBy !== JoinMethod.Email && joinBy !== JoinMethod.Number) {
 			router.replace({
 				pathname: paths.join.root,
 				query: { by: JoinMethod.Number },
@@ -423,7 +407,6 @@ const Form = () => {
 					</a>
 				</Link>
 			</div>
-			{currencyId === CurrenciesEnum.THB && <LineRegister />}
 			<div className='inputModule'>
 				<InputBox
 					register={register('username', {
