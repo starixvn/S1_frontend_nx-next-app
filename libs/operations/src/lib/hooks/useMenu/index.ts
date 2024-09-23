@@ -8,6 +8,9 @@ import {
 
 import {
 	DeviceTypeEnum,
+	IDynamicSubMenuItem,
+	IDynamicSubMenuLinkType,
+	IStaticSubMenuItem,
 	LoginGameTypeEnum,
 	MenuActionTypeEnum,
 	MenuKeyEnum,
