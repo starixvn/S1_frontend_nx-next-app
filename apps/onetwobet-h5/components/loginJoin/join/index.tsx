@@ -213,8 +213,8 @@ const Join = () => {
 		)
 			return
 
-		const affId = affiliate && urlAffId ? affiliate : null
-		const affCode = !urlAffId && affCodeCheck ? affiliate : null
+		const affId = affiliate && urlAffId ? String(affiliate) : null
+		const affCode = !urlAffId && affCodeCheck ? String(affiliate) : null
 
 		// use register currency to get langId, if not exist, use default en
 		const userLang =
@@ -225,8 +225,8 @@ const Join = () => {
 		const blackbox = await getBlackbox()
 		try {
 			await signUp({
-				affCode: String(affCode),
-				affId: String(affId),
+				affCode,
+				affId,
 				currencyId: formCurrencyId,
 				...(joinBy === JoinMethod.Email
 					? { email }

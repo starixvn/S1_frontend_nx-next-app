@@ -334,8 +334,8 @@ const Form = () => {
 		// currency & recaptcha & affiliate cannot use form required check
 		if (!currencyCheck || !affCodeCheck) return
 
-		const affId = affiliate && urlAffId ? affiliate : null
-		const affCode = !urlAffId && affCodeCheck ? affiliate : null
+		const affId = affiliate && urlAffId ? String(affiliate) : null
+		const affCode = !urlAffId && affCodeCheck ? String(affiliate) : null
 
 		// use register currency to get langId, if not exist, use default en
 		// 在 signUp 時 formCurrencyId 為必填，所以不會是 undefined
@@ -347,8 +347,8 @@ const Form = () => {
 		const blackbox = await getBlackbox()
 		try {
 			await signUp({
-				affCode: String(affCode),
-				affId: String(affId),
+				affCode,
+				affId,
 				currencyId: formCurrencyId,
 				...(joinBy === JoinMethod.Email
 					? { email }
