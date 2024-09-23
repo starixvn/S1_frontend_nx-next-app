@@ -224,7 +224,7 @@ const List = () => {
 			</SettingCollapse.Item>
 
 			{isLogin && (
-				<button className='btn-logout' onClick={handleSignOut}>
+				<button className='btn-logout primary' onClick={handleSignOut}>
 					{t('Label_General_LogOut')}
 				</button>
 			)}
