@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import { isEmpty } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
-import Pagination from '../common/Pagination'
+import Pagination from '../common/pagination'
 import { MessageItem } from './MessageItem'
 
 const PersonalMessage = () => {

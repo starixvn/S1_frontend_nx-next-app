@@ -1,6 +1,6 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { usePhoneOtp } from '@nx-next-app/hooks'
 import type { IAddWalletModalArgs } from '@nx-next-app/operations'
+import { usePhoneOtp } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -85,6 +85,8 @@ const AddWalletModal = ({
 		selectCryptoCurrency(cryptoCurrencyOptions[0].value)
 	}, [])
 
+	const handleErrorModal = (message: string) => modal.error(message)
+
 	return (
 		<div className='pop'>
 			<div className='addAddresspop active'>
@@ -160,7 +162,9 @@ const AddWalletModal = ({
 									<button
 										type='button'
 										className='btn-check primary'
-										onClick={handleSendOtpSMS}
+										onClick={() => {
+											handleSendOtpSMS(handleErrorModal)
+										}}
 									>
 										<span>{t('Label_Profile_Retransmit')}</span>
 									</button>

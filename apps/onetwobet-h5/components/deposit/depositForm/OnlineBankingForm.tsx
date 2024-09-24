@@ -1,3 +1,4 @@
+import { Form, InputBox, Select } from '@12b-h5/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -18,7 +19,6 @@ import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { Form, InputBox, Select } from '../../common'
 import DepositModule from '../ui/deposit-module'
 
 const DepositQRCodeModal = dynamic(

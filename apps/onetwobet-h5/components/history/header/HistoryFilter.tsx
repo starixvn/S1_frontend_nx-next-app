@@ -1,4 +1,4 @@
-import DateSelector from '@nx-next-app/components/H0001/dateSelector'
+import { DateSelector } from '@12b-h5/components/common'
 import { useHistory } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 

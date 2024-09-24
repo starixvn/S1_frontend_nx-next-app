@@ -1,8 +1,7 @@
+import { useDepositSavedLocalStorage } from '@nx-next-app/data-access'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useBoolean } from 'usehooks-ts'
-
-import { useDepositSavedLocalStorage } from '@nx-next-app/data-access'
 
 const DepositAutoRemember = () => {
 	const { t } = useTranslation()
