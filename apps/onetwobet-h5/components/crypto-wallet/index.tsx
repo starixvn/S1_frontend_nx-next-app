@@ -2,12 +2,14 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import {
+	useCheckUserInfo,
 	useCryptoWallet,
 	type IAddWalletModalArgs,
 } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import Header from '../header'
 import { WalletList } from './WalletList'
 
@@ -17,9 +19,15 @@ const AddWalletModal = dynamic(() => import('./AddWalletModal'), {
 
 const cryptoWalletLimit = 3
 
+const UpdateProfileModal = dynamic(
+	() => import('../modal/UpdateProfileModal'),
+	{ ssr: false }
+)
+
 const CryptoWallet = () => {
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
+	const { checkUserInfo } = useCheckUserInfo()
 	const { push } = useRouter()
 
 	const {
@@ -47,6 +55,13 @@ const CryptoWallet = () => {
 			/>
 		)
 	}
+
+	useEffect(() => {
+		checkUserInfo({
+			onSuccessCallback: () =>
+				modal.open(<UpdateProfileModal prevPage={paths.deposit.root} />),
+		})
+	}, [])
 
 	return (
 		<>

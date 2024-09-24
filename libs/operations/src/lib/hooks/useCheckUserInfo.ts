@@ -29,7 +29,6 @@ const useCheckUserInfo = () => {
 			}
 		}
 	}
-
 	return { checkUserInfo }
 }
 
