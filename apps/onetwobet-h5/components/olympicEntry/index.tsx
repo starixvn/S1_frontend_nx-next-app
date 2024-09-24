@@ -1,4 +1,4 @@
-import { Img } from '@nx-next-app/components/D0001'
+import { Img } from '@12b-h5/components/common'
 import { EVENT_PERIOD, paths } from '@nx-next-app/constants'
 import { useGlobalData } from '@nx-next-app/data-access'
 import { isEventPeriod } from '@nx-next-app/utils'

@@ -1,5 +1,4 @@
-import { Form } from '@12b-h5/components/common'
-import { CountdownTimer } from '@nx-next-app/components/H0001'
+import { CountdownTimer, Form } from '@12b-h5/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { usePhoneOtpModal } from '@nx-next-app/operations'
 import classNames from 'classnames'

@@ -1,5 +1,4 @@
-import { Form } from '@12b-desktop/components/common'
-import { InputBox } from '@12b-desktop/components/common/input'
+import { Form, InputBox } from '@12b-desktop/components/common'
 import { EMAIL_REGEX } from '@nx-next-app/constants'
 import { upperFirst } from 'lodash-es'
 import { useTranslation } from 'next-i18next'

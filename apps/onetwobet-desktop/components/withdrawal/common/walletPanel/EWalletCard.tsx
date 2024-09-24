@@ -1,7 +1,6 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useWithdrawal, WithdrawalBankCardEnum } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
-
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { CardItem } from './CardItem'
 
 const EWalletCard = () => {

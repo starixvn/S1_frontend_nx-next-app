@@ -1,7 +1,6 @@
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
-import { useWalletAllowed } from '@nx-next-app/operations'
+import { useWalletAllowed,useTpWalletBalanceListFetcher } from '@nx-next-app/operations'
 import type { IWithdrawalSetting } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { numFormatToDigits } from '@nx-next-app/utils'

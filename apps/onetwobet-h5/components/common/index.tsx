@@ -1,5 +1,6 @@
 export * from './button'
 export { CountdownTimer } from './countdown-timer'
+export { default as DateSelector } from './dateSelector'
 export { default as Form } from './form'
 export { default as Header, useAppDownload } from './header'
 export type { TagOptionType } from './header'

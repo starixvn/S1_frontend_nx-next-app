@@ -1,11 +1,10 @@
-import { Form } from '@nx-next-app/components/D0001'
+import { Form, InputBox, Select } from '@12b-desktop/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import { useTransferFunds } from '@nx-next-app/operations'
 import { isConvert } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
-import { InputBox, Select } from '../common'
 import { TurnoverModal } from './TurnoverModal'
 
 const Transfer = () => {

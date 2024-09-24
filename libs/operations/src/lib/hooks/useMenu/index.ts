@@ -1,15 +1,11 @@
 import { PRODUCTS, memberTypeEnum, paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
-import type {
-	IDynamicSubMenuItem,
-	IDynamicSubMenuLinkType,
-	IStaticSubMenuItem,
-} from '@nx-next-app/features/F0001/types'
 import { useMenuData } from '@nx-next-app/hooks'
 import {
 	useGetCustTpGameTypeSettingQuery,
 	type IGotoGameArg,
 } from '@nx-next-app/service'
+
 import {
 	DeviceTypeEnum,
 	LoginGameTypeEnum,
@@ -23,6 +19,11 @@ import {
 } from '@nx-next-app/utils'
 import { filter, find, includes } from 'lodash-es'
 import { useRouter } from 'next/router'
+import type {
+	IDynamicSubMenuItem,
+	IDynamicSubMenuLinkType,
+	IStaticSubMenuItem,
+} from './type'
 
 type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void

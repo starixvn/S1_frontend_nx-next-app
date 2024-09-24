@@ -1,4 +1,4 @@
-import { Header } from '@nx-next-app/components/D0001'
+import { Header } from '@12b-desktop/components/common'
 import { useLanguageGroup } from '@nx-next-app/hooks'
 import classNames from 'classnames'
 import { useRef } from 'react'
