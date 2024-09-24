@@ -1,7 +1,7 @@
-import { Form } from '@nx-next-app/components/D0001'
+import { Form } from '@12b-desktop/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
-import { usePromotion } from '@nx-next-app/features/F0001/providers'
+import { usePromotion } from '@nx-next-app/operations'
 import { PromotionFilterEnum } from '@nx-next-app/types'
 import classNames from 'classnames'
 import { toUpper } from 'lodash-es'
@@ -33,12 +33,14 @@ const PromotionFilter = () => {
 						return (
 							<button
 								key={option.value}
-								className={classNames({
-									'icon icon-icon32px_ALL':
-										option.value === PromotionFilterEnum.All,
-									blue: activeFilterType === option.value,
-									blueBorder: activeFilterType !== option.value,
-								})}
+								className={classNames(
+									'',
+									activeFilterType === option.value ? 'white' : 'dark thrid',
+									{
+										'icon icon-icon32px_ALL':
+											option.value === PromotionFilterEnum.All,
+									}
+								)}
 								onClick={() => onChangeActiveFilterType(option.value)}
 							>
 								{/* 從upperCase改為toUpper，詳解請見：README/language.md */}
@@ -56,17 +58,22 @@ const PromotionFilter = () => {
 							const { specialCode } = promotionForm.getValues()
 							onSetSpecialCode({
 								specialCode,
-								messageCallBack(message) {
-									modal.info(message, { onOK: () => closeModal() })
-								},
+								messageCallBack: message =>
+									modal.info(message, { onOK: closeModal }),
 							})
 						})}
 					>
 						<div className='inputBox-white'>
-							<input {...promotionForm.register('specialCode')} required />
+							<input
+								{...promotionForm.register('specialCode')}
+								placeholder={t('Label_General_BonusCode')}
+								required
+							/>
 						</div>
 						<div className='btnGroup'>
-							<button className='btn-check'>{t('Label_General_Submit')}</button>
+							<button className='btn-check primary'>
+								{t('Label_General_Submit')}
+							</button>
 						</div>
 					</Form>
 				</div>

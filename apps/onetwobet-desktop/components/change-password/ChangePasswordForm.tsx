@@ -1,13 +1,13 @@
+import { InputBox } from '@12b-desktop/components/common'
 import { PASSWORD_REGEX } from '@nx-next-app/constants'
+import { TChangePasswordForm } from '@nx-next-app/operations'
 import classNames from 'classnames'
-import { ChangePasswordFormType } from 'libs/web/src/hooks/useChangePasswordFetcher'
 import { useTranslation } from 'next-i18next'
 import { UseFormReturn } from 'react-hook-form'
-import { InputBox } from '../common/input'
 
 interface IChangePasswordFormProps {
-	onSubmit: (value: ChangePasswordFormType) => void
-	changePasswordForm: UseFormReturn<ChangePasswordFormType>
+	onSubmit: (value: TChangePasswordForm) => void
+	changePasswordForm: UseFormReturn<TChangePasswordForm>
 	isPopup: boolean
 }
 

@@ -1,4 +1,4 @@
-import { CountdownTimer } from '@nx-next-app/components/D0001'
+import { CountdownTimer } from '@12b-desktop/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { usePhoneOtpModal } from '@nx-next-app/operations'
 import classNames from 'classnames'

@@ -1,5 +1,5 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useImageFile } from '@nx-next-app/hooks'
+import { useImageFile } from '@nx-next-app/operations'
 import { IDepositInfoHistoryData } from '@nx-next-app/service'
 import { convertBase64ToFile, convertFileToBase64 } from '@nx-next-app/utils'
 import classNames from 'classnames'

@@ -1,7 +1,7 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
+import { useSetClaimPromotion } from '@nx-next-app/operations'
 import { useGetPromotionDetailQuery } from '@nx-next-app/service'
 import { PromotionTypeEnum } from '@nx-next-app/types'
 import {
@@ -12,6 +12,7 @@ import {
 } from '@nx-next-app/utils'
 import { includes, toUpper } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import PromotionProgressBar from '../../promotion/common/PromotionProgressBar'
 import CashbackInfo from './CashbackInfo'
@@ -19,6 +20,16 @@ import DepositMenu from './DepositMenu'
 import DepositSlip from './DepositSlip'
 import PromoMission from './PromoMission'
 import PromoRule from './PromoRule'
+
+const LoginModal = dynamic(
+	() => import('@12b-desktop/components/modal/LoginModal'),
+	{ ssr: false }
+)
+
+const ClaimAmountModal = dynamic(
+	() => import('@12b-desktop/components/promotion/common/ClaimAmountModal'),
+	{ ssr: false }
+)
 
 interface IPromotionDetailModalProps {
 	bonusCode: string
@@ -35,7 +46,7 @@ const PromotionDetailModal = ({
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
-	const { closeModal } = useGlobalModal()
+	const { modal, closeModal } = useGlobalModal()
 
 	const { data: { data: promotionDetail } = {} } = useGetPromotionDetailQuery({
 		currencyId,
@@ -44,7 +55,10 @@ const PromotionDetailModal = ({
 	})
 
 	const { onUpdatePromotionDetail, setClaimPromotionHandler } =
-		useSetClaimPromotionFetcher()
+		useSetClaimPromotion({
+			loginCallback: () => modal.open(<LoginModal />),
+			amountCallback: props => modal.open(<ClaimAmountModal {...props} />),
+		})
 
 	if (!promotionDetail) return null
 
@@ -113,17 +127,15 @@ const PromotionDetailModal = ({
 				{isUrl(banner) ? <img src={banner} alt={title} /> : null}
 				<div className='proData'>
 					<div className='proDataTitle'>
-						<div className='txt-darkBlue'>
+						<div className='txt-white'>
 							{title}
 							<div className='txt-gray'>{description}</div>
 						</div>
 						<div className='btnGroup'>
 							{!isHideJoinButton && !isShowApplyNowButton && (
 								<button
-									className='orange'
-									onClick={() => {
-										setClaimPromotionHandler(promotionDetail)
-									}}
+									className='primary'
+									onClick={() => setClaimPromotionHandler(promotionDetail)}
 								>
 									{isShowClaimNowButton
 										? toUpper(t('Label_Promotion_ClaimNow') || '')
@@ -137,7 +149,7 @@ const PromotionDetailModal = ({
 							)}
 							{!isHideAllPromoButton && (
 								<button
-									className='btn-check'
+									className='primary'
 									onClick={() => {
 										push(paths.promotion.root)
 										closeModal()
