@@ -42,11 +42,13 @@ do
     cp -R ${designPath} ${projectPath}
 
     # 複製 CSS 內用到的相對路徑圖片
-    designImgPath="${DESIGN_PROJECT}/$site/$device/public/img/style-img"
+    designStyleImgPath="${DESIGN_PROJECT}/$site/$device/public/img/style-img"
     projectImgPath="${PROJECT}/apps/$site-$device/styles/img"
-    if [ -d "$designImgPath" ]; then
-      echo $designImgPath "->" $projectImgPath
-      cp -R ${designImgPath} ${projectImgPath}
+    if [ -d "$designStyleImgPath" ]; then
+      # 清空 img 目錄確保不會有舊圖片殘留
+      rm -rf ${projectImgPath}/* 
+      echo $designStyleImgPath "->" $projectImgPath
+      cp -R ${designStyleImgPath} ${projectImgPath}
     fi
   done
 
