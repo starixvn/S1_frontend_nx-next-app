@@ -66,53 +66,210 @@ img {
   height: auto;
 }
 
+.preloader {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-image: radial-gradient(center, circle closest-side, rgb(20, 20, 20) 10%, rgba(20, 20, 20, 0) 60%);
+  background-image: -o-radial-gradient(center, circle closest-side, rgb(20, 20, 20) 10%, rgba(20, 20, 20, 0) 60%);
+}
+
+.preloader-logo {
+  width: 39%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-animation: 3s logofader ease-in;
+          animation: 3s logofader ease-in;
+}
+
+.preloader,
+.preloader hr {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.preloader hr {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  -webkit-animation: 1s spin linear infinite;
+          animation: 1s spin linear infinite;
+}
+
+.preloader hr:nth-of-type(1) {
+  top: 28px;
+  border-top-color: #FF0000;
+  -webkit-animation-duration: 2.4s;
+          animation-duration: 2.4s;
+  height: 144px;
+  width: 144px;
+}
+
+.preloader hr:nth-of-type(2) {
+  top: 33px;
+  border-top-color: #FF0000;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  height: 134px;
+  width: 134px;
+}
+
+.preloader hr:nth-of-type(3) {
+  top: 38px;
+  border-top-color: #FF0000;
+  -webkit-animation-duration: 1.6s;
+          animation-duration: 1.6s;
+  height: 124px;
+  width: 124px;
+}
+
+.preloader hr:nth-of-type(4) {
+  top: 43px;
+  border-top-color: #FF0000;
+  -webkit-animation-duration: 1.2s;
+          animation-duration: 1.2s;
+  height: 114px;
+  width: 114px;
+}
+
+.preloader hr:nth-of-type(5) {
+  top: 48px;
+  left: 25px;
+  right: 25px;
+  border-top-color: #FF0000;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  height: 104px;
+  width: 104px;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes logofader {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes logofader {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.required-tip {
+  color: #cf0404;
+}
+
+.d-none {
+  display: none !important;
+}
+
 button.primary,
 a.primary {
-  color: #fff !important;
   background: #C01D21 !important;
+  color: #fff !important;
+  border-color: #C01D21 !important;
 }
 button.primary:hover,
 a.primary:hover {
   background: #FF0000 !important;
+  border-color: #FF0000 !important;
 }
 button.secondary,
 a.secondary {
-  color: #fff !important;
   background: #caa66f !important;
-  border: none !important;
+  color: #fff !important;
+  border-color: #caa66f !important;
 }
 button.secondary:hover,
 a.secondary:hover {
   background: #E3BA79 !important;
-  border: none !important;
+  border-color: #E3BA79 !important;
 }
 button.thrid,
 a.thrid {
-  color: #fff !important;
   background: #1F1F1F !important;
+  color: #fff !important;
+  border-color: #1F1F1F !important;
 }
 button.thrid:hover,
 a.thrid:hover {
   background: #5a5a5a !important;
-}
-button.thrid.dark,
-a.thrid.dark {
-  background: #000 !important;
-}
-button.thrid.dark:hover,
-a.thrid.dark:hover {
-  background: #3F4144 !important;
+  border-color: #5a5a5a !important;
 }
 button.ghost,
 a.ghost {
-  color: #AEACAC !important;
-  border: 1px solid #CCCCCC !important;
   background: transparent !important;
+  border: 1px solid #CCCCCC !important;
+  color: #AEACAC !important;
 }
 button.ghost:hover,
 a.ghost:hover {
   color: #fff !important;
   border: 1px solid #fff !important;
+}
+button.ghost.gold,
+a.ghost.gold {
+  border: 1px solid #caa66f !important;
+  color: #caa66f !important;
+  background: #000 !important;
+}
+button.ghost.gold:hover,
+a.ghost.gold:hover {
+  color: #dfc9a7 !important;
+  border: 1px solid #dfc9a7 !important;
+}
+button.ghost.gold.red,
+a.ghost.gold.red {
+  color: #fff !important;
+  border: 1px solid #cf0404 !important;
+  background: #e92529 !important;
 }
 button.ghost.dark,
 a.ghost.dark {
@@ -125,35 +282,15 @@ a.ghost.dark:hover {
   color: #CCCCCC !important;
   border: 1px solid #CCCCCC !important;
 }
-button.ghost.gold,
-a.ghost.gold {
-  color: #caa66f !important;
-  background: #000 !important;
-  border: 1px solid #caa66f !important;
-}
-button.ghost.gold:hover,
-a.ghost.gold:hover {
-  color: #dfc9a7 !important;
-  border: 1px solid #dfc9a7 !important;
-}
 button.white,
 a.white {
-  color: #caa66f !important;
   background: #fff !important;
   border: 1px solid #caa66f !important;
+  color: #caa66f !important;
 }
 button.white:hover,
 a.white:hover {
   color: #bc8f4a !important;
-}
-button.white.borderless,
-a.white.borderless {
-  border: none !important;
-  color: #000 !important;
-}
-button.white.borderless:hover,
-a.white.borderless:hover {
-  background: #e6e6e6 !important;
 }
 button.green,
 a.green {
@@ -164,129 +301,26 @@ button.green:hover,
 a.green:hover {
   background: #83BA43 !important;
 }
-button.indigo,
-a.indigo {
+button.info,
+a.info {
   background: #011FD4 !important;
   color: #fff;
 }
-button.indigo:hover,
-a.indigo:hover {
+button.info:hover,
+a.info:hover {
   background: #1549FF !important;
-}
-button button[disabled],
-a button[disabled] {
-  background: #666 !important;
-  color: white !important;
 }
 
-.btnGroup button.primary,
-.btnGroup a.primary {
-  color: #fff !important;
-  background: #C01D21 !important;
+button[disabled] {
+  cursor: default;
+  background: #a5aab1 !important;
+  color: #666 !important;
+  border-color: transparent !important;
 }
-.btnGroup button.primary:hover,
-.btnGroup a.primary:hover {
-  background: #FF0000 !important;
-}
-.btnGroup button.secondary,
-.btnGroup a.secondary {
-  color: #fff !important;
-  background: #caa66f !important;
-}
-.btnGroup button.secondary:hover,
-.btnGroup a.secondary:hover {
-  background: #E3BA79 !important;
-}
-.btnGroup button.thrid,
-.btnGroup a.thrid {
-  color: #fff !important;
-  background: #1F1F1F !important;
-}
-.btnGroup button.thrid:hover,
-.btnGroup a.thrid:hover {
-  background: #5a5a5a !important;
-}
-.btnGroup button.thrid.dark,
-.btnGroup a.thrid.dark {
-  background: #000 !important;
-}
-.btnGroup button.thrid.dark:hover,
-.btnGroup a.thrid.dark:hover {
-  background: #3F4144 !important;
-}
-.btnGroup button.ghost,
-.btnGroup a.ghost {
-  color: #AEACAC !important;
-  border: 1px solid #CCCCCC !important;
-  background: transparent !important;
-}
-.btnGroup button.ghost:hover,
-.btnGroup a.ghost:hover {
-  color: #fff !important;
-  border: 1px solid #fff !important;
-}
-.btnGroup button.ghost.dark,
-.btnGroup a.ghost.dark {
-  color: #4c5356 !important;
-  border: 1px solid #4c5356 !important;
-  background: transparent !important;
-}
-.btnGroup button.ghost.dark:hover,
-.btnGroup a.ghost.dark:hover {
-  color: #CCCCCC !important;
-  border: 1px solid #CCCCCC !important;
-}
-.btnGroup button.ghost.gold,
-.btnGroup a.ghost.gold {
-  color: #caa66f !important;
-  background: #000 !important;
-  border: 1px solid #caa66f !important;
-}
-.btnGroup button.ghost.gold:hover,
-.btnGroup a.ghost.gold:hover {
-  color: #dfc9a7 !important;
-  border: 1px solid #dfc9a7 !important;
-}
-.btnGroup button.white,
-.btnGroup a.white {
-  color: #caa66f !important;
-  background: #fff !important;
-  border: 1px solid #caa66f !important;
-}
-.btnGroup button.white:hover,
-.btnGroup a.white:hover {
-  color: #bc8f4a !important;
-}
-.btnGroup button.white.borderless,
-.btnGroup a.white.borderless {
-  border: none !important;
-  color: #000 !important;
-}
-.btnGroup button.white.borderless:hover,
-.btnGroup a.white.borderless:hover {
-  background: #e6e6e6 !important;
-}
-.btnGroup button.green,
-.btnGroup a.green {
-  color: #fff !important;
-  background: #4B902E !important;
-}
-.btnGroup button.green:hover,
-.btnGroup a.green:hover {
-  background: #83BA43 !important;
-}
-.btnGroup button.indigo,
-.btnGroup a.indigo {
-  background: #011FD4 !important;
-  color: #fff;
-}
-.btnGroup button.indigo:hover,
-.btnGroup a.indigo:hover {
-  background: #1549FF !important;
-}
-.btnGroup button[disabled] {
-  background: #666 !important;
-  color: white !important;
+button[disabled]:hover {
+  background: #a5aab1 !important;
+  color: #666 !important;
+  border-color: transparent !important;
 }
 
 .txt-gray {
@@ -300,8 +334,210 @@ a button[disabled] {
   line-height: 30px;
 }
 
-#popup .smallList > ul li:first-child {
-  color: #4c5356 !important;
+footer {
+  background: #1C1C1C !important;
+}
+footer * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+footer .footer-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: radial-gradient(40% 3500% at 2.5% 470%, #000000 19.26%, #222020 63.96%, #011FD4 100%);
+}
+footer .footer-top a {
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 20px;
+  text-align: center;
+}
+footer .footer-top a:hover img {
+  -webkit-filter: drop-shadow(0px 0px 15px rgb(255, 255, 255));
+          filter: drop-shadow(0px 0px 15px rgb(255, 255, 255));
+}
+footer .footer-top img {
+  width: 150px;
+  height: 80px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+footer .fc-club-group img {
+  width: 50px;
+  height: 50px;
+}
+footer .fc-club-group ul {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+footer .fc-club-group ul li {
+  position: relative;
+}
+footer .fc-club-group ul li span {
+  display: none;
+  position: absolute;
+  background: #000;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 2px 6px;
+  z-index: 2;
+  left: 50%;
+  -webkit-transform: translate(-50%, -20%);
+          transform: translate(-50%, -20%);
+  cursor: default;
+}
+footer .fc-club-group ul li:hover span {
+  display: block;
+}
+footer .footer-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 50px;
+}
+footer .footer-center-title {
+  color: #FF0000;
+  font-size: 17px;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+footer .footer-center ul li {
+  padding-bottom: 6px;
+}
+footer .footer-center ul li a {
+  color: #CCCCCC;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+  -webkit-transition: -webkit-filter 0.3s ease;
+  transition: -webkit-filter 0.3s ease;
+  transition: filter 0.3s ease;
+  transition: filter 0.3s ease, -webkit-filter 0.3s ease;
+}
+footer .footer-center ul li a:hover {
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%);
+  color: #fff;
+}
+footer .footer-center-item.license .footer-center-title {
+  text-align: center;
+}
+footer .footer-center-item.license img {
+  width: 100px;
+  height: 50px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+footer .footer-center-item.license ul {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+}
+footer .footer-center-item.license ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+footer .footer-center-item.provider .footer-center-title {
+  text-align: center;
+}
+footer .footer-center-item.provider img {
+  width: 60px;
+  height: 40px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+footer .footer-center-item.provider ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px 60px;
+}
+footer .footer-center-item.provider ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+footer .footer-center-item.connect .footer-center-title {
+  text-align: center;
+}
+footer .footer-center-item.connect ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 60px;
+}
+footer .footer-center-item.connect ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+footer .footer-center-item.connect ul li img {
+  width: 35px;
+  height: 35px;
+}
+footer .footer-center-item.connect ul li img::before {
+  content: "" !important;
+}
+footer .footer-bottom {
+  background: #000;
+  padding: 25px 0;
+}
+footer .footer-bottom .copyright {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  max-width: 1400px;
+  margin: auto;
+}
+footer .footer-bottom .copyright span {
+  color: #E0E6E9;
+  text-align: center;
+}
+
+.addressModule .address-list > div {
+  color: #AEACAC !important;
+}
+
+form {
+  color: #AEACAC !important;
+}
+
+.inputBox-blue .iconModule .icon-warning::before {
+  color: #caa66f !important;
+}
+.inputBox-blue .iconModule .icon-information::before {
+  color: #caa66f !important;
 }
 
 .listBody.backstage a {
@@ -315,13 +551,459 @@ a button[disabled] {
   color: #caa66f !important;
 }
 
+.joinpop.registration {
+  background-image: url(../img/style-img/signup-bg.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 50px 20px;
+  max-width: none !important;
+}
+.joinpop.registration .joinloginModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  border-radius: 10px;
+  max-width: 1000px;
+  -webkit-box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.4);
+}
+.joinpop.registration .joinloginModule .banner img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.joinpop.registration .joinloginModule .joinloginFunction {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+  padding: 30px;
+  color: #CCCCCC;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .title {
+  font-size: 30px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  gap: 10px;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .tab a {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  cursor: pointer;
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+  border-bottom: 4px solid #4c5356;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .tab a.active {
+  background-color: #AEACAC;
+  border-bottom: 4px solid #C01D21;
+  cursor: default;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .tab a.active:hover {
+  background-color: #AEACAC;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .tab a:hover {
+  background-color: rgba(174, 172, 172, 0.3);
+}
+.joinpop.registration .joinloginModule .joinloginFunction .inputModule {
+  margin: 20px 10px;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .inputModule .inputBox-blue {
+  border-radius: 100px;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .inputModule .inputBox-blue .dropdown .dropdown-container {
+  border-radius: 5px;
+  max-height: 120px;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .inputModule .inputBox-blue .dropdown .dropdown-container .inputBox-blue {
+  margin: 8px;
+  border-color: #AEACAC;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .inputModule .input-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .inputModule .input-group .inputBox-blue {
+  width: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .inputModule .input-group .dropdown {
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .inputModule .input-group .dropdown > span {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .inputModule .input-group .dropdown > .btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .inputModule .input-group .dropdown .dropdown-container {
+  overflow-y: auto;
+  max-height: 120px;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .inputModule .input-group .dropdown .dropdown-container .dropdown-item {
+  padding: 5px;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .btnGroup {
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .Terms {
+  text-align: center;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .Terms a {
+  cursor: pointer;
+  color: #C01D21;
+  text-decoration: underline;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .Terms a:hover {
+  color: #FF0000;
+}
+
+#popup .loginpop {
+  width: unset !important;
+  max-width: 700px !important;
+}
+
+#popup .pop > div.loginpop {
+  padding-top: unset !important;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  border-radius: 10px !important;
+}
+
+.loginpop {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: auto;
+  width: 100%;
+  padding: 0 !important;
+  -webkit-box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.4);
+}
+.loginpop .banner img {
+  width: 100%;
+  border-radius: 10px 0 0 10px;
+}
+.loginpop .joinloginModule img {
+  width: unset !important;
+  height: unset !important;
+}
+.loginpop .joinloginModule .joinloginFunction {
+  padding: 0 50px !important;
+  margin-left: 0 !important;
+  color: #404648 !important;
+}
+.loginpop .joinloginModule .joinloginFunction .title {
+  font-size: 25px !important;
+  text-align: center;
+}
+.loginpop .joinloginModule .joinloginFunction .noAccount {
+  font-size: 14px !important;
+  margin: 10px 0 0 !important;
+  text-align: center;
+}
+.loginpop .joinloginModule .joinloginFunction .noAccount a {
+  color: #C01D21;
+  font-size: 14px !important;
+}
+.loginpop .joinloginModule .joinloginFunction .inputModule {
+  margin: 0 0 25px !important;
+}
+.loginpop .joinloginModule .joinloginFunction .inputModule a {
+  color: #cccccc !important;
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  margin-top: 5px;
+}
+.loginpop .joinloginModule .joinloginFunction .inputModule .inputBox-blue {
+  border-radius: 50px !important;
+  width: unset !important;
+  margin: 14px 0 2px !important;
+  padding: 10px 14px !important;
+  border-color: transparent !important;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.loginpop .joinloginModule .joinloginFunction .inputModule .inputBox-blue:first-child {
+  margin-top: 25px !important;
+}
+.loginpop .joinloginModule .joinloginFunction .inputModule .inputBox-blue input {
+  padding: 0;
+}
+.loginpop .joinloginModule .joinloginFunction .inputModule .inputBox-blue input::-webkit-input-placeholder {
+  color: #000 !important;
+}
+.loginpop .joinloginModule .joinloginFunction .inputModule .inputBox-blue input::-moz-placeholder {
+  color: #000 !important;
+}
+.loginpop .joinloginModule .joinloginFunction .inputModule .inputBox-blue input:-ms-input-placeholder {
+  color: #000 !important;
+}
+.loginpop .joinloginModule .joinloginFunction .inputModule .inputBox-blue input::-ms-input-placeholder {
+  color: #000 !important;
+}
+.loginpop .joinloginModule .joinloginFunction .inputModule .inputBox-blue input::placeholder {
+  color: #000 !important;
+}
+.loginpop .joinloginModule .joinloginFunction .inputModule .inputBox-blue.error {
+  background: #febbbb !important;
+  outline: 1px solid red;
+}
+.loginpop .joinloginModule .joinloginFunction .btnGroup {
+  margin-top: 25px !important;
+}
+
+#popup .pop .forget-password .title {
+  font-size: 20px;
+}
+
+#popup .pop > div.forget-password {
+  padding-top: unset !important;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  border-radius: 10px !important;
+}
+
+.forget-password {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-width: 700px;
+  margin: auto;
+  -webkit-box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.4);
+}
+.forget-password .title {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.forget-password .banner img {
+  width: 100%;
+  border-radius: 10px 0 0 10px;
+}
+.forget-password .forget-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  background: #000;
+  border-radius: 10px;
+}
+.forget-password .forget-container .form-content {
+  padding: 0 50px;
+  margin: 0;
+  color: #AEACAC;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.forget-password .forget-container .form-content .inputModule a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.forget-password .forget-container .form-content .inputModule a:hover {
+  color: #AEACAC;
+}
+.forget-password .forget-container .form-content .inputModule .icon::before {
+  margin: 0 2px;
+}
+.forget-password .forget-container .form-content .inputModule p {
+  text-align: center;
+  margin: 0 0 20px;
+}
+.forget-password .forget-container .form-content .inputModule .inputBox-blue {
+  background: #fff;
+  border-radius: 50px !important;
+  padding: 12px 14px !important;
+  margin: 10px 0 0 !important;
+  border: transparent !important;
+  z-index: unset !important;
+  width: 100% !important;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.forget-password .forget-container .form-content .inputModule .inputBox-blue input {
+  padding: 0;
+}
+.forget-password .forget-container .form-content .inputModule .inputBox-blue input::-webkit-input-placeholder {
+  color: #000 !important;
+}
+.forget-password .forget-container .form-content .inputModule .inputBox-blue input::-moz-placeholder {
+  color: #000 !important;
+}
+.forget-password .forget-container .form-content .inputModule .inputBox-blue input:-ms-input-placeholder {
+  color: #000 !important;
+}
+.forget-password .forget-container .form-content .inputModule .inputBox-blue input::-ms-input-placeholder {
+  color: #000 !important;
+}
+.forget-password .forget-container .form-content .inputModule .inputBox-blue input::placeholder {
+  color: #000 !important;
+}
+.forget-password .forget-container .form-content .inputModule .inputBox-blue.error {
+  background: #febbbb !important;
+  outline: 1px solid red;
+}
+.forget-password .forget-container .form-content .inputModule .dropdown .btn {
+  color: #000 !important;
+  font-weight: 400 !important;
+  padding: 0 !important;
+}
+.forget-password .forget-container .form-content .inputModule .dropdown-container {
+  max-height: 200px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  top: 38px;
+  left: 0;
+  border-radius: 10px;
+  border: 1px solid #CCCCCC;
+  background: #fff;
+  border-top: 0;
+  margin: 0 !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 2;
+  font-weight: 400 !important;
+}
+.forget-password .forget-container .form-content .inputModule .dropdown-container .inputBox-blue {
+  margin: 15px 5px 5px !important;
+  border: 1px solid #AEACAC !important;
+}
+.forget-password .forget-container .form-content .inputModule .dropdown-item {
+  padding: 8px 0 8px 15px !important;
+}
+.forget-password .forget-container .form-content .inputModule .input-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  gap: 5px;
+}
+.forget-password .forget-container .form-content .inputModule .input-group .inputBox-blue {
+  width: 100% !important;
+}
+.forget-password .forget-container .form-content .inputModule .input-group .inputBox-blue:first-child {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 40%;
+          flex: 1 1 40%;
+}
+.forget-password .forget-container .form-content .inputModule .input-group .inputBox-blue:last-child {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 60%;
+          flex: 1 1 60%;
+}
+.forget-password .forget-container .form-content .inputModule .input-group .dropdown-container {
+  width: auto;
+}
+.forget-password .forget-container .form-content .inputModule .tip {
+  margin-top: 2px;
+  color: red;
+}
+.forget-password .forget-container .form-content .inputModule .tip.active {
+  color: red;
+}
+.forget-password .forget-container .form-content .btnGroup {
+  margin: 25px 0 18px !important;
+}
+
+.promosSelect .white {
+  border: none !important;
+  color: #000 !important;
+}
+.promosSelect .white:hover {
+  background: #e6e6e6 !important;
+}
+.promosSelect .thrid {
+  background: #000 !important;
+}
+.promosSelect .thrid:hover {
+  background: #3F4144 !important;
+}
+
+#popup .pop-login, #popup .pop-forgetpassword {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-radius: unset !important;
+  max-height: unset !important;
+  overflow: unset !important;
+}
+#popup .smallList > ul li:first-child {
+  color: #4c5356 !important;
+}
+#popup .joinSuccess .icon-icon_1_cop {
+  color: #caa66f !important;
+}
+
+article h1,
+article h2 {
+  color: #caa66f !important;
+}
+article p {
+  color: #AEACAC !important;
+}
+
 button {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-}
-button[disabled] {
-  background: #e2e2e2 !important;
-  color: #b2b2b2 !important;
 }
 
 .icon-close {
@@ -485,7 +1167,7 @@ header input:focus-within {
   display: block;
   width: 45px;
   height: 45px;
-  background: url(https://banner.picasso12.com/desktop/img/88rewards.png) no-repeat center/cover;
+  background: url(../img/style-img/88rewards.png) no-repeat center/cover;
 }
 .header > div.menu > div > a.eventbtn::before,
 .header > div.menu > div > button.eventbtn::before {
@@ -493,7 +1175,7 @@ header input:focus-within {
   content: "";
   width: 112px;
   height: 60px;
-  background: url(https://banner.picasso12.com/desktop/img/event/worldcup/xs-logo.png) center no-repeat;
+  background: url(../img/style-img/event/worldcup/xs-logo.png) center no-repeat;
 }
 .header > div.menu > div > a.rewardsbtn::before,
 .header > div.menu > div > button.rewardsbtn::before {
@@ -501,13 +1183,13 @@ header input:focus-within {
   content: "";
   width: 45px;
   height: 45px;
-  background: url(https://banner.picasso12.com/desktop/img/88rewards_w.png) center top/cover;
+  background: url(../img/style-img/88rewards_w.png) center top/cover;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 .header > div.menu > div > a.rewardsbtn:hover::before,
 .header > div.menu > div > button.rewardsbtn:hover::before {
-  background: url(https://banner.picasso12.com/desktop/img/88rewards.png) center top/cover;
+  background: url(../img/style-img/88rewards.png) center top/cover;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -517,19 +1199,19 @@ header input:focus-within {
   content: "";
   width: 52px;
   height: 28.3px;
-  background: url(https://banner.picasso12.com/desktop/img/cryptosports.png) no-repeat center top/cover;
+  background: url(../img/style-img/cryptosports.png) no-repeat center top/cover;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 .header > div.menu > div > a.cryptobtn:hover::before,
 .header > div.menu > div > button.cryptobtn:hover::before {
-  background: url(https://banner.picasso12.com/desktop/img/cryptosportsa.png) no-repeat center top/cover;
+  background: url(../img/style-img/cryptosportsa.png) no-repeat center top/cover;
 }
 .header > div.menu > div > a.cryptobtn.maintenance:hover::before,
 .header > div.menu > div > button.cryptobtn.maintenance:hover::before {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
-  background: url(https://banner.picasso12.com/desktop/img/cryptosports.png) no-repeat center top/cover;
+  background: url(../img/style-img/cryptosports.png) no-repeat center top/cover;
 }
 .header > div.menu > div > a:after,
 .header > div.menu > div > button:after {
@@ -651,7 +1333,7 @@ header input:focus-within {
   height: 15px;
   width: 15px;
   z-index: 1;
-  background: url(https://banner.picasso12.com/desktop/img/4.0/icon-fire.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/icon-fire.png) no-repeat center/cover;
 }
 .header > div.menu > div > a div.live,
 .header > div.menu > div > button div.live {
@@ -1565,7 +2247,7 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .rankingList,
 .header > div.menu .subMenu-Wrapper-new .promoList,
 .header > div.menu .subMenu-Wrapper-new .eventList {
-  background: url(https://banner.picasso12.com/desktop/img/poker.jpg) no-repeat center/auto;
+  background: url(../img/style-img/poker.jpg) no-repeat center/auto;
   padding: 0 calc((100% - 1400px) / 2);
 }
 .header > div.menu .subMenu-Wrapper-new .pokerList > div,
@@ -1657,43 +2339,43 @@ header input:focus-within {
   display: none;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/pomobanner-en.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/pomobanner-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.en {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/pomobanner-en.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/pomobanner-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.cs {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/pomobanner-cs.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/pomobanner-cs.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.my {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/pomobanner-my.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/pomobanner-my.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.th {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/pomobanner-th.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/pomobanner-th.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.id {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/pomobanner-id.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/pomobanner-id.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.hi {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/pomobanner-hi.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/pomobanner-hi.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.bd {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/pomobanner-bd.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/pomobanner-bd.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.kh {
-  background: url(https://banner.picasso12.com/desktop/img/pomobanner-kh.jpg) no-repeat center/auto;
+  background: url(../img/style-img/pomobanner-kh.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.vn {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/pomobanner-vn.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/pomobanner-vn.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.br {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/pomobanner-br.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/pomobanner-br.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.ko {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/pomobanner-ko.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/pomobanner-ko.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.jp {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/pomobanner-jp.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/pomobanner-jp.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList > div {
   -webkit-box-pack: center;
@@ -1705,40 +2387,40 @@ header input:focus-within {
   font-size: 24px;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.en {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/vipdropdown-en.png) no-repeat center/auto;
+  background: url(../img/style-img/4.0/vipdropdown-en.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.my {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/vipdropdown-my.png) no-repeat center/auto;
+  background: url(../img/style-img/4.0/vipdropdown-my.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.cs {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/vipdropdown-cs.png) no-repeat center/auto;
+  background: url(../img/style-img/4.0/vipdropdown-cs.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.id {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/vipdropdown-id.png) no-repeat center/auto;
+  background: url(../img/style-img/4.0/vipdropdown-id.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.th {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/vipdropdown-th.png) no-repeat center/auto;
+  background: url(../img/style-img/4.0/vipdropdown-th.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.vn {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/vipdropdown-vn.png) no-repeat center/auto;
+  background: url(../img/style-img/4.0/vipdropdown-vn.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.hi {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/vipdropdown-hi.png) no-repeat center/auto;
+  background: url(../img/style-img/4.0/vipdropdown-hi.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.bd {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/vipdropdown-bd.png) no-repeat center/auto;
+  background: url(../img/style-img/4.0/vipdropdown-bd.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.kh {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/vipdropdown-kh.png) no-repeat center/auto;
+  background: url(../img/style-img/4.0/vipdropdown-kh.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.br {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/vipdropdown-br.png) no-repeat center/auto;
+  background: url(../img/style-img/4.0/vipdropdown-br.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.ko {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/vipdropdown-ko.png) no-repeat center/auto;
+  background: url(../img/style-img/4.0/vipdropdown-ko.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.jp {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/vipdropdown-jp.png) no-repeat center/auto;
+  background: url(../img/style-img/4.0/vipdropdown-jp.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList > div {
   margin: 0 auto 0 100px;
@@ -1748,37 +2430,37 @@ header input:focus-within {
   font-weight: bold;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/leaderboard-newdropdown-en.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/leaderboard-newdropdown-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.en {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/leaderboard-newdropdown-en.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/leaderboard-newdropdown-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.my {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/leaderboard-newdropdown-my.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/leaderboard-newdropdown-my.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.cs {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/leaderboard-newdropdown-cs.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/leaderboard-newdropdown-cs.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.th {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/leaderboard-newdropdown-th.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/leaderboard-newdropdown-th.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.id {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/leaderboard-newdropdown-id.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/leaderboard-newdropdown-id.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.kh {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/leaderboard-newdropdown-kh.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/leaderboard-newdropdown-kh.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.vn {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/leaderboard-newdropdown-vn.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/leaderboard-newdropdown-vn.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.br {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/leaderboard-newdropdown-br.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/leaderboard-newdropdown-br.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.ko {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/leaderboard-newdropdown-ko.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/leaderboard-newdropdown-ko.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.jp {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/leaderboard-newdropdown-jp.jpg) no-repeat center/auto;
+  background: url(../img/style-img/4.0/leaderboard-newdropdown-jp.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList > div,
 .header > div.menu .subMenu-Wrapper-new .rankingList > a {
@@ -2118,7 +2800,7 @@ header input:focus-within {
 .header > div.function .grade-text::after {
   content: "";
   display: block;
-  background: url(https://banner.picasso12.com/desktop/img/4.0/down-1.png) no-repeat center center/cover;
+  background: url(../img/style-img/4.0/down-1.png) no-repeat center center/cover;
   width: 12px;
   height: 14px;
   margin-left: 5px;
@@ -2272,7 +2954,7 @@ header input:focus-within {
 .header > div.function .home-balance .wallet::after {
   content: "";
   display: block;
-  background: url(https://banner.picasso12.com/desktop/img/4.0/down-1.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/down-1.png) no-repeat center/cover;
   width: 12px;
   height: 14px;
   margin-left: 5px;
@@ -2282,7 +2964,7 @@ header input:focus-within {
 .header > div.function .home-balance .icon-spinner::before {
   content: "";
   display: block;
-  background: url(https://banner.picasso12.com/desktop/img/4.0/refresh-1.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/refresh-1.png) no-repeat center/cover;
   width: 15px;
   height: 15px;
   margin-right: 2px;
@@ -2295,7 +2977,7 @@ header input:focus-within {
   cursor: pointer;
   content: "";
   display: block;
-  background: url(https://banner.picasso12.com/desktop/img/4.0/plus.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/plus.png) no-repeat center/cover;
   width: 15px;
   height: 15px;
   margin-left: 2px;
@@ -2304,7 +2986,7 @@ header input:focus-within {
   cursor: pointer;
   content: "";
   display: block;
-  background: url(https://banner.picasso12.com/desktop/img/4.0/minus.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/minus.png) no-repeat center/cover;
   width: 15px;
   height: 15px;
   margin-left: 2px;
@@ -2357,7 +3039,7 @@ header input:focus-within {
 .header > div.function .home-balance .balance-submenu .balance .refresh-icon::after {
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/desktop/img/4.0/refresh_w.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/refresh_w.png) no-repeat center/cover;
   width: 16px;
   height: 16px;
 }
@@ -2463,132 +3145,47 @@ header input:focus-within {
   width: 175px;
   height: 95px;
   pointer-events: none;
-  background: url(https://banner.picasso12.com/desktop/img/event/eurocup/logo-euro-ball.gif) center/cover;
-}
-.logo.eurocup .splogo {
-  -webkit-animation: eurologo 7.5s running infinite 0.5s;
-          animation: eurologo 7.5s running infinite 0.5s;
-}
-.logo.olympic .splogo {
-  -webkit-animation: olympiclogo 7.5s running infinite 0.5s;
-          animation: olympiclogo 7.5s running infinite 0.5s;
+  background: url(../img/style-img/event/eurocup/logo-euro-ball.gif) center/cover;
 }
 
-.splogo {
-  position: absolute;
-  right: -80px;
-  bottom: 22px;
-  width: 70px;
-  height: 70px;
-  background: url(https://banner.picasso12.com/desktop/img/4.0/sp-aston-villa.png) center/cover;
-}
-
-@-webkit-keyframes splogo {
-  0% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 0.1;
-  }
-  5% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 1;
-  }
-  45% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 1;
-  }
-  50% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 0;
-  }
-  51% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 0.1;
-  }
-  56% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 1;
-  }
-  95% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 1;
-  }
-  100% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 0;
-  }
-}
-
-@keyframes splogo {
-  0% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 0.1;
-  }
-  5% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 1;
-  }
-  45% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 1;
-  }
-  50% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 0;
-  }
-  51% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 0.1;
-  }
-  56% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 1;
-  }
-  95% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 1;
-  }
-  100% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 0;
-  }
-}
 @-webkit-keyframes eurologo {
   0% {
-    background: url(https://banner.picasso12.com/desktop/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(../img/style-img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.picasso12.com/desktop/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(../img/style-img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
 }
+
 @keyframes eurologo {
   0% {
-    background: url(https://banner.picasso12.com/desktop/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(../img/style-img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.picasso12.com/desktop/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(../img/style-img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
 }
 @-webkit-keyframes olympiclogo {
   0% {
-    background: url(https://banner.picasso12.com/desktop/img/event/olympic/logo-paris.png) center/cover;
+    background: url(../img/style-img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.picasso12.com/desktop/img/event/olympic/logo-paris.png) center/cover;
+    background: url(../img/style-img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
 }
 @keyframes olympiclogo {
   0% {
-    background: url(https://banner.picasso12.com/desktop/img/event/olympic/logo-paris.png) center/cover;
+    background: url(../img/style-img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.picasso12.com/desktop/img/event/olympic/logo-paris.png) center/cover;
+    background: url(../img/style-img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
 }
@@ -2671,7 +3268,7 @@ header input:focus-within {
 .home-profile .home-profile-top .progress-number a::after {
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/desktop/img/4.0/right-4.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/right-4.png) no-repeat center/cover;
   width: 12px;
   height: 12px;
 }
@@ -2721,7 +3318,7 @@ header input:focus-within {
 .home-profile .home-profile-bottom .home-profile-country .flag.arrow::after {
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/desktop/img/4.0/down-2.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/down-2.png) no-repeat center/cover;
   width: 15px;
   height: 15px;
   margin-left: 50px;
@@ -2790,7 +3387,7 @@ header input:focus-within {
 .home-profile.highest .home-profile-top .highest-text::after {
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/desktop/img/4.0/right-5.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/right-5.png) no-repeat center/cover;
   width: 15px;
   height: 15px;
   margin-left: 5px;
@@ -3105,7 +3702,7 @@ main .maintitle a {
 main .maintitle a::after {
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/desktop/img/4.0/right-3.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/right-3.png) no-repeat center/cover;
   width: 17px;
   height: 17px;
   margin-left: 6px;
@@ -3143,7 +3740,7 @@ main .promosswiper .promos-item img {
   width: 650px;
 }
 main .promosswiper .swiper-button-next {
-  background-image: url(https://banner.picasso12.com/desktop/img/4.0/right-1.png);
+  background-image: url(../img/style-img/4.0/right-1.png);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -3155,7 +3752,7 @@ main .promosswiper .swiper-button-next::after {
   font-size: 0;
 }
 main .promosswiper .swiper-button-prev {
-  background-image: url(https://banner.picasso12.com/desktop/img/4.0/left-1.png);
+  background-image: url(../img/style-img/4.0/left-1.png);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -3189,7 +3786,7 @@ main .promosswiper .swiper-button-prev::after {
 .hotmatch::after {
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/desktop/img/4.0/hotmatch-bg-new.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/hotmatch-bg-new.png) no-repeat center/cover;
   width: 100%;
   height: 1000px;
   margin-top: -90px;
@@ -3198,7 +3795,7 @@ main .promosswiper .swiper-button-prev::after {
   right: 0;
 }
 .hotmatch.br::after {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/hotmatch-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/hotmatch-bg.png) no-repeat center/cover;
 }
 .hotmatch .hotmatch-top {
   font-size: 90px;
@@ -3363,7 +3960,7 @@ main .promosswiper .swiper-button-prev::after {
   color: white;
 }
 .hotmatch .swiper-button-next {
-  background-image: url(https://banner.picasso12.com/desktop/img/4.0/right-1.png);
+  background-image: url(../img/style-img/4.0/right-1.png);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -3375,7 +3972,7 @@ main .promosswiper .swiper-button-prev::after {
   overflow: visible;
 }
 .hotmatch .swiper-button-prev {
-  background-image: url(https://banner.picasso12.com/desktop/img/4.0/left-1.png);
+  background-image: url(../img/style-img/4.0/left-1.png);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -3546,7 +4143,7 @@ main .promosswiper .swiper-button-prev::after {
   color: white;
 }
 .hotgame .hotgame-content .hotgameswiper .swiper-button-next {
-  background-image: url(https://banner.picasso12.com/desktop/img/4.0/right-1.png);
+  background-image: url(../img/style-img/4.0/right-1.png);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -3558,7 +4155,7 @@ main .promosswiper .swiper-button-prev::after {
   font-size: 0;
 }
 .hotgame .hotgame-content .hotgameswiper .swiper-button-prev {
-  background-image: url(https://banner.picasso12.com/desktop/img/4.0/left-1.png);
+  background-image: url(../img/style-img/4.0/left-1.png);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -3597,7 +4194,7 @@ main .promosswiper .swiper-button-prev::after {
   margin-bottom: 10px;
 }
 .hotgame .jackpotswiper .swiper-button-next {
-  background-image: url(https://banner.picasso12.com/desktop/img/4.0/right-1.png);
+  background-image: url(../img/style-img/4.0/right-1.png);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -3610,7 +4207,7 @@ main .promosswiper .swiper-button-prev::after {
   font-size: 0;
 }
 .hotgame .jackpotswiper .swiper-button-prev {
-  background-image: url(https://banner.picasso12.com/desktop/img/4.0/left-1.png);
+  background-image: url(../img/style-img/4.0/left-1.png);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -3752,369 +4349,6 @@ main .promosswiper .swiper-button-prev::after {
   margin-right: 15px;
 }
 
-.footer-top {
-  width: 1400px;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 30px 0;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-bottom: 0.2px solid rgba(255, 255, 255, 0.2588235294);
-}
-.footer-top .social-media a {
-  margin: 0;
-}
-.footer-top a {
-  color: white;
-  margin-right: 50px;
-}
-.footer-top > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-.footer-top > div img {
-  width: 50px;
-  margin-left: 8px;
-}
-
-.footer-center {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 1400px;
-  margin: 50px auto 0;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  border-bottom: 0.2px solid rgba(255, 255, 255, 0.2588235294);
-  padding-bottom: 50px;
-}
-.footer-center .footer-center-item {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 450px;
-          flex: 0 0 450px;
-}
-.footer-center .footer-center-item.payment {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 500px;
-          flex: 0 0 500px;
-}
-.footer-center .footer-center-item.payment .footer-icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-.footer-center .footer-center-item.payment .footer-icon img {
-  width: auto;
-  height: 40px;
-  border-radius: 5px;
-}
-.footer-center .footer-center-item .game-license {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.footer-center .footer-center-item .game-license > div {
-  width: 65px;
-  margin: 15px 10px 0 0;
-}
-.footer-center .footer-center-item .game-license .icon-aware {
-  width: 115px;
-}
-.footer-center .footer-center-item:first-child .footer-center-title:first-child {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.footer-center .footer-center-item:first-child .footer-center-title:first-child::after {
-  display: block;
-  content: "";
-  background: url(https://banner.picasso12.com/desktop/img/4.0/license-tick.png) no-repeat center/cover;
-  height: 20px;
-  width: 20px;
-  margin-left: 8px;
-}
-.footer-center .footer-center-item:nth-child(2) .footer-icon img {
-  margin: 15px 10px 0 0;
-}
-.footer-center .footer-center-item .footer-icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.footer-center .footer-center-item .footer-icon img {
-  width: 50px;
-  margin: 15px 20px 0 0;
-}
-.footer-center .footer-center-item .footer-icon .icon-aware {
-  width: 129px;
-  height: 25px;
-}
-
-.footer-bottom {
-  padding: 25px 0;
-  background: #132546;
-}
-.footer-bottom > div {
-  width: 1400px;
-  margin: 0 auto;
-}
-.footer-bottom p {
-  font-size: 12px;
-  display: contents;
-  margin-top: 0;
-  font-weight: 400;
-  color: #bfbfbf;
-}
-.footer-bottom h1 {
-  padding: 16px 0 8px;
-  font-size: 16px;
-}
-.footer-bottom .footer-btn {
-  color: #FF7600;
-  text-decoration: underline;
-  margin-left: 5px;
-}
-.footer-bottom .footer-btn img {
-  width: 15px;
-}
-
-.footer-hideinfo .footer-btn {
-  margin: 0;
-}
-
-footer {
-  background: #0A1B38;
-  min-width: 1400px;
-}
-footer .platform,
-footer .footerList,
-footer .license,
-footer .sfp {
-  background: transparent;
-  width: 1400px;
-  margin: auto;
-  border-bottom: 1px solid #7591C1;
-  padding: 25px 0;
-}
-footer .copyright {
-  width: 1400px;
-  margin: 0 auto;
-  background: #0A1B38;
-  padding: 40px 0;
-  font-size: 14px;
-  text-align: left;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-footer .platform > div {
-  width: 100%;
-}
-footer .license {
-  font-size: 12px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background: url(https://banner.picasso12.com/desktop/img/licensebg.png) no-repeat bottom right;
-  margin-top: 20px;
-}
-footer .license .title {
-  color: white;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-footer .license .title img {
-  width: 30px;
-  margin-left: 10px;
-}
-footer .license > div:nth-child(1) {
-  width: 560px;
-  padding-right: 90px;
-}
-footer .license > div:nth-child(1) > div:nth-child(2) {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-footer .license > div:nth-child(1) > div:nth-child(2) > div {
-  margin: 15px 20px 0 0;
-  width: 65px;
-}
-footer .license > div:nth-child(1) > div:nth-child(2) > div:last-child {
-  width: 115px;
-}
-footer .license > div:nth-child(2) {
-  width: 730px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-footer .license > div:nth-child(2) iframe {
-  margin-right: 30px;
-}
-footer .license > div:nth-child(2) iframe + div {
-  margin-right: 175px;
-}
-footer .license > div:nth-child(2) > div {
-  text-align: center;
-}
-footer .license > div:nth-child(2) > div div:nth-child(1) {
-  font-size: 24px;
-  font-weight: bold;
-  margin-right: 0;
-}
-footer .license > div:nth-child(2) > div span {
-  font-weight: bold;
-}
-footer .license > div:nth-child(2) > div img {
-  width: 65px;
-  margin: auto;
-}
-footer .license > div .star {
-  width: auto;
-  position: absolute;
-  right: -16px;
-  bottom: -25px;
-}
-footer .sfp {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  border-bottom: 0;
-}
-footer .sfp .title {
-  color: white;
-}
-footer .sfp > div > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 20px;
-  margin-right: 150px;
-}
-footer .sfp > div > div img {
-  width: auto;
-  margin-right: 10px;
-}
-footer .sfp .paymentLogo a,
-footer .sfp .paymentLogo button {
-  cursor: initial;
-}
-footer .footerList {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: wrap;
-      flex-flow: wrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  color: #BFCCE2;
-  padding: 25px 0 130px;
-}
-footer .footerList > .item-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  text-align: center;
-}
-footer .footerList > .item-wrapper > div {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 252px;
-          flex: 0 0 252px;
-  margin-right: 35px;
-}
-footer .footerList > .item-wrapper > div > a,
-footer .footerList > .item-wrapper > div > button {
-  color: #F1D5B6;
-  display: block;
-  margin-bottom: 30px;
-}
-footer .footerList > .item-wrapper > div > div .title {
-  margin: 15px 0;
-  color: #BFCCE2;
-}
-footer .footerList > .item-wrapper > div > div.title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  height: 76px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  font-size: 16px;
-  color: white;
-  white-space: nowrap;
-}
-footer .footerList > .item-wrapper > div > div.title + div {
-  margin: 10px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-footer .footerList > .item-wrapper > div > div.title:before {
-  font-size: 56px;
-  font-weight: normal;
-  color: #F1D5B6;
-}
-footer .footerList > .item-wrapper > div > div > div {
-  text-align: left;
-}
-footer .footerList > .item-wrapper:nth-child(2) > div {
-  font-size: 12px;
-}
-
 .platform {
   padding: 0 calc((100% - 1600px) / 2);
   background: #191919;
@@ -4178,14 +4412,6 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
 }
 .platform .kiss {
   width: 90px;
-}
-
-.copyright {
-  padding: 0 calc((100% - 1600px) / 2);
-  text-align: center;
-  font-size: 12px;
-  background: black;
-  padding: 22px 0;
 }
 
 .loginpop {
@@ -4580,46 +4806,46 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
   margin-right: 5px;
 }
 .flag.ch:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/ch.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/flag/ch.jpg) no-repeat top left/cover;
 }
 .flag.cs:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/cs.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/flag/cs.jpg) no-repeat top left/cover;
 }
 .flag.en:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/en.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/flag/en.jpg) no-repeat top left/cover;
 }
 .flag.th:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/th.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/flag/th.jpg) no-repeat top left/cover;
 }
 .flag.id:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/id.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/flag/id.jpg) no-repeat top left/cover;
 }
 .flag.vn:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/vn.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/flag/vn.jpg) no-repeat top left/cover;
 }
 .flag.in:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/in.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/flag/in.jpg) no-repeat top left/cover;
 }
 .flag.bd:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/bd.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/flag/bd.jpg) no-repeat top left/cover;
 }
 .flag.kh:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/kh.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/flag/kh.jpg) no-repeat top left/cover;
 }
 .flag.kh:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/kh.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/flag/kh.jpg) no-repeat top left/cover;
 }
 .flag.gb:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/gb.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/flag/gb.jpg) no-repeat top left/cover;
 }
 .flag.br:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/br.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/flag/br.jpg) no-repeat top left/cover;
 }
 .flag.ko:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/ko.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/flag/ko.jpg) no-repeat top left/cover;
 }
 .flag.jp:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/jp.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/flag/jp.jpg) no-repeat top left/cover;
 }
 
 .txt-orange {
@@ -5728,7 +5954,7 @@ input[type=file] {
           align-items: center;
 }
 .list .listBody .approved .infobtn, .list .listBody .pending .infobtn, .list .listBody .reject .infobtn, .list .listBody .cancel .infobtn {
-  background: url(../img/notice.svg) no-repeat center/cover;
+  background: url(../img/style-img/notice.svg) no-repeat center/cover;
   width: 15px;
   height: 15px;
   margin-left: 1px;
@@ -6635,11 +6861,11 @@ input[type=file] {
   overflow: hidden;
 }
 #popup .pop .joinSuccess .icon-icon_1_cop {
-  color: #1E85EC;
+  color: #caa66f;
   font-size: 48px;
   width: 120px;
   height: 120px;
-  background: url(https://banner.picasso12.com/desktop/img/joinSuccessBg.png) no-repeat top center/cover;
+  background: url(../img/style-img/joinSuccessBg.png) no-repeat top center/cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6865,7 +7091,7 @@ input[type=file] {
   right: 50px;
   width: 60px;
   height: 46px;
-  background: url(https://banner.picasso12.com/desktop/img/event/wheel/coin.png) no-repeat center/cover;
+  background: url(../img/style-img/event/wheel/coin.png) no-repeat center/cover;
 }
 #popup .pop.wheelPop .animation .coin:nth-child(2) {
   top: 100px;
@@ -7433,7 +7659,7 @@ input[type=file] {
   margin-top: 205px;
 }
 #popup .livesportspop .livesports-content > div .livesports-item {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/team-bg.png) no-repeat center/100%;
+  background: url(../img/style-img/4.0/team-bg.png) no-repeat center/100%;
   height: 160px;
   width: 345px;
   margin-bottom: 12px;
@@ -7645,25 +7871,25 @@ input[type=file] {
   background-color: unset;
 }
 #popup .livesportspop.th {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/livesports-thbg-th.png) no-repeat center/100% !important;
+  background: url(../img/style-img/4.0/livesports-thbg-th.png) no-repeat center/100% !important;
 }
 #popup .livesportspop.vn {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/livesports-vnbg-vn.png) no-repeat center/100% !important;
+  background: url(../img/style-img/4.0/livesports-vnbg-vn.png) no-repeat center/100% !important;
 }
 #popup .livesportspop.th-en {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/livesports-thbg-en.png) no-repeat center/100% !important;
+  background: url(../img/style-img/4.0/livesports-thbg-en.png) no-repeat center/100% !important;
 }
 #popup .livesportspop.vn-en {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/livesports-vnbg-en.png) no-repeat center/100% !important;
+  background: url(../img/style-img/4.0/livesports-vnbg-en.png) no-repeat center/100% !important;
 }
 #popup .livesportspop.my-en {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/livesports-mybg-en.png) no-repeat center/100% !important;
+  background: url(../img/style-img/4.0/livesports-mybg-en.png) no-repeat center/100% !important;
 }
 #popup .livesportspop.my {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/livesports-mybg-my.png) no-repeat center/100% !important;
+  background: url(../img/style-img/4.0/livesports-mybg-my.png) no-repeat center/100% !important;
 }
 #popup .livesportspop.my-cs {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/livesports-mybg-cs.png) no-repeat center/100% !important;
+  background: url(../img/style-img/4.0/livesports-mybg-cs.png) no-repeat center/100% !important;
 }
 #popup .bigwin {
   color: white;
@@ -7762,7 +7988,7 @@ input[type=file] {
       -ms-flex-pack: center;
           justify-content: center;
   letter-spacing: 1px;
-  background: url(https://banner.picasso12.com/desktop/img/4.0/username.png) no-repeat center/100%;
+  background: url(../img/style-img/4.0/username.png) no-repeat center/100%;
   width: 270px;
   height: 80px;
   font-size: 17px;
@@ -7815,34 +8041,34 @@ input[type=file] {
 }
 @-webkit-keyframes bigwinpopup-en {
   0% {
-    background: url(https://banner.picasso12.com/desktop/img/4.0/popup-en-2.png) no-repeat center/cover;
+    background: url(../img/style-img/4.0/popup-en-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.picasso12.com/desktop/img/4.0/popup-en-1.png) no-repeat center/cover;
+    background: url(../img/style-img/4.0/popup-en-1.png) no-repeat center/cover;
   }
 }
 @keyframes bigwinpopup-en {
   0% {
-    background: url(https://banner.picasso12.com/desktop/img/4.0/popup-en-2.png) no-repeat center/cover;
+    background: url(../img/style-img/4.0/popup-en-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.picasso12.com/desktop/img/4.0/popup-en-1.png) no-repeat center/cover;
+    background: url(../img/style-img/4.0/popup-en-1.png) no-repeat center/cover;
   }
 }
 @-webkit-keyframes bigwinpopup-id {
   0% {
-    background: url(https://banner.picasso12.com/desktop/img/4.0/popup-id-2.png) no-repeat center/cover;
+    background: url(../img/style-img/4.0/popup-id-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.picasso12.com/desktop/img/4.0/popup-id-1.png) no-repeat center/cover;
+    background: url(../img/style-img/4.0/popup-id-1.png) no-repeat center/cover;
   }
 }
 @keyframes bigwinpopup-id {
   0% {
-    background: url(https://banner.picasso12.com/desktop/img/4.0/popup-id-2.png) no-repeat center/cover;
+    background: url(../img/style-img/4.0/popup-id-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.picasso12.com/desktop/img/4.0/popup-id-1.png) no-repeat center/cover;
+    background: url(../img/style-img/4.0/popup-id-1.png) no-repeat center/cover;
   }
 }
 #popup .bigwin .bigwinpop .closepop {
@@ -9578,10 +9804,10 @@ input[type=file] {
           flex-flow: column;
 }
 .vipLv img {
-  width: 150px;
+  width: 120px;
 }
 .vipLv > div.vipbg {
-  background: url(https://banner.picasso12.com/desktop/img/vip/vipbg.png) no-repeat center/auto 100%;
+  background: url(../img/style-img/vip/vipbg.png) no-repeat center/auto 100%;
   padding: 20px;
   margin-top: 0;
 }
@@ -10004,7 +10230,7 @@ input[type=file] {
 }
 
 .livecasinoinside {
-  background: #1e1c17 url(https://banner.picasso12.com/desktop/img/livecasino/livecasino-bg01.jpg) no-repeat bottom center/100%;
+  background: #1e1c17 url(../img/style-img/livecasino/livecasino-bg01.jpg) no-repeat bottom center/100%;
   padding-bottom: 130px;
   min-height: 100%;
   padding-top: 176px;
@@ -11125,505 +11351,18 @@ button.icon-spinner11:before {
 
 #Loading {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  padding: 8vw;
-  display: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
   z-index: 10;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
+  display: none;
 }
 #Loading.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-#Loading .container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row;
-          flex-flow: row;
-  margin: 0 auto;
-  width: 50%;
-}
-@-webkit-keyframes rotate1 {
-  0% {
-    -webkit-transform: rotateX(-37.5deg) rotateY(45deg);
-            transform: rotateX(-37.5deg) rotateY(45deg);
-  }
-  50% {
-    -webkit-transform: rotateX(-37.5deg) rotateY(405deg);
-            transform: rotateX(-37.5deg) rotateY(405deg);
-  }
-  100% {
-    -webkit-transform: rotateX(-37.5deg) rotateY(405deg);
-            transform: rotateX(-37.5deg) rotateY(405deg);
-  }
-}
-@keyframes rotate1 {
-  0% {
-    -webkit-transform: rotateX(-37.5deg) rotateY(45deg);
-            transform: rotateX(-37.5deg) rotateY(45deg);
-  }
-  50% {
-    -webkit-transform: rotateX(-37.5deg) rotateY(405deg);
-            transform: rotateX(-37.5deg) rotateY(405deg);
-  }
-  100% {
-    -webkit-transform: rotateX(-37.5deg) rotateY(405deg);
-            transform: rotateX(-37.5deg) rotateY(405deg);
-  }
-}
-#Loading .cube,
-#Loading .cube * {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  z-index: 1;
-}
-#Loading .sides {
-  -webkit-animation: rotate1 3s ease infinite;
-          animation: rotate1 3s ease infinite;
-  -webkit-animation-delay: 0.8s;
-          animation-delay: 0.8s;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-transform: rotateX(-37.5deg) rotateY(45deg);
-          transform: rotateX(-37.5deg) rotateY(45deg);
-}
-#Loading .cube .sides * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background-color: rgba(85, 116, 167, 0.1);
-  border: 1px solid #5574A7;
-}
-#Loading .cube .sides .top {
-  -webkit-animation: top-animation 3s ease infinite;
-          animation: top-animation 3s ease infinite;
-  -webkit-animation-delay: 0ms;
-          animation-delay: 0ms;
-  -webkit-transform: rotateX(90deg) translateZ(70px);
-          transform: rotateX(90deg) translateZ(70px);
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-}
-@-webkit-keyframes top-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(70px);
-            transform: rotateX(90deg) translateZ(70px);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(35px);
-            transform: rotateX(90deg) translateZ(35px);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(35px);
-            transform: rotateX(90deg) translateZ(35px);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(70px);
-            transform: rotateX(90deg) translateZ(70px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(70px);
-            transform: rotateX(90deg) translateZ(70px);
-  }
-}
-@keyframes top-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(70px);
-            transform: rotateX(90deg) translateZ(70px);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(35px);
-            transform: rotateX(90deg) translateZ(35px);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(35px);
-            transform: rotateX(90deg) translateZ(35px);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(70px);
-            transform: rotateX(90deg) translateZ(70px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(70px);
-            transform: rotateX(90deg) translateZ(70px);
-  }
-}
-#Loading .cube .sides .bottom {
-  -webkit-animation: bottom-animation 3s ease infinite;
-          animation: bottom-animation 3s ease infinite;
-  -webkit-animation-delay: 0ms;
-          animation-delay: 0ms;
-  -webkit-transform: rotateX(-90deg) translateZ(70px);
-          transform: rotateX(-90deg) translateZ(70px);
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-}
-@-webkit-keyframes bottom-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(70px);
-            transform: rotateX(-90deg) translateZ(70px);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(35px);
-            transform: rotateX(-90deg) translateZ(35px);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(35px);
-            transform: rotateX(-90deg) translateZ(35px);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(70px);
-            transform: rotateX(-90deg) translateZ(70px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(70px);
-            transform: rotateX(-90deg) translateZ(70px);
-  }
-}
-@keyframes bottom-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(70px);
-            transform: rotateX(-90deg) translateZ(70px);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(35px);
-            transform: rotateX(-90deg) translateZ(35px);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(35px);
-            transform: rotateX(-90deg) translateZ(35px);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(70px);
-            transform: rotateX(-90deg) translateZ(70px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(70px);
-            transform: rotateX(-90deg) translateZ(70px);
-  }
-}
-#Loading .cube .sides .front {
-  -webkit-animation: front-animation 3s ease infinite;
-          animation: front-animation 3s ease infinite;
-  -webkit-animation-delay: 100ms;
-          animation-delay: 100ms;
-  -webkit-transform: rotateY(0deg) translateZ(70px);
-          transform: rotateY(0deg) translateZ(70px);
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-}
-@-webkit-keyframes front-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(70px);
-            transform: rotateY(0deg) translateZ(70px);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(35px);
-            transform: rotateY(0deg) translateZ(35px);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(35px);
-            transform: rotateY(0deg) translateZ(35px);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(70px);
-            transform: rotateY(0deg) translateZ(70px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(70px);
-            transform: rotateY(0deg) translateZ(70px);
-  }
-}
-@keyframes front-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(70px);
-            transform: rotateY(0deg) translateZ(70px);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(35px);
-            transform: rotateY(0deg) translateZ(35px);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(35px);
-            transform: rotateY(0deg) translateZ(35px);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(70px);
-            transform: rotateY(0deg) translateZ(70px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(70px);
-            transform: rotateY(0deg) translateZ(70px);
-  }
-}
-#Loading .cube .sides .back {
-  -webkit-animation: back-animation 3s ease infinite;
-          animation: back-animation 3s ease infinite;
-  -webkit-animation-delay: 100ms;
-          animation-delay: 100ms;
-  -webkit-transform: rotateY(-180deg) translateZ(70px);
-          transform: rotateY(-180deg) translateZ(70px);
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-}
-@-webkit-keyframes back-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(70px);
-            transform: rotateY(-180deg) translateZ(70px);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(35px);
-            transform: rotateY(-180deg) translateZ(35px);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(35px);
-            transform: rotateY(-180deg) translateZ(35px);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(70px);
-            transform: rotateY(-180deg) translateZ(70px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(70px);
-            transform: rotateY(-180deg) translateZ(70px);
-  }
-}
-@keyframes back-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(70px);
-            transform: rotateY(-180deg) translateZ(70px);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(35px);
-            transform: rotateY(-180deg) translateZ(35px);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(35px);
-            transform: rotateY(-180deg) translateZ(35px);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(70px);
-            transform: rotateY(-180deg) translateZ(70px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(70px);
-            transform: rotateY(-180deg) translateZ(70px);
-  }
-}
-#Loading .cube .sides .left {
-  -webkit-animation: left-animation 3s ease infinite;
-          animation: left-animation 3s ease infinite;
-  -webkit-animation-delay: 100ms;
-          animation-delay: 100ms;
-  -webkit-transform: rotateY(-90deg) translateZ(70px);
-          transform: rotateY(-90deg) translateZ(70px);
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-}
-@-webkit-keyframes left-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(70px);
-            transform: rotateY(-90deg) translateZ(70px);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(35px);
-            transform: rotateY(-90deg) translateZ(35px);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(35px);
-            transform: rotateY(-90deg) translateZ(35px);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(70px);
-            transform: rotateY(-90deg) translateZ(70px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(70px);
-            transform: rotateY(-90deg) translateZ(70px);
-  }
-}
-@keyframes left-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(70px);
-            transform: rotateY(-90deg) translateZ(70px);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(35px);
-            transform: rotateY(-90deg) translateZ(35px);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(35px);
-            transform: rotateY(-90deg) translateZ(35px);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(70px);
-            transform: rotateY(-90deg) translateZ(70px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(70px);
-            transform: rotateY(-90deg) translateZ(70px);
-  }
-}
-#Loading .cube .sides .right {
-  -webkit-animation: right-animation 3s ease infinite;
-          animation: right-animation 3s ease infinite;
-  -webkit-animation-delay: 100ms;
-          animation-delay: 100ms;
-  -webkit-transform: rotateY(90deg) translateZ(70px);
-          transform: rotateY(90deg) translateZ(70px);
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-}
-@-webkit-keyframes right-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(70px);
-            transform: rotateY(90deg) translateZ(70px);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(35px);
-            transform: rotateY(90deg) translateZ(35px);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(35px);
-            transform: rotateY(90deg) translateZ(35px);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(70px);
-            transform: rotateY(90deg) translateZ(70px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(70px);
-            transform: rotateY(90deg) translateZ(70px);
-  }
-}
-@keyframes right-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(70px);
-            transform: rotateY(90deg) translateZ(70px);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(35px);
-            transform: rotateY(90deg) translateZ(35px);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(35px);
-            transform: rotateY(90deg) translateZ(35px);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(70px);
-            transform: rotateY(90deg) translateZ(70px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(70px);
-            transform: rotateY(90deg) translateZ(70px);
-  }
-}
-#Loading h1 {
-  -webkit-transform: rotateX(-37.5deg) rotateY(45deg);
-          transform: rotateX(-37.5deg) rotateY(45deg);
-  -webkit-animation: rotate1 3s ease infinite;
-          animation: rotate1 3s ease infinite;
-  -webkit-animation-delay: 0.8s;
-          animation-delay: 0.8s;
-}
-#Loading h1:after {
-  font-size: 1ˊpx;
-  font-weight: bold;
-  content: "NOVA88";
-  position: absolute;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-  text-shadow: -1px -1px 1px #333, -2px -2px 1px #333, -3px -3px 1px #333, -4px -4px 1px #333, -5px -5px 1px #333, -6px -6px 1px #333, -7px -7px 5px rgba(0, 0, 128, 0.75);
-}
-#Loading .text {
-  position: absolute;
-  margin-top: 200px;
-  font-size: 14px;
-  color: #5574A7;
 }
 
 .icon-information-solid {
@@ -11898,7 +11637,7 @@ button.icon-spinner11:before {
 }
 .onegameModule .promotionsInfo {
   position: relative;
-  background: url(https://banner.picasso12.com/desktop/img/onegame/bg.jpg) no-repeat center;
+  background: url(../img/style-img/onegame/bg.jpg) no-repeat center;
   height: 500px;
   padding: 0;
 }
@@ -11939,10 +11678,10 @@ button.icon-spinner11:before {
 }
 .onegameModule .onegame .left {
   height: 252px;
-  background: url(https://banner.picasso12.com/desktop/img/onegame/btnleftbg.png) no-repeat center right/cover;
+  background: url(../img/style-img/onegame/btnleftbg.png) no-repeat center right/cover;
 }
 .onegameModule .onegame .left.right {
-  background: url(https://banner.picasso12.com/desktop/img/onegame/btnrightbg.png) no-repeat center left/cover;
+  background: url(../img/style-img/onegame/btnrightbg.png) no-repeat center left/cover;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
@@ -12026,7 +11765,7 @@ button.icon-spinner11:before {
   margin-bottom: 30px;
 }
 .installGuide.mega, .installGuide.kiss {
-  background: url(https://banner.picasso12.com/desktop/img/megabg.jpg) no-repeat bottom/cover;
+  background: url(../img/style-img/megabg.jpg) no-repeat bottom/cover;
   padding: 20px;
 }
 .installGuide.mega .guides, .installGuide.kiss .guides {
@@ -12084,7 +11823,7 @@ button.icon-spinner11:before {
   margin-bottom: 10px;
 }
 .installGuide.kiss {
-  background: #2d023a url(https://banner.picasso12.com/desktop/img/918/bg.jpg) no-repeat top/100%;
+  background: #2d023a url(../img/style-img/918/bg.jpg) no-repeat top/100%;
 }
 .installGuide > div {
   background: white;
@@ -12587,7 +12326,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .ErrorPage > div {
   width: 30%;
   height: 50%;
-  background: url(https://banner.picasso12.com/desktop/img/errorBG.jpg) no-repeat center/cover;
+  background: url(../img/style-img/errorBG.jpg) no-repeat center/cover;
   position: relative;
   margin: auto;
   padding: 0 5%;
@@ -12658,7 +12397,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .rightModule .refer-history::after {
   content: "";
-  background: url(https://banner.picasso12.com/desktop/img/icon-right.svg) no-repeat center/12px 12px;
+  background: url(../img/style-img/icon-right.svg) no-repeat center/12px 12px;
   display: inline-block;
   width: 12px;
   height: 12px;
@@ -12771,7 +12510,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .rightModule .refer .referinfo-step .icon::after {
   content: "";
   display: block;
-  background: url(https://banner.picasso12.com/desktop/img/refer-dashLine.svg) no-repeat center;
+  background: url(../img/style-img/refer-dashLine.svg) no-repeat center;
   padding: 5px 0px;
   width: 3px;
   height: 45px;
@@ -12821,7 +12560,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .rightModule .refer .referinfo-list .inputcopy::after {
   content: "";
   display: inline-block;
-  background: url(https://banner.picasso12.com/desktop/img/icon-copy.svg) no-repeat center/20px 20px;
+  background: url(../img/style-img/icon-copy.svg) no-repeat center/20px 20px;
   width: 20px;
   height: 20px;
   position: absolute;
@@ -12832,7 +12571,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   transition: 0.3s;
 }
 .rightModule .refer .referinfo-list .inputcopy:hover::after {
-  background: url(https://banner.picasso12.com/desktop/img/icon-copy-1.svg) no-repeat center/20px 20px;
+  background: url(../img/style-img/icon-copy-1.svg) no-repeat center/20px 20px;
 }
 .rightModule .refer .referinfo-list-qr {
   width: 90px;
@@ -13182,74 +12921,29 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   position: relative;
   z-index: 1;
 }
-.vip .swiper-slide.vintage .vipinfo {
-  color: #faa972;
+.vip .swiper-slide.vip1 .viprule {
+  background: #009345;
 }
-.vip .swiper-slide.silver .vipinfo {
-  color: #d7d7d7;
+.vip .swiper-slide.vip2 .viprule {
+  background: #BA3622;
 }
-.vip .swiper-slide.silver .viprule {
-  background: #e5e5e5;
+.vip .swiper-slide.vip3 .viprule {
+  background: #C7C8CA;
 }
-.vip .swiper-slide.silver .viprule .viprule-item span:nth-child(1) {
-  background: #bababa;
+.vip .swiper-slide.vip4 .viprule {
+  background: #D9A728;
 }
-.vip .swiper-slide.silver .viprule .viprule-item span:nth-child(2) {
-  color: #8b8b8b;
+.vip .swiper-slide.vip5 .viprule {
+  background: #56449A;
 }
-.vip .swiper-slide.gold .vipinfo {
-  color: #f0c966;
+.vip .swiper-slide.vip6 .viprule {
+  background: #ED2550;
 }
-.vip .swiper-slide.gold .viprule {
-  background: #f8edd1;
-}
-.vip .swiper-slide.gold .viprule .viprule-item span:nth-child(1) {
-  background: #f0c966;
-}
-.vip .swiper-slide.gold .viprule .viprule-item span:nth-child(2) {
-  color: #ebb93b;
-}
-.vip .swiper-slide.titanium .vipinfo {
-  color: #acacac;
-}
-.vip .swiper-slide.titanium .viprule {
-  background: #c5c5c5;
-}
-.vip .swiper-slide.titanium .viprule .viprule-item span:nth-child(1) {
-  background: #666666;
-}
-.vip .swiper-slide.titanium .viprule .viprule-item span:nth-child(2) {
-  color: #666666;
-}
-.vip .swiper-slide.diamond .vipinfo {
-  color: #84d2f1;
-}
-.vip .swiper-slide.diamond .viprule {
-  background: #def2ff;
-}
-.vip .swiper-slide.diamond .viprule .viprule-item span:nth-child(1) {
-  background: #6dbdf2;
-}
-.vip .swiper-slide.diamond .viprule .viprule-item span:nth-child(2) {
-  color: #6dbdf2;
-}
-.vip .swiper-slide.nova .vipinfo {
-  color: #ffffff;
-}
-.vip .swiper-slide.nova .viprule {
-  background: #f5f5f5;
-}
-.vip .swiper-slide.nova .viprule .viprule-item span:nth-child(1) {
-  background: #d3d7da;
-}
-.vip .swiper-slide.nova .viprule .viprule-item span:nth-child(2) {
-  color: #b9bec2;
-}
-.vip .swiper-slide.nova .rewardinfo {
+.vip .swiper-slide.vip6 .rewardinfo {
   width: 600px;
   font-size: 23px;
 }
-.vip .swiper-slide.nova .rewardinfo span {
+.vip .swiper-slide.vip6 .rewardinfo span {
   font-size: 30px;
 }
 .vip .vipinfo {
@@ -13270,6 +12964,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: #fff;
 }
 .vip .vipinfo span {
   font-size: 28px;
@@ -13291,7 +12986,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           justify-content: center;
   border-radius: 50px;
   font-size: 25px;
-  color: #112240;
+  color: #1F1F1F;
 }
 .vip .rewardinfo span {
   font-size: 33px;
@@ -13335,7 +13030,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .vip .viprule-item span {
   text-align: center;
-  background: #faa972;
+  background: #eeeeee;
   width: 320px;
   height: 65px;
   padding: 5px;
@@ -13351,13 +13046,14 @@ nav.breadcrumb ul .breadcrumb-item.active a {
       -ms-flex-pack: center;
           justify-content: center;
   text-transform: capitalize;
+  color: #1F1F1F;
 }
 .vip .viprule-item span:nth-child(2) {
   background: white;
-  color: #faa972;
+  color: #1F1F1F;
   font-size: 25px;
   border-radius: 10px;
-  margin-top: -5px;
+  margin-top: -10px;
 }
 .vip .vipPage {
   width: 1400px;
@@ -13387,35 +13083,39 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   font-size: 15px;
 }
 .vip .vipPage .eventList tr.title {
-  background: #809ac5;
+  background: #caa66f;
   color: white;
-  border-left: 1px solid #809ac5;
+  border-left: 1px solid #caa66f;
+  border-right: 1px solid #caa66f;
   font-weight: normal;
 }
 .vip .vipPage .eventList tr.title td:last-child {
   color: white;
 }
 .vip .vipPage .eventList tr:last-child {
-  background: #666;
+  background: #bc8f4a;
+  border-right: 1px solid #caa66f;
   font-weight: bold;
 }
 .vip .vipPage .eventList tr:last-child td {
   color: white;
 }
 .vip .vipPage .eventList tr:not(.title):not(.lastTd) td:first-child {
-  border-right: 1px solid #e4e4e4;
-  color: #5574A7;
+  border-right: 1px solid #5a5a5a;
+  background: #1F1F1F;
+  color: #fff;
 }
 .vip .vipPage .eventList tr:not(.title):not(.lastTd):hover td {
-  background: #e4e4e4;
-  color: #f77900;
+  background: #414141;
+  color: #fff;
 }
 .vip .vipPage .eventList tr:not(.title):not(.lastTd):hover td:first-child {
-  background: #979797;
+  background: #4d4d4d;
   color: white;
 }
 .vip .vipPage .eventList tr:not(.title):not(.lastTd) td {
-  border: 1px solid #e4e4e4;
+  border: 1px solid #5a5a5a;
+  background: #1F1F1F;
 }
 .vip .vipPage .eventList tr td {
   border: 0;
@@ -13423,7 +13123,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   padding: 10px;
   line-height: 30px;
   text-align: center;
-  color: #5574A7;
+  color: #fff;
 }
 .vip .vipPage .eventList tr td:first-child {
   text-align: left;
@@ -13436,12 +13136,13 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .vip .medal {
   margin-bottom: 20px;
-  background: white;
+  background: #000;
 }
 .vip .medal tr td {
   width: 11%;
   text-align: center;
-  color: #5574A7;
+  color: #fff;
+  text-transform: uppercase;
 }
 .vip .medal tr td:first-child {
   width: 34%;
@@ -13455,13 +13156,13 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: none;
 }
 .vip .swiper-button-next {
-  background: url(https://banner.picasso12.com/desktop/img/next-right.png) no-repeat center/100%;
+  background: url(../img/style-img/next-right.png) no-repeat center/100%;
   width: 45px;
   right: 100px;
   top: 260px;
 }
 .vip .swiper-button-prev {
-  background: url(https://banner.picasso12.com/desktop/img/next-left.png) no-repeat center/100%;
+  background: url(../img/style-img/next-left.png) no-repeat center/100%;
   width: 45px;
   left: 100px;
   top: 260px;
@@ -13476,8 +13177,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: url(https://banner.picasso12.com/desktop/img/vip-bottom-bg.png) no-repeat center/100%;
-  height: 450px;
+  background: url(../img/style-img/vip-bottom.png) no-repeat center -20%/cover;
+  padding: 60px 0;
 }
 .vip .vip-bottom-item {
   display: -webkit-box;
@@ -13551,9 +13252,37 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .newvipinfo {
   width: 1400px;
   margin: 145px auto 30px;
+  background: #1F1F1F;
+  border-radius: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .newvipinfo img {
-  border-radius: 40px;
+  width: 600px;
+  padding: 20px 0 20px 50px;
+}
+.newvipinfo > div {
+  padding: 0 60px 0 45px;
+}
+.newvipinfo > div > div {
+  margin-bottom: 25px;
+}
+.newvipinfo > div > div:last-child {
+  margin: 0;
+}
+.newvipinfo-title {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.newvipinfo-text {
+  font-weight: 400;
+  font-size: 15px;
 }
 
 .eventTitle {
@@ -13908,7 +13637,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .subModuleListColumn > .subModule > div > button > div.fast:after,
 .subModuleListColumn > .subModule > div > a > div.fast:after {
   content: "";
-  background: url(https://banner.picasso12.com/desktop/img/fast-icon.png) no-repeat center/cover;
+  background: url(../img/style-img/fast-icon.png) no-repeat center/cover;
   display: block;
   width: 50px;
   height: 15px;
@@ -14154,7 +13883,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 57px;
   height: 57px;
   margin: 0 auto !important;
-  background: url(https://banner.picasso12.com/desktop/img/qrpay.png) center/cover;
+  background: url(../img/style-img/qrpay.png) center/cover;
 }
 
 .icon-quick::before {
@@ -14163,7 +13892,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 57px;
   height: 57px;
   margin: 0 auto !important;
-  background: url(https://banner.picasso12.com/desktop/img/quick-transfer.png) center/cover;
+  background: url(../img/style-img/quick-transfer.png) center/cover;
 }
 
 .icon-topup::before {
@@ -14172,7 +13901,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 57px;
   height: 57px;
   margin: 0 auto !important;
-  background: url(https://banner.picasso12.com/desktop/img/topup.png) center/cover;
+  background: url(../img/style-img/topup.png) center/cover;
 }
 
 .icon-dou::before {
@@ -14181,12 +13910,11 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 57px;
   height: 57px;
   margin: 0 auto !important;
-  background: url(https://banner.picasso12.com/desktop/img/4.0/chat-transfer.png) center/cover;
+  background: url(../img/style-img/4.0/chat-transfer.png) center/cover;
 }
 
 .text-center {
   text-align: center;
-  color: #AEACAC;
 }
 
 .upload_new {
@@ -14314,7 +14042,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .promos .swiper-container .swiper-wrapper > div {
-  background: url(https://banner.picasso12.com/desktop/img/homepage/promobg.jpg) no-repeat left/cover;
+  background: url(../img/style-img/homepage/promobg.jpg) no-repeat left/cover;
 }
 .promos .swiper-container .swiper-wrapper > div > div {
   display: -webkit-box;
@@ -14577,7 +14305,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .liveVideo .newsList .title,
 .newsVideo .latestVideo .title,
 .newsVideo .newsList .title {
-  background: url(https://banner.picasso12.com/desktop/img/homepage/latestvideotitlebg.jpg) no-repeat;
+  background: url(../img/style-img/homepage/latestvideotitlebg.jpg) no-repeat;
   line-height: 46px;
   border-radius: 0 0 5px 5px;
   padding-left: 20px;
@@ -14718,7 +14446,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: url(https://banner.picasso12.com/desktop/img/gamenamebg.png) no-repeat center top/cover;
+  background: url(../img/style-img/gamenamebg.png) no-repeat center top/cover;
 }
 .liveVideo .latestVideo + div .hotevent .team,
 .liveVideo .newsList + div .hotevent .team,
@@ -14983,7 +14711,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .newsVideo .latestVideo + div .liveTv .team > div:first-child,
 .newsVideo .newsList + div .upcomingmatches .team > div:first-child,
 .newsVideo .newsList + div .liveTv .team > div:first-child {
-  background: url(https://banner.picasso12.com/desktop/img/upcomingmatchestitle.png) no-repeat top center/auto;
+  background: url(../img/style-img/upcomingmatchestitle.png) no-repeat top center/auto;
   line-height: 27px;
   font-size: 12px;
   overflow: hidden;
@@ -15003,7 +14731,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .newsVideo .latestVideo + div .liveTv .team > div:last-child,
 .newsVideo .newsList + div .upcomingmatches .team > div:last-child,
 .newsVideo .newsList + div .liveTv .team > div:last-child {
-  background: url(https://banner.picasso12.com/desktop/img/upcomingmatchestitledown.png) no-repeat top center/auto;
+  background: url(../img/style-img/upcomingmatchestitledown.png) no-repeat top center/auto;
   line-height: 27px;
   font-size: 12px;
 }
@@ -15322,7 +15050,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title,
 .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title,
 .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title {
-  background: url(https://banner.picasso12.com/desktop/img/livetvtitlebggold.png) no-repeat center/75% 100%;
+  background: url(../img/style-img/livetvtitlebggold.png) no-repeat center/75% 100%;
 }
 .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before,
 .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before,
@@ -15357,7 +15085,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: url(https://banner.picasso12.com/desktop/img/livetvtitlebg.png) no-repeat center/75% 100%;
+  background: url(../img/style-img/livetvtitlebg.png) no-repeat center/75% 100%;
   color: white;
   position: relative;
   font-size: 12px;
@@ -15471,7 +15199,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   content: "";
   width: 300px;
   height: 435px;
-  background: url(https://banner.picasso12.com/desktop/img/homepage/livacasino-item.png) no-repeat;
+  background: url(../img/style-img/homepage/livacasino-item.png) no-repeat;
   position: absolute;
   z-index: 2;
   right: 20px;
@@ -16387,216 +16115,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   z-index: 1;
   pointer-events: none;
 }
-.jpotModule .jpot {
-  height: 202px;
-  background: url(https://banner.picasso12.com/desktop/img/homepage/jpotbg.jpg) no-repeat;
-  position: relative;
-  cursor: pointer;
-}
-.jpotModule .jpot.active {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-  pointer-events: none;
-}
-.jpotModule .jpot.active .jpot-btn, .jpotModule .jpot.active .number {
-  -webkit-filter: brightness(0.7);
-          filter: brightness(0.7);
-}
-.jpotModule .jpot.active .under {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-.jpotModule .jpot .under {
-  display: none;
-  position: absolute;
-  right: 5px;
-  bottom: 8px;
-  z-index: 1;
-  color: #fff;
-  padding: 5px 10px;
-  -webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.9));
-          filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.9));
-}
-.jpotModule .jpot .jpot-item {
-  position: absolute;
-  bottom: 10px;
-  right: -10px;
-  overflow: hidden;
-}
-.jpotModule .jpot .jpot-item::before {
-  content: "";
-  display: block;
-  width: 20px;
-  height: 12px;
-  position: absolute;
-  top: 88px;
-  left: 75%;
-  background-color: #FFF;
-  opacity: 0;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  -webkit-animation: reflect 2s ease-in-out infinite;
-          animation: reflect 2s ease-in-out infinite;
-  -webkit-filter: blur(10px);
-          filter: blur(10px);
-}
-@-webkit-keyframes reflect {
-  0% {
-    -webkit-transform: scale(0) rotate(-45deg);
-            transform: scale(0) rotate(-45deg);
-    opacity: 0;
-  }
-  80% {
-    -webkit-transform: scale(0) rotate(-45deg);
-            transform: scale(0) rotate(-45deg);
-    opacity: 0.3;
-  }
-  81% {
-    -webkit-transform: scale(4) rotate(-45deg);
-            transform: scale(4) rotate(-45deg);
-    opacity: 0.8;
-  }
-  100% {
-    -webkit-transform: scale(20) rotate(-45deg);
-            transform: scale(20) rotate(-45deg);
-    opacity: 0;
-  }
-}
-@keyframes reflect {
-  0% {
-    -webkit-transform: scale(0) rotate(-45deg);
-            transform: scale(0) rotate(-45deg);
-    opacity: 0;
-  }
-  80% {
-    -webkit-transform: scale(0) rotate(-45deg);
-            transform: scale(0) rotate(-45deg);
-    opacity: 0.3;
-  }
-  81% {
-    -webkit-transform: scale(4) rotate(-45deg);
-            transform: scale(4) rotate(-45deg);
-    opacity: 0.8;
-  }
-  100% {
-    -webkit-transform: scale(20) rotate(-45deg);
-            transform: scale(20) rotate(-45deg);
-    opacity: 0;
-  }
-}
-.jpotModule .jpot .jpot-btn {
-  width: 45%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  padding-bottom: 60px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-.jpotModule .jpot .jpot-btn a,
-.jpotModule .jpot .jpot-btn button {
-  background: -webkit-gradient(linear, left top, right top, color-stop(30%, #ff5e00), to(#f39519));
-  background: linear-gradient(90deg, #ff5e00 30%, #f39519 100%);
-  border-radius: 30px;
-  color: #fff;
-  font-size: 14px;
-  padding: 0 20px;
-  font-weight: bold;
-  height: 40px;
-}
-.jpotModule .jpot .jpot-btn:hover a,
-.jpotModule .jpot .jpot-btn:hover button {
-  background: -webkit-gradient(linear, left top, right top, color-stop(30%, #c71e00), to(#fa735b));
-  background: linear-gradient(90deg, #c71e00 30%, #fa735b 100%);
-}
-.jpotModule .jpot .number {
-  background: url(https://banner.picasso12.com/desktop/img/homepage/jpot-title.png) no-repeat;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 406px;
-  height: 45px;
-  margin: 0;
-  padding-right: 10px;
-  line-height: 1.65;
-  font-weight: bold;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 18px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.jpotModule .jpot .number .numberRow-module {
-  font-size: 24px;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 36px;
-  margin: 0 1px;
-}
-.jpotModule .jpot .number .numberRow-module .numberRow {
-  font-size: 24px;
-  margin: 0 1px;
-  width: 15px;
-  position: relative;
-}
-.jpotModule .jpot .number .numberRow-module .numberRow > div {
-  position: absolute;
-  top: 0;
-  height: 600px;
-}
-.jpotModule .jpot .number .numberRow-module .numberRow > div > div {
-  height: 30px;
-}
-.jpotModule .jpot .number > div {
-  font-size: 4vw;
-  font-weight: bold;
-}
-.jpotModule .jpot .number > div:first-child {
-  font-size: 20px;
-  margin: 4px 7px 0px 65px;
-  position: relative;
-}
-.jpotModule .jpot .number > div:first-child::before {
-  content: "";
-  display: block;
-  position: absolute;
-  background: url(https://banner.picasso12.com/desktop/img/homepage/jpot-coin.png) no-repeat;
-  width: 53px;
-  height: 50px;
-  top: -42px;
-  left: -55px;
-  -webkit-animation: flash 0.5s alternate infinite;
-          animation: flash 0.5s alternate infinite;
-}
-.jpotModule .jpot .number > div:first-child:after {
-  content: "";
-  display: block;
-  position: absolute;
-  background: url(https://banner.picasso12.com/desktop/img/homepage/coin.png) no-repeat 75%;
-  width: 15px;
-  height: 15px;
-  top: calc(50% - 8px);
-  left: -20px;
-}
 
 .swithModule {
   position: absolute;
@@ -16839,7 +16357,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .fishinginside {
-  background: #84eff9 url(https://banner.picasso12.com/desktop/img/fishing/fishbg.jpg) no-repeat bottom center/100%;
+  background: #84eff9 url(../img/style-img/fishing/fishbg.jpg) no-repeat bottom center/100%;
   padding-bottom: 130px;
   min-height: 100%;
   padding-top: 176px;
@@ -16926,7 +16444,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .lotteryinside {
   position: relative;
-  background: #020321 url(https://banner.picasso12.com/desktop/img/lottery/lotterybg.jpg) no-repeat bottom center/100%;
+  background: #020321 url(../img/style-img/lottery/lotterybg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
   padding-top: 176px;
 }
@@ -17152,7 +16670,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .esportinside {
   position: relative;
-  background: #131419 url(https://banner.picasso12.com/desktop/img/esport/esportsbg.jpg) no-repeat bottom center/100%;
+  background: #131419 url(../img/style-img/esport/esportsbg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
   padding-top: 176px;
 }
@@ -17385,7 +16903,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .gameinside {
   position: relative;
-  background: #3e132e url(https://banner.picasso12.com/desktop/img/game/gamebg.jpg) no-repeat bottom center/100%;
+  background: #3e132e url(../img/style-img/game/gamebg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
   padding-top: 176px;
 }
@@ -17496,7 +17014,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .app {
   min-width: auto;
   padding: 176px 0 10vw 0;
-  background: url(https://banner.picasso12.com/desktop/img/app/appbg.jpg) no-repeat top center/cover;
+  background: url(../img/style-img/app/appbg.jpg) no-repeat top center/cover;
 }
 .appHeader {
   height: 50px;
@@ -18067,137 +17585,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   color: #8d8d8d;
 }
 
-.countdown {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: #fff;
-  margin-left: 5px;
-  position: relative;
-}
-.countdown::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 80px;
-  background: url(https://banner.picasso12.com/desktop/img/wclogo.gif) center/cover;
-  position: absolute;
-  top: -40px;
-  right: -15px;
-  z-index: -1;
-}
-.countdown > div {
-  background: -webkit-gradient(linear, left top, left bottom, from(#CA0C41), to(#880737));
-  background: linear-gradient(180deg, #CA0C41 0%, #880737 100%);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: wrap;
-      flex-flow: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-  margin: 1px;
-  border-radius: 50px;
-  font-size: 10px;
-  min-height: 35px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 5px 10px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  position: relative;
-}
-.countdown > div:first-child {
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  border: 3px solid #fff;
-  z-index: 1;
-}
-.countdown > div:first-child img {
-  width: auto;
-  height: 40px;
-}
-.countdown > div:last-child {
-  margin-left: -45px;
-  padding-left: 30px;
-  padding-right: 6px;
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
-}
-.countdown > div:last-child .entry {
-  background: #fff;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.countdown > div:last-child .entry img {
-  width: 20px;
-  height: 20px;
-  -webkit-animation: flash 0.5s alternate infinite;
-          animation: flash 0.5s alternate infinite;
-}
-.countdown > div > div {
-  margin: 0 0 0 3px;
-  position: relative;
-}
-.countdown > div > div img {
-  width: 160px;
-  height: auto;
-}
-.countdown > div > div span {
-  font-size: 14px;
-  font-weight: bold;
-  display: block;
-  width: 100%;
-}
-.countdown > div > div:nth-child(4)::after, .countdown > div > div:nth-child(4)::before {
-  display: none;
-  opacity: 0;
-}
-
-@-webkit-keyframes flash {
-  0% {
-    -webkit-filter: brightness(1.35);
-            filter: brightness(1.35);
-  }
-  100% {
-    -webkit-filter: brightness(1);
-            filter: brightness(1);
-  }
-}
-
-@keyframes flash {
-  0% {
-    -webkit-filter: brightness(1.35);
-            filter: brightness(1.35);
-  }
-  100% {
-    -webkit-filter: brightness(1);
-            filter: brightness(1);
-  }
-}
 /*checkspeed*/
 .checkspeed {
-  background: black url(https://banner.picasso12.com/desktop/img/check_speed/bg.jpg) no-repeat center 87px/cover;
+  background: black url(../img/style-img/check_speed/bg.jpg) no-repeat center 87px/cover;
   width: 100%;
 }
 .checkspeed img {
@@ -18392,7 +17782,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 @media screen and (max-width: 767px), (orientation: portrait) {
   .checkspeed {
-    background: #0339a2 url(https://banner.picasso12.com/desktop/img/check_speed/bg.jpg) no-repeat top center/cover;
+    background: #0339a2 url(../img/style-img/check_speed/bg.jpg) no-repeat top center/cover;
     height: auto;
   }
   .checkspeed .wallpaper {
@@ -18521,29 +17911,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   height: 30px;
 }
 
-@-webkit-keyframes lobbyjpot {
-  0% {
-    background: url(https://banner.picasso12.com/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
-  }
-  50% {
-    background: url(https://banner.picasso12.com/desktop/img/lobbyjpotbga.png) no-repeat center/cover;
-  }
-  100% {
-    background: url(https://banner.picasso12.com/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
-  }
-}
-
-@keyframes lobbyjpot {
-  0% {
-    background: url(https://banner.picasso12.com/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
-  }
-  50% {
-    background: url(https://banner.picasso12.com/desktop/img/lobbyjpotbga.png) no-repeat center/cover;
-  }
-  100% {
-    background: url(https://banner.picasso12.com/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
-  }
-}
 .mainBanner {
   position: relative;
   overflow: hidden;
@@ -19074,7 +18441,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .rankingNew {
-  background: url(https://banner.picasso12.com/desktop/img/leaderboard_new_bg.jpg) no-repeat top center;
+  background: url(../img/style-img/leaderboard_new_bg.jpg) no-repeat top center;
   background-position: top center;
   background-size: auto 100%;
   min-height: 1025px;
@@ -20043,13 +19410,13 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(https://banner.picasso12.com/desktop/img/event/wheel/bg.jpg) no-repeat top center, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
-  background: url(https://banner.picasso12.com/desktop/img/event/wheel/bg.jpg) no-repeat top center, linear-gradient(to right, #100d41, #250333);
+  background: url(../img/style-img/event/wheel/bg.jpg) no-repeat top center, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
+  background: url(../img/style-img/event/wheel/bg.jpg) no-repeat top center, linear-gradient(to right, #100d41, #250333);
 }
 .wheelEvent .eventPage .eventTitleBg {
   width: 372px;
   height: 86px;
-  background: url(https://banner.picasso12.com/desktop/img/event/wheel/event_title_bg.png) no-repeat center -8px;
+  background: url(../img/style-img/event/wheel/event_title_bg.png) no-repeat center -8px;
   margin-top: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -20100,7 +19467,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 410px;
   height: 410px;
   position: relative;
-  background: url(https://banner.picasso12.com/desktop/img/event/wheel/wheelbg.png) no-repeat center;
+  background: url(../img/style-img/event/wheel/wheelbg.png) no-repeat center;
   overflow: hidden;
 }
 .wheelEvent .eventPage .wheelModule .wheel ul li {
@@ -20785,7 +20152,6 @@ form .profileModule .vipLv .vipname {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   position: relative;
-  color: #fff;
 }
 .addressModule .address-list > div > div:last-child .inputBox-blue {
   border-radius: 3px;
@@ -20897,15 +20263,15 @@ form .profileModule .vipLv .vipname {
   position: relative;
   padding-top: 50px;
   height: 942px;
-  background: url(https://banner.picasso12.com/desktop/img/event/worldcup/bg.jpg) no-repeat center, -webkit-gradient(linear, left top, left bottom, from(#730A33), to(#1D1A1B));
-  background: url(https://banner.picasso12.com/desktop/img/event/worldcup/bg.jpg) no-repeat center, linear-gradient(to bottom, #730A33, #1D1A1B);
+  background: url(../img/style-img/event/worldcup/bg.jpg) no-repeat center, -webkit-gradient(linear, left top, left bottom, from(#730A33), to(#1D1A1B));
+  background: url(../img/style-img/event/worldcup/bg.jpg) no-repeat center, linear-gradient(to bottom, #730A33, #1D1A1B);
 }
 .worldcupEvent .eventPage.middle {
   position: relative;
   padding-top: 100px;
   height: 1170px;
-  background: url(https://banner.picasso12.com/desktop/img/event/worldcup/bg2.jpg) no-repeat center, -webkit-gradient(linear, left top, left bottom, from(#1D1A1B), color-stop(#730A33), to(#1D1A1B));
-  background: url(https://banner.picasso12.com/desktop/img/event/worldcup/bg2.jpg) no-repeat center, linear-gradient(to bottom, #1D1A1B, #730A33, #1D1A1B);
+  background: url(../img/style-img/event/worldcup/bg2.jpg) no-repeat center, -webkit-gradient(linear, left top, left bottom, from(#1D1A1B), color-stop(#730A33), to(#1D1A1B));
+  background: url(../img/style-img/event/worldcup/bg2.jpg) no-repeat center, linear-gradient(to bottom, #1D1A1B, #730A33, #1D1A1B);
   text-align: center;
 }
 .worldcupEvent .eventPage.bottom {
@@ -21626,7 +20992,7 @@ form .profileModule .vipLv .vipname {
   top: 33%;
   -webkit-transform: scale(0.75);
           transform: scale(0.75);
-  background: url(https://banner.picasso12.com/desktop/img/event/worldcup/fixture-deco.svg);
+  background: url(../img/style-img/event/worldcup/fixture-deco.svg);
   background-repeat: no-repeat;
 }
 @media (min-width: 1700px) {
@@ -21803,7 +21169,7 @@ form .profileModule .vipLv .vipname {
   max-width: 1350px;
   height: 988px;
   margin: 21px auto 40px;
-  background: url(https://banner.picasso12.com/desktop/img/event/worldcup/arrow-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/event/worldcup/arrow-bg.png) no-repeat center/cover;
   -webkit-animation: breathe 1s alternate infinite;
           animation: breathe 1s alternate infinite;
 }
@@ -21913,7 +21279,7 @@ form .profileModule .vipLv .vipname {
   display: block;
   width: 20px;
   height: 20px;
-  background: url(https://banner.picasso12.com/desktop/img/event/worldcup/icon-fifa.svg) no-repeat center/cover;
+  background: url(../img/style-img/event/worldcup/icon-fifa.svg) no-repeat center/cover;
   position: absolute;
   left: -5px;
   top: 6px;
@@ -22117,7 +21483,7 @@ form .profileModule .vipLv .vipname {
   left: 0;
   width: 50px;
   height: 22px;
-  background: url(https://banner.picasso12.com/img/worldcup/ticket.png) no-repeat center/cover;
+  background: url(../img/style-img/event/worldcup/ticket.png) no-repeat center/cover;
 }
 .worldcupEvent .progressBar .progressItem.active .value {
   color: #02D2B8;
@@ -22216,7 +21582,7 @@ form .profileModule .vipLv .vipname {
   top: 7px;
   width: 72.5px;
   height: 12.5px;
-  background: url(https://banner.picasso12.com/desktop/img/event/worldcup/5deco.svg) no-repeat center/cover;
+  background: url(../img/style-img/event/worldcup/5deco.svg) no-repeat center/cover;
 }
 .worldcupEvent .info .subtitle:before {
   left: -85px;
@@ -22313,18 +21679,18 @@ form .profileModule .vipLv .vipname {
 }
 @-webkit-keyframes breathe {
   0% {
-    background: url(https://banner.picasso12.com/desktop/img/event/worldcup/arrow-bg.png) no-repeat center/cover;
+    background: url(../img/style-img/event/worldcup/arrow-bg.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.picasso12.com/desktop/img/event/worldcup/arrow-bgb.png) no-repeat center/cover;
+    background: url(../img/style-img/event/worldcup/arrow-bgb.png) no-repeat center/cover;
   }
 }
 @keyframes breathe {
   0% {
-    background: url(https://banner.picasso12.com/desktop/img/event/worldcup/arrow-bg.png) no-repeat center/cover;
+    background: url(../img/style-img/event/worldcup/arrow-bg.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.picasso12.com/desktop/img/event/worldcup/arrow-bgb.png) no-repeat center/cover;
+    background: url(../img/style-img/event/worldcup/arrow-bgb.png) no-repeat center/cover;
   }
 }
 @-webkit-keyframes deco {
@@ -22552,12 +21918,12 @@ form .profileModule .vipLv .vipname {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(https://banner.picasso12.com/desktop/img/event/angpao/bg-top.jpg) no-repeat top center, #990100;
+  background: url(../img/style-img/event/angpao/bg-top.jpg) no-repeat top center, #990100;
   margin-top: -1px;
 }
 .angpaoEvent .eventPage--bottom {
   min-width: 100%;
-  background: url(https://banner.picasso12.com/desktop/img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
+  background: url(../img/style-img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
   padding-top: 50px;
   padding-bottom: 30px;
 }
@@ -22625,7 +21991,7 @@ form .profileModule .vipLv .vipname {
   font-size: 22px;
   text-transform: uppercase;
   color: #fff;
-  background: url(https://banner.picasso12.com/desktop/img/event/angpao/btn.png) no-repeat top center/contain;
+  background: url(../img/style-img/event/angpao/btn.png) no-repeat top center/contain;
   width: 230px;
   height: 80px;
   line-height: 1;
@@ -22882,7 +22248,7 @@ form .profileModule .vipLv .vipname {
   display: block;
   width: 130px;
   height: 58px;
-  background-image: url("https://banner.picasso12.com/desktop/img/logo_en_w.png");
+  background-image: url("https://banner.picasso12.com/desktop/img/logo.png");
   background-size: 100%;
   background-repeat: no-repeat;
   -webkit-transition: ease 0.15s;
@@ -23260,7 +22626,7 @@ input[type=number] {
   width: 260px;
 }
 .lobby-content-item .img-wrapper .btn-container {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/lobby-hover.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/lobby-hover.png) no-repeat center/cover;
   position: absolute;
   z-index: 2;
   width: 260px;
@@ -23308,7 +22674,7 @@ input[type=number] {
 .lobby-content-item.under::before {
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/desktop/img/4.0/lobby-under.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/lobby-under.png) no-repeat center/cover;
   width: 260px;
   height: 260px;
   position: absolute;
@@ -23342,16 +22708,15 @@ input[type=number] {
           flex-direction: column;
 }
 .lobby-content.slots .top {
-  -webkit-box-shadow: 0 0 10px #eeeeee;
-          box-shadow: 0 0 10px #eeeeee;
   border-radius: 20px;
   padding: 35px;
+  background: #101010;
 }
 .lobby-content.slots .top .search-bar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-bottom: 1px solid #E9E9E9;
+  border-bottom: 1px solid #404648;
   padding-bottom: 18px;
   margin: 10px 80px 25px 15px;
 }
@@ -23362,9 +22727,10 @@ input[type=number] {
   border: none;
   margin-left: 2px;
   outline: none;
+  background: #101010;
 }
 .lobby-content.slots .top .search-input::-webkit-input-placeholder {
-  color: #bfbfbf;
+  color: #959292;
 }
 .lobby-content.slots .top .provider {
   height: 80px;
@@ -23379,14 +22745,16 @@ input[type=number] {
       flex-wrap: wrap;
 }
 .lobby-content.slots .top .provider-list-item {
+  letter-spacing: 0.8px;
+  font-weight: 400;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #C01D21;
+  color: #fff;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #F2F2F2;
+  background: #1F1F1F;
   width: 179px;
   height: 55px;
   padding-left: 15px;
@@ -23394,8 +22762,8 @@ input[type=number] {
   margin: 15px 0 0 15px;
 }
 .lobby-content.slots .top .provider-list-item > div:first-child {
-  -webkit-box-shadow: 0 0 5px gray;
-          box-shadow: 0 0 5px gray;
+  -webkit-box-shadow: 0 0 5px #fff;
+          box-shadow: 0 0 5px #fff;
   width: 35px;
   height: 35px;
   border-radius: 50px;
@@ -23414,22 +22782,23 @@ input[type=number] {
 .lobby-content.slots .top .provider-list-item:hover {
   cursor: pointer;
   color: white;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(33, 76, 152)), to(rgb(17, 34, 64)));
-  background: linear-gradient(180deg, rgb(33, 76, 152) 0%, rgb(17, 34, 64) 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#1E1E1E), to(#FF0000));
+  background: linear-gradient(to right, #1E1E1E 0%, #FF0000 100%);
 }
 .lobby-content.slots .top .provider-list-item.active {
   color: white;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(33, 76, 152)), to(rgb(17, 34, 64)));
-  background: linear-gradient(180deg, rgb(33, 76, 152) 0%, rgb(17, 34, 64) 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#1E1E1E), to(#FF0000));
+  background: linear-gradient(to right, #1E1E1E 0%, #FF0000 100%);
 }
 .lobby-content.slots .top .provider-list-item.under {
   position: relative;
+  background: black;
 }
 .lobby-content.slots .top .provider-list-item.under::after {
   position: absolute;
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/desktop/img/4.0/lobby-slots/under.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/lobby-slots/under.png) no-repeat center/cover;
   height: 40px;
   width: 40px;
   right: 75px;
@@ -23456,7 +22825,7 @@ input[type=number] {
 }
 .lobby-content.slots .top .provider button {
   position: absolute;
-  background: #CFCFCF;
+  background: #AEACAC;
   border-radius: 50px;
   padding: 15px;
   right: 5px;
@@ -23480,19 +22849,22 @@ input[type=number] {
   width: 1000px;
   margin: 30px auto 10px;
   padding: 10px 0 0;
-  border-bottom: 2px solid #EBEBEB;
+  border-bottom: 2px solid #1c1f20;
   position: relative;
 }
 .lobby-content.slots .select-bar > div {
   margin-bottom: -2px;
   padding-bottom: 20px;
+  color: #fff;
+  font-weight: 400;
 }
 .lobby-content.slots .select-bar > div.active {
-  border-bottom: 2px solid #FF6000;
-  color: #C01D21;
+  border-bottom: 2px solid #FF0000;
+  color: #FF0000;
+  font-weight: 700;
 }
 .lobby-content.slots .select-bar > div:hover {
-  color: #C01D21;
+  color: #FF0000;
   cursor: pointer;
 }
 .lobby-content.slots .slots-list {
@@ -23560,7 +22932,7 @@ input[type=number] {
   color: white;
 }
 .lobby-content.slots .slots-list-item .img-wrapper .btn-container .btn-play {
-  background: #FF7700;
+  background: #caa66f;
   margin-bottom: 15px;
 }
 .lobby-content.slots .slots-list-item .img-wrapper .btn-container .btn-demo {
@@ -23582,7 +22954,7 @@ input[type=number] {
   position: relative;
 }
 .lobby-content.slots .slots-list-item .details > div:first-child {
-  border: 1px solid #DCDCDC;
+  border: 1px solid #5a5a5a;
   width: 220px;
   margin-top: -40px;
   border-radius: 25px;
@@ -23606,22 +22978,22 @@ input[type=number] {
   margin-left: 12px;
 }
 .lobby-content.slots .slots-list-item .details > div > div:first-child {
-  color: #C01D21;
+  color: #fff;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 155px;
 }
 .lobby-content.slots .slots-list-item .details > div > div:last-child {
-  color: #929292;
+  color: #707a7f;
   font-size: 10px;
 }
 .lobby-content.slots .slots-list-item:hover {
   cursor: pointer;
 }
 .lobby-content.slots .slots-list-item:hover .details > div:first-child {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(62, 130, 249)), to(rgb(17, 34, 64)));
-  background: linear-gradient(180deg, rgb(62, 130, 249) 0%, rgb(17, 34, 64) 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#1E1E1E), to(#FF0000));
+  background: linear-gradient(to right, #1E1E1E 0%, #FF0000 100%);
   border: 0;
   width: 222px;
 }
@@ -23656,7 +23028,7 @@ input[type=number] {
 }
 .lobby-content.esports {
   width: 100%;
-  background: #EFEFEF;
+  background: #000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23709,7 +23081,7 @@ input[type=number] {
   top: 5px;
 }
 .lobby-title {
-  color: #C01D21;
+  color: #fff;
   margin-top: 15px;
   font-size: 20px;
 }
@@ -23727,7 +23099,7 @@ input[type=number] {
   position: relative;
 }
 .lobby .esports-game-list a .new-icon {
-  background: #FF7600;
+  background: #4B902E;
   border-radius: 50px;
   width: 50px;
   height: 50px;
@@ -23794,7 +23166,7 @@ input[type=number] {
   border-radius: 20px;
 }
 .lobby .new-icon {
-  background: #FF7600;
+  background: #4B902E;
   border-radius: 50px;
   width: 50px;
   height: 50px;
@@ -23839,7 +23211,7 @@ input[type=number] {
 .euro .wrapper {
   padding-top: 150px;
   min-height: 1900px;
-  background: #143CDB url(https://banner.picasso12.com/desktop/img/event/eurocup/top-bg.jpg) no-repeat bottom/cover;
+  background: #143CDB url(../img/style-img/event/eurocup/top-bg.jpg) no-repeat bottom/cover;
   position: relative;
 }
 @media (min-width: 2000px) {
@@ -23856,7 +23228,7 @@ input[type=number] {
   width: 100%;
   height: 512px;
   z-index: 0;
-  background: url(https://banner.picasso12.com/desktop/img/event/eurocup/top-item.png) no-repeat center/cover;
+  background: url(../img/style-img/event/eurocup/top-item.png) no-repeat center/cover;
 }
 @media (min-width: 2000px) {
   .euro .wrapper::before {
@@ -24149,7 +23521,7 @@ input[type=number] {
   top: -30px;
   width: 55px;
   height: 25px;
-  background: url(https://banner.picasso12.com/desktop/img/event/eurocup/tickets-1.png) no-repeat center/cover;
+  background: url(../img/style-img/event/eurocup/tickets-1.png) no-repeat center/cover;
 }
 .euro-mission .progressBar .progressItem.active:after {
   background: #F9BF4B;
@@ -24184,7 +23556,7 @@ input[type=number] {
   height: 9px;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  background: url(https://banner.picasso12.com/desktop/img/event/eurocup/frame.png) no-repeat center/cover;
+  background: url(../img/style-img/event/eurocup/frame.png) no-repeat center/cover;
 }
 .euro-poll {
   display: -webkit-box;
@@ -24352,7 +23724,7 @@ input[type=number] {
 .euro .inputBox-event .dropdown > .btn:after {
   width: 22px;
   height: 22px;
-  background: url(https://banner.picasso12.com/desktop/img/event/eurocup/arrow-icon.png) no-repeat center/cover;
+  background: url(../img/style-img/event/eurocup/arrow-icon.png) no-repeat center/cover;
   border: 0;
 }
 .euro .inputBox-event .dropdown .dropdown-container {
@@ -24788,7 +24160,7 @@ input[type=number] {
   transition: 0.3s;
 }
 .euro-fixture {
-  background: url(https://banner.picasso12.com/desktop/img/event/eurocup/fixture-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/event/eurocup/fixture-bg.png) no-repeat center/cover;
   min-width: 1400px;
   min-height: 1000px;
   position: relative;
@@ -25219,7 +24591,7 @@ input[type=number] {
 }
 .milestones-home {
   height: 100vh;
-  background: url(https://banner.picasso12.com/desktop/img/milestones/top-bg.jpg) no-repeat center/cover;
+  background: url(../img/style-img/milestones/top-bg.jpg) no-repeat center/cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25363,7 +24735,7 @@ input[type=number] {
 .milestones .milestones-swiper .swiper-slide.two, .milestones .milestones-swiper .swiper-slide.three, .milestones .milestones-swiper .swiper-slide.four, .milestones .milestones-swiper .swiper-slide.five, .milestones .milestones-swiper .swiper-slide.six {
   height: 100vh;
   width: 100%;
-  background: url(https://banner.picasso12.com/desktop/img/milestones/two-bg.jpg) no-repeat center/cover;
+  background: url(../img/style-img/milestones/two-bg.jpg) no-repeat center/cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25521,7 +24893,7 @@ input[type=number] {
 .milestones .milestones-swiper .swiper-slide.three {
   height: 100vh;
   width: 100%;
-  background: url(https://banner.picasso12.com/desktop/img/milestones/three-bg.jpg) no-repeat center/cover;
+  background: url(../img/style-img/milestones/three-bg.jpg) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-slide.three .page-item > div:first-child {
   color: #FF6000;
@@ -25558,7 +24930,7 @@ input[type=number] {
 .milestones .milestones-swiper .swiper-slide.four {
   height: 100vh;
   width: 100%;
-  background: url(https://banner.picasso12.com/desktop/img/milestones/four-bg.jpg) no-repeat center/cover;
+  background: url(../img/style-img/milestones/four-bg.jpg) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-slide.four .page-item > div:first-child {
   color: #4747AE;
@@ -25603,7 +24975,7 @@ input[type=number] {
 .milestones .milestones-swiper .swiper-slide.five {
   height: 100vh;
   width: 100%;
-  background: url(https://banner.picasso12.com/desktop/img/milestones/five-bg.jpg) no-repeat center/cover;
+  background: url(../img/style-img/milestones/five-bg.jpg) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-slide.five .page-item > div:first-child {
   color: #AE0000;
@@ -25647,7 +25019,7 @@ input[type=number] {
 .milestones .milestones-swiper .swiper-slide.six {
   height: 100vh;
   width: 100%;
-  background: url(https://banner.picasso12.com/desktop/img/milestones/six-bg.jpg) no-repeat center/cover;
+  background: url(../img/style-img/milestones/six-bg.jpg) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-slide.six .page-item > div:first-child {
   color: #01156D;
@@ -25690,7 +25062,7 @@ input[type=number] {
   height: 50px;
 }
 .milestones .milestones-swiper .swiper-button-next {
-  background: url(https://banner.picasso12.com/desktop/img/milestones/right-btn.png) no-repeat center/cover;
+  background: url(../img/style-img/milestones/right-btn.png) no-repeat center/cover;
   top: 90%;
   right: 35%;
 }
@@ -25700,7 +25072,7 @@ input[type=number] {
   }
 }
 .milestones .milestones-swiper .swiper-button-prev {
-  background: url(https://banner.picasso12.com/desktop/img/milestones/left-btn.png) no-repeat center/cover;
+  background: url(../img/style-img/milestones/left-btn.png) no-repeat center/cover;
   top: 90%;
   left: 58%;
 }
@@ -25719,7 +25091,7 @@ input[type=number] {
   display: flex;
 }
 .exclusion-title::before {
-  background: url(https://banner.picasso12.com/desktop/img/4.0/exclusion-icon.svg) no-repeat center/100%;
+  background: url(../img/style-img/4.0/exclusion-icon.svg) no-repeat center/100%;
   display: block;
   content: "";
   width: 31px;
@@ -25785,7 +25157,7 @@ input[type=number] {
 .retention {
   background: #0f1f3b;
   padding: 200px 0 150px;
-  background: url(https://banner.picasso12.com/desktop/img/event/retention/top-bg.jpg) no-repeat top/cover;
+  background: url(../img/style-img/event/retention/top-bg.jpg) no-repeat top/cover;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -25838,7 +25210,7 @@ input[type=number] {
   top: 900px;
 }
 .retention-wrapper .top-btn {
-  background: url(https://banner.picasso12.com/desktop/img/event/retention/btn-bg.png) no-repeat center/100%;
+  background: url(../img/style-img/event/retention/btn-bg.png) no-repeat center/100%;
   width: 350px;
   height: 200px;
   display: -webkit-box;
@@ -25889,7 +25261,7 @@ input[type=number] {
 }
 .retention-wrapper .bonus-list .title > div:first-child {
   color: white;
-  background: url(https://banner.picasso12.com/desktop/img/event/retention/title-bg.png) no-repeat center/100%;
+  background: url(../img/style-img/event/retention/title-bg.png) no-repeat center/100%;
   padding: 20px 0 3px 40px;
   font-size: 25px;
   letter-spacing: 1px;
@@ -26293,7 +25665,7 @@ input[type=number] {
   text-transform: uppercase;
 }
 .olympic-top {
-  background: url(https://banner.picasso12.com/desktop/img/event/olympic/background-a.jpg) no-repeat center/cover;
+  background: url(../img/style-img/event/olympic/background-a.jpg) no-repeat center/cover;
   position: relative;
 }
 .olympic-top-logo {
@@ -26402,7 +25774,7 @@ input[type=number] {
 .olympic-center .tasks-content .progress-title > div:last-child::after {
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/desktop/img/event/olympic/arrow.png) no-repeat center/cover;
+  background: url(../img/style-img/event/olympic/arrow.png) no-repeat center/cover;
   width: 8px;
   height: 13px;
   margin: 2px 0 0 10px;
@@ -26472,7 +25844,7 @@ input[type=number] {
 .olympic-center .tasks-content .progress-box button::after {
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/desktop/img/event/olympic/arrow.png) no-repeat center/cover;
+  background: url(../img/style-img/event/olympic/arrow.png) no-repeat center/cover;
   width: 8px;
   height: 13px;
   margin: 0 0 0 10px;
@@ -26531,7 +25903,7 @@ input[type=number] {
   position: absolute;
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/desktop/img/event/olympic/gold-medal.png) no-repeat center/cover;
+  background: url(../img/style-img/event/olympic/gold-medal.png) no-repeat center/cover;
   width: 360px;
   height: 360px;
   top: -200px;

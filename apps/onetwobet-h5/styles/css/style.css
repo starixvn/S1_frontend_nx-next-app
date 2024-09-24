@@ -11104,157 +11104,6 @@ span.important {
   font-weight: bold;
 }
 
-.jpot {
-  position: relative;
-  cursor: pointer;
-  margin: 13vw 2vw 7vw;
-  border-radius: 1vw;
-  height: 37vw;
-  background: url(../img/style-img/homepage/jpotbg-a.png) no-repeat 100%/cover;
-}
-.jpot.active {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-  pointer-events: none;
-}
-.jpot.active .jpot-btn,
-.jpot.active .number {
-  -webkit-filter: brightness(0.7);
-          filter: brightness(0.7);
-}
-.jpot.active .under {
-  display: block;
-}
-.jpot .under {
-  display: none;
-  position: absolute;
-  right: 2vw;
-  bottom: 3vw;
-  font-size: 3vw;
-  color: #fff;
-  -webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.9));
-          filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.9));
-}
-.jpot img {
-  width: 100%;
-}
-.jpot > .number {
-  background: url(../img/style-img/homepage/jpot-title.png) no-repeat;
-  position: absolute;
-  width: 67vw;
-  height: 9.6vw;
-  top: 27.5vw;
-  right: 0;
-  margin: 0;
-  line-height: 1.65;
-  font-weight: bold;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.jpot > .number .numberRow-module {
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-.jpot > .number .numberRow-module .numberRow {
-  width: 2.5vw;
-  position: relative;
-}
-.jpot > .number .numberRow-module .numberRow > div {
-  height: 106.6vw;
-  position: absolute;
-  top: 0;
-}
-.jpot > .number .numberRow-module .numberRow > div > div {
-  height: 5.3335vw;
-}
-.jpot > .number > div:first-child {
-  font-size: 4vw;
-  font-weight: bold;
-  margin-left: 14vw;
-}
-.jpot > .number > div:first-child::after {
-  content: "";
-  display: block;
-  position: absolute;
-  background: url(../img/style-img/homepage/coin.png) no-repeat 70%;
-  width: 10vw;
-  height: 10vw;
-  top: calc(50% - 5vw);
-  left: 5vw;
-}
-.jpot > .number > div:last-child {
-  font-size: 4vw;
-  margin-right: 10px;
-}
-.jpot .jpot-item img {
-  width: 70%;
-  display: block;
-  position: absolute;
-  top: -23vw;
-  right: -6vw;
-}
-.jpot .jpot-btn {
-  width: 40%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  padding-bottom: 10vw;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-.jpot .jpot-btn button {
-  font-size: 3vw;
-  font-weight: bold;
-  background: -webkit-gradient(linear, left top, right top, color-stop(30%, #ff5e00), to(#f39519));
-  background: linear-gradient(90deg, #ff5e00 30%, #f39519 100%);
-  padding: 0 3vw;
-  height: 6vw;
-  border-radius: 5vw;
-}
-
-@-webkit-keyframes jpot {
-  0% {
-    background: url(../img/style-img/jpotbg.png) no-repeat center/cover;
-  }
-  50% {
-    background: url(../img/style-img/jpotbg-a.png) no-repeat center/cover;
-  }
-  100% {
-    background: url(../img/style-img/jpotbg.png) no-repeat center/cover;
-  }
-}
-
-@keyframes jpot {
-  0% {
-    background: url(../img/style-img/jpotbg.png) no-repeat center/cover;
-  }
-  50% {
-    background: url(../img/style-img/jpotbg-a.png) no-repeat center/cover;
-  }
-  100% {
-    background: url(../img/style-img/jpotbg.png) no-repeat center/cover;
-  }
-}
 .swithModule {
   text-align: center;
   color: #fff !important;
@@ -15600,14 +15449,6 @@ input[type=number] {
   pointer-events: none;
   background: url(../img/style-img/event/eurocup/logo-euro-ball.gif) center/cover;
 }
-.header-module .header-logo.eurocup + .splogo {
-  -webkit-animation: eurologo 7.5s running infinite 0.5s;
-          animation: eurologo 7.5s running infinite 0.5s;
-}
-.header-module .header-logo.olympic + .splogo {
-  -webkit-animation: olympic 7.5s running infinite 0.5s;
-          animation: olympic 7.5s running infinite 0.5s;
-}
 .header-module .header-logo img {
   display: block;
   width: 25vw;
@@ -15620,86 +15461,6 @@ input[type=number] {
   width: 6vw;
 }
 
-.splogo {
-  position: absolute;
-  left: 30vw;
-  bottom: 1.5vw;
-  width: 10vw !important;
-  height: 10vw !important;
-  background: url(../img/style-img/4.0/sp-aston-villa.png) center/cover;
-  -webkit-clip-path: none !important;
-          clip-path: none !important;
-}
-
-@-webkit-keyframes splogo {
-  0% {
-    background: url(../img/style-img/sp-sevilla.png) center/cover;
-    opacity: 0.1;
-  }
-  5% {
-    background: url(../img/style-img/sp-sevilla.png) center/cover;
-    opacity: 1;
-  }
-  45% {
-    background: url(../img/style-img/sp-sevilla.png) center/cover;
-    opacity: 1;
-  }
-  50% {
-    background: url(../img/style-img/sp-sevilla.png) center/cover;
-    opacity: 0;
-  }
-  51% {
-    background: url(../img/style-img/sp-inter-milan.png) center/cover;
-    opacity: 0.1;
-  }
-  56% {
-    background: url(../img/style-img/sp-inter-milan.png) center/cover;
-    opacity: 1;
-  }
-  95% {
-    background: url(../img/style-img/sp-inter-milan.png) center/cover;
-    opacity: 1;
-  }
-  100% {
-    background: url(../img/style-img/sp-inter-milan.png) center/cover;
-    opacity: 0;
-  }
-}
-
-@keyframes splogo {
-  0% {
-    background: url(../img/style-img/sp-sevilla.png) center/cover;
-    opacity: 0.1;
-  }
-  5% {
-    background: url(../img/style-img/sp-sevilla.png) center/cover;
-    opacity: 1;
-  }
-  45% {
-    background: url(../img/style-img/sp-sevilla.png) center/cover;
-    opacity: 1;
-  }
-  50% {
-    background: url(../img/style-img/sp-sevilla.png) center/cover;
-    opacity: 0;
-  }
-  51% {
-    background: url(../img/style-img/sp-inter-milan.png) center/cover;
-    opacity: 0.1;
-  }
-  56% {
-    background: url(../img/style-img/sp-inter-milan.png) center/cover;
-    opacity: 1;
-  }
-  95% {
-    background: url(../img/style-img/sp-inter-milan.png) center/cover;
-    opacity: 1;
-  }
-  100% {
-    background: url(../img/style-img/sp-inter-milan.png) center/cover;
-    opacity: 0;
-  }
-}
 @-webkit-keyframes eurologo {
   0% {
     background: url(../img/style-img/event/eurocup/euro-logo.png) center/cover;
@@ -15710,6 +15471,7 @@ input[type=number] {
     opacity: 1;
   }
 }
+
 @keyframes eurologo {
   0% {
     background: url(../img/style-img/event/eurocup/euro-logo.png) center/cover;
