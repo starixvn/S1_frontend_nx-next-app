@@ -1,5 +1,5 @@
 import { SpinButton } from '@nx-next-app/components/H0001'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { useWithdrawal } from '@nx-next-app/operations'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { numberFormat } from '@nx-next-app/utils'
@@ -8,6 +8,7 @@ import { useTranslation } from 'next-i18next'
 
 const WalletInfo = () => {
 	const { t } = useTranslation()
+	const { getBannerUrl } = useGlobalData()
 	const { ALLOWED_CURRENCIES, VIP_CLUB_IMAGES } = useStaticData()
 	const {
 		userInfo: { userLevel, currencyId, userName },
@@ -21,7 +22,10 @@ const WalletInfo = () => {
 		<>
 			{userLevelImageInfo?.url ? (
 				<div className='vip_mark'>
-					<img src={userLevelImageInfo?.url} alt={userLevelImageInfo?.alt} />
+					<img
+						src={getBannerUrl(userLevelImageInfo?.url)}
+						alt={userLevelImageInfo?.alt}
+					/>
 					{includes(
 						ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],
 						currencyId

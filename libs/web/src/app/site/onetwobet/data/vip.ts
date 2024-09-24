@@ -12,32 +12,32 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY_DESKTOP = (
 	langId: string | number
 ): IBannerByCurrencyData[] => [
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vintage-${langId}.png`,
+		url: `/desktop/img/vip1-banner-${langId}.png`,
 		level: VipLevelEnum.VINTAGE,
 		levelText: 'vintage',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/silver-${langId}.png`,
+		url: `/desktop/img/vip2-banner-${langId}.png`,
 		level: VipLevelEnum.SILVER,
 		levelText: 'silver',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/gold-${langId}.png`,
+		url: `/desktop/img/vip3-banner-${langId}.png`,
 		level: VipLevelEnum.GOLD,
 		levelText: 'gold',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/titanium-${langId}.png`,
+		url: `/desktop/img/vip4-banner-${langId}.png`,
 		level: VipLevelEnum.TITANIUM,
 		levelText: 'titanium',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/diamond-${langId}.png`,
+		url: `/desktop/img/vip5-banner-${langId}.png`,
 		level: VipLevelEnum.DIAMOND,
 		levelText: 'diamond',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/nova-${langId}.png`,
+		url: `/desktop/img/vip6-banner-${langId}.png`,
 		level: VipLevelEnum.Highest,
 		levelText: 'nova',
 	},
@@ -47,44 +47,32 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
 	langId: string | number
 ): IBannerByCurrencyData[] => [
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/vintage${
-			langId === 'en' ? '' : `-${langId}`
-		}.png`,
+		url: `/h5/img/vip1-banner-${langId}.png`,
 		level: VipLevelEnum.VINTAGE,
 		levelText: 'vintage',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/silver${
-			langId === 'en' ? '' : `-${langId}`
-		}.png`,
+		url: `/h5/img/vip2-banner-${langId}.png`,
 		level: VipLevelEnum.SILVER,
 		levelText: 'silver',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/gold${
-			langId === 'en' ? '' : `-${langId}`
-		}.png`,
+		url: `/h5/img/vip3-banner-${langId}.png`,
 		level: VipLevelEnum.GOLD,
 		levelText: 'gold',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/titanium${
-			langId === 'en' ? '' : `-${langId}`
-		}.png`,
+		url: `/h5/img/vip4-banner-${langId}.png`,
 		level: VipLevelEnum.TITANIUM,
 		levelText: 'titanium',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/diamond${
-			langId === 'en' ? '' : `-${langId}`
-		}.png`,
+		url: `/h5/img/vip5-banner-${langId}.png`,
 		level: VipLevelEnum.DIAMOND,
 		levelText: 'diamond',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/nova${
-			langId === 'en' ? '' : `-${langId}`
-		}.png`,
+		url: `/h5/img/vip6-banner-${langId}.png`,
 		level: VipLevelEnum.Highest,
 		levelText: 'nova',
 	},
@@ -94,67 +82,67 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
 // * settingDisplayKey 目前只有支援 h5
 export const VIP_CLUB_IMAGES: IImageData[] = [
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip1.png`,
+		}/img/vip1.svg`,
 		displayKey: 'Label_Vip_Vintage_Club',
 		settingDisplayKey: 'Label_VIP_Vintage',
-		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-vintage.png`,
+		headerUrl: `/desktop/img/4.0/header-vintage.png`,
 		levelTabsName: 'vintage',
 		level: VipLevelEnum.VINTAGE,
 		alt: 'vip01',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip2.png`,
+		}/img/vip2.svg`,
 		displayKey: 'Label_Vip_Silver_Club',
 		settingDisplayKey: 'Label_VIP_Silver',
-		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-silver.png`,
+		headerUrl: `/desktop/img/4.0/header-silver.png`,
 		levelTabsName: 'silver',
 		level: VipLevelEnum.SILVER,
 		alt: 'vip02',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip3.png`,
+		}/img/vip3.svg`,
 		displayKey: 'Label_Vip_Gold_Club',
 		settingDisplayKey: 'Label_VIP_Gold',
-		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-gold.png`,
+		headerUrl: `/desktop/img/4.0/header-gold.png`,
 		levelTabsName: 'gold',
 		level: VipLevelEnum.GOLD,
 		alt: 'vip03',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip4.png`,
+		}/img/vip4.svg`,
 		displayKey: 'Label_Vip_Titanium_Club',
 		settingDisplayKey: 'Label_VIP_Titanium',
-		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-titanium.png`,
+		headerUrl: `/desktop/img/4.0/header-titanium.png`,
 		levelTabsName: 'titanium',
 		level: VipLevelEnum.TITANIUM,
 		alt: 'vip04',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip5.png`,
+		}/img/vip5.svg`,
 		displayKey: 'Label_Vip_Diamond_Club',
 		settingDisplayKey: 'Label_VIP_Diamond',
-		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-diamond.png`,
+		headerUrl: `/desktop/img/4.0/header-diamond.png`,
 		levelTabsName: 'diamond',
 		level: VipLevelEnum.DIAMOND,
 		alt: 'vip05',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip6.png`,
+		}/img/vip6.svg`,
 		displayKey: 'Label_Nova_Club',
 		settingDisplayKey: 'Label_VIP_Nova88',
-		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-nova.png`,
+		headerUrl: `/desktop/img/4.0/header-nova.png`,
 		levelTabsName: 'nova',
 		level: VipLevelEnum.Highest,
 		alt: 'vip06',

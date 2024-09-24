@@ -1,5 +1,5 @@
 import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/operations'
 import {
 	useGetCustVIPProgressQuery,
@@ -14,7 +14,7 @@ import Link from 'next/link'
 
 const Profile = () => {
 	const { t } = useTranslation()
-
+	const { getBannerUrl } = useGlobalData()
 	const {
 		userInfo: { currencyId, langId, userName, currencyName },
 	} = useAuth()
@@ -202,7 +202,10 @@ const Profile = () => {
 						)}
 					</div>
 					<div className='right'>
-						<img src={headerUrl as string} alt={levelTabsName as string} />
+						<img
+							src={getBannerUrl(headerUrl) as string}
+							alt={levelTabsName as string}
+						/>
 						{!isVipLevelHighest && (
 							<>
 								<div className='dot-progress'>
@@ -211,7 +214,7 @@ const Profile = () => {
 									</div>
 								</div>
 								<img
-									src={nextVipLevelInfo?.headerUrl as string}
+									src={getBannerUrl(nextVipLevelInfo?.headerUrl) as string}
 									alt={nextVipLevelInfo?.levelTabsName as string}
 								/>
 							</>
