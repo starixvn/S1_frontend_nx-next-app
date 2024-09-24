@@ -38,7 +38,7 @@ const Withdrawal = () => {
 
 	useEffect(() => {
 		checkUserInfo({
-			onSuccessCallback: () =>
+			onInfoRequired: () =>
 				modal.open(<UpdateProfileModal prevPage={paths.withdrawal.root} />),
 			optionalPhoneVerifiedCallback: () => {
 				// INR 才回傳 PhoneVerifiedCallback

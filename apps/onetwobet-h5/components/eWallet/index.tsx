@@ -25,7 +25,7 @@ const EWallet = () => {
 
 	useEffect(() => {
 		checkUserInfo({
-			onSuccessCallback: () =>
+			onInfoRequired: () =>
 				modal.open(<UpdateProfileModal prevPage={paths.deposit.root} />),
 		})
 	}, [])
