@@ -5496,7 +5496,7 @@ main .gameList .icon-new {
 .reject .infobtn,
 .cancelled .infobtn,
 .approved .infobtn {
-  background: url(../img/style-img/notice.svg) no-repeat center/cover;
+  background: url(../img/style-img/notice.webp) no-repeat center/cover;
   width: 4vw;
   height: 4vw;
   margin-left: 1vw;
@@ -8266,7 +8266,7 @@ span.important {
 .refer .referinfo-step .icon::after {
   content: "";
   display: block;
-  background: url(../img/style-img/refer-dashLine.svg) no-repeat center/2vw 10vw;
+  background: url(../img/style-img/refer-dashLine.webp) no-repeat center/2vw 10vw;
   padding: 1vw 0;
   width: 2vw;
   height: 10vw;
@@ -8318,7 +8318,7 @@ span.important {
 .refer .referinfo-list .inputcopy::after {
   content: "";
   display: inline-block;
-  background: url(../img/style-img/icon-copy.svg) no-repeat center/5vw 5vw;
+  background: url(../img/style-img/icon-copy.webp) no-repeat center/5vw 5vw;
   width: 5vw;
   height: 5vw;
   position: absolute;
@@ -9109,28 +9109,28 @@ span.important {
   background: #CCCCCC;
 }
 .vip .medal-item .medal-icon.vip1 {
-  -webkit-mask: url("../img/style-img/vip1.svg") no-repeat center/contain;
-          mask: url("../img/style-img/vip1.svg") no-repeat center/contain;
+  -webkit-mask: url("../img/style-img/vip1.webp") no-repeat center/contain;
+          mask: url("../img/style-img/vip1.webp") no-repeat center/contain;
 }
 .vip .medal-item .medal-icon.vip2 {
-  -webkit-mask: url("../img/style-img/vip2.svg") no-repeat center/contain;
-          mask: url("../img/style-img/vip2.svg") no-repeat center/contain;
+  -webkit-mask: url("../img/style-img/vip2.webp") no-repeat center/contain;
+          mask: url("../img/style-img/vip2.webp") no-repeat center/contain;
 }
 .vip .medal-item .medal-icon.vip3 {
-  -webkit-mask: url("../img/style-img/vip3.svg") no-repeat center/contain;
-          mask: url("../img/style-img/vip3.svg") no-repeat center/contain;
+  -webkit-mask: url("../img/style-img/vip3.webp") no-repeat center/contain;
+          mask: url("../img/style-img/vip3.webp") no-repeat center/contain;
 }
 .vip .medal-item .medal-icon.vip4 {
-  -webkit-mask: url("../img/style-img/vip4.svg") no-repeat center/contain;
-          mask: url("../img/style-img/vip4.svg") no-repeat center/contain;
+  -webkit-mask: url("../img/style-img/vip4.webp") no-repeat center/contain;
+          mask: url("../img/style-img/vip4.webp") no-repeat center/contain;
 }
 .vip .medal-item .medal-icon.vip5 {
-  -webkit-mask: url("../img/style-img/vip5.svg") no-repeat center/contain;
-          mask: url("../img/style-img/vip5.svg") no-repeat center/contain;
+  -webkit-mask: url("../img/style-img/vip5.webp") no-repeat center/contain;
+          mask: url("../img/style-img/vip5.webp") no-repeat center/contain;
 }
 .vip .medal-item .medal-icon.vip6 {
-  -webkit-mask: url("../img/style-img/vip6.svg") no-repeat center/contain;
-          mask: url("../img/style-img/vip6.svg") no-repeat center/contain;
+  -webkit-mask: url("../img/style-img/vip6.webp") no-repeat center/contain;
+          mask: url("../img/style-img/vip6.webp") no-repeat center/contain;
 }
 .vip .medal-item.active {
   background: #fff;
@@ -13415,7 +13415,7 @@ span.important {
   display: block;
   width: 4vw;
   height: 4vw;
-  background: url(../img/style-img/event/worldcup/icon-fifa.svg) no-repeat center/cover;
+  background: url(../img/style-img/event/worldcup/icon-fifa.webp) no-repeat center/cover;
   position: absolute;
   left: -0.5vw;
   top: 1.05vw;
@@ -14004,7 +14004,7 @@ span.important {
   top: 2vw;
   width: 13vw;
   height: 2vw;
-  background: url(../img/style-img/event/worldcup/5deco.svg) no-repeat center/cover;
+  background: url(../img/style-img/event/worldcup/5deco.webp) no-repeat center/cover;
 }
 .worldcupEvent .info .subtitle:before {
   left: -15vw;
@@ -16879,7 +16879,7 @@ main.casino .banner {
 .menu-bottom-item .info::after {
   display: block;
   content: "";
-  background: url(../img/style-img/4.0/down.svg) no-repeat center/100%;
+  background: url(../img/style-img/4.0/down.webp) no-repeat center/100%;
   width: 3vw;
   height: 3vw;
   margin-left: 15vw;
@@ -17017,7 +17017,7 @@ main.casino .banner {
   border: 0;
 }
 .menu-bottom-item.active .info::after {
-  background: url(../img/style-img/4.0/up.svg) no-repeat center/100%;
+  background: url(../img/style-img/4.0/up.webp) no-repeat center/100%;
 }
 .menu-bottom-item.active .option {
   display: block;
@@ -17578,7 +17578,7 @@ input[type=number] .btn-logout {
 .dragonegg-event .event-back .icon-back::after {
   content: "";
   display: inline-block;
-  background: url(../img/style-img/event/dragonegg/icon-back.svg) no-repeat center/cover;
+  background: url(../img/style-img/event/dragonegg/icon-back.webp) no-repeat center/cover;
   width: 2vw;
   height: 3vw;
   position: absolute;
@@ -18180,7 +18180,7 @@ input[type=number] .btn-logout {
 #popup.dragonegg-pop .close-btn::after {
   content: "";
   display: block;
-  background: url(../img/style-img/event/dragonegg/icon-close.svg) no-repeat center/cover;
+  background: url(../img/style-img/event/dragonegg/icon-close.webp) no-repeat center/cover;
   width: 6vw;
   height: 6vw;
   position: absolute;
@@ -18483,7 +18483,7 @@ input[type=number] .btn-logout {
 #popup.dragonegg-result-pop .close-btn::after {
   content: "";
   display: block;
-  background: url(../img/style-img/event/dragonegg/icon-close.svg) no-repeat center/cover;
+  background: url(../img/style-img/event/dragonegg/icon-close.webp) no-repeat center/cover;
   width: 6vw;
   height: 6vw;
   position: absolute;

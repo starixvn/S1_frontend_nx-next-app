@@ -1,9 +1,9 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { PRODUCTS, paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
+import type { IMergedMenuData } from '@nx-next-app/operations'
 import {
+	IDynamicSubMenuItem,
 	LobbyCategoryEnum,
 	MainMenuIcon,
 	MenuActionTypeEnum,

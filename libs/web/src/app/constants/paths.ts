@@ -116,6 +116,12 @@ export const paths = {
 	lottery: {
 		root: '/lottery',
 	},
+	numberGame: {
+		root: '/numberGame',
+	},
+	keno: {
+		root: '/keno',
+	},
 	setting: {
 		root: '/setting',
 	},

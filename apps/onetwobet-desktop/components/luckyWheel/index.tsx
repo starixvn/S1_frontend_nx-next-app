@@ -1,4 +1,5 @@
-import { Img, Loading, SpinButton } from '@nx-next-app/components/D0001'
+import { Img } from '@12b-desktop/components/common'
+import { Loading, SpinButton } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'

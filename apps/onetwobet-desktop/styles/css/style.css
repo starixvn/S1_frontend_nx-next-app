@@ -6134,7 +6134,7 @@ input[type=file] {
           align-items: center;
 }
 .list .listBody .approved .infobtn, .list .listBody .pending .infobtn, .list .listBody .reject .infobtn, .list .listBody .cancel .infobtn {
-  background: url(../img/style-img/notice.svg) no-repeat center/cover;
+  background: url(../img/style-img/notice.webp) no-repeat center/cover;
   width: 15px;
   height: 15px;
   margin-left: 1px;
@@ -12577,7 +12577,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .rightModule .refer-history::after {
   content: "";
-  background: url(../img/style-img/icon-right.svg) no-repeat center/12px 12px;
+  background: url(../img/style-img/icon-right.webp) no-repeat center/12px 12px;
   display: inline-block;
   width: 12px;
   height: 12px;
@@ -12690,7 +12690,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .rightModule .refer .referinfo-step .icon::after {
   content: "";
   display: block;
-  background: url(../img/style-img/refer-dashLine.svg) no-repeat center;
+  background: url(../img/style-img/refer-dashLine.webp) no-repeat center;
   padding: 5px 0px;
   width: 3px;
   height: 45px;
@@ -12740,7 +12740,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .rightModule .refer .referinfo-list .inputcopy::after {
   content: "";
   display: inline-block;
-  background: url(../img/style-img/icon-copy.svg) no-repeat center/20px 20px;
+  background: url(../img/style-img/icon-copy.webp) no-repeat center/20px 20px;
   width: 20px;
   height: 20px;
   position: absolute;
@@ -12751,7 +12751,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   transition: 0.3s;
 }
 .rightModule .refer .referinfo-list .inputcopy:hover::after {
-  background: url(../img/style-img/icon-copy-1.svg) no-repeat center/20px 20px;
+  background: url(../img/style-img/icon-copy-1.webp) no-repeat center/20px 20px;
 }
 .rightModule .refer .referinfo-list-qr {
   width: 90px;
@@ -21172,7 +21172,7 @@ form .profileModule .vipLv .vipname {
   top: 33%;
   -webkit-transform: scale(0.75);
           transform: scale(0.75);
-  background: url(../img/style-img/event/worldcup/fixture-deco.svg);
+  background: url(../img/style-img/event/worldcup/fixture-deco.webp);
   background-repeat: no-repeat;
 }
 @media (min-width: 1700px) {
@@ -21459,7 +21459,7 @@ form .profileModule .vipLv .vipname {
   display: block;
   width: 20px;
   height: 20px;
-  background: url(../img/style-img/event/worldcup/icon-fifa.svg) no-repeat center/cover;
+  background: url(../img/style-img/event/worldcup/icon-fifa.webp) no-repeat center/cover;
   position: absolute;
   left: -5px;
   top: 6px;
@@ -21762,7 +21762,7 @@ form .profileModule .vipLv .vipname {
   top: 7px;
   width: 72.5px;
   height: 12.5px;
-  background: url(../img/style-img/event/worldcup/5deco.svg) no-repeat center/cover;
+  background: url(../img/style-img/event/worldcup/5deco.webp) no-repeat center/cover;
 }
 .worldcupEvent .info .subtitle:before {
   left: -85px;
@@ -25271,7 +25271,7 @@ input[type=number] {
   display: flex;
 }
 .exclusion-title::before {
-  background: url(../img/style-img/4.0/exclusion-icon.svg) no-repeat center/100%;
+  background: url(../img/style-img/4.0/exclusion-icon.webp) no-repeat center/100%;
   display: block;
   content: "";
   width: 31px;
