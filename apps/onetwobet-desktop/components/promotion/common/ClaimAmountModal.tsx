@@ -1,8 +1,8 @@
-import { Form, InputBox, Select } from '@nx-next-app/components/D0001'
+import { Form, InputBox, Select } from '@12b-desktop/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
-import { ISetClaimPromotionArgs } from '@nx-next-app/service'
-import { PromotionTypeEnum, SelectOptionType } from '@nx-next-app/types'
+import { IClaimAmountModalProps } from '@nx-next-app/operations'
+import { PromotionTypeEnum } from '@nx-next-app/types'
 import {
 	numberFormat,
 	replaceStringToNumber,
@@ -19,17 +19,7 @@ const ClaimAmountModal = ({
 	maxAmount,
 	onSetClaimPromotion,
 	tierAmountListSelectOptions,
-}: {
-	bonusCode: string
-	promotionType: PromotionTypeEnum
-	minAmount: number
-	maxAmount: number
-	onSetClaimPromotion: ({
-		bonusCode,
-		lockedAmount,
-	}: Pick<ISetClaimPromotionArgs, 'bonusCode' | 'lockedAmount'>) => void
-	tierAmountListSelectOptions: SelectOptionType[]
-}) => {
+}: IClaimAmountModalProps) => {
 	const { t } = useTranslation()
 	const {
 		userInfo: { currencyId },
@@ -126,10 +116,10 @@ const ClaimAmountModal = ({
 					)}
 
 					<div className='btnGroup'>
-						<button className='btn-cancel' onClick={closeModal}>
+						<button className='btn-cancel ghost' onClick={closeModal}>
 							{t('Label_General_Cancel')}
 						</button>
-						<button type='submit' className='btn-check'>
+						<button type='submit' className='btn-check primary'>
 							{t('Label_Promotion_JoinNow')}
 						</button>
 					</div>

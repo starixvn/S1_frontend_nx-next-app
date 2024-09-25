@@ -65,6 +65,253 @@ img {
   height: auto;
 }
 
+.preloader {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-image: radial-gradient(center, circle closest-side, rgb(20, 20, 20) 10%, rgba(20, 20, 20, 0) 60%);
+  background-image: -o-radial-gradient(center, circle closest-side, rgb(20, 20, 20) 10%, rgba(20, 20, 20, 0) 60%);
+}
+
+.preloader-logo {
+  width: 39%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-animation: 3s logofader ease-in;
+          animation: 3s logofader ease-in;
+}
+
+.preloader,
+.preloader hr {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.preloader hr {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  -webkit-animation: 1s spin linear infinite;
+          animation: 1s spin linear infinite;
+}
+
+.preloader hr:nth-of-type(1) {
+  top: 28px;
+  border-top-color: #FF0000;
+  -webkit-animation-duration: 2.4s;
+          animation-duration: 2.4s;
+  height: 144px;
+  width: 144px;
+}
+
+.preloader hr:nth-of-type(2) {
+  top: 33px;
+  border-top-color: #FF0000;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  height: 134px;
+  width: 134px;
+}
+
+.preloader hr:nth-of-type(3) {
+  top: 38px;
+  border-top-color: #FF0000;
+  -webkit-animation-duration: 1.6s;
+          animation-duration: 1.6s;
+  height: 124px;
+  width: 124px;
+}
+
+.preloader hr:nth-of-type(4) {
+  top: 43px;
+  border-top-color: #FF0000;
+  -webkit-animation-duration: 1.2s;
+          animation-duration: 1.2s;
+  height: 114px;
+  width: 114px;
+}
+
+.preloader hr:nth-of-type(5) {
+  top: 48px;
+  left: 25px;
+  right: 25px;
+  border-top-color: #FF0000;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  height: 104px;
+  width: 104px;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes logofader {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes logofader {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.preloader {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-image: radial-gradient(center, circle closest-side, rgb(20, 20, 20) 10%, rgba(20, 20, 20, 0) 60%);
+  background-image: -o-radial-gradient(center, circle closest-side, rgb(20, 20, 20) 10%, rgba(20, 20, 20, 0) 60%);
+}
+
+.preloader-logo {
+  width: 39%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-animation: 3s logofader ease-in;
+          animation: 3s logofader ease-in;
+}
+
+.preloader,
+.preloader hr {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.preloader hr {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  -webkit-animation: 1s spin linear infinite;
+          animation: 1s spin linear infinite;
+}
+
+.preloader hr:nth-of-type(1) {
+  top: 28px;
+  border-top-color: #FF0000;
+  -webkit-animation-duration: 2.4s;
+          animation-duration: 2.4s;
+  height: 144px;
+  width: 144px;
+}
+
+.preloader hr:nth-of-type(2) {
+  top: 33px;
+  border-top-color: #FF0000;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  height: 134px;
+  width: 134px;
+}
+
+.preloader hr:nth-of-type(3) {
+  top: 38px;
+  border-top-color: #FF0000;
+  -webkit-animation-duration: 1.6s;
+          animation-duration: 1.6s;
+  height: 124px;
+  width: 124px;
+}
+
+.preloader hr:nth-of-type(4) {
+  top: 43px;
+  border-top-color: #FF0000;
+  -webkit-animation-duration: 1.2s;
+          animation-duration: 1.2s;
+  height: 114px;
+  width: 114px;
+}
+
+.preloader hr:nth-of-type(5) {
+  top: 48px;
+  left: 25px;
+  right: 25px;
+  border-top-color: #FF0000;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  height: 104px;
+  width: 104px;
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes logofader {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @font-face {
   font-family: "icomoon";
   src: url("../fonts/icomoon.woff?v=202003") format("woff");
@@ -1093,114 +1340,673 @@ img {
   content: "\e91d";
 }
 
-.primary {
+.required-tip {
+  color: #e92529;
+}
+
+.d-none {
+  display: none;
+}
+
+button.primary,
+a.primary {
   background: #C01D21 !important;
+  color: #fff !important;
+  border-color: #C01D21 !important;
 }
-
-.secondary {
+button.secondary,
+a.secondary {
   background: #caa66f !important;
+  color: #fff !important;
+  border-color: #caa66f !important;
 }
-
-.thrid {
+button.thrid,
+a.thrid {
   background: #1F1F1F !important;
+  color: #fff !important;
+  border-color: #1F1F1F !important;
 }
-
-.ghost {
+button.ghost,
+a.ghost {
   background: transparent !important;
   border: 1px solid #CCCCCC !important;
   color: #AEACAC !important;
 }
-.ghost.gold {
+button.ghost:hover,
+a.ghost:hover {
+  color: #fff !important;
+  border: 1px solid #fff !important;
+}
+button.ghost.gold,
+a.ghost.gold {
   border: 1px solid #caa66f !important;
   color: #caa66f !important;
   background: #000 !important;
 }
-.ghost.gold.red {
+button.ghost.gold.red,
+a.ghost.gold.red {
   color: #fff !important;
   border: 1px solid #e92529 !important;
   background: #e92529 !important;
 }
-
-.white {
+button.ghost.dark,
+a.ghost.dark {
+  color: #4c5356 !important;
+  border: 1px solid #4c5356 !important;
+  background: transparent !important;
+}
+button.white,
+a.white {
   background: #fff !important;
   border: 1px solid #caa66f !important;
   color: #caa66f !important;
 }
-.white.borderless {
-  border: none !important;
-  color: #000 !important;
+button.green,
+a.green {
+  color: #fff !important;
+  background: #4B902E !important;
 }
-.white.borderless:hover {
-  background: #e6e6e6 !important;
-}
-
-.indigo {
+button.info,
+a.info {
   background: #011FD4 !important;
   color: #fff;
-}
-.indigo:hover {
-  background: #1549FF !important;
 }
 
 button[disabled] {
+  cursor: default;
   background: #a5aab1 !important;
   color: #666 !important;
-}
-
-.btn-group .primary {
-  background: #C01D21 !important;
-}
-.btn-group .secondary {
-  background: #caa66f !important;
-}
-.btn-group .thrid {
-  background: #1F1F1F !important;
-}
-.btn-group .ghost {
-  background: transparent !important;
-  border: 1px solid #CCCCCC !important;
-  color: #AEACAC !important;
-}
-.btn-group .ghost.gold {
-  border: 1px solid #caa66f !important;
-  color: #caa66f !important;
-  background: #000 !important;
-}
-.btn-group .ghost.gold.red {
-  color: #fff !important;
-  border: 1px solid #e92529 !important;
-  background: #e92529 !important;
-}
-.btn-group .white {
-  background: #fff !important;
-  border: 1px solid #caa66f !important;
-  color: #caa66f !important;
-}
-.btn-group .white.borderless {
-  border: none !important;
-  color: #000 !important;
-}
-.btn-group .white.borderless:hover {
-  background: #e6e6e6 !important;
-}
-.btn-group .indigo {
-  background: #011FD4 !important;
-  color: #fff;
-}
-.btn-group .indigo:hover {
-  background: #1549FF !important;
-}
-.btn-group button[disabled] {
-  background: #a5aab1 !important;
-  color: #666 !important;
+  border-color: transparent !important;
 }
 
 .icon-information:before {
   color: #e03035 !important;
 }
 
+.card, .payment {
+  border-radius: 15px;
+  background-color: #242526;
+  margin: 2vw;
+  padding: 2vw 2vw 5vw;
+}
+.card .title, .payment .title {
+  font-size: 4vw;
+  margin: 3vw 0;
+}
+
 .inputBox .icon-information:before, .euro .inputBox-event .icon-information:before, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event .icon-information:before, .worldcupEvent .event .event-content .inputBox-event .icon-information:before {
   color: #bc8f4a !important;
+}
+
+.menu-logo > div:first-child {
+  color: #4c5356 !important;
+}
+.menu-logo > div:last-child {
+  color: #000 !important;
+  font-weight: 800 !important;
+}
+.menu-logo > div:last-child span {
+  color: #e03035 !important;
+  font-weight: 800 !important;
+  margin-left: 1.5vw !important;
+}
+.menu-bottom .option > div {
+  background: #000 !important;
+  color: #fff !important;
+}
+.menu-bottom-item {
+  background: #242526 !important;
+}
+
+.menu .close-btn {
+  left: unset !important;
+  right: 3.5vw !important;
+}
+.menu.after .profile-item div div div {
+  color: #F0B003 !important;
+}
+.menu.after .profile-item div div div span {
+  color: #fff !important;
+}
+.menu.after .menu-bottom-item .option .country-current.after {
+  padding: 3.6vw;
+  background: #242526;
+  border-radius: 2.8vw;
+}
+.menu.after .menu-top-balance a.secondary,
+.menu.after .menu-top-balance button.secondary {
+  background: -webkit-gradient(linear, left top, left bottom, from(#D8BD93), to(#B77B1E)) !important;
+  background: linear-gradient(to bottom, #D8BD93 0%, #B77B1E 100%) !important;
+}
+.menu.after .wallet-list a.primary,
+.menu.after .wallet-list button.primary {
+  background: -webkit-gradient(linear, right top, left top, from(#740707), to(#F50707)) !important;
+  background: linear-gradient(to left, #740707, #F50707) !important;
+}
+.menu.after .btn-logout {
+  color: #fff !important;
+}
+.menu.after .menu-vip .left > div:last-child {
+  margin-top: 2.5vw;
+}
+.menu.after .menu-vip .vip-text {
+  right: 1.2vw !important;
+  font-size: 2.5vw !important;
+}
+.menu.after .menu-vip .right {
+  background: white !important;
+  padding-right: 4.5vw !important;
+}
+.menu.after .menu-vip.tortoise {
+  background: url(../img/style-img/4.0/tortoise-bg.png) no-repeat center/cover !important;
+}
+.menu.after .menu-vip.phoenix {
+  background: url(../img/style-img/4.0/phoenix-bg.png) no-repeat center/cover;
+}
+.menu.after .menu-vip.tiger {
+  background: url(../img/style-img/4.0/tiger-bg.png) no-repeat center/cover;
+}
+.menu.after .menu-vip.tiger .right {
+  background: #606265 !important;
+}
+.menu.after .menu-vip.dragon {
+  background: url(../img/style-img/4.0/titanium-bg.png) no-repeat center/cover;
+}
+.menu.after .menu-vip.qilin {
+  background: url(../img/style-img/4.0/diamond-bg.png) no-repeat center/cover;
+}
+.menu.after .menu-vip.vermilion {
+  background: url(../img/style-img/4.0/vermilion-bg.png) no-repeat center/cover;
+}
+
+.payment {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.payment .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+  padding: 2vw;
+}
+.payment .content .payment-options img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.payment {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.payment .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+  padding: 2vw;
+}
+.payment .content .payment-options img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.main.login {
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  width: 100% !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  padding: 0 7.5vw !important;
+}
+.main.login .close-btn {
+  position: absolute;
+  top: 3.5vw;
+  right: 3.5vw;
+}
+.main.login .close-btn img {
+  width: 3.5vw;
+}
+.main.login .logo {
+  margin-bottom: 10vw;
+}
+.main.login .logo img {
+  width: 55vw;
+}
+.main.login .form-content {
+  width: 100%;
+}
+.main.login .form-content .infoModule {
+  margin: 0 0 3.5vw !important;
+}
+.main.login .form-content .inputBox, .main.login .form-content .euro .inputBox-event, .euro .main.login .form-content .inputBox-event, .main.login .form-content .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .main.login .form-content .inputBox-event {
+  border-radius: 10vw !important;
+  padding: 2.4vw 3.8vw !important;
+  margin: 0 !important;
+}
+.main.login .form-content .inputBox input, .main.login .form-content .euro .inputBox-event input, .euro .main.login .form-content .inputBox-event input, .main.login .form-content .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .main.login .form-content .inputBox-event input {
+  font-size: 3vw !important;
+  padding: 0 !important;
+  font-family: "Poppins", sans-serif;
+}
+.main.login .form-content .inputBox input::-webkit-input-placeholder, .main.login .form-content .euro .inputBox-event input::-webkit-input-placeholder, .euro .main.login .form-content .inputBox-event input::-webkit-input-placeholder, .main.login .form-content .worldcupEvent .event .event-content .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .main.login .form-content .inputBox-event input::-webkit-input-placeholder {
+  color: #000 !important;
+}
+.main.login .form-content .inputBox input::-moz-placeholder, .main.login .form-content .euro .inputBox-event input::-moz-placeholder, .euro .main.login .form-content .inputBox-event input::-moz-placeholder, .main.login .form-content .worldcupEvent .event .event-content .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .main.login .form-content .inputBox-event input::-moz-placeholder {
+  color: #000 !important;
+}
+.main.login .form-content .inputBox input:-ms-input-placeholder, .main.login .form-content .euro .inputBox-event input:-ms-input-placeholder, .euro .main.login .form-content .inputBox-event input:-ms-input-placeholder, .main.login .form-content .worldcupEvent .event .event-content .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .main.login .form-content .inputBox-event input:-ms-input-placeholder {
+  color: #000 !important;
+}
+.main.login .form-content .inputBox input::-ms-input-placeholder, .main.login .form-content .euro .inputBox-event input::-ms-input-placeholder, .euro .main.login .form-content .inputBox-event input::-ms-input-placeholder, .main.login .form-content .worldcupEvent .event .event-content .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .main.login .form-content .inputBox-event input::-ms-input-placeholder {
+  color: #000 !important;
+}
+.main.login .form-content .inputBox input::placeholder, .main.login .form-content .euro .inputBox-event input::placeholder, .euro .main.login .form-content .inputBox-event input::placeholder, .main.login .form-content .worldcupEvent .event .event-content .inputBox-event input::placeholder, .worldcupEvent .event .event-content .main.login .form-content .inputBox-event input::placeholder {
+  color: #000 !important;
+}
+.main.login .form-content .inputBox.error, .main.login .form-content .euro .error.inputBox-event, .euro .main.login .form-content .error.inputBox-event, .main.login .form-content .worldcupEvent .event .event-content .error.inputBox-event, .worldcupEvent .event .event-content .main.login .form-content .error.inputBox-event {
+  background: #f9c7c8 !important;
+}
+.main.login .form-content .Terms a {
+  display: block;
+  text-align: right;
+  padding-right: 3vw;
+  font-size: 2.5vw !important;
+  margin-top: 2vw;
+  font-weight: 400 !important;
+  text-decoration: underline !important;
+  color: #cccccc;
+}
+.main.login .form-content .tip-join {
+  text-align: center;
+  color: #404648 !important;
+  font-weight: 600;
+  margin-top: 4.5vw;
+}
+.main.login .form-content .tip-join a {
+  display: inline-block;
+  margin-left: 1.5vw;
+  color: #C01D21 !important;
+  text-decoration: underline !important;
+}
+.main.login .form-content .btn-group {
+  margin: 5vw 0 0 !important;
+}
+.main.login .form-content .btn-group button {
+  margin: 0 8vw !important;
+  font-size: 3.5vw !important;
+}
+.main.registration .flag:before {
+  border: 1px solid #ccc;
+  width: 16px;
+  height: 16px;
+}
+.main.registration .banner {
+  height: auto;
+  margin-bottom: 6vw;
+}
+.main.registration .banner img {
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+}
+.main.registration .tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  gap: 10px;
+}
+.main.registration .tab a {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  cursor: pointer;
+  border-radius: 20px 20px 0 0;
+  padding: 2vw;
+  color: #fff;
+  text-align: center;
+  border-bottom: 4px solid #4c5356;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.main.registration .tab a.active {
+  background-color: #AEACAC;
+  border-bottom: 4px solid #C01D21;
+  cursor: default;
+}
+.main.registration .tab a.active:hover {
+  background-color: #AEACAC;
+}
+.main.registration .tab a:hover {
+  background-color: rgba(174, 172, 172, 0.3);
+}
+.main.registration .form-content {
+  padding-top: 4vw;
+}
+.main.registration .form-content .infoModule .inputBox, .main.registration .form-content .infoModule .euro .inputBox-event, .euro .main.registration .form-content .infoModule .inputBox-event, .main.registration .form-content .infoModule .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .main.registration .form-content .infoModule .inputBox-event {
+  border-radius: 10vw;
+}
+.main.registration .form-content .infoModule .inputBox i.icon.icon-minus, .main.registration .form-content .infoModule .euro .inputBox-event i.icon.icon-minus, .euro .main.registration .form-content .infoModule .inputBox-event i.icon.icon-minus, .main.registration .form-content .infoModule .worldcupEvent .event .event-content .inputBox-event i.icon.icon-minus, .worldcupEvent .event .event-content .main.registration .form-content .infoModule .inputBox-event i.icon.icon-minus, .main.registration .form-content .infoModule .inputBox i.icon.icon-plus, .main.registration .form-content .infoModule .euro .inputBox-event i.icon.icon-plus, .euro .main.registration .form-content .infoModule .inputBox-event i.icon.icon-plus, .main.registration .form-content .infoModule .worldcupEvent .event .event-content .inputBox-event i.icon.icon-plus, .worldcupEvent .event .event-content .main.registration .form-content .infoModule .inputBox-event i.icon.icon-plus {
+  display: none;
+}
+.main.registration .form-content .infoModule .inputBox i.icon.icon-key + input + div > .icon-minus, .main.registration .form-content .infoModule .euro .inputBox-event i.icon.icon-key + input + div > .icon-minus, .euro .main.registration .form-content .infoModule .inputBox-event i.icon.icon-key + input + div > .icon-minus, .main.registration .form-content .infoModule .worldcupEvent .event .event-content .inputBox-event i.icon.icon-key + input + div > .icon-minus, .worldcupEvent .event .event-content .main.registration .form-content .infoModule .inputBox-event i.icon.icon-key + input + div > .icon-minus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.main.registration .form-content .infoModule .inputBox i.icon.icon-key + input + div > .icon-plus, .main.registration .form-content .infoModule .euro .inputBox-event i.icon.icon-key + input + div > .icon-plus, .euro .main.registration .form-content .infoModule .inputBox-event i.icon.icon-key + input + div > .icon-plus, .main.registration .form-content .infoModule .worldcupEvent .event .event-content .inputBox-event i.icon.icon-key + input + div > .icon-plus, .worldcupEvent .event .event-content .main.registration .form-content .infoModule .inputBox-event i.icon.icon-key + input + div > .icon-plus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.main.registration .form-content .infoModule .inputBox .dropdown.btn > div, .main.registration .form-content .infoModule .euro .inputBox-event .dropdown.btn > div, .euro .main.registration .form-content .infoModule .inputBox-event .dropdown.btn > div, .main.registration .form-content .infoModule .worldcupEvent .event .event-content .inputBox-event .dropdown.btn > div, .worldcupEvent .event .event-content .main.registration .form-content .infoModule .inputBox-event .dropdown.btn > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.main.registration .form-content .infoModule .inputBox .dropdown .dropdown-item, .main.registration .form-content .infoModule .euro .inputBox-event .dropdown .dropdown-item, .euro .main.registration .form-content .infoModule .inputBox-event .dropdown .dropdown-item, .main.registration .form-content .infoModule .worldcupEvent .event .event-content .inputBox-event .dropdown .dropdown-item, .worldcupEvent .event .event-content .main.registration .form-content .infoModule .inputBox-event .dropdown .dropdown-item {
+  padding: 3vw;
+}
+.main.registration .form-content .infoModule .inputBox .dropdown-container, .main.registration .form-content .infoModule .euro .inputBox-event .dropdown-container, .euro .main.registration .form-content .infoModule .inputBox-event .dropdown-container, .main.registration .form-content .infoModule .worldcupEvent .event .event-content .inputBox-event .dropdown-container, .worldcupEvent .event .event-content .main.registration .form-content .infoModule .inputBox-event .dropdown-container {
+  border-radius: 1.5vw;
+}
+.main.registration .form-content .infoModule .inputBox .dropdown-container .inputBox, .main.registration .form-content .infoModule .euro .inputBox-event .dropdown-container .inputBox, .euro .main.registration .form-content .infoModule .inputBox-event .dropdown-container .inputBox, .main.registration .form-content .infoModule .inputBox .dropdown-container .euro .inputBox-event, .euro .main.registration .form-content .infoModule .inputBox .dropdown-container .inputBox-event, .main.registration .form-content .infoModule .euro .inputBox-event .dropdown-container .inputBox-event, .euro .main.registration .form-content .infoModule .inputBox-event .dropdown-container .inputBox-event, .main.registration .form-content .infoModule .worldcupEvent .event .event-content .inputBox-event .dropdown-container .inputBox, .worldcupEvent .event .event-content .main.registration .form-content .infoModule .inputBox-event .dropdown-container .inputBox, .main.registration .form-content .infoModule .inputBox .dropdown-container .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .main.registration .form-content .infoModule .inputBox .dropdown-container .inputBox-event, .main.registration .form-content .infoModule .worldcupEvent .event .event-content .inputBox-event .dropdown-container .inputBox-event, .worldcupEvent .event .event-content .main.registration .form-content .infoModule .inputBox-event .dropdown-container .inputBox-event {
+  margin: 8px 4px;
+}
+.main.registration .form-content .infoModule .inputBox .dropdown-container .tip, .main.registration .form-content .infoModule .euro .inputBox-event .dropdown-container .tip, .euro .main.registration .form-content .infoModule .inputBox-event .dropdown-container .tip, .main.registration .form-content .infoModule .worldcupEvent .event .event-content .inputBox-event .dropdown-container .tip, .worldcupEvent .event .event-content .main.registration .form-content .infoModule .inputBox-event .dropdown-container .tip {
+  padding: 1vw;
+}
+.main.registration .form-content .infoModule.parts .input-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+.main.registration .form-content .infoModule.parts .input-group .inputBox, .main.registration .form-content .infoModule.parts .input-group .euro .inputBox-event, .euro .main.registration .form-content .infoModule.parts .input-group .inputBox-event, .main.registration .form-content .infoModule.parts .input-group .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .main.registration .form-content .infoModule.parts .input-group .inputBox-event {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.main.registration .form-content .infoModule.parts .input-group .inputBox input, .main.registration .form-content .infoModule.parts .input-group .euro .inputBox-event input, .euro .main.registration .form-content .infoModule.parts .input-group .inputBox-event input, .main.registration .form-content .infoModule.parts .input-group .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .main.registration .form-content .infoModule.parts .input-group .inputBox-event input {
+  width: 100%;
+}
+.main.registration .btn-group {
+  margin: 5vw 0;
+}
+.main.registration .btn-group button {
+  margin: 0 8vw;
+}
+.main.registration .Terms {
+  text-align: center;
+  padding: 0 2vw;
+  margin: 2vw 0;
+  color: #CCCCCC;
+}
+.main.registration .Terms.error {
+  border: 1px solid #e92529;
+}
+.main.registration .Terms a {
+  cursor: pointer;
+  color: #C01D21;
+  text-decoration: underline;
+}
+.main.registration .congrats {
+  text-align: center;
+  color: #F77A00;
+  font-size: 4vw;
+  margin: 10vw 0;
+  position: relative;
+}
+.main.registration .congrats::before {
+  content: "\e996";
+  font-family: "icomoon";
+  font-size: 20vw;
+  color: #5574A7;
+  margin: 5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.main.registration .congrats > p {
+  font-size: 5vw;
+  color: #5574A7;
+  font-weight: bold;
+  margin: 2vw;
+}
+.main.registration .congrats::after {
+  position: absolute;
+  width: 50vw;
+  height: 48vw;
+  content: "";
+  background: url(../img/style-img/spread.png) no-repeat;
+  background-size: 100%;
+  top: -5vw;
+  left: 20vw;
+  -webkit-animation: fire1 2.8s 3s infinite;
+          animation: fire1 2.8s 3s infinite;
+}
+@-webkit-keyframes fire1 {
+  0% {
+    -webkit-transform: scale(0) translateY(-10%);
+            transform: scale(0) translateY(-10%);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(1) translateY(-5%);
+            transform: scale(1) translateY(-5%);
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: scale(1) translateY(0%);
+            transform: scale(1) translateY(0%);
+    opacity: 0;
+  }
+}
+@keyframes fire1 {
+  0% {
+    -webkit-transform: scale(0) translateY(-10%);
+            transform: scale(0) translateY(-10%);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(1) translateY(-5%);
+            transform: scale(1) translateY(-5%);
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: scale(1) translateY(0%);
+            transform: scale(1) translateY(0%);
+    opacity: 0;
+  }
+}
+.main.forget-password {
+  width: 100% !important;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  padding: 20vw 4vw !important;
+}
+.main.forget-password .form-content {
+  width: 100%;
+}
+.main.forget-password .form-module {
+  margin-bottom: 10vw;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.main.forget-password .form-module a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 5vw;
+}
+.main.forget-password .form-module a .icon::before {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.main.forget-password .form-module .title {
+  font-size: 3.5vw;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 3.5vw;
+}
+.main.forget-password .form-module p {
+  text-align: center;
+  color: #AEACAC;
+  font-size: 3vw;
+}
+.main.forget-password .form-module .infoModule {
+  margin: 0 0 2.5vw !important;
+}
+.main.forget-password .form-module .input-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  gap: 1.2vw;
+  margin-bottom: 1vw;
+}
+.main.forget-password .form-module .inputBox, .main.forget-password .form-module .euro .inputBox-event, .euro .main.forget-password .form-module .inputBox-event, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event {
+  border-radius: 10vw !important;
+  padding: 2.4vw 3.8vw !important;
+  margin: 0 !important;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  width: 100%;
+  -ms-flex-wrap: unset !important;
+      flex-wrap: unset !important;
+}
+.main.forget-password .form-module .inputBox input, .main.forget-password .form-module .euro .inputBox-event input, .euro .main.forget-password .form-module .inputBox-event input, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event input {
+  font-size: 3vw !important;
+  padding: 0 !important;
+  font-family: "Poppins", sans-serif;
+}
+.main.forget-password .form-module .inputBox input::-webkit-input-placeholder, .main.forget-password .form-module .euro .inputBox-event input::-webkit-input-placeholder, .euro .main.forget-password .form-module .inputBox-event input::-webkit-input-placeholder, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event input::-webkit-input-placeholder {
+  color: #000 !important;
+}
+.main.forget-password .form-module .inputBox input::-moz-placeholder, .main.forget-password .form-module .euro .inputBox-event input::-moz-placeholder, .euro .main.forget-password .form-module .inputBox-event input::-moz-placeholder, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event input::-moz-placeholder {
+  color: #000 !important;
+}
+.main.forget-password .form-module .inputBox input:-ms-input-placeholder, .main.forget-password .form-module .euro .inputBox-event input:-ms-input-placeholder, .euro .main.forget-password .form-module .inputBox-event input:-ms-input-placeholder, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event input:-ms-input-placeholder {
+  color: #000 !important;
+}
+.main.forget-password .form-module .inputBox input::-ms-input-placeholder, .main.forget-password .form-module .euro .inputBox-event input::-ms-input-placeholder, .euro .main.forget-password .form-module .inputBox-event input::-ms-input-placeholder, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event input::-ms-input-placeholder {
+  color: #000 !important;
+}
+.main.forget-password .form-module .inputBox input::placeholder, .main.forget-password .form-module .euro .inputBox-event input::placeholder, .euro .main.forget-password .form-module .inputBox-event input::placeholder, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event input::placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event input::placeholder {
+  color: #000 !important;
+}
+.main.forget-password .form-module .inputBox.error, .main.forget-password .form-module .euro .error.inputBox-event, .euro .main.forget-password .form-module .error.inputBox-event, .main.forget-password .form-module .worldcupEvent .event .event-content .error.inputBox-event, .worldcupEvent .event .event-content .main.forget-password .form-module .error.inputBox-event {
+  background: #f9c7c8 !important;
+}
+.main.forget-password .form-module .inputBox .dropdown, .main.forget-password .form-module .euro .inputBox-event .dropdown, .euro .main.forget-password .form-module .inputBox-event .dropdown, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event .dropdown, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event .dropdown {
+  padding: 0 !important;
+  min-height: unset !important;
+  font-weight: 400 !important;
+}
+.main.forget-password .form-module .inputBox .dropdown ~ .dropdown-container, .main.forget-password .form-module .euro .inputBox-event .dropdown ~ .dropdown-container, .euro .main.forget-password .form-module .inputBox-event .dropdown ~ .dropdown-container, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event .dropdown ~ .dropdown-container, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event .dropdown ~ .dropdown-container {
+  border: transparent !important;
+  color: #000 !important;
+  border-radius: 1.5vw;
+  margin: 0 0 0 -0.2vw !important;
+}
+.main.forget-password .form-module .inputBox .dropdown-container .inputBox, .main.forget-password .form-module .euro .inputBox-event .dropdown-container .inputBox, .euro .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox, .main.forget-password .form-module .inputBox .dropdown-container .euro .inputBox-event, .euro .main.forget-password .form-module .inputBox .dropdown-container .inputBox-event, .main.forget-password .form-module .euro .inputBox-event .dropdown-container .inputBox-event, .euro .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox-event, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event .dropdown-container .inputBox, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox, .main.forget-password .form-module .inputBox .dropdown-container .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox .dropdown-container .inputBox-event, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event .dropdown-container .inputBox-event, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox-event {
+  margin-top: 2vw !important;
+}
+.main.forget-password .form-module .inputBox .dropdown-container .inputBox input::-webkit-input-placeholder, .main.forget-password .form-module .euro .inputBox-event .dropdown-container .inputBox input::-webkit-input-placeholder, .euro .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox input::-webkit-input-placeholder, .main.forget-password .form-module .inputBox .dropdown-container .euro .inputBox-event input::-webkit-input-placeholder, .euro .main.forget-password .form-module .inputBox .dropdown-container .inputBox-event input::-webkit-input-placeholder, .main.forget-password .form-module .euro .inputBox-event .dropdown-container .inputBox-event input::-webkit-input-placeholder, .euro .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox-event input::-webkit-input-placeholder, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event .dropdown-container .inputBox input::-webkit-input-placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox input::-webkit-input-placeholder, .main.forget-password .form-module .inputBox .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox .dropdown-container .inputBox-event input::-webkit-input-placeholder, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event .dropdown-container .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox-event input::-webkit-input-placeholder {
+  color: #AEACAC !important;
+}
+.main.forget-password .form-module .inputBox .dropdown-container .inputBox input::-moz-placeholder, .main.forget-password .form-module .euro .inputBox-event .dropdown-container .inputBox input::-moz-placeholder, .euro .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox input::-moz-placeholder, .main.forget-password .form-module .inputBox .dropdown-container .euro .inputBox-event input::-moz-placeholder, .euro .main.forget-password .form-module .inputBox .dropdown-container .inputBox-event input::-moz-placeholder, .main.forget-password .form-module .euro .inputBox-event .dropdown-container .inputBox-event input::-moz-placeholder, .euro .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox-event input::-moz-placeholder, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event .dropdown-container .inputBox input::-moz-placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox input::-moz-placeholder, .main.forget-password .form-module .inputBox .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox .dropdown-container .inputBox-event input::-moz-placeholder, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event .dropdown-container .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox-event input::-moz-placeholder {
+  color: #AEACAC !important;
+}
+.main.forget-password .form-module .inputBox .dropdown-container .inputBox input:-ms-input-placeholder, .main.forget-password .form-module .euro .inputBox-event .dropdown-container .inputBox input:-ms-input-placeholder, .euro .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox input:-ms-input-placeholder, .main.forget-password .form-module .inputBox .dropdown-container .euro .inputBox-event input:-ms-input-placeholder, .euro .main.forget-password .form-module .inputBox .dropdown-container .inputBox-event input:-ms-input-placeholder, .main.forget-password .form-module .euro .inputBox-event .dropdown-container .inputBox-event input:-ms-input-placeholder, .euro .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox-event input:-ms-input-placeholder, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event .dropdown-container .inputBox input:-ms-input-placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox input:-ms-input-placeholder, .main.forget-password .form-module .inputBox .dropdown-container .worldcupEvent .event .event-content .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox .dropdown-container .inputBox-event input:-ms-input-placeholder, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event .dropdown-container .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox-event input:-ms-input-placeholder {
+  color: #AEACAC !important;
+}
+.main.forget-password .form-module .inputBox .dropdown-container .inputBox input::-ms-input-placeholder, .main.forget-password .form-module .euro .inputBox-event .dropdown-container .inputBox input::-ms-input-placeholder, .euro .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox input::-ms-input-placeholder, .main.forget-password .form-module .inputBox .dropdown-container .euro .inputBox-event input::-ms-input-placeholder, .euro .main.forget-password .form-module .inputBox .dropdown-container .inputBox-event input::-ms-input-placeholder, .main.forget-password .form-module .euro .inputBox-event .dropdown-container .inputBox-event input::-ms-input-placeholder, .euro .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox-event input::-ms-input-placeholder, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event .dropdown-container .inputBox input::-ms-input-placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox input::-ms-input-placeholder, .main.forget-password .form-module .inputBox .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox .dropdown-container .inputBox-event input::-ms-input-placeholder, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event .dropdown-container .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox-event input::-ms-input-placeholder {
+  color: #AEACAC !important;
+}
+.main.forget-password .form-module .inputBox .dropdown-container .inputBox input::placeholder, .main.forget-password .form-module .euro .inputBox-event .dropdown-container .inputBox input::placeholder, .euro .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox input::placeholder, .main.forget-password .form-module .inputBox .dropdown-container .euro .inputBox-event input::placeholder, .euro .main.forget-password .form-module .inputBox .dropdown-container .inputBox-event input::placeholder, .main.forget-password .form-module .euro .inputBox-event .dropdown-container .inputBox-event input::placeholder, .euro .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox-event input::placeholder, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event .dropdown-container .inputBox input::placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox input::placeholder, .main.forget-password .form-module .inputBox .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox .dropdown-container .inputBox-event input::placeholder, .main.forget-password .form-module .worldcupEvent .event .event-content .inputBox-event .dropdown-container .inputBox-event input::placeholder, .worldcupEvent .event .event-content .main.forget-password .form-module .inputBox-event .dropdown-container .inputBox-event input::placeholder {
+  color: #AEACAC !important;
+}
+.main.forget-password .btn-group {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 5vw 8vw 0 !important;
+  width: auto !important;
+}
+.main.forget-password .btn-group button {
+  font-size: 3vw !important;
+}
+
+#popup .joinSuccess {
+  margin: auto;
+}
+#popup .joinSuccess .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#popup .joinSuccess .Join .Terms {
+  text-align: center;
 }
 
 body,
@@ -1215,10 +2021,6 @@ html {
 button {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-}
-button[disabled] {
-  background: #a5aab1 !important;
-  color: #666 !important;
 }
 
 #root {
@@ -1443,29 +2245,12 @@ div[tabindex="-1"] {
   width: 50vw;
   height: 48vw;
   content: "";
-  background: url(https://banner.picasso12.com/h5/img/spread.png) no-repeat;
+  background: url(../img/style-img/spread.png) no-repeat;
   background-size: 100%;
   top: -5vw;
   left: 20vw;
   -webkit-animation: fire1 2.8s 3s infinite;
           animation: fire1 2.8s 3s infinite;
-}
-@-webkit-keyframes fire1 {
-  0% {
-    -webkit-transform: scale(0) translateY(-10%);
-            transform: scale(0) translateY(-10%);
-    opacity: 0;
-  }
-  50% {
-    -webkit-transform: scale(1) translateY(-5%);
-            transform: scale(1) translateY(-5%);
-    opacity: 0.6;
-  }
-  100% {
-    -webkit-transform: scale(1) translateY(0%);
-            transform: scale(1) translateY(0%);
-    opacity: 0;
-  }
 }
 @keyframes fire1 {
   0% {
@@ -2222,7 +3007,7 @@ main .gameList .icon-new {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: rgba(36, 37, 38, 0.8);
+  background: rgba(36, 37, 38, 0.9);
   padding: 8vw;
   overflow: auto;
   display: -webkit-box;
@@ -2344,7 +3129,7 @@ main .gameList .icon-new {
   margin: 2vw 0 0;
 }
 #popup.ErrorPage {
-  background: url(https://banner.picasso12.com/h5/img/errorBG.jpg) no-repeat center/cover;
+  background: url(../img/style-img/errorBG.jpg) no-repeat center/cover;
 }
 #popup.ErrorPage .icon-close {
   position: absolute;
@@ -3518,7 +4303,7 @@ main .gameList .icon-new {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: url(https://banner.picasso12.com/h5/img/4.0/username.png) no-repeat center/100%;
+  background: url(../img/style-img/4.0/username.png) no-repeat center/100%;
   height: 14vw;
   width: 47vw;
   color: white;
@@ -3561,34 +4346,34 @@ main .gameList .icon-new {
 }
 @-webkit-keyframes bigwinpopup-en {
   0% {
-    background: url(https://banner.picasso12.com/h5/img/4.0/popup-en-2.png) no-repeat center/cover;
+    background: url(../img/style-img/4.0/popup-en-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.picasso12.com/h5/img/4.0/popup-en-1.png) no-repeat center/cover;
+    background: url(../img/style-img/4.0/popup-en-1.png) no-repeat center/cover;
   }
 }
 @keyframes bigwinpopup-en {
   0% {
-    background: url(https://banner.picasso12.com/h5/img/4.0/popup-en-2.png) no-repeat center/cover;
+    background: url(../img/style-img/4.0/popup-en-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.picasso12.com/h5/img/4.0/popup-en-1.png) no-repeat center/cover;
+    background: url(../img/style-img/4.0/popup-en-1.png) no-repeat center/cover;
   }
 }
 @-webkit-keyframes bigwinpopup-id {
   0% {
-    background: url(https://banner.picasso12.com/h5/img/4.0/popup-id-2.png) no-repeat center/cover;
+    background: url(../img/style-img/4.0/popup-id-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.picasso12.com/h5/img/4.0/popup-id-1.png) no-repeat center/cover;
+    background: url(../img/style-img/4.0/popup-id-1.png) no-repeat center/cover;
   }
 }
 @keyframes bigwinpopup-id {
   0% {
-    background: url(https://banner.picasso12.com/h5/img/4.0/popup-id-2.png) no-repeat center/cover;
+    background: url(../img/style-img/4.0/popup-id-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.picasso12.com/h5/img/4.0/popup-id-1.png) no-repeat center/cover;
+    background: url(../img/style-img/4.0/popup-id-1.png) no-repeat center/cover;
   }
 }
 #popup.bigwinpop .money {
@@ -3687,7 +4472,7 @@ main .gameList .icon-new {
   border-radius: 3vw;
 }
 #popup.livesportspop .livesports > div .livesports-item {
-  background: url(https://banner.picasso12.com/h5/img/4.0/team-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/team-bg.png) no-repeat center/cover;
   height: 35vw;
   margin-bottom: 1.5vw;
   overflow: hidden;
@@ -4711,7 +5496,7 @@ main .gameList .icon-new {
 .reject .infobtn,
 .cancelled .infobtn,
 .approved .infobtn {
-  background: url(../img/notice.svg) no-repeat center/cover;
+  background: url(../img/style-img/notice.webp) no-repeat center/cover;
   width: 4vw;
   height: 4vw;
   margin-left: 1vw;
@@ -5738,16 +6523,12 @@ button.clickBtn.secondary {
   position: relative;
   background: white;
   font-size: 3vw;
-  border: 1px solid #bfcce2;
-  color: #5574A7;
+  border: 1px solid #AEACAC;
+  color: #4c5356;
 }
 .buttonBox button.active {
   color: white;
   background: #bc8f4a;
-}
-.buttonBox button[disabled] {
-  background: #e6e6e6;
-  color: #a5aab1;
 }
 .buttonBox.col-3 {
   margin: 0 0.5vw !important;
@@ -6229,13 +7010,12 @@ input[type=date] {
   }
 }
 #Loading {
-  width: calc(100% - 16vw);
-  height: calc(100% - 16vw);
   position: fixed;
   top: 0;
   left: 0;
-  background: #ecf3fd;
-  padding: 8vw;
+  bottom: 0;
+  right: 0;
+  margin: auto;
   display: none;
   z-index: 4;
 }
@@ -6243,497 +7023,6 @@ input[type=date] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-#Loading .container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row;
-          flex-flow: row;
-  margin: 0 auto;
-  width: 50%;
-}
-@-webkit-keyframes rotate {
-  0% {
-    -webkit-transform: rotateX(-37.5deg) rotateY(45deg);
-            transform: rotateX(-37.5deg) rotateY(45deg);
-  }
-  50% {
-    -webkit-transform: rotateX(-37.5deg) rotateY(405deg);
-            transform: rotateX(-37.5deg) rotateY(405deg);
-  }
-  100% {
-    -webkit-transform: rotateX(-37.5deg) rotateY(405deg);
-            transform: rotateX(-37.5deg) rotateY(405deg);
-  }
-}
-@keyframes rotate {
-  0% {
-    -webkit-transform: rotateX(-37.5deg) rotateY(45deg);
-            transform: rotateX(-37.5deg) rotateY(45deg);
-  }
-  50% {
-    -webkit-transform: rotateX(-37.5deg) rotateY(405deg);
-            transform: rotateX(-37.5deg) rotateY(405deg);
-  }
-  100% {
-    -webkit-transform: rotateX(-37.5deg) rotateY(405deg);
-            transform: rotateX(-37.5deg) rotateY(405deg);
-  }
-}
-#Loading .cube,
-#Loading .cube * {
-  position: absolute;
-  width: 16vw;
-  height: 16vw;
-  z-index: 1;
-}
-#Loading .sides {
-  -webkit-animation: rotate 3s ease infinite;
-          animation: rotate 3s ease infinite;
-  -webkit-animation-delay: 0.8s;
-          animation-delay: 0.8s;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  -webkit-transform: rotateX(-37.5deg) rotateY(45deg);
-          transform: rotateX(-37.5deg) rotateY(45deg);
-}
-#Loading .cube .sides * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background-color: rgba(85, 116, 167, 0.1);
-  border: 1px solid #5574A7;
-}
-#Loading .cube .sides .top {
-  -webkit-animation: top-animation 3s ease infinite;
-          animation: top-animation 3s ease infinite;
-  -webkit-animation-delay: 0ms;
-          animation-delay: 0ms;
-  -webkit-transform: rotateX(90deg) translateZ(16vw);
-          transform: rotateX(90deg) translateZ(16vw);
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-}
-@-webkit-keyframes top-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(16vw);
-            transform: rotateX(90deg) translateZ(16vw);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(8vw);
-            transform: rotateX(90deg) translateZ(8vw);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(8vw);
-            transform: rotateX(90deg) translateZ(8vw);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(16vw);
-            transform: rotateX(90deg) translateZ(16vw);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(16vw);
-            transform: rotateX(90deg) translateZ(16vw);
-  }
-}
-@keyframes top-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(16vw);
-            transform: rotateX(90deg) translateZ(16vw);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(8vw);
-            transform: rotateX(90deg) translateZ(8vw);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(8vw);
-            transform: rotateX(90deg) translateZ(8vw);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(16vw);
-            transform: rotateX(90deg) translateZ(16vw);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateX(90deg) translateZ(16vw);
-            transform: rotateX(90deg) translateZ(16vw);
-  }
-}
-#Loading .cube .sides .bottom {
-  -webkit-animation: bottom-animation 3s ease infinite;
-          animation: bottom-animation 3s ease infinite;
-  -webkit-animation-delay: 0ms;
-          animation-delay: 0ms;
-  -webkit-transform: rotateX(-90deg) translateZ(16vw);
-          transform: rotateX(-90deg) translateZ(16vw);
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-}
-@-webkit-keyframes bottom-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(16vw);
-            transform: rotateX(-90deg) translateZ(16vw);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(8vw);
-            transform: rotateX(-90deg) translateZ(8vw);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(8vw);
-            transform: rotateX(-90deg) translateZ(8vw);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(16vw);
-            transform: rotateX(-90deg) translateZ(16vw);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(16vw);
-            transform: rotateX(-90deg) translateZ(16vw);
-  }
-}
-@keyframes bottom-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(16vw);
-            transform: rotateX(-90deg) translateZ(16vw);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(8vw);
-            transform: rotateX(-90deg) translateZ(8vw);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(8vw);
-            transform: rotateX(-90deg) translateZ(8vw);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(16vw);
-            transform: rotateX(-90deg) translateZ(16vw);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateX(-90deg) translateZ(16vw);
-            transform: rotateX(-90deg) translateZ(16vw);
-  }
-}
-#Loading .cube .sides .front {
-  -webkit-animation: front-animation 3s ease infinite;
-          animation: front-animation 3s ease infinite;
-  -webkit-animation-delay: 100ms;
-          animation-delay: 100ms;
-  -webkit-transform: rotateY(0deg) translateZ(16vw);
-          transform: rotateY(0deg) translateZ(16vw);
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-}
-@-webkit-keyframes front-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(16vw);
-            transform: rotateY(0deg) translateZ(16vw);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(8vw);
-            transform: rotateY(0deg) translateZ(8vw);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(8vw);
-            transform: rotateY(0deg) translateZ(8vw);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(16vw);
-            transform: rotateY(0deg) translateZ(16vw);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(16vw);
-            transform: rotateY(0deg) translateZ(16vw);
-  }
-}
-@keyframes front-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(16vw);
-            transform: rotateY(0deg) translateZ(16vw);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(8vw);
-            transform: rotateY(0deg) translateZ(8vw);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(8vw);
-            transform: rotateY(0deg) translateZ(8vw);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(16vw);
-            transform: rotateY(0deg) translateZ(16vw);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateY(0deg) translateZ(16vw);
-            transform: rotateY(0deg) translateZ(16vw);
-  }
-}
-#Loading .cube .sides .back {
-  -webkit-animation: back-animation 3s ease infinite;
-          animation: back-animation 3s ease infinite;
-  -webkit-animation-delay: 100ms;
-          animation-delay: 100ms;
-  -webkit-transform: rotateY(-180deg) translateZ(16vw);
-          transform: rotateY(-180deg) translateZ(16vw);
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-}
-@-webkit-keyframes back-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(16vw);
-            transform: rotateY(-180deg) translateZ(16vw);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(8vw);
-            transform: rotateY(-180deg) translateZ(8vw);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(8vw);
-            transform: rotateY(-180deg) translateZ(8vw);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(16vw);
-            transform: rotateY(-180deg) translateZ(16vw);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(16vw);
-            transform: rotateY(-180deg) translateZ(16vw);
-  }
-}
-@keyframes back-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(16vw);
-            transform: rotateY(-180deg) translateZ(16vw);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(8vw);
-            transform: rotateY(-180deg) translateZ(8vw);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(8vw);
-            transform: rotateY(-180deg) translateZ(8vw);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(16vw);
-            transform: rotateY(-180deg) translateZ(16vw);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateY(-180deg) translateZ(16vw);
-            transform: rotateY(-180deg) translateZ(16vw);
-  }
-}
-#Loading .cube .sides .left {
-  -webkit-animation: left-animation 3s ease infinite;
-          animation: left-animation 3s ease infinite;
-  -webkit-animation-delay: 100ms;
-          animation-delay: 100ms;
-  -webkit-transform: rotateY(-90deg) translateZ(16vw);
-          transform: rotateY(-90deg) translateZ(16vw);
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-}
-@-webkit-keyframes left-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(16vw);
-            transform: rotateY(-90deg) translateZ(16vw);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(8vw);
-            transform: rotateY(-90deg) translateZ(8vw);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(8vw);
-            transform: rotateY(-90deg) translateZ(8vw);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(16vw);
-            transform: rotateY(-90deg) translateZ(16vw);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(16vw);
-            transform: rotateY(-90deg) translateZ(16vw);
-  }
-}
-@keyframes left-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(16vw);
-            transform: rotateY(-90deg) translateZ(16vw);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(8vw);
-            transform: rotateY(-90deg) translateZ(8vw);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(8vw);
-            transform: rotateY(-90deg) translateZ(8vw);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(16vw);
-            transform: rotateY(-90deg) translateZ(16vw);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateY(-90deg) translateZ(16vw);
-            transform: rotateY(-90deg) translateZ(16vw);
-  }
-}
-#Loading .cube .sides .right {
-  -webkit-animation: right-animation 3s ease infinite;
-          animation: right-animation 3s ease infinite;
-  -webkit-animation-delay: 100ms;
-          animation-delay: 100ms;
-  -webkit-transform: rotateY(90deg) translateZ(16vw);
-          transform: rotateY(90deg) translateZ(16vw);
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-}
-@-webkit-keyframes right-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(16vw);
-            transform: rotateY(90deg) translateZ(16vw);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(8vw);
-            transform: rotateY(90deg) translateZ(8vw);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(8vw);
-            transform: rotateY(90deg) translateZ(8vw);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(16vw);
-            transform: rotateY(90deg) translateZ(16vw);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(16vw);
-            transform: rotateY(90deg) translateZ(16vw);
-  }
-}
-@keyframes right-animation {
-  0% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(16vw);
-            transform: rotateY(90deg) translateZ(16vw);
-  }
-  20% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(8vw);
-            transform: rotateY(90deg) translateZ(8vw);
-  }
-  70% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(8vw);
-            transform: rotateY(90deg) translateZ(8vw);
-  }
-  90% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(16vw);
-            transform: rotateY(90deg) translateZ(16vw);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: rotateY(90deg) translateZ(16vw);
-            transform: rotateY(90deg) translateZ(16vw);
-  }
-}
-#Loading h1 {
-  -webkit-transform: rotateX(-37.5deg) rotateY(45deg);
-          transform: rotateX(-37.5deg) rotateY(45deg);
-  -webkit-animation: rotate 3s ease infinite;
-          animation: rotate 3s ease infinite;
-  -webkit-animation-delay: 0.8s;
-          animation-delay: 0.8s;
-}
-#Loading h1:after {
-  font-size: 4vw;
-  font-weight: bold;
-  content: "NOVA88";
-  position: absolute;
-  color: rgb(255, 255, 255);
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-  text-shadow: -1px -1px 1px #333, -2px -2px 1px #333, -3px -3px 1px #333, -4px -4px 1px #333, -5px -5px 1px #333, -6px -6px 1px #333, -7px -7px 5px rgba(0, 0, 128, 0.75);
-}
-#Loading .text {
-  width: 100%;
-  position: absolute;
-  -webkit-transform: translateY(25vw);
-          transform: translateY(25vw);
-  font-size: 4vw;
-  text-align: center;
-  color: #5574A7;
 }
 
 .amount {
@@ -7482,7 +7771,7 @@ span.important {
 }
 
 .installGuide {
-  background: #2d023a url(https://banner.picasso12.com/h5/img/918/bg.jpg) no-repeat center top/180vw;
+  background: #2d023a url(../img/style-img/918/bg.jpg) no-repeat center top/180vw;
   width: calc(100% - 8vw);
   height: calc(100% - 40vw);
   padding: 20vw 4vw 20vw;
@@ -7649,7 +7938,7 @@ span.important {
   overflow: unset;
 }
 .installGuide.mega {
-  background: url(https://banner.picasso12.com/h5/img/megabg.jpg) no-repeat center top/cover;
+  background: url(../img/style-img/megabg.jpg) no-repeat center top/cover;
 }
 .installGuide.mega section .copyinfo .inputBox, .installGuide.mega section .copyinfo .euro .inputBox-event, .euro .installGuide.mega section .copyinfo .inputBox-event, .installGuide.mega section .copyinfo .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .installGuide.mega section .copyinfo .inputBox-event {
   border: 1px solid #0ad9f5;
@@ -7914,7 +8203,7 @@ span.important {
   color: #777;
   font-weight: bold;
 }
-.refer .referstatus-item .card {
+.refer .referstatus-item .card, .refer .referstatus-item .payment {
   font-size: 3.2vw;
   line-height: 1.3;
   font-weight: 600;
@@ -7977,7 +8266,7 @@ span.important {
 .refer .referinfo-step .icon::after {
   content: "";
   display: block;
-  background: url(https://banner.picasso12.com/h5/img/refer-dashLine.svg) no-repeat center/2vw 10vw;
+  background: url(../img/style-img/refer-dashline.webp) no-repeat center/2vw 10vw;
   padding: 1vw 0;
   width: 2vw;
   height: 10vw;
@@ -7995,7 +8284,7 @@ span.important {
   margin-left: 2vw;
 }
 .refer .referinfo p {
-  color: #4c5356;
+  color: #AEACAC;
   font-size: 3.2vw;
 }
 .refer .referinfo-down {
@@ -8029,7 +8318,7 @@ span.important {
 .refer .referinfo-list .inputcopy::after {
   content: "";
   display: inline-block;
-  background: url(https://banner.picasso12.com/h5/img/icon-copy.svg) no-repeat center/5vw 5vw;
+  background: url(../img/style-img/icon-copy.webp) no-repeat center/5vw 5vw;
   width: 5vw;
   height: 5vw;
   position: absolute;
@@ -8571,7 +8860,6 @@ span.important {
   display: flex;
   -ms-flex-flow: wrap;
       flex-flow: wrap;
-  background: #5574A7;
 }
 .provider button,
 .provider a {
@@ -8603,7 +8891,7 @@ span.important {
 .vip {
   padding: 11vw 0 0;
   width: 100%;
-  background: #fbfbfb;
+  background: #1F1F1F;
 }
 .vip .swiper-container {
   width: 100%;
@@ -8656,11 +8944,11 @@ span.important {
   z-index: 1;
 }
 .vip .swiper-slide .vipinfo .rewardinfo {
-  width: 80vw;
+  width: 85vw;
   background: white;
-  color: #112240;
+  color: #000;
   border-radius: 10vw;
-  padding: 1vw 2vw;
+  padding: 2.5vw 2vw;
   margin-top: 1vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8671,10 +8959,12 @@ span.important {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  line-height: 5vw;
+  font-size: 3.5vw;
 }
 .vip .swiper-slide .vipinfo .rewardinfo span {
   margin-left: 1vw;
-  font-size: 5vw;
+  font-size: 4vw;
   font-weight: bold;
 }
 @media (max-width: 320px) {
@@ -8682,101 +8972,26 @@ span.important {
     line-height: 1;
   }
 }
-.vip .swiper-slide.vintage {
-  text-transform: uppercase;
+.vip .swiper-slide.vip1 .viprule {
+  background: #009345;
 }
-.vip .swiper-slide.vintage .vipinfo {
-  color: #faa972;
+.vip .swiper-slide.vip2 .viprule {
+  background: #BA3622;
 }
-.vip .swiper-slide.vintage .viprule span:last-child {
-  color: #faa972;
+.vip .swiper-slide.vip3 .viprule {
+  background: #C7C8CA;
 }
-.vip .swiper-slide.silver {
-  text-transform: uppercase;
+.vip .swiper-slide.vip4 .viprule {
+  background: #D9A728;
 }
-.vip .swiper-slide.silver .vipinfo {
-  color: #d7d7d7;
+.vip .swiper-slide.vip5 .viprule {
+  background: #56449A;
 }
-.vip .swiper-slide.silver .viprule {
-  background: #e5e5e5;
-}
-.vip .swiper-slide.silver .viprule span:first-child {
-  background: #bababa;
-}
-.vip .swiper-slide.silver .viprule span:last-child {
-  color: #bababa;
-}
-.vip .swiper-slide.gold {
-  text-transform: uppercase;
-}
-.vip .swiper-slide.gold .vipinfo {
-  color: #f0c966;
-}
-.vip .swiper-slide.gold .viprule {
-  background: #f8edd1;
-}
-.vip .swiper-slide.gold .viprule span:first-child {
-  background: #f0c966;
-}
-.vip .swiper-slide.gold .viprule span:last-child {
-  color: #f0c966;
-}
-.vip .swiper-slide.titanium {
-  text-transform: uppercase;
-}
-.vip .swiper-slide.titanium .vipinfo {
-  color: #acacac;
-}
-.vip .swiper-slide.titanium .viprule {
-  background: #c5c5c5;
-}
-.vip .swiper-slide.titanium .viprule span:first-child {
-  background: #666666;
-}
-.vip .swiper-slide.titanium .viprule span:last-child {
-  color: #666666;
-}
-.vip .swiper-slide.diamond {
-  text-transform: uppercase;
-}
-.vip .swiper-slide.diamond .vipinfo {
-  color: #84d2f1;
-}
-.vip .swiper-slide.diamond .viprule {
-  background: #def2ff;
-}
-.vip .swiper-slide.diamond .viprule span:first-child {
-  background: #6dbdf2;
-}
-.vip .swiper-slide.diamond .viprule span:last-child {
-  color: #6dbdf2;
-}
-.vip .swiper-slide.nova {
-  text-transform: uppercase;
-}
-.vip .swiper-slide.nova .vipinfo {
-  color: #ffffff;
-}
-.vip .swiper-slide.nova .viprule {
-  background: #f5f5f5;
-}
-.vip .swiper-slide.nova .viprule span:first-child {
-  background: #d3d7da;
-}
-.vip .swiper-slide.nova .viprule span:last-child {
-  color: #d3d7da;
-}
-.vip .swiper-slide.nova .rewardinfo {
-  font-size: 3.5vw;
-  width: 92vw;
-  height: 7vw;
-}
-.vip .swiper-slide.nova .rewardinfo span {
-  font-size: 4vw;
+.vip .swiper-slide.vip6 .viprule {
+  background: #ED2550;
 }
 .vip .viprule {
-  background: #fff2ea;
-  color: #002b4d;
+  color: #1F1F1F;
   height: 100%;
   width: 100%;
   margin-top: -3vw;
@@ -8824,7 +9039,7 @@ span.important {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: #fff;
+  color: #1F1F1F;
   height: 10vw;
   border-radius: 5vw;
   width: 100%;
@@ -8832,7 +9047,7 @@ span.important {
   font-weight: bold;
 }
 .vip .viprule-item span:first-child {
-  background: #faa972;
+  background: #fff;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 70vw;
           flex: 0 0 70vw;
@@ -8841,8 +9056,8 @@ span.important {
 }
 .vip .viprule-item span:last-child {
   position: relative;
-  color: #000;
-  background: #fff;
+  color: #1F1F1F;
+  background: #eeeeee;
   z-index: 1;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 20vw;
@@ -8861,16 +9076,15 @@ span.important {
   display: flex;
   width: 100%;
   font-size: 2.5vw;
-  font-weight: bold;
+  font-weight: 500;
   word-break: break-all;
+  overflow: hidden;
 }
 .vip .medal-item {
-  color: #a9a9a9;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  background: #525252;
+  color: #CCCCCC;
   text-align: center;
-  padding: 1vw 0;
+  padding: 2vw 0 1vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8883,26 +9097,62 @@ span.important {
           align-items: center;
   margin: 2vw 0 0;
   border-radius: 3vw 3vw 0 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-shadow: -1px 0 3px rgba(0, 0, 0, 0.5490196078);
+          box-shadow: -1px 0 3px rgba(0, 0, 0, 0.5490196078);
 }
-.vip .medal-item:first-child {
-  border-left: 0;
+.vip .medal-item .medal-icon {
+  width: 12vw;
+  height: 12vw;
+  background: #CCCCCC;
 }
-.vip .medal-item img {
-  width: 16vw;
-  opacity: 0.3;
+.vip .medal-item .medal-icon.vip1 {
+  -webkit-mask: url("../img/style-img/vip1.webp") no-repeat center/contain;
+          mask: url("../img/style-img/vip1.webp") no-repeat center/contain;
 }
-.vip .medal-item:nth-child(odd) {
-  background: #efefef;
+.vip .medal-item .medal-icon.vip2 {
+  -webkit-mask: url("../img/style-img/vip2.webp") no-repeat center/contain;
+          mask: url("../img/style-img/vip2.webp") no-repeat center/contain;
 }
-.vip .medal-item:nth-child(even) {
-  background: #e9e9e9;
+.vip .medal-item .medal-icon.vip3 {
+  -webkit-mask: url("../img/style-img/vip3.webp") no-repeat center/contain;
+          mask: url("../img/style-img/vip3.webp") no-repeat center/contain;
 }
-.vip .medal-item.vintage {
-  background: #fff2ea;
-  color: #d57331;
+.vip .medal-item .medal-icon.vip4 {
+  -webkit-mask: url("../img/style-img/vip4.webp") no-repeat center/contain;
+          mask: url("../img/style-img/vip4.webp") no-repeat center/contain;
 }
-.vip .medal-item.vintage img {
-  opacity: 1;
+.vip .medal-item .medal-icon.vip5 {
+  -webkit-mask: url("../img/style-img/vip5.webp") no-repeat center/contain;
+          mask: url("../img/style-img/vip5.webp") no-repeat center/contain;
+}
+.vip .medal-item .medal-icon.vip6 {
+  -webkit-mask: url("../img/style-img/vip6.webp") no-repeat center/contain;
+          mask: url("../img/style-img/vip6.webp") no-repeat center/contain;
+}
+.vip .medal-item.active {
+  background: #fff;
+  color: #1F1F1F;
+}
+.vip .medal-item.active .medal-icon.vip1 {
+  background: #009345;
+}
+.vip .medal-item.active .medal-icon.vip2 {
+  background: #BA3622;
+}
+.vip .medal-item.active .medal-icon.vip3 {
+  background: #C7C8CA;
+}
+.vip .medal-item.active .medal-icon.vip4 {
+  background: #D9A728;
+}
+.vip .medal-item.active .medal-icon.vip5 {
+  background: #56449A;
+}
+.vip .medal-item.active .medal-icon.vip6 {
+  background: #ED2550;
 }
 .vip .medal-item.silver {
   background: #d7d7d7;
@@ -8943,14 +9193,15 @@ span.important {
 .vip .medal-item > div {
   width: 15vw;
   text-transform: capitalize;
+  line-height: 2.5vw;
+  margin-top: 1vw;
+  text-transform: uppercase;
 }
 .vip .medal-item > div span {
   display: block;
 }
 .vip .vipprogram {
-  color: #5574a7;
   text-align: center;
-  background: #fbfbfb;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8971,16 +9222,19 @@ span.important {
 .vip .vipprogram .vipTitle {
   text-transform: uppercase;
   font-weight: bold;
-  color: #5574A7;
+  color: #fff;
   margin: 3vw 0 1vw;
 }
 .vip .vipprogram .vipTitle:last-child {
   margin-top: 5vw;
-  color: #ea804c;
+  color: #fff;
 }
 .vip .vipprogram span {
-  color: #a6a6a6;
+  color: #fff;
   padding: 0 3vw;
+}
+.vip .vipPage {
+  background: #1F1F1F;
 }
 .vip .vipPage div.text {
   margin: 1vw 2vw;
@@ -8989,7 +9243,7 @@ span.important {
   display: block;
 }
 .vip .vipPage .viptable-item-title {
-  background: #b5c7df;
+  background: #caa66f;
   color: #fff;
   padding: 2vw 2vw;
 }
@@ -8999,9 +9253,9 @@ span.important {
   display: -ms-flexbox;
   display: flex;
   padding-left: 2vw;
+  border-bottom: 1px solid #5a5a5a;
 }
 .vip .vipPage .viptable-item-text li {
-  border-right: 0.02rem solid #e1e6ed;
   height: 8vw;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 70%;
@@ -9013,6 +9267,7 @@ span.important {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: #fff;
 }
 .vip .vipPage .viptable-item-text li:last-child {
   display: -webkit-box;
@@ -9032,16 +9287,12 @@ span.important {
 .vip .vipPage .viptable-item-text li.High::before {
   content: "";
   display: block;
-  background: url(https://banner.picasso12.com/h5/img/check.png) no-repeat center/100%;
+  background: url(../img/style-img/check.png) no-repeat center/100%;
   height: 3vw;
   width: 3vw;
 }
-.vip .vipPage .viptable-item-text:nth-child(odd) {
-  background: #f5f5f5;
-}
 .vip .vipPage .viptable-item:last-child .viptable-item-text:last-child {
-  background: -webkit-gradient(linear, left top, right top, from(#ff5e00), to(#f7c5a6)) 0;
-  background: linear-gradient(to right, #ff5e00, #f7c5a6) 0;
+  background: #bc8f4a;
   color: #fff;
 }
 .vip .vipPage .viptable.vintage .viptable-item-title {
@@ -9092,7 +9343,7 @@ span.important {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: url(https://banner.picasso12.com/h5/img/vip-bottom-bg.png) no-repeat center/100%;
+  background: url(../img/style-img/vip-bottom.png) no-repeat center/100%;
   height: 100%;
   padding-bottom: 20vw;
   margin-top: 10vw;
@@ -9120,8 +9371,8 @@ span.important {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-size: 20px;
-  width: 150px;
+  font-size: 4.5vw;
+  width: 30vw;
   font-weight: bold;
   -webkit-filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
           filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
@@ -9185,7 +9436,7 @@ span.important {
 }
 .depositModule > .title.fast:after {
   content: "";
-  background: url(https://banner.picasso12.com/desktop/img/fast-icon.png) no-repeat center/cover;
+  background: url(../img/style-img/fast-icon.png) no-repeat center/cover;
   display: block;
   width: 14vw;
   height: 4vw;
@@ -9339,7 +9590,7 @@ span.important {
 }
 .depositModule .selectModule .bankName.fast::after {
   content: "";
-  background: url(https://banner.picasso12.com/desktop/img/fast-icon.png) no-repeat center/cover;
+  background: url(../img/style-img/fast-icon.png) no-repeat center/cover;
   display: block;
   width: 13vw;
   height: 4vw;
@@ -9557,7 +9808,7 @@ span.important {
   width: 10vw;
   height: 10vw;
   margin: 0 auto !important;
-  background: url(https://banner.picasso12.com/h5/img/qrpay.png) center/cover;
+  background: url(../img/style-img/qrpay.png) center/cover;
 }
 
 .icon-topup::before {
@@ -9566,7 +9817,7 @@ span.important {
   width: 10vw;
   height: 10vw;
   margin: 0 auto !important;
-  background: url(https://banner.picasso12.com/h5/img/topup.png) center/cover;
+  background: url(../img/style-img/topup.png) center/cover;
 }
 
 .icon-quick::before {
@@ -9575,7 +9826,7 @@ span.important {
   width: 10vw;
   height: 10vw;
   margin: 0 auto !important;
-  background: url(https://banner.picasso12.com/h5/img/quick-transfer.png) center/cover;
+  background: url(../img/style-img/quick-transfer.png) center/cover;
 }
 
 .icon-dou::before {
@@ -9584,7 +9835,7 @@ span.important {
   width: 10vw;
   height: 10vw;
   margin: 0 auto !important;
-  background: url(https://banner.picasso12.com/h5/img/4.0/chat-transfer.png) center/cover;
+  background: url(../img/style-img/4.0/chat-transfer.png) center/cover;
 }
 
 .submenu {
@@ -9726,7 +9977,7 @@ span.important {
 }
 
 .promos .promosModule {
-  background: url(https://banner.picasso12.com/h5/img/homepage/promobg.jpg) no-repeat left/cover;
+  background: url(../img/style-img/homepage/promobg.jpg) no-repeat left/cover;
 }
 .promos .promosModule > div:nth-child(1) {
   width: 100%;
@@ -9784,34 +10035,34 @@ span.important {
 
 .friendReferral {
   margin: 2vw;
-  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-en.jpg) no-repeat center/100%;
+  background: url(../img/style-img/index-referBlock-H5-en.jpg) no-repeat center/100%;
   min-height: 42.5vw;
   border-radius: 5px;
   border: 1px solid #d2e2f9;
 }
 .friendReferral.en {
-  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-en.jpg) no-repeat center/100%;
+  background: url(../img/style-img/index-referBlock-H5-en.jpg) no-repeat center/100%;
 }
 .friendReferral.cs {
-  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-cs.jpg) no-repeat center/100%;
+  background: url(../img/style-img/index-referBlock-H5-cs.jpg) no-repeat center/100%;
 }
 .friendReferral.th {
-  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-th.jpg) no-repeat center/100%;
+  background: url(../img/style-img/index-referBlock-H5-th.jpg) no-repeat center/100%;
 }
 .friendReferral.id {
-  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-id.jpg) no-repeat center/100%;
+  background: url(../img/style-img/index-referBlock-H5-id.jpg) no-repeat center/100%;
 }
 .friendReferral.hi {
-  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-hi.jpg) no-repeat center/100%;
+  background: url(../img/style-img/index-referBlock-H5-hi.jpg) no-repeat center/100%;
 }
 .friendReferral.bd {
-  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-bd.jpg) no-repeat center/100%;
+  background: url(../img/style-img/index-referBlock-H5-bd.jpg) no-repeat center/100%;
 }
 .friendReferral.kh {
-  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-kh.jpg) no-repeat center/100%;
+  background: url(../img/style-img/index-referBlock-H5-kh.jpg) no-repeat center/100%;
 }
 .friendReferral.vn {
-  background: url(https://banner.picasso12.com/h5/img/index-referBlock-H5-vn.jpg) no-repeat center/100%;
+  background: url(../img/style-img/index-referBlock-H5-vn.jpg) no-repeat center/100%;
 }
 .friendReferral-btn {
   font-size: 2.8vw;
@@ -9880,7 +10131,7 @@ span.important {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: url(https://banner.picasso12.com/h5/img/gamenamebg.png) no-repeat center top/cover;
+  background: url(../img/style-img/gamenamebg.png) no-repeat center top/cover;
 }
 @media (max-width: 325px) {
   .upcomingmatches .swiper-slide .teamNew .gamename {
@@ -10061,7 +10312,7 @@ span.important {
   font-size: 20vw;
 }
 .liveTv > .liveTvModule.active > .title {
-  background: url(https://banner.picasso12.com/h5/img/livetvtitlebggold.png) no-repeat center/75% 100%;
+  background: url(../img/style-img/livetvtitlebggold.png) no-repeat center/75% 100%;
 }
 .liveTv > .liveTvModule.active > .title:before {
   color: red;
@@ -10079,7 +10330,7 @@ span.important {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: url(https://banner.picasso12.com/h5/img/livetvtitlebg.png) no-repeat center/75% 100%;
+  background: url(../img/style-img/livetvtitlebg.png) no-repeat center/75% 100%;
   border-radius: 5px 5px 0 0;
   color: white;
   position: relative;
@@ -10128,72 +10379,6 @@ span.important {
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 27vw;
-}
-
-.liveCasinoBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  position: relative;
-}
-.liveCasinoBox img {
-  height: 52vw;
-  margin: 0 2vw;
-}
-.liveCasinoBox::before {
-  content: "";
-  width: 64vw;
-  height: 58vw;
-  background: url(https://banner.picasso12.com/img/liveCasinoBox/girl.png) no-repeat;
-  position: absolute;
-  right: -22vw;
-  bottom: 0.5vw;
-  background-size: 60%;
-}
-.liveCasinoBox .content {
-  width: calc(100% - 10vw);
-  height: calc(100% - 10vw);
-  position: absolute;
-  padding: 5vw;
-}
-.liveCasinoBox .content .title {
-  font-size: 5vw;
-  color: #cdae8e;
-  margin-bottom: 1vw;
-}
-.liveCasinoBox .content .info {
-  font-size: 2.6vw;
-  width: 70vw;
-  line-height: 5vw;
-}
-.liveCasinoBox .content button {
-  position: absolute;
-  background: #cdae8e;
-  border-radius: 5px;
-  padding: 0 2vw;
-  font-weight: bold;
-  font-size: 3vw;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  line-height: 5.4vw;
-  color: #000;
-  bottom: 8vw;
-  left: 18vw;
-  cursor: pointer;
-}
-.liveCasinoBox .content button:hover {
-  background-color: #cfa972;
-}
-.liveCasinoBox .content button::before {
-  position: absolute;
-  font-size: 12vw;
-  font-weight: normal;
-  color: #cdae8e;
-  left: -14vw;
 }
 
 .streaming {
@@ -10297,7 +10482,7 @@ span.important {
 }
 
 .moduleTitle {
-  background: url(https://banner.picasso12.com/h5/img/homepage/titlebg.png) no-repeat;
+  background: url(../img/style-img/homepage/titlebg.png) no-repeat;
   margin: 8vw 2vw 3vw;
   font-weight: bold;
   padding: 0 0 1vw 5vw;
@@ -10321,7 +10506,7 @@ span.important {
 }
 .moduleTitle > a::after {
   content: "";
-  background: url(https://banner.picasso12.com/h5/img/homepage/more.png) no-repeat;
+  background: url(../img/style-img/homepage/more.png) no-repeat;
   width: 20px;
   height: 20px;
   margin: 1vw 1vw 0;
@@ -10946,157 +11131,6 @@ span.important {
   font-weight: bold;
 }
 
-.jpot {
-  position: relative;
-  cursor: pointer;
-  margin: 13vw 2vw 7vw;
-  border-radius: 1vw;
-  height: 37vw;
-  background: url(https://banner.picasso12.com/h5/img/homepage/jpotbg-a.png) no-repeat 100%/cover;
-}
-.jpot.active {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-  pointer-events: none;
-}
-.jpot.active .jpot-btn,
-.jpot.active .number {
-  -webkit-filter: brightness(0.7);
-          filter: brightness(0.7);
-}
-.jpot.active .under {
-  display: block;
-}
-.jpot .under {
-  display: none;
-  position: absolute;
-  right: 2vw;
-  bottom: 3vw;
-  font-size: 3vw;
-  color: #fff;
-  -webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.9));
-          filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.9));
-}
-.jpot img {
-  width: 100%;
-}
-.jpot > .number {
-  background: url(https://banner.picasso12.com/h5/img/homepage/jpot-title.png) no-repeat;
-  position: absolute;
-  width: 67vw;
-  height: 9.6vw;
-  top: 27.5vw;
-  right: 0;
-  margin: 0;
-  line-height: 1.65;
-  font-weight: bold;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.jpot > .number .numberRow-module {
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-.jpot > .number .numberRow-module .numberRow {
-  width: 2.5vw;
-  position: relative;
-}
-.jpot > .number .numberRow-module .numberRow > div {
-  height: 106.6vw;
-  position: absolute;
-  top: 0;
-}
-.jpot > .number .numberRow-module .numberRow > div > div {
-  height: 5.3335vw;
-}
-.jpot > .number > div:first-child {
-  font-size: 4vw;
-  font-weight: bold;
-  margin-left: 14vw;
-}
-.jpot > .number > div:first-child::after {
-  content: "";
-  display: block;
-  position: absolute;
-  background: url(https://banner.picasso12.com/h5/img/homepage/coin.png) no-repeat 70%;
-  width: 10vw;
-  height: 10vw;
-  top: calc(50% - 5vw);
-  left: 5vw;
-}
-.jpot > .number > div:last-child {
-  font-size: 4vw;
-  margin-right: 10px;
-}
-.jpot .jpot-item img {
-  width: 70%;
-  display: block;
-  position: absolute;
-  top: -23vw;
-  right: -6vw;
-}
-.jpot .jpot-btn {
-  width: 40%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  padding-bottom: 10vw;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-.jpot .jpot-btn button {
-  font-size: 3vw;
-  font-weight: bold;
-  background: -webkit-gradient(linear, left top, right top, color-stop(30%, #ff5e00), to(#f39519));
-  background: linear-gradient(90deg, #ff5e00 30%, #f39519 100%);
-  padding: 0 3vw;
-  height: 6vw;
-  border-radius: 5vw;
-}
-
-@-webkit-keyframes jpot {
-  0% {
-    background: url(https://banner.picasso12.com/h5/img/jpotbg.png) no-repeat center/cover;
-  }
-  50% {
-    background: url(https://banner.picasso12.com/h5/img/jpotbga.png) no-repeat center/cover;
-  }
-  100% {
-    background: url(https://banner.picasso12.com/h5/img/jpotbg.png) no-repeat center/cover;
-  }
-}
-
-@keyframes jpot {
-  0% {
-    background: url(https://banner.picasso12.com/h5/img/jpotbg.png) no-repeat center/cover;
-  }
-  50% {
-    background: url(https://banner.picasso12.com/h5/img/jpotbga.png) no-repeat center/cover;
-  }
-  100% {
-    background: url(https://banner.picasso12.com/h5/img/jpotbg.png) no-repeat center/cover;
-  }
-}
 .swithModule {
   text-align: center;
   color: #fff !important;
@@ -11257,7 +11291,7 @@ span.important {
   background: #97b4e0;
 }
 .apppage .app {
-  background: url(https://banner.picasso12.com/h5/img/app/new-appbg.png) no-repeat top center/cover;
+  background: url(../img/style-img/app/new-appbg.png) no-repeat top center/cover;
 }
 .apppage .appHeader {
   height: 8vw;
@@ -11925,7 +11959,7 @@ span.important {
 
 /*checkspeed*/
 .checkspeed {
-  background: #0339a2 url(https://banner.picasso12.com/h5/img/check_speed/bg.jpg) no-repeat center 24vw/100% auto;
+  background: #0339a2 url(../img/style-img/check_speed/bg.jpg) no-repeat center 24vw/100% auto;
   height: auto;
 }
 .checkspeed img {
@@ -12294,14 +12328,14 @@ span.important {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(https://banner.picasso12.com/h5/img/event/wheel/bg.jpg) no-repeat top center/175vw, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
-  background: url(https://banner.picasso12.com/h5/img/event/wheel/bg.jpg) no-repeat top center/175vw, linear-gradient(to right, #100d41, #250333);
+  background: url(../img/style-img/event/wheel/bg.jpg) no-repeat top center/175vw, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
+  background: url(../img/style-img/event/wheel/bg.jpg) no-repeat top center/175vw, linear-gradient(to right, #100d41, #250333);
   padding: 0 0 24vw;
 }
 .wheelEvent .eventTitleBg {
   width: 56vw;
   height: 13vw;
-  background: url(https://banner.picasso12.com/h5/img/event/wheel/event_title_bg.png) no-repeat top center/cover;
+  background: url(../img/style-img/event/wheel/event_title_bg.png) no-repeat top center/cover;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12376,7 +12410,7 @@ span.important {
   width: 60vw;
   height: 60vw;
   position: absolute;
-  background: url(https://banner.picasso12.com/h5/img/event/wheel/wheelbg.png) no-repeat center/cover;
+  background: url(../img/style-img/event/wheel/wheelbg.png) no-repeat center/cover;
   border-radius: 100%;
   margin-top: 1vw;
   font-weight: bold;
@@ -12739,7 +12773,7 @@ span.important {
   right: 50px;
   width: 60px;
   height: 46px;
-  background: url(https://banner.picasso12.com/h5/img/event/wheel/coin.png) no-repeat center/cover;
+  background: url(../img/style-img/event/wheel/coin.png) no-repeat center/cover;
 }
 .wheelPopModule .wheelPop .animation .coin:nth-child(2) {
   top: 100px;
@@ -13146,43 +13180,43 @@ span.important {
   margin-right: 5px;
 }
 .flag.ch:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/ch.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/ch.jpg) no-repeat top left/cover;
 }
 .flag.cs:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/cs.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/cs.jpg) no-repeat top left/cover;
 }
 .flag.en:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/en.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/en.jpg) no-repeat top left/cover;
 }
 .flag.th:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/th.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/th.jpg) no-repeat top left/cover;
 }
 .flag.id:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/id.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/id.jpg) no-repeat top left/cover;
 }
 .flag.vn:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/vn.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/vn.jpg) no-repeat top left/cover;
 }
 .flag.in:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/in.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/in.jpg) no-repeat top left/cover;
 }
 .flag.bd:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/bd.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/bd.jpg) no-repeat top left/cover;
 }
 .flag.kh:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/kh.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/kh.jpg) no-repeat top left/cover;
 }
 .flag.gb:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/gb.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/gb.jpg) no-repeat top left/cover;
 }
 .flag.br:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/br.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/br.jpg) no-repeat top left/cover;
 }
 .flag.ko:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/ko.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/ko.jpg) no-repeat top left/cover;
 }
 .flag.jp:before {
-  background: url(https://banner.picasso12.com/desktop/img/flag/jp.jpg) no-repeat top left/cover;
+  background: url(../img/style-img/jp.jpg) no-repeat top left/cover;
 }
 
 .addressModule {
@@ -13234,11 +13268,11 @@ span.important {
 .worldcupEvent .eventPage.top {
   position: relative;
   height: 200vw;
-  background: url(https://banner.picasso12.com/h5/img/event/worldcup/bg.jpg) no-repeat center/cover;
+  background: url(../img/style-img/event/worldcup/bg.jpg) no-repeat center/cover;
 }
 .worldcupEvent .eventPage.middle {
   position: relative;
-  background: url(https://banner.picasso12.com/h5/img/event/worldcup/bg2.jpg) no-repeat center/cover;
+  background: url(../img/style-img/event/worldcup/bg2.jpg) no-repeat center/cover;
   text-align: center;
   padding: 10vw 0;
 }
@@ -13381,7 +13415,7 @@ span.important {
   display: block;
   width: 4vw;
   height: 4vw;
-  background: url(https://banner.picasso12.com/h5/img/event/worldcup/icon-fifa.svg) no-repeat center/cover;
+  background: url(../img/style-img/event/worldcup/icon-fifa.webp) no-repeat center/cover;
   position: absolute;
   left: -0.5vw;
   top: 1.05vw;
@@ -13390,8 +13424,8 @@ span.important {
   position: relative;
   padding: 5vw 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  background: url(https://banner.picasso12.com/h5/img/event/worldcup/fixturebg.jpg) no-repeat top center/contain, -webkit-gradient(linear, left top, left bottom, color-stop(50%, #300113), to(#4a031e));
-  background: url(https://banner.picasso12.com/h5/img/event/worldcup/fixturebg.jpg) no-repeat top center/contain, linear-gradient(180deg, #300113 50%, #4a031e 100%);
+  background: url(../img/style-img/event/worldcup/fixturebg.jpg) no-repeat top center/contain, -webkit-gradient(linear, left top, left bottom, color-stop(50%, #300113), to(#4a031e));
+  background: url(../img/style-img/event/worldcup/fixturebg.jpg) no-repeat top center/contain, linear-gradient(180deg, #300113 50%, #4a031e 100%);
 }
 .worldcupEvent .fixture .title {
   margin: 3vw auto 18vw;
@@ -13874,7 +13908,7 @@ span.important {
   left: 0;
   width: 10vw;
   height: 4.75vw;
-  background: url(https://banner.picasso12.com/img/worldcup/ticket.png) no-repeat center/cover;
+  background: url(../img/style-img/event/worldcup/ticket.png) no-repeat center/cover;
 }
 .worldcupEvent .progressBar .progressItem.active .value {
   color: #02D2B8;
@@ -13970,7 +14004,7 @@ span.important {
   top: 2vw;
   width: 13vw;
   height: 2vw;
-  background: url(https://banner.picasso12.com/h5/img/event/worldcup/5deco.svg) no-repeat center/cover;
+  background: url(../img/style-img/event/worldcup/5deco.webp) no-repeat center/cover;
 }
 .worldcupEvent .info .subtitle:before {
   left: -15vw;
@@ -14238,12 +14272,12 @@ input:-webkit-autofill:active {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(https://banner.picasso12.com/h5/img/event/angpao/bg-top.jpg) no-repeat top center/cover, #990100;
+  background: url(../img/style-img/event/angpao/bg-top.jpg) no-repeat top center/cover, #990100;
   min-height: 92vw;
 }
 .angpaoEvent .eventPage--bottom {
   min-width: 100%;
-  background: url(https://banner.picasso12.com/h5/img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
+  background: url(../img/style-img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
   padding-top: 5vw;
   padding-bottom: 15vw;
 }
@@ -14342,7 +14376,7 @@ input:-webkit-autofill:active {
   font-size: 3.5vw;
   text-transform: uppercase;
   color: #fff;
-  background: url(https://banner.picasso12.com/h5/img/event/angpao/btn.png) no-repeat top center/contain;
+  background: url(../img/style-img/event/angpao/btn.png) no-repeat top center/contain;
   width: 45vw;
   height: 12vw;
   line-height: 1;
@@ -14659,7 +14693,7 @@ input:-webkit-autofill:active {
   display: block;
   width: 130px;
   height: 58px;
-  background-image: url("https://banner.picasso12.com/h5/img/logo_en_w.png");
+  background-image: url("https://banner.picasso12.com/h5/img/logo.png");
   background-size: 100%;
   background-repeat: no-repeat;
   -webkit-transition: ease 0.15s;
@@ -15440,15 +15474,7 @@ input[type=number] {
   width: 28vw;
   height: 16vw;
   pointer-events: none;
-  background: url(https://banner.picasso12.com/h5/img/event/eurocup/logo-euro-ball.gif) center/cover;
-}
-.header-module .header-logo.eurocup + .splogo {
-  -webkit-animation: eurologo 7.5s running infinite 0.5s;
-          animation: eurologo 7.5s running infinite 0.5s;
-}
-.header-module .header-logo.olympic + .splogo {
-  -webkit-animation: olympic 7.5s running infinite 0.5s;
-          animation: olympic 7.5s running infinite 0.5s;
+  background: url(../img/style-img/event/eurocup/logo-euro-ball.gif) center/cover;
 }
 .header-module .header-logo img {
   display: block;
@@ -15462,123 +15488,44 @@ input[type=number] {
   width: 6vw;
 }
 
-.splogo {
-  position: absolute;
-  left: 30vw;
-  bottom: 1.5vw;
-  width: 10vw !important;
-  height: 10vw !important;
-  background: url(https://banner.picasso12.com/h5/img/4.0/sp-aston-villa.png) center/cover;
-  -webkit-clip-path: none !important;
-          clip-path: none !important;
-}
-
-@-webkit-keyframes splogo {
-  0% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 0.1;
-  }
-  5% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 1;
-  }
-  45% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 1;
-  }
-  50% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 0;
-  }
-  51% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 0.1;
-  }
-  56% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 1;
-  }
-  95% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 1;
-  }
-  100% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 0;
-  }
-}
-
-@keyframes splogo {
-  0% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 0.1;
-  }
-  5% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 1;
-  }
-  45% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 1;
-  }
-  50% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-sevilla.png) center/cover;
-    opacity: 0;
-  }
-  51% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 0.1;
-  }
-  56% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 1;
-  }
-  95% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 1;
-  }
-  100% {
-    background: url(https://banner.picasso12.com/desktop/img/sp-inter-milan.png) center/cover;
-    opacity: 0;
-  }
-}
 @-webkit-keyframes eurologo {
   0% {
-    background: url(https://banner.picasso12.com/h5/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(../img/style-img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.picasso12.com/h5/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(../img/style-img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
 }
+
 @keyframes eurologo {
   0% {
-    background: url(https://banner.picasso12.com/h5/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(../img/style-img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.picasso12.com/h5/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(../img/style-img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
 }
 @-webkit-keyframes olympic {
   0% {
-    background: url(https://banner.picasso12.com/h5/img/event/olympic/logo-paris.png) center/cover;
+    background: url(../img/style-img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.picasso12.com/h5/img/event/olympic/logo-paris.png) center/cover;
+    background: url(../img/style-img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
 }
 @keyframes olympic {
   0% {
-    background: url(https://banner.picasso12.com/h5/img/event/olympic/logo-paris.png) center/cover;
+    background: url(../img/style-img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.picasso12.com/h5/img/event/olympic/logo-paris.png) center/cover;
+    background: url(../img/style-img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
 }
@@ -16046,14 +15993,14 @@ main.casino .banner {
 .home-hotmatch::after {
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/h5/img/4.0/sports-bg-new.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/sports-bg-new.png) no-repeat center/cover;
   height: 45vw;
   position: absolute;
   top: 0;
   width: 100%;
 }
 .home-hotmatch.br::after {
-  background: url(https://banner.picasso12.com/h5/img/4.0/sports-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/sports-bg.png) no-repeat center/cover;
 }
 .home-hotmatch-wrapper {
   display: -webkit-box;
@@ -16601,7 +16548,7 @@ main.casino .banner {
 }
 
 .footer {
-  background: url(https://banner.picasso12.com/h5/img/4.0/footer-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/footer-bg.png) no-repeat center/cover;
   height: 21.5vw;
   width: 100%;
   display: -webkit-box;
@@ -16612,8 +16559,8 @@ main.casino .banner {
   z-index: 3;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  -webkit-filter: drop-shadow(0 7px 6px #C5C5C5);
-          filter: drop-shadow(0 7px 6px #C5C5C5);
+  -webkit-filter: drop-shadow(0 7px 12px #000);
+          filter: drop-shadow(0 7px 12px #000);
 }
 .footer-item {
   display: -webkit-box;
@@ -16789,7 +16736,7 @@ main.casino .banner {
   margin-top: 1.5vw;
 }
 .footer-popup-img {
-  background: white;
+  background: #242526;
   padding: 1.5vw;
   border-radius: 50px;
   width: 9vw;
@@ -16846,7 +16793,9 @@ main.casino .banner {
   letter-spacing: -0.2vw;
 }
 .menu-logo > div:last-child span {
-  color: #FF7600;
+  color: #e03035;
+  font-weight: 800;
+  margin-left: 1.5vw;
 }
 .menu-center {
   font-weight: 500;
@@ -16884,12 +16833,13 @@ main.casino .banner {
   text-align: center;
   line-height: 4vw;
   margin-top: 2vw;
+  color: #fff;
 }
 .menu-center a .exclusion-icon {
   width: 10vw;
 }
 .menu-bottom {
-  background: #F0F0F0;
+  background: #000;
   margin-top: 12vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -16915,6 +16865,7 @@ main.casino .banner {
   border-bottom: 1px solid white;
   padding: 5vw 0;
   margin: 0 11vw;
+  background: #242526;
 }
 .menu-bottom-item .info img {
   width: 6vw;
@@ -16923,11 +16874,12 @@ main.casino .banner {
   margin-left: 2vw;
   width: 53vw;
   font-size: 3.5vw;
+  color: #AEACAC;
 }
 .menu-bottom-item .info::after {
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/h5/img/4.0/down.svg) no-repeat center/100%;
+  background: url(../img/style-img/4.0/down.webp) no-repeat center/100%;
   width: 3vw;
   height: 3vw;
   margin-left: 15vw;
@@ -16953,7 +16905,7 @@ main.casino .banner {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 5vw;
-  background-color: #ECECEC;
+  background: #242526;
   border-radius: 4vw;
   padding: 6vw;
 }
@@ -16962,7 +16914,7 @@ main.casino .banner {
 }
 .menu-bottom-item .option .country-current .country-item button {
   margin-top: 2vw;
-  color: #878787;
+  color: #fff;
   font-size: 3vw;
 }
 .menu-bottom-item .option .country-current .country-title img {
@@ -16990,7 +16942,7 @@ main.casino .banner {
   width: 60vw;
 }
 .menu-bottom-item .option .country-item > div button.active {
-  color: #FF7600;
+  color: #F0B003;
 }
 .menu-bottom-item .option .country-item:first-child {
   padding-top: 0;
@@ -17044,6 +16996,7 @@ main.casino .banner {
 .menu-bottom-item .option button:last-child {
   padding-right: 0;
   border-right: 0;
+  color: #fff;
 }
 .menu-bottom-item .option a {
   color: #A7A7A7;
@@ -17064,13 +17017,15 @@ main.casino .banner {
   border: 0;
 }
 .menu-bottom-item.active .info::after {
-  background: url(https://banner.picasso12.com/h5/img/4.0/up.svg) no-repeat center/100%;
+  background: url(../img/style-img/4.0/up.webp) no-repeat center/100%;
 }
 .menu-bottom-item.active .option {
   display: block;
 }
 .menu-bottom-item:first-child {
   padding-top: 3vw;
+  background: #242526;
+  color: #B0B3B8;
 }
 .menu-bottom-item:last-child .info {
   border: 0;
@@ -17085,7 +17040,7 @@ main.casino .banner {
 }
 
 .after .menu-top {
-  background: url(https://banner.picasso12.com/h5/img/4.0/menu-after-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/menu-after-bg.png) no-repeat center/cover;
   height: 55vw;
   border-radius: 0 0 20px 20px;
 }
@@ -17124,7 +17079,7 @@ main.casino .banner {
 .after .menu-top .profile-item > div > div a::after {
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/h5/img/4.0/right.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/right.png) no-repeat center/cover;
   height: 2vw;
   width: 2vw;
   margin-left: 1vw;
@@ -17283,37 +17238,37 @@ main.casino .banner {
   position: relative;
 }
 .after .menu-vip.vintage {
-  background: url(https://banner.picasso12.com/h5/img/4.0/vintage-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/vintage-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.vintage .right {
   background: #ffb773;
 }
 .after .menu-vip.silver {
-  background: url(https://banner.picasso12.com/h5/img/4.0/silver-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/silver-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.silver .right {
   background: #e9e9e9;
 }
 .after .menu-vip.gold {
-  background: url(https://banner.picasso12.com/h5/img/4.0/gold-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/gold-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.gold .right {
   background: #ffd965;
 }
 .after .menu-vip.titanium {
-  background: url(https://banner.picasso12.com/h5/img/4.0/titanium-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/titanium-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.titanium .right {
   background: #a5a5a5;
 }
 .after .menu-vip.diamond {
-  background: url(https://banner.picasso12.com/h5/img/4.0/diamond-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/diamond-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.diamond .right {
   background: #82F2FF;
 }
 .after .menu-vip.nova {
-  background: url(https://banner.picasso12.com/h5/img/4.0/nova-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/nova-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.nova .right {
   background: #efefef;
@@ -17368,7 +17323,7 @@ main.casino .banner {
           align-items: center;
 }
 .after .menu-vip .right img {
-  width: 17vw;
+  width: 18vw;
 }
 .after .menu-vip .right .dot-progress {
   float: left;
@@ -17378,12 +17333,12 @@ main.casino .banner {
   text-align: center;
 }
 .after .menu-vip .right .dot-progress .progress-bar-vertical {
-  background: url(https://banner.picasso12.com/h5/img/4.0/dot-progress-bg.png) no-repeat left;
+  background: url(../img/style-img/4.0/dot-progress-bg.png) no-repeat left;
   height: 5vw;
   width: 100%;
 }
 .after .menu-vip .right .dot-progress .progress-now-vertical {
-  background: url(https://banner.picasso12.com/h5/img/4.0/dot-progress.png) no-repeat left;
+  background: url(../img/style-img/4.0/dot-progress.png) no-repeat left;
   height: 5vw;
 }
 .after .menu-vip .vip-text {
@@ -17403,7 +17358,7 @@ main.casino .banner {
 .after .menu-vip .vip-text.next::after {
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/h5/img/4.0/right-2.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/right-2.png) no-repeat center/cover;
   width: 2vw;
   height: 2vw;
   margin-left: 1vw;
@@ -17458,13 +17413,13 @@ main.casino .banner {
 }
 .after .wallet-box .bank-list > a > div {
   font-weight: 500;
-  color: #C01D21;
+  color: #000;
 }
 .after .wallet-box .casino-wallet {
   margin-top: 5vw;
 }
 .after .wallet-box .casino-wallet-item {
-  background: #EFEFEF;
+  background: #CCCCCC;
   padding: 5vw 3vw 3vw;
   border-radius: 10px;
 }
@@ -17477,6 +17432,7 @@ main.casino .banner {
           justify-content: space-between;
   font-weight: 500;
   margin-bottom: 2vw;
+  color: #4c5356;
 }
 .after .wallet-box .casino-wallet-item .money > div:last-child {
   margin-right: 1vw;
@@ -17488,8 +17444,10 @@ main.casino .banner {
   border-radius: 20px;
 }
 .after .wallet-box .casino-wallet-item .progress-bar {
-  background: -webkit-gradient(linear, left top, right top, from(rgb(56, 117, 227)), to(rgb(167, 167, 167)));
-  background: linear-gradient(90deg, rgb(56, 117, 227) 0%, rgb(167, 167, 167) 100%);
+  background: -webkit-gradient(linear, right top, left top, from(#740707), to(#F50707));
+  background: linear-gradient(to left, #740707, #F50707);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
   width: 50vw;
   height: 2vw;
   border-radius: 20px;
@@ -17497,7 +17455,7 @@ main.casino .banner {
 .after .wallet-box .casino-wallet-item .progress-number {
   text-align: end;
   margin-top: 1vw;
-  color: #A7A7A7;
+  color: #AEACAC;
   margin-right: 1vw;
 }
 .after .wallet-list {
@@ -17516,6 +17474,7 @@ main.casino .banner {
   font-weight: 500;
   border-bottom: 1px solid #EFEFEF;
   padding: 3vw 1vw;
+  color: #000;
 }
 .after .wallet-list-item > div {
   font-size: 3.5vw;
@@ -17528,7 +17487,7 @@ main.casino .banner {
   margin-bottom: 4vw;
 }
 .after .wallet-list-item.main-wallet {
-  border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid #E0E6E9;
 }
 .after .wallet-list a {
   background: -webkit-gradient(linear, left top, right top, from(rgb(30, 62, 119)), to(rgb(50, 95, 177)));
@@ -17581,28 +17540,28 @@ input[type=number] .btn-logout {
 }
 
 .dragonegg-event {
-  background: #BD0213 url(https://banner.picasso12.com/h5/img/event/dragonegg/banner-en.jpg) no-repeat top/contain;
+  background: #BD0213 url(../img/style-img/event/dragonegg/banner-en.jpg) no-repeat top/contain;
   padding-top: 0;
   position: relative;
   height: auto;
 }
 .dragonegg-event.en {
-  background: #BD0213 url(https://banner.picasso12.com/h5/img/event/dragonegg/banner-en.jpg) no-repeat top/contain;
+  background: #BD0213 url(../img/style-img/event/dragonegg/banner-en.jpg) no-repeat top/contain;
 }
 .dragonegg-event.my {
-  background: #BD0213 url(https://banner.picasso12.com/h5/img/event/dragonegg/banner-my.jpg) no-repeat top/contain;
+  background: #BD0213 url(../img/style-img/event/dragonegg/banner-my.jpg) no-repeat top/contain;
 }
 .dragonegg-event.cs {
-  background: #BD0213 url(https://banner.picasso12.com/h5/img/event/dragonegg/banner-cs.jpg) no-repeat top/contain;
+  background: #BD0213 url(../img/style-img/event/dragonegg/banner-cs.jpg) no-repeat top/contain;
 }
 .dragonegg-event.id {
-  background: #BD0213 url(https://banner.picasso12.com/h5/img/event/dragonegg/banner-id.jpg) no-repeat top/contain;
+  background: #BD0213 url(../img/style-img/event/dragonegg/banner-id.jpg) no-repeat top/contain;
 }
 .dragonegg-event.th {
-  background: #BD0213 url(https://banner.picasso12.com/h5/img/event/dragonegg/banner-th.jpg) no-repeat top/contain;
+  background: #BD0213 url(../img/style-img/event/dragonegg/banner-th.jpg) no-repeat top/contain;
 }
 .dragonegg-event.vn {
-  background: #BD0213 url(https://banner.picasso12.com/h5/img/event/dragonegg/banner-vn.jpg) no-repeat top/contain;
+  background: #BD0213 url(../img/style-img/event/dragonegg/banner-vn.jpg) no-repeat top/contain;
 }
 .dragonegg-event .event-back {
   padding: 2vw 3vw;
@@ -17619,7 +17578,7 @@ input[type=number] .btn-logout {
 .dragonegg-event .event-back .icon-back::after {
   content: "";
   display: inline-block;
-  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/icon-back.svg) no-repeat center/cover;
+  background: url(../img/style-img/event/dragonegg/icon-back.webp) no-repeat center/cover;
   width: 2vw;
   height: 3vw;
   position: absolute;
@@ -17664,7 +17623,7 @@ input[type=number] .btn-logout {
   display: inline-block;
   width: 6.8vw;
   height: 7.8vw;
-  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/title-egg.png) no-repeat center/cover;
+  background: url(../img/style-img/event/dragonegg/title-egg.png) no-repeat center/cover;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%) rotate(-14deg);
@@ -17678,7 +17637,7 @@ input[type=number] .btn-logout {
   display: inline-block;
   width: 6.8vw;
   height: 7.8vw;
-  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/title-egg.png) no-repeat center/cover;
+  background: url(../img/style-img/event/dragonegg/title-egg.png) no-repeat center/cover;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%) rotate(14deg);
@@ -17791,7 +17750,7 @@ input[type=number] .btn-logout {
   color: #949494;
 }
 .dragonegg-event .event-draw {
-  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/draw-bg-1.jpg) no-repeat center/contain;
+  background: url(../img/style-img/event/dragonegg/draw-bg-1.jpg) no-repeat center/contain;
   position: relative;
   width: 100%;
   height: 70vw;
@@ -18038,7 +17997,7 @@ input[type=number] .btn-logout {
 .dragonegg-event .event-history::before {
   content: "";
   display: block;
-  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/draw-bg-2.jpg) no-repeat center/contain;
+  background: url(../img/style-img/event/dragonegg/draw-bg-2.jpg) no-repeat center/contain;
   width: 100%;
   height: 20vw;
   position: absolute;
@@ -18221,7 +18180,7 @@ input[type=number] .btn-logout {
 #popup.dragonegg-pop .close-btn::after {
   content: "";
   display: block;
-  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/icon-close.svg) no-repeat center/cover;
+  background: url(../img/style-img/event/dragonegg/icon-close.webp) no-repeat center/cover;
   width: 6vw;
   height: 6vw;
   position: absolute;
@@ -18524,7 +18483,7 @@ input[type=number] .btn-logout {
 #popup.dragonegg-result-pop .close-btn::after {
   content: "";
   display: block;
-  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/icon-close.svg) no-repeat center/cover;
+  background: url(../img/style-img/event/dragonegg/icon-close.webp) no-repeat center/cover;
   width: 6vw;
   height: 6vw;
   position: absolute;
@@ -18741,7 +18700,7 @@ input[type=number] .btn-logout {
 #popup .dragonegg-result-list::after {
   content: "";
   display: inline-block;
-  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/popup-10-light.png) no-repeat center/cover;
+  background: url(../img/style-img/event/dragonegg/popup-10-light.png) no-repeat center/cover;
   width: 60vw;
   height: 60vw;
   position: absolute;
@@ -18772,7 +18731,7 @@ input[type=number] .btn-logout {
   display: inline-block;
   width: 18vw;
   height: 18vw;
-  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/popup-10-reward.png) no-repeat center/cover;
+  background: url(../img/style-img/event/dragonegg/popup-10-reward.png) no-repeat center/cover;
   position: absolute;
   top: -9vw;
   left: 4lvw;
@@ -18784,7 +18743,7 @@ input[type=number] .btn-logout {
   display: inline-block;
   width: 18vw;
   height: 18vw;
-  background: url(https://banner.picasso12.com/h5/img/event/dragonegg/popup-10-reward.png) no-repeat center/cover;
+  background: url(../img/style-img/event/dragonegg/popup-10-reward.png) no-repeat center/cover;
   position: absolute;
   top: -9vw;
   right: 4lvw;
@@ -18813,7 +18772,7 @@ input[type=number] .btn-logout {
 .euro .wrapper {
   padding-top: 20vw;
   min-height: 200vw;
-  background: #143CDB url(https://banner.picasso12.com/h5/img/event/eurocup/top-bg.jpg) no-repeat bottom/contain;
+  background: #143CDB url(../img/style-img/event/eurocup/top-bg.jpg) no-repeat bottom/contain;
   position: relative;
 }
 .euro .wrapper::before {
@@ -18825,7 +18784,7 @@ input[type=number] .btn-logout {
   width: 100%;
   height: 27vw;
   z-index: 0;
-  background: url(https://banner.picasso12.com/h5/img/event/eurocup/top-item.png) no-repeat center/cover;
+  background: url(../img/style-img/event/eurocup/top-item.png) no-repeat center/cover;
 }
 .euro > .title {
   font-size: 7vw;
@@ -19104,7 +19063,7 @@ input[type=number] .btn-logout {
   top: -6vw;
   width: 10vw;
   height: 5vw;
-  background: url(https://banner.picasso12.com/h5/img/event/eurocup/tickets-1.png) no-repeat center/cover;
+  background: url(../img/style-img/event/eurocup/tickets-1.png) no-repeat center/cover;
 }
 .euro-mission .progressBar .progressItem.active:after {
   background: #F9BF4B;
@@ -19139,7 +19098,7 @@ input[type=number] .btn-logout {
   height: 1.8vw;
   -webkit-transform: translateX(-55%);
           transform: translateX(-55%);
-  background: url(https://banner.picasso12.com/h5/img/event/eurocup/frame.png) no-repeat center/cover;
+  background: url(../img/style-img/event/eurocup/frame.png) no-repeat center/cover;
 }
 .euro-poll {
   display: -webkit-box;
@@ -19328,7 +19287,7 @@ input[type=number] .btn-logout {
   display: block;
   width: 4vw;
   height: 4vw;
-  background: url(https://banner.picasso12.com/h5/img/event/eurocup/arrow-icon.png) no-repeat center/cover;
+  background: url(../img/style-img/event/eurocup/arrow-icon.png) no-repeat center/cover;
   border: 0;
 }
 .euro .inputBox-event .dropdown .dropdown-container {
@@ -19864,7 +19823,7 @@ input[type=number] .btn-logout {
 }
 .milestones-home {
   height: 100vh;
-  background: url(../img/milestones/top-bg.jpg) no-repeat center/cover;
+  background: url(../img/style-img/milestones/top-bg.jpg) no-repeat center/cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20098,13 +20057,13 @@ input[type=number] .btn-logout {
   color: #002F81;
 }
 .milestones .milestones-swiper .swiper-slide.two .page-title {
-  background: url(../img/milestones/two-bg.jpg) no-repeat center/100%;
+  background: url(../img/style-img/milestones/two-bg.jpg) no-repeat center/100%;
 }
 .milestones .milestones-swiper .swiper-slide.two .page-title > div:first-child {
   color: #366DCB;
 }
 .milestones .milestones-swiper .swiper-slide.two .page-text {
-  background: url(../img/milestones/two-text-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/milestones/two-text-bg.png) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-slide.three .page-date {
   background: #FF7600;
@@ -20114,7 +20073,7 @@ input[type=number] .btn-logout {
   color: #E94801;
 }
 .milestones .milestones-swiper .swiper-slide.three .page-title {
-  background: url(../img/milestones/three-bg.jpg) no-repeat center/100%;
+  background: url(../img/style-img/milestones/three-bg.jpg) no-repeat center/100%;
 }
 .milestones .milestones-swiper .swiper-slide.three .page-title > div:first-child {
   color: #FF7600;
@@ -20127,7 +20086,7 @@ input[type=number] .btn-logout {
   margin-right: 14vw;
 }
 .milestones .milestones-swiper .swiper-slide.three .page-text {
-  background: url(../img/milestones/three-text-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/milestones/three-text-bg.png) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-slide.four .page-date {
   background: #5B5BCF;
@@ -20137,7 +20096,7 @@ input[type=number] .btn-logout {
   color: #4747AE;
 }
 .milestones .milestones-swiper .swiper-slide.four .page-title {
-  background: url(../img/milestones/four-bg.jpg) no-repeat center/100%;
+  background: url(../img/style-img/milestones/four-bg.jpg) no-repeat center/100%;
 }
 .milestones .milestones-swiper .swiper-slide.four .page-title > div:first-child {
   color: #5B5BCF;
@@ -20150,7 +20109,7 @@ input[type=number] .btn-logout {
   margin: 2vw 0 0 1vw;
 }
 .milestones .milestones-swiper .swiper-slide.four .page-text {
-  background: url(../img/milestones/four-text-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/milestones/four-text-bg.png) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-slide.five .page-date {
   background: #C90F0F;
@@ -20160,7 +20119,7 @@ input[type=number] .btn-logout {
   color: #870404;
 }
 .milestones .milestones-swiper .swiper-slide.five .page-title {
-  background: url(../img/milestones/five-bg.jpg) no-repeat center/100%;
+  background: url(../img/style-img/milestones/five-bg.jpg) no-repeat center/100%;
 }
 .milestones .milestones-swiper .swiper-slide.five .page-title > div:first-child {
   color: #C90F0F;
@@ -20173,7 +20132,7 @@ input[type=number] .btn-logout {
   margin: 2vw 0 0 1vw;
 }
 .milestones .milestones-swiper .swiper-slide.five .page-text {
-  background: url(../img/milestones/five-text-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/milestones/five-text-bg.png) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-slide.six .page-date {
   background: #0525B2;
@@ -20183,7 +20142,7 @@ input[type=number] .btn-logout {
   color: #01156D;
 }
 .milestones .milestones-swiper .swiper-slide.six .page-title {
-  background: url(../img/milestones/six-bg.jpg) no-repeat center/100%;
+  background: url(../img/style-img/milestones/six-bg.jpg) no-repeat center/100%;
 }
 .milestones .milestones-swiper .swiper-slide.six .page-title > div:first-child {
   color: #0525B2;
@@ -20196,7 +20155,7 @@ input[type=number] .btn-logout {
   margin: 2vw 0 0 1vw;
 }
 .milestones .milestones-swiper .swiper-slide.six .page-text {
-  background: url(../img/milestones/six-text-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/milestones/six-text-bg.png) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-button-next,
 .milestones .milestones-swiper .swiper-button-prev {
@@ -20206,11 +20165,11 @@ input[type=number] .btn-logout {
   height: 6vw;
 }
 .milestones .milestones-swiper .swiper-button-next {
-  background: url(../img/milestones/right-btn.png) no-repeat center/100%;
+  background: url(../img/style-img/milestones/right-btn.png) no-repeat center/100%;
   right: 42%;
 }
 .milestones .milestones-swiper .swiper-button-prev {
-  background: url(../img/milestones/left-btn.png) no-repeat center/100%;
+  background: url(../img/style-img/milestones/left-btn.png) no-repeat center/100%;
   left: 42%;
 }
 .milestones.after-footer {
@@ -20269,7 +20228,7 @@ input[type=number] .btn-logout {
 }
 
 .retention {
-  background: #0f1f3b url(https://banner.picasso12.com/h5/img/event/retention/top-bg.jpg) no-repeat top/contain;
+  background: #0f1f3b url(../img/style-img/event/retention/top-bg.jpg) no-repeat top/contain;
   position: relative;
   padding: 0 0 10vw;
 }
@@ -20298,7 +20257,7 @@ input[type=number] .btn-logout {
 .retention-wrapper .top-btn {
   position: absolute;
   bottom: -18vw;
-  background: url(https://banner.picasso12.com/h5/img/event/retention/btn-bg.png) no-repeat center/100%;
+  background: url(../img/style-img/event/retention/btn-bg.png) no-repeat center/100%;
   width: 50vw;
   height: 20vw;
   display: -webkit-box;
@@ -20344,7 +20303,7 @@ input[type=number] .btn-logout {
 }
 .retention-wrapper .bonus-list .title > div:first-child {
   color: white;
-  background: url(https://banner.picasso12.com/h5/img/event/retention/title-bg.png) no-repeat center/100%;
+  background: url(../img/style-img/event/retention/title-bg.png) no-repeat center/100%;
   padding: 4vw 0 2vw 6vw;
   font-size: 4vw;
   display: -webkit-box;
@@ -20752,7 +20711,7 @@ input[type=number] .btn-logout {
   font-weight: 700;
 }
 .olympic-top {
-  background: url(https://banner.picasso12.com/h5/img/event/olympic/background-a.jpg) no-repeat center/cover;
+  background: url(../img/style-img/event/olympic/background-a.jpg) no-repeat center/cover;
 }
 .olympic-top-logo {
   width: 25vw;
@@ -20839,7 +20798,7 @@ input[type=number] .btn-logout {
 .olympic-center-wrapper .medal::before {
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/h5/img/event/olympic/gold-medal.png) no-repeat center/cover;
+  background: url(../img/style-img/event/olympic/gold-medal.png) no-repeat center/cover;
   width: 72vw;
   height: 72vw;
   position: absolute;
@@ -20870,7 +20829,7 @@ input[type=number] .btn-logout {
 .olympic-center-wrapper .tasks a::after {
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/h5/img/event/olympic/arrow.png) no-repeat center/cover;
+  background: url(../img/style-img/event/olympic/arrow.png) no-repeat center/cover;
   width: 1.5vw;
   height: 2.5vw;
   margin-left: 2vw;
@@ -20941,7 +20900,7 @@ input[type=number] .btn-logout {
 .olympic-center-wrapper .tasks-content-item button::after {
   display: block;
   content: "";
-  background: url(https://banner.picasso12.com/h5/img/event/olympic/arrow.png) no-repeat center/cover;
+  background: url(../img/style-img/event/olympic/arrow.png) no-repeat center/cover;
   width: 1.5vw;
   height: 2.5vw;
   margin-left: 2vw;

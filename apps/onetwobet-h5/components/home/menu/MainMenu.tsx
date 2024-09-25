@@ -1,9 +1,9 @@
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { type IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
+import type { IMergedMenuData } from '@nx-next-app/operations'
 import {
 	CurrenciesEnum,
+	IDynamicSubMenuItem,
 	MenuIconTypeEnum,
 	MenuKeyEnum,
 } from '@nx-next-app/types'
@@ -45,8 +45,8 @@ const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 	// 7/16/24 因應 hotfix遮蔽saba sport,根據語系設定初始 menuKey
 	const defaultMenuKey =
 		currencyId === CurrenciesEnum.USD || currencyId === CurrenciesEnum.CNY
-			? 'Casino'
-			: 'Sports'
+			? MenuKeyEnum.Casino
+			: MenuKeyEnum.Sports
 
 	const [menuKey, setMenuKey] = useState<keyof typeof MenuKeyEnum | undefined>(
 		defaultMenuKey

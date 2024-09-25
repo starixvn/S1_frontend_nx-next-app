@@ -1,3 +1,4 @@
+import { Form, InputBox, Select } from '@12b-h5/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import {
@@ -16,7 +17,6 @@ import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
-import { Form, InputBox, Select } from '../../common'
 import DepositModule from '../ui/deposit-module'
 
 const DepositBankSlipModal = dynamic(

@@ -1,8 +1,7 @@
-import { Form, InputBox, Select } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
-import { ISetClaimPromotionArgs } from '@nx-next-app/service'
-import { PromotionTypeEnum, SelectOptionType } from '@nx-next-app/types'
+import { IClaimAmountModalProps } from '@nx-next-app/operations'
+import { PromotionTypeEnum } from '@nx-next-app/types'
 import {
 	numberFormat,
 	replaceStringToNumber,
@@ -11,6 +10,7 @@ import {
 import { debounce } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useForm } from 'react-hook-form'
+import { Form, InputBox, Select } from '../../common'
 
 const ClaimAmountModal = ({
 	bonusCode,
@@ -19,17 +19,7 @@ const ClaimAmountModal = ({
 	maxAmount,
 	onSetClaimPromotion,
 	tierAmountListSelectOptions,
-}: {
-	bonusCode: string
-	promotionType: PromotionTypeEnum
-	minAmount: number
-	maxAmount: number
-	onSetClaimPromotion: ({
-		bonusCode,
-		lockedAmount,
-	}: Pick<ISetClaimPromotionArgs, 'bonusCode' | 'lockedAmount'>) => void
-	tierAmountListSelectOptions: SelectOptionType[]
-}) => {
+}: IClaimAmountModalProps) => {
 	const { t } = useTranslation()
 	const {
 		userInfo: { currencyId },
@@ -126,10 +116,10 @@ const ClaimAmountModal = ({
 					)}
 
 					<div className='btn-group'>
-						<button type='button' className='white' onClick={closeModal}>
+						<button type='button' className='ghost' onClick={closeModal}>
 							{t('Label_General_Cancel')}
 						</button>
-						<button type='submit' className='orange'>
+						<button type='submit' className='primary'>
 							{t('Label_Promotion_JoinNow')}
 						</button>
 					</div>

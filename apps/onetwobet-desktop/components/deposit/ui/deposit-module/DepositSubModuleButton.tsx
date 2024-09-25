@@ -1,4 +1,4 @@
-import { Img } from '@nx-next-app/components/D0001'
+import { Img } from '@12b-desktop/components/common'
 import { useGlobalData } from '@nx-next-app/data-access'
 import classNames from 'classnames'
 import { useRouter } from 'next/router'

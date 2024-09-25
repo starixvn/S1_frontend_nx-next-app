@@ -6,7 +6,7 @@ import {
 	TransferWalletTpId,
 } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
+import { useTpWalletBalanceListFetcher } from '@nx-next-app/operations'
 import {
 	IMainWalletInfoData,
 	ITpWalletInfoData,
@@ -251,6 +251,7 @@ export const TransferFundsProvider = ({
 			await getTransferRecent().unwrap()
 		} catch (error) {
 			// 減少 modal 使用數量，拔除非必要錯誤彈窗
+			// eslint-disable-next-line no-console
 			console.error('getTransferRecent(): ', (error as Error).message)
 			// modal.error((error as Error).message)
 		}

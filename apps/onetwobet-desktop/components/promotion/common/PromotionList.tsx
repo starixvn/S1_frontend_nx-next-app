@@ -1,4 +1,5 @@
-import { usePromotion } from '@nx-next-app/features/F0001/providers'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { usePromotion, useSetClaimPromotion } from '@nx-next-app/operations'
 import {
 	PromotionActionType,
 	PromotionFilterEnum,
@@ -14,17 +15,33 @@ import {
 import classNames from 'classnames'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 import PromotionProgressBar from './PromotionProgressBar'
+
+const LoginModal = dynamic(
+	() => import('@12b-desktop/components/modal/LoginModal'),
+	{ ssr: false }
+)
+
+const ClaimAmountModal = dynamic(
+	() => import('@12b-desktop/components/promotion/common/ClaimAmountModal'),
+	{ ssr: false }
+)
 
 const PromotionList = () => {
 	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
 	const {
 		promotionData,
 		activeFilterType,
-		setClaimPromotionHandler,
-		onGetPromotionDetail,
+		onOpenPromotionDetail,
 		onUpdatePromotionData,
 	} = usePromotion()
+
+	const { setClaimPromotionHandler } = useSetClaimPromotion({
+		loginCallback: () => modal.open(<LoginModal />),
+		amountCallback: props => modal.open(<ClaimAmountModal {...props} />),
+	})
 
 	return promotionData.length >= 1 ? (
 		<div className='proListNew'>
@@ -105,7 +122,7 @@ const PromotionList = () => {
 							<img src={banner} alt={title} />
 						</div>
 						<div className='promoInfo'>
-							<div className='txt-darkBlue'>{title}</div>
+							<div className='txt-black'>{title}</div>
 							<div className='txt-gray'>{description}</div>
 
 							{isShowPromotionProgressBar({
@@ -129,7 +146,7 @@ const PromotionList = () => {
 							<div className='btnGroup'>
 								{!isHideJoinButton && (
 									<button
-										className='orange'
+										className='primary'
 										onClick={() => setClaimPromotionHandler(item)}
 									>
 										{isShowClaimNowButton
@@ -144,14 +161,14 @@ const PromotionList = () => {
 										href={promotionLink as string}
 										target='_blank'
 										rel='noreferrer'
-										className='btn-check'
+										className='btn-check info'
 									>
 										{t('Label_General_MoreInfo')}
 									</a>
 								) : (
 									<button
-										className='btn-check'
-										onClick={() => onGetPromotionDetail({ bonusCode })}
+										className='btn-check info'
+										onClick={() => onOpenPromotionDetail(bonusCode)}
 									>
 										{t('Label_General_MoreInfo')}
 									</button>

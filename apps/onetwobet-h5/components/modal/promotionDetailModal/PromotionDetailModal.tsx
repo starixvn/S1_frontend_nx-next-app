@@ -2,7 +2,6 @@
 
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
 import { useGetPromotionDetailQuery } from '@nx-next-app/service'
 import { PromotionTypeEnum } from '@nx-next-app/types'
 import {
@@ -12,12 +11,21 @@ import {
 import { includes, toUpper } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 
+import { paths } from '@nx-next-app/constants'
+import { useSetClaimPromotion } from '@nx-next-app/operations'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 import PromotionProgressBar from '../../promotion/common/PromotionProgressBar'
 import CashbackInfo from './CashbackInfo'
 import DepositMenu from './DepositMenu'
 import DepositSlip from './DepositSlip'
 import PromotionMission from './PromotionMission'
 import PromotionRule from './PromotionRule'
+
+const ClaimAmountModal = dynamic(
+	() => import('@12b-h5/components/promotion/common/ClaimAmountModal'),
+	{ ssr: false }
+)
 
 interface IPromotionDetailModalProps {
 	bonusCode: string
@@ -30,10 +38,11 @@ const PromotionDetailModal = ({
 	isHideAllPromoButton = false,
 }: IPromotionDetailModalProps) => {
 	const { t } = useTranslation()
+	const router = useRouter()
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
-	const { closeModal } = useGlobalModal()
+	const { modal, closeModal } = useGlobalModal()
 	const { LIVE_CHAT_ID_BY_LANG_ID } = useStaticData()
 
 	const { data: { data: promotionDetail } = {} } = useGetPromotionDetailQuery({
@@ -43,7 +52,12 @@ const PromotionDetailModal = ({
 	})
 
 	const { onUpdatePromotionDetail, setClaimPromotionHandler } =
-		useSetClaimPromotionFetcher()
+		useSetClaimPromotion({
+			loginCallback: () => {
+				router.push(`${paths.login.root}?from=${paths.promotion.root}`)
+			},
+			amountCallback: props => modal.open(<ClaimAmountModal {...props} />),
+		})
 
 	if (!promotionDetail) return null
 
@@ -114,7 +128,7 @@ const PromotionDetailModal = ({
 					<div className='btn-group'>
 						{!isHideJoinButton && !isShowApplyNowButton && (
 							<button
-								className='orange'
+								className='primary'
 								onClick={() => {
 									setClaimPromotionHandler(promotionDetail)
 								}}

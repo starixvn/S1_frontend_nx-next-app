@@ -1,17 +1,16 @@
 import { PRODUCTS, memberTypeEnum, paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
-import type {
-	IDynamicSubMenuItem,
-	IDynamicSubMenuLinkType,
-	IStaticSubMenuItem,
-} from '@nx-next-app/features/F0001/types'
 import { useMenuData } from '@nx-next-app/hooks'
 import {
 	useGetCustTpGameTypeSettingQuery,
 	type IGotoGameArg,
 } from '@nx-next-app/service'
+
 import {
 	DeviceTypeEnum,
+	IDynamicSubMenuItem,
+	IDynamicSubMenuLinkType,
+	IStaticSubMenuItem,
 	LoginGameTypeEnum,
 	MenuActionTypeEnum,
 	MenuKeyEnum,
@@ -104,10 +103,13 @@ const useMenu = () => {
 
 	// * 塞入前端相關參數
 	const mergedMenus = (): IMergedMenuData[] => {
-		return LobberHeaderMenuList?.map(mainMenuItem => {
+		const mergedMenu: IMergedMenuData[] = []
+		LobberHeaderMenuList?.forEach(mainMenuItem => {
 			const defMainMenuItem = find(MENU_DATA, {
 				lobbyCategoryId: mainMenuItem.lobbyCategoryId,
 			})
+
+			if (!defMainMenuItem) return
 
 			const {
 				data = [],
@@ -131,8 +133,9 @@ const useMenu = () => {
 				return { ...(subMenuItem as IDynamicSubMenuItem) }
 			})
 
-			return { ...rest, subMenu: subMenus }
+			mergedMenu.push({ ...rest, subMenu: subMenus })
 		})
+		return mergedMenu
 	}
 
 	/**
