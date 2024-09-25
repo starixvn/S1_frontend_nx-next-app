@@ -12690,7 +12690,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .rightModule .refer .referinfo-step .icon::after {
   content: "";
   display: block;
-  background: url(../img/style-img/refer-dashLine.webp) no-repeat center;
+  background: url(../img/style-img/refer-dashline.webp) no-repeat center;
   padding: 5px 0px;
   width: 3px;
   height: 45px;

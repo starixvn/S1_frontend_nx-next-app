@@ -8266,7 +8266,7 @@ span.important {
 .refer .referinfo-step .icon::after {
   content: "";
   display: block;
-  background: url(../img/style-img/refer-dashLine.webp) no-repeat center/2vw 10vw;
+  background: url(../img/style-img/refer-dashline.webp) no-repeat center/2vw 10vw;
   padding: 1vw 0;
   width: 2vw;
   height: 10vw;
