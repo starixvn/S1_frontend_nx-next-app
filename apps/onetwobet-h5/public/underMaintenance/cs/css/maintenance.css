@@ -1,0 +1,117 @@
+body{
+	font-family: 'Microsoft Yahei', Arial, Helvetica, sans-serif;
+}
+
+.liveChat a{
+	font-size: 16px;
+	font-weight:  bold;
+}
+
+.liveChat a i{
+	font-size: 20px;
+}
+
+.masthead h1{
+	text-transform: uppercase;
+	font-size: 4vw;
+	margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.masthead h2{
+	font-size: 3vw;	
+	margin: 0;
+}
+
+.masthead p{
+	margin: 0;
+}
+
+@media (max-width: 575px) {
+	.masthead h1{
+		font-size: 8.5vw;
+		line-height: 8.5vw;
+		margin-bottom: 15px;
+	}
+
+	.masthead h2{
+		font-size: 6.5vw;
+	}
+
+	.masthead p{
+		font-size: 5vw;
+	}
+}
+
+@media (min-width: 768px) {
+	.masthead p{
+		font-size: 2vw;
+	}
+}
+
+@media (min-width: 992px) {
+	.masthead p{
+		font-size: 1.4vw;
+	}
+}
+
+.casinoWrap h1{
+	font-size: 5.5vw;
+ }
+
+.casinoWrap a{
+	font-weight:  bold;
+	font-size: 4vw;
+}
+
+@media (min-width: 576px) {
+  .casinoWrap h1{
+	font-size: 4vw;
+  }
+  .casinoWrap a{
+	font-size: 3vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .casinoWrap h1{
+	font-size: 4vw;
+  }
+  .casinoWrap a{
+	font-size: 3vw;
+  }
+}
+
+@media (min-width: 992px) {
+  .casinoWrap h1{
+	font-size: 2em;
+	margin-top: 0;
+	margin-bottom: 10px;
+  }
+  .casinoWrap a{
+	font-size: 2vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .casinoWrap h1{
+	font-size: 2em;
+  }
+  .casinoWrap a{
+	font-size: 2vw;
+  }
+}
+
+.contact{
+	font-size: 12px;
+}
+
+.socialMedia{
+	font-size: 12px;
+}
+
+@media (min-width: 768px) {
+	.contact{
+		font-size: 14px;
+	}
+}
