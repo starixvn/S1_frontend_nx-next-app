@@ -1,4 +1,4 @@
-import { Form } from '@nx-next-app/components/H0001'
+import { Form } from '@12b-h5/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import { useTransferFunds } from '@nx-next-app/operations'

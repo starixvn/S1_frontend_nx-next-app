@@ -1,5 +1,5 @@
 import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import classNames from 'classnames'
 import { Trans } from 'next-i18next'
 import Link from 'next/link'
@@ -13,6 +13,7 @@ const Setting = () => {
 	const {
 		auth: { isLogin },
 	} = useAuth()
+	const { getBannerUrl } = useGlobalData()
 
 	return (
 		<main className={classNames('menu', { after: isLogin })}>
@@ -21,10 +22,7 @@ const Setting = () => {
 			) : (
 				<>
 					<button className='close-btn' onClick={() => push(paths.home.root)}>
-						<img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/close-icon.png`}
-							alt='close'
-						/>
+						<img src={getBannerUrl(`/h5/img/4.0/close-icon.png`)} alt='close' />
 					</button>
 					<Link href={paths.home.root}>
 						<a>

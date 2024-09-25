@@ -1,4 +1,4 @@
-import { Form, InputBox, Select } from '@nx-next-app/components/D0001'
+import { Form, InputBox, Select } from '@12b-desktop/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import { ISetClaimPromotionArgs } from '@nx-next-app/service'

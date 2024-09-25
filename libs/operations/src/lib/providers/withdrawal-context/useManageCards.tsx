@@ -1,6 +1,6 @@
 import { ISelectProps } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import { WithdrawalBankCardEnum } from '@nx-next-app/operations'
 import {
 	useLazyGetBankInfoSysListQuery,
 	useLazyGetEWalletInfoListQuery,

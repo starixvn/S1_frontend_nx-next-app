@@ -1,14 +1,13 @@
+import { Form, InputBox } from '@12b-h5/components/common'
 import { PASSWORD_REGEX, paths } from '@nx-next-app/constants'
-import { ChangePasswordFormType } from 'libs/web/src/hooks/useChangePasswordFetcher'
+import { TChangePasswordForm } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { UseFormReturn } from 'react-hook-form'
-import { Form } from '../common'
-import { InputBox } from '../common/input'
 
 interface IChangePasswordFormProps {
-	onSubmit: (value: ChangePasswordFormType) => void
-	changePasswordForm: UseFormReturn<ChangePasswordFormType>
+	onSubmit: (value: TChangePasswordForm) => void
+	changePasswordForm: UseFormReturn<TChangePasswordForm>
 }
 
 const ChangePasswordForm = ({

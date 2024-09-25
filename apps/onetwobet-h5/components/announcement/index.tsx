@@ -1,4 +1,4 @@
-import { Header } from '@nx-next-app/components/H0001'
+import { Header } from '@12b-h5/components/common'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGetAnnouncementQuery } from '@nx-next-app/service'

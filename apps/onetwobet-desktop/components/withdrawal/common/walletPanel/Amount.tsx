@@ -1,11 +1,10 @@
+import { InputBox } from '@12b-desktop/components/common'
 import { useAuth } from '@nx-next-app/data-access'
 import { useWithdrawal, WithdrawalBankCardEnum } from '@nx-next-app/operations'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { numberFormat } from '@nx-next-app/utils'
 import { find } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-
-import { InputBox } from '../../../common'
 
 const Amount = () => {
 	const {

@@ -6,7 +6,7 @@ import {
 	TransferWalletTpId,
 } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
+import { useTpWalletBalanceListFetcher } from '@nx-next-app/operations'
 import {
 	IMainWalletInfoData,
 	ITpWalletInfoData,

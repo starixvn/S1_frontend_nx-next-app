@@ -1,6 +1,6 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
-import { useImageFile } from '@nx-next-app/hooks'
+import { useImageFile } from '@nx-next-app/operations'
 import { IDepositInfoHistoryData } from '@nx-next-app/service'
 import {
 	convertBase64ToFile,

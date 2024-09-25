@@ -1,4 +1,4 @@
-import { Loading } from '@nx-next-app/components/D0001'
+import { Loading } from '@nx-next-app/components/H0001'
 import { BANK_ACCOUNT_REGEX, IFSC_CODE_REGEX } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useBankInfo } from '@nx-next-app/operations'

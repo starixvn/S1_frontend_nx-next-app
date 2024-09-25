@@ -1,5 +1,5 @@
+import { Img } from '@12b-desktop/components/common'
 import ReferralDetailModal from '@12b-desktop/components/modal/ReferralDetailModal'
-import { Img } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useReferral } from '@nx-next-app/operations'

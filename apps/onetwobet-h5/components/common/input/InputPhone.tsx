@@ -1,4 +1,4 @@
-import { Select } from '@nx-next-app/components/H0001'
+import { Select } from '@12b-h5/components/common'
 import { SelectOptionType } from '@nx-next-app/types'
 import classNames from 'classnames'
 import React, { InputHTMLAttributes, useState } from 'react'
