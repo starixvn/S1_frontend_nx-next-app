@@ -211,6 +211,11 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 						onChange={() => {
 							setValue('bonusCode', undefined)
 						}}
+						onKeyDown={e => {
+							if (e.key === 'Enter') {
+								e.currentTarget.blur()
+							}
+						}}
 					/>
 				</div>
 			</DepositModule>
