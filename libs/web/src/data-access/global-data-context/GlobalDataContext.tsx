@@ -56,7 +56,9 @@ const GlobalDataProvider = ({
 			skip: !isLogin || memberType !== UserInfoMemberType.LiveStreaming,
 		})
 
-	const { bannerDomain, imgDomain, paymentDomain } = persistStaticFileDomainData
+	const { bannerDomain, imgDomain, paymentDomain } = {
+		...persistStaticFileDomainData,
+	}
 
 	const getBannerUrl = (url: string) => {
 		return bannerDomain ? `https://${bannerDomain}${url}` : url
