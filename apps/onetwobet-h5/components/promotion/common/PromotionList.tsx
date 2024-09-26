@@ -158,13 +158,13 @@ const PromotionList = () => {
 									href={promotionLink as string}
 									target='_blank'
 									rel='noreferrer'
-									className='btn-check info'
+									className='info'
 								>
 									{t('Label_General_MoreInfo')}
 								</a>
 							) : (
 								<button
-									className='btn-check info'
+									className='info'
 									onClick={() => onOpenPromotionDetail(bonusCode)}
 								>
 									{t('Label_General_MoreInfo')}
