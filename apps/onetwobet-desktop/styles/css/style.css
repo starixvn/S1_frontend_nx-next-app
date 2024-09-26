@@ -22415,7 +22415,7 @@ form .profileModule .vipLv .vipname {
   }
 }
 .subheader {
-  background: #fff;
+  background: #000;
   padding: 0.75rem;
 }
 .subheader__container {
@@ -22427,8 +22427,8 @@ form .profileModule .vipLv .vipname {
   content: "";
   display: block;
   width: 130px;
-  height: 58px;
-  background-image: url("https://banner.picasso12.com/desktop/img/logo.png");
+  height: 35px;
+  background-image: url("../img/style-img/12bet-logo.png");
   background-size: 100%;
   background-repeat: no-repeat;
   -webkit-transition: ease 0.15s;
