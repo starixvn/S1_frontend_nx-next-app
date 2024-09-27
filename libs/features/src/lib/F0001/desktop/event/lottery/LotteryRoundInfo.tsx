@@ -18,24 +18,36 @@ const LotteryRoundInfo = () => {
 	const {
 		userInfo: { currencyName },
 	} = useAuth()
-	const { lotteryInfo, stickerInfo } = useLotteryDataContext()
-	const roundInfo = lotteryInfo?.lotteryRoundInfo
-	const totalTurnover = lotteryInfo?.custTurnoverSummary ?? 0
 
-	const currentTier = lotteryInfo?.lotteryTierList.find(
+	const { lotteryInfo, stickerInfo } = useLotteryDataContext()
+
+	if (!lotteryInfo) return null
+	const {
+		ticketNo,
+		lotteryRoundInfo,
+		custTurnoverSummary,
+		lotteryTierList,
+		custTurnoverProccessing,
+		turnoverGoal,
+		ticketCount,
+	} = lotteryInfo
+
+	const roundInfo = lotteryRoundInfo
+	if (!roundInfo) return null
+
+	const totalTurnover = custTurnoverSummary ?? 0
+
+	const currentTier = lotteryTierList?.find(
 		({ turnOverStart, turnOverEnd }) =>
 			totalTurnover >= turnOverStart &&
 			(totalTurnover < turnOverEnd || turnOverEnd === 0)
 	)
 
 	// 以 lotteryTierList 的 level 當 key 建立 Map 確保可以拿到正確的 tier，避免順序不對或是有少的情況
-	const tierMap = new Map(
-		lotteryInfo?.lotteryTierList.map(tier => [tier.level, tier])
-	)
-
+	const tierMap = new Map(lotteryTierList?.map(tier => [tier.level, tier]))
 	const nextTier = tierMap.get((currentTier?.level ?? 0) + 1)
 
-	return lotteryInfo ? (
+	return (
 		<div className='lottery-info'>
 			<div className='round'>
 				{roundInfo && (
@@ -61,20 +73,15 @@ const LotteryRoundInfo = () => {
 						<div className=''>{t('Label_Event_ValidTurnover')}</div>
 					</div>
 					<LotteryProgressBar
-						ratio={
-							(lotteryInfo.custTurnoverProccessing % lotteryInfo.turnoverGoal) /
-							lotteryInfo.turnoverGoal
-						}
+						ratio={(custTurnoverProccessing % turnoverGoal) / turnoverGoal}
 					/>
 					<div className='total'>
 						<div>{t('Label_Event_Tickets')}</div>
 						<div>
 							{currencyName}{' '}
-							{(
-								lotteryInfo.custTurnoverProccessing % lotteryInfo.turnoverGoal
-							)?.toLocaleString()}
+							{(custTurnoverProccessing % turnoverGoal)?.toLocaleString()}
 							{' / '}
-							{lotteryInfo.turnoverGoal?.toLocaleString()}
+							{turnoverGoal?.toLocaleString()}
 						</div>
 					</div>
 				</div>
@@ -119,7 +126,7 @@ const LotteryRoundInfo = () => {
 									</tr>
 								</thead>
 								<tbody>
-									{lotteryInfo?.ticketNo?.map((ticketNumber, index) => (
+									{ticketNo?.map((ticketNumber, index) => (
 										<tr key={ticketNumber}>
 											<th scope='row'>{index + 1}</th>
 											<td>{ticketNumber}</td>
@@ -133,7 +140,7 @@ const LotteryRoundInfo = () => {
 					<div className='ticket-bottom'>
 						<div className='total'>
 							<div className='title'>{t('Label_Event_TotalTickets')}</div>
-							<div className='quantity'>{lotteryInfo?.ticketCount}</div>
+							<div className='quantity'>{ticketCount}</div>
 						</div>
 					</div>
 				</div>
@@ -171,7 +178,7 @@ const LotteryRoundInfo = () => {
 				)}
 			</div>
 		</div>
-	) : null
+	)
 }
 
 export default LotteryRoundInfo

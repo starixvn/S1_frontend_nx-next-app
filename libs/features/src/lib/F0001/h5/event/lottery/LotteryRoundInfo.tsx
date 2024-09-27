@@ -18,37 +18,47 @@ const LotteryRoundInfo = () => {
 	const { modal } = useGlobalModal()
 	const { currencyName } = useAuth().userInfo
 	const { lotteryInfo, stickerInfo } = useLotteryDataContext()
-	const roundInfo = lotteryInfo?.lotteryRoundInfo
+	if (!lotteryInfo) return null
 
-	const totalTurnover = lotteryInfo?.custTurnoverSummary ?? 0
+	const {
+		ticketNo,
+		lotteryRoundInfo,
+		custTurnoverSummary,
+		lotteryTierList,
+		custTurnoverProccessing,
+		turnoverGoal,
+		ticketCount,
+	} = lotteryInfo
 
-	const currentTier = lotteryInfo?.lotteryTierList.find(
+	if (!lotteryRoundInfo) return null
+
+	const totalTurnover = custTurnoverSummary ?? 0
+
+	const currentTier = lotteryTierList?.find(
 		({ turnOverStart, turnOverEnd }) =>
 			totalTurnover >= turnOverStart &&
 			(totalTurnover < turnOverEnd || turnOverEnd === 0)
 	)
 
-	const tierMap = new Map(
-		lotteryInfo?.lotteryTierList.map(tier => [tier.level, tier])
-	)
+	const tierMap = new Map(lotteryTierList?.map(tier => [tier.level, tier]))
 
 	const nextTier = tierMap.get((currentTier?.level ?? 0) + 1)
 
-	const [tab, setTab] = useState('tickets')
+	const [tab, setTab] = useState<'tickets' | 'sticker'>('tickets')
 
 	return lotteryInfo ? (
 		<div className='lottery-info'>
 			{/* round */}
 			<div className='round'>
-				{roundInfo && (
+				{lotteryRoundInfo && (
 					<div className='title'>
 						<div className='round-number'>
-							{t('Label_Event_Round')} {roundInfo.roundId}
+							{t('Label_Event_Round')} {lotteryRoundInfo.roundId}
 						</div>
 						<div className='date'>
-							{dayjs(roundInfo.startDate).format('YYYY/M/D')}
+							{dayjs(lotteryRoundInfo.startDate).format('YYYY/M/D')}
 							<span>-</span>
-							{dayjs(roundInfo.endDate).format('YYYY/M/D')}
+							{dayjs(lotteryRoundInfo.endDate).format('YYYY/M/D')}
 						</div>
 					</div>
 				)}
@@ -66,20 +76,15 @@ const LotteryRoundInfo = () => {
 						<div className=''>{t('Label_Event_ValidTurnover')}</div>
 					</div>
 					<LotteryProgressBar
-						ratio={
-							(lotteryInfo.custTurnoverProccessing % lotteryInfo.turnoverGoal) /
-							lotteryInfo.turnoverGoal
-						}
+						ratio={(custTurnoverProccessing % turnoverGoal) / turnoverGoal}
 					/>
 					<div className='total'>
 						<div>{t('Label_Event_Tickets')}</div>
 						<div>
 							{currencyName}{' '}
-							{(
-								lotteryInfo.custTurnoverProccessing % lotteryInfo.turnoverGoal
-							)?.toLocaleString()}
+							{(custTurnoverProccessing % turnoverGoal)?.toLocaleString()}
 							{' / '}
-							{lotteryInfo.turnoverGoal?.toLocaleString()}
+							{turnoverGoal?.toLocaleString()}
 						</div>
 					</div>
 				</div>
@@ -152,7 +157,7 @@ const LotteryRoundInfo = () => {
 													</tr>
 												</thead>
 												<tbody>
-													{lotteryInfo?.ticketNo?.map((ticketNumber, index) => (
+													{ticketNo?.map((ticketNumber, index) => (
 														<tr key={ticketNumber}>
 															<th scope='row'>{index + 1}</th>
 															<td>{ticketNumber}</td>
@@ -171,7 +176,7 @@ const LotteryRoundInfo = () => {
 											<div className='title'>
 												{t('Label_Event_TotalTickets')}
 											</div>
-											<div className='quantity'>{lotteryInfo?.ticketCount}</div>
+											<div className='quantity'>{ticketCount}</div>
 										</div>
 									</div>
 								</div>
