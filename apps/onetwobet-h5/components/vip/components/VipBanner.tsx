@@ -1,8 +1,9 @@
+import { Carousel } from '@12b-h5/components/common'
 import { VipBannerItem } from '@12b-h5/components/vip/components'
-import { Carousel } from '@nx-next-app/components/D0001'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { IVipBannerData } from '@nx-next-app/service'
 import { find } from 'lodash-es'
+import { SwiperSlide } from 'swiper/react'
 
 const VipBanner = ({
 	vipBannerData,
@@ -16,14 +17,19 @@ const VipBanner = ({
 		.filter(val => find(vipBannerData, vip => vip.level === val.level))
 
 	return (
-		<Carousel pagination={false} navigation={false}>
+		<Carousel
+			className='swiper-container'
+			pagination={false}
+			navigation={false}
+		>
 			{banners
 				.map(item => (
-					<VipBannerItem
-						key={item.level}
-						data={find(vipBannerData, vip => vip.level === item.level)}
-						bannerByCurrencyData={item}
-					/>
+					<SwiperSlide className={`vip${item.level}`} key={item.level}>
+						<VipBannerItem
+							data={find(vipBannerData, vip => vip.level === item.level)}
+							bannerByCurrencyData={item}
+						/>
+					</SwiperSlide>
 				))
 				.flat()}
 		</Carousel>

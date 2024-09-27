@@ -1,4 +1,5 @@
 export * from './button'
+export { default as Carousel } from './carousel'
 export { CountdownTimer } from './countdown-timer'
 export { default as DateSelector } from './dateSelector'
 export { default as Form } from './form'

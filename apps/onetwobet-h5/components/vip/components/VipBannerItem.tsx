@@ -52,7 +52,7 @@ const VipBannerItem = ({
 	]
 
 	return (
-		<div className={`swiper-slide vip${level}`} key={level}>
+		<>
 			<img className='vipbanner' src={getBannerUrl(url)} alt='vipbanner' />
 			<div className='vipinfo'>
 				{t('Label_Vip_Monthly_Minimum_Deposit')}
@@ -81,7 +81,7 @@ const VipBannerItem = ({
 					</div>
 				))}
 			</div>
-		</div>
+		</>
 	)
 }
 

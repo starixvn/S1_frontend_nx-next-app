@@ -1,4 +1,4 @@
-import { Img } from '@nx-next-app/components/D0001'
+import { Img } from '@12b-desktop/components/common'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useTranslation } from 'next-i18next'
