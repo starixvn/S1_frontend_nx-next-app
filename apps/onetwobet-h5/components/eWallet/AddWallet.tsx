@@ -1,4 +1,3 @@
-import { Loading } from '@nx-next-app/components/H0001'
 import { E_WALLET_SYSID, TOUCH_GO_REGEX } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useEWallet } from '@nx-next-app/operations'
@@ -6,7 +5,7 @@ import { CurrenciesEnum } from '@nx-next-app/types'
 import { head } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useForm } from 'react-hook-form'
-import { Form, InputBox, Select } from '../common'
+import { Form, InputBox, Loading, Select } from '../common'
 
 const AddWallet = () => {
 	const { t } = useTranslation()

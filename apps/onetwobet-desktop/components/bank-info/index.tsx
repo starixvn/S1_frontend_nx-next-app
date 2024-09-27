@@ -1,4 +1,4 @@
-import { Loading } from '@nx-next-app/components/D0001'
+import { Loading } from '@12b-desktop/components/common'
 import { useAuth } from '@nx-next-app/data-access'
 import { useBankInfo } from '@nx-next-app/operations'
 import classNames from 'classnames'

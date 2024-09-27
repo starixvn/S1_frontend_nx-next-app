@@ -1,4 +1,4 @@
-import { Loading } from '@nx-next-app/components/H0001'
+import { Loading } from '@12b-h5/components/common'
 import { useWithdrawal } from '@nx-next-app/operations'
 
 import {
