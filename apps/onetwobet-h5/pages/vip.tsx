@@ -1,10 +1,11 @@
+import { Layout, Vip } from '@12b-h5/components/index'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getVipBanner,
 } from '@nx-next-app/data-access'
-import { Layout, Vip } from '@nx-next-app/features/F0001/h5'
+
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
