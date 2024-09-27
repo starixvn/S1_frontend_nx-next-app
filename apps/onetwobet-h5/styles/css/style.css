@@ -8266,7 +8266,7 @@ span.important {
 .refer .referinfo-step .icon::after {
   content: "";
   display: block;
-  background: url(../img/style-img/refer-dashLine.webp) no-repeat center/2vw 10vw;
+  background: url(../img/style-img/refer-dashline.webp) no-repeat center/2vw 10vw;
   padding: 1vw 0;
   width: 2vw;
   height: 10vw;
@@ -14681,7 +14681,7 @@ input:-webkit-autofill:active {
   }
 }
 .subheader {
-  background: #fff;
+  background: #000;
   padding: 1.5vw;
 }
 .subheader__container {
@@ -14692,8 +14692,8 @@ input:-webkit-autofill:active {
   content: "";
   display: block;
   width: 130px;
-  height: 58px;
-  background-image: url("https://banner.picasso12.com/h5/img/logo.png");
+  height: 35px;
+  background-image: url("../img/style-img/12bet-logo.png");
   background-size: 100%;
   background-repeat: no-repeat;
   -webkit-transition: ease 0.15s;
