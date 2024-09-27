@@ -1,4 +1,4 @@
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { getSafetyLv, numberFormat } from '@nx-next-app/utils'
 import classNames from 'classnames'
@@ -8,6 +8,7 @@ import { useState } from 'react'
 
 const Verification = () => {
 	const { t } = useTranslation()
+	const { getBannerUrl } = useGlobalData()
 	const { VIP_CLUB_IMAGES, ALLOWED_CURRENCIES } = useStaticData()
 
 	const {
@@ -49,7 +50,10 @@ const Verification = () => {
 		<>
 			{userLevelImageInfo?.url ? (
 				<div className='vip_mark'>
-					<img src={userLevelImageInfo?.url} alt={userLevelImageInfo?.alt} />
+					<img
+						src={getBannerUrl(userLevelImageInfo?.url)}
+						alt={userLevelImageInfo?.alt}
+					/>
 					{includes(
 						ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],
 						currencyId

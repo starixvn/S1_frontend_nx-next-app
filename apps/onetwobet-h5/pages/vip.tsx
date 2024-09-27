@@ -1,8 +1,8 @@
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
-	getVipBanner,
 	GlobalDataProvider,
+	getVipBanner,
 } from '@nx-next-app/data-access'
 import { Layout, Vip } from '@nx-next-app/features/F0001/h5'
 import {
