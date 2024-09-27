@@ -1,4 +1,5 @@
-import { Loading, SpinButton } from '@nx-next-app/components/D0001'
+import { Loading } from '@12b-desktop/components/common'
+import { SpinButton } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { usePersonalMessage } from '@nx-next-app/operations'
 import classNames from 'classnames'

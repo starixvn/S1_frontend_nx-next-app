@@ -1,4 +1,4 @@
-import { Loading } from '@nx-next-app/components/D0001'
+import { Loading } from '@12b-desktop/components/common'
 import { paths } from '@nx-next-app/constants'
 import { useDepositContext } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
