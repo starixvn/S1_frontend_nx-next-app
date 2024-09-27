@@ -1,6 +1,7 @@
 export { CountdownTimer } from './countdown-timer'
 export { default as DateSelector } from './dateSelector'
 export { default as Form } from './form'
+export { default as GameListItem } from './game-list-item'
 export { default as Header } from './header'
 export type { LoginFormType } from './header/Function/Login'
 export * from './image'
