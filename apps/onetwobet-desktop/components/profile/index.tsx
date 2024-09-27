@@ -1,6 +1,4 @@
-import { Loading } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useAuth } from '@nx-next-app/data-access'
 import { useProfileInfo, useVerifyEmail } from '@nx-next-app/operations'
 import { isUndefined } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
@@ -20,9 +18,6 @@ const Profile = () => {
 	const { query, push } = useRouter()
 	const { key, emailcode } = query
 	const { modal } = useGlobalModal()
-	const {
-		userInfo: { accountName },
-	} = useAuth()
 	const { formMethods, showSubmitBtn, handleSubmitForm } = useProfileInfo()
 
 	const { handleSubmit } = formMethods
@@ -98,9 +93,6 @@ const Profile = () => {
 			})
 		}
 	}, [key, emailcode])
-
-	// 等待載入
-	if (!accountName) return <Loading />
 
 	return (
 		<div className='rightModule'>

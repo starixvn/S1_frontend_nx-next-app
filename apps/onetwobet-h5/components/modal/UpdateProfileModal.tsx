@@ -18,7 +18,7 @@ const UpdateProfileModal = ({ prevPage }: { prevPage: string }) => {
 				</div>
 				<div className='btn-group'>
 					<Link href={paths.profile.root}>
-						<button className='btn-check' onClick={closeModal}>
+						<button className='btn-check primary' onClick={closeModal}>
 							{t('Label_General_UpdatePersonalDetail')}
 						</button>
 					</Link>

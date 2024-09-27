@@ -66,15 +66,15 @@ export enum RebateCategoryEnum {
 export interface ISignUpArgs {
 	affCode?: string
 	affId?: string
-	areaCode: string
+	areaCode?: string
 	currencyId: number
 	email?: string
 	Birth_d?: string | number
 	Birth_m?: string | number
 	Birth_y?: string | number
 	nationality?: string
-	phoneNo: string
-	realName: string
+	phoneNo?: string
+	realName?: string
 	reCaptchaToken?: string | undefined
 	reCaptchaAction?: string
 	referralUrl?: string

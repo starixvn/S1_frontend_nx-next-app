@@ -1,14 +1,24 @@
 import { Loading } from '@nx-next-app/components/D0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { useCryptoWallet } from '@nx-next-app/operations'
+import { useCheckUserInfo, useCryptoWallet } from '@nx-next-app/operations'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
-import { useState } from 'react'
+import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react'
 import { AddWallet } from './AddWallet'
 import { WalletList } from './WalletList'
 
+const UpdateProfileModal = dynamic(
+	() => import('../modal/UpdateProfileModal'),
+	{ ssr: false }
+)
+
 const CryptoWallet = () => {
 	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
+	const { checkUserInfo } = useCheckUserInfo()
 
 	const {
 		userInfo: { accountName },
@@ -17,6 +27,13 @@ const CryptoWallet = () => {
 	const [tip, setTip] = useState<boolean>(false)
 
 	const { loading } = useCryptoWallet()
+
+	useEffect(() => {
+		checkUserInfo({
+			onInfoRequired: () =>
+				modal.open(<UpdateProfileModal prevPage={paths.deposit.root} />),
+		})
+	}, [])
 
 	if (loading) return <Loading />
 

@@ -142,7 +142,7 @@ const AddBankCardModal = ({
 					{/* 經稽查，現在註冊強制需要輸入 realName , 原新增卡片欄位的 realName 欄位應沒可能再\出現 */}
 					<div className='txt'>
 						<div>
-							<span className='txt-blue'>
+							<span className='txt-gray'>
 								{t('Label_Withdrawal_BankAccountName')}
 							</span>
 							<span>{accountName}</span>
