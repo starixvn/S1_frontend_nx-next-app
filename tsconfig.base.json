@@ -16,7 +16,6 @@
 		"baseUrl": ".",
 		"noImplicitAny": true,
 		"paths": {
-			"@apps/*": ["apps/*"],
 			"@nx-next-app/components/*": ["libs/web/src/components/*"],
 			"@nx-next-app/constants": ["libs/web/src/app/constants"],
 			"@nx-next-app/data-access": ["libs/web/src/data-access"],
@@ -30,7 +29,8 @@
 			"@nx-next-app/types": ["libs/web/src/app/types"],
 			"@nx-next-app/utils": ["libs/web/src/utils"],
 			"@12b-h5/components/*": ["apps/onetwobet-h5/components/*"],
-			"@12b-desktop/components/*": ["apps/onetwobet-desktop/components/*"]
+			"@12b-desktop/components/*": ["apps/onetwobet-desktop/components/*"],
+			"@apps/*": ["apps/*"]
 		},
 		"jsx": "react"
 	},
