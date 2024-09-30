@@ -1,5 +1,5 @@
-import { CurrenciesEnum, IFooterData } from '@nx-next-app/types'
 import { PRODUCTS } from '@nx-next-app/constants'
+import { CurrenciesEnum, IFooterData } from '@nx-next-app/types'
 import { GET_AFFILIATE_LINK } from './affiliate'
 
 export const FOOTER_DATA = ({
@@ -173,6 +173,10 @@ export const FOOTER_DATA = ({
 			{
 				...PRODUCTS.WonCasino,
 				imgName: 'woncasino',
+			},
+			{
+				...PRODUCTS.DragonGaming,
+				imgName: 'dragongaming',
 			},
 		],
 		quickLinks: [
