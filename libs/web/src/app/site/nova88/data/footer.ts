@@ -174,6 +174,10 @@ export const FOOTER_DATA = ({
 				...PRODUCTS.WonCasino,
 				imgName: 'woncasino',
 			},
+			{
+				...PRODUCTS.DragonGaming,
+				imgName: 'dragongaming',
+			},
 		],
 		quickLinks: [
 			{
