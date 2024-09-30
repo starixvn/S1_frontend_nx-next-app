@@ -1,5 +1,5 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { useBankInfo } from '@nx-next-app/operations'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { includes } from 'lodash-es'
@@ -8,6 +8,7 @@ import { useTranslation } from 'next-i18next'
 const CardList = () => {
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
+	const { getBannerUrl } = useGlobalData()
 	const { ALLOWED_CURRENCIES, VIP_CLUB_IMAGES } = useStaticData()
 
 	const {
@@ -22,7 +23,10 @@ const CardList = () => {
 		<>
 			{userLevelImageInfo?.url ? (
 				<div className='vip_mark'>
-					<img src={userLevelImageInfo?.url} alt={userLevelImageInfo?.alt} />
+					<img
+						src={getBannerUrl(userLevelImageInfo?.url)}
+						alt={userLevelImageInfo?.alt}
+					/>
 					{includes(
 						ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],
 						currencyId
