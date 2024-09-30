@@ -1,5 +1,5 @@
 import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/operations'
 import {
 	useGetCustVIPProgressQuery,
@@ -14,6 +14,7 @@ import Link from 'next/link'
 
 const Profile = () => {
 	const { t } = useTranslation()
+	const { getBannerUrl } = useGlobalData()
 
 	const {
 		userInfo: { currencyId, langId, userName, currencyName },
@@ -42,10 +43,13 @@ const Profile = () => {
 
 	const isVipLevelHighest = upDeposit === null
 	const currentVipLevelInfo = VIP_CLUB_IMAGES[currentVipLevel - 1]
-	const nextVipLevelInfo = VIP_CLUB_IMAGES[currentVipLevel]
 
-	const { headerUrl, levelTabsName, settingDisplayKey } =
-		currentVipLevelInfo || {}
+	// 暫時保留
+	// const nextVipLevelInfo = VIP_CLUB_IMAGES[currentVipLevel]
+	// const { headerUrl, levelTabsName, settingDisplayKey } =
+	// 	currentVipLevelInfo || {}
+
+	const { levelTabsName, settingDisplayKey } = currentVipLevelInfo || {}
 	const levelText = t(settingDisplayKey || '')
 
 	return (
@@ -55,7 +59,7 @@ const Profile = () => {
 					<div className='profile-item'>
 						<div>
 							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/profile-2.png`}
+								src={getBannerUrl(`/h5/img/4.0/profile-2.png`)}
 								alt='profile'
 							/>
 							<div>
@@ -70,7 +74,7 @@ const Profile = () => {
 						<Link href={paths.message.root}>
 							<a className={classNames('message', { active: msgCount > 0 })}>
 								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/message-2.png`}
+									src={getBannerUrl(`/h5/img/4.0/message-2.png`)}
 									alt='message'
 								/>
 								{popupMsg?.id && (
@@ -87,7 +91,7 @@ const Profile = () => {
 					<div>
 						{currencyName} {numberFormat(totalWalletBalance, currencyId, 2)}
 						<Link href={paths.deposit.root}>
-							<a>{t('Label_General_Deposit')}</a>
+							<a className='secondary'>{t('Label_General_Deposit')}</a>
 						</Link>
 					</div>
 				</div>
@@ -112,7 +116,7 @@ const Profile = () => {
 						))}
 						{includes(ALLOWED_CURRENCIES['TRANSFER'], currencyId) && (
 							<Link href={paths.transferFunds.root}>
-								<a>{t('Label_General_Transfer')}</a>
+								<a className='primary'>{t('Label_General_Transfer')}</a>
 							</Link>
 						)}
 					</div>
@@ -121,7 +125,7 @@ const Profile = () => {
 					<Link href={paths.withdrawal.root}>
 						<a>
 							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/withdrawal-2.png`}
+								src={getBannerUrl(`/h5/img/4.0/withdrawal-2.png`)}
 								alt='withdrawal'
 							/>
 							<div>{t('Label_General_Withdrawal')}</div>
@@ -130,7 +134,7 @@ const Profile = () => {
 					<Link href={paths.statement.root}>
 						<a>
 							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/statement.png`}
+								src={getBannerUrl(`/h5/img/4.0/statement.png`)}
 								alt='statement'
 							/>
 							<div>{t('Label_General_Statement')}</div>
@@ -139,7 +143,7 @@ const Profile = () => {
 					<Link href={paths.financialLog.root}>
 						<a>
 							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/financial.png`}
+								src={getBannerUrl(`/h5/img/4.0/financial.png`)}
 								alt='financial'
 							/>
 							<div>{t('Label_General_FinancialLog')}</div>
@@ -148,7 +152,7 @@ const Profile = () => {
 					<Link href={paths.bankInfo.root}>
 						<a>
 							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/bankinfo.png`}
+								src={getBannerUrl(`/h5/img/4.0/bankinfo.png`)}
 								alt='bankinfo'
 							/>
 							<div>{t('Label_General_BankInfo')}</div>
@@ -202,8 +206,13 @@ const Profile = () => {
 						)}
 					</div>
 					<div className='right'>
-						<img src={headerUrl as string} alt={levelTabsName as string} />
-						{!isVipLevelHighest && (
+						<img
+							src={getBannerUrl(`/h5/img/4.0/menu-${levelTabsName}.png`)}
+							alt={levelTabsName as string}
+						/>
+
+						{/* 暫時保留 */}
+						{/* {!isVipLevelHighest && (
 							<>
 								<div className='dot-progress'>
 									<div className='progress-bar-vertical'>
@@ -211,11 +220,11 @@ const Profile = () => {
 									</div>
 								</div>
 								<img
-									src={nextVipLevelInfo?.headerUrl as string}
+									src={getBannerUrl(nextVipLevelInfo?.headerUrl)}
 									alt={nextVipLevelInfo?.levelTabsName as string}
 								/>
 							</>
-						)}
+						)} */}
 					</div>
 					{isVipLevelHighest ? (
 						<div className='vip-text'>
