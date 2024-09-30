@@ -1,7 +1,7 @@
 import { InputBox } from '@12b-desktop/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useSignInMutation } from '@nx-next-app/service'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
@@ -12,6 +12,7 @@ const LoginModal = () => {
 	const router = useRouter()
 	const { t } = useTranslation()
 	const { closeModal } = useGlobalModal()
+	const { getBannerUrl } = useGlobalData()
 
 	const {
 		userInfo: { langId },
@@ -92,34 +93,13 @@ const LoginModal = () => {
 	}
 
 	return (
-		<div className='pop'>
+		<div className='pop pop-login'>
 			<div className='loginpop active'>
 				<div className='joinloginModule'>
-					<div className='loginAnimation'>
+					<div className='banner'>
 						<img
-							className='animationlogo'
-							alt='animationlogo'
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/logo_en_w.png`}
-						/>
-						<img
-							className='npc1'
-							alt='npc1'
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/loginNpc01.png`}
-						/>
-						<img
-							className='npc2'
-							alt='npc2'
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/loginNpc02.png`}
-						/>
-						<img
-							className='welcome'
-							alt='welcome'
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/welcome.png`}
-						/>
-						<img
-							className='back'
-							alt='back'
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/back.png`}
+							alt='banner'
+							src={getBannerUrl('/desktop/img/login-banner.png')}
 						/>
 					</div>
 					<form
@@ -173,10 +153,10 @@ const LoginModal = () => {
 							</Link>
 						</div>
 						<div className='btnGroup'>
-							<button className='btn-cancel' type='button' onClick={closeModal}>
+							<button className='ghost' type='button' onClick={closeModal}>
 								{t('Label_General_Cancel')}
 							</button>
-							<button className='btn-check' type='submit'>
+							<button className='primary' type='submit'>
 								{t('Label_General_LogIn')}
 							</button>
 						</div>

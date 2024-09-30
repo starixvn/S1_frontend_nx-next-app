@@ -22,6 +22,7 @@ export interface IInputBoxProps
 	formatStr?: string
 	showIconModule?: boolean
 	onInfoClick?: () => void
+	requiredIcon?: boolean
 }
 
 /**
@@ -60,6 +61,7 @@ export interface IInputBoxProps
  * @param {boolean} showIconModule - Whether show showIconModule
  * @param {boolean} onInfoClick - 顯示 info icon 並觸發外部點擊事件
  * @param {*} prop - other html input props
+ * @param {boolean} requiredIcon - 是否顯示必填 icon
  * @author Wen
  */
 const InputBox = ({
@@ -83,6 +85,7 @@ const InputBox = ({
 	formatStr = "('000)",
 	showIconModule = true,
 	onInfoClick,
+	requiredIcon,
 	...props
 }: IInputBoxProps) => {
 	const [showPassword, setShowPassword] = useState(false)
@@ -161,6 +164,7 @@ const InputBox = ({
 					error,
 				})}
 			>
+				{requiredIcon && <span className='required-tip'>*</span>}
 				{!!icon && <i className={classNames('icon', icon)} />}
 				{!!title && <i className='txt-gray'>{title}</i>}
 				{!!areaCode && <div className='txt-lightgray'>{areaCode}</div>}

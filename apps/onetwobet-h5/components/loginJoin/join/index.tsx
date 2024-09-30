@@ -1,21 +1,17 @@
 import { ISelectProps } from '@apps/onetwobet-h5/components/common/select'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
-	AREA_CODE_BY_CURRENCY,
 	CURRENCY_TO_LANG_KEY,
-	ENV_COOKIE_NAMES,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
 	paths,
 } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useJoin } from '@nx-next-app/features/F0001/hooks'
 import {
 	useGetSiteCurrencyListQuery,
 	useLazyAffiliateCheckQuery,
 	useLazyGetAffiliateAgentQuery,
 	useSignupMutation,
 } from '@nx-next-app/service'
-import { CurrenciesEnum } from '@nx-next-app/types'
 import {
 	MetaPixelTracker,
 	OperaPixelTracker,
@@ -29,7 +25,15 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
-import { Features, LineRegister, Step1, Step2, Step3, StepBar } from './form'
+import { Header } from '../../common'
+import Banner from './Banner'
+import { JoinForm } from './form'
+import JoinSuccessModal from './form/JoinSuccesModal'
+
+export enum JoinMethod {
+	'Email' = 'email',
+	'Number' = 'number',
+}
 
 const Join = () => {
 	const { t } = useTranslation()
@@ -40,11 +44,9 @@ const Join = () => {
 	const { modal } = useGlobalModal()
 
 	const {
-		userInfo: { langId, currencyId },
+		userInfo: { langId },
 	} = useAuth()
-	const { initNationality } = useJoin()
 
-	const [step, setStep] = useState<number>(1)
 	const [currencyOptions, setCurrencyOptions] = useState<
 		ISelectProps['options']
 	>([])
@@ -61,7 +63,6 @@ const Join = () => {
 	const urlAffId = affId || cookies['AffId']
 	const urlAffCode = affCode || cookies['AffCode']
 	const urlAffiliate = urlAffId || urlAffCode
-	const cookieLineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
 
 	const { data: { data: siteCurrencyList = [] } = {} } =
 		useGetSiteCurrencyListQuery()
@@ -89,14 +90,6 @@ const Join = () => {
 				/>
 			),
 		}))
-
-	const checkLineRegister = () => {
-		if (!cookieLineUserId) return
-
-		if (siteCurrencyList.length > 0) {
-			selectCurrency(CurrenciesEnum.THB)
-		}
-	}
 
 	const checkUrlAffiliate = async () => {
 		if (!urlAffiliate) return
@@ -132,17 +125,13 @@ const Join = () => {
 			setValue('currencyId', newCurrencyId)
 			clearErrors('currencyId')
 
-			const areaCode = AREA_CODE_BY_CURRENCY[newCurrencyId]
+			// const areaCode = AREA_CODE_BY_CURRENCY[newCurrencyId]
 
-			if (areaCode) {
-				setValue('areaCode', areaCode)
-			} else {
-				setValue('areaCode', undefined)
-			}
-
-			// reset phone input
-			setValue('phone', '')
-			clearErrors('phone')
+			// if (areaCode) {
+			// 	setValue('areaCode', areaCode)
+			// } else {
+			// 	setValue('areaCode', undefined)
+			// }
 		}
 	}
 
@@ -206,12 +195,7 @@ const Join = () => {
 		const {
 			username,
 			password,
-			realName,
 			email,
-			formBirthMonth,
-			formBirthDay,
-			formBirthYear,
-			nationality,
 			currencyId: formCurrencyId,
 			areaCode,
 			phone,
@@ -229,8 +213,8 @@ const Join = () => {
 		)
 			return
 
-		const affId = affiliate && urlAffId ? affiliate : null
-		const affCode = !urlAffId && affCodeCheck ? affiliate : null
+		const affId = affiliate && urlAffId ? String(affiliate) : null
+		const affCode = !urlAffId && affCodeCheck ? String(affiliate) : null
 
 		// use register currency to get langId, if not exist, use default en
 		const userLang =
@@ -241,18 +225,12 @@ const Join = () => {
 		const blackbox = await getBlackbox()
 		try {
 			await signUp({
-				// 因 cookies 有機會是 string[] 導致錯誤
-				affCode: affCode as string,
-				affId: affId as string,
-				areaCode,
+				affCode,
+				affId,
 				currencyId: formCurrencyId,
-				phoneNo: phone,
-				realName,
-				email,
-				Birth_d: formBirthDay ?? 0,
-				Birth_m: formBirthMonth ?? 0,
-				Birth_y: formBirthYear ?? 0,
-				nationality: nationality ?? initNationality,
+				...(joinBy === JoinMethod.Email
+					? { email }
+					: { areaCode, phoneNo: phone }),
 				// reCaptchaToken,
 				referralUrl: document.referrer,
 				userLang,
@@ -260,13 +238,12 @@ const Join = () => {
 				userpwd: password,
 				blackbox,
 				langId: userLang,
-				lineUserId: cookieLineUserId as string,
 			}).unwrap()
-			setStep(3)
 
 			// opera and meta pixel tracker
 			OperaPixelTracker('register')
 			MetaPixelTracker('registerSubmit')
+			modal.open(<JoinSuccessModal />)
 		} catch (error) {
 			modal.error((error as Error).message)
 		}
@@ -276,50 +253,57 @@ const Join = () => {
 		checkUrlAffiliate()
 	}, [])
 
+	const { by: joinBy } = query
+
 	useEffect(() => {
-		checkLineRegister()
-	}, [siteCurrencyList])
+		if (![JoinMethod.Email, JoinMethod.Number].includes(joinBy as JoinMethod)) {
+			router.replace({
+				pathname: paths.join.root,
+				query: { by: JoinMethod.Number },
+			})
+		}
+	}, [joinBy])
 
 	return (
 		<>
-			<StepBar step={step} />
-			{currencyId === CurrenciesEnum.THB && <LineRegister />}
-			<div className='Join'>
-				<FormProvider {...formMethods}>
-					<form onSubmit={handleSubmit(handleSubmitForm)}>
-						{step === 1 && (
-							<Step1
-								cookies={cookies}
+			<Header className='header' style={{ zIndex: '4' }}>
+				<Header.Tag
+					title={t('Label_Join_RegisterInSeconds')}
+					back={paths.home.root}
+				/>
+			</Header>
+			<main className='main registration'>
+				<Banner />
+				<div className='tab' style={{ textTransform: 'uppercase' }}>
+					{/* inner <a /> are for css selectors (a.active) to work */}
+					<Link href={`?by=${JoinMethod.Number}`}>
+						<a className={joinBy === JoinMethod.Number ? 'active' : ''}>
+							{t('Label_Join_ByNumber')}
+						</a>
+					</Link>
+					<Link href={`?by=${JoinMethod.Email}`}>
+						<a className={joinBy === JoinMethod.Email ? 'active' : ''}>
+							{t('Label_Join_ByEmail')}
+						</a>
+					</Link>
+				</div>
+				<div className='Join'>
+					<FormProvider {...formMethods}>
+						<form onSubmit={handleSubmit(handleSubmitForm)}>
+							<JoinForm
 								siteCurrencyList={siteCurrencyList}
-								setStep={setStep}
 								selectCurrency={selectCurrency}
 								setCurrencyOptions={setCurrencyOptions}
-							/>
-						)}
-						{step === 2 && (
-							<Step2
-								// * 如果 Aff Input 有相對應的幣別，則使用 currencyOptions（Aff 過濾的幣別選項）
 								currencySelectOptions={
 									currencyOptions.length === 0
 										? currencySelectOptions
 										: currencyOptions
 								}
-								selectCurrency={selectCurrency}
 							/>
-						)}
-					</form>
-				</FormProvider>
-				{step === 3 && <Step3 />}
-				<Link href={paths.home.root}>
-					<a>
-						<div className='visit'>
-							{t('Label_Join_IWouldLikeToVisit')}
-							<i className='icon icon-visit' />
-						</div>
-					</a>
-				</Link>
-			</div>
-			{step !== 3 && <Features />}
+						</form>
+					</FormProvider>
+				</div>
+			</main>
 		</>
 	)
 }
