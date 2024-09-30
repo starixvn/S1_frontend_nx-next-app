@@ -8,11 +8,11 @@ const useCheckUserInfo = () => {
 	} = useAuth()
 
 	const checkUserInfo = ({
-		onSuccessCallback,
+		onInfoRequired,
 		// 有傳入才會觸發驗證手機，沒傳入則忽略
 		optionalPhoneVerifiedCallback,
 	}: {
-		onSuccessCallback: () => void
+		onInfoRequired: () => void
 		optionalPhoneVerifiedCallback?: () => void
 	}) => {
 		const { accountName, phoneNo, email, phoneVerified } = userInfo
@@ -22,14 +22,13 @@ const useCheckUserInfo = () => {
 				(!phoneNo && !isUndefined(phoneNo)) ||
 				(!email && !isUndefined(email))
 			) {
-				onSuccessCallback()
+				onInfoRequired()
 			}
 			if (!!optionalPhoneVerifiedCallback && !phoneVerified) {
 				optionalPhoneVerifiedCallback()
 			}
 		}
 	}
-
 	return { checkUserInfo }
 }
 

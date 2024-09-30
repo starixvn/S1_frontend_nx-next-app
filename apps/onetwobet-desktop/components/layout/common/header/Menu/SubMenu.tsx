@@ -13,14 +13,12 @@ import { useRouter } from 'next/router'
 import { Dispatch, ReactNode, SetStateAction } from 'react'
 
 const LoginModal = dynamic(
-	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
-	{
-		ssr: false,
-	}
+	() => import('@12b-desktop/components/modal/LoginModal'),
+	{ ssr: false }
 )
 
 const LiveStreamingModalDesktop = dynamic(
-	() => import('@nx-next-app/features/F0001/desktop/modal/LiveStreamingModal'),
+	() => import('@12b-desktop/components/modal/LiveStreamingModal'),
 	{ ssr: false }
 )
 

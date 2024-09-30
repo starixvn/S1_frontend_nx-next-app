@@ -7,7 +7,6 @@ import {
 	LineLoginDirectTypeEnum,
 	useLazyGetLineLoginDirectUrlQuery,
 } from '@nx-next-app/service'
-import { CurrenciesEnum } from '@nx-next-app/types'
 import { renderFieldError } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
@@ -24,12 +23,7 @@ const LayoutHeader = () => {
 
 	const { modal } = useGlobalModal()
 	const { menuList = [], onMenuOpen, isLobbyHeaderError } = useMenu()
-	const {
-		auth,
-		onSignIn,
-		onSignOut,
-		userInfo: { currencyId },
-	} = useAuth()
+	const { auth, onSignIn, onSignOut } = useAuth()
 
 	const [getLineLoginDirectUrl] = useLazyGetLineLoginDirectUrlQuery()
 
@@ -73,7 +67,7 @@ const LayoutHeader = () => {
 	}
 
 	// * line 登入按鈕的顯示邏輯
-	const showLineLogin = currencyId === CurrenciesEnum.THB
+	const showLineLogin = false
 
 	// 廣告商用的事件記錄器，綁在 DepositButton 底下
 	const handleYuriAddToCartClick = () => {

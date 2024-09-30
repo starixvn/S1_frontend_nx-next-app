@@ -1,10 +1,10 @@
-import { Features } from './Features'
+import Banner from './Banner'
 import { Form } from './form'
 
 const Join = () => (
-	<div className='joinpop'>
+	<div className='joinpop registration'>
 		<div className='joinloginModule'>
-			<Features />
+			<Banner />
 			<Form />
 		</div>
 	</div>

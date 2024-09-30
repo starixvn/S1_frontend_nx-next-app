@@ -1,32 +1,20 @@
-import { Form } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import {
-	LineLoginDirectTypeEnum,
-	useLazyGetLineLoginDirectUrlQuery,
-} from '@nx-next-app/service'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { useTranslation } from 'next-i18next'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FormProvider, useForm } from 'react-hook-form'
+import { Form } from '../../common'
 import { LoginForm } from './form'
 
 const Login = () => {
 	const router = useRouter()
-	const { t } = useTranslation()
-
-	const {
-		onSignIn,
-		userInfo: { currencyId },
-	} = useAuth()
+	const { getBannerUrl } = useGlobalData()
+	const { onSignIn } = useAuth()
 	const { modal } = useGlobalModal()
 
 	const formMethods = useForm()
 	const { handleSubmit, getValues } = formMethods
-
-	const [getLineLoginDirectUrl] = useLazyGetLineLoginDirectUrlQuery()
 
 	const handleSignIn = async () => {
 		const { userName, password } = getValues()
@@ -41,50 +29,27 @@ const Login = () => {
 		}
 	}
 
-	const handleLineLogin = async () => {
-		try {
-			const { data: lineLoginDirectUrl } = await getLineLoginDirectUrl({
-				type: LineLoginDirectTypeEnum.Login,
-			}).unwrap()
-
-			if (lineLoginDirectUrl) {
-				window.location.href = lineLoginDirectUrl
-			}
-		} catch (error) {
-			modal.error((error as Error).message)
-		}
-	}
+	const { query } = router
+	const fromRoute = query['from'] ? String(query['from']) : paths.home.root
 
 	return (
-		<>
-			{currencyId === CurrenciesEnum.THB && (
-				<div className='register-line'>
-					<div className='btn-group'>
-						<button
-							className='btn-line'
-							type='button'
-							onClick={handleLineLogin}
-						>
-							<i className='icon icon-line-bold' />
-							{t('Label_General_LogIn')}
-						</button>
-					</div>
+		<div style={{ height: '100vh', width: '100vw', position: 'fixed' }}>
+			<main className='main login'>
+				<Link href={fromRoute} prefetch>
+					<button className='close-btn'>
+						<img src={getBannerUrl('/h5/img/4.0/close-icon.png')} alt='close' />
+					</button>
+				</Link>
+				<div className='logo'>
+					<img src={getBannerUrl('/h5/img/logo.png')} alt='logo' />
 				</div>
-			)}
-			<FormProvider {...formMethods}>
-				<Form onSubmit={handleSubmit(handleSignIn)}>
-					<LoginForm />
-				</Form>
-			</FormProvider>
-			<Link href={paths.home.root}>
-				<a>
-					<div className='visit'>
-						{t('Label_Join_IWouldLikeToVisit')}
-						<i className='icon icon-visit' />
-					</div>
-				</a>
-			</Link>
-		</>
+				<FormProvider {...formMethods}>
+					<Form onSubmit={handleSubmit(handleSignIn)}>
+						<LoginForm />
+					</Form>
+				</FormProvider>
+			</main>
+		</div>
 	)
 }
 
