@@ -37,7 +37,7 @@ const LotteryRoundInfo = () => {
 	const currentTier = lotteryTierList?.find(
 		({ turnOverStart, turnOverEnd }) =>
 			totalTurnover >= turnOverStart &&
-			(totalTurnover < turnOverEnd || turnOverEnd === 0)
+			(totalTurnover <= turnOverEnd || turnOverEnd === 0) // 0 代表無上限
 	)
 
 	const tierMap = new Map(lotteryTierList?.map(tier => [tier.level, tier]))

@@ -40,7 +40,7 @@ const LotteryRoundInfo = () => {
 	const currentTier = lotteryTierList?.find(
 		({ turnOverStart, turnOverEnd }) =>
 			totalTurnover >= turnOverStart &&
-			(totalTurnover < turnOverEnd || turnOverEnd === 0)
+			(totalTurnover <= turnOverEnd || turnOverEnd === 0) // 0 代表無上限
 	)
 
 	// 以 lotteryTierList 的 level 當 key 建立 Map 確保可以拿到正確的 tier，避免順序不對或是有少的情況
