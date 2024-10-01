@@ -1,4 +1,4 @@
-import { Loading } from '@nx-next-app/components/D0001'
+import { Loading } from '@12b-desktop/components/common'
 import { useDepositRecentHistory } from '@nx-next-app/data-access'
 import DepositHistoryTable from '../common/table/historyTable/DepositHistoryTable'
 
