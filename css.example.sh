@@ -41,7 +41,12 @@ do
     echo $designPath "->" $projectPath
     cp -R ${designPath} ${projectPath}
 
-    # 複製 CSS 內用到的相對路徑圖片
+    designFontsPath="${DESIGN_PROJECT}/$site/$device/public/fonts"
+
+    echo $designFontsPath "->" $projectPath
+    cp -R ${designFontsPath} ${projectPath}
+
+    # 僅複製 CSS 內用到的相對路徑圖片 (img/style-img/*)
     designStyleImgPath="${DESIGN_PROJECT}/$site/$device/public/img/style-img"
     projectImgPath="${PROJECT}/apps/$site-$device/styles/img"
     if [ -d "$designStyleImgPath" ]; then

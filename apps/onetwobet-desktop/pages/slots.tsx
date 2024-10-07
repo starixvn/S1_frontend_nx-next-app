@@ -1,21 +1,28 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getSlotGamePage,
 } from '@nx-next-app/data-access'
-import { Layout, Slots } from '@nx-next-app/features/F0001/desktop'
-import { SlotsProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { SlotsProvider } from '@nx-next-app/operations'
 import { ISlotsGameData } from '@nx-next-app/service'
 import { CATEGORY_SORT } from '@nx-next-app/site/onetwobet/data/slots'
 import { IFooterData } from '@nx-next-app/types'
 import { pick } from 'lodash-es'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import dynamic from 'next/dynamic'
+import { Layout, Slots } from '../components'
+
+const LoginModal = dynamic(
+	() => import('@12b-desktop/components/modal/LoginModal'),
+	{ ssr: false }
+)
 
 type ISlotsPageProps = InitialPropsInterface & {
 	footerData: IFooterData
@@ -32,19 +39,21 @@ const SlotsPage = ({
 	persistSlotsGameData,
 	persistSlotsCategoryData,
 }: ISlotsPageProps) => {
+	const { modal } = useGlobalModal()
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
-				<SlotsProvider
-					persistSlotsGameData={persistSlotsGameData}
-					persistSlotsCategoryData={persistSlotsCategoryData}
-				>
-					<Layout persistSEOData={persistSEOData} footerData={footerData}>
+				<Layout persistSEOData={persistSEOData} footerData={footerData}>
+					<SlotsProvider
+						persistSlotsGameData={persistSlotsGameData}
+						persistSlotsCategoryData={persistSlotsCategoryData}
+						onLoginRequired={() => modal.open(<LoginModal />)}
+					>
 						<Slots />
-					</Layout>
-				</SlotsProvider>
+					</SlotsProvider>
+				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>
 	)
