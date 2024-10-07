@@ -13,9 +13,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FieldErrors } from 'react-hook-form'
 import Country from './Country'
-import Menu from './Menu'
 import MsgPopUp from './MsgPopUp'
 import Wallet from './Wallet'
+import Menu from './menu'
 
 const LayoutHeader = () => {
 	const { t } = useTranslation()
