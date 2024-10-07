@@ -1,7 +1,7 @@
 import Logo from '@12b-desktop/components/layout/common/header/Logo'
 import UserFunction from '@12b-desktop/components/layout/common/header/UserFunction'
 import UserInfo from '@12b-desktop/components/layout/common/header/userInfo'
-import Menu from './menu'
+import MenuList from './menuList'
 
 const LayoutHeader = () => {
 	return (
@@ -19,7 +19,7 @@ const LayoutHeader = () => {
 				</div>
 			</div>
 
-			<Menu />
+			<MenuList />
 		</header>
 	)
 }

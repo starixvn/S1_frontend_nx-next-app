@@ -1,4 +1,4 @@
-import SubMenu from '@12b-desktop/components/layout/common/header/menu/SubMenu'
+import SubMenu from '@12b-desktop/components/layout/common/header/menuList/SubMenu'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { PRODUCTS, paths } from '@nx-next-app/constants'
 import { useGlobalData } from '@nx-next-app/data-access'
@@ -34,7 +34,7 @@ const mainMenuIcon = {
 	[MainMenuIcon.hotTag]: <div className='icon mediafire'>Hot</div>,
 } as const
 
-const Menu = () => {
+const MenuList = () => {
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
 	const { getBannerUrl } = useGlobalData()
@@ -184,4 +184,4 @@ const Menu = () => {
 	)
 }
 
-export default Menu
+export default MenuList
