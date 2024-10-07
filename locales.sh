@@ -12,7 +12,13 @@ done
 read -p ": " site
 siteList=($(echo "$site" | tr ' ' '\n'))
 
-node sheet/SheetSort.js $site
 node sheet/SheetToJson.js $site
 
-echo "update locales done."
+echo ""
+
+echo "是否要對表單進行排序更新?"
+echo "(非必要，進行途中若中斷可能會造成該表被清空)"
+read -p "(y/N): " isUpdating
+if [[ "$isUpdating" == "y" || "$isUpdating" == "Y" ]]; then
+  node sheet/SheetSort.js $site
+fi
