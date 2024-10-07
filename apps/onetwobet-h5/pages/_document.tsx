@@ -1,15 +1,15 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/next-script-for-ga */
 /* eslint-disable react/no-danger */
+import { getGA4ID, getGTMId } from '@nx-next-app/site/onetwobet/data'
 import Document, {
-	Html,
-	Head,
-	Main,
-	NextScript,
 	DocumentContext,
 	DocumentInitialProps,
+	Head,
+	Html,
+	Main,
+	NextScript,
 } from 'next/document'
-import { getGA4ID, getGTMId } from '@nx-next-app/site/onetwobet/data'
 
 interface CustomDocumentProps extends DocumentInitialProps {
 	host?: string
@@ -125,6 +125,7 @@ class MyDocument extends Document<CustomDocumentProps> {
 							<script
 								async
 								src='https://sdk.optimove.net/websdk/?tenant_id=1431&tenant_token=792f0d9fbcc040c5880a3080c206515e'
+								data-optimove-service-worker-path='/worker.js'
 							/>
 						</>
 					)}
