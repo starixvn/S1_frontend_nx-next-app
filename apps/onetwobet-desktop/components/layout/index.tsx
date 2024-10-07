@@ -10,6 +10,7 @@ import { IFooterData } from '@nx-next-app/types'
 import dynamic from 'next/dynamic'
 import { ReactNode } from 'react'
 
+import FloatSidebar from '@12b-desktop/components/layout/common/sidebar'
 import LayoutFooter from './common/footer/index'
 import LayoutHeader from './common/header/index'
 
@@ -46,6 +47,9 @@ export function Layout({
 			<LayoutHeader />
 
 			{children}
+
+			{/* <!-- FLOAT SIDEBAR --> */}
+			<FloatSidebar />
 
 			{showFooter && !!footerData && <LayoutFooter footerData={footerData} />}
 

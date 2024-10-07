@@ -1,16 +1,12 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import type { IMergedMenuData } from '@nx-next-app/operations'
-import { IDynamicSubMenuItem, MenuIconTypeEnum } from '@nx-next-app/types'
+import { useAuth } from '@nx-next-app/data-access'
+import { useMenu } from '@nx-next-app/operations'
+import { MenuIconTypeEnum } from '@nx-next-app/types'
 import { isEventPeriod } from '@nx-next-app/utils'
 import classNames from 'classnames'
-import { includes } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { Dispatch, ReactNode, SetStateAction } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const LoginModal = dynamic(
 	() => import('@12b-desktop/components/modal/LoginModal'),
@@ -23,18 +19,6 @@ const LiveStreamingModalDesktop = dynamic(
 )
 
 interface ISubMenuProps {
-	menuList: IMergedMenuData[]
-	onMenuOpen: (
-		item: IDynamicSubMenuItem,
-		{
-			loginCallback,
-			messageCallBack,
-		}: {
-			loginCallback: () => void
-			messageCallBack?: (message: string) => void | undefined
-			liveStreamingCallback: () => void
-		}
-	) => void
 	debouncedMenuKey: string | undefined
 	setMenuKey: Dispatch<SetStateAction<string | undefined>>
 }
@@ -44,24 +28,16 @@ const subMenuIcon: { [p: number]: ReactNode | null } = {
 	[MenuIconTypeEnum.New as number]: <div className='new-icon'>NEW</div>,
 }
 
-const SubMenu = ({
-	debouncedMenuKey,
-	setMenuKey,
-	menuList,
-	onMenuOpen,
-}: ISubMenuProps) => {
+const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
+	const { menuList = [], onMenuOpen } = useMenu()
 	const { t } = useTranslation()
 	const {
-		userInfo: { langId, currencyId },
-		auth: { isLogin },
+		userInfo: { langId },
 	} = useAuth()
-	const { push } = useRouter()
 	const { modal } = useGlobalModal()
-	const { ALLOWED_CURRENCIES } = useStaticData()
 
 	const menus = menuList.map(mainMenuItem => {
-		const { lobbyCategoryId, desktop, subMenu, category } = mainMenuItem || {}
-		const { subMenuClassName } = desktop || {}
+		const { lobbyCategoryId, subMenu, category } = mainMenuItem || {}
 
 		const active = debouncedMenuKey === String(category)
 
@@ -69,63 +45,92 @@ const SubMenu = ({
 			return (
 				<div
 					key={lobbyCategoryId}
-					className={classNames(`${subMenuClassName} ${langId}`, {
+					className={classNames(`${category.toLowerCase()}-list ${langId}`, {
 						active,
 					})}
 					onMouseLeave={() => setMenuKey(undefined)}
 				>
-					{subMenu?.map(subMenuItem => {
-						// * 後端這裡是字串格式 需做處理
-						const suBMenuImage =
-							subMenuItem?.pcHeaderPicUrl &&
-							JSON.parse(subMenuItem?.pcHeaderPicUrl)[0]
+					<div className='container'>
+						{subMenu?.map(subMenuItem => {
+							// * 後端這裡是字串格式 需做處理
+							const subMenuImage =
+								subMenuItem?.pcHeaderPicUrl &&
+								JSON.parse(subMenuItem?.pcHeaderPicUrl)[0]
 
-						const displayName =
-							subMenuItem?.currencyGameName &&
-							subMenuItem?.currencyGameName[langId] &&
-							subMenuItem?.currencyGameName[langId]
+							const displayName =
+								subMenuItem?.currencyGameName &&
+								subMenuItem?.currencyGameName[langId] &&
+								subMenuItem?.currencyGameName[langId]
 
-						const { iconType, iconStartTime, iconEndTime } = subMenuItem || {}
+							const { iconType, iconStartTime, iconEndTime } = subMenuItem || {}
 
-						const switchSubMenuIcon = (iconType: MenuIconTypeEnum) => {
-							return subMenuIcon[iconType] || null
-						}
+							const switchSubMenuIcon = (iconType: MenuIconTypeEnum) => {
+								return subMenuIcon[iconType] || null
+							}
 
-						const submenuIcon =
-							(isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
-								switchSubMenuIcon(iconType)) ||
-							null
-						return (
-							<button
-								key={subMenuItem?.tpGameIdNo}
-								className={classNames({
-									active: subMenuItem?.isTpMaintain,
-								})}
-								onMouseEnter={() => setMenuKey(debouncedMenuKey)}
-								onClick={() => {
-									onMenuOpen(subMenuItem, {
-										loginCallback: () => modal.open(<LoginModal />),
-										messageCallBack: message => modal.error(message),
-										liveStreamingCallback: () =>
-											modal.open(<LiveStreamingModalDesktop />),
-									})
-								}}
-							>
-								{submenuIcon}
+							const submenuIcon =
+								(isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
+									switchSubMenuIcon(iconType)) ||
+								null
+							return (
+								<button
+									key={subMenuItem?.tpGameIdNo}
+									className={classNames({
+										active: subMenuItem?.isTpMaintain,
+									})}
+									onMouseEnter={() => setMenuKey(debouncedMenuKey)}
+									onClick={() => {
+										onMenuOpen(subMenuItem, {
+											loginCallback: () => modal.open(<LoginModal />),
+											messageCallBack: message => modal.error(message),
+											liveStreamingCallback: () =>
+												modal.open(<LiveStreamingModalDesktop />),
+										})
+									}}
+								>
+									{submenuIcon}
+									<img
+										className='List-npc'
+										src={subMenuImage}
+										alt={subMenuItem?.productName}
+									/>
+									<span>{displayName || subMenuItem?.productName}</span>
+									{subMenuItem?.isTpMaintain && (
+										<div className='under'>
+											{t('Label_General_UnderMaintenance')}
+										</div>
+									)}
+								</button>
+							)
+						})}
+					</div>
+					{/* <!-- nav-footer --> */}
+					<div className='nav-footer'>
+						<ul>
+							<li>
 								<img
-									className='List-npc'
-									src={suBMenuImage}
-									alt={subMenuItem?.productName}
+									src='https://banner.picasso12.com/desktop/img/lc-icon.png'
+									alt=''
 								/>
-								<span>{displayName || subMenuItem?.productName}</span>
-								{subMenuItem?.isTpMaintain && (
-									<div className='under'>
-										{t('Label_General_UnderMaintenance')}
-									</div>
-								)}
-							</button>
-						)
-					})}
+								官方博彩合作夥伴
+							</li>
+							<li>#BecauseExperienceMatters</li>
+							<li>
+								<img
+									src='https://banner.picasso12.com/desktop/img/trophy-icon.png'
+									alt=''
+								/>
+								亞洲最佳賠率！
+							</li>
+							<li>
+								<img
+									src='https://banner.picasso12.com/desktop/img/fast-and-safe.png'
+									alt=''
+								/>
+								快速及安全支付方式
+							</li>
+						</ul>
+					</div>
 				</div>
 			)
 		}
@@ -134,91 +139,833 @@ const SubMenu = ({
 	})
 
 	return (
-		<div className='subMenu-Wrapper-new'>
-			<div
-				className={classNames(`homeList ${langId}`, {
-					active: debouncedMenuKey === 'Home',
-				})}
-				onMouseLeave={() => setMenuKey(undefined)}
-			>
-				{includes(ALLOWED_CURRENCIES.VIP, Number(currencyId)) && (
-					<Link href={paths.vip.root}>
-						<a>
-							<img
-								className='List-npc'
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-vip.png`}
-								alt='vip'
-							/>
-							<span>{t('VIP')}</span>
-						</a>
-					</Link>
-				)}
-				{includes(ALLOWED_CURRENCIES.LEADER_BOARD, Number(currencyId)) && (
-					<Link href={paths.leaderBoard.root}>
-						<a>
-							<img
-								className='List-npc'
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-ranking.png`}
-								alt='leaderBoard'
-							/>
-							<span>{t('Label_General_LeaderBoard')}</span>
-						</a>
-					</Link>
-				)}
-				<button
-					onClick={
-						!isLogin
-							? () => modal.open(<LoginModal />)
-							: () => push(`/${langId}/${paths.referral.root}`)
-					}
-				>
-					<img
-						className='List-npc'
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-refer.png`}
-						alt='referral'
-					/>
-					<span>{t('Label_General_Referral')}</span>
-				</button>
-				<Link href={paths.milestones.root}>
-					<a>
-						<img
-							className='List-npc'
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/dropdown/home/home-milestone.png`}
-							alt='home-milestone'
-						/>
-						<span>{t('Label_General_Milestone')}</span>
-					</a>
-				</Link>
-			</div>
-
+		<div className='nav-container'>
 			{menus}
 
-			<a
-				className={classNames(`promoList ${langId}`, {
-					active: debouncedMenuKey === 'Promotion',
-				})}
-				onClick={() => push(paths.promotion.root)}
-				onMouseEnter={() => setMenuKey('Promotion')}
-			>
-				<div />
-			</a>
-			<div
-				className={classNames(`vipList ${langId}`, {
-					active: debouncedMenuKey === 'VIP',
-				})}
-				onMouseEnter={() => setMenuKey('VIP')}
-			>
-				<div />
+			{/* TODO:以下記得刪掉 */}
+			{/* TODO: 加上 active 控制hover要不要顯示下拉 */}
+			{/* <!-- sport --> */}
+			<div className='sports-list'>
+				<div className='container'>
+					<button className='under'>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/sports/soccerNPC.png'
+							alt=''
+						/>
+						<span>Soccer</span>
+						<div className='under-text'>Dalam Proses Penyelenggaraan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/sports/sabssoccerNPC.png'
+							alt=''
+						/>
+						{/* <!-- <i className="live"></i> --> */}
+						<span>Sabs Soccer</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button className='under'>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/sports/basketballNPC.png'
+							alt=''
+						/>
+						<span>Basketball</span>
+						<div className='under-text'>Under maintenance</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/sports/badmintonNPC.png'
+							alt=''
+						/>
+						<span>Badminton</span>
+						<div className='under-text'>Under maintenance</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/sports/volleyballNPC.png'
+							alt=''
+						/>
+						<span>Volleyball</span>
+						<div className='under-text'>Under maintenance</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/sports/betradarsoccerNPC.png'
+							alt=''
+						/>
+						<span>Virtual Sports</span>
+						<div className='under-text'>Under maintenance</div>
+					</button>
+				</div>
+				{/* <!-- nav-footer --> */}
+				<div className='nav-footer'>
+					<ul>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/lc-icon.png'
+								alt=''
+							/>
+							官方博彩合作夥伴
+						</li>
+						<li>#BecauseExperienceMatters</li>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/trophy-icon.png'
+								alt=''
+							/>
+							亞洲最佳賠率！
+						</li>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/fast-and-safe.png'
+								alt=''
+							/>
+							快速及安全支付方式
+						</li>
+					</ul>
+				</div>
 			</div>
-			<a
-				className={classNames(`rankingList ${langId}`, {
-					active: debouncedMenuKey === 'LeaderBoard',
-				})}
-				onClick={() => push(paths.leaderBoard.root)}
-				onMouseEnter={() => setMenuKey('LeaderBoard')}
-			>
-				<div />
-			</a>
+
+			{/* <!-- esport --> */}
+			<div className='esports-list'>
+				<div className='container'>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/esports/esportInplayMatrix.png'
+							alt=''
+						/>
+						<span>IM E-Sports</span>
+						<div className='under-text'>Under maintenance</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/esports/esportSABA.png'
+							alt=''
+						/>
+						<span>Saba</span>
+						<div className='under-text'>Under maintenance</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/esports/esportTFG.png'
+							alt=''
+						/>
+						<span>TFGaming</span>
+						<div className='under-text'>Under maintenance</div>
+					</button>
+				</div>
+				{/* <!-- nav-footer --> */}
+				<div className='nav-footer'>
+					<ul>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/lc-icon.png'
+								alt=''
+							/>
+							官方博彩合作夥伴
+						</li>
+						<li>#BecauseExperienceMatters</li>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/trophy-icon.png'
+								alt=''
+							/>
+							亞洲最佳賠率！
+						</li>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/fast-and-safe.png'
+								alt=''
+							/>
+							快速及安全支付方式
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			{/* <!-- casino --> */}
+			<div className='casino-list'>
+				<div className='container'>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotPP.png'
+							alt=''
+						/>
+						<span>Pragmatic Play</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotSG.png'
+							alt=''
+						/>
+						<span>Spadegaming</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotap.png'
+							alt=''
+						/>
+						<span>AdvantPlay</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<div className='new-icon'>NEW</div>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotEs.png'
+							alt=''
+						/>
+						<span>Endorphina</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<div className='new-icon'>NEW</div>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotamigo.png'
+							alt=''
+						/>
+						<span>Amigo Gaming</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotNextspin.png'
+							alt=''
+						/>
+						<span>Nextspin</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotPG.png'
+							alt=''
+						/>
+						<span>PG Soft</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<div className='new-icon'>NEW</div>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotbng.png'
+							alt=''
+						/>
+						<span>BNG</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotmg.png'
+							alt=''
+						/>
+						<span>Microgaming</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotji.png'
+							alt=''
+						/>
+						<span>Jili</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button className='icon'>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotSPRIBE.png'
+							alt=''
+						/>
+						<span className='active'>SPRIBE</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotJOKER.png'
+							alt=''
+						/>
+						<span>Joker</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<div className='new-icon'>NEW</div>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotpegasus.png'
+							alt=''
+						/>
+						<span>Pegasus</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<div className='new-icon'>NEW</div>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotnlc.png'
+							alt=''
+						/>
+						<span>NoLimit City</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotrt.png'
+							alt=''
+						/>
+						<span>Red Tiger</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotnt.png'
+							alt=''
+						/>
+						<span>NetEnt</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button className='icon'>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotCQ9.png'
+							alt=''
+						/>
+						<span>CQ9</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button className='icon'>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotplayngo.png'
+							alt=''
+						/>
+						<span>Play' n GO</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotGPI.png'
+							alt=''
+						/>
+						<span>Game Play</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotYGG.png'
+							alt=''
+						/>
+						<span>YGGDrassil</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<div className='new-icon'>NEW</div>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotAskMe.png'
+							alt=''
+						/>
+						<span>Askmeslot</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotho.png'
+							alt=''
+						/>
+						<span>Habanero</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotSimplePlay.png'
+							alt=''
+						/>
+						<span>SimplePlay</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotsk.png'
+							alt=''
+						/>
+						<span>Skywind</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/slot/slotpt.png'
+							alt=''
+						/>
+						<span>PlayTech</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+				</div>
+				{/* <!-- nav-footer --> */}
+				<div className='nav-footer'>
+					<ul>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/lc-icon.png'
+								alt=''
+							/>
+							官方博彩合作夥伴
+						</li>
+						<li>#BecauseExperienceMatters</li>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/trophy-icon.png'
+								alt=''
+							/>
+							亞洲最佳賠率！
+						</li>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/fast-and-safe.png'
+								alt=''
+							/>
+							快速及安全支付方式
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			{/* <!-- live casino --> */}
+			<div className='livecasino-list'>
+				<div className='container'>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-PP.png'
+							alt=''
+						/>
+						<span>Pragmatic Play</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						{/* <!-- <div className="new-icon">NEW</div> --> */}
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-woncasino.png'
+							alt=''
+						/>
+						<span>Won Casino</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-bg.png'
+							alt=''
+						/>
+						<span>Big Gaming</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-ev.png'
+							alt=''
+						/>
+						<span>Evolution Gaming</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-AE.png'
+							alt=''
+						/>
+						<span>AE Sexy</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-DG.png'
+							alt=''
+						/>
+						<span>Dream Gaming</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-yb.png'
+							alt=''
+						/>
+						<span>Evolution Gaming</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-SK.png'
+							alt=''
+						/>
+						<span>Playtech</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-mg.png'
+							alt=''
+						/>
+						<span>Dream Gaming</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-pt.png'
+							alt=''
+						/>
+						<span>AE Casino</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-SA.png'
+							alt=''
+						/>
+						<span>SA Gaming</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-ALL.png'
+							alt=''
+						/>
+						<span>Allbet</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-ag.png'
+							alt=''
+						/>
+						<span>Asia Gaming</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-WM.png'
+							alt=''
+						/>
+						<span>WM Casino</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-we.png'
+							alt=''
+						/>
+						<span>eBET</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-n2.png'
+							alt=''
+						/>
+						<span>n2-LIVE</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/casino/casino-789.png'
+							alt=''
+						/>
+						<span>n2-LIVE</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+				</div>
+				{/* <!-- nav-footer --> */}
+				<div className='nav-footer'>
+					<ul>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/lc-icon.png'
+								alt=''
+							/>
+							官方博彩合作夥伴
+						</li>
+						<li>#BecauseExperienceMatters</li>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/trophy-icon.png'
+								alt=''
+							/>
+							亞洲最佳賠率！
+						</li>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/fast-and-safe.png'
+								alt=''
+							/>
+							快速及安全支付方式
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			{/* <!-- fishing --> */}
+			<div className='fishing-list'>
+				<div className='container'>
+					<button className='fsgw'>
+						<div className='new-icon'>NEW</div>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/fishing/fishSG.png'
+							alt=''
+						/>
+						<span>Fishing God</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button className='fsgw'>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/fishing/fishSGwar.png'
+							alt=''
+						/>
+						<span>Fishing War</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button className='fsgw'>
+						<div className='new-icon'>NEW</div>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/fishing/fishzp.png'
+							alt=''
+						/>
+						<span>Zombie Party</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button className='fsgw'>
+						<div className='new-icon'>NEW</div>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/fishing/fishah.png'
+							alt=''
+						/>
+						<span>Alien Hunter</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button className='fsgw'>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/fishing/paradise.png'
+							alt=''
+						/>
+						<span>Paradise</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button className='fscai'>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/fishing/fishGG.png'
+							alt=''
+						/>
+						<span>Fishing World</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button className='fscai'>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/fishing/hb.png'
+							alt=''
+						/>
+						<span>Fish Haiba</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button className='fscai'>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/fishing/hf5.png'
+							alt=''
+						/>
+						<span>Happy Fish 5</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button className='fscai'>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/fishing/ma.png'
+							alt=''
+						/>
+						<span>Moster Awaken</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+					<button className='fscai'>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/fishing/oneshotfishing.png'
+							alt=''
+						/>
+						<span>Oneshot Fishing</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+				</div>
+				{/* <!-- nav-footer --> */}
+				<div className='nav-footer'>
+					<ul>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/lc-icon.png'
+								alt=''
+							/>
+							官方博彩合作夥伴
+						</li>
+						<li>#BecauseExperienceMatters</li>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/trophy-icon.png'
+								alt=''
+							/>
+							亞洲最佳賠率！
+						</li>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/fast-and-safe.png'
+								alt=''
+							/>
+							快速及安全支付方式
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			{/* <!-- number game --> */}
+			<div className='numbergame-list'>
+				<div className='container'>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/lottery/lo-numberGame.png'
+							alt=''
+						/>
+						<span>Number Game</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+				</div>
+				{/* <!-- nav-footer --> */}
+				<div className='nav-footer'>
+					<ul>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/lc-icon.png'
+								alt=''
+							/>
+							官方博彩合作夥伴
+						</li>
+						<li>#BecauseExperienceMatters</li>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/trophy-icon.png'
+								alt=''
+							/>
+							亞洲最佳賠率！
+						</li>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/fast-and-safe.png'
+								alt=''
+							/>
+							快速及安全支付方式
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			{/* <!-- keno --> */}
+			<div className='keno-list'>
+				<div className='container'>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/lottery/lo-gpikeno.png'
+							alt=''
+						/>
+						<span>Keno</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/lottery/lo-lottery.png'
+							alt=''
+						/>
+						<span>Keno</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+				</div>
+				{/* <!-- nav-footer --> */}
+				<div className='nav-footer'>
+					<ul>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/lc-icon.png'
+								alt=''
+							/>
+							官方博彩合作夥伴
+						</li>
+						<li>#BecauseExperienceMatters</li>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/trophy-icon.png'
+								alt=''
+							/>
+							亞洲最佳賠率！
+						</li>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/fast-and-safe.png'
+								alt=''
+							/>
+							快速及安全支付方式
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			{/* <!-- lottery --> */}
+			<div className='lottery-list'>
+				<div className='container'>
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/lottery/lo-gpifast3.png'
+							alt=''
+						/>
+						<span>Thai Lottery</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/lottery/lo-tcg.png'
+							alt=''
+						/>
+						<span>Fast 3</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/lottery/lo-lottery.png'
+							alt=''
+						/>
+						<span>Keno</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+
+					<button>
+						<img
+							src='https://banner.picasso12.com/desktop/img/4.0/dropdown/lottery/lo-tableGame.png'
+							alt=''
+						/>
+						<span>Number Game</span>
+						<div className='under-text'>Sedang dalam pemeliharaan</div>
+					</button>
+				</div>
+				{/* <!-- nav-footer --> */}
+				<div className='nav-footer'>
+					<ul>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/lc-icon.png'
+								alt=''
+							/>
+							官方博彩合作夥伴
+						</li>
+						<li>#BecauseExperienceMatters</li>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/trophy-icon.png'
+								alt=''
+							/>
+							亞洲最佳賠率！
+						</li>
+						<li>
+							<img
+								src='https://banner.picasso12.com/desktop/img/fast-and-safe.png'
+								alt=''
+							/>
+							快速及安全支付方式
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	)
 }

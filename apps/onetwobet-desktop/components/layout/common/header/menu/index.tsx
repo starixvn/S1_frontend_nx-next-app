@@ -1,7 +1,8 @@
+import SubMenu from '@12b-desktop/components/layout/common/header/menu/SubMenu'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { PRODUCTS, paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import type { IMergedMenuData } from '@nx-next-app/operations'
+import { useGlobalData } from '@nx-next-app/data-access'
+import { useMenu } from '@nx-next-app/operations'
 import {
 	IDynamicSubMenuItem,
 	LobbyCategoryEnum,
@@ -10,14 +11,12 @@ import {
 	MenuIconTypeEnum,
 } from '@nx-next-app/types'
 import { isEventPeriod } from '@nx-next-app/utils'
-import classNames from 'classnames'
-import { includes, toUpper } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
+import { toUpper } from 'lodash-es'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useDebounce } from 'usehooks-ts'
-import SubMenu from './SubMenu'
 
 const LoginModal = dynamic(
 	() => import('@12b-desktop/components/modal/LoginModal'),
@@ -30,145 +29,138 @@ const LiveStreamingModalDesktop = dynamic(
 )
 
 const mainMenuIcon = {
-	// * 舊的版本沒有 i18n 後來碩要支援在加
+	// * 舊的版本沒有 i18n 後來說要支援再加
 	[MainMenuIcon.newTag]: <div className='icon'>NEW</div>,
 	[MainMenuIcon.hotTag]: <div className='icon mediafire'>Hot</div>,
 } as const
 
-export interface IMenuProps {
-	menuList: IMergedMenuData[]
-	onMenuOpen: (
-		item: IDynamicSubMenuItem | undefined,
-		{
-			loginCallback,
-			messageCallBack,
-		}: {
-			loginCallback: () => void
-			messageCallBack?: (message: string) => void | undefined
-			liveStreamingCallback: () => void
-		}
-	) => void
-	isLobbyHeaderError: boolean
-}
-
-const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
+const Menu = () => {
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
+	const { getBannerUrl } = useGlobalData()
 	const [menuKey, setMenuKey] = useState<string>()
 	const debouncedMenuKey = useDebounce(menuKey, 150)
-	const {
-		userInfo: { currencyId },
-	} = useAuth()
-	const { ALLOWED_CURRENCIES } = useStaticData()
 
-	const menus = menuList.map(mainMenuItem => {
-		const {
-			displayKey,
-			subMenu,
-			lobbyCategoryId,
-			pathname,
-			category,
-			display,
-		} = mainMenuItem || {}
+	const { menuList = [], onMenuOpen, isLobbyHeaderError } = useMenu()
+	return (
+		<div onMouseLeave={() => setMenuKey(undefined)}>
+			<ul className='header-nav'>
+				<Link href={paths.home.root} passHref>
+					<li>
+						<button className='nav-btn'>
+							<img
+								src={getBannerUrl('/desktop/img/home-icon.png')}
+								alt='home icon'
+							/>
+						</button>
+					</li>
+				</Link>
 
-		if (display === 'h5') return null
-		const active = debouncedMenuKey === String(category)
+				<li>
+					<button className='nav-btn'>
+						<img
+							src={getBannerUrl('/desktop/img/mobile-icon.png')}
+							alt='mobile icon'
+						/>
+					</button>
+				</li>
+				<Link href={paths.vip.root}>
+					<li>
+						<button className='nav-btn'>
+							<img
+								src={getBannerUrl('/desktop/img/12vip-icon.png')}
+								alt='12vip icon'
+							/>
+						</button>
+					</li>
+				</Link>
 
-		const switchMainMenuIcon = (iconType: MainMenuIcon) => {
-			return mainMenuIcon[iconType] || null
-		}
+				{/* 利用getLobbyHeader api取得的menu資料  */}
+				{menuList.map(mainMenuItem => {
+					const {
+						displayKey,
+						subMenu,
+						lobbyCategoryId,
+						pathname,
+						category,
+						display,
+					} = mainMenuItem || {}
 
-		// * 查看 subMenu 是否有在顯示範圍的 New Icon
-		const hasNewIcon = subMenu.some(subMenuItem => {
-			const { iconType, iconStartTime, iconEndTime } = subMenuItem || {}
+					if (display === 'h5') return null
 
-			return (
-				isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
-				iconType === MenuIconTypeEnum.New
-			)
-		})
+					const switchMainMenuIcon = (iconType: MainMenuIcon) => {
+						return mainMenuIcon[iconType] || null
+					}
 
-		const menuText = toUpper((displayKey && t(displayKey)) || '')
+					// * 查看 subMenu 是否有在顯示範圍的 New Icon
+					const hasNewIcon = subMenu.some(subMenuItem => {
+						const { iconType, iconStartTime, iconEndTime } = subMenuItem || {}
 
-		// * 目前動態 menu 只支援 New
-		const icon = (hasNewIcon && switchMainMenuIcon(MainMenuIcon.newTag)) || null
+						return (
+							isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
+							iconType === MenuIconTypeEnum.New
+						)
+					})
 
-		// * 特例 Sport Soccer (需轉 EnterPage)
-		if (lobbyCategoryId === LobbyCategoryEnum.Sports) {
-			const soccerItem = subMenu?.find(
-				sportSubItem => sportSubItem.tpGameIdNo === PRODUCTS.Soccer.tpGameIdNo
-			)
+					const menuText = toUpper((displayKey && t(displayKey)) || '')
 
-			return (
-				<button
-					key={lobbyCategoryId}
-					type='button'
-					aria-label='menu-item'
-					onClick={() =>
-						onMenuOpen(
-							{
-								...soccerItem,
-								desktop: { menuActionType: MenuActionTypeEnum.EnterPage },
-							} as IDynamicSubMenuItem,
-							{
-								loginCallback: () => modal.open(<LoginModal />),
-								messageCallBack: message => modal.error(message),
-								liveStreamingCallback: () =>
-									modal.open(<LiveStreamingModalDesktop />),
-							}
+					// * 目前動態 menu 只支援 New
+					const icon =
+						(hasNewIcon && switchMainMenuIcon(MainMenuIcon.newTag)) || null
+
+					// * 特例 Sport Soccer (需轉 EnterPage)
+					if (lobbyCategoryId === LobbyCategoryEnum.Sports) {
+						const soccerItem = subMenu?.find(
+							sportSubItem =>
+								sportSubItem.tpGameIdNo === PRODUCTS.Soccer.tpGameIdNo
+						)
+
+						return (
+							<li key={lobbyCategoryId}>
+								<button
+									className='nav-btn sports-btn'
+									type='button'
+									aria-label='menu-item'
+									onClick={() =>
+										onMenuOpen(
+											{
+												...soccerItem,
+												desktop: {
+													menuActionType: MenuActionTypeEnum.EnterPage,
+												},
+											} as IDynamicSubMenuItem,
+											{
+												loginCallback: () => modal.open(<LoginModal />),
+												messageCallBack: message => modal.error(message),
+												liveStreamingCallback: () =>
+													modal.open(<LiveStreamingModalDesktop />),
+											}
+										)
+									}
+									onMouseEnter={() => setMenuKey(category)}
+								>
+									{icon}
+									{menuText}
+								</button>
+							</li>
 						)
 					}
-					onMouseEnter={() => setMenuKey(category)}
-				>
-					{icon}
-					{menuText}
-				</button>
-			)
-		}
 
-		// * 特例 EXCHANGE 沒有導轉功能
-		if (lobbyCategoryId === LobbyCategoryEnum.Exchange) {
-			return (
-				<a
-					className={classNames({ active })}
-					key={lobbyCategoryId}
-					onMouseEnter={() => setMenuKey(category)}
-				>
-					{icon}
-					{menuText}
-				</a>
-			)
-		}
-
-		return (
-			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-			<Link href={pathname!} key={lobbyCategoryId}>
-				<a onMouseEnter={() => setMenuKey(category)}>
-					{icon}
-					{menuText}
-				</a>
-			</Link>
-		)
-	})
-	return (
-		<div className='menu'>
-			<div onMouseLeave={() => setMenuKey(undefined)}>
-				<Link href={paths.home.root} passHref>
-					<a className='icon icon-home' onMouseEnter={() => setMenuKey('Home')}>
-						{' '}
-					</a>
-				</Link>
-				{includes(ALLOWED_CURRENCIES.REWARDS, Number(currencyId)) && (
-					<a
-						className='reward'
-						href={paths.rewards.root}
-						target='_blank'
-						rel='noreferrer'
-					>
-						{' '}
-					</a>
-				)}
-				{menus}
+					return (
+						// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+						<Link href={pathname!} key={lobbyCategoryId}>
+							<li key={lobbyCategoryId}>
+								<button
+									className={`nav-btn ${category.toLowerCase()}-btn`}
+									onMouseEnter={() => setMenuKey(category)}
+								>
+									{icon}
+									{menuText}
+								</button>
+							</li>
+						</Link>
+					)
+				})}
 
 				{/* lobbyHeader api 若是壞了就顯示 slots， 讓使用者可以進入 slot 遊玩 */}
 				{isLobbyHeaderError && (
@@ -177,54 +169,17 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 						href={paths.slots.root}
 						onMouseEnter={() => setMenuKey('Slot')}
 					>
-						{t('Label_General_Slots')}
+						<li>
+							<button className='nav-btn slot-btn'>
+								{t('Label_General_Slots')}
+							</button>
+						</li>
 					</Link>
 				)}
+			</ul>
 
-				<Link href={paths.promotion.root} passHref>
-					<a
-						className={classNames({
-							active: debouncedMenuKey === 'Promotion',
-						})}
-						onMouseEnter={() => setMenuKey('Promotion')}
-					>
-						{isEventPeriod({ start: '2020-00-01T00:00:00', end: null }) &&
-							mainMenuIcon.hotTag}
-						{t('Label_General_Promos')}
-					</a>
-				</Link>
-				{includes(ALLOWED_CURRENCIES.VIP, Number(currencyId)) && (
-					<Link href={paths.vip.root} passHref>
-						<a
-							className={classNames({
-								active: debouncedMenuKey === 'VIP',
-							})}
-							onMouseEnter={() => setMenuKey('VIP')}
-						>
-							{t('VIP')}
-						</a>
-					</Link>
-				)}
-				{includes(ALLOWED_CURRENCIES.LEADER_BOARD, Number(currencyId)) && (
-					<Link href={paths.leaderBoard.root} passHref>
-						<a
-							className={classNames({
-								active: debouncedMenuKey === 'LeaderBoard',
-							})}
-							onMouseEnter={() => setMenuKey('LeaderBoard')}
-						>
-							{t('Label_LeaderBoard')}
-						</a>
-					</Link>
-				)}
-
-				<SubMenu
-					debouncedMenuKey={debouncedMenuKey}
-					setMenuKey={setMenuKey}
-					menuList={menuList}
-					onMenuOpen={onMenuOpen}
-				/>
-			</div>
+			{/* <!-- nav-container --> */}
+			<SubMenu debouncedMenuKey={debouncedMenuKey} setMenuKey={setMenuKey} />
 		</div>
 	)
 }
