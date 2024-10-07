@@ -1,15 +1,15 @@
 /* eslint-disable @next/next/next-script-for-ga */
 /* eslint-disable react/no-danger */
 /* eslint-disable jsx-a11y/alt-text */
+import { getGA4ID, getGTMId } from '@nx-next-app/site/onetwobet/data'
 import Document, {
-	Html,
-	Head,
-	Main,
-	NextScript,
 	DocumentContext,
 	DocumentInitialProps,
+	Head,
+	Html,
+	Main,
+	NextScript,
 } from 'next/document'
-import { getGA4ID, getGTMId } from '@nx-next-app/site/onetwobet/data'
 
 interface CustomDocumentProps extends DocumentInitialProps {
 	host?: string

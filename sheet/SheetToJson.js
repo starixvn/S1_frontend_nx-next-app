@@ -17,25 +17,20 @@ const getContents = data => {
 	const contents = {}
 
 	for (const tab in data) {
-		const files = [...data[tab]]
+		const entries = data[tab]
 		const fileName = `${tab}.json`
-
-		for (const file of files) {
-			const content = { ...file }
-			const { key: displayKey } = content
-
-			for (const lang in content) {
-				if (lang !== 'key') {
-					const value = content[lang]
-					if (typeof value === 'string' && value.trim() !== '') {
-						if (!contents[lang]) {
-							contents[lang] = {}
-						}
-						if (!contents[lang][fileName]) {
-							contents[lang][fileName] = {}
-						}
-						contents[lang][fileName][displayKey] = value
+		entries.sort((a, b) => (a.key > b.key ? 1 : -1))
+		for (const { key, ...translations } of entries) {
+			for (const lang in translations) {
+				const value = translations[lang]
+				if (typeof value === 'string' && value.trim() !== '') {
+					if (!contents[lang]) {
+						contents[lang] = {}
 					}
+					if (!contents[lang][fileName]) {
+						contents[lang][fileName] = {}
+					}
+					contents[lang][fileName][key] = value
 				}
 			}
 		}

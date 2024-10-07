@@ -125,7 +125,6 @@ class MyDocument extends Document<CustomDocumentProps> {
 							<script
 								async
 								src='https://sdk.optimove.net/websdk/?tenant_id=1431&tenant_token=792f0d9fbcc040c5880a3080c206515e'
-								data-optimove-service-worker-path='/worker.js'
 							/>
 						</>
 					)}
