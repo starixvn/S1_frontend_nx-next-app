@@ -4,17 +4,14 @@ import {
 	AREA_CODE_BY_CURRENCY,
 	CURRENCY_TO_LANG_KEY,
 	EMAIL_REGEX,
-	ENV_COOKIE_NAMES,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
 	PASSWORD_REGEX,
 	PHONE_DIGITS_LIMIT,
 	PHONE_LENGTH_REGEX,
-	REALNAME_REGEX,
 	USERNAME_REGEX,
 	paths,
 } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useJoin } from '@nx-next-app/operations'
 import {
 	useGetSiteCurrencyListQuery,
 	useLazyAffiliateCheckQuery,
@@ -31,17 +28,19 @@ import {
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { getCookies } from 'cookies-next'
-import dayjs from 'dayjs'
 import { isNumber } from 'lodash'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { ISelectProps, InputBox, Select } from '../../common'
-import DateSelector from '../../common/dateSelector'
-import { LineRegister } from './LineRegister'
-import { LoginHint } from './LoginHint'
+
+enum JoinMethod {
+	Email = 'email',
+	Number = 'number',
+}
 
 const Form = () => {
 	const { t } = useTranslation()
@@ -49,6 +48,7 @@ const Form = () => {
 	const { LANG_GROUPS, TERMS_CONDITIONS } = useStaticData()
 	const router = useRouter()
 	const { query } = router
+
 	const affId = getQueryParam(query, 'affId')
 	const affCode = getQueryParam(query, 'affCode')
 
@@ -57,15 +57,11 @@ const Form = () => {
 	const urlAffId = affId || cookies['AffId']
 	const urlAffCode = affCode || cookies['AffCode']
 	const urlAffiliate = urlAffId || urlAffCode
-	const lineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
 
 	const { ALLOWED_CURRENCIES } = useStaticData()
-	const { initNationality, countrySelectOptions } = useJoin()
 
 	const {
 		formState,
-		reset,
-		watch,
 		trigger,
 		setError,
 		setValue,
@@ -96,15 +92,11 @@ const Form = () => {
 
 	const [signUp] = useSignupMutation()
 
-	const [formBirth, setFormBirth] = useState<Date | null>(
-		new Date('1990-01-01')
-	)
 	const [phoneErrorTip, setPhoneErrorTip] = useState<string | undefined>('')
 	const [currencyOptions, setCurrencyOptions] = useState<
 		ISelectProps['options']
 	>([])
 
-	const watchCurrencyId = watch('currencyId')
 	const currencySelectOptions = siteCurrencyList
 		.filter(currencyId => {
 			const affiliate = getValues('affiliate')
@@ -150,21 +142,6 @@ const Form = () => {
 		}
 	}
 
-	const checkConfirmPwd = async () => {
-		await trigger('confirmPwd')
-		const { error } = getFieldState('confirmPwd')
-		const formConfirmPwd = getValues('confirmPwd')
-		const formPassword = getValues('password')
-		if (error) return
-
-		if (formConfirmPwd !== formPassword) {
-			setError('confirmPwd', {
-				type: 'mismatch',
-				message: t('Label_Join_ConfirmPwdNotMatch') || '',
-			})
-		}
-	}
-
 	const checkEmail = async () => {
 		await trigger('email')
 		const { error } = getFieldState('email')
@@ -184,12 +161,6 @@ const Form = () => {
 		} catch (error) {
 			// error
 		}
-	}
-
-	const legalBirth = dayjs().subtract(18, 'year')
-	const handleBirthChange = ({ date }: { date: Date | null }) => {
-		setFormBirth(date)
-		setValue('birth', date)
 	}
 
 	const checkPhone = async () => {
@@ -290,16 +261,8 @@ const Form = () => {
 
 			const areaCode = AREA_CODE_BY_CURRENCY[newCurrencyId]
 
-			if (areaCode) {
-				setValue('areaCode', areaCode)
-			} else {
-				setValue('areaCode', undefined)
-			}
-
-			// reset phone input
-			setValue('phone', '')
-			clearErrors('phone')
-			setPhoneErrorTip('')
+			if (areaCode) setValue('areaCode', areaCode)
+			if (touchedFields['phone']) checkPhone()
 		}
 	}
 
@@ -307,12 +270,7 @@ const Form = () => {
 		const formAreaCode = getValues('areaCode')
 		if (newAreaCode !== formAreaCode) {
 			setValue('areaCode', newAreaCode)
-
-			// If phone input is not empty, trigger phone check
-			const formPhone = getValues('phone')
-			if (formPhone) {
-				checkPhone()
-			}
+			if (touchedFields['phone']) checkPhone()
 		}
 	}
 
@@ -343,14 +301,6 @@ const Form = () => {
 		}
 	}
 
-	const checkLineRegister = () => {
-		if (!lineUserId) return
-
-		if (siteCurrencyList.length > 0) {
-			selectCurrency(CurrenciesEnum.THB)
-		}
-	}
-
 	const getBlackbox = async () => {
 		let blackbox = ''
 		if (
@@ -368,31 +318,24 @@ const Form = () => {
 		return blackbox
 	}
 
-	const handleCancel = () => {
-		reset()
-		router.push('/')
-	}
-
 	const handleSubmitForm = async () => {
 		const {
 			username,
 			password,
-			realName,
 			email,
-			birth,
-			nationality,
 			currencyId: formCurrencyId,
 			areaCode,
 			phone,
 			affiliate,
 		} = getValues()
+
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 		// currency & recaptcha & affiliate cannot use form required check
 		if (!currencyCheck || !affCodeCheck) return
 
-		const affId = affiliate && urlAffId ? affiliate : null
-		const affCode = !urlAffId && affCodeCheck ? affiliate : null
+		const affId = affiliate && urlAffId ? String(affiliate) : null
+		const affCode = !urlAffId && affCodeCheck ? String(affiliate) : null
 
 		// use register currency to get langId, if not exist, use default en
 		// 在 signUp 時 formCurrencyId 為必填，所以不會是 undefined
@@ -404,18 +347,12 @@ const Form = () => {
 		const blackbox = await getBlackbox()
 		try {
 			await signUp({
-				// 因 cookies 有機會是 string[] 導致錯誤
-				affCode: affCode as string,
-				affId: affId as string,
-				areaCode,
+				affCode,
+				affId,
 				currencyId: formCurrencyId,
-				phoneNo: phone,
-				realName,
-				email,
-				Birth_d: birth ? dayjs(birth).format('DD') : 0,
-				Birth_m: birth ? dayjs(birth).format('MM') : 0,
-				Birth_y: birth ? dayjs(birth).format('YYYY') : 0,
-				nationality: nationality ?? initNationality,
+				...(joinBy === JoinMethod.Email
+					? { email }
+					: { areaCode, phoneNo: phone }),
 				// reCaptchaToken,
 				referralUrl: document.referrer,
 				userLang,
@@ -423,7 +360,6 @@ const Form = () => {
 				userpwd: password,
 				blackbox,
 				langId: userLang,
-				lineUserId: lineUserId as string,
 			}).unwrap()
 
 			// opera and meta pixel tracker
@@ -439,20 +375,38 @@ const Form = () => {
 
 	useEffect(() => {
 		checkUrlAffiliate()
-		setValue('birth', formBirth) // 初始form裡面的生日值
 	}, [])
 
+	const { by: joinBy } = query
+
 	useEffect(() => {
-		checkLineRegister()
-	}, [siteCurrencyList])
+		if (joinBy !== JoinMethod.Email && joinBy !== JoinMethod.Number) {
+			router.replace({
+				pathname: paths.join.root,
+				query: { by: JoinMethod.Number },
+			})
+		}
+	}, [joinBy])
 
 	return (
 		<form
 			className='joinloginFunction'
 			onSubmit={handleSubmit(handleSubmitForm)}
 		>
-			<LoginHint />
-			{currencyId === CurrenciesEnum.THB && <LineRegister />}
+			<div className='title'>{t('Label_Join_QuickRegistration')}</div>
+			<div className='tab' style={{ textTransform: 'uppercase' }}>
+				{/* inner <a /> are for css selectors (a.active) to work */}
+				<Link href={`?by=${JoinMethod.Number}`}>
+					<a className={joinBy === JoinMethod.Number ? 'active' : ''}>
+						{t('Label_Join_ByNumber')}
+					</a>
+				</Link>
+				<Link href={`?by=${JoinMethod.Email}`}>
+					<a className={joinBy === JoinMethod.Email ? 'active' : ''}>
+						{t('Label_Join_ByEmail')}
+					</a>
+				</Link>
+			</div>
 			<div className='inputModule'>
 				<InputBox
 					register={register('username', {
@@ -463,7 +417,7 @@ const Form = () => {
 						},
 						onBlur: checkUsername,
 					})}
-					icon='icon-member txt-blue'
+					requiredIcon
 					placeholder={t('Label_General_Username') || ''}
 					loading={existsUsernameLoading}
 					errorMessage={errors['username']?.message as string}
@@ -485,121 +439,72 @@ const Form = () => {
 						onBlur: () => trigger('password'),
 					})}
 					password
-					icon='icon icon-key txt-blue'
+					requiredIcon
 					placeholder={t('Label_General_Password') || ''}
 					errorMessage={errors['password']?.message as string}
 					error={!!errors['password']}
 					touched={!!touchedFields['password']}
 				/>
-				<InputBox
-					register={register('confirmPwd', {
-						required: { value: true, message: t('Label_Join_ConfirmPwdReq') },
-						onBlur: checkConfirmPwd,
-					})}
-					password
-					icon='icon icon-key txt-blue'
-					placeholder={t('Label_Join_ConfirmPassword') || ''}
-					errorMessage={errors['confirmPwd']?.message as string}
-					error={!!errors['confirmPwd']}
-					touched={!!touchedFields['confirmPwd']}
-				/>
-				<InputBox
-					register={register('realName', {
-						required: { value: true, message: t('Label_Join_RealNameReq') },
-						pattern: {
-							value: REALNAME_REGEX,
-							message: t('Label_Join_EnterRealName') || '',
-						},
-						onBlur: () => trigger('realName'),
-					})}
-					icon='icon-member txt-blue'
-					placeholder={t('Label_General_RealName') as string}
-					errorMessage={errors['realName']?.message as string}
-					error={!!errors['realName']}
-					touched={!!touchedFields['realName']}
-					infoMessage={t('Label_General_RemindForName') as string}
-				/>
-				<InputBox
-					register={register('email', {
-						pattern: {
-							value: EMAIL_REGEX,
-							message: t('Label_Join_MailWrongFormat') || '',
-						},
-						onBlur: checkEmail,
-					})}
-					icon='icon-email txt-blue'
-					placeholder={t('Label_General_Email') || ''}
-					loading={existsEmailLoading}
-					errorMessage={errors['email']?.message as string}
-					error={!!errors['email']}
-					touched={getValues('email') && !!touchedFields['email']}
-					successMessage={t('Label_Join_CantChangeEmail') || ''}
-					infoMessage={t('Label_Join_EmailToolTip') || ''}
-				/>
 
-				<div className='inputBox-row'>
-					<div
-						className='inputBox-blue'
-						style={{ width: 'auto', cursor: 'pointer' }}
-					>
-						<DateSelector
-							{...register('birth')}
-							selected={formBirth}
-							onChange={date => handleBirthChange({ date })}
-							maxDate={dayjs(legalBirth).toDate()}
-							placeholderText='DD/MM/YYYY'
-							closeOnScroll
-							showDisabledMonthNavigation
-							showYearDropdown
-						/>
-						<div className='iconModule' style={{ cursor: 'default' }}>
-							<i className='icon icon-calendar' />
-						</div>
-						{/* <div className='tip active txt-red'>
-							{errors['birth']?.message as string}
-						</div> */}
-					</div>
-					<Select
-						showSearch
-						isTranslation
-						options={countrySelectOptions}
-						defaultValue={initNationality}
-						value={getValues('nationality')}
-						placeholder={t('Label_Join_Nationality') as string} // TODO: 請ＰＭ給完整i18n
-						prefixIcon={<i className='icon icon-sphere txt-blue' />}
-						onChange={value => {
-							setValue('nationality', value)
-						}}
-						errorMessage={errors['nationality']?.message as string}
-					/>
-				</div>
-
-				<Select
-					// * 如果 Aff Input 有相對應的幣別，則使用 currencyOptions（Aff 過濾的幣別選項）
-					options={
-						currencyOptions.length === 0
-							? currencySelectOptions
-							: currencyOptions
-					}
-					value={getValues('currencyId')}
-					placeholder={t('Label_Join_PrefferedCurrency') as string}
-					prefixIcon={<i className='icon icon-coin-dollar txt-blue' />}
-					onChange={currencyId => selectCurrency(currencyId)}
-					errorMessage={errors['currencyId']?.message as string}
-				/>
-				<div className='tip active'>
-					{(errors['currencyId']?.message as string) ||
-						t('Label_Join_CantChangePreferredCurrency')}
-				</div>
-				{watchCurrencyId && (
+				{joinBy === 'email' ? (
 					<>
-						<div className='phone'>
+						<Select
+							// * 如果 Aff Input 有相對應的幣別，則使用 currencyOptions（Aff 過濾的幣別選項）
+							options={
+								currencyOptions.length === 0
+									? currencySelectOptions
+									: currencyOptions
+							}
+							value={getValues('currencyId')}
+							placeholder={t('Label_Join_PrefferedCurrency') as string}
+							requiredIcon
+							onChange={selectCurrency}
+							errorMessage={errors['currencyId']?.message as string}
+						/>
+						<div className='tip active'>
+							{(errors['currencyId']?.message as string) ||
+								t('Label_Join_CantChangePreferredCurrency')}
+						</div>
+						<InputBox
+							register={register('email', {
+								pattern: {
+									value: EMAIL_REGEX,
+									message: t('Label_Join_MailWrongFormat') || '',
+								},
+								onBlur: checkEmail,
+							})}
+							requiredIcon
+							placeholder={t('Label_General_Email') || ''}
+							loading={existsEmailLoading}
+							errorMessage={errors['email']?.message as string}
+							error={!!errors['email']}
+							touched={getValues('email') && !!touchedFields['email']}
+							successMessage={t('Label_Join_CantChangeEmail') || ''}
+							infoMessage={t('Label_Join_EmailToolTip') || ''}
+						/>
+					</>
+				) : (
+					<>
+						<div className='input-group'>
+							<Select
+								// * 如果 Aff Input 有相對應的幣別，則使用 currencyOptions（Aff 過濾的幣別選項）
+								options={
+									currencyOptions.length === 0
+										? currencySelectOptions
+										: currencyOptions
+								}
+								value={getValues('currencyId')}
+								placeholder={t('Label_Join_PrefferedCurrency') as string}
+								requiredIcon
+								onChange={selectCurrency}
+								errorMessage={errors['currencyId']?.message as string}
+							/>
 							<Select
 								showSearch
 								options={areaCodeSelectOptions}
 								placeholder=''
-								prefixIcon={<i className='icon icon-phone txt-blue' />}
-								onChange={areaCode => selectAreaCode(areaCode)}
+								requiredIcon
+								onChange={selectAreaCode}
 								value={getValues('areaCode')}
 								errorMessage={phoneErrorTip}
 								showValue
@@ -612,13 +517,16 @@ const Form = () => {
 									},
 									onBlur: checkPhone,
 								})}
+								requiredIcon
 								placeholder={t('Label_General_Phone') as string}
 								error={!!errors['phone'] || !!phoneErrorTip}
 								touched={!!touchedFields['phone']}
 								type='number'
 							/>
 						</div>
-						<div className={`tip active${phoneErrorTip && ' txt-red'}`}>
+						<div
+							className={classNames('tip active', { 'txt-red': phoneErrorTip })}
+						>
 							{phoneErrorTip || t('Label_Join_CantChangePhone')}
 						</div>
 					</>
@@ -655,11 +563,12 @@ const Form = () => {
 				{t('Label_Join_SignUpTerms3')}
 			</div>
 			<div className='btnGroup'>
-				<button type='button' className='btn-cancel' onClick={handleCancel}>
-					{t('Label_General_Cancel')}
-				</button>
-				<button className='btn-check' type='submit'>
-					{t('Label_General_Submit')}
+				<button
+					className='btn-check primary'
+					style={{ textTransform: 'uppercase' }}
+					type='submit'
+				>
+					{t('Label_General_Register')}
 				</button>
 			</div>
 		</form>

@@ -1,8 +1,8 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { Form } from '@nx-next-app/components/H0001'
-import { usePromotion } from '@nx-next-app/features/F0001/providers'
+import { usePromotion } from '@nx-next-app/operations'
 import { PromotionFilterEnum } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
+import { Form } from '../../common'
 
 const PromotionCode = () => {
 	const { t } = useTranslation()
@@ -26,10 +26,14 @@ const PromotionCode = () => {
 		>
 			<div className='infoModule parts'>
 				<div className='inputBox'>
-					<input {...promotionForm.register('specialCode')} required />
+					<input
+						{...promotionForm.register('specialCode')}
+						placeholder={t('Label_General_BonusCode')}
+						required
+					/>
 				</div>
 				<div className='btn-group'>
-					<button>{t('Label_General_Submit')}</button>
+					<button className='primary'>{t('Label_General_Submit')}</button>
 				</div>
 			</div>
 		</Form>

@@ -20,6 +20,7 @@ export interface IInputPhoneProps
 	showValue?: boolean
 	selectOptions: SelectOptionType[]
 	onChangeSelect: (value: SelectOptionType['value']) => void
+	requiredIcon?: boolean
 }
 
 /**
@@ -59,18 +60,19 @@ const InputPhone = ({
 	selectOptions,
 	showValue,
 	onChangeSelect,
+	requiredIcon,
 	...props
 }: IInputPhoneProps) => {
 	const [showInfo, setShowInfo] = useState(false)
-	const stateIcon = () => {
-		if (error) {
-			return <i className='icon icon-errormark' />
-		}
-		if (touched && !error && error !== undefined) {
-			return <i className='icon icon-checkmark' />
-		}
-		return null
-	}
+	// const stateIcon = () => {
+	// 	if (error) {
+	// 		return <i className='icon icon-errormark' />
+	// 	}
+	// 	if (touched && !error && error !== undefined) {
+	// 		return <i className='icon icon-checkmark' />
+	// 	}
+	// 	return null
+	// }
 
 	const inputIcon = () => {
 		if (icon) {
@@ -90,26 +92,27 @@ const InputPhone = ({
 					{infoMessage}
 				</div>
 			)}
-			<div className='phone'>
+			<div className='input-group'>
+				{children}
 				<Select
 					showSearch
 					options={selectOptions}
 					placeholder=''
-					prefixIcon={<i className='icon icon-phone' />}
 					onChange={onChangeSelect}
 					value={selectValue}
 					showValue={showValue}
+					requiredIcon={requiredIcon}
 				/>
-
 				<div
 					className={classNames('inputBox', {
 						error,
 					})}
 				>
 					{inputIcon()}
+					{requiredIcon && <span className='required-tip'>*</span>}
 					<input disabled={disabled} type='tel' {...props} {...register} />
 					<div className='icon-module'>
-						{stateIcon()}
+						{/* {stateIcon()} */}
 						{!!infoMessage && (
 							<i
 								className='icon icon-information'
@@ -118,7 +121,6 @@ const InputPhone = ({
 						)}
 					</div>
 				</div>
-				{children}
 			</div>
 			<div
 				className={classNames('tip', {

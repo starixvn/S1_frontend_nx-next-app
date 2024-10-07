@@ -110,11 +110,8 @@ export const DepositProvider = ({
 	const { pathname, query, push } = useRouter()
 
 	const {
-		userInfo: { langId, currencyId, userName, accountName },
+		userInfo: { langId, currencyId, userName },
 	} = useAuth()
-
-	// * 確保 userName 不是訪客
-	if (!accountName) return null
 
 	const {
 		data: { data: paymentAutoDepositList = [] } = {},

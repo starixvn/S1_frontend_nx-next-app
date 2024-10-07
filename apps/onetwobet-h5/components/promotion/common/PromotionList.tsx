@@ -1,4 +1,6 @@
-import { usePromotion } from '@nx-next-app/features/F0001/providers'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import { usePromotion, useSetClaimPromotion } from '@nx-next-app/operations'
 import {
 	PromotionActionType,
 	PromotionFilterEnum,
@@ -13,17 +15,32 @@ import {
 import classNames from 'classnames'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 import PromotionProgressBar from './PromotionProgressBar'
 
+const ClaimAmountModal = dynamic(
+	() => import('@12b-h5/components/promotion/common/ClaimAmountModal'),
+	{ ssr: false }
+)
+
 const PromotionList = () => {
+	const router = useRouter()
 	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
 	const {
 		activeFilterType,
 		promotionData,
-		setClaimPromotionHandler,
-		onGetPromotionDetail,
+		onOpenPromotionDetail,
 		onUpdatePromotionData,
 	} = usePromotion()
+
+	const { setClaimPromotionHandler } = useSetClaimPromotion({
+		loginCallback: () => {
+			router.push(`${paths.login.root}?from=${paths.promotion.root}`)
+		},
+		amountCallback: props => modal.open(<ClaimAmountModal {...props} />),
+	})
 
 	if (promotionData.length === 0) {
 		return (
@@ -126,7 +143,7 @@ const PromotionList = () => {
 						<div className='btn-group'>
 							{!isHideJoinButton && (
 								<button
-									className='orange'
+									className='primary'
 									onClick={() => setClaimPromotionHandler(item)}
 								>
 									{isShowClaimNowButton
@@ -141,12 +158,15 @@ const PromotionList = () => {
 									href={promotionLink as string}
 									target='_blank'
 									rel='noreferrer'
-									className='btn-check'
+									className='info'
 								>
 									{t('Label_General_MoreInfo')}
 								</a>
 							) : (
-								<button onClick={() => onGetPromotionDetail({ bonusCode })}>
+								<button
+									className='info'
+									onClick={() => onOpenPromotionDetail(bonusCode)}
+								>
 									{t('Label_General_MoreInfo')}
 								</button>
 							)}

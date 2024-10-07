@@ -1,9 +1,12 @@
-import { Loading } from '@nx-next-app/components/D0001'
+import { Loading } from '@12b-desktop/components/common'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { useDepositContext } from '@nx-next-app/operations'
+import { useCheckUserInfo, useDepositContext } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import { useEffect } from 'react'
 import LeftMenu from '../leftMenu'
 import DepositImportant from './DepositImportant'
 import DepositRecentHistory from './DepositRecentHistory'
@@ -17,10 +20,26 @@ interface IDepositProps {
 	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
+const UpdateProfileModal = dynamic(
+	() => import('../modal/UpdateProfileModal'),
+	{ ssr: false }
+)
+
 const Deposit = ({ options, withdrawalBlockSetting }: IDepositProps) => {
 	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
+
 	const { loading } = useDepositContext()
+	const { checkUserInfo } = useCheckUserInfo()
+
 	const { showReferralButton } = options
+
+	useEffect(() => {
+		checkUserInfo({
+			onInfoRequired: () =>
+				modal.open(<UpdateProfileModal prevPage={paths.deposit.root} />),
+		})
+	}, [])
 
 	return (
 		<main>

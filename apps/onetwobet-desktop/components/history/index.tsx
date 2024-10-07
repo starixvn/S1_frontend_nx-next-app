@@ -1,5 +1,5 @@
-import { Pagination } from '@12b-desktop/components/common'
-import { Loading } from '@nx-next-app/components/D0001'
+import { Loading } from '@12b-desktop/components/common'
+import Pagination from '@nx-next-app/components/D0001/pagination'
 import { useHistory } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 import HistoryFilter from './HistoryFilter'

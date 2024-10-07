@@ -44,7 +44,8 @@ export interface IInputBoxProps
  * @param {string} formatStr - 用於複寫預設的 formatStr
  * @param {boolean} buttonBox - 是否顯示 input 底部的按鈕列，用於 financial 系列功能頁
  * @param {React.ReactNode[]} buttonBoxSource - 有開啟 buttonBox 時要給予按鈕列要顯示的內容
- * * @param {boolean} onInfoClick - 顯示 info icon 並觸發外部點擊事件
+ * @param {boolean} onInfoClick - 顯示 info icon 並觸發外部點擊事件
+ * @param {boolean} requiredIcon - 是否顯示必填 icon
  * @param {*} prop - other html input props
  * @author Wen
  */
@@ -123,7 +124,7 @@ const InputBox = ({
 					error,
 				})}
 			>
-				{requiredIcon && <span className='text-red'>*</span>}
+				{requiredIcon && <span className='required-tip'>*</span>}
 				{inputIcon()}
 				<input
 					disabled={disabled}

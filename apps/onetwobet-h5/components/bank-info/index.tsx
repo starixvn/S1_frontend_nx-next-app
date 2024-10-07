@@ -1,16 +1,33 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { useBankInfo } from '@nx-next-app/operations'
+import { useBankInfo, useCheckUserInfo } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import { useEffect } from 'react'
 import Header from '../header'
 import { AddCard } from './AddCard'
 import { CardList } from './CardList'
 
+const UpdateProfileModal = dynamic(
+	() => import('../modal/UpdateProfileModal'),
+	{ ssr: false }
+)
+
 const BankInfo = () => {
 	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
+	const { checkUserInfo } = useCheckUserInfo()
 	const {
 		isShowCards,
 		cardAllowed: { bankCardAllowed, eWalletCardAllowed, cryptoCardAllowed },
 	} = useBankInfo()
+
+	useEffect(() => {
+		checkUserInfo({
+			onInfoRequired: () =>
+				modal.open(<UpdateProfileModal prevPage={paths.deposit.root} />),
+		})
+	}, [])
 
 	return (
 		<>

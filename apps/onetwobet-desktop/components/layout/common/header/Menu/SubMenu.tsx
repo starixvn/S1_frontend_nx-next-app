@@ -1,27 +1,24 @@
-import { includes } from 'lodash-es'
-import classNames from 'classnames'
-import Link from 'next/link'
-import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { Dispatch, SetStateAction, ReactNode } from 'react'
-import { MenuIconTypeEnum } from '@nx-next-app/types'
+import type { IMergedMenuData } from '@nx-next-app/operations'
+import { IDynamicSubMenuItem, MenuIconTypeEnum } from '@nx-next-app/types'
 import { isEventPeriod } from '@nx-next-app/utils'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
+import classNames from 'classnames'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { Dispatch, ReactNode, SetStateAction } from 'react'
 
 const LoginModal = dynamic(
-	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
-	{
-		ssr: false,
-	}
+	() => import('@12b-desktop/components/modal/LoginModal'),
+	{ ssr: false }
 )
 
 const LiveStreamingModalDesktop = dynamic(
-	() => import('@nx-next-app/features/F0001/desktop/modal/LiveStreamingModal'),
+	() => import('@12b-desktop/components/modal/LiveStreamingModal'),
 	{ ssr: false }
 )
 

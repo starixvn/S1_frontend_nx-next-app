@@ -1,4 +1,5 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useGlobalData } from '@nx-next-app/data-access'
 import { useVerification } from '@nx-next-app/operations'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { numberFormat } from '@nx-next-app/utils'
@@ -8,6 +9,7 @@ import { useTranslation } from 'next-i18next'
 
 const Verification = () => {
 	const { t } = useTranslation()
+	const { getBannerUrl } = useGlobalData()
 	const { modal } = useGlobalModal()
 	const {
 		userLevelImageInfo,
@@ -34,7 +36,10 @@ const Verification = () => {
 		<div className='vipLv'>
 			<div className='vipbg'>
 				{userLevelImageInfo?.url ? (
-					<img src={userLevelImageInfo?.url} alt={userLevelImageInfo?.alt} />
+					<img
+						src={getBannerUrl(userLevelImageInfo?.url)}
+						alt={userLevelImageInfo?.alt}
+					/>
 				) : (
 					<div className='icon icon-member' />
 				)}

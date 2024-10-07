@@ -1,4 +1,3 @@
-import { Loading } from '@nx-next-app/components/H0001'
 import { BANK_ACCOUNT_REGEX, IFSC_CODE_REGEX } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useBankInfo } from '@nx-next-app/operations'
@@ -6,7 +5,7 @@ import { CurrenciesEnum } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { Form, InputBox, Select } from '../common'
+import { Form, InputBox, Loading, Select } from '../common'
 
 const AddCard = () => {
 	const { t } = useTranslation()

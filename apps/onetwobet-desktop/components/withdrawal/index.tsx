@@ -1,4 +1,4 @@
-import { Loading } from '@nx-next-app/components/D0001'
+import { Loading } from '@12b-desktop/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -36,7 +36,7 @@ const index = ({ withdrawalBlockSetting }: IWithdrawalProps) => {
 
 	useEffect(() => {
 		checkUserInfo({
-			onSuccessCallback: () =>
+			onInfoRequired: () =>
 				modal.open(<UpdateProfileModal prevPage={paths.withdrawal.root} />),
 			optionalPhoneVerifiedCallback: () => {
 				// INR 才回傳 PhoneVerifiedCallback

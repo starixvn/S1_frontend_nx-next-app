@@ -6,7 +6,7 @@ import {
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Layout } from '../components'
-import LoginJoin from '../components/loginJoin'
+import { Join } from '../components/loginJoin'
 
 type IHomePageProps = InitialPropsInterface
 
@@ -22,7 +22,7 @@ const JoinPage = ({
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
 				<Layout persistSEOData={persistSEOData}>
-					<LoginJoin />
+					<Join />
 				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>

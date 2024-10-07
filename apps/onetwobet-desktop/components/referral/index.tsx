@@ -1,4 +1,4 @@
-import { Loading } from '@nx-next-app/components/D0001'
+import { Loading } from '@12b-desktop/components/common'
 import { useReferral } from '@nx-next-app/operations'
 import ReferralBanner from './ReferralBanner'
 import ReferralInfoLeft from './ReferralInfoLeft'

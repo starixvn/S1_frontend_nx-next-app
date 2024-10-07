@@ -1,5 +1,4 @@
-import { Pagination, Select } from '@12b-desktop/components/common'
-import { Loading } from '@nx-next-app/components/D0001'
+import { Loading, Pagination, Select } from '@12b-desktop/components/common'
 import Breadcrumb from '@nx-next-app/components/D0001/breadcrumb'
 import { useStatement } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'

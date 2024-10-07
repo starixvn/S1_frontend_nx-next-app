@@ -1,33 +1,31 @@
-import Link from 'next/link'
-import { useState } from 'react'
-import classNames from 'classnames'
-import dynamic from 'next/dynamic'
-import { toUpper, includes } from 'lodash-es'
-import { useDebounce } from 'usehooks-ts'
-import { useTranslation } from 'next-i18next'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { isEventPeriod } from '@nx-next-app/utils'
-import { paths, PRODUCTS } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { PRODUCTS, paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import type { IMergedMenuData } from '@nx-next-app/operations'
 import {
+	IDynamicSubMenuItem,
 	LobbyCategoryEnum,
 	MainMenuIcon,
 	MenuActionTypeEnum,
 	MenuIconTypeEnum,
 } from '@nx-next-app/types'
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
-import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
+import { isEventPeriod } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { includes, toUpper } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
+import { useState } from 'react'
+import { useDebounce } from 'usehooks-ts'
 import SubMenu from './SubMenu'
 
 const LoginModal = dynamic(
-	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
-	{
-		ssr: false,
-	}
+	() => import('@12b-desktop/components/modal/LoginModal'),
+	{ ssr: false }
 )
 
 const LiveStreamingModalDesktop = dynamic(
-	() => import('@nx-next-app/features/F0001/desktop/modal/LiveStreamingModal'),
+	() => import('@12b-desktop/components/modal/LiveStreamingModal'),
 	{ ssr: false }
 )
 
