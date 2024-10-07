@@ -1,7 +1,6 @@
+import { GameProvider, Layout } from '@12b-h5/components/index'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout } from '@nx-next-app/features/F0001/h5'
-import GameProvider from '@nx-next-app/features/F0001/h5/game-provider'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
