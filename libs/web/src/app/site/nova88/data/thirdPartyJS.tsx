@@ -62,7 +62,8 @@ export const GTMScript = () => {
 			{/*			dl = l != "dataLayer" ? "&l=" + l : ""; */}
 			{/*		j.async = true; */}
 			{/*		j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl; */}
-			{/*		f.parentNode.insertBefore(j, f); */}
+			{/*		f.parentNode.insertBe
+			fore(j, f); */}
 			{/*	})(window, document, "script", "dataLayer", "GTM-5VD4484")`} */}
 			{/* </Script> */}
 			<Script
@@ -74,7 +75,7 @@ export const GTMScript = () => {
 				function gtag(){dataLayer.push(arguments);}
 				gtag('js', new Date());
 
-				gtag('config', ${gaId});`}
+				gtag('config', '${gaId}');`}
 			</Script>
 		</>
 	)

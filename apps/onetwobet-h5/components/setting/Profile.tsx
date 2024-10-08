@@ -44,7 +44,7 @@ const Profile = () => {
 	const isVipLevelHighest = upDeposit === null
 	const currentVipLevelInfo = VIP_CLUB_IMAGES[currentVipLevel - 1]
 
-	// �ȮɫO�d
+	// 暫時保留
 	// const nextVipLevelInfo = VIP_CLUB_IMAGES[currentVipLevel]
 	// const { headerUrl, levelTabsName, settingDisplayKey } =
 	// 	currentVipLevelInfo || {}
@@ -211,7 +211,7 @@ const Profile = () => {
 							alt={levelTabsName as string}
 						/>
 
-						{/* �ȮɫO�d */}
+						{/* 暫時保留 */}
 						{/* {!isVipLevelHighest && (
 							<>
 								<div className='dot-progress'>
