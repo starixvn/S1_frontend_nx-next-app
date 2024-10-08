@@ -1,6 +1,7 @@
 import { Header } from '@12b-h5/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
+import { useGlobalData } from '@nx-next-app/data-access'
 import { useMenu } from '@nx-next-app/operations'
 import type { IFooterData } from '@nx-next-app/types'
 import { find } from 'lodash-es'
@@ -22,6 +23,7 @@ const GameProvider = ({
 	const { modal } = useGlobalModal()
 	const { menuList, onMenuOpen } = useMenu()
 	const { push } = useRouter()
+	const { getBannerUrl } = useGlobalData()
 	const showPlatFormList = menuList.flatMap(mainMenuItem => {
 		const { subMenu } = mainMenuItem || {}
 
@@ -67,7 +69,7 @@ const GameProvider = ({
 								}
 							>
 								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/venderlogo/${imgName}.png`}
+									src={getBannerUrl(`/h5/img/venderlogo/${imgName}.png`)}
 									alt={imgName}
 								/>
 							</button>
