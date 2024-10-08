@@ -75,7 +75,6 @@ const JoinForm = ({
 		const username = getValues('username')
 		if (error) return false
 
-		// check username duplicate from api
 		try {
 			const { data: isExistsUsername, message: existsUsernameMsg } =
 				await checkExistsUsername({ username, langId }).unwrap()
@@ -83,8 +82,8 @@ const JoinForm = ({
 			if (isExistsUsername) {
 				setError('username', { type: 'duplicate', message: existsUsernameMsg })
 			}
-		} catch (error) {
-			// error
+		} catch {
+			//
 		}
 
 		return true
@@ -94,7 +93,6 @@ const JoinForm = ({
 		const formAffiliate = getValues('affiliate')
 		if (!formAffiliate || urlAffiliate) return true
 
-		// check affiliate is qualified from api
 		try {
 			const { data: affCurrencyId } = await affiliateCheck({
 				affCode: formAffiliate,
@@ -124,7 +122,6 @@ const JoinForm = ({
 			clearErrors('affiliate')
 			return true
 		} catch (error) {
-			// error
 			setError('affiliate', {
 				type: 'invalid',
 				message: t('Label_Join_AffiliateIdWrong') || '',
@@ -145,7 +142,7 @@ const JoinForm = ({
 		if (!formAreaCode) {
 			setError('phone', {
 				type: 'required',
-				message: t('Label_Join_PhoneRequired') as string,
+				message: t('Label_Join_PhoneRequired'),
 			})
 		} else if (
 			Object.values(AREA_CODE_BY_CURRENCY).includes(formAreaCode) &&
@@ -157,7 +154,7 @@ const JoinForm = ({
 					type: 'length',
 					message: t('Label_Join_PhoneNumberErrorTip', {
 						digitalArea: limitRange,
-					}) as string,
+					}),
 				})
 			}
 		} else {
@@ -170,11 +167,8 @@ const JoinForm = ({
 		if (newAreaCode !== formAreaCode) {
 			setValue('areaCode', newAreaCode)
 
-			// If phone input is not empty, trigger phone check
 			const formPhone = getValues('phone')
-			if (formPhone) {
-				checkPhone()
-			}
+			if (formPhone) checkPhone()
 		}
 	}
 	const areaCodeSelectOptions = Object.values(AREA_CODE).map(el => ({
@@ -182,14 +176,12 @@ const JoinForm = ({
 		label: `${el.AreaCode} ${el.Name}`,
 	}))
 
-	// Email
 	const checkEmail = async () => {
 		await trigger('email')
 		const { error } = getFieldState('email')
 		const formEmail = getValues('email')
 		if (error) return
 
-		// check email duplicate from api
 		try {
 			const { data: isExistsEmail } = await checkExistsEmail({
 				email: formEmail,
@@ -200,8 +192,8 @@ const JoinForm = ({
 					message: `${t('Label_Profile_MailExisted')}`,
 				})
 			}
-		} catch (error) {
-			// error
+		} catch {
+			//
 		}
 	}
 
@@ -241,7 +233,7 @@ const JoinForm = ({
 				errorMessage={errors['password']?.message as string}
 				error={!!errors['password']}
 				touched={!!touchedFields['password']}
-			/>{' '}
+			/>
 			{joinBy === JoinMethod.Number && (
 				<InputPhone
 					register={register('phone', {
@@ -251,10 +243,9 @@ const JoinForm = ({
 						},
 						onBlur: checkPhone,
 					})}
-					placeholder={t('Label_General_Phone') as string}
+					placeholder={t('Label_General_Phone')}
 					error={!!errors['phone']}
 					touched={!!touchedFields['phone']}
-					// infoMessage={t('Label_Join_CantChangePhone') as string}
 					selectOptions={areaCodeSelectOptions}
 					className='parts parts-xs'
 					errorMessage={errors['phone']?.message as string}
@@ -268,13 +259,12 @@ const JoinForm = ({
 						requiredIcon
 						options={currencySelectOptions}
 						value={getValues('currencyId')}
-						// placeholder={t('Label_Join_PrefferedCurrency') as string}
+						placeholder={t('Label_General_Currency')}
 						onChange={currencyId => {
 							selectCurrency(currencyId)
-							checkPhone()
+							if (getValues('phone')) checkPhone()
 						}}
 						errorMessage={errors['currencyId']?.message as string}
-						// infoMessage={t('Label_Join_CantChangePreferredCurrency') as string}
 					/>
 				</InputPhone>
 			)}
@@ -284,13 +274,10 @@ const JoinForm = ({
 						<Select
 							options={currencySelectOptions}
 							value={getValues('currencyId')}
-							placeholder={t('Label_Join_PrefferedCurrency') as string}
+							placeholder={t('Label_Join_PrefferedCurrency')}
 							requiredIcon
 							onChange={selectCurrency}
 							errorMessage={errors['currencyId']?.message as string}
-							infoMessage={
-								t('Label_Join_CantChangePreferredCurrency') as string
-							}
 						/>
 					</div>
 					{!!errors['currencyId'] && (
@@ -319,12 +306,11 @@ const JoinForm = ({
 				register={register('affiliate', {
 					onBlur: checkAffiliate,
 				})}
-				placeholder={t('Label_Join_Affiliate_ID') as string}
+				placeholder={t('Label_Join_Affiliate_ID')}
 				errorMessage={errors['affiliate']?.message as string}
 				error={!!errors['affiliate']}
 				touched={!!touchedFields['affiliate']}
-				infoMessage={t('Label_Join_Please_Enter_Affiliate_ID') as string}
-				// If has url affiliate and has value in affiliate input, the affiliate is qualified.
+				infoMessage={t('Label_Join_Please_Enter_Affiliate_ID')}
 				readOnly={!!urlAffiliate && !!getValues('affiliate')}
 			/>
 			<div className='btn-group'>
@@ -337,7 +323,8 @@ const JoinForm = ({
 				</button>
 			</div>
 			<div className='Terms'>
-				{t('Label_Join_SignUpTerms1')} &nbsp;
+				{t('Label_Join_SignUpTerms1')}
+				{'  '}
 				<a
 					rel='noreferrer'
 					target='_blank'
