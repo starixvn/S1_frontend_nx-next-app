@@ -5,8 +5,8 @@ import { CurrenciesEnum } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
 import { ChangePassword } from './ChangePassword'
 import { DepositModeChange } from './DepositModeChange'
-import { LineConnect } from './LineConnect'
 import { NotificationSetting } from './NotificationSetting'
+import { SocialConnect } from './SocialConnect'
 
 const Setting = () => {
 	const {
@@ -16,7 +16,7 @@ const Setting = () => {
 	return (
 		<>
 			<Header className='header'>
-				<div className='title'>{t('Label_Withdrawal_SubmitPhotoId')}</div>
+				<div className='title'>{t('Label_General_Setting')}</div>
 			</Header>
 			<main className='main setting'>
 				<section className='inside'>
@@ -25,9 +25,18 @@ const Setting = () => {
 						<DepositModeChange />
 						<div className='bottom-line'></div>
 					</div>
-					<ChangePassword />
+					<div className='setting-container'>
+						<div className='setting-title'>
+							{t('Label_General_ChangePassword')}
+						</div>
+						<div className='setting-tip'>
+							{t('Label_ChangePassword_ChangePasswordHint')}
+						</div>
+						<ChangePassword />
+					</div>
+
 					{/* Line connect 僅用在 THB 使用 */}
-					{currencyId === CurrenciesEnum.THB && <LineConnect />}
+					{currencyId === CurrenciesEnum.THB && <SocialConnect />}
 				</section>
 			</main>
 		</>

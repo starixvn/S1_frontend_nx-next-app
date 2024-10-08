@@ -4,7 +4,7 @@ import { useVerification } from '@nx-next-app/operations'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 
-const LineConnect = () => {
+const SocialConnect = () => {
 	const { t } = useTranslation()
 	const { isLineBinding, handleLineBinding } = useVerification()
 	const { modal } = useGlobalModal()
@@ -16,7 +16,9 @@ const LineConnect = () => {
 
 	return (
 		<div className='setting-container'>
-			<div className='setting-title'>Connect to Social Login</div>
+			{/* todo 通知設計這個線是從 changepassword 搬來 */}
+			<div className='bottom-line'></div>
+			<div className='setting-title'>{t('Label_General_ConnectSocial')}</div>
 			<div className='connect-social'>
 				<div className='social-icon'>
 					<div>
@@ -42,4 +44,4 @@ const LineConnect = () => {
 	)
 }
 
-export { LineConnect }
+export { SocialConnect }

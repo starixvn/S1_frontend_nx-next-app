@@ -210,7 +210,7 @@ export const AuthProvider = ({
 			}
 		}
 		checkNotification()
-	}, [financeNotification, soundEffects])
+	}, [isLoadingUserInfo])
 
 	const value: AuthContextInterface = {
 		auth,

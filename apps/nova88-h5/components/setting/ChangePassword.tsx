@@ -1,6 +1,11 @@
 /* eslint-disable react/self-closing-comp */ // << 設計的線是使用空div標籤，搭配 className，但 esLint 會報錯，所以先關掉此規則
+import { InputBox } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useChangePasswordFetcher } from '@nx-next-app/operations'
+import { PASSWORD_REGEX } from '@nx-next-app/constants'
+import {
+	TChangePasswordForm,
+	useChangePasswordFetcher,
+} from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 
 const ChangePassword = () => {
@@ -31,42 +36,59 @@ const ChangePassword = () => {
 		)
 	}
 
+	const onSubmit = (passwordData: TChangePasswordForm) => {
+		onSetChangePassword(passwordData, showInfoModal, showErrorModal)
+	}
+
 	return (
-		<div className='setting-container'>
-			<div className='setting-subtitle'>Change Password</div>
-			<div className='setting-tip'>
-				Modify the password when logging in, and regular modification is
-				beneficial to account security.
+		<form
+			onSubmit={e => {
+				e.preventDefault()
+				handleSubmit(onSubmit)
+			}}
+			className='changepassword'
+		>
+			<InputBox
+				register={register('oldPassword', {
+					// 舊密碼不用驗證 PASSWORD_REGEX 因後台 reset 亂數產生碼是六位數英文數字(ex:有可能全英 違反正規)
+					required: {
+						value: true,
+						message: t('Label_ChangePassword_PasswordReq'),
+					},
+				})}
+				password
+				touched={!!touchedFields['oldPassword']}
+				errorMessage={errors['oldPassword']?.message as string}
+				error={!!errors['oldPassword']}
+			/>
+			<InputBox
+				register={register('newPassword', {
+					required: {
+						value: true,
+						message: t('Label_ChangePassword_PasswordReq'),
+					},
+					pattern: {
+						value: PASSWORD_REGEX,
+						message: t('Label_General_PasswordValidate'),
+					},
+				})}
+				password
+				touched={!!touchedFields['newPassword']}
+				errorMessage={errors['newPassword']?.message as string}
+				error={!!errors['newPassword']}
+			/>
+			<div className='tip'>Password is required.</div>
+			<div className='btn-group'>
+				<button
+					type='submit'
+					onClick={handleSubmit(onSubmit)}
+					// 有輸入 => 驗證有通過 => 防連點
+					disabled={!isDirty || !isValid || isSubmitting}
+				>
+					{t('Label_General_Submit')}
+				</button>
 			</div>
-			<div className='changepassword-content'>
-				<div className='resetPassWord'>
-					<div className='inputBox-blue error'>
-						<input placeholder='Old Password' />
-						<div className='iconModule'>
-							<i className='icon icon-eye'></i>
-							<i className='icon icon-eye-blocked'></i>
-							<i className='icon icon-error'></i>
-						</div>
-					</div>
-					<div className='tip active'>Password is required.</div>
-				</div>
-				<div className='resetPassWord'>
-					<div className='inputBox-blue'>
-						<input placeholder='New password' />
-						<div className='iconModule'>
-							<i className='icon icon-eye'></i>
-							<i className='icon icon-eye-blocked'></i>
-							<i className='icon icon-error'></i>
-						</div>
-					</div>
-					<div className='tip'>Password is required.</div>
-				</div>
-				<div className='btnGroup'>
-					<button className='btn-check'>Submit</button>
-				</div>
-			</div>
-			<div className='bottom-line'></div>
-		</div>
+		</form>
 	)
 }
 

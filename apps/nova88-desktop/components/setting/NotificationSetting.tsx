@@ -15,7 +15,9 @@ const NotificationSetting = () => {
 
 	return (
 		<div className='setting-content'>
-			<div className='setting-subtitle'>Deposit & Withdrawl Notification</div>
+			<div className='setting-subtitle'>
+				{t('Label_General_DepositWithdrawlNotification')}
+			</div>
 			<div className='setting-group'>
 				<Select
 					value={isToastVisible}

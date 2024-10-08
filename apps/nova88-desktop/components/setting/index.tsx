@@ -19,7 +19,7 @@ const Setting = () => {
 		<div className='rightModule'>
 			<div className='infoModule'>
 				<div className='inside-title'>
-					<span className='setting-title'>Setting</span>
+					<span className='setting-title'>{t('Label_General_Setting')}</span>
 				</div>
 				<div className='setting-container'>
 					<NotificationSetting />

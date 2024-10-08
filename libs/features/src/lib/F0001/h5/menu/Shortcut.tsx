@@ -135,6 +135,18 @@ const Shortcut = () => {
 					</a>
 				</Link>
 			)}
+			{isLogin && (
+				<Link href={paths.setting.root}>
+					<a>
+						<img
+							className='exclusion-icon'
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/survey.png`}
+							alt='setting'
+						/>
+						<span>{t('Label_General_Setting')}</span>
+					</a>
+				</Link>
+			)}
 		</div>
 	)
 }

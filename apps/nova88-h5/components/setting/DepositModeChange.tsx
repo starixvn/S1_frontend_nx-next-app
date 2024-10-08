@@ -1,3 +1,4 @@
+import { Select } from '@nx-next-app/components/H0001'
 import { useDepositSavedLocalStorage } from '@nx-next-app/data-access'
 import { useTranslation } from 'next-i18next'
 
@@ -11,19 +12,22 @@ const DepositModeChange = () => {
 	return (
 		<div className='setting-content'>
 			<div className='setting-title'>{t('Label_Deposit_RememberLastMode')}</div>
-			<div className='setting-radiobox'>
-				<div className='radio'>
-					<input id='radio-1' name='radio' type='radio' />
-					<label htmlFor='radio-1' className='radio-label'>
-						Yes
-					</label>
-				</div>
-				<div className='radio'>
-					<input id='radio-2' name='radio' type='radio' />
-					<label htmlFor='radio-2' className='radio-label'>
-						No
-					</label>
-				</div>
+			<div className='setting-checkbox'>
+				<Select
+					// 預設顯示的 value 只接收 string 型態
+					value={String(isDepositLocalStorageSavedChecked)}
+					options={[
+						{
+							value: 'true',
+							label: t('Label_General_Yes'),
+						},
+						{
+							value: 'false',
+							label: t('Label_General_No'),
+						},
+					]}
+					onChange={onSelectDepositLocalStorageSavedChecked}
+				/>
 			</div>
 		</div>
 	)

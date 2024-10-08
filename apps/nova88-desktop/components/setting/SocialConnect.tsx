@@ -18,7 +18,7 @@ const SocialConnect = () => {
 		<div className='setting-container'>
 			{/* todo 通知設計這個線是從 changepassword 搬來 */}
 			<div className='bottom-line'></div>
-			<div className='setting-subtitle'>Connect to Social Login</div>
+			<div className='setting-subtitle'>{t('Label_General_ConnectSocial')}</div>
 			<div className='social'>
 				<div className='social-icon'>
 					<div>
