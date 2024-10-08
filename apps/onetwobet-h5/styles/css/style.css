@@ -1423,99 +1423,77 @@ button[disabled] {
   color: #e03035 !important;
 }
 
-.inputBox .icon-information:before, .euro .inputBox-event .icon-information:before, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event .icon-information:before, .worldcupEvent .event .event-content .inputBox-event .icon-information:before {
-  color: #bc8f4a !important;
-}
-
-.menu-logo > div:first-child {
-  color: #4c5356 !important;
-}
-.menu-logo > div:last-child {
-  color: #000 !important;
-  font-weight: 800 !important;
-}
-.menu-logo > div:last-child span {
-  color: #e03035 !important;
-  font-weight: 800 !important;
-  margin-left: 1.5vw !important;
-}
-.menu-bottom .option > div {
-  background: #000 !important;
-  color: #fff !important;
-}
-.menu-bottom-item {
-  background: #242526 !important;
-}
-
-.menu .close-btn {
-  left: unset !important;
-  right: 3.5vw !important;
-}
-.menu.after .profile-item div div div {
-  color: #F0B003 !important;
-}
-.menu.after .profile-item div div div span {
-  color: #fff !important;
-}
-.menu.after .menu-bottom-item .option .country-current.after {
-  padding: 3.6vw;
-  background: #242526;
-  border-radius: 2.8vw;
-}
-.menu.after .menu-top-balance a.secondary,
-.menu.after .menu-top-balance button.secondary {
-  background: -webkit-gradient(linear, left top, left bottom, from(#D8BD93), to(#B77B1E)) !important;
-  background: linear-gradient(to bottom, #D8BD93 0%, #B77B1E 100%) !important;
-}
-.menu.after .wallet-list a.primary,
-.menu.after .wallet-list button.primary {
-  background: -webkit-gradient(linear, right top, left top, from(#740707), to(#F50707)) !important;
-  background: linear-gradient(to left, #740707, #F50707) !important;
-}
-.menu.after .btn-logout {
-  color: #fff !important;
-}
-.menu.after .menu-vip .left > div:last-child {
-  margin-top: 2.5vw;
-}
-.menu.after .menu-vip .vip-text {
-  right: 1.2vw !important;
-  font-size: 2.5vw !important;
-}
-.menu.after .menu-vip .right {
-  background: white !important;
-  padding-right: 4.5vw !important;
-}
-.menu.after .menu-vip.tortoise {
-  background: url(../img/sytle-img/4.0/tortoise-bg.png) no-repeat center/cover !important;
-}
-.menu.after .menu-vip.phoenix {
-  background: url(../img/sytle-img/4.0/phoenix-bg.png) no-repeat center/cover;
-}
-.menu.after .menu-vip.tiger {
-  background: url(../img/sytle-img/4.0/tiger-bg.png) no-repeat center/cover;
-}
-.menu.after .menu-vip.tiger .right {
-  background: #606265 !important;
-}
-.menu.after .menu-vip.dragon {
-  background: url(../img/sytle-img/4.0/titanium-bg.png) no-repeat center/cover;
-}
-.menu.after .menu-vip.qilin {
-  background: url(../img/sytle-img/4.0/diamond-bg.png) no-repeat center/cover;
-}
-.menu.after .menu-vip.vermilion {
-  background: url(../img/sytle-img/4.0/vermilion.png) no-repeat center/cover;
-}
-.menu.after .menu-vip.vermilion .vip-text {
-  color: #8d8d8d;
-}
-
 main.index {
   padding-bottom: 30vw !important;
 }
 
-.card, .license, .site-info, .social-networks, .sponsors, .providers, .payment {
+.collapsible, .main.download .download-group, .site-info {
+  padding: 2vw;
+  -webkit-transition: ease 0.3s;
+  transition: ease 0.3s;
+}
+.collapsible.collapsed .content, .main.download .collapsed.download-group .content, .collapsed.site-info .content {
+  visibility: hidden;
+  height: 0;
+  margin-bottom: 0;
+}
+.collapsible.collapsed .collapse-btn .icon, .main.download .collapsed.download-group .collapse-btn .icon, .collapsed.site-info .collapse-btn .icon {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.collapsible .collapse-btn, .main.download .download-group .collapse-btn, .site-info .collapse-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+}
+.collapsible .collapse-btn .icon, .main.download .download-group .collapse-btn .icon, .site-info .collapse-btn .icon {
+  -webkit-transition: ease 0.3s;
+  transition: ease 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.collapsible .content, .main.download .download-group .content, .site-info .content {
+  -webkit-transition: ease 0.3s;
+  transition: ease 0.3s;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2vw;
+  visibility: visible;
+  height: 270px;
+  overflow-y: scroll;
+  margin-bottom: 3vw;
+}
+.collapsible .content p, .main.download .download-group .content p, .site-info .content p {
+  color: #AEACAC;
+}
+.collapsible .content p b, .main.download .download-group .content p b, .site-info .content p b {
+  color: #fff;
+  margin-bottom: 2vw;
+}
+
+.inputBox .icon-information:before, .euro .inputBox-event .icon-information:before, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event .icon-information:before, .worldcupEvent .event .event-content .inputBox-event .icon-information:before {
+  color: #bc8f4a !important;
+}
+
+.card, .license, .social-networks, .sponsors, .providers, .payment, .collapsible, .main.download .download-group, .site-info {
   border-radius: 15px;
   background-color: #242526;
   margin: 2.5vw 2vw;
@@ -1532,13 +1510,9 @@ main.index {
           flex-direction: column;
   overflow: hidden;
 }
-.card .title, .license .title, .site-info .title, .social-networks .title, .sponsors .title, .providers .title, .payment .title {
+.card .title, .license .title, .social-networks .title, .sponsors .title, .providers .title, .payment .title, .collapsible .title, .main.download .download-group .title, .site-info .title {
   font-size: 3vw;
   margin: 3vw 0;
-}
-
-.inputBox .icon-information:before, .euro .inputBox-event .icon-information:before, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event .icon-information:before, .worldcupEvent .event .event-content .inputBox-event .icon-information:before {
-  color: #bc8f4a !important;
 }
 
 .menu-logo > div:first-child {
@@ -1560,7 +1534,6 @@ main.index {
 .menu-bottom-item {
   background: #242526 !important;
 }
-
 .menu .close-btn {
   left: unset !important;
   right: 3.5vw !important;
@@ -1601,25 +1574,25 @@ main.index {
   padding-right: 4.5vw !important;
 }
 .menu.after .menu-vip.tortoise {
-  background: url(../img/sytle-img/style-img/4.0/tortoise-bg.png) no-repeat center/cover !important;
+  background: url(../img/style-img/4.0/tortoise-bg.png) no-repeat center/cover !important;
 }
 .menu.after .menu-vip.phoenix {
-  background: url(../img/sytle-img/style-img/4.0/phoenix-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/phoenix-bg.png) no-repeat center/cover;
 }
 .menu.after .menu-vip.tiger {
-  background: url(../img/sytle-img/style-img/4.0/tiger-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/tiger-bg.png) no-repeat center/cover;
 }
 .menu.after .menu-vip.tiger .right {
   background: #606265 !important;
 }
 .menu.after .menu-vip.dragon {
-  background: url(../img/sytle-img/style-img/4.0/titanium-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/titanium-bg.png) no-repeat center/cover;
 }
 .menu.after .menu-vip.qilin {
-  background: url(../img/sytle-img/style-img/4.0/diamond-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/diamond-bg.png) no-repeat center/cover;
 }
 .menu.after .menu-vip.vermilion {
-  background: url(../img/sytle-img/style-img/4.0/vermilion-bg.png) no-repeat center/cover;
+  background: url(../img/style-img/4.0/vermilion-bg.png) no-repeat center/cover;
 }
 
 .footer {
@@ -1991,68 +1964,6 @@ main.index {
   display: block;
 }
 
-.site-info {
-  padding: 2vw;
-  -webkit-transition: ease 0.3s;
-  transition: ease 0.3s;
-}
-.site-info.collapsed .content {
-  visibility: hidden;
-  height: 0;
-  margin-bottom: 0;
-}
-.site-info.collapsed .collapse-btn .icon {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-.site-info .collapse-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -ms-flex-item-align: stretch;
-      align-self: stretch;
-}
-.site-info .collapse-btn .icon {
-  -webkit-transition: ease 0.3s;
-  transition: ease 0.3s;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-.site-info .content {
-  -webkit-transition: ease 0.3s;
-  transition: ease 0.3s;
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 2vw;
-  visibility: visible;
-  height: 270px;
-  overflow-y: scroll;
-  margin-bottom: 3vw;
-}
-.site-info .content p {
-  color: #AEACAC;
-}
-.site-info .content p b {
-  color: #fff;
-  margin-bottom: 2vw;
-}
-
 .license .content {
   text-align: center;
 }
@@ -2337,7 +2248,7 @@ main.index {
   width: 50vw;
   height: 48vw;
   content: "";
-  background: url(../img/sytle-img/style-img/spread.png) no-repeat;
+  background: url(../img/style-img/spread.png) no-repeat;
   background-size: 100%;
   top: -5vw;
   left: 20vw;
@@ -2507,6 +2418,102 @@ main.index {
 }
 .main.forget-password .btn-group button {
   font-size: 3vw !important;
+}
+.main.download {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+}
+.main.download .download-group {
+  border-radius: 10px;
+  padding: 0;
+  overflow: visible;
+  margin: 8vw 0;
+}
+.main.download .download-group.ios .collapse-btn, .main.download .download-group.android .collapse-btn {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  padding: 0 2.5vw;
+  border-radius: 10px 10px 0 0;
+  -webkit-transition: ease 0.3s;
+  transition: ease 0.3s;
+}
+.main.download .download-group.ios .collapse-btn .title, .main.download .download-group.android .collapse-btn .title {
+  font-size: 3.5vw;
+  position: relative;
+  padding-left: 50px;
+}
+.main.download .download-group.ios .collapse-btn .title img, .main.download .download-group.android .collapse-btn .title img {
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+}
+.main.download .download-group.android .collapse-btn {
+  background: -webkit-gradient(linear, left top, left bottom, from(#9dd53a), color-stop(50%, #a1d54f), color-stop(51%, #80c217), to(#7cbc0a));
+  background: linear-gradient(to bottom, #9dd53a, #a1d54f 50%, #80c217 51%, #7cbc0a);
+}
+.main.download .download-group.ios .collapse-btn {
+  background: -webkit-gradient(linear, left top, left bottom, from(#adadad), color-stop(51%, #939393));
+  background: linear-gradient(to bottom, #adadad 0% 51%, #939393 51% 100%);
+}
+.main.download .download-group .content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  margin: 0;
+}
+.main.download .download-group .content ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.main.download .download-group .content ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2.5vw;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: #4c5356 solid 1px;
+}
+.main.download .download-group .content ul li:last-child {
+  border-bottom: none;
+}
+.main.download .download-group .content ul li .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2vw;
+  font-size: 3.5vw;
+}
+.main.download .download-group .content ul li .state {
+  color: #e03035;
+}
+.main.download .download-group .content ul li button {
+  border-radius: 5px;
+  font-size: 2vw;
+  padding: 2vw;
+  background: rgba(255, 255, 255, 0.1019607843);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.main.download .download-group.collapsed .collapse-btn {
+  border-radius: 10px;
+}
+.main.download .download-group.collapsed .content {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+.main.download .note span {
+  color: #e03035;
 }
 
 #popup .joinSuccess {
@@ -8718,7 +8725,7 @@ span.important {
   color: #777;
   font-weight: bold;
 }
-.refer .referstatus-item .card, .refer .referstatus-item .payment, .refer .referstatus-item .providers, .refer .referstatus-item .sponsors, .refer .referstatus-item .social-networks, .refer .referstatus-item .site-info, .refer .referstatus-item .license {
+.refer .referstatus-item .card, .refer .referstatus-item .collapsible, .refer .referstatus-item .payment, .refer .referstatus-item .providers, .refer .referstatus-item .sponsors, .refer .referstatus-item .social-networks, .refer .referstatus-item .site-info, .refer .referstatus-item .license, .refer .referstatus-item .main.download .download-group, .main.download .refer .referstatus-item .download-group {
   font-size: 3.2vw;
   line-height: 1.3;
   font-weight: 600;
@@ -16325,17 +16332,17 @@ main.casino .banner {
   top: 1.5vw;
   left: 1vw;
 }
-.home-sidebar .btn-sports.active, .home-sidebar .btn-esports.active, .home-sidebar .btn-exchange.active, .home-sidebar .btn-casino.active, .home-sidebar .btn-slots.active, .home-sidebar .btn-games.active, .home-sidebar .btn-fishing.active, .home-sidebar .btn-games.active, .home-sidebar .btn-four.active, .home-sidebar .btn-lottery.active {
+.home-sidebar .btn-sports.active, .home-sidebar .btn-esports.active, .home-sidebar .btn-exchange.active, .home-sidebar .btn-casino.active, .home-sidebar .btn-slots.active, .home-sidebar .btn-games.active, .home-sidebar .btn-fishing.active, .home-sidebar .btn-games.active, .home-sidebar .btn-four.active, .home-sidebar .btn-keno.active, .home-sidebar .btn-number.active, .home-sidebar .btn-lottery.active {
   position: relative;
 }
-.home-sidebar .btn-sports.active .btn-circle, .home-sidebar .btn-esports.active .btn-circle, .home-sidebar .btn-exchange.active .btn-circle, .home-sidebar .btn-casino.active .btn-circle, .home-sidebar .btn-slots.active .btn-circle, .home-sidebar .btn-games.active .btn-circle, .home-sidebar .btn-fishing.active .btn-circle, .home-sidebar .btn-games.active .btn-circle, .home-sidebar .btn-four.active .btn-circle, .home-sidebar .btn-lottery.active .btn-circle {
+.home-sidebar .btn-sports.active .btn-circle, .home-sidebar .btn-esports.active .btn-circle, .home-sidebar .btn-exchange.active .btn-circle, .home-sidebar .btn-casino.active .btn-circle, .home-sidebar .btn-slots.active .btn-circle, .home-sidebar .btn-games.active .btn-circle, .home-sidebar .btn-fishing.active .btn-circle, .home-sidebar .btn-games.active .btn-circle, .home-sidebar .btn-four.active .btn-circle, .home-sidebar .btn-keno.active .btn-circle, .home-sidebar .btn-number.active .btn-circle, .home-sidebar .btn-lottery.active .btn-circle {
   background: -webkit-gradient(linear, left top, left bottom, from(#d93636), color-stop(48%, #c72222), color-stop(49%, #ba0101), to(#a60101));
   background: linear-gradient(to bottom, #d93636 0%, #c72222 48%, #ba0101 49%, #a60101 100%);
 }
-.home-sidebar .btn-sports.active .text, .home-sidebar .btn-esports.active .text, .home-sidebar .btn-exchange.active .text, .home-sidebar .btn-casino.active .text, .home-sidebar .btn-slots.active .text, .home-sidebar .btn-games.active .text, .home-sidebar .btn-fishing.active .text, .home-sidebar .btn-games.active .text, .home-sidebar .btn-four.active .text, .home-sidebar .btn-lottery.active .text {
+.home-sidebar .btn-sports.active .text, .home-sidebar .btn-esports.active .text, .home-sidebar .btn-exchange.active .text, .home-sidebar .btn-casino.active .text, .home-sidebar .btn-slots.active .text, .home-sidebar .btn-games.active .text, .home-sidebar .btn-fishing.active .text, .home-sidebar .btn-games.active .text, .home-sidebar .btn-four.active .text, .home-sidebar .btn-keno.active .text, .home-sidebar .btn-number.active .text, .home-sidebar .btn-lottery.active .text {
   color: white;
 }
-.home-sidebar .btn-sports.active::after, .home-sidebar .btn-esports.active::after, .home-sidebar .btn-exchange.active::after, .home-sidebar .btn-casino.active::after, .home-sidebar .btn-slots.active::after, .home-sidebar .btn-games.active::after, .home-sidebar .btn-fishing.active::after, .home-sidebar .btn-games.active::after, .home-sidebar .btn-four.active::after, .home-sidebar .btn-lottery.active::after {
+.home-sidebar .btn-sports.active::after, .home-sidebar .btn-esports.active::after, .home-sidebar .btn-exchange.active::after, .home-sidebar .btn-casino.active::after, .home-sidebar .btn-slots.active::after, .home-sidebar .btn-games.active::after, .home-sidebar .btn-fishing.active::after, .home-sidebar .btn-games.active::after, .home-sidebar .btn-four.active::after, .home-sidebar .btn-keno.active::after, .home-sidebar .btn-number.active::after, .home-sidebar .btn-lottery.active::after {
   display: block;
   content: "";
   width: 10vw;
@@ -16431,7 +16438,7 @@ main.casino .banner {
   position: absolute;
   z-index: 1;
   left: 0;
-  top: 1vw;
+  top: 4vw;
 }
 
 .new-icon {

@@ -1,5 +1,5 @@
-import { CurrenciesEnum, IFooterData } from '@nx-next-app/types'
 import { PRODUCTS } from '@nx-next-app/constants'
+import { CurrenciesEnum, IFooterData } from '@nx-next-app/types'
 import { GET_AFFILIATE_LINK } from './affiliate'
 
 export const FOOTER_DATA = ({
@@ -252,7 +252,7 @@ export const FOOTER_DATA = ({
 			},
 		],
 		licenseData: {
-			defaultScript: 'a7019fa5-9f9a-468b-92da-4890f6a6e4a7',
+			defaultScript: '78d12a5a-22e2-428a-b16e-4f2891672b04',
 			defaultXCMScript: '226e4de2-30aa-4077-951b-d440012994f3',
 		},
 		suggestedBrowser: [
@@ -997,5 +997,102 @@ export const FOOTER_DATA = ({
 				},
 			],
 		},
+		sponsorsList: [
+			{
+				imgUrl: '/ENGLISH PREMIER LEAGUE/Leeds United.png',
+				year: '2023-24',
+			},
+			{
+				imgUrl: '/ENGLISH PREMIER LEAGUE/Wolverhampton Wanderers.png',
+				year: '2022-23',
+			},
+			{
+				imgUrl: '/ENGLISH PREMIER LEAGUE/West Bromwich Albion.png',
+				year: '2017-20',
+			},
+			{
+				imgUrl: '/ENGLISH PREMIER LEAGUE/Arsenal.png',
+				year: '2016-19',
+			},
+			{
+				imgUrl: '/ENGLISH PREMIER LEAGUE/Swansea City.png',
+				year: '2015-16',
+			},
+			{
+				imgUrl: '/ENGLISH PREMIER LEAGUE/Coventry City.png',
+				year: '2014',
+			},
+			{
+				imgUrl: '/ENGLISH PREMIER LEAGUE/Wigan Athletic.png',
+				year: '2011-13',
+			},
+			{
+				imgUrl: '/ENGLISH PREMIER LEAGUE/Newcastle United.png',
+				year: '2011-12',
+			},
+			{
+				imgUrl: '/ENGLISH PREMIER LEAGUE/Hull City.png',
+				year: '2014',
+			},
+			{
+				imgUrl: '/ENGLISH PREMIER LEAGUE/Crystal Palace.png',
+				year: '2013',
+			},
+			{
+				imgUrl: '/ENGLISH PREMIER LEAGUE/Birmingham City.png',
+				year: '2010-11',
+			},
+			{
+				imgUrl: '/Spain/Sevilla.png',
+				year: '2009-10',
+			},
+		],
+		// TODO: 請ＰＭ給url
+		aboutUsList: [
+			{
+				displayText: 'Label_General_AboutUs',
+				pathname: '',
+			},
+			{
+				displayText: 'Label_General_HowToBet',
+				pathname: '',
+			},
+			{
+				displayText: 'Label_General_HelpAndFAQ',
+				pathname: '',
+			},
+			{
+				displayText: 'Label_General_RuleRegulations',
+				pathname: '',
+			},
+			{
+				displayText: 'Label_General_TermsOfUse',
+				pathname: '',
+			},
+			{
+				displayText: 'Label_General_PrivacyPolicy',
+				pathname: '',
+			},
+			{
+				displayText: 'Label_General_TermsConditions',
+				pathname: '',
+			},
+			{
+				displayText: 'Label_General_ResponsibleGaming',
+				pathname: '',
+			},
+			{
+				displayText: 'Label_General_ContactUs',
+				pathname: '',
+			},
+			{
+				displayText: 'Label_General_Careers',
+				pathname: '',
+			},
+			{
+				displayText: 'Label_General_Sitemap',
+				pathname: '',
+			},
+		],
 	}
 }

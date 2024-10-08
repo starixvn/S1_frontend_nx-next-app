@@ -3,6 +3,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -427,8 +428,8 @@ button[disabled]:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-animation: flash 5s infinite ease-in-out;
-          animation: flash 5s infinite ease-in-out;
+  -webkit-animation: flash 1s infinite ease-in-out;
+          animation: flash 1s infinite ease-in-out;
 }
 #header .header-top .header-btn-group .green img {
   width: 22px;
@@ -920,6 +921,7 @@ button[disabled]:hover {
   padding: 0 10px;
   text-shadow: 0 -1px 0 #000;
   font-size: 15px;
+  position: relative;
 }
 #header .header-nav li .nav-btn img {
   height: 40px;
@@ -928,6 +930,17 @@ button[disabled]:hover {
 }
 #header .header-nav li .nav-btn:hover {
   background: #FF0000;
+}
+#header .header-nav li .nav-btn .new-icon {
+  position: absolute;
+  background: #4B902E;
+  width: 38px;
+  left: 0;
+  top: 0;
+  font-size: 12px;
+  font-weight: 600;
+  text-shadow: none;
+  border-radius: 0 0 5px 5px;
 }
 #header .nav-container {
   background: rgba(255, 255, 255, 0.8509803922);
@@ -1031,6 +1044,7 @@ button[disabled]:hover {
   border-radius: 0 0 20px 20px;
   position: absolute;
   z-index: -1;
+  bottom: -37px;
 }
 #header .nav-container [class*=-list] .container a:hover,
 #header .nav-container [class*=-list] .container button:hover {
@@ -1059,8 +1073,8 @@ button[disabled]:hover {
       -ms-flex-pack: center;
           justify-content: center;
   position: absolute;
-  left: 0;
-  top: 10px;
+  left: 5px;
+  top: 26px;
   z-index: 99;
 }
 #header .nav-container [class*=-list].active {
@@ -1526,17 +1540,15 @@ main.index .home-information .home-jackpots .content .jackpots-amount {
   background: url(../img/style-img/jackpots-amount.webp) no-repeat center/contain;
 }
 main.index .home-information .home-jackpots .content .jackpots-amount span {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
   color: #F0B003;
 }
-@media (max-width: 1280px) {
-  main.index .home-information .home-jackpots .content .jackpots-amount span {
-    font-size: 1.8rem;
-  }
-}
 main.index .home-information .home-jackpots .content .jackpots-amount span.currency {
   margin-right: 20px;
+}
+main.index .home-information .home-jackpots .content .jackpots-amount span.number {
+  font-family: "Roboto Mono", monospace;
 }
 main.index .home-information .home-picks {
   background: #2E2E2E;
@@ -1628,6 +1640,13 @@ main.index .home-information .home-picks .content .picks-swiper .picks-info .tit
 }
 main.index .home-information .home-news {
   background: #2E2E2E;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 main.index .home-information .home-news .title {
   position: relative;
@@ -1669,23 +1688,19 @@ main.index .home-information .home-news .see-all .icon::before {
   border-radius: 50%;
   border: 1px solid #fff;
 }
-main.index .home-information .home-news .news-container {
-  padding: 0 20px;
-  max-height: 370px;
-  overflow-y: scroll;
-  scrollbar-width: none;
+main.index .home-information .home-news .content {
+  height: calc(100% - 46px);
 }
-main.index .home-information .home-news .news-container::-webkit-scrollbar {
-  display: none;
+main.index .home-information .home-news .content .news-swiper {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
 }
-@media (max-width: 1281px) {
-  main.index .home-information .home-news .news-container {
-    max-height: 360px;
-  }
+main.index .home-information .home-news .content .news-swiper .swiper-container {
+  height: 100%;
 }
 main.index .home-information .home-news .news-list {
-  padding: 10px 0;
-  margin-bottom: 6px;
+  padding: 10px 20px;
   border-bottom: 1px solid #AEACAC;
 }
 main.index .home-information .home-news .news-title {
@@ -1759,8 +1774,8 @@ footer .footer-top a {
   text-align: center;
 }
 footer .footer-top a:hover img {
-  -webkit-filter: drop-shadow(0px 0px 15px rgb(255, 255, 255));
-          filter: drop-shadow(0px 0px 15px rgb(255, 255, 255));
+  -webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.95));
+          filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.95));
 }
 footer .footer-top img {
   width: 150px;
@@ -1818,10 +1833,8 @@ footer .footer-center ul li a {
   color: #CCCCCC;
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
-  -webkit-transition: -webkit-filter 0.3s ease;
-  transition: -webkit-filter 0.3s ease;
-  transition: filter 0.3s ease;
-  transition: filter 0.3s ease, -webkit-filter 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 footer .footer-center ul li a:hover {
   -webkit-filter: grayscale(0%);
@@ -2393,6 +2406,173 @@ article h2 {
 }
 article p {
   color: #AEACAC !important;
+}
+
+.appdownload-pop {
+  background: url(../img/style-img/appdownload-pop-bg.jpg) no-repeat center/cover;
+  padding: 10px;
+  width: 700px;
+  border-radius: 10px;
+  position: relative;
+}
+.appdownload-pop .icon-close-radius {
+  position: absolute;
+  top: -14px;
+  right: -10px;
+  background: #AEACAC;
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #000;
+  cursor: pointer;
+}
+.appdownload-pop .pop-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.appdownload-pop .pop-container img {
+  width: 150px;
+}
+.appdownload-pop .pop-container .title {
+  background: -webkit-gradient(linear, left top, left bottom, from(#d93636), color-stop(48%, #c72222), color-stop(49%, #ba0101), to(#a60101));
+  background: linear-gradient(to bottom, #d93636 0%, #c72222 48%, #ba0101 49%, #a60101 100%);
+  text-shadow: 0 -1px 0 #000;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  margin-top: 10px;
+  font-size: 15px;
+}
+.appdownload-pop .pop-container .item-container {
+  background: #fff;
+  width: 100%;
+  padding: 10px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+}
+.appdownload-pop .pop-container .item-container .download-item {
+  background: url(../img/style-img/download-item-bg.jpg) no-repeat center/cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px 0 10px;
+  width: 210px;
+  position: relative;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  -webkit-box-shadow: 0 0 6px #B0B3BB;
+          box-shadow: 0 0 6px #B0B3BB;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.appdownload-pop .pop-container .item-container .download-item .icon-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  left: 6px;
+  top: 7px;
+}
+.appdownload-pop .pop-container .item-container .download-item .icon-group .icon-mobile-w,
+.appdownload-pop .pop-container .item-container .download-item .icon-group .icon-android-w,
+.appdownload-pop .pop-container .item-container .download-item .icon-group .icon-pc-w,
+.appdownload-pop .pop-container .item-container .download-item .icon-group .icon-ios-w {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 5px;
+  font-size: 20px;
+  width: 28px;
+  height: 28px;
+  background: #242526;
+  margin-bottom: 4px;
+}
+.appdownload-pop .pop-container .item-container .download-item .icon-group .icon-android-w {
+  background: #4B902E;
+}
+.appdownload-pop .pop-container .item-container .download-item .icon-group .icon-ios-w {
+  background: #0194CC;
+}
+.appdownload-pop .pop-container .item-container .download-item:hover {
+  -webkit-box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.65);
+          box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.65);
+  -webkit-transform: translateY(-6px);
+          transform: translateY(-6px);
+}
+.appdownload-pop .pop-container .item-container .qr-code {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.appdownload-pop .pop-container .item-container .qr-code img {
+  width: 90px;
+}
+.appdownload-pop .pop-container .item-container .qr-code .primary {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 6px;
+  padding: 2px 0;
+  width: 150px;
+  border-radius: 3px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#d93636), color-stop(48%, #c72222), color-stop(49%, #ba0101), to(#a60101)) !important;
+  background: linear-gradient(to bottom, #d93636 0%, #c72222 48%, #ba0101 49%, #a60101 100%) !important;
+}
+.appdownload-pop .pop-container .item-container .qr-code .primary:hover {
+  background: #FF0000 !important;
+}
+.appdownload-pop .pop-container .pop-tip {
+  color: #D9A728;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 10px;
 }
 
 button {

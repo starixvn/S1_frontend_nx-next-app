@@ -12,6 +12,8 @@ export interface IFooterData {
 	paymentMethodsByCurrencyId: {
 		[key: number]: IPaymentMethod[]
 	}
+	sponsorsList: ISponsorsListdata[]
+	aboutUsList: IAboutUsListData[]
 }
 
 interface IQuickLinksData {
@@ -41,7 +43,7 @@ interface IProgramDescriptionData {
 	}[]
 }
 
-interface ILicenseData {
+export interface ILicenseData {
 	defaultScript: string
 	defaultXCMScript: string
 }
@@ -74,10 +76,21 @@ export interface ISeoData {
 		rel?: string
 		href?: string
 		hrefLang?: string
+		media?: string
 	}[]
 }
 
 export interface IPromotionTextData {
 	title: string
 	content: string
+}
+
+export interface ISponsorsListdata {
+	imgUrl: string
+	year: string
+}
+
+export interface IAboutUsListData {
+	displayText: string
+	pathname: string
 }

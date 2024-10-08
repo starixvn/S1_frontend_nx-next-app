@@ -51,7 +51,8 @@ export function Layout({
 			{/* <!-- FLOAT SIDEBAR --> */}
 			<FloatSidebar />
 
-			{showFooter && !!footerData && <LayoutFooter footerData={footerData} />}
+			<LayoutFooter footerData={footerData} />
+			{/* {showFooter && !!footerData && <LayoutFooter footerData={footerData} />} */}
 
 			{/* 只需放在 Layout 來渲染全域彈窗 */}
 			<GlobalModal {...globalModal} closeModal={closeModal} />
