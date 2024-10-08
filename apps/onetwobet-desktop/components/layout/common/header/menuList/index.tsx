@@ -146,9 +146,25 @@ const MenuList = () => {
 						)
 					}
 
+					// * 特例 EXCHANGE 沒有導轉功能
+					if (lobbyCategoryId === LobbyCategoryEnum.Exchange) {
+						return (
+							<li key={lobbyCategoryId}>
+								<button
+									className='nav-btn'
+									key={lobbyCategoryId}
+									onMouseEnter={() => setMenuKey(category)}
+								>
+									{icon}
+									{menuText}
+								</button>
+							</li>
+						)
+					}
+
 					return (
 						// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-						<Link href={pathname!} key={lobbyCategoryId}>
+						<Link href={pathname} key={lobbyCategoryId}>
 							<li key={lobbyCategoryId}>
 								<button
 									className={`nav-btn ${category.toLowerCase()}-btn`}

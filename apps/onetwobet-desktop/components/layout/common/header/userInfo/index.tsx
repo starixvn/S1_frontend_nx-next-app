@@ -1,10 +1,9 @@
-import Country from '@12b-desktop/components/layout/common/header/Country'
+import Country from '@12b-desktop/components/layout/common/header/userInfo/Country'
 import UserProfile from '@12b-desktop/components/layout/common/header/userInfo/UserProfile'
 import Wallet from '@12b-desktop/components/layout/common/header/userInfo/Wallet'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
-import { useGetCustVIPProgressQuery } from '@nx-next-app/service'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
@@ -26,11 +25,6 @@ const UserInfo = () => {
 	const { modal } = useGlobalModal()
 	const { getBannerUrl } = useGlobalData()
 	const { VIP_CLUB_IMAGES } = useStaticData()
-
-	const { data: { data: custVIPProgress } = {} } = useGetCustVIPProgressQuery(
-		null,
-		{ refetchOnMountOrArgChange: true }
-	)
 
 	const handleLogin = () => {
 		modal.open(<LoginModal />)
@@ -79,7 +73,7 @@ const UserInfo = () => {
 					<Wallet />
 
 					{/* <!-- user-profile  --> */}
-					<UserProfile custVIPProgress={custVIPProgress} />
+					<UserProfile />
 				</div>
 			)}
 

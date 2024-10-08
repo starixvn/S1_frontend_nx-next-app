@@ -1,5 +1,6 @@
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import { useGetCustVIPProgressQuery } from '@nx-next-app/service'
 import { ALLOWED_CURRENCIES } from '@nx-next-app/site/onetwobet'
 import { numberFormat } from '@nx-next-app/utils'
 import classNames from 'classnames'
@@ -9,17 +10,7 @@ import Link from 'next/link'
 import { useRef } from 'react'
 import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 
-interface IUserProfile {
-	custVIPProgress: {
-		currentVipLevel: number
-		upDeposit: null | number
-		actualDeposit: number
-		downDeposit: null | number
-		downTurnover: null | number
-	}
-}
-
-const UserProfile = ({ custVIPProgress }: IUserProfile) => {
+const UserProfile = () => {
 	const { t } = useTranslation()
 	const ref = useRef()
 	const { value: isActive, toggle, setFalse } = useBoolean(false)
@@ -27,6 +18,11 @@ const UserProfile = ({ custVIPProgress }: IUserProfile) => {
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
+
+	const { data: { data: custVIPProgress } = {} } = useGetCustVIPProgressQuery(
+		null,
+		{ refetchOnMountOrArgChange: true }
+	)
 
 	const { upDeposit = 0, actualDeposit = 0 } = custVIPProgress || {}
 	// * upDeposit = null 代表該會員已經是最高等級

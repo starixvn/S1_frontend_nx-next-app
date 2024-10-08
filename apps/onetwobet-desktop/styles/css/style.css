@@ -544,6 +544,13 @@ button[disabled]:hover {
 #header .header-top .header-btn-group .user-info .info-container .balance .balance-container > div .primary:hover {
   background: #FF0000 !important;
 }
+#header .header-top .header-btn-group .user-info .info-container .balance .balance-container > div .icon {
+  color: #fff;
+  font-size: 16px;
+}
+#header .header-top .header-btn-group .user-info .info-container .balance .balance-container > div .icon:hover {
+  color: #FF0000;
+}
 #header .header-top .header-btn-group .user-info .info-container .balance .balance-container .selector-money {
   background: #fff;
   color: #242526;
@@ -1263,7 +1270,7 @@ main.index .home-hotmatch .hotmatch-swiper .swiper-container {
   max-width: 270px;
   overflow: hidden;
 }
-main.index .home-hotmatch .hotmatch-swiper .swiper-button-prev, main.index .home-hotmatch .hotmatch-swiper .swiper-button-next {
+main.index .home-hotmatch .hotmatch-swiper .swiper-container .swiper-button-prev, main.index .home-hotmatch .hotmatch-swiper .swiper-container .swiper-button-next {
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -1271,7 +1278,7 @@ main.index .home-hotmatch .hotmatch-swiper .swiper-button-prev, main.index .home
   top: unset;
   bottom: 20px;
 }
-main.index .home-hotmatch .hotmatch-swiper .swiper-button-prev::after, main.index .home-hotmatch .hotmatch-swiper .swiper-button-next::after {
+main.index .home-hotmatch .hotmatch-swiper .swiper-container .swiper-button-prev::after, main.index .home-hotmatch .hotmatch-swiper .swiper-container .swiper-button-next::after {
   font-size: 13px;
   color: #000;
   font-weight: 900;
@@ -21509,7 +21516,7 @@ input[type=number] {
 }
 
 .lobby {
-  padding-top: 175px;
+  overflow: hidden;
 }
 .lobby-banner {
   -webkit-clip-path: polygon(0 0, 100% 0%, 100% 79%, 25% 100%, 0 79%);

@@ -1844,12 +1844,14 @@ main.index {
   width: 100%;
   background: -webkit-gradient(linear, left top, left bottom, from(#F50707), to(#740707));
   background: linear-gradient(to bottom, #F50707 0%, #740707 100%);
-  padding: 6vw;
+  padding: 2vw;
   border-radius: 10px;
 }
 .info-swiper button img {
-  height: 40px;
+  height: auto;
   width: 100%;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
 }
 
 .payment .content {

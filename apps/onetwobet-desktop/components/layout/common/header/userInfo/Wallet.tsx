@@ -1,3 +1,4 @@
+import { SpinButton } from '@12b-desktop/components/common/button'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/operations'
@@ -72,7 +73,7 @@ const Wallet = () => {
 					<div>{currencyName}</div>
 					<div>
 						{numberFormat(totalWalletBalance, currencyId, 2)}{' '}
-						<span className='icon icon-refresh' onClick={onRefetchAllWallet} />
+						<SpinButton onClick={onRefetchAllWallet} />
 					</div>
 				</div>
 				<div className='selector-money'>
