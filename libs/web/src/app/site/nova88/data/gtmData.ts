@@ -186,6 +186,8 @@ export const getGA4ID = (host: string | undefined) => {
 		'G-Y3LWGYTM5P': ['nova88103.net'],
 		// Vietnam
 		'G-YRH94JNYPR': ['nova88901.net'],
+		// Korea
+		'G-2FELBT8MCQ': ['nova88kr.com'],
 	}
 
 	// 取得主域名
