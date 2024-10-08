@@ -129,7 +129,7 @@ const InfoEdit = () => {
 					Birth_y: birthYear ?? String(getValues('formBirthYear')),
 					PhoneNo: phoneNo ?? formPhone,
 					Email: email ?? formEmail,
-				})
+				}).unwrap()
 
 				if (!phoneVerified) {
 					modal.confirm(t('Label_Profile_VertifyContactConfirm'), {
