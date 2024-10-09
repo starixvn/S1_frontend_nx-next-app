@@ -1709,9 +1709,8 @@ main.index .home-information .home-news .content .news-swiper .swiper-container 
   -webkit-line-clamp: 3;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-clamp: 3;
-  display: box;
-  box-orient: vertical;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 main.index .home-information .home-news .news-list {
   padding: 10px 20px;
@@ -1788,6 +1787,8 @@ footer .footer-top a {
   text-align: center;
 }
 footer .footer-top a img {
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
   -webkit-transition: 0.3s all ease;
   transition: 0.3s all ease;
 }

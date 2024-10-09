@@ -2,7 +2,7 @@ import { GlobalModal, MetaData } from '@12b-h5/components/common'
 import { BackTop } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { ISEOData, useAuth } from '@nx-next-app/data-access'
+import { ISEOData } from '@nx-next-app/data-access'
 import { useAffiliateReferralEffect } from '@nx-next-app/hooks'
 import { useChangePasswordModalEffect } from 'libs/web/src/hooks/useChangePasswordModalEffect'
 import { useRouter } from 'next/router'
@@ -19,9 +19,6 @@ const Layout = ({ children, persistSEOData }: ILayoutProps) => {
 	const { globalModal, closeModal } = useGlobalModal()
 
 	const router = useRouter()
-	const {
-		auth: { isLogin },
-	} = useAuth()
 
 	useChangePasswordModalEffect(() => router.push(paths.changePassword.root))
 
@@ -31,10 +28,12 @@ const Layout = ({ children, persistSEOData }: ILayoutProps) => {
 		<>
 			<MetaData persistSEOData={persistSEOData} />
 
+			{/* TODO: 待PM和設計確認是否要有以及色系 */}
 			<RotationHint />
+
 			{children}
 
-			{isLogin && <LayoutFooter />}
+			<LayoutFooter />
 
 			{/* 只需放在 Layout 來渲染全域彈窗 */}
 			<GlobalModal {...globalModal} closeModal={closeModal} />
