@@ -1,20 +1,24 @@
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { KycWaiting, Layout } from '@nx-next-app/features/F0001/h5'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { Layout } from '../components'
+import { KycWaiting } from '../components/withdrawal/kyc'
 
 const KycWaitingPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: InitialPropsInterface) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
 					<KycWaiting />
 				</Layout>

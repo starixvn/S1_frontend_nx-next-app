@@ -1,8 +1,8 @@
 import classNames from 'classnames'
-import React, { forwardRef, useState } from 'react'
 import { head, includes, isUndefined } from 'lodash-es'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import React, { forwardRef, useState } from 'react'
 
 type TagOptionType = {
 	key: string | number
@@ -98,6 +98,12 @@ const Tag = forwardRef(
 											placeholder='Search'
 											value={searchText}
 											onChange={e => onSearchBarChange(e.target.value)}
+											// only for mobile users, to prevent keyboard from blocking the view
+											onKeyDown={e => {
+												if (e.key === 'Enter') {
+													e.currentTarget.blur()
+												}
+											}}
 										/>
 										<i className='icon icon-close' onClick={onInputClose} />
 									</div>
@@ -175,5 +181,5 @@ const Tags = ({ tags = [], className = 'headerTag', ...props }: ITagsProps) => {
 	)
 }
 
-export { Tags, Tag }
+export { Tag, Tags }
 export type { TagOptionType }

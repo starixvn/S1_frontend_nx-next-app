@@ -1,9 +1,9 @@
+import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
 
 const Shortcut = () => {
 	const { t } = useTranslation()
@@ -50,7 +50,8 @@ const Shortcut = () => {
 					</a>
 				</Link>
 			)}
-			{includes(ALLOWED_CURRENCIES['REWARDS'], currencyId) && (
+			{/* TODO: 應映需求先將能通往Rewards的入口拿掉 */}
+			{/* {includes(ALLOWED_CURRENCIES['REWARDS'], currencyId) && (
 				<a href='/rewards' target='_blank' rel='noreferrer'>
 					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/88reward.png`}
@@ -58,7 +59,7 @@ const Shortcut = () => {
 					/>
 					<span>{t('Label_General_88Reward')}</span>
 				</a>
-			)}
+			)} */}
 			{includes(ALLOWED_CURRENCIES['LEADER_BOARD'], currencyId) && (
 				<Link href={paths.leaderBoard.root}>
 					<a>

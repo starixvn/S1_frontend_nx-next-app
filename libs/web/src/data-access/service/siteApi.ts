@@ -1,6 +1,5 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
-import { AxiosRequestConfig } from 'axios'
 import {
 	baseAxios,
 	IBannerData,
@@ -9,7 +8,8 @@ import {
 	IVipBannerData,
 	siteApiUrl,
 } from '@nx-next-app/service'
-import { ISEOData } from 'libs/web/src/data-access/type'
+import { AxiosRequestConfig } from 'axios'
+import { ISEOData, TStaticFileDomainData } from 'libs/web/src/data-access/type'
 
 export const getSEOData = async (
 	params: null,
@@ -63,6 +63,7 @@ export const getBanner = async (
 			)
 			result.push(...response.data.data)
 		} catch (error) {
+			// eslint-disable-next-line no-console
 			console.error(`Error fetching banner type ${bannerType}:`, error)
 		}
 	}
@@ -92,5 +93,22 @@ export const getVipBanner = async (
 		return data || defaultVipBannerData
 	} catch (error) {
 		return defaultVipBannerData
+	}
+}
+
+export const getStaticFileDomain = async (
+	params: null,
+	config: AxiosRequestConfig
+): Promise<TStaticFileDomainData> => {
+	try {
+		const { data: { data } = {} } = await baseAxios.post(
+			siteApiUrl.getStaticFileDomain,
+			params,
+			config
+		)
+
+		return data
+	} catch (error) {
+		return {} as TStaticFileDomainData
 	}
 }

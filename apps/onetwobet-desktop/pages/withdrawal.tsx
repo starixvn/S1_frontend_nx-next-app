@@ -1,12 +1,11 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
+import { Layout, Withdrawal } from '@12b-desktop/components/index'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
-	getWithdrawalBlockSetting,
 	GlobalDataProvider,
+	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, Withdrawal } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -14,11 +13,21 @@ import {
 import {
 	CryptoWalletProvider,
 	WithdrawalProvider,
-} from '@nx-next-app/features/F0001/providers'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { IFooterData } from '@nx-next-app/types'
+	type IAddBankCardModalProps,
+} from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
+import { IFooterData } from '@nx-next-app/types'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import dynamic from 'next/dynamic'
+
+const AddBankCardModal = dynamic(
+	() => import('../components/modal/AddBankCardModal'),
+	{
+		ssr: false,
+	}
+)
 
 interface IWithdrawalPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
@@ -31,15 +40,41 @@ const WithdrawalPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	persistStaticFileDomainData,
 }: IWithdrawalPageProps) => {
+	const { modal } = useGlobalModal()
+
+	const addBankCardModalCallBack = ({
+		type,
+		bankData,
+		bankDropDown,
+		onSubmitCard,
+	}: IAddBankCardModalProps) => {
+		modal.open(
+			<AddBankCardModal
+				type={type}
+				bankData={bankData}
+				bankDropDown={bankDropDown}
+				onSubmitCard={onSubmitCard}
+			/>
+		)
+	}
+
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
-					<WithdrawalProvider withdrawalBlockSetting={withdrawalBlockSetting}>
+					<WithdrawalProvider
+						withdrawalBlockSetting={withdrawalBlockSetting}
+						addBankCardModalCallBack={addBankCardModalCallBack}
+						errorCallback={errorMessage => modal.error(errorMessage)}
+					>
 						{/* 因為需使用 cryptoWallet 的 hooks ,故需多包此層 */}
 						<CryptoWalletProvider
 							withdrawalBlockSetting={withdrawalBlockSetting}
+							errorCallback={errorMessage => modal.error(errorMessage)}
 						>
 							<Withdrawal withdrawalBlockSetting={withdrawalBlockSetting} />
 						</CryptoWalletProvider>

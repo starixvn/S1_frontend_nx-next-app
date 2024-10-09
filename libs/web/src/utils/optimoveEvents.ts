@@ -1,6 +1,8 @@
 // CRM 系統 Optimove 的所有事件 trigger 寫在此處，因為事件較多，獨立拉一隻檔案撰寫
 
 // OptimoveSDK 的 3方物件巢狀長，照之前寫法判斷式要寫很長，先把 type 定義直接寫進 global
+import { isEmpty } from 'lodash-es'
+
 interface OptimoveSDK {
 	API: {
 		setPageVisit: (
@@ -37,7 +39,8 @@ export const OptimovePageVisitEvent = (
 		// 他們要求要 full url
 		const pageUrl = `${protocol}//${host}${path}${query}`
 		const pageTitle: string = document.title
-		if (pageTitle !== undefined) {
+
+		if (pageTitle !== undefined && !isEmpty(pageTitle)) {
 			window.optimoveSDK.API.setPageVisit(pageUrl, pageTitle, category, custId)
 		}
 	}

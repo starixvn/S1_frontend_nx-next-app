@@ -1,4 +1,3 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	DepositModule,
 	Form,
@@ -6,27 +5,28 @@ import {
 	Loading,
 	Select,
 } from '@nx-next-app/components/D0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	useAuth,
 	useDepositContext,
 	useMobilePayForm,
 } from '@nx-next-app/data-access'
-import dynamic from 'next/dynamic'
+import { useManageCards } from '@nx-next-app/features/F0001/providers/withdrawal-context/useManageCards'
+import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
 import { IPaymentMobilePayData } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import {
 	generateShortcutList,
 	isConvert,
-	numberFormat,
-	revertNumberFormat,
 	limitedShortcutAmountList,
 	numFormatToDigits,
+	numberFormat,
+	revertNumberFormat,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
-import { useManageCards } from '@nx-next-app/features/F0001/providers/withdrawal-context/useManageCards'
+import dynamic from 'next/dynamic'
 
 interface IMobilePayFormProps {
 	dataSource: IPaymentMobilePayData[]
@@ -81,6 +81,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 		eWalletOptions,
 		custEWalletList,
 		eWalletRequired,
+		bankCardOrEWalletRequired,
 		channelMobilePayList = [],
 		bankCardOptions,
 		bankCardRequired,
@@ -309,34 +310,75 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				</DepositModule>
 			)}
 
-			{eWalletRequired && (
+			{(eWalletRequired || bankCardOrEWalletRequired) && (
 				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
-					<Select
-						value={watchCustEWalletAccount}
-						options={eWalletOptions}
-						onChange={value => {
-							trigger('custEWalletAccount')
-							setValue('custEWalletAccount', String(value))
-							clearErrors('custEWalletAccount')
-						}}
-						errorMessage={errors['custEWalletAccount']?.message as string}
-					/>
-					{custEWalletList.length < 3 && (
-						<div className='btnGroup'>
-							<button
-								className='btn-check'
-								onClick={() => handleAddCards(WithdrawalBankCardEnum.EWallet)}
-							>
-								+
-							</button>
+					<div className='subModule-item'>
+						<Select
+							value={watchCustEWalletAccount}
+							options={eWalletOptions}
+							onChange={value => {
+								if (bankCardOrEWalletRequired) {
+									setValue('custBankAccount', undefined)
+								}
+								trigger('custEWalletAccount')
+								setValue('custEWalletAccount', String(value))
+								clearErrors('custEWalletAccount')
+							}}
+							errorMessage={errors['custEWalletAccount']?.message as string}
+						/>
+						{custEWalletList.length < 3 && (
+							<div className='btnGroup'>
+								<button
+									className='btn-check'
+									onClick={() => handleAddCards(WithdrawalBankCardEnum.EWallet)}
+								>
+									+
+								</button>
+							</div>
+						)}
+						<div
+							className={classNames('tip', {
+								active: errors['custEWalletAccount'],
+							})}
+						>
+							{errors['custEWalletAccount']?.message}
 						</div>
-					)}
-					<div
-						className={classNames('tip', {
-							active: errors['custEWalletAccount'],
-						})}
-					>
-						{errors['custEWalletAccount']?.message}
+					</div>
+					<div className='subModule-item'>
+						{bankCardOrEWalletRequired && (
+							<>
+								<Select
+									value={watchCustBankAccount}
+									options={bankCardOptions}
+									onChange={value => {
+										trigger('custBankAccount')
+										clearErrors('custBankAccount')
+										setValue('custBankAccount', String(value))
+										setValue('custEWalletAccount', undefined)
+									}}
+									errorMessage={errors['custBankAccount']?.message as string}
+								/>
+								{custBankInfo.length < 3 && (
+									<div className='btnGroup'>
+										<button
+											className='btn-check'
+											onClick={() =>
+												handleAddCards(WithdrawalBankCardEnum.LocalBank)
+											}
+										>
+											+
+										</button>
+									</div>
+								)}
+								<div
+									className={classNames('tip', {
+										active: errors['custBankAccount'],
+									})}
+								>
+									{errors['custBankAccount']?.message}
+								</div>
+							</>
+						)}
 					</div>
 				</DepositModule>
 			)}

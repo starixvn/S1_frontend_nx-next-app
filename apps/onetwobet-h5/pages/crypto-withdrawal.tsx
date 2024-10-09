@@ -1,22 +1,24 @@
-import { GetServerSideProps } from 'next'
-import { find } from 'lodash-es'
+import { Layout } from '@12b-h5/components/index'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
+import {
+	AuthProvider,
+	GlobalDataProvider,
+	getWithdrawalBlockSetting,
+} from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import {
-	AuthProvider,
-	getWithdrawalBlockSetting,
-	GlobalDataProvider,
-} from '@nx-next-app/data-access'
-import { Layout, CryptoWithdrawal } from '@nx-next-app/features/F0001/h5'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import {
 	CryptoWalletProvider,
 	WithdrawalProvider,
-} from '@nx-next-app/features/F0001/providers'
+} from '@nx-next-app/operations'
 import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
+import { find } from 'lodash-es'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import CryptoWithdrawal from '../components/withdrawal/cryptoWithdrawal'
 
 interface ICryptoWithdrawalProps extends InitialPropsInterface {
 	withdrawalBlockSetting: IWithdrawalSetting[]
@@ -26,15 +28,23 @@ const CryptoWithdrawalPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 	withdrawalBlockSetting,
 }: ICryptoWithdrawalProps) => {
+	const { modal } = useGlobalModal()
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
-					<WithdrawalProvider withdrawalBlockSetting={withdrawalBlockSetting}>
+					<WithdrawalProvider
+						withdrawalBlockSetting={withdrawalBlockSetting}
+						errorCallback={errorMessage => modal.error(errorMessage)}
+					>
 						<CryptoWalletProvider
 							withdrawalBlockSetting={withdrawalBlockSetting}
+							errorCallback={errorMessage => modal.error(errorMessage)}
 						>
 							<CryptoWithdrawal />
 						</CryptoWalletProvider>

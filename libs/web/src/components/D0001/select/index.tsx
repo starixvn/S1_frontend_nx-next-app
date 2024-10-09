@@ -1,9 +1,9 @@
+import { SelectOptionType } from '@nx-next-app/types'
+import classNames from 'classnames'
+import { filter, find, includes, uniqueId } from 'lodash'
+import { useTranslation } from 'next-i18next'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import { useBoolean, useOnClickOutside } from 'usehooks-ts'
-import { useTranslation } from 'next-i18next'
-import { filter, find, includes, uniqueId } from 'lodash'
-import classNames from 'classnames'
-import { SelectOptionType } from '@nx-next-app/types'
 
 export interface ISelectProps {
 	value?: string | number
@@ -66,12 +66,12 @@ const Select = (props: ISelectProps) => {
 	}, [defaultValue])
 
 	//* 絕對搜尋 value 與 模糊搜尋 label
-	const filterOptions = filter(
-		options,
-		item =>
-			String(item.value) === filterValue ||
-			includes(String(item.label), filterValue)
-	)
+	const filterOptions = filter(options, item => {
+		return (
+			String(item.value).toLowerCase() === filterValue ||
+			includes(t(String(item.label)).toLowerCase(), filterValue)
+		)
+	})
 
 	let label = currentOption?.label ?? placeholder
 	if (isTranslation) {
@@ -105,7 +105,7 @@ const Select = (props: ISelectProps) => {
 								type='text'
 								className='search'
 								placeholder='Search'
-								onChange={e => setFilterValue(e.target.value)}
+								onChange={e => setFilterValue(e.target.value.toLowerCase())}
 							/>
 						</div>
 					)}

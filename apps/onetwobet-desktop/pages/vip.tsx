@@ -1,21 +1,20 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	getVipBanner,
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
 import { Layout, Vip } from '@nx-next-app/features/F0001/desktop'
-import { IFooterData } from '@nx-next-app/types'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { includes } from 'lodash'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { IVipBannerData } from '@nx-next-app/service'
-import { ALLOWED_CURRENCIES, FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { ALLOWED_CURRENCIES, FOOTER_DATA } from '@nx-next-app/site/onetwobet'
+import { IFooterData } from '@nx-next-app/types'
+import { includes } from 'lodash'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface IVipPageProps extends InitialPropsInterface {
 	vipBannerData: IVipBannerData
@@ -27,11 +26,14 @@ const VipPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	persistStaticFileDomainData,
 	vipBannerData,
 }: IVipPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<Vip vipBannerData={vipBannerData} />
 				</Layout>

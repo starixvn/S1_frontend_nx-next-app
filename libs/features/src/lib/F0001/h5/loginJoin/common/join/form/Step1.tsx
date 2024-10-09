@@ -1,20 +1,20 @@
-import classNames from 'classnames'
-import { useFormContext } from 'react-hook-form'
-import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
-import { TmpCookiesObj } from 'cookies-next/lib/types'
 import { InputBox, ISelectProps } from '@nx-next-app/components/H0001'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import {
-	USERNAME_REGEX,
+	FLAG_PREFIX_ICON_BY_CURRENCIES,
 	PASSWORD_REGEX,
 	REALNAME_REGEX,
-	FLAG_PREFIX_ICON_BY_CURRENCIES,
+	USERNAME_REGEX,
 } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import {
 	useLazyAffiliateCheckQuery,
 	useLazyExistsUserNameQuery,
 } from '@nx-next-app/service'
+import classNames from 'classnames'
+import { TmpCookiesObj } from 'cookies-next/lib/types'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useFormContext } from 'react-hook-form'
 
 interface IStep1Props {
 	cookies: TmpCookiesObj
@@ -246,7 +246,7 @@ const Step1 = ({
 				<a
 					rel='noreferrer'
 					target='_blank'
-					href={TERMS_CONDITIONS({ langId })['TermsConditions']}
+					href={TERMS_CONDITIONS({ langId: 'en' })['TermsConditions']}
 				>
 					{t('Label_Join_SignUpTerms2')}
 				</a>

@@ -1,34 +1,35 @@
-import Link from 'next/link'
-import classNames from 'classnames'
-import { isNumber } from 'lodash'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
-import { useState, useEffect } from 'react'
-import { useForm, FormProvider } from 'react-hook-form'
-import { TmpCookiesObj } from 'cookies-next/lib/types'
-import {
-	paths,
-	ENV_COOKIE_NAMES,
-	CURRENCY_TO_LANG_KEY,
-	AREA_CODE_BY_CURRENCY,
-	FLAG_PREFIX_ICON_BY_CURRENCIES,
-} from '@nx-next-app/constants'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ISelectProps } from '@nx-next-app/components/H0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
-	useSignupMutation,
-	useLazyAffiliateCheckQuery,
+	AREA_CODE_BY_CURRENCY,
+	CURRENCY_TO_LANG_KEY,
+	ENV_COOKIE_NAMES,
+	FLAG_PREFIX_ICON_BY_CURRENCIES,
+	paths,
+} from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useJoin } from '@nx-next-app/features/F0001/hooks'
+import {
 	useGetSiteCurrencyListQuery,
+	useLazyAffiliateCheckQuery,
 	useLazyGetAffiliateAgentQuery,
+	useSignupMutation,
 } from '@nx-next-app/service'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import {
-	getQueryParam,
-	OperaPixelTracker,
 	MetaPixelTracker,
+	OperaPixelTracker,
+	getQueryParam,
 } from '@nx-next-app/utils'
-import { Step1, Step2, Step3, StepBar, Features, LineRegister } from './form'
+import classNames from 'classnames'
+import { TmpCookiesObj } from 'cookies-next/lib/types'
+import { isNumber } from 'lodash'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { FormProvider, useForm } from 'react-hook-form'
+import { Features, LineRegister, Step1, Step2, Step3, StepBar } from './form'
 
 interface IJoinProps {
 	cookies: TmpCookiesObj
@@ -45,6 +46,7 @@ const Join = ({ cookies }: IJoinProps) => {
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
+	const { initNationality } = useJoin()
 
 	const [step, setStep] = useState<number>(1)
 	const [currencyOptions, setCurrencyOptions] = useState<
@@ -207,12 +209,16 @@ const Join = ({ cookies }: IJoinProps) => {
 			username,
 			password,
 			realName,
+			email,
+			formBirthMonth,
+			formBirthDay,
+			formBirthYear,
+			nationality,
 			currencyId: formCurrencyId,
 			areaCode,
 			phone,
 			affiliate,
 		} = getValues()
-
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
@@ -235,7 +241,6 @@ const Join = ({ cookies }: IJoinProps) => {
 			)?.value ?? 'en'
 
 		const blackbox = await getBlackbox()
-
 		try {
 			await signUp({
 				// 因 cookies 有機會是 string[] 導致錯誤
@@ -245,6 +250,11 @@ const Join = ({ cookies }: IJoinProps) => {
 				currencyId: formCurrencyId,
 				phoneNo: phone,
 				realName,
+				email,
+				Birth_d: formBirthDay ?? 0,
+				Birth_m: formBirthMonth ?? 0,
+				Birth_y: formBirthYear ?? 0,
+				nationality: nationality ?? initNationality,
 				// reCaptchaToken,
 				referralUrl: document.referrer,
 				userLang,

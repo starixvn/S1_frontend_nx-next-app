@@ -1,6 +1,5 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	getWithdrawalBlockSetting,
@@ -10,11 +9,12 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { CryptoWalletProvider } from '@nx-next-app/features/F0001/providers'
-import { Layout, CryptoWallet } from '@nx-next-app/features/F0001/h5'
-import { find } from 'lodash-es'
+import { CryptoWalletProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
-import { paths } from '@nx-next-app/constants'
+import { find } from 'lodash-es'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { CryptoWallet, Layout } from '../components'
 
 interface ICryptoWalletProps extends InitialPropsInterface {
 	withdrawalBlockSetting: IWithdrawalSetting[]
@@ -25,11 +25,18 @@ const CryptoWalletPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: ICryptoWalletProps) => {
+	const { modal } = useGlobalModal()
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
-				<CryptoWalletProvider withdrawalBlockSetting={withdrawalBlockSetting}>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
+				<CryptoWalletProvider
+					withdrawalBlockSetting={withdrawalBlockSetting}
+					errorCallback={errorMessage => modal.error(errorMessage)}
+				>
 					<Layout persistSEOData={persistSEOData}>
 						<CryptoWallet />
 					</Layout>

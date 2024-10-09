@@ -1,17 +1,17 @@
-import Link from 'next/link'
-import classNames from 'classnames'
-import { CurrenciesEnum } from '@nx-next-app/types'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { HTMLAttributes, useEffect, useState } from 'react'
-import { useTranslation } from 'next-i18next'
-import { useBoolean, useDebounce } from 'usehooks-ts'
-import { numberFormat } from '@nx-next-app/utils'
+import { useHeaderLogo } from '@nx-next-app/hooks'
 import {
 	ICustBonusWalletData,
 	IMainWalletInfoData,
 	ITpWalletInfoData,
 } from '@nx-next-app/service'
+import { numberFormat } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { HTMLAttributes, useEffect } from 'react'
+import { useBoolean, useDebounce } from 'usehooks-ts'
 import { SpinButton } from '../button'
 
 interface IHeaderModuleProps extends HTMLAttributes<HTMLDivElement> {
@@ -38,9 +38,12 @@ const HeaderModule = ({
 	...props
 }: IHeaderModuleProps) => {
 	const { t } = useTranslation()
-
-	// 判斷是否要秀贊助商 LOGO，之後如果有其他的贊助商，可以使用日期判斷是否要更新此 state 狀態
-	const [showSpLogo, setShowSpLogo] = useState(true)
+	const { logoUrl, showSpLogo } = useHeaderLogo({
+		mainLogoUrl: {
+			original: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w.png`,
+			special: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo-mid.png`,
+		},
+	})
 
 	const {
 		auth,
@@ -54,11 +57,8 @@ const HeaderModule = ({
 	} = useBoolean(originIsHideBalance)
 	const debouncedIsHideBalance = useDebounce(isHideBalance, 500)
 
-	// TODO: 因為奧運結束後可能會有暫時沒有spLogo的情況，這時主Logo要改用沒有右邊分隔線的圖
+	// TODO: 沒有贊助球隊時可能會有暫時沒有spLogo的情況，這時主Logo要改用沒有右邊分隔線的圖
 	const noSpLogoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w_noline.png`
-
-	/** 當前是否為巴西 */
-	const isBRL = currencyId === CurrenciesEnum.BRL
 
 	// * 使用者快速切換時，讓畫面順利切換，用 debounce 觸發最後的狀態
 	useEffect(() => {
@@ -66,11 +66,6 @@ const HeaderModule = ({
 			onSetHideBalance(debouncedIsHideBalance)
 		}
 	}, [debouncedIsHideBalance, auth.isLogin])
-
-	// 僅有巴西沒有贊助球隊，所以秀 nova 原始 Logo
-	useEffect(() => {
-		if (isBRL) setShowSpLogo(false)
-	}, [currencyId])
 
 	// * fetching 結束後給予正確數值
 	useEffect(() => {
@@ -82,14 +77,7 @@ const HeaderModule = ({
 			{/* 用 a link 讓畫面重新整理，僅有巴西沒有贊助球隊，所以秀 nova 原始 Logo */}
 			<Link href={paths.home.root}>
 				<a className='header-logo'>
-					<img
-						src={
-							showSpLogo
-								? `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w.png`
-								: noSpLogoUrl
-						}
-						alt='logo'
-					/>
+					<img src={showSpLogo ? logoUrl : noSpLogoUrl} alt='logo' />
 				</a>
 			</Link>
 

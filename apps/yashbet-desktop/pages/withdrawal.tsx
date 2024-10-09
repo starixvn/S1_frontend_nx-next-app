@@ -1,25 +1,24 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	getWithdrawalBlockSetting,
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Withdrawal } from '@nx-next-app/features/F0001/desktop'
+import {
+	CryptoWalletProvider,
+	WithdrawalProvider,
+} from '@nx-next-app/features/F0001/providers'
 import { Layout } from '@nx-next-app/features/F0006/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import {
-	CryptoWalletProvider,
-	WithdrawalProvider,
-} from '@nx-next-app/features/F0001/providers'
-import { FOOTER_DATA } from '@nx-next-app/site/yashbet'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { IFooterData } from '@nx-next-app/types'
 import { IWithdrawalSetting } from '@nx-next-app/service'
+import { FOOTER_DATA } from '@nx-next-app/site/yashbet'
+import { IFooterData } from '@nx-next-app/types'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface IWithdrawalPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
@@ -31,11 +30,14 @@ const WithdrawalPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	persistStaticFileDomainData,
 	withdrawalBlockSetting,
 }: IWithdrawalPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<WithdrawalProvider withdrawalBlockSetting={withdrawalBlockSetting}>
 						{/* 因為需使用 cryptoWallet 的 hooks ,故需多包此層 */}

@@ -1,20 +1,20 @@
-import React from 'react'
-import { find } from 'lodash-es'
-import { GetServerSideProps } from 'next'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
 import {
 	AuthProvider,
-	getWithdrawalBlockSetting,
 	GlobalDataProvider,
+	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { EWalletProvider } from '@nx-next-app/features/F0001/providers'
-import { Layout, EWallet } from '@nx-next-app/features/F0001/h5'
+import { EWalletProvider } from '@nx-next-app/operations'
+import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
+import { find } from 'lodash-es'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { EWallet, Layout } from '../components'
 
 interface IEWalletPageProps extends InitialPropsInterface {
 	withdrawalBlockSetting: IWithdrawalSetting[]
@@ -25,11 +25,18 @@ const EWalletPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: IEWalletPageProps) => {
+	const { modal } = useGlobalModal()
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
-				<EWalletProvider withdrawalBlockSetting={withdrawalBlockSetting}>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
+				<EWalletProvider
+					withdrawalBlockSetting={withdrawalBlockSetting}
+					errorCallback={errorMessage => modal.error(errorMessage)}
+				>
 					<Layout persistSEOData={persistSEOData}>
 						<EWallet />
 					</Layout>

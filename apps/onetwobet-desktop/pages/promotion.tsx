@@ -1,6 +1,5 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	getPromotion,
@@ -10,13 +9,26 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { Layout, Promotion } from '@nx-next-app/features/F0001/desktop'
-import { PromotionProvider } from '@nx-next-app/features/F0001/providers'
-import { DeviceTypeEnum, IFooterData } from '@nx-next-app/types'
+import { PromotionProvider } from '@nx-next-app/operations'
 import { IPromotionData } from '@nx-next-app/service'
-import { FOOTER_DATA, PROMOTION_SELECT_OPTIONS } from '@nx-next-app/site/nova88'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import {
+	FOOTER_DATA,
+	PROMOTION_SELECT_OPTIONS,
+} from '@nx-next-app/site/onetwobet'
+import { DeviceTypeEnum, IFooterData } from '@nx-next-app/types'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import dynamic from 'next/dynamic'
+import { Layout } from '../components'
+import Promotion from '../components/promotion'
 
+const PromotionDetailModal = dynamic(
+	() =>
+		import(
+			'@12b-desktop/components/modal/promotionDetailModal/PromotionDetailModal'
+		),
+	{ ssr: false }
+)
 interface IPromotionPageProps extends InitialPropsInterface {
 	persistPromotionData: IPromotionData[]
 	persistFooterData: IFooterData
@@ -27,15 +39,27 @@ const PromotionPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	persistStaticFileDomainData,
 	persistPromotionData,
 }: IPromotionPageProps) => {
+	const { modal } = useGlobalModal()
+	const handleOpenPromotionDetail = (bonusCode: string) => {
+		modal.open(
+			<PromotionDetailModal bonusCode={bonusCode} isHideAllPromoButton />
+		)
+	}
+
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<PromotionProvider
 						persistPromotionData={persistPromotionData}
 						PROMOTION_SELECT_OPTIONS={PROMOTION_SELECT_OPTIONS}
+						onOpenPromotionDetail={handleOpenPromotionDetail}
+						onError={modal.error}
 					>
 						<Promotion />
 					</PromotionProvider>

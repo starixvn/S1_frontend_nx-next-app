@@ -23,12 +23,16 @@
 			"@nx-next-app/features/*": ["libs/features/src/lib/*"],
 			"@nx-next-app/hooks": ["libs/web/src/hooks"],
 			"@nx-next-app/middleware": ["libs/web/src/siteMiddleware.ts"],
+			"@nx-next-app/operations": ["libs/operations/src/index.tsx"],
 			"@nx-next-app/service": ["libs/web/src/service"],
 			"@nx-next-app/site/*": ["libs/web/src/app/site/*"],
 			"@nx-next-app/store": ["libs/web/src/app/store"],
 			"@nx-next-app/types": ["libs/web/src/app/types"],
-			"@nx-next-app/utils": ["libs/web/src/utils"]
-		}
+			"@nx-next-app/utils": ["libs/web/src/utils"],
+			"@12b-h5/components/*": ["apps/onetwobet-h5/components/*"],
+			"@12b-desktop/components/*": ["apps/onetwobet-desktop/components/*"]
+		},
+		"jsx": "react"
 	},
 	"exclude": ["node_modules", "tmp"]
 }

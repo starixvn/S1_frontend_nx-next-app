@@ -1,16 +1,15 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, Home } from '@nx-next-app/features/F0001/desktop'
-import { HomeProvider } from '@nx-next-app/features/F0001/providers'
+import { Layout } from '@12b-desktop/components/index'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getBanner,
-	getPromotion,
 	getHotEvent,
 	getHotGame,
+	getPromotion,
 } from '@nx-next-app/data-access'
+import { Home } from '@nx-next-app/features/F0001/desktop'
+import { HomeProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -21,17 +20,18 @@ import {
 	IHotGame,
 	IPromotionData,
 } from '@nx-next-app/service'
+import { DESKTOP_HOME_ORDERS, FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { BannerTypeEnum, IFooterData } from '@nx-next-app/types'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { DESKTOP_HOME_ORDERS, FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 // 此為優化專案導出所需要的設定，因配合 nx 配置路徑衝突做的優化
 // 優化專案 build 出來的檔案結構，僅獨立輸出必要的資源而非整包 node_module , 控管 docker image 大小
 // https://nextjs.org/docs/pages/api-reference/next-config-js/output
 // https://github.com/nrwl/nx/issues/9017
-import path from 'path'
-import { filter } from 'lodash-es'
 import dayjs from 'dayjs'
+import { filter } from 'lodash-es'
+import path from 'path'
 
 // path.resolve 會把指定路徑解析成絕對路徑
 // 這樣解析是為了讓 next 輸出時可以正確吃到當前 project 的 next.config
@@ -55,10 +55,13 @@ const HomePage = ({
 	persistHotEventData,
 	persistHotGameData,
 	persistFooterData,
+	persistStaticFileDomainData,
 }: IHomePageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout
 					showFooter
 					persistSEOData={persistSEOData}

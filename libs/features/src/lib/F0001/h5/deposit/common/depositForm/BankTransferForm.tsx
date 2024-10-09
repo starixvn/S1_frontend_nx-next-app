@@ -1,27 +1,27 @@
-import classNames from 'classnames'
-import { isNumber, toLower } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
-import dynamic from 'next/dynamic'
 import {
 	DepositModule,
 	Form,
 	InputBox,
 	Select,
 } from '@nx-next-app/components/H0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	useAuth,
 	useDepositBankTransferForm,
 	useDepositContext,
 } from '@nx-next-app/data-access'
 import { IPaymentBankTransferData } from '@nx-next-app/service'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	generateShortcutList,
 	isConvert,
+	numFormatToDigits,
 	numberFormat,
 	revertNumberFormat,
-	numFormatToDigits,
 } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { isNumber, toLower } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 
 const DepositBankSlipModal = dynamic(
 	() =>
@@ -210,6 +210,11 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 						touched={!!touchedFields['promoCode']}
 						onChange={() => {
 							setValue('bonusCode', undefined)
+						}}
+						onKeyDown={e => {
+							if (e.key === 'Enter') {
+								e.currentTarget.blur()
+							}
 						}}
 					/>
 				</div>

@@ -1,32 +1,32 @@
-import { useState, useEffect } from 'react'
-import dayjs from 'dayjs'
-import { isUndefined } from 'lodash-es'
-import { useForm } from 'react-hook-form'
-import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
+import {
+	Form,
+	ISelectProps,
+	InputBox,
+	Select,
+} from '@nx-next-app/components/H0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import {
+	AREA_CODE,
+	EMAIL_REGEX,
+	PREV_PAGE,
+	PrevPageEnum,
+	REALNAME_REGEX,
+} from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import {
+	useCheckPhone,
+	useVerifyEmail,
+} from '@nx-next-app/features/F0001/hooks'
 import {
 	useLazyExistsEmailQuery,
 	useSetProfileMutation,
 } from '@nx-next-app/service'
-import {
-	useVerifyEmail,
-	useCheckPhone,
-} from '@nx-next-app/features/F0001/hooks'
-import { useAuth } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import {
-	PrevPageEnum,
-	PREV_PAGE,
-	AREA_CODE,
-	EMAIL_REGEX,
-	REALNAME_REGEX,
-} from '@nx-next-app/constants'
-import {
-	Form,
-	Select,
-	InputBox,
-	ISelectProps,
-} from '@nx-next-app/components/H0001'
+import dayjs from 'dayjs'
+import { isUndefined } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
 
 import { PhoneOtpModal } from './PhoneOtpModal'
 
@@ -65,6 +65,7 @@ const InfoEdit = () => {
 
 	const {
 		formState,
+		watch,
 		trigger,
 		setValue,
 		register,
@@ -174,6 +175,8 @@ const InfoEdit = () => {
 		monthOptions.push({ label: t(`Label_Profile_Month${m}`), value: m })
 	}
 
+	watch('formBirthMonth')
+	watch('formBirthYear')
 	const dayOptions = []
 	const dayByMonth = dayjs()
 		.year(getValues('formBirthYear'))
@@ -188,7 +191,7 @@ const InfoEdit = () => {
 		label: `${el.AreaCode} ${el.Name}`,
 	}))
 
-	const showSubmitBtn = !accountName || !phoneNo || !birthDay
+	const showSubmitBtn = !accountName || !phoneNo || !birthDay || !email
 
 	const checkEmail = async () => {
 		await trigger('formEmail')

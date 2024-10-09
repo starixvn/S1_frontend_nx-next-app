@@ -1,0 +1,36 @@
+import WithdrawalHistoryTable from '@12b-desktop/components/common/table/historyTable/WithdrawalHistoryTable'
+import { paths } from '@nx-next-app/constants'
+import { useWithdrawal } from '@nx-next-app/operations'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+
+const RecentHistory = () => {
+	const { t } = useTranslation()
+	const {
+		withdrawalRecentInfo,
+		refetchWithdrawalRecentInfo,
+		cancelWithdrawal,
+	} = useWithdrawal()
+
+	return (
+		<>
+			{withdrawalRecentInfo.length > 0 ? (
+				<WithdrawalHistoryTable
+					classNames='list'
+					dataSource={withdrawalRecentInfo}
+					onReload={refetchWithdrawalRecentInfo}
+					onCancel={cancelWithdrawal}
+				/>
+			) : (
+				<div className='nodata icon icon-nodata'>
+					<div>{t('Label_General_NoData')}</div>
+				</div>
+			)}
+			<Link href={paths.history.root}>
+				<a className='icon icon-books' />
+			</Link>
+		</>
+	)
+}
+
+export { RecentHistory }

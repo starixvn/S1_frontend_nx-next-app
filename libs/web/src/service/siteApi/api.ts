@@ -1,16 +1,17 @@
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
 import {
-	ISetForgetPasswordArgs,
-	TpMaintainData,
-	ISignUpArgs,
 	IBannerData,
-	ISeoData,
-	ISocialChannelData,
-	IVipBannerData,
+	ICountryListData,
 	IGetVipBannerArgs,
 	IResetPwdByOTPArgs,
 	IResetPwdVerifyOTPArgs,
+	ISeoData,
+	ISetForgetPasswordArgs,
+	ISignUpArgs,
+	ISocialChannelData,
+	IVipBannerData,
+	TpMaintainData,
 } from './type'
 
 export const siteApiUrl = {
@@ -33,6 +34,8 @@ export const siteApiUrl = {
 	reSetPwdByOTP: 'Site/ReSetPwdByOTP',
 	reSetPwdVerifyOTP: 'Site/ReSetPwdVerifyOTP',
 	checkResetPwdToken: 'Site/CheckResetPwdToken',
+	getCountryList: 'GeoIp/GetCountryList',
+	getStaticFileDomain: 'Site/GetStaticFileDomain',
 }
 
 export const siteApi = rootApi.injectEndpoints({
@@ -200,6 +203,12 @@ export const siteApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
+		getCountryList: builder.query<IAxiosResponse<ICountryListData[]>, null>({
+			query: () => ({
+				url: siteApiUrl.getCountryList,
+				method: 'GET',
+			}),
+		}),
 	}),
 })
 
@@ -207,6 +216,7 @@ export const {
 	useGetProductTpIdsQuery,
 	useGetTpMaintainListQuery,
 	useLazyGetIpCountryQuery,
+	useGetIpCountryQuery,
 	useSetForgetPasswordMutation,
 	useLazyExistsUserNameQuery,
 	useLazyExistsEmailQuery,
@@ -222,4 +232,5 @@ export const {
 	useResetPwdByOTPMutation,
 	useResetPwdVerifyOTPMutation,
 	useCheckResetPwdTokenMutation,
+	useGetCountryListQuery,
 } = siteApi

@@ -1,9 +1,9 @@
-import { ReactNode, useEffect, useRef, useState, MouseEvent } from 'react'
-import { useBoolean, useOnClickOutside } from 'usehooks-ts'
-import { filter, find, includes, uniqueId } from 'lodash'
-import classNames from 'classnames'
 import { SelectOptionType } from '@nx-next-app/types'
+import classNames from 'classnames'
+import { filter, find, includes, uniqueId } from 'lodash'
 import { useTranslation } from 'next-i18next'
+import { MouseEvent, ReactNode, useEffect, useRef, useState } from 'react'
+import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 
 export interface ISelectProps {
 	value?: string | number
@@ -12,6 +12,7 @@ export interface ISelectProps {
 	prefixIcon?: ReactNode
 	placeholder?: string
 	showSearch?: boolean
+	isTranslation?: boolean
 	errorMessage?: string
 	infoMessage?: string
 	onChange?: (value: SelectOptionType['value']) => void
@@ -29,6 +30,7 @@ const Select = (props: ISelectProps) => {
 		prefixIcon,
 		placeholder = t('Label_General_None'),
 		showSearch,
+		isTranslation,
 		infoMessage,
 		errorMessage,
 		showValue,
@@ -75,9 +77,16 @@ const Select = (props: ISelectProps) => {
 	const filterOptions = filter(
 		options,
 		item =>
-			String(item.value) === filterValue ||
-			includes(String(item.label), filterValue)
+			String(item.value).toLowerCase() === filterValue ||
+			includes(t(String(item.label)).toLowerCase(), filterValue)
 	)
+
+	let label = currentOption?.label ?? placeholder
+	if (isTranslation) {
+		label = t(currentOption?.label as string) || t(placeholder || '')
+	} else if (showValue) {
+		label = currentOption?.value as string
+	}
 
 	return (
 		<>
@@ -104,11 +113,7 @@ const Select = (props: ISelectProps) => {
 					{/* 如 prefixOptionIcon 為 Image 會造成跑版，所以使用 style 調整 */}
 					<div style={{ display: 'flex', alignItems: 'center' }}>
 						{currentOption?.prefixOptionIcon}
-						<span className='text'>
-							{showValue
-								? currentOption?.value
-								: currentOption?.label || placeholder}
-						</span>
+						<span className='text'>{label}</span>
 					</div>
 					<i className='icon icon-keyboard_arrow_down' />
 				</button>
@@ -124,7 +129,7 @@ const Select = (props: ISelectProps) => {
 								type='text'
 								className='search'
 								placeholder='Search'
-								onChange={e => setFilterValue(e.target.value)}
+								onChange={e => setFilterValue(e.target.value.toLowerCase())}
 							/>
 						</div>
 					)}
@@ -137,7 +142,11 @@ const Select = (props: ISelectProps) => {
 							onClick={() => handleOptionClick(option)}
 						>
 							{option.prefixOptionIcon}
-							<span className='text'> {option.label || ' '}</span>
+							<span className='text'>
+								{isTranslation
+									? t(option.label as string)
+									: option.label || ' '}
+							</span>
 						</div>
 					))}
 				</div>

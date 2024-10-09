@@ -66,11 +66,15 @@ export enum RebateCategoryEnum {
 export interface ISignUpArgs {
 	affCode?: string
 	affId?: string
-	areaCode: string
+	areaCode?: string
 	currencyId: number
 	email?: string
-	phoneNo: string
-	realName: string
+	Birth_d?: string | number
+	Birth_m?: string | number
+	Birth_y?: string | number
+	nationality?: string
+	phoneNo?: string
+	realName?: string
 	// reCaptchaToken: string
 	referralUrl?: string
 	userLang: string
@@ -148,4 +152,9 @@ export interface IResetPwdVerifyOTPArgs {
 	userName: string
 	inputOTPcode: string
 	newPassword: string
+}
+
+export interface ICountryListData {
+	code: string
+	country: string
 }

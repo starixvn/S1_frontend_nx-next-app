@@ -1,10 +1,10 @@
-import { GetServerSideProps } from 'next'
+import { ForgetPassword, Layout } from '@12b-h5/components/index'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { ForgetPassword, Layout } from '@nx-next-app/features/F0001/h5'
+import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 type IForgetPasswordPageProps = InitialPropsInterface
@@ -13,10 +13,13 @@ const ForgetPasswordPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
+	persistStaticFileDomainData,
 }: IForgetPasswordPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData}>
 					<ForgetPassword />
 				</Layout>

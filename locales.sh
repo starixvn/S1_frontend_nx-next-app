@@ -1,6 +1,6 @@
 #!/bin/sh
 # 目前既有品牌
-SITE_LIST=(common nova88 yashbet onetwobet)
+SITE_LIST=(common nova88 onetwobet yashbet)
 
 # READ
 echo "選擇品牌(單選、複選)"

@@ -1,32 +1,32 @@
-import Link from 'next/link'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	DepositModule,
 	Form,
 	InputBox,
 	Select,
 } from '@nx-next-app/components/H0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
 import {
 	IMobilePayForm,
 	useAuth,
 	useDepositContext,
 	useMobilePayForm,
 } from '@nx-next-app/data-access'
-import dynamic from 'next/dynamic'
 import { IPaymentMobilePayData } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import {
 	generateShortcutList,
 	isConvert,
 	limitedShortcutAmountList,
+	numFormatToDigits,
 	numberFormat,
 	revertNumberFormat,
-	numFormatToDigits,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { paths } from '@nx-next-app/constants'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
 
 const { IDR } = CurrenciesEnum
 
@@ -83,6 +83,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 		custEWalletList,
 		bankCardOptions,
 		bankCardRequired,
+		bankCardOrEWalletRequired,
 		channelMobilePayList = [],
 		onMobilePayFormSubmit,
 	} = useMobilePayForm({
@@ -336,13 +337,16 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				</DepositModule>
 			)}
 
-			{bankCardRequired && (
+			{(bankCardRequired || bankCardOrEWalletRequired) && (
 				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
 					<div className='infoModule'>
 						<Select
 							value={watchCustBankAccount}
 							options={bankCardOptions}
 							onChange={value => {
+								if (bankCardOrEWalletRequired) {
+									setValue('custEWalletAccount', undefined)
+								}
 								trigger('custBankAccount')
 								setValue('custBankAccount', String(value))
 								clearErrors('custBankAccount')
@@ -367,13 +371,16 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				</DepositModule>
 			)}
 
-			{eWalletRequired && (
+			{(eWalletRequired || bankCardOrEWalletRequired) && (
 				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
 					<div className='infoModule'>
 						<Select
 							value={watchCustEWalletAccount}
 							options={eWalletOptions}
 							onChange={value => {
+								if (bankCardOrEWalletRequired) {
+									setValue('custBankAccount', undefined)
+								}
 								trigger('custEWalletAccount')
 								setValue('custEWalletAccount', String(value))
 								clearErrors('custEWalletAccount')

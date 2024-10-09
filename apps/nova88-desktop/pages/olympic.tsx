@@ -1,16 +1,16 @@
-import { GetServerSideProps } from 'next'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Layout, Olympic } from '@nx-next-app/features/F0001/desktop'
+import { OlympicProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { IFooterData } from '@nx-next-app/types'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { ALLOWED_CURRENCIES, FOOTER_DATA } from '@nx-next-app/site/nova88'
-import { OlympicProvider } from '@nx-next-app/features/F0001/providers'
+import { IFooterData } from '@nx-next-app/types'
 import { includes } from 'lodash'
+import { GetServerSideProps } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 interface IEuroCupProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
@@ -21,10 +21,13 @@ const OlympicPage = ({
 	originCookies,
 	persistSEOData,
 	persistFooterData,
+	persistStaticFileDomainData,
 }: IEuroCupProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider>
+			<GlobalDataProvider
+				persistStaticFileDomainData={persistStaticFileDomainData}
+			>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<OlympicProvider>
 						<Olympic />
