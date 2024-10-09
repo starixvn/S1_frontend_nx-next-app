@@ -12,7 +12,6 @@ export interface IFooterData {
 	paymentMethodsByCurrencyId: {
 		[key: number]: IPaymentMethod[]
 	}
-	sponsorsList: ISponsorsListdata[]
 	aboutUsList: IAboutUsListData[]
 }
 
@@ -93,6 +92,12 @@ export interface ISponsorsListdata {
 export interface IAboutUsListData {
 	displayText: string
 	pathname: string
+}
+
+export interface IGameProvidersData {
+	imgUrl: string
+	pathname: string
+	mobileGroup?: number
 }
 
 export enum SocialChannelEnum {

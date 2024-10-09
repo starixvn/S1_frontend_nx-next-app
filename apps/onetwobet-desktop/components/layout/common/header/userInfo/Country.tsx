@@ -13,7 +13,6 @@ const Country = () => {
 	const ref = useRef(null)
 	const { value: isActive, toggle, setFalse } = useBoolean(false)
 	const { icon, languageGroup, onSetLanguage } = useLanguageGroup()
-
 	useOnClickOutside(ref, setFalse)
 	return (
 		// <!--新增 .active language-list會出現-->

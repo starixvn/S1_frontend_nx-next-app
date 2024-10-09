@@ -1,14 +1,11 @@
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
-import { openLiveChat } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useBoolean } from 'usehooks-ts'
-
-const FOOTER_HOME_DOMAIN = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/footer`
 
 const LayoutFooter = () => {
 	const { t } = useTranslation()
@@ -17,13 +14,14 @@ const LayoutFooter = () => {
 		useBoolean()
 
 	const {
-		userInfo: { currencyId },
+		userInfo: { langId, currencyId },
+		auth: { isLogin },
 	} = useAuth()
 	const router = useRouter()
 	const { pathname } = router
-	const { ALLOWED_CURRENCIES } = useStaticData()
-	// const { ALLOWED_CURRENCIES, LIVE_CHAT_ID_BY_LANG_ID } = useStaticData()
+	const { ALLOWED_CURRENCIES, LIVE_CHAT_ID_BY_LANG_ID } = useStaticData()
 
+	// TODO: 等設計加上紅點的class name之後再做判斷加上去
 	// const { data: { data: msgCount = 0 } = {} } = useGetMsgCountQuery(null, {
 	// 	skip: !isLogin,
 	// })
@@ -37,9 +35,18 @@ const LayoutFooter = () => {
 	}
 
 	// * 根據語系有不同的 LIVE CHAT ID, 默認為 en
-	// const liveChatUrl = `https://direct.lc.chat/${
-	// 	process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']
-	// }/${LIVE_CHAT_ID_BY_LANG_ID[langId] || 'en'}`
+	const liveChatUrl = `https://direct.lc.chat/${
+		process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']
+	}/${LIVE_CHAT_ID_BY_LANG_ID[langId] || 'en'}`
+
+	// 如果在未登入點擊Banking會被導到login頁，有登入則顯示其子功能
+	const handleBanking = () => {
+		if (!isLogin) {
+			router.push(paths.login.root)
+		} else {
+			toggleIsFooterPopupActive()
+		}
+	}
 
 	return (
 		<>
@@ -82,7 +89,12 @@ const LayoutFooter = () => {
 					</a>
 				</Link>
 
-				<a className='footer-item' onClick={openLiveChat}>
+				<a
+					rel='noreferrer'
+					target='_blank'
+					href={liveChatUrl}
+					className='footer-item'
+				>
 					<img
 						src={getBannerUrl('/h5/img/4.0/footer/livechat.svg')}
 						alt='img-livechat'
@@ -94,7 +106,7 @@ const LayoutFooter = () => {
 					className={classNames('footer-item me', {
 						active: isFooterPopupActive,
 					})}
-					onClick={toggleIsFooterPopupActive}
+					onClick={handleBanking}
 				>
 					<img
 						src={getBannerUrl('/h5/img/4.0/footer/banking.svg')}
@@ -114,7 +126,10 @@ const LayoutFooter = () => {
 					<Link href={paths.deposit.root}>
 						<a onClick={handleYuriAddToCartClick}>
 							<div className='footer-popup-img'>
-								<img src={`${FOOTER_HOME_DOMAIN}/deposit.png`} alt='Deposit' />
+								<img
+									src={getBannerUrl('/h5/img/4.0/footer/deposit.png')}
+									alt='Deposit'
+								/>
 							</div>
 						</a>
 					</Link>
@@ -125,7 +140,7 @@ const LayoutFooter = () => {
 						<a>
 							<div className='footer-popup-img'>
 								<img
-									src={`${FOOTER_HOME_DOMAIN}/withdrawal.png`}
+									src={getBannerUrl('/h5/img/4.0/footer/withdrawal.png')}
 									alt='Withdrawal'
 								/>
 							</div>
@@ -141,7 +156,7 @@ const LayoutFooter = () => {
 							<a>
 								<div className='footer-popup-img'>
 									<img
-										src={`${FOOTER_HOME_DOMAIN}/transfer.png`}
+										src={getBannerUrl('/h5/img/4.0/footer/transfer.png')}
 										alt='Transfer'
 									/>
 								</div>
@@ -152,11 +167,14 @@ const LayoutFooter = () => {
 						</div>
 					</div>
 				)}
-				<div className='footer-popup-item'>
+				<div className='footer-popup-item '>
 					<Link href={paths.message.root}>
 						<a>
-							<div className='footer-popup-img'>
-								<img src={`${FOOTER_HOME_DOMAIN}/massage.png`} alt='Message' />
+							<div className='footer-popup-img '>
+								<img
+									src={getBannerUrl('/h5/img/4.0/footer/massage.png')}
+									alt='Message'
+								/>
 							</div>
 						</a>
 					</Link>

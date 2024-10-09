@@ -56,7 +56,9 @@ const UserInfo = () => {
 							</div>
 							<div className='text'>
 								{/* TODO: i18n翻譯 */}
-								<span>Vip Status:</span>
+								<span>
+									{t('Label_General_VIP')} {t('Label_History_Status')}:
+								</span>
 								<span className='vip-mark'>
 									{t(currentVipLevelInfo?.displayKey)}
 								</span>
@@ -95,7 +97,6 @@ const UserInfo = () => {
 				</button>
 
 				{/* <!-- language下拉選單 -->  */}
-				{/* TODO: */}
 				<Country />
 
 				{auth.isLogin ? (

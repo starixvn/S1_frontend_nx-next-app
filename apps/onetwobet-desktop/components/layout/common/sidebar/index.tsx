@@ -19,7 +19,7 @@ const FloatSidebar = () => {
 						/>
 					</button>
 				</li>
-				{/* <!-- TODO: Download app --> */}
+				{/* <!-- Download app --> */}
 				<li className='sidebar-list'>
 					<a
 						href=''

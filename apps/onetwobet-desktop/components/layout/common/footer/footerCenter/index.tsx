@@ -28,7 +28,7 @@ const FooterCenter = ({ aboutUsList, licenseData }: IFooterCenterProps) => {
 					{aboutUsList.map(item => {
 						const { pathname, displayText } = item
 						return (
-							<li>
+							<li key={displayText}>
 								<Link href={pathname}>
 									<a>{t(displayText)}</a>
 								</Link>

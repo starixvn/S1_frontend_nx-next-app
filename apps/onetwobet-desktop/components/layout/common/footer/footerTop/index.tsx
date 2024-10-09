@@ -1,13 +1,11 @@
 import { useGlobalData } from '@nx-next-app/data-access'
 import { useLanguageGroup } from '@nx-next-app/hooks'
-import { ISponsorsListdata } from '@nx-next-app/types'
+import { sponsorsList } from '@nx-next-app/site/onetwobet'
+import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 
-interface IFooterTopProps {
-	sponsorsList: ISponsorsListdata[]
-}
-
-const FooterTop = ({ sponsorsList }: IFooterTopProps) => {
+const FooterTop = () => {
+	const { t } = useTranslation()
 	const { getBannerUrl, getSportImageUrl } = useGlobalData()
 	const { icon } = useLanguageGroup()
 	return (
@@ -20,21 +18,21 @@ const FooterTop = ({ sponsorsList }: IFooterTopProps) => {
 						src={getBannerUrl('/desktop/img/vip-icon.png')}
 						alt='Sponsorship img'
 					/>
-					Sponsorship Events
+					{t('Label_Sponsorship_Events')}
 				</a>
 			</Link>
 
 			{/* TODO: 對外連結ＰＭ後續提供 */}
 			<a href=''>
 				<img src={getBannerUrl('/desktop/img/affiliate-icon.png')} alt='' />
-				Affiliate Program
+				{t('Label_Affiliate_Program')}
 			</a>
 			<Link
 				href={`https://tsprom.qqs77.com/sponsorship/index.php?act=home&lang=${icon}`}
 			>
 				<a target='_blank'>
 					<img src={getBannerUrl('/desktop/img/lc-logo.png')} alt='' />
-					OFFICIAL BETTING PARTNER
+					{t('Label_Official_Betting_Partner')}
 					<br />
 					2024 - 2025
 				</a>

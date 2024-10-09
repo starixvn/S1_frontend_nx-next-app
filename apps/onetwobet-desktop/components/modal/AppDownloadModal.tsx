@@ -53,7 +53,9 @@ const AppDownloadModal = () => {
 									<img src='img/12betapp-ios.png' alt='' />
 								)}
 								{/* TODO: 讓使用者可以直接下載 */}
-								<button className='primary '>{t('Label_DOWNLOAD')}</button>
+								<a href={IOSDownloadUrl} target='_blank' rel='noreferrer'>
+									<button className='primary '>{t('Label_DOWNLOAD')}</button>
+								</a>
 							</div>
 						</div>
 						<div className='download-item'>
