@@ -94,3 +94,10 @@ export interface IAboutUsListData {
 	displayText: string
 	pathname: string
 }
+
+export enum SocialChannelEnum {
+	HOME = 1,
+	CONTACT_US,
+	APP,
+	FOOTER,
+}

@@ -1,6 +1,7 @@
 import License from '@12b-desktop/components/layout/common/footer/footerCenter/License'
 import Products from '@12b-desktop/components/layout/common/footer/footerCenter/Products'
 import Provider from '@12b-desktop/components/layout/common/footer/footerCenter/Provider'
+import SocialMedia from '@12b-desktop/components/layout/common/footer/footerCenter/SocialMedia'
 import { IAboutUsListData, ILicenseData } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
@@ -48,89 +49,7 @@ const FooterCenter = ({ aboutUsList, licenseData }: IFooterCenterProps) => {
 			</div>
 			{/* <!-- Connect --> */}
 			<div className='footer-center-item connect'>
-				<div className='footer-center-title'>Connect</div>
-				<ul>
-					<li>
-						<a href=''>
-							<img
-								src='https://banner.picasso12.com/desktop/img/facebook.png'
-								alt=''
-							/>
-						</a>
-					</li>
-					<li>
-						<a href=''>
-							<img
-								src='https://banner.picasso12.com/desktop/img/twitter.png'
-								alt=''
-							/>
-						</a>
-					</li>
-					<li>
-						<a href=''>
-							<img
-								src='https://banner.picasso12.com/desktop/img/youtube.png'
-								alt=''
-							/>
-						</a>
-					</li>
-					<li>
-						<a href=''>
-							<img
-								src='https://banner.picasso12.com/desktop/img/instagram.png'
-								alt=''
-							/>
-						</a>
-					</li>
-					<li>
-						<a href=''>
-							<img
-								src='https://banner.picasso12.com/desktop/img/wechat.png'
-								alt=''
-							/>
-						</a>
-					</li>
-					<li>
-						<a href=''>
-							<img
-								src='https://banner.picasso12.com/desktop/img/line.png'
-								alt=''
-							/>
-						</a>
-					</li>
-					<li>
-						<a href=''>
-							<img
-								src='https://banner.picasso12.com/desktop/img/blogger.png'
-								alt=''
-							/>
-						</a>
-					</li>
-					<li>
-						<a href=''>
-							<img
-								src='https://banner.picasso12.com/desktop/img/pinterest.png'
-								alt=''
-							/>
-						</a>
-					</li>
-					<li>
-						<a href=''>
-							<img
-								src='https://banner.picasso12.com/desktop/img/whatsapp.png'
-								alt=''
-							/>
-						</a>
-					</li>
-					<li>
-						<a href=''>
-							<img
-								src='https://banner.picasso12.com/desktop/img/email.png'
-								alt=''
-							/>
-						</a>
-					</li>
-				</ul>
+				<SocialMedia />
 			</div>
 		</div>
 	)
