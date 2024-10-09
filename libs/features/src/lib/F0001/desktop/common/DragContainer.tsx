@@ -51,7 +51,6 @@ const DragContainer = () => {
 				setPosition(position)
 			}}
 			dragHandleClassName='drag-handle'
-			enableUserSelectHack={false}
 			style={{
 				zIndex: 10001,
 				border: '1px solid #ccc',
