@@ -36,6 +36,8 @@ export enum DesktopHomeComponentsEnum {
 	Retention = 'Retention',
 	// 2024巴黎奧運入口
 	OlympicEntry = 'OlympicEntry',
+	// DragContainer
+	DragContainer = 'DragContainer',
 }
 
 // 手機首頁元件 enum

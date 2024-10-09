@@ -1,4 +1,19 @@
-import React, { createContext, ReactNode, useContext, useEffect } from 'react'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import {
+	SlotGameCategoryEnum,
+	useAuth,
+	useGlobalData,
+	useStaticData,
+} from '@nx-next-app/data-access'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import {
+	CategoryEnum,
+	DesktopHomeComponentsEnum,
+	GameTypeEnum,
+	MobileHomeComponentsEnum,
+	SocialChannelEnum,
+} from '@nx-next-app/features/F0001/types'
 import {
 	IAnnouncementData,
 	IBannerData,
@@ -19,28 +34,13 @@ import {
 	useLazyGetWalletInfoQuery,
 } from '@nx-next-app/service'
 import { CurrenciesEnum, DeviceTypeEnum, IFooterData } from '@nx-next-app/types'
-import {
-	SlotGameCategoryEnum,
-	useAuth,
-	useGlobalData,
-	useStaticData,
-} from '@nx-next-app/data-access'
-import dynamic from 'next/dynamic'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import {
-	CategoryEnum,
-	GameTypeEnum,
-	SocialChannelEnum,
-	MobileHomeComponentsEnum,
-	DesktopHomeComponentsEnum,
-} from '@nx-next-app/features/F0001/types'
-import { paths } from '@nx-next-app/constants'
-import { useRouter } from 'next/router'
-import { find, head } from 'lodash-es'
+import { getCookie, setCookie } from 'cookies-next'
 import dayjs from 'dayjs'
 import isBetween from 'dayjs/plugin/isBetween'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { getCookie, setCookie } from 'cookies-next'
+import { find, head } from 'lodash-es'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
+import { ReactNode, createContext, useContext, useEffect } from 'react'
 
 dayjs.extend(isBetween)
 interface IHomeProviderProps {
@@ -190,6 +190,7 @@ const defaultDesktopHomeOrders = [
 	DesktopHomeComponentsEnum.EuropeCupEntry,
 	DesktopHomeComponentsEnum.LuckyWheel,
 	DesktopHomeComponentsEnum.LiveStreamingLink,
+	DesktopHomeComponentsEnum.DragContainer,
 ]
 
 const defaultMobileHomeOrders = [

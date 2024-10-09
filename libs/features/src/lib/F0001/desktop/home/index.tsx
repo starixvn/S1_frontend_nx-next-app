@@ -1,14 +1,18 @@
-import React, { Fragment, useCallback } from 'react'
-import dynamic from 'next/dynamic'
-import { includes } from 'lodash-es'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { DesktopHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { includes } from 'lodash-es'
+import dynamic from 'next/dynamic'
+import { Fragment, useCallback } from 'react'
 
 // Page Components
 const ProvidersBlock = dynamic(() => import('./ProvidersBlock'), { ssr: false })
 
 const WelcomeInfo = dynamic(() => import('./WelcomeInfo'))
+
+const DragContainer = dynamic(() => import('../common/DragContainer'), {
+	ssr: false,
+})
 
 const CarouselBanner = dynamic(() => import('../common/carouselBanner'))
 
@@ -102,6 +106,8 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
 		[DesktopHomeComponentsEnum.QuickDownload]: <QuickDownload />,
 		[DesktopHomeComponentsEnum.QuickLink]: <QuickLink />,
+		[DesktopHomeComponentsEnum.DragContainer]: <DragContainer />,
+
 		[DesktopHomeComponentsEnum.OlympicEntry]: includes(
 			ALLOWED_CURRENCIES.OLYMPIC,
 			currencyId

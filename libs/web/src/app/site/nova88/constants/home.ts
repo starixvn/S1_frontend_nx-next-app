@@ -20,6 +20,7 @@ export const DESKTOP_HOME_ORDERS = [
 	DesktopHomeComponentsEnum.LuckyWheel,
 	DesktopHomeComponentsEnum.Retention,
 	DesktopHomeComponentsEnum.OlympicEntry,
+	DesktopHomeComponentsEnum.DragContainer,
 ]
 
 export const MOBILE_HOME_ORDERS = [
