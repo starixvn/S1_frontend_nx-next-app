@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FiMinimize2 } from 'react-icons/fi'
 import { ImTv } from 'react-icons/im'
 import { MdDragIndicator } from 'react-icons/md'
@@ -6,11 +6,25 @@ import { Rnd } from 'react-rnd'
 
 const DragContainer = () => {
 	const [isHidden, setIsHidden] = useState(false)
-	const [size, setSize] = useState({ width: 560, height: 315 })
+	const [size, setSize] = useState({ width: 600, height: 400 })
 	const [position, setPosition] = useState({
-		x: window.innerWidth - 560 - 20,
-		y: window.innerHeight - 315 - 20,
+		x: window.innerWidth - 600 - 20,
+		y: window.innerHeight - 400 - 20,
 	})
+
+	useEffect(() => {
+		const handleResize = () => {
+			setPosition({
+				x: window.innerWidth - size.width - 20,
+				y: window.innerHeight - size.height - 20,
+			})
+		}
+
+		window.addEventListener('resize', handleResize)
+		return () => {
+			window.removeEventListener('resize', handleResize)
+		}
+	}, [size])
 
 	if (isHidden) {
 		return (
