@@ -19,6 +19,7 @@ import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 import { Form, InputBox, Loading, Select } from '../../common'
 
 const DepositQRCodeModal = dynamic(
@@ -35,6 +36,7 @@ interface IOnlineBankingFormProps {
 }
 
 const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
+	const { push, pathname, query } = useRouter()
 	const {
 		userInfo: { currencyId, accountName },
 	} = useAuth()
@@ -50,6 +52,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 			register,
 			clearErrors,
 			formState: { touchedFields, errors, isValid },
+			getValues,
 		},
 		loading,
 		selBank,
@@ -105,17 +108,33 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 				required
 				hasAdditionalInfo
 			>
-				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
+				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{dataSource.map(item => {
-						const { payName, displayChannelName, minAmount, maxAmount } = item
+						const {
+							payName,
+							displayChannelName,
+							minAmount,
+							maxAmount,
+							channelId,
+						} = item
 						const min = numberFormat(minAmount, currencyId, 0, false)
 						const max = numberFormat(maxAmount, currencyId, 0, false)
 						return (
 							<DepositModule.SubModuleButton
 								label={displayChannelName}
 								imgName={`${toLower(payName)}.png`}
-								matchValue={payName}
-								key={payName}
+								matchValue={String(channelId)}
+								key={channelId}
+								onClick={() => {
+									push(
+										{
+											pathname,
+											query: { ...query, channelId, sysId: 0 },
+										},
+										undefined,
+										{ shallow: true }
+									)
+								}}
 							>
 								<div>{`${min} ~ ${max}`}</div>
 							</DepositModule.SubModuleButton>
@@ -133,9 +152,8 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 				>
 					<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 						{paymentOnlineBankInfoSysList.map(item => {
-							const { bankName, bankLogo, minAmount, maxAmount, sysId } = item
-							const min = numberFormat(minAmount, currencyId, 0, false)
-							const max = numberFormat(maxAmount, currencyId, 0, false)
+							const { bankName, bankLogo, sysId } = item
+
 							return (
 								<DepositModule.SubModuleButton
 									label={bankName}
@@ -143,7 +161,9 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 									matchValue={String(sysId)}
 									key={sysId}
 								>
-									<div>{`${min} ~ ${max}`}</div>
+									<div>{`${getValues('minAmount')} ~ ${getValues(
+										'maxAmount'
+									)}`}</div>
 								</DepositModule.SubModuleButton>
 							)
 						})}
