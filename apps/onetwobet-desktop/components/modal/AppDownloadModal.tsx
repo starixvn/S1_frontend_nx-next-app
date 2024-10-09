@@ -32,6 +32,7 @@ const AppDownloadModal = () => {
 							</div>
 							<div className='qr-code'>
 								<img src='img/12betapp-ios.png' alt='' />
+								{/* TODO: 讓使用者可以直接下載 */}
 								<button className='primary '>{t('Label_DOWNLOAD')}</button>
 							</div>
 						</div>
@@ -51,7 +52,7 @@ const AppDownloadModal = () => {
 								) : (
 									<img src='img/12betapp-ios.png' alt='' />
 								)}
-
+								{/* TODO: 讓使用者可以直接下載 */}
 								<button className='primary '>{t('Label_DOWNLOAD')}</button>
 							</div>
 						</div>
@@ -62,6 +63,7 @@ const AppDownloadModal = () => {
 							</div>
 							<div className='qr-code'>
 								<img src='img/12betapp-ios.png' alt='' />
+								{/* TODO: 讓使用者可以直接下載 */}
 								<button className='primary '>{t('Label_DOWNLOAD')}</button>
 							</div>
 						</div>

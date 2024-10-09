@@ -1,4 +1,5 @@
 import SubMenu from '@12b-desktop/components/layout/common/header/menuList/SubMenu'
+import AppDownloadModal from '@12b-desktop/components/modal/AppDownloadModal'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { PRODUCTS, paths } from '@nx-next-app/constants'
 import { useGlobalData } from '@nx-next-app/data-access'
@@ -57,7 +58,13 @@ const MenuList = () => {
 				</Link>
 
 				<li>
-					<button className='nav-btn'>
+					<button
+						className='nav-btn'
+						onClick={e => {
+							e.preventDefault()
+							modal.open(<AppDownloadModal />)
+						}}
+					>
 						<img
 							src={getBannerUrl('/desktop/img/mobile-icon.png')}
 							alt='mobile icon'
