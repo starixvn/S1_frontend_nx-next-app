@@ -52,7 +52,7 @@ const Join = () => {
 		ISelectProps['options']
 	>([])
 
-	const formMethods = useForm()
+	const formMethods = useForm({ mode: 'onTouched' })
 	const { setError, setValue, getValues, clearErrors, handleSubmit } =
 		formMethods
 

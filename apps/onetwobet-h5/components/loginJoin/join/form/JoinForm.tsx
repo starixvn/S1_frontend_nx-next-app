@@ -124,41 +124,28 @@ const JoinForm = ({
 		} catch (error) {
 			setError('affiliate', {
 				type: 'invalid',
-				message: t('Label_Join_AffiliateIdWrong') || '',
+				message: t('Label_Join_AffiliateIdWrong'),
 			})
 			return false
 		}
 	}
 
 	const [checkExistsEmail] = useLazyExistsEmailQuery()
-	const checkPhone = async () => {
-		await trigger('phone')
-		const { error } = getFieldState('phone')
-		if (error) return
 
-		const formAreaCode = getValues('areaCode')
-		const formPhone = getValues('phone')
+	const validatePhone = async () => {
+		trigger('areaCode')
 
-		if (!formAreaCode) {
-			setError('phone', {
-				type: 'required',
-				message: t('Label_Join_PhoneRequired'),
-			})
-		} else if (
-			Object.values(AREA_CODE_BY_CURRENCY).includes(formAreaCode) &&
-			!PHONE_LENGTH_REGEX.test(formAreaCode + formPhone)
+		const areaCode = getValues('areaCode')
+		const phone = getValues('phone')
+
+		if (!areaCode) return t('Label_Join_PhoneRequired')
+
+		if (
+			Object.values(AREA_CODE_BY_CURRENCY).includes(areaCode) &&
+			!PHONE_LENGTH_REGEX.test(areaCode + phone)
 		) {
-			const limitRange = PHONE_DIGITS_LIMIT[formAreaCode]
-			if (limitRange) {
-				setError('phone', {
-					type: 'length',
-					message: t('Label_Join_PhoneNumberErrorTip', {
-						digitalArea: limitRange,
-					}),
-				})
-			}
-		} else {
-			clearErrors('phone')
+			const digitRange = PHONE_DIGITS_LIMIT[areaCode]
+			return t('Label_Join_PhoneNumberErrorTip', { digitalArea: digitRange })
 		}
 	}
 
@@ -168,13 +155,12 @@ const JoinForm = ({
 			setValue('areaCode', newAreaCode)
 
 			const formPhone = getValues('phone')
-			if (formPhone) checkPhone()
+			if (formPhone) trigger('phone')
 		}
 	}
-	const areaCodeSelectOptions = Object.values(AREA_CODE).map(el => ({
-		value: el.AreaCode,
-		label: `${el.AreaCode} ${el.Name}`,
-	}))
+	const areaCodeSelectOptions = Object.values(AREA_CODE).map(
+		({ AreaCode }) => ({ value: AreaCode, label: AreaCode })
+	)
 
 	const checkEmail = async () => {
 		await trigger('email')
@@ -201,35 +187,31 @@ const JoinForm = ({
 		<div className='form-content'>
 			<InputBox
 				register={register('username', {
-					required: { value: true, message: t('Label_General_UsernameReq') },
+					required: t('Label_General_UsernameReq'),
 					pattern: {
 						value: USERNAME_REGEX,
-						message: t('Label_General_UserNameLength') || '',
+						message: t('Label_General_UserNameLength'),
 					},
 					onBlur: checkUsername,
 				})}
 				requiredIcon
-				placeholder={t('Label_General_Username') || ''}
+				placeholder={t('Label_General_Username')}
 				errorMessage={errors['username']?.message as string}
 				error={!!errors['username']}
 				touched={!!touchedFields['username']}
-				infoMessage={t('Label_Join_UsernameTooltip') || ''}
+				infoMessage={t('Label_Join_UsernameTooltip')}
 			/>
 			<InputBox
 				register={register('password', {
-					required: {
-						value: true,
-						message: t('Label_General_PasswordRequired'),
-					},
+					required: t('Label_General_PasswordRequired'),
 					pattern: {
 						value: PASSWORD_REGEX,
-						message: t('Label_General_PasswordValidate') || '',
+						message: t('Label_General_PasswordValidate'),
 					},
-					onBlur: () => trigger('password'),
 				})}
 				password
 				requiredIcon
-				placeholder={t('Label_General_Password') || ''}
+				placeholder={t('Label_General_Password')}
 				errorMessage={errors['password']?.message as string}
 				error={!!errors['password']}
 				touched={!!touchedFields['password']}
@@ -237,11 +219,8 @@ const JoinForm = ({
 			{joinBy === JoinMethod.Number && (
 				<InputPhone
 					register={register('phone', {
-						required: {
-							value: true,
-							message: t('Label_Join_PhoneRequired'),
-						},
-						onBlur: checkPhone,
+						required: t('Label_Join_PhoneRequired'),
+						validate: validatePhone,
 					})}
 					placeholder={t('Label_General_Phone')}
 					error={!!errors['phone']}
@@ -251,7 +230,6 @@ const JoinForm = ({
 					errorMessage={errors['phone']?.message as string}
 					onChangeSelect={selectAreaCode}
 					selectValue={getValues('areaCode')}
-					showValue
 					type='number'
 					requiredIcon
 				>
@@ -262,7 +240,7 @@ const JoinForm = ({
 						placeholder={t('Label_General_Currency')}
 						onChange={currencyId => {
 							selectCurrency(currencyId)
-							if (getValues('phone')) checkPhone()
+							if (getValues('phone')) trigger('phone')
 						}}
 						errorMessage={errors['currencyId']?.message as string}
 					/>
@@ -289,23 +267,21 @@ const JoinForm = ({
 						register={register('email', {
 							pattern: {
 								value: EMAIL_REGEX,
-								message: t('Label_Join_MailWrongFormat') || '',
+								message: t('Label_Join_MailWrongFormat'),
 							},
 							onBlur: checkEmail,
 						})}
 						requiredIcon
-						placeholder={t('Label_General_Email') || ''}
+						placeholder={t('Label_General_Email')}
 						errorMessage={errors['email']?.message as string}
 						error={!!errors['email']}
 						touched={!!touchedFields['email']}
-						infoMessage={t('Label_Join_EmailToolTip') || ''}
+						infoMessage={t('Label_Join_EmailToolTip')}
 					/>
 				</>
 			)}
 			<InputBox
-				register={register('affiliate', {
-					onBlur: checkAffiliate,
-				})}
+				register={register('affiliate', { onBlur: checkAffiliate })}
 				placeholder={t('Label_Join_Affiliate_ID')}
 				errorMessage={errors['affiliate']?.message as string}
 				error={!!errors['affiliate']}

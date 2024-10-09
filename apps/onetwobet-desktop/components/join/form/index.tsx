@@ -70,7 +70,7 @@ const Form = () => {
 		clearErrors,
 		handleSubmit,
 		getFieldState,
-	} = useForm()
+	} = useForm({ mode: 'onTouched' })
 
 	const { errors, touchedFields } = formState
 
@@ -92,7 +92,6 @@ const Form = () => {
 
 	const [signUp] = useSignupMutation()
 
-	const [phoneErrorTip, setPhoneErrorTip] = useState<string | undefined>('')
 	const [currencyOptions, setCurrencyOptions] = useState<
 		ISelectProps['options']
 	>([])
@@ -102,7 +101,7 @@ const Form = () => {
 			const affiliate = getValues('affiliate')
 			const formCurrencyId = getValues('currencyId')
 
-			// if affId qualified, only show currencyId from api
+			// 當 affiliate 有效時，僅顯示對應的幣別
 			return urlAffId && affiliate ? currencyId === formCurrencyId : true
 		})
 		.map(currencyId => ({
@@ -129,7 +128,6 @@ const Form = () => {
 		const username = getValues('username')
 		if (error) return
 
-		// check username duplicate from api
 		try {
 			const { data: isExistsUsername, message: existsUsernameMsg } =
 				await checkExistsUsername({ username, langId }).unwrap()
@@ -137,8 +135,8 @@ const Form = () => {
 			if (isExistsUsername) {
 				setError('username', { type: 'duplicate', message: existsUsernameMsg })
 			}
-		} catch (error) {
-			// error
+		} catch {
+			//
 		}
 	}
 
@@ -146,8 +144,7 @@ const Form = () => {
 		await trigger('email')
 		const { error } = getFieldState('email')
 		const formEmail = getValues('email')
-		if (error || !formEmail) return // email格式錯誤或是根本沒輸入值就不call api以節省效能
-		// check email duplicate from api
+		if (error || !formEmail) return // email 格式錯誤或未輸入時不另做 API 檢查
 		try {
 			const { data: isExistsEmail } = await checkExistsEmail({
 				email: formEmail,
@@ -158,38 +155,26 @@ const Form = () => {
 					message: `${t('Label_Profile_MailExisted')}`,
 				})
 			}
-		} catch (error) {
-			// error
+		} catch {
+			//
 		}
 	}
 
-	const checkPhone = async () => {
-		await trigger('phone')
-		const { error } = getFieldState('phone')
+	const validatePhone = async () => {
+		trigger('areaCode')
 
-		const formAreaCode = getValues('areaCode')
-		const formPhone = getValues('phone')
+		const areaCode = getValues('areaCode')
+		const phone = getValues('phone')
 
-		let errorTip = ''
+		if (!areaCode) return t('Label_Join_PhoneRequired')
 
-		if (error) {
-			errorTip = error.message || ''
-		} else if (!formAreaCode) {
-			errorTip = t('Label_Join_PhoneRequired')
-		} else if (
-			Object.values(AREA_CODE_BY_CURRENCY).includes(formAreaCode) &&
-			!PHONE_LENGTH_REGEX.test(formAreaCode + formPhone)
+		if (
+			Object.values(AREA_CODE_BY_CURRENCY).includes(areaCode) &&
+			!PHONE_LENGTH_REGEX.test(areaCode + phone)
 		) {
-			// phone number check length by area code, so can't use pattern
-			const limitRange = PHONE_DIGITS_LIMIT[formAreaCode]
-			errorTip = t('Label_Join_PhoneNumberErrorTip', {
-				digitalArea: limitRange,
-			})
-		} else {
-			clearErrors('phone')
+			const digitRange = PHONE_DIGITS_LIMIT[areaCode]
+			return t('Label_Join_PhoneNumberErrorTip', { digitalArea: digitRange })
 		}
-
-		setPhoneErrorTip(errorTip)
 	}
 
 	const checkCurrency = () => {
@@ -242,11 +227,10 @@ const Form = () => {
 
 			clearErrors('affiliate')
 			return true
-		} catch (error) {
-			// error
+		} catch {
 			setError('affiliate', {
 				type: 'invalid',
-				message: t('Label_Join_AffiliateIdWrong') || '',
+				message: t('Label_Join_AffiliateIdWrong'),
 			})
 			return false
 		}
@@ -262,16 +246,14 @@ const Form = () => {
 			const areaCode = AREA_CODE_BY_CURRENCY[newCurrencyId]
 
 			if (areaCode) setValue('areaCode', areaCode)
-			if (touchedFields['phone']) checkPhone()
+			if (getValues('phone')) trigger('phone')
 		}
 	}
 
 	const selectAreaCode = (newAreaCode: ISelectProps['value']) => {
+		if (getValues('phone')) trigger('phone')
 		const formAreaCode = getValues('areaCode')
-		if (newAreaCode !== formAreaCode) {
-			setValue('areaCode', newAreaCode)
-			if (touchedFields['phone']) checkPhone()
-		}
+		if (newAreaCode !== formAreaCode) setValue('areaCode', newAreaCode)
 	}
 
 	const checkUrlAffiliate = async () => {
@@ -296,8 +278,8 @@ const Form = () => {
 					setValue('affiliate', urlAffCode)
 				}
 			}
-		} catch (error) {
-			// error
+		} catch {
+			//
 		}
 	}
 
@@ -310,8 +292,8 @@ const Form = () => {
 			try {
 				const result = await (window as any).IGLOO.getBlackbox()
 				blackbox = result?.blackbox || ''
-			} catch (error) {
-				// error
+			} catch {
+				//
 			}
 		}
 
@@ -368,7 +350,6 @@ const Form = () => {
 
 			router.push(`/${userLang}${paths.deposit.root}`)
 		} catch (error) {
-			// error
 			modal.error((error as Error).message)
 		}
 	}
@@ -410,7 +391,7 @@ const Form = () => {
 			<div className='inputModule'>
 				<InputBox
 					register={register('username', {
-						required: { value: true, message: t('Label_General_UsernameReq') },
+						required: t('Label_General_UsernameReq'),
 						pattern: {
 							value: USERNAME_REGEX,
 							message: t('Label_General_UserNameLength') || '',
@@ -428,10 +409,7 @@ const Form = () => {
 				/>
 				<InputBox
 					register={register('password', {
-						required: {
-							value: true,
-							message: t('Label_General_PasswordRequired'),
-						},
+						required: t('Label_General_PasswordRequired'),
 						pattern: {
 							value: PASSWORD_REGEX,
 							message: t('Label_General_PasswordValidate') || '',
@@ -506,28 +484,28 @@ const Form = () => {
 								requiredIcon
 								onChange={selectAreaCode}
 								value={getValues('areaCode')}
-								errorMessage={phoneErrorTip}
+								errorMessage={errors['phone']?.message as string}
 								showValue
 							/>
 							<InputBox
 								register={register('phone', {
-									required: {
-										value: true,
-										message: t('Label_Join_PhoneRequired'),
-									},
-									onBlur: checkPhone,
+									required: t('Label_Join_PhoneRequired'),
+									validate: validatePhone,
 								})}
 								requiredIcon
 								placeholder={t('Label_General_Phone') as string}
-								error={!!errors['phone'] || !!phoneErrorTip}
+								error={!!errors['phone']}
 								touched={!!touchedFields['phone']}
 								type='number'
 							/>
 						</div>
 						<div
-							className={classNames('tip active', { 'txt-red': phoneErrorTip })}
+							className={classNames('tip active', {
+								'txt-red': errors['phone'],
+							})}
 						>
-							{phoneErrorTip || t('Label_Join_CantChangePhone')}
+							{(errors['phone']?.message as string) ||
+								t('Label_Join_CantChangePhone')}
 						</div>
 					</>
 				)}
