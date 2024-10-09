@@ -1456,7 +1456,7 @@ main.index .home-promotion .swiper-button-prev {
   left: 29.5%;
 }
 main.index .home-information {
-  margin: 20px 50px 40px;
+  padding: 20px 50px 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1647,6 +1647,7 @@ main.index .home-information .home-news {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 30%;
 }
 main.index .home-information .home-news .title {
   position: relative;
@@ -1698,6 +1699,19 @@ main.index .home-information .home-news .content .news-swiper {
 }
 main.index .home-information .home-news .content .news-swiper .swiper-container {
   height: 100%;
+}
+main.index .home-information .home-news .content .news-swiper .swiper-container .swiper-slide .news-list {
+  height: 100%;
+}
+main.index .home-information .home-news .content .news-swiper .swiper-container .swiper-slide .news-list .news-blurb {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 3;
+  display: box;
+  box-orient: vertical;
 }
 main.index .home-information .home-news .news-list {
   padding: 10px 20px;
@@ -1773,6 +1787,10 @@ footer .footer-top a {
   font-size: 20px;
   text-align: center;
 }
+footer .footer-top a img {
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
 footer .footer-top a:hover img {
   -webkit-filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.95));
           filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.95));
@@ -1833,8 +1851,6 @@ footer .footer-center ul li a {
   color: #CCCCCC;
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
 }
 footer .footer-center ul li a:hover {
   -webkit-filter: grayscale(0%);

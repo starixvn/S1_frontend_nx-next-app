@@ -1,3 +1,5 @@
+import AppDownloadModal from '@12b-desktop/components/modal/AppDownloadModal'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { openLiveChat } from '@nx-next-app/utils'
@@ -7,6 +9,7 @@ import Link from 'next/link'
 const UserFunction = () => {
 	const { t } = useTranslation()
 	const { auth } = useAuth()
+	const { modal } = useGlobalModal()
 	const { getBannerUrl } = useGlobalData()
 
 	// 廣告商用的事件記錄器，綁在 DepositButton 底下
@@ -58,7 +61,12 @@ const UserFunction = () => {
 			{/* 💡登入前後都有 */}
 			<div className='function-container'>
 				{/* TODO: 還不確定download頁面 */}
-				<button className='primary '>
+				<button
+					className='primary'
+					onClick={() => {
+						modal.open(<AppDownloadModal />)
+					}}
+				>
 					<img
 						src={getBannerUrl('/desktop/img/download-icon.png')}
 						alt='download icon'

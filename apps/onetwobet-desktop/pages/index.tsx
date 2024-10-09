@@ -29,6 +29,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 // 優化專案 build 出來的檔案結構，僅獨立輸出必要的資源而非整包 node_module , 控管 docker image 大小
 // https://nextjs.org/docs/pages/api-reference/next-config-js/output
 // https://github.com/nrwl/nx/issues/9017
+import { AppDownloadProvider } from '@nx-next-app/operations'
+import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/onetwobet/data/appDownload'
 import dayjs from 'dayjs'
 import { filter } from 'lodash-es'
 import path from 'path'
@@ -62,24 +64,26 @@ const HomePage = ({
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
-				<Layout
-					showFooter
-					persistSEOData={persistSEOData}
-					footerData={persistFooterData}
-				>
-					<HomeProvider
-						persistBannerData={persistBannerData}
-						persistPromotionData={persistPromotionData}
-						persistHotEventData={persistHotEventData}
-						persistHotGameData={persistHotGameData}
-						persistLicenseData={persistFooterData.licenseData}
-						persistQuickLinksList={persistFooterData.quickLinks}
-						persistPlatformList={persistFooterData.platformList}
-						desktopHomeOrders={DESKTOP_HOME_ORDERS}
+				<AppDownloadProvider APP_DOWNLOAD_LIST={APP_DOWNLOAD_LIST}>
+					<Layout
+						showFooter
+						persistSEOData={persistSEOData}
+						footerData={persistFooterData}
 					>
-						<Home />
-					</HomeProvider>
-				</Layout>
+						<HomeProvider
+							persistBannerData={persistBannerData}
+							persistPromotionData={persistPromotionData}
+							persistHotEventData={persistHotEventData}
+							persistHotGameData={persistHotGameData}
+							persistLicenseData={persistFooterData.licenseData}
+							persistQuickLinksList={persistFooterData.quickLinks}
+							persistPlatformList={persistFooterData.platformList}
+							desktopHomeOrders={DESKTOP_HOME_ORDERS}
+						>
+							<Home />
+						</HomeProvider>
+					</Layout>
+				</AppDownloadProvider>
 			</GlobalDataProvider>
 		</AuthProvider>
 	)
