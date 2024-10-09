@@ -1,29 +1,29 @@
-import dayjs from 'dayjs'
-import { isEmpty } from 'lodash-es'
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
-import {
-	useSetProfileMutation,
-	useLazyExistsEmailQuery,
-} from '@nx-next-app/service'
-import { useAuth } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import {
-	PrevPageEnum,
-	PREV_PAGE,
-	AREA_CODE,
-	EMAIL_REGEX,
-	REALNAME_REGEX,
-} from '@nx-next-app/constants'
 import {
 	Form,
-	Select,
-	InputBox,
 	ISelectProps,
+	InputBox,
+	Select,
 } from '@nx-next-app/components/H0006'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import {
+	AREA_CODE,
+	EMAIL_REGEX,
+	PREV_PAGE,
+	PrevPageEnum,
+	REALNAME_REGEX,
+} from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
 import { useCheckPhone } from '@nx-next-app/features/F0006/hooks'
+import {
+	useLazyExistsEmailQuery,
+	useSetProfileMutation,
+} from '@nx-next-app/service'
+import dayjs from 'dayjs'
+import { isEmpty } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { PhoneOtpModal } from './PhoneOtpModal'
 
 const InfoEdit = () => {
@@ -142,7 +142,7 @@ const InfoEdit = () => {
 					Birth_y: birthYear ?? String(getValues('formBirthYear')),
 					PhoneNo: phoneNo ?? formPhone,
 					Email: isEmpty(email) ? formEmail : email,
-				})
+				}).unwrap()
 
 				if (!phoneVerified) {
 					modal.confirm(t('Label_Profile_VertifyContactConfirm'), {

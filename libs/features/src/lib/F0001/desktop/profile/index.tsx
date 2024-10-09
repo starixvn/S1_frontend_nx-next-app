@@ -60,7 +60,7 @@ const Profile = () => {
 					Birth_y: birthYear ?? dayjs(formBirth).format('YYYY'),
 					PhoneNo: phoneNo ?? formPhone,
 					Email: email ?? formEmail,
-				})
+				}).unwrap()
 
 				if (!phoneVerified) {
 					modal.confirm(
