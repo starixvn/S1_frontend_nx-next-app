@@ -31,7 +31,7 @@ const AppDownloadModal = () => {
 								<a className='icon icon-android-w' />
 							</div>
 							<div className='qr-code'>
-								<img src='img/12betapp-ios.png' alt='' />
+								<img src='img/12betapp-ios.png' alt='android pc QR code' />
 								{/* TODO: 讓使用者可以直接下載 */}
 								<button className='primary '>{t('Label_DOWNLOAD')}</button>
 							</div>
@@ -50,7 +50,7 @@ const AppDownloadModal = () => {
 										includeMargin
 									/>
 								) : (
-									<img src='img/12betapp-ios.png' alt='' />
+									<img src='img/12betapp-ios.png' alt='ios QR code' />
 								)}
 								{/* TODO: 讓使用者可以直接下載 */}
 								<a href={IOSDownloadUrl} target='_blank' rel='noreferrer'>
@@ -64,7 +64,7 @@ const AppDownloadModal = () => {
 								<a className='icon icon-android-w' />
 							</div>
 							<div className='qr-code'>
-								<img src='img/12betapp-ios.png' alt='' />
+								<img src='img/12betapp-ios.png' alt='android mobile QR code' />
 								{/* TODO: 讓使用者可以直接下載 */}
 								<button className='primary '>{t('Label_DOWNLOAD')}</button>
 							</div>

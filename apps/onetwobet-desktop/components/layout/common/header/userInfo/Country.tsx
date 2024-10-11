@@ -26,14 +26,17 @@ const Country = () => {
 				<img
 					className='icon'
 					src={getBannerUrl(`/desktop/img/flag/${icon}.jpg`)}
-					alt=''
+					alt='flag icon'
 				/>{' '}
 				{LANG_GROUP_COUNTRY[icon || 'ch']}
 			</button>
 			<div className='language-list'>
 				<div className='country-current'>
 					<div className='icon'>
-						<img src={getBannerUrl(`/desktop/img/flag/${icon}.jpg`)} alt='' />
+						<img
+							src={getBannerUrl(`/desktop/img/flag/${icon}.jpg`)}
+							alt='flag icon'
+						/>
 					</div>
 					<div className='country-info'>
 						<div>{LANG_GROUP_COUNTRY[icon || 'ch']}</div>

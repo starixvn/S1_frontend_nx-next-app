@@ -42,99 +42,100 @@ const SubMenu = ({ debouncedMenuKey, setMenuKey }: ISubMenuProps) => {
 
 		const active = debouncedMenuKey === String(category)
 
-		if (subMenu) {
-			return (
-				<div
-					key={lobbyCategoryId}
-					className={classNames(`${category.toLowerCase()}-list ${langId}`, {
-						active,
+		if (!subMenu) return
+
+		return (
+			<div
+				key={lobbyCategoryId}
+				className={classNames(`${category.toLowerCase()}-list ${langId}`, {
+					active,
+				})}
+				onMouseLeave={() => setMenuKey(undefined)}
+			>
+				<div className='container'>
+					{subMenu?.map(subMenuItem => {
+						// * 後端這裡是字串格式 需做處理
+						const subMenuImage =
+							subMenuItem?.pcHeaderPicUrl &&
+							JSON.parse(subMenuItem?.pcHeaderPicUrl)[0]
+
+						const displayName =
+							subMenuItem?.currencyGameName &&
+							subMenuItem?.currencyGameName[langId] &&
+							subMenuItem?.currencyGameName[langId]
+
+						const { iconType, iconStartTime, iconEndTime } = subMenuItem || {}
+
+						const switchSubMenuIcon = (iconType: MenuIconTypeEnum) => {
+							return subMenuIcon[iconType] || null
+						}
+
+						const submenuIcon =
+							(isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
+								switchSubMenuIcon(iconType)) ||
+							null
+						return (
+							<button
+								key={subMenuItem?.tpGameIdNo}
+								className={classNames({
+									active: subMenuItem?.isTpMaintain,
+								})}
+								onMouseEnter={() => setMenuKey(debouncedMenuKey)}
+								onClick={() => {
+									onMenuOpen(subMenuItem, {
+										loginCallback: () => modal.open(<LoginModal />),
+										messageCallBack: message => modal.error(message),
+										liveStreamingCallback: () =>
+											modal.open(<LiveStreamingModalDesktop />),
+									})
+								}}
+							>
+								{submenuIcon}
+								<img
+									className='List-npc'
+									src={subMenuImage}
+									alt={subMenuItem?.productName}
+								/>
+								<span>{displayName || subMenuItem?.productName}</span>
+								{subMenuItem?.isTpMaintain && (
+									<div className='under'>
+										{t('Label_General_UnderMaintenance')}
+									</div>
+								)}
+							</button>
+						)
 					})}
-					onMouseLeave={() => setMenuKey(undefined)}
-				>
-					<div className='container'>
-						{subMenu?.map(subMenuItem => {
-							// * 後端這裡是字串格式 需做處理
-							const subMenuImage =
-								subMenuItem?.pcHeaderPicUrl &&
-								JSON.parse(subMenuItem?.pcHeaderPicUrl)[0]
-
-							const displayName =
-								subMenuItem?.currencyGameName &&
-								subMenuItem?.currencyGameName[langId] &&
-								subMenuItem?.currencyGameName[langId]
-
-							const { iconType, iconStartTime, iconEndTime } = subMenuItem || {}
-
-							const switchSubMenuIcon = (iconType: MenuIconTypeEnum) => {
-								return subMenuIcon[iconType] || null
-							}
-
-							const submenuIcon =
-								(isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
-									switchSubMenuIcon(iconType)) ||
-								null
-							return (
-								<button
-									key={subMenuItem?.tpGameIdNo}
-									className={classNames({
-										active: subMenuItem?.isTpMaintain,
-									})}
-									onMouseEnter={() => setMenuKey(debouncedMenuKey)}
-									onClick={() => {
-										onMenuOpen(subMenuItem, {
-											loginCallback: () => modal.open(<LoginModal />),
-											messageCallBack: message => modal.error(message),
-											liveStreamingCallback: () =>
-												modal.open(<LiveStreamingModalDesktop />),
-										})
-									}}
-								>
-									{submenuIcon}
-									<img
-										className='List-npc'
-										src={subMenuImage}
-										alt={subMenuItem?.productName}
-									/>
-									<span>{displayName || subMenuItem?.productName}</span>
-									{subMenuItem?.isTpMaintain && (
-										<div className='under'>
-											{t('Label_General_UnderMaintenance')}
-										</div>
-									)}
-								</button>
-							)
-						})}
-					</div>
-					{/* <!-- nav-footer --> */}
-					<div className='nav-footer'>
-						{/* TODO: i18n */}
-						<ul>
-							<li>
-								<img src={getBannerUrl('/desktop/img/lc-icon.png')} alt='' />
-								{t('Label_Official_Betting_Partner')}
-							</li>
-							<li>#BecauseExperienceMatters</li>
-							<li>
-								<img
-									src={getBannerUrl('/desktop/img/trophy-icon.png')}
-									alt=''
-								/>
-								{t('Label_Best_Odds')}！
-							</li>
-							<li>
-								<img
-									src={getBannerUrl('/desktop/img/fast-and-safe.png')}
-									alt=''
-								/>
-								{t('Label_Safe_Payment_Method')}
-							</li>
-						</ul>
-					</div>
 				</div>
-			)
-		}
-
-		return null
+				{/* <!-- nav-footer --> */}
+				<div className='nav-footer'>
+					{/* TODO: i18n */}
+					<ul>
+						<li>
+							<img
+								src={getBannerUrl('/desktop/img/lc-icon.png')}
+								alt='official betting partner icon'
+							/>
+							{t('Label_Official_Betting_Partner')}
+						</li>
+						<li>#BecauseExperienceMatters</li>
+						<li>
+							<img
+								src={getBannerUrl('/desktop/img/trophy-icon.png')}
+								alt='trophy icon'
+							/>
+							{t('Label_Best_Odds')}！
+						</li>
+						<li>
+							<img
+								src={getBannerUrl('/desktop/img/fast-and-safe.png')}
+								alt='safe payment icon'
+							/>
+							{t('Label_Safe_Payment_Method')}
+						</li>
+					</ul>
+				</div>
+			</div>
+		)
 	})
 
 	return <div className='nav-container'>{menus}</div>

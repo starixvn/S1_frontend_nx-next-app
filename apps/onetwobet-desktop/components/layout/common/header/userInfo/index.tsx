@@ -33,7 +33,7 @@ const UserInfo = () => {
 	const handleSignOut = async () => {
 		try {
 			await onSignOut()
-			await router.push(paths.home.root).then(() => router.reload())
+			router.push(paths.home.root).then(() => router.reload())
 		} catch (error) {
 			modal.error((error as Error).message)
 		}

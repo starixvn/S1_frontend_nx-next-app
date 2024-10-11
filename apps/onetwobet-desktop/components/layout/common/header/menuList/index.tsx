@@ -170,7 +170,6 @@ const MenuList = () => {
 					}
 
 					return (
-						// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 						<Link href={pathname} key={lobbyCategoryId}>
 							<li key={lobbyCategoryId}>
 								<button

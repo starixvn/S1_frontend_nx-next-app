@@ -54,13 +54,19 @@ const UserProfile = () => {
 				{isShowVip && (
 					<div className='selector-top'>
 						<div className='progress-img'>
-							<img src={getBannerUrl('/desktop/img/vip1.svg')} alt='' />
+							<img
+								src={getBannerUrl('/desktop/img/vip1.svg')}
+								alt='vip level img'
+							/>
 							<img
 								className='dot-line'
 								src={getBannerUrl('/desktop/img/4.0/dot-2.png')}
-								alt=''
+								alt='dot line'
 							/>
-							<img src={getBannerUrl('/desktop/img/vip2.svg')} alt='' />
+							<img
+								src={getBannerUrl('/desktop/img/vip2.svg')}
+								alt='vip level img'
+							/>
 						</div>
 						{/* --- */}
 

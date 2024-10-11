@@ -24,14 +24,20 @@ const FooterTop = () => {
 
 			{/* TODO: 對外連結ＰＭ後續提供 */}
 			<a href=''>
-				<img src={getBannerUrl('/desktop/img/affiliate-icon.png')} alt='' />
+				<img
+					src={getBannerUrl('/desktop/img/affiliate-icon.png')}
+					alt='affiliate-icon'
+				/>
 				{t('Label_Affiliate_Program')}
 			</a>
 			<Link
 				href={`https://tsprom.qqs77.com/sponsorship/index.php?act=home&lang=${icon}`}
 			>
 				<a target='_blank'>
-					<img src={getBannerUrl('/desktop/img/lc-logo.png')} alt='' />
+					<img
+						src={getBannerUrl('/desktop/img/lc-logo.png')}
+						alt='Official Betting Partner icon'
+					/>
 					{t('Label_Official_Betting_Partner')}
 					<br />
 					2024 - 2025
@@ -43,7 +49,7 @@ const FooterTop = () => {
 				<ul>
 					{sponsorsList?.map(item => (
 						<li key={item.imgUrl}>
-							<img src={getSportImageUrl(item.imgUrl)} alt='' />
+							<img src={getSportImageUrl(item.imgUrl)} alt={item.imgUrl} />
 							<span>{item.year}</span>
 						</li>
 					))}
