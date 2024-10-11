@@ -6,10 +6,10 @@ import {
 	useAffiliateReferralEffect,
 	useChangePasswordModalEffect,
 } from '@nx-next-app/hooks'
+import { useResetPasswordEffect } from '@nx-next-app/operations'
 import { IFooterData } from '@nx-next-app/types'
 import dynamic from 'next/dynamic'
 import { ReactNode } from 'react'
-
 import LayoutFooter from './common/footer/index'
 import LayoutHeader from './common/header/index'
 
@@ -26,6 +26,11 @@ const ChangePasswordModal = dynamic(
 	{ ssr: false }
 )
 
+const ResetPasswordModal = dynamic(
+	() => import('../modal/ResetPasswordModal'),
+	{ ssr: false }
+)
+
 export function Layout({
 	children,
 	persistSEOData,
@@ -36,6 +41,7 @@ export function Layout({
 	const { globalModal, closeModal, modal } = useGlobalModal()
 
 	useChangePasswordModalEffect(() => modal.open(<ChangePasswordModal />))
+	useResetPasswordEffect(() => modal.open(<ResetPasswordModal />))
 
 	useAffiliateReferralEffect({ expireDay: 7 })
 
