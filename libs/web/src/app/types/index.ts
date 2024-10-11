@@ -244,6 +244,7 @@ export enum LeftMenuKeyEnum {
 	'Cashier' = 'Cashier',
 	'MyAccount' = 'MyAccount',
 	'Message' = 'Message',
+	'News' = 'News',
 }
 
 export type ILeftMenuData = {

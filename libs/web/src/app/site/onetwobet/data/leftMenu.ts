@@ -1,9 +1,9 @@
+import { paths } from '@nx-next-app/constants'
 import {
-	ILeftMenuData,
 	CurrenciesEnum,
+	ILeftMenuData,
 	LeftMenuKeyEnum,
 } from '@nx-next-app/types'
-import { paths } from '@nx-next-app/constants'
 import { ALLOWED_CURRENCIES } from './allowCurrency'
 
 export const LEFT_MENU_DATA: ILeftMenuData = {
@@ -83,6 +83,17 @@ export const LEFT_MENU_DATA: ILeftMenuData = {
 			announcement: {
 				displayKey: 'Label_General_Announcement',
 				pathname: paths.announcement.root,
+				allowCurrencies: false,
+			},
+		},
+	},
+
+	[LeftMenuKeyEnum.News]: {
+		displayKey: 'Label_General_News',
+		subMenu: {
+			message: {
+				displayKey: 'Label_General_NewsList',
+				pathname: paths.newsList.root,
 				allowCurrencies: false,
 			},
 		},
