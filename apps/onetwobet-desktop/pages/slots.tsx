@@ -11,6 +11,7 @@ import {
 } from '@nx-next-app/hooks'
 import { SlotsProvider } from '@nx-next-app/operations'
 import { ISlotsGameData } from '@nx-next-app/service'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { CATEGORY_SORT } from '@nx-next-app/site/onetwobet/data/slots'
 import { IFooterData } from '@nx-next-app/types'
 import { pick } from 'lodash-es'
@@ -25,7 +26,7 @@ const LoginModal = dynamic(
 )
 
 type ISlotsPageProps = InitialPropsInterface & {
-	footerData: IFooterData
+	persistFooterData: IFooterData
 	persistSlotsGameData: ISlotsGameData
 	persistSlotsCategoryData: ISlotsGameData
 }
@@ -34,7 +35,7 @@ const SlotsPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
-	footerData,
+	persistFooterData,
 	persistStaticFileDomainData,
 	persistSlotsGameData,
 	persistSlotsCategoryData,
@@ -45,7 +46,7 @@ const SlotsPage = ({
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
-				<Layout persistSEOData={persistSEOData} footerData={footerData}>
+				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<SlotsProvider
 						persistSlotsGameData={persistSlotsGameData}
 						persistSlotsCategoryData={persistSlotsCategoryData}
@@ -62,7 +63,9 @@ const SlotsPage = ({
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
 	const { originCookies, currentHeaderCookies } = initialProps
-	const { currencyId } = {
+	const { langId, currencyId } = {
+		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
+
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
 	const persistSlotsGameData = await getSlotGamePage(
@@ -75,6 +78,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
 	return {
 		props: {
+			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 			persistSlotsGameData,
