@@ -24,13 +24,14 @@ const NotificationSetting = () => {
 					options={[
 						{
 							value: ToastVisibleEnum.Visible,
-							label: t('Label_General_Yes'),
+							label: 'Label_General_Yes',
 						},
 						{
 							value: ToastVisibleEnum.Hidden,
-							label: t('Label_General_No'),
+							label: 'Label_General_Yes',
 						},
 					]}
+					isTranslation
 					onChange={handleToastVisibility}
 				/>
 
