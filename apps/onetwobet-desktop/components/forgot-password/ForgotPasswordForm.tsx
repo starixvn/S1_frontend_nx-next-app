@@ -184,6 +184,7 @@ const ForgetPasswordForm = ({
 								control={control}
 								render={({ field: { onChange, value } }) => (
 									<Select
+										showSearch
 										options={areaCodeSelectOptions}
 										value={value}
 										onChange={(value: string) => {
