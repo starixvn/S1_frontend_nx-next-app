@@ -1,4 +1,4 @@
-import { Form, InputBox } from '@nx-next-app/components/H0001'
+import { Form, InputBox } from '@12b-h5/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { PASSWORD_REGEX, paths } from '@nx-next-app/constants'
 import { useResetPasswordMutation } from '@nx-next-app/service'
