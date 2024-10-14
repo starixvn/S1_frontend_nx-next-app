@@ -1,4 +1,3 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	DepositModule,
 	Form,
@@ -6,25 +5,27 @@ import {
 	Loading,
 	Select,
 } from '@nx-next-app/components/D0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	useAuth,
 	useDepositContext,
 	useOnlineBankingForm,
 } from '@nx-next-app/data-access'
+import { useManageCards } from '@nx-next-app/features/F0001/providers/withdrawal-context/useManageCards'
+import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
 import { IPaymentOnlineBankingData } from '@nx-next-app/service'
 import {
 	generateShortcutList,
 	isConvert,
+	numFormatToDigits,
 	numberFormat,
 	revertNumberFormat,
-	numFormatToDigits,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
-import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
-import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
-import { useManageCards } from '@nx-next-app/features/F0001/providers/withdrawal-context/useManageCards'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 
 const DepositQRCodeModal = dynamic(
 	() =>
@@ -39,9 +40,11 @@ interface IOnlineBankingFormProps {
 }
 
 const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
+	const { push, pathname, query } = useRouter()
 	const {
 		userInfo: { currencyId, accountName },
 	} = useAuth()
+
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
 	const { promotionOptions } = useDepositContext()
@@ -54,6 +57,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 			register,
 			clearErrors,
 			formState: { touchedFields, errors, isValid },
+			getValues,
 		},
 		loading,
 		selBank,
@@ -92,17 +96,33 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 				required
 				hasAdditionalInfo
 			>
-				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
+				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{dataSource.map(item => {
-						const { payName, displayChannelName, minAmount, maxAmount } = item
+						const {
+							payName,
+							displayChannelName,
+							minAmount,
+							maxAmount,
+							channelId,
+						} = item
 						const min = numberFormat(minAmount, currencyId, 0, false)
 						const max = numberFormat(maxAmount, currencyId, 0, false)
 						return (
 							<DepositModule.SubModuleButton
 								label={displayChannelName}
 								imgName={`${toLower(payName)}.png`}
-								matchValue={payName}
-								key={payName}
+								matchValue={String(channelId)}
+								key={channelId}
+								onClick={() => {
+									push(
+										{
+											pathname,
+											query: { ...query, channelId, sysId: 0 },
+										},
+										undefined,
+										{ shallow: true }
+									)
+								}}
 							>
 								<div>{`${min} ~ ${max}`}</div>
 							</DepositModule.SubModuleButton>
@@ -120,9 +140,8 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 				>
 					<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 						{paymentOnlineBankInfoSysList.map(item => {
-							const { bankName, bankLogo, minAmount, maxAmount, sysId } = item
-							const min = numberFormat(minAmount, currencyId, 0, false)
-							const max = numberFormat(maxAmount, currencyId, 0, false)
+							const { bankName, bankLogo, sysId } = item
+
 							return (
 								<DepositModule.SubModuleButton
 									label={bankName}
@@ -130,7 +149,9 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 									matchValue={String(sysId)}
 									key={sysId}
 								>
-									<div>{`${min} ~ ${max}`}</div>
+									<div>{`${getValues('minAmount')} ~ ${getValues(
+										'maxAmount'
+									)}`}</div>
 								</DepositModule.SubModuleButton>
 							)
 						})}

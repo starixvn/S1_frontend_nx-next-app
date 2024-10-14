@@ -317,6 +317,16 @@ export interface IPaymentBankTransferData {
 	sysId: number
 }
 
+export type TOnlineBankData = {
+	sysId: number
+	currencyId: number
+	bankCode: string
+	bankName: string
+	bankLogo: string
+	bankSite: string
+	status: number
+}
+
 export interface IPaymentOnlineBankingData {
 	channelId: number
 	maxAmount: number
@@ -328,6 +338,7 @@ export interface IPaymentOnlineBankingData {
 	extraDataType: number
 	displayChannelName: string
 	displayGroupName: string
+	bankList: TOnlineBankData[]
 }
 
 export interface IPaymentOnlineBankInfoSysData {
