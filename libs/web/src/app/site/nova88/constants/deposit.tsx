@@ -14,6 +14,7 @@ export const DEPOSIT_PAYMENT_ORDERS = [
 	DepositPaymentEnum.CryptoPay,
 	DepositPaymentEnum.TopUpCardPay,
 	DepositPaymentEnum.ChatTransfer,
+	DepositPaymentEnum.DigitalWallet,
 ]
 
 export const DEPOSIT_PAYMENT_OPTIONS = {
@@ -66,5 +67,10 @@ export const DEPOSIT_PAYMENT_OPTIONS = {
 		labelDisplayKey: 'Label_Deposit_Quick_ChatTransfer',
 		timeDisplayKey: 'Label_General_Instant',
 		icon: 'icon-dou',
+	},
+	[DepositPaymentEnum.DigitalWallet]: {
+		labelDisplayKey: 'Label_Deposit_DigitalWallet',
+		timeDisplayKey: 'Label_General_Instant',
+		icon: 'icon icon-digital-wallet',
 	},
 }

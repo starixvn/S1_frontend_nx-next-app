@@ -13,6 +13,7 @@ import ChatTransferForm from './ChatTransferForm'
 import CryptoPayForm from './CryptoPayForm'
 import MobilePayForm from './MobilePayForm'
 import OnlineBankingForm from './OnlineBankingForm'
+import DigitalWalletForm from './DigitalWalletForm'
 import QRPayForm from './QRPayForm'
 import QuickTransferForm from './QuickTransferForm'
 import TopUpCardForm from './TopUpCardForm'
@@ -27,6 +28,7 @@ const {
 	TopUpCardPay,
 	QuickTransfer,
 	ChatTransfer,
+	DigitalWallet,
 } = DepositPaymentEnum
 
 const DepositLinePayModal = dynamic(
@@ -165,6 +167,12 @@ const DepositForm = () => {
 			{paymentType === ChatTransfer && (
 				<ChatTransferForm
 					dataSource={payments[DepositPaymentEnum.ChatTransfer] || []}
+				/>
+			)}
+
+			{paymentType === DigitalWallet && (
+				<DigitalWalletForm
+					dataSource={payments[DepositPaymentEnum.DigitalWallet] || []}
 				/>
 			)}
 		</div>

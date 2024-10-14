@@ -3,6 +3,7 @@ import { IDepositSavedInfo, useAuth } from '@nx-next-app/data-access'
 import {
 	IDepositChatTransferData,
 	IDepositQuickTransferData,
+	IPayInfoDigitalWalletData,
 	IPaymentAutoDepositData,
 	IPaymentBankTransferData,
 	IPaymentCryptoPayData,
@@ -15,6 +16,7 @@ import {
 	useGetDepositChatTransferQuery,
 	useGetDepositPromotionListQuery,
 	useGetDepositQuickTransferQuery,
+	useGetPayInfoDigitalWalletQuery,
 	useGetPaymentBankTransferListQuery,
 	useGetPaymentCryptoPayListQuery,
 	useGetPaymentLinePayInfoQuery,
@@ -47,6 +49,7 @@ interface DepositContextInterface {
 		[DepositPaymentEnum.TopUpCardPay]?: IDepositPaymentOption
 		[DepositPaymentEnum.QuickTransfer]?: IDepositPaymentOption
 		[DepositPaymentEnum.ChatTransfer]?: IDepositPaymentOption
+		[DepositPaymentEnum.DigitalWallet]?: IDepositPaymentOption
 	}
 	loading: boolean
 	payments: {
@@ -60,6 +63,7 @@ interface DepositContextInterface {
 		[DepositPaymentEnum.TopUpCardPay]?: IPaymentTopUpCardPayData[]
 		[DepositPaymentEnum.QuickTransfer]?: IDepositQuickTransferData[]
 		[DepositPaymentEnum.ChatTransfer]?: IDepositChatTransferData[]
+		[DepositPaymentEnum.DigitalWallet]?: IPayInfoDigitalWalletData[]
 	}
 	promotionOptions: SelectOptionType[]
 	refetchPaymentBankTransferList: () => void
@@ -71,6 +75,7 @@ interface DepositContextInterface {
 	refetchPaymentAutoDepositList: () => void
 	refetchDepositQuickTransfer: () => void
 	refetchDepositChatTransfer: () => void
+	refetchDepositDigitalWallet: () => void
 	handleDepositTracker: () => void
 }
 
@@ -201,6 +206,14 @@ export const DepositProvider = ({
 	const chatTransferPayList =
 		depositChatTransferResponse?.data?.ChatTransfer?.data || []
 
+	const {
+		data: depositDigitalWalletResponse,
+		isLoading: isGetDepositDigitalWalletLoading,
+		refetch: refetchDepositDigitalWallet,
+	} = useGetPayInfoDigitalWalletQuery()
+	const digitalWalletList =
+		depositDigitalWalletResponse?.data?.DigitalWallet?.data || []
+
 	// * 用於 'Choose Available Promotion'
 	const { data: { data: depositPromotionList = [] } = {} } =
 		useGetDepositPromotionListQuery({ langId })
@@ -224,6 +237,7 @@ export const DepositProvider = ({
 		[DepositPaymentEnum.TopUpCardPay]: paymentTopUpCardPayList,
 		[DepositPaymentEnum.QuickTransfer]: quickTransferPayList,
 		[DepositPaymentEnum.ChatTransfer]: chatTransferPayList,
+		[DepositPaymentEnum.DigitalWallet]: digitalWalletList,
 	}
 
 	const defaultSavedInfo = (useReadLocalStorage(
@@ -263,7 +277,8 @@ export const DepositProvider = ({
 		isGetPaymentTopUpCardPayListLoading ||
 		isGetPaymentAutoDepositListLoading ||
 		isGetDepositQuickTransferLoading ||
-		isGetDepositChatTransferLoading
+		isGetDepositChatTransferLoading ||
+		isGetDepositDigitalWalletLoading
 
 	const value: DepositContextInterface = {
 		DEPOSIT_PAYMENT_OPTIONS,
@@ -279,6 +294,7 @@ export const DepositProvider = ({
 		refetchPaymentAutoDepositList,
 		refetchDepositQuickTransfer,
 		refetchDepositChatTransfer,
+		refetchDepositDigitalWallet,
 		handleDepositTracker,
 	}
 
