@@ -7,12 +7,12 @@ export interface IFooterData {
 	programList?: IProgramData[]
 	promotionTextList?: IPromotionTextData[]
 	programDescriptionList?: IProgramDescriptionData[]
-	licenseData: ILicenseData
-	suggestedBrowser: ISuggestedBrowserData[]
-	paymentMethodsByCurrencyId: {
+	licenseData?: ILicenseData
+	suggestedBrowser?: ISuggestedBrowserData[]
+	paymentMethodsByCurrencyId?: {
 		[key: number]: IPaymentMethod[]
 	}
-	aboutUsList: IAboutUsListData[]
+	aboutUsList?: IAboutUsListData[]
 }
 
 interface IQuickLinksData {
