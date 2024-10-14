@@ -1,14 +1,15 @@
+import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useGetNewsListQuery } from '@nx-next-app/service'
 import dayjs from 'dayjs'
 import { isEmpty } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router' // 导入 useRouter
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 
 const NewsList = () => {
 	const { t, i18n } = useTranslation()
-	const router = useRouter() // 使用 useRouter
+	const router = useRouter()
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
@@ -31,7 +32,7 @@ const NewsList = () => {
 		const formattedDate = dayjs(item.postTime).format('YYYY.MM.DD')
 
 		const handleDetailsClick = () => {
-			router.push(`/${i18n.language}/news-info/${item.newsId}`)
+			router.push(`/${i18n.language}/${paths.newsInfo.root}/${item.newsId}`)
 		}
 
 		return (

@@ -87,15 +87,4 @@ export const LEFT_MENU_DATA: ILeftMenuData = {
 			},
 		},
 	},
-
-	[LeftMenuKeyEnum.News]: {
-		displayKey: 'Label_General_News',
-		subMenu: {
-			message: {
-				displayKey: 'Label_General_NewsList',
-				pathname: paths.newsList.root,
-				allowCurrencies: false,
-			},
-		},
-	},
 }

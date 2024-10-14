@@ -1,33 +1,26 @@
 import NewsList from '@12b-desktop/components/news/NewsList'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import {
-	AuthProvider,
-	GlobalDataProvider,
-	getWithdrawalBlockSetting,
-} from '@nx-next-app/data-access'
+import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { IWithdrawalSetting } from '@nx-next-app/service'
 import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Layout, LeftMenu } from '../components'
+import { Layout } from '../components'
 
 interface IAnnouncementPage extends InitialPropsInterface {
 	persistFooterData: IFooterData
-	withdrawalBlockSetting: IWithdrawalSetting[]
 }
 
-const NewsListPage = ({
+const NewsPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
 	persistFooterData,
 	persistStaticFileDomainData,
-	withdrawalBlockSetting,
 }: IAnnouncementPage) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
@@ -37,7 +30,6 @@ const NewsListPage = ({
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<main>
 						<section className='inside'>
-							<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 							<NewsList />
 						</section>
 					</main>
@@ -49,7 +41,7 @@ const NewsListPage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
-	const { originCookies, currentHeaderCookies } = initialProps
+	const { originCookies } = initialProps
 
 	const { langId, currencyId } = {
 		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
@@ -65,18 +57,13 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		}
 	}
 
-	const withdrawalBlockSetting = await getWithdrawalBlockSetting({
-		headers: { cookie: currentHeaderCookies },
-	})
-
 	return {
 		props: {
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
-			withdrawalBlockSetting,
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 		},
 	}
 }
 
-export default NewsListPage
+export default NewsPage

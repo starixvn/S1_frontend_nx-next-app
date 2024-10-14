@@ -161,8 +161,8 @@ export const paths = {
 	survey: {
 		root: '/survey',
 	},
-	newsList: {
-		root: '/newsList',
+	news: {
+		root: '/news',
 	},
 } as const
 

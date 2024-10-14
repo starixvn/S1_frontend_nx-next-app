@@ -22,7 +22,7 @@ const NewsContents = ({
 
 				<button
 					className='btn-check icon icon-arrow-left2 secondary'
-					onClick={() => push(paths.newsList.root)}
+					onClick={() => push(paths.news.root)}
 				>
 					{t('Label_General_Back')}
 				</button>
