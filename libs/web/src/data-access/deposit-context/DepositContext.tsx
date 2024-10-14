@@ -1,6 +1,23 @@
-import { useAuth, IDepositSavedInfo } from '@nx-next-app/data-access'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { ENV_LOCAL_STORAGE_NAMES, paths } from '@nx-next-app/constants'
+import { IDepositSavedInfo, useAuth } from '@nx-next-app/data-access'
 import {
+	IDepositChatTransferData,
+	IDepositQuickTransferData,
+	IPayInfoDigitalWalletData,
+	IPaymentAutoDepositData,
+	IPaymentBankTransferData,
+	IPaymentCryptoPayData,
+	IPaymentLinePayInfo,
+	IPaymentMobilePayData,
+	IPaymentOnlineBankingData,
+	IPaymentQRPayData,
+	IPaymentTopUpCardPayData,
+	useGetAutoDepositGroupListQuery,
+	useGetDepositChatTransferQuery,
 	useGetDepositPromotionListQuery,
+	useGetDepositQuickTransferQuery,
+	useGetPayInfoDigitalWalletQuery,
 	useGetPaymentBankTransferListQuery,
 	useGetPaymentCryptoPayListQuery,
 	useGetPaymentLinePayInfoQuery,
@@ -8,19 +25,6 @@ import {
 	useGetPaymentOnlineBankingListQuery,
 	useGetPaymentQRPayListQuery,
 	useGetPaymentTopUpCardPayListQuery,
-	IPaymentBankTransferData,
-	IPaymentOnlineBankingData,
-	IPaymentMobilePayData,
-	IPaymentCryptoPayData,
-	IPaymentLinePayInfo,
-	IPaymentQRPayData,
-	IPaymentTopUpCardPayData,
-	useGetAutoDepositGroupListQuery,
-	IPaymentAutoDepositData,
-	useGetDepositQuickTransferQuery,
-	IDepositQuickTransferData,
-	useGetDepositChatTransferQuery,
-	IDepositChatTransferData,
 } from '@nx-next-app/service'
 import {
 	CurrenciesEnum,
@@ -29,14 +33,12 @@ import {
 	IDepositPaymentOption,
 	SelectOptionType,
 } from '@nx-next-app/types'
+import { MetaPixelTracker, OperaPixelTracker } from '@nx-next-app/utils'
 import { head, includes, isArray, isUndefined } from 'lodash-es'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useRouter } from 'next/router'
-import { createContext, ReactNode, useContext, useEffect } from 'react'
-import { useReadLocalStorage } from 'usehooks-ts'
 import dynamic from 'next/dynamic'
-import { ENV_LOCAL_STORAGE_NAMES, paths } from '@nx-next-app/constants'
-import { OperaPixelTracker, MetaPixelTracker } from '@nx-next-app/utils'
+import { useRouter } from 'next/router'
+import { ReactNode, createContext, useContext, useEffect } from 'react'
+import { useReadLocalStorage } from 'usehooks-ts'
 
 const DesktopUpdateProfileModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/UpdateProfileModal'),
@@ -60,6 +62,7 @@ interface DepositContextInterface {
 		[DepositPaymentEnum.TopUpCardPay]?: IDepositPaymentOption
 		[DepositPaymentEnum.QuickTransfer]?: IDepositPaymentOption
 		[DepositPaymentEnum.ChatTransfer]?: IDepositPaymentOption
+		[DepositPaymentEnum.DigitalWallet]?: IDepositPaymentOption
 	}
 	loading: boolean
 	payments: {
@@ -73,6 +76,7 @@ interface DepositContextInterface {
 		[DepositPaymentEnum.TopUpCardPay]?: IPaymentTopUpCardPayData[]
 		[DepositPaymentEnum.QuickTransfer]?: IDepositQuickTransferData[]
 		[DepositPaymentEnum.ChatTransfer]?: IDepositChatTransferData[]
+		[DepositPaymentEnum.DigitalWallet]?: IPayInfoDigitalWalletData[]
 	}
 	promotionOptions: SelectOptionType[]
 	refetchPaymentBankTransferList: () => void
@@ -84,6 +88,7 @@ interface DepositContextInterface {
 	refetchPaymentAutoDepositList: () => void
 	refetchDepositQuickTransfer: () => void
 	refetchDepositChatTransfer: () => void
+	refetchDepositDigitalWallet: () => void
 	handleDepositTracker: () => void
 }
 
@@ -107,6 +112,7 @@ interface IDepositProviderProps {
 		[DepositPaymentEnum.TopUpCardPay]?: IDepositPaymentOption
 		[DepositPaymentEnum.QuickTransfer]?: IDepositPaymentOption
 		[DepositPaymentEnum.ChatTransfer]?: IDepositPaymentOption
+		[DepositPaymentEnum.DigitalWallet]?: IDepositPaymentOption
 	}
 
 	// * 排序與開關
@@ -219,6 +225,14 @@ export const DepositProvider = ({
 	const chatTransferPayList =
 		depositChatTransferResponse?.data?.ChatTransfer?.data || []
 
+	const {
+		data: depositDigitalWalletResponse,
+		isLoading: isGetDepositDigitalWalletLoading,
+		refetch: refetchDepositDigitalWallet,
+	} = useGetPayInfoDigitalWalletQuery()
+	const digitalWalletList =
+		depositDigitalWalletResponse?.data?.DigitalWallet?.data || []
+
 	// * 用於 'Choose Available Promotion'
 	const { data: { data: depositPromotionList = [] } = {} } =
 		useGetDepositPromotionListQuery({ langId })
@@ -242,6 +256,7 @@ export const DepositProvider = ({
 		[DepositPaymentEnum.TopUpCardPay]: paymentTopUpCardPayList,
 		[DepositPaymentEnum.QuickTransfer]: quickTransferPayList,
 		[DepositPaymentEnum.ChatTransfer]: chatTransferPayList,
+		[DepositPaymentEnum.DigitalWallet]: digitalWalletList,
 	}
 
 	const defaultSavedInfo = (useReadLocalStorage(
@@ -281,7 +296,8 @@ export const DepositProvider = ({
 		isGetPaymentTopUpCardPayListLoading ||
 		isGetPaymentAutoDepositListLoading ||
 		isGetDepositQuickTransferLoading ||
-		isGetDepositChatTransferLoading
+		isGetDepositChatTransferLoading ||
+		isGetDepositDigitalWalletLoading
 
 	const value: DepositContextInterface = {
 		DEPOSIT_PAYMENT_OPTIONS,
@@ -297,6 +313,7 @@ export const DepositProvider = ({
 		refetchPaymentAutoDepositList,
 		refetchDepositQuickTransfer,
 		refetchDepositChatTransfer,
+		refetchDepositDigitalWallet,
 		handleDepositTracker,
 	}
 

@@ -1,19 +1,20 @@
-import classNames from 'classnames'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
+import { DepositModule } from '@nx-next-app/components/H0001'
 import { useDepositContext } from '@nx-next-app/data-access'
 import { DepositPaymentEnum } from '@nx-next-app/types'
-import { DepositModule } from '@nx-next-app/components/H0001'
-import BankTransferForm from './BankTransferForm'
-import OnlineBankingForm from './OnlineBankingForm'
-import MobilePayForm from './MobilePayForm'
-import CryptoPayForm from './CryptoPayForm'
-import QRPayForm from './QRPayForm'
-import TopUpCardForm from './TopUpCardForm'
-import QuickTransferForm from './QuickTransferForm'
-import ChatTransferForm from './ChatTransferForm'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
 import AutoDepositForm from './AutoDepositForm'
+import BankTransferForm from './BankTransferForm'
+import ChatTransferForm from './ChatTransferForm'
+import CryptoPayForm from './CryptoPayForm'
+import DigitalWalletForm from './DigitalWalletForm'
 import LinePayForm from './LinePayForm'
+import MobilePayForm from './MobilePayForm'
+import OnlineBankingForm from './OnlineBankingForm'
+import QRPayForm from './QRPayForm'
+import QuickTransferForm from './QuickTransferForm'
+import TopUpCardForm from './TopUpCardForm'
 
 const {
 	AutoDeposit,
@@ -26,6 +27,7 @@ const {
 	TopUpCardPay,
 	QuickTransfer,
 	ChatTransfer,
+	DigitalWallet,
 } = DepositPaymentEnum
 
 const DepositForm = () => {
@@ -141,6 +143,12 @@ const DepositForm = () => {
 			{paymentType === ChatTransfer && (
 				<ChatTransferForm
 					dataSource={payments[DepositPaymentEnum.ChatTransfer] || []}
+				/>
+			)}
+
+			{paymentType === DigitalWallet && (
+				<DigitalWalletForm
+					dataSource={payments[DepositPaymentEnum.DigitalWallet] || []}
 				/>
 			)}
 		</div>
