@@ -1,14 +1,13 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
-	useAuth,
 	IDepositQRCodeModalProps,
+	useAuth,
 	useDepositSavedLocalStorage,
 } from '@nx-next-app/data-access'
-import { useBoolean, useDebounce } from 'usehooks-ts'
 import {
 	IPaymentOnlineBankingData,
+	TOnlineBankData,
 	useGetPaymentCustBankInfoQuery,
-	useGetPaymentOnlineBankInfoSysListQuery,
 	useLazyCheckDepositSpecialCodeQuery,
 	useLazyGetDepositOnlineBankingReqInfoQuery,
 } from '@nx-next-app/service'
@@ -16,12 +15,13 @@ import {
 	DepositActionModeEnum,
 	DepositExtraDataTypeEnum,
 } from '@nx-next-app/types'
-import { every, find, head, isEmpty } from 'lodash-es'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
-import { useForm } from 'react-hook-form'
-import { useTranslation } from 'next-i18next'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
+import { every, find, head, isEmpty } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { useBoolean, useDebounce } from 'usehooks-ts'
 import { useDepositContext } from './DepositContext'
 
 export interface IOnlineBankingForm {
@@ -58,13 +58,14 @@ const useOnlineBankingForm = ({
 	const {
 		query: {
 			paymentType: queryPaymentType,
-			paymentName: queryPaymentName,
 			sysId: querySysId,
 			channelId: queryChannelId,
 		},
 		pathname,
 		push,
 	} = useRouter()
+
+	const [bankList, setBankList] = useState<TOnlineBankData[]>([])
 
 	const {
 		isDepositLocalStorageSavedChecked,
@@ -84,15 +85,10 @@ const useOnlineBankingForm = ({
 		handleDepositTracker,
 	} = useDepositContext()
 
-	const {
-		data: { data: paymentOnlineBankInfoSysList = [] } = {},
-		isFetching: isGetPaymentOnlineBankInfoSysListFetching,
-	} = useGetPaymentOnlineBankInfoSysListQuery(
-		{
-			payId: getValues('payId'),
-		},
-		{ skip: !getValues('payId') }
-	)
+	const { extraDataType } =
+		find(dataSource, { channelId: Number(queryChannelId) }) ||
+		head(dataSource) ||
+		{}
 
 	const [
 		checkDepositSpecialCode,
@@ -109,7 +105,7 @@ const useOnlineBankingForm = ({
 		isFetching: isGetCustBankInfoFetching,
 	} = useGetPaymentCustBankInfoQuery(
 		{ channelId: Number(queryChannelId) },
-		{ skip: !queryChannelId }
+		{ skip: !queryChannelId || extraDataType === DepositExtraDataTypeEnum.none }
 	)
 
 	const bankCardOptions = custBankInfo
@@ -119,16 +115,10 @@ const useOnlineBankingForm = ({
 			value: accountNo,
 		}))
 
-	const { extraDataType } =
-		find(dataSource, { payName: String(queryPaymentName) }) ||
-		head(dataSource) ||
-		{}
-
 	const bankCardRequired = extraDataType === DepositExtraDataTypeEnum.bankCard
 
 	const loading =
 		contextLoading ||
-		isGetPaymentOnlineBankInfoSysListFetching ||
 		isCheckDepositSpecialCodeFetching ||
 		isGetDepositOnlineBankingReqInfoFetching ||
 		isGetCustBankInfoFetching
@@ -243,26 +233,18 @@ const useOnlineBankingForm = ({
 			maxAmount = 0,
 			mode,
 			selBank = false,
-		} = find(dataSource, { payName: String(queryPaymentName) }) ||
+			bankList = [],
+		} = find(dataSource, { channelId: Number(queryChannelId) }) ||
 		head(dataSource) ||
 		{}
 
-		const {
-			bankLogo,
-			sysId,
-			minAmount: selBankMinAmount = 0,
-			maxAmount: selBankMaxAmount = 0,
-		} = find(paymentOnlineBankInfoSysList, { sysId: Number(querySysId) }) ||
-		head(paymentOnlineBankInfoSysList) ||
-		{}
+		// 沒資料為 0
+		const { bankLogo, sysId = 0 } =
+			find(bankList, { sysId: Number(querySysId) }) || head(bankList) || {}
 
 		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
-		const convertMinAmount =
-			(selBank ? selBankMinAmount : minAmount) /
-			(isConvert(currencyId) ? 1000 : 1)
-		const convertMaxAmount =
-			(selBank ? selBankMaxAmount : maxAmount) /
-			(isConvert(currencyId) ? 1000 : 1)
+		const convertMinAmount = minAmount / (isConvert(currencyId) ? 1000 : 1)
+		const convertMaxAmount = maxAmount / (isConvert(currencyId) ? 1000 : 1)
 
 		setValue('payName', payName)
 		setValue('payId', payId)
@@ -273,6 +255,8 @@ const useOnlineBankingForm = ({
 		setValue('mode', mode)
 		setValue('selBank', selBank)
 		setValue('bankLogo', bankLogo)
+
+		setBankList(bankList)
 
 		let url = {
 			pathname,
@@ -287,7 +271,7 @@ const useOnlineBankingForm = ({
 		// * 如果當前 isDepositLocalStorageSavedChecked = true 及 depositLocalStorageSavedInfo 有值 及 query url (除了 paymentType 之外)需要的 key 皆為空值時給予 local storage 的值
 		// * isFirstEffect: 設定過一次後將 isFirstEffect 由 true 變為 false
 		// * isPrepared: url 都有值，才算準備好，如果進到 localStorage 裡要把初始值蓋過去
-		const isPrepared = every([queryPaymentType, queryPaymentName])
+		const isPrepared = every([queryPaymentType, queryChannelId])
 		if (
 			isPrepared &&
 			isFirstEffect &&
@@ -309,13 +293,13 @@ const useOnlineBankingForm = ({
 		}
 
 		push(url, undefined, { shallow: true })
-	}, [debouncedLoading, queryPaymentType, queryPaymentName, querySysId])
+	}, [debouncedLoading, queryPaymentType, querySysId, queryChannelId])
 
 	return {
 		formMethods,
 		loading: debouncedLoading,
 		selBank: getValues('selBank'),
-		paymentOnlineBankInfoSysList,
+		paymentOnlineBankInfoSysList: bankList,
 		custBankInfo,
 		bankCardOptions,
 		bankCardRequired,
