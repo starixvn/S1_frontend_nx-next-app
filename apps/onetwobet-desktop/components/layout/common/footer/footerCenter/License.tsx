@@ -2,6 +2,7 @@ import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { useGetSeoQuery } from '@nx-next-app/service'
 import { ILicenseData, ISeoData } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
 import Script from 'next/script'
 import { useEffect } from 'react'
 
@@ -68,25 +69,41 @@ const License = ({
 
 			<ul>
 				<li>
-					<img
-						src={getBannerUrl('/desktop/img/thawte.png')}
-						alt='thawte logo'
-					/>
+					<Link href='https://www.thawte.com/'>
+						<a target='_blank'>
+							<img
+								src={getBannerUrl('/desktop/img/thawte.png')}
+								alt='thawte logo'
+							/>
+						</a>
+					</Link>
 				</li>
 				<li>
-					<img
-						src={getBannerUrl('/desktop/img/gambleaware.png')}
-						alt='gambleaware logo'
-					/>
+					<Link href='https://www.gambleaware.co.uk/'>
+						<a target='_blank'>
+							<img
+								src={getBannerUrl('/desktop/img/gambleaware.png')}
+								alt='gambleaware logo'
+							/>
+						</a>
+					</Link>
 				</li>
 				<li>
-					<img src={getBannerUrl('/desktop/img/TST.png')} alt='TST logo' />
+					<Link href='https://promotions.12bet.com/TST/'>
+						<a target='_blank'>
+							<img src={getBannerUrl('/desktop/img/TST.png')} alt='TST logo' />
+						</a>
+					</Link>
 				</li>
 				<li>
-					<img
-						src={getBannerUrl('/desktop/img/safe-secure.png')}
-						alt='safe-secure logo'
-					/>
+					<Link href=''>
+						<a target='_blank'>
+							<img
+								src={getBannerUrl('/desktop/img/safe-secure.png')}
+								alt='safe-secure logo'
+							/>
+						</a>
+					</Link>
 				</li>
 				{showLicenseLogo && (
 					<>
