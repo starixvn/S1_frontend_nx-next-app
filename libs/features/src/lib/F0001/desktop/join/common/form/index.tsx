@@ -1,45 +1,45 @@
-import classNames from 'classnames'
-import { isNumber } from 'lodash'
-import { useForm } from 'react-hook-form'
-import { useState, useEffect } from 'react'
-import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
-import { TmpCookiesObj } from 'cookies-next/lib/types'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { CurrenciesEnum } from '@nx-next-app/types'
+import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
+import DateSelector from '@nx-next-app/components/D0001/dateSelector'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
-	paths,
 	AREA_CODE,
-	USERNAME_REGEX,
-	REALNAME_REGEX,
-	PASSWORD_REGEX,
+	AREA_CODE_BY_CURRENCY,
+	CURRENCY_TO_LANG_KEY,
+	EMAIL_REGEX,
 	ENV_COOKIE_NAMES,
+	FLAG_PREFIX_ICON_BY_CURRENCIES,
+	PASSWORD_REGEX,
 	PHONE_DIGITS_LIMIT,
 	PHONE_LENGTH_REGEX,
-	CURRENCY_TO_LANG_KEY,
-	AREA_CODE_BY_CURRENCY,
-	FLAG_PREFIX_ICON_BY_CURRENCIES,
-	EMAIL_REGEX,
+	REALNAME_REGEX,
+	USERNAME_REGEX,
+	paths,
 } from '@nx-next-app/constants'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
-import {
-	useSignupMutation,
-	useLazyAffiliateCheckQuery,
-	useLazyExistsUserNameQuery,
-	useGetSiteCurrencyListQuery,
-	useLazyGetAffiliateAgentQuery,
-	useLazyExistsEmailQuery,
-} from '@nx-next-app/service'
-import { includes } from 'lodash-es'
-import {
-	getQueryParam,
-	OperaPixelTracker,
-	MetaPixelTracker,
-} from '@nx-next-app/utils'
-import DateSelector from '@nx-next-app/components/D0001/dateSelector'
-import dayjs from 'dayjs'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
+import {
+	useGetSiteCurrencyListQuery,
+	useLazyAffiliateCheckQuery,
+	useLazyExistsEmailQuery,
+	useLazyExistsUserNameQuery,
+	useLazyGetAffiliateAgentQuery,
+	useSignupMutation,
+} from '@nx-next-app/service'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import {
+	MetaPixelTracker,
+	OperaPixelTracker,
+	getQueryParam,
+} from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { TmpCookiesObj } from 'cookies-next/lib/types'
+import dayjs from 'dayjs'
+import { isNumber } from 'lodash'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
 
@@ -659,7 +659,7 @@ const Form = ({ cookies }: IJoinProps) => {
 					className='txt-blue'
 					target='_blank'
 					rel='noreferrer'
-					href={TERMS_CONDITIONS({ langId: 'en' })['TermsConditions']}
+					href={TERMS_CONDITIONS({ langId })['TermsConditions']}
 				>
 					{t('Label_Join_SignUpTerms2')}
 				</a>
