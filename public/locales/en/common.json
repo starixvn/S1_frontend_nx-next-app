@@ -359,6 +359,7 @@
   "Label_Deposit_DepositLoadCardNoticeContent1": "* Please ensure you choose the correct telcom provider  and card value. Otherwise,{{site}} will not bear any responsibility.",
   "Label_Deposit_DepositLoadCardNoticeContent2": "* Our card fee is cheapest in the market, only 25% apply for all telcoms.",
   "Label_Deposit_DepositOptions": "Deposit Options",
+  "Label_Deposit_DigitalWallet": "Digital Wallet",
   "Label_Deposit_DuitNowQRNote1": "Please contact CSD if payment did not reflect in your wallet after the transfer.",
   "Label_Deposit_DuitNowQRNote2": "Close the tab after the transfer.",
   "Label_Deposit_EWalletQRDesc1": "for fast crediting purpose, the amount sent will be adjusted to",

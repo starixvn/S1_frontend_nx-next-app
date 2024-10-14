@@ -351,6 +351,7 @@
   "Label_Deposit_DepositChannelOption4": "柜台办理（OTC）",
   "Label_Deposit_DepositChannelOption5": "银行二维码",
   "Label_Deposit_DepositOptions": "存款选项",
+  "Label_Deposit_DigitalWallet": "数字钱包",
   "Label_Deposit_DuitNowQRNote1": "如果转账后付款未反映在您的钱包中，请联系 CSD。",
   "Label_Deposit_DuitNowQRNote2": "传输后关闭选项卡。",
   "Label_Deposit_ImportantNoticeContent1": "务必检查当前最新活跃的存款帐户，再进行存款。",

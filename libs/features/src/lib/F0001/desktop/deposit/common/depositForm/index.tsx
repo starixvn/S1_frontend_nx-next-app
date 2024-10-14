@@ -1,21 +1,22 @@
+import { DepositModule } from '@nx-next-app/components/D0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useDepositContext } from '@nx-next-app/data-access'
+import { DepositPaymentEnum } from '@nx-next-app/types'
 import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
-import { useDepositContext } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { DepositPaymentEnum } from '@nx-next-app/types'
-import { DepositModule } from '@nx-next-app/components/D0001'
-import BankTransferForm from './BankTransferForm'
-import OnlineBankingForm from './OnlineBankingForm'
-import MobilePayForm from './MobilePayForm'
-import CryptoPayForm from './CryptoPayForm'
-import QRPayForm from './QRPayForm'
-import TopUpCardForm from './TopUpCardForm'
-import AutoDepositForm from './AutoDepositForm'
 import DepositAutoRemember from '../DepositAutoRemember'
-import QuickTransferForm from './QuickTransferForm'
+import AutoDepositForm from './AutoDepositForm'
+import BankTransferForm from './BankTransferForm'
 import ChatTransferForm from './ChatTransferForm'
+import CryptoPayForm from './CryptoPayForm'
+import DigitalWalletForm from './DigitalWalletForm'
+import MobilePayForm from './MobilePayForm'
+import OnlineBankingForm from './OnlineBankingForm'
+import QRPayForm from './QRPayForm'
+import QuickTransferForm from './QuickTransferForm'
+import TopUpCardForm from './TopUpCardForm'
 
 const {
 	AutoDeposit,
@@ -27,6 +28,7 @@ const {
 	TopUpCardPay,
 	QuickTransfer,
 	ChatTransfer,
+	DigitalWallet,
 } = DepositPaymentEnum
 
 const DepositLinePayModal = dynamic(
@@ -154,6 +156,12 @@ const DepositForm = () => {
 			{paymentType === ChatTransfer && (
 				<ChatTransferForm
 					dataSource={payments[DepositPaymentEnum.ChatTransfer] || []}
+				/>
+			)}
+
+			{paymentType === DigitalWallet && (
+				<DigitalWalletForm
+					dataSource={payments[DepositPaymentEnum.DigitalWallet] || []}
 				/>
 			)}
 		</div>
