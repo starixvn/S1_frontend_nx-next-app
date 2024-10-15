@@ -1,7 +1,6 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useGlobalData } from '@nx-next-app/data-access'
 import { useAppDownload } from 'libs/operations/src/lib/hooks'
-// import { useAppDownload } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 import QRCode from 'qrcode.react'
 import { useRef } from 'react'
