@@ -3466,14 +3466,14 @@ main .promosswiper .swiper-button-prev::after {
   display: block;
   content: "";
   border-top: 1px solid #D1D1D1;
-  width: 400px;
+  width: 23%;
   margin-top: 27px;
 }
 .partner-title::after {
   display: block;
   content: "";
   border-top: 1px solid #D1D1D1;
-  width: 400px;
+  width: 23%;
   margin-top: 27px;
 }
 
