@@ -44,9 +44,7 @@ const HotMatchtem = ({ data }: { data: IHotEventData }) => {
 		<div className='swiper-slide'>
 			<div className='match-item'>
 				<div className='match-time'>
-					<div className='date-time'>
-						{date} {time} {`GMT(${gmt})`}
-					</div>
+					<div className='date-time'>{`${date} ${time} GMT(${gmt})`}</div>
 					<div className='venue'>{sportLeaguesTitle}</div>
 				</div>
 				<div className='match-detail'>
