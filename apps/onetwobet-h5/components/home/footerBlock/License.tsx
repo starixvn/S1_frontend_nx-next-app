@@ -123,16 +123,6 @@ const License = () => {
 									data-apg-image-size='48'
 									data-apg-image-type='basic-small'
 								/>
-								{/* <a
-									href='https://www.begambleaware.org/'
-									target='_blank'
-									rel='noreferrer'
-								>
-									<img
-										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/aware.png`}
-										alt='begambleaware'
-									/>
-								</a> */}
 							</ul>
 						</div>
 						<p>{t('Label_License_Content')}</p>
