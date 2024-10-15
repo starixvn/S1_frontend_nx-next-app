@@ -1,7 +1,6 @@
 import { Header } from '@12b-h5/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useHome } from '@nx-next-app/operations'
 import {
 	useLazyGetPopUpDataListQuery,
 	useLazyGetPopUpPromotionQuery,
@@ -46,8 +45,6 @@ const Home = () => {
 	} = useAuth()
 
 	const { modal } = useGlobalModal()
-
-	const { bannerData } = useHome()
 
 	const { ALLOWED_CURRENCIES } = useStaticData()
 
@@ -141,7 +138,7 @@ const Home = () => {
 
 			<main className='index'>
 				<Announcement />
-				<Banner bannerList={bannerData} pagination={false} navigation={false} />
+				<Banner />
 				<Menu />
 				{includes(ALLOWED_CURRENCIES.SPORTS_SABA_CLUB, currencyId) && (
 					<HotMatch />

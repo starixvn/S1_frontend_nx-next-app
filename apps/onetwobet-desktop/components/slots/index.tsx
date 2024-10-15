@@ -7,13 +7,11 @@ import SearchBox from './SearchBox'
 import VendorFilter from './vendorFilter'
 
 const Slots = () => {
-	const { bannerList, isGetBannerV3Fetching } = useSlots()
+	const { isGetBannerV3Fetching } = useSlots()
 	if (isGetBannerV3Fetching) return <Loading />
 	return (
 		<main className='lobby'>
-			{!isGetBannerV3Fetching && (
-				<Banner bannerList={bannerList} navigation={false} pagination={false} />
-			)}
+			<Banner />
 			<div className='lobby-content slots'>
 				<div className='top'>
 					<SearchBox />

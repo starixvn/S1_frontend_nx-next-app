@@ -1,6 +1,5 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useHome } from '@nx-next-app/operations'
 import {
 	useLazyGetPopUpDataListQuery,
 	useLazyGetPopUpPromotionQuery,
@@ -44,7 +43,6 @@ const BigWinProfitModal = dynamic(
 const cookieMaxAge = 20 * 60 * 60
 
 const Home = () => {
-	const { bannerData } = useHome()
 	const { modal } = useGlobalModal()
 	const {
 		auth: { isLogin },
@@ -159,7 +157,7 @@ const Home = () => {
 		<main className='index'>
 			<Announcement />
 			<div className='home-banner'>
-				<Banner bannerList={bannerData} navigation={false} />
+				<Banner />
 				{includes(ALLOWED_CURRENCIES.SPORTS_SABA_CLUB, currencyId) && (
 					<HotMatch />
 				)}
