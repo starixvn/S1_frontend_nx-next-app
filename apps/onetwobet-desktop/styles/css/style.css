@@ -235,6 +235,75 @@ body {
   line-height: 30px;
 }
 
+@-webkit-keyframes dot {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    -webkit-transform: translate3d(-0.1px, 0, 0);
+            transform: translate3d(-0.1px, 0, 0);
+  }
+  70% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: rgba(255, 0, 0, 0.4705882353) 0 0 0 4px;
+            box-shadow: rgba(255, 0, 0, 0.4705882353) 0 0 0 4px;
+  }
+  80% {
+    -webkit-transform: translate3d(-0.1px, 0, 0);
+            transform: translate3d(-0.1px, 0, 0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: rgba(255, 0, 0, 0.4705882353) 0 0 0 5px;
+            box-shadow: rgba(255, 0, 0, 0.4705882353) 0 0 0 5px;
+    opacity: 1;
+  }
+}
+
+@keyframes dot {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    -webkit-transform: translate3d(-0.1px, 0, 0);
+            transform: translate3d(-0.1px, 0, 0);
+  }
+  70% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: rgba(255, 0, 0, 0.4705882353) 0 0 0 4px;
+            box-shadow: rgba(255, 0, 0, 0.4705882353) 0 0 0 4px;
+  }
+  80% {
+    -webkit-transform: translate3d(-0.1px, 0, 0);
+            transform: translate3d(-0.1px, 0, 0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-box-shadow: rgba(255, 0, 0, 0.4705882353) 0 0 0 5px;
+            box-shadow: rgba(255, 0, 0, 0.4705882353) 0 0 0 5px;
+    opacity: 1;
+  }
+}
+.notify-dot::after, #header .header-top .header-btn-group .user-info .info-container button.mail.active::after {
+  top: 2px;
+  right: 0;
+  position: absolute;
+  display: block;
+  content: "";
+  background: red;
+  width: 8px;
+  height: 8px;
+  border-radius: 100px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-animation: 1.5s ease 0s infinite normal none dot;
+          animation: 1.5s ease 0s infinite normal none dot;
+}
+
 button.primary,
 a.primary {
   background: #C01D21 !important;
@@ -470,8 +539,26 @@ button[disabled]:hover {
           align-items: center;
   gap: 6px;
 }
-#header .header-top .header-btn-group .user-info .info-container .mail-icon {
+#header .header-top .header-btn-group .user-info .info-container button.mail {
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+  position: relative;
+}
+#header .header-top .header-btn-group .user-info .info-container button.mail img {
   width: 25px;
+}
+#header .header-top .header-btn-group .user-info .info-container button.mail.before-login {
+  opacity: 0.4;
+  cursor: default;
+}
+#header .header-top .header-btn-group .user-info .info-container button.mail.before-login:hover {
+  opacity: 0.4;
+}
+#header .header-top .header-btn-group .user-info .info-container button.mail.after-login {
+  opacity: 1;
+}
+#header .header-top .header-btn-group .user-info .info-container button.mail:hover {
+  opacity: 0.8;
 }
 #header .header-top .header-btn-group .user-info .info-container .user-status {
   display: -webkit-box;
@@ -589,6 +676,14 @@ button[disabled]:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+#header .header-top .header-btn-group .user-info .info-container .user-profile button {
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;
+  position: relative;
+}
+#header .header-top .header-btn-group .user-info .info-container .user-profile button:hover {
+  opacity: 0.8;
 }
 #header .header-top .header-btn-group .user-info .info-container .user-profile .profile-selector {
   background: #242526;
@@ -727,9 +822,6 @@ button[disabled]:hover {
   width: 12px;
   height: 12px;
   margin-left: 5px;
-}
-#header .header-top .header-btn-group .user-info .info-container .language-selector .thrid:hover {
-  background: #1F1F1F !important;
 }
 #header .header-top .header-btn-group .user-info .info-container .language-selector .language-list {
   background: #242526;
