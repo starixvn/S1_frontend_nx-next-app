@@ -1,6 +1,6 @@
 import { useSlots } from '@nx-next-app/operations'
 import { Loading } from '../common'
-import CarouselBanner from '../common/carouselBanner'
+import Banner from './Banner'
 import CategoryFilter from './CategoryFilter'
 import GameList from './GameList'
 import SearchBox from './SearchBox'
@@ -12,13 +12,7 @@ const Slots = () => {
 	return (
 		<main className='lobby'>
 			{!isGetBannerV3Fetching && (
-				<div className='lobby-banner'>
-					<CarouselBanner
-						bannerList={bannerList}
-						navigation={false}
-						pagination={false}
-					/>
-				</div>
+				<Banner bannerList={bannerList} navigation={false} pagination={false} />
 			)}
 			<div className='lobby-content slots'>
 				<div className='top'>

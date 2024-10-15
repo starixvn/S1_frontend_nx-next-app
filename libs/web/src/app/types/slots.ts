@@ -11,3 +11,7 @@ export enum CategoryEnum {
 	Games,
 	ESports,
 }
+
+export enum GameTypeEnum {
+	All,
+}

@@ -81,3 +81,26 @@ export interface IPromotionTextData {
 	title: string
 	content: string
 }
+
+export interface ISponsorsListdata {
+	imgUrl: string
+	year: string
+}
+
+export interface IAboutUsListData {
+	displayText: string
+	pathname: string
+}
+
+export interface IGameProvidersData {
+	imgUrl: string
+	pathname: string
+	mobileGroup?: number
+}
+
+export enum SocialChannelEnum {
+	HOME = 1,
+	CONTACT_US,
+	APP,
+	FOOTER,
+}

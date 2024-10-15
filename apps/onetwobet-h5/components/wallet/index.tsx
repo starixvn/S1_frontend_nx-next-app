@@ -1,6 +1,9 @@
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useWalletAllowed,useTpWalletBalanceListFetcher } from '@nx-next-app/operations'
+import {
+	useTpWalletBalanceListFetcher,
+	useWalletAllowed,
+} from '@nx-next-app/operations'
 import type { IWithdrawalSetting } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { numFormatToDigits } from '@nx-next-app/utils'
@@ -8,7 +11,7 @@ import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { SpinButton } from '../common'
-import Header from '../header'
+import Header from '../common/header'
 
 interface IWalletPageProps {
 	withdrawalBlockSetting: IWithdrawalSetting[]

@@ -4,7 +4,7 @@ import { MenuKeyEnum } from '@nx-next-app/types'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { Header } from '../common'
-import CarouselBanner from '../common/carouselBanner'
+import Banner from './Banner'
 import CategoryFilter from './CategoryFilter'
 import GameInfo from './GameInfo'
 import GameList from './GameList'
@@ -39,7 +39,7 @@ const Slots = () => {
 			</Header>
 			<main className='main casino'>
 				{!isGetBannerV3Fetching && (
-					<CarouselBanner
+					<Banner
 						bannerList={bannerList}
 						navigation={false}
 						spaceBetween={100}

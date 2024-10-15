@@ -1,5 +1,6 @@
-import { Carousel, ICarouselProps } from '@nx-next-app/components/H0001'
+import { Carousel } from '@12b-h5/components/common'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import { ReactIdSwiperProps } from 'react-id-swiper'
 
 interface ILinePayFormProps {
 	redirectLink?: string
@@ -11,7 +12,7 @@ const LinePayForm = ({ redirectLink }: ILinePayFormProps) => {
 	} = useAuth()
 	const { getBannerUrl } = useGlobalData()
 
-	const params: ICarouselProps = {
+	const params: ReactIdSwiperProps = {
 		spaceBetween: 200,
 		centeredSlides: true,
 		autoplay: false,
