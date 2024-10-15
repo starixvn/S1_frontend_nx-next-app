@@ -2018,6 +2018,7 @@ form {
   margin: 0;
   padding: 30px;
   color: #CCCCCC;
+  min-width: 0;
 }
 .joinpop.registration .joinloginModule .joinloginFunction .title {
   font-size: 30px;
@@ -2058,9 +2059,16 @@ form {
 }
 .joinpop.registration .joinloginModule .joinloginFunction .inputModule {
   margin: 20px 10px;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 .joinpop.registration .joinloginModule .joinloginFunction .inputModule .inputBox-blue {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   border-radius: 100px;
+  width: auto;
 }
 .joinpop.registration .joinloginModule .joinloginFunction .inputModule .inputBox-blue .dropdown .dropdown-container {
   border-radius: 5px;
@@ -2079,8 +2087,22 @@ form {
 .joinpop.registration .joinloginModule .joinloginFunction .inputModule .input-group .inputBox-blue {
   width: auto;
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+      -ms-flex: 1;
+          flex: 1;
+  min-width: 0;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .inputModule .input-group .inputBox-blue .iconModule .icon {
+  width: 20px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .joinpop.registration .joinloginModule .joinloginFunction .inputModule .input-group .dropdown {
   -ms-flex-wrap: nowrap;
@@ -2095,6 +2117,9 @@ form {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .joinpop.registration .joinloginModule .joinloginFunction .inputModule .input-group .dropdown .dropdown-container {
   overflow-y: auto;
@@ -2105,6 +2130,9 @@ form {
 }
 .joinpop.registration .joinloginModule .joinloginFunction .inputModule .input-group .dropdown .dropdown-container .dropdown-item {
   padding: 5px;
+}
+.joinpop.registration .joinloginModule .joinloginFunction .inputModule .input-group .dropdown .dropdown-container .inputBox-blue input {
+  min-width: 0;
 }
 .joinpop.registration .joinloginModule .joinloginFunction .btnGroup {
   -ms-flex-item-align: center;
@@ -10365,7 +10393,7 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0px 1000px #fff inset;
           box-shadow: 0 0 0px 1000px #fff inset;
-  -webkit-text-fill-color: #5574A7;
+  -webkit-text-fill-color: #000;
 }
 
 .otpLoading {
@@ -21396,8 +21424,8 @@ form .profileModule .vipLv .vipname {
 
 .exclude {
   padding: 20px 10px;
-  background: #F0F7FF;
-  color: #7591C1;
+  background: #1C1C1C;
+  color: #CCCCCC;
   min-width: unset;
 }
 .exclude__container {
@@ -21408,7 +21436,7 @@ form .profileModule .vipLv .vipname {
 .exclude__title {
   font-weight: bold;
   font-size: 18px;
-  color: #5574A7;
+  color: #CCCCCC;
   position: relative;
   margin-bottom: 25px;
 }
@@ -21421,13 +21449,13 @@ form .profileModule .vipLv .vipname {
   right: 0;
   height: 2px;
   width: 100%;
-  background-image: -webkit-gradient(linear, left top, right top, from(#5574A7), to(rgba(247, 122, 0, 0)));
-  background-image: linear-gradient(to right, #5574A7, rgba(247, 122, 0, 0));
+  background-image: -webkit-gradient(linear, left top, right top, from(#CCCCCC), to(rgba(247, 122, 0, 0)));
+  background-image: linear-gradient(to right, #CCCCCC, rgba(247, 122, 0, 0));
 }
 .exclude__table {
   width: 100%;
-  border-left: 1px solid #7591c1;
-  border-right: 1px solid #7591c1;
+  border-left: 1px solid #FF0000;
+  border-right: 1px solid #FF0000;
   border-radius: 3px;
   text-align: center;
 }
@@ -21443,12 +21471,13 @@ form .profileModule .vipLv .vipname {
           justify-content: center;
 }
 .exclude__table__item:first-child div {
-  background: #7591c1;
+  background: #C01D21;
+  border-top: 1px solid #FF0000;
   color: #fff;
   font-weight: bold;
 }
 .exclude__table__item div {
-  background: #fcfcfc;
+  background: #1C1C1C;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21465,10 +21494,10 @@ form .profileModule .vipLv .vipname {
   -webkit-box-flex: 1;
       -ms-flex: 1 1;
           flex: 1 1;
-  border-bottom: 1px solid #7591c1;
+  border-bottom: 1px solid #FF0000;
 }
 .exclude__table__item div:first-child {
-  border-right: 1px solid #7591c1;
+  border-right: 1px solid #FF0000;
 }
 .exclude__table__item div span {
   display: block;
@@ -21485,7 +21514,7 @@ form .profileModule .vipLv .vipname {
   bottom: 1px;
   height: 1px;
   width: 100%;
-  background: #7591c1;
+  background: #FF0000;
 }
 .exclude__table__item div span:last-child {
   padding-bottom: 0;

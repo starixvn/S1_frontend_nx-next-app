@@ -1,5 +1,6 @@
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
+import { useGetMsgCountQuery } from '@nx-next-app/service'
 import classNames from 'classnames'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
@@ -21,10 +22,10 @@ const LayoutFooter = () => {
 	const { pathname } = router
 	const { ALLOWED_CURRENCIES, LIVE_CHAT_ID_BY_LANG_ID } = useStaticData()
 
-	// TODO: 等設計加上紅點的class name之後再做判斷加上去
-	// const { data: { data: msgCount = 0 } = {} } = useGetMsgCountQuery(null, {
-	// 	skip: !isLogin,
-	// })
+	// 等設計加上紅點的class name之後再做判斷加上去
+	const { data: { data: msgCount = 0 } = {} } = useGetMsgCountQuery(null, {
+		skip: !isLogin,
+	})
 
 	// 廣告商用的事件記錄器，綁在 DepositButton 底下
 	const handleYuriAddToCartClick = () => {
@@ -167,12 +168,14 @@ const LayoutFooter = () => {
 						</div>
 					</div>
 				)}
-				<div className='footer-popup-item '>
+				<div
+					className={classNames('footer-popup-item', { active: msgCount > 0 })}
+				>
 					<Link href={paths.message.root}>
 						<a>
 							<div className='footer-popup-img '>
 								<img
-									src={getBannerUrl('/h5/img/4.0/footer/massage.png')}
+									src={getBannerUrl('/h5/img/4.0/footer/message.png')}
 									alt='Message'
 								/>
 							</div>

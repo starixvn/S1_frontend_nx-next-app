@@ -2,7 +2,6 @@ import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { useGetSeoQuery } from '@nx-next-app/service'
 import { ILicenseData, ISeoData } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
 import Script from 'next/script'
 import { useEffect } from 'react'
 
@@ -69,41 +68,41 @@ const License = ({
 
 			<ul>
 				<li>
-					<Link href='https://www.thawte.com/'>
-						<a target='_blank'>
-							<img
-								src={getBannerUrl('/desktop/img/thawte.png')}
-								alt='thawte logo'
-							/>
-						</a>
-					</Link>
+					<a href='https://www.thawte.com/' target='_blank' rel='noreferrer'>
+						<img
+							src={getBannerUrl('/desktop/img/thawte.png')}
+							alt='thawte logo'
+						/>
+					</a>
 				</li>
 				<li>
-					<Link href='https://www.gambleaware.co.uk/'>
-						<a target='_blank'>
-							<img
-								src={getBannerUrl('/desktop/img/gambleaware.png')}
-								alt='gambleaware logo'
-							/>
-						</a>
-					</Link>
+					<a
+						href='https://www.gambleaware.co.uk/'
+						target='_blank'
+						rel='noreferrer'
+					>
+						<img
+							src={getBannerUrl('/desktop/img/gambleaware.png')}
+							alt='gambleaware logo'
+						/>
+					</a>
 				</li>
 				<li>
-					<Link href='https://promotions.12bet.com/TST/'>
-						<a target='_blank'>
-							<img src={getBannerUrl('/desktop/img/TST.png')} alt='TST logo' />
-						</a>
-					</Link>
+					<a
+						href='https://promotions.12bet.com/TST/'
+						target='_blank'
+						rel='noreferrer'
+					>
+						<img src={getBannerUrl('/desktop/img/TST.png')} alt='TST logo' />
+					</a>
 				</li>
 				<li>
-					<Link href=''>
-						<a target='_blank'>
-							<img
-								src={getBannerUrl('/desktop/img/safe-secure.png')}
-								alt='safe-secure logo'
-							/>
-						</a>
-					</Link>
+					<a href='' target='_blank'>
+						<img
+							src={getBannerUrl('/desktop/img/safe-secure.png')}
+							alt='safe-secure logo'
+						/>
+					</a>
 				</li>
 				{showLicenseLogo && (
 					<>

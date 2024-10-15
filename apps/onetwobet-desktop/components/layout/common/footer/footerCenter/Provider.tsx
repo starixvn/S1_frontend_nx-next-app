@@ -15,7 +15,7 @@ const Provider = () => {
 				{gameProviders.map(({ imgUrl, pathname }) => (
 					<li key={imgUrl}>
 						<a href={pathname}>
-							<img src={getBannerUrl(`/desktop/${imgUrl}`)} alt='' />
+							<img src={getBannerUrl(`/desktop/${imgUrl}`)} alt={imgUrl} />
 						</a>
 					</li>
 				))}
