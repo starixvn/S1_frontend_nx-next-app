@@ -41,9 +41,7 @@ const Announcement = () => {
 	return (
 		<div className='home-marquee'>
 			<div id='Marquee'>
-				<div className='time'>
-					{time} {meridiem} {date} {`GMT${gmt}`}
-				</div>
+				<div className='time'>{`${time} ${meridiem} ${date} GMT(${gmt})`}</div>
 				<div className='marquee-box'>
 					<div className='marquee-run' style={{ width: '100%' }}>
 						<Marquee
