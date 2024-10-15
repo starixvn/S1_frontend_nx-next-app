@@ -1,20 +1,17 @@
 import Carousel from '@12b-h5/components/common/carousel'
 import { paths } from '@nx-next-app/constants'
-import { useBanner } from '@nx-next-app/operations'
-import { IBannerData } from '@nx-next-app/service'
+import { useBanner, useSlots } from '@nx-next-app/operations'
 import { useRouter } from 'next/router'
-import { ReactIdSwiperProps } from 'react-id-swiper'
 
-interface IBannerProps extends ReactIdSwiperProps {
-	bannerList: IBannerData[]
-}
-
-const Banner = ({ bannerList, ...rest }: IBannerProps) => {
+const Banner = () => {
 	const { push } = useRouter()
+	const { bannerList, isGetBannerV3Fetching } = useSlots()
 	const { bannerDataList, handleBannerClick } = useBanner(bannerList)
-
+	if (isGetBannerV3Fetching) {
+		return null
+	}
 	return (
-		<Carousel {...rest}>
+		<Carousel spaceBetween={100} navigation={false}>
 			{bannerDataList.map(item => (
 				<div
 					key={item.itemKey}

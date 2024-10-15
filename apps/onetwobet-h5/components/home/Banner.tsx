@@ -1,21 +1,16 @@
 import Carousel from '@12b-h5/components/common/carousel'
 import { paths } from '@nx-next-app/constants'
-import { useBanner } from '@nx-next-app/operations'
-import { IBannerData } from '@nx-next-app/service'
+import { useBanner, useHome } from '@nx-next-app/operations'
 import { useRouter } from 'next/router'
-import { ReactIdSwiperProps } from 'react-id-swiper'
 
-interface IBannerProps extends ReactIdSwiperProps {
-	bannerList: IBannerData[]
-}
-
-const Banner = ({ bannerList, ...rest }: IBannerProps) => {
+const Banner = () => {
 	const { push } = useRouter()
-	const { bannerDataList, handleBannerClick } = useBanner(bannerList)
+	const { bannerData } = useHome()
+	const { bannerDataList, handleBannerClick } = useBanner(bannerData)
 
 	return (
 		<div className='home-mainbanner'>
-			<Carousel {...rest}>
+			<Carousel pagination={false} navigation={false}>
 				{bannerDataList.map(item => (
 					<div
 						key={item.itemKey}

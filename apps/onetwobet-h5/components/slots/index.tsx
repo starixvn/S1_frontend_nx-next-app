@@ -12,11 +12,9 @@ import VendorFilter from './vendorFilter'
 
 const Slots = () => {
 	const {
-		bannerList,
 		searchCategoryText,
 		navRef,
 		activeGame,
-		isGetBannerV3Fetching,
 		isShowSearchInput,
 		isNavInView,
 		setIsShowSearchInput,
@@ -38,14 +36,7 @@ const Slots = () => {
 				/>
 			</Header>
 			<main className='main casino'>
-				{!isGetBannerV3Fetching && (
-					<Banner
-						bannerList={bannerList}
-						navigation={false}
-						spaceBetween={100}
-					/>
-				)}
-
+				<Banner />
 				<div className={classNames('functionList', { active: !isNavInView })}>
 					<VendorFilter />
 					<CategoryFilter />
