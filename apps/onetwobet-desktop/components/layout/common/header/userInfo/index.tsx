@@ -4,6 +4,8 @@ import Wallet from '@12b-desktop/components/layout/common/header/userInfo/Wallet
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
+import { useGetMsgCountQuery } from '@nx-next-app/service'
+import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
@@ -18,7 +20,7 @@ const UserInfo = () => {
 	const { t } = useTranslation()
 	const {
 		userInfo: { userName, userLevel },
-		auth,
+		auth: { isLogin },
 		onSignOut,
 	} = useAuth()
 	const router = useRouter()
@@ -42,16 +44,21 @@ const UserInfo = () => {
 	// * 當前 VIP 等級資訊
 	const currentVipLevelInfo = VIP_CLUB_IMAGES[userLevel - 1]
 
+	// 判斷此帳戶是否有未讀message
+	const { data: { data: msgCount = 0 } = {} } = useGetMsgCountQuery(null, {
+		skip: !isLogin,
+	})
+
 	return (
 		<div className='user-info'>
 			{/* 💡登入後才有： */}
-			{auth.isLogin && (
+			{isLogin && (
 				<div className='info-container'>
 					{/* <!-- user-status --> */}
 					<div className='user-status'>
 						<div className='status-content'>
 							<div className='text'>
-								<span>Welcome,</span>
+								<span>{t('Label_General_Welcome')},</span>
 								<span className='user-mark'>{userName}</span>
 							</div>
 							<div className='text'>
@@ -82,16 +89,21 @@ const UserInfo = () => {
 			{/* 💡登入前後都有 */}
 			<div className='info-container'>
 				<button
+					className={classNames('mail ', {
+						'before-login': !isLogin,
+						'after-login': isLogin,
+						active: msgCount > 0,
+					})}
 					onClick={() => {
 						// 有登入導到personal message，沒有的話就disabled
-						if (auth.isLogin) {
+						if (isLogin) {
 							router.push(paths.message.root)
 						}
 					}}
 				>
 					<img
-						className='mail-icon'
-						src={getBannerUrl('/desktop/img/mail-before-login.png')}
+						className=''
+						src={getBannerUrl('/desktop/img/mail-login.png')}
 						alt='mail icon'
 					/>
 				</button>
@@ -99,7 +111,7 @@ const UserInfo = () => {
 				{/* <!-- language下拉選單 -->  */}
 				<Country />
 
-				{auth.isLogin ? (
+				{isLogin ? (
 					<button className='primary' onClick={handleSignOut}>
 						{t('Label_General_LogOut')}
 					</button>

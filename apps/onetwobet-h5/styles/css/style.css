@@ -1358,7 +1358,7 @@ header .header-module .header-info a.active::after {
   background: red;
   width: 2vw;
   height: 2vw;
-  border-radius: 10px;
+  border-radius: 100px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   -webkit-animation: 1.5s ease 0s infinite normal none move;
@@ -16320,11 +16320,14 @@ main.casino .banner {
           justify-content: center;
 }
 .home-mainbanner .swiper-container .swiper-pagination-bullet-active {
-  background: #5574A7;
+  background: #C01D21;
 }
 .home-mainbanner .mainbanner {
   height: 48vw;
   display: block;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .home-sidebar {
