@@ -42,7 +42,7 @@ const HeaderModule = () => {
 							/>
 						</button>
 					</Link>
-					{/* TODO dopwnload 頁面 */}
+					{/* TODO download app 頁面 */}
 					<Link href={paths.home.root} prefetch>
 						<button>
 							<img
