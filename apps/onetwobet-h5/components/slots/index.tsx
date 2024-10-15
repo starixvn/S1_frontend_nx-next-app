@@ -4,7 +4,7 @@ import { MenuKeyEnum } from '@nx-next-app/types'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { Header } from '../common'
-import CarouselBanner from '../common/carouselBanner'
+import Banner from './Banner'
 import CategoryFilter from './CategoryFilter'
 import GameInfo from './GameInfo'
 import GameList from './GameList'
@@ -12,11 +12,9 @@ import VendorFilter from './vendorFilter'
 
 const Slots = () => {
 	const {
-		bannerList,
 		searchCategoryText,
 		navRef,
 		activeGame,
-		isGetBannerV3Fetching,
 		isShowSearchInput,
 		isNavInView,
 		setIsShowSearchInput,
@@ -38,14 +36,7 @@ const Slots = () => {
 				/>
 			</Header>
 			<main className='main casino'>
-				{!isGetBannerV3Fetching && (
-					<CarouselBanner
-						bannerList={bannerList}
-						navigation={false}
-						spaceBetween={100}
-					/>
-				)}
-
+				<Banner />
 				<div className={classNames('functionList', { active: !isNavInView })}>
 					<VendorFilter />
 					<CategoryFilter />

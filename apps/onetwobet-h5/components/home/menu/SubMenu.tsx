@@ -1,12 +1,8 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import type { IMergedMenuData } from '@nx-next-app/operations'
-import {
-	IDynamicSubMenuItem,
-	MenuIconTypeEnum,
-	MenuKeyEnum,
-} from '@nx-next-app/types'
+import { useMenu } from '@nx-next-app/operations'
+import { MenuIconTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
 import { isEventPeriod } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import dynamic from 'next/dynamic'
@@ -18,28 +14,16 @@ const LiveStreamingModalH5 = dynamic(
 )
 
 interface ISubMenuProps {
-	menuList: IMergedMenuData[]
-	onMenuOpen: (
-		item: IDynamicSubMenuItem | undefined,
-		{
-			loginCallback,
-			messageCallBack,
-			liveStreamingCallback,
-		}: {
-			loginCallback: () => void
-			messageCallBack?: (message: string) => void | undefined
-			liveStreamingCallback: () => void
-		}
-	) => void
 	menuKey: keyof typeof MenuKeyEnum | undefined
 }
 
-const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
+const SubMenu = ({ menuKey }: ISubMenuProps) => {
 	const {
 		userInfo: { langId },
 	} = useAuth()
 	const { push } = useRouter()
 	const { modal } = useGlobalModal()
+	const { menuList = [], onMenuOpen } = useMenu()
 	const submenus =
 		menuList?.find(({ category }) => category === menuKey)?.subMenu || []
 
@@ -49,7 +33,7 @@ const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
 			// 解決特定情況跑版，剩 3 列且最右側是空的，這裡改用 grid 來排版
 			style={{
 				display: 'grid',
-				gridTemplateColumns: 'repeat(4, 1fr)',
+				gridTemplateColumns: 'repeat(3, 1fr)',
 				gap: '1vw',
 			}}
 		>

@@ -1,214 +1,150 @@
-import { Header, useAppDownload } from '@12b-h5/components/common'
-import { JackPot } from '@12b-h5/components/index'
-import { paths } from '@nx-next-app/constants'
-import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
-import { useHome } from '@nx-next-app/features/F0001/providers'
-import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
-import { useTpWalletBalanceListFetcher } from '@nx-next-app/operations'
-import { useSetHideBalanceMutation } from '@nx-next-app/service'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { multiEqual } from '@nx-next-app/utils'
-import classNames from 'classnames'
+import { Header } from '@12b-h5/components/common'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import {
+	useLazyGetPopUpDataListQuery,
+	useLazyGetPopUpPromotionQuery,
+} from '@nx-next-app/service'
+import { CurrenciesEnum, DeviceTypeEnum } from '@nx-next-app/types'
+import { getCookie, setCookie } from 'cookies-next'
 import { includes } from 'lodash-es'
 import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
-import { Fragment, useCallback } from 'react'
-import Menu from './menu'
-
-interface IHomeProps {
-	persistAppDownloadHint: string
-}
-
-// ======== 先放在 components 資料夾下面，新首頁如果不需要再刪除 =============
-
-const LiveStreamingLink = dynamic(() => import('../liveStreamingLink'), {
-	ssr: false,
-})
-
-const EuropeCupEntry = dynamic(() => import('../euroCupEntry'), {
-	ssr: false,
-})
-
-const RetentionEntry = dynamic(() => import('../retentionEntry'), {
-	ssr: false,
-})
-
-const CarouselBanner = dynamic(() => import('../carouselBanner'), {
-	ssr: false,
-})
-
-const OlympicEntry = dynamic(() => import('../olympicEntry'), {
-	ssr: false,
-})
-// =======================================================================
+import { useEffect } from 'react'
 
 const Announcement = dynamic(() => import('./Announcement'))
 
-const PromotionSwiper = dynamic(() => import('./PromotionSwiper'))
-
-const HotEventSwiper = dynamic(() => import('./HotEventSwiper'))
-
-const HotGameSwiper = dynamic(() => import('./HotGameSwiper'))
-
-const RecentlyViewGames = dynamic(() => import('./RecentlyViewGames'), {
+const Banner = dynamic(() => import('./Banner'), {
 	ssr: false,
 })
 
-// 用不到之後刪了
-const FriendReferral = dynamic(
-	() => import('@nx-next-app/features/F0001/h5/home/FriendReferral'),
-	{ ssr: false }
-)
+const Menu = dynamic(() => import('./menu'))
 
-const AppDownload = dynamic(() => import('./AppDownload'))
+const HotMatch = dynamic(() => import('./hotMatch'))
 
-const SimpleFooter = dynamic(() => import('./SimpleFooter'))
+const InfoSwiper = dynamic(() => import('./InfoSwiper'))
 
 const FooterBlock = dynamic(() => import('./footerBlock'))
 
-const JackPotSwiper = dynamic(() => import('./JackPotSwiper'), { ssr: false })
+// Popup Modals
+const HomePromotionModal = dynamic(
+	() => import('@12b-h5/components/modal/HomePromotionModal'),
+	{ ssr: false }
+)
 
-const PartnerBlock = dynamic(() => import('./PartnerBlock'))
+const BigWinProfitModal = dynamic(
+	() => import('@12b-h5/components/modal/BigWinProfitModal'),
+	{ ssr: false }
+)
 
-const Home = ({ persistAppDownloadHint }: IHomeProps) => {
-	const { push } = useRouter()
+const cookieMaxAge = 20 * 60 * 60
 
+const Home = () => {
 	const {
-		userInfo: { langId, currencyId },
+		auth: { isLogin },
+		userInfo: { currencyId, langId, userName, accountName },
 	} = useAuth()
 
-	// 因為有用useCallback避免render issue，因此這邊資料僅使用static＆serverSide data
-	// clientSide api fetch在元件內部呼叫
-	const { bannerData, mobileHomeOrders } = useHome()
-
-	const {
-		isLoading: isTpWalletBalanceListLoading,
-		isHideBalance,
-		totalWalletBalance,
-		mainWalletInfo,
-		custBonusWalletList,
-		tpWalletBalanceList,
-		onRefetchAllWallet,
-	} = useTpWalletBalanceListFetcher({ langId })
-
-	const [setHideBalance] = useSetHideBalanceMutation()
-
-	const { isAppDownloadHintActive, onCloseAppDownloadHint } = useAppDownload(
-		Boolean(persistAppDownloadHint)
-	)
-
-	const { isInApp } = useGlobalData()
+	const { modal } = useGlobalModal()
 
 	const { ALLOWED_CURRENCIES } = useStaticData()
 
-	const homeComponents = {
-		[MobileHomeComponentsEnum.CarouselBanner]: (
-			<div className='home-mainbanner'>
-				<CarouselBanner
-					bannerList={bannerData}
-					pagination={false}
-					navigation={false}
-				/>
-			</div>
-		),
-		[MobileHomeComponentsEnum.Announcement]: <Announcement />,
-		[MobileHomeComponentsEnum.PromotionSwiper]: <PromotionSwiper />,
-		[MobileHomeComponentsEnum.HotEventSwiper]: includes(
-			ALLOWED_CURRENCIES.SPORTS_SABA_CLUB,
-			currencyId
-		) ? (
-			<HotEventSwiper />
-		) : null,
-		[MobileHomeComponentsEnum.HotGameSwiper]: <HotGameSwiper />,
-		[MobileHomeComponentsEnum.RecentlyViewGames]: <RecentlyViewGames />,
-		[MobileHomeComponentsEnum.FriendReferral]: <FriendReferral />,
-		[MobileHomeComponentsEnum.Jackpot]: includes(
-			ALLOWED_CURRENCIES.JACKPOT,
-			currencyId
-		) ? (
-			<JackPot onClick={() => push(paths.slots.root)} isRoot />
-		) : null,
-		[MobileHomeComponentsEnum.EuropeCupEntry]: includes(
-			ALLOWED_CURRENCIES.Euro_Cup,
-			currencyId
-		) ? (
-			<EuropeCupEntry />
-		) : null,
-		[MobileHomeComponentsEnum.RetentionEntry]: <RetentionEntry />,
-		[MobileHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
-		[MobileHomeComponentsEnum.AppDownload]:
-			isInApp === false ? <AppDownload /> : null,
+	const [getPopUpPromotion] = useLazyGetPopUpPromotionQuery()
 
-		[MobileHomeComponentsEnum.FooterBlock]: <FooterBlock />,
-		[MobileHomeComponentsEnum.SimpleFooter]: <SimpleFooter />,
-		[MobileHomeComponentsEnum.JackPotSwiper]: <JackPotSwiper />,
-		[MobileHomeComponentsEnum.PartnerBlock]: <PartnerBlock />,
-		[MobileHomeComponentsEnum.OlympicEntry]: includes(
-			ALLOWED_CURRENCIES.OLYMPIC,
-			currencyId
-		) ? (
-			<OlympicEntry />
-		) : null,
+	const [getBigWinProfit] = useLazyGetPopUpDataListQuery()
+
+	const promotionPopup = async () => {
+		const cookieName = `popupPromotions${userName}`
+
+		if (!isLogin || !accountName || getCookie(cookieName) === '1') {
+			openNextPopup()
+			return
+		}
+
+		const { data: { bonusCode = null } = {} } = await getPopUpPromotion({
+			langId,
+		}).unwrap()
+
+		if (bonusCode) {
+			setCookie(cookieName, '1', { maxAge: cookieMaxAge })
+			modal.open(
+				<HomePromotionModal
+					closeCallback={openNextPopup}
+					bonusCode={bonusCode}
+				/>,
+				{
+					className: 'promosback',
+				}
+			)
+		} else {
+			openNextPopup()
+		}
 	}
 
-	// banner 區塊，目前只有兩個
-	const bannerBlockOrders = mobileHomeOrders.filter(component =>
-		multiEqual(component, [
-			MobileHomeComponentsEnum.CarouselBanner,
-			MobileHomeComponentsEnum.Announcement,
-		])
-	)
+	const bigWinProfitPopup = async () => {
+		const cookieName = `BigWinProfit${userName}`
 
-	// contents 區塊
-	const contentOrders = mobileHomeOrders.filter(
-		component => !includes(bannerBlockOrders, component)
-	)
+		if (
+			isLogin &&
+			getCookie(cookieName) !== '1' &&
+			currencyId === CurrenciesEnum.IDR
+		) {
+			try {
+				const { data: bigWinData } = await getBigWinProfit({
+					deviceType: DeviceTypeEnum.Mobile,
+				}).unwrap()
 
-	const showAppDownload =
-		isInApp === false &&
-		isAppDownloadHintActive &&
-		includes(ALLOWED_CURRENCIES['APP_DOWNLOAD'] as CurrenciesEnum[], currencyId)
+				// 該userName回傳null表示不顯示彈窗
+				if (bigWinData.userName !== null) {
+					setCookie(cookieName, '1', { maxAge: cookieMaxAge })
+					modal.open(
+						<BigWinProfitModal
+							bigWinData={bigWinData}
+							closeCallback={openNextPopup}
+						/>,
+						{ className: 'bigwinpop' }
+					)
+				} else {
+					openNextPopup()
+				}
+			} catch (error) {
+				modal.error((error as Error).message)
+			}
+		} else {
+			openNextPopup()
+		}
+	}
 
-	// 避免map造成多次調用renderComponent因此用useCallback包起來
-	const renderComponent = useCallback(
-		(component: MobileHomeComponentsEnum) => {
-			return homeComponents[component] ? (
-				<Fragment key={component}>{homeComponents[component]}</Fragment>
-			) : null
-		},
-		[langId, currencyId]
-	)
+	const popStack = [promotionPopup, bigWinProfitPopup]
+
+	const openNextPopup = () => {
+		if (popStack.length > 0) {
+			const current = popStack.pop()
+			if (current) {
+				current()
+			}
+		}
+	}
+
+	useEffect(() => {
+		openNextPopup()
+		// 正確放入更新依賴確保正確觸發 effect
+	}, [isLogin, accountName])
 
 	return (
 		<>
 			<Header>
-				<Header.AppDownLoad
-					isAppDownloadHintActive={showAppDownload}
-					onCloseAppDownloadHint={onCloseAppDownloadHint}
-					showAppDownload={showAppDownload}
-				/>
-
-				<Header.HeaderModule
-					isTpWalletBalanceListLoading={isTpWalletBalanceListLoading}
-					originIsHideBalance={isHideBalance}
-					totalWalletBalance={totalWalletBalance}
-					mainWalletInfo={mainWalletInfo}
-					custBonusWalletList={custBonusWalletList}
-					tpWalletBalanceList={tpWalletBalanceList}
-					onRefetchAllWallet={onRefetchAllWallet}
-					onSetHideBalance={setHideBalance}
-				/>
+				<Header.HeaderModule />
 			</Header>
 
-			<main
-				// * 當 Header.AppDownLoad 顯示時要加入 'active' class name
-				className={classNames({ active: showAppDownload })}
-			>
-				{bannerBlockOrders.map(component => renderComponent(component))}
-
+			<main className='index'>
+				<Announcement />
+				<Banner />
 				<Menu />
-
-				{contentOrders.map(component => renderComponent(component))}
+				{includes(ALLOWED_CURRENCIES.SPORTS_SABA_CLUB, currencyId) && (
+					<HotMatch />
+				)}
+				<InfoSwiper />
+				<FooterBlock />
 			</main>
 		</>
 	)

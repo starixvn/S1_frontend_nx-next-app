@@ -11,7 +11,7 @@ import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { SpinButton } from '../common'
-import Header from '../header'
+import Header from '../common/header'
 
 interface IWalletPageProps {
 	withdrawalBlockSetting: IWithdrawalSetting[]

@@ -1,8 +1,8 @@
-import dayjs from 'dayjs'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { FieldErrors } from 'react-hook-form'
-import { isNaN, replace } from 'lodash-es'
 import { INTEGER_ONLY_REGEX } from '@nx-next-app/constants'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import dayjs from 'dayjs'
+import { isNaN, replace } from 'lodash-es'
+import { FieldErrors } from 'react-hook-form'
 
 /**
  * @returns 數字 format 到特定小數點，預設為第二位
@@ -141,4 +141,11 @@ export const replaceStringToNumber = (str: string) => {
 export const revertTimeZone = (time: string) => {
 	// 因為後端有可能會送 2024-05-12 這鬼東西或 2024-04-29T00:00:00+07:00 完整時區，所以需補個 fallback 以完全符合 YYY-MM-DD HH:mm:ss
 	return dayjs(`${time} 00:00:00`, 'YYYY-MM-DD HH:mm:ss').utcOffset(0, true)
+}
+
+// HotEvent 元件使用
+export const formatHdp = (hdp: number) => {
+	if (hdp === 0) return hdp
+
+	return `${hdp > 0 ? '+' : ''}${hdp}`
 }
