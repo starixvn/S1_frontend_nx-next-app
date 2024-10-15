@@ -1,5 +1,6 @@
-import { paths } from '@nx-next-app/constants'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { FieldErrors, useForm } from 'react-hook-form'
 import Form from '../../form'
@@ -8,6 +9,11 @@ export type LoginFormType = {
 	userName: string
 	password: string
 }
+
+const ForgotPasswordModal = dynamic(
+	() => import('@12b-desktop/components/modal/ForgotPasswordModal'),
+	{ ssr: false }
+)
 
 export interface ILoginProps {
 	onLogin: (values: LoginFormType) => void
@@ -18,12 +24,14 @@ export interface ILoginProps {
 const Login = ({ onLogin, onLoginInvalid, onLineLogin }: ILoginProps) => {
 	const { register, handleSubmit } = useForm<LoginFormType>()
 	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
+
+	const handleForgetPassword = () => modal.open(<ForgotPasswordModal />)
 
 	const handleLineLogin = () => {
-		if (typeof onLineLogin === 'function') {
-			onLineLogin()
-		}
+		if (typeof onLineLogin === 'function') onLineLogin()
 	}
+
 	return (
 		<>
 			<div className='username'>
@@ -35,10 +43,7 @@ const Login = ({ onLogin, onLoginInvalid, onLineLogin }: ILoginProps) => {
 						defaultValue=''
 						placeholder={t('Label_General_Username') || ''}
 						{...register('userName', {
-							required: {
-								value: true,
-								message: t('Label_General_UsernameReq'),
-							},
+							required: t('Label_General_UsernameReq'),
 							minLength: {
 								value: 6,
 								message: t('Label_General_UserNameLength'),
@@ -54,15 +59,12 @@ const Login = ({ onLogin, onLoginInvalid, onLineLogin }: ILoginProps) => {
 						type='password'
 						placeholder={t('Label_General_Password') || ''}
 						{...register('password', {
-							required: {
-								value: true,
-								message: t('Label_General_PasswordRequired'),
-							},
+							required: t('Label_General_PasswordRequired'),
 						})}
 					/>
-					<Link href={paths.forgetPassword.root}>
-						<a className='forgot'>{t('Label_Header_ForgetPassword')}</a>
-					</Link>
+					<a className='forgot' onClick={handleForgetPassword}>
+						{t('Label_Header_ForgetPassword')}
+					</a>
 				</Form>
 			</div>
 

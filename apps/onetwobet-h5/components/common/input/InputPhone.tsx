@@ -102,7 +102,7 @@ const InputPhone = ({
 					value={selectValue}
 					showValue={showValue}
 					requiredIcon={requiredIcon}
-					errorMessage={errorMessage}
+					error={error || !!errorMessage}
 				/>
 				<div
 					className={classNames('inputBox', {
