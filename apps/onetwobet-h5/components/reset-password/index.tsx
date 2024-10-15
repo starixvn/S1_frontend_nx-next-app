@@ -1,5 +1,4 @@
-import { Loading } from '@12b-h5/components/common'
-import Header from '@12b-h5/components/header'
+import { Header, Loading } from '@12b-h5/components/common'
 import { paths } from '@nx-next-app/constants'
 import { useCheckResetPwdTokenMutation } from '@nx-next-app/service'
 import { isUndefined } from 'lodash-es'
