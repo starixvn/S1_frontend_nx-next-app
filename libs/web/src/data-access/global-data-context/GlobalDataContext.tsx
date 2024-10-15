@@ -22,6 +22,7 @@ interface IGlobalDataContext {
 	getBannerUrl: (url: string) => string
 	getImageUrl: (url: string) => string
 	getPaymentUrl: (url: string) => string
+	getSportImageUrl: (url: string) => string
 }
 
 const GlobalDataContext = createContext<IGlobalDataContext>(null!)
@@ -56,7 +57,7 @@ const GlobalDataProvider = ({
 			skip: !isLogin || memberType !== UserInfoMemberType.LiveStreaming,
 		})
 
-	const { bannerDomain, imgDomain, paymentDomain } = {
+	const { bannerDomain, imgDomain, paymentDomain, sportImgDomain } = {
 		...persistStaticFileDomainData,
 	}
 
@@ -69,6 +70,9 @@ const GlobalDataProvider = ({
 	const getPaymentUrl = (url: string) => {
 		return paymentDomain ? `https://${paymentDomain}${url}` : url
 	}
+	const getSportImageUrl = (url: string) => {
+		return sportImgDomain ? `https://${sportImgDomain}${url}` : url
+	}
 
 	const value: IGlobalDataContext = {
 		tpMaintainList,
@@ -79,6 +83,7 @@ const GlobalDataProvider = ({
 		getBannerUrl,
 		getImageUrl,
 		getPaymentUrl,
+		getSportImageUrl,
 	}
 
 	useEffect(() => {

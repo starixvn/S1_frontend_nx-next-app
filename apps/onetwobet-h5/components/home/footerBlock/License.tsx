@@ -1,17 +1,17 @@
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useHome } from '@nx-next-app/features/F0001/providers'
+import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
+import { useHome } from '@nx-next-app/operations'
 import { useGetSeoQuery } from '@nx-next-app/service'
 import { ISeoData } from 'libs/web/src/app/types/footer'
 import { useTranslation } from 'next-i18next'
 import Head from 'next/head'
 import { useEffect } from 'react'
 
-// 手機版 License 只存在於此處，資料流不像桌機有在 Layout 中共用，故獨立寫在 Home 內
 const License = () => {
 	const { t } = useTranslation()
 	const {
 		userInfo: { langId },
 	} = useAuth()
+	const { getBannerUrl } = useGlobalData()
 
 	const { META_DATA } = useStaticData()
 	const {
@@ -67,34 +67,63 @@ const License = () => {
 	}, [showLicenseLogo])
 	return (
 		<>
-			<div className='bottom-license'>
+			<div className='license'>
+				<div className='title'>{t('Label_License_Title')}</div>
 				{showLicenseLogo && (
-					<>
-						<div>
-							{t('Label_Gaming_License')}
-							<img
-								className='icon-tick'
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/license-tick.png`}
-								alt='vaild gaming license'
-							/>
-						</div>
-
-						<div>
-							<div
-								id={`apg-${CuracaoScript}`}
-								data-apg-seal-id={CuracaoScript}
-								data-apg-image-size='48'
-								data-apg-image-type='basic-small'
-							/>
-							{/* 市場通知移除 XCM */}
-							{/* <div */}
-							{/*	id={`xcm-${XCMScript}`} */}
-							{/*	data-xcm-seal-id={XCMScript} */}
-							{/*	data-xcm-image-size='36' */}
-							{/*	data-xcm-image-type='basic-small' */}
-							{/* /> */}
-							<div>
-								<a
+					<div className='content'>
+						<div className='license-logo'>
+							<ul>
+								<li>
+									<a
+										href='https://www.thawte.com/'
+										target='_blank'
+										rel='noreferrer'
+									>
+										<img
+											src={getBannerUrl('/desktop/img/thawte.png')}
+											alt='thawte logo'
+										/>
+									</a>
+								</li>
+								<li>
+									<a
+										href='https://www.gambleaware.co.uk/'
+										target='_blank'
+										rel='noreferrer'
+									>
+										<img
+											src={getBannerUrl('/desktop/img/gambleaware.png')}
+											alt='gambleaware logo'
+										/>
+									</a>
+								</li>
+								<li>
+									<a
+										href='https://promotions.12bet.com/TST/'
+										target='_blank'
+										rel='noreferrer'
+									>
+										<img
+											src={getBannerUrl('/desktop/img/TST.png')}
+											alt='TST logo'
+										/>
+									</a>
+								</li>
+								<li>
+									<a href='' target='_blank' rel='noreferrer'>
+										<img
+											src={getBannerUrl('/desktop/img/safe-secure.png')}
+											alt='safe-secure logo'
+										/>
+									</a>
+								</li>
+								<li
+									id={`apg-${CuracaoScript}`}
+									data-apg-seal-id={CuracaoScript}
+									data-apg-image-size='48'
+									data-apg-image-type='basic-small'
+								/>
+								{/* <a
 									href='https://www.begambleaware.org/'
 									target='_blank'
 									rel='noreferrer'
@@ -103,10 +132,18 @@ const License = () => {
 										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/aware.png`}
 										alt='begambleaware'
 									/>
-								</a>
-							</div>
+								</a> */}
+							</ul>
 						</div>
-					</>
+						<p>{t('Label_License_Content')}</p>
+						<p>{t('Label_Footer_Content')}</p>
+						<p>
+							{t('Label_Footer_Copyright', {
+								year: `2008 - ${new Date().getFullYear().toString()}`,
+								site: '12BET',
+							})}
+						</p>
+					</div>
 				)}
 			</div>
 			<Head>
@@ -124,4 +161,4 @@ const License = () => {
 	)
 }
 
-export { License }
+export default License
