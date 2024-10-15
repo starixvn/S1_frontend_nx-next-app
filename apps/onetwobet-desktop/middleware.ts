@@ -10,6 +10,7 @@ export const LANG_TO_CURRENCY: { [key: string]: number } = {
 	id: 15,
 	ko: 45,
 	hi: 61,
+	te: 61,
 	kh: 72,
 	bd: 74,
 	vn: 51,

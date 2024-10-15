@@ -1,5 +1,5 @@
 import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { useGetMsgCountQuery } from '@nx-next-app/service'
 import classNames from 'classnames'
 import { includes } from 'lodash-es'
@@ -8,12 +8,12 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useBoolean } from 'usehooks-ts'
 
-const FOOTER_HOME_DOMAIN = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/footer`
-
 const LayoutFooter = () => {
 	const { t } = useTranslation()
+	const { getBannerUrl } = useGlobalData()
 	const { value: isFooterPopupActive, toggle: toggleIsFooterPopupActive } =
 		useBoolean()
+
 	const {
 		userInfo: { langId, currencyId },
 		auth: { isLogin },
@@ -22,6 +22,7 @@ const LayoutFooter = () => {
 	const { pathname } = router
 	const { ALLOWED_CURRENCIES, LIVE_CHAT_ID_BY_LANG_ID } = useStaticData()
 
+	// 判斷此帳戶是否有未讀message
 	const { data: { data: msgCount = 0 } = {} } = useGetMsgCountQuery(null, {
 		skip: !isLogin,
 	})
@@ -39,9 +40,19 @@ const LayoutFooter = () => {
 		process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']
 	}/${LIVE_CHAT_ID_BY_LANG_ID[langId] || 'en'}`
 
+	// 如果在未登入點擊Banking會被導到login頁，有登入則顯示其子功能
+	const handleBanking = () => {
+		if (!isLogin) {
+			router.push(paths.login.root)
+		} else {
+			toggleIsFooterPopupActive()
+		}
+	}
+
 	return (
 		<>
 			<footer id='footer' className='footer'>
+				{/* 用active表示現在正在哪一頁，背景變紅色的 */}
 				<Link href={paths.home.root} passHref>
 					<a
 						className={classNames('footer-item', {
@@ -49,9 +60,7 @@ const LayoutFooter = () => {
 						})}
 					>
 						<img
-							src={`${FOOTER_HOME_DOMAIN}/home${
-								pathname === paths.home.root ? '-dark' : ''
-							}.png`}
+							src={getBannerUrl('/h5/img/4.0/footer/home.svg')}
 							alt='img-home'
 						/>
 						<span className='footer-title'>{t('Label_General_Home')}</span>
@@ -65,21 +74,21 @@ const LayoutFooter = () => {
 						})}
 					>
 						<img
-							src={`${FOOTER_HOME_DOMAIN}/gift${
-								pathname === paths.promotion.root ? '-dark' : ''
-							}.png`}
+							src={getBannerUrl('/h5/img/4.0/footer/gift.svg')}
 							alt='img-gift'
 						/>
 						<span className='footer-title'>{t('Label_General_Promotion')}</span>
 					</a>
 				</Link>
 
-				<a
-					className={classNames('footer-item plus', {
-						active: isFooterPopupActive,
-					})}
-					onClick={toggleIsFooterPopupActive}
-				/>
+				<Link href={paths.setting.root} passHref>
+					<a className={classNames('footer-item menu')}>
+						<div className='menu-container'>
+							<span className='menu-icon' />
+						</div>
+						<span className='footer-title'>Menu</span>
+					</a>
+				</Link>
 
 				<a
 					rel='noreferrer'
@@ -87,26 +96,26 @@ const LayoutFooter = () => {
 					href={liveChatUrl}
 					className='footer-item'
 				>
-					<img src={`${FOOTER_HOME_DOMAIN}/livechat.png`} alt='img-livechat' />
+					<img
+						src={getBannerUrl('/h5/img/4.0/footer/livechat.svg')}
+						alt='img-livechat'
+					/>
 					<span className='footer-title'>{t('Label_General_LiveChat')}</span>
 				</a>
 
-				<Link href={paths.setting.root} passHref>
-					<a
-						className={classNames('footer-item', {
-							active: pathname === paths.setting.root,
-							me: msgCount > 0,
-						})}
-					>
-						<img
-							src={`${FOOTER_HOME_DOMAIN}/me${
-								pathname === paths.setting.root ? '-dark' : ''
-							}.png`}
-							alt='img-setting'
-						/>
-						<span className='footer-title'>{t('Label_General_Me')}</span>
-					</a>
-				</Link>
+				<a
+					className={classNames('footer-item me', {
+						active: isFooterPopupActive,
+					})}
+					onClick={handleBanking}
+				>
+					<img
+						src={getBannerUrl('/h5/img/4.0/footer/banking.svg')}
+						alt='img-banking'
+					/>
+					{/* TODO: i18n */}
+					<span className='footer-title'>{t('Banking')}</span>
+				</a>
 			</footer>
 
 			<div
@@ -118,7 +127,10 @@ const LayoutFooter = () => {
 					<Link href={paths.deposit.root}>
 						<a onClick={handleYuriAddToCartClick}>
 							<div className='footer-popup-img'>
-								<img src={`${FOOTER_HOME_DOMAIN}/deposit.png`} alt='Deposit' />
+								<img
+									src={getBannerUrl('/h5/img/4.0/footer/deposit.png')}
+									alt='Deposit'
+								/>
 							</div>
 						</a>
 					</Link>
@@ -129,7 +141,7 @@ const LayoutFooter = () => {
 						<a>
 							<div className='footer-popup-img'>
 								<img
-									src={`${FOOTER_HOME_DOMAIN}/withdrawal.png`}
+									src={getBannerUrl('/h5/img/4.0/footer/withdrawal.png')}
 									alt='Withdrawal'
 								/>
 							</div>
@@ -145,7 +157,7 @@ const LayoutFooter = () => {
 							<a>
 								<div className='footer-popup-img'>
 									<img
-										src={`${FOOTER_HOME_DOMAIN}/transfer.png`}
+										src={getBannerUrl('/h5/img/4.0/footer/transfer.png')}
 										alt='Transfer'
 									/>
 								</div>
@@ -156,11 +168,16 @@ const LayoutFooter = () => {
 						</div>
 					</div>
 				)}
-				<div className='footer-popup-item'>
+				<div
+					className={classNames('footer-popup-item', { active: msgCount > 0 })}
+				>
 					<Link href={paths.message.root}>
 						<a>
-							<div className='footer-popup-img'>
-								<img src={`${FOOTER_HOME_DOMAIN}/massage.png`} alt='Message' />
+							<div className='footer-popup-img '>
+								<img
+									src={getBannerUrl('/h5/img/4.0/footer/message.png')}
+									alt='Message'
+								/>
 							</div>
 						</a>
 					</Link>

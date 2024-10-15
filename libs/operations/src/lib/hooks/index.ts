@@ -1,4 +1,5 @@
 export * from './profile'
+export * from './useAppDownload'
 export * from './useChangePasswordFetcher'
 export * from './useCheckUserInfo'
 export * from './useImageFile'
