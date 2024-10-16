@@ -9,6 +9,12 @@ export enum PromotionTypeEnum {
 	SpecialBonus = 8,
 	MissionBonus = 11,
 	RetentionFreeBet = 9,
+	SportAndSlot = 16,
+	SlotAndLiveCasino = 17,
+	LiveCasinoAndSport = 18,
+	ALLCategory = 19,
+	//  ( exclude Lottery and Fishing)
+
 	PromoCode = 9001,
 }
 
