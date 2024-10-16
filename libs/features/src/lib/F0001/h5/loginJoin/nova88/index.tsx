@@ -1,3 +1,4 @@
+import { GReCaptchaProviders } from '@nx-next-app/features/F0001/providers/googleReCaptcha-provider'
 import { paths } from '@nx-next-app/constants'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
@@ -64,7 +65,12 @@ const LoginJoin = ({ cookies }: ILoginJoinProps) => {
 			/>
 
 			{formType === 'left' && <Login />}
-			{formType === 'right' && <Join cookies={cookies} />}
+			{formType === 'right' && (
+				<GReCaptchaProviders>
+					<Join cookies={cookies} />
+					<div id='g-reCaptcha' />
+				</GReCaptchaProviders>
+			)}
 		</div>
 	)
 }

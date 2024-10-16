@@ -1,35 +1,37 @@
-import Link from 'next/link'
-import classNames from 'classnames'
-import { isNumber } from 'lodash'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
-import { useState, useEffect } from 'react'
-import { useForm, FormProvider } from 'react-hook-form'
-import { TmpCookiesObj } from 'cookies-next/lib/types'
-import {
-	paths,
-	ENV_COOKIE_NAMES,
-	CURRENCY_TO_LANG_KEY,
-	AREA_CODE_BY_CURRENCY,
-	FLAG_PREFIX_ICON_BY_CURRENCIES,
-} from '@nx-next-app/constants'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ISelectProps } from '@nx-next-app/components/H0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
-	useSignupMutation,
-	useLazyAffiliateCheckQuery,
-	useGetSiteCurrencyListQuery,
-	useLazyGetAffiliateAgentQuery,
-} from '@nx-next-app/service'
-import {
-	getQueryParam,
-	OperaPixelTracker,
-	MetaPixelTracker,
-} from '@nx-next-app/utils'
+	AREA_CODE_BY_CURRENCY,
+	CURRENCY_TO_LANG_KEY,
+	ENV_COOKIE_NAMES,
+	FLAG_PREFIX_ICON_BY_CURRENCIES,
+	paths,
+} from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
-import { Step1, Step2, Step3, StepBar, Features, LineRegister } from './form'
+import {
+	useGetRecaptchaInfoQuery,
+	useGetSiteCurrencyListQuery,
+	useLazyAffiliateCheckQuery,
+	useLazyGetAffiliateAgentQuery,
+	useSignupMutation,
+} from '@nx-next-app/service'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import {
+	MetaPixelTracker,
+	OperaPixelTracker,
+	getQueryParam,
+} from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { TmpCookiesObj } from 'cookies-next/lib/types'
+import { isNumber } from 'lodash'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import { FormProvider, useForm } from 'react-hook-form'
+import { Features, LineRegister, Step1, Step2, Step3, StepBar } from './form'
 
 interface IJoinProps {
 	cookies: TmpCookiesObj
@@ -42,6 +44,7 @@ const Join = ({ cookies }: IJoinProps) => {
 
 	const { LANG_GROUPS } = useStaticData()
 	const { modal } = useGlobalModal()
+	const { data: { data: recaptchaInfoData } = {} } = useGetRecaptchaInfoQuery()
 
 	const {
 		userInfo: { langId, currencyId },
@@ -70,6 +73,8 @@ const Join = ({ cookies }: IJoinProps) => {
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 	const [signUp] = useSignupMutation()
+
+	const { executeRecaptcha } = useGoogleReCaptcha()
 
 	const currencySelectOptions = siteCurrencyList
 		.filter(currencyId => {
@@ -222,14 +227,21 @@ const Join = ({ cookies }: IJoinProps) => {
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
-		// currency & recaptcha & affiliate cannot use form required check
+		// 目前只有 nova 需要 google recaptcha，因為 Yashbet 外面沒有包ㄧ層 GReCaptchaProviders
+		// 會找不到 executeRecaptcha 壞掉 需要在此排除
+		// 中國地區不需驗證
+		const reCaptchaAction = 'signup'
+		let reCaptchaToken
 		if (
-			// !reCaptchaToken ||
-			// recaptchaInfo?.country === 'CN' ||
-			!currencyCheck ||
-			!affCodeCheck
-		)
-			return
+			process.env['NEXT_PUBLIC_SITE_ID'] === '1' &&
+			recaptchaInfoData?.country !== 'CN'
+		) {
+			if (!executeRecaptcha) return
+			reCaptchaToken = await executeRecaptcha(reCaptchaAction)
+		}
+
+		// currency & recaptcha & affiliate cannot use form required check
+		if (!currencyCheck || !affCodeCheck) return
 
 		const affId = affiliate && urlAffId ? affiliate : null
 		const affCode = !urlAffId && affCodeCheck ? affiliate : null
@@ -255,7 +267,8 @@ const Join = ({ cookies }: IJoinProps) => {
 				Birth_m: formBirthMonth ?? 0,
 				Birth_y: formBirthYear ?? 0,
 				nationality: nationality ?? initNationality,
-				// reCaptchaToken,
+				reCaptchaToken,
+				reCaptchaAction,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,

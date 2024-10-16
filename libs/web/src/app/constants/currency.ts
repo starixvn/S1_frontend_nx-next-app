@@ -51,4 +51,6 @@ export const RECAPTCHAT_LANG_BY_LANG_ID: { [key: string]: string } = {
 	bd: 'bn',
 	kh: 'en',
 	vn: 'vi',
+	ko: 'ko',
+	br: 'pt-BR',
 }
