@@ -10,7 +10,8 @@
 			"defaultConfiguration": "production",
 			"options": {
 				"root": "apps/nova88-desktop",
-				"outputPath": "dist/apps/nova88-desktop"
+				"outputPath": "dist/apps/nova88-desktop",
+				"port": 5000
 			},
 			"configurations": {
 				"development": {
