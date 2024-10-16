@@ -1,22 +1,23 @@
-import { createContext, ReactNode, useState } from 'react'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { setAppAuth } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { createContext, ReactNode, useState } from 'react'
+import {
+	InitialPropsInterface,
+	useDepositWithdrawTracker,
+	useFpsChecks,
+	useInitLocaleEffect,
+	useOnlineCheckInterval,
+	useOptimovePageEvent,
+	useSynchronizeCookiesEffect,
+} from '../../hooks'
 import {
 	useGetUserInfoQuery,
 	useLazyCheckSignInQuery,
 	useSignInMutation,
 	useSignOutMutation,
 } from '../../service'
-import {
-	InitialPropsInterface,
-	useInitLocaleEffect,
-	useOnlineCheckInterval,
-	useSynchronizeCookiesEffect,
-	useDepositWithdrawTracker,
-	useOptimovePageEvent,
-} from '../../hooks'
 import { IUserInfoData } from '../../service/accountStrict/type'
 
 export interface AuthContextInterface {
@@ -172,6 +173,8 @@ export const AuthProvider = ({
 	useInitLocaleEffect({ router, userInfo, isLogin: auth.isLogin })
 	// * 輪詢確認使用者是否保持線上狀態
 	useOnlineCheckInterval({ isLogin: auth.isLogin, onResetAuth })
+	// * FPS 檢查
+	useFpsChecks({ isLogin: auth.isLogin })
 
 	useOptimovePageEvent(auth.isLogin, userInfo)
 
