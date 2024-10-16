@@ -111,20 +111,6 @@ export const AuthProvider = ({
 		const { platform } = navigator
 		const { userAgent } = navigator
 		const screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`
-		let di = ''
-		let bi = ''
-		let detecasAnalysis = ''
-		let sessionKey = ''
-		let token = ''
-
-		// * di, bi, detecasAnalysis, sessionKey, token 引用第三方 js: //*/activator.ashx
-		di = (document.getElementById('__di') as HTMLInputElement)?.value
-		bi = (document.getElementById('__bi') as HTMLInputElement)?.value
-		detecasAnalysis = (
-			document.getElementById('detecas-analysis') as HTMLInputElement
-		)?.value
-		sessionKey = (document.getElementById('__fdi') as HTMLInputElement)?.value // * fdi = sessionKey
-		token = (document.getElementById('__tk') as HTMLInputElement)?.value // * 默認為 empty
 
 		await signIn({
 			userName,
@@ -134,13 +120,6 @@ export const AuthProvider = ({
 			platform,
 			userAgent,
 			screen,
-			FPSRequest: {
-				di,
-				bi,
-				detecasAnalysis,
-				sessionKey,
-				token,
-			},
 		}).unwrap()
 
 		/** 登入時確認使用者是否有存款成功，如果有成功，觸發 MetaPixelTracker 事件（ 臉書通知 ）通知市場 */
