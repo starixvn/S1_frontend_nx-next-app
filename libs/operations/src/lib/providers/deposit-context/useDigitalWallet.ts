@@ -1,69 +1,50 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useAuth, useDepositSavedLocalStorage } from '@nx-next-app/data-access'
 import {
-	IDepositQRCodeModalProps,
-	useAuth,
-	useDepositSavedLocalStorage,
-} from '@nx-next-app/data-access'
-import {
-	IPaymentOnlineBankingData,
-	TOnlineBankData,
-	useGetPaymentCustBankInfoQuery,
+	IAxiosError,
+	IPayInfoDigitalWalletData,
+	cashierApiUrl,
 	useLazyCheckDepositSpecialCodeQuery,
-	useLazyGetDepositOnlineBankingReqInfoQuery,
 } from '@nx-next-app/service'
-import {
-	DepositActionModeEnum,
-	DepositExtraDataTypeEnum,
-} from '@nx-next-app/types'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
 import { every, find, head, isEmpty } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useBoolean, useDebounce } from 'usehooks-ts'
 import { useDepositContext } from './DepositContext'
 
 export interface IDigitalWalletForm {
+	mode?: number
 	amount?: number
 	channelId?: number
-	maxAmount?: number
-	minAmount?: number
-	mode?: DepositActionModeEnum
-	payId?: number
-	payName?: string
-	sysId?: number
-	bankId?: number
+	channelName?: string
+	groupId?: number
+	groupName?: string
 	bonusCode?: string
 	promoCode?: string
-	selBank?: boolean
-	bankLogo?: string
-	custBankAccount?: string
+	minAmount?: number
+	maxAmount?: number
+	amountRule?: number
 }
 
-const useDigitalWallet = ({
+const useDigitalWalletForm = ({
 	dataSource,
-	onQRCodeModalCallback,
 }: {
-	dataSource: IPaymentOnlineBankingData[]
-	onQRCodeModalCallback: (values: IDepositQRCodeModalProps) => void
+	dataSource: IPayInfoDigitalWalletData[]
 }) => {
 	const {
 		userInfo: { langId, currencyId },
 		dbHost,
 	} = useAuth()
-	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
+
 	const { value: isFirstEffect, toggle: toggleIsFirstEffect } = useBoolean(true)
 	const {
-		query: {
-			paymentType: queryPaymentType,
-			sysId: querySysId,
-			channelId: queryChannelId,
-		},
+		query: { paymentType: queryPaymentType, groupId: queryGroupId },
 		pathname,
 		push,
 	} = useRouter()
-
-	const [bankList, setBankList] = useState<TOnlineBankData[]>([])
 
 	const {
 		isDepositLocalStorageSavedChecked,
@@ -71,55 +52,29 @@ const useDigitalWallet = ({
 		onSavedDepositLocalStorageSavedInfo,
 	} = useDepositSavedLocalStorage()
 
+	const { supportChannels = [] } =
+		find(dataSource, { groupId: Number(queryGroupId) }) ||
+		head(dataSource) ||
+		{}
+
 	const formMethods = useForm<IDigitalWalletForm>({
 		mode: 'all',
 	})
 
-	const { setValue, setError, resetField, getValues } = formMethods
+	const { setValue, resetField } = formMethods
 
 	const {
 		loading: contextLoading,
-		refetchPaymentOnlineBankingList,
+		refetchDepositDigitalWallet,
 		handleDepositTracker,
 	} = useDepositContext()
-
-	const { extraDataType } =
-		find(dataSource, { channelId: Number(queryChannelId) }) ||
-		head(dataSource) ||
-		{}
 
 	const [
 		checkDepositSpecialCode,
 		{ isFetching: isCheckDepositSpecialCodeFetching },
 	] = useLazyCheckDepositSpecialCodeQuery()
 
-	const [
-		getDepositOnlineBankingReqInfo,
-		{ isFetching: isGetDepositOnlineBankingReqInfoFetching },
-	] = useLazyGetDepositOnlineBankingReqInfoQuery()
-
-	const {
-		data: { data: custBankInfo = [] } = {},
-		isFetching: isGetCustBankInfoFetching,
-	} = useGetPaymentCustBankInfoQuery(
-		{ channelId: Number(queryChannelId) },
-		{ skip: !queryChannelId || extraDataType === DepositExtraDataTypeEnum.none }
-	)
-
-	const bankCardOptions = custBankInfo
-		.filter(({ disabled }) => !disabled)
-		.map(({ bankName, accountNo }) => ({
-			label: `${bankName} - ${accountNo}`,
-			value: accountNo,
-		}))
-
-	const bankCardRequired = extraDataType === DepositExtraDataTypeEnum.bankCard
-
-	const loading =
-		contextLoading ||
-		isCheckDepositSpecialCodeFetching ||
-		isGetDepositOnlineBankingReqInfoFetching ||
-		isGetCustBankInfoFetching
+	const loading = contextLoading || isCheckDepositSpecialCodeFetching
 
 	const debouncedLoading = useDebounce(loading, 50)
 
@@ -127,96 +82,60 @@ const useDigitalWallet = ({
 	// * 2. mode = 3，開啟 QR CODE modal
 	// * 3. mode = 其他，window.open()
 	// * 4. savedChecked = true 時記住銀行資訊
-	const onOnlineBankingFormSubmit = (
-		values: IDigitalWalletForm,
-		errorCallback: (errorMessage: string) => void
-	) => {
+	const onDigitalWalletFormSubmit = async (values: IDigitalWalletForm) => {
 		handleDepositTracker()
-		const {
-			mode,
-			sysId: bankSysId = 0,
-			channelId,
-			amount = 0,
-			bonusCode: originBonusCode = '',
-			promoCode,
-			payName,
-			custBankAccount,
-		} = values
+		try {
+			const {
+				amount = 0,
+				channelId,
+				bonusCode: originBonusCode = '',
+				promoCode = '',
+				groupId,
+			} = values
 
-		// * 如果需選擇銀行卡但未選需跳錯誤提醒
-		if (bankCardRequired && !custBankAccount) {
-			setError('custBankAccount', {
-				message: t('Label_Withdrawal_SelectBankRequired') as string,
-			})
-			return
-		}
+			const convertedAmount = isConvert(currencyId) ? amount * 1000 : amount
 
-		const convertedAmount = isConvert(currencyId) ? amount * 1000 : amount
+			let bonusCode: string = originBonusCode
 
-		const submit = async () => {
-			try {
-				let bonusCode: string = originBonusCode
-				// * 如果有 promoCode，必須先透過 promoCode 來取得 bonusCode
-				if (promoCode) {
-					const { data } = await checkDepositSpecialCode({
-						specialCode: promoCode,
-					}).unwrap()
-					if (data?.bonusCode) {
-						bonusCode = data?.bonusCode
-					}
+			// * 如果有 promoCode，必須先透過 promoCode 來取得 bonusCode
+			if (promoCode) {
+				const { data } = await checkDepositSpecialCode({
+					specialCode: promoCode,
+				}).unwrap()
+				if (data?.bonusCode) {
+					bonusCode = data?.bonusCode
 				}
-
-				// * 如果需要用戶提供銀行卡，則傳入該銀行卡的 sysId，否則傳入一般存款管道銀行 sysId
-				let sysId = bankSysId
-				if (bankCardRequired)
-					sysId =
-						find(custBankInfo, { accountNo: String(custBankAccount) })?.sysId ??
-						0
-
-				const errorUrl = `${dbHost}/404/index_${langId}.html`
-				const searchParams = new URLSearchParams({
-					sysId: String(sysId),
-					payAccount: bankCardRequired ? String(custBankAccount) : '',
-					channelId: String(channelId),
-					amount: String(convertedAmount),
-					bonusCode,
-					errorUrl,
-				})
-				const paramsUrl = searchParams.toString()
-
-				if (mode === DepositActionModeEnum.QrCode) {
-					const { data: depositOnlineBankingReqInfo } =
-						await getDepositOnlineBankingReqInfo({ langId, paramsUrl }).unwrap()
-
-					onQRCodeModalCallback({
-						title: t('LabelDepositType1'),
-						convertedAmount,
-						info: depositOnlineBankingReqInfo,
-					})
-				} else {
-					const baseUrl = `${dbHost}/${langId}/Cashier/DepositReq`
-					window.open(`${baseUrl}?${paramsUrl}`)
-				}
-
-				resetField('amount')
-				scrollToTop()
-				refetchPaymentOnlineBankingList()
-				if (isDepositLocalStorageSavedChecked) {
-					onSavedDepositLocalStorageSavedInfo({
-						paymentType: queryPaymentType,
-						payName,
-						sysId,
-					})
-				}
-			} catch (error) {
-				errorCallback((error as Error).message)
 			}
-		}
 
-		submit()
+			const searchParams = new URLSearchParams({
+				ChannelId: String(channelId),
+				Amount: String(convertedAmount),
+				BonusCode: bonusCode,
+			})
+
+			const paramsUrl = searchParams.toString()
+			const baseUrl = `${dbHost}/${langId}/${cashierApiUrl.postDepositReq}`
+			window.open(`${baseUrl}?${paramsUrl}`)
+
+			resetField('amount')
+			scrollToTop()
+			refetchDepositDigitalWallet()
+			if (isDepositLocalStorageSavedChecked) {
+				onSavedDepositLocalStorageSavedInfo({
+					paymentType: queryPaymentType,
+					groupId,
+					channelId,
+				})
+			}
+		} catch (error) {
+			// * 存款 api 某些情境的錯誤會塞在 rawMessage
+			const { rawMessage, message } = error as IAxiosError
+
+			modal.error(rawMessage || message)
+		}
 	}
 
-	// * 任何選項異動時即時更新 form state
+	// * 任何選項異動時即時更新 formState
 	useEffect(() => {
 		// * loading 狀態提前 return
 		if (debouncedLoading) return
@@ -227,52 +146,44 @@ const useDigitalWallet = ({
 		resetField('amount')
 
 		const {
-			payName,
-			payId,
-			channelId,
+			groupId,
+			groupName,
 			minAmount = 0,
 			maxAmount = 0,
-			mode,
-			selBank = false,
-			bankList = [],
-		} = find(dataSource, { channelId: Number(queryChannelId) }) ||
+			supportChannels,
+		} = find(dataSource, { groupId: Number(queryGroupId) }) ||
 		head(dataSource) ||
 		{}
 
-		// 沒資料為 0
-		const { bankLogo, sysId = 0 } =
-			find(bankList, { sysId: Number(querySysId) }) || head(bankList) || {}
+		const channelInfo =
+			find(supportChannels, { groupId: Number(queryGroupId) }) ||
+			head(supportChannels)
 
 		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
-		const convertMinAmount = minAmount / (isConvert(currencyId) ? 1000 : 1)
-		const convertMaxAmount = maxAmount / (isConvert(currencyId) ? 1000 : 1)
+		const convertMinAmount =
+			(channelInfo?.minAmount || minAmount) / (isConvert(currencyId) ? 1000 : 1)
+		const convertMaxAmount =
+			(channelInfo?.maxAmount || maxAmount) / (isConvert(currencyId) ? 1000 : 1)
 
-		setValue('payName', payName)
-		setValue('payId', payId)
-		setValue('sysId', sysId)
-		setValue('channelId', channelId)
+		setValue('groupId', groupId)
 		setValue('minAmount', convertMinAmount)
 		setValue('maxAmount', convertMaxAmount)
-		setValue('mode', mode)
-		setValue('selBank', selBank)
-		setValue('bankLogo', bankLogo)
-
-		setBankList(bankList)
+		setValue('groupName', groupName)
+		setValue('channelId', channelInfo?.channelId)
 
 		let url = {
 			pathname,
 			query: {
 				paymentType: queryPaymentType,
-				paymentName: payName,
-				sysId,
-				channelId,
+				groupId,
+				channelId: channelInfo?.channelId,
 			},
 		}
 
 		// * 如果當前 isDepositLocalStorageSavedChecked = true 及 depositLocalStorageSavedInfo 有值 及 query url (除了 paymentType 之外)需要的 key 皆為空值時給予 local storage 的值
 		// * isFirstEffect: 設定過一次後將 isFirstEffect 由 true 變為 false
 		// * isPrepared: url 都有值，才算準備好，如果進到 localStorage 裡要把初始值蓋過去
-		const isPrepared = every([queryPaymentType, queryChannelId])
+		const isPrepared = every([queryPaymentType, queryGroupId])
 		if (
 			isPrepared &&
 			isFirstEffect &&
@@ -285,27 +196,24 @@ const useDigitalWallet = ({
 				pathname,
 				query: {
 					paymentType: queryPaymentType,
-					paymentName: depositLocalStorageSavedInfo.payName,
-					sysId: depositLocalStorageSavedInfo?.sysId,
+					groupId: depositLocalStorageSavedInfo?.groupId,
 					channelId: depositLocalStorageSavedInfo?.channelId,
 				},
 			}
 			toggleIsFirstEffect()
 		}
 
-		push(url, undefined, { shallow: true })
-	}, [debouncedLoading, queryPaymentType, querySysId, queryChannelId])
+		push(url, undefined, {
+			shallow: true,
+		})
+	}, [debouncedLoading, queryPaymentType, queryGroupId])
 
 	return {
 		formMethods,
 		loading: debouncedLoading,
-		selBank: getValues('selBank'),
-		paymentOnlineBankInfoSysList: bankList,
-		custBankInfo,
-		bankCardOptions,
-		bankCardRequired,
-		onOnlineBankingFormSubmit,
+		supportChannels,
+		onDigitalWalletFormSubmit,
 	}
 }
 
-export { useDigitalWallet }
+export { useDigitalWalletForm }
