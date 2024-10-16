@@ -1,0 +1,5 @@
+export * from './VipBanner'
+export * from './VipBannerItem'
+export * from './VipBottom'
+export * from './VipProgram'
+export * from './VipTable'

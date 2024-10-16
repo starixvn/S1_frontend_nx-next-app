@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -71,7 +71,7 @@ img {
 }
 .icon:before, .icon:after {
   font-family: "icomoon";
-  font-size: 4vw;
+  font-size: 5vw;
 }
 
 .icon-moon:before {
@@ -1101,33 +1101,13 @@ body, html {
   color: white;
 }
 
-button, input {
+button {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
-button[disabled], input[disabled] {
+button[disabled] {
   background: #a5aab1 !important;
   color: #666 !important;
-}
-
-input::-webkit-input-placeholder {
-  font-size: 3.2vw;
-}
-
-input::-moz-placeholder {
-  font-size: 3.2vw;
-}
-
-input:-ms-input-placeholder {
-  font-size: 3.2vw;
-}
-
-input::-ms-input-placeholder {
-  font-size: 3.2vw;
-}
-
-input::placeholder {
-  font-size: 3.2vw;
 }
 
 #root {
@@ -1898,7 +1878,7 @@ main .gameList .icon-new {
   }
 }
 .icon + .dropdown ~ .dropdown-container .dropdown-item {
-  padding: 2vw;
+  padding: 2vw 2vw 2vw 9vw;
 }
 
 .dropdown {
@@ -1920,7 +1900,7 @@ main .gameList .icon-new {
       -ms-flex: auto;
           flex: auto;
   padding: 2vw 0 2vw 2vw;
-  font-size: 3.2vw;
+  font-size: 3vw;
   min-height: 8.27vw;
   color: #5574A7;
 }
@@ -3450,7 +3430,7 @@ main .gameList .icon-new {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: unset !important;
+  background: unset;
 }
 #popup.livesportspop .livesports > div {
   -webkit-box-sizing: border-box;
@@ -4644,59 +4624,6 @@ main .gameList .icon-new {
           flex-flow: column;
   width: 100%;
 }
-.infoModule .phone, .infoModule .inputBox-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
-.infoModule .phone .inputBox input, .infoModule .phone .euro .inputBox-event input, .euro .infoModule .phone .inputBox-event input, .infoModule .phone .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .infoModule .phone .inputBox-event input, .infoModule .inputBox-row .inputBox input, .infoModule .inputBox-row .euro .inputBox-event input, .euro .infoModule .inputBox-row .inputBox-event input, .infoModule .inputBox-row .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .infoModule .inputBox-row .inputBox-event input {
-  width: 100%;
-}
-.infoModule .phone .inputBox .dropdown, .infoModule .phone .euro .inputBox-event .dropdown, .euro .infoModule .phone .inputBox-event .dropdown, .infoModule .phone .worldcupEvent .event .event-content .inputBox-event .dropdown, .worldcupEvent .event .event-content .infoModule .phone .inputBox-event .dropdown, .infoModule .inputBox-row .inputBox .dropdown, .infoModule .inputBox-row .euro .inputBox-event .dropdown, .euro .infoModule .inputBox-row .inputBox-event .dropdown, .infoModule .inputBox-row .worldcupEvent .event .event-content .inputBox-event .dropdown, .worldcupEvent .event .event-content .infoModule .inputBox-row .inputBox-event .dropdown {
-  width: 30.5vw;
-}
-.infoModule .phone .inputBox .dropdown .icon, .infoModule .phone .euro .inputBox-event .dropdown .icon, .euro .infoModule .phone .inputBox-event .dropdown .icon, .infoModule .phone .worldcupEvent .event .event-content .inputBox-event .dropdown .icon, .worldcupEvent .event .event-content .infoModule .phone .inputBox-event .dropdown .icon, .infoModule .inputBox-row .inputBox .dropdown .icon, .infoModule .inputBox-row .euro .inputBox-event .dropdown .icon, .euro .infoModule .inputBox-row .inputBox-event .dropdown .icon, .infoModule .inputBox-row .worldcupEvent .event .event-content .inputBox-event .dropdown .icon, .worldcupEvent .event .event-content .infoModule .inputBox-row .inputBox-event .dropdown .icon {
-  position: absolute;
-  right: 0;
-}
-.infoModule .phone .dropdown-container, .infoModule .inputBox-row .dropdown-container {
-  width: 83.5vw;
-}
-.infoModule .phone .dropdown-container .inputBox, .infoModule .phone .dropdown-container .euro .inputBox-event, .euro .infoModule .phone .dropdown-container .inputBox-event, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event, .infoModule .inputBox-row .dropdown-container .inputBox, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event {
-  border-radius: 0;
-  background: white;
-  margin-top: 0;
-  position: sticky;
-  top: 0;
-}
-.infoModule .phone .dropdown-container .inputBox input::-webkit-input-placeholder, .infoModule .phone .dropdown-container .euro .inputBox-event input::-webkit-input-placeholder, .euro .infoModule .phone .dropdown-container .inputBox-event input::-webkit-input-placeholder, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event input::-webkit-input-placeholder, .infoModule .inputBox-row .dropdown-container .inputBox input::-webkit-input-placeholder, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event input::-webkit-input-placeholder, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event input::-webkit-input-placeholder, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event input::-webkit-input-placeholder {
-  color: #6b6b6b;
-}
-.infoModule .phone .dropdown-container .inputBox input::-moz-placeholder, .infoModule .phone .dropdown-container .euro .inputBox-event input::-moz-placeholder, .euro .infoModule .phone .dropdown-container .inputBox-event input::-moz-placeholder, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event input::-moz-placeholder, .infoModule .inputBox-row .dropdown-container .inputBox input::-moz-placeholder, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event input::-moz-placeholder, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event input::-moz-placeholder, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event input::-moz-placeholder {
-  color: #6b6b6b;
-}
-.infoModule .phone .dropdown-container .inputBox input:-ms-input-placeholder, .infoModule .phone .dropdown-container .euro .inputBox-event input:-ms-input-placeholder, .euro .infoModule .phone .dropdown-container .inputBox-event input:-ms-input-placeholder, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event input:-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .inputBox input:-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event input:-ms-input-placeholder, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event input:-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event input:-ms-input-placeholder {
-  color: #6b6b6b;
-}
-.infoModule .phone .dropdown-container .inputBox input::-ms-input-placeholder, .infoModule .phone .dropdown-container .euro .inputBox-event input::-ms-input-placeholder, .euro .infoModule .phone .dropdown-container .inputBox-event input::-ms-input-placeholder, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event input::-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .inputBox input::-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event input::-ms-input-placeholder, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event input::-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event input::-ms-input-placeholder {
-  color: #6b6b6b;
-}
-.infoModule .phone .dropdown-container .inputBox input::placeholder, .infoModule .phone .dropdown-container .euro .inputBox-event input::placeholder, .euro .infoModule .phone .dropdown-container .inputBox-event input::placeholder, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::placeholder, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event input::placeholder, .infoModule .inputBox-row .dropdown-container .inputBox input::placeholder, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event input::placeholder, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event input::placeholder, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::placeholder, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event input::placeholder {
-  color: #6b6b6b;
-}
-.infoModule .phone .dropdown-container .dropdown-item, .infoModule .inputBox-row .dropdown-container .dropdown-item {
-  padding-left: 10px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.infoModule .phone .inputInfo + .inputBox .icon-phone + input, .infoModule .phone .euro .inputInfo + .inputBox-event .icon-phone + input, .euro .infoModule .phone .inputInfo + .inputBox-event .icon-phone + input, .infoModule .phone .worldcupEvent .event .event-content .inputInfo + .inputBox-event .icon-phone + input, .worldcupEvent .event .event-content .infoModule .phone .inputInfo + .inputBox-event .icon-phone + input, .infoModule .inputBox-row .inputInfo + .inputBox .icon-phone + input, .infoModule .inputBox-row .euro .inputInfo + .inputBox-event .icon-phone + input, .euro .infoModule .inputBox-row .inputInfo + .inputBox-event .icon-phone + input, .infoModule .inputBox-row .worldcupEvent .event .event-content .inputInfo + .inputBox-event .icon-phone + input, .worldcupEvent .event .event-content .infoModule .inputBox-row .inputInfo + .inputBox-event .icon-phone + input {
-  width: 100%;
-}
-.infoModule .inputBox-row .inputBox, .infoModule .inputBox-row .euro .inputBox-event, .euro .infoModule .inputBox-row .inputBox-event, .infoModule .inputBox-row .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule .inputBox-row .inputBox-event {
-  width: 100%;
-}
 .infoModule.parts {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -4708,6 +4635,56 @@ main .gameList .icon-new {
 }
 .infoModule.parts + span + div {
   color: #5574A7;
+}
+.infoModule.parts .phone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+.infoModule.parts .phone .inputBox input, .infoModule.parts .phone .euro .inputBox-event input, .euro .infoModule.parts .phone .inputBox-event input, .infoModule.parts .phone .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .infoModule.parts .phone .inputBox-event input {
+  width: 100%;
+}
+.infoModule.parts .phone .inputBox .dropdown, .infoModule.parts .phone .euro .inputBox-event .dropdown, .euro .infoModule.parts .phone .inputBox-event .dropdown, .infoModule.parts .phone .worldcupEvent .event .event-content .inputBox-event .dropdown, .worldcupEvent .event .event-content .infoModule.parts .phone .inputBox-event .dropdown {
+  width: 130px;
+}
+.infoModule.parts .phone .inputBox .dropdown .icon, .infoModule.parts .phone .euro .inputBox-event .dropdown .icon, .euro .infoModule.parts .phone .inputBox-event .dropdown .icon, .infoModule.parts .phone .worldcupEvent .event .event-content .inputBox-event .dropdown .icon, .worldcupEvent .event .event-content .infoModule.parts .phone .inputBox-event .dropdown .icon {
+  position: absolute;
+  right: 0;
+}
+.infoModule.parts .phone .dropdown-container {
+  width: 83.5vw;
+}
+.infoModule.parts .phone .dropdown-container .inputBox, .infoModule.parts .phone .dropdown-container .euro .inputBox-event, .euro .infoModule.parts .phone .dropdown-container .inputBox-event, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event {
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.6);
+  margin-top: 0;
+  position: sticky;
+  top: 0;
+}
+.infoModule.parts .phone .dropdown-container .inputBox input::-webkit-input-placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input::-webkit-input-placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input::-webkit-input-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::-webkit-input-placeholder {
+  color: #6b6b6b;
+}
+.infoModule.parts .phone .dropdown-container .inputBox input::-moz-placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input::-moz-placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input::-moz-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::-moz-placeholder {
+  color: #6b6b6b;
+}
+.infoModule.parts .phone .dropdown-container .inputBox input:-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input:-ms-input-placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input:-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input:-ms-input-placeholder {
+  color: #6b6b6b;
+}
+.infoModule.parts .phone .dropdown-container .inputBox input::-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input::-ms-input-placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input::-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::-ms-input-placeholder {
+  color: #6b6b6b;
+}
+.infoModule.parts .phone .dropdown-container .inputBox input::placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input::placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input::placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::placeholder {
+  color: #6b6b6b;
+}
+.infoModule.parts .phone .dropdown-container .dropdown-item {
+  padding-left: 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.infoModule.parts .phone .inputInfo + .inputBox .icon-phone + input, .infoModule.parts .phone .euro .inputInfo + .inputBox-event .icon-phone + input, .euro .infoModule.parts .phone .inputInfo + .inputBox-event .icon-phone + input, .infoModule.parts .phone .worldcupEvent .event .event-content .inputInfo + .inputBox-event .icon-phone + input, .worldcupEvent .event .event-content .infoModule.parts .phone .inputInfo + .inputBox-event .icon-phone + input {
+  width: 100%;
 }
 .infoModule.parts .inputBox, .infoModule.parts .euro .inputBox-event, .euro .infoModule.parts .inputBox-event, .infoModule.parts .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule.parts .inputBox-event {
   -webkit-box-flex: 1;
@@ -5423,7 +5400,7 @@ input {
   color: #5574A7;
   border: 0;
   outline: none;
-  font-size: 3.2vw;
+  font-size: 3.6vw;
 }
 input::-webkit-input-placeholder {
   color: #5574A7;
@@ -5956,7 +5933,7 @@ input[type=date] {
 
 .search {
   width: calc(100% - 10vw);
-  padding: 2vw 0 2vw 2vw;
+  padding: 2vw 0 2vw 8vw;
 }
 
 .icon-spinner11.active:before {
@@ -15454,6 +15431,8 @@ main.casino .banner {
   padding: 0 2vw;
   margin-top: 2vw;
   background: none;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .home-gamelist > div {
   display: -webkit-box;
@@ -15479,7 +15458,6 @@ main.casino .banner {
 .home-gamelist > div .gamelist-item .gamelist-img {
   color: #000;
   text-align: center;
-  font-weight: 500;
 }
 .home-gamelist > div .gamelist-item .gamelist-img img {
   width: 100%;
@@ -15538,6 +15516,7 @@ main.casino .banner {
           filter: drop-shadow(0 0 5px black);
   z-index: 2;
   top: 10vw;
+  font-size: 2.5vw;
 }
 .under img {
   -webkit-filter: grayscale(1) !important;
@@ -15578,7 +15557,7 @@ main.casino .banner {
 }
 .home-hotmatch-wrapper .top {
   z-index: 1;
-  padding: 15vw 0 0 5vw;
+  padding: 10vw 0 0 5vw;
 }
 .home-hotmatch-wrapper .top div {
   font-weight: 700;
@@ -16738,6 +16717,12 @@ main.casino .banner {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.after .menu-top .profile-item .message-popup > div {
+  width: 25vw;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .after .menu-top .profile-item .message-popup::before {
   position: absolute;
@@ -18285,19 +18270,6 @@ main.casino .banner {
   border-radius: 0 0 5vw 5vw;
 }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-input[type=number] .btn-logout {
-  background: white;
-  border-radius: 30px;
-  width: 80vw;
-  padding: 3vw 0;
-  color: #D1D1D1;
-  margin: 5vw 0 0;
-}
-
 .euro {
   background: #143CDB;
 }
@@ -19705,55 +19677,6 @@ input[type=number] .btn-logout {
   padding-bottom: 11vw;
 }
 
-.exclusion-text {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.exclusion-text > div {
-  color: #0a1b38;
-  font-size: 3.5vw;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-align: center;
-}
-.exclusion-text a, .exclusion-text button {
-  margin-bottom: 3vw;
-  background: #D9BB9B;
-  font-size: 4vw;
-  font-weight: 700;
-  padding: 2vw 1vw;
-  border-radius: 50px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 50vw;
-  color: #0a1b38;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.exclusion-text a img, .exclusion-text button img {
-  width: 5vw;
-  margin-right: 2vw;
-  margin-top: 0.75vw;
-}
-
 .retention {
   background: #0f1f3b url(https://banner.0814media.net/h5/img/event/retention/top-bg.jpg) no-repeat top/contain;
   position: relative;
@@ -20139,6 +20062,55 @@ input[type=number] .btn-logout {
   height: 1vw;
   width: 35vw;
   bottom: -3vw;
+}
+
+.exclusion-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.exclusion-text > div {
+  color: #0a1b38;
+  font-size: 3.5vw;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+.exclusion-text a, .exclusion-text button {
+  margin-bottom: 3vw;
+  background: #D9BB9B;
+  font-size: 4vw;
+  font-weight: 700;
+  padding: 2vw 1vw;
+  border-radius: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 50vw;
+  color: #0a1b38;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.exclusion-text a img, .exclusion-text button img {
+  width: 5vw;
+  margin-right: 2vw;
+  margin-top: 0.75vw;
 }
 
 .retention-wrapper .bonus-list p strong span {
@@ -20809,8 +20781,8 @@ input[type=number] .btn-logout {
 }
 .survey-after.close {
   display: none;
-}
-
-#__next {
-  height: 100%;
 }/*# sourceMappingURL=style.css.map */
+
+#g-reCaptcha .grecaptcha-badge {
+  z-index: 999;
+}

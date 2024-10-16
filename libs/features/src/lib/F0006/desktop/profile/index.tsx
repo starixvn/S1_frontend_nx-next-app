@@ -1,17 +1,17 @@
+import { Loading } from '@nx-next-app/components/D0006'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { PREV_PAGE, PrevPageEnum } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { useSetProfileMutation } from '@nx-next-app/service'
 import dayjs from 'dayjs'
 import { isEmpty } from 'lodash-es'
-import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
-import { useForm, FormProvider } from 'react-hook-form'
 import { useRouter } from 'next/router'
-import { Loading } from '@nx-next-app/components/D0006'
-import { useAuth } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useSetProfileMutation } from '@nx-next-app/service'
-import { PrevPageEnum, PREV_PAGE } from '@nx-next-app/constants'
-import { PhoneOtpModal } from './PhoneOtpModal'
-import { Info } from './Info'
+import { useState } from 'react'
+import { FormProvider, useForm } from 'react-hook-form'
 import { Address } from './Address'
+import { Info } from './Info'
+import { PhoneOtpModal } from './PhoneOtpModal'
 import { Verification } from './Verification'
 
 const Profile = () => {
@@ -56,7 +56,7 @@ const Profile = () => {
 					Birth_y: birthYear ?? dayjs(formBirth).format('YYYY'),
 					PhoneNo: phoneNo ?? formPhone,
 					Email: isEmpty(email) ? formEmail : email,
-				})
+				}).unwrap()
 
 				if (!phoneVerified) {
 					modal.confirm(

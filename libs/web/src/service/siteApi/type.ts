@@ -73,9 +73,10 @@ export interface ISignUpArgs {
 	Birth_m?: string | number
 	Birth_y?: string | number
 	nationality?: string
-	phoneNo?: string
-	realName?: string
-	// reCaptchaToken: string
+	phoneNo: string
+	realName: string
+	reCaptchaToken?: string | undefined
+	reCaptchaAction?: string
 	referralUrl?: string
 	userLang: string
 	userName: string

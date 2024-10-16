@@ -240,7 +240,7 @@ const ProfileInfoProvider = ({ children }: { children: ReactNode }) => {
 					// 有發現有些 Email 為空字串，所以使用 || 判斷
 					PhoneNo: phoneNo || formPhone,
 					Email: email || formEmail,
-				})
+				}).unwrap()
 
 				if (!phoneVerified) {
 					confirmCallBack()

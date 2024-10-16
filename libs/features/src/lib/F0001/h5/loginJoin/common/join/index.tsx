@@ -1,3 +1,4 @@
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { ISelectProps } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
@@ -11,6 +12,7 @@ import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
 import {
 	useGetSiteCurrencyListQuery,
+	useGetRecaptchaInfoQuery,
 	useLazyAffiliateCheckQuery,
 	useLazyGetAffiliateAgentQuery,
 	useSignupMutation,
@@ -42,6 +44,7 @@ const Join = ({ cookies }: IJoinProps) => {
 
 	const { LANG_GROUPS } = useStaticData()
 	const { modal } = useGlobalModal()
+	const { data: { data: recaptchaInfoData } = {} } = useGetRecaptchaInfoQuery()
 
 	const {
 		userInfo: { langId, currencyId },
@@ -70,6 +73,8 @@ const Join = ({ cookies }: IJoinProps) => {
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 	const [signUp] = useSignupMutation()
+
+	const { executeRecaptcha } = useGoogleReCaptcha()
 
 	const currencySelectOptions = siteCurrencyList
 		.filter(currencyId => {
@@ -222,14 +227,21 @@ const Join = ({ cookies }: IJoinProps) => {
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
-		// currency & recaptcha & affiliate cannot use form required check
+		// 目前只有 nova 需要 google recaptcha，因為 Yashbet 外面沒有包ㄧ層 GReCaptchaProviders
+		// 會找不到 executeRecaptcha 壞掉 需要在此排除
+		// 中國地區不需驗證
+		const reCaptchaAction = 'signup'
+		let reCaptchaToken
 		if (
-			// !reCaptchaToken ||
-			// recaptchaInfo?.country === 'CN' ||
-			!currencyCheck ||
-			!affCodeCheck
-		)
-			return
+			process.env['NEXT_PUBLIC_SITE_ID'] === '1' &&
+			recaptchaInfoData?.country !== 'CN'
+		) {
+			if (!executeRecaptcha) return
+			reCaptchaToken = await executeRecaptcha(reCaptchaAction)
+		}
+
+		// currency & recaptcha & affiliate cannot use form required check
+		if (!currencyCheck || !affCodeCheck) return
 
 		const affId = affiliate && urlAffId ? affiliate : null
 		const affCode = !urlAffId && affCodeCheck ? affiliate : null
@@ -255,7 +267,8 @@ const Join = ({ cookies }: IJoinProps) => {
 				Birth_m: formBirthMonth ?? 0,
 				Birth_y: formBirthYear ?? 0,
 				nationality: nationality ?? initNationality,
-				// reCaptchaToken,
+				reCaptchaToken,
+				reCaptchaAction,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,

@@ -1,6 +1,6 @@
 import { Img } from '@12b-desktop/components/common'
 import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { useLanguageGroup } from '@nx-next-app/hooks'
 import { useGetCustVIPProgressQuery } from '@nx-next-app/service'
 import { numberFormat } from '@nx-next-app/utils'
@@ -21,6 +21,7 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 	const ref = useRef(null)
 	const { t } = useTranslation()
 	const { pathname } = useRouter()
+	const { getBannerUrl } = useGlobalData()
 	const {
 		userInfo: { userName, currencyId, langId, currencyName },
 		auth: { isLogin },
@@ -66,7 +67,7 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 		<>
 			<Link href={paths.profile.root}>
 				<a className='memberinfo'>
-					<Img src={headerUrl} alt='img-vip' />
+					<Img src={getBannerUrl(headerUrl)} alt='img-vip' />
 				</a>
 			</Link>
 
