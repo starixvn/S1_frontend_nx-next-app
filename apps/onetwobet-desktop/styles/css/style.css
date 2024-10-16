@@ -21594,10 +21594,10 @@ form .profileModule .vipLv .vipname {
 .subcopyright {
   width: calc(100% - 20px);
   margin: 0 auto;
-  background: #D2E2F9;
+  background: #000;
   padding: 10px;
   text-align: center;
-  color: #5574A7;
+  color: #AEACAC;
   font-family: Arial, sans-serif;
   font-size: 12px;
 }
