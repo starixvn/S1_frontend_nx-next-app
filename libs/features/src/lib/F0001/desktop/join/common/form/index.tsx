@@ -1,6 +1,7 @@
 import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
 import DateSelector from '@nx-next-app/components/D0001/dateSelector'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import {
 	AREA_CODE,
 	AREA_CODE_BY_CURRENCY,
@@ -24,6 +25,7 @@ import {
 	useLazyExistsUserNameQuery,
 	useLazyGetAffiliateAgentQuery,
 	useSignupMutation,
+	useGetRecaptchaInfoQuery,
 } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import {
@@ -63,6 +65,7 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const { ALLOWED_CURRENCIES } = useStaticData()
 	const { initNationality, countrySelectOptions } = useJoin()
+	const { executeRecaptcha } = useGoogleReCaptcha()
 
 	const {
 		formState,
@@ -92,6 +95,7 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const [checkExistsUsername, { isFetching: existsUsernameLoading }] =
 		useLazyExistsUserNameQuery()
+	const { data: { data: recaptchaInfoData } = {} } = useGetRecaptchaInfoQuery()
 
 	const [checkExistsEmail, { isFetching: existsEmailLoading }] =
 		useLazyExistsEmailQuery()
@@ -390,6 +394,20 @@ const Form = ({ cookies }: IJoinProps) => {
 		} = getValues()
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
+
+		// 目前只有 nova 需要 google recaptcha，因為 Yashbet 外面沒有包ㄧ層 GReCaptchaProviders
+		// 會找不到 executeRecaptcha 壞掉 需要在此排除
+		// 中國地區不需驗證
+		const reCaptchaAction = 'signup'
+		let reCaptchaToken
+		if (
+			process.env['NEXT_PUBLIC_SITE_ID'] === '1' &&
+			recaptchaInfoData?.country !== 'CN'
+		) {
+			if (!executeRecaptcha) return
+			reCaptchaToken = await executeRecaptcha(reCaptchaAction)
+		}
+
 		// currency & recaptcha & affiliate cannot use form required check
 		if (!currencyCheck || !affCodeCheck) return
 
@@ -418,7 +436,8 @@ const Form = ({ cookies }: IJoinProps) => {
 				Birth_m: birth ? dayjs(birth).format('MM') : 0,
 				Birth_y: birth ? dayjs(birth).format('YYYY') : 0,
 				nationality: nationality ?? initNationality,
-				// reCaptchaToken,
+				reCaptchaToken,
+				reCaptchaAction,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,
@@ -458,7 +477,10 @@ const Form = ({ cookies }: IJoinProps) => {
 			<div className='inputModule'>
 				<InputBox
 					register={register('username', {
-						required: { value: true, message: t('Label_General_UsernameReq') },
+						required: {
+							value: true,
+							message: t('Label_General_UsernameReq'),
+						},
 						pattern: {
 							value: USERNAME_REGEX,
 							message: t('Label_General_UserNameLength') || '',
@@ -644,6 +666,7 @@ const Form = ({ cookies }: IJoinProps) => {
 					/>
 				)}
 			</div>
+
 			<div className='Terms'>
 				{t('Label_Join_SignUpTerms1')}
 				<a
