@@ -2,6 +2,9 @@ import { useLazyFpsChecksQuery } from '@nx-next-app/service'
 import { useState } from 'react'
 import { useInterval } from 'usehooks-ts'
 
+const getInputValueById = (id: string) =>
+	(document.getElementById(id) as HTMLInputElement)?.value || ''
+
 const useFpsChecks = ({
 	isLogin,
 	interval = 60000,
@@ -15,14 +18,25 @@ const useFpsChecks = ({
 	useInterval(
 		async () => {
 			try {
-				const values = ['__di', '__bi', 'detecas-analysis'].map(
-					id => (document.getElementById(id) as HTMLInputElement)?.value
-				)
-				if (values.some(value => typeof value !== 'string')) return
+				const di = getInputValueById('__di')
+				const bi = getInputValueById('__bi')
+				const detecasAnalysis = getInputValueById('detecas-analysis')
 
-				const [di, bi, detecasAnalysis] = values
+				// 取得這 3 個值後再送
+				if (![di, bi, detecasAnalysis].every(Boolean)) return
+
+				const sessionKey = getInputValueById('__fdi')
+				const token = getInputValueById('__tk')
 				const url = window.location.href
-				await sendFpsChecks({ di, bi, detecasAnalysis, url }).unwrap()
+
+				await sendFpsChecks({
+					di,
+					bi,
+					detecasAnalysis,
+					sessionKey,
+					token,
+					url,
+				}).unwrap()
 
 				setIsSent(true)
 			} catch {
