@@ -1,5 +1,5 @@
 import { useLazyFpsChecksQuery } from '@nx-next-app/service'
-import { useRef } from 'react'
+import { useState } from 'react'
 import { useInterval } from 'usehooks-ts'
 
 const useFpsChecks = ({
@@ -9,7 +9,7 @@ const useFpsChecks = ({
 	isLogin?: boolean
 	interval?: number
 }) => {
-	const isSent = useRef(false)
+	const [isSent, setIsSent] = useState(false)
 	const [sendFpsChecks] = useLazyFpsChecksQuery()
 
 	useInterval(
@@ -24,12 +24,12 @@ const useFpsChecks = ({
 				const url = window.location.href
 				await sendFpsChecks({ di, bi, detecasAnalysis, url }).unwrap()
 
-				isSent.current = true
+				setIsSent(true)
 			} catch {
 				// 忽略
 			}
 		},
-		isLogin && isSent.current === false ? interval : null
+		isLogin && isSent === false ? interval : null
 	)
 }
 
