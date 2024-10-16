@@ -1,12 +1,19 @@
+FROM hub.lumigame.com/base/node:18-16-alpine-24h1.1 AS dependencies
+WORKDIR /app
+ENV NPM_CACHE_FOLDER=/root/.npm
+COPY package.json package-lock.json ./
+RUN --mount=type=cache,target=$NPM_CACHE_FOLDER \
+     npm ci --cache $NPM_CACHE_FOLDER
+
 FROM hub.lumigame.com/base/node:18-16-alpine-24h1.1 AS builder
 
 # alpine 輕量化 Image 不包含必要的 python 資源，需另外加載才可正確執行 npm 安裝指令
 RUN apk add --no-cache libc6-compat python3 make g++
 
-ARG TEMPLATE_NAME
-ARG TRANSFORM_CONFIG
+ENV TEMPLATE_NAME nova88-desktop
+ENV TRANSFORM_CONFIG LOCAL
 
-WORKDIR /build
+WORKDIR /app
 
 # bind node_modules to bin/PATH
 # 因為有用到 node_module內的 nx command
@@ -15,18 +22,14 @@ ENV PATH /build/node_modules/.bin:$PATH
 COPY . .
 # copy env
 COPY ./apps/${TEMPLATE_NAME}/.env.${TRANSFORM_CONFIG} ./apps/${TEMPLATE_NAME}/.env
+COPY --from=dependencies /app/node_modules ./node_modules
 
-# install
-RUN npm ci
-RUN nx clear-cache
 RUN app=${TEMPLATE_NAME} npm run build
 
 FROM hub.lumigame.com/base/node:18-16-alpine-24h1.1 AS serve-step
 
-ARG TEMPLATE_NAME
-ARG port
 WORKDIR /app
-
+ENV TEMPLATE_NAME nova88-desktop
 # 指定 group 和使用者
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -41,8 +44,6 @@ USER nextjs
 # server.js 運行路徑
 ENV APP_PATH=apps/${TEMPLATE_NAME}/server.js
 EXPOSE 5000
-ENV PORT 5000
-
 CMD node $APP_PATH
 
 
