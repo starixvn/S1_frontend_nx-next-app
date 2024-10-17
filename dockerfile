@@ -1,15 +1,11 @@
-FROM node:16.20.0-alpine AS dependencies
+FROM hub.lumigame.com/base/node:18-16-alpine-24h1.1 AS dependencies
 WORKDIR /app
 ENV NPM_CACHE_FOLDER=/root/.npm
 COPY package.json package-lock.json ./
 RUN --mount=type=cache,target=$NPM_CACHE_FOLDER \
-     npm ci --cache $NPM_CACHE_FOLDER
+    npm ci
 
-FROM node:16.20.0-alpine AS builder
-
-# alpine 輕量化 Image 不包含必要的 python 資源，需另外加載才可正確執行 npm 安裝指令
-RUN apk add --no-cache libc6-compat python3 make g++
-
+FROM hub.nexdev.net/nexent/nx-app-alpine AS builder
 ENV TEMPLATE_NAME nova88-desktop
 ARG TRANSFORM_CONFIG
 
@@ -26,7 +22,7 @@ COPY --from=dependencies /app/node_modules ./node_modules
 
 RUN app=${TEMPLATE_NAME} npm run build
 
-FROM node:16.20.0-alpine AS serve-step
+FROM hub.lumigame.com/base/node:18-16-alpine-24h1.1 AS serve-step
 
 WORKDIR /app
 ENV TEMPLATE_NAME nova88-desktop
