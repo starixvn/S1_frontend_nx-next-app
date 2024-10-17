@@ -28,6 +28,7 @@ import {
 	IGetExchangeInfoArgs,
 	IGetStatementArgs,
 	IGetWithdrawalInfoHistoryArgs,
+	IPayInfoDigitalWalletData,
 	IPaymentAutoDepositData,
 	IPaymentBankTransferData,
 	IPaymentCryptoPayData,
@@ -97,6 +98,7 @@ export const paymentApiUrl = {
 	checkDepositSpecialCode: 'Payment/CheckDepositSpecialCode',
 	getWithdrawalBlockSetting: 'Payment/GetWithdrawalBlockSetting',
 	getCustBankInfo: 'Payment/GetCustBankInfo',
+	getPayInfoDigitalWallet: 'Payment/GetPayInfoDigitalWallet',
 }
 
 const paymentApi = rootApi.injectEndpoints({
@@ -533,6 +535,18 @@ const paymentApi = rootApi.injectEndpoints({
 			}),
 			providesTags: ['WITHDRAWAL_BANKCARD_POST'],
 		}),
+		getPayInfoDigitalWallet: builder.query<
+			IAxiosResponse<{
+				DigitalWallet: { data: IPayInfoDigitalWalletData[] }
+			}>,
+			void
+		>({
+			query: data => ({
+				url: paymentApiUrl.getPayInfoDigitalWallet,
+				method: 'POST',
+				data,
+			}),
+		}),
 	}),
 })
 
@@ -582,4 +596,5 @@ export const {
 	usePostDepositLocalPayReqMutation,
 	useGetWithdrawalBlockSettingQuery,
 	useGetPaymentCustBankInfoQuery,
+	useGetPayInfoDigitalWalletQuery,
 } = paymentApi

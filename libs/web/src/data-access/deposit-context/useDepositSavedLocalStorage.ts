@@ -6,6 +6,7 @@ import { useAuth } from '../auth-context'
 export interface IDepositSavedInfo {
 	paymentType?: any
 	groupName?: any
+	groupId?: any
 	sysId?: any
 	channelId?: any
 	payName?: any

@@ -651,3 +651,28 @@ export interface IPaymentCustBankInfoData {
 	accountNo: string
 	ifscCode: string
 }
+
+export interface IPayInfoDigitalWalletData {
+	groupId: number
+	groupName: string
+	displayGroupName: string
+	minAmount: number
+	maxAmount: number
+	supportChannels: Array<{
+		payId: number
+		payName: string
+		groupId: number
+		groupName: string
+		displayGroupName: string
+		channelId: number
+		channelName: string
+		displayChannelName: string
+		mode: number
+		extraDataType: number
+		minAmount: number
+		maxAmount: number
+		amountRule: number
+		amountList: Array<number>
+		depositType: number
+	}>
+}
