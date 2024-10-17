@@ -11,7 +11,7 @@ FROM node:16.20.0-alpine AS builder
 RUN apk add --no-cache libc6-compat python3 make g++
 
 ENV TEMPLATE_NAME nova88-desktop
-ENV TRANSFORM_CONFIG LOCAL
+ARG TRANSFORM_CONFIG
 
 WORKDIR /build
 
