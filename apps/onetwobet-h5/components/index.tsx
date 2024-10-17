@@ -1,3 +1,4 @@
+export { default as AppDownload } from './appDownload'
 export { default as BankInfo } from './bank-info'
 export { default as ChangePassword } from './change-password'
 export * from './common'

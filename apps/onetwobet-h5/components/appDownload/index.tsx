@@ -1,10 +1,9 @@
-import React from 'react'
-import { useTranslation } from 'next-i18next'
-import QRCode from 'qrcode.react'
-import { paths } from '@nx-next-app/constants'
 import { Carousel } from '@nx-next-app/components/D0001'
-import { useAppDownload } from '@nx-next-app/features/F0001/providers/appDownload-context'
+import { paths } from '@nx-next-app/constants'
+import { useAppDownload } from '@nx-next-app/operations'
+import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
+import QRCode from 'qrcode.react'
 
 const AppDownload = () => {
 	const { IOSDownloadUrl, androidDownLoadUrl, APP_DOWNLOAD_LIST } =

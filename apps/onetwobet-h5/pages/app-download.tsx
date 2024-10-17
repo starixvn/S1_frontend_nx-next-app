@@ -1,10 +1,10 @@
+import { AppDownload, Layout } from '@12b-h5/components/index'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { AppDownload, Layout } from '@nx-next-app/features/F0001/h5'
-import { AppDownloadProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { AppDownloadProvider } from '@nx-next-app/operations'
 import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/onetwobet/data/appDownload'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
