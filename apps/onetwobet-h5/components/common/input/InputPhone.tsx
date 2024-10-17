@@ -95,13 +95,14 @@ const InputPhone = ({
 			<div className='input-group'>
 				{children}
 				<Select
-					showSearch
+					showSearch={showSearch}
 					options={selectOptions}
 					placeholder=''
 					onChange={onChangeSelect}
 					value={selectValue}
 					showValue={showValue}
 					requiredIcon={requiredIcon}
+					errorMessage={errorMessage}
 				/>
 				<div
 					className={classNames('inputBox', {
