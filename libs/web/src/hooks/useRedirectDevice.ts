@@ -9,8 +9,12 @@ export const useRedirectDevice = (context: GetServerSidePropsContext) => {
 	const reqDomain = req.headers.host
 	const userAgent = req.headers['user-agent']
 	const isMobile = userAgent && userAgent.toLowerCase().includes('mobile')
-	const mobileCName = `${process.env['NEXT_PUBLIC_M_CNAME']}.`
-	const desktopCName = `${process.env['NEXT_PUBLIC_PC_CNAME']}.`
+
+	const getCname = (envVar: string) =>
+		process.env[envVar] ? `${process.env[envVar]}.` : ''
+
+	const mobileCName = getCname('NEXT_PUBLIC_M_CNAME')
+	const desktopCName = getCname('NEXT_PUBLIC_PC_CNAME')
 
 	let redirectUrl: string | undefined
 	let requestUrl: string | undefined
