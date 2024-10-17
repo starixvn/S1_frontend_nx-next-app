@@ -1,10 +1,10 @@
 import { useGlobalData } from '@nx-next-app/data-access'
+import { Trans } from 'next-i18next'
 
 const AppDownload = () => {
 	const { getBannerUrl } = useGlobalData()
 	/* const { IOSDownloadUrl, androidDownLoadUrl, APP_DOWNLOAD_LIST } =
-		useAppDownload()
-	const { t } = useTranslation() */
+		useAppDownload() */
 
 	return (
 		<main className='main download'>
@@ -58,8 +58,12 @@ const AppDownload = () => {
 			</div>
 			<span />
 			<div className='note'>
-				<span>NOTE</span> : We don’t have any Apps in Android – Play Store or
-				iOS- App Store to download. <span>Please be aware of scammers!</span>
+				<Trans
+					i18nKey='Label_AppDownload_Note'
+					components={{
+						span: <span />,
+					}}
+				/>
 			</div>
 		</main>
 	)
