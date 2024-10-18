@@ -203,11 +203,6 @@ img {
     opacity: 1;
   }
 }
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
 html {
   height: 100%;
 }
@@ -419,6 +414,18 @@ button[disabled]:hover {
 
 #goTop {
   background: #C01D21 !important;
+}
+
+.icon-balance:before {
+  font-size: 24px !important;
+}
+
+.icon-cq9:before {
+  font-size: 16px !important;
+}
+
+.icon-friend:before {
+  font-size: 12px;
 }
 
 #header {
@@ -6151,7 +6158,6 @@ input[type=file] {
 #popup .pop {
   border-radius: 5px;
   max-height: calc(100% - 160px);
-  overflow-y: auto;
   @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
@@ -8946,6 +8952,7 @@ input[type=file] {
 }
 .addAddresspop .inputBox-blue {
   z-index: auto;
+  width: auto;
 }
 .addAddresspop .inputBox-blue .dropdown > .btn {
   -webkit-box-pack: start;
@@ -8986,11 +8993,15 @@ input[type=file] {
   border-bottom: 1px solid #BFCCE2;
   padding-bottom: 20px;
 }
+.addAddresspop > div .inputModuleRow > div {
+  -webkit-box-flex: 1 !important;
+      -ms-flex: 1 !important;
+          flex: 1 !important;
+}
 .addAddresspop > div .inputModuleRow > .btnGroup {
   margin: 10px 0;
 }
 .addAddresspop > div .inputModuleRow > .btnGroup button {
-  margin-right: 0;
   min-width: 100px;
 }
 .addAddresspop > div.btnGroup {
@@ -9008,11 +9019,16 @@ input[type=file] {
   border-bottom: 1px solid #AEACAC;
   padding-bottom: 20px;
 }
+.addAddresspop form > div .inputModuleRow > div {
+  width: 100%;
+}
 .addAddresspop form > div .inputModuleRow > .btnGroup {
   margin: 10px 0;
 }
 .addAddresspop form > div .inputModuleRow > .btnGroup button {
+  padding: 0;
   margin-right: 0;
+  margin-left: 10px;
   min-width: 100px;
 }
 .addAddresspop form > div.btnGroup {
@@ -15450,6 +15466,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .infoModuleLeft {
   float: left;
   width: 850px;
+}
+.infoModuleLeft .walletModule {
+  width: auto;
 }
 
 .features {
