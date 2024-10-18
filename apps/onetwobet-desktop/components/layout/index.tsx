@@ -10,6 +10,7 @@ import { IFooterData } from '@nx-next-app/types'
 import dynamic from 'next/dynamic'
 import { ReactNode } from 'react'
 
+import FloatSidebar from '@12b-desktop/components/layout/common/sidebar'
 import LayoutFooter from './common/footer/index'
 import LayoutHeader from './common/header/index'
 
@@ -47,7 +48,11 @@ export function Layout({
 
 			{children}
 
-			{showFooter && !!footerData && <LayoutFooter footerData={footerData} />}
+			{/* <!-- FLOAT SIDEBAR --> */}
+			<FloatSidebar />
+
+			{!!footerData && <LayoutFooter footerData={footerData} />}
+			{/* {showFooter && !!footerData && <LayoutFooter footerData={footerData} />} */}
 
 			{/* 只需放在 Layout 來渲染全域彈窗 */}
 			<GlobalModal {...globalModal} closeModal={closeModal} />

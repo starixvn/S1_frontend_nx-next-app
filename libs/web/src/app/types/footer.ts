@@ -7,11 +7,12 @@ export interface IFooterData {
 	programList?: IProgramData[]
 	promotionTextList?: IPromotionTextData[]
 	programDescriptionList?: IProgramDescriptionData[]
-	licenseData: ILicenseData
-	suggestedBrowser: ISuggestedBrowserData[]
-	paymentMethodsByCurrencyId: {
+	licenseData?: ILicenseData
+	suggestedBrowser?: ISuggestedBrowserData[]
+	paymentMethodsByCurrencyId?: {
 		[key: number]: IPaymentMethod[]
 	}
+	aboutUsList?: IAboutUsListData[]
 }
 
 interface IQuickLinksData {
@@ -41,7 +42,7 @@ interface IProgramDescriptionData {
 	}[]
 }
 
-interface ILicenseData {
+export interface ILicenseData {
 	defaultScript: string
 	defaultXCMScript: string
 }
@@ -74,10 +75,34 @@ export interface ISeoData {
 		rel?: string
 		href?: string
 		hrefLang?: string
+		media?: string
 	}[]
 }
 
 export interface IPromotionTextData {
 	title: string
 	content: string
+}
+
+export interface ISponsorsListdata {
+	imgUrl: string
+	year: string
+}
+
+export interface IAboutUsListData {
+	displayText: string
+	pathname: string
+}
+
+export interface IGameProvidersData {
+	imgUrl: string
+	pathname: string
+	mobileGroup?: number
+}
+
+export enum SocialChannelEnum {
+	HOME = 1,
+	CONTACT_US,
+	APP,
+	FOOTER,
 }

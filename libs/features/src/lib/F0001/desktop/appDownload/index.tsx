@@ -1,14 +1,12 @@
-import React from 'react'
-import { useTranslation } from 'next-i18next'
-import QRCode from 'qrcode.react'
 import { paths } from '@nx-next-app/constants'
 import { useAppDownload } from '@nx-next-app/features/F0001/providers/appDownload-context'
+import { useTranslation } from 'next-i18next'
+import QRCode from 'qrcode.react'
 
 const AppDownload = () => {
 	const { IOSDownloadUrl, androidDownLoadUrl, APP_DOWNLOAD_LIST } =
 		useAppDownload()
 	const { t } = useTranslation()
-
 	return (
 		<main className='app'>
 			<div className='appHeader'>

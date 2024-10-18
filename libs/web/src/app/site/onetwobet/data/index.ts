@@ -3,6 +3,7 @@ import { CurrenciesEnum, IStaticLangGroups } from '@nx-next-app/types'
 export * from './affiliate'
 export * from './allowCurrency'
 export * from './footer'
+export * from './gameProviders'
 export * from './gtmData'
 export * from './images'
 export * from './join'
@@ -12,6 +13,7 @@ export * from './metaData'
 export * from './milestoneData'
 export * from './referral'
 export * from './slots'
+export * from './sponsorData'
 export * from './termsConditions'
 export * as ThirdPartyJS from './thirdPartyJS'
 export * from './vip'
@@ -72,6 +74,11 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			value: 'hi',
 			currencyId: CurrenciesEnum.INR,
 			mainLanguage: true,
+		},
+		{
+			displayText: 'తెలుగు',
+			value: 'te',
+			currencyId: CurrenciesEnum.INR,
 		},
 	],
 	vn: [
