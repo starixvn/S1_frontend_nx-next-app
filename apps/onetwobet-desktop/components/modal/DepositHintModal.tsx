@@ -26,8 +26,8 @@ const DepositHintModal = ({
 					>
 						{t('Label_Profile_Later')}
 					</button>
-					<Link href={`${paths.deposit.root}`} passHref>
-						<a className='btn-check' onClick={closeModal}>
+					<Link href={paths.deposit.root} passHref>
+						<a className='primary' onClick={closeModal}>
 							{t('Label_Profile_DepositNow')}
 						</a>
 					</Link>

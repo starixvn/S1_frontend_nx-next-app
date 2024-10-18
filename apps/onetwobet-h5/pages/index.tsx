@@ -6,9 +6,9 @@ import {
 	getBanner,
 	getHotEvent,
 	getHotGame,
+	getNews,
 	getPromotion,
 } from '@nx-next-app/data-access'
-import { HomeProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -17,9 +17,10 @@ import {
 	IBannerData,
 	IHotEventData,
 	IHotGame,
+	INewsData,
 	IPromotionData,
 } from '@nx-next-app/service'
-import { FOOTER_DATA, MOBILE_HOME_ORDERS } from '@nx-next-app/site/onetwobet'
+import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { BannerTypeEnum, IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -28,6 +29,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 // 優化專案 build 出來的檔案結構，僅獨立輸出必要的資源而非整包 node_module , 控管 docker image 大小
 // https://nextjs.org/docs/pages/api-reference/next-config-js/output
 // https://github.com/nrwl/nx/issues/9017
+import { HomeProvider } from '@nx-next-app/operations'
 import dayjs from 'dayjs'
 import { filter } from 'lodash-es'
 import path from 'path'
@@ -39,6 +41,7 @@ interface IHomePageProps extends InitialPropsInterface {
 	persistPromotionData: IPromotionData[]
 	persistHotEventData: IHotEventData[]
 	persistHotGameData: IHotGame[]
+	persistNewsData: INewsData[]
 	persistFooterData: IFooterData
 }
 
@@ -50,11 +53,10 @@ const HomePage = ({
 	persistPromotionData,
 	persistHotEventData,
 	persistHotGameData,
+	persistNewsData,
 	persistFooterData,
 	persistStaticFileDomainData,
 }: IHomePageProps) => {
-	const persistAppDownloadHint = originCookies[ENV_COOKIE_NAMES.AppDownloadHint]
-
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider
@@ -66,12 +68,12 @@ const HomePage = ({
 						persistPromotionData={persistPromotionData}
 						persistHotEventData={persistHotEventData}
 						persistHotGameData={persistHotGameData}
+						persistNewsData={persistNewsData}
 						persistLicenseData={persistFooterData.licenseData}
 						persistQuickLinksList={persistFooterData.quickLinks}
 						persistPlatformList={persistFooterData.platformList}
-						mobileHomeOrders={MOBILE_HOME_ORDERS}
 					>
-						<Home persistAppDownloadHint={persistAppDownloadHint} />
+						<Home />
 					</HomeProvider>
 				</Layout>
 			</GlobalDataProvider>
@@ -92,6 +94,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		rawPromotionData,
 		persistHotEventData,
 		hotGameData,
+		persistNewsData,
 	] = await Promise.all([
 		getBanner(
 			{
@@ -114,6 +117,12 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
 			currencyId,
 		}),
+		getNews({
+			langId,
+			currencyId,
+			pageSize: 6,
+			pageNumber: 1,
+		}),
 	])
 
 	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
@@ -131,6 +140,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			persistPromotionData,
 			persistHotEventData,
 			persistHotGameData,
+			persistNewsData,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),

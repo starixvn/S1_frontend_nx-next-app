@@ -1,6 +1,6 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useMenu } from '@nx-next-app/operations'
 import { IPopUpData } from '@nx-next-app/service'
 import { numFormatToDigits } from '@nx-next-app/utils'
@@ -15,6 +15,7 @@ const BigWinProfitModal = ({
 	closeCallback?: () => void
 }) => {
 	const { t } = useTranslation()
+	const { getBannerUrl } = useGlobalData()
 	const { closeModal } = useGlobalModal()
 	const { onEnterSlotsPage } = useMenu()
 	const {
@@ -48,18 +49,18 @@ const BigWinProfitModal = ({
 				</div>
 				<img
 					className='money'
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/money.gif`}
+					src={getBannerUrl('/desktop/img/4.0/money.gif')}
 					alt=''
 				/>
 				<img
 					className='money-two'
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/money.gif`}
+					src={getBannerUrl('/desktop/img/4.0/money.gif')}
 					alt=''
 				/>
 			</div>
 			{/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
 			<img
-				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/promosBackPopup/delet.png`}
+				src={getBannerUrl('/desktop/img/promosBackPopup/delet.png')}
 				alt=''
 				className='closepop'
 				onClick={() => {
