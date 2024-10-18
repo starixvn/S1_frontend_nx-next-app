@@ -40,6 +40,7 @@ export interface ISetForgetPasswordArgs {
 	langId: string
 	email: string
 	flag: FlagEnum
+	username?: string
 }
 
 // url 有帶 langId , flag 給 1 其餘給 2

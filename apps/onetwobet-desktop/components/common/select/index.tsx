@@ -19,6 +19,7 @@ export interface ISelectProps {
 	errorMessage?: string
 	showValue?: boolean
 	requiredIcon?: boolean
+	error?: boolean
 }
 
 const Select = (props: ISelectProps) => {
@@ -37,6 +38,7 @@ const Select = (props: ISelectProps) => {
 		showValue,
 		onChange,
 		requiredIcon,
+		error,
 	} = props
 	const { value: isActive, toggle, setFalse } = useBoolean()
 	const [currentOption, setCurrentOption] = useState<SelectOptionType>()
@@ -84,7 +86,9 @@ const Select = (props: ISelectProps) => {
 	}
 
 	return (
-		<div className={classNames('inputBox-blue', { error: errorMessage })}>
+		<div
+			className={classNames('inputBox-blue', { error: error || errorMessage })}
+		>
 			{requiredIcon && <span className='required-tip'>*</span>}
 			{prefixText && <i className='txt-gray'>{prefixText}</i>}
 			<div
