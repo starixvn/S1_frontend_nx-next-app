@@ -1,7 +1,7 @@
 import { DepositModule } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useDepositContext } from '@nx-next-app/data-access'
-import { DepositPaymentEnum } from '@nx-next-app/types'
+import { useAuth, useDepositContext } from '@nx-next-app/data-access'
+import { CurrenciesEnum, DepositPaymentEnum } from '@nx-next-app/types'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
@@ -50,6 +50,10 @@ const DepositForm = () => {
 
 	const { payments, DEPOSIT_PAYMENT_OPTIONS } = useDepositContext()
 
+	const {
+		userInfo: { currencyId },
+	} = useAuth()
+
 	return (
 		<div className='subModuleListColumn'>
 			<DepositModule
@@ -69,9 +73,16 @@ const DepositForm = () => {
 							// timeDisplayKey
 						} = paymentOption
 
+						// 10/17新增，VND 的時候 quickTransfer 顯示為 bankTransfer
+						const finalDisplayLabelKey =
+							currencyId === CurrenciesEnum.VND &&
+							key === DepositPaymentEnum.QuickTransfer
+								? 'Label_Deposit_BankTransfer'
+								: labelDisplayKey
+
 						return (
 							<DepositModule.SubModuleButton
-								label={t(labelDisplayKey || '')}
+								label={t(finalDisplayLabelKey || '')}
 								icon={classNames(icon)}
 								matchValue={key}
 								key={labelDisplayKey}
