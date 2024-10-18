@@ -8,6 +8,7 @@ export enum PromotionTypeEnum {
 	Cashback = 7,
 	SpecialBonus = 8,
 	RetentionFreeBet = 9,
+
 	MissionBonus = 11,
 	PromoCode = 9001,
 }
@@ -43,6 +44,11 @@ export enum PromotionCategoryIdEnum {
 	SBSW,
 	Mega888SlotRNGFishing,
 	ESports,
+	SportAndSlot = 16,
+	SlotAndLiveCasino = 17,
+	LiveCasinoAndSport = 18,
+	ALLCategory = 19,
+	//  ( exclude Lottery and Fishing)
 }
 
 export enum PromotionWalletType {
