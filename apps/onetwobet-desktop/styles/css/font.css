@@ -1,71 +1,33 @@
 @font-face {
   font-family: "icomoon";
-  src: url("../fonts/icomoon.eot");
-  src: url("../fonts/icomoon.eot?tnphd0#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?tnphd0") format("truetype"), url("../fonts/icomoon.woff?tnphd0") format("woff"), url("../fonts/icomoon.svg?tnphd0#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
+  src: url("../fonts/icomoon.woff?v=202003") format("woff");
 }
-[class^=icon-], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "icomoon" !important;
-  speak: never;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.icon:before {
+  font-family: "icomoon";
 }
 
-.icon-digital-wallet:before {
-  content: "\e93e";
+.icon-balance:before {
+  font-size: 24px !important;
 }
 
-.icon-mobile-w:before {
-  content: "\e92e";
+.icon-cq9:before {
+  font-size: 16px !important;
 }
 
-.icon-ios:before {
-  content: "\e92f";
+.icon-friend:before {
+  font-size: 12px;
 }
 
-.icon-android-w:before {
-  content: "\e93c";
+.icon-line-bold:before {
+  content: "\e91f";
 }
 
-.icon-pc:before {
-  content: "\e93d";
+.icon-windows:before {
+  content: "\eac2";
 }
 
-.icon-close-radius:before {
-  content: "\e92d";
-}
-
-.icon-refresh:before {
-  content: "\e92c";
-}
-
-.icon-logout:before {
-  content: "\e928";
-}
-
-.icon-change-password:before {
-  content: "\e92b";
-}
-
-.icon-referral:before {
-  content: "\e927";
-}
-
-.icon-cryptowallet:before {
-  content: "\e924";
-}
-
-.icon-arrow-next:before {
-  content: "\e922";
+.icon-Shield:before {
+  content: "\e920";
 }
 
 .icon-medal:before {
@@ -388,6 +350,10 @@
   content: "\e932";
 }
 
+.icon-PP:before {
+  content: "\e92e";
+}
+
 .icon-hockey:before {
   content: "\e930";
 }
@@ -496,48 +462,136 @@
   content: "\e910";
 }
 
-.icon-bankinfo:before {
-  content: "\e926";
+.icon-plus-square:before {
+  content: "\e9e0";
 }
 
-.icon-profile:before {
-  content: "\e923";
+.icon-book-open:before {
+  content: "\e9e1";
 }
 
-.icon-icon-Shield:before {
-  content: "\e920";
+.icon-person:before {
+  content: "\e9dc";
 }
 
-.icon-line-bold:before {
-  content: "\e91f";
+.icon-live_tv:before {
+  content: "\e9d8";
 }
 
-.icon-tree:before {
-  content: "\e9b6";
+.icon-cricket:before {
+  content: "\e9d0";
 }
 
-.icon-home1:before {
-  content: "\e9b5";
+.icon-cloud_upload:before {
+  content: "\e9af";
 }
 
-.icon-QQpay:before {
-  content: "\e944";
+.icon-backup:before {
+  content: "\e9af";
 }
 
-.icon-promotion:before {
-  content: "\e939";
+.icon-last_page:before {
+  content: "\e9ad";
 }
 
-.icon-windows:before {
-  content: "\eac2";
+.icon-first_page:before {
+  content: "\e9ae";
 }
 
-.icon-pinterest:before {
-  content: "\ead1";
+.icon-arrow_right:before {
+  content: "\e9a8";
 }
 
-.icon-pinterest2:before {
-  content: "\ead2";
+.icon-arrow_left:before {
+  content: "\e9a9";
+}
+
+.icon-arrow_drop_up:before {
+  content: "\e9aa";
+}
+
+.icon-arrow_drop_down:before {
+  content: "\e9ab";
+}
+
+.icon-broken_image:before {
+  content: "\e998";
+}
+
+.icon-keyboard_arrow_up:before {
+  content: "\e95b";
+}
+
+.icon-keyboard_arrow_right1:before {
+  content: "\e95c";
+}
+
+.icon-keyboard_arrow_left:before {
+  content: "\e95d";
+}
+
+.icon-keyboard_arrow_down:before {
+  content: "\e95e";
+}
+
+.icon-error_outline:before {
+  content: "\e94c";
+}
+
+.icon-error:before {
+  content: "\e952";
+}
+
+.icon-keyboard_arrow_right:before {
+  content: "\e954";
+}
+
+.icon-cake:before {
+  content: "\e959";
+}
+
+.icon-calculator1:before {
+  content: "\e957";
+}
+
+.icon-message-typing:before {
+  content: "\e933";
+}
+
+.icon-question:before {
+  content: "\e909";
+}
+
+.icon-envelope:before {
+  content: "\e905";
+}
+
+.icon-menu:before {
+  content: "\e9bb";
+}
+
+.icon-close:before {
+  content: "\e98a";
+}
+
+.icon-checkmark:before {
+  content: "\e98b";
+}
+
+.icon-information:before {
+  content: "\e951";
+}
+
+.icon-cake1:before {
+  content: "\e95a";
+}
+
+.icon-minus:before {
+  content: "\e94e";
+}
+
+.icon-plus:before {
+  content: "\e94f";
 }
 
 .icon-alarm:before {
@@ -840,136 +894,20 @@
   content: "\eaea";
 }
 
-.icon-plus-square:before {
-  content: "\e9e0";
+.icon-tree:before {
+  content: "\e9b6";
 }
 
-.icon-book-open:before {
-  content: "\e9e1";
+.icon-home1:before {
+  content: "\e9b5";
 }
 
-.icon-person:before {
-  content: "\e9dc";
+.icon-QQpay:before {
+  content: "\e944";
 }
 
-.icon-live_tv:before {
-  content: "\e9d8";
-}
-
-.icon-cricket:before {
-  content: "\e9d0";
-}
-
-.icon-cloud_upload:before {
-  content: "\e9af";
-}
-
-.icon-backup:before {
-  content: "\e9af";
-}
-
-.icon-last_page:before {
-  content: "\e9ad";
-}
-
-.icon-first_page:before {
-  content: "\e9ae";
-}
-
-.icon-arrow_right:before {
-  content: "\e9a8";
-}
-
-.icon-arrow_left:before {
-  content: "\e9a9";
-}
-
-.icon-arrow_drop_up:before {
-  content: "\e9aa";
-}
-
-.icon-arrow_drop_down:before {
-  content: "\e9ab";
-}
-
-.icon-broken_image:before {
-  content: "\e998";
-}
-
-.icon-keyboard_arrow_up:before {
-  content: "\e95b";
-}
-
-.icon-keyboard_arrow_right1:before {
-  content: "\e95c";
-}
-
-.icon-keyboard_arrow_left:before {
-  content: "\e95d";
-}
-
-.icon-keyboard_arrow_down:before {
-  content: "\e95e";
-}
-
-.icon-error_outline:before {
-  content: "\e94c";
-}
-
-.icon-error:before {
-  content: "\e952";
-}
-
-.icon-keyboard_arrow_right:before {
-  content: "\e954";
-}
-
-.icon-cake:before {
-  content: "\e959";
-}
-
-.icon-calculator1:before {
-  content: "\e957";
-}
-
-.icon-message-typing:before {
-  content: "\e933";
-}
-
-.icon-question:before {
-  content: "\e909";
-}
-
-.icon-envelope:before {
-  content: "\e905";
-}
-
-.icon-menu:before {
-  content: "\e9bb";
-}
-
-.icon-close:before {
-  content: "\e98a";
-}
-
-.icon-checkmark:before {
-  content: "\e98b";
-}
-
-.icon-information:before {
-  content: "\e951";
-}
-
-.icon-cake1:before {
-  content: "\e95a";
-}
-
-.icon-minus:before {
-  content: "\e94e";
-}
-
-.icon-plus:before {
-  content: "\e94f";
+.icon-promotion:before {
+  content: "\e939";
 }
 
 .icon-news:before {
@@ -1010,6 +948,10 @@
 
 .icon-conversation:before {
   content: "\e935";
+}
+
+.icon-soccer:before {
+  content: "\e9df";
 }
 
 .icon-volleyball:before {
