@@ -1,26 +1,26 @@
-import { includes, find } from 'lodash-es'
-import { useRouter } from 'next/router'
 import { paths, PRODUCTS } from '@nx-next-app/constants'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import type {
+	IDynamicSubMenuItem,
+	IDynamicSubMenuLinkType,
+	IStaticSubMenuItem,
+} from '@nx-next-app/features/F0006/types/menu'
 import { useMenuData } from '@nx-next-app/hooks'
-import {
-	DeviceTypeEnum,
-	LoginGameTypeEnum,
-	MenuActionTypeEnum,
-	MenuKeyEnum,
-} from '@nx-next-app/types'
 import {
 	IAxiosError,
 	IGotoGameArg,
 	useLazyGotoGameQuery,
 } from '@nx-next-app/service'
 import { MENU_DATA } from '@nx-next-app/site/yashbet'
+import {
+	DeviceTypeEnum,
+	LoginGameTypeEnum,
+	MenuActionTypeEnum,
+	MenuKeyEnum,
+} from '@nx-next-app/types'
 import { getIsTpMaintain, onWindowOpenProduct } from '@nx-next-app/utils'
-import type {
-	IStaticSubMenuItem,
-	IDynamicSubMenuItem,
-	IDynamicSubMenuLinkType,
-} from '@nx-next-app/features/F0006/types/menu'
+import { find, includes } from 'lodash-es'
+import { useRouter } from 'next/router'
 
 type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void
@@ -169,10 +169,10 @@ const useMenu = () => {
 		}
 
 		const host = typeof window === 'undefined' ? null : window.location.origin
-		const dbHost =
-			process.env.NODE_ENV === 'production'
-				? host
-				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		const dbHost = process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		// process.env.NODE_ENV === 'production'
+		// 	? host
+		//	:
 		const signupUrl = `${host}${paths.join.root}`
 		const loginUrl = `${host}${paths.login.root}`
 		const lobbyUrl = `${host}${paths.slots.root}?tpId=${tpId}`
@@ -222,10 +222,10 @@ const useMenu = () => {
 	}) => {
 		const host = typeof window === 'undefined' ? null : window.location.origin
 		// 實際帶的 host 位置，正式環境帶當前 domain , local 環境則帶 api proxy
-		const dbHost =
-			process.env.NODE_ENV === 'production'
-				? host
-				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		const dbHost = process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		// process.env.NODE_ENV === 'production'
+		// 	? host
+		//	:
 		const signupUrl = `${host}${paths.join.root}`
 		const loginUrl = `${host}${paths.login.root}`
 		const errorUrl = `${dbHost}/404/index_${langId}.html`

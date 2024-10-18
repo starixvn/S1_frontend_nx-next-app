@@ -1,8 +1,15 @@
-import { includes, find, filter } from 'lodash-es'
-import { useRouter } from 'next/router'
-import { useMenuData } from '@nx-next-app/hooks'
-import { paths, PRODUCTS, memberTypeEnum } from '@nx-next-app/constants'
+import { memberTypeEnum, paths, PRODUCTS } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
+import type {
+	IDynamicSubMenuItem,
+	IDynamicSubMenuLinkType,
+	IStaticSubMenuItem,
+} from '@nx-next-app/features/F0001/types'
+import { useMenuData } from '@nx-next-app/hooks'
+import {
+	useGetCustTpGameTypeSettingQuery,
+	type IGotoGameArg,
+} from '@nx-next-app/service'
 import {
 	DeviceTypeEnum,
 	LoginGameTypeEnum,
@@ -10,19 +17,12 @@ import {
 	MenuKeyEnum,
 } from '@nx-next-app/types'
 import {
-	type IGotoGameArg,
-	useGetCustTpGameTypeSettingQuery,
-} from '@nx-next-app/service'
-import {
 	getIsTpMaintain,
-	onWindowOpenProduct,
 	isGameExcludedFromLiff,
+	onWindowOpenProduct,
 } from '@nx-next-app/utils'
-import type {
-	IDynamicSubMenuItem,
-	IStaticSubMenuItem,
-	IDynamicSubMenuLinkType,
-} from '@nx-next-app/features/F0001/types'
+import { filter, find, includes } from 'lodash-es'
+import { useRouter } from 'next/router'
 
 type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void
@@ -181,10 +181,10 @@ const useMenu = () => {
 		}
 
 		const host = typeof window === 'undefined' ? null : window.location.origin
-		const dbHost =
-			process.env.NODE_ENV === 'production'
-				? host
-				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		const dbHost = process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		// process.env.NODE_ENV === 'production'
+		// 	? host
+		//	:
 		const signupUrl = `${host}${paths.join.root}`
 		const loginUrl = `${host}${paths.login.root}`
 		const lobbyUrl = `${host}${paths.slots.root}?tpId=${tpId}`
@@ -234,10 +234,10 @@ const useMenu = () => {
 	}) => {
 		const host = typeof window === 'undefined' ? null : window.location.origin
 		// 實際帶的 host 位置，正式環境帶當前 domain , local 環境則帶 api proxy
-		const dbHost =
-			process.env.NODE_ENV === 'production'
-				? host
-				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		const dbHost = process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		// process.env.NODE_ENV === 'production'
+		// 	? host
+		//	:
 		const signupUrl = `${host}${paths.join.root}`
 		const loginUrl = `${host}${paths.login.root}`
 		const errorUrl = `${dbHost}/404/index_${langId}.html`

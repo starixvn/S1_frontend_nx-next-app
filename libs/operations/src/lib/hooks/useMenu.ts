@@ -1,4 +1,4 @@
-import { PRODUCTS, memberTypeEnum, paths } from '@nx-next-app/constants'
+import { memberTypeEnum, paths, PRODUCTS } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { useMenuData } from '@nx-next-app/hooks'
 import {
@@ -184,10 +184,10 @@ const useMenu = () => {
 		}
 
 		const host = typeof window === 'undefined' ? null : window.location.origin
-		const dbHost =
-			process.env.NODE_ENV === 'production'
-				? host
-				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		const dbHost = process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		// process.env.NODE_ENV === 'production'
+		// 	? host
+		//	:
 		const signupUrl = `${host}${paths.join.root}`
 		const loginUrl = `${host}${paths.login.root}`
 		const lobbyUrl = `${host}${paths.slots.root}?tpId=${tpId}`
@@ -237,10 +237,10 @@ const useMenu = () => {
 	}) => {
 		const host = typeof window === 'undefined' ? null : window.location.origin
 		// 實際帶的 host 位置，正式環境帶當前 domain , local 環境則帶 api proxy
-		const dbHost =
-			process.env.NODE_ENV === 'production'
-				? host
-				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		const dbHost = process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		// process.env.NODE_ENV === 'production'
+		// 	? host
+		//	:
 		const signupUrl = `${host}${paths.join.root}`
 		const loginUrl = `${host}${paths.login.root}`
 		const errorUrl = `${dbHost}/404/index_${langId}.html`

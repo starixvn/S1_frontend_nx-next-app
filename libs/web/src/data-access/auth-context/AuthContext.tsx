@@ -1,22 +1,22 @@
-import { createContext, ReactNode, useState } from 'react'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { setAppAuth } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { createContext, ReactNode, useState } from 'react'
+import {
+	InitialPropsInterface,
+	useDepositWithdrawTracker,
+	useInitLocaleEffect,
+	useOnlineCheckInterval,
+	useOptimovePageEvent,
+	useSynchronizeCookiesEffect,
+} from '../../hooks'
 import {
 	useGetUserInfoQuery,
 	useLazyCheckSignInQuery,
 	useSignInMutation,
 	useSignOutMutation,
 } from '../../service'
-import {
-	InitialPropsInterface,
-	useInitLocaleEffect,
-	useOnlineCheckInterval,
-	useSynchronizeCookiesEffect,
-	useDepositWithdrawTracker,
-	useOptimovePageEvent,
-} from '../../hooks'
 import { IUserInfoData } from '../../service/accountStrict/type'
 
 export interface AuthContextInterface {
@@ -159,12 +159,14 @@ export const AuthProvider = ({
 		setAuth({ isLogin: undefined })
 	}
 
-	const host = typeof window === 'undefined' ? null : window.location.origin
+	// const host = typeof window === 'undefined' ? null : window.location.origin
 	// * DB 路徑，根據生產模式與開發模式給予不同的路徑
-	const dbHost =
-		(process.env.NODE_ENV === 'production'
-			? host
-			: process.env['NEXT_PUBLIC_ENV_DB_HOST']) || ''
+	// const dbHost =
+	// 	(process.env.NODE_ENV === 'production'
+	// 		? host
+	// 		: process.env['NEXT_PUBLIC_ENV_DB_HOST']) || ''
+
+	const dbHost = process.env['NEXT_PUBLIC_ENV_DB_HOST'] || ''
 
 	// * 處理登入狀態同步使用者 cookie, 未登入不做同步
 	useSynchronizeCookiesEffect(userInfo)
