@@ -85,8 +85,8 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip1.svg`,
-		displayKey: 'Label_Vip_Vintage_Club',
-		settingDisplayKey: 'Label_VIP_Vintage',
+		displayKey: 'Label_Vip_BlackTortoise_Club',
+		settingDisplayKey: 'Label_VIP_BlackTortoise',
 		headerUrl: `/desktop/img/4.0/header-vintage.png`,
 		levelTabsName: 'vintage',
 		level: VipLevelEnum.VINTAGE,
@@ -96,8 +96,8 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip2.svg`,
-		displayKey: 'Label_Vip_Silver_Club',
-		settingDisplayKey: 'Label_VIP_Silver',
+		displayKey: 'Label_Vip_Phoenix_Club',
+		settingDisplayKey: 'Label_VIP_Phoenix',
 		headerUrl: `/desktop/img/4.0/header-silver.png`,
 		levelTabsName: 'silver',
 		level: VipLevelEnum.SILVER,
@@ -107,8 +107,8 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip3.svg`,
-		displayKey: 'Label_Vip_Gold_Club',
-		settingDisplayKey: 'Label_VIP_Gold',
+		displayKey: 'Label_Vip_Tiger_Club',
+		settingDisplayKey: 'Label_VIP_Tiger',
 		headerUrl: `/desktop/img/4.0/header-gold.png`,
 		levelTabsName: 'gold',
 		level: VipLevelEnum.GOLD,
@@ -118,8 +118,8 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip4.svg`,
-		displayKey: 'Label_Vip_Titanium_Club',
-		settingDisplayKey: 'Label_VIP_Titanium',
+		displayKey: 'Label_Vip_Dragon_Club',
+		settingDisplayKey: 'Label_VIP_Dragon',
 		headerUrl: `/desktop/img/4.0/header-titanium.png`,
 		levelTabsName: 'titanium',
 		level: VipLevelEnum.TITANIUM,
@@ -129,8 +129,8 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip5.svg`,
-		displayKey: 'Label_Vip_Diamond_Club',
-		settingDisplayKey: 'Label_VIP_Diamond',
+		displayKey: 'Label_Vip_Qilin_Club',
+		settingDisplayKey: 'Label_VIP_Qilin',
 		headerUrl: `/desktop/img/4.0/header-diamond.png`,
 		levelTabsName: 'diamond',
 		level: VipLevelEnum.DIAMOND,
@@ -140,8 +140,8 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip6.svg`,
-		displayKey: 'Label_Nova_Club',
-		settingDisplayKey: 'Label_VIP_Nova88',
+		displayKey: 'Label_Vip_VermilionBird_Club',
+		settingDisplayKey: 'Label_VIP_VermilionBird',
 		headerUrl: `/desktop/img/4.0/header-nova.png`,
 		levelTabsName: 'nova',
 		level: VipLevelEnum.Highest,
