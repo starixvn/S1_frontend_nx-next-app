@@ -7,11 +7,8 @@ import { Provider } from 'react-redux'
 
 // * supply localized format options
 // * https://day.js.org/docs/en/plugin/localized-format
-import dayjs from 'dayjs'
-import customParseFormat from 'dayjs/plugin/customParseFormat'
-import localizedFormat from 'dayjs/plugin/localizedFormat'
-
 import { LANG_TO_CURRENCY } from '@apps/onetwobet-h5/middleware'
+import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
 import {
 	ALLOWED_CURRENCIES,
 	BANNER_IMAGE_LIST,
@@ -27,8 +24,10 @@ import {
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	VIP_CLUB_IMAGES,
 } from '@nx-next-app/site/onetwobet'
-
-import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
+import dayjs from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+import isBetween from 'dayjs/plugin/isBetween'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
 import Head from 'next/head'
@@ -41,6 +40,7 @@ dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
 dayjs.extend(utc)
 dayjs.extend(customParseFormat)
+dayjs.extend(isBetween)
 
 const {
 	IovationScript,

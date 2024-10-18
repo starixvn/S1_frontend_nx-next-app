@@ -4,7 +4,7 @@ import { useBankInfo, useCheckUserInfo } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import { useEffect } from 'react'
-import Header from '../header'
+import Header from '../common/header'
 import { AddCard } from './AddCard'
 import { CardList } from './CardList'
 

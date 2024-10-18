@@ -1,6 +1,6 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useGetPromotionDetailQuery } from '@nx-next-app/service'
 import { PromotionTypeEnum } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
@@ -14,6 +14,7 @@ const HomePromotionModal = ({
 	closeCallback?: () => void
 }) => {
 	const { t } = useTranslation()
+	const { getBannerUrl } = useGlobalData()
 	const { closeModal } = useGlobalModal()
 	const {
 		userInfo: { langId, currencyId },
@@ -36,9 +37,9 @@ const HomePromotionModal = ({
 	return (
 		<div className='pop promosbackpop'>
 			<img
-				src={`${
-					process.env['NEXT_PUBLIC_BANNER_HOST']
-				}/h5/img/promosBackPopup/promosPopup-${langId || 'en'}.png`}
+				src={getBannerUrl(
+					`/h5/img/promosBackPopup/promosPopup-${langId || 'en'}.png`
+				)}
 				alt='img-promosPopup'
 			/>
 			{promotionType === PromotionTypeEnum.RetentionFreeBet ? (
@@ -74,7 +75,7 @@ const HomePromotionModal = ({
 
 			{/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
 			<img
-				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/promosBackPopup/delet.png`}
+				src={getBannerUrl('/h5/img/promosBackPopup/delet.png')}
 				alt='img-delet'
 				className='closepop'
 				onClick={() => {

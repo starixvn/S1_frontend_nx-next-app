@@ -10,7 +10,7 @@ import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import Header from '../header'
+import Header from '../common/header'
 import { WalletList } from './WalletList'
 
 const AddWalletModal = dynamic(() => import('./AddWalletModal'), {
