@@ -1,4 +1,5 @@
-import { ForgetPassword, Layout } from '@12b-h5/components/index'
+import { ForgotPassword } from '@12b-h5/components/forgot-password'
+import { Layout } from '@12b-h5/components/index'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
@@ -21,7 +22,7 @@ const ForgetPasswordPage = ({
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
 				<Layout persistSEOData={persistSEOData}>
-					<ForgetPassword />
+					<ForgotPassword />
 				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>

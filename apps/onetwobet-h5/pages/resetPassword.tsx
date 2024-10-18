@@ -1,5 +1,6 @@
+import { Layout } from '@12b-h5/components/index'
+import ResetPassword from '@12b-h5/components/reset-password'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, ResetPassword } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,

@@ -1,59 +1,19 @@
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, ResetPassword } from '@nx-next-app/features/F0001/desktop'
-import {
-	InitialPropsInterface,
-	useServerSideInitialPropsFetcher,
-} from '@nx-next-app/hooks'
-import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
-import { IFooterData } from '@nx-next-app/types'
+// 因 12bet 的重設密碼為彈窗，在此帶上必要參數直接導回首頁，讓 useResetPasswordEffect 使用
+import { paths } from '@nx-next-app/constants'
 import { GetServerSideProps } from 'next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-interface IResetPasswordPage extends InitialPropsInterface {
-	persistFooterData: IFooterData
-}
+const ResetPasswordPage: React.FC = () => null
 
-const ResetPasswordPage = ({
-	originIsSignIn,
-	originCookies,
-	persistSEOData,
-	persistFooterData,
-	persistStaticFileDomainData,
-}: IResetPasswordPage) => {
-	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
-			<GlobalDataProvider
-				persistStaticFileDomainData={persistStaticFileDomainData}
-			>
-				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
-					<main>
-						<section className='inside'>
-							<div className='rightModule'>
-								<ResetPassword />
-							</div>
-						</section>
-					</main>
-				</Layout>
-			</GlobalDataProvider>
-		</AuthProvider>
-	)
-}
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+	const { key } = query
 
-export const getServerSideProps: GetServerSideProps = async context => {
-	const initialProps = await useServerSideInitialPropsFetcher(context)
-	const { originCookies } = initialProps
-
-	const { langId, currencyId } = {
-		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
-		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
-	}
+	const params = new URLSearchParams()
+	if (key) params.set('reset_password', String(key))
 
 	return {
-		props: {
-			persistFooterData: FOOTER_DATA({ langId, currencyId }),
-			...initialProps,
-			...(await serverSideTranslations(context.locale)),
+		redirect: {
+			permanent: false,
+			destination: `${paths.home.root}?${params.toString()}`,
 		},
 	}
 }

@@ -13,6 +13,7 @@ export interface ISelectProps {
 	placeholder?: string
 	showSearch?: boolean
 	isTranslation?: boolean
+	error?: boolean
 	errorMessage?: string
 	infoMessage?: string
 	onChange?: (value: SelectOptionType['value']) => void
@@ -33,6 +34,7 @@ const Select = (props: ISelectProps) => {
 		showSearch,
 		isTranslation,
 		infoMessage,
+		error,
 		errorMessage,
 		showValue,
 		btnClassName,
@@ -102,7 +104,7 @@ const Select = (props: ISelectProps) => {
 				</div>
 			)}
 			<div
-				className={classNames('inputBox', { error: errorMessage })}
+				className={classNames('inputBox', { error: error || errorMessage })}
 				onClick={toggle}
 				ref={ref}
 			>
