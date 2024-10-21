@@ -41,7 +41,6 @@ const GameProvider = ({
 			return []
 		})
 	})
-
 	return (
 		<>
 			<Header className='header'>

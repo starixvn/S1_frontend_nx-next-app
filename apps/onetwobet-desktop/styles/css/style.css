@@ -2786,11 +2786,15 @@ article p {
   border-radius: 10px;
   position: relative;
 }
+.appdownload-pop * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 .appdownload-pop .icon-close-radius {
   position: absolute;
   top: -14px;
   right: -10px;
-  background: #AEACAC;
+  background: #959292;
   border-radius: 100%;
   height: 30px;
   width: 30px;
@@ -2805,6 +2809,9 @@ article p {
           justify-content: center;
   color: #000;
   cursor: pointer;
+}
+.appdownload-pop .icon-close-radius:hover {
+  background: #AEACAC;
 }
 .appdownload-pop .pop-container {
   display: -webkit-box;
@@ -2854,7 +2861,9 @@ article p {
       -ms-flex-align: center;
           align-items: center;
   padding: 15px 0 10px;
-  width: 210px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   position: relative;
   border-radius: 5px;
   border: 2px solid #fff;
@@ -2876,13 +2885,11 @@ article p {
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
+  gap: 4px;
   left: 6px;
   top: 7px;
 }
-.appdownload-pop .pop-container .item-container .download-item .icon-group .icon-mobile,
-.appdownload-pop .pop-container .item-container .download-item .icon-group .icon-android,
-.appdownload-pop .pop-container .item-container .download-item .icon-group .icon-pc,
-.appdownload-pop .pop-container .item-container .download-item .icon-group .icon-ios {
+.appdownload-pop .pop-container .item-container .download-item .icon-group [class^=icon] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2897,7 +2904,6 @@ article p {
   width: 28px;
   height: 28px;
   background: #242526;
-  margin-bottom: 4px;
   color: #fff;
 }
 .appdownload-pop .pop-container .item-container .download-item .icon-group .icon-android {
@@ -2924,8 +2930,9 @@ article p {
       -ms-flex-align: center;
           align-items: center;
 }
-.appdownload-pop .pop-container .item-container .qr-code img {
+.appdownload-pop .pop-container .item-container .qr-code img, .appdownload-pop .pop-container .item-container .qr-code svg {
   width: 90px;
+  height: 90px;
 }
 .appdownload-pop .pop-container .item-container .qr-code .primary {
   font-size: 14px;
