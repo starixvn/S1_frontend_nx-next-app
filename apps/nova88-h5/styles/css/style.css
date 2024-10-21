@@ -67,86 +67,72 @@ img {
 
 @font-face {
   font-family: "icomoon";
-  src: url("../fonts/icomoon.ttf?prclxn") format("truetype"), url("../fonts/icomoon.woff?prclxn") format("woff");
+  src: url("../fonts/icomoon.eot?tnphd0");
+  src: url("../fonts/icomoon.eot?tnphd0#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?tnphd0") format("truetype"), url("../fonts/icomoon.woff?tnphd0") format("woff"), url("../fonts/icomoon.svg?tnphd0#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
 }
-.icon:before, .icon:after {
-  font-family: "icomoon";
-  font-size: 4vw;
-}
-
-.icon-moon:before {
-  font-size: 14vw;
-}
-
-.icon-equalizer:before {
-  font-size: 6vw;
-}
-
-.icon-icon32px_wallet:before {
-  font-size: 4vw;
-}
-
-.icon-menu:before {
-  font-size: 4vw;
-}
-
-.icon-information:before {
-  color: #5574A7;
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
-}
-
-.icon-checkmark:before {
-  font-size: 4.5vw;
-}
-
-.icon-errormark:before {
-  content: "\e98a";
-  color: #e92529;
-  font-weight: bold;
-  font-size: 4vw;
-}
-
-.icon-new:before {
-  font-size: 3vw;
-  content: "New" !important;
-  font-family: "Microsoft YaHei", sans-serif;
-}
-
-.icon-envelope:before {
-  font-size: 3vw;
-}
-
-.icon-close:before {
-  font-size: 4vw;
-}
-
-.icon-email:before {
-  font-size: 6vw;
-  margin-left: -1vw;
-}
-
-.icon-pencil:before {
-  font-size: 4vw;
-}
-
-.icon-library:before {
-  font-size: 4.5vw;
-}
-
-.icon-live {
-  background: #F77A00;
-  padding: 0 1vw;
-  border-radius: 3px;
-  font-size: 3vw;
-}
-.icon-live:before {
-  content: "Live";
-  font-family: "Microsoft YaHei", sans-serif;
+.icon:before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-digital-wallet:before {
-  content: "\e900";
+  content: "\e93e";
+}
+
+.icon-mobile-w:before {
+  content: "\e92e";
+}
+
+.icon-ios:before {
+  content: "\e92f";
+}
+
+.icon-android-w:before {
+  content: "\e93c";
+}
+
+.icon-pc:before {
+  content: "\e93d";
+}
+
+.icon-close-radius:before {
+  content: "\e92d";
+}
+
+.icon-refresh:before {
+  content: "\e92c";
+}
+
+.icon-logout:before {
+  content: "\e928";
+}
+
+.icon-change-password:before {
+  content: "\e92b";
+}
+
+.icon-referral:before {
+  content: "\e927";
+}
+
+.icon-cryptowallet:before {
+  content: "\e924";
+}
+
+.icon-arrow-next:before {
+  content: "\e922";
 }
 
 .icon-medal:before {
@@ -222,7 +208,7 @@ img {
 }
 
 .icon-home123:before {
-  content: "\e901";
+  content: "\e900";
 }
 
 .icon-deposit1:before {
@@ -518,19 +504,19 @@ img {
 }
 
 .icon-balance1:before {
-  content: "\e902";
+  content: "\e901";
 }
 
 .icon-casino:before {
-  content: "\e903";
+  content: "\e902";
 }
 
 .icon-contact:before {
-  content: "\e904";
+  content: "\e903";
 }
 
 .icon-deposit:before {
-  content: "\e905";
+  content: "\e904";
 }
 
 .icon-email:before {
@@ -575,6 +561,14 @@ img {
 
 .icon-withdrawal:before {
   content: "\e910";
+}
+
+.icon-bankinfo:before {
+  content: "\e926";
+}
+
+.icon-profile:before {
+  content: "\e923";
 }
 
 .icon-icon-Shield:before {
@@ -1014,7 +1008,7 @@ img {
 }
 
 .icon-envelope:before {
-  content: "\e91d";
+  content: "\e905";
 }
 
 .icon-menu:before {
@@ -1085,10 +1079,6 @@ img {
   content: "\e935";
 }
 
-.icon-soccer:before {
-  content: "\e9df";
-}
-
 .icon-volleyball:before {
   content: "\e9d2";
 }
@@ -1106,7 +1096,7 @@ img {
 }
 
 .icon-moon:before {
-  content: "\e922";
+  content: "\e91d";
 }
 
 body, html {
