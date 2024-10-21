@@ -1,22 +1,24 @@
 import { InputBox } from '@12b-desktop/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import { useGlobalData } from '@nx-next-app/data-access'
 import { useSignInMutation } from '@nx-next-app/service'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
+const ForgotPasswordModal = dynamic(
+	() => import('@12b-desktop/components/modal/ForgotPasswordModal'),
+	{ ssr: false }
+)
+
 const LoginModal = () => {
 	const router = useRouter()
 	const { t } = useTranslation()
-	const { closeModal } = useGlobalModal()
+	const { modal, closeModal } = useGlobalModal()
 	const { getBannerUrl } = useGlobalData()
-
-	const {
-		userInfo: { langId },
-	} = useAuth()
 
 	const { formState, trigger, setError, register, getValues, handleSubmit } =
 		useForm()
@@ -67,7 +69,7 @@ const LoginModal = () => {
 			}).unwrap()
 
 			closeModal()
-			router.push(`/${langId}${paths.deposit.root}`)
+			router.reload()
 		} catch (error) {
 			const { errorCode, message } =
 				(error as {
@@ -91,6 +93,8 @@ const LoginModal = () => {
 			}
 		}
 	}
+
+	const handleForgetPassword = () => modal.open(<ForgotPasswordModal />)
 
 	return (
 		<div className='pop pop-login'>
@@ -146,11 +150,9 @@ const LoginModal = () => {
 								error={!!errors['password']}
 								touched={!!touchedFields['password']}
 							/>
-							<Link href={paths.forgetPassword.root}>
-								<a className='forgot' onClick={closeModal}>
-									{t('Label_Header_ForgetPassword')}
-								</a>
-							</Link>
+							<a className='forgot' onClick={handleForgetPassword}>
+								{t('Label_Header_ForgetPassword')}
+							</a>
 						</div>
 						<div className='btnGroup'>
 							<button className='ghost' type='button' onClick={closeModal}>

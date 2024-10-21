@@ -1,21 +1,26 @@
-import { Marquee } from '@nx-next-app/components/H0001'
+import { Marquee } from '@12b-h5/components/common'
 import { paths } from '@nx-next-app/constants'
-import { useHome } from '@nx-next-app/features/F0001/providers'
+import { useAuth } from '@nx-next-app/data-access'
+import { useHome } from '@nx-next-app/operations'
 import { useRouter } from 'next/router'
 
 const Announcement = () => {
+	const {
+		auth: { isLogin },
+	} = useAuth()
+	const { announcementData } = useHome()
 	const { push } = useRouter()
-	const { announcementData, handleMarqueeClick } = useHome()
+
+	const handleMarqueeClick = () => {
+		push(isLogin ? paths.announcement.root : paths.login.root)
+	}
 
 	return (
-		<Marquee
-			data={announcementData}
-			onMarqueeClick={() =>
-				handleMarqueeClick({
-					loginCallback: () => push(paths.login.root),
-				})
-			}
-		/>
+		<div id='Marquee'>
+			<div className='marquee-box'>
+				<Marquee data={announcementData} onMarqueeClick={handleMarqueeClick} />
+			</div>
+		</div>
 	)
 }
 

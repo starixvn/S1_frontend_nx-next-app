@@ -1,6 +1,7 @@
 import { ISelectProps } from '@apps/onetwobet-h5/components/common/select'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
+	AREA_CODE_BY_CURRENCY,
 	CURRENCY_TO_LANG_KEY,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
 	paths,
@@ -51,7 +52,7 @@ const Join = () => {
 		ISelectProps['options']
 	>([])
 
-	const formMethods = useForm()
+	const formMethods = useForm({ mode: 'onTouched' })
 	const { setError, setValue, getValues, clearErrors, handleSubmit } =
 		formMethods
 
@@ -75,7 +76,7 @@ const Join = () => {
 			const affiliate = getValues('affiliate')
 			const formCurrencyId = getValues('currencyId')
 
-			// If affId qualified, only show currencyId from api in select
+			// affiliate 有效時，僅顯示該對應的幣別
 			return urlAffId && affiliate ? currencyId === formCurrencyId : true
 		})
 		.map(currencyId => ({
@@ -113,8 +114,8 @@ const Join = () => {
 					setValue('affiliate', urlAffCode)
 				}
 			}
-		} catch (error) {
-			// error
+		} catch {
+			//
 		}
 	}
 
@@ -125,13 +126,8 @@ const Join = () => {
 			setValue('currencyId', newCurrencyId)
 			clearErrors('currencyId')
 
-			// const areaCode = AREA_CODE_BY_CURRENCY[newCurrencyId]
-
-			// if (areaCode) {
-			// 	setValue('areaCode', areaCode)
-			// } else {
-			// 	setValue('areaCode', undefined)
-			// }
+			const areaCode = AREA_CODE_BY_CURRENCY[newCurrencyId]
+			if (areaCode) setValue('areaCode', areaCode)
 		}
 	}
 
@@ -139,7 +135,7 @@ const Join = () => {
 		const formAffiliate = getValues('affiliate')
 		if (!formAffiliate || urlAffiliate) return true
 
-		// check affiliate is qualified from api
+		// 透過 API 檢查 affiliate 是否有效
 		try {
 			await affiliateCheck({ affCode: formAffiliate }).unwrap()
 			clearErrors('affiliate')
@@ -164,7 +160,6 @@ const Join = () => {
 				message: t('Label_Join_RemindPrefferedCurrency') || '',
 			})
 
-			// return for submit checking
 			return false
 		}
 
@@ -183,8 +178,8 @@ const Join = () => {
 				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 				const result = await (window as any).IGLOO.getBlackbox()
 				blackbox = result?.blackbox || ''
-			} catch (error) {
-				// error
+			} catch {
+				//
 			}
 		}
 
@@ -204,14 +199,7 @@ const Join = () => {
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
-		// currency & recaptcha & affiliate cannot use form required check
-		if (
-			// !reCaptchaToken ||
-			// recaptchaInfo?.country === 'CN' ||
-			!currencyCheck ||
-			!affCodeCheck
-		)
-			return
+		if (!currencyCheck || !affCodeCheck) return
 
 		const affId = affiliate && urlAffId ? String(affiliate) : null
 		const affCode = !urlAffId && affCodeCheck ? String(affiliate) : null

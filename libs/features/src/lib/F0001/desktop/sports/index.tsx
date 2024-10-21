@@ -1,9 +1,9 @@
-import { useRouter } from 'next/router'
-import { find } from 'lodash-es'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { useAuth } from '@nx-next-app/data-access'
-import { useIsClient } from 'usehooks-ts'
 import { PRODUCTS } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { useMenu } from '@nx-next-app/operations'
+import { find } from 'lodash-es'
+import { useRouter } from 'next/router'
+import { useIsClient } from 'usehooks-ts'
 
 const Sports = () => {
 	const isClient = useIsClient()

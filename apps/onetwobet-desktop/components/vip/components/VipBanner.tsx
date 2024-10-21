@@ -17,7 +17,7 @@ const VipBanner = ({
 		.filter(val => find(vipBannerData, vip => vip.level === val.level))
 
 	return (
-		<Carousel className='swiper-container' pagination={false}>
+		<Carousel pagination={false} navigation={false}>
 			{banners.map(item => (
 				<SwiperSlide className={`vip${item.level}`} key={item.level}>
 					<VipBannerItem

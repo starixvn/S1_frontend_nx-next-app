@@ -1,118 +1,26 @@
-import { Header, LoginFormType } from '@12b-desktop/components/common'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import { useMenu } from '@nx-next-app/operations'
-import {
-	LineLoginDirectTypeEnum,
-	useLazyGetLineLoginDirectUrlQuery,
-} from '@nx-next-app/service'
-import { renderFieldError } from '@nx-next-app/utils'
-import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { FieldErrors } from 'react-hook-form'
-import Country from './Country'
-import Menu from './Menu'
-import MsgPopUp from './MsgPopUp'
-import Wallet from './Wallet'
+import Logo from '@12b-desktop/components/layout/common/header/Logo'
+import UserFunction from '@12b-desktop/components/layout/common/header/UserFunction'
+import UserInfo from '@12b-desktop/components/layout/common/header/userInfo'
+import MenuList from './menuList'
 
 const LayoutHeader = () => {
-	const { t } = useTranslation()
-	const router = useRouter()
-
-	const { modal } = useGlobalModal()
-	const { menuList = [], onMenuOpen, isLobbyHeaderError } = useMenu()
-	const { auth, onSignIn, onSignOut } = useAuth()
-
-	const [getLineLoginDirectUrl] = useLazyGetLineLoginDirectUrlQuery()
-
-	const handleSignIn = async (payload: {
-		userName: string
-		password: string
-	}) => {
-		try {
-			await onSignIn(payload)
-			router.push(paths.home.root)
-		} catch (error) {
-			modal.error((error as Error).message)
-		}
-	}
-
-	const handleSignOut = async () => {
-		try {
-			await onSignOut()
-			await router.push(paths.home.root).then(() => router.reload())
-		} catch (error) {
-			modal.error((error as Error).message)
-		}
-	}
-
-	const handleLoginInvalid = (errors: FieldErrors<LoginFormType>) => {
-		modal.error(renderFieldError(errors))
-	}
-
-	const handleLineLogin = async () => {
-		try {
-			const { data: lineLoginDirectUrl } = await getLineLoginDirectUrl({
-				type: LineLoginDirectTypeEnum.Login,
-			}).unwrap()
-
-			if (lineLoginDirectUrl) {
-				window.location.href = lineLoginDirectUrl
-			}
-		} catch (error) {
-			modal.error((error as Error).message)
-		}
-	}
-
-	// * line 登入按鈕的顯示邏輯
-	const showLineLogin = false
-
-	// 廣告商用的事件記錄器，綁在 DepositButton 底下
-	const handleYuriAddToCartClick = () => {
-		/* eslint no-underscore-dangle: 0 */
-		if ((window as any)._yuri_track) {
-			;(window as any)._yuri_track('AddToCart')
-		}
-	}
-
 	return (
-		<Header>
-			<Header.Logo
-				rewardsUrl={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/88rewards.png`}
-			/>
-			<Header.Function>
-				{auth.isLogin ? (
-					<>
-						<Header.Function.MemberFile onSignOut={handleSignOut} />
-						<MsgPopUp />
-						<div className='line' />
-						<Wallet />
-						<Link href={paths.deposit.root}>
-							<a className='deposit-btn' onClick={handleYuriAddToCartClick}>
-								<span>{t('Label_Deposit')}</span>
-							</a>
-						</Link>
-					</>
-				) : (
-					<>
-						<Header.Function.Login
-							onLogin={handleSignIn}
-							onLoginInvalid={handleLoginInvalid}
-							onLineLogin={showLineLogin && handleLineLogin}
-						/>
-						<Country />
-					</>
-				)}
-			</Header.Function>
+		<header id='header'>
+			<div className='header-top'>
+				<Logo />
 
-			<Menu
-				menuList={menuList}
-				onMenuOpen={onMenuOpen}
-				isLobbyHeaderError={isLobbyHeaderError}
-			/>
-		</Header>
+				{/* <!-- header-btn --> */}
+				<div className='header-btn-group '>
+					{/* <!-- user-info --> */}
+					<UserInfo />
+
+					{/* <!-- user-function --> */}
+					<UserFunction />
+				</div>
+			</div>
+
+			<MenuList />
+		</header>
 	)
 }
 

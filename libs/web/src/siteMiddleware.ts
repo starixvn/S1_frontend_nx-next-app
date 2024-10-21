@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-import { NextRequest, NextResponse } from 'next/server'
-import { CurrenciesEnum } from '@nx-next-app/types'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { NextRequest, NextResponse } from 'next/server'
 
 interface ISiteMiddleware {
 	request: NextRequest
@@ -43,6 +43,7 @@ interface ISiteMiddleware {
 // }
 
 // * middleware 使用之資源定義在該位置
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const countryCodeMap: {
 	[countryCode: string]: {
 		currencyId: number

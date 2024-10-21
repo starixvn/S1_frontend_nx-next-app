@@ -40,6 +40,7 @@ export interface ISetForgetPasswordArgs {
 	langId: string
 	email: string
 	flag: FlagEnum
+	username?: string
 }
 
 // url 有帶 langId , flag 給 1 其餘給 2
@@ -73,8 +74,8 @@ export interface ISignUpArgs {
 	Birth_m?: string | number
 	Birth_y?: string | number
 	nationality?: string
-	phoneNo: string
-	realName: string
+	phoneNo?: string
+	realName?: string
 	reCaptchaToken?: string | undefined
 	reCaptchaAction?: string
 	referralUrl?: string

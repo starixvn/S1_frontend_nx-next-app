@@ -1,22 +1,22 @@
-import { createContext, ReactNode, useState } from 'react'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { setAppAuth } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { createContext, ReactNode, useState } from 'react'
+import {
+	InitialPropsInterface,
+	useDepositWithdrawTracker,
+	useInitLocaleEffect,
+	useOnlineCheckInterval,
+	useOptimovePageEvent,
+	useSynchronizeCookiesEffect,
+} from '../../hooks'
 import {
 	useGetUserInfoQuery,
 	useLazyCheckSignInQuery,
 	useSignInMutation,
 	useSignOutMutation,
 } from '../../service'
-import {
-	InitialPropsInterface,
-	useInitLocaleEffect,
-	useOnlineCheckInterval,
-	useSynchronizeCookiesEffect,
-	useDepositWithdrawTracker,
-	useOptimovePageEvent,
-} from '../../hooks'
 import { IUserInfoData } from '../../service/accountStrict/type'
 
 export interface AuthContextInterface {
@@ -76,7 +76,6 @@ export const AuthProvider = ({
 		...originUserInfo,
 		currencyName: t(`Label_General_Currency_${originUserInfo.currencyId}`),
 	}
-
 	const [signIn] = useSignInMutation()
 
 	const [signOut] = useSignOutMutation()

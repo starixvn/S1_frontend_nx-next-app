@@ -99,6 +99,14 @@ const Shortcut = () => {
 					<span>{t('Label_General_Milestone')}</span>
 				</a>
 			</Link>
+			<a onClick={() => navigatePath(paths.selfExclusion.root)}>
+				<img
+					className='exclusion-icon'
+					src={getBannerUrl('/h5/img/4.0/exclusion.png')}
+					alt='exclusion'
+				/>
+				<span>{t('Label_General_SelfExclusion')}</span>
+			</a>
 		</div>
 	)
 }
