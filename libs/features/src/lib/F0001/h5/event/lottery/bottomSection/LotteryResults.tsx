@@ -15,9 +15,7 @@ const LotteryResults = () => {
 
 	return (
 		<div className='tab-content-result'>
-			{/* result-list */}
 			<div className='result-list'>
-				{/* result-item */}
 				{history?.map(data => (
 					<div key={data.roundId} className='result-item'>
 						<div>{data.roundId}</div>
@@ -44,20 +42,6 @@ const LotteryResults = () => {
 					</div>
 				))}
 			</div>
-			{/* pagination */}
-			{/* <div className='pagination'>
-					<a href=''>❮</a>
-					<a href='' className='active'>
-						1
-					</a>
-					<a href=''>2</a>
-					<a href=''>3</a>
-					<a href=''>4</a>
-					<a href=''>5</a>
-					<a href=''>6</a>
-					<a href=''>7</a>
-					<a href=''>❯</a>
-				</div> */}
 		</div>
 	)
 }
