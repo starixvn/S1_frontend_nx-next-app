@@ -730,6 +730,12 @@ export const PRODUCTS = {
 		tpGameType: 122,
 		gameId: '-1',
 	},
+	DragonGaming: {
+		tpGameIdNo: 138,
+		tpId: 70,
+		tpGameType: 123,
+		gameId: -1,
+	},
 
 	// * Footer 靜態遊戲入口
 	BaseBall: {
