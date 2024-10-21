@@ -23,7 +23,6 @@ const LotteryHistory = () => {
 
 	return (
 		<div className='tab-content-history'>
-			{/* grid */}
 			<div className='grid grid-cols-6'>
 				<div
 					className={`inputBox lottery-select ${isSelecting ? 'active' : ''}`}

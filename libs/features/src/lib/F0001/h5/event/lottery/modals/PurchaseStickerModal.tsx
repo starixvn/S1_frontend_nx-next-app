@@ -24,9 +24,7 @@ const PurchaseStickerModal = (props: { price: number; currency?: string }) => {
 
 	return (
 		<div className='event-lottery-popup jackpot'>
-			{/* close */}
 			<div className='icon icon-close' onClick={closeModal} />
-			{/* popup-content */}
 			{message ? (
 				<div className='popup-content'>
 					<div className='title-group'>
