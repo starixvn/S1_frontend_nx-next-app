@@ -7,6 +7,7 @@ import {
 } from '@nx-next-app/service'
 import { AxiosRequestConfig } from 'axios'
 import dayjs from 'dayjs'
+import { filter, find } from 'lodash-es'
 
 export const getCustomLotteryDataForClient = async (
 	config?: AxiosRequestConfig
@@ -24,28 +25,22 @@ export const getCustomLotteryDataForClient = async (
 
 		const now = dayjs()
 
-		let drawingRound
-		let roundList
 		let winnerList
 
 		// 開獎時間由 API 提供，結束時間為當日午夜
 		// lotteryRoundList 為照 drawDate 降序排列，將首個已開始且未結束的開獎 round 資訊存入 drawingRound
 		// 將更後面的 rounds 視為已結束的抽獎紀錄，存入 drawHistory 並跳出迴圈
 
-		for (let i = 0; i < lotteryRoundList.length; i++) {
-			const round = lotteryRoundList[i]
-			const roundStart = dayjs(round.startDate)
-			if (now.isAfter(roundStart)) {
-				const drawStart = dayjs(round.drawDate)
-				const midnight = drawStart.add(1, 'day').startOf('day')
-				if (now.isBefore(midnight)) {
-					drawingRound = round
-				} else {
-					roundList = lotteryRoundList.slice(i)
-					break
-				}
-			}
-		}
+		const drawingRound = find(lotteryRoundList, ({ startDate, drawDate }) => {
+			const roundStart = dayjs(startDate)
+			const drawEnd = dayjs(drawDate).add(1, 'day').startOf('day')
+			return now.isAfter(roundStart) && now.isBefore(drawEnd)
+		})
+
+		const roundList = filter(lotteryRoundList, ({ drawDate }) => {
+			const drawEnd = dayjs(drawDate).add(1, 'day').startOf('day')
+			return now.isAfter(drawEnd)
+		})
 
 		// 有正在進行的開獎才會撈取中獎名單，保險預留 5 分鐘
 		if (drawingRound) {
