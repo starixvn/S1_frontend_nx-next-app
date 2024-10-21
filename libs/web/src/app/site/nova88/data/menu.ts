@@ -1,10 +1,10 @@
+import { PRODUCTS, paths } from '@nx-next-app/constants'
 import {
+	IMenuData,
+	LobbyCategoryEnum,
 	MenuActionTypeEnum,
 	MenuKeyEnum,
-	LobbyCategoryEnum,
-	IMenuData,
 } from '@nx-next-app/types'
-import { paths, PRODUCTS } from '@nx-next-app/constants'
 
 export const MENU_DATA: IMenuData[] = [
 	{
@@ -583,6 +583,18 @@ export const MENU_DATA: IMenuData[] = [
 				pathname: paths.slots.root,
 				query: {
 					tpId: PRODUCTS.Joker.tpId,
+				},
+			},
+			{
+				...PRODUCTS.DragonGaming,
+				h5: {
+					hasLobby: false,
+					menuActionType: MenuActionTypeEnum.Link,
+				},
+				desktop: { hasLobby: true, menuActionType: MenuActionTypeEnum.Link },
+				pathname: paths.slots.root,
+				query: {
+					tpId: PRODUCTS.DragonGaming.tpId,
 				},
 			},
 			{
