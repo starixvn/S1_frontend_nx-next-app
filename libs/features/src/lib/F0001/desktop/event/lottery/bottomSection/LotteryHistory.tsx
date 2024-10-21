@@ -73,7 +73,7 @@ const LotteryHistory = () => {
 							</div>
 							<div className='trophy-img'>
 								<img
-									src='https://banner.0814media.net/desktop/img/event/lottery/trophy.png'
+									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/lottery/trophy.png`}
 									alt='trophy'
 								/>
 							</div>
