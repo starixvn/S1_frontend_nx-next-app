@@ -5,7 +5,8 @@ import {
 	useLotteryProgressContext,
 } from '@nx-next-app/features/F0001/providers'
 import { useTranslation } from 'next-i18next'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { useInterval } from 'usehooks-ts'
 import LotterySticker from '../LotterySticker'
 
 const signs = Object.values(CHINESE_ZODIAC_STICKER_IDS)
@@ -13,15 +14,12 @@ const signs = Object.values(CHINESE_ZODIAC_STICKER_IDS)
 const DrawingAnimation = () => {
 	const [activeSignIndex, setActiveSignIndex] = useState(0)
 
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setActiveSignIndex(prev => {
-				const next = Math.floor(Math.random() * signs.length)
-				return next === prev ? (next + 6) % signs.length : next
-			})
-		}, 200)
-		return () => clearTimeout(timer)
-	}, [activeSignIndex])
+	useInterval(() => {
+		setActiveSignIndex(prev => {
+			const next = Math.floor(Math.random() * signs.length)
+			return next === prev ? (next + 6) % signs.length : next
+		})
+	}, 200)
 
 	return (
 		<div className='grid grid-cols-4'>
