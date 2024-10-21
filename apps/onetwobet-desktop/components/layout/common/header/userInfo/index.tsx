@@ -1,3 +1,4 @@
+import { Loading } from '@12b-desktop/components/common'
 import Country from '@12b-desktop/components/layout/common/header/userInfo/Country'
 import UserProfile from '@12b-desktop/components/layout/common/header/userInfo/UserProfile'
 import Wallet from '@12b-desktop/components/layout/common/header/userInfo/Wallet'
@@ -48,6 +49,8 @@ const UserInfo = () => {
 	const { data: { data: msgCount = 0 } = {} } = useGetMsgCountQuery(null, {
 		skip: !isLogin,
 	})
+
+	if (!userLevel) return <Loading />
 
 	return (
 		<div className='user-info'>
