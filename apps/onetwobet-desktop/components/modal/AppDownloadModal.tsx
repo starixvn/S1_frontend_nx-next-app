@@ -10,11 +10,10 @@ const AppDownloadModal = () => {
 	const { t } = useTranslation()
 	const ref = useRef()
 	const { getBannerUrl } = useGlobalData()
-	const { IOSDownloadUrl } = useAppDownload()
+	const { IOSDownloadUrl, androidDownLoadUrl } = useAppDownload()
 	const { closeModal } = useGlobalModal()
 
 	useOnClickOutside(ref, closeModal)
-
 	// TODO: 待確認QR code之後顯示，目前先用假圖
 
 	return (
@@ -32,8 +31,8 @@ const AppDownloadModal = () => {
 					<div className='item-container'>
 						<div className='download-item'>
 							<div className='icon-group'>
-								<a className='icon icon-pc-w' />
-								<a className='icon icon-android-w' />
+								<a className='icon icon-pc' />
+								<a className='icon icon-android' />
 							</div>
 							<div className='qr-code'>
 								<img src='/img/12betapp-ios.png' alt='android pc QR code' />
@@ -43,15 +42,15 @@ const AppDownloadModal = () => {
 						</div>
 						<div className='download-item'>
 							<div className='icon-group'>
-								<a className='icon icon-mobile-w' />
-								<a className='icon icon-ios-w' />
+								<a className='icon icon-mobile' />
+								<a className='icon icon-ios' />
 							</div>
 							<div className='qr-code'>
 								{IOSDownloadUrl ? (
 									<QRCode
 										value={IOSDownloadUrl}
 										renderAs='svg'
-										size={152}
+										size={90}
 										includeMargin
 									/>
 								) : (
@@ -65,13 +64,28 @@ const AppDownloadModal = () => {
 						</div>
 						<div className='download-item'>
 							<div className='icon-group'>
-								<a className='icon icon-mobile-w' />
-								<a className='icon icon-android-w' />
+								<a className='icon icon-mobile' />
+								<a className='icon icon-android' />
 							</div>
 							<div className='qr-code'>
-								<img src='/img/12betapp-ios.png' alt='android mobile QR code' />
+								{androidDownLoadUrl ? (
+									<QRCode
+										value={androidDownLoadUrl}
+										renderAs='svg'
+										size={90}
+										includeMargin
+									/>
+								) : (
+									<img
+										src='/img/12betapp-ios.png'
+										alt='android mobile QR code'
+									/>
+								)}
+
 								{/* TODO: 讓使用者可以直接下載 */}
-								<button className='primary '>{t('Label_DOWNLOAD')}</button>
+								<a href={androidDownLoadUrl} target='_blank' rel='noreferrer'>
+									<button className='primary '>{t('Label_DOWNLOAD')}</button>
+								</a>
 							</div>
 						</div>
 					</div>
