@@ -1,4 +1,3 @@
-import { useTranslation } from 'next-i18next'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useDepositSavedLocalStorage } from '@nx-next-app/data-access'
 import {
@@ -7,13 +6,14 @@ import {
 	useGetPaymentCustBankInfoQuery,
 	useLazyCheckDepositSpecialCodeQuery,
 } from '@nx-next-app/service'
+import { DepositExtraDataTypeEnum } from '@nx-next-app/types'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
 import { every, find, head, isEmpty } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useBoolean, useDebounce } from 'usehooks-ts'
-import { DepositExtraDataTypeEnum } from '@nx-next-app/types'
 import { useDepositContext } from './DepositContext'
 
 interface IAutoDepositForm {
@@ -35,7 +35,6 @@ const useAutoDepositForm = ({
 	const { t } = useTranslation()
 	const {
 		userInfo: { langId, currencyId },
-		dbHost,
 	} = useAuth()
 	const { modal } = useGlobalModal()
 	const { value: isFirstEffect, toggle: toggleIsFirstEffect } = useBoolean(true)
@@ -132,7 +131,7 @@ const useAutoDepositForm = ({
 					find(custBankInfo, { accountNo: String(custBankAccount) })?.sysId
 				)
 
-			const errorUrl = `${dbHost}/404/index_${langId}.html`
+			const errorUrl = `${window.location.origin}/404/index_${langId}.html`
 			const searchParams = new URLSearchParams({
 				ChannelId: String(channelId),
 				SysId: String(sysId),
@@ -144,7 +143,7 @@ const useAutoDepositForm = ({
 			const paramsUrl = searchParams.toString()
 
 			// * window.open only
-			const baseUrl = `${dbHost}/${langId}/Cashier/DepositReq`
+			const baseUrl = `${window.location.origin}/${langId}/Cashier/DepositReq`
 			window.open(`${baseUrl}?${paramsUrl}`)
 
 			resetField('amount')

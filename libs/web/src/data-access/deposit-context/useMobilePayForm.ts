@@ -1,21 +1,20 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
-	useAuth,
-	IDepositMobilePayBankQRModalProps,
 	IDepositLocalPayEWalletQRModalProps,
+	IDepositMobilePayBankQRModalProps,
+	useAuth,
 	useDepositSavedLocalStorage,
 } from '@nx-next-app/data-access'
-import { useBoolean, useDebounce } from 'usehooks-ts'
 import {
 	IAxiosError,
-	IPaymentMobilePayData,
 	IDepositCashierQRCodeInfo,
+	IPaymentMobilePayData,
+	useGetChannelMobilePayListQuery,
 	useGetCustEWalletInfoQuery,
 	useGetPaymentCustBankInfoQuery,
-	useGetChannelMobilePayListQuery,
-	usePostDepositLocalPayReqMutation,
 	useLazyCheckDepositSpecialCodeQuery,
 	useLazyGetDepositReqMobilePayInfoQuery,
+	usePostDepositLocalPayReqMutation,
 } from '@nx-next-app/service'
 import {
 	CurrenciesEnum,
@@ -24,10 +23,11 @@ import {
 } from '@nx-next-app/types'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
 import { every, find, head, isEmpty } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useTranslation } from 'next-i18next'
+import { useBoolean, useDebounce } from 'usehooks-ts'
 import { useDepositContext } from './DepositContext'
 
 export interface IMobilePayForm {
@@ -73,7 +73,6 @@ const useMobilePayForm = ({
 }) => {
 	const {
 		userInfo: { langId, currencyId },
-		dbHost,
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
@@ -252,7 +251,7 @@ const useMobilePayForm = ({
 				}
 			}
 
-			const errorUrl = `${dbHost}/404/index_${langId}.html`
+			const errorUrl = `${window.location.origin}/404/index_${langId}.html`
 			const searchParams = new URLSearchParams({
 				ChannelId: String(channelId),
 				Amount: String(convertedAmount),
@@ -296,7 +295,7 @@ const useMobilePayForm = ({
 					info: depositReqMobilePayInfo,
 				})
 			} else {
-				const baseUrl = `${dbHost}/${langId}/Cashier/DepositReq`
+				const baseUrl = `${window.location.origin}/${langId}/Cashier/DepositReq`
 				window.open(`${baseUrl}?${paramsUrl}`)
 			}
 
