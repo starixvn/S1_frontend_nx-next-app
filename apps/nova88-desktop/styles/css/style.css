@@ -80,6 +80,18 @@ button[disabled], input[disabled] {
   cursor: pointer;
 }
 
+.icon-balance:before {
+  font-size: 24px !important;
+}
+
+.icon-cq9:before {
+  font-size: 16px !important;
+}
+
+.icon-friend:before {
+  font-size: 12px;
+}
+
 .icon:before {
   margin: 0 5px;
 }
