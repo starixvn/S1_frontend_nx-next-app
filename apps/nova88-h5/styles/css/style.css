@@ -1980,8 +1980,6 @@ main .gameList .icon-new {
   display: flex;
   visibility: hidden;
   opacity: 0;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
@@ -1989,8 +1987,6 @@ main .gameList .icon-new {
 #popup.active {
   visibility: visible;
   opacity: 1;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
 }
 #popup.olympic-rule {
   -webkit-backdrop-filter: blur(5px);
