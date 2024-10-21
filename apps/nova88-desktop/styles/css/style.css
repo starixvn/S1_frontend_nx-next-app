@@ -3491,14 +3491,14 @@ main .promosswiper .swiper-button-prev::after {
   display: block;
   content: "";
   border-top: 1px solid #D1D1D1;
-  width: 400px;
+  width: 23%;
   margin-top: 27px;
 }
 .partner-title::after {
   display: block;
   content: "";
   border-top: 1px solid #D1D1D1;
-  width: 400px;
+  width: 23%;
   margin-top: 27px;
 }
 
@@ -13596,9 +13596,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: #D2E2F9;
   padding: 20px;
   border-radius: 5px;
@@ -13608,6 +13608,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   position: relative;
 }
 .subModuleListColumn > .subModule .subModule-item {
+  -ms-flex-item-align: start;
+      align-self: start;
   width: 50%;
 }
 .subModuleListColumn > .subModule .subModule-item .btnGroup {
