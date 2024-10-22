@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react'
-import classNames from 'classnames'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useTranslation } from 'next-i18next'
+import { useAuth } from '@nx-next-app/data-access'
+import { useImageFile } from '@nx-next-app/hooks'
+import { IDepositInfoHistoryData } from '@nx-next-app/service'
 import {
 	convertBase64ToFile,
 	convertFileToBase64,
 	numberFormat,
 } from '@nx-next-app/utils'
-import { useAuth } from '@nx-next-app/data-access'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import React, { useEffect } from 'react'
 import { useCopyToClipboard } from 'usehooks-ts'
-import { IDepositInfoHistoryData } from '@nx-next-app/service'
-import { useImageFile } from '@nx-next-app/hooks'
 
 interface IBankSlipModalProps {
 	bankName: string
@@ -172,7 +172,7 @@ const DepositBankSlipModal = ({
 							)}
 							{depositReceipt.map(({ receiptNo, depositPic }) => (
 								<label key={receiptNo} className='upload_img'>
-									<input type='file' />
+									<input type='file' disabled />
 									{depositPic ? <img src={depositPic} alt='' /> : null}
 								</label>
 							))}
