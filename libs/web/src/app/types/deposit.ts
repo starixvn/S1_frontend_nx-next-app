@@ -10,6 +10,7 @@ export enum DepositPaymentEnum {
 	TopUpCardPay = 'TopUpCardPay',
 	QuickTransfer = 'QuickTransfer',
 	ChatTransfer = 'ChatTransfer',
+	DigitalWallet = 'DigitalWallet',
 }
 
 export enum DepositActionModeEnum {

@@ -16,7 +16,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-ol, ul {
+ol, ul, li {
   list-style: none;
 }
 
@@ -44,8 +44,7 @@ button {
   border: none;
   padding: 0;
   outline: none;
-  font-family: "Microsoft YaHei", "Noto Sans Khmer", sans-serif;
-  color: white;
+  cursor: pointer;
 }
 
 pre {
@@ -54,9 +53,12 @@ pre {
 
 a {
   text-decoration: none;
-  color: white;
+  color: #5574A7;
+  cursor: pointer;
 }
 
 img {
+  width: 100%;
+  display: block;
   height: auto;
 }/*# sourceMappingURL=reset.css.map */
