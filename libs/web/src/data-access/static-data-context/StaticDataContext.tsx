@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { createContext, ReactNode } from 'react'
+import { type IProducts } from '@nx-next-app/constants'
 import {
 	IBannerByCurrencyData,
 	IImageData,
+	ILeftMenuData,
+	IMenuData,
 	IMetaData,
 	IStaticAllowedCurrencies,
 	IStaticLangGroups,
 	ITermsConditions,
-	ILeftMenuData,
-	IMenuData
 } from '@nx-next-app/types'
-import { type IProducts } from '@nx-next-app/constants'
+import { ReactNode, createContext } from 'react'
 
 export interface IStaticDataContext {
 	MENU_DATA: IMenuData[]
@@ -27,9 +27,9 @@ export interface IStaticDataContext {
 		langId: string | number,
 		currencyId?: string | number
 	) => IBannerByCurrencyData[]
-	FEATURE_BONUS: { [key: number]: string }
+	FEATURE_BONUS?: { [key: number]: string }
 	TERMS_CONDITIONS: ({ langId }: { langId: string }) => ITermsConditions
-	BANNER_IMAGE_LIST: { [lang: string]: string }
+	BANNER_IMAGE_LIST?: { [lang: string]: string }
 	LIVE_CHAT_ID_BY_LANG_ID: {
 		[langId: string]: number
 	}
