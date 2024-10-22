@@ -1,3 +1,4 @@
+import { RebateExclude } from '@12b-desktop/components/index'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
@@ -5,8 +6,6 @@ import {
 } from '@nx-next-app/hooks'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-
-import { RebateExclude } from '@nx-next-app/features/F0001/desktop'
 
 type IRebateExcludePageProps = InitialPropsInterface
 
