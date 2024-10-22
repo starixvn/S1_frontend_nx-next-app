@@ -1,25 +1,18 @@
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
-import { useEffect, useState } from 'react'
+import { useMemo, useState } from 'react'
+import { useInterval } from 'usehooks-ts'
 
 dayjs.extend(duration)
 
 const Countdown = ({ to }: { to: number }) => {
-	const [count, setCount] = useState(0)
+	const diff = useMemo(() => dayjs(to).diff(dayjs()), [to])
+	const [count, setCount] = useState(diff)
 
-	useEffect(() => {
-		const millisecondsLeft = dayjs(to).diff(dayjs())
-		if (millisecondsLeft >= 0) {
-			const timer = setTimeout(() => setCount(millisecondsLeft), 1000)
-			return () => clearTimeout(timer)
-		}
-
-		return undefined
-	}, [count])
+	useInterval(() => setCount(prev => prev - 1000), count > 0 ? 1000 : null)
 
 	const formatted = dayjs.duration(count).format('DDHHmmss')
-
-	return count ? (
+	return (
 		<div className='time'>
 			<div className='number-group'>
 				<div className='number'>
@@ -53,7 +46,7 @@ const Countdown = ({ to }: { to: number }) => {
 				<div className='unit'>SECS</div>
 			</div>
 		</div>
-	) : null
+	)
 }
 
 export default Countdown
