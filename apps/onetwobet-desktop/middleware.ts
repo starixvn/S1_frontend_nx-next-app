@@ -9,7 +9,7 @@ export const LANG_TO_CURRENCY: { [key: string]: number } = {
 	th: 4,
 	id: 15,
 	ko: 45,
-	hi: 61,
+	// hi: 61,
 	te: 61,
 	kh: 72,
 	bd: 74,

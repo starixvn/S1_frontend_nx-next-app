@@ -12,7 +12,7 @@ module.exports = {
 			'bd',
 			'id',
 			'kh',
-			'hi',
+			// 'hi',
 			'te',
 			'vn',
 			'ko',
