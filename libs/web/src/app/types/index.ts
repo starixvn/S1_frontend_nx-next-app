@@ -289,10 +289,13 @@ export enum KycStatusEnum {
 
 export * from './deposit'
 export * from './footer'
+export * from './gameProviders'
 export * from './history'
 export * from './leaderBoard'
+export * from './marquee'
 export * from './menu'
 export * from './milestone'
+export * from './monthlyPicks'
 export * from './olympic'
 export * from './promotion'
 export * from './slots'

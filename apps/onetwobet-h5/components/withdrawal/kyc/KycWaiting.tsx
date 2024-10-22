@@ -1,5 +1,5 @@
+import Header from '@12b-h5/components/common/header'
 import { useTranslation } from 'next-i18next'
-import Header from '../../header'
 
 const KycWaiting = () => {
 	const { t } = useTranslation()

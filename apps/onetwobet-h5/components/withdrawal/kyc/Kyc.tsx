@@ -1,3 +1,4 @@
+import Header from '@12b-h5/components/common/header'
 import { paths } from '@nx-next-app/constants'
 import {
 	KycStatusEnum,
@@ -7,7 +8,6 @@ import {
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import Header from '../../header'
 
 const Kyc = () => {
 	const { t } = useTranslation()

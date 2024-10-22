@@ -1,4 +1,3 @@
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { ISelectProps } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
@@ -11,8 +10,8 @@ import {
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
 import {
-	useGetSiteCurrencyListQuery,
 	useGetRecaptchaInfoQuery,
+	useGetSiteCurrencyListQuery,
 	useLazyAffiliateCheckQuery,
 	useLazyGetAffiliateAgentQuery,
 	useSignupMutation,
@@ -30,6 +29,7 @@ import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { FormProvider, useForm } from 'react-hook-form'
 import { Features, LineRegister, Step1, Step2, Step3, StepBar } from './form'
 

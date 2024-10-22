@@ -15,6 +15,7 @@
   "Label_BonusWallet_9": "SBSWウォレット",
   "Label_Brand_Ambassador": "NOVA88ブランドアンバサダー2022/23",
   "Label_Cookie_Reminder": "Nova88は、お客様のウェブサイトをより快適にするためにクッキーを使用しています。当ウェブサイトに滞在することで、クッキーの使用に同意したことになります。",
+  "Label_DepositFailed": " {{orderId}} の入金に失敗しました",
   "Label_DepositSuccessful": "入金 {{orderId}} が承認されました",
   "Label_DownloadAppStep1": "Nova88サイトからApple iOSダウンロードボタンをクリックします。",
   "Label_DownloadAppStep2": "「アプリを入手」をクリックすると、アプリのプレビューページにリダイレクトされます。",
@@ -90,6 +91,7 @@
   "Label_Vip_Info_Content_1": "Nova88は、会員がより良いサービス、より多くの特典、より良い体験を満喫できるよう、VIP特典プログラムを開始しました。会員ランクがアップすると、より多くの特典が受けられます。お待ちしております！",
   "Label_Vip_Info_Content_2": "ヴィンテージ・クラブ、シルバー・クラブ、ゴールド・クラブ、チタニウム・クラブ、ダイヤモンド・クラブ、Novaクラブと会員ランクを分類しています。上級会員になると、すべての特典商品やサービスをご利用いただけます。",
   "Label_Virtual_Sports_desc": "Nova88では、Inspired、Sportradar、Saba Soccerのバーチャルスポーツベッティングを24時間365日提供しています。バーチャルのサッカー、バーチャルのバスケットボール、バーチャルの競馬、バーチャルのグレイハウンド、バーチャルのスピードウェイ、バーチャルのモータースポーツ、バーチャルのサイクリング、バーチャルのテニス、PESとFIFA20のサバサッカーをカバーしています。",
+  "Label_WithdrawFailed": "引き出し {{orderId}} が失敗しました",
   "Label_WithdrawSuccessful": "出金 {{orderId}} が承認されました",
   "lbl_Keno_Lottery_Betting_desc": "Nova88では、ケノ、宝くじ、ナンバーゲーム、テーブルゲームを、素早く、楽しく、簡単にプレイできます。各抽選はわずか数分で、決済も迅速です。"
 }

@@ -14,6 +14,7 @@
   "Label_BonusWallet_6": "กระเป๋ากีฬา",
   "Label_BonusWallet_9": "กระเป๋า SBSW",
   "Label_Cookie_Reminder": "Nova88 ใช้คุกกี้เพื่อพัฒนาประสบการณ์การใช้งานเว็บไซต์ของท่านให้ดียิ่งขึ้น การเข้าสู่เว็บไซต์นี้ถือว่าท่านได้ยินยอมให้ใช้คุกกี้ตามนโยบายดังกล่าว",
+  "Label_DepositFailed": "เงินฝาก {{orderId}} ไม่สำเร็จ",
   "Label_DepositSuccessful": "รายการฝาก {{orderId}} ของคุณ ได้รับการอนุมัติแล้ว",
   "Label_DownloadAppStep1": "คลิกปุ่มดาวน์โหลด Apple iOS จากเว็บไซต์ Nova88",
   "Label_DownloadAppStep2": "คลิก 'รับแอป' เพื่อเปลี่ยนเส้นทางไปยังหน้าตัวอย่างแอป",
@@ -284,6 +285,7 @@
   "Label_Vip_Info_Content_2": "เราได้จัดระดับสมาชิกเป็น Vintage Club, Silver Club, Gold Club, Titanium Club, Diamond Club และ Nova Club เพลิดเพลินกับผลิตภัณฑ์และบริการที่เป็นส่วนตัวของเราเมื่อคุณมีสมาชิกสูงขึ้น",
   "Label_Vip_ReachedTheHighestLevel": "ระดับสูงสุด",
   "Label_Virtual_Sports_desc": "Nova88 ให้บริการการเดิมพันกีฬาเสมือนจริงตลอด 24 ชั่วโมงทุกวันจาก Inspired, Sportradar และ Saba Soccer ครอบคลุมฟุตบอลเสมือนจริง บาสเก็ตบอลเสมือนจริง การแข่งม้าเสมือน สุนัขไล่เนื้อเสมือนจริง Virtual Speedway มอเตอร์สปอร์ตเสมือนจริง การขี่จักรยานเสมือนจริง เทนนิสเสมือนจริง และ Saba Soccer สำหรับ PES และ FIFA 20",
+  "Label_WithdrawFailed": "ถอนเงิน {{orderId}} ไม่สำเร็จ",
   "Label_WithdrawSuccessful": "รายการถอน {{orderId}} ของคุณ ได้รับการอนุมัติแล้ว",
   "lbl_Keno_Lottery_Betting_desc": "Nova88 นำเสนอ คีโน ลอตเตอรีเกมตัวเลข และเกมโต๊ะ ที่รวดเร็วสนุกและเล่นง่าย การออกสลากแต่ละครั้งจะใช้เวลาเพียงไม่กี่นาทีและมีการตัดสินที่รวดเร็ว"
 }
