@@ -50,7 +50,7 @@ const UserInfo = () => {
 		skip: !isLogin,
 	})
 
-	if (!userLevel) return <Loading />
+	if (isLogin && !userLevel) return <Loading />
 
 	return (
 		<div className='user-info'>

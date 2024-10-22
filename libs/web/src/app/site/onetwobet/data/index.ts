@@ -71,16 +71,17 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			value: 'en',
 			currencyId: CurrenciesEnum.INR,
 		},
-		{
-			displayText: 'हिंदी',
-			value: 'hi',
-			currencyId: CurrenciesEnum.INR,
-			mainLanguage: true,
-		},
+		// {
+		// 	displayText: 'हिंदी',
+		// 	value: 'hi',
+		// 	currencyId: CurrenciesEnum.INR,
+		// 	mainLanguage: true,
+		// },
 		{
 			displayText: 'తెలుగు',
 			value: 'te',
 			currencyId: CurrenciesEnum.INR,
+			mainLanguage: true,
 		},
 	],
 	vn: [
