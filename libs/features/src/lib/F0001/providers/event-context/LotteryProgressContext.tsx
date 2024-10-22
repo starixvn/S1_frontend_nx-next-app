@@ -180,9 +180,7 @@ export const LotteryProgressProvider = ({
 	// 同步途中進場開獎進度
 	useEffect(() => {
 		if (!drawTime) return
-
 		const timeElapsedSinceDrawStarted = dayjs().diff(drawTime)
-
 		if (timeElapsedSinceDrawStarted <= 0) {
 			const timer = setTimeout(reload, -timeElapsedSinceDrawStarted)
 			return () => clearTimeout(timer)
@@ -228,7 +226,7 @@ export const LotteryProgressProvider = ({
 
 		setStageIndex(syncedStageIndex)
 		return undefined
-	}, [])
+	}, [drawTime])
 
 	// 控制開獎階段，當前開獎數字跑完時進入下一階段
 	useEffect(() => {
