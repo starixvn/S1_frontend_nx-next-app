@@ -2,18 +2,23 @@ import {
 	StageEvent,
 	useLotteryProgressContext,
 } from '@nx-next-app/features/F0001/providers'
-import { forwardRef, useEffect, useRef } from 'react'
+import { forwardRef, useEffect, useRef, useState } from 'react'
 import LotterySlotMachineDisplay from './LotterySlotMachineDisplay'
 
 const LotterySlotMachine = forwardRef<HTMLDivElement>((_, ref) => {
+	const [isReady, setIsReady] = useState(false)
 	const iframeRef = useRef<HTMLIFrameElement>(null)
 	const { stage, toNext } = useLotteryProgressContext()
 
 	const play = (event: string) =>
-		iframeRef.current?.contentWindow?.postMessage(event, '*')
+		setTimeout(
+			() => iframeRef.current?.contentWindow?.postMessage(event, '*'),
+			1000 // 延遲 1 秒，避免動畫未準備好
+		)
 
 	useEffect(() => {
 		const onMessage = ({ data }: MessageEvent) => {
+			if (data === 'ready') setIsReady(true)
 			if (data?.type === 'animationEnded') toNext()
 		}
 		window.addEventListener('message', onMessage)
@@ -21,6 +26,8 @@ const LotterySlotMachine = forwardRef<HTMLDivElement>((_, ref) => {
 	}, [])
 
 	useEffect(() => {
+		if (!isReady) return
+
 		if (stage.has(StageEvent.PlayBootUpAnimation)) {
 			play('bootup')
 		} else if (stage.has(StageEvent.PlayStandbyAnimation)) {
@@ -34,11 +41,12 @@ const LotterySlotMachine = forwardRef<HTMLDivElement>((_, ref) => {
 		} else if (stage.has(StageEvent.RunningNumbers)) {
 			play('ticket_hanging')
 		}
-	}, [stage])
+	}, [stage, isReady])
 
 	return (
 		<div ref={ref} className='slot'>
-			<LotterySlotMachineDisplay />
+			{/* 讓倒數計時與 slot 機同時顯示 */}
+			{isReady && <LotterySlotMachineDisplay />}
 			<iframe
 				ref={iframeRef}
 				title='slot'
