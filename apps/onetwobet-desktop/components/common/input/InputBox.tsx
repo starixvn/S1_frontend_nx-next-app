@@ -169,7 +169,12 @@ const InputBox = ({
 				{!!title && <i className='txt-gray'>{title}</i>}
 				{!!areaCode && <div className='txt-lightgray'>{areaCode}</div>}
 
-				<input type={inputType()} {...register} {...props} />
+				<input
+					type={inputType()}
+					{...register}
+					{...props}
+					onWheel={e => (e.target as HTMLInputElement).blur()}
+				/>
 
 				{!!description && <div className='description'>{description}</div>}
 
