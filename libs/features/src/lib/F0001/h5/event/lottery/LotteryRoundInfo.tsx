@@ -18,6 +18,8 @@ const LotteryRoundInfo = () => {
 	const { modal } = useGlobalModal()
 	const { currencyName } = useAuth().userInfo
 	const { lotteryInfo, stickerInfo } = useLotteryDataContext()
+	const [tab, setTab] = useState<'tickets' | 'sticker'>('tickets')
+
 	if (!lotteryInfo) return null
 
 	const {
@@ -43,8 +45,6 @@ const LotteryRoundInfo = () => {
 	const tierMap = new Map(lotteryTierList?.map(tier => [tier.level, tier]))
 
 	const nextTier = tierMap.get((currentTier?.level ?? 0) + 1)
-
-	const [tab, setTab] = useState<'tickets' | 'sticker'>('tickets')
 
 	return lotteryInfo ? (
 		<div className='lottery-info'>
