@@ -4,6 +4,7 @@ import { DepositPaymentEnum } from '@nx-next-app/types'
  * 存款選項的開關與排序
  */
 export const DEPOSIT_PAYMENT_ORDERS = [
+	DepositPaymentEnum.DigitalWallet,
 	DepositPaymentEnum.AutoDeposit,
 	DepositPaymentEnum.BankTransfer,
 	DepositPaymentEnum.QuickTransfer,
@@ -14,7 +15,6 @@ export const DEPOSIT_PAYMENT_ORDERS = [
 	DepositPaymentEnum.CryptoPay,
 	DepositPaymentEnum.TopUpCardPay,
 	DepositPaymentEnum.ChatTransfer,
-	DepositPaymentEnum.DigitalWallet,
 ]
 
 export const DEPOSIT_PAYMENT_OPTIONS = {
