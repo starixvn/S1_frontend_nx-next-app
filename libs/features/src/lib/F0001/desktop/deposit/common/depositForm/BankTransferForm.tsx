@@ -1,7 +1,4 @@
-import classNames from 'classnames'
-import { isNumber, toLower } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
-import dynamic from 'next/dynamic'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	DepositModule,
 	Form,
@@ -15,14 +12,17 @@ import {
 	useDepositContext,
 } from '@nx-next-app/data-access'
 import { IPaymentBankTransferData } from '@nx-next-app/service'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	generateShortcutList,
 	isConvert,
 	numberFormat,
-	revertNumberFormat,
 	numFormatToDigits,
+	revertNumberFormat,
 } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { isNumber, toLower } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 
 const DepositBankSlipModal = dynamic(
 	() =>
@@ -201,6 +201,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 				<DepositModule.BankSlipButton
 					onClick={onOpenBankSlipModal}
 					tip={t('Label_Deposit_SubmitBankSlipInfo')}
+					receipt={watchReceipt}
 				>
 					{t('Label_General_UploadReceipt')}
 				</DepositModule.BankSlipButton>
