@@ -77,8 +77,8 @@ const stages: Set<StageEvent>[] = [
 
 /**	為了同步途中進場開獎進度，預先錄製的各階段開始時間 */
 const scheduledStageStarts = [
-	-1, 0, 8988, 11112, 26276, 27558, 34773, 135994, 137274, 137288, 187863,
-	189165, 189177, 204318, 211524, 213576, 214000, 217000,
+	-1, 0, 8988, 11112, 112338, 114642, 122800, 423499, 425779, 433888, 1040445,
+	1042742, 1050894, 1141059, 1149329, 1154335, 1156644, 1159691,
 ]
 
 interface IWiningStatus {
@@ -180,9 +180,7 @@ export const LotteryProgressProvider = ({
 	// 同步途中進場開獎進度
 	useEffect(() => {
 		if (!drawTime) return
-
 		const timeElapsedSinceDrawStarted = dayjs().diff(drawTime)
-
 		if (timeElapsedSinceDrawStarted <= 0) {
 			const timer = setTimeout(reload, -timeElapsedSinceDrawStarted)
 			return () => clearTimeout(timer)
@@ -228,7 +226,7 @@ export const LotteryProgressProvider = ({
 
 		setStageIndex(syncedStageIndex)
 		return undefined
-	}, [])
+	}, [drawTime])
 
 	// 控制開獎階段，當前開獎數字跑完時進入下一階段
 	useEffect(() => {

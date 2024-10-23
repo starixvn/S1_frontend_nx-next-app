@@ -17,28 +17,19 @@ const TicketInfoModal = ({
 	const { closeModal } = useGlobalModal()
 	return (
 		<div className='event-lottery-popup ticket'>
-			{/* close */}
 			<div className='icon icon-close' onClick={closeModal} />
-			{/* popup-content */}
 			<div className='popup-content'>
-				{/* ticket */}
 				<div className='ticket sticker'>
-					{/* ticket-top */}
 					<div className='ticket-top'>
-						{/* sticker-title */}
 						<div className='title'>{t('Label_Event_JackpotSticker')}</div>
-						{/* sticker-result */}
 						{stickerId ? (
 							<div className='sticker-result'>
 								<LotterySticker stickerId={stickerId} />
 							</div>
 						) : null}
 					</div>
-					{/* hr */}
 					<hr />
-					{/* ticket-bottom */}
 					<div className='ticket-bottom'>
-						{/* ticket-total */}
 						{typeof totalTickets === 'number' && (
 							<div className='total'>
 								<div className='title'>{t('Label_Event_TotalTickets')}</div>
@@ -47,7 +38,6 @@ const TicketInfoModal = ({
 						)}
 					</div>
 				</div>
-				{/* title-group */}
 				<div className='title-group'>
 					<div className='title'>
 						{t('Label_Event_TicketInfo')}

@@ -7,7 +7,7 @@ import {
 	useGetLotteryInfoQuery,
 	useGetLotteryMaintainQuery,
 } from '@nx-next-app/service'
-import { ReactNode, createContext, useContext } from 'react'
+import { ReactNode, createContext, useContext, useMemo } from 'react'
 
 export interface ILotteryData {
 	initialServerTime?: number | null
@@ -21,7 +21,7 @@ export interface ILotteryData {
 interface ILotteryDataContext extends ILotteryData {
 	lotteryInfo?: ILotteryInfoData
 	stickerInfo?: IChineseZodiacStickerData
-	drawTime?: number
+	drawTime?: number | null
 }
 
 const LotteryDataContext = createContext<ILotteryDataContext>(
@@ -48,13 +48,15 @@ export const LotteryDataProvider = ({
 
 	const drawDate = drawingRound?.drawDate
 
-	let drawTime
-
 	// 使用 server 的初始時間與抽獎開始的時間差來計算 client 的開獎時間，避免 client 時間與 server 時間不同步
-	if (drawDate && initialServerTime) {
-		const tillDraw = new Date(drawDate).getTime() - initialServerTime
-		drawTime = new Date().getTime() + tillDraw
-	}
+	const drawTime = useMemo(() => {
+		if (!drawDate || !initialServerTime) return null
+
+		const currentTime = new Date().getTime()
+		const timeTillDraw = new Date(drawDate).getTime() - initialServerTime
+
+		return currentTime + timeTillDraw
+	}, [drawDate, initialServerTime])
 
 	const isJackpot = Boolean(
 		winnerList?.ticketNo.includes(winnerList.firstPrize[0]) &&

@@ -34,7 +34,6 @@ const LotteryConditions = () => {
 					</button>
 				</div>
 			</div>
-			{/* table-group  */}
 			<div className='table-group'>
 				<table className='table conditions'>
 					<thead>

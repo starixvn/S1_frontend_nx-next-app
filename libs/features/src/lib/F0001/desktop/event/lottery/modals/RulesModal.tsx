@@ -61,7 +61,6 @@ const RulesModal = () => {
 				</Collapsible>
 				<Collapsible title={t('Label_Event_DrawMethod')}>
 					<div className='content'>
-						{/* Event Participation */}
 						<div className='wrapper'>
 							<div className='title'>{t('Label_Event_DrawMethod')}</div>
 							<ul>

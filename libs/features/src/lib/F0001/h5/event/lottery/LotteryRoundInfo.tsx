@@ -48,7 +48,6 @@ const LotteryRoundInfo = () => {
 
 	return lotteryInfo ? (
 		<div className='lottery-info'>
-			{/* round */}
 			<div className='round'>
 				{lotteryRoundInfo && (
 					<div className='title'>
@@ -62,15 +61,12 @@ const LotteryRoundInfo = () => {
 						</div>
 					</div>
 				)}
-				{/* ticket-img  */}
 				<div className='ticket-img'>
 					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/lottery/tickets.png`}
 						alt='tickets'
 					/>
 				</div>
-				{/* turnover-group  */}
-
 				<div className='progress-group turnover'>
 					<div className='title'>
 						<div className=''>{t('Label_Event_ValidTurnover')}</div>
@@ -88,7 +84,6 @@ const LotteryRoundInfo = () => {
 						</div>
 					</div>
 				</div>
-				{/* Tier-group  */}
 				<div className='progress-group Tier'>
 					<div className='title'>
 						<div className='info'>
@@ -115,7 +110,6 @@ const LotteryRoundInfo = () => {
 				</div>
 			</div>
 			<div className='tab-group ticket'>
-				{/* tab-nav */}
 				<ul className='nav nav-tabs'>
 					<li className='nav-item'>
 						<button
@@ -134,17 +128,13 @@ const LotteryRoundInfo = () => {
 						</button>
 					</li>
 				</ul>
-				{/* tab-content */}
 				<div className='tab-content'>
 					{tab === 'tickets' && (
 						<div className='tab-content-tickets'>
-							{/* ticket */}
 							<div className='ticket-group'>
 								<div className='ticket'>
-									{/* ticket-top */}
 									<div className='ticket-top'>
 										<div className='table-container'>
-											{/* ticket-info */}
 											<table className='table'>
 												<thead>
 													<tr>
@@ -167,11 +157,8 @@ const LotteryRoundInfo = () => {
 											</table>
 										</div>
 									</div>
-									{/* hr */}
 									<hr />
-									{/* ticket-bottom */}
 									<div className='ticket-bottom'>
-										{/* ticket-total */}
 										<div className='total'>
 											<div className='title'>
 												{t('Label_Event_TotalTickets')}
@@ -185,12 +172,9 @@ const LotteryRoundInfo = () => {
 					)}
 					{stickerInfo && tab === 'sticker' && (
 						<div className='tab-content-sticker'>
-							{/* sticker */}
 							<div className='ticket-group'>
 								<div className='ticket sticker'>
-									{/* ticket-top */}
 									<div className='ticket-top'>
-										{/* sticker-title */}
 										<div className='title'>
 											{t('Label_Event_JackpotSticker')}
 										</div>
@@ -201,11 +185,8 @@ const LotteryRoundInfo = () => {
 											/>
 										</div>
 									</div>
-									{/* hr */}
 									<hr />
-									{/* ticket-bottom */}
 									<div className='ticket-bottom'>
-										{/* ticket-button */}
 										<button
 											disabled={!stickerInfo.canBuy}
 											onClick={() =>

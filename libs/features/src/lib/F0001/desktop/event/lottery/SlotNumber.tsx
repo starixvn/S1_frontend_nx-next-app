@@ -12,7 +12,7 @@ const AnimatedSlotNumber = ({
 	numberString,
 	onNumberChange,
 	onFinish,
-	interval = 500,
+	interval = 3000,
 }: AnimatedSlotNumberProps) => {
 	const [numberOfDigitsDisplayed, setNumberOfDigitsDisplayed] = useState(0)
 	const digits = numberString.split('')
@@ -78,7 +78,7 @@ const SlotNumber = ({
 	isWinning = false,
 	isAnimated = false,
 	isRevealed = false,
-	interval = 500,
+	interval,
 }: SlotNumberProps) => {
 	if (isAnimated) {
 		return (

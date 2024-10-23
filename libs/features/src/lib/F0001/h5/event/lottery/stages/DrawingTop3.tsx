@@ -3,7 +3,7 @@ import {
 	useLotteryDataContext,
 	useLotteryProgressContext,
 } from '@nx-next-app/features/F0001/providers'
-import { shuffle } from 'lodash-es'
+import { sortBy } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useMemo } from 'react'
 import SlotNumber from '../SlotNumber'
@@ -22,7 +22,7 @@ const DrawingTop3 = () => {
 	const top3 = useMemo(() => {
 		if (!winnerList) return []
 
-		return shuffle([
+		return sortBy([
 			...winnerList.firstPrize,
 			...winnerList.secondPrize,
 			...winnerList.thirdPrize,
