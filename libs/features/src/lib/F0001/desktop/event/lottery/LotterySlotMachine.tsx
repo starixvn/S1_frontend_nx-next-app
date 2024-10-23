@@ -19,7 +19,7 @@ const LotterySlotMachine = forwardRef<HTMLDivElement>((_, ref) => {
 	useEffect(() => {
 		const onMessage = ({ data }: MessageEvent) => {
 			if (data === 'ready') setIsReady(true)
-			if (data?.type === 'animationEnded') toNext()
+			else if (data?.type === 'animationEnded') toNext()
 		}
 		window.addEventListener('message', onMessage)
 		return () => window.removeEventListener('message', onMessage)

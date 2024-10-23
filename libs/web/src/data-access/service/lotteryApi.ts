@@ -38,7 +38,7 @@ export const getCustomLotteryDataForClient = async (
 		})
 
 		const roundList = filter(lotteryRoundList, ({ drawDate }) => {
-			const drawEnd = dayjs(drawDate).add(1, 'day').startOf('day')
+			const drawEnd = dayjs(drawDate).add(20, 'minute')
 			return now.isAfter(drawEnd)
 		})
 
