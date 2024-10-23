@@ -3,6 +3,7 @@ import {
 	useLotteryProgressContext,
 } from '@nx-next-app/features/F0001/providers'
 import { forwardRef, useEffect, useRef, useState } from 'react'
+import { useInterval } from 'usehooks-ts'
 import LotterySlotMachineDisplay from './LotterySlotMachineDisplay'
 
 const LotterySlotMachine = forwardRef<HTMLDivElement>((_, ref) => {
@@ -42,6 +43,11 @@ const LotterySlotMachine = forwardRef<HTMLDivElement>((_, ref) => {
 			play('ticket_hanging')
 		}
 	}, [stage, isReady])
+
+	useInterval(
+		() => iframeRef.current?.contentWindow?.postMessage('check', '*'),
+		isReady ? null : 500
+	)
 
 	return (
 		<div ref={ref} className='slot'>
