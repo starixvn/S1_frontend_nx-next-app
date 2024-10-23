@@ -1,10 +1,9 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
-	useAuth,
 	IDepositQRCodeModalProps,
+	useAuth,
 	useDepositSavedLocalStorage,
 } from '@nx-next-app/data-access'
-import { useBoolean, useDebounce } from 'usehooks-ts'
 import {
 	IPaymentOnlineBankingData,
 	useGetPaymentCustBankInfoQuery,
@@ -16,12 +15,13 @@ import {
 	DepositActionModeEnum,
 	DepositExtraDataTypeEnum,
 } from '@nx-next-app/types'
+import { isConvert, scrollToTop } from '@nx-next-app/utils'
 import { every, find, head, isEmpty } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useTranslation } from 'next-i18next'
-import { isConvert, scrollToTop } from '@nx-next-app/utils'
+import { useBoolean, useDebounce } from 'usehooks-ts'
 import { useDepositContext } from './DepositContext'
 
 export interface IOnlineBankingForm {
@@ -50,7 +50,6 @@ const useOnlineBankingForm = ({
 }) => {
 	const {
 		userInfo: { langId, currencyId },
-		dbHost,
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
@@ -182,7 +181,7 @@ const useOnlineBankingForm = ({
 						find(custBankInfo, { accountNo: String(custBankAccount) })?.sysId ??
 						0
 
-				const errorUrl = `${dbHost}/404/index_${langId}.html`
+				const errorUrl = `${window.location.origin}/404/index_${langId}.html`
 				const searchParams = new URLSearchParams({
 					sysId: String(sysId),
 					payAccount: bankCardRequired ? String(custBankAccount) : '',
@@ -203,7 +202,7 @@ const useOnlineBankingForm = ({
 						info: depositOnlineBankingReqInfo,
 					})
 				} else {
-					const baseUrl = `${dbHost}/${langId}/Cashier/DepositReq`
+					const baseUrl = `${window.location.origin}/${langId}/Cashier/DepositReq`
 					window.open(`${baseUrl}?${paramsUrl}`)
 				}
 
