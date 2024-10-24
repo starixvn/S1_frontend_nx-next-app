@@ -161,6 +161,9 @@ export const paths = {
 	survey: {
 		root: '/survey',
 	},
+	news: {
+		root: '/news',
+	},
 	event: {
 		root: '/event',
 		lottery: {
