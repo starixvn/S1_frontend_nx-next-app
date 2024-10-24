@@ -203,11 +203,6 @@ img {
     opacity: 1;
   }
 }
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
 html {
   height: 100%;
 }
@@ -421,6 +416,18 @@ button[disabled]:hover {
   background: #C01D21 !important;
 }
 
+.icon-balance:before {
+  font-size: 24px !important;
+}
+
+.icon-cq9:before {
+  font-size: 16px !important;
+}
+
+.icon-friend:before {
+  font-size: 12px;
+}
+
 #header {
   width: 100%;
   position: sticky;
@@ -539,6 +546,9 @@ button[disabled]:hover {
           align-items: center;
   gap: 6px;
 }
+#header .header-top .header-btn-group .user-info .info-container button {
+  height: 32px;
+}
 #header .header-top .header-btn-group .user-info .info-container button.mail {
   -webkit-transition: all 0.1s ease;
   transition: all 0.1s ease;
@@ -609,6 +619,9 @@ button[disabled]:hover {
   width: -moz-max-content;
   width: max-content;
   top: 35px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 #header .header-top .header-btn-group .user-info .info-container .balance .balance-container > div {
   display: -webkit-box;
@@ -676,11 +689,13 @@ button[disabled]:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
 }
 #header .header-top .header-btn-group .user-info .info-container .user-profile button {
   -webkit-transition: all 0.1s ease;
   transition: all 0.1s ease;
   position: relative;
+  height: 32px;
 }
 #header .header-top .header-btn-group .user-info .info-container .user-profile button:hover {
   opacity: 0.8;
@@ -690,10 +705,16 @@ button[disabled]:hover {
   position: absolute;
   z-index: 3;
   border-radius: 5px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   right: 150px;
-  top: 44px;
+  top: 35px;
   display: none;
   border: 1px solid #f2f2f2;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 #header .header-top .header-btn-group .user-info .info-container .user-profile .profile-selector .selector-top {
   background: #f2f2f2;
@@ -831,6 +852,9 @@ button[disabled]:hover {
   top: 36px;
   border-radius: 5px;
   display: none;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 #header .header-top .header-btn-group .user-info .info-container .language-selector .language-list .country-current {
   background: #333333;
@@ -2779,11 +2803,15 @@ article p {
   border-radius: 10px;
   position: relative;
 }
+.appdownload-pop * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 .appdownload-pop .icon-close-radius {
   position: absolute;
   top: -14px;
   right: -10px;
-  background: #AEACAC;
+  background: #959292;
   border-radius: 100%;
   height: 30px;
   width: 30px;
@@ -2798,6 +2826,9 @@ article p {
           justify-content: center;
   color: #000;
   cursor: pointer;
+}
+.appdownload-pop .icon-close-radius:hover {
+  background: #AEACAC;
 }
 .appdownload-pop .pop-container {
   display: -webkit-box;
@@ -2847,7 +2878,9 @@ article p {
       -ms-flex-align: center;
           align-items: center;
   padding: 15px 0 10px;
-  width: 210px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   position: relative;
   border-radius: 5px;
   border: 2px solid #fff;
@@ -2869,13 +2902,11 @@ article p {
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
+  gap: 4px;
   left: 6px;
   top: 7px;
 }
-.appdownload-pop .pop-container .item-container .download-item .icon-group .icon-mobile,
-.appdownload-pop .pop-container .item-container .download-item .icon-group .icon-android,
-.appdownload-pop .pop-container .item-container .download-item .icon-group .icon-pc,
-.appdownload-pop .pop-container .item-container .download-item .icon-group .icon-ios {
+.appdownload-pop .pop-container .item-container .download-item .icon-group [class^=icon] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2890,7 +2921,6 @@ article p {
   width: 28px;
   height: 28px;
   background: #242526;
-  margin-bottom: 4px;
   color: #fff;
 }
 .appdownload-pop .pop-container .item-container .download-item .icon-group .icon-android {
@@ -2917,8 +2947,10 @@ article p {
       -ms-flex-align: center;
           align-items: center;
 }
-.appdownload-pop .pop-container .item-container .qr-code img {
+.appdownload-pop .pop-container .item-container .qr-code img,
+.appdownload-pop .pop-container .item-container .qr-code svg {
   width: 90px;
+  height: 90px;
 }
 .appdownload-pop .pop-container .item-container .qr-code .primary {
   font-size: 14px;
@@ -5509,6 +5541,14 @@ input[type=file] {
 .pagination a:hover:not(.active) {
   color: #fff;
 }
+.pagination a.disabled {
+  pointer-events: none;
+  color: #4c5356;
+  cursor: default;
+}
+.pagination a.disabled:hover {
+  text-decoration: none;
+}
 
 .stepBar {
   background: rgba(192, 29, 33, 0.5);
@@ -6151,7 +6191,6 @@ input[type=file] {
 #popup .pop {
   border-radius: 5px;
   max-height: calc(100% - 160px);
-  overflow-y: auto;
   @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
@@ -8946,6 +8985,7 @@ input[type=file] {
 }
 .addAddresspop .inputBox-blue {
   z-index: auto;
+  width: auto;
 }
 .addAddresspop .inputBox-blue .dropdown > .btn {
   -webkit-box-pack: start;
@@ -8986,11 +9026,15 @@ input[type=file] {
   border-bottom: 1px solid #BFCCE2;
   padding-bottom: 20px;
 }
+.addAddresspop > div .inputModuleRow > div {
+  -webkit-box-flex: 1 !important;
+      -ms-flex: 1 !important;
+          flex: 1 !important;
+}
 .addAddresspop > div .inputModuleRow > .btnGroup {
   margin: 10px 0;
 }
 .addAddresspop > div .inputModuleRow > .btnGroup button {
-  margin-right: 0;
   min-width: 100px;
 }
 .addAddresspop > div.btnGroup {
@@ -9008,11 +9052,16 @@ input[type=file] {
   border-bottom: 1px solid #AEACAC;
   padding-bottom: 20px;
 }
+.addAddresspop form > div .inputModuleRow > div {
+  width: 100%;
+}
 .addAddresspop form > div .inputModuleRow > .btnGroup {
   margin: 10px 0;
 }
 .addAddresspop form > div .inputModuleRow > .btnGroup button {
+  padding: 0;
   margin-right: 0;
+  margin-left: 10px;
   min-width: 100px;
 }
 .addAddresspop form > div.btnGroup {
@@ -12410,8 +12459,11 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   min-width: 1400px;
 }
 .vip .swiper-container {
+  overflow: hidden;
   width: 100%;
   margin-bottom: 25px;
+  position: relative;
+  z-index: 1;
 }
 .vip .swiper-slide {
   position: relative;
@@ -12672,16 +12724,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .vip + footer .footerList > div a ~ div {
   display: none;
 }
-.vip .swiper-button-next {
-  background: url(../img/style-img/next-right.png) no-repeat center/100%;
+.vip .swiper-button-next, .vip .swiper-button-prev {
+  color: #fff;
   width: 45px;
   right: 100px;
-  top: 260px;
-}
-.vip .swiper-button-prev {
-  background: url(../img/style-img/next-left.png) no-repeat center/100%;
-  width: 45px;
-  left: 100px;
   top: 260px;
 }
 .vip .vip-bottom {
@@ -14334,87 +14380,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   text-overflow: ellipsis;
   padding-left: 5px;
 }
-
-.newsList .newsList-item {
-  margin: 10px 0 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0 0 20px 0;
-  border-bottom: 1px solid #caa66f;
-}
-.newsList .newsList-item img {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 30%;
-          flex: 0 0 30%;
-  min-width: 0;
-  border-radius: 10px;
-}
-.newsList .newsList-item .newsList-article {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  padding: 20px 0 0 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 10px;
-  -ms-flex-item-align: stretch;
-      align-self: stretch;
-}
-.newsList .newsList-item .newsList-article .title {
-  font-size: 17px;
-}
-.newsList .newsList-item .newsList-article .txt-gray {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  white-space: normal;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-.newsList .newsList-item .newsList-article .btnGroup {
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  margin: auto 0 0 auto;
-}
-.newsList .newsList-item .newsList-article .btnGroup a,
-.newsList .newsList-item .newsList-article .btnGroup button {
-  font-size: 14px;
-  margin: 0;
-  padding: 10px 40px;
-  -webkit-box-flex: 0;
-      -ms-flex: 0;
-          flex: 0;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  min-width: unset;
-}
-
-.newsList {
-  padding: 0 30px;
-}
-
-.pagination a.disabled {
-  pointer-events: none;
-  color: #4c5356;
-  cursor: default;
-}
-
-.pagination a.disabled:hover {
-  text-decoration: none;
-}
-
-
 .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR,
 .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR,
 .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR,
@@ -15531,6 +15496,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .infoModuleLeft {
   float: left;
   width: 850px;
+}
+.infoModuleLeft .walletModule {
+  width: auto;
 }
 
 .features {
