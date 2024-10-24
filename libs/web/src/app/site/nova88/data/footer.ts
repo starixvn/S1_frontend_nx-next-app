@@ -1,6 +1,5 @@
-import { CurrenciesEnum, IFooterData } from '@nx-next-app/types'
 import { PRODUCTS } from '@nx-next-app/constants'
-import { GET_AFFILIATE_LINK } from './affiliate'
+import { CurrenciesEnum, IFooterData } from '@nx-next-app/types'
 
 export const FOOTER_DATA = ({
 	langId,
@@ -184,18 +183,18 @@ export const FOOTER_DATA = ({
 				displayKey: 'Label_TermsConditions',
 				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/en/TermsConditions.html`, // ms-9149需求希望統一只導到en頁
 			},
-			{
-				displayKey: 'Label_Affiliate_Program',
-				href: GET_AFFILIATE_LINK({ currencyId, langId }),
-			},
+			// {
+			// 	displayKey: 'Label_Affiliate_Program',
+			// 	href: GET_AFFILIATE_LINK({ currencyId, langId }),
+			// },
 			{
 				displayKey: 'Label_ContactUs',
 				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html`,
 			},
-			{
-				displayKey: 'Label_General_Milestone',
-				href: `/${langId}/milestones`,
-			},
+			// {
+			// 	displayKey: 'Label_General_Milestone',
+			// 	href: `/${langId}/milestones`,
+			// },
 		],
 		promotionTextList: [
 			{

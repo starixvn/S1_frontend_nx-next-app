@@ -1,10 +1,9 @@
 import { Footer } from '@nx-next-app/components/D0001'
-import { useGetSeoQuery, useGetSocialChannelQuery } from '@nx-next-app/service'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { SocialChannelEnum } from 'libs/features/src/lib/F0001/types'
+import { useGetSeoQuery } from '@nx-next-app/service'
 import { IFooterData } from 'libs/web/src/app/types/footer'
-import { useTranslation } from 'next-i18next'
 import { upperFirst } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 
 const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 	const {
@@ -22,14 +21,14 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 	const { t } = useTranslation()
 	const year = new Date().getFullYear()
 	const site = upperFirst(process.env['NEXT_PUBLIC_SITE_NAME'])
-	const {
-		data: { data: socialChannelList = [] } = {},
-		isLoading: isGetSocialChannelListLoading,
-	} = useGetSocialChannelQuery({
-		currencyId: currencyId as number,
-		langId,
-		displayPage: SocialChannelEnum.FOOTER,
-	})
+	// const {
+	// 	data: { data: socialChannelList = [] } = {},
+	// 	isLoading: isGetSocialChannelListLoading,
+	// } = useGetSocialChannelQuery({
+	// 	currencyId: currencyId as number,
+	// 	langId,
+	// 	displayPage: SocialChannelEnum.FOOTER,
+	// })
 
 	const { data: seoData, isSuccess } = useGetSeoQuery(null, {
 		selectFromResult: ({ data: { data } = {}, isSuccess }) => {
@@ -66,9 +65,9 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 		<Footer>
 			<div className='footer-top'>
 				{!!quickLinks && <Footer.QuickLinks quickLinks={quickLinks} />}
-				{isGetSocialChannelListLoading ? null : (
+				{/* {isGetSocialChannelListLoading ? null : (
 					<Footer.SocialMedia socialChannelList={socialChannelList} />
-				)}
+				)} */}
 			</div>
 			<div className='footer-center'>
 				{isSuccess && (
