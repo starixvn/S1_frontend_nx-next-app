@@ -6,16 +6,8 @@ RUN --mount=type=cache,target=$NPM_CACHE_FOLDER \
     npm ci
 
 FROM hub.nexdev.net/nexent/nx-app-alpine AS builder
-ENV TEMPLATE_NAME ""
+ENV TEMPLATE_NAME nova88-desktop
 ARG TRANSFORM_CONFIG
-ARG APP_NAME
-
-RUN if [ "$APP_NAME" = "s1_ps_nova88_mobile_service" ]; then \
-        export TEMPLATE_NAME="nova88-h5"; \
-    else \
-        export TEMPLATE_NAME="nova88-desktop"; \
-    fi && \
-    echo "TEMPLATE_NAME is set to $TEMPLATE_NAME"
 
 WORKDIR /build
 
