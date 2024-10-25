@@ -45,7 +45,7 @@ const useVerifyEmail = () => {
 				}).then(() => reload())
 			} catch (error) {
 				const { message, errorCode } = error as IAxiosError
-
+        console.log(`message: ${  message }-errorCode: ${ errorCode}`);
 				if (errorCode === 1 || errorCode === 403) {
 					redirectToHome()
 				} else if (errorCode === 1000) {
