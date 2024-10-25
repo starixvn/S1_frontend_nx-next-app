@@ -12,7 +12,6 @@ export const DESKTOP_HOME_ORDERS = [
 	DesktopHomeComponentsEnum.LiveCasino,
 	DesktopHomeComponentsEnum.HotGame,
 	// DesktopHomeComponentsEnum.RecentlyViewGames, 目前隱藏，未來看需求有可能開啟
-	DesktopHomeComponentsEnum.AppDownloadBanner,
 	DesktopHomeComponentsEnum.ProviderBlock,
 	DesktopHomeComponentsEnum.OfficialPartner,
 	DesktopHomeComponentsEnum.LiveStreamingLink,
