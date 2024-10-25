@@ -1,12 +1,12 @@
+import { SettingCollapse } from '@nx-next-app/components/H0001'
+import { LANG_GROUP_COUNTRY, paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { useLanguageGroup } from '@nx-next-app/hooks'
 import classNames from 'classnames'
 import { isEqual } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useAuth } from '@nx-next-app/data-access'
-import { useLanguageGroup } from '@nx-next-app/hooks'
-import { LANG_GROUP_COUNTRY, paths } from '@nx-next-app/constants'
-import { SettingCollapse } from '@nx-next-app/components/H0001'
 
 const List = () => {
 	const { t } = useTranslation()
@@ -216,7 +216,7 @@ const List = () => {
 					{t('Label_General_ContactUs')}
 				</a>
 
-				<a href={`/${langId}/milestones`}>{t('Label_General_Milestone')}</a>
+				{/* <a href={`/${langId}/milestones`}>{t('Label_General_Milestone')}</a> */}
 
 				<Link href={paths.gameProvider.root}>
 					<a>{t('Label_General_GameProvider')}</a>

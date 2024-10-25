@@ -14,8 +14,6 @@ export enum DesktopHomeComponentsEnum {
 	LiveCasino = 'LiveCasino',
 	// HotGame
 	HotGame = 'HotGame',
-	// 底部 App download Banner
-	AppDownloadBanner = 'AppDownloadBanner',
 	// 配合廠商清單
 	ProviderBlock = 'ProviderBlock',
 	// 合作夥伴

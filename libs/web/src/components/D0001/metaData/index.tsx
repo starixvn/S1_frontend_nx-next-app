@@ -1,5 +1,5 @@
-import { ISEOData } from 'libs/web/src/data-access/type'
 import { useMetaData } from '@nx-next-app/hooks'
+import { ISEOData } from 'libs/web/src/data-access/type'
 import { uniqueId } from 'lodash-es'
 import Head from 'next/head'
 

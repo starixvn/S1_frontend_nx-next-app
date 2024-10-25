@@ -1,13 +1,13 @@
-import classNames from 'classnames'
-import { useRouter } from 'next/router'
-import dynamic from 'next/dynamic'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { isEventPeriod } from '@nx-next-app/utils'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { MenuKeyEnum, MenuIconTypeEnum } from '@nx-next-app/types'
 import { type IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
+import { MenuIconTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
+import { isEventPeriod } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 
 const LiveStreamingModalH5 = dynamic(
 	() => import('../../modal/LiveStreamingModal'),

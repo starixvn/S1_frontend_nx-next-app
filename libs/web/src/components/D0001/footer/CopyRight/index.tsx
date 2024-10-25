@@ -10,18 +10,13 @@ const QuickLinks = ({
 
 	return (
 		<div>
-			{quickLinks.map(({ displayKey, href }, index) =>
+			{quickLinks.map(({ displayKey, href }) =>
 				displayKey === 'Label_General_Milestone' ? (
 					<a key={displayKey} href={href}>
 						{t(displayKey)}
 					</a>
 				) : (
-					<a
-						key={displayKey}
-						href={href}
-						target={`${index === 0 ? '_self' : '_bank'}`}
-						rel='noreferrer'
-					>
+					<a key={displayKey} href={href} target='_blank' rel='noreferrer'>
 						{t(displayKey)}
 					</a>
 				)
