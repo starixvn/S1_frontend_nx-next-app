@@ -5,12 +5,9 @@ export * from './allowCurrency'
 export * from './footer'
 export * from './gameProviders'
 export * from './gtmData'
-export * from './images'
-export * from './join'
 export * from './leftMenu'
 export * from './menu'
 export * from './metaData'
-export * from './milestoneData'
 export * from './monthlyData'
 export * from './payment'
 export * from './referral'
@@ -71,16 +68,17 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			value: 'en',
 			currencyId: CurrenciesEnum.INR,
 		},
-		{
-			displayText: 'हिंदी',
-			value: 'hi',
-			currencyId: CurrenciesEnum.INR,
-			mainLanguage: true,
-		},
+		// {
+		// 	displayText: 'हिंदी',
+		// 	value: 'hi',
+		// 	currencyId: CurrenciesEnum.INR,
+		// 	mainLanguage: true,
+		// },
 		{
 			displayText: 'తెలుగు',
 			value: 'te',
 			currencyId: CurrenciesEnum.INR,
+			mainLanguage: true,
 		},
 	],
 	vn: [
