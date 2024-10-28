@@ -1,10 +1,10 @@
+import { InputBox, Loading } from '@nx-next-app/components/D0001'
+import { BANK_ACCOUNT_REGEX, IFSC_CODE_REGEX } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { useBankInfo } from '@nx-next-app/features/F0001/providers'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
 import { useForm } from 'react-hook-form'
-import { useAuth } from '@nx-next-app/data-access'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { IFSC_CODE_REGEX, BANK_ACCOUNT_REGEX } from '@nx-next-app/constants'
-import { useBankInfo } from '@nx-next-app/features/F0001/providers'
-import { Loading, InputBox } from '@nx-next-app/components/D0001'
 
 const Step3 = () => {
 	const { t } = useTranslation()
@@ -52,6 +52,7 @@ const Step3 = () => {
 									}/square/${bankLogo.toLowerCase()}`}
 									alt={bankName}
 								/>
+								{bankName}
 							</div>
 						</div>
 						<div className='inputModule'>

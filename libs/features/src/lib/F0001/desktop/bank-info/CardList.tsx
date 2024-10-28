@@ -20,6 +20,7 @@ const CardList = () => {
 										}/square/${bankLogo.toLowerCase()}`}
 										style={{ width: '45px', height: '45px' }}
 									/>
+									{bankName}
 								</div>
 							</div>
 							<div className='addBankInfo'>
