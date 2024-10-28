@@ -56,7 +56,6 @@ const HomePage = ({
 	persistFooterData,
 	persistStaticFileDomainData,
 }: IHomePageProps) => {
-	console.log(process.env.NEXT_PUBLIC_ENV_DB_HOST)
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider
