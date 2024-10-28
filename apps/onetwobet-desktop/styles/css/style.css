@@ -456,13 +456,13 @@ button[disabled]:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 10px;
 }
-#header .header-top .logo img:nth-child(1) {
+#header .header-top .logo a:nth-child(1) img {
   width: 200px;
 }
-#header .header-top .logo img:nth-child(2) {
+#header .header-top .logo a:nth-child(2) img {
   width: 120px;
-  margin-left: 10px;
 }
 #header .header-top .header-btn-group {
   display: -webkit-box;
@@ -5540,6 +5540,14 @@ input[type=file] {
 }
 .pagination a:hover:not(.active) {
   color: #fff;
+}
+.pagination a.disabled {
+  pointer-events: none;
+  color: #4c5356;
+  cursor: default;
+}
+.pagination a.disabled:hover {
+  text-decoration: none;
 }
 
 .stepBar {
