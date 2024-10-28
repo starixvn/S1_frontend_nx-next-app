@@ -57,7 +57,7 @@ const Shortcut = () => {
 				<Link href={paths.rewards.root}>
 					<a>
 						<img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/ranking.png`}
+							src={getBannerUrl('/h5/img/4.0/ranking.png')}
 							alt='ranking'
 						/>
 						<span>{t('Label_General_LeaderBoard')}</span>

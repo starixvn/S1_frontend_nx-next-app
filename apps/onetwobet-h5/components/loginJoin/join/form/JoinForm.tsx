@@ -12,7 +12,7 @@ import {
 	PHONE_LENGTH_REGEX,
 	USERNAME_REGEX,
 } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import {
 	useLazyAffiliateCheckQuery,
 	useLazyExistsEmailQuery,
@@ -42,7 +42,7 @@ const JoinForm = ({
 	const router = useRouter()
 	const { query } = router
 	const { by: joinBy } = query
-
+	const { getBannerUrl } = useGlobalData()
 	const { TERMS_CONDITIONS } = useStaticData()
 	const {
 		userInfo: { langId },
@@ -304,7 +304,9 @@ const JoinForm = ({
 				<a
 					rel='noreferrer'
 					target='_blank'
-					href={TERMS_CONDITIONS({ langId: 'en' })['TermsConditions']}
+					href={getBannerUrl(
+						TERMS_CONDITIONS({ langId: 'en' })['TermsConditions']
+					)}
 				>
 					{t('Label_Join_SignUpTerms2')}
 				</a>
