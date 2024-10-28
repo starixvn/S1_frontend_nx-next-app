@@ -62,6 +62,10 @@ const Step3 = () => {
 										value: true,
 										message: t('Label_BankInfo_NeedAccountNo'),
 									},
+									minLength: {
+										value: 8,
+										message: t('Label_BankInfo_AccountLength'),
+									},
 									pattern: {
 										value: BANK_ACCOUNT_REGEX,
 										message: t('Label_BankInfo_AccountWrongFormat'),
