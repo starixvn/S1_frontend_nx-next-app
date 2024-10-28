@@ -357,7 +357,7 @@ const Form = ({ cookies }: IJoinProps) => {
 		let blackbox = ''
 		if (
 			typeof window !== undefined &&
-			typeof (window as any).IGLOO.getBlackbox === 'function'
+			typeof (window as any).IGLOO?.getBlackbox === 'function'
 		) {
 			try {
 				const result = await (window as any).IGLOO.getBlackbox()
