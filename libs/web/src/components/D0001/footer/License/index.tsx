@@ -1,7 +1,6 @@
-import Script from 'next/script'
-import { useEffect } from 'react'
-import { useTranslation } from 'next-i18next'
 import { IFooterData, ISeoData } from '@nx-next-app/types'
+import { useTranslation } from 'next-i18next'
+import { useEffect } from 'react'
 
 const License = ({
 	licenseData: { defaultScript },
@@ -64,10 +63,12 @@ const License = ({
 				)}
 			</div>
 
+			{/* //TODO: Third party
 			<Script
 				src={`https://${CuracaoScript}.snippet.antillephone.com/apg-seal.js`}
 				strategy='lazyOnload'
-			/>
+			/> */}
+
 			{/* <Script */}
 			{/*	src={`https://${XCMScript}.seals-xcm.certria.com/xcm-seal.js`} */}
 			{/*	strategy='lazyOnload' */}
