@@ -1,9 +1,9 @@
-import { useTranslation } from 'next-i18next'
-import { KycStatusEnum } from '@nx-next-app/features/F0001/types'
 import {
 	useKycUploader,
 	useWithdrawal,
 } from '@nx-next-app/features/F0001/providers'
+import { KycStatusEnum } from '@nx-next-app/features/F0001/types'
+import { useTranslation } from 'next-i18next'
 
 const PendingPanel = () => {
 	const { t } = useTranslation()
@@ -63,9 +63,7 @@ const KycPanel = () => {
 						) : (
 							<>
 								<i className='icon icon-plus' />
-								<i className='icon icon-folder-upload'>
-									{t('Label_Withdrawal_ImageUploadWarning')}
-								</i>
+								<i className='icon icon-folder-upload' />
 							</>
 						)}
 					</label>
