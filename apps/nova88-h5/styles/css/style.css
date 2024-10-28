@@ -1099,7 +1099,8 @@ img {
   content: "\e91d";
 }
 
-body, html {
+body,
+html {
   background: white;
   height: 100%;
   font-size: 3vw;
@@ -1480,7 +1481,8 @@ header button.clickBtn::before {
   display: flex;
   height: 10vw;
 }
-.headerButton > button, .headerButton > a {
+.headerButton > button,
+.headerButton > a {
   font-size: 3vw;
   color: white;
   padding: 1vw 3vw;
@@ -1499,7 +1501,8 @@ header button.clickBtn::before {
           justify-content: center;
   font-weight: 700;
 }
-.headerButton > button.loginBtn, .headerButton > a.loginBtn {
+.headerButton > button.loginBtn,
+.headerButton > a.loginBtn {
   background: #FF5E00;
 }
 
@@ -1542,7 +1545,8 @@ main .sideBar img {
   width: 13vw;
   margin-bottom: 1vw;
 }
-main .sideBar button, main .sideBar a {
+main .sideBar button,
+main .sideBar a {
   text-align: center;
   -webkit-transition: 0.7s;
   transition: 0.7s;
@@ -1562,14 +1566,18 @@ main .sideBar button, main .sideBar a {
   white-space: nowrap;
   margin: auto 0.5vw auto 0;
 }
-main .sideBar button i:not(.icon-new):not(.icon-live):not(.icon-mediafire):before, main .sideBar a i:not(.icon-new):not(.icon-live):not(.icon-mediafire):before {
+main .sideBar button i:not(.icon-new):not(.icon-live):not(.icon-mediafire):before,
+main .sideBar a i:not(.icon-new):not(.icon-live):not(.icon-mediafire):before {
   font-size: 8vw;
 }
-main .sideBar button i:not(.icon-new):not(.icon-live):not(.icon-mediafire) + div, main .sideBar a i:not(.icon-new):not(.icon-live):not(.icon-mediafire) + div {
+main .sideBar button i:not(.icon-new):not(.icon-live):not(.icon-mediafire) + div,
+main .sideBar a i:not(.icon-new):not(.icon-live):not(.icon-mediafire) + div {
   color: #5574A7;
   font-size: 3vw;
 }
-main .sideBar button i.icon-new, main .sideBar button i.icon-live, main .sideBar a i.icon-new, main .sideBar a i.icon-live {
+main .sideBar button i.icon-new, main .sideBar button i.icon-live,
+main .sideBar a i.icon-new,
+main .sideBar a i.icon-live {
   color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1579,50 +1587,62 @@ main .sideBar button i.icon-new, main .sideBar button i.icon-live, main .sideBar
   -webkit-transform: scale(0.8);
           transform: scale(0.8);
 }
-main .sideBar button.icon:before, main .sideBar a.icon:before {
+main .sideBar button.icon:before,
+main .sideBar a.icon:before {
   font-size: 6vw;
 }
-main .sideBar button.maintenance, main .sideBar a.maintenance {
+main .sideBar button.maintenance,
+main .sideBar a.maintenance {
   -webkit-filter: grayscale(1) brightness(0.85);
           filter: grayscale(1) brightness(0.85);
 }
-main .sideBar button.active, main .sideBar a.active {
+main .sideBar button.active,
+main .sideBar a.active {
   background: #CDAE8E;
 }
-main .sideBar button.active i, main .sideBar a.active i {
+main .sideBar button.active i,
+main .sideBar a.active i {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   color: white;
 }
-main .sideBar button.active i:not(.icon-new):not(.icon-live) + div, main .sideBar a.active i:not(.icon-new):not(.icon-live) + div {
+main .sideBar button.active i:not(.icon-new):not(.icon-live) + div,
+main .sideBar a.active i:not(.icon-new):not(.icon-live) + div {
   color: white;
 }
-main .sideBar button.event, main .sideBar a.event {
+main .sideBar button.event,
+main .sideBar a.event {
   padding: 1vw 1vw 2vw 1vw;
   margin-left: 1vw;
 }
 @media (max-width: 320px) {
-  main .sideBar button.event, main .sideBar a.event {
+  main .sideBar button.event,
+  main .sideBar a.event {
     padding-bottom: 2.6vw;
   }
 }
-main .sideBar button.crypto, main .sideBar a.crypto {
+main .sideBar button.crypto,
+main .sideBar a.crypto {
   padding: 6vw 2vw;
   margin: auto 1vw;
 }
-main .sideBar button.crypto img, main .sideBar a.crypto img {
+main .sideBar button.crypto img,
+main .sideBar a.crypto img {
   width: 11vw;
 }
-main .sideBar button.reward, main .sideBar a.reward {
+main .sideBar button.reward,
+main .sideBar a.reward {
   padding: 3.5vw 2vw;
   margin: auto 1vw;
 }
-main .sideBar button.reward img, main .sideBar a.reward img {
+main .sideBar button.reward img,
+main .sideBar a.reward img {
   width: 11vw;
   -webkit-filter: drop-shadow(1px 1px 0 rgba(138, 138, 138, 0.9058823529));
           filter: drop-shadow(1px 1px 0 rgba(138, 138, 138, 0.9058823529));
 }
-main .sideBar button .icon-mediafire, main .sideBar a .icon-mediafire {
+main .sideBar button .icon-mediafire,
+main .sideBar a .icon-mediafire {
   position: absolute;
   bottom: -2px;
   background: #e92529;
@@ -1639,7 +1659,8 @@ main .sideBar button .icon-mediafire, main .sideBar a .icon-mediafire {
   padding: 0 1vw 0 0;
   font-size: 2.5vw;
 }
-main .sideBar button .icon-mediafire:before, main .sideBar a .icon-mediafire:before {
+main .sideBar button .icon-mediafire:before,
+main .sideBar a .icon-mediafire:before {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
   margin-top: -2vw;
@@ -1679,12 +1700,16 @@ main .gameList {
   padding: 2vw;
   border: 1px solid #e2e2e2;
 }
-main .gameList > div, main .gameList > a, main .gameList > button {
+main .gameList > div,
+main .gameList > a,
+main .gameList > button {
   display: none;
   -ms-flex-flow: wrap;
       flex-flow: wrap;
 }
-main .gameList > div .under, main .gameList > a .under, main .gameList > button .under {
+main .gameList > div .under,
+main .gameList > a .under,
+main .gameList > button .under {
   display: none;
   position: absolute;
   z-index: 1;
@@ -1693,12 +1718,22 @@ main .gameList > div .under, main .gameList > a .under, main .gameList > button 
   border-radius: 5px;
   color: white;
 }
-main .gameList > div.active, main .gameList > a.active, main .gameList > button.active {
+main .gameList > div.active,
+main .gameList > a.active,
+main .gameList > button.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-main .gameList > div > div, main .gameList > div > a, main .gameList > div > button, main .gameList > a > div, main .gameList > a > a, main .gameList > a > button, main .gameList > button > div, main .gameList > button > a, main .gameList > button > button {
+main .gameList > div > div,
+main .gameList > div > a,
+main .gameList > div > button,
+main .gameList > a > div,
+main .gameList > a > a,
+main .gameList > a > button,
+main .gameList > button > div,
+main .gameList > button > a,
+main .gameList > button > button {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 27vw;
           flex: 0 0 27vw;
@@ -1710,7 +1745,15 @@ main .gameList > div > div, main .gameList > div > a, main .gameList > div > but
   background: #ececec;
   overflow: hidden;
 }
-main .gameList > div > div.active, main .gameList > div > a.active, main .gameList > div > button.active, main .gameList > a > div.active, main .gameList > a > a.active, main .gameList > a > button.active, main .gameList > button > div.active, main .gameList > button > a.active, main .gameList > button > button.active {
+main .gameList > div > div.active,
+main .gameList > div > a.active,
+main .gameList > div > button.active,
+main .gameList > a > div.active,
+main .gameList > a > a.active,
+main .gameList > a > button.active,
+main .gameList > button > div.active,
+main .gameList > button > a.active,
+main .gameList > button > button.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1723,10 +1766,26 @@ main .gameList > div > div.active, main .gameList > div > a.active, main .gameLi
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
 }
-main .gameList > div > div.active .under, main .gameList > div > a.active .under, main .gameList > div > button.active .under, main .gameList > a > div.active .under, main .gameList > a > a.active .under, main .gameList > a > button.active .under, main .gameList > button > div.active .under, main .gameList > button > a.active .under, main .gameList > button > button.active .under {
+main .gameList > div > div.active .under,
+main .gameList > div > a.active .under,
+main .gameList > div > button.active .under,
+main .gameList > a > div.active .under,
+main .gameList > a > a.active .under,
+main .gameList > a > button.active .under,
+main .gameList > button > div.active .under,
+main .gameList > button > a.active .under,
+main .gameList > button > button.active .under {
   display: block;
 }
-main .gameList > div > div .switchbtn, main .gameList > div > a .switchbtn, main .gameList > div > button .switchbtn, main .gameList > a > div .switchbtn, main .gameList > a > a .switchbtn, main .gameList > a > button .switchbtn, main .gameList > button > div .switchbtn, main .gameList > button > a .switchbtn, main .gameList > button > button .switchbtn {
+main .gameList > div > div .switchbtn,
+main .gameList > div > a .switchbtn,
+main .gameList > div > button .switchbtn,
+main .gameList > a > div .switchbtn,
+main .gameList > a > a .switchbtn,
+main .gameList > a > button .switchbtn,
+main .gameList > button > div .switchbtn,
+main .gameList > button > a .switchbtn,
+main .gameList > button > button .switchbtn {
   position: absolute;
   bottom: 5vw;
   right: 2vw;
@@ -1742,7 +1801,24 @@ main .gameList > div > div .switchbtn, main .gameList > div > a .switchbtn, main
           align-items: flex-end;
   width: 100%;
 }
-main .gameList > div > div .switchbtn a, main .gameList > div > div .switchbtn button, main .gameList > div > a .switchbtn a, main .gameList > div > a .switchbtn button, main .gameList > div > button .switchbtn a, main .gameList > div > button .switchbtn button, main .gameList > a > div .switchbtn a, main .gameList > a > div .switchbtn button, main .gameList > a > a .switchbtn a, main .gameList > a > a .switchbtn button, main .gameList > a > button .switchbtn a, main .gameList > a > button .switchbtn button, main .gameList > button > div .switchbtn a, main .gameList > button > div .switchbtn button, main .gameList > button > a .switchbtn a, main .gameList > button > a .switchbtn button, main .gameList > button > button .switchbtn a, main .gameList > button > button .switchbtn button {
+main .gameList > div > div .switchbtn a,
+main .gameList > div > div .switchbtn button,
+main .gameList > div > a .switchbtn a,
+main .gameList > div > a .switchbtn button,
+main .gameList > div > button .switchbtn a,
+main .gameList > div > button .switchbtn button,
+main .gameList > a > div .switchbtn a,
+main .gameList > a > div .switchbtn button,
+main .gameList > a > a .switchbtn a,
+main .gameList > a > a .switchbtn button,
+main .gameList > a > button .switchbtn a,
+main .gameList > a > button .switchbtn button,
+main .gameList > button > div .switchbtn a,
+main .gameList > button > div .switchbtn button,
+main .gameList > button > a .switchbtn a,
+main .gameList > button > a .switchbtn button,
+main .gameList > button > button .switchbtn a,
+main .gameList > button > button .switchbtn button {
   font-size: 3vw;
   -webkit-transform: scale(0.5);
           transform: scale(0.5);
@@ -1754,27 +1830,111 @@ main .gameList > div > div .switchbtn a, main .gameList > div > div .switchbtn b
   min-height: 6vw;
   background: #FF5E00;
 }
-main .gameList > div > div .switchbtn a:first-child, main .gameList > div > div .switchbtn button:first-child, main .gameList > div > a .switchbtn a:first-child, main .gameList > div > a .switchbtn button:first-child, main .gameList > div > button .switchbtn a:first-child, main .gameList > div > button .switchbtn button:first-child, main .gameList > a > div .switchbtn a:first-child, main .gameList > a > div .switchbtn button:first-child, main .gameList > a > a .switchbtn a:first-child, main .gameList > a > a .switchbtn button:first-child, main .gameList > a > button .switchbtn a:first-child, main .gameList > a > button .switchbtn button:first-child, main .gameList > button > div .switchbtn a:first-child, main .gameList > button > div .switchbtn button:first-child, main .gameList > button > a .switchbtn a:first-child, main .gameList > button > a .switchbtn button:first-child, main .gameList > button > button .switchbtn a:first-child, main .gameList > button > button .switchbtn button:first-child {
+main .gameList > div > div .switchbtn a:first-child,
+main .gameList > div > div .switchbtn button:first-child,
+main .gameList > div > a .switchbtn a:first-child,
+main .gameList > div > a .switchbtn button:first-child,
+main .gameList > div > button .switchbtn a:first-child,
+main .gameList > div > button .switchbtn button:first-child,
+main .gameList > a > div .switchbtn a:first-child,
+main .gameList > a > div .switchbtn button:first-child,
+main .gameList > a > a .switchbtn a:first-child,
+main .gameList > a > a .switchbtn button:first-child,
+main .gameList > a > button .switchbtn a:first-child,
+main .gameList > a > button .switchbtn button:first-child,
+main .gameList > button > div .switchbtn a:first-child,
+main .gameList > button > div .switchbtn button:first-child,
+main .gameList > button > a .switchbtn a:first-child,
+main .gameList > button > a .switchbtn button:first-child,
+main .gameList > button > button .switchbtn a:first-child,
+main .gameList > button > button .switchbtn button:first-child {
   background: #5574A7;
   margin-bottom: 0;
 }
-main .gameList > div > div .switchbtn a:hover, main .gameList > div > div .switchbtn button:hover, main .gameList > div > a .switchbtn a:hover, main .gameList > div > a .switchbtn button:hover, main .gameList > div > button .switchbtn a:hover, main .gameList > div > button .switchbtn button:hover, main .gameList > a > div .switchbtn a:hover, main .gameList > a > div .switchbtn button:hover, main .gameList > a > a .switchbtn a:hover, main .gameList > a > a .switchbtn button:hover, main .gameList > a > button .switchbtn a:hover, main .gameList > a > button .switchbtn button:hover, main .gameList > button > div .switchbtn a:hover, main .gameList > button > div .switchbtn button:hover, main .gameList > button > a .switchbtn a:hover, main .gameList > button > a .switchbtn button:hover, main .gameList > button > button .switchbtn a:hover, main .gameList > button > button .switchbtn button:hover {
+main .gameList > div > div .switchbtn a:hover,
+main .gameList > div > div .switchbtn button:hover,
+main .gameList > div > a .switchbtn a:hover,
+main .gameList > div > a .switchbtn button:hover,
+main .gameList > div > button .switchbtn a:hover,
+main .gameList > div > button .switchbtn button:hover,
+main .gameList > a > div .switchbtn a:hover,
+main .gameList > a > div .switchbtn button:hover,
+main .gameList > a > a .switchbtn a:hover,
+main .gameList > a > a .switchbtn button:hover,
+main .gameList > a > button .switchbtn a:hover,
+main .gameList > a > button .switchbtn button:hover,
+main .gameList > button > div .switchbtn a:hover,
+main .gameList > button > div .switchbtn button:hover,
+main .gameList > button > a .switchbtn a:hover,
+main .gameList > button > a .switchbtn button:hover,
+main .gameList > button > button .switchbtn a:hover,
+main .gameList > button > button .switchbtn button:hover {
   background: #e92529;
   opacity: 0.8;
 }
-main .gameList > div > div .switchbtn a:hover:first-child, main .gameList > div > div .switchbtn button:hover:first-child, main .gameList > div > a .switchbtn a:hover:first-child, main .gameList > div > a .switchbtn button:hover:first-child, main .gameList > div > button .switchbtn a:hover:first-child, main .gameList > div > button .switchbtn button:hover:first-child, main .gameList > a > div .switchbtn a:hover:first-child, main .gameList > a > div .switchbtn button:hover:first-child, main .gameList > a > a .switchbtn a:hover:first-child, main .gameList > a > a .switchbtn button:hover:first-child, main .gameList > a > button .switchbtn a:hover:first-child, main .gameList > a > button .switchbtn button:hover:first-child, main .gameList > button > div .switchbtn a:hover:first-child, main .gameList > button > div .switchbtn button:hover:first-child, main .gameList > button > a .switchbtn a:hover:first-child, main .gameList > button > a .switchbtn button:hover:first-child, main .gameList > button > button .switchbtn a:hover:first-child, main .gameList > button > button .switchbtn button:hover:first-child {
+main .gameList > div > div .switchbtn a:hover:first-child,
+main .gameList > div > div .switchbtn button:hover:first-child,
+main .gameList > div > a .switchbtn a:hover:first-child,
+main .gameList > div > a .switchbtn button:hover:first-child,
+main .gameList > div > button .switchbtn a:hover:first-child,
+main .gameList > div > button .switchbtn button:hover:first-child,
+main .gameList > a > div .switchbtn a:hover:first-child,
+main .gameList > a > div .switchbtn button:hover:first-child,
+main .gameList > a > a .switchbtn a:hover:first-child,
+main .gameList > a > a .switchbtn button:hover:first-child,
+main .gameList > a > button .switchbtn a:hover:first-child,
+main .gameList > a > button .switchbtn button:hover:first-child,
+main .gameList > button > div .switchbtn a:hover:first-child,
+main .gameList > button > div .switchbtn button:hover:first-child,
+main .gameList > button > a .switchbtn a:hover:first-child,
+main .gameList > button > a .switchbtn button:hover:first-child,
+main .gameList > button > button .switchbtn a:hover:first-child,
+main .gameList > button > button .switchbtn button:hover:first-child {
   background: #001942;
   opacity: 0.8;
 }
 @media (max-width: 280px) {
-  main .gameList > div > div .switchbtn a, main .gameList > div > div .switchbtn button, main .gameList > div > a .switchbtn a, main .gameList > div > a .switchbtn button, main .gameList > div > button .switchbtn a, main .gameList > div > button .switchbtn button, main .gameList > a > div .switchbtn a, main .gameList > a > div .switchbtn button, main .gameList > a > a .switchbtn a, main .gameList > a > a .switchbtn button, main .gameList > a > button .switchbtn a, main .gameList > a > button .switchbtn button, main .gameList > button > div .switchbtn a, main .gameList > button > div .switchbtn button, main .gameList > button > a .switchbtn a, main .gameList > button > a .switchbtn button, main .gameList > button > button .switchbtn a, main .gameList > button > button .switchbtn button {
+  main .gameList > div > div .switchbtn a,
+  main .gameList > div > div .switchbtn button,
+  main .gameList > div > a .switchbtn a,
+  main .gameList > div > a .switchbtn button,
+  main .gameList > div > button .switchbtn a,
+  main .gameList > div > button .switchbtn button,
+  main .gameList > a > div .switchbtn a,
+  main .gameList > a > div .switchbtn button,
+  main .gameList > a > a .switchbtn a,
+  main .gameList > a > a .switchbtn button,
+  main .gameList > a > button .switchbtn a,
+  main .gameList > a > button .switchbtn button,
+  main .gameList > button > div .switchbtn a,
+  main .gameList > button > div .switchbtn button,
+  main .gameList > button > a .switchbtn a,
+  main .gameList > button > a .switchbtn button,
+  main .gameList > button > button .switchbtn a,
+  main .gameList > button > button .switchbtn button {
     width: 25vw;
   }
 }
-main .gameList > div > div img, main .gameList > div > a img, main .gameList > div > button img, main .gameList > a > div img, main .gameList > a > a img, main .gameList > a > button img, main .gameList > button > div img, main .gameList > button > a img, main .gameList > button > button img {
+main .gameList > div > div img,
+main .gameList > div > a img,
+main .gameList > div > button img,
+main .gameList > a > div img,
+main .gameList > a > a img,
+main .gameList > a > button img,
+main .gameList > button > div img,
+main .gameList > button > a img,
+main .gameList > button > button img {
   width: 100%;
 }
-main .gameList > div > div img + div, main .gameList > div > a img + div, main .gameList > div > button img + div, main .gameList > a > div img + div, main .gameList > a > a img + div, main .gameList > a > button img + div, main .gameList > button > div img + div, main .gameList > button > a img + div, main .gameList > button > button img + div {
+main .gameList > div > div img + div,
+main .gameList > div > a img + div,
+main .gameList > div > button img + div,
+main .gameList > a > div img + div,
+main .gameList > a > a img + div,
+main .gameList > a > button img + div,
+main .gameList > button > div img + div,
+main .gameList > button > a img + div,
+main .gameList > button > button img + div {
   position: absolute;
   margin: auto;
   overflow: hidden;
@@ -2583,7 +2743,8 @@ main .gameList .icon-new {
 #popup.promospop .pop .promotions .protitle {
   padding: 0;
 }
-#popup.promospop .pop .promotions .btn-group button, #popup.promospop .pop .promotions .btn-group a {
+#popup.promospop .pop .promotions .btn-group button,
+#popup.promospop .pop .promotions .btn-group a {
   font-weight: bold;
   color: white;
 }
@@ -3804,7 +3965,8 @@ main .gameList .icon-new {
   width: 100%;
   height: 12vw;
 }
-.header .headerTag > a, .header .headerTag > button {
+.header .headerTag > a,
+.header .headerTag > button {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -3823,11 +3985,13 @@ main .gameList .icon-new {
   font-size: 4vw;
   text-align: center;
 }
-.header .headerTag > a.active, .header .headerTag > button.active {
+.header .headerTag > a.active,
+.header .headerTag > button.active {
   color: white;
   background: #112240;
 }
-.header .headerTag > a.active .quantity, .header .headerTag > button.active .quantity {
+.header .headerTag > a.active .quantity,
+.header .headerTag > button.active .quantity {
   color: white;
   background: #FF5E00;
 }
@@ -3977,7 +4141,8 @@ main .gameList .icon-new {
   border-bottom: 1px solid #5574A7;
   background: #E4E4E4;
 }
-.tag a, .tag button {
+.tag a,
+.tag button {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -3996,7 +4161,8 @@ main .gameList .icon-new {
   font-size: 4vw;
   text-align: center;
 }
-.tag a.active, .tag button.active {
+.tag a.active,
+.tag button.active {
   color: #112240;
   border-color: #FF5E00;
   font-weight: bold;
@@ -4421,7 +4587,10 @@ main .gameList .icon-new {
           justify-content: center;
 }
 
-.pending, .reject, .cancelled, .approved {
+.pending,
+.reject,
+.cancelled,
+.approved {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4430,7 +4599,10 @@ main .gameList .icon-new {
           align-items: center;
   position: relative;
 }
-.pending .infobtn, .reject .infobtn, .cancelled .infobtn, .approved .infobtn {
+.pending .infobtn,
+.reject .infobtn,
+.cancelled .infobtn,
+.approved .infobtn {
   background: url(https://banner.0814media.net/h5/img/notice.png) no-repeat center/cover;
   width: 4vw;
   height: 4vw;
@@ -4456,7 +4628,8 @@ main .gameList .icon-new {
 .info ul li span.title {
   color: #5574A7;
 }
-.info ul li span.title button.icon, .info ul li span.title i.icon {
+.info ul li span.title button.icon,
+.info ul li span.title i.icon {
   border-radius: 100%;
   background: #5574A7;
   width: 4.6vw;
@@ -4472,7 +4645,8 @@ main .gameList .icon-new {
           justify-content: center;
   margin: auto auto auto 2vw;
 }
-.info ul li span.title button.icon:before, .info ul li span.title i.icon:before {
+.info ul li span.title button.icon:before,
+.info ul li span.title i.icon:before {
   font-size: 12px;
 }
 .info > div:not(.btn-group) {
@@ -4995,7 +5169,8 @@ main .gameList .icon-new {
   -ms-flex-flow: wrap;
       flex-flow: wrap;
 }
-.selectBank button, .selectBank a {
+.selectBank button,
+.selectBank a {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(33.3333333333% - 1vw);
           flex: 0 0 calc(33.3333333333% - 1vw);
@@ -5009,16 +5184,20 @@ main .gameList .icon-new {
   background: white;
   min-height: 13vw;
 }
-.selectBank button.active, .selectBank a.active {
+.selectBank button.active,
+.selectBank a.active {
   border: 2px solid #5574A7;
 }
-.selectBank button .mask, .selectBank a .mask {
+.selectBank button .mask,
+.selectBank a .mask {
   display: none;
 }
-.selectBank button.pending, .selectBank a.pending {
+.selectBank button.pending,
+.selectBank a.pending {
   position: relative;
 }
-.selectBank button.pending .mask, .selectBank a.pending .mask {
+.selectBank button.pending .mask,
+.selectBank a.pending .mask {
   position: absolute;
   top: 0;
   left: 0;
@@ -5995,7 +6174,8 @@ input[type=date] {
             transform: rotateX(-37.5deg) rotateY(405deg);
   }
 }
-#Loading .cube, #Loading .cube * {
+#Loading .cube,
+#Loading .cube * {
   position: absolute;
   width: 16vw;
   height: 16vw;
@@ -6483,7 +6663,9 @@ span.important {
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
 }
-.quickChangePage div, .quickChangePage button, .quickChangePage a {
+.quickChangePage div,
+.quickChangePage button,
+.quickChangePage a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6498,7 +6680,9 @@ span.important {
   height: 6vw;
   color: #112240;
 }
-.quickChangePage div i:before, .quickChangePage button i:before, .quickChangePage a i:before {
+.quickChangePage div i:before,
+.quickChangePage button i:before,
+.quickChangePage a i:before {
   font-size: 7vw;
 }
 .quickChangePage > div:not(.btn-group) {
@@ -6515,7 +6699,8 @@ span.important {
   margin: 0;
   width: auto;
 }
-.quickChangePage .btn-group button, .quickChangePage .btn-group a {
+.quickChangePage .btn-group button,
+.quickChangePage .btn-group a {
   padding: 1vw 2vw;
   color: white;
   background: #FF5E00;
@@ -6531,7 +6716,8 @@ span.important {
 .promotions.Expired .promodule {
   background: #b2b2b2;
 }
-.promotions.Expired .promodule img, .promotions.Expired .promodule div:not(.btn-group):not(.claimed) {
+.promotions.Expired .promodule img,
+.promotions.Expired .promodule div:not(.btn-group):not(.claimed) {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
 }
@@ -6566,7 +6752,8 @@ span.important {
 .promotions .filterBtn {
   margin: 14vw 0 3vw;
 }
-.promotions .claimed, .promotions .new {
+.promotions .claimed,
+.promotions .new {
   position: absolute;
   display: none;
   -webkit-box-pack: center;
@@ -6590,7 +6777,8 @@ span.important {
           transform: rotate(-20deg) skewX(-20deg);
   font-style: initial;
 }
-.promotions .claimed:before, .promotions .new:before {
+.promotions .claimed:before,
+.promotions .new:before {
   content: "CLAIMED";
 }
 .promotions .new {
@@ -6600,7 +6788,8 @@ span.important {
   content: "NEW";
   left: 3vw;
 }
-.promotions .promodule, .promotions .proInfomodule {
+.promotions .promodule,
+.promotions .proInfomodule {
   padding: 3vw;
   border: 0;
   background: #D2E2F9;
@@ -6609,26 +6798,38 @@ span.important {
   margin: 3vw 0;
   border-radius: 3px;
 }
-.promotions .promodule .btn-group button, .promotions .promodule .btn-group a, .promotions .proInfomodule .btn-group button, .promotions .proInfomodule .btn-group a {
+.promotions .promodule .btn-group button,
+.promotions .promodule .btn-group a,
+.promotions .proInfomodule .btn-group button,
+.promotions .proInfomodule .btn-group a {
   font-weight: bold;
 }
-.promotions .promodule.active .claimed, .promotions .proInfomodule.active .claimed {
+.promotions .promodule.active .claimed,
+.promotions .proInfomodule.active .claimed {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   background: #e92529;
 }
-.promotions .promodule.active .rollover, .promotions .proInfomodule.active .rollover {
+.promotions .promodule.active .rollover,
+.promotions .proInfomodule.active .rollover {
   border-color: #4F4F4F;
 }
-.promotions .promodule.expirModule, .promotions .proInfomodule.expirModule {
+.promotions .promodule.expirModule,
+.promotions .proInfomodule.expirModule {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
 }
-.promotions .promodule .inputBox, .promotions .promodule .euro .inputBox-event, .euro .promotions .promodule .inputBox-event, .promotions .promodule .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .promotions .promodule .inputBox-event, .promotions .proInfomodule .inputBox, .promotions .proInfomodule .euro .inputBox-event, .euro .promotions .proInfomodule .inputBox-event, .promotions .proInfomodule .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .promotions .proInfomodule .inputBox-event {
+.promotions .promodule .inputBox, .promotions .promodule .euro .inputBox-event, .euro .promotions .promodule .inputBox-event, .promotions .promodule .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .promotions .promodule .inputBox-event,
+.promotions .proInfomodule .inputBox,
+.promotions .proInfomodule .euro .inputBox-event,
+.euro .promotions .proInfomodule .inputBox-event,
+.promotions .proInfomodule .worldcupEvent .event .event-content .inputBox-event,
+.worldcupEvent .event .event-content .promotions .proInfomodule .inputBox-event {
   margin: 0;
 }
-.promotions .promodule .btn-cancel, .promotions .proInfomodule .btn-cancel {
+.promotions .promodule .btn-cancel,
+.promotions .proInfomodule .btn-cancel {
   background: white;
   padding: 0 2vw;
   border-radius: 3px;
@@ -6640,7 +6841,8 @@ span.important {
           align-items: center;
   color: #F77A00;
 }
-.promotions .promodule .btn-check, .promotions .proInfomodule .btn-check {
+.promotions .promodule .btn-check,
+.promotions .proInfomodule .btn-check {
   background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
   background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
   padding: 0 2vw;
@@ -6653,13 +6855,15 @@ span.important {
           align-items: center;
   margin: 0 0 0 1vw;
 }
-.promotions .promodule > button, .promotions .proInfomodule > button {
+.promotions .promodule > button,
+.promotions .proInfomodule > button {
   line-height: 24px;
   vertical-align: bottom;
   margin: 0 0 0 1vw;
   font-size: 12px;
 }
-.promotions .promodule > button.ViewAllAmount, .promotions .proInfomodule > button.ViewAllAmount {
+.promotions .promodule > button.ViewAllAmount,
+.promotions .proInfomodule > button.ViewAllAmount {
   padding: 5px 10px;
   background: #002B6C;
   margin: -1px 0 2vw;
@@ -6672,7 +6876,8 @@ span.important {
       -ms-flex-pack: center;
           justify-content: center;
 }
-.promotions .promodule > button.ViewAllAmount span, .promotions .proInfomodule > button.ViewAllAmount span {
+.promotions .promodule > button.ViewAllAmount span,
+.promotions .proInfomodule > button.ViewAllAmount span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6680,52 +6885,65 @@ span.important {
       -ms-flex-align: center;
           align-items: center;
 }
-.promotions .promodule > button.ViewAllAmount span.active, .promotions .proInfomodule > button.ViewAllAmount span.active {
+.promotions .promodule > button.ViewAllAmount span.active,
+.promotions .proInfomodule > button.ViewAllAmount span.active {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
-.promotions .promodule .protitle, .promotions .proInfomodule .protitle {
+.promotions .promodule .protitle,
+.promotions .proInfomodule .protitle {
   margin: 1vw 0 0;
   font-size: 4vw;
   color: #5574A7;
   font-weight: bold;
   padding-left: 1vw;
 }
-.promotions .promodule .text, .promotions .proInfomodule .text {
+.promotions .promodule .text,
+.promotions .proInfomodule .text {
   word-wrap: break-word;
   line-height: 16px;
   margin: 2vw 0;
   padding-left: 1vw;
 }
-.promotions .promodule .text .text-link, .promotions .proInfomodule .text .text-link {
+.promotions .promodule .text .text-link,
+.promotions .proInfomodule .text .text-link {
   color: #5574A7 !important;
 }
-.promotions .promodule .text ol, .promotions .proInfomodule .text ol {
+.promotions .promodule .text ol,
+.promotions .proInfomodule .text ol {
   padding: 0 0 0 5vw;
 }
-.promotions .promodule .text ol li, .promotions .proInfomodule .text ol li {
+.promotions .promodule .text ol li,
+.promotions .proInfomodule .text ol li {
   list-style: decimal;
 }
-.promotions .promodule .text ol li a, .promotions .proInfomodule .text ol li a {
+.promotions .promodule .text ol li a,
+.promotions .proInfomodule .text ol li a {
   text-decoration: underline;
 }
-.promotions .promodule .text ul, .promotions .proInfomodule .text ul {
+.promotions .promodule .text ul,
+.promotions .proInfomodule .text ul {
   padding: 0 0 0 5vw;
 }
-.promotions .promodule .text ul li, .promotions .proInfomodule .text ul li {
+.promotions .promodule .text ul li,
+.promotions .proInfomodule .text ul li {
   list-style: initial;
 }
-.promotions .promodule .text ul li a, .promotions .proInfomodule .text ul li a {
+.promotions .promodule .text ul li a,
+.promotions .proInfomodule .text ul li a {
   text-decoration: underline;
 }
-.promotions .promodule .text ul li ul li, .promotions .proInfomodule .text ul li ul li {
+.promotions .promodule .text ul li ul li,
+.promotions .proInfomodule .text ul li ul li {
   list-style: circle;
 }
-.promotions .promodule .account, .promotions .proInfomodule .account {
+.promotions .promodule .account,
+.promotions .proInfomodule .account {
   line-height: initial;
   padding: 2vw;
 }
-.promotions .promodule .account .info, .promotions .proInfomodule .account .info {
+.promotions .promodule .account .info,
+.promotions .proInfomodule .account .info {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -6733,11 +6951,13 @@ span.important {
   display: -ms-flexbox;
   display: flex;
 }
-.promotions .promodule .account .info span:first-child, .promotions .proInfomodule .account .info span:first-child {
+.promotions .promodule .account .info span:first-child,
+.promotions .proInfomodule .account .info span:first-child {
   font-weight: bold;
   color: #b2b2b2;
 }
-.promotions .promodule strong, .promotions .proInfomodule strong {
+.promotions .promodule strong,
+.promotions .proInfomodule strong {
   font-weight: bold !important;
 }
 .promotions .proInfomodule {
@@ -6745,7 +6965,8 @@ span.important {
   padding: 2vw 0;
   margin: 0;
 }
-.promotions .proInfomodule .new, .promotions .proInfomodule .claimed {
+.promotions .proInfomodule .new,
+.promotions .proInfomodule .claimed {
   top: 2vw;
   left: 0;
 }
@@ -7216,7 +7437,8 @@ span.important {
   display: block;
   color: white;
 }
-.installGuide section .downloadModule .downloadSelect.active button, .installGuide section .downloadModule .downloadSelect.active a {
+.installGuide section .downloadModule .downloadSelect.active button,
+.installGuide section .downloadModule .downloadSelect.active a {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7237,16 +7459,19 @@ span.important {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-.installGuide section .downloadModule .downloadSelect.active button .icon, .installGuide section .downloadModule .downloadSelect.active a .icon {
+.installGuide section .downloadModule .downloadSelect.active button .icon,
+.installGuide section .downloadModule .downloadSelect.active a .icon {
   margin-right: 3vw;
   position: absolute;
   left: 12vw;
   top: 25%;
 }
-.installGuide section .downloadModule .downloadSelect.active button .icon.icon-android, .installGuide section .downloadModule .downloadSelect.active a .icon.icon-android {
+.installGuide section .downloadModule .downloadSelect.active button .icon.icon-android,
+.installGuide section .downloadModule .downloadSelect.active a .icon.icon-android {
   color: #5aff2c;
 }
-.installGuide section .downloadModule .downloadSelect.active button .icon.icon-windows, .installGuide section .downloadModule .downloadSelect.active a .icon.icon-windows {
+.installGuide section .downloadModule .downloadSelect.active button .icon.icon-windows,
+.installGuide section .downloadModule .downloadSelect.active a .icon.icon-windows {
   color: #0ad9f5;
 }
 .installGuide section .downloadModule .downloadSelect > div {
@@ -7308,7 +7533,8 @@ span.important {
 .installGuide.mega section .copyinfo .btn-group button {
   background: #0ad9f5;
 }
-.installGuide.mega section .copyinfo + .downloadModule .downloadSelect.active button, .installGuide.mega section .copyinfo + .downloadModule .downloadSelect.active a {
+.installGuide.mega section .copyinfo + .downloadModule .downloadSelect.active button,
+.installGuide.mega section .copyinfo + .downloadModule .downloadSelect.active a {
   background: #01075b;
   border: 1px solid #1EECBB;
 }
@@ -7710,13 +7936,19 @@ span.important {
   margin: 0 2.3vw;
 }
 
-.rankEvent, .champion, .records {
+.rankEvent,
+.champion,
+.records {
   display: none;
 }
-.rankEvent.active, .champion.active, .records.active {
+.rankEvent.active,
+.champion.active,
+.records.active {
   display: block;
 }
-.rankEvent .list + div, .champion .list + div, .records .list + div {
+.rankEvent .list + div,
+.champion .list + div,
+.records .list + div {
   color: #5574A7;
 }
 
@@ -7758,7 +7990,8 @@ span.important {
 .refShare .refBox > div span {
   color: #5574A7;
 }
-.refShare .refBox > div a, .refShare .refBox > div button {
+.refShare .refBox > div a,
+.refShare .refBox > div button {
   font-size: 15px;
   background: #112240;
   padding: 1vw;
@@ -7864,7 +8097,8 @@ span.important {
   height: 15vw;
   background: #A4A4A4;
 }
-.more .tag a, .more .tag button {
+.more .tag a,
+.more .tag button {
   height: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -7873,7 +8107,8 @@ span.important {
   position: relative;
   font-weight: bold;
 }
-.more .tag a .quantity, .more .tag button .quantity {
+.more .tag a .quantity,
+.more .tag button .quantity {
   background: #FF5E00;
   width: 8vw;
   height: 8vw;
@@ -7882,13 +8117,16 @@ span.important {
   position: absolute;
   color: white;
 }
-.more .tag a:not(.icon).active, .more .tag button:not(.icon).active {
+.more .tag a:not(.icon).active,
+.more .tag button:not(.icon).active {
   color: #F77A00;
 }
-.more .tag a.active, .more .tag button.active {
+.more .tag a.active,
+.more .tag button.active {
   border-bottom: 0;
 }
-.more .tag a.icon:before, .more .tag button.icon:before {
+.more .tag a.icon:before,
+.more .tag button.icon:before {
   font-size: 10vw;
 }
 
@@ -7963,7 +8201,10 @@ span.important {
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
-.accordion > div > button:first-child.active ~ a, .accordion > div > button:first-child.active ~ button, .accordion > div > button:first-child.active ~ div.country, .accordion > div > button:first-child.active ~ div.countryNew {
+.accordion > div > button:first-child.active ~ a,
+.accordion > div > button:first-child.active ~ button,
+.accordion > div > button:first-child.active ~ div.country,
+.accordion > div > button:first-child.active ~ div.countryNew {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7974,33 +8215,43 @@ span.important {
   -webkit-transform: rotate(-180deg);
           transform: rotate(-180deg);
 }
-.accordion > div a, .accordion > div button, .accordion > div div {
+.accordion > div a,
+.accordion > div button,
+.accordion > div div {
   padding: 3vw 4vw;
   color: #112240;
   font-weight: bold;
   margin-bottom: 1px;
   background: #F9F9F9;
 }
-.accordion > div a.mode, .accordion > div button.mode, .accordion > div div.mode {
+.accordion > div a.mode,
+.accordion > div button.mode,
+.accordion > div div.mode {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   background: #001942;
 }
-.accordion > div a.mode > button, .accordion > div button.mode > button, .accordion > div div.mode > button {
+.accordion > div a.mode > button,
+.accordion > div button.mode > button,
+.accordion > div div.mode > button {
   width: 10vw;
   height: 10vw;
   background: black;
   margin: 3vw;
   padding: 0;
 }
-.accordion > div a.mode > button.active, .accordion > div button.mode > button.active, .accordion > div div.mode > button.active {
+.accordion > div a.mode > button.active,
+.accordion > div button.mode > button.active,
+.accordion > div div.mode > button.active {
   color: #5574A7;
   background: white;
   -webkit-box-shadow: 0 0 5px 5px #5574a7;
           box-shadow: 0 0 5px 5px #5574a7;
 }
-.accordion > div a.countryNew, .accordion > div button.countryNew, .accordion > div div.countryNew {
+.accordion > div a.countryNew,
+.accordion > div button.countryNew,
+.accordion > div div.countryNew {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -8013,7 +8264,9 @@ span.important {
       -ms-flex-align: start;
           align-items: flex-start;
 }
-.accordion > div a.countryNew > div, .accordion > div button.countryNew > div, .accordion > div div.countryNew > div {
+.accordion > div a.countryNew > div,
+.accordion > div button.countryNew > div,
+.accordion > div div.countryNew > div {
   background: transparent;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -8025,7 +8278,9 @@ span.important {
       flex-flow: wrap;
   padding: 3vw 0 3vw 4vw;
 }
-.accordion > div a.countryNew > div .countryName, .accordion > div button.countryNew > div .countryName, .accordion > div div.countryNew > div .countryName {
+.accordion > div a.countryNew > div .countryName,
+.accordion > div button.countryNew > div .countryName,
+.accordion > div div.countryNew > div .countryName {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8040,32 +8295,45 @@ span.important {
   width: 17vw;
   background: transparent;
 }
-.accordion > div a.countryNew > div > button, .accordion > div button.countryNew > div > button, .accordion > div div.countryNew > div > button {
+.accordion > div a.countryNew > div > button,
+.accordion > div button.countryNew > div > button,
+.accordion > div div.countryNew > div > button {
   display: block;
   border-right: 1px solid #5574A7;
   background: transparent;
   padding: 0 4vw;
 }
-.accordion > div a.countryNew > div > button:last-child, .accordion > div button.countryNew > div > button:last-child, .accordion > div div.countryNew > div > button:last-child {
+.accordion > div a.countryNew > div > button:last-child,
+.accordion > div button.countryNew > div > button:last-child,
+.accordion > div div.countryNew > div > button:last-child {
   border: 0;
 }
-.accordion > div a.countryNew > div img, .accordion > div button.countryNew > div img, .accordion > div div.countryNew > div img {
+.accordion > div a.countryNew > div img,
+.accordion > div button.countryNew > div img,
+.accordion > div div.countryNew > div img {
   width: 10vw;
   height: 10vw;
   margin: 2vw;
   border-radius: 100%;
 }
-.accordion > div a.countryNew > div.active, .accordion > div button.countryNew > div.active, .accordion > div div.countryNew > div.active {
+.accordion > div a.countryNew > div.active,
+.accordion > div button.countryNew > div.active,
+.accordion > div div.countryNew > div.active {
   font-weight: bold;
 }
-.accordion > div a.countryNew > div.active > button.active, .accordion > div button.countryNew > div.active > button.active, .accordion > div div.countryNew > div.active > button.active {
+.accordion > div a.countryNew > div.active > button.active,
+.accordion > div button.countryNew > div.active > button.active,
+.accordion > div div.countryNew > div.active > button.active {
   color: #F77A00;
 }
-.accordion > div a.countryNew > div.active img, .accordion > div button.countryNew > div.active img, .accordion > div div.countryNew > div.active img {
+.accordion > div a.countryNew > div.active img,
+.accordion > div button.countryNew > div.active img,
+.accordion > div div.countryNew > div.active img {
   -webkit-box-shadow: 0 0 5px 5px rgba(255, 94, 0, 0.4784313725);
           box-shadow: 0 0 5px 5px rgba(255, 94, 0, 0.4784313725);
 }
-.accordion > div a, .accordion > div button {
+.accordion > div a,
+.accordion > div button {
   display: none;
 }
 
@@ -8124,7 +8392,8 @@ span.important {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.contact > div, .contact a {
+.contact > div,
+.contact a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8134,17 +8403,20 @@ span.important {
           align-items: center;
   font-weight: bold;
 }
-.contact > div img, .contact a img {
+.contact > div img,
+.contact a img {
   width: 22vw;
   margin: 0 2vw 0 2vw;
 }
-.contact > div canvas, .contact a canvas {
+.contact > div canvas,
+.contact a canvas {
   width: 25vw !important;
   height: auto !important;
   margin-right: 2vw;
   margin-left: 2vw;
 }
-.contact > div i, .contact a i {
+.contact > div i,
+.contact a i {
   width: 12vw;
   height: 12vw;
   display: -webkit-box;
@@ -8160,11 +8432,13 @@ span.important {
   border-radius: 5px;
   margin: 0 2vw 0 0;
 }
-.contact > div i::before, .contact a i::before {
+.contact > div i::before,
+.contact a i::before {
   color: white;
   font-size: 7vw;
 }
-.contact > div i:not(.icon-chat):before, .contact a i:not(.icon-chat):before {
+.contact > div i:not(.icon-chat):before,
+.contact a i:not(.icon-chat):before {
   font-weight: normal;
 }
 
@@ -8176,7 +8450,8 @@ span.important {
       flex-flow: wrap;
   background: #5574A7;
 }
-.provider button, .provider a {
+.provider button,
+.provider a {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 31%;
           flex: 0 0 31%;
@@ -8192,10 +8467,12 @@ span.important {
   display: -ms-flexbox;
   display: flex;
 }
-.provider button:nth-child(3n), .provider a:nth-child(3n) {
+.provider button:nth-child(3n),
+.provider a:nth-child(3n) {
   margin-right: 0;
 }
-.provider button img, .provider a img {
+.provider button img,
+.provider a img {
   max-width: 90%;
   height: auto;
 }
@@ -8776,7 +9053,8 @@ span.important {
   border-radius: 5px 5px 0 0;
   margin: 4vw 0 0;
 }
-.depositModule > .title:before, .depositModule > .title span {
+.depositModule > .title:before,
+.depositModule > .title span {
   margin-right: 1vw;
 }
 .depositModule > .title > span.text-org {
@@ -9250,17 +9528,22 @@ span.important {
   font-weight: 700;
 }
 
-.hotGame, .promos {
+.hotGame,
+.promos {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 0 2vw;
   position: relative;
 }
-.hotGame .swiper-pagination, .promos .swiper-pagination {
+.hotGame .swiper-pagination,
+.promos .swiper-pagination {
   bottom: -4vw !important;
 }
-.hotGame .hotGamModule, .hotGame .promosModule, .promos .hotGamModule, .promos .promosModule {
+.hotGame .hotGamModule,
+.hotGame .promosModule,
+.promos .hotGamModule,
+.promos .promosModule {
   background: #F8F7F6;
   min-width: 55vw;
   max-width: 45vw;
@@ -9272,34 +9555,55 @@ span.important {
   position: relative;
   border: 1px solid #e2e2e2;
 }
-.hotGame .hotGamModule img, .hotGame .promosModule img, .promos .hotGamModule img, .promos .promosModule img {
+.hotGame .hotGamModule img,
+.hotGame .promosModule img,
+.promos .hotGamModule img,
+.promos .promosModule img {
   width: 100%;
 }
-.hotGame .hotGamModule > div.btn-group, .hotGame .promosModule > div.btn-group, .promos .hotGamModule > div.btn-group, .promos .promosModule > div.btn-group {
+.hotGame .hotGamModule > div.btn-group,
+.hotGame .promosModule > div.btn-group,
+.promos .hotGamModule > div.btn-group,
+.promos .promosModule > div.btn-group {
   width: 45%;
   margin: 2vw 10%;
 }
-.hotGame .hotGamModule > div.btn-group button, .hotGame .promosModule > div.btn-group button, .promos .hotGamModule > div.btn-group button, .promos .promosModule > div.btn-group button {
+.hotGame .hotGamModule > div.btn-group button,
+.hotGame .promosModule > div.btn-group button,
+.promos .hotGamModule > div.btn-group button,
+.promos .promosModule > div.btn-group button {
   padding: 2vw 0;
   border-radius: 20px;
   font-weight: bold;
 }
-.hotGame .hotGamModule > div.btn-group button:hover, .hotGame .promosModule > div.btn-group button:hover, .promos .hotGamModule > div.btn-group button:hover, .promos .promosModule > div.btn-group button:hover {
+.hotGame .hotGamModule > div.btn-group button:hover,
+.hotGame .promosModule > div.btn-group button:hover,
+.promos .hotGamModule > div.btn-group button:hover,
+.promos .promosModule > div.btn-group button:hover {
   background: -webkit-gradient(linear, left top, right top, color-stop(30%, #ff5e00), to(#f39519));
   background: linear-gradient(90deg, #ff5e00 30%, #f39519 100%);
 }
-.hotGame .hotGamModule > div:not(.btn-group), .hotGame .promosModule > div:not(.btn-group), .promos .hotGamModule > div:not(.btn-group), .promos .promosModule > div:not(.btn-group) {
+.hotGame .hotGamModule > div:not(.btn-group),
+.hotGame .promosModule > div:not(.btn-group),
+.promos .hotGamModule > div:not(.btn-group),
+.promos .promosModule > div:not(.btn-group) {
   padding: 0 2vw;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.hotGame .hotGamModule > div:not(.btn-group):nth-child(2), .hotGame .promosModule > div:not(.btn-group):nth-child(2), .promos .hotGamModule > div:not(.btn-group):nth-child(2), .promos .promosModule > div:not(.btn-group):nth-child(2) {
+.hotGame .hotGamModule > div:not(.btn-group):nth-child(2),
+.hotGame .promosModule > div:not(.btn-group):nth-child(2),
+.promos .hotGamModule > div:not(.btn-group):nth-child(2),
+.promos .promosModule > div:not(.btn-group):nth-child(2) {
   font-weight: bold;
   color: #5574A7;
   margin-top: 1.5vw;
 }
-.hotGame .hotGamModule > div:not(.btn-group):nth-child(3), .hotGame .promosModule > div:not(.btn-group):nth-child(3), .promos .hotGamModule > div:not(.btn-group):nth-child(3), .promos .promosModule > div:not(.btn-group):nth-child(3) {
+.hotGame .hotGamModule > div:not(.btn-group):nth-child(3),
+.hotGame .promosModule > div:not(.btn-group):nth-child(3),
+.promos .hotGamModule > div:not(.btn-group):nth-child(3),
+.promos .promosModule > div:not(.btn-group):nth-child(3) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -9687,7 +9991,8 @@ span.important {
 .liveTv > .liveTvModule .liveTvInfo > div div {
   color: #5574A7;
 }
-.liveTv > .liveTvModule .liveTvInfo > div div.btn-group button, .liveTv > .liveTvModule .liveTvInfo > div div.btn-group a {
+.liveTv > .liveTvModule .liveTvInfo > div div.btn-group button,
+.liveTv > .liveTvModule .liveTvInfo > div div.btn-group a {
   padding: 1vw 3vw;
 }
 .liveTv > .liveTvModule .liveTvInfo > div div span {
@@ -9927,10 +10232,12 @@ span.important {
           justify-content: space-evenly;
   margin-bottom: 2vw;
 }
-.referralShare .popTxt > div button, .referralShare .popTxt > div a {
+.referralShare .popTxt > div button,
+.referralShare .popTxt > div a {
   margin: 1vw;
 }
-.referralShare .popTxt > div button i, .referralShare .popTxt > div a i {
+.referralShare .popTxt > div button i,
+.referralShare .popTxt > div a i {
   background: #5574A7;
   border-radius: 5px;
   padding: 3vw;
@@ -10274,10 +10581,12 @@ span.important {
   margin-left: 3vw;
   word-wrap: break-word;
 }
-.important li span, .important li a {
+.important li span,
+.important li a {
   font-weight: bold;
 }
-.important li a, .important li button {
+.important li a,
+.important li button {
   color: #5574A7;
 }
 
@@ -10487,7 +10796,8 @@ span.important {
   margin-top: 3vw;
   width: 100%;
 }
-.features div, .features ul {
+.features div,
+.features ul {
   padding: 3vw 3vw 0;
 }
 .features .title {
@@ -10512,7 +10822,8 @@ span.important {
   line-height: 24px;
   margin-left: 3vw;
 }
-.features li span, .features li a {
+.features li span,
+.features li a {
   font-weight: bold;
 }
 
@@ -10529,7 +10840,8 @@ span.important {
           filter: grayscale(1);
   pointer-events: none;
 }
-.jpot.active .jpot-btn, .jpot.active .number {
+.jpot.active .jpot-btn,
+.jpot.active .number {
   -webkit-filter: brightness(0.7);
           filter: brightness(0.7);
 }
@@ -10779,7 +11091,8 @@ span.important {
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
-.favouriteModule .favourite > div div a, .favouriteModule .favourite > div div button {
+.favouriteModule .favourite > div div a,
+.favouriteModule .favourite > div div button {
   color: white;
   margin-left: 2vw;
   background: #5574A7;
@@ -11267,7 +11580,8 @@ span.important {
   border-radius: 3px;
 }
 
-.partnerSelect, .filterSelect {
+.partnerSelect,
+.filterSelect {
   overflow: scroll;
   width: 100%;
   border-radius: 5px;
@@ -11277,7 +11591,10 @@ span.important {
   border-radius: 0;
   margin: 0 0 1vw;
 }
-.partnerSelect button, .partnerSelect a, .filterSelect button, .filterSelect a {
+.partnerSelect button,
+.partnerSelect a,
+.filterSelect button,
+.filterSelect a {
   min-width: 30.5vw;
   padding: 0 1vw;
   display: -webkit-box;
@@ -11296,10 +11613,16 @@ span.important {
   font-size: 3vw;
   border-radius: 3px;
 }
-.partnerSelect button div, .partnerSelect a div, .filterSelect button div, .filterSelect a div {
+.partnerSelect button div,
+.partnerSelect a div,
+.filterSelect button div,
+.filterSelect a div {
   margin-top: -1vw;
 }
-.partnerSelect button img, .partnerSelect a img, .filterSelect button img, .filterSelect a img {
+.partnerSelect button img,
+.partnerSelect a img,
+.filterSelect button img,
+.filterSelect a img {
   -webkit-transform: scale(0.8);
           transform: scale(0.8);
   -webkit-transition: 0.7s;
@@ -11314,7 +11637,8 @@ span.important {
   background: #e2e4e7;
   margin-bottom: 0;
 }
-.filterSelect button, .filterSelect a {
+.filterSelect button,
+.filterSelect a {
   color: #a1a1a1;
   width: auto;
   min-width: auto;
@@ -11323,21 +11647,25 @@ span.important {
   white-space: nowrap;
   border-radius: 0;
 }
-.filterSelect button.active, .filterSelect a.active {
+.filterSelect button.active,
+.filterSelect a.active {
   margin-top: 1vw;
   color: #6c88b5;
   border-bottom: 1vw #6c88b5 solid;
 }
 
-.partnerSelect button, .partnerSelect a {
+.partnerSelect button,
+.partnerSelect a {
   background: #D2E2F9;
   margin-right: 1vw;
 }
-.partnerSelect button.active, .partnerSelect a.active {
+.partnerSelect button.active,
+.partnerSelect a.active {
   background: #284985;
   color: white;
 }
-.partnerSelect button.active img, .partnerSelect a.active img {
+.partnerSelect button.active img,
+.partnerSelect a.active img {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
   -webkit-transition: 0.7s;
@@ -11346,15 +11674,21 @@ span.important {
           filter: none;
 }
 
-.rolloverList, .minAmount, .remainingTime {
+.rolloverList,
+.minAmount,
+.remainingTime {
   margin-bottom: 10px;
 }
-.rolloverList > div, .minAmount > div, .remainingTime > div {
+.rolloverList > div,
+.minAmount > div,
+.remainingTime > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.rolloverList > div > div, .minAmount > div > div, .remainingTime > div > div {
+.rolloverList > div > div,
+.minAmount > div > div,
+.remainingTime > div > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -11362,15 +11696,20 @@ span.important {
   color: black;
   padding: 0 0 0 1vw;
 }
-.rolloverList > div > div:nth-child(1), .minAmount > div > div:nth-child(1), .remainingTime > div > div:nth-child(1) {
+.rolloverList > div > div:nth-child(1),
+.minAmount > div > div:nth-child(1),
+.remainingTime > div > div:nth-child(1) {
   background: #112240;
   color: white;
 }
-.rolloverList > div > div:nth-child(2), .minAmount > div > div:nth-child(2), .remainingTime > div > div:nth-child(2) {
+.rolloverList > div > div:nth-child(2),
+.minAmount > div > div:nth-child(2),
+.remainingTime > div > div:nth-child(2) {
   background: #E4E4E4;
 }
 
-.rolloverList > div:last-child div, .minAmount > div:last-child div {
+.rolloverList > div:last-child div,
+.minAmount > div:last-child div {
   border-bottom: 0;
 }
 
@@ -11621,7 +11960,8 @@ span.important {
   white-space: nowrap;
   width: 40vw;
 }
-.checkspeed .wallpaper .module > .bottom > div.left > div > div > button, .checkspeed .wallpaper .module > .bottom > div.left > div > div > a {
+.checkspeed .wallpaper .module > .bottom > div.left > div > div > button,
+.checkspeed .wallpaper .module > .bottom > div.left > div > div > a {
   background-color: #f77900;
   border-radius: 5px;
   padding: 1vw;
@@ -11745,7 +12085,9 @@ span.important {
   color: #F77A00;
 }
 
-.crypto, .eWallet, .withdrawal {
+.crypto,
+.eWallet,
+.withdrawal {
   padding: 30vw 4vw 20vw;
 }
 
@@ -11767,7 +12109,15 @@ span.important {
   padding: 0;
 }
 
-.backstage ol, .backstage ul, .backstage li, .backstage ins, .backstage p, .backstage pre, .backstage del, .backstage em, .backstage span {
+.backstage ol,
+.backstage ul,
+.backstage li,
+.backstage ins,
+.backstage p,
+.backstage pre,
+.backstage del,
+.backstage em,
+.backstage span {
   list-style: revert;
   margin: revert;
   padding: revert;
@@ -11776,7 +12126,13 @@ span.important {
   font: revert;
   vertical-align: revert;
 }
-.backstage h1, .backstage h2, .backstage h3, .backstage h4, .backstage h5, .backstage h6, .backstage strong {
+.backstage h1,
+.backstage h2,
+.backstage h3,
+.backstage h4,
+.backstage h5,
+.backstage h6,
+.backstage strong {
   font-size: revert;
   margin: revert;
   padding: revert;
@@ -12576,7 +12932,8 @@ span.important {
 .profile .description {
   display: none;
 }
-.profile + .btn-group a, .profile + .btn-group button {
+.profile + .btn-group a,
+.profile + .btn-group button {
   width: 100%;
 }
 .profile-email.unfilled {
@@ -13212,7 +13569,8 @@ span.important {
           flex: 1 1;
   margin: 0 6vw;
 }
-.worldcupEvent .event .event-content .event-info, .worldcupEvent .event .event-content .ticket-item {
+.worldcupEvent .event .event-content .event-info,
+.worldcupEvent .event .event-content .ticket-item {
   padding: 5vw;
   border: 1px solid #fff;
   border-radius: 10px;
@@ -13725,7 +14083,8 @@ span.important {
   overflow: hidden;
   margin: 1vw 0;
 }
-.duitnowPayPop .pop > div.popTxt .guide .qrCode img, .duitnowPayPop .pop > div.popTxt .guide .qrCode svg {
+.duitnowPayPop .pop > div.popTxt .guide .qrCode img,
+.duitnowPayPop .pop > div.popTxt .guide .qrCode svg {
   width: auto !important;
   height: 90% !important;
 }
@@ -14308,7 +14667,8 @@ input:-webkit-autofill:active {
   position: relative;
   cursor: pointer;
 }
-.recently .swiper-button-next, .recently .swiper-button-prev {
+.recently .swiper-button-next,
+.recently .swiper-button-prev {
   background: #112240;
   font-family: "icomoon";
   width: 35px;
@@ -14327,11 +14687,13 @@ input:-webkit-autofill:active {
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-.recently .swiper-button-next::before, .recently .swiper-button-prev::before {
+.recently .swiper-button-next::before,
+.recently .swiper-button-prev::before {
   content: "\ea40";
   color: #fff;
 }
-.recently .swiper-button-next::after, .recently .swiper-button-prev::after {
+.recently .swiper-button-next::after,
+.recently .swiper-button-prev::after {
   display: none;
 }
 .recently .swiper-button-next {
@@ -14544,7 +14906,8 @@ input:-webkit-autofill:active {
   overflow: hidden;
   margin: 1vw 0;
 }
-.thiaPop .pop > div .guide .qrCode img, .thiaPop .pop > div .guide .qrCode svg {
+.thiaPop .pop > div .guide .qrCode img,
+.thiaPop .pop > div .guide .qrCode svg {
   width: auto !important;
   height: 90% !important;
 }
@@ -14673,14 +15036,18 @@ input[type=number] {
   max-width: 6vw;
   padding: 0.5vw 1vw;
 }
-.btn-group.transferAll .transfer-btn, .btn-group.transferAll .red {
+.btn-group.transferAll .transfer-btn,
+.btn-group.transferAll .red {
   height: 100%;
   font-weight: bold;
 }
-.btn-group.transferAll .transfer-btn.active, .btn-group.transferAll .red.active {
+.btn-group.transferAll .transfer-btn.active,
+.btn-group.transferAll .red.active {
   color: #c6d4f1;
 }
-.btn-group button, .btn-group a, .btn-group .submit {
+.btn-group button,
+.btn-group a,
+.btn-group .submit {
   background: -webkit-gradient(linear, left top, left bottom, from(#435f8b), to(#6383b9));
   background: linear-gradient(180deg, #435f8b, #6383b9);
   width: 100%;
@@ -14701,56 +15068,82 @@ input[type=number] {
   position: relative;
   font-size: 3vw;
 }
-.btn-group button i, .btn-group a i, .btn-group .submit i {
+.btn-group button i,
+.btn-group a i,
+.btn-group .submit i {
   margin: 0 0 0 2vw;
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
-.btn-group button i.icon-keyboard_arrow_down.active, .btn-group a i.icon-keyboard_arrow_down.active, .btn-group .submit i.icon-keyboard_arrow_down.active {
+.btn-group button i.icon-keyboard_arrow_down.active,
+.btn-group a i.icon-keyboard_arrow_down.active,
+.btn-group .submit i.icon-keyboard_arrow_down.active {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
-.btn-group button:nth-child(n+2), .btn-group a:nth-child(n+2), .btn-group .submit:nth-child(n+2) {
+.btn-group button:nth-child(n+2),
+.btn-group a:nth-child(n+2),
+.btn-group .submit:nth-child(n+2) {
   margin: 0 0 0 3vw;
 }
-.btn-group button.backupClick, .btn-group a.backupClick, .btn-group .submit.backupClick {
+.btn-group button.backupClick,
+.btn-group a.backupClick,
+.btn-group .submit.backupClick {
   background: #F77A00;
 }
-.btn-group button.blue, .btn-group a.blue, .btn-group .submit.blue {
+.btn-group button.blue,
+.btn-group a.blue,
+.btn-group .submit.blue {
   background: -webkit-gradient(linear, right top, left top, from(#556D97), to(#112240));
   background: linear-gradient(270deg, #556D97 0%, #112240 100%);
 }
-.btn-group button.cancel, .btn-group a.cancel, .btn-group .submit.cancel {
+.btn-group button.cancel,
+.btn-group a.cancel,
+.btn-group .submit.cancel {
   background: -webkit-gradient(linear, left top, left bottom, from(#95aacf), to(#bdcbe2));
   background: linear-gradient(to bottom, #95aacf, #bdcbe2);
 }
-.btn-group button.white, .btn-group a.white, .btn-group .submit.white {
+.btn-group button.white,
+.btn-group a.white,
+.btn-group .submit.white {
   background: -webkit-gradient(linear, left top, left bottom, from(#95aacf), to(#bdcbe2));
   background: linear-gradient(to bottom, #95aacf, #bdcbe2);
 }
-.btn-group button.gray, .btn-group a.gray, .btn-group .submit.gray {
+.btn-group button.gray,
+.btn-group a.gray,
+.btn-group .submit.gray {
   background: #949494;
 }
-.btn-group button.orange, .btn-group a.orange, .btn-group .submit.orange {
+.btn-group button.orange,
+.btn-group a.orange,
+.btn-group .submit.orange {
   background: #F77A00;
 }
-.btn-group button.red, .btn-group a.red, .btn-group .submit.red {
+.btn-group button.red,
+.btn-group a.red,
+.btn-group .submit.red {
   background: #e92529;
 }
-.btn-group button.btn-line, .btn-group a.btn-line, .btn-group .submit.btn-line {
+.btn-group button.btn-line,
+.btn-group a.btn-line,
+.btn-group .submit.btn-line {
   background: #07b802;
   color: white;
   line-height: 1;
   padding: 2vw;
   margin: 0;
 }
-.btn-group button.btn-line .icon, .btn-group a.btn-line .icon, .btn-group .submit.btn-line .icon {
+.btn-group button.btn-line .icon,
+.btn-group a.btn-line .icon,
+.btn-group .submit.btn-line .icon {
   font-size: 18px;
   margin-right: 1vw;
 }
-.btn-group button.btn-line.active, .btn-group a.btn-line.active, .btn-group .submit.btn-line.active {
+.btn-group button.btn-line.active,
+.btn-group a.btn-line.active,
+.btn-group .submit.btn-line.active {
   background: #069c02;
 }
 .btn-group a {
@@ -14786,14 +15179,18 @@ input[type=number] {
   max-width: 6vw;
   padding: 0;
 }
-.home-btn-group.transferAll .transfer-btn, .home-btn-group.transferAll .red {
+.home-btn-group.transferAll .transfer-btn,
+.home-btn-group.transferAll .red {
   height: 100%;
   font-weight: bold;
 }
-.home-btn-group.transferAll .transfer-btn.active, .home-btn-group.transferAll .red.active {
+.home-btn-group.transferAll .transfer-btn.active,
+.home-btn-group.transferAll .red.active {
   color: #c6d4f1;
 }
-.home-btn-group button, .home-btn-group a, .home-btn-group .submit {
+.home-btn-group button,
+.home-btn-group a,
+.home-btn-group .submit {
   font-family: "Poppins", sans-serif;
   background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
   background: linear-gradient(to bottom, #435F8B, #6383B9);
@@ -14812,56 +15209,82 @@ input[type=number] {
   position: relative;
   font-size: 3vw;
 }
-.home-btn-group button i, .home-btn-group a i, .home-btn-group .submit i {
+.home-btn-group button i,
+.home-btn-group a i,
+.home-btn-group .submit i {
   margin: 0 0 0 2vw;
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
-.home-btn-group button i.icon-keyboard_arrow_down.active, .home-btn-group a i.icon-keyboard_arrow_down.active, .home-btn-group .submit i.icon-keyboard_arrow_down.active {
+.home-btn-group button i.icon-keyboard_arrow_down.active,
+.home-btn-group a i.icon-keyboard_arrow_down.active,
+.home-btn-group .submit i.icon-keyboard_arrow_down.active {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
-.home-btn-group button:nth-child(n+2), .home-btn-group a:nth-child(n+2), .home-btn-group .submit:nth-child(n+2) {
+.home-btn-group button:nth-child(n+2),
+.home-btn-group a:nth-child(n+2),
+.home-btn-group .submit:nth-child(n+2) {
   margin: 0 0 0 3vw;
 }
-.home-btn-group button.backupClick, .home-btn-group a.backupClick, .home-btn-group .submit.backupClick {
+.home-btn-group button.backupClick,
+.home-btn-group a.backupClick,
+.home-btn-group .submit.backupClick {
   background: #F77A00;
 }
-.home-btn-group button.blue, .home-btn-group a.blue, .home-btn-group .submit.blue {
+.home-btn-group button.blue,
+.home-btn-group a.blue,
+.home-btn-group .submit.blue {
   background: -webkit-gradient(linear, right top, left top, from(#556D97), to(#112240));
   background: linear-gradient(270deg, #556D97 0%, #112240 100%);
 }
-.home-btn-group button.cancel, .home-btn-group a.cancel, .home-btn-group .submit.cancel {
+.home-btn-group button.cancel,
+.home-btn-group a.cancel,
+.home-btn-group .submit.cancel {
   background: -webkit-gradient(linear, left top, left bottom, from(#95aacf), to(#bdcbe2));
   background: linear-gradient(to bottom, #95aacf, #bdcbe2);
 }
-.home-btn-group button.white, .home-btn-group a.white, .home-btn-group .submit.white {
+.home-btn-group button.white,
+.home-btn-group a.white,
+.home-btn-group .submit.white {
   background: -webkit-gradient(linear, left top, left bottom, from(#95aacf), to(#bdcbe2));
   background: linear-gradient(to bottom, #95aacf, #bdcbe2);
 }
-.home-btn-group button.gray, .home-btn-group a.gray, .home-btn-group .submit.gray {
+.home-btn-group button.gray,
+.home-btn-group a.gray,
+.home-btn-group .submit.gray {
   background: #949494;
 }
-.home-btn-group button.orange, .home-btn-group a.orange, .home-btn-group .submit.orange {
+.home-btn-group button.orange,
+.home-btn-group a.orange,
+.home-btn-group .submit.orange {
   background: #F77A00;
 }
-.home-btn-group button.red, .home-btn-group a.red, .home-btn-group .submit.red {
+.home-btn-group button.red,
+.home-btn-group a.red,
+.home-btn-group .submit.red {
   background: #e92529;
 }
-.home-btn-group button.btn-line, .home-btn-group a.btn-line, .home-btn-group .submit.btn-line {
+.home-btn-group button.btn-line,
+.home-btn-group a.btn-line,
+.home-btn-group .submit.btn-line {
   background: #07b802;
   color: white;
   line-height: 1;
   padding: 2vw;
   margin: 0;
 }
-.home-btn-group button.btn-line .icon, .home-btn-group a.btn-line .icon, .home-btn-group .submit.btn-line .icon {
+.home-btn-group button.btn-line .icon,
+.home-btn-group a.btn-line .icon,
+.home-btn-group .submit.btn-line .icon {
   font-size: 18px;
   margin-right: 1vw;
 }
-.home-btn-group button.btn-line.active, .home-btn-group a.btn-line.active, .home-btn-group .submit.btn-line.active {
+.home-btn-group button.btn-line.active,
+.home-btn-group a.btn-line.active,
+.home-btn-group .submit.btn-line.active {
   background: #069c02;
 }
 .home-btn-group a {
@@ -15050,7 +15473,8 @@ input[type=number] {
           justify-content: flex-end;
   margin-right: 4vw;
 }
-.header-login .btn-login, .header-login .btn-register {
+.header-login .btn-login,
+.header-login .btn-register {
   width: 18vw;
   padding: 1vw;
 }
@@ -15099,7 +15523,8 @@ input[type=number] {
 .header-balance span {
   margin-right: 1.5vw;
 }
-.header-balance .icon-minus, .header-balance .icon-plus {
+.header-balance .icon-minus,
+.header-balance .icon-plus {
   width: 4vw;
   margin: 1vw 0 0 2vw;
 }
@@ -17084,7 +17509,8 @@ input[type=number] .btn-logout {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
-.dragonegg-event .event-back a, .dragonegg-event .event-back button {
+.dragonegg-event .event-back a,
+.dragonegg-event .event-back button {
   color: #fff;
   font-size: 3.5vw;
   margin-left: 3vw;
@@ -18483,7 +18909,8 @@ input[type=number] .btn-logout {
   width: 100%;
   height: 2px;
 }
-.euro-mission .title a, .euro-mission .title button {
+.euro-mission .title a,
+.euro-mission .title button {
   color: #143CDA;
   background: #F9BF4B;
   padding: 2vw;
@@ -18853,7 +19280,8 @@ input[type=number] .btn-logout {
 .euro .btn-group p {
   font-size: 2.5vw;
 }
-.euro .btn-group .btn-cancel, .euro .btn-group .btn-submit {
+.euro .btn-group .btn-cancel,
+.euro .btn-group .btn-submit {
   border-radius: 2.5vw;
   padding: 1.5vw 1vw;
   background: #fff;
@@ -19652,7 +20080,8 @@ input[type=number] .btn-logout {
 .milestones .milestones-swiper .swiper-slide.six .page-text {
   background: url(../img/milestones/six-text-bg.png) no-repeat center/cover;
 }
-.milestones .milestones-swiper .swiper-button-next, .milestones .milestones-swiper .swiper-button-prev {
+.milestones .milestones-swiper .swiper-button-next,
+.milestones .milestones-swiper .swiper-button-prev {
   position: absolute;
   top: 190vw;
   width: 6vw;
@@ -19692,7 +20121,8 @@ input[type=number] .btn-logout {
   letter-spacing: 0.5px;
   text-align: center;
 }
-.exclusion-text a, .exclusion-text button {
+.exclusion-text a,
+.exclusion-text button {
   margin-bottom: 3vw;
   background: #D9BB9B;
   font-size: 4vw;
@@ -19713,7 +20143,8 @@ input[type=number] .btn-logout {
       -ms-flex-pack: center;
           justify-content: center;
 }
-.exclusion-text a img, .exclusion-text button img {
+.exclusion-text a img,
+.exclusion-text button img {
   width: 5vw;
   margin-right: 2vw;
   margin-top: 0.75vw;
@@ -20978,6 +21409,203 @@ input[type=number] .btn-logout {
 
 #__next {
   height: 100%;
+}
+
+.survey {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #F8F8F8;
+  color: #9C9C9C;
+  padding: 22vw 0 40vw;
+  width: 100%;
+}
+.survey * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.survey-before {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 6vw;
+}
+.survey-before > div:first-child {
+  color: #141f33;
+  font-size: 4vw;
+  font-weight: 600;
+}
+.survey-before > div:nth-child(2) {
+  text-align: center;
+  margin-top: 5vw;
+  line-height: 5.5vw;
+}
+.survey-before fieldset {
+  border: medium none;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+.survey-before fieldset input {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #FFF;
+  padding: 3vw;
+  color: #0A1B38;
+  border-radius: 2vw;
+}
+.survey-before fieldset input::-webkit-input-placeholder {
+  font-size: 3vw;
+  color: #D8D8D8;
+  font-family: "Montserrat", sans-serif;
+}
+.survey-before fieldset input::-moz-placeholder {
+  font-size: 3vw;
+  color: #D8D8D8;
+  font-family: "Montserrat", sans-serif;
+}
+.survey-before fieldset input:-ms-input-placeholder {
+  font-size: 3vw;
+  color: #D8D8D8;
+  font-family: "Montserrat", sans-serif;
+}
+.survey-before fieldset input::-ms-input-placeholder {
+  font-size: 3vw;
+  color: #D8D8D8;
+  font-family: "Montserrat", sans-serif;
+}
+.survey-before fieldset input::placeholder {
+  font-size: 3vw;
+  color: #D8D8D8;
+  font-family: "Montserrat", sans-serif;
+}
+.survey-before fieldset input:focus {
+  outline: 0;
+  border: 2px solid #5084e4;
+}
+.survey-before fieldset textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #FFF;
+  padding: 3vw;
+  height: 50vw;
+  max-width: 100%;
+  resize: none;
+  border-radius: 2vw;
+}
+.survey-before fieldset textarea::-webkit-input-placeholder {
+  color: #D8D8D8;
+  font-family: "Montserrat", sans-serif;
+}
+.survey-before fieldset textarea::-moz-placeholder {
+  color: #D8D8D8;
+  font-family: "Montserrat", sans-serif;
+}
+.survey-before fieldset textarea:-ms-input-placeholder {
+  color: #D8D8D8;
+  font-family: "Montserrat", sans-serif;
+}
+.survey-before fieldset textarea::-ms-input-placeholder {
+  color: #D8D8D8;
+  font-family: "Montserrat", sans-serif;
+}
+.survey-before fieldset textarea::placeholder {
+  color: #D8D8D8;
+  font-family: "Montserrat", sans-serif;
+}
+.survey-before fieldset textarea:focus {
+  outline: 0;
+  border: 2px solid #5084e4;
+}
+.survey-before fieldset button {
+  background: #EE4F49;
+  font-size: 3.5vw;
+  font-weight: 600;
+  border-radius: 2vw;
+  padding: 3vw 10vw;
+  width: 39.5vw;
+  margin-top: 8vw;
+  color: white;
+}
+.survey-before fieldset button:first-child[disabled] {
+  background: gray !important;
+}
+.survey-before fieldset button:last-child {
+  background: #DFDFDF;
+  color: #9B9B9B;
+}
+.survey-before fieldset .tip {
+  display: none;
+  margin-top: 2vw;
+}
+.survey-before fieldset .tip.active {
+  display: block;
+  color: red;
+}
+.survey-before fieldset .tip.message {
+  margin-top: 1vw;
+}
+.survey-before fieldset.error textarea {
+  border: 2px solid red;
+}
+.survey-before fieldset.error input {
+  border: 2px solid red;
+}
+.survey-before fieldset:first-child {
+  margin-bottom: 5vw;
+}
+.survey-before .survey-input {
+  margin-top: 3vw;
+}
+.survey-before .survey-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 3vw;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.survey-before.close {
+  display: none;
+}
+.survey-after {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.survey-after img {
+  width: 45vw;
+  margin-top: 15vw;
+}
+.survey-after > div:first-child > div {
+  color: #141f33;
+  font-size: 4vw;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 8vw;
+}
+.survey-after > div:last-child {
+  text-align: center;
+  padding: 7vw 5vw 0;
+  line-height: 5.5vw;
+}
+.survey-after.close {
+  display: none;
 }
 
 #g-reCaptcha .grecaptcha-badge {
