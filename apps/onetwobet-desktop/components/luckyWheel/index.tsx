@@ -2,7 +2,7 @@ import { Img, Loading } from '@12b-desktop/components/common'
 import { SpinButton } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useLuckWheelContext } from '@nx-next-app/operations'
 import { IEventPeriod } from '@nx-next-app/types'
 import classNames from 'classnames'
@@ -26,6 +26,7 @@ interface ILuckyWheelProps {
 
 const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 	const { modal } = useGlobalModal()
+	const { getBannerUrl } = useGlobalData()
 	const {
 		auth: { isLogin },
 		userInfo: { currencyName },
@@ -68,7 +69,7 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 				</div>
 				<div className='wheelModule'>
 					<Img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/wheel/wheelcover.png`}
+						src={getBannerUrl('/desktop/img/event/wheel/wheelcover.png')}
 						alt='img-wheelcover'
 					/>
 
@@ -81,7 +82,7 @@ const LuckyWheel = ({ eventPeriod }: ILuckyWheelProps) => {
 						timeout={isLogin && !isCheckDrawPrizeError ? 3000 : 0} // * 沒登入 以及 不能抽獎 時，不進入動畫時間
 					>
 						<img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/event/wheel/wheelbtn.png`}
+							src={getBannerUrl('/desktop/img/event/wheel/wheelbtn.png')}
 							alt='img-wheelbtn'
 						/>
 					</SpinButton>
