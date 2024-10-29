@@ -1,6 +1,5 @@
 import { ReactNode } from 'react'
 import QuickLinks from './CopyRight'
-import License from './License'
 import PaymentMethod from './PaymentMethod'
 import ProgramDescriptionList from './ProgramDescriptionList'
 import ProgramList from './ProgramList'
@@ -16,7 +15,6 @@ Footer.QuickLinks = QuickLinks
 Footer.SocialMedia = SocialMedia
 Footer.ProgramList = ProgramList
 Footer.ProgramDescriptionList = ProgramDescriptionList
-Footer.License = License
 Footer.SuggestBrowser = SuggestBrowser
 Footer.PaymentMethod = PaymentMethod
 Footer.PromotionText = PromotionText
