@@ -11,7 +11,7 @@ const License = ({
 	seoData: ISeoData
 }) => {
 	const { t } = useTranslation()
-	const showLicenseLogo = true
+	const showLicenseLogo = seoData?.activeDomain ?? false
 	const tobiqueSealId = seoData?.script ?? defaultScript
 
 	// 市場通知暫時移除 XCM License 2024/7/16
