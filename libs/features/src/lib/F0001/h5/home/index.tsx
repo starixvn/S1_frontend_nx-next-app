@@ -1,22 +1,16 @@
-import { Fragment, useCallback } from 'react'
-import dynamic from 'next/dynamic'
-import { includes } from 'lodash-es'
-import { useRouter } from 'next/router'
-import classNames from 'classnames'
-import { Header, JackPot, useAppDownload } from '@nx-next-app/components/H0001'
+import { Header, JackPot } from '@nx-next-app/components/H0001'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
 import { useSetHideBalanceMutation } from '@nx-next-app/service'
-import { useHome } from '@nx-next-app/features/F0001/providers'
-import { CurrenciesEnum } from '@nx-next-app/types'
 import { multiEqual } from '@nx-next-app/utils'
-import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
+import { includes } from 'lodash-es'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
+import { Fragment, useCallback } from 'react'
 import Menu from './menu'
-
-interface IHomeProps {
-	persistAppDownloadHint: string
-}
 
 const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
 
@@ -64,7 +58,7 @@ const OlympicEntry = dynamic(() => import('../common/OlympicEntry'), {
 	ssr: false,
 })
 
-const Home = ({ persistAppDownloadHint }: IHomeProps) => {
+const Home = () => {
 	const { push } = useRouter()
 
 	const {
@@ -86,10 +80,6 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 	} = useTpWalletBalanceListFetcher({ langId })
 
 	const [setHideBalance] = useSetHideBalanceMutation()
-
-	const { isAppDownloadHintActive, onCloseAppDownloadHint } = useAppDownload(
-		Boolean(persistAppDownloadHint)
-	)
 
 	const { isInApp } = useGlobalData()
 
@@ -160,11 +150,6 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 		component => !includes(bannerBlockOrders, component)
 	)
 
-	const showAppDownload =
-		isInApp === false &&
-		isAppDownloadHintActive &&
-		includes(ALLOWED_CURRENCIES['APP_DOWNLOAD'] as CurrenciesEnum[], currencyId)
-
 	// 避免map造成多次調用renderComponent因此用useCallback包起來
 	const renderComponent = useCallback(
 		(component: MobileHomeComponentsEnum) => {
@@ -178,12 +163,6 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 	return (
 		<>
 			<Header>
-				<Header.AppDownLoad
-					isAppDownloadHintActive={showAppDownload}
-					onCloseAppDownloadHint={onCloseAppDownloadHint}
-					showAppDownload={showAppDownload}
-				/>
-
 				<Header.HeaderModule
 					isTpWalletBalanceListLoading={isTpWalletBalanceListLoading}
 					originIsHideBalance={isHideBalance}
@@ -196,10 +175,7 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 				/>
 			</Header>
 
-			<main
-				// * 當 Header.AppDownLoad 顯示時要加入 'active' class name
-				className={classNames({ active: showAppDownload })}
-			>
+			<main>
 				{bannerBlockOrders.map(component => renderComponent(component))}
 
 				<Menu />

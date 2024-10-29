@@ -1,8 +1,8 @@
-import { find } from 'lodash-es'
-import dynamic from 'next/dynamic'
-import { useTranslation } from 'next-i18next'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import { find } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 import { useHome } from '../../providers'
 
 const LoginModal = dynamic(() => import('../modal/LoginModal'), {
@@ -42,7 +42,7 @@ const ProvidersBlock = () => {
 	})
 
 	return (
-		<>
+		<div style={{ marginTop: '80px' }}>
 			<div className='partner-title'>{t('Label_Home_HonorablePartner')}</div>
 			<div className='partner-logo'>
 				{showPlatFormList?.map(prodictItem => {
@@ -69,7 +69,7 @@ const ProvidersBlock = () => {
 					)
 				})}
 			</div>
-		</>
+		</div>
 	)
 }
 

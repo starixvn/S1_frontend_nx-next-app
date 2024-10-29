@@ -4,7 +4,7 @@ import { IMetaData } from '@nx-next-app/types'
 export const META_DATA: IMetaData = {
 	[paths.home.root]: {
 		en: {
-			title: `Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Bet`,
+			title: `Nova88 Solutions | Online Betting | Demo Site`,
 			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
 			keyword: `Asia Most Trusted Sportsbook, Live Casino, Slot Games, SABA Sports, Online Casino, Online Betting`,
 			links: [

@@ -1,5 +1,5 @@
-import { useTranslation } from 'next-i18next'
 import { IFooterData } from 'libs/web/src/app/types/footer'
+import { useTranslation } from 'next-i18next'
 
 const QuickLinks = ({
 	quickLinks = [],

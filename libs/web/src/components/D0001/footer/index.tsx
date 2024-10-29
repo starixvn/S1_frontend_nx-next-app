@@ -1,12 +1,12 @@
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import QuickLinks from './CopyRight'
 import License from './License'
+import PaymentMethod from './PaymentMethod'
 import ProgramDescriptionList from './ProgramDescriptionList'
 import ProgramList from './ProgramList'
+import PromotionText from './PromotionText'
 import SocialMedia from './SocialMedia'
 import SuggestBrowser from './SuggestBrowser'
-import PaymentMethod from './PaymentMethod'
-import PromotionText from './PromotionText'
 
 const Footer = ({ children }: { children: ReactNode }) => {
 	return <footer id='footer'>{children}</footer>

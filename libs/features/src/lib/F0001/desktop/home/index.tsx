@@ -1,9 +1,9 @@
-import React, { Fragment, useCallback } from 'react'
-import dynamic from 'next/dynamic'
-import { includes } from 'lodash-es'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { DesktopHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { includes } from 'lodash-es'
+import dynamic from 'next/dynamic'
+import { Fragment, useCallback } from 'react'
 
 // Page Components
 const ProvidersBlock = dynamic(() => import('./ProvidersBlock'), { ssr: false })
@@ -19,10 +19,6 @@ const LiveCasino = dynamic(() => import('./LiveCasino'))
 const HotGame = dynamic(() => import('./HotGame'), { ssr: false })
 
 const Announcement = dynamic(() => import('./Announcement'), { ssr: false })
-
-const AppDownloadBanner = dynamic(() => import('./AppDownloadBanner'), {
-	ssr: false,
-})
 
 const RecentlyViewGames = dynamic(() => import('./RecentlyViewGames'), {
 	ssr: false,
@@ -88,7 +84,6 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.LiveCasino]: <LiveCasino />,
 		[DesktopHomeComponentsEnum.HotGame]: <HotGame />,
 		[DesktopHomeComponentsEnum.RecentlyViewGames]: <RecentlyViewGames />,
-		[DesktopHomeComponentsEnum.AppDownloadBanner]: <AppDownloadBanner />,
 		[DesktopHomeComponentsEnum.OfficialPartner]: <OfficialPartner />,
 		[DesktopHomeComponentsEnum.ProviderBlock]: <ProvidersBlock />,
 		[DesktopHomeComponentsEnum.EuropeCupEntry]: includes(

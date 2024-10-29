@@ -1,10 +1,10 @@
 import { Footer } from '@nx-next-app/components/D0001'
-import { useGetSeoQuery, useGetSocialChannelQuery } from '@nx-next-app/service'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useGetSeoQuery, useGetSocialChannelQuery } from '@nx-next-app/service'
 import { SocialChannelEnum } from 'libs/features/src/lib/F0001/types'
 import { IFooterData } from 'libs/web/src/app/types/footer'
-import { useTranslation } from 'next-i18next'
 import { upperFirst } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 
 const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 	const {

@@ -53,8 +53,6 @@ const HomePage = ({
 	persistFooterData,
 	persistStaticFileDomainData,
 }: IHomePageProps) => {
-	const persistAppDownloadHint = originCookies[ENV_COOKIE_NAMES.AppDownloadHint]
-
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider
@@ -71,7 +69,7 @@ const HomePage = ({
 						persistPlatformList={persistFooterData.platformList}
 						mobileHomeOrders={MOBILE_HOME_ORDERS}
 					>
-						<Home persistAppDownloadHint={persistAppDownloadHint} />
+						<Home />
 					</HomeProvider>
 				</Layout>
 			</GlobalDataProvider>
