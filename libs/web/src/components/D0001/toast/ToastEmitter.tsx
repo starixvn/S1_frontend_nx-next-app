@@ -62,8 +62,8 @@ export const ToastEmitter = ({
 	 *  @backgroundColor 自定義背景顏色，會填滿整個吐司訊息。
 	 *  @color 文字顏色，如果有自定義背景顏色，則文字顏色會改為白色，否則會影響文字閱讀。
 	 *  @borderRadius  react-toastify 手機模式預設沒圓角。但設計稿需要圓角，故僅在手機模式加上。
+	 *  @width  手機模式下，吐司訊息寬度會固定 (撐滿視窗) ; 桌機模式下，吐司訊息會依照是否為財務訊息，決定是否讓文字撐滿容器。
 	 *  @whiteSpace  訊息是否換行，預設過長會換行。
-	 *  @fitContent  讓文字撐滿容器。
 	 */
 	const style: React.CSSProperties = {
 		backgroundColor: customBGColor || undefined,
