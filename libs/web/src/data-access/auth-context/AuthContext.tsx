@@ -168,7 +168,7 @@ export const AuthProvider = ({
 	useInitLocaleEffect({ router, userInfo, isLogin: auth.isLogin })
 	// * FPS 檢查
 	useFpsChecks({ isLogin: auth.isLogin })
-		// * 輪詢確認使用者是否保持線上狀態
+	// * 輪詢確認使用者是否保持線上狀態
 	useOnlineCheckInterval({
 		isLogin: auth.isLogin,
 		onResetAuth,
