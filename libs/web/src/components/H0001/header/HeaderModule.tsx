@@ -81,8 +81,6 @@ const HeaderModule = ({
 				</a>
 			</Link>
 
-			{showSpLogo && <a className='splogo' />}
-
 			{/* 登入前 */}
 			{!auth.isLogin && (
 				<>
