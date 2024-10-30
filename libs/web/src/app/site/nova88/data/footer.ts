@@ -662,11 +662,11 @@ export const FOOTER_DATA = ({
 					name: 'PIPAY',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/pipay.jpg`,
 				},
-
-				{
-					name: 'ACLEDA_Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/acledabank.jpg`,
-				},
+				// 2024.10.30 需求拿掉
+				// {
+				// 	name: 'ACLEDA_Bank',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/acledabank.jpg`,
+				// },
 				{
 					name: 'BTC',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
