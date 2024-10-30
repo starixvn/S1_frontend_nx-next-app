@@ -11,7 +11,7 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 		quickLinks,
 		suggestedBrowser,
 		paymentMethodsByCurrencyId,
-		promotionTextList,
+		// promotionTextList,
 	} = footerData
 
 	const {
@@ -45,7 +45,7 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 			<div className='copyright'>
 				{t('Label_Footer_Copyright', { year, site })}
 			</div>
-			<Footer.PromotionText promotionTextList={promotionTextList} />
+			{/* <Footer.PromotionText promotionTextList={promotionTextList} /> */}
 		</Footer>
 	)
 }

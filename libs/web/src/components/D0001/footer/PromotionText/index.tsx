@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { IFooterData } from '@nx-next-app/types'
+import { useTranslation } from 'next-i18next'
+import React, { useState } from 'react'
 
 interface IPromotionTextProps {
 	promotionTextList: IFooterData['promotionTextList']

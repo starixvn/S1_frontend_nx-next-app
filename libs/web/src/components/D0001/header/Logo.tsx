@@ -26,11 +26,6 @@ const Logo = ({ rewardsUrl }: ILogoProps) => {
 				</a>
 			</Link>
 
-			{}
-
-			{/* 僅有巴西沒有 Aston Villa 贊助球隊 */}
-			{showSpLogo && <a className='splogo' />}
-
 			{process.env['NEXT_PUBLIC_SHOW_REWARD'] === 'true' && (
 				<Link href='/rewards' className='logo' passHref>
 					<a target='_blank' rel='noopener noreferrer' className='rewardsLogo'>
