@@ -1,4 +1,4 @@
-import { NovaAuthProvider } from '@nova88-desktop/auth-context'
+import { NovaAuthProvider } from '@nova88-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { GlobalDataProvider, getNewsById } from '@nx-next-app/data-access'
 import { Layout, News } from '@nx-next-app/features/F0001/desktop'
