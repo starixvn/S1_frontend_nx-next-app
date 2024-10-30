@@ -80,6 +80,18 @@ button[disabled], input[disabled] {
   cursor: pointer;
 }
 
+.icon-balance:before {
+  font-size: 24px !important;
+}
+
+.icon-cq9:before {
+  font-size: 16px !important;
+}
+
+.icon-friend:before {
+  font-size: 12px;
+}
+
 .icon:before {
   margin: 0 5px;
 }
@@ -159,9 +171,9 @@ header input::placeholder {
   text-align: center;
 }
 header input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #0A1B38 inset;
-          box-shadow: 0 0 0px 1000px #0A1B38 inset;
-  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+          box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: #0A1B38;
 }
 header input:focus-within {
   border: 1px solid #7591C1;
@@ -3479,14 +3491,14 @@ main .promosswiper .swiper-button-prev::after {
   display: block;
   content: "";
   border-top: 1px solid #D1D1D1;
-  width: 400px;
+  width: 23%;
   margin-top: 27px;
 }
 .partner-title::after {
   display: block;
   content: "";
   border-top: 1px solid #D1D1D1;
-  width: 400px;
+  width: 23%;
   margin-top: 27px;
 }
 
@@ -13584,9 +13596,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: #D2E2F9;
   padding: 20px;
   border-radius: 5px;
@@ -13596,6 +13608,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   position: relative;
 }
 .subModuleListColumn > .subModule .subModule-item {
+  -ms-flex-item-align: start;
+      align-self: start;
   width: 50%;
 }
 .subModuleListColumn > .subModule .subModule-item .btnGroup {
@@ -27857,6 +27871,362 @@ input[type=number] {
   text-align: center;
 }
 #survey .survey-after.close {
+  display: none;
+}
+
+.setting .infoModule {
+  padding-bottom: 40px;
+}
+.setting-container {
+  padding: 0 65px;
+}
+.setting-container .bottom-line {
+  border-bottom: 1px solid #C2D9FF;
+  margin: 40px 0;
+}
+.setting-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #5574A7;
+  margin-bottom: 30px;
+}
+.setting-content:first-child {
+  position: relative;
+  z-index: 3;
+}
+.setting-content > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.setting-content .inputBox-blue {
+  padding: 0 20px 0 20px;
+  margin-right: 10px;
+  border-radius: 10px !important;
+  color: #5574A7;
+  height: 50px;
+  width: 300px;
+  border-radius: 5px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 2;
+  border: 1px solid #BFCCE2;
+}
+.setting-content .inputBox-blue .dropdown span + button {
+  width: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+.setting-content .inputBox-blue .dropdown .dropdown-container {
+  position: absolute;
+  top: 44px;
+  left: -1px;
+  border-radius: 0 0 5px 5px;
+  background: white;
+  border: 1px solid #BFCCE2;
+  border-top: 0;
+  margin-left: 0;
+  overflow: hidden;
+}
+.setting-content .inputBox-blue .dropdown .dropdown-container .dropdown-item {
+  margin: 0;
+  padding: 10px 20px 10px 20px;
+}
+.setting-content .inputBox-blue .dropdown .btn {
+  padding: 0px;
+}
+.setting-checkbox .checkbox-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+.setting-checkbox .checkbox-content input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+}
+.setting-checkbox .checkbox-content input[type=checkbox]:disabled {
+  background: #000;
+  opacity: 1;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 8px;
+  padding: 0.5px;
+}
+.setting-checkbox .checkbox-content input[type=checkbox]:disabled + .checkbox-icon + span {
+  color: #B5C0D1;
+}
+.setting-checkbox .checkbox-content .checkbox-icon {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 1px solid #C2D9FF;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 8px;
+  padding: 0.5px;
+}
+.setting-checkbox .checkbox-content .checkbox-icon::after {
+  content: "";
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  display: none;
+  margin-bottom: 4px;
+}
+.setting-checkbox .checkbox-content input[type=checkbox]:checked ~ .checkbox-icon {
+  background: #2775FF;
+}
+.setting-checkbox .checkbox-content input[type=checkbox]:checked ~ .checkbox-icon::after {
+  display: block;
+}
+.setting-checkbox .checkbox-content input[type=checkbox]:disabled ~ .checkbox-icon {
+  opacity: 0;
+}
+.setting-checkbox .checkbox-content input[type=checkbox]:disabled ~ .checkbox-icon::after {
+  opacity: 0;
+}
+.setting-checkbox label:nth-child(2) {
+  margin-left: 20px;
+}
+.setting-radiobox .radio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px 0 10px 10px;
+}
+.setting-radiobox .radio input[type=radio] {
+  position: absolute;
+  opacity: 0;
+}
+.setting-radiobox .radio input[type=radio] + .radio-label::before {
+  content: "";
+  background: white;
+  border-radius: 100%;
+  border: 1px solid #2775FF;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  margin-right: 5px;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
+}
+.setting-radiobox .radio input[type=radio]:checked + .radio-label::before {
+  background: #2775FF;
+  -webkit-box-shadow: inset 0 0 0 3px white;
+          box-shadow: inset 0 0 0 3px white;
+}
+.setting-radiobox .radio input[type=radio]:focus + .radio-label::before {
+  outline: none;
+  border-color: #2775FF;
+}
+.setting-radiobox .radio input[type=radio]:disabled + .radio-label::before {
+  -webkit-box-shadow: inset 0 0 0 3px #f4f4f4;
+          box-shadow: inset 0 0 0 3px #f4f4f4;
+  border-color: #b4b4b4;
+  background: white;
+}
+.setting-radiobox .radio input[type=radio] + .radio-label:empty::before {
+  margin-right: 0;
+}
+.setting-radiobox .radio .radio-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.setting-title::before {
+  content: "";
+  display: block;
+  background: url(https://banner.0814media.net/desktop/img/4.0/setting-icon-w.svg) no-repeat center/cover;
+  width: 21px;
+  height: 23px;
+  margin-right: 7px;
+}
+.setting-subtitle {
+  width: 40%;
+  color: #5574A7;
+  font-weight: 700;
+  font-size: 15px;
+  margin-left: 5px;
+}
+.setting-tip {
+  color: #B5C0D1;
+  font-size: 12px;
+  font-weight: 100;
+  margin: 5px 0 15px 5px;
+}
+.setting .changepassword-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue {
+  height: 50px;
+  width: 350px;
+  padding: 0 20px 0 20px;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  color: #5574A7;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue.error {
+  border-color: #cf0404;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue input::-webkit-input-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue input::-moz-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue input:-ms-input-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue input::-ms-input-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue input::placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+          box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: #5574a7;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue input:focus-within {
+  border: 1px solid #C2D9FF;
+  outline: #C2D9FF;
+}
+.setting .changepassword-content .btnGroup {
+  width: 20%;
+}
+.setting .changepassword-content .btnGroup .btn-check {
+  height: 52px;
+  border-radius: 10px;
+}
+.setting .social .social-icon {
+  background: white;
+  border-radius: 10px;
+  padding: 8px 15px 8px 10px;
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.setting .social .social-icon > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.setting .social .social-icon > div img {
+  width: 40px;
+}
+.setting .social .social-icon > div span {
+  color: #5574A7;
+  margin-left: 8px;
+}
+.setting .social .social-icon button {
+  background: #2775FF;
+  color: white;
+  width: 120px;
+  border-radius: 50px;
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.setting .social .social-icon button::after {
+  display: block;
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) no-repeat center/100%;
+  width: 10px;
+  height: 10px;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  margin-left: 5px;
+}
+.setting .social .social-icon button.active {
+  background: #9C9C9C;
+}
+.setting .social .social-icon button.active::after {
   display: none;
 }
 
