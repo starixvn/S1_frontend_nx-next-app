@@ -182,16 +182,6 @@ const SubMenu = ({
 					/>
 					<span>{t('Label_General_Referral')}</span>
 				</button>
-				<Link href={paths.milestones.root}>
-					<a>
-						<img
-							className='List-npc'
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/dropdown/home/home-milestone.png`}
-							alt='home-milestone'
-						/>
-						<span>{t('Label_General_Milestone')}</span>
-					</a>
-				</Link>
 			</div>
 
 			{menus}

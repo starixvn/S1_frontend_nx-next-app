@@ -149,9 +149,6 @@ export const paths = {
 	europeCup: {
 		root: '/euro-cup',
 	},
-	milestones: {
-		root: '/milestones',
-	},
 	retention: {
 		root: '/retention',
 	},

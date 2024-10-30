@@ -159,7 +159,8 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 							</Link>
 						)}
 
-						<Link href={paths.cryptoWallet.root} passHref>
+						{/* Loki Comment: Use for next phase */}
+						{/* <Link href={paths.cryptoWallet.root} passHref>
 							<a>
 								<img
 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/cryptowallet.png`}
@@ -167,7 +168,7 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 								/>
 								{t('Label_General_CryptoWallet')}
 							</a>
-						</Link>
+						</Link> */}
 
 						<Link href={paths.referral.root} passHref>
 							<a>
@@ -186,16 +187,6 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 									alt='img-change-password'
 								/>
 								{t('Label_General_ChangePassword')}
-							</a>
-						</Link>
-
-						<Link href={paths.selfExclusion.root} passHref>
-							<a>
-								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/exclusion-icon.png`}
-									alt='img-self-exclusion'
-								/>
-								{t('Label_General_SelfExclusion')}
 							</a>
 						</Link>
 
