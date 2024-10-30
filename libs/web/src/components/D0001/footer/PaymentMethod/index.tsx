@@ -1,13 +1,14 @@
-import React from 'react'
-import { useTranslation } from 'next-i18next'
-import { IFooterData } from '@nx-next-app/types'
 import { useAuth } from '@nx-next-app/data-access'
+import { IFooterData } from '@nx-next-app/types'
+import { useTranslation } from 'next-i18next'
 
 interface IPaymentMethodProps {
 	paymentMethodsByCurrencyId: IFooterData['paymentMethodsByCurrencyId']
 }
 
-const PaymentMethod = ({ paymentMethodsByCurrencyId }: IPaymentMethodProps) => {
+const PaymentMethod = ({
+	paymentMethodsByCurrencyId = [],
+}: IPaymentMethodProps) => {
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
