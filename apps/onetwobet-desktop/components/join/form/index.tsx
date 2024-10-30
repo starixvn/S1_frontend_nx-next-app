@@ -11,7 +11,7 @@ import {
 	USERNAME_REGEX,
 	paths,
 } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import {
 	useGetSiteCurrencyListQuery,
 	useLazyAffiliateCheckQuery,
@@ -45,6 +45,7 @@ enum JoinMethod {
 const Form = () => {
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
+	const { getBannerUrl } = useGlobalData()
 	const { LANG_GROUPS, TERMS_CONDITIONS } = useStaticData()
 	const router = useRouter()
 	const { query } = router
@@ -534,7 +535,9 @@ const Form = () => {
 					className='txt-blue'
 					target='_blank'
 					rel='noreferrer'
-					href={TERMS_CONDITIONS({ langId: 'en' })['TermsConditions']}
+					href={getBannerUrl(
+						TERMS_CONDITIONS({ langId: 'en' })['TermsConditions']
+					)}
 				>
 					{t('Label_Join_SignUpTerms2')}
 				</a>

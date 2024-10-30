@@ -1,6 +1,6 @@
 import { SettingCollapse } from '@nx-next-app/components/H0001'
 import { LANG_GROUP_COUNTRY, paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useLanguageGroup } from '@nx-next-app/hooks'
 import classNames from 'classnames'
 import { isEqual } from 'lodash-es'
@@ -10,7 +10,7 @@ import { useRouter } from 'next/router'
 
 const List = () => {
 	const { t } = useTranslation()
-
+	const { getBannerUrl } = useGlobalData()
 	const { push, reload } = useRouter()
 
 	const {
@@ -37,10 +37,7 @@ const List = () => {
 					<div className='country-item'>
 						<div className='country-title'>
 							<div>
-								<img
-									src={`https://banner.0814media.net/h5/img/${icon}.jpg`}
-									alt='country'
-								/>
+								<img src={getBannerUrl(`/h5/img/${icon}.jpg`)} alt='country' />
 							</div>
 						</div>
 						<div>
@@ -89,7 +86,7 @@ const List = () => {
 									<div className='country-title'>
 										<div>
 											<img
-												src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/${lang}.jpg`}
+												src={getBannerUrl(`/h5/img/${lang}.jpg`)}
 												alt={lang}
 											/>
 										</div>
@@ -134,28 +131,28 @@ const List = () => {
 				header={t('Label_General_OurPolicies')}
 			>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ResposibleGaming.html`}
+					href={getBannerUrl(`/Static/${langId}/ResposibleGaming.html`)}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_ResponsibleGaming')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/en/TermsConditions.html`} // 2024.8.22 需求說先改成統一導到en語系
+					href={getBannerUrl('/Static/en/TermsConditions.html')} // 2024.8.22 需求說先改成統一導到en語系
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_TermsConditions')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/PrivacyPolicy.html`}
+					href={getBannerUrl(`/Static/${langId}/PrivacyPolicy.html`)}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_PrivacyPolicy')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/CookiePolicy.html`}
+					href={getBannerUrl(`/Static/${langId}/CookiePolicy.html`)}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
@@ -168,21 +165,21 @@ const List = () => {
 				header={t('Label_General_HelpSupport')}
 			>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/RulesandRegulations.html`}
+					href={getBannerUrl(`/Static/${langId}/RulesandRegulations.html`)}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_RuleRegulations')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AccountTerms.html`}
+					href={getBannerUrl(`/Static/${langId}/AccountTerms.html`)}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_AccountTerms')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/FAQ.html`}
+					href={getBannerUrl(`/Static/${langId}/FAQ.html`)}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
@@ -195,29 +192,26 @@ const List = () => {
 				header={String(process.env['NEXT_PUBLIC_SITE_NAME']).toUpperCase()}
 			>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AboutUs.html`}
+					href={getBannerUrl(`/Static/${langId}/AboutUs.html`)}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_AboutUs')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/Terms.html`}
+					href={getBannerUrl(`/Static/${langId}/Terms.html`)}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_Terms')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html`}
+					href={getBannerUrl(`/Static/${langId}/ContactUs.html`)}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_ContactUs')}
 				</a>
-
-				<a href={`/${langId}/milestones`}>{t('Label_General_Milestone')}</a>
-
 				<Link href={paths.gameProvider.root}>
 					<a>{t('Label_General_GameProvider')}</a>
 				</Link>
