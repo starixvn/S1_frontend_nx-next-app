@@ -45,3 +45,5 @@ Thumbs.db
 .env.development
 
 css.sh
+# Sentry Config File
+.env.sentry-build-plugin
