@@ -5,7 +5,6 @@ import { appWithTranslation } from 'next-i18next'
 import { AppProps } from 'next/app'
 import NextNProgress from 'nextjs-progressbar'
 import { Provider } from 'react-redux'
-import * as Sentry from "@sentry/nextjs";
 
 // * supply localized format options
 // * https://day.js.org/docs/en/plugin/localized-format

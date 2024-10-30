@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires, import/no-extraneous-dependencies
 const withNx = require('@nrwl/next/plugins/with-nx')
 const path = require('path')
+const { withSentryConfig } = require('@sentry/nextjs')
 
 /**
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
@@ -9,6 +10,19 @@ const path = require('path')
 process.env.I18NEXT_DEFAULT_CONFIG_PATH = `${__dirname}/next-i18next.config.js`
 
 const { i18n } = require('./next-i18next.config')
+
+const sentryOptions = {
+	org: 'sentry',
+	project: 'player-site-b2c',
+	sentryUrl: 'https://sentry-s1.nexentgame.com/',
+	silent: !process.env.CI,
+	widenClientFileUpload: true,
+	reactComponentAnnotation: { enabled: true },
+	tunnelRoute: '/monitoring',
+	hideSourceMaps: true,
+	disableLogger: true,
+	automaticVercelMonitors: true,
+}
 
 const nextConfig = {
 	nx: {
@@ -62,4 +76,4 @@ const nextConfig = {
 	},
 }
 
-module.exports = withNx(nextConfig)
+module.exports = withSentryConfig(withNx(nextConfig), sentryOptions)
