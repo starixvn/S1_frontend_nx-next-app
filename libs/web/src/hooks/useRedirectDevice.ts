@@ -45,9 +45,9 @@ export const useRedirectDevice = (context: GetServerSidePropsContext) => {
 				: reqDomain.replace(desktopCName, mobileCName)
 		} else {
 			// 桌機改桌機 CName
-			targetDomain = reqDomain.startsWith(desktopCName)
-				? reqDomain
-				: reqDomain.replace(mobileCName, desktopCName)
+
+			targetDomain = reqDomain.startsWith(mobileCName)
+				? reqDomain.replace(mobileCName, desktopCName) : reqDomain;
 		}
 
 		// 如果跟當前不同則回傳導轉連結
