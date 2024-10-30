@@ -7,7 +7,6 @@ import {
 	useGetLotteryInfoQuery,
 	useGetLotteryMaintainQuery,
 } from '@nx-next-app/service'
-import { orderBy } from 'lodash-es'
 import { ReactNode, createContext, useContext, useMemo } from 'react'
 
 export interface ILotteryData {
@@ -38,12 +37,7 @@ export const LotteryDataProvider = ({
 	children,
 	data,
 }: ILotteryProviderProps) => {
-	const {
-		winnerList,
-		initialServerTime,
-		drawingRound,
-		roundList: originalRoundList,
-	} = data || {}
+	const { winnerList, initialServerTime, drawingRound, roundList } = data || {}
 	const { data: { data: lotteryInfo } = {} } = useGetLotteryInfoQuery(null)
 	const { data: { data: stickerInfo } = {} } =
 		useGetChineseZodiacStickerListQuery(null)
@@ -68,8 +62,6 @@ export const LotteryDataProvider = ({
 		winnerList?.ticketNo.includes(winnerList.firstPrize[0]) &&
 			winnerList.stickerId === winnerList.custStickerId
 	)
-
-	const roundList = orderBy(originalRoundList, 'roundId', 'desc')
 
 	const value = {
 		drawingRound,

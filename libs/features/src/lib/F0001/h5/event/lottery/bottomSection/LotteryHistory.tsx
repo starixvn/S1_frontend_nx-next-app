@@ -53,9 +53,9 @@ const LotteryHistory = () => {
 						{selectedRound && (
 							<button type='button' className='btn'>
 								{t('Label_Event_Round')} {selectedRound.roundId} (
-								{dayjs(selectedRound.startDate).format('D MMM YYYY')}
+								{dayjs(selectedRound.startDate).format('YYYY/M/D')}
 								{' - '}
-								{dayjs(selectedRound.endDate).format('D MMM YYYY')})
+								{dayjs(selectedRound.endDate).format('YYYY/M/D')})
 							</button>
 						)}
 						<div className='wrapper'>
@@ -67,9 +67,9 @@ const LotteryHistory = () => {
 										onClick={() => setSelectedRound(round)}
 									>
 										{t('Label_Event_Round')} {round.roundId} (
-										{dayjs(round.startDate).format('D MMM YYYY')}
+										{dayjs(round.startDate).format('YYYY/M/D')}
 										{' - '}
-										{dayjs(round.endDate).format('D MMM YYYY')})
+										{dayjs(round.endDate).format('YYYY/M/D')})
 									</div>
 								))}
 							</div>
@@ -81,7 +81,8 @@ const LotteryHistory = () => {
 						<div className='card first'>
 							<div className='title-group'>
 								<div className='ranking'>
-									<div className='title'>{t('Label_Event_1stPrize')}</div>
+									<div className='title'>01</div>
+									<span>{t('Label_Event_1stPrize')}</span>
 								</div>
 								<div className='lucky-number'>
 									<span className='title'>{t('Label_Event_LuckyNumber')}</span>
@@ -98,7 +99,8 @@ const LotteryHistory = () => {
 						<div className='card second'>
 							<div className='title-group'>
 								<div className='ranking'>
-									<div className='title'>{t('Label_Event_2ndPrize')}</div>
+									<div className='title'>02</div>
+									<span>{t('Label_Event_2ndPrize')}</span>
 								</div>
 								<div className='lucky-number'>
 									<span className='title'>{t('Label_Event_LuckyNumber')}</span>
@@ -109,7 +111,8 @@ const LotteryHistory = () => {
 						<div className='card third'>
 							<div className='title-group'>
 								<div className='ranking'>
-									<div className='title'>{t('Label_Event_3rdPrize')}</div>
+									<div className='title'>03</div>
+									<span>{t('Label_Event_3rdPrize')}</span>
 								</div>
 								<div className='lucky-number'>
 									<span className='title'>{t('Label_Event_LuckyNumber')}</span>

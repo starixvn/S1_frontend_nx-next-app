@@ -1,19 +1,19 @@
-import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import Link from 'next/link'
+import dayjs from 'dayjs'
+import { includes } from 'lodash-es'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import { useBoolean, useDebounce, useOnClickOutside } from 'usehooks-ts'
+import { useEffect, useRef } from 'react'
 import {
 	ICustBonusWalletData,
 	IMainWalletInfoData,
 	ITpWalletInfoData,
 } from '@nx-next-app/service'
+import { numberFormat, numFormatToDigits } from '@nx-next-app/utils'
 import { ALLOWED_CURRENCIES } from '@nx-next-app/site/yashbet'
-import { numFormatToDigits, numberFormat } from '@nx-next-app/utils'
-import classNames from 'classnames'
-import dayjs from 'dayjs'
-import { includes } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
-import { useEffect, useRef } from 'react'
-import { useBoolean, useDebounce, useOnClickOutside } from 'usehooks-ts'
+import { paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
 import { SpinButton } from '../../button'
 
 interface IWalletProps {
@@ -163,7 +163,7 @@ const Wallet = ({
 				</div>
 				<div className='loginLog'>
 					<span>{t('Label_General_LastLogin')}</span>
-					<span>{lastLogin && dayjs(lastLogin).format('L LT')}</span>
+					<span>{dayjs(lastLogin).format('L LT')}</span>
 				</div>
 				<div className='transactionLog'>
 					<span>{t('Label_General_LastTransaction')}</span>
