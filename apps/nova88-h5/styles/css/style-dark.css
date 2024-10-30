@@ -1,95 +1,71 @@
 @font-face {
-  font-family: 'icomoon';
-  src: url("../fonts/icomoon.woff?v=202003") format("woff");
+  font-family: "icomoon";
+  src: url("../fonts/icomoon.eot");
+  src: url("../fonts/icomoon.eot") format("embedded-opentype"), url("../fonts/icomoon.ttf") format("truetype"), url("../fonts/icomoon.woff") format("woff"), url("../fonts/icomoon.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+.icon:before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.icon:before, .icon:after {
-  font-family: 'icomoon';
-  font-size: 5vw;
+.icon-digital-wallet:before {
+  content: "\e93e";
 }
 
-.icon-moon:before {
-  font-size: 14vw;
+.icon-mobile-w:before {
+  content: "\e92e";
 }
 
-.icon-equalizer:before {
-  font-size: 6vw;
+.icon-ios:before {
+  content: "\e92f";
 }
 
-.icon-icon32px_wallet:before {
-  font-size: 4vw;
+.icon-android-w:before {
+  content: "\e93c";
 }
 
-.icon-menu:before {
-  font-size: 4vw;
+.icon-pc:before {
+  content: "\e93d";
 }
 
-.icon-information:before {
-  color: #5574A7;
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
+.icon-close-radius:before {
+  content: "\e92d";
 }
 
-.icon-checkmark:before {
-  font-size: 4.5vw;
+.icon-refresh:before {
+  content: "\e92c";
 }
 
-.icon-errormark:before {
-  content: "\e98a";
-  color: #e92529;
-  font-weight: bold;
-  font-size: 4vw;
+.icon-logout:before {
+  content: "\e928";
 }
 
-.icon-new:before {
-  font-size: 3vw;
-  content: "New" !important;
-  font-family: 'Microsoft YaHei',sans-serif;
+.icon-change-password:before {
+  content: "\e92b";
 }
 
-.icon-envelope:before {
-  font-size: 3vw;
+.icon-referral:before {
+  content: "\e927";
 }
 
-.icon-close:before {
-  font-size: 4vw;
+.icon-cryptowallet:before {
+  content: "\e924";
 }
 
-.icon-email:before {
-  font-size: 6vw;
-  margin-left: -1vw;
-}
-
-.icon-pencil:before {
-  font-size: 4vw;
-}
-
-.icon-library:before {
-  font-size: 4.5vw;
-}
-
-.icon-live {
-  background: #F77A00;
-  padding: 0 1vw;
-  border-radius: 3px;
-  font-size: 3vw;
-}
-
-.icon-live:before {
-  content: "Live";
-  font-family: 'Microsoft YaHei',sans-serif;
-}
-
-.icon-line-bold:before {
-  content: "\e91f";
-}
-
-.icon-windows:before {
-  content: "\eac2";
-}
-
-.icon-Shield:before {
-  content: "\e920";
+.icon-arrow-next:before {
+  content: "\e922";
 }
 
 .icon-medal:before {
@@ -492,6 +468,10 @@
   content: "\e908";
 }
 
+.icon-marquee:before {
+  content: "\e9b7";
+}
+
 .icon-gift:before {
   content: "\e90b";
 }
@@ -516,136 +496,48 @@
   content: "\e910";
 }
 
-.icon-plus-square:before {
-  content: "\e9e0";
+.icon-bankinfo:before {
+  content: "\e926";
 }
 
-.icon-book-open:before {
-  content: "\e9e1";
+.icon-profile:before {
+  content: "\e923";
 }
 
-.icon-person:before {
-  content: "\e9dc";
+.icon-icon-Shield:before {
+  content: "\e920";
 }
 
-.icon-live_tv:before {
-  content: "\e9d8";
+.icon-line-bold:before {
+  content: "\e91f";
 }
 
-.icon-cricket:before {
-  content: "\e9d0";
+.icon-tree:before {
+  content: "\e9b6";
 }
 
-.icon-cloud_upload:before {
-  content: "\e9af";
+.icon-home1:before {
+  content: "\e9b5";
 }
 
-.icon-backup:before {
-  content: "\e9af";
+.icon-QQpay:before {
+  content: "\e944";
 }
 
-.icon-last_page:before {
-  content: "\e9ad";
+.icon-promotion:before {
+  content: "\e939";
 }
 
-.icon-first_page:before {
-  content: "\e9ae";
+.icon-windows:before {
+  content: "\eac2";
 }
 
-.icon-arrow_right:before {
-  content: "\e9a8";
+.icon-pinterest:before {
+  content: "\ead1";
 }
 
-.icon-arrow_left:before {
-  content: "\e9a9";
-}
-
-.icon-arrow_drop_up:before {
-  content: "\e9aa";
-}
-
-.icon-arrow_drop_down:before {
-  content: "\e9ab";
-}
-
-.icon-broken_image:before {
-  content: "\e998";
-}
-
-.icon-keyboard_arrow_up:before {
-  content: "\e95b";
-}
-
-.icon-keyboard_arrow_right1:before {
-  content: "\e95c";
-}
-
-.icon-keyboard_arrow_left:before {
-  content: "\e95d";
-}
-
-.icon-keyboard_arrow_down:before {
-  content: "\e95e";
-}
-
-.icon-error_outline:before {
-  content: "\e94c";
-}
-
-.icon-error:before {
-  content: "\e952";
-}
-
-.icon-keyboard_arrow_right:before {
-  content: "\e954";
-}
-
-.icon-cake:before {
-  content: "\e959";
-}
-
-.icon-calculator1:before {
-  content: "\e957";
-}
-
-.icon-message-typing:before {
-  content: "\e933";
-}
-
-.icon-question:before {
-  content: "\e909";
-}
-
-.icon-envelope:before {
-  content: "\e905";
-}
-
-.icon-menu:before {
-  content: "\e9bb";
-}
-
-.icon-close:before {
-  content: "\e98a";
-}
-
-.icon-checkmark:before {
-  content: "\e98b";
-}
-
-.icon-information:before {
-  content: "\e951";
-}
-
-.icon-cake1:before {
-  content: "\e95a";
-}
-
-.icon-minus:before {
-  content: "\e94e";
-}
-
-.icon-plus:before {
-  content: "\e94f";
+.icon-pinterest2:before {
+  content: "\ead2";
 }
 
 .icon-alarm:before {
@@ -948,20 +840,136 @@
   content: "\eaea";
 }
 
-.icon-tree:before {
-  content: "\e9b6";
+.icon-plus-square:before {
+  content: "\e9e0";
 }
 
-.icon-home1:before {
-  content: "\e9b5";
+.icon-book-open:before {
+  content: "\e9e1";
 }
 
-.icon-QQpay:before {
-  content: "\e944";
+.icon-person:before {
+  content: "\e9dc";
 }
 
-.icon-promotion:before {
-  content: "\e939";
+.icon-live_tv:before {
+  content: "\e9d8";
+}
+
+.icon-cricket:before {
+  content: "\e9d0";
+}
+
+.icon-cloud_upload:before {
+  content: "\e9af";
+}
+
+.icon-backup:before {
+  content: "\e9af";
+}
+
+.icon-last_page:before {
+  content: "\e9ad";
+}
+
+.icon-first_page:before {
+  content: "\e9ae";
+}
+
+.icon-arrow_right:before {
+  content: "\e9a8";
+}
+
+.icon-arrow_left:before {
+  content: "\e9a9";
+}
+
+.icon-arrow_drop_up:before {
+  content: "\e9aa";
+}
+
+.icon-arrow_drop_down:before {
+  content: "\e9ab";
+}
+
+.icon-broken_image:before {
+  content: "\e998";
+}
+
+.icon-keyboard_arrow_up:before {
+  content: "\e95b";
+}
+
+.icon-keyboard_arrow_right1:before {
+  content: "\e95c";
+}
+
+.icon-keyboard_arrow_left:before {
+  content: "\e95d";
+}
+
+.icon-keyboard_arrow_down:before {
+  content: "\e95e";
+}
+
+.icon-error_outline:before {
+  content: "\e94c";
+}
+
+.icon-error:before {
+  content: "\e952";
+}
+
+.icon-keyboard_arrow_right:before {
+  content: "\e954";
+}
+
+.icon-cake:before {
+  content: "\e959";
+}
+
+.icon-calculator1:before {
+  content: "\e957";
+}
+
+.icon-message-typing:before {
+  content: "\e933";
+}
+
+.icon-question:before {
+  content: "\e909";
+}
+
+.icon-envelope:before {
+  content: "\e905";
+}
+
+.icon-menu:before {
+  content: "\e9bb";
+}
+
+.icon-close:before {
+  content: "\e98a";
+}
+
+.icon-checkmark:before {
+  content: "\e98b";
+}
+
+.icon-information:before {
+  content: "\e951";
+}
+
+.icon-cake1:before {
+  content: "\e95a";
+}
+
+.icon-minus:before {
+  content: "\e94e";
+}
+
+.icon-plus:before {
+  content: "\e94f";
 }
 
 .icon-news:before {
@@ -1004,10 +1012,6 @@
   content: "\e935";
 }
 
-.icon-soccer:before {
-  content: "\e9df";
-}
-
 .icon-volleyball:before {
   content: "\e9d2";
 }
@@ -1031,182 +1035,139 @@
 html.dark body {
   background: #333;
 }
-
 html.dark header {
   background: #191919;
 }
-
 html.dark header .Join, html.dark header .Login {
   color: white;
   background: rgba(25, 25, 25, 0.95);
 }
-
 html.dark main .swiper-container {
   background: black;
 }
-
 html.dark main #Marquee {
   background: black;
 }
-
 html.dark main #Marquee button {
   color: white;
   font-size: 3vw;
 }
-
 html.dark main #Marquee .icon {
   color: white;
   background: black;
 }
-
 html.dark main .sideBar {
   background: #191919;
 }
-
 html.dark main .sideBar a {
   border-bottom: 1px solid black;
 }
-
 html.dark main .thBar {
   background: #191919;
 }
-
 html.dark main .thBar a {
   color: #F77A00;
   border-right: 1px solid #333;
 }
-
 html.dark main .thBar a.icon:before {
   color: white;
 }
-
 html.dark main .gameList {
   background: #333;
 }
-
 html.dark main .gameList a.active {
   -webkit-box-shadow: 1px 2px 4px 0px #191919;
           box-shadow: 1px 2px 4px 0px #191919;
 }
-
 html.dark footer {
   background: #333;
 }
-
 html.dark footer a {
   border-right: 1px solid #191919;
   border-bottom: 2px solid #191919;
 }
-
 html.dark footer a .circleAnimation, html.dark footer a span {
   color: #6f6f6f;
 }
-
 html.dark footer a.active {
   border-bottom: 2px solid #F77A00;
 }
-
 html.dark footer a.active .circleAnimation {
   background: url(../img/footerActiveDark.svg) no-repeat top center/100%;
 }
-
 html.dark footer a.active .circleAnimation + span {
   color: white;
 }
-
 html.dark .dropdown + .dropdown-container {
   background: #191919;
 }
-
 html.dark #popup {
   background: rgba(25, 25, 25, 0.95);
 }
-
 html.dark .header {
   background: #191919;
 }
-
 html.dark .tag {
   background: #191919;
 }
-
 html.dark .main:not(.event) {
   background: #191919;
 }
-
 html.dark .bankSlip {
   background: rgba(0, 0, 0, 0.95);
 }
-
 html.dark .buttonBox button {
   border: 1px solid #333;
   -webkit-box-shadow: 0px 3px #000;
           box-shadow: 0px 3px #000;
   background: #191919;
 }
-
 html.dark .functionList {
   background: #191919;
 }
-
 html.dark #Loading {
   background: rgba(25, 25, 25, 0.95);
 }
-
 html.dark .logoSwitch {
   background: rgba(25, 25, 25, 0.95);
 }
-
 html.dark .switchTag div.active, html.dark .depositModule {
   background: #333;
 }
-
 html.dark .selectModule {
   background: #191919;
 }
-
 html.dark .event .eventModule {
   background: #191919;
 }
-
 html.dark .list {
   background: #191919;
 }
-
 html.dark .list ul:first-child li {
   background: #333;
 }
-
 html.dark .installGuide section {
   background: #191919;
 }
-
 html.dark .installGuide section .downloadModule {
   border: 1px solid #333;
 }
-
 html.dark .installGuide section .downloadModule .guideMark {
   border-color: rgba(51, 51, 51, 0.5);
 }
-
 html.dark .kyc .icon-jump ~ div:nth-child(2) {
   background: #333;
 }
-
 html.dark .accordion > div div, html.dark .accordion > div a {
   background: #333;
 }
-
 html.dark .accordion > div div.mode, html.dark .accordion > div div.country, html.dark .accordion > div a.mode, html.dark .accordion > div a.country {
   background: black;
 }
-
 html.dark .accordion > div .title {
   background: #666;
   color: white;
 }
-
 html.dark .ranking .userRankInfo {
   background: #333;
-}
-/*# sourceMappingURL=style-dark.css.map */
+}/*# sourceMappingURL=style-dark.css.map */
