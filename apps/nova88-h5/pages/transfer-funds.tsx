@@ -1,4 +1,5 @@
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import { NovaAuthProvider } from '@nova88-h5/providers'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout, TransferFunds } from '@nx-next-app/features/F0001/h5'
 import { TransferFundsProvider } from '@nx-next-app/features/F0001/providers'
 import {
@@ -15,7 +16,10 @@ const TransferPage = ({
 	persistStaticFileDomainData,
 }: InitialPropsInterface) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -25,7 +29,7 @@ const TransferPage = ({
 					</Layout>
 				</TransferFundsProvider>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

@@ -1,15 +1,15 @@
-import { useRef } from 'react'
-import Link from 'next/link'
-import { useTranslation } from 'next-i18next'
-import { useBoolean, useOnClickOutside } from 'usehooks-ts'
-import { numberFormat } from '@nx-next-app/utils'
-import { useRouter } from 'next/router'
-import classNames from 'classnames'
-import { includes, head, find } from 'lodash'
+import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useLanguageGroup } from '@nx-next-app/hooks'
 import { useGetCustVIPProgressQuery } from '@nx-next-app/service'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { paths } from '@nx-next-app/constants'
+import { numberFormat } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { find, head, includes } from 'lodash'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useRef } from 'react'
+import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 import { Img } from '../../image'
 import Country from './Country'
 
@@ -176,16 +176,6 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 									alt='img-refer-friends'
 								/>
 								{t('Label_General_ReferFriends')}
-							</a>
-						</Link>
-
-						<Link href={paths.changePassword.root} passHref>
-							<a>
-								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/changepassword.png`}
-									alt='img-change-password'
-								/>
-								{t('Label_General_ChangePassword')}
 							</a>
 						</Link>
 

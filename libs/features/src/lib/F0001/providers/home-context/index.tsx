@@ -227,6 +227,12 @@ export const HomeProvider = ({
 	const {
 		auth: { isLogin },
 		userInfo: { currencyId, langId, userName, accountName },
+		notificationSetting: {
+			isLoadingUserInfo,
+			financeNotification,
+			soundEffects,
+			onFinanceNotification,
+		},
 	} = useAuth()
 
 	const { ALLOWED_CURRENCIES } = useStaticData()
@@ -414,6 +420,8 @@ export const HomeProvider = ({
 			{ loginCallback }
 		)
 	}
+
+	// ====== useEffect ======
 
 	useEffect(() => {
 		const cookieMaxAge = 20 * 60 * 60
@@ -620,6 +628,21 @@ export const HomeProvider = ({
 		openNextPopup()
 		// 正確放入更新依賴確保正確觸發 effect
 	}, [isLogin, accountName])
+
+	/**
+	 * 當使用者登入後導回首頁時，檢查存/提款通知並觸發對應的通知訊息。
+	 * @onFinanceNotification 是由各平台自定義的回調函數，用於設置通知訊息的通知樣式（不同平台可能有不同樣式，也可能不提供此功能）。
+	 * 如果該回調存在且使用者已登入，則檢查使用者的存/提款成功記錄，並依據回調函數發送對應的通知訊息。 */
+	useEffect(() => {
+		// 資料尚未載入完成或是使用者未登入不處理
+		if (isLoadingUserInfo) return
+		const checkNotification = async () => {
+			if (onFinanceNotification) {
+				await onFinanceNotification(financeNotification, soundEffects)
+			}
+		}
+		checkNotification()
+	}, [isLoadingUserInfo])
 
 	const value: HomeContextInterface = {
 		desktopHomeOrders,

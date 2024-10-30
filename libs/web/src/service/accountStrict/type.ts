@@ -28,6 +28,8 @@ export interface IUserInfoData {
 	areaCode?: string
 	phoneNo?: string
 	perCountry?: string
+	financeNotification?: string
+	soundEffects?: string
 	userLevel?: number
 	phoneVerified?: false
 	phoneReward?: number
@@ -59,6 +61,11 @@ export interface ISetProfileArgs {
 	Birth_y: string
 	PhoneNo: string
 	Email?: string // * 兼容 Profile UI
+}
+
+export interface ISetCustSettingArgs {
+	financeNotification: string | undefined
+	soundEffects: string | undefined
 }
 
 export interface ISetProfileAddressArgs {

@@ -1,4 +1,5 @@
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import { NovaAuthProvider } from '@nova88-h5/providers'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -16,13 +17,16 @@ const RebateExcludePage = ({
 	persistStaticFileDomainData,
 }: IRebateExcludePageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
 				<RebateExclude />
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

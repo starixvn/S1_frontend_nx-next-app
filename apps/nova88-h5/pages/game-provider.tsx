@@ -1,5 +1,6 @@
+import { NovaAuthProvider } from '@nova88-h5/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout } from '@nx-next-app/features/F0001/h5'
 import GameProvider from '@nx-next-app/features/F0001/h5/game-provider'
 import {
@@ -23,7 +24,10 @@ const GameProviderPage = ({
 	persistPlatformList,
 }: IGameProviderPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -31,7 +35,7 @@ const GameProviderPage = ({
 					<GameProvider platformList={persistPlatformList} />
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

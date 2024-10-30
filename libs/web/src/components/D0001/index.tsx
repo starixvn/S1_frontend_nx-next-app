@@ -13,7 +13,7 @@ export type { IInputBoxProps } from './input'
 
 export { default as Form } from './form'
 
-export { Modal, GlobalModal, useModal } from './modal'
+export { GlobalModal, Modal, useModal } from './modal'
 export type { IModalProps } from './modal'
 
 export * from './back-top'
@@ -39,3 +39,4 @@ export * from './image'
 export * from './countdown-timer'
 
 export { default as Survey } from './survey'
+export * from './toast'

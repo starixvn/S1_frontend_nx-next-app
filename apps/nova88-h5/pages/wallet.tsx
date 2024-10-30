@@ -1,5 +1,5 @@
+import { NovaAuthProvider } from '@nova88-h5/providers'
 import {
-	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
@@ -24,7 +24,10 @@ const WalletPage = ({
 	withdrawalBlockSetting,
 }: IWalletProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -32,7 +35,7 @@ const WalletPage = ({
 					<Wallet withdrawalBlockSetting={withdrawalBlockSetting} />
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 
