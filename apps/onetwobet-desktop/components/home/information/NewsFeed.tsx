@@ -30,8 +30,7 @@ const NewsFeed = () => {
 		<div className='home-news'>
 			<div className='title'>
 				{t('Label_General_News_Feed').toUpperCase()}
-				{/*  TODO: 導向 news 頁面 */}
-				<Link href={paths.home.root} passHref>
+				<Link href={paths.news.root} passHref>
 					<a className='see-all'>
 						<i className='icon icon-keyboard_arrow_right1' />
 						{t('Label_General_SeeMore').toUpperCase()}
