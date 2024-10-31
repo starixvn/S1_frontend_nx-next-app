@@ -1,23 +1,23 @@
-import React from 'react'
-import { useHistory } from '@nx-next-app/features/F0001/providers'
-import { useTranslation } from 'next-i18next'
 import { BackTop } from '@nx-next-app/components/D0001'
-import { uniqueId } from 'lodash-es'
-import { HistoryTabsEnum } from 'libs/web/src/app/types/history'
-import {
-	IDepositInfoHistoryData,
-	IReferralData,
-	IStatementData,
-	ITransferHistoryData,
-	IWithdrawalInfoHistoryData,
-} from '@nx-next-app/service'
 import Loading from '@nx-next-app/components/H0001/loading'
 import HistoryHeader from '@nx-next-app/features/F0001/h5/history/header'
-import TransferItem from '@nx-next-app/features/F0001/h5/history/historyItems/TransferItem'
 import DepositItem from '@nx-next-app/features/F0001/h5/history/historyItems/DepositItem'
-import WithdrawalItem from '@nx-next-app/features/F0001/h5/history/historyItems/WithdrawalItem'
 import FinancialItem from '@nx-next-app/features/F0001/h5/history/historyItems/FinancialItem'
 import ReferralItem from '@nx-next-app/features/F0001/h5/history/historyItems/ReferralItem'
+import TransferItem from '@nx-next-app/features/F0001/h5/history/historyItems/TransferItem'
+import WithdrawalItem from '@nx-next-app/features/F0001/h5/history/historyItems/WithdrawalItem'
+import { useHistory } from '@nx-next-app/features/F0001/providers'
+import {
+  IDepositInfoHistoryData,
+  IReferralData,
+  IStatementData,
+  ITransferHistoryData,
+  IWithdrawalInfoHistoryData,
+} from '@nx-next-app/service'
+import { HistoryTabsEnum } from 'libs/web/src/app/types/history'
+import { uniqueId } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import React from 'react'
 
 const History = () => {
 	const {
@@ -57,10 +57,11 @@ const History = () => {
 									)}
 								</React.Fragment>
 							))}
-							<span ref={historyListRef} />
+
 							{displayColumns.length > 2 ? <BackTop /> : null}
 						</div>
 					)}
+          <span ref={historyListRef} />
 					{currentPage && displayColumns.length === 0 && (
 						<div className='nodata icon icon-nodata'>
 							<div className='txt-white'>{t('Label_General_NoData')}</div>
