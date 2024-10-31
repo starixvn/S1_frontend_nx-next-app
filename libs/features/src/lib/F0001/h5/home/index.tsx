@@ -128,7 +128,7 @@ const Home = () => {
 		[MobileHomeComponentsEnum.FooterBlock]: <FooterBlock />,
 		[MobileHomeComponentsEnum.SimpleFooter]: <SimpleFooter />,
 		[MobileHomeComponentsEnum.JackPotSwiper]: <JackPotSwiper />,
-		[MobileHomeComponentsEnum.PartnerBlock]: <PartnerBlock />,
+		[MobileHomeComponentsEnum.PartnerBlock]: null,
 		[MobileHomeComponentsEnum.OlympicEntry]: includes(
 			ALLOWED_CURRENCIES.OLYMPIC,
 			currencyId
