@@ -91,7 +91,7 @@ const Shortcut = () => {
 				/>
 				<span>{t('Label_General_LiveChat')}</span>
 			</a>
-			{includes(ALLOWED_CURRENCIES['AFFILIATE'], currencyId) && (
+			{/* {includes(ALLOWED_CURRENCIES['AFFILIATE'], currencyId) && (
 				<a
 					href={
 						GET_AFFILIATE_LINK ? GET_AFFILIATE_LINK({ currencyId, langId }) : ''
@@ -105,8 +105,8 @@ const Shortcut = () => {
 					/>
 					<span>{t('Label_Affiliate_Program')}</span>
 				</a>
-			)}
-			<Link href={paths.milestones.root}>
+			)} */}
+			{/* <Link href={paths.milestones.root}>
 				<a>
 					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/milestone.png`}
@@ -114,15 +114,15 @@ const Shortcut = () => {
 					/>
 					<span>{t('Label_General_Milestone')}</span>
 				</a>
-			</Link>
-			<a onClick={() => navigatePath(paths.selfExclusion.root)}>
+			</Link> */}
+			{/* <a onClick={() => navigatePath(paths.selfExclusion.root)}>
 				<img
 					className='exclusion-icon'
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/exclusion.png`}
 					alt='exclusion'
 				/>
 				<span>{t('Label_General_SelfExclusion')}</span>
-			</a>
+			</a> */}
 			{isLogin && (
 				<Link href={paths.survey.root}>
 					<a>
