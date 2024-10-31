@@ -237,7 +237,7 @@ export const PRODUCTS = {
 		tpGameIdNo: 48,
 		tpId: 12,
 		tpGameType: 6,
-		gameId: 12,
+		gameId: 0,
 	},
 	OneGamingPoker: {
 		tpGameIdNo: 49,
