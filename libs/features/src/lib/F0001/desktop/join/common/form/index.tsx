@@ -446,6 +446,7 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	useEffect(() => {
 		checkLineRegister()
+		selectCurrency(4)
 	}, [siteCurrencyList])
 
 	return (
@@ -584,7 +585,7 @@ const Form = ({ cookies }: IJoinProps) => {
 							: currencyOptions
 					}
 					value={getValues('currencyId')}
-					placeholder={t('Label_Join_PrefferedCurrency') as string}
+					placeholder='THB'
 					prefixIcon={<i className='icon icon-coin-dollar txt-blue' />}
 					onChange={currencyId => selectCurrency(currencyId)}
 					errorMessage={errors['currencyId']?.message as string}

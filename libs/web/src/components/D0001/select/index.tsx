@@ -1,9 +1,9 @@
+import { SelectOptionType } from '@nx-next-app/types'
+import classNames from 'classnames'
+import { filter, find, includes, uniqueId } from 'lodash'
+import { useTranslation } from 'next-i18next'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import { useBoolean, useOnClickOutside } from 'usehooks-ts'
-import { useTranslation } from 'next-i18next'
-import { filter, find, includes, uniqueId } from 'lodash'
-import classNames from 'classnames'
-import { SelectOptionType } from '@nx-next-app/types'
 
 export interface ISelectProps {
 	value?: string | number
@@ -98,7 +98,11 @@ const Select = (props: ISelectProps) => {
 					{label}
 				</button>
 
-				<div className={classNames('dropdown-container', { active: isActive })}>
+				<div
+					className={classNames('dropdown-container', {
+						active: placeholder === 'THB' ? false : isActive,
+					})}
+				>
 					{showSearch && (
 						<div className='inputBox-blue'>
 							<input
