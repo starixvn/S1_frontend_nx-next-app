@@ -243,8 +243,8 @@ const Join = ({ cookies }: IJoinProps) => {
 		const reCaptchaAction = 'signup'
 		let reCaptchaToken
 		if (
-			(process.env['NEXT_PUBLIC_SITE_ID'] === '1' &&
-				recaptchaInfoData?.country !== 'CN') ||
+			process.env['NEXT_PUBLIC_SITE_ID'] === '1' &&
+			recaptchaInfoData?.country !== 'CN' &&
 			!isInApp()
 		) {
 			if (!executeRecaptcha) return
