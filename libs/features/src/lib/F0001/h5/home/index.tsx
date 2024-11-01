@@ -1,6 +1,6 @@
 import { Header, JackPot } from '@nx-next-app/components/H0001'
 import { paths } from '@nx-next-app/constants'
-import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
 import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
@@ -44,15 +44,11 @@ const RecentlyViewGames = dynamic(() => import('./RecentlyViewGames'), {
 
 const FriendReferral = dynamic(() => import('./FriendReferral'), { ssr: false })
 
-const AppDownload = dynamic(() => import('./AppDownload'))
-
 const SimpleFooter = dynamic(() => import('./SimpleFooter'))
 
 const FooterBlock = dynamic(() => import('./footerBlock'))
 
 const JackPotSwiper = dynamic(() => import('./JackPotSwiper'), { ssr: false })
-
-const PartnerBlock = dynamic(() => import('./PartnerBlock'))
 
 const OlympicEntry = dynamic(() => import('../common/OlympicEntry'), {
 	ssr: false,
@@ -80,8 +76,6 @@ const Home = () => {
 	} = useTpWalletBalanceListFetcher({ langId })
 
 	const [setHideBalance] = useSetHideBalanceMutation()
-
-	const { isInApp } = useGlobalData()
 
 	const { ALLOWED_CURRENCIES } = useStaticData()
 
@@ -122,13 +116,10 @@ const Home = () => {
 		[MobileHomeComponentsEnum.Retention]: <Retention />,
 
 		[MobileHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
-		[MobileHomeComponentsEnum.AppDownload]:
-			isInApp === false ? <AppDownload /> : null,
 
 		[MobileHomeComponentsEnum.FooterBlock]: <FooterBlock />,
 		[MobileHomeComponentsEnum.SimpleFooter]: <SimpleFooter />,
 		[MobileHomeComponentsEnum.JackPotSwiper]: <JackPotSwiper />,
-		[MobileHomeComponentsEnum.PartnerBlock]: null,
 		[MobileHomeComponentsEnum.OlympicEntry]: includes(
 			ALLOWED_CURRENCIES.OLYMPIC,
 			currencyId
