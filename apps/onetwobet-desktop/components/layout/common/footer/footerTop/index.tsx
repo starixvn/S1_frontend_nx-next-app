@@ -1,48 +1,54 @@
-import { useGlobalData } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { useLanguageGroup } from '@nx-next-app/hooks'
 import { sponsorsList } from '@nx-next-app/site/onetwobet'
 import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
 
 const FooterTop = () => {
 	const { t } = useTranslation()
 	const { getBannerUrl, getSportImageUrl } = useGlobalData()
 	const { icon } = useLanguageGroup()
+	const {
+		userInfo: { langId },
+	} = useAuth()
 	return (
 		<div className='footer-top'>
-			<Link
+			<a
 				href={`https://tsprom.qqs77.com/sponsorship/index.php?act=gallery-photo&lang=${icon}`}
+				target='_blank'
+				rel='noreferrer'
 			>
-				<a target='_blank'>
-					<img
-						src={getBannerUrl('/desktop/img/vip-icon.png')}
-						alt='Sponsorship img'
-					/>
-					{t('Label_Sponsorship_Events')}
-				</a>
-			</Link>
+				<img
+					src={getBannerUrl('/desktop/img/vip-icon.png')}
+					alt='Sponsorship img'
+				/>
+				{t('Label_Sponsorship_Events')}
+			</a>
 
-			{/* TODO: 對外連結ＰＭ後續提供 */}
-			<a href=''>
+			<a
+				href={`https://affiliate.12bet.com/${langId}/Home`}
+				target='_blank'
+				rel='noreferrer'
+			>
 				<img
 					src={getBannerUrl('/desktop/img/affiliate-icon.png')}
 					alt='affiliate-icon'
 				/>
 				{t('Label_Affiliate_Program')}
 			</a>
-			<Link
+
+			<a
 				href={`https://tsprom.qqs77.com/sponsorship/index.php?act=home&lang=${icon}`}
+				target='_blank'
+				rel='noreferrer'
 			>
-				<a target='_blank'>
-					<img
-						src={getBannerUrl('/desktop/img/lc-logo.png')}
-						alt='Official Betting Partner icon'
-					/>
-					{t('Label_Official_Betting_Partner')}
-					<br />
-					2024 - 2025
-				</a>
-			</Link>
+				<img
+					src={getBannerUrl('/desktop/img/lc-logo.png')}
+					alt='Official Betting Partner icon'
+				/>
+				{t('Label_Official_Betting_Partner')}
+				<br />
+				2024 - 2025
+			</a>
 
 			{/* <!-- fc-club--> */}
 			<div className='fc-club-group'>

@@ -13,13 +13,14 @@ const Logo = () => {
 					alt='12Bet Logo'
 				/>
 			</Link>
-			<Link href={paths.rewards.root}>
+			{/* 為了不要被強制帶語系，所以用一般的<a></a> 而非<Link></Link> */}
+			<a href={paths.rewards.root}>
 				<img
 					style={{ cursor: 'pointer' }}
 					src={getBannerUrl('/desktop/img/12reward-logo.png')}
 					alt='rewards Logo'
 				/>
-			</Link>
+			</a>
 		</div>
 	)
 }
