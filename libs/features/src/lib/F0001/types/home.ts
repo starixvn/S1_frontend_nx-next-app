@@ -54,8 +54,8 @@ export enum MobileHomeComponentsEnum {
 	Jackpot = 'Jackpot',
 	LuckyWheel = 'LuckyWheel',
 	LiveStreamingLink = 'LiveStreamingLink',
-	AppDownload = 'AppDownload',
-	PartnerBlock = 'PartnerBlock',
+	// AppDownload = 'AppDownload',
+	// PartnerBlock = 'PartnerBlock',
 	// 代言人頭像
 	FooterBlock = 'FooterBlock',
 	// 簡易 Footer , 與 Footer 只可擇一添加
