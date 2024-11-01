@@ -42,8 +42,7 @@ const HeaderModule = () => {
 							/>
 						</button>
 					</Link>
-					{/* TODO download app 頁面 */}
-					<Link href={paths.home.root} prefetch>
+					<Link href={paths.appDownload.root} prefetch>
 						<button>
 							<img
 								src={getBannerUrl('/h5/img/download-icon.png')}

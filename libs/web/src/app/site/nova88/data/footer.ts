@@ -256,7 +256,7 @@ export const FOOTER_DATA = ({
 			},
 		],
 		licenseData: {
-			defaultScript: 'a7019fa5-9f9a-468b-92da-4890f6a6e4a7',
+			defaultScript: '0ab77fde-ce97-42f7-9906-bdd3ca1162dd',
 			defaultXCMScript: '226e4de2-30aa-4077-951b-d440012994f3',
 		},
 		suggestedBrowser: [

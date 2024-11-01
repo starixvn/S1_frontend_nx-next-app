@@ -24,13 +24,14 @@ const InfoSwiper = () => {
 		<div className='info-swiper'>
 			<Carousel {...config}>
 				<div className='swiper-slide'>
-					{/* TODO 導向商城頁面 */}
-					<button>
-						<img
-							src={getBannerUrl('/h5/img/tiles/en/tile-12rewards.png')}
-							alt='rewards'
-						/>
-					</button>
+					<a href='/rewards' target='_blank' rel='noreferrer'>
+						<button>
+							<img
+								src={getBannerUrl('/h5/img/tiles/en/tile-12rewards.png')}
+								alt='rewards'
+							/>
+						</button>
+					</a>
 				</div>
 				<div className='swiper-slide'>
 					<Link href={paths.vip.root} passHref>
