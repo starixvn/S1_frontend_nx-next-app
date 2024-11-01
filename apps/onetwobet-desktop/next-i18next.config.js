@@ -17,7 +17,7 @@ module.exports = {
 			'te',
 			'vn',
 			'ko',
-			'br',
+			// 'br',
 		],
 		defaultNS: process.env.NEXT_PUBLIC_SITE_NAME,
 		fallbackNS: 'common',
