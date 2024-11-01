@@ -644,64 +644,64 @@ export const META_DATA: IMetaData = {
 				},
 			],
 		},
-		br: {
-			title: `Jogue no Nova88| o Cassino Online Confiável Favorito da América do Sul`,
-			description: `Nova88 é o Sportsbook, Cassino Ao Vivo e Jogos de Caça-Níqueis mais confiável da América do Sul. Licenciado oficialmente e subsidiária da SABA Sports.`,
-			keyword: `Jogue no Nova88, o Sportsbook, Cassino Ao Vivo, e Jogos de Caça-Níqueis mais confiável do Japão. Subsidiária oficial da SABA Sports. Cassino Online Japão. Apostas Online. Nova88 Login`,
-			links: [
-				{ rel: 'canonical', href: `https://www.nova88.net/br/` },
-				{
-					rel: 'alternate',
-					media: 'only screen and (max-width: 640px)',
-					href: `https://m.nova88.net/en/`,
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88.net/en/',
-					hrefLang: 'en-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88mas.com/my/',
-					hrefLang: 'ms-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88-indo805.info/id/',
-					hrefLang: 'id-ID',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88bkk.com/th/',
-					hrefLang: 'th-TH',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88india.com/hi/',
-					hrefLang: 'hi-IN',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88105.net/cs/',
-					hrefLang: 'zh-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88106.net/bd/',
-					hrefLang: 'bn-BD',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88103.net/kh/',
-					hrefLang: 'km-KH',
-				},
-				{
-					rel: 'alternate',
-					href: 'http://nova88901.net/vn/',
-					hrefLang: 'vi-VN',
-				},
-			],
-		},
+		// br: {
+		// 	title: `Jogue no Nova88| o Cassino Online Confiável Favorito da América do Sul`,
+		// 	description: `Nova88 é o Sportsbook, Cassino Ao Vivo e Jogos de Caça-Níqueis mais confiável da América do Sul. Licenciado oficialmente e subsidiária da SABA Sports.`,
+		// 	keyword: `Jogue no Nova88, o Sportsbook, Cassino Ao Vivo, e Jogos de Caça-Níqueis mais confiável do Japão. Subsidiária oficial da SABA Sports. Cassino Online Japão. Apostas Online. Nova88 Login`,
+		// 	links: [
+		// 		{ rel: 'canonical', href: `https://www.nova88.net/br/` },
+		// 		{
+		// 			rel: 'alternate',
+		// 			media: 'only screen and (max-width: 640px)',
+		// 			href: `https://m.nova88.net/en/`,
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88.net/en/',
+		// 			hrefLang: 'en-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88mas.com/my/',
+		// 			hrefLang: 'ms-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88-indo805.info/id/',
+		// 			hrefLang: 'id-ID',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88bkk.com/th/',
+		// 			hrefLang: 'th-TH',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88india.com/hi/',
+		// 			hrefLang: 'hi-IN',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88105.net/cs/',
+		// 			hrefLang: 'zh-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88106.net/bd/',
+		// 			hrefLang: 'bn-BD',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88103.net/kh/',
+		// 			hrefLang: 'km-KH',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'http://nova88901.net/vn/',
+		// 			hrefLang: 'vi-VN',
+		// 		},
+		// 	],
+		// },
 	},
 	[paths.join.root]: {
 		en: {
@@ -1175,54 +1175,54 @@ export const META_DATA: IMetaData = {
 				},
 			],
 		},
-		br: {
-			links: [
-				{
-					rel: 'alternate',
-					media: 'only screen and (max-width: 640px)',
-					href: `https://m.nova88-indo805.info/br/join`,
-				},
-				{
-					rel: 'canonical',
-					href: `https://www.nova88-indo805.info/br/join`,
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88.net/en/join',
-					hrefLang: 'en-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88mas.com/my/join',
-					hrefLang: 'ms-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88-indo805.info/id/join',
-					hrefLang: 'id-ID',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88bkk.com/th/join',
-					hrefLang: 'th-TH',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88india.com/hi/join',
-					hrefLang: 'hi-IN',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88105.net/cs/join',
-					hrefLang: 'zh-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88106.net/bd/join',
-					hrefLang: 'bn-BD',
-				},
-			],
-		},
+		// br: {
+		// 	links: [
+		// 		{
+		// 			rel: 'alternate',
+		// 			media: 'only screen and (max-width: 640px)',
+		// 			href: `https://m.nova88-indo805.info/br/join`,
+		// 		},
+		// 		{
+		// 			rel: 'canonical',
+		// 			href: `https://www.nova88-indo805.info/br/join`,
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88.net/en/join',
+		// 			hrefLang: 'en-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88mas.com/my/join',
+		// 			hrefLang: 'ms-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88-indo805.info/id/join',
+		// 			hrefLang: 'id-ID',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88bkk.com/th/join',
+		// 			hrefLang: 'th-TH',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88india.com/hi/join',
+		// 			hrefLang: 'hi-IN',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88105.net/cs/join',
+		// 			hrefLang: 'zh-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88106.net/bd/join',
+		// 			hrefLang: 'bn-BD',
+		// 		},
+		// 	],
+		// },
 	},
 	[paths.promotion.root]: {
 		en: {
@@ -1735,57 +1735,57 @@ export const META_DATA: IMetaData = {
 				},
 			],
 		},
-		br: {
-			title: `Promoções Nova88 | Giros Grátis | Bônus de Boas-Vindas`,
-			description: `Não perca nossas promoções mensais atualizadas. Junte-se à Nova88 hoje e ganhe seus bônus de boas-vindas exclusivos!`,
-			keyword: `Promoções de Cassino Online, Bônus de Boas-Vindas, Cashback, Reembolso em Dinheiro, Recompensas Semanais, Recompensas de Indicação, Recompensas de Aniversário, Promoção para Novos Membros, Bônus`,
-			links: [
-				{
-					rel: 'alternate',
-					media: 'only screen and (max-width: 640px)',
-					href: `https://m.nova88.net/br/promotion`,
-				},
-				{
-					rel: 'canonical',
-					href: `https://www.nova88.net/br/promotion`,
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88.net/en/promotion',
-					hrefLang: 'en-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88mas.com/my/promotion',
-					hrefLang: 'ms-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88-indo805.info/id/promotion',
-					hrefLang: 'id-ID',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88bkk.com/th/promotion',
-					hrefLang: 'th-TH',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88india.com/hi/promotion',
-					hrefLang: 'hi-IN',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88105.net/cs/promotion',
-					hrefLang: 'zh-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88106.net/bd/promotion',
-					hrefLang: 'bn-BD',
-				},
-			],
-		},
+		// br: {
+		// 	title: `Promoções Nova88 | Giros Grátis | Bônus de Boas-Vindas`,
+		// 	description: `Não perca nossas promoções mensais atualizadas. Junte-se à Nova88 hoje e ganhe seus bônus de boas-vindas exclusivos!`,
+		// 	keyword: `Promoções de Cassino Online, Bônus de Boas-Vindas, Cashback, Reembolso em Dinheiro, Recompensas Semanais, Recompensas de Indicação, Recompensas de Aniversário, Promoção para Novos Membros, Bônus`,
+		// 	links: [
+		// 		{
+		// 			rel: 'alternate',
+		// 			media: 'only screen and (max-width: 640px)',
+		// 			href: `https://m.nova88.net/br/promotion`,
+		// 		},
+		// 		{
+		// 			rel: 'canonical',
+		// 			href: `https://www.nova88.net/br/promotion`,
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88.net/en/promotion',
+		// 			hrefLang: 'en-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88mas.com/my/promotion',
+		// 			hrefLang: 'ms-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88-indo805.info/id/promotion',
+		// 			hrefLang: 'id-ID',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88bkk.com/th/promotion',
+		// 			hrefLang: 'th-TH',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88india.com/hi/promotion',
+		// 			hrefLang: 'hi-IN',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88105.net/cs/promotion',
+		// 			hrefLang: 'zh-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88106.net/bd/promotion',
+		// 			hrefLang: 'bn-BD',
+		// 		},
+		// 	],
+		// },
 	},
 	[paths.vip.root]: {
 		en: {
@@ -2268,54 +2268,54 @@ export const META_DATA: IMetaData = {
 				},
 			],
 		},
-		br: {
-			title: `Nova88 VIP | Membro VIP | Recompensas Exclusivas`,
-			description: `Programa VIP Nova88 - Descubra todos os benefícios de ser um jogador VIP na Nova88. Desfrute de benefícios exclusivamente adaptados quando você alcançar um nível mais alto.`,
-			keyword: `Nova88, Programa VIP do Cassino, Privilégios VIP, Clube Nova, Reembolso Especial VIP, Bônus VIP, Benefícios para Membros VIP`,
-			links: [
-				{
-					rel: 'alternate',
-					media: 'only screen and (max-width: 640px)',
-					href: `https://m.nova88.net/br/vip`,
-				},
-				{ rel: 'canonical', href: `https://www.nova88.net/br/vip` },
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88.net/en/vip',
-					hrefLang: 'en-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88mas.com/my/vip',
-					hrefLang: 'ms-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88-indo805.info/id/vip',
-					hrefLang: 'id-ID',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88bkk.com/th/vip',
-					hrefLang: 'th-TH',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88india.com/hi/vip',
-					hrefLang: 'hi-IN',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88105.net/cs/vip',
-					hrefLang: 'zh-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88106.net/bd/vip',
-					hrefLang: 'bn-BD',
-				},
-			],
-		},
+		// br: {
+		// 	title: `Nova88 VIP | Membro VIP | Recompensas Exclusivas`,
+		// 	description: `Programa VIP Nova88 - Descubra todos os benefícios de ser um jogador VIP na Nova88. Desfrute de benefícios exclusivamente adaptados quando você alcançar um nível mais alto.`,
+		// 	keyword: `Nova88, Programa VIP do Cassino, Privilégios VIP, Clube Nova, Reembolso Especial VIP, Bônus VIP, Benefícios para Membros VIP`,
+		// 	links: [
+		// 		{
+		// 			rel: 'alternate',
+		// 			media: 'only screen and (max-width: 640px)',
+		// 			href: `https://m.nova88.net/br/vip`,
+		// 		},
+		// 		{ rel: 'canonical', href: `https://www.nova88.net/br/vip` },
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88.net/en/vip',
+		// 			hrefLang: 'en-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88mas.com/my/vip',
+		// 			hrefLang: 'ms-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88-indo805.info/id/vip',
+		// 			hrefLang: 'id-ID',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88bkk.com/th/vip',
+		// 			hrefLang: 'th-TH',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88india.com/hi/vip',
+		// 			hrefLang: 'hi-IN',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88105.net/cs/vip',
+		// 			hrefLang: 'zh-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88106.net/bd/vip',
+		// 			hrefLang: 'bn-BD',
+		// 		},
+		// 	],
+		// },
 	},
 	[paths.sports.root]: {
 		en: {
@@ -2726,57 +2726,57 @@ export const META_DATA: IMetaData = {
 				},
 			],
 		},
-		br: {
-			title: `Nova88 | Apostas Esportivas | Esportes SABA`,
-			description: `Nova88 é um dos principais sportsbooks no Brasil. Nova88 oferece uma ampla gama de eventos esportivos como futebol, basquete, tênis, golfe e muito mais.`,
-			keyword: `Nova88 Esportes, Futebol, Basquete, Beisebol, Casa de Apostas no Brasil, Jogo de Futebol, Apostas Esportivas, Livros Esportivos da Nova88, Esportes da SABA`,
-			links: [
-				{
-					rel: 'alternate',
-					media: 'only screen and (max-width: 640px)',
-					href: `https://m.nova88.net/br/leaderBoard`,
-				},
-				{
-					rel: 'canonical',
-					href: `https://www.nova88.net/br/leaderBoard`,
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88.net/en/leaderBoard',
-					hrefLang: 'en-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88mas.com/my/leaderBoard',
-					hrefLang: 'ms-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88-indo805.info/id/leaderBoard',
-					hrefLang: 'id-ID',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88bkk.com/th/leaderBoard',
-					hrefLang: 'th-TH',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88india.com/hi/leaderBoard',
-					hrefLang: 'hi-IN',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88105.net/cs/leaderBoard',
-					hrefLang: 'zh-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88106.net/bd/leaderBoard',
-					hrefLang: 'bn-BD',
-				},
-			],
-		},
+		// br: {
+		// 	title: `Nova88 | Apostas Esportivas | Esportes SABA`,
+		// 	description: `Nova88 é um dos principais sportsbooks no Brasil. Nova88 oferece uma ampla gama de eventos esportivos como futebol, basquete, tênis, golfe e muito mais.`,
+		// 	keyword: `Nova88 Esportes, Futebol, Basquete, Beisebol, Casa de Apostas no Brasil, Jogo de Futebol, Apostas Esportivas, Livros Esportivos da Nova88, Esportes da SABA`,
+		// 	links: [
+		// 		{
+		// 			rel: 'alternate',
+		// 			media: 'only screen and (max-width: 640px)',
+		// 			href: `https://m.nova88.net/br/leaderBoard`,
+		// 		},
+		// 		{
+		// 			rel: 'canonical',
+		// 			href: `https://www.nova88.net/br/leaderBoard`,
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88.net/en/leaderBoard',
+		// 			hrefLang: 'en-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88mas.com/my/leaderBoard',
+		// 			hrefLang: 'ms-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88-indo805.info/id/leaderBoard',
+		// 			hrefLang: 'id-ID',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88bkk.com/th/leaderBoard',
+		// 			hrefLang: 'th-TH',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88india.com/hi/leaderBoard',
+		// 			hrefLang: 'hi-IN',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88105.net/cs/leaderBoard',
+		// 			hrefLang: 'zh-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88106.net/bd/leaderBoard',
+		// 			hrefLang: 'bn-BD',
+		// 		},
+		// 	],
+		// },
 	},
 	[paths.eSport.root]: {
 		en: {
@@ -3239,52 +3239,52 @@ export const META_DATA: IMetaData = {
 				},
 			],
 		},
-		br: {
-			title: `Nova88 | Apostas em Esports | Cassino de Esports`,
-			description: `Nova88 permite que você aposte em e-sports de todo o mundo, oferecendo aos brasileiros uma nova experiência de jogo.`,
-			keyword: `Nova88 Esports, Jogos da Nova88, Jogos de Esports, Eventos de Esports, Torneios de Esports, Apostas em Esports`,
-			links: [
-				{
-					rel: 'canonical',
-					href: `https://www.nova88.net/br/eSport`,
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88.net/en/eSport',
-					hrefLang: 'en-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88mas.com/my/eSport',
-					hrefLang: 'ms-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88-indo805.info/id/eSport',
-					hrefLang: 'id-ID',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88bkk.com/th/eSport',
-					hrefLang: 'th-TH',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88india.com/hi/eSport',
-					hrefLang: 'hi-IN',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88105.net/cs/eSport',
-					hrefLang: 'zh-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88106.net/bd/eSport',
-					hrefLang: 'bn-BD',
-				},
-			],
-		},
+		// br: {
+		// 	title: `Nova88 | Apostas em Esports | Cassino de Esports`,
+		// 	description: `Nova88 permite que você aposte em e-sports de todo o mundo, oferecendo aos brasileiros uma nova experiência de jogo.`,
+		// 	keyword: `Nova88 Esports, Jogos da Nova88, Jogos de Esports, Eventos de Esports, Torneios de Esports, Apostas em Esports`,
+		// 	links: [
+		// 		{
+		// 			rel: 'canonical',
+		// 			href: `https://www.nova88.net/br/eSport`,
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88.net/en/eSport',
+		// 			hrefLang: 'en-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88mas.com/my/eSport',
+		// 			hrefLang: 'ms-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88-indo805.info/id/eSport',
+		// 			hrefLang: 'id-ID',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88bkk.com/th/eSport',
+		// 			hrefLang: 'th-TH',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88india.com/hi/eSport',
+		// 			hrefLang: 'hi-IN',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88105.net/cs/eSport',
+		// 			hrefLang: 'zh-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88106.net/bd/eSport',
+		// 			hrefLang: 'bn-BD',
+		// 		},
+		// 	],
+		// },
 	},
 	[paths.liveCasino.root]: {
 		en: {
@@ -3747,52 +3747,52 @@ export const META_DATA: IMetaData = {
 				},
 			],
 		},
-		br: {
-			title: `Nova88 | Trusted Live Casino | Play & Win!`,
-			description: `Nova88 Has Been In The Industry For Over 20 Years. There Are Various of Live Casino Games Offered, Such As Baccarat, Roulette, Blackjack, Poker And Many More.`,
-			keyword: `Online Casino, Casino Games, Live Gambling, Baccarat, Roulette, Blackjack, Poker, Slots, Game Shows, Sic Bo, Dragon Tiger, Pragmatic Play, Microgaming, Evolution Gaming, Playtech, Dream Gaming, AE Sexy, SA Gaming, Allbet, Asia Gaming, WM Casino, eBet`,
-			links: [
-				{
-					rel: 'canonical',
-					href: `https://www.nova88.net/en/liveCasino`,
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88.net/en/liveCasino',
-					hrefLang: 'en-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88mas.com/my/liveCasino',
-					hrefLang: 'ms-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88-indo805.info/id/liveCasino',
-					hrefLang: 'id-ID',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88bkk.com/th/liveCasino',
-					hrefLang: 'th-TH',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88india.com/hi/liveCasino',
-					hrefLang: 'hi-IN',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88105.net/cs/liveCasino',
-					hrefLang: 'zh-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88106.net/bd/liveCasino',
-					hrefLang: 'bn-BD',
-				},
-			],
-		},
+		// br: {
+		// 	title: `Nova88 | Trusted Live Casino | Play & Win!`,
+		// 	description: `Nova88 Has Been In The Industry For Over 20 Years. There Are Various of Live Casino Games Offered, Such As Baccarat, Roulette, Blackjack, Poker And Many More.`,
+		// 	keyword: `Online Casino, Casino Games, Live Gambling, Baccarat, Roulette, Blackjack, Poker, Slots, Game Shows, Sic Bo, Dragon Tiger, Pragmatic Play, Microgaming, Evolution Gaming, Playtech, Dream Gaming, AE Sexy, SA Gaming, Allbet, Asia Gaming, WM Casino, eBet`,
+		// 	links: [
+		// 		{
+		// 			rel: 'canonical',
+		// 			href: `https://www.nova88.net/en/liveCasino`,
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88.net/en/liveCasino',
+		// 			hrefLang: 'en-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88mas.com/my/liveCasino',
+		// 			hrefLang: 'ms-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88-indo805.info/id/liveCasino',
+		// 			hrefLang: 'id-ID',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88bkk.com/th/liveCasino',
+		// 			hrefLang: 'th-TH',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88india.com/hi/liveCasino',
+		// 			hrefLang: 'hi-IN',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88105.net/cs/liveCasino',
+		// 			hrefLang: 'zh-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88106.net/bd/liveCasino',
+		// 			hrefLang: 'bn-BD',
+		// 		},
+		// 	],
+		// },
 	},
 	[paths.slots.root]: {
 		en: {
@@ -4284,54 +4284,54 @@ export const META_DATA: IMetaData = {
 				},
 			],
 		},
-		br: {
-			title: `Nova88 | Melhores Slots Online | Ganhe Jackpots`,
-			description: `Dobre a diversão e ganhe dinheiro real em uma variedade de jogos de caça-níqueis online. Aproveite bônus de giros grátis e ganhe o jackpot!`,
-			keyword: `Caça-níqueis, Caça-níqueis Online, Jogos de Caça-níqueis de Cassino, Máquina de Caça-níqueis, Giros Grátis, Jackpot, Provedor de Caça-níqueis`,
-			links: [
-				{
-					rel: 'alternate',
-					media: 'only screen and (max-width: 640px)',
-					href: `https://m.nova88.net/br/slots`,
-				},
-				{ rel: 'canonical', href: `https://www.nova88.net/br/slots` },
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88.net/en/slots',
-					hrefLang: 'en-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88mas.com/my/slots',
-					hrefLang: 'ms-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88-indo805.info/id/slots',
-					hrefLang: 'id-ID',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88bkk.com/th/slots',
-					hrefLang: 'th-TH',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88india.com/hi/slots',
-					hrefLang: 'hi-IN',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88105.net/cs/slots',
-					hrefLang: 'zh-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88106.net/bd/slots',
-					hrefLang: 'bn-BD',
-				},
-			],
-		},
+		// br: {
+		// 	title: `Nova88 | Melhores Slots Online | Ganhe Jackpots`,
+		// 	description: `Dobre a diversão e ganhe dinheiro real em uma variedade de jogos de caça-níqueis online. Aproveite bônus de giros grátis e ganhe o jackpot!`,
+		// 	keyword: `Caça-níqueis, Caça-níqueis Online, Jogos de Caça-níqueis de Cassino, Máquina de Caça-níqueis, Giros Grátis, Jackpot, Provedor de Caça-níqueis`,
+		// 	links: [
+		// 		{
+		// 			rel: 'alternate',
+		// 			media: 'only screen and (max-width: 640px)',
+		// 			href: `https://m.nova88.net/br/slots`,
+		// 		},
+		// 		{ rel: 'canonical', href: `https://www.nova88.net/br/slots` },
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88.net/en/slots',
+		// 			hrefLang: 'en-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88mas.com/my/slots',
+		// 			hrefLang: 'ms-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88-indo805.info/id/slots',
+		// 			hrefLang: 'id-ID',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88bkk.com/th/slots',
+		// 			hrefLang: 'th-TH',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88india.com/hi/slots',
+		// 			hrefLang: 'hi-IN',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88105.net/cs/slots',
+		// 			hrefLang: 'zh-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88106.net/bd/slots',
+		// 			hrefLang: 'bn-BD',
+		// 		},
+		// 	],
+		// },
 	},
 	[paths.oneGame.root]: {
 		en: {
@@ -4814,49 +4814,49 @@ export const META_DATA: IMetaData = {
 				},
 			],
 		},
-		br: {
-			title: `Nova88 | Jogos de Cassino | Jogos Virtuais`,
-			description: `Há muitos jogos de entretenimento de alta qualidade disponíveis na Nova88. Jogue seus jogos favoritos agora!`,
-			keyword: `Jogos de Cassino Online, Jogos Virtuais, Jogos de Cassino Online no Brasil, Jogos de Cassino Brasil`,
-			links: [
-				{ rel: 'canonical', href: `https://www.nova88.net/br/game` },
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88.net/en/game',
-					hrefLang: 'en-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88mas.com/my/game',
-					hrefLang: 'ms-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88-indo805.info/id/game',
-					hrefLang: 'id-ID',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88bkk.com/th/game',
-					hrefLang: 'th-TH',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88india.com/hi/game',
-					hrefLang: 'hi-IN',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88105.net/cs/game',
-					hrefLang: 'zh-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88106.net/bd/game',
-					hrefLang: 'bn-BD',
-				},
-			],
-		},
+		// br: {
+		// 	title: `Nova88 | Jogos de Cassino | Jogos Virtuais`,
+		// 	description: `Há muitos jogos de entretenimento de alta qualidade disponíveis na Nova88. Jogue seus jogos favoritos agora!`,
+		// 	keyword: `Jogos de Cassino Online, Jogos Virtuais, Jogos de Cassino Online no Brasil, Jogos de Cassino Brasil`,
+		// 	links: [
+		// 		{ rel: 'canonical', href: `https://www.nova88.net/br/game` },
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88.net/en/game',
+		// 			hrefLang: 'en-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88mas.com/my/game',
+		// 			hrefLang: 'ms-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88-indo805.info/id/game',
+		// 			hrefLang: 'id-ID',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88bkk.com/th/game',
+		// 			hrefLang: 'th-TH',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88india.com/hi/game',
+		// 			hrefLang: 'hi-IN',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88105.net/cs/game',
+		// 			hrefLang: 'zh-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88106.net/bd/game',
+		// 			hrefLang: 'bn-BD',
+		// 		},
+		// 	],
+		// },
 	},
 	[paths.fishing.root]: {
 		en: {
@@ -5289,49 +5289,49 @@ export const META_DATA: IMetaData = {
 				},
 			],
 		},
-		br: {
-			title: `Nova88 | Pesca Online | Melhores Jogos de Pesca`,
-			description: `A Nova88 possui os jogos de pesca mais esperados e recentes. Mergulhe nas profundezas do mar, colete pontos e recompensas atirando em várias criaturas marinhas!`,
-			keyword: `Jogo de Pesca, Pesca Online, Jogo de Pesca de Cassino, Jogo de Pesca por Dinheiro Real, Jogo de Pesca Arcade, Guerra de Pesca`,
-			links: [
-				{ rel: 'canonical', href: `https://www.nova88.net/br/fishing` },
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88.net/en/fishing',
-					hrefLang: 'en-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88mas.com/my/fishing',
-					hrefLang: 'ms-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88-indo805.info/id/fishing',
-					hrefLang: 'id-ID',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88bkk.com/th/fishing',
-					hrefLang: 'th-TH',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88india.com/hi/fishing',
-					hrefLang: 'hi-IN',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88105.net/cs/fishing',
-					hrefLang: 'zh-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88106.net/bd/fishing',
-					hrefLang: 'bn-BD',
-				},
-			],
-		},
+		// br: {
+		// 	title: `Nova88 | Pesca Online | Melhores Jogos de Pesca`,
+		// 	description: `A Nova88 possui os jogos de pesca mais esperados e recentes. Mergulhe nas profundezas do mar, colete pontos e recompensas atirando em várias criaturas marinhas!`,
+		// 	keyword: `Jogo de Pesca, Pesca Online, Jogo de Pesca de Cassino, Jogo de Pesca por Dinheiro Real, Jogo de Pesca Arcade, Guerra de Pesca`,
+		// 	links: [
+		// 		{ rel: 'canonical', href: `https://www.nova88.net/br/fishing` },
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88.net/en/fishing',
+		// 			hrefLang: 'en-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88mas.com/my/fishing',
+		// 			hrefLang: 'ms-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88-indo805.info/id/fishing',
+		// 			hrefLang: 'id-ID',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88bkk.com/th/fishing',
+		// 			hrefLang: 'th-TH',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88india.com/hi/fishing',
+		// 			hrefLang: 'hi-IN',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88105.net/cs/fishing',
+		// 			hrefLang: 'zh-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88106.net/bd/fishing',
+		// 			hrefLang: 'bn-BD',
+		// 		},
+		// 	],
+		// },
 	},
 	[paths.lottery.root]: {
 		en: {
@@ -5764,49 +5764,49 @@ export const META_DATA: IMetaData = {
 				},
 			],
 		},
-		br: {
-			title: `Nova88 | Loteria Online | Jogo de Cassino`,
-			description: `A loteria é um dos jogos mais clássicos para testar sua sorte. A Nova88 oferece um sorteio diário de loteria, dando aos jogadores a chance de ganhar grandes prêmios.`,
-			keyword: `Loteria Online, Loteria, Jogo de Números, Jogo de Mesa, Quina, Jogo de Cassino por Dinheiro Real`,
-			links: [
-				{ rel: 'canonical', href: `https://www.nova88.net/br/lottery` },
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88.net/en/lottery',
-					hrefLang: 'en-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88mas.com/my/lottery',
-					hrefLang: 'ms-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88-indo805.info/id/lottery',
-					hrefLang: 'id-ID',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88bkk.com/th/lottery',
-					hrefLang: 'th-TH',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88india.com/hi/lottery',
-					hrefLang: 'hi-IN',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88105.net/cs/lottery',
-					hrefLang: 'zh-MY',
-				},
-				{
-					rel: 'alternate',
-					href: 'https://www.nova88106.net/bd/lottery',
-					hrefLang: 'bn-BD',
-				},
-			],
-		},
+		// br: {
+		// 	title: `Nova88 | Loteria Online | Jogo de Cassino`,
+		// 	description: `A loteria é um dos jogos mais clássicos para testar sua sorte. A Nova88 oferece um sorteio diário de loteria, dando aos jogadores a chance de ganhar grandes prêmios.`,
+		// 	keyword: `Loteria Online, Loteria, Jogo de Números, Jogo de Mesa, Quina, Jogo de Cassino por Dinheiro Real`,
+		// 	links: [
+		// 		{ rel: 'canonical', href: `https://www.nova88.net/br/lottery` },
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88.net/en/lottery',
+		// 			hrefLang: 'en-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88mas.com/my/lottery',
+		// 			hrefLang: 'ms-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88-indo805.info/id/lottery',
+		// 			hrefLang: 'id-ID',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88bkk.com/th/lottery',
+		// 			hrefLang: 'th-TH',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88india.com/hi/lottery',
+		// 			hrefLang: 'hi-IN',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88105.net/cs/lottery',
+		// 			hrefLang: 'zh-MY',
+		// 		},
+		// 		{
+		// 			rel: 'alternate',
+		// 			href: 'https://www.nova88106.net/bd/lottery',
+		// 			hrefLang: 'bn-BD',
+		// 		},
+		// 	],
+		// },
 	},
 	// SEO 等市場補上
 	[paths.europeCup.root]: {
