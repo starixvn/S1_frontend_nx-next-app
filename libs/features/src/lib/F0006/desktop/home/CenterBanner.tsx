@@ -1,9 +1,9 @@
-import QRCode from 'qrcode.react'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useDownloadLinks } from '@nx-next-app/hooks'
+import QRCode from 'qrcode.react'
 
 const CenterBanner = () => {
-	const { BANNER_IMAGE_LIST } = useStaticData()
+	const { BANNER_IMAGE_LIST = {} } = useStaticData()
 	const { androidDownLoadUrl, iosDownloadUrl } = useDownloadLinks()
 	const {
 		userInfo: { langId },

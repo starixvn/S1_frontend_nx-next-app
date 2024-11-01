@@ -1,12 +1,12 @@
 @font-face {
   font-family: "icomoon";
   src: url("../fonts/icomoon.eot");
-  src: url("../fonts/icomoon.eot?tnphd0#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?tnphd0") format("truetype"), url("../fonts/icomoon.woff?tnphd0") format("woff"), url("../fonts/icomoon.svg?tnphd0#icomoon") format("svg");
+  src: url("../fonts/icomoon.eot") format("embedded-opentype"), url("../fonts/icomoon.ttf") format("truetype"), url("../fonts/icomoon.woff") format("woff"), url("../fonts/icomoon.svg") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
-[class^=icon-], [class*=" icon-"] {
+.icon:before {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: "icomoon" !important;
   speak: never;
@@ -18,6 +18,50 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-toast-close:before {
+  content: "\e98a";
+}
+
+.icon-toast-checkmark:before {
+  content: "\e98b";
+}
+
+.icon-question:before {
+  content: "\e909";
+}
+
+.icon-envelope:before {
+  content: "\e905";
+}
+
+.icon-menu:before {
+  content: "\e9bb";
+}
+
+.icon-close:before {
+  content: "\e98c";
+}
+
+.icon-checkmark:before {
+  content: "\e990";
+}
+
+.icon-information:before {
+  content: "\e951";
+}
+
+.icon-cake1:before {
+  content: "\e95a";
+}
+
+.icon-minus:before {
+  content: "\e94e";
+}
+
+.icon-plus:before {
+  content: "\e94f";
 }
 
 .icon-digital-wallet:before {
@@ -205,7 +249,7 @@
 }
 
 .icon-saba:before {
-  content: "\e98c";
+  content: "\e991";
 }
 
 .icon-cockFight:before {
@@ -934,42 +978,6 @@
 
 .icon-message-typing:before {
   content: "\e933";
-}
-
-.icon-question:before {
-  content: "\e909";
-}
-
-.icon-envelope:before {
-  content: "\e905";
-}
-
-.icon-menu:before {
-  content: "\e9bb";
-}
-
-.icon-close:before {
-  content: "\e98a";
-}
-
-.icon-checkmark:before {
-  content: "\e98b";
-}
-
-.icon-information:before {
-  content: "\e951";
-}
-
-.icon-cake1:before {
-  content: "\e95a";
-}
-
-.icon-minus:before {
-  content: "\e94e";
-}
-
-.icon-plus:before {
-  content: "\e94f";
 }
 
 .icon-news:before {

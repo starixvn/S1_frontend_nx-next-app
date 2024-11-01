@@ -454,3 +454,67 @@ module.exports = {
 	reloadOnPrerender: isDevelopment,
 }
 ```
+
+4. 到 libs/web/src/app/site/onetwobet/data/metaData.ts 去新增 meta data
+
+```ts
+		te: {
+			title: `Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Asia`,
+			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
+			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
+			links: [
+				{
+					rel: 'alternate',
+					media: 'only screen and (max-width: 640px)',
+					href: `https://m.nova88india.com/hi/`,
+				},
+				{ rel: 'canonical', href: `https://www.nova88india.com/hi/` },
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88.net/en/',
+					hrefLang: 'en-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88mas.com/my/',
+					hrefLang: 'ms-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88-indo805.info/id/',
+					hrefLang: 'id-ID',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88bkk.com/th/',
+					hrefLang: 'th-TH',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88india.com/hi/',
+					hrefLang: 'hi-IN',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88105.net/cs/',
+					hrefLang: 'zh-MY',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88106.net/bd/',
+					hrefLang: 'bn-BD',
+				},
+				{
+					rel: 'alternate',
+					href: 'https://www.nova88103.net/kh/',
+					hrefLang: 'km-KH',
+				},
+				{
+					rel: 'alternate',
+					href: 'http://nova88901.net/vn/',
+					hrefLang: 'vi-VN',
+				},
+			],
+		},
+
+```
