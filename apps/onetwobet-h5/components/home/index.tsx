@@ -61,7 +61,7 @@ const FriendReferral = dynamic(
 	{ ssr: false }
 )
 
-const AppDownload = dynamic(() => import('./AppDownload'))
+// const AppDownload = dynamic(() => import('./AppDownload'))
 
 const SimpleFooter = dynamic(() => import('./SimpleFooter'))
 
@@ -139,13 +139,13 @@ const Home = ({ persistAppDownloadHint }: IHomeProps) => {
 		[MobileHomeComponentsEnum.Retention]: <RetentionEntry />,
 
 		[MobileHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
-		[MobileHomeComponentsEnum.AppDownload]:
-			isInApp === false ? <AppDownload /> : null,
+		// [MobileHomeComponentsEnum.AppDownload]:
+		// 	isInApp === false ? <AppDownload /> : null,
 
 		[MobileHomeComponentsEnum.FooterBlock]: <FooterBlock />,
 		[MobileHomeComponentsEnum.SimpleFooter]: <SimpleFooter />,
 		[MobileHomeComponentsEnum.JackPotSwiper]: <JackPotSwiper />,
-		[MobileHomeComponentsEnum.PartnerBlock]: <PartnerBlock />,
+		// [MobileHomeComponentsEnum.PartnerBlock]: <PartnerBlock />,
 		[MobileHomeComponentsEnum.OlympicEntry]: includes(
 			ALLOWED_CURRENCIES.OLYMPIC,
 			currencyId
