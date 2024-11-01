@@ -7,7 +7,7 @@ export interface IFooterData {
 	programList?: IProgramData[]
 	promotionTextList?: IPromotionTextData[]
 	programDescriptionList?: IProgramDescriptionData[]
-	licenseData?: ILicenseData
+	licenseData: ILicenseData
 	suggestedBrowser?: ISuggestedBrowserData[]
 	paymentMethodsByCurrencyId?: {
 		[key: number]: IPaymentMethod[]
