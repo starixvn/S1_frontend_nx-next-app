@@ -50,12 +50,11 @@ export const LEFT_MENU_DATA: ILeftMenuData = {
 				pathname: paths.bankInfo.root,
 				allowCurrencies: ALLOWED_CURRENCIES['BANK_INFO'] as CurrenciesEnum[],
 			},
-			// TODO: Hide for this phase
-			// cryptoWallet: {
-			// 	displayKey: 'Label_General_CryptoWallet',
-			// 	pathname: paths.cryptoWallet.root,
-			// 	allowCurrencies: false,
-			// },
+			cryptoWallet: {
+				displayKey: 'Label_General_CryptoWallet',
+				pathname: paths.cryptoWallet.root,
+				allowCurrencies: false,
+			},
 			referral: {
 				displayKey: 'Label_General_ReferFriends',
 				pathname: paths.referral.root,
@@ -66,6 +65,12 @@ export const LEFT_MENU_DATA: ILeftMenuData = {
 				pathname: paths.changePassword.root,
 				allowCurrencies: false,
 			},
+			// TODO: Hide in phase 1
+			// selfExclusion: {
+			// 	displayKey: 'Label_General_SelfExclusion',
+			// 	pathname: paths.selfExclusion.root,
+			// 	allowCurrencies: false,
+			// },
 		},
 	},
 	[LeftMenuKeyEnum.Message]: {

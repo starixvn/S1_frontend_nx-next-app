@@ -91,6 +91,7 @@ const Shortcut = () => {
 				/>
 				<span>{t('Label_General_LiveChat')}</span>
 			</a>
+			{/* TODO: Hide in phase 1 */}
 			{/* {includes(ALLOWED_CURRENCIES['AFFILIATE'], currencyId) && (
 				<a
 					href={
@@ -106,6 +107,23 @@ const Shortcut = () => {
 					<span>{t('Label_Affiliate_Program')}</span>
 				</a>
 			)} */}
+			{/* <Link href={paths.milestones.root}>
+				<a>
+					<img
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/milestone.png`}
+						alt='milestone'
+					/>
+					<span>{t('Label_General_Milestone')}</span>
+				</a>
+			</Link> */}
+			{/* <a onClick={() => navigatePath(paths.selfExclusion.root)}>
+				<img
+					className='exclusion-icon'
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/exclusion.png`}
+					alt='exclusion'
+				/>
+				<span>{t('Label_General_SelfExclusion')}</span>
+			</a> */}
 			{isLogin && (
 				<Link href={paths.survey.root}>
 					<a>
