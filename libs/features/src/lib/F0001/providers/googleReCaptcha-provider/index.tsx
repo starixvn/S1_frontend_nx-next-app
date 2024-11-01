@@ -1,8 +1,9 @@
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
-import { ReactNode } from 'react'
-import { useGetRecaptchaInfoQuery } from '@nx-next-app/service'
 import { RECAPTCHAT_LANG_BY_LANG_ID } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { useGetRecaptchaInfoQuery } from '@nx-next-app/service'
+import { isInApp } from '@nx-next-app/utils'
+import { ReactNode } from 'react'
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
 
 interface IGoogleReCaptchaProvidersProps {
 	children: ReactNode
@@ -18,7 +19,11 @@ function GReCaptchaProviders({
 
 	// 不直接 return 是確保 api 失效不會整個元件都被 block
 	// 中國地區不需驗證
-	if (!recaptchaInfoData?.siteKey || recaptchaInfoData?.country === 'CN') {
+	if (
+		!recaptchaInfoData?.siteKey ||
+		recaptchaInfoData?.country === 'CN' ||
+		isInApp()
+	) {
 		return children as JSX.Element
 	}
 
