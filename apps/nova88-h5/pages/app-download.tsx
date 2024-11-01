@@ -1,5 +1,5 @@
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { AppDownload, Layout } from '@nx-next-app/features/F0001/h5'
+import { Layout } from '@nx-next-app/features/F0001/h5'
 import { AppDownloadProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
@@ -24,7 +24,8 @@ const AppDownloadPage = ({
 			>
 				<AppDownloadProvider APP_DOWNLOAD_LIST={APP_DOWNLOAD_LIST}>
 					<Layout persistSEOData={persistSEOData}>
-						<AppDownload />
+						{/* <AppDownload /> */}
+						test
 					</Layout>
 				</AppDownloadProvider>
 			</GlobalDataProvider>
