@@ -1,6 +1,6 @@
-import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
-import DateSelector from '@nx-next-app/components/D0001/dateSelector'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { InputBox, ISelectProps, Select } from '@nx-next-app/components/D0001'
+import DateSelector from '@nx-next-app/components/D0001/dateSelector'
 import {
 	AREA_CODE,
 	AREA_CODE_BY_CURRENCY,
@@ -8,12 +8,10 @@ import {
 	EMAIL_REGEX,
 	ENV_COOKIE_NAMES,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
-	PASSWORD_REGEX,
-	PHONE_DIGITS_LIMIT,
+	PASSWORD_REGEX, paths, PHONE_DIGITS_LIMIT,
 	PHONE_LENGTH_REGEX,
 	REALNAME_REGEX,
-	USERNAME_REGEX,
-	paths,
+	USERNAME_REGEX
 } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
@@ -23,13 +21,12 @@ import {
 	useLazyExistsEmailQuery,
 	useLazyExistsUserNameQuery,
 	useLazyGetAffiliateAgentQuery,
-	useSignupMutation,
+	useSignupMutation
 } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import {
-	MetaPixelTracker,
-	OperaPixelTracker,
-	getQueryParam,
+	getQueryParam, MetaPixelTracker,
+	OperaPixelTracker
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
@@ -84,8 +81,7 @@ const Form = ({ cookies }: IJoinProps) => {
 		userInfo: { langId, currencyId },
 	} = useAuth()
 
-	const { data: { data: siteCurrencyList = [] } = {} } =
-		useGetSiteCurrencyListQuery()
+	const { data, isLoading, isError} =	useGetSiteCurrencyListQuery()
 
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
@@ -102,31 +98,9 @@ const Form = ({ cookies }: IJoinProps) => {
 		new Date('1990-01-01')
 	)
 	const [phoneErrorTip, setPhoneErrorTip] = useState<string | undefined>('')
-	const [currencyOptions, setCurrencyOptions] = useState<
-		ISelectProps['options']
-	>([])
-
+	const [currencyOptions, setCurrencyOptions] = useState<ISelectProps['options']>([])
+	const [siteCurrencyList, setSiteCurrencyList] = useState<number[]>([]);
 	const watchCurrencyId = watch('currencyId')
-	const currencySelectOptions = siteCurrencyList
-		.filter(currencyId => {
-			const affiliate = getValues('affiliate')
-			const formCurrencyId = getValues('currencyId')
-
-			// if affId qualified, only show currencyId from api
-			return urlAffId && affiliate ? currencyId === formCurrencyId : true
-		})
-		.map(currencyId => ({
-			value: currencyId,
-			label: t(`Label_General_Currency_${currencyId}`),
-			prefixOptionIcon: (
-				<div
-					className={classNames(
-						'flag',
-						FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
-					)}
-				/>
-			),
-		}))
 
 	const areaCodeSelectOptions = Object.values(AREA_CODE).map(el => ({
 		value: el.AreaCode,
@@ -439,14 +413,43 @@ const Form = ({ cookies }: IJoinProps) => {
 		}
 	}
 
+	const buildSiteCurrencyListWithFlag = (currencyList: number[]) => {
+		return	currencyList
+		 .filter(currencyId => {
+			 const affiliate = getValues('affiliate')
+			 const formCurrencyId = getValues('currencyId')
+ 
+			 // if affId qualified, only show currencyId from api
+			 return urlAffId && affiliate ? currencyId === formCurrencyId : true
+		 })
+		 .map(currencyId => ({
+			 value: currencyId,
+			 label: t(`Label_General_Currency_${currencyId}`),
+			 prefixOptionIcon: (
+				 <div
+					 className={classNames(
+						 'flag',
+						 FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
+					 )}
+				 />
+			 ),
+		 }));
+	 }
+
 	useEffect(() => {
 		checkUrlAffiliate()
 		setValue('birth', formBirth) // 初始form裡面的生日值
 	}, [])
 
 	useEffect(() => {
-		checkLineRegister()
-	}, [siteCurrencyList])
+		if (!isLoading && !isError) {
+			const siteCurrencyListApiResult: number[] = data?.data ?? [];
+			setSiteCurrencyList(siteCurrencyListApiResult);			
+			setCurrencyOptions( buildSiteCurrencyListWithFlag(siteCurrencyListApiResult));
+			setTimeout(() => { selectCurrency(CurrenciesEnum.THB) }, 1)			
+			checkLineRegister()
+		}
+	}, [data, isLoading, isError]);
 
 	return (
 		<form
@@ -578,11 +581,7 @@ const Form = ({ cookies }: IJoinProps) => {
 
 				<Select
 					// * 如果 Aff Input 有相對應的幣別，則使用 currencyOptions（Aff 過濾的幣別選項）
-					options={
-						currencyOptions.length === 0
-							? currencySelectOptions
-							: currencyOptions
-					}
+					options={currencyOptions}
 					value={getValues('currencyId')}
 					placeholder={t('Label_Join_PrefferedCurrency') as string}
 					prefixIcon={<i className='icon icon-coin-dollar txt-blue' />}
@@ -669,3 +668,4 @@ const Form = ({ cookies }: IJoinProps) => {
 }
 
 export { Form }
+
