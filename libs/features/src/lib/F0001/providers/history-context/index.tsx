@@ -1,34 +1,34 @@
-import React, {
-	createContext,
-	ReactNode,
-	useContext,
-	useEffect,
-	useRef,
-	useState,
-} from 'react'
-import dayjs from 'dayjs'
-import { useRouter } from 'next/router'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { DEVICE_TYPE } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { useInView } from '@nx-next-app/hooks'
 import {
 	IAxiosResponse,
-	IReferralData,
-	ITransferHistoryData,
 	IDepositInfoHistoryData,
+	IReferralData,
 	IStatementData,
+	ITransferHistoryData,
 	IWithdrawalInfoHistoryData,
-	useLazyGetReferralQuery,
-	useLazyGetTransferHistoryQuery,
 	useLazyGetDepositInfoHistoryQuery,
+	useLazyGetReferralQuery,
 	useLazyGetStatementQuery,
+	useLazyGetTransferHistoryQuery,
 	useLazyGetWithdrawalInfoHistoryQuery,
 	useSetDepositCancelMutation,
 	useSetWithdrawalCancelMutation,
 	useUploadReceiptMutation,
 } from '@nx-next-app/service'
-import { DEVICE_TYPE } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import { useInView } from '@nx-next-app/hooks'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { HistoryTabsEnum, QuickPickEnum } from '@nx-next-app/types'
+import dayjs from 'dayjs'
+import { useRouter } from 'next/router'
+import React, {
+	ReactNode,
+	createContext,
+	useContext,
+	useEffect,
+	useRef,
+	useState,
+} from 'react'
 
 interface IHistoryProviderProps {
 	children: ReactNode
@@ -382,6 +382,9 @@ const HistoryProvider = ({
 		}
 		setCurrentPage(result?.pageNumber ?? 1)
 		setTotalPage(result?.totalPages ?? 1)
+		setDisplayColumns(value => {
+			return [...value, ...result.data]
+		})
 		if (Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Mobile) {
 			setIsShowMobileLoading(false)
 		}
