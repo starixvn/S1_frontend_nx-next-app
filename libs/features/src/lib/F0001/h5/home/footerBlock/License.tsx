@@ -83,7 +83,7 @@ const License = () => {
 						</div>
 
 						<div>
-							{!includes(currentDomain, 'www.nova88kr.com') && (
+							{!includes(currentDomain, 'nova88kr.com') && (
 								<div
 									id={`dlag-${tobiqueSealId}`}
 									data-dlag-seal-id={tobiqueSealId}
