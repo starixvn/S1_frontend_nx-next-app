@@ -68,6 +68,7 @@ const License = () => {
 			// xcmScript?.init()
 		}
 	}, [showLicenseLogo])
+
 	return (
 		<>
 			<div className='bottom-license'>
@@ -83,14 +84,15 @@ const License = () => {
 						</div>
 
 						<div>
-							{!includes(currentDomain, 'm.nova88kr.com') && (
-								<div
-									id={`dlag-${tobiqueSealId}`}
-									data-dlag-seal-id={tobiqueSealId}
-									data-dlag-image-size='48'
-									data-dlag-image-type='basic-small'
-								/>
-							)}
+							{typeof window !== 'undefined' &&
+								!includes(currentDomain, 'localhost') && (
+									<div
+										id={`dlag-${tobiqueSealId}`}
+										data-dlag-seal-id={tobiqueSealId}
+										data-dlag-image-size='48'
+										data-dlag-image-type='basic-small'
+									/>
+								)}
 
 							{/* 市場通知移除 XCM */}
 							{/* <div */}
