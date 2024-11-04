@@ -67,94 +67,72 @@ img {
 
 @font-face {
   font-family: "icomoon";
-  src: url("../fonts/icomoon.woff?v=202003") format("woff");
+  src: url("../fonts/icomoon.eot?tnphd0");
+  src: url("../fonts/icomoon.eot?tnphd0#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?tnphd0") format("truetype"), url("../fonts/icomoon.woff?tnphd0") format("woff"), url("../fonts/icomoon.svg?tnphd0#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
 }
-.icon:before, .icon:after {
-  font-family: "icomoon";
-  font-size: 4vw;
-}
-
-.icon-moon:before {
-  font-size: 14vw;
-}
-
-.icon-equalizer:before {
-  font-size: 6vw;
-}
-
-.icon-icon32px_wallet:before {
-  font-size: 4vw;
-}
-
-.icon-menu:before {
-  font-size: 4vw;
+.icon:before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-information:before {
-  color: #5574A7;
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
+.icon-digital-wallet:before {
+  content: "\e93e";
 }
 
-.icon-checkmark:before {
-  font-size: 4.5vw;
+.icon-mobile-w:before {
+  content: "\e92e";
 }
 
-.icon-errormark:before {
-  content: "\e98a";
-  color: #e92529;
-  font-weight: bold;
-  font-size: 4vw;
+.icon-ios:before {
+  content: "\e92f";
 }
 
-.icon-new:before {
-  font-size: 3vw;
-  content: "New" !important;
-  font-family: "Microsoft YaHei", sans-serif;
+.icon-android-w:before {
+  content: "\e93c";
 }
 
-.icon-envelope:before {
-  font-size: 3vw;
+.icon-pc:before {
+  content: "\e93d";
 }
 
-.icon-close:before {
-  font-size: 4vw;
+.icon-close-radius:before {
+  content: "\e92d";
 }
 
-.icon-email:before {
-  font-size: 6vw;
-  margin-left: -1vw;
+.icon-refresh:before {
+  content: "\e92c";
 }
 
-.icon-pencil:before {
-  font-size: 4vw;
+.icon-logout:before {
+  content: "\e928";
 }
 
-.icon-library:before {
-  font-size: 4.5vw;
+.icon-change-password:before {
+  content: "\e92b";
 }
 
-.icon-live {
-  background: #F77A00;
-  padding: 0 1vw;
-  border-radius: 3px;
-  font-size: 3vw;
-}
-.icon-live:before {
-  content: "Live";
-  font-family: "Microsoft YaHei", sans-serif;
+.icon-referral:before {
+  content: "\e927";
 }
 
-.icon-line-bold:before {
-  content: "\e91f";
+.icon-cryptowallet:before {
+  content: "\e924";
 }
 
-.icon-windows:before {
-  content: "\eac2";
-}
-
-.icon-Shield:before {
-  content: "\e920";
+.icon-arrow-next:before {
+  content: "\e922";
 }
 
 .icon-medal:before {
@@ -557,6 +535,10 @@ img {
   content: "\e908";
 }
 
+.icon-marquee:before {
+  content: "\e9b7";
+}
+
 .icon-gift:before {
   content: "\e90b";
 }
@@ -581,136 +563,48 @@ img {
   content: "\e910";
 }
 
-.icon-plus-square:before {
-  content: "\e9e0";
+.icon-bankinfo:before {
+  content: "\e926";
 }
 
-.icon-book-open:before {
-  content: "\e9e1";
+.icon-profile:before {
+  content: "\e923";
 }
 
-.icon-person:before {
-  content: "\e9dc";
+.icon-icon-Shield:before {
+  content: "\e920";
 }
 
-.icon-live_tv:before {
-  content: "\e9d8";
+.icon-line-bold:before {
+  content: "\e91f";
 }
 
-.icon-cricket:before {
-  content: "\e9d0";
+.icon-tree:before {
+  content: "\e9b6";
 }
 
-.icon-cloud_upload:before {
-  content: "\e9af";
+.icon-home1:before {
+  content: "\e9b5";
 }
 
-.icon-backup:before {
-  content: "\e9af";
+.icon-QQpay:before {
+  content: "\e944";
 }
 
-.icon-last_page:before {
-  content: "\e9ad";
+.icon-promotion:before {
+  content: "\e939";
 }
 
-.icon-first_page:before {
-  content: "\e9ae";
+.icon-windows:before {
+  content: "\eac2";
 }
 
-.icon-arrow_right:before {
-  content: "\e9a8";
+.icon-pinterest:before {
+  content: "\ead1";
 }
 
-.icon-arrow_left:before {
-  content: "\e9a9";
-}
-
-.icon-arrow_drop_up:before {
-  content: "\e9aa";
-}
-
-.icon-arrow_drop_down:before {
-  content: "\e9ab";
-}
-
-.icon-broken_image:before {
-  content: "\e998";
-}
-
-.icon-keyboard_arrow_up:before {
-  content: "\e95b";
-}
-
-.icon-keyboard_arrow_right1:before {
-  content: "\e95c";
-}
-
-.icon-keyboard_arrow_left:before {
-  content: "\e95d";
-}
-
-.icon-keyboard_arrow_down:before {
-  content: "\e95e";
-}
-
-.icon-error_outline:before {
-  content: "\e94c";
-}
-
-.icon-error:before {
-  content: "\e952";
-}
-
-.icon-keyboard_arrow_right:before {
-  content: "\e954";
-}
-
-.icon-cake:before {
-  content: "\e959";
-}
-
-.icon-calculator1:before {
-  content: "\e957";
-}
-
-.icon-message-typing:before {
-  content: "\e933";
-}
-
-.icon-question:before {
-  content: "\e909";
-}
-
-.icon-envelope:before {
-  content: "\e905";
-}
-
-.icon-menu:before {
-  content: "\e9bb";
-}
-
-.icon-close:before {
-  content: "\e98a";
-}
-
-.icon-checkmark:before {
-  content: "\e98b";
-}
-
-.icon-information:before {
-  content: "\e951";
-}
-
-.icon-cake1:before {
-  content: "\e95a";
-}
-
-.icon-minus:before {
-  content: "\e94e";
-}
-
-.icon-plus:before {
-  content: "\e94f";
+.icon-pinterest2:before {
+  content: "\ead2";
 }
 
 .icon-alarm:before {
@@ -1013,20 +907,136 @@ img {
   content: "\eaea";
 }
 
-.icon-tree:before {
-  content: "\e9b6";
+.icon-plus-square:before {
+  content: "\e9e0";
 }
 
-.icon-home1:before {
-  content: "\e9b5";
+.icon-book-open:before {
+  content: "\e9e1";
 }
 
-.icon-QQpay:before {
-  content: "\e944";
+.icon-person:before {
+  content: "\e9dc";
 }
 
-.icon-promotion:before {
-  content: "\e939";
+.icon-live_tv:before {
+  content: "\e9d8";
+}
+
+.icon-cricket:before {
+  content: "\e9d0";
+}
+
+.icon-cloud_upload:before {
+  content: "\e9af";
+}
+
+.icon-backup:before {
+  content: "\e9af";
+}
+
+.icon-last_page:before {
+  content: "\e9ad";
+}
+
+.icon-first_page:before {
+  content: "\e9ae";
+}
+
+.icon-arrow_right:before {
+  content: "\e9a8";
+}
+
+.icon-arrow_left:before {
+  content: "\e9a9";
+}
+
+.icon-arrow_drop_up:before {
+  content: "\e9aa";
+}
+
+.icon-arrow_drop_down:before {
+  content: "\e9ab";
+}
+
+.icon-broken_image:before {
+  content: "\e998";
+}
+
+.icon-keyboard_arrow_up:before {
+  content: "\e95b";
+}
+
+.icon-keyboard_arrow_right1:before {
+  content: "\e95c";
+}
+
+.icon-keyboard_arrow_left:before {
+  content: "\e95d";
+}
+
+.icon-keyboard_arrow_down:before {
+  content: "\e95e";
+}
+
+.icon-error_outline:before {
+  content: "\e94c";
+}
+
+.icon-error:before {
+  content: "\e952";
+}
+
+.icon-keyboard_arrow_right:before {
+  content: "\e954";
+}
+
+.icon-cake:before {
+  content: "\e959";
+}
+
+.icon-calculator1:before {
+  content: "\e957";
+}
+
+.icon-message-typing:before {
+  content: "\e933";
+}
+
+.icon-question:before {
+  content: "\e909";
+}
+
+.icon-envelope:before {
+  content: "\e905";
+}
+
+.icon-menu:before {
+  content: "\e9bb";
+}
+
+.icon-close:before {
+  content: "\e98a";
+}
+
+.icon-checkmark:before {
+  content: "\e98b";
+}
+
+.icon-information:before {
+  content: "\e951";
+}
+
+.icon-cake1:before {
+  content: "\e95a";
+}
+
+.icon-minus:before {
+  content: "\e94e";
+}
+
+.icon-plus:before {
+  content: "\e94f";
 }
 
 .icon-news:before {
@@ -1069,10 +1079,6 @@ img {
   content: "\e935";
 }
 
-.icon-soccer:before {
-  content: "\e9df";
-}
-
 .icon-volleyball:before {
   content: "\e9d2";
 }
@@ -1101,33 +1107,13 @@ body, html {
   color: white;
 }
 
-button, input {
+button {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
-button[disabled], input[disabled] {
+button[disabled] {
   background: #a5aab1 !important;
   color: #666 !important;
-}
-
-input::-webkit-input-placeholder {
-  font-size: 3.2vw;
-}
-
-input::-moz-placeholder {
-  font-size: 3.2vw;
-}
-
-input:-ms-input-placeholder {
-  font-size: 3.2vw;
-}
-
-input::-ms-input-placeholder {
-  font-size: 3.2vw;
-}
-
-input::placeholder {
-  font-size: 3.2vw;
 }
 
 #root {
@@ -1352,7 +1338,7 @@ div[tabindex="-1"] {
   width: 50vw;
   height: 48vw;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/spread.png) no-repeat;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/spread.png) no-repeat;
   background-size: 100%;
   top: -5vw;
   left: 20vw;
@@ -1898,7 +1884,7 @@ main .gameList .icon-new {
   }
 }
 .icon + .dropdown ~ .dropdown-container .dropdown-item {
-  padding: 2vw;
+  padding: 2vw 2vw 2vw 9vw;
 }
 
 .dropdown {
@@ -1920,7 +1906,7 @@ main .gameList .icon-new {
       -ms-flex: auto;
           flex: auto;
   padding: 2vw 0 2vw 2vw;
-  font-size: 3.2vw;
+  font-size: 3vw;
   min-height: 8.27vw;
   color: #5574A7;
 }
@@ -1980,8 +1966,6 @@ main .gameList .icon-new {
   display: flex;
   visibility: hidden;
   opacity: 0;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
@@ -1989,8 +1973,6 @@ main .gameList .icon-new {
 #popup.active {
   visibility: visible;
   opacity: 1;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
 }
 #popup.olympic-rule {
   -webkit-backdrop-filter: blur(5px);
@@ -2094,7 +2076,7 @@ main .gameList .icon-new {
   margin: 2vw 0 0;
 }
 #popup.ErrorPage {
-  background: url(https://banner.0814media.net/h5/img/errorBG.jpg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/errorBG.jpg) no-repeat center/cover;
 }
 #popup.ErrorPage .icon-close {
   position: absolute;
@@ -3267,7 +3249,7 @@ main .gameList .icon-new {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: url(https://banner.0814media.net/h5/img/4.0/username.png) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/username.png) no-repeat center/100%;
   height: 14vw;
   width: 47vw;
   color: white;
@@ -3310,34 +3292,34 @@ main .gameList .icon-new {
 }
 @-webkit-keyframes bigwinpopup-en {
   0% {
-    background: url(https://banner.0814media.net/h5/img/4.0/popup-en-2.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/popup-en-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/4.0/popup-en-1.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/popup-en-1.png) no-repeat center/cover;
   }
 }
 @keyframes bigwinpopup-en {
   0% {
-    background: url(https://banner.0814media.net/h5/img/4.0/popup-en-2.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/popup-en-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/4.0/popup-en-1.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/popup-en-1.png) no-repeat center/cover;
   }
 }
 @-webkit-keyframes bigwinpopup-id {
   0% {
-    background: url(https://banner.0814media.net/h5/img/4.0/popup-id-2.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/popup-id-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/4.0/popup-id-1.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/popup-id-1.png) no-repeat center/cover;
   }
 }
 @keyframes bigwinpopup-id {
   0% {
-    background: url(https://banner.0814media.net/h5/img/4.0/popup-id-2.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/popup-id-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/4.0/popup-id-1.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/popup-id-1.png) no-repeat center/cover;
   }
 }
 #popup.bigwinpop .money {
@@ -3436,7 +3418,7 @@ main .gameList .icon-new {
   border-radius: 3vw;
 }
 #popup.livesportspop .livesports > div .livesports-item {
-  background: url(https://banner.0814media.net/h5/img/4.0/team-bg.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/team-bg.png) no-repeat center/cover;
   height: 35vw;
   margin-bottom: 1.5vw;
   overflow: hidden;
@@ -3906,8 +3888,11 @@ main .gameList .icon-new {
 .header .title a i {
   letter-spacing: -2.5vw;
 }
-.header .title a i.icon-keyboard_arrow_left:after {
+.header .title a i.icon-keyboard_arrow_left:after, .header .title a i.icon-keyboard_arrow_left:before {
   content: "\e95d";
+  font-family: "icomoon" !important;
+  font-size: 4vw;
+  font-weight: bold;
 }
 .header .title.searchBar {
   position: relative;
@@ -4449,7 +4434,7 @@ main .gameList .icon-new {
   position: relative;
 }
 .pending .infobtn, .reject .infobtn, .cancelled .infobtn, .approved .infobtn {
-  background: url(https://banner.0814media.net/h5/img/notice.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/notice.png) no-repeat center/cover;
   width: 4vw;
   height: 4vw;
   margin-left: 1vw;
@@ -4609,59 +4594,6 @@ main .gameList .icon-new {
           flex-flow: column;
   width: 100%;
 }
-.infoModule .phone, .infoModule .inputBox-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
-.infoModule .phone .inputBox input, .infoModule .phone .euro .inputBox-event input, .euro .infoModule .phone .inputBox-event input, .infoModule .phone .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .infoModule .phone .inputBox-event input, .infoModule .inputBox-row .inputBox input, .infoModule .inputBox-row .euro .inputBox-event input, .euro .infoModule .inputBox-row .inputBox-event input, .infoModule .inputBox-row .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .infoModule .inputBox-row .inputBox-event input {
-  width: 100%;
-}
-.infoModule .phone .inputBox .dropdown, .infoModule .phone .euro .inputBox-event .dropdown, .euro .infoModule .phone .inputBox-event .dropdown, .infoModule .phone .worldcupEvent .event .event-content .inputBox-event .dropdown, .worldcupEvent .event .event-content .infoModule .phone .inputBox-event .dropdown, .infoModule .inputBox-row .inputBox .dropdown, .infoModule .inputBox-row .euro .inputBox-event .dropdown, .euro .infoModule .inputBox-row .inputBox-event .dropdown, .infoModule .inputBox-row .worldcupEvent .event .event-content .inputBox-event .dropdown, .worldcupEvent .event .event-content .infoModule .inputBox-row .inputBox-event .dropdown {
-  width: 30.5vw;
-}
-.infoModule .phone .inputBox .dropdown .icon, .infoModule .phone .euro .inputBox-event .dropdown .icon, .euro .infoModule .phone .inputBox-event .dropdown .icon, .infoModule .phone .worldcupEvent .event .event-content .inputBox-event .dropdown .icon, .worldcupEvent .event .event-content .infoModule .phone .inputBox-event .dropdown .icon, .infoModule .inputBox-row .inputBox .dropdown .icon, .infoModule .inputBox-row .euro .inputBox-event .dropdown .icon, .euro .infoModule .inputBox-row .inputBox-event .dropdown .icon, .infoModule .inputBox-row .worldcupEvent .event .event-content .inputBox-event .dropdown .icon, .worldcupEvent .event .event-content .infoModule .inputBox-row .inputBox-event .dropdown .icon {
-  position: absolute;
-  right: 0;
-}
-.infoModule .phone .dropdown-container, .infoModule .inputBox-row .dropdown-container {
-  width: 83.5vw;
-}
-.infoModule .phone .dropdown-container .inputBox, .infoModule .phone .dropdown-container .euro .inputBox-event, .euro .infoModule .phone .dropdown-container .inputBox-event, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event, .infoModule .inputBox-row .dropdown-container .inputBox, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event {
-  border-radius: 0;
-  background: white;
-  margin-top: 0;
-  position: sticky;
-  top: 0;
-}
-.infoModule .phone .dropdown-container .inputBox input::-webkit-input-placeholder, .infoModule .phone .dropdown-container .euro .inputBox-event input::-webkit-input-placeholder, .euro .infoModule .phone .dropdown-container .inputBox-event input::-webkit-input-placeholder, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event input::-webkit-input-placeholder, .infoModule .inputBox-row .dropdown-container .inputBox input::-webkit-input-placeholder, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event input::-webkit-input-placeholder, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event input::-webkit-input-placeholder, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event input::-webkit-input-placeholder {
-  color: #6b6b6b;
-}
-.infoModule .phone .dropdown-container .inputBox input::-moz-placeholder, .infoModule .phone .dropdown-container .euro .inputBox-event input::-moz-placeholder, .euro .infoModule .phone .dropdown-container .inputBox-event input::-moz-placeholder, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event input::-moz-placeholder, .infoModule .inputBox-row .dropdown-container .inputBox input::-moz-placeholder, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event input::-moz-placeholder, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event input::-moz-placeholder, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event input::-moz-placeholder {
-  color: #6b6b6b;
-}
-.infoModule .phone .dropdown-container .inputBox input:-ms-input-placeholder, .infoModule .phone .dropdown-container .euro .inputBox-event input:-ms-input-placeholder, .euro .infoModule .phone .dropdown-container .inputBox-event input:-ms-input-placeholder, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event input:-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .inputBox input:-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event input:-ms-input-placeholder, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event input:-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event input:-ms-input-placeholder {
-  color: #6b6b6b;
-}
-.infoModule .phone .dropdown-container .inputBox input::-ms-input-placeholder, .infoModule .phone .dropdown-container .euro .inputBox-event input::-ms-input-placeholder, .euro .infoModule .phone .dropdown-container .inputBox-event input::-ms-input-placeholder, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event input::-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .inputBox input::-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event input::-ms-input-placeholder, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event input::-ms-input-placeholder, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event input::-ms-input-placeholder {
-  color: #6b6b6b;
-}
-.infoModule .phone .dropdown-container .inputBox input::placeholder, .infoModule .phone .dropdown-container .euro .inputBox-event input::placeholder, .euro .infoModule .phone .dropdown-container .inputBox-event input::placeholder, .infoModule .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::placeholder, .worldcupEvent .event .event-content .infoModule .phone .dropdown-container .inputBox-event input::placeholder, .infoModule .inputBox-row .dropdown-container .inputBox input::placeholder, .infoModule .inputBox-row .dropdown-container .euro .inputBox-event input::placeholder, .euro .infoModule .inputBox-row .dropdown-container .inputBox-event input::placeholder, .infoModule .inputBox-row .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::placeholder, .worldcupEvent .event .event-content .infoModule .inputBox-row .dropdown-container .inputBox-event input::placeholder {
-  color: #6b6b6b;
-}
-.infoModule .phone .dropdown-container .dropdown-item, .infoModule .inputBox-row .dropdown-container .dropdown-item {
-  padding-left: 10px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.infoModule .phone .inputInfo + .inputBox .icon-phone + input, .infoModule .phone .euro .inputInfo + .inputBox-event .icon-phone + input, .euro .infoModule .phone .inputInfo + .inputBox-event .icon-phone + input, .infoModule .phone .worldcupEvent .event .event-content .inputInfo + .inputBox-event .icon-phone + input, .worldcupEvent .event .event-content .infoModule .phone .inputInfo + .inputBox-event .icon-phone + input, .infoModule .inputBox-row .inputInfo + .inputBox .icon-phone + input, .infoModule .inputBox-row .euro .inputInfo + .inputBox-event .icon-phone + input, .euro .infoModule .inputBox-row .inputInfo + .inputBox-event .icon-phone + input, .infoModule .inputBox-row .worldcupEvent .event .event-content .inputInfo + .inputBox-event .icon-phone + input, .worldcupEvent .event .event-content .infoModule .inputBox-row .inputInfo + .inputBox-event .icon-phone + input {
-  width: 100%;
-}
-.infoModule .inputBox-row .inputBox, .infoModule .inputBox-row .euro .inputBox-event, .euro .infoModule .inputBox-row .inputBox-event, .infoModule .inputBox-row .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule .inputBox-row .inputBox-event {
-  width: 100%;
-}
 .infoModule.parts {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -4673,6 +4605,56 @@ main .gameList .icon-new {
 }
 .infoModule.parts + span + div {
   color: #5574A7;
+}
+.infoModule.parts .phone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+.infoModule.parts .phone .inputBox input, .infoModule.parts .phone .euro .inputBox-event input, .euro .infoModule.parts .phone .inputBox-event input, .infoModule.parts .phone .worldcupEvent .event .event-content .inputBox-event input, .worldcupEvent .event .event-content .infoModule.parts .phone .inputBox-event input {
+  width: 100%;
+}
+.infoModule.parts .phone .inputBox .dropdown, .infoModule.parts .phone .euro .inputBox-event .dropdown, .euro .infoModule.parts .phone .inputBox-event .dropdown, .infoModule.parts .phone .worldcupEvent .event .event-content .inputBox-event .dropdown, .worldcupEvent .event .event-content .infoModule.parts .phone .inputBox-event .dropdown {
+  width: 130px;
+}
+.infoModule.parts .phone .inputBox .dropdown .icon, .infoModule.parts .phone .euro .inputBox-event .dropdown .icon, .euro .infoModule.parts .phone .inputBox-event .dropdown .icon, .infoModule.parts .phone .worldcupEvent .event .event-content .inputBox-event .dropdown .icon, .worldcupEvent .event .event-content .infoModule.parts .phone .inputBox-event .dropdown .icon {
+  position: absolute;
+  right: 0;
+}
+.infoModule.parts .phone .dropdown-container {
+  width: 83.5vw;
+}
+.infoModule.parts .phone .dropdown-container .inputBox, .infoModule.parts .phone .dropdown-container .euro .inputBox-event, .euro .infoModule.parts .phone .dropdown-container .inputBox-event, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event {
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.6);
+  margin-top: 0;
+  position: sticky;
+  top: 0;
+}
+.infoModule.parts .phone .dropdown-container .inputBox input::-webkit-input-placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input::-webkit-input-placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input::-webkit-input-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::-webkit-input-placeholder {
+  color: #6b6b6b;
+}
+.infoModule.parts .phone .dropdown-container .inputBox input::-moz-placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input::-moz-placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input::-moz-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-moz-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::-moz-placeholder {
+  color: #6b6b6b;
+}
+.infoModule.parts .phone .dropdown-container .inputBox input:-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input:-ms-input-placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input:-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input:-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input:-ms-input-placeholder {
+  color: #6b6b6b;
+}
+.infoModule.parts .phone .dropdown-container .inputBox input::-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input::-ms-input-placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input::-ms-input-placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::-ms-input-placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::-ms-input-placeholder {
+  color: #6b6b6b;
+}
+.infoModule.parts .phone .dropdown-container .inputBox input::placeholder, .infoModule.parts .phone .dropdown-container .euro .inputBox-event input::placeholder, .euro .infoModule.parts .phone .dropdown-container .inputBox-event input::placeholder, .infoModule.parts .phone .dropdown-container .worldcupEvent .event .event-content .inputBox-event input::placeholder, .worldcupEvent .event .event-content .infoModule.parts .phone .dropdown-container .inputBox-event input::placeholder {
+  color: #6b6b6b;
+}
+.infoModule.parts .phone .dropdown-container .dropdown-item {
+  padding-left: 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.infoModule.parts .phone .inputInfo + .inputBox .icon-phone + input, .infoModule.parts .phone .euro .inputInfo + .inputBox-event .icon-phone + input, .euro .infoModule.parts .phone .inputInfo + .inputBox-event .icon-phone + input, .infoModule.parts .phone .worldcupEvent .event .event-content .inputInfo + .inputBox-event .icon-phone + input, .worldcupEvent .event .event-content .infoModule.parts .phone .inputInfo + .inputBox-event .icon-phone + input {
+  width: 100%;
 }
 .infoModule.parts .inputBox, .infoModule.parts .euro .inputBox-event, .euro .infoModule.parts .inputBox-event, .infoModule.parts .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .infoModule.parts .inputBox-event {
   -webkit-box-flex: 1;
@@ -5388,7 +5370,7 @@ input {
   color: #5574A7;
   border: 0;
   outline: none;
-  font-size: 3.2vw;
+  font-size: 3.6vw;
 }
 input::-webkit-input-placeholder {
   color: #5574A7;
@@ -5804,13 +5786,13 @@ button.clickBtn:before {
   display: flex;
   -ms-flex-flow: wrap;
       flex-flow: wrap;
+  gap: 1.5vw;
 }
 .casino .slotList .info {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(33.3333333333% - 1vw);
           flex: 0 0 calc(33.3333333333% - 1vw);
   padding: 0;
-  margin: 0.5vw 0.5vw;
   position: relative;
   line-height: 0;
 }
@@ -5869,11 +5851,25 @@ button.clickBtn:before {
   color: white;
   text-shadow: none;
 }
+.casino .slotList .info button {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(#DDDDDD), color-stop(#F0F0F0), color-stop(#DDDDDD), to(#F0F0F0));
+  background: linear-gradient(90deg, #DDDDDD, #F0F0F0, #DDDDDD, #F0F0F0);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 2.25s ease infinite;
+          animation: Gradient 2.25s ease infinite;
+  border-radius: 5px;
+  min-height: 29vw;
+}
 .casino .slotList .info img {
   width: 100%;
   border-radius: 5px;
   -webkit-box-shadow: 2px 2px 5px -2px rgba(0, 0, 0, 0.9);
           box-shadow: 2px 2px 5px -2px rgba(0, 0, 0, 0.9);
+  display: block;
+  height: 100%;
 }
 
 input[type=date] {
@@ -5921,7 +5917,7 @@ input[type=date] {
 
 .search {
   width: calc(100% - 10vw);
-  padding: 2vw 0 2vw 2vw;
+  padding: 2vw 0 2vw 8vw;
 }
 
 .icon-spinner11.active:before {
@@ -7158,7 +7154,7 @@ span.important {
 }
 
 .installGuide {
-  background: #2d023a url(https://banner.0814media.net/h5/img/918/bg.jpg) no-repeat center top/180vw;
+  background: #2d023a url(https://minio-api.lumigame.com/s1-nova88/h5/img/918/bg.jpg) no-repeat center top/180vw;
   width: calc(100% - 8vw);
   height: calc(100% - 40vw);
   padding: 20vw 4vw 20vw;
@@ -7321,7 +7317,7 @@ span.important {
   overflow: unset;
 }
 .installGuide.mega {
-  background: url(https://banner.0814media.net/h5/img/megabg.jpg) no-repeat center top/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/megabg.jpg) no-repeat center top/cover;
 }
 .installGuide.mega section .copyinfo .inputBox, .installGuide.mega section .copyinfo .euro .inputBox-event, .euro .installGuide.mega section .copyinfo .inputBox-event, .installGuide.mega section .copyinfo .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .installGuide.mega section .copyinfo .inputBox-event {
   border: 1px solid #0ad9f5;
@@ -7649,7 +7645,7 @@ span.important {
 .refer .referinfo-step .icon::after {
   content: "";
   display: block;
-  background: url(https://banner.0814media.net/h5/img/refer-dashLine.svg) no-repeat center/2vw 10vw;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/refer-dashLine.svg) no-repeat center/2vw 10vw;
   padding: 1vw 0;
   width: 2vw;
   height: 10vw;
@@ -7701,7 +7697,7 @@ span.important {
 .refer .referinfo-list .inputcopy::after {
   content: "";
   display: inline-block;
-  background: url(https://banner.0814media.net/h5/img/icon-copy.svg) no-repeat center/5vw 5vw;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/icon-copy.svg) no-repeat center/5vw 5vw;
   width: 5vw;
   height: 5vw;
   position: absolute;
@@ -8653,7 +8649,7 @@ span.important {
 .vip .vipPage .viptable-item-text li.High::before {
   content: "";
   display: block;
-  background: url(https://banner.0814media.net/h5/img/check.png) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/check.png) no-repeat center/100%;
   height: 3vw;
   width: 3vw;
 }
@@ -8713,7 +8709,7 @@ span.important {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: url(https://banner.0814media.net/h5/img/vip-bottom-bg.png) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/vip-bottom-bg.png) no-repeat center/100%;
   height: 100%;
   padding-bottom: 20vw;
   margin-top: 10vw;
@@ -8805,7 +8801,7 @@ span.important {
 }
 .depositModule > .title.fast:after {
   content: "";
-  background: url(https://banner.0814media.net/desktop/img/fast-icon.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/fast-icon.png) no-repeat center/cover;
   display: block;
   width: 14vw;
   height: 4vw;
@@ -8959,7 +8955,7 @@ span.important {
 }
 .depositModule .selectModule .bankName.fast::after {
   content: "";
-  background: url(https://banner.0814media.net/desktop/img/fast-icon.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/fast-icon.png) no-repeat center/cover;
   display: block;
   width: 13vw;
   height: 4vw;
@@ -9177,7 +9173,7 @@ span.important {
   width: 10vw;
   height: 10vw;
   margin: 0 auto !important;
-  background: url(https://banner.0814media.net/h5/img/qrpay.png) center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/qrpay.png) center/cover;
 }
 
 .icon-topup::before {
@@ -9186,7 +9182,7 @@ span.important {
   width: 10vw;
   height: 10vw;
   margin: 0 auto !important;
-  background: url(https://banner.0814media.net/h5/img/topup.png) center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/topup.png) center/cover;
 }
 
 .icon-quick::before {
@@ -9195,7 +9191,7 @@ span.important {
   width: 10vw;
   height: 10vw;
   margin: 0 auto !important;
-  background: url(https://banner.0814media.net/h5/img/quick-transfer.png) center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/quick-transfer.png) center/cover;
 }
 
 .icon-dou::before {
@@ -9204,7 +9200,14 @@ span.important {
   width: 10vw;
   height: 10vw;
   margin: 0 auto !important;
-  background: url(https://banner.0814media.net/h5/img/4.0/chat-transfer.png) center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/chat-transfer.png) center/cover;
+}
+
+.icon-digital-wallet::before {
+  display: block;
+  width: 10vw;
+  font-size: 9vw !important;
+  margin: 0 auto !important;
 }
 
 .submenu {
@@ -9320,7 +9323,7 @@ span.important {
 }
 
 .promos .promosModule {
-  background: url(https://banner.0814media.net/h5/img/homepage/promobg.jpg) no-repeat left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/homepage/promobg.jpg) no-repeat left/cover;
 }
 .promos .promosModule > div:nth-child(1) {
   width: 100%;
@@ -9378,34 +9381,34 @@ span.important {
 
 .friendReferral {
   margin: 2vw;
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-en.jpg) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/index-referBlock-H5-en.jpg) no-repeat center/100%;
   min-height: 42.5vw;
   border-radius: 5px;
   border: 1px solid #d2e2f9;
 }
 .friendReferral.en {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-en.jpg) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/index-referBlock-H5-en.jpg) no-repeat center/100%;
 }
 .friendReferral.cs {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-cs.jpg) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/index-referBlock-H5-cs.jpg) no-repeat center/100%;
 }
 .friendReferral.th {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-th.jpg) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/index-referBlock-H5-th.jpg) no-repeat center/100%;
 }
 .friendReferral.id {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-id.jpg) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/index-referBlock-H5-id.jpg) no-repeat center/100%;
 }
 .friendReferral.hi {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-hi.jpg) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/index-referBlock-H5-hi.jpg) no-repeat center/100%;
 }
 .friendReferral.bd {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-bd.jpg) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/index-referBlock-H5-bd.jpg) no-repeat center/100%;
 }
 .friendReferral.kh {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-kh.jpg) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/index-referBlock-H5-kh.jpg) no-repeat center/100%;
 }
 .friendReferral.vn {
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-vn.jpg) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/index-referBlock-H5-vn.jpg) no-repeat center/100%;
 }
 .friendReferral-btn {
   font-size: 2.8vw;
@@ -9474,7 +9477,7 @@ span.important {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: url(https://banner.0814media.net/h5/img/gamenamebg.png) no-repeat center top/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/gamenamebg.png) no-repeat center top/cover;
 }
 @media (max-width: 325px) {
   .upcomingmatches .swiper-slide .teamNew .gamename {
@@ -9655,7 +9658,7 @@ span.important {
   font-size: 20vw;
 }
 .liveTv > .liveTvModule.active > .title {
-  background: url(https://banner.0814media.net/h5/img/livetvtitlebggold.png) no-repeat center/75% 100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/livetvtitlebggold.png) no-repeat center/75% 100%;
 }
 .liveTv > .liveTvModule.active > .title:before {
   color: red;
@@ -9673,7 +9676,7 @@ span.important {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: url(https://banner.0814media.net/h5/img/livetvtitlebg.png) no-repeat center/75% 100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/livetvtitlebg.png) no-repeat center/75% 100%;
   border-radius: 5px 5px 0 0;
   color: white;
   position: relative;
@@ -9740,7 +9743,7 @@ span.important {
   content: "";
   width: 64vw;
   height: 58vw;
-  background: url(https://banner.0814media.net/img/liveCasinoBox/girl.png) no-repeat;
+  background: url(https://minio-api.lumigame.com/s1-nova88/img/liveCasinoBox/girl.png) no-repeat;
   position: absolute;
   right: -22vw;
   bottom: 0.5vw;
@@ -9890,7 +9893,7 @@ span.important {
 }
 
 .moduleTitle {
-  background: url(https://banner.0814media.net/h5/img/homepage/titlebg.png) no-repeat;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/homepage/titlebg.png) no-repeat;
   margin: 8vw 2vw 3vw;
   font-weight: bold;
   padding: 0 0 1vw 5vw;
@@ -9914,7 +9917,7 @@ span.important {
 }
 .moduleTitle > a::after {
   content: "";
-  background: url(https://banner.0814media.net/h5/img/homepage/more.png) no-repeat;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/homepage/more.png) no-repeat;
   width: 20px;
   height: 20px;
   margin: 1vw 1vw 0;
@@ -10536,7 +10539,7 @@ span.important {
   margin: 13vw 2vw 7vw;
   border-radius: 1vw;
   height: 37vw;
-  background: url(https://banner.0814media.net/h5/img/homepage/jpotbg-a.png) no-repeat 100%/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/homepage/jpotbg-a.png) no-repeat 100%/cover;
 }
 .jpot.active {
   -webkit-filter: grayscale(1);
@@ -10564,7 +10567,7 @@ span.important {
   width: 100%;
 }
 .jpot > .number {
-  background: url(https://banner.0814media.net/h5/img/homepage/jpot-title.png) no-repeat;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/homepage/jpot-title.png) no-repeat;
   position: absolute;
   width: 67vw;
   height: 9.6vw;
@@ -10610,7 +10613,7 @@ span.important {
   content: "";
   display: block;
   position: absolute;
-  background: url(https://banner.0814media.net/h5/img/homepage/coin.png) no-repeat 70%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/homepage/coin.png) no-repeat 70%;
   width: 10vw;
   height: 10vw;
   top: calc(50% - 5vw);
@@ -10659,25 +10662,25 @@ span.important {
 
 @-webkit-keyframes jpot {
   0% {
-    background: url(https://banner.0814media.net/h5/img/jpotbg.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/jpotbg.png) no-repeat center/cover;
   }
   50% {
-    background: url(https://banner.0814media.net/h5/img/jpotbga.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/jpotbga.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/jpotbg.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/jpotbg.png) no-repeat center/cover;
   }
 }
 
 @keyframes jpot {
   0% {
-    background: url(https://banner.0814media.net/h5/img/jpotbg.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/jpotbg.png) no-repeat center/cover;
   }
   50% {
-    background: url(https://banner.0814media.net/h5/img/jpotbga.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/jpotbga.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/jpotbg.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/jpotbg.png) no-repeat center/cover;
   }
 }
 .swithModule {
@@ -10839,7 +10842,7 @@ span.important {
   background: #97b4e0;
 }
 .apppage .app {
-  background: url(https://banner.0814media.net/h5/img/app/new-appbg.png) no-repeat top center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/app/new-appbg.png) no-repeat top center/cover;
 }
 .apppage .appHeader {
   height: 8vw;
@@ -11482,7 +11485,7 @@ span.important {
 
 /*checkspeed*/
 .checkspeed {
-  background: #0339a2 url(https://banner.0814media.net/h5/img/check_speed/bg.jpg) no-repeat center 24vw/100% auto;
+  background: #0339a2 url(https://minio-api.lumigame.com/s1-nova88/h5/img/check_speed/bg.jpg) no-repeat center 24vw/100% auto;
   height: auto;
 }
 .checkspeed img {
@@ -11834,14 +11837,14 @@ span.important {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(https://banner.0814media.net/h5/img/event/wheel/bg.jpg) no-repeat top center/175vw, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
-  background: url(https://banner.0814media.net/h5/img/event/wheel/bg.jpg) no-repeat top center/175vw, linear-gradient(to right, #100d41, #250333);
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/wheel/bg.jpg) no-repeat top center/175vw, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/wheel/bg.jpg) no-repeat top center/175vw, linear-gradient(to right, #100d41, #250333);
   padding: 0 0 24vw;
 }
 .wheelEvent .eventTitleBg {
   width: 56vw;
   height: 13vw;
-  background: url(https://banner.0814media.net/h5/img/event/wheel/event_title_bg.png) no-repeat top center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/wheel/event_title_bg.png) no-repeat top center/cover;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11916,7 +11919,7 @@ span.important {
   width: 60vw;
   height: 60vw;
   position: absolute;
-  background: url(https://banner.0814media.net/h5/img/event/wheel/wheelbg.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/wheel/wheelbg.png) no-repeat center/cover;
   border-radius: 100%;
   margin-top: 1vw;
   font-weight: bold;
@@ -12279,7 +12282,7 @@ span.important {
   right: 50px;
   width: 60px;
   height: 46px;
-  background: url(https://banner.0814media.net/h5/img/event/wheel/coin.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/wheel/coin.png) no-repeat center/cover;
 }
 .wheelPopModule .wheelPop .animation .coin:nth-child(2) {
   top: 100px;
@@ -12683,43 +12686,43 @@ span.important {
   margin-right: 5px;
 }
 .flag.ch:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/ch.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/ch.jpg) no-repeat top left/cover;
 }
 .flag.cs:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/cs.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/cs.jpg) no-repeat top left/cover;
 }
 .flag.en:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/en.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/en.jpg) no-repeat top left/cover;
 }
 .flag.th:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/th.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/th.jpg) no-repeat top left/cover;
 }
 .flag.id:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/id.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/id.jpg) no-repeat top left/cover;
 }
 .flag.vn:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/vn.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/vn.jpg) no-repeat top left/cover;
 }
 .flag.in:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/in.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/in.jpg) no-repeat top left/cover;
 }
 .flag.bd:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/bd.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/bd.jpg) no-repeat top left/cover;
 }
 .flag.kh:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/kh.jpg) no-repeat top left/cover;
 }
 .flag.gb:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/gb.jpg) no-repeat top left/cover;
 }
 .flag.br:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/br.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/br.jpg) no-repeat top left/cover;
 }
 .flag.ko:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/ko.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/ko.jpg) no-repeat top left/cover;
 }
 .flag.jp:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/jp.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/jp.jpg) no-repeat top left/cover;
 }
 
 .addressModule {
@@ -12771,11 +12774,11 @@ span.important {
 .worldcupEvent .eventPage.top {
   position: relative;
   height: 200vw;
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/bg.jpg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/worldcup/bg.jpg) no-repeat center/cover;
 }
 .worldcupEvent .eventPage.middle {
   position: relative;
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/bg2.jpg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/worldcup/bg2.jpg) no-repeat center/cover;
   text-align: center;
   padding: 10vw 0;
 }
@@ -12918,7 +12921,7 @@ span.important {
   display: block;
   width: 4vw;
   height: 4vw;
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/icon-fifa.svg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/worldcup/icon-fifa.svg) no-repeat center/cover;
   position: absolute;
   left: -0.5vw;
   top: 1.05vw;
@@ -12927,8 +12930,8 @@ span.important {
   position: relative;
   padding: 5vw 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/fixturebg.jpg) no-repeat top center/contain, -webkit-gradient(linear, left top, left bottom, color-stop(50%, #300113), to(#4a031e));
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/fixturebg.jpg) no-repeat top center/contain, linear-gradient(180deg, #300113 50%, #4a031e 100%);
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/worldcup/fixturebg.jpg) no-repeat top center/contain, -webkit-gradient(linear, left top, left bottom, color-stop(50%, #300113), to(#4a031e));
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/worldcup/fixturebg.jpg) no-repeat top center/contain, linear-gradient(180deg, #300113 50%, #4a031e 100%);
 }
 .worldcupEvent .fixture .title {
   margin: 3vw auto 18vw;
@@ -13410,7 +13413,7 @@ span.important {
   left: 0;
   width: 10vw;
   height: 4.75vw;
-  background: url(https://banner.0814media.net/img/worldcup/ticket.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/img/worldcup/ticket.png) no-repeat center/cover;
 }
 .worldcupEvent .progressBar .progressItem.active .value {
   color: #02D2B8;
@@ -13506,7 +13509,7 @@ span.important {
   top: 2vw;
   width: 13vw;
   height: 2vw;
-  background: url(https://banner.0814media.net/h5/img/event/worldcup/5deco.svg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/worldcup/5deco.svg) no-repeat center/cover;
 }
 .worldcupEvent .info .subtitle:before {
   left: -15vw;
@@ -13773,12 +13776,12 @@ input:-webkit-autofill:active {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(https://banner.0814media.net/h5/img/event/angpao/bg-top.jpg) no-repeat top center/cover, #990100;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/angpao/bg-top.jpg) no-repeat top center/cover, #990100;
   min-height: 92vw;
 }
 .angpaoEvent .eventPage--bottom {
   min-width: 100%;
-  background: url(https://banner.0814media.net/h5/img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
   padding-top: 5vw;
   padding-bottom: 15vw;
 }
@@ -13877,7 +13880,7 @@ input:-webkit-autofill:active {
   font-size: 3.5vw;
   text-transform: uppercase;
   color: #fff;
-  background: url(https://banner.0814media.net/h5/img/event/angpao/btn.png) no-repeat top center/contain;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/angpao/btn.png) no-repeat top center/contain;
   width: 45vw;
   height: 12vw;
   line-height: 1;
@@ -14194,7 +14197,7 @@ input:-webkit-autofill:active {
   display: block;
   width: 130px;
   height: 58px;
-  background-image: url("https://banner.0814media.net/h5/img/logo_en_w.png");
+  background-image: url("https://minio-api.lumigame.com/s1-nova88/h5/img/logo_en_w.png");
   background-size: 100%;
   background-repeat: no-repeat;
   -webkit-transition: ease 0.15s;
@@ -14913,7 +14916,7 @@ input[type=number] {
   width: 28vw;
   height: 16vw;
   pointer-events: none;
-  background: url(https://banner.0814media.net/h5/img/event/eurocup/logo-euro-ball.gif) center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/eurocup/logo-euro-ball.gif) center/cover;
 }
 .header-module .header-logo.eurocup + .splogo {
   -webkit-animation: eurologo 7.5s running infinite 0.5s;
@@ -14941,117 +14944,117 @@ input[type=number] {
   bottom: 1.5vw;
   width: 10vw !important;
   height: 10vw !important;
-  background: url(https://banner.0814media.net/h5/img/4.0/sp-aston-villa.png) center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/sp-aston-villa.png) center/cover;
   -webkit-clip-path: none !important;
           clip-path: none !important;
 }
 
 @-webkit-keyframes splogo {
   0% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0.1;
   }
   5% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   45% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   50% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0;
   }
   51% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0.1;
   }
   56% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   95% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0;
   }
 }
 
 @keyframes splogo {
   0% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0.1;
   }
   5% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   45% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   50% {
-    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0;
   }
   51% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0.1;
   }
   56% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   95% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0;
   }
 }
 @-webkit-keyframes eurologo {
   0% {
-    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
 }
 @keyframes eurologo {
   0% {
-    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
 }
 @-webkit-keyframes olympic {
   0% {
-    background: url(https://banner.0814media.net/h5/img/event/olympic/logo-paris.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/event/olympic/logo-paris.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
 }
 @keyframes olympic {
   0% {
-    background: url(https://banner.0814media.net/h5/img/event/olympic/logo-paris.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://banner.0814media.net/h5/img/event/olympic/logo-paris.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
 }
@@ -15517,14 +15520,14 @@ main.casino .banner {
 .home-hotmatch::after {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/4.0/sports-bg-new.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/sports-bg-new.png) no-repeat center/cover;
   height: 45vw;
   position: absolute;
   top: 0;
   width: 100%;
 }
 .home-hotmatch.br::after {
-  background: url(https://banner.0814media.net/h5/img/4.0/sports-bg.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/sports-bg.png) no-repeat center/cover;
 }
 .home-hotmatch-wrapper {
   display: -webkit-box;
@@ -16072,7 +16075,7 @@ main.casino .banner {
 }
 
 .footer {
-  background: url(https://banner.0814media.net/h5/img/4.0/footer-bg.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/footer-bg.png) no-repeat center/cover;
   height: 21.5vw;
   width: 100%;
   display: -webkit-box;
@@ -16398,7 +16401,7 @@ main.casino .banner {
 .menu-bottom-item .info::after {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/4.0/down.svg) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/down.svg) no-repeat center/100%;
   width: 3vw;
   height: 3vw;
   margin-left: 15vw;
@@ -16535,7 +16538,7 @@ main.casino .banner {
   border: 0;
 }
 .menu-bottom-item.active .info::after {
-  background: url(https://banner.0814media.net/h5/img/4.0/up.svg) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/up.svg) no-repeat center/100%;
 }
 .menu-bottom-item.active .option {
   display: block;
@@ -16556,7 +16559,7 @@ main.casino .banner {
 }
 
 .after .menu-top {
-  background: url(https://banner.0814media.net/h5/img/4.0/menu-after-bg.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/menu-after-bg.png) no-repeat center/cover;
   height: 55vw;
   border-radius: 0 0 20px 20px;
 }
@@ -16595,7 +16598,7 @@ main.casino .banner {
 .after .menu-top .profile-item > div > div a::after {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/4.0/right.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/right.png) no-repeat center/cover;
   height: 2vw;
   width: 2vw;
   margin-left: 1vw;
@@ -16754,37 +16757,37 @@ main.casino .banner {
   position: relative;
 }
 .after .menu-vip.vintage {
-  background: url(https://banner.0814media.net/h5/img/4.0/vintage-bg.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/vintage-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.vintage .right {
   background: #ffb773;
 }
 .after .menu-vip.silver {
-  background: url(https://banner.0814media.net/h5/img/4.0/silver-bg.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/silver-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.silver .right {
   background: #e9e9e9;
 }
 .after .menu-vip.gold {
-  background: url(https://banner.0814media.net/h5/img/4.0/gold-bg.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/gold-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.gold .right {
   background: #ffd965;
 }
 .after .menu-vip.titanium {
-  background: url(https://banner.0814media.net/h5/img/4.0/titanium-bg.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/titanium-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.titanium .right {
   background: #a5a5a5;
 }
 .after .menu-vip.diamond {
-  background: url(https://banner.0814media.net/h5/img/4.0/diamond-bg.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/diamond-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.diamond .right {
   background: #82F2FF;
 }
 .after .menu-vip.nova {
-  background: url(https://banner.0814media.net/h5/img/4.0/nova-bg.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/nova-bg.png) no-repeat center/cover;
 }
 .after .menu-vip.nova .right {
   background: #efefef;
@@ -16849,12 +16852,12 @@ main.casino .banner {
   text-align: center;
 }
 .after .menu-vip .right .dot-progress .progress-bar-vertical {
-  background: url(https://banner.0814media.net/h5/img/4.0/dot-progress-bg.png) no-repeat left;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/dot-progress-bg.png) no-repeat left;
   height: 5vw;
   width: 100%;
 }
 .after .menu-vip .right .dot-progress .progress-now-vertical {
-  background: url(https://banner.0814media.net/h5/img/4.0/dot-progress.png) no-repeat left;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/dot-progress.png) no-repeat left;
   height: 5vw;
 }
 .after .menu-vip .vip-text {
@@ -16874,7 +16877,7 @@ main.casino .banner {
 .after .menu-vip .vip-text.next::after {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/4.0/right-2.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/right-2.png) no-repeat center/cover;
   width: 2vw;
   height: 2vw;
   margin-left: 1vw;
@@ -17052,28 +17055,28 @@ input[type=number] .btn-logout {
 }
 
 .dragonegg-event {
-  background: #BD0213 url(https://banner.0814media.net/h5/img/event/dragonegg/banner-en.jpg) no-repeat top/contain;
+  background: #BD0213 url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/banner-en.jpg) no-repeat top/contain;
   padding-top: 0;
   position: relative;
   height: auto;
 }
 .dragonegg-event.en {
-  background: #BD0213 url(https://banner.0814media.net/h5/img/event/dragonegg/banner-en.jpg) no-repeat top/contain;
+  background: #BD0213 url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/banner-en.jpg) no-repeat top/contain;
 }
 .dragonegg-event.my {
-  background: #BD0213 url(https://banner.0814media.net/h5/img/event/dragonegg/banner-my.jpg) no-repeat top/contain;
+  background: #BD0213 url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/banner-my.jpg) no-repeat top/contain;
 }
 .dragonegg-event.cs {
-  background: #BD0213 url(https://banner.0814media.net/h5/img/event/dragonegg/banner-cs.jpg) no-repeat top/contain;
+  background: #BD0213 url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/banner-cs.jpg) no-repeat top/contain;
 }
 .dragonegg-event.id {
-  background: #BD0213 url(https://banner.0814media.net/h5/img/event/dragonegg/banner-id.jpg) no-repeat top/contain;
+  background: #BD0213 url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/banner-id.jpg) no-repeat top/contain;
 }
 .dragonegg-event.th {
-  background: #BD0213 url(https://banner.0814media.net/h5/img/event/dragonegg/banner-th.jpg) no-repeat top/contain;
+  background: #BD0213 url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/banner-th.jpg) no-repeat top/contain;
 }
 .dragonegg-event.vn {
-  background: #BD0213 url(https://banner.0814media.net/h5/img/event/dragonegg/banner-vn.jpg) no-repeat top/contain;
+  background: #BD0213 url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/banner-vn.jpg) no-repeat top/contain;
 }
 .dragonegg-event .event-back {
   padding: 2vw 3vw;
@@ -17090,7 +17093,7 @@ input[type=number] .btn-logout {
 .dragonegg-event .event-back .icon-back::after {
   content: "";
   display: inline-block;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/icon-back.svg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/icon-back.svg) no-repeat center/cover;
   width: 2vw;
   height: 3vw;
   position: absolute;
@@ -17134,7 +17137,7 @@ input[type=number] .btn-logout {
   display: inline-block;
   width: 6.8vw;
   height: 7.8vw;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/title-egg.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/title-egg.png) no-repeat center/cover;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%) rotate(-14deg);
@@ -17148,7 +17151,7 @@ input[type=number] .btn-logout {
   display: inline-block;
   width: 6.8vw;
   height: 7.8vw;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/title-egg.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/title-egg.png) no-repeat center/cover;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%) rotate(14deg);
@@ -17261,7 +17264,7 @@ input[type=number] .btn-logout {
   color: #949494;
 }
 .dragonegg-event .event-draw {
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/draw-bg-1.jpg) no-repeat center/contain;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/draw-bg-1.jpg) no-repeat center/contain;
   position: relative;
   width: 100%;
   height: 70vw;
@@ -17508,7 +17511,7 @@ input[type=number] .btn-logout {
 .dragonegg-event .event-history::before {
   content: "";
   display: block;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/draw-bg-2.jpg) no-repeat center/contain;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/draw-bg-2.jpg) no-repeat center/contain;
   width: 100%;
   height: 20vw;
   position: absolute;
@@ -17691,7 +17694,7 @@ input[type=number] .btn-logout {
 #popup.dragonegg-pop .close-btn::after {
   content: "";
   display: block;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/icon-close.svg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/icon-close.svg) no-repeat center/cover;
   width: 6vw;
   height: 6vw;
   position: absolute;
@@ -17994,7 +17997,7 @@ input[type=number] .btn-logout {
 #popup.dragonegg-result-pop .close-btn::after {
   content: "";
   display: block;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/icon-close.svg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/icon-close.svg) no-repeat center/cover;
   width: 6vw;
   height: 6vw;
   position: absolute;
@@ -18211,7 +18214,7 @@ input[type=number] .btn-logout {
 #popup .dragonegg-result-list::after {
   content: "";
   display: inline-block;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/popup-10-light.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/popup-10-light.png) no-repeat center/cover;
   width: 60vw;
   height: 60vw;
   position: absolute;
@@ -18242,7 +18245,7 @@ input[type=number] .btn-logout {
   display: inline-block;
   width: 18vw;
   height: 18vw;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/popup-10-reward.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/popup-10-reward.png) no-repeat center/cover;
   position: absolute;
   top: -9vw;
   left: 4lvw;
@@ -18254,7 +18257,7 @@ input[type=number] .btn-logout {
   display: inline-block;
   width: 18vw;
   height: 18vw;
-  background: url(https://banner.0814media.net/h5/img/event/dragonegg/popup-10-reward.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/dragonegg/popup-10-reward.png) no-repeat center/cover;
   position: absolute;
   top: -9vw;
   right: 4lvw;
@@ -18283,7 +18286,7 @@ input[type=number] .btn-logout {
 .euro .wrapper {
   padding-top: 20vw;
   min-height: 200vw;
-  background: #143CDB url(https://banner.0814media.net/h5/img/event/eurocup/top-bg.jpg) no-repeat bottom/contain;
+  background: #143CDB url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/eurocup/top-bg.jpg) no-repeat bottom/contain;
   position: relative;
 }
 .euro .wrapper::before {
@@ -18295,7 +18298,7 @@ input[type=number] .btn-logout {
   width: 100%;
   height: 27vw;
   z-index: 0;
-  background: url(https://banner.0814media.net/h5/img/event/eurocup/top-item.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/eurocup/top-item.png) no-repeat center/cover;
 }
 .euro > .title {
   font-size: 7vw;
@@ -18573,7 +18576,7 @@ input[type=number] .btn-logout {
   top: -6vw;
   width: 10vw;
   height: 5vw;
-  background: url(https://banner.0814media.net/h5/img/event/eurocup/tickets-1.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/eurocup/tickets-1.png) no-repeat center/cover;
 }
 .euro-mission .progressBar .progressItem.active:after {
   background: #F9BF4B;
@@ -18608,7 +18611,7 @@ input[type=number] .btn-logout {
   height: 1.8vw;
   -webkit-transform: translateX(-55%);
           transform: translateX(-55%);
-  background: url(https://banner.0814media.net/h5/img/event/eurocup/frame.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/eurocup/frame.png) no-repeat center/cover;
 }
 .euro-poll {
   display: -webkit-box;
@@ -18797,7 +18800,7 @@ input[type=number] .btn-logout {
   display: block;
   width: 4vw;
   height: 4vw;
-  background: url(https://banner.0814media.net/h5/img/event/eurocup/arrow-icon.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/eurocup/arrow-icon.png) no-repeat center/cover;
   border: 0;
 }
 .euro .inputBox-event .dropdown .dropdown-container {
@@ -19734,7 +19737,7 @@ input[type=number] .btn-logout {
 }
 
 .retention {
-  background: #0f1f3b url(https://banner.0814media.net/h5/img/event/retention/top-bg.jpg) no-repeat top/contain;
+  background: #0f1f3b url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/retention/top-bg.jpg) no-repeat top/contain;
   position: relative;
   padding: 0 0 10vw;
 }
@@ -19763,7 +19766,7 @@ input[type=number] .btn-logout {
 .retention-wrapper .top-btn {
   position: absolute;
   bottom: -18vw;
-  background: url(https://banner.0814media.net/h5/img/event/retention/btn-bg.png) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/retention/btn-bg.png) no-repeat center/100%;
   width: 50vw;
   height: 20vw;
   display: -webkit-box;
@@ -19809,7 +19812,7 @@ input[type=number] .btn-logout {
 }
 .retention-wrapper .bonus-list .title > div:first-child {
   color: white;
-  background: url(https://banner.0814media.net/h5/img/event/retention/title-bg.png) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/retention/title-bg.png) no-repeat center/100%;
   padding: 4vw 0 2vw 6vw;
   font-size: 4vw;
   display: -webkit-box;
@@ -20217,7 +20220,7 @@ input[type=number] .btn-logout {
   font-weight: 700;
 }
 .olympic-top {
-  background: url(https://banner.0814media.net/h5/img/event/olympic/background-a.jpg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/olympic/background-a.jpg) no-repeat center/cover;
 }
 .olympic-top-logo {
   width: 25vw;
@@ -20304,7 +20307,7 @@ input[type=number] .btn-logout {
 .olympic-center-wrapper .medal::before {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/event/olympic/gold-medal.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/olympic/gold-medal.png) no-repeat center/cover;
   width: 72vw;
   height: 72vw;
   position: absolute;
@@ -20335,7 +20338,7 @@ input[type=number] .btn-logout {
 .olympic-center-wrapper .tasks a::after {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/event/olympic/arrow.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/olympic/arrow.png) no-repeat center/cover;
   width: 1.5vw;
   height: 2.5vw;
   margin-left: 2vw;
@@ -20406,7 +20409,7 @@ input[type=number] .btn-logout {
 .olympic-center-wrapper .tasks-content-item button::after {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/h5/img/event/olympic/arrow.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/olympic/arrow.png) no-repeat center/cover;
   width: 1.5vw;
   height: 2.5vw;
   margin-left: 2vw;
@@ -20603,12 +20606,16 @@ input[type=number] .btn-logout {
   padding: 6vw 0;
 }
 
-.survey {
-  background: #F8F8F8;
-  color: #9C9C9C;
-  padding: 19vw 4vw;
+.setting-container .bottom-line {
+  border-bottom: 1px solid #EFEFEF;
+  margin: 8vw 0;
 }
-.survey-before {
+.setting-content {
+  color: #949494;
+  margin-bottom: 8vw;
+  font-weight: 500;
+}
+.setting-checkbox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20616,180 +20623,404 @@ input[type=number] .btn-logout {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-left: 2vw;
+}
+.setting-checkbox .inputBox, .setting-checkbox .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .setting-checkbox .inputBox-event, .setting-checkbox .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event, .worldcupEvent .event .event-content .ticket-item.finished .setting-checkbox .inputBox-event, .setting-checkbox .euro .inputBox-event, .euro .setting-checkbox .inputBox-event {
+  height: 10vw;
+  border-radius: 3vw;
+  border: 0;
+  background: #EFEFEF;
+  color: #5574A7;
+  font-size: 3vw;
+  border: 1px solid #5574A7;
+}
+.setting-checkbox .inputBox .dropdown-container, .setting-checkbox .worldcupEvent .event .event-content .inputBox-event .dropdown-container, .worldcupEvent .event .event-content .setting-checkbox .inputBox-event .dropdown-container, .setting-checkbox .euro .inputBox-event .dropdown-container, .euro .setting-checkbox .inputBox-event .dropdown-container {
+  display: none;
+  position: absolute;
+  background: #EFEFEF;
+  z-index: 2;
+  border: 1px solid #5574A7;
+  border-top: 0;
+  width: 100%;
+  margin: 0 0 0 -1px;
+  left: 0;
+  top: 8vw;
+  max-height: 45vw;
+  overflow-y: scroll;
+  color: #5574A7;
+  border-radius: 0 0 3vw 3vw;
+}
+.setting-checkbox .inputBox .dropdown-container.active, .setting-checkbox .worldcupEvent .event .event-content .inputBox-event .dropdown-container.active, .worldcupEvent .event .event-content .setting-checkbox .inputBox-event .dropdown-container.active, .setting-checkbox .euro .inputBox-event .dropdown-container.active, .euro .setting-checkbox .inputBox-event .dropdown-container.active {
+  display: block;
+}
+.setting-checkbox .inputBox .dropdown-container .dropdown-item, .setting-checkbox .worldcupEvent .event .event-content .inputBox-event .dropdown-container .dropdown-item, .worldcupEvent .event .event-content .setting-checkbox .inputBox-event .dropdown-container .dropdown-item, .setting-checkbox .euro .inputBox-event .dropdown-container .dropdown-item, .euro .setting-checkbox .inputBox-event .dropdown-container .dropdown-item {
+  padding: 2vw 2vw 2vw 4vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 8vw;
-  padding: 0 6vw;
 }
-.survey-before > div:first-child {
-  color: #0A1B38;
-  font-size: 4vw;
-  font-weight: 600;
+.setting-checkbox .checkbox-content {
+  margin-top: 2vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
 }
-.survey-before > div:nth-child(2) {
-  text-align: center;
-  margin-top: 5vw;
-  line-height: 5.5vw;
+.setting-checkbox .checkbox-content input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
 }
-.survey-before fieldset {
-  border: medium none;
-  min-width: 100%;
-  padding: 0;
-  width: 100%;
+.setting-checkbox .checkbox-content .checkbox-icon {
+  width: 4vw;
+  height: 4vw;
+  background: white;
+  border: 1px solid #C2D9FF;
+  border-radius: 1vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 2vw;
+  padding: 0.2vw;
 }
-.survey-before fieldset input {
-  width: 75vw;
-  border: 1px solid #ccc;
-  background: #FFF;
-  padding: 3vw;
-  color: #0A1B38;
-  border-radius: 2vw;
-}
-.survey-before fieldset input::-webkit-input-placeholder {
-  font-size: 3vw;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset input::-moz-placeholder {
-  font-size: 3vw;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset input:-ms-input-placeholder {
-  font-size: 3vw;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset input::-ms-input-placeholder {
-  font-size: 3vw;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset input::placeholder {
-  font-size: 3vw;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset input:focus {
-  outline: 0;
-  border: 2px solid #648DD6;
-}
-.survey-before fieldset textarea {
-  width: 75vw;
-  border: 1px solid #e5e5e5;
-  background: #FFF;
-  padding: 3vw;
-  height: 50vw;
-  max-width: 100%;
-  resize: none;
-  border-radius: 2vw;
-}
-.survey-before fieldset textarea::-webkit-input-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset textarea::-moz-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset textarea:-ms-input-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset textarea::-ms-input-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset textarea::placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
-}
-.survey-before fieldset textarea:focus {
-  outline: 0;
-  border: 2px solid #648DD6;
-}
-.survey-before fieldset button {
-  background: #648DD6;
-  font-size: 3.5vw;
-  font-weight: 600;
-  border-radius: 2vw;
-  padding: 3vw 10vw;
-  width: 39.5vw;
-  margin-top: 8vw;
-  color: white;
-}
-.survey-before fieldset button:last-child {
-  background: #DFDFDF;
-  color: #9B9B9B;
-}
-.survey-before fieldset .tip {
+.setting-checkbox .checkbox-content .checkbox-icon::after {
+  content: "";
+  width: 1vw;
+  height: 2vw;
+  border: solid white;
+  border-width: 0 0.5vw 0.5vw 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   display: none;
+  margin-bottom: 1vw;
+}
+.setting-checkbox .checkbox-content input[type=checkbox]:checked ~ .checkbox-icon {
+  background: #2775FF;
+}
+.setting-checkbox .checkbox-content input[type=checkbox]:checked ~ .checkbox-icon::after {
+  display: block;
+}
+.setting-radiobox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 2vw;
+}
+.setting-radiobox .radio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 2vw;
 }
-.survey-before fieldset .tip.active {
+.setting-radiobox .radio input[type=radio] {
+  position: absolute;
+  opacity: 0;
+}
+.setting-radiobox .radio input[type=radio] + .radio-label::before {
+  content: "";
+  background: white;
+  border-radius: 100%;
+  border: 1px solid #2775FF;
+  display: inline-block;
+  width: 4vw;
+  height: 4vw;
+  position: relative;
+  margin-right: 2vw;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
+}
+.setting-radiobox .radio input[type=radio]:checked + .radio-label::before {
+  background: #2775FF;
+  -webkit-box-shadow: inset 0 0 0 3px white;
+          box-shadow: inset 0 0 0 3px white;
+}
+.setting-radiobox .radio input[type=radio]:focus + .radio-label::before {
+  outline: none;
+  border-color: #2775FF;
+}
+.setting-radiobox .radio input[type=radio]:disabled + .radio-label::before {
+  -webkit-box-shadow: inset 0 0 0 3px #f4f4f4;
+          box-shadow: inset 0 0 0 3px #f4f4f4;
+  border-color: #b4b4b4;
+  background: white;
+}
+.setting-radiobox .radio input[type=radio] + .radio-label:empty::before {
+  margin-right: 0;
+}
+.setting-radiobox .radio .radio-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.setting-title {
+  color: #112240;
+  font-weight: 700;
+  font-size: 3.5vw;
+  font-weight: 600;
+  margin: 0 0 2vw 2vw;
+}
+.setting-tip {
+  color: #949494;
+  font-size: 2.5vw;
+  font-weight: 100;
+  margin: 2vw 0 3vw 2vw;
+}
+.setting .tip {
+  color: #e92529;
+}
+.setting .tip.active {
+  color: #e92529;
   display: block;
-  color: red;
+  text-align: left;
 }
-.survey-before fieldset .tip.message {
-  margin-top: 1vw;
+.setting .changepassword {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
-.survey-before fieldset.error textarea {
-  border: 2px solid red;
-}
-.survey-before fieldset.error input {
-  border: 2px solid red;
-}
-.survey-before fieldset:first-child {
-  margin-bottom: 5vw;
-}
-.survey-before .survey-input {
+.setting .changepassword .inputBox, .setting .changepassword .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .setting .changepassword .inputBox-event, .setting .changepassword .euro .inputBox-event, .euro .setting .changepassword .inputBox-event {
+  height: 10vw;
   margin-top: 3vw;
+  border-radius: 20vw;
+  border: 0;
+  background: #EFEFEF;
+  color: #5574A7;
+  font-size: 3vw !important;
 }
-.survey-before .survey-btn {
-  width: 100%;
+.setting .changepassword .inputBox:focus-within, .setting .changepassword .worldcupEvent .event .event-content .inputBox-event:focus-within, .worldcupEvent .event .event-content .setting .changepassword .inputBox-event:focus-within, .setting .changepassword .euro .inputBox-event:focus-within, .euro .setting .changepassword .inputBox-event:focus-within {
+  border: 1px solid #C2D9FF;
+  outline: #C2D9FF;
+}
+.setting .changepassword .inputBox.error, .setting .changepassword .worldcupEvent .event .event-content .error.inputBox-event, .worldcupEvent .event .event-content .setting .changepassword .error.inputBox-event, .setting .changepassword .euro .error.inputBox-event, .euro .setting .changepassword .error.inputBox-event {
+  border: 1px solid #cf0404;
+}
+.setting .changepassword .inputBox > input, .setting .changepassword .worldcupEvent .event .event-content .inputBox-event > input, .worldcupEvent .event .event-content .setting .changepassword .inputBox-event > input, .setting .changepassword .euro .inputBox-event > input, .euro .setting .changepassword .inputBox-event > input {
+  background: transparent;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  padding: 2vw;
+  color: #5574A7;
+  border: 0;
+  outline: none;
+  font-size: 3vw !important;
+}
+.setting .changepassword .inputBox > input::-webkit-input-placeholder, .setting .changepassword .worldcupEvent .event .event-content .inputBox-event > input::-webkit-input-placeholder, .worldcupEvent .event .event-content .setting .changepassword .inputBox-event > input::-webkit-input-placeholder, .setting .changepassword .euro .inputBox-event > input::-webkit-input-placeholder, .euro .setting .changepassword .inputBox-event > input::-webkit-input-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword .inputBox > input::-moz-placeholder, .setting .changepassword .worldcupEvent .event .event-content .inputBox-event > input::-moz-placeholder, .worldcupEvent .event .event-content .setting .changepassword .inputBox-event > input::-moz-placeholder, .setting .changepassword .euro .inputBox-event > input::-moz-placeholder, .euro .setting .changepassword .inputBox-event > input::-moz-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword .inputBox > input:-ms-input-placeholder, .setting .changepassword .worldcupEvent .event .event-content .inputBox-event > input:-ms-input-placeholder, .worldcupEvent .event .event-content .setting .changepassword .inputBox-event > input:-ms-input-placeholder, .setting .changepassword .euro .inputBox-event > input:-ms-input-placeholder, .euro .setting .changepassword .inputBox-event > input:-ms-input-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword .inputBox > input::-ms-input-placeholder, .setting .changepassword .worldcupEvent .event .event-content .inputBox-event > input::-ms-input-placeholder, .worldcupEvent .event .event-content .setting .changepassword .inputBox-event > input::-ms-input-placeholder, .setting .changepassword .euro .inputBox-event > input::-ms-input-placeholder, .euro .setting .changepassword .inputBox-event > input::-ms-input-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword .inputBox > input::placeholder, .setting .changepassword .worldcupEvent .event .event-content .inputBox-event > input::placeholder, .worldcupEvent .event .event-content .setting .changepassword .inputBox-event > input::placeholder, .setting .changepassword .euro .inputBox-event > input::placeholder, .euro .setting .changepassword .inputBox-event > input::placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword .inputBox > input:-webkit-autofill, .setting .changepassword .worldcupEvent .event .event-content .inputBox-event > input:-webkit-autofill, .worldcupEvent .event .event-content .setting .changepassword .inputBox-event > input:-webkit-autofill, .setting .changepassword .euro .inputBox-event > input:-webkit-autofill, .euro .setting .changepassword .inputBox-event > input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #0A1B38 inset;
+          box-shadow: 0 0 0px 1000px #0A1B38 inset;
+  -webkit-text-fill-color: white;
+}
+.setting .changepassword .inputBox > input[type=file], .setting .changepassword .worldcupEvent .event .event-content .inputBox-event > input[type=file], .worldcupEvent .event .event-content .setting .changepassword .inputBox-event > input[type=file], .setting .changepassword .euro .inputBox-event > input[type=file], .euro .setting .changepassword .inputBox-event > input[type=file] {
+  display: none;
+}
+.setting .changepassword .inputBox > input[type=checkbox], .setting .changepassword .worldcupEvent .event .event-content .inputBox-event > input[type=checkbox], .worldcupEvent .event .event-content .setting .changepassword .inputBox-event > input[type=checkbox], .setting .changepassword .euro .inputBox-event > input[type=checkbox], .euro .setting .changepassword .inputBox-event > input[type=checkbox] {
+  display: none;
+}
+.setting .changepassword .inputBox > input[type=checkbox] + label, .setting .changepassword .worldcupEvent .event .event-content .inputBox-event > input[type=checkbox] + label, .worldcupEvent .event .event-content .setting .changepassword .inputBox-event > input[type=checkbox] + label, .setting .changepassword .euro .inputBox-event > input[type=checkbox] + label, .euro .setting .changepassword .inputBox-event > input[type=checkbox] + label {
+  margin: 0 2vw 0 0;
+  vertical-align: middle;
+  color: #5574A7;
+}
+.setting .changepassword .btn-group button {
+  height: 10vw;
+  border-radius: 2.5vw;
+  margin-top: 5vw;
+}
+.setting .changepassword-input {
+  height: 10vw;
+  padding: 0 0 0 3vw;
+  margin-top: 3vw;
+  border-radius: 20vw;
+  border: 0;
+  background: #EFEFEF;
+  color: #5574A7;
+  font-size: 3vw;
+}
+.setting .changepassword-input::-webkit-input-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-input::-moz-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-input:-ms-input-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-input::-ms-input-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-input::placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #0A1B38 inset;
+          box-shadow: 0 0 0px 1000px #0A1B38 inset;
+  -webkit-text-fill-color: white;
+}
+.setting .changepassword-input:focus-within {
+  border: 1px solid #C2D9FF;
+  outline: #C2D9FF;
+}
+.setting .changepassword .btn-group button {
+  height: 10vw;
+  border-radius: 2.5vw;
+  margin-top: 5vw;
+}
+.setting .connect-social .social-icon {
+  background: #EFEFEF;
+  border-radius: 20vw;
+  padding: 2vw 4vw 2vw 3vw;
+  margin-top: 4vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-.survey-before.close {
-  display: none;
-}
-.survey-after {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
-.survey-after img {
-  width: 45vw;
-  margin-top: 15vw;
+.setting .connect-social .social-icon > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.survey-after > div:first-child > div {
-  color: #0A1B38;
-  font-size: 4vw;
-  font-weight: 600;
-  text-align: center;
-  margin-top: 8vw;
+.setting .connect-social .social-icon > div img {
+  width: 10vw;
 }
-.survey-after > div:last-child {
-  text-align: center;
-  padding: 7vw 5vw 0;
-  line-height: 5.5vw;
+.setting .connect-social .social-icon > div span {
+  color: #5574A7;
+  margin-left: 2vw;
 }
-.survey-after.close {
+.setting .connect-social .social-icon button {
+  background: #2775FF;
+  color: white;
+  width: 25vw;
+  border-radius: 20vw;
+  height: 7vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.setting .connect-social .social-icon button::after {
+  display: block;
+  content: "";
+  background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/down-1.png) no-repeat center/100%;
+  width: 2.5vw;
+  height: 2.5vw;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  margin-left: 1.5vw;
+}
+.setting .connect-social .social-icon button.active {
+  background: #9C9C9C;
+}
+.setting .connect-social .social-icon button.active::after {
   display: none;
 }
 
 #__next {
   height: 100%;
+}
+
+#g-reCaptcha .grecaptcha-badge {
+  z-index: 999;
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }/*# sourceMappingURL=style.css.map */
