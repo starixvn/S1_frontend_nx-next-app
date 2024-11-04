@@ -16,8 +16,6 @@ export enum DesktopHomeComponentsEnum {
 	HotGame = 'HotGame',
 	// 配合廠商清單
 	ProviderBlock = 'ProviderBlock',
-	// 合作夥伴
-	OfficialPartner = 'OfficialPartner',
 	// LuckyWheel
 	LuckyWheel = 'LuckyWheel',
 	// 直播

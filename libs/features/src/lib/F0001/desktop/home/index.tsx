@@ -26,10 +26,6 @@ const RecentlyViewGames = dynamic(() => import('./RecentlyViewGames'), {
 
 const PromotionSwiper = dynamic(() => import('./PromotionSwiper'))
 
-const OfficialPartner = dynamic(() => import('./OfficialPartner'), {
-	ssr: false,
-})
-
 const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
 
 const EuropeCupEntry = dynamic(() => import('../common/EuropeCupEntry'), {
@@ -84,7 +80,6 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.LiveCasino]: <LiveCasino />,
 		[DesktopHomeComponentsEnum.HotGame]: <HotGame />,
 		[DesktopHomeComponentsEnum.RecentlyViewGames]: <RecentlyViewGames />,
-		[DesktopHomeComponentsEnum.OfficialPartner]: <OfficialPartner />,
 		[DesktopHomeComponentsEnum.ProviderBlock]: <ProvidersBlock />,
 		[DesktopHomeComponentsEnum.EuropeCupEntry]: includes(
 			ALLOWED_CURRENCIES.Euro_Cup,
