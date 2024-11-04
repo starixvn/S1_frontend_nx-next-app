@@ -8,10 +8,12 @@ import {
 	EMAIL_REGEX,
 	ENV_COOKIE_NAMES,
 	FLAG_PREFIX_ICON_BY_CURRENCIES,
-	PASSWORD_REGEX, paths, PHONE_DIGITS_LIMIT,
+	PASSWORD_REGEX,
+	paths,
+	PHONE_DIGITS_LIMIT,
 	PHONE_LENGTH_REGEX,
 	REALNAME_REGEX,
-	USERNAME_REGEX
+	USERNAME_REGEX,
 } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
@@ -21,12 +23,13 @@ import {
 	useLazyExistsEmailQuery,
 	useLazyExistsUserNameQuery,
 	useLazyGetAffiliateAgentQuery,
-	useSignupMutation
+	useSignupMutation,
 } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import {
-	getQueryParam, MetaPixelTracker,
-	OperaPixelTracker
+	getQueryParam,
+	MetaPixelTracker,
+	OperaPixelTracker,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
@@ -81,7 +84,7 @@ const Form = ({ cookies }: IJoinProps) => {
 		userInfo: { langId, currencyId },
 	} = useAuth()
 
-	const { data, isLoading, isError} =	useGetSiteCurrencyListQuery()
+	const { data, isLoading, isError } = useGetSiteCurrencyListQuery()
 
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
@@ -98,8 +101,10 @@ const Form = ({ cookies }: IJoinProps) => {
 		new Date('1990-01-01')
 	)
 	const [phoneErrorTip, setPhoneErrorTip] = useState<string | undefined>('')
-	const [currencyOptions, setCurrencyOptions] = useState<ISelectProps['options']>([])
-	const [siteCurrencyList, setSiteCurrencyList] = useState<number[]>([]);
+	const [currencyOptions, setCurrencyOptions] = useState<
+		ISelectProps['options']
+	>([])
+	const [siteCurrencyList, setSiteCurrencyList] = useState<number[]>([])
 	const watchCurrencyId = watch('currencyId')
 
 	const areaCodeSelectOptions = Object.values(AREA_CODE).map(el => ({
@@ -414,27 +419,27 @@ const Form = ({ cookies }: IJoinProps) => {
 	}
 
 	const buildSiteCurrencyListWithFlag = (currencyList: number[]) => {
-		return	currencyList
-		 .filter(currencyId => {
-			 const affiliate = getValues('affiliate')
-			 const formCurrencyId = getValues('currencyId')
- 
-			 // if affId qualified, only show currencyId from api
-			 return urlAffId && affiliate ? currencyId === formCurrencyId : true
-		 })
-		 .map(currencyId => ({
-			 value: currencyId,
-			 label: t(`Label_General_Currency_${currencyId}`),
-			 prefixOptionIcon: (
-				 <div
-					 className={classNames(
-						 'flag',
-						 FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
-					 )}
-				 />
-			 ),
-		 }));
-	 }
+		return currencyList
+			.filter(currencyId => {
+				const affiliate = getValues('affiliate')
+				const formCurrencyId = getValues('currencyId')
+
+				// if affId qualified, only show currencyId from api
+				return urlAffId && affiliate ? currencyId === formCurrencyId : true
+			})
+			.map(currencyId => ({
+				value: currencyId,
+				label: t(`Label_General_Currency_${currencyId}`),
+				prefixOptionIcon: (
+					<div
+						className={classNames(
+							'flag',
+							FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
+						)}
+					/>
+				),
+			}))
+	}
 
 	useEffect(() => {
 		checkUrlAffiliate()
@@ -443,13 +448,17 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	useEffect(() => {
 		if (!isLoading && !isError) {
-			const siteCurrencyListApiResult: number[] = data?.data ?? [];
-			setSiteCurrencyList(siteCurrencyListApiResult);			
-			setCurrencyOptions( buildSiteCurrencyListWithFlag(siteCurrencyListApiResult));
-			setTimeout(() => { selectCurrency(CurrenciesEnum.THB) }, 1)			
+			const siteCurrencyListApiResult: number[] = data?.data ?? []
+			setSiteCurrencyList(siteCurrencyListApiResult)
+			setCurrencyOptions(
+				buildSiteCurrencyListWithFlag(siteCurrencyListApiResult)
+			)
+			setTimeout(() => {
+				selectCurrency(CurrenciesEnum.THB)
+			}, 1)
 			checkLineRegister()
 		}
-	}, [data, isLoading, isError]);
+	}, [data, isLoading, isError])
 
 	return (
 		<form
@@ -587,6 +596,7 @@ const Form = ({ cookies }: IJoinProps) => {
 					prefixIcon={<i className='icon icon-coin-dollar txt-blue' />}
 					onChange={currencyId => selectCurrency(currencyId)}
 					errorMessage={errors['currencyId']?.message as string}
+					isDropdown={false}
 				/>
 				<div className='tip active'>
 					{(errors['currencyId']?.message as string) ||
@@ -668,4 +678,3 @@ const Form = ({ cookies }: IJoinProps) => {
 }
 
 export { Form }
-
