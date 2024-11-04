@@ -173,6 +173,7 @@ export const FOOTER_DATA = ({
 				imgName: 'woncasino',
 			},
 		],
+
 		licenseData: {
 			defaultScript: '78d12a5a-22e2-428a-b16e-4f2891672b04',
 			defaultXCMScript: '226e4de2-30aa-4077-951b-d440012994f3',

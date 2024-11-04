@@ -79,7 +79,7 @@ const NewsList = () => {
 			>
 				❮
 			</a>
-			{/* page numger, ignore the first param */}
+			{/* page numger */}
 			{[...Array(totalPages)].map((_, index) => {
 				const page = index + 1
 				return (
