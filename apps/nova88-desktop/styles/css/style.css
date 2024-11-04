@@ -23185,11 +23185,14 @@ input[type=number] {
   border-radius: 25px;
   z-index: 2;
   width: 222px;
+  min-height: 222px;
 }
 .lobby-content.slots .slots-list-item .img-wrapper img {
   width: 220px;
   border-radius: 25px;
   border: 1px solid rgba(0, 0, 0, 0.0588235294);
+  min-height: 222px;
+  background: #ccc;
 }
 .lobby-content.slots .slots-list-item .img-wrapper .btn-container {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3169642857)), to(rgb(0, 0, 0)));

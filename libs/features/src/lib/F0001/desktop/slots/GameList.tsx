@@ -1,8 +1,8 @@
-import React, { Suspense } from 'react'
-import classNames from 'classnames'
-import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { useSlots } from '@nx-next-app/features/F0001/providers'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import { Suspense } from 'react'
 
 const GameList = () => {
 	const {
@@ -59,7 +59,7 @@ const GameList = () => {
 								)}
 
 								<div className='img-wrapper'>
-									<img src={resultImgUrl} alt='' />
+									<img src={resultImgUrl} alt={resultGameName} />
 									<div className='btn-container'>
 										<button
 											className='btn-play'
