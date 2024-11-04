@@ -36,7 +36,7 @@ const License = ({
 		<>
 			<div className='footer-center-item'>
 				<div className='footer-center-title'>{t('Label_Gaming_License')}</div>
-				{!showLicenseLogo && (
+				{showLicenseLogo && (
 					<div className='game-license'>
 						{/* PM hotfix 需求，此 license 需排除 kr site */}
 						{!includes(currentDomain, 'www.nova88kr.com') && (
