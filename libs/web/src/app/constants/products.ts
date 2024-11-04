@@ -139,7 +139,7 @@ export const PRODUCTS = {
 		tpGameIdNo: 32,
 		tpId: 5,
 		tpGameType: 16,
-		gameId: 101,
+		gameId: 3701,
 	},
 	GamePlay: {
 		tpGameIdNo: 33,
