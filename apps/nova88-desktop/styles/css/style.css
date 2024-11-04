@@ -23192,7 +23192,11 @@ input[type=number] {
   border-radius: 25px;
   border: 1px solid rgba(0, 0, 0, 0.0588235294);
   min-height: 222px;
-  background: #ccc;
+  background: -webkit-gradient(linear, left top, right top, from(#DDDDDD), color-stop(#F0F0F0), color-stop(#DDDDDD), to(#F0F0F0));
+  background: linear-gradient(90deg, #DDDDDD, #F0F0F0, #DDDDDD, #F0F0F0);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 2.25s ease infinite;
+          animation: Gradient 2.25s ease infinite;
 }
 .lobby-content.slots .slots-list-item .img-wrapper .btn-container {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3169642857)), to(rgb(0, 0, 0)));
@@ -26704,4 +26708,28 @@ input[type=number] {
 }
 #survey .survey-after.close {
   display: none;
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }/*# sourceMappingURL=style.css.map */
