@@ -8,7 +8,7 @@ interface ITeamProps {
 
 const Team = ({ countryName, imageName, position }: ITeamProps) => {
 	const imgSrc = imageName
-		? `https://sportsimgs.0814media.net/Country%20Team/${imageName}`
+		? `https://minio-api.lumigame.com/s1-nova88/sports/Country%20Team/${imageName}`
 		: fallbackImgUrl
 
 	return (

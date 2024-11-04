@@ -1,15 +1,3 @@
-import React, {
-	createContext,
-	ReactNode,
-	useContext,
-	useEffect,
-	useRef,
-	useState,
-} from 'react'
-import dayjs from 'dayjs'
-import { revertTimeZone } from '@nx-next-app/utils'
-import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
 import {
 	IAxiosResponse,
 	ICustTpBetRecordDetailListbyGameTypeData,
@@ -22,6 +10,18 @@ import {
 	useLazyGetGetCustTpBetRecordListOneDayQuery,
 } from '@nx-next-app/service'
 import { QuickPickData, QuickPickEnum } from '@nx-next-app/types'
+import { revertTimeZone } from '@nx-next-app/utils'
+import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import React, {
+	createContext,
+	ReactNode,
+	useContext,
+	useEffect,
+	useRef,
+	useState,
+} from 'react'
 
 interface IStatementProviderProps {
 	children: ReactNode
@@ -408,7 +408,7 @@ const StatementProvider = ({
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			...queryObject,
-			pageNumber: selected + 1,
+			pageNumber: selected,
 		} as {
 			targetTab: string
 			selDate: string

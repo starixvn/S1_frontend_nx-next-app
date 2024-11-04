@@ -1,17 +1,17 @@
-import classNames from 'classnames'
-import { upperFirst } from 'lodash-es'
-import { useRouter } from 'next/router'
-import { ReactNode } from 'react'
-import dynamic from 'next/dynamic'
-import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { Form } from '@nx-next-app/components/H0001'
 import { paths, PRODUCTS } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { UseEuropeCupProps } from '@nx-next-app/features/F0001/hooks/useEuropeCup'
 import { CupEventUserTicketStatus, type IGroupData } from '@nx-next-app/service'
-import { Form } from '@nx-next-app/components/H0001'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { numFormatToDigits } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { upperFirst } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
+import { ReactNode } from 'react'
 import Select from './components/Select'
 
 const LiveStreamingModalH5 = dynamic(
@@ -66,7 +66,7 @@ const Prediction = ({ europeCupProps }: IPredictionProps) => {
 			label: item.countryName,
 			prefixOptionIcon: (
 				<img
-					src={`https://sportsimgs.0814media.net/Country%20Team/${upperFirst(
+					src={`https://minio-api.lumigame.com/s1-nova88/sports/Country%20Team/${upperFirst(
 						item.imageName
 					)}`}
 					alt='country-icon'
