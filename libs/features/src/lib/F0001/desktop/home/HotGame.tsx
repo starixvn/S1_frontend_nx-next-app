@@ -203,7 +203,9 @@ const HotGame = () => {
 					</div>
 				</>
 			)}
-			{jackpot.length > 0 && (
+
+			{/* TODO: Hide in phase 1 */}
+			{/* {jackpot.length > 0 && (
 				<>
 					<div className='maintitle'>
 						{t('Label_General_Jackpot')}
@@ -250,7 +252,7 @@ const HotGame = () => {
 						</DynamicSwiper>
 					</div>
 				</>
-			)}
+			)} */}
 		</div>
 	)
 }

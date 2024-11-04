@@ -119,7 +119,10 @@ const Home = () => {
 
 		[MobileHomeComponentsEnum.FooterBlock]: <FooterBlock />,
 		[MobileHomeComponentsEnum.SimpleFooter]: <SimpleFooter />,
-		[MobileHomeComponentsEnum.JackPotSwiper]: <JackPotSwiper />,
+		// TODO: Hide in phase 1
+		// [MobileHomeComponentsEnum.JackPotSwiper]: <JackPotSwiper />,
+		[MobileHomeComponentsEnum.JackPotSwiper]: <div />,
+
 		[MobileHomeComponentsEnum.OlympicEntry]: includes(
 			ALLOWED_CURRENCIES.OLYMPIC,
 			currencyId
