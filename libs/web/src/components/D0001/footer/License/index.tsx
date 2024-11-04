@@ -1,4 +1,5 @@
 import { IFooterData, ISeoData } from '@nx-next-app/types'
+import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Script from 'next/script'
 import { useEffect } from 'react'
@@ -13,6 +14,8 @@ const License = ({
 	const { t } = useTranslation()
 	const showLicenseLogo = seoData?.activeDomain ?? false
 	const tobiqueSealId = seoData?.script ?? defaultScript
+	const currentDomain =
+		typeof window !== 'undefined' ? window.location.href : ''
 
 	// 市場通知暫時移除 XCM License 2024/7/16
 	// const XCMScript = seoData?.xcmScript ?? defaultXCMScript
@@ -33,14 +36,17 @@ const License = ({
 		<>
 			<div className='footer-center-item'>
 				<div className='footer-center-title'>{t('Label_Gaming_License')}</div>
-				{showLicenseLogo && (
+				{!showLicenseLogo && (
 					<div className='game-license'>
-						<div
-							id={`dlag-${tobiqueSealId}`}
-							data-dlag-seal-id={tobiqueSealId}
-							data-dlag-image-size='128'
-							data-dlag-image-type='basic-small'
-						/>
+						{/* PM hotfix 需求，此 license 需排除 kr site */}
+						{!includes(currentDomain, 'www.nova88kr.com') && (
+							<div
+								id={`dlag-${tobiqueSealId}`}
+								data-dlag-seal-id={tobiqueSealId}
+								data-dlag-image-size='128'
+								data-dlag-image-type='basic-small'
+							/>
+						)}
 						{/* <div */}
 						{/*	id={`xcm-${XCMScript}`} */}
 						{/*	data-xcm-seal-id={XCMScript} */}
