@@ -5,7 +5,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/onetwobet/data/appDownload'
+import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/onetwobet'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 

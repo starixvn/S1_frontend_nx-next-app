@@ -14,7 +14,7 @@ import { useRouter } from 'next/router'
 import { useBoolean } from 'usehooks-ts'
 
 const LoginModal = dynamic(
-	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
+	() => import('@12b-desktop/components/modal/LoginModal'),
 	{
 		ssr: false,
 	}

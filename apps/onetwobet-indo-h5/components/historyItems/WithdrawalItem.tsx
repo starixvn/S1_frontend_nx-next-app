@@ -1,9 +1,9 @@
+import { HistoryMsgModal } from '@12b-indo-h5/components/history/modal'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { numberFormat } from '@nx-next-app/utils'
 import dayjs from 'dayjs'
-import HistoryMsgModal from 'libs/features/src/lib/F0001/h5/history/modal/HistoryMsgModal'
 import { WithdrawalStatusClassNameForMobile } from 'libs/web/src/app/types/history'
 import { useTranslation } from 'next-i18next'
 

@@ -1,11 +1,11 @@
 import { ENV_COOKIE_NAMES, EVENT_PERIOD } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout, LuckyWheel } from '@nx-next-app/features/F0001/h5'
-import { LuckWheelProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { LuckWheelProvider } from '@nx-next-app/operations'
 import { ALLOWED_CURRENCIES } from '@nx-next-app/site/onetwobet'
 import { includes } from 'lodash-es'
 import { GetServerSideProps } from 'next'

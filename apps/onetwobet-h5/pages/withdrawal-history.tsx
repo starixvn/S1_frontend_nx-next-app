@@ -6,10 +6,7 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { HistoryProvider } from '@nx-next-app/operations'
-import {
-	HISTORY_TABS,
-	QUICK_PICK_LIST,
-} from '@nx-next-app/site/onetwobet/data/history'
+import { HISTORY_TABS, QUICK_PICK_LIST } from '@nx-next-app/site/onetwobet'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
