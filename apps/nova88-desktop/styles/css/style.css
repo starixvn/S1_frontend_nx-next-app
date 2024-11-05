@@ -3320,6 +3320,10 @@ main .promosswiper .swiper-button-prev::after {
 .hotgame .hotgame-content .hotgameswiper .swiper-button-next::after {
   font-size: 0;
 }
+.hotgame .hotgame-content .hotgameswiper .swiper-button-next.swiper-button-disabled {
+  opacity: 0.2;
+  pointer-events: unset;
+}
 .hotgame .hotgame-content .hotgameswiper .swiper-button-prev {
   background-image: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/left-1.png);
   background-size: cover;
@@ -3331,6 +3335,10 @@ main .promosswiper .swiper-button-prev::after {
 }
 .hotgame .hotgame-content .hotgameswiper .swiper-button-prev::after {
   font-size: 0;
+}
+.hotgame .hotgame-content .hotgameswiper .swiper-button-prev.swiper-button-disabled {
+  opacity: 0.2;
+  pointer-events: unset;
 }
 .hotgame .jackpotswiper {
   width: 1400px;
