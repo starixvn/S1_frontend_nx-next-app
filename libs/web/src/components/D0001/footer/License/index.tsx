@@ -39,14 +39,15 @@ const License = ({
 				{showLicenseLogo && (
 					<div className='game-license'>
 						{/* PM hotfix 需求，此 license 需排除 kr site */}
-						{!includes(currentDomain, 'www.nova88kr.com') && (
-							<div
-								id={`dlag-${tobiqueSealId}`}
-								data-dlag-seal-id={tobiqueSealId}
-								data-dlag-image-size='128'
-								data-dlag-image-type='basic-small'
-							/>
-						)}
+						{typeof window !== 'undefined' &&
+							!includes(currentDomain, 'nova88kr.com') && (
+								<div
+									id={`dlag-${tobiqueSealId}`}
+									data-dlag-seal-id={tobiqueSealId}
+									data-dlag-image-size='128'
+									data-dlag-image-type='basic-small'
+								/>
+							)}
 						{/* <div */}
 						{/*	id={`xcm-${XCMScript}`} */}
 						{/*	data-xcm-seal-id={XCMScript} */}
