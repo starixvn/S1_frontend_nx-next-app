@@ -41,7 +41,11 @@ const useDigitalWalletForm = ({
 
 	const { value: isFirstEffect, toggle: toggleIsFirstEffect } = useBoolean(true)
 	const {
-		query: { paymentType: queryPaymentType, groupId: queryGroupId },
+		query: {
+			paymentType: queryPaymentType,
+			groupId: queryGroupId,
+			channelId: queryChannelId,
+		},
 		pathname,
 		push,
 	} = useRouter()
@@ -115,6 +119,7 @@ const useDigitalWalletForm = ({
 
 			const paramsUrl = searchParams.toString()
 			const baseUrl = `${dbHost}/${langId}/${cashierApiUrl.postDepositReq}`
+
 			window.open(`${baseUrl}?${paramsUrl}`)
 
 			resetField('amount')
@@ -156,7 +161,7 @@ const useDigitalWalletForm = ({
 		{}
 
 		const channelInfo =
-			find(supportChannels, { groupId: Number(queryGroupId) }) ||
+			find(supportChannels, { channelId: Number(queryChannelId) }) ||
 			head(supportChannels)
 
 		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
@@ -206,7 +211,7 @@ const useDigitalWalletForm = ({
 		push(url, undefined, {
 			shallow: true,
 		})
-	}, [debouncedLoading, queryPaymentType, queryGroupId])
+	}, [debouncedLoading, queryPaymentType, queryGroupId, queryChannelId])
 
 	return {
 		formMethods,
