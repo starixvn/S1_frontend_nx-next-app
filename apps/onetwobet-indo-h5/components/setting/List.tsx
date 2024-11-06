@@ -14,7 +14,7 @@ const List = () => {
 	const { push, reload } = useRouter()
 
 	const {
-		userInfo: { currencyId, langId },
+		userInfo: { langId },
 		auth: { isLogin },
 		onSignOut,
 	} = useAuth()
@@ -73,57 +73,6 @@ const List = () => {
 						</div>
 					</div>
 				</div>
-				{!isLogin && (
-					<div className='country'>
-						{Object.entries(languageGroup).map(([lang, items]) => {
-							return (
-								<div
-									key={`${lang}-${items}`}
-									className={classNames('country-item', {
-										active: lang === icon,
-									})}
-								>
-									<div className='country-title'>
-										<div>
-											<img
-												src={getBannerUrl(`/h5/img/${lang}.jpg`)}
-												alt={lang}
-											/>
-										</div>
-									</div>
-									<div>
-										{items.map(languageItem => {
-											if (!languageItem?.mainLanguage) return
-											return (
-												<button
-													key={`${languageItem.value}-${languageItem.currencyId}`}
-													className={classNames({
-														active: isEqual(
-															{ langId, currencyId },
-															{
-																langId: languageItem.value,
-																currencyId: languageItem.currencyId,
-															}
-														),
-													})}
-													type='button'
-													onClick={() => {
-														onSetLanguage({
-															langCode: languageItem.value,
-															currencyId: languageItem.currencyId,
-														})
-													}}
-												>
-													{languageItem.displayText}
-												</button>
-											)
-										})}
-									</div>
-								</div>
-							)
-						})}
-					</div>
-				)}
 			</SettingCollapse.Item>
 
 			<SettingCollapse.Item

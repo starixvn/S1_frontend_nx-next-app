@@ -1,15 +1,12 @@
 import { LANG_GROUP_COUNTRY } from '@nx-next-app/constants'
-import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import { useGlobalData } from '@nx-next-app/data-access'
 import { useLanguageGroup } from '@nx-next-app/hooks'
 import classNames from 'classnames'
-import { Fragment, useRef } from 'react'
+import { useRef } from 'react'
 import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 
 const Country = () => {
 	const { getBannerUrl } = useGlobalData()
-	const {
-		auth: { isLogin },
-	} = useAuth()
 	const ref = useRef(null)
 	const { value: isActive, toggle, setFalse } = useBoolean(false)
 	const { icon, languageGroup, onSetLanguage } = useLanguageGroup()
@@ -63,39 +60,6 @@ const Country = () => {
 						</div>
 					</div>
 				</div>
-				{!isLogin && (
-					<div className='country-options'>
-						{Object.entries(languageGroup).map(([lang, item]) => (
-							<Fragment key={lang}>
-								{item?.map(
-									({ value, currencyId, displayText, mainLanguage }) => {
-										if (!mainLanguage) return
-										return (
-											<button
-												className='icon'
-												key={`${lang}_${value}`}
-												type='button'
-												onClick={() => {
-													onSetLanguage({
-														langCode: value,
-														currencyId,
-													})
-													toggle()
-												}}
-											>
-												<img
-													src={getBannerUrl(`/desktop/img/flag/${lang}.jpg`)}
-													alt={`flag ${lang}`}
-												/>
-												{displayText}
-											</button>
-										)
-									}
-								)}
-							</Fragment>
-						))}
-					</div>
-				)}
 			</div>
 		</div>
 	)
