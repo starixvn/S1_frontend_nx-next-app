@@ -9,7 +9,7 @@ const PaymentOptions = () => {
 		userInfo: { currencyId },
 	} = useAuth()
 
-	const paymentData = paymentOptions[currencyId]
+	const paymentData = paymentOptions[currencyId] ?? []
 
 	return (
 		<div className='payment'>
