@@ -35,7 +35,7 @@ const Login = () => {
 	return (
 		<div style={{ height: '100vh', width: '100vw', position: 'fixed' }}>
 			<main className='main login'>
-				<Link href={fromRoute} prefetch>
+				<Link href={fromRoute}>
 					<button className='close-btn'>
 						<img src={getBannerUrl('/h5/img/4.0/close-icon.png')} alt='close' />
 					</button>
