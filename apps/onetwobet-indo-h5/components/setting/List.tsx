@@ -1,0 +1,178 @@
+import { SettingCollapse } from '@nx-next-app/components/H0001'
+import { LANG_GROUP_COUNTRY, paths } from '@nx-next-app/constants'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import { useLanguageGroup } from '@nx-next-app/hooks'
+import classNames from 'classnames'
+import { isEqual } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+
+const List = () => {
+	const { t } = useTranslation()
+	const { getBannerUrl } = useGlobalData()
+	const { push, reload } = useRouter()
+
+	const {
+		userInfo: { langId },
+		auth: { isLogin },
+		onSignOut,
+	} = useAuth()
+
+	const { icon, languageGroup, onSetLanguage } = useLanguageGroup()
+
+	const handleSignOut = async () => {
+		await onSignOut()
+		push(paths.home.root).then(() => reload())
+	}
+
+	return (
+		<SettingCollapse>
+			<SettingCollapse.Item
+				imgName='languages'
+				header={t('Label_General_Languages')}
+				defaultActive
+			>
+				<div className={classNames('country-current', { after: isLogin })}>
+					<div className='country-item'>
+						<div className='country-title'>
+							<div>
+								<img src={getBannerUrl(`/h5/img/${icon}.jpg`)} alt='country' />
+							</div>
+						</div>
+						<div>
+							<div>{LANG_GROUP_COUNTRY[icon || 'ch']}</div>
+							<div>
+								{languageGroup[icon || 'ch']?.map(
+									({ displayText, currencyId, value }) => {
+										return (
+											<button
+												key={`languageGroup-${value}`}
+												onClick={() =>
+													onSetLanguage({
+														langCode: value,
+														currencyId,
+													})
+												}
+												className={classNames({
+													active: isEqual(
+														{ langId, currencyId },
+														{
+															langId: value,
+															currencyId,
+														}
+													),
+												})}
+											>
+												{displayText}
+											</button>
+										)
+									}
+								)}
+							</div>
+						</div>
+					</div>
+				</div>
+			</SettingCollapse.Item>
+
+			<SettingCollapse.Item
+				imgName='policies'
+				header={t('Label_General_OurPolicies')}
+			>
+				<a
+					href={getBannerUrl(`/Static/${langId}/ResposibleGaming.html`)}
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					{t('Label_General_ResponsibleGaming')}
+				</a>
+				<a
+					href={getBannerUrl('/Static/en/TermsConditions.html')} // 2024.8.22 需求說先改成統一導到en語系
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					{t('Label_General_TermsConditions')}
+				</a>
+				<a
+					href={getBannerUrl(`/Static/${langId}/PrivacyPolicy.html`)}
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					{t('Label_General_PrivacyPolicy')}
+				</a>
+				<a
+					href={getBannerUrl(`/Static/${langId}/CookiePolicy.html`)}
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					{t('Label_General_CookiePolicy')}
+				</a>
+			</SettingCollapse.Item>
+
+			<SettingCollapse.Item
+				imgName='help'
+				header={t('Label_General_HelpSupport')}
+			>
+				<a
+					href={getBannerUrl(`/Static/${langId}/RulesandRegulations.html`)}
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					{t('Label_General_RuleRegulations')}
+				</a>
+				<a
+					href={getBannerUrl(`/Static/${langId}/AccountTerms.html`)}
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					{t('Label_General_AccountTerms')}
+				</a>
+				<a
+					href={getBannerUrl(`/Static/${langId}/FAQ.html`)}
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					{t('Label_General_FAQ')}
+				</a>
+			</SettingCollapse.Item>
+
+			<SettingCollapse.Item
+				imgName='nova88'
+				header={String(process.env['NEXT_PUBLIC_SITE_NAME']).toUpperCase()}
+			>
+				<a
+					href={getBannerUrl(`/Static/${langId}/AboutUs.html`)}
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					{t('Label_General_AboutUs')}
+				</a>
+				<a
+					href={getBannerUrl(`/Static/${langId}/Terms.html`)}
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					{t('Label_General_Terms')}
+				</a>
+				<a
+					href={getBannerUrl(`/Static/${langId}/ContactUs.html`)}
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					{t('Label_General_ContactUs')}
+				</a>
+				<Link href={paths.gameProvider.root}>
+					<a>{t('Label_General_GameProvider')}</a>
+				</Link>
+			</SettingCollapse.Item>
+
+			{isLogin && (
+				<button className='btn-logout primary' onClick={handleSignOut}>
+					{t('Label_General_LogOut')}
+				</button>
+			)}
+		</SettingCollapse>
+	)
+}
+
+export default List

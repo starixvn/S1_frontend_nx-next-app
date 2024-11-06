@@ -10,7 +10,7 @@ import {
 } from '@nx-next-app/hooks'
 import { SlotsProvider } from '@nx-next-app/operations'
 import { ISlotsGameData } from '@nx-next-app/service'
-import { CATEGORY_SORT } from '@nx-next-app/site/onetwobet/data/slots'
+import { CATEGORY_SORT } from '@nx-next-app/site/onetwobet'
 import { pick } from 'lodash-es'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'

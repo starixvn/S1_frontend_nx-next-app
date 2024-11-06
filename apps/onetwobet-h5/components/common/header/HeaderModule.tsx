@@ -34,7 +34,7 @@ const HeaderModule = () => {
 
 			{isLogin ? (
 				<div className='header-info'>
-					<Link href={paths.message.root} prefetch>
+					<Link href={paths.message.root}>
 						<button className={classNames({ active: msgCount > 0 })}>
 							<img
 								src={getBannerUrl('/h5/img/mail-icon.png')}
@@ -42,7 +42,7 @@ const HeaderModule = () => {
 							/>
 						</button>
 					</Link>
-					<Link href={paths.appDownload.root} prefetch>
+					<Link href={paths.appDownload.root}>
 						<button>
 							<img
 								src={getBannerUrl('/h5/img/download-icon.png')}
@@ -60,10 +60,10 @@ const HeaderModule = () => {
 				</div>
 			) : (
 				<div className='home-btn-group header-login'>
-					<Link href={paths.login.root} prefetch>
+					<Link href={paths.login.root}>
 						<button className='btn-login'>{t('Label_General_LogIn')}</button>
 					</Link>
-					<Link href={paths.join.root} prefetch>
+					<Link href={paths.join.root}>
 						<button className='btn-register'>
 							{t('Label_General_Register')}
 						</button>
