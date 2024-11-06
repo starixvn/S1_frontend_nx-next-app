@@ -1,5 +1,5 @@
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
-import { sponsorsList } from '@nx-next-app/site/onetwobet/data'
+import { sponsorsList } from '@nx-next-app/site/onetwobet'
 import { useTranslation } from 'next-i18next'
 
 const Sponsorship = () => {

@@ -1,4 +1,4 @@
-import { useGotoGameRedirect } from '@nx-next-app/features/F0001/hooks'
+import { useGotoGameRedirect } from '@nx-next-app/operations'
 
 const LauncherPage = () => {
 	useGotoGameRedirect()

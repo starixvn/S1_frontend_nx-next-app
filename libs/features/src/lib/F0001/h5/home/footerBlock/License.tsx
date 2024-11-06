@@ -59,7 +59,7 @@ const License = () => {
 	// const formattedXCMScript = XCMScript?.split('-').join('_')
 
 	useEffect(() => {
-		if (showLicenseLogo) {
+		if (showLicenseLogo && !includes(currentDomain, 'nova88kr.com')) {
 			const formattedTobiqueSealId = tobiqueSealId?.replace(/-/g, '_')
 			/* eslint-disable @typescript-eslint/no-explicit-any */
 			const tobiqueScript = (window as any)[`dlag_${formattedTobiqueSealId}`]
@@ -67,7 +67,7 @@ const License = () => {
 			tobiqueScript?.init()
 			// xcmScript?.init()
 		}
-	}, [showLicenseLogo])
+	}, [showLicenseLogo, currentDomain])
 
 	return (
 		<>
