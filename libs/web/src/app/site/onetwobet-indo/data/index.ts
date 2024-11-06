@@ -43,13 +43,4 @@ export const LIVE_CHAT_ID_BY_LANG_ID: {
 } = {
 	en: 1,
 	id: 2,
-	cs: 3,
-	th: 4,
-	hi: 8,
-	vn: 9,
-	bd: 10,
-	my: 12,
-	ko: 13,
-	br: 14,
-	jp: 15,
 }
