@@ -6,10 +6,10 @@ const PaymentOptions = () => {
 	const { t } = useTranslation()
 	const { getBannerUrl } = useGlobalData()
 	const {
-		userInfo: { langId },
+		userInfo: { currencyId },
 	} = useAuth()
 
-	const paymentData = paymentOptions[langId] ?? paymentOptions['gb']
+	const paymentData = paymentOptions[currencyId] ?? []
 
 	return (
 		<div className='payment'>

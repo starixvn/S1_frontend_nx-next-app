@@ -1,3 +1,4 @@
+import { DepositBankSlipModal } from '@12b-h5/components/history/modal'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	AllowUploadReceiptType,
@@ -5,7 +6,6 @@ import {
 	WithReceiptInfoType,
 } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { DepositBankSlipModal } from '@nx-next-app/features/F0001/h5/history/modal'
 import {
 	IDepositInfoHistoryData,
 	useSetDepositCancelMutation,
@@ -23,7 +23,7 @@ import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 
 const HistoryMsgModal = dynamic(
-	() => import('@nx-next-app/features/F0001/h5/history/modal/HistoryMsgModal'),
+	() => import('@12b-h5/components/history/modal/HistoryMsgModal'),
 	{
 		ssr: false,
 	}

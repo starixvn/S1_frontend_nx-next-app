@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/next-script-for-ga */
 /* eslint-disable react/no-danger */
 /* eslint-disable jsx-a11y/alt-text */
-import { getGA4ID, getGTMId } from '@nx-next-app/site/onetwobet/data'
+import { getGA4ID, getGTMId } from '@nx-next-app/site/onetwobet'
 import Document, {
 	DocumentContext,
 	DocumentInitialProps,

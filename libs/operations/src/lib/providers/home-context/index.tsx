@@ -45,7 +45,6 @@ interface IHomeProviderProps {
 	persistLicenseData: IFooterData['licenseData']
 	persistQuickLinksList?: IFooterData['quickLinks']
 	persistPlatformList?: IFooterData['platformList']
-	popStacks?: Array<() => Promise<boolean>>
 }
 
 interface IHomeContextProps {
@@ -107,7 +106,6 @@ export const HomeProvider = ({
 	persistNewsData,
 	persistHotGameData,
 	persistLicenseData,
-	popStacks,
 }: IHomeProviderProps) => {
 	const { onEnterSlotsPage, onEnterPage } = useMenu()
 	const { tpMaintainList } = useGlobalData()
