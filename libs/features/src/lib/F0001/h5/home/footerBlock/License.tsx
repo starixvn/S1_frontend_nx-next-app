@@ -2,12 +2,15 @@ import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { useGetSeoQuery } from '@nx-next-app/service'
 import { ISeoData } from 'libs/web/src/app/types/footer'
+import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Head from 'next/head'
 import { useEffect } from 'react'
 
 // 手機版 License 只存在於此處，資料流不像桌機有在 Layout 中共用，故獨立寫在 Home 內
 const License = () => {
+	const currentDomain =
+		typeof window !== 'undefined' ? window.location.href : ''
 	const { t } = useTranslation()
 	const {
 		userInfo: { langId },
@@ -65,6 +68,7 @@ const License = () => {
 			// xcmScript?.init()
 		}
 	}, [showLicenseLogo])
+
 	return (
 		<>
 			<div className='bottom-license'>
@@ -80,12 +84,16 @@ const License = () => {
 						</div>
 
 						<div>
-							<div
-								id={`dlag-${tobiqueSealId}`}
-								data-dlag-seal-id={tobiqueSealId}
-								data-dlag-image-size='48'
-								data-dlag-image-type='basic-small'
-							/>
+							{typeof window !== 'undefined' &&
+								!includes(currentDomain, 'nova88kr.com') && (
+									<div
+										id={`dlag-${tobiqueSealId}`}
+										data-dlag-seal-id={tobiqueSealId}
+										data-dlag-image-size='48'
+										data-dlag-image-type='basic-small'
+									/>
+								)}
+
 							{/* 市場通知移除 XCM */}
 							{/* <div */}
 							{/*	id={`xcm-${XCMScript}`} */}
