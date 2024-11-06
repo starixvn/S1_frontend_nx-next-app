@@ -16,7 +16,12 @@ const QuickLinks = ({
 						{t(displayKey)}
 					</a>
 				) : (
-					<a key={displayKey} href={href} target='_blank' rel='noreferrer'>
+					<a
+						key={displayKey}
+						href={`${href}?url=${process.env['NEXT_PUBLIC_ENV_DB_HOST']}`}
+						target='_blank'
+						rel='noreferrer'
+					>
 						{t(displayKey)}
 					</a>
 				)
