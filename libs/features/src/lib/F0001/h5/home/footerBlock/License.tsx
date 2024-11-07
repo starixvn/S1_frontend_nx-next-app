@@ -34,10 +34,10 @@ const License = () => {
 				seoData = {
 					...data,
 					description: data?.meta,
-					links: META_DATA?.[langId]?.['links'],
+					links: META_DATA?.['/']?.[langId]?.['links'],
 				}
-			} else if (META_DATA[pathArr[1]]) {
-				const rootPath = META_DATA[pathArr[1]]
+			} else if (META_DATA[`/${pathArr[1]}`]) {
+				const rootPath = META_DATA[`/${pathArr[1]}`]
 				seoData = {
 					title: rootPath?.[langId]?.title ?? rootPath?.['en']?.title,
 					keyword: rootPath?.[langId]?.keyword ?? rootPath?.['en']?.keyword,
