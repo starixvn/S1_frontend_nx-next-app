@@ -16,7 +16,6 @@
 		"baseUrl": ".",
 		"noImplicitAny": true,
 		"paths": {
-			"@apps/*": ["apps/*"],
 			"@nx-next-app/components/*": ["libs/web/src/components/*"],
 			"@nx-next-app/constants": ["libs/web/src/app/constants"],
 			"@nx-next-app/data-access": ["libs/web/src/data-access"],
@@ -35,7 +34,9 @@
 			"@nova88-h5/components": ["apps/nova88-h5/components"],
 			"@12b-desktop/components/*": ["apps/onetwobet-desktop/components/*"],
 			"@12b-h5/components/*": ["apps/onetwobet-h5/components/*"],
-			"@12b-indo-desktop/components/*": ["apps/onetwobet-indo-desktop/components/*"],
+			"@12b-indo-desktop/components/*": [
+				"apps/onetwobet-indo-desktop/components/*"
+			],
 			"@12b-indo-h5/components/*": ["apps/onetwobet-indo-h5/components/*"],
 			"@apps/*": ["apps/*"]
 		},
