@@ -101,11 +101,14 @@ const useChatTransferForm = ({
 				}
 			}
 
+			const errorUrl = `${dbHost}/404/index_${langId}.html`
+
 			const searchParams = new URLSearchParams({
 				ChannelId: String(channelId),
 				SysId: String(sysId),
 				Amount: String(convertedAmount),
 				BonusCode: bonusCode,
+				errorUrl,
 			})
 
 			const paramsUrl = searchParams.toString()
