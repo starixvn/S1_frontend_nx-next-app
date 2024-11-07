@@ -15,7 +15,6 @@
   "Label_Brand_Ambassador": "Embaixador da marca NOVA88 2022/23",
   "Label_Cookie_Reminder": "A Nova88 usa cookies para melhorar sua experiência no site. Ao permanecer no site, você concorda com o uso desses cookies.",
   "Label_DepositFailed": "Depósito {{orderId}}s em sucesso",
-  "Label_WithdrawFailed": "Retirada {{orderId}} malsucedida",
   "Label_DepositSuccessful": "Depósito {{orderId}} foi aprovado",
   "Label_DownloadAppStep1": "Clique no botão de download do Apple iOS no site da Nova88.",
   "Label_DownloadAppStep2": "Clique em \"Obter o aplicativo\" para ser redirecionado para a página de visualização do aplicativo",
@@ -262,6 +261,7 @@
   "Label_Vip_Info_Content_1": "A Nova88 lançou seu programa de recompensas VIP para que os membros possam desfrutar de bons serviços, mais recompensas e uma experiência melhor. Descubra mais vantagens e direitos quando seu nível for atualizado. Estamos esperando por você!",
   "Label_Vip_Info_Content_2": "Classificamos os níveis de associação em Clube Vintage, Clube Prata, Clube Ouro, Clube Titânio, Clube Diamante e Clube Nova. Desfrute de todos os nossos produtos e serviços privativos ao atingir um nível mais alto.",
   "Label_Virtual_Sports_desc": "A Nova88 oferece apostas desportivas virtuais 24 horas por dia, 7 dias por semana, da Inspired, Sportradar e Saba Soccer. Abrange o futebol virtual, o basquetebol virtual, as corridas de cavalos virtuais, os galgos virtuais, a pista de velocidade virtual, os desportos motorizados virtuais, o ciclismo virtual, o ténis virtual e o Saba Soccer para PES e FIFA 20.",
+  "Label_WithdrawFailed": "Retirada {{orderId}} malsucedida",
   "Label_WithdrawSuccessful": "Retirada {{orderId}} foi aprovada",
   "lbl_Keno_Lottery_Betting_desc": "A Nova88 oferece Keno, Loteria, Jogo de Números e Jogo de Mesa que são rápidos, divertidos e fáceis de jogar. Cada sorteio dura apenas alguns minutos e a liquidação é rápida."
 }

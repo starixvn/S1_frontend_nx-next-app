@@ -15,7 +15,6 @@
   "Label_BonusWallet_9": "Ví SBSW",
   "Label_Cookie_Reminder": "Nova88 sử dụng cookie để tăng cường trải nghiệm trang web của bạn. Bằng cách tiếp tục duyệt trang web, bạn đồng ý sử dụng các cookie này.",
   "Label_DepositFailed": "Lệnh Nạp tiền {{orderId}} không thành công.",
-  "Label_WithdrawFailed": "Lệnh rút tiền {{orderId}} không thành công  ",
   "Label_DepositSuccessful": "Lệnh nạp tiền {{orderId}} đã được phê duyệt",
   "Label_Deposit_DepositLoadCardNoticeContent1": "Vui lòng chọn đúng mệnh giá và nhà mạng, nếu quý khách nhập sai, Nova88 không chịu trách nhiệm.",
   "Label_Deposit_DepositLoadCardNoticeContent2": "Phí gạch thẻ rẻ nhất thị trường, 25% cho tất cả các nhà mạng.",
@@ -286,6 +285,7 @@
   "Label_Vip_Info_Content_2": "Chúng tôi đã phân loại các hạng thành viên thành Câu lạc bộ Cổ điển, Câu lạc bộ Bạc, Câu lạc bộ Vàng, Câu lạc bộ Titan, Câu lạc bộ Kim cương và Câu lạc bộ Nova. Tận hưởng tất cả các sản phẩm và dịch vụ đặc quyền của chúng tôi khi bạn đạt được cấp độ cao hơn.",
   "Label_Vip_ReachedTheHighestLevel": "Cấp độ cao nhất",
   "Label_Virtual_Sports_desc": "Thoải mái đặt cược các sự kiện thể thao ảo 24/7 từ Inspired, Sportradar và Saba Soccer. Bao gồm Bóng đá ảo, Bóng rổ ảo, Đua ngựa ảo, Greyhound ảo, Đường đua ảo, Đua xe thể thao ảo, Đạp xe ảo, Tennis ảo và Bóng đá Saba cho PES và FIFA 20.",
+  "Label_WithdrawFailed": "Lệnh rút tiền {{orderId}} không thành công  ",
   "Label_WithdrawSuccessful": "Lệnh rút tiền {{orderId}} đã được phê duyệt",
   "lbl_Keno_Lottery_Betting_desc": "Keno, Xổ số, Number Game và Table Game nhanh chóng, thú vị và dễ chơi. Mỗi ván chỉ vài phút, thắng cược nhận tiền nhanh chóng. "
 }

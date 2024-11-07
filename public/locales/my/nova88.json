@@ -15,7 +15,6 @@
   "Label_BonusWallet_9": "Dompet SBSW",
   "Label_Cookie_Reminder": "Nova88 mengguna kuki untuk meningkatkan pengalaman laman web anda. Dengan berada di laman web, anda bersetuju untuk penggunaan kuki ini.",
   "Label_DepositFailed": "Deposit {{orderId}} tidak berjaya",
-  "Label_WithdrawFailed": "Withdrawal {{orderId}} tidak berjaya",
   "Label_DepositSuccessful": "Deposit {{orderId}} telah diproses",
   "Label_DownloadAppStep1": "Klik butang muat turun Apple iOS dari tapak Nova88.",
   "Label_DownloadAppStep2": "Klik 'Dapatkan Aplikasi' untuk mengarahkan ke halaman pratinjau aplikasi",
@@ -285,6 +284,7 @@
   "Label_Vip_Info_Content_2": "Kami telah mengklasifikasikan peringkat keahlian kepada Kelab\n\t\t\tVintage, Kelab Perak, Kelab Emas, Kelab Titanium, Kelab Berlian dan\n\t\t\tKelab Nova. Nikmati semua produk dan perkhidmatan keistimewaan kami\n\t\t\tapabila anda mencapai taraf yang lebih tinggi.",
   "Label_Vip_ReachedTheHighestLevel": "Aras tertinggi",
   "Label_Virtual_Sports_desc": "Nova88 mempunyai acara pertaruhan sukan maya 24/7 daripada Inspired, Sportradar dan Saba Soccer. Meliputi Bola Sepak Maya, Bola Keranjang Maya, Lumba Kuda Maya, Lumba Anjing Maya, Speedway Maya, Motorsports Maya, Berbasikal Maya, Tenis Maya dan Saba Soccer untuk PES dan FIFA 20.",
+  "Label_WithdrawFailed": "Withdrawal {{orderId}} tidak berjaya",
   "Label_WithdrawSuccessful": "Pengeluaran {{orderId}} telah diluluskan",
   "lbl_Keno_Lottery_Betting_desc": "Nova88 menawarkan Keno, Loteri, Permainan Nombor dan Permainan Meja yang pantas, seronok dan mudah dimain. Setiap cabutan berlangsung untuk beberapa minit sahaja dan proses penyelesaian yang pantas."
 }
