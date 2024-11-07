@@ -446,6 +446,7 @@ const SlotsProvider = ({
 				prev => `${prev}${myFavorites && result ? '&' : ''}${result}`
 			)
 			updateVendorList()
+      setActiveCategoryKey('all')
 		}
 	}, [isFirstRender])
 
@@ -472,13 +473,13 @@ const SlotsProvider = ({
 		}
 
 		updateCategoryKeys()
-		setActiveCategoryKey('featured') // 一進畫面先顯示哪個類別的遊戲
+		setActiveCategoryKey('all') // 一進畫面先顯示哪個類別的遊戲
 	}, [queryTpId])
 
-	useEffect(() => {
-		// 如果featured裡面沒有資料，直接帶ALL的
-		if (featuredIdx === -1) setActiveCategoryKey('all')
-	}, [slotsGameList])
+	// useEffect(() => {
+	// 	// 如果featured裡面沒有資料，直接帶ALL的
+	// 	if (featuredIdx === -1) setActiveCategoryKey('all')
+	// }, [slotsGameList])
 
 	useEffect(() => {
 		if (
