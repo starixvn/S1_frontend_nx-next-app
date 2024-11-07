@@ -382,9 +382,6 @@ const HistoryProvider = ({
 		}
 		setCurrentPage(result?.pageNumber ?? 1)
 		setTotalPage(result?.totalPages ?? 1)
-		setDisplayColumns(value => {
-			return [...value, ...result.data]
-		})
 		if (Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Mobile) {
 			setIsShowMobileLoading(false)
 		}
@@ -463,14 +460,14 @@ const HistoryProvider = ({
 			) => {
 				const updatedColumns = originalColumns.map(columnItem => {
 					const matchItem = newData.find(
-						targetItem => targetItem.transId === columnItem.transId
+						targetItem => targetItem.id === columnItem.id
 					)
 					return matchItem ? { ...columnItem, ...matchItem } : columnItem
 				})
 
-				const newTransIds = updatedColumns?.map(item => item.transId)
+				const newTransIds = updatedColumns?.map(item => item.id)
 				const nonMatchedItems =
-					newData?.filter(item => !newTransIds?.includes(item.transId)) || []
+					newData?.filter(item => !newTransIds?.includes(item.id)) || []
 
 				return [...updatedColumns, ...nonMatchedItems]
 			}
