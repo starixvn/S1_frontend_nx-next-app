@@ -1,16 +1,16 @@
+import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
+import {
+	useGetCustVIPProgressQuery,
+	useGetMsgCountQuery,
+	useGetPopupMsgQuery,
+} from '@nx-next-app/service'
+import { numberFormat } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
-import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
-import { numberFormat } from '@nx-next-app/utils'
-import {
-	useGetMsgCountQuery,
-	useGetPopupMsgQuery,
-	useGetCustVIPProgressQuery,
-} from '@nx-next-app/service'
 
 const Profile = () => {
 	const { t } = useTranslation()

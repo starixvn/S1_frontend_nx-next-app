@@ -15,6 +15,7 @@
   "Label_BonusWallet_9": "Dompet SBSW",
   "Label_Cookie_Reminder": "Nova88 menggunakan cookie untuk meningkatkan pengalaman situs web Anda. Dengan tetap berada di situs web, Anda menyetujui penggunaan cookie ini.",
   "Label_DepositFailed": "Setoran {{orderId}} tidak disetujui",
+  "Label_WithdrawFailed": "Penarikan {{orderId}} gagal",
   "Label_DepositSuccessful": "Setoran {{orderId}} telah disetujui",
   "Label_DownloadAppStep1": "Klik tombol unduh Apple iOS dari situs Nova88.",
   "Label_DownloadAppStep2": "Klik 'Dapatkan Aplikasi' untuk mengarahkan ke halaman pratinjau aplikasi",
@@ -284,7 +285,6 @@
   "Label_Vip_Info_Content_2": "Kami telah mengklasifikasikan tingkatan keanggotaan ke Klub Vintage, Klub Silver, Klub Gold, Klub Titanium, Klub Diamond dan Klub Nova. Nikmati semua produk dan layanan khusus kami saat Anda mencapai tingkat yang lebih tinggi.",
   "Label_Vip_ReachedTheHighestLevel": "Level tertinggi",
   "Label_Virtual_Sports_desc": "Nova88 menyediakan acara taruhan olahraga virtual 24/7 inspirasi dari Sportradar dan Saba Soccer. Meliputi Sepak Bola Virtual, Bola Basket Virtual, Balap Kuda Virtual, Greyhound Virtual, Speedway Virtual, Olahraga Motor Virtual, Bersepeda Virtual, Tenis Virtual dan Sepak Bola Saba untuk PES dan FIFA 20.",
-  "Label_WithdrawFailed": "Penarikan {{orderId}} gagal",
   "Label_WithdrawSuccessful": "Penarikan  {{orderId}} telah disetujui",
   "lbl_Keno_Lottery_Betting_desc": "Nova88 menawarkan Keno, Lotere, Permainan Angka dan Permainan Meja yang cepat, menyenangkan dan mudah dimainkan. Setiap hasil imbang hanya berlangsung beberapa menit dan penyelesaiannya cepat."
 }

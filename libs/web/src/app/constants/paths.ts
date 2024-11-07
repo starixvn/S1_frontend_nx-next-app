@@ -125,6 +125,9 @@ export const paths = {
 	setting: {
 		root: '/setting',
 	},
+	menu: {
+		root: '/menu',
+	},
 	myAccount: {
 		root: '/my-account',
 	},

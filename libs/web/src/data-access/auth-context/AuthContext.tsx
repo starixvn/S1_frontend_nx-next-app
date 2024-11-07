@@ -2,10 +2,10 @@ import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { setAppAuth } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
-import { createContext, ReactNode, useState } from 'react'
+import { ReactNode, createContext, useState } from 'react'
 import {
 	InitialPropsInterface,
-	useDepositWithdrawTracker,
+	useFpsChecks,
 	useInitLocaleEffect,
 	useOnlineCheckInterval,
 	useOptimovePageEvent,
@@ -23,6 +23,15 @@ export interface AuthContextInterface {
 	auth: { isLogin: boolean | undefined }
 	userInfo: IUserInfoData
 	dbHost: string
+	notificationSetting: {
+		isLoadingUserInfo: boolean
+		financeNotification: string | undefined
+		soundEffects: string | undefined
+		onFinanceNotification?: (
+			financeNotification: string | undefined,
+			soundEffects: string | undefined
+		) => Promise<void>
+	}
 	onSignIn: ({
 		userName,
 		password,
@@ -41,12 +50,17 @@ export const AuthContext = createContext<AuthContextInterface>(null!)
 interface IAuthProviderProps
 	extends Pick<InitialPropsInterface, 'originIsSignIn' | 'originCookies'> {
 	children: ReactNode
+	onFinanceNotification?: (
+		financeNotification: string | undefined,
+		soundEffects: string | undefined
+	) => Promise<void>
 }
 
 export const AuthProvider = ({
 	children,
 	originIsSignIn,
 	originCookies,
+	onFinanceNotification,
 }: IAuthProviderProps) => {
 	const router = useRouter()
 	const { t } = useTranslation()
@@ -65,6 +79,7 @@ export const AuthProvider = ({
 				userName: 'guest',
 			},
 		} = {},
+		isLoading: isLoadingUserInfo,
 	} = useGetUserInfoQuery(null, {
 		// * 沒有登入時不打
 		skip: !auth.isLogin,
@@ -76,11 +91,16 @@ export const AuthProvider = ({
 		...originUserInfo,
 		currencyName: t(`Label_General_Currency_${originUserInfo.currencyId}`),
 	}
+
+	/**
+	 *  使用者資訊中，通知訊息的設定
+	 *  @financeNotification 是否顯示通知訊息
+	 *  @soundEffects 是否播放通知訊息音效  */
+	const { financeNotification, soundEffects } = originUserInfo
+
 	const [signIn] = useSignInMutation()
 
 	const [signOut] = useSignOutMutation()
-
-	const { checkDepositSuccessful } = useDepositWithdrawTracker()
 
 	const onCheckSignIn = async () => {
 		try {
@@ -109,20 +129,6 @@ export const AuthProvider = ({
 		const { platform } = navigator
 		const { userAgent } = navigator
 		const screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`
-		let di = ''
-		let bi = ''
-		let detecasAnalysis = ''
-		let sessionKey = ''
-		let token = ''
-
-		// * di, bi, detecasAnalysis, sessionKey, token 引用第三方 js: //*/activator.ashx
-		di = (document.getElementById('__di') as HTMLInputElement)?.value
-		bi = (document.getElementById('__bi') as HTMLInputElement)?.value
-		detecasAnalysis = (
-			document.getElementById('detecas-analysis') as HTMLInputElement
-		)?.value
-		sessionKey = (document.getElementById('__fdi') as HTMLInputElement)?.value // * fdi = sessionKey
-		token = (document.getElementById('__tk') as HTMLInputElement)?.value // * 默認為 empty
 
 		await signIn({
 			userName,
@@ -132,17 +138,8 @@ export const AuthProvider = ({
 			platform,
 			userAgent,
 			screen,
-			FPSRequest: {
-				di,
-				bi,
-				detecasAnalysis,
-				sessionKey,
-				token,
-			},
 		}).unwrap()
 
-		/** 登入時確認使用者是否有存款成功，如果有成功，觸發 MetaPixelTracker 事件（ 臉書通知 ）通知市場 */
-		await checkDepositSuccessful()
 		setAuth({ isLogin: true })
 		setAppAuth('login')
 	}
@@ -169,8 +166,18 @@ export const AuthProvider = ({
 	useSynchronizeCookiesEffect(userInfo)
 	// * 處理路由導轉
 	useInitLocaleEffect({ router, userInfo, isLogin: auth.isLogin })
+	// * FPS 檢查
+	useFpsChecks({ isLogin: auth.isLogin })
 	// * 輪詢確認使用者是否保持線上狀態
-	useOnlineCheckInterval({ isLogin: auth.isLogin, onResetAuth })
+	useOnlineCheckInterval({
+		isLogin: auth.isLogin,
+		onResetAuth,
+		notificationSetting: {
+			financeNotification,
+			soundEffects,
+			onFinanceNotification,
+		},
+	})
 
 	useOptimovePageEvent(auth.isLogin, userInfo)
 
@@ -178,6 +185,12 @@ export const AuthProvider = ({
 		auth,
 		userInfo,
 		dbHost,
+		notificationSetting: {
+			isLoadingUserInfo,
+			financeNotification,
+			soundEffects,
+			onFinanceNotification,
+		},
 		onCheckSignIn,
 		onSignIn,
 		onSignOut,

@@ -1,25 +1,27 @@
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
 import {
-	IUserInfoData,
-	IOTPSMSData,
-	ISetProfileArgs,
-	ISetProfileAddressArgs,
 	IDeleteBankCardArgs,
 	IDeleteEWalletCardArgs,
-	ISetLocalBankInfoArgs,
-	ISetEWalletInfoArgs,
+	IOTPSMSData,
 	ISetCustCryptoWalletArgs,
+	ISetCustSettingArgs,
+	ISetEWalletInfoArgs,
+	ISetLocalBankInfoArgs,
+	ISetProfileAddressArgs,
+	ISetProfileArgs,
+	IUserInfoData,
 	IVerifyEmailArgs,
 } from './type'
 
 export const accountStrictApiUrl = {
 	getCustProfile: 'AccountStrict/GetCustProfile',
+	setCustSetting: 'AccountStrict/SetCustSetting',
 	getOTPVerifyInfo: 'AccountStrict/GetOTPVerifyInfo',
 	sendOTPEmail: 'AccountStrict/SendOTPEmail',
 	sendOTPSMS: 'AccountStrict/SendOTPSMS',
 	verifyOTP: 'AccountStrict/VerifyOTP',
-	SetProfile: 'AccountStrict/SetProfile',
+	setProfile: 'AccountStrict/SetProfile',
 	setProfileAddress: 'AccountStrict/SetProfileAddress',
 	setCustCryptoWallet: 'AccountStrict/SetCustCryptoWallet',
 	deleteBankCard: 'AccountStrict/DelCustBankInfo',
@@ -44,7 +46,6 @@ export const accountStrictApi = rootApi.injectEndpoints({
 			}),
 			providesTags: ['ACCOUNT_STRICT_GET_USER_INFO'],
 		}),
-
 		sendOTPEmail: builder.mutation<IAxiosResponse<void>, { route: string }>({
 			query: ({ route }) => ({
 				url: accountStrictApiUrl.sendOTPEmail,
@@ -74,12 +75,22 @@ export const accountStrictApi = rootApi.injectEndpoints({
 		}),
 		setProfile: builder.mutation<IAxiosResponse<void>, ISetProfileArgs>({
 			query: data => ({
-				url: accountStrictApiUrl.SetProfile,
+				url: accountStrictApiUrl.setProfile,
 				method: 'POST',
 				data,
 			}),
 			invalidatesTags: ['ACCOUNT_STRICT_GET_USER_INFO'],
 		}),
+		setCustSetting: builder.mutation<IAxiosResponse<void>, ISetCustSettingArgs>(
+			{
+				query: data => ({
+					url: accountStrictApiUrl.setCustSetting,
+					method: 'POST',
+					data,
+				}),
+				invalidatesTags: ['ACCOUNT_STRICT_GET_USER_INFO'],
+			}
+		),
 		setProfileAddress: builder.mutation<
 			IAxiosResponse<void>,
 			ISetProfileAddressArgs
@@ -197,6 +208,7 @@ export const {
 	useSetLocalBankInfoMutation,
 	useSetEWalletInfoMutation,
 	useUploadCustPhotoMutation,
+	useSetCustSettingMutation,
 	useSetCustCryptoWalletMutation,
 	useResetPasswordMutation,
 	useVerifyEmailMutation,

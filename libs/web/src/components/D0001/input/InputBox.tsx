@@ -1,7 +1,7 @@
+import classNames from 'classnames'
 import type { InputHTMLAttributes } from 'react'
 import { useState } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
-import classNames from 'classnames'
 
 export interface IInputBoxProps
 	extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
@@ -165,7 +165,12 @@ const InputBox = ({
 				{!!title && <i className='txt-blue'>{title}</i>}
 				{!!areaCode && <div className='txt-lightgray'>{areaCode}</div>}
 
-				<input type={inputType()} {...register} {...props} />
+				<input
+					type={inputType()}
+					{...register}
+					{...props}
+					onWheel={e => (e.target as HTMLInputElement).blur()}
+				/>
 
 				{!!description && <div className='description'>{description}</div>}
 

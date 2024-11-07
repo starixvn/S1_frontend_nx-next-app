@@ -3,20 +3,20 @@ import classNames from 'classnames'
 import { HTMLAttributes, ReactNode } from 'react'
 import { useBoolean } from 'usehooks-ts'
 
-interface ISettingCollapseItemProps extends HTMLAttributes<HTMLDivElement> {
+interface IMenuCollapseItemProps extends HTMLAttributes<HTMLDivElement> {
 	children?: ReactNode
 	header: string | ReactNode
 	imgName: string
 	defaultActive?: boolean
 }
 
-const SettingCollapseItem = ({
+const MenuCollapseItem = ({
 	children,
 	header,
 	imgName,
 	defaultActive,
 	...props
-}: ISettingCollapseItemProps) => {
+}: IMenuCollapseItemProps) => {
 	const { value: isActive, toggle } = useBoolean(defaultActive)
 
 	const { getBannerUrl } = useGlobalData()
@@ -37,4 +37,4 @@ const SettingCollapseItem = ({
 	)
 }
 
-export default SettingCollapseItem
+export default MenuCollapseItem

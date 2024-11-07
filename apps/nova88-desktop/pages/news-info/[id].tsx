@@ -1,9 +1,6 @@
+import { NovaAuthProvider } from '@nova88-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import {
-	AuthProvider,
-	GlobalDataProvider,
-	getNewsById,
-} from '@nx-next-app/data-access'
+import { GlobalDataProvider, getNewsById } from '@nx-next-app/data-access'
 import { Layout, News } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
@@ -29,7 +26,10 @@ const NewsPage = ({
 	persistNewsDetail,
 }: INewsPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -41,7 +41,7 @@ const NewsPage = ({
 					<News persistNewsDetail={persistNewsDetail} />
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

@@ -1,12 +1,12 @@
 import classNames from 'classnames'
 import { HTMLAttributes, ReactNode } from 'react'
-import SettingCollapseItem from './SettingCollapseItem'
+import MenuCollapseItem from './MenuCollapseItem'
 
 interface ICollapseProps extends HTMLAttributes<HTMLDivElement> {
 	children: ReactNode
 }
 
-const SettingCollapse = ({ children, className, ...props }: ICollapseProps) => {
+const MenuCollapse = ({ children, className, ...props }: ICollapseProps) => {
 	return (
 		<div {...props} className={classNames('menu-bottom', className)}>
 			{children}
@@ -14,6 +14,6 @@ const SettingCollapse = ({ children, className, ...props }: ICollapseProps) => {
 	)
 }
 
-SettingCollapse.Item = SettingCollapseItem
+MenuCollapse.Item = MenuCollapseItem
 
-export default SettingCollapse
+export default MenuCollapse

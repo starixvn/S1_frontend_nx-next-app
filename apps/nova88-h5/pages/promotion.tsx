@@ -1,8 +1,5 @@
-import {
-	AuthProvider,
-	getPromotion,
-	GlobalDataProvider,
-} from '@nx-next-app/data-access'
+import { NovaAuthProvider } from '@nova88-h5/providers'
+import { getPromotion, GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout, Promotion } from '@nx-next-app/features/F0001/h5'
 import { PromotionProvider } from '@nx-next-app/features/F0001/providers'
 import {
@@ -27,7 +24,10 @@ const PromotionPage = ({
 	persistPromotionData,
 }: IPromotionPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -40,7 +40,7 @@ const PromotionPage = ({
 					</PromotionProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 
