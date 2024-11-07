@@ -28156,10 +28156,6 @@ input[type=number] {
           box-shadow: 0 0 0px 1000px white inset;
   -webkit-text-fill-color: #5574a7;
 }
-.setting .changepassword-content .resetPassWord .inputBox-blue input:focus-within {
-  border: 1px solid #C2D9FF;
-  outline: #C2D9FF;
-}
 .setting .changepassword-content .btnGroup {
   width: 20%;
 }
@@ -29397,6 +29393,9 @@ input[type=number] {
     padding: 10px;
   }
 }
+.lottery .table td {
+  font-family: Roboto Mono, monospace;
+}
 .lottery .table thead tr th {
   color: #EB801D;
   font-weight: bolder;
@@ -29449,7 +29448,7 @@ input[type=number] {
           flex-direction: column;
 }
 .lottery .card .title-group .ranking .title {
-  font-size: 40px;
+  font-size: 24px;
   color: #EB801D;
 }
 .lottery .card .title-group .ranking span {
@@ -29466,7 +29465,10 @@ input[type=number] {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.lottery .card .title-group .lucky-number .title {
+.lottery .card .title-group .lucky-number span {
+  font-family: Roboto Mono, monospace;
+}
+.lottery .card .title-group .lucky-number span.title {
   font-size: 12px;
   color: #fff;
 }
@@ -30387,6 +30389,18 @@ input[type=number] {
 .lottery .main-content .tab-content-history .inputBox.lottery-select .dropdown .wrapper .dropdown-container .dropdown-item:hover, .lottery .main-content .tab-content-history .lottery-select.inputBox-org .dropdown .wrapper .dropdown-container .dropdown-item:hover, .lottery .main-content .tab-content-history .lottery-select.inputBox-white .dropdown .wrapper .dropdown-container .dropdown-item:hover, .lottery .main-content .tab-content-history .lottery-select.inputBox-blue .dropdown .wrapper .dropdown-container .dropdown-item:hover, .lottery .main-content .tab-content-history .worldcupEvent .event .event-content .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container .dropdown-item:hover, .worldcupEvent .event .event-content .lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container .dropdown-item:hover, .lottery .main-content .tab-content-history .dragonegg .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container .dropdown-item:hover, .dragonegg .lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container .dropdown-item:hover, .lottery .main-content .tab-content-history .euro .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container .dropdown-item:hover, .euro .lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container .dropdown-item:hover {
   background-color: #61566B;
 }
+.lottery .main-content .tab-content-history .card-group {
+  grid-column: 3/7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+.lottery .main-content .tab-content-history .card-group .card {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
 .lottery .main-content .tab-content-history .card.first {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -30463,6 +30477,7 @@ input[type=number] {
 }
 .lottery .main-content .tab-content-history .card.consolation .grid div {
   text-align: center;
+  font-family: Roboto Mono, monospace;
 }
 .lottery .main-content .tab-content-history .card.small-prize {
   grid-column: span 4;
@@ -30481,6 +30496,7 @@ input[type=number] {
 }
 .lottery .main-content .tab-content-history .card.small-prize .grid div {
   text-align: center;
+  font-family: Roboto Mono, monospace;
 }
 .lottery .main-content .tab-content-result .result-list {
   display: grid;

@@ -20813,7 +20813,7 @@ input[type=number] .btn-logout {
 }
 
 .eventpage-tap {
-  position: absolute;
+  position: relative;
   background: rgba(255, 255, 255, 0.7607843137);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
@@ -20821,13 +20821,11 @@ input[type=number] .btn-logout {
   align-self: stretch;
   gap: 0;
   border-radius: 20vw;
-  width: 90vw;
-  left: calc(50% - 45vw);
-  top: 30vw;
+  margin: 0 3vw;
+  padding: 0 calc(20px + 3vw);
+  overflow: auto;
 }
 .eventpage-tap > button {
-  font-size: 4vw;
-  font-weight: 700;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20842,6 +20840,11 @@ input[type=number] .btn-logout {
   font-size: calc(16px + 1vw);
   padding: 4vw 0;
   color: #979797;
+}
+@media screen and (max-width: 768px) {
+  .eventpage-tap > button {
+    font-size: calc(8px + 1vw);
+  }
 }
 .eventpage-tap > button.active {
   color: #112240;
@@ -21692,9 +21695,9 @@ input[type=number] .btn-logout {
   letter-spacing: 0.5px;
 }
 .setting .changepassword .inputBox > input:-webkit-autofill, .setting .changepassword .worldcupEvent .event .event-content .inputBox-event > input:-webkit-autofill, .worldcupEvent .event .event-content .setting .changepassword .inputBox-event > input:-webkit-autofill, .setting .changepassword .euro .inputBox-event > input:-webkit-autofill, .euro .setting .changepassword .inputBox-event > input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #0A1B38 inset;
-          box-shadow: 0 0 0px 1000px #0A1B38 inset;
-  -webkit-text-fill-color: white;
+  -webkit-box-shadow: inset 0 0 0 1000px #efefef;
+          box-shadow: inset 0 0 0 1000px #efefef;
+  -webkit-text-fill-color: #112240;
 }
 .setting .changepassword .inputBox > input[type=file], .setting .changepassword .worldcupEvent .event .event-content .inputBox-event > input[type=file], .worldcupEvent .event .event-content .setting .changepassword .inputBox-event > input[type=file], .setting .changepassword .euro .inputBox-event > input[type=file], .euro .setting .changepassword .inputBox-event > input[type=file] {
   display: none;
@@ -23018,6 +23021,9 @@ input[type=number] .btn-logout {
   font-size: calc(16px + 0.5vw);
   padding: 2vw;
 }
+.lottery .table td {
+  font-family: Roboto Mono, monospace;
+}
 .lottery .table thead tr th {
   color: #EB801D;
   font-weight: bolder;
@@ -23070,7 +23076,7 @@ input[type=number] .btn-logout {
           flex-direction: column;
 }
 .lottery .card .title-group .ranking .title {
-  font-size: calc(24px + 3vw);
+  font-size: calc(16px + 1.5vw);
   color: #EB801D;
 }
 .lottery .card .title-group .ranking span {
@@ -23087,7 +23093,10 @@ input[type=number] .btn-logout {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.lottery .card .title-group .lucky-number .title {
+.lottery .card .title-group .lucky-number span {
+  font-family: Roboto Mono, monospace;
+}
+.lottery .card .title-group .lucky-number span.title {
   font-size: calc(8px + 1vw);
   color: #fff;
 }
@@ -23735,7 +23744,7 @@ input[type=number] .btn-logout {
   color: #fff;
 }
 .lottery .main-content .lottery-info .ticket-group .ticket-bottom .total .quantity {
-  font-size: 3vw;
+  font-size: calc(16px + 1vw);
   font-weight: bold;
   background-color: transparent;
   color: #fff;
@@ -24211,7 +24220,7 @@ input[type=number] .btn-logout {
   background-color: #61566B;
 }
 .lottery .main-content .tab-content-history .card .title-group {
-  gap: 30px;
+  gap: 40px;
 }
 .lottery .main-content .tab-content-history .card.first {
   display: -webkit-box;
@@ -24363,6 +24372,7 @@ input[type=number] .btn-logout {
 }
 .lottery .main-content .tab-content-history .card.collapse .card.consolation .grid div {
   text-align: center;
+  font-family: Roboto Mono, monospace;
 }
 .lottery .main-content .tab-content-history .card.collapse .card.small-prize {
   grid-column: span 4;
@@ -24381,6 +24391,7 @@ input[type=number] .btn-logout {
 }
 .lottery .main-content .tab-content-history .card.collapse .card.small-prize .grid div {
   text-align: center;
+  font-family: Roboto Mono, monospace;
 }
 .lottery .main-content .tab-content-result .result-list {
   display: grid;
