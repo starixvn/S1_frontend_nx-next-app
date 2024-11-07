@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
-import Head from 'next/head'
-import { useTranslation } from 'next-i18next'
-import { ISeoData } from 'libs/web/src/app/types/footer'
-import { useGetSeoQuery } from '@nx-next-app/service'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useHome } from '@nx-next-app/features/F0006/providers'
+import { useGetSeoQuery } from '@nx-next-app/service'
+import { ISeoData } from 'libs/web/src/app/types/footer'
+import { useTranslation } from 'next-i18next'
+import Head from 'next/head'
+import { useEffect } from 'react'
 
 // 手機版 License 只存在於此處，資料流不像桌機有在 Layout 中共用，故獨立寫在 Home 內
 const License = () => {
@@ -31,10 +31,10 @@ const License = () => {
 				seoData = {
 					...data,
 					description: data?.meta,
-					links: META_DATA?.[langId]?.['links'],
+					links: META_DATA?.['/']?.[langId]?.['links'],
 				}
-			} else if (META_DATA[pathArr[1]]) {
-				const rootPath = META_DATA[pathArr[1]]
+			} else if (META_DATA[`/${pathArr[1]}`]) {
+				const rootPath = META_DATA[`/${pathArr[1]}`]
 				seoData = {
 					title: rootPath?.[langId]?.title ?? rootPath?.['en']?.title,
 					keyword: rootPath?.[langId]?.keyword ?? rootPath?.['en']?.keyword,
