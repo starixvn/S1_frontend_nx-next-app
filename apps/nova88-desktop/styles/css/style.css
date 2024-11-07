@@ -26990,10 +26990,6 @@ input[type=number] {
           box-shadow: 0 0 0px 1000px white inset;
   -webkit-text-fill-color: #5574a7;
 }
-.setting .changepassword-content .resetPassWord .inputBox-blue input:focus-within {
-  border: 1px solid #C2D9FF;
-  outline: #C2D9FF;
-}
 .setting .changepassword-content .btnGroup {
   width: 20%;
 }

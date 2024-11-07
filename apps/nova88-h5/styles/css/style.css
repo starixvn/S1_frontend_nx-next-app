@@ -20906,9 +20906,9 @@ input[type=number] .btn-logout {
   letter-spacing: 0.5px;
 }
 .setting .changepassword .inputBox > input:-webkit-autofill, .setting .changepassword .worldcupEvent .event .event-content .inputBox-event > input:-webkit-autofill, .worldcupEvent .event .event-content .setting .changepassword .inputBox-event > input:-webkit-autofill, .setting .changepassword .euro .inputBox-event > input:-webkit-autofill, .euro .setting .changepassword .inputBox-event > input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #0A1B38 inset;
-          box-shadow: 0 0 0px 1000px #0A1B38 inset;
-  -webkit-text-fill-color: white;
+  -webkit-box-shadow: inset 0 0 0 1000px #efefef;
+          box-shadow: inset 0 0 0 1000px #efefef;
+  -webkit-text-fill-color: #112240;
 }
 .setting .changepassword .inputBox > input[type=file], .setting .changepassword .worldcupEvent .event .event-content .inputBox-event > input[type=file], .worldcupEvent .event .event-content .setting .changepassword .inputBox-event > input[type=file], .setting .changepassword .euro .inputBox-event > input[type=file], .euro .setting .changepassword .inputBox-event > input[type=file] {
   display: none;
