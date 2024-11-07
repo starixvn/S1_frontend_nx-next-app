@@ -66,7 +66,7 @@ const Prediction = ({ europeCupProps }: IPredictionProps) => {
 			label: item.countryName,
 			prefixOptionIcon: (
 				<img
-					src={`https://minio-api.lumigame.com/s1-nova88/sports/Country%20Team/${upperFirst(
+					src={`https://minio-api.lumigame.com/s1-sportsimgs/Country%20Team/${upperFirst(
 						item.imageName
 					)}`}
 					alt='country-icon'
@@ -295,7 +295,7 @@ const Prediction = ({ europeCupProps }: IPredictionProps) => {
 								CupEventUserTicketStatus.Finish,
 							closed:
 								userTicket1tsData?.ticketStatus ===
-									CupEventUserTicketStatus.UnStarted ||
+								CupEventUserTicketStatus.UnStarted ||
 								!userTicket1tsData?.ticketStatus,
 						})}
 					>
@@ -357,7 +357,7 @@ const Prediction = ({ europeCupProps }: IPredictionProps) => {
 								CupEventUserTicketStatus.Finish,
 							closed:
 								userTicket2tsData?.ticketStatus ===
-									CupEventUserTicketStatus.UnStarted ||
+								CupEventUserTicketStatus.UnStarted ||
 								!userTicket2tsData?.ticketStatus,
 						})}
 					>
@@ -419,7 +419,7 @@ const Prediction = ({ europeCupProps }: IPredictionProps) => {
 								CupEventUserTicketStatus.Finish,
 							closed:
 								userTicket3tsData?.ticketStatus ===
-									CupEventUserTicketStatus.UnStarted ||
+								CupEventUserTicketStatus.UnStarted ||
 								!userTicket3tsData?.ticketStatus,
 						})}
 					>
@@ -481,7 +481,7 @@ const Prediction = ({ europeCupProps }: IPredictionProps) => {
 								CupEventUserTicketStatus.Finish,
 							closed:
 								userTicket4tsData?.ticketStatus ===
-									CupEventUserTicketStatus.UnStarted ||
+								CupEventUserTicketStatus.UnStarted ||
 								!userTicket4tsData?.ticketStatus,
 						})}
 					>
