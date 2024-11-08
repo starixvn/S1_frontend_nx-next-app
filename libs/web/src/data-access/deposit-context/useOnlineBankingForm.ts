@@ -39,6 +39,8 @@ export interface IOnlineBankingForm {
 	selBank?: boolean
 	bankLogo?: string
 	custBankAccount?: string
+	amountList?: number[] | null
+	amountRule?: number
 }
 
 const useOnlineBankingForm = ({
@@ -242,6 +244,8 @@ const useOnlineBankingForm = ({
 			maxAmount = 0,
 			mode,
 			selBank = false,
+			amountList = [],
+			amountRule,
 		} = find(dataSource, { payName: String(queryPaymentName) }) ||
 		head(dataSource) ||
 		{}
@@ -272,6 +276,8 @@ const useOnlineBankingForm = ({
 		setValue('mode', mode)
 		setValue('selBank', selBank)
 		setValue('bankLogo', bankLogo)
+		setValue('amountList', amountList)
+		setValue('amountRule', amountRule)
 
 		let url = {
 			pathname,

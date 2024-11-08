@@ -11,22 +11,22 @@ import {
 	useDepositContext,
 	useMobilePayForm,
 } from '@nx-next-app/data-access'
-import dynamic from 'next/dynamic'
+import { useManageCards } from '@nx-next-app/features/F0001/providers/withdrawal-context/useManageCards'
+import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
 import { IPaymentMobilePayData } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import {
 	generateShortcutList,
 	isConvert,
-	numberFormat,
-	revertNumberFormat,
 	limitedShortcutAmountList,
+	numberFormat,
 	numFormatToDigits,
+	revertNumberFormat,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
-import { useManageCards } from '@nx-next-app/features/F0001/providers/withdrawal-context/useManageCards'
+import dynamic from 'next/dynamic'
 
 interface IMobilePayFormProps {
 	dataSource: IPaymentMobilePayData[]
@@ -207,41 +207,39 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
 				<DepositModule title={depositAmountText} required>
 					<div className='column' />
-					{!showShortcutList && (
-						<InputBox
-							type='number'
-							className='inputBox-white'
-							register={register('amount', {
-								valueAsNumber: true,
-								required: {
-									value: true,
-									message: t('Label_General_AmountLessThan', {
-										value1: numberFormat(convertedMinAmount, currencyId, 0),
-									}),
-								},
-								min: {
-									value: watchMinAmount,
-									message: t('Label_General_AmountLessThan', {
-										value1: numberFormat(convertedMinAmount, currencyId, 0),
-									}),
-								},
-								max: {
-									value: watchMaxAmount,
-									message: t('Label_General_NotInLimit'),
-								},
-							})}
-							format={isConvert(currencyId)}
-							placeholder={
-								t('Label_General_AmountMinMaxLimit', {
-									value1: numFormatToDigits(watchMinAmount),
-									value2: numFormatToDigits(watchMaxAmount),
-								}) || ''
-							}
-							touched={!!touchedFields['amount']}
-							errorMessage={errors['amount']?.message || ''}
-							error={!!errors['amount']}
-						/>
-					)}
+					<InputBox
+						type='number'
+						className='inputBox-white'
+						register={register('amount', {
+							valueAsNumber: true,
+							required: {
+								value: true,
+								message: t('Label_General_AmountLessThan', {
+									value1: numberFormat(convertedMinAmount, currencyId, 0),
+								}),
+							},
+							min: {
+								value: watchMinAmount,
+								message: t('Label_General_AmountLessThan', {
+									value1: numberFormat(convertedMinAmount, currencyId, 0),
+								}),
+							},
+							max: {
+								value: watchMaxAmount,
+								message: t('Label_General_NotInLimit'),
+							},
+						})}
+						format={isConvert(currencyId)}
+						placeholder={
+							t('Label_General_AmountMinMaxLimit', {
+								value1: numFormatToDigits(watchMinAmount),
+								value2: numFormatToDigits(watchMaxAmount),
+							}) || ''
+						}
+						touched={!!touchedFields['amount']}
+						errorMessage={errors['amount']?.message || ''}
+						error={!!errors['amount']}
+					/>
 
 					{/* // ! 加這行 tip 用來防止 InputBox 與 ShortcutList 跑版 */}
 					<div className='tip' />

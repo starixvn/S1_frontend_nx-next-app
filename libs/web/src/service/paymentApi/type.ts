@@ -331,6 +331,8 @@ export interface IPaymentOnlineBankingData {
 	extraDataType: number
 	displayChannelName: string
 	displayGroupName: string
+	amountList: null | number[]
+	amountRule: number
 }
 
 export interface IPaymentOnlineBankInfoSysData {

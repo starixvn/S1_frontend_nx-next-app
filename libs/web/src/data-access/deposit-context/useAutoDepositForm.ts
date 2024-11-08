@@ -25,6 +25,8 @@ interface IAutoDepositForm {
 	custBankAccount?: string
 	bonusCode?: string
 	promoCode?: string
+	amountRule?: number
+	amountList?: number[] | null
 }
 
 const useAutoDepositForm = ({
@@ -184,6 +186,8 @@ const useAutoDepositForm = ({
 			minAmount = 0,
 			maxAmount = 0,
 			supportBanks,
+			amountRule,
+			amountList = [],
 		} = find(dataSource, { channelId: Number(queryChannelId) }) ||
 		head(dataSource) ||
 		{}
@@ -202,6 +206,8 @@ const useAutoDepositForm = ({
 		setValue('minAmount', convertMinAmount)
 		setValue('maxAmount', convertMaxAmount)
 		setValue('sysId', banksInfo?.sysId)
+		setValue('amountRule', amountRule)
+		setValue('amountList', amountList)
 
 		let url = {
 			pathname,
