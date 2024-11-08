@@ -99,6 +99,7 @@ interface IDepositProviderProps {
 		[DepositPaymentEnum.TopUpCardPay]?: IDepositPaymentOption
 		[DepositPaymentEnum.QuickTransfer]?: IDepositPaymentOption
 		[DepositPaymentEnum.ChatTransfer]?: IDepositPaymentOption
+		[DepositPaymentEnum.DigitalWallet]?: IDepositPaymentOption
 	}
 
 	// * 排序與開關
