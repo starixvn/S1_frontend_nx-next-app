@@ -248,7 +248,7 @@ header input:focus-within {
   display: block;
   width: 45px;
   height: 45px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/88rewards.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/88rewards.png) no-repeat center/cover;
 }
 .header > div.menu > div > a.eventbtn::before,
 .header > div.menu > div > button.eventbtn::before {
@@ -256,7 +256,7 @@ header input:focus-within {
   content: "";
   width: 112px;
   height: 60px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/worldcup/xs-logo.png) center no-repeat;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/worldcup/xs-logo.png) center no-repeat;
 }
 .header > div.menu > div > a.rewardsbtn::before,
 .header > div.menu > div > button.rewardsbtn::before {
@@ -264,13 +264,13 @@ header input:focus-within {
   content: "";
   width: 45px;
   height: 45px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/88rewards_w.png) center top/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/88rewards_w.png) center top/cover;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 .header > div.menu > div > a.rewardsbtn:hover::before,
 .header > div.menu > div > button.rewardsbtn:hover::before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/88rewards.png) center top/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/88rewards.png) center top/cover;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -280,19 +280,19 @@ header input:focus-within {
   content: "";
   width: 52px;
   height: 28.3px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/cryptosports.png) no-repeat center top/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/cryptosports.png) no-repeat center top/cover;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 .header > div.menu > div > a.cryptobtn:hover::before,
 .header > div.menu > div > button.cryptobtn:hover::before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/cryptosportsa.png) no-repeat center top/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/cryptosportsa.png) no-repeat center top/cover;
 }
 .header > div.menu > div > a.cryptobtn.maintenance:hover::before,
 .header > div.menu > div > button.cryptobtn.maintenance:hover::before {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/cryptosports.png) no-repeat center top/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/cryptosports.png) no-repeat center top/cover;
 }
 .header > div.menu > div > a:after,
 .header > div.menu > div > button:after {
@@ -414,7 +414,7 @@ header input:focus-within {
   height: 15px;
   width: 15px;
   z-index: 1;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/icon-fire.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/icon-fire.png) no-repeat center/cover;
 }
 .header > div.menu > div > a div.live,
 .header > div.menu > div > button div.live {
@@ -1328,7 +1328,7 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .rankingList,
 .header > div.menu .subMenu-Wrapper-new .promoList,
 .header > div.menu .subMenu-Wrapper-new .eventList {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/poker.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/poker.jpg) no-repeat center/auto;
   padding: 0 calc((100% - 1400px) / 2);
 }
 .header > div.menu .subMenu-Wrapper-new .pokerList > div,
@@ -1420,43 +1420,43 @@ header input:focus-within {
   display: none;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/pomobanner-en.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/pomobanner-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.en {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/pomobanner-en.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/pomobanner-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.cs {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/pomobanner-cs.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/pomobanner-cs.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.my {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/pomobanner-my.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/pomobanner-my.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.th {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/pomobanner-th.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/pomobanner-th.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.id {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/pomobanner-id.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/pomobanner-id.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.hi {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/pomobanner-hi.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/pomobanner-hi.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.bd {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/pomobanner-bd.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/pomobanner-bd.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.kh {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/pomobanner-kh.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/pomobanner-kh.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.vn {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/pomobanner-vn.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/pomobanner-vn.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.br {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/pomobanner-br.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/pomobanner-br.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.ko {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/pomobanner-ko.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/pomobanner-ko.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.jp {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/pomobanner-jp.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/pomobanner-jp.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList > div {
   -webkit-box-pack: center;
@@ -1468,40 +1468,40 @@ header input:focus-within {
   font-size: 24px;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.en {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/vipdropdown-en.png) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/vipdropdown-en.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.my {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/vipdropdown-my.png) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/vipdropdown-my.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.cs {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/vipdropdown-cs.png) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/vipdropdown-cs.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.id {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/vipdropdown-id.png) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/vipdropdown-id.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.th {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/vipdropdown-th.png) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/vipdropdown-th.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.vn {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/vipdropdown-vn.png) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/vipdropdown-vn.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.hi {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/vipdropdown-hi.png) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/vipdropdown-hi.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.bd {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/vipdropdown-bd.png) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/vipdropdown-bd.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.kh {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/vipdropdown-kh.png) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/vipdropdown-kh.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.br {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/vipdropdown-br.png) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/vipdropdown-br.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.ko {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/vipdropdown-ko.png) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/vipdropdown-ko.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.jp {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/vipdropdown-jp.png) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/vipdropdown-jp.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList > div {
   margin: 0 auto 0 100px;
@@ -1511,37 +1511,37 @@ header input:focus-within {
   font-weight: bold;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/leaderboard-newdropdown-en.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/leaderboard-newdropdown-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.en {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/leaderboard-newdropdown-en.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/leaderboard-newdropdown-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.my {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/leaderboard-newdropdown-my.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/leaderboard-newdropdown-my.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.cs {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/leaderboard-newdropdown-cs.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/leaderboard-newdropdown-cs.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.th {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/leaderboard-newdropdown-th.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/leaderboard-newdropdown-th.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.id {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/leaderboard-newdropdown-id.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/leaderboard-newdropdown-id.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.kh {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/leaderboard-newdropdown-kh.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/leaderboard-newdropdown-kh.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.vn {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/leaderboard-newdropdown-vn.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/leaderboard-newdropdown-vn.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.br {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/leaderboard-newdropdown-br.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/leaderboard-newdropdown-br.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.ko {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/leaderboard-newdropdown-ko.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/leaderboard-newdropdown-ko.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.jp {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/leaderboard-newdropdown-jp.jpg) no-repeat center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/leaderboard-newdropdown-jp.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList > div,
 .header > div.menu .subMenu-Wrapper-new .rankingList > a {
@@ -1881,7 +1881,7 @@ header input:focus-within {
 .header > div.function .grade-text::after {
   content: "";
   display: block;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/down-1.png) no-repeat center center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/down-1.png) no-repeat center center/cover;
   width: 12px;
   height: 14px;
   margin-left: 5px;
@@ -2035,7 +2035,7 @@ header input:focus-within {
 .header > div.function .home-balance .wallet::after {
   content: "";
   display: block;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/down-1.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/down-1.png) no-repeat center/cover;
   width: 12px;
   height: 14px;
   margin-left: 5px;
@@ -2045,7 +2045,7 @@ header input:focus-within {
 .header > div.function .home-balance .icon-spinner::before {
   content: "";
   display: block;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/refresh-1.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/refresh-1.png) no-repeat center/cover;
   width: 15px;
   height: 15px;
   margin-right: 2px;
@@ -2058,7 +2058,7 @@ header input:focus-within {
   cursor: pointer;
   content: "";
   display: block;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/plus.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/plus.png) no-repeat center/cover;
   width: 15px;
   height: 15px;
   margin-left: 2px;
@@ -2067,7 +2067,7 @@ header input:focus-within {
   cursor: pointer;
   content: "";
   display: block;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/minus.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/minus.png) no-repeat center/cover;
   width: 15px;
   height: 15px;
   margin-left: 2px;
@@ -2120,7 +2120,7 @@ header input:focus-within {
 .header > div.function .home-balance .balance-submenu .balance .refresh-icon::after {
   display: block;
   content: "";
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/refresh_w.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/refresh_w.png) no-repeat center/cover;
   width: 16px;
   height: 16px;
 }
@@ -2226,7 +2226,7 @@ header input:focus-within {
   width: 175px;
   height: 95px;
   pointer-events: none;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/eurocup/logo-euro-ball.gif) center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/eurocup/logo-euro-ball.gif) center/cover;
 }
 .logo.eurocup .splogo {
   -webkit-animation: eurologo 7.5s running infinite 0.5s;
@@ -2243,115 +2243,115 @@ header input:focus-within {
   bottom: 22px;
   width: 70px;
   height: 70px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/sp-aston-villa.png) center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/sp-aston-villa.png) center/cover;
 }
 
 @-webkit-keyframes splogo {
   0% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0.1;
   }
   5% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   45% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   50% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0;
   }
   51% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0.1;
   }
   56% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   95% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0;
   }
 }
 
 @keyframes splogo {
   0% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0.1;
   }
   5% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   45% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-sevilla.png) center/cover;
     opacity: 1;
   }
   50% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/sp-sevilla.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-sevilla.png) center/cover;
     opacity: 0;
   }
   51% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0.1;
   }
   56% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   95% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/sp-inter-milan.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/sp-inter-milan.png) center/cover;
     opacity: 0;
   }
 }
 @-webkit-keyframes eurologo {
   0% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
 }
 @keyframes eurologo {
   0% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/eurocup/euro-logo.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/eurocup/euro-logo.png) center/cover;
     opacity: 1;
   }
 }
 @-webkit-keyframes olympiclogo {
   0% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/olympic/logo-paris.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/olympic/logo-paris.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
 }
 @keyframes olympiclogo {
   0% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/olympic/logo-paris.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
   100% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/olympic/logo-paris.png) center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
 }
@@ -2434,7 +2434,7 @@ header input:focus-within {
 .home-profile .home-profile-top .progress-number a::after {
   display: block;
   content: "";
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/right-4.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/right-4.png) no-repeat center/cover;
   width: 12px;
   height: 12px;
 }
@@ -2484,7 +2484,7 @@ header input:focus-within {
 .home-profile .home-profile-bottom .home-profile-country .flag.arrow::after {
   display: block;
   content: "";
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/down-2.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/down-2.png) no-repeat center/cover;
   width: 15px;
   height: 15px;
   margin-left: 50px;
@@ -2553,7 +2553,7 @@ header input:focus-within {
 .home-profile.highest .home-profile-top .highest-text::after {
   display: block;
   content: "";
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/right-5.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/right-5.png) no-repeat center/cover;
   width: 15px;
   height: 15px;
   margin-left: 5px;
@@ -2868,7 +2868,7 @@ main .maintitle a {
 main .maintitle a::after {
   display: block;
   content: "";
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/right-3.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/right-3.png) no-repeat center/cover;
   width: 17px;
   height: 17px;
   margin-left: 6px;
@@ -2906,7 +2906,7 @@ main .promosswiper .promos-item img {
   width: 650px;
 }
 main .promosswiper .swiper-button-next {
-  background-image: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/right-1.png);
+  background-image: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/right-1.png);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -2918,7 +2918,7 @@ main .promosswiper .swiper-button-next::after {
   font-size: 0;
 }
 main .promosswiper .swiper-button-prev {
-  background-image: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/left-1.png);
+  background-image: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/left-1.png);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -2952,7 +2952,7 @@ main .promosswiper .swiper-button-prev::after {
 .hotmatch::after {
   display: block;
   content: "";
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/hotmatch-bg-new.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/hotmatch-bg-new.png) no-repeat center/cover;
   width: 100%;
   height: 1000px;
   margin-top: -90px;
@@ -2961,7 +2961,7 @@ main .promosswiper .swiper-button-prev::after {
   right: 0;
 }
 .hotmatch.br::after {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/hotmatch-bg.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/hotmatch-bg.png) no-repeat center/cover;
 }
 .hotmatch .hotmatch-top {
   font-size: 90px;
@@ -3126,7 +3126,7 @@ main .promosswiper .swiper-button-prev::after {
   color: white;
 }
 .hotmatch .swiper-button-next {
-  background-image: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/right-1.png);
+  background-image: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/right-1.png);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -3138,7 +3138,7 @@ main .promosswiper .swiper-button-prev::after {
   overflow: visible;
 }
 .hotmatch .swiper-button-prev {
-  background-image: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/left-1.png);
+  background-image: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/left-1.png);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -3309,7 +3309,7 @@ main .promosswiper .swiper-button-prev::after {
   color: white;
 }
 .hotgame .hotgame-content .hotgameswiper .swiper-button-next {
-  background-image: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/right-1.png);
+  background-image: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/right-1.png);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -3325,7 +3325,7 @@ main .promosswiper .swiper-button-prev::after {
   pointer-events: unset;
 }
 .hotgame .hotgame-content .hotgameswiper .swiper-button-prev {
-  background-image: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/left-1.png);
+  background-image: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/left-1.png);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -3368,7 +3368,7 @@ main .promosswiper .swiper-button-prev::after {
   margin-bottom: 10px;
 }
 .hotgame .jackpotswiper .swiper-button-next {
-  background-image: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/right-1.png);
+  background-image: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/right-1.png);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -3381,7 +3381,7 @@ main .promosswiper .swiper-button-prev::after {
   font-size: 0;
 }
 .hotgame .jackpotswiper .swiper-button-prev {
-  background-image: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/left-1.png);
+  background-image: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/left-1.png);
   background-size: cover;
   width: 35px;
   height: 35px;
@@ -3700,7 +3700,7 @@ footer .license {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/licensebg.png) no-repeat bottom right;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/licensebg.png) no-repeat bottom right;
   margin-top: 20px;
 }
 footer .license .title {
@@ -4341,46 +4341,46 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
   margin-right: 5px;
 }
 .flag.ch:before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/flag/ch.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/ch.jpg) no-repeat top left/cover;
 }
 .flag.cs:before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/flag/cs.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/cs.jpg) no-repeat top left/cover;
 }
 .flag.en:before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/flag/en.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/en.jpg) no-repeat top left/cover;
 }
 .flag.th:before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/flag/th.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/th.jpg) no-repeat top left/cover;
 }
 .flag.id:before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/flag/id.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/id.jpg) no-repeat top left/cover;
 }
 .flag.vn:before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/flag/vn.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/vn.jpg) no-repeat top left/cover;
 }
 .flag.in:before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/flag/in.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/in.jpg) no-repeat top left/cover;
 }
 .flag.bd:before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/flag/bd.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/bd.jpg) no-repeat top left/cover;
 }
 .flag.kh:before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/flag/kh.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/kh.jpg) no-repeat top left/cover;
 }
 .flag.kh:before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/flag/kh.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/kh.jpg) no-repeat top left/cover;
 }
 .flag.gb:before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/flag/gb.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/gb.jpg) no-repeat top left/cover;
 }
 .flag.br:before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/flag/br.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/br.jpg) no-repeat top left/cover;
 }
 .flag.ko:before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/flag/ko.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/ko.jpg) no-repeat top left/cover;
 }
 .flag.jp:before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/flag/jp.jpg) no-repeat top left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/jp.jpg) no-repeat top left/cover;
 }
 
 .txt-orange {
@@ -5476,7 +5476,7 @@ input[type=file] {
           align-items: center;
 }
 .list .listBody .approved .infobtn, .list .listBody .pending .infobtn, .list .listBody .reject .infobtn, .list .listBody .cancel .infobtn {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/notice.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/notice.png) no-repeat center/cover;
   width: 15px;
   height: 15px;
   margin-left: 1px;
@@ -6369,7 +6369,7 @@ input[type=file] {
   font-size: 48px;
   width: 120px;
   height: 120px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/joinSuccessBg.png) no-repeat top center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/joinSuccessBg.png) no-repeat top center/cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6595,7 +6595,7 @@ input[type=file] {
   right: 50px;
   width: 60px;
   height: 46px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/wheel/coin.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/wheel/coin.png) no-repeat center/cover;
 }
 #popup .pop.wheelPop .animation .coin:nth-child(2) {
   top: 100px;
@@ -7163,7 +7163,7 @@ input[type=file] {
   margin-top: 205px;
 }
 #popup .livesportspop .livesports-content > div .livesports-item {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/team-bg.png) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/team-bg.png) no-repeat center/100%;
   height: 160px;
   width: 345px;
   margin-bottom: 12px;
@@ -7375,25 +7375,25 @@ input[type=file] {
   background-color: unset;
 }
 #popup .livesportspop.th {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/livesports-thbg-th.png) no-repeat center/100% !important;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/livesports-thbg-th.png) no-repeat center/100% !important;
 }
 #popup .livesportspop.vn {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/livesports-vnbg-vn.png) no-repeat center/100% !important;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/livesports-vnbg-vn.png) no-repeat center/100% !important;
 }
 #popup .livesportspop.th-en {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/livesports-thbg-en.png) no-repeat center/100% !important;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/livesports-thbg-en.png) no-repeat center/100% !important;
 }
 #popup .livesportspop.vn-en {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/livesports-vnbg-en.png) no-repeat center/100% !important;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/livesports-vnbg-en.png) no-repeat center/100% !important;
 }
 #popup .livesportspop.my-en {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/livesports-mybg-en.png) no-repeat center/100% !important;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/livesports-mybg-en.png) no-repeat center/100% !important;
 }
 #popup .livesportspop.my {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/livesports-mybg-my.png) no-repeat center/100% !important;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/livesports-mybg-my.png) no-repeat center/100% !important;
 }
 #popup .livesportspop.my-cs {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/livesports-mybg-cs.png) no-repeat center/100% !important;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/livesports-mybg-cs.png) no-repeat center/100% !important;
 }
 #popup .bigwin {
   color: white;
@@ -7492,7 +7492,7 @@ input[type=file] {
       -ms-flex-pack: center;
           justify-content: center;
   letter-spacing: 1px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/username.png) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/username.png) no-repeat center/100%;
   width: 270px;
   height: 80px;
   font-size: 17px;
@@ -7545,34 +7545,34 @@ input[type=file] {
 }
 @-webkit-keyframes bigwinpopup-en {
   0% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/popup-en-2.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/popup-en-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/popup-en-1.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/popup-en-1.png) no-repeat center/cover;
   }
 }
 @keyframes bigwinpopup-en {
   0% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/popup-en-2.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/popup-en-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/popup-en-1.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/popup-en-1.png) no-repeat center/cover;
   }
 }
 @-webkit-keyframes bigwinpopup-id {
   0% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/popup-id-2.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/popup-id-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/popup-id-1.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/popup-id-1.png) no-repeat center/cover;
   }
 }
 @keyframes bigwinpopup-id {
   0% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/popup-id-2.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/popup-id-2.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/popup-id-1.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/popup-id-1.png) no-repeat center/cover;
   }
 }
 #popup .bigwin .bigwinpop .closepop {
@@ -9283,7 +9283,7 @@ input[type=file] {
   width: 150px;
 }
 .vipLv > div.vipbg {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/vip/vipbg.png) no-repeat center/auto 100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/vip/vipbg.png) no-repeat center/auto 100%;
   padding: 20px;
   margin-top: 0;
 }
@@ -9703,7 +9703,7 @@ input[type=file] {
 }
 
 .livecasinoinside {
-  background: #1e1c17 url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/livecasino/livecasino-bg01.jpg) no-repeat bottom center/100%;
+  background: #1e1c17 url(https://minio-api.lumigame.com/s1-nova88/desktop/img/livecasino/livecasino-bg01.jpg) no-repeat bottom center/100%;
   padding-bottom: 130px;
   min-height: 100%;
   padding-top: 176px;
@@ -11603,7 +11603,7 @@ button.icon-spinner11:before {
 }
 .onegameModule .promotionsInfo {
   position: relative;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/onegame/bg.jpg) no-repeat center;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/onegame/bg.jpg) no-repeat center;
   height: 500px;
   padding: 0;
 }
@@ -11644,10 +11644,10 @@ button.icon-spinner11:before {
 }
 .onegameModule .onegame .left {
   height: 252px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/onegame/btnleftbg.png) no-repeat center right/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/onegame/btnleftbg.png) no-repeat center right/cover;
 }
 .onegameModule .onegame .left.right {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/onegame/btnrightbg.png) no-repeat center left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/onegame/btnrightbg.png) no-repeat center left/cover;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
@@ -11731,7 +11731,7 @@ button.icon-spinner11:before {
   margin-bottom: 30px;
 }
 .installGuide.mega, .installGuide.kiss {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/megabg.jpg) no-repeat bottom/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/megabg.jpg) no-repeat bottom/cover;
   padding: 20px;
 }
 .installGuide.mega .guides, .installGuide.kiss .guides {
@@ -11789,7 +11789,7 @@ button.icon-spinner11:before {
   margin-bottom: 10px;
 }
 .installGuide.kiss {
-  background: #2d023a url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/918/bg.jpg) no-repeat top/100%;
+  background: #2d023a url(https://minio-api.lumigame.com/s1-nova88/desktop/img/918/bg.jpg) no-repeat top/100%;
 }
 .installGuide > div {
   background: white;
@@ -12292,7 +12292,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .ErrorPage > div {
   width: 30%;
   height: 50%;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/errorBG.jpg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/errorBG.jpg) no-repeat center/cover;
   position: relative;
   margin: auto;
   padding: 0 5%;
@@ -12364,7 +12364,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .rightModule .refer-history::after {
   content: "";
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/icon-right.svg) no-repeat center/12px 12px;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/icon-right.svg) no-repeat center/12px 12px;
   display: inline-block;
   width: 12px;
   height: 12px;
@@ -12377,7 +12377,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   transition: 0.3s;
 }
 .rightModule .refer-history:hover::after {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/icon-right-1.svg) no-repeat center/12px 12px;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/icon-right-1.svg) no-repeat center/12px 12px;
 }
 .rightModule .refer .subtitle {
   color: #112240;
@@ -12486,7 +12486,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .rightModule .refer .referinfo-step .icon::after {
   content: "";
   display: block;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/refer-dashLine.svg) no-repeat center;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/refer-dashLine.svg) no-repeat center;
   padding: 5px 0px;
   width: 3px;
   height: 45px;
@@ -12536,7 +12536,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .rightModule .refer .referinfo-list .inputcopy::after {
   content: "";
   display: inline-block;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/icon-copy.svg) no-repeat center/20px 20px;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/icon-copy.svg) no-repeat center/20px 20px;
   width: 20px;
   height: 20px;
   position: absolute;
@@ -12547,7 +12547,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   transition: 0.3s;
 }
 .rightModule .refer .referinfo-list .inputcopy:hover::after {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/icon-copy-1.svg) no-repeat center/20px 20px;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/icon-copy-1.svg) no-repeat center/20px 20px;
 }
 .rightModule .refer .referinfo-list-qr {
   width: 90px;
@@ -13170,13 +13170,13 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: none;
 }
 .vip .swiper-button-next {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/next-right.png) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/next-right.png) no-repeat center/100%;
   width: 45px;
   right: 100px;
   top: 260px;
 }
 .vip .swiper-button-prev {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/next-left.png) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/next-left.png) no-repeat center/100%;
   width: 45px;
   left: 100px;
   top: 260px;
@@ -13191,7 +13191,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/vip-bottom-bg.png) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/vip-bottom-bg.png) no-repeat center/100%;
   height: 450px;
 }
 .vip .vip-bottom-item {
@@ -13625,7 +13625,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .subModuleListColumn > .subModule > div > button > div.fast:after,
 .subModuleListColumn > .subModule > div > a > div.fast:after {
   content: "";
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/fast-icon.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/fast-icon.png) no-repeat center/cover;
   display: block;
   width: 50px;
   height: 15px;
@@ -13867,7 +13867,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 57px;
   height: 57px;
   margin: 0 auto !important;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/qrpay.png) center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/qrpay.png) center/cover;
 }
 
 .icon-quick::before {
@@ -13876,7 +13876,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 57px;
   height: 57px;
   margin: 0 auto !important;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/quick-transfer.png) center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/quick-transfer.png) center/cover;
 }
 
 .icon-topup::before {
@@ -13885,7 +13885,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 57px;
   height: 57px;
   margin: 0 auto !important;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/topup.png) center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/topup.png) center/cover;
 }
 
 .icon-dou::before {
@@ -13894,7 +13894,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 57px;
   height: 57px;
   margin: 0 auto !important;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/chat-transfer.png) center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/chat-transfer.png) center/cover;
 }
 
 .text-center {
@@ -14026,7 +14026,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .promos .swiper-container .swiper-wrapper > div {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/homepage/promobg.jpg) no-repeat left/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/homepage/promobg.jpg) no-repeat left/cover;
 }
 .promos .swiper-container .swiper-wrapper > div > div {
   display: -webkit-box;
@@ -14289,7 +14289,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .liveVideo .newsList .title,
 .newsVideo .latestVideo .title,
 .newsVideo .newsList .title {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/homepage/latestvideotitlebg.jpg) no-repeat;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/homepage/latestvideotitlebg.jpg) no-repeat;
   line-height: 46px;
   border-radius: 0 0 5px 5px;
   padding-left: 20px;
@@ -14430,7 +14430,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/gamenamebg.png) no-repeat center top/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/gamenamebg.png) no-repeat center top/cover;
 }
 .liveVideo .latestVideo + div .hotevent .team,
 .liveVideo .newsList + div .hotevent .team,
@@ -14695,7 +14695,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .newsVideo .latestVideo + div .liveTv .team > div:first-child,
 .newsVideo .newsList + div .upcomingmatches .team > div:first-child,
 .newsVideo .newsList + div .liveTv .team > div:first-child {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/upcomingmatchestitle.png) no-repeat top center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/upcomingmatchestitle.png) no-repeat top center/auto;
   line-height: 27px;
   font-size: 12px;
   overflow: hidden;
@@ -14715,7 +14715,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .newsVideo .latestVideo + div .liveTv .team > div:last-child,
 .newsVideo .newsList + div .upcomingmatches .team > div:last-child,
 .newsVideo .newsList + div .liveTv .team > div:last-child {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/upcomingmatchestitledown.png) no-repeat top center/auto;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/upcomingmatchestitledown.png) no-repeat top center/auto;
   line-height: 27px;
   font-size: 12px;
 }
@@ -15034,7 +15034,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title,
 .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title,
 .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/livetvtitlebggold.png) no-repeat center/75% 100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/livetvtitlebggold.png) no-repeat center/75% 100%;
 }
 .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before,
 .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before,
@@ -15069,7 +15069,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/livetvtitlebg.png) no-repeat center/75% 100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/livetvtitlebg.png) no-repeat center/75% 100%;
   color: white;
   position: relative;
   font-size: 12px;
@@ -15183,7 +15183,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   content: "";
   width: 300px;
   height: 435px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/homepage/livacasino-item.png) no-repeat;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/homepage/livacasino-item.png) no-repeat;
   position: absolute;
   z-index: 2;
   right: 20px;
@@ -16099,7 +16099,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .jpotModule .jpot {
   height: 202px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/homepage/jpotbg.jpg) no-repeat;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/homepage/jpotbg.jpg) no-repeat;
   position: relative;
   cursor: pointer;
 }
@@ -16232,7 +16232,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   background: linear-gradient(90deg, #c71e00 30%, #fa735b 100%);
 }
 .jpotModule .jpot .number {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/homepage/jpot-title.png) no-repeat;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/homepage/jpot-title.png) no-repeat;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -16289,7 +16289,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   content: "";
   display: block;
   position: absolute;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/homepage/jpot-coin.png) no-repeat;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/homepage/jpot-coin.png) no-repeat;
   width: 53px;
   height: 50px;
   top: -42px;
@@ -16301,7 +16301,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   content: "";
   display: block;
   position: absolute;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/homepage/coin.png) no-repeat 75%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/homepage/coin.png) no-repeat 75%;
   width: 15px;
   height: 15px;
   top: calc(50% - 8px);
@@ -16549,7 +16549,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .fishinginside {
-  background: #84eff9 url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/fishing/fishbg.jpg) no-repeat bottom center/100%;
+  background: #84eff9 url(https://minio-api.lumigame.com/s1-nova88/desktop/img/fishing/fishbg.jpg) no-repeat bottom center/100%;
   padding-bottom: 130px;
   min-height: 100%;
   padding-top: 176px;
@@ -16636,7 +16636,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .lotteryinside {
   position: relative;
-  background: #020321 url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/lottery/lotterybg.jpg) no-repeat bottom center/100%;
+  background: #020321 url(https://minio-api.lumigame.com/s1-nova88/desktop/img/lottery/lotterybg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
   padding-top: 176px;
 }
@@ -16862,7 +16862,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .esportinside {
   position: relative;
-  background: #131419 url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/esport/esportsbg.jpg) no-repeat bottom center/100%;
+  background: #131419 url(https://minio-api.lumigame.com/s1-nova88/desktop/img/esport/esportsbg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
   padding-top: 176px;
 }
@@ -17095,7 +17095,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .gameinside {
   position: relative;
-  background: #3e132e url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/game/gamebg.jpg) no-repeat bottom center/100%;
+  background: #3e132e url(https://minio-api.lumigame.com/s1-nova88/desktop/img/game/gamebg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
   padding-top: 176px;
 }
@@ -17206,7 +17206,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .app {
   min-width: auto;
   padding: 176px 0 10vw 0;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/app/appbg.jpg) no-repeat top center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/app/appbg.jpg) no-repeat top center/cover;
 }
 .appHeader {
   height: 50px;
@@ -17792,7 +17792,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: block;
   width: 80px;
   height: 80px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/wclogo.gif) center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/wclogo.gif) center/cover;
   position: absolute;
   top: -40px;
   right: -15px;
@@ -17906,7 +17906,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 /*checkspeed*/
 .checkspeed {
-  background: black url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/check_speed/bg.jpg) no-repeat center 87px/cover;
+  background: black url(https://minio-api.lumigame.com/s1-nova88/desktop/img/check_speed/bg.jpg) no-repeat center 87px/cover;
   width: 100%;
 }
 .checkspeed img {
@@ -18101,7 +18101,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 @media screen and (max-width: 767px), (orientation: portrait) {
   .checkspeed {
-    background: #0339a2 url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/check_speed/bg.jpg) no-repeat top center/cover;
+    background: #0339a2 url(https://minio-api.lumigame.com/s1-nova88/desktop/img/check_speed/bg.jpg) no-repeat top center/cover;
     height: auto;
   }
   .checkspeed .wallpaper {
@@ -18232,25 +18232,25 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 @-webkit-keyframes lobbyjpot {
   0% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
   }
   50% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/lobbyjpotbga.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/lobbyjpotbga.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
   }
 }
 
 @keyframes lobbyjpot {
   0% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
   }
   50% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/lobbyjpotbga.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/lobbyjpotbga.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
   }
 }
 .mainBanner {
@@ -18783,7 +18783,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .rankingNew {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/leaderboard_new_bg.jpg) no-repeat top center;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/leaderboard_new_bg.jpg) no-repeat top center;
   background-position: top center;
   background-size: auto 100%;
   min-height: 1025px;
@@ -19734,13 +19734,13 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/wheel/bg.jpg) no-repeat top center, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/wheel/bg.jpg) no-repeat top center, linear-gradient(to right, #100d41, #250333);
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/wheel/bg.jpg) no-repeat top center, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/wheel/bg.jpg) no-repeat top center, linear-gradient(to right, #100d41, #250333);
 }
 .wheelEvent .eventPage .eventTitleBg {
   width: 372px;
   height: 86px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/wheel/event_title_bg.png) no-repeat center -8px;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/wheel/event_title_bg.png) no-repeat center -8px;
   margin-top: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -19791,7 +19791,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 410px;
   height: 410px;
   position: relative;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/wheel/wheelbg.png) no-repeat center;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/wheel/wheelbg.png) no-repeat center;
   overflow: hidden;
 }
 .wheelEvent .eventPage .wheelModule .wheel ul li {
@@ -20577,15 +20577,15 @@ form .profileModule .vipLv .vipname {
   position: relative;
   padding-top: 50px;
   height: 942px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/worldcup/bg.jpg) no-repeat center, -webkit-gradient(linear, left top, left bottom, from(#730A33), to(#1D1A1B));
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/worldcup/bg.jpg) no-repeat center, linear-gradient(to bottom, #730A33, #1D1A1B);
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/worldcup/bg.jpg) no-repeat center, -webkit-gradient(linear, left top, left bottom, from(#730A33), to(#1D1A1B));
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/worldcup/bg.jpg) no-repeat center, linear-gradient(to bottom, #730A33, #1D1A1B);
 }
 .worldcupEvent .eventPage.middle {
   position: relative;
   padding-top: 100px;
   height: 1170px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/worldcup/bg2.jpg) no-repeat center, -webkit-gradient(linear, left top, left bottom, from(#1D1A1B), color-stop(#730A33), to(#1D1A1B));
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/worldcup/bg2.jpg) no-repeat center, linear-gradient(to bottom, #1D1A1B, #730A33, #1D1A1B);
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/worldcup/bg2.jpg) no-repeat center, -webkit-gradient(linear, left top, left bottom, from(#1D1A1B), color-stop(#730A33), to(#1D1A1B));
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/worldcup/bg2.jpg) no-repeat center, linear-gradient(to bottom, #1D1A1B, #730A33, #1D1A1B);
   text-align: center;
 }
 .worldcupEvent .eventPage.bottom {
@@ -21306,7 +21306,7 @@ form .profileModule .vipLv .vipname {
   top: 33%;
   -webkit-transform: scale(0.75);
           transform: scale(0.75);
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/worldcup/fixture-deco.svg);
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/worldcup/fixture-deco.svg);
   background-repeat: no-repeat;
 }
 @media (min-width: 1700px) {
@@ -21483,7 +21483,7 @@ form .profileModule .vipLv .vipname {
   max-width: 1350px;
   height: 988px;
   margin: 21px auto 40px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/worldcup/arrow-bg.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/worldcup/arrow-bg.png) no-repeat center/cover;
   -webkit-animation: breathe 1s alternate infinite;
           animation: breathe 1s alternate infinite;
 }
@@ -21593,7 +21593,7 @@ form .profileModule .vipLv .vipname {
   display: block;
   width: 20px;
   height: 20px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/worldcup/icon-fifa.svg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/worldcup/icon-fifa.svg) no-repeat center/cover;
   position: absolute;
   left: -5px;
   top: 6px;
@@ -21797,7 +21797,7 @@ form .profileModule .vipLv .vipname {
   left: 0;
   width: 50px;
   height: 22px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/img/worldcup/ticket.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/img/worldcup/ticket.png) no-repeat center/cover;
 }
 .worldcupEvent .progressBar .progressItem.active .value {
   color: #02D2B8;
@@ -21896,7 +21896,7 @@ form .profileModule .vipLv .vipname {
   top: 7px;
   width: 72.5px;
   height: 12.5px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/worldcup/5deco.svg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/worldcup/5deco.svg) no-repeat center/cover;
 }
 .worldcupEvent .info .subtitle:before {
   left: -85px;
@@ -21993,18 +21993,18 @@ form .profileModule .vipLv .vipname {
 }
 @-webkit-keyframes breathe {
   0% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/worldcup/arrow-bg.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/worldcup/arrow-bg.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/worldcup/arrow-bgb.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/worldcup/arrow-bgb.png) no-repeat center/cover;
   }
 }
 @keyframes breathe {
   0% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/worldcup/arrow-bg.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/worldcup/arrow-bg.png) no-repeat center/cover;
   }
   100% {
-    background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/worldcup/arrow-bgb.png) no-repeat center/cover;
+    background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/worldcup/arrow-bgb.png) no-repeat center/cover;
   }
 }
 @-webkit-keyframes deco {
@@ -22230,12 +22230,12 @@ form .profileModule .vipLv .vipname {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/angpao/bg-top.jpg) no-repeat top center, #990100;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/angpao/bg-top.jpg) no-repeat top center, #990100;
   margin-top: -1px;
 }
 .angpaoEvent .eventPage--bottom {
   min-width: 100%;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
   padding-top: 50px;
   padding-bottom: 30px;
 }
@@ -22303,7 +22303,7 @@ form .profileModule .vipLv .vipname {
   font-size: 22px;
   text-transform: uppercase;
   color: #fff;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/angpao/btn.png) no-repeat top center/contain;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/angpao/btn.png) no-repeat top center/contain;
   width: 230px;
   height: 80px;
   line-height: 1;
@@ -22560,7 +22560,7 @@ form .profileModule .vipLv .vipname {
   display: block;
   width: 130px;
   height: 58px;
-  background-image: url("https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/logo_en_w.png");
+  background-image: url("https://minio-api.lumigame.com/s1-nova88/desktop/img/logo_en_w.png");
   background-size: 100%;
   background-repeat: no-repeat;
   -webkit-transition: ease 0.15s;
@@ -22934,7 +22934,7 @@ input[type=number] {
   width: 260px;
 }
 .lobby-content-item .img-wrapper .btn-container {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/lobby-hover.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/lobby-hover.png) no-repeat center/cover;
   position: absolute;
   z-index: 2;
   width: 260px;
@@ -22982,7 +22982,7 @@ input[type=number] {
 .lobby-content-item.under::before {
   display: block;
   content: "";
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/lobby-under.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/lobby-under.png) no-repeat center/cover;
   width: 260px;
   height: 260px;
   position: absolute;
@@ -23103,7 +23103,7 @@ input[type=number] {
   position: absolute;
   display: block;
   content: "";
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/lobby-slots/under.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/lobby-slots/under.png) no-repeat center/cover;
   height: 40px;
   width: 40px;
   right: 75px;
@@ -23507,6 +23507,7 @@ input[type=number] {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 70px;
+  margin-bottom: 90px;
 }
 .lobby .nodata img {
   width: 60px;
@@ -23520,7 +23521,7 @@ input[type=number] {
 .euro .wrapper {
   padding-top: 150px;
   min-height: 1900px;
-  background: #143CDB url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/eurocup/top-bg.jpg) no-repeat bottom/cover;
+  background: #143CDB url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/eurocup/top-bg.jpg) no-repeat bottom/cover;
   position: relative;
 }
 @media (min-width: 2000px) {
@@ -23537,7 +23538,7 @@ input[type=number] {
   width: 100%;
   height: 512px;
   z-index: 0;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/eurocup/top-item.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/eurocup/top-item.png) no-repeat center/cover;
 }
 @media (min-width: 2000px) {
   .euro .wrapper::before {
@@ -23830,7 +23831,7 @@ input[type=number] {
   top: -30px;
   width: 55px;
   height: 25px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/eurocup/tickets-1.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/eurocup/tickets-1.png) no-repeat center/cover;
 }
 .euro-mission .progressBar .progressItem.active:after {
   background: #F9BF4B;
@@ -23865,7 +23866,7 @@ input[type=number] {
   height: 9px;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/eurocup/frame.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/eurocup/frame.png) no-repeat center/cover;
 }
 .euro-poll {
   display: -webkit-box;
@@ -24033,7 +24034,7 @@ input[type=number] {
 .euro .inputBox-event .dropdown > .btn:after {
   width: 22px;
   height: 22px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/eurocup/arrow-icon.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/eurocup/arrow-icon.png) no-repeat center/cover;
   border: 0;
 }
 .euro .inputBox-event .dropdown .dropdown-container {
@@ -24469,7 +24470,7 @@ input[type=number] {
   transition: 0.3s;
 }
 .euro-fixture {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/eurocup/fixture-bg.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/eurocup/fixture-bg.png) no-repeat center/cover;
   min-width: 1400px;
   min-height: 1000px;
   position: relative;
@@ -24900,7 +24901,7 @@ input[type=number] {
 }
 .milestones-home {
   height: 100vh;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/milestones/top-bg.jpg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/milestones/top-bg.jpg) no-repeat center/cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25044,7 +25045,7 @@ input[type=number] {
 .milestones .milestones-swiper .swiper-slide.two, .milestones .milestones-swiper .swiper-slide.three, .milestones .milestones-swiper .swiper-slide.four, .milestones .milestones-swiper .swiper-slide.five, .milestones .milestones-swiper .swiper-slide.six {
   height: 100vh;
   width: 100%;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/milestones/two-bg.jpg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/milestones/two-bg.jpg) no-repeat center/cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25202,7 +25203,7 @@ input[type=number] {
 .milestones .milestones-swiper .swiper-slide.three {
   height: 100vh;
   width: 100%;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/milestones/three-bg.jpg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/milestones/three-bg.jpg) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-slide.three .page-item > div:first-child {
   color: #FF6000;
@@ -25239,7 +25240,7 @@ input[type=number] {
 .milestones .milestones-swiper .swiper-slide.four {
   height: 100vh;
   width: 100%;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/milestones/four-bg.jpg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/milestones/four-bg.jpg) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-slide.four .page-item > div:first-child {
   color: #4747AE;
@@ -25284,7 +25285,7 @@ input[type=number] {
 .milestones .milestones-swiper .swiper-slide.five {
   height: 100vh;
   width: 100%;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/milestones/five-bg.jpg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/milestones/five-bg.jpg) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-slide.five .page-item > div:first-child {
   color: #AE0000;
@@ -25328,7 +25329,7 @@ input[type=number] {
 .milestones .milestones-swiper .swiper-slide.six {
   height: 100vh;
   width: 100%;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/milestones/six-bg.jpg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/milestones/six-bg.jpg) no-repeat center/cover;
 }
 .milestones .milestones-swiper .swiper-slide.six .page-item > div:first-child {
   color: #01156D;
@@ -25371,7 +25372,7 @@ input[type=number] {
   height: 50px;
 }
 .milestones .milestones-swiper .swiper-button-next {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/milestones/right-btn.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/milestones/right-btn.png) no-repeat center/cover;
   top: 90%;
   right: 35%;
 }
@@ -25381,7 +25382,7 @@ input[type=number] {
   }
 }
 .milestones .milestones-swiper .swiper-button-prev {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/milestones/left-btn.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/milestones/left-btn.png) no-repeat center/cover;
   top: 90%;
   left: 58%;
 }
@@ -25400,7 +25401,7 @@ input[type=number] {
   display: flex;
 }
 .exclusion-title::before {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/4.0/exclusion-icon.svg) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/4.0/exclusion-icon.svg) no-repeat center/100%;
   display: block;
   content: "";
   width: 31px;
@@ -25466,7 +25467,7 @@ input[type=number] {
 .retention {
   background: #0f1f3b;
   padding: 200px 0 150px;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/retention/top-bg.jpg) no-repeat top/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/retention/top-bg.jpg) no-repeat top/cover;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -25519,7 +25520,7 @@ input[type=number] {
   top: 900px;
 }
 .retention-wrapper .top-btn {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/retention/btn-bg.png) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/retention/btn-bg.png) no-repeat center/100%;
   width: 350px;
   height: 200px;
   display: -webkit-box;
@@ -25570,7 +25571,7 @@ input[type=number] {
 }
 .retention-wrapper .bonus-list .title > div:first-child {
   color: white;
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/retention/title-bg.png) no-repeat center/100%;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/retention/title-bg.png) no-repeat center/100%;
   padding: 20px 0 3px 40px;
   font-size: 25px;
   letter-spacing: 1px;
@@ -25974,7 +25975,7 @@ input[type=number] {
   text-transform: uppercase;
 }
 .olympic-top {
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/olympic/background-a.jpg) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/olympic/background-a.jpg) no-repeat center/cover;
   position: relative;
 }
 .olympic-top-logo {
@@ -26083,7 +26084,7 @@ input[type=number] {
 .olympic-center .tasks-content .progress-title > div:last-child::after {
   display: block;
   content: "";
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/olympic/arrow.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/olympic/arrow.png) no-repeat center/cover;
   width: 8px;
   height: 13px;
   margin: 2px 0 0 10px;
@@ -26153,7 +26154,7 @@ input[type=number] {
 .olympic-center .tasks-content .progress-box button::after {
   display: block;
   content: "";
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/olympic/arrow.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/olympic/arrow.png) no-repeat center/cover;
   width: 8px;
   height: 13px;
   margin: 0 0 0 10px;
@@ -26212,7 +26213,7 @@ input[type=number] {
   position: absolute;
   display: block;
   content: "";
-  background: url(https://minio-api.lumigame.com/s1-bannerimgs/desktop/img/event/olympic/gold-medal.png) no-repeat center/cover;
+  background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/event/olympic/gold-medal.png) no-repeat center/cover;
   width: 360px;
   height: 360px;
   top: -200px;
