@@ -2,17 +2,18 @@ import { CurrenciesEnum, IStaticLangGroups } from '@nx-next-app/types'
 
 export * from './affiliate'
 export * from './allowCurrency'
+export * from './appDownload'
 export * from './footer'
 export * from './gameProviders'
 export * from './gtmData'
-export * from './images'
-export * from './join'
+export * from './history'
+export * from './leaderBoard'
 export * from './leftMenu'
 export * from './menu'
 export * from './metaData'
-export * from './milestoneData'
 export * from './monthlyData'
 export * from './payment'
+export * from './quickPick'
 export * from './referral'
 export * from './slots'
 export * from './sponsorData'
@@ -71,16 +72,17 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			value: 'en',
 			currencyId: CurrenciesEnum.INR,
 		},
-		{
-			displayText: 'हिंदी',
-			value: 'hi',
-			currencyId: CurrenciesEnum.INR,
-			mainLanguage: true,
-		},
+		// {
+		// 	displayText: 'हिंदी',
+		// 	value: 'hi',
+		// 	currencyId: CurrenciesEnum.INR,
+		// 	mainLanguage: true,
+		// },
 		{
 			displayText: 'తెలుగు',
 			value: 'te',
 			currencyId: CurrenciesEnum.INR,
+			mainLanguage: true,
 		},
 	],
 	vn: [
@@ -148,19 +150,19 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			mainLanguage: true,
 		},
 	],
-	br: [
-		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.BRL,
-		},
-		{
-			displayText: 'Portugese',
-			value: 'br',
-			currencyId: CurrenciesEnum.BRL,
-			mainLanguage: true,
-		},
-	],
+	// br: [
+	// 	{
+	// 		displayText: 'English',
+	// 		value: 'en',
+	// 		currencyId: CurrenciesEnum.BRL,
+	// 	},
+	// 	{
+	// 		displayText: 'Portugese',
+	// 		value: 'br',
+	// 		currencyId: CurrenciesEnum.BRL,
+	// 		mainLanguage: true,
+	// 	},
+	// ],
 	// 日本語位置
 	ko: [
 		{

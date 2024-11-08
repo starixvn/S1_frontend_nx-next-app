@@ -33,8 +33,11 @@
 			"@nova88-h5/providers": ["apps/nova88-h5/providers"],
 			"@nova88-desktop/components": ["apps/nova88-desktop/components"],
 			"@nova88-h5/components": ["apps/nova88-h5/components"],
+			"@12b-desktop/components/*": ["apps/onetwobet-desktop/components/*"],
 			"@12b-h5/components/*": ["apps/onetwobet-h5/components/*"],
-			"@12b-desktop/components/*": ["apps/onetwobet-desktop/components/*"]
+			"@12b-indo-desktop/components/*": ["apps/onetwobet-indo-desktop/components/*"],
+			"@12b-indo-h5/components/*": ["apps/onetwobet-indo-h5/components/*"],
+			"@apps/*": ["apps/*"]
 		},
 		"jsx": "react"
 	},

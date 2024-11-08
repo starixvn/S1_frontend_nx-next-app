@@ -1,7 +1,8 @@
+import { IFooterData, ISeoData } from '@nx-next-app/types'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 import Script from 'next/script'
 import { useEffect } from 'react'
-import { useTranslation } from 'next-i18next'
-import { IFooterData, ISeoData } from '@nx-next-app/types'
 
 const License = ({
 	licenseData: { defaultScript },
@@ -12,22 +13,24 @@ const License = ({
 }) => {
 	const { t } = useTranslation()
 	const showLicenseLogo = seoData?.activeDomain ?? false
-	const CuracaoScript = seoData?.script ?? defaultScript
-	const formattedCuracaoScript = CuracaoScript?.split('-').join('_')
+	const tobiqueSealId = seoData?.script ?? defaultScript
+	const currentDomain =
+		typeof window !== 'undefined' ? window.location.href : ''
 
-	// 市場通之暫時移除 XCM License 2024/7/16
+	// 市場通知暫時移除 XCM License 2024/7/16
 	// const XCMScript = seoData?.xcmScript ?? defaultXCMScript
 	// const formattedXCMScript = XCMScript?.split('-').join('_')
 
 	useEffect(() => {
-		if (showLicenseLogo) {
+		if (showLicenseLogo && !includes(currentDomain, 'nova88kr.com')) {
+			const formattedTobiqueSealId = tobiqueSealId?.replace(/-/g, '_')
 			/* eslint-disable @typescript-eslint/no-explicit-any */
-			const apgScript = (window as any)[`apg_${formattedCuracaoScript}`]
+			const tobiqueScript = (window as any)[`dlag_${formattedTobiqueSealId}`]
 			// const xcmScript = (window as any)[`xcm_${formattedXCMScript}`]
-			apgScript?.init()
+			tobiqueScript?.init()
 			// xcmScript?.init()
 		}
-	}, [showLicenseLogo])
+	}, [showLicenseLogo, currentDomain])
 
 	return (
 		<>
@@ -35,12 +38,16 @@ const License = ({
 				<div className='footer-center-title'>{t('Label_Gaming_License')}</div>
 				{showLicenseLogo && (
 					<div className='game-license'>
-						<div
-							id={`apg-${CuracaoScript}`}
-							data-apg-seal-id={CuracaoScript}
-							data-apg-image-size='128'
-							data-apg-image-type='basic-small'
-						/>
+						{/* PM hotfix 需求，此 license 需排除 kr site */}
+						{typeof window !== 'undefined' &&
+							!includes(currentDomain, 'nova88kr.com') && (
+								<div
+									id={`dlag-${tobiqueSealId}`}
+									data-dlag-seal-id={tobiqueSealId}
+									data-dlag-image-size='128'
+									data-dlag-image-type='basic-small'
+								/>
+							)}
 						{/* <div */}
 						{/*	id={`xcm-${XCMScript}`} */}
 						{/*	data-xcm-seal-id={XCMScript} */}
@@ -65,7 +72,7 @@ const License = ({
 			</div>
 
 			<Script
-				src={`https://${CuracaoScript}.snippet.antillephone.com/apg-seal.js`}
+				src={`https://${tobiqueSealId}.seals.dlagglobal.com/dlag-seal.js`}
 				strategy='lazyOnload'
 			/>
 			{/* <Script */}

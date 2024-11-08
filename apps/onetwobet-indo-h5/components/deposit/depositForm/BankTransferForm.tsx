@@ -1,0 +1,245 @@
+import { Form, InputBox, Select } from '@12b-indo-h5/components/common'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useAuth } from '@nx-next-app/data-access'
+import {
+	useDepositBankTransferForm,
+	useDepositContext,
+} from '@nx-next-app/operations'
+import { IPaymentBankTransferData } from '@nx-next-app/service'
+import {
+	generateShortcutList,
+	isConvert,
+	numFormatToDigits,
+	numberFormat,
+	revertNumberFormat,
+} from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { isNumber, toLower } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import DepositModule from '../ui/deposit-module'
+
+const DepositBankSlipModal = dynamic(
+	() => import('@12b-indo-h5/components/history/modal/DepositBankSlipModal'),
+	{ ssr: false }
+)
+
+interface IBankTransferFormProps {
+	dataSource: IPaymentBankTransferData[]
+}
+
+const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
+	const {
+		userInfo: { currencyId },
+	} = useAuth()
+	const { t } = useTranslation()
+	const { modal } = useGlobalModal()
+	const { promotionOptions } = useDepositContext()
+
+	const {
+		formMethods: {
+			trigger,
+			handleSubmit,
+			setValue,
+			watch,
+			register,
+			formState: { touchedFields, errors },
+		},
+		isFormValid,
+		bankAccountInfo,
+		onBankTransferFormSubmit,
+	} = useDepositBankTransferForm({ dataSource })
+
+	const watchAmount = watch('amount')
+	const watchBonusCode = watch('bonusCode')
+	const watchCanSubmit = watch('canSubmit')
+	const watchMinAmount = watch('minAmount')
+	const watchMaxAmount = watch('maxAmount')
+	const watchQrCodeUrl = watch('qrCodeUrl')
+	const watchReceipt = watch('receipt')
+
+	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
+
+	const onOpenBankSlipModal = () => {
+		if (bankAccountInfo?.bankName) {
+			modal.open(
+				<DepositBankSlipModal
+					defaultReceipt={watchReceipt}
+					bankName={bankAccountInfo?.bankName}
+					bankSite={bankAccountInfo?.bankSite}
+					accountName={bankAccountInfo?.accountName}
+					accountNo={bankAccountInfo?.accountNo}
+					code={bankAccountInfo?.code}
+					onSubmit={({ transId, receipt }) => {
+						if (receipt) setValue('receipt', receipt)
+					}}
+				/>
+			)
+		}
+	}
+
+	return (
+		<>
+			<DepositModule
+				title={t('Label_BankInfo_SelectBank')}
+				required
+				hasAdditionalInfo
+			>
+				<DepositModule.SubModuleButtonGroup matchKey='sysId'>
+					{dataSource.map(item => {
+						const {
+							bankName,
+							bankLogo,
+							minAmount,
+							maxAmount,
+							sysId,
+							canSubmit,
+						} = item
+						const min = numberFormat(minAmount, currencyId, 0, false)
+						const max = numberFormat(maxAmount, currencyId, 0, false)
+						return (
+							<DepositModule.SubModuleButton
+								label={bankName}
+								imgName={`square/${toLower(bankLogo)}`}
+								matchValue={String(sysId)}
+								key={sysId}
+								canSubmit={canSubmit}
+							>
+								<div>{`${min} ~ ${max}`}</div>
+							</DepositModule.SubModuleButton>
+						)
+					})}
+				</DepositModule.SubModuleButtonGroup>
+
+				{bankAccountInfo && (
+					<DepositModule.BankAccount
+						bankLogo={bankAccountInfo.bankLogo}
+						bankName={bankAccountInfo.bankName}
+						accountName={bankAccountInfo.accountName}
+						accountNumber={bankAccountInfo.accountNo}
+						code={bankAccountInfo.code}
+					/>
+				)}
+
+				{watchQrCodeUrl && <DepositModule.ScanQR qrCode={watchQrCodeUrl} />}
+
+				<div className='infoModule'>
+					<div className='btn-group'>
+						<button className='ghost gold' onClick={onOpenBankSlipModal}>
+							{t('Label_General_UploadReceipt')}
+						</button>
+					</div>
+				</div>
+				{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
+					<DepositModule
+						title={t('Label_General_DepositAmount')}
+						className='infoModule'
+						required
+					>
+						<div className='infoModule'>
+							<InputBox
+								type='number'
+								register={register('amount', {
+									valueAsNumber: true,
+									required: {
+										value: true,
+										message: t('Label_General_AmountLessThan', {
+											value1: numberFormat(convertedMinAmount, currencyId, 0),
+										}),
+									},
+									min: {
+										value: watchMinAmount,
+										message: t('Label_General_AmountLessThan', {
+											value1: numberFormat(convertedMinAmount, currencyId, 0),
+										}),
+									},
+									max: {
+										value: watchMaxAmount,
+										message: t('Label_General_NotInLimit'),
+									},
+								})}
+								format={isConvert(currencyId)}
+								placeholder={
+									t('Label_General_AmountMinMaxLimit', {
+										value1: numFormatToDigits(watchMinAmount),
+										value2: numFormatToDigits(watchMaxAmount),
+									}) || ''
+								}
+								touched={!!touchedFields['amount']}
+								errorMessage={errors['amount']?.message || ''}
+								error={!!errors['amount']}
+							/>
+							{/* // ! 加這行 tip 用來防止 InputBox 與 ShortcutList 跑版 */}
+							<div className='tip' />
+							<DepositModule.ShortcutList
+								minAmount={watchMinAmount}
+								maxAmount={watchMaxAmount}
+								shortcut={Number(watchAmount)}
+								shortcutList={generateShortcutList({
+									minAmount: watchMinAmount,
+								})}
+								onChange={value => {
+									setValue('amount', value)
+									trigger('amount')
+								}}
+							/>
+						</div>
+					</DepositModule>
+				)}
+			</DepositModule>
+
+			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
+				<div className='infoModule'>
+					<Select
+						value={watchBonusCode}
+						options={promotionOptions}
+						onChange={value => {
+							setValue('bonusCode', String(value))
+							setValue('promoCode', undefined)
+						}}
+					/>
+
+					<InputBox
+						register={register('promoCode')}
+						placeholder={t('Label_Promotions_PromoCode') || ''}
+						touched={!!touchedFields['promoCode']}
+						onChange={() => {
+							setValue('bonusCode', undefined)
+						}}
+					/>
+				</div>
+			</DepositModule>
+
+			<Form
+				onSubmit={handleSubmit(values =>
+					onBankTransferFormSubmit(values, errorMessage =>
+						modal.error(errorMessage)
+					)
+				)}
+			>
+				{watchCanSubmit ? (
+					<div className='btn-group'>
+						<button
+							type='submit'
+							style={{ pointerEvents: isFormValid ? 'auto' : 'none' }}
+							className={classNames({
+								'gray primary': !isFormValid,
+								primary: isFormValid,
+							})}
+						>
+							{t('Label_General_Submit')}
+						</button>
+					</div>
+				) : (
+					<div className='btn-group'>
+						<button className='primary' style={{ pointerEvents: 'none' }}>
+							{t('Label_General_Pending')}
+						</button>
+					</div>
+				)}
+			</Form>
+		</>
+	)
+}
+
+export default BankTransferForm

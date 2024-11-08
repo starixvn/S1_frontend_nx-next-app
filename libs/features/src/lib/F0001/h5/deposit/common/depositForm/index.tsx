@@ -1,6 +1,6 @@
 import { DepositModule } from '@nx-next-app/components/H0001'
-import { useDepositContext } from '@nx-next-app/data-access'
-import { DepositPaymentEnum } from '@nx-next-app/types'
+import { useAuth, useDepositContext } from '@nx-next-app/data-access'
+import { CurrenciesEnum, DepositPaymentEnum } from '@nx-next-app/types'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
@@ -38,6 +38,10 @@ const DepositForm = () => {
 		query: { paymentType },
 	} = useRouter()
 
+	const {
+		userInfo: { currencyId },
+	} = useAuth()
+
 	const { payments, DEPOSIT_PAYMENT_OPTIONS } = useDepositContext()
 
 	return (
@@ -56,12 +60,19 @@ const DepositForm = () => {
 							// timeDisplayKey
 						} = paymentOption
 
+						// 10/17新增，VND 的時候 quickTransfer 顯示為 bankTransfer
+						const finalDisplayLabelKey =
+							currencyId === CurrenciesEnum.VND &&
+							key === DepositPaymentEnum.QuickTransfer
+								? 'Label_Deposit_BankTransfer'
+								: labelDisplayKey
+
 						return (
 							<DepositModule.SubModuleButton
-								label={t(labelDisplayKey)}
+								label={t(finalDisplayLabelKey)}
 								icon={classNames(icon)}
 								matchValue={key}
-								key={labelDisplayKey}
+								key={finalDisplayLabelKey}
 								onClick={() => {
 									if (paymentType !== key) {
 										const url = {

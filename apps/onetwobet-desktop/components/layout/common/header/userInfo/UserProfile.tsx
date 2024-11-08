@@ -45,11 +45,14 @@ const UserProfile = () => {
 			onClick={toggle}
 			style={{ cursor: 'pointer' }}
 		>
-			<img
-				className='icon'
-				src={getBannerUrl('/desktop/img/user-icon.png')}
-				alt='User Icon'
-			/>
+			<button>
+				<img
+					className='icon'
+					src={getBannerUrl('/desktop/img/user-icon.png')}
+					alt='User Icon'
+				/>
+			</button>
+
 			<div className='profile-selector'>
 				{isShowVip && (
 					<div className='selector-top'>

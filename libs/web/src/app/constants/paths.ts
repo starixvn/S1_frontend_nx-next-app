@@ -164,6 +164,9 @@ export const paths = {
 	survey: {
 		root: '/survey',
 	},
+	news: {
+		root: '/news',
+	},
 } as const
 
 export type IRootpath = (typeof paths)[keyof typeof paths]['root']

@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react'
-import Head from 'next/head'
-import { useTranslation } from 'next-i18next'
-import { ISeoData } from 'libs/web/src/app/types/footer'
-import { useGetSeoQuery } from '@nx-next-app/service'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useHome } from '@nx-next-app/features/F0001/providers'
+import { useGetSeoQuery } from '@nx-next-app/service'
+import { ISeoData } from 'libs/web/src/app/types/footer'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import Head from 'next/head'
+import { useEffect } from 'react'
 
 // 手機版 License 只存在於此處，資料流不像桌機有在 Layout 中共用，故獨立寫在 Home 內
 const License = () => {
+	const currentDomain =
+		typeof window !== 'undefined' ? window.location.href : ''
 	const { t } = useTranslation()
 	const {
 		userInfo: { langId },
@@ -49,22 +52,23 @@ const License = () => {
 	})
 
 	const showLicenseLogo = seoData?.activeDomain ?? false
-	const CuracaoScript = seoData?.script ?? defaultScript
-	const formattedCuracaoScript = CuracaoScript?.split('-').join('_')
+	const tobiqueSealId = seoData?.script ?? defaultScript
 
 	// 市場通知暫時移除 XCM 2024/7/16
 	// const XCMScript = seoData?.xcmScript ?? defaultXCMScript
 	// const formattedXCMScript = XCMScript?.split('-').join('_')
 
 	useEffect(() => {
-		if (showLicenseLogo) {
+		if (showLicenseLogo && !includes(currentDomain, 'nova88kr.com')) {
+			const formattedTobiqueSealId = tobiqueSealId?.replace(/-/g, '_')
 			/* eslint-disable @typescript-eslint/no-explicit-any */
-			const apgScript = (window as any)[`apg_${formattedCuracaoScript}`]
+			const tobiqueScript = (window as any)[`dlag_${formattedTobiqueSealId}`]
 			// const xcmScript = (window as any)[`xcm_${formattedXCMScript}`]
-			apgScript?.init()
+			tobiqueScript?.init()
 			// xcmScript?.init()
 		}
-	}, [showLicenseLogo])
+	}, [showLicenseLogo, currentDomain])
+
 	return (
 		<>
 			<div className='bottom-license'>
@@ -80,12 +84,16 @@ const License = () => {
 						</div>
 
 						<div>
-							<div
-								id={`apg-${CuracaoScript}`}
-								data-apg-seal-id={CuracaoScript}
-								data-apg-image-size='48'
-								data-apg-image-type='basic-small'
-							/>
+							{typeof window !== 'undefined' &&
+								!includes(currentDomain, 'nova88kr.com') && (
+									<div
+										id={`dlag-${tobiqueSealId}`}
+										data-dlag-seal-id={tobiqueSealId}
+										data-dlag-image-size='48'
+										data-dlag-image-type='basic-small'
+									/>
+								)}
+
 							{/* 市場通知移除 XCM */}
 							{/* <div */}
 							{/*	id={`xcm-${XCMScript}`} */}
@@ -111,7 +119,7 @@ const License = () => {
 			</div>
 			<Head>
 				<script
-					src={`https://${CuracaoScript}.snippet.antillephone.com/apg-seal.js`}
+					src={`https://${tobiqueSealId}.seals.dlagglobal.com/dlag-seal.js`}
 					defer
 				/>
 				{/* 市場通知緊急移除 */}

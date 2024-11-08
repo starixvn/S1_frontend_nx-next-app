@@ -1,9 +1,9 @@
-import { useTranslation } from 'next-i18next'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useTranslation } from 'next-i18next'
 
 const Features = () => {
 	const { t } = useTranslation()
-	const { FEATURE_BONUS } = useStaticData()
+	const { FEATURE_BONUS = {} } = useStaticData()
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
