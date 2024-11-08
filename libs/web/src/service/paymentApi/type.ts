@@ -28,6 +28,7 @@ export interface IWithdrawalRecentInfoData {
 	memo: string
 	status: number
 	transId: string
+	id: string
 	withdrawalMessage: string
 	withdrawalMessageDetail: WithdrawalMessageData[]
 }
@@ -84,6 +85,7 @@ export interface IDepositInfoHistoryData {
 	createTime: string
 	depositType: number
 	transId: string
+	id: string
 	amount: number
 	status: number
 	depositRep: {
@@ -132,6 +134,7 @@ export interface IGetDepositInfoHistoryArgs {
 export interface IWithdrawalInfoHistoryData {
 	createTime: string
 	transId: string
+	id: string
 	amount: number
 	chargeFee: number
 	status: number
@@ -578,6 +581,7 @@ export interface IDepositLocalPayReqData {
 export interface IDepositInfoRecentData {
 	createTime: string
 	depositType: number
+	id: string
 	transId: string
 	amount: number
 	status: number

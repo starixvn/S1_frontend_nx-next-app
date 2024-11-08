@@ -1,3 +1,26 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { DEVICE_TYPE } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { useInView } from '@nx-next-app/hooks'
+import {
+	IAxiosResponse,
+	IDepositInfoHistoryData,
+	IReferralData,
+	IStatementData,
+	ITransferHistoryData,
+	IWithdrawalInfoHistoryData,
+	useLazyGetDepositInfoHistoryQuery,
+	useLazyGetReferralQuery,
+	useLazyGetStatementQuery,
+	useLazyGetTransferHistoryQuery,
+	useLazyGetWithdrawalInfoHistoryQuery,
+	useSetDepositCancelMutation,
+	useSetWithdrawalCancelMutation,
+	useUploadReceiptMutation,
+} from '@nx-next-app/service'
+import { HistoryTabsEnum, QuickPickEnum } from '@nx-next-app/types'
+import dayjs from 'dayjs'
+import { useRouter } from 'next/router'
 import React, {
 	createContext,
 	ReactNode,
@@ -6,29 +29,6 @@ import React, {
 	useRef,
 	useState,
 } from 'react'
-import dayjs from 'dayjs'
-import { useRouter } from 'next/router'
-import {
-	IAxiosResponse,
-	IReferralData,
-	ITransferHistoryData,
-	IDepositInfoHistoryData,
-	IStatementData,
-	IWithdrawalInfoHistoryData,
-	useLazyGetReferralQuery,
-	useLazyGetTransferHistoryQuery,
-	useLazyGetDepositInfoHistoryQuery,
-	useLazyGetStatementQuery,
-	useLazyGetWithdrawalInfoHistoryQuery,
-	useSetDepositCancelMutation,
-	useSetWithdrawalCancelMutation,
-	useUploadReceiptMutation,
-} from '@nx-next-app/service'
-import { DEVICE_TYPE } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import { useInView } from '@nx-next-app/hooks'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { HistoryTabsEnum, QuickPickEnum } from '@nx-next-app/types'
 
 interface IHistoryProviderProps {
 	children: ReactNode
@@ -461,14 +461,14 @@ const HistoryProvider = ({
 			) => {
 				const updatedColumns = originalColumns.map(columnItem => {
 					const matchItem = newData.find(
-						targetItem => targetItem.transId === columnItem.transId
+						targetItem => targetItem.id === columnItem.id
 					)
 					return matchItem ? { ...columnItem, ...matchItem } : columnItem
 				})
 
-				const newTransIds = updatedColumns?.map(item => item.transId)
+				const newTransIds = updatedColumns?.map(item => item.id)
 				const nonMatchedItems =
-					newData?.filter(item => !newTransIds?.includes(item.transId)) || []
+					newData?.filter(item => !newTransIds?.includes(item.id)) || []
 
 				return [...updatedColumns, ...nonMatchedItems]
 			}
