@@ -14,7 +14,7 @@ const { i18n } = require('./next-i18next.config')
 const sentryOptions = {
 	org: 'sentry',
 	project: 'player-site-b2c',
-	sentryUrl: 'https://sentry-s1.nexentgame.com/',
+	sentryUrl: `${process.env.NEXT_PUBLIC_SENTRY_URL}`,
 	silent: !process.env.CI,
 	widenClientFileUpload: true,
 	reactComponentAnnotation: { enabled: true },

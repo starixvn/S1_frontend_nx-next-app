@@ -2,7 +2,7 @@
 
 const withNx = require('@nrwl/next/plugins/with-nx')
 const path = require('path')
-const { withSentryConfig } = require('@sentry/nextjs');
+const { withSentryConfig } = require('@sentry/nextjs')
 
 process.env.I18NEXT_DEFAULT_CONFIG_PATH = `${__dirname}/next-i18next.config.js`
 
@@ -11,7 +11,7 @@ const { i18n } = require('./next-i18next.config')
 const sentryOptions = {
 	org: 'sentry',
 	project: 'player-site-b2c',
-	sentryUrl: 'https://sentry-s1.nexentgame.com/',
+	sentryUrl: `${process.env.NEXT_PUBLIC_SENTRY_URL}`,
 	silent: !process.env.CI,
 	widenClientFileUpload: true,
 	reactComponentAnnotation: { enabled: true },
@@ -19,7 +19,7 @@ const sentryOptions = {
 	hideSourceMaps: true,
 	disableLogger: true,
 	automaticVercelMonitors: true,
-};
+}
 
 const nextConfig = {
 	nx: {
@@ -73,4 +73,4 @@ const nextConfig = {
 	},
 }
 
-module.exports = withSentryConfig(withNx(nextConfig), sentryOptions);
+module.exports = withSentryConfig(withNx(nextConfig), sentryOptions)
