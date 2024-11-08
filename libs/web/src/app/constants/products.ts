@@ -77,7 +77,7 @@ export const PRODUCTS = {
 	},
 	Keno: {
 		tpGameIdNo: 14,
-		tpId: 41,
+		tpId: 71,
 		tpGameType: 73,
 		gameId: 202,
 	},
