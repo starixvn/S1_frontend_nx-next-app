@@ -7,7 +7,7 @@ import {
 } from '@nx-next-app/service'
 import { AxiosRequestConfig } from 'axios'
 import dayjs from 'dayjs'
-import { filter, find } from 'lodash-es'
+import { filter, find, sortBy } from 'lodash-es'
 
 export const getCustomLotteryDataForClient = async (
 	config?: AxiosRequestConfig
@@ -21,56 +21,51 @@ export const getCustomLotteryDataForClient = async (
 			config
 		)
 
-		const lotteryRoundList = response.data.data
+		const originalRoundList = response.data.data ?? []
 
 		const now = dayjs()
 
-		let winnerList
+		// 找出已開始，開獎當日結束前最近的輪次作為當前開獎輪次
+		const drawingRound =
+			find(
+				sortBy(originalRoundList, 'drawDate'),
+				({ startDate, drawDate }) =>
+					now.isAfter(dayjs(startDate)) &&
+					now.isBefore(dayjs(drawDate).endOf('day'))
+			) ?? null
 
-		// 開獎時間由 API 提供，結束時間為當日午夜
-		// lotteryRoundList 為照 drawDate 降序排列，將首個已開始且未結束的開獎 round 資訊存入 drawingRound
-		// 將更後面的 rounds 視為已結束的抽獎紀錄，存入 drawHistory 並跳出迴圈
+		// 原始輪次列表過濾尚未開獎的輪次  (以開獎時間 + 20 分鐘作為開獎結束時間)
+		const roundList = filter(originalRoundList, ({ drawDate }) =>
+			now.isAfter(dayjs(drawDate).add(20, 'minute'))
+		)
 
-		const drawingRound = find(lotteryRoundList, ({ startDate, drawDate }) => {
-			const roundStart = dayjs(startDate)
-			const drawEnd = dayjs(drawDate).add(1, 'day').startOf('day')
-			return now.isAfter(roundStart) && now.isBefore(drawEnd)
-		})
-
-		const roundList = filter(lotteryRoundList, ({ drawDate }) => {
-			const drawEnd = dayjs(drawDate).add(20, 'minute')
-			return now.isAfter(drawEnd)
-		})
-
-		// 有正在進行的開獎才會撈取中獎名單，保險預留 5 分鐘
-		if (drawingRound) {
-			const fiveMinutesBeforeDraw = dayjs(drawingRound.drawDate).subtract(
-				5,
-				'minute'
+		// 開獎前 5 分鐘才會撈取中獎名單
+		let winnerList = null
+		if (
+			drawingRound &&
+			now.isAfter(dayjs(drawingRound.drawDate).subtract(5, 'minute'))
+		) {
+			const response = await baseAxios.post<{
+				data: ILotteryWinnerList
+			}>(
+				eventApiUrl.getLotteryWinnerList,
+				{ siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']) },
+				config
 			)
-			if (now.isAfter(fiveMinutesBeforeDraw)) {
-				const response = await baseAxios.post<{
-					data: ILotteryWinnerList
-				}>(
-					eventApiUrl.getLotteryWinnerList,
-					{ siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']) },
-					config
-				)
 
-				const data = response?.data?.data
+			const data = response?.data?.data
 
-				// 確保中獎名單是當前開獎的
-				if (data?.roundId === drawingRound.roundId) {
-					winnerList = data
-				}
+			// 確保該中獎名單是當前開獎的
+			if (data?.roundId === drawingRound.roundId) {
+				winnerList = data
 			}
 		}
 
 		return {
-			initialServerTime: now.valueOf(),
-			drawingRound: drawingRound ?? null,
-			roundList: roundList ?? null,
-			winnerList: winnerList ?? null,
+			drawingRound,
+			roundList,
+			winnerList,
+			initialServerTime: dayjs().valueOf(),
 		}
 	} catch {
 		return null
