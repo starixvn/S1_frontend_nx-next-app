@@ -1,10 +1,10 @@
-import Link from 'next/link'
 import {
 	DepositModule,
 	Form,
 	InputBox,
 	Select,
 } from '@nx-next-app/components/H0001'
+import { paths } from '@nx-next-app/constants'
 import {
 	useAuth,
 	useAutoDepositForm,
@@ -15,14 +15,15 @@ import { CurrenciesEnum } from '@nx-next-app/types'
 import {
 	generateShortcutList,
 	isConvert,
+	limitedShortcutAmountList,
+	numFormatToDigits,
 	numberFormat,
 	revertNumberFormat,
-	numFormatToDigits,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { paths } from '@nx-next-app/constants'
+import Link from 'next/link'
 
 const { IDR } = CurrenciesEnum
 
@@ -61,7 +62,10 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 	const watchMinAmount = watch('minAmount')
 	const watchMaxAmount = watch('maxAmount')
 	const watchCustBankAccount = watch('custBankAccount')
+	const watchAmountRule = watch('amountRule')
+	const watchAmountList = watch('amountList')
 
+	const showFixedAmountList = watchAmountRule === 3
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
 	const depositAmountText = `${t('Label_General_DepositAmount')} ${
@@ -176,9 +180,17 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 							minAmount={watchMinAmount}
 							maxAmount={watchMaxAmount}
 							shortcut={Number(watchAmount)}
-							shortcutList={generateShortcutList({
-								minAmount: watchMinAmount,
-							})}
+							shortcutList={
+								showFixedAmountList
+									? limitedShortcutAmountList({
+											minAmount: watchMinAmount,
+											maxAmount: watchMaxAmount,
+											amountList: watchAmountList,
+									  })
+									: generateShortcutList({
+											minAmount: watchMinAmount,
+									  })
+							}
 							onChange={value => {
 								setValue('amount', value)
 								trigger('amount')

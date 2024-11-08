@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	DepositModule,
@@ -6,13 +5,13 @@ import {
 	InputBox,
 	Select,
 } from '@nx-next-app/components/H0001'
+import { paths } from '@nx-next-app/constants'
 import {
 	IMobilePayForm,
 	useAuth,
 	useDepositContext,
 	useMobilePayForm,
 } from '@nx-next-app/data-access'
-import dynamic from 'next/dynamic'
 import { IPaymentMobilePayData } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import {
@@ -20,13 +19,14 @@ import {
 	isConvert,
 	limitedShortcutAmountList,
 	numberFormat,
-	revertNumberFormat,
 	numFormatToDigits,
+	revertNumberFormat,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { paths } from '@nx-next-app/constants'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
 
 const { IDR } = CurrenciesEnum
 
@@ -261,46 +261,44 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
 				<DepositModule title={depositAmountText} required>
 					<div className='infoModule'>
-						{!showShortcutList && (
-							<InputBox
-								type='number'
-								icon='icon icon-pencil'
-								register={register('amount', {
-									valueAsNumber: true,
-									required: {
-										value: true,
-										message: t('Label_General_AmountLessThan', {
-											value1: numberFormat(convertedMinAmount, currencyId, 0),
-										}),
-									},
-									min: {
-										value: watchMinAmount,
-										message: t('Label_General_AmountLessThan', {
-											value1: numberFormat(convertedMinAmount, currencyId, 0),
-										}),
-									},
-									max: {
-										value: watchMaxAmount,
-										message: t('Label_General_NotInLimit'),
-									},
-								})}
-								format={isConvert(currencyId)}
-								placeholder={
-									t('Label_General_AmountMinMaxLimit', {
-										value1: numFormatToDigits(watchMinAmount),
-										value2: numFormatToDigits(watchMaxAmount),
-									}) || ''
-								}
-								touched={!!touchedFields['amount']}
-								errorMessage={errors['amount']?.message || ''}
-								error={!!errors['amount']}
-								infoMessage={
-									t('Label_General_AmountLessThan', {
+						<InputBox
+							type='number'
+							icon='icon icon-pencil'
+							register={register('amount', {
+								valueAsNumber: true,
+								required: {
+									value: true,
+									message: t('Label_General_AmountLessThan', {
 										value1: numberFormat(convertedMinAmount, currencyId, 0),
-									}) || ''
-								}
-							/>
-						)}
+									}),
+								},
+								min: {
+									value: watchMinAmount,
+									message: t('Label_General_AmountLessThan', {
+										value1: numberFormat(convertedMinAmount, currencyId, 0),
+									}),
+								},
+								max: {
+									value: watchMaxAmount,
+									message: t('Label_General_NotInLimit'),
+								},
+							})}
+							format={isConvert(currencyId)}
+							placeholder={
+								t('Label_General_AmountMinMaxLimit', {
+									value1: numFormatToDigits(watchMinAmount),
+									value2: numFormatToDigits(watchMaxAmount),
+								}) || ''
+							}
+							touched={!!touchedFields['amount']}
+							errorMessage={errors['amount']?.message || ''}
+							error={!!errors['amount']}
+							infoMessage={
+								t('Label_General_AmountLessThan', {
+									value1: numberFormat(convertedMinAmount, currencyId, 0),
+								}) || ''
+							}
+						/>
 
 						{/* // ! 加這行 tip 用來防止 InputBox 與 ShortcutList 跑版 */}
 						<div className='tip' />

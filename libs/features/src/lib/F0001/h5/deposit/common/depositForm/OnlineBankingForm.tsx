@@ -5,6 +5,7 @@ import {
 	InputBox,
 	Select,
 } from '@nx-next-app/components/H0001'
+import { paths } from '@nx-next-app/constants'
 import {
 	// IOnlineBankingForm,
 	useAuth,
@@ -15,16 +16,16 @@ import { IPaymentOnlineBankingData } from '@nx-next-app/service'
 import {
 	generateShortcutList,
 	isConvert,
+	limitedShortcutAmountList,
 	numberFormat,
-	revertNumberFormat,
 	numFormatToDigits,
+	revertNumberFormat,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
-import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { paths } from '@nx-next-app/constants'
 
 const DepositQRCodeModal = dynamic(
 	() =>
@@ -72,8 +73,10 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 	const watchMaxAmount = watch('maxAmount')
 	const watchBonusCode = watch('bonusCode')
 	const watchCustBankAccount = watch('custBankAccount')
+	const watchAmountList = watch('amountList')
+	const watchAmountRule = watch('amountRule')
 	// const watchBankLogo = watch('bankLogo')
-
+	const showFixedAmountList = watchAmountRule === 3
 	const convertedMinAmount = revertNumberFormat(watchMinAmount, currencyId) || 0
 
 	// * 手機版邏輯修正：直接另開視窗，沒有彈窗確認
@@ -211,9 +214,17 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 							minAmount={watchMinAmount}
 							maxAmount={watchMaxAmount}
 							shortcut={Number(watchAmount)}
-							shortcutList={generateShortcutList({
-								minAmount: watchMinAmount,
-							})}
+							shortcutList={
+								showFixedAmountList
+									? limitedShortcutAmountList({
+											amountList: watchAmountList,
+											minAmount: watchMinAmount,
+											maxAmount: watchMaxAmount,
+									  })
+									: generateShortcutList({
+											minAmount: watchMinAmount,
+									  })
+							}
 							onChange={value => {
 								setValue('amount', value)
 								trigger('amount')
