@@ -736,6 +736,12 @@ export const PRODUCTS = {
 		tpGameType: 123,
 		gameId: -1,
 	},
+	Eday: {
+		tpGameIdNo: 140,
+		tpId: 72,
+		tpGameType: 125,
+		gameId: '1_3_MAIN',
+	},
 
 	// * Footer 靜態遊戲入口
 	BaseBall: {

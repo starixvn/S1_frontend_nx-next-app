@@ -178,6 +178,10 @@ export const FOOTER_DATA = ({
 				...PRODUCTS.DragonGaming,
 				imgName: 'dragongaming',
 			},
+			{
+				...PRODUCTS.Eday,
+				imgName: 'eday',
+			},
 		],
 		quickLinks: [
 			{
