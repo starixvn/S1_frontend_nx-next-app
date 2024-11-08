@@ -1116,6 +1116,7 @@
   "Label_Withdrawal_Action": "कार्य",
   "Label_Withdrawal_AddBankAccount": "बैंक खाता जोड़ें",
   "Label_Withdrawal_AddCryptoWallet": "क्रिप्टो वॉलेट जोड़ें",
+  "Label_Withdrawal_AddEAccount": "ई-वॉलेट जोड़ें",
   "Label_Withdrawal_AllTransactions": "सभी लेन - देन",
   "Label_Withdrawal_Amount": "राशि/ रकम",
   "Label_Withdrawal_Balance": "शेष",
