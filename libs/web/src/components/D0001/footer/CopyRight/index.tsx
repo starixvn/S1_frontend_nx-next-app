@@ -1,6 +1,7 @@
 import { useAuth } from '@nx-next-app/data-access'
 import { IFooterData } from 'libs/web/src/app/types/footer'
 import { useTranslation } from 'next-i18next'
+import { useEffect, useState } from 'react'
 
 const QuickLinks = ({
 	quickLinks = [],
@@ -8,9 +9,14 @@ const QuickLinks = ({
 	quickLinks: IFooterData['quickLinks']
 }) => {
 	const { t } = useTranslation()
+	const [rootUrl, setRootUrl] = useState('')
 	const {
 		userInfo: { langId },
 	} = useAuth()
+
+	useEffect(() => {
+		setRootUrl(window.location.origin)
+	}, quickLinks)
 
 	return (
 		<div>
@@ -22,7 +28,7 @@ const QuickLinks = ({
 				) : (
 					<a
 						key={displayKey}
-						href={`${href}?url=${process.env['NEXT_PUBLIC_ENV_URL']}/${langId}`}
+						href={`${href}?url=${rootUrl}/${langId}`}
 						target='_blank'
 						rel='noreferrer'
 					>
