@@ -2,7 +2,7 @@
 # 從 UI設計同仁的 Design Project 更新 css 至指定品牌的專案
 
 # 配置到當前路徑，組員在這邊需更改為自己專案的路徑，絕對或相對皆可
-DESIGN_PROJECT=../Design
+DESIGN_PROJECT=../../Design
 PROJECT=.
 
 # 目前既有品牌
