@@ -40,7 +40,6 @@ import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
 
 interface IJoinProps {
@@ -466,7 +465,7 @@ const Form = ({ cookies }: IJoinProps) => {
 			onSubmit={handleSubmit(handleSubmitForm)}
 		>
 			<LoginHint />
-			{currencyId === CurrenciesEnum.THB && <LineRegister />}
+			{/* {currencyId === CurrenciesEnum.THB && <LineRegister />} */}
 			<div className='inputModule'>
 				<InputBox
 					register={register('username', {

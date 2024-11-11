@@ -285,7 +285,7 @@ const Join = ({ cookies }: IJoinProps) => {
 	return (
 		<>
 			<StepBar step={step} />
-			{currencyId === CurrenciesEnum.THB && <LineRegister />}
+			{/* {currencyId === CurrenciesEnum.THB && <LineRegister />} */}
 			<div className='Join'>
 				<FormProvider {...formMethods}>
 					<form onSubmit={handleSubmit(handleSubmitForm)}>
