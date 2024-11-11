@@ -1,14 +1,9 @@
-import React, {
-	createContext,
-	Dispatch,
-	ReactNode,
-	SetStateAction,
-	useContext,
-	useEffect,
-	useState,
-} from 'react'
-import { useRouter } from 'next/router'
-import { useIsFirstRender, useLocalStorage } from 'usehooks-ts'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import LoginModal from '@nx-next-app/features/F0001/desktop/modal/LoginModal'
+import { useMenu } from '@nx-next-app/features/F0006/hooks'
+import { useInView } from '@nx-next-app/hooks'
 import {
 	IBannerData,
 	IDisplayGameData,
@@ -18,12 +13,8 @@ import {
 	useGetBannerV3Query,
 	useSetFavoriteGameMutation,
 } from '@nx-next-app/service'
-import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
-import { useAuth, useGlobalData } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useInView } from '@nx-next-app/hooks'
-import { useMenu } from '@nx-next-app/features/F0006/hooks'
-import LoginModal from '@nx-next-app/features/F0001/desktop/modal/LoginModal'
+import { BannerTypeEnum } from '@nx-next-app/types'
+import { getIsTpMaintain } from '@nx-next-app/utils'
 import {
 	camelCase,
 	filter,
@@ -34,8 +25,17 @@ import {
 	some,
 	trim,
 } from 'lodash-es'
-import { getIsTpMaintain } from '@nx-next-app/utils'
-import { BannerTypeEnum } from '@nx-next-app/types'
+import { useRouter } from 'next/router'
+import React, {
+	Dispatch,
+	ReactNode,
+	SetStateAction,
+	createContext,
+	useContext,
+	useEffect,
+	useState,
+} from 'react'
+import { useIsFirstRender, useLocalStorage } from 'usehooks-ts'
 
 interface ISlotsProviderProps {
 	children: ReactNode
@@ -461,7 +461,13 @@ const SlotsProvider = ({
 
 		setSlotsGameList(filteredGameList)
 		setIsProcess(false)
-	}, [activeCategoryKey, queryTpId, searchCategoryText, myFavorites])
+	}, [
+		activeCategoryKey,
+		queryTpId,
+		searchCategoryText,
+		myFavorites,
+		tpMaintainList,
+	])
 
 	// 更新遊戲列表預設給定40筆資料
 	useEffect(() => {
