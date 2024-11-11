@@ -1,5 +1,5 @@
-import { ISEOData } from 'libs/web/src/data-access/type'
 import { useMetaData } from '@nx-next-app/hooks'
+import { ISEOData } from 'libs/web/src/data-access/type'
 import { uniqueId } from 'lodash-es'
 import Head from 'next/head'
 
@@ -49,7 +49,7 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 			<meta property='og:title' content={title} />
 			<meta property='og:description' content={description} />
 			<meta
-				property='oog:image'
+				property='og:image'
 				content={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/thumbnail/thumbnail_001.jpg`}
 			/>
 		</Head>
