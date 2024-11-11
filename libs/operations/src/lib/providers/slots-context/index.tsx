@@ -32,6 +32,7 @@ import React, {
 	createContext,
 	useContext,
 	useEffect,
+	useMemo,
 	useState,
 } from 'react'
 import { useIsFirstRender, useLocalStorage } from 'usehooks-ts'
@@ -455,6 +456,14 @@ const SlotsProvider = ({
 	// * vendor、category 更新時初始 input
 	useEffect(() => setSearchCategoryText(''), [queryTpId, activeCategoryKey])
 
+	const shuffledSlotsGameList = useMemo(
+		() =>
+			activeCategoryKey
+				? shuffle(persistSlotsCategoryData[activeCategoryKey] as IGameData[])
+				: [],
+		[activeCategoryKey]
+	)
+
 	// * 更新遊戲列表
 	useEffect(() => {
 		const resultList: IGameData[] = []
@@ -471,7 +480,7 @@ const SlotsProvider = ({
 		let originGameList =
 			activeCategoryKey === 'myFavorite'
 				? removeDuplicates(resultList)
-				: ((persistSlotsCategoryData[activeCategoryKey] || []) as IGameData[])
+				: shuffledSlotsGameList
 
 		if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
 			const uniqueTpIds = Array.from(
@@ -508,16 +517,15 @@ const SlotsProvider = ({
 				isFavorite: isFavorite({ tpId: gameObj.tpId, gameId: gameObj.gameId }),
 			}))
 
-		const shuffledGameList = shuffle(filteredGameList)
-
-		// 原先為按照發佈時間順序排列：
-		// .sort(
-		// 	(a, b) =>
-		// 		new Date(b.launchDate).getTime() - new Date(a.launchDate).getTime()
-		// )
-		setSlotsGameList(shuffledGameList)
+		setSlotsGameList(filteredGameList)
 		setIsProcess(false)
-	}, [activeCategoryKey, queryTpId, searchCategoryText, myFavorites])
+	}, [
+		activeCategoryKey,
+		queryTpId,
+		searchCategoryText,
+		myFavorites,
+		tpMaintainList,
+	])
 
 	// 更新遊戲列表預設給定40筆資料
 	useEffect(() => {
