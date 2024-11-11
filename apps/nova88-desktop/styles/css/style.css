@@ -23507,7 +23507,7 @@ input[type=number] {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 70px;
-  margin-bottom: 90px;
+  min-height: 253px;
 }
 .lobby .nodata img {
   width: 60px;
