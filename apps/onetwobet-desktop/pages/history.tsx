@@ -10,11 +10,11 @@ import {
 } from '@nx-next-app/hooks'
 import { HistoryProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
-import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import {
+	FOOTER_DATA,
 	HISTORY_TABS,
 	QUICK_PICK_LIST,
-} from '@nx-next-app/site/onetwobet/data/history'
+} from '@nx-next-app/site/onetwobet'
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'

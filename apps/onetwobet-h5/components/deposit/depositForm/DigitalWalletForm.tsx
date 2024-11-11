@@ -1,9 +1,9 @@
 import { Form, InputBox, Select } from '@12b-h5/components/common'
+import { useAuth } from '@nx-next-app/data-access'
 import {
-	useAuth,
 	useDepositContext,
 	useDigitalWalletForm,
-} from '@nx-next-app/data-access'
+} from '@nx-next-app/operations'
 import { IPayInfoDigitalWalletData } from '@nx-next-app/service'
 import {
 	generateShortcutList,

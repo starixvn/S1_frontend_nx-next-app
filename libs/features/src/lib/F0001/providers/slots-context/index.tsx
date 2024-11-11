@@ -1,14 +1,10 @@
-import React, {
-	createContext,
-	Dispatch,
-	ReactNode,
-	SetStateAction,
-	useContext,
-	useEffect,
-	useState,
-} from 'react'
-import { useRouter } from 'next/router'
-import { useIsFirstRender, useLocalStorage } from 'usehooks-ts'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import LoginModal from '@nx-next-app/features/F0001/desktop/modal/LoginModal'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import { CategoryEnum } from '@nx-next-app/features/F0001/types'
+import { useInView } from '@nx-next-app/hooks'
 import {
 	IBannerData,
 	IDisplayGameData,
@@ -18,12 +14,8 @@ import {
 	useGetBannerV3Query,
 	useSetFavoriteGameMutation,
 } from '@nx-next-app/service'
-import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
-import { useAuth, useGlobalData } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useInView } from '@nx-next-app/hooks'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import LoginModal from '@nx-next-app/features/F0001/desktop/modal/LoginModal'
+import { BannerTypeEnum } from '@nx-next-app/types'
+import { getIsTpMaintain, moveItem } from '@nx-next-app/utils'
 import {
 	camelCase,
 	filter,
@@ -31,12 +23,22 @@ import {
 	findIndex,
 	includes,
 	random,
+	shuffle,
 	some,
 	trim,
 } from 'lodash-es'
-import { getIsTpMaintain, moveItem } from '@nx-next-app/utils'
-import { BannerTypeEnum } from '@nx-next-app/types'
-import { CategoryEnum } from '@nx-next-app/features/F0001/types'
+import { useRouter } from 'next/router'
+import React, {
+	Dispatch,
+	ReactNode,
+	SetStateAction,
+	createContext,
+	useContext,
+	useEffect,
+	useMemo,
+	useState,
+} from 'react'
+import { useIsFirstRender, useLocalStorage } from 'usehooks-ts'
 
 interface ISlotsProviderProps {
 	children: ReactNode
@@ -495,6 +497,14 @@ const SlotsProvider = ({
 		onSearchCategoryTextChange('')
 	}, [queryTpId, activeCategoryKey])
 
+	const shuffledSlotsGameList = useMemo(
+		() =>
+			activeCategoryKey
+				? shuffle(persistSlotsCategoryData[activeCategoryKey] as IGameData[])
+				: [],
+		[activeCategoryKey]
+	)
+
 	// * 更新遊戲列表
 	useEffect(() => {
 		const resultList: IGameData[] = []
@@ -511,7 +521,7 @@ const SlotsProvider = ({
 		let originGameList =
 			activeCategoryKey === 'myFavorite'
 				? removeDuplicates(resultList)
-				: ((persistSlotsCategoryData[activeCategoryKey] || []) as IGameData[])
+				: shuffledSlotsGameList
 
 		if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
 			const uniqueTpIds = Array.from(
@@ -547,15 +557,16 @@ const SlotsProvider = ({
 				}),
 				isFavorite: isFavorite({ tpId: gameObj.tpId, gameId: gameObj.gameId }),
 			}))
-			.sort(() => Math.random() - 0.5) // 隨機排列遊戲列表
-		// 原先為按照發佈時間順序排列：
-		// .sort(
-		// 	(a, b) =>
-		// 		new Date(b.launchDate).getTime() - new Date(a.launchDate).getTime()
-		// )
+
 		setSlotsGameList(filteredGameList)
 		setIsProcess(false)
-	}, [activeCategoryKey, queryTpId, searchCategoryText, myFavorites])
+	}, [
+		activeCategoryKey,
+		queryTpId,
+		searchCategoryText,
+		myFavorites,
+		tpMaintainList,
+	])
 
 	// 更新遊戲列表預設給定40筆資料
 	useEffect(() => {

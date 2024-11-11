@@ -33,7 +33,7 @@ const HotMatch = () => {
 					bd: currencyId === CurrenciesEnum.BDT,
 				},
 				{
-					id: currencyId === CurrenciesEnum.IDR,
+					id: currencyId === CurrenciesEnum.INR,
 				}
 			)}
 		>

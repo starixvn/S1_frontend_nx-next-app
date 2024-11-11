@@ -1,14 +1,16 @@
+import Layout from '@12b-desktop/components/layout'
+import NewsContents from '@12b-desktop/components/news/NewsContent'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getNewsById,
 } from '@nx-next-app/data-access'
-import { Layout, News } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { ProfileInfoProvider } from '@nx-next-app/operations'
 import { INewsDetailData } from '@nx-next-app/service'
 import { FOOTER_DATA } from '@nx-next-app/site/onetwobet'
 import { IFooterData } from '@nx-next-app/types'
@@ -38,7 +40,13 @@ const NewsPage = ({
 					persistSEOData={persistSEOData}
 					footerData={persistFooterData}
 				>
-					<News persistNewsDetail={persistNewsDetail} />
+					<main>
+						<section className='inside'>
+							<ProfileInfoProvider>
+								<NewsContents persistNewsDetail={persistNewsDetail} />
+							</ProfileInfoProvider>
+						</section>
+					</main>
 				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>
