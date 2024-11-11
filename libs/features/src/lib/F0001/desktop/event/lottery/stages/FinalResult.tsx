@@ -15,9 +15,9 @@ const FinalResult = () => {
 				</span>
 				{drawingRound && (
 					<span>
-						{dayjs(drawingRound.startDate).format('YYYY/M/D')}
+						{dayjs(drawingRound.startDate).format('D MMM')}
 						{' - '}
-						{dayjs(drawingRound.endDate).format('M/D')}
+						{dayjs(drawingRound.endDate).format('D MMM YYYY')}
 					</span>
 				)}
 			</div>

@@ -55,9 +55,9 @@ const LotteryRoundInfo = () => {
 							{t('Label_Event_Round')} {lotteryRoundInfo.roundId}
 						</div>
 						<div className='date'>
-							{dayjs(lotteryRoundInfo.startDate).format('YYYY/M/D')}
+							{dayjs(lotteryRoundInfo.startDate).format('D MMM YYYY')}
 							<span>-</span>
-							{dayjs(lotteryRoundInfo.endDate).format('YYYY/M/D')}
+							{dayjs(lotteryRoundInfo.endDate).format('D MMM YYYY')}
 						</div>
 					</div>
 				)}
