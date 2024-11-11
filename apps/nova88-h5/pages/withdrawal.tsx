@@ -1,15 +1,16 @@
+import { Layout, Withdrawal } from '@n88-h5/components/index'
 import { NovaAuthProvider } from '@nova88-h5/providers'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import {
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { Layout, Withdrawal } from '@nx-next-app/features/F0001/h5'
-import { WithdrawalProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { WithdrawalProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
 import { find } from 'lodash-es'
 import { GetServerSideProps } from 'next'
@@ -25,6 +26,7 @@ const WithdrawalPage = ({
 	persistSEOData,
 	persistStaticFileDomainData,
 }: IWithdrawalProps) => {
+	const { modal } = useGlobalModal()
 	return (
 		<NovaAuthProvider
 			originIsSignIn={originIsSignIn}
@@ -34,7 +36,10 @@ const WithdrawalPage = ({
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
 				<Layout persistSEOData={persistSEOData}>
-					<WithdrawalProvider withdrawalBlockSetting={withdrawalBlockSetting}>
+					<WithdrawalProvider
+						withdrawalBlockSetting={withdrawalBlockSetting}
+						errorCallback={errorMessage => modal.error(errorMessage)}
+					>
 						<Withdrawal />
 					</WithdrawalProvider>
 				</Layout>
