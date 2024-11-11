@@ -47,7 +47,7 @@ export type IMergedMenuData = {
 
 const SPECIAL_LOGIN_GAME_TYPE: { [key in LoginGameTypeEnum]: number[] } = {
 	[LoginGameTypeEnum.returnGameUrl]: [],
-	[LoginGameTypeEnum.returnHtml]: [PRODUCTS.PGSoft.tpId],
+	[LoginGameTypeEnum.returnHtml]: [],
 }
 
 export const open9WSports = ({
