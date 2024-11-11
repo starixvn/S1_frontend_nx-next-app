@@ -45,9 +45,9 @@ const TicketInfoModal = ({
 						{t('Label_Event_Round')} {data.roundId}
 					</div>
 					<p>
-						{dayjs(data.startDate).format('YYYY/M/D')}
+						{dayjs(data.startDate).format('D MMM YYYY')}
 						{' - '}
-						{dayjs(data.endDate).format('YYYY/M/D')}
+						{dayjs(data.endDate).format('D MMM YYYY')}
 					</p>
 				</div>
 			</div>

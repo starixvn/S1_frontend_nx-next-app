@@ -26,9 +26,9 @@ const LotteryResults = () => {
 					<div key={data.roundId} className='result-item'>
 						<div>{data.roundId}</div>
 						<div>
-							{dayjs(data.startDate).format('YYYY/M/D')}
+							{dayjs(data.startDate).format('D MMM YYYY')}
 							{' - '}
-							{dayjs(data.endDate).format('YYYY/M/D')}
+							{dayjs(data.endDate).format('D MMM YYYY')}
 						</div>
 						<div>{t(PRIZE_CATEGORY_I18N_KEYS[data.lotteryPrizeCategory])}</div>
 						<div className='share'>
