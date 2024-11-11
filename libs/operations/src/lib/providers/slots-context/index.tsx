@@ -519,7 +519,13 @@ const SlotsProvider = ({
 
 		setSlotsGameList(filteredGameList)
 		setIsProcess(false)
-	}, [activeCategoryKey, queryTpId, searchCategoryText, myFavorites])
+	}, [
+		activeCategoryKey,
+		queryTpId,
+		searchCategoryText,
+		myFavorites,
+		tpMaintainList,
+	])
 
 	// 更新遊戲列表預設給定40筆資料
 	useEffect(() => {
