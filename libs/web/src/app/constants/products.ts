@@ -84,7 +84,7 @@ export const PRODUCTS = {
 	Lottery: {
 		tpGameIdNo: 15,
 		tpId: 72,
-		tpGameType: 74,
+		tpGameType: 125,
 		gameId: 0,
 	},
 	OWCardClub: {
@@ -279,7 +279,7 @@ export const PRODUCTS = {
 		tpGameIdNo: 55,
 		tpId: 18,
 		tpGameType: 28,
-		gameId: 18,
+		gameId: 0,
 	},
 	WMCasino: {
 		tpGameIdNo: 56,
