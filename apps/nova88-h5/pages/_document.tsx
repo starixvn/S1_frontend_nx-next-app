@@ -129,6 +129,9 @@ class MyDocument extends Document<CustomDocumentProps> {
 							/>
 						</>
 					)}
+					<link rel='manifest' href='/manifest.json' />
+					<link rel='apple-touch-icon' href='/384x384.png' />
+					<meta name='theme-color' content='#0d346c' />
 				</Head>
 				<body>
 					{process.env['NEXT_PUBLIC_ENV'] === 'PRD' && (
