@@ -181,7 +181,11 @@ const useMenu = () => {
 		}
 
 		const host = typeof window === 'undefined' ? null : window.location.origin
-		const dbHost = process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		const dbHost =
+			// eslint-disable-next-line eqeqeq
+			process.env['NEXT_PUBLIC_PLAYER_API_PATH'] != ''
+				? `${host}/${process.env['NEXT_PUBLIC_PLAYER_API_PATH']}`
+				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
 		// process.env.NODE_ENV === 'production'
 		// 	? host
 		//	:
@@ -234,7 +238,11 @@ const useMenu = () => {
 	}) => {
 		const host = typeof window === 'undefined' ? null : window.location.origin
 		// 實際帶的 host 位置，正式環境帶當前 domain , local 環境則帶 api proxy
-		const dbHost = process.env['NEXT_PUBLIC_ENV_DB_HOST']
+		const dbHost =
+			// eslint-disable-next-line eqeqeq
+			process.env['NEXT_PUBLIC_PLAYER_API_PATH'] != ''
+				? `${host}/${process.env['NEXT_PUBLIC_PLAYER_API_PATH']}`
+				: process.env['NEXT_PUBLIC_ENV_DB_HOST']
 		// process.env.NODE_ENV === 'production'
 		// 	? host
 		//	:
