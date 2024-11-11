@@ -78,8 +78,8 @@ export const PRODUCTS = {
 	Keno: {
 		tpGameIdNo: 14,
 		tpId: 71,
-		tpGameType: 73,
-		gameId: 202,
+		tpGameType: 124,
+		gameId: 0,
 	},
 	Lottery: {
 		tpGameIdNo: 15,
