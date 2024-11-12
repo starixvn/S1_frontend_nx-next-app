@@ -55,18 +55,19 @@ export const axiosBaseQuery =
 	> =>
 	async ({ url, method, data, params, headers, responseType }) => {
 		try {
-			const {
-				data: axiosData,
-				status,
-				statusText,
-			} = await axios({
+			const axiosRequest = {
 				url: baseUrl + url,
 				method,
 				data,
 				params,
 				headers: { ...preHeaders, ...headers, 'ai-device': getDeviceType() },
 				responseType,
-			})
+			}
+
+			// eslint-disable-next-line no-console
+			console.log(JSON.stringify(axiosRequest))
+
+			const { data: axiosData, status, statusText } = await axios(axiosRequest)
 
 			if (axiosData?.errorCode !== 0) {
 				const error: IAxiosError & { isBackend?: boolean } = new Error()
