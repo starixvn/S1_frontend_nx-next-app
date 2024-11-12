@@ -8,7 +8,7 @@ export const useSiteMetaData = () => {
 
 	useEffect(() => {
 		const initMetaData = async () => {
-			const loadedData = (await import(`../site/${siteName}`)).META_DATA
+			const loadedData = (await import(`../site/${siteName.toLowerCase()}`)).META_DATA
 			setMetaData(loadedData)
 		}
 
