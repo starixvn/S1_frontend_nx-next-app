@@ -46,6 +46,34 @@ class MyDocument extends Document<CustomDocumentProps> {
 						rel='stylesheet'
 					/>
 
+					{process.env['NEXT_PUBLIC_SITE_NAME'] !== '' && (
+						<link
+							rel='stylesheet'
+							href={`/css/${process.env['NEXT_PUBLIC_SITE_NAME']}/style-dark.css`}
+						/>
+					)}
+
+					{process.env['NEXT_PUBLIC_SITE_NAME'] !== '' && (
+						<link
+							rel='stylesheet'
+							href={`/css/${process.env['NEXT_PUBLIC_SITE_NAME']}/style.css`}
+						/>
+					)}
+
+					{process.env['NEXT_PUBLIC_SITE_NAME'] !== '' && (
+						<link
+							rel='stylesheet'
+							href={`/css/${process.env['NEXT_PUBLIC_SITE_NAME']}/swiper.css`}
+						/>
+					)}
+
+					{process.env['NEXT_PUBLIC_SITE_NAME'] !== '' && (
+						<link
+							rel='stylesheet'
+							href={`/css/${process.env['NEXT_PUBLIC_SITE_NAME']}/font.css`}
+						/>
+					)}
+
 					{process.env['NEXT_PUBLIC_ENV'] === 'PRD' && (
 						<>
 							{/* Yuri Track , 市場廣告商使用的追蹤碼 */}
