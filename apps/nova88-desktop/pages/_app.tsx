@@ -18,7 +18,6 @@ import {
 	LEFT_MENU_DATA,
 	LIVE_CHAT_ID_BY_LANG_ID,
 	MENU_DATA,
-	META_DATA,
 	TERMS_CONDITIONS,
 	ThirdPartyJS,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY_DESKTOP,
@@ -59,7 +58,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
 				<UIProvider>
 					<StaticDataProvider
 						MENU_DATA={MENU_DATA}
-						META_DATA={META_DATA}
 						PRODUCTS={PRODUCTS}
 						ALLOWED_CURRENCIES={ALLOWED_CURRENCIES}
 						LANG_GROUPS={LANG_GROUPS}
