@@ -12,10 +12,11 @@ import {
 	IMenuData
 } from '@nx-next-app/types'
 import { type IProducts } from '@nx-next-app/constants'
+import { useSiteStaticData } from '@nx-next-app/hooks'
 
 export interface IStaticDataContext {
 	MENU_DATA: IMenuData[]
-	META_DATA: IMetaData
+	META_DATA?: IMetaData
 	PRODUCTS: IProducts
 	LEFT_MENU_DATA: ILeftMenuData
 	LANG_TO_CURRENCY?: { [key: string]: number }
@@ -66,9 +67,11 @@ const StaticDataProvider = ({
 	LIVE_CHAT_ID_BY_LANG_ID,
 	GET_AFFILIATE_LINK,
 }: IStaticDataProviderProps) => {
+	const staticData = useSiteStaticData();
+
 	const value: IStaticDataContext = {
 		MENU_DATA,
-		META_DATA,
+		META_DATA: staticData.metaData,
 		PRODUCTS,
 		ALLOWED_CURRENCIES,
 		LANG_GROUPS,
