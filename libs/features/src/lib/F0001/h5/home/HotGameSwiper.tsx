@@ -62,7 +62,7 @@ const HotGameSwiper = () => {
 		)
 	})
 
-	return children.length > 0 ? (
+	return children?.length > 0 ? (
 		<>
 			<div className='home-title'>{t('Label_General_HotGames')}</div>
 			<div className='home-hotgame'>

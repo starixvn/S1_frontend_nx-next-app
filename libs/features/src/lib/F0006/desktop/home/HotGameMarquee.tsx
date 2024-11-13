@@ -1,9 +1,9 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useHome } from '@nx-next-app/features/F0006/providers'
 import { uniqueId } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import ReactMarquee from 'react-fast-marquee'
-import { useTranslation } from 'next-i18next'
-import { useHome } from '@nx-next-app/features/F0006/providers'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
@@ -57,7 +57,7 @@ const HotGameMarquee = () => {
 		)
 	})
 
-	return children.length > 0 ? (
+	return children?.length > 0 ? (
 		<>
 			<div className='moduleTitle'>{t('Label_General_HotGames')}</div>
 			<div className='hotGame'>

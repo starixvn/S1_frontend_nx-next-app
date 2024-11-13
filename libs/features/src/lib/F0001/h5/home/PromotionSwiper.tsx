@@ -1,7 +1,7 @@
-import dynamic from 'next/dynamic'
-import { useTranslation } from 'next-i18next'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { isUrl } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -17,7 +17,7 @@ const PromotionSwiper = () => {
 	const { promotionData, handlePromotionClick } = useHome()
 	const { t } = useTranslation()
 
-	if (promotionData.length === 0) return null
+	if (promotionData == null || promotionData.length === 0) return null
 	return (
 		<>
 			<div className='home-title'>{t('Label_General_Promotion')}</div>

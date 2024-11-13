@@ -64,9 +64,6 @@ export const axiosBaseQuery =
 				responseType,
 			}
 
-			// eslint-disable-next-line no-console
-			console.log(JSON.stringify(axiosRequest))
-
 			const { data: axiosData, status, statusText } = await axios(axiosRequest)
 
 			if (axiosData?.errorCode !== 0) {
