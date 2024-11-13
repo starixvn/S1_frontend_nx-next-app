@@ -43,10 +43,10 @@ const nextConfig = {
 					source: '/api/:path*',
 					destination: `${process.env.NEXT_PUBLIC_ENV_DB_HOST}/api/:path*`,
 				},
-				{
-					source: '/:langId/entPage/:path*',
-					destination: `${process.env.NEXT_PUBLIC_ENV_DB_HOST}/:langId/entPage/:path*`,
-				},
+				// {
+				// 	source: '/:langId/entPage/:path*',
+				// 	destination: `${process.env.NEXT_PUBLIC_ENV_DB_HOST}/:langId/entPage/:path*`,
+				// },
 				// * Cashier api 的 domain 需關閉 i18n 自動添加前綴的設置，並自行給予 langId '/api' 的字段使其正確匹配
 				// * 原因為 langId 組在 api controller 前面 ex: /en/Cashier/DepositReqCryptoPay
 				{
