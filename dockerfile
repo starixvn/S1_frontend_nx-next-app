@@ -1,9 +1,3 @@
-FROM hub.lumigame.com/base/node:18-16-alpine-24h1.1 AS dependencies
-WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci
-    
-
 FROM hub.nexdev.net/nexent/nx-app-alpine AS builder
 
 WORKDIR /build
@@ -14,7 +8,9 @@ WORKDIR /build
 ENV PATH /build/node_modules/.bin:$PATH
 
 # copy env
-COPY --from=dependencies /app/node_modules ./node_modules
+COPY package.json package-lock.json ./
+RUN npm ci
+
 COPY . .
 
 ARG TRANSFORM_CONFIG
@@ -23,7 +19,7 @@ COPY ./apps/${TEMPLATE_NAME}/.env.${TRANSFORM_CONFIG} ./apps/${TEMPLATE_NAME}/.e
 
 RUN app=${TEMPLATE_NAME} npm run build
 
-FROM hub.lumigame.com/base/node:18-16-alpine-24h1.1 AS serve-step
+FROM hub.nexdev.net/base/node:18-16-alpine-24h1.1 AS serve-step
 
 WORKDIR /app
 ENV TEMPLATE_NAME nova88-desktop
