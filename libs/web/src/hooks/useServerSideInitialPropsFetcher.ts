@@ -14,7 +14,6 @@ import { GetServerSidePropsContext, PreviewData } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { UserInfoMemberType, setServerSideHeaders } from '../service'
 import { useRedirectDevice } from './useRedirectDevice'
-import { useRedirectMaintain } from './useRedirectMaintain'
 
 export interface InitialPropsInterface {
 	originLangId: string
@@ -26,8 +25,8 @@ export interface InitialPropsInterface {
 	currentHeaderCookies: string
 }
 
-// 轉換 response cookie 格式
-// 僅會取 langId 與 currencyId 做轉換
+// Convert response cookie format
+// Only langId and currencyId will be converted
 const transferCookies = (values: string[]) => {
 	const allowedKeys = [ENV_COOKIE_NAMES.LangId, ENV_COOKIE_NAMES.CurrencyId]
 
@@ -54,19 +53,19 @@ const transferCookiesObj = (cookies: TmpCookiesObj): string => {
 export const useServerSideInitialPropsFetcher = async (
 	context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
 ): Promise<InitialPropsInterface | undefined> => {
-	// 裝置導轉邏輯
+	// Device redirection logic
 	useRedirectDevice(context)
 
-	// 設定必要的 header
+	// Setting required header
 	setServerSideHeaders(context)
 
-	// 來自 middleware 的 cookie , 用來更替用戶 cookie lang
+	// Cookie from middleware, used to replace user cookie lang
 	const middlewareCookies = context.res.getHeader('set-cookie')
 	let cookiesFromServer = {}
 	if (middlewareCookies) {
 		cookiesFromServer = transferCookies(middlewareCookies as string[])
 	}
-	// 如果有 cookiesFromServer , 則取該 cookie 作為 userInfo 資料 , 給 clientSide 做使用的
+	// If there are cookiesFromServer, take the cookie as userInfo data and use it for clientSide
 	const originCookies = isEmpty(cookiesFromServer)
 		? getCookies(context)
 		: assign(getCookies(context), cookiesFromServer)
@@ -74,10 +73,11 @@ export const useServerSideInitialPropsFetcher = async (
 	const originLangId = originCookies[ENV_COOKIE_NAMES.LangId] as string
 	const originCurrencyId = Number(originCookies[ENV_COOKIE_NAMES.CurrencyId])
 
-	// 取得當前 currencyId 後執行維護導轉邏輯
-	await useRedirectMaintain(context, originCurrencyId)
+	// After obtaining the current currencyId, execute maintenance diversion logic
+	// TODO
+	// await useRedirectMaintain(context, originCurrencyId)
 
-	// 帶進 api config 使用的 cookie
+	// Bring in the cookies used by api config
 	const currentHeaderCookies = transferCookiesObj(originCookies)
 
 	const [originIsSignIn, persistSEOData, persistStaticFileDomainData] =
@@ -94,14 +94,14 @@ export const useServerSideInitialPropsFetcher = async (
 		])
 
 	if (
-		// * 判斷是否為為直播主帳號，直播主只允許進入home與slots頁面
+		// * Determine whether it is the live broadcast main account. The live broadcast owner is only allowed to enter the home and slots pages.
 		originIsSignIn &&
 		!includes(
 			[paths.home.root, paths.slots.root, paths.setting.root],
 			String(context.resolvedUrl.split('?')[0])
 		)
 	) {
-		// * getCustProfile 在沒登入的情況下不打 api
+		// * getCustProfile does not open the api without logging in
 		const profile = await getCustProfile(null, {
 			headers: { cookie: currentHeaderCookies },
 		})

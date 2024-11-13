@@ -101,7 +101,7 @@ const HotGame = () => {
 
 	return (
 		<div className='hotgame'>
-			{hotGameData.length > 0 && (
+			{hotGameData?.length > 0 && (
 				<>
 					<div className='maintitle'>
 						{t('Label_General_HotGames')}

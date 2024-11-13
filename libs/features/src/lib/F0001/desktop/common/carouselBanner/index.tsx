@@ -30,7 +30,7 @@ const CarouselBanner = ({
 	const { modal } = useGlobalModal()
 	const { onEnterPage, onGoToGame } = useMenu()
 
-	const resultList = bannerList.map(
+	const resultList = bannerList?.map(
 		(
 			{ actionMode, bonusCode, urlRouter, tpId, tpGameType, gameId, ...rest },
 			index
@@ -113,7 +113,7 @@ const CarouselBanner = ({
 
 	return (
 		<Carousel className={className} {...rest}>
-			{resultList.map(item => (
+			{resultList?.map(item => (
 				<BannerItem
 					key={item.itemKey}
 					src={item.bannerPCUrl}

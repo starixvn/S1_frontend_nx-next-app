@@ -1,11 +1,11 @@
-import dayjs from 'dayjs'
-import Link from 'next/link'
-import dynamic from 'next/dynamic'
-import { useTranslation } from 'next-i18next'
-import { useEffect, useMemo, useState } from 'react'
-import { IHotEventData } from '@nx-next-app/service'
-import { useHome } from '@nx-next-app/features/F0001/providers'
 import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { IHotEventData } from '@nx-next-app/service'
+import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
+import { useEffect, useMemo, useState } from 'react'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -109,6 +109,11 @@ const HotEventSwiper = () => {
 		),
 	}
 
+	useEffect(() => {
+		setShouldSwiperUpdate(true)
+		setTimeout(() => setShouldSwiperUpdate(false), 5000)
+	}, [memoHotEventData])
+
 	if (!hotEventData) return null
 	const rows = hotEventData?.map(eventData => (
 		<Item
@@ -116,11 +121,6 @@ const HotEventSwiper = () => {
 			data={eventData}
 		/>
 	))
-
-	useEffect(() => {
-		setShouldSwiperUpdate(true)
-		setTimeout(() => setShouldSwiperUpdate(false), 5000)
-	}, [memoHotEventData])
 
 	return rows.length > 0 ? (
 		<div

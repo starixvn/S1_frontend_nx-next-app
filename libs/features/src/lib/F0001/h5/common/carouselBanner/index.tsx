@@ -21,7 +21,7 @@ const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 	const { push } = useRouter()
 	const { onEnterPage, onGoToGame } = useMenu()
 
-	const resultList = bannerList.map(
+	const resultList = bannerList?.map(
 		(
 			{ actionMode, bonusCode, urlRouter, tpId, tpGameType, gameId, ...rest },
 			index

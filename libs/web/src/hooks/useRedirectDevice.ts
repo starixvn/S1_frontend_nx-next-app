@@ -2,7 +2,7 @@ import { GetServerSidePropsContext } from 'next'
 import * as process from 'process'
 
 export const useRedirectDevice = (context: GetServerSidePropsContext) => {
-	// production 才執行這個 hooks
+	// Production only executes this hooks
 	if (process.env.NODE_ENV !== 'production') return
 
 	const { req, locale } = context
@@ -26,7 +26,7 @@ export const useRedirectDevice = (context: GetServerSidePropsContext) => {
 	}
 
 	if (reqDomain && userAgent) {
-		// 如果沒前墜 CNAME 預設先加上桌機 Cname
+		// If there is no CNAME, the desktop Cname will be added by default.
 		if (
 			!reqDomain.startsWith(desktopCName) &&
 			!reqDomain.startsWith(mobileCName)
@@ -38,19 +38,20 @@ export const useRedirectDevice = (context: GetServerSidePropsContext) => {
 		let targetDomain: string
 
 		if (isMobile) {
-			// 手機改手機 CName
-			// 相同則不改
+			// Mobile phone to mobile phone CName
+			// If the same, don’t change it
 			targetDomain = reqDomain.startsWith(mobileCName)
 				? reqDomain
 				: reqDomain.replace(desktopCName, mobileCName)
 		} else {
-			// 桌機改桌機 CName
+			// Desktop to desktop computer CName
 
 			targetDomain = reqDomain.startsWith(mobileCName)
-				? reqDomain.replace(mobileCName, desktopCName) : reqDomain;
+				? reqDomain.replace(mobileCName, desktopCName)
+				: reqDomain
 		}
 
-		// 如果跟當前不同則回傳導轉連結
+		// If different from the current one, return the forwarding link.
 		if (targetDomain !== reqDomain) {
 			redirectUrl = `https://${targetDomain}${requestUrl}`
 		}

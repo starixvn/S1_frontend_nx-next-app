@@ -1,11 +1,11 @@
-import { useTranslation } from 'next-i18next'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { isUrl } from '@nx-next-app/utils'
-import { useRouter } from 'next/router'
-import { paths } from '@nx-next-app/constants'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -28,7 +28,7 @@ const HotGameSwiper = () => {
 		userInfo: { currencyId },
 	} = useAuth()
 
-	const children = hotGameData.map(game => {
+	const children = hotGameData?.map(game => {
 		const { gameLogo, gameName } = game
 
 		return (
