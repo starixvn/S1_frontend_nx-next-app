@@ -18,6 +18,7 @@ export const getHotGame = async ({
 		)
 		return data
 	} catch (error) {
+		console.log(error)
 		return {} as IHotGameData
 	}
 }

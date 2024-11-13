@@ -2,6 +2,7 @@ import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	getBanner,
+	getHotEvent,
 	getHotGame,
 	getPromotion,
 	GlobalDataProvider,
@@ -92,7 +93,12 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
 
-	const [persistBannerData, rawPromotionData, hotGameData] = await Promise.all([
+	const [
+		persistBannerData,
+		rawPromotionData,
+		persistHotEventData,
+		hotGameData,
+	] = await Promise.all([
 		getBanner(
 			{
 				langId,
@@ -109,7 +115,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			},
 			{ headers: { cookie: currentHeaderCookies } }
 		),
-		// getHotEvent({ langId }),
+		getHotEvent({ langId }),
 		getHotGame({
 			deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
       top: 50,
@@ -129,6 +135,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		props: {
 			persistBannerData,
 			persistPromotionData,
+			persistHotEventData,
 			persistHotGameData,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
