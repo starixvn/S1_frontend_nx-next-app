@@ -1,17 +1,16 @@
-import Layout from '@apps/yashbet-h5/components/common/layout'
-import Withdrawal from '@apps/yashbet-h5/components/withdrawal'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
+import { Withdrawal } from '@nx-next-app/features/F0001/h5'
+import { WithdrawalProvider } from '@nx-next-app/features/F0001/providers'
+import { Layout } from '@nx-next-app/features/F0006/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { WithdrawalProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting, IWithdrawalTypeEnum } from '@nx-next-app/service'
 import { find } from 'lodash-es'
 import { GetServerSideProps } from 'next'
@@ -28,18 +27,13 @@ const EWalletWithdrawalPage = ({
 	persistSEOData,
 	persistStaticFileDomainData,
 }: IEWithdrawalProps) => {
-	const { modal } = useGlobalModal()
-
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
 				<Layout persistSEOData={persistSEOData}>
-					<WithdrawalProvider
-						withdrawalBlockSetting={withdrawalBlockSetting}
-						errorCallback={errorMessage => modal.error(errorMessage)}
-					>
+					<WithdrawalProvider withdrawalBlockSetting={withdrawalBlockSetting}>
 						<Withdrawal />
 					</WithdrawalProvider>
 				</Layout>
