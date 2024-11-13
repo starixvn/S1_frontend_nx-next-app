@@ -95,9 +95,9 @@ export const PRODUCTS = {
 	},
 	TableGame: {
 		tpGameIdNo: 19,
-		tpId: 41,
-		tpGameType: 75,
-		gameId: 222,
+		tpId: 73,
+		tpGameType: 126,
+		gameId: 0,
 	},
 	VirtualSports: {
 		tpGameIdNo: 20,
