@@ -2,6 +2,7 @@ import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	getBanner,
+	getHotGame,
 	getPromotion,
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
@@ -91,7 +92,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
 
-	const [persistBannerData, rawPromotionData] = await Promise.all([
+	const [persistBannerData, rawPromotionData, hotGameData] = await Promise.all([
 		getBanner(
 			{
 				langId,
@@ -109,15 +110,13 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			{ headers: { cookie: currentHeaderCookies } }
 		),
 		// getHotEvent({ langId }),
-		// getHotGame({
-		// 	deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
+		getHotGame({
+			deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
       top: 50,
       tpCategory: [TpCategory.Sports, TpCategory.Casino, TpCategory.LiveCasino, TpCategory.ESports].toString(),
-		// 	currencyId,
-		// }),
 	])
 
-	// const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
+	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
 
 	const persistPromotionData = filter(
 		rawPromotionData,
@@ -130,6 +129,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		props: {
 			persistBannerData,
 			persistPromotionData,
+			persistHotGameData,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
