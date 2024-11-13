@@ -1,5 +1,9 @@
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import {
+	AuthProvider,
+	getBanner,
+	GlobalDataProvider,
+} from '@nx-next-app/data-access'
 import { Home, Layout } from '@nx-next-app/features/F0001/desktop'
 import { HomeProvider } from '@nx-next-app/features/F0001/providers'
 import {
@@ -14,7 +18,7 @@ import {
   TpCategory
 } from '@nx-next-app/service'
 import { DESKTOP_HOME_ORDERS, FOOTER_DATA } from '@nx-next-app/site/nova88'
-import { IFooterData } from '@nx-next-app/types'
+import { BannerTypeEnum, IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
@@ -84,36 +88,31 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
 
-	// const [
-	// 	persistBannerData,
-	// 	rawPromotionData,
-	// 	persistHotEventData,
-	// 	hotGameData,
-	// ] = await Promise.all([
-	// 	getBanner(
-	// 		{
-	// 			langId,
-	// 			currencyId,
-	// 			bannerTypes: [BannerTypeEnum.Main],
-	// 		},
-	// 		{ headers: { cookie: currentHeaderCookies } }
-	// 	),
-	// 	getPromotion(
-	// 		{
-	// 			langId,
-	// 			currencyId,
-	// 			deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
-	// 		},
-	// 		{ headers: { cookie: currentHeaderCookies } }
-	// 	),
-	// 	getHotEvent({ langId }),
-	// 	getHotGame({
-	// 		deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
+	const [persistBannerData] = await Promise.all([
+		getBanner(
+			{
+				langId,
+				currencyId,
+				bannerTypes: [BannerTypeEnum.Main],
+			},
+			{ headers: { cookie: currentHeaderCookies } }
+		),
+		// getPromotion(
+		// 	{
+		// 		langId,
+		// 		currencyId,
+		// 		deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
+		// 	},
+		// 	{ headers: { cookie: currentHeaderCookies } }
+		// ),
+		// getHotEvent({ langId }),
+		// getHotGame({
+		// 	deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
       top: 50,
       tpCategory: [TpCategory.Sports, TpCategory.Casino, TpCategory.LiveCasino, TpCategory.ESports].toString(),
-	// 		currencyId,
-	// 	}),
-	// ])
+		// 	currencyId,
+		// }),
+	])
 
 	// const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
 
@@ -126,6 +125,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
 	return {
 		props: {
+			persistBannerData,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
