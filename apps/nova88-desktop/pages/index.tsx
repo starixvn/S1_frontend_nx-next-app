@@ -25,17 +25,17 @@ import { BannerTypeEnum, IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-// 此為優化專案導出所需要的設定，因配合 nx 配置路徑衝突做的優化
-// 優化專案 build 出來的檔案結構，僅獨立輸出必要的資源而非整包 node_module , 控管 docker image 大小
+// This is the setting required to optimize the project export. It is optimized due to the nx configuration path conflict.
+// Optimize the file structure of the project build, output only the necessary resources independently instead of the entire node_module package, and control the docker image size
 // https://nextjs.org/docs/pages/api-reference/next-config-js/output
 // https://github.com/nrwl/nx/issues/9017
 import dayjs from 'dayjs'
 import { filter } from 'lodash-es'
 import path from 'path'
 
-// path.resolve 會把指定路徑解析成絕對路徑
-// 這樣解析是為了讓 next 輸出時可以正確吃到當前 project 的 next.config
-// 用於解決 nx 在 next 專案上 path 衝突使用的小 trick
+// path.resolve will resolve the specified path into an absolute path
+// This parsing is so that when next is output, the next.config of the current project can be correctly read.
+// A small trick used to solve the path conflict of nx on the next project
 path.resolve('./next.config.js')
 
 interface IHomePageProps extends InitialPropsInterface {

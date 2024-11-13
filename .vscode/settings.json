@@ -3,5 +3,6 @@
 	"liveServer.settings.port": 5501,
 	"typescript.preferences.importModuleSpecifier": "non-relative",
 	"editor.formatOnSave": true,
-	"editor.defaultFormatter": "esbenp.prettier-vscode"
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"commentTranslate.source": "Google"
 }
