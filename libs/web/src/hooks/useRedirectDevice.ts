@@ -11,7 +11,7 @@ export const useRedirectDevice = (context: GetServerSidePropsContext) => {
 	const isMobile = userAgent && userAgent.toLowerCase().includes('mobile')
 
 	const getCname = (envVar: string) =>
-		process.env[envVar] ? `${process.env[envVar]}-` : ''
+		process.env[envVar] ? `${process.env[envVar]}` : ''
 
 	const mobileCName = getCname('NEXT_PUBLIC_M_CNAME')
 	const desktopCName = getCname('NEXT_PUBLIC_PC_CNAME')
