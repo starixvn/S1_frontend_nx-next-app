@@ -1,0 +1,14 @@
+{
+	"type": "service_account",
+	"project_id": "superone-441706",
+	"private_key_id": "03ed4b01f624f4115033e07d7a3ca0a96c8b184b",
+	"private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC3qjwUhrOVaxrz\n3dMMsTVFSM+2asLGGf5BEyKdpvPkzWlteyEHMVf6HOZZ+N9pXrMsQXBQR/7yXCnm\nmJtrK5130+9SSjNrTNHJeJgVC+0tlsFpzoWQaqHUmo3vOwsolz5CMTel/cpAx/k8\nDxWERI4G2hhYRtOGp5lDxSRoD/XysqXn8Ep5H7DqGSQebXWtrxTkHRxWjiJdUz1r\nG49F/xPplG1ZXAUwLI2B7u2rVktGJuBJlN8Dd+wpIKsRL+KpaEwlXZsct9aHB3pk\ndc0SWEvee3cLSY5vlH6BSyS6g1Jxue/hr2FdRW0sUwwbsuDh4DyK/WNvlZ9bREAd\nllwNVTflAgMBAAECggEAVDzhin6Pnm/98CzlEDS03J69GgsUY3znhxxKK6m3wlDO\nUpb/OofQtJgNtOV3PqJfJmSrKT8kOS+5Thjfa8OY2S1c3k7HD6cvryq/AiQyt86l\nziwZSXgG2na6s6dOgmL//KcLQXhKC/VMJFY8xaoVxCHCubZebSuwmYsxnAL6CMJN\nKeq7/niqSL2Kqhu73CvOSTrIASsCTLoVghYsg0FQZjVcAvDhaBdQlkabK/PvzL8f\nj2uNIdFbV0/qMzocQ0wwg3XI7oyc8untPGo17d4fEe0Srusg16L5wYNhdTybzPbu\n3E/HCzZJdjJqAms4LXMKEb5kHPMAdt6zQQu/4/lO3wKBgQDlYcNi3/V7raqzYiew\nsBtR9ctmepVzYDtzhsen1KNrHKqWcRsgY8Cw6TVj38/IKUFktb1jKzFTq/7ztquh\nDC0YVeeXTcUSXPUsyW4uIA2Ev/nBOC5Zrmp3YShG/scpjZKHYoSL6uEtBatlCwjP\n1hovs90SefuvPkBQZQ/KMrZt2wKBgQDM+lyH7Zxx44OWlR4lTGktnYquV/u8sKbs\nSQYRoYnkH5397aZWd505HxvIjM2XMZnqW8Ms2VuEAS+EeTQ5h0EWzAFCj6BF9YHg\nD4AuQ+c3ws9lBsqoK8Pr9ibeh1XUuVwSpnvNs3KztdfpLo5bSgMTm9VH5iE0oJJj\n7wYvVbk9PwKBgQCMav+H7J/DOXnw3Bp98CCZWMVOE6affX6HZy+bzvDHJkJLXCwF\n9OrFoc2cOStiVdcBRrwMFCnbFcQ5/04rhV+psRTXq7UDW8J+y0RWmiqMZFUI8lJ1\nde8Y63ITm+3hwxe7JxUK7hswS3MzpMCdMmzPXOTtZZ0sFwiZ7nPvDIJe1wKBgGVe\nIsht74I6+2ZKlD/py9HtKRoTFME5szMC4edyNZkFMcLT9gCo4q3O/pRtXXa55t4J\nRzo0u5dKZs9iiTsx8jRt6umZ0a8HPJUr1T4MApqG0r2pYCtOiXN1pb9CumWazTfD\n8VHGvqC0+vOsPGZU8bSOyijmW+GEzyBwomRiRltNAoGBAIb+ovD49prtiCYsUsV2\n132CAsIZ/3rqCyZ2P0otHgXsF3HbiVy2sn77Dvv0o8GBPrB5iz5ZHBqR5QSykmdQ\nr34W7FYoE/crHW7OmQZlUZAKBqZ9wR8m+qnr4h1ZtsjzHjv1xWtTvs6PUFwKfKAq\nYUABs3b+AXbYXns8KkPEnekl\n-----END PRIVATE KEY-----\n",
+	"client_email": "player-site-client@superone-441706.iam.gserviceaccount.com",
+	"client_id": "100605854744829758919",
+	"auth_uri": "https://accounts.google.com/o/oauth2/auth",
+	"token_uri": "https://oauth2.googleapis.com/token",
+	"auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+	"client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/player-site-client%40superone-441706.iam.gserviceaccount.com",
+	"universe_domain": "googleapis.com"
+  }
+  

@@ -1,18 +1,16 @@
-
-# 目前分頁
-SITE_LIST=(nova88 yashbet)
+#!/bin/sh
+# Available brands
+SITE_LIST=(common nsDemo nova88)
 
 # READ SITE
-echo "選擇品牌 (單選)"
+echo "Select a brand (single choice):"
 for i in ${SITE_LIST[@]}
 do
   echo "$i \c"
 done
-echo ",ex: common nova88 // 更新兩個品牌，中間用空白鍵分隔、大小寫不拘"
+echo ", e.g., common nova88 // Update two brands, separated by spaces, case insensitive"
 read -p ": " site
 
 node sheet/findUnusedKey.js $site
 
-echo "find unusedKey done."
-
-
+echo "Finding unused keys completed."

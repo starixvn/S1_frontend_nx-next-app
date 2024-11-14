@@ -6,7 +6,7 @@ const path = require('path')
 const { compact, map, flattenDeep } = require('lodash')
 const { extractSheets } = require('spreadsheet-to-json')
 const { SHEET_URL_ID } = require('./sheet')
-const auth = require('../ailab-resources-385807-220772b7ea81.json')
+const auth = require('../s1-resources-ggsheetkey.json')
 
 // * 使用遞迴尋找文件
 const findFiles = (dir, filePattern, result = []) => {
@@ -54,8 +54,8 @@ const findUnusedKey = async keys => {
 		findFiles(`libs/features/src/lib`, filePattern, foundFiles)
 		findFiles('libs/web/src', filePattern, foundFiles)
 		// * 讀取品牌
-		findFiles(`apps/${site}-desktop`, filePattern, foundFiles)
-		findFiles(`apps/${site}-h5`, filePattern, foundFiles)
+		findFiles('apps/nova88-desktop', filePattern, foundFiles)
+		findFiles('apps/nova88-h5', filePattern, foundFiles)
 	} catch (error) {
 		console.log(`${site} 讀取錯誤：`, error.message)
 	}

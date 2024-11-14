@@ -1,9 +1,9 @@
 #!/bin/sh
-# 目前既有品牌
-SITE_LIST=(common nova88 onetwobet yashbet)
+# Existing brands
+SITE_LIST=(common nsDemo nova88 onetwobet yashbet)
 
 # READ
-echo "選擇品牌(單選、複選)"
+echo "Select brand(s) (single or multiple):"
 for i in ${SITE_LIST[@]}
 do
   echo "$i \c"
@@ -16,8 +16,8 @@ node sheet/SheetToJson.js $site
 
 echo ""
 
-echo "是否要對表單進行排序更新?"
-echo "(非必要，進行途中若中斷可能會造成該表被清空)"
+echo "Do you want to sort and update the spreadsheet?"
+echo "(Optional. If you run, any interrupting may clear the sheet data.)"
 read -p "(y/N): " isUpdating
 if [[ "$isUpdating" == "y" || "$isUpdating" == "Y" ]]; then
   node sheet/SheetSort.js $site

@@ -5,9 +5,9 @@
 
 const { GoogleSpreadsheet } = require('google-spreadsheet')
 const { JWT } = require('google-auth-library')
-const auth = require('../ailab-resources-385807-220772b7ea81.json')
+const auth = require('../s1-resources-ggsheetkey.json')
 
-// * url：https://docs.google.com/spreadsheets/d/1yQNCCdV2UGOGE8-GhM0eOMEoTG23F0JpcR5pf5tTq5E
+// * url：https://docs.google.com/spreadsheets/d/1g6nVrf-X6lEQ8Jk_GrSUfwm7R464A0lEyoout1ygI2w
 
 const serviceAccountAuth = new JWT({
 	email: auth.client_email,
@@ -15,7 +15,7 @@ const serviceAccountAuth = new JWT({
 	scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 })
 
-const SHEET_URL_ID = '1yQNCCdV2UGOGE8-GhM0eOMEoTG23F0JpcR5pf5tTq5E'
+const SHEET_URL_ID = '1g6nVrf-X6lEQ8Jk_GrSUfwm7R464A0lEyoout1ygI2w'
 
 // * 將專案版本的語系輸出至 google sheet
 const outputData = async ({ tab, headerRow, contents }) => {
