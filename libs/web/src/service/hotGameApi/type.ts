@@ -1,5 +1,7 @@
 export interface IGetHotGameListArgs {
 	deviceType: number
+	top: number
+	tpCategory: string
 	currencyId: number
 }
 

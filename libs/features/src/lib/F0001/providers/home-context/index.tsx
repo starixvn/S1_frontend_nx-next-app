@@ -184,6 +184,8 @@ const defaultDesktopHomeOrders = [
 	DesktopHomeComponentsEnum.HotMatch,
 	DesktopHomeComponentsEnum.LiveCasino,
 	DesktopHomeComponentsEnum.HotGame,
+	DesktopHomeComponentsEnum.HotGameSport,
+	DesktopHomeComponentsEnum.HotGameLiveCasino,
 	DesktopHomeComponentsEnum.ProviderBlock,
 	DesktopHomeComponentsEnum.EuropeCupEntry,
 	DesktopHomeComponentsEnum.LuckyWheel,

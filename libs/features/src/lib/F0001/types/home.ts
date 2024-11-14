@@ -14,6 +14,16 @@ export enum DesktopHomeComponentsEnum {
 	LiveCasino = 'LiveCasino',
 	// HotGame
 	HotGame = 'HotGame',
+	HotGameSport = 'HotGameSports',
+	HotGameCasino = 'HotGameCasino',
+	HotGameLiveCasino = 'HotGameLiveCasino',
+	HotGameFishing = 'HotGameFishing',
+	HotGameCockfighting = 'HotGameCockfighting',
+	HotGameLottery = 'HotGameLottery',
+	HotGameVirtualSports = 'HotGameVirtualSports',
+	HotGameP2P = 'HotGameP2P',
+	HotGameCrypto = 'HotGameCrypto',
+	HotGameESports = 'HotGameESports',
 	// 配合廠商清單
 	ProviderBlock = 'ProviderBlock',
 	// LuckyWheel

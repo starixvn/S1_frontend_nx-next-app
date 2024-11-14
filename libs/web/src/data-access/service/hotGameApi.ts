@@ -7,12 +7,14 @@ import {
 
 export const getHotGame = async ({
 	deviceType,
+  top,
+  tpCategory,
 	currencyId,
 }: IGetHotGameListArgs): Promise<IHotGameData> => {
 	try {
 		const { data: { data = {} } = {} } = await baseAxios.post(
 			hotGameApiUrl.getHotGameList,
-			{ deviceType, currencyId }
+			{ deviceType, currencyId, top, tpCategory }
 		)
 		return data
 	} catch (error) {

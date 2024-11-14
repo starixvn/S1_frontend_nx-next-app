@@ -18,6 +18,17 @@ const LiveCasino = dynamic(() => import('./LiveCasino'))
 
 const HotGame = dynamic(() => import('./HotGame'), { ssr: false })
 
+const HotGameSport = dynamic(() => import('./HotGameSport'), { ssr: false })
+const HotGameCasino = dynamic(() => import('./HotGameCasino'), { ssr: false })
+const HotGameLiveCasino = dynamic(() => import('./HotGameLiveCasino'), { ssr: false })
+const HotGameFishing = dynamic(() => import('./HotGameFishing'), { ssr: false })
+const HotGameCockfighting = dynamic(() => import('./HotGameCockfighting'), { ssr: false })
+const HotGameLottery = dynamic(() => import('./HotGameLottery'), { ssr: false })
+const HotGameVirtualSports = dynamic(() => import('./HotGameVirtualSports'), { ssr: false })
+const HotGameP2P = dynamic(() => import('./HotGameP2P'), { ssr: false })
+const HotGameCrypto = dynamic(() => import('./HotGameCrypto'), { ssr: false })
+const HotGameESports = dynamic(() => import('./HotGameESports'), { ssr: false })
+
 const Announcement = dynamic(() => import('./Announcement'), { ssr: false })
 
 const RecentlyViewGames = dynamic(() => import('./RecentlyViewGames'), {
@@ -79,6 +90,16 @@ const Home = () => {
 		) : null,
 		[DesktopHomeComponentsEnum.LiveCasino]: <LiveCasino />,
 		[DesktopHomeComponentsEnum.HotGame]: <HotGame />,
+		[DesktopHomeComponentsEnum.HotGameSport]: <HotGameSport />,
+		[DesktopHomeComponentsEnum.HotGameLiveCasino]: <HotGameLiveCasino />,
+		[DesktopHomeComponentsEnum.HotGameCasino]: <HotGameCasino />,
+		[DesktopHomeComponentsEnum.HotGameFishing]: <HotGameFishing />,
+		[DesktopHomeComponentsEnum.HotGameCockfighting]: <HotGameCockfighting />,
+		[DesktopHomeComponentsEnum.HotGameLottery]: <HotGameLottery />,
+		[DesktopHomeComponentsEnum.HotGameVirtualSports]: <HotGameVirtualSports />,
+		[DesktopHomeComponentsEnum.HotGameP2P]: <HotGameP2P />,
+		[DesktopHomeComponentsEnum.HotGameCrypto]: <HotGameCrypto />,
+		[DesktopHomeComponentsEnum.HotGameESports]: <HotGameESports />,
 		[DesktopHomeComponentsEnum.RecentlyViewGames]: <RecentlyViewGames />,
 		[DesktopHomeComponentsEnum.ProviderBlock]: <ProvidersBlock />,
 		[DesktopHomeComponentsEnum.EuropeCupEntry]: includes(

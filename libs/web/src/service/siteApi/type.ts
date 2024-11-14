@@ -63,6 +63,20 @@ export enum RebateCategoryEnum {
 	ESports = 4,
 }
 
+export enum TpCategory {
+  Sports = 1,
+  Casino = 2,
+  LiveCasino = 3,
+  Fishing = 4,
+  Cockfighting = 5,
+  Lottery = 6,
+  VirtualSports = 7,
+  P2P = 8,
+  Crypto = 9,
+  Games = 10,
+  ESports = 11
+}
+
 export interface ISignUpArgs {
 	affCode?: string
 	affId?: string
