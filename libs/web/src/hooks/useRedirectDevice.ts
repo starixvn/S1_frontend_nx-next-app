@@ -2,19 +2,15 @@ import { GetServerSidePropsContext } from 'next'
 import * as process from 'process'
 
 export const useRedirectDevice = (context: GetServerSidePropsContext) => {
-	// Production only executes this hooks
+	// production 才執行這個 hooks
 	if (process.env.NODE_ENV !== 'production') return
 
 	const { req, locale } = context
 	const reqDomain = req.headers.host
 	const userAgent = req.headers['user-agent']
 	const isMobile = userAgent && userAgent.toLowerCase().includes('mobile')
-
-	const getCname = (envVar: string) =>
-		process.env[envVar] ? `${process.env[envVar]}` : ''
-
-	const mobileCName = getCname('NEXT_PUBLIC_M_CNAME')
-	const desktopCName = getCname('NEXT_PUBLIC_PC_CNAME')
+	const mobileCName = `${process.env['NEXT_PUBLIC_M_CNAME']}.`
+	const desktopCName = `${process.env['NEXT_PUBLIC_PC_CNAME']}.`
 
 	let redirectUrl: string | undefined
 	let requestUrl: string | undefined
@@ -26,7 +22,7 @@ export const useRedirectDevice = (context: GetServerSidePropsContext) => {
 	}
 
 	if (reqDomain && userAgent) {
-		// If there is no CNAME, the desktop Cname will be added by default.
+		// 如果沒前墜 CNAME 預設先加上桌機 Cname
 		if (
 			!reqDomain.startsWith(desktopCName) &&
 			!reqDomain.startsWith(mobileCName)
@@ -38,20 +34,19 @@ export const useRedirectDevice = (context: GetServerSidePropsContext) => {
 		let targetDomain: string
 
 		if (isMobile) {
-			// Mobile phone to mobile phone CName
-			// If the same, don’t change it
+			// 手機改手機 CName
+			// 相同則不改
 			targetDomain = reqDomain.startsWith(mobileCName)
 				? reqDomain
 				: reqDomain.replace(desktopCName, mobileCName)
 		} else {
-			// Desktop to desktop computer CName
-
-			targetDomain = reqDomain.startsWith(mobileCName)
-				? reqDomain.replace(mobileCName, desktopCName)
-				: reqDomain
+			// 桌機改桌機 CName
+			targetDomain = reqDomain.startsWith(desktopCName)
+				? reqDomain
+				: reqDomain.replace(mobileCName, desktopCName)
 		}
 
-		// If different from the current one, return the forwarding link.
+		// 如果跟當前不同則回傳導轉連結
 		if (targetDomain !== reqDomain) {
 			redirectUrl = `https://${targetDomain}${requestUrl}`
 		}

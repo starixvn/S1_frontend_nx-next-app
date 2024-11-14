@@ -6,6 +6,7 @@
 		"start": "nx serve",
 		"dev": "env-cmd -f ./apps/nova88-desktop/.env nx serve",
 		"build": "nx build $app && sh script.sh $app",
+		"publish-cache-image": "sh ./docker-build-npm-cache.sh dockerfile-npm-cache 10.0.1.1:5000/demo:1.0.0",
 		"test": "nx test",
 		"prepare": "husky install"
 	},
