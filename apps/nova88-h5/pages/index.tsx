@@ -18,7 +18,7 @@ import {
 	IHotEventData,
 	IHotGame,
 	IPromotionData,
-  TpCategory
+	TpCategory,
 } from '@nx-next-app/service'
 import { FOOTER_DATA, MOBILE_HOME_ORDERS } from '@nx-next-app/site/nova88'
 import { BannerTypeEnum, IFooterData } from '@nx-next-app/types'
@@ -111,8 +111,15 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		getHotEvent({ langId }),
 		getHotGame({
 			deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
-      top: 50,
-      tpCategory: [TpCategory.Sports, TpCategory.Casino, TpCategory.LiveCasino, TpCategory.ESports].toString(),
+			top: 50,
+			tpCategory: [
+				TpCategory.Sports,
+				TpCategory.Casino,
+				TpCategory.LiveCasino,
+				TpCategory.ESports,
+			].toString(),
+			currencyId,
+		}),
 	])
 
 	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}

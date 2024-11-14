@@ -1,0 +1,5 @@
+FROM hub.lumigame.com/base/node:18-16-alpine-24h1.1
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+    
