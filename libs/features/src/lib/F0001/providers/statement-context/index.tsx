@@ -408,7 +408,7 @@ const StatementProvider = ({
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			...queryObject,
-			pageNumber: selected,
+			pageNumber: selected + 1,
 		} as {
 			targetTab: string
 			selDate: string
