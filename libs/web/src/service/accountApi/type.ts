@@ -211,16 +211,10 @@ export type IEWalletData = {
 }
 
 export interface IReferralData {
-	custId: number
 	userName: string
-	registerDate: string
-	currencyId: number
+	settledDate: string
 	totalDeposit: number
-	depositC: number
-	totalBet: number
-	vaildBetC: number
-	bonusAmount: number
-	status: number
+	rewardAmount: number
 }
 
 export interface IGetReferralArgs {

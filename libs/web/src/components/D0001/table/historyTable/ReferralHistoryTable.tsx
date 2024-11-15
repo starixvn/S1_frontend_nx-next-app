@@ -1,12 +1,10 @@
-import React from 'react'
-import { IReferralData } from '@nx-next-app/service'
-import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
-import dayjs from 'dayjs'
-import { numberFormat } from '@nx-next-app/utils'
-import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
 import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
-import { useTranslation } from 'next-i18next'
+import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { IReferralData } from '@nx-next-app/service'
+import { numberFormat } from '@nx-next-app/utils'
+import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
 
 const ReferralHistoryTable = ({
 	dataSource,
@@ -19,7 +17,6 @@ const ReferralHistoryTable = ({
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
-
 	const columns = [
 		{
 			title: t('Label_General_No'),
@@ -33,85 +30,40 @@ const ReferralHistoryTable = ({
 			key: 'userName',
 		},
 		{
-			title: `${t('Label_History_RegisterDate')} (${
-				CURRENCY_TO_TIMEZONE[currencyId]
-			})`,
-			dataIndex: 'registerDate',
-			key: 'registerDate',
+			title: 'Deposit Date',
+			dataIndex: 'settledDate',
+			key: 'settledDate',
 			render: ({
-				item: { registerDate },
+				item: { settledDate },
 			}: {
-				item: { registerDate: string }
+				item: { settledDate: string }
 			}) => (
 				<>
-					{dayjs(registerDate)
+					{dayjs(settledDate)
 						.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 						.format('MM/DD/YYYY')}
-					<span className='txt-blue'>
-						{dayjs(registerDate)
-							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
-							.format('hh:mm:ss A')}
-					</span>
 				</>
 			),
 		},
 		{
-			title: t('Label_History_Currency'),
-			dataIndex: 'currencyId',
-			key: 'currencyId',
-			render: ({ item: { currencyId } }: { item: { currencyId: number } }) => (
-				<div>{t(`Currency_${currencyId}`)}</div>
-			),
-		},
-		{
-			title: t('Label_History_TotalDeposit'),
+			title: t('Label_History_DepositAmount'),
 			dataIndex: 'totalDeposit',
 			key: 'totalDeposit',
 			render: ({
-				item: { totalDeposit, depositC },
+				item: { totalDeposit },
 			}: {
-				item: { totalDeposit: number; depositC: number }
-			}) => (
-				<>
-					{numberFormat(totalDeposit, currencyId, 0)} /
-					<span>{numberFormat(depositC, currencyId, 0)}</span>
-				</>
-			),
+				item: { totalDeposit: number }
+			}) => <>{numberFormat(totalDeposit, currencyId, 2)}</>,
 		},
 		{
-			title: t('Label_History_TotalBet'),
-			dataIndex: 'totalBet',
-			key: 'totalBet',
+			title: t('Label_History_RewardsAmounts'),
+			dataIndex: 'rewardAmount',
+			key: 'rewardAmount',
 			render: ({
-				item: { totalBet, vaildBetC },
+				item: { rewardAmount },
 			}: {
-				// eslint-disable-next-line react/no-unused-prop-types
-				item: { totalBet: number; vaildBetC: number }
-			}) => (
-				<>
-					{numberFormat(totalBet, currencyId, 0)} /
-					<span>{numberFormat(vaildBetC, currencyId, 0)}</span>
-				</>
-			),
-		},
-		{
-			title: t('Label_General_BonusAmount'),
-			dataIndex: 'bonusAmount',
-			key: 'bonusAmount',
-			render: ({ item: { bonusAmount } }: { item: { bonusAmount: number } }) =>
-				numberFormat(bonusAmount, currencyId, 0),
-		},
-		{
-			title: (
-				<>
-					{t('Label_History_Status')}
-					<SpinButton onClick={onReload} />
-				</>
-			),
-			dataIndex: 'status',
-			key: 'status',
-			render: ({ item: { status } }: { item: { status: number } }) =>
-				t(`Label_ReferralStatus${status}`),
+				item: { rewardAmount: number }
+			}) => numberFormat(rewardAmount, currencyId, 2),
 		},
 	]
 

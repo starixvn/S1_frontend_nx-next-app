@@ -1,10 +1,10 @@
-import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useReferral } from '@nx-next-app/features/F0001/providers'
 import { numberFormat } from '@nx-next-app/utils'
 import { toUpper } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
 
 const ReferralStatus = () => {
 	const { t } = useTranslation()
@@ -40,7 +40,7 @@ const ReferralStatus = () => {
 					{toUpper(t('Label_Referral_AccumulateRewardAmount') || '')}
 					<div>
 						<span>{currencyName}</span>
-						{numberFormat(referralSummaryData?.amountSum || 0, currencyId, 0)}
+						{numberFormat(referralSummaryData?.amountSum || 0, currencyId, 2)}
 					</div>
 				</div>
 			</div>

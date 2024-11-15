@@ -1,31 +1,21 @@
-import React from 'react'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
-import dayjs from 'dayjs'
-import { numberFormat } from '@nx-next-app/utils'
-import { ReferralStatusClassNameForMobile } from 'libs/web/src/app/types/history'
-import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
+import { numberFormat } from '@nx-next-app/utils'
+import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
 
 interface IReferralItemProps {
 	userName: string
-	registerDate: string
+	settledDate: string
 	totalDeposit: number
-	depositC: number
-	totalBet: number
-	vaildBetC: number
-	bonusAmount: number
-	status: number
+	rewardAmount: number
 }
 
 const ReferralItem = ({
 	userName,
-	registerDate,
+	settledDate,
 	totalDeposit,
-	depositC,
-	totalBet,
-	vaildBetC,
-	bonusAmount,
-	status,
+	rewardAmount,
 }: IReferralItemProps) => {
 	const { t } = useTranslation()
 	const {
@@ -40,43 +30,20 @@ const ReferralItem = ({
 					<span>{userName}</span>
 				</li>
 				<li>
-					<span className='title'>
-						{t('Label_History_RegisterDate')} (
-						{CURRENCY_TO_TIMEZONE[currencyId]})
-					</span>
+					<span className='title'>Deposit Date</span>
 					<span>
-						{dayjs(registerDate, 'YYYY-MM-DDThh:mm:ssZ')
+						{dayjs(settledDate)
 							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 							.format('MM/DD/YYYY')}
 					</span>
 				</li>
 				<li>
-					<span className='title'>{t('Label_History_Currency')}</span>
-					<span>{t(`Currency_${currencyId}`)}</span>
+					<span className='title'>{t('Label_History_DepositAmount')}</span>
+					<span>{numberFormat(totalDeposit, currencyId, 2)}</span>
 				</li>
 				<li>
-					<span className='title'>{t('Label_History_TotalDeposit')}</span>
-					<span>
-						{numberFormat(totalDeposit as number, currencyId, 0)}/
-						{numberFormat(depositC as number, currencyId, 0)}
-					</span>
-				</li>
-				<li>
-					<span className='title'>{t('Label_History_TotalBet')}</span>
-					<span>
-						{numberFormat(totalBet as number, currencyId, 0)}/
-						{numberFormat(vaildBetC as number, currencyId, 0)}
-					</span>
-				</li>
-				<li>
-					<span className='title'>{t('Label_General_BonusAmount')}</span>
-					<span>{numberFormat(bonusAmount as number, currencyId, 0)}</span>
-				</li>
-				<li>
-					<span className='title'>{t('Label_History_Status')}</span>
-					<span className={ReferralStatusClassNameForMobile[status as number]}>
-						{t(`Label_ReferralStatus${status}`)}
-					</span>
+					<span className='title'>{t('Label_History_RewardsAmounts')}</span>
+					<span>{numberFormat(rewardAmount, currencyId, 2)}</span>
 				</li>
 			</ul>
 		</div>
