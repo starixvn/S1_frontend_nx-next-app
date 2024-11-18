@@ -24,6 +24,7 @@ const VendorFilter = () => {
 							onVendorChange({
 								tpId,
 								openPath,
+                isLobby: false
 							})
 						}
 						isActive={activeVendorTpId === tpId}

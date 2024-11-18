@@ -29,6 +29,7 @@ export interface IVendorData {
 	gameImgDisplayText: string
 	sort: number
 	openPath: string
+  isLobby: boolean
 }
 
 export interface ISlotsGameData {

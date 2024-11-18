@@ -72,9 +72,11 @@ export interface SlotsContextInterface {
 	onVendorChange: ({
 		tpId,
 		openPath,
+    isLobby
 	}: {
 		tpId: number
 		openPath: string
+    isLobby: boolean
 	}) => void
 	onCategoryChange: (value: string) => void
 	onSearchCategoryTextChange: (value: string) => void
@@ -199,9 +201,11 @@ const SlotsProvider = ({
 	const onVendorChange = ({
 		tpId,
 		openPath,
+    isLobby
 	}: {
 		tpId: number
 		openPath: string
+		isLobby: boolean
 	}) => {
 		if (tpId === activeVendorTpId) {
 			setActiveVendorTpId(null)
@@ -212,12 +216,16 @@ const SlotsProvider = ({
 			setActiveVendorTpId(tpId)
 			if (openPath) {
 				push(`/${openPath}`)
-			} else {
+			} else if(isLobby) {
 				// * 只改變路徑，不重新渲染畫面
-				push({ pathname: paths.slots.root, query: { tpId } }, undefined, {
+				push({ pathname: paths.fishing.root, query: { tpId } }, undefined, {
 					shallow: true,
 				})
-			}
+			}else{
+        push({ pathname: paths.slots.root, query: { tpId } }, undefined, {
+					shallow: true,
+				})
+      }
 		}
 	}
 

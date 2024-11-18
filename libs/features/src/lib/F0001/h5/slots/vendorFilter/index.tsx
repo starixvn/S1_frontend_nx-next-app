@@ -4,10 +4,11 @@ import { useSlots } from '@nx-next-app/features/F0001/providers'
 
 const VendorFilter = () => {
 	const { vendorList, activeVendorTpId, onVendorChange } = useSlots()
+
 	return (
 		<div className='partnerSelect'>
 			{vendorList?.map(
-				({ tpId, displayText, openPath, tpName, imgName, ...rest }) => {
+				({ tpId, displayText, openPath, isLobby, tpName, imgName, ...rest }) => {
 					return (
 						<VendorItem
 							key={`slot-swiper-${tpId}`}
@@ -15,6 +16,7 @@ const VendorFilter = () => {
 								tpId,
 								displayText,
 								openPath,
+                isLobby,
 								tpName,
 								imgName,
 								...rest,
