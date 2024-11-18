@@ -21084,22 +21084,27 @@ input[type=number] .btn-logout {
 .survey-before fieldset textarea::-webkit-input-placeholder {
   color: #D8D8D8;
   font-family: "Poppins", sans-serif;
+  font-size: 3vw;
 }
 .survey-before fieldset textarea::-moz-placeholder {
   color: #D8D8D8;
   font-family: "Poppins", sans-serif;
+  font-size: 3vw;
 }
 .survey-before fieldset textarea:-ms-input-placeholder {
   color: #D8D8D8;
   font-family: "Poppins", sans-serif;
+  font-size: 3vw;
 }
 .survey-before fieldset textarea::-ms-input-placeholder {
   color: #D8D8D8;
   font-family: "Poppins", sans-serif;
+  font-size: 3vw;
 }
 .survey-before fieldset textarea::placeholder {
   color: #D8D8D8;
   font-family: "Poppins", sans-serif;
+  font-size: 3vw;
 }
 .survey-before fieldset textarea:focus {
   outline: 0;
@@ -21116,22 +21121,27 @@ input[type=number] .btn-logout {
 .survey-before fieldset input::-webkit-input-placeholder {
   color: #D8D8D8;
   font-family: "Poppins", sans-serif;
+  font-size: 3vw;
 }
 .survey-before fieldset input::-moz-placeholder {
   color: #D8D8D8;
   font-family: "Poppins", sans-serif;
+  font-size: 3vw;
 }
 .survey-before fieldset input:-ms-input-placeholder {
   color: #D8D8D8;
   font-family: "Poppins", sans-serif;
+  font-size: 3vw;
 }
 .survey-before fieldset input::-ms-input-placeholder {
   color: #D8D8D8;
   font-family: "Poppins", sans-serif;
+  font-size: 3vw;
 }
 .survey-before fieldset input::placeholder {
   color: #D8D8D8;
   font-family: "Poppins", sans-serif;
+  font-size: 3vw;
 }
 .survey-before fieldset button {
   background: #ee4f49;
