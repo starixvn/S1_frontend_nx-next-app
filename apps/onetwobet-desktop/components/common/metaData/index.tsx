@@ -31,14 +31,14 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 			<meta name='twitter:card' content='summary_large_image' />
 			<meta
 				name='twitter:image'
-				content={getBannerUrl('/desktop/img/thumbnail/thumbnail_001.jpg')}
+				content={getBannerUrl('/img/thumbnail/thumbnail_001.jpg')}
 			/>
 			<meta property='og:type' content='website' />
 			<meta property='og:title' content={title} />
 			<meta property='og:description' content={description} />
 			<meta
-				property='oog:image'
-				content={getBannerUrl('/desktop/img/thumbnail/thumbnail_001.jpg')}
+				property='og:image'
+				content={getBannerUrl('/img/thumbnail/thumbnail_001.jpg')}
 			/>
 		</Head>
 	)
