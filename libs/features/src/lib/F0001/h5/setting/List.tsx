@@ -138,28 +138,28 @@ const List = () => {
 				header={t('Label_General_OurPolicies')}
 			>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ResposibleGaming.html?url=${rootUrl}/${langId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ResposibleGaming.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_ResponsibleGaming')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/en/TermsConditions.html?url=${rootUrl}/${langId}`} // 2024.8.22 需求說先改成統一導到en語系
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/TermsConditions.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`} // 2024.8.22 需求說先改成統一導到en語系
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_TermsConditions')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/PrivacyPolicy.html?url=${rootUrl}/${langId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/PrivacyPolicy.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_PrivacyPolicy')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/CookiePolicy.html?url=${rootUrl}/${langId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/CookiePolicy.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
@@ -172,21 +172,21 @@ const List = () => {
 				header={t('Label_General_HelpSupport')}
 			>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/RulesandRegulations.html?url=${rootUrl}/${langId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/RulesandRegulations.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_RuleRegulations')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AccountTerms.html?url=${rootUrl}/${langId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AccountTerms.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_AccountTerms')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/FAQ.html?url=${rootUrl}/${langId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/FAQ.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
@@ -199,21 +199,21 @@ const List = () => {
 				header={String(process.env['NEXT_PUBLIC_SITE_NAME']).toUpperCase()}
 			>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AboutUs.html?url=${rootUrl}/${langId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AboutUs.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_AboutUs')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/Terms.html?url=${rootUrl}/${langId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/Terms.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_Terms')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html?url=${rootUrl}/${langId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>

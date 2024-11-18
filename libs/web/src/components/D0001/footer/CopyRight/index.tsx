@@ -28,7 +28,7 @@ const QuickLinks = ({
 				) : (
 					<a
 						key={displayKey}
-						href={`${href}?url=${rootUrl}/${langId}`}
+						href={`${href}?url=${rootUrl}/${langId}?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
 						target='_blank'
 						rel='noreferrer'
 					>
