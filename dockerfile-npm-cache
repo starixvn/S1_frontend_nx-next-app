@@ -1,5 +1,5 @@
-FROM hub.lumigame.com/base/node:18-16-alpine-24h1.1
-WORKDIR /app
+FROM hub.nexdev.net/nexent/nx-app-alpine
+WORKDIR /build
 COPY package.json package-lock.json ./
 RUN npm ci
     

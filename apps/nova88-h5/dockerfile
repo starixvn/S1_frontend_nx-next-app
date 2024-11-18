@@ -1,11 +1,5 @@
-FROM hub.lumigame.com/base/node:18-16-alpine-24h1.1 AS dependencies
-WORKDIR /app
-ENV NPM_CACHE_FOLDER=/root/.npm
-COPY package.json package-lock.json ./
-RUN --mount=type=cache,target=$NPM_CACHE_FOLDER \
-    npm ci
+FROM hub.nexdev.net/nexent/s1-ps-base:18-16-alpine-npm-cache-v1 AS builder
 
-FROM hub.nexdev.net/nexent/nx-app-alpine AS builder
 ENV TEMPLATE_NAME nova88-h5
 ARG TRANSFORM_CONFIG
 
@@ -15,10 +9,12 @@ WORKDIR /build
 # 因為有用到 node_module內的 nx command
 # 故需要綁定 docker bin path 否則會 command not found
 ENV PATH /build/node_modules/.bin:$PATH
+COPY package.json package-lock.json ./
+RUN npm install --no-audit --progress=false --prefer-offline
+
 COPY . .
 # copy env
 COPY ./apps/${TEMPLATE_NAME}/.env.${TRANSFORM_CONFIG} ./apps/${TEMPLATE_NAME}/.env
-COPY --from=dependencies /app/node_modules ./node_modules
 
 RUN app=${TEMPLATE_NAME} npm run build
 

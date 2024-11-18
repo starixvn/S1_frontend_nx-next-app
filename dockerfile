@@ -1,4 +1,4 @@
-FROM hub.nexdev.net/nexent/nx-app-alpine AS builder
+FROM hub.nexdev.net/nexent/s1-ps-base:18-16-alpine-npm-cache-v1 AS builder
 
 WORKDIR /build
 
@@ -9,7 +9,7 @@ ENV PATH /build/node_modules/.bin:$PATH
 
 # copy env
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm install --no-audit --progress=false --prefer-offline
 
 COPY . .
 
