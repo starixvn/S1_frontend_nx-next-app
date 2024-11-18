@@ -19,6 +19,24 @@ export interface IGameData {
 	top: number
 }
 
+export interface ILobbyGameData {
+	lobbyCategoryId: number
+	lobbyCategory: string
+	tpId: number
+	tpGameType: number
+	gameId: string
+	tpName: string
+	tpGameIdNo: number
+	productName: string
+  currencyGameName: string
+	iconType: boolean
+	iconStartTime: Date
+	iconEndTime: Date
+	sort: number
+	betType: number
+  imgProductName: string
+}
+
 export interface IVendorData {
 	tpId: number
 	tpName: string
@@ -48,7 +66,28 @@ export interface ISlotsGameData {
 	tableAndCards?: IGameData[]
 }
 
+export interface ILobbyCategoryGameData {
+	all?: ILobbyGameData[]
+	buyFeaturesGames?: ILobbyGameData[]
+	featured?: ILobbyGameData[]
+	imgUrl?: string
+	jackpot?: ILobbyGameData[]
+	megaways?: ILobbyGameData[]
+	mini?: ILobbyGameData[]
+	myFavorite?: ILobbyGameData[]
+	new?: ILobbyGameData[]
+	providerList?: IVendorData[]
+	random?: IVendorData[]
+	recentlyPlayed?: ILobbyGameData[]
+	tableAndCards?: ILobbyGameData[]
+}
+
 export interface IDisplayGameData extends IGameData {
+	isMaintain: boolean
+	isFavorite: boolean
+}
+
+export interface IDisplayLobbyGameData extends ILobbyGameData {
 	isMaintain: boolean
 	isFavorite: boolean
 }

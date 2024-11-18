@@ -59,49 +59,49 @@ import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
-	getSlotGamePage,
+	getLobbyGamePage,
 } from '@nx-next-app/data-access'
 import { Layout, Fishing } from '@nx-next-app/features/F0001/desktop'
-import { SlotsProvider } from '@nx-next-app/features/F0001/providers'
+import { LobbyProvider } from '@nx-next-app/features/F0001/providers'
+import { CATEGORY_SORT } from '@nx-next-app/site/nova88/data/slots'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { ISlotsGameData } from '@nx-next-app/service'
-import { CATEGORY_SORT } from '@nx-next-app/site/nova88/data/slots'
+import { ILobbyCategoryGameData } from '@nx-next-app/service'
 import { IFooterData } from '@nx-next-app/types'
 import { pick } from 'lodash-es'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-type ISlotsPageProps = InitialPropsInterface & {
+type ILobbyPageProps = InitialPropsInterface & {
 	footerData: IFooterData
-	persistSlotsGameData: ISlotsGameData
-	persistSlotsCategoryData: ISlotsGameData
+	persistLobbyGameData: ILobbyCategoryGameData
+	persistLobbyCategoryData: ILobbyCategoryGameData
 }
 
-const SlotsPage = ({
+const FishingPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
 	footerData,
 	persistStaticFileDomainData,
-	persistSlotsGameData,
-	persistSlotsCategoryData,
-}: ISlotsPageProps) => {
+	persistLobbyGameData,
+	persistLobbyCategoryData,
+}: ILobbyPageProps) => {
 	return (
 		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
-				<SlotsProvider
-					persistSlotsGameData={persistSlotsGameData}
-					persistSlotsCategoryData={persistSlotsCategoryData}
+				<LobbyProvider
+					persistLobbyGameData={persistLobbyGameData}
+					persistLobbyCategoryData={persistLobbyCategoryData}
 				>
 					<Layout persistSEOData={persistSEOData} footerData={footerData}>
 						<Fishing />
 					</Layout>
-				</SlotsProvider>
+				</LobbyProvider>
 			</GlobalDataProvider>
 		</AuthProvider>
 	)
@@ -113,10 +113,11 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	const { currencyId } = {
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
-	const persistSlotsGameData = await getSlotGamePage(
+	const persistLobbyGameData = await getLobbyGamePage(
 		{
-			deviceType: DEVICE_TYPE.Desktop,
-			currencyId,
+			siteId: 1,
+		  currencyId: 4,
+		  lobbyCategoryIds: "7"
 		},
 		{ headers: { cookie: currentHeaderCookies } }
 	)
@@ -125,10 +126,10 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		props: {
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
-			persistSlotsGameData,
-			persistSlotsCategoryData: pick(persistSlotsGameData, CATEGORY_SORT),
+			persistLobbyGameData,
+			persistLobbyCategoryData: pick(persistLobbyGameData, CATEGORY_SORT),
 		},
 	}
 }
 
-export default SlotsPage
+export default FishingPage

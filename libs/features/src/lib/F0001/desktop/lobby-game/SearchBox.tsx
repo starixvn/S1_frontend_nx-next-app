@@ -1,10 +1,10 @@
 import React from 'react'
 import { useTranslation } from 'next-i18next'
-import { useSlots } from '@nx-next-app/features/F0001/providers'
+import { useLobby } from '@nx-next-app/features/F0001/providers'
 
 const SearchBox = () => {
 	const { t } = useTranslation()
-	const { searchCategoryText, onSearchCategoryTextChange } = useSlots()
+	const { searchCategoryText, onSearchCategoryTextChange } = useLobby()
 	return (
 		<div className='search-bar'>
 			<img

@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { useSlots } from '@nx-next-app/features/F0001/providers'
+import { useLobby } from '@nx-next-app/features/F0001/providers'
 import VendorItem from './VendorItem'
 
 const VendorFilter = () => {
@@ -9,7 +9,7 @@ const VendorFilter = () => {
 		isActiveDropdown,
 		onVendorChange,
 		onToggleDropdown,
-	} = useSlots()
+	} = useLobby()
 	return (
 		<div
 			className={`provider ${classNames({

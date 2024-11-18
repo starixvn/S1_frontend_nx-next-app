@@ -1,45 +1,41 @@
 import { useAuth } from '@nx-next-app/data-access'
-import { useSlots } from '@nx-next-app/features/F0001/providers'
+import { useLobby } from '@nx-next-app/features/F0001/providers'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { Suspense } from 'react'
 
 const GameList = () => {
 	const {
-		slotsGameList,
+		lobbyGameList,
 		vendorList,
 		imgUrl,
 		gameListRef,
 		onGamePlay,
 		onFavoritesToggle,
 		isNewGame,
-	} = useSlots()
+	} = useLobby()
 	const {
 		userInfo: { langId },
 	} = useAuth()
 	const { t } = useTranslation()
 	const newGamesArr = isNewGame()
 
-	return slotsGameList && slotsGameList.length > 0 ? (
+	return lobbyGameList && lobbyGameList.length > 0 ? (
 		<Suspense>
 			<div className='slots-list'>
-				{slotsGameList.map(
+				{lobbyGameList.map(
 					({
 						tpId,
 						gameId,
-						imgName,
-						gameName,
-						playFree,
+						productName,
 						isMaintain,
 						isFavorite,
+            imgProductName,
 						...rest
 					}) => {
 						const resultGameImgDisplayText = vendorList.find(
 							({ tpId: vendorTpId }) => vendorTpId === tpId
 						)?.gameImgDisplayText
-						const resultImgName = imgName[langId] ?? imgName['en']
-						const resultImgUrl = `${imgUrl}/${resultGameImgDisplayText}/${resultImgName}`
-						const resultGameName = gameName[langId] ?? gameName['en']
 
 						return (
 							<div
@@ -59,7 +55,7 @@ const GameList = () => {
 								)}
 
 								<div className='img-wrapper'>
-									<img src={resultImgUrl} alt={resultGameName} />
+									<img src={imgProductName} alt={productName} />
 									<div className='btn-container'>
 										<button
 											className='btn-play'
@@ -73,26 +69,11 @@ const GameList = () => {
 										>
 											{t('Label_Play')}
 										</button>
-
-										{playFree ? (
-											<button
-												className='btn-demo'
-												onClick={() =>
-													onGamePlay({
-														tpId,
-														gameId,
-														playFree,
-													})
-												}
-											>
-												{t('Label_Demo')}
-											</button>
-										) : null}
 									</div>
 								</div>
 								<div className='details'>
 									<div>
-										<div>{resultGameName}</div>
+										<div>{productName}</div>
 										<div>{resultGameImgDisplayText}</div>
 									</div>
 									<div

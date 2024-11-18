@@ -37,6 +37,7 @@ export const rootApi = createApi({
 		'EUROPE_CUP_EVENT_GET_TICKETS',
 		'OLYMPIC_EVENT_GET_TICKETS',
 		'QUESTIONNAIRE_POST',
+    'LOBBY_GAME_DATA'
 	],
 	endpoints: () => ({}),
 })
