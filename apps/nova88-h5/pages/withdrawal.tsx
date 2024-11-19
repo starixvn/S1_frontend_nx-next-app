@@ -1,6 +1,6 @@
+import { NovaAuthProvider } from '@nova88-h5/providers'
 import { paths } from '@nx-next-app/constants'
 import {
-	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
@@ -26,7 +26,10 @@ const WithdrawalPage = ({
 	persistStaticFileDomainData,
 }: IWithdrawalProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -36,7 +39,7 @@ const WithdrawalPage = ({
 					</WithdrawalProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

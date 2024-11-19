@@ -1,6 +1,6 @@
+import { NovaAuthProvider } from '@nova88-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
-	AuthProvider,
 	DepositProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
@@ -34,7 +34,10 @@ const DepositPage = ({
 	withdrawalBlockSetting,
 }: IDepositPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -51,7 +54,7 @@ const DepositPage = ({
 					</DepositProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

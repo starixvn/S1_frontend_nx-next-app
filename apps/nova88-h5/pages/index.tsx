@@ -1,6 +1,6 @@
+import { NovaAuthProvider } from '@nova88-h5/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
-	AuthProvider,
 	getBanner,
 	getHotEvent,
 	getHotGame,
@@ -56,7 +56,10 @@ const HomePage = ({
 	const persistAppDownloadHint = originCookies[ENV_COOKIE_NAMES.AppDownloadHint]
 
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -75,7 +78,7 @@ const HomePage = ({
 					</HomeProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 
