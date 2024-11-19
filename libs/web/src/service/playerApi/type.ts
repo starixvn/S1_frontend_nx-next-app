@@ -32,7 +32,12 @@ export interface IGetCustNotificationArgs {
 	notificationType: TCustNotificationArgs
 }
 
-export type TGetCustNotificationData = string[]
+export type TGetCustNotificationData = {
+	transId: string
+	isoCode: string
+	firstDeposit: boolean
+	amount: number
+}[]
 
 export interface ISetCustNotificationArgs {
 	notificationType: TCustNotificationArgs

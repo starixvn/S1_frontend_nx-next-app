@@ -41,7 +41,7 @@ const notificationsConfig: Record<NotificationTypeEnum, TNotificationConfig> = {
 		iconClassName: ToastIconEnum.Check,
 	},
 	[NotificationTypeEnum.WithdrawalSuccess]: {
-		event: null,
+		event: 'withdraw',
 		i18nLabel: 'Label_WithdrawSuccessful',
 		bgColor: ToastBGColorEnum.Green,
 		iconClassName: ToastIconEnum.Check,
