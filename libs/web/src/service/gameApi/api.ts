@@ -39,6 +39,7 @@ export const gameApi = rootApi.injectEndpoints({
 				siteId: number
 		    currencyId: number
 		    lobbyCategoryIds: string
+        langId: string
 			}
 		>({
 			query: data => ({

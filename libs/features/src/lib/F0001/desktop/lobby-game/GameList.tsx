@@ -28,6 +28,7 @@ const GameList = () => {
 						tpId,
 						gameId,
 						productName,
+            tpName,
 						isMaintain,
 						isFavorite,
             imgProductName,
@@ -36,14 +37,13 @@ const GameList = () => {
 						const resultGameImgDisplayText = vendorList.find(
 							({ tpId: vendorTpId }) => vendorTpId === tpId
 						)?.gameImgDisplayText
-
+						const resultImgUrl = `${process.env['NEXT_PUBLIC_IMAGE_HOST']}/${tpName.toLowerCase()}/${productName.toLowerCase().split(" ").join("-")}.png`;
 						return (
 							<div
 								className='slots-list-item'
 								style={{
 									pointerEvents: isMaintain ? 'none' : 'auto',
 								}}
-								key={`casino-game-${tpId}-${gameId}`}
 							>
 								{isMaintain && (
 									<div className='under'>
@@ -55,7 +55,7 @@ const GameList = () => {
 								)}
 
 								<div className='img-wrapper'>
-									<img src={imgProductName} alt={productName} />
+									<img src={resultImgUrl} alt={productName} />
 									<div className='btn-container'>
 										<button
 											className='btn-play'
@@ -84,16 +84,7 @@ const GameList = () => {
 												gameId,
 											})
 										}
-									>
-										<img
-											src={`${
-												process.env['NEXT_PUBLIC_BANNER_HOST']
-											}/desktop/img/4.0/lobby-slots/star-icon${
-												isFavorite ? '-active' : ''
-											}.png`}
-											alt=''
-										/>
-									</div>
+									/>
 								</div>
 							</div>
 						)

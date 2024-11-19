@@ -160,7 +160,7 @@ const LobbyProvider = ({
 	)
 	const [searchCategoryText, setSearchCategoryText] = useState('')
 	const [activeCategoryKey, setActiveCategoryKey] =
-		useState<keyof ILobbyCategoryGameData>('featured')
+		useState<keyof ILobbyCategoryGameData>('all')
 	const [categoryKeys, setCategoryKeys] = useState(
 		Object.keys(persistLobbyCategoryData)
 	)
@@ -510,7 +510,7 @@ const LobbyProvider = ({
 					(queryTpId ? String(tpId) === queryTpId : true) &&
 					(searchCategoryText === '' ||
 						some(Object.values(productName), name =>
-							camelCase(trim(name)).match(camelCase(trim(searchCategoryText)))
+							camelCase(trim(productName)).match(camelCase(trim(searchCategoryText)))
 						))
 				)
 			})

@@ -30,6 +30,7 @@ export const getLobbyGamePage = async (
 		siteId: number
 		currencyId: number
 		lobbyCategoryIds: string
+    langId: string
 	},
 	config: AxiosRequestConfig
 ) => {

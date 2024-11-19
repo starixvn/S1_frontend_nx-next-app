@@ -68,18 +68,11 @@ export interface ISlotsGameData {
 
 export interface ILobbyCategoryGameData {
 	all?: ILobbyGameData[]
-	buyFeaturesGames?: ILobbyGameData[]
-	featured?: ILobbyGameData[]
 	imgUrl?: string
-	jackpot?: ILobbyGameData[]
-	megaways?: ILobbyGameData[]
-	mini?: ILobbyGameData[]
 	myFavorite?: ILobbyGameData[]
 	new?: ILobbyGameData[]
 	providerList?: IVendorData[]
-	random?: IVendorData[]
 	recentlyPlayed?: ILobbyGameData[]
-	tableAndCards?: ILobbyGameData[]
 }
 
 export interface IDisplayGameData extends IGameData {

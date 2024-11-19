@@ -77,6 +77,22 @@ export enum TpCategory {
   ESports = 11
 }
 
+export enum LobbyCategory {
+  Sports = 1,
+  Esports = 2,
+  Casino = 3,
+  Slots = 4,
+  Poker = 5,
+  Games = 6,
+  Fishing = 7,
+  Lottery = 8,
+  Exchange = 9,
+  FourD = 10,
+  Cockfighting = 11,
+  Numbergame = 81,
+  Keno = 82
+}
+
 export interface ISignUpArgs {
 	affCode?: string
 	affId?: string

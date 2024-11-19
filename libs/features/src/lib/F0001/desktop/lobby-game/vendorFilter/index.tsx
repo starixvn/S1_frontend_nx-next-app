@@ -19,7 +19,7 @@ const VendorFilter = () => {
 			<div className='provider-list'>
 				{vendorList.map(({ tpId, openPath, tpName, imgName, displayText }) => (
 					<VendorItem
-						key={`slot-swiper-${tpId}`}
+						key={`lobby-vendor-${tpId}`}
 						onClick={() =>
 							onVendorChange({
 								tpId,
