@@ -3,7 +3,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
@@ -67,7 +67,6 @@ img {
 }
 
 button, input {
-  font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
 button[disabled], input[disabled] {
@@ -116,7 +115,7 @@ html {
   width: 100%;
   background: #ffffff;
   font-size: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Anybody", sans-serif;
   color: white;
   height: 100%;
   font-weight: 500;
@@ -425,7 +424,6 @@ header input:focus-within {
 .header > div.menu > div > a div.live:before,
 .header > div.menu > div > button div.live:before {
   content: "Live";
-  font-family: "Poppins", sans-serif;
   font-weight: bold;
 }
 .header > div.menu > div > a div.live i,
@@ -1577,7 +1575,6 @@ header input:focus-within {
   display: flex;
 }
 .header > div.function input {
-  font-family: "Poppins", sans-serif;
   font-weight: 600;
   width: 150px;
   background: none;
@@ -4819,7 +4816,6 @@ input[type=file] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: "Poppins", sans-serif;
   padding: 0 5px;
   font-size: 13px;
   color: #5574A7;
@@ -15352,7 +15348,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: "Poppins", sans-serif;
 }
 .quickLinkNew1.active,
 .quickLinkNew2.active,
@@ -19954,14 +19949,12 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin-bottom: 5px;
 }
 .wheelEvent .eventPage .info .title div:not(.title) {
-  font-family: "Poppins", sans-serif;
   font-weight: normal;
   font-size: 15px;
   margin-bottom: 0;
   line-height: 30px;
 }
 .wheelEvent .eventPage .info > div li {
-  font-family: "Poppins", sans-serif;
   font-weight: normal;
   font-size: 16px;
   margin-bottom: 0;
@@ -26520,27 +26513,22 @@ input[type=number] {
 #survey .survey-before fieldset input::-webkit-input-placeholder {
   font-size: 12px;
   color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
 }
 #survey .survey-before fieldset input::-moz-placeholder {
   font-size: 12px;
   color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
 }
 #survey .survey-before fieldset input:-ms-input-placeholder {
   font-size: 12px;
   color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
 }
 #survey .survey-before fieldset input::-ms-input-placeholder {
   font-size: 12px;
   color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
 }
 #survey .survey-before fieldset input::placeholder {
   font-size: 12px;
   color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
 }
 #survey .survey-before fieldset input:focus {
   outline: 0;
@@ -26560,23 +26548,18 @@ input[type=number] {
 }
 #survey .survey-before fieldset textarea::-webkit-input-placeholder {
   color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
 }
 #survey .survey-before fieldset textarea::-moz-placeholder {
   color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
 }
 #survey .survey-before fieldset textarea:-ms-input-placeholder {
   color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
 }
 #survey .survey-before fieldset textarea::-ms-input-placeholder {
   color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
 }
 #survey .survey-before fieldset textarea::placeholder {
   color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
 }
 #survey .survey-before fieldset textarea:focus {
   outline: 0;
