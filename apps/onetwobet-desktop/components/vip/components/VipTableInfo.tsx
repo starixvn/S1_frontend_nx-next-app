@@ -74,7 +74,7 @@ const VipTableInfo = ({
 			rebateEnum: RebateCategoryEnum.LiveCasino,
 		},
 		{
-			resourceKey: 'Label_Vip_Slot_Fishing_Rebate',
+			resourceKey: 'Label_Vip_Slot_Rebate',
 			rebateEnum: RebateCategoryEnum.Casino,
 		},
 		{
