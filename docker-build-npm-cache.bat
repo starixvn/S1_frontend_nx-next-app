@@ -4,7 +4,7 @@ setlocal
 :: Set default values
 set REGISTRY=hub.nexdev.net/nexent
 set IMAGE_NAME=s1-ps-base
-set TAG=18-16-alpine-npm-cache-v1
+set TAG=18-16-alpine-npm-cache-latest
 set FULL_IMAGE_NAME=%REGISTRY%/%IMAGE_NAME%:%TAG%
 
 echo Building Docker image %IMAGE_NAME%:%TAG%...

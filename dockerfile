@@ -1,4 +1,4 @@
-FROM hub.nexdev.net/nexent/s1-ps-base:18-16-alpine-npm-cache-v1 AS builder
+FROM hub.nexdev.net/nexent/s1-ps-base:18-16-alpine-npm-cache-latest AS builder
 
 WORKDIR /build
 
