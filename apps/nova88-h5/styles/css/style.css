@@ -1124,6 +1124,11 @@ button[disabled] {
   color: #666 !important;
 }
 
+.icon::before, .icon::after {
+  font-family: "icomoon" !important;
+  font-size: 5vw;
+}
+
 #root {
   height: 100%;
 }

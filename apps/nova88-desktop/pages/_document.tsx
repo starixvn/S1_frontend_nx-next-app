@@ -50,7 +50,7 @@ class MyDocument extends Document<CustomDocumentProps> {
 						rel='stylesheet'
 					/>
 
-					{process.env['NEXT_PUBLIC_ENV'] === 'PRD' && (
+					{process.env['NEXT_PUBLIC_ENV'] === 'RLS' && (
 						<>
 							{/* Yuri Track , 市場廣告商使用的追蹤碼 */}
 							<script

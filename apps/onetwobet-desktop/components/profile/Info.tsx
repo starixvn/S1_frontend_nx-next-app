@@ -1,4 +1,9 @@
-import { DateSelector, InputBox, Select } from '@12b-desktop/components/common'
+import {
+	DateSelector,
+	InputBox,
+	Loading,
+	Select,
+} from '@12b-desktop/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { EMAIL_REGEX, REALNAME_REGEX } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -34,7 +39,7 @@ const Info = () => {
 			birth_d: birthDay,
 			birth_m: birthMonth,
 			birth_y: birthYear,
-			accountName: hasAccountName,
+			accountName,
 		},
 	} = useAuth()
 
@@ -132,12 +137,15 @@ const Info = () => {
 		)
 	}
 
+	// 等待 response 回來才渲染元件，確保不會發生 react-hydration-error
+	if (!lastLogin) return <Loading />
+
 	return (
 		<div className='profile'>
 			<div>
 				<div>{t('Label_General_RealName')}</div>
 				<div>
-					{hasAccountName ?? (
+					{accountName || (
 						<InputBox
 							register={register('formRealName', {
 								required: { value: true, message: t('Label_Join_RealNameReq') },

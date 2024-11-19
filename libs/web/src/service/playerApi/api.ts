@@ -9,7 +9,7 @@ import {
 } from './type'
 
 export const playerApiUrl = {
-	gcetCustNotification: 'Player/GetCustNotification',
+	getCustNotification: 'Player/GetCustNotification',
 	setCustNotification: 'Player/SetCustNotification',
 	getAppLink: 'Player/GetAppLink',
 }
@@ -26,12 +26,12 @@ export const playerApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
-		gcetCustNotification: builder.query<
+		getCustNotification: builder.query<
 			IAxiosResponse<TGetCustNotificationData>,
 			IGetCustNotificationArgs
 		>({
 			query: data => ({
-				url: playerApiUrl.gcetCustNotification,
+				url: playerApiUrl.getCustNotification,
 				method: 'POST',
 				data,
 			}),
@@ -51,6 +51,6 @@ export const playerApi = rootApi.injectEndpoints({
 
 export const {
 	useGetAppDownloadLinksQuery,
-	useLazyGcetCustNotificationQuery,
+	useLazyGetCustNotificationQuery,
 	useLazySetCustNotificationQuery,
 } = playerApi
