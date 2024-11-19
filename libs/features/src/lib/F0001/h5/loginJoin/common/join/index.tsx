@@ -220,6 +220,10 @@ const Join = ({ cookies }: IJoinProps) => {
 	}
 
 	const handleSubmitForm = async () => {
+		// opera and meta pixel tracker
+		OperaPixelTracker('register')
+		MetaPixelTracker('registerSubmit')
+
 		const {
 			username,
 			password,
@@ -289,10 +293,7 @@ const Join = ({ cookies }: IJoinProps) => {
 				lineUserId: cookieLineUserId as string,
 			}).unwrap()
 			setStep(3)
-
-			// opera and meta pixel tracker
-			OperaPixelTracker('register')
-			MetaPixelTracker('registerSubmit')
+			MetaPixelTracker('CompleteRegistration')
 		} catch (error) {
 			modal.error((error as Error).message)
 		}

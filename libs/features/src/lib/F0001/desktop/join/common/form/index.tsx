@@ -389,6 +389,9 @@ const Form = ({ cookies }: IJoinProps) => {
 	}
 
 	const handleSubmitForm = async () => {
+		// opera and meta pixel tracker
+		OperaPixelTracker('register')
+		MetaPixelTracker('registerSubmit')
 		const {
 			username,
 			password,
@@ -456,9 +459,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				lineUserId: lineUserId as string,
 			}).unwrap()
 
-			// opera and meta pixel tracker
-			OperaPixelTracker('register')
-			MetaPixelTracker('registerSubmit')
+			MetaPixelTracker('CompleteRegistration')
 
 			router.push(`/${userLang}${paths.deposit.root}`)
 		} catch (error) {

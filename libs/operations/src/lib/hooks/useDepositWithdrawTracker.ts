@@ -1,7 +1,7 @@
 import { ToastBGColorEnum, ToastIconEnum } from '@nx-next-app/components/D0001'
 import {
 	NotificationTypeEnum,
-	useLazyGcetCustNotificationQuery,
+	useLazyGetCustNotificationQuery,
 	useLazySetCustNotificationQuery,
 } from '@nx-next-app/service'
 
@@ -36,7 +36,7 @@ const useDepositWithdrawTracker = () => {
 	const { t } = useTranslation()
 	// ======= api =======
 
-	const [getCustNotification] = useLazyGcetCustNotificationQuery()
+	const [getCustNotification] = useLazyGetCustNotificationQuery()
 	const [setCustNotification] = useLazySetCustNotificationQuery()
 
 	// ======= 對外函數 =======
@@ -88,26 +88,28 @@ const useDepositWithdrawTracker = () => {
 				notificationEnabledArg === NotificationStateEnum.Enabled
 
 			/** 消除該財務通知的所有單號 */
-			const orderProcessingPromises = orders.map(orderId => {
-				// 如果有需要通知市場的事件，就發送通知給市場
-				if (event) MetaPixelTracker(event)
+			const orderProcessingPromises = orders.map(
+				({ transId, amount = 0, firstDeposit = false, isoCode = '' }) => {
+					// 如果有需要通知市場的事件，就發送通知給市場
+					if (event) MetaPixelTracker(event, amount, firstDeposit, isoCode)
 
-				// 如果財務通知有啟用，就發送通知
-				if (notificationEnabled) {
-					showNotificationCallBack({
-						message: t(i18nLabel, { orderId }),
-						bgColor,
-						iconClassName,
-						notificationMutedArg,
-					})
+					// 如果財務通知有啟用，就發送通知
+					if (notificationEnabled) {
+						showNotificationCallBack({
+							message: t(i18nLabel, { transId }),
+							bgColor,
+							iconClassName,
+							notificationMutedArg,
+						})
+					}
+
+					// 移除該財務通知類型的單號，防止之後再次獲得相同的單號
+					return setCustNotification({
+						notificationType,
+						transId,
+					}).unwrap()
 				}
-
-				// 移除該財務通知類型的單號，防止之後再次獲得相同的單號
-				return setCustNotification({
-					notificationType,
-					transId: orderId,
-				}).unwrap()
-			})
+			)
 
 			await Promise.all(orderProcessingPromises)
 		} catch (error) {
