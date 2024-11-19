@@ -2827,7 +2827,6 @@ header input:focus-within {
 }
 
 main {
-	padding-top: 176px;
 	min-width: 1400px;
 }
 main .home-marquee {
@@ -4136,20 +4135,6 @@ main .promosswiper .swiper-button-prev::after {
 		bottom: 0;
 		opacity: 1;
 	}
-}
-.joinpop {
-	max-width: 850px;
-	margin: auto;
-	padding: 50px 20px;
-}
-.joinpop .joinloginModule {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	position: relative;
 }
 .joinpop .joinloginModule .btnGroup {
 	margin: 10px 0;
@@ -17820,18 +17805,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .features {
-	background: #e2e2e2;
-	color: #838383;
 	border-radius: 5px;
-	float: left;
-	font-size: 12px;
-	padding-bottom: 20px;
 	min-width: 400px;
-	min-height: 660px;
-}
-.features div,
-.features ul {
-	padding: 10px;
 }
 .features .title {
 	text-align: left;

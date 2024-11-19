@@ -22,7 +22,6 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
 .icon-icon-digital-wallet:before {
 	content: '\e93e';
 }
@@ -757,6 +756,10 @@
 }
 .icon-IcoMoon:before {
 	content: '\eaea';
+}
+.icon-star:before {
+	content: '\e9e7';
+	color: #fff;
 }
 .icon-chevron_down:before {
 	content: '\e940';

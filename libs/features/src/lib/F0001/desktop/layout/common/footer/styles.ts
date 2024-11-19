@@ -63,5 +63,6 @@ export const FooterContainer = styled.div`
 		font-size: 1.2rem;
 		font-weight: 400;
 		letter-spacing: 1.44px;
+		padding: 1.6rem 0;
 	}
 `

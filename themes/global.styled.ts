@@ -72,7 +72,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 10px !important;
   }
 
-  body {
+  body, main {
     background: ${theme.desktop.primary};
   }
 `

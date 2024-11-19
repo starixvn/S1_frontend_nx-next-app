@@ -12,6 +12,8 @@ export const theme = {
 		copyRightBg: '#1F274C',
 
 		menuContainerBg: '#232B4F',
+		buttonBg: '#EA6118',
+		registerBodyBg: '#182043',
 	},
 	mobile: {},
 }
