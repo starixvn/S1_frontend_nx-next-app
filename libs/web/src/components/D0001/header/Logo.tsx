@@ -1,8 +1,7 @@
+import { LogoContainer } from '@nx-next-app/components/D0001/header/styles'
 import { paths } from '@nx-next-app/constants'
 import { useHeaderLogo } from '@nx-next-app/hooks'
 import Link from 'next/link'
-
-import { LogoContainer } from './styles'
 
 interface ILogoProps {
 	rewardsUrl: string
@@ -11,7 +10,7 @@ interface ILogoProps {
 const Logo = ({ rewardsUrl }: ILogoProps) => {
 	const { logoUrl, showSpLogo } = useHeaderLogo({
 		mainLogoUrl: {
-			original: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/logo_w.png`,
+			original: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/logo_w.webp`,
 			special: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/logo-mid.png`,
 		},
 	})

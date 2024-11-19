@@ -1,7 +1,9 @@
-import { FieldErrors, useForm } from 'react-hook-form'
-import { useTranslation } from 'next-i18next'
+import { LoginForm } from '@nx-next-app/components/D0001/header/Function/styles'
 import { paths } from '@nx-next-app/constants'
+import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
+import { FieldErrors, useForm } from 'react-hook-form'
+
 import Form from '../../form'
 
 export type LoginFormType = {
@@ -26,12 +28,13 @@ const Login = ({ onLogin, onLoginInvalid, onLineLogin }: ILoginProps) => {
 	}
 	return (
 		<>
-			<div className='username'>
+			<LoginForm>
 				<Form
 					onSubmit={handleSubmit(onLogin, onLoginInvalid)}
 					component={false}
 				>
 					<input
+						className='form-input username'
 						defaultValue=''
 						placeholder={t('Label_General_Username') || ''}
 						{...register('userName', {
@@ -50,6 +53,7 @@ const Login = ({ onLogin, onLoginInvalid, onLineLogin }: ILoginProps) => {
 						})}
 					/>
 					<input
+						className='form-input password'
 						defaultValue=''
 						type='password'
 						placeholder={t('Label_General_Password') || ''}
@@ -64,22 +68,29 @@ const Login = ({ onLogin, onLoginInvalid, onLineLogin }: ILoginProps) => {
 						<a className='forgot'>{t('Label_Header_ForgetPassword')}</a>
 					</Link>
 				</Form>
-			</div>
+			</LoginForm>
 
 			<button
 				type='button'
-				className='login'
+				className='btn btn-login'
 				onClick={handleSubmit(onLogin, onLoginInvalid)}
 			>
 				{t('Label_General_LogIn')}
 			</button>
 			<Link href='join'>
-				<button type='button' className='join'>
+				<button type='button' className='btn btn-join'>
 					{t('Label_General_Register')}
 				</button>
 			</Link>
+			<a className='btn btn-line-login' onClick={handleLineLogin}>
+				<img
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/line-2.png`}
+					alt='img-line'
+				/>
+				{t('Label_General_LogIn')}
+			</a>
 			{onLineLogin && (
-				<a className='line-login' onClick={handleLineLogin}>
+				<a className='btn btn-line-login' onClick={handleLineLogin}>
 					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/line-2.png`}
 						alt='img-line'

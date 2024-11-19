@@ -2,6 +2,7 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { Header, LoginFormType } from '@nx-next-app/components/D0001'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { HeaderTop } from '@nx-next-app/features/F0001/desktop/layout/common/header/styles'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import {
 	LineLoginDirectTypeEnum,
@@ -17,7 +18,6 @@ import { FieldErrors } from 'react-hook-form'
 import Country from './Country'
 import Menu from './Menu'
 import MsgPopUp from './MsgPopUp'
-import { HeaderTop } from './styles'
 import Wallet from './Wallet'
 
 const LayoutHeader = () => {

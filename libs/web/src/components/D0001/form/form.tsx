@@ -10,18 +10,9 @@ interface IFormProps
 
 const Form = ({ children, component = false, ...restProps }: IFormProps) => {
 	return (
-		<form
-			style={{
-				display: 'contents', // 'contents' 不佔用 dom 元素以符合設計
-			}}
-			{...restProps}
-		>
+		<form {...restProps} className='form'>
 			{children}
-			<button
-				type='submit'
-				aria-label='form-submit'
-				style={{ display: 'contents' }}
-			/>
+			<button className='btn-submit' type='submit' aria-label='form-submit' />
 		</form>
 	)
 }
