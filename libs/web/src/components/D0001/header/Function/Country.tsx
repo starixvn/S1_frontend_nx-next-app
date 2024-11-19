@@ -1,5 +1,5 @@
-import classNames from 'classnames'
 import { LANG_GROUP_COUNTRY } from '@nx-next-app/constants'
+import classNames from 'classnames'
 import { Fragment } from 'react'
 
 interface ICountryProps {
@@ -52,11 +52,12 @@ const Country = ({
 						<div className='country-name'>
 							{LANG_GROUP_COUNTRY[icon || 'ch']}
 						</div>
-						<div>
+						<div className='group'>
 							{langGroup[icon || 'ch']?.map(
 								({ displayText, currencyId, value }) => {
 									return (
 										<button
+											className='change-country'
 											key={displayText}
 											type='button'
 											onClick={() => {
@@ -85,6 +86,7 @@ const Country = ({
 											if (!mainLanguage) return
 											return (
 												<button
+													className='country-name'
 													key={`${lang}_${value}`}
 													type='button'
 													onClick={() => {

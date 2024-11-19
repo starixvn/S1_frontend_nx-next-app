@@ -65,6 +65,10 @@ export const FunctionContainer = styled.div`
 		color: ${({ theme }) => theme.desktop.headerForgotPasswordColor};
 		font-size: 1rem;
 		font-style: italic;
+
+		&:hover {
+			color: ${({ theme }) => theme.desktop.headerForgotPasswordColorHover};
+		}
 	}
 
 	.flag {
@@ -78,32 +82,31 @@ export const FunctionContainer = styled.div`
 	}
 
 	.country-list {
-		min-width: 280px;
+		min-width: 30rem;
 		display: none;
 		position: absolute;
-		margin-top: 40px;
-		background: #ececec;
-		border-radius: 15px;
-		padding: 0 6px;
+		background: ${({ theme }) => theme.desktop.countryCurrentBg};
+		border-radius: 1.5rem;
 		right: 0;
-		top: 55px;
+		top: 5.5rem;
 		z-index: 3;
-		box-shadow: 0 0 10px #0a1b389e;
+		box-shadow: 0 0 1rem #0a1b389e;
+		background: #374375;
 
 		.country-option {
-			height: 350px;
+			display: flex;
+			height: 35rem;
 			overflow-y: scroll;
 			display: flex;
 			flex-direction: column;
+			gap: 0.1rem;
 			align-items: flex-start;
-			background: #fff;
-			border-radius: 15px;
-			padding: 10px 20px;
-			margin: 6px 0;
+			background: ${({ theme }) => theme.desktop.countryOptionsBg};
+			border-radius: 0 0 1.5rem 1.5rem;
 			font-size: 14px;
-			/* width */
+
 			&::-webkit-scrollbar {
-				width: 5px;
+				width: 0.5rem;
 			}
 
 			/* Track */
@@ -114,7 +117,7 @@ export const FunctionContainer = styled.div`
 			/* Handle */
 			&::-webkit-scrollbar-thumb {
 				background: #888;
-				border-radius: 15px;
+				border-radius: 1.5rem;
 			}
 
 			/* Handle on hover */
@@ -122,52 +125,29 @@ export const FunctionContainer = styled.div`
 				background: #555;
 			}
 
-			button,
-			div {
-				margin: 6px 0;
-			}
-
 			.flag {
 				display: flex;
 				align-items: center;
+				width: calc(100% - 3.2rem);
+				padding: 1.4rem 1.6rem;
+				background: ${({ theme }) => theme.desktop.countryOptionsItemBg};
+
 				&:before {
-					width: 25px;
-					height: 25px;
-					margin-right: 14px;
-					bottom: 1px;
-					border-color: #dadada;
+					width: 2.4rem;
+					height: 2.4rem;
+					margin-right: 1rem;
 				}
 			}
 		}
 
 		.country-name {
 			font-weight: bold;
-			font-size: 14px;
-			margin-bottom: 4px;
-		}
+			font-size: 1.4rem;
+			margin-bottom: 0.4rem;
+			color: ${({ theme }) => theme.desktop.countryOptionsItemColor};
 
-		button,
-		a,
-		div {
-			display: flex;
-			align-items: center;
-			color: #0a1b38;
-			flex-flow: row;
-			button {
-				border-right: 1px solid $blue16;
-				border-right-color: #878787;
-
-				padding: 0 8px;
-				&:last-child {
-					border-right: 0;
-					padding: 0 0 0 8px;
-				}
-				&:first-child {
-					padding: 0 8px 0 0;
-				}
-				&:hover {
-					color: $orange;
-				}
+			&:hover {
+				color: ${({ theme }) => theme.desktop.countryOptionsItemColorHover};
 			}
 		}
 		&.active {
@@ -176,60 +156,62 @@ export const FunctionContainer = styled.div`
 	}
 
 	.country-current {
-		margin: 6px 0;
-		background: #fff;
-		border-radius: 15px;
-		padding: 20px;
 		display: flex;
 		align-items: center;
+		padding: 2rem 1.6rem;
+		background: ${({ theme }) => theme.desktop.countryCurrentBg};
+		border-bottom: 1px solid
+			${({ theme }) => theme.desktop.countryCurrentBorderColor};
+		border-radius: 1.5rem 1.5rem 0 0;
 
 		.flag {
 			display: flex;
 			align-items: center;
+
 			&:before {
-				width: 38px;
-				height: 38px;
-				margin-right: 14px;
-				bottom: 1px;
+				width: 4.8rem;
+				height: 4.8rem;
+				margin-right: 1rem;
+				bottom: 0.1rem;
 				border-color: #dadada;
 			}
 		}
-		button {
-			font-size: 12px;
-			color: #878787;
-		}
+
 		.country-info {
 			flex-direction: column;
 			align-items: flex-start;
 		}
+
 		.country-name {
-			color: #0a1b38;
+			font-weight: 600;
+			color: ${({ theme }) => theme.desktop.countryCurrentColor};
 		}
-		div {
+
+		.group {
 			display: flex;
 			align-items: center;
-			color: #0a1b38;
+			gap: 0.1rem;
 			flex-flow: row;
-			button {
-				border-right: 1px solid $blue16;
-				border-right-color: #878787;
+			height: 2.4rem;
+			border-radius: 2rem;
+			background: ${({ theme }) => theme.desktop.countryCurrentBtnGroupBg};
+			overflow: hidden;
 
-				padding: 0 8px;
-				&:last-child {
-					border-right: 0;
-					padding: 0 0 0 8px;
-				}
-				&:first-child {
-					padding: 0 8px 0 0;
-				}
+			.change-country {
+				padding: 0.8rem;
+				font-size: 1.2rem;
+				background: ${({ theme }) => theme.desktop.countryCurrentBtnBg};
+				color: ${({ theme }) => theme.desktop.countryCurrentBtnColor};
+
 				&:hover {
-					color: $orange;
+					color: ${({ theme }) => theme.desktop.countryCurrentBtnColorHover};
+					background: ${({ theme }) => theme.desktop.countryCurrentBtnBgHover};
 				}
 			}
 		}
 	}
 
-	.memberinfo {
+	.member-info {
 		width: 60px;
 		margin-right: 5px;
 	}
@@ -249,7 +231,9 @@ export const FunctionContainer = styled.div`
 			&::after {
 				content: '';
 				display: block;
-				background: url(#{$public-banner-host}/desktop/img/4.0/down-1.png)
+				background: url(${process.env[
+						'NEXT_PUBLIC_BANNER_HOST'
+					]}/desktop/img/4.0/down-1.png)
 					no-repeat center center / cover;
 				width: 12px;
 				height: 14px;
@@ -391,7 +375,9 @@ export const FunctionContainer = styled.div`
 			&::after {
 				content: '';
 				display: block;
-				background: url(#{$public-banner-host}/desktop/img/4.0/down-1.png)
+				background: url(${process.env[
+						'NEXT_PUBLIC_BANNER_HOST'
+					]}/desktop/img/4.0/down-1.png)
 					no-repeat center / cover;
 				width: 12px;
 				height: 14px;
@@ -403,7 +389,9 @@ export const FunctionContainer = styled.div`
 			&::before {
 				content: '';
 				display: block;
-				background: url(#{$public-banner-host}/desktop/img/4.0/refresh-1.png)
+				background: url(${process.env[
+						'NEXT_PUBLIC_BANNER_HOST'
+					]}/desktop/img/4.0/refresh-1.png)
 					no-repeat center / cover;
 				width: 15px;
 				height: 15px;
@@ -418,7 +406,9 @@ export const FunctionContainer = styled.div`
 				cursor: pointer;
 				content: '';
 				display: block;
-				background: url(#{$public-banner-host}/desktop/img/4.0/plus.png)
+				background: url(${process.env[
+						'NEXT_PUBLIC_BANNER_HOST'
+					]}/desktop/img/4.0/plus.png)
 					no-repeat center / cover;
 				width: 15px;
 				height: 15px;
@@ -430,7 +420,9 @@ export const FunctionContainer = styled.div`
 				cursor: pointer;
 				content: '';
 				display: block;
-				background: url(#{$public-banner-host}/desktop/img/4.0/minus.png)
+				background: url(${process.env[
+						'NEXT_PUBLIC_BANNER_HOST'
+					]}/desktop/img/4.0/minus.png)
 					no-repeat center / cover;
 				width: 15px;
 				height: 15px;
@@ -472,7 +464,9 @@ export const FunctionContainer = styled.div`
 					&::after {
 						display: block;
 						content: '';
-						background: url(#{$public-banner-host}/desktop/img/4.0/refresh_w.png)
+						background: url(${process.env[
+								'NEXT_PUBLIC_BANNER_HOST'
+							]}/desktop/img/4.0/refresh_w.png)
 							no-repeat center / cover;
 						width: 16px;
 						height: 16px;

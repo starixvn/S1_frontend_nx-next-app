@@ -1,15 +1,16 @@
-import { useRef } from 'react'
-import Link from 'next/link'
-import { useTranslation } from 'next-i18next'
-import { useBoolean, useOnClickOutside } from 'usehooks-ts'
-import { numberFormat } from '@nx-next-app/utils'
-import { useRouter } from 'next/router'
-import classNames from 'classnames'
-import { includes, head, find } from 'lodash'
+import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useLanguageGroup } from '@nx-next-app/hooks'
 import { useGetCustVIPProgressQuery } from '@nx-next-app/service'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { paths } from '@nx-next-app/constants'
+import { numberFormat } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { find, head, includes } from 'lodash'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useRef } from 'react'
+import { useBoolean, useOnClickOutside } from 'usehooks-ts'
+
 import { Img } from '../../image'
 import Country from './Country'
 
@@ -65,7 +66,7 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 	return (
 		<>
 			<Link href={paths.profile.root}>
-				<a className='memberinfo'>
+				<a className='member-info'>
 					<Img src={headerUrl} alt='img-vip' />
 				</a>
 			</Link>
