@@ -26,7 +26,7 @@ export const playerApi = rootApi.injectEndpoints({
 				data,
 			}),
 		}),
-		gcetCustNotification: builder.query<
+		getCustNotification: builder.query<
 			IAxiosResponse<TGetCustNotificationData>,
 			IGetCustNotificationArgs
 		>({
