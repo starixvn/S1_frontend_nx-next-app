@@ -1,8 +1,7 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { PRODUCTS, paths } from '@nx-next-app/constants'
+import { paths, PRODUCTS } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
+import { MenuContainer } from '@nx-next-app/features/F0001/desktop/layout/common/header/Menu/styles'
 import {
 	LobbyCategoryEnum,
 	MainMenuIcon,
@@ -17,8 +16,11 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useState } from 'react'
 import { useDebounce } from 'usehooks-ts'
+
 import SubMenu from './SubMenu'
 
+import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
+import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
 	{
@@ -153,7 +155,7 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 		)
 	})
 	return (
-		<div className='menu'>
+		<MenuContainer>
 			<div onMouseLeave={() => setMenuKey(undefined)}>
 				<Link href={paths.home.root} passHref>
 					<a className='icon icon-home' onMouseEnter={() => setMenuKey('Home')}>
@@ -229,7 +231,7 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 					onMenuOpen={onMenuOpen}
 				/>
 			</div>
-		</div>
+		</MenuContainer>
 	)
 }
 

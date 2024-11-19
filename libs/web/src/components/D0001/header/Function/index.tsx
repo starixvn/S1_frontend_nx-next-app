@@ -1,9 +1,10 @@
-import React, { FC, ReactNode } from 'react'
+import { FunctionContainer } from "@nx-next-app/components/D0001/header/Function/styles";
+import React, { FC, ReactNode } from "react";
 
-import Country from './Country'
-import Login from './Login'
-import MemberFile from './MemberFile'
-import Wallet from './Wallet'
+import Country from "./Country";
+import Login from "./Login";
+import MemberFile from "./MemberFile";
+import Wallet from "./Wallet";
 
 interface IFunctionProps {
 	children: ReactNode
@@ -17,7 +18,7 @@ export interface IFunctionInterface extends FC<IFunctionProps> {
 }
 
 const Function: IFunctionInterface = ({ children }: IFunctionProps) => {
-	return <div className='function'>{children}</div>
+	return <FunctionContainer>{children}</FunctionContainer>
 }
 
 Function.Login = Login

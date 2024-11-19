@@ -14,11 +14,7 @@ interface IHeaderInterface extends FC<IHeaderProps> {
 }
 
 const Header: IHeaderInterface = ({ children }: IHeaderProps) => {
-	return (
-		<header id='header'>
-			<HeaderContainer>{children}</HeaderContainer>
-		</header>
-	)
+	return <HeaderContainer id='header'>{children}</HeaderContainer>
 }
 
 Header.Logo = Logo
