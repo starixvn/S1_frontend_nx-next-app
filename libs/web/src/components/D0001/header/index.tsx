@@ -1,6 +1,8 @@
 import { FC, ReactNode } from 'react'
-import Logo from './Logo'
+
 import Function from './Function'
+import Logo from './Logo'
+import { HeaderContainer } from './styles'
 
 interface IHeaderProps {
 	children: ReactNode
@@ -14,7 +16,7 @@ interface IHeaderInterface extends FC<IHeaderProps> {
 const Header: IHeaderInterface = ({ children }: IHeaderProps) => {
 	return (
 		<header id='header'>
-			<div className='header'>{children}</div>
+			<HeaderContainer>{children}</HeaderContainer>
 		</header>
 	)
 }

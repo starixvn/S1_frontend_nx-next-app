@@ -1,7 +1,8 @@
 import { paths } from '@nx-next-app/constants'
 import { useHeaderLogo } from '@nx-next-app/hooks'
-import classNames from 'classnames'
 import Link from 'next/link'
+
+import { LogoContainer } from './styles'
 
 interface ILogoProps {
 	rewardsUrl: string
@@ -19,11 +20,9 @@ const Logo = ({ rewardsUrl }: ILogoProps) => {
 	const noSpLogoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/logo_w_noline.png`
 
 	return (
-		<div className={classNames('logo')}>
+		<LogoContainer>
 			<Link href={paths.home.root} style={{ cursor: 'pointer' }}>
-				<a>
-					<img src={showSpLogo ? logoUrl : noSpLogoUrl} alt='logo' />
-				</a>
+				<img src={showSpLogo ? logoUrl : noSpLogoUrl} alt='logo' />
 			</Link>
 
 			{process.env['NEXT_PUBLIC_SHOW_REWARD'] === 'true' && (
@@ -33,7 +32,7 @@ const Logo = ({ rewardsUrl }: ILogoProps) => {
 					</a>
 				</Link>
 			)}
-		</div>
+		</LogoContainer>
 	)
 }
 

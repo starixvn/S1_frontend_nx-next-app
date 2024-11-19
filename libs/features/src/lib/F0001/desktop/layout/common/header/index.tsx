@@ -1,5 +1,5 @@
-import { Header, LoginFormType } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { Header, LoginFormType } from '@nx-next-app/components/D0001'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
@@ -13,9 +13,11 @@ import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FieldErrors } from 'react-hook-form'
+
 import Country from './Country'
 import Menu from './Menu'
 import MsgPopUp from './MsgPopUp'
+import { HeaderTop } from './styles'
 import Wallet from './Wallet'
 
 const LayoutHeader = () => {
@@ -88,33 +90,35 @@ const LayoutHeader = () => {
 
 	return (
 		<Header>
-			<Header.Logo
-				rewardsUrl={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/88rewards.png`}
-			/>
-			<Header.Function>
-				{auth.isLogin ? (
-					<>
-						<Header.Function.MemberFile onSignOut={handleSignOut} />
-						<MsgPopUp />
-						<div className='line' />
-						<Wallet />
-						<Link href={paths.deposit.root}>
-							<a className='deposit-btn' onClick={handleYuriAddToCartClick}>
-								<span>{t('Label_Deposit')}</span>
-							</a>
-						</Link>
-					</>
-				) : (
-					<>
-						<Header.Function.Login
-							onLogin={handleSignIn}
-							onLoginInvalid={handleLoginInvalid}
-							onLineLogin={showLineLogin && handleLineLogin}
-						/>
-						<Country />
-					</>
-				)}
-			</Header.Function>
+			<HeaderTop>
+				<Header.Logo
+					rewardsUrl={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/88rewards.png`}
+				/>
+				<Header.Function>
+					{auth.isLogin ? (
+						<>
+							<Header.Function.MemberFile onSignOut={handleSignOut} />
+							<MsgPopUp />
+							<div className='line' />
+							<Wallet />
+							<Link href={paths.deposit.root}>
+								<a className='deposit-btn' onClick={handleYuriAddToCartClick}>
+									<span>{t('Label_Deposit')}</span>
+								</a>
+							</Link>
+						</>
+					) : (
+						<>
+							<Header.Function.Login
+								onLogin={handleSignIn}
+								onLoginInvalid={handleLoginInvalid}
+								onLineLogin={showLineLogin && handleLineLogin}
+							/>
+							<Country />
+						</>
+					)}
+				</Header.Function>
+			</HeaderTop>
 
 			<Menu
 				menuList={menuList}
