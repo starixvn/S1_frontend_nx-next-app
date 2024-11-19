@@ -7,7 +7,7 @@ type OperaPixelTrackerName = 'register' | 'deposit'
 export type MetaPixelTrackerName =
 	| 'registerSubmit'
 	| 'depositSubmit'
-	| 'deposit_successful'
+	| 'Purchase'
 	| 'withdraw_successful'
 
 export const OperaPixelTracker = (eventName: OperaPixelTrackerName) => {
