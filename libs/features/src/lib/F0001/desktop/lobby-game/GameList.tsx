@@ -1,8 +1,24 @@
+import dynamic from 'next/dynamic'
 import { useAuth } from '@nx-next-app/data-access'
 import { useLobby } from '@nx-next-app/features/F0001/providers'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { Suspense } from 'react'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+
+const LoginModal = dynamic(
+	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
+	{
+		ssr: false,
+	}
+)
+
+const LiveStreamingModalDesktop = dynamic(
+	() => import('../modal/LiveStreamingModal'),
+	{ ssr: false }
+)
 
 const GameList = () => {
 	const {
@@ -19,7 +35,15 @@ const GameList = () => {
 	} = useAuth()
 	const { t } = useTranslation()
 	const newGamesArr = isNewGame()
-
+	const { onMenuOpen } = useMenu()
+	const { modal } = useGlobalModal()
+	const onItemClick = (item: IDynamicSubMenuItem) => {
+		onMenuOpen(item, {
+			loginCallback: () => modal.open(<LoginModal />),
+			messageCallBack: message => modal.error(message),
+			liveStreamingCallback: () => modal.open(<LiveStreamingModalDesktop />),
+		})
+	}
 	return lobbyGameList && lobbyGameList.length > 0 ? (
 		<Suspense>
 			<div className='slots-list'>
@@ -32,12 +56,22 @@ const GameList = () => {
 						isMaintain,
 						isFavorite,
             imgProductName,
+            betType,
+            tpGameType,
 						...rest
 					}) => {
 						const resultGameImgDisplayText = vendorList.find(
 							({ tpId: vendorTpId }) => vendorTpId === tpId
 						)?.gameImgDisplayText
 						const resultImgUrl = `${process.env['NEXT_PUBLIC_IMAGE_HOST']}/${tpName.toLowerCase()}/${productName.toLowerCase().split(" ").join("-")}.png`;
+
+            const lobbyGameItem = {
+              tpId ,
+              betType,
+              tpGameType,
+              gameId,
+              tpName
+            } as IDynamicSubMenuItem;
 						return (
 							<div
 								className='slots-list-item'
@@ -60,11 +94,12 @@ const GameList = () => {
 										<button
 											className='btn-play'
 											onClick={() =>
-												onGamePlay({
-													tpId,
-													gameId,
-													playFree: false,
-												})
+												// onGamePlay({
+												// 	tpId,
+												// 	gameId,
+												// 	playFree: false,
+												// })
+                        onItemClick(lobbyGameItem)
 											}
 										>
 											{t('Label_Play')}
