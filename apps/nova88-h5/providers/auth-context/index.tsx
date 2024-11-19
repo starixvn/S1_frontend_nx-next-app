@@ -38,7 +38,7 @@ export const notificationsConfig: Record<
 	TNotificationConfig
 > = {
 	[NotificationTypeEnum.DepositSuccess]: {
-		event: 'deposit_successful',
+		event: 'Purchase',
 		i18nLabel: 'Label_DepositSuccessful',
 		bgColor: ToastBGColorEnum.Green,
 		iconClassName: ToastIconEnum.Check,
