@@ -1,4 +1,5 @@
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import { NovaAuthProvider } from '@nova88-h5/providers'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
@@ -14,13 +15,16 @@ const MyAccountPage = ({
 	persistStaticFileDomainData,
 }: InitialPropsInterface) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
 				<Layout persistSEOData={persistSEOData}>MyAccountPage</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

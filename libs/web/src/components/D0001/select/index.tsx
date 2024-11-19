@@ -1,9 +1,9 @@
+import { SelectOptionType } from '@nx-next-app/types'
+import classNames from 'classnames'
+import { filter, find, includes, uniqueId } from 'lodash'
+import { useTranslation } from 'next-i18next'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import { useBoolean, useOnClickOutside } from 'usehooks-ts'
-import { useTranslation } from 'next-i18next'
-import { filter, find, includes, uniqueId } from 'lodash'
-import classNames from 'classnames'
-import { SelectOptionType } from '@nx-next-app/types'
 
 export interface ISelectProps {
 	value?: string | number
@@ -18,7 +18,7 @@ export interface ISelectProps {
 	errorMessage?: string
 	showValue?: boolean
 }
-
+// None  Không có
 const Select = (props: ISelectProps) => {
 	const { t } = useTranslation()
 	const ref = useRef(null)

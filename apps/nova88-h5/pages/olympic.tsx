@@ -1,5 +1,6 @@
+import { NovaAuthProvider } from '@nova88-h5/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout, Olympic } from '@nx-next-app/features/F0001/h5'
 import { OlympicProvider } from '@nx-next-app/features/F0001/providers'
 import {
@@ -20,7 +21,10 @@ const OlympicPage = ({
 	persistStaticFileDomainData,
 }: IEuroCupProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -30,7 +34,7 @@ const OlympicPage = ({
 					</OlympicProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

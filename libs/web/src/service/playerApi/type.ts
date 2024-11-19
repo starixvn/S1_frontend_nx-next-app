@@ -4,9 +4,17 @@ export interface IAppDownloadLinks {
 	downloadLink: string
 }
 
+/**
+ * 所有財務通知類型
+ * @DepositSuccess 存款成功
+ * @WithdrawalSuccess 提款成功
+ * @DepositFail 存款失敗
+ * @WithdrawalFail 提款失敗 */
 export enum NotificationTypeEnum {
-	Deposit = 1,
-	Withdrawal,
+	DepositSuccess = 1,
+	WithdrawalSuccess,
+	DepositFail,
+	WithdrawalFail,
 }
 
 export enum SetCustNotificationEnum {
@@ -15,8 +23,10 @@ export enum SetCustNotificationEnum {
 }
 
 export type TCustNotificationArgs =
-	| NotificationTypeEnum.Deposit
-	| NotificationTypeEnum.Withdrawal
+	| NotificationTypeEnum.DepositSuccess
+	| NotificationTypeEnum.WithdrawalSuccess
+	| NotificationTypeEnum.DepositFail
+	| NotificationTypeEnum.WithdrawalFail
 
 export interface IGetCustNotificationArgs {
 	notificationType: TCustNotificationArgs

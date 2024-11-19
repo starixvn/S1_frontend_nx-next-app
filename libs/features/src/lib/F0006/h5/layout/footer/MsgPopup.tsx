@@ -1,12 +1,11 @@
-import React from 'react'
-import { useRouter } from 'next/router'
-import { includes } from 'lodash'
 import { paths } from '@nx-next-app/constants'
-import { useBoolean } from 'usehooks-ts'
+import { useAuth } from '@nx-next-app/data-access'
 import { useGetMsgCountQuery, useGetPopupMsgQuery } from '@nx-next-app/service'
 import classNames from 'classnames'
+import { includes } from 'lodash'
 import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
+import { useRouter } from 'next/router'
+import { useBoolean } from 'usehooks-ts'
 
 const MsgPopup = ({ isWalletActive }: { isWalletActive: boolean }) => {
 	const { t } = useTranslation()
@@ -32,12 +31,11 @@ const MsgPopup = ({ isWalletActive }: { isWalletActive: boolean }) => {
 		<a
 			className={classNames('icon icon-menu', {
 				active:
-					router.pathname.startsWith(`${paths.setting.root}`) &&
-					!isWalletActive,
+					router.pathname.startsWith(`${paths.menu.root}`) && !isWalletActive,
 			})}
 			role='link'
 			aria-hidden
-			onClick={() => router.push(paths.setting.root)}
+			onClick={() => router.push(paths.menu.root)}
 		>
 			{msgCount > 0 && <div className='icon icon-envelope' />}
 			{isPopupMsgActive && !isHided && (

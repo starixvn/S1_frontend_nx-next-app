@@ -1,9 +1,9 @@
+import { paths } from '@nx-next-app/constants'
 import {
-	ILeftMenuData,
 	CurrenciesEnum,
+	ILeftMenuData,
 	LeftMenuKeyEnum,
 } from '@nx-next-app/types'
-import { paths } from '@nx-next-app/constants'
 import { ALLOWED_CURRENCIES } from './allowCurrency'
 
 export const LEFT_MENU_DATA: ILeftMenuData = {
@@ -60,14 +60,14 @@ export const LEFT_MENU_DATA: ILeftMenuData = {
 				pathname: paths.referral.root,
 				allowCurrencies: ALLOWED_CURRENCIES['REFER_FRIENDS'],
 			},
-			changePassword: {
-				displayKey: 'Label_General_ChangePassword',
-				pathname: paths.changePassword.root,
-				allowCurrencies: false,
-			},
 			selfExclusion: {
 				displayKey: 'Label_General_SelfExclusion',
 				pathname: paths.selfExclusion.root,
+				allowCurrencies: false,
+			},
+			setting: {
+				displayKey: 'Label_General_Setting',
+				pathname: paths.setting.root,
 				allowCurrencies: false,
 			},
 		},
