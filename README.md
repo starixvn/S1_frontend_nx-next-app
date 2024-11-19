@@ -8,7 +8,7 @@
 
 > 使用 usehooks-ts 進行邏輯處理。
 
-- [lodash](https://lodash.com/docs/4.17.15)
+- [lodash] (https://lodash.com/docs/4.17.15)
 
 > 使用 JavaScript 實用程序庫。
 
