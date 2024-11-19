@@ -96,7 +96,7 @@ const useDepositWithdrawTracker = () => {
 					// 如果財務通知有啟用，就發送通知
 					if (notificationEnabled) {
 						showNotificationCallBack({
-							message: t(i18nLabel, { transId }),
+							message: t(i18nLabel, { orderId: transId }),
 							bgColor,
 							iconClassName,
 							notificationMutedArg,
