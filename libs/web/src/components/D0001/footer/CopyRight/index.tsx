@@ -19,7 +19,7 @@ const QuickLinks = ({
 	}, quickLinks)
 
 	return (
-		<div>
+		<>
 			{quickLinks.map(({ displayKey, href }) =>
 				displayKey === 'Label_General_Milestone' ? (
 					<a key={displayKey} href={href}>
@@ -36,7 +36,7 @@ const QuickLinks = ({
 					</a>
 				)
 			)}
-		</div>
+		</>
 	)
 }
 

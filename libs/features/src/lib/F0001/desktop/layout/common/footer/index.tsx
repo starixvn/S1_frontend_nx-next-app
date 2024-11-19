@@ -1,5 +1,6 @@
 import { Footer } from '@nx-next-app/components/D0001'
 import { useAuth } from '@nx-next-app/data-access'
+import { FooterContainer } from '@nx-next-app/features/F0001/desktop/layout/common/footer/styles'
 import { useGetSocialChannelQuery } from '@nx-next-app/service'
 import { SocialChannelEnum } from 'libs/features/src/lib/F0001/types'
 import { IFooterData } from 'libs/web/src/app/types/footer'
@@ -29,24 +30,26 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 		displayPage: SocialChannelEnum.FOOTER,
 	})
 	return (
-		<Footer>
-			<div className='footer-top'>
-				{!!quickLinks && <Footer.QuickLinks quickLinks={quickLinks} />}
-				{isGetSocialChannelListLoading ? null : (
-					<Footer.SocialMedia socialChannelList={socialChannelList} />
-				)}
-			</div>
-			<div className='footer-center'>
-				<Footer.SuggestBrowser suggestedBrowser={suggestedBrowser} />
-				<Footer.PaymentMethod
-					paymentMethodsByCurrencyId={paymentMethodsByCurrencyId}
-				/>
-			</div>
-			<div className='copyright'>
-				{t('Label_Footer_Copyright', { year, site })}
-			</div>
-			{/* <Footer.PromotionText promotionTextList={promotionTextList} /> */}
-		</Footer>
+		<FooterContainer>
+			<Footer>
+				<div className='footer-top'>
+					{!!quickLinks && <Footer.QuickLinks quickLinks={quickLinks} />}
+				</div>
+				<div className='footer-center'>
+					{isGetSocialChannelListLoading ? null : (
+						<Footer.SocialMedia socialChannelList={socialChannelList} />
+					)}
+					{/* <Footer.SuggestBrowser suggestedBrowser={suggestedBrowser} /> */}
+					<Footer.PaymentMethod
+						paymentMethodsByCurrencyId={paymentMethodsByCurrencyId}
+					/>
+				</div>
+				<div className='copyright'>
+					{t('Label_Footer_Copyright', { year, site })}
+				</div>
+				{/* <Footer.PromotionText promotionTextList={promotionTextList} /> */}
+			</Footer>
+		</FooterContainer>
 	)
 }
 
