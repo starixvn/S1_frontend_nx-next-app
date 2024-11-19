@@ -30,6 +30,7 @@ export const MetaPixelTracker = (
 	if (window && 'fbq' in window && typeof window.fbq === 'function') {
 		if (eventName === 'CompleteRegistration') {
 			window.fbq('track', eventName)
+			return
 		}
 		if (eventName === 'Purchase') {
 			if (firstDeposit) {
@@ -37,6 +38,7 @@ export const MetaPixelTracker = (
 			}
 			window.fbq('track', 'redeposit', { currency: isoCode, value: amount })
 			window.fbq('track', eventName, { currency: isoCode, value: amount })
+			return
 		}
 		window.fbq('trackCustom', eventName)
 	}
