@@ -9,7 +9,7 @@ import {
 } from './type'
 
 export const playerApiUrl = {
-	getCustNotification: 'Player/GetCustNotification',
+	getCustNotification: 'Player/GetCustNotificationV2',
 	setCustNotification: 'Player/SetCustNotification',
 	getAppLink: 'Player/GetAppLink',
 }
