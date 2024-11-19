@@ -17,6 +17,9 @@ export const OperaPixelTracker = (eventName: OperaPixelTrackerName) => {
 }
 export const MetaPixelTracker = (eventName: MetaPixelTrackerName) => {
 	if (window && 'fbq' in window && typeof window.fbq === 'function') {
+		if (eventName === 'Purchase') {
+			window.fbq('track', eventName)
+		}
 		window.fbq('trackCustom', eventName)
 	}
 }
