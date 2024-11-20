@@ -260,18 +260,20 @@ export const HomeBalance = styled.div`
 
 	.balance-submenu {
 		display: none;
-		background: ${({ theme }) => theme.desktop.dropdownBg};
+
 		position: absolute;
 		top: 6rem;
 		right: 2rem;
 		z-index: 3;
-		color: #fff;
+
 		border-radius: 2rem;
 		padding: 2rem 1.6rem;
+		width: 30rem;
+		background: ${({ theme }) => theme.desktop.dropdownBg};
+		box-shadow: ${({ theme }) => theme.desktop.dropdownShadow};
+		color: #fff;
 		font-size: 1.4rem;
 		font-weight: 400;
-		width: 30rem;
-		box-shadow: ${({ theme }) => theme.desktop.dropdownShadow};
 
 		.balance {
 			display: flex;
@@ -284,18 +286,10 @@ export const HomeBalance = styled.div`
 					align-items: center;
 				}
 			}
-			.refresh-icon {
-				margin-left: 2px;
-				&::after {
-					display: block;
-					content: '';
-					background: url(${process.env[
-							'NEXT_PUBLIC_BANNER_HOST'
-						]}/desktop/img/4.0/refresh_w.png)
-						no-repeat center / cover;
-					width: 16px;
-					height: 16px;
-				}
+
+			.icon:before {
+				color: #717fba;
+				font-size: 2rem;
 			}
 		}
 
@@ -332,17 +326,17 @@ export const HomeBalance = styled.div`
 
 			a {
 				display: flex;
-				height: 36px;
-				padding: 0 12px;
-				border-radius: 100px;
-				background: var(--Color-4, #717fba);
+				height: 3.6rem;
+				padding: 0 1.2rem;
+				border-radius: 10rem;
+				background: #717fba;
 				flex-basis: 50%;
 				align-items: center;
 				justify-content: center;
 				box-shadow: 0px -2px 0px 0px rgba(255, 255, 255, 0.4) inset;
 
 				&:hover {
-					background: var(--Color-4, #5e6dac);
+					background: #5e6dac;
 					box-shadow: none;
 				}
 			}
