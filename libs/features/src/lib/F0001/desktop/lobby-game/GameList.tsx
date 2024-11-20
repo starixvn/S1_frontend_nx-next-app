@@ -94,11 +94,6 @@ const GameList = () => {
 										<button
 											className='btn-play'
 											onClick={() =>
-												// onGamePlay({
-												// 	tpId,
-												// 	gameId,
-												// 	playFree: false,
-												// })
                         onItemClick(lobbyGameItem)
 											}
 										>
@@ -119,7 +114,18 @@ const GameList = () => {
 												gameId,
 											})
 										}
-									/>
+									>
+                  <div>
+										<img
+											src={`${
+												process.env['NEXT_PUBLIC_BANNER_HOST']
+											}/desktop/img/4.0/lobby-slots/star-icon${
+												isFavorite ? '-active' : ''
+											}.png`}
+											alt=''
+										/>
+									</div>
+									</div>
 								</div>
 							</div>
 						)

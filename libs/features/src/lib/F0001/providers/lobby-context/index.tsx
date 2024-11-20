@@ -78,6 +78,7 @@ export interface LobbyContextInterface {
 		openPath: string
     isLobby: boolean
 	}) => void
+	onCategoryChange: (value: string) => void
 	onSearchCategoryTextChange: (value: string) => void
 	setIsShowSearchInput: Dispatch<SetStateAction<boolean>>
 	onInputClose: () => void
@@ -256,6 +257,10 @@ const LobbyProvider = ({
 			find(persistLobbyGameData.providerList, {
 				tpId,
 			}) || {}
+	}
+
+  const onCategoryChange = (value: string) => {
+			setActiveCategoryKey(value as keyof ILobbyCategoryGameData)
 	}
 
 	const isFavorite = ({
@@ -573,6 +578,7 @@ const LobbyProvider = ({
 		isFavorite: includes(myFavorites, activeGame?.gameId),
 		isActiveDropdown,
 		onVendorChange,
+		onCategoryChange,
 		onSearchCategoryTextChange,
 		setIsShowSearchInput,
 		onInputClose,

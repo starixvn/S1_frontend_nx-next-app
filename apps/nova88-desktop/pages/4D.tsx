@@ -6,7 +6,7 @@ import {
 } from '@nx-next-app/data-access'
 import { Layout, FourD } from '@nx-next-app/features/F0001/desktop'
 import { LobbyProvider } from '@nx-next-app/features/F0001/providers'
-import { CATEGORY_SORT } from '@nx-next-app/site/nova88/data/slots'
+import { CATEGORY_LOBBY_SORT } from '@nx-next-app/site/nova88/data/lobby'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -73,7 +73,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 			persistLobbyGameData,
-			persistLobbyCategoryData: pick(persistLobbyGameData, CATEGORY_SORT),
+			persistLobbyCategoryData: pick(persistLobbyGameData, CATEGORY_LOBBY_SORT),
 		},
 	}
 }
