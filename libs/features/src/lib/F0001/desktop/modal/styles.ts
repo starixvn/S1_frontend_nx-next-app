@@ -14,6 +14,7 @@ export const WrapperLoginModal = styled.div`
 			}
 			.joinloginFunction {
 				padding-right: 2rem;
+				max-width: 38rem;
 				.heading-login {
 					font-size: 2.5rem;
 					font-weight: 700;
@@ -32,12 +33,14 @@ export const WrapperLoginModal = styled.div`
 					}
 				}
 				.forgot {
-					color: ${({ theme }) => theme.desktop.white};
-					font-size: 1.4rem;
-					font-weight: 400;
-					line-height: 1.8rem;
 					text-align: right;
 					margin-top: 1.6rem;
+					a {
+						color: ${({ theme }) => theme.desktop.white};
+						font-size: 1.4rem;
+						font-weight: 400;
+						line-height: 1.8rem;
+					}
 				}
 			}
 		}

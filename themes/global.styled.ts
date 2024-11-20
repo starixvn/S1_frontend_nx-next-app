@@ -147,6 +147,30 @@ export const GlobalStyles = createGlobalStyle`
           font-size : 2.4rem;
         }
       }
+      .title{
+        color: ${({ theme }) => theme.desktop.white};
+        font-size: 1.7rem;
+        font-weight: 700;
+        line-height: normal;
+        margin-bottom : .8rem;
+      }
+      .error-content{
+        font-size: 1.4rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.8rem;
+      }
+      .Success{
+        width: 40rem;
+        padding: 4rem 2.8rem 2.8rem 2.8rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .btnGroup{
+          margin-top : 2.4rem;
+          min-width : 20rem;
+        }
+      }
     }
     
   }
@@ -224,7 +248,7 @@ export const GlobalStyles = createGlobalStyle`
       font-weight: 600;
       line-height: normal;
       color: ${({ theme }) => theme.desktop.white};
-      width: 50%;
+      width: 100%;
       &.btn-cancel {
         box-shadow: ${({ theme }) => theme.desktop.registerCancelBtnShadow};
         background: ${({ theme }) => theme.desktop.registerCancelBtnBg};

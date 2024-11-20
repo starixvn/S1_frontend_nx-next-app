@@ -147,11 +147,13 @@ const LoginModal = () => {
 									error={!!errors['password']}
 									touched={!!touchedFields['password']}
 								/>
-								<Link href={paths.forgetPassword.root}>
-									<a className='forgot' onClick={closeModal}>
-										{t('Label_Header_ForgetPassword')}
-									</a>
-								</Link>
+								<div className='forgot'>
+									<Link href={paths.forgetPassword.root}>
+										<a onClick={closeModal}>
+											{t('Label_Header_ForgetPassword')}
+										</a>
+									</Link>
+								</div>
 							</div>
 							<div className='btnGroup'>
 								<button

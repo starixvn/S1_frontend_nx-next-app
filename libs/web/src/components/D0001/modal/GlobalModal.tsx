@@ -62,7 +62,7 @@ const GlobalModal = ({
 					<div className='Success active'>
 						<div className={mergedIcon} />
 						<div className='title'>{mergedTitle}</div>
-						<div>
+						<div className='error-content'>
 							{!isArray(content) && content}
 
 							{isArray(content) && content.map(val => <div>{val}</div>)}
@@ -98,6 +98,7 @@ const GlobalModal = ({
 							)}
 						</div>
 					</div>
+					<i className='close-popup icon-close-line' onClick={closeModal} />
 				</div>
 			)}
 		</Modal>
