@@ -35,12 +35,14 @@ export default ChangePasswordPage
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
 
-	// 當前已將 change-password 功能，改至 setting 頁，故將此頁等回首頁
-	return {
-		redirect: {
-			destination: '/',
-			permanent: false,
-		},
+	// 後台強制 change-password 時仍需要此頁面，故保留
+	if (!initialProps.originIsSignIn) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false,
+			},
+		}
 	}
 
 	return {
