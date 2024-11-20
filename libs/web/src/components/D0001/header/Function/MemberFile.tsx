@@ -99,7 +99,7 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 								/>
 								{!isVipLevelHighest && (
 									<img
-										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/dot-2.png`}
+										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/dot-2.webp`}
 										alt='img-dot'
 									/>
 								)}
@@ -128,7 +128,10 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 											{numberFormat(upDeposit, currencyId)}
 										</div>
 										<Link href={paths.vip.root}>
-											<a>{t('Label_Vip_NextMilestone')}</a>
+											<a>
+												{t('Label_Vip_NextMilestone')}
+												<span className='icon icon-arrow-right-line' />
+											</a>
 										</Link>
 									</div>
 								</>
@@ -138,22 +141,16 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 
 					<div className='home-profile-bottom'>
 						<Link href={paths.profile.root} passHref>
-							<a>
-								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/profile.png`}
-									alt='img-profile'
-								/>
+							<a className='item'>
+								<span className='icon icon-user-line' />
 								{t('Label_General_Profile')}
 							</a>
 						</Link>
 
 						{includes(ALLOWED_CURRENCIES['BANK_INFO'], currencyId) && (
 							<Link href={paths.bankInfo.root} passHref>
-								<a>
-									<img
-										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/bankinfo.png`}
-										alt='img-bank-info'
-									/>
+								<a className='item'>
+									<span className='icon icon-bank-fill' />
 									{t('Label_General_BankInfo')}
 								</a>
 							</Link>
@@ -171,27 +168,21 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 						</Link> */}
 
 						<Link href={paths.referral.root} passHref>
-							<a>
-								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/referfriends.png`}
-									alt='img-refer-friends'
-								/>
+							<a className='item'>
+								<span className='icon icon-profile-2user' />
 								{t('Label_General_ReferFriends')}
 							</a>
 						</Link>
 
 						<Link href={paths.changePassword.root} passHref>
-							<a>
-								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/changepassword.png`}
-									alt='img-change-password'
-								/>
+							<a className='item'>
+								<span className='icon icon-lock-2-fill' />
 								{t('Label_General_ChangePassword')}
 							</a>
 						</Link>
 
 						<div
-							className='home-profile-country'
+							className='item home-profile-country'
 							onClick={e => {
 								// * 停止 toggle
 								if (!includes(pathname, paths.profile.root)) {
@@ -209,11 +200,8 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 								onSetLanguage={onSetLanguage}
 							/>
 						</div>
-						<button className='logout-btn' onClick={onSignOut}>
-							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/logout.png`}
-								alt='img-logout'
-							/>
+						<button className='item logout-btn' onClick={onSignOut}>
+							<span className='icon icon-logout' />
 							{t('Label_General_LogOut')}
 						</button>
 					</div>

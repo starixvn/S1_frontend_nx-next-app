@@ -1,10 +1,5 @@
-import {
-	DeviceTypeEnum,
-	IBannerByCurrencyData,
-	IImageData,
-	VipLevelEnum,
-} from '@nx-next-app/types'
-import * as process from 'process'
+import { DeviceTypeEnum, IBannerByCurrencyData, IImageData, VipLevelEnum } from "@nx-next-app/types";
+import * as process from "process";
 
 const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
@@ -99,7 +94,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		}/img/vip1.png`,
 		displayKey: 'Label_Vip_Vintage_Club',
 		settingDisplayKey: 'Label_VIP_Vintage',
-		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-vintage.png`,
+		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/header-vintage.webp`,
 		levelTabsName: 'vintage',
 		level: VipLevelEnum.VINTAGE,
 		alt: 'vip01',
@@ -110,7 +105,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		}/img/vip2.png`,
 		displayKey: 'Label_Vip_Silver_Club',
 		settingDisplayKey: 'Label_VIP_Silver',
-		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-silver.png`,
+		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/header-silver.webp`,
 		levelTabsName: 'silver',
 		level: VipLevelEnum.SILVER,
 		alt: 'vip02',
@@ -121,7 +116,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		}/img/vip3.png`,
 		displayKey: 'Label_Vip_Gold_Club',
 		settingDisplayKey: 'Label_VIP_Gold',
-		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-gold.png`,
+		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/header-gold.webp`,
 		levelTabsName: 'gold',
 		level: VipLevelEnum.GOLD,
 		alt: 'vip03',
@@ -132,7 +127,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		}/img/vip4.png`,
 		displayKey: 'Label_Vip_Titanium_Club',
 		settingDisplayKey: 'Label_VIP_Titanium',
-		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-titanium.png`,
+		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/header-titanium.webp`,
 		levelTabsName: 'titanium',
 		level: VipLevelEnum.TITANIUM,
 		alt: 'vip04',
@@ -143,7 +138,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		}/img/vip5.png`,
 		displayKey: 'Label_Vip_Diamond_Club',
 		settingDisplayKey: 'Label_VIP_Diamond',
-		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-diamond.png`,
+		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/header-diamond.webp`,
 		levelTabsName: 'diamond',
 		level: VipLevelEnum.DIAMOND,
 		alt: 'vip05',
@@ -154,7 +149,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		}/img/vip6.png`,
 		displayKey: 'Label_Vip_Infinity_Club',
 		settingDisplayKey: 'Label_VIP_Infinity',
-		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-nova.png`,
+		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/header-nova.webp`,
 		levelTabsName: 'infinity',
 		level: VipLevelEnum.Highest,
 		alt: 'vip06',

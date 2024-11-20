@@ -1,151 +1,112 @@
 import styled from "styled-components";
 
 export const HomeProfile = styled.div`
-	background: #f9f9f9;
+	background: ${({ theme }) => theme.desktop.dropdownBg};
 	position: absolute;
 	z-index: 3;
-	border-radius: 20px;
-	right: 257px;
-	top: 95px;
+	border-radius: 2rem;
+	right: 25.7rem;
+	top: 6rem;
 	display: none;
-	box-shadow: 0 0 10px #0a1b389e;
-	width: 282px;
+	box-shadow: ${({ theme }) => theme.desktop.dropdownShadow};
+	width: 30rem;
+	overflow: hidden;
 
 	.home-profile-top {
-		background: #efefef;
-		padding: 20px;
-		border-radius: 20px 20px 0 0;
-		color: #0a1b38;
+		background: ${({ theme }) => theme.desktop.dropdownHeaderBg};
+		padding: 1.6rem 1.4rem;
+		border-radius: 2rem 2rem 0 0;
+
 		> div {
 			&:first-child {
 				display: flex;
-				margin-bottom: 5px;
-				span {
-					color: #ff7600;
-					font-size: 16px;
-				}
+				gap: 1.2rem;
+				margin-bottom: 0.5rem;
 			}
 		}
+
 		.vip-img {
 			display: flex;
 			align-items: center;
 			margin-bottom: 5px;
 			img {
-				width: 75px;
+				width: 6rem;
+
 				&:nth-child(2) {
-					width: 90px;
+					width: 12.4rem;
 				}
 			}
 		}
 		.progress {
-			width: 242px;
-			height: 6px;
-			background: #fff;
-			border-radius: 50px;
+			width: 100%;
+			height: 0.6rem;
+			background: ${({ theme }) => theme.desktop.homeProfileProgressBg};
+			border-radius: 5rem;
+
 			.progress-bar {
-				background: linear-gradient(90deg, #cdcdcd 10%, #ff7600);
-				height: 6px;
-				border-radius: 50px;
+				background: ${({ theme }) => theme.desktop.homeProfileProgressBarBg};
+				height: 0.6rem;
+				border-radius: 5rem;
 			}
 		}
+
 		.progress-number {
-			font-size: 10px;
-			margin-top: 10px;
+			margin-top: 1.2rem;
 			display: flex;
 			justify-content: space-between;
 			width: 100%;
+			font-size: 1.2rem;
+			color: ${({ theme }) => theme.desktop.dropdownTextColor};
 			a {
-				color: #cbcbcb;
 				display: flex;
 				align-items: center;
 				margin-left: 5px;
-				&::after {
-					display: block;
-					content: '';
-					background: url(#{$public-banner-host}/desktop/img/4.0/right-4.png)
-						no-repeat center / cover;
-					width: 12px;
-					height: 12px;
-				}
+				color: ${({ theme }) => theme.desktop.dropdownTextColor};
+			}
+
+			.icon:before {
+				color: ${({ theme }) => theme.desktop.dropdownTextColor};
 			}
 		}
 	}
 	.home-profile-bottom {
-		padding: 20px;
-		a {
+		display: flex;
+		flex-direction: column;
+		gap: 0.1rem;
+		background: ${({ theme }) => theme.desktop.dropdownMainBg};
+		font-size: 1.4rem;
+
+		.item {
 			display: flex;
 			align-items: center;
-			color: #0a1b38;
-			margin-bottom: 15px;
-			img {
-				width: 30px;
-				margin-right: 10px;
+			background: ${({ theme }) => theme.desktop.dropdownItemBg};
+			color: ${({ theme }) => theme.desktop.dropdownItemColor};
+			padding: 1.4rem 1.6rem;
+
+			.icon {
+				margin-right: 0.5rem;
+				font-size: 2rem;
+			}
+
+			&:hover {
+				color: ${({ theme }) => theme.desktop.dropdownItemColorHover};
 			}
 		}
-		.home-profile-country {
-			.flag {
-				margin: 0;
-				height: 40px;
-				span {
-					width: 135px;
-					text-align: start;
-				}
-				&::before {
-					border: 1px solid #0a1b38;
-					width: 25px;
-					height: 25px;
-					margin: 0 13px 0 0;
-				}
-				&.arrow {
-					&.flag {
-						flex-direction: row;
-					}
-					&.active {
-						&::after {
-							transform: rotate(180deg);
-							transition: 0.35s;
-						}
-					}
-					&::after {
-						display: block;
-						content: '';
-						background: url(#{$public-banner-host}/desktop/img/4.0/down-2.png)
-							no-repeat center / cover;
-						width: 15px;
-						height: 15px;
-						margin-left: 50px;
-						transition: 0.35s;
-					}
-				}
+
+		.home-profile-country .flag {
+			&:before {
+				width: 2.4rem;
+				height: 2.4rem;
+				margin-right: 1rem;
 			}
-			.country-list {
-				position: unset;
-				min-width: unset;
-				margin-top: unset;
-				background: transparent;
-				box-shadow: unset;
-				padding: 0;
-			}
-			.country-current {
-				padding: 15px 10px;
-				.flag {
-					&::before {
-						width: 30px;
-						height: 30px;
-						margin-right: 7px;
-					}
-				}
+			span {
+				font-size: 1.4rem;
+				color: ${({ theme }) => theme.desktop.dropdownItemColor};
 			}
 		}
+
 		.logout-btn {
-			display: flex;
-			align-items: center;
-			color: #ff7600;
-			margin-top: 15px;
-			img {
-				width: 25px;
-				margin: 0 15px 0 3px;
-			}
+			color: #fff;
 		}
 	}
 	&.active {
@@ -299,23 +260,23 @@ export const HomeBalance = styled.div`
 
 	.balance-submenu {
 		display: none;
-		background: #fff;
+		background: ${({ theme }) => theme.desktop.dropdownBg};
 		position: absolute;
-		top: 95px;
-		right: 20px;
+		top: 6rem;
+		right: 2rem;
 		z-index: 3;
-		color: #0a1b38;
-		border-radius: 20px;
-		padding: 20px;
-		font-size: 12px;
-		width: 300px;
-		box-shadow: 0 0 10px #0a1b389e;
+		color: #fff;
+		border-radius: 2rem;
+		padding: 2rem 1.6rem;
+		font-size: 1.4rem;
+		font-weight: 400;
+		width: 30rem;
+		box-shadow: ${({ theme }) => theme.desktop.dropdownShadow};
+
 		.balance {
 			display: flex;
 			justify-content: space-between;
-			font-size: 16px;
-			padding: 0 8px;
-			margin-bottom: 10px;
+			margin-bottom: 2rem;
 
 			span {
 				&:nth-child(2) {
@@ -337,50 +298,65 @@ export const HomeBalance = styled.div`
 				}
 			}
 		}
+
 		.walletBalance {
-			background: #cdcdcd;
-			padding: 8px;
-			font-size: 15px;
-			border-radius: 6px;
-			margin-bottom: 10px;
+			padding: 0 1.2rem;
+			border-radius: 10rem;
+			background: ${({ theme }) => theme.desktop.dropdownHeaderBg};
+			color: ${({ theme }) => theme.desktop.dropdownHeaderColor};
+			margin-bottom: 1.6rem;
+
 			.walletName {
 				display: flex;
 				justify-content: space-between;
+				align-items: center;
+				align-self: stretch;
+				min-height: 3.6rem;
 			}
+
 			.bouns {
-				font-size: 13px;
 				display: flex;
 				justify-content: space-between;
 				margin-top: 10px;
 			}
+
 			.percentage {
 				font-size: 13px;
 			}
 		}
+
 		.btnGroup {
+			display: flex;
+			gap: 1.2rem;
 			margin: 20px 0;
+
 			a {
-				&:nth-child(2) {
-					margin-left: 10px;
-				}
-			}
-			.orange {
-				font-size: 14px;
-				background: #0a1b38;
-				margin: 0;
+				display: flex;
+				height: 36px;
+				padding: 0 12px;
+				border-radius: 100px;
+				background: var(--Color-4, #717fba);
+				flex-basis: 50%;
+				align-items: center;
+				justify-content: center;
+				box-shadow: 0px -2px 0px 0px rgba(255, 255, 255, 0.4) inset;
+
 				&:hover {
-					background: #ff7600;
+					background: var(--Color-4, #5e6dac);
+					box-shadow: none;
 				}
 			}
 		}
+
 		.loginLog {
 			display: flex;
 			justify-content: space-between;
 		}
+
 		.transactionLog {
 			display: flex;
 			justify-content: space-between;
-			margin-top: 5px;
+			margin-top: 1.6rem;
 		}
 	}
 	&.active {
@@ -475,13 +451,12 @@ export const FunctionContainer = styled.div`
 		min-width: 30rem;
 		display: none;
 		position: absolute;
-		background: ${({ theme }) => theme.desktop.countryCurrentBg};
+		background: ${({ theme }) => theme.desktop.dropdownBg};
 		border-radius: 1.5rem;
 		right: 0;
 		top: 5.5rem;
 		z-index: 3;
-		box-shadow: 0 0 1rem #0a1b389e;
-		background: #374375;
+		box-shadow: ${({ theme }) => theme.desktop.dropdownShadow};
 
 		.country-option {
 			display: flex;
@@ -491,9 +466,9 @@ export const FunctionContainer = styled.div`
 			flex-direction: column;
 			gap: 0.1rem;
 			align-items: flex-start;
-			background: ${({ theme }) => theme.desktop.countryOptionsBg};
+			background: ${({ theme }) => theme.desktop.dropdownMainBg};
 			border-radius: 0 0 1.5rem 1.5rem;
-			font-size: 14px;
+			font-size: 1.4rem;
 
 			&::-webkit-scrollbar {
 				width: 0.5rem;
@@ -520,7 +495,7 @@ export const FunctionContainer = styled.div`
 				align-items: center;
 				width: calc(100% - 3.2rem);
 				padding: 1.4rem 1.6rem;
-				background: ${({ theme }) => theme.desktop.countryOptionsItemBg};
+				background: ${({ theme }) => theme.desktop.dropdownItemBg};
 
 				&:before {
 					width: 2.4rem;
@@ -534,10 +509,10 @@ export const FunctionContainer = styled.div`
 			font-weight: bold;
 			font-size: 1.4rem;
 			margin-bottom: 0.4rem;
-			color: ${({ theme }) => theme.desktop.countryOptionsItemColor};
+			color: ${({ theme }) => theme.desktop.dropdownItemColor};
 
 			&:hover {
-				color: ${({ theme }) => theme.desktop.countryOptionsItemColorHover};
+				color: ${({ theme }) => theme.desktop.dropdownItemColorHover};
 			}
 		}
 		&.active {
@@ -549,9 +524,8 @@ export const FunctionContainer = styled.div`
 		display: flex;
 		align-items: center;
 		padding: 2rem 1.6rem;
-		background: ${({ theme }) => theme.desktop.countryCurrentBg};
-		border-bottom: 1px solid
-			${({ theme }) => theme.desktop.countryCurrentBorderColor};
+		background: ${({ theme }) => theme.desktop.dropdownHeaderBg};
+		border-bottom: 1px solid ${({ theme }) => theme.desktop.dropdownLineColor};
 		border-radius: 1.5rem 1.5rem 0 0;
 
 		.flag {
