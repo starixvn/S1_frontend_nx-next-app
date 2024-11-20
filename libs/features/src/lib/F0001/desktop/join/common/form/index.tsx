@@ -525,7 +525,7 @@ const Form = ({ cookies }: IJoinProps) => {
 						},
 						onBlur: () => trigger('realName'),
 					})}
-					icon='icon-member txt-blue'
+					icon='icon-user-follow-line'
 					placeholder={t('Label_General_RealName') as string}
 					errorMessage={errors['realName']?.message as string}
 					error={!!errors['realName']}
@@ -540,7 +540,7 @@ const Form = ({ cookies }: IJoinProps) => {
 						},
 						onBlur: checkEmail,
 					})}
-					icon='icon-email txt-blue'
+					icon='icon-mail-line'
 					placeholder={t('Label_General_Email') || ''}
 					loading={existsEmailLoading}
 					errorMessage={errors['email']?.message as string}
@@ -566,7 +566,7 @@ const Form = ({ cookies }: IJoinProps) => {
 							showYearDropdown
 						/>
 						<div className='iconModule' style={{ cursor: 'default' }}>
-							<i className='icon icon-calendar' />
+							<i className='icon icon-calendar-2-line' />
 						</div>
 						{/* <div className='tip active txt-red'>
 							{errors['birth']?.message as string}

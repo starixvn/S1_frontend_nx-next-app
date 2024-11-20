@@ -1,7 +1,7 @@
+import classNames from 'classnames'
 import type { InputHTMLAttributes } from 'react'
 import { useState } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
-import classNames from 'classnames'
 
 export interface IInputBoxProps
 	extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
@@ -93,7 +93,7 @@ const InputBox = ({
 		// 此處透過權重管理要顯示的 Icon
 
 		if (error) {
-			return <i className='icon icon-cross' />
+			return <i className='icon icon-close-line' />
 		}
 
 		if (loading) {
@@ -103,7 +103,7 @@ const InputBox = ({
 		// 有傳入 successMessage 或有驗證過的話該 icon 會在驗證無錯誤之後出現
 		if (touched && !error && (!!successMessage || error !== undefined)) {
 			// 成功 icon 應在輸入資料驗證後才會顯示
-			return <i className='icon icon-checkmark' />
+			return <i className='icon icon-check' />
 		}
 
 		if (infoMessage || onInfoClick) {
@@ -111,7 +111,7 @@ const InputBox = ({
 				// 為消除綁定 onClick 在 非 button 元件上的錯
 				// eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/control-has-associated-label,jsx-a11y/no-static-element-interactions
 				<i
-					className='icon icon-information'
+					className='icon icon-information-fill'
 					onClick={() => {
 						setShowInfo(prev => !prev)
 						onInfoClick && onInfoClick()
@@ -177,8 +177,8 @@ const InputBox = ({
 							// eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions
 							<i
 								className={classNames('icon', {
-									'icon-eye-blocked': !showPassword,
-									'icon-eye': showPassword,
+									'icon-eye-close-line': !showPassword,
+									'icon-eye-fill': showPassword,
 								})}
 								style={{ cursor: 'pointer' }}
 								onClick={() => setShowPassword(prev => !prev)}
