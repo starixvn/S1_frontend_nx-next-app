@@ -125,7 +125,7 @@ const LoginModal = () => {
 										},
 										onBlur: () => trigger('username'),
 									})}
-									icon='icon-member txt-blue'
+									icon='icon-user-line'
 									placeholder={t('Label_General_Username') || ''}
 									errorMessage={errors['username']?.message as string}
 									error={!!errors['username']}
@@ -141,7 +141,7 @@ const LoginModal = () => {
 										onBlur: () => trigger('password'),
 									})}
 									password
-									icon='icon icon-key txt-blue'
+									icon='icon icon-lock-password-line'
 									placeholder={t('Label_General_Password') || ''}
 									errorMessage={errors['password']?.message as string}
 									error={!!errors['password']}
