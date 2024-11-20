@@ -14,7 +14,7 @@ const Team = ({
 	className = 'group-item',
 }: ITeamProps) => {
 	const imgSrc = imageName
-		? `https://minio-api.lumigame.com/s1-sportsimgs/Country%20Team/${imageName}`
+		? `https://s1-static.nexdev.net/sports/Country%20Team/${imageName}`
 		: fallbackImgUrl
 
 	return (
