@@ -605,7 +605,7 @@ const Form = ({ cookies }: IJoinProps) => {
 								showSearch
 								options={areaCodeSelectOptions}
 								placeholder=''
-								prefixIcon={<i className='icon icon-phone txt-blue' />}
+								prefixIcon={<i className='icon icon-phone-line' />}
 								onChange={areaCode => selectAreaCode(areaCode)}
 								value={getValues('areaCode')}
 								errorMessage={phoneErrorTip}

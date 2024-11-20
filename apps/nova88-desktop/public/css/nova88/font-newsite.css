@@ -26,12 +26,10 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
-.icon-plus-circle:before {
+.icon-phone-line:before {
 	content: '\e927';
 	color: #fff;
 }
-
 .icon-switch-off:before {
 	content: '\e900';
 	color: #fff;
