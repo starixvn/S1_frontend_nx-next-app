@@ -17,7 +17,7 @@ export const DESKTOP_HOME_ORDERS = [
 	DesktopHomeComponentsEnum.ProviderBlock,
 	DesktopHomeComponentsEnum.LiveStreamingLink,
 	DesktopHomeComponentsEnum.EuropeCupEntry,
-	DesktopHomeComponentsEnum.LuckyWheel,
+	// DesktopHomeComponentsEnum.LuckyWheel,
 	DesktopHomeComponentsEnum.Retention,
 	DesktopHomeComponentsEnum.OlympicEntry,
 ]
@@ -35,7 +35,7 @@ export const MOBILE_HOME_ORDERS = [
 	MobileHomeComponentsEnum.FooterBlock,
 	MobileHomeComponentsEnum.LiveStreamingLink,
 	MobileHomeComponentsEnum.EuropeCupEntry,
-	MobileHomeComponentsEnum.LuckyWheel,
+	// MobileHomeComponentsEnum.LuckyWheel,
 	MobileHomeComponentsEnum.Retention,
 	MobileHomeComponentsEnum.OlympicEntry,
 ]
