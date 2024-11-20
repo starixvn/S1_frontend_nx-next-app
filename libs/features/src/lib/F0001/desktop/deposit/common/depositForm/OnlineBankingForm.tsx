@@ -144,39 +144,41 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
 				<DepositModule title={t('Label_General_DepositAmount')} required>
 					<div className='column' />
-					<InputBox
-						type='number'
-						className='inputBox-white'
-						register={register('amount', {
-							valueAsNumber: true,
-							required: {
-								value: true,
-								message: t('Label_General_AmountLessThan', {
-									value1: numberFormat(convertedMinAmount, currencyId, 0),
-								}),
-							},
-							min: {
-								value: watchMinAmount,
-								message: t('Label_General_AmountLessThan', {
-									value1: numberFormat(convertedMinAmount, currencyId, 0),
-								}),
-							},
-							max: {
-								value: watchMaxAmount,
-								message: t('Label_General_NotInLimit'),
-							},
-						})}
-						format={isConvert(currencyId)}
-						placeholder={
-							t('Label_General_AmountMinMaxLimit', {
-								value1: numFormatToDigits(watchMinAmount),
-								value2: numFormatToDigits(watchMaxAmount),
-							}) || ''
-						}
-						touched={!!touchedFields['amount']}
-						errorMessage={errors['amount']?.message || ''}
-						error={!!errors['amount']}
-					/>
+					{!showShortcutList && (
+						<InputBox
+							type='number'
+							className='inputBox-white'
+							register={register('amount', {
+								valueAsNumber: true,
+								required: {
+									value: true,
+									message: t('Label_General_AmountLessThan', {
+										value1: numberFormat(convertedMinAmount, currencyId, 0),
+									}),
+								},
+								min: {
+									value: watchMinAmount,
+									message: t('Label_General_AmountLessThan', {
+										value1: numberFormat(convertedMinAmount, currencyId, 0),
+									}),
+								},
+								max: {
+									value: watchMaxAmount,
+									message: t('Label_General_NotInLimit'),
+								},
+							})}
+							format={isConvert(currencyId)}
+							placeholder={
+								t('Label_General_AmountMinMaxLimit', {
+									value1: numFormatToDigits(watchMinAmount),
+									value2: numFormatToDigits(watchMaxAmount),
+								}) || ''
+							}
+							touched={!!touchedFields['amount']}
+							errorMessage={errors['amount']?.message || ''}
+							error={!!errors['amount']}
+						/>
+					)}
 
 					{/* // ! 加這行 tip 用來防止 InputBox 與 ShortcutList 跑版 */}
 					<div className='tip' />
