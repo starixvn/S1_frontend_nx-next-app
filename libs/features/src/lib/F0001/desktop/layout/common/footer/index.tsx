@@ -19,7 +19,7 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 	} = useAuth()
 	const { t } = useTranslation()
 	const year = new Date().getFullYear()
-	const site = upperFirst(process.env['NEXT_PUBLIC_SITE_NAME'])
+	const site = upperFirst(process.env['NEXT_PUBLIC_BRAND_NAME'])
 	const {
 		data: { data: socialChannelList = [] } = {},
 		isLoading: isGetSocialChannelListLoading,
