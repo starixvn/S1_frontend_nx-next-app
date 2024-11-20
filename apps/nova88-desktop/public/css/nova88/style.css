@@ -197,8 +197,6 @@ input[disabled] {
 	visibility: hidden;
 	opacity: 0;
 	height: 0;
-	-webkit-transition: 0.6s;
-	transition: 0.6s;
 }
 
 .transition-open,
@@ -208,8 +206,6 @@ input[disabled] {
 	visibility: visible;
 	opacity: 1;
 	height: auto;
-	-webkit-transition: 0.6s;
-	transition: 0.6s;
 }
 
 body,
@@ -4136,154 +4132,6 @@ main .promosswiper .swiper-button-prev::after {
 		opacity: 1;
 	}
 }
-/* .joinpop .joinloginModule .btnGroup {
-	margin: 10px 0;
-}
-.joinpop .joinloginModule .joinloginFunction {
-	margin-left: 25px;
-	color: #5574a7;
-}
-.joinpop .joinloginModule .joinloginFunction a.txt-orange,
-.joinpop .joinloginModule .joinloginFunction a.txt-blue,
-.joinpop .joinloginModule .joinloginFunction > div button.txt-orange,
-.joinpop .joinloginModule .joinloginFunction > div button.txt-blue {
-	text-decoration: underline;
-	font-size: 12px;
-	text-align: right;
-	margin-left: 5px;
-}
-.joinpop .joinloginModule .joinloginFunction .icon-email {
-	font-weight: bold;
-	font-size: 16px;
-}
-.joinpop .joinloginModule .joinloginFunction .inputModule {
-	margin-top: 10px;
-}
-.joinpop .joinloginModule .joinloginFunction .inputBox-blue,
-.joinpop .joinloginModule .joinloginFunction .inputBox-org {
-	z-index: unset;
-}
-.joinpop .joinloginModule .joinloginFunction .dropdown span {
-	-webkit-box-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-}
-.joinpop .joinloginModule .joinloginFunction .dropdown span + button {
-	width: auto;
-	-webkit-box-flex: 1;
-	-ms-flex: auto;
-	flex: auto;
-	-webkit-box-pack: end;
-	-ms-flex-pack: end;
-	justify-content: flex-end;
-	margin-right: 20px;
-}
-.joinpop .joinloginModule .joinloginFunction .dropdown .dropdown-container {
-	position: absolute;
-	top: 29px;
-	left: -1px;
-	border-radius: 0 0 5px 5px;
-	background: white;
-	border: 1px solid #bfcce2;
-	border-top: 0;
-	margin-left: 0;
-	overflow-x: hidden;
-	z-index: 1;
-	height: 210px;
-}
-.joinpop
-	.joinloginModule
-	.joinloginFunction
-	.dropdown
-	.dropdown-container
-	.dropdown-item {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	margin: 0;
-	padding: 5px 0 5px 19px;
-}
-.joinpop
-	.joinloginModule
-	.joinloginFunction
-	.dropdown
-	.dropdown-container::-webkit-scrollbar {
-	width: 3px;
-}
-.joinpop .joinloginModule .joinloginFunction .dropdown > .btn {
-	-webkit-box-pack: start;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
-}
-.joinpop .joinloginModule .joinloginFunction .register-line {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	margin: 20px 0;
-}
-.joinpop .joinloginModule .joinloginFunction .register-line .btnGroup {
-	margin-left: 10px;
-}
-.joinpop .joinloginModule .joinloginFunction .register-line + div {
-	border-bottom: 1px solid #5574a7;
-	line-height: 0.08;
-	text-align: center;
-	margin: 10px 0 20px;
-}
-.joinpop .joinloginModule .joinloginFunction .register-line + div > span {
-	background: #ffffff;
-	padding: 5px 10px;
-}
-.joinpop .joinloginModule .joinAnimation {
-	position: absolute;
-	left: 10px;
-	bottom: 0;
-	width: 380px;
-	height: 380px;
-	-webkit-transform: scale(0.9);
-	transform: scale(0.9);
-}
-.joinpop .joinloginModule .joinAnimation img {
-	width: auto;
-	height: auto;
-	position: absolute;
-	margin: auto;
-}
-.joinpop .joinloginModule .joinAnimation img.animationlogo {
-	bottom: 0;
-	left: 0;
-	z-index: 3;
-}
-.joinpop .joinloginModule .joinAnimation img.npc1 {
-	left: 0;
-	top: 20px;
-}
-.joinpop .joinloginModule .joinAnimation img.welcome {
-	z-index: 1;
-	left: 50%;
-	bottom: 0;
-}
-.joinpop .joinloginModule .joinAnimation img.back {
-	right: 100px;
-	bottom: 0;
-}
-.joinpop .joinloginModule .joinAnimation img.npc2 {
-	z-index: 1;
-	right: -10px;
-	bottom: 15px;
-}
-.joinpop .joinloginModule .flag:before {
-	border: 1px solid #bfcce2;
-	width: 15px;
-	height: 15px;
-	line-height: 15px;
-} */
 
 .flag:before {
 	content: '';
@@ -4708,20 +4556,6 @@ main .promosswiper .swiper-button-prev::after {
 	color: #5574a7;
 }
 
-.inputBox-blue {
-	border: 1px solid #5574a7;
-	background: #e8edf3;
-	border: 1px solid #bfcce2;
-	background: white;
-}
-.inputBox-blue .dropdown .dropdown-container .txt-white,
-.inputBox-blue .dropdown .dropdown-container .btn {
-	color: white;
-}
-.inputBox-blue .icon:before {
-	color: #5574a7;
-}
-
 input[type='file'] {
 	display: none;
 }
@@ -4935,65 +4769,6 @@ input[type='file'] {
 }
 .tip.txt-red {
 	color: #cf0404;
-}
-
-.dropdown {
-	width: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-ms-flex-flow: wrap;
-	flex-flow: wrap;
-}
-.dropdown > .dropdown-container {
-	margin-left: 5px;
-	width: 100%;
-	color: #666;
-}
-.dropdown > .dropdown-container .dropdown-item {
-	font-size: 13px;
-	padding: 5px 0 5px 5px;
-	cursor: pointer;
-	color: #5574a7;
-}
-.dropdown > .dropdown-container .dropdown-item:hover {
-	background: -webkit-gradient(
-		linear,
-		left top,
-		left bottom,
-		from(#f1d5b6),
-		to(#cdae8e)
-	);
-	background: linear-gradient(to bottom, #f1d5b6, #cdae8e);
-	color: white;
-}
-.dropdown > .btn {
-	width: calc(100% - 31px);
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	padding: 0 5px;
-	font-size: 13px;
-	color: #5574a7;
-}
-.dropdown > .btn:after {
-	content: '';
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-width: 5px 5px 0 5px;
-	position: absolute;
-	right: 15px;
-	border-color: #5574a7 transparent transparent transparent;
 }
 
 .g-recaptcha {
@@ -11136,9 +10911,6 @@ article p {
 	-ms-flex: auto;
 	flex: auto;
 }
-.react-datepicker-wrapper input {
-	width: 100%;
-}
 
 .progressBarModule {
 	font-weight: bold;
@@ -11952,7 +11724,7 @@ button.icon-spinner11:before {
 	transform: translateY(20px);
 }
 
-.phone,
+/* .phone,
 .inputBox-row {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -12029,7 +11801,7 @@ button.icon-spinner11:before {
 	width: 50%;
 	max-width: unset !important;
 	margin-right: 0 !important;
-}
+} */
 
 .transferModule {
 	position: relative;

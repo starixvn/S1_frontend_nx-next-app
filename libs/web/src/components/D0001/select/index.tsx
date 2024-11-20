@@ -106,7 +106,7 @@ const Select = (props: ISelectProps) => {
 					})}
 				>
 					{showSearch && (
-						<div className='inputBox-blue'>
+						<div className='heading-search'>
 							<input
 								type='text'
 								className='search'
@@ -116,17 +116,21 @@ const Select = (props: ISelectProps) => {
 						</div>
 					)}
 
-					{(showSearch ? filterOptions : options).map(option => (
-						<div
-							key={uniqueId()}
-							className='dropdown-item'
-							style={{ pointerEvents: option.disabled ? 'none' : 'auto' }}
-							onClick={() => handleOptionClick(option)}
-						>
-							{option.prefixOptionIcon}
-							{isTranslation ? t(option.label as string) : option.label || ' '}
-						</div>
-					))}
+					<div className='dropdown-wrapper'>
+						{(showSearch ? filterOptions : options).map(option => (
+							<div
+								key={uniqueId()}
+								className='dropdown-item'
+								style={{ pointerEvents: option.disabled ? 'none' : 'auto' }}
+								onClick={() => handleOptionClick(option)}
+							>
+								{option.prefixOptionIcon}
+								{isTranslation
+									? t(option.label as string)
+									: option.label || ' '}
+							</div>
+						))}
+					</div>
 				</div>
 			</div>
 		</div>

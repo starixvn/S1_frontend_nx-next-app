@@ -551,10 +551,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				/>
 
 				<div className='inputBox-row'>
-					<div
-						className='inputBox-blue'
-						style={{ width: 'auto', cursor: 'pointer' }}
-					>
+					<div className='inputBox-blue'>
 						<DateSelector
 							{...register('birth')}
 							selected={formBirth}
@@ -579,7 +576,7 @@ const Form = ({ cookies }: IJoinProps) => {
 						defaultValue={initNationality}
 						value={getValues('nationality')}
 						placeholder={t('Label_Join_Nationality') as string} // TODO: 請ＰＭ給完整i18n
-						prefixIcon={<i className='icon icon-sphere txt-blue' />}
+						prefixIcon={<i className='icon icon-u_globe' />}
 						onChange={value => {
 							setValue('nationality', value)
 						}}

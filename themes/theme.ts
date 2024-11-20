@@ -55,6 +55,9 @@ export const theme = {
 		registerInputBg: '#232b4f',
 		registerInputPlaceHolderColor: '#7883B4',
 		registerInputColor: '#fff',
+		registerInputDropDownShadow: '0px 0px 10px 0px rgba(0, 0, 0, 0.25)',
+		registerInputDropDownColor: '#939DC5',
+		registerInputDropDownColorHover: '#EA6118',
 	},
 	mobile: {},
 }

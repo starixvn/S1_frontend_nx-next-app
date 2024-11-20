@@ -102,7 +102,7 @@ export const WrapperRegister = styled.div`
 					margin-top: 0;
 					.tip {
 						margin-top: 0.4rem;
-						padding-left: 0;
+						padding: 0;
 						font-size: 1.2rem;
 						font-weight: 400;
 						line-height: normal;
@@ -152,6 +152,95 @@ export const WrapperRegister = styled.div`
 						}
 						&.error + .tip {
 							color: ${({ theme }) => theme.desktop.tipColorError} !important;
+						}
+					}
+					.inputBox-row {
+						display: flex;
+						gap: 1.6rem;
+						.inputBox-blue {
+							width: 50%;
+						}
+					}
+				}
+				.react-datepicker__day-name,
+				.react-datepicker__day,
+				.react-datepicker__time-name {
+					width: 2.7rem;
+					font-size: 1rem;
+				}
+				.dropdown {
+					width: 100%;
+					display: flex;
+					align-items: center;
+					flex-flow: wrap;
+					.btn {
+						width: 70%;
+						text-align: left;
+						margin-left: 0.8rem;
+						&:after {
+							content: '';
+							width: 0;
+							height: 0;
+							border-style: solid;
+							border-width: 5px 5px 0 5px;
+							position: absolute;
+							right: 15px;
+							top: 15px;
+							border-color: #5574a7 transparent transparent transparent;
+						}
+					}
+					.dropdown-item {
+						border-top: 1px solid
+							${({ theme }) => theme.desktop.countryCurrentBorderColor};
+						min-height: 4.2rem;
+						cursor: pointer;
+						display: flex;
+						align-items: center;
+						padding: 0 2.4rem;
+						color: ${({ theme }) => theme.desktop.registerInputDropDownColor};
+						font-size: 1.4rem;
+						font-weight: 600;
+						line-height: normal;
+						&:first-child {
+							border-top: none;
+						}
+						&:hover {
+							color: ${({ theme }) =>
+								theme.desktop.registerInputDropDownColorHover};
+						}
+					}
+					.dropdown-container {
+						box-shadow: ${({ theme }) =>
+							theme.desktop.registerInputDropDownShadow};
+						position: absolute;
+						top: 40px;
+						left: 0;
+						border-radius: 20px;
+						border-radius: 20px;
+						background: ${({ theme }) => theme.desktop.countryOptionsItemBg};
+						overflow: hidden;
+						z-index: 1;
+						.heading-search {
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							padding: 1.3rem 1.6rem;
+							border-bottom: 1px solid
+								${({ theme }) => theme.desktop.countryCurrentBorderColor};
+							input {
+								min-height: 3.6rem;
+								border-radius: 100px;
+							}
+						}
+						.dropdown-wrapper {
+							overflow-x: hidden;
+							max-height: 31.6rem;
+							&::-webkit-scrollbar-track {
+								background: transparent;
+							}
+							&::-webkit-scrollbar-thumb {
+								border-radius: 15px;
+							}
 						}
 					}
 				}
