@@ -184,16 +184,14 @@ export const WrapperRegister = styled.div`
 						font-family: ${({ theme }) => theme.desktop.fontFamily};
 						color: ${({ theme }) =>
 							theme.desktop.registerInputPlaceHolderColor};
-						&:after {
-							content: '';
-							width: 0;
-							height: 0;
-							border-style: solid;
-							border-width: 5px 5px 0 5px;
+						&:before {
+							font-family: 'S1NewIcons';
+							content: '\\e925';
 							position: absolute;
 							right: 15px;
-							top: 15px;
-							border-color: #5574a7 transparent transparent transparent;
+							top: 8px;
+							font-size: 2rem;
+							color: ${({ theme }) => theme.desktop.white};
 						}
 					}
 					.dropdown-item {
