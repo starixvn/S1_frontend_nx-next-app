@@ -180,14 +180,41 @@ export const FOOTER_DATA = ({
 			},
 		],
 		quickLinks: [
+			// =====  以下 desktop footer 顯示使用 ( 照 footer 順序排列 )  =====
 			{
 				displayKey: 'Label_AboutUs',
 				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AboutUs.html`,
 			},
 			{
+				displayKey: 'Label_General_Terms',
+				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/Terms.html`,
+			},
+			{
+				displayKey: 'Label_Responsible_Gaming',
+				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ResposibleGaming.html`,
+			},
+			{
+				displayKey: 'Label_Complaints_And_Arbitration',
+				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ComplaintsArbitration.html`,
+			},
+			{
 				displayKey: 'Label_TermsConditions',
 				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/TermsConditions.html`,
 			},
+			{
+				displayKey: 'Label_AmlKycConditions',
+				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AmlKycPolicy.html`,
+			},
+			{
+				displayKey: 'Label_PaymentPolicys',
+				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/PaymentPolicy.html`,
+			},
+			{
+				displayKey: 'Label_General_PrivacyPolicy',
+				href: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/PrivacyPolicy.html`,
+			},
+
+			// =====  以下 HomeProvider 使用  =====
 			{
 				displayKey: 'Label_Affiliate_Program',
 				href: GET_AFFILIATE_LINK({ currencyId, langId }),
