@@ -1,11 +1,9 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	height: 76px;
-	padding: 14px 260px;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	align-self: stretch;
 	background: ${({ theme }) => theme.desktop.headerBg};

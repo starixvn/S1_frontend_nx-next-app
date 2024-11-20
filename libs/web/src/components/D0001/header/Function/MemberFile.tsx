@@ -1,18 +1,19 @@
-import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useLanguageGroup } from '@nx-next-app/hooks'
-import { useGetCustVIPProgressQuery } from '@nx-next-app/service'
-import { numberFormat } from '@nx-next-app/utils'
-import classNames from 'classnames'
-import { find, head, includes } from 'lodash'
-import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useRef } from 'react'
-import { useBoolean, useOnClickOutside } from 'usehooks-ts'
+import { Grade, HomeProfile } from "@nx-next-app/components/D0001/header/Function/styles";
+import { paths } from "@nx-next-app/constants";
+import { useAuth, useStaticData } from "@nx-next-app/data-access";
+import { useLanguageGroup } from "@nx-next-app/hooks";
+import { useGetCustVIPProgressQuery } from "@nx-next-app/service";
+import { numberFormat } from "@nx-next-app/utils";
+import classNames from "classnames";
+import { find, head, includes } from "lodash";
+import { useTranslation } from "next-i18next";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useRef } from "react";
+import { useBoolean, useOnClickOutside } from "usehooks-ts";
 
-import { Img } from '../../image'
-import Country from './Country'
+import { Img } from "../../image";
+import Country from "./Country";
 
 interface IMemberFileProps {
 	onSignOut: () => void
@@ -71,7 +72,7 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 				</a>
 			</Link>
 
-			<div
+			<Grade
 				ref={ref}
 				className={classNames('grade', levelTabsName || '', {
 					active: isActive,
@@ -81,13 +82,11 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 				<a className='grade-text'>
 					{/* Hello 不用做多語系 */}
 					{t('Label_General_Hello')}, {userName}
+					<span className='icon icon-chevron_down' />
 				</a>
-				<div className='grade-color'>
-					<div className='dots' />
-					<div className='gradecolor-text'>{levelText}</div>
-				</div>
-				<div
-					className={classNames('home-profile', {
+				<div className='grade-color'>{levelText}</div>
+				<HomeProfile
+					className={classNames({
 						highest: isVipLevelHighest,
 					})}
 				>
@@ -218,8 +217,8 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 							{t('Label_General_LogOut')}
 						</button>
 					</div>
-				</div>
-			</div>
+				</HomeProfile>
+			</Grade>
 
 			{/* <Country /> */}
 		</>

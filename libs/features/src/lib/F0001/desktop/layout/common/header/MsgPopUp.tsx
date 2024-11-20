@@ -1,10 +1,11 @@
-import Link from 'next/link'
-import classNames from 'classnames'
-import { useRouter } from 'next/router'
-import { includes } from 'lodash'
-import { useBoolean } from 'usehooks-ts'
-import { paths } from '@nx-next-app/constants'
-import { useGetMsgCountQuery, useGetPopupMsgQuery } from '@nx-next-app/service'
+import { paths } from "@nx-next-app/constants";
+import { Message } from "@nx-next-app/features/F0001/desktop/layout/common/header/styles";
+import { useGetMsgCountQuery, useGetPopupMsgQuery } from "@nx-next-app/service";
+import classNames from "classnames";
+import { includes } from "lodash";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useBoolean } from "usehooks-ts";
 
 const MsgPopUp = () => {
 	const { value: isHided, setTrue } = useBoolean(false)
@@ -20,18 +21,13 @@ const MsgPopUp = () => {
 	const isPopupMsgActive = !!popupMsg?.id && isMessagePage
 
 	return (
-		<div className={classNames('message active')}>
+		<Message className={classNames('active')}>
 			<Link
 				href={{
 					pathname: paths.message.root,
 				}}
 			>
-				<a>
-					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/message.png`}
-						alt=''
-					/>
-				</a>
+				<span className='icon icon-mail-fill' />
 			</Link>
 			{isPopupCountActive && <div className='message-text' />}
 			{isPopupMsgActive && !isHided && (
@@ -61,7 +57,7 @@ const MsgPopUp = () => {
 					/>
 				</div>
 			)}
-		</div>
+		</Message>
 	)
 }
 

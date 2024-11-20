@@ -1,4 +1,394 @@
-import styled from 'styled-components'
+import styled from "styled-components";
+
+export const HomeProfile = styled.div`
+	background: #f9f9f9;
+	position: absolute;
+	z-index: 3;
+	border-radius: 20px;
+	right: 257px;
+	top: 95px;
+	display: none;
+	box-shadow: 0 0 10px #0a1b389e;
+	width: 282px;
+
+	.home-profile-top {
+		background: #efefef;
+		padding: 20px;
+		border-radius: 20px 20px 0 0;
+		color: #0a1b38;
+		> div {
+			&:first-child {
+				display: flex;
+				margin-bottom: 5px;
+				span {
+					color: #ff7600;
+					font-size: 16px;
+				}
+			}
+		}
+		.vip-img {
+			display: flex;
+			align-items: center;
+			margin-bottom: 5px;
+			img {
+				width: 75px;
+				&:nth-child(2) {
+					width: 90px;
+				}
+			}
+		}
+		.progress {
+			width: 242px;
+			height: 6px;
+			background: #fff;
+			border-radius: 50px;
+			.progress-bar {
+				background: linear-gradient(90deg, #cdcdcd 10%, #ff7600);
+				height: 6px;
+				border-radius: 50px;
+			}
+		}
+		.progress-number {
+			font-size: 10px;
+			margin-top: 10px;
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			a {
+				color: #cbcbcb;
+				display: flex;
+				align-items: center;
+				margin-left: 5px;
+				&::after {
+					display: block;
+					content: '';
+					background: url(#{$public-banner-host}/desktop/img/4.0/right-4.png)
+						no-repeat center / cover;
+					width: 12px;
+					height: 12px;
+				}
+			}
+		}
+	}
+	.home-profile-bottom {
+		padding: 20px;
+		a {
+			display: flex;
+			align-items: center;
+			color: #0a1b38;
+			margin-bottom: 15px;
+			img {
+				width: 30px;
+				margin-right: 10px;
+			}
+		}
+		.home-profile-country {
+			.flag {
+				margin: 0;
+				height: 40px;
+				span {
+					width: 135px;
+					text-align: start;
+				}
+				&::before {
+					border: 1px solid #0a1b38;
+					width: 25px;
+					height: 25px;
+					margin: 0 13px 0 0;
+				}
+				&.arrow {
+					&.flag {
+						flex-direction: row;
+					}
+					&.active {
+						&::after {
+							transform: rotate(180deg);
+							transition: 0.35s;
+						}
+					}
+					&::after {
+						display: block;
+						content: '';
+						background: url(#{$public-banner-host}/desktop/img/4.0/down-2.png)
+							no-repeat center / cover;
+						width: 15px;
+						height: 15px;
+						margin-left: 50px;
+						transition: 0.35s;
+					}
+				}
+			}
+			.country-list {
+				position: unset;
+				min-width: unset;
+				margin-top: unset;
+				background: transparent;
+				box-shadow: unset;
+				padding: 0;
+			}
+			.country-current {
+				padding: 15px 10px;
+				.flag {
+					&::before {
+						width: 30px;
+						height: 30px;
+						margin-right: 7px;
+					}
+				}
+			}
+		}
+		.logout-btn {
+			display: flex;
+			align-items: center;
+			color: #ff7600;
+			margin-top: 15px;
+			img {
+				width: 25px;
+				margin: 0 15px 0 3px;
+			}
+		}
+	}
+	&.active {
+		display: block;
+	}
+	&.highest {
+		.home-profile-top {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			.vip-img {
+				img {
+					width: 85px;
+				}
+			}
+			.highest-text {
+				color: #0a1b38;
+				margin-left: 10px;
+				display: flex;
+				align-items: center;
+				&::after {
+					display: block;
+					content: '';
+					background: url(#{$public-banner-host}/desktop/img/4.0/right-5.png)
+						no-repeat center / cover;
+					width: 15px;
+					height: 15px;
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+`
+export const Grade = styled.div`
+	font-size: 1.2rem;
+
+	.grade-text {
+		display: flex;
+		align-items: center;
+		margin-bottom: 0.8rem;
+		font-weight: 600;
+		color: ${({ theme }) => theme.desktop.gradeTextColor};
+
+		.icon {
+			font-size: 2rem;
+		}
+	}
+
+	.grade-color {
+		display: inline-flex;
+		padding: 0.3rem 0.8rem;
+		gap: 3rem;
+		border-radius: 10rem;
+		text-align: center;
+		font-size: 1rem;
+		font-weight: 700;
+	}
+
+	&.vintage .grade-color {
+		background: ${({ theme }) => theme.desktop.gradeVintageBg};
+		color: ${({ theme }) => theme.desktop.gradeVintageColor};
+	}
+
+	&.silver .grade-color {
+		background: ${({ theme }) => theme.desktop.gradeSilverBg};
+		color: ${({ theme }) => theme.desktop.gradeSilverColor};
+	}
+
+	&.gold .grade-color {
+		background: ${({ theme }) => theme.desktop.gradeGoldBg};
+		color: ${({ theme }) => theme.desktop.gradeGoldColor};
+	}
+
+	&.titanium .grade-color {
+		background: ${({ theme }) => theme.desktop.gradeTitaniumBg};
+		color: ${({ theme }) => theme.desktop.gradeTitaniumColor};
+	}
+
+	&.diamond .grade-color {
+		background: ${({ theme }) => theme.desktop.gradeDiamondBg};
+		color: ${({ theme }) => theme.desktop.gradeDiamondColor};
+	}
+
+	&.nova .grade-color {
+		background: ${({ theme }) => theme.desktop.gradeNovaBg};
+		color: ${({ theme }) => theme.desktop.gradeNovaColor};
+	}
+
+	&.active {
+		${HomeProfile} {
+			display: block;
+		}
+
+		.icon-chevron_down {
+			transform: rotate(180deg);
+			transition: 0.35s;
+		}
+	}
+`
+
+export const HomeBalance = styled.div`
+	.wallet {
+		color: ${({ theme }) => theme.desktop.headerBalanceColor};
+		display: flex;
+		align-items: center;
+		font-size: 1.2rem;
+		font-weight: 600;
+		.icon {
+			font-size: 2rem;
+		}
+	}
+
+	&.active {
+		.icon-chevron_down {
+			transform: rotate(180deg);
+			transition: 0.35s;
+		}
+	}
+
+	.icon-spinner {
+		.icon {
+			font-size: 2rem;
+		}
+		&.active {
+			animation: rotate 0.5s linear 2;
+		}
+	}
+
+	.balance-money {
+		position: relative;
+		left: -0.6rem;
+		display: flex;
+		align-items: center;
+		flex-wrap: nowrap;
+		font-size: 1.2rem;
+		font-weight: 600;
+		color: ${({ theme }) => theme.desktop.headerBalanceColor};
+
+		.icon {
+			cursor: pointer;
+		}
+
+		.icon-minus_circle {
+			font-size: 2rem;
+		}
+
+		.icon-plus-circle {
+			font-size: 1.8rem;
+		}
+	}
+
+	.balance-submenu {
+		display: none;
+		background: #fff;
+		position: absolute;
+		top: 95px;
+		right: 20px;
+		z-index: 3;
+		color: #0a1b38;
+		border-radius: 20px;
+		padding: 20px;
+		font-size: 12px;
+		width: 300px;
+		box-shadow: 0 0 10px #0a1b389e;
+		.balance {
+			display: flex;
+			justify-content: space-between;
+			font-size: 16px;
+			padding: 0 8px;
+			margin-bottom: 10px;
+
+			span {
+				&:nth-child(2) {
+					display: flex;
+					align-items: center;
+				}
+			}
+			.refresh-icon {
+				margin-left: 2px;
+				&::after {
+					display: block;
+					content: '';
+					background: url(${process.env[
+							'NEXT_PUBLIC_BANNER_HOST'
+						]}/desktop/img/4.0/refresh_w.png)
+						no-repeat center / cover;
+					width: 16px;
+					height: 16px;
+				}
+			}
+		}
+		.walletBalance {
+			background: #cdcdcd;
+			padding: 8px;
+			font-size: 15px;
+			border-radius: 6px;
+			margin-bottom: 10px;
+			.walletName {
+				display: flex;
+				justify-content: space-between;
+			}
+			.bouns {
+				font-size: 13px;
+				display: flex;
+				justify-content: space-between;
+				margin-top: 10px;
+			}
+			.percentage {
+				font-size: 13px;
+			}
+		}
+		.btnGroup {
+			margin: 20px 0;
+			a {
+				&:nth-child(2) {
+					margin-left: 10px;
+				}
+			}
+			.orange {
+				font-size: 14px;
+				background: #0a1b38;
+				margin: 0;
+				&:hover {
+					background: #ff7600;
+				}
+			}
+		}
+		.loginLog {
+			display: flex;
+			justify-content: space-between;
+		}
+		.transactionLog {
+			display: flex;
+			justify-content: space-between;
+			margin-top: 5px;
+		}
+	}
+	&.active {
+		.balance-submenu {
+			display: block;
+		}
+	}
+`
 
 export const FunctionContainer = styled.div`
 	width: 100%;
@@ -178,8 +568,10 @@ export const FunctionContainer = styled.div`
 		}
 
 		.country-info {
+			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
+			gap: 1.2rem;
 		}
 
 		.country-name {
@@ -216,326 +608,29 @@ export const FunctionContainer = styled.div`
 		margin-right: 5px;
 	}
 
-	.grade {
-		margin-right: 10px;
-		&-text {
-			display: flex;
-			align-items: center;
-			color: #fff;
-			&.active {
-				&::after {
-					transform: rotate(180deg);
-					transition: 0.35s;
-				}
-			}
-			&::after {
-				content: '';
-				display: block;
-				background: url(${process.env[
-						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/down-1.png)
-					no-repeat center center / cover;
-				width: 12px;
-				height: 14px;
-				margin-left: 5px;
-				transition: 0.35s;
-			}
-		}
-		&-color {
-			display: flex;
-			align-items: center;
-			.dots {
-				width: 15px;
-				height: 15px;
-				background: #e8ae37;
-				border-radius: 50px;
-				margin-right: 4px;
-			}
-		}
-		&.vintage {
-			.dots {
-				background: #c8600b;
-			}
-		}
-		&.silver {
-			.dots {
-				background: #cacaca;
-			}
-		}
-		&.gold {
-			.dots {
-				background: #ce9b0a;
-			}
-		}
-		&.titanium {
-			.dots {
-				background: #828282;
-			}
-		}
-		&.diamond {
-			.dots {
-				background: #63cde0;
-			}
-		}
-		&.nova {
-			.dots {
-				background: #d4d4d4;
-			}
-		}
-		&.active {
-			.home-profile {
-				display: block;
-			}
-		}
-	}
-	.message {
-		position: relative;
-		display: none;
-		img {
-			width: 75%;
-		}
-		&-text {
-			position: absolute;
-			top: -4px;
-			right: 4px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			background: red;
-			width: 10px;
-			height: 10px;
-			border-radius: 50px;
-		}
-		.msgPop {
-			display: flex;
-			position: absolute;
-			top: 1px;
-			left: -10px;
-			transform: translateY(100%);
-			background: #ff7600;
-			padding: 6px 12px 6px 15px;
-			display: flex;
-			align-items: center;
-			border-radius: 10px;
-			z-index: 3;
-			box-shadow: 0 0 3px #797979;
-			div {
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-				max-width: 150px;
-			}
-			button {
-				border: 1px solid white;
-				color: #fff;
-				width: 18px;
-				height: 18px;
-				border-radius: 100%;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				font-size: 12px;
-				margin: 0 0 0 10px;
-				&::before {
-					transform: scale(0.7);
-				}
-			}
-			&::after {
-				border-color: transparent transparent #ff7600;
-				border-style: solid solid solid solid;
-				border-width: 8px;
-				top: 1px;
-				content: '';
-				height: 0;
-				position: absolute;
-				width: 0;
-				transform: translateY(-100%);
-			}
-		}
-		&.active {
-			display: block;
-		}
-	}
 	.line {
-		border-right: 1px solid white;
-		height: 40px;
-		margin: 0 10px;
+		border-right: 1px solid #374375;
+		height: 4.4rem;
 	}
-	.home-balance {
-		.wallet {
-			color: #fff;
-			display: flex;
-			align-items: center;
-			&.active {
-				&::after {
-					transform: rotate(180deg);
-					transition: 0.35s;
-				}
-			}
-			&::after {
-				content: '';
-				display: block;
-				background: url(${process.env[
-						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/down-1.png)
-					no-repeat center / cover;
-				width: 12px;
-				height: 14px;
-				margin-left: 5px;
-				transition: 0.35s;
-			}
-		}
-		.icon-spinner {
-			&::before {
-				content: '';
-				display: block;
-				background: url(${process.env[
-						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/refresh-1.png)
-					no-repeat center / cover;
-				width: 15px;
-				height: 15px;
-				margin-right: 2px;
-			}
-			&.active {
-				animation: rotate 0.5s linear 2;
-			}
-		}
-		.icon-plus {
-			&::before {
-				cursor: pointer;
-				content: '';
-				display: block;
-				background: url(${process.env[
-						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/plus.png)
-					no-repeat center / cover;
-				width: 15px;
-				height: 15px;
-				margin-left: 2px;
-			}
-		}
-		.icon-minus {
-			&::before {
-				cursor: pointer;
-				content: '';
-				display: block;
-				background: url(${process.env[
-						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/minus.png)
-					no-repeat center / cover;
-				width: 15px;
-				height: 15px;
-				margin-left: 2px;
-			}
-		}
-		.balance-money {
-			display: flex;
-			align-items: center;
-		}
-		.balance-submenu {
-			display: none;
-			background: #fff;
-			position: absolute;
-			top: 95px;
-			right: 20px;
-			z-index: 3;
-			color: #0a1b38;
-			border-radius: 20px;
-			padding: 20px;
-			font-size: 12px;
-			width: 300px;
-			box-shadow: 0 0 10px #0a1b389e;
-			.balance {
-				display: flex;
-				justify-content: space-between;
-				font-size: 16px;
-				padding: 0 8px;
-				margin-bottom: 10px;
 
-				span {
-					&:nth-child(2) {
-						display: flex;
-						align-items: center;
-					}
-				}
-				.refresh-icon {
-					margin-left: 2px;
-					&::after {
-						display: block;
-						content: '';
-						background: url(${process.env[
-								'NEXT_PUBLIC_BANNER_HOST'
-							]}/desktop/img/4.0/refresh_w.png)
-							no-repeat center / cover;
-						width: 16px;
-						height: 16px;
-					}
-				}
-			}
-			.walletBalance {
-				background: #cdcdcd;
-				padding: 8px;
-				font-size: 15px;
-				border-radius: 6px;
-				margin-bottom: 10px;
-				.walletName {
-					display: flex;
-					justify-content: space-between;
-				}
-				.bouns {
-					font-size: 13px;
-					display: flex;
-					justify-content: space-between;
-					margin-top: 10px;
-				}
-				.percentage {
-					font-size: 13px;
-				}
-			}
-			.btnGroup {
-				margin: 20px 0;
-				a {
-					&:nth-child(2) {
-						margin-left: 10px;
-					}
-				}
-				.orange {
-					font-size: 14px;
-					background: #0a1b38;
-					margin: 0;
-					&:hover {
-						background: #ff7600;
-					}
-				}
-			}
-			.loginLog {
-				display: flex;
-				justify-content: space-between;
-			}
-			.transactionLog {
-				display: flex;
-				justify-content: space-between;
-				margin-top: 5px;
-			}
-		}
-		&.active {
-			.balance-submenu {
-				display: block;
-			}
-		}
-	}
 	.deposit-btn {
-		font-size: 16px;
 		display: flex;
-		align-items: center;
-		justify-content: center;
-		background: #ff7600;
-		width: 125px;
-		height: 48px;
-		border-radius: 50px;
-		margin-left: 10px;
-		color: #fff;
+		padding: 1rem 1.2rem;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 3rem;
+		border-radius: 10rem;
+		color: ${({ theme }) => theme.desktop.depositBtnColor};
+		background: ${({ theme }) => theme.desktop.depositBtnBg};
+		box-shadow: ${({ theme }) => theme.desktop.depositBtnBoxShadow};
+		font-size: 1.4rem;
+		font-weight: 600;
+
+		&:hover {
+			color: ${({ theme }) => theme.desktop.depositBtnColorHover};
+			background: ${({ theme }) => theme.desktop.depositBtnBgHover};
+			box-shadow: none;
+		}
 	}
 `
 

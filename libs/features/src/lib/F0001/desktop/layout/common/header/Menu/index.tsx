@@ -1,23 +1,18 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { paths, PRODUCTS } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { MenuContainer } from '@nx-next-app/features/F0001/desktop/layout/common/header/Menu/styles'
-import {
-	LobbyCategoryEnum,
-	MainMenuIcon,
-	MenuActionTypeEnum,
-	MenuIconTypeEnum,
-} from '@nx-next-app/types'
-import { isEventPeriod } from '@nx-next-app/utils'
-import classNames from 'classnames'
-import { includes, toUpper } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
-import { useState } from 'react'
-import { useDebounce } from 'usehooks-ts'
+import { useGlobalModal } from "@nx-next-app/components/config-provider";
+import { paths, PRODUCTS } from "@nx-next-app/constants";
+import { useAuth, useStaticData } from "@nx-next-app/data-access";
+import { MenuContainer } from "@nx-next-app/features/F0001/desktop/layout/common/header/Menu/styles";
+import { LobbyCategoryEnum, MainMenuIcon, MenuActionTypeEnum, MenuIconTypeEnum } from "@nx-next-app/types";
+import { isEventPeriod } from "@nx-next-app/utils";
+import classNames from "classnames";
+import { includes, toUpper } from "lodash-es";
+import { useTranslation } from "next-i18next";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import { useState } from "react";
+import { useDebounce } from "usehooks-ts";
 
-import SubMenu from './SubMenu'
+import SubMenu from "./SubMenu";
 
 import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
@@ -157,7 +152,7 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 	return (
 		<MenuContainer>
 			<div onMouseLeave={() => setMenuKey(undefined)}>
-				<Link href={paths.home.root} passHref>
+				<Link className='menu-item' href={paths.home.root} passHref>
 					<a className='icon icon-home' onMouseEnter={() => setMenuKey('Home')}>
 						{' '}
 					</a>

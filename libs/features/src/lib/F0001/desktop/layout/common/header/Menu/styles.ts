@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const MenuContainer = styled.div`
 	display: flex;
-	height: 48px;
-	padding: 0px 260px;
+	height: 4.8rem;
+	padding: 0 26rem;
 	justify-content: space-between;
 	align-items: center;
 	align-self: stretch;

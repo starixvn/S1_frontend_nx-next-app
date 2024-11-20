@@ -1,19 +1,17 @@
-import Link from 'next/link'
-import dayjs from 'dayjs'
-import classNames from 'classnames'
-import { includes } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
-import { useBoolean, useDebounce, useOnClickOutside } from 'usehooks-ts'
-import { Fragment, useEffect, useRef } from 'react'
-import {
-	ICustBonusWalletData,
-	IMainWalletInfoData,
-	ITpWalletInfoData,
-} from '@nx-next-app/service'
-import { numberFormat } from '@nx-next-app/utils'
-import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { SpinButton } from '../../button'
+import { HomeBalance } from "@nx-next-app/components/D0001/header/Function/styles";
+import { paths } from "@nx-next-app/constants";
+import { useAuth, useStaticData } from "@nx-next-app/data-access";
+import { ICustBonusWalletData, IMainWalletInfoData, ITpWalletInfoData } from "@nx-next-app/service";
+import { numberFormat } from "@nx-next-app/utils";
+import classNames from "classnames";
+import dayjs from "dayjs";
+import { includes } from "lodash-es";
+import { useTranslation } from "next-i18next";
+import Link from "next/link";
+import { Fragment, useEffect, useRef } from "react";
+import { useBoolean, useDebounce, useOnClickOutside } from "usehooks-ts";
+
+import { SpinButton } from "../../button";
 
 interface IWalletProps {
 	originIsHideBalance: boolean
@@ -70,108 +68,111 @@ const Wallet = ({
 	const { balance, lastTransaction } = mainWalletInfo ?? {}
 
 	return (
-		<div
+		<HomeBalance
 			ref={ref}
-			className={classNames('home-balance', {
+			className={classNames({
 				active: isWalletActive,
 			})}
 			onClick={toggleWalletActive}
 		>
-			<a className='wallet'> {t('Label_General_Balance')} </a>
+			<a className='wallet'>
+				{' '}
+				{t('Label_General_Balance')}
+				<span className='icon icon-chevron_down' />
+			</a>
 			<div className='balance-money'>
-				<SpinButton className='icon-spinner' onClick={onRefetchAllWallet} />
+				<SpinButton className='icon-spinner' onClick={onRefetchAllWallet}>
+					<span className='icon icon-refresh-fill' />
+				</SpinButton>
 				{`${currencyName} `}
 				{!isHideBalance && numberFormat(totalWalletBalance, currencyId, 2)}
 
-				<button
-					className={classNames('icon', {
-						'icon-minus': !isHideBalance,
-						'icon-plus': isHideBalance,
-					})}
+				<span
 					onClick={e => {
 						e.stopPropagation()
 						toggleHideBalance()
 					}}
+					className={`icon ${
+						!isHideBalance ? 'icon-minus_circle' : 'icon-plus-circle'
+					}`}
 				/>
 			</div>
 
-			<div className='home-balance'>
-				<div className='balance-submenu'>
-					<div className='balance'>
-						<span>{currencyName}</span>
-						<span>
-							{numberFormat(totalWalletBalance, currencyId, 2)}
-							<SpinButton onClick={onRefetchAllWallet} />
-						</span>
-					</div>
+			<div className='balance-submenu'>
+				<div className='balance'>
+					<span>{currencyName}</span>
+					<span>
+						{numberFormat(totalWalletBalance, currencyId, 2)}
+						<SpinButton onClick={onRefetchAllWallet} />
+					</span>
+				</div>
 
-					<div className='walletBalance'>
+				<div className='walletBalance'>
+					<div className='walletName'>
+						<span>{t('Label_Wallet_MainWallet')}</span>
+						<span>{numberFormat(balance || 0, currencyId)}</span>
+					</div>
+					{custBonusWalletList?.map(item => {
+						const { turnover, rollover, promoCategoryId, bonus, tpId } = item
+
+						const percentage =
+							turnover > rollover
+								? 100
+								: ((turnover / rollover) * 100).toFixed(2)
+						return (
+							<Fragment key={tpId}>
+								<div className='bouns'>
+									<span>
+										{t(`Label_Wallet_BonusWallet_${promoCategoryId}`)}
+									</span>
+									<span>{bonus}</span>
+								</div>
+								<div className='progressBar'>
+									<div className='bar'>
+										<div
+											className='progress'
+											style={{ width: `${percentage}%` }}
+										/>
+									</div>
+									<div className='percentage'>{percentage}%</div>
+								</div>
+							</Fragment>
+						)
+					})}
+				</div>
+
+				{tpWalletBalanceList?.map(({ tpName, balance, tpId }) => (
+					<div className='walletBalance' key={tpId}>
 						<div className='walletName'>
-							<span>{t('Label_Wallet_MainWallet')}</span>
-							<span>{numberFormat(balance || 0, currencyId)}</span>
+							<span>{tpName}</span>
+							<span>{numberFormat(balance, currencyId)}</span>
 						</div>
-						{custBonusWalletList?.map(item => {
-							const { turnover, rollover, promoCategoryId, bonus, tpId } = item
-
-							const percentage =
-								turnover > rollover
-									? 100
-									: ((turnover / rollover) * 100).toFixed(2)
-							return (
-								<Fragment key={tpId}>
-									<div className='bouns'>
-										<span>
-											{t(`Label_Wallet_BonusWallet_${promoCategoryId}`)}
-										</span>
-										<span>{bonus}</span>
-									</div>
-									<div className='progressBar'>
-										<div className='bar'>
-											<div
-												className='progress'
-												style={{ width: `${percentage}%` }}
-											/>
-										</div>
-										<div className='percentage'>{percentage}%</div>
-									</div>
-								</Fragment>
-							)
-						})}
 					</div>
+				))}
 
-					{tpWalletBalanceList?.map(({ tpName, balance, tpId }) => (
-						<div className='walletBalance' key={tpId}>
-							<div className='walletName'>
-								<span>{tpName}</span>
-								<span>{numberFormat(balance, currencyId)}</span>
-							</div>
-						</div>
-					))}
-
-					<div className='btnGroup'>
-						<Link href={paths.withdrawal.root} passHref>
-							<a className='orange'>{t('Label_General_Withdrawal')}</a>
+				<div className='btnGroup'>
+					<Link href={paths.withdrawal.root} passHref>
+						<a className='orange'>{t('Label_General_Withdrawal')}</a>
+					</Link>
+					{includes(ALLOWED_CURRENCIES.TRANSFER, currencyId) && (
+						<Link href={paths.transferFunds.root} passHref>
+							<a className='orange'>{t('Label_General_TransferFunds')}</a>
 						</Link>
-						{includes(ALLOWED_CURRENCIES.TRANSFER, currencyId) && (
-							<Link href={paths.transferFunds.root} passHref>
-								<a className='orange'>{t('Label_General_TransferFunds')}</a>
-							</Link>
-						)}
-					</div>
-					<div className='loginLog'>
-						<span>{t('Label_General_LastLogin')}</span>
-						<span>{dayjs(lastLogin).format('L LT')}</span>
-					</div>
-					<div className='transactionLog'>
-						<span>{t('Label_General_LastTransaction')}</span>
+					)}
+				</div>
+				<div className='loginLog'>
+					<span>{t('Label_General_LastLogin')}</span>
+					<span>{dayjs(lastLogin).format('L LT')}</span>
+				</div>
+				<div className='transactionLog'>
+					<span>{t('Label_General_LastTransaction')}</span>
 
-						<span>
-							{lastTransaction && dayjs(lastTransaction).format('L LT')}
-						</span>
-					</div>
+					<span>
+						{lastTransaction && dayjs(lastTransaction).format('L LT')}
+					</span>
 				</div>
 			</div>
-		</div>
+		</HomeBalance>
 	)
 }
 
