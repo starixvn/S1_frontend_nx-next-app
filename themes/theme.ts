@@ -2,6 +2,7 @@ export const theme = {
 	common: {},
 	desktop: {
 		primary: '#0F1428',
+		white: '#fff',
 
 		headerBg: '#0F1428',
 		headerColor: '#7883B4',
@@ -40,8 +41,17 @@ export const theme = {
 		copyRightBg: '#1F274C',
 
 		menuContainerBg: '#232B4F',
-		buttonBg: '#EA6118',
+		buttonSloganBg: '#EA6118',
 		registerBodyBg: '#182043',
+		registerCancelBtnBg: '#717FBA',
+		registerCancelBtnShadow: '0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset',
+		registerCancelBtnHover: '#5E6DAC',
+		registerSubmitBtnBg: '#EA6118',
+		registerSubmitBtnShadow: '0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset',
+		registerSubmitBtnHover: '#D95712',
+		registerInputBg: '#232b4f',
+		registerInputPlaceHolderColor: '#7883B4',
+		registerInputColor: '#fff',
 	},
 	mobile: {},
 }

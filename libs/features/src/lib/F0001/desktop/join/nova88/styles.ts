@@ -51,19 +51,64 @@ export const WrapperRegister = styled.div`
 					font-size: 2.5rem;
 					font-weight: 700;
 					line-height: normal;
-					color: #fff;
+					color: ${({ theme }) => theme.desktop.white};
 					margin-bottom: 1.6rem;
 				}
 				.slogan-form {
 					ont-size: 1.4rem;
 					font-weight: 400;
-					color: #fff;
+					color: ${({ theme }) => theme.desktop.white};
 					button {
-						color: ${({ theme }) => theme.desktop.buttonBg};
+						color: ${({ theme }) => theme.desktop.buttonSloganBg};
 						font-size: 1.4rem;
 						font-style: normal;
 						font-weight: 700;
 						margin-left: 0.5rem;
+					}
+				}
+				.btnGroup {
+					button {
+						border-radius: 100px;
+						min-height: 3.6rem;
+						font-family: 'Anybody', sans-serif;
+						font-size: 1.4rem;
+						font-weight: 600;
+						line-height: normal;
+						color: ${({ theme }) => theme.desktop.white};
+						&.btn-cancel {
+							box-shadow: ${({ theme }) =>
+								theme.desktop.registerCancelBtnShadow};
+							background: ${({ theme }) => theme.desktop.registerCancelBtnBg};
+							&:hover {
+								background: ${({ theme }) =>
+									theme.desktop.registerCancelBtnHover};
+								box-shadow: none;
+							}
+						}
+						&.btn-check {
+							box-shadow: ${({ theme }) =>
+								theme.desktop.registerSubmitBtnShadow};
+							background: ${({ theme }) => theme.desktop.registerSubmitBtnBg};
+							&:hover {
+								background: ${({ theme }) =>
+									theme.desktop.registerSubmitBtnHover};
+								box-shadow: none;
+							}
+						}
+					}
+				}
+				.inputModule {
+					margin-top: 0;
+					.inputBox-blue {
+						min-height: 3.6rem;
+						padding: 0 1.2rem;
+						border-radius: 100px;
+						background: ${({ theme }) => theme.desktop.registerInputBg};
+						border: none;
+						margin-top: 1.6rem;
+					}
+					.tip {
+						margin-top: 0.4rem;
 					}
 				}
 			}
