@@ -107,12 +107,15 @@ const Select = (props: ISelectProps) => {
 				>
 					{showSearch && (
 						<div className='heading-search'>
-							<input
-								type='text'
-								className='search'
-								placeholder='Search'
-								onChange={e => setFilterValue(e.target.value.toLowerCase())}
-							/>
+							<div className='group-search'>
+								<input
+									type='text'
+									className='search'
+									placeholder='Search'
+									onChange={e => setFilterValue(e.target.value.toLowerCase())}
+								/>
+								<i className='icon icon-search' />
+							</div>
 						</div>
 					)}
 

@@ -68,14 +68,18 @@ export const WrapperRegister = styled.div`
 					}
 				}
 				.btnGroup {
+					display: flex;
+					gap: 1.6rem;
+					margin-top: 1.6rem;
 					button {
 						border-radius: 100px;
 						min-height: 3.6rem;
-						font-family: 'Anybody', sans-serif;
+						font-family: ${({ theme }) => theme.desktop.fontFamily};
 						font-size: 1.4rem;
 						font-weight: 600;
 						line-height: normal;
 						color: ${({ theme }) => theme.desktop.white};
+						width: 50%;
 						&.btn-cancel {
 							box-shadow: ${({ theme }) =>
 								theme.desktop.registerCancelBtnShadow};
@@ -134,7 +138,7 @@ export const WrapperRegister = styled.div`
 							color: ${({ theme }) => theme.desktop.registerInputColor};
 							background: ${({ theme }) => theme.desktop.registerInputBg};
 							padding-left: 1rem;
-							font-family: 'Anybody', sans-serif;
+							font-family: ${({ theme }) => theme.desktop.fontFamily};
 							&::placeholder {
 								color: ${({ theme }) =>
 									theme.desktop.registerInputPlaceHolderColor};
@@ -177,6 +181,9 @@ export const WrapperRegister = styled.div`
 						width: 70%;
 						text-align: left;
 						margin-left: 0.8rem;
+						font-family: ${({ theme }) => theme.desktop.fontFamily};
+						color: ${({ theme }) =>
+							theme.desktop.registerInputPlaceHolderColor};
 						&:after {
 							content: '';
 							width: 0;
@@ -227,9 +234,18 @@ export const WrapperRegister = styled.div`
 							padding: 1.3rem 1.6rem;
 							border-bottom: 1px solid
 								${({ theme }) => theme.desktop.countryCurrentBorderColor};
-							input {
-								min-height: 3.6rem;
-								border-radius: 100px;
+							.group-search {
+								position: relative;
+								input {
+									min-height: 3.6rem;
+									border-radius: 100px;
+									padding: 0 1.2rem;
+								}
+								.icon-search {
+									position: absolute;
+									top: 7px;
+									right: 12px;
+								}
 							}
 						}
 						.dropdown-wrapper {
@@ -244,6 +260,18 @@ export const WrapperRegister = styled.div`
 						}
 					}
 				}
+			}
+		}
+		.Terms {
+			margin-top: 1.6rem;
+			font-size: 1.4rem;
+			font-weight: 400;
+			line-height: 1.8rem;
+			color: ${({ theme }) => theme.desktop.white};
+			a {
+				margin-left: 0.4rem;
+				color: ${({ theme }) => theme.desktop.hrefColorPrimary};
+				text-decoration: underline;
 			}
 		}
 	}

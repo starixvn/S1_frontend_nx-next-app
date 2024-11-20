@@ -2,10 +2,12 @@ export const theme = {
 	common: {},
 	desktop: {
 		primary: '#0F1428',
+		hrefColorPrimary: '#EA6118',
 		white: '#fff',
 		inputBorderColorError: '#F00',
 		tipColorError: '#F00',
 		tipColor: '#7883B4',
+		fontFamily: `'Anybody', sans-serif`,
 
 		headerBg: '#0F1428',
 		headerColor: '#7883B4',

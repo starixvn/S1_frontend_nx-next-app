@@ -589,7 +589,7 @@ const Form = ({ cookies }: IJoinProps) => {
 					options={currencyOptions}
 					value={getValues('currencyId')}
 					placeholder={t('Label_Join_PrefferedCurrency') as string}
-					prefixIcon={<i className='icon icon-coin-dollar txt-blue' />}
+					prefixIcon={<i className='icon icon-money-dollar-circle-line' />}
 					onChange={currencyId => selectCurrency(currencyId)}
 					errorMessage={errors['currencyId']?.message as string}
 					isDropdown={false}
@@ -600,7 +600,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				</div>
 				{watchCurrencyId && (
 					<>
-						<div className='phone'>
+						<div className='inputBox-row'>
 							<Select
 								showSearch
 								options={areaCodeSelectOptions}
@@ -639,7 +639,7 @@ const Form = ({ cookies }: IJoinProps) => {
 						register={register('affiliate', {
 							onBlur: checkAffiliate,
 						})}
-						icon='icon icon-affiliate txt-blue'
+						icon='icon icon-syblings-connections'
 						placeholder={t('Label_Join_Affiliate_ID') as string}
 						errorMessage={errors['affiliate']?.message as string}
 						error={!!errors['affiliate']}
