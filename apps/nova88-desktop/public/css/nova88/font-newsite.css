@@ -27,6 +27,11 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-plus-circle:before {
+	content: '\e927';
+	color: #fff;
+}
+
 .icon-switch-off:before {
 	content: '\e900';
 	color: #fff;
