@@ -9,7 +9,7 @@ import {
 } from './type'
 
 export const playerApiUrl = {
-	gcetCustNotification: 'Player/GetCustNotification',
+	getCustNotification: 'Player/GetCustNotificationV2',
 	setCustNotification: 'Player/SetCustNotification',
 	getAppLink: 'Player/GetAppLink',
 }
@@ -31,7 +31,7 @@ export const playerApi = rootApi.injectEndpoints({
 			IGetCustNotificationArgs
 		>({
 			query: data => ({
-				url: playerApiUrl.gcetCustNotification,
+				url: playerApiUrl.getCustNotification,
 				method: 'POST',
 				data,
 			}),
@@ -51,6 +51,6 @@ export const playerApi = rootApi.injectEndpoints({
 
 export const {
 	useGetAppDownloadLinksQuery,
-	useLazyGcetCustNotificationQuery,
+	useLazyGetCustNotificationQuery,
 	useLazySetCustNotificationQuery,
 } = playerApi

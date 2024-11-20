@@ -7,16 +7,40 @@ type OperaPixelTrackerName = 'register' | 'deposit'
 export type MetaPixelTrackerName =
 	| 'registerSubmit'
 	| 'depositSubmit'
-	| 'deposit_successful'
-	| 'withdraw_successful'
+	| 'Purchase'
+	| 'withdraw'
+	// 存款成功
+	| 'CompleteRegistration'
+	// 首存
+	| 'StartTrial'
+	// 再存
+	| 'redeposit'
 
 export const OperaPixelTracker = (eventName: OperaPixelTrackerName) => {
 	if (window && 'otag' in window && typeof window.otag === 'function') {
 		window.otag('event', eventName)
 	}
 }
-export const MetaPixelTracker = (eventName: MetaPixelTrackerName) => {
+export const MetaPixelTracker = (
+	eventName: MetaPixelTrackerName,
+	amount?: number,
+	firstDeposit?: boolean,
+	isoCode?: string
+) => {
 	if (window && 'fbq' in window && typeof window.fbq === 'function') {
+		if (eventName === 'CompleteRegistration') {
+			window.fbq('track', eventName)
+			return
+		}
+		if (eventName === 'Purchase') {
+			if (firstDeposit) {
+				window.fbq('track', 'StartTrial', { currency: isoCode, value: amount })
+			} else {
+				window.fbq('track', 'redeposit', { currency: isoCode, value: amount })
+			}
+			window.fbq('track', eventName, { currency: isoCode, value: amount })
+			return
+		}
 		window.fbq('trackCustom', eventName)
 	}
 }
