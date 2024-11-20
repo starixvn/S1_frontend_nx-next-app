@@ -111,4 +111,136 @@ export const GlobalStyles = createGlobalStyle`
     background: ${theme.desktop.primary};
     font-size: 1.4rem;
   }
+  #popup {
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    z-index: 6;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    &::-webkit-scrollbar-track{
+        background: rgba(0, 0, 0, 0.2);
+    }
+    &::-webkit-scrollbar-thumb{
+      background: rgba(125, 125, 125, 0.7);
+    }
+    &.active{
+      display : flex;
+
+    }
+    .pop{
+      border-radius: 20px;
+      max-height: calc(100% - 160px);
+      overflow-y: auto;
+      box-shadow: ${theme.desktop.popupBoxShadow};
+      background : ${theme.desktop.popupBg};
+      position : relative;
+      .close-popup{
+        position : absolute;
+        cursor: pointer;
+        top: 20px;
+        right: 20px;
+        &:before{
+          font-size : 2.4rem;
+        }
+      }
+    }
+    
+  }
+  .tip {
+    margin-top: 0.4rem;
+    padding: 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: normal;
+    color: ${({ theme }) => theme.desktop.tipColor};
+  }
+  .inputModule {
+    margin-top: 0;
+    .inputBox-blue {
+      min-height: 3.6rem;
+      padding: 0 1.2rem;
+      border-radius: 100px;
+      background: ${({ theme }) => theme.desktop.registerInputBg};
+      border: none;
+      margin-top: 1.6rem;
+      display: flex;
+      align-items: center;
+      position: relative;
+      .icon {
+        height: 2rem;
+        width: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:before {
+          color: ${({ theme }) => theme.desktop.white};
+          font-size: 1.8rem;
+          margin: 0;
+        }
+      }
+      input {
+        color: ${({ theme }) => theme.desktop.registerInputColor};
+        background: ${({ theme }) => theme.desktop.registerInputBg};
+        padding-left: 1rem;
+        font-family: ${({ theme }) => theme.desktop.fontFamily};
+        &::placeholder {
+          color: ${({ theme }) => theme.desktop.registerInputPlaceHolderColor};
+        }
+      }
+      .dropdown {
+        .btn {
+          color: ${({ theme }) => theme.desktop.registerInputPlaceHolderColor};
+        }
+      }
+      &.error {
+        border: 1px solid
+          ${({ theme }) => theme.desktop.inputBorderColorError};
+      }
+      &.error + .tip {
+        color: ${({ theme }) => theme.desktop.tipColorError} !important;
+      }
+    }
+    .inputBox-row {
+      display: flex;
+      gap: 1.6rem;
+      .inputBox-blue {
+        width: 50%;
+      }
+    }
+  }
+  .btnGroup {
+    display: flex;
+    gap: 1.6rem;
+    margin-top: 1.6rem;
+    button {
+      border-radius: 100px;
+      min-height: 3.6rem;
+      font-family: ${({ theme }) => theme.desktop.fontFamily};
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: normal;
+      color: ${({ theme }) => theme.desktop.white};
+      width: 50%;
+      &.btn-cancel {
+        box-shadow: ${({ theme }) => theme.desktop.registerCancelBtnShadow};
+        background: ${({ theme }) => theme.desktop.registerCancelBtnBg};
+        &:hover {
+          background: ${({ theme }) => theme.desktop.registerCancelBtnHover};
+          box-shadow: none;
+        }
+      }
+      &.btn-check {
+        box-shadow: ${({ theme }) => theme.desktop.registerSubmitBtnShadow};
+        background: ${({ theme }) => theme.desktop.registerSubmitBtnBg};
+        &:hover {
+          background: ${({ theme }) => theme.desktop.registerSubmitBtnHover};
+          box-shadow: none;
+        }
+      }
+    }
+  }
 `

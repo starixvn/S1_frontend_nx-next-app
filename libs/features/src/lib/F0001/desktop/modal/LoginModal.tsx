@@ -1,12 +1,13 @@
-import Link from 'next/link'
-import { useForm } from 'react-hook-form'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
-import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
 import { InputBox } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { WrapperLoginModal } from '@nx-next-app/features/F0001/desktop/modal/styles'
 import { useSignInMutation } from '@nx-next-app/service'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useForm } from 'react-hook-form'
 
 const LoginModal = () => {
 	const router = useRouter()
@@ -92,98 +93,84 @@ const LoginModal = () => {
 	}
 
 	return (
-		<div className='pop'>
-			<div className='loginpop active'>
-				<div className='joinloginModule'>
-					<div className='loginAnimation'>
-						<img
-							className='animationlogo'
-							alt='animationlogo'
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/logo_en_w.png`}
-						/>
-						<img
-							className='npc1'
-							alt='npc1'
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/loginNpc01.png`}
-						/>
-						<img
-							className='npc2'
-							alt='npc2'
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/loginNpc02.png`}
-						/>
-						<img
-							className='welcome'
-							alt='welcome'
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/welcome.png`}
-						/>
-						<img
-							className='back'
-							alt='back'
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/back.png`}
-						/>
-					</div>
-					<form
-						className='joinloginFunction'
-						onSubmit={handleSubmit(handleSubmitForm)}
-					>
-						<div className='title txt-orange'>{t('Label_General_LogIn')}</div>
-						<div className='noAccount'>
-							{t('Label_Join_DontHaveAccount')}
-							<Link href={paths.join.root}>
-								<a className='txt-orange' onClick={closeModal}>
-									{t('Label_General_Join')}
-								</a>
-							</Link>
-						</div>
-						<div className='inputModule'>
-							<InputBox
-								register={register('username', {
-									required: {
-										value: true,
-										message: t('Label_General_UsernameReq'),
-									},
-									onBlur: () => trigger('username'),
-								})}
-								icon='icon-member txt-blue'
-								placeholder={t('Label_General_Username') || ''}
-								errorMessage={errors['username']?.message as string}
-								error={!!errors['username']}
-								touched={!!touchedFields['username']}
-								infoMessage={t('Label_Join_UsernameTooltip') || ''}
+		<WrapperLoginModal>
+			<div className='pop'>
+				<div className='loginpop active'>
+					<div className='joinloginModule'>
+						<div className='login-image'>
+							<img
+								alt='jion'
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/jion.png`}
 							/>
-							<InputBox
-								register={register('password', {
-									required: {
-										value: true,
-										message: t('Label_General_PasswordRequired'),
-									},
-									onBlur: () => trigger('password'),
-								})}
-								password
-								icon='icon icon-key txt-blue'
-								placeholder={t('Label_General_Password') || ''}
-								errorMessage={errors['password']?.message as string}
-								error={!!errors['password']}
-								touched={!!touchedFields['password']}
-							/>
-							<Link href={paths.forgetPassword.root}>
-								<a className='forgot' onClick={closeModal}>
-									{t('Label_Header_ForgetPassword')}
-								</a>
-							</Link>
 						</div>
-						<div className='btnGroup'>
-							<button className='btn-cancel' type='button' onClick={closeModal}>
-								{t('Label_General_Cancel')}
-							</button>
-							<button className='btn-check' type='submit'>
+						<form
+							className='joinloginFunction'
+							onSubmit={handleSubmit(handleSubmitForm)}
+						>
+							<div className='heading-login spacing-bt'>
 								{t('Label_General_LogIn')}
-							</button>
-						</div>
-					</form>
+							</div>
+							<div className='slogan'>
+								{t('Label_Join_DontHaveAccount')}
+								<Link href={paths.join.root}>
+									<a onClick={closeModal}>{t('Label_General_Join')}</a>
+								</Link>
+							</div>
+							<div className='inputModule'>
+								<InputBox
+									register={register('username', {
+										required: {
+											value: true,
+											message: t('Label_General_UsernameReq'),
+										},
+										onBlur: () => trigger('username'),
+									})}
+									icon='icon-member txt-blue'
+									placeholder={t('Label_General_Username') || ''}
+									errorMessage={errors['username']?.message as string}
+									error={!!errors['username']}
+									touched={!!touchedFields['username']}
+									infoMessage={t('Label_Join_UsernameTooltip') || ''}
+								/>
+								<InputBox
+									register={register('password', {
+										required: {
+											value: true,
+											message: t('Label_General_PasswordRequired'),
+										},
+										onBlur: () => trigger('password'),
+									})}
+									password
+									icon='icon icon-key txt-blue'
+									placeholder={t('Label_General_Password') || ''}
+									errorMessage={errors['password']?.message as string}
+									error={!!errors['password']}
+									touched={!!touchedFields['password']}
+								/>
+								<Link href={paths.forgetPassword.root}>
+									<a className='forgot' onClick={closeModal}>
+										{t('Label_Header_ForgetPassword')}
+									</a>
+								</Link>
+							</div>
+							<div className='btnGroup'>
+								<button
+									className='btn-cancel'
+									type='button'
+									onClick={closeModal}
+								>
+									{t('Label_General_Cancel')}
+								</button>
+								<button className='btn-check' type='submit'>
+									{t('Label_General_LogIn')}
+								</button>
+							</div>
+							<i className='close-popup icon-close-line' onClick={closeModal} />
+						</form>
+					</div>
 				</div>
 			</div>
-		</div>
+		</WrapperLoginModal>
 	)
 }
 

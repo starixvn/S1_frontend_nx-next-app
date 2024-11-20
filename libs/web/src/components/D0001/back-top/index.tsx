@@ -1,7 +1,7 @@
+import { scrollToTop } from '@nx-next-app/utils'
+import { throttle } from 'lodash-es'
 import { useEffect } from 'react'
 import { useBoolean } from 'usehooks-ts'
-import { throttle } from 'lodash-es'
-import { scrollToTop } from '@nx-next-app/utils'
 
 const BackTop = () => {
 	const { value: isVisible, setTrue, setFalse } = useBoolean(false)
@@ -31,7 +31,7 @@ const BackTop = () => {
 			onClick={scrollToTop}
 			style={{ zIndex: 4 }}
 		>
-			<i className='icon icon-arrow-up2' />
+			<i className='icon icon-arrow-up-line' />
 		</button>
 	)
 }

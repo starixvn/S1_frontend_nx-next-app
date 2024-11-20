@@ -3902,131 +3902,6 @@ main .promosswiper .swiper-button-prev::after {
 	width: 90px;
 }
 
-.loginpop {
-	max-width: 850px;
-	margin: auto;
-	padding: 50px 20px;
-}
-.loginpop.active {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
-.loginpop .joinloginModule {
-	width: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	position: relative;
-}
-.loginpop .joinloginModule .btnGroup {
-	margin: 10px 0;
-}
-.loginpop .joinloginModule img {
-	width: 400px;
-	height: 380px;
-	pointer-events: none;
-}
-.loginpop .joinloginModule .joinloginFunction {
-	margin-left: 25px;
-	color: #5574a7;
-}
-.loginpop .joinloginModule .joinloginFunction a,
-.loginpop .joinloginModule .joinloginFunction > div button.txt-orange {
-	text-decoration: underline;
-	font-size: 12px;
-	text-align: right;
-	margin-left: 5px;
-}
-.loginpop .joinloginModule .joinloginFunction .noAccount {
-	font-size: 12px;
-	margin-top: 15px;
-}
-.loginpop .joinloginModule .joinloginFunction .dropdown > .btn {
-	width: auto;
-	color: #5574a7;
-}
-.loginpop .joinloginModule .joinloginFunction .icon-email {
-	font-weight: bold;
-	font-size: 16px;
-}
-.loginpop .joinloginModule .joinloginFunction .inputModule {
-	margin-top: 10px;
-}
-.loginpop .joinloginModule .loginAnimation {
-	min-width: 400px;
-	max-height: 380px;
-	min-height: 380px;
-	position: relative;
-	margin: 0 20px 0 0;
-}
-.loginpop .joinloginModule .loginAnimation img {
-	width: auto;
-	height: auto;
-	position: absolute;
-	-webkit-transition: 0.6s;
-	transition: 0.6s;
-}
-.loginpop .joinloginModule .loginAnimation img.animationlogo {
-	bottom: 0;
-	left: 30px;
-	-webkit-animation: animationlogo 1s;
-	animation: animationlogo 1s;
-	z-index: 3;
-}
-.loginpop .joinloginModule .loginAnimation img.npc1 {
-	left: 40px;
-	top: 0;
-	-webkit-animation: loginnpc1 1s;
-	animation: loginnpc1 1s;
-}
-.loginpop .joinloginModule .loginAnimation img.welcome {
-	z-index: 1;
-	left: 50%;
-	bottom: 0;
-	-webkit-animation: welcome 1s;
-	animation: welcome 1s;
-}
-.loginpop .joinloginModule .loginAnimation img.back {
-	right: 100px;
-	bottom: 0;
-	-webkit-animation: back 1s;
-	animation: back 1s;
-}
-.loginpop .joinloginModule .loginAnimation img.npc2 {
-	z-index: 2;
-	right: -100px;
-	bottom: -15px;
-	-webkit-animation: loginnpc2 1s;
-	animation: loginnpc2 1s;
-}
-.loginpop .joinloginModule .loginAnimation:hover img.animationlogo {
-	left: 0;
-}
-.loginpop .joinloginModule .loginAnimation:hover img.npc1 {
-	left: 140px;
-	top: 50px;
-}
-.loginpop .joinloginModule .loginAnimation:hover img.welcome {
-	bottom: 200px;
-}
-.loginpop .joinloginModule .loginAnimation:hover img.back {
-	bottom: -50px;
-}
-.loginpop .joinloginModule .loginAnimation:hover img.npc2 {
-	right: -130px;
-}
-
-.rightModule .loginpop .joinloginModule .joinloginFunction {
-	min-width: 425px;
-}
-
 @-webkit-keyframes animationlogo {
 	from {
 		left: 0;
@@ -4655,13 +4530,6 @@ input[type='file'] {
 .btnGroup a.btn-check:hover {
 	background: #cf0404;
 }
-.btnGroup button.gray,
-.btnGroup button.btn-cancel,
-.btnGroup a.gray,
-.btnGroup a.btn-cancel {
-	background: #b2b2b2;
-	color: #666;
-}
 .btnGroup button.gray:hover,
 .btnGroup button.btn-cancel:hover,
 .btnGroup a.gray:hover,
@@ -4734,12 +4602,6 @@ input[type='file'] {
 	padding: 5px 0;
 }
 
-.tip {
-	font-size: 12px;
-	padding: 0 10px;
-	width: 100%;
-	color: #5574a7;
-}
 .tip.txt-red {
 	color: #cf0404;
 }
@@ -6097,32 +5959,6 @@ input[type='file'] {
 	color: #1e85ec;
 }
 
-#popup {
-	background: rgba(0, 0, 0, 0.6);
-	position: fixed;
-	z-index: 6;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	display: none;
-}
-#popup ::-webkit-scrollbar-track {
-	background: rgba(0, 0, 0, 0.2);
-}
-#popup ::-webkit-scrollbar-thumb {
-	background: rgba(125, 125, 125, 0.7);
-}
-#popup.active {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
 #popup.olympic-rule {
 	-webkit-backdrop-filter: blur(7px);
 	backdrop-filter: blur(7px);
@@ -6131,33 +5967,7 @@ input[type='file'] {
 	-webkit-backdrop-filter: blur(7px);
 	backdrop-filter: blur(7px);
 }
-#popup .joinpop,
-#popup .loginpop {
-	display: none;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	width: 800px;
-	margin: auto;
-	height: 100%;
-	overflow: hidden;
-	max-width: none;
-}
-#popup .pop {
-	border-radius: 5px;
-	max-height: calc(100% - 160px);
-	overflow-y: auto;
-	@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap');
-	@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap');
-	@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap');
-}
-#popup .pop.photo img {
-	max-width: 800px;
-	max-height: 750px;
-}
+
 #popup .pop .backupDomain {
 	overflow: unset;
 	background: white;
@@ -6322,31 +6132,7 @@ input[type='file'] {
 	top: 30px;
 	font-size: 14px;
 }
-#popup .pop .title {
-	margin-bottom: 20px;
-}
-#popup .pop .title + div {
-	color: #5574a7;
-}
-#popup .pop > div {
-	display: none;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-flow: column;
-	flex-flow: column;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	position: relative;
-	background: #d2e2f9;
-	border-radius: 5px;
-	padding-top: 20px;
-}
-#popup .pop > div.active {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
+
 #popup .pop .joinSuccess {
 	position: relative;
 	min-width: 600px;

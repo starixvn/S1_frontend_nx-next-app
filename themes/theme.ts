@@ -86,6 +86,10 @@ export const theme = {
 		registerInputDropDownShadow: '0px 0px 10px 0px rgba(0, 0, 0, 0.25)',
 		registerInputDropDownColor: '#939DC5',
 		registerInputDropDownColorHover: '#EA6118',
+
+		popupBoxShadow:
+			'0px 0px 10px 0px rgba(0, 0, 0, 0.25), 0px 2px 10px 0px rgba(0, 0, 0, 0.10)',
+		popupBg: '#0F1428',
 	},
 	mobile: {},
 }
