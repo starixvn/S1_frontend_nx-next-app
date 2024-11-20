@@ -476,7 +476,7 @@ const Form = ({ cookies }: IJoinProps) => {
 						},
 						onBlur: checkUsername,
 					})}
-					icon='icon-member txt-blue'
+					icon='icon-user-line'
 					placeholder={t('Label_General_Username') || ''}
 					loading={existsUsernameLoading}
 					errorMessage={errors['username']?.message as string}
@@ -498,7 +498,7 @@ const Form = ({ cookies }: IJoinProps) => {
 						onBlur: () => trigger('password'),
 					})}
 					password
-					icon='icon icon-key txt-blue'
+					icon='icon icon-lock-password-line'
 					placeholder={t('Label_General_Password') || ''}
 					errorMessage={errors['password']?.message as string}
 					error={!!errors['password']}
@@ -510,7 +510,7 @@ const Form = ({ cookies }: IJoinProps) => {
 						onBlur: checkConfirmPwd,
 					})}
 					password
-					icon='icon icon-key txt-blue'
+					icon='icon icon-lock-password-line'
 					placeholder={t('Label_Join_ConfirmPassword') || ''}
 					errorMessage={errors['confirmPwd']?.message as string}
 					error={!!errors['confirmPwd']}

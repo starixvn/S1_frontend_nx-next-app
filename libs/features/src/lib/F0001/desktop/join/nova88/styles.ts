@@ -30,6 +30,7 @@ export const WrapperRegister = styled.div`
 				&-body {
 					background: ${({ theme }) => theme.desktop.registerBodyBg};
 					padding: 1.6rem;
+					height: 100%;
 					.title-list {
 						color: #ea6118;
 						font-size: 1.7rem;
@@ -99,6 +100,14 @@ export const WrapperRegister = styled.div`
 				}
 				.inputModule {
 					margin-top: 0;
+					.tip {
+						margin-top: 0.4rem;
+						padding-left: 0;
+						font-size: 1.2rem;
+						font-weight: 400;
+						line-height: normal;
+						color: ${({ theme }) => theme.desktop.tipColor};
+					}
 					.inputBox-blue {
 						min-height: 3.6rem;
 						padding: 0 1.2rem;
@@ -106,9 +115,44 @@ export const WrapperRegister = styled.div`
 						background: ${({ theme }) => theme.desktop.registerInputBg};
 						border: none;
 						margin-top: 1.6rem;
-					}
-					.tip {
-						margin-top: 0.4rem;
+						display: flex;
+						align-items: center;
+						position: relative;
+						.icon {
+							height: 2rem;
+							width: 2rem;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							&:before {
+								color: ${({ theme }) => theme.desktop.white};
+								font-size: 1.8rem;
+								margin: 0;
+							}
+						}
+						input {
+							color: ${({ theme }) => theme.desktop.registerInputColor};
+							background: ${({ theme }) => theme.desktop.registerInputBg};
+							padding-left: 1rem;
+							font-family: 'Anybody', sans-serif;
+							&::placeholder {
+								color: ${({ theme }) =>
+									theme.desktop.registerInputPlaceHolderColor};
+							}
+						}
+						.dropdown {
+							.btn {
+								color: ${({ theme }) =>
+									theme.desktop.registerInputPlaceHolderColor};
+							}
+						}
+						&.error {
+							border: 1px solid
+								${({ theme }) => theme.desktop.inputBorderColorError};
+						}
+						&.error + .tip {
+							color: ${({ theme }) => theme.desktop.tipColorError} !important;
+						}
 					}
 				}
 			}

@@ -4136,7 +4136,7 @@ main .promosswiper .swiper-button-prev::after {
 		opacity: 1;
 	}
 }
-.joinpop .joinloginModule .btnGroup {
+/* .joinpop .joinloginModule .btnGroup {
 	margin: 10px 0;
 }
 .joinpop .joinloginModule .joinloginFunction {
@@ -4283,7 +4283,7 @@ main .promosswiper .swiper-button-prev::after {
 	width: 15px;
 	height: 15px;
 	line-height: 15px;
-}
+} */
 
 .flag:before {
 	content: '';
@@ -4428,7 +4428,6 @@ main .promosswiper .swiper-button-prev::after {
 .euro .inputBox-event,
 .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event,
 .worldcupEvent .event .event-content .inputBox-event,
-.inputBox-blue,
 .inputBox-white,
 .inputBox-org {
 	width: calc(100% - 22px);

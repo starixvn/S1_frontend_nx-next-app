@@ -70,6 +70,12 @@ class MyDocument extends Document<CustomDocumentProps> {
 							href={`/css/${process.env['NEXT_PUBLIC_SITE_NAME']}/font.css`}
 						/>
 					)}
+					{process.env['NEXT_PUBLIC_SITE_NAME'] !== '' && (
+						<link
+							rel='stylesheet'
+							href={`/css/${process.env['NEXT_PUBLIC_SITE_NAME']}/font-newsite.css`}
+						/>
+					)}
 
 					{process.env['NEXT_PUBLIC_ENV'] === 'PRD' && (
 						<>

@@ -1,0 +1,185 @@
+@font-face {
+	font-family: 'icomoon';
+	src: url('../fonts-newsite/player-icon.eot?71k8ox');
+	src: url('../fonts-newsite/player-icon.eot?71k8ox#iefix')
+			format('embedded-opentype'),
+		url('../fonts-newsite/player-icon.ttf?71k8ox') format('truetype'),
+		url('../fonts-newsite/player-icon.woff?71k8ox') format('woff'),
+		url('../fonts-newsite/player-icon.svg?71k8ox#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+[class^='icon-'],
+[class*=' icon-'] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon' !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-switch-off:before {
+	content: '\e900';
+	color: #fff;
+}
+.icon-switch-on:before {
+	content: '\e901';
+	color: #fff;
+}
+.icon-u_globe:before {
+	content: '\e902';
+	color: #fff;
+}
+.icon-user-follow-line:before {
+	content: '\e903';
+	color: #fff;
+}
+.icon-user-line:before {
+	content: '\e904';
+	color: #fff;
+}
+.icon-lock-2-fill:before {
+	content: '\e905';
+	color: #fff;
+}
+.icon-lock-password-line:before {
+	content: '\e906';
+	color: #fff;
+}
+.icon-mail-fill:before {
+	content: '\e907';
+	color: #fff;
+}
+.icon-mail-line:before {
+	content: '\e908';
+	color: #fff;
+}
+.icon-money-dollar-circle-line:before {
+	content: '\e909';
+	color: #fff;
+}
+.icon-money-send:before {
+	content: '\e90a';
+	color: #fff;
+}
+.icon-refresh-fill:before {
+	content: '\e90b';
+	color: #fff;
+}
+.icon-search:before {
+	content: '\e90c';
+	color: #fff;
+}
+.icon-share-box-fill:before {
+	content: '\e90d';
+	color: #fff;
+}
+.icon-star:before {
+	content: '\e90e';
+	color: #fff;
+}
+.icon-syblings-connections:before {
+	content: '\e90f';
+	color: #fff;
+}
+.icon-information-fill:before {
+	content: '\e910';
+	color: #fff;
+}
+.icon-file-copy-line:before {
+	content: '\e911';
+	color: #fff;
+}
+.icon-fire-fill:before {
+	content: '\e912';
+	color: #fff;
+}
+.icon-home-4-fill:before {
+	content: '\e913';
+	color: #fff;
+}
+.icon-eye-close-line:before {
+	content: '\e914';
+	color: #fff;
+}
+.icon-eye-fill:before {
+	content: '\e915';
+	color: #fff;
+}
+.icon-arrow-up-line:before {
+	content: '\e916';
+	color: #fff;
+}
+.icon-bank-fill:before {
+	content: '\e917';
+	color: #fff;
+}
+.icon-calendar-2-line:before {
+	content: '\e918';
+	color: #fff;
+}
+.icon-chat-smile-fill:before {
+	content: '\e919';
+	color: #fff;
+}
+.icon-check:before {
+	content: '\e91a';
+	color: #fff;
+}
+.icon-checkbox-blank-line:before {
+	content: '\e91b';
+	color: #fff;
+}
+.icon-checkbox-fill:before {
+	content: '\e91c';
+	color: #fff;
+}
+.icon-close-line:before {
+	content: '\e91d';
+	color: #fff;
+}
+.icon-delete-bin-fill:before {
+	content: '\e91e';
+	color: #fff;
+}
+.icon-alert-fill:before {
+	content: '\e91f';
+	color: #fff;
+}
+.icon-hamburger:before {
+	content: '\e920';
+	color: #fff;
+}
+.icon-minus_circle:before {
+	content: '\e921';
+	color: #fff;
+}
+.icon-help_circle:before {
+	content: '\e922';
+	color: #fff;
+}
+.icon-chevron_right:before {
+	content: '\e923';
+	color: #fff;
+}
+.icon-chevron_up:before {
+	content: '\e924';
+	color: #fff;
+}
+.icon-chevron_down:before {
+	content: '\e925';
+	color: #fff;
+}
+.icon-chevron_left:before {
+	content: '\e926';
+	color: #fff;
+}
