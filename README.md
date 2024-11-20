@@ -16,7 +16,7 @@
 
 [demo](./README/reactDatePicker.md)
 
-> 棄用 moment 的日期選擇器
+> 棄用 moment 的日期選擇 器
 
 ## [generate app flow](/README/generate-app-flow.md)
 
