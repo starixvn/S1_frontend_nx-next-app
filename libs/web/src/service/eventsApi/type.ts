@@ -141,13 +141,14 @@ export enum ChineseZodiacStickerId {
 }
 
 export interface IChineseZodiacStickerData {
-	stickerId: ChineseZodiacStickerId
+	stickerIds: ChineseZodiacStickerId[]
 	stickerPrize: number
 	canBuy: boolean
+	stickerCount: number
 }
 
 export interface IBuyChineseZodiacStickerArgs {
-	stickerId: ChineseZodiacStickerId
+	stickerIds: ChineseZodiacStickerId[]
 }
 
 export interface IGetLotteryHistoryWinnerArgs {
