@@ -124,7 +124,7 @@ const Profile = () => {
 		<div className='rightModule'>
 			<div className='infoModule'>
 				<div className='inside-title'>
-					<i className='icon icon-icon32px_Profile' />
+					<i className='icon icon-file-user-fill' />
 					{t('Label_General_Profile')}
 				</div>
 				<div className='inside-body'>

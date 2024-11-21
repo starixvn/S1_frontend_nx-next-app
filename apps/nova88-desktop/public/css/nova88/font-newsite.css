@@ -26,16 +26,20 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-plus-add:before {
+  content: "\e92d";
+  color: #fff;
+}
+.icon-mobile-alt:before {
+  content: "\e931";
+  color: #fff;
+}
 .icon-file-text-fill:before {
   content: "\e92b";
   color: #fff;
 }
 .icon-Equal:before {
   content: "\e92c";
-  color: #fff;
-}
-.icon-plus_add:before {
-  content: "\e92d";
   color: #fff;
 }
 .icon-empty-wallet:before {
@@ -48,10 +52,6 @@
 }
 .icon-book-read-fill:before {
   content: "\e930";
-  color: #fff;
-}
-.icon-mobile_alt:before {
-  content: "\e931";
   color: #fff;
 }
 .icon-file-user-fill:before {

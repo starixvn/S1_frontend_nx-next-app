@@ -295,6 +295,12 @@ export const GlobalStyles = createGlobalStyle`
           padding: 0 1.6rem;
           text-transform: uppercase;
           gap : .5rem;
+          .icon {
+            &:before{
+              font-size : 2.4rem;
+              margin : 0;
+            }
+          }
         }
         .inside-body{
           padding : 2.4rem 1.6rem;
