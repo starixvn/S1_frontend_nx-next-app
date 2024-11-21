@@ -1,5 +1,5 @@
 import { NovaAuthProvider } from '@nova88-desktop/providers'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { ENV_COOKIE_NAMES, paths } from '@nx-next-app/constants'
 import { GlobalDataProvider } from '@nx-next-app/data-access'
 import { JoinNova88, Layout } from '@nx-next-app/features/F0001/desktop'
 import {
