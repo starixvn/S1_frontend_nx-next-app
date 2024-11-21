@@ -160,7 +160,21 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: 400;
         line-height: 1.8rem;
       }
-      .Success{
+      .Success,poker,
+      .angpaopop,
+      .friend,
+      .Cancel,
+      .uploadSuccess,
+      .updateSuccess,
+      .Success,
+      .tokyc,
+      .addBankpop,
+      .addAddresspop,
+      .changePassWordpop,
+      .editSuccess,
+      .joinSuccess,
+      .resetPassWordpop,
+      .noticepop{
         width: 40rem;
         padding: 4rem 2.8rem 2.8rem 2.8rem;
         display: flex;
@@ -266,5 +280,12 @@ export const GlobalStyles = createGlobalStyle`
         }
       }
     }
+  }
+  .heading-form {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: normal;
+    color: ${({ theme }) => theme.desktop.white};
+    margin-bottom: 1.6rem;
   }
 `

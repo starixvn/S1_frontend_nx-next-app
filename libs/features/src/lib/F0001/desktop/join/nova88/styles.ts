@@ -48,13 +48,6 @@ export const WrapperRegister = styled.div`
 				margin-left: 0;
 				flex: 0 0 48.4rem;
 				padding: 0 2rem;
-				.heading-form {
-					font-size: 2.5rem;
-					font-weight: 700;
-					line-height: normal;
-					color: ${({ theme }) => theme.desktop.white};
-					margin-bottom: 1.6rem;
-				}
 				.slogan-form {
 					ont-size: 1.4rem;
 					font-weight: 400;
@@ -97,7 +90,7 @@ export const WrapperRegister = styled.div`
 					}
 					.dropdown-item {
 						border-top: 1px solid
-							${({ theme }) => theme.desktop.countryCurrentBorderColor};
+							${({ theme }) => theme.desktop.registerDropdownBorderColor};
 						min-height: 4.2rem;
 						cursor: pointer;
 						display: flex;
@@ -123,7 +116,7 @@ export const WrapperRegister = styled.div`
 						left: 0;
 						border-radius: 20px;
 						border-radius: 20px;
-						background: ${({ theme }) => theme.desktop.countryOptionsItemBg};
+						background: ${({ theme }) => theme.desktop.registerDropdownBg};
 						overflow: hidden;
 						z-index: 1;
 						.heading-search {
@@ -132,7 +125,7 @@ export const WrapperRegister = styled.div`
 							justify-content: center;
 							padding: 1.3rem 1.6rem;
 							border-bottom: 1px solid
-								${({ theme }) => theme.desktop.countryCurrentBorderColor};
+								${({ theme }) => theme.desktop.registerDropdownBorderColor};
 							.group-search {
 								position: relative;
 								input {

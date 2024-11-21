@@ -1,8 +1,8 @@
-import { useTranslation } from 'next-i18next'
-import { useForm } from 'react-hook-form'
-import { InputBox, Form } from '@nx-next-app/components/D0001'
+import { Form, InputBox } from '@nx-next-app/components/D0001'
 import { EMAIL_REGEX } from '@nx-next-app/constants'
 import { upperFirst } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useForm } from 'react-hook-form'
 
 type ForgetPasswordFormType = {
 	email: string
@@ -25,7 +25,7 @@ const ForgetPasswordForm = ({
 	return (
 		<div className='joinloginFunction'>
 			<Form onSubmit={handleSubmit(onSubmit)}>
-				<div className='title txt-blue'>{t('Label_Header_ForgetPassword')}</div>
+				<div className='heading-form'>{t('Label_Header_ForgetPassword')}</div>
 				<div className='inputModule'>
 					<InputBox
 						register={register('email', {
@@ -56,7 +56,7 @@ const ForgetPasswordForm = ({
 				</div>
 				<div className='btnGroup'>
 					<button
-						className='gray'
+						className='btn-cancel'
 						onClick={() => {
 							onCancel()
 						}}
@@ -65,7 +65,7 @@ const ForgetPasswordForm = ({
 						{t('Label_General_Cancel')}
 					</button>
 					<button
-						className='orange'
+						className='btn-check'
 						onClick={handleSubmit(onSubmit)}
 						type='submit'
 					>

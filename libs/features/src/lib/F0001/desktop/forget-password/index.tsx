@@ -1,9 +1,10 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { WrapperForgotPassWord } from '@nx-next-app/features/F0001/desktop/forget-password/styles'
+import { FlagEnum, useSetForgetPasswordMutation } from '@nx-next-app/service'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-import { paths } from '@nx-next-app/constants'
-import { FlagEnum, useSetForgetPasswordMutation } from '@nx-next-app/service'
-import { useAuth } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	ForgetPasswordForm,
 	ForgetPasswordFormType,
@@ -42,26 +43,19 @@ const ForgetPassword = () => {
 
 	return (
 		<main>
-			<section className='inside'>
-				<div className='rightModule'>
-					<div className='loginpop'>
-						<div className='joinloginModule'>
-							<div className='loginAnimation'>
-								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/forgetpasswordbg.png`}
-									alt='forget-password-background'
-									style={{ width: '439px', height: '400px' }}
-								/>
-							</div>
-							<ForgetPasswordForm
-								loading={isSetForgetPasswordLoading}
-								onCancel={handleCancel}
-								onSubmit={handleSubmit}
-							/>
-						</div>
-					</div>
+			<WrapperForgotPassWord>
+				<div className='img-forgotpassword'>
+					<img
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/forgetpasswordbg.webp`}
+						alt='forget-password-background'
+					/>
 				</div>
-			</section>
+				<ForgetPasswordForm
+					loading={isSetForgetPasswordLoading}
+					onCancel={handleCancel}
+					onSubmit={handleSubmit}
+				/>
+			</WrapperForgotPassWord>
 		</main>
 	)
 }
