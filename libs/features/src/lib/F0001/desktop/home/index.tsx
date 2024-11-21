@@ -1,4 +1,5 @@
 import { useAuth, useStaticData } from "@nx-next-app/data-access";
+import { HomePage } from "@nx-next-app/features/F0001/desktop/home/styles";
 import { useHome } from "@nx-next-app/features/F0001/providers";
 import { DesktopHomeComponentsEnum } from "@nx-next-app/features/F0001/types";
 import { includes } from "lodash-es";
@@ -138,9 +139,9 @@ const Home = () => {
 	)
 
 	return (
-		<main className='main-content'>
+		<HomePage className='main-content'>
 			{desktopHomeOrders.map(component => renderComponent(component))}
-		</main>
+		</HomePage>
 	)
 }
 

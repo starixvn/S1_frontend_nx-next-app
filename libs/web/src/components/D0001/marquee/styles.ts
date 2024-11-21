@@ -6,7 +6,8 @@ export const HomeMarquee = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	height: 4rem;
-	padding: 0 calc((100% - 1400px) / 2);
+	padding: 0 calc((100% - 140rem) / 2);
+	margin-bottom: 2rem;
 	background: ${({ theme }) => theme.desktop.marqueeMessageBg};
 
 	.marquee {

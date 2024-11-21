@@ -97,6 +97,9 @@ export const theme = {
 		marqueeMessageColor: '#fff',
 		liveChatColor: '#ea6118',
 
+		bannerBulletBg: '#374375',
+		bannerBulletBgActive: '#EA6118',
+
 		buttonSloganBg: '#EA6118',
 		registerBodyBg: '#182043',
 

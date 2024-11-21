@@ -34,6 +34,7 @@ const Login = ({ onLogin, onLoginInvalid, onLineLogin }: ILoginProps) => {
 					component={false}
 				>
 					<input
+						type='text'
 						className='form-input username'
 						defaultValue=''
 						placeholder={t('Label_General_Username') || ''}

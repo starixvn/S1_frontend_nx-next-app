@@ -587,14 +587,6 @@ export const LoginForm = styled.div`
 			color: ${({ theme }) => theme.desktop.headerInputPlaceHolderColor};
 		}
 
-		&:-webkit-autofill,
-		&:-internal-autofill-selected,
-		&:-webkit-autofill:focus {
-			box-shadow: none;
-			background: ${({ theme }) => theme.desktop.headerInputBg} !important;
-			-webkit-text-fill-color: ${({ theme }) => theme.desktop.headerInputColor};
-		}
-
 		&:focus-within {
 			border: none;
 			outline: none;

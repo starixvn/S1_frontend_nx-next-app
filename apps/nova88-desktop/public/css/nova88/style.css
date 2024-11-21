@@ -5285,39 +5285,6 @@ input[type='file'] {
 	font-weight: normal;
 }
 
-.homebanner .swiper-container {
-	position: relative;
-}
-.homebanner .swiper-container .swiper-pagination {
-	width: -webkit-max-content;
-	width: -moz-max-content;
-	width: max-content;
-	bottom: 30px;
-	right: unset;
-	left: 20px !important;
-	z-index: 1;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.homebanner .swiper-container .swiper-pagination .swiper-pagination-bullet {
-	height: 7px;
-	width: 15px;
-	background: rgba(165, 165, 165, 0.445);
-	margin: 0 4px;
-}
-.homebanner
-	.swiper-container
-	.swiper-pagination
-	.swiper-pagination-bullet.swiper-pagination-bullet-active {
-	width: 12px;
-	height: 12px;
-	background: #ffffff;
-}
-
 .walletModule {
 	display: -webkit-box;
 	display: -ms-flexbox;
