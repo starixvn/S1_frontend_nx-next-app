@@ -46,7 +46,7 @@ export const LotteryDataProvider = ({
 	} = data || {}
 	const { data: { data: lotteryInfo } = {} } = useGetLotteryInfoQuery(null)
 	const { data: { data: stickerInfo } = {} } =
-		useGetChineseZodiacStickerListQuery(null)
+		useGetChineseZodiacStickerListQuery(null, { skip: !lotteryInfo })
 	const { data: { data: lotteryStatus } = {} } =
 		useGetLotteryMaintainQuery(null)
 
