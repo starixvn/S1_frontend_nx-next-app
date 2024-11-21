@@ -6,7 +6,11 @@ export const useJackPot = (jackpotCurrency: string) => {
 
 	useInterval(async () => {
 		try {
-			if (window !== undefined) {
+			if (
+				window !== undefined &&
+				'Ticker' in window &&
+				typeof window.Ticker === 'function'
+			) {
 				if (isJackPotLoaded) return
 				const ticker = new (window as any).Ticker({
 					info: 2,
