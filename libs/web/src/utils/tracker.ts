@@ -41,13 +41,6 @@ export const MetaPixelTracker = (
 			window.fbq('track', eventName, { currency: isoCode, value: amount })
 			return
 		}
-		if (eventName === 'Purchase') {
-			if (firstDeposit) {
-				window.fbq('track', 'StartTrial', { currency: isoCode, value: amount })
-			}
-			window.fbq('track', 'redeposit', { currency: isoCode, value: amount })
-			window.fbq('track', eventName, { currency: isoCode, value: amount })
-		}
 		window.fbq('trackCustom', eventName)
 	}
 }
