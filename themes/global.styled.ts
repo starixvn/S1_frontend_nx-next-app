@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
-import { theme } from './theme'
+import { theme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
@@ -112,6 +112,12 @@ export const GlobalStyles = createGlobalStyle`
     background: ${theme.desktop.primary};
     font-size: 1.4rem;
   }
+
+  .main-content {
+    padding-top: 12.4rem;
+    min-width: 140rem;
+  }
+
   #popup {
     background: rgba(0, 0, 0, 0.6);
     position: fixed;

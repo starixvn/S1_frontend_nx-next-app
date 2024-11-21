@@ -83,6 +83,7 @@ export const theme = {
 
 		menuContainerBg: '#232B4F',
 		menuItemColor: '#fff',
+		menuItemBgHover: '#182043',
 		menuItemColorHover: '#ea6118',
 		menuItemActiveLine: '#ea6118',
 		subMenuTextColor: '#fff',
@@ -91,6 +92,10 @@ export const theme = {
 		hotLabelBg: '#e12973',
 		hotLabelColor: '#fff',
 		hotIconColor: '#ffd21d',
+
+		marqueeMessageBg: '#374375',
+		marqueeMessageColor: '#fff',
+		liveChatColor: '#ea6118',
 
 		buttonSloganBg: '#EA6118',
 		registerBodyBg: '#182043',

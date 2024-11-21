@@ -1,10 +1,8 @@
-import ReactMarquee from 'react-fast-marquee'
-import {
-	IMarqueeData,
-	IMarqueeConfigs,
-} from '@nx-next-app/components/D0001/marquee/type'
-import { openLiveChat } from '@nx-next-app/utils'
-import { useTranslation } from 'next-i18next'
+import { HomeMarquee } from "@nx-next-app/components/D0001/marquee/styles";
+import { IMarqueeConfigs, IMarqueeData } from "@nx-next-app/components/D0001/marquee/type";
+import { openLiveChat } from "@nx-next-app/utils";
+import { useTranslation } from "next-i18next";
+import ReactMarquee from "react-fast-marquee";
 
 interface IMarqueeProps {
 	data: IMarqueeData[] | null
@@ -23,8 +21,8 @@ const Marquee = ({ data, configs, onMarqueeClick }: IMarqueeProps) => {
 	}
 
 	return (
-		<div className='home-marquee'>
-			<div id='Marquee'>
+		<HomeMarquee>
+			<div className='marquee' id='Marquee'>
 				<div className='marquee-box'>
 					<div className='marquee-run' style={{ width: '100%' }}>
 						<ReactMarquee {...defaultConfig}>
@@ -42,14 +40,11 @@ const Marquee = ({ data, configs, onMarqueeClick }: IMarqueeProps) => {
 					</div>
 				</div>
 			</div>
-			<button className='livechat-btn' onClick={openLiveChat}>
-				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/livechat.png`}
-					alt=''
-				/>
+			<button className='live-chat' onClick={openLiveChat}>
+				<span className='icon icon-chat-smile-fill' />
 				{t('Label_General_LiveChat')}
 			</button>
-		</div>
+		</HomeMarquee>
 	)
 }
 

@@ -4,7 +4,6 @@ export const MenuContainer = styled.div`
 	position: relative;
 	display: flex;
 	height: 4.8rem;
-	padding: 0 26rem;
 	justify-content: space-between;
 	align-items: center;
 	align-self: stretch;
@@ -31,15 +30,14 @@ export const MenuContainer = styled.div`
 
 		.menu-item,
 		> button {
-			flex: 0 0 auto;
+			position: relative;
 			display: flex;
 			align-items: center;
-			padding-left: 0;
-			height: 100%;
-			position: relative;
 			justify-content: center;
-			font-family: Anybody;
-			font-size: 14px;
+			padding-left: 0.8rem;
+			padding-right: 0.8rem;
+			height: 100%;
+			font-size: 1.4rem;
 			font-weight: 700;
 			text-transform: uppercase;
 			color: ${({ theme }) => theme.desktop.menuItemColor};
@@ -58,6 +56,7 @@ export const MenuContainer = styled.div`
 
 			&:hover,
 			&.active {
+				background: ${({ theme }) => theme.desktop.menuItemBgHover};
 				color: ${({ theme }) => theme.desktop.menuItemColorHover};
 				cursor: pointer;
 
@@ -69,7 +68,7 @@ export const MenuContainer = styled.div`
 			div {
 				&.icon {
 					position: absolute;
-					right: -2rem;
+					right: -0.8rem;
 					top: 0.2rem;
 					display: flex;
 					align-items: center;

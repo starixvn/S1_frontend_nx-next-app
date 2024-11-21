@@ -1,9 +1,9 @@
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useHome } from '@nx-next-app/features/F0001/providers'
-import { DesktopHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
-import { includes } from 'lodash-es'
-import dynamic from 'next/dynamic'
-import { Fragment, useCallback } from 'react'
+import { useAuth, useStaticData } from "@nx-next-app/data-access";
+import { useHome } from "@nx-next-app/features/F0001/providers";
+import { DesktopHomeComponentsEnum } from "@nx-next-app/features/F0001/types";
+import { includes } from "lodash-es";
+import dynamic from "next/dynamic";
+import { Fragment, useCallback } from "react";
 
 // Page Components
 const ProvidersBlock = dynamic(() => import('./ProvidersBlock'), { ssr: false })
@@ -20,11 +20,17 @@ const HotGame = dynamic(() => import('./HotGame'), { ssr: false })
 
 const HotGameSport = dynamic(() => import('./HotGameSport'), { ssr: false })
 const HotGameCasino = dynamic(() => import('./HotGameCasino'), { ssr: false })
-const HotGameLiveCasino = dynamic(() => import('./HotGameLiveCasino'), { ssr: false })
+const HotGameLiveCasino = dynamic(() => import('./HotGameLiveCasino'), {
+	ssr: false,
+})
 const HotGameFishing = dynamic(() => import('./HotGameFishing'), { ssr: false })
-const HotGameCockfighting = dynamic(() => import('./HotGameCockfighting'), { ssr: false })
+const HotGameCockfighting = dynamic(() => import('./HotGameCockfighting'), {
+	ssr: false,
+})
 const HotGameLottery = dynamic(() => import('./HotGameLottery'), { ssr: false })
-const HotGameVirtualSports = dynamic(() => import('./HotGameVirtualSports'), { ssr: false })
+const HotGameVirtualSports = dynamic(() => import('./HotGameVirtualSports'), {
+	ssr: false,
+})
 const HotGameP2P = dynamic(() => import('./HotGameP2P'), { ssr: false })
 const HotGameCrypto = dynamic(() => import('./HotGameCrypto'), { ssr: false })
 const HotGameESports = dynamic(() => import('./HotGameESports'), { ssr: false })
@@ -132,7 +138,7 @@ const Home = () => {
 	)
 
 	return (
-		<main>
+		<main className='main-content'>
 			{desktopHomeOrders.map(component => renderComponent(component))}
 		</main>
 	)
