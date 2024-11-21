@@ -1,9 +1,10 @@
+import HistoryFilter from '@apps/nova88-desktop/components/history/HistoryFilter'
+import HistoryTable from '@apps/nova88-desktop/components/history/HistoryTable'
+import HistoryTabs from '@apps/nova88-desktop/components/history/HistoryTabs'
 import { Loading } from '@nx-next-app/components/D0001'
 import Pagination from '@nx-next-app/components/D0001/pagination'
-import HistoryFilter from '@nx-next-app/features/F0001/desktop/history/HistoryFilter'
-import HistoryTable from '@nx-next-app/features/F0001/desktop/history/HistoryTable'
-import HistoryTabs from '@nx-next-app/features/F0001/desktop/history/HistoryTabs'
-import { useHistory } from '@nx-next-app/features/F0001/providers'
+import { useHistory } from '@nx-next-app/operations'
+
 import { useTranslation } from 'next-i18next'
 
 const History = () => {

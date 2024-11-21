@@ -4,12 +4,13 @@ import {
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { History, Layout, LeftMenu } from '@nx-next-app/features/F0001/desktop'
-import { HistoryProvider } from '@nx-next-app/features/F0001/providers'
+// TODO
+import { Layout, LeftMenu } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { HistoryProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import { FOOTER_DATA } from '@nx-next-app/site/nova88'
 import {
@@ -19,6 +20,7 @@ import {
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { History } from '../components'
 
 interface IHistoryPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
