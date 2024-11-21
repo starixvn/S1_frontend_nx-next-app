@@ -2,6 +2,7 @@ import { useGlobalModal } from "@nx-next-app/components/config-provider";
 import { paths, PRODUCTS } from "@nx-next-app/constants";
 import { useAuth, useStaticData } from "@nx-next-app/data-access";
 import { MenuContainer } from "@nx-next-app/features/F0001/desktop/layout/common/header/Menu/styles";
+import SubMenu from "@nx-next-app/features/F0001/desktop/layout/common/header/Menu/SubMenu";
 import { LobbyCategoryEnum, MainMenuIcon, MenuActionTypeEnum, MenuIconTypeEnum } from "@nx-next-app/types";
 import { isEventPeriod } from "@nx-next-app/utils";
 import classNames from "classnames";
@@ -11,8 +12,6 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useState } from "react";
 import { useDebounce } from "usehooks-ts";
-
-import SubMenu from "./SubMenu";
 
 import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
@@ -31,7 +30,7 @@ const LiveStreamingModalDesktop = dynamic(
 const mainMenuIcon = {
 	// * 舊的版本沒有 i18n 後來碩要支援在加
 	[MainMenuIcon.newTag]: <div className='icon'>NEW</div>,
-	[MainMenuIcon.hotTag]: <div className='icon mediafire'>Hot</div>,
+	[MainMenuIcon.hotTag]: <div className='icon icon-fire-fill'>Hot</div>,
 } as const
 
 export interface IMenuProps {
@@ -129,7 +128,7 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 		if (lobbyCategoryId === LobbyCategoryEnum.Exchange) {
 			return (
 				<a
-					className={classNames({ active })}
+					className={classNames('menu-item ', { active })}
 					key={lobbyCategoryId}
 					onMouseEnter={() => setMenuKey(category)}
 				>
@@ -142,7 +141,7 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 		return (
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 			<Link href={pathname!} key={lobbyCategoryId}>
-				<a onMouseEnter={() => setMenuKey(category)}>
+				<a className='menu-item' onMouseEnter={() => setMenuKey(category)}>
 					{icon}
 					{menuText}
 				</a>
@@ -152,7 +151,7 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 	return (
 		<MenuContainer>
 			<div onMouseLeave={() => setMenuKey(undefined)}>
-				<Link className='menu-item' href={paths.home.root} passHref>
+				<Link href={paths.home.root} passHref>
 					<a className='icon icon-home' onMouseEnter={() => setMenuKey('Home')}>
 						{' '}
 					</a>
@@ -184,7 +183,7 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 
 				<Link href={paths.promotion.root} passHref>
 					<a
-						className={classNames({
+						className={classNames('menu-item ', {
 							active: debouncedMenuKey === 'Promotion',
 						})}
 						onMouseEnter={() => setMenuKey('Promotion')}
@@ -197,7 +196,7 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 				{includes(ALLOWED_CURRENCIES.VIP, Number(currencyId)) && (
 					<Link href={paths.vip.root} passHref>
 						<a
-							className={classNames({
+							className={classNames('menu-item ', {
 								active: debouncedMenuKey === 'VIP',
 							})}
 							onMouseEnter={() => setMenuKey('VIP')}
@@ -209,7 +208,7 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 				{includes(ALLOWED_CURRENCIES.LEADER_BOARD, Number(currencyId)) && (
 					<Link href={paths.leaderBoard.root} passHref>
 						<a
-							className={classNames({
+							className={classNames('menu-item ', {
 								active: debouncedMenuKey === 'LeaderBoard',
 							})}
 							onMouseEnter={() => setMenuKey('LeaderBoard')}

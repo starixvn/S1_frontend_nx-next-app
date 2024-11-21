@@ -82,13 +82,7 @@ const Login = ({ onLogin, onLoginInvalid, onLineLogin }: ILoginProps) => {
 					{t('Label_General_Register')}
 				</button>
 			</Link>
-			<a className='btn btn-line-login' onClick={handleLineLogin}>
-				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/line-2.png`}
-					alt='img-line'
-				/>
-				{t('Label_General_LogIn')}
-			</a>
+
 			{onLineLogin && (
 				<a className='btn btn-line-login' onClick={handleLineLogin}>
 					<img

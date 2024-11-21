@@ -405,15 +405,16 @@ export const FunctionContainer = styled.div`
 	}
 
 	.country-list {
-		min-width: 30rem;
-		display: none;
 		position: absolute;
-		background: ${({ theme }) => theme.desktop.dropdownBg};
-		border-radius: 1.5rem;
 		right: 0;
 		top: 5.5rem;
 		z-index: 3;
+		min-width: 30rem;
+		display: none;
+		border-radius: 1.5rem;
+		background: ${({ theme }) => theme.desktop.dropdownBg};
 		box-shadow: ${({ theme }) => theme.desktop.dropdownShadow};
+		overflow: hidden;
 
 		.country-option {
 			display: flex;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const MenuContainer = styled.div`
+	position: relative;
 	display: flex;
 	height: 4.8rem;
 	padding: 0 26rem;
@@ -9,116 +10,44 @@ export const MenuContainer = styled.div`
 	align-self: stretch;
 	background: ${({ theme }) => theme.desktop.menuContainerBg};
 
+	--transition: 0.6s;
+
+	.icon-home,
+	.icon-mobile {
+		font-size: 2rem;
+
+		&:hover {
+			color: ${({ theme }) => theme.desktop.menuItemColorHover};
+		}
+	}
+
 	> div {
-		width: 1400px;
 		display: flex;
 		align-items: center;
 		margin: auto;
+		width: 140rem;
 		height: 100%;
 		justify-content: space-between;
-		> a,
+
+		.menu-item,
 		> button {
 			flex: 0 0 auto;
 			display: flex;
 			align-items: center;
 			padding-left: 0;
-			font-size: 16px;
-			font-weight: 600;
-			color: #0a1b38;
 			height: 100%;
 			position: relative;
 			justify-content: center;
-
-			&.tvbtn {
-				padding: 0 60px 0 30px;
-				justify-content: center;
-			}
-
-			&.reward {
-				&::before {
-					content: '';
-					display: block;
-					width: 45px;
-					height: 45px;
-					background: url(${process.env[
-							'NEXT_PUBLIC_BANNER_HOST'
-						]}/desktop/img/88rewards.png)
-						no-repeat center / cover;
-				}
-			}
-
-			&.eventbtn {
-				&::before {
-					display: block;
-					content: '';
-					width: 112px;
-					height: 60px;
-					background: url(${process.env[
-							'NEXT_PUBLIC_BANNER_HOST'
-						]}/desktop/img/event/worldcup/xs-logo.png)
-						center no-repeat;
-				}
-			}
-			&.rewardsbtn {
-				&::before {
-					display: block;
-					content: '';
-					width: 45px;
-					height: 45px;
-					background: url(${process.env[
-							'NEXT_PUBLIC_BANNER_HOST'
-						]}/desktop/img/88rewards_w.png)
-						center top / cover;
-					transition: 0.3s;
-				}
-				&:hover {
-					&::before {
-						background: url(${process.env[
-								'NEXT_PUBLIC_BANNER_HOST'
-							]}/desktop/img/88rewards.png)
-							center top / cover;
-						transition: 0.3s;
-					}
-				}
-			}
-			&.cryptobtn {
-				&::before {
-					display: block;
-					content: '';
-					width: 52px;
-					height: 28.3px;
-					background: url(${process.env[
-							'NEXT_PUBLIC_BANNER_HOST'
-						]}/desktop/img/cryptosports.png)
-						no-repeat center top / cover;
-					transition: 0.2s;
-				}
-
-				&:hover {
-					&::before {
-						background: url(${process.env[
-								'NEXT_PUBLIC_BANNER_HOST'
-							]}/desktop/img/cryptosportsa.png)
-							no-repeat center top / cover;
-					}
-				}
-				&.maintenance {
-					&:hover {
-						&::before {
-							filter: grayscale(1);
-							background: url(${process.env[
-									'NEXT_PUBLIC_BANNER_HOST'
-								]}/desktop/img/cryptosports.png)
-								no-repeat center top / cover;
-						}
-					}
-				}
-			}
+			font-family: Anybody;
+			font-size: 14px;
+			font-weight: 700;
+			text-transform: uppercase;
+			color: ${({ theme }) => theme.desktop.menuItemColor};
 
 			&:after {
 				content: '';
 				display: block;
-				background: #ff5e00;
+				background: ${({ theme }) => theme.desktop.menuItemActiveLine};
 				width: calc(100% - 3px);
 				height: 3px;
 				position: absolute;
@@ -129,7 +58,7 @@ export const MenuContainer = styled.div`
 
 			&:hover,
 			&.active {
-				color: #ff5e00;
+				color: ${({ theme }) => theme.desktop.menuItemColorHover};
 				cursor: pointer;
 
 				&:after {
@@ -137,40 +66,25 @@ export const MenuContainer = styled.div`
 				}
 			}
 
-			&.icon-home,
-			&.icon-mobile {
-				font-size: 24px;
-			}
-
 			div {
 				&.icon {
 					position: absolute;
-					top: -1px;
-					background: #ff7600;
-					font-size: 13px;
-					padding: 1px 12px 0;
-					font-weight: bold;
-					transform: scale(0.95);
+					right: -2rem;
+					top: 0.2rem;
 					display: flex;
 					align-items: center;
-					color: white;
-					border-radius: 0 0 10px 10px;
-					&.icon-new {
-						left: 0;
-						top: 0;
-						&:after {
-							content: '';
-							display: block;
-							width: 0;
-							height: 0;
-							border-style: solid;
-							border-width: 0 0 18px 10px;
-							border-color: transparent transparent transparent #f77900;
-							position: absolute;
-							background: 0 0;
-							top: 0;
-							left: 50px;
-							transform: translateY(0);
+					padding: 0.2rem 0.6rem;
+					color: ${({ theme }) => theme.desktop.newLabelColor};
+					border-radius: 5rem;
+					background: ${({ theme }) => theme.desktop.newLabelBg};
+					font-size: 0.8rem;
+					font-weight: 700;
+
+					&.icon-fire-fill {
+						background: ${({ theme }) => theme.desktop.hotLabelBg};
+
+						&:before {
+							color: ${({ theme }) => theme.desktop.hotIconColor};
 						}
 					}
 
@@ -178,7 +92,6 @@ export const MenuContainer = styled.div`
 						margin: 0 2px 0 0;
 						font-weight: normal;
 						color: white;
-						// animation: star 1s 1s infinite linear;
 
 						@keyframes star {
 							0% {
@@ -196,45 +109,6 @@ export const MenuContainer = styled.div`
 								color: $red;
 							}
 						}
-					}
-
-					&.mediafire {
-						background: $red;
-						padding: 0 7px 1px 5px;
-						&:before {
-							display: block;
-							content: '';
-							height: 15px;
-							width: 15px;
-							// transform: rotate(90deg);
-							// animation: fire 1s 1s infinite linear;
-							z-index: 1;
-							background: url(${process.env[
-									'NEXT_PUBLIC_BANNER_HOST'
-								]}/desktop/img/4.0/icon-fire.png)
-								no-repeat center / cover;
-						}
-
-						// @keyframes fire {
-						//   0% {
-						//     transform: rotate(90deg) scale(1, 1);
-						//     color: white;
-						//   }
-
-						//   50% {
-						//     transform: rotate(90deg) scale(1.2);
-						//     color: $orange;
-						//   }
-
-						//   100% {
-						//     transform: rotate(90deg) scale(1, 1);
-						//     color: white;
-						//   }
-						// }
-
-						// &:after {
-						//   border-color: transparent #750202 transparent transparent;
-						// }
 					}
 				}
 
@@ -306,16 +180,14 @@ export const MenuContainer = styled.div`
 		}
 	}
 
-	//新的
 	.subMenu-Wrapper-new {
 		position: absolute;
-		width: $width;
+		width: 100%;
 		left: 0;
-		top: 59px;
-		background: #ffffffd9;
-		z-index: -1;
-		border-bottom: 1px solid #ccc;
-		backdrop-filter: blur(4px);
+		top: 4.8rem;
+		background: rgba(15, 20, 40, 0.95);
+		z-index: 2;
+
 		.icon:before {
 			font-size: 30px;
 		}
@@ -338,20 +210,22 @@ export const MenuContainer = styled.div`
 		.rankingList,
 		.eventList,
 		.cryptoList {
-			margin: auto;
-			display: flex;
-			visibility: hidden;
+			position: relative;
+			display: none;
 			justify-content: center;
 			flex-flow: wrap;
 			height: 0;
-			width: 1400px;
-			position: relative;
+			width: 140rem;
+			margin: auto;
+			padding: 4rem;
+
 			&.maintenance {
 				filter: grayscale(2);
 			}
+
 			a,
 			button {
-				flex: 1 1 155px;
+				flex: 1 1 15.5rem;
 				display: flex;
 				flex-flow: column;
 				align-items: center;
@@ -359,19 +233,19 @@ export const MenuContainer = styled.div`
 				height: 185px;
 				transition: 0s;
 				color: white;
-				max-width: 155px;
+				max-width: 15.5rem;
 				position: relative;
 				text-transform: initial;
-				margin: 0 10px 5px;
+				margin: 0 1rem 0.5rem;
 				opacity: 0;
-				top: -10px;
+				top: -1rem;
 				.under {
 					display: none;
 					position: absolute;
 					z-index: 1;
 					background: #555;
-					padding: 5px 10px;
-					border-radius: 5px;
+					padding: 0.5rem 1rem;
+					border-radius: 0.5rem;
 					text-align: center;
 				}
 
@@ -404,7 +278,7 @@ export const MenuContainer = styled.div`
 
 				&:hover {
 					img {
-						transition: $transition;
+						transition: var(--transition);
 						opacity: 1;
 
 						&.List-npc {
@@ -420,57 +294,37 @@ export const MenuContainer = styled.div`
 
 				> span {
 					position: absolute;
-					font-size: 16px;
-					width: 150px;
-					height: 25px;
-					transition: $transition;
+					width: 15rem;
+					transition: var(--transition);
 					left: 10px;
-					bottom: -30px;
+					bottom: -3rem;
 					z-index: 2;
 					text-align: center;
 					overflow: hidden;
 					text-overflow: ellipsis;
 					white-space: nowrap;
-					// padding: 0 30px;
-					line-height: 25px;
-					color: #0a1b38;
-					// margin-bottom: 6px;
-					font-size: 14px;
-				}
-
-				&.icon-new {
-					&:before {
-						font-size: 12px;
-						top: auto;
-						bottom: 30px;
-						z-index: 2;
-						background: #f77900;
-						padding: 10px;
-						color: white;
-						border-radius: 50px;
-						display: flex;
-						justify-content: center;
-						align-items: center;
-						animation: none;
-					}
+					line-height: 1.8rem;
+					font-size: 1.4rem;
+					font-weight: 400;
+					color: ${({ theme }) => theme.desktop.subMenuTextColor};
 				}
 			}
 
 			&.active {
+				display: flex;
 				opacity: 1;
-				visibility: visible;
 				height: auto;
 
 				a,
 				button {
-					transition: $transition;
+					transition: var(--transition);
 					opacity: 1;
 					top: 0px;
 					align-items: center;
 					justify-content: center;
 
 					img {
-						transition: $transition;
+						transition: var(--transition);
 						margin-left: 0;
 
 						&.List-npc {
@@ -479,14 +333,15 @@ export const MenuContainer = styled.div`
 					}
 
 					> span {
-						transition: $transition;
+						transition: var(--transition);
 						left: 0;
 						bottom: 0;
 					}
 				}
 			}
+
 			.new-icon {
-				background: #ff7600;
+				background: ${({ theme }) => theme.desktop.newLabelBg};
 				border-radius: 50px;
 				font-size: 12px;
 				width: 30px;

@@ -82,6 +82,16 @@ export const theme = {
 		dropdownItemColorHover: '#fff',
 
 		menuContainerBg: '#232B4F',
+		menuItemColor: '#fff',
+		menuItemColorHover: '#ea6118',
+		menuItemActiveLine: '#ea6118',
+		subMenuTextColor: '#fff',
+		newLabelBg: '#ea6118',
+		newLabelColor: '#fff',
+		hotLabelBg: '#e12973',
+		hotLabelColor: '#fff',
+		hotIconColor: '#ffd21d',
+
 		buttonSloganBg: '#EA6118',
 		registerBodyBg: '#182043',
 
