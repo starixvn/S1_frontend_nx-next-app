@@ -1,24 +1,21 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { Header, LoginFormType } from '@nx-next-app/components/D0001'
-import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import { HeaderTop } from '@nx-next-app/features/F0001/desktop/layout/common/header/styles'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import {
-	LineLoginDirectTypeEnum,
-	useLazyGetLineLoginDirectUrlQuery,
-} from '@nx-next-app/service'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { renderFieldError } from '@nx-next-app/utils'
-import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { FieldErrors } from 'react-hook-form'
+import { useGlobalModal } from "@nx-next-app/components/config-provider";
+import { Header, LoginFormType } from "@nx-next-app/components/D0001";
+import { paths } from "@nx-next-app/constants";
+import { useAuth } from "@nx-next-app/data-access";
+import { HeaderTop } from "@nx-next-app/features/F0001/desktop/layout/common/header/styles";
+import { useMenu } from "@nx-next-app/features/F0001/hooks";
+import { LineLoginDirectTypeEnum, useLazyGetLineLoginDirectUrlQuery } from "@nx-next-app/service";
+import { CurrenciesEnum } from "@nx-next-app/types";
+import { renderFieldError } from "@nx-next-app/utils";
+import { useTranslation } from "next-i18next";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { FieldErrors } from "react-hook-form";
 
-import Country from './Country'
-import Menu from './Menu'
-import MsgPopUp from './MsgPopUp'
-import Wallet from './Wallet'
+import Country from "./Country";
+import Menu from "./Menu";
+import MsgPopUp from "./MsgPopUp";
+import Wallet from "./Wallet";
 
 const LayoutHeader = () => {
 	const { t } = useTranslation()
@@ -102,7 +99,10 @@ const LayoutHeader = () => {
 							<div className='line' />
 							<Wallet />
 							<Link href={paths.deposit.root}>
-								<a className='deposit-btn' onClick={handleYuriAddToCartClick}>
+								<a
+									className='button btn-primary'
+									onClick={handleYuriAddToCartClick}
+								>
 									<span>{t('Label_Deposit')}</span>
 								</a>
 							</Link>

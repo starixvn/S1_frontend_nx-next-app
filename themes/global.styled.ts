@@ -312,6 +312,7 @@ export const GlobalStyles = createGlobalStyle`
   .button {
     display: flex;
 		gap: 1rem;
+    justify-content: center;
 		align-items: center;
 		flex-wrap: nowrap;
 		min-width: 6.2rem;

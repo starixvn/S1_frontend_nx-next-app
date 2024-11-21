@@ -322,21 +322,8 @@ export const HomeBalance = styled.div`
 			gap: 1.2rem;
 			margin: 20px 0;
 
-			a {
-				display: flex;
-				height: 3.6rem;
-				padding: 0 1.2rem;
-				border-radius: 10rem;
-				background: #717fba;
+			.button {
 				flex-basis: 50%;
-				align-items: center;
-				justify-content: center;
-				box-shadow: 0px -2px 0px 0px rgba(255, 255, 255, 0.4) inset;
-
-				&:hover {
-					background: #5e6dac;
-					box-shadow: none;
-				}
 			}
 		}
 
@@ -543,26 +530,6 @@ export const FunctionContainer = styled.div`
 	.line {
 		border-right: 1px solid #374375;
 		height: 4.4rem;
-	}
-
-	.deposit-btn {
-		display: flex;
-		padding: 1rem 1.2rem;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 3rem;
-		border-radius: 10rem;
-		color: ${({ theme }) => theme.desktop.depositBtnColor};
-		background: ${({ theme }) => theme.desktop.depositBtnBg};
-		box-shadow: ${({ theme }) => theme.desktop.depositBtnBoxShadow};
-		font-size: 1.4rem;
-		font-weight: 600;
-
-		&:hover {
-			color: ${({ theme }) => theme.desktop.depositBtnColorHover};
-			background: ${({ theme }) => theme.desktop.depositBtnBgHover};
-			box-shadow: none;
-		}
 	}
 `
 

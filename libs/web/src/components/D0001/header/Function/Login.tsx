@@ -72,19 +72,19 @@ const Login = ({ onLogin, onLoginInvalid, onLineLogin }: ILoginProps) => {
 
 			<button
 				type='button'
-				className='btn btn-primary'
+				className='button btn-primary'
 				onClick={handleSubmit(onLogin, onLoginInvalid)}
 			>
 				{t('Label_General_LogIn')}
 			</button>
 			<Link href='join'>
-				<button type='button' className='btn btn-secondary'>
+				<button type='button' className='button btn-secondary'>
 					{t('Label_General_Register')}
 				</button>
 			</Link>
 
 			{onLineLogin && (
-				<a className='btn btn-line-login' onClick={handleLineLogin}>
+				<a className='button btn-line-login' onClick={handleLineLogin}>
 					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/line-2.png`}
 						alt='img-line'
