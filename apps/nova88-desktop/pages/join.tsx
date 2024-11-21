@@ -1,5 +1,5 @@
 import { NovaAuthProvider } from '@nova88-desktop/providers'
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { ENV_COOKIE_NAMES, paths } from '@nx-next-app/constants'
 import { GlobalDataProvider } from '@nx-next-app/data-access'
 import { JoinNova88, Layout } from '@nx-next-app/features/F0001/desktop'
 import {
@@ -47,6 +47,10 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	const { langId, currencyId } = {
 		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
+	}
+
+	if (initialProps.originIsSignIn) {
+		return { redirect: { destination: paths.home.root, permanent: false } }
 	}
 
 	return {

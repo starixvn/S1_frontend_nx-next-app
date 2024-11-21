@@ -1,4 +1,4 @@
-import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { ENV_COOKIE_NAMES, paths } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import { JoinYashbet } from '@nx-next-app/features/F0001/desktop'
 import { Layout } from '@nx-next-app/features/F0006/desktop'
@@ -43,6 +43,10 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	const { langId, currencyId } = {
 		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
+	}
+
+	if (initialProps.originIsSignIn) {
+		return { redirect: { destination: paths.home.root, permanent: false } }
 	}
 
 	return {

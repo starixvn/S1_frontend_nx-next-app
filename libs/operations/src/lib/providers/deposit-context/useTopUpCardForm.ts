@@ -131,9 +131,12 @@ const useTopUpCardForm = ({
 				}
 			}
 
+			const errorUrl = `${dbHost}/404/index_${langId}.html`
+
 			const params = {
 				ChannelId: String(channelId),
 				Amount: String(convertedAmount),
+				errorUrl,
 				...(bonusCode && { BonusCode: bonusCode }),
 				...(extraDataType === 4 && {
 					Code: String(code),
