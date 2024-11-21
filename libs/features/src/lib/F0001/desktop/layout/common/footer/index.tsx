@@ -102,7 +102,7 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 			<div className='footer-top'>
 				{!!quickLinks && <Footer.QuickLinks quickLinks={quickLinks} />}
 				{!isGetSocialChannelListLoading && (
-ㄘ					<Footer.SocialMedia socialChannelList={socialChannelList} />
+					<Footer.SocialMedia socialChannelList={socialChannelList} />
 				)}
 			</div>
 			<div className='footer-center'>
