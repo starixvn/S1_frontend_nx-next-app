@@ -26,175 +26,207 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-file-text-fill:before {
+  content: "\e92b";
+  color: #fff;
+}
+.icon-Equal:before {
+  content: "\e92c";
+  color: #fff;
+}
+.icon-plus_add:before {
+  content: "\e92d";
+  color: #fff;
+}
+.icon-empty-wallet:before {
+  content: "\e92e";
+  color: #fff;
+}
+.icon-card-pos:before {
+  content: "\e92f";
+  color: #fff;
+}
+.icon-book-read-fill:before {
+  content: "\e930";
+  color: #fff;
+}
+.icon-mobile_alt:before {
+  content: "\e931";
+  color: #fff;
+}
+.icon-file-user-fill:before {
+  content: "\e932";
+  color: #fff;
+}
 .icon-home:before {
-	content: '\e913';
-	color: #fff;
+  content: "\e913";
+  color: #fff;
 }
 .icon-arrow-right-line:before {
-	content: '\e928';
-	color: #fff;
+  content: "\e928";
+  color: #fff;
 }
 .icon-logout:before {
-	content: '\e929';
-	color: #fff;
+  content: "\e929";
+  color: #fff;
 }
 .icon-profile-2user:before {
-	content: '\e92a';
-	color: #fff;
+  content: "\e92a";
+  color: #fff;
 }
 .icon-phone-line:before {
-	content: '\e927';
-	color: #fff;
+  content: "\e927";
+  color: #fff;
 }
 .icon-switch-off:before {
-	content: '\e900';
-	color: #fff;
+  content: "\e900";
+  color: #fff;
 }
 .icon-switch-on:before {
-	content: '\e901';
-	color: #fff;
+  content: "\e901";
+  color: #fff;
 }
 .icon-u_globe:before {
-	content: '\e902';
-	color: #fff;
+  content: "\e902";
+  color: #fff;
 }
 .icon-user-follow-line:before {
-	content: '\e903';
-	color: #fff;
+  content: "\e903";
+  color: #fff;
 }
 .icon-user-line:before {
-	content: '\e904';
-	color: #fff;
+  content: "\e904";
+  color: #fff;
 }
 .icon-lock-2-fill:before {
-	content: '\e905';
-	color: #fff;
+  content: "\e905";
+  color: #fff;
 }
 .icon-lock-password-line:before {
-	content: '\e906';
-	color: #fff;
+  content: "\e906";
+  color: #fff;
 }
 .icon-mail-fill:before {
-	content: '\e907';
-	color: #fff;
+  content: "\e907";
+  color: #fff;
 }
 .icon-mail-line:before {
-	content: '\e908';
-	color: #fff;
+  content: "\e908";
+  color: #fff;
 }
 .icon-money-dollar-circle-line:before {
-	content: '\e909';
-	color: #fff;
+  content: "\e909";
+  color: #fff;
 }
 .icon-money-send:before {
-	content: '\e90a';
-	color: #fff;
+  content: "\e90a";
+  color: #fff;
 }
 .icon-refresh-fill:before {
-	content: '\e90b';
-	color: #fff;
+  content: "\e90b";
+  color: #fff;
 }
 .icon-search:before {
-	content: '\e90c';
-	color: #fff;
+  content: "\e90c";
+  color: #fff;
 }
 .icon-share-box-fill:before {
-	content: '\e90d';
-	color: #fff;
+  content: "\e90d";
+  color: #fff;
 }
 .icon-star:before {
-	content: '\e90e';
-	color: #fff;
+  content: "\e90e";
+  color: #fff;
 }
 .icon-syblings-connections:before {
-	content: '\e90f';
-	color: #fff;
+  content: "\e90f";
+  color: #fff;
 }
 .icon-information-fill:before {
-	content: '\e910';
-	color: #fff;
+  content: "\e910";
+  color: #fff;
 }
 .icon-file-copy-line:before {
-	content: '\e911';
-	color: #fff;
+  content: "\e911";
+  color: #fff;
 }
 .icon-fire-fill:before {
-	content: '\e912';
-	color: #fff;
+  content: "\e912";
+  color: #fff;
 }
 .icon-eye-close-line:before {
-	content: '\e914';
-	color: #fff;
+  content: "\e914";
+  color: #fff;
 }
 .icon-eye-fill:before {
-	content: '\e915';
-	color: #fff;
+  content: "\e915";
+  color: #fff;
 }
 .icon-arrow-up-line:before {
-	content: '\e916';
-	color: #fff;
+  content: "\e916";
+  color: #fff;
 }
 .icon-bank-fill:before {
-	content: '\e917';
-	color: #fff;
+  content: "\e917";
+  color: #fff;
 }
 .icon-calendar-2-line:before {
-	content: '\e918';
-	color: #fff;
+  content: "\e918";
+  color: #fff;
 }
 .icon-chat-smile-fill:before {
-	content: '\e919';
-	color: #fff;
+  content: "\e919";
+  color: #fff;
 }
 .icon-check:before {
-	content: '\e91a';
-	color: #fff;
+  content: "\e91a";
+  color: #fff;
 }
 .icon-checkbox-blank-line:before {
-	content: '\e91b';
-	color: #fff;
+  content: "\e91b";
+  color: #fff;
 }
 .icon-checkbox-fill:before {
-	content: '\e91c';
-	color: #fff;
+  content: "\e91c";
+  color: #fff;
 }
 .icon-close-line:before {
-	content: '\e91d';
-	color: #fff;
+  content: "\e91d";
+  color: #fff;
 }
 .icon-delete-bin-fill:before {
-	content: '\e91e';
-	color: #fff;
+  content: "\e91e";
+  color: #fff;
 }
 .icon-alert-fill:before {
-	content: '\e91f';
-	color: #fff;
+  content: "\e91f";
+  color: #fff;
 }
 .icon-hamburger:before {
-	content: '\e920';
-	color: #fff;
+  content: "\e920";
+  color: #fff;
 }
 .icon-minus_circle:before {
-	content: '\e921';
-	color: #fff;
+  content: "\e921";
+  color: #fff;
 }
 .icon-help_circle:before {
-	content: '\e922';
-	color: #fff;
+  content: "\e922";
+  color: #fff;
 }
 .icon-chevron_right:before {
-	content: '\e923';
-	color: #fff;
+  content: "\e923";
+  color: #fff;
 }
 .icon-chevron_up:before {
-	content: '\e924';
-	color: #fff;
+  content: "\e924";
+  color: #fff;
 }
 .icon-chevron_down:before {
-	content: '\e925';
-	color: #fff;
+  content: "\e925";
+  color: #fff;
 }
 .icon-chevron_left:before {
-	content: '\e926';
-	color: #fff;
+  content: "\e926";
+  color: #fff;
 }
