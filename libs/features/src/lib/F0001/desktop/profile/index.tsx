@@ -2,6 +2,8 @@ import { Loading } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { PREV_PAGE, PrevPageEnum, paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { Verification } from '@nx-next-app/features/F0001/desktop/profile/Verification'
+import { WrapperProfileAfterLogin } from '@nx-next-app/features/F0001/desktop/profile/styles'
 import { useVerifyEmail } from '@nx-next-app/features/F0001/hooks'
 import { useSetProfileMutation } from '@nx-next-app/service'
 import dayjs from 'dayjs'
@@ -13,7 +15,6 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { Address } from './Address'
 import { Info } from './Info'
 import { PhoneOtpModal } from './PhoneOtpModal'
-import { Verification } from './Verification'
 
 const Profile = () => {
 	const { t } = useTranslation()
@@ -123,27 +124,36 @@ const Profile = () => {
 		<div className='rightModule'>
 			<div className='infoModule'>
 				<div className='inside-title'>
-					<span className='icon icon-icon32px_Profile'>
-						{t('Label_General_Profile')}
-					</span>
-					<div>{t('Label_Profile_ProfileModifyWarning')}</div>
+					<i className='icon icon-icon32px_Profile' />
+					{t('Label_General_Profile')}
 				</div>
-				<FormProvider {...formMethods}>
-					<form onSubmit={handleSubmit(handleSubmitForm)}>
-						<div className='profileModule'>
+				<div className='inside-body'>
+					<WrapperProfileAfterLogin>
+						<div className='profileModule verification-user'>
 							<Verification />
-							<Info formBirth={formBirth} setFormBirth={setFormBirth} />
 						</div>
-						{showSubmitBtn && (
-							<div className='btnGroup'>
-								<button className='btn-check' type='submit'>
-									{t('Label_General_Submit')}
-								</button>
+						<div className='info-user'>
+							<div className='info-user-slogan'>
+								{t('Label_Profile_ProfileModifyWarning')}
 							</div>
-						)}
-					</form>
-				</FormProvider>
-				<Address />
+							<FormProvider {...formMethods}>
+								<form onSubmit={handleSubmit(handleSubmitForm)}>
+									<div className='profileModule'>
+										<Info formBirth={formBirth} setFormBirth={setFormBirth} />
+									</div>
+									{showSubmitBtn && (
+										<div className='btnGroup'>
+											<button className='btn-primary' type='submit'>
+												{t('Label_General_Submit')}
+											</button>
+										</div>
+									)}
+								</form>
+							</FormProvider>
+							<Address />
+						</div>
+					</WrapperProfileAfterLogin>
+				</div>
 			</div>
 		</div>
 	)

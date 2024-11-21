@@ -38,6 +38,9 @@ export const WrapperLeftMenu = styled.div`
 				padding: 1.4rem 2.4rem;
 				border-bottom: 1px solid
 					${({ theme }) => theme.desktop.leftMenuBorderColor};
+				font-size: 1.4rem;
+				font-weight: 600;
+				line-height: normal;
 				&.active,
 				&:hover {
 					color: ${({ theme }) =>

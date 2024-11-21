@@ -283,6 +283,23 @@ export const GlobalStyles = createGlobalStyle`
     }
     .rightModule{
       flex : 1;
+      .infoModule{
+        background: ${({ theme }) => theme.desktop.rightModuleBg};
+        border-radius : 20px;
+        .inside-title{
+          border-bottom : 1px solid ${({ theme }) =>
+						theme.desktop.rightModuleBorderColor};
+          min-height : 5.2rem;
+          display: flex;
+          align-items: center;
+          padding: 0 1.6rem;
+          text-transform: uppercase;
+          gap : .5rem;
+        }
+        .inside-body{
+          padding : 2.4rem 1.6rem;
+        }
+      }
     }
   }
 

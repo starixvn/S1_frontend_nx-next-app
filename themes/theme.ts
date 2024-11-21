@@ -115,6 +115,10 @@ export const theme = {
 		leftMenuItemColorActiveAfterLogin: '#EA6118',
 		leftMenuItemBoxShadowActiveAfterLogin: '-4px 0px 0px 0px #ea6118 inset',
 		leftMenuBorderColor: '#374375',
+
+		rightModuleBg: '#182043',
+		rightModuleBorderColor: '#374375',
+		rightModuleSloganColor: '#939DC5',
 	},
 	mobile: {},
 }

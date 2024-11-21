@@ -1,23 +1,23 @@
-import dayjs from 'dayjs'
-import { useState } from 'react'
-import { useTranslation } from 'next-i18next'
-import { useFormContext } from 'react-hook-form'
-import { numberFormat } from '@nx-next-app/utils'
-import { useAuth } from '@nx-next-app/data-access'
+import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
-	paths,
 	AREA_CODE,
 	EMAIL_REGEX,
 	REALNAME_REGEX,
+	paths,
 } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { useCheckPhone } from '@nx-next-app/features/F0001/hooks'
 import {
 	useLazyExistsEmailQuery,
 	useSendOTPEmailMutation,
 } from '@nx-next-app/service'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { numberFormat } from '@nx-next-app/utils'
+import dayjs from 'dayjs'
 import DateSelector from 'libs/web/src/components/D0001/dateSelector'
-import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
-import { useCheckPhone } from '@nx-next-app/features/F0001/hooks'
+import { useTranslation } from 'next-i18next'
+import { useState } from 'react'
+import { useFormContext } from 'react-hook-form'
 import { PhoneOtpModal } from './PhoneOtpModal'
 
 interface IInfoProps {
