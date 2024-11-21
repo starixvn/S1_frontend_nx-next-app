@@ -147,7 +147,10 @@ const Verification = () => {
 							className={classNames('btn-line', { active: isLineBinding })}
 							onClick={handleLineBinding}
 						>
-							<i className='icon icon-line-bold' />
+							<img
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/line-2.png`}
+								alt='img-line'
+							/>
 							{isLineBinding
 								? t('Label_Profile_Connected')
 								: t('Label_Profile_Connect')}

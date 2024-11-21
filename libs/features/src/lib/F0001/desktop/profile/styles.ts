@@ -130,6 +130,27 @@ export const WrapperProfileAfterLogin = styled.div`
 					}
 				}
 			}
+			.txt-line {
+				margin-top: 1.6rem;
+				color: ${({ theme }) => theme.desktop.inputPlaceHolderColor};
+			}
+			.btn-line {
+				background: ${({ theme }) => theme.desktop.headerLineLoginBtnBg};
+				color: ${({ theme }) => theme.desktop.white};
+				box-shadow: ${({ theme }) => theme.desktop.headerLineLoginBtnShadow};
+				padding: 0.6rem 0.8rem;
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				&:hover {
+					background: ${({ theme }) => theme.desktop.headerLineLoginBgHover};
+					box-shadow: none;
+				}
+				img {
+					width: 2.4rem;
+					height: 2.4rem;
+				}
+			}
 		}
 	}
 	.info-user {
@@ -143,6 +164,83 @@ export const WrapperProfileAfterLogin = styled.div`
 			margin-bottom: 1.6rem;
 			border-bottom: 1px solid
 				${({ theme }) => theme.desktop.rightModuleBorderColor};
+		}
+		.btnGroup {
+			max-width: 10rem;
+		}
+		input {
+			min-height: 3.6rem;
+			padding-left: 0;
+			padding: 0 1.2rem;
+			border-radius: 100px;
+			width: 100%;
+			min-width: 51rem;
+			max-width: 51rem;
+		}
+		.profileModule {
+			.profile {
+				.group-control {
+					display: flex;
+					gap: 0.8rem;
+					align-items: center;
+					margin-bottom: 1.4rem;
+					font-size: 1.4rem;
+					font-weight: 400;
+					line-height: 1.8rem;
+					.group-input {
+						position: relative;
+						.iconModule {
+							position: absolute;
+							right: 8px;
+							top: 8px;
+							.icon {
+								&:before {
+									font-size: 1.8rem;
+								}
+							}
+						}
+					}
+					.label-name {
+						min-width: 15rem;
+						color: ${({ theme }) => theme.desktop.labelColor};
+					}
+					.group-input {
+						color: ${({ theme }) => theme.desktop.white};
+						display: flex;
+						align-items: center;
+						gap: 0.8rem;
+						.btnGroup {
+							max-width: 100%;
+							margin-top: 0;
+							button {
+								padding: 0 1rem;
+								min-height: 2.8rem;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.addressModule {
+		padding-top: 1.6rem;
+		border-top: 1px solid ${({ theme }) => theme.desktop.rightModuleBorderColor};
+		.address-title {
+			span,
+			div {
+				display: block;
+				font-size: 1.4rem;
+				font-weight: 700;
+				line-height: normal;
+				text-transform: uppercase;
+				margin-bottom: 1.2rem;
+			}
+			div {
+				font-weight: 400;
+				text-transform: inherit;
+			}
+		}
+		.address-list {
 		}
 	}
 `

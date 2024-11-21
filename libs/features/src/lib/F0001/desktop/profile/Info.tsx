@@ -155,30 +155,33 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 	const emailFieldRenderer = () => {
 		if (email) {
 			return (
-				<div>
+				<div className='group-input'>
 					{email}
 					{emailVerified ? (
 						<span className='icon icon-Shield' />
 					) : (
-						<button
-							type='button'
-							className='icon icon-envelope btn-org'
-							onClick={onEmailVerify}
-						>
-							{t('Label_Profile_EmailVerification')}
-							<div className='description'>
-								<div className='title'>
-									{t('Label_Profile_EmailVerification')}
+						<div className='btnGroup'>
+							<button
+								type='button'
+								className='btn-secondary custom-tooltip'
+								onClick={onEmailVerify}
+							>
+								<i className='icon icon-mail-line ' />
+								{t('Label_Profile_EmailVerification')}
+								<div className='custom-tooltip-body'>
+									<div className='title'>
+										{t('Label_Profile_EmailVerification')}
+									</div>
+									<div>{t('Label_Profile_EmailVerificationHint1')}</div>
+									<div>
+										{t('Label_Profile_EmailVerificationHint2', {
+											currency: currencyName,
+											amount: numberFormat(emailReward ?? 0, currencyId),
+										})}
+									</div>
 								</div>
-								<div>{t('Label_Profile_EmailVerificationHint1')}</div>
-								<div>
-									{t('Label_Profile_EmailVerificationHint2', {
-										currency: currencyName,
-										amount: numberFormat(emailReward ?? 0, currencyId),
-									})}
-								</div>
-							</div>
-						</button>
+							</button>
+						</div>
 					)}
 				</div>
 			)
@@ -207,9 +210,9 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 
 	return (
 		<div className='profile'>
-			<div>
-				<div>{t('Label_General_RealName')}</div>
-				<div>
+			<div className='group-control'>
+				<div className='label-name'>{t('Label_General_RealName')}</div>
+				<div className='group-input'>
 					{accountName ?? (
 						<InputBox
 							register={register('formRealName', {
@@ -230,10 +233,10 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 					)}
 				</div>
 			</div>
-			<div>
-				<div>{t('Label_Profile_Birthday')}</div>
+			<div className='group-control'>
+				<div className='label-name'>{t('Label_Profile_Birthday')}</div>
 				{birthDay ? (
-					<div>
+					<div className='group-input'>
 						{birthDay} / {birthMonth} / {birthYear}
 					</div>
 				) : (
@@ -263,37 +266,39 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 					</div>
 				)}
 			</div>
-			<div>
-				<div>{t('Label_General_Username')}</div>
-				<div>{userName}</div>
+			<div className='group-control'>
+				<div className='label-name'>{t('Label_General_Username')}</div>
+				<div className='group-input'>{userName}</div>
 			</div>
-			<div>
-				<div>{t('Label_General_Phone')}</div>
+			<div className='group-control'>
+				<div className='label-name'>{t('Label_General_Phone')}</div>
 				{phoneNo ? (
-					<div>
+					<div className='group-input'>
 						({areaCode}){phoneNo}
 						{phoneVerified ? (
 							<span className='icon icon-Shield' />
 						) : (
-							<button
-								type='button'
-								className='icon icon-mobile btn-org'
-								onClick={onPhoneVerify}
-							>
-								{t('Label_Profile_PhoneVerification')}
-								<div className='description'>
-									<div className='title'>
-										{t('Label_Profile_PhoneVerification')}
+							<div className='btnGroup'>
+								<button
+									className='btn-secondary custom-tooltip'
+									onClick={onPhoneVerify}
+								>
+									<i className='icon icon-mobile-alt' />
+									{t('Label_Profile_PhoneVerification')}
+									<div className='custom-tooltip-body'>
+										<div className='title'>
+											{t('Label_Profile_PhoneVerification')}
+										</div>
+										<div>{t('Label_Profile_PhoneVerificationHint1')}</div>
+										<div>
+											{t('Label_Profile_PhoneVerificationHint2', {
+												currency: currencyName,
+												amount: numberFormat(phoneReward ?? 0, currencyId),
+											})}
+										</div>
 									</div>
-									<div>{t('Label_Profile_PhoneVerificationHint1')}</div>
-									<div>
-										{t('Label_Profile_PhoneVerificationHint2', {
-											currency: currencyName,
-											amount: numberFormat(phoneReward ?? 0, currencyId),
-										})}
-									</div>
-								</div>
-							</button>
+								</button>
+							</div>
 						)}
 					</div>
 				) : (
@@ -324,18 +329,22 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 				)}
 			</div>
 
-			<div>
-				<div>{t('Label_General_Email')}</div>
+			<div className='group-control'>
+				<div className='label-name'>{t('Label_General_Email')}</div>
 				{emailFieldRenderer()}
 			</div>
 
-			<div>
-				<div>{t('Label_Profile_RegisterTime')}</div>
-				<div>{dayjs(regTime).format('DD/MM/YYYY HH:mm:ss')}</div>
+			<div className='group-control'>
+				<div className='label-name'>{t('Label_Profile_RegisterTime')}</div>
+				<div className='group-input'>
+					{dayjs(regTime).format('DD/MM/YYYY HH:mm:ss')}
+				</div>
 			</div>
-			<div>
-				<div>{t('Label_Profile_LastLogin')}</div>
-				<div>{dayjs(lastLogin).format('DD/MM/YYYY HH:mm:ss')}</div>
+			<div className='group-control'>
+				<div className='label-name'>{t('Label_Profile_LastLogin')}</div>
+				<div className='group-input'>
+					{dayjs(lastLogin).format('DD/MM/YYYY HH:mm:ss')}
+				</div>
 			</div>
 		</div>
 	)

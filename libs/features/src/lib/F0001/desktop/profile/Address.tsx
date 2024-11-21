@@ -1,13 +1,13 @@
-import { useForm } from 'react-hook-form'
-import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
+import { Form, InputBox } from '@nx-next-app/components/D0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { PREV_PAGE, PrevPageEnum } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useSetProfileAddressMutation } from '@nx-next-app/service'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { InputBox, Form } from '@nx-next-app/components/D0001'
-import { PrevPageEnum, PREV_PAGE } from '@nx-next-app/constants'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useForm } from 'react-hook-form'
 import { PhoneOtpModal } from './PhoneOtpModal'
 
 const Address = () => {
@@ -106,7 +106,7 @@ const Address = () => {
 	return (
 		<div className='addressModule'>
 			<div className='address-container'>
-				<div className='inside-title'>
+				<div className='address-title'>
 					<span>
 						{t('Label_Profile_ShippingAddress')}({t('Label_Profile_Option2')})
 					</span>

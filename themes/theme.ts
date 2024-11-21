@@ -133,6 +133,7 @@ export const theme = {
 		tooltipBgColor: '#232B4F',
 		tooltipColor: '#EA6118',
 		tooltipBoxShadow: '0px 6px 30px 0px rgba(0, 0, 0, 0.50)',
+		labelColor: '#939DC5',
 	},
 	mobile: {},
 }
