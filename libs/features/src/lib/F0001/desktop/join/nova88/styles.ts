@@ -76,8 +76,7 @@ export const WrapperRegister = styled.div`
 						text-align: left;
 						margin-left: 0.8rem;
 						font-family: ${({ theme }) => theme.desktop.fontFamily};
-						color: ${({ theme }) =>
-							theme.desktop.registerInputPlaceHolderColor};
+						color: ${({ theme }) => theme.desktop.inputPlaceHolderColor};
 						&:before {
 							font-family: 'S1NewIcons';
 							content: '\\e925';

@@ -75,7 +75,7 @@ const GlobalModal = ({
 								<>
 									<button
 										type='button'
-										className='btn-check'
+										className='btn-primary'
 										onClick={() => {
 											closeModal()
 											onOK && onOK()

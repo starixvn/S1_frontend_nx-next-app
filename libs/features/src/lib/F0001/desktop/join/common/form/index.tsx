@@ -663,10 +663,10 @@ const Form = ({ cookies }: IJoinProps) => {
 				{t('Label_Join_SignUpTerms3')}
 			</div>
 			<div className='btnGroup'>
-				<button type='button' className='btn-cancel' onClick={handleCancel}>
+				<button type='button' className='btn-secondary' onClick={handleCancel}>
 					{t('Label_General_Cancel')}
 				</button>
-				<button className='btn-check' type='submit'>
+				<button className='btn-primary' type='submit'>
 					{t('Label_General_Submit')}
 				</button>
 			</div>

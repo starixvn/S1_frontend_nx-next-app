@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
-import { theme } from "./theme";
+import { theme } from './theme'
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
@@ -202,7 +202,7 @@ export const GlobalStyles = createGlobalStyle`
       min-height: 3.6rem;
       padding: 0 1.2rem;
       border-radius: 100px;
-      background: ${({ theme }) => theme.desktop.registerInputBg};
+      background: ${({ theme }) => theme.desktop.inputBg};
       border: none;
       margin-top: 1.6rem;
       display: flex;
@@ -221,17 +221,22 @@ export const GlobalStyles = createGlobalStyle`
         }
       }
       input {
-        color: ${({ theme }) => theme.desktop.registerInputColor};
-        background: ${({ theme }) => theme.desktop.registerInputBg};
+        color: ${({ theme }) => theme.desktop.inputColor};
+        background: ${({ theme }) => theme.desktop.inputBg};
         padding-left: 1rem;
         font-family: ${({ theme }) => theme.desktop.fontFamily};
         &::placeholder {
-          color: ${({ theme }) => theme.desktop.registerInputPlaceHolderColor};
+          color: ${({ theme }) => theme.desktop.inputPlaceHolderColor};
+        }
+        &:-webkit-autofill{
+          box-shadow: 0 0 0px 1000px ${({ theme }) =>
+						theme.desktop.inputBg} inset;
+          -webkit-text-fill-color: ${({ theme }) => theme.desktop.inputColor};
         }
       }
       .dropdown {
         .btn {
-          color: ${({ theme }) => theme.desktop.registerInputPlaceHolderColor};
+          color: ${({ theme }) => theme.desktop.inputPlaceHolderColor};
         }
       }
       &.error {
@@ -250,6 +255,14 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
   }
+  .react-datepicker__input-container{
+    input{
+      &::placeholder {
+        color: ${({ theme }) => theme.desktop.inputPlaceHolderColor} !important;
+      }
+    }
+  }
+
   .btnGroup {
     display: flex;
     gap: 1.6rem;
@@ -257,28 +270,11 @@ export const GlobalStyles = createGlobalStyle`
     button {
       border-radius: 100px;
       min-height: 3.6rem;
-      font-family: ${({ theme }) => theme.desktop.fontFamily};
       font-size: 1.4rem;
       font-weight: 600;
       line-height: normal;
       color: ${({ theme }) => theme.desktop.white};
       width: 100%;
-      &.btn-cancel {
-        box-shadow: ${({ theme }) => theme.desktop.registerCancelBtnShadow};
-        background: ${({ theme }) => theme.desktop.registerCancelBtnBg};
-        &:hover {
-          background: ${({ theme }) => theme.desktop.registerCancelBtnHover};
-          box-shadow: none;
-        }
-      }
-      &.btn-check {
-        box-shadow: ${({ theme }) => theme.desktop.registerSubmitBtnShadow};
-        background: ${({ theme }) => theme.desktop.registerSubmitBtnBg};
-        &:hover {
-          background: ${({ theme }) => theme.desktop.registerSubmitBtnHover};
-          box-shadow: none;
-        }
-      }
     }
   }
 
@@ -290,7 +286,7 @@ export const GlobalStyles = createGlobalStyle`
     margin-bottom: 1.6rem;
   }
 
-  .btn {
+  .button {
     display: flex;
 		gap: 1rem;
 		align-items: center;
@@ -302,6 +298,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .btn-primary {
+    font-family: ${({ theme }) => theme.desktop.fontFamily};
 		background: ${({ theme }) => theme.desktop.primaryBtnBg};
 		box-shadow: ${({ theme }) => theme.desktop.primaryBtnShadow};
 		color: ${({ theme }) => theme.desktop.primaryBtnColor};
@@ -314,18 +311,20 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
   .btn-secondary {
+    font-family: ${({ theme }) => theme.desktop.fontFamily};
 		background: ${({ theme }) => theme.desktop.secondaryBtnBg};
 		box-shadow: ${({ theme }) => theme.desktop.secondaryBtnShadow};
 		color: ${({ theme }) => theme.desktop.secondaryBtnColor};
 
 		&:hover {
-			background: ${({ theme }) => theme.desktop.secondaryBtnBgHover};
+    background: ${({ theme }) => theme.desktop.secondaryBtnBgHover};
 		box-shadow: ${({ theme }) => theme.desktop.secondaryBtnShadowHover};
 		color: ${({ theme }) => theme.desktop.secondaryBtnColorHover};
 		}
 	}
 
   .btn-disable {
+    font-family: ${({ theme }) => theme.desktop.fontFamily};
     background: ${({ theme }) => theme.desktop.disabledBtnBg};
 		box-shadow: ${({ theme }) => theme.desktop.disabledBtnShadow};
 		color: ${({ theme }) => theme.desktop.disabledBtnColor};

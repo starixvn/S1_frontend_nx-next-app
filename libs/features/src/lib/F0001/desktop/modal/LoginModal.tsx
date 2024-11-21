@@ -157,13 +157,13 @@ const LoginModal = () => {
 							</div>
 							<div className='btnGroup'>
 								<button
-									className='btn-cancel'
+									className='btn-secondary'
 									type='button'
 									onClick={closeModal}
 								>
 									{t('Label_General_Cancel')}
 								</button>
-								<button className='btn-check' type='submit'>
+								<button className='btn-primary' type='submit'>
 									{t('Label_General_LogIn')}
 								</button>
 							</div>

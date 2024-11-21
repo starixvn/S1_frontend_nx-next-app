@@ -42,8 +42,8 @@ const ForgetPasswordForm = ({
 							},
 						})}
 						loading={loading}
-						icon='txt-blue icon-email'
-						title={t('Label_General_Email') || ''}
+						icon='icon-mail-fill'
+						placeholder={t('Label_General_Email') || ''}
 						touched={!!touchedFields['email']}
 						infoMessage={
 							t('Label_General_ResetPasswordMsg', {
@@ -56,7 +56,7 @@ const ForgetPasswordForm = ({
 				</div>
 				<div className='btnGroup'>
 					<button
-						className='btn-cancel'
+						className='btn-secondary'
 						onClick={() => {
 							onCancel()
 						}}
@@ -65,7 +65,7 @@ const ForgetPasswordForm = ({
 						{t('Label_General_Cancel')}
 					</button>
 					<button
-						className='btn-check'
+						className='btn-primary'
 						onClick={handleSubmit(onSubmit)}
 						type='submit'
 					>
