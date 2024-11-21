@@ -75,7 +75,7 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 			<div className='footer-navigation'>
 				<a href={affiliateLink}>
 					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/contact.png`}
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/affiliate.png`}
 						alt='Affiliate'
 					/>
 					<span>{t('Label_Affiliate_Program')}</span>
@@ -85,7 +85,7 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html`}
 				>
 					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/affiliate.png`}
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/contact.png`}
 						alt='Contact Us'
 					/>
 					<span>{t('Label_ContactUs')}</span>
