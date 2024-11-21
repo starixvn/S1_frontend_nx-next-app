@@ -1,0 +1,36 @@
+import React from 'react'
+import VendorItem from '@nx-next-app/features/F0001/h5/slots/vendorFilter/VendorItem'
+import { useLobby } from '@nx-next-app/features/F0001/providers'
+
+const VendorFilter = () => {
+	const { vendorList, activeVendorTpId, onVendorChange } = useLobby()
+
+	return (
+		<div className='partnerSelect'>
+			{vendorList?.map(
+				({ tpId, displayText, openPath, isLobby, tpName, imgName, ...rest }) => {
+					return (
+						<VendorItem
+							key={`slot-swiper-${tpId}`}
+							item={{
+								tpId,
+								displayText,
+								openPath,
+                isLobby,
+								tpName,
+								imgName,
+								...rest,
+							}}
+							tpId={tpId}
+							displayText={displayText}
+							activeVendorTpId={activeVendorTpId}
+							onClick={onVendorChange}
+						/>
+					)
+				}
+			)}
+		</div>
+	)
+}
+
+export default VendorFilter

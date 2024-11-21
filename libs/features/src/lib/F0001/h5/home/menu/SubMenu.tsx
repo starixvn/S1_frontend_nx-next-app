@@ -3,7 +3,7 @@ import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { type IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
-import { MenuIconTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
+import { MenuIconTypeEnum, MenuKeyEnum, LobbyCategoryEnum } from '@nx-next-app/types'
 import { isEventPeriod } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import dynamic from 'next/dynamic'
@@ -38,7 +38,7 @@ const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
 	const { push } = useRouter()
 	const { modal } = useGlobalModal()
 	const submenus =
-		menuList?.find(({ category }) => category === menuKey)?.subMenu || []
+		menuList?.find(({ category, lobbyCategoryId }) => category === menuKey && (lobbyCategoryId === LobbyCategoryEnum.Sports || lobbyCategoryId === LobbyCategoryEnum.ESports))?.subMenu || []
 
 	const renderSubMenu = (
 		<div
