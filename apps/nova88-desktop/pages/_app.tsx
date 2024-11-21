@@ -14,6 +14,7 @@ import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
 import {
 	ALLOWED_CURRENCIES,
 	BANNER_IMAGE_LIST,
+	EVENT_DATA,
 	FEATURE_BONUS,
 	LANG_GROUPS,
 	LEFT_MENU_DATA,
@@ -67,6 +68,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 						LIVE_CHAT_ID_BY_LANG_ID={LIVE_CHAT_ID_BY_LANG_ID}
 						LEFT_MENU_DATA={LEFT_MENU_DATA}
 						LANG_TO_CURRENCY={LANG_TO_CURRENCY}
+						EVENT_DATA={EVENT_DATA}
 					>
 						<Component {...pageProps} />
 						<ToastContainer /> {/* 吐司訊息 */}

@@ -67,8 +67,8 @@ img {
 
 @font-face {
   font-family: "icomoon";
-  src: url("../fonts/icomoon.eot");
-  src: url("../fonts/icomoon.eot") format("embedded-opentype"), url("../fonts/icomoon.ttf") format("truetype"), url("../fonts/icomoon.woff") format("woff"), url("../fonts/icomoon.svg") format("svg");
+  src: url("../fonts/icomoon.eot?tnphd0");
+  src: url("../fonts/icomoon.eot?tnphd0#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?tnphd0") format("truetype"), url("../fonts/icomoon.woff?tnphd0") format("woff"), url("../fonts/icomoon.svg?tnphd0#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -87,51 +87,7 @@ img {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-toast-close:before {
-  content: "\e98a";
-}
-
-.icon-toast-checkmark:before {
-  content: "\e98b";
-}
-
-.icon-question:before {
-  content: "\e909";
-}
-
-.icon-envelope:before {
-  content: "\e905";
-}
-
-.icon-menu:before {
-  content: "\e9bb";
-}
-
-.icon-close:before {
-  content: "\e98c";
-}
-
-.icon-checkmark:before {
-  content: "\e990";
-}
-
-.icon-information:before {
-  content: "\e951";
-}
-
-.icon-cake1:before {
-  content: "\e95a";
-}
-
-.icon-minus:before {
-  content: "\e94e";
-}
-
-.icon-plus:before {
-  content: "\e94f";
-}
-
-.icon-icon-digital-wallet:before {
+.icon-digital-wallet:before {
   content: "\e93e";
 }
 
@@ -316,7 +272,7 @@ img {
 }
 
 .icon-saba:before {
-  content: "\e991";
+  content: "\e98c";
 }
 
 .icon-cockFight:before {
@@ -1045,6 +1001,42 @@ img {
 
 .icon-message-typing:before {
   content: "\e933";
+}
+
+.icon-question:before {
+  content: "\e909";
+}
+
+.icon-envelope:before {
+  content: "\e905";
+}
+
+.icon-menu:before {
+  content: "\e9bb";
+}
+
+.icon-close:before {
+  content: "\e98a";
+}
+
+.icon-checkmark:before {
+  content: "\e98b";
+}
+
+.icon-information:before {
+  content: "\e951";
+}
+
+.icon-cake1:before {
+  content: "\e95a";
+}
+
+.icon-minus:before {
+  content: "\e94e";
+}
+
+.icon-plus:before {
+  content: "\e94f";
 }
 
 .icon-news:before {
@@ -15744,10 +15736,10 @@ main.casino .banner {
   top: 1vw;
   left: 10vw;
 }
-.home-sidebar .btn-sports.active, .home-sidebar .btn-esports.active, .home-sidebar .btn-exchange.active, .home-sidebar .btn-casino.active, .home-sidebar .btn-slots.active, .home-sidebar .btn-games.active, .home-sidebar .btn-fishing.active, .home-sidebar .btn-games.active, .home-sidebar .btn-four.active, .home-sidebar .btn-lottery.active {
+.home-sidebar .btn-sports.active, .home-sidebar .btn-esports.active, .home-sidebar .btn-exchange.active, .home-sidebar .btn-casino.active, .home-sidebar .btn-slots.active, .home-sidebar .btn-games.active, .home-sidebar .btn-fishing.active, .home-sidebar .btn-games.active, .home-sidebar .btn-four.active, .home-sidebar .btn-lottery.active, .home-sidebar .btn-event.active {
   position: relative;
 }
-.home-sidebar .btn-sports.active::after, .home-sidebar .btn-esports.active::after, .home-sidebar .btn-exchange.active::after, .home-sidebar .btn-casino.active::after, .home-sidebar .btn-slots.active::after, .home-sidebar .btn-games.active::after, .home-sidebar .btn-fishing.active::after, .home-sidebar .btn-games.active::after, .home-sidebar .btn-four.active::after, .home-sidebar .btn-lottery.active::after {
+.home-sidebar .btn-sports.active::after, .home-sidebar .btn-esports.active::after, .home-sidebar .btn-exchange.active::after, .home-sidebar .btn-casino.active::after, .home-sidebar .btn-slots.active::after, .home-sidebar .btn-games.active::after, .home-sidebar .btn-fishing.active::after, .home-sidebar .btn-games.active::after, .home-sidebar .btn-four.active::after, .home-sidebar .btn-lottery.active::after, .home-sidebar .btn-event.active::after {
   display: block;
   content: "";
   width: 8vw;
@@ -15756,59 +15748,65 @@ main.casino .banner {
   position: absolute;
   bottom: 0;
 }
-.home-sidebar .btn-sports.active.btn-sports .btn-circle, .home-sidebar .btn-esports.active.btn-sports .btn-circle, .home-sidebar .btn-exchange.active.btn-sports .btn-circle, .home-sidebar .btn-casino.active.btn-sports .btn-circle, .home-sidebar .btn-slots.active.btn-sports .btn-circle, .home-sidebar .btn-games.active.btn-sports .btn-circle, .home-sidebar .btn-fishing.active.btn-sports .btn-circle, .home-sidebar .btn-games.active.btn-sports .btn-circle, .home-sidebar .btn-four.active.btn-sports .btn-circle, .home-sidebar .btn-lottery.active.btn-sports .btn-circle {
+.home-sidebar .btn-sports.active.btn-sports .btn-circle, .home-sidebar .btn-esports.active.btn-sports .btn-circle, .home-sidebar .btn-exchange.active.btn-sports .btn-circle, .home-sidebar .btn-casino.active.btn-sports .btn-circle, .home-sidebar .btn-slots.active.btn-sports .btn-circle, .home-sidebar .btn-games.active.btn-sports .btn-circle, .home-sidebar .btn-fishing.active.btn-sports .btn-circle, .home-sidebar .btn-games.active.btn-sports .btn-circle, .home-sidebar .btn-four.active.btn-sports .btn-circle, .home-sidebar .btn-lottery.active.btn-sports .btn-circle, .home-sidebar .btn-event.active.btn-sports .btn-circle {
   background: #1E3E77;
 }
-.home-sidebar .btn-sports.active.btn-sports::after, .home-sidebar .btn-esports.active.btn-sports::after, .home-sidebar .btn-exchange.active.btn-sports::after, .home-sidebar .btn-casino.active.btn-sports::after, .home-sidebar .btn-slots.active.btn-sports::after, .home-sidebar .btn-games.active.btn-sports::after, .home-sidebar .btn-fishing.active.btn-sports::after, .home-sidebar .btn-games.active.btn-sports::after, .home-sidebar .btn-four.active.btn-sports::after, .home-sidebar .btn-lottery.active.btn-sports::after {
+.home-sidebar .btn-sports.active.btn-sports::after, .home-sidebar .btn-esports.active.btn-sports::after, .home-sidebar .btn-exchange.active.btn-sports::after, .home-sidebar .btn-casino.active.btn-sports::after, .home-sidebar .btn-slots.active.btn-sports::after, .home-sidebar .btn-games.active.btn-sports::after, .home-sidebar .btn-fishing.active.btn-sports::after, .home-sidebar .btn-games.active.btn-sports::after, .home-sidebar .btn-four.active.btn-sports::after, .home-sidebar .btn-lottery.active.btn-sports::after, .home-sidebar .btn-event.active.btn-sports::after {
   background: #1E3E77;
 }
-.home-sidebar .btn-sports.active.btn-esports .btn-circle, .home-sidebar .btn-esports.active.btn-esports .btn-circle, .home-sidebar .btn-exchange.active.btn-esports .btn-circle, .home-sidebar .btn-casino.active.btn-esports .btn-circle, .home-sidebar .btn-slots.active.btn-esports .btn-circle, .home-sidebar .btn-games.active.btn-esports .btn-circle, .home-sidebar .btn-fishing.active.btn-esports .btn-circle, .home-sidebar .btn-games.active.btn-esports .btn-circle, .home-sidebar .btn-four.active.btn-esports .btn-circle, .home-sidebar .btn-lottery.active.btn-esports .btn-circle {
+.home-sidebar .btn-sports.active.btn-esports .btn-circle, .home-sidebar .btn-esports.active.btn-esports .btn-circle, .home-sidebar .btn-exchange.active.btn-esports .btn-circle, .home-sidebar .btn-casino.active.btn-esports .btn-circle, .home-sidebar .btn-slots.active.btn-esports .btn-circle, .home-sidebar .btn-games.active.btn-esports .btn-circle, .home-sidebar .btn-fishing.active.btn-esports .btn-circle, .home-sidebar .btn-games.active.btn-esports .btn-circle, .home-sidebar .btn-four.active.btn-esports .btn-circle, .home-sidebar .btn-lottery.active.btn-esports .btn-circle, .home-sidebar .btn-event.active.btn-esports .btn-circle {
   background: #6B65FF;
 }
-.home-sidebar .btn-sports.active.btn-esports::after, .home-sidebar .btn-esports.active.btn-esports::after, .home-sidebar .btn-exchange.active.btn-esports::after, .home-sidebar .btn-casino.active.btn-esports::after, .home-sidebar .btn-slots.active.btn-esports::after, .home-sidebar .btn-games.active.btn-esports::after, .home-sidebar .btn-fishing.active.btn-esports::after, .home-sidebar .btn-games.active.btn-esports::after, .home-sidebar .btn-four.active.btn-esports::after, .home-sidebar .btn-lottery.active.btn-esports::after {
+.home-sidebar .btn-sports.active.btn-esports::after, .home-sidebar .btn-esports.active.btn-esports::after, .home-sidebar .btn-exchange.active.btn-esports::after, .home-sidebar .btn-casino.active.btn-esports::after, .home-sidebar .btn-slots.active.btn-esports::after, .home-sidebar .btn-games.active.btn-esports::after, .home-sidebar .btn-fishing.active.btn-esports::after, .home-sidebar .btn-games.active.btn-esports::after, .home-sidebar .btn-four.active.btn-esports::after, .home-sidebar .btn-lottery.active.btn-esports::after, .home-sidebar .btn-event.active.btn-esports::after {
   background: #6B65FF;
 }
-.home-sidebar .btn-sports.active.btn-exchange .btn-circle, .home-sidebar .btn-esports.active.btn-exchange .btn-circle, .home-sidebar .btn-exchange.active.btn-exchange .btn-circle, .home-sidebar .btn-casino.active.btn-exchange .btn-circle, .home-sidebar .btn-slots.active.btn-exchange .btn-circle, .home-sidebar .btn-games.active.btn-exchange .btn-circle, .home-sidebar .btn-fishing.active.btn-exchange .btn-circle, .home-sidebar .btn-games.active.btn-exchange .btn-circle, .home-sidebar .btn-four.active.btn-exchange .btn-circle, .home-sidebar .btn-lottery.active.btn-exchange .btn-circle {
+.home-sidebar .btn-sports.active.btn-exchange .btn-circle, .home-sidebar .btn-esports.active.btn-exchange .btn-circle, .home-sidebar .btn-exchange.active.btn-exchange .btn-circle, .home-sidebar .btn-casino.active.btn-exchange .btn-circle, .home-sidebar .btn-slots.active.btn-exchange .btn-circle, .home-sidebar .btn-games.active.btn-exchange .btn-circle, .home-sidebar .btn-fishing.active.btn-exchange .btn-circle, .home-sidebar .btn-games.active.btn-exchange .btn-circle, .home-sidebar .btn-four.active.btn-exchange .btn-circle, .home-sidebar .btn-lottery.active.btn-exchange .btn-circle, .home-sidebar .btn-event.active.btn-exchange .btn-circle {
   background: #0AC6C6;
 }
-.home-sidebar .btn-sports.active.btn-exchange::after, .home-sidebar .btn-esports.active.btn-exchange::after, .home-sidebar .btn-exchange.active.btn-exchange::after, .home-sidebar .btn-casino.active.btn-exchange::after, .home-sidebar .btn-slots.active.btn-exchange::after, .home-sidebar .btn-games.active.btn-exchange::after, .home-sidebar .btn-fishing.active.btn-exchange::after, .home-sidebar .btn-games.active.btn-exchange::after, .home-sidebar .btn-four.active.btn-exchange::after, .home-sidebar .btn-lottery.active.btn-exchange::after {
+.home-sidebar .btn-sports.active.btn-exchange::after, .home-sidebar .btn-esports.active.btn-exchange::after, .home-sidebar .btn-exchange.active.btn-exchange::after, .home-sidebar .btn-casino.active.btn-exchange::after, .home-sidebar .btn-slots.active.btn-exchange::after, .home-sidebar .btn-games.active.btn-exchange::after, .home-sidebar .btn-fishing.active.btn-exchange::after, .home-sidebar .btn-games.active.btn-exchange::after, .home-sidebar .btn-four.active.btn-exchange::after, .home-sidebar .btn-lottery.active.btn-exchange::after, .home-sidebar .btn-event.active.btn-exchange::after {
   background: #0AC6C6;
 }
-.home-sidebar .btn-sports.active.btn-casino .btn-circle, .home-sidebar .btn-esports.active.btn-casino .btn-circle, .home-sidebar .btn-exchange.active.btn-casino .btn-circle, .home-sidebar .btn-casino.active.btn-casino .btn-circle, .home-sidebar .btn-slots.active.btn-casino .btn-circle, .home-sidebar .btn-games.active.btn-casino .btn-circle, .home-sidebar .btn-fishing.active.btn-casino .btn-circle, .home-sidebar .btn-games.active.btn-casino .btn-circle, .home-sidebar .btn-four.active.btn-casino .btn-circle, .home-sidebar .btn-lottery.active.btn-casino .btn-circle {
+.home-sidebar .btn-sports.active.btn-casino .btn-circle, .home-sidebar .btn-esports.active.btn-casino .btn-circle, .home-sidebar .btn-exchange.active.btn-casino .btn-circle, .home-sidebar .btn-casino.active.btn-casino .btn-circle, .home-sidebar .btn-slots.active.btn-casino .btn-circle, .home-sidebar .btn-games.active.btn-casino .btn-circle, .home-sidebar .btn-fishing.active.btn-casino .btn-circle, .home-sidebar .btn-games.active.btn-casino .btn-circle, .home-sidebar .btn-four.active.btn-casino .btn-circle, .home-sidebar .btn-lottery.active.btn-casino .btn-circle, .home-sidebar .btn-event.active.btn-casino .btn-circle {
   background: #FF6A97;
 }
-.home-sidebar .btn-sports.active.btn-casino::after, .home-sidebar .btn-esports.active.btn-casino::after, .home-sidebar .btn-exchange.active.btn-casino::after, .home-sidebar .btn-casino.active.btn-casino::after, .home-sidebar .btn-slots.active.btn-casino::after, .home-sidebar .btn-games.active.btn-casino::after, .home-sidebar .btn-fishing.active.btn-casino::after, .home-sidebar .btn-games.active.btn-casino::after, .home-sidebar .btn-four.active.btn-casino::after, .home-sidebar .btn-lottery.active.btn-casino::after {
+.home-sidebar .btn-sports.active.btn-casino::after, .home-sidebar .btn-esports.active.btn-casino::after, .home-sidebar .btn-exchange.active.btn-casino::after, .home-sidebar .btn-casino.active.btn-casino::after, .home-sidebar .btn-slots.active.btn-casino::after, .home-sidebar .btn-games.active.btn-casino::after, .home-sidebar .btn-fishing.active.btn-casino::after, .home-sidebar .btn-games.active.btn-casino::after, .home-sidebar .btn-four.active.btn-casino::after, .home-sidebar .btn-lottery.active.btn-casino::after, .home-sidebar .btn-event.active.btn-casino::after {
   background: #FF6A97;
 }
-.home-sidebar .btn-sports.active.btn-slots .btn-circle, .home-sidebar .btn-esports.active.btn-slots .btn-circle, .home-sidebar .btn-exchange.active.btn-slots .btn-circle, .home-sidebar .btn-casino.active.btn-slots .btn-circle, .home-sidebar .btn-slots.active.btn-slots .btn-circle, .home-sidebar .btn-games.active.btn-slots .btn-circle, .home-sidebar .btn-fishing.active.btn-slots .btn-circle, .home-sidebar .btn-games.active.btn-slots .btn-circle, .home-sidebar .btn-four.active.btn-slots .btn-circle, .home-sidebar .btn-lottery.active.btn-slots .btn-circle {
+.home-sidebar .btn-sports.active.btn-slots .btn-circle, .home-sidebar .btn-esports.active.btn-slots .btn-circle, .home-sidebar .btn-exchange.active.btn-slots .btn-circle, .home-sidebar .btn-casino.active.btn-slots .btn-circle, .home-sidebar .btn-slots.active.btn-slots .btn-circle, .home-sidebar .btn-games.active.btn-slots .btn-circle, .home-sidebar .btn-fishing.active.btn-slots .btn-circle, .home-sidebar .btn-games.active.btn-slots .btn-circle, .home-sidebar .btn-four.active.btn-slots .btn-circle, .home-sidebar .btn-lottery.active.btn-slots .btn-circle, .home-sidebar .btn-event.active.btn-slots .btn-circle {
   background: #DB55FB;
 }
-.home-sidebar .btn-sports.active.btn-slots::after, .home-sidebar .btn-esports.active.btn-slots::after, .home-sidebar .btn-exchange.active.btn-slots::after, .home-sidebar .btn-casino.active.btn-slots::after, .home-sidebar .btn-slots.active.btn-slots::after, .home-sidebar .btn-games.active.btn-slots::after, .home-sidebar .btn-fishing.active.btn-slots::after, .home-sidebar .btn-games.active.btn-slots::after, .home-sidebar .btn-four.active.btn-slots::after, .home-sidebar .btn-lottery.active.btn-slots::after {
+.home-sidebar .btn-sports.active.btn-slots::after, .home-sidebar .btn-esports.active.btn-slots::after, .home-sidebar .btn-exchange.active.btn-slots::after, .home-sidebar .btn-casino.active.btn-slots::after, .home-sidebar .btn-slots.active.btn-slots::after, .home-sidebar .btn-games.active.btn-slots::after, .home-sidebar .btn-fishing.active.btn-slots::after, .home-sidebar .btn-games.active.btn-slots::after, .home-sidebar .btn-four.active.btn-slots::after, .home-sidebar .btn-lottery.active.btn-slots::after, .home-sidebar .btn-event.active.btn-slots::after {
   background: #DB55FB;
 }
-.home-sidebar .btn-sports.active.btn-games .btn-circle, .home-sidebar .btn-esports.active.btn-games .btn-circle, .home-sidebar .btn-exchange.active.btn-games .btn-circle, .home-sidebar .btn-casino.active.btn-games .btn-circle, .home-sidebar .btn-slots.active.btn-games .btn-circle, .home-sidebar .btn-games.active.btn-games .btn-circle, .home-sidebar .btn-fishing.active.btn-games .btn-circle, .home-sidebar .btn-games.active.btn-games .btn-circle, .home-sidebar .btn-four.active.btn-games .btn-circle, .home-sidebar .btn-lottery.active.btn-games .btn-circle {
+.home-sidebar .btn-sports.active.btn-games .btn-circle, .home-sidebar .btn-esports.active.btn-games .btn-circle, .home-sidebar .btn-exchange.active.btn-games .btn-circle, .home-sidebar .btn-casino.active.btn-games .btn-circle, .home-sidebar .btn-slots.active.btn-games .btn-circle, .home-sidebar .btn-games.active.btn-games .btn-circle, .home-sidebar .btn-fishing.active.btn-games .btn-circle, .home-sidebar .btn-games.active.btn-games .btn-circle, .home-sidebar .btn-four.active.btn-games .btn-circle, .home-sidebar .btn-lottery.active.btn-games .btn-circle, .home-sidebar .btn-event.active.btn-games .btn-circle {
   background: #FFCD04;
 }
-.home-sidebar .btn-sports.active.btn-games::after, .home-sidebar .btn-esports.active.btn-games::after, .home-sidebar .btn-exchange.active.btn-games::after, .home-sidebar .btn-casino.active.btn-games::after, .home-sidebar .btn-slots.active.btn-games::after, .home-sidebar .btn-games.active.btn-games::after, .home-sidebar .btn-fishing.active.btn-games::after, .home-sidebar .btn-games.active.btn-games::after, .home-sidebar .btn-four.active.btn-games::after, .home-sidebar .btn-lottery.active.btn-games::after {
+.home-sidebar .btn-sports.active.btn-games::after, .home-sidebar .btn-esports.active.btn-games::after, .home-sidebar .btn-exchange.active.btn-games::after, .home-sidebar .btn-casino.active.btn-games::after, .home-sidebar .btn-slots.active.btn-games::after, .home-sidebar .btn-games.active.btn-games::after, .home-sidebar .btn-fishing.active.btn-games::after, .home-sidebar .btn-games.active.btn-games::after, .home-sidebar .btn-four.active.btn-games::after, .home-sidebar .btn-lottery.active.btn-games::after, .home-sidebar .btn-event.active.btn-games::after {
   background: #FFCD04;
 }
-.home-sidebar .btn-sports.active.btn-fishing .btn-circle, .home-sidebar .btn-esports.active.btn-fishing .btn-circle, .home-sidebar .btn-exchange.active.btn-fishing .btn-circle, .home-sidebar .btn-casino.active.btn-fishing .btn-circle, .home-sidebar .btn-slots.active.btn-fishing .btn-circle, .home-sidebar .btn-games.active.btn-fishing .btn-circle, .home-sidebar .btn-fishing.active.btn-fishing .btn-circle, .home-sidebar .btn-games.active.btn-fishing .btn-circle, .home-sidebar .btn-four.active.btn-fishing .btn-circle, .home-sidebar .btn-lottery.active.btn-fishing .btn-circle {
+.home-sidebar .btn-sports.active.btn-fishing .btn-circle, .home-sidebar .btn-esports.active.btn-fishing .btn-circle, .home-sidebar .btn-exchange.active.btn-fishing .btn-circle, .home-sidebar .btn-casino.active.btn-fishing .btn-circle, .home-sidebar .btn-slots.active.btn-fishing .btn-circle, .home-sidebar .btn-games.active.btn-fishing .btn-circle, .home-sidebar .btn-fishing.active.btn-fishing .btn-circle, .home-sidebar .btn-games.active.btn-fishing .btn-circle, .home-sidebar .btn-four.active.btn-fishing .btn-circle, .home-sidebar .btn-lottery.active.btn-fishing .btn-circle, .home-sidebar .btn-event.active.btn-fishing .btn-circle {
   background: #54BFFF;
 }
-.home-sidebar .btn-sports.active.btn-fishing::after, .home-sidebar .btn-esports.active.btn-fishing::after, .home-sidebar .btn-exchange.active.btn-fishing::after, .home-sidebar .btn-casino.active.btn-fishing::after, .home-sidebar .btn-slots.active.btn-fishing::after, .home-sidebar .btn-games.active.btn-fishing::after, .home-sidebar .btn-fishing.active.btn-fishing::after, .home-sidebar .btn-games.active.btn-fishing::after, .home-sidebar .btn-four.active.btn-fishing::after, .home-sidebar .btn-lottery.active.btn-fishing::after {
+.home-sidebar .btn-sports.active.btn-fishing::after, .home-sidebar .btn-esports.active.btn-fishing::after, .home-sidebar .btn-exchange.active.btn-fishing::after, .home-sidebar .btn-casino.active.btn-fishing::after, .home-sidebar .btn-slots.active.btn-fishing::after, .home-sidebar .btn-games.active.btn-fishing::after, .home-sidebar .btn-fishing.active.btn-fishing::after, .home-sidebar .btn-games.active.btn-fishing::after, .home-sidebar .btn-four.active.btn-fishing::after, .home-sidebar .btn-lottery.active.btn-fishing::after, .home-sidebar .btn-event.active.btn-fishing::after {
   background: #54BFFF;
 }
-.home-sidebar .btn-sports.active.btn-four .btn-circle, .home-sidebar .btn-esports.active.btn-four .btn-circle, .home-sidebar .btn-exchange.active.btn-four .btn-circle, .home-sidebar .btn-casino.active.btn-four .btn-circle, .home-sidebar .btn-slots.active.btn-four .btn-circle, .home-sidebar .btn-games.active.btn-four .btn-circle, .home-sidebar .btn-fishing.active.btn-four .btn-circle, .home-sidebar .btn-games.active.btn-four .btn-circle, .home-sidebar .btn-four.active.btn-four .btn-circle, .home-sidebar .btn-lottery.active.btn-four .btn-circle {
+.home-sidebar .btn-sports.active.btn-four .btn-circle, .home-sidebar .btn-esports.active.btn-four .btn-circle, .home-sidebar .btn-exchange.active.btn-four .btn-circle, .home-sidebar .btn-casino.active.btn-four .btn-circle, .home-sidebar .btn-slots.active.btn-four .btn-circle, .home-sidebar .btn-games.active.btn-four .btn-circle, .home-sidebar .btn-fishing.active.btn-four .btn-circle, .home-sidebar .btn-games.active.btn-four .btn-circle, .home-sidebar .btn-four.active.btn-four .btn-circle, .home-sidebar .btn-lottery.active.btn-four .btn-circle, .home-sidebar .btn-event.active.btn-four .btn-circle {
   background: #F83131;
 }
-.home-sidebar .btn-sports.active.btn-four::after, .home-sidebar .btn-esports.active.btn-four::after, .home-sidebar .btn-exchange.active.btn-four::after, .home-sidebar .btn-casino.active.btn-four::after, .home-sidebar .btn-slots.active.btn-four::after, .home-sidebar .btn-games.active.btn-four::after, .home-sidebar .btn-fishing.active.btn-four::after, .home-sidebar .btn-games.active.btn-four::after, .home-sidebar .btn-four.active.btn-four::after, .home-sidebar .btn-lottery.active.btn-four::after {
+.home-sidebar .btn-sports.active.btn-four::after, .home-sidebar .btn-esports.active.btn-four::after, .home-sidebar .btn-exchange.active.btn-four::after, .home-sidebar .btn-casino.active.btn-four::after, .home-sidebar .btn-slots.active.btn-four::after, .home-sidebar .btn-games.active.btn-four::after, .home-sidebar .btn-fishing.active.btn-four::after, .home-sidebar .btn-games.active.btn-four::after, .home-sidebar .btn-four.active.btn-four::after, .home-sidebar .btn-lottery.active.btn-four::after, .home-sidebar .btn-event.active.btn-four::after {
   background: #F83131;
 }
-.home-sidebar .btn-sports.active.btn-lottery .btn-circle, .home-sidebar .btn-esports.active.btn-lottery .btn-circle, .home-sidebar .btn-exchange.active.btn-lottery .btn-circle, .home-sidebar .btn-casino.active.btn-lottery .btn-circle, .home-sidebar .btn-slots.active.btn-lottery .btn-circle, .home-sidebar .btn-games.active.btn-lottery .btn-circle, .home-sidebar .btn-fishing.active.btn-lottery .btn-circle, .home-sidebar .btn-games.active.btn-lottery .btn-circle, .home-sidebar .btn-four.active.btn-lottery .btn-circle, .home-sidebar .btn-lottery.active.btn-lottery .btn-circle {
+.home-sidebar .btn-sports.active.btn-lottery .btn-circle, .home-sidebar .btn-esports.active.btn-lottery .btn-circle, .home-sidebar .btn-exchange.active.btn-lottery .btn-circle, .home-sidebar .btn-casino.active.btn-lottery .btn-circle, .home-sidebar .btn-slots.active.btn-lottery .btn-circle, .home-sidebar .btn-games.active.btn-lottery .btn-circle, .home-sidebar .btn-fishing.active.btn-lottery .btn-circle, .home-sidebar .btn-games.active.btn-lottery .btn-circle, .home-sidebar .btn-four.active.btn-lottery .btn-circle, .home-sidebar .btn-lottery.active.btn-lottery .btn-circle, .home-sidebar .btn-event.active.btn-lottery .btn-circle {
   background: #41B989;
 }
-.home-sidebar .btn-sports.active.btn-lottery::after, .home-sidebar .btn-esports.active.btn-lottery::after, .home-sidebar .btn-exchange.active.btn-lottery::after, .home-sidebar .btn-casino.active.btn-lottery::after, .home-sidebar .btn-slots.active.btn-lottery::after, .home-sidebar .btn-games.active.btn-lottery::after, .home-sidebar .btn-fishing.active.btn-lottery::after, .home-sidebar .btn-games.active.btn-lottery::after, .home-sidebar .btn-four.active.btn-lottery::after, .home-sidebar .btn-lottery.active.btn-lottery::after {
+.home-sidebar .btn-sports.active.btn-lottery::after, .home-sidebar .btn-esports.active.btn-lottery::after, .home-sidebar .btn-exchange.active.btn-lottery::after, .home-sidebar .btn-casino.active.btn-lottery::after, .home-sidebar .btn-slots.active.btn-lottery::after, .home-sidebar .btn-games.active.btn-lottery::after, .home-sidebar .btn-fishing.active.btn-lottery::after, .home-sidebar .btn-games.active.btn-lottery::after, .home-sidebar .btn-four.active.btn-lottery::after, .home-sidebar .btn-lottery.active.btn-lottery::after, .home-sidebar .btn-event.active.btn-lottery::after {
   background: #41B989;
+}
+.home-sidebar .btn-sports.active.btn-event .btn-circle, .home-sidebar .btn-esports.active.btn-event .btn-circle, .home-sidebar .btn-exchange.active.btn-event .btn-circle, .home-sidebar .btn-casino.active.btn-event .btn-circle, .home-sidebar .btn-slots.active.btn-event .btn-circle, .home-sidebar .btn-games.active.btn-event .btn-circle, .home-sidebar .btn-fishing.active.btn-event .btn-circle, .home-sidebar .btn-games.active.btn-event .btn-circle, .home-sidebar .btn-four.active.btn-event .btn-circle, .home-sidebar .btn-lottery.active.btn-event .btn-circle, .home-sidebar .btn-event.active.btn-event .btn-circle {
+  background: #1E3E77;
+}
+.home-sidebar .btn-sports.active.btn-event::after, .home-sidebar .btn-esports.active.btn-event::after, .home-sidebar .btn-exchange.active.btn-event::after, .home-sidebar .btn-casino.active.btn-event::after, .home-sidebar .btn-slots.active.btn-event::after, .home-sidebar .btn-games.active.btn-event::after, .home-sidebar .btn-fishing.active.btn-event::after, .home-sidebar .btn-games.active.btn-event::after, .home-sidebar .btn-four.active.btn-event::after, .home-sidebar .btn-lottery.active.btn-event::after, .home-sidebar .btn-event.active.btn-event::after {
+  background: #1E3E77;
 }
 .home-sidebar .btn-circle {
   background: #D1D1D1;
@@ -16780,7 +16778,8 @@ main.casino .banner {
   line-height: 4vw;
   margin-top: 2vw;
 }
-.menu-center a .exclusion-icon {
+.menu-center a .exclusion-icon,
+.menu-center a .prediction-icon {
   width: 10vw;
 }
 .menu-bottom {
@@ -21105,39 +21104,6 @@ input[type=number] .btn-logout {
   cursor: pointer;
   margin: 0;
 }
-.setting-checkbox .checkbox-content input[type=checkbox]:disabled {
-  background: #000;
-  opacity: 1;
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-right: 8px;
-  padding: 0.5px;
-}
-.setting-checkbox .checkbox-content input[type=checkbox]:disabled + .checkbox-icon + span {
-  color: #B5C0D1;
-}
-.setting-checkbox .checkbox-content input[type=checkbox]:checked ~ .checkbox-icon {
-  background: #2775FF;
-}
-.setting-checkbox .checkbox-content input[type=checkbox]:checked ~ .checkbox-icon::after {
-  display: block;
-}
-.setting-checkbox .checkbox-content input[type=checkbox]:disabled ~ .checkbox-icon {
-  opacity: 0;
-}
-.setting-checkbox .checkbox-content input[type=checkbox]:disabled ~ .checkbox-icon::after {
-  opacity: 0;
-}
 .setting-checkbox .checkbox-content .checkbox-icon {
   width: 4vw;
   height: 4vw;
@@ -21321,9 +21287,9 @@ input[type=number] .btn-logout {
   letter-spacing: 0.5px;
 }
 .setting .changepassword .inputBox > input:-webkit-autofill, .setting .changepassword .worldcupEvent .event .event-content .inputBox-event > input:-webkit-autofill, .worldcupEvent .event .event-content .setting .changepassword .inputBox-event > input:-webkit-autofill, .setting .changepassword .euro .inputBox-event > input:-webkit-autofill, .euro .setting .changepassword .inputBox-event > input:-webkit-autofill {
-  -webkit-box-shadow: inset 0 0 0 1000px #efefef;
-          box-shadow: inset 0 0 0 1000px #efefef;
-  -webkit-text-fill-color: #112240;
+  -webkit-box-shadow: 0 0 0px 1000px #0A1B38 inset;
+          box-shadow: 0 0 0px 1000px #0A1B38 inset;
+  -webkit-text-fill-color: white;
 }
 .setting .changepassword .inputBox > input[type=file], .setting .changepassword .worldcupEvent .event .event-content .inputBox-event > input[type=file], .worldcupEvent .event .event-content .setting .changepassword .inputBox-event > input[type=file], .setting .changepassword .euro .inputBox-event > input[type=file], .euro .setting .changepassword .inputBox-event > input[type=file] {
   display: none;
@@ -21455,10 +21421,6 @@ input[type=number] .btn-logout {
 
 #__next {
   height: 100%;
-}
-
-#g-reCaptcha .grecaptcha-badge {
-  z-index: 999;
 }
 
 .survey {
@@ -21656,4 +21618,786 @@ input[type=number] .btn-logout {
 }
 .survey-after.close {
   display: none;
+}
+
+#g-reCaptcha .grecaptcha-badge {
+  z-index: 999;
+}
+
+main.prediction {
+  background: #480024;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+main.prediction * {
+  color: white;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+main.prediction .prediction-banner {
+  position: relative;
+}
+main.prediction .prediction-banner .banner-top {
+  width: 100%;
+}
+main.prediction .prediction-banner .banner-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 11.2vw;
+  padding: 0 5.6vw;
+}
+main.prediction .prediction-banner .banner-logo {
+  margin-bottom: 8.4vw;
+}
+main.prediction .prediction-banner .banner-logo img {
+  max-width: 46.8vw;
+}
+main.prediction .prediction-banner .banner-caption {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+main.prediction .prediction-banner .banner-caption .title {
+  font-size: 5.6vw;
+  font-weight: 600;
+  line-height: 1.24;
+  margin-bottom: 4.68vw;
+  text-align: center;
+}
+main.prediction .prediction-banner .banner-caption .subtitle {
+  text-align: center;
+  font-size: 3.28vw;
+  font-weight: 300;
+}
+main.prediction .prediction-container {
+  width: 100%;
+  padding: 7vw 4.68vw;
+}
+main.prediction .prediction-container .prediction-introduce {
+  text-align: center;
+  margin-bottom: 7vw;
+}
+main.prediction .prediction-container .prediction-introduce .title {
+  font-size: 5.6vw;
+  font-weight: 600;
+  margin-bottom: 3.74vw;
+}
+main.prediction .prediction-container .prediction-introduce .text {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+main.prediction .prediction-container .prediction-introduce .text span {
+  font-size: 2.8vw;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+main.prediction .prediction-container .prediction-board {
+  background: url(https://banner.0814media.net/h5/img/event/prediction/premier-league.jpg) no-repeat center/cover;
+  border-radius: 4.68vw;
+  padding: 0 4.68vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  min-height: 178.27vw;
+}
+main.prediction .prediction-container .prediction-board .card-swiper {
+  width: 100%;
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container {
+  border-radius: 4.67vw;
+  padding: 12vw 0 8vw;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container .swiper-wrapper {
+  width: 100%;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container .swiper-wrapper .swiper-slide {
+  border-radius: 4.67vw;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container .swiper-pagination {
+  width: 100%;
+  position: static;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2.5vw;
+  padding: 3vw 0 0;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container .swiper-pagination .swiper-pagination-bullet {
+  background: #D9D9D9;
+  width: 2.4vw;
+  height: 2.4vw;
+  border-radius: 50%;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container .swiper-pagination .swiper-pagination-bullet-active {
+  border-radius: 50%;
+  background: #ff7600;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-button-next,
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-button-prev {
+  width: 12.8vw;
+  height: 12.8vw;
+  background: #BEBEBE;
+  border-radius: 50%;
+  color: #fff;
+  display: none;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-button-next {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  right: -7vw;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-button-next::after {
+  content: "\e95d";
+  font-size: 12.62vw;
+  font-family: "icomoon";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-button-prev {
+  left: -7vw;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-button-prev::after {
+  content: "\e95d";
+  font-size: 12.62vw;
+  font-family: "icomoon";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+main.prediction .prediction-container .prediction-board .card-swiper:hover .swiper-button-next,
+main.prediction .prediction-container .prediction-board .card-swiper:hover .swiper-button-prev {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  background: #fff;
+  border-radius: 4.67vw;
+  padding: 7.48vw 0 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .btn-submit {
+  background: #FF7600;
+  border-radius: 0 0 4.67vw 4.67vw;
+  padding: 2.34vw 0;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .btn-submit:hover {
+  background: #ff8c29;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .btn-submit.active {
+  background: #FF9336;
+  color: #fff;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .btn-submit.active:hover {
+  cursor: text;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .btn-submit[disabled] {
+  background: #C6C6C6 !important;
+  color: #fff !important;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .btn-submit[disabled]:hover {
+  cursor: text;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 6.5vw;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 6.48vw;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-top .match {
+  color: #000;
+  font-size: 4.21vw;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 0.93vw;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.15;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-top .time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-top .time span {
+  color: #000;
+  font-weight: 500;
+  font-size: 2.8vw;
+  text-align: center;
+  line-height: 1.15;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-top .time span:last-child {
+  margin-left: 1.87vw;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 7.48vw;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .team {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .team-badge {
+  position: relative;
+  margin-bottom: 5.61vw;
+  min-height: 12.62vw;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .team-badge .team-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  z-index: 2;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .team-badge .team-img img {
+  display: block;
+  width: 12.62vw;
+  height: auto;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .team-badge::before {
+  content: "";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 14.95vw;
+  height: 14.95vw;
+  background: #FCFCFC;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .team-badge::after {
+  content: "";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 18.22vw;
+  height: 18.22vw;
+  background: #F3F3F3;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .team-name {
+  font-size: 2.8vw;
+  color: #000;
+  margin-bottom: 1.4vw;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .center-txt {
+  margin-top: 3.87vw;
+  font-size: 5.61vw;
+  color: #FF7600;
+  padding: 0 1.4vw;
+  font-weight: 500;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .center-txt.disabled {
+  color: #A5A5A5;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box {
+  display: block;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input {
+  border: 1px solid #ff7600;
+  padding: 1.87vw 0;
+  border-radius: 2.34vw;
+  color: #000;
+  text-align: center;
+  width: 100%;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input::-webkit-input-placeholder {
+  text-align: center;
+  color: #B1B1B1;
+  font-weight: 200;
+  font-size: 2.8vw;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input::-moz-placeholder {
+  text-align: center;
+  color: #B1B1B1;
+  font-weight: 200;
+  font-size: 2.8vw;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input:-ms-input-placeholder {
+  text-align: center;
+  color: #B1B1B1;
+  font-weight: 200;
+  font-size: 2.8vw;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input::-ms-input-placeholder {
+  text-align: center;
+  color: #B1B1B1;
+  font-weight: 200;
+  font-size: 2.8vw;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input::placeholder {
+  text-align: center;
+  color: #B1B1B1;
+  font-weight: 200;
+  font-size: 2.8vw;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input:focus-visible {
+  outline: 2px solid #ff7600;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input[disabled] {
+  border: 1px solid transparent !important;
+  background: #F3F3F3 !important;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input[disabled]::-webkit-input-placeholder {
+  color: #000 !important;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input[disabled]::-moz-placeholder {
+  color: #000 !important;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input[disabled]:-ms-input-placeholder {
+  color: #000 !important;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input[disabled]::-ms-input-placeholder {
+  color: #000 !important;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input[disabled]::placeholder {
+  color: #000 !important;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box .number {
+  width: 25.7vw;
+  color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 6.07vw;
+  font-weight: 500;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .tips {
+  color: red;
+  font-weight: 300;
+  font-size: 12px;
+  padding: 3px 0;
+}
+main.prediction .prediction-container .prediction-result .result-title {
+  margin: 5.61vw 0 7vw;
+  font-size: 5.61vw;
+  font-weight: 600;
+  text-align: center;
+}
+main.prediction .prediction-container .prediction-result .result-content {
+  background: #fff;
+  border-radius: 4.67vw;
+  padding: 14.02vw 4.67vw;
+}
+main.prediction .prediction-container .prediction-result .result-content button {
+  width: 100%;
+  background: #ff7600;
+  border-radius: 7vw;
+  padding: 3.74vw 9.81vw;
+  font-size: 3.74vw;
+  font-weight: 400;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 4.67vw;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-top .sub-caption {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-top .sub-caption .time {
+  font-size: 2.8vw;
+  color: #000;
+  margin-bottom: 2.5vw;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-top .sub-caption .title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #000;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-top .sub-caption .title span {
+  color: #000;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 7vw;
+  width: 100%;
+  margin-bottom: 4.67vw;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .prize-money {
+  background: url(https://banner.0814media.net/h5/img/event/prediction/result.jpg) no-repeat center/cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  min-height: 35.05vw;
+  border-radius: 4.67vw;
+  padding-left: 4.67vw;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .prize-money span {
+  font-size: 3.27vw;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.29vw;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .prize-money span.amount {
+  display: block;
+  font-size: 5.61vw;
+  font-weight: 600;
+  color: #ff7600;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .user-content {
+  background: #14173D;
+  border-radius: 4.67vw;
+  padding: 4.67vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .user-content .title {
+  font-size: 4.67vw;
+  padding: 1.4vw;
+  margin-bottom: 2.34vw;
+  color: #ff7600;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .user-content .user-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .user-content .user-list ul {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .user-content .user-list ul li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 12px 0;
+  margin-bottom: 2.34vw;
+  border-radius: 2.34vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: 300;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .user-content .user-list ul li:last-child {
+  margin-bottom: 0;
+}
+main.prediction .bottom-graphic {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 11.68vw 0 28.04vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#popup.prediction-result {
+  width: 100vw;
+  height: 100vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5vw;
+}
+#popup.prediction-result .pop .result-pop {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #fff;
+  padding: 8vw 6vw 8vw 5vw;
+  border-radius: 4.67vw !important;
+}
+#popup.prediction-result .pop .result-pop .btn-block {
+  padding-top: 9vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#popup.prediction-result .pop .result-pop .btn-block .btn-check {
+  padding: 3.5vw;
+  background: #ff7600;
+  min-width: 50vw;
+  border-radius: 2.5vw;
+  color: #fff;
+  font-size: 3vw;
+}
+#popup.prediction-result .pop .result-pop .btn-block .btn-check:hover {
+  background: #ff9133;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+#popup.prediction-result .pop .result-pop .caption {
+  margin-bottom: 4vw;
+  font-size: 4.8vw;
+  color: #ff7600;
+  font-weight: 600;
+  text-align: center;
+}
+#popup.prediction-result .pop .result-pop .content {
+  max-height: 70vw;
+  overflow-y: scroll;
+}
+#popup.prediction-result .pop .result-pop .content::-webkit-scrollbar-thumb {
+  background: #ff7600;
+  border-radius: 20px;
+}
+#popup.prediction-result .pop .result-pop .content ul {
+  padding-left: 3.5vw;
+}
+#popup.prediction-result .pop .result-pop .content ul .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style: circle;
+  background: unset;
+  padding: 0 2vw;
+}
+#popup.prediction-result .pop .result-pop .content ul .list span {
+  display: block;
+}
+#popup.prediction-result .pop .result-pop .content ul .list span.title {
+  color: #000;
+  font-size: 3.9vw;
+  position: relative;
+  margin-bottom: 2vw;
+  font-weight: 600;
+}
+#popup.prediction-result .pop .result-pop .content ul .list span.title::before {
+  content: "";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 1.87vw;
+  height: 1.87vw;
+  border-radius: 50%;
+  background: #ff6700;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: -4.5vw;
+}
+#popup.prediction-result .pop .result-pop .content ul .list span.text {
+  font-size: 3.2vw;
+  color: #797979;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-bottom: 3vw;
+}
+#popup.prediction-result > div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo):not(.bigwin):not(.medalpop):not(.rulepop):not(.livesports) {
+  border-radius: 20px !important;
 }/*# sourceMappingURL=style.css.map */

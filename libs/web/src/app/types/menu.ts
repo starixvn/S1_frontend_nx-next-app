@@ -17,7 +17,7 @@ export enum MenuKeyEnum {
 	// 靜態 category
 	'Promotion' = 'Promotion',
 	'VIP' = 'VIP',
-	'LeaderBoard' = 'LeaderBoard',
+	'Event' = 'Event',
 }
 
 export const LobbyCategoryEnum = {

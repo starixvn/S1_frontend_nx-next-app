@@ -12,8 +12,12 @@ import {
 	IGetLeaderBoardListArgs,
 	IGetLeaderBoardListMonthArgs,
 	IGetLeaderBoardSettingArgs,
+	IGetPredictionWinnerListArgs,
 	ILeaderBoardMonthData,
 	ILeaderBoardSettingData,
+	IPromotionPredictScoreArgs,
+	TGetPredictionWinnerListData,
+	TPredictionTeamInfoData,
 } from './type'
 
 export const eventApiUrl = {
@@ -26,6 +30,9 @@ export const eventApiUrl = {
 	drawPrize: 'Events/DrawPrize',
 	getDisplayDrawPrizeList: 'Events/GetDisplayDrawPrizeList',
 	getCustDrawPrizeList: 'Events/GetCustDrawPrizeList',
+	getPredictionTeamInfo: 'Events/GetPredictionTeamInfo',
+	getPredictionWinnerList: 'Events/GetPredictionWinnerList',
+	promotionPredictScore: 'Events/PromotionPredictScore',
 }
 
 export const eventsApi = rootApi.injectEndpoints({
@@ -132,6 +139,39 @@ export const eventsApi = rootApi.injectEndpoints({
 			// * 更新 幸運輪盤抽獎紀錄 和 當前使用者抽獎資格
 			invalidatesTags: ['LUCKY_WHEEL_DRAW_PRIZE'],
 		}),
+		// * 足球預測活動撈取隊伍資訊
+		getPredictionTeamInfo: builder.query<
+			IAxiosResponse<TPredictionTeamInfoData[]>,
+			null
+		>({
+			query: () => ({
+				url: eventApiUrl.getPredictionTeamInfo,
+				method: 'POST',
+			}),
+		}),
+		// * 足球預測活動撈取獲獎結果
+		getPredictionWinnerList: builder.query<
+			IAxiosResponse<TGetPredictionWinnerListData>,
+			IGetPredictionWinnerListArgs
+		>({
+			query: data => ({
+				url: eventApiUrl.getPredictionWinnerList,
+				method: 'POST',
+				data,
+			}),
+		}),
+		// * 足球預測活動送出預測
+		promotionPredictScore: builder.mutation<
+			IAxiosResponse<void>,
+			IPromotionPredictScoreArgs
+		>({
+			query: data => ({
+				url: eventApiUrl.promotionPredictScore,
+				method: 'POST',
+				data,
+			}),
+			// * 更新隊伍相關資訊
+		}),
 	}),
 })
 
@@ -145,4 +185,7 @@ export const {
 	useGetDisplayDrawPrizeListQuery,
 	useGetCustDrawPrizeListQuery,
 	useDrawPrizeMutation,
+	useGetPredictionTeamInfoQuery,
+	useGetPredictionWinnerListQuery,
+	usePromotionPredictScoreMutation,
 } = eventsApi

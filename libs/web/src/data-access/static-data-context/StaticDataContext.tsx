@@ -10,6 +10,7 @@ import {
 	IStaticAllowedCurrencies,
 	IStaticLangGroups,
 	ITermsConditions,
+	TEventData,
 } from '@nx-next-app/types'
 import { ReactNode, createContext } from 'react'
 
@@ -40,6 +41,7 @@ export interface IStaticDataContext {
 		currencyId: number
 		langId: string
 	}) => string
+	EVENT_DATA?: TEventData[]
 }
 
 const StaticDataContext = createContext<IStaticDataContext>(null!)
@@ -65,6 +67,7 @@ const StaticDataProvider = ({
 	LANG_TO_CURRENCY,
 	LIVE_CHAT_ID_BY_LANG_ID,
 	GET_AFFILIATE_LINK,
+	EVENT_DATA,
 }: IStaticDataProviderProps) => {
 	const value: IStaticDataContext = {
 		MENU_DATA,
@@ -82,6 +85,7 @@ const StaticDataProvider = ({
 		LANG_TO_CURRENCY,
 		LIVE_CHAT_ID_BY_LANG_ID,
 		GET_AFFILIATE_LINK,
+		EVENT_DATA,
 	}
 
 	return (

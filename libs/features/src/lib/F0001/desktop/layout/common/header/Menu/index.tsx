@@ -11,7 +11,7 @@ import {
 } from '@nx-next-app/types'
 import { isEventPeriod } from '@nx-next-app/utils'
 import classNames from 'classnames'
-import { includes, toUpper } from 'lodash-es'
+import { includes, toUpper, union } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
@@ -62,6 +62,15 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { ALLOWED_CURRENCIES } = useStaticData()
+
+	// 有符合任何 Event 的 ALLOWED_CURRENCIES
+	const isEventAllowed = includes(
+		union(
+			ALLOWED_CURRENCIES.LEADER_BOARD,
+			ALLOWED_CURRENCIES.PREDICTION_CHALLENGE
+		),
+		currencyId
+	)
 
 	const menus = menuList.map(mainMenuItem => {
 		const {
@@ -209,17 +218,15 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 						</a>
 					</Link>
 				)}
-				{includes(ALLOWED_CURRENCIES.LEADER_BOARD, Number(currencyId)) && (
-					<Link href={paths.leaderBoard.root} passHref>
-						<a
-							className={classNames({
-								active: debouncedMenuKey === 'LeaderBoard',
-							})}
-							onMouseEnter={() => setMenuKey('LeaderBoard')}
-						>
-							{t('Label_LeaderBoard')}
-						</a>
-					</Link>
+				{isEventAllowed && (
+					<a
+						className={classNames({
+							active: debouncedMenuKey === 'Event',
+						})}
+						onMouseEnter={() => setMenuKey('Event')}
+					>
+						{t('Label_LeaderBoard_Event')}
+					</a>
 				)}
 
 				<SubMenu
