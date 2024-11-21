@@ -1,4 +1,5 @@
 import { Footer } from '@nx-next-app/components/D0001'
+import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useGetSeoQuery, useGetSocialChannelQuery } from '@nx-next-app/service'
 import { SocialChannelEnum } from 'libs/features/src/lib/F0001/types'
@@ -18,6 +19,7 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 	const {
 		userInfo: { currencyId, langId },
 	} = useAuth()
+
 	const { META_DATA } = useStaticData()
 	const { t } = useTranslation()
 	const year = new Date().getFullYear()
@@ -62,24 +64,34 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 			return { data: seoData, isSuccess }
 		},
 	})
+
+	const affiliateLink =
+		quickLinks?.find(
+			({ displayKey }) => displayKey === 'Label_Affiliate_Program'
+		)?.href ?? ''
+
 	return (
 		<Footer>
 			<div className='footer-navigation'>
-				<a href='#'>
+				<a href={affiliateLink}>
 					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/contact.png`}
-						alt='Contact'
-					/>
-					<span>{t('Label_ContactUs')}</span>
-				</a>
-				<a href='#'>
-					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/affiliate.png`}
 						alt='Affiliate'
 					/>
 					<span>{t('Label_Affiliate_Program')}</span>
 				</a>
-				<a href='#'>
+
+				<a
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html`}
+				>
+					<img
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/affiliate.png`}
+						alt='Contact Us'
+					/>
+					<span>{t('Label_ContactUs')}</span>
+				</a>
+
+				<a href={paths.milestones.root}>
 					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/milestones.png`}
 						alt='Milestones'
