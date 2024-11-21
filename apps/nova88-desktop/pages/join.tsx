@@ -49,6 +49,10 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
 
+	if (initialProps.originIsSignIn) {
+		return { redirect: { destination: paths.home.root, permanent: false } }
+	}
+
 	return {
 		props: {
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),

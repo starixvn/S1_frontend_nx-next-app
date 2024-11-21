@@ -55,6 +55,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 	const watchMinAmount = watch('minAmount')
 	const watchMaxAmount = watch('maxAmount')
 	const watchAmountList = watch('amountList')
+	const watchExtraDataType = watch('extraDataType')
 
 	return (
 		<>
@@ -82,63 +83,69 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 				</DepositModule.SubModuleButtonGroup>
 			</DepositModule>
 
-			<DepositModule title={t('Label_Deposit_CardCode')} required>
-				<div className='infoModule'>
-					<InputBox
-						className='input-group'
-						register={register('code', {
-							required: true,
-						})}
-						placeholder={t('Label_Deposit_CardCode') || ''}
-						touched={!!touchedFields['code']}
-						error={!!errors['code']}
-						onInfoClick={() => toggleIsCardInfoImgActive()}
-					>
-						<button
-							className='icon icon-files-empty clickBtn'
-							onClick={async () => {
-								const clipboardText =
-									navigator.clipboard && (await navigator.clipboard.readText())
+			{watchExtraDataType === 4 && (
+				<>
+					<DepositModule title={t('Label_Deposit_CardCode')} required>
+						<div className='infoModule'>
+							<InputBox
+								className='input-group'
+								register={register('code', {
+									required: true,
+								})}
+								placeholder={t('Label_Deposit_CardCode') || ''}
+								touched={!!touchedFields['code']}
+								error={!!errors['code']}
+								onInfoClick={() => toggleIsCardInfoImgActive()}
+							>
+								<button
+									className='icon icon-files-empty clickBtn'
+									onClick={async () => {
+										const clipboardText =
+											navigator.clipboard &&
+											(await navigator.clipboard.readText())
 
-								setValue('code', clipboardText)
-							}}
-						/>
-					</InputBox>
-				</div>
-			</DepositModule>
+										setValue('code', clipboardText)
+									}}
+								/>
+							</InputBox>
+						</div>
+					</DepositModule>
 
-			<DepositModule title={t('Label_Deposit_CardSerial')} required>
-				<div className='infoModule'>
-					<InputBox
-						className='input-group'
-						register={register('serial', {
-							required: true,
-						})}
-						placeholder={t('Label_Deposit_CardSerial') || ''}
-						touched={!!touchedFields['serial']}
-						error={!!errors['serial']}
-						onInfoClick={() => toggleIsCardInfoImgActive()}
-					>
-						<button
-							className='icon icon-files-empty clickBtn'
-							onClick={async () => {
-								const clipboardText =
-									navigator.clipboard && (await navigator.clipboard.readText())
+					<DepositModule title={t('Label_Deposit_CardSerial')} required>
+						<div className='infoModule'>
+							<InputBox
+								className='input-group'
+								register={register('serial', {
+									required: true,
+								})}
+								placeholder={t('Label_Deposit_CardSerial') || ''}
+								touched={!!touchedFields['serial']}
+								error={!!errors['serial']}
+								onInfoClick={() => toggleIsCardInfoImgActive()}
+							>
+								<button
+									className='icon icon-files-empty clickBtn'
+									onClick={async () => {
+										const clipboardText =
+											navigator.clipboard &&
+											(await navigator.clipboard.readText())
 
-								setValue('serial', clipboardText)
-							}}
-						/>
-					</InputBox>
-				</div>
-			</DepositModule>
+										setValue('serial', clipboardText)
+									}}
+								/>
+							</InputBox>
+						</div>
+					</DepositModule>
 
-			{isCardInfoImgActive && (
-				<div className='cardinfo'>
-					<Img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/cardinfo.png`}
-						alt='img-cardinfo'
-					/>
-				</div>
+					{isCardInfoImgActive && (
+						<div className='cardinfo'>
+							<Img
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/cardinfo.png`}
+								alt='img-cardinfo'
+							/>
+						</div>
+					)}
+				</>
 			)}
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (

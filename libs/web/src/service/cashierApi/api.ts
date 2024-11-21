@@ -2,6 +2,7 @@ import { createApi } from '@reduxjs/toolkit/dist/query/react'
 import { axiosBaseQuery, IAxiosResponse } from '../axiosBaseQuery'
 import {
 	IDepositCashierQRCodeInfo,
+	IDepositReqArgs,
 	IPostDepositLoadCardPayReqArgs,
 } from './type'
 
@@ -55,13 +56,21 @@ export const cashierApi = createApi({
 				method: 'GET',
 			}),
 		}),
-		// * 建立 LocalCardPay 存款單
+		// * 建立 LocalCardPay / Top up card 存款單
 		getDepositLoadCardPayReq: builder.query<
 			IAxiosResponse<void>,
 			IPostDepositLoadCardPayReqArgs
 		>({
 			query: ({ langId, paramsUrl, ...data }) => ({
 				url: `${langId}/${cashierApiUrl.postDepositLoadCardPayReq}?${paramsUrl}`,
+				method: 'GET',
+				data,
+			}),
+		}),
+		// * 新的 deposit request api , 通用當前所有 deposit method , 可逐步全部調整成此 api
+		getDepositRequest: builder.query<IAxiosResponse<void>, IDepositReqArgs>({
+			query: ({ langId, paramsUrl, ...data }) => ({
+				url: `${langId}/${cashierApiUrl.postDepositReq}?${paramsUrl}`,
 				method: 'GET',
 				data,
 			}),
@@ -75,4 +84,5 @@ export const {
 	useLazyGetDepositReqCryptoPayInfoQuery,
 	useLazyGetDepositReqCryptoLocalPayInfoQuery,
 	useLazyGetDepositLoadCardPayReqQuery,
+	useLazyGetDepositRequestQuery,
 } = cashierApi
