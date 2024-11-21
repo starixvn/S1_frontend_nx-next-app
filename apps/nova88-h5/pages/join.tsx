@@ -35,6 +35,10 @@ const JoinPage = ({
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
 
+	if (initialProps.originIsSignIn) {
+		return { redirect: { destination: paths.home.root, permanent: false } }
+	}
+
 	return {
 		props: {
 			...initialProps,
