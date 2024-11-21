@@ -51,6 +51,7 @@ export const GlobalStyles = createGlobalStyle`
     padding:0;
     outline:none;
     cursor: pointer;
+    font-family: ${({ theme }) => theme.desktop.fontFamily};
   }
 
   pre{
@@ -183,6 +184,9 @@ export const GlobalStyles = createGlobalStyle`
         .btnGroup{
           margin-top : 2.4rem;
           min-width : 20rem;
+          button{
+             width: 100%;
+          }
         }
       }
     }
@@ -268,6 +272,19 @@ export const GlobalStyles = createGlobalStyle`
       -webkit-text-fill-color: ${({ theme }) => theme.desktop.inputColor};
     }
   }
+  .wrapper-profile {
+    display: flex;
+    max-width: 140rem;
+    margin: 0 auto;
+    padding : 4rem 0;
+    gap : 2.4rem;
+    #leftMenu {
+      flex : 0 0 18%;
+    }
+    .rightModule{
+      flex : 1;
+    }
+  }
 
   .btnGroup {
     display: flex;
@@ -304,7 +321,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .btn-primary {
-    font-family: ${({ theme }) => theme.desktop.fontFamily};
 		background: ${({ theme }) => theme.desktop.primaryBtnBg};
 		box-shadow: ${({ theme }) => theme.desktop.primaryBtnShadow};
 		color: ${({ theme }) => theme.desktop.primaryBtnColor};
@@ -317,7 +333,6 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
   .btn-secondary {
-    font-family: ${({ theme }) => theme.desktop.fontFamily};
 		background: ${({ theme }) => theme.desktop.secondaryBtnBg};
 		box-shadow: ${({ theme }) => theme.desktop.secondaryBtnShadow};
 		color: ${({ theme }) => theme.desktop.secondaryBtnColor};
@@ -330,7 +345,6 @@ export const GlobalStyles = createGlobalStyle`
 	}
 
   .btn-disable {
-    font-family: ${({ theme }) => theme.desktop.fontFamily};
     background: ${({ theme }) => theme.desktop.disabledBtnBg};
 		box-shadow: ${({ theme }) => theme.desktop.disabledBtnShadow};
 		color: ${({ theme }) => theme.desktop.disabledBtnColor};

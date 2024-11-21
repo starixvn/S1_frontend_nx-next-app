@@ -1,11 +1,12 @@
-import classNames from 'classnames'
-import { isArray, includes, uniqueId } from 'lodash-es'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
-import { IWithdrawalSetting } from '@nx-next-app/service'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { WrapperLeftMenu } from '@nx-next-app/features/F0001/desktop/leftMenu/styles'
 import { useWalletAllowed } from '@nx-next-app/features/F0001/hooks'
+import { IWithdrawalSetting } from '@nx-next-app/service'
+import classNames from 'classnames'
+import { includes, isArray, uniqueId } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
 
 interface ILeftMenuProps {
 	withdrawalBlockSetting: IWithdrawalSetting[]
@@ -46,27 +47,31 @@ const LeftMenu = ({ withdrawalBlockSetting }: ILeftMenuProps) => {
 
 					return (
 						isMatchCurrency && (
-							<a
-								key={displayKey}
-								className={classNames('menuSelect', { active: matchPath })}
-								onClick={() => {
-									// * 目標路徑不同才進行導轉
-									!matchPath && push(pathname)
-								}}
-							>
-								<span className=''>{t(displayKey)}</span>
-							</a>
+							<div className='menuBody'>
+								<a
+									key={displayKey}
+									className={classNames('menuSelect', { active: matchPath })}
+									onClick={() => {
+										// * 目標路徑不同才進行導轉
+										!matchPath && push(pathname)
+									}}
+								>
+									<span className=''>{t(displayKey)}</span>
+								</a>
+							</div>
 						)
 					)
 				})
 
 			return (
-				<div className='menuModule' key={uniqueId()}>
-					<button className='menuHeader' style={{ cursor: 'auto' }}>
-						{t(displayKey)}
-					</button>
-					{submenuList}
-				</div>
+				<WrapperLeftMenu>
+					<div className='menuModule' key={uniqueId()}>
+						<button className='menuHeader' style={{ cursor: 'auto' }}>
+							{t(displayKey)}
+						</button>
+						{submenuList}
+					</div>
+				</WrapperLeftMenu>
 			)
 		}
 	)

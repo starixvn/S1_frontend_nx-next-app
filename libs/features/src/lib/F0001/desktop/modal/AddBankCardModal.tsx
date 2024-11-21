@@ -5,9 +5,9 @@ import {
 	ISelectProps,
 	Select,
 } from '@nx-next-app/components/D0001'
-import {
-	E_WALLET_SYSID,
-	PAYMENT_BANK_ACCOUNT_REGEX,
+import { E_WALLET_SYSID, TOUCH_GO_REGEX } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
 	TOUCH_GO_REGEX,
 } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -223,7 +223,7 @@ const AddBankCardModal = ({
 					)}
 					<div className='btnGroup'>
 						<button
-							className='btn-cancel'
+							className='btn-secondary'
 							onClick={() => {
 								reset()
 								closeModal()
@@ -231,7 +231,7 @@ const AddBankCardModal = ({
 						>
 							{t('Label_General_Cancel')}
 						</button>
-						<button className='btn-check' type='submit'>
+						<button className='btn-primary' type='submit'>
 							{t('Label_General_Submit')}
 						</button>
 					</div>

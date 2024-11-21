@@ -98,6 +98,13 @@ export const theme = {
 		popupBoxShadow:
 			'0px 0px 10px 0px rgba(0, 0, 0, 0.25), 0px 2px 10px 0px rgba(0, 0, 0, 0.10)',
 		popupBg: '#0F1428',
+
+		leftMenuHeaderBgAfterLogin: '#232B4F',
+		leftMenuBodyBgAfterLogin: '#182043',
+		leftMenuItemColorAfterLogin: '#939DC5',
+		leftMenuItemColorActiveAfterLogin: '#EA6118',
+		leftMenuItemBoxShadowActiveAfterLogin: '-4px 0px 0px 0px #ea6118 inset',
+		leftMenuBorderColor: '#374375',
 	},
 	mobile: {},
 }
