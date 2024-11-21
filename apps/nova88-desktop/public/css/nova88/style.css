@@ -6468,7 +6468,6 @@ input[type='file'] {
 	text-align: center;
 }
 
-
 .haveBank {
 	width: 100%;
 	display: -webkit-box;
@@ -18906,122 +18905,6 @@ form .profileModule .vipLv .vipname {
 #goTop i:before {
 	font-size: 18px;
 	font-weight: bold;
-}
-
-.addressModule .inside-title {
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	-webkit-box-align: start;
-	-ms-flex-align: start;
-	align-items: flex-start;
-	padding-left: 0;
-	border-bottom: 1px solid #bfcce2;
-}
-.addressModule .inside-title span {
-	width: 100%;
-	margin: 0 0 10px 0;
-	padding: 0;
-	background: transparent;
-	color: #5574a7;
-}
-.addressModule .inside-title span::after {
-	display: none;
-	opacity: 0;
-}
-.addressModule .inside-title div {
-	max-width: revert;
-	width: 100%;
-	margin: 0;
-}
-.addressModule .sub-title {
-	color: #5574a7;
-	font-size: 16px;
-	margin: 10px 0 20px;
-}
-.addressModule .address-list > div {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	color: #5574a7;
-	margin-bottom: 20px;
-}
-.addressModule .address-list > div > div:first-child {
-	width: 100px;
-	line-height: 30px;
-}
-.addressModule .address-list > div > div:last-child {
-	width: 310px;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: start;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	position: relative;
-}
-.addressModule .address-list > div > div:last-child .inputBox-blue {
-	border-radius: 3px;
-}
-.addressModule .address-list > div > div:last-child .tip {
-	white-space: nowrap;
-	color: #cf0404;
-}
-.addressModule .inputBox-white,
-.addressModule .inputBox-blue {
-	margin: 0 0 5px 0;
-	padding: 5px 0;
-	width: 100%;
-	z-index: revert;
-}
-.addressModule .inputBox-white .description,
-.addressModule .inputBox-blue .description {
-	display: none;
-	top: -5px;
-	position: absolute;
-	left: 0;
-	-webkit-transform: translateY(-100%);
-	transform: translateY(-100%);
-	background: rgba(19, 77, 174, 0.9);
-	border-radius: 5px;
-	padding: 5px 10px;
-	margin-right: 10px;
-	border: 1px solid rgba(255, 255, 255, 0.9);
-	z-index: 1;
-	color: white;
-	font-weight: normal;
-	width: -webkit-max-content;
-	width: -moz-max-content;
-	width: max-content;
-	font-size: 12px;
-}
-.addressModule .inputBox-white .description:before,
-.addressModule .inputBox-blue .description:before {
-	border-color: rgba(19, 77, 174, 0.9) transparent transparent;
-	border-style: solid solid solid;
-	border-width: 5px;
-	bottom: 0;
-	content: '';
-	height: 0px;
-	left: 15px;
-	position: absolute;
-	width: 0px;
-	-webkit-transform: translateY(100%);
-	transform: translateY(100%);
-}
-.addressModule .inputBox-white:hover .description,
-.addressModule .inputBox-blue:hover .description {
-	display: block;
-}
-.addressModule .btnGroup {
-	width: 150px;
-	margin: 10px 0 0 96px;
 }
 
 .worldcupEvent {

@@ -177,47 +177,43 @@ export const WrapperProfileAfterLogin = styled.div`
 			min-width: 51rem;
 			max-width: 51rem;
 		}
-		.profileModule {
-			.profile {
-				.group-control {
-					display: flex;
-					gap: 0.8rem;
-					align-items: center;
-					margin-bottom: 1.4rem;
-					font-size: 1.4rem;
-					font-weight: 400;
-					line-height: 1.8rem;
-					.group-input {
-						position: relative;
-						.iconModule {
-							position: absolute;
-							right: 8px;
-							top: 8px;
-							.icon {
-								&:before {
-									font-size: 1.8rem;
-								}
-							}
-						}
+	}
+	.group-control {
+		display: flex;
+		gap: 0.8rem;
+		align-items: center;
+		margin-bottom: 1.4rem;
+		font-size: 1.4rem;
+		font-weight: 400;
+		line-height: 1.8rem;
+		.group-input {
+			position: relative;
+			.iconModule {
+				position: absolute;
+				right: 8px;
+				top: 8px;
+				.icon {
+					&:before {
+						font-size: 1.8rem;
 					}
-					.label-name {
-						min-width: 15rem;
-						color: ${({ theme }) => theme.desktop.labelColor};
-					}
-					.group-input {
-						color: ${({ theme }) => theme.desktop.white};
-						display: flex;
-						align-items: center;
-						gap: 0.8rem;
-						.btnGroup {
-							max-width: 100%;
-							margin-top: 0;
-							button {
-								padding: 0 1rem;
-								min-height: 2.8rem;
-							}
-						}
-					}
+				}
+			}
+		}
+		.label-name {
+			min-width: 15rem;
+			color: ${({ theme }) => theme.desktop.labelColor};
+		}
+		.group-input {
+			color: ${({ theme }) => theme.desktop.white};
+			display: flex;
+			align-items: center;
+			gap: 0.8rem;
+			.btnGroup {
+				max-width: 100%;
+				margin-top: 0;
+				button {
+					padding: 0 1rem;
+					min-height: 2.8rem;
 				}
 			}
 		}
@@ -233,7 +229,7 @@ export const WrapperProfileAfterLogin = styled.div`
 				font-weight: 700;
 				line-height: normal;
 				text-transform: uppercase;
-				margin-bottom: 1.2rem;
+				margin-bottom: 1.7rem;
 			}
 			div {
 				font-weight: 400;
@@ -241,6 +237,35 @@ export const WrapperProfileAfterLogin = styled.div`
 			}
 		}
 		.address-list {
+			.group-control {
+				align-items: flex-start;
+				.group-input {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+			}
+			.icon {
+				&:before {
+					font-size: 2rem;
+				}
+			}
+			.line-relative {
+				position: relative;
+				.line-info {
+					position: absolute;
+					top: 10px;
+					left: 20px;
+					color: #7883b4;
+				}
+				input {
+					padding-left: 7rem;
+				}
+			}
+			.icon {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
 		}
 	}
 `

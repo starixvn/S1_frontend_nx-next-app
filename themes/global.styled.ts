@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
-import { theme } from "./theme";
+import { theme } from './theme'
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
@@ -282,7 +282,7 @@ export const GlobalStyles = createGlobalStyle`
     display: flex;
     max-width: 140rem;
     margin: 0 auto;
-    padding : 4rem 0;
+    padding: 16rem 0 4rem;
     gap : 2.4rem;
     #leftMenu {
       flex : 0 0 18%;

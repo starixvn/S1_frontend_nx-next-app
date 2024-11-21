@@ -112,7 +112,6 @@ const Address = () => {
 					</span>
 					<div>{t('Label_Profile_ShippingHint')}</div>
 				</div>
-				<div className='sub-title'>{t('Label_Profile_Address')}</div>
 				<Form onSubmit={handleSubmit(handleSubmitForm)}>
 					<div className='address-list'>
 						{addressCountry ? (
@@ -128,40 +127,49 @@ const Address = () => {
 							</>
 						) : (
 							<>
-								<div>
-									<div>{t('Label_Profile_Line1')}</div>
-									<div>
-										<InputBox
-											register={register('formLineFirst', {
-												required: {
-													value: true,
-													message: t('Label_Profile_ContentNotEmpty'),
-												},
-												onBlur: () => trigger('formLineFirst'),
-											})}
-											errorMessage={errors['formLineFirst']?.message as string}
-											error={!!errors['formLineFirst']}
-											touched={!!touchedFields['formLineFirst']}
-											infoMessage={t('Label_Profile_EnterAddress') || ''}
-										/>
+								<div className='group-control'>
+									<div className='label-name'>{t('Label_Profile_Address')}</div>
+									<div className='group-input'>
+										<div className='line-relative'>
+											<div className='line-info'>
+												{t('Label_Profile_Line1')}
+											</div>
+											<InputBox
+												register={register('formLineFirst', {
+													required: {
+														value: true,
+														message: t('Label_Profile_ContentNotEmpty'),
+													},
+													onBlur: () => trigger('formLineFirst'),
+												})}
+												errorMessage={
+													errors['formLineFirst']?.message as string
+												}
+												error={!!errors['formLineFirst']}
+												touched={!!touchedFields['formLineFirst']}
+												infoMessage={t('Label_Profile_EnterAddress') || ''}
+											/>
+										</div>
+										<div className='group-input'>
+											<div className='line-relative'>
+												<div className='line-info'>
+													{t('Label_Profile_Line2')}
+												</div>
+												<InputBox
+													register={register('formLineSecond', {
+														onBlur: () => trigger('formLineSecond'),
+													})}
+													error={!!errors['formLineSecond']}
+													touched={!!touchedFields['formLineSecond']}
+													infoMessage={t('Label_Profile_EnterAddress') || ''}
+												/>
+											</div>
+										</div>
 									</div>
 								</div>
-								<div>
-									<div>{t('Label_Profile_Line2')}</div>
-									<div>
-										<InputBox
-											register={register('formLineSecond', {
-												onBlur: () => trigger('formLineSecond'),
-											})}
-											error={!!errors['formLineSecond']}
-											touched={!!touchedFields['formLineSecond']}
-											infoMessage={t('Label_Profile_EnterAddress') || ''}
-										/>
-									</div>
-								</div>
-								<div>
-									<div>{t('Label_Profile_City')}</div>
-									<div>
+								<div className='group-control'>
+									<div className='label-name'>{t('Label_Profile_City')}</div>
+									<div className='group-input'>
 										<InputBox
 											register={register('formCity', {
 												required: {
@@ -177,9 +185,11 @@ const Address = () => {
 										/>
 									</div>
 								</div>
-								<div>
-									<div>{t('Label_Profile_PostCode')}</div>
-									<div>
+								<div className='group-control'>
+									<div className='label-name'>
+										{t('Label_Profile_PostCode')}
+									</div>
+									<div className='group-input'>
 										<InputBox
 											register={register('formPostCode', {
 												required: {
@@ -198,9 +208,9 @@ const Address = () => {
 										/>
 									</div>
 								</div>
-								<div>
-									<div>{t('Label_Profile_State')}</div>
-									<div>
+								<div className='group-control'>
+									<div className='label-name'>{t('Label_Profile_State')}</div>
+									<div className='group-input'>
 										<InputBox
 											register={register('formState', {
 												required: {
@@ -216,9 +226,9 @@ const Address = () => {
 										/>
 									</div>
 								</div>
-								<div>
-									<div>{t('Label_Profile_Country')}</div>
-									<div>
+								<div className='group-control'>
+									<div className='label-name'>{t('Label_Profile_Country')}</div>
+									<div className='group-input'>
 										<InputBox
 											register={register('formCountry', {
 												required: {
@@ -235,7 +245,7 @@ const Address = () => {
 									</div>
 								</div>
 								<div className='btnGroup'>
-									<button type='submit' className='btn-check'>
+									<button type='submit' className='btn-primary'>
 										{t('Label_General_Submit')}
 									</button>
 								</div>
