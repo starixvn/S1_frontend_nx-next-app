@@ -84,8 +84,8 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			<PlayTechScript />
 			<GTMScript />
 			<JackpotsScript />
-			<OperaPixelCodeScript />
-			<ActivatorScript /> */}
+			<OperaPixelCodeScript /> */}
+			<ActivatorScript />
 
 			{/* <GoogleTagManagerScript /> */}
 
