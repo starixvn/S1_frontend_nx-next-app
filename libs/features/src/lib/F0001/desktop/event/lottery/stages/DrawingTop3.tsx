@@ -5,12 +5,10 @@ import {
 } from '@nx-next-app/features/F0001/providers'
 import { sortBy } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { useMemo } from 'react'
 import SlotNumber from '../SlotNumber'
 
 const DrawingTop3 = () => {
 	const { t } = useTranslation()
-	const { winnerList } = useLotteryDataContext()
 	const {
 		runningNumberIndex,
 		winning,
@@ -19,15 +17,11 @@ const DrawingTop3 = () => {
 		handleSlotNumberFinish,
 	} = useLotteryProgressContext()
 
-	const top3 = useMemo(() => {
-		if (!winnerList) return []
+	const { winnerList } = useLotteryDataContext()
+	if (!winnerList) return null
 
-		return sortBy([
-			...winnerList.firstPrize,
-			...winnerList.secondPrize,
-			...winnerList.thirdPrize,
-		])
-	}, [winnerList])
+	const { firstPrize, secondPrize, thirdPrize } = winnerList
+	const top3 = sortBy([...firstPrize, ...secondPrize, ...thirdPrize])
 
 	return stage.has(StageEvent.RunningNumbers) ? (
 		<div className='top3'>

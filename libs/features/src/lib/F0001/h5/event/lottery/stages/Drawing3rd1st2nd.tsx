@@ -34,11 +34,12 @@ const Drawing3rd1st2nd = () => {
 						<div className='second'>
 							<SlotNumber
 								numberString={secondPrizeNumber}
-								isAnimated={runningNumberIndex === 2}
-								isRevealed={runningNumberIndex >= 2}
+								isAnimated={runningNumberIndex > 0}
+								isRevealed={runningNumberIndex > 0}
 								isWinning={winning?.ticket === secondPrizeNumber}
 								onNumberChange={handleSlotNumberChange}
 								onFinish={handleFinish(LotteryPrizeCategory.SecondPrize)}
+								atOnce
 							/>
 						</div>
 					)}
@@ -46,11 +47,12 @@ const Drawing3rd1st2nd = () => {
 						<div className='first'>
 							<SlotNumber
 								numberString={firstPrizeNumber}
-								isAnimated={runningNumberIndex === 1}
-								isRevealed={runningNumberIndex >= 1}
+								isAnimated={runningNumberIndex > 0}
+								isRevealed={runningNumberIndex > 0}
 								isWinning={winning?.ticket === firstPrizeNumber}
 								onNumberChange={handleSlotNumberChange}
 								onFinish={handleFinish(LotteryPrizeCategory.FirstPrize)}
+								atOnce
 							/>
 						</div>
 					)}
@@ -63,6 +65,7 @@ const Drawing3rd1st2nd = () => {
 								isWinning={winning?.ticket === thirdPrizeNumber}
 								onNumberChange={handleSlotNumberChange}
 								onFinish={handleFinish(LotteryPrizeCategory.ThirdPrize)}
+								atOnce
 							/>
 						</div>
 					)}
