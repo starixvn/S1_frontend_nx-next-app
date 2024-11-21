@@ -260,12 +260,10 @@ export const HomeBalance = styled.div`
 
 	.balance-submenu {
 		display: none;
-
 		position: absolute;
 		top: 6rem;
 		right: 2rem;
 		z-index: 3;
-
 		border-radius: 2rem;
 		padding: 2rem 1.6rem;
 		width: 30rem;
@@ -367,41 +365,6 @@ export const FunctionContainer = styled.div`
 	justify-content: end;
 	position: relative;
 	gap: 1.2rem;
-
-	.btn {
-		display: flex;
-		gap: 1rem;
-		align-items: center;
-		flex-wrap: nowrap;
-		min-width: 6.2rem;
-		height: 3.6rem;
-		padding: 0 1.2rem;
-		border-radius: 10rem;
-
-		&:hover {
-			box-shadow: none;
-		}
-	}
-
-	.btn-login {
-		background: ${({ theme }) => theme.desktop.headerLoginBtnBg};
-		box-shadow: ${({ theme }) => theme.desktop.headerLoginBtnShadow};
-		color: ${({ theme }) => theme.desktop.headerLoginBtnColor};
-
-		&:hover {
-			background: ${({ theme }) => theme.desktop.headerLoginBgHover};
-		}
-	}
-
-	.btn-join {
-		background: ${({ theme }) => theme.desktop.headerRegisterBtnBg};
-		box-shadow: ${({ theme }) => theme.desktop.headerRegisterBtnShadow};
-		color: ${({ theme }) => theme.desktop.headerRegisterBtnColor};
-
-		&:hover {
-			background: ${({ theme }) => theme.desktop.headerRegisterBgHover};
-		}
-	}
 
 	.btn-line-login {
 		display: flex;
@@ -629,9 +592,12 @@ export const LoginForm = styled.div`
 			color: ${({ theme }) => theme.desktop.headerInputPlaceHolderColor};
 		}
 
-		&:-webkit-autofill {
+		&:-webkit-autofill,
+		&:-internal-autofill-selected,
+		&:-webkit-autofill:focus {
 			box-shadow: none;
-			-webkit-text-fill-color: white;
+			background: ${({ theme }) => theme.desktop.headerInputBg} !important;
+			-webkit-text-fill-color: ${({ theme }) => theme.desktop.headerInputColor};
 		}
 
 		&:focus-within {

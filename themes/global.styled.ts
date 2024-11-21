@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
-import { theme } from './theme'
+import { theme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
@@ -186,7 +186,7 @@ export const GlobalStyles = createGlobalStyle`
         }
       }
     }
-    
+
   }
   .tip {
     margin-top: 0.4rem;
@@ -281,11 +281,53 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
   }
+
   .heading-form {
     font-size: 2.5rem;
     font-weight: 700;
     line-height: normal;
     color: ${({ theme }) => theme.desktop.white};
     margin-bottom: 1.6rem;
+  }
+
+  .btn {
+    display: flex;
+		gap: 1rem;
+		align-items: center;
+		flex-wrap: nowrap;
+		min-width: 6.2rem;
+		height: 3.6rem;
+		padding: 0 1.2rem;
+		border-radius: 10rem;
+  }
+
+  .btn-primary {
+		background: ${({ theme }) => theme.desktop.primaryBtnBg};
+		box-shadow: ${({ theme }) => theme.desktop.primaryBtnShadow};
+		color: ${({ theme }) => theme.desktop.primaryBtnColor};
+
+		&:hover {
+			background: ${({ theme }) => theme.desktop.primaryBtnBgHover};
+      box-shadow: ${({ theme }) => theme.desktop.primaryBtnShadowHover};
+		color: ${({ theme }) => theme.desktop.primaryBtnColorHover};
+		}
+	}
+
+  .btn-secondary {
+		background: ${({ theme }) => theme.desktop.secondaryBtnBg};
+		box-shadow: ${({ theme }) => theme.desktop.secondaryBtnShadow};
+		color: ${({ theme }) => theme.desktop.secondaryBtnColor};
+
+		&:hover {
+			background: ${({ theme }) => theme.desktop.secondaryBtnBgHover};
+		box-shadow: ${({ theme }) => theme.desktop.secondaryBtnShadowHover};
+		color: ${({ theme }) => theme.desktop.secondaryBtnColorHover};
+		}
+	}
+
+  .btn-disable {
+    background: ${({ theme }) => theme.desktop.disabledBtnBg};
+		box-shadow: ${({ theme }) => theme.desktop.disabledBtnShadow};
+		color: ${({ theme }) => theme.desktop.disabledBtnColor};
   }
 `

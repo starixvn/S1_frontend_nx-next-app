@@ -14,14 +14,6 @@ export const theme = {
 		headerInputBg: '#232b4f',
 		headerInputPlaceHolderColor: '#7883B4',
 		headerInputColor: '#fff',
-		headerLoginBtnBg: '#EA6118',
-		headerLoginBtnColor: '#fff',
-		headerLoginBtnShadow: '0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset',
-		headerLoginBgHover: '#D95712',
-		headerRegisterBtnBg: '#717FBA',
-		headerRegisterBtnColor: '#fff',
-		headerRegisterBtnShadow: '0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset',
-		headerRegisterBgHover: '#5E6DAC',
 		headerLineLoginBtnBg: '#01B901',
 		headerLineLoginBtnColor: '#fff',
 		headerLineLoginBtnShadow:
@@ -59,6 +51,24 @@ export const theme = {
 
 		footerBg: '#232B4F',
 		copyRightBg: '#1F274C',
+
+		primaryBtnBg: '#EA6118',
+		primaryBtnColor: '#fff',
+		primaryBtnShadow: '0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset',
+		primaryBtnBgHover: '#D95712',
+		primaryBtnColorHover: '#fff',
+		primaryBtnShadowHover: 'none',
+
+		secondaryBtnBg: '#717FBA',
+		secondaryBtnColor: '#fff',
+		secondaryBtnShadow: '0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset',
+		secondaryBtnBgHover: '#5E6DAC',
+		secondaryBtnColorHover: '#fff',
+		secondaryBtnShadowHover: 'none',
+
+		disabledBtnBg: '#505667',
+		disabledBtnColor: '#6F7689',
+		disabledBtnShadow: '0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset;',
 
 		dropdownBg: '#182043',
 		dropdownTextColor: '#939DC5',
