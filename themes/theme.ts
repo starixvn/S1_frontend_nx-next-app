@@ -119,6 +119,15 @@ export const theme = {
 		rightModuleBg: '#182043',
 		rightModuleBorderColor: '#374375',
 		rightModuleSloganColor: '#939DC5',
+
+		vipBg: '#E1884C',
+		userVertificationDefaultBgIcon: '#374375',
+		userVertificationActiveBgIcon: '#717FBA',
+
+		tooltipBorderColor: '#EA6118',
+		tooltipBgColor: '#232B4F',
+		tooltipColor: '#EA6118',
+		tooltipBoxShadow: '0px 6px 30px 0px rgba(0, 0, 0, 0.50)',
 	},
 	mobile: {},
 }

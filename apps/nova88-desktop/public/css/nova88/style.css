@@ -6573,21 +6573,6 @@ input[type='file'] {
 	-ms-flex-flow: column;
 	flex-flow: column;
 }
-.vipLv img {
-	width: 150px;
-}
-.vipLv > div.vipbg {
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/vip/vipbg.png)
-		no-repeat center/auto 100%;
-	padding: 20px;
-	margin-top: 0;
-}
-.vipLv > div.vipname {
-	margin-top: 22px;
-	background: #112240;
-	padding: 5px 10px;
-	border-radius: 15px;
-}
 .vipLv .btnGroup + .txt-line {
 	font-size: 12px;
 	color: #5574a7;
@@ -6662,7 +6647,7 @@ input[type='file'] {
 	width: 100%;
 	z-index: revert;
 }
-.profile > div > div .inputBox-white .description,
+/* .profile > div > div .inputBox-white .description,
 .profile > div > div .inputBox-blue .description {
 	display: none;
 	top: -5px;
@@ -6704,7 +6689,7 @@ input[type='file'] {
 .profile .checkbox.autotransfer {
 	-webkit-transform: translateY(-40px);
 	transform: translateY(-40px);
-}
+} */
 
 .haveBank {
 	width: 100%;
@@ -18979,30 +18964,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 	}
 }
 
-.profileModule > div.vipLv {
-	width: 240px;
-	max-width: revert;
-	margin: 0;
-	-webkit-box-pack: start;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
-}
-.profileModule > div.vipLv .vipbg {
-	width: 100px;
-	height: 100px;
-	padding: 0;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	background: transparent;
-}
-.profileModule > div.vipLv .vipbg img {
+/* .profileModule > div.vipLv .vipbg img {
 	z-index: 1;
 }
 .profileModule > div.profile > div {
@@ -19139,119 +19101,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 form .profileModule .vipLv .vipname {
 	color: white;
-}
-
-.accountSafety {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	color: #5574a7;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	margin: 20px 0;
-}
-.accountSafety div:first-child {
-	font-weight: bold;
-}
-
-.safetyLv {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
-.safetyLv span {
-	width: 40px;
-	height: 10px;
-	background: #cacaca;
-	margin: 0 3px;
-}
-.safetyLv span:nth-child(1).active {
-	background: #ffe518;
-}
-.safetyLv span:nth-child(2).active {
-	background: #7fca3a;
-}
-.safetyLv span:nth-child(3).active {
-	background: #39b248;
-}
-
-.userVerification {
-	color: #5574a7;
-	min-width: 135px;
-	margin-bottom: 20px;
-}
-.userVerification > div:first-child {
-	font-weight: bold;
-	margin: 20px 0;
-	text-align: center;
-}
-.userVerification > div:last-child {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-}
-.userVerification > div:last-child > div {
-	width: 35px;
-	height: 35px;
-	background: #cacaca;
-	border-radius: 100%;
-	color: white;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	position: relative;
-	cursor: pointer;
-}
-.userVerification > div:last-child > div:hover .description {
-	display: block;
-}
-.userVerification > div:last-child > div:after {
-	content: '＄';
-	width: 15px;
-	height: 15px;
-	background: #ffc000;
-	border-radius: 100%;
-	font-size: 12px;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	position: absolute;
-	bottom: 0;
-	right: -7px;
-}
-.userVerification > div:last-child > div.icon-person {
-	font-size: 30px;
-}
-.userVerification > div:last-child > div.icon-email {
-	font-size: 28px;
-}
-.userVerification > div:last-child > div.icon-mobile {
-	font-size: 20px;
-}
-.userVerification > div:last-child > div.active {
-	background: #5574a7;
-}
-.userVerification > div:last-child > div.active:after {
-	font-family: 'icomoon';
-	content: '\e98b';
-	background: #1e85ec;
-}
+} */
 
 #goTop {
 	position: fixed;

@@ -373,4 +373,38 @@ export const GlobalStyles = createGlobalStyle`
 		box-shadow: ${({ theme }) => theme.desktop.disabledBtnShadow};
 		color: ${({ theme }) => theme.desktop.disabledBtnColor};
   }
+  .custom-tooltip{
+    position : relative;
+    &-body{
+      display : none;
+      font-family: ${({ theme }) => theme.desktop.fontFamily};
+      position: absolute;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid ${({ theme }) => theme.desktop.tooltipBorderColor};
+      background: ${({ theme }) => theme.desktop.tooltipBgColor};
+      box-shadow: ${({ theme }) => theme.desktop.tooltipBoxShadow};
+      z-index : 1;
+      top: 100%;
+      min-width : 28.4rem;
+      margin-top : 1rem;
+    }
+    &:hover{
+      .custom-tooltip-body{
+        display: block;
+        > div {
+          display: block;
+          text-align : center;
+          font-size: 1.2rem;
+          font-weight: 400;
+          line-height: 1.8rem;
+          color : ${({ theme }) => theme.desktop.tooltipColor};
+          &.title{
+            margin-bottom : .8rem;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
 `

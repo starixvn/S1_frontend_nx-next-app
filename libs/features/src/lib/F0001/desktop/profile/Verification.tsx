@@ -1,14 +1,14 @@
-import classNames from 'classnames'
-import { includes } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
-import { numberFormat, getSafetyLv } from '@nx-next-app/utils'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import {
 	LineLoginDirectTypeEnum,
 	useLazyGetLineLoginDirectUrlQuery,
 } from '@nx-next-app/service'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { CurrenciesEnum } from '@nx-next-app/types'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { getSafetyLv, numberFormat } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 
 const Verification = () => {
 	const { t } = useTranslation()
@@ -89,9 +89,11 @@ const Verification = () => {
 				<div>{t('Label_Profile_UserVerification')}:</div>
 				<div>
 					<div
-						className={classNames('icon icon-person', { active: accountName })}
+						className={classNames('icon icon-user-line custom-tooltip', {
+							active: accountName,
+						})}
 					>
-						<div className='description'>
+						<div className='custom-tooltip-body'>
 							<div className='title'>
 								{t('Label_Profile_ProfileVerification')}
 							</div>
@@ -100,9 +102,11 @@ const Verification = () => {
 						</div>
 					</div>
 					<div
-						className={classNames('icon icon-email', { active: emailVerified })}
+						className={classNames('icon icon-mail-line custom-tooltip', {
+							active: emailVerified,
+						})}
 					>
-						<div className='description'>
+						<div className='custom-tooltip-body'>
 							<div className='title'>
 								{t('Label_Profile_EmailVerification')}
 							</div>
@@ -116,11 +120,11 @@ const Verification = () => {
 						</div>
 					</div>
 					<div
-						className={classNames('icon icon-mobile', {
+						className={classNames('icon icon-mobile-alt custom-tooltip', {
 							active: phoneVerified,
 						})}
 					>
-						<div className='description'>
+						<div className='custom-tooltip-body'>
 							<div className='title'>
 								{t('Label_Profile_PhoneVerification')}
 							</div>
