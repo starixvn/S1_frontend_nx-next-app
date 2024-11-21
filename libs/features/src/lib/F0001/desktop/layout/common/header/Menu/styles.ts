@@ -16,7 +16,7 @@ export const MenuContainer = styled.div`
 	.icon-mobile {
 		font-size: 2rem;
 
-		&:hover {
+		&:hover:before {
 			color: ${({ theme }) => theme.desktop.menuItemColorHover};
 		}
 	}

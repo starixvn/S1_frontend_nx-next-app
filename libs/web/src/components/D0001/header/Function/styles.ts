@@ -93,15 +93,42 @@ export const HomeProfile = styled.div`
 			}
 		}
 
-		.home-profile-country .flag {
-			&:before {
-				width: 2.4rem;
-				height: 2.4rem;
-				margin-right: 1rem;
+		.home-profile-country {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 1.4rem;
+
+			.country-list {
+				position: static;
+				min-width: auto;
+				width: 100%;
 			}
-			span {
-				font-size: 1.4rem;
-				color: ${({ theme }) => theme.desktop.dropdownItemColor};
+
+			button {
+				position: relative;
+				width: 100%;
+			}
+
+			button.flag {
+				&:before {
+					width: 2.4rem;
+					height: 2.4rem;
+					margin-right: 1rem;
+				}
+
+				&:after {
+					position: absolute;
+					right: 0;
+					content: '\\e925';
+					font-family: 'S1NewIcons' !important;
+					font-size: 2rem;
+					color: #fff;
+				}
+
+				span {
+					font-size: 1.4rem;
+					color: ${({ theme }) => theme.desktop.dropdownItemColor};
+				}
 			}
 		}
 
