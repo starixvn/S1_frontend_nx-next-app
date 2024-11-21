@@ -220,20 +220,6 @@ export const GlobalStyles = createGlobalStyle`
           margin: 0;
         }
       }
-      input {
-        color: ${({ theme }) => theme.desktop.inputColor};
-        background: ${({ theme }) => theme.desktop.inputBg};
-        padding-left: 1rem;
-        font-family: ${({ theme }) => theme.desktop.fontFamily};
-        &::placeholder {
-          color: ${({ theme }) => theme.desktop.inputPlaceHolderColor};
-        }
-        &:-webkit-autofill{
-          box-shadow: 0 0 0px 1000px ${({ theme }) =>
-						theme.desktop.inputBg} inset;
-          -webkit-text-fill-color: ${({ theme }) => theme.desktop.inputColor};
-        }
-      }
       .dropdown {
         .btn {
           color: ${({ theme }) => theme.desktop.inputPlaceHolderColor};
@@ -257,9 +243,29 @@ export const GlobalStyles = createGlobalStyle`
   }
   .react-datepicker__input-container{
     input{
+      width : 90%;
+      color: ${({ theme }) => theme.desktop.inputPlaceHolderColor};
       &::placeholder {
-        color: ${({ theme }) => theme.desktop.inputPlaceHolderColor} !important;
+        font-size : 1.4rem;
       }
+    }
+  }
+  input {
+    color: ${({ theme }) => theme.desktop.inputColor};
+    background: ${({ theme }) => theme.desktop.inputBg};
+    padding-left: 1rem;
+    font-family: ${({ theme }) => theme.desktop.fontFamily};
+    outline : none;
+    box-shadow : none;
+    border: none;
+    width: 100%;
+    &::placeholder {
+      color: ${({ theme }) => theme.desktop.inputPlaceHolderColor};
+      font-size : 1.4rem;
+    }
+    &:-webkit-autofill{
+      box-shadow: 0 0 0px 1000px ${({ theme }) => theme.desktop.inputBg} inset;
+      -webkit-text-fill-color: ${({ theme }) => theme.desktop.inputColor};
     }
   }
 
