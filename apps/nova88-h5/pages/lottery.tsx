@@ -4,7 +4,7 @@ import {
 	GlobalDataProvider,
 	getLobbyGamePage,
 } from '@nx-next-app/data-access'
-import { Layout, LiveCasino } from '@nx-next-app/features/F0001/h5'
+import { Layout, Lottery } from '@nx-next-app/features/F0001/h5'
 import { LobbyProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
@@ -22,7 +22,7 @@ type ILobbyPageProps = InitialPropsInterface & {
 }
 
 
-const LiveCasinoPage = ({
+const LotteryPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
@@ -40,7 +40,7 @@ const LiveCasinoPage = ({
 					persistLobbyCategoryData={persistLobbyCategoryData}
 				>
 					<Layout persistSEOData={persistSEOData}>
-						<LiveCasino />
+						<Lottery />
 					</Layout>
 				</LobbyProvider>
 			</GlobalDataProvider>
@@ -76,4 +76,4 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	}
 }
 
-export default LiveCasinoPage
+export default LotteryPage
