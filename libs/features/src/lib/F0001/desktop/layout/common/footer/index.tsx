@@ -1,10 +1,10 @@
 import { Footer } from '@nx-next-app/components/D0001'
-import { useGetSeoQuery, useGetSocialChannelQuery } from '@nx-next-app/service'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useGetSeoQuery, useGetSocialChannelQuery } from '@nx-next-app/service'
 import { SocialChannelEnum } from 'libs/features/src/lib/F0001/types'
 import { IFooterData } from 'libs/web/src/app/types/footer'
-import { useTranslation } from 'next-i18next'
 import { upperFirst } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 
 const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 	const {
@@ -64,9 +64,32 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 	})
 	return (
 		<Footer>
+			<div className='footer-navigation'>
+				<a href='#'>
+					<img
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/contact.png`}
+						alt='Contact'
+					/>
+					<span>{t('Label_ContactUs')}</span>
+				</a>
+				<a href='#'>
+					<img
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/affiliate.png`}
+						alt='Affiliate'
+					/>
+					<span>{t('Label_Affiliate_Program')}</span>
+				</a>
+				<a href='#'>
+					<img
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/milestones.png`}
+						alt='Milestones'
+					/>
+					<span>{t('Label_General_Milestone')}</span>
+				</a>
+			</div>
 			<div className='footer-top'>
 				{!!quickLinks && <Footer.QuickLinks quickLinks={quickLinks} />}
-				{isGetSocialChannelListLoading ? null : (
+				{!isGetSocialChannelListLoading && (
 					<Footer.SocialMedia socialChannelList={socialChannelList} />
 				)}
 			</div>
