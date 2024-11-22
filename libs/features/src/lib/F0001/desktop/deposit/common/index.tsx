@@ -24,7 +24,7 @@ const Deposit = ({ options, withdrawalBlockSetting }: IDepositProps) => {
 
 	return (
 		<main>
-			<section className='inside'>
+			<div className='wrapper-profile'>
 				<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 				{loading ? (
 					<Loading />
@@ -45,14 +45,15 @@ const Deposit = ({ options, withdrawalBlockSetting }: IDepositProps) => {
 									</Link>
 								)}
 							</div>
-
-							<DepositForm />
-							<DepositImportant />
+							<div className='inside-body'>
+								<DepositForm />
+								<DepositImportant />
+								<DepositRecentHistory />
+							</div>
 						</div>
-						<DepositRecentHistory />
 					</div>
 				)}
-			</section>
+			</div>
 		</main>
 	)
 }

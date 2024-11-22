@@ -6350,29 +6350,6 @@ input[type='file'] {
 	font-size: 18px;
 }
 
-.vipLv {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	max-width: 700px;
-	margin: 60px auto 60px;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-flow: column;
-	flex-flow: column;
-}
-.vipLv .btnGroup + .txt-line {
-	font-size: 12px;
-	color: #5574a7;
-	text-align: center;
-}
-
 .haveBank {
 	width: 100%;
 	display: -webkit-box;
@@ -10446,12 +10423,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 	display: block;
 }
 
-.subModuleListColumn {
-	padding: 20px;
-	float: left;
-	width: 810px;
-}
-.subModuleListColumn .note {
+
+/* .subModuleListColumn .note {
 	background: #e2e2e2;
 	color: #838383;
 	margin-top: 20px;
@@ -10735,7 +10708,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 	> a
 	> div:first-child.icon-line::before {
 	color: #07b802;
-}
+} */
 .subModuleListColumn > .subModule > div > button > div.fast:after,
 .subModuleListColumn > .subModule > div > a > div.fast:after {
 	content: '';
@@ -14199,16 +14172,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 	font-weight: bold;
 }
 
-.important {
-	background: #e2e2e2;
-	color: #838383;
-	width: 220px;
-	margin-top: 20px;
-	border-radius: 5px;
-	padding: 15px;
-	float: left;
-	font-size: 12px;
-}
 .important .title {
 	margin-bottom: 15px;
 	text-align: center;

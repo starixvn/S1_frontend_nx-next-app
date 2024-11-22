@@ -11,6 +11,10 @@ export const WrapperProfileAfterLogin = styled.div`
 		flex: 0 0 21.8rem;
 		> div.vipLv {
 			margin: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-flow: column;
 			.vipbg {
 				img {
 					width: 10rem;
