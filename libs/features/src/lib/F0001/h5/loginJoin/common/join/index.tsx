@@ -9,8 +9,9 @@ import {
 } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
+import { useCaptchaContext } from '@nx-next-app/operations'
 import {
-	useGetRecaptchaInfoQuery,
+	CaptchaTypeEnum,
 	useGetSiteCurrencyListQuery,
 	useLazyAffiliateCheckQuery,
 	useLazyGetAffiliateAgentQuery,
@@ -21,7 +22,6 @@ import {
 	MetaPixelTracker,
 	OperaPixelTracker,
 	getQueryParam,
-	isInApp,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
@@ -30,7 +30,6 @@ import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { FormProvider, useForm } from 'react-hook-form'
 import { Features, LineRegister, Step1, Step2, Step3, StepBar } from './form'
 
@@ -45,7 +44,7 @@ const Join = ({ cookies }: IJoinProps) => {
 
 	const { LANG_GROUPS } = useStaticData()
 	const { modal } = useGlobalModal()
-	const { data: { data: recaptchaInfoData } = {} } = useGetRecaptchaInfoQuery()
+	const { getToken, captchaType } = useCaptchaContext()
 
 	const {
 		userInfo: { langId, currencyId },
@@ -74,8 +73,6 @@ const Join = ({ cookies }: IJoinProps) => {
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 	const [signUp] = useSignupMutation()
-
-	const { executeRecaptcha } = useGoogleReCaptcha()
 
 	const currencySelectOptions = siteCurrencyList
 		.filter(currencyId => {
@@ -236,15 +233,11 @@ const Join = ({ cookies }: IJoinProps) => {
 		// 目前只有 nova 需要 google recaptcha，因為 Yashbet 外面沒有包ㄧ層 GReCaptchaProviders
 		// 會找不到 executeRecaptcha 壞掉 需要在此排除
 		// 中國地區不需驗證
-		const reCaptchaAction = 'signup'
 		let reCaptchaToken
-		if (
-			(process.env['NEXT_PUBLIC_SITE_ID'] === '1' &&
-				recaptchaInfoData?.country !== 'CN') ||
-			!isInApp()
-		) {
-			if (!executeRecaptcha) return
-			reCaptchaToken = await executeRecaptcha(reCaptchaAction)
+		if (captchaType === CaptchaTypeEnum.Number) {
+			reCaptchaToken = getValues('reCaptchaToken')
+		} else {
+			reCaptchaToken = await getToken()
 		}
 
 		// currency & recaptcha & affiliate cannot use form required check
@@ -274,8 +267,6 @@ const Join = ({ cookies }: IJoinProps) => {
 				Birth_m: formBirthMonth ?? 0,
 				Birth_y: formBirthYear ?? 0,
 				nationality: nationality ?? initNationality,
-				reCaptchaToken,
-				reCaptchaAction,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,
@@ -283,6 +274,8 @@ const Join = ({ cookies }: IJoinProps) => {
 				blackbox,
 				langId: userLang,
 				lineUserId: cookieLineUserId as string,
+				reCaptchaToken,
+				captchaType,
 			}).unwrap()
 			setStep(3)
 			MetaPixelTracker('CompleteRegistration')

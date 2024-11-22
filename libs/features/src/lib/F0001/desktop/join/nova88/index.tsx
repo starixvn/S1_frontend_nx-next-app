@@ -1,5 +1,5 @@
+import { MultiCaptchaProvider } from '@nx-next-app/operations'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
-import { GReCaptchaProviders } from '@nx-next-app/features/F0001/providers/googleReCaptcha-provider'
 import { Features } from '../common/Features'
 import { Form } from '../common/form'
 
@@ -12,11 +12,9 @@ const Join = ({ cookies }: IJoinProps) => {
 		<div className='joinpop'>
 			<div className='joinloginModule'>
 				<Features />
-				<GReCaptchaProviders>
-					{/* 控制位置在 GoogleReCaptchaProvider */}
-					<div id='g-reCaptcha' />
+				<MultiCaptchaProvider>
 					<Form cookies={cookies} />
-				</GReCaptchaProviders>
+				</MultiCaptchaProvider>
 			</div>
 		</div>
 	)
