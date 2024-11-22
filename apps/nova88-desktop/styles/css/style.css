@@ -173,9 +173,9 @@ header input::placeholder {
   text-align: center;
 }
 header input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px white inset;
-          box-shadow: 0 0 0px 1000px white inset;
-  -webkit-text-fill-color: #0A1B38;
+  -webkit-box-shadow: 0 0 0px 1000px #0A1B38 inset;
+          box-shadow: 0 0 0px 1000px #0A1B38 inset;
+  -webkit-text-fill-color: white;
 }
 header input:focus-within {
   border: 1px solid #7591C1;
@@ -1789,7 +1789,8 @@ header input:focus-within {
 .header > div.function .country-list .country-option::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-.header > div.function .country-list .country-option button, .header > div.function .country-list .country-option div {
+.header > div.function .country-list .country-option button,
+.header > div.function .country-list .country-option div {
   margin: 6px 0;
 }
 .header > div.function .country-list .country-option .flag {

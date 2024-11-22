@@ -7,7 +7,7 @@ const getInputValueById = (id: string) =>
 
 const useFpsChecks = ({
 	isLogin,
-	interval = 60000,
+	interval = 10000,
 }: {
 	isLogin?: boolean
 	interval?: number
