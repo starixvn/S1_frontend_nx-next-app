@@ -1,6 +1,7 @@
 import { Loading } from '@nx-next-app/components/D0001'
 import { paths } from '@nx-next-app/constants'
 import { useDepositContext } from '@nx-next-app/data-access'
+import { WrapperDeposit } from '@nx-next-app/features/F0001/desktop/deposit/styles'
 import LeftMenu from '@nx-next-app/features/F0001/desktop/leftMenu'
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import { useTranslation } from 'next-i18next'
@@ -29,29 +30,32 @@ const Deposit = ({ options, withdrawalBlockSetting }: IDepositProps) => {
 				{loading ? (
 					<Loading />
 				) : (
-					<div className='rightModule'>
-						<div className='infoModule'>
-							<div className='inside-title'>
-								<span className='icon icon-icon32px_deposit'>
-									{t('Label_General_Deposit')}
-								</span>
-								<div>{t('Label_Deposit_SubTitle')}</div>
-
-								{showReferralButton && (
-									<Link href={paths.referral.root} passHref>
-										<a className='icon icon-friend'>
-											<span>{t('Label_Deposit_ReferFriendsRewards')}</span>
-										</a>
-									</Link>
-								)}
-							</div>
-							<div className='inside-body'>
-								<DepositForm />
-								<DepositImportant />
-								<DepositRecentHistory />
+					<WrapperDeposit>
+						<div className='rightModule'>
+							<div className='infoModule'>
+								<div className='inside-title'>
+									<div className='group-icon-title'>
+										<i className='icon icon-bank-fill' />
+										{t('Label_General_Deposit')}
+									</div>
+									<div className='btnGroup'>
+										{showReferralButton && (
+											<Link href={paths.referral.root} passHref>
+												<a className='btn-secondary'>
+													<span>{t('Label_Deposit_ReferFriendsRewards')}</span>
+												</a>
+											</Link>
+										)}
+									</div>
+								</div>
+								<div className='inside-body'>
+									<DepositForm />
+									<DepositImportant />
+									<DepositRecentHistory />
+								</div>
 							</div>
 						</div>
-					</div>
+					</WrapperDeposit>
 				)}
 			</div>
 		</main>

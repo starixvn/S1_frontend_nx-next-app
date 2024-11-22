@@ -61,7 +61,6 @@ const Verification = () => {
 		phoneVerification,
 		emailVerification,
 	})
-
 	return (
 		<div className='vipLv'>
 			<div className='vipbg'>

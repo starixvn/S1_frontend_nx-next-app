@@ -20,15 +20,15 @@ export enum SocialChannelEnum {
 }
 
 export const footerImgName: Record<string, string> = {
-	Youtube: 'youtube.png',
-	Telegram: 'tga.png',
-	Facebook: 'fb.png',
-	Twitter: 'twitter.png',
-	Instagram: 'ig.png',
-	WhatsApp: 'whatsapp.png',
-	'E-mail': 'email-2.png',
-	Livechat: 'livechat-2.png',
-	LINE: 'line-1.png',
+	Youtube: 'youtube.webp',
+	Telegram: 'tga.webp',
+	Facebook: 'fb.webp',
+	Twitter: 'twitter.webp',
+	Instagram: 'ig.webp',
+	WhatsApp: 'whatsapp.webp',
+	'E-mail': 'email-2.webp',
+	Livechat: 'livechat-2.webp',
+	LINE: 'line-1.webp',
 }
 
 export enum GameTypeEnum {
