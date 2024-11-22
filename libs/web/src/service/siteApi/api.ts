@@ -3,7 +3,10 @@ import { rootApi } from '../rootApi/api'
 import {
 	IBannerData,
 	ICountryListData,
+	IGetNumberCaptchaArgs,
+	IGetNumberCaptchaData,
 	IGetVipBannerArgs,
+	IRecaptchaInfoData,
 	IResetPwdByOTPArgs,
 	IResetPwdVerifyOTPArgs,
 	ISeoData,
@@ -24,6 +27,7 @@ export const siteApiUrl = {
 	getSiteCurrencyList: 'Site/GetSiteCurrencyList',
 	getAffiliateAgent: 'Site/GetAffiliateAgent',
 	getRecaptchaInfo: 'Site/GetRecaptchaInfo',
+	getNumberCaptcha: 'Site/GetNumberCaptcha',
 	signup: 'Site/Signup',
 	getBanner: 'Site/GetBannerV3',
 	affiliateCheck: 'Site/AffiliateCheck',
@@ -135,17 +139,15 @@ export const siteApi = rootApi.injectEndpoints({
 				data: { affCode },
 			}),
 		}),
-		getRecaptchaInfo: builder.query<
-			IAxiosResponse<{
-				siteKey: string
-				country: string
-			}>,
-			void
-		>({
+		getRecaptchaInfo: builder.query<IAxiosResponse<IRecaptchaInfoData>, void>({
 			query: () => ({
 				url: siteApiUrl.getRecaptchaInfo,
 				method: 'POST',
 			}),
+			transformResponse: response => {
+				response.data.type = 2
+				return response
+			},
 		}),
 		signup: builder.mutation<IAxiosResponse<void>, ISignUpArgs>({
 			query: ({ langId, ...data }) => ({
@@ -209,6 +211,16 @@ export const siteApi = rootApi.injectEndpoints({
 				method: 'GET',
 			}),
 		}),
+		getNumberCaptcha: builder.query<
+			IAxiosResponse<IGetNumberCaptchaData>,
+			IGetNumberCaptchaArgs
+		>({
+			query: data => ({
+				url: siteApiUrl.getNumberCaptcha,
+				method: 'POST',
+				data,
+			}),
+		}),
 	}),
 })
 
@@ -233,4 +245,6 @@ export const {
 	useResetPwdVerifyOTPMutation,
 	useCheckResetPwdTokenMutation,
 	useGetCountryListQuery,
+	useGetNumberCaptchaQuery,
+	useLazyGetNumberCaptchaQuery,
 } = siteApi

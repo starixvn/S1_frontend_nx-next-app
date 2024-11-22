@@ -1,7 +1,6 @@
 import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
 import DateSelector from '@nx-next-app/components/D0001/dateSelector'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import {
 	AREA_CODE,
 	AREA_CODE_BY_CURRENCY,
@@ -19,13 +18,13 @@ import {
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
 import {
+	useGetRecaptchaInfoQuery,
 	useGetSiteCurrencyListQuery,
 	useLazyAffiliateCheckQuery,
 	useLazyExistsEmailQuery,
 	useLazyExistsUserNameQuery,
 	useLazyGetAffiliateAgentQuery,
 	useSignupMutation,
-	useGetRecaptchaInfoQuery,
 } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import {
@@ -41,6 +40,7 @@ import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { useForm } from 'react-hook-form'
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
@@ -440,7 +440,6 @@ const Form = ({ cookies }: IJoinProps) => {
 				Birth_y: birth ? dayjs(birth).format('YYYY') : 0,
 				nationality: nationality ?? initNationality,
 				reCaptchaToken,
-				reCaptchaAction,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,

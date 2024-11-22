@@ -274,7 +274,6 @@ const Join = ({ cookies }: IJoinProps) => {
 				Birth_y: formBirthYear ?? 0,
 				nationality: nationality ?? initNationality,
 				reCaptchaToken,
-				reCaptchaAction,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,
