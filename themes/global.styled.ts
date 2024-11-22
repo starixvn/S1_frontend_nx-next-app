@@ -114,7 +114,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .main-content {
-    min-width: 140rem;
+    min-width: ${({ theme }) => theme.desktop.contentWidth};
   }
 
   #popup {
@@ -279,7 +279,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   .wrapper-profile {
     display: flex;
-    max-width: 140rem;
+    max-width: ${({ theme }) => theme.desktop.contentWidth};
     margin: 0 auto;
     padding: 4rem 0 4rem;
     gap : 2.4rem;

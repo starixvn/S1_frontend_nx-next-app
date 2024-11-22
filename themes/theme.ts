@@ -2,6 +2,7 @@ export const theme = {
 	assetUrl: process.env['NEXT_PUBLIC_BANNER_HOST'],
 	common: {},
 	desktop: {
+		contentWidth: '140rem',
 		primary: '#0F1428',
 		hrefColorPrimary: '#EA6118',
 		white: '#fff',

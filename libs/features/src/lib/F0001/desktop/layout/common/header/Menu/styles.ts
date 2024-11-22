@@ -24,7 +24,7 @@ export const MenuContainer = styled.div`
 		display: flex;
 		align-items: center;
 		margin: auto;
-		width: 140rem;
+		width: ${({ theme }) => theme.desktop.contentWidth};
 		height: 100%;
 		justify-content: space-between;
 
@@ -214,7 +214,7 @@ export const MenuContainer = styled.div`
 			justify-content: center;
 			flex-flow: wrap;
 			height: 0;
-			width: 140rem;
+			width: ${({ theme }) => theme.desktop.contentWidth};
 			margin: auto;
 			padding: 4rem;
 

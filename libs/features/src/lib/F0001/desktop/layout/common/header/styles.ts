@@ -6,7 +6,7 @@ export const HeaderTop = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	align-self: stretch;
-	width: 140rem;
+	width: ${({ theme }) => theme.desktop.contentWidth};
 	margin: auto;
 	background: ${({ theme }) => theme.desktop.headerBg};
 	color: ${({ theme }) => theme.desktop.headerColor};

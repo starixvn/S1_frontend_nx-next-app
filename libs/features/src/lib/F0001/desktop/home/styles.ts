@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HomePage = styled.div`
 	.homebanner {
-		width: 140rem;
+		width: ${({ theme }) => theme.desktop.contentWidth};
 		height: 39.4rem;
 		border-radius: 2rem;
 
@@ -45,6 +45,74 @@ export const HomePage = styled.div`
 						background: ${({ theme }) => theme.desktop.bannerBulletBgActive};
 					}
 				}
+			}
+		}
+	}
+`
+
+export const WelcomeInfo = styled.div`
+	width: ${({ theme }) => theme.desktop.contentWidth};
+	margin: 30px auto 0;
+	display: flex;
+	justify-content: space-between;
+	&-content {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		img {
+			width: 330px;
+			border-radius: 0 0 20px 20px;
+		}
+		&-text {
+			position: absolute;
+			bottom: 50px;
+			text-align: center;
+			font-size: 20px;
+			height: 75px;
+			width: 200px;
+			span {
+				display: flex;
+				justify-content: center;
+				font-size: 12px;
+				color: #b4b4b4;
+			}
+		}
+		.welcome-btn {
+			position: absolute;
+			background: #407aeb;
+			color: white;
+			height: 40px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			bottom: 0;
+			border-radius: 20px 20px 0 0;
+			padding: 0 40px;
+		}
+		&.join {
+			.welcomeinfo-content-text {
+				color: #407aeb;
+			}
+			.welcome-btn {
+				background: #407aeb;
+			}
+		}
+		&.winning {
+			color: #47b452;
+			.welcome-btn {
+				background: #47b452;
+			}
+		}
+		&.reward {
+			color: #f84646;
+			.welcome-btn {
+				background: #f84646;
+			}
+		}
+		&.referral {
+			color: #c67af4;
+			.welcome-btn {
+				background: #c67af4;
 			}
 		}
 	}
