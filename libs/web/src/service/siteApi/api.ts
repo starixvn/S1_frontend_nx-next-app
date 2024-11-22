@@ -144,10 +144,6 @@ export const siteApi = rootApi.injectEndpoints({
 				url: siteApiUrl.getRecaptchaInfo,
 				method: 'POST',
 			}),
-			transformResponse: response => {
-				response.data.type = 2
-				return response
-			},
 		}),
 		signup: builder.mutation<IAxiosResponse<void>, ISignUpArgs>({
 			query: ({ langId, ...data }) => ({
