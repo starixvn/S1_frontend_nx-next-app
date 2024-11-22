@@ -31,7 +31,7 @@ export const IovationScript = () => (
 
 export const ActivatorScript = () => (
 	<Script
-		strategy='lazyOnload'
+		strategy='afterInteractive'
 		src='//sc.detecas.com/di/activator.ashx'
 		type='text/javascript'
 	/>
