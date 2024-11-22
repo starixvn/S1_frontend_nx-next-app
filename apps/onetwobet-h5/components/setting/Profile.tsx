@@ -49,7 +49,7 @@ const Profile = () => {
 	// const { headerUrl, levelTabsName, settingDisplayKey } =
 	// 	currentVipLevelInfo || {}
 
-	const { levelTabsName, settingDisplayKey } = currentVipLevelInfo || {}
+	const { levelTabsName, settingDisplayKey, url } = currentVipLevelInfo || {}
 	const levelText = t(settingDisplayKey || '')
 
 	return (
@@ -197,7 +197,7 @@ const Profile = () => {
 				<div className={classNames('menu-vip', levelTabsName)}>
 					<div className='left'>
 						<div>{t('Label_VIP_YourVIPIs')}</div>
-						<div>{levelText}</div>
+						<div>{t(`${levelText}`)}</div>
 						{!isVipLevelHighest && (
 							<div>
 								{numberFormat(actualDeposit, currencyId)}
@@ -206,10 +206,7 @@ const Profile = () => {
 						)}
 					</div>
 					<div className='right'>
-						<img
-							src={getBannerUrl(`/h5/img/4.0/menu-${levelTabsName}.png`)}
-							alt={levelTabsName as string}
-						/>
+						<img src={getBannerUrl(`${url}`)} alt={levelTabsName as string} />
 
 						{/* 暫時保留 */}
 						{/* {!isVipLevelHighest && (
