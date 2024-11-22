@@ -302,11 +302,11 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 						)}
 					</div>
 				) : (
-					<div className='phone'>
+					<div className='phone custom-dropdown'>
 						<Select
 							showSearch
 							options={areaCodeSelectOptions}
-							prefixIcon={<i className='icon icon-phone txt-blue' />}
+							prefixIcon={<i className='icon icon-phone-line' />}
 							onChange={areaCode => selectAreaCode(areaCode)}
 							value={getValues('formAreaCode')}
 							errorMessage={phoneErrorTip}

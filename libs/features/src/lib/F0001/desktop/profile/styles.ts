@@ -290,4 +290,9 @@ export const WrapperProfileAfterLogin = styled.div`
 			}
 		}
 	}
+	.custom-dropdown {
+		.inputBox-blue {
+			margin-bottom: 0.8rem;
+		}
+	}
 `
