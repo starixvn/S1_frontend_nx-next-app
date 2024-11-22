@@ -421,7 +421,7 @@ export const FunctionContainer = styled.div`
 	.country-list {
 		position: absolute;
 		right: 0;
-		top: 5.5rem;
+		top: 4.5rem;
 		z-index: 3;
 		min-width: 30rem;
 		display: none;

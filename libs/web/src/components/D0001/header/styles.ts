@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
-	position: fixed;
+	position: sticky;
+	top: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

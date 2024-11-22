@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
-import { theme } from './theme'
+import { theme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
@@ -114,7 +114,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .main-content {
-    padding-top: 12.4rem;
     min-width: 140rem;
   }
 
