@@ -510,12 +510,12 @@ const LobbyProvider = ({
 		}
 		// * 過濾當前 tpId 與 searchCategoryText
 		const filteredGameList = originGameList
-			.filter(({ tpId, productName }) => {
+			.filter(({ tpId, gameName }) => {
 				return (
 					(queryTpId ? String(tpId) === queryTpId : true) &&
 					(searchCategoryText === '' ||
-						some(Object.values(productName), name =>
-							camelCase(trim(productName)).match(camelCase(trim(searchCategoryText)))
+						some(Object.values(gameName), name =>
+							camelCase(trim(gameName)).match(camelCase(trim(searchCategoryText)))
 						))
 				)
 			})

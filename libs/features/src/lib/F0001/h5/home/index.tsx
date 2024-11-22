@@ -38,6 +38,8 @@ const HotEventSwiper = dynamic(() => import('./HotEventSwiper'))
 
 const HotGameSwiper = dynamic(() => import('./HotGameSwiper'))
 
+const HotGameCasinoSwiper = dynamic(() => import('./HotGameCasinoSwiper'))
+
 const RecentlyViewGames = dynamic(() => import('./RecentlyViewGames'), {
 	ssr: false,
 })
@@ -98,6 +100,7 @@ const Home = () => {
 			<HotEventSwiper />
 		) : null,
 		[MobileHomeComponentsEnum.HotGameSwiper]: <HotGameSwiper />,
+		[MobileHomeComponentsEnum.HotGameCasinoSwiper]: <HotGameCasinoSwiper />,
 		[MobileHomeComponentsEnum.RecentlyViewGames]: <RecentlyViewGames />,
 		[MobileHomeComponentsEnum.FriendReferral]: <FriendReferral />,
 		[MobileHomeComponentsEnum.Jackpot]: includes(

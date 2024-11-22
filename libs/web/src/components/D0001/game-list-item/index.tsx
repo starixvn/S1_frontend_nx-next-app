@@ -64,13 +64,13 @@ const GameListItem = ({ subMenuItem, onItemClick }: IListItemProps) => {
 			{lobbyIcon}
 
 			<div className='img-wrapper'>
-				<img src={suBMenuLobbyImage} alt={subMenuItem?.productName} />
+				<img src={suBMenuLobbyImage} alt={subMenuItem?.gameName} />
 				<div className='btn-container'>
 					<button>{t('Label_PlayNow')}</button>
 				</div>
 			</div>
 			<div className='lobby-title'>
-				{displayName || subMenuItem?.productName}
+				{displayName || subMenuItem?.gameName}
 			</div>
 		</div>
 	)

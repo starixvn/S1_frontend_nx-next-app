@@ -46,9 +46,9 @@ const ESportListItem = ({ subMenuItem, onItemClick }: IListItemProps) => {
 
 			{eSportLobbyIcon}
 
-			<img src={suBMenuLobbyImage} alt={subMenuItem?.productName} />
+			<img src={suBMenuLobbyImage} alt={subMenuItem?.gameName} />
 			<div className='lobby-title'>
-				{displayName || subMenuItem?.productName}
+				{displayName || subMenuItem?.gameName}
 			</div>
 		</div>
 	)

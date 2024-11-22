@@ -51,11 +51,11 @@ const GameList = () => {
 					({
 						tpId,
 						gameId,
-						productName,
+						gameName,
             tpName,
 						isMaintain,
 						isFavorite,
-            imgProductName,
+            imgGameName,
             betType,
             tpGameType,
 						...rest
@@ -63,7 +63,7 @@ const GameList = () => {
 						const resultGameImgDisplayText = vendorList.find(
 							({ tpId: vendorTpId }) => vendorTpId === tpId
 						)?.gameImgDisplayText
-						const resultImgUrl = `${process.env['NEXT_PUBLIC_IMAGE_HOST']}/${tpName.toLowerCase()}/${productName.toLowerCase().split(" ").join("-")}.png`;
+						const resultImgUrl = `${process.env['NEXT_PUBLIC_IMAGE_HOST']}/${tpName.toLowerCase()}/${gameName.toLowerCase().split(" ").join("-")}.png`;
 
             const lobbyGameItem = {
               tpId ,
@@ -89,7 +89,7 @@ const GameList = () => {
 								)}
 
 								<div className='img-wrapper'>
-									<img src={resultImgUrl} alt={productName} />
+									<img src={resultImgUrl} alt={gameName} />
 									<div className='btn-container'>
 										<button
 											className='btn-play'
@@ -103,7 +103,7 @@ const GameList = () => {
 								</div>
 								<div className='details'>
 									<div>
-										<div>{productName}</div>
+										<div>{gameName}</div>
 										<div>{resultGameImgDisplayText}</div>
 									</div>
 									<div

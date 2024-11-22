@@ -1,6 +1,7 @@
 export interface IGameData {
 	slotGameId: string
 	tpId: number
+	tpName: string
 	gameId: string
 	appId: string
 	launchDate: string
@@ -27,14 +28,14 @@ export interface ILobbyGameData {
 	gameId: string
 	tpName: string
 	tpGameIdNo: number
-	productName: string
+	gameName: string
   currencyGameName: string
 	iconType: boolean
 	iconStartTime: Date
 	iconEndTime: Date
 	sort: number
 	betType: number
-  imgProductName: string
+  imgGameName: string
 }
 
 export interface IVendorData {
@@ -116,7 +117,7 @@ export interface ISubMenuData {
 	lobbyCategory: string
 	tpId: number
 	tpName: string
-	productName: string
+	gameName: string
 	tpGameIdNo: number | undefined
 	gameId?: number | string
 	tpGameType: number

@@ -28,6 +28,7 @@ export const MOBILE_HOME_ORDERS = [
 	MobileHomeComponentsEnum.HotEventSwiper,
 	MobileHomeComponentsEnum.PromotionSwiper,
 	MobileHomeComponentsEnum.HotGameSwiper,
+	MobileHomeComponentsEnum.HotGameCasinoSwiper,
 	// MobileHomeComponentsEnum.RecentlyViewGames,  目前隱藏，未來看需求有可能開啟
 	MobileHomeComponentsEnum.JackPotSwiper,
 	// MobileHomeComponentsEnum.AppDownload,

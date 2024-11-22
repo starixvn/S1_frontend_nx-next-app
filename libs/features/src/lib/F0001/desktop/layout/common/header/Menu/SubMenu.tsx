@@ -118,9 +118,9 @@ const SubMenu = ({
 								<img
 									className='List-npc'
 									src={suBMenuImage}
-									alt={subMenuItem?.productName}
+									alt={subMenuItem?.gameName}
 								/>
-								<span>{displayName || subMenuItem?.productName}</span>
+								<span>{displayName || subMenuItem?.gameName}</span>
 								{subMenuItem?.isTpMaintain && (
 									<div className='under'>
 										{t('Label_General_UnderMaintenance')}

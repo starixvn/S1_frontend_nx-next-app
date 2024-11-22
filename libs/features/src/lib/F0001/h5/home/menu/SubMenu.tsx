@@ -53,7 +53,7 @@ const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
 			{submenus.map(subMenuItem => {
 				const {
 					tpGameIdNo,
-					productName,
+					gameName,
 					iconType,
 					iconStartTime,
 					iconEndTime,
@@ -93,13 +93,13 @@ const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
 					>
 						<div className='gamelist-img'>
 							{isNew && <div className='new-icon'>New</div>}
-							<img src={suBMenuImage} alt={productName} />
+							<img src={suBMenuImage} alt={gameName} />
 							<div
 								className='gamelist-title'
 								// 為解決特定情況跑版，覆蓋原先 css 指定的寬度
 								style={{ width: 'auto' }}
 							>
-								{displayName || productName}
+								{displayName || gameName}
 							</div>
 						</div>
 					</button>

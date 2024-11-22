@@ -54,6 +54,7 @@ export enum MobileHomeComponentsEnum {
 	PromotionSwiper = 'PromotionSwiper',
 	HotEventSwiper = 'HotEventSwiper',
 	HotGameSwiper = 'HotGameSwiper',
+	HotGameCasinoSwiper = 'HotGameCasinoSwiper',
 	JackPotSwiper = 'JackPotSwiper',
 	// 最近遊玩的遊戲，有登入才有
 	RecentlyViewGames = 'RecentlyViewGames',
