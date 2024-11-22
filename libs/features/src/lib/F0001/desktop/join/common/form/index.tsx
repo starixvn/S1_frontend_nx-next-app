@@ -429,7 +429,6 @@ const Form = ({ cookies }: IJoinProps) => {
 				phoneNo: phone,
 				realName,
 				email,
-				reCaptchaToken,
 				Birth_d: birth ? dayjs(birth).format('DD') : 0,
 				Birth_m: birth ? dayjs(birth).format('MM') : 0,
 				Birth_y: birth ? dayjs(birth).format('YYYY') : 0,
