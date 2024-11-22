@@ -29,7 +29,7 @@ export const FOOTER_DATA = ({
 			},
 			{
 				...PRODUCTS.AESexy,
-				imgName: 'sexya',
+				imgName: 'sexy',
 			},
 			{
 				...PRODUCTS.SAGaming,
