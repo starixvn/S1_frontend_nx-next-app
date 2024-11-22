@@ -8,6 +8,7 @@ import {
 } from '@nx-next-app/service'
 import { isInApp } from '@nx-next-app/utils'
 import {
+	FC,
 	ReactNode,
 	createContext,
 	useContext,
@@ -24,7 +25,7 @@ import { FallbackCaptcha } from './FallbackCaptcha'
 
 interface ICaptchaContext {
 	getToken: () => string | Promise<string> | undefined
-	Captcha: React.FC
+	Captcha: FC
 	captchaType?: CaptchaTypeEnum
 }
 
@@ -60,7 +61,7 @@ const CaptchaProvider = ({
 		}
 	}
 
-	const components = {
+	const components: Record<CaptchaTypeEnum, FC> = {
 		[CaptchaTypeEnum.Number]: FallbackCaptcha,
 		[CaptchaTypeEnum.Google]: () => null,
 		[CaptchaTypeEnum.Cloudflare]: () => (

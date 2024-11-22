@@ -5,8 +5,8 @@ import {
 import { useEffect } from 'react'
 
 export const FallbackCaptcha = () => {
-	const [trigger, { data: { data: numberCaptcha } = {} }] =
-		useLazyGetNumberCaptchaQuery()
+	const [trigger, response] = useLazyGetNumberCaptchaQuery()
+	const { data: numberCaptcha } = response?.data || {}
 
 	const refreshCaptcha = () => trigger({ action: CaptchaActionTypeEnum.signup })
 
