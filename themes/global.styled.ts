@@ -207,47 +207,47 @@ export const GlobalStyles = createGlobalStyle`
   }
   .inputModule {
     margin-top: 0;
-    .inputBox-blue {
-      min-height: 3.6rem;
-      padding: 0 1.2rem;
-      border-radius: 100px;
-      background: ${({ theme }) => theme.desktop.inputBg};
-      border: none;
-      margin-top: 1.6rem;
-      display: flex;
-      align-items: center;
-      position: relative;
-      .icon {
-        height: 2rem;
-        width: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        &:before {
-          color: ${({ theme }) => theme.desktop.white};
-          font-size: 1.8rem;
-          margin: 0;
-        }
-      }
-      .dropdown {
-        .btn {
-          color: ${({ theme }) => theme.desktop.inputPlaceHolderColor};
-        }
-      }
-      &.error {
-        border: 1px solid
-          ${({ theme }) => theme.desktop.inputBorderColorError};
-      }
-      &.error + .tip {
-        color: ${({ theme }) => theme.desktop.tipColorError} !important;
-      }
-    }
     .inputBox-row {
       display: flex;
       gap: 1.6rem;
       .inputBox-blue {
         width: 50%;
       }
+    }
+  }
+  .inputBox-blue {
+    min-height: 3.6rem;
+    padding: 0 1.2rem;
+    border-radius: 100px;
+    background: ${({ theme }) => theme.desktop.inputBg};
+    border: none;
+    margin-top: 1.6rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    .icon {
+      height: 2rem;
+      width: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:before {
+        color: ${({ theme }) => theme.desktop.white};
+        font-size: 1.8rem;
+        margin: 0;
+      }
+    }
+    .dropdown {
+      .btn {
+        color: ${({ theme }) => theme.desktop.inputPlaceHolderColor};
+      }
+    }
+    &.error {
+      border: 1px solid
+        ${({ theme }) => theme.desktop.inputBorderColorError};
+    }
+    &.error + .tip {
+      color: ${({ theme }) => theme.desktop.tipColorError} !important;
     }
   }
   .react-datepicker__input-container{
@@ -281,7 +281,7 @@ export const GlobalStyles = createGlobalStyle`
     display: flex;
     max-width: 140rem;
     margin: 0 auto;
-    padding: 16rem 0 4rem;
+    padding: 4rem 0 4rem;
     gap : 2.4rem;
     #leftMenu {
       flex : 0 0 18%;
@@ -318,7 +318,7 @@ export const GlobalStyles = createGlobalStyle`
     display: flex;
     gap: 1.6rem;
     margin-top: 1.6rem;
-    button {
+    button,a {
       border-radius: 100px;
       min-height: 3.6rem;
       font-size: 1.4rem;
@@ -326,6 +326,11 @@ export const GlobalStyles = createGlobalStyle`
       line-height: normal;
       color: ${({ theme }) => theme.desktop.white};
       width: 100%;
+      padding : 0 1.2rem;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 

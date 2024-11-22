@@ -108,6 +108,7 @@ export const WrapperProfileAfterLogin = styled.div`
 								align-items: center;
 								justify-content: center;
 								right: 0;
+								font-size: 1rem;
 							}
 							&.active {
 								background: ${({ theme }) =>
@@ -174,20 +175,17 @@ export const WrapperProfileAfterLogin = styled.div`
 			padding: 0 1.2rem;
 			border-radius: 100px;
 			width: 100%;
-			min-width: 51rem;
-			max-width: 51rem;
 		}
 	}
 	.group-control {
 		display: flex;
 		gap: 0.8rem;
-		align-items: center;
+		align-items: flex-start;
 		margin-bottom: 1.4rem;
 		font-size: 1.4rem;
 		font-weight: 400;
 		line-height: 1.8rem;
 		.group-input {
-			position: relative;
 			.iconModule {
 				position: absolute;
 				right: 8px;
@@ -206,8 +204,13 @@ export const WrapperProfileAfterLogin = styled.div`
 		.group-input {
 			color: ${({ theme }) => theme.desktop.white};
 			display: flex;
-			align-items: center;
+			align-items: flex-start;
 			gap: 0.8rem;
+			position: relative;
+			&.have-input {
+				flex-direction: column;
+				min-width: 49rem;
+			}
 			.btnGroup {
 				max-width: 100%;
 				margin-top: 0;
@@ -217,6 +220,10 @@ export const WrapperProfileAfterLogin = styled.div`
 				}
 			}
 		}
+	}
+	.inputBox-blue {
+		margin-top: 0;
+		width: 100%;
 	}
 	.addressModule {
 		padding-top: 1.6rem;
@@ -242,6 +249,7 @@ export const WrapperProfileAfterLogin = styled.div`
 				.group-input {
 					flex-direction: column;
 					align-items: flex-start;
+					min-width: 49.2rem;
 				}
 			}
 			.icon {
@@ -251,14 +259,28 @@ export const WrapperProfileAfterLogin = styled.div`
 			}
 			.line-relative {
 				position: relative;
+				width: 100%;
+				.inputBox-blue {
+					background: ${({ theme }) => theme.desktop.inputBg};
+					border-radius: 100px;
+					min-height: 3.6rem;
+					display: flex;
+					align-items: center;
+					padding: 0 1.2rem;
+					input {
+						min-height: 3.6rem;
+						width: calc(100% - 5.5rem);
+						padding: 0;
+						border-radius: 0;
+						margin-left: auto;
+					}
+				}
 				.line-info {
 					position: absolute;
 					top: 10px;
 					left: 20px;
 					color: #7883b4;
-				}
-				input {
-					padding-left: 7rem;
+					z-index: 1;
 				}
 			}
 			.icon {

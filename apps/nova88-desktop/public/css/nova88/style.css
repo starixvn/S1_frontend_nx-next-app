@@ -1832,7 +1832,7 @@ main .promosswiper .swiper-button-prev::after {
 	color: #284985;
 }
 
-.inputModule {
+/* .inputModule {
 	margin-top: 25px;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -2031,7 +2031,7 @@ main .promosswiper .swiper-button-prev::after {
 
 input[type='file'] {
 	display: none;
-}
+} */
 
 .checkbox {
 	width: -webkit-min-content;

@@ -212,7 +212,7 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 		<div className='profile'>
 			<div className='group-control'>
 				<div className='label-name'>{t('Label_General_RealName')}</div>
-				<div className='group-input'>
+				<div className='group-input have-input'>
 					{accountName ?? (
 						<InputBox
 							register={register('formRealName', {
