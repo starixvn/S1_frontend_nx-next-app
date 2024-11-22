@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useInterval } from 'usehooks-ts'
 
 const getInputValueByName = (name: string) =>
-	(document.getElementsByName(name)?.[0] as HTMLInputElement).value || ''
+	(document.getElementsByName(name)?.[0] as HTMLInputElement)?.value || ''
 
 const useFpsChecks = ({
 	isLogin,
@@ -14,7 +14,6 @@ const useFpsChecks = ({
 }) => {
 	const [isSent, setIsSent] = useState(false)
 	const [sendFpsChecks] = useLazyFpsChecksQuery()
-
 	useInterval(
 		async () => {
 			try {
