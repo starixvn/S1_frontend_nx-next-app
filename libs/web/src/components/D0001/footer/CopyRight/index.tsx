@@ -43,7 +43,12 @@ const QuickLinks = ({
 				<div className='top-item' key={group[0]}>
 					{/* 渲染鏈結 */}
 					{group.map(linkKey => (
-						<a href={quickLinks[linkKey].href} key={linkKey}>
+						<a
+							href={quickLinks[linkKey].href}
+							key={linkKey}
+							target='_blank'
+							rel='noreferrer'
+						>
 							{t(quickLinks[linkKey].displayKey)}
 						</a>
 					))}
