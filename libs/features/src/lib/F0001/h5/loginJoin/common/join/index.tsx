@@ -80,7 +80,7 @@ const Join = ({ cookies }: IJoinProps) => {
 	// TODO 日本語系上限需移除
 	const filterSiteCurrencyList = () => {
 		// 巴西，韓國，日本 沒有 enums
-		const filterCurrency = [32]
+		const filterCurrency = [32, 13]
 		return siteCurrencyList.filter(
 			currencyId => !includes(filterCurrency, currencyId)
 		)
