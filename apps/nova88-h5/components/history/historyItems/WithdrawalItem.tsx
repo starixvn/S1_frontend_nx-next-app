@@ -1,4 +1,4 @@
-import { HistoryMsgModal } from '@apps/nova88-h5/components/history/modal'
+import { HistoryMsgModal } from '@n88-h5/components/history/modal'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'

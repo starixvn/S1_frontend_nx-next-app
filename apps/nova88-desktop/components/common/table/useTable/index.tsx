@@ -1,12 +1,12 @@
-import DepositHistoryTable from '@apps/nova88-desktop/components/common/table/historyTable/DepositHistoryTable'
-import FinancialHistoryTable from '@apps/nova88-desktop/components/common/table/historyTable/FinancialHistoryTable'
-import ReferralHistoryTable from '@apps/nova88-desktop/components/common/table/historyTable/ReferralHistoryTable'
-import TransferHistoryTable from '@apps/nova88-desktop/components/common/table/historyTable/TransferHistoryTable'
-import WithdrawalHistoryTable from '@apps/nova88-desktop/components/common/table/historyTable/WithdrawalHistoryTable'
-import ByCategoryStatementTable from '@apps/nova88-desktop/components/common/table/statementTable/ByCategoryStatementTable'
-import ByDayStatementTable from '@apps/nova88-desktop/components/common/table/statementTable/ByDayStatementTable'
-import ByDetailStatementTable from '@apps/nova88-desktop/components/common/table/statementTable/ByDetailStatementTable'
-import DateRangeStatementTable from '@apps/nova88-desktop/components/common/table/statementTable/DateRangeStatementTable'
+import DepositHistoryTable from '@n88-desktop/components/common/table/historyTable/DepositHistoryTable'
+import FinancialHistoryTable from '@n88-desktop/components/common/table/historyTable/FinancialHistoryTable'
+import ReferralHistoryTable from '@n88-desktop/components/common/table/historyTable/ReferralHistoryTable'
+import TransferHistoryTable from '@n88-desktop/components/common/table/historyTable/TransferHistoryTable'
+import WithdrawalHistoryTable from '@n88-desktop/components/common/table/historyTable/WithdrawalHistoryTable'
+import ByCategoryStatementTable from '@n88-desktop/components/common/table/statementTable/ByCategoryStatementTable'
+import ByDayStatementTable from '@n88-desktop/components/common/table/statementTable/ByDayStatementTable'
+import ByDetailStatementTable from '@n88-desktop/components/common/table/statementTable/ByDetailStatementTable'
+import DateRangeStatementTable from '@n88-desktop/components/common/table/statementTable/DateRangeStatementTable'
 import {
 	ICustTpBetRecordDetailListbyGameTypeData,
 	ICustTpBetRecordListbyCategoryIdData,

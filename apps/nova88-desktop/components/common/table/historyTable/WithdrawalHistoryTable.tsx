@@ -1,4 +1,4 @@
-import { HistoryMsgModal } from '@apps/nova88-desktop/components/history/modal'
+import { HistoryMsgModal } from '@n88-desktop/components/history/modal'
 import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'

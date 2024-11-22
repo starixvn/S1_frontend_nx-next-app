@@ -1,7 +1,7 @@
 import {
 	DepositBankSlipModal,
 	HistoryMsgModal,
-} from '@apps/nova88-h5/components/history/modal'
+} from '@n88-h5/components/history/modal'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	AllowUploadReceiptType,

@@ -1,4 +1,4 @@
-import HistoryFilter from '@apps/nova88-h5/components/history/header/HistoryFilter'
+import HistoryFilter from '@n88-h5/components/history/header/HistoryFilter'
 import { Header } from '@nx-next-app/components/H0001'
 import { useHistory } from '@nx-next-app/operations'
 import { QuickPickEnum } from '@nx-next-app/types'
