@@ -1,12 +1,13 @@
-import Link from 'next/link'
-import { useTranslation } from 'next-i18next'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { paths } from '@nx-next-app/constants'
-import dynamic from 'next/dynamic'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { MenuActionTypeEnum } from '@nx-next-app/types'
-import { useHome } from '@nx-next-app/features/F0001/providers'
+import { useGlobalModal } from "@nx-next-app/components/config-provider";
+import { paths } from "@nx-next-app/constants";
+import { useAuth, useStaticData } from "@nx-next-app/data-access";
+import { WelcomeInfoContainer } from "@nx-next-app/features/F0001/desktop/home/styles";
+import { useMenu } from "@nx-next-app/features/F0001/hooks";
+import { useHome } from "@nx-next-app/features/F0001/providers";
+import { MenuActionTypeEnum } from "@nx-next-app/types";
+import { useTranslation } from "next-i18next";
+import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const LoginModal = dynamic(() => import('../modal/LoginModal'), {
 	ssr: false,
@@ -37,17 +38,17 @@ const WelcomeInfo = () => {
 	}
 
 	return (
-		<div className='welcomeinfo'>
+		<WelcomeInfoContainer>
 			<div className='welcomeinfo-content join'>
 				{isLogin ? (
 					<>
 						<img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/welcome-affiliate.png`}
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/welcome-affiliate.webp`}
 							alt='welcome-affilate'
 						/>
 						<div className='welcomeinfo-content-text'>
-							<div>{t('Label_General_Affiliate')}</div>
-							<span>{t('Label_Affiliate_Program_desc')}</span>
+							<div className='title'>{t('Label_General_Affiliate')}</div>
+							<div className='desc'>{t('Label_Affiliate_Program_desc')}</div>
 						</div>
 						<a
 							href={link}
@@ -61,12 +62,12 @@ const WelcomeInfo = () => {
 				) : (
 					<>
 						<img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/welcome-join.png`}
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/welcome-join.webp`}
 							alt='welcome-join'
 						/>
 						<div className='welcomeinfo-content-text'>
-							<div>{t('Label_General_Join')}</div>
-							<span>{t('Label_Home_JoinDescription')}</span>
+							<div className='title'>{t('Label_General_Join')}</div>
+							<div className='desc'>{t('Label_Home_JoinDescription')}</div>
 						</div>
 						<Link href={`${paths.join.root}`}>
 							<button className='welcome-btn'>
@@ -78,12 +79,12 @@ const WelcomeInfo = () => {
 			</div>
 			<div className='welcomeinfo-content winning'>
 				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/welcome-winning.png`}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/welcome-winning.webp`}
 					alt='welcome-winning'
 				/>
 				<div className='welcomeinfo-content-text'>
-					<div>{t('Label_Home_StartWinning')}</div>
-					<span>{t('Label_Home_StartWinningDescription')}</span>
+					<div className='title'>{t('Label_Home_StartWinning')}</div>
+					<div className='desc'>{t('Label_Home_StartWinningDescription')}</div>
 				</div>
 				<button
 					className='welcome-btn'
@@ -101,12 +102,12 @@ const WelcomeInfo = () => {
 			</div>
 			<div className='welcomeinfo-content reward'>
 				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/welcome-vip.png`}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/welcome-vip.webp`}
 					alt='welcome-vip'
 				/>
 				<div className='welcomeinfo-content-text'>
-					<div>{t('Label_Home_GetReward')}</div>
-					<span>{t('Label_Home_GetRewardDescription')}</span>
+					<div className='title'>{t('Label_Home_GetReward')}</div>
+					<div className='desc'>{t('Label_Home_GetRewardDescription')}</div>
 				</div>
 				<Link href={`${paths.promotion.root}`}>
 					<button className='welcome-btn'>{t('Label_General_MoreInfo')}</button>
@@ -114,12 +115,14 @@ const WelcomeInfo = () => {
 			</div>
 			<div className='welcomeinfo-content referral'>
 				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/welcome-referral.png`}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/welcome-referral.webp`}
 					alt='welcome-referral'
 				/>
 				<div className='welcomeinfo-content-text'>
-					<div>{t('Label_Home_SimpleReferral')}</div>
-					<span>{t('Label_Home_SimpleReferralDescription')}</span>
+					<div className='title'>{t('Label_Home_SimpleReferral')}</div>
+					<div className='desc'>
+						{t('Label_Home_SimpleReferralDescription')}
+					</div>
 				</div>
 				{isLogin ? (
 					<Link href={`${paths.referral.root}`}>
@@ -136,7 +139,7 @@ const WelcomeInfo = () => {
 					</button>
 				)}
 			</div>
-		</div>
+		</WelcomeInfoContainer>
 	)
 }
 

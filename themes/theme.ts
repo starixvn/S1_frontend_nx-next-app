@@ -102,6 +102,17 @@ export const theme = {
 		bannerBulletBg: '#374375',
 		bannerBulletBgActive: '#EA6118',
 
+		welcomeInfoTitleColor: '#fff',
+		welcomeInfoDescColor: '#fff',
+		welcomeAffiliateBtnBg: '#0a328e',
+		welcomeAffiliateBtnColor: '#6da5ff',
+		welcomeWinningBtnBg: '#20611e',
+		welcomeWinningBtnColor: '#8de78a',
+		welcomeRewardBtnBg: '#b52c00',
+		welcomeRewardBtnColor: '#ffaa8e',
+		welcomeReferralBtnBg: '#741a99',
+		welcomeReferralBtnColor: '#e6aaff',
+
 		buttonSloganBg: '#EA6118',
 		registerBodyBg: '#182043',
 
