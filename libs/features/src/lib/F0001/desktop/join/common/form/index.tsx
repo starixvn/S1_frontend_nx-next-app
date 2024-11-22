@@ -448,7 +448,6 @@ const Form = ({ cookies }: IJoinProps) => {
 				Birth_y: birth ? dayjs(birth).format('YYYY') : 0,
 				nationality: nationality ?? initNationality,
 				reCaptchaToken,
-				reCaptchaAction,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,
