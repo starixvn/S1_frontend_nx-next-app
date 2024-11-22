@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
-import { theme } from './theme'
+import { theme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
@@ -383,6 +383,7 @@ export const GlobalStyles = createGlobalStyle`
 		box-shadow: ${({ theme }) => theme.desktop.disabledBtnShadow};
 		color: ${({ theme }) => theme.desktop.disabledBtnColor};
   }
+
   .custom-tooltip{
     position : relative;
     &-body{
@@ -417,6 +418,7 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
   }
+
   .dropdown {
 		width: 100%;
 		display: flex;
@@ -500,4 +502,67 @@ export const GlobalStyles = createGlobalStyle`
 			}
 		}
 	}
+
+  .flag:before {
+    content: '';
+    display: block;
+    border-radius: 100%;
+    margin-right: 0.5rem;
+  }
+  .flag.ch:before {
+    background: url(${({ theme }) => theme.assetUrl}/desktop/img/flag/ch.jpg)
+      no-repeat top left/cover;
+  }
+  .flag.cs:before {
+    background: url(${({ theme }) => theme.assetUrl}/desktop/img/flag/cs.jpg)
+      no-repeat top left/cover;
+  }
+  .flag.en:before {
+    background: url(${({ theme }) => theme.assetUrl}/desktop/img/flag/en.jpg)
+      no-repeat top left/cover;
+  }
+  .flag.th:before {
+    background: url(${({ theme }) => theme.assetUrl}/desktop/img/flag/th.jpg)
+      no-repeat top left/cover;
+  }
+  .flag.id:before {
+    background: url(${({ theme }) => theme.assetUrl}/desktop/img/flag/id.jpg)
+      no-repeat top left/cover;
+  }
+  .flag.vn:before {
+    background: url(${({ theme }) => theme.assetUrl}/desktop/img/flag/vn.jpg)
+      no-repeat top left/cover;
+  }
+  .flag.in:before {
+    background: url(${({ theme }) => theme.assetUrl}/desktop/img/flag/in.jpg)
+      no-repeat top left/cover;
+  }
+  .flag.bd:before {
+    background: url(${({ theme }) => theme.assetUrl}/desktop/img/flag/bd.jpg)
+      no-repeat top left/cover;
+  }
+  .flag.kh:before {
+    background: url(${({ theme }) => theme.assetUrl}/desktop/img/flag/kh.jpg)
+      no-repeat top left/cover;
+  }
+  .flag.kh:before {
+    background: url(${({ theme }) => theme.assetUrl}/desktop/img/flag/kh.jpg)
+      no-repeat top left/cover;
+  }
+  .flag.gb:before {
+    background: url(${({ theme }) => theme.assetUrl}/desktop/img/flag/gb.jpg)
+      no-repeat top left/cover;
+  }
+  .flag.br:before {
+    background: url(${({ theme }) => theme.assetUrl}/desktop/img/flag/br.jpg)
+      no-repeat top left/cover;
+  }
+  .flag.ko:before {
+    background: url(${({ theme }) => theme.assetUrl}/desktop/img/flag/ko.jpg)
+      no-repeat top left/cover;
+  }
+  .flag.jp:before {
+    background: url(${({ theme }) => theme.assetUrl}/desktop/img/flag/jp.jpg)
+      no-repeat top left/cover;
+  }
 `

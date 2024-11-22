@@ -1,4 +1,5 @@
 export const theme = {
+	assetUrl: process.env['NEXT_PUBLIC_BANNER_HOST'],
 	common: {},
 	desktop: {
 		primary: '#0F1428',

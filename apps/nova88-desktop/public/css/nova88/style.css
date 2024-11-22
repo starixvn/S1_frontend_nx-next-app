@@ -1725,68 +1725,6 @@ main .promosswiper .swiper-button-prev::after {
 	}
 }
 
-.flag:before {
-	content: '';
-	display: block;
-	border-radius: 100%;
-	margin-right: 5px;
-}
-.flag.ch:before {
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/ch.jpg)
-		no-repeat top left/cover;
-}
-.flag.cs:before {
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/cs.jpg)
-		no-repeat top left/cover;
-}
-.flag.en:before {
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/en.jpg)
-		no-repeat top left/cover;
-}
-.flag.th:before {
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/th.jpg)
-		no-repeat top left/cover;
-}
-.flag.id:before {
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/id.jpg)
-		no-repeat top left/cover;
-}
-.flag.vn:before {
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/vn.jpg)
-		no-repeat top left/cover;
-}
-.flag.in:before {
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/in.jpg)
-		no-repeat top left/cover;
-}
-.flag.bd:before {
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/bd.jpg)
-		no-repeat top left/cover;
-}
-.flag.kh:before {
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/kh.jpg)
-		no-repeat top left/cover;
-}
-.flag.kh:before {
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/kh.jpg)
-		no-repeat top left/cover;
-}
-.flag.gb:before {
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/gb.jpg)
-		no-repeat top left/cover;
-}
-.flag.br:before {
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/br.jpg)
-		no-repeat top left/cover;
-}
-.flag.ko:before {
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/ko.jpg)
-		no-repeat top left/cover;
-}
-.flag.jp:before {
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/jp.jpg)
-		no-repeat top left/cover;
-}
 
 .txt-orange {
 	color: #f77900;

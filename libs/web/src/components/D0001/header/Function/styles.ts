@@ -139,33 +139,6 @@ export const HomeProfile = styled.div`
 	&.active {
 		display: block;
 	}
-	&.highest {
-		.home-profile-top {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			.vip-img {
-				img {
-					width: 85px;
-				}
-			}
-			.highest-text {
-				color: #0a1b38;
-				margin-left: 10px;
-				display: flex;
-				align-items: center;
-				&::after {
-					display: block;
-					content: '';
-					background: url(#{$public-banner-host}/desktop/img/4.0/right-5.png)
-						no-repeat center / cover;
-					width: 15px;
-					height: 15px;
-					margin-left: 5px;
-				}
-			}
-		}
-	}
 `
 export const Grade = styled.div`
 	font-size: 1.2rem;
