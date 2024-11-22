@@ -1,7 +1,6 @@
-import React from 'react'
-import { useTranslation } from 'next-i18next'
-import { numberFormat } from '@nx-next-app/utils'
 import { useAuth } from '@nx-next-app/data-access'
+import { numberFormat } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
 
 interface IDepositSlipProps {
 	depositAmount: number

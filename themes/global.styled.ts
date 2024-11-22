@@ -425,7 +425,7 @@ export const GlobalStyles = createGlobalStyle`
       display : none;
       font-family: ${({ theme }) => theme.desktop.fontFamily};
       position: absolute;
-      padding: 12px;
+      padding: 1.2rem;
       border-radius: 10px;
       border: 1px solid ${({ theme }) => theme.desktop.tooltipBorderColor};
       background: ${({ theme }) => theme.desktop.tooltipBgColor};
@@ -435,6 +435,9 @@ export const GlobalStyles = createGlobalStyle`
       min-width : 28.4rem;
       margin-top : 1rem;
       right : 0;
+      font-size : 1.2rem;
+      color : ${({ theme }) => theme.desktop.tooltipColor};
+      line-height: 1.8rem;
       &.active{
         display : block;
       }

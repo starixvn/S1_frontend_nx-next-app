@@ -218,7 +218,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 				/>
 
 				<InputBox
-					className='inputBox-white'
+					className='inputBox-blue'
 					register={register('promoCode')}
 					placeholder={t('Label_Promotions_PromoCode') || ''}
 					touched={!!touchedFields['promoCode']}
@@ -234,8 +234,8 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 							type='submit'
 							style={{ pointerEvents: isFormValid ? 'auto' : 'none' }}
 							className={classNames({
-								darkGray: !isFormValid,
-								'btn-check': isFormValid,
+								'btn-disable': !isFormValid,
+								'btn-primary': isFormValid,
 							})}
 						>
 							{t('Label_General_Submit')}
@@ -243,7 +243,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 					</div>
 				) : (
 					<div className='btnGroup'>
-						<button className='btn-org' style={{ pointerEvents: 'none' }}>
+						<button className='btn-primary' style={{ pointerEvents: 'none' }}>
 							{t('Label_General_Pending')}
 						</button>
 					</div>

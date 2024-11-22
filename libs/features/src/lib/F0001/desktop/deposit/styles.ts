@@ -12,6 +12,11 @@ export const WrapperDeposit = styled.div`
 			margin-top: 0;
 		}
 	}
+	.icon-service-fill {
+		&:before {
+			font-size: 1.6rem !important;
+		}
+	}
 	.deposit-group-title {
 		.title {
 			color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
@@ -251,6 +256,108 @@ export const WrapperDeposit = styled.div`
 		}
 		.subModule {
 			width: max-content;
+		}
+		.inputBox-white {
+			min-height: 3.6rem;
+			gap: 0 !important;
+			align-items: center;
+			background: ${({ theme }) => theme.desktop.inputBg};
+			border-radius: 100px;
+			padding: 0 1.2rem;
+			.iconModule {
+				color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+				.icon {
+					&:before {
+						color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+					}
+				}
+			}
+		}
+	}
+	.Slip {
+		border-bottom: none;
+		.subModule {
+			display: flex;
+			align-items: center;
+			gap: 1.2rem;
+		}
+		.btn-bank-slip {
+			width: max-content;
+			margin-top: 0;
+		}
+		.tool-tip-click {
+			width: max-content;
+			cursor: pointer;
+			position: relative;
+			.icon {
+				&:before {
+					margin: 0;
+					font-size: 2rem;
+					color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+				}
+			}
+		}
+	}
+
+	.Promotion {
+		padding-top: 0;
+		.subModule {
+			display: flex;
+			align-items: center;
+			gap: 1.2rem;
+			.inputBox-blue {
+				margin-top: 1.2rem;
+
+				flex: 0 0 23.4rem;
+			}
+		}
+	}
+
+	.form {
+		.btnGroup {
+			max-width: 10rem;
+		}
+	}
+	.inside-body {
+		display: flex;
+		align-items: flex-start;
+		gap: 1.6rem;
+	}
+	.subModuleListColumn {
+		flex: auto;
+	}
+	.important {
+		flex: 0 0 21.8rem;
+		border-radius: 20px;
+		padding: 2rem 1.6rem;
+		background: ${({ theme }) => theme.desktop.importantBg};
+		.title {
+			text-align: center;
+			margin-bottom: 0.8rem;
+			font-size: 1.4rem;
+			font-weight: 700;
+			line-height: normal;
+			color: ${({ theme }) => theme.desktop.inputBorderColorError};
+			display: flex;
+			align-items: center;
+			gap: 0.8rem;
+			.icon {
+				&:before {
+					font-size: 2rem;
+					color: ${({ theme }) => theme.desktop.inputBorderColorError};
+				}
+			}
+		}
+		ul {
+			li {
+				font-size: 1.2rem;
+				font-weight: 400;
+				line-height: 2rem;
+				color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+				a {
+					color: #1b5bff;
+				}
+			}
 		}
 	}
 

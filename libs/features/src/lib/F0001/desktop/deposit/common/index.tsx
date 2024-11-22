@@ -41,7 +41,10 @@ const Deposit = ({ options, withdrawalBlockSetting }: IDepositProps) => {
 									<div className='btnGroup'>
 										{showReferralButton && (
 											<Link href={paths.referral.root} passHref>
-												<a className='btn-secondary'>
+												<a
+													className='btn-secondary'
+													style={{ minHeight: '2.8rem' }}
+												>
 													<i className='icon icon-service-fill' />
 													<span
 														style={{
@@ -59,9 +62,9 @@ const Deposit = ({ options, withdrawalBlockSetting }: IDepositProps) => {
 								<div className='inside-body'>
 									<DepositForm />
 									<DepositImportant />
-									<DepositRecentHistory />
 								</div>
 							</div>
+							<DepositRecentHistory />
 						</div>
 					</WrapperDeposit>
 				)}

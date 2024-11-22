@@ -157,6 +157,8 @@ export const theme = {
 		btnDepositAmountColor: '#939DC5',
 		btnDepositAmountBgDisabled: '#232B4F',
 		btnDepositAmountColorDisabled: '#374375',
+
+		importantBg: '#232B4F',
 	},
 	mobile: {},
 }

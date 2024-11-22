@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState } from 'react'
 import {
 	ISelectProps,
-	InputBox,
 	Img,
+	InputBox,
 	Select,
 } from '@nx-next-app/components/H0001'
 import { useTranslation } from 'next-i18next'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import DepositModule from '../deposit-module'
 
@@ -34,6 +34,7 @@ const App = () => {
 
 	return (
 		<>
+			s
 			<DepositModule title='Deposit Option'>
 				<DepositModule.SubModuleButtonGroup matchKey='deposit-option'>
 					<DepositModule.SubModuleButton
@@ -52,7 +53,6 @@ const App = () => {
 					</DepositModule.SubModuleButton>
 				</DepositModule.SubModuleButtonGroup>
 			</DepositModule>
-
 			<DepositModule title='Payment Methods'>
 				<DepositModule.SubModuleButtonGroup matchKey='payment-methods'>
 					<DepositModule.SubModuleButton
@@ -73,7 +73,6 @@ const App = () => {
 					</DepositModule.SubModuleButton>
 				</DepositModule.SubModuleButtonGroup>
 			</DepositModule>
-
 			<DepositModule title='Select Bank' required>
 				<DepositModule.SubModuleButtonGroup matchKey='select-bank'>
 					<DepositModule.SubModuleButton
@@ -94,7 +93,6 @@ const App = () => {
 					</DepositModule.SubModuleButton>
 				</DepositModule.SubModuleButtonGroup>
 			</DepositModule>
-
 			<DepositModule title='Bank Account' className='bankQR'>
 				<DepositModule.BankAccount
 					bankName='CIMB Bank Berhad'
@@ -102,7 +100,6 @@ const App = () => {
 					accountNumber='7631162904'
 				/>
 			</DepositModule>
-
 			<DepositModule title='Select Channel' required>
 				<DepositModule.SubModuleButtonGroup matchKey='select-channel'>
 					<DepositModule.SubModuleButton
@@ -132,7 +129,6 @@ const App = () => {
 					</DepositModule.SubModuleButton>
 				</DepositModule.SubModuleButtonGroup>
 			</DepositModule>
-
 			<DepositModule title='Deposit Amount' required>
 				<div className='column' />
 				<InputBox
@@ -148,7 +144,6 @@ const App = () => {
 					shortcutList={[10, 20, 30, 50, 100, 200, 300, 500, 1000]}
 				/>
 			</DepositModule>
-
 			<DepositModule title='Deposit Amount' required>
 				<div className='input-column'>
 					<div>
@@ -193,7 +188,6 @@ const App = () => {
 					shortcutList={[10, 20, 30, 50, 100, 200, 300, 500, 1000]}
 				/>
 			</DepositModule>
-
 			<DepositModule title='Deposit Channel' required>
 				<Select
 					value={value}
@@ -203,7 +197,6 @@ const App = () => {
 
 				<div className='tip active'>tes</div>
 			</DepositModule>
-
 			<DepositModule title='Submit Bank Slip' required>
 				<DepositModule.BankSlipButton
 					tip='Please provide us with the bank slip here so we can process your
@@ -212,7 +205,6 @@ const App = () => {
 					Upload Receipt
 				</DepositModule.BankSlipButton>
 			</DepositModule>
-
 			<DepositModule title='Choose Available Promotion'>
 				<Select
 					value={value}

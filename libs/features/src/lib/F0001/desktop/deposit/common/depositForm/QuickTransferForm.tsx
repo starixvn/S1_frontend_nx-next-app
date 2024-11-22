@@ -15,9 +15,9 @@ import { IDepositQuickTransferData } from '@nx-next-app/service'
 import {
 	generateShortcutList,
 	isConvert,
+	numFormatToDigits,
 	numberFormat,
 	revertNumberFormat,
-	numFormatToDigits,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'

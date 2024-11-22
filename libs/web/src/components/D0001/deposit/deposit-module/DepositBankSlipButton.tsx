@@ -26,8 +26,8 @@ const DepositBankSlipButton = ({
 
 	return (
 		<>
-			<div className='btnGroup'>
-				<button className='blue' {...props}>
+			<div className='btnGroup btn-bank-slip'>
+				<button className='btn btn-secondary' {...props}>
 					{children}
 				</button>
 			</div>
@@ -44,16 +44,16 @@ const SubmitBankSlipWarning = ({
 	toggle,
 }: ISubmitBankSlipWarningProps) => {
 	return (
-		<>
-			<i className='icon icon-warning' onClick={toggle} />
+		<div className='tool-tip-click'>
+			<i className='icon icon-alert-fill' onClick={toggle} />
 			<div
-				className={classNames('tip', {
+				className={classNames('tip custom-tooltip-click-body', {
 					active,
 				})}
 			>
 				{tip}
 			</div>
-		</>
+		</div>
 	)
 }
 

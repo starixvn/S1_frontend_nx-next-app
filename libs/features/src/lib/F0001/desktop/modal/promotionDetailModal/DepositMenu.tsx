@@ -1,6 +1,6 @@
-import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { numberFormat } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
 
 interface IDepositMenuProps {
 	depositId: string | null

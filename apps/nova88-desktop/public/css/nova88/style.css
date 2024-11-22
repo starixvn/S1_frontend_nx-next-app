@@ -185,24 +185,6 @@ input {
 	margin: 0 5px;
 }
 
-.transition,
-.personal .list .listBody,
-.dropdown > .dropdown-container,
-.tip {
-	visibility: hidden;
-	opacity: 0;
-	height: 0;
-}
-
-.transition-open,
-.personal .list .listBody.active,
-.dropdown > .dropdown-container.active,
-.tip.active {
-	visibility: visible;
-	opacity: 1;
-	height: auto;
-}
-
 body,
 html {
 	width: 100%;
@@ -13406,29 +13388,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 	font-weight: bold;
 }
 
-.important .title {
-	margin-bottom: 15px;
-	text-align: center;
-	color: #cf0404;
-}
-.important .icon-information:before {
-	margin-left: 0;
-	font-weight: normal;
-}
-.important li {
-	list-style: decimal;
-	line-height: 20px;
-	margin-left: 15px;
-	word-wrap: break-word;
-}
-.important li span,
-.important li a {
-	font-weight: bold;
-}
-.important li button {
-	color: #134dae;
-	display: contents;
-}
 
 .historyTag {
 	padding: 0 20px;
