@@ -1,12 +1,12 @@
-import Link from 'next/link'
-import { useForm } from 'react-hook-form'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
-import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
 import { InputBox } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
 import { useSignInMutation } from '@nx-next-app/service'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useForm } from 'react-hook-form'
 
 const LoginModal = () => {
 	const router = useRouter()
@@ -33,19 +33,6 @@ const LoginModal = () => {
 		const { platform } = navigator
 		const { userAgent } = navigator
 		const screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`
-		let di = ''
-		let bi = ''
-		let detecasAnalysis = ''
-		let sessionKey = ''
-		let token = ''
-
-		// * di, bi, detecasAnalysis, sessionKey, token 引用第三方 js: //*/activator.ashx
-		di = (document.getElementById('__di') as any)?.value
-		bi = (document.getElementById('__bi') as any)?.value
-		detecasAnalysis = (document.getElementById('detecas-analysis') as any)
-			?.value
-		sessionKey = (document.getElementById('__fdi') as any)?.value // * fdi = sessionKey
-		token = (document.getElementById('__tk') as any)?.value // * 默認為 empty
 
 		try {
 			await signIn({
@@ -56,13 +43,6 @@ const LoginModal = () => {
 				platform,
 				userAgent,
 				screen,
-				FPSRequest: {
-					di,
-					bi,
-					detecasAnalysis,
-					sessionKey,
-					token,
-				},
 			}).unwrap()
 
 			closeModal()
