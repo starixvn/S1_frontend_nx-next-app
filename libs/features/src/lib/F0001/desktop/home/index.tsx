@@ -9,7 +9,7 @@ import { Fragment, useCallback } from "react";
 // Page Components
 const ProvidersBlock = dynamic(() => import('./ProvidersBlock'), { ssr: false })
 
-const WelcomeInfo = dynamic(() => import('./WelcomeInfo'))
+const WelcomeInfo = dynamic(() => import('./welcomeInfo/WelcomeInfo'))
 
 const CarouselBanner = dynamic(() => import('../common/carouselBanner'))
 
@@ -20,7 +20,9 @@ const LiveCasino = dynamic(() => import('./LiveCasino'))
 const HotGame = dynamic(() => import('./HotGame'), { ssr: false })
 
 const HotGameSport = dynamic(() => import('./HotGameSport'), { ssr: false })
-const HotGameCasino = dynamic(() => import('./HotGameCasino'), { ssr: false })
+const HotGameSlot = dynamic(() => import('./slotGames/HotGameSlot'), {
+	ssr: false,
+})
 const HotGameLiveCasino = dynamic(() => import('./HotGameLiveCasino'), {
 	ssr: false,
 })
@@ -99,7 +101,7 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.HotGame]: <HotGame />,
 		[DesktopHomeComponentsEnum.HotGameSport]: <HotGameSport />,
 		[DesktopHomeComponentsEnum.HotGameLiveCasino]: <HotGameLiveCasino />,
-		[DesktopHomeComponentsEnum.HotGameCasino]: <HotGameCasino />,
+		[DesktopHomeComponentsEnum.SlotGames]: <HotGameSlot />,
 		[DesktopHomeComponentsEnum.HotGameFishing]: <HotGameFishing />,
 		[DesktopHomeComponentsEnum.HotGameCockfighting]: <HotGameCockfighting />,
 		[DesktopHomeComponentsEnum.HotGameLottery]: <HotGameLottery />,

@@ -7,19 +7,21 @@ export const DESKTOP_HOME_ORDERS = [
 	DesktopHomeComponentsEnum.Announcement,
 	DesktopHomeComponentsEnum.CarouselBanner,
 	DesktopHomeComponentsEnum.WelcomeInfo,
-	DesktopHomeComponentsEnum.PromotionSwiper,
-	DesktopHomeComponentsEnum.HotMatch,
-	DesktopHomeComponentsEnum.LiveCasino,
-	DesktopHomeComponentsEnum.HotGame,
-	DesktopHomeComponentsEnum.HotGameSport,
-	DesktopHomeComponentsEnum.HotGameLiveCasino,
-	// DesktopHomeComponentsEnum.RecentlyViewGames, 目前隱藏，未來看需求有可能開啟
-	DesktopHomeComponentsEnum.ProviderBlock,
-	DesktopHomeComponentsEnum.LiveStreamingLink,
-	DesktopHomeComponentsEnum.EuropeCupEntry,
+	DesktopHomeComponentsEnum.SlotGames,
+	// DesktopHomeComponentsEnum.PromotionSwiper,
+
+	// DesktopHomeComponentsEnum.HotMatch,
+	// DesktopHomeComponentsEnum.LiveCasino,
+	// DesktopHomeComponentsEnum.HotGame,
+	// DesktopHomeComponentsEnum.HotGameSport,
+	// DesktopHomeComponentsEnum.HotGameLiveCasino,
+	// // DesktopHomeComponentsEnum.RecentlyViewGames, 目前隱藏，未來看需求有可能開啟
+	// DesktopHomeComponentsEnum.ProviderBlock,
+	// DesktopHomeComponentsEnum.LiveStreamingLink,
+	// DesktopHomeComponentsEnum.EuropeCupEntry,
 	// DesktopHomeComponentsEnum.LuckyWheel,
-	DesktopHomeComponentsEnum.Retention,
-	DesktopHomeComponentsEnum.OlympicEntry,
+	// DesktopHomeComponentsEnum.Retention,
+	// DesktopHomeComponentsEnum.OlympicEntry,
 ]
 
 export const MOBILE_HOME_ORDERS = [

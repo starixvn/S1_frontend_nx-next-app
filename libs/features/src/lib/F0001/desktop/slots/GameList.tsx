@@ -1,8 +1,8 @@
-import { useAuth } from '@nx-next-app/data-access'
-import { useSlots } from '@nx-next-app/features/F0001/providers'
-import classNames from 'classnames'
-import { useTranslation } from 'next-i18next'
-import { Suspense } from 'react'
+import { useAuth } from "@nx-next-app/data-access";
+import { useSlots } from "@nx-next-app/features/F0001/providers";
+import classNames from "classnames";
+import { useTranslation } from "next-i18next";
+import { Suspense } from "react";
 
 const GameList = () => {
 	const {
@@ -19,7 +19,7 @@ const GameList = () => {
 	} = useAuth()
 	const { t } = useTranslation()
 	const newGamesArr = isNewGame()
-
+	console.log('---------slotsGameList', slotsGameList)
 	return slotsGameList && slotsGameList.length > 0 ? (
 		<Suspense>
 			<div className='slots-list'>

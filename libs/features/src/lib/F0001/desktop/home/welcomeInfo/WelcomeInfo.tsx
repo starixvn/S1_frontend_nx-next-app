@@ -1,7 +1,7 @@
 import { useGlobalModal } from "@nx-next-app/components/config-provider";
 import { paths } from "@nx-next-app/constants";
 import { useAuth, useStaticData } from "@nx-next-app/data-access";
-import { WelcomeInfoContainer } from "@nx-next-app/features/F0001/desktop/home/styles";
+import { WelcomeInfoContainer } from "@nx-next-app/features/F0001/desktop/home/welcomeInfo/styles";
 import { useMenu } from "@nx-next-app/features/F0001/hooks";
 import { useHome } from "@nx-next-app/features/F0001/providers";
 import { MenuActionTypeEnum } from "@nx-next-app/types";
@@ -9,12 +9,12 @@ import { useTranslation } from "next-i18next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 
-const LoginModal = dynamic(() => import('../modal/LoginModal'), {
+const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
 	ssr: false,
 })
 
 const LiveStreamingModalDesktop = dynamic(
-	() => import('../modal/LiveStreamingModal'),
+	() => import('../../modal/LiveStreamingModal'),
 	{ ssr: false }
 )
 
