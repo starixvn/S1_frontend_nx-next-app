@@ -1,7 +1,6 @@
 import { ISelectProps, InputBox, Select } from '@nx-next-app/components/D0001'
 import DateSelector from '@nx-next-app/components/D0001/dateSelector'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import {
 	AREA_CODE,
 	AREA_CODE_BY_CURRENCY,
@@ -19,13 +18,13 @@ import {
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
 import {
+	useGetRecaptchaInfoQuery,
 	useGetSiteCurrencyListQuery,
 	useLazyAffiliateCheckQuery,
 	useLazyExistsEmailQuery,
 	useLazyExistsUserNameQuery,
 	useLazyGetAffiliateAgentQuery,
 	useSignupMutation,
-	useGetRecaptchaInfoQuery,
 } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import {
@@ -41,6 +40,7 @@ import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { useForm } from 'react-hook-form'
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
@@ -111,7 +111,18 @@ const Form = ({ cookies }: IJoinProps) => {
 	>([])
 
 	const watchCurrencyId = watch('currencyId')
-	const currencySelectOptions = siteCurrencyList
+
+	// TODO 日本語系上限需移除,
+	const filterSiteCurrencyList = () => {
+		// 巴西，韓國，日本 沒有 enums
+		// 移除中國
+		const filterCurrency = [32, 13]
+		return siteCurrencyList.filter(
+			currencyId => !includes(filterCurrency, currencyId)
+		)
+	}
+
+	const currencySelectOptions = filterSiteCurrencyList()
 		.filter(currencyId => {
 			const affiliate = getValues('affiliate')
 			const formCurrencyId = getValues('currencyId')
@@ -132,10 +143,13 @@ const Form = ({ cookies }: IJoinProps) => {
 			),
 		}))
 
-	const areaCodeSelectOptions = Object.values(AREA_CODE).map(el => ({
-		value: el.AreaCode,
-		label: `${el.AreaCode} ${el.Name}`,
-	}))
+	// 緊急隱藏中國註冊手機
+	const areaCodeSelectOptions = Object.values(AREA_CODE)
+		.filter(el => el.Name !== 'China')
+		.map(el => ({
+			value: el.AreaCode,
+			label: `${el.AreaCode} ${el.Name}`,
+		}))
 
 	const checkUsername = async () => {
 		await trigger('username')
