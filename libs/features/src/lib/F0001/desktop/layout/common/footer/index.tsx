@@ -73,7 +73,7 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 	return (
 		<Footer>
 			<div className='footer-navigation'>
-				<a href={affiliateLink}>
+				<a href={affiliateLink} target='_blank' rel='noreferrer'>
 					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/affiliate.png`}
 						alt='Affiliate'
@@ -83,6 +83,8 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 
 				<a
 					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html`}
+					target='_blank'
+					rel='noreferrer'
 				>
 					<img
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/contact.png`}
