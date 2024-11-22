@@ -26,6 +26,34 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-contacts-book-upload-fill:before {
+  content: "\e933";
+  color: #fff;
+}
+.icon-crypto-wallet:before {
+  content: "\e934";
+  color: #fff;
+}
+.icon-gift-fill:before {
+  content: "\e935";
+  color: #fff;
+}
+.icon-qr-code-line:before {
+  content: "\e936";
+  color: #fff;
+}
+.icon-redo:before {
+  content: "\e937";
+  color: #fff;
+}
+.icon-service-fill:before {
+  content: "\e938";
+  color: #fff;
+}
+.icon-share-forward-fill:before {
+  content: "\e939";
+  color: #fff;
+}
 .icon-plus-add:before {
   content: "\e92d";
   color: #fff;
