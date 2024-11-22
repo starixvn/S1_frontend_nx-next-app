@@ -87,6 +87,7 @@
 		"react-id-swiper": "^4.0.0",
 		"react-redux": "^8.0.5",
 		"react-test-renderer": "18.2.0",
+		"sass": "^1.81.0",
 		"spreadsheet-to-json": "^2.0.0",
 		"ts-jest": "^29.1.1",
 		"ts-node": "~10.8.0",
