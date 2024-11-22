@@ -25,25 +25,25 @@ const DepositBankAccount = ({
 	return (
 		<>
 			<div className='bankAccount'>
-				{t('Label_Deposit_BankAccountDescription')}
+				<div className='heading'>
+					{t('Label_Deposit_BankAccountDescription')}
+				</div>
 				<div className='smallList'>
 					<ul>
 						<li>{t('Label_General_BankName')}</li>
 						<li>{bankName}</li>
-						<li>
-							<a
-								target='_blank'
-								rel='noreferrer'
-								href={bankHref}
-								className='icon icon-new-tab'
-							/>
-						</li>
+						<a
+							target='_blank'
+							rel='noreferrer'
+							href={bankHref}
+							className='icon icon-share-box-fill'
+						/>
 					</ul>
 					<ul>
 						<li>{t('Label_General_AccountName')}</li>
 						<li>{accountName}</li>
 						<button
-							className='icon icon-files-empty copyBtn'
+							className='icon icon-file-copy-line copyBtn'
 							onClick={() => copy(accountName)}
 						/>
 					</ul>
@@ -51,7 +51,7 @@ const DepositBankAccount = ({
 						<li>{t('Label_General_AccountNumber')}</li>
 						<li>{accountNumber}</li>
 						<button
-							className='icon icon-files-empty copyBtn'
+							className='icon icon-file-copy-line copyBtn'
 							onClick={() => copy(accountNumber)}
 						/>
 					</ul>
@@ -60,7 +60,7 @@ const DepositBankAccount = ({
 							<li>{t('Label_General_Remark')}</li>
 							<li>{code}</li>
 							<button
-								className='icon icon-files-empty copyBtn'
+								className='icon icon-file-copy-line copyBtn'
 								onClick={() => copy(code)}
 							/>
 						</ul>
@@ -69,7 +69,7 @@ const DepositBankAccount = ({
 			</div>
 
 			{qrCode && (
-				<div className='qrCode'>
+				<div className='qrCode' style={{ marginTop: '1.2rem' }}>
 					<img
 						src={`${process.env['NEXT_PUBLIC_PAYMENT_HOST']}${qrCode}`}
 						alt='img-qr-code'

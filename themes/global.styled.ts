@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
-import { theme } from "./theme";
+import { theme } from './theme'
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
@@ -417,6 +417,29 @@ export const GlobalStyles = createGlobalStyle`
         }
       }
     }
+  }
+
+  .custom-tooltip-click {
+    position : relative;
+    &-body{
+      display : none;
+      font-family: ${({ theme }) => theme.desktop.fontFamily};
+      position: absolute;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid ${({ theme }) => theme.desktop.tooltipBorderColor};
+      background: ${({ theme }) => theme.desktop.tooltipBgColor};
+      box-shadow: ${({ theme }) => theme.desktop.tooltipBoxShadow};
+      z-index : 1;
+      top: 100%;
+      min-width : 28.4rem;
+      margin-top : 1rem;
+      right : 0;
+      &.active{
+        display : block;
+      }
+    }
+    
   }
 
   .dropdown {

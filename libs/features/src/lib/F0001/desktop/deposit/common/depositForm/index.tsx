@@ -50,9 +50,9 @@ const DepositForm = () => {
 
 	return (
 		<div className='subModuleListColumn'>
-			<div className='block-deposit deposit-group-title'>
+			<div className='deposit-group-title'>
 				<div className='title'>
-					{t('Label_Deposit_SubTitle')}
+					<div className='title-text'>{t('Label_Deposit_SubTitle')}</div>
 					<DepositAutoRemember />
 				</div>
 				<DepositModule title={t('Label_Deposit_DepositOptions')}>

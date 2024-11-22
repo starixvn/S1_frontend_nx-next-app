@@ -1,6 +1,6 @@
+import { numFormatToDigits } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { uniqueId } from 'lodash-es'
-import { numFormatToDigits } from '@nx-next-app/utils'
 
 interface IDepositShortcutListProps {
 	minAmount: number
@@ -38,7 +38,9 @@ const DepositShortcutList = ({
 							pointerEvents: disabled ? 'none' : 'auto',
 						}}
 						disabled={disabled}
-						className={classNames({ active: value === shortcut })}
+						className={classNames('btn-deposit-amount', {
+							active: value === shortcut,
+						})}
 						onClick={() => {
 							onChange && onChange(value)
 						}}

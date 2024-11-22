@@ -33,10 +33,10 @@ const DepositModule = ({
 		userInfo: { currencyId },
 	} = useAuth()
 	return (
-		<>
+		<div className={`block-deposit ${title}`}>
 			<div className='subModuleTitle'>
+				<div className='heading'>{title}</div>
 				{required && <i className='txt-blue'>*</i>}
-				{title}
 				{isConvert(currencyId) && hasAdditionalInfo && (
 					<div className='info'>{t('Label_Deposit_AdditionalInfo')}</div>
 				)}
@@ -49,7 +49,7 @@ const DepositModule = ({
 			>
 				{children}
 			</div>
-		</>
+		</div>
 	)
 }
 

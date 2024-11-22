@@ -12,21 +12,246 @@ export const WrapperDeposit = styled.div`
 			margin-top: 0;
 		}
 	}
-	.checkbox {
-		&.autotransfer {
+	.deposit-group-title {
+		.title {
+			color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+			position: relative;
+			min-height: 3.6rem;
+			font-size: 1.4rem;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 1.8rem;
+			padding-bottom: 1.6rem;
 			display: flex;
 			align-items: center;
-			color: #939dc5;
+			border-bottom: 1px solid
+				${({ theme }) => theme.desktop.rightModuleBorderColor};
+			&-text {
+				max-width: 40rem;
+			}
+		}
+		.checkbox {
+			&.autotransfer {
+				display: flex;
+				align-items: center;
+				color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+				position: absolute;
+				top: 0;
+				right: 0;
+				gap: 0.8rem;
+				.icon {
+					&:before {
+						margin: 0;
+						font-size: 2rem;
+						color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+					}
+				}
+			}
 		}
 	}
 	.block-deposit {
-		.title {
-			color: #939dc5;
+		border-bottom: 1px solid
+			${({ theme }) => theme.desktop.rightModuleBorderColor};
+		padding: 1.6rem 0;
+		.subModuleTitle {
+			margin-bottom: 1.2rem;
+			.heading {
+				color: ${({ theme }) => theme.desktop.white};
+				font-size: 1.4rem;
+				font-weight: 700;
+				line-height: normal;
+			}
+			.info {
+				color: ${({ theme }) => theme.desktop.primaryBtnBg};
+			}
+		}
+		.subModule {
+			> div {
+				display: flex;
+				gap: 2.4rem;
+				.btn-bank {
+					width: 8rem;
+					text-align: center;
+					button {
+						width: 4.8rem;
+						height: 4.8rem;
+						background: ${({ theme }) => theme.desktop.bankBgColor};
+						border-radius: 10px;
+						border: 2px solid ${({ theme }) => theme.desktop.bankBgColor};
+						position: relative;
+						overflow: hidden;
+						.icon-qrpay {
+							&:before {
+								background: none;
+								content: '\\e936';
+								color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+								font-size: 2rem;
+							}
+						}
+						.icon-library {
+							&:before {
+								content: '\\e917';
+								color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+								font-size: 2rem;
+							}
+						}
+						.icon-check {
+							display: none;
+						}
+						&.active {
+							border: 2px solid ${({ theme }) => theme.desktop.primaryBtnBg};
+							.icon {
+								&:before {
+									color: ${({ theme }) => theme.desktop.white};
+								}
+							}
+							.icon-check {
+								display: block;
+								width: 1.8rem;
+								height: 1.8rem;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								border-radius: 5px;
+								position: absolute;
+								right: -3px;
+								bottom: -3px;
+								background: ${({ theme }) => theme.desktop.primaryBtnBg};
+							}
+						}
+					}
+					.bank {
+						text-align: center;
+						font-size: 1rem;
+						font-weight: 700;
+						line-height: normal;
+						margin-top: 0.8rem;
+						color: ${({ theme }) => theme.desktop.rightModuleBorderColor};
+						&.active {
+							color: ${({ theme }) => theme.desktop.primaryBtnBg};
+						}
+					}
+				}
+			}
+		}
+		.selectBank {
+			> div {
+				.btn-bank {
+					display: flex;
+					gap: 0.8rem;
+					min-width: 12.7rem;
+					button {
+						flex: 0 0 4.8rem;
+					}
+					.bank {
+						display: flex;
+						flex-direction: column;
+						align-items: flex-start;
+						gap: 0.4rem;
+						color: ${({ theme }) => theme.desktop.white};
+						&.active {
+							color: ${({ theme }) => theme.desktop.white};
+						}
+						> div {
+							&:first-child {
+								font-size: 1.4rem;
+							}
+							&:last-child {
+								font-size: 1.2rem;
+								font-weight: 400;
+								color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 
-	.subModuleTitle {
-		color: #939dc5;
+	.bankAccount {
+		gap: 1.2rem !important;
+		.heading {
+			font-size: 1.41rem;
+			font-weight: 400;
+			line-height: 1.8rem;
+		}
+		.smallList {
+			margin-top: 0;
+			border-radius: 10px;
+			border: 1px solid ${({ theme }) => theme.desktop.borderColorBankAccount};
+			padding: 0.8rem;
+			max-width: 35.2rem;
+			width: auto;
+			margin-right: auto;
+			ul {
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+				flex-wrap: nowrap;
+				gap: 0.8rem;
+				align-items: center;
+			}
+			> ul li {
+				color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+				white-space: nowrap;
+				padding: 0 0.8rem;
+				min-width: 13rem;
+				width: auto;
+				display: flex;
+				align-items: center;
+				font-size: 1.4rem;
+				font-weight: 400;
+				line-height: 1.8rem;
+				min-height: 3rem;
+			}
+			.icon {
+				padding-right: 0.8rem;
+				&:before {
+					font-size: 2rem;
+					margin: 0;
+				}
+			}
+			> ul li:nth-child(odd) {
+				color: #5574a7;
+			}
+			> ul li:first-child {
+				color: #5574a7;
+				text-align: left;
+				font-size: 1.4rem;
+				font-weight: 600;
+				line-height: 1.8rem;
+				color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+			}
+			.remark {
+				background: #232b4f;
+				border-radius: 5px;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.remark + .tip {
+				padding: 0;
+			}
+		}
+	}
+	.Amount {
+		.shortcut {
+			margin-top: 1.2rem;
+			gap: 0.8rem !important;
+			.btn-deposit-amount {
+				background: ${({ theme }) => theme.desktop.btnDepositAmountBg};
+				min-height: 2.8rem;
+				color: ${({ theme }) => theme.desktop.btnDepositAmountColor};
+			}
+			button[disabled] {
+				background: ${({ theme }) => theme.desktop.btnDepositAmountBgDisabled};
+				color: ${({ theme }) => theme.desktop.btnDepositAmountColorDisabled};
+				cursor: no-drop;
+				pointer-events: auto !important;
+			}
+		}
+		.subModule {
+			width: max-content;
+		}
 	}
 
 	.swithModule {
@@ -51,7 +276,6 @@ export const WrapperDeposit = styled.div`
 		justify-content: space-between;
 		position: relative;
 		padding: 5px;
-		margin: 5px;
 	}
 	.swithModule .switchBtn.active {
 		background: #42ac5e;

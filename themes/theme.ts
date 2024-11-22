@@ -150,6 +150,13 @@ export const theme = {
 		tooltipColor: '#EA6118',
 		tooltipBoxShadow: '0px 6px 30px 0px rgba(0, 0, 0, 0.50)',
 		labelColor: '#939DC5',
+
+		bankBgColor: '#232B4F',
+		borderColorBankAccount: '#374375',
+		btnDepositAmountBg: '#374375',
+		btnDepositAmountColor: '#939DC5',
+		btnDepositAmountBgDisabled: '#232B4F',
+		btnDepositAmountColorDisabled: '#374375',
 	},
 	mobile: {},
 }

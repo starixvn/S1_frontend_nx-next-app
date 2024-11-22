@@ -30,47 +30,53 @@ const DepositSubModuleButton = ({
 	const isActive = matchValue && query[matchKey || ''] === matchValue
 
 	return (
-		<button
-			className={classNames(className, {
-				active: isActive,
-				pending: !canSubmit,
-			})}
-			{...props}
-			onClick={e => {
-				onClick
-					? onClick(e)
-					: query[matchKey || ''] !== matchValue &&
-					  push(
-							{
-								pathname,
-								query: { ...query, [String(matchKey)]: matchValue },
-							},
-							undefined,
-							{ shallow: true }
-					  )
-			}}
-		>
-			<div className={classNames(icon)}>
-				{imgName && (
-					<Img
-						alt={`img-${imgName}`}
-						src={`${process.env['NEXT_PUBLIC_PAYMENT_HOST']}/${imgName}`}
-					/>
-				)}
+		<div className='btn-bank'>
+			<button
+				className={classNames(className, {
+					active: isActive,
+					pending: !canSubmit,
+				})}
+				{...props}
+				onClick={e => {
+					onClick
+						? onClick(e)
+						: query[matchKey || ''] !== matchValue &&
+						  push(
+								{
+									pathname,
+									query: { ...query, [String(matchKey)]: matchValue },
+								},
+								undefined,
+								{ shallow: true }
+						  )
+				}}
+			>
+				<div className={classNames(icon)}>
+					{imgName && (
+						<Img
+							alt={`img-${imgName}`}
+							src={`${process.env['NEXT_PUBLIC_PAYMENT_HOST']}/${imgName}`}
+						/>
+					)}
 
-				<i className='icon icon-icon32px_check' />
-				<div
-					className={classNames({
-						mask: !canSubmit,
-					})}
-				/>
-			</div>
-			<div className='bank'>
+					<i className='icon icon-check' />
+					<div
+						className={classNames({
+							mask: !canSubmit,
+						})}
+					/>
+				</div>
+			</button>
+			<div
+				className={classNames('bank', {
+					active: isActive,
+				})}
+			>
 				<div>{label}</div>
 
 				<div>{children}</div>
 			</div>
-		</button>
+		</div>
 	)
 }
 

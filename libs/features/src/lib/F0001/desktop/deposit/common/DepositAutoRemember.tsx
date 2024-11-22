@@ -22,8 +22,6 @@ const DepositAutoRemember = () => {
 					})}
 					onClick={onToggleDepositLocalStorageSavedChecked}
 				>
-					<span>ON</span>
-					<span>OFF</span>
 					<div
 						className={classNames({
 							active: isDepositLocalStorageSavedChecked,
@@ -32,13 +30,18 @@ const DepositAutoRemember = () => {
 				</button>
 			</div>
 			{t('Label_Deposit_RememberLastMode')}
-			<button className='icon icon-question' onClick={toggleIsInfoActive} />
-			<div
-				className={classNames('inputInfo', {
-					active: isInfoActive,
-				})}
-			>
-				{t('Label_Deposit_RememberLastModeInfo')}
+			<div className='custom-tooltip'>
+				<button
+					className='icon icon-help-circle'
+					onClick={toggleIsInfoActive}
+				/>
+				<div
+					className={classNames('custom-tooltip-click-body', {
+						active: isInfoActive,
+					})}
+				>
+					{t('Label_Deposit_RememberLastModeInfo')}
+				</div>
 			</div>
 		</div>
 	)
