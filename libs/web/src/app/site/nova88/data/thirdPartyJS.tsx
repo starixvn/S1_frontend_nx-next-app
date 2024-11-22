@@ -35,7 +35,7 @@ export const ActivatorScript = () => (
 		<form />
 		<Script
 			strategy='afterInteractive'
-			src='//sc.detecas.com/di/activator.ashx'
+			src='//sc.trivenzio.com/di/activator.ashx'
 			type='text/javascript'
 		/>
 	</>
