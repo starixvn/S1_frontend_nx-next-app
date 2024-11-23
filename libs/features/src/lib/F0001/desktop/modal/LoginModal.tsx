@@ -100,7 +100,7 @@ const LoginModal = () => {
 						<div className='login-image'>
 							<img
 								alt='jion'
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/jion.png`}
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/jion.webp`}
 							/>
 						</div>
 						<form
