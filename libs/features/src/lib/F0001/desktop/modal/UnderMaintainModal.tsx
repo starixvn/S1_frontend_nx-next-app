@@ -1,5 +1,5 @@
-import { useTranslation } from 'next-i18next'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useTranslation } from 'next-i18next'
 
 const UnderMaintainModal = () => {
 	const { closeModal } = useGlobalModal()
@@ -11,7 +11,7 @@ const UnderMaintainModal = () => {
 				<div className='title' />
 				<div>{t('Label_General_UnderMaintenance')}</div>
 				<div className='btnGroup'>
-					<button className='btn-cancel' onClick={closeModal}>
+					<button className='btn-secondary' onClick={closeModal}>
 						{t('Label_General_Close')}
 					</button>
 				</div>

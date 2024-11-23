@@ -35,8 +35,10 @@ const DepositModule = ({
 	return (
 		<div className={`block-deposit ${title}`}>
 			<div className='subModuleTitle'>
-				<div className='heading'>{title}</div>
-				{required && <i className='txt-blue'>*</i>}
+				<div className='heading'>
+					{title} {required && <i className='txt-required'>*</i>}
+				</div>
+
 				{isConvert(currencyId) && hasAdditionalInfo && (
 					<div className='info'>{t('Label_Deposit_AdditionalInfo')}</div>
 				)}

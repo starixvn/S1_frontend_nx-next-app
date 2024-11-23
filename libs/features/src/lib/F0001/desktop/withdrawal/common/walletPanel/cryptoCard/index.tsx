@@ -1,8 +1,8 @@
-import { useTranslation } from 'next-i18next'
 import {
 	useCryptoWallet,
 	useWithdrawal,
 } from '@nx-next-app/features/F0001/providers'
+import { useTranslation } from 'next-i18next'
 
 import { CryptoCardItem } from './CryptoCardItem'
 

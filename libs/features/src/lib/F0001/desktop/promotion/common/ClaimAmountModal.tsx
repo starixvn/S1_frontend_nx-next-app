@@ -48,10 +48,10 @@ const ClaimAmountModal = ({
 					/>
 
 					<div className='btnGroup'>
-						<button className='btn-cancel' onClick={closeModal}>
+						<button className='btn-secondary' onClick={closeModal}>
 							{t('Label_General_Cancel')}
 						</button>
-						<button type='submit' className='btn-check'>
+						<button type='submit' className='btn-primary'>
 							{t('Label_Promotion_JoinNow')}
 						</button>
 					</div>

@@ -1,12 +1,12 @@
-import { useTranslation, Trans } from 'next-i18next'
 import { openLiveChat } from '@nx-next-app/utils'
+import { Trans, useTranslation } from 'next-i18next'
 
 const ImportNotice = () => {
 	const { t } = useTranslation()
 	return (
 		<div className='important'>
 			<div className='title'>
-				<span className='icon icon-warning' />
+				<span className='icon icon-alert-fill' />
 				{t('Label_General_ImportantNotice')}
 			</div>
 			<ul>

@@ -1,6 +1,6 @@
-import { useTranslation } from 'next-i18next'
 import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
 import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import { useTranslation } from 'next-i18next'
 import { CardItem } from './CardItem'
 
 const BankCard = () => {
@@ -29,8 +29,10 @@ const BankCard = () => {
 						className='addBankName noBank'
 						onClick={() => handleAddCards(WithdrawalBankCardEnum.LocalBank)}
 					>
-						<div className='icon icon-plus' />
-						<div>{t('Label_Withdrawal_AddBankAccount')}</div>
+						<div className='icon icon-add-fill' />
+						<div className='text-bank'>
+							{t('Label_Withdrawal_AddBankAccount')}
+						</div>
 					</div>
 				)}
 			</div>

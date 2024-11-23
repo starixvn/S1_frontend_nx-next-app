@@ -1,15 +1,16 @@
+import { WrapperCardAddBank } from '@nx-next-app/features/F0001/desktop/withdrawal/common/walletPanel/styles'
 import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
 import { WithdrawalPanelStatusEnum } from '@nx-next-app/features/F0001/types'
+import { Amount } from './Amount'
 import { BankCard } from './BankCard'
+import { Confirm } from './Confirm'
 import { EWalletCard } from './EWalletCard'
 import { CryptoCard } from './cryptoCard'
-import { Amount } from './Amount'
-import { Confirm } from './Confirm'
 
 const WalletPanel = () => {
 	const { withdrawalStatus } = useWithdrawal()
 	return (
-		<>
+		<WrapperCardAddBank>
 			<BankCard />
 			<EWalletCard />
 			<CryptoCard />
@@ -20,7 +21,7 @@ const WalletPanel = () => {
 					<Confirm />
 				)}
 			</div>
-		</>
+		</WrapperCardAddBank>
 	)
 }
 

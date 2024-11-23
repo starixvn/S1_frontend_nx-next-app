@@ -1,19 +1,18 @@
-import React from 'react'
-import dynamic from 'next/dynamic'
+import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
+import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { IWithdrawalInfoHistoryData } from '@nx-next-app/service'
+import { numberFormat } from '@nx-next-app/utils'
+import dayjs from 'dayjs'
 import {
 	WithdrawalStatusClassName,
 	WithdrawalStatusClassNameEnum,
 	WithdrawalStatusEnum,
 } from 'libs/web/src/app/types/history'
-import { IWithdrawalInfoHistoryData } from '@nx-next-app/service'
-import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
-import dayjs from 'dayjs'
-import { numberFormat } from '@nx-next-app/utils'
-import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
-import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
 import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import dynamic from 'next/dynamic'
 
 const HistoryMsgModal = dynamic(
 	() =>
@@ -152,7 +151,7 @@ const WithdrawalHistoryTable = ({
 					showingCancelBtn && (
 						<div className='btnGroup'>
 							<button
-								className='btn-cancel'
+								className='btn-secondary'
 								onClick={() => {
 									modal.confirm(t('Label_History_CancelConfirm'), {
 										onOK: () => onCancel(transId),

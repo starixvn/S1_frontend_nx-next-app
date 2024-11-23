@@ -301,6 +301,9 @@ export const GlobalStyles = createGlobalStyle`
   .error-msg{
     color: ${({ theme }) => theme.desktop.tipColorError}
   }
+  .txt-required{
+    color: ${({ theme }) => theme.desktop.hrefColorPrimary}
+  }
 
   .react-datepicker__input-container{
     input{
@@ -383,6 +386,13 @@ export const GlobalStyles = createGlobalStyle`
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+    .custom-btn-title{
+      min-height : 2.8rem;
+      span{
+        margin-left: .4rem;
+        text-transform: capitalize;
+      }
     }
   }
 
@@ -564,6 +574,7 @@ export const GlobalStyles = createGlobalStyle`
 						min-height: 3.6rem;
 						border-radius: 100px;
 						padding: 0 1.2rem;
+            width : auto;
 					}
 					.icon-search {
 						position: absolute;

@@ -85,7 +85,7 @@ const GlobalModal = ({
 									</button>
 									{type === 'confirm' && (
 										<button
-											className='btn-cancel'
+											className='btn-secondary'
 											onClick={() => {
 												closeModal()
 												onCancel && onCancel()

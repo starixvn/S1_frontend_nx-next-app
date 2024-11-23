@@ -1,8 +1,8 @@
-import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
-import { isConvert, numberFormat } from '@nx-next-app/utils'
 import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
 import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import { isConvert, numberFormat } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
 
 const Confirm = () => {
 	const { t } = useTranslation()
@@ -106,11 +106,11 @@ const Confirm = () => {
 					</>
 				)}
 				<div className='btnGroup'>
-					<button className='btn-cancel' onClick={handleCancelSubmit}>
+					<button className='btn-secondary' onClick={handleCancelSubmit}>
 						{t('Label_General_Cancel')}
 					</button>
 					<button
-						className='btn-check'
+						className='btn-primary'
 						onClick={() => handleWithdrawalConfirm({})}
 					>
 						{t('Label_General_Submit')}

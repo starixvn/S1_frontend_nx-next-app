@@ -1,13 +1,13 @@
-import { IBankInfoData, IEWalletData } from '@nx-next-app/service'
-import { CurrenciesEnum } from '@nx-next-app/types'
+import { useAuth } from '@nx-next-app/data-access'
+import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
 import {
 	WithdrawalBankCardEnum,
 	WithdrawalPanelStatusEnum,
 } from '@nx-next-app/features/F0001/types'
-import { useTranslation } from 'next-i18next'
-import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
-import { useAuth } from '@nx-next-app/data-access'
+import { IBankInfoData, IEWalletData } from '@nx-next-app/service'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
 
 const CardItem = ({
 	item,
@@ -61,8 +61,8 @@ const CardItem = ({
 						alt=''
 					/>
 
-					<div>
-						{bankName}
+					<div className='group-bank-name'>
+						<div className='bank-name'>{bankName}</div>
 						<div className='txt-blue'>
 							<span>{accountNo.slice(0, 4)}</span>
 							<span>{accountNo.slice(4, 8)}</span>
@@ -80,40 +80,42 @@ const CardItem = ({
 							)}
 					</div>
 				</div>
-				<div className='checkbox'>
-					<input
-						type='checkbox'
-						id={`${accountNo}-${type}`}
-						onChange={() => {
-							handleSelectCard({
-								bankName,
-								accountNo,
-								sysId,
-								ifscCode,
-								type,
-							})
-						}}
-						checked={checked}
-						disabled={disabled}
-					/>
-					<label
-						htmlFor={`${accountNo}-${type}`}
-						className='icon icon-checkbox-checked'
-					/>
+				<div className='checkbox-group'>
+					<div className='checkbox'>
+						<input
+							type='checkbox'
+							id={`${accountNo}-${type}`}
+							onChange={() => {
+								handleSelectCard({
+									bankName,
+									accountNo,
+									sysId,
+									ifscCode,
+									type,
+								})
+							}}
+							checked={checked}
+							disabled={disabled}
+						/>
+						<label
+							htmlFor={`${accountNo}-${type}`}
+							className='icon icon-checkbox-blank-line'
+						/>
+					</div>
+					{withdrawalStatus === WithdrawalPanelStatusEnum.Confirm ? null : (
+						<button
+							className='icon icon-delete-bin-fill'
+							onClick={() => {
+								if (type === WithdrawalBankCardEnum.LocalBank) {
+									handleDeleteBankCard({ accountNo, accountName, sysId })
+								} else {
+									handleDeleteEWalletCard({ accountNo, sysId })
+								}
+							}}
+						/>
+					)}
 				</div>
 			</div>
-			{withdrawalStatus === WithdrawalPanelStatusEnum.Confirm ? null : (
-				<button
-					className='icon icon-bin'
-					onClick={() => {
-						if (type === WithdrawalBankCardEnum.LocalBank) {
-							handleDeleteBankCard({ accountNo, accountName, sysId })
-						} else {
-							handleDeleteEWalletCard({ accountNo, sysId })
-						}
-					}}
-				/>
-			)}
 		</div>
 	)
 }

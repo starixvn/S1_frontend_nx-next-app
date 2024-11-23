@@ -1,4 +1,3 @@
-import React from 'react'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useTranslation } from 'next-i18next'
 
@@ -14,7 +13,7 @@ const LiveStreamingModal = () => {
 					{t('Label_InaccessibleWithoutPermission')}
 				</div>
 				<div className='btnGroup'>
-					<button className='btn-cancel' onClick={closeModal}>
+					<button className='btn-secondary' onClick={closeModal}>
 						{t('Label_General_Close')}
 					</button>
 				</div>

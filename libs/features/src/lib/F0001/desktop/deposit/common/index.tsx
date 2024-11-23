@@ -41,19 +41,9 @@ const Deposit = ({ options, withdrawalBlockSetting }: IDepositProps) => {
 									<div className='btnGroup'>
 										{showReferralButton && (
 											<Link href={paths.referral.root} passHref>
-												<a
-													className='btn-secondary'
-													style={{ minHeight: '2.8rem' }}
-												>
+												<a className='btn-secondary custom-btn-title'>
 													<i className='icon icon-service-fill' />
-													<span
-														style={{
-															marginLeft: '.4rem',
-															textTransform: 'capitalize',
-														}}
-													>
-														{t('Label_Deposit_ReferFriendsRewards')}
-													</span>
+													<span>{t('Label_Deposit_ReferFriendsRewards')}</span>
 												</a>
 											</Link>
 										)}

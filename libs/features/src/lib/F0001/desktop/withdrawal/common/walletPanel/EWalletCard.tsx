@@ -1,6 +1,6 @@
-import { useTranslation } from 'next-i18next'
 import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
 import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import { useTranslation } from 'next-i18next'
 import { CardItem } from './CardItem'
 
 const EWalletCard = () => {
@@ -16,7 +16,7 @@ const EWalletCard = () => {
 	if (!eWalletCardAllowed) return null
 
 	return (
-		<div className='walletModule'>
+		<div className='walletModule eWalletCard'>
 			<div className='addBank'>
 				{custEWalletInfo.map(item => (
 					<CardItem
@@ -30,7 +30,7 @@ const EWalletCard = () => {
 						className='addBankName noBank'
 						onClick={() => handleAddCards(WithdrawalBankCardEnum.EWallet)}
 					>
-						<div className='icon icon-plus' />
+						<div className='icon icon-add-fill' />
 						<div>{t('Label_Withdrawal_AddEAccount')}</div>
 					</div>
 				)}

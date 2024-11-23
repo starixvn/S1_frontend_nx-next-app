@@ -1,7 +1,7 @@
-import { useForm } from 'react-hook-form'
-import { useState } from 'react'
-import { FieldValues } from 'react-hook-form/dist/types/fields'
 import { PASSWORD_REGEX } from '@nx-next-app/constants'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { FieldValues } from 'react-hook-form/dist/types/fields'
 import InputBox from '../InputBox'
 
 const InputBasic = () => {
@@ -82,7 +82,7 @@ const InputBasic = () => {
 			<div className='btnGroup'>
 				<button
 					type='button'
-					className='btn-cancel'
+					className='btn-secondary'
 					onClick={event => {
 						event.preventDefault()
 						reset()
@@ -90,7 +90,7 @@ const InputBasic = () => {
 				>
 					Cancel
 				</button>
-				<button className='btn-check' type='submit'>
+				<button className='btn-primary' type='submit'>
 					Submit
 				</button>
 			</div>

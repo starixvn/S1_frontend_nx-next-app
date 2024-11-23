@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react'
-import { useTranslation } from 'next-i18next'
-import { useForm } from 'react-hook-form'
-import { usePhoneOtp } from '@nx-next-app/hooks'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
-	Form,
-	Select,
-	InputBox,
 	CountdownTimer,
+	Form,
+	InputBox,
+	Select,
 } from '@nx-next-app/components/D0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { usePhoneOtp } from '@nx-next-app/hooks'
 import {
 	ICryptoNetwork,
 	IOTPSMSData,
 	ISetCustCryptoWalletArgs,
 } from '@nx-next-app/service'
+import { useTranslation } from 'next-i18next'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
 
 const AddWalletModal = ({
 	cryptoNetworkList,
@@ -162,7 +162,7 @@ const AddWalletModal = ({
 							{/* 使用 form 導致跑版，所以額外用 style 調整 */}
 							<div className='btnGroup' style={{ margin: '10px' }}>
 								{timer ? (
-									<button className='btn-cancel' type='button'>
+									<button className='btn-secondary' type='button'>
 										<CountdownTimer
 											timer={timer}
 											startUnixTime={startUnixTime || checkUnixTime}
@@ -172,7 +172,7 @@ const AddWalletModal = ({
 								) : (
 									<button
 										type='button'
-										className='btn-check'
+										className='btn-primary'
 										onClick={handleSendOtpSMS}
 									>
 										<span>{t('Label_Profile_Retransmit')}</span>
@@ -185,10 +185,14 @@ const AddWalletModal = ({
 						</div>
 					</div>
 					<div className='btnGroup'>
-						<button className='btn-cancel' type='button' onClick={closeModal}>
+						<button
+							className='btn-secondary'
+							type='button'
+							onClick={closeModal}
+						>
 							{t('Label_General_Cancel')}
 						</button>
-						<button className='btn-check' type='submit'>
+						<button className='btn-primary' type='submit'>
 							{t('Label_General_Submit')}
 						</button>
 					</div>

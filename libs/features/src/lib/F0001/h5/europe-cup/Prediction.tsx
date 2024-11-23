@@ -92,7 +92,7 @@ const Prediction = ({ europeCupProps }: IPredictionProps) => {
 			[CupEventUserTicketStatus.Active]: (
 				<div className='btn-group'>
 					<button
-						className='btn-cancel'
+						className='btn-secondary'
 						type='button'
 						onClick={() => {
 							setValue(ticketGroupType, undefined)
@@ -102,7 +102,7 @@ const Prediction = ({ europeCupProps }: IPredictionProps) => {
 						{t('Label_General_Cancel')}
 					</button>
 					<button
-						className={classNames('btn-submit', {
+						className={classNames('btn-primary', {
 							disable: !getValues(ticketCountryType),
 						})}
 						type='submit'
@@ -126,10 +126,10 @@ const Prediction = ({ europeCupProps }: IPredictionProps) => {
 			),
 			[CupEventUserTicketStatus.UnStarted]: (
 				<div className='btn-group'>
-					<button className='btn-cancel' type='button'>
+					<button className='btn-seconday' type='button'>
 						{t('Label_General_Cancel')}
 					</button>
-					<button className='btn-submit' type='submit'>
+					<button className='btn-primary' type='submit'>
 						{t('Label_General_Submit')}
 					</button>
 				</div>

@@ -187,6 +187,10 @@ export const theme = {
 		infoUserAccountBankLabelColor: '#939DC5',
 		infoUserAccountBankUserNameColor: '#fff',
 
+		borderOutLine: '#232b4f',
+		bgOutLine: '#1D2447',
+		labelOutLineColor: '#939DC5',
+
 		switchBgOff: '#505667',
 		switchBgOn: '#01B901',
 
@@ -197,6 +201,7 @@ export const theme = {
 		borderIconNotifiCationColor: '#182043',
 		bgIconNotifiCationColor: '#1D2447',
 		iconNotifiCationColor: '#939DC5',
+		hoverAddBankName: '#232B4F',
 	},
 	mobile: {},
 }

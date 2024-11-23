@@ -76,7 +76,7 @@ const KycPanel = () => {
 					</div>
 					<div className='btnGroup'>
 						<button
-							className={kycFile ? 'btn-check' : 'btn-cancel'}
+							className={kycFile ? 'btn-primary' : 'btn-secondary'}
 							onClick={onSubmit}
 							disabled={!kycFile}
 						>

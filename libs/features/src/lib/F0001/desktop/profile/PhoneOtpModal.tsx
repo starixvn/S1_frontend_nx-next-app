@@ -1,12 +1,12 @@
-import classNames from 'classnames'
-import { useForm } from 'react-hook-form'
-import { useEffect } from 'react'
-import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
-import { usePhoneOtp } from '@nx-next-app/hooks'
+import { CountdownTimer } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { PREV_PAGE, PrevPageEnum } from '@nx-next-app/constants'
-import { CountdownTimer } from '@nx-next-app/components/D0001'
+import { usePhoneOtp } from '@nx-next-app/hooks'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import { useForm } from 'react-hook-form'
 
 const PhoneOtpModal = () => {
 	const { t } = useTranslation()
@@ -87,10 +87,10 @@ const PhoneOtpModal = () => {
 						</div>
 					</div>
 					<div className='btnGroup'>
-						<button className='btn-cancel' onClick={closeModal}>
+						<button className='btn-secondary' onClick={closeModal}>
 							{t('Label_General_Close')}
 						</button>
-						<button type='submit' className='btn-check'>
+						<button type='submit' className='btn-primay'>
 							{t('Label_General_Submit')}
 						</button>
 					</div>
