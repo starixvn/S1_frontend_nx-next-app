@@ -1,11 +1,11 @@
+import { InputBox } from '@nx-next-app/components/D0001'
+import { useAuth } from '@nx-next-app/data-access'
+import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
+import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { numberFormat } from '@nx-next-app/utils'
 import { find } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { numberFormat } from '@nx-next-app/utils'
-import { useAuth } from '@nx-next-app/data-access'
-import { InputBox } from '@nx-next-app/components/D0001'
-import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
 
 const Amount = () => {
 	const {
@@ -75,12 +75,16 @@ const Amount = () => {
 		(maxTimes > 0 && withdrawalTimes >= maxTimes)
 
 	return (
-		<div className='subModule'>
+		<div className='subModule subModuleAmount'>
+			<div className='headingAmount'>
+				Deposit Amount
+				<span className='txt-required'>*</span>
+			</div>
 			<div className='subModuleBody'>
 				<div className='calculation'>
 					<div>
 						<div>{t('Label_Withdrawal_Balance')}</div>
-						<div>
+						<div className='money'>
 							{t(`Label_General_Currency_${currencyId}`)}
 							<span>{numberFormat(balance, currencyId)}</span>
 						</div>
@@ -88,7 +92,7 @@ const Amount = () => {
 					<div>-</div>
 					<div>
 						<div>{t('Label_Withdrawal_Deduction')}</div>
-						<div>
+						<div className='money'>
 							{t(`Label_General_Currency_${currencyId}`)}
 							<span>{numberFormat(deduction, currencyId)}</span>
 						</div>
@@ -96,7 +100,7 @@ const Amount = () => {
 					<div>=</div>
 					<div>
 						<div>{t('Label_Withdrawal_EligibleWithdrawalAmount')}</div>
-						<div>
+						<div className='money'>
 							{t(`Label_General_Currency_${currencyId}`)}
 							<span>{numberFormat(availableBalance, currencyId)}</span>
 						</div>
@@ -151,7 +155,7 @@ const Amount = () => {
 					<div className='btnGroup'>
 						<button
 							type='submit'
-							className='btn-check'
+							className='btn-primary'
 							disabled={isButtonDisabled}
 						>
 							{t('Label_General_Submit')}

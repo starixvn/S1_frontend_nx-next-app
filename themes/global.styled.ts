@@ -373,7 +373,7 @@ export const GlobalStyles = createGlobalStyle`
     display: flex;
     gap: 1.6rem;
     margin-top: 1.6rem;
-    button,a {
+    button {
       border-radius: 100px;
       min-height: 3.6rem;
       font-size: 1.4rem;
@@ -381,12 +381,26 @@ export const GlobalStyles = createGlobalStyle`
       line-height: normal;
       color: ${({ theme }) => theme.desktop.white};
       width: 100%;
-      padding : 0 1.2rem;
+      padding : 0 2.4rem;
       white-space: nowrap;
       display: flex;
       align-items: center;
       justify-content: center;
     }
+      a{
+        border-radius: 100px;
+        min-height: 3.6rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+        line-height: normal;
+        color: ${({ theme }) => theme.desktop.white};
+        width: 100%;
+        padding : 0 1.2rem;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     .custom-btn-title{
       min-height : 2.8rem;
       span{

@@ -25,21 +25,21 @@ const GlobalModal = ({
 
 	switch (type) {
 		case 'info':
-			mergedIcon = icon || 'icon icon-bell'
+			mergedIcon = icon || 'icon icon-notifi icon-notification-active'
 			mergedTitle = title || t('Label_General_Information')
 			mergeOkText = okText || t('Label_General_OK')
 
 			break
 
 		case 'error':
-			mergedIcon = icon || 'icon icon-bell'
+			mergedIcon = icon || 'icon icon-notifi icon-notification-active'
 			mergedTitle = title || 'error'
 			mergeOkText = okText || t('Label_General_Close')
 
 			break
 
 		case 'confirm':
-			mergedIcon = icon || 'icon icon-bell'
+			mergedIcon = icon || 'icon icon-notifi icon-notification-active'
 			mergedTitle = title || t('Label_General_Oh')
 			mergeOkText = okText || t('Label_General_Yes')
 			mergeCancelText = cancelText || t('Label_General_No')
