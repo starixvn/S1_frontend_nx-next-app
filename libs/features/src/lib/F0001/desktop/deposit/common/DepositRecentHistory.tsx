@@ -20,8 +20,11 @@ const DepositRecentHistory = () => {
 				onSubmit={onUploadReceipt}
 				onCancel={onCancelDepositSlip}
 			/>
-
-			<a className='icon icon-books' href='/en/history?kind=deposit' />
+			<div className='btnGroup deposit-table'>
+				<a href='/en/history?kind=deposit' className='btn-secondary'>
+					<i className='icon icon-book-read-fill' /> All Transaction
+				</a>
+			</div>
 		</>
 	)
 }

@@ -2565,13 +2565,7 @@ main .promosswiper .swiper-button-prev::after {
 	text-align: center;
 	margin-top: 5px;
 }
-.subModuleList .subModule .subModuleBody .directions li {
-	display: list-item;
-	width: auto;
-	margin: 0;
-	line-height: 30px;
-	margin-left: 29px;
-}
+
 .subModuleList .subModule .subModuleBody .txt-lightgray {
 	margin-left: 20px;
 }
@@ -2991,21 +2985,7 @@ main .promosswiper .swiper-button-prev::after {
 #popup .pop .editSuccess .inputBox-white {
 	width: 300px;
 }
-#popup .pop .upload_new {
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-flow: row;
-	flex-flow: row;
-	-webkit-box-align: stretch;
-	-ms-flex-align: stretch;
-	align-items: stretch;
-	max-width: 800px;
-}
-#popup .pop .upload_new .title {
-	margin: 0;
-	font-size: 32px;
-	color: #5574a7;
-}
+
 #popup .pop .download {
 	-webkit-box-orient: horizontal;
 	-webkit-box-direction: normal;
@@ -4663,7 +4643,7 @@ main .promosswiper .swiper-button-prev::after {
 	color: #112240;
 }
 
-.directions {
+/* .directions {
 	border-bottom: 1px solid #666;
 	color: #868686;
 	margin: 10px 0 20px;
@@ -4702,24 +4682,9 @@ main .promosswiper .swiper-button-prev::after {
 }
 .directions ul li {
 	list-style: disc;
-}
+} */
 
-.uploadModule {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-flex: 1;
-	-ms-flex: 1 1;
-	flex: 1 1;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	width: 100%;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
-
-.upload_img {
+/* .upload_img {
 	width: calc(33.3333% - 6px);
 	height: 80px;
 	border-radius: 15px;
@@ -4830,7 +4795,7 @@ main .promosswiper .swiper-button-prev::after {
 }
 .upload_img:hover.error .icon-plus::before {
 	color: #fff;
-}
+} */
 
 .slipInfo {
 	width: calc(100% / 3 - 110px);
@@ -7323,57 +7288,6 @@ button.icon-spinner11:before {
 
 .promoType .icon-icon32px_ALL:before {
 	margin-right: 5px;
-}
-
-.checkBankSlip {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	margin: 20px 0;
-	max-width: 80%;
-	min-width: 75%;
-}
-.checkBankSlip.smallList {
-	display: block;
-}
-.checkBankSlip.smallList > .txt-lightgray {
-	margin: 10px 0;
-}
-.checkBankSlip.smallList ul {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	width: 100%;
-	-ms-flex-flow: wrap;
-	flex-flow: wrap;
-}
-.checkBankSlip.smallList ul li {
-	width: auto;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.checkBankSlip.smallList ul li .bankName {
-	margin: 0;
-}
-.checkBankSlip.smallList ul li:nth-child(1) {
-	-webkit-box-flex: 1;
-	-ms-flex: auto;
-	flex: auto;
-	width: 100%;
-}
-.checkBankSlip.smallList ul li .icon {
-	color: #5574a7;
-	margin-left: 10px;
 }
 
 .resend {
@@ -10260,68 +10174,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .text-center {
 	text-align: center;
-}
-
-.upload_new {
-	padding: 0 !important;
-}
-@media (max-width: 800px) {
-	.upload_new {
-		-webkit-box-orient: vertical !important;
-		-webkit-box-direction: normal !important;
-		-ms-flex-flow: column !important;
-		flex-flow: column !important;
-	}
-}
-.upload_new .smallList {
-	padding: 30px 20px;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-flow: column;
-	flex-flow: column;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.upload_new .checkBankSlip {
-	max-width: unset;
-	min-width: unset;
-	margin: 0;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-flow: column;
-	flex-flow: column;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-flex: 2;
-	-ms-flex: 2;
-	flex: 2;
-	padding: 30px 20px;
-}
-.upload_new .checkBankSlip.bankaccount {
-	border-right: 1px dotted #1e85ec;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: start;
-	-ms-flex-align: start;
-	align-items: start;
-	-webkit-box-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-}
-.upload_new .checkBankSlip .directions ul li {
-	width: 100%;
 }
 
 .hotGame,
@@ -13387,7 +13239,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .features li a {
 	font-weight: bold;
 }
-
 
 .historyTag {
 	padding: 0 20px;

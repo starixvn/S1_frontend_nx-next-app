@@ -159,6 +159,8 @@ export const theme = {
 		btnDepositAmountColorDisabled: '#374375',
 
 		importantBg: '#232B4F',
+		borderAccountBank: '#374375',
+		bgUploadFileButton: '#1D2447',
 	},
 	mobile: {},
 }

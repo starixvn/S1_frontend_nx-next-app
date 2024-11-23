@@ -75,7 +75,7 @@ export const WrapperDeposit = styled.div`
 				display: flex;
 				gap: 2.4rem;
 				.btn-bank {
-					width: 8rem;
+					width: 9rem;
 					text-align: center;
 					button {
 						width: 4.8rem;
@@ -373,6 +373,33 @@ export const WrapperDeposit = styled.div`
 				}
 			}
 		}
+	}
+
+	.deposit-table {
+		max-width: max-content;
+		a {
+			min-height: 2.8rem;
+		}
+	}
+	.history {
+		width: 100%;
+		margin-top: 2.4rem;
+	}
+
+	.history .listHeader div:nth-child(3),
+	.history .listBody div:nth-child(3) {
+		flex: 0 0 13rem;
+		white-space: unset;
+	}
+	.history .listBody > div > div:nth-child(5),
+	.history .listBody > div > div:nth-child(6) {
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+	}
+	.history .listBody > div > div:nth-child(5) span,
+	.history .listBody > div > div:nth-child(6) span {
+		width: 100%;
+		margin-left: 0;
 	}
 
 	.swithModule {

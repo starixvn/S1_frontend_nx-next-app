@@ -250,6 +250,11 @@ export const GlobalStyles = createGlobalStyle`
       color: ${({ theme }) => theme.desktop.tipColorError} !important;
     }
   }
+
+  .error-msg{
+    color: ${({ theme }) => theme.desktop.tipColorError}
+  }
+
   .react-datepicker__input-container{
     input{
       width : 90%;
@@ -495,6 +500,10 @@ export const GlobalStyles = createGlobalStyle`
 			background: ${({ theme }) => theme.desktop.registerDropdownBg};
 			overflow: hidden;
 			z-index: 2;
+      display : none;
+      &.active{
+        display : block;
+      }
 			.heading-search {
 				display: flex;
 				align-items: center;
