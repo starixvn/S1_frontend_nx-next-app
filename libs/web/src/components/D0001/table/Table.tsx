@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react'
 import { uniqueId } from 'lodash'
+import React, { ReactNode } from 'react'
 
 export interface ITableColumns<T> {
 	title: string | React.ReactNode
@@ -29,7 +29,7 @@ const Table = <T,>({
 }: ITableProps<T>) => {
 	const renderColumns = (item: T, index: number) =>
 		columns.map(column => (
-			<div key={column.key}>
+			<div className='td' key={column.key}>
 				{
 					(column.render
 						? column.render({ item, index })
@@ -41,14 +41,18 @@ const Table = <T,>({
 		<div className={mainClassName}>
 			<div className={headerClassName}>
 				{columns.map(column => (
-					<div key={column.key}>{column.title}</div>
+					<div className='custom-th' key={column.key}>
+						{column.title}
+					</div>
 				))}
 			</div>
 			{isShowBodyDivElement ? (
 				<>
 					<div className={bodyClassName}>
 						{dataSource.map((item, index) => (
-							<div key={uniqueId()}>{renderColumns(item, index)}</div>
+							<div className='custom-td' key={uniqueId()}>
+								{renderColumns(item, index)}
+							</div>
 						))}
 					</div>
 					{footer && footer()}
@@ -56,7 +60,9 @@ const Table = <T,>({
 			) : (
 				<>
 					{dataSource.map((item, index) => (
-						<div key={uniqueId()}>{renderColumns(item, index)}</div>
+						<div className='custom-td' key={uniqueId()}>
+							{renderColumns(item, index)}
+						</div>
 					))}
 					{footer && footer()}
 				</>

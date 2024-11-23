@@ -183,6 +183,17 @@ export const theme = {
 		infoUserAccountBankBgInputColor: '#1d2447',
 		infoUserAccountBankLabelColor: '#939DC5',
 		infoUserAccountBankUserNameColor: '#fff',
+
+		switchBgOff: '#505667',
+		switchBgOn: '#01B901',
+
+		customTableTheadBg: '#232B4F',
+		customTableBorderColor: '#374375',
+		customTableTbodyBg: '#182043',
+
+		borderIconNotifiCationColor: '#182043',
+		bgIconNotifiCationColor: '#1D2447',
+		iconNotifiCationColor: '#939DC5',
 	},
 	mobile: {},
 }

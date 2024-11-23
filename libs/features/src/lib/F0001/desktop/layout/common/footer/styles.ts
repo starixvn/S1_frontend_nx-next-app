@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const FooterContainer = styled.div`
 	background: ${({ theme }) => theme.desktop.footerBg};
 	padding-top: 4rem;
 	.footer-top {
 		margin: 0 auto;
-		width: ${({ theme }) => theme.desktop.contentWidth};
+		max-width: ${({ theme }) => theme.desktop.contentWidth};
 		display: flex;
 		gap: 2.4rem;
 		padding-bottom: 2.4rem;
@@ -19,7 +19,7 @@ export const FooterContainer = styled.div`
 	}
 	.footer-center {
 		margin: 0 auto;
-		width: ${({ theme }) => theme.desktop.contentWidth};
+		max-width: ${({ theme }) => theme.desktop.contentWidth};
 		display: flex;
 		justify-content: space-between;
 		padding: 2.4rem 0 4rem;
@@ -41,7 +41,7 @@ export const FooterContainer = styled.div`
 			}
 		}
 		.payment {
-			flex: 0 0 46.8rem;
+			flex: 0 0 33%;
 			.footer-icon {
 				display: flex;
 				gap: 1.2rem;
