@@ -232,7 +232,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 								className='btn-check'
 								onClick={() => handleAddCards(WithdrawalBankCardEnum.LocalBank)}
 							>
-								+
+								<i className='icon icon-plus-add' />
 							</button>
 						</div>
 					)}
@@ -257,7 +257,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 				/>
 
 				<InputBox
-					className='inputBox-white'
+					className='inputBox-blue'
 					register={register('promoCode')}
 					placeholder={t('Label_Promotions_PromoCode') || ''}
 					touched={!!touchedFields['promoCode']}

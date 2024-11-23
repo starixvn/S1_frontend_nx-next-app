@@ -15,9 +15,9 @@ import { IDepositChatTransferData } from '@nx-next-app/service'
 import {
 	generateShortcutList,
 	isConvert,
+	numFormatToDigits,
 	numberFormat,
 	revertNumberFormat,
-	numFormatToDigits,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
@@ -121,7 +121,7 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 					<div className='column' />
 					<InputBox
 						type='number'
-						className='inputBox-white'
+						className='inputBox-blue'
 						register={register('amount', {
 							valueAsNumber: true,
 							required: {
@@ -183,7 +183,7 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 				/>
 
 				<InputBox
-					className='inputBox-white'
+					className='inputBox-blue'
 					register={register('promoCode')}
 					placeholder={t('Label_Promotions_PromoCode') || ''}
 					touched={!!touchedFields['promoCode']}
@@ -199,8 +199,8 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 						type='submit'
 						style={{ pointerEvents: isFormValid ? 'auto' : 'none' }}
 						className={classNames({
-							darkGray: !isFormValid,
-							'btn-check': isFormValid,
+							'btn-secondary': !isFormValid,
+							'btn-primary': isFormValid,
 						})}
 					>
 						{t('Label_General_Submit')}

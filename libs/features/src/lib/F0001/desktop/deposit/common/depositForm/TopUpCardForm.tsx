@@ -91,7 +91,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 					<div className='input-column'>
 						<div>
 							<InputBox
-								className='inputBox-white'
+								className='inputBox-blue'
 								register={register('code', {
 									required: true,
 								})}
@@ -117,7 +117,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 						</div>
 						<div>
 							<InputBox
-								className='inputBox-white'
+								className='inputBox-blue'
 								register={register('serial', {
 									required: true,
 								})}
@@ -182,7 +182,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 				/>
 
 				<InputBox
-					className='inputBox-white'
+					className='inputBox-blue'
 					register={register('promoCode')}
 					placeholder={t('Label_Promotions_PromoCode') || ''}
 					touched={!!touchedFields['promoCode']}
@@ -209,8 +209,8 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 						type='submit'
 						style={{ pointerEvents: isFormValid ? 'auto' : 'none' }}
 						className={classNames({
-							darkGray: !isFormValid,
-							'btn-check': isFormValid,
+							'btn-secondary': !isFormValid,
+							'btn-primary': isFormValid,
 						})}
 					>
 						{t('Label_General_Submit')}

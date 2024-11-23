@@ -1,4 +1,3 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	DepositModule,
 	Form,
@@ -6,6 +5,7 @@ import {
 	Loading,
 	Select,
 } from '@nx-next-app/components/D0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	useAuth,
 	useDepositContext,
@@ -15,14 +15,14 @@ import { IPaymentQRPayData } from '@nx-next-app/service'
 import {
 	generateShortcutList,
 	isConvert,
+	numFormatToDigits,
 	numberFormat,
 	revertNumberFormat,
-	numFormatToDigits,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
-import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 
 interface IQRPayFormProps {
 	dataSource: IPaymentQRPayData[]
@@ -133,7 +133,7 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 					<div className='column' />
 					<InputBox
 						type='number'
-						className='inputBox-white'
+						className='inputBox-blue'
 						register={register('amount', {
 							valueAsNumber: true,
 							required: {
@@ -195,7 +195,7 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 				/>
 
 				<InputBox
-					className='inputBox-white'
+					className='inputBox-blue'
 					register={register('promoCode')}
 					placeholder={t('Label_Promotions_PromoCode') || ''}
 					touched={!!touchedFields['promoCode']}
@@ -211,8 +211,8 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 						type='submit'
 						style={{ pointerEvents: isValid ? 'auto' : 'none' }}
 						className={classNames({
-							darkGray: !isValid,
-							'btn-check': isValid,
+							'btn-secondary': !isValid,
+							'btn-primary': isValid,
 						})}
 					>
 						{t('Label_General_Submit')}

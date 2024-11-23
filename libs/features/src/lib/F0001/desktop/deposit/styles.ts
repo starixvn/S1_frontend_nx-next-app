@@ -386,6 +386,42 @@ export const WrapperDeposit = styled.div`
 		margin-top: 2.4rem;
 	}
 
+	.Channel {
+		.subModule {
+			width: 50%;
+			position: relative;
+			.btn {
+				width: 100%;
+			}
+		}
+		.btn-check {
+			width: 3.6rem;
+			height: 3.6rem;
+			background: ${({ theme }) => theme.desktop.bgAddNewModalButton};
+			border-radius: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			right: -50px;
+			top: 0;
+			.icon {
+				&:before {
+					font-size: 2rem;
+				}
+			}
+		}
+		.btnGroup {
+			max-width: max-content;
+		}
+	}
+	.Promotion {
+		padding-top: 1.6rem;
+		.subModuleTitle {
+			margin-bottom: 0;
+		}
+	}
+
 	.history .listHeader div:nth-child(3),
 	.history .listBody div:nth-child(3) {
 		flex: 0 0 13rem;

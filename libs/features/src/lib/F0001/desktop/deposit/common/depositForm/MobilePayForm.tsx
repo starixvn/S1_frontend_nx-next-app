@@ -189,7 +189,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				<DepositModule title='UPI' required>
 					<div className='column' />
 					<InputBox
-						className='inputBox-white'
+						className='inputBox-blue'
 						register={register('UPIPayAccount', {
 							required: {
 								value: true,
@@ -210,7 +210,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 					{!showShortcutList && (
 						<InputBox
 							type='number'
-							className='inputBox-white'
+							className='inputBox-blue'
 							register={register('amount', {
 								valueAsNumber: true,
 								required: {
@@ -395,7 +395,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				/>
 
 				<InputBox
-					className='inputBox-white'
+					className='inputBox-blue'
 					register={register('promoCode')}
 					placeholder={t('Label_Promotions_PromoCode') || ''}
 					touched={!!touchedFields['promoCode']}

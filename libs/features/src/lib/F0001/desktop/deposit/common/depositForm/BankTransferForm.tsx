@@ -148,7 +148,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 					<div className='column' />
 					<InputBox
 						type='number'
-						className='inputBox-white'
+						className='inputBox-blue'
 						register={register('amount', {
 							valueAsNumber: true,
 							required: {

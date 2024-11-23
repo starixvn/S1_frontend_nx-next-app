@@ -173,6 +173,7 @@ export const theme = {
 		importantBg: '#232B4F',
 		borderAccountBank: '#374375',
 		bgUploadFileButton: '#1D2447',
+		bgAddNewModalButton: '#374375',
 	},
 	mobile: {},
 }

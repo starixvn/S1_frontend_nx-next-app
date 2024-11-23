@@ -17,13 +17,13 @@ import {
 	generateShortcutList,
 	isConvert,
 	numberFormat,
-	revertNumberFormat,
 	numFormatToDigits,
+	revertNumberFormat,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
-import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 
 interface ICryptoPayFormProps {
 	dataSource: IPaymentCryptoPayData[]
@@ -137,7 +137,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 					<div className='column' />
 					<InputBox
 						type='number'
-						className='inputBox-white'
+						className='inputBox-blue'
 						register={register('amount', {
 							valueAsNumber: true,
 							required: {
@@ -203,7 +203,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 				/>
 
 				<InputBox
-					className='inputBox-white'
+					className='inputBox-blue'
 					register={register('promoCode')}
 					placeholder={t('Label_Promotions_PromoCode') || ''}
 					touched={!!touchedFields['promoCode']}

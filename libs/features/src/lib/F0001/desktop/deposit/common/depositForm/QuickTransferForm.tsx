@@ -123,7 +123,7 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 					<div className='column' />
 					<InputBox
 						type='number'
-						className='inputBox-white'
+						className='inputBox-blue'
 						register={register('amount', {
 							valueAsNumber: true,
 							required: {
@@ -185,7 +185,7 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 				/>
 
 				<InputBox
-					className='inputBox-white'
+					className='inputBox-blue'
 					register={register('promoCode')}
 					placeholder={t('Label_Promotions_PromoCode') || ''}
 					touched={!!touchedFields['promoCode']}
@@ -201,8 +201,8 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 						type='submit'
 						style={{ pointerEvents: isFormValid ? 'auto' : 'none' }}
 						className={classNames({
-							darkGray: !isFormValid,
-							'btn-check': isFormValid,
+							'btn-secondary': !isFormValid,
+							'btn-primary': isFormValid,
 						})}
 					>
 						{t('Label_General_Submit')}

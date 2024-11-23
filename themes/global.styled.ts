@@ -519,6 +519,7 @@ export const GlobalStyles = createGlobalStyle`
 			overflow: hidden;
 			z-index: 2;
       display : none;
+      width: 100%;
       &.active{
         display : block;
       }
