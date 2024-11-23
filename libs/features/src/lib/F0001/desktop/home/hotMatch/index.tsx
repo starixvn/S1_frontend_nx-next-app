@@ -1,147 +1,141 @@
-import dynamic from 'next/dynamic'
-import { useTranslation } from 'next-i18next'
-import classNames from 'classnames'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { MenuActionTypeEnum, CurrenciesEnum } from '@nx-next-app/types'
-import { useAuth } from '@nx-next-app/data-access'
-import { PRODUCTS, paths } from '@nx-next-app/constants'
-import { HotEventSwiper } from './HotEventSwiper'
+import { dateFormat, paths, timeFormat } from "@nx-next-app/constants";
+import { HotMatchContainer } from "@nx-next-app/features/F0001/desktop/home/hotMatch/styles";
+import { useHome } from "@nx-next-app/features/F0001/providers";
+import { IHotEventData } from "@nx-next-app/service";
+import dayjs from "dayjs";
+import { useTranslation } from "next-i18next";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
 
-const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
+export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
 })
 
-const LiveStreamingModalDesktop = dynamic(
-	() => import('../../modal/LiveStreamingModal'),
-	{ ssr: false }
-)
-
-const UnderMaintenanceModal = dynamic(
-	() => import('../../modal/UnderMaintainModal'),
-	{
-		ssr: false,
-	}
-)
-
-const HotMatch = () => {
+const Item = ({ data }: { data: IHotEventData }) => {
 	const { t } = useTranslation()
-	const { onStaticMenuOpen } = useMenu()
-	const { modal } = useGlobalModal()
-
+	const { formatHdp } = useHome()
 	const {
-		userInfo: { currencyId },
-	} = useAuth()
+		sportLeaguesTitle,
+		homeTeamPic,
+		homeTeamName,
+		awayTeamPic,
+		awayTeamName,
+		battleTime,
+		tpId,
+		matchId,
+		gameId,
+		awayOdds = 0,
+		homeOdds = 0,
+		handicap = 0,
+	} = data
 
-	/** 當前是否為巴西 */
-	const isBRL = currencyId === CurrenciesEnum.BRL
+	const searchParams = new URLSearchParams({
+		tpId,
+		matchId: matchId ? String(matchId) : '',
+		gameId,
+	})
 
-	// * 靜態遊戲
-	const soccerItem = {
-		...PRODUCTS.Soccer,
-		desktop: { menuActionType: MenuActionTypeEnum.Link },
-		pathname: paths.sports.root,
-		query: { provider: 'Soccer' },
-	}
+	const date = dayjs(battleTime).format(dateFormat)
+	const time = dayjs(battleTime).format(timeFormat)
 
-	const basketballItem = {
-		...PRODUCTS.Basketball,
-		desktop: { menuActionType: MenuActionTypeEnum.Link },
-		pathname: paths.sports.root,
-		query: { provider: 'Basketball' },
-	}
-
-	const badmintonSportItem = {
-		...PRODUCTS.Badminton,
-		pathname: paths.sports.root,
-		query: { provider: 'Badminton' },
-		desktop: { menuActionType: MenuActionTypeEnum.Link },
-	}
+	const homeTeamHandicap = formatHdp(handicap)
+	const awayTeamHandicap = formatHdp(handicap * -1)
 
 	return (
-		// 巴西有加 br className，因為僅有巴西要去除 Aston Villa 贊助球隊
-		<div
-			className={classNames('hotmatch', {
-				br: isBRL,
-			})}
-		>
-			<div className='hotmatch-wrapper '>
-				<div className='hotmatch-top '>
-					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/hotmatch-logo.png`}
-						alt='logo'
-					/>
-					<div>{t('Label_General_Sports').toUpperCase()}</div>
+		<div className='swiper-slide'>
+			<div className='match-item '>
+				<div className='match-item-title '>
+					<p>{sportLeaguesTitle}</p>
 				</div>
-				<HotEventSwiper />
-				<div className='hotsports'>
-					<div className='hotsports-item'>
-						<img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-sports-soccer.png`}
-							alt='sports-soccer'
-						/>
-						<button
-							className='all-btn'
-							onClick={() => {
-								onStaticMenuOpen(soccerItem, {
-									loginCallback: () => modal.open(<LoginModal />),
-									underMaintenanceCallback: () =>
-										modal.open(<UnderMaintenanceModal />),
-									messageCallBack: message => modal.error(message),
-									liveStreamingCallback: () =>
-										modal.open(<LiveStreamingModalDesktop />),
-								})
-							}}
-						>
-							{t('Label_General_BetNow')}
-						</button>
+				<div className='match-item-center'>
+					<div className='team-content'>
+						<div className='team-item'>
+							<img src={homeTeamPic} alt='' />
+							<div>{homeTeamName}</div>
+						</div>
+						<div className='odds'>
+							<span>{homeTeamHandicap}</span>
+							<span>{homeOdds}</span>
+						</div>
 					</div>
-					<div className='hotsports-item'>
-						<img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-sports-badminton.png`}
-							alt='sports-badminton'
-						/>
-						<button
-							className='all-btn'
-							onClick={() => {
-								onStaticMenuOpen(badmintonSportItem, {
-									loginCallback: () => modal.open(<LoginModal />),
-									underMaintenanceCallback: () =>
-										modal.open(<UnderMaintenanceModal />),
-									messageCallBack: message => modal.error(message),
-									liveStreamingCallback: () =>
-										modal.open(<LiveStreamingModalDesktop />),
-								})
-							}}
-						>
-							{t('Label_General_BetNow')}
-						</button>
+					<div className='team-content'>
+						<div className='team-item'>
+							<img src={awayTeamPic} alt='' />
+							<div>{awayTeamName}</div>
+						</div>
+						<div className='odds'>
+							<span>{awayTeamHandicap}</span>
+							<span>{awayOdds}</span>
+						</div>
 					</div>
-					<div className='hotsports-item'>
-						<img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-sports-basketball.png`}
-							alt='sports-basketball'
-						/>
-						<button
-							className='all-btn'
-							onClick={() => {
-								onStaticMenuOpen(basketballItem, {
-									loginCallback: () => modal.open(<LoginModal />),
-									underMaintenanceCallback: () =>
-										modal.open(<UnderMaintenanceModal />),
-									messageCallBack: message => modal.error(message),
-									liveStreamingCallback: () =>
-										modal.open(<LiveStreamingModalDesktop />),
-								})
-							}}
-						>
-							{t('Label_General_BetNow')}
-						</button>
+				</div>
+				<div className='match-footer'>
+					<div className='match-date'>
+						{date}
+						<div>{time}</div>
 					</div>
+					<Link href={`${paths.sports.root}/?${searchParams.toString()}`}>
+						<button className='bet-btn'>{t('Label_General_BetNow')}</button>
+					</Link>
 				</div>
 			</div>
 		</div>
 	)
 }
 
-export default HotMatch
+const HotEvents = () => {
+	const { hotEventData } = useHome()
+	const [showNavigation, setShowNavigation] = useState(false)
+	const [shouldSwiperUpdate, setShouldSwiperUpdate] = useState(false)
+	const memoHotEventData = useMemo(() => hotEventData, [hotEventData])
+
+	const config = {
+		slidesPerView: 4.1,
+		spaceBetween: 10,
+		shouldSwiperUpdate,
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		renderPrevButton: () => (
+			<div
+				style={{ opacity: showNavigation ? 1 : 0.7 }}
+				className='swiper-button-prev icon icon-chevron_left'
+			/>
+		),
+		renderNextButton: () => (
+			<div
+				style={{ opacity: showNavigation ? 1 : 0.7 }}
+				className='swiper-button-next icon icon-chevron_right'
+			/>
+		),
+	}
+
+	useEffect(() => {
+		setShouldSwiperUpdate(true)
+		setTimeout(() => setShouldSwiperUpdate(false), 5000)
+	}, [memoHotEventData])
+
+	if (!hotEventData) return null
+	const rows = hotEventData?.map(eventData => (
+		<Item
+			key={`${eventData.sportLeaguesTitle}-${eventData.matchId}`}
+			data={eventData}
+		/>
+	))
+
+	return rows.length > 0 ? (
+		<HotMatchContainer
+			className='content-container'
+			onMouseOver={() => setShowNavigation(true)}
+			onMouseOut={() => setShowNavigation(false)}
+			onFocus={() => 0}
+			onBlur={() => 0}
+		>
+			<DynamicSwiper {...config}>{rows}</DynamicSwiper>
+		</HotMatchContainer>
+	) : null
+}
+
+export default HotEvents

@@ -13,8 +13,6 @@ const WelcomeInfo = dynamic(() => import('./welcomeInfo/WelcomeInfo'))
 
 const CarouselBanner = dynamic(() => import('../common/carouselBanner'))
 
-const HotMatch = dynamic(() => import('./hotMatch'))
-
 const LiveCasino = dynamic(() => import('./liveCasinoGames'))
 
 const HotGame = dynamic(() => import('./HotGame'), { ssr: false })
@@ -92,12 +90,7 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.Announcement]: <Announcement />,
 		[DesktopHomeComponentsEnum.PromotionSwiper]: <PromotionSwiper />,
 		[DesktopHomeComponentsEnum.WelcomeInfo]: <WelcomeInfo />,
-		[DesktopHomeComponentsEnum.HotMatch]: includes(
-			ALLOWED_CURRENCIES.SPORTS_SABA_CLUB,
-			currencyId
-		) ? (
-			<HotMatch />
-		) : null,
+
 		[DesktopHomeComponentsEnum.LiveCasino]: <LiveCasino />,
 		[DesktopHomeComponentsEnum.HotGame]: <HotGame />,
 		[DesktopHomeComponentsEnum.HotGameSport]: <HotGameSport />,

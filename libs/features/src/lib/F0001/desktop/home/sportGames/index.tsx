@@ -2,6 +2,7 @@ import { useGlobalModal } from "@nx-next-app/components/config-provider";
 import { paths } from "@nx-next-app/constants";
 import EmblaCarousel from "@nx-next-app/features/F0001/desktop/common/emblaCarousel";
 import GameIcon from "@nx-next-app/features/F0001/desktop/home/gameIcon";
+import HotEvents from "@nx-next-app/features/F0001/desktop/home/hotMatch";
 import { GameContainer } from "@nx-next-app/features/F0001/desktop/home/liveCasinoGames/styles";
 import { GameGroup, GroupTitle } from "@nx-next-app/features/F0001/desktop/home/styles";
 import { useHome } from "@nx-next-app/features/F0001/providers";
@@ -84,6 +85,7 @@ const SportGames = () => {
 								)
 							})}
 						</EmblaCarousel>
+						<HotEvents />
 					</GameContainer>
 				</>
 			)}

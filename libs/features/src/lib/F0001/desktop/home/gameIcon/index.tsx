@@ -37,7 +37,9 @@ const GameIcon: FC<IGameIcon> = ({ gameItem, isLarge, onClick }) => {
 							{hasBeenVisible && (
 								<Img
 									className='img'
-									src={`${imageUrl}${isLarge ? '@2x' : '@1x'}.webp`}
+									src={`${process.env['NEXT_PUBLIC_IMAGE_HOST']}/${imageUrl}${
+										isLarge ? '@2x' : '@1x'
+									}.webp`}
 									loader={<LoadingIcon />}
 									unloader={<NoGameIcon />}
 									alt={gameName}

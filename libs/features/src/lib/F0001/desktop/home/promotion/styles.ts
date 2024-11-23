@@ -33,8 +33,8 @@ export const PromotionContainer = styled.div`
 		height: 2.8rem;
 		width: 2.8rem;
 		border-radius: 10rem;
-		border: 2px solid var(--Color-2, #0f1428);
-		background: var(--Color-5, #ea6118);
+		border: 2px solid #0f1428;
+		background: #ea6118;
 		font-size: 2.4rem;
 	}
 
