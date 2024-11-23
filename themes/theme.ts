@@ -174,6 +174,10 @@ export const theme = {
 		borderAccountBank: '#374375',
 		bgUploadFileButton: '#1D2447',
 		bgAddNewModalButton: '#374375',
+		infoUserAccountBankBorderInputColor: '#232b4f',
+		infoUserAccountBankBgInputColor: '#1d2447',
+		infoUserAccountBankLabelColor: '#939DC5',
+		infoUserAccountBankUserNameColor: '#fff',
 	},
 	mobile: {},
 }

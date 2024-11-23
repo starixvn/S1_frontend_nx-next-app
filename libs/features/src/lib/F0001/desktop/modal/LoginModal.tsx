@@ -2,7 +2,7 @@ import { InputBox } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { WrapperLoginModal } from '@nx-next-app/features/F0001/desktop/modal/styles'
+import { WrapperModal } from '@nx-next-app/features/F0001/desktop/modal/styles'
 import { useSignInMutation } from '@nx-next-app/service'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
@@ -93,7 +93,7 @@ const LoginModal = () => {
 	}
 
 	return (
-		<WrapperLoginModal>
+		<WrapperModal>
 			<div className='pop'>
 				<div className='loginpop active'>
 					<div className='joinloginModule'>
@@ -172,7 +172,7 @@ const LoginModal = () => {
 					</div>
 				</div>
 			</div>
-		</WrapperLoginModal>
+		</WrapperModal>
 	)
 }
 

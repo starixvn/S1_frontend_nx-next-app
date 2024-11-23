@@ -5446,48 +5446,6 @@ main .promosswiper .swiper-button-prev::after {
 	padding-left: 10px;
 }
 
-.addBankpop > .txt-lightgray {
-	margin-bottom: 20px;
-}
-.addBankpop .icon {
-	font-size: 14px;
-	color: #1e85ec;
-}
-.addBankpop .inputBox-blue .dropdown > .btn {
-	-webkit-box-pack: start;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
-	font-size: 13px;
-}
-.addBankpop .inputBox-blue .dropdown > .dropdown-container {
-	overflow-y: scroll;
-	max-height: 200px;
-}
-.addBankpop .inputBox-blue .dropdown > .dropdown-container .dropdown-item {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	padding: 7.5px 0;
-}
-.addBankpop
-	.inputBox-blue
-	.dropdown
-	> .dropdown-container
-	.dropdown-item:nth-child(1) {
-	padding-top: 10px;
-}
-.addBankpop .inputBox-blue img {
-	max-width: 44px;
-	border-radius: 5px;
-	margin: 0 10px;
-}
-.addBankpop .txt div .txt-blue + span {
-	color: #5574a7;
-}
-
 .addAddresspop .icon-close {
 	top: 15px !important;
 	right: 15px !important;

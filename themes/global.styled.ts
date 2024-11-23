@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
-import { theme } from "./theme";
+import { theme } from './theme'
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
@@ -513,7 +513,6 @@ export const GlobalStyles = createGlobalStyle`
 			position: absolute;
 			top: 40px;
 			left: 0;
-			border-radius: 20px;
 			border-radius: 20px;
 			background: ${({ theme }) => theme.desktop.registerDropdownBg};
 			overflow: hidden;

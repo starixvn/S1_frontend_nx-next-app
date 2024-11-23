@@ -7,6 +7,7 @@ import {
 } from '@nx-next-app/components/D0001'
 import { E_WALLET_SYSID, TOUCH_GO_REGEX } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { WrapperModal } from '@nx-next-app/features/F0001/desktop/modal/styles'
 import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
 	TOUCH_GO_REGEX,
 } from '@nx-next-app/constants'
@@ -148,96 +149,101 @@ const AddBankCardModal = ({
 	}
 
 	return (
-		<div className='pop'>
-			<div className='addBankpop active'>
-				<span className='title'>
-					{isLocal
-						? t('Label_Withdrawal_AddBankAccount')
-						: t('Label_Withdrawal_AddEAccount')}
-				</span>
-				<div className='txt-lightgray'>
-					{t('Label_Withdrawal_UpdateBankInfo')}
-				</div>
-				<Form onSubmit={handleSubmit(onSubmit)}>
-					{/* 經稽查，現在註冊強制需要輸入 realName , 原新增卡片欄位的 realName 欄位應沒可能再\出現 */}
-					<div className='txt'>
-						<div>
-							<span className='txt-blue'>
-								{t('Label_Withdrawal_BankAccountName')}
-							</span>
-							<span>{accountName}</span>
-						</div>
-					</div>
-					<Select
-						options={bankDropDown}
-						placeholder=''
-						onChange={sysId => handleSelectBankCard(sysId)}
-						value={getValues('sysId')}
-						defaultValue={head(bankDropDown)?.value as number}
+		<WrapperModal>
+			<div className='pop'>
+				<div className='addBankpop active'>
+					<i
+						className='close-popup icon-close-line'
+						onClick={() => {
+							reset()
+							closeModal()
+						}}
 					/>
-					<InputBox
-						register={register('accountNo', {
-							required: {
-								value: true,
-								message: t('Label_Withdrawal_NeedAccountNo'),
-							},
+					<span className='title'>
+						{isLocal
+							? t('Label_Withdrawal_AddBankAccount')
+							: t('Label_Withdrawal_AddEAccount')}
+					</span>
+					<div className='slogan'>{t('Label_Withdrawal_UpdateBankInfo')}</div>
+					<Form onSubmit={handleSubmit(onSubmit)}>
+						{/* 經稽查，現在註冊強制需要輸入 realName , 原新增卡片欄位的 realName 欄位應沒可能再\出現 */}
+						<div className='info-user inputBox-blue'>
+							<div className='user-group'>
+								<div>{t('Label_Withdrawal_BankAccountName')}</div>
+								<div>{accountName}</div>
+							</div>
+						</div>
+						<Select
+							options={bankDropDown}
+							placeholder=''
+							onChange={sysId => handleSelectBankCard(sysId)}
+							value={getValues('sysId')}
+							defaultValue={head(bankDropDown)?.value as number}
+						/>
+						<InputBox
+							register={register('accountNo', {
+								required: {
+									value: true,
+									message: t('Label_Withdrawal_NeedAccountNo'),
+								},
 							minLength: {
 								value: 8,
 								message: t('Label_BankInfo_AccountLength'),
 							},
-							pattern: isTouchNGoIsValid
-								? {
-										value: TOUCH_GO_REGEX,
-										message: t('Label_Withdrawal_TouchGo_Validation'),
-								  }
+								pattern: isTouchNGoIsValid
+									? {
+											value: TOUCH_GO_REGEX,
+											message: t('Label_Withdrawal_TouchGo_Validation'),
+									  }
 								: {
 										value: PAYMENT_BANK_ACCOUNT_REGEX,
 										message: t('Label_BankInfo_AccountWrongFormat'),
 								  },
-							onBlur: checkAccountNo,
-						})}
-						title={
-							isLocal
-								? t('Label_Withdrawal_AccountNumber') ?? ''
-								: t('Label_Withdrawal_EWalletAccountNumber') ?? ''
-						}
-						touched={!!touchedFields['accountNo']}
-						error={!!errors['accountNo']}
-						errorMessage={errors['accountNo']?.message}
-						infoMessage={t('Label_Withdrawal_AccountNumber')}
-					/>
-					{isIfscRequired && (
-						<InputBox
-							register={register('isfcCode', {
-								required: {
-									value: true,
-									message: t('Label_Withdrawal_PleaseEnterIFSCCode'),
-								},
-								onBlur: checkIsfcCode,
+								onBlur: checkAccountNo,
 							})}
-							title={t('Label_Withdrawal_IFSCCode') ?? ''}
-							touched={!!touchedFields['isfcCode']}
-							error={!!errors['isfcCode']}
-							errorMessage={errors['isfcCode']?.message as string}
+							title={
+								isLocal
+									? t('Label_Withdrawal_AccountNumber') ?? ''
+									: t('Label_Withdrawal_EWalletAccountNumber') ?? ''
+							}
+							touched={!!touchedFields['accountNo']}
+							error={!!errors['accountNo']}
+							errorMessage={errors['accountNo']?.message}
+							infoMessage={t('Label_Withdrawal_AccountNumber')}
 						/>
-					)}
-					<div className='btnGroup'>
-						<button
-							className='btn-secondary'
-							onClick={() => {
-								reset()
-								closeModal()
-							}}
-						>
-							{t('Label_General_Cancel')}
-						</button>
-						<button className='btn-primary' type='submit'>
-							{t('Label_General_Submit')}
-						</button>
-					</div>
-				</Form>
+						{isIfscRequired && (
+							<InputBox
+								register={register('isfcCode', {
+									required: {
+										value: true,
+										message: t('Label_Withdrawal_PleaseEnterIFSCCode'),
+									},
+									onBlur: checkIsfcCode,
+								})}
+								title={t('Label_Withdrawal_IFSCCode') ?? ''}
+								touched={!!touchedFields['isfcCode']}
+								error={!!errors['isfcCode']}
+								errorMessage={errors['isfcCode']?.message as string}
+							/>
+						)}
+						<div className='btnGroup'>
+							<button
+								className='btn-secondary'
+								onClick={() => {
+									reset()
+									closeModal()
+								}}
+							>
+								{t('Label_General_Cancel')}
+							</button>
+							<button className='btn-primary' type='submit'>
+								{t('Label_General_Submit')}
+							</button>
+						</div>
+					</Form>
+				</div>
 			</div>
-		</div>
+		</WrapperModal>
 	)
 }
 
