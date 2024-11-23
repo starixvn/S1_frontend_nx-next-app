@@ -40,6 +40,7 @@ interface IHomePageProps extends InitialPropsInterface {
 	persistPromotionData: IPromotionData[]
 	persistHotEventData: IHotEventData[]
 	persistHotGameData: IHotGame[]
+	persistNewGameData: IHotGame[]
 	persistFooterData: IFooterData
 }
 
@@ -51,6 +52,7 @@ const HomePage = ({
 	persistPromotionData,
 	persistHotEventData,
 	persistHotGameData,
+	persistNewGameData,
 	persistFooterData,
 	persistStaticFileDomainData,
 }: IHomePageProps) => {
@@ -65,6 +67,7 @@ const HomePage = ({
 						persistPromotionData={persistPromotionData}
 						persistHotEventData={persistHotEventData}
 						persistHotGameData={persistHotGameData}
+						persistNewGameData={persistNewGameData}
 						persistLicenseData={persistFooterData.licenseData}
 						persistQuickLinksList={persistFooterData.quickLinks}
 						persistPlatformList={persistFooterData.platformList}
@@ -123,6 +126,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	])
 
 	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
+	const { NewGame: persistNewGameData = [] } = hotGameData ?? {}
 
 	const persistPromotionData = filter(
 		rawPromotionData,
@@ -137,6 +141,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			persistPromotionData,
 			persistHotEventData,
 			persistHotGameData,
+			persistNewGameData,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
