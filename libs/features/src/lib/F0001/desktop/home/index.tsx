@@ -15,7 +15,7 @@ const CarouselBanner = dynamic(() => import('../common/carouselBanner'))
 
 const HotMatch = dynamic(() => import('./hotMatch'))
 
-const LiveCasino = dynamic(() => import('./LiveCasino'))
+const LiveCasino = dynamic(() => import('./liveCasinoGames'))
 
 const HotGame = dynamic(() => import('./HotGame'), { ssr: false })
 

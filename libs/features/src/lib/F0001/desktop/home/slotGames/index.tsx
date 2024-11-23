@@ -2,8 +2,8 @@ import { useGlobalModal } from "@nx-next-app/components/config-provider";
 import { paths } from "@nx-next-app/constants";
 import EmblaCarousel from "@nx-next-app/features/F0001/desktop/common/emblaCarousel";
 import GameIcon from "@nx-next-app/features/F0001/desktop/home/gameIcon";
-import { GameContainer, GameGroup } from "@nx-next-app/features/F0001/desktop/home/slotGames/styles";
-import { GroupTitle } from "@nx-next-app/features/F0001/desktop/home/styles";
+import { GameContainer } from "@nx-next-app/features/F0001/desktop/home/slotGames/styles";
+import { GameGroup, GroupTitle } from "@nx-next-app/features/F0001/desktop/home/styles";
 import { useHome } from "@nx-next-app/features/F0001/providers";
 import { TpCategory } from "@nx-next-app/service";
 import { EmblaOptionsType } from "embla-carousel";
@@ -46,9 +46,9 @@ const HotGameSlot = () => {
 		tpName: largeGame.tpName,
 		gameName: largeGame.gameName,
 	}
-
+	console.log('-----------hotGameCasino', hotGameCasino)
 	return (
-		<GameGroup className='content-container'>
+		<GameGroup className='content-container slot'>
 			{hotGameCasino.length > 0 && (
 				<>
 					<GroupTitle>
