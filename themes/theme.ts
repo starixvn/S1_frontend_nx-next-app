@@ -125,6 +125,11 @@ export const theme = {
 		carouselBtnColorHover: '#fff',
 		carouselBtnColorDisabled: '#717fba',
 
+		gameIconBg: '#232B4F',
+		gameIconBgHover: 'rgba(0, 0, 0, 0.5)',
+		gameIconLoadingColor: '#fff',
+		gameIconProviderNameColor: '#fff',
+
 		buttonSloganBg: '#EA6118',
 		registerBodyBg: '#182043',
 

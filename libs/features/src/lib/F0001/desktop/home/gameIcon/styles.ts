@@ -3,8 +3,30 @@ import styled from "styled-components";
 export const GameIconContainer = styled.div<{ isMaintain: boolean }>`
 	position: relative;
 	border-radius: 2rem;
-	cursor: ${({ isMaintain }) => (isMaintain ? 'none' : 'pointer')};
+	background: ${({ theme }) => theme.desktop.gameIconBg};
+	cursor: ${({ isMaintain }) => (isMaintain ? 'not-allowed' : 'pointer')};
 	overflow: hidden;
+
+	&.maintain {
+		.txt-maintain {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			padding: 27px 8px;
+			background: linear-gradient(
+				180deg,
+				rgba(35, 43, 79, 0) 0%,
+				rgba(35, 43, 79, 0.7) 25.5%,
+				rgba(35, 43, 79, 0.7) 75%,
+				rgba(35, 43, 79, 0) 100%
+			);
+			font-size: 1.4rem;
+			font-weight: 700;
+			text-align: center;
+		}
+	}
 
 	.img-wrapper {
 		height: 100%;
@@ -31,13 +53,13 @@ export const GameIconContainer = styled.div<{ isMaintain: boolean }>`
 		text-align: center;
 		width: 100%;
 		line-height: 1.8rem;
-		color: #fff;
+		color: ${({ theme }) => theme.desktop.gameIconProviderNameColor};
 		text-overflow: ellipsis;
 		font-size: 1.2rem;
 		font-weight: 400;
 	}
 
-	&:hover {
+	&:hover:not(.maintain) {
 		&:after {
 			content: '';
 			position: absolute;
@@ -45,11 +67,47 @@ export const GameIconContainer = styled.div<{ isMaintain: boolean }>`
 			top: 0;
 			width: 100%;
 			height: 100%;
-			background: rgba(0, 0, 0, 0.5);
+			background: ${({ theme }) => theme.desktop.gameIconBgHover};
 		}
 
 		.btn-play {
 			display: block;
+		}
+	}
+
+	.img-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+`
+
+export const NoGameIconWrapper = styled.div`
+	.icon {
+		font-size: 3rem;
+	}
+`
+
+export const SpinnerBox = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`
+
+export const Loading = styled.div`
+	width: 5rem;
+	height: 5rem;
+	border: 0.3rem solid ${({ theme }) => theme.desktop.gameIconLoadingColor};
+	border-top: 0.3rem solid transparent;
+	border-radius: 50%;
+	animation: spin 0.8s linear 0s infinite;
+
+	@keyframes spin {
+		from {
+			transform: rotate(0);
+		}
+		to {
+			transform: rotate(359deg);
 		}
 	}
 `

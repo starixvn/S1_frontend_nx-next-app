@@ -1,7 +1,6 @@
 import { useGlobalModal } from "@nx-next-app/components/config-provider";
 import { paths } from "@nx-next-app/constants";
-import { useAuth } from "@nx-next-app/data-access";
-import EmblaCarousel from "@nx-next-app/features/F0001/desktop/home/embla-carousel";
+import EmblaCarousel from "@nx-next-app/features/F0001/desktop/common/emblaCarousel";
 import GameIcon from "@nx-next-app/features/F0001/desktop/home/gameIcon";
 import { GameContainer, GameGroup } from "@nx-next-app/features/F0001/desktop/home/slotGames/styles";
 import { GroupTitle } from "@nx-next-app/features/F0001/desktop/home/styles";
@@ -11,7 +10,6 @@ import { EmblaOptionsType } from "embla-carousel";
 import { useTranslation } from "next-i18next";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useState } from "react";
 
 const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
 	ssr: false,
@@ -28,14 +26,9 @@ const HotGameSlot = () => {
 	const { t } = useTranslation()
 	const { hotGameData, slotGameData, handleHotGameClick, handleSlotGamePlay } =
 		useHome()
-	const { jackpot = [], providerList = [] } = slotGameData ?? {}
-	const {
-		userInfo: { currencyId, langId },
-	} = useAuth()
+	const { jackpot = [] } = slotGameData ?? {}
 
 	const { modal } = useGlobalModal()
-
-	const [showHotGameNavigation, setShowHotGameNavigation] = useState(false)
 
 	const hotGameCasino = hotGameData.filter(element => {
 		return element.tpCategory === TpCategory.Casino
@@ -44,8 +37,6 @@ const HotGameSlot = () => {
 	if (hotGameCasino?.length === 0 && jackpot?.length === 0) return null
 
 	const gameTypeEmblaOptions: EmblaOptionsType = { slidesToScroll: 'auto' }
-
-	console.log('---------HotGames', hotGameCasino)
 
 	const largeGame: any = hotGameCasino.shift()
 	const largeGameItem = {
@@ -73,6 +64,7 @@ const HotGameSlot = () => {
 							<GameIcon
 								key={1}
 								gameItem={largeGameItem}
+								isLarge
 								onClick={() =>
 									handleHotGameClick(
 										{
