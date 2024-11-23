@@ -30,18 +30,18 @@ const LiveCasinoGames = () => {
 
 	const { modal } = useGlobalModal()
 
-	const hotGameCasino = hotGameData.filter(element => {
+	const liveCasinoGames = hotGameData.filter(element => {
 		return element.tpCategory === TpCategory.LiveCasino
 	})
 
-	if (hotGameCasino?.length === 0 && jackpot?.length === 0) return null
+	if (liveCasinoGames?.length === 0 && jackpot?.length === 0) return null
 
 	const gameTypeEmblaOptions: EmblaOptionsType = { slidesToScroll: 'auto' }
 
-	console.log('-----------hotGameCasino', hotGameCasino)
+	console.log('-----------LiveCasinoGames', liveCasinoGames)
 	return (
 		<GameGroup className='content-container live-casino'>
-			{hotGameCasino.length > 0 && (
+			{liveCasinoGames.length > 0 && (
 				<>
 					<GroupTitle>
 						{t('Label_General_CasinoWithLive').toUpperCase()}
@@ -57,7 +57,7 @@ const LiveCasinoGames = () => {
 							isControlButton
 							extraClassName='two-rows'
 						>
-							{hotGameCasino.map(game => {
+							{liveCasinoGames.map(game => {
 								const { gameLogo, gameName, gameId, tpName } = game
 								const gameItem = {
 									gameId,

@@ -19,7 +19,8 @@ const LiveCasino = dynamic(() => import('./liveCasinoGames'))
 
 const HotGame = dynamic(() => import('./HotGame'), { ssr: false })
 
-const HotGameSport = dynamic(() => import('./HotGameSport'), { ssr: false })
+const HotGameSport = dynamic(() => import('./sportGames'), { ssr: false })
+
 const HotGameSlot = dynamic(() => import('./slotGames'), {
 	ssr: false,
 })

@@ -51,7 +51,7 @@ const HotGameSlot = () => {
 		}
 	}
 
-	console.log('-----------hotGameCasino', hotGameCasino)
+	console.log('-----------HotGameSlot', hotGameCasino)
 
 	return (
 		<GameGroup className='content-container slot'>
