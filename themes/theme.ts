@@ -129,6 +129,9 @@ export const theme = {
 		gameIconBgHover: 'rgba(0, 0, 0, 0.5)',
 		gameIconLoadingColor: '#fff',
 		gameIconProviderNameColor: '#fff',
+		gameIconMaintainBg:
+			'linear-gradient(180deg, rgba(35, 43, 79, 0.00) 0%, rgba(35, 43, 79, 0.70) 25.5%, rgba(35, 43, 79, 0.70) 75%, rgba(35, 43, 79, 0.00) 100%)',
+		gameIconMaintainColor: '#fff',
 
 		buttonSloganBg: '#EA6118',
 		registerBodyBg: '#182043',

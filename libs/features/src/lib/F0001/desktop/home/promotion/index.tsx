@@ -1,11 +1,12 @@
-import { useTranslation } from 'next-i18next'
-import { paths } from '@nx-next-app/constants'
-import { isUrl } from '@nx-next-app/utils'
-import { useHome } from '@nx-next-app/features/F0001/providers'
-import { toUpper } from 'lodash-es'
-import { useEffect, useMemo, useState } from 'react'
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
+import { paths } from "@nx-next-app/constants";
+import { PromotionContainer } from "@nx-next-app/features/F0001/desktop/home/promotion/styles";
+import { GameGroup, GroupTitle } from "@nx-next-app/features/F0001/desktop/home/styles";
+import { useHome } from "@nx-next-app/features/F0001/providers";
+import { isUrl } from "@nx-next-app/utils";
+import { useTranslation } from "next-i18next";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -31,14 +32,14 @@ const PromotionSwiper = () => {
 		},
 		renderPrevButton: () => (
 			<div
-				style={{ opacity: showNavigation ? 1 : 0.2 }}
-				className='swiper-button-prev'
+				style={{ opacity: showNavigation ? 1 : 0.7 }}
+				className='swiper-button-prev icon icon-chevron_left'
 			/>
 		),
 		renderNextButton: () => (
 			<div
-				style={{ opacity: showNavigation ? 1 : 0.2 }}
-				className='swiper-button-next'
+				style={{ opacity: showNavigation ? 1 : 0.7 }}
+				className='swiper-button-next icon icon-chevron_right'
 			/>
 		),
 	}
@@ -49,16 +50,18 @@ const PromotionSwiper = () => {
 	}, [memoPromotionData])
 
 	return (
-		<>
-			<div className='maintitle'>
+		<GameGroup className='content-container'>
+			<GroupTitle>
 				{t('Label_General_Promotion')}
 				<Link href={paths.promotion.root} passHref>
-					<a>{toUpper(t('Label_General_More') || '')}</a>
+					<a className='load-more'>
+						All
+						<span className='icon icon-arrow-right-line' />
+					</a>
 				</Link>
-			</div>
+			</GroupTitle>
 			{promotionData?.length > 0 && (
-				<div
-					className='promosswiper'
+				<PromotionContainer
 					onMouseOver={() => setShowNavigation(true)}
 					onMouseOut={() => setShowNavigation(false)}
 					onFocus={() => 0}
@@ -77,9 +80,9 @@ const PromotionSwiper = () => {
 							)
 						)}
 					</DynamicSwiper>
-				</div>
+				</PromotionContainer>
 			)}
-		</>
+		</GameGroup>
 	)
 }
 

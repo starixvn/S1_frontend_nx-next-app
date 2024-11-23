@@ -44,7 +44,7 @@ const RecentlyViewGames = dynamic(() => import('./RecentlyViewGames'), {
 	ssr: false,
 })
 
-const PromotionSwiper = dynamic(() => import('./PromotionSwiper'))
+const PromotionSwiper = dynamic(() => import('./promotion'))
 
 const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
 

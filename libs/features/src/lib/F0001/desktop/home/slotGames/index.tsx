@@ -37,16 +37,22 @@ const HotGameSlot = () => {
 	if (hotGameCasino?.length === 0 && jackpot?.length === 0) return null
 
 	const gameTypeEmblaOptions: EmblaOptionsType = { slidesToScroll: 'auto' }
+	let largeGame: any
+	let largeGameItem: any
 
-	const largeGame: any = hotGameCasino.shift()
-	const largeGameItem = {
-		gameId: largeGame.gameId,
-		imageUrl: largeGame.gameLogo,
-		isMaintain: false,
-		tpName: largeGame.tpName,
-		gameName: largeGame.gameName,
+	if (hotGameCasino.length > 0) {
+		largeGame = hotGameCasino.shift()
+		largeGameItem = {
+			gameId: largeGame.gameId,
+			imageUrl: largeGame.gameLogo,
+			isMaintain: false,
+			tpName: largeGame.tpName,
+			gameName: largeGame.gameName,
+		}
 	}
+
 	console.log('-----------hotGameCasino', hotGameCasino)
+
 	return (
 		<GameGroup className='content-container slot'>
 			{hotGameCasino.length > 0 && (
