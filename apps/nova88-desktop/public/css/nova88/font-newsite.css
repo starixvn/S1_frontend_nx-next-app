@@ -26,6 +26,34 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-user-unfollow-fill:before {
+  content: "\e93b";
+  color: #fff;
+}
+.icon-star-fill:before {
+  content: "\e93c";
+  color: #fff;
+}
+.icon-share-forward-fill:before {
+  content: "\e93d";
+  color: #fff;
+}
+.icon-notification-active:before {
+  content: "\e93e";
+  color: #fff;
+}
+.icon-bookmark-fill:before {
+  content: "\e93f";
+  color: #fff;
+}
+.icon-add-fill:before {
+  content: "\e940";
+  color: #fff;
+}
+.icon-bank-online:before {
+  content: "\e941";
+  color: #fff;
+}
 .icon-help-circle:before {
   content: "\e93a";
   color: #717fba;

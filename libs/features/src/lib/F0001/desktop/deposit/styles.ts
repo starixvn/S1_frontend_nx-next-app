@@ -100,6 +100,20 @@ export const WrapperDeposit = styled.div`
 								font-size: 2rem;
 							}
 						}
+						.icon-connection {
+							&:before {
+								content: '\\e941';
+								color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+								font-size: 2.4rem;
+							}
+						}
+						.icon-mobile {
+							&:before {
+								content: '\\e931';
+								color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+								font-size: 2.4rem;
+							}
+						}
 						.icon-check {
 							display: none;
 						}
