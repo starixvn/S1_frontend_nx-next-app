@@ -37,8 +37,8 @@ const GameList = () => {
 						const resultGameImgDisplayText = vendorList.find(
 							({ tpId: vendorTpId }) => vendorTpId === tpId
 						)?.gameImgDisplayText
-						const resultImgName = imgName[langId] ?? imgName['en']
-						const resultImgUrl = `${imgUrl}/${resultGameImgDisplayText}/${resultImgName}`
+						const resultImgName = imgName[langId] ?? imgName['-en']
+						const resultImgUrl = `${imgUrl}/${resultGameImgDisplayText}/${resultImgName}@2x.webp`
 						const resultGameName = gameName[langId] ?? gameName['en']
 
 						return (
