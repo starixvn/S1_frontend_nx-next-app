@@ -8,8 +8,6 @@ export enum DesktopHomeComponentsEnum {
 	PromotionSwiper = 'PromotionSwiper',
 	// 歡迎資訊
 	WelcomeInfo = 'WelcomeInfo',
-	// HotMatch
-	HotMatch = 'HotMatch',
 	// LiveCasino
 	LiveCasino = 'LiveCasino',
 	// HotGame

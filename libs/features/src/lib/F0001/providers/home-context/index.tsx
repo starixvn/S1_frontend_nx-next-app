@@ -183,7 +183,6 @@ const defaultDesktopHomeOrders = [
 	DesktopHomeComponentsEnum.CarouselBanner,
 	DesktopHomeComponentsEnum.WelcomeInfo,
 	DesktopHomeComponentsEnum.PromotionSwiper,
-	DesktopHomeComponentsEnum.HotMatch,
 	DesktopHomeComponentsEnum.LiveCasino,
 	DesktopHomeComponentsEnum.HotGame,
 	DesktopHomeComponentsEnum.HotGameSport,
