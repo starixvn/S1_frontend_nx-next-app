@@ -116,13 +116,31 @@ const Address = () => {
 					<div className='address-list'>
 						{addressCountry ? (
 							<>
-								<div>{addressLineFirst}</div>
-								{addressLineSecond && <div>{addressLineSecond}</div>}
-								<div>
-									{addressCity}, {addressPostCode}
+								<div className='group-control'>
+									<div className='label-name'>{t('Label_Profile_Address')}</div>
+									<div className='group-input'>
+										{addressLineFirst} ,{' '}
+										{addressLineSecond && addressLineSecond}
+									</div>
 								</div>
-								<div>
-									{addressState}, {addressCountry}
+
+								<div className='group-control'>
+									<div className='label-name'>{t('Label_Profile_City')}</div>
+									<div className='group-input'>{addressCity}</div>
+								</div>
+								<div className='group-control'>
+									<div className='label-name'>
+										{t('Label_Profile_PostCode')}
+									</div>
+									<div className='group-input'>{addressPostCode}</div>
+								</div>
+								<div className='group-control'>
+									<div className='label-name'>{t('Label_Profile_State')}</div>
+									<div className='group-input'>{addressState}</div>
+								</div>
+								<div className='group-control'>
+									<div className='label-name'>{t('Label_Profile_Country')}</div>
+									<div className='group-input'> {addressCountry}</div>
 								</div>
 							</>
 						) : (

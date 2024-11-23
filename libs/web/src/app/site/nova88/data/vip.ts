@@ -1,5 +1,10 @@
-import { DeviceTypeEnum, IBannerByCurrencyData, IImageData, VipLevelEnum } from "@nx-next-app/types";
-import * as process from "process";
+import {
+	DeviceTypeEnum,
+	IBannerByCurrencyData,
+	IImageData,
+	VipLevelEnum,
+} from '@nx-next-app/types'
+import * as process from 'process'
 
 const deviceType = Number(process.env['NEXT_PUBLIC_DEVICE_TYPE'])
 
@@ -91,7 +96,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip1.png`,
+		}/img/new-ui/vip-vintage.webp`,
 		displayKey: 'Label_Vip_Vintage_Club',
 		settingDisplayKey: 'Label_VIP_Vintage',
 		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/vip-vintage.webp`,
@@ -102,7 +107,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip2.png`,
+		}/img/new-ui/vip-silver.webp`,
 		displayKey: 'Label_Vip_Silver_Club',
 		settingDisplayKey: 'Label_VIP_Silver',
 		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/vip-silver.webp`,
@@ -113,7 +118,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip3.png`,
+		}/img/new-ui/vip-gold.webp`,
 		displayKey: 'Label_Vip_Gold_Club',
 		settingDisplayKey: 'Label_VIP_Gold',
 		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/vip-gold.webp`,
@@ -124,7 +129,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip4.png`,
+		}/img/new-ui/vip-titanium.webp`,
 		displayKey: 'Label_Vip_Titanium_Club',
 		settingDisplayKey: 'Label_VIP_Titanium',
 		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/vip-titanium.webp`,
@@ -135,7 +140,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip5.png`,
+		}/img/new-ui/vip-diamond.webp`,
 		displayKey: 'Label_Vip_Diamond_Club',
 		settingDisplayKey: 'Label_VIP_Diamond',
 		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/vip-diamond.webp`,
@@ -146,7 +151,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 	{
 		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-		}/img/vip6.png`,
+		}/img/new-ui/vip-nova.webp`,
 		displayKey: 'Label_Vip_Infinity_Club',
 		settingDisplayKey: 'Label_VIP_Infinity',
 		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/vip-nova.webp`,
