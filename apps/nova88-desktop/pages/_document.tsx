@@ -71,6 +71,13 @@ class MyDocument extends Document<CustomDocumentProps> {
 						/>
 					)}
 
+					{process.env['NEXT_PUBLIC_SITE_NAME'] !== '' && (
+						<link
+							rel='stylesheet'
+							href={`/css/${process.env['NEXT_PUBLIC_SITE_NAME']}/embla.css`}
+						/>
+					)}
+
 					{process.env['NEXT_PUBLIC_ENV'] === 'PRD' && (
 						<>
 							{/* Yuri Track , 市場廣告商使用的追蹤碼 */}

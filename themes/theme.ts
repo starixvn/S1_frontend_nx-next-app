@@ -113,6 +113,18 @@ export const theme = {
 		welcomeReferralBtnBg: '#741a99',
 		welcomeReferralBtnColor: '#e6aaff',
 
+		homePageTitleColor: '#fff',
+		homePageLoadMoreColor: '#717FBA',
+		homePageLoadMoreColorHover: '#fff',
+
+		carouselBtnBg: '#374375',
+		carouselBtnBorder: '#0f1428',
+		carouselBtnColor: '#fff',
+		carouselBtnBgHover: '#374375',
+		carouselBtnBorderHover: '#0f1428',
+		carouselBtnColorHover: '#fff',
+		carouselBtnColorDisabled: '#717fba',
+
 		buttonSloganBg: '#EA6118',
 		registerBodyBg: '#182043',
 

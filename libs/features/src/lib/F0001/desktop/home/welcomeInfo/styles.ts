@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const WelcomeInfoContainer = styled.div`
-	width: ${({ theme }) => theme.desktop.contentWidth};
-	margin: 2rem auto 0;
 	display: flex;
 	justify-content: space-between;
+	margin-top: 2rem;
+	padding-bottom: 4rem;
 
 	.welcomeinfo-content {
 		position: relative;

@@ -5,12 +5,14 @@ export const GameIconContainer = styled.div<{ isMaintain: boolean }>`
 	border-radius: 2rem;
 	cursor: ${({ isMaintain }) => (isMaintain ? 'none' : 'pointer')};
 	overflow: hidden;
-	--game-icon-width: 14rem;
-	--game-icon-height: 18.9rem;
+
+	.img-wrapper {
+		height: 100%;
+	}
 
 	.img {
-		width: var(--game-icon-width);
-		height: var(--game-icon-height);
+		width: 100%;
+		height: 100%;
 	}
 
 	.btn-play {

@@ -49,3 +49,31 @@ export const HomePage = styled.div`
 		}
 	}
 `
+
+export const GroupTitle = styled.div`
+	display: flex;
+	justify-content: space-between;
+	color: ${({ theme }) => theme.desktop.homePageTitleColor};
+	font-size: 3.3rem;
+	font-weight: 700;
+
+	.load-more {
+		display: flex;
+		align-items: center;
+		margin-right: 9rem;
+		color: ${({ theme }) => theme.desktop.homePageLoadMoreColor};
+		font-size: 1.7rem;
+		font-weight: 600;
+
+		.icon:before {
+			position: relative;
+			top: -2px;
+			color: ${({ theme }) => theme.desktop.homePageLoadMoreColor};
+		}
+
+		&:hover,
+		&:hover .icon:before {
+			color: ${({ theme }) => theme.desktop.homePageLoadMoreColorHover};
+		}
+	}
+`

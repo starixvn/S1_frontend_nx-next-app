@@ -38,7 +38,7 @@ const WelcomeInfo = () => {
 	}
 
 	return (
-		<WelcomeInfoContainer>
+		<WelcomeInfoContainer className='content-container'>
 			<div className='welcomeinfo-content join'>
 				{isLogin ? (
 					<>

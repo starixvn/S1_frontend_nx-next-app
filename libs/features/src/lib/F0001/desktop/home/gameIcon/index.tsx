@@ -5,7 +5,7 @@ import { FC } from "react";
 interface IGameItem {
 	gameId: string
 	gameName?: string
-	gameLogo: string
+	imageUrl: string
 	isMaintain: boolean
 	tpId?: number
 	tpName?: string
@@ -17,15 +17,13 @@ interface IGameIcon {
 }
 
 const GameIcon: FC<IGameIcon> = ({ gameItem, onClick }) => {
-	const { gameId, gameLogo, gameName, isMaintain, tpId, tpName } = gameItem
+	const { gameId, imageUrl, gameName, isMaintain, tpName } = gameItem
 	const { t } = useTranslation()
 
 	return (
 		<GameIconContainer
+			className='game-icon'
 			isMaintain={isMaintain}
-			style={{
-				pointerEvents: isMaintain ? 'none' : 'auto',
-			}}
 			key={`casino-game-${gameId}`}
 		>
 			{isMaintain && (
@@ -33,7 +31,7 @@ const GameIcon: FC<IGameIcon> = ({ gameItem, onClick }) => {
 			)}
 
 			<div className='img-wrapper'>
-				<img className='img' src={gameLogo} alt={gameName} />
+				<img className='img' src={imageUrl} alt={gameName} />
 
 				<button className='button btn-primary btn-play' onClick={onClick}>
 					{t('Label_Play')}

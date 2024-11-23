@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
-import { theme } from './theme'
+import { theme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
@@ -113,8 +113,26 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 1.4rem;
   }
 
+  #__next {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
   .main-content {
     min-width: ${({ theme }) => theme.desktop.contentWidth};
+  }
+
+  .content-container {
+    width:${({ theme }) => theme.desktop.contentWidth};
+    margin-left: auto;
+    margin-right: auto;
   }
 
   #popup {
@@ -447,7 +465,7 @@ export const GlobalStyles = createGlobalStyle`
         display : block;
       }
     }
-    
+
   }
 
   .dropdown {
