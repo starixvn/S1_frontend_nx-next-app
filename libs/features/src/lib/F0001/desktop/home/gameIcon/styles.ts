@@ -15,13 +15,8 @@ export const GameIconContainer = styled.div<{ isMaintain: boolean }>`
 			top: 50%;
 			transform: translateY(-50%);
 			padding: 27px 8px;
-			background: linear-gradient(
-				180deg,
-				rgba(35, 43, 79, 0) 0%,
-				rgba(35, 43, 79, 0.7) 25.5%,
-				rgba(35, 43, 79, 0.7) 75%,
-				rgba(35, 43, 79, 0) 100%
-			);
+			background: ${({ theme }) => theme.desktop.gameIconMaintainBg};
+			color: ${({ theme }) => theme.desktop.gameIconMaintainColor};
 			font-size: 1.4rem;
 			font-weight: 700;
 			text-align: center;
