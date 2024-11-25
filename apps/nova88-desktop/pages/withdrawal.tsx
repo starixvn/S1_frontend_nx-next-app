@@ -6,14 +6,13 @@ import {
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
 
-import { Layout } from '@nx-next-app/features/F0001/desktop'
 import {
 	CryptoWalletProvider,
 	WithdrawalProvider,
 	type IAddBankCardModalProps,
 } from '@nx-next-app/operations'
-
-import { Withdrawal } from '@n88-desktop/components/index'
+// this issue must be fix
+import { Layout, Withdrawal } from '@n88-desktop/components/index'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
