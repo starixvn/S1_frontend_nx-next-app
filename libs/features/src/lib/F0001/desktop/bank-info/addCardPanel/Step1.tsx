@@ -1,6 +1,6 @@
+import { useBankInfo } from '@nx-next-app/features/F0001/providers'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
-import { useBankInfo } from '@nx-next-app/features/F0001/providers'
 
 const Step1 = () => {
 	const { t } = useTranslation()
@@ -22,13 +22,17 @@ const Step1 = () => {
 				>
 					{cardNumber === 3 ? (
 						<>
-							<div className='icon icon-warning' />
-							<div>{t('Label_BankInfo_BankCardsFull')}</div>
+							<div className='icon icon-alert-fill' />
+							<div className='txt-blue'>
+								{t('Label_BankInfo_BankCardsFull')}
+							</div>
 						</>
 					) : (
 						<>
-							<div className='icon icon-plus' />
-							<div>{t('Label_BankInfo_AddBankAccount')}</div>
+							<div className='icon icon-plus-add' />
+							<div className='txt-blue'>
+								{t('Label_BankInfo_AddBankAccount')}
+							</div>
 						</>
 					)}
 				</div>

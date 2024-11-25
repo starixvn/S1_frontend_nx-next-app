@@ -40,10 +40,10 @@ const BankInfoPage = ({
 						footerData={persistFooterData}
 					>
 						<main>
-							<section className='inside'>
+							<div className='wrapper-profile'>
 								<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 								<BankInfo />
-							</section>
+							</div>
 						</main>
 					</Layout>
 				</BankInfoProvider>

@@ -365,6 +365,11 @@ export const GlobalStyles = createGlobalStyle`
         }
         .inside-body{
           padding : 2.4rem 1.6rem;
+          .txt-blue {
+            white-space: nowrap;
+            color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+            font-weight : 400;
+          }
         }
       }
     }
