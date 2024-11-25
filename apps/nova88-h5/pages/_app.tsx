@@ -31,9 +31,9 @@ import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
 import Head from 'next/head'
 import 'react-datepicker/dist/react-datepicker.css'
-import '../styles/css/font.css'
-import '../styles/css/style-dark.css'
-import '../styles/css/style.css'
+import '../styles/css/font.scss'
+import '../styles/css/style-dark.scss'
+import '../styles/css/style.scss'
 import '../styles/css/swiper.css'
 
 dayjs.extend(localizedFormat)
