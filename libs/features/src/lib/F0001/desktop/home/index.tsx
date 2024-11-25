@@ -1,10 +1,10 @@
-import { useAuth, useStaticData } from "@nx-next-app/data-access";
-import { HomePage } from "@nx-next-app/features/F0001/desktop/home/styles";
-import { useHome } from "@nx-next-app/features/F0001/providers";
-import { DesktopHomeComponentsEnum } from "@nx-next-app/features/F0001/types";
-import { includes } from "lodash-es";
-import dynamic from "next/dynamic";
-import { Fragment, useCallback } from "react";
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { HomePage } from '@nx-next-app/features/F0001/desktop/home/styles'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { DesktopHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
+import { includes } from 'lodash-es'
+import dynamic from 'next/dynamic'
+import { Fragment, useCallback } from 'react'
 
 // Page Components
 const ProvidersBlock = dynamic(() => import('./ProvidersBlock'), { ssr: false })
@@ -16,6 +16,8 @@ const CarouselBanner = dynamic(() => import('../common/carouselBanner'))
 const LiveCasino = dynamic(() => import('./liveCasinoGames'))
 
 const HotGame = dynamic(() => import('./HotGame'), { ssr: false })
+
+const TableGames = dynamic(() => import('./tableGames'), { ssr: false })
 
 const HotGameSport = dynamic(() => import('./sportGames'), { ssr: false })
 
@@ -90,7 +92,7 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.Announcement]: <Announcement />,
 		[DesktopHomeComponentsEnum.PromotionSwiper]: <PromotionSwiper />,
 		[DesktopHomeComponentsEnum.WelcomeInfo]: <WelcomeInfo />,
-
+		[DesktopHomeComponentsEnum.TableGames]: <TableGames />,
 		[DesktopHomeComponentsEnum.LiveCasino]: <LiveCasino />,
 		[DesktopHomeComponentsEnum.HotGame]: <HotGame />,
 		[DesktopHomeComponentsEnum.HotGameSport]: <HotGameSport />,

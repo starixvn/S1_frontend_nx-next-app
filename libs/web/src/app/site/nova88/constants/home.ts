@@ -10,6 +10,7 @@ export const DESKTOP_HOME_ORDERS = [
 	DesktopHomeComponentsEnum.SlotGames,
 	DesktopHomeComponentsEnum.LiveCasino,
 	DesktopHomeComponentsEnum.PromotionSwiper,
+	DesktopHomeComponentsEnum.TableGames,
 	DesktopHomeComponentsEnum.HotGameSport,
 	// DesktopHomeComponentsEnum.HotGame,
 	// DesktopHomeComponentsEnum.HotGameLiveCasino,
