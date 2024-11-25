@@ -1,9 +1,12 @@
-import { Loading, NoGameIconWrapper, SpinnerBox } from "@nx-next-app/features/F0001/desktop/home/gameIcon/styles";
+import {
+	NoGameIconWrapper,
+	SpinnerBox,
+} from '@nx-next-app/features/F0001/desktop/home/gameIcon/styles'
 
 export const NoGameIcon: React.FC = () => {
 	return (
 		<NoGameIconWrapper>
-			<span className='icon icon-file-text-fill' />
+			<span className='icon icon-no-image' />
 		</NoGameIconWrapper>
 	)
 }
@@ -11,7 +14,7 @@ export const NoGameIcon: React.FC = () => {
 export const LoadingIcon: React.FC = () => {
 	return (
 		<SpinnerBox>
-			<Loading />
+			<span className='icon icon-loading' />
 		</SpinnerBox>
 	)
 }
