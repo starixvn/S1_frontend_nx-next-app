@@ -1,0 +1,158 @@
+@import "color-group.scss";
+@import "font.scss";
+html.dark{
+  body{
+    background:$lightBlack;
+  }
+  header {
+    background: $dark;
+    .Join,.Login{
+        color: white;
+        background: rgba($dark, 0.95);
+    }
+  }
+  main {
+    .swiper-container{
+      background:black;
+    }
+    #Marquee {
+      background: black;
+      button{
+        color: white;
+        font-size: 3vw;
+      }
+      .icon {
+        color: white;
+        background: black;
+      }
+    }
+    .sideBar{
+      background: $dark;
+      a{
+        border-bottom: 1px solid black;
+      }
+    }
+    .thBar {
+      background: $dark;
+      a {
+        color: $orange;
+        border-right: 1px solid $lightBlack;
+        &.icon {
+          &:before{
+            color: white;
+          }
+        }
+      }
+    }
+    .gameList {
+      background: $lightBlack;
+      a {
+        &.active{
+          box-shadow: 1px 2px 4px 0px $dark;
+        }
+      }
+    }
+  }
+  footer {
+    background: $lightBlack;
+    a {
+      border-right: 1px solid $dark;
+      border-bottom: 2px solid $dark;
+      .circleAnimation,span {
+        color: #6f6f6f;
+      }
+      &.active {
+        border-bottom: 2px solid $orange;
+        .circleAnimation {
+          background: url(../img/footerActiveDark.svg) no-repeat top center/100%;
+          + span {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  //dropdown
+  .dropdown{
+    +.dropdown-container{
+      background: $dark;
+    }
+  }
+  //popup
+  #popup{
+    background: rgba($dark, 0.95);
+  }
+  //header
+  .header {
+    background: $dark;
+  }
+  //tag
+  .tag{
+    background: $dark;
+  }
+  //main
+  .main:not(.event){
+    background: $dark;
+  }
+  .bankSlip{
+    background: rgba(black,.95);
+  }
+  .buttonBox{
+    button{
+      border: 1px solid $lightBlack;
+      box-shadow: 0px 3px #000;
+      background: $dark;
+    }
+  }
+  .functionList{
+    background: $dark;
+  }
+  #Loading{
+    background: rgba($dark, 0.95);
+  }
+  .logoSwitch{
+    background: rgba($dark, 0.95);
+  }
+  .switchTag div.active,.depositModule{
+    background: $lightBlack;
+  }
+  .selectModule{
+    background: #191919;
+  }
+  .event .eventModule{
+    background: $dark;
+  }
+  .list{
+    background: $dark;
+    ul:first-child li{
+      background: $lightBlack;
+    }
+  }
+  .installGuide section{
+    background: $dark;
+    .downloadModule{
+      border: 1px solid $lightBlack;
+      .guideMark{
+        border-color: rgba($lightBlack, 0.5);
+      }
+    }
+  }
+  .kyc .icon-jump ~ div:nth-child(2){
+    background: $lightBlack;
+  }
+  .accordion > div{
+    div,a{
+      background: $lightBlack;
+      &.mode,&.country{
+        background: black;
+      }
+    }
+    .title{
+      background: $lightgray;
+      color: white;
+    }
+  }
+  .ranking .userRankInfo{
+    background: $lightBlack;
+  }
+}
