@@ -28,6 +28,7 @@ import { TmpCookiesObj } from 'cookies-next/lib/types'
 import { isNumber } from 'lodash'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -39,6 +40,12 @@ interface IJoinProps {
 	cookies: TmpCookiesObj
 }
 
+const RegionCloseRegisterModal = dynamic(
+	() => import('../../../modal/RegionCloseRegisterModal'),
+	{
+		ssr: false,
+	}
+)
 const Join = ({ cookies }: IJoinProps) => {
 	const { t } = useTranslation()
 	const router = useRouter()
@@ -307,6 +314,12 @@ const Join = ({ cookies }: IJoinProps) => {
 	useEffect(() => {
 		checkLineRegister()
 	}, [siteCurrencyList])
+
+	useEffect(() => {
+		if (initNationality === 'China') {
+			modal.open(<RegionCloseRegisterModal />)
+		}
+	}, [initNationality])
 
 	return (
 		<>
