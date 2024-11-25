@@ -700,6 +700,22 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
   }
+  .checkbox{
+    label {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    input[type=checkbox]{
+      display : none;
+    }
+    input[type=checkbox]:checked + label.icon:before{
+      display : block;
+      content : '\\e91c'
+    }
+  }
 
   .flag:before {
     content: '';

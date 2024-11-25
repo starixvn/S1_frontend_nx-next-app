@@ -1746,33 +1746,7 @@ main .promosswiper .swiper-button-prev::after {
 	color: #284985;
 }
 
-.checkbox input[type='checkbox'] {
-	display: none;
-}
-.checkbox input[type='checkbox'] + label {
-	border: 1px solid #5574a7;
-	border-radius: 100%;
-	width: 10px;
-	height: 10px;
-	background: transparent;
-	display: block;
-	cursor: pointer;
-}
-.checkbox input[type='checkbox']:checked + label {
-	background: #f77900;
-}
-.checkbox label.icon:before {
-	display: none;
-	font-size: 17px;
-	margin-left: -1px;
-	margin-top: -1px;
-}
-.checkbox input[type='checkbox']:checked + label.icon {
-	background: transparent;
-}
-.checkbox input[type='checkbox']:checked + label.icon.icon:before {
-	display: block;
-}
+
 
 .tip.txt-red {
 	color: #cf0404;

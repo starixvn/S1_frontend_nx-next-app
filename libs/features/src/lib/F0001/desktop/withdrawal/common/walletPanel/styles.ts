@@ -8,7 +8,7 @@ export const WrapperCardAddBank = styled.div`
 			min-width: 18.2rem;
 			border: 1px solid ${({ theme }) => theme.desktop.rightModuleBorderColor};
 			border-radius: 10px;
-			padding: 0.8rem;
+			padding: 0.6rem;
 			overflow: hidden;
 			&:hover,
 			&.active {
@@ -102,16 +102,6 @@ export const WrapperCardAddBank = styled.div`
 							color: ${({ theme }) => theme.desktop.labelColor};
 							margin: 0;
 							font-size: 2rem;
-						}
-					}
-					.checkbox {
-						input[type='checkbox'] {
-							display: none;
-						}
-						.icon {
-							&:before {
-								cursor: pointer;
-							}
 						}
 					}
 				}

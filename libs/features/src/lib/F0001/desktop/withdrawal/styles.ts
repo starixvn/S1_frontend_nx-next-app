@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const WrapperWithdrawl = styled.div`
+	.infoModuleLeft {
+		width: 100%;
+	}
 	.inside-title {
 		justify-content: space-between;
 		.group-icon-title {
