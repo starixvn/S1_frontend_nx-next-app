@@ -33,13 +33,10 @@ const Step3 = () => {
 
 	return (
 		<>
-			<div className='platformName'>
-				<div className='icon icon-arrow-right2' />
-				<div>
-					<div>{t('Label_BankInfo_EnterAccountNumber')}</div>
-				</div>
-				<button className='icon icon-arrow-left2' onClick={() => setStep(2)} />
-			</div>
+			<button
+				className='icon icon-arrow-left-line'
+				onClick={() => setStep(2)}
+			/>
 			<div className='subModuleList'>
 				<div className='subModule'>
 					{/* 設計稿裡原本就有的 form，直接使用 */}
