@@ -50,6 +50,7 @@ interface IHomeProviderProps {
 	persistHotEventData: IHotEventData[]
 	persistHotGameData: IHotGame[]
 	persistNewGameData: IHotGame[]
+	persistProviderData: IHotGame[]
 	// For H5
 	persistLicenseData: IFooterData['licenseData']
 	persistQuickLinksList: IFooterData['quickLinks']
@@ -71,6 +72,7 @@ export interface HomeContextInterface {
 	hotEventData: IHotEventData[] | null
 	hotGameData: IHotGame[]
 	newGameData: IHotGame[]
+	providerData: IHotGame[]
 	socialChannelList: ISocialChannelData[]
 	footerSocialChannelList: ISocialChannelData[]
 	slotGameData?: ISlotsGameData
@@ -216,6 +218,7 @@ export const HomeProvider = ({
 	persistHotEventData,
 	persistHotGameData,
 	persistNewGameData,
+	persistProviderData,
 	persistLicenseData,
 	desktopHomeOrders = defaultDesktopHomeOrders,
 	mobileHomeOrders = defaultMobileHomeOrders,
@@ -635,6 +638,7 @@ export const HomeProvider = ({
 		bannerData: persistBannerData,
 		hotGameData: persistHotGameData,
 		newGameData: persistNewGameData,
+    providerData: persistProviderData,
 		referralData,
 		affiliateData,
 		handlePromotionClick,

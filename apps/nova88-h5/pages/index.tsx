@@ -41,6 +41,7 @@ interface IHomePageProps extends InitialPropsInterface {
 	persistHotEventData: IHotEventData[]
 	persistHotGameData: IHotGame[]
 	persistNewGameData: IHotGame[]
+	persistProviderData: IHotGame[]
 	persistFooterData: IFooterData
 }
 
@@ -53,6 +54,7 @@ const HomePage = ({
 	persistHotEventData,
 	persistHotGameData,
 	persistNewGameData,
+	persistProviderData,
 	persistFooterData,
 	persistStaticFileDomainData,
 }: IHomePageProps) => {
@@ -68,6 +70,7 @@ const HomePage = ({
 						persistHotEventData={persistHotEventData}
 						persistHotGameData={persistHotGameData}
 						persistNewGameData={persistNewGameData}
+						persistProviderData={persistProviderData}
 						persistLicenseData={persistFooterData.licenseData}
 						persistQuickLinksList={persistFooterData.quickLinks}
 						persistPlatformList={persistFooterData.platformList}
@@ -93,7 +96,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		persistBannerData,
 		rawPromotionData,
 		persistHotEventData,
-		hotGameData,
+		hotGameData
 	] = await Promise.all([
 		getBanner(
 			{
@@ -122,11 +125,12 @@ export const getServerSideProps: GetServerSideProps = async context => {
 				TpCategory.ESports,
 			].toString(),
 			currencyId,
-		}),
+		})
 	])
 
 	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
 	const { NewGame: persistNewGameData = [] } = hotGameData ?? {}
+	const { Provider: persistProviderGameData = [] } = hotGameData ?? {}
 
 	const persistPromotionData = filter(
 		rawPromotionData,
@@ -142,6 +146,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			persistHotEventData,
 			persistHotGameData,
 			persistNewGameData,
+      persistProviderGameData,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),

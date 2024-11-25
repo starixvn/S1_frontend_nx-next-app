@@ -2,7 +2,7 @@ import {
 	baseAxios,
 	hotGameApiUrl,
 	IGetHotGameListArgs,
-	IHotGameData,
+	IHotGameData
 } from '@nx-next-app/service'
 
 export const getHotGame = async ({

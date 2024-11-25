@@ -24,7 +24,7 @@ const UnderMaintenanceModal = dynamic(
 
 const HotGameSlot = () => {
 	const { t } = useTranslation()
-	const { hotGameData, slotGameData, handleHotGameClick, handleSlotGamePlay } =
+	const { hotGameData, providerData, slotGameData, handleHotGameClick, handleSlotGamePlay } =
 		useHome()
 	const { jackpot = [] } = slotGameData ?? {}
 

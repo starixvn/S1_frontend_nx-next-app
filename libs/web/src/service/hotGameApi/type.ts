@@ -15,11 +15,13 @@ export type IHotGame = {
 	tpId: number
 	tpLogo: string
 	tpName: string
+  tpNameKey: string
 }
 
 export interface IHotGameData {
 	HotGame: IHotGame[]
 	NewGame: IHotGame[]
+	Provider: IHotGame[]
 	Progressive: IHotGame[]
 	TopCasino: IHotGame[]
 }
