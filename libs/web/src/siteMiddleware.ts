@@ -114,10 +114,10 @@ export const siteMiddleware = async ({ request, config }: ISiteMiddleware) => {
 	const invalidLang = hasLangId && !langList.includes(String(cookieLang))
 	const invalidCurrency =
 		hasCurrencyId && !currencyList.includes(Number(cookieCurrencyId))
-	if (invalidLang || invalidCurrency) {
-		response.cookies.set(ENV_COOKIE_NAMES.LangId, defaultLocale)
-		response.cookies.set(ENV_COOKIE_NAMES.CurrencyId, String(defaultCurrency))
-	}
+	// if (invalidLang || invalidCurrency) {
+	// 	response.cookies.set(ENV_COOKIE_NAMES.LangId, defaultLocale)
+	// 	response.cookies.set(ENV_COOKIE_NAMES.CurrencyId, String(defaultCurrency))
+	// }
 
 	// * 有指定語系，且與 cookie 不相符，將 cookie 替換至該語系
 	if (locale !== 'default' && locale !== String(cookieLang)) {
