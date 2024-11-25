@@ -39,10 +39,10 @@ const ChangePasswordPage = ({
 			>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<main>
-						<section className='inside'>
+						<div className='wrapper-profile'>
 							<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 							<ChangePassword />
-						</section>
+						</div>
 					</main>
 				</Layout>
 			</GlobalDataProvider>

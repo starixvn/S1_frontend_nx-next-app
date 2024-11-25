@@ -1,3 +1,4 @@
+import { WrapperChangePassWord } from '@nx-next-app/features/F0001/desktop/change-password/styles'
 import { useChangePasswordFetcher } from '@nx-next-app/hooks'
 import { useTranslation } from 'next-i18next'
 import { ChangePasswordForm } from './ChangePasswordForm'
@@ -10,19 +11,23 @@ const ChangePassword = () => {
 
 	return (
 		<div className='rightModule'>
-			<div className='infoModule'>
-				<div className='inside-title'>
-					<span className='icon icon-icon32px_password'>
-						{t('Label_General_ChangePassword')}
-					</span>
-					<div>{t('Label_ChangePassword_ChangePasswordHint')}</div>
+			<WrapperChangePassWord>
+				<div className='infoModule'>
+					<div className='inside-title'>
+						<div className='group-icon-title'>
+							<i className='icon icon-chat-history-fill' />
+							{t('Label_General_ChangePassword')}
+						</div>
+					</div>
+					<div className='inside-body'>
+						<ChangePasswordForm
+							onSubmit={onSetChangePassword}
+							changePasswordForm={changePasswordForm}
+							isPopup={false}
+						/>
+					</div>
 				</div>
-				<ChangePasswordForm
-					onSubmit={onSetChangePassword}
-					changePasswordForm={changePasswordForm}
-					isPopup={false}
-				/>
-			</div>
+			</WrapperChangePassWord>
 		</div>
 	)
 }

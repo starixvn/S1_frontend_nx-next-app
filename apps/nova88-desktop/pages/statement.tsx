@@ -42,10 +42,10 @@ const StatementPage = ({
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<StatementProvider QUICK_PICK_LIST={QUICK_PICK_LIST} HEADER_TAGS={[]}>
 						<main>
-							<section className='inside'>
+							<div className='wrapper-profile'>
 								<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 								<Statement />
-							</section>
+							</div>
 						</main>
 					</StatementProvider>
 				</Layout>

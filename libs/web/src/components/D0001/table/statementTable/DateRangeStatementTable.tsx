@@ -1,11 +1,10 @@
-import React from 'react'
-import { ICustTpBetRecordListDateRangeData } from '@nx-next-app/service'
-import { useTranslation } from 'next-i18next'
-import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import { numberFormat, revertTimeZone } from '@nx-next-app/utils'
 import { Table } from '@nx-next-app/components/D0001/table'
 import { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
+import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { ICustTpBetRecordListDateRangeData } from '@nx-next-app/service'
+import { numberFormat, revertTimeZone } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
 
 const DateRangeStatementTable = ({
 	dataSource,
@@ -98,7 +97,9 @@ const DateRangeStatementTable = ({
 		<Table
 			dataSource={dataSource}
 			columns={columns as ITableColumns<ICustTpBetRecordListDateRangeData>[]}
-			mainClassName='statement'
+			mainClassName='statement custom-table'
+			headerClassName='listHeader custom-table-thead'
+			bodyClassName='listBody custom-table-tbody'
 			isShowBodyDivElement={false}
 		/>
 	)

@@ -215,6 +215,8 @@ export const theme = {
 
 		paginationBg: '#717FBA',
 		paginationColor: '#939DC5',
+
+		bradcumbColor: '#939DC5',
 	},
 	mobile: {},
 }

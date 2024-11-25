@@ -1706,7 +1706,6 @@ main .promosswiper .swiper-button-prev::after {
 	color: #f77900;
 }
 
-
 .txt-blue12 {
 	color: #64789b;
 }
@@ -5235,30 +5234,6 @@ main .promosswiper .swiper-button-prev::after {
 }
 
 
-.changePassWord,
-.forgetPassWord {
-	max-width: 855px;
-	margin: 60px auto 60px;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-ms-flex-flow: wrap;
-	flex-flow: wrap;
-	color: #5574a7;
-}
-.changePassWord .lastChange,
-.forgetPassWord .lastChange {
-	width: calc(100% - 5px);
-	padding-left: 5px;
-}
-.changePassWord .lastChange span,
-.forgetPassWord .lastChange span {
-	color: #5574a7;
-	margin-left: 10px;
-}
 
 .forgetPassWord {
 	display: -webkit-box;
@@ -7986,107 +7961,6 @@ button.icon-spinner11:before {
 	font-size: 12px;
 	text-align: center;
 	width: 100%;
-}
-
-nav {
-	padding: 20px 34px 10px;
-}
-nav.breadcrumb {
-	padding: 20px 20px 10px;
-}
-nav.breadcrumb + .quickSelect {
-	margin-bottom: 20px;
-	padding: 0 25px;
-}
-nav.breadcrumb ul {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	padding: 10px 20px;
-	border-radius: 30px;
-	background: #bfcce2;
-	font-size: 13px;
-}
-nav.breadcrumb ul .breadcrumb-item a {
-	color: #f0f7ff;
-	text-transform: capitalize;
-}
-nav.breadcrumb ul .breadcrumb-item + .breadcrumb-item::before {
-	content: '\e95c';
-	margin: 0 5px;
-	color: #5574a7;
-}
-nav.breadcrumb ul .breadcrumb-item.active a {
-	color: #5574a7;
-}
-
-.statement {
-	width: calc(100% - 50px);
-	margin: 0 auto;
-}
-.statement > div {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	background: white;
-}
-.statement > div:nth-child(odd) {
-	background: #e8edf3;
-}
-.statement > div:first-child {
-	background: #5574a7;
-	border-radius: 10px 10px 0 0;
-}
-.statement > div:first-child div {
-	border-color: transparent;
-	color: white;
-	line-height: unset;
-}
-.statement > div:last-child {
-	border-radius: 0 0 10px 10px;
-}
-.statement > div div {
-	border-right: 1px solid #b2b2b2;
-	-webkit-box-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	padding: 5px;
-	text-align: center;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	color: black;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	text-transform: capitalize;
-	min-height: 50px;
-	word-break: break-all;
-	font-size: 13px;
-}
-.statement > div div:last-child {
-	border: 0;
-}
-.statement > div div.btnGroup button,
-.statement > div div.btnGroup a {
-	font: normal bold 13px/1 'Poppins', sans-serif;
-	min-width: auto;
-	max-width: 80px;
-	padding: 8px 5px;
-	margin: 0;
-}
-.statement .total {
-	padding: 10px;
-	color: #5574a7;
-	-webkit-box-pack: end;
-	-ms-flex-pack: end;
-	justify-content: flex-end;
-	font-weight: bold;
 }
 
 .live:before {

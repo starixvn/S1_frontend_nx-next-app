@@ -437,6 +437,9 @@ export const GlobalStyles = createGlobalStyle`
     flex-direction: column;
     gap: 2.4rem;
     justify-content: center;
+    padding-top: 1.6rem;
+		margin-top: 1.6rem;
+		border-top: 1px solid #374375;
     .icon {
       border-radius: 100px;
       border: 6px solid ${({ theme }) => theme.desktop.bgIconNotifiCationColor};
@@ -497,9 +500,10 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .btn-disable {
+    cursor: no-drop;
     background: ${({ theme }) => theme.desktop.disabledBtnBg};
 		box-shadow: ${({ theme }) => theme.desktop.disabledBtnShadow};
-		color: ${({ theme }) => theme.desktop.disabledBtnColor};
+		color: ${({ theme }) => theme.desktop.disabledBtnColor} !important;
   }
 
   .custom-tooltip{
@@ -835,6 +839,62 @@ export const GlobalStyles = createGlobalStyle`
       margin-top: 0;
     }
   }
+
+  nav.breadcrumb ul {
+    display: flex;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: normal;
+    .breadcrumb-item{
+      display: flex;
+      align-items: center;
+      a {
+       color : ${({ theme }) => theme.desktop.bradcumbColor};
+        text-transform: capitalize;
+      }
+    }
+    .breadcrumb-item + .breadcrumb-item::before{
+      content: '\\e923';
+      font-family: 'S1NewIcons';
+      margin: 0 5px;
+      color: ${({ theme }) => theme.desktop.bradcumbColor};
+    }
+  }
+  .quickSelect {
+		display: flex;
+		gap: 1.6rem;
+		align-items: center;
+		margin-top: 1.6rem;
+		.inputBox-blue,
+		.input-spacing {
+			display: flex;
+			margin-top: 0;
+			justify-content: space-between;
+			width: 100%;
+		}
+		.txt-blue {
+			color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+			font-size: 1.4rem;
+			font-weight: 400;
+			line-height: 2rem;
+			white-space: nowrap;
+		}
+		.dropdown {
+			button {
+				color: ${({ theme }) => theme.desktop.white};
+				font-size: 1.4rem;
+			}
+		}
+		.react-datepicker__input-container {
+			input {
+				color: ${({ theme }) => theme.desktop.white};
+			}
+		}
+		.btnGroup {
+			margin-top: 0;
+		}
+	}
+
 
   .flag:before {
     content: '';
