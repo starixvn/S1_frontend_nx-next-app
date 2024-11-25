@@ -135,7 +135,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		})
 	])
 
-	const { Provider: persistHotGameData = [] } = hotGameData ?? {}
+	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
 	const { NewGame: persistNewGameData = [] } = hotGameData ?? {}
 	const { Provider: persistProviderData = [] } = hotGameData ?? {}
 
