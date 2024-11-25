@@ -1,16 +1,19 @@
-import { useGlobalModal } from "@nx-next-app/components/config-provider";
-import { paths } from "@nx-next-app/constants";
-import EmblaCarousel from "@nx-next-app/features/F0001/desktop/common/emblaCarousel";
-import GameIcon from "@nx-next-app/features/F0001/desktop/home/gameIcon";
-import HotEvents from "@nx-next-app/features/F0001/desktop/home/hotMatch";
-import { GameContainer } from "@nx-next-app/features/F0001/desktop/home/liveCasinoGames/styles";
-import { GameGroup, GroupTitle } from "@nx-next-app/features/F0001/desktop/home/styles";
-import { useHome } from "@nx-next-app/features/F0001/providers";
-import { TpCategory } from "@nx-next-app/service";
-import { EmblaOptionsType } from "embla-carousel";
-import { useTranslation } from "next-i18next";
-import dynamic from "next/dynamic";
-import Link from "next/link";
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import EmblaCarousel from '@nx-next-app/features/F0001/desktop/common/emblaCarousel'
+import GameIcon from '@nx-next-app/features/F0001/desktop/home/gameIcon'
+import HotEvents from '@nx-next-app/features/F0001/desktop/home/hotMatch'
+import { GameContainer } from '@nx-next-app/features/F0001/desktop/home/liveCasinoGames/styles'
+import {
+	GameGroup,
+	GroupTitle,
+} from '@nx-next-app/features/F0001/desktop/home/styles'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { TpCategory } from '@nx-next-app/service'
+import { EmblaOptionsType } from 'embla-carousel'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
 
 const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
 	ssr: false,
@@ -38,8 +41,6 @@ const SportGames = () => {
 	if (sportGames?.length === 0 && jackpot?.length === 0) return null
 
 	const gameTypeEmblaOptions: EmblaOptionsType = { slidesToScroll: 'auto' }
-
-	console.log('-----------SportGames', sportGames)
 
 	return (
 		<GameGroup className='content-container live-casino'>

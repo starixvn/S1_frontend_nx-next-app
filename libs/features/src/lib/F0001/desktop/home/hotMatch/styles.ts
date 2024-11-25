@@ -1,13 +1,24 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HotMatchContainer = styled.div`
 	position: relative;
 
+	&:after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 100%;
+		width: 8rem;
+		background: linear-gradient(270deg, #0f1428 0%, rgba(15, 20, 40, 0) 100%);
+		z-index: 2;
+	}
+
 	.swiper-container {
-		width: 1400px;
 		overflow: hidden;
 		position: unset !important;
 	}
+
 	.swiper-slide {
 		display: flex;
 		align-items: center;
