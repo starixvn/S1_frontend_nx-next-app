@@ -179,4 +179,40 @@ export const WrapperCardAddBank = styled.div`
 			color: ${({ theme }) => theme.desktop.labelColor};
 		}
 	}
+	.confirm {
+		font-size: 1.4rem;
+		font-weight: 700;
+		.headingAmount {
+			color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+			text-align: center;
+			margin-bottom: 1.6rem;
+		}
+		.smallList {
+			font-weight: 400;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			ul {
+				display: flex;
+				li {
+					margin-bottom: 1.2rem;
+					&:first-child {
+						min-width: 17rem;
+						color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+					}
+					&:last-child {
+						width: 100%;
+						margin-bottom: 0;
+						min-width: 40rem;
+					}
+				}
+			}
+		}
+		.btnGroup {
+			width: 100%;
+			justify-content: center;
+			max-width: 300px;
+			margin: 25px auto;
+		}
+	}
 `

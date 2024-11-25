@@ -26,6 +26,14 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-chat-history-fill:before {
+  content: "\e942";
+  color: #fff;
+}
+.icon-file-damage-fill:before {
+  content: "\e943";
+  color: #717fba;
+}
 .icon-user-unfollow-fill:before {
   content: "\e93b";
   color: #fff;

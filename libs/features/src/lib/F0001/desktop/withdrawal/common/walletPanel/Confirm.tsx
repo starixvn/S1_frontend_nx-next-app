@@ -37,10 +37,10 @@ const Confirm = () => {
 	} = selectedBankInfo
 
 	return (
-		<div className='subModule'>
+		<div className='subModule confirm'>
 			<div className='subModuleBody column align-items-center'>
 				<span className='title'>{t('Label_General_ImportantNote')}</span>
-				<div className='txt-lightgray'>
+				<div className='headingAmount'>
 					{t('Label_Withdrawal_ConfirmWithdrawal')}
 				</div>
 
