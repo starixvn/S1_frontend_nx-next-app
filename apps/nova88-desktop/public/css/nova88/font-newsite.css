@@ -26,6 +26,10 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-arrow-left-line:before {
+  content: "\e946";
+  color: #fff;
+}
 .icon-loading:before {
 	content: '\e944';
 	color: #fff;
