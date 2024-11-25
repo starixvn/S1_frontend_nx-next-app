@@ -36,7 +36,7 @@ const FinancialHistoryTable = ({
 					{dayjs(createTime)
 						.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 						.format('MM/DD/YYYY')}
-					<span className='txt-gray'>
+					<span className='txt-blue'>
 						{dayjs(createTime)
 							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 							.format('hh:mm:ss A')}
