@@ -1,36 +1,15 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import EmblaCarousel from '@nx-next-app/features/F0001/desktop/common/emblaCarousel'
-import GameIcon from '@nx-next-app/features/F0001/desktop/home/gameIcon'
-import { GameContainer } from '@nx-next-app/features/F0001/desktop/home/liveCasinoGames/styles'
-import {
-	GameGroup,
-	GroupTitle,
-} from '@nx-next-app/features/F0001/desktop/home/styles'
+import GameList from '@nx-next-app/features/F0001/desktop/home/GameList'
+import GroupTitle from '@nx-next-app/features/F0001/desktop/home/GroupTitle'
+import { GameGroup } from '@nx-next-app/features/F0001/desktop/home/styles'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { TpCategory } from '@nx-next-app/service'
-import { EmblaOptionsType } from 'embla-carousel'
 import { useTranslation } from 'next-i18next'
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
-
-const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
-	ssr: false,
-})
-
-const UnderMaintenanceModal = dynamic(
-	() => import('../../modal/UnderMaintainModal'),
-	{
-		ssr: false,
-	}
-)
 
 const LiveCasinoGames = () => {
 	const { t } = useTranslation()
-	const { hotGameData, slotGameData, handleHotGameClick } = useHome()
+	const { hotGameData, slotGameData } = useHome()
 	const { jackpot = [] } = slotGameData ?? {}
-
-	const { modal } = useGlobalModal()
 
 	const liveCasinoGames = hotGameData.filter(element => {
 		return element.tpCategory === TpCategory.LiveCasino
@@ -38,63 +17,21 @@ const LiveCasinoGames = () => {
 
 	if (liveCasinoGames?.length === 0 && jackpot?.length === 0) return null
 
-	const gameTypeEmblaOptions: EmblaOptionsType = { slidesToScroll: 'auto' }
-
 	if (liveCasinoGames.length === 0) {
 		return <div />
 	}
 
 	return (
 		<GameGroup className='content-container others'>
-			{liveCasinoGames.length > 0 && (
-				<>
-					<GroupTitle>
-						{t('Label_General_CasinoWithLive').toUpperCase()}
-						<Link href={paths.slots.root} passHref>
-							<a className='load-more'>
-								All <span className='icon icon-arrow-right-line' />
-							</a>
-						</Link>
-					</GroupTitle>
-					<GameContainer>
-						<EmblaCarousel
-							options={gameTypeEmblaOptions}
-							isControlButton
-							extraClassName='two-rows'
-						>
-							{liveCasinoGames.map(game => {
-								const { gameLogo, gameName, gameId, tpName } = game
-								const gameItem = {
-									gameId,
-									imageUrl: gameLogo,
-									isMaintain: false,
-									tpName,
-									gameName,
-								}
-
-								return (
-									<GameIcon
-										key={gameId}
-										gameItem={gameItem}
-										onClick={() =>
-											handleHotGameClick(
-												{
-													game,
-												},
-												{
-													underMaintenanceCallback: () =>
-														modal.open(<UnderMaintenanceModal />),
-													loginCallback: () => modal.open(<LoginModal />),
-												}
-											)
-										}
-									/>
-								)
-							})}
-						</EmblaCarousel>
-					</GameContainer>
-				</>
-			)}
+			<GroupTitle
+				title={t('Label_General_CasinoWithLive').toUpperCase()}
+				href={paths.liveCasino.root}
+			/>
+			<GameList
+				gameData={liveCasinoGames}
+				isControlButton
+				extraClassName='two-rows'
+			/>
 		</GameGroup>
 	)
 }

@@ -2,17 +2,14 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import EmblaCarousel from '@nx-next-app/features/F0001/desktop/common/emblaCarousel'
 import GameIcon from '@nx-next-app/features/F0001/desktop/home/gameIcon'
+import GroupTitle from '@nx-next-app/features/F0001/desktop/home/GroupTitle'
 import { GameContainer } from '@nx-next-app/features/F0001/desktop/home/slotGames/styles'
-import {
-	GameGroup,
-	GroupTitle,
-} from '@nx-next-app/features/F0001/desktop/home/styles'
+import { GameGroup } from '@nx-next-app/features/F0001/desktop/home/styles'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { TpCategory } from '@nx-next-app/service'
 import { EmblaOptionsType } from 'embla-carousel'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
-import Link from 'next/link'
 
 const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
 	ssr: false,
@@ -59,26 +56,50 @@ const HotGameSlot = () => {
 
 	return (
 		<GameGroup className='content-container slot'>
-			{slotGames.length > 0 && (
-				<>
-					<GroupTitle>
-						Slots
-						<Link href={paths.slots.root} passHref>
-							<a className='load-more'>
-								All <span className='icon icon-arrow-right-line' />
-							</a>
-						</Link>
-					</GroupTitle>
-					<GameContainer>
-						<div className='game-large'>
+			<GroupTitle title='Slots' href={paths.slots.root} />
+			<GameContainer>
+				<div className='game-large'>
+					<GameIcon
+						key={1}
+						gameItem={largeGameItem}
+						isLarge
+						onClick={() =>
+							handleHotGameClick(
+								{
+									game: largeGame,
+								},
+								{
+									underMaintenanceCallback: () =>
+										modal.open(<UnderMaintenanceModal />),
+									loginCallback: () => modal.open(<LoginModal />),
+								}
+							)
+						}
+					/>
+				</div>
+				<EmblaCarousel
+					options={gameTypeEmblaOptions}
+					isControlButton
+					extraClassName='two-rows'
+				>
+					{slotGames.map(game => {
+						const { gameLogo, gameName, gameId, tpName } = game
+						const gameItem = {
+							gameId,
+							imageUrl: gameLogo,
+							isMaintain: false,
+							tpName,
+							gameName,
+						}
+
+						return (
 							<GameIcon
-								key={1}
-								gameItem={largeGameItem}
-								isLarge
+								key={gameId}
+								gameItem={gameItem}
 								onClick={() =>
 									handleHotGameClick(
 										{
-											game: largeGame,
+											game,
 										},
 										{
 											underMaintenanceCallback: () =>
@@ -88,45 +109,10 @@ const HotGameSlot = () => {
 									)
 								}
 							/>
-						</div>
-						<EmblaCarousel
-							options={gameTypeEmblaOptions}
-							isControlButton
-							extraClassName='two-rows'
-						>
-							{slotGames.map(game => {
-								const { gameLogo, gameName, gameId, tpName } = game
-								const gameItem = {
-									gameId,
-									imageUrl: gameLogo,
-									isMaintain: false,
-									tpName,
-									gameName,
-								}
-
-								return (
-									<GameIcon
-										key={gameId}
-										gameItem={gameItem}
-										onClick={() =>
-											handleHotGameClick(
-												{
-													game,
-												},
-												{
-													underMaintenanceCallback: () =>
-														modal.open(<UnderMaintenanceModal />),
-													loginCallback: () => modal.open(<LoginModal />),
-												}
-											)
-										}
-									/>
-								)
-							})}
-						</EmblaCarousel>
-					</GameContainer>
-				</>
-			)}
+						)
+					})}
+				</EmblaCarousel>
+			</GameContainer>
 		</GameGroup>
 	)
 }

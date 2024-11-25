@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const HotMatchContainer = styled.div`
 	position: relative;
+	margin-top: 4rem;
 
 	&:after {
 		content: '';

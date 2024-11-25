@@ -50,7 +50,13 @@ export const HomePage = styled.div`
 	}
 `
 
-export const GroupTitle = styled.div`
+export const GameContainer = styled.div`
+	display: grid;
+	gap: 2.4rem;
+	margin-top: 4rem;
+`
+
+export const GroupTitleContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
 	color: ${({ theme }) => theme.desktop.homePageTitleColor};
@@ -117,7 +123,6 @@ export const GameGroup = styled.div`
 		--largeGameWidth: 32rem;
 		--slide-height: 18.9rem;
 		--slide-size: 14rem;
-
 		--single-column-width: calc(
 			(
 					(100% + var(--largeGameWidth)) - (var(--column-count) - 1) *

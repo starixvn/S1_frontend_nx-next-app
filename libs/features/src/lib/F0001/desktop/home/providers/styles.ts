@@ -28,6 +28,6 @@ export const ProviderGroup = styled(GameGroup)`
 	}
 
 	.load-more {
-		margin-right: 0;
+		margin-right: 0 !important;
 	}
 `

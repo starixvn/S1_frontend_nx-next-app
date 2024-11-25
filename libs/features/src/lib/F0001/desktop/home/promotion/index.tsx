@@ -1,14 +1,11 @@
 import { paths } from '@nx-next-app/constants'
+import GroupTitle from '@nx-next-app/features/F0001/desktop/home/GroupTitle'
 import { PromotionContainer } from '@nx-next-app/features/F0001/desktop/home/promotion/styles'
-import {
-	GameGroup,
-	GroupTitle,
-} from '@nx-next-app/features/F0001/desktop/home/styles'
+import { GameGroup } from '@nx-next-app/features/F0001/desktop/home/styles'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { isUrl } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
-import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
@@ -54,15 +51,13 @@ const PromotionSwiper = () => {
 
 	return (
 		<GameGroup className='promotion'>
-			<GroupTitle className='content-container '>
-				{t('Label_General_Promotion')}
-				<Link href={paths.promotion.root} passHref>
-					<a className='load-more'>
-						All
-						<span className='icon icon-arrow-right-line' />
-					</a>
-				</Link>
-			</GroupTitle>
+			<div className='content-container '>
+				<GroupTitle
+					title={t('Label_General_Promotion')}
+					href={paths.promotion.root}
+				/>
+			</div>
+
 			{promotionData?.length > 0 && (
 				<PromotionContainer
 					onMouseOver={() => setShowNavigation(true)}
