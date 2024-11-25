@@ -1,4 +1,4 @@
-import { Setting } from '@nova88-desktop/components'
+import { Setting } from '@apps/nova88-desktop/components'
 import { NovaAuthProvider } from '@nova88-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {

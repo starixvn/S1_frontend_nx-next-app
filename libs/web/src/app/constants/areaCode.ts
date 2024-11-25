@@ -48,14 +48,14 @@ export const AREA_CODE: {
 		Name: 'Bangladesh',
 		Abbr: 'BD',
 	},
-	CS: {
-		AreaCode: '+86',
-		Pattern: '[0-9]*',
-		Length: 11,
-		MaxLength: 50,
-		Name: 'China',
-		Abbr: 'CS',
-	},
+	// CS: {
+	// 	AreaCode: '+86',
+	// 	Pattern: '[0-9]*',
+	// 	Length: 11,
+	// 	MaxLength: 50,
+	// 	Name: 'China',
+	// 	Abbr: 'CS',
+	// },
 	AF: {
 		AreaCode: '+93',
 		Pattern: '[0-9]*',

@@ -2,11 +2,11 @@ import DepositHistoryTable from '@n88-desktop/components/common/table/historyTab
 import FinancialHistoryTable from '@n88-desktop/components/common/table/historyTable/FinancialHistoryTable'
 import ReferralHistoryTable from '@n88-desktop/components/common/table/historyTable/ReferralHistoryTable'
 import TransferHistoryTable from '@n88-desktop/components/common/table/historyTable/TransferHistoryTable'
+import WithdrawalHistoryTable from '@n88-desktop/components/common/table/historyTable/WithdrawalHistoryTable'
 import ByCategoryStatementTable from '@n88-desktop/components/common/table/statementTable/ByCategoryStatementTable'
 import ByDayStatementTable from '@n88-desktop/components/common/table/statementTable/ByDayStatementTable'
 import ByDetailStatementTable from '@n88-desktop/components/common/table/statementTable/ByDetailStatementTable'
 import DateRangeStatementTable from '@n88-desktop/components/common/table/statementTable/DateRangeStatementTable'
-import WithdrawalHistoryTable from '@nx-next-app/components/D0001/table/historyTable/WithdrawalHistoryTable'
 import {
 	ICustTpBetRecordDetailListbyGameTypeData,
 	ICustTpBetRecordListbyCategoryIdData,

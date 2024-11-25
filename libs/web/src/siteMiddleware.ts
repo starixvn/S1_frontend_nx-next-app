@@ -82,11 +82,11 @@ export const siteMiddleware = async ({ request, config }: ISiteMiddleware) => {
 	const response = NextResponse.next()
 	const { locale } = request.nextUrl
 	const hasLangId = request.cookies.has(ENV_COOKIE_NAMES.LangId)
-	const hasCurrencyId = request.cookies.has(ENV_COOKIE_NAMES.CurrencyId)
+	// const hasCurrencyId = request.cookies.has(ENV_COOKIE_NAMES.CurrencyId)
 	const cookieLang = request.cookies.get(ENV_COOKIE_NAMES.LangId)
-	const cookieCurrencyId = request.cookies.get(ENV_COOKIE_NAMES.CurrencyId)
-	const langList = Object.keys(langToCurrency)
-	const currencyList = Object.values(langToCurrency)
+	// const cookieCurrencyId = request.cookies.get(ENV_COOKIE_NAMES.CurrencyId)
+	// const langList = Object.keys(langToCurrency)
+	// const currencyList = Object.values(langToCurrency)
 
 	// * 使用幣別語系權重: cookie => ip => default
 	// * 沒有 cookie 資料，且無指定語系
@@ -111,13 +111,13 @@ export const siteMiddleware = async ({ request, config }: ISiteMiddleware) => {
 	}
 
 	// cookie 有資料但不在 langToCurrency 的範圍內
-	const invalidLang = hasLangId && !langList.includes(String(cookieLang))
-	const invalidCurrency =
-		hasCurrencyId && !currencyList.includes(Number(cookieCurrencyId))
-	if (invalidLang || invalidCurrency) {
-		response.cookies.set(ENV_COOKIE_NAMES.LangId, defaultLocale)
-		response.cookies.set(ENV_COOKIE_NAMES.CurrencyId, String(defaultCurrency))
-	}
+	// const invalidLang = hasLangId && !langList.includes(String(cookieLang))
+	// const invalidCurrency =
+	// 	hasCurrencyId && !currencyList.includes(Number(cookieCurrencyId))
+	// if (invalidLang || invalidCurrency) {
+	// 	response.cookies.set(ENV_COOKIE_NAMES.LangId, defaultLocale)
+	// 	response.cookies.set(ENV_COOKIE_NAMES.CurrencyId, String(defaultCurrency))
+	// }
 
 	// * 有指定語系，且與 cookie 不相符，將 cookie 替換至該語系
 	if (locale !== 'default' && locale !== String(cookieLang)) {

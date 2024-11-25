@@ -110,7 +110,18 @@ const Form = ({ cookies }: IJoinProps) => {
 	>([])
 
 	const watchCurrencyId = watch('currencyId')
-	const currencySelectOptions = siteCurrencyList
+
+	// TODO 日本語系上限需移除,
+	const filterSiteCurrencyList = () => {
+		// 巴西，韓國，日本 沒有 enums
+		// 移除中國
+		const filterCurrency = [32, 13]
+		return siteCurrencyList.filter(
+			currencyId => !includes(filterCurrency, currencyId)
+		)
+	}
+
+	const currencySelectOptions = filterSiteCurrencyList()
 		.filter(currencyId => {
 			const affiliate = getValues('affiliate')
 			const formCurrencyId = getValues('currencyId')
@@ -131,10 +142,13 @@ const Form = ({ cookies }: IJoinProps) => {
 			),
 		}))
 
-	const areaCodeSelectOptions = Object.values(AREA_CODE).map(el => ({
-		value: el.AreaCode,
-		label: `${el.AreaCode} ${el.Name}`,
-	}))
+	// 緊急隱藏中國註冊手機
+	const areaCodeSelectOptions = Object.values(AREA_CODE)
+		.filter(el => el.Name !== 'China')
+		.map(el => ({
+			value: el.AreaCode,
+			label: `${el.AreaCode} ${el.Name}`,
+		}))
 
 	const checkUsername = async () => {
 		await trigger('username')

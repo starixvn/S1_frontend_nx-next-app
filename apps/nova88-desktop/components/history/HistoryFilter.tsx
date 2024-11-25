@@ -1,8 +1,7 @@
-import React from 'react'
 import { Select } from '@nx-next-app/components/D0001'
-import { useTranslation } from 'next-i18next'
-import { useHistory } from '@nx-next-app/features/F0001/providers/history-context'
+import { useHistory } from '@nx-next-app/operations'
 import DateSelector from 'libs/web/src/components/D0001/dateSelector'
+import { useTranslation } from 'next-i18next'
 
 const HistoryFilter = () => {
 	const {

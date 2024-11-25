@@ -1,3 +1,7 @@
+import {
+	DepositBankSlipModal,
+	HistoryMsgModal,
+} from '@n88-desktop/components/history/modal'
 import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
@@ -17,24 +21,9 @@ import {
 } from 'libs/web/src/app/types/history'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import dynamic from 'next/dynamic'
 import Table, { ITableColumns } from '../Table'
 
 dayjs.extend(utc)
-
-const HistoryMsgModal = dynamic(
-	() => import('@n88-desktop/components/history/modal/HistoryMsgModal'),
-	{
-		ssr: false,
-	}
-)
-
-const DepositBankSlipModal = dynamic(
-	() => import('@n88-desktop/components/history/modal/DepositBankSlipModal'),
-	{
-		ssr: false,
-	}
-)
 
 const DepositHistoryTable = ({
 	dataSource,
