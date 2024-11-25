@@ -87,6 +87,7 @@ export const HotMatchContainer = styled.div`
 						width: 4rem;
 						border-radius: 50%;
 						margin-right: 0.8rem;
+						background: #dfdfdf;
 					}
 
 					div {

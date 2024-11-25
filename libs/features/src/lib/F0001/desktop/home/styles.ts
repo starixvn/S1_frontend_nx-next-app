@@ -115,17 +115,17 @@ export const GameGroup = styled.div`
 
 	.embla__container {
 		--largeGameWidth: 32rem;
-		--min-width: 14rem;
-		--min-height: 18.9rem;
-		--gap: 2.4rem;
+		--slide-height: 18.9rem;
+		--slide-size: 14rem;
 
 		--single-column-width: calc(
-			((100% + var(--largeGameWidth)) - (var(--column-count) - 1) * var(--gap)) /
-				var(--column-count)
+			(
+					(100% + var(--largeGameWidth)) - (var(--column-count) - 1) *
+						var(--slide-spacing)
+				) / var(--column-count)
 		);
 
 		display: grid;
-		gap: var(--gap);
 		grid-auto-flow: column;
 		grid-auto-columns: var(--column-width, var(--single-column-width));
 		padding-right: var(--largeGameWidth);

@@ -26,7 +26,7 @@ const UnderMaintenanceModal = dynamic(
 
 const NewReleasedGames = () => {
 	const { t } = useTranslation()
-	const { newGameData, handleHotGameClick, handleSlotGamePlay } = useHome()
+	const { newGameData, handleHotGameClick } = useHome()
 
 	const { modal } = useGlobalModal()
 

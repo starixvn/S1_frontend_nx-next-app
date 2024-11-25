@@ -2,7 +2,7 @@
 	width: 100%;
 	margin: auto;
 	--slide-height: 19rem;
-	--slide-spacing: 0.8rem;
+	--slide-spacing: 2.4rem;
 	--slide-size: 14rem;
 }
 
@@ -17,7 +17,7 @@
 	gap: var(--slide-spacing);
 	overflow: initial;
 	will-change: transform;
-	grid-template-rows: repeat(var(--row-size), var(--min-height));
+	grid-template-rows: repeat(var(--row-size), var(--slide-height));
 }
 
 .embla__container.two-rows {

@@ -22,17 +22,16 @@ import {
 } from '@nx-next-app/service'
 import { DESKTOP_HOME_ORDERS, FOOTER_DATA } from '@nx-next-app/site/nova88'
 import { BannerTypeEnum, IFooterData } from '@nx-next-app/types'
+import dayjs from 'dayjs'
+import { filter } from 'lodash-es'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import path from 'path'
 
 // This is the setting required to optimize the project export. It is optimized due to the nx configuration path conflict.
 // Optimize the file structure of the project build, output only the necessary resources independently instead of the entire node_module package, and control the docker image size
 // https://nextjs.org/docs/pages/api-reference/next-config-js/output
 // https://github.com/nrwl/nx/issues/9017
-import dayjs from 'dayjs'
-import { filter } from 'lodash-es'
-import path from 'path'
-
 // path.resolve will resolve the specified path into an absolute path
 // This parsing is so that when next is output, the next.config of the current project can be correctly read.
 // A small trick used to solve the path conflict of nx on the next project
@@ -57,7 +56,7 @@ const HomePage = ({
 	persistHotEventData,
 	persistHotGameData,
 	persistNewGameData,
-  persistProviderData,
+	persistProviderData,
 	persistFooterData,
 	persistStaticFileDomainData,
 }: IHomePageProps) => {
@@ -103,7 +102,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		persistBannerData,
 		rawPromotionData,
 		persistHotEventData,
-		hotGameData
+		hotGameData,
 	] = await Promise.all([
 		getBanner(
 			{
@@ -130,9 +129,10 @@ export const getServerSideProps: GetServerSideProps = async context => {
 				TpCategory.Casino,
 				TpCategory.LiveCasino,
 				TpCategory.ESports,
+				TpCategory.Games,
 			].toString(),
 			currencyId,
-		})
+		}),
 	])
 
 	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
@@ -153,7 +153,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			persistHotEventData,
 			persistHotGameData,
 			persistNewGameData,
-      persistProviderData,
+			persistProviderData,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),

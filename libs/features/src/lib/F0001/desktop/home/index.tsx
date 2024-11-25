@@ -30,6 +30,8 @@ const PromotionSwiper = dynamic(() => import('./promotion'))
 
 const NewReleasedGame = dynamic(() => import('./newReleasedGames'))
 
+const ProviderList = dynamic(() => import('./providers'))
+
 // const HotGameLiveCasino = dynamic(() => import('./HotGameLiveCasino'), {
 // 	ssr: false,
 // })
@@ -100,6 +102,7 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.HotGame]: <HotGame />,
 		[DesktopHomeComponentsEnum.HotGameSport]: <HotGameSport />,
 		[DesktopHomeComponentsEnum.NewRelease]: <NewReleasedGame />,
+		[DesktopHomeComponentsEnum.ProviderList]: <ProviderList />,
 
 		// [DesktopHomeComponentsEnum.HotGameLiveCasino]: <HotGameLiveCasino />,
 

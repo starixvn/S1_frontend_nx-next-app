@@ -27,14 +27,13 @@ const UnderMaintenanceModal = dynamic(
 
 const TableGames = () => {
 	const { t } = useTranslation()
-	const { hotGameData, slotGameData, handleHotGameClick, handleSlotGamePlay } =
-		useHome()
+	const { hotGameData, slotGameData, handleHotGameClick } = useHome()
 	const { jackpot = [] } = slotGameData ?? {}
 
 	const { modal } = useGlobalModal()
 
 	const tableGames = hotGameData.filter(element => {
-		return element.tpCategory === TpCategory.Casino
+		return element.tpCategory === TpCategory.Games
 	})
 
 	if (tableGames?.length === 0 && jackpot?.length === 0) return null

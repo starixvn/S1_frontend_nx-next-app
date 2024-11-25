@@ -16,6 +16,7 @@ export enum DesktopHomeComponentsEnum {
 	SlotGames = 'SlotGames',
 	TableGames = 'TableGames',
 	NewRelease = 'NewRelease',
+	ProviderList = 'ProviderList',
 	// HotGameCasino = 'HotGameCasino',
 	// HotGameLiveCasino = 'HotGameLiveCasino',
 	// HotGameFishing = 'HotGameFishing',

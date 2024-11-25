@@ -1,9 +1,12 @@
-import AppearSensor from "@nx-next-app/features/F0001/desktop/common/appearSensor";
-import { LoadingIcon, NoGameIcon } from "@nx-next-app/features/F0001/desktop/home/gameIcon/icons";
-import { GameIconContainer } from "@nx-next-app/features/F0001/desktop/home/gameIcon/styles";
-import { useTranslation } from "next-i18next";
-import { FC } from "react";
-import { Img } from "react-image";
+import AppearSensor from '@nx-next-app/features/F0001/desktop/common/appearSensor'
+import {
+	LoadingIcon,
+	NoGameIcon,
+} from '@nx-next-app/features/F0001/desktop/home/gameIcon/icons'
+import { GameIconContainer } from '@nx-next-app/features/F0001/desktop/home/gameIcon/styles'
+import { useTranslation } from 'next-i18next'
+import { FC } from 'react'
+import { Img } from 'react-image'
 
 interface IGameItem {
 	gameId: string
@@ -29,7 +32,7 @@ const GameIcon: FC<IGameIcon> = ({ gameItem, isLarge, onClick }) => {
 			{({ hasBeenVisible }: { hasBeenVisible: boolean }) => {
 				return (
 					<GameIconContainer
-						className={`game-icon ${isMaintain ? 'maintain' : ''}`}
+						className={`embla__slide game-icon ${isMaintain ? 'maintain' : ''}`}
 						isMaintain={isMaintain}
 						key={`casino-game-${gameId}`}
 					>
