@@ -1,12 +1,12 @@
-import { dateFormat, paths, timeFormat } from "@nx-next-app/constants";
-import { HotMatchContainer } from "@nx-next-app/features/F0001/desktop/home/hotMatch/styles";
-import { useHome } from "@nx-next-app/features/F0001/providers";
-import { IHotEventData } from "@nx-next-app/service";
-import dayjs from "dayjs";
-import { useTranslation } from "next-i18next";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
+import { HotMatchContainer } from '@nx-next-app/features/F0001/desktop/home/hotMatch/styles'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { IHotEventData } from '@nx-next-app/service'
+import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
+import { useEffect, useMemo, useState } from 'react'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -91,7 +91,7 @@ const HotEvents = () => {
 	const memoHotEventData = useMemo(() => hotEventData, [hotEventData])
 
 	const config = {
-		slidesPerView: 4.1,
+		slidesPerView: 3.8,
 		spaceBetween: 10,
 		shouldSwiperUpdate,
 		navigation: {
@@ -100,13 +100,13 @@ const HotEvents = () => {
 		},
 		renderPrevButton: () => (
 			<div
-				style={{ opacity: showNavigation ? 1 : 0.7 }}
+				style={{ opacity: showNavigation ? 1 : 0.3 }}
 				className='swiper-button-prev icon icon-chevron_left'
 			/>
 		),
 		renderNextButton: () => (
 			<div
-				style={{ opacity: showNavigation ? 1 : 0.7 }}
+				style={{ opacity: showNavigation ? 1 : 0.3 }}
 				className='swiper-button-next icon icon-chevron_right'
 			/>
 		),

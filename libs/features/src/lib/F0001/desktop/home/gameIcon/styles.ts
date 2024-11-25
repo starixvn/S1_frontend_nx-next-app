@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const GameIconContainer = styled.div<{ isMaintain: boolean }>`
 	position: relative;
@@ -37,7 +37,7 @@ export const GameIconContainer = styled.div<{ isMaintain: boolean }>`
 		position: absolute;
 		left: 50%;
 		top: 50%;
-		transform: translate(-50%);
+		transform: translate(-50%, -50%);
 		z-index: 2;
 		padding: 1rem 2.4rem;
 	}

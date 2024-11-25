@@ -1,12 +1,15 @@
-import { paths } from "@nx-next-app/constants";
-import { PromotionContainer } from "@nx-next-app/features/F0001/desktop/home/promotion/styles";
-import { GameGroup, GroupTitle } from "@nx-next-app/features/F0001/desktop/home/styles";
-import { useHome } from "@nx-next-app/features/F0001/providers";
-import { isUrl } from "@nx-next-app/utils";
-import { useTranslation } from "next-i18next";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { paths } from '@nx-next-app/constants'
+import { PromotionContainer } from '@nx-next-app/features/F0001/desktop/home/promotion/styles'
+import {
+	GameGroup,
+	GroupTitle,
+} from '@nx-next-app/features/F0001/desktop/home/styles'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { isUrl } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
+import { useEffect, useMemo, useState } from 'react'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -32,13 +35,13 @@ const PromotionSwiper = () => {
 		},
 		renderPrevButton: () => (
 			<div
-				style={{ opacity: showNavigation ? 1 : 0.7 }}
+				style={{ opacity: showNavigation ? 1 : 0.3 }}
 				className='swiper-button-prev icon icon-chevron_left'
 			/>
 		),
 		renderNextButton: () => (
 			<div
-				style={{ opacity: showNavigation ? 1 : 0.7 }}
+				style={{ opacity: showNavigation ? 1 : 0.3 }}
 				className='swiper-button-next icon icon-chevron_right'
 			/>
 		),
@@ -50,8 +53,8 @@ const PromotionSwiper = () => {
 	}, [memoPromotionData])
 
 	return (
-		<GameGroup className='content-container'>
-			<GroupTitle>
+		<GameGroup className='promotion'>
+			<GroupTitle className='content-container '>
 				{t('Label_General_Promotion')}
 				<Link href={paths.promotion.root} passHref>
 					<a className='load-more'>

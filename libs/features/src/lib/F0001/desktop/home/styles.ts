@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HomePage = styled.div`
 	.homebanner {
@@ -81,6 +81,15 @@ export const GameGroup = styled.div`
 	position: relative;
 	padding-top: 4rem;
 	padding-bottom: 4rem;
+
+	&.promotion {
+		width: 150rem;
+		margin: 0 auto;
+
+		.load-more {
+			margin-right: 0;
+		}
+	}
 
 	.embla__viewport {
 		position: relative;
