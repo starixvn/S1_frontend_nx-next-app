@@ -482,6 +482,14 @@ const Form = ({ cookies }: IJoinProps) => {
 		checkLineRegister()
 	}, [siteCurrencyList])
 
+	useEffect(() => {
+		if (initNationality === 'China') {
+			modal.info(t('Label_Close_Region_Register_Notice'), {
+				onOK: () => router.push(paths.home.root),
+			})
+		}
+	}, [initNationality])
+
 	return (
 		<form
 			className='joinloginFunction'
