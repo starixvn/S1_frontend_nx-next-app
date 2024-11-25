@@ -1,4 +1,5 @@
 import { Loading } from '@nx-next-app/components/D0001'
+import { WrapperReferal } from '@nx-next-app/features/F0001/desktop/referral/styles'
 import { useReferral } from '@nx-next-app/features/F0001/providers'
 import ReferralBanner from './ReferralBanner'
 import ReferralInfoLeft from './ReferralInfoLeft'
@@ -12,15 +13,17 @@ const Referral = () => {
 
 	return (
 		<div className='rightModule'>
-			<div className='infoModule refer'>
-				<ReferralBanner />
-				<ReferralStatus />
+			<WrapperReferal>
+				<div className='infoModule refer'>
+					<ReferralBanner />
+					<ReferralStatus />
 
-				<div className='referinfo'>
-					<ReferralInfoLeft />
-					<ReferralInfoRight />
+					<div className='referinfo'>
+						<ReferralInfoLeft />
+						<ReferralInfoRight />
+					</div>
 				</div>
-			</div>
+			</WrapperReferal>
 		</div>
 	)
 }

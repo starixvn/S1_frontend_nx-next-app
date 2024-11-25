@@ -74,10 +74,10 @@ const ReferralPage = ({
 						footerData={persistFooterData}
 					>
 						<main>
-							<section className='inside'>
+							<div className='wrapper-profile'>
 								<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 								<Referral />
-							</section>
+							</div>
 						</main>
 					</Layout>
 				</ReferralProvider>

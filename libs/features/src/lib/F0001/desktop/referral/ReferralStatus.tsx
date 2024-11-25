@@ -17,8 +17,7 @@ const ReferralStatus = () => {
 	return (
 		<div className='referstatus'>
 			<div className='title'>
-				{t('Label_Referral_YourReferralStatus')}
-
+				<span>{t('Label_Referral_YourReferralStatus')}</span>
 				<Link
 					href={{
 						pathname: paths.history.root,
@@ -33,12 +32,18 @@ const ReferralStatus = () => {
 			</div>
 			<div className='referstatus-item'>
 				<div className='card'>
-					{toUpper(t('Label_Referral_NoOfAchievements') || '')}
-					<div>{referralSummaryData?.referralCount || 0}</div>
+					<div className='card-title'>
+						{toUpper(t('Label_Referral_NoOfAchievements') || '')}
+					</div>
+					<div className='card-body'>
+						{referralSummaryData?.referralCount || 0}
+					</div>
 				</div>
 				<div className='card'>
-					{toUpper(t('Label_Referral_AccumulateRewardAmount') || '')}
-					<div>
+					<div className='card-title'>
+						{toUpper(t('Label_Referral_AccumulateRewardAmount') || '')}
+					</div>
+					<div className='card-body'>
 						<span>{currencyName}</span>
 						{numberFormat(referralSummaryData?.amountSum || 0, currencyId, 2)}
 					</div>

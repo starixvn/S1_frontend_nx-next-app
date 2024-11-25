@@ -217,6 +217,9 @@ export const theme = {
 		paginationColor: '#939DC5',
 
 		bradcumbColor: '#939DC5',
+
+		borderCardRederralColor: '#374375',
+		bgCardRederralColor: '#232B4F',
 	},
 	mobile: {},
 }

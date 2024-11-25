@@ -347,6 +347,7 @@ export const GlobalStyles = createGlobalStyle`
       .infoModule{
         background: ${({ theme }) => theme.desktop.rightModuleBg};
         border-radius : 20px;
+        overflow: hidden;
         .inside-title{
           border-bottom : 1px solid ${({ theme }) =>
 						theme.desktop.rightModuleBorderColor};
@@ -757,13 +758,16 @@ export const GlobalStyles = createGlobalStyle`
       line-height: normal;
       padding : .4rem 1.2rem;
       border-radius: 100px;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
       .infobtn{
         &:before{
           font-family: 'S1NewIcons';
           display : block;
           content : '\\e910';
           font-size : 1.5rem;
+          color : #fff;
         }
       }
     }

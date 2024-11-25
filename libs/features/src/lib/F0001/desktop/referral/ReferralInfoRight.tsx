@@ -1,9 +1,9 @@
-import QRCode from 'qrcode.react'
-import { toUpper } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
-import { useCopyToClipboard } from 'usehooks-ts'
 import { paths } from '@nx-next-app/constants'
 import { useReferral } from '@nx-next-app/features/F0001/providers'
+import { toUpper } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import QRCode from 'qrcode.react'
+import { useCopyToClipboard } from 'usehooks-ts'
 import ReferralSocialMediaList from './ReferralSocialMediaList'
 
 const ReferralInfoRight = () => {
@@ -20,7 +20,7 @@ const ReferralInfoRight = () => {
 	const referralLink = `${origin}${paths.join.root}?AffId=${referralCode}`
 
 	return (
-		<div className='referinfo-right'>
+		<div className='referinfo-items referinfo-right'>
 			<div className='title'>
 				<div>{t('Label_Referral_YourLinkInvite')}</div>
 			</div>
