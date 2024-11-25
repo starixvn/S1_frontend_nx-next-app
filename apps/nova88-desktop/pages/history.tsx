@@ -1,3 +1,4 @@
+import { History } from '@apps/nova88-desktop/components'
 import { NovaAuthProvider } from '@nova88-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
@@ -20,7 +21,6 @@ import {
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { History } from '../components'
 
 interface IHistoryPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData
