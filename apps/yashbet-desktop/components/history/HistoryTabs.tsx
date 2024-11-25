@@ -1,5 +1,5 @@
 import { useAuth } from '@nx-next-app/data-access'
-import { useHistory } from '@nx-next-app/features/F0006/providers/history-context'
+import { useHistory } from '@nx-next-app/operations'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
