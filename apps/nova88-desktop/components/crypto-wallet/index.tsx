@@ -1,4 +1,4 @@
-import { Loading } from '@n88-desktop/components/index'
+import { Loading } from '@apps/nova88-desktop/components/common'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
