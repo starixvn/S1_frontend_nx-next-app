@@ -4,7 +4,7 @@
    License: none (public domain)
 */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -66,31 +66,17 @@ img {
   height: auto;
 }
 
-button,
-input {
+button {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
-button[disabled],
-input[disabled] {
+button[disabled] {
   background: #e2e2e2 !important;
   color: #b2b2b2 !important;
 }
 
 .icon-close {
   cursor: pointer;
-}
-
-.icon-balance:before {
-  font-size: 24px !important;
-}
-
-.icon-cq9:before {
-  font-size: 16px !important;
-}
-
-.icon-friend:before {
-  font-size: 12px;
 }
 
 .icon:before {
@@ -1513,37 +1499,37 @@ header input:focus-within {
   font-weight: bold;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-en.jpg) no-repeat center/auto;
+  background: url(https://image.0814media.net/SiteSkin/img/leaderboardbanner-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.en {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-en.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.my {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-my.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-my.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.cs {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-cs.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-cs.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.th {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-th.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-th.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.id {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-id.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-id.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.kh {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-kh.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-kh.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.vn {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-vn.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-vn.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.br {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-br.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-br.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.ko {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-ko.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-ko.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.jp {
-  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-newdropdown-jp.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-jp.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList > div,
 .header > div.menu .subMenu-Wrapper-new .rankingList > a {
@@ -2247,18 +2233,14 @@ header input:focus-within {
   -webkit-animation: eurologo 7.5s running infinite 0.5s;
           animation: eurologo 7.5s running infinite 0.5s;
 }
-.logo.olympic .splogo {
-  -webkit-animation: olympiclogo 7.5s running infinite 0.5s;
-          animation: olympiclogo 7.5s running infinite 0.5s;
-}
 
 .splogo {
   position: absolute;
-  right: -80px;
-  bottom: 22px;
-  width: 70px;
-  height: 70px;
-  background: url(https://banner.0814media.net/desktop/img/4.0/sp-aston-villa.png) center/cover;
+  right: -75px;
+  bottom: 30px;
+  width: 60px;
+  height: 60px;
+  background: url(https://banner.0814media.net/desktop/img/event/eurocup/euro-logo.png) center/cover;
 }
 
 @-webkit-keyframes splogo {
@@ -2347,26 +2329,6 @@ header input:focus-within {
   }
   100% {
     background: url(https://banner.0814media.net/desktop/img/event/eurocup/euro-logo.png) center/cover;
-    opacity: 1;
-  }
-}
-@-webkit-keyframes olympiclogo {
-  0% {
-    background: url(https://banner.0814media.net/desktop/img/event/olympic/logo-paris.png) center/cover;
-    opacity: 1;
-  }
-  100% {
-    background: url(https://banner.0814media.net/desktop/img/event/olympic/logo-paris.png) center/cover;
-    opacity: 1;
-  }
-}
-@keyframes olympiclogo {
-  0% {
-    background: url(https://banner.0814media.net/desktop/img/event/olympic/logo-paris.png) center/cover;
-    opacity: 1;
-  }
-  100% {
-    background: url(https://banner.0814media.net/desktop/img/event/olympic/logo-paris.png) center/cover;
     opacity: 1;
   }
 }
@@ -2962,21 +2924,18 @@ main .promosswiper .swiper-button-prev::after {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  padding: 150px 0 80px;
+  padding: 100px 0 80px;
 }
 .hotmatch::after {
   display: block;
   content: "";
-  background: url(https://banner.0814media.net/desktop/img/4.0/hotmatch-bg-new.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/4.0/hotmatch-bg.png) no-repeat center/cover;
   width: 100%;
   height: 1000px;
-  margin-top: -90px;
+  margin-top: -120px;
   position: absolute;
   top: 20px;
   right: 0;
-}
-.hotmatch.br::after {
-  background: url(https://banner.0814media.net/desktop/img/4.0/hotmatch-bg.png) no-repeat center/cover;
 }
 .hotmatch .hotmatch-top {
   font-size: 90px;
@@ -3493,14 +3452,14 @@ main .promosswiper .swiper-button-prev::after {
   display: block;
   content: "";
   border-top: 1px solid #D1D1D1;
-  width: 23%;
+  width: 400px;
   margin-top: 27px;
 }
 .partner-title::after {
   display: block;
   content: "";
   border-top: 1px solid #D1D1D1;
-  width: 23%;
+  width: 400px;
   margin-top: 27px;
 }
 
@@ -3530,37 +3489,7 @@ main .promosswiper .swiper-button-prev::after {
   margin-right: 15px;
 }
 
-footer {
-  background: #0A1B38;
-  min-width: 1400px;
-}
-footer .footer-navigation {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background: #F3F3F3;
-  padding: 20px 0;
-  gap: 80px;
-}
-footer .footer-navigation a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: #0A1B38;
-  opacity: 1;
-  gap: 10px;
-}
-footer .footer-navigation a img {
-  width: 50px;
-  height: 50px;
-}
-footer .footer-top {
+.footer-top {
   width: 1400px;
   margin: 0 auto;
   display: -webkit-box;
@@ -3575,38 +3504,24 @@ footer .footer-top {
           align-items: center;
   border-bottom: 0.2px solid rgba(255, 255, 255, 0.2588235294);
 }
-footer .footer-top .top-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 80px;
-}
-footer .footer-top .top-container .top-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 8px;
-}
-footer .footer-top .social-media {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-footer .footer-top .social-media a {
+.footer-top .social-media a {
   margin: 0;
 }
-footer .footer-top a {
+.footer-top a {
   color: white;
+  margin-right: 50px;
 }
-footer .footer-top > div img {
+.footer-top > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.footer-top > div img {
   width: 50px;
   margin-left: 8px;
 }
-footer .footer-center {
+
+.footer-center {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3618,29 +3533,29 @@ footer .footer-center {
   border-bottom: 0.2px solid rgba(255, 255, 255, 0.2588235294);
   padding-bottom: 50px;
 }
-footer .footer-center .footer-center-item {
+.footer-center .footer-center-item {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 450px;
           flex: 0 0 450px;
 }
-footer .footer-center .footer-center-item.payment {
+.footer-center .footer-center-item.payment {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 500px;
           flex: 0 0 500px;
 }
-footer .footer-center .footer-center-item.payment .footer-icon {
+.footer-center .footer-center-item.payment .footer-icon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-footer .footer-center .footer-center-item.payment .footer-icon img {
+.footer-center .footer-center-item.payment .footer-icon img {
   width: auto;
   height: 40px;
   border-radius: 5px;
 }
-footer .footer-center .footer-center-item .game-license {
+.footer-center .footer-center-item .game-license {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3648,14 +3563,14 @@ footer .footer-center .footer-center-item .game-license {
       -ms-flex-align: center;
           align-items: center;
 }
-footer .footer-center .footer-center-item .game-license > div {
+.footer-center .footer-center-item .game-license > div {
   width: 65px;
   margin: 15px 10px 0 0;
 }
-footer .footer-center .footer-center-item .game-license .icon-aware {
+.footer-center .footer-center-item .game-license .icon-aware {
   width: 115px;
 }
-footer .footer-center .footer-center-item:first-child .footer-center-title:first-child {
+.footer-center .footer-center-item:first-child .footer-center-title:first-child {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3663,7 +3578,7 @@ footer .footer-center .footer-center-item:first-child .footer-center-title:first
       -ms-flex-align: center;
           align-items: center;
 }
-footer .footer-center .footer-center-item:first-child .footer-center-title:first-child::after {
+.footer-center .footer-center-item:first-child .footer-center-title:first-child::after {
   display: block;
   content: "";
   background: url(https://banner.0814media.net/desktop/img/4.0/license-tick.png) no-repeat center/cover;
@@ -3671,10 +3586,10 @@ footer .footer-center .footer-center-item:first-child .footer-center-title:first
   width: 20px;
   margin-left: 8px;
 }
-footer .footer-center .footer-center-item:nth-child(2) .footer-icon img {
+.footer-center .footer-center-item:nth-child(2) .footer-icon img {
   margin: 15px 10px 0 0;
 }
-footer .footer-center .footer-center-item .footer-icon {
+.footer-center .footer-center-item .footer-icon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3682,43 +3597,50 @@ footer .footer-center .footer-center-item .footer-icon {
       -ms-flex-align: center;
           align-items: center;
 }
-footer .footer-center .footer-center-item .footer-icon img {
+.footer-center .footer-center-item .footer-icon img {
   width: 50px;
   margin: 15px 20px 0 0;
 }
-footer .footer-center .footer-center-item .footer-icon .icon-aware {
+.footer-center .footer-center-item .footer-icon .icon-aware {
   width: 129px;
   height: 25px;
 }
-footer .footer-bottom {
+
+.footer-bottom {
   padding: 25px 0;
   background: #132546;
 }
-footer .footer-bottom .footer-hideinfo .footer-btn {
-  margin: 0;
-}
-footer .footer-bottom > div {
+.footer-bottom > div {
   width: 1400px;
   margin: 0 auto;
 }
-footer .footer-bottom p {
+.footer-bottom p {
   font-size: 12px;
   display: contents;
   margin-top: 0;
   font-weight: 400;
   color: #bfbfbf;
 }
-footer .footer-bottom h1 {
+.footer-bottom h1 {
   padding: 16px 0 8px;
   font-size: 16px;
 }
-footer .footer-bottom .footer-btn {
+.footer-bottom .footer-btn {
   color: #FF7600;
   text-decoration: underline;
   margin-left: 5px;
 }
-footer .footer-bottom .footer-btn img {
+.footer-bottom .footer-btn img {
   width: 15px;
+}
+
+.footer-hideinfo .footer-btn {
+  margin: 0;
+}
+
+footer {
+  background: #0A1B38;
+  min-width: 1400px;
 }
 footer .platform,
 footer .footerList,
@@ -4299,14 +4221,13 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
   margin-left: 0;
   overflow-x: hidden;
   z-index: 1;
-  height: 210px;
 }
 .joinpop .joinloginModule .joinloginFunction .dropdown .dropdown-container .dropdown-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: 0;
-  padding: 5px 0 5px 19px;
+  padding: 5px 0 5px 39px;
 }
 .joinpop .joinloginModule .joinloginFunction .dropdown .dropdown-container::-webkit-scrollbar {
   width: 3px;
@@ -4962,15 +4883,6 @@ input[type=file] {
 .eventLink.eurocup.retention-link {
   bottom: 280px;
 }
-.eventLink.olympic {
-  bottom: 195px;
-  left: 20px;
-}
-.eventLink.olympic img {
-  width: 158px;
-  -webkit-animation: livesports 4s ease-in-out infinite;
-          animation: livesports 4s ease-in-out infinite;
-}
 .eventLink .icon-close {
   width: 20px;
   height: 20px;
@@ -5127,9 +5039,6 @@ input[type=file] {
 }
 .livesports.eurocup {
   bottom: 320px;
-}
-.livesports.olympic {
-  bottom: 330px;
 }
 .livesports.retention-link {
   bottom: 430px;
@@ -6180,7 +6089,11 @@ input[type=file] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
 }
 #popup ::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.2);
@@ -6189,17 +6102,8 @@ input[type=file] {
   background: rgba(125, 125, 125, 0.7);
 }
 #popup.active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-#popup.olympic-rule {
-  -webkit-backdrop-filter: blur(7px);
-          backdrop-filter: blur(7px);
-}
-#popup.olympic-medalpop {
-  -webkit-backdrop-filter: blur(7px);
-          backdrop-filter: blur(7px);
+  visibility: visible;
+  opacity: 1;
 }
 #popup .joinpop,
 #popup .loginpop {
@@ -7664,153 +7568,6 @@ input[type=file] {
     opacity: 1;
   }
 }
-#popup .rulepop {
-  background: none !important;
-  font-family: "Open Sans", sans-serif;
-  max-width: 1000px;
-}
-#popup .rulepop.active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-#popup .rulepop-content {
-  -webkit-animation: sponsor-content 0.3s linear 0.2s backwards;
-          animation: sponsor-content 0.3s linear 0.2s backwards;
-}
-#popup .rulepop-content .close-btn {
-  background: white;
-  padding: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-radius: 0 0 30px 30px;
-}
-#popup .rulepop-content .close-btn button {
-  background: #FF8B21;
-  border-radius: 50px;
-  padding: 10px;
-  width: 210px;
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-#popup .rulepop-content .close-btn button:hover {
-  background: #f97700;
-}
-#popup .rulepop-title {
-  background: #FF8B21;
-  text-transform: uppercase;
-  font-size: 35px;
-  font-weight: 700;
-  border-radius: 30px 30px 0 0;
-  padding: 15px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-#popup .rulepop-text {
-  font-size: 20px;
-  font-weight: 400;
-}
-#popup .rulepop-text ul {
-  background: white;
-  padding: 10px 50px;
-  height: 500px;
-  overflow: hidden;
-  overflow-y: scroll;
-}
-#popup .rulepop-text ul::-webkit-scrollbar-thumb {
-  background-color: rgba(10, 0, 0, 0.329);
-}
-#popup .rulepop-text ul li {
-  color: #301363;
-  margin: 50px 0;
-  text-indent: -22px;
-}
-#popup .medalpop {
-  background: none !important;
-  font-family: "Open Sans", sans-serif;
-}
-#popup .medalpop-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-#popup .medalpop-top {
-  background: #FF8B21;
-  width: 660px;
-  height: 85px;
-  border-radius: 30px 30px 0 0;
-}
-#popup .medalpop-item {
-  width: 660px;
-  background: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 10px 0 50px;
-  border-radius: 0 0 30px 30px;
-}
-#popup .medalpop-item img {
-  width: 300px;
-}
-#popup .medalpop-item > div {
-  font-weight: 700;
-}
-#popup .medalpop-item > div:nth-child(2) {
-  font-size: 40px;
-  color: #301363;
-  margin-top: -10px;
-}
-#popup .medalpop-item > div:nth-child(3) {
-  font-size: 30px;
-  color: #FF8B21;
-}
-#popup .medalpop-item button {
-  background: #FF8B21;
-  border-radius: 50px;
-  padding: 10px;
-  width: 210px;
-  color: white;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-top: 40px;
-}
-#popup .medalpop-item button:hover {
-  background: #f97700;
-}
-#popup .medalpop.gold-a .medalpop-item img {
-  margin: -60px 0 30px;
-}
-#popup .medalpop.gold-b .medalpop-item img {
-  margin: -50px 0 20px;
-}
-#popup .medalpop.gold-c .medalpop-item img {
-  margin-bottom: 20px;
-}
 
 .Submit,
 .poker,
@@ -8156,10 +7913,7 @@ input[type=file] {
           flex: 1 1;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  width: 80%;
 }
 
 .upload_img {
@@ -11415,8 +11169,7 @@ button.icon-spinner11:before {
           transform: translateY(20px);
 }
 
-.phone,
-.inputBox-row {
+.phone {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11425,21 +11178,17 @@ button.icon-spinner11:before {
           align-items: flex-start;
   width: 100%;
 }
-.phone .tip,
-.inputBox-row .tip {
+.phone .tip {
   width: 100%;
 }
-.phone .txt-orange,
-.inputBox-row .txt-orange {
+.phone .txt-orange {
   font-size: 12px;
 }
-.phone > div:nth-child(1),
-.inputBox-row > div:nth-child(1) {
+.phone > div:nth-child(1) {
   margin-right: 5px;
   max-width: 160px;
 }
-.phone > div:nth-child(1) .dropdown-container,
-.inputBox-row > div:nth-child(1) .dropdown-container {
+.phone > div:nth-child(1) .dropdown-container {
   width: 422px;
   overflow-y: auto;
   max-height: 120px;
@@ -11447,45 +11196,33 @@ button.icon-spinner11:before {
       -ms-flex-align: start;
           align-items: flex-start;
 }
-.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar,
-.inputBox-row > div:nth-child(1) .dropdown-container::-webkit-scrollbar {
+.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar {
   width: 10px;
 }
-.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar-track,
-.inputBox-row > div:nth-child(1) .dropdown-container::-webkit-scrollbar-track {
+.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar-track {
   background: #D2E2F9;
   border-radius: 10px;
 }
-.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar-thumb,
-.inputBox-row > div:nth-child(1) .dropdown-container::-webkit-scrollbar-thumb {
+.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar-thumb {
   background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
   background: linear-gradient(to bottom, #435F8B, #6383B9);
   border-radius: 10px;
 }
-.phone > div:nth-child(1) .dropdown-container .dropdown-item,
-.inputBox-row > div:nth-child(1) .dropdown-container .dropdown-item {
+.phone > div:nth-child(1) .dropdown-container .dropdown-item {
   padding-left: 10px !important;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.phone > div:nth-child(1) .dropdown-container .inputBox-blue,
-.inputBox-row > div:nth-child(1) .dropdown-container .inputBox-blue {
+.phone > div:nth-child(1) .dropdown-container .inputBox-blue {
   width: 94%;
   border-radius: 3px;
   margin: 2px;
   position: sticky;
   top: 0;
 }
-.phone .btn,
-.inputBox-row .btn {
+.phone .btn {
   width: 70%;
-}
-
-.inputBox-row .inputBox-blue:last-child {
-  width: 50%;
-  max-width: unset !important;
-  margin-right: 0 !important;
 }
 
 .transferModule {
@@ -13458,14 +13195,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
       flex-flow: wrap;
   position: relative;
 }
-.subModuleListColumn > .subModule .subModule-item {
-  -ms-flex-item-align: start;
-      align-self: start;
-  width: 50%;
-}
-.subModuleListColumn > .subModule .subModule-item .btnGroup {
-  margin: 10px 0;
-}
 .subModuleListColumn > .subModule .dropdown {
   min-width: 190px;
 }
@@ -13485,9 +13214,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   border: 1px solid #BFCCE2;
   border-top: 0;
   margin-left: 0;
-  overflow: auto;
-  height: 90px;
-  z-index: 3;
+  overflow: hidden;
 }
 .subModuleListColumn > .subModule .dropdown .dropdown-container .dropdown-item {
   margin: 0;
@@ -13554,7 +13281,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .subModuleListColumn > .subModule .inputBox-blue + .btnGroup .btn-check {
   min-width: unset;
   width: 35px;
-  height: 35px;
 }
 .subModuleListColumn > .subModule + .btnGroup + .text-center {
   color: #5574A7;
@@ -13994,19 +13720,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
             flex-flow: column !important;
   }
 }
-.upload_new .smallList {
-  padding: 30px 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
 .upload_new .checkBankSlip {
   max-width: unset;
   min-width: unset;
@@ -14021,27 +13734,32 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
   padding: 30px 20px;
 }
-.upload_new .checkBankSlip.bankaccount {
+.upload_new .checkBankSlip:nth-child(2) {
   border-right: 1px dotted #1E85EC;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: start;
       -ms-flex-align: start;
-          align-items: start;
+          align-items: flex-start;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
-.upload_new .checkBankSlip .directions ul li {
+@media (max-width: 800px) {
+  .upload_new .checkBankSlip:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px dotted #1E85EC;
+    padding-right: 0;
+    margin-bottom: 30px;
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
+  }
+}
+.upload_new .checkBankSlip ul {
   width: 100%;
 }
 
@@ -18869,7 +18587,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .rankingNew {
-  background: url(https://banner.0814media.net/desktop/img/leaderboard_new_bg.jpg) no-repeat top center;
+  background: url(https://banner.0814media.net/desktop/img/ranking_new_sportsbg.jpg) no-repeat top center;
   background-position: top center;
   background-size: auto 100%;
   min-height: 1025px;
@@ -19809,6 +19527,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .wheelEvent .eventPage {
   min-width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0 20px;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -19822,6 +19543,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           flex-flow: column;
   background: url(https://banner.0814media.net/desktop/img/event/wheel/bg.jpg) no-repeat top center, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
   background: url(https://banner.0814media.net/desktop/img/event/wheel/bg.jpg) no-repeat top center, linear-gradient(to right, #100d41, #250333);
+}
+.wheelEvent .eventPage .eventpage-tap {
+  margin: 54px auto 30px auto;
 }
 .wheelEvent .eventPage .eventTitleBg {
   width: 372px;
@@ -20455,10 +20179,10 @@ form .profileModule .vipLv .vipname {
 
 #goTop {
   position: fixed;
-  bottom: 175px;
-  right: 10px;
-  width: 60px;
-  height: 60px;
+  bottom: 150px;
+  right: 80px;
+  width: 40px;
+  height: 40px;
   background: #FF5E00;
   border-radius: 100%;
   z-index: 2;
@@ -20476,7 +20200,7 @@ form .profileModule .vipLv .vipname {
           justify-content: center;
 }
 #goTop i:before {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -25553,7 +25277,7 @@ input[type=number] {
 
 .retention {
   background: #0f1f3b;
-  padding: 200px 0 150px;
+  padding: 200px 20px 150px;
   background: url(https://banner.0814media.net/desktop/img/event/retention/top-bg.jpg) no-repeat top/cover;
   position: relative;
   display: -webkit-box;
@@ -25566,9 +25290,8 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-.retention .eventpage-tap {
-  margin-top: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .retention-wrapper {
   display: -webkit-box;
@@ -25581,7 +25304,6 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 95px;
 }
 .retention-wrapper .top {
   display: -webkit-box;
@@ -25838,7 +25560,7 @@ input[type=number] {
 .retention-wrapper .chip img:nth-child(2) {
   width: 180px;
   top: calc(50% - 500px);
-  right: calc(50% - 850px);
+  right: 0;
   -webkit-animation: baloon_1 3s infinite;
           animation: baloon_1 3s infinite;
 }
@@ -25921,8 +25643,21 @@ input[type=number] {
 }
 
 .eventpage-tap {
-  position: absolute;
+  position: relative;
   background: rgba(255, 255, 255, 0.7607843137);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  grid-auto-flow: column;
+  gap: 20px;
+  padding: 0 60px;
+  border-radius: 100px;
+  margin: 30px auto;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  max-width: -webkit-fill-available;
+}
+.eventpage-tap > button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25932,22 +25667,17 @@ input[type=number] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 20px 10px;
-  border-radius: 50px;
-  margin-top: 15px;
-  width: 900px;
-}
-.eventpage-tap > button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 300px;
+  overflow-wrap: anywhere;
   font-size: 20px;
   font-weight: 700;
+  padding: 20px 80px;
   color: #979797;
+  align-items: center;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+.eventpage-tap > button:hover {
+  color: #162d54;
 }
 .eventpage-tap > button.active {
   color: #112240;
@@ -25969,8 +25699,13 @@ input[type=number] {
   content: "";
   background: #FF7600;
   height: 5px;
-  width: 300px;
-  bottom: -20px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+.eventpage-tap > button.disabled {
+  color: rgba(175, 175, 175, 0.8);
+  cursor: default;
 }
 
 .retention-wrapper .bonus-list p strong span {
@@ -26055,536 +25790,207 @@ input[type=number] {
   border-bottom-right-radius: 10px !important;
 }
 
-.olympic {
-  font-family: "Open Sans", sans-serif;
-}
-.olympic button {
-  text-transform: uppercase;
-}
-.olympic-top {
-  background: url(https://banner.0814media.net/desktop/img/event/olympic/background-a.jpg) no-repeat center/cover;
+.event-lottery-popup {
+  margin: 20px;
   position: relative;
+  border-radius: 15px 15px 15px 15px !important;
+  border: 2px solid #EB801D;
+  background-color: #383040 !important;
 }
-.olympic-top-logo {
-  width: 150px;
-  position: absolute;
-  top: 0;
-  left: calc(50% - 740px);
+.event-lottery-popup.d-none,
+.event-lottery-popup .d-none {
+  display: none !important;
 }
-.olympic-top-text {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 800px 0 280px;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
-}
-.olympic-top-text img {
-  width: 175px;
-  margin: 20px 0 8px;
-}
-.olympic-top-text > div {
-  font-size: 30px;
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-.olympic-top-text > div:nth-child(2) {
-  font-size: 50px;
-  color: #FF8B21;
-  font-weight: 700;
-  margin-bottom: 20px;
-  letter-spacing: -1px;
-}
-.olympic-top-text > div:nth-child(3) {
-  margin-bottom: 5px;
-}
-.olympic-center {
-  background: #FF8C01;
-  padding-top: 50px;
-}
-.olympic-center-wrapper {
-  max-width: 1350px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-.olympic-center .tasks-title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  font-size: 40px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  width: 900px;
-  margin: 0 0 40px 8px;
-}
-.olympic-center .tasks-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.olympic-center .tasks-content .progress-title {
-  background: #301363;
-  border-radius: 27px 27px 0 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 20px 40px;
-}
-.olympic-center .tasks-content .progress-title > div {
-  text-transform: uppercase;
-}
-.olympic-center .tasks-content .progress-title > div:first-child {
-  font-size: 30px;
-  font-weight: 700;
-}
-.olympic-center .tasks-content .progress-title > div:last-child {
-  font-size: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.olympic-center .tasks-content .progress-title > div:last-child::after {
-  display: block;
-  content: "";
-  background: url(https://banner.0814media.net/desktop/img/event/olympic/arrow.png) no-repeat center/cover;
-  width: 8px;
-  height: 13px;
-  margin: 2px 0 0 10px;
-}
-.olympic-center .tasks-content .progress-box {
-  background: white;
-  padding: 50px 40px 0;
-  border-radius: 0 0 27px 27px;
-}
-.olympic-center .tasks-content .progress-box > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding-bottom: 55px;
-}
-.olympic-center .tasks-content .progress-box-item .text {
-  width: 540px;
-  color: #301363;
-  font-weight: 700;
-  font-size: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-bottom: 10px;
-}
-.olympic-center .tasks-content .progress-box-item .progress-bar {
-  background: #E1E1E1;
-  width: 540px;
-  height: 26px;
-  border-radius: 9px;
-}
-.olympic-center .tasks-content .progress-box-item .progress-bar-inside {
-  background: #FF8B21;
-  height: 26px;
-  border-radius: 9px;
-}
-.olympic-center .tasks-content .progress-box button {
-  background: #FF8B21;
-  color: white;
-  font-size: 19px;
-  text-transform: uppercase;
-  padding: 12px 20px;
-  border-radius: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 250px;
-  margin-left: 50px;
-  word-wrap: break-word;
-  text-align: center;
-}
-.olympic-center .tasks-content .progress-box button::after {
-  display: block;
-  content: "";
-  background: url(https://banner.0814media.net/desktop/img/event/olympic/arrow.png) no-repeat center/cover;
-  width: 8px;
-  height: 13px;
-  margin: 0 0 0 10px;
-}
-.olympic-center .tasks-content .progress-box button:hover {
-  background: #f97700;
-}
-.olympic-center .tasks .medal {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-left: 40px;
+.event-lottery-popup * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-.olympic-center .tasks .medal > div {
-  background: white;
-  color: #301363;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 27px;
-  padding-bottom: 30px;
-  width: 360px;
-  height: 335px;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
-  position: relative;
+.event-lottery-popup .grid {
+  display: grid;
+  gap: 20px;
+  padding: 20px 40px;
 }
-.olympic-center .tasks .medal > div span:first-child {
-  font-size: 30px;
-  font-weight: 800;
+.event-lottery-popup .grid.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
-.olympic-center .tasks .medal > div span:last-child {
-  font-size: 100px;
-  color: #FF8B21;
-  margin-top: 10px;
-  font-weight: 700;
+.event-lottery-popup .grid.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
-.olympic-center .tasks .medal > div::before {
-  position: absolute;
-  display: block;
-  content: "";
-  background: url(https://banner.0814media.net/desktop/img/event/olympic/gold-medal.png) no-repeat center/cover;
-  width: 360px;
-  height: 360px;
-  top: -200px;
+.event-lottery-popup .grid.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
-.olympic-center .bouns-title {
-  font-size: 40px;
-  font-weight: 700;
-  text-transform: uppercase;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin: 110px 0 45px;
+.event-lottery-popup .grid.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-.olympic-center .bouns-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  padding: 0 160px;
+.event-lottery-popup .grid.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-.olympic-center .bouns-content-item {
-  width: 320px;
-}
-.olympic-center .bouns-content-item .money {
-  background: white;
-  padding: 0 0 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 15px 15px 0 0;
-}
-.olympic-center .bouns-content-item .money img {
-  width: 220px;
-}
-.olympic-center .bouns-content-item .money > div {
-  color: #301363;
-  font-size: 30px;
-  font-weight: 700;
-}
-.olympic-center .bouns-content-item .redeem-btn {
-  background: #301363;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 20px 0;
-  border-radius: 0 0 15px 15px;
-}
-.olympic-center .bouns-content-item .redeem-btn > div {
-  font-size: 30px;
-  color: white;
-  font-weight: 700;
-  margin-top: 10px;
-  text-align: center;
-}
-.olympic-center .bouns-content-item .redeem-btn button {
-  background: white;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 50px;
-  width: 200px;
-  margin: 15px 20px;
-  color: #301363;
-  font-weight: 700;
-}
-.olympic-center .bouns-content-item .redeem-btn button:hover {
-  -webkit-box-shadow: 0 0 10px #eadeff;
-          box-shadow: 0 0 10px #eadeff;
-  color: #805cbf;
-}
-.olympic-center-bn {
-  margin-top: -200px;
-}
-.olympic-bottom {
-  background: #301363;
-  padding-bottom: 150px;
-}
-.olympic-bottom-wrapper {
-  max-width: 1350px;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.olympic-bottom-title {
-  color: #FF8B21;
-  font-size: 40px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 50px;
-}
-.olympic-bottom .sheet {
-  background: #FF8B21;
-  padding: 15px;
-  border-radius: 30px;
-  margin-bottom: 95px;
-}
-.olympic-bottom .sheet-content-title {
-  border-radius: 15px 15px 0 0;
-  background: #FFBD81;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 30px;
-  font-weight: 700;
-}
-.olympic-bottom .sheet-content-title > div {
-  padding: 15px 30px;
-  width: 350px;
-  text-align: center;
-}
-.olympic-bottom .sheet-content-text {
-  height: 355px;
-  overflow: hidden;
-  overflow-y: scroll;
-  border-radius: 0 0 15px 15px;
-}
-.olympic-bottom .sheet-content-text > div {
-  background: #FFEFE1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.olympic-bottom .sheet-content-text > div > div {
-  color: #301363;
-  font-size: 20px;
-  padding: 20px 30px;
-  width: 350px;
-  text-align: center;
-  font-weight: 400;
-}
-.olympic-bottom .sheet-content-text > div:nth-child(odd) {
-  background: white;
-}
-.olympic-bottom .sheet-content-text > div:last-child {
-  border-radius: 0 0 15px 15px;
-}
-.olympic-bottom-tnc {
-  padding: 0 70px;
-}
-.olympic-bottom-tnc ul li {
-  line-height: 40px;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 45px;
-  text-indent: -22px;
-}
-.olympic-footer > div {
-  background: #FF8B21;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.olympic-footer > div img {
-  width: 220px;
-  padding: 40px 0;
-}
-
-#survey {
-  position: fixed;
-  bottom: 35px;
-  right: 70px;
-  width: 345px;
-  border-radius: 10px;
-  color: white;
-  z-index: 5;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-#survey .survey-icon-btn {
-  position: absolute;
-  bottom: 60px;
-  right: -60px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #0066CC;
-  border-radius: 100%;
-  padding: 15px;
-  width: 60px;
-  height: 60px;
-  -webkit-box-shadow: 0 3px 6px rgba(180, 187, 193, 0.8117647059);
-          box-shadow: 0 3px 6px rgba(180, 187, 193, 0.8117647059);
-}
-#survey .survey-icon-btn img {
-  width: 35px;
-  margin-left: 3px;
-}
-#survey .survey-icon-btn:hover {
-  background: #2685e3;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-#survey .survey-box {
-  position: absolute;
-  bottom: 45px;
-  right: -60px;
-  visibility: hidden;
-  background: #F8F8F8;
-  border-radius: 10px;
-  width: 400px;
-  opacity: 0;
-  -webkit-box-shadow: 0 0 6px rgba(128, 128, 128, 0.431372549);
-          box-shadow: 0 0 6px rgba(128, 128, 128, 0.431372549);
-}
-#survey .survey-box.active {
+.event-lottery-popup .event-lottery .icon.pig, .event-lottery .event-lottery-popup .icon.pig, .event-lottery-popup .event-lottery .icon.dog, .event-lottery .event-lottery-popup .icon.dog, .event-lottery-popup .event-lottery .icon.chicken, .event-lottery .event-lottery-popup .icon.chicken, .event-lottery-popup .event-lottery .icon.monkey, .event-lottery .event-lottery-popup .icon.monkey, .event-lottery-popup .event-lottery .icon.goat, .event-lottery .event-lottery-popup .icon.goat, .event-lottery-popup .event-lottery .icon.horse, .event-lottery .event-lottery-popup .icon.horse, .event-lottery-popup .event-lottery .icon.snake, .event-lottery .event-lottery-popup .icon.snake, .event-lottery-popup .event-lottery .icon.dragon, .event-lottery .event-lottery-popup .icon.dragon, .event-lottery-popup .event-lottery .icon.cat, .event-lottery .event-lottery-popup .icon.cat, .event-lottery-popup .event-lottery .icon.tiger, .event-lottery .event-lottery-popup .icon.tiger, .event-lottery-popup .event-lottery .icon.ox, .event-lottery .event-lottery-popup .icon.ox, .event-lottery-popup .event-lottery .icon.rat, .event-lottery .event-lottery-popup .icon.rat, .event-lottery-popup .icon.pig, .event-lottery-popup .icon.dog, .event-lottery-popup .icon.chicken, .event-lottery-popup .icon.monkey, .event-lottery-popup .icon.goat, .event-lottery-popup .icon.horse, .event-lottery-popup .icon.snake, .event-lottery-popup .icon.dragon, .event-lottery-popup .icon.cat, .event-lottery-popup .icon.tiger, .event-lottery-popup .icon.ox, .event-lottery-popup .icon.rat {
   opacity: 1;
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease;
-  visibility: visible;
+  background-color: rgba(255, 255, 255, 0.4);
 }
-#survey .survey-before {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 20px;
-  padding: 20px 30px;
+.event-lottery-popup .icon {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  opacity: 0.4;
+  -webkit-transition: 0.3s background-color ease;
+  transition: 0.3s background-color ease;
 }
-#survey .survey-before > div:nth-child(1) {
-  color: #0A1B38;
-  font-size: 17px;
+.event-lottery-popup .icon.active {
+  opacity: 1;
+}
+.event-lottery-popup .icon-close {
+  width: auto;
+  height: auto;
+  font-size: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  opacity: 1;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.event-lottery-popup .icon-close:hover {
+  opacity: 0.8;
+  color: #EB801D;
+}
+.event-lottery-popup .icon.rat {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/rat-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/rat-defult.svg") no-repeat center/contain;
+}
+.event-lottery-popup .icon.rat.active {
+  background-color: #EB801D;
+}
+.event-lottery-popup .icon.ox {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/ox-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/ox-defult.svg") no-repeat center/contain;
+}
+.event-lottery-popup .icon.ox.active {
+  background-color: #EB801D;
+}
+.event-lottery-popup .icon.tiger {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/tiger-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/tiger-defult.svg") no-repeat center/contain;
+}
+.event-lottery-popup .icon.tiger.active {
+  background-color: #EB801D;
+}
+.event-lottery-popup .icon.cat {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/cat-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/cat-defult.svg") no-repeat center/contain;
+}
+.event-lottery-popup .icon.cat.active {
+  background-color: #EB801D;
+}
+.event-lottery-popup .icon.dragon {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/dragon-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/dragon-defult.svg") no-repeat center/contain;
+}
+.event-lottery-popup .icon.dragon.active {
+  background-color: #EB801D;
+}
+.event-lottery-popup .icon.snake {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/snake-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/snake-defult.svg") no-repeat center/contain;
+}
+.event-lottery-popup .icon.snake.active {
+  background-color: #EB801D;
+}
+.event-lottery-popup .icon.horse {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/horse-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/horse-defult.svg") no-repeat center/contain;
+}
+.event-lottery-popup .icon.horse.active {
+  background-color: #EB801D;
+}
+.event-lottery-popup .icon.goat {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/goat-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/goat-defult.svg") no-repeat center/contain;
+}
+.event-lottery-popup .icon.goat.active {
+  background-color: #EB801D;
+}
+.event-lottery-popup .icon.monkey {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/monkey-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/monkey-defult.svg") no-repeat center/contain;
+}
+.event-lottery-popup .icon.monkey.active {
+  background-color: #EB801D;
+}
+.event-lottery-popup .icon.chicken {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/chicken-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/chicken-defult.svg") no-repeat center/contain;
+}
+.event-lottery-popup .icon.chicken.active {
+  background-color: #EB801D;
+}
+.event-lottery-popup .icon.dog {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/dog-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/dog-defult.svg") no-repeat center/contain;
+}
+.event-lottery-popup .icon.dog.active {
+  background-color: #EB801D;
+}
+.event-lottery-popup .icon.pig {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/pig-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/pig-defult.svg") no-repeat center/contain;
+}
+.event-lottery-popup .icon.pig.active {
+  background-color: #EB801D;
+}
+.event-lottery-popup .icon.plus {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/icon-plus.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.trophy {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/icon-trophy.svg) no-repeat center/contain;
+}
+.event-lottery-popup .icon.sticker {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/icon-sticker-column-5.svg) no-repeat center/contain;
+}
+.event-lottery-popup button {
   font-weight: 600;
-  text-align: left;
-  width: 100%;
+  background-color: #EB801D;
+  color: #fff;
+  padding: 10px 60px;
+  border-radius: 15px;
+  font-size: 20px;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  opacity: 1;
 }
-#survey .survey-before > div:nth-child(2) {
-  text-align: left;
-  width: 100%;
-  color: #9C9C9C;
-  margin: 25px 0 12px;
-  font-size: 12px;
+.event-lottery-popup button:hover {
+  opacity: 0.8;
 }
-#survey .survey-before fieldset {
-  border: medium none;
-  min-width: 100%;
-  padding: 0;
-  width: 100%;
+.event-lottery-popup button.copy {
+  position: absolute;
+  left: -1px;
+  bottom: -50px;
+  background-color: #EB801D;
+  color: #fff;
+  font-size: 18px;
+  padding: 0 20px 0 40px;
+  height: 50px;
+  border-radius: 0 0 0 15px;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+.event-lottery-popup button.copy::after {
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/lottery-div-copy.svg) no-repeat center/100%;
+  position: absolute;
+  right: -50px;
+  top: 0;
+  width: 50px;
+  height: 50px;
+}
+.event-lottery-popup button.copy:hover {
+  color: #000;
+  opacity: 1;
+}
+.event-lottery-popup .popup-content {
+  padding: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26595,113 +26001,102 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 30px;
 }
-#survey .survey-before fieldset input {
-  width: 100%;
-  border: 1px solid #e5e5e5;
-  background: #FFF;
-  margin: 0 0 5px;
-  padding: 10px 0 10px 8px;
-  color: #0A1B38;
-  border-radius: 5px;
+.event-lottery-popup .popup-content .title {
+  font-size: 30px;
+  text-align: center;
+  color: #fff;
 }
-#survey .survey-before fieldset input::-webkit-input-placeholder {
-  font-size: 12px;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
+.event-lottery-popup .popup-content .title-group p {
+  text-align: center;
 }
-#survey .survey-before fieldset input::-moz-placeholder {
-  font-size: 12px;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
+.event-lottery-popup.jackpot .jackpot-group .icon {
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
-#survey .survey-before fieldset input:-ms-input-placeholder {
-  font-size: 12px;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
+.event-lottery-popup.jackpot .jackpot-group .icon:hover {
+  background-color: #EB801D;
 }
-#survey .survey-before fieldset input::-ms-input-placeholder {
-  font-size: 12px;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
+.event-lottery-popup.jackpot .prompt {
+  font-size: 30px;
+  min-width: 660px;
+  min-height: 220px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #EB801D;
 }
-#survey .survey-before fieldset input::placeholder {
-  font-size: 12px;
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
+.event-lottery-popup.copy {
+  border-radius: 15px 15px 15px 0px !important;
+  min-height: 45dvh;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
-#survey .survey-before fieldset input:focus {
-  outline: 0;
-  border: 2px solid #648DD6;
+.event-lottery-popup.copy.trophy {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/trophy-winning-desktop.jpg) no-repeat center/cover;
 }
-#survey .survey-before fieldset textarea {
-  width: 100%;
-  height: 150px;
-  border: 1px solid #e5e5e5;
-  background: #FFF;
-  margin: 0 0 5px;
-  padding: 10px 0 10px 8px;
-  max-width: 100%;
-  resize: none;
-  border-radius: 5px;
-  font-size: 12px;
+.event-lottery-popup.copy.rat {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/rat-winning-desktop.jpg) no-repeat center/cover;
 }
-#survey .survey-before fieldset textarea::-webkit-input-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
+.event-lottery-popup.copy.ox {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/ox-winning-desktop.jpg) no-repeat center/cover;
 }
-#survey .survey-before fieldset textarea::-moz-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
+.event-lottery-popup.copy.tiger {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/tiger-winning-desktop.jpg) no-repeat center/cover;
 }
-#survey .survey-before fieldset textarea:-ms-input-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
+.event-lottery-popup.copy.cat {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/cat-winning-desktop.jpg) no-repeat center/cover;
 }
-#survey .survey-before fieldset textarea::-ms-input-placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
+.event-lottery-popup.copy.dragon {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/dragon-winning-desktop.jpg) no-repeat center/cover;
 }
-#survey .survey-before fieldset textarea::placeholder {
-  color: #D8D8D8;
-  font-family: "Poppins", sans-serif;
+.event-lottery-popup.copy.snake {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/snake-winning-desktop.jpg) no-repeat center/cover;
 }
-#survey .survey-before fieldset textarea:focus {
-  outline: 0;
-  border: 2px solid #648DD6;
+.event-lottery-popup.copy.horse {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/horse-winning-desktop.jpg) no-repeat center/cover;
 }
-#survey .survey-before fieldset button {
-  background: #648DD6;
-  font-size: 14px;
-  font-weight: 600;
-  border-radius: 10px;
-  padding: 10px 25px;
-  margin: 50px 0 20px;
-  color: white;
+.event-lottery-popup.copy.goat {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/goat-winning-desktop.jpg) no-repeat center/cover;
 }
-#survey .survey-before fieldset button:last-child {
-  background: #DFDFDF;
-  color: #9B9B9B;
-  margin-left: 8px;
+.event-lottery-popup.copy.monkey {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/monkey-winning-desktop.jpg) no-repeat center/cover;
 }
-#survey .survey-before fieldset:nth-child(2) {
-  margin-top: 25px;
+.event-lottery-popup.copy.chicken {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/chicken-winning-desktop.jpg) no-repeat center/cover;
 }
-#survey .survey-before fieldset .tip {
-  display: none;
+.event-lottery-popup.copy.dog {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/dog-winning-desktop.jpg) no-repeat center/cover;
 }
-#survey .survey-before fieldset .tip.active {
-  display: block;
-  color: red;
+.event-lottery-popup.copy.pig {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/pig-winning-desktop.jpg) no-repeat center/cover;
 }
-#survey .survey-before fieldset.error textarea {
-  border: 2px solid red;
+.event-lottery-popup.copy .logo {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/NOVA-logo.svg) no-repeat center/contain;
+  width: 210px;
+  height: 90px;
 }
-#survey .survey-before fieldset.error input {
-  border: 2px solid red;
+.event-lottery-popup.copy .popup-content {
+  padding: 40px !important;
 }
-#survey .survey-before .survey-input {
-  margin-top: 3px;
+.event-lottery-popup.copy .popup-content .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26709,12 +26104,40 @@ input[type=number] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
-#survey .survey-before .survey-btn {
-  width: 100%;
+.event-lottery-popup.copy .popup-content .wrapper > .title {
+  color: #EB801D;
+  font-size: 40px;
+  text-align: left;
+}
+.event-lottery-popup.copy .popup-content .wrapper .info-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 14px !important;
+  font-weight: 200 !important;
+}
+.event-lottery-popup.copy .popup-content .wrapper .info-group .title {
+  text-align: left;
+  font-size: 24px;
+}
+.event-lottery-popup.ticket {
+  background-color: #EB801D !important;
+}
+.event-lottery-popup.ticket .icon {
+  color: #000;
+}
+.event-lottery-popup.ticket .popup-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26722,20 +26145,25 @@ input[type=number] {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: right;
-      -ms-flex-pack: right;
-          justify-content: right;
 }
-#survey .survey-before .survey-btn button:first-child:hover {
-  background: #7b9fdf;
+.event-lottery-popup.ticket .popup-content .title-group {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
-#survey .survey-before .survey-btn button:last-child:hover {
-  background: #d6d9df;
+.event-lottery-popup.ticket .popup-content .title-group .title,
+.event-lottery-popup.ticket .popup-content .title-group p {
+  color: #000;
 }
-#survey .survey-before.close {
-  display: none;
+.event-lottery-popup.ticket .popup-content .title-group p {
+  font-size: 18px;
+  text-align: center;
 }
-#survey .survey-after {
+.event-lottery-popup.ticket .popup-content .ticket {
+  z-index: 4;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26743,19 +26171,292 @@ input[type=number] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+.event-lottery-popup.ticket .popup-content .ticket hr {
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  border-style: dashed;
+  border-color: #61566B;
+}
+.event-lottery-popup.ticket .popup-content .ticket-top {
+  padding: 20px;
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.event-lottery-popup.ticket .popup-content .ticket-top::before {
+  content: "";
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  position: absolute;
+  background-color: #383040;
+  --mask: radial-gradient(15px at 15px 100%, #0000 98%, #000) -15px;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+.event-lottery-popup.ticket .popup-content .ticket-bottom {
+  padding: 20px;
+  position: relative;
+}
+.event-lottery-popup.ticket .popup-content .ticket-bottom::before {
+  content: "";
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  position: absolute;
+  background-color: #383040;
+  --mask: radial-gradient(15px at 15px 0, #0000 98%, #000) -15px;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+.event-lottery-popup.ticket .popup-content .ticket-bottom .total {
+  color: #fff;
+  background-color: #61566B;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 130px 30px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
 }
-#survey .survey-after img {
-  width: 150px;
+.event-lottery-popup.ticket .popup-content .ticket-bottom .total .title {
+  color: #fff;
+  font-size: 12px;
+  text-align: left;
 }
-#survey .survey-after .icon-close {
-  position: absolute;
-  background: rgba(128, 128, 128, 0.5803921569);
-  color: white;
-  border-radius: 100%;
+.event-lottery-popup.ticket .popup-content .ticket-bottom .total .quantity {
+  font-size: 24px;
+  font-weight: bold;
+}
+.event-lottery-popup.ticket .popup-content .ticket.sticker .ticket-top {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.event-lottery-popup.ticket .popup-content .ticket.sticker .ticket-top .title {
+  padding: 16px;
+  font-size: 14px;
+  text-align: center;
+}
+.event-lottery-popup.ticket .popup-content .ticket.sticker .ticket-top .sticker-result {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+  background-color: #61566B;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40px;
+}
+.event-lottery-popup.ticket .popup-content .ticket.sticker .ticket-top .sticker-result .icon {
+  background-color: #fff;
+}
+.event-lottery-popup.rules {
+  width: 50%;
+  overflow: hidden;
+}
+.event-lottery-popup.rules .rules-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+.event-lottery-popup.rules .rules-item .title-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #61566B;
+  padding: 10px 20px 10px 40px;
+  border-radius: 100px;
+  border: 1px solid transparent;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.event-lottery-popup.rules .rules-item .title-group .title {
+  font-size: 20px;
+}
+.event-lottery-popup.rules .rules-item .title-group .arrow {
+  background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) #958C9F no-repeat center 60%/60%;
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+  border-radius: 100px;
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+.event-lottery-popup.rules .rules-item .title-group:hover {
+  opacity: 1;
+  background-color: rgba(97, 86, 107, 0.5);
+  border: 1px solid #EB801D;
+}
+.event-lottery-popup.rules .rules-item .title-group:hover .arrow {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) #FF7600 no-repeat center 60%/60%;
+}
+.event-lottery-popup.rules .rules-item.active .arrow {
+  background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) #EB801D no-repeat center 60%/60%;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+.event-lottery-popup.rules .popup-content {
+  height: 60dvh;
+  overflow-y: scroll;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+.event-lottery-popup.rules .popup-content .content {
+  background-color: #61566B;
+  border-radius: 15px;
+  padding: 20px;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+.event-lottery-popup.rules .popup-content .content .wrapper {
+  color: rgba(255, 255, 255, 0.5);
+}
+.event-lottery-popup.rules .popup-content .content .wrapper .title {
+  color: #FF7600;
+  text-align: left;
+  padding: 20px;
+  font-size: 22px;
+}
+.event-lottery-popup.rules .popup-content .content .wrapper ul li {
+  list-style: disc;
+  margin-left: 40px;
+  font-weight: lighter;
+  line-height: 1.8;
+}
+.event-lottery-popup.rules .popup-content .content .wrapper ul li.title {
+  margin-left: 0;
+  color: #fff;
+  font-weight: 400;
+  list-style: none;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+.event-lottery-popup.rules .jackpot-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border: 1px solid #AEA6B7;
+  border-radius: 100px;
+  padding: 10px;
+}
+.event-lottery-popup.rules .jackpot-group .jackpot-title {
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  padding: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 100px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 24px;
+  background-color: #AEA6B7;
+  color: #61566B;
+}
+.event-lottery-popup.rules .jackpot-group .title {
+  color: #fff !important;
+  padding: 0px !important;
+  font-size: 14px !important;
+}
+.event-lottery-popup.rules .jackpot-group .icon {
+  opacity: 1;
+}
+.event-lottery-popup.rules .jackpot-group .icon.plus {
+  width: 30px;
+  height: 30px;
+}
+.event-lottery-popup.rules .jackpot-group .prize-group,
+.event-lottery-popup.rules .jackpot-group .sticker-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+.event-lottery-popup.rules .jackpot-group .sticker-group {
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5 1 auto;
+          flex: 0.5 1 auto;
+  padding-right: 40px;
+}
+.event-lottery-popup.rules .jackpot-group .sticker-group .icon {
+  width: 100%;
+}
+.event-lottery-popup.maintenance {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26769,16 +26470,13 @@ input[type=number] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 32px;
-  width: 32px;
-  font-size: 14px;
-  right: 15px;
-  top: 15px;
+  background-color: #fff !important;
+  border: none !important;
+  min-height: 45dvh;
+  width: 35%;
 }
-#survey .survey-after .icon-close:hover {
-  background: rgba(171, 171, 171, 0.6);
-}
-#survey .survey-after > div:nth-child(2) {
+.event-lottery-popup.maintenance .popup-content {
+  padding: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26789,19 +26487,1626 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #0A1B38;
-  font-size: 17px;
-  font-weight: 600;
-  text-align: left;
+  gap: 30px;
 }
-#survey .survey-after > div:nth-child(2) > div {
-  margin: 30px 0;
+.event-lottery-popup.maintenance .popup-content .maintenance-img img {
+  width: 150px;
 }
-#survey .survey-after > div:last-child {
-  color: #9C9C9C;
-  font-size: 12px;
+.event-lottery-popup.maintenance .popup-content .title {
+  font-size: 30px;
+  text-align: center;
+  color: black;
+}
+.event-lottery-popup.maintenance .popup-content .title-group p {
   text-align: center;
 }
-#survey .survey-after.close {
-  display: none;
+@media (max-width: 992px) {
+  .event-lottery-popup {
+    width: 100% !important;
+  }
+}
+
+.event-lottery {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 200px 3vw 150px;
+  background: url("https://banner.0814media.net/desktop/img/event/lottery/bg.jpg") no-repeat top/100% #0c0515;
+  top: 0;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  z-index: 1;
+  border-bottom: 40px solid #EB801D;
+}
+.event-lottery * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.event-lottery::after {
+  content: "";
+  position: absolute;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(12, 4, 21, 0.78)), to(rgba(12, 4, 21, 0.35))), url("https://banner.0814media.net/desktop/img/event/lottery/nova.svg") center/100% no-repeat;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(12, 4, 21, 0.78) 50%, rgba(12, 4, 21, 0.35) 100%), url("https://banner.0814media.net/desktop/img/event/lottery/nova.svg") center/100% no-repeat;
+  -webkit-transform: translateY(var(--parallax-offset, 0px));
+          transform: translateY(var(--parallax-offset, 0px));
+  -webkit-transition: -webkit-transform 0.8s ease-out;
+  transition: -webkit-transform 0.8s ease-out;
+  transition: transform 0.8s ease-out;
+  transition: transform 0.8s ease-out, -webkit-transform 0.8s ease-out;
+  will-change: transform;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.event-lottery .lottery-wrapper .slot {
+  position: relative;
+  z-index: 4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: calc(800px + 5vw);
+  margin: 0 auto;
+}
+.event-lottery .lottery-wrapper .slot .animation-g {
+  position: relative;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen {
+  padding: 0.5vw;
+  position: absolute;
+  z-index: 4;
+  left: 0 !important;
+  right: 0 !important;
+  aspect-ratio: 127.6/60.8;
+  margin: 0 auto;
+  top: 14.5%;
+  width: 50%;
+}
+@media (max-width: 992px) {
+  .event-lottery .lottery-wrapper .slot .lottery-screen {
+    margin: 0 25%;
+    width: auto;
+  }
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen.standby {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen.standby .title {
+  font-size: calc(10px + 1vw);
+  color: #fff;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen.reciprocal .title {
+  font-size: 24px;
+  color: #fff;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen.reciprocal .time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen.reciprocal .time .number-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  gap: 10px;
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen.reciprocal .time .number-group .unit {
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: calc(8px + 0.25vw);
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen.reciprocal .time .number-group .number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  gap: 4px;
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen.reciprocal .time .number-group .number div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #000;
+  font-size: calc(24px + 0.5vw);
+  font-weight: bold;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background: url("https://banner.0814media.net/desktop/img/event/lottery/time.png") no-repeat center/cover;
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen.reciprocal .icon {
+  width: auto;
+  height: -webkit-fill-available;
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen.reciprocal .icon.time-dots {
+  -webkit-box-flex: 0.2;
+      -ms-flex: 0.2;
+          flex: 0.2;
+  background: url("https://banner.0814media.net/desktop/img/event/lottery/colon.png") no-repeat center/contain;
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen.progress {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen.progress .title {
+  font-size: calc(18px + 0.65vw);
+  color: #fff;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen.progress .subtitle {
+  font-size: calc(10px + 0.35vw);
+  color: #fff;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-weight: 600;
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen.lotteryresult {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen.lotteryresult .title {
+  font-size: calc(18px + 0.65vw);
+  color: #fff;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+.event-lottery .lottery-wrapper .slot .lottery-screen .screen.lotteryresult .subtitle {
+  font-size: calc(10px + 0.35vw);
+  color: #fff;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-weight: 600;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div {
+  position: absolute;
+  top: 50%;
+  width: 1350px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 5;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .title {
+  padding: 10px 60px;
+  background-color: #EB801D;
+  color: #fff;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 15px 0 0 0;
+  position: relative;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .title::after {
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/lottery-div-arrow.svg) no-repeat center/100%;
+  position: absolute;
+  right: -110px;
+  top: 0;
+  width: 120px;
+  height: 50px;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper {
+  border-radius: 0 15px 15px 15px;
+  border: 1px solid #EB801D;
+  background-color: #383040;
+  overflow: hidden;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .prize .grid div, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .top3 .wrapper .ticket-group div {
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  font-family: "Roboto Mono", monospace;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div span.default, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .prize .grid div span.default, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .top3 .wrapper .ticket-group div span.default {
+  opacity: 0.5;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div span.winning, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .prize .grid div span.winning, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .top3 .wrapper .ticket-group div span.winning {
+  color: #FF7600;
+  opacity: 1;
+  font-weight: bold;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div span.announced, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .prize .grid div span.announced, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .top3 .wrapper .ticket-group div span.announced {
+  opacity: 1;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content {
+  padding: 20px;
+  min-height: 45dvh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .title {
+  font-size: 26px;
+  text-align: center;
+  color: #fff;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .standby {
+  font-size: 36px;
+  color: #EB801D;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .progress {
+  font-size: 36px;
+  color: #EB801D;
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+  font-weight: bold;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .progress .sub-title {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .lottery-result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .lottery-result .result {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #EB801D;
+  gap: 8px;
+  font-weight: bold;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: 36px;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .lottery-result .result .sub-title {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .top3 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 20px;
+  margin: -20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/top3-prize.jpg) no-repeat center 0/cover;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .top3 .wrapper {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .top3 .wrapper .title {
+  margin-bottom: 50px;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .top3 .wrapper .ticket-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .top3 .wrapper .ticket-group div {
+  border-radius: 15px;
+  padding: 20px 60px;
+  font-size: 20px;
+  background-color: #383040;
+  text-align: center;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .prize {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .prize .title-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 40px 80px;
+  margin: 0 40px;
+  border-bottom: 1px solid #fff;
+  font-size: 18px;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .prize .grid {
+  padding: 40px 80px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  grid-template-rows: repeat(5, 1fr);
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .prize .grid div {
+  letter-spacing: 2px;
+  font-size: 24px;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 20px;
+  margin: -20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/grand-prize.jpg) no-repeat center 0/cover;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.third:before, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.second:before, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.first:before {
+  width: 100px;
+  height: 100px;
+  left: calc(50% - 50px);
+  top: -120px;
+  position: absolute;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div {
+  border-radius: 15px;
+  border: 3px solid #EB801D;
+  color: #000;
+  padding: 14px 30px;
+  font-size: calc(16px + 0.2vw);
+  background-color: #fff;
+  text-align: center;
+  font-weight: 600;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.first {
+  padding: 18px 30px;
+  font-size: calc(18px + 0.2vw);
+  position: relative;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.first:before {
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/first.svg) no-repeat center/cover;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.second {
+  position: relative;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.second:before {
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/second.svg) no-repeat center/cover;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.third {
+  position: relative;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div.third:before {
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/thrid.svg) no-repeat center/cover;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .jackpot-group {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .jackpot-group .title {
+  padding: 20px 0;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .jackpot-group .jackpot-win {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .jackpot-group .jackpot-win .icon {
+  height: 200px;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .jackpot-group .grid {
+  padding: 40px 100px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .jackpot-group .icon {
+  width: 100%;
+  height: 100px;
+  margin: 20px 0;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-footer {
+  background-color: #EB801D;
+  padding: 20px;
+  min-height: 105px;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-footer .consolation-prize {
+  gap: 20px;
+  font-size: 20px;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-footer .consolation-prize .prize {
+  gap: 20px;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-footer .consolation-prize .prize .title {
+  color: #fff;
+  font-weight: 600;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-footer .consolation-prize .prize .number {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-footer .ticket-total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 20px;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-footer .ticket-total .title {
+  font-size: 18px;
+  color: #fff;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-footer .ticket-total .ticket-container {
+  background-color: rgba(100, 46, 0, 0.56);
+  padding: 0 40px;
+  border-radius: 15px;
+  font-size: 16px;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+  width: 350px;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-footer .ticket-total .ticket-container .number {
+  font-size: 36px;
+  margin-left: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-footer button {
+  padding: 20px;
+  background-color: #fff;
+  font-size: 16px;
+  border-radius: 15px;
+  font-weight: bold;
+}
+.event-lottery #animation_container {
+  position: relative;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+.event-lottery .fade {
+  -webkit-transition: opacity 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
+  opacity: 1;
+}
+.event-lottery .fade.hide {
+  opacity: 0;
+}
+.event-lottery .fade.show {
+  opacity: 1;
+}
+.event-lottery .fade-in {
+  opacity: 0;
+  -webkit-transition: opacity 0.6s ease-in;
+  transition: opacity 0.6s ease-in;
+}
+.event-lottery .fade-in.show {
+  opacity: 1;
+}
+.event-lottery .fade-out {
+  opacity: 0;
+  -webkit-transition: opacity 0.6s ease-out;
+  transition: opacity 0.6s ease-out;
+}
+.event-lottery .fade-out.hide {
+  opacity: 1;
+}
+.event-lottery .main-content .tab-content-result .result-list .result-item .share .icon, .event-lottery .main-content .tab-content-conditions .info button, .event-lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-bottom button, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-footer button {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+.event-lottery .main-content .tab-content-result .result-list .result-item .share .icon:hover, .event-lottery .main-content .tab-content-conditions .info button:hover, .event-lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-bottom button:hover, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-footer button:hover {
+  opacity: 0.8;
+}
+.event-lottery .main-content .tab-content-result .result-list .result-item .share, .event-lottery .main-content .nav.nav-tabs .nav-item .nav-link, .event-lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-top, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .prize .grid div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.event-lottery .main-content .tab-content-conditions .table.conditions thead .title-group.bonus .total, .event-lottery .main-content .lottery-info .round .progress-group .total, .event-lottery .main-content .lottery-info .round .progress-group .title, .event-lottery .main-content .lottery-info .round > .title, .event-lottery .main-content .lottery-info, .event-lottery .table-group .title, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-footer, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-footer .consolation-prize, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-footer .consolation-prize .prize {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+.event-lottery .main-content .lottery-info .round > .title .round-number, .event-lottery .lottery-wrapper .slot .lottery-div > .title {
+  font-size: 18px;
+}
+@-webkit-keyframes flickerOpacity {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.2;
+  }
+  70% {
+    opacity: 1;
+  }
+}
+@keyframes flickerOpacity {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.2;
+  }
+  70% {
+    opacity: 1;
+  }
+}
+.event-lottery .flicker, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .top3 .wrapper .ticket-group div span.winning, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .prize .grid div span.winning, .event-lottery .lottery-wrapper .slot .lottery-div > .wrapper .lottery-content .win .wrapper .ticket-group div span.winning {
+  -webkit-animation: flickerOpacity 1.8s infinite ease;
+          animation: flickerOpacity 1.8s infinite ease;
+}
+.event-lottery .icon.pig, .event-lottery .icon.dog, .event-lottery .icon.chicken, .event-lottery .icon.monkey, .event-lottery .icon.goat, .event-lottery .icon.horse, .event-lottery .icon.snake, .event-lottery .icon.dragon, .event-lottery .icon.cat, .event-lottery .icon.tiger, .event-lottery .icon.ox, .event-lottery .icon.rat, .event-lottery .event-lottery-popup .icon.rat, .event-lottery-popup .event-lottery .icon.rat, .event-lottery .event-lottery-popup .icon.ox, .event-lottery-popup .event-lottery .icon.ox, .event-lottery .event-lottery-popup .icon.tiger, .event-lottery-popup .event-lottery .icon.tiger, .event-lottery .event-lottery-popup .icon.cat, .event-lottery-popup .event-lottery .icon.cat, .event-lottery .event-lottery-popup .icon.dragon, .event-lottery-popup .event-lottery .icon.dragon, .event-lottery .event-lottery-popup .icon.snake, .event-lottery-popup .event-lottery .icon.snake, .event-lottery .event-lottery-popup .icon.horse, .event-lottery-popup .event-lottery .icon.horse, .event-lottery .event-lottery-popup .icon.goat, .event-lottery-popup .event-lottery .icon.goat, .event-lottery .event-lottery-popup .icon.monkey, .event-lottery-popup .event-lottery .icon.monkey, .event-lottery .event-lottery-popup .icon.chicken, .event-lottery-popup .event-lottery .icon.chicken, .event-lottery .event-lottery-popup .icon.dog, .event-lottery-popup .event-lottery .icon.dog, .event-lottery .event-lottery-popup .icon.pig, .event-lottery-popup .event-lottery .icon.pig {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.4);
+  -webkit-transition: 0.3s background-color ease;
+  transition: 0.3s background-color ease;
+}
+.event-lottery .icon {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+.event-lottery .icon.money {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/icon-money.png) #fff no-repeat center/contain;
+}
+.event-lottery .icon.share {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/icon-share.png) no-repeat center/contain;
+}
+.event-lottery .icon.rat {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/rat-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/rat-defult.svg") no-repeat center/contain;
+}
+.event-lottery .icon.rat.active {
+  background-color: #EB801D;
+}
+.event-lottery .icon.ox {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/ox-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/ox-defult.svg") no-repeat center/contain;
+}
+.event-lottery .icon.ox.active {
+  background-color: #EB801D;
+}
+.event-lottery .icon.tiger {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/tiger-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/tiger-defult.svg") no-repeat center/contain;
+}
+.event-lottery .icon.tiger.active {
+  background-color: #EB801D;
+}
+.event-lottery .icon.cat {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/cat-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/cat-defult.svg") no-repeat center/contain;
+}
+.event-lottery .icon.cat.active {
+  background-color: #EB801D;
+}
+.event-lottery .icon.dragon {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/dragon-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/dragon-defult.svg") no-repeat center/contain;
+}
+.event-lottery .icon.dragon.active {
+  background-color: #EB801D;
+}
+.event-lottery .icon.snake {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/snake-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/snake-defult.svg") no-repeat center/contain;
+}
+.event-lottery .icon.snake.active {
+  background-color: #EB801D;
+}
+.event-lottery .icon.horse {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/horse-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/horse-defult.svg") no-repeat center/contain;
+}
+.event-lottery .icon.horse.active {
+  background-color: #EB801D;
+}
+.event-lottery .icon.goat {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/goat-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/goat-defult.svg") no-repeat center/contain;
+}
+.event-lottery .icon.goat.active {
+  background-color: #EB801D;
+}
+.event-lottery .icon.monkey {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/monkey-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/monkey-defult.svg") no-repeat center/contain;
+}
+.event-lottery .icon.monkey.active {
+  background-color: #EB801D;
+}
+.event-lottery .icon.chicken {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/chicken-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/chicken-defult.svg") no-repeat center/contain;
+}
+.event-lottery .icon.chicken.active {
+  background-color: #EB801D;
+}
+.event-lottery .icon.dog {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/dog-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/dog-defult.svg") no-repeat center/contain;
+}
+.event-lottery .icon.dog.active {
+  background-color: #EB801D;
+}
+.event-lottery .icon.pig {
+  -webkit-mask: url("https://banner.0814media.net/desktop/img/event/lottery/pig-defult.svg") no-repeat center/contain;
+          mask: url("https://banner.0814media.net/desktop/img/event/lottery/pig-defult.svg") no-repeat center/contain;
+}
+.event-lottery .icon.pig.active {
+  background-color: #EB801D;
+}
+.event-lottery .d-none {
+  display: none !important;
+}
+.event-lottery button:disabled {
+  cursor: default;
+  background-color: #61566B !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+  opacity: 1 !important;
+}
+.event-lottery button:disabled:hover {
+  opacity: 1 !important;
+}
+.event-lottery .table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.event-lottery .table th,
+.event-lottery .table td {
+  font-size: 18px;
+  padding: 16px;
+}
+@media screen and (max-width: 1400px) {
+  .event-lottery .table th,
+  .event-lottery .table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+.event-lottery .table td {
+  font-family: Roboto Mono, monospace;
+}
+.event-lottery .table thead tr th {
+  color: #EB801D;
+  font-weight: bolder;
+}
+.event-lottery .table tbody {
+  background-color: #61566B;
+  border-radius: 15px;
+}
+.event-lottery .table-group {
+  background-color: #383040;
+  border-radius: 15px;
+  padding: 30px;
+}
+.event-lottery .table-group .title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bolder;
+  margin-bottom: 30px;
+}
+.event-lottery .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #383040;
+  border-radius: 15px;
+  padding: 20px;
+}
+.event-lottery .card .title {
+  color: #fff;
+}
+.event-lottery .card .title-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.event-lottery .card .title-group .ranking {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.event-lottery .card .title-group .ranking .title {
+  font-size: 24px;
+  color: #EB801D;
+}
+.event-lottery .card .title-group .ranking span {
+  font-size: 16px;
+  color: #EB801D;
+}
+.event-lottery .card .title-group .lucky-number {
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.event-lottery .card .title-group .lucky-number span {
+  font-family: Roboto Mono, monospace;
+}
+.event-lottery .card .title-group .lucky-number span.title {
+  font-size: 12px;
+  color: #fff;
+}
+.event-lottery .grid {
+  display: grid;
+  gap: 20px;
+}
+.event-lottery .grid.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.event-lottery .grid.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.event-lottery .grid.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.event-lottery .grid.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.event-lottery .grid.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.event-lottery .main-content {
+  position: relative;
+  z-index: 6;
+  padding: 60px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.event-lottery .main-content .flex-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 100px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.event-lottery .main-content .container {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 1350px;
+          flex: 0 1 1350px;
+}
+.event-lottery .main-content .lottery-info {
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  gap: 60px;
+}
+.event-lottery .main-content .lottery-info .round {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 30px;
+}
+.event-lottery .main-content .lottery-info .round > .title {
+  border-bottom: 1px solid #fff;
+  padding: 30px 0;
+}
+.event-lottery .main-content .lottery-info .round > .title .round-number {
+  color: #EB801D !important;
+  font-size: 24px;
+}
+.event-lottery .main-content .lottery-info .round > .title .date {
+  color: #fff;
+}
+.event-lottery .main-content .lottery-info .round .ticket-img img {
+  height: 250px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@media screen and (max-width: 1440px) {
+  .event-lottery .main-content .lottery-info .round .ticket-img img {
+    height: 200px;
+  }
+}
+.event-lottery .main-content .lottery-info .round .progress-group .title {
+  color: #EB801D;
+}
+.event-lottery .main-content .lottery-info .round .progress-group .progress {
+  height: 10px;
+  width: 100%;
+  background: #fff;
+  border-radius: 20px;
+  position: relative;
+  margin: 20px auto;
+}
+.event-lottery .main-content .lottery-info .round .progress-group .progress-bar {
+  position: absolute;
+  background: #EB801D;
+  border-radius: 20px;
+  width: 30%;
+  height: 100%;
+  z-index: 1;
+  left: 0;
+}
+.event-lottery .main-content .lottery-info .round .progress-group .total {
+  color: #fff;
+}
+.event-lottery .main-content .lottery-info .ticket-group {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket hr {
+  width: calc(100% - 32px);
+  margin: 0 auto;
+  border-style: dashed;
+  border-color: #61566B;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket-top {
+  padding: 20px;
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket-top::before {
+  content: "";
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  position: absolute;
+  background-color: #383040;
+  --mask: radial-gradient(15px at 15px 100%, #0000 98%, #000) -15px;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table tbody tr th, .event-lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table thead tr th:first-child {
+  width: 30%;
+  word-break: break-all;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket-top .table-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table {
+  width: 100%;
+  height: 100%;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table .title {
+  color: #EB801D;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table thead {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  height: 60px;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table thead .number {
+  color: #fff;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table td {
+  text-align: center;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table thead,
+.event-lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table tbody tr {
+  display: table;
+  width: 100%;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket-top .table-container .table tbody {
+  background-color: #61566B;
+  display: block;
+  overflow-y: auto;
+  height: calc(100% - 60px);
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket-bottom {
+  padding: 20px;
+  position: relative;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket-bottom::before {
+  content: "";
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  position: absolute;
+  background-color: #383040;
+  --mask: radial-gradient(15px at 15px 0, #0000 98%, #000) -15px;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket-bottom .total {
+  color: #fff;
+  background-color: #61566B;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket-bottom .total .title {
+  color: #fff;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket-bottom .total .quantity {
+  font-size: 20px;
+  font-weight: bold;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-top {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-top .title {
+  color: #EB801D !important;
+  padding: 16px;
+  font-size: 18px;
+  text-align: center;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-top .sticker-result {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+  background-color: #61566B;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40px;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-top .sticker-result .icon {
+  width: 100%;
+  height: 200px;
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-top .sticker-result .icon.active {
+  background-color: rgb(255, 255, 255);
+}
+.event-lottery .main-content .lottery-info .ticket-group .ticket.sticker .ticket-bottom button {
+  padding: 20px;
+  color: #fff;
+  background-color: #EB801D;
+  border-radius: 15px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.event-lottery .main-content .nav.nav-tabs {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #fff;
+}
+.event-lottery .main-content .nav.nav-tabs .nav-item {
+  list-style: none;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.event-lottery .main-content .nav.nav-tabs .nav-item .nav-link {
+  font-size: 18px;
+  -webkit-transition: 0.3s, ease, -webkit-transform;
+  transition: 0.3s, ease, -webkit-transform;
+  transition: transform, 0.3s, ease;
+  transition: transform, 0.3s, ease, -webkit-transform;
+  padding: 16px 32px;
+  border-radius: 15px 15px 0 0;
+  border-bottom: 6px solid transparent;
+  cursor: pointer;
+  color: #fff;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow-wrap: anywhere;
+}
+.event-lottery .main-content .nav.nav-tabs .nav-item .nav-link.active {
+  border-bottom: 6px solid #EB801D;
+}
+.event-lottery .main-content .nav.nav-tabs .nav-item .nav-link:hover {
+  opacity: 0.8;
+}
+.event-lottery .main-content .tab-content {
+  background-color: #0E0515;
+  padding: 30px 0;
+}
+.event-lottery .main-content .tab-content .pagination {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  gap: 10px;
+}
+.event-lottery .main-content .tab-content .pagination a {
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 4px;
+}
+.event-lottery .main-content .tab-content .pagination a:hover {
+  background-color: #EB801D;
+}
+.event-lottery .main-content .tab-content .pagination a.active {
+  background-color: #EB801D;
+}
+.event-lottery .main-content .tab-content-conditions .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.event-lottery .main-content .tab-content-conditions .info .trophy-img {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.event-lottery .main-content .tab-content-conditions .info .trophy-img img {
+  width: 100%;
+  height: 400px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.event-lottery .main-content .tab-content-conditions .info .info-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 20px;
+  color: #BCBCBC;
+  margin-bottom: 30px;
+}
+.event-lottery .main-content .tab-content-conditions .info .info-content h3 {
+  color: #EB801D;
+  font-size: 30px;
+  font-weight: bold;
+}
+.event-lottery .main-content .tab-content-conditions .info button {
+  background-color: #EB801D;
+  color: #fff;
+  padding: 10px 60px;
+  border-radius: 15px;
+  font-size: 20px;
+}
+.event-lottery .main-content .tab-content-conditions .table.conditions thead .title-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #fff;
+  margin-bottom: 30px;
+}
+.event-lottery .main-content .tab-content-conditions .table.conditions thead .title-group .title {
+  color: #EB801D;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.event-lottery .main-content .tab-content-conditions .table.conditions thead .title-group.bonus .title {
+  color: #fff;
+}
+.event-lottery .main-content .tab-content-conditions .table.conditions thead .title-group.bonus .total {
+  background-color: #EB801D;
+  color: #fff;
+  border-radius: 50px;
+  padding: 8px 16px;
+  font-size: 24px;
+}
+.event-lottery .main-content .tab-content-conditions .table.conditions thead .title-group.bonus .total .icon {
+  border-radius: 20px;
+}
+.event-lottery .main-content .tab-content-conditions .table.conditions tbody tr th {
+  width: 20%;
+  text-align: left;
+  padding: 16px 32px;
+}
+.event-lottery .main-content .tab-content-conditions .table.conditions tbody tr td {
+  text-align: center;
+}
+.event-lottery .main-content .tab-content-conditions .table.conditions tbody tr:first-child th {
+  border-radius: 15px 0 0 0;
+}
+.event-lottery .main-content .tab-content-conditions .table.conditions tbody tr:first-child td:last-child {
+  border-radius: 0 15px 0 0;
+}
+.event-lottery .main-content .tab-content-conditions .table.conditions tbody tr:last-child th {
+  border-radius: 0 0 0 15px;
+}
+.event-lottery .main-content .tab-content-conditions .table.conditions tbody tr:last-child td:last-child {
+  border-radius: 0 0 15px 0;
+}
+.event-lottery .main-content .tab-content-history .inputBox, .event-lottery .main-content .tab-content-history .inputBox-org, .event-lottery .main-content .tab-content-history .inputBox-white, .event-lottery .main-content .tab-content-history .inputBox-blue, .event-lottery .main-content .tab-content-history .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .event-lottery .main-content .tab-content-history .inputBox-event, .event-lottery .main-content .tab-content-history .euro .inputBox-event, .euro .event-lottery .main-content .tab-content-history .inputBox-event {
+  width: 100%;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  border-radius: 15px;
+  border: 1px solid #fff;
+  padding: 0;
+}
+.event-lottery .main-content .tab-content-history .inputBox.lottery-select, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-org, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-white, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-blue, .event-lottery .main-content .tab-content-history .worldcupEvent .event .event-content .lottery-select.inputBox-event, .worldcupEvent .event .event-content .event-lottery .main-content .tab-content-history .lottery-select.inputBox-event, .event-lottery .main-content .tab-content-history .euro .lottery-select.inputBox-event, .euro .event-lottery .main-content .tab-content-history .lottery-select.inputBox-event {
+  position: relative;
+  display: inline-block;
+  grid-column: 5/7;
+}
+.event-lottery .main-content .tab-content-history .inputBox.lottery-select.active, .event-lottery .main-content .tab-content-history .lottery-select.active.inputBox-org, .event-lottery .main-content .tab-content-history .lottery-select.active.inputBox-white, .event-lottery .main-content .tab-content-history .lottery-select.active.inputBox-blue, .event-lottery .main-content .tab-content-history .worldcupEvent .event .event-content .lottery-select.active.inputBox-event, .worldcupEvent .event .event-content .event-lottery .main-content .tab-content-history .lottery-select.active.inputBox-event, .event-lottery .main-content .tab-content-history .euro .lottery-select.active.inputBox-event, .euro .event-lottery .main-content .tab-content-history .lottery-select.active.inputBox-event {
+  border: 1px solid #EB801D;
+}
+.event-lottery .main-content .tab-content-history .inputBox.lottery-select.active .dropdown .wrapper, .event-lottery .main-content .tab-content-history .lottery-select.active.inputBox-org .dropdown .wrapper, .event-lottery .main-content .tab-content-history .lottery-select.active.inputBox-white .dropdown .wrapper, .event-lottery .main-content .tab-content-history .lottery-select.active.inputBox-blue .dropdown .wrapper, .event-lottery .main-content .tab-content-history .worldcupEvent .event .event-content .lottery-select.active.inputBox-event .dropdown .wrapper, .worldcupEvent .event .event-content .event-lottery .main-content .tab-content-history .lottery-select.active.inputBox-event .dropdown .wrapper, .event-lottery .main-content .tab-content-history .euro .lottery-select.active.inputBox-event .dropdown .wrapper, .euro .event-lottery .main-content .tab-content-history .lottery-select.active.inputBox-event .dropdown .wrapper {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+.event-lottery .main-content .tab-content-history .inputBox.lottery-select .dropdown > button, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-org .dropdown > button, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-white .dropdown > button, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-blue .dropdown > button, .event-lottery .main-content .tab-content-history .worldcupEvent .event .event-content .lottery-select.inputBox-event .dropdown > button, .worldcupEvent .event .event-content .event-lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown > button, .event-lottery .main-content .tab-content-history .euro .lottery-select.inputBox-event .dropdown > button, .euro .event-lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown > button {
+  color: #fff;
+  padding: 20px;
+  width: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border-radius: 15px;
+}
+.event-lottery .main-content .tab-content-history .inputBox.lottery-select .dropdown > button::after, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-org .dropdown > button::after, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-white .dropdown > button::after, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-blue .dropdown > button::after, .event-lottery .main-content .tab-content-history .worldcupEvent .event .event-content .lottery-select.inputBox-event .dropdown > button::after, .worldcupEvent .event .event-content .event-lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown > button::after, .event-lottery .main-content .tab-content-history .euro .lottery-select.inputBox-event .dropdown > button::after, .euro .event-lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown > button::after {
+  content: "";
+  position: absolute;
+  background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) no-repeat 50%/cover;
+  top: 50%;
+  right: 20px;
+  width: 15px;
+  height: 15px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  pointer-events: none;
+  border: none;
+}
+.event-lottery .main-content .tab-content-history .inputBox.lottery-select .dropdown > button:hover, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-org .dropdown > button:hover, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-white .dropdown > button:hover, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-blue .dropdown > button:hover, .event-lottery .main-content .tab-content-history .worldcupEvent .event .event-content .lottery-select.inputBox-event .dropdown > button:hover, .worldcupEvent .event .event-content .event-lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown > button:hover, .event-lottery .main-content .tab-content-history .euro .lottery-select.inputBox-event .dropdown > button:hover, .euro .event-lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown > button:hover {
+  background-color: #61566B;
+}
+.event-lottery .main-content .tab-content-history .inputBox.lottery-select .dropdown .wrapper, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-org .dropdown .wrapper, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-white .dropdown .wrapper, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-blue .dropdown .wrapper, .event-lottery .main-content .tab-content-history .worldcupEvent .event .event-content .lottery-select.inputBox-event .dropdown .wrapper, .worldcupEvent .event .event-content .event-lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown .wrapper, .event-lottery .main-content .tab-content-history .euro .lottery-select.inputBox-event .dropdown .wrapper, .euro .event-lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown .wrapper {
+  top: 90px;
+  position: absolute;
+  border: 1px solid #EB801D;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 100%;
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+}
+.event-lottery .main-content .tab-content-history .inputBox.lottery-select .dropdown .wrapper .dropdown-container, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-org .dropdown .wrapper .dropdown-container, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-white .dropdown .wrapper .dropdown-container, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-blue .dropdown .wrapper .dropdown-container, .event-lottery .main-content .tab-content-history .worldcupEvent .event .event-content .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container, .worldcupEvent .event .event-content .event-lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container, .event-lottery .main-content .tab-content-history .euro .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container, .euro .event-lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container {
+  margin: 0;
+  background-color: #383040;
+  overflow-x: hidden;
+  max-height: 270px;
+}
+.event-lottery .main-content .tab-content-history .inputBox.lottery-select .dropdown .wrapper .dropdown-container .dropdown-item, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-org .dropdown .wrapper .dropdown-container .dropdown-item, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-white .dropdown .wrapper .dropdown-container .dropdown-item, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-blue .dropdown .wrapper .dropdown-container .dropdown-item, .event-lottery .main-content .tab-content-history .worldcupEvent .event .event-content .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container .dropdown-item, .worldcupEvent .event .event-content .event-lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container .dropdown-item, .event-lottery .main-content .tab-content-history .euro .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container .dropdown-item, .euro .event-lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container .dropdown-item {
+  padding: 20px;
+  color: #fff;
+}
+.event-lottery .main-content .tab-content-history .inputBox.lottery-select .dropdown .wrapper .dropdown-container .dropdown-item:hover, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-org .dropdown .wrapper .dropdown-container .dropdown-item:hover, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-white .dropdown .wrapper .dropdown-container .dropdown-item:hover, .event-lottery .main-content .tab-content-history .lottery-select.inputBox-blue .dropdown .wrapper .dropdown-container .dropdown-item:hover, .event-lottery .main-content .tab-content-history .worldcupEvent .event .event-content .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container .dropdown-item:hover, .worldcupEvent .event .event-content .event-lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container .dropdown-item:hover, .event-lottery .main-content .tab-content-history .euro .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container .dropdown-item:hover, .euro .event-lottery .main-content .tab-content-history .lottery-select.inputBox-event .dropdown .wrapper .dropdown-container .dropdown-item:hover {
+  background-color: #61566B;
+}
+.event-lottery .main-content .tab-content-history .card-group {
+  grid-column: 3/7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+.event-lottery .main-content .tab-content-history .card-group .card {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.event-lottery .main-content .tab-content-history .card.first {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #EB801D;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  grid-column: span 2;
+}
+.event-lottery .main-content .tab-content-history .card.first .ranking .title,
+.event-lottery .main-content .tab-content-history .card.first .ranking span {
+  color: #fff;
+}
+.event-lottery .main-content .tab-content-history .card.first .title-group {
+  -webkit-box-flex: 1.5;
+      -ms-flex: 1.5;
+          flex: 1.5;
+}
+.event-lottery .main-content .tab-content-history .card.first .trophy-img {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+.event-lottery .main-content .tab-content-history .card.first .trophy-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 200px;
+}
+.event-lottery .main-content .tab-content-history .card.second {
+  grid-column: span 2;
+}
+.event-lottery .main-content .tab-content-history .card.sticker {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  gap: 30px;
+}
+.event-lottery .main-content .tab-content-history .card.sticker .title {
+  text-align: center;
+}
+.event-lottery .main-content .tab-content-history .card.sticker .icon {
+  background-color: #fff;
+  width: 100%;
+  height: 150px;
+}
+.event-lottery .main-content .tab-content-history .card.consolation {
+  grid-column: span 2;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  gap: 30px;
+}
+.event-lottery .main-content .tab-content-history .card.consolation .title {
+  font-size: 18px;
+  text-align: center;
+}
+.event-lottery .main-content .tab-content-history .card.consolation .grid div {
+  text-align: center;
+  font-family: Roboto Mono, monospace;
+}
+.event-lottery .main-content .tab-content-history .card.small-prize {
+  grid-column: span 4;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  gap: 30px;
+}
+.event-lottery .main-content .tab-content-history .card.small-prize .title {
+  font-size: 18px;
+  text-align: center;
+}
+.event-lottery .main-content .tab-content-history .card.small-prize .grid div {
+  text-align: center;
+  font-family: Roboto Mono, monospace;
+}
+.event-lottery .main-content .tab-content-result .result-list {
+  display: grid;
+  grid-template-columns: -webkit-min-content repeat(3, minmax(0, 1fr));
+  grid-template-columns: min-content repeat(3, minmax(0, 1fr));
+  gap: 20px 0;
+  font-size: 16px;
+}
+.event-lottery .main-content .tab-content-result .result-list .result-head,
+.event-lottery .main-content .tab-content-result .result-list .result-item {
+  display: contents;
+}
+.event-lottery .main-content .tab-content-result .result-list .result-head div,
+.event-lottery .main-content .tab-content-result .result-list .result-item div {
+  text-align: center;
+}
+.event-lottery .main-content .tab-content-result .result-list .result-head {
+  font-weight: bold;
+  color: #EB801D;
+  padding: 10px;
+}
+.event-lottery .main-content .tab-content-result .result-list .result-head div:first-child {
+  padding: 0 30px;
+  white-space: nowrap;
+}
+.event-lottery .main-content .tab-content-result .result-list .result-item > div {
+  background-color: #383040;
+  padding: 30px;
+}
+.event-lottery .main-content .tab-content-result .result-list .result-item > div:first-child {
+  border-radius: 15px 0 0 15px;
+  background-color: #61566B;
+}
+.event-lottery .main-content .tab-content-result .result-list .result-item > div:last-child {
+  border-radius: 0 15px 15px 0;
+}
+.event-lottery .main-content .tab-content-result .result-list .result-item .share .icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.event-lottery .main-content .tab-content-result .result-list .result-item .share .icon:hover {
+  background: url(https://banner.0814media.net/desktop/img/event/lottery/icon-share-hover.png) no-repeat center/contain;
 }/*# sourceMappingURL=style.css.map */
