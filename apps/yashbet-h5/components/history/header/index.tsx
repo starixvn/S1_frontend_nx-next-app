@@ -1,7 +1,7 @@
-import HistoryFilter from '@apps/yashbet-h5/components/history/header/HistoryFilter'
 import { Header } from '@nx-next-app/components/H0006'
 import { useHistory } from '@nx-next-app/operations'
 import { QuickPickEnum } from '@nx-next-app/types'
+import HistoryFilter from '@yashbet-h5/components/history/header/HistoryFilter'
 import { useTranslation } from 'next-i18next'
 
 const HistoryHeader = () => {

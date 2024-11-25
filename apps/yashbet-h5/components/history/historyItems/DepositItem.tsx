@@ -1,7 +1,3 @@
-import {
-	DepositBankSlipModal,
-	HistoryMsgModal,
-} from '@apps/yashbet-h5/components/history/modal'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -11,6 +7,10 @@ import {
 	useUploadReceiptMutation,
 } from '@nx-next-app/service'
 import { numberFormat } from '@nx-next-app/utils'
+import {
+	DepositBankSlipModal,
+	HistoryMsgModal,
+} from '@yashbet-h5/components/history/modal'
 import dayjs from 'dayjs'
 import {
 	DepositStatusClassName,

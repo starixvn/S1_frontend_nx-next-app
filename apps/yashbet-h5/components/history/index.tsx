@@ -1,9 +1,3 @@
-import HistoryHeader from '@apps/yashbet-h5/components/history/header'
-import DepositItem from '@apps/yashbet-h5/components/history/historyItems/DepositItem'
-import FinancialItem from '@apps/yashbet-h5/components/history/historyItems/FinancialItem'
-import ReferralItem from '@apps/yashbet-h5/components/history/historyItems/ReferralItem'
-import TransferItem from '@apps/yashbet-h5/components/history/historyItems/TransferItem'
-import WithdrawalItem from '@apps/yashbet-h5/components/history/historyItems/WithdrawalItem'
 import { BackTop } from '@nx-next-app/components/D0006'
 import Loading from '@nx-next-app/components/H0006/loading'
 import { HistoryTabsEnum, useHistory } from '@nx-next-app/operations'
@@ -14,6 +8,12 @@ import {
 	ITransferHistoryData,
 	IWithdrawalInfoHistoryData,
 } from '@nx-next-app/service'
+import HistoryHeader from '@yashbet-h5/components/history/header'
+import DepositItem from '@yashbet-h5/components/history/historyItems/DepositItem'
+import FinancialItem from '@yashbet-h5/components/history/historyItems/FinancialItem'
+import ReferralItem from '@yashbet-h5/components/history/historyItems/ReferralItem'
+import TransferItem from '@yashbet-h5/components/history/historyItems/TransferItem'
+import WithdrawalItem from '@yashbet-h5/components/history/historyItems/WithdrawalItem'
 import { uniqueId } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import React from 'react'

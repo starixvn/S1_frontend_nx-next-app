@@ -1,9 +1,9 @@
-import HistoryFilter from '@apps/yashbet-desktop/components/history/HistoryFilter'
-import HistoryTable from '@apps/yashbet-desktop/components/history/HistoryTable'
-import HistoryTabs from '@apps/yashbet-desktop/components/history/HistoryTabs'
 import { Loading } from '@nx-next-app/components/D0006'
 import Pagination from '@nx-next-app/components/D0006/pagination'
 import { useHistory } from '@nx-next-app/operations'
+import HistoryFilter from '@yashbet-desktop/components/history/HistoryFilter'
+import HistoryTable from '@yashbet-desktop/components/history/HistoryTable'
+import HistoryTabs from '@yashbet-desktop/components/history/HistoryTabs'
 import { useTranslation } from 'next-i18next'
 
 const History = () => {
