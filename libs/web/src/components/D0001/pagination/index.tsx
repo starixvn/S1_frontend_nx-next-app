@@ -1,4 +1,3 @@
-import React from 'react'
 import dynamic from 'next/dynamic'
 import { ReactPaginateProps } from 'react-paginate'
 
@@ -14,8 +13,8 @@ export interface IPaginationProps {
 
 const defaultReactPaginateProps = {
 	className: 'pagination',
-	nextLabel: '>',
-	previousLabel: '<',
+	nextLabel: <i className='icon icon-chevron_right' />,
+	previousLabel: <i className='icon icon-chevron_left' />,
 	pageRangeDisplayed: 5,
 	marginPagesDisplayed: 1,
 	renderOnZeroPageCount: null as ReactPaginateProps['renderOnZeroPageCount'],

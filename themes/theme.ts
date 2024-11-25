@@ -212,6 +212,9 @@ export const theme = {
 		tableStatusRejetctColor: '#F00',
 		tableStatusApprovedColor: '#01B901',
 		tableStatusCancelColor: '#6F7689',
+
+		paginationBg: '#717FBA',
+		paginationColor: '#939DC5',
 	},
 	mobile: {},
 }

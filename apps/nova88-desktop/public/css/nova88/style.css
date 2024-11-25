@@ -2093,47 +2093,6 @@ main .promosswiper .swiper-button-prev::after {
 	}
 }
 
-.pagination {
-	width: calc(100% - 68px);
-	margin: 30px auto;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	position: relative;
-}
-.pagination a {
-	color: #5574a7;
-	float: left;
-	width: 30px;
-	height: 30px;
-	border-radius: 30px;
-	text-decoration: none;
-	font-size: 14px;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.pagination a.active {
-	background: #5574a7;
-	color: white;
-}
-.pagination a:hover:not(.active) {
-	background: #5574a7;
-	color: white;
-}
-
 .stepBar {
 	background: rgba(19, 77, 174, 0.5);
 	height: 10px;

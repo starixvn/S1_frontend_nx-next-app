@@ -785,7 +785,28 @@ export const GlobalStyles = createGlobalStyle`
         width : max-content;
       }
     }
-    
+  }
+  .pagination{
+    gap : .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top : 1.6rem;
+    li{
+      a{
+      width : 3.2rem;
+      height : 3.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100px;
+      color : ${({ theme }) => theme.desktop.paginationColor};
+        &.active, &:hover{
+          background : ${({ theme }) => theme.desktop.paginationBg};
+          color : ${({ theme }) => theme.desktop.white};
+        }
+      }
+    }
   }
   .checkbox{
     label {
