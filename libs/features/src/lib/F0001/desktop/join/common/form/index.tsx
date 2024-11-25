@@ -394,6 +394,9 @@ const Form = ({ cookies }: IJoinProps) => {
 	}
 
 	const handleSubmitForm = async () => {
+		if (initNationality === 'China') {
+			return
+		}
 		// opera and meta pixel tracker
 		OperaPixelTracker('register')
 		MetaPixelTracker('registerSubmit')
