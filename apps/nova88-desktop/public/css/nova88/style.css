@@ -1706,9 +1706,6 @@ main .promosswiper .swiper-button-prev::after {
 	color: #f77900;
 }
 
-.txt-blue {
-	color: #5574a7;
-}
 
 .txt-blue12 {
 	color: #64789b;
@@ -1745,8 +1742,6 @@ main .promosswiper .swiper-button-prev::after {
 .txt-darkBlue {
 	color: #284985;
 }
-
-
 
 .tip.txt-red {
 	color: #cf0404;
@@ -4989,8 +4984,6 @@ main .promosswiper .swiper-button-prev::after {
 	color: #5574a7;
 }
 
-
-
 .addAddresspop .icon-close {
 	top: 15px !important;
 	right: 15px !important;
@@ -5119,7 +5112,7 @@ main .promosswiper .swiper-button-prev::after {
 	color: #5574a7;
 }
 
-.quickSelect {
+/* .quickSelect {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -5289,7 +5282,7 @@ main .promosswiper .swiper-button-prev::after {
 }
 .quickSelect .dropdown .btn {
 	padding: 0 10px;
-}
+} */
 
 .specialBonus {
 	display: -webkit-inline-box;
@@ -5344,27 +5337,6 @@ main .promosswiper .swiper-button-prev::after {
 	text-align: center;
 }
 
-.icon-nodata {
-	text-align: center;
-	padding: 50px 0;
-	border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
-	border-top: 0;
-	color: #5574a7;
-}
-.icon-nodata:before {
-	font-size: 48px;
-}
-.icon-nodata div {
-	padding: 5px 10px;
-	border-radius: 5px;
-	width: -webkit-max-content;
-	width: -moz-max-content;
-	width: max-content;
-	margin: auto;
-	margin-top: 10px;
-	color: #5574a7;
-}
 
 .changePassWord,
 .forgetPassWord {
@@ -12557,41 +12529,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .features li span,
 .features li a {
 	font-weight: bold;
-}
-
-.historyTag {
-	padding: 0 20px;
-	-webkit-box-pack: start;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
-}
-.historyTag button {
-	margin: 0 10px 0 0;
-	-webkit-box-flex: 0;
-	-ms-flex: none;
-	flex: none;
-	color: white;
-	background: #112240;
-}
-.historyTag button.active,
-.historyTag button:hover {
-	background: #ff5e00;
-}
-
-.historyModule {
-	background: #d2e2f9;
-	width: calc(100% - 40px);
-	margin: auto;
-	padding: 10px 0 1px;
-	border-radius: 5px;
-	display: none;
-}
-.historyModule.active {
-	display: block;
-}
-.historyModule .quickSelect {
-	padding-bottom: 15px;
-	border-bottom: 1px solid #bfcce2;
 }
 
 .cashBack {

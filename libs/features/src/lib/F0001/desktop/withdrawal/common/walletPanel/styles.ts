@@ -56,7 +56,7 @@ export const WrapperCardAddBank = styled.div`
 					position: absolute;
 					top: 0;
 					left: 0;
-					background: rgba(40, 73, 133, 0.8);
+					background: rgba(55, 67, 117, 0.7);
 					width: 100%;
 					height: 100%;
 					z-index: 1;
@@ -180,12 +180,28 @@ export const WrapperCardAddBank = styled.div`
 		}
 	}
 	.confirm {
+		margin-top: 1.6rem;
 		font-size: 1.4rem;
 		font-weight: 700;
-		.headingAmount {
-			color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+		border: 1px solid #374375;
+		border-radius: 10px;
+		padding: 1.2rem;
+		.title {
+			display: block;
+			color: ${({ theme }) => theme.desktop.white};
 			text-align: center;
-			margin-bottom: 1.6rem;
+			margin-bottom: 0.4rem;
+			font-size: 1.7rem;
+			font-weight: 700;
+			line-height: normal;
+		}
+		.headingAmount {
+			color: ${({ theme }) => theme.desktop.white};
+			text-align: center;
+			margin-bottom: 1.2rem;
+			font-size: 1.4rem;
+			font-weight: 400;
+			line-height: normal;
 		}
 		.smallList {
 			font-weight: 400;
@@ -195,15 +211,16 @@ export const WrapperCardAddBank = styled.div`
 			ul {
 				display: flex;
 				li {
-					margin-bottom: 1.2rem;
+					color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+					margin-bottom: 0.4rem;
 					&:first-child {
 						min-width: 17rem;
-						color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
 					}
 					&:last-child {
 						width: 100%;
 						margin-bottom: 0;
-						min-width: 40rem;
+						min-width: 52.6rem;
+						text-align: right;
 					}
 				}
 			}
@@ -212,7 +229,7 @@ export const WrapperCardAddBank = styled.div`
 			width: 100%;
 			justify-content: center;
 			max-width: 300px;
-			margin: 25px auto;
+			margin: 0 auto;
 		}
 	}
 `

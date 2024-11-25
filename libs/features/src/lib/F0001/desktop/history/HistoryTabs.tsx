@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
+import { useAuth } from '@nx-next-app/data-access'
+import { useHistory } from '@nx-next-app/features/F0001/providers/history-context'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
 import { useRouter } from 'next/router'
-import { useHistory } from '@nx-next-app/features/F0001/providers/history-context'
+import { useEffect } from 'react'
 
 const HistoryTabs = () => {
 	const { activeTab, onTabChange, HISTORY_TABS } = useHistory()
@@ -32,7 +32,9 @@ const HistoryTabs = () => {
 				<button
 					key={id}
 					onClick={() => onTabChange(id)}
-					className={classNames({ active: activeTab === id })}
+					className={classNames('btn btn-tabs', {
+						active: activeTab === id,
+					})}
 				>
 					{t(displayKey)}
 				</button>

@@ -4,17 +4,6 @@ export const WrapperWithdrawl = styled.div`
 	.infoModuleLeft {
 		width: 100%;
 	}
-	.inside-title {
-		justify-content: space-between;
-		.group-icon-title {
-			display: flex;
-			gap: 1rem;
-			align-items: center;
-		}
-		.btnGroup {
-			margin-top: 0;
-		}
-	}
 	.inside-body {
 		display: flex;
 		align-items: flex-start;

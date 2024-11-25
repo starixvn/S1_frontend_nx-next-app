@@ -20,7 +20,7 @@ const CryptoCard = () => {
 	if (!cryptoCardAllowed) return null
 
 	return (
-		<div className='walletModule'>
+		<div className='walletModule eWalletCard'>
 			<div className='addBank'>
 				{usdtDetail.map(item => (
 					<CryptoCardItem key={item.usdtAddress} item={item} />
@@ -31,7 +31,7 @@ const CryptoCard = () => {
 						className='addBankName noBank'
 						onClick={handleAddWallet}
 					>
-						<div className='icon icon-plus' />
+						<div className='icon icon-add-fill' />
 						<div>{t('Label_Withdrawal_AddCryptoWallet')}</div>
 					</div>
 				)}

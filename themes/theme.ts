@@ -68,6 +68,11 @@ export const theme = {
 		secondaryBtnColorHover: '#fff',
 		secondaryBtnShadowHover: 'none',
 
+		tabsBtnBg: '#374375',
+		tabsBtnColor: '#939DC5',
+		tabsBtnHoverBg: '#717FBA',
+		tabsBtnHoverColor: '#fff',
+
 		disabledBtnBg: '#505667',
 		disabledBtnColor: '#6F7689',
 		disabledBtnShadow: '0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset;',

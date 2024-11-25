@@ -308,6 +308,7 @@ export const GlobalStyles = createGlobalStyle`
   .react-datepicker__input-container{
     input{
       width : 90%;
+      font-size : 1.4rem;
       color: ${({ theme }) => theme.desktop.inputPlaceHolderColor};
       &::placeholder {
         font-size : 1.4rem;
@@ -429,6 +430,33 @@ export const GlobalStyles = createGlobalStyle`
 		padding: 0 1.2rem;
 		border-radius: 10rem;
   }
+  .custom-nodata{
+    min-height : 10rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2.4rem;
+    justify-content: center;
+    .icon {
+      border-radius: 100px;
+      border: 6px solid ${({ theme }) => theme.desktop.bgIconNotifiCationColor};
+      background:  ${({ theme }) => theme.desktop.hoverAddBankName};
+      width : 4.8rem;
+      height : 4.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:before{
+        font-size : 3.2rem;
+      }
+    }
+    > div{
+      font-size: 1.4rem;
+      font-weight: 400;
+      line-height: 1.8rem;
+      color :  ${({ theme }) => theme.desktop.iconNotifiCationColor}
+    }
+  }
 
   .btn-primary {
 		background: ${({ theme }) => theme.desktop.primaryBtnBg};
@@ -453,6 +481,20 @@ export const GlobalStyles = createGlobalStyle`
 		color: ${({ theme }) => theme.desktop.secondaryBtnColorHover};
 		}
 	}
+  .btn-tabs {
+      background: ${({ theme }) => theme.desktop.tabsBtnBg};
+      color: ${({ theme }) => theme.desktop.tabsBtnColor} !important;
+      min-height: 2.8rem !important;
+      padding : 0 1.2rem !important;
+		&:hover {
+      background: ${({ theme }) => theme.desktop.tabsBtnHoverBg};
+      color: ${({ theme }) => theme.desktop.tabsBtnHoverColor} !important;
+		}
+    &.active{
+      background: ${({ theme }) => theme.desktop.tabsBtnHoverBg};
+      color: ${({ theme }) => theme.desktop.tabsBtnHoverColor} !important;
+    }
+  }
 
   .btn-disable {
     background: ${({ theme }) => theme.desktop.disabledBtnBg};
@@ -714,6 +756,17 @@ export const GlobalStyles = createGlobalStyle`
     input[type=checkbox]:checked + label.icon:before{
       display : block;
       content : '\\e91c'
+    }
+  }
+  .inside-title {
+    justify-content: space-between;
+    .group-icon-title {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .btnGroup {
+      margin-top: 0;
     }
   }
 

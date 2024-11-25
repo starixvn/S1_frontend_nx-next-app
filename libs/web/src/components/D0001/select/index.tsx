@@ -84,7 +84,7 @@ const Select = (props: ISelectProps) => {
 
 	return (
 		<div className={classNames('inputBox-blue', { error: errorMessage })}>
-			{prefixText && <i className='txt-blue'>{prefixText}</i>}
+			{prefixText && <span className='txt-blue'>{prefixText}</span>}
 			<div
 				ref={ref}
 				className='dropdown'

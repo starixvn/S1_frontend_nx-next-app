@@ -1,6 +1,6 @@
-import { IUsdtDetailData } from '@nx-next-app/service'
 import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
 import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import { IUsdtDetailData } from '@nx-next-app/service'
 
 const CryptoCardItem = ({ item }: { item: IUsdtDetailData }) => {
 	const { selectedBankInfo, handleSelectCard } = useWithdrawal()

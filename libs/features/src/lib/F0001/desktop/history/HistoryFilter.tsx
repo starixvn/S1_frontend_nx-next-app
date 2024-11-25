@@ -1,8 +1,7 @@
-import React from 'react'
 import { Select } from '@nx-next-app/components/D0001'
-import { useTranslation } from 'next-i18next'
 import { useHistory } from '@nx-next-app/features/F0001/providers/history-context'
 import DateSelector from 'libs/web/src/components/D0001/dateSelector'
+import { useTranslation } from 'next-i18next'
 
 const HistoryFilter = () => {
 	const {
@@ -19,7 +18,7 @@ const HistoryFilter = () => {
 
 	return (
 		<div className='quickSelect'>
-			<div>
+			<div className='inputBox-select input-spacing'>
 				<Select
 					options={QUICK_PICK_LIST}
 					isTranslation
@@ -30,8 +29,8 @@ const HistoryFilter = () => {
 					onChange={value => onQuickPickChange(value)}
 				/>
 			</div>
-			<div className='inputBox-blue'>
-				<i className='txt-blue'>{t('Label_History_From')}</i>
+			<div className='inputBox-blue input-spacing'>
+				<span className='txt-blue'>{t('Label_History_From')}</span>
 				<div className='rdt'>
 					<DateSelector
 						selected={startDate}
@@ -42,12 +41,12 @@ const HistoryFilter = () => {
 					/>
 				</div>
 				<div className='iconModule'>
-					<i className='icon icon-calendar' />
+					<i className='icon icon-calendar-2-line' />
 				</div>
 			</div>
 
-			<div className='inputBox-blue'>
-				<i className='txt-blue'>{t('Label_History_To')}</i>
+			<div className='inputBox-blue input-spacing'>
+				<span className='txt-blue'>{t('Label_History_To')}</span>
 				<div className='rdt'>
 					<DateSelector
 						selected={endDate}
@@ -59,12 +58,12 @@ const HistoryFilter = () => {
 					/>
 				</div>
 				<div className='iconModule'>
-					<i className='icon icon-calendar' />
+					<i className='icon icon-calendar-2-line' />
 				</div>
 			</div>
 
 			<div className='btnGroup'>
-				<button className='btn-check' onClick={onSearch}>
+				<button className='btn-primary' onClick={onSearch}>
 					{t('Label_General_Submit')}
 				</button>
 			</div>

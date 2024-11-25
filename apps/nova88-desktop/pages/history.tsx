@@ -44,10 +44,10 @@ const HistoryPage = ({
 						QUICK_PICK_LIST={QUICK_PICK_LIST}
 					>
 						<main>
-							<section className='inside'>
+							<div className='wrapper-profile'>
 								<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 								<History />
-							</section>
+							</div>
 						</main>
 					</HistoryProvider>
 				</Layout>
