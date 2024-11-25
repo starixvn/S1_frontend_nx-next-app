@@ -393,7 +393,7 @@ const Form = ({ cookies }: IJoinProps) => {
 	}
 
 	const handleSubmitForm = async () => {
-		if (initNationality === 'China') {
+		if (initNationality === 'Taiwan') {
 			return
 		}
 		// opera and meta pixel tracker
@@ -480,7 +480,7 @@ const Form = ({ cookies }: IJoinProps) => {
 	}, [siteCurrencyList])
 
 	useEffect(() => {
-		if (initNationality === 'China') {
+		if (initNationality === 'Taiwan') {
 			modal.info(t('Label_Close_Region_Register_Notice'), {
 				onOK: () => router.push(paths.home.root),
 			})
