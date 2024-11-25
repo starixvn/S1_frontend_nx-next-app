@@ -46,7 +46,7 @@ const TableGames = () => {
 	}
 
 	return (
-		<GameGroup className='content-container live-casino'>
+		<GameGroup className='content-container others'>
 			{tableGames.length > 0 && (
 				<>
 					<GroupTitle>

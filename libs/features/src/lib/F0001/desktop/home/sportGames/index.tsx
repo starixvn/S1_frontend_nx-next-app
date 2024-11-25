@@ -43,7 +43,7 @@ const SportGames = () => {
 	const gameTypeEmblaOptions: EmblaOptionsType = { slidesToScroll: 'auto' }
 
 	return (
-		<GameGroup className='content-container live-casino'>
+		<GameGroup className='content-container others'>
 			{sportGames.length > 0 && (
 				<>
 					<GroupTitle>

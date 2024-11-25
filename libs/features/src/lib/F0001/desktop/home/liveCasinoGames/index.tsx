@@ -46,7 +46,7 @@ const LiveCasinoGames = () => {
 	}
 
 	return (
-		<GameGroup className='content-container live-casino'>
+		<GameGroup className='content-container others'>
 			{liveCasinoGames.length > 0 && (
 				<>
 					<GroupTitle>

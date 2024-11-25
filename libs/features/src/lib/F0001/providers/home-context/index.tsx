@@ -188,11 +188,11 @@ const defaultDesktopHomeOrders = [
 	DesktopHomeComponentsEnum.LiveCasino,
 	DesktopHomeComponentsEnum.HotGame,
 	DesktopHomeComponentsEnum.HotGameSport,
-	DesktopHomeComponentsEnum.HotGameLiveCasino,
-	DesktopHomeComponentsEnum.ProviderBlock,
-	DesktopHomeComponentsEnum.EuropeCupEntry,
-	DesktopHomeComponentsEnum.LuckyWheel,
-	DesktopHomeComponentsEnum.LiveStreamingLink,
+	// DesktopHomeComponentsEnum.HotGameLiveCasino,
+	// DesktopHomeComponentsEnum.ProviderBlock,
+	// DesktopHomeComponentsEnum.EuropeCupEntry,
+	// DesktopHomeComponentsEnum.LuckyWheel,
+	// DesktopHomeComponentsEnum.LiveStreamingLink,
 ]
 
 const defaultMobileHomeOrders = [
@@ -638,7 +638,7 @@ export const HomeProvider = ({
 		bannerData: persistBannerData,
 		hotGameData: persistHotGameData,
 		newGameData: persistNewGameData,
-    providerData: persistProviderData,
+		providerData: persistProviderData,
 		referralData,
 		affiliateData,
 		handlePromotionClick,

@@ -15,33 +15,34 @@ export enum DesktopHomeComponentsEnum {
 	HotGameSport = 'HotGameSports',
 	SlotGames = 'SlotGames',
 	TableGames = 'TableGames',
+	NewRelease = 'NewRelease',
 	// HotGameCasino = 'HotGameCasino',
-	HotGameLiveCasino = 'HotGameLiveCasino',
-	HotGameFishing = 'HotGameFishing',
-	HotGameCockfighting = 'HotGameCockfighting',
-	HotGameLottery = 'HotGameLottery',
-	HotGameVirtualSports = 'HotGameVirtualSports',
-	HotGameP2P = 'HotGameP2P',
-	HotGameCrypto = 'HotGameCrypto',
-	HotGameESports = 'HotGameESports',
+	// HotGameLiveCasino = 'HotGameLiveCasino',
+	// HotGameFishing = 'HotGameFishing',
+	// HotGameCockfighting = 'HotGameCockfighting',
+	// HotGameLottery = 'HotGameLottery',
+	// HotGameVirtualSports = 'HotGameVirtualSports',
+	// HotGameP2P = 'HotGameP2P',
+	// HotGameCrypto = 'HotGameCrypto',
+	// HotGameESports = 'HotGameESports',
 	// 配合廠商清單
-	ProviderBlock = 'ProviderBlock',
+	// ProviderBlock = 'ProviderBlock',
 	// LuckyWheel
-	LuckyWheel = 'LuckyWheel',
+	// LuckyWheel = 'LuckyWheel',
 	// 直播
-	LiveStreamingLink = 'LiveStreamingLink',
+	// LiveStreamingLink = 'LiveStreamingLink',
 	// 左側快速下載標籤，底下 2 個新版用不到
-	QuickDownload = 'QuickDownload',
+	// QuickDownload = 'QuickDownload',
 	// 右側社群連結
-	QuickLink = 'QuickLink',
+	// QuickLink = 'QuickLink',
 	// 最近遊玩的遊戲，有登入才有
-	RecentlyViewGames = 'RecentlyViewGames',
+	// RecentlyViewGames = 'RecentlyViewGames',
 	//  歐冠活動入口
-	EuropeCupEntry = 'EuropeCupEntry',
+	// EuropeCupEntry = 'EuropeCupEntry',
 	// RetentionFloatingButton
-	Retention = 'Retention',
+	// Retention = 'Retention',
 	// 2024巴黎奧運入口
-	OlympicEntry = 'OlympicEntry',
+	// OlympicEntry = 'OlympicEntry',
 }
 
 // 手機首頁元件 enum

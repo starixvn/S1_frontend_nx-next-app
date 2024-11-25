@@ -109,7 +109,7 @@ export const GameGroup = styled.div`
 		--column-count: 6.5;
 	}
 
-	&.live-casino .embla__container {
+	&.others .embla__container {
 		--column-count: 8.5;
 	}
 
