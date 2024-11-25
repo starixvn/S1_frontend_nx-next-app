@@ -25,7 +25,7 @@ interface ILayoutProps {
 }
 
 const ChangePasswordModal = dynamic(
-	() => import('../../modal/ChangePasswordModal'),
+	() => import('../modal/ChangePasswordModal'),
 	{ ssr: false }
 )
 
