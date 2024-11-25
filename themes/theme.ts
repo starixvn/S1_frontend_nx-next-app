@@ -207,6 +207,11 @@ export const theme = {
 		bgIconNotifiCationColor: '#1D2447',
 		iconNotifiCationColor: '#939DC5',
 		hoverAddBankName: '#232B4F',
+
+		tableStatusPenddingColor: '#FBC208',
+		tableStatusRejetctColor: '#F00',
+		tableStatusApprovedColor: '#01B901',
+		tableStatusCancelColor: '#6F7689',
 	},
 	mobile: {},
 }

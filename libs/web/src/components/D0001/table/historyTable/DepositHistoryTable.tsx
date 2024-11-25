@@ -180,7 +180,7 @@ const DepositHistoryTable = ({
 					result = (
 						<>
 							<button
-								className='orange icon icon-pencil'
+								className='btn btn-primary'
 								onClick={() =>
 									modal.open(
 										<DepositBankSlipModal
@@ -201,7 +201,7 @@ const DepositHistoryTable = ({
 								{t('Label_General_SubmitBankSlip')}
 							</button>
 							<button
-								className='gray'
+								className='btn btn-secondary'
 								onClick={() => {
 									modal.confirm(t('Label_History_CancelConfirm'), {
 										onOK: () => onCancel(item.transId),

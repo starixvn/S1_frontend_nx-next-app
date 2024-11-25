@@ -171,9 +171,9 @@ const WithdrawalHistoryTable = ({
 		<Table
 			dataSource={dataSource}
 			columns={columns as ITableColumns<IWithdrawalInfoHistoryData>[]}
-			mainClassName={classNames}
-			headerClassName='listHeader'
-			bodyClassName='listBody'
+			mainClassName={`${classNames} custom-table`}
+			headerClassName='listHeader custom-table-thead'
+			bodyClassName='listBody custom-table-tbody'
 		/>
 	)
 }

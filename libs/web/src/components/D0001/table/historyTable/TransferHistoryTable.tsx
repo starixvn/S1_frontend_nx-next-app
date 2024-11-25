@@ -1,11 +1,11 @@
-import dayjs from 'dayjs'
-import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
 import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
-import { ITransferHistoryData } from '@nx-next-app/service'
+import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
-import { numberFormat, transferDirection } from '@nx-next-app/utils'
-import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
+import { ITransferHistoryData } from '@nx-next-app/service'
+import { numberFormat, transferDirection } from '@nx-next-app/utils'
+import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
 
 const TransferHistoryTable = ({
 	dataSource,
@@ -110,9 +110,9 @@ const TransferHistoryTable = ({
 		<Table
 			dataSource={dataSource}
 			columns={columns as ITableColumns<ITransferHistoryData>[]}
-			mainClassName='list history'
-			headerClassName='listHeader'
-			bodyClassName='listBody'
+			mainClassName='list history custom-table'
+			headerClassName='listHeader custom-table-thead'
+			bodyClassName='listBody custom-table-tbody'
 		/>
 	)
 }

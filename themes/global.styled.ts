@@ -741,6 +741,51 @@ export const GlobalStyles = createGlobalStyle`
         }
       }
     }
+    .pending,.approved,.reject,.cancel{
+      font-size: 1.2rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      padding : .4rem 1.2rem;
+      border-radius: 100px;
+      display: inline-block;
+      .infobtn{
+        &:before{
+          font-family: 'S1NewIcons';
+          display : block;
+          content : '\\e910';
+          font-size : 1.5rem;
+        }
+      }
+    }
+    .pending{
+      color :  ${({ theme }) => theme.desktop.tableStatusPenddingColor};
+      border : 1px solid ${({ theme }) =>
+				theme.desktop.tableStatusPenddingColor};
+    }
+    .approved{
+      color :  ${({ theme }) => theme.desktop.tableStatusApprovedColor};
+      border : 1px solid ${({ theme }) =>
+				theme.desktop.tableStatusApprovedColor};
+    }
+    .reject{
+      color :  ${({ theme }) => theme.desktop.tableStatusRejetctColor};
+      border : 1px solid ${({ theme }) =>
+				theme.desktop.tableStatusRejetctColor};
+    }
+    .cancel{
+      color :  ${({ theme }) => theme.desktop.tableStatusCancelColor};
+      border : 1px solid ${({ theme }) => theme.desktop.tableStatusCancelColor};
+    }
+    .btnGroup{
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top : 0;
+      .btn{
+        width : max-content;
+      }
+    }
+    
   }
   .checkbox{
     label {

@@ -2092,68 +2092,6 @@ main .promosswiper .swiper-button-prev::after {
 		width: 100%;
 	}
 }
-.list .listBody > div div.pending {
-	color: #f9b041;
-	font-weight: bold;
-}
-.list .listBody > div div.approved {
-	color: #42ac5e;
-	font-weight: bold;
-}
-.list .listBody > div div.reject {
-	color: #cf0404;
-	font-weight: bold;
-}
-.list .listBody > div div.cancel {
-	color: #666;
-	font-weight: bold;
-}
-.list .listBody > div div span {
-	margin-left: 5px;
-}
-.list .listBody > div .icon-keyboard_arrow_right {
-	margin: 0 5px;
-}
-.list .listBody .btnGroup {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-flow: column;
-	flex-flow: column;
-	margin: 5px 0;
-}
-.list .listBody .btnGroup button {
-	margin: 2px 0 2px 6px;
-}
-.list .listBody .btnGroup button:before {
-	margin-left: 0;
-}
-.list .listBody .approved,
-.list .listBody .pending,
-.list .listBody .reject,
-.list .listBody .cancel {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.list .listBody .approved .infobtn,
-.list .listBody .pending .infobtn,
-.list .listBody .reject .infobtn,
-.list .listBody .cancel .infobtn {
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/notice.png)
-		no-repeat center/cover;
-	width: 15px;
-	height: 15px;
-	margin-left: 1px;
-}
 
 .pagination {
 	width: calc(100% - 68px);

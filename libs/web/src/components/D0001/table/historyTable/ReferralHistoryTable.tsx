@@ -71,9 +71,9 @@ const ReferralHistoryTable = ({
 		<Table
 			dataSource={dataSource}
 			columns={columns as ITableColumns<IReferralData>[]}
-			mainClassName='list history'
-			headerClassName='listHeader'
-			bodyClassName='listBody'
+			mainClassName='list history custom-table'
+			headerClassName='listHeader custom-table-thead'
+			bodyClassName='listBody custom-table-tbody'
 		/>
 	)
 }
