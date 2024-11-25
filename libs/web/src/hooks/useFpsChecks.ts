@@ -20,9 +20,6 @@ const useFpsChecks = ({
 				const di = getInputValueByName('__di')
 				const bi = getInputValueByName('__bi')
 				const detecasAnalysis = getInputValueByName('detecas-analysis')
-				// 取得這 3 個值後再送
-				if (![di, bi, detecasAnalysis].every(Boolean)) return
-
 				const sessionKey = getInputValueByName('__fdi')
 				const token = getInputValueByName('__tk')
 				const url = window.location.href
