@@ -32,19 +32,18 @@ const Step3 = () => {
 	}
 
 	return (
-		<>
+		<div className='group-bank-icon'>
 			<button
 				className='icon icon-arrow-left-line'
 				onClick={() => setStep(2)}
 			/>
 			<div className='subModuleList'>
 				<div className='subModule'>
-					{/* 設計稿裡原本就有的 form，直接使用 */}
 					<form
 						className='subModuleBody column'
 						onSubmit={handleSubmit(handleSubmitForm)}
 					>
-						<div>
+						<div className='group-bank-name'>
 							<div className='bankName'>
 								<img
 									src={`${
@@ -101,7 +100,7 @@ const Step3 = () => {
 								/>
 							)}
 							<div className='btnGroup'>
-								<button className='btn-check' type='submit'>
+								<button className='btn-primary' type='submit'>
 									{t('Label_General_Submit')}
 								</button>
 							</div>
@@ -109,7 +108,7 @@ const Step3 = () => {
 					</form>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 

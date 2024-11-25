@@ -78,19 +78,23 @@ export const WrapperBankInFo = styled.div`
 	}
 	.group-bank-icon {
 		margin-top: 1.6rem;
-		ul {
-			display: flex;
-			align-items: flex-start;
-			justify-content: flex-start;
+		width: 100%;
+		position: relative;
+		.subModuleList {
 			border-radius: 10px;
 			padding: 1.6rem;
 			border: 1px solid ${({ theme }) => theme.desktop.rightModuleBorderColor};
-			flex-wrap: wrap;
-			gap: 1.6rem;
-			img {
-				width: 4.8rem;
-				height: 4.8rem;
-				border-radius: 10px;
+			ul {
+				display: flex;
+				align-items: flex-start;
+				justify-content: flex-start;
+				flex-wrap: wrap;
+				gap: 1.6rem;
+				img {
+					width: 4.8rem;
+					height: 4.8rem;
+					border-radius: 10px;
+				}
 			}
 		}
 	}
@@ -99,5 +103,37 @@ export const WrapperBankInFo = styled.div`
 		align-items: flex-start;
 		justify-content: flex-start;
 		gap: 1.6rem;
+	}
+	.group-bank-name {
+		.bankName {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 0.8rem;
+			font-size: 1.4rem;
+			font-weight: 700;
+			color: ${({ theme }) => theme.desktop.white};
+			img {
+				width: 4.8rem;
+				height: 4.8rem;
+				border-radius: 10px;
+			}
+		}
+	}
+	.btnGroup {
+		button {
+			width: max-content;
+		}
+	}
+	.group {
+		display: flex;
+		align-items: flex-start;
+		gap: 1.6rem;
+		.icon-arrow-left-line {
+			position: absolute;
+			top: 70px;
+			left: -5%;
+			font-size: 20px;
+		}
 	}
 `

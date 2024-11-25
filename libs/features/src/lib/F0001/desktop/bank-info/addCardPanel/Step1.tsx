@@ -2,7 +2,7 @@ import { useBankInfo } from '@nx-next-app/features/F0001/providers'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 
-const Step1 = () => {
+const Step1 = ({ step }: any) => {
 	const { t } = useTranslation()
 
 	const { bankInfoDetail, setStep } = useBankInfo()
@@ -36,9 +36,11 @@ const Step1 = () => {
 						</>
 					)}
 				</div>
-				<div className='remainder'>
-					{t('Label_BankInfo_NumberOfBankAccounts')}: {cardNumber}/3
-				</div>
+				{step === 1 && (
+					<div className='remainder'>
+						{t('Label_BankInfo_NumberOfBankAccounts')}: {cardNumber}/3
+					</div>
+				)}
 			</div>
 		</div>
 	)

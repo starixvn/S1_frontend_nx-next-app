@@ -6,11 +6,10 @@ import { Step3 } from './Step3'
 
 const AddCardPanel = () => {
 	const { step } = useBankInfo()
-
 	return (
 		<WrapperCardAddBank>
 			<div className='group'>
-				{step === 1 && <Step1 />}
+				<Step1 step={step} />
 				{step === 2 && <Step2 />}
 				{step === 3 && <Step3 />}
 			</div>
