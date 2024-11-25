@@ -40,7 +40,7 @@ interface ICaptchaProviderProps {
 const CaptchaProvider = ({
 	children,
 	recaptchaInfoData,
-	action = CaptchaActionTypeEnum.signup,
+	action = CaptchaActionTypeEnum.Signup,
 }: ICaptchaProviderProps) => {
 	const token = useRef('')
 	const [captchaType, setCaptchaType] = useState<undefined | CaptchaTypeEnum>()
