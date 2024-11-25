@@ -6,17 +6,16 @@ import {
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
 
-import {
-	CryptoWalletProvider,
-	WithdrawalProvider,
-	type IAddBankCardModalProps,
-} from '@nx-next-app/operations'
-// this issue must be fix
 import { Layout, Withdrawal } from '@n88-desktop/components/index'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import {
+	CryptoWalletProvider,
+	WithdrawalProvider,
+	type IAddBankCardModalProps,
+} from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import { FOOTER_DATA } from '@nx-next-app/site/nova88'
 import { IFooterData } from '@nx-next-app/types'
