@@ -46,6 +46,7 @@ const RegionCloseRegisterModal = dynamic(
 		ssr: false,
 	}
 )
+
 const Join = ({ cookies }: IJoinProps) => {
 	const { t } = useTranslation()
 	const router = useRouter()
@@ -88,6 +89,7 @@ const Join = ({ cookies }: IJoinProps) => {
 	// TODO 日本語系上限需移除
 	const filterSiteCurrencyList = () => {
 		// 巴西，韓國，日本 沒有 enums
+		// 32 日幣 / 13 人民幣
 		const filterCurrency = [32, 13]
 		return siteCurrencyList.filter(
 			currencyId => !includes(filterCurrency, currencyId)

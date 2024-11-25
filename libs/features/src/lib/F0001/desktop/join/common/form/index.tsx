@@ -112,10 +112,10 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const watchCurrencyId = watch('currencyId')
 
-	// TODO 日本語系上限需移除,
+	// TODO 日本語系上線需移除
 	const filterSiteCurrencyList = () => {
 		// 巴西，韓國，日本 沒有 enums
-		// 移除中國
+		// 32 日幣 / 13 人民幣
 		const filterCurrency = [32, 13]
 		return siteCurrencyList.filter(
 			currencyId => !includes(filterCurrency, currencyId)
