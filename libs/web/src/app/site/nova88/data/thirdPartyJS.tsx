@@ -30,11 +30,15 @@ export const IovationScript = () => (
 )
 
 export const ActivatorScript = () => (
-	<Script
-		strategy='lazyOnload'
-		src='//sc.detecas.com/di/activator.ashx'
-		type='text/javascript'
-	/>
+	<>
+		{/* 因登入後會移除唯一的 form，所以在這個先加一個  */}
+		<form />
+		<Script
+			strategy='afterInteractive'
+			src='//sc.trivenzio.com/di/activator.ashx'
+			type='text/javascript'
+		/>
+	</>
 )
 
 export const PlayTechScript = () => (

@@ -26,6 +26,7 @@ import {
 import classNames from 'classnames'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
 import { isNumber } from 'lodash'
+import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -77,7 +78,16 @@ const Join = ({ cookies }: IJoinProps) => {
 
 	const { executeRecaptcha } = useGoogleReCaptcha()
 
-	const currencySelectOptions = siteCurrencyList
+	// TODO 日本語系上限需移除
+	const filterSiteCurrencyList = () => {
+		// 巴西，韓國，日本 沒有 enums
+		const filterCurrency = [32, 13]
+		return siteCurrencyList.filter(
+			currencyId => !includes(filterCurrency, currencyId)
+		)
+	}
+
+	const currencySelectOptions = filterSiteCurrencyList()
 		.filter(currencyId => {
 			const affiliate = getValues('affiliate')
 			const formCurrencyId = getValues('currencyId')

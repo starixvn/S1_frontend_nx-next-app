@@ -1,9 +1,9 @@
 import DepositModule from '@12b-indo-desktop/components/deposit/ui/deposit-module'
+import { useAuth } from '@nx-next-app/data-access'
 import {
-	useAuth,
 	useDepositContext,
 	useDigitalWalletForm,
-} from '@nx-next-app/data-access'
+} from '@nx-next-app/operations'
 import { IPayInfoDigitalWalletData } from '@nx-next-app/service'
 import {
 	generateShortcutList,

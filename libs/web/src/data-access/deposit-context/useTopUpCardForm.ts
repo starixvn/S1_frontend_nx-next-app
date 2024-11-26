@@ -1,22 +1,22 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useDepositSavedLocalStorage } from '@nx-next-app/data-access'
 import {
-	cashierApiUrl,
 	IAxiosError,
 	IPaymentTopUpCardPayData,
 	IPostDepositLoadCardPayReqArgs,
+	cashierApiUrl,
 	useGetChannelTopUpCardPayListQuery,
 	useLazyCheckDepositSpecialCodeQuery,
-	useLazyGetDepositLoadCardPayReqQuery,
+	useLazyGetDepositRequestQuery,
 } from '@nx-next-app/service'
 import { DepositActionModeEnum } from '@nx-next-app/types'
 import { isConvert, scrollToTop } from '@nx-next-app/utils'
 import { every, find, head, isEmpty } from 'lodash-es'
-import { useBoolean, useDebounce } from 'usehooks-ts'
+import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useTranslation } from 'next-i18next'
+import { useBoolean, useDebounce } from 'usehooks-ts'
 import { useDepositContext } from './DepositContext'
 
 export interface ITopUpCardPayForm {
@@ -31,6 +31,7 @@ export interface ITopUpCardPayForm {
 	amountList?: number[]
 	code?: string
 	serial?: string
+	extraDataType?: number
 }
 
 const useTopUpCardForm = ({
@@ -91,10 +92,8 @@ const useTopUpCardForm = ({
 		{ isFetching: isCheckDepositSpecialCodeFetching },
 	] = useLazyCheckDepositSpecialCodeQuery()
 
-	const [
-		postDepositLoadCardPayReq,
-		{ isLoading: isPostDepositLoadCardPayReqLoading },
-	] = useLazyGetDepositLoadCardPayReqQuery()
+	const [postDepositReq, { isLoading: isPostDepositLoadCardPayReqLoading }] =
+		useLazyGetDepositRequestQuery()
 
 	// * 1. 檢查是否有 specialCode，specialCode 與bonusCode 只能擇一
 	// * 2. mode = 3，fetch postDepositLoadCardPayReq
@@ -112,6 +111,7 @@ const useTopUpCardForm = ({
 				channelId,
 				bonusCode: originBonusCode = '',
 				promoCode,
+				extraDataType,
 			} = values
 
 			const convertedAmount = isConvert(currencyId) ? amount * 1000 : amount
@@ -128,23 +128,21 @@ const useTopUpCardForm = ({
 				}
 			}
 
-			const searchParams = bonusCode
-				? new URLSearchParams({
-						ChannelId: String(channelId),
-						Code: String(code),
-						Serial: String(serial),
-						Amount: String(convertedAmount),
-						BonusCode: bonusCode,
-				  })
-				: new URLSearchParams({
-						ChannelId: String(channelId),
-						Code: String(code),
-						Serial: String(serial),
-						Amount: String(convertedAmount),
-				  })
+			const params = {
+				ChannelId: String(channelId),
+				Amount: String(convertedAmount),
+				...(bonusCode && { BonusCode: bonusCode }),
+				...(extraDataType === 4 && {
+					Code: String(code),
+					Serial: String(serial),
+				}),
+			}
+
+			const searchParams = new URLSearchParams(params)
 
 			const paramsUrl = searchParams.toString()
 
+			// topUp card 這個 mode 只會直接打 api 顯示成功與否，不會開 QRCode
 			if (mode === DepositActionModeEnum.QrCode) {
 				const payload: IPostDepositLoadCardPayReqArgs = {
 					langId,
@@ -154,11 +152,11 @@ const useTopUpCardForm = ({
 					amount: convertedAmount,
 					paramsUrl,
 				}
-				await postDepositLoadCardPayReq(payload).unwrap()
+				await postDepositReq(payload).unwrap()
 
 				modal.info(t('Label_General_Success'))
 			} else {
-				const baseUrl = `${dbHost}/${langId}/${cashierApiUrl.postDepositLoadCardPayReq}`
+				const baseUrl = `${dbHost}/${langId}/${cashierApiUrl.postDepositReq}`
 				window.open(`${baseUrl}?${paramsUrl}`)
 			}
 
@@ -212,6 +210,7 @@ const useTopUpCardForm = ({
 			minAmount = 0,
 			maxAmount = 0,
 			amountList,
+			extraDataType,
 		} = find(channelTopUpCardPayList, {
 			channelId: Number(queryChannelId),
 		}) ||
@@ -231,6 +230,7 @@ const useTopUpCardForm = ({
 		setValue('minAmount', convertMinAmount)
 		setValue('maxAmount', convertMaxAmount)
 		setValue('amountList', convertAmountList)
+		setValue('extraDataType', extraDataType)
 
 		let url = {
 			pathname,

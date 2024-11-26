@@ -57,6 +57,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 	const watchMinAmount = watch('minAmount')
 	const watchMaxAmount = watch('maxAmount')
 	const watchAmountList = watch('amountList')
+	const watchExtraDataType = watch('extraDataType')
 
 	return (
 		<>
@@ -88,70 +89,75 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
 				<DepositModule title={t('Label_General_DepositAmount')} required>
-					<div className='input-column'>
-						<div>
-							<InputBox
-								className='inputBox-white'
-								register={register('code', {
-									required: true,
+					{/* extraDataType === 4 才要顯示輸入刮刮卡的資訊，有些刮刮卡是透過 payment 的網站輸入，所以不顯示 */}
+					{watchExtraDataType === 4 && (
+						<>
+							<div className='input-column'>
+								<div>
+									<InputBox
+										className='inputBox-white'
+										register={register('code', {
+											required: true,
+										})}
+										placeholder={t('Label_Deposit_CardCode') || ''}
+										touched={!!touchedFields['code']}
+										error={!!errors['code']}
+										onInfoClick={() => toggleIsCardInfoImgActive()}
+									/>
+									<button
+										className='icon icon-files-empty'
+										onClick={async () => {
+											const clipboardText =
+												navigator.clipboard &&
+												(await navigator.clipboard.readText())
+
+											setValue('code', clipboardText)
+										}}
+									/>
+								</div>
+
+								<div className='tip active'>
+									{t('Label_Deposit_ProvideBankSlip')}
+								</div>
+								<div>
+									<InputBox
+										className='inputBox-white'
+										register={register('serial', {
+											required: true,
+										})}
+										placeholder={t('Label_Deposit_CardSerial') || ''}
+										touched={!!touchedFields['serial']}
+										error={!!errors['serial']}
+										onInfoClick={() => toggleIsCardInfoImgActive()}
+									/>
+									<button
+										className='icon icon-files-empty'
+										onClick={async () => {
+											const clipboardText =
+												navigator.clipboard &&
+												(await navigator.clipboard.readText())
+
+											setValue('serial', clipboardText)
+										}}
+									/>
+								</div>
+								<div className='tip active'>
+									{t('Label_Deposit_ProvideBankSlip')}
+								</div>
+							</div>
+
+							<div
+								className={classNames('tipImg', {
+									active: isCardInfoImgActive,
 								})}
-								placeholder={t('Label_Deposit_CardCode') || ''}
-								touched={!!touchedFields['code']}
-								error={!!errors['code']}
-								onInfoClick={() => toggleIsCardInfoImgActive()}
-							/>
-							<button
-								className='icon icon-files-empty'
-								onClick={async () => {
-									const clipboardText =
-										navigator.clipboard &&
-										(await navigator.clipboard.readText())
-
-									setValue('code', clipboardText)
-								}}
-							/>
-						</div>
-
-						<div className='tip active'>
-							{t('Label_Deposit_ProvideBankSlip')}
-						</div>
-						<div>
-							<InputBox
-								className='inputBox-white'
-								register={register('serial', {
-									required: true,
-								})}
-								placeholder={t('Label_Deposit_CardSerial') || ''}
-								touched={!!touchedFields['serial']}
-								error={!!errors['serial']}
-								onInfoClick={() => toggleIsCardInfoImgActive()}
-							/>
-							<button
-								className='icon icon-files-empty'
-								onClick={async () => {
-									const clipboardText =
-										navigator.clipboard &&
-										(await navigator.clipboard.readText())
-
-									setValue('serial', clipboardText)
-								}}
-							/>
-						</div>
-						<div className='tip active'>
-							{t('Label_Deposit_ProvideBankSlip')}
-						</div>
-					</div>
-
-					<div
-						className={classNames('tipImg', {
-							active: isCardInfoImgActive,
-						})}
-					>
-						<Img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/cardinfo.png`}
-							alt='img-cardinfo'
-						/>
-					</div>
+							>
+								<Img
+									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/cardinfo.png`}
+									alt='img-cardinfo'
+								/>
+							</div>
+						</>
+					)}
 
 					<DepositModule.ShortcutList
 						minAmount={watchMinAmount}

@@ -183,15 +183,15 @@ export const LANG_GROUPS: IStaticLangGroups = {
 export const LIVE_CHAT_ID_BY_LANG_ID: {
 	[langId: string]: number
 } = {
-	en: 1,
-	id: 2,
-	cs: 3,
-	th: 4,
-	hi: 8,
-	vn: 9,
-	bd: 10,
-	my: 12,
-	ko: 13,
-	br: 14,
-	jp: 15,
+	en: 6,
+	id: 7,
+	cs: 1,
+	th: 2,
+	hi: 5,
+	vn: 3,
+	bd: 6,
+	my: 6,
+	ko: 6,
+	br: 6,
+	jp: 6,
 }

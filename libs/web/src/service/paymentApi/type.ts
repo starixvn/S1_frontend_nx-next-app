@@ -575,6 +575,7 @@ export interface IChannelTopUpCardPayData {
 	updated_timestamp: number
 	displayChannelName: string
 	displayGroupName: string
+	extraDataType: number
 }
 
 export interface IDepositLocalPayReqData {
