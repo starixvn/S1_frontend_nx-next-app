@@ -44,9 +44,10 @@ const ProvidersList = () => {
 			<GameContainer>
 				<EmblaCarousel options={gameTypeEmblaOptions} isControlButton={false}>
 					{providerData.map(provider => {
-						
+						const { tpId, tpLogo, tpName } = provider
             if(tpId === maxGame || tpId === keno ||tpId === lottery ||tpId === tableGame )
               return null;
+						return (
 							<div className='embla__slide provider-item' key={tpId}>
 								<Img
 									className='img'
