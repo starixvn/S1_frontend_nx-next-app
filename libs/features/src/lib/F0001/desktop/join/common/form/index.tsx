@@ -698,7 +698,7 @@ const Form = ({ cookies }: IJoinProps) => {
 					{t('Label_General_Cancel')}
 				</button>
 				<button className='btn-check' type='submit'>
-					{t('Label_General_Submit')}
+					{t('Label_General_Join')}
 				</button>
 			</div>
 		</form>
