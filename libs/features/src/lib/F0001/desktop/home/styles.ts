@@ -2,11 +2,14 @@ import styled from 'styled-components'
 
 export const HomePage = styled.div`
 	.homebanner {
-		width: ${({ theme }) => theme.desktop.contentWidth};
-		height: 39.4rem;
-		border-radius: 2rem;
+		padding-top: 2rem;
+		height: 39rem;
+		background: url(${({ theme }) =>
+			theme.assetUrl}/desktop/img/new-ui/banner-bg.webp);
 
 		.swiper-container {
+			width: ${({ theme }) => theme.desktop.contentWidth};
+			border-radius: 2rem;
 			position: relative;
 
 			> .swiper-wrapper {
@@ -107,7 +110,11 @@ export const GameGroup = styled.div`
 			top: 0;
 			height: 100%;
 			width: 8rem;
-			background: linear-gradient(270deg, #0f1428 0%, rgba(15, 20, 40, 0) 100%);
+			background: linear-gradient(
+				270deg,
+				#0f1428ed 0%,
+				rgba(15, 20, 40, 0) 100%
+			);
 		}
 	}
 

@@ -42,7 +42,10 @@ const ProvidersList = () => {
 				<EmblaCarousel options={gameTypeEmblaOptions} isControlButton={false}>
 					{providerData.map(provider => {
 						const { tpId, tpLogo, tpName } = provider
-
+						console.log(
+							'------ProviderGroup',
+							`${process.env['NEXT_PUBLIC_BANNER_HOST']}/provider/dark/${tpLogo}.webp`
+						)
 						return (
 							<div className='embla__slide provider-item' key={tpId}>
 								<Img

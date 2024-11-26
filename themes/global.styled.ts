@@ -328,10 +328,7 @@ export const GlobalStyles = createGlobalStyle`
       color: ${({ theme }) => theme.desktop.inputPlaceHolderColor};
       font-size : 1.4rem;
     }
-    &:-webkit-autofill{
-      box-shadow: 0 0 0px 1000px ${({ theme }) => theme.desktop.inputBg} inset;
-      -webkit-text-fill-color: ${({ theme }) => theme.desktop.inputColor};
-    }
+
   }
   .wrapper-profile {
     display: flex;
@@ -728,7 +725,7 @@ export const GlobalStyles = createGlobalStyle`
         }
         &:last-child{
           border-right : none;
-          
+
         }
       }
     }

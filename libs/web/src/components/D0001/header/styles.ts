@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HeaderContainer = styled.div`
 	position: sticky;
@@ -11,7 +11,7 @@ export const HeaderContainer = styled.div`
 	width: 100%;
 	height: 12.4rem;
 	background: ${({ theme }) => theme.desktop.headerBg};
-	z-index: 2;
+	z-index: 10;
 `
 
 export const LogoContainer = styled.div`

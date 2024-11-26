@@ -1,6 +1,7 @@
 import { paths } from '@nx-next-app/constants'
 import GameList from '@nx-next-app/features/F0001/desktop/home/GameList'
 import GroupTitle from '@nx-next-app/features/F0001/desktop/home/GroupTitle'
+import { LiveCasinoContainer } from '@nx-next-app/features/F0001/desktop/home/liveCasinoGames/styles'
 import { GameGroup } from '@nx-next-app/features/F0001/desktop/home/styles'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { TpCategory } from '@nx-next-app/service'
@@ -22,17 +23,19 @@ const LiveCasinoGames = () => {
 	}
 
 	return (
-		<GameGroup className='content-container others'>
-			<GroupTitle
-				title={t('Label_General_CasinoWithLive').toUpperCase()}
-				href={paths.liveCasino.root}
-			/>
-			<GameList
-				gameData={liveCasinoGames}
-				isControlButton
-				extraClassName='two-rows'
-			/>
-		</GameGroup>
+		<LiveCasinoContainer>
+			<GameGroup className='content-container others'>
+				<GroupTitle
+					title={t('Label_General_CasinoWithLive').toUpperCase()}
+					href={paths.liveCasino.root}
+				/>
+				<GameList
+					gameData={liveCasinoGames}
+					isControlButton
+					extraClassName='two-rows'
+				/>
+			</GameGroup>
+		</LiveCasinoContainer>
 	)
 }
 

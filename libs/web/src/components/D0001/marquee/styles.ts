@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HomeMarquee = styled.div`
 	position: relative;
@@ -7,7 +7,6 @@ export const HomeMarquee = styled.div`
 	justify-content: space-between;
 	height: 4rem;
 	padding: 0 calc((100% - ${({ theme }) => theme.desktop.contentWidth}) / 2);
-	margin-bottom: 2rem;
 	background: ${({ theme }) => theme.desktop.marqueeMessageBg};
 
 	.marquee {
