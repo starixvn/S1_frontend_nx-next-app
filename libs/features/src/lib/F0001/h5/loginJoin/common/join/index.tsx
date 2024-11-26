@@ -14,6 +14,7 @@ import {
 	useGetSiteCurrencyListQuery,
 	useLazyAffiliateCheckQuery,
 	useLazyGetAffiliateAgentQuery,
+	useRegisterRejectClickMutation,
 	useSignupMutation,
 } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
@@ -28,6 +29,7 @@ import { TmpCookiesObj } from 'cookies-next/lib/types'
 import { isNumber } from 'lodash'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -38,6 +40,13 @@ import { Features, LineRegister, Step1, Step2, Step3, StepBar } from './form'
 interface IJoinProps {
 	cookies: TmpCookiesObj
 }
+
+const RegionCloseRegisterModal = dynamic(
+	() => import('../../../modal/RegionCloseRegisterModal'),
+	{
+		ssr: false,
+	}
+)
 
 const Join = ({ cookies }: IJoinProps) => {
 	const { t } = useTranslation()
@@ -75,11 +84,15 @@ const Join = ({ cookies }: IJoinProps) => {
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 	const [signUp] = useSignupMutation()
+
+	const [registerRejectClick] = useRegisterRejectClickMutation()
+
 	const { executeRecaptcha } = useGoogleReCaptcha()
 
 	// TODO 日本語系上限需移除
 	const filterSiteCurrencyList = () => {
 		// 巴西，韓國，日本 沒有 enums
+		// 32 日幣 / 13 人民幣
 		const filterCurrency = [32, 13]
 		return siteCurrencyList.filter(
 			currencyId => !includes(filterCurrency, currencyId)
@@ -220,6 +233,9 @@ const Join = ({ cookies }: IJoinProps) => {
 	}
 
 	const handleSubmitForm = async () => {
+		if (initNationality === 'China') {
+			return
+		}
 		// opera and meta pixel tracker
 		OperaPixelTracker('register')
 		MetaPixelTracker('registerSubmit')
@@ -306,6 +322,22 @@ const Join = ({ cookies }: IJoinProps) => {
 	useEffect(() => {
 		checkLineRegister()
 	}, [siteCurrencyList])
+
+	useEffect(() => {
+		if (initNationality === 'China') {
+			// GA 紀錄
+			window.dataLayer = window.dataLayer || []
+			window.dataLayer.push({
+				event: 'China_Register_Blocked',
+			})
+			// api 紀錄
+			registerRejectClick({
+				siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']),
+				domain: window.location.origin,
+			})
+			modal.open(<RegionCloseRegisterModal />)
+		}
+	}, [initNationality])
 
 	return (
 		<>

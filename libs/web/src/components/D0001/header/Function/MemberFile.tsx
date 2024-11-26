@@ -27,7 +27,7 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 	} = useAuth()
 	const { value: isActive, toggle, setFalse } = useBoolean(false)
 
-	const { icon, languageGroup, onSetLanguage } = useLanguageGroup()
+	const { icon, languageGroup, onSetLanguage } = useLanguageGroup(['cs'])
 	const { value: isLangActive, toggle: toggleIsLangActive } = useBoolean(false)
 	const selectedLangText = find(head(Object.values(languageGroup)), {
 		value: langId,

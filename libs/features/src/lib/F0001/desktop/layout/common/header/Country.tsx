@@ -5,7 +5,7 @@ import { useRef } from 'react'
 import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 
 const Country = () => {
-	const { icon, languageGroup, onSetLanguage } = useLanguageGroup()
+	const { icon, languageGroup, onSetLanguage } = useLanguageGroup(['cs'])
 	const ref = useRef(null)
 	const { value: isActive, toggle, setFalse } = useBoolean(false)
 

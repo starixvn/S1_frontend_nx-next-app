@@ -1,10 +1,11 @@
-import { isEqual } from 'lodash-es'
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { CURRENCY_TO_LANG_KEY, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
 import { useSetLanguageMutation } from '@nx-next-app/service'
+import { IStaticLangGroups } from '@nx-next-app/types'
 import { setCookie } from 'cookies-next'
-import { CURRENCY_TO_LANG_KEY, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { isEqual, omit } from 'lodash-es'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 import { setAppCurrency, setAppLanguage } from '../utils'
 
 /**
@@ -14,13 +15,19 @@ import { setAppCurrency, setAppLanguage } from '../utils'
  * const { icon, languageGroup, onSetLanguage } = useLanguageGroup()
  * ```
  */
-const useLanguageGroup = () => {
+const useLanguageGroup = (filterLangs?: string[]) => {
 	const { push, pathname, asPath, query } = useRouter()
 	const {
 		userInfo: { currencyId: currentCurrency, langId: currentLang },
 		auth,
 	} = useAuth()
 	const { LANG_GROUPS } = useStaticData()
+
+	const filteredLangGroups: IStaticLangGroups =
+		filterLangs && filterLangs.length > 0 && !auth.isLogin
+			? omit(LANG_GROUPS, filterLangs)
+			: LANG_GROUPS
+
 	const [icon, setIcon] = useState<string | null>(null)
 	const [languageGroup, setLanguageGroup] = useState<{
 		[key: string]: Array<{
@@ -29,7 +36,7 @@ const useLanguageGroup = () => {
 			currencyId: number
 			mainLanguage?: boolean
 		}>
-	}>(LANG_GROUPS)
+	}>(filteredLangGroups)
 
 	const [setLanguage] = useSetLanguageMutation()
 	const { isInApp } = useGlobalData()
@@ -71,11 +78,11 @@ const useLanguageGroup = () => {
 
 		if (auth.isLogin) {
 			// 登入後針對 langGroup 做篩選
-			setLanguageGroup({ [langKey]: LANG_GROUPS[langKey] })
+			setLanguageGroup({ [langKey]: filteredLangGroups[langKey] })
 			// 未登入加入比對當前 langGroup 是否與初始 langGroup 相同，減少重複渲染
-		} else if (!isEqual(languageGroup, LANG_GROUPS)) {
-			// 若不相符才 reset 至 LANG_GROUPS
-			setLanguageGroup(LANG_GROUPS)
+		} else if (!isEqual(languageGroup, filteredLangGroups)) {
+			// 若不相符才 reset 至 filteredLangGroups
+			setLanguageGroup(filteredLangGroups)
 		}
 
 		if (langKey !== icon) {
