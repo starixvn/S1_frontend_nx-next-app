@@ -125,7 +125,7 @@ export const theme = {
 		carouselBtnBg: '#374375',
 		carouselBtnBorder: '#0f1428',
 		carouselBtnColor: '#fff',
-		carouselBtnBgHover: '#374375',
+		carouselBtnBgHover: '#48558B',
 		carouselBtnBorderHover: '#0f1428',
 		carouselBtnColorHover: '#fff',
 		carouselBtnColorDisabled: '#717fba',

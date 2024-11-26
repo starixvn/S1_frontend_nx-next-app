@@ -15,6 +15,10 @@ export const FooterContainer = styled.div`
 			font-weight: 700;
 			font-size: 1.4rem;
 			text-transform: uppercase;
+
+			&:hover {
+				color: #939dc5;
+			}
 		}
 	}
 	.footer-center {
