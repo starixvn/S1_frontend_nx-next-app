@@ -49,61 +49,12 @@ export const PlayTechScript = () => (
 	/>
 )
 
-export const GTMScript = () => {
-	const gaId = process.env['NEXT_PUBLIC_GA_ID']
-	if (!gaId) return null
-	return (
-		<>
-			{/* <Script strategy='lazyOnload' id='GTM-script'> */}
-			{/*	{`(function (w, d, s, l, i) { */}
-			{/*		w[l] = w[l] || []; */}
-			{/*		w[l].push({ */}
-			{/*			"gtm.start": new Date().getTime(), */}
-			{/*			event: "gtm.js" */}
-			{/*		}); */}
-			{/*		var f = d.getElementsByTagName(s)[0], */}
-			{/*			j = d.createElement(s), */}
-			{/*			dl = l != "dataLayer" ? "&l=" + l : ""; */}
-			{/*		j.async = true; */}
-			{/*		j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl; */}
-			{/*		f.parentNode.insertBe
-			fore(j, f); */}
-			{/*	})(window, document, "script", "dataLayer", "GTM-5VD4484")`} */}
-			{/* </Script> */}
-			<Script
-				strategy='lazyOnload'
-				src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-			/>
-			<Script strategy='lazyOnload' id='dataLayer-script'>
-				{`  window.dataLayer = window.dataLayer || [];
-				function gtag(){dataLayer.push(arguments);}
-				gtag('js', new Date());
-
-				gtag('config', '${gaId}');`}
-			</Script>
-		</>
-	)
-}
-// 公司用的 nova ga , 用來計算總數量。
-
 export const JackpotsScript = () => (
 	<Script
 		strategy='lazyOnload'
 		type='text/javascript'
 		src='https://tickers2.playtech.com/jackpots/new_jackpotjs.js'
 	/>
-)
-
-export const GoogleTagManagerScript = () => (
-	<noscript>
-		<iframe
-			src='https://www.googletagmanager.com/ns.html?id=GTM-5VD4484'
-			title='GTM'
-			height='0'
-			width='0'
-			style={{ display: 'none', visibility: 'hidden' }}
-		/>
-	</noscript>
 )
 
 export const OperaPixelCodeScript = () => {
