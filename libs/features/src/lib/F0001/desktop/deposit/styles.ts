@@ -96,14 +96,14 @@ export const WrapperDeposit = styled.div`
 								background: none;
 								content: '\\e936';
 								color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
-								font-size: 2rem;
+								font-size: 2.4rem;
 							}
 						}
 						.icon-library {
 							&:before {
 								content: '\\e917';
 								color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
-								font-size: 2rem;
+								font-size: 2.4rem;
 							}
 						}
 						.icon-connection {

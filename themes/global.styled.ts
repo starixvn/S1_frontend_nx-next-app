@@ -395,12 +395,6 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
   
-  .icon{
-    &:before{
-      font-size : 2.4rem !important;
-    }
-  }
-  
   input {
     color: ${({ theme }) => theme.desktop.inputColor};
     background: ${({ theme }) => theme.desktop.inputBg};
