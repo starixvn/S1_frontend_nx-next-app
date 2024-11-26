@@ -49,13 +49,6 @@ class MyDocument extends Document<CustomDocumentProps> {
 
 					{process.env['NEXT_PUBLIC_ENV'] === 'PRD' && (
 						<>
-							{/* Yuri Track , 市場廣告商使用的追蹤碼 */}
-							<script
-								dangerouslySetInnerHTML={{
-									__html: `!function(y,u,r,i){y._yuri_track||((n=y._yuri_track=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)}).queue=n.queue||[],y._yuri_track._fp||(y._yuri_track._fp=1,t=u.createElement(r),s=u.getElementsByTagName(r)[0],t.async=1,t.src=i,s.parentNode.insertBefore(t,s)))}(window,document,"script","https://cdn.jsdelivr.net/gh/adzon/assets/pixel.js?_rid={click_id}");`,
-								}}
-							/>
-
 							{/* GA4 市場區分 domain 的 ga4 */}
 							<script
 								async
@@ -101,13 +94,6 @@ class MyDocument extends Document<CustomDocumentProps> {
 								/>
 							</noscript>
 
-							{/* CRM System , Optimove */}
-							<script
-								async
-								data-optimove-service-worker-path='/worker.js'
-								src='https://sdk.optimove.net/websdk/?tenant_id=1431&tenant_token=792f0d9fbcc040c5880a3080c206515e'
-							/>
-
 							{/* PM & RD 在看的 GA */}
 							<script
 								async
@@ -124,7 +110,7 @@ class MyDocument extends Document<CustomDocumentProps> {
 								}}
 							/>
 
-							{/* N88-RD-GA */}
+							{/* N88-RD-GA, 其餘 script 均由此 gtm 控制，若無管理權限請洽 TL */}
 							<script
 								dangerouslySetInnerHTML={{
 									__html: `
