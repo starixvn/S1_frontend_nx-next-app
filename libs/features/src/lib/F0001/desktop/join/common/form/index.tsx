@@ -487,6 +487,11 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	useEffect(() => {
 		if (initNationality === 'China') {
+			// GA 紀錄
+			window.dataLayer = window.dataLayer || []
+			window.dataLayer.push({
+				event: 'China_Register_Blocked',
+			})
 			modal.info(t('Label_Close_Region_Register_Notice'), {
 				onOK: () => router.push(paths.home.root),
 			})
