@@ -57,7 +57,7 @@ const CardItem = ({
 			<div className='addBankInfo'>
 				<div className='bankName'>
 					<img
-						src={`${process.env['NEXT_PUBLIC_PAYMENT_HOST']}/square/${bankLogo}`}
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/paymentlogo/square/${bankLogo}`}
 						alt=''
 					/>
 

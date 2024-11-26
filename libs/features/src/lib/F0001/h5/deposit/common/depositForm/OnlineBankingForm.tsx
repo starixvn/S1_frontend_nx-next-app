@@ -90,7 +90,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 	// 			<p>{t('Label_Deposit_ConfirmDeposit')}</p>
 	// 			<img
 	// 				className='bankimg'
-	// 				src={`${process.env['NEXT_PUBLIC_PAYMENT_HOST']}/square/${toLower(
+	// 				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/paymentlogo/square/${toLower(
 	// 					watchBankLogo
 	// 				)}`}
 	// 				alt='img-bank-logo'

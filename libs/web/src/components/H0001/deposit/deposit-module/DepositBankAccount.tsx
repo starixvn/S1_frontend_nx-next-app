@@ -26,9 +26,9 @@ const DepositBankAccount = ({
 				<ul>
 					<li>
 						<img
-							src={`${process.env['NEXT_PUBLIC_PAYMENT_HOST']}/square/${toLower(
-								bankLogo
-							)}`}
+							src={`${
+								process.env['NEXT_PUBLIC_PAYMENT_HOST']
+							}/paymentlogo/square/${toLower(bankLogo)}`}
 							alt='img-bank-logo'
 						/>
 						<div>{bankName}</div>
