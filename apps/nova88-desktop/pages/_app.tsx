@@ -41,7 +41,7 @@ dayjs.extend(timezone)
 dayjs.extend(utc)
 dayjs.extend(customParseFormat)
 
-const { LiveChatScript, ActivatorScript } = ThirdPartyJS
+const { LiveChatScript } = ThirdPartyJS
 
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
@@ -75,7 +75,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			</Provider>
 
 			<LiveChatScript />
-			<ActivatorScript />
 
 			{/* // TODO: <SEO /> */}
 		</>
