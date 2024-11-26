@@ -44,10 +44,10 @@ const CryptoWalletPage = ({
 						footerData={persistFooterData}
 					>
 						<main>
-							<section className='inside'>
+							<div className='wrapper-profile'>
 								<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 								<CryptoWallet />
-							</section>
+							</div>
 						</main>
 					</Layout>
 				</CryptoWalletProvider>

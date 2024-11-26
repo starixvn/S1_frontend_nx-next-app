@@ -4360,11 +4360,6 @@ main .promosswiper .swiper-button-prev::after {
 .remainder .icon {
 	display: inline-block;
 }
-.remainder ~ .tip {
-	padding: 0;
-	margin-top: 10px;
-	color: #5574a7;
-}
 
 .addAddresspop .icon-close {
 	top: 15px !important;
@@ -4557,9 +4552,6 @@ main .promosswiper .swiper-button-prev::after {
 .forgetPassWord .icon {
 	font-size: 18px;
 }
-
-
-
 
 .otpBtn {
 	margin: 10px auto;

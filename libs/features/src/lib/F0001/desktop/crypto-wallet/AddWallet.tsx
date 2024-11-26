@@ -1,5 +1,5 @@
-import { useTranslation } from 'next-i18next'
 import { useCryptoWallet } from '@nx-next-app/features/F0001/providers'
+import { useTranslation } from 'next-i18next'
 
 const cryptoWalletLimit = 3
 
@@ -18,8 +18,10 @@ const AddWallet = () => {
 					</div>
 				) : (
 					<div className='addBankName noBank ' onClick={handleAddWallet}>
-						<div className='icon icon-plus' />
-						<div>{t('Label_CryptoWallet_AddCryptoWallet')}</div>
+						<div className='icon icon-add-fill' />
+						<div className='txt-blue'>
+							{t('Label_CryptoWallet_AddCryptoWallet')}
+						</div>
 					</div>
 				)}
 				<div className='remainder'>

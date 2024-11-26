@@ -32,7 +32,9 @@ const CryptoCard = () => {
 						onClick={handleAddWallet}
 					>
 						<div className='icon icon-add-fill' />
-						<div>{t('Label_Withdrawal_AddCryptoWallet')}</div>
+						<div className='txt-blue'>
+							{t('Label_Withdrawal_AddCryptoWallet')}
+						</div>
 					</div>
 				)}
 				<div className='remainder'>

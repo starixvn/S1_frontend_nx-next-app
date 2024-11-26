@@ -31,7 +31,7 @@ const EWalletCard = () => {
 						onClick={() => handleAddCards(WithdrawalBankCardEnum.EWallet)}
 					>
 						<div className='icon icon-add-fill' />
-						<div>{t('Label_Withdrawal_AddEAccount')}</div>
+						<div className='txt-blue'>{t('Label_Withdrawal_AddEAccount')}</div>
 					</div>
 				)}
 				<div className='remainder'>

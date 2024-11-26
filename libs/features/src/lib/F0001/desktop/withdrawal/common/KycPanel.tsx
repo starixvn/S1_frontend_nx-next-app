@@ -62,7 +62,7 @@ const KycPanel = () => {
 							<img alt='kyc' src={kycFile.fileImg as string} />
 						) : (
 							<>
-								<i className='icon icon-plus' />
+								<i className='icon icon-add-fill' />
 								<i className='icon icon-folder-upload' />
 							</>
 						)}

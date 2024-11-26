@@ -30,7 +30,7 @@ const BankCard = () => {
 						onClick={() => handleAddCards(WithdrawalBankCardEnum.LocalBank)}
 					>
 						<div className='icon icon-add-fill' />
-						<div className='text-bank'>
+						<div className='text-bank txt-blue'>
 							{t('Label_Withdrawal_AddBankAccount')}
 						</div>
 					</div>
