@@ -33,7 +33,7 @@ const GameIcon: FC<IGameIcon> = ({ gameItem, isLarge, onClick }) => {
 				return (
 					<GameIconContainer
 						className={`embla__slide game-icon ${isMaintain ? 'maintain' : ''}`}
-						isMaintain={isMaintain}
+						$isMaintain={isMaintain}
 						key={`casino-game-${gameId}`}
 					>
 						<div className='img-wrapper'>

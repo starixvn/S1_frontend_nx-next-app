@@ -1,10 +1,17 @@
+
 import styled from 'styled-components'
 
-export const GameIconContainer = styled.div<{ isMaintain: boolean }>`
+export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(props => {
+	return {
+		style: {
+			cursor: props.$isMaintain ? 'not-allowed' : 'pointer',
+		},
+	};
+})`
+
 	position: relative;
 	border-radius: 2rem;
 	background: ${({ theme }) => theme.desktop.gameIconBg};
-	cursor: ${({ isMaintain }) => (isMaintain ? 'not-allowed' : 'pointer')};
 	overflow: hidden;
 
 	&.maintain {
