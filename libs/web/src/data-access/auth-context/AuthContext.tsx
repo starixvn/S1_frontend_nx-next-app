@@ -142,12 +142,14 @@ export const AuthProvider = ({
 
 		setAuth({ isLogin: true })
 		setAppAuth('login')
+		localStorage.setItem('fpsNeededToCheck', 'true')
 	}
 
 	const onSignOut = async () => {
 		await signOut(null).unwrap()
 		onResetAuth()
 		localStorage.removeItem('myFavorites')
+		localStorage.removeItem('fpsNeededToCheck')
 	}
 
 	const onResetAuth = () => {
@@ -167,7 +169,9 @@ export const AuthProvider = ({
 	// * 處理路由導轉
 	useInitLocaleEffect({ router, userInfo, isLogin: auth.isLogin })
 	// * FPS 檢查
-	useFpsChecks({ isLogin: auth.isLogin })
+	useFpsChecks({
+		isLogin: auth.isLogin,
+	})
 	// * 輪詢確認使用者是否保持線上狀態
 	useOnlineCheckInterval({
 		isLogin: auth.isLogin,
