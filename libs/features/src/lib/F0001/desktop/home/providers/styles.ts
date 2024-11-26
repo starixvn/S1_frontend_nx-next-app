@@ -30,4 +30,9 @@ export const ProviderGroup = styled(GameGroup)`
 	.load-more {
 		margin-right: 0 !important;
 	}
+
+	.img {
+		height: 6.5rem;
+		width: auto;
+	}
 `

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const WelcomeInfoContainer = styled.div`
 	display: flex;
@@ -43,31 +43,52 @@ export const WelcomeInfoContainer = styled.div`
 			align-items: center;
 			min-width: 14rem;
 			padding: 1.2rem 2rem;
-			border-radius: 2rem 0 0 0;
+			border-radius: 2rem 0;
 			font-size: 1.7rem;
 			font-weight: 600;
 			letter-spacing: 0.85px;
 			text-transform: uppercase;
+			transition: color 0.3s ease-in-out;
 		}
 
 		&.join .welcome-btn {
 			background: ${({ theme }) => theme.desktop.welcomeAffiliateBtnBg};
 			color: ${({ theme }) => theme.desktop.welcomeAffiliateBtnColor};
+			box-shadow: ${({ theme }) => theme.desktop.welcomeAffiliateBtnShadow};
+
+			&:hover {
+				color: ${({ theme }) => theme.desktop.welcomeAffiliateBtnColorHover};
+			}
 		}
 
 		&.winning .welcome-btn {
 			background: ${({ theme }) => theme.desktop.welcomeWinningBtnBg};
 			color: ${({ theme }) => theme.desktop.welcomeWinningBtnColor};
+			box-shadow: ${({ theme }) => theme.desktop.welcomeWinningBtnShadow};
+
+			&:hover {
+				color: ${({ theme }) => theme.desktop.welcomeWinningBtnColorHover};
+			}
 		}
 
 		&.reward .welcome-btn {
 			background: ${({ theme }) => theme.desktop.welcomeRewardBtnBg};
 			color: ${({ theme }) => theme.desktop.welcomeRewardBtnColor};
+			box-shadow: ${({ theme }) => theme.desktop.welcomeRewardBtnShadow};
+
+			&:hover {
+				color: ${({ theme }) => theme.desktop.welcomeRewardBtnColorHover};
+			}
 		}
 
 		&.referral .welcome-btn {
 			background: ${({ theme }) => theme.desktop.welcomeReferralBtnBg};
 			color: ${({ theme }) => theme.desktop.welcomeReferralBtnColor};
+			box-shadow: ${({ theme }) => theme.desktop.welcomeReferralBtnShadow};
+
+			&:hover {
+				color: ${({ theme }) => theme.desktop.welcomeReferralBtnColorHover};
+			}
 		}
 	}
 `

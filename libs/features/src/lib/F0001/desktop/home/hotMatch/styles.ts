@@ -26,7 +26,8 @@ export const HotMatchContainer = styled.div`
 	}
 
 	.match-item {
-		background: #374375;
+		background: ${({ theme }) => theme.desktop.hotMatchBg};
+		box-shadow: ${({ theme }) => theme.desktop.hotMatchShadow};
 		border-radius: 2rem;
 		overflow: hidden;
 
@@ -35,11 +36,11 @@ export const HotMatchContainer = styled.div`
 			align-items: center;
 			justify-content: space-between;
 			height: 4rem;
-			padding-left: 16px;
+			padding-left: 1.6rem;
 			position: relative;
-			background: #232b4f;
+			background: ${({ theme }) => theme.desktop.hotMatchHeaderBg};
 			overflow: hidden;
-			color: #fff;
+			color: ${({ theme }) => theme.desktop.hotMatchHeaderColor};
 			text-overflow: ellipsis;
 			font-size: 1.5rem;
 			font-weight: 700;
@@ -49,28 +50,42 @@ export const HotMatchContainer = styled.div`
 				overflow: hidden;
 				white-space: nowrap;
 				text-overflow: ellipsis;
-				width: 150px;
+				width: 15rem;
 			}
 			> div {
 				display: flex;
-				font-size: 12px;
+				font-size: 1.2rem;
 				div {
-					margin-left: 10px;
+					margin-left: 1rem;
 				}
 			}
 			&::after {
 				position: absolute;
 				display: block;
 				content: '';
-				width: 80px;
+				width: 8rem;
 				height: 4px;
 				clip-path: polygon(0 0, 100% 0, 100% 100%, 3% 100%);
 				background: linear-gradient(90deg, #ff7600 10%, #fff);
-				top: 40px;
+				top: 4rem;
 			}
 		}
 		.match-item-center {
+			position: relative;
 			padding: 0.8rem 1.8rem;
+
+			&:before {
+				content: '';
+				display: flex;
+				position: absolute;
+				top: 0;
+				left: 0.2rem;
+				width: 13.1rem;
+				height: 15rem;
+				background: url(${({ theme }) =>
+						theme.assetUrl}/desktop/img/new-ui/match-bg.webp)
+					no-repeat;
+			}
 
 			.team-content {
 				display: flex;
@@ -88,13 +103,13 @@ export const HotMatchContainer = styled.div`
 						width: 4rem;
 						border-radius: 50%;
 						margin-right: 0.8rem;
-						background: #dfdfdf;
+						background: ${({ theme }) => theme.desktop.hotMatchLogoBg};
 					}
 
 					div {
-						width: 130px;
+						width: 13rem;
 						word-wrap: break-word;
-						font-size: 13px;
+						font-size: 1.3rem;
 						display: -webkit-box;
 						-webkit-box-orient: vertical;
 						-webkit-line-clamp: 2;
@@ -106,17 +121,17 @@ export const HotMatchContainer = styled.div`
 					justify-content: space-between;
 					align-items: center;
 					border-radius: 5rem;
-					background: #232b4f;
+					background: ${({ theme }) => theme.desktop.hotMatchOddsBg};
 					width: 11rem;
 					height: 2.4rem;
 					border-radius: 5rem;
 					padding: 0 1.6rem;
 					margin-top: 5px;
 					font-size: 1.4rem;
-					color: #fff;
+					color: ${({ theme }) => theme.desktop.hotMatchOddsColor};
 
 					span:nth-child(2) {
-						color: #3b7bf0;
+						color: ${({ theme }) => theme.desktop.hotMatchAwayOddsColor};
 					}
 				}
 			}
@@ -125,7 +140,7 @@ export const HotMatchContainer = styled.div`
 		.match-date {
 			display: flex;
 			gap: 1.2rem;
-			color: #717fba;
+			color: ${({ theme }) => theme.desktop.hotMatchDateColor};
 			text-overflow: ellipsis;
 			font-size: 1.4rem;
 			font-weight: 400;
@@ -145,14 +160,20 @@ export const HotMatchContainer = styled.div`
 			align-items: center;
 			justify-content: center;
 			height: 100%;
-			width: 12rem;
-			border-radius: 2rem 0 0 0;
-			background: #ea6118;
+			border-radius: 2rem 0;
+			padding: 1rem 2rem;
+			background: ${({ theme }) => theme.desktop.hotMatchBtnBg};
+			box-shadow: ${({ theme }) => theme.desktop.hotMatchBtnShadow};
 			text-transform: uppercase;
 			font-size: 1.7rem;
 			font-weight: 600;
 			letter-spacing: 0.85px;
-			color: #fff;
+			color: ${({ theme }) => theme.desktop.hotMatchBtnColor};
+
+			&:hover {
+				background: ${({ theme }) => theme.desktop.hotMatchBtnBgHover};
+				box-shadow: ${({ theme }) => theme.desktop.hotMatchBtnShadowHover};
+			}
 		}
 	}
 
@@ -165,8 +186,8 @@ export const HotMatchContainer = styled.div`
 		height: 2.8rem;
 		width: 2.8rem;
 		border-radius: 10rem;
-		border: 2px solid #0f1428;
-		background: #ea6118;
+		border: ${({ theme }) => theme.desktop.swiperBtnBorder};
+		background: ${({ theme }) => theme.desktop.swiperBtnBg};
 		font-size: 2.4rem;
 
 		&.swiper-button-disabled {

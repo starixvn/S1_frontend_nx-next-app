@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const MenuContainer = styled.div`
 	position: relative;
@@ -41,6 +41,7 @@ export const MenuContainer = styled.div`
 			font-weight: 700;
 			text-transform: uppercase;
 			color: ${({ theme }) => theme.desktop.menuItemColor};
+			transition: color 0.3s ease-in-out;
 
 			&:after {
 				content: '';
