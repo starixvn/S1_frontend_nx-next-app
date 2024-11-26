@@ -56,7 +56,7 @@ class MyDocument extends Document<CustomDocumentProps> {
                 j.async=true;
                 j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
                 f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer',${process.env['NEXT_PUBLIC_GTM_ID']});
+              })(window,document,'script','dataLayer',"GTM-5BP7VT78");
             `,
 							}}
 						/>
@@ -68,7 +68,7 @@ class MyDocument extends Document<CustomDocumentProps> {
 						<noscript>
 							<iframe
 								title='Google Tag Manager for RD'
-								src={`https://www.googletagmanager.com/ns.html?id=${process.env['NEXT_PUBLIC_GTM_ID']}`}
+								src='https://www.googletagmanager.com/ns.html?id=GTM-5BP7VT78'
 								height='0'
 								width='0'
 								style={{ display: 'none', visibility: 'hidden' }}
