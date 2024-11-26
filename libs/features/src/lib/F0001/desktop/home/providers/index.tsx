@@ -28,7 +28,10 @@ const UnderMaintenanceModal = dynamic(
 const ProvidersList = () => {
 	const { t } = useTranslation()
 	const { providerData } = useHome()
-
+  const maxGame = 61;
+  const keno = 71;
+  const lottery = 72;
+  const tableGame = 73;
 	const gameTypeEmblaOptions: EmblaOptionsType = { slidesToScroll: 'auto' }
 
 	if (providerData.length === 0) {
@@ -41,12 +44,9 @@ const ProvidersList = () => {
 			<GameContainer>
 				<EmblaCarousel options={gameTypeEmblaOptions} isControlButton={false}>
 					{providerData.map(provider => {
-						const { tpId, tpLogo, tpName } = provider
-						console.log(
-							'------ProviderGroup',
-							`${process.env['NEXT_PUBLIC_BANNER_HOST']}/provider/dark/${tpLogo}.webp`
-						)
-						return (
+						
+            if(tpId === maxGame || tpId === keno ||tpId === lottery ||tpId === tableGame )
+              return null;
 							<div className='embla__slide provider-item' key={tpId}>
 								<Img
 									className='img'
@@ -58,6 +58,19 @@ const ProvidersList = () => {
 							</div>
 						)
 					})}
+          {
+            // hard code vendor MaxGame,RNG Keno, Lottery, Table Game
+            providerData.findIndex(x => x.tpId === maxGame || x.tpId === keno || x.tpId === lottery || x.tpId === tableGame) !== -1 &&
+              <div className='embla__slide provider-item' key={0}>
+                  <Img
+                    className='img'
+                    src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/provider/dark/sabaplus-maxplay.webp`}
+                    loader={<LoadingIcon />}
+                    unloader={<NoGameIcon />}
+                    alt="Max play"
+                  />
+              </div>
+          }
 				</EmblaCarousel>
 			</GameContainer>
 		</ProviderGroup>
