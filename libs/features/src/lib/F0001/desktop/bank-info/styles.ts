@@ -70,7 +70,7 @@ export const WrapperBankInFo = styled.div`
 		}
 	}
 	.addBank {
-		margin-top: 1.6rem;
+		margin: 1.6rem 0;
 		flex-wrap: wrap;
 		.remainder {
 			color: ${({ theme }) => theme.desktop.rightModuleSloganColor};

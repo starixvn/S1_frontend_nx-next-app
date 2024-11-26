@@ -74,14 +74,41 @@ export const WrapperReferal = styled.div`
 			justify-content: flex-start;
 			align-items: center;
 			line-height: 1.2;
-			margin-bottom: 55px;
+			margin-bottom: 2.4rem;
 			gap: 0.8rem;
 			.icon {
 				width: 4rem;
 				height: 4rem;
+				position: relative;
+				&:after {
+					content: '';
+					display: block;
+					background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/refer-dashLine.svg)
+						no-repeat center;
+					padding: 5px 0px;
+					width: 3px;
+					height: 45px;
+					position: absolute;
+					top: 70px;
+					left: calc(50% - 1.5px);
+				}
 			}
 			.content {
+				max-width: 25rem;
 				width: 100%;
+				.subtitle {
+					font-size: 1.4rem;
+					font-weight: 700;
+					line-height: normal;
+					margin-bottom: 0.4rem;
+				}
+				p {
+					font-size: 1.2rem;
+					font-weight: 400;
+					line-height: normal;
+					color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+					text-transform: lowercase;
+				}
 			}
 		}
 	}
