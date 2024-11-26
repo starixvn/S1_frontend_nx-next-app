@@ -45,6 +45,6 @@ export const OptimovePageVisitEvent = (
 	}
 	window.dataLayer = window.dataLayer || []
 	window.dataLayer.push({
-		event: 'page_visit_test',
+		event: 'page_visit_test2',
 	})
 }

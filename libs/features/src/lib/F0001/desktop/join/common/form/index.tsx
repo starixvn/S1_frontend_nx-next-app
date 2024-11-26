@@ -25,6 +25,7 @@ import {
 	useLazyExistsEmailQuery,
 	useLazyExistsUserNameQuery,
 	useLazyGetAffiliateAgentQuery,
+	useRegisterRejectClickMutation,
 	useSignupMutation,
 } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
@@ -99,6 +100,9 @@ const Form = ({ cookies }: IJoinProps) => {
 		useLazyExistsEmailQuery()
 
 	const [signUp] = useSignupMutation()
+
+	const [registerRejectClick] = useRegisterRejectClickMutation()
+
 	const { Captcha, getToken, captchaType } = useCaptchaContext()
 
 	const [formBirth, setFormBirth] = useState<Date | null>(
@@ -393,7 +397,7 @@ const Form = ({ cookies }: IJoinProps) => {
 	}
 
 	const handleSubmitForm = async () => {
-		if (initNationality === 'Taiwan') {
+		if (initNationality === 'China') {
 			return
 		}
 		// opera and meta pixel tracker
@@ -480,11 +484,16 @@ const Form = ({ cookies }: IJoinProps) => {
 	}, [siteCurrencyList])
 
 	useEffect(() => {
-		if (initNationality === 'Taiwan') {
+		if (initNationality === 'China') {
 			// GA 紀錄
 			window.dataLayer = window.dataLayer || []
 			window.dataLayer.push({
 				event: 'China_Register_Blocked',
+			})
+			// api 紀錄
+			registerRejectClick({
+				siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']),
+				domain: window.location.origin,
 			})
 			modal.info(t('Label_Close_Region_Register_Notice'), {
 				onOK: () => router.push(paths.home.root),
