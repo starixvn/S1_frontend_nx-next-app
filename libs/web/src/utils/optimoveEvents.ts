@@ -16,6 +16,7 @@ interface OptimoveSDK {
 declare global {
 	interface Window {
 		optimoveSDK?: OptimoveSDK
+		dataLayer?: Record<string, any>[]
 	}
 }
 
@@ -42,4 +43,8 @@ export const OptimovePageVisitEvent = (
 			window.optimoveSDK.API.setPageVisit(pageUrl, pageTitle, category, custId)
 		}
 	}
+	window.dataLayer = window.dataLayer || []
+	window.dataLayer.push({
+		event: 'page_visit_test',
+	})
 }
