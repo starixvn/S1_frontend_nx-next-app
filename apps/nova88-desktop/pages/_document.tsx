@@ -10,6 +10,7 @@ import Document, {
 	Main,
 	NextScript,
 } from 'next/document'
+import process from 'process'
 
 interface CustomDocumentProps extends DocumentInitialProps {
 	host?: string
@@ -116,48 +117,72 @@ class MyDocument extends Document<CustomDocumentProps> {
 								/>
 							</noscript>
 
-							{/* Facebook Pixel - 存／提款成功事件 */}
-							{/* <script
-								dangerouslySetInnerHTML={{
-									__html: `
-                !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-                n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-                t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-                document,'script','https://connect.facebook.net/en_US/fbevents.js');
-                fbq('init', '1037896624403579'); fbq('track', 'PageView');
-                `,
-								}}
-							/>
-							<noscript>
-								<img
-									height='1'
-									width='1'
-									style={{ display: 'none' }}
-									src='https://www.facebook.com/tr?id=1037896624403579&ev=PageView&noscript=1'
-								/>
-							</noscript> */}
 							{/* CRM System , Optimove */}
 							<script
 								async
 								data-optimove-service-worker-path='/worker.js'
 								src='https://sdk.optimove.net/websdk/?tenant_id=1431&tenant_token=792f0d9fbcc040c5880a3080c206515e'
 							/>
+
+							{/* PM & RD 在看的 GA */}
+							<script
+								async
+								src={`https://www.googletagmanager.com/gtag/js?id=${process.env['NEXT_PUBLIC_GA_ID']}`}
+							/>
+							<script
+								dangerouslySetInnerHTML={{
+									__html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', ${process.env['NEXT_PUBLIC_GA_ID']});
+            `,
+								}}
+							/>
+
+							{/* N88-RD-GA */}
+							<script
+								dangerouslySetInnerHTML={{
+									__html: `
+              (function(w,d,s,l,i){
+                w[l]=w[l]||[];
+                w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+                var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+                j.async=true;
+                j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+                f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-5BP7VT78');
+            `,
+								}}
+							/>
 						</>
 					)}
 				</Head>
 				<body>
-					{/* Google Tag Manager (noscript) - GTAG paste in the <body> */}
 					{process.env['NEXT_PUBLIC_ENV'] === 'PRD' && (
-						<noscript>
-							<iframe
-								src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
-								height='0'
-								width='0'
-								style={{ display: 'none', visibility: 'hidden' }}
-								title='Google Tag Manager'
-							/>
-						</noscript>
+						<>
+							{/* Google Tag Manager (noscript) - 市場區分 domain 的 google tag */}
+							<noscript>
+								<iframe
+									src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+									height='0'
+									width='0'
+									style={{ display: 'none', visibility: 'hidden' }}
+									title='Google Tag Manager'
+								/>
+							</noscript>
+							{/* N88-RD-GA */}
+							<noscript>
+								<iframe
+									title='Google Tag Manager for RD'
+									src='https://www.googletagmanager.com/ns.html?id=GTM-5BP7VT78'
+									height='0'
+									width='0'
+									style={{ display: 'none', visibility: 'hidden' }}
+								/>
+							</noscript>
+						</>
 					)}
 
 					<Main />
