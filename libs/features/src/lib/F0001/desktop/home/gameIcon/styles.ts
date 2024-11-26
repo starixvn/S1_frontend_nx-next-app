@@ -78,8 +78,9 @@ export const GameIconContainer = styled.div<{ isMaintain: boolean }>`
 `
 
 export const NoGameIconWrapper = styled.div`
-	.icon {
+	.icon:before {
 		font-size: 3rem;
+		color: ${({ theme }) => theme.desktop.gameIconNoGameIconColor};
 	}
 `
 

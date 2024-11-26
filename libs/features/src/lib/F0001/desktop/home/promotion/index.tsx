@@ -49,6 +49,10 @@ const PromotionSwiper = () => {
 		setTimeout(() => setShouldSwiperUpdate(false), 5000)
 	}, [memoPromotionData])
 
+	if (promotionData?.length === 0) {
+		return <div />
+	}
+
 	return (
 		<GameGroup className='promotion'>
 			<div className='content-container '>
@@ -58,28 +62,26 @@ const PromotionSwiper = () => {
 				/>
 			</div>
 
-			{promotionData?.length > 0 && (
-				<PromotionContainer
-					onMouseOver={() => setShowNavigation(true)}
-					onMouseOut={() => setShowNavigation(false)}
-					onFocus={() => 0}
-					onBlur={() => 0}
-				>
-					<DynamicSwiper {...swipperConfig}>
-						{promotionData.map(
-							({ bonusCode, categoryId, tpId, banner, title }) => (
-								<div
-									key={`promotion.list-${bonusCode}-${categoryId}-${tpId}`}
-									className='promos-item'
-									onClick={() => handlePromotionClick(bonusCode)}
-								>
-									{isUrl(banner) ? <img src={banner} alt={title} /> : null}
-								</div>
-							)
-						)}
-					</DynamicSwiper>
-				</PromotionContainer>
-			)}
+			<PromotionContainer
+				onMouseOver={() => setShowNavigation(true)}
+				onMouseOut={() => setShowNavigation(false)}
+				onFocus={() => 0}
+				onBlur={() => 0}
+			>
+				<DynamicSwiper {...swipperConfig}>
+					{promotionData.map(
+						({ bonusCode, categoryId, tpId, banner, title }) => (
+							<div
+								key={`promotion.list-${bonusCode}-${categoryId}-${tpId}`}
+								className='promos-item'
+								onClick={() => handlePromotionClick(bonusCode)}
+							>
+								{isUrl(banner) ? <img src={banner} alt={title} /> : null}
+							</div>
+						)
+					)}
+				</DynamicSwiper>
+			</PromotionContainer>
 		</GameGroup>
 	)
 }

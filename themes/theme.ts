@@ -130,13 +130,14 @@ export const theme = {
 		carouselBtnColorHover: '#fff',
 		carouselBtnColorDisabled: '#717fba',
 
-		gameIconBg: '#232B4F',
+		gameIconBg: '#1D2447',
 		gameIconBgHover: 'rgba(0, 0, 0, 0.5)',
 		gameIconLoadingColor: '#fff',
 		gameIconProviderNameColor: '#fff',
 		gameIconMaintainBg:
 			'linear-gradient(180deg, rgba(35, 43, 79, 0.00) 0%, rgba(35, 43, 79, 0.70) 25.5%, rgba(35, 43, 79, 0.70) 75%, rgba(35, 43, 79, 0.00) 100%)',
 		gameIconMaintainColor: '#fff',
+		gameIconNoGameIconColor: '#374375',
 
 		buttonSloganBg: '#EA6118',
 		registerBodyBg: '#182043',

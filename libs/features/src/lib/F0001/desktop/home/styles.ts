@@ -138,7 +138,7 @@ export const GameGroup = styled.div`
 
 	.embla__controls {
 		position: absolute;
-		top: 4rem;
+		top: 3.8rem;
 		right: 0;
 		grid-template-columns: auto;
 		gap: 0.8rem;
