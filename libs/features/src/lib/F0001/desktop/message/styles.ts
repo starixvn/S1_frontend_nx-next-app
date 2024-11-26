@@ -12,7 +12,7 @@ export const WrapperMessage = styled.div`
 		.list {
 			border-radius: 8px;
 			overflow: hidden;
-			border: 1px solid #374375;
+			border: 1px solid ${({ theme }) => theme.desktop.borderCardRederralColor};
 			font-size: 1.4rem;
 			font-weight: 600;
 			line-height: normal;
@@ -35,7 +35,8 @@ export const WrapperMessage = styled.div`
 				}
 				> div {
 					padding: 1.5rem 1.6rem;
-					border: 1px solid #374375;
+					border: 1px solid
+						${({ theme }) => theme.desktop.borderCardRederralColor};
 					border-right: none;
 					border-top: none;
 					&:first-child {
@@ -46,14 +47,15 @@ export const WrapperMessage = styled.div`
 			.haveRead {
 				.listHeader {
 					background: #182043;
-					color: #939dc5;
+					color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
 					display: flex;
 					&.active {
 						background: #232b4f;
 					}
 					> div {
 						padding: 1.5rem 1.6rem;
-						border: 1px solid #374375;
+						border: 1px solid
+							${({ theme }) => theme.desktop.borderCardRederralColor};
 						border-right: none;
 						border-top: none;
 						&:first-child {
@@ -93,8 +95,10 @@ export const WrapperMessage = styled.div`
 			.empty-box {
 				display: none;
 				padding: 1.5rem 1.6rem;
-				border-right: 1px solid #374375;
-				border-bottom: 1px solid #374375;
+				border-right: 1px solid
+					${({ theme }) => theme.desktop.borderCardRederralColor};
+				border-bottom: 1px solid
+					${({ theme }) => theme.desktop.borderCardRederralColor};
 				.checkbox {
 					opacity: 0;
 				}
@@ -104,12 +108,13 @@ export const WrapperMessage = styled.div`
 			}
 			.backstage {
 				display: none;
-				border-bottom: 1px solid #374375;
+				border-bottom: 1px solid
+					${({ theme }) => theme.desktop.borderCardRederralColor};
 				padding: 1.5rem 1.6rem;
 				font-size: 1.4rem;
 				font-weight: 400;
 				line-height: normal;
-				color: #939dc5;
+				color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
 				width: 100%;
 				&.active {
 					display: block;

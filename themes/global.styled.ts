@@ -465,6 +465,11 @@ export const GlobalStyles = createGlobalStyle`
       line-height: 1.8rem;
       color :  ${({ theme }) => theme.desktop.iconNotifiCationColor}
     }
+    &.no-border{
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
   }
 
   .btn-primary {

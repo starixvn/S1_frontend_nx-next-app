@@ -1,9 +1,10 @@
+import { useAuth } from '@nx-next-app/data-access'
+import { WrapperAnnountMent } from '@nx-next-app/features/F0001/desktop/announcement/styles'
+import { useGetAnnouncementQuery } from '@nx-next-app/service'
+import classNames from 'classnames'
 import dayjs from 'dayjs'
 import { isEmpty } from 'lodash-es'
-import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
-import { useGetAnnouncementQuery } from '@nx-next-app/service'
 
 const Announcement = () => {
 	const { t } = useTranslation()
@@ -22,7 +23,7 @@ const Announcement = () => {
 			: dayjs(item.startTime).format('L')
 
 		return (
-			<div key={`announcement-${item.id}`}>
+			<div key={`announcement-${item.id}`} className='group-list'>
 				<div className='listHeader'>
 					<div>{item.subject}</div>
 					<div className={classNames({ 'txt-blue': isToday })}>
@@ -36,23 +37,28 @@ const Announcement = () => {
 
 	return (
 		<div className='rightModule'>
-			<div className='infoModule'>
-				<div className='inside-title'>
-					<span className='icon icon-icon32px_openmail'>
-						{t('Label_Announcement')}
-					</span>
+			<WrapperAnnountMent>
+				<div className='infoModule'>
+					<div className='inside-title'>
+						<div className='group-icon-title'>
+							<i className='icon icon-notification-active' />
+							{t('Label_Announcement')}
+						</div>
+					</div>
+					<div className='inside-body'>
+						{!isEmpty(announcementList) ? (
+							<div className='announcement'>
+								<div className='list'>{showAnnouncements}</div>
+							</div>
+						) : (
+							<div className='custom-nodata no-border'>
+								<i className='icon icon-file-damage-fill' />
+								<div>{t('Label_General_NoData')}</div>
+							</div>
+						)}
+					</div>
 				</div>
-
-				{!isEmpty(announcementList) ? (
-					<div className='announcement'>
-						<div className='list'>{showAnnouncements}</div>
-					</div>
-				) : (
-					<div className='nodata icon icon-nodata'>
-						<div>{t('Label_General_NoData')}</div>
-					</div>
-				)}
-			</div>
+			</WrapperAnnountMent>
 		</div>
 	)
 }

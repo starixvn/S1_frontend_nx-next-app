@@ -39,10 +39,10 @@ const AnnouncementPage = ({
 			>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<main>
-						<section className='inside'>
+						<div className='wrapper-profile'>
 							<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 							<Announcement />
-						</section>
+						</div>
 					</main>
 				</Layout>
 			</GlobalDataProvider>
