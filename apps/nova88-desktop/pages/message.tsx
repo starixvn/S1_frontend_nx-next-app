@@ -39,10 +39,10 @@ const MessagePage = ({
 			>
 				<Layout persistSEOData={persistSEOData} footerData={persistFooterData}>
 					<main>
-						<section className='inside'>
+						<div className='wrapper-profile'>
 							<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
 							<PersonalMessage />
-						</section>
+						</div>
 					</main>
 				</Layout>
 			</GlobalDataProvider>

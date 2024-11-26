@@ -1,14 +1,14 @@
-import dayjs from 'dayjs'
-import { some } from 'lodash-es'
-import classNames from 'classnames'
-import React, { useEffect, useState } from 'react'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	IBasicMsg,
 	IMsgContentData,
 	IMsgData,
 	useGetMsgContentMutation,
 } from '@nx-next-app/service'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import classNames from 'classnames'
+import dayjs from 'dayjs'
+import { some } from 'lodash-es'
+import { useEffect, useState } from 'react'
 
 interface IMessageListProps extends IMsgData {
 	isPopup: boolean
@@ -79,28 +79,44 @@ const MessageList = ({
 					<label
 						aria-label='msgList-checkBox'
 						htmlFor={`msgList-checkBox-${id}`}
-						className='icon icon-checkbox-checked'
+						className='icon icon-checkbox-blank-line'
 					/>
 				</div>
-				<div onClick={() => handleFetchMsgContent(id, isBatch, !isShowContent)}>
-					{title}
-				</div>
-				<div
-					className='txt-blue'
-					onClick={() => handleFetchMsgContent(id, isBatch, !isShowContent)}
-				>
-					{showTimeFormat()}
+				<div className='group-title-box'>
+					<div
+						className='title-box'
+						onClick={() => handleFetchMsgContent(id, isBatch, !isShowContent)}
+					>
+						{title}
+					</div>
+					<div
+						className='txt-blue'
+						onClick={() => handleFetchMsgContent(id, isBatch, !isShowContent)}
+					>
+						{showTimeFormat()}
 
-					<button className='icon icon-keyboard_arrow_down' />
+						<button className='icon icon-chevron_down' />
+					</div>
 				</div>
 			</div>
-			<div
-				className={classNames('listBody backstage', {
-					active: isShowContent,
-				})}
-				// eslint-disable-next-line
-				dangerouslySetInnerHTML={{ __html: msgContentData.content }}
-			/>
+			<div className='group-toggle-content'>
+				<div
+					className={classNames('empty-box', {
+						active: isShowContent,
+					})}
+				>
+					<div className='checkbox'>
+						<i className='icon icon-checkbox-blank-line' />
+					</div>
+				</div>
+				<div
+					className={classNames('listBody backstage', {
+						active: isShowContent,
+					})}
+					// eslint-disable-next-line
+					dangerouslySetInnerHTML={{ __html: msgContentData.content }}
+				/>
+			</div>
 		</div>
 	)
 }
