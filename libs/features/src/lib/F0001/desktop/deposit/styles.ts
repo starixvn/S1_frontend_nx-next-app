@@ -140,8 +140,11 @@ export const WrapperDeposit = styled.div`
 								border-radius: 5px;
 								position: absolute;
 								right: -3px;
-								bottom: -3px;
+								bottom: -1px;
 								background: ${({ theme }) => theme.desktop.primaryBtnBg};
+								&:before {
+									font-size: 2rem !important;
+								}
 							}
 						}
 					}
