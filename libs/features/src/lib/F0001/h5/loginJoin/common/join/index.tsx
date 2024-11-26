@@ -213,25 +213,6 @@ const Join = ({ cookies }: IJoinProps) => {
 		return true
 	}
 
-	const getBlackbox = async () => {
-		let blackbox = ''
-		if (
-			typeof window !== undefined &&
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			typeof (window as any).IGLOO.getBlackbox === 'function'
-		) {
-			try {
-				// eslint-disable-next-line @typescript-eslint/no-explicit-any
-				const result = await (window as any).IGLOO.getBlackbox()
-				blackbox = result?.blackbox || ''
-			} catch (error) {
-				// error
-			}
-		}
-
-		return blackbox
-	}
-
 	const handleSubmitForm = async () => {
 		if (initNationality === 'China') {
 			return
@@ -283,7 +264,7 @@ const Join = ({ cookies }: IJoinProps) => {
 				({ value }) => value === langId
 			)?.value ?? 'en'
 
-		const blackbox = await getBlackbox()
+		const blackbox = ''
 		try {
 			await signUp({
 				// 因 cookies 有機會是 string[] 導致錯誤
