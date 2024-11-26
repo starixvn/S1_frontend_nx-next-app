@@ -67,7 +67,7 @@ const MessageList = ({
 	}, [isPopup])
 
 	return (
-		<div className={classNames({ haveRead: flag })}>
+		<div className={classNames('readBody', { haveRead: flag })}>
 			<div className={classNames('listHeader', { active: isShowContent })}>
 				<div className='checkbox'>
 					<input

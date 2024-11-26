@@ -44,7 +44,8 @@ export const WrapperMessage = styled.div`
 					}
 				}
 			}
-			.haveRead {
+			.haveRead,
+			.readBody {
 				.listHeader {
 					background: #182043;
 					color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
@@ -116,6 +117,14 @@ export const WrapperMessage = styled.div`
 				line-height: normal;
 				color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
 				width: 100%;
+				p {
+					font-size: 1.4rem !important;
+					font-weight: 400 !important;
+					line-height: normal !important;
+					color: ${({ theme }) =>
+						theme.desktop.rightModuleSloganColor} !important;
+					font-family: ${({ theme }) => theme.desktop.fontFamily} !important;
+				}
 				&.active {
 					display: block;
 				}
