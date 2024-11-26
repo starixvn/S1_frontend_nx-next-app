@@ -19,11 +19,11 @@ const List = () => {
 		onSignOut,
 	} = useAuth()
 
-	const { icon, languageGroup, onSetLanguage } = useLanguageGroup()
+	const { icon, languageGroup, onSetLanguage } = useLanguageGroup(['cs'])
 
 	const handleSignOut = async () => {
 		await onSignOut()
-		push(paths.home.root).then(() => reload())
+		await push(paths.home.root).then(() => reload())
 	}
 
 	return (

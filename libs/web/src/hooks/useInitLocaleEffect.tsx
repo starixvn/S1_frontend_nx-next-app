@@ -1,7 +1,7 @@
-import { useEffect } from 'react'
-import { NextRouter } from 'next/router'
+import { ENV_COOKIE_NAMES, paths } from '@nx-next-app/constants'
 import { getCookie } from 'cookies-next'
-import { paths, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { NextRouter } from 'next/router'
+import { useEffect } from 'react'
 import { IUserInfoData } from '../service'
 
 /**
