@@ -482,7 +482,7 @@ const Form = ({ cookies }: IJoinProps) => {
 	useEffect(() => {
 		if (initNationality === 'Taiwan') {
 			modal.info(t('Label_Close_Region_Register_Notice'), {
-				onOK: () => router.push(`/${langId}${paths.home.root}`),
+				onOK: () => router.push(paths.home.root),
 			})
 		}
 	}, [initNationality])
