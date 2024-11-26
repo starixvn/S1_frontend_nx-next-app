@@ -489,7 +489,7 @@ const Form = ({ cookies }: IJoinProps) => {
 	}, [siteCurrencyList])
 
 	useEffect(() => {
-		if (initNationality === 'Taiwan') {
+		if (initNationality === 'China') {
 			// GA 紀錄
 			window.dataLayer = window.dataLayer || []
 			window.dataLayer.push({
