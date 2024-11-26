@@ -334,7 +334,7 @@ export const GlobalStyles = createGlobalStyle`
     display: flex;
     max-width: ${({ theme }) => theme.desktop.contentWidth};
     margin: 0 auto;
-    padding: 4rem 0 4rem;
+    padding: 4rem 1.6rem 4rem;
     gap : 2.4rem;
     #leftMenu {
       flex : 0 0 18%;
@@ -412,6 +412,9 @@ export const GlobalStyles = createGlobalStyle`
         text-transform: capitalize;
       }
     }
+  }
+  .profile-unset-overflow{
+    overflow : unset !important;
   }
 
   .heading-form {

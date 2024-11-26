@@ -122,7 +122,7 @@ const Profile = () => {
 
 	return (
 		<div className='rightModule'>
-			<div className='infoModule'>
+			<div className='infoModule profile-unset-overflow'>
 				<div className='inside-title' style={{ justifyContent: 'flex-start' }}>
 					<i className='icon icon-file-user-fill' />
 					{t('Label_General_Profile')}
