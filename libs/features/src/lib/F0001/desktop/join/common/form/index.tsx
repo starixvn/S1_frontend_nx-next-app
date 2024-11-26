@@ -373,23 +373,6 @@ const Form = ({ cookies }: IJoinProps) => {
 		}
 	}
 
-	const getBlackbox = async () => {
-		let blackbox = ''
-		if (
-			typeof window !== undefined &&
-			typeof (window as any).IGLOO.getBlackbox === 'function'
-		) {
-			try {
-				const result = await (window as any).IGLOO.getBlackbox()
-				blackbox = result?.blackbox || ''
-			} catch (error) {
-				// error
-			}
-		}
-
-		return blackbox
-	}
-
 	const handleCancel = () => {
 		reset()
 		router.push('/')
@@ -443,7 +426,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				({ value }) => value === langId
 			)?.value ?? 'en'
 
-		const blackbox = await getBlackbox()
+		const blackbox = ''
 		try {
 			await signUp({
 				// 因 cookies 有機會是 string[] 導致錯誤

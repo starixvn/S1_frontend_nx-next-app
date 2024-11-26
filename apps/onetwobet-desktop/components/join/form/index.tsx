@@ -298,6 +298,7 @@ const Form = () => {
 		let blackbox = ''
 		if (
 			typeof window !== undefined &&
+			'IGLOO' in window &&
 			typeof (window as any).IGLOO.getBlackbox === 'function'
 		) {
 			try {
