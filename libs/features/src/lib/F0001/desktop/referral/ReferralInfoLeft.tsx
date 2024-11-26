@@ -2,9 +2,9 @@ import { Img } from '@nx-next-app/components/D0001'
 import { toUpper } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 
-const referralStep01Img = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/referral-step-01.png`
-const referralStep02Img = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/referral-step-02.png`
-const referralStep03Img = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/referral-step-03.png`
+const referralStep01Img = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/referral-step-01.webp`
+const referralStep02Img = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/referral-step-02.webp`
+const referralStep03Img = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/referral-step-03.webp`
 
 const ReferralInfoLeft = () => {
 	const { t } = useTranslation()

@@ -48,7 +48,8 @@ export const WrapperReferal = styled.div`
 		width: 100%;
 		max-width: 72.4rem;
 		margin: 1.6rem auto;
-		&-left {
+		&-left,
+		&-right {
 			border-radius: 10px;
 			border: 1px solid ${({ theme }) => theme.desktop.bgCardRederralColor};
 			.title {
@@ -76,6 +77,13 @@ export const WrapperReferal = styled.div`
 			line-height: 1.2;
 			margin-bottom: 2.4rem;
 			gap: 0.8rem;
+			&:first-child {
+				.icon {
+					&:after {
+						display: none;
+					}
+				}
+			}
 			.icon {
 				width: 4rem;
 				height: 4rem;
@@ -83,14 +91,13 @@ export const WrapperReferal = styled.div`
 				&:after {
 					content: '';
 					display: block;
-					background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/refer-dashLine.svg)
-						no-repeat center;
-					padding: 5px 0px;
-					width: 3px;
-					height: 45px;
+					padding: 0.5rem 0;
+					height: 0.5rem;
 					position: absolute;
-					top: 70px;
+					top: -21px;
 					left: calc(50% - 1.5px);
+					border: 1px dashed
+						${({ theme }) => theme.desktop.rightModuleSloganColor};
 				}
 			}
 			.content {
@@ -110,6 +117,48 @@ export const WrapperReferal = styled.div`
 					text-transform: lowercase;
 				}
 			}
+		}
+		&-list {
+			margin-bottom: 1.2rem;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			.subtitle {
+				font-size: 1.4rem;
+				font-weight: 600;
+				line-height: 1.8rem;
+				color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+				margin-bottom: 0.8rem;
+			}
+			.inputBox-blue {
+				margin-top: 0;
+			}
+			canvas {
+				border-radius: 10px;
+				padding: 0.8rem;
+				background: ${({ theme }) => theme.desktop.white};
+			}
+			.inputcopy {
+				position: relative;
+				&:after {
+					content: '\\e911';
+					display: inline-block;
+					font-family: 'S1NewIcons';
+					position: absolute;
+					right: 10px;
+					bottom: calc(50% - 1rem);
+					cursor: pointer;
+					transition: 0.3s;
+					font-size: 2rem;
+				}
+				input {
+					padding: 0;
+				}
+			}
+		}
+		&-share {
+			display: flex;
+			gap: 1.2rem;
 		}
 	}
 `
