@@ -21,7 +21,6 @@ import {
 	MENU_DATA,
 	META_DATA,
 	TERMS_CONDITIONS,
-	ThirdPartyJS,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	VIP_CLUB_IMAGES,
 } from '@nx-next-app/site/nova88'
@@ -41,8 +40,6 @@ dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
 dayjs.extend(utc)
 dayjs.extend(customParseFormat)
-
-const { ActivatorScript } = ThirdPartyJS
 
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
@@ -76,7 +73,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
 					</StaticDataProvider>
 				</UIProvider>
 			</Provider>
-			<ActivatorScript />
 		</>
 	)
 }
