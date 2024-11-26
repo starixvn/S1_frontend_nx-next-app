@@ -33,7 +33,6 @@ export const useInitLocaleEffect = ({
 				router.push({ pathname, query }, asPath, {
 					locale: cookieLang,
 				})
-				router.reload()
 			}
 		} else {
 			// 登入
