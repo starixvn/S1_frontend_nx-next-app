@@ -315,6 +315,87 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
   }
+  .react-datepicker-popper[data-placement^=bottom]{
+    padding-top : 1.5rem;
+  }
+  .react-datepicker{
+    border-radius: 20px;
+    background: ${({ theme }) => theme.desktop.datePickerHeaderBg};
+    box-shadow: ${({ theme }) => theme.desktop.datePickerBoxShadow};
+    border : none;
+    min-width: 26.8rem;
+    overflow: hidden;
+    padding : 1.6rem;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    &__header{
+      background: ${({ theme }) => theme.desktop.datePickerHeaderBg};
+      width : 100%;
+      border : none;
+      padding : 0;
+      > div{
+        justify-content: space-between !important;
+        gap : .5rem;
+        margin : 0;
+        display: flex;
+        select {
+          outline : none;
+          width : 50%;
+          height : 24px;
+          background : #1D2447;
+          border : none;
+          border-radius : 20px;
+          padding : .2rem .5rem;
+          color : ${({ theme }) => theme.desktop.white};
+        }
+        button{
+          color : ${({ theme }) => theme.desktop.white} !important;
+        }
+      }
+    }
+    &__day-names{
+      color : ${({ theme }) => theme.desktop.white};
+      margin-top : 1.2rem;
+    }
+    &__month-container{
+      float : none;
+    }
+    &__month{
+      margin : .8rem 0;
+    }
+    &__week{
+      display: flex;
+    justify-content: space-between;
+    }
+    .react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name{
+      width: 3rem;
+      line-height: 3rem;
+      color : ${({ theme }) => theme.desktop.white};
+      font-size: 1.3rem;
+      font-weight: 400;
+      &:hover{
+        background :#717FBA;
+      }
+    }
+    &__day{
+      &--in-range,&--in-selecting-range{
+         background :#717FBA;
+         &:not(.react-datepicker__day--in-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--in-range){
+          opacity : .7; 
+          background :${({ theme }) => theme.desktop.datePickerSelectRangeBg};
+         }
+      }
+      &--selected{
+        background :transparent;
+        color : ${({ theme }) =>
+					theme.desktop.datePickerSelectColor} !important;
+      }
+    }
+  }
+
+  
   input {
     color: ${({ theme }) => theme.desktop.inputColor};
     background: ${({ theme }) => theme.desktop.inputBg};
@@ -344,7 +425,6 @@ export const GlobalStyles = createGlobalStyle`
       .infoModule{
         background: ${({ theme }) => theme.desktop.rightModuleBg};
         border-radius : 20px;
-        overflow: hidden;
         .inside-title{
           border-bottom : 1px solid ${({ theme }) =>
 						theme.desktop.rightModuleBorderColor};

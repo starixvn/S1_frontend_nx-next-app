@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const WrapperReferal = styled.div`
+	.infoModule {
+		overflow: hidden;
+	}
 	.referstatus {
 		width: 100%;
 		max-width: 72rem;

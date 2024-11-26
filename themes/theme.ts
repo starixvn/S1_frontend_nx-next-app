@@ -247,6 +247,11 @@ export const theme = {
 
 		borderCardRederralColor: '#374375',
 		bgCardRederralColor: '#232B4F',
+
+		datePickerSelectColor: '#EA6118',
+		datePickerSelectRangeBg: '#717FBA',
+		datePickerHeaderBg: '#0F1428',
+		datePickerBoxShadow: '0px 6px 30px 0px rgba(0, 0, 0, 0.50)',
 	},
 	mobile: {},
 }
