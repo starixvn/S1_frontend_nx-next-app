@@ -15,7 +15,7 @@ export const gameProviders: IProvidersDataProps[] = [
 	{ imgUrl: 'img/venderlogo/neta.png', pathname: '' },
 	{ imgUrl: 'img/venderlogo/skywind.png', pathname: '' },
 	{ imgUrl: 'img/venderlogo/pnga.png', pathname: '' },
-	{ imgUrl: 'img/venderlogo/sexya.png', pathname: '' },
+	{ imgUrl: 'img/venderlogo/sexy.png', pathname: '' },
 	{ imgUrl: 'img/venderlogo/saa.png', pathname: '' },
 	{ imgUrl: 'img/venderlogo/apa.png', pathname: '' },
 	{ imgUrl: 'img/venderlogo/eva.png', pathname: '' },
