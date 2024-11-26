@@ -14,6 +14,7 @@ import {
 	useGetSiteCurrencyListQuery,
 	useLazyAffiliateCheckQuery,
 	useLazyGetAffiliateAgentQuery,
+	useRegisterRejectClickMutation,
 	useSignupMutation,
 } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
@@ -83,6 +84,8 @@ const Join = ({ cookies }: IJoinProps) => {
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 	const [signUp] = useSignupMutation()
+
+	const [registerRejectClick] = useRegisterRejectClickMutation()
 
 	const { executeRecaptcha } = useGoogleReCaptcha()
 
@@ -326,6 +329,11 @@ const Join = ({ cookies }: IJoinProps) => {
 			window.dataLayer = window.dataLayer || []
 			window.dataLayer.push({
 				event: 'China_Register_Blocked',
+			})
+			// api 紀錄
+			registerRejectClick({
+				siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']),
+				domain: window.location.origin,
 			})
 			modal.open(<RegionCloseRegisterModal />)
 		}
