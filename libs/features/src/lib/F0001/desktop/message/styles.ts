@@ -48,7 +48,6 @@ export const WrapperMessage = styled.div`
 			.readBody {
 				.listHeader {
 					background: #182043;
-					color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
 					display: flex;
 					&.active {
 						background: #232b4f;
@@ -76,6 +75,18 @@ export const WrapperMessage = styled.div`
 							border-bottom: none;
 						}
 					}
+				}
+			}
+			.readBody {
+				.listHeader {
+					color: ${({ theme }) => theme.desktop.white};
+					background: #232b4f;
+				}
+			}
+			.haveRead {
+				.listHeader {
+					color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+					background: #182043;
 				}
 			}
 			.icon {
@@ -124,6 +135,7 @@ export const WrapperMessage = styled.div`
 					color: ${({ theme }) =>
 						theme.desktop.rightModuleSloganColor} !important;
 					font-family: ${({ theme }) => theme.desktop.fontFamily} !important;
+					line-height: 18px !important;
 				}
 				&.active {
 					display: block;
