@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const WrapperDeposit = styled.div`
+	.infoModule {
+		overflow: unset !important;
+	}
 	.inside-title {
 		justify-content: space-between;
 		.group-icon-title {
@@ -60,6 +63,7 @@ export const WrapperDeposit = styled.div`
 		padding: 1.6rem 0;
 		.subModuleTitle {
 			margin-bottom: 1.2rem;
+			display: flex;
 			.heading {
 				color: ${({ theme }) => theme.desktop.white};
 				font-size: 1.4rem;
@@ -68,6 +72,8 @@ export const WrapperDeposit = styled.div`
 			}
 			.info {
 				color: ${({ theme }) => theme.desktop.primaryBtnBg};
+				font-size: 1.2rem;
+				font-weight: 400;
 			}
 		}
 		.subModule {
@@ -75,7 +81,7 @@ export const WrapperDeposit = styled.div`
 				display: flex;
 				gap: 2.4rem;
 				.btn-bank {
-					width: 9rem;
+					width: auto;
 					text-align: center;
 					button {
 						width: 4.8rem;
@@ -270,6 +276,11 @@ export const WrapperDeposit = styled.div`
 		}
 		.subModule {
 			width: max-content;
+			.iconModule {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+			}
 		}
 		.inputBox-white {
 			min-height: 3.6rem;

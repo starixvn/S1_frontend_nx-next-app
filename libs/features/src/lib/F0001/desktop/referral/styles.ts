@@ -10,6 +10,7 @@ export const WrapperReferal = styled.div`
 			justify-content: space-between;
 			margin-bottom: 1.6rem;
 			margin-top: 2.4rem;
+			align-items: center;
 			span {
 				color: ${({ theme }) => theme.desktop.white};
 			}
@@ -37,6 +38,20 @@ export const WrapperReferal = styled.div`
 					font-weight: 700;
 					line-height: normal;
 					color: #ea6118;
+				}
+			}
+		}
+		.btnGroup {
+			margin-top: 0;
+			a {
+				min-height: 2.8rem;
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				.icon {
+					&:before {
+						margin: 0;
+					}
 				}
 			}
 		}
@@ -159,6 +174,9 @@ export const WrapperReferal = styled.div`
 		&-share {
 			display: flex;
 			gap: 1.2rem;
+			img {
+				cursor: pointer;
+			}
 		}
 	}
 `

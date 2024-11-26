@@ -18,17 +18,22 @@ const ReferralStatus = () => {
 		<div className='referstatus'>
 			<div className='title'>
 				<span>{t('Label_Referral_YourReferralStatus')}</span>
-				<Link
-					href={{
-						pathname: paths.history.root,
-						query: { queryTabId: 4 },
-					}}
-					passHref
-				>
-					<a className='refer-history' rel='noopener noreferrer'>
-						{t('Label_General_History')}
-					</a>
-				</Link>
+				<div className='btnGroup'>
+					<Link
+						href={{
+							pathname: paths.history.root,
+							query: { queryTabId: 4 },
+						}}
+					>
+						<a
+							className='refer-history btn-secondary'
+							rel='noopener noreferrer'
+						>
+							<i className='icon icon-chat-history-fill' />
+							{t('Label_General_History')}
+						</a>
+					</Link>
+				</div>
 			</div>
 			<div className='referstatus-item'>
 				<div className='card'>
