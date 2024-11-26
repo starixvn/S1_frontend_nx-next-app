@@ -44,7 +44,8 @@ const GameIcon: FC<IGameIcon> = ({ gameItem, isLarge, onClick }) => {
 										isLarge ? '@2x' : '@1x'
 									}.webp`}
 									loader={<LoadingIcon />}
-									unloader={<NoGameIcon />}
+									// unloader={<NoGameIcon />}
+									unloader={<p >{gameName}</p>}
 									alt={gameName}
 								/>
 							)}
