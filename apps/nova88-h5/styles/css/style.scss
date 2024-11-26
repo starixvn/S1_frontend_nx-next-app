@@ -4,7 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-$transition:  .7s;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+$transition: .6s;
 $family: 'Poppins', sans-serif;
 
 body,
@@ -57,8 +58,6 @@ button {
 div[tabindex="-1"]  {
   height: 100%;
 }
-
-
 //switch
 .logoSwitch {
   position: fixed;
@@ -1874,8 +1873,7 @@ main {
       }
     }
   }
-
-  //會員達標回饋PromosBackPopup
+  //會員達標回饋PromosBackPopup-start
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
   &.promosback {
@@ -2004,6 +2002,7 @@ main {
       background-color: unset !important;
     }
   }
+  //會員達標回饋PromosBackPopup-end
 
   //vn語系上線宣傳POPUP
   @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap');
@@ -2123,6 +2122,7 @@ main {
     }
   }
 
+  // 2023sponsor popup
   @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap');
 
   &.sponsorpop {
@@ -2724,90 +2724,80 @@ main {
     }
   }
 
-  // 2024 olympic popup
-  &.olympic-medalpop {
-    .medalpop {
-      font-family: "Open Sans", sans-serif;
-
-      &-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      &-top {
-        background: #FF8B21;
-        width: 100%;
-        height: 14vw;
-        border-radius: 4vw 4vw 0 0;
-      }
-
-      &-item {
-        width: 85vw;
-        background: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 5vw 0 10vw;
-        border-radius: 0 0 4vw 4vw;
-
-        img {
-          width: 65vw;
+    // 2024 olympic popup
+    &.olympic-medalpop{
+      .medalpop{
+        font-family: "Open Sans", sans-serif;
+        &-content{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
-
-        >div {
-          &:nth-child(2) {
-            font-size: 7vw;
-            color: #301363;
-            margin-top: -4vw;
-            font-weight: 750;
-          }
-
-          &:nth-child(3) {
-            font-weight: 700;
-            font-size: 5vw;
-            color: #FF8B21;
-          }
-        }
-
-        button {
+        &-top{
           background: #FF8B21;
-          border-radius: 10vw;
-          padding: 1.5vw 5vw;
-          width: 30vw;
-          color: white;
-          font-size: 3.5vw;
-          font-weight: 600;
-          text-transform: uppercase;
-          margin-top: 6vw;
+          width: 100%;
+          height: 14vw;
+          border-radius: 4vw 4vw 0 0;
         }
-      }
-
-      &.gold-a {
-        .medalpop-item {
-          img {
-            margin: -60px 0 30px;
+        &-item{
+          width: 85vw;
+          background: white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 5vw 0 10vw;
+          border-radius: 0 0 4vw 4vw;
+          img{
+            width: 65vw;
+          }
+          >div{
+            &:nth-child(2){
+              font-size: 7vw;
+              color: #301363;
+              margin-top: -4vw;
+              font-weight: 750;
+            }
+            &:nth-child(3){
+              font-weight: 700;
+              font-size: 5vw;
+              color: #FF8B21;
+            }
+          }
+          button{
+            background: #FF8B21;
+            border-radius: 10vw;
+            padding: 1.5vw 5vw;
+            width: 30vw;
+            color: white;
+            font-size: 3.5vw;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 6vw;
           }
         }
-      }
-
-      &.gold-b {
-        .medalpop-item {
-          img {
-            margin: -50px 0 20px;
+        &.gold-a{
+          .medalpop-item{
+            img{
+              margin: -60px 0 30px;
+            }
           }
         }
-      }
-
-      &.gold-c {
-        .medalpop-item {
-          img {
-            margin-bottom: 20px;
+        &.gold-b{
+          .medalpop-item{
+            img{
+              margin: -50px 0 20px;
+            }
+          }
+        }
+        &.gold-c{
+          .medalpop-item{
+            img{
+              margin-bottom: 20px;
+            }
           }
         }
       }
     }
-  }
 
 }
 
@@ -6929,9 +6919,8 @@ span.important {
     }
   }
 }
-
-.vip {
-  padding: 11vw 0 0;
+.vip{
+  padding:11vw 0 0;
   width: 100%;
   background: #fbfbfb;
 
@@ -7493,7 +7482,6 @@ span.important {
     }
   }
 }
-
 //event
 // .event{
 //   background:url(https://banner.0814media.net/h5/img/event/mysterybox/bg.jpg) no-repeat top center / 120%;
@@ -7729,7 +7717,7 @@ span.important {
 //   }
 // }
 //depositFull
-.switchTag {
+.switchTag{
   display: flex;
   justify-content: space-between;
 
@@ -7887,7 +7875,6 @@ span.important {
         color: $lightgray;
       }
     }
-
     &.inner {
       width: 100%;
       padding: 0 2vw;
@@ -10887,11 +10874,10 @@ span.important {
   justify-content: flex-start;
   align-items: center;
   margin: 12vw 0 0;
-  padding: 15vw 0 0;
+  padding: 15vw 0 0 ;
   background: #100d41;
   position: relative;
-
-  .eventpage-tap {
+  .eventpage-tap{
     top: 1.5vw;
   }
 
@@ -13225,6 +13211,7 @@ input:-webkit-autofill:active {
   }
 }
 
+
 .recently {
   display: flex;
   margin: 0 auto;
@@ -13346,8 +13333,8 @@ input:-webkit-autofill:active {
   }
 }
 
-.thiaPop {
-  ul {
+.thiaPop{
+  ul{
     color: $lightblue;
 
     li {
@@ -13842,8 +13829,7 @@ input[type=number] {
         animation: olympic 7.5s running infinite .5s;
       }
     }
-
-    img {
+    img{
       display: block;
       width: 25vw;
       margin-left: 3vw;
@@ -14344,8 +14330,7 @@ main {
   padding: 0 2vw;
   margin-top: 2vw;
   background: none;
-
-  >div {
+  >div{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -14363,8 +14348,7 @@ main {
         color: #000;
         text-align: center;
         font-weight: 500;
-
-        img {
+        img{
           width: 100%;
           filter: drop-shadow(0 5px 5px #D8D8D8);
           border-radius: 15px;
@@ -14421,6 +14405,7 @@ main {
     filter: drop-shadow(0 0 5px black);
     z-index: 2;
     top: 10vw;
+    font-size: 2.5vw;
   }
 
   img {
@@ -14451,8 +14436,7 @@ main {
       background: url(https://banner.0814media.net/h5/img/4.0/sports-bg.png) no-repeat center / cover;
     }
   }
-
-  &-wrapper {
+  &-wrapper{
     display: flex;
     flex-direction: column;
 
@@ -15299,9 +15283,8 @@ main {
             align-items: center;
             padding: 2vw 0;
             margin-left: 6vw;
-
-            >div {
-              &:last-child {
+            >div{
+              &:last-child{
                 width: 60vw;
               }
 
@@ -15522,8 +15505,7 @@ main {
               display: flex;
               align-items: center;
               justify-content: center;
-
-              &::before {
+              &::before{
                 position: absolute;
                 display: block;
                 content: "";
@@ -17035,8 +17017,7 @@ input[type=number] {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
-
-  .btn-logout {
+  .btn-logout{
     background: white;
     border-radius: 30px;
     width: 80vw;
@@ -18409,6 +18390,382 @@ input[type=number] {
       left: 42%;
     }
 
+}
+&.after-footer{
+  padding-bottom: 11vw;
+}
+}
+
+.exclusion{
+  &-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    >div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: -15vw;
+
+      >div {
+        &:first-child {
+          font-size: 11vw;
+          font-weight: bold;
+          display: flex;
+          align-items: center;
+
+          span {
+            color: #FF6600;
+          }
+        }
+
+        &:nth-child(2) {
+          font-size: 6vw;
+          width: 80vw;
+          text-align: center;
+          margin-bottom: 3vw;
+          line-height: 7vw;
+          font-weight: 500;
+
+        }
+
+        &:nth-child(3) {
+          text-align: center;
+          color: #C1C1C1;
+          width: 60vw;
+        }
+      }
+    }
+
+    .top-btn {
+      margin-top: 10vw;
+      animation-iteration-count: infinite;
+      animation-duration: 1.5s;
+      animation: bounce 3.6s ease infinite;
+      transform-origin: 50% 50%;
+
+      @keyframes bounce {
+        0% {
+          transform: translateY(0);
+        }
+
+        5.55556% {
+          transform: translateY(0);
+        }
+
+        11.11111% {
+          transform: translateY(0);
+        }
+
+        22.22222% {
+          transform: translateY(-15px);
+        }
+
+        27.77778% {
+          transform: translateY(0);
+        }
+
+        33.33333% {
+          transform: translateY(-15px);
+        }
+
+        44.44444% {
+          transform: translateY(0);
+        }
+
+        100% {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  .milestones-swiper {
+
+    // height: 100vh;
+    .swiper-slide {
+
+      &.two,
+      &.three,
+      &.four,
+      &.five,
+      &.six {
+        .page {
+          &-date {
+            padding: 4vw 5vw;
+            font-size: 4vw;
+            font-weight: 500;
+            position: relative;
+            display: flex;
+            justify-content: space-around;
+
+            a {
+              width: 20vw;
+              text-align: center;
+
+              &.active {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: white;
+
+                &::after {
+                  display: block;
+                  content: "";
+                  background: white;
+                  height: 1.1vw;
+                  position: absolute;
+                  width: 16vw;
+                  bottom: -1.2vw;
+                  border-radius: 5vw;
+                }
+              }
+            }
+          }
+
+          &-title {
+            height: 135vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+
+            >div {
+              &:first-child {
+                font-size: 3.5vw;
+                background: white;
+                border-radius: 50vw;
+                padding: 0.5vw 6vw;
+                font-weight: 800;
+                margin-top: 10vw;
+              }
+
+              &:nth-child(2) {
+                font-size: 6vw;
+                font-weight: 800;
+                margin-top: 3vw;
+                text-align: center;
+                line-height: 8vw;
+              }
+            }
+
+            .page-img {
+              margin-top: 5vw;
+            }
+          }
+
+          &-text {
+            position: relative;
+            z-index: 1;
+            margin-top: -25vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            >div {
+              text-align: center;
+              padding: 25vw 5vw 45vw;
+              height: 8vw;
+              color: #E6E6E6;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+
+      &.two {
+        .page {
+          &-date {
+            background: #3A73D8;
+            border-bottom: 5px solid #002B6C;
+
+            a {
+              color: #002F81;
+            }
+          }
+
+          &-title {
+            background: url(../img/milestones/two-bg.jpg) no-repeat center / 100%;
+
+            >div {
+              &:first-child {
+                color: #366DCB;
+              }
+            }
+          }
+
+          &-text {
+            background: url(../img/milestones/two-text-bg.png) no-repeat center / cover;
+          }
+        }
+      }
+
+      &.three {
+        .page {
+          &-date {
+            background: #FF7600;
+            border-bottom: 5px solid #E94801;
+
+            a {
+              color: #E94801;
+            }
+          }
+
+          &-title {
+            background: url(../img/milestones/three-bg.jpg) no-repeat center / 100%;
+
+            >div {
+              &:first-child {
+                color: #FF7600;
+              }
+
+              &:nth-child(2) {
+                width: 80vw;
+              }
+            }
+
+            img {
+              width: 65vw;
+              margin-right: 14vw;
+            }
+          }
+
+          &-text {
+            background: url(../img/milestones/three-text-bg.png) no-repeat center / cover;
+          }
+        }
+      }
+
+      &.four {
+        .page {
+          &-date {
+            background: #5B5BCF;
+            border-bottom: 5px solid #4747AE;
+
+            a {
+              color: #4747AE;
+            }
+          }
+
+          &-title {
+            background: url(../img/milestones/four-bg.jpg) no-repeat center / 100%;
+
+            >div {
+              &:first-child {
+                color: #5B5BCF;
+              }
+
+              &:nth-child(2) {
+                width: 80vw;
+              }
+            }
+
+            .page-img {
+              width: 80vw;
+              margin: 2vw 0 0 1vw;
+            }
+          }
+
+          &-text {
+            background: url(../img/milestones/four-text-bg.png) no-repeat center / cover;
+          }
+        }
+      }
+
+      &.five {
+        .page {
+          &-date {
+            background: #C90F0F;
+            border-bottom: 5px solid #870404;
+
+            a {
+              color: #870404;
+            }
+          }
+
+          &-title {
+            background: url(../img/milestones/five-bg.jpg) no-repeat center / 100%;
+
+            >div {
+              &:first-child {
+                color: #C90F0F;
+              }
+
+              &:nth-child(2) {
+                width: 80vw;
+              }
+            }
+
+            .page-img {
+              width: 80vw;
+              margin: 2vw 0 0 1vw;
+            }
+          }
+
+          &-text {
+            background: url(../img/milestones/five-text-bg.png) no-repeat center / cover;
+          }
+        }
+      }
+
+      &.six {
+        .page {
+          &-date {
+            background: #0525B2;
+            border-bottom: 5px solid #01156D;
+
+            a {
+              color: #01156D;
+            }
+          }
+
+          &-title {
+            background: url(../img/milestones/six-bg.jpg) no-repeat center / 100%;
+
+            >div {
+              &:first-child {
+                color: #0525B2;
+              }
+
+              &:nth-child(2) {
+                width: 80vw;
+              }
+            }
+
+            .page-img {
+              width: 80vw;
+              margin: 2vw 0 0 1vw;
+            }
+          }
+
+          &-text {
+            background: url(../img/milestones/six-text-bg.png) no-repeat center / cover;
+          }
+        }
+      }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      position: absolute;
+      top: 190vw;
+      width: 6vw;
+      height: 6vw;
+    }
+
+    .swiper-button-next {
+      background: url(../img/milestones/right-btn.png) no-repeat center / 100%;
+      right: 42%;
+    }
+
+    .swiper-button-prev {
+      background: url(../img/milestones/left-btn.png) no-repeat center / 100%;
+      left: 42%;
+    }
+
   }
 
   &.after-footer {
@@ -18457,19 +18814,18 @@ input[type=number] {
 
 
 .retention {
-  background: #0f1f3b url(https://banner.0814media.net/h5/img/event/retention/top-bg.jpg) no-repeat top / contain;
+  background: #0f1f3b url(https://banner.0814media.net/h5/img/event/retention/top-bg.jpg) no-repeat center 0 / contain;
   position: relative;
   // display: flex;
   // flex-direction: column;
   // align-items: center;
   padding: 0 0 10vw;
-
   // margin-top: 15vw;
   // width: 100%;
   // .eventpage-tap{
   //   margin-top: 15vw;
   // }
-  &-wrapper {
+  &-wrapper{
     // display: flex;
     // flex-direction: column;
     // align-items: center;
@@ -18481,8 +18837,7 @@ input[type=number] {
       align-items: center;
       position: relative;
       margin-top: 15vw;
-
-      &-item {
+      &-item{
         width: 100vw;
         animation: baloon_1 2s infinite;
       }
@@ -18767,26 +19122,32 @@ input[type=number] {
     }
   }
 }
-
 .eventpage-tap {
-  position: absolute;
+  position: relative;
   background: #ffffffc2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3vw 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  grid-auto-flow: column;
+  align-self: stretch;
+  gap: 0;
   border-radius: 20vw;
-  width: 90vw;
-  left: calc(50% - 45vw);
-  top: 30vw;
+  margin: 0 3vw;
+  padding: 0 calc(20px + 3vw);
+  overflow: auto;
 
   >button {
-    font-size: 4vw;
-    font-weight: 700;
     display: flex;
     justify-content: center;
-    width: 40vw;
+    align-items: center;
+    overflow-wrap: anywhere;
+    font-weight: 700;
+    font-size: calc(16px + 1vw);
+    padding: 4vw 0;
     color: #979797;
+
+    @media screen and (max-width:768px) {
+      font-size: calc(8px + 1vw);
+    }
 
     &.active {
       color: #112240;
@@ -18801,8 +19162,49 @@ input[type=number] {
         content: "";
         background: #FF7600;
         height: 1vw;
-        width: 35vw;
-        bottom: -3vw;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+      }
+    }
+
+    &.disabled {
+      color: rgb(175 175 175 / 80%);
+      cursor: default;
+    }
+  }
+}
+
+.exclusion{
+  &-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    >div{
+      color: #0a1b38;
+      font-size: 3.5vw;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+    a, button{
+      margin-bottom: 3vw;
+      background: #D9BB9B;
+      font-size: 4vw;
+      font-weight: 700;
+      padding:2vw 1vw;
+      border-radius: 50px;
+      box-sizing: border-box;
+      width: 50vw;
+      color: #0a1b38;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img{
+        width: 5vw;
+        margin-right: 2vw;
+        margin-top: .75vw;
       }
     }
   }
@@ -19694,9 +20096,2974 @@ input[type=number] {
     }
   }
 }
-
-#__next {
+#__next{
   height: 100%;
+}
+
+// Event-Lottery-Style-H5;
+// / ================= popup ================== / 
+
+
+.event-lottery-popup-mask {
+
+  background: rgba(0, 0, 0, 0.6) !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+
+
+}
+
+.event-lottery-popup {
+
+  $white: #fff;
+  $light: #FF7600;
+  $primary: #EB801D;
+  $secondary: #101A37;
+  $third: #0E0515;
+  $grey-dark: #383040;
+  $grey: #61566B;
+  $border-radius: 15px;
+
+  &.d-none,
+  .d-none {
+    display: none !important;
+  }
+
+
+  * {
+    box-sizing: border-box;
+  }
+
+
+
+  // grid
+
+  .grid {
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+
+    &.grid-cols-6 {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    &.grid-cols-5 {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    &.grid-cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    &.grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    &.grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  // icon
+
+  // sticker
+
+  %sticker {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .icon {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    opacity: 0.4;
+
+    // lg
+    @media (max-width: 992px) {
+      width: 15vw;
+      height: 15vw;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+
+    // close
+
+    &-close {
+      width: auto;
+      height: auto;
+      font-size: 20px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 10px;
+      opacity: 1;
+      color: #fff;
+      transition: all 0.3s ease;
+
+      &:hover {
+        opacity: 0.8;
+        color: #EB801D;
+      }
+
+    }
+
+
+    // sticker
+
+    &.rat {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/rat-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.ox {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/ox-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.tiger {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/tiger-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.cat {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/cat-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.dragon {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/dragon-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.snake {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/snake-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.horse {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/horse-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.goat {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/goat-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.monkey {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/monkey-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.chicken {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/chicken-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.dog {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/dog-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.pig {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/pig-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    //pop-icon
+    &.plus {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/icon-plus.svg) no-repeat center / contain;
+    }
+
+    &.trophy {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/icon-trophy.svg) no-repeat center / contain;
+    }
+
+    &.sticker {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/icon-sticker-column-5.svg) no-repeat center / contain;
+    }
+
+    &.sticker-col-3 {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/icon-sticker-column-3.svg.svg) no-repeat center / contain;
+    }
+  }
+
+  button {
+    font-weight: 600;
+    background-color: #EB801D;
+    color: #fff;
+    padding: 10px 60px;
+    border-radius: 100px;
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &.copy {
+      position: absolute;
+      left: -1px;
+      bottom: -50px;
+      background-color: #EB801D;
+      color: #fff;
+      font-size: 16px;
+      padding: 0 20px 0 40px;
+      height: 50px;
+      border-radius: 0 0 0 15px;
+      transition: color 0.3s ease;
+
+      &::after {
+        content: "";
+        background: url(https://banner.0814media.net/h5/img/event/lottery/lottery-div-copy.svg) no-repeat center / 100%;
+        position: absolute;
+        right: -50px;
+        top: 0;
+        width: 50px;
+        height: 50px;
+      }
+
+      &:hover {
+        color: #000;
+        opacity: 1;
+      }
+
+    }
+
+  }
+
+  // -----general structure-----
+
+  margin: 20px;
+  position: relative;
+  border-radius:15px 15px 15px 15px !important;
+  border: 2px solid #EB801D;
+  background-color: #383040 !important;
+
+
+  // popup-content
+
+  .popup-content {
+    padding: 4.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vw;
+    // title
+
+    .title {
+      font-size: calc(14px + 1.2vw);
+      text-align: center;
+      color: #fff;
+
+    }
+
+    p {
+      font-size: calc(10px + 0.8vw);
+    }
+
+    .title-group {
+      p {
+        text-align: center;
+      }
+    }
+  }
+
+  // popup jackpot-group
+
+  &.jackpot {
+    .jackpot-group {
+      .icon {
+        cursor: pointer;
+
+        // transition: background-color 0.3s ease;
+
+        // &:hover {
+        //   background-color: $primary ;
+
+        // }
+
+      }
+    }
+
+    // prompt
+    .prompt {
+      font-size: calc(14px + 1vw);
+      min-height: calc(40vw + 80px);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $primary;
+      font-weight: bold;
+    }
+  }
+
+  // maintenance
+
+  &.maintenance {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $white !important;
+    border: none !important;
+    min-height: 45dvh;
+    width: 35%;
+
+    // popup-content
+
+    .popup-content {
+      padding: 4.5vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3vw;
+
+      // img
+
+      .maintenance-img {
+        img {
+          width: 30vw;
+        }
+      }
+
+      // title
+
+      .title {
+        font-size: calc(14px + 1.2vw);
+        text-align: center;
+        color: black;
+      }
+
+      .title-group {
+        p {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  // popup copy url
+
+  &.copy {
+    border-radius: 15px 15px 15px 0px !important;
+    min-height: 45dvh;
+    width: 50%;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    &.trophy {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/trophy-winning-h5.jpg) no-repeat center / cover !important;
+    }
+
+    &.rat {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/rat-winning-h5.jpg) no-repeat center / cover !important;
+    }
+
+    &.ox {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/ox-winning-h5.jpg) no-repeat center / cover !important;
+    }
+
+    &.tiger {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/tiger-winning-h5.jpg) no-repeat center / cover !important;
+    }
+
+    &.cat {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/cat-winning-h5.jpg) no-repeat center / cover !important;
+    }
+
+    &.dragon {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/dragon-winning-h5.jpg) no-repeat center / cover !important;
+    }
+
+    &.snake {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/snake-winning-h5.jpg) no-repeat center / cover !important;
+    }
+
+    &.horse {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/horse-winning-h5.jpg) no-repeat center / cover !important;
+    }
+
+    &.goat {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/goat-winning-h5.jpg) no-repeat center / cover !important;
+    }
+
+    &.monkey {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/monkey-winning-h5.jpg) no-repeat center / cover !important;
+    }
+
+    &.chicken {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/chicken-winning-h5.jpg) no-repeat center / cover !important;
+    }
+
+    &.dog {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/dog-winning-h5.jpg) no-repeat center / cover !important;
+    }
+
+    &.pig {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/pig-winning-h5.jpg) no-repeat center / cover !important;
+    }
+
+
+    // logo
+    .logo {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/NOVA-logo.svg) no-repeat center / contain;
+      width: 25vw;
+      height: 15vw;
+
+    }
+
+    // popup-content
+    .popup-content {
+      // padding: 40px !important;
+      flex: 1;
+      align-items: stretch;
+
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+
+
+        // info-wrapper
+        .info-wrapper {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+
+          >.title {
+            color: $primary;
+            font-size: calc(18px + 3.5vw);
+            text-align: left;
+          }
+
+          .info-group {
+            display: flex;
+
+            flex-direction: column;
+            font-size: 2vw !important;
+            font-weight: 200 !important;
+
+            .title {
+              text-align: left;
+              font-size: 4vw;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // popup ticket
+
+  &.ticket {
+    background-color: #EB801D !important;
+
+    .icon {
+      color: #000;
+    }
+
+    // popup-content
+    .popup-content {
+      display: flex;
+      flex-direction: row;
+
+      .title-group {
+        flex: 1;
+
+        .title,
+        p {
+          color: #000;
+        }
+
+        .title {
+          font-size: calc(12px + 1vw);
+        }
+
+        p {
+          font-size: calc(8px + 0.5vw);
+          text-align: center;
+        }
+
+      }
+
+      // ticket
+      .ticket {
+        z-index: 99;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        hr {
+          width: calc(100% - 32px);
+          margin: 0 auto;
+          border-style: dashed;
+          border-color: $grey;
+        }
+
+        // ticket-top
+        &-top {
+          padding: 20px;
+          position: relative;
+          flex: 1;
+
+          //ticket-border-top
+          &::before {
+            content: "";
+            border-radius: 15px;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            position: absolute;
+            background-color: $grey-dark;
+            --mask: radial-gradient(15px at 15px 100%, #0000 98%, #000) -15px;
+            -webkit-mask: var(--mask);
+            mask: var(--mask);
+          }
+
+        }
+
+        // ticket-bottom
+        &-bottom {
+          padding: 20px;
+          position: relative;
+
+          // ticket-border-bottom
+
+          &::before {
+            content: "";
+            border-radius: 15px;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            position: absolute;
+            background-color: $grey-dark;
+            --mask: radial-gradient(15px at 15px 0, #0000 98%, #000) -15px; //ticket-mask
+            -webkit-mask: var(--mask);
+            mask: var(--mask);
+          }
+
+          .total {
+            color: $white;
+            background-color: $grey;
+            border-radius: $border-radius;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            gap: 20px;
+
+            .title {
+              color: $white;
+              font-size: calc(8px + 0.5vw);
+              text-align: left;
+            }
+
+            .quantity {
+              background-color: transparent;
+              transform: scale(1);
+              width: auto;
+              height: auto;
+              font-size: calc(16px + 1vw);
+              color: #fff;
+              font-weight: bold;
+              margin: 0;
+            }
+          }
+        }
+
+        // -- sticker --
+        &.sticker {
+
+          //ticket-top
+          .ticket-top {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            //title
+            .title {
+              padding: 2vw 0;
+              font-size: calc(10px + 0.8vw);
+              text-align: center;
+            }
+
+            //ressult
+            .sticker-result {
+              flex: 1;
+              width: 100%;
+              background-color: $grey;
+              border-radius: $border-radius;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 40px;
+
+              .icon {
+                flex: 1;
+
+                &.active {
+                  background-color: $white;
+                }
+              }
+
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // popup rules
+
+  &.rules {
+    width: 50%;
+    overflow: hidden;
+
+    // rules-item
+    .rules-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      // rules-title-group
+      .title-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $grey;
+        padding: 10px 20px 10px 30px;
+        border-radius: 100px;
+        border: 1px solid transparent;
+        transition: all 0.3s ease;
+
+        .title {
+          font-size: 14px;
+        }
+
+        .arrow {
+          background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) #958C9F no-repeat center 60% / 60%;
+          width: 30px;
+          height: 30px;
+          padding: 0px;
+          border-radius: 100px;
+          transform: rotate(-180deg);
+          transition: transform 0.3s ease;
+        }
+
+
+        &:hover {
+          opacity: 1;
+          // background-color: rgb(97 86 107 / 50%);
+          // border: 1px solid $primary;
+          // .arrow {
+          //   transform: rotate(0deg);
+          //   background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) #FF7600 no-repeat center 60% / 60%;
+          // }
+        }
+      }
+
+      // rules-item active
+      &.active {
+        .title-group {
+          opacity: 1;
+          background-color: rgb(97 86 107 / 50%);
+          border: 1px solid $primary;
+
+          .arrow {
+            background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) $primary no-repeat center 60% / 60%;
+            transform: rotate(0deg);
+          }
+        }
+
+        // .content {
+        //   border: 1px solid $primary;
+        // }
+
+      }
+    }
+
+    // popup-content
+    .popup-content {
+      height: 70dvh;
+      overflow-y: scroll;
+      align-items: stretch;
+
+      // content
+      .content {
+        background-color: $grey;
+        border-radius: 15px;
+        padding: 20px;
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .wrapper {
+          color: rgba(255, 255, 255, 0.5);
+
+          .title {
+            color: $light;
+            text-align: left;
+            padding: 10px;
+            font-size: 16px;
+          }
+
+          ul {
+            li {
+              list-style: disc;
+              margin-left: 30px;
+              font-weight: lighter;
+              line-height: 1.8;
+
+              &.title {
+                margin-left: 0;
+                color: #fff;
+                font-weight: 400;
+                list-style: none;
+                padding: 4px 10px;
+                font-size: 14px;
+
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // jackpot-group
+    .jackpot-group {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 2vw;
+      border: 1px solid #AEA6B7;
+      border-radius: 50px;
+      padding: 10px;
+
+      .jackpot-title {
+        align-self: stretch;
+        padding: 20px;
+        display: flex;
+        border-radius: 100px;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        background-color: #AEA6B7;
+        color: $grey;
+      }
+
+      .title {
+        color: $white !important;
+        padding: 0px !important;
+        font-size: 14px !important;
+      }
+
+      .icon {
+        opacity: 1;
+
+        &.plus {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      // wrapper
+      .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 1.5vw;
+
+        // prize
+        .prize-group,
+        .sticker-group {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column-reverse;
+          gap: 10px;
+        }
+
+        // sticker-group
+        .sticker-group {
+
+
+          .icon {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+
+  //-----rwd-----
+
+  // lg
+  @media (max-width: 992px) {
+
+    width: 100% !important;
+
+
+  }
+}
+
+
+// / =================lottery================== /
+.event-lottery {
+
+  // / =================color================== /
+
+  $white: #fff;
+  $light: #FF7600;
+  $primary: #EB801D;
+  $secondary: #101A37;
+  $third: #0E0515;
+  $grey-dark: #383040;
+  $grey: #61566B;
+  $border-radius: 15px;
+
+
+  * {
+    box-sizing: border-box;
+  }
+
+  box-sizing: border-box;
+  padding: 30vw 0 0;
+  background: url('https://banner.0814media.net/h5/img/event/lottery/bg.jpg') no-repeat top / 100% #0c0515;
+  // width: 100%;
+  // height: 100%;
+  top: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+  border-bottom: 40px solid $primary;
+
+  &::after {
+    content: '';
+    position: absolute;
+    background: linear-gradient(to bottom, rgb(255 255 255 / 0%) 0%, rgb(12 4 21 / 60%) 50%, rgb(12 4 21 / 35%) 100%), url('https://banner.0814media.net/h5/img/event/lottery/nova-h5.svg') center 25% / 300% no-repeat;
+    transform: translateY(var(--parallax-offset, 0px));
+    transition: transform 0.8s ease-out;
+    will-change: transform; // 提示瀏覽器優化
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+
+
+  .lottery-wrapper {
+    margin-top: 10vw;
+
+    // ----- slot -----
+    .slot {
+      position: relative;
+      z-index: 99;
+      // pointer-events: none;
+      display: flex;
+      justify-content: center;
+
+      .animation-g {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+
+      }
+
+
+      .lottery-screen {
+        padding: 0.5vw;
+        position: absolute;
+        margin: 0 auto;
+        z-index: 99;
+        left: 0 !important;
+        right: 0 !important;
+        aspect-ratio: 127.6 / 60.8; //螢幕元件比例
+        margin: 0 auto;
+        top: 14.5%;
+        width: 50%;
+
+        @media (max-width:992px) {
+          margin: 0 25%;
+          width: auto;
+        }
+
+        .screen {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+
+          // standby
+          &.standby {
+            justify-content: center;
+
+            // title
+            .title {
+              font-size: calc(16px + 1vw);
+              color: #fff;
+              align-self: center;
+            }
+          }
+
+          // reciprocal
+          &.reciprocal {
+
+            // title
+            .title {
+              font-size: calc(10px + 1vw);
+              color: #fff;
+              align-self: center;
+            }
+
+            // time
+            .time {
+              display: flex;
+              align-items: center;
+              flex: 1;
+
+              .number-group {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                gap: 0.5vw;
+
+                .unit {
+                  align-self: center;
+                  font-size: calc(8px + 0.5vw);
+                }
+
+                .number {
+                  display: flex;
+                  flex: 1;
+                  gap: 4px;
+
+                  div {
+                    display: flex;
+                    justify-content: center;
+                    color: #000;
+                    font-size: calc(14px + 1.5vw);
+                    font-weight: bold;
+                    flex: 1;
+                    background: url('https://banner.0814media.net/h5/img/event/lottery/time.png') no-repeat center /cover;
+                  }
+                }
+              }
+            }
+
+            .icon {
+              width: auto;
+              height: -webkit-fill-available;
+
+              &.time-dots {
+                flex: 0.2;
+                background: url('https://banner.0814media.net/h5/img/event/lottery/colon.png') no-repeat center /contain;
+              }
+            }
+          }
+
+          // progress
+          &.progress {
+            justify-content: center;
+
+            // title
+            .title {
+              font-size: calc(14px + 1vw);
+              color: #fff;
+              align-self: center;
+              flex: 1;
+              display: flex;
+              align-items: center;
+              padding-bottom: 20px;
+
+            }
+
+            // subtitle
+            .subtitle {
+              font-size: calc(8px + 1vw);
+              color: #fff;
+              align-self: center;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #animation_container {
+    position: relative;
+    margin: auto;
+    left: 0;
+    right: 0;
+  }
+
+
+
+
+  // / =================csutom================== /
+
+
+  .fade {
+    transition: opacity 0.6s ease-in-out;
+    opacity: 1;
+
+    &.hide {
+      opacity: 0;
+    }
+
+    &.show {
+      opacity: 1;
+    }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.6s ease-in;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+
+  .fade-out {
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+
+    &.hide {
+      opacity: 1;
+    }
+  }
+
+
+  %hover {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  %container {
+    max-width: none;
+  }
+
+  %d-flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  %d-flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  %title {
+    font-size: 2.5vw;
+
+  }
+
+  @keyframes flickerOpacity {
+    0% {
+      opacity: 1;
+    }
+
+    30% {
+      opacity: 0.2;
+    }
+
+    70% {
+      opacity: 1;
+    }
+  }
+
+  .flicker {
+    animation: flickerOpacity 1.8s infinite ease;
+  }
+
+
+  // / =================icon================== /
+  %sticker {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: 0.3s background-color ease;
+  }
+
+  .icon {
+    position: relative;
+    width: 30px;
+    height: 30px;
+
+
+    &.money {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/icon-money.png) #fff no-repeat center / contain;
+    }
+
+    &.share {
+      background: url(https://banner.0814media.net/h5/img/event/lottery/icon-share.png) no-repeat center / contain;
+    }
+
+    // sticker
+
+    &.rat {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/rat-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.ox {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/ox-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.tiger {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/tiger-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.cat {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/cat-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.dragon {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/dragon-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.snake {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/snake-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.horse {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/horse-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.goat {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/goat-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.monkey {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/monkey-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.chicken {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/chicken-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.dog {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/dog-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+
+    &.pig {
+      @extend %sticker;
+      mask: url('https://banner.0814media.net/desktop/img/event/lottery/pig-defult.svg') no-repeat center / contain;
+
+      &.active {
+        background-color: $primary;
+      }
+    }
+  }
+
+
+
+
+  // / =================component================== /
+
+  .d-none {
+    display: none !important;
+  }
+
+
+  // button
+
+  button {
+    &:disabled {
+      cursor: default;
+      background-color: $grey !important;
+      color: rgb(255 255 255 / 40%) !important;
+      opacity: 1 !important;
+
+      &:hover {
+        opacity: 1 !important;
+
+      }
+    }
+  }
+
+  // table
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      font-size: calc(16px + 0.5vw);
+      padding: 2vw;
+    }
+
+    td {
+      font-family: Roboto Mono, monospace;
+    }
+
+    thead {
+      tr {
+        th {
+          color: $primary;
+
+          font-weight: bolder;
+        }
+      }
+    }
+
+    tbody {
+      background-color: $grey;
+      border-radius: $border-radius;
+    }
+  }
+
+  .table-group {
+    background-color: $grey-dark;
+    border-radius: $border-radius;
+    padding: 30px;
+
+    .title {
+      @extend %d-flex-between;
+      color: $white;
+      font-size: 20px;
+      font-weight: bolder;
+      margin-bottom: 30px;
+    }
+  }
+
+  // card
+
+  .card {
+    display: flex;
+    background-color: $grey-dark ;
+    border-radius: $border-radius;
+    padding: 20px;
+
+    // title
+
+    .title {
+      color: $white;
+    }
+
+    // title-group
+    .title-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .ranking {
+        display: flex;
+        flex-direction: column;
+
+
+        .title {
+          font-size: calc(16px + 1.5vw);
+          color: $primary;
+        }
+
+        span {
+          font-size: calc(12px + 1.5vw);
+          color: $primary;
+        }
+
+      }
+
+      .lucky-number {
+        font-size: calc(12px + 1.5vw);
+        display: flex;
+        flex-direction: column;
+
+        span {
+          font-family: Roboto Mono, monospace;
+
+          &.title {
+            font-size: calc(8px + 1vw);
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  // grid
+
+  .grid {
+    display: grid;
+    gap: 20px;
+
+    &.grid-cols-6 {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    &.grid-cols-5 {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    &.grid-cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    &.grid-cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    &.grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  // / ----- main-content ----- /
+
+  .main-content {
+    position: relative;
+    // width: 100%;
+    // height: 100%;
+    z-index: 2;
+    padding: 60px 3vw;
+    display: flex;
+    flex-direction: column;
+
+
+    .flex-column {
+      display: flex;
+      gap: 60px;
+      flex-direction: column;
+
+    }
+
+    .container {
+      flex: 1;
+      // @extend %container;
+    }
+
+    // ----- lottery-div -----
+
+    .lottery-div {
+      margin: 25vw 0;
+
+      >.title {
+        @extend %title;
+        padding: 10px 20px;
+        background-color: $primary;
+        color: $white;
+        width: fit-content;
+        border-radius: $border-radius 0 0 0;
+        position: relative;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        font-size: calc(14px + 1vw);
+
+        &::after {
+          content: '';
+          background: url(https://banner.0814media.net/h5/img/event/lottery/lottery-div-arrow.svg) no-repeat center / 100%;
+          position: absolute;
+          right: -110px;
+          top: 0;
+          width: 120px;
+          height: 50px;
+        }
+      }
+
+      >.wrapper {
+        border-radius: 0 $border-radius $border-radius $border-radius;
+        border: 1px solid $primary;
+        background-color: $grey-dark;
+        overflow: hidden;
+
+        // --lottery-content--
+
+        // prize-number
+
+        %prize-number {
+          transition: opacity 0.3s ease;
+          font-family: "Roboto Mono", monospace;
+
+          span {
+
+            // default
+            &.default {
+              opacity: 0.5;
+            }
+
+            // winning
+            &.winning {
+              color: #FF7600;
+              opacity: 1;
+              font-weight: bold;
+              @extend .flicker;
+
+            }
+
+            // announced
+            &.announced {
+              opacity: 1;
+            }
+          }
+        }
+
+        .lottery-content {
+          padding: 3vw;
+          min-height: 45dvh;
+          display: flex;
+          justify-content: center;
+
+
+          // title
+
+          .title {
+            text-align: center;
+            color: $white;
+          }
+
+          // Not started yet
+
+          .standby {
+            font-size: calc(20px + 1vw);
+            font-weight: bold;
+            color: $primary;
+            align-self: center;
+
+          }
+
+
+          // progress
+
+          .progress {
+            font-size: calc(16px + 1vw);
+            color: $primary;
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-weight: bold;
+
+            .sub-title {
+              font-size: calc(10px + 0.8vw);
+              text-align: center;
+              font-weight: 600;
+            }
+
+          }
+
+          // lottery-result
+
+          .lottery-result {
+            display: flex;
+            flex-direction: column;
+
+            .result {
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              color: $primary;
+              gap: 8px;
+              font-weight: bold;
+              align-self: center;
+              font-size: calc(16px + 1vw);
+
+              .sub-title {
+                font-size: calc(10px + 0.8vw);
+                text-align: center;
+                font-weight: 600;
+              }
+            }
+          }
+
+          // Top 3 prize Ticket
+          .top3 {
+            height: 45dvh;
+            flex: 1;
+            padding: 3vw;
+            margin: -3vw;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            background: url(https://banner.0814media.net/h5/img/event/lottery/top3-prize-h5.png) no-repeat center 0 / cover;
+
+            .wrapper {
+              .title {
+                margin-bottom: 10px;
+                font-size: calc(14px + 0.8vw);
+              }
+
+              .ticket-group {
+                display: flex;
+                gap: 2vw;
+                flex-direction: row;
+                align-items: center;
+
+                div {
+                  border-radius: 50px;
+                  padding: 10px;
+                  font-size: calc(10px + 0.8vw);
+                  background-color: $grey-dark;
+                  text-align: center;
+                  @extend %prize-number;
+                }
+              }
+            }
+          }
+
+          //prize
+
+          .prize {
+            flex: 1;
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            gap: 3vw;
+
+            .title-group {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              padding: 0 0 3vw 0;
+              margin: 0;
+              border-bottom: 1px solid $white;
+              font-size: calc(8px + 0.8vw);
+
+              .title {
+                font-size: calc(12px + 0.8vw);
+              }
+            }
+
+
+            .grid {
+              padding: 10px;
+              flex: 1;
+              grid-template-rows: repeat(5, 1fr);
+
+              div {
+                @extend %d-flex-center;
+                letter-spacing: 0px;
+                font-size: calc(10px + 0.8vw);
+                @extend %prize-number;
+              }
+            }
+          }
+
+          // Win
+
+          .win {
+            height: 45dvh;
+            flex: 1;
+            padding: 3vw;
+            margin: -3vw;
+            display: flex;
+            align-items: flex-end;
+            background: url(https://banner.0814media.net/h5/img/event/lottery/grand-prize.jpg) no-repeat center / cover;
+
+            .wrapper {
+              flex: 1;
+
+              .ticket-group {
+                display: flex;
+                gap: 2vw;
+                align-items: center;
+                justify-content: center;
+
+
+                %win-number {
+                  width: calc(20px + 3vw);
+                  height: calc(20px + 3vw);
+                  left: 50%;
+                  top: -60%;
+                  transform: translateX(-50%) translateY(-60%);
+
+                  position: absolute;
+                }
+
+                div {
+                  border-radius: $border-radius;
+                  border: 3px solid $primary;
+                  color: #000;
+                  padding: 8px 8px;
+                  font-size: calc(10px + 0.8vw);
+                  @extend %prize-number;
+                  background-color: $white;
+                  text-align: center;
+                  font-weight: 600;
+
+                  &.first {
+                    padding: 8px 12px;
+                    font-size: calc(12px + 1vw);
+                    position: relative;
+
+                    &:before {
+                      content: '';
+                      @extend%win-number;
+                      background: url(https://banner.0814media.net/h5/img/event/lottery/first.svg) no-repeat center / cover;
+                    }
+                  }
+
+                  &.second {
+                    position: relative;
+
+                    &:before {
+                      content: '';
+                      @extend%win-number;
+                      background: url(https://banner.0814media.net/h5/img/event/lottery/second.svg) no-repeat center / cover;
+                    }
+                  }
+
+                  &.third {
+                    position: relative;
+
+                    &:before {
+                      content: '';
+                      @extend%win-number;
+                      background: url(https://banner.0814media.net/h5/img/event/lottery/thrid.svg) no-repeat center / cover;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          // jackpot
+
+          .jackpot-group {
+
+            .title {
+              padding: 10px 0;
+              font-size: calc(14px + 0.8vw);
+            }
+
+            flex: 1;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            // jackpot-win
+
+            .jackpot-win {
+              flex: 1;
+              display: flex;
+              align-items: center;
+
+              .icon {
+                height: 200px;
+              }
+            }
+
+            // jackpot-list
+            .grid {
+              flex: 1;
+              gap: 3vw;
+            }
+
+            .icon {
+              width: 100%;
+              height: 100px;
+
+
+            }
+          }
+        }
+
+        // lottery-footer
+
+        .lottery-footer {
+          background-color: $primary;
+          padding: 20px;
+          min-height: calc(80px + 0.8vw);
+          @extend %d-flex-between;
+          align-items: flex-end;
+
+          // consolation prize
+          .consolation-prize {
+            display: flex;
+            flex-direction: column;
+            font-size: calc(10px + 0.8vw);
+            color: #000;
+
+            .prize {
+              display: flex;
+              flex-direction: column;
+
+              .title {
+                color: $white;
+                font-weight: 700;
+
+              }
+
+              .number {
+                font-weight: 600;
+                letter-spacing: 1px;
+                color: $white;
+                @extend %prize-number;
+              }
+            }
+
+          }
+
+          // ticket-total
+
+          .ticket-total {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            .title {
+              font-size: calc(10px + 0.8vw);
+              color: #000;
+            }
+
+            // ticket-container
+            .ticket-container {
+              border-radius: $border-radius;
+              font-size: calc(8px + 0.8vw);
+              align-self: stretch;
+              display: flex;
+              align-items: baseline;
+              gap: 10px;
+
+              .number {
+                font-size: calc(14px + 3.5vw);
+                font-weight: 500;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                max-width: 8ch;
+
+
+              }
+            }
+
+          }
+
+          // ticket-info-button
+          button {
+            padding: 10px 20px;
+            background-color: $white;
+            font-size: calc(10px + 0.8vw);
+            line-height: calc(20px + 0.8vw);
+            border-radius: 50px;
+            font-weight: bold;
+            color: #000;
+            @extend %hover;
+          }
+        }
+      }
+    }
+
+    // ----- lottery-info -----
+    .lottery-info {
+      @extend %d-flex-between;
+      align-items: stretch;
+      flex-direction: column;
+      gap: 60px;
+      font-size: calc(12px + 1vw);
+
+      // -- round --
+      .round {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        >.title {
+          @extend %d-flex-between;
+          border-bottom: 1px solid $white;
+          padding: 30px 0;
+
+
+          .round-number {
+            @extend %title;
+            color: $primary !important;
+            font-size: calc(18px + 1vw);
+          }
+
+          .date {
+            color: $white;
+          }
+        }
+
+        // ticket-img
+        .ticket-img {
+          img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+          }
+        }
+
+        // progress-group
+        .progress-group {
+          .title {
+            color: $primary;
+            @extend %d-flex-between;
+          }
+
+          //progress
+          .progress {
+            height: 10px;
+            width: 100%;
+            background: $white;
+            border-radius: 20px;
+            position: relative;
+            margin: 20px auto;
+
+            &-bar {
+              position: absolute;
+              background: $primary;
+              border-radius: 20px;
+              width: 30%;
+              height: 100%;
+              z-index: 1;
+              left: 0;
+            }
+          }
+
+          // total
+          .total {
+            color: $white;
+            @extend %d-flex-between;
+            background-color: transparent;
+            padding: 0;
+            font-size: calc(12px + 1vw);
+
+          }
+        }
+      }
+
+      // -- ticket-group --
+
+      .ticket-group {
+        position: relative;
+        z-index: 1;
+
+        // -- ticket --
+        .ticket {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+
+
+          hr {
+            width: calc(100% - 32px);
+            margin: 0 auto;
+            border-style: dashed;
+            border-color: $grey;
+
+          }
+
+          // ticket-top
+          &-top {
+            padding: 20px;
+            position: relative;
+            flex: 1;
+
+            //ticket-border-top
+            &::before {
+              content: "";
+              border-radius: 15px;
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: 0;
+              z-index: -1;
+              position: absolute;
+              background-color: $grey-dark;
+              --mask: radial-gradient(15px at 15px 100%, #0000 98%, #000) -15px;
+              -webkit-mask: var(--mask);
+              mask: var(--mask);
+
+            }
+
+            // &::after {
+            //   content: "";
+            //   border-radius: 15px;
+            //   width: calc(100% + 2px);
+            //   height: calc(100% + 2px);
+            //   top: -1px;
+            //   left: -1px;
+            //   z-index: -2;
+            //   position: absolute;
+            //   background-color: $primary;
+            //   --mask: radial-gradient(15px at 15px 100%, #0000 98%, #000) -15px;
+            //   -webkit-mask: var(--mask);
+            //   mask: var(--mask);
+
+            // }
+
+            // table
+
+            %title-style {
+              width: 30%;
+              word-break: break-all;
+            }
+
+            .table-container {
+              width: 100%;
+              height: 100%;
+              overflow: hidden;
+
+              .table {
+                width: 100%;
+                height: 100%;
+
+
+
+                .title {
+                  color: $primary;
+                }
+
+                thead {
+                  position: sticky;
+                  top: 0;
+                  z-index: 100;
+
+                  .number {
+                    color: $white;
+                  }
+
+                  height: 60px;
+
+                  tr {
+                    th {
+                      &:first-child {
+                        @extend%title-style;
+                      }
+                    }
+                  }
+                }
+
+
+
+                td {
+                  text-align: center;
+                }
+
+                thead,
+                tbody tr {
+                  display: table; //使得 thead 和 tbody 中的 tr 行為類似於表格   
+                  width: 100%;
+                }
+
+                tbody {
+                  background-color: $grey ;
+                  display: block;
+                  overflow-y: auto;
+                  height: calc(100% - 60px);
+
+                  tr {
+                    th {
+                      @extend%title-style;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          // ticket-bottom
+          &-bottom {
+            padding: 20px;
+            position: relative;
+
+            // ticket-border-bottom
+
+            &::before {
+              content: "";
+              border-radius: 15px;
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: 0;
+              z-index: -1;
+              position: absolute;
+              background-color: $grey-dark;
+              --mask: radial-gradient(15px at 15px 0, #0000 98%, #000) -15px; //ticket-mask
+              -webkit-mask: var(--mask);
+              mask: var(--mask);
+            }
+
+            // &::after {
+            //   content: "";
+            //   border-radius: 15px;
+            //   width: calc(100% + 2px);
+            //   height: calc(100% + 2px);
+            //   top: -1px;
+            //   left: -1px;
+            //   z-index: -2;
+            //   position: absolute;
+            //   background-color: $primary;
+            //   --mask: radial-gradient(15px at 15px 0, #0000 98%, #000) -15px; //ticket-mask
+            //   -webkit-mask: var(--mask);
+            //   mask: var(--mask);
+
+            // }
+
+
+            .total {
+              color: $white;
+              background-color: $grey;
+              border-radius: $border-radius;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              padding: 20px;
+              font-size: 16px;
+
+              .title {
+                color: $white;
+              }
+
+              .quantity {
+                font-size: calc(16px + 1vw);
+                font-weight: bold;
+                background-color: transparent;
+                color: #fff;
+                margin: 0;
+                width: auto;
+                height: auto;
+                display: block;
+                transform: scale(1);
+              }
+            }
+          }
+
+          // -- sticker --
+          &.sticker {
+
+            //ticket-top
+            .ticket-top {
+              flex: 1;
+              @extend %d-flex-center;
+              flex-direction: column;
+
+              //title
+              .title {
+                color: $primary !important;
+                padding: 16px;
+                font-size: 18px;
+                text-align: center;
+              }
+
+              //ressult
+              .sticker-result {
+                flex: 1;
+                width: 100%;
+                background-color: $grey;
+                border-radius: $border-radius;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 40px;
+
+                .icon {
+                  width: 100%;
+                  height: 200px;
+
+                  &.active {
+                    background-color: rgba(255, 255, 255, 1);
+                  }
+                }
+              }
+            }
+
+            //ticket-bottom
+            .ticket-bottom {
+              button {
+                padding: 20px;
+                color: $white;
+                background-color: $primary;
+                border-radius: $border-radius;
+                width: 100%;
+                font-size: calc(16px + 1vw);
+                font-weight: bolder;
+                @extend %hover;
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+    // / ----- tab ----- /
+    .tab-group {
+      .nav {
+        background: transparent;
+        position: relative;
+        transform: none;
+        border-radius: 5px 5px 0 0;
+        left: auto;
+        top: auto;
+        padding: 0 20px;
+
+        &.nav-tabs {
+          margin: 0;
+          padding: 0;
+          display: flex;
+          border-bottom: 1px solid $white;
+
+          .nav-item {
+            list-style: none;
+            flex: 1;
+            display: flex;
+
+            .nav-link {
+              @extend %d-flex-center;
+              font-size: calc(14px + 1vw);
+              font-weight: bold;
+              transition: (transform, 0.3s, ease);
+              padding: 14px 0;
+              border-radius: 15px 15px 0 0;
+              border-bottom: 6px solid transparent;
+              cursor: pointer;
+              color: $white;
+              flex: 1;
+              overflow-wrap: anywhere;
+
+              &.active {
+                border-bottom: 6px solid $primary ;
+
+              }
+
+              &:hover {
+                opacity: 0.8;
+              }
+            }
+          }
+        }
+
+      }
+
+      // ticket tab-group 
+      &.ticket {
+        .nav {
+          background-color: $grey-dark;
+          border-radius: 15px;
+          padding: 8px;
+
+          &.nav-tabs {
+            border-bottom: none;
+
+            .nav-item {
+              .nav-link {
+                border-bottom: none;
+                border-radius: 15px;
+
+                &.active {
+                  background: $primary;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .tab-content {
+      background-color: $third;
+      padding: 30px 0;
+
+      // pagination
+      .pagination {
+        display: flex;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        justify-content: center;
+        gap: 10px;
+        margin: 30px auto;
+
+        a {
+          color: #fff;
+          border: 1px solid #fff;
+          border-radius: 4px;
+          width: 30px;
+          height: 30px;
+          font-size: 16px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          &:hover {
+            background-color: $primary;
+          }
+
+          &.active {
+            background-color: $primary;
+          }
+
+        }
+      }
+
+      // tab-content-conditions
+      &-conditions {
+        display: flex;
+        flex-direction: column;
+        gap: 10vw;
+
+        .info {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .trophy-img {
+            flex: 1;
+
+            img {
+              width: 100%;
+              height: 250px;
+              object-fit: contain;
+            }
+          }
+
+          .info-content {
+
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4vw;
+            color: #BCBCBC;
+
+            h3 {
+              color: $primary;
+              font-size: 5vw;
+              font-weight: bold;
+            }
+
+            p {
+              text-align: center;
+              font-size: 2.5vw;
+            }
+          }
+
+          button {
+            background-color: $primary;
+            color: #fff;
+            padding: 10px 60px;
+            border-radius: $border-radius;
+            font-size: 3vw;
+            @extend %hover;
+            position: relative;
+            right: 0;
+            align-self: stretch;
+          }
+        }
+
+        // title-group
+
+        .title-group {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          color: $white;
+          gap: 4vw;
+          margin-bottom: 6vw;
+
+          .title {
+            color: $primary;
+            justify-content: center;
+          }
+
+          &.bonus {
+            .title {
+              color: $white;
+              font-size: 5vw;
+            }
+
+            .total {
+              background-color: $primary;
+              color: $white;
+              border-radius: 50px;
+              padding: 2vw 4vw;
+              font-size: 4vw;
+              display: flex;
+              gap: 10vw;
+              @extend %d-flex-between;
+
+              .icon {
+                border-radius: 20px;
+
+              }
+            }
+          }
+
+        }
+
+        // Jackpot of the Round
+        .wrapper {
+
+
+          .prize-info {
+            display: flex;
+            margin-right: -3vw;
+            gap: 3vw;
+            min-height: 5vw;
+
+            .card {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              flex-shrink: 0;
+              gap: 2vw;
+
+              .title {
+                font-size: 2vw;
+              }
+
+              //  tier 
+              &.tier {
+                position: relative;
+                flex: 0 0 content;
+                transition: all 0.3s ease;
+
+                //  tier-title 
+                .title {
+                  color: transparent;
+                  position: relative;
+                  align-items: center;
+                  display: flex;
+
+                  .icon {
+                    $arrow-size: calc(22px + 2vw);
+                    position: absolute;
+                    width: $arrow-size;
+                    height: $arrow-size;
+                    right: calc(-22px - 2vw);
+                    border-radius: 100px;
+                    border: 4px solid $grey-dark;
+
+                    &.arrow {
+                      background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) $grey no-repeat center 60% / 60%;
+
+                      transform: rotate(270deg);
+                    }
+                  }
+                }
+
+                // tier-items
+                .tier-items {
+                  display: flex;
+                  gap: 3vw;
+                  align-items: center;
+
+                  .title {
+                    font-size: 3vw;
+                    color: #fff;
+                  }
+
+                  .prize-total {
+                    display: none;
+                  }
+                }
+
+
+
+                //  tier active
+                &.active {
+                  flex: 0 0 content;
+
+                  .icon {
+                    &.arrow {
+                      background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) $primary no-repeat center 60% / 60%;
+                      transform: rotate(90deg);
+                    }
+
+                  }
+
+                  .title {
+                    color: rgba(#fff, .5);
+                  }
+
+                  // tier-items active
+                  .tier-items {
+                    .prize-total {
+                      display: block;
+                    }
+                  }
+                }
+              }
+            }
+
+            .wrapper {
+              display: flex;
+              flex: 1;
+              gap: 3vw;
+              overflow-y: auto;
+              border-radius: 8px;
+
+              .card {
+                &.prize {
+                  flex: 0 0 50%;
+
+                  .title {
+                    background-color: transparent;
+
+                  }
+
+                  div {
+                    text-align: center;
+                    background-color: $grey;
+                    border-radius: 8px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+
+      // tab-content-history
+      &-history {
+
+        // select
+        .inputBox {
+          width: 100%;
+          cursor: pointer;
+          background-color: transparent;
+          color: #fff;
+          border-radius: $border-radius;
+          border: 1px solid #fff;
+          padding: 0;
+          margin: 0;
+
+          &.lottery-select {
+            position: relative;
+            display: inline-block;
+            grid-column: span 4;
+
+
+
+            &.active {
+              border: 1px solid $primary;
+              filter: none;
+
+              .dropdown {
+
+                .wrapper {
+                  visibility: visible;
+                  opacity: 1;
+                  height: auto;
+                  transition: 0.6s;
+                }
+              }
+            }
+
+            .dropdown {
+              padding: 0;
+              min-height: 0;
+              justify-content: center;
+
+              >button {
+                color: $white ;
+                padding: 20px;
+                flex: 1;
+                font-size: calc(10px + 1vw);
+                border-radius: $border-radius;
+
+                &::after {
+                  content: "";
+                  position: absolute;
+                  background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) no-repeat 50% / cover;
+                  top: 50%;
+                  right: 20px;
+                  width: 24px;
+                  height: 24px;
+                  -webkit-transform: translateY(-50%);
+                  transform: translateY(-50%);
+                  pointer-events: none;
+                  border: none;
+                }
+
+                &:hover {
+                  background-color: $grey ;
+                }
+              }
+
+              .wrapper {
+                top: calc(80px + 1vw);
+                position: absolute;
+                border: 1px solid $primary;
+                border-radius: $border-radius;
+                overflow: hidden;
+                width: 100%;
+                z-index: 99;
+                visibility: hidden;
+                opacity: 0;
+                height: 0;
+                box-sizing: content-box;
+
+                .dropdown-container {
+                  margin: 0;
+                  background-color: $grey-dark;
+                  overflow-x: hidden;
+                  max-height: 30dvh;
+
+                  .dropdown-item {
+                    padding: 20px;
+                    color: $white;
+                    font-size: calc(10px + 1vw);
+
+                    &:hover {
+                      background-color: $grey;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .card {
+
+          .title-group {
+            gap: 40px;
+          }
+
+          // 1st
+          &.first {
+            display: flex;
+            background-color: $primary;
+            justify-content: space-between;
+            grid-column: span 4;
+
+            .ranking {
+
+              .title,
+              span {
+                color: $white;
+              }
+            }
+
+            .title-group {
+              flex: 2;
+            }
+
+            .trophy-img {
+              flex: 1;
+              display: flex;
+              align-items: stretch;
+
+              img {
+                width: 100%;
+                object-fit: cover;
+                height: 180px;
+              }
+            }
+
+          }
+
+          // 2nd
+          &.second {
+            grid-column: span 2;
+          }
+
+          // 3rd
+          &.third {
+            grid-column: span 2;
+          }
+
+          //collapse
+          &.collapse {
+            background-color: transparent;
+            grid-column: span 4;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 0;
+
+            .title-group {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+              background-color: rgb(97 86 107 / 50%);
+              padding: 10px 20px 10px 30px;
+              border-radius: 100px;
+              border: 1px solid transparent;
+              transition: all 0.3s ease;
+
+              .title {
+                font-size: calc(12px + 1vw);
+              }
+
+              .arrow {
+                background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) #958C9F no-repeat center 60% / 60%;
+                width: 30px;
+                height: 30px;
+                padding: 0px;
+                border-radius: 100px;
+                transform: rotate(-180deg);
+                transition: transform 0.3s ease;
+              }
+
+
+              // &:hover {
+              //   opacity: 1;
+              //   background-color: rgb(97 86 107 / 50%);
+              //   border: 1px solid $primary;
+
+              //   .arrow {
+              //     transform: rotate(0deg);
+              //     background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) #FF7600 no-repeat center 60% / 60%;
+              //   }
+              // }
+
+            }
+
+            &.active {
+              .title-group {
+
+                border: 1px solid $primary;
+
+                .arrow {
+                  background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) $primary no-repeat center 60% / 60%;
+                  transform: rotate(0deg);
+                }
+              }
+
+              .card {
+                border: 1px solid $primary;
+              }
+
+            }
+
+            .card {
+              border: 1px solid transparent;
+              transition: all 0.3s ease;
+
+              // sticker
+              &.sticker {
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: stretch;
+                gap: 30px;
+
+
+                .title {
+                  text-align: center;
+                }
+
+                .sticker-result {
+                  padding: 40px;
+
+                  .icon {
+                    background-color: $white;
+                    width: 100%;
+                    height: 200px;
+                  }
+                }
+              }
+
+              // consolation
+              &.consolation {
+                grid-column: span 4;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 30px;
+                font-size: calc(10px + 0.8vw);
+
+                // title
+                .title {
+                  font-size: 2.5vw;
+                  text-align: center;
+                }
+
+                // gird
+                .grid {
+                  div {
+                    text-align: center;
+                    font-family: Roboto Mono, monospace;
+                  }
+                }
+              }
+
+              // small-prize
+              &.small-prize {
+                grid-column: span 4;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 30px;
+                font-size: calc(10px + 0.8vw);
+
+                // title
+                .title {
+                  text-align: center;
+                }
+
+                // gird
+                .grid {
+
+                  div {
+                    text-align: center;
+                    font-family: Roboto Mono, monospace;
+                  }
+                }
+              }
+            }
+          }
+
+
+        }
+
+      }
+
+      // tab-content-result
+      &-result {
+
+        .result-list {
+          display: grid;
+          grid-template-columns: min-content repeat(1, minmax(0, 1fr)) min-content; //第一列及最後列的寬度為min-content
+          gap: 20px 0;
+          font-size: 2.5vw;
+
+          .result-head,
+          .result-item {
+            display: contents; // 使子元素繼承父元素的網格佈局
+
+            div {
+              text-align: center;
+            }
+          }
+
+          //result-head
+          .result-head {
+            font-weight: bold;
+            color: $primary;
+            padding: 10px;
+
+            div {
+              &:first-child {
+                padding: 0 30px;
+              }
+            }
+          }
+
+          //result-item
+          .result-item {
+            >div {
+              background-color: $grey-dark;
+              padding: 20px;
+
+              &:first-child {
+                border-radius: $border-radius 0 0 $border-radius ;
+                background-color: $grey;
+                display: flex;
+                align-items: center;
+              }
+
+              &:last-child {
+                border-radius: 0 $border-radius $border-radius 0;
+              }
+
+
+            }
+
+            .info {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              font-size: calc(14px + 0.5vw);
+
+              .date {
+                color: rgb(255 255 255 / 50%);
+                font-size: calc(10px + 0.5vw);
+              }
+
+              div {
+                text-align: start;
+              }
+            }
+
+            .share {
+              @extend %d-flex-center;
+
+              .icon {
+                width: 24px;
+                height: 24px;
+
+                @extend %hover;
+                cursor: pointer;
+
+                &:hover {
+                  background: url(https://banner.0814media.net/h5/img/event/lottery/icon-share-hover.png) no-repeat center / contain;
+
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // tab-content-tickets
+      $tikcet-hieght: calc(50dvh - 60px);
+
+      &-tickets {
+
+        .ticket-group {
+          .ticket {
+            .ticket-top {
+              .table-container {
+                .table {
+                  tbody {
+                    height: $tikcet-hieght;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // tab-content-sticker
+      &-sticker {
+        .ticket-group {
+          .ticket {
+            &.sticker {
+              .ticket-top {
+                .sticker-result {
+                  flex: 0 0 $tikcet-hieght;
+
+                  img {
+                    height: 100%;
+                    width: 100%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 #g-reCaptcha .grecaptcha-badge{ 
