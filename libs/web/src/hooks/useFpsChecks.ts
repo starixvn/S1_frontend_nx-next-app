@@ -12,11 +12,15 @@ const useFpsChecks = ({
 	isLogin?: boolean
 	interval?: number
 }) => {
-	const [isSent, setIsSent] = useState(false)
 	const [sendFpsChecks] = useLazyFpsChecksQuery()
+	const [isChecked, setIsChecked] = useState(false) // fps是否已經發送過check了
+
 	useInterval(
 		async () => {
 			try {
+				const fpsNeededToCheck = localStorage.getItem('fpsNeededToCheck')
+				if (!fpsNeededToCheck) return setIsChecked(true) // 如果localStorage沒有fpsNeededToCheck，就代表不需要check，後面也就不需要執行了
+
 				const di = getInputValueByName('__di')
 				const bi = getInputValueByName('__bi')
 				const detecasAnalysis = getInputValueByName('detecas-analysis')
@@ -32,14 +36,12 @@ const useFpsChecks = ({
 					token,
 					url,
 				}).unwrap()
-
-				setIsSent(true)
+				localStorage.removeItem('fpsNeededToCheck') // 已經發出check之後就不用再保留storage佔位置了
 			} catch {
 				// 忽略
 			}
 		},
-		isLogin && !isSent ? interval : null
+		isLogin && !isChecked ? interval : null
 	)
 }
-
 export { useFpsChecks }

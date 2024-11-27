@@ -2,7 +2,6 @@ import { InputBox } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { useSignInMutation } from '@nx-next-app/service'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -15,6 +14,7 @@ const LoginModal = () => {
 
 	const {
 		userInfo: { langId },
+		onSignIn,
 	} = useAuth()
 
 	const { formState, trigger, setError, register, getValues, handleSubmit } =
@@ -22,28 +22,16 @@ const LoginModal = () => {
 
 	const { errors, touchedFields } = formState
 
-	const [signIn] = useSignInMutation()
-
 	const handleSubmitForm = async () => {
 		const { username, password } = getValues()
 
 		if (typeof window === undefined) return
 
-		const url = window.location.origin
-		const { platform } = navigator
-		const { userAgent } = navigator
-		const screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`
-
 		try {
-			await signIn({
+			await onSignIn({
 				userName: username,
-				userpwd: password,
-				isPersistent: false,
-				url,
-				platform,
-				userAgent,
-				screen,
-			}).unwrap()
+				password,
+			})
 
 			closeModal()
 			router.push(`/${langId}${paths.deposit.root}`)
