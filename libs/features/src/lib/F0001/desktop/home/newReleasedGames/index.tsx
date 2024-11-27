@@ -14,7 +14,7 @@ const NewReleasedGames = () => {
 	return (
 		<GameGroup className='content-container others'>
 			<GroupTitle title='New Release' href={paths.sports.root} />
-			<GameList gameData={newGameData} isControlButton parentId='NewReleased' />
+			<GameList gameData={newGameData} isControlButton />
 		</GameGroup>
 	)
 }

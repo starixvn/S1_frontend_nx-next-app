@@ -1,8 +1,16 @@
 /* eslint-disable @next/next/next-script-for-ga */
 /* eslint-disable react/no-danger */
 /* eslint-disable jsx-a11y/alt-text */
-import { getGA4ID, getGTMId } from "@nx-next-app/site/nova88/data";
-import Document, { DocumentContext, DocumentInitialProps, Head, Html, Main, NextScript } from "next/document";
+import { getGA4ID, getGTMId } from '@nx-next-app/site/nova88/data'
+import Document, {
+	DocumentContext,
+	DocumentInitialProps,
+	Head,
+	Html,
+	Main,
+	NextScript,
+} from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 
 interface CustomDocumentProps extends DocumentInitialProps {
 	host?: string
@@ -10,9 +18,30 @@ interface CustomDocumentProps extends DocumentInitialProps {
 
 class MyDocument extends Document<CustomDocumentProps> {
 	static async getInitialProps(ctx: DocumentContext) {
-		const initialProps = await Document.getInitialProps(ctx)
+		const sheet = new ServerStyleSheet()
 		const host = ctx.req && ctx.req.headers ? ctx.req.headers.host : ''
-		return { ...initialProps, host }
+		const originalRenderPage = ctx.renderPage
+
+		try {
+			ctx.renderPage = () =>
+				originalRenderPage({
+					enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
+				})
+
+			const initialProps = await Document.getInitialProps(ctx)
+			return {
+				...initialProps,
+				host,
+				styles: (
+					<>
+						{initialProps.styles}
+						{sheet.getStyleElement()}
+					</>
+				),
+			}
+		} finally {
+			sheet.seal()
+		}
 	}
 
 	render() {

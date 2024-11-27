@@ -22,7 +22,7 @@ const TableGames = () => {
 	return (
 		<GameGroup className='content-container others'>
 			<GroupTitle title='Table Games' href={paths.game.root} />
-			<GameList gameData={tableGames} isControlButton parentId='TableGames' />
+			<GameList gameData={tableGames} isControlButton />
 		</GameGroup>
 	)
 }

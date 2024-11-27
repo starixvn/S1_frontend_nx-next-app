@@ -24,7 +24,6 @@ type IGameList = {
 	isControlButton: boolean
 	children?: React.ReactNode
 	extraClassName?: string
-	parentId?: string
 }
 
 const GameList: React.FC<IGameList> = (props: IGameList) => {
@@ -55,7 +54,7 @@ const GameList: React.FC<IGameList> = (props: IGameList) => {
 
 					return (
 						<GameIcon
-							key={`${gameId}_${parentId}`}
+							key={gameId}
 							gameItem={gameItem}
 							onClick={() =>
 								handleHotGameClick(

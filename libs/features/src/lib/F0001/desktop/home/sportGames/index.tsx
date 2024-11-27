@@ -21,7 +21,7 @@ const SportGames = () => {
 		<SportContainer>
 			<GameGroup className='content-container others'>
 				<GroupTitle title='Sports' href={paths.sports.root} />
-				<GameList gameData={sportGames} isControlButton parentId='SportGames' />
+				<GameList gameData={sportGames} isControlButton />
 				<HotEvents />
 			</GameGroup>
 		</SportContainer>
