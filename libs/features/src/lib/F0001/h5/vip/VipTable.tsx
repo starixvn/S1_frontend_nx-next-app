@@ -1,9 +1,9 @@
-import { useTranslation } from 'next-i18next'
+import { useAuth } from '@nx-next-app/data-access'
+import { RebateCategoryEnum, VipBannerInfo } from '@nx-next-app/service'
+import { numberFormatExcludeString } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { capitalize } from 'lodash-es'
-import { useAuth } from '@nx-next-app/data-access'
-import { numberFormatExcludeString } from '@nx-next-app/utils'
-import { VipBannerInfo, RebateCategoryEnum } from '@nx-next-app/service'
+import { useTranslation } from 'next-i18next'
 
 interface IVipTableProps {
 	vipBannerInfo: VipBannerInfo | undefined
@@ -130,7 +130,7 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 
 				{/* Casino */}
 				<ul className='viptable-item-text'>
-					<li>{capitalize(t('Label_Vip_Slot_Fishing_Rebate') as string)}</li>
+					<li>{capitalize(t('Label_Vip_Slot_Rebate') as string)}</li>
 					<li>
 						{
 							vipBannerInfo?.rebateCategory[RebateCategoryEnum.Casino]
