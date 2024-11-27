@@ -127,6 +127,17 @@ const PromotionList = () => {
 									}}
 								/>
 							)}
+							<PromotionProgressBar
+								custTurnOver={custTurnOver}
+								custRollOver={custRollOver}
+								onSpinButton={() => {
+									onUpdatePromotionData({
+										bonusCode,
+										tpId,
+										promoCategoryId: String(categoryId),
+									})
+								}}
+							/>
 
 							<div className='btnGroup'>
 								{!isHideJoinButton && (
@@ -164,7 +175,7 @@ const PromotionList = () => {
 						<div className='remain'>
 							<div className='date-titem'>
 								<div className='group-icon'>
-									<i className='icon icon-minus_circle' />{' '}
+									<i className='icon icon-time' />{' '}
 									{t('Label_Promotion_RemainingTime')}
 								</div>
 								<div className='time'>{expiryTime}</div>
@@ -175,7 +186,8 @@ const PromotionList = () => {
 			})}
 		</div>
 	) : (
-		<div className='nodata icon icon-nodata'>
+		<div className='custom-nodata'>
+			<i className='icon icon-file-damage-fill' />
 			<div>{t('Label_General_NoData')}</div>
 		</div>
 	)

@@ -4581,8 +4581,6 @@ main .promosswiper .swiper-button-prev::after {
 	display: -ms-flexbox;
 	display: flex;
 }
-.slotList > div .new,
-.slotList > div .claimed,
 .livecasino > div .new,
 .livecasino > div .claimed,
 .fishingList > div .new,
@@ -4605,8 +4603,6 @@ main .promosswiper .swiper-button-prev::after {
 	align-items: center;
 	font-weight: bold;
 }
-.slotList > div .new:before,
-.slotList > div .claimed:before,
 .livecasino > div .new:before,
 .livecasino > div .claimed:before,
 .fishingList > div .new:before,
@@ -4682,70 +4678,7 @@ main .promosswiper .swiper-button-prev::after {
 	margin-right: 5px;
 }
 
-.promotionsInfo {
-	position: relative;
-}
-.promotionsInfo img {
-	border-radius: 5px;
-	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 0;
-}
-.promotionsInfo .proData {
-	background: white;
-	border-radius: 5px;
-	margin-top: 20px;
-	padding: 40px;
-}
-.promotionsInfo .proData .rollover {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	font-size: 12px;
-	font-weight: bold;
-	margin: 10px 0;
-}
-.promotionsInfo .proData .rollover > div {
-	margin-right: 20px;
-	color: #5574a7;
-}
-.promotionsInfo .proData .rollover > div:last-child {
-	color: #b2b2b2;
-}
-.promotionsInfo .proData .rollover > div .icon:before {
-	font-weight: normal;
-	margin-right: 5px;
-}
-.promotionsInfo .proData .proDataTitle {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: end;
-	-ms-flex-align: end;
-	align-items: flex-end;
-}
-.promotionsInfo .proData .proDataTitle .txt-darkBlue {
-	font-weight: bold;
-	-webkit-box-flex: 3;
-	-ms-flex: 3;
-	flex: 3;
-}
-.promotionsInfo .proData .proDataTitle .btnGroup {
-	-webkit-box-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	-webkit-box-pack: end;
-	-ms-flex-pack: end;
-	justify-content: flex-end;
-	margin: 0;
-}
-.promotionsInfo .proData .proDataTitle .btnGroup button {
-	max-width: 130px;
-}
-.promotionsInfo .proData .proDataBody {
-	color: black;
-	margin-top: 10px;
-	line-height: 30px;
-}
+
 
 .icon-icon32px_deposit {
 	position: relative;
@@ -5477,64 +5410,6 @@ article p {
 	font-weight: bold;
 }
 
-.new {
-	position: absolute;
-	top: -10px;
-	left: -10px;
-	background: #fab617;
-	border-radius: 100%;
-	width: 50px;
-	height: 50px;
-	padding: 0;
-	color: white;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	font-weight: bold;
-}
-.new:before {
-	content: 'NEW';
-}
-.new.active {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
-
-.claimed {
-	position: absolute;
-	top: -10px;
-	left: -10px;
-	border-radius: 100%;
-	padding: 0;
-	color: white;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	font-weight: bold;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	background: rgba(167, 3, 3, 0.8);
-	width: 75px;
-	height: 75px;
-	-webkit-transform: rotate(-45deg);
-	transform: rotate(-25deg);
-	z-index: 2;
-}
-.claimed:before {
-	content: 'CLAIMED';
-}
-
 pre {
 	color: #666;
 }
@@ -5597,8 +5472,6 @@ button.icon-spinner11:before {
 	right: 10px;
 	top: 10px;
 }
-
-
 
 .resend {
 	display: -webkit-box;
@@ -14756,7 +14629,7 @@ button.icon-spinner11:before {
 	font-style: italic;
 } */
 
-.promoInfoPopMask {
+/* .promoInfoPopMask {
 	width: 100%;
 	height: 100%;
 	position: fixed;
@@ -14845,7 +14718,7 @@ button.icon-spinner11:before {
 }
 .promoInfoPop ol li {
 	list-style: decimal;
-}
+} */
 
 ::-webkit-scrollbar {
 	width: 5px;

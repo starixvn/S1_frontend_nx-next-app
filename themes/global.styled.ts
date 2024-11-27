@@ -137,7 +137,7 @@ export const GlobalStyles = createGlobalStyle`
   #popup {
     background: rgba(0, 0, 0, 0.6);
     position: fixed;
-    z-index: 6;
+    z-index: 99;
     top: 0;
     width: 100%;
     height: 100%;
@@ -212,7 +212,7 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: 400;
         line-height: 1.8rem;
       }
-      .Success,poker,
+      .Success, ,poker,
       .duitnowPop,
       .angpaopop,
       .friend,
@@ -242,7 +242,34 @@ export const GlobalStyles = createGlobalStyle`
         }
       }
     }
-
+  }
+  .promoInfoPop{
+    max-height: calc(100% - 160px);
+    overflow-y: auto;
+    box-shadow: ${theme.desktop.popupBoxShadow};
+    background : ${theme.desktop.popupBg};
+    position : relative;
+    width: 80rem;
+    padding: 4rem 2.8rem 2.8rem 2.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    .btnGroup{
+      margin-top : 2.4rem;
+      min-width : 20rem;
+      button{
+          width: 100%;
+      }
+    }
+    .icon-close,.icon-close-line{
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      &:before{
+        font-size : 2rem;
+      }
+    }
   }
   .tip {
     margin-top: 0.4rem;
@@ -1125,6 +1152,25 @@ export const GlobalStyles = createGlobalStyle`
       font-weight: 700;
       line-height: normal;
       margin-bottom : 4rem;
+    }
+    .claimed {
+      background : rgba(167, 3, 3, 0.8);
+      &:before{
+        content: 'CLAIMED';
+      }
+      
+    }
+    .new {
+      background: ${({ theme }) => theme.desktop.tipColorError};
+      &:before{
+        content: 'NEW';
+      } 
+    }
+    .expired {
+      background: #b2b2b2;
+      &:before{
+        content: 'EXPIRED';
+      } 
     }
   }
 `

@@ -26,6 +26,10 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-time:before {
+  content: "\e947";
+  color: #fff;
+}
 .icon-arrow-left-line:before {
   content: "\e946";
   color: #fff;
