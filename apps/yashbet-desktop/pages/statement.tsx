@@ -5,19 +5,19 @@ import {
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
 import {
+	// todo:待 Linda 把 Layout 合進 dev 後使用他的
 	Layout,
-	LeftMenu,
-	Statement,
 } from '@nx-next-app/features/F0006/desktop'
-import { StatementProvider } from '@nx-next-app/features/F0006/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { StatementProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import { FOOTER_DATA } from '@nx-next-app/site/yashbet'
 import { QUICK_PICK_LIST } from '@nx-next-app/site/yashbet/data/history'
 import { IFooterData } from '@nx-next-app/types'
+import { LeftMenu, Statement } from '@yashbet-desktop/components/index'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 

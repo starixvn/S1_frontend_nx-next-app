@@ -1,4 +1,4 @@
-// todo:待 eddie 把 useTable 合進 dev 後使用他的
+// todo:待 eddie 把 useTable 合進 dev 在重新引入
 import useTable from '@nx-next-app/components/D0001/table/useTable'
 import { useStatement } from '@nx-next-app/operations'
 

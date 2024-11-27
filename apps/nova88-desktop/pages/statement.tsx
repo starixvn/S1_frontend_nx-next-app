@@ -6,7 +6,7 @@ import {
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
 import {
-	// todo:待 Linda 把 Layout 合進 dev 後使用他的
+	// todo:待 Linda 把 Layout 合進 dev 在重新引入
 	Layout,
 } from '@nx-next-app/features/F0001/desktop'
 import {
