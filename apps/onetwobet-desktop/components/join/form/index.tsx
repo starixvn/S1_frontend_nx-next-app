@@ -546,9 +546,9 @@ const Form = () => {
 					register={register('reCaptchaToken', { required: true })}
 					icon='icon txt-blue'
 					placeholder={t('Label_General_EnterCaptchaCode') as string}
-					errorMessage={errors['reCptchaToken']?.message as string}
-					error={!!errors['reCptchaToken']}
-					touched={!!touchedFields['reCptchaToken']}
+					errorMessage={errors['reCaptchaToken']?.message as string}
+					error={!!errors['reCaptchaToken']}
+					touched={!!touchedFields['reCaptchaToken']}
 				/>
 			)}
 			<div className='Terms'>
