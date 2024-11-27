@@ -62,8 +62,6 @@ const SubMenu = ({
 	const { modal } = useGlobalModal()
 	const { ALLOWED_CURRENCIES } = useStaticData()
 
-	console.log('----menuList', menuList)
-
 	const menus = menuList.map(mainMenuItem => {
 		const { lobbyCategoryId, desktop, subMenu, category } = mainMenuItem || {}
 		const { subMenuClassName } = desktop || {}

@@ -215,9 +215,9 @@ export const MenuContainer = styled.div`
 			justify-content: center;
 			flex-flow: wrap;
 			height: 0;
-			width: ${({ theme }) => theme.desktop.contentWidth};
+			width: 110rem;
 			margin: auto;
-			padding: 4rem;
+			padding: 4rem 4rem 2rem;
 
 			&.maintenance {
 				filter: grayscale(2);
@@ -233,7 +233,7 @@ export const MenuContainer = styled.div`
 				transition: 0s;
 				position: relative;
 				max-width: 14rem;
-				margin: 0 1.5rem;
+				margin: 0 1.5rem 2rem;
 				opacity: 0;
 				color: #fff;
 
@@ -360,7 +360,7 @@ export const MenuContainer = styled.div`
 			a,
 			button {
 				.List-bg {
-					margin-left: -90px;
+					margin-left: -9rem;
 				}
 			}
 		}
