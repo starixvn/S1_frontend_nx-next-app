@@ -406,13 +406,10 @@ const Form = ({ cookies }: IJoinProps) => {
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
-		let reCaptchaToken
-
-		if (captchaType === CaptchaTypeEnum.Number) {
-			reCaptchaToken = getValues('reCaptchaToken')
-		} else {
-			reCaptchaToken = await getToken()
-		}
+		const reCaptchaToken =
+			captchaType === CaptchaTypeEnum.Number
+				? getValues('reCaptchaToken')
+				: await getToken()
 
 		// currency & recaptcha & affiliate cannot use form required check
 		if (!currencyCheck || !affCodeCheck) return
@@ -447,8 +444,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				userpwd: password,
 				langId: userLang,
 				lineUserId: lineUserId as string,
-				reCaptchaToken,
-				captchaType,
+				...(reCaptchaToken && { reCaptchaToken, captchaType }),
 			}).unwrap()
 
 			MetaPixelTracker(

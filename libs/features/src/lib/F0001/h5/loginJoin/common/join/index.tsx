@@ -241,15 +241,10 @@ const Join = ({ cookies }: IJoinProps) => {
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
-		// 目前只有 nova 需要 google recaptcha，因為 Yashbet 外面沒有包ㄧ層 GReCaptchaProviders
-		// 會找不到 executeRecaptcha 壞掉 需要在此排除
-		// 中國地區不需驗證
-		let reCaptchaToken
-		if (captchaType === CaptchaTypeEnum.Number) {
-			reCaptchaToken = getValues('reCaptchaToken')
-		} else {
-			reCaptchaToken = await getToken()
-		}
+		const reCaptchaToken =
+			captchaType === CaptchaTypeEnum.Number
+				? getValues('reCaptchaToken')
+				: await getToken()
 
 		// currency & recaptcha & affiliate cannot use form required check
 		if (!currencyCheck || !affCodeCheck) return
@@ -283,8 +278,7 @@ const Join = ({ cookies }: IJoinProps) => {
 				userpwd: password,
 				langId: userLang,
 				lineUserId: cookieLineUserId as string,
-				reCaptchaToken,
-				captchaType,
+				...(reCaptchaToken && { reCaptchaToken, captchaType }),
 			}).unwrap()
 			setStep(3)
 			MetaPixelTracker(
