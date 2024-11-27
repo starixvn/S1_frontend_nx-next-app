@@ -540,6 +540,7 @@ const Form = () => {
 					/>
 				)}
 			</div>
+
 			<div style={{ textAlign: 'center' }}>
 				<Captcha />
 			</div>
@@ -553,6 +554,7 @@ const Form = () => {
 					touched={!!touchedFields['reCaptchaToken']}
 				/>
 			)}
+
 			<div className='Terms'>
 				{t('Label_Join_SignUpTerms1')}
 				<a
@@ -567,6 +569,7 @@ const Form = () => {
 				</a>
 				{t('Label_Join_SignUpTerms3')}
 			</div>
+
 			<div className='btnGroup'>
 				<button
 					className='btn-check primary'

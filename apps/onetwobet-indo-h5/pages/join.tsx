@@ -4,6 +4,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { MultiCaptchaProvider } from '@nx-next-app/operations'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Layout } from '../components'
@@ -23,7 +24,9 @@ const JoinPage = ({
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
 				<Layout persistSEOData={persistSEOData}>
-					<Join />
+					<MultiCaptchaProvider>
+						<Join />
+					</MultiCaptchaProvider>
 				</Layout>
 			</GlobalDataProvider>
 		</AuthProvider>
