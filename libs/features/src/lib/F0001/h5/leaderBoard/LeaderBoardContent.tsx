@@ -1,6 +1,5 @@
-import React from 'react'
-import { useTranslation } from 'next-i18next'
 import { useLeaderBoard } from '@nx-next-app/data-access'
+import { useTranslation } from 'next-i18next'
 import LeaderBoardContentNav from './LeaderBoardContentNav'
 import LeaderBoardRankList from './LeaderBoardRanks/LeaderBoardRankList'
 
@@ -20,7 +19,7 @@ const LeaderBoardContent = () => {
 			<div className='text-blue'>
 				{t(
 					LEADER_BOARD_TABS.find(({ id }) => activeTab === id)?.displayKey ?? ''
-				)}
+				).toUpperCase()}
 			</div>
 			<LeaderBoardContentNav />
 			<div className='rankModule'>

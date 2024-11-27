@@ -174,6 +174,9 @@ export const paths = {
 			prize: '/event/lottery/prize',
 		},
 	},
+	predictionChallenge: {
+		root: '/prediction-challenge',
+	},
 } as const
 
 export type IRootpath = (typeof paths)[keyof typeof paths]['root']

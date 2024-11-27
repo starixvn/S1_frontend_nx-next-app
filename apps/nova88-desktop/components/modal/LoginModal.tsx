@@ -8,8 +8,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
-const LoginModal = () => {
-	const router = useRouter()
+const LoginModal = ({ path = paths.deposit.root }: { path?: string }) => {
+	const { push, reload, pathname } = useRouter()
 	const { t } = useTranslation()
 	const { closeModal } = useGlobalModal()
 
@@ -66,7 +66,11 @@ const LoginModal = () => {
 			}).unwrap()
 
 			closeModal()
-			router.push(`/${langId}${paths.deposit.root}`)
+			if (pathname !== path) {
+				await push(`/${langId}${path}`)
+			} else {
+				reload()
+			}
 		} catch (error) {
 			const { errorCode, message } =
 				(error as {

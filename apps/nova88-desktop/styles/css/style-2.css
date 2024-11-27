@@ -570,7 +570,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .sponsorList,
 .header > div.menu .subMenu-Wrapper-new .rankingList,
 .header > div.menu .subMenu-Wrapper-new .eventList,
-.header > div.menu .subMenu-Wrapper-new .cryptoList {
+.header > div.menu .subMenu-Wrapper-new .cryptoList,
+.header > div.menu .subMenu-Wrapper-new .prediction-list {
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -600,7 +601,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .sponsorList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .rankingList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .eventList.maintenance,
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance {
+.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.maintenance {
   -webkit-filter: grayscale(2);
           filter: grayscale(2);
 }
@@ -639,7 +641,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a,
 .header > div.menu .subMenu-Wrapper-new .eventList button,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 210px;
           flex: 1 1 210px;
@@ -702,7 +706,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a .under,
 .header > div.menu .subMenu-Wrapper-new .eventList button .under,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a .under,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button .under {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button .under,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a .under,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button .under {
   display: none;
   position: absolute;
   z-index: 1;
@@ -746,7 +752,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a.active,
 .header > div.menu .subMenu-Wrapper-new .eventList button.active,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a.active,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button.active {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button.active,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a.active,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button.active {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
 }
@@ -785,7 +793,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a.active .under,
 .header > div.menu .subMenu-Wrapper-new .eventList button.active .under,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a.active .under,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button.active .under {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button.active .under,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a.active .under,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button.active .under {
   display: block;
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a .live:before,
@@ -823,7 +833,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a .live:before,
 .header > div.menu .subMenu-Wrapper-new .eventList button .live:before,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a .live:before,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button .live:before {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button .live:before,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a .live:before,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button .live:before {
   bottom: 30px;
   top: auto;
   right: 15px;
@@ -905,7 +917,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .eventList button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button img.List-npc {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button img.List-npc,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a img.List-npc,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button img.List-npc {
   z-index: 1;
   margin: 0 0 -30px -30px;
 }
@@ -1141,7 +1155,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a:hover img,
 .header > div.menu .subMenu-Wrapper-new .eventList button:hover img,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a:hover img,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button:hover img {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button:hover img,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a:hover img,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button:hover img {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   opacity: 1;
@@ -1181,7 +1197,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .eventList button:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a:hover img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button:hover img.List-npc {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button:hover img.List-npc,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a:hover img.List-npc,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button:hover img.List-npc {
   margin: 0 0 0 10px;
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a:hover img.List-bg,
@@ -1219,7 +1237,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .eventList button:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a:hover img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button:hover img.List-bg {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button:hover img.List-bg,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a:hover img.List-bg,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button:hover img.List-bg {
   -webkit-filter: grayscale(0);
           filter: grayscale(0);
   margin: 0 0 10px 0;
@@ -1259,7 +1279,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a > span,
 .header > div.menu .subMenu-Wrapper-new .eventList button > span,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a > span,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button > span {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button > span,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a > span,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button > span {
   position: absolute;
   font-size: 16px;
   width: 150px;
@@ -1314,7 +1336,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .eventList button.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a.icon-new:before,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button.icon-new:before {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button.icon-new:before,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a.icon-new:before,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button.icon-new:before {
   font-size: 12px;
   top: auto;
   bottom: 30px;
@@ -1352,7 +1376,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .sponsorList.active,
 .header > div.menu .subMenu-Wrapper-new .rankingList.active,
 .header > div.menu .subMenu-Wrapper-new .eventList.active,
-.header > div.menu .subMenu-Wrapper-new .cryptoList.active {
+.header > div.menu .subMenu-Wrapper-new .cryptoList.active,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.active {
   opacity: 1;
   visibility: visible;
   height: auto;
@@ -1392,7 +1417,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList.active a,
 .header > div.menu .subMenu-Wrapper-new .eventList.active button,
 .header > div.menu .subMenu-Wrapper-new .cryptoList.active a,
-.header > div.menu .subMenu-Wrapper-new .cryptoList.active button {
+.header > div.menu .subMenu-Wrapper-new .cryptoList.active button,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.active a,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.active button {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   opacity: 1;
@@ -1439,7 +1466,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList.active a img,
 .header > div.menu .subMenu-Wrapper-new .eventList.active button img,
 .header > div.menu .subMenu-Wrapper-new .cryptoList.active a img,
-.header > div.menu .subMenu-Wrapper-new .cryptoList.active button img {
+.header > div.menu .subMenu-Wrapper-new .cryptoList.active button img,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.active a img,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.active button img {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   margin-left: 0;
@@ -1599,7 +1628,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList.active a > span,
 .header > div.menu .subMenu-Wrapper-new .eventList.active button > span,
 .header > div.menu .subMenu-Wrapper-new .cryptoList.active a > span,
-.header > div.menu .subMenu-Wrapper-new .cryptoList.active button > span {
+.header > div.menu .subMenu-Wrapper-new .cryptoList.active button > span,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.active a > span,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.active button > span {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   left: 0;
@@ -1892,6 +1923,14 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .rankingList > a div:last-child {
   color: #1D3662;
   font-size: 16px;
+}
+.header > div.menu .subMenu-Wrapper-new .prediction-list a img,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button img {
+  margin-bottom: 20px;
+}
+.header > div.menu .subMenu-Wrapper-new .prediction-list a img:hover,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button img:hover {
+  margin-left: 10px;
 }
 .header > div.function {
   display: -webkit-box;
