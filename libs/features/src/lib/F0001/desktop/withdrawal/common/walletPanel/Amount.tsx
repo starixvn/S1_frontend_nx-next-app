@@ -131,12 +131,13 @@ const Amount = () => {
 										eWalletWithdrawalMin,
 										currencyId
 								  )} / ${
-										unlimited
-											? t('Label_General_Unlimited')
-											: numberFormat(
-													eWalletWithdrawalAvailableAmount,
-													currencyId
-											  )
+										unlimited ? (
+											<span style={{ paddingRight: '5px' }}>
+												{t('Label_General_Unlimited')}
+											</span>
+										) : (
+											numberFormat(eWalletWithdrawalAvailableAmount, currencyId)
+										)
 								  }`
 								: ''
 						}
@@ -144,7 +145,7 @@ const Amount = () => {
 						errorMessage={errors['amount']?.message as string}
 					/>
 					<div className='tip active'>
-						<span>
+						<span style={{ paddingRight: '5px' }}>
 							{t('Label_General_Times')}
 							{`${withdrawalTimes} / ${
 								maxTimes === 0 ? t('Label_General_Unlimited') : maxTimes
