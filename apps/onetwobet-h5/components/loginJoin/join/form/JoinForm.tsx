@@ -13,7 +13,9 @@ import {
 	USERNAME_REGEX,
 } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
+import { useCaptchaContext } from '@nx-next-app/operations'
 import {
+	CaptchaTypeEnum,
 	useLazyAffiliateCheckQuery,
 	useLazyExistsEmailQuery,
 	useLazyExistsUserNameQuery,
@@ -65,6 +67,8 @@ const JoinForm = ({
 		setValue,
 	} = useFormContext()
 	const { errors, touchedFields } = formState
+
+	const { Captcha, captchaType } = useCaptchaContext()
 
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [checkExistsUsername] = useLazyExistsUserNameQuery()
@@ -298,6 +302,19 @@ const JoinForm = ({
 					{t('Label_General_Register')}
 				</button>
 			</div>
+
+			<Captcha />
+			{captchaType === CaptchaTypeEnum.Number && (
+				<InputBox
+					register={register('reCaptchaToken', { required: true })}
+					icon='icon txt-blue'
+					placeholder={t('Label_General_EnterCaptchaCode') as string}
+					errorMessage={errors['reCptchaToken']?.message as string}
+					error={!!errors['reCptchaToken']}
+					touched={!!touchedFields['reCptchaToken']}
+				/>
+			)}
+
 			<div className='Terms'>
 				{t('Label_Join_SignUpTerms1')}
 				{'  '}
