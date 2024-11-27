@@ -925,6 +925,13 @@ export const GlobalStyles = createGlobalStyle`
         width : max-content;
       }
     }
+    .txt-blue{
+      color: #374375 !important;
+      font-size: 1.4rem;
+      font-weight: 600 !important;
+      line-height: normal;
+      margin-left : .8rem;
+    }
   }
   .pagination{
     gap : .8rem;

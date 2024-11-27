@@ -84,8 +84,10 @@ export const WrapperWithdrawl = styled.div`
 				font-weight: 400;
 				line-height: 2rem;
 				color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
-				a {
+				a,
+				span {
 					color: #1b5bff;
+					font-weight: 600;
 				}
 			}
 		}

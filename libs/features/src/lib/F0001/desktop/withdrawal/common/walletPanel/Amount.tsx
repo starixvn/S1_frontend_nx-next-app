@@ -132,7 +132,7 @@ const Amount = () => {
 										currencyId
 								  )} / ${
 										unlimited ? (
-											<span style={{ paddingRight: '5px' }}>
+											<span className='txt-red' style={{ paddingRight: '5px' }}>
 												{t('Label_General_Unlimited')}
 											</span>
 										) : (
@@ -145,11 +145,14 @@ const Amount = () => {
 						errorMessage={errors['amount']?.message as string}
 					/>
 					<div className='tip active'>
-						<span style={{ paddingRight: '5px' }}>
-							{t('Label_General_Times')}
-							{`${withdrawalTimes} / ${
-								maxTimes === 0 ? t('Label_General_Unlimited') : maxTimes
-							}`}
+						<span className='txt-red' style={{ paddingRight: '5px' }}>
+							<span>{t('Label_General_Times')} :</span>
+							<span>
+								{' '}
+								{`${withdrawalTimes} / ${
+									maxTimes === 0 ? t('Label_General_Unlimited') : maxTimes
+								}`}
+							</span>
 						</span>
 						{withdrawalMinMaxLimitHint}
 					</div>
