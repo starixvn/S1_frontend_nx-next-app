@@ -301,7 +301,7 @@ const Form = () => {
 		if (
 			typeof window !== undefined &&
 			'IGLOO' in window &&
-			typeof (window as any).IGLOO?.getBlackbox === 'function'
+			typeof (window as any).IGLOO.getBlackbox === 'function'
 		) {
 			try {
 				const result = await (window as any).IGLOO.getBlackbox()

@@ -3,7 +3,7 @@ import { useHome } from '@nx-next-app/features/F0006/providers'
 import { useGetSeoQuery } from '@nx-next-app/service'
 import { ISeoData } from 'libs/web/src/app/types/footer'
 import { useTranslation } from 'next-i18next'
-import Head from 'next/head'
+import Script from 'next/script'
 import { useEffect } from 'react'
 
 // 手機版 License 只存在於此處，資料流不像桌機有在 Layout 中共用，故獨立寫在 Home 內
@@ -109,18 +109,14 @@ const License = () => {
 					)}
 				</div>
 			</div>
-			<Head>
-				<script
-					src={`https://${CuracaoScript}.snippet.antillephone.com/apg-seal.js`}
-					async
-					defer
-				/>
-				{/* <script */}
-				{/*	src={`https://${XCMScript}.seals-xcm.certria.com/xcm-seal.js`} */}
-				{/*	async */}
-				{/*	defer */}
-				{/* /> */}
-			</Head>
+			<Script
+				src={`https://${CuracaoScript}.snippet.antillephone.com/apg-seal.js`}
+				strategy='lazyOnload'
+			/>
+			{/* <Script */}
+			{/*	src={`https://${XCMScript}.seals-xcm.certria.com/xcm-seal.js`} */}
+			{/*	strategy='lazyOnload' */}
+			{/* /> */}
 		</>
 	)
 }
