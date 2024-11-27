@@ -244,8 +244,9 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 				}}
 				errorMessage={errors['nationality']?.message as string}
 			/>
-
-			<Captcha />
+			<div style={{ textAlign: 'center' }}>
+				<Captcha />
+			</div>
 			{captchaType === CaptchaTypeEnum.Number && (
 				<InputBox
 					register={register('reCaptchaToken', { required: true })}

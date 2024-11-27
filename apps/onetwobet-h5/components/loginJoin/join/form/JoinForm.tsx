@@ -293,17 +293,10 @@ const JoinForm = ({
 				infoMessage={t('Label_Join_Please_Enter_Affiliate_ID')}
 				readOnly={!!urlAffiliate && !!getValues('affiliate')}
 			/>
-			<div className='btn-group'>
-				<button
-					type='submit'
-					className='primary'
-					style={{ textTransform: 'uppercase' }}
-				>
-					{t('Label_General_Register')}
-				</button>
-			</div>
 
-			<Captcha />
+			<div style={{ textAlign: 'center' }}>
+				<Captcha />
+			</div>
 			{captchaType === CaptchaTypeEnum.Number && (
 				<InputBox
 					register={register('reCaptchaToken', { required: true })}
@@ -314,6 +307,16 @@ const JoinForm = ({
 					touched={!!touchedFields['reCaptchaToken']}
 				/>
 			)}
+
+			<div className='btn-group'>
+				<button
+					type='submit'
+					className='primary'
+					style={{ textTransform: 'uppercase' }}
+				>
+					{t('Label_General_Register')}
+				</button>
+			</div>
 
 			<div className='Terms'>
 				{t('Label_Join_SignUpTerms1')}

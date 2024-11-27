@@ -540,7 +540,9 @@ const Form = () => {
 					/>
 				)}
 			</div>
-			<Captcha />
+			<div style={{ textAlign: 'center' }}>
+				<Captcha />
+			</div>
 			{captchaType === CaptchaTypeEnum.Number && (
 				<InputBox
 					register={register('reCaptchaToken', { required: true })}
