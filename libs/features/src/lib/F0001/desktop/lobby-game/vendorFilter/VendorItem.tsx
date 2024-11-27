@@ -1,7 +1,7 @@
-import React, { useRef } from 'react'
-import process from 'process'
-import { useHover } from 'usehooks-ts'
-import classNames from 'classnames'
+import classNames from "classnames";
+import process from "process";
+import { useRef } from "react";
+import { useHover } from "usehooks-ts";
 
 interface IVendorItemProps {
 	isActive: boolean
@@ -25,13 +25,13 @@ const VendorItem = ({
 			onClick={onClick}
 			className={classNames('provider-list-item', { active: isActive })}
 		>
-			<div>
+			<div className='img-container'>
 				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/lobby-slots/provider-logo/${imgName}.png`}
 					alt={displayText}
 				/>
 			</div>
-			<div>{displayText}</div>
+			<div className='name'>{displayText}</div>
 		</a>
 	)
 }

@@ -1,12 +1,11 @@
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { HomePage } from '@nx-next-app/features/F0001/desktop/home/styles'
-import { useHome } from '@nx-next-app/features/F0001/providers'
-import { DesktopHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
-import dynamic from 'next/dynamic'
-import { Fragment, useCallback } from 'react'
+import { useAuth, useStaticData } from "@nx-next-app/data-access";
+import { HomePage } from "@nx-next-app/features/F0001/desktop/home/styles";
+import { useHome } from "@nx-next-app/features/F0001/providers";
+import { DesktopHomeComponentsEnum } from "@nx-next-app/features/F0001/types";
+import dynamic from "next/dynamic";
+import { Fragment, useCallback } from "react";
 
 // Page Components
-const ProvidersBlock = dynamic(() => import('./ProvidersBlock'), { ssr: false })
 
 const WelcomeInfo = dynamic(() => import('./welcomeInfo/WelcomeInfo'))
 

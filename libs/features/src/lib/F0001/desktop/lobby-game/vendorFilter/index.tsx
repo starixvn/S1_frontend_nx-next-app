@@ -1,6 +1,8 @@
-import classNames from 'classnames'
-import { useLobby } from '@nx-next-app/features/F0001/providers'
-import VendorItem from './VendorItem'
+import { VendorFilterContainer } from "@nx-next-app/features/F0001/desktop/lobby-game/vendorFilter/styles";
+import { useLobby } from "@nx-next-app/features/F0001/providers";
+import classNames from "classnames";
+
+import VendorItem from "./VendorItem";
 
 const VendorFilter = () => {
 	const {
@@ -10,9 +12,10 @@ const VendorFilter = () => {
 		onVendorChange,
 		onToggleDropdown,
 	} = useLobby()
+
 	return (
-		<div
-			className={`provider ${classNames({
+		<VendorFilterContainer
+			className={`${classNames({
 				active: isActiveDropdown,
 			})}`}
 		>
@@ -24,7 +27,7 @@ const VendorFilter = () => {
 							onVendorChange({
 								tpId,
 								openPath,
-                isLobby: true
+								isLobby: true,
 							})
 						}
 						isActive={activeVendorTpId === tpId}
@@ -33,13 +36,13 @@ const VendorFilter = () => {
 					/>
 				))}
 			</div>
-			<button onClick={() => onToggleDropdown()}>
+			<button className='btn-toggle' onClick={() => onToggleDropdown()}>
 				<img
 					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/lobby-slots/down.png`}
 					alt=''
 				/>
 			</button>
-		</div>
+		</VendorFilterContainer>
 	)
 }
 
