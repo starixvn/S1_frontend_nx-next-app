@@ -244,6 +244,19 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 				}}
 				errorMessage={errors['nationality']?.message as string}
 			/>
+			<div style={{ textAlign: 'center' }}>
+				<Captcha />
+			</div>
+			{captchaType === CaptchaTypeEnum.Number && (
+				<InputBox
+					register={register('reCaptchaToken', { required: true })}
+					icon='icon txt-blue'
+					placeholder={t('Label_General_EnterCaptchaCode') as string}
+					errorMessage={errors['reCaptchaToken']?.message as string}
+					error={!!errors['reCaptchaToken']}
+					touched={!!touchedFields['reCaptchaToken']}
+				/>
+			)}
 
 			<Captcha />
 			{captchaType === CaptchaTypeEnum.Number && (

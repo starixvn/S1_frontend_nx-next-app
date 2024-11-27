@@ -1,14 +1,13 @@
-import {
-	createContext,
-	ReactNode,
-	useContext,
-	useEffect,
-	useState,
-} from 'react'
-import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { find, head, isUndefined } from 'lodash-es'
+import { useAuth } from '@nx-next-app/data-access'
+import { useManageCards } from '@nx-next-app/features/F0001/providers/withdrawal-context/useManageCards'
+import { useWithdrawalHistory } from '@nx-next-app/features/F0001/providers/withdrawal-context/useWithdrawalHistory'
+import {
+	KycStatusEnum,
+	WithdrawalBankCardEnum,
+	WithdrawalPanelStatusEnum,
+} from '@nx-next-app/features/F0001/types'
 import {
 	IAxiosError,
 	IBankInfoData,
@@ -33,19 +32,20 @@ import {
 	useSubmitWithdrawalMutation,
 	useUploadCustPhotoMutation,
 } from '@nx-next-app/service'
-import { useAuth } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import {
-	KycStatusEnum,
-	WithdrawalBankCardEnum,
-	WithdrawalPanelStatusEnum,
-} from '@nx-next-app/features/F0001/types'
-import { useTranslation } from 'next-i18next'
-import { isConvert, numberFormat } from '@nx-next-app/utils'
 import { CurrenciesEnum, DeviceTypeEnum } from '@nx-next-app/types'
-import { useForm, UseFormReturn } from 'react-hook-form'
-import { useManageCards } from '@nx-next-app/features/F0001/providers/withdrawal-context/useManageCards'
-import { useWithdrawalHistory } from '@nx-next-app/features/F0001/providers/withdrawal-context/useWithdrawalHistory'
+import { isConvert, numberFormat } from '@nx-next-app/utils'
+import { find, head, isUndefined } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
+import {
+	ReactNode,
+	createContext,
+	useContext,
+	useEffect,
+	useState,
+} from 'react'
+import { UseFormReturn, useForm } from 'react-hook-form'
 
 const WithdrawalSuccessModal = dynamic(
 	() =>
@@ -549,25 +549,6 @@ export const WithdrawalProvider = ({
 		}
 	}
 
-	// 三方 blackBox , submit 要用
-	const getBlackBox = async () => {
-		let blackBox = ''
-		if (
-			typeof window !== undefined &&
-			// 引入三方時 windows 必須 as any 斷言，否在編譯時無法正確載入 三方的 function 導致報錯
-			typeof (window as any).IGLOO.getBlackbox === 'function'
-		) {
-			try {
-				const result = await (window as any).IGLOO.getBlackbox()
-				blackBox = result?.blackbox || ''
-			} catch (e) {
-				//
-			}
-		}
-
-		return blackBox
-	}
-
 	// 送出 Amount -> backend
 	const handleWithdrawalConfirm = async ({
 		amount = withdrawalAmount,
@@ -595,7 +576,7 @@ export const WithdrawalProvider = ({
 		}
 		if (target && target.disabled) return
 
-		const blackbox = await getBlackBox()
+		const blackbox = ''
 
 		// 成功彈窗，手控初始化時機
 		const onSuccess = () => {

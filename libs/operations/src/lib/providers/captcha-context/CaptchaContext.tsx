@@ -29,7 +29,10 @@ interface ICaptchaContext {
 	captchaType?: CaptchaTypeEnum
 }
 
-export const CaptchaContext = createContext({} as ICaptchaContext)
+const CaptchaContext = createContext<ICaptchaContext>({
+	getToken: () => '',
+	Captcha: () => null,
+})
 
 interface ICaptchaProviderProps {
 	children: ReactNode
@@ -40,7 +43,7 @@ interface ICaptchaProviderProps {
 const CaptchaProvider = ({
 	children,
 	recaptchaInfoData,
-	action = CaptchaActionTypeEnum.signup,
+	action = CaptchaActionTypeEnum.Signup,
 }: ICaptchaProviderProps) => {
 	const token = useRef('')
 	const [captchaType, setCaptchaType] = useState<undefined | CaptchaTypeEnum>()

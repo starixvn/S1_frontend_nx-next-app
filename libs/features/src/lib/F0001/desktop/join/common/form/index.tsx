@@ -374,23 +374,6 @@ const Form = ({ cookies }: IJoinProps) => {
 		}
 	}
 
-	const getBlackbox = async () => {
-		let blackbox = ''
-		if (
-			typeof window !== undefined &&
-			typeof (window as any).IGLOO.getBlackbox === 'function'
-		) {
-			try {
-				const result = await (window as any).IGLOO.getBlackbox()
-				blackbox = result?.blackbox || ''
-			} catch (error) {
-				// error
-			}
-		}
-
-		return blackbox
-	}
-
 	const handleCancel = () => {
 		reset()
 		router.push('/')
@@ -418,13 +401,10 @@ const Form = ({ cookies }: IJoinProps) => {
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
-		let reCaptchaToken
-
-		if (captchaType === CaptchaTypeEnum.Number) {
-			reCaptchaToken = getValues('reCaptchaToken')
-		} else {
-			reCaptchaToken = await getToken()
-		}
+		const reCaptchaToken =
+			captchaType === CaptchaTypeEnum.Number
+				? getValues('reCaptchaToken')
+				: await getToken()
 
 		// currency & recaptcha & affiliate cannot use form required check
 		if (!currencyCheck || !affCodeCheck) return
@@ -439,7 +419,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				({ value }) => value === langId
 			)?.value ?? 'en'
 
-		const blackbox = await getBlackbox()
+		const blackbox = ''
 		try {
 			await signUp({
 				// 因 cookies 有機會是 string[] 導致錯誤
@@ -461,8 +441,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				blackbox,
 				langId: userLang,
 				lineUserId: lineUserId as string,
-				reCaptchaToken,
-				captchaType,
+				...(reCaptchaToken && { reCaptchaToken, captchaType }),
 			}).unwrap()
 
 			MetaPixelTracker('CompleteRegistration')
@@ -706,9 +685,9 @@ const Form = ({ cookies }: IJoinProps) => {
 					register={register('reCaptchaToken', { required: true })}
 					icon='icon txt-blue'
 					placeholder={t('Label_General_EnterCaptchaCode') as string}
-					errorMessage={errors['reCptchaToken']?.message as string}
-					error={!!errors['reCptchaToken']}
-					touched={!!touchedFields['reCptchaToken']}
+					errorMessage={errors['reCaptchaToken']?.message as string}
+					error={!!errors['reCaptchaToken']}
+					touched={!!touchedFields['reCaptchaToken']}
 				/>
 			)}
 			<div className='Terms'>

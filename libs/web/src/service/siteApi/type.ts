@@ -71,9 +71,9 @@ export enum CaptchaTypeEnum {
 }
 
 export enum CaptchaActionTypeEnum {
-	'signup' = 'signup',
-	'login' = 'login',
-	'password_reset' = 'password_reset',
+	Signup = 'signup',
+	Login = 'login',
+	PasswordReset = 'password_reset',
 }
 
 export interface ISignUpArgs {

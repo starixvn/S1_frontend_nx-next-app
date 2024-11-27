@@ -8,7 +8,7 @@ export const FallbackCaptcha = () => {
 	const [trigger, response] = useLazyGetNumberCaptchaQuery()
 	const { data: numberCaptcha } = response?.data || {}
 
-	const refreshCaptcha = () => trigger({ action: CaptchaActionTypeEnum.signup })
+	const refreshCaptcha = () => trigger({ action: CaptchaActionTypeEnum.Signup })
 
 	useEffect(() => {
 		refreshCaptcha()

@@ -536,6 +536,7 @@ export const WithdrawalProvider = ({
 		let blackBox = ''
 		if (
 			typeof window !== undefined &&
+			'IGLOO' in window &&
 			// 引入三方時 windows 必須 as any 斷言，否在編譯時無法正確載入 三方的 function 導致報錯
 			typeof (window as any).IGLOO.getBlackbox === 'function'
 		) {
