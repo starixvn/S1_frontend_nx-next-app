@@ -1114,4 +1114,17 @@ export const GlobalStyles = createGlobalStyle`
       padding-top: 4rem;
     }
   }
+
+  .wraper-client{
+    max-width : 1400px;
+    width : 100%;
+    margin : 0 auto;
+    padding : 0 1.2rem;
+    .title-client{
+      font-size: 3.3rem;
+      font-weight: 700;
+      line-height: normal;
+      margin-bottom : 4rem;
+    }
+  }
 `

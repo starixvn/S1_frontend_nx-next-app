@@ -1,11 +1,10 @@
-import React from 'react'
-import { usePromotion } from '@nx-next-app/features/F0001/providers'
-import { useAuth } from '@nx-next-app/data-access'
-import classNames from 'classnames'
-import { PromotionFilterEnum } from '@nx-next-app/types'
-import { toUpper } from 'lodash-es'
 import { Form } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useAuth } from '@nx-next-app/data-access'
+import { usePromotion } from '@nx-next-app/features/F0001/providers'
+import { PromotionFilterEnum } from '@nx-next-app/types'
+import classNames from 'classnames'
+import { toUpper } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 
 const PromotionFilter = () => {
@@ -25,7 +24,7 @@ const PromotionFilter = () => {
 	return (
 		<>
 			<div className='promosSelect'>
-				<div className='btnGroup promoType'>
+				<div className='promoType'>
 					{PROMOTION_SELECT_OPTIONS.map(option => {
 						if (option.needLogin && !isLogin) {
 							return null
@@ -35,8 +34,7 @@ const PromotionFilter = () => {
 							<button
 								key={option.value}
 								className={classNames({
-									'icon icon-icon32px_ALL':
-										option.value === PromotionFilterEnum.All,
+									'': option.value === PromotionFilterEnum.All,
 									blue: activeFilterType === option.value,
 									blueBorder: activeFilterType !== option.value,
 								})}
@@ -63,11 +61,13 @@ const PromotionFilter = () => {
 							})
 						})}
 					>
-						<div className='inputBox-white'>
+						<div className='inputBox-blue'>
 							<input {...promotionForm.register('specialCode')} required />
 						</div>
 						<div className='btnGroup'>
-							<button className='btn-check'>{t('Label_General_Submit')}</button>
+							<button className='btn-primary'>
+								{t('Label_General_Submit')}
+							</button>
 						</div>
 					</Form>
 				</div>

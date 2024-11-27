@@ -9,7 +9,7 @@ export const theme = {
 		inputBorderColorError: '#F00',
 		tipColorError: '#F00',
 		tipColor: '#7883B4',
-		fontFamily: `'Anybody', sans-serif`,
+		fontFamily: `'Montserrat', serif`,
 
 		headerBg: '#0F1428',
 		headerColor: '#7883B4',
@@ -252,6 +252,15 @@ export const theme = {
 		datePickerSelectRangeBg: '#717FBA',
 		datePickerHeaderBg: '#0F1428',
 		datePickerBoxShadow: '0px 6px 30px 0px rgba(0, 0, 0, 0.50)',
+
+		promotionTabsBodyBg: '#232B4F',
+		promotionNavBg: '#374375',
+		promotionNavActiveBg: 'linear-gradient(0deg, #717FBA 0%, #A2AFE5 100%)',
+		promotionItemsBg: '#2E3965',
+		promotionItemBgHover: '#374375',
+		promotionBorderItems: '#717FBA',
+		promotionTimeBg: '#374375',
+		promotionTimeBgHover: '#414F86',
 	},
 	mobile: {},
 }

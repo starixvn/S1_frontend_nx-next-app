@@ -1,4 +1,9 @@
-import { useTranslation } from 'next-i18next'
+import { usePromotion } from '@nx-next-app/features/F0001/providers'
+import {
+	PromotionActionType,
+	PromotionFilterEnum,
+	PromotionTypeEnum,
+} from '@nx-next-app/types'
 import {
 	getExpiryTime,
 	getIsHidePromotionJoinButton,
@@ -6,14 +11,9 @@ import {
 	isPromotionNew,
 	isShowPromotionProgressBar,
 } from '@nx-next-app/utils'
-import { usePromotion } from '@nx-next-app/features/F0001/providers'
 import classNames from 'classnames'
 import { includes } from 'lodash-es'
-import {
-	PromotionActionType,
-	PromotionFilterEnum,
-	PromotionTypeEnum,
-} from '@nx-next-app/types'
+import { useTranslation } from 'next-i18next'
 import PromotionProgressBar from './PromotionProgressBar'
 
 const PromotionList = () => {
@@ -75,7 +75,7 @@ const PromotionList = () => {
 
 				return (
 					<div
-						className={classNames({
+						className={classNames('proListNew-item', {
 							active: isPromotionClaimed({
 								isJoin,
 								status,
@@ -84,7 +84,7 @@ const PromotionList = () => {
 						key={bonusCode}
 					>
 						<div
-							className={classNames({
+							className={classNames('promotion-status', {
 								claimed: isPromotionClaimed({
 									isJoin,
 									status,
@@ -105,8 +105,10 @@ const PromotionList = () => {
 							<img src={banner} alt={title} />
 						</div>
 						<div className='promoInfo'>
-							<div className='txt-darkBlue'>{title}</div>
-							<div className='txt-gray'>{description}</div>
+							<div className='group-heading'>
+								<div className='promoInfo-heading'>{title}</div>
+								<div className='promoInfo-description'>{description}</div>
+							</div>
 
 							{isShowPromotionProgressBar({
 								isJoin,
@@ -129,7 +131,7 @@ const PromotionList = () => {
 							<div className='btnGroup'>
 								{!isHideJoinButton && (
 									<button
-										className='orange'
+										className='btn-primary'
 										onClick={() => setClaimPromotionHandler(item)}
 									>
 										{isShowClaimNowButton
@@ -144,13 +146,13 @@ const PromotionList = () => {
 										href={promotionLink as string}
 										target='_blank'
 										rel='noreferrer'
-										className='btn-check'
+										className='btn-secondary'
 									>
 										{t('Label_General_MoreInfo')}
 									</a>
 								) : (
 									<button
-										className='btn-check'
+										className='btn-secondary'
 										onClick={() => onGetPromotionDetail({ bonusCode })}
 									>
 										{t('Label_General_MoreInfo')}
@@ -160,9 +162,12 @@ const PromotionList = () => {
 						</div>
 
 						<div className='remain'>
-							<div className='icon icon-icon32px_time'>
-								{t('Label_Promotion_RemainingTime')}
-								<div>{expiryTime}</div>
+							<div className='date-titem'>
+								<div className='group-icon'>
+									<i className='icon icon-minus_circle' />{' '}
+									{t('Label_Promotion_RemainingTime')}
+								</div>
+								<div className='time'>{expiryTime}</div>
 							</div>
 						</div>
 					</div>
