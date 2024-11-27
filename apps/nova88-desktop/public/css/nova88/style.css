@@ -1730,9 +1730,6 @@ main .promosswiper .swiper-button-prev::after {
 	color: #f9b041;
 }
 
-.txt-red {
-	color: #cf0404;
-}
 
 .txt-dark {
 	color: #191919;
@@ -1742,9 +1739,6 @@ main .promosswiper .swiper-button-prev::after {
 	color: #284985;
 }
 
-.tip.txt-red {
-	color: #cf0404;
-}
 
 .g-recaptcha {
 	display: -webkit-box;
@@ -2616,12 +2610,7 @@ main .promosswiper .swiper-button-prev::after {
 	-ms-flex-pack: center;
 	justify-content: center;
 }
-#popup .pop .editSuccess .tip {
-	width: 90%;
-}
-#popup .pop .editSuccess .inputBox-white {
-	width: 300px;
-}
+
 
 #popup .pop .download {
 	-webkit-box-orient: horizontal;
@@ -7934,11 +7923,6 @@ button.icon-spinner11:before {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-}
-.subModuleListColumn > .subModule .tip.active .txt-red {
-	font-weight: bold;
-	margin-left: 5px;
-	font-size: 14px;
 }
 .subModuleListColumn > .subModule.bankQR {
 	-webkit-box-align: start;

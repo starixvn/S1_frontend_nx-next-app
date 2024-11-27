@@ -197,7 +197,7 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 						},
 						onBlur: checkEmail,
 					})}
-					icon='icon icon-email txt-blue'
+					icon='icon icon-mail-line txt-blue'
 					placeholder={t('Label_General_Email') as string}
 					loading={existsEmailLoading}
 					errorMessage={errors['formEmail']?.message as string}
@@ -240,25 +240,31 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 						{birthDay} / {birthMonth} / {birthYear}
 					</div>
 				) : (
-					<div className='inputBox-blue' style={{ width: 'auto' }}>
-						<DateSelector
-							{...register('birth', {
-								required: {
-									value: true,
-									message: t('Label_Profile_BirthRequired'),
-								},
-								onBlur: () => trigger('birth'),
-							})}
-							selected={formBirth}
-							onChange={date => handleBirthChange({ date })}
-							maxDate={dayjs(legalBirth).toDate()}
-							placeholderText='DD/MM/YYYY'
-							closeOnScroll
-							showDisabledMonthNavigation
-							showYearDropdown
-						/>
-						<div className='iconModule'>
-							<i className='icon icon-calendar' />
+					<div className='group-input have-input' style={{ display: 'block' }}>
+						<div
+							className={`inputBox-blue ${
+								errors['birth']?.message ? 'error' : ''
+							}`}
+						>
+							<DateSelector
+								{...register('birth', {
+									required: {
+										value: true,
+										message: t('Label_Profile_BirthRequired'),
+									},
+									onBlur: () => trigger('birth'),
+								})}
+								selected={formBirth}
+								onChange={date => handleBirthChange({ date })}
+								maxDate={dayjs(legalBirth).toDate()}
+								placeholderText='DD/MM/YYYY'
+								closeOnScroll
+								showDisabledMonthNavigation
+								showYearDropdown
+							/>
+							<div className='iconModule'>
+								<i className='icon icon-calendar-2-line' />
+							</div>
 						</div>
 						<div className='tip active txt-red'>
 							{errors['birth']?.message as string}

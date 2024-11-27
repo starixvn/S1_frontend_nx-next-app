@@ -359,7 +359,7 @@ export const WithdrawalProvider = ({
 			if (currencyId === CurrenciesEnum.INR && !phoneVerified) {
 				modal.confirm(t('Label_Withdrawal_PhoneVerificationHint'), {
 					title: t('Label_General_Withdrawal'),
-					icon: 'icon icon-icon32px_Profile',
+					icon: 'icon icon-notification-active',
 					okText: t('Label_Profile_VertifyNow'),
 					cancelText: t('Label_Profile_Later'),
 					onOK: () => push(paths.profile.root),

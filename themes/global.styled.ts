@@ -297,6 +297,9 @@ export const GlobalStyles = createGlobalStyle`
       color: ${({ theme }) => theme.desktop.tipColorError} !important;
     }
   }
+  .txt-red{
+    color: ${({ theme }) => theme.desktop.tipColorError} !important;
+  }
 
   .error-msg{
     color: ${({ theme }) => theme.desktop.tipColorError}
@@ -307,7 +310,7 @@ export const GlobalStyles = createGlobalStyle`
 
   .react-datepicker__input-container{
     input{
-      width : 90%;
+      width : 88% !important;
       font-size : 1.4rem;
       color: ${({ theme }) => theme.desktop.inputPlaceHolderColor};
       &::placeholder {
@@ -373,7 +376,7 @@ export const GlobalStyles = createGlobalStyle`
       width: 3rem;
       line-height: 3rem;
       color : ${({ theme }) => theme.desktop.white};
-      font-size: 1.3rem;
+      font-size: 1.3rem !important;
       font-weight: 400;
       &:hover{
         background :#717FBA;
@@ -408,7 +411,14 @@ export const GlobalStyles = createGlobalStyle`
       color: ${({ theme }) => theme.desktop.inputPlaceHolderColor};
       font-size : 1.4rem;
     }
-
+  }
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active{
+      -webkit-box-shadow: 0 0 0 30px ${({ theme }) =>
+				theme.desktop.inputBg} inset !important;
+      -webkit-text-fill-color: #ffffff;
   }
   .wrapper-profile {
     display: flex;

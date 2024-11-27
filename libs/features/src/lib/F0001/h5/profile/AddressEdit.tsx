@@ -1,13 +1,13 @@
-import { useForm } from 'react-hook-form'
-import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
-import { includes } from 'lodash-es'
+import { Form, InputBox } from '@nx-next-app/components/H0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { PREV_PAGE, PrevPageEnum } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { PrevPageEnum, PREV_PAGE } from '@nx-next-app/constants'
 import { useSetProfileAddressMutation } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { Form, InputBox } from '@nx-next-app/components/H0001'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useForm } from 'react-hook-form'
 
 import { PhoneOtpModal } from './PhoneOtpModal'
 
@@ -52,7 +52,7 @@ const AddressEdit = () => {
 
 				if (!phoneVerified) {
 					modal.confirm(<div>{t('Label_Profile_VertifyContactConfirm')}</div>, {
-						icon: 'icon icon-icon32px_notification',
+						icon: 'icon icon-notifi icon-notification-active',
 						title: t('Label_General_UpdateSuccessful'),
 						okText: t('Label_Profile_VertifyNow'),
 						cancelText: t('Label_Profile_Later'),
@@ -63,7 +63,7 @@ const AddressEdit = () => {
 						PREV_PAGE[prevPage as PrevPageEnum]
 
 					modal.confirm(t(contentKey), {
-						icon: 'icon icon-icon32px_notification',
+						icon: 'icon icon-notifi icon-notification-active',
 						title: t('Label_General_ImportantNotes'),
 						okText: t(submitKey),
 						cancelText: t('Label_Profile_Later'),
@@ -76,7 +76,7 @@ const AddressEdit = () => {
 		}
 
 		modal.confirm(t('Label_Profile_ProfileModifyWarning'), {
-			icon: 'icon icon-icon32px_notification',
+			icon: 'icon icon-notifi icon-notification-active',
 			title: t('Label_General_ImportantNotes'),
 			okText: t('Label_General_Confirm'),
 			cancelText: t('Label_Profile_ReModify'),

@@ -71,7 +71,7 @@ const Profile = () => {
 							{t('Label_Profile_VertifyContactConfirm')}
 						</div>,
 						{
-							icon: 'icon icon-icon32px_notification',
+							icon: 'icon icon-notifi icon-notification-active',
 							title: t('Label_General_UpdateSuccessful'),
 							okText: t('Label_Profile_VertifyNow'),
 							cancelText: t('Label_Profile_Later'),
@@ -83,7 +83,7 @@ const Profile = () => {
 						PREV_PAGE[prevPage as PrevPageEnum]
 
 					modal.confirm(t(contentKey), {
-						icon: 'icon icon-icon32px_notification',
+						icon: 'icon icon-notifi icon-notification-active',
 						title: t('Label_General_ImportantNotes'),
 						okText: t(submitKey),
 						cancelText: t('Label_Profile_Later'),
@@ -96,7 +96,7 @@ const Profile = () => {
 		}
 
 		modal.confirm(t('Label_Profile_ProfileModifyWarning'), {
-			icon: 'icon icon-icon32px_notification',
+			icon: 'icon icon-notifi icon-notification-active',
 			title: t('Label_General_ImportantNotes'),
 			okText: t('Label_General_Confirm'),
 			cancelText: t('Label_Profile_ReModify'),
@@ -142,7 +142,10 @@ const Profile = () => {
 										<Info formBirth={formBirth} setFormBirth={setFormBirth} />
 									</div>
 									{showSubmitBtn && (
-										<div className='btnGroup'>
+										<div
+											className='btnGroup'
+											style={{ marginBottom: '1.6rem' }}
+										>
 											<button className='btn-primary' type='submit'>
 												{t('Label_General_Submit')}
 											</button>

@@ -1,12 +1,12 @@
-import classNames from 'classnames'
-import { useForm } from 'react-hook-form'
-import { useEffect } from 'react'
-import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
-import { usePhoneOtp } from '@nx-next-app/hooks'
+import { CountdownTimer, Form } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { PREV_PAGE, PrevPageEnum } from '@nx-next-app/constants'
-import { Form, CountdownTimer } from '@nx-next-app/components/H0001'
+import { usePhoneOtp } from '@nx-next-app/hooks'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import { useForm } from 'react-hook-form'
 
 const PhoneOtpModal = () => {
 	const { t } = useTranslation()
@@ -33,7 +33,7 @@ const PhoneOtpModal = () => {
 						PREV_PAGE[prevPage as PrevPageEnum]
 
 					modal.confirm(t(contentKey), {
-						icon: 'icon icon-icon32px_notification',
+						icon: 'icon icon-notifi icon-notification-active',
 						title: t('Label_General_ImportantNotes'),
 						okText: t(submitKey),
 						cancelText: t('Label_Profile_Later'),

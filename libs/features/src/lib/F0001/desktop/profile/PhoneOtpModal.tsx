@@ -33,7 +33,7 @@ const PhoneOtpModal = () => {
 						PREV_PAGE[prevPage as PrevPageEnum]
 
 					modal.confirm(t(contentKey), {
-						icon: 'icon icon-icon32px_notification',
+						icon: 'icon icon-notifi icon-notification-active',
 						title: t('Label_General_ImportantNotes'),
 						okText: t(submitKey),
 						cancelText: t('Label_Profile_Later'),
@@ -55,19 +55,16 @@ const PhoneOtpModal = () => {
 	return (
 		<div className='pop'>
 			<div className='editSuccess active'>
-				<div className='icon icon-icon32px_notification' />
+				<div className='icon icon-notifi icon-notification-active' />
 				<div className='title'>{t('Label_General_ImportantNotes')}</div>
 
 				<div>
 					{t('Label_Profile_SendVerificationCode')} <br />
 					{t('Label_Profile_CheckMobileAndEnter')}
 				</div>
-				<form
-					onSubmit={handleSubmit(handleSubmitForm)}
-					style={{ display: 'contents' }}
-				>
+				<form onSubmit={handleSubmit(handleSubmitForm)}>
 					<div
-						className={classNames('inputBox-white', {
+						className={classNames('inputBox-blue', {
 							error: errors['otpCode'],
 						})}
 					>
@@ -90,13 +87,13 @@ const PhoneOtpModal = () => {
 						<button className='btn-secondary' onClick={closeModal}>
 							{t('Label_General_Close')}
 						</button>
-						<button type='submit' className='btn-primay'>
+						<button type='submit' className='btn-primary'>
 							{t('Label_General_Submit')}
 						</button>
 					</div>
 				</form>
 
-				<div className='resend'>
+				<div className='resend' style={{ marginTop: '1.6rem' }}>
 					{timer ? (
 						<CountdownTimer
 							timer={timer}
@@ -107,14 +104,7 @@ const PhoneOtpModal = () => {
 						<>
 							{t('Label_Profile_OTPNotReceiveVerificationCode')}
 							<div className='btnGroup'>
-								<button
-									style={{
-										minHeight: '36px',
-										maxHeight: '36px',
-									}}
-									className='blue'
-									onClick={handleSendOtpSMS}
-								>
+								<button className='btn-prmariy' onClick={handleSendOtpSMS}>
 									{t('Label_Profile_Retransmit')}
 								</button>
 							</div>
@@ -122,6 +112,7 @@ const PhoneOtpModal = () => {
 					)}
 				</div>
 			</div>
+			<i className='close-popup icon-close-line' onClick={closeModal} />
 		</div>
 	)
 }

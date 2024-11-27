@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { getSafetyLv, numberFormat } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { numberFormat, getSafetyLv } from '@nx-next-app/utils'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useState } from 'react'
 
 const Verification = () => {
 	const { t } = useTranslation()
@@ -86,7 +86,7 @@ const Verification = () => {
 						</div>
 					</div>
 					<div
-						className={classNames('icon icon-email', {
+						className={classNames('icon icon-mail-line', {
 							active: emailVerified,
 							openTip: tipOpenCol === 'email',
 						})}
@@ -106,7 +106,7 @@ const Verification = () => {
 						</div>
 					</div>
 					<div
-						className={classNames('icon icon-mobile', {
+						className={classNames('icon icon-mobile-alt', {
 							active: phoneVerified,
 							openTip: tipOpenCol === 'phone',
 						})}

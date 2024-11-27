@@ -1,12 +1,12 @@
-import { useRouter } from 'next/router'
+import { Form, Header, InputBox } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { EMAIL_REGEX, paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { FlagEnum, useSetForgetPasswordMutation } from '@nx-next-app/service'
-import { EMAIL_REGEX, paths } from '@nx-next-app/constants'
-import { Form, Header, InputBox } from '@nx-next-app/components/H0001'
-import { useTranslation } from 'next-i18next'
-import { useForm } from 'react-hook-form'
 import { upperFirst } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useForm } from 'react-hook-form'
 
 const ForgetPassword = () => {
 	const { t } = useTranslation()
@@ -62,7 +62,7 @@ const ForgetPassword = () => {
 								await trigger('email')
 							},
 						})}
-						icon='icon-email'
+						icon='icon icon-mail-line'
 						placeholder={t('Label_Email') || ''}
 						touched={!!touchedFields['email']}
 						title={t('Label_General_Email') || ''}

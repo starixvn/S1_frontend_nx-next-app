@@ -177,7 +177,6 @@ export const WrapperProfileAfterLogin = styled.div`
 			min-height: 3.6rem;
 			padding-left: 0;
 			padding: 0 1.2rem;
-			border-radius: 100px;
 			width: 100%;
 		}
 	}
