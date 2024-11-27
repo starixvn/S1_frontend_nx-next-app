@@ -67,6 +67,17 @@ export const WrapperModalBankSlipDeposit = styled.div`
 				align-items: center;
 				justify-content: center;
 				margin: 1.6rem 0;
+				max-width: 8rem;
+				position: relative;
+				overflow: hidden;
+				img {
+					object-fit: cover;
+					display: block;
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					object-position: center;
+				}
 				input {
 					display: none;
 				}

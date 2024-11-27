@@ -748,17 +748,7 @@ main .welcomeinfo-content.referral {
 main .welcomeinfo-content.referral .welcome-btn {
 	background: #c67af4;
 }
-main section {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	margin: auto;
-	padding: 35px 0 0;
-	max-width: 1400px;
-}
-main section.inside {
-	padding-top: 40px;
-}
+
 main section.inside > div:not(.important) {
 	margin: unset;
 }
@@ -1730,7 +1720,6 @@ main .promosswiper .swiper-button-prev::after {
 	color: #f9b041;
 }
 
-
 .txt-dark {
 	color: #191919;
 }
@@ -1738,7 +1727,6 @@ main .promosswiper .swiper-button-prev::after {
 .txt-darkBlue {
 	color: #284985;
 }
-
 
 .g-recaptcha {
 	display: -webkit-box;
@@ -2610,7 +2598,6 @@ main .promosswiper .swiper-button-prev::after {
 	-ms-flex-pack: center;
 	justify-content: center;
 }
-
 
 #popup .pop .download {
 	-webkit-box-orient: horizontal;
@@ -14546,40 +14533,7 @@ button.icon-spinner11:before {
 	width: 100% !important;
 }
 
-.promosSelect {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	margin: 20px auto 10px;
-	width: calc(100% - 60px);
-	height: 40px;
-	background: rgba(210, 226, 249, 0.5);
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-}
-.promosSelect > div {
-	margin-right: 10px;
-	border-radius: 0;
-}
-.promosSelect > div.btnGroup {
-	margin: 0;
-	width: 100%;
-}
-.promosSelect > div.btnGroup button,
-.promosSelect > div.btnGroup a {
-	border-radius: 0;
-	margin: 0;
-	border: 0;
-	font-size: 14px;
-	padding: 10px 20px;
-	white-space: nowrap;
-}
-.promosSelect > div.inputBox-white {
-	max-width: 200px;
-}
-
-.proListNew {
+/* .proListNew {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -14802,7 +14756,7 @@ button.icon-spinner11:before {
 	color: #fff;
 	font-size: 24px;
 	font-style: italic;
-}
+} */
 
 .promoInfoPopMask {
 	width: 100%;

@@ -94,7 +94,7 @@ const FinancialHistoryTable = ({
 			columns={columns as ITableColumns<IStatementData>[]}
 			mainClassName='list history custom-table'
 			headerClassName='listHeader custom-table-thead'
-			bodyClassName='listBody deposit-table'
+			bodyClassName='listBody custom-table-tbody'
 		/>
 	)
 }

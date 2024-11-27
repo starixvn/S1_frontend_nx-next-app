@@ -435,6 +435,13 @@ export const WrapperDeposit = styled.div`
 			margin-bottom: 0;
 		}
 	}
+	.qrCode {
+		background: ${({ theme }) => theme.desktop.white};
+		max-width: 14.4rem;
+		width: 100%;
+		border-radius: 10px;
+		overflow: hidden;
+	}
 
 	// .swithModule .icon {
 	// 	color: #5574a7;

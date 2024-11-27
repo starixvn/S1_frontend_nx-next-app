@@ -41,10 +41,7 @@ const DepositMobilePayBankQRModal = ({
 	return (
 		<div className='pop'>
 			<div className='duitnowPop active'>
-				<div className='popTit'>
-					{channelName}
-					<div className='icon icon-close' onClick={closeModal} />
-				</div>
+				<div className='popTit'>{channelName}</div>
 				<div className='title'>{t('Label_Deposit_ScanAndPay')}</div>
 				<div className='amount'>
 					{t('Label_General_Amount')}
@@ -72,6 +69,7 @@ const DepositMobilePayBankQRModal = ({
 					<li>{t('Label_Deposit_DuitNowQRNote2')}</li>
 				</ul>
 			</div>
+			<i className='close-popup icon-close-line' onClick={closeModal} />
 		</div>
 	)
 }

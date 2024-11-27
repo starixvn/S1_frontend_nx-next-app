@@ -85,7 +85,7 @@ const DateRangeStatementTable = ({
 					className='btnGroup'
 					onClick={() => onDetails({ selDate: settledDate, targetTab })}
 				>
-					<a role='link' aria-hidden className='blue'>
+					<a role='link' aria-hidden className='btn-primary'>
 						{t('Label_General_Details')}
 					</a>
 				</div>
@@ -97,10 +97,10 @@ const DateRangeStatementTable = ({
 		<Table
 			dataSource={dataSource}
 			columns={columns as ITableColumns<ICustTpBetRecordListDateRangeData>[]}
-			mainClassName='statement custom-table'
+			mainClassName='list statement custom-table'
 			headerClassName='listHeader custom-table-thead'
 			bodyClassName='listBody custom-table-tbody'
-			isShowBodyDivElement={false}
+			isShowBodyDivElement={true}
 		/>
 	)
 }

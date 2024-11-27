@@ -1,12 +1,11 @@
-import React from 'react'
-import { ICustTpBetRecordDetailListbyGameTypeData } from '@nx-next-app/service'
-import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
-import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
-import { numberFormat, revertTimeZone } from '@nx-next-app/utils'
 import { Table } from '@nx-next-app/components/D0001/table'
 import { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
+import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
 import { useStatement } from '@nx-next-app/features/F0001/providers/statement-context'
+import { ICustTpBetRecordDetailListbyGameTypeData } from '@nx-next-app/service'
+import { numberFormat, revertTimeZone } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
 
 const ByDetailStatementTable = ({
 	dataSource,
@@ -76,8 +75,10 @@ const ByDetailStatementTable = ({
 			columns={
 				columns as ITableColumns<ICustTpBetRecordDetailListbyGameTypeData>[]
 			}
-			mainClassName='statement'
-			isShowBodyDivElement={false}
+			mainClassName='list statement custom-table'
+			headerClassName='listHeader custom-table-thead'
+			bodyClassName='listBody custom-table-tbody'
+			isShowBodyDivElement={true}
 			footer={() => (
 				<div className='total'>
 					{t('Label_General_TurnOverTotal')}：<span>{totalTurnover}</span>

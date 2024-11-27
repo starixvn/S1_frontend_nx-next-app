@@ -145,7 +145,7 @@ const Amount = () => {
 					/>
 					<div className='tip active'>
 						<span>
-							{t('Label_General_Times')}:{' '}
+							{t('Label_General_Times')}
 							{`${withdrawalTimes} / ${
 								maxTimes === 0 ? t('Label_General_Unlimited') : maxTimes
 							}`}

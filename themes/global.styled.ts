@@ -4,7 +4,6 @@ import { theme } from './theme'
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
-
   html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
@@ -214,6 +213,7 @@ export const GlobalStyles = createGlobalStyle`
         line-height: 1.8rem;
       }
       .Success,poker,
+      .duitnowPop,
       .angpaopop,
       .friend,
       .Cancel,
@@ -804,7 +804,7 @@ export const GlobalStyles = createGlobalStyle`
         justify-content: center;
         align-items: center;
         width: 100%;
-        padding : 1.8rem 0;
+        padding : 1.8rem .8rem;
         border-right: 1px solid ${({ theme }) =>
 					theme.desktop.customTableBorderColor};
         border-bottom: 1px solid ${({ theme }) =>
@@ -833,11 +833,15 @@ export const GlobalStyles = createGlobalStyle`
         .td{
           width: 100%;
           text-align : center;
-          padding : 1.8rem 0;
+          padding : 1.8rem .8rem;
           border-right: 1px solid ${({ theme }) =>
 						theme.desktop.customTableBorderColor};
           border-bottom: 1px solid ${({ theme }) =>
 						theme.desktop.customTableBorderColor};
+          display: inline-block;
+          white-space: nowrap;
+          overflow: hidden !important;
+          text-overflow: ellipsis;
           &:first-child{
             width : 30%;
           }
@@ -1093,4 +1097,21 @@ export const GlobalStyles = createGlobalStyle`
 			transform: rotate(360deg);
 		}
 	}
+  .directions {
+		ul {
+			li {
+				font-weight: 400;
+			}
+		}
+	}
+
+  main section {
+    display: flex;
+    margin: auto;
+    max-width: 1400px;
+    width : 100%;
+    &.inside{
+      padding-top: 4rem;
+    }
+  }
 `
