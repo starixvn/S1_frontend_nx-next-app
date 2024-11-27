@@ -1,7 +1,8 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const LiveCasinoContainer = styled.div`
 	position: relative;
+	overflow: hidden;
 
 	&:before,
 	&:after {

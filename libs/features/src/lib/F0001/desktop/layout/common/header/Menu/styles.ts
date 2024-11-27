@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const MenuContainer = styled.div`
 	position: relative;
@@ -174,7 +174,7 @@ export const MenuContainer = styled.div`
 			}
 			&.reward {
 				img {
-					width: 50px;
+					width: 5rem;
 				}
 			}
 		}
@@ -189,7 +189,7 @@ export const MenuContainer = styled.div`
 		z-index: 2;
 
 		.icon:before {
-			font-size: 30px;
+			font-size: 3rem;
 		}
 
 		.homeList,
@@ -225,20 +225,18 @@ export const MenuContainer = styled.div`
 
 			a,
 			button {
-				flex: 1 1 15.5rem;
+				flex: 1 1 14rem;
 				display: flex;
 				flex-flow: column;
 				align-items: center;
 				justify-content: flex-end;
-				height: 185px;
 				transition: 0s;
-				color: white;
-				max-width: 15.5rem;
 				position: relative;
-				text-transform: initial;
-				margin: 0 1rem 0.5rem;
+				max-width: 14rem;
+				margin: 0 1.5rem;
 				opacity: 0;
-				top: -1rem;
+				color: #fff;
+
 				.under {
 					display: none;
 					position: absolute;
@@ -258,22 +256,19 @@ export const MenuContainer = styled.div`
 				}
 
 				.live:before {
-					bottom: 30px;
+					bottom: 3rem;
 					top: auto;
-					right: 15px;
+					right: 1.5rem;
 					z-index: 1;
 				}
 
 				img {
 					transition: 0.3s;
-					position: absolute;
-					width: 150px;
+					width: 14rem;
+				}
 
-					&.List-npc {
-						z-index: 1;
-						margin: 0 0 -30px -30px;
-						border-radius: 20px;
-					}
+				.name {
+					display: block;
 				}
 
 				&:hover {
@@ -282,23 +277,19 @@ export const MenuContainer = styled.div`
 						opacity: 1;
 
 						&.List-npc {
-							margin: 0 0 0 10px;
+							margin: 0 0 0 1rem;
 						}
 
 						&.List-bg {
 							filter: grayscale(0);
-							margin: 0 0 10px 0;
+							margin: 0 0 1rem 0;
 						}
 					}
 				}
 
-				> span {
-					position: absolute;
-					width: 15rem;
+				.name {
+					width: 100%;
 					transition: var(--transition);
-					left: 10px;
-					bottom: -3rem;
-					z-index: 2;
 					text-align: center;
 					overflow: hidden;
 					text-overflow: ellipsis;
@@ -319,7 +310,6 @@ export const MenuContainer = styled.div`
 				button {
 					transition: var(--transition);
 					opacity: 1;
-					top: 0px;
 					align-items: center;
 					justify-content: center;
 
@@ -328,11 +318,11 @@ export const MenuContainer = styled.div`
 						margin-left: 0;
 
 						&.List-npc {
-							margin-bottom: 20px;
+							margin-bottom: 1rem;
 						}
 					}
 
-					> span {
+					.name {
 						transition: var(--transition);
 						left: 0;
 						bottom: 0;
@@ -342,17 +332,17 @@ export const MenuContainer = styled.div`
 
 			.new-icon {
 				background: ${({ theme }) => theme.desktop.newLabelBg};
-				border-radius: 50px;
-				font-size: 12px;
-				width: 30px;
-				height: 30px;
+				border-radius: 5rem;
+				font-size: 1.2rem;
+				width: 3rem;
+				height: 3rem;
 				position: absolute;
-				top: 10px;
+				top: 1rem;
 				right: 0;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				padding: 3px;
+				padding: 0.3rem;
 				z-index: 2;
 			}
 		}
@@ -452,81 +442,88 @@ export const MenuContainer = styled.div`
 			}
 		}
 
+		.promoList,
+		.vipList,
+		.rankingList {
+			padding-top: 4rem;
+			padding-bottom: 4rem;
+		}
+
 		.promoList {
 			background: url(${process.env[
 					'NEXT_PUBLIC_BANNER_HOST'
-				]}/desktop/img/4.0/pomobanner-en.jpg)
+				]}/desktop/img/new-ui/promotion-banner/banner-en.webp)
 				no-repeat center / auto;
 			&.en {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/pomobanner-en.jpg)
+					]}/desktop/img/new-ui/promotion-banner/banner-en.webp)
 					no-repeat center / auto;
 			}
 			&.cs {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/pomobanner-cs.jpg)
+					]}/desktop/img/new-ui/promotion-banner/banner-cs.webp)
 					no-repeat center / auto;
 			}
 			&.my {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/pomobanner-my.jpg)
+					]}/desktop/img/new-ui/promotion-banner/banner-my.webp)
 					no-repeat center / auto;
 			}
 			&.th {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/pomobanner-th.jpg)
+					]}/desktop/img/new-ui/promotion-banner/banner-th.webp)
 					no-repeat center / auto;
 			}
 			&.id {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/pomobanner-id.jpg)
+					]}/desktop/img/new-ui/promotion-banner/banner-id.webp)
 					no-repeat center / auto;
 			}
 			&.hi {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/pomobanner-hi.jpg)
+					]}/desktop/img/new-ui/promotion-banner/banner-hi.webp)
 					no-repeat center / auto;
 			}
 			&.bd {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/pomobanner-bd.jpg)
+					]}/desktop/img/new-ui/promotion-banner/banner-bd.webp)
 					no-repeat center / auto;
 			}
 			&.kh {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/pomobanner-kh.jpg)
+					]}/desktop/img/new-ui/promotion-banner/banner-kh.webp)
 					no-repeat center / auto;
 			}
 			&.vn {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/pomobanner-vn.jpg)
+					]}/desktop/img/new-ui/promotion-banner/banner-vn.webp)
 					no-repeat center / auto;
 			}
 			&.br {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/pomobanner-br.jpg)
+					]}/desktop/img/new-ui/promotion-banner/banner-br.webp)
 					no-repeat center / auto;
 			}
 			&.ko {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/pomobanner-ko.jpg)
+					]}/desktop/img/new-ui/promotion-banner/banner-ko.webp)
 					no-repeat center / auto;
 			}
 			&.jp {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/pomobanner-jp.jpg)
+					]}/desktop/img/new-ui/promotion-banner/banner-jp.webp)
 					no-repeat center / auto;
 			}
 
@@ -544,84 +541,84 @@ export const MenuContainer = styled.div`
 			&.en {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/vipdropdown-en.png)
+					]}/desktop/img/new-ui/vip-banner/banner-en.webp)
 					no-repeat center / auto;
 			}
 
 			&.my {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/vipdropdown-my.png)
+					]}/desktop/img/new-ui/vip-banner/banner-my.webp)
 					no-repeat center / auto;
 			}
 
 			&.cs {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/vipdropdown-cs.png)
+					]}/desktop/img/new-ui/vip-banner/banner-cs.webp)
 					no-repeat center / auto;
 			}
 
 			&.id {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/vipdropdown-id.png)
+					]}/desktop/img/new-ui/vip-banner/banner-id.webp)
 					no-repeat center / auto;
 			}
 
 			&.th {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/vipdropdown-th.png)
+					]}/desktop/img/new-ui/vip-banner/banner-th.webp)
 					no-repeat center / auto;
 			}
 
 			&.vn {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/vipdropdown-vn.png)
+					]}/desktop/img/new-ui/vip-banner/banner-vn.webp)
 					no-repeat center / auto;
 			}
 
 			&.hi {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/vipdropdown-hi.png)
+					]}/desktop/img/new-ui/vip-banner/banner-hi.webp)
 					no-repeat center / auto;
 			}
 
 			&.bd {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/vipdropdown-bd.png)
+					]}/desktop/img/new-ui/vip-banner/banner-bd.webp)
 					no-repeat center / auto;
 			}
 
 			&.kh {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/vipdropdown-kh.png)
+					]}/desktop/img/new-ui/vip-banner/banner-kh.webp)
 					no-repeat center / auto;
 			}
 
 			&.br {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/vipdropdown-br.png)
+					]}/desktop/img/new-ui/vip-banner/banner-br.webp)
 					no-repeat center / auto;
 			}
 
 			&.ko {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/vipdropdown-ko.png)
+					]}/desktop/img/new-ui/vip-banner/banner-ko.webp)
 					no-repeat center / auto;
 			}
 
 			&.jp {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/vipdropdown-jp.png)
+					]}/desktop/img/new-ui/vip-banner/banner-jp.webp)
 					no-repeat center / auto;
 			}
 
@@ -635,66 +632,66 @@ export const MenuContainer = styled.div`
 		.rankingList {
 			background: url(${process.env[
 					'NEXT_PUBLIC_BANNER_HOST'
-				]}/desktop/img/4.0/leaderboard-newdropdown-en.jpg)
+				]}/desktop/img/new-ui/leader-board-banner/banner-en.webp)
 				no-repeat center / auto;
 			&.en {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/leaderboard-newdropdown-en.jpg)
+					]}/desktop/img/new-ui/leader-board-banner/banner-en.webp)
 					no-repeat center / auto;
 			}
 			&.my {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/leaderboard-newdropdown-my.jpg)
+					]}/desktop/img/new-ui/leader-board-banner/banner-my.webp)
 					no-repeat center / auto;
 			}
 			&.cs {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/leaderboard-newdropdown-cs.jpg)
+					]}/desktop/img/new-ui/leader-board-banner/banner-cs.webp)
 					no-repeat center / auto;
 			}
 			&.th {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/leaderboard-newdropdown-th.jpg)
+					]}/desktop/img/new-ui/leader-board-banner/banner-th.webp)
 					no-repeat center / auto;
 			}
 			&.id {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/leaderboard-newdropdown-id.jpg)
+					]}/desktop/img/new-ui/leader-board-banner/banner-id.webp)
 					no-repeat center / auto;
 			}
 			&.kh {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/leaderboard-newdropdown-kh.jpg)
+					]}/desktop/img/new-ui/leader-board-banner/banner-kh.webp)
 					no-repeat center / auto;
 			}
 			&.vn {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/leaderboard-newdropdown-vn.jpg)
+					]}/desktop/img/new-ui/leader-board-banner/banner-vn.webp)
 					no-repeat center / auto;
 			}
 			&.br {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/leaderboard-newdropdown-br.jpg)
+					]}/desktop/img/new-ui/leader-board-banner/banner-br.webp)
 					no-repeat center / auto;
 			}
 			&.ko {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/leaderboard-newdropdown-ko.jpg)
+					]}/desktop/img/new-ui/leader-board-banner/banner-ko.webp)
 					no-repeat center / auto;
 			}
 			&.jp {
 				background: url(${process.env[
 						'NEXT_PUBLIC_BANNER_HOST'
-					]}/desktop/img/4.0/leaderboard-newdropdown-jp.jpg)
+					]}/desktop/img/new-ui/leader-board-banner/banner-jp.webp)
 					no-repeat center / auto;
 			}
 

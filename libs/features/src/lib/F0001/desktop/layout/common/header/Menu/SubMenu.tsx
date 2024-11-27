@@ -1,18 +1,18 @@
-import { includes } from 'lodash-es'
-import classNames from 'classnames'
-import Link from 'next/link'
-import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
-import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { Dispatch, SetStateAction, ReactNode } from 'react'
-import { MenuIconTypeEnum } from '@nx-next-app/types'
-import { isEventPeriod } from '@nx-next-app/utils'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useGlobalModal } from "@nx-next-app/components/config-provider";
+import { paths } from "@nx-next-app/constants";
+import { useAuth, useStaticData } from "@nx-next-app/data-access";
+import { MenuIconTypeEnum } from "@nx-next-app/types";
+import { isEventPeriod } from "@nx-next-app/utils";
+import classNames from "classnames";
+import { includes } from "lodash-es";
+import { useTranslation } from "next-i18next";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { Dispatch, ReactNode, SetStateAction } from "react";
+
 import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
-
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
 	{
@@ -61,6 +61,8 @@ const SubMenu = ({
 	const { push } = useRouter()
 	const { modal } = useGlobalModal()
 	const { ALLOWED_CURRENCIES } = useStaticData()
+
+	console.log('----menuList', menuList)
 
 	const menus = menuList.map(mainMenuItem => {
 		const { lobbyCategoryId, desktop, subMenu, category } = mainMenuItem || {}
@@ -120,7 +122,9 @@ const SubMenu = ({
 									src={suBMenuImage}
 									alt={subMenuItem?.gameName}
 								/>
-								<span>{displayName || subMenuItem?.gameName}</span>
+								<span className='name'>
+									{displayName || subMenuItem?.gameName}
+								</span>
 								{subMenuItem?.isTpMaintain && (
 									<div className='under'>
 										{t('Label_General_UnderMaintenance')}
@@ -149,10 +153,10 @@ const SubMenu = ({
 						<a>
 							<img
 								className='List-npc'
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-vip.png`}
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/home-vip.webp`}
 								alt='vip'
 							/>
-							<span>{t('VIP')}</span>
+							<span className='name'>{t('VIP')}</span>
 						</a>
 					</Link>
 				)}
@@ -161,10 +165,10 @@ const SubMenu = ({
 						<a>
 							<img
 								className='List-npc'
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-ranking.png`}
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/home-ranking.webp`}
 								alt='leaderBoard'
 							/>
-							<span>{t('Label_General_LeaderBoard')}</span>
+							<span className='name'>{t('Label_General_LeaderBoard')}</span>
 						</a>
 					</Link>
 				)}
@@ -177,10 +181,10 @@ const SubMenu = ({
 				>
 					<img
 						className='List-npc'
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-refer.png`}
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/home-refer.webp`}
 						alt='referral'
 					/>
-					<span>{t('Label_General_Referral')}</span>
+					<span className='name'>{t('Label_General_Referral')}</span>
 				</button>
 			</div>
 

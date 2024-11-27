@@ -1,8 +1,5 @@
 import AppearSensor from '@nx-next-app/features/F0001/desktop/common/appearSensor'
-import {
-	LoadingIcon,
-	NoGameIcon,
-} from '@nx-next-app/features/F0001/desktop/home/gameIcon/icons'
+import { LoadingIcon } from '@nx-next-app/features/F0001/desktop/home/gameIcon/icons'
 import { GameIconContainer } from '@nx-next-app/features/F0001/desktop/home/gameIcon/styles'
 import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
@@ -45,7 +42,7 @@ const GameIcon: FC<IGameIcon> = ({ gameItem, isLarge, onClick }) => {
 									}.webp`}
 									loader={<LoadingIcon />}
 									// unloader={<NoGameIcon />}
-									unloader={<p >{gameName}</p>}
+									unloader={<p>{gameName}</p>}
 									alt={gameName}
 								/>
 							)}
