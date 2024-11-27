@@ -15,6 +15,7 @@ import { useDebounce } from "usehooks-ts";
 
 import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
+
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
 	{
@@ -168,7 +169,13 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 						{' '}
 					</a>
 				)} */}
-				{menus}
+        {menus.find(x => x?.key === '3')}
+        {menus.find(x => x?.key === '4')}
+        {menus.find(x => x?.key === '1')}
+        {menus.find(x => x?.key === '2')}
+        {menus.find(x => x?.key === '6')}
+        {menus.find(x => x?.key === '7')}
+        {menus.find(x => x?.key === '8')}
 
 				{/* lobbyHeader api 若是壞了就顯示 slots， 讓使用者可以進入 slot 遊玩 */}
 				{isLobbyHeaderError && (
