@@ -343,6 +343,7 @@
   "Label_Deposit_ChooseAvailablePromotion": "เลือกโปรโมชั่นที่มีอยู่",
   "Label_Deposit_ConfirmDeposit": "กรุณายืนยันข้อมูลการฝากเงิน",
   "Label_Deposit_Crypto": "ชำระโดยเงินคริปโต",
+  "Label_Deposit_Date": "วันที่ฝากเงิน",
   "Label_Deposit_DepositChannel": "ช่องทางการฝาก",
   "Label_Deposit_DepositChannelOption1": "ธนาคารออนไลน์",
   "Label_Deposit_DepositChannelOption2": "เครื่องฝากเงินสด",

@@ -30,7 +30,7 @@ const ReferralHistoryTable = ({
 			key: 'userName',
 		},
 		{
-			title: 'Deposit Date',
+			title: t('Label_Deposit_Date'),
 			dataIndex: 'settledDate',
 			key: 'settledDate',
 			render: ({

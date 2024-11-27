@@ -30,7 +30,7 @@ const ReferralItem = ({
 					<span>{userName}</span>
 				</li>
 				<li>
-					<span className='title'>Deposit Date</span>
+					<span className='title'>{t('Label_Deposit_Date')}</span>
 					<span>
 						{dayjs(settledDate)
 							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
