@@ -30,7 +30,7 @@ const PromotionSwiper = dynamic(() => import('./promotion'))
 
 const NewReleasedGame = dynamic(() => import('./newReleasedGames'))
 
-const ProviderList = dynamic(() => import('./providers'))
+const ProviderList = dynamic(() => import('./providers'), { ssr: false })
 
 // const HotGameLiveCasino = dynamic(() => import('./HotGameLiveCasino'), {
 // 	ssr: false,
