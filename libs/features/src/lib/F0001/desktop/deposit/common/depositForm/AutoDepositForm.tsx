@@ -128,7 +128,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 							return (
 								<DepositModule.SubModuleButton
 									label={bankName}
-									imgName={`square/${toLower(bankLogo)}`}
+									imgName={`/square/${toLower(bankLogo)}`}
 									matchValue={String(sysId)}
 									key={sysId}
 								>
