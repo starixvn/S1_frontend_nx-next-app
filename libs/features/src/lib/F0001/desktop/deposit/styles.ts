@@ -400,6 +400,11 @@ export const WrapperDeposit = styled.div`
 	.history {
 		width: 100%;
 		margin-top: 2.4rem;
+		.btnGroup {
+			.btn {
+				padding: 0 1.8rem;
+			}
+		}
 	}
 
 	.Channel {

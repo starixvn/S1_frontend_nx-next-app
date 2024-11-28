@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const WrapperModalBankSlipDeposit = styled.div`
+	width: 100%;
 	.upload_new {
 		display: flex;
 		align-items: flex-start;
@@ -55,6 +56,7 @@ export const WrapperModalBankSlipDeposit = styled.div`
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			gap: 0.8rem;
 			.upload_img {
 				background: ${({ theme }) => theme.desktop.bgUploadFileButton};
 				border: none;
