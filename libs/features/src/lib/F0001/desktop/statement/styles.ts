@@ -26,9 +26,6 @@ export const WrapperStament = styled.div`
 	.custom-table-tbody {
 		.custom-td {
 			.td {
-				display: flex;
-				align-items: center;
-				justify-content: center;
 				&:first-child {
 					width: 100%;
 				}

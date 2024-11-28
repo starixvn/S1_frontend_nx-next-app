@@ -227,7 +227,7 @@ export const GlobalStyles = createGlobalStyle`
       .joinSuccess,
       .resetPassWordpop,
       .noticepop,.statuspop{
-        width: 40rem;
+        min-width: 40rem;
         padding: 4rem 2.8rem 2.8rem 2.8rem;
         display: flex;
         flex-direction: column;

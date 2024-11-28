@@ -1,6 +1,7 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { WrapperModalPromotion } from '@nx-next-app/features/F0001/desktop/modal/promotionDetailModal/styles'
 import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
 import { useGetPromotionDetailQuery } from '@nx-next-app/service'
 import { PromotionTypeEnum } from '@nx-next-app/types'
@@ -109,68 +110,72 @@ const PromotionDetailModal = ({
 		PromotionTypeEnum.SpecialBonus === promotionDetail.promotionType
 
 	return (
-		<div className='promoInfoPop active'>
-			<div className='promoInfoPopMask active' onClick={closeModal} />
-			<div className='promotionsInfo'>
-				<div className='icon icon-close-line' onClick={closeModal} />
-				{isUrl(banner) ? <img src={banner} alt={title} /> : null}
-				<div className='proData'>
-					<div className='proDataTitle'>
-						<div className='txt-darkBlue'>
-							{title}
-							<div className='txt-gray'>{description}</div>
+		<WrapperModalPromotion>
+			<div className='promoInfoPop active'>
+				<div className='promoInfoPopMask active' onClick={closeModal} />
+				<div className='promotionsInfo'>
+					<div className='icon icon-close-line' onClick={closeModal} />
+					{isUrl(banner) ? <img src={banner} alt={title} /> : null}
+					<div className='proData'>
+						<div className='proDataTitle'>
+							<div className='txt-darkBlue'>
+								{title}
+								<div className='txt-gray'>{description}</div>
+							</div>
+							<div className='btnGroup'>
+								{!isHideJoinButton && !isShowApplyNowButton && (
+									<button
+										className='orange'
+										onClick={() => {
+											setClaimPromotionHandler(promotionDetail)
+										}}
+									>
+										{isShowClaimNowButton
+											? toUpper(t('Label_Promotion_ClaimNow') || '')
+											: toUpper(t('Label_Promotion_JoinNow') || '')}
+									</button>
+								)}
+								{isShowApplyNowButton && (
+									<button className='red' onClick={openLiveChat}>
+										{t('Label_Promotion_ApplyNow')}
+									</button>
+								)}
+								{!isHideAllPromoButton && (
+									<button
+										className='btn-check'
+										onClick={() => {
+											push(paths.promotion.root)
+											closeModal()
+										}}
+									>
+										{t('Label_Promotion_AllPromos')}
+									</button>
+								)}
+							</div>
 						</div>
-						<div className='btnGroup'>
-							{!isHideJoinButton && !isShowApplyNowButton && (
-								<button
-									className='orange'
-									onClick={() => {
-										setClaimPromotionHandler(promotionDetail)
-									}}
-								>
-									{isShowClaimNowButton
-										? toUpper(t('Label_Promotion_ClaimNow') || '')
-										: toUpper(t('Label_Promotion_JoinNow') || '')}
-								</button>
-							)}
-							{isShowApplyNowButton && (
-								<button className='red' onClick={openLiveChat}>
-									{t('Label_Promotion_ApplyNow')}
-								</button>
-							)}
-							{!isHideAllPromoButton && (
-								<button
-									className='btn-check'
-									onClick={() => {
-										push(paths.promotion.root)
-										closeModal()
-									}}
-								>
-									{t('Label_Promotion_AllPromos')}
-								</button>
-							)}
-						</div>
-					</div>
-					{isShowCashbackInfo && (
-						<CashbackInfo
-							bonusCode={bonusCode}
-							cashBackDetails={cashBackDetails}
-						/>
-					)}
+						{isShowCashbackInfo && (
+							<CashbackInfo
+								bonusCode={bonusCode}
+								cashBackDetails={cashBackDetails}
+							/>
+						)}
 
-					{isShowDepositSlip && (
-						<DepositSlip depositAmount={depositAmount} refList={refList} />
-					)}
+						{isShowDepositSlip && (
+							<DepositSlip depositAmount={depositAmount} refList={refList} />
+						)}
 
-					{isShowDepositMenu && (
-						<DepositMenu depositId={depositId} depositAmount={depositAmount} />
-					)}
+						{isShowDepositMenu && (
+							<DepositMenu
+								depositId={depositId}
+								depositAmount={depositAmount}
+							/>
+						)}
 
-					{isShowPromotionProgressBar({
-						isJoin,
-						status,
-						promotionType,
-					}) && (
+						{isShowPromotionProgressBar({
+							isJoin,
+							status,
+							promotionType,
+						}) && (
 							<PromotionProgressBar
 								custTurnOver={custTurnOver}
 								custRollOver={custRollOver}
@@ -183,26 +188,27 @@ const PromotionDetailModal = ({
 								}
 							/>
 						)}
-					{promotionType === PromotionTypeEnum.MissionBonus && !isJoin && (
-						<PromoMission promotionDetail={promotionDetail} />
-					)}
+						{promotionType === PromotionTypeEnum.MissionBonus && !isJoin && (
+							<PromoMission promotionDetail={promotionDetail} />
+						)}
 
-					{promotionType !== PromotionTypeEnum.MissionBonus && (
-						<PromoRule promotionDetail={promotionDetail} />
-					)}
+						{promotionType !== PromotionTypeEnum.MissionBonus && (
+							<PromoRule promotionDetail={promotionDetail} />
+						)}
 
-					{details && (
-						<div
-							className='proDataBody'
-							// eslint-disable-next-line react/no-danger
-							dangerouslySetInnerHTML={{
-								__html: details,
-							}}
-						/>
-					)}
+						{details && (
+							<div
+								className='proDataBody'
+								// eslint-disable-next-line react/no-danger
+								dangerouslySetInnerHTML={{
+									__html: details,
+								}}
+							/>
+						)}
+					</div>
 				</div>
 			</div>
-		</div>
+		</WrapperModalPromotion>
 	)
 }
 

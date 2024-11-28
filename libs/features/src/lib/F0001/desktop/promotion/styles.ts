@@ -146,66 +146,8 @@ export const WrapperPromotion = styled.div`
 				margin: 0;
 			}
 		}
-		.promotionsInfo img {
-			border-radius: 5px;
-			border-bottom-left-radius: 0;
-			border-bottom-right-radius: 0;
-		}
-		.promotionsInfo .proData {
-			background: white;
-			border-radius: 5px;
-			margin-top: 20px;
-			padding: 40px;
-		}
-		.promotionsInfo .proData .rollover {
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-			font-size: 12px;
-			font-weight: bold;
-			margin: 10px 0;
-		}
-		.promotionsInfo .proData .rollover > div {
-			margin-right: 20px;
-			color: #5574a7;
-		}
-		.promotionsInfo .proData .rollover > div:last-child {
-			color: #b2b2b2;
-		}
-		.promotionsInfo .proData .rollover > div .icon:before {
-			font-weight: normal;
-			margin-right: 5px;
-		}
-		.promotionsInfo .proData .proDataTitle {
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-			-webkit-box-align: end;
-			-ms-flex-align: end;
-			align-items: flex-end;
-		}
-		.promotionsInfo .proData .proDataTitle .txt-darkBlue {
-			font-weight: bold;
-			-webkit-box-flex: 3;
-			-ms-flex: 3;
-			flex: 3;
-		}
-		.promotionsInfo .proData .proDataTitle .btnGroup {
-			-webkit-box-flex: 1;
-			-ms-flex: 1;
-			flex: 1;
-			-webkit-box-pack: end;
-			-ms-flex-pack: end;
-			justify-content: flex-end;
-			margin: 0;
-		}
-		.promotionsInfo .proData .proDataTitle .btnGroup button {
-			max-width: 130px;
-		}
-		.promotionsInfo .proData .proDataBody {
-			color: black;
-			margin-top: 10px;
-			line-height: 30px;
-		}
+	}
+	#popup {
+		z-index: 999;
 	}
 `

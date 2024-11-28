@@ -4,7 +4,6 @@ export const WrapperModalBankSlipDeposit = styled.div`
 	.upload_new {
 		display: flex;
 		align-items: flex-start;
-		padding: 4rem 2.8rem 2.8rem 2.8rem;
 		gap: 2.4rem;
 		.checkBankSlip {
 			padding: 1.2rem;
