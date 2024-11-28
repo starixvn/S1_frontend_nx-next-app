@@ -27,8 +27,7 @@ type IGameList = {
 }
 
 const GameList: React.FC<IGameList> = (props: IGameList) => {
-	const { gameData, isControlButton, children, extraClassName, parentId } =
-		props
+	const { gameData, isControlButton, children, extraClassName } = props
 
 	const { handleHotGameClick } = useHome()
 	const gameTypeEmblaOptions: EmblaOptionsType = { slidesToScroll: 'auto' }
@@ -42,7 +41,7 @@ const GameList: React.FC<IGameList> = (props: IGameList) => {
 				isControlButton={isControlButton}
 				extraClassName={extraClassName}
 			>
-				{gameData.map((game, index) => {
+				{gameData.map(game => {
 					const { gameLogo, gameName, gameId, tpName } = game
 					const gameItem = {
 						gameId,
