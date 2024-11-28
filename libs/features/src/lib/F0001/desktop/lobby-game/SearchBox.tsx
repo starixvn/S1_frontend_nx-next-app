@@ -1,6 +1,6 @@
-import { SearchForm } from "@nx-next-app/features/F0001/desktop/lobby-game/styles";
-import { useLobby } from "@nx-next-app/features/F0001/providers";
-import { useTranslation } from "next-i18next";
+import { SearchForm } from '@nx-next-app/features/F0001/desktop/lobby-game/styles'
+import { useLobby } from '@nx-next-app/features/F0001/providers'
+import { useTranslation } from 'next-i18next'
 
 const SearchBox = () => {
 	const { t } = useTranslation()
@@ -13,7 +13,7 @@ const SearchBox = () => {
 				type='text'
 				onChange={e => onSearchCategoryTextChange(e.target.value)}
 				placeholder={t('Label_SearchGames') as string}
-				value={searchCategoryText}
+				value={searchCategoryText ?? ''}
 			/>
 		</SearchForm>
 	)

@@ -1,6 +1,7 @@
-import classNames from 'classnames'
+import { VendorFilterContainer } from '@nx-next-app/features/F0001/desktop/lobby-game/vendorFilter/styles'
+import VendorItem from '@nx-next-app/features/F0001/desktop/lobby-game/vendorFilter/VendorItem'
 import { useSlots } from '@nx-next-app/features/F0001/providers'
-import VendorItem from './VendorItem'
+import classNames from 'classnames'
 
 const VendorFilter = () => {
 	const {
@@ -11,8 +12,8 @@ const VendorFilter = () => {
 		onToggleDropdown,
 	} = useSlots()
 	return (
-		<div
-			className={`provider ${classNames({
+		<VendorFilterContainer
+			className={`${classNames({
 				active: isActiveDropdown,
 			})}`}
 		>
@@ -24,7 +25,7 @@ const VendorFilter = () => {
 							onVendorChange({
 								tpId,
 								openPath,
-                isLobby: false
+								isLobby: false,
 							})
 						}
 						isActive={activeVendorTpId === tpId}
@@ -39,7 +40,7 @@ const VendorFilter = () => {
 					alt=''
 				/>
 			</button>
-		</div>
+		</VendorFilterContainer>
 	)
 }
 

@@ -1,8 +1,12 @@
-import { useAuth } from "@nx-next-app/data-access";
-import { useSlots } from "@nx-next-app/features/F0001/providers";
-import classNames from "classnames";
-import { useTranslation } from "next-i18next";
-import { Suspense } from "react";
+import { useAuth } from '@nx-next-app/data-access'
+import AppearSensor from '@nx-next-app/features/F0001/desktop/common/appearSensor'
+import { LoadingIcon } from '@nx-next-app/features/F0001/desktop/home/gameIcon/icons'
+import { GameListContainer } from '@nx-next-app/features/F0001/desktop/lobby-game/styles'
+import { useSlots } from '@nx-next-app/features/F0001/providers'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import { Suspense } from 'react'
+import { Img } from 'react-image'
 
 const GameList = () => {
 	const {
@@ -19,107 +23,115 @@ const GameList = () => {
 	} = useAuth()
 	const { t } = useTranslation()
 	const newGamesArr = isNewGame()
-	console.log('---------slotsGameList', slotsGameList)
+
 	return slotsGameList && slotsGameList.length > 0 ? (
 		<Suspense>
-			<div className='slots-list'>
-				{slotsGameList.map(
-					({
-						tpId,
-						gameId,
-						imgName,
-						gameName,
-						playFree,
-						isMaintain,
-						isFavorite,
-						...rest
-					}) => {
-						const resultGameImgDisplayText = vendorList.find(
-							({ tpId: vendorTpId }) => vendorTpId === tpId
-						)?.gameImgDisplayText
-						const resultImgName = imgName[langId] ?? imgName['-en']
-						const resultImgUrl = `${imgUrl}/${resultGameImgDisplayText}/${resultImgName}@2x.webp`
-						const resultGameName = gameName[langId] ?? gameName['en']
+			<GameListContainer>
+				<AppearSensor>
+					{({ hasBeenVisible }: { hasBeenVisible: boolean }) => {
+						return slotsGameList.map(
+							({
+								tpId,
+								gameId,
+								imgName,
+								gameName,
+								playFree,
+								isMaintain,
+								isFavorite,
+								...rest
+							}) => {
+								const resultGameImgDisplayText = vendorList.find(
+									({ tpId: vendorTpId }) => vendorTpId === tpId
+								)?.gameImgDisplayText
+								const resultImgName = imgName[langId] ?? imgName['-en']
+								const resultImgUrl = `${imgUrl}/${resultGameImgDisplayText}/${resultImgName}@2x.webp`
+								const resultGameName = gameName[langId] ?? gameName['en']
 
-						return (
-							<div
-								className='slots-list-item'
-								style={{
-									pointerEvents: isMaintain ? 'none' : 'auto',
-								}}
-								key={`casino-game-${tpId}-${gameId}`}
-							>
-								{isMaintain && (
-									<div className='under'>
-										{t('Label_General_UnderMaintenance')}
-									</div>
-								)}
-								{newGamesArr.includes(gameId) && (
-									<div className='new-icon'>{t('Label_General_New')}</div>
-								)}
+								return (
+									<div
+										className='game-icon'
+										style={{
+											pointerEvents: isMaintain ? 'none' : 'auto',
+										}}
+										key={`casino-game-${tpId}-${gameId}`}
+									>
+										{isMaintain && (
+											<div className='under'>
+												{t('Label_General_UnderMaintenance')}
+											</div>
+										)}
+										{newGamesArr.includes(gameId) && (
+											<div className='new-icon'>{t('Label_General_New')}</div>
+										)}
 
-								<div className='img-wrapper'>
-									<img src={resultImgUrl} alt={resultGameName} />
-									<div className='btn-container'>
-										<button
-											className='btn-play'
-											onClick={() =>
-												onGamePlay({
-													tpId,
-													gameId,
-													playFree: false,
-												})
-											}
-										>
-											{t('Label_Play')}
-										</button>
+										<div className='img-wrapper'>
+											{hasBeenVisible && (
+												<Img
+													className='img'
+													src={resultImgUrl}
+													loader={<LoadingIcon />}
+													// unloader={<NoGameIcon />}
+													unloader={<p>{resultGameName}</p>}
+													alt={resultGameName}
+												/>
+											)}
+										</div>
+										<div className='details'>
+											<div className='providerName'>
+												{resultGameImgDisplayText}
+											</div>
 
-										{playFree ? (
-											<button
-												className='btn-demo'
+											<div
+												className={classNames(
+													'icon icon-star-fill icon-favorite',
+													{ active: isFavorite }
+												)}
 												onClick={() =>
-													onGamePlay({
+													onFavoritesToggle({
 														tpId,
 														gameId,
-														playFree,
 													})
 												}
-											>
-												{t('Label_Demo')}
-											</button>
-										) : null}
+											/>
+
+											<div className='btn-container'>
+												<button
+													className='button btn-primary btn-play'
+													onClick={() =>
+														onGamePlay({
+															tpId,
+															gameId,
+															playFree: false,
+														})
+													}
+												>
+													{t('Label_Play')}
+												</button>
+
+												{playFree ? (
+													<button
+														className='button btn-secondary btn-demo'
+														onClick={() =>
+															onGamePlay({
+																tpId,
+																gameId,
+																playFree,
+															})
+														}
+													>
+														{t('Label_Demo')}
+													</button>
+												) : null}
+											</div>
+										</div>
 									</div>
-								</div>
-								<div className='details'>
-									<div>
-										<div>{resultGameName}</div>
-										<div>{resultGameImgDisplayText}</div>
-									</div>
-									<div
-										className={classNames({ active: isFavorite })}
-										onClick={() =>
-											onFavoritesToggle({
-												tpId,
-												gameId,
-											})
-										}
-									>
-										<img
-											src={`${
-												process.env['NEXT_PUBLIC_BANNER_HOST']
-											}/desktop/img/4.0/lobby-slots/star-icon${
-												isFavorite ? '-active' : ''
-											}.png`}
-											alt=''
-										/>
-									</div>
-								</div>
-							</div>
+								)
+							}
 						)
-					}
-				)}
+					}}
+				</AppearSensor>
 				<span ref={gameListRef} />
-			</div>
+			</GameListContainer>
 		</Suspense>
 	) : (
 		<div className='nodata'>

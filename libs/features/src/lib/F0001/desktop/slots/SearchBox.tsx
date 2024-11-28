@@ -1,16 +1,14 @@
-import React from 'react'
-import { useTranslation } from 'next-i18next'
+import { SearchForm } from '@nx-next-app/features/F0001/desktop/lobby-game/styles'
 import { useSlots } from '@nx-next-app/features/F0001/providers'
+import { useTranslation } from 'next-i18next'
 
 const SearchBox = () => {
 	const { t } = useTranslation()
 	const { searchCategoryText, onSearchCategoryTextChange } = useSlots()
+
 	return (
-		<div className='search-bar'>
-			<img
-				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/lobby-slots/search-icon.png`}
-				alt=''
-			/>
+		<SearchForm>
+			<span className='icon icon-search' />
 			<input
 				className='search-input'
 				type='text'
@@ -18,7 +16,7 @@ const SearchBox = () => {
 				placeholder={t('Label_SearchGames') as string}
 				value={searchCategoryText}
 			/>
-		</div>
+		</SearchForm>
 	)
 }
 
