@@ -1,10 +1,10 @@
-import dynamic from 'next/dynamic'
 import { GameListItem } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 import { MenuKeyEnum } from '@nx-next-app/types'
 import { find } from 'lodash-es'
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
+import dynamic from 'next/dynamic'
 
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
@@ -22,7 +22,7 @@ const LotteryList = () => {
 	const { modal } = useGlobalModal()
 	const { menuList = [], onMenuOpen } = useMenu()
 
-	const eSportSubMenus = find(menuList, {
+	const lotterySubMenus = find(menuList, {
 		category: MenuKeyEnum.Lottery,
 	})?.subMenu
 
@@ -36,7 +36,7 @@ const LotteryList = () => {
 
 	return (
 		<div className='lobby-content'>
-			{eSportSubMenus?.map(subMenuItem => (
+			{lotterySubMenus?.map(subMenuItem => (
 				<GameListItem
 					key={subMenuItem?.tpGameIdNo}
 					subMenuItem={subMenuItem}
