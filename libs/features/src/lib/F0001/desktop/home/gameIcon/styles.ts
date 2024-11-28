@@ -1,14 +1,14 @@
-
 import styled from 'styled-components'
 
-export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(props => {
-	return {
-		style: {
-			cursor: props.$isMaintain ? 'not-allowed' : 'pointer',
-		},
-	};
-})`
-
+export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
+	props => {
+		return {
+			style: {
+				cursor: props.$isMaintain ? 'not-allowed' : 'pointer',
+			},
+		}
+	}
+)`
 	position: relative;
 	border-radius: 2rem;
 	background: ${({ theme }) => theme.desktop.gameIconBg};
@@ -95,22 +95,18 @@ export const SpinnerBox = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-`
 
-export const Loading = styled.div`
-	width: 5rem;
-	height: 5rem;
-	border: 0.3rem solid ${({ theme }) => theme.desktop.gameIconLoadingColor};
-	border-top: 0.3rem solid transparent;
-	border-radius: 50%;
-	animation: spin 0.8s linear 0s infinite;
+	.icon-loading {
+		font-size: 2rem;
+		animation: spin 1s linear 0s infinite;
 
-	@keyframes spin {
-		from {
-			transform: rotate(0);
-		}
-		to {
-			transform: rotate(359deg);
+		@keyframes spin {
+			from {
+				transform: rotate(0);
+			}
+			to {
+				transform: rotate(359deg);
+			}
 		}
 	}
 `

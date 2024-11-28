@@ -1,5 +1,10 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
+import AppearSensor from '@nx-next-app/features/F0001/desktop/common/appearSensor'
+import {
+	LoadingIcon,
+	NoGameIcon,
+} from '@nx-next-app/features/F0001/desktop/home/gameIcon/icons'
 import { GameListContainer } from '@nx-next-app/features/F0001/desktop/lobby-game/styles'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useLobby } from '@nx-next-app/features/F0001/providers'
@@ -7,6 +12,7 @@ import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
+import { Img } from 'react-image'
 
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 const LoginModal = dynamic(
@@ -49,73 +55,89 @@ const GameList = () => {
 	return lobbyGameList && lobbyGameList.length > 0 ? (
 		<Suspense>
 			<GameListContainer>
-				{lobbyGameList.map(
-					({
-						tpId,
-						gameId,
-						gameName,
-						tpName,
-						isMaintain,
-						isFavorite,
-						imgGameName,
-						betType,
-						tpGameType,
-						displayText,
-						...rest
-					}) => {
-						const resultImgUrl = `${process.env['NEXT_PUBLIC_IMAGE_HOST']}/${tpName}/${imgGameName}-en@2x.webp`
+				<AppearSensor>
+					{({ hasBeenVisible }: { hasBeenVisible: boolean }) => {
+						return lobbyGameList.map(
+							({
+								tpId,
+								gameId,
+								gameName,
+								tpName,
+								isMaintain,
+								isFavorite,
+								imgGameName,
+								betType,
+								tpGameType,
+								displayText,
+								...rest
+							}) => {
+								const resultImgUrl = `${process.env['NEXT_PUBLIC_IMAGE_HOST']}/${tpName}/${imgGameName}-en@2x.webp`
 
-						const lobbyGameItem = {
-							tpId,
-							betType,
-							tpGameType,
-							gameId,
-							tpName,
-						} as IDynamicSubMenuItem
-						return (
-							<div
-								className='game-icon'
-								style={{
-									pointerEvents: isMaintain ? 'none' : 'auto',
-								}}
-							>
-								<div className='img-wrapper'>
-									<img src={resultImgUrl} alt={gameName} />
-								</div>
-								<div className='details'>
-									<div className='providerName'>{displayText}</div>
+								const lobbyGameItem = {
+									tpId,
+									betType,
+									tpGameType,
+									gameId,
+									tpName,
+								} as IDynamicSubMenuItem
+								return (
 									<div
-										className={classNames('icon icon-star-fill icon-favorite', {
-											active: isFavorite,
-										})}
-										onClick={() =>
-											onFavoritesToggle({
-												tpId,
-												gameId,
-											})
-										}
-									/>
-									<button
-										className='button btn-primary btn-play'
-										onClick={() => onItemClick(lobbyGameItem)}
+										className='game-icon'
+										style={{
+											pointerEvents: isMaintain ? 'none' : 'auto',
+										}}
 									>
-										{t('Label_Play')}
-									</button>
-								</div>
+										<div className='img-wrapper'>
+											{hasBeenVisible && (
+												<Img
+													className='img'
+													src={resultImgUrl}
+													loader={<LoadingIcon />}
+													unloader={<NoGameIcon />}
+													alt={gameName}
+												/>
+											)}
+										</div>
+										<div className='details'>
+											<div className='providerName'>{displayText}</div>
+											<div
+												className={classNames(
+													'icon icon-star-fill icon-favorite',
+													{
+														active: isFavorite,
+													}
+												)}
+												onClick={() =>
+													onFavoritesToggle({
+														tpId,
+														gameId,
+													})
+												}
+											/>
+											<button
+												className='button btn-primary btn-play'
+												onClick={() => onItemClick(lobbyGameItem)}
+											>
+												{t('Label_Play')}
+											</button>
+										</div>
 
-								{isMaintain && (
-									<div className='under'>
-										{t('Label_General_UnderMaintenance')}
+										{isMaintain && (
+											<div className='under'>
+												{t('Label_General_UnderMaintenance')}
+											</div>
+										)}
+
+										{newGamesArr.includes(gameId) && (
+											<div className='new-icon'>{t('Label_General_New')}</div>
+										)}
 									</div>
-								)}
-
-								{newGamesArr.includes(gameId) && (
-									<div className='new-icon'>{t('Label_General_New')}</div>
-								)}
-							</div>
+								)
+							}
 						)
-					}
-				)}
+					}}
+				</AppearSensor>
+
 				<span ref={gameListRef} />
 			</GameListContainer>
 		</Suspense>

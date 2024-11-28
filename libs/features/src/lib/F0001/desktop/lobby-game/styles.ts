@@ -41,11 +41,14 @@ export const GameListContainer = styled.div`
 
 		.img-wrapper {
 			position: relative;
-			overflow: hidden;
-			border-radius: 2rem;
-			z-index: 2;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			width: 21.6rem;
 			min-height: 29.1rem;
+			border-radius: 2rem;
+			overflow: hidden;
+			z-index: 2;
 
 			img {
 				width: 100%;
