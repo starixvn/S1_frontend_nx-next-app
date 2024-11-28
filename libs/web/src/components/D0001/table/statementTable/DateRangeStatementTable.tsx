@@ -85,7 +85,7 @@ const DateRangeStatementTable = ({
 					className='btnGroup'
 					onClick={() => onDetails({ selDate: settledDate, targetTab })}
 				>
-					<a role='link' aria-hidden className='btn-primary'>
+					<a role='link' aria-hidden className='btn-secondary'>
 						{t('Label_General_Details')}
 					</a>
 				</div>

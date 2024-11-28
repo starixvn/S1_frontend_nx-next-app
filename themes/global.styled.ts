@@ -157,7 +157,6 @@ export const GlobalStyles = createGlobalStyle`
     .pop{
       border-radius: 20px;
       max-height: calc(100% - 160px);
-      overflow-y: auto;
       box-shadow: ${theme.desktop.popupBoxShadow};
       background : ${theme.desktop.popupBg};
       position : relative;
@@ -823,6 +822,11 @@ export const GlobalStyles = createGlobalStyle`
     border: 1px solid ${({ theme }) => theme.desktop.customTableBorderColor};
     overflow: hidden;
     display: grid;
+    .icon{
+      &:before{
+        color : #939DC5;
+      }
+    }
     &-thead{
       display: flex;
       background: ${({ theme }) => theme.desktop.customTableTheadBg};
@@ -832,6 +836,7 @@ export const GlobalStyles = createGlobalStyle`
         align-items: center;
         width: 100%;
         padding : 1.8rem .8rem;
+        text-align :center;
         border-right: 1px solid ${({ theme }) =>
 					theme.desktop.customTableBorderColor};
         border-bottom: 1px solid ${({ theme }) =>
@@ -850,6 +855,10 @@ export const GlobalStyles = createGlobalStyle`
     }
     &-tbody{
       background : ${({ theme }) => theme.desktop.customTableTbodyBg};
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: normal;
+      color : #939DC5;
       .custom-td{
         display: flex;
         &:last-child{
@@ -902,20 +911,40 @@ export const GlobalStyles = createGlobalStyle`
       color :  ${({ theme }) => theme.desktop.tableStatusPenddingColor};
       border : 1px solid ${({ theme }) =>
 				theme.desktop.tableStatusPenddingColor};
+      .infobtn{
+        &:before{
+          color :  ${({ theme }) => theme.desktop.tableStatusPenddingColor};
+        }
+      }
     }
     .approved{
       color :  ${({ theme }) => theme.desktop.tableStatusApprovedColor};
       border : 1px solid ${({ theme }) =>
 				theme.desktop.tableStatusApprovedColor};
+      .infobtn{
+        &:before{
+          color :  ${({ theme }) => theme.desktop.tableStatusApprovedColor};
+        }
+      }
     }
     .reject{
       color :  ${({ theme }) => theme.desktop.tableStatusRejetctColor};
       border : 1px solid ${({ theme }) =>
 				theme.desktop.tableStatusRejetctColor};
+      .infobtn{
+        &:before{
+          color :  ${({ theme }) => theme.desktop.tableStatusRejetctColor};
+        }
+      }
     }
     .cancel{
       color :  ${({ theme }) => theme.desktop.tableStatusCancelColor};
       border : 1px solid ${({ theme }) => theme.desktop.tableStatusCancelColor};
+      .infobtn{
+        &:before{
+          color :  ${({ theme }) => theme.desktop.tableStatusCancelColor};
+        }
+      }
     }
     .btnGroup{
       flex-wrap: wrap;

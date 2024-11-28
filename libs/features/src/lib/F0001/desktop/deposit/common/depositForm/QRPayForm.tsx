@@ -206,12 +206,15 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 			</DepositModule>
 
 			<Form onSubmit={handleSubmit(onQRPayFormSubmit)}>
-				<div className='btnGroup'>
+				<div
+					className='btnGroup'
+					style={{ cursor: isValid ? 'pointer' : 'no-drop' }}
+				>
 					<button
 						type='submit'
 						style={{ pointerEvents: isValid ? 'auto' : 'none' }}
 						className={classNames({
-							'btn-secondary': !isValid,
+							'btn-disable': !isValid,
 							'btn-primary': isValid,
 						})}
 					>

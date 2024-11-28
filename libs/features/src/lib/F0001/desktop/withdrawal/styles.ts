@@ -49,13 +49,25 @@ export const WrapperWithdrawl = styled.div`
 			}
 			.icon {
 				margin-top: 0;
+				&:before {
+					font-size: 2rem;
+				}
+				&.icon-information-fill,
+				&.icon-refresh-fill {
+					&:before {
+						color: #717fba;
+					}
+				}
 				&.active {
 					animation: rotate 0.5s linear 2;
 				}
 			}
 		}
 	}
-
+	.withdraw-table {
+		max-width: 15rem;
+		margin: 2.4rem auto;
+	}
 	.important {
 		flex: 0 0 21.8rem;
 		border-radius: 20px;

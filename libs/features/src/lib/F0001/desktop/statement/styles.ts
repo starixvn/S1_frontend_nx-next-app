@@ -27,6 +27,9 @@ export const WrapperStament = styled.div`
 					width: 100%;
 				}
 			}
+			&:nth-child(even) {
+				background: #1d2447;
+			}
 		}
 	}
 `

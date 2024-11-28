@@ -232,7 +232,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 					<div className='btnGroup'>
 						<button
 							type='submit'
-							style={{ pointerEvents: isFormValid ? 'auto' : 'none' }}
+							style={{ cursor: isFormValid ? 'pointer' : 'no-drop' }}
 							className={classNames({
 								'btn-disable': !isFormValid,
 								'btn-primary': isFormValid,
@@ -250,7 +250,10 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 				)}
 			</Form>
 			{!watchCanSubmit && (
-				<div className='text-center' style={{ color: '#5574a7' }}>
+				<div
+					className='process'
+					style={{ color: '#7883B4', textAlign: 'left' }}
+				>
 					{t('Label_Deposit_ProcessingDescription')}
 				</div>
 			)}

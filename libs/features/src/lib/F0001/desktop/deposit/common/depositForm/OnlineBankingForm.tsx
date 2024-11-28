@@ -270,7 +270,10 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 			</DepositModule>
 
 			<Form onSubmit={handleSubmit(onOnlineBankingFormSubmit)}>
-				<div className='btnGroup'>
+				<div
+					className='btnGroup'
+					style={{ cursor: isValid ? 'pointer' : 'no-drop' }}
+				>
 					<button
 						type='submit'
 						style={{

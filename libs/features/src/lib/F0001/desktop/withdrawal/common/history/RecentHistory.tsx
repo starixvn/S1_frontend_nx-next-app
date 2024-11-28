@@ -28,9 +28,14 @@ const RecentHistory = () => {
 					<div>{t('Label_General_NoData')}</div>
 				</div>
 			)}
-			<Link href={paths.history.root}>
-				<a className='icon icon-books' />
-			</Link>
+			<div className='btnGroup withdraw-table'>
+				<Link href={paths.history.root}>
+					<a className='btn-secondary'>
+						<i className='icon icon-book-read-fill' />
+						All Transaction
+					</a>
+				</Link>
+			</div>
 		</div>
 	)
 }

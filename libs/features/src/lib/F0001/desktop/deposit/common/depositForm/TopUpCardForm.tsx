@@ -204,12 +204,15 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 			</div>
 
 			<Form onSubmit={handleSubmit(onTopUpCardPayFormSubmit)}>
-				<div className='btnGroup'>
+				<div
+					className='btnGroup'
+					style={{ cursor: isFormValid ? 'pointer' : 'no-drop' }}
+				>
 					<button
 						type='submit'
 						style={{ pointerEvents: isFormValid ? 'auto' : 'none' }}
 						className={classNames({
-							'btn-secondary': !isFormValid,
+							'btn-disable': !isFormValid,
 							'btn-primary': isFormValid,
 						})}
 					>

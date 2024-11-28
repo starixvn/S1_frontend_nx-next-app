@@ -268,7 +268,10 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			</DepositModule>
 
 			<Form onSubmit={handleSubmit(onAutoDepositFormSubmit)}>
-				<div className='btnGroup'>
+				<div
+					className='btnGroup'
+					style={{ cursor: isValid ? 'pointer' : 'no-drop' }}
+				>
 					<button
 						type='submit'
 						style={{ pointerEvents: isValid && watchAmount ? 'auto' : 'none' }}

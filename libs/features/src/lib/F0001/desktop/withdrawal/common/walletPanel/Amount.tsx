@@ -159,7 +159,7 @@ const Amount = () => {
 					<div className='btnGroup'>
 						<button
 							type='submit'
-							className='btn-primary'
+							className={`${isButtonDisabled ? 'btn-disable' : 'btn-primary'}`}
 							disabled={isButtonDisabled}
 						>
 							{t('Label_General_Submit')}

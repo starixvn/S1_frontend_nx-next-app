@@ -91,7 +91,7 @@ const ByDayStatementTable = ({
 						})
 					}
 				>
-					<a role='link' aria-hidden className='blue'>
+					<a role='link' aria-hidden className='btn-secondary'>
 						{t('Label_General_Details')}
 					</a>
 				</div>

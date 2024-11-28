@@ -18,22 +18,26 @@ const EWalletCard = () => {
 	return (
 		<div className='walletModule eWalletCard'>
 			<div className='addBank'>
-				{custEWalletInfo.map(item => (
-					<CardItem
-						key={`${item.accountNo}-${item.sysId}`}
-						item={item}
-						type={WithdrawalBankCardEnum.EWallet}
-					/>
-				))}
-				{custEWalletInfo.length < 3 && (
-					<div
-						className='addBankName noBank'
-						onClick={() => handleAddCards(WithdrawalBankCardEnum.EWallet)}
-					>
-						<div className='icon icon-add-fill' />
-						<div className='txt-blue'>{t('Label_Withdrawal_AddEAccount')}</div>
-					</div>
-				)}
+				<div style={{ display: 'flex', gap: '1.6rem' }}>
+					{custEWalletInfo.map(item => (
+						<CardItem
+							key={`${item.accountNo}-${item.sysId}`}
+							item={item}
+							type={WithdrawalBankCardEnum.EWallet}
+						/>
+					))}
+					{custEWalletInfo.length < 3 && (
+						<div
+							className='addBankName noBank'
+							onClick={() => handleAddCards(WithdrawalBankCardEnum.EWallet)}
+						>
+							<div className='icon icon-add-fill' />
+							<div className='txt-blue'>
+								{t('Label_Withdrawal_AddEAccount')}
+							</div>
+						</div>
+					)}
+				</div>
 				<div className='remainder'>
 					{t('Label_Withdrawal_NumberOfWallet')}:{custEWalletInfo.length} / 3
 				</div>

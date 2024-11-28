@@ -219,8 +219,8 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 						type='submit'
 						style={{ pointerEvents: isValid ? 'auto' : 'none' }}
 						className={classNames({
-							darkGray: !isValid,
-							'btn-check': isValid,
+							'btn-disable': !isValid,
+							'btn-primary': isValid,
 						})}
 					>
 						{t('Label_General_Submit')}

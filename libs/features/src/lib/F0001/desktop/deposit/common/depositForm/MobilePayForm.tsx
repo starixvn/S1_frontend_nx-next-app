@@ -406,7 +406,10 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			</DepositModule>
 
 			<Form onSubmit={handleSubmit(onMobilePayFormSubmit)}>
-				<div className='btnGroup'>
+				<div
+					className='btnGroup'
+					style={{ cursor: isValid ? 'pointer' : 'no-drop' }}
+				>
 					<button
 						type='submit'
 						style={{ pointerEvents: isValid && watchAmount ? 'auto' : 'none' }}

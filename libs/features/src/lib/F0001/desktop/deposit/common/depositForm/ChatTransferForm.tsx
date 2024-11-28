@@ -194,12 +194,15 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 			</DepositModule>
 
 			<Form onSubmit={handleSubmit(onFormSubmit)}>
-				<div className='btnGroup'>
+				<div
+					className='btnGroup'
+					style={{ cursor: isFormValid ? 'pointer' : 'no-drop' }}
+				>
 					<button
 						type='submit'
 						style={{ pointerEvents: isFormValid ? 'auto' : 'none' }}
 						className={classNames({
-							'btn-secondary': !isFormValid,
+							'btn-disable': !isFormValid,
 							'btn-primary': isFormValid,
 						})}
 					>
