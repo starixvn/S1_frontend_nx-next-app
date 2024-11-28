@@ -241,6 +241,27 @@ export const GlobalStyles = createGlobalStyle`
         }
       }
     }
+    .do-you-have {
+      font-size: 1.4rem;
+      font-weight: 400;
+      line-height: normal;
+      margin-top: 0.8rem;
+      color: #939dc5;
+    }
+    .resend{
+      .btnGroup{
+        justify-content: center;
+        margin-top : .8rem !important;
+        button{
+          width : max-content !important;
+        }
+        .icon{
+          &:before{
+            font-size : 1.6rem;
+          }
+        }
+      }
+    }
   }
   .promoInfoPop{
     max-height: calc(100% - 160px);

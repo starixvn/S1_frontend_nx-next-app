@@ -49,7 +49,7 @@ const ReferralStatus = () => {
 						{toUpper(t('Label_Referral_AccumulateRewardAmount') || '')}
 					</div>
 					<div className='card-body'>
-						<span>{currencyName}</span>
+						<span style={{ marginRight: '.5rem' }}>{currencyName}</span>
 						{numberFormat(referralSummaryData?.amountSum || 0, currencyId, 2)}
 					</div>
 				</div>

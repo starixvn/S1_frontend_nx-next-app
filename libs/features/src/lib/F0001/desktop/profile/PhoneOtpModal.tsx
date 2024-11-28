@@ -102,9 +102,12 @@ const PhoneOtpModal = () => {
 						/>
 					) : (
 						<>
-							{t('Label_Profile_OTPNotReceiveVerificationCode')}
+							<div className='do-you-have'>
+								{t('Label_Profile_OTPNotReceiveVerificationCode')}
+							</div>
 							<div className='btnGroup'>
-								<button className='btn-prmariy' onClick={handleSendOtpSMS}>
+								<button className='btn-secondary' onClick={handleSendOtpSMS}>
+									<i className='icon icon-redo' />
 									{t('Label_Profile_Retransmit')}
 								</button>
 							</div>

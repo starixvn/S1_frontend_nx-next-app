@@ -24,7 +24,8 @@ export const WrapperReferal = styled.div`
 			gap: 1.6rem;
 			.card {
 				border-radius: 10px;
-				border: 1px solid ${({ theme }) => theme.desktop.bgCardRederralColor};
+				border: 1px solid
+					${({ theme }) => theme.desktop.borderCardRederralColor};
 				background: ${({ theme }) => theme.desktop.bgCardRederralColor};
 				padding: 0.8rem 1.6rem;
 				width: 50%;
@@ -69,7 +70,7 @@ export const WrapperReferal = styled.div`
 		&-left,
 		&-right {
 			border-radius: 10px;
-			border: 1px solid ${({ theme }) => theme.desktop.bgCardRederralColor};
+			border: 1px solid ${({ theme }) => theme.desktop.borderCardRederralColor};
 			.title {
 				color: ${({ theme }) => theme.desktop.white};
 				font-size: 1.4rem;
@@ -78,7 +79,7 @@ export const WrapperReferal = styled.div`
 				text-align: center;
 				padding: 1.3rem 1.6rem;
 				border-bottom: 1px solid
-					${({ theme }) => theme.desktop.bgCardRederralColor};
+					${({ theme }) => theme.desktop.borderCardRederralColor};
 			}
 		}
 		&-items {
@@ -126,6 +127,7 @@ export const WrapperReferal = styled.div`
 					font-weight: 700;
 					line-height: normal;
 					margin-bottom: 0.4rem;
+					text-transform: capitalize;
 				}
 				p {
 					font-size: 1.2rem;
