@@ -36,7 +36,7 @@ do
   for site in ${siteList[@]}
   do
     designPath="${DESIGN_PROJECT}/$site/$device/public/*.scss"
-    projectPath="${PROJECT}/apps/$site-$device/styles"
+    projectPath="${PROJECT}/apps/$site-$device/styles/css"
 
     echo $designPath "->" $projectPath
     cp -R ${designPath} ${projectPath}
