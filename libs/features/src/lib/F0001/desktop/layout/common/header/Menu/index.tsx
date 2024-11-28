@@ -1,17 +1,21 @@
-import { useGlobalModal } from "@nx-next-app/components/config-provider";
-import { paths, PRODUCTS } from "@nx-next-app/constants";
-import { useAuth, useStaticData } from "@nx-next-app/data-access";
-import { MenuContainer } from "@nx-next-app/features/F0001/desktop/layout/common/header/Menu/styles";
-import SubMenu from "@nx-next-app/features/F0001/desktop/layout/common/header/Menu/SubMenu";
-import { LobbyCategoryEnum, MainMenuIcon, MenuActionTypeEnum, MenuIconTypeEnum } from "@nx-next-app/types";
-import { isEventPeriod } from "@nx-next-app/utils";
-import classNames from "classnames";
-import { includes, toUpper } from "lodash-es";
-import { useTranslation } from "next-i18next";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import { useState } from "react";
-import { useDebounce } from "usehooks-ts";
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths, PRODUCTS } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { MenuContainer } from '@nx-next-app/features/F0001/desktop/layout/common/header/Menu/styles'
+import {
+	LobbyCategoryEnum,
+	MainMenuIcon,
+	MenuActionTypeEnum,
+	MenuIconTypeEnum,
+} from '@nx-next-app/types'
+import { isEventPeriod } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { includes, toUpper } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
+import { useState } from 'react'
+import { useDebounce } from 'usehooks-ts'
 
 import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
@@ -169,21 +173,17 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 						{' '}
 					</a>
 				)} */}
-        {menus.find(x => x?.key === '3')}
-        {menus.find(x => x?.key === '4')}
-        {menus.find(x => x?.key === '1')}
-        {menus.find(x => x?.key === '2')}
-        {menus.find(x => x?.key === '6')}
-        {menus.find(x => x?.key === '7')}
-        {menus.find(x => x?.key === '8')}
+				{menus.find(x => x?.key === '3')}
+				{menus.find(x => x?.key === '4')}
+				{menus.find(x => x?.key === '1')}
+				{menus.find(x => x?.key === '2')}
+				{menus.find(x => x?.key === '6')}
+				{menus.find(x => x?.key === '7')}
+				{menus.find(x => x?.key === '8')}
 
 				{/* lobbyHeader api 若是壞了就顯示 slots， 讓使用者可以進入 slot 遊玩 */}
 				{isLobbyHeaderError && (
-					<Link
-						key='slot'
-						href={paths.slots.root}
-						onMouseEnter={() => setMenuKey('Slot')}
-					>
+					<Link key='slot' href={paths.slots.root}>
 						{t('Label_General_Slots')}
 					</Link>
 				)}
@@ -193,7 +193,6 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 						className={classNames('menu-item ', {
 							active: debouncedMenuKey === 'Promotion',
 						})}
-						onMouseEnter={() => setMenuKey('Promotion')}
 					>
 						{isEventPeriod({ start: '2020-00-01T00:00:00', end: null }) &&
 							mainMenuIcon.hotTag}
@@ -206,7 +205,6 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 							className={classNames('menu-item ', {
 								active: debouncedMenuKey === 'VIP',
 							})}
-							onMouseEnter={() => setMenuKey('VIP')}
 						>
 							{t('VIP')}
 						</a>
@@ -218,19 +216,11 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 							className={classNames('menu-item ', {
 								active: debouncedMenuKey === 'LeaderBoard',
 							})}
-							onMouseEnter={() => setMenuKey('LeaderBoard')}
 						>
 							{t('Label_LeaderBoard')}
 						</a>
 					</Link>
 				)}
-
-				<SubMenu
-					debouncedMenuKey={debouncedMenuKey}
-					setMenuKey={setMenuKey}
-					menuList={menuList}
-					onMenuOpen={onMenuOpen}
-				/>
 			</div>
 		</MenuContainer>
 	)
