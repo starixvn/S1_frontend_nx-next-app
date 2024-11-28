@@ -97,7 +97,7 @@ const WithdrawalHistoryTable = ({
 					WithdrawalStatusClassName[status as WithdrawalStatusClassNameEnum]
 				const statusText = t(`Label_WithdrawalStatus${status}`)
 				return (
-					<div className={statusClassName}>
+					<div className={`${statusClassName}`}>
 						{statusText}
 						{withdrawalMessageDetail && withdrawalMessageDetail.length > 0 && (
 							<button

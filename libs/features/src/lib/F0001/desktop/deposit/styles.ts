@@ -410,6 +410,14 @@ export const WrapperDeposit = styled.div`
 				padding: 0 1.8rem;
 			}
 		}
+		.custom-th {
+			padding: 1.8rem 0rem;
+		}
+		.custom-td {
+			.td {
+				padding: 1.8rem 0rem;
+			}
+		}
 	}
 
 	.Channel {

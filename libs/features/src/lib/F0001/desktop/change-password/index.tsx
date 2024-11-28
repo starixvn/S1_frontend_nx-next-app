@@ -15,7 +15,7 @@ const ChangePassword = () => {
 				<div className='infoModule'>
 					<div className='inside-title'>
 						<div className='group-icon-title'>
-							<i className='icon icon-chat-history-fill' />
+							<i className='icon icon-lock-2-fill' />
 							{t('Label_General_ChangePassword')}
 						</div>
 					</div>

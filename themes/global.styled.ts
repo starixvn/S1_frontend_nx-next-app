@@ -908,7 +908,7 @@ export const GlobalStyles = createGlobalStyle`
         }
       }
     }
-    .pending,.approved,.reject,.cancel{
+    .pending,.approved,.reject,.cancel,.undefined{
       font-size: 1.2rem;
       font-style: normal;
       font-weight: 600;
@@ -928,7 +928,7 @@ export const GlobalStyles = createGlobalStyle`
         }
       }
     }
-    .pending{
+    .pending,.undefined{
       color :  ${({ theme }) => theme.desktop.tableStatusPenddingColor};
       border : 1px solid ${({ theme }) =>
 				theme.desktop.tableStatusPenddingColor};
@@ -976,7 +976,7 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
     .txt-blue{
-      color: #374375 !important;
+      color: ${({ theme }) => theme.desktop.rightModuleSloganColor} !ỉmportant;
       font-size: 1.4rem;
       font-weight: 600 !important;
       line-height: normal;

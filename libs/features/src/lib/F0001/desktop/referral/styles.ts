@@ -134,7 +134,6 @@ export const WrapperReferal = styled.div`
 					font-weight: 400;
 					line-height: normal;
 					color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
-					text-transform: lowercase;
 				}
 			}
 		}
@@ -173,6 +172,7 @@ export const WrapperReferal = styled.div`
 				}
 				input {
 					padding: 0;
+					width: 90%;
 				}
 			}
 		}
