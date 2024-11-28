@@ -1,9 +1,11 @@
-import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
+import { ITableColumns } from '@apps/yashbet-desktop/components/common/table/Table'
+import SpinButton from '@nx-next-app/components/D0006/button/SpinButton'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { IWithdrawalInfoHistoryData } from '@nx-next-app/service'
 import { numberFormat } from '@nx-next-app/utils'
+import { Table } from '@yashbet-desktop/components/common'
 import dayjs from 'dayjs'
 import {
 	WithdrawalStatusClassName,
@@ -12,10 +14,9 @@ import {
 } from 'libs/web/src/app/types/history'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
-import Table, { ITableColumns } from '../Table'
 
 const HistoryMsgModal = dynamic(
-	() => import('../../../history/modal/HistoryMsgModal'),
+	() => import('@yashbet-desktop/components/history/modal/HistoryMsgModal'),
 	{
 		ssr: false,
 	}
@@ -150,7 +151,7 @@ const WithdrawalHistoryTable = ({
 					showingCancelBtn && (
 						<div className='btnGroup'>
 							<button
-								className='btn-cancel ghost dark'
+								className='btn-cancel'
 								onClick={() => {
 									modal.confirm(t('Label_History_CancelConfirm'), {
 										onOK: () => onCancel(transId),

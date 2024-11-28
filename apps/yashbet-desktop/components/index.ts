@@ -1,6 +1,7 @@
 export { default as ChangePassword } from './change-password'
 export * from './common'
 export { default as CryptoWallet } from './crypto-wallet'
+export { default as History } from './history'
 export { default as Layout } from './layout'
 export { default as LeftMenu } from './leftMenu'
 export { default as Withdrawal } from './withdrawal'

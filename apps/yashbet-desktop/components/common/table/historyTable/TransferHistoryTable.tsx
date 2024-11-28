@@ -1,11 +1,12 @@
-import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
+import { ITableColumns } from '@apps/yashbet-desktop/components/common/table/Table'
+import SpinButton from '@nx-next-app/components/D0006/button/SpinButton'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { ITransferHistoryData } from '@nx-next-app/service'
 import { numberFormat, transferDirection } from '@nx-next-app/utils'
+import { Table } from '@yashbet-desktop/components/common'
 import dayjs from 'dayjs'
 import { useTranslation } from 'next-i18next'
-import Table, { ITableColumns } from '../Table'
 
 const TransferHistoryTable = ({
 	dataSource,
@@ -57,7 +58,7 @@ const TransferHistoryTable = ({
 			}: {
 				item: { direction: number; isAdjustment: boolean; tpName: string }
 			}) => {
-				const { endWallet } = transferDirection({
+				const { startWallet, endWallet } = transferDirection({
 					direction,
 					displayMainWallet: t('Label_History_MainWallet'),
 					displayAdjustment: t('Label_Adjustment'),
@@ -67,6 +68,7 @@ const TransferHistoryTable = ({
 
 				return (
 					<>
+						<span className='txt-blue'>{startWallet}</span>
 						{isAdjustment ? (
 							<i>&nbsp;&nbsp;</i>
 						) : (

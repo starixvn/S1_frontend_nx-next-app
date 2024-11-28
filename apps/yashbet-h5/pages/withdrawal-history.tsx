@@ -1,12 +1,13 @@
+import { History } from '@apps/yashbet-h5/components'
 import { paths } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { History } from '@nx-next-app/features/F0001/h5'
-import { HistoryProvider } from '@nx-next-app/features/F0001/providers'
+// TODO:
 import { Layout } from '@nx-next-app/features/F0006/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { HistoryProvider } from '@nx-next-app/operations'
 import {
 	HISTORY_TABS,
 	QUICK_PICK_LIST,

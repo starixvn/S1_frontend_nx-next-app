@@ -1,10 +1,11 @@
+import { ITableColumns } from '@apps/yashbet-desktop/components/common/table/Table'
 import SpinButton from '@nx-next-app/components/D0006/button/SpinButton'
-import Table, { ITableColumns } from '@nx-next-app/components/D0006/table/Table'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { IDepositInfoHistoryData } from '@nx-next-app/service'
 import { numberFormat } from '@nx-next-app/utils'
+import { Table } from '@yashbet-desktop/components/common'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 import {
@@ -27,9 +28,7 @@ const HistoryMsgModal = dynamic(
 
 const DepositBankSlipModal = dynamic(
 	() =>
-		import(
-			'@nx-next-app/features/F0006/desktop/history/modal/DepositBankSlipModal'
-		),
+		import('@yashbet-desktop/components/history/modal/DepositBankSlipModal'),
 	{
 		ssr: false,
 	}

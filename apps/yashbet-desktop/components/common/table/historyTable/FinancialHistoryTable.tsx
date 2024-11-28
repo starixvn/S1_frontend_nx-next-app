@@ -1,11 +1,12 @@
-import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
+import { ITableColumns } from '@apps/yashbet-desktop/components/common/table/Table'
+import SpinButton from '@nx-next-app/components/D0006/button/SpinButton'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { IStatementData } from '@nx-next-app/service'
 import { numberFormat } from '@nx-next-app/utils'
+import { Table } from '@yashbet-desktop/components/common'
 import dayjs from 'dayjs'
 import { useTranslation } from 'next-i18next'
-import Table, { ITableColumns } from '../Table'
 
 const FinancialHistoryTable = ({
 	dataSource,

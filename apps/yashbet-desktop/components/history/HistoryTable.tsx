@@ -1,6 +1,6 @@
-import useTable from '@n88-desktop/components/common/table/useTable'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useHistory } from '@nx-next-app/operations'
+import useTable from '@yashbet-desktop/components/common/table/useTable'
 import { HistoryTabsEnum } from 'libs/web/src/app/types/history'
 import { useTranslation } from 'next-i18next'
 

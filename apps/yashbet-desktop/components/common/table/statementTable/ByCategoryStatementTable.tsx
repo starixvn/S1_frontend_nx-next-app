@@ -90,7 +90,7 @@ const ByCategoryStatementTable = ({
 						})
 					}
 				>
-					<a role='link' aria-hidden className='thrid'>
+					<a role='link' aria-hidden className='blue'>
 						{t('Label_General_Details')}
 					</a>
 				</div>
