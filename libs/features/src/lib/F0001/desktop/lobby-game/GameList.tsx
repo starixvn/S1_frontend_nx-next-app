@@ -1,10 +1,6 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useAuth } from '@nx-next-app/data-access'
 import AppearSensor from '@nx-next-app/features/F0001/desktop/common/appearSensor'
-import {
-	LoadingIcon,
-	NoGameIcon,
-} from '@nx-next-app/features/F0001/desktop/home/gameIcon/icons'
+import { LoadingIcon } from '@nx-next-app/features/F0001/desktop/home/gameIcon/icons'
 import { GameListContainer } from '@nx-next-app/features/F0001/desktop/lobby-game/styles'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useLobby } from '@nx-next-app/features/F0001/providers'
@@ -28,18 +24,9 @@ const LiveStreamingModalDesktop = dynamic(
 )
 
 const GameList = () => {
-	const {
-		lobbyGameList,
-		vendorList,
-		imgUrl,
-		gameListRef,
-		onGamePlay,
-		onFavoritesToggle,
-		isNewGame,
-	} = useLobby()
-	const {
-		userInfo: { langId },
-	} = useAuth()
+	const { lobbyGameList, gameListRef, onFavoritesToggle, isNewGame } =
+		useLobby()
+
 	const { t } = useTranslation()
 	const newGamesArr = isNewGame()
 	const { onMenuOpen } = useMenu()
@@ -93,7 +80,8 @@ const GameList = () => {
 													className='img'
 													src={resultImgUrl}
 													loader={<LoadingIcon />}
-													unloader={<NoGameIcon />}
+													// unloader={<NoGameIcon />}
+													unloader={<p>{gameName}</p>}
 													alt={gameName}
 												/>
 											)}

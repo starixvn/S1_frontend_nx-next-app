@@ -1,36 +1,38 @@
-import VendorFilter from '@nx-next-app/features/F0001/desktop/lobby-game/vendorFilter'
-import SearchBox from '@nx-next-app/features/F0001/desktop/lobby-game/SearchBox'
-import GameList from '@nx-next-app/features/F0001/desktop/lobby-game/GameList'
+import {
+	LoadingIcon,
+	NoGameIcon,
+} from '@nx-next-app/features/F0001/desktop/home/gameIcon/icons'
 import CategoryFilter from '@nx-next-app/features/F0001/desktop/lobby-game/CategoryFilter'
-import { CarouselBanner } from '@nx-next-app/features/F0001/desktop/common'
-import { useLobby } from '@nx-next-app/features/F0001/providers'
-import { Loading } from '@nx-next-app/components/D0001'
+import GameList from '@nx-next-app/features/F0001/desktop/lobby-game/GameList'
+import SearchBox from '@nx-next-app/features/F0001/desktop/lobby-game/SearchBox'
+import { LobbyGamePage } from '@nx-next-app/features/F0001/desktop/lobby-game/styles'
+import VendorFilter from '@nx-next-app/features/F0001/desktop/lobby-game/vendorFilter'
+import { Img } from 'react-image'
 
 const Lottery = () => {
-	// const { bannerList, isGetBannerV3Fetching } = useLobby()
-
-	// if (isGetBannerV3Fetching) return <Loading />
-
 	return (
-		<main className='lobby'>
-			{/* {!isGetBannerV3Fetching && (
-				<div className='lobby-banner'>
-					<CarouselBanner
-						bannerList={bannerList}
-						navigation={false}
-						pagination={false}
+		<LobbyGamePage className='main-content '>
+			<div className='banner-container'>
+				<div className='content-container'>
+					<Img
+						className='img-banner'
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/lottery-banner.webp`}
+						loader={<LoadingIcon />}
+						unloader={<NoGameIcon />}
+						alt='Live Casino'
 					/>
 				</div>
-			)} */}
-			<div className='lobby-content slots'>
-				<div className='top'>
+			</div>
+
+			<div className='content-container'>
+				<div className='filter-form'>
 					<SearchBox />
 					<VendorFilter />
 				</div>
-        <CategoryFilter/>
+				<CategoryFilter />
 				<GameList />
 			</div>
-		</main>
+		</LobbyGamePage>
 	)
 }
 
