@@ -12,6 +12,7 @@ import {
 	paths,
 } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
+import { useJoin } from '@nx-next-app/operations'
 import {
 	useGetSiteCurrencyListQuery,
 	useLazyAffiliateCheckQuery,
@@ -60,6 +61,7 @@ const Form = () => {
 	const urlAffiliate = urlAffId || urlAffCode
 
 	const { ALLOWED_CURRENCIES } = useStaticData()
+	const { initNationality } = useJoin()
 
 	const {
 		formState,
@@ -97,7 +99,15 @@ const Form = () => {
 		ISelectProps['options']
 	>([])
 
-	const currencySelectOptions = siteCurrencyList
+	const filterSiteCurrencyList = () => {
+		// 移除中國
+		const filterCurrency = [CurrenciesEnum.CNY]
+		return siteCurrencyList.filter(
+			currencyId => !includes(filterCurrency, currencyId)
+		)
+	}
+
+	const currencySelectOptions = filterSiteCurrencyList()
 		.filter(currencyId => {
 			const affiliate = getValues('affiliate')
 			const formCurrencyId = getValues('currencyId')
@@ -288,6 +298,7 @@ const Form = () => {
 		let blackbox = ''
 		if (
 			typeof window !== undefined &&
+			'IGLOO' in window &&
 			typeof (window as any).IGLOO.getBlackbox === 'function'
 		) {
 			try {
@@ -302,6 +313,9 @@ const Form = () => {
 	}
 
 	const handleSubmitForm = async () => {
+		if (initNationality === 'China') {
+			return
+		}
 		const {
 			username,
 			password,
@@ -369,6 +383,14 @@ const Form = () => {
 			})
 		}
 	}, [joinBy])
+
+	useEffect(() => {
+		if (initNationality === 'China') {
+			modal.info(t('Label_Close_Region_Register_Notice'), {
+				onOK: () => router.push(paths.home.root),
+			})
+		}
+	}, [initNationality])
 
 	return (
 		<form

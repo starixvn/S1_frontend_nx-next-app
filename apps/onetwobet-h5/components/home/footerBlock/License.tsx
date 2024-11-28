@@ -3,7 +3,7 @@ import { useHome } from '@nx-next-app/operations'
 import { useGetSeoQuery } from '@nx-next-app/service'
 import { ISeoData } from 'libs/web/src/app/types/footer'
 import { useTranslation } from 'next-i18next'
-import Head from 'next/head'
+import Script from 'next/dist/client/script'
 import { useEffect } from 'react'
 
 const License = () => {
@@ -136,17 +136,14 @@ const License = () => {
 					</div>
 				)}
 			</div>
-			<Head>
-				<script
-					src={`https://${CuracaoScript}.snippet.antillephone.com/apg-seal.js`}
-					defer
-				/>
-				{/* 市場通知緊急移除 */}
-				{/* <script */}
-				{/*	src={`https://${XCMScript}.seals-xcm.certria.com/xcm-seal.js`} */}
-				{/*	defer */}
-				{/* /> */}
-			</Head>
+			<Script
+				src={`https://${CuracaoScript}.snippet.antillephone.com/apg-seal.js`}
+				strategy='lazyOnload'
+			/>
+			{/* <Script */}
+			{/*	src={`https://${XCMScript}.seals-xcm.certria.com/xcm-seal.js`} */}
+			{/*	strategy='lazyOnload' */}
+			{/* /> */}
 		</>
 	)
 }

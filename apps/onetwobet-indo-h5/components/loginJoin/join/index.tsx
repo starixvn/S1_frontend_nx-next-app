@@ -7,12 +7,14 @@ import {
 	paths,
 } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useJoin } from '@nx-next-app/operations'
 import {
 	useGetSiteCurrencyListQuery,
 	useLazyAffiliateCheckQuery,
 	useLazyGetAffiliateAgentQuery,
 	useSignupMutation,
 } from '@nx-next-app/service'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import {
 	MetaPixelTracker,
 	OperaPixelTracker,
@@ -21,7 +23,9 @@ import {
 import classNames from 'classnames'
 import { getCookies } from 'cookies-next'
 import { isNumber } from 'lodash'
+import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -36,12 +40,20 @@ export enum JoinMethod {
 	'Number' = 'number',
 }
 
+const RegionCloseRegisterModal = dynamic(
+	() => import('../../modal/RegionCloseRegisterModal'),
+	{
+		ssr: false,
+	}
+)
+
 const Join = () => {
 	const { t } = useTranslation()
 	const router = useRouter()
 	const { query } = router
 
 	const { LANG_GROUPS } = useStaticData()
+	const { initNationality } = useJoin()
 	const { modal } = useGlobalModal()
 
 	const {
@@ -71,7 +83,15 @@ const Join = () => {
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 	const [signUp] = useSignupMutation()
 
-	const currencySelectOptions = siteCurrencyList
+	const filterSiteCurrencyList = () => {
+		// 移除中國
+		const filterCurrency = [CurrenciesEnum.CNY]
+		return siteCurrencyList.filter(
+			currencyId => !includes(filterCurrency, currencyId)
+		)
+	}
+
+	const currencySelectOptions = filterSiteCurrencyList()
 		.filter(currencyId => {
 			const affiliate = getValues('affiliate')
 			const formCurrencyId = getValues('currencyId')
@@ -187,6 +207,9 @@ const Join = () => {
 	}
 
 	const handleSubmitForm = async () => {
+		if (initNationality === 'China') {
+			return
+		}
 		const {
 			username,
 			password,
@@ -251,6 +274,12 @@ const Join = () => {
 			})
 		}
 	}, [joinBy])
+
+	useEffect(() => {
+		if (initNationality === 'China') {
+			modal.open(<RegionCloseRegisterModal />)
+		}
+	}, [initNationality])
 
 	return (
 		<>

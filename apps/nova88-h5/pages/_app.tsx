@@ -21,7 +21,6 @@ import {
 	MENU_DATA,
 	META_DATA,
 	TERMS_CONDITIONS,
-	ThirdPartyJS,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	VIP_CLUB_IMAGES,
 } from '@nx-next-app/site/nova88'
@@ -41,14 +40,6 @@ dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
 dayjs.extend(utc)
 dayjs.extend(customParseFormat)
-
-const {
-	IovationScript,
-	PlayTechScript,
-	JackpotsScript,
-	OperaPixelCodeScript,
-	ActivatorScript,
-} = ThirdPartyJS
 
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
@@ -82,14 +73,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
 					</StaticDataProvider>
 				</UIProvider>
 			</Provider>
-			{/* 手機版 liveChat Layout 會蓋住 more button, footer 下方的 button */}
-			{/* 是指定路徑的，所以沒引入這個 script 也不影響 */}
-			{/* <LiveChatScript /> */}
-			<IovationScript />
-			<PlayTechScript />
-			<JackpotsScript />
-			<OperaPixelCodeScript />
-			<ActivatorScript />
 		</>
 	)
 }

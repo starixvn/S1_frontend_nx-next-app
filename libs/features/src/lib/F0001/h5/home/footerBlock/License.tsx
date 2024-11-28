@@ -4,7 +4,7 @@ import { useGetSeoQuery } from '@nx-next-app/service'
 import { ISeoData } from 'libs/web/src/app/types/footer'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import Head from 'next/head'
+import Script from 'next/script'
 import { useEffect } from 'react'
 
 // 手機版 License 只存在於此處，資料流不像桌機有在 Layout 中共用，故獨立寫在 Home 內
@@ -117,17 +117,15 @@ const License = () => {
 					</>
 				)}
 			</div>
-			<Head>
-				<script
-					src={`https://${tobiqueSealId}.seals.dlagglobal.com/dlag-seal.js`}
-					defer
-				/>
-				{/* 市場通知緊急移除 */}
-				{/* <script */}
-				{/*	src={`https://${XCMScript}.seals-xcm.certria.com/xcm-seal.js`} */}
-				{/*	defer */}
-				{/* /> */}
-			</Head>
+			<Script
+				src={`https://${tobiqueSealId}.seals.dlagglobal.com/dlag-seal.js`}
+				strategy='lazyOnload'
+			/>
+			{/* 市場通知緊急移除 */}
+			{/* <Script */}
+			{/*	src={`https://${XCMScript}.seals-xcm.certria.com/xcm-seal.js`} */}
+			{/*	strategy='lazyOnload' */}
+			{/* /> */}
 		</>
 	)
 }

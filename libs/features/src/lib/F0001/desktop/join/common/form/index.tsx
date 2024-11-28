@@ -24,6 +24,7 @@ import {
 	useLazyExistsEmailQuery,
 	useLazyExistsUserNameQuery,
 	useLazyGetAffiliateAgentQuery,
+	useRegisterRejectClickMutation,
 	useSignupMutation,
 } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
@@ -101,6 +102,8 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const [signUp] = useSignupMutation()
 
+	const [registerRejectClick] = useRegisterRejectClickMutation()
+
 	const [formBirth, setFormBirth] = useState<Date | null>(
 		new Date('1990-01-01')
 	)
@@ -111,10 +114,10 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const watchCurrencyId = watch('currencyId')
 
-	// TODO 日本語系上限需移除,
+	// TODO 日本語系上線需移除
 	const filterSiteCurrencyList = () => {
 		// 巴西，韓國，日本 沒有 enums
-		// 移除中國
+		// 32 日幣 / 13 人民幣
 		const filterCurrency = [32, 13]
 		return siteCurrencyList.filter(
 			currencyId => !includes(filterCurrency, currencyId)
@@ -370,29 +373,15 @@ const Form = ({ cookies }: IJoinProps) => {
 		}
 	}
 
-	const getBlackbox = async () => {
-		let blackbox = ''
-		if (
-			typeof window !== undefined &&
-			typeof (window as any).IGLOO.getBlackbox === 'function'
-		) {
-			try {
-				const result = await (window as any).IGLOO.getBlackbox()
-				blackbox = result?.blackbox || ''
-			} catch (error) {
-				// error
-			}
-		}
-
-		return blackbox
-	}
-
 	const handleCancel = () => {
 		reset()
 		router.push('/')
 	}
 
 	const handleSubmitForm = async () => {
+		if (initNationality === 'China') {
+			return
+		}
 		// opera and meta pixel tracker
 		OperaPixelTracker('register')
 		MetaPixelTracker('registerSubmit')
@@ -437,7 +426,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				({ value }) => value === langId
 			)?.value ?? 'en'
 
-		const blackbox = await getBlackbox()
+		const blackbox = ''
 		try {
 			await signUp({
 				// 因 cookies 有機會是 string[] 導致錯誤
@@ -480,6 +469,24 @@ const Form = ({ cookies }: IJoinProps) => {
 	useEffect(() => {
 		checkLineRegister()
 	}, [siteCurrencyList])
+
+	useEffect(() => {
+		if (initNationality === 'China') {
+			// GA 紀錄
+			window.dataLayer = window.dataLayer || []
+			window.dataLayer.push({
+				event: 'China_Register_Blocked',
+			})
+			// api 紀錄
+			registerRejectClick({
+				siteId: Number(process.env['NEXT_PUBLIC_SITE_ID']),
+				domain: window.location.origin,
+			})
+			modal.info(t('Label_Close_Region_Register_Notice'), {
+				onOK: () => router.push(paths.home.root),
+			})
+		}
+	}, [initNationality])
 
 	return (
 		<form
