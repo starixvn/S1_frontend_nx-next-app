@@ -55,7 +55,7 @@ const DepositSubModuleButton = ({
 					{imgName && (
 						<Img
 							alt={`img-${imgName}`}
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/paymentlogo/${imgName}`}
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/paymentlogo/${imgName}`}
 						/>
 					)}
 

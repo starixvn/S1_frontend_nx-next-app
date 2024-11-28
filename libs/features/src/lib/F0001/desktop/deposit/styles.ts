@@ -411,7 +411,7 @@ export const WrapperDeposit = styled.div`
 			}
 		}
 		.custom-th {
-			padding: 1.8rem 0rem;
+			padding: 1.8rem 0.5rem;
 		}
 		.custom-td {
 			.td {
