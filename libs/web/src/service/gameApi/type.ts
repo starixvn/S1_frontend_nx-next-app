@@ -84,7 +84,7 @@ export interface IDisplayGameData extends IGameData {
 export interface IDisplayLobbyGameData extends ILobbyGameData {
 	isMaintain: boolean
 	isFavorite: boolean
-	displayText: string
+	displayText?: string
 }
 
 export interface IGetRecentlyViewedArgs {
