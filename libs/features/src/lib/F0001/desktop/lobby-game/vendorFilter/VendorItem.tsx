@@ -27,7 +27,7 @@ const VendorItem = ({
 		>
 			<div className='img-container'>
 				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/lobby-slots/provider-logo/${imgName}.png`}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/filter-form-provider-logo/${imgName}.webp`}
 					alt={displayText}
 				/>
 			</div>

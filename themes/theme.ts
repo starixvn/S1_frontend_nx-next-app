@@ -165,6 +165,21 @@ export const theme = {
 		swiperBtnBg: '#ea6118',
 		swiperBtnBorder: '2px solid #0f1428',
 
+		filterFormBg: '#232b4f',
+		filterFormInputBg: '#374375',
+		filterFormInputColor: '#fff',
+		filterFormInputPlaceHolderColor: '#7883b4',
+		filterFormProviderBg: '#374375',
+		filterFormProviderBgHover:
+			'linear-gradient(0deg, #717fba 0%, #a2afe5 100%)',
+		filterFormProviderColor: '#fff',
+		filterFormProviderLogoBg: '#dcdee9',
+
+		gameTabBorder: '1px solid #556298',
+		gameTabItemColor: '#717fba',
+		gameTabItemColorHover: '#fff',
+		gameTabItemBorderHover: '2px solid var(--Color-5, #ea6118)',
+
 		buttonSloganBg: '#EA6118',
 		registerBodyBg: '#182043',
 

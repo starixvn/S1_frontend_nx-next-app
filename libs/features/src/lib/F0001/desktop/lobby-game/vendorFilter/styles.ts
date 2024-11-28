@@ -13,7 +13,7 @@ export const VendorFilterContainer = styled.div`
 		&-item {
 			display: flex;
 			align-items: center;
-			background: #374375;
+			background: ${({ theme }) => theme.desktop.filterFormProviderBg};
 			min-width: 21rem;
 			height: 5.6rem;
 			padding: 0 1.2rem;
@@ -29,7 +29,7 @@ export const VendorFilterContainer = styled.div`
 				width: 3.2rem;
 				height: 3.2rem;
 				border-radius: 10rem;
-				background: #dcdee9;
+				background: ${({ theme }) => theme.desktop.filterFormProviderLogoBg};
 
 				img {
 					width: 100%;
@@ -40,16 +40,16 @@ export const VendorFilterContainer = styled.div`
 				margin-left: 1.2rem;
 				font-size: 1.5rem;
 				font-weight: 700;
-				color: #fff;
+				color: ${({ theme }) => theme.desktop.filterFormProviderColor};
 			}
 
 			&:hover {
 				cursor: pointer;
-				background: linear-gradient(0deg, #717fba 0%, #a2afe5 100%);
+				background: ${({ theme }) => theme.desktop.filterFormProviderBgHover};
 			}
 
 			&.active {
-				background: linear-gradient(0deg, #717fba 0%, #a2afe5 100%);
+				background: ${({ theme }) => theme.desktop.filterFormProviderBgHover};
 			}
 
 			&.under {
@@ -91,14 +91,17 @@ export const VendorFilterContainer = styled.div`
 
 	.btn-toggle {
 		position: absolute;
-		background: #cfcfcf;
-		border-radius: 50px;
-		padding: 15px;
-		right: 5px;
-		top: 17px;
+		top: 2.2rem;
+		right: 0;
+		background: ${({ theme }) => theme.desktop.filterFormProviderBg};
+		border-radius: 10rem;
+		height: 5.6rem;
+		width: 5.6rem;
+
 		transition: 0.7s;
-		img {
-			width: 18px;
+
+		.icon {
+			font-size: 2.4rem;
 		}
 	}
 `

@@ -20,7 +20,7 @@ const VendorFilter = () => {
 			})}`}
 		>
 			<div className='provider-list'>
-				{vendorList.map(({ tpId, openPath, tpName, imgName, displayText }) => (
+				{vendorList?.map(({ tpId, openPath, tpName, imgName, displayText }) => (
 					<VendorItem
 						key={`lobby-vendor-${tpId}`}
 						onClick={() =>
@@ -37,10 +37,7 @@ const VendorFilter = () => {
 				))}
 			</div>
 			<button className='btn-toggle' onClick={() => onToggleDropdown()}>
-				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/lobby-slots/down.png`}
-					alt=''
-				/>
+				<span className='icon icon-chevron_down' />
 			</button>
 		</VendorFilterContainer>
 	)

@@ -1,13 +1,14 @@
 import { useGlobalModal } from "@nx-next-app/components/config-provider";
 import { useAuth } from "@nx-next-app/data-access";
+import { GameListContainer } from "@nx-next-app/features/F0001/desktop/lobby-game/styles";
 import { useMenu } from "@nx-next-app/features/F0001/hooks";
 import { useLobby } from "@nx-next-app/features/F0001/providers";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 
+import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
 	{
@@ -44,9 +45,11 @@ const GameList = () => {
 			liveStreamingCallback: () => modal.open(<LiveStreamingModalDesktop />),
 		})
 	}
+
+
 	return lobbyGameList && lobbyGameList.length > 0 ? (
 		<Suspense>
-			<div className='slots-list'>
+			<GameListContainer>
 				{lobbyGameList.map(
 					({
 						tpId,
@@ -63,12 +66,7 @@ const GameList = () => {
 						const resultGameImgDisplayText = vendorList.find(
 							({ tpId: vendorTpId }) => vendorTpId === tpId
 						)?.gameImgDisplayText
-						const resultImgUrl = `${
-							process.env['NEXT_PUBLIC_IMAGE_HOST']
-						}/${tpName.toLowerCase()}/${gameName
-							.toLowerCase()
-							.split(' ')
-							.join('-')}.png`
+						const resultImgUrl = `${process.env['NEXT_PUBLIC_IMAGE_HOST']}/${tpName}/${imgGameName}-en@2x.webp`
 
 						const lobbyGameItem = {
 							tpId,
@@ -79,7 +77,7 @@ const GameList = () => {
 						} as IDynamicSubMenuItem
 						return (
 							<div
-								className='slots-list-item'
+								className='game-icon'
 								style={{
 									pointerEvents: isMaintain ? 'none' : 'auto',
 								}}
@@ -135,7 +133,7 @@ const GameList = () => {
 					}
 				)}
 				<span ref={gameListRef} />
-			</div>
+			</GameListContainer>
 		</Suspense>
 	) : (
 		<div className='nodata'>
