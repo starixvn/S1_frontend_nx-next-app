@@ -205,14 +205,14 @@ const SubMenu = ({
 			>
 				<div />
 			</a>
-			{/* <div
+			<div
 				className={classNames(`vipList ${langId}`, {
 					active: debouncedMenuKey === 'VIP',
 				})}
 				onMouseEnter={() => setMenuKey('VIP')}
 			>
 				<div />
-			</div> */}
+			</div>
 			<a
 				className={classNames(`rankingList ${langId}`, {
 					active: debouncedMenuKey === 'LeaderBoard',
