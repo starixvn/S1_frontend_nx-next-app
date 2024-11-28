@@ -1,11 +1,11 @@
-import Link from 'next/link'
-import classNames from 'classnames'
-import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
 import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
 import { CurrenciesEnum } from '@nx-next-app/types'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
 
 const BankSelect = () => {
 	const { t } = useTranslation()

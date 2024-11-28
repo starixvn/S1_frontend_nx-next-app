@@ -4678,8 +4678,6 @@ main .promosswiper .swiper-button-prev::after {
 	margin-right: 5px;
 }
 
-
-
 .icon-icon32px_deposit {
 	position: relative;
 }
@@ -5365,50 +5363,7 @@ article p {
 .progressBarModule .turnover span {
 	color: #1e85ec;
 }
-.progressBarModule .turnover button {
-	background: #1e85ec;
-	color: white;
-	border-radius: 100%;
-	padding: 2px;
-	display: -webkit-inline-box;
-	display: -ms-inline-flexbox;
-	display: inline-flex;
-	justify-items: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	font-size: 12px;
-}
 
-.progressBar {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.progressBar .bar {
-	height: 5px;
-	border: 1px solid #5574a7;
-	border-radius: 10px;
-	margin-right: 10px;
-	-webkit-box-flex: 1;
-	-ms-flex: auto;
-	flex: auto;
-	overflow: hidden;
-}
-.progressBar .bar .progress {
-	background: #5574a7;
-	height: 100%;
-}
-.progressBar .percentage {
-	color: #5574a7;
-	-webkit-box-flex: 0;
-	-ms-flex: 0 0 auto;
-	flex: 0 0 auto;
-	font-weight: bold;
-}
 
 pre {
 	color: #666;
@@ -12512,7 +12467,7 @@ button.icon-spinner11:before {
 	margin: 10px 0;
 }
 
-.rolloverList,
+/* .rolloverList,
 .minAmount,
 .remainingTime {
 	display: -webkit-box;
@@ -12567,9 +12522,9 @@ button.icon-spinner11:before {
 }
 .remainingTime > div div {
 	border-right: 0;
-}
+} */
 
-.rolloverListNew > div {
+/* .rolloverListNew > div {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -12634,7 +12589,7 @@ button.icon-spinner11:before {
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-}
+} */
 
 .mission-content {
 	margin: 20px 0;

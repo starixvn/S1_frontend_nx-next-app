@@ -114,43 +114,17 @@ const PromotionDetailModal = ({
 			<div className='promoInfoPop active'>
 				<div className='promoInfoPopMask active' onClick={closeModal} />
 				<div className='promotionsInfo'>
-					<div className='icon icon-close-line' onClick={closeModal} />
+					<div
+						className='icon icon-close-line'
+						style={{ cursor: 'pointer' }}
+						onClick={closeModal}
+					/>
 					{isUrl(banner) ? <img src={banner} alt={title} /> : null}
 					<div className='proData'>
 						<div className='proDataTitle'>
 							<div className='txt-darkBlue'>
-								{title}
+								<div className='title'>{title}</div>
 								<div className='txt-gray'>{description}</div>
-							</div>
-							<div className='btnGroup'>
-								{!isHideJoinButton && !isShowApplyNowButton && (
-									<button
-										className='orange'
-										onClick={() => {
-											setClaimPromotionHandler(promotionDetail)
-										}}
-									>
-										{isShowClaimNowButton
-											? toUpper(t('Label_Promotion_ClaimNow') || '')
-											: toUpper(t('Label_Promotion_JoinNow') || '')}
-									</button>
-								)}
-								{isShowApplyNowButton && (
-									<button className='red' onClick={openLiveChat}>
-										{t('Label_Promotion_ApplyNow')}
-									</button>
-								)}
-								{!isHideAllPromoButton && (
-									<button
-										className='btn-check'
-										onClick={() => {
-											push(paths.promotion.root)
-											closeModal()
-										}}
-									>
-										{t('Label_Promotion_AllPromos')}
-									</button>
-								)}
 							</div>
 						</div>
 						{isShowCashbackInfo && (
@@ -188,6 +162,7 @@ const PromotionDetailModal = ({
 								}
 							/>
 						)}
+
 						{promotionType === PromotionTypeEnum.MissionBonus && !isJoin && (
 							<PromoMission promotionDetail={promotionDetail} />
 						)}
@@ -205,6 +180,36 @@ const PromotionDetailModal = ({
 								}}
 							/>
 						)}
+						<div className='btnGroup'>
+							{!isHideJoinButton && !isShowApplyNowButton && (
+								<button
+									className='btn-primary'
+									onClick={() => {
+										setClaimPromotionHandler(promotionDetail)
+									}}
+								>
+									{isShowClaimNowButton
+										? toUpper(t('Label_Promotion_ClaimNow') || '')
+										: toUpper(t('Label_Promotion_JoinNow') || '')}
+								</button>
+							)}
+							{isShowApplyNowButton && (
+								<button className='btn-primary' onClick={openLiveChat}>
+									{t('Label_Promotion_ApplyNow')}
+								</button>
+							)}
+							{!isHideAllPromoButton && (
+								<button
+									className='btn-primary'
+									onClick={() => {
+										push(paths.promotion.root)
+										closeModal()
+									}}
+								>
+									{t('Label_Promotion_AllPromos')}
+								</button>
+							)}
+						</div>
 					</div>
 				</div>
 			</div>

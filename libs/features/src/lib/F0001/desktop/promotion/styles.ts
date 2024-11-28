@@ -85,6 +85,7 @@ export const WrapperPromotion = styled.div`
 						display: flex;
 						flex-direction: column;
 						justify-content: space-between;
+						min-width: 30rem;
 						&-heading {
 							font-size: 2.5rem;
 							font-weight: 700;
@@ -99,8 +100,10 @@ export const WrapperPromotion = styled.div`
 						.btnGroup {
 							margin: 0;
 							justify-content: flex-start;
+							max-width: 30rem;
 							button {
 								max-width: 18.2rem;
+								width: 50%;
 							}
 						}
 					}
@@ -149,5 +152,57 @@ export const WrapperPromotion = styled.div`
 	}
 	#popup {
 		z-index: 999;
+	}
+	.progressBarModule {
+		background: #232b4f;
+		padding: 0.8rem;
+		border-radius: 10px;
+		max-width: 30rem;
+		width: 100%;
+		.bounsName {
+			font-size: 1.2rem;
+			font-weight: 600;
+			line-height: 1.8rem;
+			color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+		}
+		.turnover {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			&-left {
+				font-size: 1.2rem;
+				font-weight: 400;
+				line-height: normal;
+				color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+			}
+			.icon {
+				background: none;
+				&:before {
+					font-size: 1.6rem;
+				}
+			}
+		}
+
+		.progressBar {
+			display: flex;
+			align-items: center;
+		}
+		.progressBar .bar {
+			height: 0.6rem;
+			border-radius: 10px;
+			background: #374375;
+			margin-right: 10px;
+			flex: auto;
+			overflow: hidden;
+		}
+		.progressBar .bar .progress {
+			background: #ea6118;
+			height: 100%;
+			border-radius: 10px;
+		}
+		.progressBar .percentage {
+			color: #5574a7;
+			font-weight: bold;
+		}
 	}
 `

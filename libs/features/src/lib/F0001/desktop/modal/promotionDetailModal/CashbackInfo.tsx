@@ -1,7 +1,7 @@
-import { ICashBackDetail } from '@nx-next-app/service'
-import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
+import { ICashBackDetail } from '@nx-next-app/service'
 import { numberFormat } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
 
 interface ICashBackInfoProps {
 	bonusCode: string

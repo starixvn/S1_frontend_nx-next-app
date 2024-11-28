@@ -44,17 +44,21 @@ const PromoRule = ({ promotionDetail }: IPromoRuleProps) => {
 
 	if (tierAmountList.length > 0) {
 		const redepositList = tierAmountList.map(tierAmountInfo => (
-			<div key={tierAmountInfo.requiredAmount}>
-				<div>{numberWithCurrency(tierAmountInfo.requiredAmount)}</div>
-				<div>
+			<div className='custom-td' key={tierAmountInfo.requiredAmount}>
+				<div className='td'>
+					{numberWithCurrency(tierAmountInfo.requiredAmount)}
+				</div>
+				<div className='td'>
 					{isPercentage
 						? `${tierAmountInfo.bonus}%`
 						: numberWithCurrency(tierAmountInfo.bonus)}
 				</div>
 				{isPercentage && (
-					<div>{numberWithCurrency(tierAmountInfo.maxBonus)}</div>
+					<div className='td'>
+						{numberWithCurrency(tierAmountInfo.maxBonus)}
+					</div>
 				)}
-				<div>
+				<div className='td'>
 					{fullFillType === CustBonusWalletFullFillTypeEnum.WinOver
 						? tierAmountInfo.winOver
 						: tierAmountInfo.rollOver}
@@ -65,24 +69,32 @@ const PromoRule = ({ promotionDetail }: IPromoRuleProps) => {
 
 		return (
 			<>
-				<div className='remainingTime'>
-					<div>
-						<div>{t('Label_Promotion_RemainingTime')}</div>
-						<div>{expiryTime}</div>
+				<div className='remainingTime custom-table'>
+					<div className='expiryTime-title custom-table-thead'>
+						<div className='custom-th'>
+							{t('Label_Promotion_RemainingTime')}
+						</div>
+					</div>
+					<div className='expiryTime-body custom-table-tbody'>
+						<div className='custom-td'>
+							<div className='td'>{expiryTime}</div>
+						</div>
 					</div>
 				</div>
-				<div className='rolloverListNew'>
-					<div>
-						<div>{t('Label_Promotion_MinDeposit')}</div>
-						<div>{t('Label_Promotion_Bonus').toUpperCase()}</div>
+				<div className='rolloverListNew custom-table'>
+					<div className='custom-table-thead'>
+						<div className='custom-th'>{t('Label_Promotion_MinDeposit')}</div>
+						<div className='custom-th'>
+							{t('Label_Promotion_Bonus').toUpperCase()}
+						</div>
 						{isPercentage && <div>{t('Label_Promotion_MaxBonus')}</div>}
-						<div>
+						<div className='custom-th'>
 							{fullFillType === CustBonusWalletFullFillTypeEnum.WinOver
 								? t('Label_General_WinOver')
 								: t('Label_General_RollOver')}
 						</div>
 					</div>
-					{redepositList}
+					<div className='custom-table-tbody'>{redepositList}</div>
 				</div>
 			</>
 		)

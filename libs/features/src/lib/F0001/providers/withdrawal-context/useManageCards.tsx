@@ -1,12 +1,13 @@
-import { useTranslation } from 'next-i18next'
+import { ISelectProps } from '@nx-next-app/components/D0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
 import {
 	IBankInfoData,
 	IDeleteBankCardArgs,
 	IDeleteEWalletCardArgs,
 	IEWalletData,
-	IUsdtDetailData,
 	IPaymentCustBankInfoData,
+	IUsdtDetailData,
 	useDeleteBankCardMutation,
 	useDeleteEWalletCardMutation,
 	useLazyGetBankInfoSysListQuery,
@@ -14,8 +15,7 @@ import {
 	useSetEWalletInfoMutation,
 	useSetLocalBankInfoMutation,
 } from '@nx-next-app/service'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { ISelectProps } from '@nx-next-app/components/D0001'
+import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 
 const AddBankCardModal = dynamic(

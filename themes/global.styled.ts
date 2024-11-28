@@ -1201,24 +1201,33 @@ export const GlobalStyles = createGlobalStyle`
       line-height: normal;
       margin-bottom : 4rem;
     }
-    .claimed {
-      background : rgba(167, 3, 3, 0.8);
-      &:before{
-        content: 'CLAIMED';
+    .promotion-status{
+      &.claimed {
+        background : #FBC208;
+        &:before{
+          content: 'Claimed';
+        }
+        
       }
-      
+      &.new {
+        background: ${({ theme }) => theme.desktop.tipColorError};
+        &:before{
+          content: 'New';
+        } 
+      }
+      &.active{
+        background : #01B901;
+        &:before{
+          content: 'Active';
+        } 
+      }
+      &.expired {
+        background: #6F7689;
+        &:before{
+          content: 'Expired';
+        } 
+      }
     }
-    .new {
-      background: ${({ theme }) => theme.desktop.tipColorError};
-      &:before{
-        content: 'NEW';
-      } 
-    }
-    .expired {
-      background: #b2b2b2;
-      &:before{
-        content: 'EXPIRED';
-      } 
-    }
+    
   }
 `

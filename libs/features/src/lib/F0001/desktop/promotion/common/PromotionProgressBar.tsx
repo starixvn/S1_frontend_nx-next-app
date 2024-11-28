@@ -1,7 +1,7 @@
-import { useTranslation } from 'next-i18next'
+import { SpinButton } from '@nx-next-app/components/D0001'
 import { useAuth } from '@nx-next-app/data-access'
 import { getPromotionPercentage, numberFormat } from '@nx-next-app/utils'
-import { SpinButton } from '@nx-next-app/components/D0001'
+import { useTranslation } from 'next-i18next'
 
 const PromotionProgressBar = ({
 	custTurnOver,
@@ -28,11 +28,14 @@ const PromotionProgressBar = ({
 				{t('Label_Promotion_TurnoverAccumulated')}
 			</div>
 			<div className='turnover'>
-				<span>
-					{currencyName} {numberFormat(custTurnOver, currencyId)}
-				</span>{' '}
-				/ {t('Label_General_Req')}. {currencyName}{' '}
-				{numberFormat(custRollOver, currencyId)}{' '}
+				<div className='turnover-left'>
+					<span>
+						{currencyName} {numberFormat(custTurnOver, currencyId)}
+					</span>
+					{' / '}
+					{t('Label_General_Req')}. {currencyName}
+					{numberFormat(custRollOver, currencyId)}
+				</div>
 				{onSpinButton && <SpinButton onClick={onSpinButton} />}
 			</div>
 			<div className='progressBar'>
