@@ -34,6 +34,16 @@ const ProvidersList = () => {
   const tableGame = 73;
 	const gameTypeEmblaOptions: EmblaOptionsType = { slidesToScroll: 'auto' }
 
+  const providerComingSoon = [
+    {tpId: 999,tpNameKey: "SA Gaming",tpName: "sa-gaming",tpLogo: "",gameId: '',gameLogo: '',gameName: '',sort: 0,tpCategory: 0,tpGameType: 0},
+    {tpId: 1000,tpNameKey: "NextSpin",tpName: "next-spin",tpLogo: "",gameId: '',gameLogo: '',gameName: '',sort: 0,tpCategory: 0,tpGameType: 0},
+    {tpId: 1001,tpNameKey: "SpadeGaming",tpName: "spade-gaming",tpLogo: "",gameId: '',gameLogo: '',gameName: '',sort: 0,tpCategory: 0,tpGameType: 0},
+    {tpId: 1002,tpNameKey: "Microgaming",tpName: "microgaming",tpLogo: "",gameId: '',gameLogo: '',gameName: '',sort: 0,tpCategory: 0,tpGameType: 0},
+    {tpId: 1003,tpNameKey: "Evolution",tpName: "evolution",tpLogo: "",gameId: '',gameLogo: '',gameName: '',sort: 0,tpCategory: 0,tpGameType: 0},
+    {tpId: 1004,tpNameKey: "Yeebet Casino",tpName: "yeebet-casino",tpLogo: "",gameId: '',gameLogo: '',gameName: '',sort: 0,tpCategory: 0,tpGameType: 0},
+    {tpId: 1005,tpNameKey: "WonCasino",tpName: "won-casino",tpLogo: "",gameId: '',gameLogo: '',gameName: '',sort: 0,tpCategory: 0,tpGameType: 0}
+  ];
+
 	if (providerData.length === 0) {
 		return <div />
 	}
@@ -72,6 +82,22 @@ const ProvidersList = () => {
                   />
               </div>
           }
+          {providerComingSoon.map(provider => {
+						const { tpId, tpLogo, tpName } = provider
+            if(tpId === maxGame || tpId === keno ||tpId === lottery ||tpId === tableGame )
+              return null;
+						return (
+							<div className='embla__slide provider-item' key={tpId}>
+								<Img
+									className='img'
+									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/provider/dark/${tpLogo}.webp`}
+									loader={<LoadingIcon />}
+									unloader={<NoGameIcon />}
+									alt={tpName}
+								/>
+							</div>
+						)
+					})}
 				</EmblaCarousel>
 			</GameContainer>
 		</ProviderGroup>
