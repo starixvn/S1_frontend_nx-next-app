@@ -149,7 +149,7 @@ const SubMenu = ({
 						<a>
 							<img
 								className='List-npc'
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-vip.png`}
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/home-vipp.png`}
 								alt='vip'
 							/>
 							<span>{t('VIP')}</span>
