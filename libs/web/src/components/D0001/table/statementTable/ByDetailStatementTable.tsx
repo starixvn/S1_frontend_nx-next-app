@@ -82,7 +82,8 @@ const ByDetailStatementTable = ({
 			footer={() => (
 				<div className='total'>
 					{t('Label_General_TurnOverTotal')}：<span>{totalTurnover}</span>
-					&nbsp;&nbsp; {t('Label_General_WinlostAmountTotal')}：
+					<span className='line'>|</span>
+					{t('Label_General_WinlostAmountTotal')}：
 					<span>{totalWinlostAmount}</span>
 				</div>
 			)}

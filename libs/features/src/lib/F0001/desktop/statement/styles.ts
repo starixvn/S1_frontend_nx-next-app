@@ -8,6 +8,11 @@ export const WrapperStament = styled.div`
 		.inputBox-blue {
 			max-width: 30rem;
 		}
+		.dropdown {
+			.btn {
+				color: ${({ theme }) => theme.desktop.white};
+			}
+		}
 	}
 	.statement {
 		.custom-th {

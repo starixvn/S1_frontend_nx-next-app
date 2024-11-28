@@ -874,7 +874,7 @@ export const GlobalStyles = createGlobalStyle`
 						theme.desktop.customTableBorderColor};
           border-bottom: 1px solid ${({ theme }) =>
 						theme.desktop.customTableBorderColor};
-          display: inline-block;
+          display: inline-block !important;
           white-space: nowrap;
           overflow: hidden !important;
           text-overflow: ellipsis;
@@ -960,6 +960,18 @@ export const GlobalStyles = createGlobalStyle`
       font-weight: 600 !important;
       line-height: normal;
       margin-left : .8rem;
+    }
+    .total{
+      padding : 2rem 1.6rem;
+      color :  ${({ theme }) => theme.desktop.white};
+      background : #232B4F;
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: normal;
+      .line{
+        color : #374375;
+        margin : 0 1.6rem;
+      }
     }
   }
   .pagination{
