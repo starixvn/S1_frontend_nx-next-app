@@ -11,7 +11,7 @@ export const HeaderContainer = styled.div`
 	width: 100%;
 	height: 12.4rem;
 	background: ${({ theme }) => theme.desktop.headerBg};
-	z-index: 10;
+	z-index: 999;
 `
 
 export const LogoContainer = styled.div`

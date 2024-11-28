@@ -3,9 +3,11 @@ import styled from 'styled-components'
 export const WrapperModal = styled.div`
 	.pop {
 		overflow-y: unset !important;
+		width: 100% !important;
+		max-width: 84rem;
+		padding: 0 !important;
 	}
 	.loginpop {
-		min-width: 84rem;
 		margin: 0 auto;
 		.joinloginModule {
 			display: flex;
@@ -17,7 +19,7 @@ export const WrapperModal = styled.div`
 			}
 			.joinloginFunction {
 				padding-right: 2rem;
-				max-width: 38rem;
+				width: 38rem;
 				.heading-login {
 					font-size: 2.5rem;
 					font-weight: 700;

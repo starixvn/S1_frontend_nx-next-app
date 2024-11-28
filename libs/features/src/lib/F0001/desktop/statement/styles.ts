@@ -21,6 +21,7 @@ export const WrapperStament = styled.div`
 	}
 	.custom-nodata {
 		border-top: none;
+		padding: 1.6rem 0;
 	}
 	.custom-table-tbody {
 		.custom-td {
@@ -35,6 +36,20 @@ export const WrapperStament = styled.div`
 			&:nth-child(even) {
 				background: #1d2447;
 			}
+		}
+	}
+	.btnGroup {
+		a {
+			width: max-content;
+		}
+	}
+	.wrapper-table {
+		border-radius: 10px;
+		border: 1px solid ${({ theme }) => theme.desktop.customTableBorderColor};
+		overflow: hidden;
+		.custom-table {
+			border: none;
+			border-radius: 0;
 		}
 	}
 `

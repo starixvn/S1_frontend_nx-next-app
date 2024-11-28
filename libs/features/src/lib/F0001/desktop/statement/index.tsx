@@ -57,14 +57,16 @@ const Statement = () => {
 							</div>
 						</div>
 
-						{loading ? <Loading /> : <StatementTable />}
+						<div className='wrapper-table'>
+							{loading ? <Loading /> : <StatementTable />}
 
-						{displayColumns.length === 0 && (
-							<div className='custom-nodata'>
-								<i className='icon icon-file-damage-fill' />
-								<div>{t('Label_General_NoData')}</div>
-							</div>
-						)}
+							{displayColumns.length === 0 && (
+								<div className='custom-nodata'>
+									<i className='icon icon-file-damage-fill' />
+									<div>{t('Label_General_NoData')}</div>
+								</div>
+							)}
+						</div>
 						{displayColumns.length > 0 && !loading && (
 							<Pagination
 								totalPage={totalPage}
