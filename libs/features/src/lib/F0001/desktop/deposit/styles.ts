@@ -80,7 +80,6 @@ export const WrapperDeposit = styled.div`
 			> div {
 				display: flex;
 				gap: 2.4rem;
-				flex-wrap: wrap;
 				.btn-bank {
 					width: auto;
 					text-align: center;
@@ -160,6 +159,11 @@ export const WrapperDeposit = styled.div`
 							color: ${({ theme }) => theme.desktop.primaryBtnBg};
 						}
 					}
+				}
+			}
+			&.selectBank {
+				> div {
+					flex-wrap: wrap;
 				}
 			}
 		}
