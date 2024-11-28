@@ -25,7 +25,7 @@ const FourD = () => {
 			<div className='lobby-content slots'>
 				<div className='top'>
 					<SearchBox />
-					<VendorFilter />
+					<VendorFilter pathRoot=''/>
 				</div>
         <CategoryFilter/>
 				<GameList />

@@ -24,7 +24,7 @@ const LiveCasino = () => {
 			<div className='content-container'>
 				<div className='filter-form'>
 					<SearchBox />
-					<VendorFilter />
+					<VendorFilter pathRoot=''/>
 				</div>
 				<CategoryFilter />
 				<GameList />
