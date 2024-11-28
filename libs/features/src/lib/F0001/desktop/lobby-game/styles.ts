@@ -23,123 +23,123 @@ export const LobbyGamePage = styled.div`
 	}
 `
 
+export const GameIconContainer = styled.div`
+	position: relative;
+	margin-top: 4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 calc(100% / 6 - 10rem);
+	background: ${({ theme }) => theme.desktop.gameIconBg};
+	border-radius: 2rem;
+
+	.img-wrapper {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 21.6rem;
+		min-height: 29.1rem;
+		border-radius: 2rem;
+		overflow: hidden;
+		z-index: 2;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.details {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 2;
+		border-radius: 2rem;
+		overflow: hidden;
+
+		.providerName {
+			position: absolute;
+			bottom: 1.6rem;
+			width: 100%;
+			text-align: center;
+			color: ${({ theme }) => theme.desktop.gameIconProviderNameColor};
+			font-size: 1.7rem;
+			font-weight: 400;
+		}
+
+		.icon-favorite {
+			position: absolute;
+			top: 1.2rem;
+			right: 1.2rem;
+			font-size: 3.2rem;
+
+			&:before {
+				color: ${({ theme }) => theme.desktop.gameIconFavoriteColor};
+			}
+
+			&.active:before {
+				color: ${({ theme }) => theme.desktop.gameIconFavoriteColorActive};
+			}
+		}
+
+		.button {
+			display: none;
+			padding-left: 2.4rem;
+			padding-right: 2.4rem;
+		}
+
+		&:hover {
+			cursor: pointer;
+			background: ${({ theme }) => theme.desktop.gameIconBgHover};
+			.button {
+				display: block;
+			}
+		}
+	}
+
+	.under {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 100%;
+		transform: translateY(-50%);
+		z-index: 3;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 2.7rem 0;
+		background: ${({ theme }) => theme.desktop.gameIconMaintainBg};
+		color: ${({ theme }) => theme.desktop.gameIconMaintainColor};
+		text-align: center;
+		font-size: 1.4rem;
+		font-weight: 700;
+	}
+
+	.new-icon {
+		position: absolute;
+		left: 1.6rem;
+		top: 1.6rem;
+		padding: 0.3rem 0.6rem;
+		border-radius: 5.2rem;
+		background: ${({ theme }) => theme.desktop.gameIconNewBg};
+		box-shadow: ${({ theme }) => theme.desktop.gameIconNewShadow};
+		color: ${({ theme }) => theme.desktop.gameIconNewColor};
+		font-size: 1.2rem;
+		font-weight: 600;
+		z-index: 2;
+	}
+`
+
 export const GameListContainer = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	flex-wrap: wrap;
 	gap: 2rem;
-
-	.game-icon {
-		position: relative;
-		margin-top: 4rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex: 0 0 calc(100% / 6 - 10rem);
-		background: ${({ theme }) => theme.desktop.gameIconBg};
-		border-radius: 2rem;
-
-		.img-wrapper {
-			position: relative;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			width: 21.6rem;
-			min-height: 29.1rem;
-			border-radius: 2rem;
-			overflow: hidden;
-			z-index: 2;
-
-			img {
-				width: 100%;
-			}
-		}
-
-		.details {
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			z-index: 2;
-			border-radius: 2rem;
-			overflow: hidden;
-
-			.providerName {
-				position: absolute;
-				bottom: 1.6rem;
-				width: 100%;
-				text-align: center;
-				color: ${({ theme }) => theme.desktop.gameIconProviderNameColor};
-				font-size: 1.7rem;
-				font-weight: 400;
-			}
-
-			.icon-favorite {
-				position: absolute;
-				top: 1.2rem;
-				right: 1.2rem;
-				font-size: 3.2rem;
-
-				&:before {
-					color: ${({ theme }) => theme.desktop.gameIconFavoriteColor};
-				}
-
-				&.active:before {
-					color: ${({ theme }) => theme.desktop.gameIconFavoriteColorActive};
-				}
-			}
-
-			.button {
-				display: none;
-				padding-left: 2.4rem;
-				padding-right: 2.4rem;
-			}
-
-			&:hover {
-				cursor: pointer;
-				background: ${({ theme }) => theme.desktop.gameIconBgHover};
-				.button {
-					display: block;
-				}
-			}
-		}
-
-		.under {
-			position: absolute;
-			top: 50%;
-			left: 0;
-			width: 100%;
-			transform: translateY(-50%);
-			z-index: 3;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			padding: 2.7rem 0;
-			background: ${({ theme }) => theme.desktop.gameIconMaintainBg};
-			color: ${({ theme }) => theme.desktop.gameIconMaintainColor};
-			text-align: center;
-			font-size: 1.4rem;
-			font-weight: 700;
-		}
-
-		.new-icon {
-			position: absolute;
-			left: 1.6rem;
-			top: 1.6rem;
-			padding: 0.3rem 0.6rem;
-			border-radius: 5.2rem;
-			background: ${({ theme }) => theme.desktop.gameIconNewBg};
-			box-shadow: ${({ theme }) => theme.desktop.gameIconNewShadow};
-			color: ${({ theme }) => theme.desktop.gameIconNewColor};
-			font-size: 1.2rem;
-			font-weight: 600;
-			z-index: 2;
-		}
-	}
 `
 
 export const SearchForm = styled.div`

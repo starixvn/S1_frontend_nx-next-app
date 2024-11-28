@@ -1,9 +1,10 @@
-import { useTranslation } from 'next-i18next'
-import classNames from 'classnames'
-import { useAuth } from '@nx-next-app/data-access'
-import { isEventPeriod } from '@nx-next-app/utils'
 import { switchLobbyIcon } from '@nx-next-app/components/D0001/game-list-item'
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
+import { useAuth } from '@nx-next-app/data-access'
+import { GameIconContainer } from '@nx-next-app/features/F0001/desktop/lobby-game/styles'
+import { IDynamicSubMenuItem } from '@nx-next-app/types'
+import { isEventPeriod } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
 
 interface IListItemProps {
 	subMenuItem: IDynamicSubMenuItem
@@ -34,23 +35,32 @@ const ESportListItem = ({ subMenuItem, onItemClick }: IListItemProps) => {
 		null
 
 	return (
-		<div
+		<GameIconContainer
 			className={classNames('lobby-content-item', {
 				under: isTpMaintain,
 			})}
-			onClick={() => onItemClick(subMenuItem)}
 		>
 			{isTpMaintain && (
-				<div className='under-text'>{t('Label_General_UnderMaintenance')}</div>
+				<div className='under'>{t('Label_General_UnderMaintenance')}</div>
 			)}
 
-			{eSportLobbyIcon}
-
-			<img src={suBMenuLobbyImage} alt={subMenuItem?.gameName} />
-			<div className='lobby-title'>
-				{displayName || subMenuItem?.gameName}
+			<div className='img-wrapper'>
+				<img src={suBMenuLobbyImage} alt={subMenuItem?.gameName} />
 			</div>
-		</div>
+
+			<div className='details'>
+				<button
+					className='button btn-primary btn-play'
+					onClick={() => onItemClick(subMenuItem)}
+				>
+					{t('Label_Play')}
+				</button>
+				<div className='providerName'>
+					{displayName || subMenuItem?.gameName}
+				</div>
+				{eSportLobbyIcon}
+			</div>
+		</GameIconContainer>
 	)
 }
 

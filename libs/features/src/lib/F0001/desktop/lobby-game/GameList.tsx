@@ -1,7 +1,10 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import AppearSensor from '@nx-next-app/features/F0001/desktop/common/appearSensor'
 import { LoadingIcon } from '@nx-next-app/features/F0001/desktop/home/gameIcon/icons'
-import { GameListContainer } from '@nx-next-app/features/F0001/desktop/lobby-game/styles'
+import {
+	GameIconContainer,
+	GameListContainer,
+} from '@nx-next-app/features/F0001/desktop/lobby-game/styles'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useLobby } from '@nx-next-app/features/F0001/providers'
 import classNames from 'classnames'
@@ -9,6 +12,7 @@ import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import { Img } from 'react-image'
+
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 
 const LoginModal = dynamic(
@@ -68,8 +72,7 @@ const GameList = () => {
 									tpName,
 								} as IDynamicSubMenuItem
 								return (
-									<div
-										className='game-icon'
+									<GameIconContainer
 										style={{
 											pointerEvents: isMaintain ? 'none' : 'auto',
 										}}
@@ -119,7 +122,7 @@ const GameList = () => {
 										{newGamesArr.includes(gameId) && (
 											<div className='new-icon'>{t('Label_General_New')}</div>
 										)}
-									</div>
+									</GameIconContainer>
 								)
 							}
 						)

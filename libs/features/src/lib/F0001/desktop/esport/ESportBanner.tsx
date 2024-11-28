@@ -1,17 +1,20 @@
-const baseurl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/lobby-esports`
+import {
+	LoadingIcon,
+	NoGameIcon,
+} from '@nx-next-app/features/F0001/desktop/home/gameIcon/icons'
+import { Img } from 'react-image'
 
 const ESportBanner = () => {
 	return (
-		<div className='lobby-banner'>
-			<div className='swiper-container'>
-				<div className='swiper-wrapper'>
-					<div className='swiper-slide'>
-						<img
-							alt='esport-banner-img'
-							src={`${baseurl}/esportslobby-bn.png`}
-						/>
-					</div>
-				</div>
+		<div className='banner-container'>
+			<div className='content-container'>
+				<Img
+					className='img-banner'
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/e-sport-banner.webp`}
+					loader={<LoadingIcon />}
+					unloader={<NoGameIcon />}
+					alt='Live Casino'
+				/>
 			</div>
 		</div>
 	)

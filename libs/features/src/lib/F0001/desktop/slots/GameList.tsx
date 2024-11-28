@@ -1,7 +1,10 @@
 import { useAuth } from '@nx-next-app/data-access'
 import AppearSensor from '@nx-next-app/features/F0001/desktop/common/appearSensor'
 import { LoadingIcon } from '@nx-next-app/features/F0001/desktop/home/gameIcon/icons'
-import { GameListContainer } from '@nx-next-app/features/F0001/desktop/lobby-game/styles'
+import {
+	GameIconContainer,
+	GameListContainer,
+} from '@nx-next-app/features/F0001/desktop/lobby-game/styles'
 import { useSlots } from '@nx-next-app/features/F0001/providers'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
@@ -48,8 +51,7 @@ const GameList = () => {
 								const resultGameName = gameName[langId] ?? gameName['en']
 
 								return (
-									<div
-										className='game-icon'
+									<GameIconContainer
 										style={{
 											pointerEvents: isMaintain ? 'none' : 'auto',
 										}}
@@ -124,7 +126,7 @@ const GameList = () => {
 												) : null}
 											</div>
 										</div>
-									</div>
+									</GameIconContainer>
 								)
 							}
 						)
