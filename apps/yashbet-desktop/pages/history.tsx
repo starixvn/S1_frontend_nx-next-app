@@ -1,15 +1,16 @@
+import { History } from '@apps/yashbet-desktop/components'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { History, Layout, LeftMenu } from '@nx-next-app/features/F0006/desktop'
-import { HistoryProvider } from '@nx-next-app/features/F0006/providers'
+import { Layout, LeftMenu } from '@nx-next-app/features/F0006/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { HistoryProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import { FOOTER_DATA } from '@nx-next-app/site/yashbet'
 import {
