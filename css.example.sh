@@ -42,9 +42,10 @@ do
     cp -R ${designPath} ${projectPath}
 
     designFontsPath="${DESIGN_PROJECT}/$site/$device/public/fonts"
+    projectFontsPath="${PROJECT}/apps/$site-$device/styles"
 
-    echo $designFontsPath "->" $projectPath
-    cp -R ${designFontsPath} ${projectPath}
+    echo $designFontsPath "->" $projectFontsPath
+    cp -R ${designFontsPath} ${projectFontsPath}
 
     # 僅複製 CSS 內用到的相對路徑圖片 (img/style-img/*)
     designStyleImgPath="${DESIGN_PROJECT}/$site/$device/public/img/style-img"
