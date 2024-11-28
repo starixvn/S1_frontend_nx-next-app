@@ -72,11 +72,11 @@ export interface LobbyContextInterface {
 	onVendorChange: ({
 		tpId,
 		openPath,
-    isLobby
+    pathRoot
 	}: {
 		tpId: number
-		openPath: string
-    isLobby: boolean
+		openPath: string,
+    pathRoot: string
 	}) => void
 	onCategoryChange: (value: string) => void
 	onSearchCategoryTextChange: (value: string) => void
@@ -200,11 +200,11 @@ const LobbyProvider = ({
 	const onVendorChange = ({
 		tpId,
 		openPath,
-    isLobby
+    pathRoot
 	}: {
 		tpId: number
 		openPath: string
-		isLobby: boolean
+    pathRoot: string
 	}) => {
 		if (tpId === activeVendorTpId) {
 			setActiveVendorTpId(null)
@@ -215,16 +215,12 @@ const LobbyProvider = ({
 			setActiveVendorTpId(tpId)
 			if (openPath) {
 				push(`/${openPath}`)
-			} else if(isLobby) {
+			} else {
 				// * 只改變路徑，不重新渲染畫面
-				push({ pathname: paths.fishing.root, query: { tpId } }, undefined, {
+				push({ pathname: pathRoot, query: { tpId } }, undefined, {
 					shallow: true,
 				})
-			}else{
-        push({ pathname: paths.slots.root, query: { tpId } }, undefined, {
-					shallow: true,
-				})
-      }
+			}
 		}
 	}
 

@@ -8,7 +8,7 @@ const VendorFilter = () => {
 	return (
 		<div className='partnerSelect'>
 			{vendorList?.map(
-				({ tpId, displayText, openPath, isLobby, tpName, imgName, ...rest }) => {
+				({ tpId, displayText, openPath, pathRoot, tpName, imgName, ...rest }) => {
 					return (
 						<VendorItem
 							key={`slot-swiper-${tpId}`}
@@ -16,7 +16,7 @@ const VendorFilter = () => {
 								tpId,
 								displayText,
 								openPath,
-                isLobby,
+                pathRoot,
 								tpName,
 								imgName,
 								...rest,

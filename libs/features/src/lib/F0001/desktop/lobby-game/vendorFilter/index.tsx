@@ -4,7 +4,11 @@ import classNames from "classnames";
 
 import VendorItem from "./VendorItem";
 
-const VendorFilter = () => {
+const VendorFilter = ({
+  pathRoot
+}: {
+  pathRoot: string
+}) => {
 	const {
 		vendorList,
 		activeVendorTpId,
@@ -27,7 +31,7 @@ const VendorFilter = () => {
 							onVendorChange({
 								tpId,
 								openPath,
-								isLobby: true,
+                pathRoot
 							})
 						}
 						isActive={activeVendorTpId === tpId}
