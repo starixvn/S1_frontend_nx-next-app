@@ -35,7 +35,7 @@ for device in ${deviceList[@]}
 do
   for site in ${siteList[@]}
   do
-    designPath="${DESIGN_PROJECT}/$site/$device/public/css"
+    designPath="${DESIGN_PROJECT}/$site/$device/public/*.scss"
     projectPath="${PROJECT}/apps/$site-$device/styles"
 
     echo $designPath "->" $projectPath
@@ -51,7 +51,7 @@ do
     projectImgPath="${PROJECT}/apps/$site-$device/styles/img"
     if [ -d "$designStyleImgPath" ]; then
       # 清空 img 目錄確保不會有舊圖片殘留
-      rm -rf ${projectImgPath}/* 
+      rm -rf ${projectImgPath}/*
       echo $designStyleImgPath "->" $projectImgPath
       cp -R ${designStyleImgPath} ${projectImgPath}
     fi
