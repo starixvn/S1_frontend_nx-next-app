@@ -1,12 +1,12 @@
-import { useGlobalModal } from "@nx-next-app/components/config-provider";
-import { useAuth } from "@nx-next-app/data-access";
-import { GameListContainer } from "@nx-next-app/features/F0001/desktop/lobby-game/styles";
-import { useMenu } from "@nx-next-app/features/F0001/hooks";
-import { useLobby } from "@nx-next-app/features/F0001/providers";
-import classNames from "classnames";
-import { useTranslation } from "next-i18next";
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useAuth } from '@nx-next-app/data-access'
+import { GameListContainer } from '@nx-next-app/features/F0001/desktop/lobby-game/styles'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import { useLobby } from '@nx-next-app/features/F0001/providers'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
 
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 const LoginModal = dynamic(
@@ -46,7 +46,6 @@ const GameList = () => {
 		})
 	}
 
-
 	return lobbyGameList && lobbyGameList.length > 0 ? (
 		<Suspense>
 			<GameListContainer>
@@ -61,11 +60,9 @@ const GameList = () => {
 						imgGameName,
 						betType,
 						tpGameType,
+						displayText,
 						...rest
 					}) => {
-						const resultGameImgDisplayText = vendorList.find(
-							({ tpId: vendorTpId }) => vendorTpId === tpId
-						)?.gameImgDisplayText
 						const resultImgUrl = `${process.env['NEXT_PUBLIC_IMAGE_HOST']}/${tpName}/${imgGameName}-en@2x.webp`
 
 						const lobbyGameItem = {
@@ -82,52 +79,39 @@ const GameList = () => {
 									pointerEvents: isMaintain ? 'none' : 'auto',
 								}}
 							>
-								{isMaintain && (
-									<div className='under'>
-										{t('Label_General_UnderMaintenance')}
-									</div>
-								)}
-								{newGamesArr.includes(gameId) && (
-									<div className='new-icon'>{t('Label_General_New')}</div>
-								)}
-
 								<div className='img-wrapper'>
 									<img src={resultImgUrl} alt={gameName} />
-									<div className='btn-container'>
-										<button
-											className='btn-play'
-											onClick={() => onItemClick(lobbyGameItem)}
-										>
-											{t('Label_Play')}
-										</button>
-									</div>
 								</div>
 								<div className='details'>
-									<div>
-										<div>{gameName}</div>
-										<div>{resultGameImgDisplayText}</div>
-									</div>
+									<div className='providerName'>{displayText}</div>
 									<div
-										className={classNames({ active: isFavorite })}
+										className={classNames('icon icon-star-fill icon-favorite', {
+											active: isFavorite,
+										})}
 										onClick={() =>
 											onFavoritesToggle({
 												tpId,
 												gameId,
 											})
 										}
+									/>
+									<button
+										className='button btn-primary btn-play'
+										onClick={() => onItemClick(lobbyGameItem)}
 									>
-										<div>
-											<img
-												src={`${
-													process.env['NEXT_PUBLIC_BANNER_HOST']
-												}/desktop/img/4.0/lobby-slots/star-icon${
-													isFavorite ? '-active' : ''
-												}.png`}
-												alt=''
-											/>
-										</div>
-									</div>
+										{t('Label_Play')}
+									</button>
 								</div>
+
+								{isMaintain && (
+									<div className='under'>
+										{t('Label_General_UnderMaintenance')}
+									</div>
+								)}
+
+								{newGamesArr.includes(gameId) && (
+									<div className='new-icon'>{t('Label_General_New')}</div>
+								)}
 							</div>
 						)
 					}

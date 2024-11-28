@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const LobbyGamePage = styled.div`
 	.banner-container {
@@ -25,13 +25,19 @@ export const LobbyGamePage = styled.div`
 
 export const GameListContainer = styled.div`
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	flex-wrap: wrap;
+	gap: 2rem;
 
 	.game-icon {
-		margin-top: 4rem;
-		flex: 0 0 calc(100% / 6 - 10rem);
 		position: relative;
+		margin-top: 4rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 calc(100% / 6 - 10rem);
+		background: ${({ theme }) => theme.desktop.gameIconBg};
+		border-radius: 2rem;
 
 		.img-wrapper {
 			position: relative;
@@ -44,133 +50,91 @@ export const GameListContainer = styled.div`
 			img {
 				width: 100%;
 			}
-
-			.btn-container {
-				background: linear-gradient(
-					180deg,
-					rgba(0, 0, 0, 0.3169642857142857) 0%,
-					rgba(0, 0, 0, 1) 100%
-				);
-				position: absolute;
-				z-index: 2;
-				width: 222px;
-				height: 222px;
-				border-radius: 25px;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				transition: 0.3s;
-				transform: translateY(0%);
-				opacity: 0;
-				visibility: hidden;
-				.btn {
-					&-play,
-					&-demo {
-						border-radius: 50px;
-						width: 110px;
-						height: 40px;
-						color: white;
-					}
-					&-play {
-						background: #ff7700;
-						margin-bottom: 15px;
-					}
-					&-demo {
-						border: 1px solid white;
-					}
-				}
-			}
-			&:hover {
-				.btn-container {
-					transform: translateY(-100%);
-					visibility: visible;
-					opacity: 1;
-				}
-			}
 		}
+
 		.details {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
 			display: flex;
 			align-items: center;
-			position: relative;
-			> div {
-				&:first-child {
-					border: 1px solid #dcdcdc;
-					width: 220px;
-					margin-top: -40px;
-					border-radius: 25px;
-					padding: 48px 0 12px;
+			justify-content: center;
+			z-index: 2;
+			border-radius: 2rem;
+			overflow: hidden;
+
+			.providerName {
+				position: absolute;
+				bottom: 1.6rem;
+				width: 100%;
+				text-align: center;
+				color: ${({ theme }) => theme.desktop.gameIconProviderNameColor};
+				font-size: 1.7rem;
+				font-weight: 400;
+			}
+
+			.icon-favorite {
+				position: absolute;
+				top: 1.2rem;
+				right: 1.2rem;
+				font-size: 3.2rem;
+
+				&:before {
+					color: ${({ theme }) => theme.desktop.gameIconFavoriteColor};
 				}
-				&:last-child {
-					position: absolute;
-					right: 30px;
-					bottom: 20px;
-					img {
-						width: 23px;
-						filter: drop-shadow(0 0 6px #c9c9c9);
-					}
-					&.active {
-						img {
-							filter: unset;
-						}
-					}
+
+				&.active:before {
+					color: ${({ theme }) => theme.desktop.gameIconFavoriteColorActive};
 				}
-				> div {
-					margin-left: 12px;
-					&:first-child {
-						color: $primary;
-						overflow: hidden;
-						white-space: nowrap;
-						text-overflow: ellipsis;
-						width: 155px;
-					}
-					&:last-child {
-						color: #929292;
-						font-size: 10px;
-					}
+			}
+
+			.button {
+				display: none;
+				padding-left: 2.4rem;
+				padding-right: 2.4rem;
+			}
+
+			&:hover {
+				cursor: pointer;
+				background: ${({ theme }) => theme.desktop.gameIconBgHover};
+				.button {
+					display: block;
 				}
 			}
 		}
-		&:hover {
-			cursor: pointer;
-			.details {
-				> div {
-					&:first-child {
-						background: linear-gradient(
-							180deg,
-							rgba(62, 130, 249, 1) 0%,
-							rgba(17, 34, 64, 1) 100%
-						);
-						border: 0;
-						width: 222px;
-					}
-					> div {
-						&:first-child {
-							color: white;
-						}
-					}
-				}
-			}
-		}
+
 		.under {
-			background: #000000a1;
-			width: 222px;
-			height: 221px;
-			border-radius: 25px;
 			position: absolute;
-			top: 0;
+			top: 50%;
 			left: 0;
+			width: 100%;
+			transform: translateY(-50%);
 			z-index: 3;
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			padding: 2.7rem 0;
+			background: ${({ theme }) => theme.desktop.gameIconMaintainBg};
+			color: ${({ theme }) => theme.desktop.gameIconMaintainColor};
 			text-align: center;
-			font-size: 16px;
-			text-shadow: 0 0 4px white;
+			font-size: 1.4rem;
+			font-weight: 700;
 		}
+
 		.new-icon {
-			right: 10px;
-			top: -13px;
+			position: absolute;
+			left: 1.6rem;
+			top: 1.6rem;
+			padding: 0.3rem 0.6rem;
+			border-radius: 5.2rem;
+			background: ${({ theme }) => theme.desktop.gameIconNewBg};
+			box-shadow: ${({ theme }) => theme.desktop.gameIconNewShadow};
+			color: ${({ theme }) => theme.desktop.gameIconNewColor};
+			font-size: 1.2rem;
+			font-weight: 600;
+			z-index: 2;
 		}
 	}
 `

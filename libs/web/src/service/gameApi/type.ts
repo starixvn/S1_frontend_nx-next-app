@@ -29,13 +29,13 @@ export interface ILobbyGameData {
 	tpName: string
 	tpGameIdNo: number
 	gameName: string
-  currencyGameName: string
+	currencyGameName: string
 	iconType: boolean
 	iconStartTime: Date
 	iconEndTime: Date
 	sort: number
 	betType: number
-  imgGameName: string
+	imgGameName: string
 }
 
 export interface IVendorData {
@@ -48,7 +48,7 @@ export interface IVendorData {
 	gameImgDisplayText: string
 	sort: number
 	openPath: string
-  isLobby: boolean
+	isLobby: boolean
 }
 
 export interface ISlotsGameData {
@@ -84,6 +84,7 @@ export interface IDisplayGameData extends IGameData {
 export interface IDisplayLobbyGameData extends ILobbyGameData {
 	isMaintain: boolean
 	isFavorite: boolean
+	displayText: string
 }
 
 export interface IGetRecentlyViewedArgs {
