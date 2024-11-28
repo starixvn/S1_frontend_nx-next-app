@@ -1230,4 +1230,60 @@ export const GlobalStyles = createGlobalStyle`
     }
     
   }
+  .progressBarModule {
+		background: #232b4f;
+		padding: 0.8rem;
+		border-radius: 10px;
+		max-width: 30rem;
+		width: 100%;
+		.bounsName {
+			font-size: 1.2rem;
+			font-weight: 600;
+			line-height: 1.8rem;
+			color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+		}
+		.turnover {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			&-left {
+				font-size: 1.2rem;
+				font-weight: 400;
+				line-height: normal;
+				color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+				span {
+					color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+				}
+			}
+			.icon {
+				background: none;
+				&:before {
+					font-size: 1.6rem;
+				}
+			}
+		}
+
+		.progressBar {
+			display: flex;
+			align-items: center;
+		}
+		.progressBar .bar {
+			height: 0.6rem;
+			border-radius: 10px;
+			background: #374375;
+			margin-right: 10px;
+			flex: auto;
+			overflow: hidden;
+		}
+		.progressBar .bar .progress {
+			background: #ea6118;
+			height: 100%;
+			border-radius: 10px;
+		}
+		.progressBar .percentage {
+			color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+			font-weight: 400;
+			font-size: 1.2rem;
+		}
+	}
 `

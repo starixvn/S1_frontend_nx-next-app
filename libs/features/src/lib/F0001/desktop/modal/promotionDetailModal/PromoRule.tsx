@@ -87,7 +87,9 @@ const PromoRule = ({ promotionDetail }: IPromoRuleProps) => {
 						<div className='custom-th'>
 							{t('Label_Promotion_Bonus').toUpperCase()}
 						</div>
-						{isPercentage && <div>{t('Label_Promotion_MaxBonus')}</div>}
+						{isPercentage && (
+							<div className='custom-th'>{t('Label_Promotion_MaxBonus')}</div>
+						)}
 						<div className='custom-th'>
 							{fullFillType === CustBonusWalletFullFillTypeEnum.WinOver
 								? t('Label_General_WinOver')
@@ -108,12 +110,12 @@ const PromoRule = ({ promotionDetail }: IPromoRuleProps) => {
 			) && (
 				<>
 					{requiredAmount > 0 && (
-						<div>
+						<div className='custom-th'>
 							<div>{toUpper(t('Label_Promotion_MinDeposit') || '')}</div>
 							<div>{numberWithCurrency(requiredAmount)}</div>
 						</div>
 					)}
-					<div>
+					<div className='custom-th'>
 						<div>{toUpper(t('Label_Promotion_Bonus') || '')}</div>
 						<div>{isPercentage ? `${bonus}%` : numberWithCurrency(bonus)}</div>
 					</div>
@@ -125,14 +127,16 @@ const PromoRule = ({ promotionDetail }: IPromoRuleProps) => {
 					[PromotionTypeEnum.SpecialBonus, PromotionTypeEnum.Rebate],
 					promotionType
 				) && (
-					<div>
-						<div>{toUpper(t('Label_Promotion_MaxBonus') || '')}</div>
+					<div className='custom-th'>
+						<div className='custom-th'>
+							{toUpper(t('Label_Promotion_MaxBonus') || '')}
+						</div>
 						<div>{numberWithCurrency(maxBonus)}</div>
 					</div>
 				)}
 
 			<div>
-				<div>
+				<div className='custom-th'>
 					{fullFillType === CustBonusWalletFullFillTypeEnum.WinOver
 						? t('Label_General_WinOver')
 						: t('Label_General_RollOver')}
@@ -140,7 +144,7 @@ const PromoRule = ({ promotionDetail }: IPromoRuleProps) => {
 				<div>{fullFillType === 2 ? winOver : rollOver}x</div>
 			</div>
 
-			<div>
+			<div className='custom-th'>
 				<div>{t('Label_Promotion_RemainingTime')}</div>
 				<div>{expiryTime}</div>
 			</div>

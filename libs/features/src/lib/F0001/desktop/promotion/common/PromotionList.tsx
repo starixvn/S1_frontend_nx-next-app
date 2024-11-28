@@ -127,18 +127,6 @@ const PromotionList = () => {
 									}}
 								/>
 							)}
-							<PromotionProgressBar
-								custTurnOver={custTurnOver}
-								custRollOver={custRollOver}
-								onSpinButton={() => {
-									onUpdatePromotionData({
-										bonusCode,
-										tpId,
-										promoCategoryId: String(categoryId),
-									})
-								}}
-							/>
-
 							<div className='btnGroup'>
 								{!isHideJoinButton && (
 									<button

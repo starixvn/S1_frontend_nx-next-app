@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const WrapperModalPromotion = styled.div`
 	.promotionsInfo {
 		width: 100%;
+		overflow-y: auto;
+		max-height: 55rem;
 		img {
 			border-radius: 20px;
 			overflow: hidden;
@@ -56,5 +58,10 @@ export const WrapperModalPromotion = styled.div`
 			line-height: 1.8rem;
 			color: ${({ theme }) => theme.desktop.white};
 		}
+	}
+	.progressBarModule {
+		max-width: unset;
+		width: auto;
+		margin-bottom: 2.4rem;
 	}
 `
