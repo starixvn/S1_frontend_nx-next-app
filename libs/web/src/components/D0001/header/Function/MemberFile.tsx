@@ -1,19 +1,22 @@
-import { Grade, HomeProfile } from "@nx-next-app/components/D0001/header/Function/styles";
-import { paths } from "@nx-next-app/constants";
-import { useAuth, useStaticData } from "@nx-next-app/data-access";
-import { useLanguageGroup } from "@nx-next-app/hooks";
-import { useGetCustVIPProgressQuery } from "@nx-next-app/service";
-import { numberFormat } from "@nx-next-app/utils";
-import classNames from "classnames";
-import { find, head, includes } from "lodash";
-import { useTranslation } from "next-i18next";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useRef } from "react";
-import { useBoolean, useOnClickOutside } from "usehooks-ts";
+import {
+	Grade,
+	HomeProfile,
+} from '@nx-next-app/components/D0001/header/Function/styles'
+import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useLanguageGroup } from '@nx-next-app/hooks'
+import { useGetCustVIPProgressQuery } from '@nx-next-app/service'
+import { numberFormat } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { find, head, includes } from 'lodash'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useRef } from 'react'
+import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 
-import { Img } from "../../image";
-import Country from "./Country";
+import { Img } from '../../image'
+import Country from './Country'
 
 interface IMemberFileProps {
 	onSignOut: () => void
@@ -91,7 +94,11 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 					})}
 				>
 					{isShowVip && (
-						<div className='home-profile-top'>
+						<div
+							className={`home-profile-top ${
+								isVipLevelHighest ? 'vip-level-highest' : ''
+							}`}
+						>
 							<div className='vip-img'>
 								<Img
 									src={currentVipLevelInfo?.headerUrl}
@@ -111,8 +118,11 @@ const MemberFile = ({ onSignOut }: IMemberFileProps) => {
 
 							{/* // * vip 等級最高時顯示 ReachedTheHighestLevel */}
 							{isVipLevelHighest ? (
-								<Link href={paths.vip.root} className='highest-text'>
-									<a>{t('Label_Vip_ReachedTheHighestLevel')}</a>
+								<Link href={paths.vip.root}>
+									<a className='highest-text'>
+										{t('Label_Vip_ReachedTheHighestLevel')}
+										<span className='icon icon-share-box-fill' />
+									</a>
 								</Link>
 							) : (
 								<>

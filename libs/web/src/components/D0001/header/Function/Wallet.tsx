@@ -113,7 +113,13 @@ const Wallet = ({
 					</span>
 				</div>
 
-				<div className='walletBalance'>
+				<div
+					className={`walletBalance ${
+						custBonusWalletList && custBonusWalletList.length > 0
+							? 'hasBonus'
+							: ''
+					}`}
+				>
 					<div className='walletName'>
 						<span>{t('Label_Wallet_MainWallet')}</span>
 						<span>{numberFormat(balance || 0, currencyId)}</span>
@@ -127,16 +133,16 @@ const Wallet = ({
 								: ((turnover / rollover) * 100).toFixed(2)
 						return (
 							<Fragment key={tpId}>
-								<div className='bouns'>
+								<div className='walletName bonus'>
 									<span>
 										{t(`Label_Wallet_BonusWallet_${promoCategoryId}`)}
 									</span>
 									<span>{bonus}</span>
 								</div>
-								<div className='progressBar'>
-									<div className='bar'>
+								<div className='progress-container'>
+									<div className='progress'>
 										<div
-											className='progress'
+											className='progress-bar'
 											style={{ width: `${percentage}%` }}
 										/>
 									</div>

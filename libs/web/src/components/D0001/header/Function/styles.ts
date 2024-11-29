@@ -17,6 +17,28 @@ export const HomeProfile = styled.div`
 		padding: 1.6rem 1.4rem;
 		border-radius: 2rem 2rem 0 0;
 
+		&.vip-level-highest {
+			text-align: center;
+
+			.vip-img {
+				justify-content: center;
+			}
+
+			.highest-text {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 1.4rem;
+				font-weight: 600;
+				color: #fff;
+
+				.icon:before {
+					font-size: 2rem;
+					color: #717fba;
+				}
+			}
+		}
+
 		> div {
 			&:first-child {
 				display: flex;
@@ -35,18 +57,6 @@ export const HomeProfile = styled.div`
 				&:nth-child(2) {
 					width: 12.4rem;
 				}
-			}
-		}
-		.progress {
-			width: 100%;
-			height: 0.6rem;
-			background: ${({ theme }) => theme.desktop.homeProfileProgressBg};
-			border-radius: 5rem;
-
-			.progress-bar {
-				background: ${({ theme }) => theme.desktop.homeProfileProgressBarBg};
-				height: 0.6rem;
-				border-radius: 5rem;
 			}
 		}
 
@@ -269,7 +279,7 @@ export const HomeBalance = styled.div`
 		.balance {
 			display: flex;
 			justify-content: space-between;
-			margin-bottom: 2rem;
+			margin-bottom: 1.2rem;
 
 			span {
 				&:nth-child(2) {
@@ -285,24 +295,37 @@ export const HomeBalance = styled.div`
 		}
 
 		.walletBalance {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			margin-bottom: 1.6rem;
+			min-height: 3.6rem;
 			padding: 0 1.2rem;
 			border-radius: 10rem;
 			background: ${({ theme }) => theme.desktop.dropdownHeaderBg};
 			color: ${({ theme }) => theme.desktop.dropdownHeaderColor};
-			margin-bottom: 1.6rem;
+
+			&.hasBonus {
+				border-radius: 1rem;
+				padding: 0.8rem;
+			}
+
+			.progress-container {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+			}
 
 			.walletName {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
 				align-self: stretch;
-				min-height: 3.6rem;
+				line-height: 1.8rem;
 			}
 
-			.bouns {
-				display: flex;
-				justify-content: space-between;
-				margin-top: 10px;
+			.bonus {
+				margin-top: 1rem;
 			}
 
 			.percentage {
@@ -520,6 +543,19 @@ export const FunctionContainer = styled.div`
 	.line {
 		border-right: 1px solid #374375;
 		height: 4.4rem;
+	}
+
+	.progress {
+		width: 100%;
+		height: 0.6rem;
+		background: ${({ theme }) => theme.desktop.homeProfileProgressBg};
+		border-radius: 5rem;
+
+		.progress-bar {
+			background: ${({ theme }) => theme.desktop.homeProfileProgressBarBg};
+			height: 0.6rem;
+			border-radius: 5rem;
+		}
 	}
 `
 
