@@ -60,6 +60,7 @@ const ChangePasswordForm = () => {
 					touched={!!touchedFields['oldPassword']}
 					errorMessage={errors['oldPassword']?.message as string}
 					error={!!errors['oldPassword']}
+					placeholder={t('Label_ChangePassword_OldPassword')}
 				/>
 			</div>
 			<div className='resetPassWord'>
@@ -78,6 +79,7 @@ const ChangePasswordForm = () => {
 					touched={!!touchedFields['newPassword']}
 					errorMessage={errors['newPassword']?.message as string}
 					error={!!errors['newPassword']}
+					placeholder={t('Label_ChangePassword_NewPassword')}
 				/>
 			</div>
 			<div className='btnGroup'>
