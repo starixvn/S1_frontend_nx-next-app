@@ -1,11 +1,13 @@
 import { paths } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, Statement } from '@nx-next-app/features/F0006/h5'
-import { StatementProvider } from '@nx-next-app/features/F0006/providers'
+import { Statement } from '@yashbet-h5/components/index'
+// todo:待 Linda 把 Layout 合進 dev 在重新引入
+import { Layout } from '@nx-next-app/features/F0006/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { StatementProvider } from '@nx-next-app/operations'
 import { QUICK_PICK_LIST } from '@nx-next-app/site/yashbet/data/history'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
