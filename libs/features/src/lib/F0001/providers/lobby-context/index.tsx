@@ -210,7 +210,7 @@ const LobbyProvider = ({
 			setActiveVendorTpId(null)
 
 			// * 只改變路徑，不重新渲染畫面
-			push({ pathname: paths.slots.root }, undefined, { shallow: true })
+			push({ pathname: pathRoot }, undefined, { shallow: true })
 		} else {
 			setActiveVendorTpId(tpId)
 			if (openPath) {
@@ -352,7 +352,6 @@ const LobbyProvider = ({
 			const uniqueTpIds = Array.from(
 				new Set(
 					custGameTypeSettingList
-						.filter(item => item.categoryId === CategoryEnum.SLOTS)
 						.map(item => item.tpId)
 				)
 			)
@@ -405,7 +404,6 @@ const LobbyProvider = ({
 	}
 
 	useEffect(() => {
-		// * 首次進入slots計算整理myFavorites
 		if (isFirstRender) {
 			const responseMyFavorites =
 				persistLobbyCategoryData.myFavorite?.map(({ tpId, gameId }) => {
@@ -482,7 +480,7 @@ const LobbyProvider = ({
 			.map(string => string.split('#'))
 			.forEach(([tpId, gameId]) => {
 				persistLobbyCategoryData.all?.forEach(item => {
-					if (String(item.tpId) === tpId && item.gameId === gameId) {
+					if (String(item.tpId) === tpId && item.gameId === gameId && resultList.findIndex(x => x.gameId === gameId) === -1) {
 						resultList.push(item)
 					}
 				})
@@ -496,7 +494,6 @@ const LobbyProvider = ({
 			const uniqueTpIds = Array.from(
 				new Set(
 					custGameTypeSettingList
-						.filter(item => item.categoryId === CategoryEnum.SLOTS)
 						.map(item => item.tpId)
 				)
 			)
