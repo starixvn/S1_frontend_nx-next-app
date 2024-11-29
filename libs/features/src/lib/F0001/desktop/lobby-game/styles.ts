@@ -97,6 +97,12 @@ export const GameIconContainer = styled.div`
 			padding-right: 2.4rem;
 		}
 
+		.btn-container {
+			display: flex;
+			flex-direction: column;
+			gap: 0.8rem;
+		}
+
 		&:hover {
 			cursor: pointer;
 			background: ${({ theme }) => theme.desktop.gameIconBgHover};

@@ -11,6 +11,7 @@ const VendorFilter = () => {
 		onVendorChange,
 		onToggleDropdown,
 	} = useSlots()
+
 	return (
 		<VendorFilterContainer
 			className={`${classNames({

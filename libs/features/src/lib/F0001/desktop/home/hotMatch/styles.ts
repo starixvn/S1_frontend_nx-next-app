@@ -192,7 +192,7 @@ export const HotMatchContainer = styled.div`
 		border: ${({ theme }) => theme.desktop.swiperBtnBorder};
 		background: ${({ theme }) => theme.desktop.swiperBtnBg};
 		font-size: 2.4rem;
-		z-index: 1;
+		z-index: 3;
 
 		&.swiper-button-disabled {
 			opacity: 0.4 !important;

@@ -43,7 +43,7 @@ export const PromotionContainer = styled.div`
 		border: 2px solid #0f1428;
 		background: #ea6118;
 		font-size: 2.4rem;
-		z-index: 1;
+		z-index: 3;
 	}
 
 	.swiper-button-prev {

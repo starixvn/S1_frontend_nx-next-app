@@ -2,8 +2,6 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { MenuContainer } from '@nx-next-app/features/F0001/desktop/layout/common/header/Menu/styles'
-import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 import {
 	LobbyCategoryEnum,
 	MainMenuIcon,
@@ -13,23 +11,13 @@ import { isEventPeriod } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { includes, toUpper } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useDebounce } from 'usehooks-ts'
 
-const LoginModal = dynamic(
-	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
-	{
-		ssr: false,
-	}
-)
-
-const LiveStreamingModalDesktop = dynamic(
-	() => import('@nx-next-app/features/F0001/desktop/modal/LiveStreamingModal'),
-	{ ssr: false }
-)
+import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
+import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 
 const mainMenuIcon = {
 	// * 舊的版本沒有 i18n 後來碩要支援在加
@@ -161,7 +149,7 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 				{/* lobbyHeader api 若是壞了就顯示 slots， 讓使用者可以進入 slot 遊玩 */}
 				{isLobbyHeaderError && (
 					<Link key='slot' href={paths.slots.root}>
-						{t('Label_General_Slots')}
+						<span className='menu-item'>{t('Label_General_Slots')}</span>
 					</Link>
 				)}
 
