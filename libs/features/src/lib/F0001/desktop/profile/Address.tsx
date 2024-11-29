@@ -110,7 +110,6 @@ const Address = () => {
 					<span>
 						{t('Label_Profile_ShippingAddress')}({t('Label_Profile_Option2')})
 					</span>
-					<div>{t('Label_Profile_ShippingHint')}</div>
 				</div>
 				<Form onSubmit={handleSubmit(handleSubmitForm)}>
 					<div className='address-list'>
