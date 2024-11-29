@@ -97,7 +97,7 @@ const Wallet = ({
 						toggleHideBalance()
 					}}
 					className={`icon ${
-						!isHideBalance ? 'icon-minus_circle' : 'icon-plus-circle'
+						!isHideBalance ? 'icon-minus_circle' : 'icon-plus_circle'
 					}`}
 				/>
 			</div>

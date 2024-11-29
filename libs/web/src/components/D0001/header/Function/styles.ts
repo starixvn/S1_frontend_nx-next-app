@@ -247,14 +247,7 @@ export const HomeBalance = styled.div`
 
 		.icon {
 			cursor: pointer;
-		}
-
-		.icon-minus_circle {
 			font-size: 2rem;
-		}
-
-		.icon-plus-circle {
-			font-size: 1.8rem;
 		}
 	}
 
