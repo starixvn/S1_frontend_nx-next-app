@@ -77,6 +77,9 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 				layout='vertical'
 				required
 				hasAdditionalInfo
+				depositTitle={t('Label_Payment_Method', {
+					lng: 'en',
+				})}
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{dataSource.map(item => {
@@ -102,6 +105,9 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 				layout='vertical'
 				required
 				hasAdditionalInfo
+				depositTitle={t('Label_Deposit_SelectChannel', {
+					lng: 'en',
+				})}
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{channelQrPayList.map(item => {
@@ -129,7 +135,13 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 			</DepositModule>
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
-				<DepositModule title={t('Label_General_DepositAmount')} required>
+				<DepositModule
+					title={t('Label_General_DepositAmount')}
+					depositTitle={t('Label_General_DepositAmount', {
+						lng: 'en',
+					})}
+					required
+				>
 					<div className='column' />
 					<InputBox
 						type='number'
@@ -183,7 +195,12 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 				</DepositModule>
 			)}
 
-			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
+			<DepositModule
+				title={t('Label_Deposit_ChooseAvailablePromotion')}
+				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
+					lng: 'en',
+				})}
+			>
 				<Select
 					value={watchBonusCode}
 					options={getCustPromotionOptions(watchAmount)}

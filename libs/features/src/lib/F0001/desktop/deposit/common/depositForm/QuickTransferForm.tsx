@@ -65,6 +65,9 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 				layout='vertical'
 				required
 				hasAdditionalInfo
+				depositTitle={t('Label_Deposit_SelectChannel', {
+					lng: 'en',
+				})}
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{dataSource.map(item => {
@@ -97,6 +100,9 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 					layout='horizontal'
 					required
 					hasAdditionalInfo
+					depositTitle={t('Label_BankInfo_SelectBank', {
+						lng: 'en',
+					})}
 				>
 					<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 						{supportBanks.map(item => {
@@ -119,7 +125,13 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 			)}
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
-				<DepositModule title={t('Label_General_DepositAmount')} required>
+				<DepositModule
+					title={t('Label_General_DepositAmount')}
+					depositTitle={t('Label_General_DepositAmount', {
+						lng: 'en',
+					})}
+					required
+				>
 					<div className='column' />
 					<InputBox
 						type='number'
@@ -173,7 +185,12 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 				</DepositModule>
 			)}
 
-			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
+			<DepositModule
+				title={t('Label_Deposit_ChooseAvailablePromotion')}
+				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
+					lng: 'en',
+				})}
+			>
 				<Select
 					value={watchBonusCode}
 					options={getCustPromotionOptions(watchAmount)}

@@ -17,6 +17,7 @@ export interface IDepositModuleProps {
 	required?: boolean
 	className?: string
 	hasAdditionalInfo?: boolean
+	depositTitle?: any
 }
 
 const DepositModule = ({
@@ -27,13 +28,15 @@ const DepositModule = ({
 	required = false,
 	className = '',
 	hasAdditionalInfo = false,
+	depositTitle,
 }: IDepositModuleProps) => {
 	const { t } = useTranslation()
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
+
 	return (
-		<div className={`block-deposit ${title}`}>
+		<div className={`deposit-block block-deposit ${depositTitle}`}>
 			<div className='subModuleTitle'>
 				<div className='heading'>
 					{title} {required && <i className='txt-required'>*</i>}

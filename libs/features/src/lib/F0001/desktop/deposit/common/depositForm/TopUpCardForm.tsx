@@ -66,6 +66,9 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 				layout='vertical'
 				required
 				hasAdditionalInfo
+				depositTitle={t('Label_Payment_Method', {
+					lng: 'en',
+				})}
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{dataSource.map(item => {
@@ -87,7 +90,13 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 			</DepositModule>
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
-				<DepositModule title={t('Label_General_DepositAmount')} required>
+				<DepositModule
+					title={t('Label_General_DepositAmount')}
+					depositTitle={t('Label_General_DepositAmount', {
+						lng: 'en',
+					})}
+					required
+				>
 					<div className='input-column'>
 						<div>
 							<InputBox
@@ -170,7 +179,12 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 				</DepositModule>
 			)}
 
-			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
+			<DepositModule
+				title={t('Label_Deposit_ChooseAvailablePromotion')}
+				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
+					lng: 'en',
+				})}
+			>
 				<Select
 					value={watchBonusCode}
 					options={getCustPromotionOptions(watchAmount)}

@@ -81,6 +81,9 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 				layout='vertical'
 				required
 				hasAdditionalInfo
+				depositTitle={t('Label_Payment_Method', {
+					lng: 'en',
+				})}
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{cryptoPaymentList.map(item => {
@@ -106,6 +109,9 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 				layout='vertical'
 				required
 				hasAdditionalInfo
+				depositTitle={t('Label_Deposit_SelectChannel', {
+					lng: 'en',
+				})}
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{cryptoChannelList.map(item => {
@@ -133,7 +139,13 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 			</DepositModule>
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
-				<DepositModule title={t('Label_General_DepositAmount')} required>
+				<DepositModule
+					title={t('Label_General_DepositAmount')}
+					depositTitle={t('Label_General_DepositAmount', {
+						lng: 'en',
+					})}
+					required
+				>
 					<div className='column' />
 					<InputBox
 						type='number'
@@ -191,7 +203,12 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 				</DepositModule>
 			)}
 
-			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
+			<DepositModule
+				title={t('Label_Deposit_ChooseAvailablePromotion')}
+				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
+					lng: 'en',
+				})}
+			>
 				<Select
 					value={watchBonusCode}
 					options={getCustPromotionOptions(watchAmount)}

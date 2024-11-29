@@ -93,6 +93,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 			{loading && <Loading />}
 			<DepositModule
 				title={t('Label_BankInfo_SelectBank')}
+				depositTitle={t('Label_BankInfo_SelectBank', { lng: 'en' })}
 				layout='horizontal'
 				required
 				hasAdditionalInfo
@@ -131,6 +132,9 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 					className='bankQR'
 					required
 					hasAdditionalInfo
+					depositTitle={t('Label_General_BankAccount', {
+						lng: 'en',
+					})}
 				>
 					<DepositModule.BankAccount
 						bankName={bankAccountInfo.bankName}
@@ -144,7 +148,13 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 			)}
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
-				<DepositModule title={t('Label_General_DepositAmount')} required>
+				<DepositModule
+					title={t('Label_General_DepositAmount')}
+					required
+					depositTitle={t('Label_General_DepositAmount', {
+						lng: 'en',
+					})}
+				>
 					<div className='column' />
 					<InputBox
 						type='number'
@@ -198,7 +208,13 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 				</DepositModule>
 			)}
 
-			<DepositModule title={t('Label_General_SubmitBankSlip')} required>
+			<DepositModule
+				title={t('Label_General_SubmitBankSlip')}
+				required
+				depositTitle={t('Label_General_SubmitBankSlip', {
+					lng: 'en',
+				})}
+			>
 				<DepositModule.BankSlipButton
 					onClick={onOpenBankSlipModal}
 					tip={t('Label_Deposit_SubmitBankSlipInfo')}
@@ -207,7 +223,12 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 					{t('Label_General_UploadReceipt')}
 				</DepositModule.BankSlipButton>
 			</DepositModule>
-			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
+			<DepositModule
+				title={t('Label_Deposit_ChooseAvailablePromotion')}
+				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
+					lng: 'en',
+				})}
+			>
 				<Select
 					value={watchBonusCode}
 					options={getCustPromotionOptions(watchAmount)}

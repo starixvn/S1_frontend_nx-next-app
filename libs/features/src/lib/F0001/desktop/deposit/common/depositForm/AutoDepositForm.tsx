@@ -77,16 +77,20 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 	const depositAmountText = `${t('Label_General_DepositAmount')} ${
 		currencyId === IDR ? t('Label_Deposit_IDRAmountHint') : ''
 	}`
+	const depositAmountTextEng = `${t('Label_General_DepositAmount', {
+		lng: 'en',
+	})} ${
+		currencyId === IDR ? t('Label_Deposit_IDRAmountHint', { lng: 'en' }) : ''
+	}`
 
 	return (
 		<>
-			<div />
-
 			<DepositModule
 				title={t('Label_Payment_Method')}
 				layout='vertical'
 				required
 				hasAdditionalInfo
+				depositTitle={t('Label_Payment_Method', { lng: 'en' })}
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{dataSource.map(item => {
@@ -119,6 +123,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 					layout='horizontal'
 					required
 					hasAdditionalInfo
+					depositTitle={t('Label_BankInfo_SelectBank', { lng: 'en' })}
 				>
 					<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 						{supportBanks.map(item => {
@@ -141,7 +146,11 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			)}
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
-				<DepositModule title={depositAmountText} required>
+				<DepositModule
+					title={depositAmountText}
+					required
+					depositTitle={depositAmountTextEng}
+				>
 					<div className='column' />
 					{!showShortcutList && (
 						<InputBox
@@ -215,7 +224,11 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			)}
 
 			{bankCardRequired && (
-				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+				<DepositModule
+					title={t('Label_Deposit_DepositChannel')}
+					required
+					depositTitle={t('Label_Deposit_DepositChannel', { lng: 'en' })}
+				>
 					<Select
 						value={watchCustBankAccount}
 						options={bankCardOptions}
@@ -246,7 +259,12 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 				</DepositModule>
 			)}
 
-			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
+			<DepositModule
+				title={t('Label_Deposit_ChooseAvailablePromotion')}
+				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
+					lng: 'en',
+				})}
+			>
 				<Select
 					value={watchBonusCode}
 					options={getCustPromotionOptions(watchAmount)}

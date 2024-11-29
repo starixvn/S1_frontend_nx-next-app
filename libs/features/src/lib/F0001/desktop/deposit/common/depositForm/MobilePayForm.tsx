@@ -126,6 +126,12 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 		currencyId === IDR ? t('Label_Deposit_IDRAmountHint') : ''
 	}`
 
+	const depositAmountTextEng = `${t('Label_General_DepositAmount', {
+		lng: 'en',
+	})} ${
+		currencyId === IDR ? t('Label_Deposit_IDRAmountHint', { lng: 'en' }) : ''
+	}`
+
 	return (
 		<>
 			{loading && <Loading />}
@@ -134,6 +140,9 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				layout='vertical'
 				required
 				hasAdditionalInfo
+				depositTitle={t('Label_Payment_Method', {
+					lng: 'en',
+				})}
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{dataSource.map(item => {
@@ -159,6 +168,9 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				layout='vertical'
 				required
 				hasAdditionalInfo
+				depositTitle={t('Label_Deposit_SelectChannel', {
+					lng: 'en',
+				})}
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{channelMobilePayList.map(item => {
@@ -205,7 +217,11 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			)}
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
-				<DepositModule title={depositAmountText} required>
+				<DepositModule
+					title={depositAmountText}
+					depositTitle={depositAmountTextEng}
+					required
+				>
 					<div className='column' />
 					{!showShortcutList && (
 						<InputBox
@@ -279,7 +295,11 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			)}
 
 			{bankCardRequired && (
-				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+				<DepositModule
+					title={t('Label_Deposit_DepositChannel')}
+					depositTitle={t('Label_Deposit_DepositChannel', { lng: 'en' })}
+					required
+				>
 					<Select
 						value={watchCustBankAccount}
 						options={bankCardOptions}
@@ -311,7 +331,11 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			)}
 
 			{(eWalletRequired || bankCardOrEWalletRequired) && (
-				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+				<DepositModule
+					title={t('Label_Deposit_DepositChannel')}
+					depositTitle={t('Label_Deposit_DepositChannel', { lng: 'en' })}
+					required
+				>
 					<div className='subModule-item'>
 						<Select
 							value={watchCustEWalletAccount}
@@ -383,7 +407,12 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				</DepositModule>
 			)}
 
-			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
+			<DepositModule
+				title={t('Label_Deposit_ChooseAvailablePromotion')}
+				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
+					lng: 'en',
+				})}
+			>
 				<Select
 					value={watchBonusCode}
 					options={getCustPromotionOptions(watchAmount)}

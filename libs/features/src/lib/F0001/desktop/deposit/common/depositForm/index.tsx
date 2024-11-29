@@ -47,15 +47,14 @@ const DepositForm = () => {
 	const { modal } = useGlobalModal()
 
 	const { payments, DEPOSIT_PAYMENT_OPTIONS } = useDepositContext()
-
 	return (
 		<div className='subModuleListColumn'>
-			<div className='deposit-group-title'>
+			<div className='deposit-block deposit-group-title'>
 				<div className='title'>
 					<div className='title-text'>{t('Label_Deposit_SubTitle')}</div>
 					<DepositAutoRemember />
 				</div>
-				<DepositModule title={t('Label_Deposit_DepositOptions')}>
+				<DepositModule title={t('Label_Deposit_SubTitle')}>
 					<DepositModule.SubModuleButtonGroup matchKey='paymentType'>
 						{Object.keys(payments).map(key => {
 							const paymentOption =
@@ -68,7 +67,6 @@ const DepositForm = () => {
 								labelDisplayKey,
 								// timeDisplayKey
 							} = paymentOption
-
 							return (
 								<DepositModule.SubModuleButton
 									label={t(labelDisplayKey || '')}
@@ -107,7 +105,6 @@ const DepositForm = () => {
 					</DepositModule.SubModuleButtonGroup>
 				</DepositModule>
 			</div>
-
 			{paymentType === AutoDeposit && (
 				<AutoDepositForm
 					dataSource={payments[DepositPaymentEnum.AutoDeposit] || []}
