@@ -1,11 +1,11 @@
 @font-face {
 	font-family: 'S1NewIcons';
-	src: url('../fonts-newsite/s1-new-icons.eot?sb9ugf');
-	src: url('../fonts-newsite/s1-new-icons.eot?sb9ugf#iefix')
+	src: url('../fonts-newsite/s1-new-icons.eot?q3lvc0');
+	src: url('../fonts-newsite/s1-new-icons.eot?q3lvc0#iefix')
 			format('embedded-opentype'),
-		url('../fonts-newsite/s1-new-icons.ttf?sb9ugf') format('truetype'),
-		url('../fonts-newsite/s1-new-icons.woff?sb9ugf') format('woff'),
-		url('../fonts-newsite/s1-new-icons.svg?sb9ugf#icomoon') format('svg');
+		url('../fonts-newsite/s1-new-icons.ttf?q3lvc0') format('truetype'),
+		url('../fonts-newsite/s1-new-icons.woff?q3lvc0') format('woff'),
+		url('../fonts-newsite/s1-new-icons.svg?q3lvc0#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 	font-display: block;
@@ -26,13 +26,17 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-plus_circle:before {
+	content: '\e948';
+	color: #fff;
+}
 .icon-time:before {
-  content: "\e947";
-  color: #fff;
+	content: '\e947';
+	color: #fff;
 }
 .icon-arrow-left-line:before {
-  content: "\e946";
-  color: #fff;
+	content: '\e946';
+	color: #fff;
 }
 .icon-loading:before {
 	content: '\e944';
