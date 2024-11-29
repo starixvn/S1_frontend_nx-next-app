@@ -96,39 +96,6 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 		// * 目前動態 menu 只支援 New
 		const icon = (hasNewIcon && switchMainMenuIcon(MainMenuIcon.newTag)) || null
 
-		// * 特例 Sport Soccer (需轉 EnterPage)
-		if (lobbyCategoryId === LobbyCategoryEnum.Sports) {
-			const soccerItem = subMenu?.find(
-				sportSubItem => sportSubItem.tpGameIdNo === PRODUCTS.Soccer.tpGameIdNo
-			)
-
-			return (
-				<button
-					key={lobbyCategoryId}
-					type='button'
-					aria-label='menu-item'
-					onClick={() =>
-						onMenuOpen(
-							{
-								...soccerItem,
-								desktop: { menuActionType: MenuActionTypeEnum.EnterPage },
-							} as IDynamicSubMenuItem,
-							{
-								loginCallback: () => modal.open(<LoginModal />),
-								messageCallBack: message => modal.error(message),
-								liveStreamingCallback: () =>
-									modal.open(<LiveStreamingModalDesktop />),
-							}
-						)
-					}
-					onMouseEnter={() => setMenuKey(category)}
-				>
-					{icon}
-					{menuText}
-				</button>
-			)
-		}
-
 		// * 特例 EXCHANGE 沒有導轉功能
 		if (lobbyCategoryId === LobbyCategoryEnum.Exchange) {
 			return (
