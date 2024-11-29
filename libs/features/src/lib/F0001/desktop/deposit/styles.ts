@@ -428,6 +428,14 @@ export const WrapperDeposit = styled.div`
 			.btn {
 				width: 100%;
 			}
+			&:last-child {
+				.inputBox-blue {
+					margin-bottom: 0;
+				}
+			}
+		}
+		.subModule-item {
+			gap: 1.2rem !important;
 		}
 		.btn-check {
 			width: 3.6rem;
@@ -437,17 +445,23 @@ export const WrapperDeposit = styled.div`
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			position: absolute;
-			right: -50px;
-			top: 0;
+			// position: absolute;
+			// right: -50px;
+			// top: 0;
 			.icon {
 				&:before {
 					font-size: 2rem;
 				}
 			}
 		}
+		.inputBox-blue {
+			margin-top: 0;
+			margin-bottom: 1.6rem;
+			width: 100%;
+		}
 		.btnGroup {
 			max-width: max-content;
+			margin-top: 0;
 		}
 	}
 	.Promotion {

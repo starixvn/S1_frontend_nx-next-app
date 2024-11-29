@@ -107,7 +107,9 @@ const Address = () => {
 		<div className='addressModule'>
 			<div className='address-container'>
 				<div className='address-title'>
-					<span>({t('Label_Profile_Option2')})</span>
+					<span>
+						{t('Label_Profile_ShippingAddress')}({t('Label_Profile_Option2')})
+					</span>
 				</div>
 				<Form onSubmit={handleSubmit(handleSubmitForm)}>
 					<div className='address-list'>

@@ -229,26 +229,30 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 					required
 					depositTitle={t('Label_Deposit_DepositChannel', { lng: 'en' })}
 				>
-					<Select
-						value={watchCustBankAccount}
-						options={bankCardOptions}
-						onChange={value => {
-							trigger('custBankAccount')
-							setValue('custBankAccount', String(value))
-							clearErrors('custBankAccount')
-						}}
-						errorMessage={errors['custBankAccount']?.message as string}
-					/>
-					{custBankInfo.length < 3 && (
-						<div className='btnGroup'>
-							<button
-								className='btn-check'
-								onClick={() => handleAddCards(WithdrawalBankCardEnum.LocalBank)}
-							>
-								<i className='icon icon-plus-add' />
-							</button>
-						</div>
-					)}
+					<div className='group-input-chanel'>
+						<Select
+							value={watchCustBankAccount}
+							options={bankCardOptions}
+							onChange={value => {
+								trigger('custBankAccount')
+								setValue('custBankAccount', String(value))
+								clearErrors('custBankAccount')
+							}}
+							errorMessage={errors['custBankAccount']?.message as string}
+						/>
+						{custBankInfo.length < 3 && (
+							<div className='btnGroup'>
+								<button
+									className='btn-check'
+									onClick={() =>
+										handleAddCards(WithdrawalBankCardEnum.LocalBank)
+									}
+								>
+									<i className='icon icon-plus-add' />
+								</button>
+							</div>
+						)}
+					</div>
 					<div
 						className={classNames('tip', {
 							active: errors['custBankAccount'],

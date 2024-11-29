@@ -67,7 +67,10 @@ const DepositBankAccount = ({
 					)}
 				</div>
 			</div>
-
+			<img
+				src={`${process.env['NEXT_PUBLIC_PAYMENT_HOST']}${qrCode}`}
+				alt='img-qr-code'
+			/>
 			{qrCode && (
 				<div className='qrCode' style={{ marginTop: '1.2rem' }}>
 					<img
