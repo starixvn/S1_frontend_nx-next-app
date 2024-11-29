@@ -1,6 +1,7 @@
 import { Loading, Select } from '@nx-next-app/components/D0001'
 import Breadcrumb from '@nx-next-app/components/D0001/breadcrumb'
 import Pagination from '@nx-next-app/components/D0001/pagination'
+import { NoData } from '@nx-next-app/features/F0001/desktop/common/NoData'
 import StatementTable from '@nx-next-app/features/F0001/desktop/statement/StatementTable'
 import { WrapperStament } from '@nx-next-app/features/F0001/desktop/statement/styles'
 import { useStatement } from '@nx-next-app/features/F0001/providers/statement-context'
@@ -60,12 +61,7 @@ const Statement = () => {
 						<div className='wrapper-table'>
 							{loading ? <Loading /> : <StatementTable />}
 
-							{displayColumns.length === 0 && (
-								<div className='custom-nodata'>
-									<i className='icon icon-file-damage-fill' />
-									<div>{t('Label_General_NoData')}</div>
-								</div>
-							)}
+							{displayColumns.length === 0 && <NoData />}
 						</div>
 						{displayColumns.length > 0 && !loading && (
 							<Pagination

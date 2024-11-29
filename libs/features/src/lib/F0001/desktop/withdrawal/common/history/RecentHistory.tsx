@@ -4,6 +4,7 @@ import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 
 import WithdrawalHistoryTable from '@nx-next-app/components/D0001/table/historyTable/WithdrawalHistoryTable'
+import { NoData } from '@nx-next-app/features/F0001/desktop/common/NoData'
 
 const RecentHistory = () => {
 	const { t } = useTranslation()
@@ -23,10 +24,7 @@ const RecentHistory = () => {
 					onCancel={cancelWithdrawal}
 				/>
 			) : (
-				<div className='custom-nodata'>
-					<i className='icon icon-file-damage-fill' />
-					<div>{t('Label_General_NoData')}</div>
-				</div>
+				<NoData />
 			)}
 			<div className='btnGroup withdraw-table'>
 				<Link href={paths.history.root}>

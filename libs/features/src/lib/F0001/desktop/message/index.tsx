@@ -1,5 +1,6 @@
 import { Loading, SpinButton } from '@nx-next-app/components/D0001'
 import Pagination from '@nx-next-app/components/D0001/pagination'
+import { NoData } from '@nx-next-app/features/F0001/desktop/common/NoData'
 import { WrapperMessage } from '@nx-next-app/features/F0001/desktop/message/styles'
 import { useMessageFetcher } from '@nx-next-app/hooks'
 import classNames from 'classnames'
@@ -108,10 +109,7 @@ const PersonalMessage = () => {
 								)}
 							</>
 						) : (
-							<div className='custom-nodata'>
-								<i className='icon icon-file-damage-fill' />
-								<div>{t('Label_General_NoData')}</div>
-							</div>
+							<NoData />
 						)}
 					</div>
 				</div>

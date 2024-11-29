@@ -510,6 +510,8 @@ export const GlobalStyles = createGlobalStyle`
           padding: 0 1.6rem;
           text-transform: uppercase;
           gap : .5rem;
+          background: ${({ theme }) => theme.desktop.rightModuleTitleBg};
+          border-radius: 20px 20px 0 0;
           .icon {
             &:before{
               font-size : 2.4rem;

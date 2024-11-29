@@ -1,5 +1,6 @@
 import { useAuth } from '@nx-next-app/data-access'
 import { WrapperAnnountMent } from '@nx-next-app/features/F0001/desktop/announcement/styles'
+import { NoData } from '@nx-next-app/features/F0001/desktop/common/NoData'
 import { useGetAnnouncementQuery } from '@nx-next-app/service'
 import classNames from 'classnames'
 import dayjs from 'dayjs'
@@ -51,10 +52,7 @@ const Announcement = () => {
 								<div className='list'>{showAnnouncements}</div>
 							</div>
 						) : (
-							<div className='custom-nodata no-border'>
-								<i className='icon icon-file-damage-fill' />
-								<div>{t('Label_General_NoData')}</div>
-							</div>
+							<NoData customClass='no-border' />
 						)}
 					</div>
 				</div>

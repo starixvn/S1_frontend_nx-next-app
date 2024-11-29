@@ -1,3 +1,4 @@
+import { NoData } from '@nx-next-app/features/F0001/desktop/common/NoData'
 import { usePromotion } from '@nx-next-app/features/F0001/providers'
 import {
 	PromotionActionType,
@@ -174,10 +175,7 @@ const PromotionList = () => {
 			})}
 		</div>
 	) : (
-		<div className='custom-nodata'>
-			<i className='icon icon-file-damage-fill' />
-			<div>{t('Label_General_NoData')}</div>
-		</div>
+		<NoData />
 	)
 }
 

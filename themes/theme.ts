@@ -221,6 +221,7 @@ export const theme = {
 		leftMenuBorderColor: '#374375',
 
 		rightModuleBg: '#182043',
+		rightModuleTitleBg: '#232B4F',
 		rightModuleBorderColor: '#374375',
 		rightModuleSloganColor: '#939DC5',
 
