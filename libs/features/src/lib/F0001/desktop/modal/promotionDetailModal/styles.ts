@@ -51,13 +51,6 @@ export const WrapperModalPromotion = styled.div`
 				padding: 0 3.4rem;
 			}
 		}
-		.proDataBody > * {
-			font-size: 1.4rem !important;
-			font-style: normal !important;
-			font-weight: 400 !important;
-			line-height: 1.8rem !important;
-			color: ${({ theme }) => theme.desktop.white} !important;
-		}
 	}
 	.progressBarModule {
 		max-width: unset;

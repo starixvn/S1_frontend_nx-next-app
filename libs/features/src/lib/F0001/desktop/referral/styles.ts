@@ -113,7 +113,7 @@ export const WrapperReferal = styled.div`
 					padding: 0.5rem 0;
 					height: 0.5rem;
 					position: absolute;
-					top: -21px;
+					top: -22px;
 					left: calc(50% - 1.5px);
 					border: 1px dashed
 						${({ theme }) => theme.desktop.rightModuleSloganColor};
@@ -127,13 +127,14 @@ export const WrapperReferal = styled.div`
 					font-weight: 700;
 					line-height: normal;
 					margin-bottom: 0.4rem;
-					text-transform: capitalize;
+					text-transform: uppercase;
 				}
 				p {
 					font-size: 1.2rem;
 					font-weight: 400;
 					line-height: normal;
 					color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+					text-transform: lowercase;
 				}
 			}
 		}

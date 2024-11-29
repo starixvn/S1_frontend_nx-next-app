@@ -290,6 +290,26 @@ export const GlobalStyles = createGlobalStyle`
         font-size : 2rem;
       }
     }
+    .icon-gift{
+      border: 6px solid rgba(234, 97, 24, 0.30);
+      border-radius: 100px;
+      overflow : hidden;
+      width : 4.8rem;
+      height : 4.8rem;
+      margin-bottom : 2.4rem;
+      .icon-gift-fill{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 4.8rem;
+        height: 4.8rem;
+        background: var(--Color-5, #EA6118);
+        &:before{
+          font-size : 3.2rem;
+        }
+      }
+    }
+    
   }
   .tip {
     margin-top: 0.4rem;
@@ -1307,4 +1327,56 @@ export const GlobalStyles = createGlobalStyle`
 			font-size: 1.2rem;
 		}
 	}
+  .proData{
+    .proDataTitle{
+      margin-bottom : 2.4rem;
+      text-align : center;
+      .txt-darkBlue{
+        color: ${({ theme }) => theme.desktop.white};
+        font-size: 1.7rem;
+        font-weight: 700;
+        line-height: normal;
+       
+      }
+      .txt-gray{
+       margin-top : .8rem;
+        color: ${({ theme }) => theme.desktop.white};
+        font-size: 1.4rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.8rem;
+      }
+    }
+  }
+  .proDataBody {
+    background-color : #182043 !important;
+      padding : 1.6rem;
+      border-radius: 20px;
+      > * {
+      font-size: 1.4rem !important;
+      font-style: normal !important;
+      font-weight: 400 !important;
+      line-height: 1.8rem !important;
+      background-color : #182043 !important;
+      span,p,div,a{
+        background-color : #182043 !important;
+        font-family: ${({ theme }) => theme.desktop.fontFamily} !important;
+        line-height: 1.6rem !important;
+        color: #939DC5 !important;
+        padding : 0 !important;
+        margin-bottom : 1.2rem !important;
+        
+      }
+      p,div,span{
+        margin-bottom : 1.2rem !important;
+        display : block !important;
+      }
+      a{
+        font-weight: bold !important;
+      }
+      strong {
+        color: #939DC5 !important;
+      }
+    }
+  }
 `

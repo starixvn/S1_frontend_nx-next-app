@@ -1,7 +1,7 @@
-import { isNull } from 'lodash-es'
 import { Img } from '@nx-next-app/components/D0001'
-import { IReferralSettingDetailData } from '@nx-next-app/service'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { IReferralSettingDetailData } from '@nx-next-app/service'
+import { isNull } from 'lodash-es'
 
 interface IReferralDetailModalProps {
 	referralSettingDetail: IReferralSettingDetailData
@@ -15,9 +15,15 @@ const ReferralDetailModal = ({
 	return (
 		<div className='promoInfoPop active'>
 			<div className='promoInfoPopMask active' />
-
+			<div className='icon-gift'>
+				<i className='icon icon-gift-fill' />
+			</div>
 			<div className='promotionsInfo'>
-				<div className='icon icon-close' onClick={closeModal} />
+				<div
+					className='icon icon-close-line'
+					style={{ cursor: 'pointer' }}
+					onClick={closeModal}
+				/>
 
 				{/* // * 確保資料不是 null 才顯示元件 */}
 				{!isNull(referralContent?.bannerUrl) && (
