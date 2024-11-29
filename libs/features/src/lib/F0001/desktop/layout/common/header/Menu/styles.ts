@@ -67,50 +67,32 @@ export const MenuContainer = styled.div`
 			}
 
 			div {
-				&.icon {
+				&.label {
 					position: absolute;
 					left: 50%;
-					top: -0.7rem;
+					top: -0.5rem;
 					display: flex;
 					align-items: center;
 					min-height: 1.6rem;
 					transform: translateX(-50%);
-					padding: 0.2rem 0.6rem;
+					padding: 0 0.6rem;
 					border-radius: 5rem;
-					background: ${({ theme }) => theme.desktop.newLabelBg};
-					color: ${({ theme }) => theme.desktop.newLabelColor};
 					font-size: 1rem;
 					font-weight: 700;
 
-					&.icon-fire-fill {
-						background: ${({ theme }) => theme.desktop.hotLabelBg};
-						font-size: 1rem;
-
-						&:before {
-							color: ${({ theme }) => theme.desktop.hotIconColor};
-						}
+					&.label-new {
+						background: ${({ theme }) => theme.desktop.newLabelBg};
+						color: ${({ theme }) => theme.desktop.newLabelColor};
 					}
 
-					&:before {
-						margin: 0 2px 0 0;
-						font-weight: normal;
-						color: white;
+					&.label-hot {
+						padding-left: 0;
+						background: ${({ theme }) => theme.desktop.hotLabelBg};
+						color: ${({ theme }) => theme.desktop.newLabelColor};
 
-						@keyframes star {
-							0% {
-								transform: rotate(0deg);
-								color: white;
-							}
-
-							75% {
-								transform: rotate(360deg);
-								color: $red;
-							}
-
-							100% {
-								transform: rotate(360deg);
-								color: $red;
-							}
+						.icon:before {
+							font-size: 1rem;
+							color: ${({ theme }) => theme.desktop.hotIconColor};
 						}
 					}
 				}

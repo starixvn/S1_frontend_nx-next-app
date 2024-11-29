@@ -85,9 +85,12 @@ export const HotMatchContainer = styled.div`
 				background: url(${({ theme }) =>
 						theme.assetUrl}/desktop/img/new-ui/match-bg.webp)
 					no-repeat;
+				z-index: 1;
 			}
 
 			.team-content {
+				position: relative;
+				z-index: 2;
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
@@ -189,6 +192,7 @@ export const HotMatchContainer = styled.div`
 		border: ${({ theme }) => theme.desktop.swiperBtnBorder};
 		background: ${({ theme }) => theme.desktop.swiperBtnBg};
 		font-size: 2.4rem;
+		z-index: 1;
 
 		&.swiper-button-disabled {
 			opacity: 0.4 !important;

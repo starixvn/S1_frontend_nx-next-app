@@ -53,40 +53,51 @@ export const WelcomeInfoContainer = styled.div`
 
 		&.join .welcome-btn {
 			background: ${({ theme }) => theme.desktop.welcomeAffiliateBtnBg};
-			color: ${({ theme }) => theme.desktop.welcomeAffiliateBtnColor};
 			box-shadow: ${({ theme }) => theme.desktop.welcomeAffiliateBtnShadow};
+			color: ${({ theme }) => theme.desktop.welcomeAffiliateBtnColor};
 
 			&:hover {
+				background: ${({ theme }) => theme.desktop.welcomeAffiliateBtnBgHover};
+				box-shadow: ${({ theme }) =>
+					theme.desktop.welcomeAffiliateBtnShadowHover};
 				color: ${({ theme }) => theme.desktop.welcomeAffiliateBtnColorHover};
 			}
 		}
 
 		&.winning .welcome-btn {
 			background: ${({ theme }) => theme.desktop.welcomeWinningBtnBg};
-			color: ${({ theme }) => theme.desktop.welcomeWinningBtnColor};
 			box-shadow: ${({ theme }) => theme.desktop.welcomeWinningBtnShadow};
+			color: ${({ theme }) => theme.desktop.welcomeWinningBtnColor};
 
 			&:hover {
+				background: ${({ theme }) => theme.desktop.welcomeWinningBtnBgHover};
+				box-shadow: ${({ theme }) =>
+					theme.desktop.welcomeWinningBtnShadowHover};
 				color: ${({ theme }) => theme.desktop.welcomeWinningBtnColorHover};
 			}
 		}
 
 		&.reward .welcome-btn {
 			background: ${({ theme }) => theme.desktop.welcomeRewardBtnBg};
-			color: ${({ theme }) => theme.desktop.welcomeRewardBtnColor};
 			box-shadow: ${({ theme }) => theme.desktop.welcomeRewardBtnShadow};
+			color: ${({ theme }) => theme.desktop.welcomeRewardBtnColor};
 
 			&:hover {
+				background: ${({ theme }) => theme.desktop.welcomeRewardBtnBgHover};
+				box-shadow: ${({ theme }) => theme.desktop.welcomeRewardBtnShadowHover};
 				color: ${({ theme }) => theme.desktop.welcomeRewardBtnColorHover};
 			}
 		}
 
 		&.referral .welcome-btn {
 			background: ${({ theme }) => theme.desktop.welcomeReferralBtnBg};
-			color: ${({ theme }) => theme.desktop.welcomeReferralBtnColor};
 			box-shadow: ${({ theme }) => theme.desktop.welcomeReferralBtnShadow};
+			color: ${({ theme }) => theme.desktop.welcomeReferralBtnColor};
 
 			&:hover {
+				background: ${({ theme }) => theme.desktop.welcomeReferralBtnBgHover};
+				box-shadow: ${({ theme }) =>
+					theme.desktop.welcomeReferralBtnShadowHover};
 				color: ${({ theme }) => theme.desktop.welcomeReferralBtnColorHover};
 			}
 		}

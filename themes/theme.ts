@@ -108,22 +108,34 @@ export const theme = {
 
 		welcomeInfoTitleColor: '#fff',
 		welcomeInfoDescColor: '#fff',
+
 		welcomeAffiliateBtnBg: '#0a328e',
+		welcomeAffiliateBtnBgHover: '#0B39A3',
 		welcomeAffiliateBtnColor: '#6da5ff',
 		welcomeAffiliateBtnColorHover: '#fff',
 		welcomeAffiliateBtnShadow: '0px -7px 0px 0px #1155cb inset',
+		welcomeAffiliateBtnShadowHover: '0px -7px 0px 0px #1155CB inset',
+
 		welcomeWinningBtnBg: '#20611e',
+		welcomeWinningBtnBgHover: '#297A26',
 		welcomeWinningBtnColor: '#8de78a',
 		welcomeWinningBtnColorHover: '#fff',
 		welcomeWinningBtnShadow: '0px -7px 0px 0px #37a433 inset',
+		welcomeWinningBtnShadowHover: '0px -7px 0px 0px #37A433 inset',
+
 		welcomeRewardBtnBg: '#b52c00',
+		welcomeRewardBtnBgHover: '#CF3300',
 		welcomeRewardBtnColor: '#ffaa8e',
 		welcomeRewardBtnColorHover: '#fff',
 		welcomeRewardBtnShadow: '0px -7px 0px 0px #dd4c00 inset',
+		welcomeRewardBtnShadowHover: '0px -7px 0px 0px #DD4C00  inset',
+
 		welcomeReferralBtnBg: '#741a99',
+		welcomeReferralBtnBgHover: '#881EB2',
 		welcomeReferralBtnColor: '#e6aaff',
 		welcomeReferralBtnColorHover: '#fff',
 		welcomeReferralBtnShadow: '0px -7px 0px 0px #b82dd0 inset',
+		welcomeReferralBtnShadowHover: '0px -7px 0px 0px #B82DD0 inset',
 
 		homePageTitleColor: '#fff',
 		homePageLoadMoreColor: '#717FBA',

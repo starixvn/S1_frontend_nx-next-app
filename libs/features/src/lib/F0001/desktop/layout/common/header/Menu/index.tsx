@@ -34,8 +34,14 @@ const LiveStreamingModalDesktop = dynamic(
 
 const mainMenuIcon = {
 	// * 舊的版本沒有 i18n 後來碩要支援在加
-	[MainMenuIcon.newTag]: <div className='icon'>NEW</div>,
-	[MainMenuIcon.hotTag]: <div className='icon icon-fire-fill'>Hot</div>,
+	[MainMenuIcon.newTag]: <div className='label label-new'>NEW</div>,
+	[MainMenuIcon.hotTag]: (
+		<div className='label label-hot'>
+			{' '}
+			<span className='icon icon-fire-fill' />
+			Hot
+		</div>
+	),
 } as const
 
 export interface IMenuProps {
