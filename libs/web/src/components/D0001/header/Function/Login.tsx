@@ -1,10 +1,10 @@
-import { LoginForm } from "@nx-next-app/components/D0001/header/Function/styles";
-import { paths } from "@nx-next-app/constants";
-import { useTranslation } from "next-i18next";
-import Link from "next/link";
-import { FieldErrors, useForm } from "react-hook-form";
+import { LoginForm } from '@nx-next-app/components/D0001/header/Function/styles'
+import { paths } from '@nx-next-app/constants'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { FieldErrors, useForm } from 'react-hook-form'
 
-import Form from "../../form";
+import Form from '../../form'
 
 export type LoginFormType = {
 	userName: string
@@ -33,38 +33,43 @@ const Login = ({ onLogin, onLoginInvalid, onLineLogin }: ILoginProps) => {
 					onSubmit={handleSubmit(onLogin, onLoginInvalid)}
 					component={false}
 				>
-					<input
-						type='text'
-						className='form-input username'
-						defaultValue=''
-						placeholder={t('Label_General_Username') || ''}
-						{...register('userName', {
-							required: {
-								value: true,
-								message: t('Label_General_UsernameReq'),
-							},
-							minLength: {
-								value: 6,
-								message: t('Label_General_UserNameLength'),
-							},
-							maxLength: {
-								value: 18,
-								message: t('Label_General_UserNameLength'),
-							},
-						})}
-					/>
-					<input
-						className='form-input password'
-						defaultValue=''
-						type='password'
-						placeholder={t('Label_General_Password') || ''}
-						{...register('password', {
-							required: {
-								value: true,
-								message: t('Label_General_PasswordRequired'),
-							},
-						})}
-					/>
+					<div className='inputBox-blue'>
+						<input
+							type='text'
+							className='form-input username'
+							defaultValue=''
+							placeholder={t('Label_General_Username') || ''}
+							{...register('userName', {
+								required: {
+									value: true,
+									message: t('Label_General_UsernameReq'),
+								},
+								minLength: {
+									value: 6,
+									message: t('Label_General_UserNameLength'),
+								},
+								maxLength: {
+									value: 18,
+									message: t('Label_General_UserNameLength'),
+								},
+							})}
+						/>
+					</div>
+					<div className='inputBox-blue'>
+						<input
+							className='form-input password'
+							defaultValue=''
+							type='password'
+							placeholder={t('Label_General_Password') || ''}
+							{...register('password', {
+								required: {
+									value: true,
+									message: t('Label_General_PasswordRequired'),
+								},
+							})}
+						/>
+					</div>
+
 					<Link href={paths.forgetPassword.root}>
 						<a className='forgot'>{t('Label_Header_ForgetPassword')}</a>
 					</Link>

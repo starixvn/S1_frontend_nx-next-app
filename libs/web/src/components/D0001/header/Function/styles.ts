@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HomeProfile = styled.div`
 	background: ${({ theme }) => theme.desktop.dropdownBg};
@@ -541,32 +541,23 @@ export const LoginForm = styled.div`
 		display: flex;
 	}
 
+	.inputBox-blue {
+		margin-top: 0;
+	}
+
 	.form-input {
-		display: flex;
-		padding: 1rem 2.4rem 1rem 1.2rem;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 3rem;
-		align-self: stretch;
-		border-radius: 10rem;
 		background: ${({ theme }) => theme.desktop.headerInputBg};
 		color: ${({ theme }) => theme.desktop.headerInputColor};
 		font-size: 1.4rem;
 		text-align: left;
 		border: none;
 		outline: none;
-
-		&::placeholder {
-			color: ${({ theme }) => theme.desktop.headerInputPlaceHolderColor};
-		}
-
-		&:focus-within {
-			border: none;
-			outline: none;
-		}
+		box-shadow: none;
+		width: 100%;
+		color: #fff;
 	}
 
-	.form-input + .form-input {
+	.inputBox-blue + .inputBox-blue {
 		margin-left: 1.2rem;
 	}
 `
