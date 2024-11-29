@@ -10,7 +10,7 @@ const SportBanner = () => {
 			<div className='content-container'>
 				<Img
 					className='img-banner'
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/e-sport-banner.webp`}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/sport-banner.webp`}
 					loader={<LoadingIcon />}
 					unloader={<NoGameIcon />}
 					alt='Live Casino'

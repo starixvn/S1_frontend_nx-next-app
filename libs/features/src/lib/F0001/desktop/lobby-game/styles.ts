@@ -10,6 +10,15 @@ export const LobbyGamePage = styled.div`
 		.img {
 			height: 36.4rem;
 		}
+
+		.content-container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 36.4rem;
+			background: #1d2447;
+			border-radius: 2rem;
+		}
 	}
 
 	.filter-form {
