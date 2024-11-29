@@ -106,7 +106,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 						return (
 							<DepositModule.SubModuleButton
 								label={displayChannelName}
-								imgName={`${toLower(payName)}.png`}
+								imgName={`${toLower(payName)}.webp`}
 								matchValue={payName}
 								key={payName}
 							>

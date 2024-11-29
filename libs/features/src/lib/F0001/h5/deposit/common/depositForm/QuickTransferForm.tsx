@@ -13,9 +13,9 @@ import { IDepositQuickTransferData } from '@nx-next-app/service'
 import {
 	generateShortcutList,
 	isConvert,
+	numFormatToDigits,
 	numberFormat,
 	revertNumberFormat,
-	numFormatToDigits,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
@@ -74,7 +74,7 @@ const QuickTransferForm = ({ dataSource }: IQQuickTransferFormProps) => {
 						return (
 							<DepositModule.SubModuleButton
 								label={displayChannelName}
-								imgName={`${toLower(channelName)}.png`}
+								imgName={`${toLower(channelName)}.webp`}
 								matchValue={String(channelId)}
 								key={channelName}
 							>

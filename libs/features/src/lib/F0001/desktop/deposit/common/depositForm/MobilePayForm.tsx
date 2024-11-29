@@ -152,7 +152,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 						return (
 							<DepositModule.SubModuleButton
 								label={displayGroupName}
-								imgName={`${toLower(groupName)}.png`}
+								imgName={`${toLower(groupName)}.webp`}
 								matchValue={groupName}
 								key={groupName}
 							>
@@ -186,7 +186,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 						return (
 							<DepositModule.SubModuleButton
 								label={displayChannelName}
-								imgName={`${toLower(channelName)}.png`}
+								imgName={`${toLower(channelName)}.webp`}
 								matchValue={String(channelId)}
 								key={channelId}
 							>

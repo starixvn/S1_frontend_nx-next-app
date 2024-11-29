@@ -93,7 +93,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 						return (
 							<DepositModule.SubModuleButton
 								label={displayChannelName}
-								imgName={`${toLower(channelName)}.png`}
+								imgName={`${toLower(channelName)}.webp`}
 								matchValue={String(channelId)}
 								key={channelId}
 							>

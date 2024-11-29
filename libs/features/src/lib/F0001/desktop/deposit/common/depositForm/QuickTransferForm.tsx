@@ -83,7 +83,7 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 						return (
 							<DepositModule.SubModuleButton
 								label={displayChannelName}
-								imgName={`${toLower(channelName)}.png`}
+								imgName={`${toLower(channelName)}.webp`}
 								matchValue={String(channelId)}
 								key={channelName}
 							>
@@ -112,7 +112,7 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 							return (
 								<DepositModule.SubModuleButton
 									label={bankName}
-									imgName={`square/${toLower(bankName)}.png`}
+									imgName={`square/${toLower(bankName)}.webp`}
 									matchValue={String(sysId)}
 									key={sysId}
 								>
