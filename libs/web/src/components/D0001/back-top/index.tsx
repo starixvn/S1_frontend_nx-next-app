@@ -1,13 +1,13 @@
-import { scrollToTop } from '@nx-next-app/utils'
 import { throttle } from 'lodash-es'
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useBoolean } from 'usehooks-ts'
 
 const BackTop = () => {
 	const { value: isVisible, setTrue, setFalse } = useBoolean(false)
 
-	const handleScroll = throttle(() => {
-		if (window.scrollY) {
+	const handleScroll = throttle((event: Event) => {
+		const mainContent = event.target as HTMLElement
+		if (mainContent.scrollTop > 0) {
 			setTrue()
 		} else {
 			setFalse()
@@ -15,13 +15,21 @@ const BackTop = () => {
 	}, 100)
 
 	useEffect(() => {
-		if (window === undefined) return
+		const mainContent = document?.getElementById('__next')
+		if (mainContent === undefined) return
 
-		window?.addEventListener('scroll', handleScroll)
+		mainContent?.addEventListener('scroll', handleScroll)
 
 		return () => {
-			window?.removeEventListener('scroll', handleScroll)
+			mainContent?.removeEventListener('scroll', handleScroll)
 		}
+	}, [])
+
+	const scrollToTop = useCallback(() => {
+		const mainContent = document?.getElementById('__next')
+		if (!mainContent) return
+
+		mainContent.scrollTop = 0
 	}, [])
 
 	return !isVisible ? null : (
