@@ -23,7 +23,7 @@ const SocialMedia = ({ socialChannelList }: ISocialMediaProps) => {
 				{socialChannelList.map(({ link, channelName, title }) => (
 					<a key={channelName} href={link} target='_blank' rel='noreferrer'>
 						<Img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/static-site/public/desktop/img/new-ui/${footerImgName[channelName]}`}
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/${footerImgName[channelName]}`}
 							alt={title}
 						/>
 					</a>
