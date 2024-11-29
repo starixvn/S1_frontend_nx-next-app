@@ -1,4 +1,4 @@
-import { LeftMenu, Statement } from '@nova88-desktop/components'
+import { LeftMenu, Statement } from '@n88-desktop/components/index'
 import { NovaAuthProvider } from '@nova88-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
