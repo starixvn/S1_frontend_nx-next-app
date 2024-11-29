@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const WrapperWithdrawl = styled.div`
+	width: 100%;
 	.infoModuleLeft {
 		width: 100%;
 	}
@@ -102,6 +103,75 @@ export const WrapperWithdrawl = styled.div`
 					font-weight: 600;
 				}
 			}
+		}
+	}
+	.submit-photo-id {
+		width: 100%;
+		border: 1px solid ${({ theme }) => theme.desktop.rightModuleBorderColor};
+		border-radius: 10px;
+		padding: 1.6rem;
+		.subModule {
+			max-width: 42.6rem;
+			width: 100%;
+			margin: 0 auto;
+			text-align: center;
+			.title {
+				font-size: 1.7rem;
+				font-weight: 700;
+				line-height: normal;
+				color: ${({ theme }) => theme.desktop.white};
+			}
+			.txt-lightgray {
+				font-size: 1.4rem;
+				font-weight: 400;
+				color: ${({ theme }) => theme.desktop.white};
+				line-height: normal;
+			}
+		}
+		.upload_img {
+			width: 8rem;
+			height: 5.6rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 1.2rem auto;
+			border-radius: 10px;
+			border: 1px solid ${({ theme }) => theme.desktop.rightModuleBorderColor};
+			background: ${({ theme }) => theme.desktop.bgUploadFileButton};
+			overflow: hidden;
+			input {
+				display: none;
+			}
+			.icon {
+				&:before {
+					font-size: 3.2rem;
+					color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+				}
+			}
+		}
+		.directions {
+			ul {
+				display: flex;
+				justify-content: space-between;
+				li {
+					color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+					position: relative;
+					&:after {
+						content: '';
+						display: block;
+						width: 3px;
+						height: 3px;
+						position: absolute;
+						left: -10px;
+						top: 8px;
+						background: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+					}
+				}
+			}
+		}
+		.btnGroup {
+			max-width: 14.2rem;
+			margin: 1.6rem auto;
 		}
 	}
 `

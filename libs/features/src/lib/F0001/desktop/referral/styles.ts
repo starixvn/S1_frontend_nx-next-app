@@ -134,7 +134,6 @@ export const WrapperReferal = styled.div`
 					font-weight: 400;
 					line-height: normal;
 					color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
-					text-transform: lowercase;
 				}
 			}
 		}

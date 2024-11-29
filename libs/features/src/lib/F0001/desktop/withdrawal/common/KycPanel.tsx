@@ -34,15 +34,14 @@ const KycPanel = () => {
 	if (kycStatus === KycStatusEnum.KycPending) return <PendingPanel />
 
 	return (
-		<div className='subModuleList'>
+		<div className='subModuleList submit-photo-id'>
 			<div className='subModule'>
-				<div className='subModuleBody column align-items-center'>
+				<div className='subModuleBody  column align-items-center'>
 					<span className='title'>{t('Label_Withdrawal_SubmitPhotoId')}</span>
 					<div className='txt-lightgray'>
 						{t('Label_Withdrawal_SubmitPhotoIdListTitle')}
 						<br />
-						{t('Label_Withdrawal_ImageUploadWarning')}
-						<br />
+						{t('Label_Withdrawal_ImageUploadWarning')}{' '}
 						{t('Label_Withdrawal_ImageJpgPngOnly')}
 					</div>
 					<label
@@ -61,10 +60,7 @@ const KycPanel = () => {
 						{kycFile ? (
 							<img alt='kyc' src={kycFile.fileImg as string} />
 						) : (
-							<>
-								<i className='icon icon-add-fill' />
-								<i className='icon icon-folder-upload' />
-							</>
+							<i className='icon icon-add-fill' />
 						)}
 					</label>
 					<div className='directions'>
@@ -76,7 +72,7 @@ const KycPanel = () => {
 					</div>
 					<div className='btnGroup'>
 						<button
-							className={kycFile ? 'btn-primary' : 'btn-secondary'}
+							className={kycFile ? 'btn-primary' : 'btn-disable'}
 							onClick={onSubmit}
 							disabled={!kycFile}
 						>

@@ -2442,57 +2442,7 @@ main .promosswiper .swiper-button-prev::after {
 	flex-flow: column;
 }
 
-.align-items-center {
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.align-items-center .txt-lightgray {
-	text-align: center;
-}
-.align-items-center .txt-lightgray + .upload_img:hover {
-	background: #5574a7;
-}
-.align-items-center .txt-lightgray + .upload_img:hover .icon-plus {
-	display: none;
-	color: white;
-}
-.align-items-center .txt-lightgray + .upload_img:hover .icon-folder-upload {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	color: white;
-	font-size: 12px;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-flow: column;
-	flex-flow: column;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.align-items-center
-	.txt-lightgray
-	+ .upload_img:hover
-	.icon-folder-upload:before {
-	font-size: 48px;
-	margin-bottom: 20px;
-}
-.align-items-center .txt-lightgray + .smallList {
-	min-width: 50%;
-}
-.align-items-center .txt-lightgray + .smallList li:nth-child(2) {
-	text-align: right;
-	max-width: 150px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: block;
-}
-.align-items-center .txt-lightgray + .smallList .accountNumber {
-	-webkit-box-pack: end;
-	-ms-flex-pack: end;
-	justify-content: flex-end;
-}
+
 
 #popup.olympic-rule {
 	-webkit-backdrop-filter: blur(7px);
