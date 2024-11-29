@@ -424,18 +424,19 @@ export const WrapperDeposit = styled.div`
 	.Channel {
 		.subModule {
 			width: 50%;
-			position: relative;
 			.btn {
 				width: 100%;
 			}
-			&:last-child {
-				.inputBox-blue {
-					margin-bottom: 0;
-				}
-			}
 		}
 		.subModule-item {
+			display: block !important;
+			position: relative;
 			gap: 1.2rem !important;
+			&:last-child {
+				.inputBox-blue {
+					margin-top: 0;
+				}
+			}
 		}
 		.btn-check {
 			width: 3.6rem;
@@ -445,9 +446,9 @@ export const WrapperDeposit = styled.div`
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			// position: absolute;
-			// right: -50px;
-			// top: 0;
+			position: absolute;
+			right: -60px;
+			top: 0;
 			.icon {
 				&:before {
 					font-size: 2rem;
@@ -455,9 +456,8 @@ export const WrapperDeposit = styled.div`
 			}
 		}
 		.inputBox-blue {
-			margin-top: 0;
-			margin-bottom: 1.6rem;
-			width: 100%;
+			margin-top: 1.6rem;
+			margin-bottom: 1rem;
 		}
 		.btnGroup {
 			max-width: max-content;
