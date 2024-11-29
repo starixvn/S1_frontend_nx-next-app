@@ -1,5 +1,6 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import AppearSensor from '@nx-next-app/features/F0001/desktop/common/appearSensor'
+import { NoData } from '@nx-next-app/features/F0001/desktop/common/NoData'
 import { LoadingIcon } from '@nx-next-app/features/F0001/desktop/home/gameIcon/icons'
 import {
 	GameIconContainer,
@@ -14,7 +15,6 @@ import { Suspense } from 'react'
 import { Img } from 'react-image'
 
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
-
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
 	{
@@ -133,13 +133,7 @@ const GameList = () => {
 			</GameListContainer>
 		</Suspense>
 	) : (
-		<div className='nodata'>
-			<img
-				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/nodata-icon.png`}
-				alt=''
-			/>
-			<div>{t('Label_General_NoData')}</div>
-		</div>
+		<NoData customClass='no-border' />
 	)
 }
 

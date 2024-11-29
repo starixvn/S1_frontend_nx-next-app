@@ -21,6 +21,10 @@ export const LobbyGamePage = styled.div`
 		border-radius: 2rem;
 		background: ${({ theme }) => theme.desktop.filterFormBg};
 	}
+
+	.custom-nodata {
+		margin-top: 2rem;
+	}
 `
 
 export const GameIconContainer = styled.div`

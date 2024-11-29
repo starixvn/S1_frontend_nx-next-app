@@ -433,7 +433,7 @@ export const GlobalStyles = createGlobalStyle`
       &--in-range,&--in-selecting-range{
          background :#717FBA;
          &:not(.react-datepicker__day--in-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--in-range){
-          opacity : .7; 
+          opacity : .7;
           background :${({ theme }) => theme.desktop.datePickerSelectRangeBg};
          }
       }
@@ -444,7 +444,7 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
   }
-  
+
   input {
     color: ${({ theme }) => theme.desktop.inputColor};
     background: ${({ theme }) => theme.desktop.inputBg};
@@ -460,8 +460,8 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
   input:-webkit-autofill,
-  input:-webkit-autofill:hover, 
-  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
   input:-webkit-autofill:active{
       -webkit-box-shadow: 0 0 0 30px ${({ theme }) =>
 				theme.desktop.inputBg} inset !important;
@@ -1228,28 +1228,28 @@ export const GlobalStyles = createGlobalStyle`
         &:before{
           content: 'Claimed';
         }
-        
+
       }
       &.new {
         background: ${({ theme }) => theme.desktop.tipColorError};
         &:before{
           content: 'New';
-        } 
+        }
       }
       &.active{
         background : #01B901;
         &:before{
           content: 'Active';
-        } 
+        }
       }
       &.expired {
         background: #6F7689;
         &:before{
           content: 'Expired';
-        } 
+        }
       }
     }
-    
+
   }
   .progressBarModule {
 		background: #232b4f;
