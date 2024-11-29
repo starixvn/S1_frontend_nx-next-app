@@ -1,11 +1,12 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { paths, PRODUCTS } from '@nx-next-app/constants'
+import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { MenuContainer } from '@nx-next-app/features/F0001/desktop/layout/common/header/Menu/styles'
+import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
+import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 import {
 	LobbyCategoryEnum,
 	MainMenuIcon,
-	MenuActionTypeEnum,
 	MenuIconTypeEnum,
 } from '@nx-next-app/types'
 import { isEventPeriod } from '@nx-next-app/utils'
@@ -14,11 +15,9 @@ import { includes, toUpper } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useDebounce } from 'usehooks-ts'
-
-import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
@@ -69,6 +68,7 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { ALLOWED_CURRENCIES } = useStaticData()
+	const router = useRouter()
 
 	const menus = menuList.map(mainMenuItem => {
 		const {
@@ -115,11 +115,15 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 				</a>
 			)
 		}
-
 		return (
 			// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 			<Link href={pathname!} key={lobbyCategoryId}>
-				<a className='menu-item' onMouseEnter={() => setMenuKey(category)}>
+				<a
+					className={classNames('menu-item', {
+						active: router.pathname === pathname,
+					})}
+					onMouseEnter={() => setMenuKey(category)}
+				>
 					{icon}
 					{menuText}
 				</a>
@@ -164,7 +168,9 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 				<Link href={paths.promotion.root} passHref>
 					<a
 						className={classNames('menu-item ', {
-							active: debouncedMenuKey === 'Promotion',
+							active:
+								debouncedMenuKey === 'Promotion' ||
+								router.pathname === paths.promotion.root,
 						})}
 					>
 						{isEventPeriod({ start: '2020-00-01T00:00:00', end: null }) &&
@@ -176,7 +182,9 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 					<Link href={paths.vip.root} passHref>
 						<a
 							className={classNames('menu-item ', {
-								active: debouncedMenuKey === 'VIP',
+								active:
+									debouncedMenuKey === 'VIP' ||
+									router.pathname === paths.vip.root,
 							})}
 						>
 							{t('VIP')}
@@ -187,7 +195,9 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 					<Link href={paths.leaderBoard.root} passHref>
 						<a
 							className={classNames('menu-item ', {
-								active: debouncedMenuKey === 'LeaderBoard',
+								active:
+									debouncedMenuKey === 'LeaderBoard' ||
+									router.pathname === paths.leaderBoard.root,
 							})}
 						>
 							{t('Label_LeaderBoard')}
