@@ -24,9 +24,26 @@ export const WrapperProfileAfterLogin = styled.div`
 			.vipname {
 				padding: 0.5rem 1.2rem;
 				margin-top: 0.8rem;
-				background: ${({ theme }) => theme.desktop.vipBg};
 				border-radius: 100px;
 				color: ${({ theme }) => theme.desktop.white};
+				&.nova {
+					background: ${({ theme }) => theme.desktop.gradeNovaBg};
+				}
+				&.vintage {
+					background: ${({ theme }) => theme.desktop.gradeVintageBg};
+				}
+				&.silver {
+					background: ${({ theme }) => theme.desktop.gradeSilverBg};
+				}
+				&.gold {
+					background: ${({ theme }) => theme.desktop.gradeGoldBg};
+				}
+				&.titanium {
+					background: ${({ theme }) => theme.desktop.gradeTitaniumBg};
+				}
+				&.diamond {
+					background: ${({ theme }) => theme.desktop.gradeDiamondBg};
+				}
 			}
 			.accountSafety {
 				font-size: 1.2rem;

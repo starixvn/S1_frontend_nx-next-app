@@ -61,6 +61,7 @@ const Verification = () => {
 		phoneVerification,
 		emailVerification,
 	})
+
 	return (
 		<div className='vipLv'>
 			<div className='vipbg'>
@@ -71,7 +72,7 @@ const Verification = () => {
 				)}
 			</div>
 			{includes(ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[], currencyId) && (
-				<div className='vipname'>
+				<div className={`vipname ${userLevelImageInfo?.levelTabsName}`}>
 					{t(userLevelImageInfo?.displayKey as string)}
 				</div>
 			)}
