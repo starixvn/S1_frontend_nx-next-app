@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HeaderTop = styled.div`
 	display: flex;
@@ -46,48 +46,45 @@ export const Message = styled.div`
 
 	.msgPop {
 		display: flex;
+		align-items: center;
 		position: absolute;
 		top: 1px;
 		left: -10px;
 		transform: translateY(100%);
-		background: #ff7600;
-		padding: 6px 12px 6px 15px;
-		display: flex;
-		align-items: center;
-		border-radius: 10px;
+		border-radius: 1rem;
+		opacity: 0.9;
+		background: #ea6118;
+		box-shadow: 0 0.6rem 3rem 0 rgba(0, 0, 0, 0.5);
+		padding: 0.6rem 0 0.6rem 1.2rem;
+		color: #fff;
+		font-size: 1.3rem;
+		font-weight: 600;
 		z-index: 3;
-		box-shadow: 0 0 3px #797979;
+
 		div {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			max-width: 150px;
 		}
-		button {
-			border: 1px solid white;
-			color: #fff;
-			width: 18px;
-			height: 18px;
-			border-radius: 100%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			font-size: 12px;
-			margin: 0 0 0 10px;
-			&::before {
-				transform: scale(0.7);
+
+		.icon {
+			background: transparent;
+			&:hover {
+				cursor: pointer;
 			}
 		}
+
 		&::after {
-			border-color: transparent transparent #ff7600;
-			border-style: solid solid solid solid;
-			border-width: 8px;
-			top: 1px;
 			content: '';
-			height: 0;
 			position: absolute;
+			top: 0.1rem;
+			height: 0;
 			width: 0;
 			transform: translateY(-100%);
+			border-color: transparent transparent #ea6118;
+			border-style: solid solid solid solid;
+			border-width: 0.8rem;
 		}
 	}
 `

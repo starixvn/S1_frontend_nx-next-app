@@ -1,11 +1,11 @@
-import { paths } from "@nx-next-app/constants";
-import { Message } from "@nx-next-app/features/F0001/desktop/layout/common/header/styles";
-import { useGetMsgCountQuery, useGetPopupMsgQuery } from "@nx-next-app/service";
-import classNames from "classnames";
-import { includes } from "lodash";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useBoolean } from "usehooks-ts";
+import { paths } from '@nx-next-app/constants'
+import { Message } from '@nx-next-app/features/F0001/desktop/layout/common/header/styles'
+import { useGetMsgCountQuery, useGetPopupMsgQuery } from '@nx-next-app/service'
+import classNames from 'classnames'
+import { includes } from 'lodash'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useBoolean } from 'usehooks-ts'
 
 const MsgPopUp = () => {
 	const { value: isHided, setTrue } = useBoolean(false)
@@ -47,8 +47,8 @@ const MsgPopUp = () => {
 					>
 						{popupMsg?.popupMessage}
 					</div>
-					<button
-						className='icon icon-close'
+					<span
+						className='icon icon-close-line'
 						onClick={e => {
 							e.preventDefault()
 							e.stopPropagation()

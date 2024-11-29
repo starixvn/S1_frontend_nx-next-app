@@ -1,17 +1,21 @@
-import { HomeBalance } from "@nx-next-app/components/D0001/header/Function/styles";
-import { paths } from "@nx-next-app/constants";
-import { useAuth, useStaticData } from "@nx-next-app/data-access";
-import { ICustBonusWalletData, IMainWalletInfoData, ITpWalletInfoData } from "@nx-next-app/service";
-import { numberFormat } from "@nx-next-app/utils";
-import classNames from "classnames";
-import dayjs from "dayjs";
-import { includes } from "lodash-es";
-import { useTranslation } from "next-i18next";
-import Link from "next/link";
-import { Fragment, useEffect, useRef } from "react";
-import { useBoolean, useDebounce, useOnClickOutside } from "usehooks-ts";
+import { HomeBalance } from '@nx-next-app/components/D0001/header/Function/styles'
+import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import {
+	ICustBonusWalletData,
+	IMainWalletInfoData,
+	ITpWalletInfoData,
+} from '@nx-next-app/service'
+import { numberFormat } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import dayjs from 'dayjs'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { Fragment, useEffect, useRef } from 'react'
+import { useBoolean, useDebounce, useOnClickOutside } from 'usehooks-ts'
 
-import { SpinButton } from "../../button";
+import { SpinButton } from '../../button'
 
 interface IWalletProps {
 	originIsHideBalance: boolean
@@ -158,6 +162,7 @@ const Wallet = ({
 							{t('Label_General_Withdrawal')}
 						</a>
 					</Link>
+
 					{includes(ALLOWED_CURRENCIES.TRANSFER, currencyId) && (
 						<Link href={paths.transferFunds.root} passHref>
 							<a className='button btn-secondary'>

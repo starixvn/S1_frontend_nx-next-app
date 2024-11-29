@@ -10,7 +10,7 @@ interface ISpinButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const SpinButton = ({
 	children,
-	className = 'icon icon-refresh-fill',
+	className = '',
 	timeout = 1500,
 	onSpinChange,
 	...props

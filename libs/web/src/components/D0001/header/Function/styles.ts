@@ -6,7 +6,7 @@ export const HomeProfile = styled.div`
 	z-index: 3;
 	border-radius: 2rem;
 	right: 25.7rem;
-	top: 6rem;
+	top: 5.4rem;
 	display: none;
 	box-shadow: ${({ theme }) => theme.desktop.dropdownShadow};
 	width: 30rem;
@@ -261,7 +261,7 @@ export const HomeBalance = styled.div`
 	.balance-submenu {
 		display: none;
 		position: absolute;
-		top: 6rem;
+		top: 5.4rem;
 		right: 2rem;
 		z-index: 3;
 		border-radius: 2rem;
@@ -321,10 +321,6 @@ export const HomeBalance = styled.div`
 			display: flex;
 			gap: 1.2rem;
 			margin: 20px 0;
-
-			.button {
-				flex-basis: 50%;
-			}
 		}
 
 		.loginLog {
@@ -513,6 +509,7 @@ export const FunctionContainer = styled.div`
 				font-size: 1.2rem;
 				background: ${({ theme }) => theme.desktop.countryCurrentBtnBg};
 				color: ${({ theme }) => theme.desktop.countryCurrentBtnColor};
+				white-space: nowrap;
 
 				&:hover {
 					color: ${({ theme }) => theme.desktop.countryCurrentBtnColorHover};
