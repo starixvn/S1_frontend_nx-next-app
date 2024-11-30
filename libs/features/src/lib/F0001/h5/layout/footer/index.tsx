@@ -89,7 +89,7 @@ const LayoutFooter = () => {
 							me: msgCount > 0,
 						})}
 					>
-						<i className='icon icon-user-line' />
+						<i className='icon icon-user-2-fill' />
 
 						<span className='footer-title'>{t('Label_General_Me')}</span>
 					</a>

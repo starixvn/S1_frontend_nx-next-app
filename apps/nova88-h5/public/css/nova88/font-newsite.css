@@ -26,9 +26,45 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-casino:before {
+  content: "\e94b";
+  color: #fff;
+}
+.icon-finance1:before {
+  content: "\e94c";
+  color: #fff;
+}
+.icon-ranking:before {
+  content: "\e94d";
+  color: #fff;
+}
+.icon-share:before {
+  content: "\e94e";
+  color: #fff;
+}
+.icon-team-fill:before {
+  content: "\e94f";
+  color: #fff;
+}
+.icon-vip-fill:before {
+  content: "\e950";
+  color: #fff;
+}
+.icon-finance:before {
+  content: "\e951";
+  color: #fff;
+}
+.icon-edit-2-fill:before {
+  content: "\e952";
+  color: #fff;
+}
 .icon-mail-fill-mobile:before {
   content: "\e949";
   color: #939dc5;
+}
+.icon-user-2-fill:before {
+  content: "\e94a";
+  color: #fff;
 }
 .icon-plus_circle:before {
 	content: '\e948';

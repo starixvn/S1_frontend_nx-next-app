@@ -3854,7 +3854,6 @@ main .gameList .icon-new {
 	font-weight: bold;
 }
 
-
 .tip {
 	color: #e92529;
 	text-align: left;
@@ -3868,7 +3867,6 @@ main .gameList .icon-new {
 	text-decoration: underline;
 	float: right;
 }
-
 
 .infoModule.parts {
 	-webkit-box-orient: horizontal;
@@ -4832,7 +4830,6 @@ main .gameList .icon-new {
 	color: white;
 	font-size: 8vw;
 }
-
 
 .recent {
 	visibility: hidden;
@@ -9995,8 +9992,6 @@ span.important {
 	display: block;
 }
 
-
-
 .footer-item {
 	position: relative;
 	top: 5vw;
@@ -10681,8 +10676,6 @@ span.important {
 .cashBack.newStyle table tr:nth-last-child(-n + 6) td span:nth-child(1) {
 	min-width: 25vw;
 }
-
-
 
 .jpot {
 	position: relative;
@@ -16835,8 +16828,6 @@ main.casino .banner {
 	width: 65vw;
 }
 
-
-
 .bottom-social {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -16893,8 +16884,6 @@ main.casino .banner {
 	margin-right: 1vw;
 	margin-left: -1vw;
 }
-
-
 
 .menu {
 	padding: 0;
@@ -17171,131 +17160,6 @@ main.casino .banner {
 	width: 3.5vw;
 }
 
-.after .menu-top {
-	background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/menu-after-bg.png)
-		no-repeat center/cover;
-	height: 55vw;
-	border-radius: 0 0 20px 20px;
-}
-.after .menu-top .profile-item {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	padding: 5vw 10vw;
-}
-.after .menu-top .profile-item > div {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.after .menu-top .profile-item > div > div {
-	margin-left: 2vw;
-}
-.after .menu-top .profile-item > div > div a {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	margin-top: -1vw;
-}
-.after .menu-top .profile-item > div > div a::after {
-	display: block;
-	content: '';
-	background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/right.png)
-		no-repeat center/cover;
-	height: 2vw;
-	width: 2vw;
-	margin-left: 1vw;
-}
-.after .menu-top .profile-item img {
-	width: 8vw;
-	height: 8vw;
-}
-.after .menu-top .profile-item a img {
-	width: 6vw;
-	height: 6vw;
-}
-.after .menu-top .profile-item .message {
-	position: relative;
-}
-.after .menu-top .profile-item .message.active::after {
-	top: 0;
-	left: 5vw;
-	position: absolute;
-	display: block;
-	content: '';
-	background: red;
-	width: 2vw;
-	height: 2vw;
-	border-radius: 10px;
-	-webkit-transition: all 0.2s ease-in-out;
-	transition: all 0.2s ease-in-out;
-	-webkit-animation: 1.5s ease 0s infinite normal none move;
-	animation: 1.5s ease 0s infinite normal none move;
-}
-@-webkit-keyframes move {
-	0% {
-		opacity: 1;
-	}
-	10% {
-		-webkit-transform: translate3d(-0.1vw, 0, 0);
-		transform: translate3d(-0.1vw, 0, 0);
-	}
-	70% {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-		-webkit-box-shadow: rgba(255, 0, 0, 0.4705882353) 0 0 0 0.5vw;
-		box-shadow: rgba(255, 0, 0, 0.4705882353) 0 0 0 0.5vw;
-	}
-	80% {
-		-webkit-transform: translate3d(-0.1vw, 0, 0);
-		transform: translate3d(-0.1vw, 0, 0);
-	}
-	100% {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-		-webkit-box-shadow: rgba(255, 0, 0, 0.4705882353) 0 0 0 0.8vw;
-		box-shadow: rgba(255, 0, 0, 0.4705882353) 0 0 0 0.8vw;
-		opacity: 1;
-	}
-}
-@keyframes move {
-	0% {
-		opacity: 1;
-	}
-	10% {
-		-webkit-transform: translate3d(-0.1vw, 0, 0);
-		transform: translate3d(-0.1vw, 0, 0);
-	}
-	70% {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-		-webkit-box-shadow: rgba(255, 0, 0, 0.4705882353) 0 0 0 0.5vw;
-		box-shadow: rgba(255, 0, 0, 0.4705882353) 0 0 0 0.5vw;
-	}
-	80% {
-		-webkit-transform: translate3d(-0.1vw, 0, 0);
-		transform: translate3d(-0.1vw, 0, 0);
-	}
-	100% {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-		-webkit-box-shadow: rgba(255, 0, 0, 0.4705882353) 0 0 0 0.8vw;
-		box-shadow: rgba(255, 0, 0, 0.4705882353) 0 0 0 0.8vw;
-		opacity: 1;
-	}
-}
 .after .menu-top .profile-item .message-popup {
 	position: absolute;
 	right: 0;
@@ -17332,29 +17196,7 @@ main.casino .banner {
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
-.after .menu-top-balance {
-	padding: 0 10vw;
-	margin-top: 3vw;
-}
-.after .menu-top-balance > div:nth-child(2) {
-	font-size: 5vw;
-	font-weight: 500;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-}
-.after .menu-top-balance > div:nth-child(2) a {
-	background: #ff7600;
-	padding: 1.7vw 4vw;
-	border-radius: 20px;
-	font-size: 3.5vw;
-}
+
 .after .menu-vip {
 	height: 30vw;
 	border-radius: 15px;
@@ -17516,150 +17358,7 @@ main.casino .banner {
 .after .menu-bottom-item:nth-child(4) .info {
 	border: 0;
 }
-.after .wallet-box {
-	background: white;
-	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1490196078);
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1490196078);
-	margin: -17vw 5vw 0;
-	padding: 1vw 5vw 6vw;
-	border-radius: 15px;
-	color: #0a1b38;
-}
-.after .wallet-box .bank-list {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-pack: distribute;
-	justify-content: space-around;
-	margin-top: 5vw;
-}
-.after .wallet-box .bank-list > a {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-flex: 0;
-	-ms-flex: 0 0 19vw;
-	flex: 0 0 19vw;
-	line-height: 4vw;
-	text-align: center;
-}
-.after .wallet-box .bank-list > a img {
-	width: 10vw;
-	margin-bottom: 2vw;
-}
-.after .wallet-box .bank-list > a > div {
-	font-weight: 500;
-	color: #0a1b38;
-}
-.after .wallet-box .casino-wallet {
-	margin-top: 5vw;
-}
-.after .wallet-box .casino-wallet-item {
-	background: #efefef;
-	padding: 5vw 3vw 3vw;
-	border-radius: 10px;
-}
-.after .wallet-box .casino-wallet-item .money {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	font-weight: 500;
-	margin-bottom: 2vw;
-}
-.after .wallet-box .casino-wallet-item .money > div:last-child {
-	margin-right: 1vw;
-}
-.after .wallet-box .casino-wallet-item .progress {
-	background: white;
-	width: 74vw;
-	height: 2vw;
-	border-radius: 20px;
-}
-.after .wallet-box .casino-wallet-item .progress-bar {
-	background: -webkit-gradient(
-		linear,
-		left top,
-		right top,
-		from(rgb(56, 117, 227)),
-		to(rgb(167, 167, 167))
-	);
-	background: linear-gradient(
-		90deg,
-		rgb(56, 117, 227) 0%,
-		rgb(167, 167, 167) 100%
-	);
-	width: 50vw;
-	height: 2vw;
-	border-radius: 20px;
-}
-.after .wallet-box .casino-wallet-item .progress-number {
-	text-align: end;
-	margin-top: 1vw;
-	color: #a7a7a7;
-	margin-right: 1vw;
-}
-.after .wallet-list {
-	margin-bottom: 9vw;
-}
-.after .wallet-list-item {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	font-weight: 500;
-	border-bottom: 1px solid #efefef;
-	padding: 3vw 1vw;
-}
-.after .wallet-list-item > div {
-	font-size: 3.5vw;
-}
-.after .wallet-list-item:first-child {
-	margin-top: 3vw;
-}
-.after .wallet-list-item:last-child {
-	border: 0;
-	margin-bottom: 4vw;
-}
-.after .wallet-list-item.main-wallet {
-	border-bottom: 1px solid #efefef;
-}
-.after .wallet-list a {
-	background: -webkit-gradient(
-		linear,
-		left top,
-		right top,
-		from(rgb(30, 62, 119)),
-		to(rgb(50, 95, 177))
-	);
-	background: linear-gradient(
-		90deg,
-		rgb(30, 62, 119) 0%,
-		rgb(50, 95, 177) 100%
-	);
-	padding: 2vw;
-	border-radius: 50px;
-	padding: 3vw;
-	display: block;
-	width: 100%;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	text-align: center;
-}
+
 .after .btn-logout {
 	background: white;
 	border-radius: 30px;

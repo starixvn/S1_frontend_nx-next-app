@@ -1,16 +1,16 @@
+import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
+import {
+	useGetCustVIPProgressQuery,
+	useGetMsgCountQuery,
+	useGetPopupMsgQuery,
+} from '@nx-next-app/service'
+import { numberFormat } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
-import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
-import { numberFormat } from '@nx-next-app/utils'
-import {
-	useGetMsgCountQuery,
-	useGetPopupMsgQuery,
-	useGetCustVIPProgressQuery,
-} from '@nx-next-app/service'
 
 const Profile = () => {
 	const { t } = useTranslation()
@@ -54,25 +54,24 @@ const Profile = () => {
 				<div className='menu-top-profile'>
 					<div className='profile-item'>
 						<div>
-							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/profile-2.png`}
-								alt='profile'
-							/>
-							<div>
-								<div>
+							<div className='profile-item-user'>
+								<i className='icon icon-user-2-fill' />
+							</div>
+							<div className='group-user-name'>
+								<div className='user-name'>
 									<span>{t('Label_General_Hello')},</span> {userName}
 								</div>
 								<Link href={paths.profile.root}>
-									<a>{t('Label_Setting_Edit')}</a>
+									<a>
+										{t('Label_Setting_Edit')}
+										<i className='icon icon-edit-2-fill' />
+									</a>
 								</Link>
 							</div>
 						</div>
 						<Link href={paths.message.root}>
 							<a className={classNames('message', { active: msgCount > 0 })}>
-								<img
-									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/message-2.png`}
-									alt='message'
-								/>
+								<i className='icon icon-mail-fill-mobile' />
 								{popupMsg?.id && (
 									<div className='message-popup'>
 										<div>{popupMsg?.popupMessage}</div>
@@ -83,11 +82,15 @@ const Profile = () => {
 					</div>
 				</div>
 				<div className='menu-top-balance'>
-					<div>{t('Label_General_Balance')}</div>
-					<div>
-						{currencyName} {numberFormat(totalWalletBalance, currencyId, 2)}
+					<div className='balance-group'>
+						<div className='balance-name'>{t('Label_General_Balance')}</div>
+						<div className='balance-number'>
+							{currencyName} {numberFormat(totalWalletBalance, currencyId, 2)}
+						</div>
+					</div>
+					<div className='btnGroup'>
 						<Link href={paths.deposit.root}>
-							<a>{t('Label_General_Deposit')}</a>
+							<a className='btn-primary'>{t('Label_General_Deposit')}</a>
 						</Link>
 					</div>
 				</div>
@@ -97,7 +100,7 @@ const Profile = () => {
 					<div>
 						<div className='wallet-list-item main-wallet'>
 							{t('Label_Wallet_MainWallet')}
-							<div>
+							<div className='money-name'>
 								{currencyName}{' '}
 								{numberFormat(Number(mainWalletBalance), currencyId)}
 							</div>
