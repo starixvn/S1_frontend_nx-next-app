@@ -1,35 +1,49 @@
 import SimpleFooter from '@nx-next-app/features/F0001/h5/home/SimpleFooter'
-import { useHome } from '@nx-next-app/features/F0001/providers'
-import { channelIcon } from '@nx-next-app/features/F0001/types'
 
+import Footer from '@nx-next-app/components/D0001/footer'
+import { useAuth } from '@nx-next-app/data-access'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { SocialChannelEnum } from '@nx-next-app/features/F0001/types'
+import { useGetSocialChannelQuery } from '@nx-next-app/service'
 import { Affiliate } from './Affiliate'
 // import { License } from './License'
 
 const index = () => {
-	const { footerSocialChannelList = [] } = useHome()
+	const { persistPaymentMethods, quickLinksList } = useHome()
 
+	const {
+		userInfo: { currencyId, langId },
+	} = useAuth()
+	const {
+		data: { data: socialChannelList = [] } = {},
+		isLoading: isGetSocialChannelListLoading,
+	} = useGetSocialChannelQuery({
+		currencyId: currencyId as number,
+		langId,
+		displayPage: SocialChannelEnum.FOOTER,
+	})
 	return (
 		<div className='home-bottom'>
-			<div className='home-bottom-top'>
-				<div className='bottom-social' style={{ paddingBottom: '8vw' }}>
-					{footerSocialChannelList.map(({ link, channelName }) => (
-						<a
-							key={channelName}
-							href={link}
-							target='_blank'
-							rel='noreferrer noopener'
-						>
-							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/${channelIcon[channelName]}.png`}
-								alt={channelName}
-							/>
-						</a>
-					))}
+			<Footer>
+				<div className='footer-top'>
+					{!!quickLinksList && (
+						<Footer.QuickLinks quickLinks={quickLinksList} /> // todo: need to update Footer.QuickLinks since I reused the desktop footer version
+					)}
 				</div>
-				{/* <License /> */}
-				<Affiliate />
-				<SimpleFooter />
-			</div>
+				<div className='footer-center'>
+					{isGetSocialChannelListLoading ? null : (
+						<Footer.SocialMedia socialChannelList={socialChannelList} />
+					)}
+					{/* <Footer.SuggestBrowser suggestedBrowser={suggestedBrowser} /> */}
+					<Footer.PaymentMethod
+						paymentMethodsByCurrencyId={persistPaymentMethods} // todo need to update Footer.PaymentMethod since I reused the desktop footer version
+					/>
+				</div>
+				{/* <Footer.PromotionText promotionTextList={promotionTextList} /> */}
+			</Footer>
+			{/* <License /> */}
+			<Affiliate />
+			<SimpleFooter />
 		</div>
 	)
 }

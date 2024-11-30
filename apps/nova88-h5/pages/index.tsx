@@ -74,6 +74,7 @@ const HomePage = ({
 						persistLicenseData={persistFooterData.licenseData}
 						persistQuickLinksList={persistFooterData.quickLinks}
 						persistPlatformList={persistFooterData.platformList}
+						persistPaymentMethods={persistFooterData.paymentMethodsByCurrencyId}
 						mobileHomeOrders={MOBILE_HOME_ORDERS}
 					>
 						<Home />
@@ -96,7 +97,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		persistBannerData,
 		rawPromotionData,
 		persistHotEventData,
-		hotGameData
+		hotGameData,
 	] = await Promise.all([
 		getBanner(
 			{
@@ -125,7 +126,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 				TpCategory.ESports,
 			].toString(),
 			currencyId,
-		})
+		}),
 	])
 
 	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
@@ -146,7 +147,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			persistHotEventData,
 			persistHotGameData,
 			persistNewGameData,
-      persistProviderGameData,
+			persistProviderGameData,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),

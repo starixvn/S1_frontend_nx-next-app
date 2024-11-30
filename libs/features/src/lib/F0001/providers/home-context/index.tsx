@@ -59,6 +59,7 @@ interface IHomeProviderProps {
 	desktopHomeOrders?: DesktopHomeComponentsEnum[]
 	// 手機排序與開關
 	mobileHomeOrders?: MobileHomeComponentsEnum[]
+	persistPaymentMethods: IFooterData['paymentMethodsByCurrencyId']
 }
 
 export interface HomeContextInterface {
@@ -78,6 +79,8 @@ export interface HomeContextInterface {
 	slotGameData?: ISlotsGameData
 	licenseData: IFooterData['licenseData']
 	platformList: IFooterData['platformList']
+	quickLinksList: IFooterData['quickLinks']
+	persistPaymentMethods: IFooterData['paymentMethodsByCurrencyId']
 	affiliateData: { allowCurrencies: CurrenciesEnum[]; link: string }
 	referralData: { referralBonus: number | null; referralCode: string }
 	handlePromotionClick: (bonusCode: string) => void
@@ -220,6 +223,7 @@ export const HomeProvider = ({
 	persistNewGameData,
 	persistProviderData,
 	persistLicenseData,
+	persistPaymentMethods,
 	desktopHomeOrders = defaultDesktopHomeOrders,
 	mobileHomeOrders = defaultMobileHomeOrders,
 }: IHomeProviderProps) => {
@@ -639,6 +643,8 @@ export const HomeProvider = ({
 		hotGameData: persistHotGameData,
 		newGameData: persistNewGameData,
 		providerData: persistProviderData,
+		quickLinksList: persistQuickLinksList,
+		persistPaymentMethods,
 		referralData,
 		affiliateData,
 		handlePromotionClick,
