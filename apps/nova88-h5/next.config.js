@@ -74,6 +74,9 @@ const nextConfig = {
 		// 提高 serverside page props data threshold , 避免 128kb 警告
 		largePageDataBytes: 128 * 10000,
 	},
+	compiler: {
+		styledComponents: true,
+	},
 }
 
 module.exports = withSentryConfig(withNx(nextConfig), sentryOptions)
