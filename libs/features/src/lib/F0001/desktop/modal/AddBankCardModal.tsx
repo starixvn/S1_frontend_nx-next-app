@@ -1,23 +1,27 @@
-import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
-import { useForm } from 'react-hook-form'
-import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	Form,
 	InputBox,
 	ISelectProps,
 	Select,
 } from '@nx-next-app/components/D0001'
-import { find, head } from 'lodash-es'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { CurrenciesEnum } from '@nx-next-app/types'
+import {
+	E_WALLET_SYSID,
+	PAYMENT_BANK_ACCOUNT_REGEX,
+	TOUCH_GO_REGEX,
+} from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
 import {
 	IBankInfoData,
 	IEWalletData,
-	IUsdtDetailData,
 	IPaymentCustBankInfoData,
+	IUsdtDetailData,
 } from '@nx-next-app/service'
-import { TOUCH_GO_REGEX, E_WALLET_SYSID } from '@nx-next-app/constants'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { find, head } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useForm } from 'react-hook-form'
 
 interface IAddBankCardForm {
 	sysId: number
@@ -182,7 +186,10 @@ const AddBankCardModal = ({
 										value: TOUCH_GO_REGEX,
 										message: t('Label_Withdrawal_TouchGo_Validation'),
 								  }
-								: undefined,
+								: {
+										value: PAYMENT_BANK_ACCOUNT_REGEX,
+										message: t('Label_BankInfo_AccountWrongFormat'),
+								  },
 							onBlur: checkAccountNo,
 						})}
 						title={
