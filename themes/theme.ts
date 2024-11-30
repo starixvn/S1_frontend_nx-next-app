@@ -294,5 +294,15 @@ export const theme = {
 		promotionTimeBg: '#374375',
 		promotionTimeBgHover: '#414F86',
 	},
-	mobile: {},
+	mobile: {
+		bgLoginRegisterColor: '#0F1428',
+		white: '#fff',
+		boxShadowLoginRegisterColor: '0px 2px 10px 0px rgba(0, 0, 0, 0.10)',
+		bgSwitchButtonLoginColor: '#232B4F',
+		switchButtonLoginColor: '#7883B4',
+		switchButtonLoginColorActive: '#fff',
+		switchButtonBgActive: '#374375',
+		switchButtonBoxShadowActive:
+			'0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset',
+	},
 }

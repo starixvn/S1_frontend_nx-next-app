@@ -1,6 +1,6 @@
+import classNames from 'classnames'
 import React, { InputHTMLAttributes, useState } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
-import classNames from 'classnames'
 
 export interface IInputBoxProps
 	extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
@@ -119,7 +119,7 @@ const InputBox = ({
 			)}
 			{!!subtitle && <div className='subtitle'>{subtitle}</div>}
 			<div
-				className={classNames('inputBox', {
+				className={classNames('inputBox-blue', {
 					error,
 				})}
 			>

@@ -1381,4 +1381,118 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
   }
+
+
+  //mobile
+  .logoSwitch {
+		padding: 0 1.6rem;
+    overflow: scroll;
+		visibility: hidden;
+		opacity: 0;
+		height: calc(100% - 10rem);
+		background: ${({ theme }) => theme.mobile.bgLoginRegisterColor};
+		.switch {
+			background: ${({ theme }) => theme.mobile.bgSwitchButtonLoginColor};
+		}
+    &.active{
+      visibility: visible;
+      opacity: 1;
+      transition: 0.7s;
+    }
+    .logo-login {
+      width: 18rem;
+      height: 20rem;
+      margin: 1rem auto;
+    }
+    .switch {
+      width: 100%;
+      background: ${({ theme }) => theme.mobile.bgSwitchButtonLoginColor};
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: normal;
+      > div {
+        -ms-flex: 1;
+        flex: 1;
+        z-index: 1;
+        padding: 1.1rem 1.2rem;
+        a {
+          color: ${({ theme }) => theme.mobile.switchButtonLoginColor};
+        }
+        &.active {
+          a {
+            color: ${({ theme }) => theme.mobile.switchButtonLoginColorActive};
+          }
+        }
+        &.switchBg {
+          position: absolute;
+          background: ${({ theme }) => theme.mobile.switchButtonBgActive};
+          box-shadow: ${({ theme }) =>
+						theme.mobile.switchButtonBoxShadowActive};
+          width: 50%;
+          height: 100%;
+          border-radius: 30px;
+          left: 0;
+          transition: 0.7s;
+          padding: 0;
+          &.right {
+            left: 50%;
+            transition: 0.7s;
+          }
+        }
+      }
+    }
+    .close-popup-login {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      .icon {
+        &:before {
+          font-size: 2.4rem;
+        }
+      }
+    }
+    .btn-group{
+      display : flex;
+      width : 100%;
+      margin : 1.6rem 0;
+      button{
+        padding : 1rem 1.2rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+        line-height: normal;
+        border-radius: 100px;
+        color : ${({ theme }) => theme.mobile.white}
+      }
+    }
+	}
+  .visit {
+		color: ${({ theme }) => theme.mobile.white};
+		font-weight: 600;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 1.6rem 0;
+		font-size: 1.4rem;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 1.8rem;
+	}
+  .btn-group button,
+  .btn-group a,
+  .btn-group .submit {
+    width: 100%;
+    border-radius: 100px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1;
+    position: relative;
+    font-size: 1.3rem;
+    font-weight : 600;
+  }
 `

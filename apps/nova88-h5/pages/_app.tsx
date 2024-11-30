@@ -27,16 +27,13 @@ import {
 	VIP_CLUB_IMAGES,
 } from '@nx-next-app/site/nova88'
 
-import 'react-datepicker/dist/react-datepicker.css'
-// import '../styles/css/style-dark.css'
-// import '../styles/css/style.css'
-// import '../styles/css/swiper.css'
-// import '../styles/css/font.css'
 import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
 import Head from 'next/head'
+import 'react-datepicker/dist/react-datepicker.css'
 import { ThemeProvider } from 'styled-components'
+import { GlobalStyles } from '../../../themes/global.styled'
 import { theme } from '../../../themes/theme'
 
 dayjs.extend(localizedFormat)
@@ -55,7 +52,8 @@ const {
 
 function CustomApp({ Component, pageProps }: AppProps) {
 	return (
-		<>
+		<ThemeProvider theme={theme}>
+			<GlobalStyles />
 			<Head>
 				<meta name='viewport' content='initial-scale=1.0, maximum-scale=1.0' />
 			</Head>
@@ -94,7 +92,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			<JackpotsScript />
 			<OperaPixelCodeScript /> */}
 			<ActivatorScript />
-		</>
+		</ThemeProvider>
 	)
 }
 

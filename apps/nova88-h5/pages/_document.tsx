@@ -49,13 +49,6 @@ class MyDocument extends Document<CustomDocumentProps> {
 					{process.env['NEXT_PUBLIC_SITE_NAME'] !== '' && (
 						<link
 							rel='stylesheet'
-							href={`/css/${process.env['NEXT_PUBLIC_SITE_NAME']}/style-dark.css`}
-						/>
-					)}
-
-					{process.env['NEXT_PUBLIC_SITE_NAME'] !== '' && (
-						<link
-							rel='stylesheet'
 							href={`/css/${process.env['NEXT_PUBLIC_SITE_NAME']}/style.css`}
 						/>
 					)}
@@ -66,11 +59,10 @@ class MyDocument extends Document<CustomDocumentProps> {
 							href={`/css/${process.env['NEXT_PUBLIC_SITE_NAME']}/swiper.css`}
 						/>
 					)}
-
 					{process.env['NEXT_PUBLIC_SITE_NAME'] !== '' && (
 						<link
 							rel='stylesheet'
-							href={`/css/${process.env['NEXT_PUBLIC_SITE_NAME']}/font.css`}
+							href={`/css/${process.env['NEXT_PUBLIC_SITE_NAME']}/font-newsite.css`}
 						/>
 					)}
 

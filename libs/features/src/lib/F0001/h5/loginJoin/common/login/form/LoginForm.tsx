@@ -1,8 +1,9 @@
-import Link from 'next/link'
-import { useTranslation } from 'next-i18next'
-import { useFormContext } from 'react-hook-form'
-import { paths } from '@nx-next-app/constants'
 import { InputBox } from '@nx-next-app/components/H0001'
+import { paths } from '@nx-next-app/constants'
+import { WrapperLoginRegister } from '@nx-next-app/features/F0001/h5/loginJoin/styles'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useFormContext } from 'react-hook-form'
 
 const LoginForm = () => {
 	const { t } = useTranslation()
@@ -11,7 +12,7 @@ const LoginForm = () => {
 	const { errors, touchedFields } = formState
 
 	return (
-		<>
+		<WrapperLoginRegister>
 			<div className='Login active'>
 				<InputBox
 					register={register('userName', {
@@ -22,7 +23,7 @@ const LoginForm = () => {
 						onBlur: () => trigger('userName'),
 					})}
 					touched={!!touchedFields['userName']}
-					icon='icon-member'
+					icon='icon-user-line'
 					infoMessage={t('Label_General_UsernameTooltip') || ''}
 					placeholder={t('Label_General_Username') || ''}
 					error={!!errors['userName']}
@@ -38,7 +39,7 @@ const LoginForm = () => {
 						onBlur: () => trigger('password'),
 					})}
 					touched={!!touchedFields['password']}
-					icon='icon-key'
+					icon='icon-lock-password-line'
 					placeholder={t('Label_General_Password') || ''}
 					error={!!errors['password']}
 					errorMessage={errors['password']?.message as string}
@@ -50,9 +51,11 @@ const LoginForm = () => {
 				</div>
 			</div>
 			<div className='btn-group'>
-				<button type='submit'>{t('Label_General_LogIn')}</button>
+				<button type='submit' className='btn-primary'>
+					{t('Label_General_LogIn')}
+				</button>
 			</div>
-		</>
+		</WrapperLoginRegister>
 	)
 }
 
