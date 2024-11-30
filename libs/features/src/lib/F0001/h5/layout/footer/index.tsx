@@ -1,12 +1,13 @@
-import Link from 'next/link'
-import { includes } from 'lodash-es'
-import classNames from 'classnames'
-import { useBoolean } from 'usehooks-ts'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { WrapperFooterDock } from '@nx-next-app/features/F0001/h5/layout/footer/styles'
 import { useGetMsgCountQuery } from '@nx-next-app/service'
+import classNames from 'classnames'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useBoolean } from 'usehooks-ts'
 
 const FOOTER_HOME_DOMAIN = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/footer`
 
@@ -40,7 +41,7 @@ const LayoutFooter = () => {
 	}/${LIVE_CHAT_ID_BY_LANG_ID[langId] || 'en'}`
 
 	return (
-		<>
+		<WrapperFooterDock>
 			<footer id='footer' className='footer'>
 				<Link href={paths.home.root} passHref>
 					<a
@@ -48,12 +49,7 @@ const LayoutFooter = () => {
 							active: pathname === paths.home.root,
 						})}
 					>
-						<img
-							src={`${FOOTER_HOME_DOMAIN}/home${
-								pathname === paths.home.root ? '-dark' : ''
-							}.png`}
-							alt='img-home'
-						/>
+						<i className='icon icon-home' />
 						<span className='footer-title'>{t('Label_General_Home')}</span>
 					</a>
 				</Link>
@@ -64,12 +60,7 @@ const LayoutFooter = () => {
 							active: pathname === paths.promotion.root,
 						})}
 					>
-						<img
-							src={`${FOOTER_HOME_DOMAIN}/gift${
-								pathname === paths.promotion.root ? '-dark' : ''
-							}.png`}
-							alt='img-gift'
-						/>
+						<i className='icon icon-gift-fill' />
 						<span className='footer-title'>{t('Label_General_Promotion')}</span>
 					</a>
 				</Link>
@@ -87,7 +78,7 @@ const LayoutFooter = () => {
 					href={liveChatUrl}
 					className='footer-item'
 				>
-					<img src={`${FOOTER_HOME_DOMAIN}/livechat.png`} alt='img-livechat' />
+					<i className='icon icon-chat-smile-fill' />
 					<span className='footer-title'>{t('Label_General_LiveChat')}</span>
 				</a>
 
@@ -98,12 +89,8 @@ const LayoutFooter = () => {
 							me: msgCount > 0,
 						})}
 					>
-						<img
-							src={`${FOOTER_HOME_DOMAIN}/me${
-								pathname === paths.setting.root ? '-dark' : ''
-							}.png`}
-							alt='img-setting'
-						/>
+						<i className='icon icon-user-line' />
+
 						<span className='footer-title'>{t('Label_General_Me')}</span>
 					</a>
 				</Link>
@@ -118,7 +105,7 @@ const LayoutFooter = () => {
 					<Link href={paths.deposit.root}>
 						<a onClick={handleYuriAddToCartClick}>
 							<div className='footer-popup-img'>
-								<img src={`${FOOTER_HOME_DOMAIN}/deposit.png`} alt='Deposit' />
+								<i className='icon icon-bank-fill' />
 							</div>
 						</a>
 					</Link>
@@ -128,10 +115,7 @@ const LayoutFooter = () => {
 					<Link href={paths.withdrawal.root}>
 						<a>
 							<div className='footer-popup-img'>
-								<img
-									src={`${FOOTER_HOME_DOMAIN}/withdrawal.png`}
-									alt='Withdrawal'
-								/>
+								<i className='icon icon-money-send' />
 							</div>
 						</a>
 					</Link>
@@ -144,10 +128,7 @@ const LayoutFooter = () => {
 						<Link href={paths.transferFunds.root}>
 							<a>
 								<div className='footer-popup-img'>
-									<img
-										src={`${FOOTER_HOME_DOMAIN}/transfer.png`}
-										alt='Transfer'
-									/>
+									<i className='icon icon-money-dollar-circle-line' />
 								</div>
 							</a>
 						</Link>
@@ -156,11 +137,12 @@ const LayoutFooter = () => {
 						</div>
 					</div>
 				)}
+
 				<div className='footer-popup-item'>
 					<Link href={paths.message.root}>
 						<a>
 							<div className='footer-popup-img'>
-								<img src={`${FOOTER_HOME_DOMAIN}/massage.png`} alt='Message' />
+								<i className='icon icon-mail-fill-mobile' />
 							</div>
 						</a>
 					</Link>
@@ -168,7 +150,7 @@ const LayoutFooter = () => {
 					<div className='footer-popup-title'>{t('Label_General_Message')}</div>
 				</div>
 			</div>
-		</>
+		</WrapperFooterDock>
 	)
 }
 
