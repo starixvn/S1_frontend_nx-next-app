@@ -427,6 +427,9 @@ export const WrapperDeposit = styled.div`
 			.btn {
 				width: 100%;
 			}
+			.group-input-chanel {
+				gap: 1.2rem;
+			}
 		}
 		.subModule-item {
 			display: block !important;
@@ -458,6 +461,7 @@ export const WrapperDeposit = styled.div`
 		.inputBox-blue {
 			margin-top: 1.6rem;
 			margin-bottom: 1rem;
+			width: 100%;
 		}
 		.btnGroup {
 			max-width: max-content;

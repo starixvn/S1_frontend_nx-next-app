@@ -42,7 +42,7 @@ const ForgetPasswordForm = ({
 							},
 						})}
 						loading={loading}
-						icon='icon-mail-fill'
+						icon='icon-mail-line'
 						placeholder={t('Label_General_Email') || ''}
 						touched={!!touchedFields['email']}
 						infoMessage={
