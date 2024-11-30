@@ -43,7 +43,12 @@ const SportGame = () => {
 	// * iframe 沒有 target 參數 --> 使用 data attributes 注入參數
 	// * 確保在用戶端才被渲染
 	return isClient ? (
-		<iframe title='sport' data-target='sport_iframe' src={iframeUrl} />
+		<iframe
+			className='custom-iframe'
+			title='sport'
+			data-target='sport_iframe'
+			src={iframeUrl}
+		/>
 	) : null
 }
 

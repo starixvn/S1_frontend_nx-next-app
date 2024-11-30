@@ -31,6 +31,7 @@ const Item = ({ data }: { data: IHotEventData }) => {
 	} = data
 
 	const searchParams = new URLSearchParams({
+		provider: 'soccer',
 		tpId,
 		matchId: matchId ? String(matchId) : '',
 		gameId,
