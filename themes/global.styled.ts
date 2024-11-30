@@ -1579,6 +1579,71 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
   }
+    .features {
+		background: ${({ theme }) => theme.mobile.rightModuleBg};
+		color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+		border-radius: 20px;
+		float: left;
+		font-size: 1.4rem;
+		padding: 0 0 1.6rem;
+		width: 100%;
+		overflow: hidden;
+	}
+	.features div,
+	.features ul {
+		padding: 1.6rem 1.6rem 0;
+	}
+	.features .title {
+		text-align: left;
+		color: ${({ theme }) => theme.mobile.hrefColorPrimary};
+		margin: 0;
+		font-size: 1.7rem;
+	}
+	.features .title:nth-child(1) {
+		background: ${({ theme }) => theme.mobile.rightModuleTitleBg};
+		color: white;
+		font-size: 4vw;
+		padding: 1.4rem 1.6rem;
+	}
+	.features .title span:before {
+		font-size: 4vw;
+		margin-right: 2vw;
+	}
+	.features li {
+		list-style: disc;
+		line-height: 2rem;
+		margin-left: 3vw;
+	}
+	.features li span,
+	.features li a {
+		font-weight: bold;
+	}
+  .inputInfo {
+    text-align: left;
+    display: none;
+    background: #a5bbe0;
+    border-radius: 5px;
+    padding: 2vw;
+    position: relative;
+    word-break: break-word;
+    color: #5574a7;
+    &:before{
+      content: '';
+      width: 0;
+      height: 0;
+      border-width: 2vw 2vw 0 2vw;
+      border-style: solid dashed dashed;
+      border-color: #a5bbe0 transparent transparent;
+      position: absolute;
+      bottom: -1.5vw;
+      right: 3vw;
+      z-index: 1;
+    }
+    &.active{
+       display: block;
+    }
+  }
+
   .inputBox-mobiile{
     .icon-module{
       display : flex;

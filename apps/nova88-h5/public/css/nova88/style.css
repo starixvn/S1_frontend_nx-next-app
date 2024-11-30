@@ -3854,31 +3854,6 @@ main .gameList .icon-new {
 	font-weight: bold;
 }
 
-.inputInfo {
-	text-align: left;
-	display: none;
-	background: #a5bbe0;
-	border-radius: 5px;
-	padding: 2vw;
-	position: relative;
-	word-break: break-word;
-	color: #5574a7;
-}
-.inputInfo:before {
-	content: '';
-	width: 0;
-	height: 0;
-	border-width: 2vw 2vw 0 2vw;
-	border-style: solid dashed dashed;
-	border-color: #a5bbe0 transparent transparent;
-	position: absolute;
-	bottom: -1.5vw;
-	right: 3vw;
-	z-index: 1;
-}
-.inputInfo.active {
-	display: block;
-}
 
 .tip {
 	color: #e92529;
@@ -16877,24 +16852,7 @@ main.casino .banner {
 	width: 65vw;
 }
 
-.home-bottom {
-	background: #0a1b38;
-	margin-top: 12vw;
-}
-.home-bottom-aff {
-	text-align: center;
-	background: #132546;
-	padding: 1vw 0 25vw;
-	color: #acb2bc;
-}
-.home-bottom-aff a.title {
-	color: #acb2bc;
-	margin: 4vw 0 1vw;
-	display: block;
-}
-.home-bottom-aff p {
-	margin: 0 3vw;
-}
+
 
 .bottom-social {
 	display: -webkit-box;
