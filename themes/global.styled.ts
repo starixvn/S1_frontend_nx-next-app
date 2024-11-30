@@ -1649,5 +1649,12 @@ export const GlobalStyles = createGlobalStyle`
       display : flex;
     }
   }
+  .custom-iframe {
+    width: 100%;
+    height: 100vh;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+  }
  
 `
