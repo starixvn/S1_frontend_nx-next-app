@@ -300,6 +300,8 @@ export const theme = {
 		rightModuleBorderColor: '#374375',
 		rightModuleSloganColor: '#939DC5',
 
+		bgFooter: '#232B4F',
+
 		hrefColorPrimary: '#EA6118',
 		bgLoginRegisterColor: '#0F1428',
 		white: '#fff',

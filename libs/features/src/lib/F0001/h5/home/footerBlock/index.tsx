@@ -6,7 +6,6 @@ import { WrapperFooter } from '@nx-next-app/features/F0001/h5/home/footerBlock/s
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { SocialChannelEnum } from '@nx-next-app/features/F0001/types'
 import { useGetSocialChannelQuery } from '@nx-next-app/service'
-import { Affiliate } from './Affiliate'
 // import { License } from './License'
 
 const index = () => {
@@ -44,7 +43,7 @@ const index = () => {
 					{/* <Footer.PromotionText promotionTextList={promotionTextList} /> */}
 				</Footer>
 				{/* <License /> */}
-				<Affiliate />
+				{/* <Affiliate /> */}
 				<SimpleFooter />
 			</div>
 		</WrapperFooter>
