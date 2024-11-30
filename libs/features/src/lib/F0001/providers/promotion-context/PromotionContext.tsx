@@ -226,6 +226,9 @@ export const PromotionProvider = ({
 			? specialPromotionList
 			: promotionList
 
+	// TODO: Double check in phase 2
+	const checkExpiredTime = (custExpiryTime: string) => true // dayjs(custExpiryTime).isAfter(dayjs());
+
 	const promotionData = originPromotionData
 		// * 過濾掉已過期的 promotion
 		.filter(({ isJoin, promotionType, custExpiryTime, periodTo }) =>
@@ -234,7 +237,7 @@ export const PromotionProvider = ({
 				[PromotionTypeEnum.Rebate, PromotionTypeEnum.Cashback],
 				promotionType
 			)
-				? dayjs(custExpiryTime).isAfter(dayjs())
+				? checkExpiredTime(custExpiryTime)
 				: dayjs(dayjs.unix(periodTo)).isAfter(dayjs())
 		)
 		// * 根據選擇的 tab 過濾出相對應的 promotion 資料

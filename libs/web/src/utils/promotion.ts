@@ -120,6 +120,11 @@ export const getExpiryTime = ({
 		'days',
 		true
 	)
+
+	if (dayjs().isAfter(dayjs(custExpiryTime))) {
+		return `0 ${t('Label_General_Days')} 0 ${t('Label_General_Hours')}`
+	}
+
 	const expiryDays = String(expiryTime).split('.')[0]
 	const expiryHours = floor(multiply(expiryTime - Number(expiryDays), 24))
 
