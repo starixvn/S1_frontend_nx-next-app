@@ -1,20 +1,20 @@
-import classNames from 'classnames'
-import { useFormContext } from 'react-hook-form'
-import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
-import { TmpCookiesObj } from 'cookies-next/lib/types'
 import { InputBox, ISelectProps } from '@nx-next-app/components/H0001'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import {
-	USERNAME_REGEX,
+	FLAG_PREFIX_ICON_BY_CURRENCIES,
 	PASSWORD_REGEX,
 	REALNAME_REGEX,
-	FLAG_PREFIX_ICON_BY_CURRENCIES,
+	USERNAME_REGEX,
 } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import {
 	useLazyAffiliateCheckQuery,
 	useLazyExistsUserNameQuery,
 } from '@nx-next-app/service'
+import classNames from 'classnames'
+import { TmpCookiesObj } from 'cookies-next/lib/types'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useFormContext } from 'react-hook-form'
 
 interface IStep1Props {
 	cookies: TmpCookiesObj
@@ -174,7 +174,7 @@ const Step1 = ({
 					},
 					onBlur: checkUsername,
 				})}
-				icon='icon-member txt-blue'
+				icon='icon-user-line txt-blue'
 				placeholder={t('Label_General_Username') || ''}
 				errorMessage={errors['username']?.message as string}
 				error={!!errors['username']}
@@ -194,7 +194,7 @@ const Step1 = ({
 					onBlur: () => trigger('password'),
 				})}
 				password
-				icon='icon icon-key txt-blue'
+				icon='icon icon-lock-password-line txt-blue'
 				placeholder={t('Label_General_Password') || ''}
 				errorMessage={errors['password']?.message as string}
 				error={!!errors['password']}
@@ -206,7 +206,7 @@ const Step1 = ({
 					onBlur: checkConfirmPwd,
 				})}
 				password
-				icon='icon icon-key txt-blue'
+				icon='icon icon-lock-password-line txt-blue'
 				placeholder={t('Label_Join_ConfirmPassword') || ''}
 				errorMessage={errors['confirmPwd']?.message as string}
 				error={!!errors['confirmPwd']}
@@ -221,7 +221,7 @@ const Step1 = ({
 					},
 					onBlur: () => trigger('realName'),
 				})}
-				icon='icon-member txt-blue'
+				icon='icon-user-follow-line txt-blue'
 				placeholder={t('Label_General_RealName') as string}
 				errorMessage={errors['realName']?.message as string}
 				error={!!errors['realName']}
@@ -232,7 +232,7 @@ const Step1 = ({
 				register={register('affiliate', {
 					onBlur: checkAffiliate,
 				})}
-				icon='icon icon-affiliate txt-blue'
+				icon='icon icon-syblings-connections txt-blue'
 				placeholder={t('Label_Join_Affiliate_ID') as string}
 				errorMessage={errors['affiliate']?.message as string}
 				error={!!errors['affiliate']}
@@ -253,7 +253,11 @@ const Step1 = ({
 				{t('Label_Join_SignUpTerms3')}
 			</div>
 			<div className='btn-group'>
-				<button type='button' onClick={handleSubmitStep1}>
+				<button
+					type='button'
+					className='btn-primary'
+					onClick={handleSubmitStep1}
+				>
 					{t('Label_General_Join')}
 				</button>
 			</div>

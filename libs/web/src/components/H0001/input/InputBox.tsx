@@ -77,10 +77,10 @@ const InputBox = ({
 	const [showInfo, setShowInfo] = useState(false)
 	const stateIcon = () => {
 		if (error) {
-			return <i className='icon icon-errormark' />
+			return <i className='icon icon-close-line' />
 		}
 		if (touched && !error && error !== undefined) {
-			return <i className='icon icon-checkmark' />
+			return <i className='icon icon-check' />
 		}
 		return null
 	}
@@ -119,7 +119,7 @@ const InputBox = ({
 			)}
 			{!!subtitle && <div className='subtitle'>{subtitle}</div>}
 			<div
-				className={classNames('inputBox-blue', {
+				className={classNames('inputBox-blue inputBox-mobiile', {
 					error,
 				})}
 			>
@@ -140,8 +140,8 @@ const InputBox = ({
 					{password && (
 						<i
 							className={classNames('icon', {
-								'icon-eye-blocked': !showPassword,
-								'icon-eye': showPassword,
+								'icon-eye-close-line': !showPassword,
+								'icon-eye-fill': showPassword,
 							})}
 							style={{ cursor: 'pointer' }}
 							onClick={() => setShowPassword(prev => !prev)}
@@ -149,7 +149,7 @@ const InputBox = ({
 					)}
 					{(!!infoMessage || onInfoClick) && (
 						<i
-							className='icon icon-information'
+							className='icon icon-information-fill'
 							onClick={() => {
 								if (infoMessage) {
 									setShowInfo(prev => !prev)

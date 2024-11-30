@@ -1495,4 +1495,94 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 1.3rem;
     font-weight : 600;
   }
+ 
+  .step {
+		display: flex;
+		justify-content: space-between;
+    max-width: 250px;
+    margin: 0 auto;
+		align-items: center;
+		position: relative;
+    padding-top : 1.6rem;
+	}
+	.step + .text {
+		text-align: center;
+		margin: 2rem 0;
+	}
+	.step .stepLine {
+		background: ${({ theme }) => theme.mobile.stepBg};
+		position: absolute;
+		width: calc(100% - 3.6rem);
+		height: 0.3rem;
+		left: 1.6rem;
+		display: flex;
+		align-items: center;
+	}
+	.step .stepLine .stepBar50 {
+		background: #5574a7;
+		width: 50%;
+		height: 100%;
+	}
+	.step .stepLine .stepBar100 {
+		background: ${({ theme }) => theme.mobile.stepBg};
+		width: 100%;
+		height: 100%;
+	}
+	.step .stepLine ~ div {
+		border-radius: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+    border: 3px solid ${({ theme }) => theme.mobile.stepBoder};
+	}
+	.step .circle {
+		width: 3.2rem;
+		height: 3.2rem;
+		z-index: 1;
+	}
+	.step .circle div {
+		border-radius: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.step .circle > div {
+		width: 3rem;
+		height: 3rem;
+    background : ${({ theme }) => theme.mobile.stepBgItem};
+	}
+	.step .circle > div > div {
+		font-weight: bold;
+		color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+	}
+	.step .circle.active {
+		border: 3px solid ${({ theme }) => theme.mobile.stepBorderActive};
+    > div {
+      width: 3rem;
+      background : ${({ theme }) => theme.mobile.stepBgActive};
+		  height: 3rem;
+     }
+	}
+  .Join{
+    .Terms{
+      font-size: 1.4rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.8rem;
+      margin : 1.6rem 0;
+      color : ${({ theme }) => theme.mobile.white};
+      a{
+        color : ${({ theme }) => theme.mobile.hrefColorPrimary};
+        text-decoration: underline;
+      }
+    }
+  }
+  .inputBox-mobiile{
+    .icon-module{
+      display : flex;
+    }
+  }
+ 
 `

@@ -290,18 +290,6 @@ div[tabindex='-1'] {
 	display: -ms-flexbox;
 	display: flex;
 }
-.Join .Terms {
-	padding: 0 2vw;
-	margin: 2vw 0;
-	color: #5574a7;
-}
-.Join .Terms.error {
-	border: 1px solid #e92529;
-}
-.Join .Terms a {
-	color: #1e85ec;
-	text-decoration: underline;
-}
 .Join .congrats {
 	text-align: center;
 	color: #f77a00;
@@ -4870,98 +4858,6 @@ main .gameList .icon-new {
 	font-size: 8vw;
 }
 
-.step {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	margin: 3vw 0;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	position: relative;
-}
-.step + .text {
-	text-align: center;
-	margin: 7vw 0;
-}
-.step .stepLine {
-	background: #e4e4e4;
-	position: absolute;
-	width: calc(100% - 4vw);
-	height: 2vw;
-	left: 2vw;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.step .stepLine .stepBar50 {
-	background: #5574a7;
-	width: 50%;
-	height: 100%;
-}
-.step .stepLine .stepBar100 {
-	background: #5574a7;
-	width: 100%;
-	height: 100%;
-}
-.step .stepLine ~ div {
-	border-radius: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
-.step .circle {
-	background: #ff5e00;
-	width: 12vw;
-	height: 12vw;
-	z-index: 1;
-}
-.step .circle div {
-	border-radius: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
-.step .circle > div {
-	background: rgba(255, 94, 0, 0.568627451);
-	width: 10vw;
-	height: 10vw;
-}
-.step .circle > div > div {
-	width: 8vw;
-	height: 8vw;
-	background: #ff5e00;
-	font-weight: bold;
-	color: white;
-}
-.step .circle.active {
-	background: rgba(255, 94, 0, 0.3803921569);
-}
-.step .circle.active > div {
-	background: rgba(255, 94, 0, 0.568627451);
-}
-.step .circle.active > div > div {
-	background: rgba(255, 94, 0, 0.568627451);
-	color: white;
-}
 
 .recent {
 	visibility: hidden;
@@ -10828,46 +10724,7 @@ span.important {
 	min-width: 25vw;
 }
 
-.features {
-	background: #e2e2e2;
-	color: #838383;
-	border-radius: 5px;
-	float: left;
-	font-size: 3vw;
-	padding: 0 0 3vw;
-	margin-top: 3vw;
-	width: 100%;
-}
-.features div,
-.features ul {
-	padding: 3vw 3vw 0;
-}
-.features .title {
-	text-align: left;
-	color: #5574a7;
-	margin: 0;
-	font-size: 3vw;
-}
-.features .title:nth-child(1) {
-	background: #5574a7;
-	color: white;
-	font-size: 4vw;
-	padding: 2vw 3vw;
-	border-radius: 5px 5px 0 0;
-}
-.features .title span:before {
-	font-size: 4vw;
-	margin-right: 2vw;
-}
-.features li {
-	list-style: disc;
-	line-height: 24px;
-	margin-left: 3vw;
-}
-.features li span,
-.features li a {
-	font-weight: bold;
-}
+
 
 .jpot {
 	position: relative;

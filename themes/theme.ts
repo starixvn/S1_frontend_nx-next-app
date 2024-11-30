@@ -295,6 +295,12 @@ export const theme = {
 		promotionTimeBgHover: '#414F86',
 	},
 	mobile: {
+		rightModuleBg: '#182043',
+		rightModuleTitleBg: '#232B4F',
+		rightModuleBorderColor: '#374375',
+		rightModuleSloganColor: '#939DC5',
+
+		hrefColorPrimary: '#EA6118',
 		bgLoginRegisterColor: '#0F1428',
 		white: '#fff',
 		boxShadowLoginRegisterColor: '0px 2px 10px 0px rgba(0, 0, 0, 0.10)',
@@ -304,5 +310,10 @@ export const theme = {
 		switchButtonBgActive: '#374375',
 		switchButtonBoxShadowActive:
 			'0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset',
+		stepBg: '#374375',
+		stepBorderActive: 'rgba(234, 97, 24, 0.5)',
+		stepBgActive: '#EA6118',
+		stepBgItem: '#717FBA',
+		stepBoder: '#374375',
 	},
 }
