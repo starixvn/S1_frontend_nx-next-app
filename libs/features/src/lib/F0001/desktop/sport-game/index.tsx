@@ -1,0 +1,50 @@
+import { PRODUCTS } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import { find } from 'lodash-es'
+import { useRouter } from 'next/router'
+import { useIsClient } from 'usehooks-ts'
+
+const SportGame = () => {
+	const isClient = useIsClient()
+	const {
+		query: {
+			provider: queryProvider,
+			tpId: queryTpiD,
+			gameId: queryGameId,
+			matchId,
+		},
+	} = useRouter()
+	const {
+		userInfo: { langId },
+	} = useAuth()
+	const { onDefaultEnterPage } = useMenu()
+
+	const product = PRODUCTS[queryProvider as keyof typeof PRODUCTS]
+
+	const hotEventProduct = find(
+		PRODUCTS,
+		({ tpId, gameId }) =>
+			tpId === Number(queryTpiD) && gameId === Number(queryGameId)
+	)
+
+	const { tpId, gameId, tpGameType } =
+		product || hotEventProduct || PRODUCTS.Soccer
+
+	const iframeUrl = onDefaultEnterPage({
+		langId,
+		tpId,
+		gameId,
+		// * 移除 query 會拿到 string[] 的型態
+		matchid: matchId ? String(matchId) : '',
+		tpGameType,
+	})
+
+	// * iframe 沒有 target 參數 --> 使用 data attributes 注入參數
+	// * 確保在用戶端才被渲染
+	return isClient ? (
+		<iframe title='sport' data-target='sport_iframe' src={iframeUrl} />
+	) : null
+}
+
+export default SportGame
