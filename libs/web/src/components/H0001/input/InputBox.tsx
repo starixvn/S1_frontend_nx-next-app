@@ -102,6 +102,26 @@ const InputBox = ({
 		return type ?? 'text'
 	}
 
+	const renderInfoIcon = () => {
+		if (touched && !error) {
+			return null
+		}
+		if (!!infoMessage || onInfoClick) {
+			return (
+				<i
+					className='icon icon-information-fill'
+					onClick={() => {
+						if (infoMessage) {
+							setShowInfo(prev => !prev)
+						}
+
+						onInfoClick && onInfoClick()
+					}}
+				/>
+			)
+		}
+	}
+
 	return (
 		<div
 			className={classNames(className, {
@@ -147,18 +167,7 @@ const InputBox = ({
 							onClick={() => setShowPassword(prev => !prev)}
 						/>
 					)}
-					{(!!infoMessage || onInfoClick) && (
-						<i
-							className='icon icon-information-fill'
-							onClick={() => {
-								if (infoMessage) {
-									setShowInfo(prev => !prev)
-								}
-
-								onInfoClick && onInfoClick()
-							}}
-						/>
-					)}
+					{renderInfoIcon()}
 				</div>
 			</div>
 			{children}
