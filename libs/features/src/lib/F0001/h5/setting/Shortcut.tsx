@@ -109,7 +109,7 @@ const Shortcut = () => {
 			{isLogin && (
 				<Link href={paths.survey.root}>
 					<a>
-						<i className='icon icon-chat-check-fill' />
+						<i className='icon icon-chat-poll-line' />
 						<span>{t('Label_General_Survey')}</span>
 					</a>
 				</Link>
