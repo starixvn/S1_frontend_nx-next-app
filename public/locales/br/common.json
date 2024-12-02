@@ -592,7 +592,6 @@
   "Label_General_LeaderBoard": "Quadro de líderes",
   "Label_General_LinePay": "Linha",
   "Label_General_LiveCasino": "Casino",
-  "Label_General_LiveCasinoInfo1": "Aproveite o luxuoso cassino ao vivo",
   "Label_General_LiveCasinoInfo2": "Jogos de cassino inovadores com",
   "Label_General_LiveCasinoInfo3": "dealers asiáticos e europeus ao vivo!",
   "Label_General_LiveChat": "Bate-papo ao vivo",
@@ -1207,5 +1206,6 @@
   "Label_Withdrawal_WithdrawalTo": "Retirada para",
   "Label_iOS": "iOS",
   "Label_iOS_App_Trust_Authentication": "Autenticação de confiança do aplicativo iOS",
-  "Label_underMaintenance": "Em manutenção"
+  "Label_underMaintenance": "Em manutenção",
+  "Live Casino": "Aproveite o luxuoso cassino ao vivo"
 }

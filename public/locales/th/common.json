@@ -580,7 +580,6 @@
   "Label_General_LeaderBoard": "การจัดอันดับ",
   "Label_General_LinePay": "Line",
   "Label_General_LiveCasino": "คาสิโนสด",
-  "Label_General_LiveCasinoInfo1": "เพลิดเพลินไปกับคาสิโนสดที่หรูหรา",
   "Label_General_LiveCasinoInfo2": "กับนวัตกรรมของเกมคาสิโน",
   "Label_General_LiveCasinoInfo3": "ตัวแทนถ่ายทอดสดในเอเชียและยุโรป!",
   "Label_General_LiveChat": "สนทนาสด",
@@ -955,7 +954,7 @@
   "Label_Profile_RegisterTime": "เวลาลงทะเบียน",
   "Label_Profile_Retransmit": "ส่งใหม่อีกครั้ง",
   "Label_Profile_SendVerificationCode": "เราได้ส่งรหัสยืนยันไปยังมือถือที่ลงทะเบียนของคุณแล้ว",
-  "Label_Profile_ShippingAddress": "ที่อยู่จัดส่ง",
+  "Label_Profile_ShippingAddress": "ที่อยู่",
   "Label_Profile_State": "จังหวัด",
   "Label_Profile_UserVerification": "การยืนยันผู้ใช้",
   "Label_Profile_VertifyContactConfirm": "ยืนยันตอนนี้",
@@ -1201,5 +1200,6 @@
   "Label_Withdrawal_WithdrawalTo": "ถอนออกเป็น",
   "Label_iOS": "iOS",
   "Label_iOS_App_Trust_Authentication": "อนุญาตสิทธิ์การเข้าถึงแอป ios",
-  "Label_underMaintenance": "อยู่ระหว่างการบำรุงรักษา"
+  "Label_underMaintenance": "อยู่ระหว่างการบำรุงรักษา",
+  "Live Casino": "เพลิดเพลินไปกับคาสิโนสดที่หรูหรา"
 }

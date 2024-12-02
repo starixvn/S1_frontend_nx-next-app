@@ -577,7 +577,6 @@
   "Label_General_LeaderBoard": "排行榜",
   "Label_General_LinePay": "Line",
   "Label_General_LiveCasino": "真人娱乐",
-  "Label_General_LiveCasinoInfo1": "享受豪华真人娱乐",
   "Label_General_LiveCasinoInfo2": "最新颖游戏",
   "Label_General_LiveCasinoInfo3": "亚洲与欧洲荷官！",
   "Label_General_LiveChat": "线上客服",
@@ -1200,5 +1199,6 @@
   "Label_Withdrawal_WithdrawalTo": "提现至",
   "Label_iOS": "iOS",
   "Label_iOS_App_Trust_Authentication": "iOS 应用程序验证",
-  "Label_underMaintenance": "维护中"
+  "Label_underMaintenance": "维护中",
+  "Live Casino": "享受豪华真人娱乐"
 }

@@ -598,7 +598,6 @@
   "Label_General_LeaderBoard": "리더보드",
   "Label_General_LinePay": "Line",
   "Label_General_LiveCasino": "카지노",
-  "Label_General_LiveCasinoInfo1": "럭셔리한 라이브 카지노를 즐기세요",
   "Label_General_LiveCasinoInfo2": "혁신적인 카지노 게임",
   "Label_General_LiveCasinoInfo3": "아시아 & 유럽 라이브 딜러!",
   "Label_General_LiveChat": "라이브 채팅",
@@ -1226,5 +1225,6 @@
   "Label_Withdrawal_WithdrawalTo": "출금 대상",
   "Label_iOS": "iOS",
   "Label_iOS_App_Trust_Authentication": "iOS 앱 신뢰 인증",
-  "Label_underMaintenance": "유지 보수 중"
+  "Label_underMaintenance": "유지 보수 중",
+  "Live Casino": "럭셔리한 라이브 카지노를 즐기세요"
 }

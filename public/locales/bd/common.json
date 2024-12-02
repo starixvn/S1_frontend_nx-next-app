@@ -565,7 +565,6 @@
   "Label_General_LeaderBoard": "Leaderboard",
   "Label_General_LinePay": "Line",
   "Label_General_LiveCasino": "ক্যাসিনো",
-  "Label_General_LiveCasinoInfo1": "বিলাসবহুল ভাবে সরাসরি ক্যাসিনো উপভোগ করুন",
   "Label_General_LiveCasinoInfo2": "সাথে আরো উদ্ভাবনি ক্যাসিনো গেম",
   "Label_General_LiveCasinoInfo3": "সরাসরি এশিয়ান এবং ইউরোপীয় ডিলার",
   "Label_General_LiveChat": "Live Chat",
@@ -1170,5 +1169,6 @@
   "Label_Withdrawal_WithdrawalTo": "উত্তোলন",
   "Label_iOS": "আইওএস",
   "Label_iOS_App_Trust_Authentication": "আইওএস অ্যাপ ট্রাস্ট অথেনটিকেশন",
-  "Label_underMaintenance": "রক্ষণাবেক্ষণের অধীনে"
+  "Label_underMaintenance": "রক্ষণাবেক্ষণের অধীনে",
+  "Live Casino": "বিলাসবহুল ভাবে সরাসরি ক্যাসিনো উপভোগ করুন"
 }

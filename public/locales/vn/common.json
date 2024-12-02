@@ -592,8 +592,7 @@
   "Label_General_LatestHighlightVideo": "Video nổi bật mới nhất",
   "Label_General_LeaderBoard": "ĐUA TOP",
   "Label_General_LinePay": "Line",
-  "Label_General_LiveCasino": "Casino",
-  "Label_General_LiveCasinoInfo1": "Tận hưởng đẳng cấp Casino trực tuyến",
+  "Label_General_LiveCasino": "Sòng Bài",
   "Label_General_LiveCasinoInfo2": "Casino thế hệ mới với",
   "Label_General_LiveCasinoInfo3": "Dealer Châu Á và châu Âu!",
   "Label_General_LiveChat": "Live Chat",
@@ -965,7 +964,7 @@
   "Label_Profile_RegisterTime": "Thời gian đăng ký",
   "Label_Profile_Retransmit": "Gửi lại mã",
   "Label_Profile_SendVerificationCode": "Chúng tôi đã gửi mã xác minh đến điện thoại di động bạn đã đăng ký",
-  "Label_Profile_ShippingAddress": "Địa chỉ Gửi hàng",
+  "Label_Profile_ShippingAddress": "Địa chỉ",
   "Label_Profile_State": "Bang",
   "Label_Profile_UserVerification": "Xác thực người dùng",
   "Label_Profile_VertifyContactConfirm": "Vui lòng xác minh số điện thoại của bạn để được hưởng các chương trình khuyến mãi hấp dẫn?",
@@ -1220,5 +1219,6 @@
   "Label_Withdrawal_WithdrawalTo": "Rút tiền về",
   "Label_iOS": "iOS",
   "Label_iOS_App_Trust_Authentication": "Xác thực tin cậy cho ứng dụng iOS",
-  "Label_underMaintenance": "Đang bảo trì"
+  "Label_underMaintenance": "Đang bảo trì",
+  "Live Casino": "Tận hưởng đẳng cấp Casino trực tuyến"
 }

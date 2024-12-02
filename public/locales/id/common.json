@@ -570,7 +570,6 @@
   "Label_General_LeaderBoard": "Peringkat",
   "Label_General_LinePay": "Line",
   "Label_General_LiveCasino": "Kasino",
-  "Label_General_LiveCasinoInfo1": "Nikmati Kemewahan Live Kasino",
   "Label_General_LiveCasinoInfo2": "Permainan Casino yang inovatif dengan",
   "Label_General_LiveCasinoInfo3": "LIVE Dealer Asia & Eropa!",
   "Label_General_LiveChat": "Obrolan Langsung",
@@ -1191,5 +1190,6 @@
   "Label_Withdrawal_WithdrawalTo": "Penarikan Tunai di",
   "Label_iOS": "iOS",
   "Label_iOS_App_Trust_Authentication": "Autentikasi Kepercayaan Aplikasi iOS",
-  "Label_underMaintenance": "Sedang dalam pemeliharaan"
+  "Label_underMaintenance": "Sedang dalam pemeliharaan",
+  "Live Casino": "Nikmati Kemewahan Live Kasino"
 }

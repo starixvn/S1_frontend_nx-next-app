@@ -575,7 +575,6 @@
   "Label_General_LeaderBoard": "តារាងអ្នកដឹកនាំ",
   "Label_General_LinePay": "Line",
   "Label_General_LiveCasino": "ស្លតហ្គេម",
-  "Label_General_LiveCasinoInfo1": "រីករាយជាមួយកាស៊ីណូដ៏ប្រណិត",
   "Label_General_LiveCasinoInfo2": "ហ្គេមកាស៊ីណូច្នៃប្រឌិតជាមួយ",
   "Label_General_LiveCasinoInfo3": "អ្នកលក់បន្តផ្ទាល់អាស៊ី និងអឺរ៉ុប!",
   "Label_General_LiveChat": "ជជែកផ្ទាល់",
@@ -1187,5 +1186,6 @@
   "Label_Withdrawal_WithdrawalTo": "ការដកប្រាក់ទៅ",
   "Label_iOS": "iOS",
   "Label_iOS_App_Trust_Authentication": "ការផ្ទៀងផ្ទាត់ភាពជឿជាក់លើកម្មវិធី iOS",
-  "Label_underMaintenance": "កំពុងដំណើរការថែទាំ"
+  "Label_underMaintenance": "កំពុងដំណើរការថែទាំ",
+  "Live Casino": "រីករាយជាមួយកាស៊ីណូដ៏ប្រណិត"
 }

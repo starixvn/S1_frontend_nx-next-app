@@ -365,7 +365,6 @@
   "Label_General_LeaderBoard": "లీడర్ బోర్డు",
   "Label_General_LinePay": "లైన్",
   "Label_General_LiveCasino": "కేసినో",
-  "Label_General_LiveCasinoInfo1": "విలాసవంతమైన లైవ్ క్యాసినోను ఆస్వాదించండి",
   "Label_General_LiveCasinoInfo2": "ఇన్నోవేటివ్ కాసినో గేమ్స్",
   "Label_General_LiveCasinoInfo3": "ఆసియా & యూరోపియన్ లైవ్ డీలర్స్!",
   "Label_General_LiveChat": "లైవ్ చాట్",
@@ -1004,5 +1003,6 @@
   "Label_Withdrawal_WithdrawalTo": "విత్డ్రావాల్ కు",
   "Label_iOS": "iOS",
   "Label_iOS_App_Trust_Authentication": "యస్ యాప్ ట్రస్ట్ అథండికేషన్",
-  "Label_underMaintenance": "మైంటెనెన్సు లో ఉంది"
+  "Label_underMaintenance": "మైంటెనెన్సు లో ఉంది",
+  "Live Casino": "విలాసవంతమైన లైవ్ క్యాసినోను ఆస్వాదించండి"
 }

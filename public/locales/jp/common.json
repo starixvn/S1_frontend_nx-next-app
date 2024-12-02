@@ -592,7 +592,6 @@
   "Label_General_LeaderBoard": "リーダーボード",
   "Label_General_LinePay": "Line",
   "Label_General_LiveCasino": "カジノ",
-  "Label_General_LiveCasinoInfo1": "豪華なライブカジノをお楽しみください",
   "Label_General_LiveCasinoInfo2": "革新的なカジノゲーム",
   "Label_General_LiveCasinoInfo3": "アジアとヨーロッパのライブディーラー",
   "Label_General_LiveChat": "ライブチャット",
@@ -1205,5 +1204,6 @@
   "Label_Withdrawal_WithdrawalTo": "へ出金する",
   "Label_iOS": "iOS",
   "Label_iOS_App_Trust_Authentication": "iOSアプリ信頼認証",
-  "Label_underMaintenance": "メンテナンス中"
+  "Label_underMaintenance": "メンテナンス中",
+  "Live Casino": "豪華なライブカジノをお楽しみください"
 }

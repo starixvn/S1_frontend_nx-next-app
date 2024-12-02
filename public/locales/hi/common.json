@@ -572,7 +572,6 @@
   "Label_General_LeaderBoard": "श्रेणी",
   "Label_General_LinePay": "Line",
   "Label_General_LiveCasino": "कैसिनो",
-  "Label_General_LiveCasinoInfo1": "शानदार लाइव कैसीनो का लाभ लें",
   "Label_General_LiveCasinoInfo2": "रचनात्मक कैसीनो गेम खेलें",
   "Label_General_LiveCasinoInfo3": "एशियाई और यूरोपीय लाइव डीलर!",
   "Label_General_LiveChat": "सीधी बातचीत",
@@ -1189,5 +1188,6 @@
   "Label_Withdrawal_WithdrawalTo": "वापस लेना",
   "Label_iOS": "आईओएस",
   "Label_iOS_App_Trust_Authentication": "आईओएस ऐप ट्रस्ट प्रमाणीकरण",
-  "Label_underMaintenance": "संरक्षण जारी है I"
+  "Label_underMaintenance": "संरक्षण जारी है I",
+  "Live Casino": "शानदार लाइव कैसीनो का लाभ लें"
 }

@@ -365,7 +365,6 @@
   "Label_General_LeaderBoard": "排行榜",
   "Label_General_LinePay": "Line",
   "Label_General_LiveCasino": "娛樂城",
-  "Label_General_LiveCasinoInfo1": "享受豪華的真人娛樂城",
   "Label_General_LiveCasinoInfo2": "創新的娛樂城遊戲",
   "Label_General_LiveCasinoInfo3": "亞洲與歐洲荷官！",
   "Label_General_LiveChat": "在線客服",
@@ -1009,5 +1008,6 @@
   "Label_Withdrawal_WithdrawalTo": "提款至",
   "Label_iOS": "iOS",
   "Label_iOS_App_Trust_Authentication": "iOS App 信任驗證",
-  "Label_underMaintenance": "維護中"
+  "Label_underMaintenance": "維護中",
+  "Live Casino": "享受豪華的真人娛樂城"
 }
