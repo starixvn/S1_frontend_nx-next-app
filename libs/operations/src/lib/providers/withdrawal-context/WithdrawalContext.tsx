@@ -531,26 +531,6 @@ export const WithdrawalProvider = ({
 		}
 	}
 
-	// 三方 blackBox , submit 要用
-	const getBlackBox = async () => {
-		let blackBox = ''
-		if (
-			typeof window !== undefined &&
-			'IGLOO' in window &&
-			// 引入三方時 windows 必須 as any 斷言，否在編譯時無法正確載入 三方的 function 導致報錯
-			typeof (window as any).IGLOO.getBlackbox === 'function'
-		) {
-			try {
-				const result = await (window as any).IGLOO.getBlackbox()
-				blackBox = result?.blackbox || ''
-			} catch (e) {
-				//
-			}
-		}
-
-		return blackBox
-	}
-
 	// 送出 Amount -> backend
 	const handleWithdrawalConfirm = async (
 		{
@@ -585,8 +565,6 @@ export const WithdrawalProvider = ({
 		}
 		if (target && target.disabled) return
 
-		const blackbox = await getBlackBox()
-
 		// 成功彈窗，手控初始化時機
 		const onSuccess = () => {
 			// success 可能有多種不同 UI 會顯示，onFinish 用來做最後結束的 clean up
@@ -612,7 +590,6 @@ export const WithdrawalProvider = ({
 					accountNo,
 					amount: realAmount,
 					sysId,
-					blackbox,
 					ifscCode,
 				}).unwrap()
 				onSuccess()
@@ -623,7 +600,6 @@ export const WithdrawalProvider = ({
 					amount: realAmount,
 					sysId,
 					memo: '',
-					blackbox,
 				}).unwrap()
 				onSuccess()
 			}
@@ -635,7 +611,6 @@ export const WithdrawalProvider = ({
 					currencyId,
 					exchangeRate,
 					exchangeAmount,
-					blackbox,
 				}).unwrap()
 				onSuccess()
 			}

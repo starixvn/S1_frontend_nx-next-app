@@ -1,40 +1,40 @@
-import { AppProps } from 'next/app'
-import { Provider } from 'react-redux'
-import { store } from '@nx-next-app/store'
-import { appWithTranslation } from 'next-i18next'
 import { UIProvider } from '@nx-next-app/components/config-provider'
 import { StaticDataProvider } from '@nx-next-app/data-access'
+import { store } from '@nx-next-app/store'
+import { appWithTranslation } from 'next-i18next'
+import { AppProps } from 'next/app'
 import NextNProgress from 'nextjs-progressbar'
+import { Provider } from 'react-redux'
 
 // * supply localized format options
 // * https://day.js.org/docs/en/plugin/localized-format
-import dayjs from 'dayjs'
-import localizedFormat from 'dayjs/plugin/localizedFormat'
-import timezone from 'dayjs/plugin/timezone'
-import utc from 'dayjs/plugin/utc'
-import customParseFormat from 'dayjs/plugin/customParseFormat'
 import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
 import {
 	ALLOWED_CURRENCIES,
+	BANNER_IMAGE_LIST,
 	FEATURE_BONUS,
 	LANG_GROUPS,
+	LEFT_MENU_DATA,
+	LIVE_CHAT_ID_BY_LANG_ID,
 	MENU_DATA,
 	META_DATA,
 	TERMS_CONDITIONS,
+	ThirdPartyJS,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	VIP_CLUB_IMAGES,
-	BANNER_IMAGE_LIST,
-	LEFT_MENU_DATA,
-	LIVE_CHAT_ID_BY_LANG_ID,
-	ThirdPartyJS,
 } from '@nx-next-app/site/yashbet'
+import dayjs from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
+import timezone from 'dayjs/plugin/timezone'
+import utc from 'dayjs/plugin/utc'
 
 import 'react-datepicker/dist/react-datepicker.css'
+import '../styles/css/font.css'
 import '../styles/css/style.css'
 import '../styles/css/swiper.css'
-import '../styles/css/font.css'
 
-const { IovationScript, PlayTechScript, JackpotsScript } = ThirdPartyJS
+const { PlayTechScript, JackpotsScript } = ThirdPartyJS
 
 dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
@@ -70,7 +70,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
 				</UIProvider>
 			</Provider>
 
-			<IovationScript />
 			<PlayTechScript />
 			{/* <GTMScript /> */}
 			<JackpotsScript />

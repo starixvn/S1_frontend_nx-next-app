@@ -427,7 +427,6 @@ const Form = ({ cookies }: IJoinProps) => {
 				({ value }) => value === langId
 			)?.value ?? 'en'
 
-		const blackbox = ''
 		try {
 			await signUp({
 				// 因 cookies 有機會是 string[] 導致錯誤
@@ -448,7 +447,6 @@ const Form = ({ cookies }: IJoinProps) => {
 				userLang,
 				userName: username,
 				userpwd: password,
-				blackbox,
 				langId: userLang,
 				lineUserId: lineUserId as string,
 			}).unwrap()

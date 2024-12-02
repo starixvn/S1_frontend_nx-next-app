@@ -11,24 +11,6 @@ export const LiveChatScript = () => (
 	</Script>
 )
 
-export const IovationScript = () => (
-	<>
-		<Script strategy='lazyOnload' id='iovation-script'>
-			{`
-                         window.IGLOO = window.IGLOO || {
-                         "enable_flash" : false,
-                         "loader" : {
-                         "fp_dyn" : false,
-                         "version" : "5.2.2"
-                         }
-                       };
-                 `}
-		</Script>
-
-		<Script strategy='lazyOnload' src='/js/loader_only.js' />
-	</>
-)
-
 export const ActivatorScript = () => (
 	<>
 		{/* 因登入後會移除唯一的 form，所以在這個先加一個  */}

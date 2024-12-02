@@ -41,7 +41,6 @@ dayjs.extend(customParseFormat)
 dayjs.extend(isBetween)
 
 const {
-	IovationScript,
 	PlayTechScript,
 	JackpotsScript,
 	OperaPixelCodeScript,
@@ -81,7 +80,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			{/* 手機版 liveChat Layout 會蓋住 more button, footer 下方的 button */}
 			{/* 是指定路徑的，所以沒引入這個 script 也不影響 */}
 			{/* <LiveChatScript /> */}
-			<IovationScript />
 			<PlayTechScript />
 			<GTMScript />
 			<JackpotsScript />

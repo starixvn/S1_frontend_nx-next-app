@@ -576,8 +576,6 @@ export const WithdrawalProvider = ({
 		}
 		if (target && target.disabled) return
 
-		const blackbox = ''
-
 		// 成功彈窗，手控初始化時機
 		const onSuccess = () => {
 			if (deviceType === DeviceTypeEnum.Desktop) {
@@ -613,7 +611,6 @@ export const WithdrawalProvider = ({
 					accountNo,
 					amount: realAmount,
 					sysId,
-					blackbox,
 					ifscCode,
 				}).unwrap()
 				onSuccess()
@@ -624,7 +621,6 @@ export const WithdrawalProvider = ({
 					amount: realAmount,
 					sysId,
 					memo: '',
-					blackbox,
 				}).unwrap()
 				onSuccess()
 			}
@@ -636,7 +632,6 @@ export const WithdrawalProvider = ({
 					currencyId,
 					exchangeRate,
 					exchangeAmount,
-					blackbox,
 				}).unwrap()
 				onSuccess()
 			}
