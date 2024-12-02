@@ -26,6 +26,10 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-verify:before {
+  content: "\e949";
+  color: #939dc5;
+}
 .icon-plus_circle:before {
 	content: '\e948';
 	color: #fff;

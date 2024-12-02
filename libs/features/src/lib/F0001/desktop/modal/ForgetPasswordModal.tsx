@@ -8,15 +8,16 @@ const ForgetPasswordModal = () => {
 		<div className='pop'>
 			<div className='changePassWordpop active'>
 				<button className='icon icon-cross' onClick={closeModal} />
-				<div className='icon icon-icon32px_password' />
+				<div className='icon icon icon-notifi icon-notification-active' />
 				<div className='title'>{t('Label_General_ForgetPsw')}</div>
 				<div>{t('Label_General_ForgotPwdMailSent')}</div>
 				<div className='btnGroup'>
-					<button className='btn-check' onClick={closeModal}>
+					<button className='btn-primary' onClick={closeModal}>
 						{t('Label_General_OK')}
 					</button>
 				</div>
 			</div>
+			<i className='icon close-popup icon-close-line' onClick={closeModal} />
 		</div>
 	)
 }

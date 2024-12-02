@@ -10,8 +10,8 @@ const PendingPanel = () => {
 	return (
 		<div className='subModuleList kycHeight'>
 			<div className='subModule'>
-				<div className='subModuleBody column align-items-center'>
-					<div className='icon icon-icon32px_worker' />
+				<div className='subModuleBody column align-items-center thank-you'>
+					<i className='icon icon-verify' />
 					<span className='title txt-yellow'>
 						{t('Label_Withdrawal_WaitKYC')}
 					</span>

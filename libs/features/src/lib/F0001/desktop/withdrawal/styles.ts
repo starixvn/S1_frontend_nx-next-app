@@ -8,6 +8,7 @@ export const WrapperWithdrawl = styled.div`
 	.inside-body {
 		display: flex;
 		align-items: flex-start;
+		justify-content: center;
 		gap: 1.6rem;
 	}
 
@@ -172,6 +173,37 @@ export const WrapperWithdrawl = styled.div`
 		.btnGroup {
 			max-width: 14.2rem;
 			margin: 1.6rem auto;
+		}
+	}
+	.thank-you {
+		text-align: center;
+		border: 1px solid #374375;
+		border-radius: 10px;
+		padding: 1.6rem 0;
+		.title {
+			color: ${({ theme }) => theme.desktop.white};
+			font-size: 1.7rem;
+			margin-bottom: 0.8rem;
+			font-weight: 700;
+			line-height: normal;
+			display: block;
+		}
+		.txt-lightgray {
+			font-size: 1.4rem;
+			color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+		}
+		.icon {
+			display: flex;
+			width: 4.8rem;
+			height: 4.8rem;
+			border-radius: 100px;
+			align-items: center;
+			justify-content: center;
+			margin: 1rem auto;
+			background: #1d2447;
+			&:before {
+				font-size: 3.2rem;
+			}
 		}
 	}
 `

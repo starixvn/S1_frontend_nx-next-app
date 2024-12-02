@@ -28,7 +28,7 @@ export const WrapperPromotion = styled.div`
 			}
 		}
 		&-body {
-			background: ${({ theme }) => theme.desktop.promotionTabsBodyBg};
+			background: #182043;
 			padding: 2rem;
 			.proListNew {
 				&-item {
@@ -152,5 +152,30 @@ export const WrapperPromotion = styled.div`
 	}
 	#popup {
 		z-index: 999;
+	}
+	.specialBonus {
+		display: inline-flex;
+		padding: 2rem;
+		background: #182043;
+		width: 100%;
+		.inputBox-blue {
+			margin-top: 0;
+			background: #232b4f;
+		}
+		.form {
+			gap: 1.6rem;
+			display: flex;
+		}
+	}
+	.specialBonus .inputBox-white {
+		position: unset;
+		margin: 0;
+		border: 0;
+		display: flex;
+		align-items: center;
+		padding: 10px;
+	}
+	.specialBonus .btnGroup {
+		margin: 0;
 	}
 `

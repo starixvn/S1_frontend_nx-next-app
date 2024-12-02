@@ -13,10 +13,8 @@ const ChangePasswordModal = () => {
 	return (
 		<div className='pop'>
 			<div className='resetPassWordpop active'>
-				<div className='title'>
-					<i className='icon icon-icon32px_password' />
-					{t('Label_General_ChangePassword')}
-				</div>
+				<i className='icon icon icon-notifi icon-notification-active' />
+				<div className='title'>{t('Label_General_ChangePassword')}</div>
 				<ChangePasswordForm
 					onSubmit={onSetChangePassword}
 					changePasswordForm={changePasswordForm}

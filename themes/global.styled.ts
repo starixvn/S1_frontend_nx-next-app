@@ -1362,6 +1362,7 @@ export const GlobalStyles = createGlobalStyle`
     background-color : #182043 !important;
       padding : 1.6rem;
       border-radius: 20px;
+      margin-top : 1.6rem;
       > * {
       font-size: 1.4rem !important;
       font-style: normal !important;
@@ -1387,6 +1388,9 @@ export const GlobalStyles = createGlobalStyle`
       strong {
         color: #939DC5 !important;
       }
+    }
+    colgroup col {
+        width: 100% !important;
     }
   }
 

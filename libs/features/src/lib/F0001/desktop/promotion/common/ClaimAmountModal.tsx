@@ -34,9 +34,12 @@ const ClaimAmountModal = ({
 
 	return (
 		<Form onSubmit={handleSubmit(onSubmit)}>
-			<div className='pop'>
-				<div className='loackAmount' style={{ display: 'flex' }}>
-					<div className='icon icon-gift' />
+			<div className='pop' style={{ maxWidth: '40rem', margin: 'auto' }}>
+				<div className='loackAmount'>
+					<div
+						className='icon icon-notifi icon-notification-active'
+						style={{ margin: '0 auto' }}
+					/>
 					<div className='title'>{t('Label_General_ImportantNote')}</div>
 
 					<div className=''>{t('Label_Promotion_SelectPreferAmount')}</div>
@@ -56,6 +59,7 @@ const ClaimAmountModal = ({
 						</button>
 					</div>
 				</div>
+				<i className='close-popup icon-close-line' onClick={closeModal} />
 			</div>
 		</Form>
 	)

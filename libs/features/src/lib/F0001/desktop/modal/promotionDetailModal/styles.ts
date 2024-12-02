@@ -56,5 +56,6 @@ export const WrapperModalPromotion = styled.div`
 		max-width: unset;
 		width: auto;
 		margin-bottom: 2.4rem;
+		max-width: 30rem;
 	}
 `
