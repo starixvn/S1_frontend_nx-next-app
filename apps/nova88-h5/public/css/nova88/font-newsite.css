@@ -26,6 +26,18 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-help-circle-outline:before {
+  content: "\e953";
+  color: #939dc5;
+}
+.icon-file-fill-pc:before {
+  content: "\e954";
+  color: #939dc5;
+}
+.icon-chat-check-fill:before {
+  content: "\e955";
+  color: #fff;
+}
 .icon-casino:before {
   content: "\e94b";
   color: #fff;
