@@ -2,6 +2,7 @@ import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { dateFormat, gmtFormat, timeFormat } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { usePredictionChallengeContext } from '@nx-next-app/operations'
+import { numberFormat } from '@nx-next-app/utils'
 import dayjs from 'dayjs'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
@@ -13,7 +14,7 @@ const PredictionChallengeTermsModal = dynamic(
 
 const PredictionResult = () => {
 	const {
-		userInfo: { currencyName },
+		userInfo: { currencyId, currencyName },
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
@@ -31,6 +32,7 @@ const PredictionResult = () => {
 	const date = dayjs(battleTime).format(dateFormat)
 	const time = dayjs(battleTime).format(timeFormat)
 	const gmt = dayjs(battleTime).format(gmtFormat)
+	const formatBonus = numberFormat(bonus, currencyId)
 	const winnerList = [...winners, '-', '-', '-', '-', '-'].slice(0, 5)
 
 	const onOpenTermsConditionsModal = () => {
@@ -56,7 +58,7 @@ const PredictionResult = () => {
 				<div className='result-bottom'>
 					<div className='prize-money'>
 						<span>{t('Label_Event_Prize')}</span>
-						<span className='amount'>{`${currencyName} ${bonus}`}</span>
+						<span className='amount'>{`${currencyName} ${formatBonus}`}</span>
 					</div>
 					<div className='user-content'>
 						<div className='title'>

@@ -98,7 +98,12 @@ export const PredictionChallengeProvider = ({
 		}
 	}
 
-	// 登入後觸發 refetch 賽事資訊
+	// 切換幣別後 refetch 賽事資訊
+	useEffect(() => {
+		refetchPredictionTeamInfo()
+	}, [currencyId])
+
+	// 登入後 refetch 賽事資訊
 	useEffect(() => {
 		if (isLogin) {
 			refetchPredictionTeamInfo()

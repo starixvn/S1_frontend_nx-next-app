@@ -46,7 +46,9 @@ const MatchItem = ({ data }: { data: TPromotionPredictionData }) => {
 			{ matchId, homeTeamScore, awayTeamScore },
 			{
 				loginCallback: () => {
-					router.push(paths.login.root)
+					router.push(
+						`${paths.login.root}?from=${paths.predictionChallenge.root}`
+					)
 				},
 				successCallback: () => {
 					modal.info(t('Label_Prediction_Challenge_Success'))
