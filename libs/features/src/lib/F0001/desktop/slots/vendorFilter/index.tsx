@@ -35,9 +35,12 @@ const VendorFilter = () => {
 					/>
 				))}
 			</div>
-			<button className='btn-toggle' onClick={() => onToggleDropdown()}>
-				<span className='icon icon-chevron_down' />
-			</button>
+      {
+        vendorList.length > 5 &&
+          <button className='btn-toggle' onClick={() => onToggleDropdown()}>
+            <span className='icon icon-chevron_down' />
+          </button>
+      }
 		</VendorFilterContainer>
 	)
 }
