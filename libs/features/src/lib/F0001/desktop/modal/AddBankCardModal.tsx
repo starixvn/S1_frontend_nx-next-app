@@ -181,6 +181,10 @@ const AddBankCardModal = ({
 								value: true,
 								message: t('Label_Withdrawal_NeedAccountNo'),
 							},
+							minLength: {
+								value: 8,
+								message: t('Label_BankInfo_AccountLength'),
+							},
 							pattern: isTouchNGoIsValid
 								? {
 										value: TOUCH_GO_REGEX,
