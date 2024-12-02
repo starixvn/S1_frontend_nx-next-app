@@ -103,13 +103,6 @@ export const PredictionChallengeProvider = ({
 		refetchPredictionTeamInfo()
 	}, [currencyId])
 
-	// 登入後 refetch 賽事資訊
-	useEffect(() => {
-		if (isLogin) {
-			refetchPredictionTeamInfo()
-		}
-	}, [isLogin])
-
 	const isLoading =
 		isGetPredictionTeamInfoFetching || isGetPredictionWinnerListFetching
 
