@@ -1,12 +1,12 @@
-import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
-import { HotMatchContainer } from '@nx-next-app/features/F0001/desktop/home/hotMatch/styles'
-import { useHome } from '@nx-next-app/features/F0001/providers'
-import { IHotEventData } from '@nx-next-app/service'
-import dayjs from 'dayjs'
-import { useTranslation } from 'next-i18next'
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
-import { useEffect, useMemo, useState } from 'react'
+import { dateFormat, paths, timeFormat } from "@nx-next-app/constants";
+import { HotMatchContainer } from "@nx-next-app/features/F0001/desktop/home/hotMatch/styles";
+import { useHome } from "@nx-next-app/features/F0001/providers";
+import { IHotEventData } from "@nx-next-app/service";
+import dayjs from "dayjs";
+import { useTranslation } from "next-i18next";
+import dynamic from "next/dynamic";
+import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -92,8 +92,13 @@ const HotEvents = () => {
 	const memoHotEventData = useMemo(() => hotEventData, [hotEventData])
 
 	const config = {
-		slidesPerView: 3.8,
-		spaceBetween: 10,
+		slidesPerView: 2.8,
+		breakpoints: {
+			1400: {
+				slidesPerView: 3.8,
+			},
+		},
+		spaceBetween: 24,
 		shouldSwiperUpdate,
 		navigation: {
 			nextEl: '.swiper-button-next',

@@ -26,6 +26,7 @@ export const HotMatchContainer = styled.div`
 	}
 
 	.match-item {
+		width: 100%;
 		background: ${({ theme }) => theme.desktop.hotMatchBg};
 		box-shadow: ${({ theme }) => theme.desktop.hotMatchShadow};
 		border-radius: 2rem;

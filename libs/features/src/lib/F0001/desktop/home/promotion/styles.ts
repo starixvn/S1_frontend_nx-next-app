@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const PromotionContainer = styled.div`
 	position: relative;
@@ -16,21 +16,25 @@ export const PromotionContainer = styled.div`
 	}
 
 	.swiper-slide {
-		overflow: hidden;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		border-radius: 2rem;
-		height: 19rem;
-		transform: scale(0.75);
+		border: 1px solid;
+		overflow: hidden;
+		object-fit: cover;
+		height: 13.8rem;
 	}
-	.swiper-slide-active {
-		transform: scale(1.26);
-	}
+
 	.promos-item img {
-		width: 100%;
-		height: 100%;
+		width: auto;
+		transform: scale(0.5);
 	}
+
+	.swiper-slide-active {
+		height: 21.2rem;
+	}
+
 	.swiper-button-next,
 	.swiper-button-prev {
 		position: absolute;
