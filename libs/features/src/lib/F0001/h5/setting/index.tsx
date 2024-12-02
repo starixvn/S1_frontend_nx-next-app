@@ -2,7 +2,6 @@ import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { WrapperSettingPage } from '@nx-next-app/features/F0001/h5/setting/styles'
 import classNames from 'classnames'
-import { Trans } from 'next-i18next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import List from './List'
@@ -28,16 +27,11 @@ const Setting = () => {
 						<Link href={paths.home.root}>
 							<a>
 								<div className='menu-logo'>
-									<div>Wellcome to</div>
-									<div>
-										<Trans
-											className=''
-											i18nKey='Label_App_Setting_Title'
-											components={{
-												span: <span />,
-											}}
-										/>
-									</div>
+									<img
+										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/logo_w.webp`}
+										alt=''
+										className='logo-mobile'
+									/>
 								</div>
 							</a>
 						</Link>

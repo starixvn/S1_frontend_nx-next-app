@@ -16885,53 +16885,7 @@ main.casino .banner {
 	margin-left: -1vw;
 }
 
-.menu {
-	padding: 0;
-	position: relative;
-}
-.menu-logo {
-	background: #f0f0f0;
-	border-radius: 0 0 67px 67px;
-	height: 35vw;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
-.menu-logo > div {
-	font-weight: 600;
-}
-.menu-logo > div:first-child {
-	color: #989898;
-}
-.menu-logo > div:last-child {
-	font-size: 8vw;
-	color: #0a1b38;
-	margin-top: -1vw;
-	letter-spacing: -0.2vw;
-}
-.menu-logo > div:last-child span {
-	color: #ff7600;
-}
 
-
-.menu .close-btn {
-	position: absolute;
-	top: 3.5vw;
-	left: 3.5vw;
-}
-.menu .close-btn img {
-	width: 3.5vw;
-}
 
 
 

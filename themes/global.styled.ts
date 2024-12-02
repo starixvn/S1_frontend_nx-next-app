@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
-import { theme } from "./theme";
+import { theme } from './theme'
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
@@ -1687,5 +1687,249 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0 auto;
     display: flex;
   }
+
+  .menu-center {
+    font-weight: 500;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin: 5vw 3vw 0;
+    gap : 1.5vw;
+    a{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 0 0 19vw;
+      color: #0a1b38;
+      background : ${({ theme }) => theme.desktop.rightModuleBg};
+      border-radius: 10px;
+      padding : 3.3vw 1.5vw;
+      img{
+        width: 11vw;
+      }
+      span{
+        text-align: center;
+        line-height: 4vw;
+        margin-top: 1.5vw;
+        font-size: 3.1vw;
+        font-weight: 500;
+        color : ${({ theme }) => theme.desktop.white};
+      }
+      .exclusion-icon{
+        width: 10vw;
+      }
+      .icon{
+        &:before{
+          color : ${({ theme }) => theme.desktop.hrefColorPrimary};
+          font-size : 6vw;
+        }
+      }
+    }
+  }
+  
+
+  .menu {
+    padding: 0;
+    position: relative;
+  }
+
+
+  .menu .close-btn {
+    position: absolute;
+    top: 3.5vw;
+    right: 3.5vw;
+    text-align: right;
+    .icon{
+      &:before{
+        font-size : 6.1vw;
+      }
+    }
+  }
+
+  .menu-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 26.2vw;
+    margin: 5vw auto;
+  }
+  .menu-logo > div {
+    font-weight: 600;
+  }
+  .menu-logo > div:first-child {
+    color: #989898;
+  }
+  .menu-logo > div:last-child {
+    font-size: 8vw;
+    color: #0a1b38;
+    margin-top: -1vw;
+    letter-spacing: -0.2vw;
+  }
+  .menu-logo > div:last-child span {
+    color: #ff7600;
+  }
+
+
+  .menu-bottom {
+			background: #f0f0f0;
+    	margin: 5vw auto;
+			&-item{
+				.info {
+					display: flex;
+					justify-content: center;
+					color: #585858;
+					font-weight: 500;
+					align-items: center;
+					padding: 3vw 5vw;
+					background : ${({ theme }) => theme.desktop.rightModuleTitleBg};
+          border-bottom : 4px solid #12172A; 
+					&:after{
+						display: block;
+						content: '\\e925';
+						font-family: 'S1NewIcons';
+						width: 6vw;
+    					height: 6vw;
+						margin-left: 15vw;
+						font-size : 6.1vw;
+						color : ${({ theme }) => theme.desktop.rightModuleSloganColor};
+					}
+					img{
+						width: 6vw;
+					}
+					> div{
+					 	margin-left: 2vw;
+						width: 100%;
+						font-size: 3.3vw;
+						color : ${({ theme }) => theme.desktop.rightModuleSloganColor};
+					}
+				}
+				.option{
+					display: none;
+					background: ${({ theme }) => theme.desktop.white};
+					color: #000;
+					font-weight: 500;
+          background : #12172A;
+          div {
+            font-size: 3.3vw;
+			      font-weight: 600;
+            color : ${({ theme }) => theme.desktop.white};
+          }
+          .country{
+          	display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            &-current{
+              display: flex;
+              margin-bottom: 5vw;
+              background-color: ${({ theme }) =>
+								theme.desktop.rightModuleTitleBg};
+              border-radius: 4vw;
+              padding: 3.8vw 4vw;
+              .country-item{
+                background-color: ${({ theme }) =>
+									theme.desktop.rightModuleTitleBg};
+                margin-left : 0;
+                button{
+                  margin-top: 2vw;
+                  color: #878787;
+                  font-size: 3vw;
+                }
+              }
+            }
+            &-title{
+              display: flex;
+              align-items: center;
+              padding: 0 2vw 0 0;
+              background-color: ${({ theme }) =>
+								theme.desktop.rightModuleTitleBg};
+              > div{
+                margin-bottom: 1vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: ${({ theme }) =>
+									theme.desktop.rightModuleTitleBg};
+               }
+              img{
+                width: 6vw;
+                border-radius: 50%;
+              }
+            }
+          }
+				}
+			}
+		}
+		.menu-bottom-item .option .country-current .country-title img {
+			width: 10.7vw;
+			border-radius: 50%;
+			border: 1px solid #d1d1d1;
+		}
+		.menu-bottom-item .option .country-current.after {
+			background-color: transparent;
+			margin: 0;
+			padding: 0 6vw;
+		}
+		.menu-bottom-item .option .country-item {
+			display: flex;
+			width: 100%;
+			align-items: center;
+			padding: 2vw 0;
+			margin-left: 6vw;
+		}
+		.menu-bottom-item .option .country-item > div:last-child {
+			width: 60vw;
+		}
+		.menu-bottom-item .option .country-item > div button.active {
+			color: #ff7600;
+		}
+		.menu-bottom-item .option .country-item:first-child {
+			padding-top: 0;
+		}
+		.menu-bottom-item .option .country-item:last-child {
+			padding-bottom: 0;
+		}
+		.menu-bottom-item .option-item {
+			padding: 5vw;
+		}
+		.menu-bottom-item .option div {
+			font-size: 3.5vw;
+			font-weight: 600;
+		}
+		.menu-bottom-item .option button {
+			font-size: 3.5vw;
+			color: #585858;
+			font-weight: 500;
+			border-right: 1px solid #d1d1d1;
+			padding: 0 2vw;
+		}
+		.menu-bottom-item .option button:first-child {
+			padding-left: 0;
+		}
+		.menu-bottom-item .option button:last-child {
+			padding-right: 0;
+			border-right: 0;
+		}
+		.menu-bottom-item .option a {
+			color: #a7a7a7;
+			font-size: 600;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 0 0 5vw 18vw;
+		}
+		.menu-bottom-item.active .info {
+			border: 0;
+		}
+		.menu-bottom-item.active .info::after {
+			content: '\\e924';
+      font-family: 'S1NewIcons';
+		}
+		.menu-bottom-item.active .option {
+			display: block;
+		}
+		.menu-bottom-item:last-child .info {
+			border: 0;
+		}
 
 `
