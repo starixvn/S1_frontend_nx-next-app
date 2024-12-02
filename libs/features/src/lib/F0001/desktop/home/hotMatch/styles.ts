@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const HotMatchContainer = styled.div`
 	position: relative;
@@ -99,7 +99,7 @@ export const HotMatchContainer = styled.div`
 				.team-item {
 					display: flex;
 					align-items: center;
-					font-size: 14px;
+					font-size: 1.4rem;
 					font-weight: 500;
 
 					img {

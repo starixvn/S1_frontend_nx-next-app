@@ -10,10 +10,27 @@ export const WelcomeInfoContainer = styled.div`
 
 	.welcomeinfo-content {
 		position: relative;
+		flex: 0 0 28.5rem;
+		padding-top: 6.5rem;
+
+		@media (min-width: 1450px) {
+			flex: 0 0 33.2rem;
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			display: block;
+			width: 13.4rem;
+			height: 13.4rem;
+		}
 
 		img {
-			width: 33.2rem;
-			height: 25.7rem;
+			width: 100%;
+			height: 19.8rem;
 		}
 
 		&-text {
@@ -53,63 +70,88 @@ export const WelcomeInfoContainer = styled.div`
 			transition: color 0.3s ease-in-out;
 		}
 
-		&.join .welcome-btn {
-			background: ${({ theme }) => theme.desktop.welcomeAffiliateBtnBg};
-			box-shadow: ${({ theme }) => theme.desktop.welcomeAffiliateBtnShadow};
-			color: ${({ theme }) => theme.desktop.welcomeAffiliateBtnColor};
+		&.join {
+			&:before {
+				background: url(${({ theme }) =>
+					theme.assetUrl}/desktop/img/new-ui/welcome-join-icon.webp);
+			}
 
-			&:hover {
-				background: ${({ theme }) => theme.desktop.welcomeAffiliateBtnBgHover};
-				box-shadow: ${({ theme }) =>
-					theme.desktop.welcomeAffiliateBtnShadowHover};
-				color: ${({ theme }) => theme.desktop.welcomeAffiliateBtnColorHover};
+			&.after-login:before {
+				background: url(${({ theme }) =>
+					theme.assetUrl}/desktop/img/new-ui/welcome-affiliate-icon.webp);
+			}
+
+			.welcome-btn {
+				background: ${({ theme }) => theme.desktop.welcomeAffiliateBtnBg};
+				box-shadow: ${({ theme }) => theme.desktop.welcomeAffiliateBtnShadow};
+				color: ${({ theme }) => theme.desktop.welcomeAffiliateBtnColor};
+
+				&:hover {
+					background: ${({ theme }) =>
+						theme.desktop.welcomeAffiliateBtnBgHover};
+					box-shadow: ${({ theme }) =>
+						theme.desktop.welcomeAffiliateBtnShadowHover};
+					color: ${({ theme }) => theme.desktop.welcomeAffiliateBtnColorHover};
+				}
 			}
 		}
 
-		&.winning .welcome-btn {
-			background: ${({ theme }) => theme.desktop.welcomeWinningBtnBg};
-			box-shadow: ${({ theme }) => theme.desktop.welcomeWinningBtnShadow};
-			color: ${({ theme }) => theme.desktop.welcomeWinningBtnColor};
+		&.winning {
+			&:before {
+				background: url(${({ theme }) =>
+					theme.assetUrl}/desktop/img/new-ui/welcome-winning-icon.webp);
+			}
 
-			&:hover {
-				background: ${({ theme }) => theme.desktop.welcomeWinningBtnBgHover};
-				box-shadow: ${({ theme }) =>
-					theme.desktop.welcomeWinningBtnShadowHover};
-				color: ${({ theme }) => theme.desktop.welcomeWinningBtnColorHover};
+			.welcome-btn {
+				background: ${({ theme }) => theme.desktop.welcomeWinningBtnBg};
+				box-shadow: ${({ theme }) => theme.desktop.welcomeWinningBtnShadow};
+				color: ${({ theme }) => theme.desktop.welcomeWinningBtnColor};
+
+				&:hover {
+					background: ${({ theme }) => theme.desktop.welcomeWinningBtnBgHover};
+					box-shadow: ${({ theme }) =>
+						theme.desktop.welcomeWinningBtnShadowHover};
+					color: ${({ theme }) => theme.desktop.welcomeWinningBtnColorHover};
+				}
 			}
 		}
 
-		&.reward .welcome-btn {
-			background: ${({ theme }) => theme.desktop.welcomeRewardBtnBg};
-			box-shadow: ${({ theme }) => theme.desktop.welcomeRewardBtnShadow};
-			color: ${({ theme }) => theme.desktop.welcomeRewardBtnColor};
+		&.reward {
+			&:before {
+				background: url(${({ theme }) =>
+					theme.assetUrl}/desktop/img/new-ui/welcome-vip-icon.webp);
+			}
 
-			&:hover {
-				background: ${({ theme }) => theme.desktop.welcomeRewardBtnBgHover};
-				box-shadow: ${({ theme }) => theme.desktop.welcomeRewardBtnShadowHover};
-				color: ${({ theme }) => theme.desktop.welcomeRewardBtnColorHover};
+			.welcome-btn {
+				background: ${({ theme }) => theme.desktop.welcomeRewardBtnBg};
+				box-shadow: ${({ theme }) => theme.desktop.welcomeRewardBtnShadow};
+				color: ${({ theme }) => theme.desktop.welcomeRewardBtnColor};
+
+				&:hover {
+					background: ${({ theme }) => theme.desktop.welcomeRewardBtnBgHover};
+					box-shadow: ${({ theme }) =>
+						theme.desktop.welcomeRewardBtnShadowHover};
+					color: ${({ theme }) => theme.desktop.welcomeRewardBtnColorHover};
+				}
 			}
 		}
 
-		&.referral .welcome-btn {
-			background: ${({ theme }) => theme.desktop.welcomeReferralBtnBg};
-			box-shadow: ${({ theme }) => theme.desktop.welcomeReferralBtnShadow};
-			color: ${({ theme }) => theme.desktop.welcomeReferralBtnColor};
-
-			&:hover {
-				background: ${({ theme }) => theme.desktop.welcomeReferralBtnBgHover};
-				box-shadow: ${({ theme }) =>
-					theme.desktop.welcomeReferralBtnShadowHover};
-				color: ${({ theme }) => theme.desktop.welcomeReferralBtnColorHover};
+		&.referral {
+			&:before {
+				background: url(${({ theme }) =>
+					theme.assetUrl}/desktop/img/new-ui/welcome-referral-icon.webp);
 			}
-		}
-	}
+			.welcome-btn {
+				background: ${({ theme }) => theme.desktop.welcomeReferralBtnBg};
+				box-shadow: ${({ theme }) => theme.desktop.welcomeReferralBtnShadow};
+				color: ${({ theme }) => theme.desktop.welcomeReferralBtnColor};
 
-	@media (min-width: 1450px) {
-		.welcomeinfo-content {
-			img {
-				width: 33.2rem;
-				height: 25.7rem;
+				&:hover {
+					background: ${({ theme }) => theme.desktop.welcomeReferralBtnBgHover};
+					box-shadow: ${({ theme }) =>
+						theme.desktop.welcomeReferralBtnShadowHover};
+					color: ${({ theme }) => theme.desktop.welcomeReferralBtnColorHover};
+				}
 			}
 		}
 	}

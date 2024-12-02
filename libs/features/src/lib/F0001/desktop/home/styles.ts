@@ -100,7 +100,7 @@ export const GameGroup = styled.div`
 		margin: 0 auto;
 
 		@media (min-width: 1450px) {
-			width: 150rem;
+			width: 140rem;
 		}
 
 		.load-more {
