@@ -35,11 +35,8 @@ const VendorFilter = () => {
 					/>
 				))}
 			</div>
-			<button onClick={() => onToggleDropdown()}>
-				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/lobby-slots/down.png`}
-					alt=''
-				/>
+			<button className='btn-toggle' onClick={() => onToggleDropdown()}>
+				<span className='icon icon-chevron_down' />
 			</button>
 		</VendorFilterContainer>
 	)
