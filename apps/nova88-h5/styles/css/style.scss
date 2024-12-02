@@ -23303,6 +23303,8 @@ main {
         //banner-logo
         &-logo { 
           margin-bottom: 8.4vw;
+          display: flex;
+          align-items: center;
           img {
             max-width: 46.8vw;
           }
@@ -23311,6 +23313,7 @@ main {
         &-caption {
           display: flex;
           flex-direction: column;
+          align-items: center;
           .title {
             font-size: 5.6vw;
             font-weight: 600;
