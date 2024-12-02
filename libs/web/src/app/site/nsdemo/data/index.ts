@@ -16,24 +16,24 @@ export * from './milestoneData'
 export * as ThirdPartyJS from './thirdPartyJS'
 
 export const LANG_GROUPS: IStaticLangGroups = {
-	ch: [
-		{
-			displayText: 'English',
-			value: 'en',
-			currencyId: CurrenciesEnum.MYR,
-			mainLanguage: true,
-		},
-		{
-			displayText: '简体中文',
-			value: 'cs',
-			currencyId: CurrenciesEnum.MYR,
-		},
-		{
-			displayText: 'Malay',
-			value: 'my',
-			currencyId: CurrenciesEnum.MYR,
-		},
-	],
+	// ch: [
+	// 	{
+	// 		displayText: 'English',
+	// 		value: 'en',
+	// 		currencyId: CurrenciesEnum.MYR,
+	// 		mainLanguage: true,
+	// 	},
+	// 	{
+	// 		displayText: '简体中文',
+	// 		value: 'cs',
+	// 		currencyId: CurrenciesEnum.MYR,
+	// 	},
+	// 	{
+	// 		displayText: 'Malay',
+	// 		value: 'my',
+	// 		currencyId: CurrenciesEnum.MYR,
+	// 	},
+	// ],
 	th: [
 		{
 			displayText: 'English',
