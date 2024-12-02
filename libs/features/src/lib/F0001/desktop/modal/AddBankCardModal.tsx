@@ -5,12 +5,12 @@ import {
 	ISelectProps,
 	Select,
 } from '@nx-next-app/components/D0001'
-import { E_WALLET_SYSID, TOUCH_GO_REGEX } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import { WrapperModal } from '@nx-next-app/features/F0001/desktop/modal/styles'
-import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import {
+	E_WALLET_SYSID,
 	TOUCH_GO_REGEX,
 } from '@nx-next-app/constants'
+
+import { WrapperModal } from '@nx-next-app/features/F0001/desktop/modal/styles'
 import { useAuth } from '@nx-next-app/data-access'
 import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
 import {
@@ -195,10 +195,7 @@ const AddBankCardModal = ({
 											value: TOUCH_GO_REGEX,
 											message: t('Label_Withdrawal_TouchGo_Validation'),
 									  }
-								: {
-										value: PAYMENT_BANK_ACCOUNT_REGEX,
-										message: t('Label_BankInfo_AccountWrongFormat'),
-								  },
+								: undefined,
 								onBlur: checkAccountNo,
 							})}
 							title={
