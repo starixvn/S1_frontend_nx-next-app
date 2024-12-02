@@ -32,10 +32,17 @@ export const WrapperFooterDock = styled.div`
 		align-items: center;
 		color: red;
 	}
-	// .footer-item.active :not(.plus).footer-title {
-	// 	border-bottom: 2.5px solid #ff7600;
-	// 	padding-bottom: 2vw;
-	// }
+	.footer-item.active :not(.plus).footer-title {
+		border-bottom: 2.5px solid ${({ theme }) => theme.mobile.hrefColorPrimary};
+		padding-bottom: 2vw;
+		color: ${({ theme }) => theme.mobile.hrefColorPrimary};
+	}
+
+	.footer-item.active :not(.plus).icon {
+		&:before {
+			color: ${({ theme }) => theme.mobile.hrefColorPrimary};
+		}
+	}
 	.footer-title {
 		color: ${({ theme }) => theme.mobile.white};
 		text-align: center;

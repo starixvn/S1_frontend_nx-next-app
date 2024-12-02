@@ -317,5 +317,10 @@ export const theme = {
 		stepBgActive: '#EA6118',
 		stepBgItem: '#717FBA',
 		stepBoder: '#374375',
+
+		tooltipBorderColor: '#EA6118',
+		tooltipBgColor: '#232B4F',
+		tooltipColor: '#EA6118',
+		tooltipBoxShadow: '0px 6px 30px 0px rgba(0, 0, 0, 0.50)',
 	},
 }

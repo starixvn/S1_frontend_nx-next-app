@@ -1578,6 +1578,17 @@ export const GlobalStyles = createGlobalStyle`
         text-decoration: underline;
       }
     }
+    .inputInfo {
+      background: ${({ theme }) => theme.mobile.tooltipBgColor};
+      border: 1px solid ${({ theme }) => theme.mobile.tooltipBorderColor};
+      color: ${({ theme }) => theme.mobile.tooltipColor};
+      margin-top: 3vw;
+      &:before {
+        border-color: ${({ theme }) => theme.mobile.tooltipColor} transparent
+          transparent;
+          bottom: -2vw;
+      }
+    }
   }
     .features {
 		background: ${({ theme }) => theme.mobile.rightModuleBg};
@@ -1604,6 +1615,9 @@ export const GlobalStyles = createGlobalStyle`
 		color: white;
 		font-size: 4vw;
 		padding: 1.4rem 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 2vw;
 	}
 	.features .title span:before {
 		font-size: 4vw;
@@ -1618,6 +1632,15 @@ export const GlobalStyles = createGlobalStyle`
 	.features li a {
 		font-weight: bold;
 	}
+
+  .features{
+    .icon{
+      &:before{
+        font-size: 6vw;
+      }
+    }
+  }
+
   .inputInfo {
     text-align: left;
     display: none;

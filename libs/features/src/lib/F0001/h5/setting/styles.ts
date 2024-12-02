@@ -4,7 +4,7 @@ export const WrapperSettingPage = styled.div`
 	.after {
 		.menu-top {
 			background: url(${({ theme }) =>
-					theme.assetUrl}/h5/img/new-ui/menu-after-bg.webp)
+				theme.assetUrl}/h5/img/new-ui/menu-after-bg.webp);
 				no-repeat center/cover;
 			height: 42vw;
 			border-radius: 0 0 20px 20px;
@@ -118,29 +118,36 @@ export const WrapperSettingPage = styled.div`
 			.bank-list {
 				display: flex;
 				justify-content: space-around;
-				margin-top: 5vw;
 			}
-			.bank-list > a {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				flex: 0 0 19vw;
-				line-height: 4vw;
-				text-align: center;
+			.bank-list {
+				padding: 4vw;
+				> a {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					flex: 0 0 19vw;
+					line-height: 4vw;
+					text-align: center;
+					.icon {
+						&:before {
+							font-size: 6.1vw;
+							color: ${({ theme }) => theme.desktop.hrefColorPrimary};
+						}
+					}
+					> div {
+						font-weight: 500;
+						color: #0a1b38;
+						color: ${({ theme }) => theme.desktop.white};
+						margin-top: 2.5vw;
+						font-size: 3.1vw;
+					}
+				}
 			}
 			.money-name {
 				color: #ea6118;
 				font-size: 3.4vw;
 				font-weight: 700;
 				line-height: normal;
-			}
-			.bank-list > a img {
-				width: 10vw;
-				margin-bottom: 2vw;
-			}
-			.bank-list > a > div {
-				font-weight: 500;
-				color: #0a1b38;
 			}
 			.casino-wallet {
 				margin-top: 5vw;
@@ -188,9 +195,6 @@ export const WrapperSettingPage = styled.div`
 				color: #a7a7a7;
 				margin-right: 1vw;
 			}
-			.wallet-list {
-				margin-bottom: 9vw;
-			}
 			.wallet-list-item {
 				display: flex;
 				justify-content: space-between;
@@ -230,7 +234,220 @@ export const WrapperSettingPage = styled.div`
 				text-align: center;
 			}
 		}
+
+		.profile-item .message-popup {
+			position: absolute;
+			right: 2vw;
+    		top: 15vw;
+			background: white;
+			width: 35vw;
+			height: 6vw;
+			border-radius: 20px;
+			color: #0a1b38;
+			font-weight: 500;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.profile-item .message-popup::before {
+			position: absolute;
+			display: block;
+			content: '';
+			border-style: solid;
+			border-width: 0 6px 12px 6px;
+			border-color: transparent transparent #ffffff transparent;
+			top: -2vw;
+			right: 2vw;
+		}
+		.profile-item .message-popup > div {
+			width: 30vw;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+
+
+		.menu-vip {
+			height: 25vw;
+			border-radius: 15px;
+			margin: 5vw 5vw 0;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding-bottom: 4vw;
+			position: relative;
+		}
+		.menu-vip  {
+			.left{
+				margin: 4vw 5.9vw 4vw 4vw;
+				> div{
+					 &:first-child{
+						margin-bottom: 0.5vw;
+						font-size : 3.1vw;
+					}
+					&:nth-child(2){
+						font-size: 5vw;
+						font-weight: 600;
+					}
+					&:last-child{
+						font-weight: 400;
+						color: white;
+						margin-top: 0.5vw;
+						display: flex;
+						flex-wrap: wrap;
+						font-size : 3.1vw;
+					}
+				 }
+			}
+			.right{
+				border-radius: 50px 0 0 50px;
+				padding: 2vw 3.5vw 2vw 3vw;
+				display: flex;
+				align-items: center;
+				.dot-progress{
+					float: left;
+					width: 15vw;
+					height: 5vw;
+					margin: 0.5vw;
+					text-align: center;
+				}
+				img{
+					width: 17vw;
+				}
+			}
+		}
+		.menu-vip.nova .right {
+			background: #efefef;
+		}
+		.menu-vip.nova .vip-text {
+			color: #8d8d8d;
+		}
+		.menu-vip.nova .left {
+			color: #8d8d8d;
+		}
+		.menu-vip.nova .left > div:last-child {
+			color: #8d8d8d;
+		}
+		.menu-vip.nova .left > div:last-child div {
+			color: #b9b9b9;
+		}
+		.menu-vip .left > div:last-child > div {
+			color: #efefef;
+			width: 10vw;
+		}
+		.menu-vip .right {
+			border-radius: 50px 0 0 50px;
+			padding: 2vw 3.5vw 2vw 3vw;
+			display: flex;
+			align-items: center;
+		}
+		.menu-vip .right .dot-progress .progress-now-vertical {
+			background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/dot-progress.png)
+				no-repeat left;
+				width: 100%;
+			height: 5vw;
+		}
+		.menu-vip .vip-text {
+			position: absolute;
+			bottom: 2.5vw;
+			right: 7vw;
+			color: #fff;
+		}
+		.menu-vip .vip-text.next {
+			display: flex;
+			align-items: center;
+		}
+		.menu-vip .vip-text.next::after {
+			display: block;
+			content: '';
+			background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/right-2.png)
+				no-repeat center/cover;
+			width: 2vw;
+			height: 2vw;
+			margin-left: 1vw;
+		}
+		.menu-center {
+			font-weight: 500;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: start;
+			margin: 5vw 5vw 0;
+			gap : 1.5vw;
+			a{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				flex: 0 0 19vw;
+				color: #0a1b38;
+				background : red;
+				img{
+					width: 11vw;
+				}
+				span{
+					text-align: center;
+					line-height: 4vw;
+					margin-top: 2vw;
+				}
+				.exclusion-icon{
+					width: 10vw;
+				}
+			}
+		}
+		.menu-bottom {
+			margin-top: 5vw;
+			padding-bottom: 30vw;
+		}
+		.menu-bottom-item:nth-child(4) .info {
+			border: 0;
+		}
+
+		.menu-vip.vintage {
+			background: url(${({ theme }) => theme.assetUrl}/h5/img/new-ui/nova-bg.webp)
+				no-repeat center/cover;
+		}
+		.menu-vip.vintage .right {
+			background: #ffb773;
+		}
+		.menu-vip.silver {
+			background: url(${({ theme }) => theme.assetUrl}/h5/img/new-ui/nova-bg.webp)
+				no-repeat center/cover;
+		}
+		.menu-vip.silver .right {
+			background: #e9e9e9;
+		}
+		.menu-vip.gold {
+			background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/gold-bg.png)
+				no-repeat center/cover;
+		}
+		.menu-vip.gold .right {
+			background: #ffd965;
+		}
+		.menu-vip.titanium {
+			background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/titanium-bg.png)
+				no-repeat center/cover;
+		}
+		.menu-vip.titanium .right {
+			background: #a5a5a5;
+		}
+		.menu-vip.diamond {
+			background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/diamond-bg.png)
+				no-repeat center/cover;
+		}
+		.menu-vip.diamond .right {
+			background: #82f2ff;
+		}
+		.menu-vip.nova {
+			background: url(${({ theme }) => theme.assetUrl}/h5/img/new-ui/nova-bg.webp)
+				no-repeat center/cover;
+		}
+
+		
+
+		
+
 	}
+
+
 	@-webkit-keyframes move {
 		0% {
 			opacity: 1;

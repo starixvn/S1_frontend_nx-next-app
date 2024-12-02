@@ -26,4 +26,15 @@ export const WrapperLoginRegister = styled.div`
 			}
 		}
 	}
+	.inputInfo {
+		background: ${({ theme }) => theme.mobile.tooltipBgColor};
+		border: 1px solid ${({ theme }) => theme.mobile.tooltipBorderColor};
+		color: ${({ theme }) => theme.mobile.tooltipColor};
+		margin-top: 3vw;
+		&:before {
+			border-color: ${({ theme }) => theme.mobile.tooltipColor} transparent
+				transparent;
+			bottom: -2vw;
+		}
+	}
 `

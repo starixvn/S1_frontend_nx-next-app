@@ -123,37 +123,25 @@ const Profile = () => {
 				<div className='bank-list'>
 					<Link href={paths.withdrawal.root}>
 						<a>
-							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/withdrawal-2.png`}
-								alt='withdrawal'
-							/>
+							<i className='icon icon-money-send' />
 							<div>{t('Label_General_Withdrawal')}</div>
 						</a>
 					</Link>
 					<Link href={paths.statement.root}>
 						<a>
-							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/statement.png`}
-								alt='statement'
-							/>
+							<i className='icon icon-file-text-fill' />
 							<div>{t('Label_General_Statement')}</div>
 						</a>
 					</Link>
 					<Link href={paths.financialLog.root}>
 						<a>
-							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/financial.png`}
-								alt='financial'
-							/>
+							<i className='icon icon-finance1' />
 							<div>{t('Label_General_FinancialLog')}</div>
 						</a>
 					</Link>
 					<Link href={paths.bankInfo.root}>
 						<a>
-							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/bankinfo.png`}
-								alt='bankinfo'
-							/>
+							<i className='icon icon-card-pos' />
 							<div>{t('Label_General_BankInfo')}</div>
 						</a>
 					</Link>

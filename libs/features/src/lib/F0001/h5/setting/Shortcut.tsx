@@ -24,28 +24,19 @@ const Shortcut = () => {
 	return (
 		<div className='menu-center'>
 			<a onClick={() => navigatePath(paths.profile.root)}>
-				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/profile.png`}
-					alt='profile'
-				/>
+				<i className='icon icon-user-2-fill' />
 				<span>{t('Label_General_Profile')}</span>
 			</a>
 			<Link href={paths.promotion.root}>
 				<a>
-					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/promos.png`}
-						alt='promos'
-					/>
+					<i className='icon icon-gift-fill' />
 					<span>{t('Label_General_Promotion')}</span>
 				</a>
 			</Link>
 			{includes(ALLOWED_CURRENCIES['VIP'], currencyId) && (
 				<Link href={paths.vip.root}>
 					<a>
-						<img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/vip.png`}
-							alt='vip'
-						/>
+						<i className='icon icon-vip-fill' />
 						<span>VIP</span>
 					</a>
 				</Link>
@@ -63,19 +54,13 @@ const Shortcut = () => {
 			{includes(ALLOWED_CURRENCIES['LEADER_BOARD'], currencyId) && (
 				<Link href={paths.leaderBoard.root}>
 					<a>
-						<img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/ranking.png`}
-							alt='ranking'
-						/>
+						<i className='icon icon-ranking' />
 						<span>{t('Label_General_LeaderBoard')}</span>
 					</a>
 				</Link>
 			)}
 			<a onClick={() => navigatePath(paths.referral.root)}>
-				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/referral.png`}
-					alt='referral'
-				/>
+				<i className='icon icon-team-fill' />
 				<span>{t('Label_General_Referral')}</span>
 			</a>
 			<a
