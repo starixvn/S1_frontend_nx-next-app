@@ -12,7 +12,6 @@ export const PromotionContainer = styled.div`
 
 	.swiper-container {
 		overflow: unset;
-		height: 21.2rem;
 	}
 
 	.swiper-slide {
@@ -20,7 +19,6 @@ export const PromotionContainer = styled.div`
 		align-items: center;
 		justify-content: center;
 		border-radius: 2rem;
-		border: 1px solid;
 		overflow: hidden;
 		object-fit: cover;
 		height: 13.8rem;
@@ -28,11 +26,20 @@ export const PromotionContainer = styled.div`
 
 	.promos-item img {
 		width: auto;
-		transform: scale(0.5);
+		transform: scale(0.38);
 	}
 
 	.swiper-slide-active {
+		width: 66.8rem !important;
 		height: 21.2rem;
+		img {
+			transform: scale(0.6);
+		}
+	}
+
+	.swiper-slide-prev,
+	.swiper-slide-next {
+		width: 34rem !important;
 	}
 
 	.swiper-button-next,
@@ -51,10 +58,20 @@ export const PromotionContainer = styled.div`
 	}
 
 	.swiper-button-prev {
-		left: 43rem;
+		left: 25rem;
 	}
 
 	.swiper-button-next {
-		right: 43rem;
+		right: 24.8rem;
+	}
+
+	@media (min-width: 1450px) {
+		.swiper-button-prev {
+			left: 34.8rem;
+		}
+
+		.swiper-button-next {
+			right: 34.8rem;
+		}
 	}
 `
