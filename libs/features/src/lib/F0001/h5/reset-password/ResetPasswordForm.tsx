@@ -1,8 +1,7 @@
-import React from 'react'
 import { Form, InputBox } from '@nx-next-app/components/H0001'
+import { PASSWORD_REGEX } from '@nx-next-app/constants'
 import { useTranslation } from 'next-i18next'
 import { useForm } from 'react-hook-form'
-import { PASSWORD_REGEX } from '@nx-next-app/constants'
 
 type ResetPasswordFormType = {
 	newPassword: string
@@ -42,7 +41,11 @@ const ResetPasswordForm = ({ loading, onSubmit }: IResetPasswordFormProps) => {
 				error={!!errors['newPassword']}
 			/>
 			<div className='btn-group'>
-				<button onClick={handleSubmit(onSubmit)} type='submit'>
+				<button
+					onClick={handleSubmit(onSubmit)}
+					type='submit'
+					className='btn-primary'
+				>
 					{t('Label_General_Submit')}
 				</button>
 			</div>

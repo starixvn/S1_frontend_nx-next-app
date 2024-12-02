@@ -495,6 +495,9 @@ export const GlobalStyles = createGlobalStyle`
 				theme.desktop.inputBg} inset !important;
       -webkit-text-fill-color: #ffffff;
   }
+  .rightModule {
+    width: 100%;
+  }
   .wrapper-profile {
     display: flex;
     max-width: ${({ theme }) => theme.desktop.contentWidth};

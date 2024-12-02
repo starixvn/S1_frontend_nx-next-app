@@ -1,11 +1,11 @@
-import { useState } from 'react'
-import { useTranslation } from 'next-i18next'
-import classNames from 'classnames'
-import { SubmitHandler, useForm } from 'react-hook-form'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { EMAIL_OR_PHONE_REGEX } from '@nx-next-app/constants'
-import { useSetQuestionnaireMutation } from '@nx-next-app/service'
 import { useAuth } from '@nx-next-app/data-access'
+import { useSetQuestionnaireMutation } from '@nx-next-app/service'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import { useState } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
 type TSurveyForm = {
 	content: string
@@ -70,6 +70,7 @@ const Survey = () => {
 						close: isSubmitted,
 					})}
 				>
+					<i className='icon icon-close-line' onClick={onCloseSurvey} />
 					<div>{t('Label_Survey_Title')}</div>
 					<div>{t('Label_Survey_Hint1')}</div>
 					<form className='survey-input' onSubmit={handleSubmit(onSubmit)}>
@@ -124,7 +125,7 @@ const Survey = () => {
 						close: !isSubmitted,
 					})}
 				>
-					<button className='icon icon-close' onClick={onCloseSurvey} />
+					<i className='icon icon-close-line' onClick={onCloseSurvey} />
 					<div>
 						<img
 							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/thankyou.png`}
