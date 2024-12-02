@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const HomeProfile = styled.div`
 	background: ${({ theme }) => theme.desktop.dropdownBg};
@@ -417,7 +417,7 @@ export const FunctionContainer = styled.div`
 
 		.country-option {
 			display: flex;
-			height: 35rem;
+			height: 5rem;
 			overflow-y: scroll;
 			display: flex;
 			flex-direction: column;
