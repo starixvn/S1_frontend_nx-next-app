@@ -1,18 +1,18 @@
-/* eslint-disable jsx-a11y/heading-has-content */
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { Layout, LeftMenu, Profile } from '@nx-next-app/features/F0006/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { ProfileInfoProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
 import { FOOTER_DATA } from '@nx-next-app/site/yashbet'
 import { IFooterData } from '@nx-next-app/types'
+import { Layout, LeftMenu, Profile } from '@yashbet-desktop/components/index'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
@@ -38,7 +38,9 @@ const ProfilePage = ({
 					<main>
 						<section className='inside'>
 							<LeftMenu withdrawalBlockSetting={withdrawalBlockSetting} />
-							<Profile />
+							<ProfileInfoProvider>
+								<Profile />
+							</ProfileInfoProvider>
 						</section>
 					</main>
 				</Layout>

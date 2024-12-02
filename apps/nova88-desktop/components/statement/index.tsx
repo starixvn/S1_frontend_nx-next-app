@@ -1,8 +1,6 @@
-import { Loading, Select } from '@nx-next-app/components/D0001'
-import Breadcrumb from '@nx-next-app/components/D0001/breadcrumb'
-import Pagination from '@nx-next-app/components/D0001/pagination'
 import { useStatement } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
+import { Breadcrumb, Loading, Pagination, Select } from '../common/index'
 import StatementTable from './StatementTable'
 
 const Statement = () => {

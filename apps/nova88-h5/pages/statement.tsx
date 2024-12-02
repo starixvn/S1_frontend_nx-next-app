@@ -1,9 +1,7 @@
-import { Statement } from '@n88-h5/components/index'
+import { Layout, Statement } from '@n88-h5/components/index'
 import { NovaAuthProvider } from '@nova88-h5/providers'
 import { paths } from '@nx-next-app/constants'
 import { GlobalDataProvider } from '@nx-next-app/data-access'
-// todo:待 Linda 把 Layout 合進 dev 在重新引入
-import { Layout } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,

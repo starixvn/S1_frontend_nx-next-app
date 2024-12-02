@@ -1,7 +1,6 @@
-import { Header } from '@nx-next-app/components/H0006'
-import Breadcrumb from '@nx-next-app/components/H0006/breadcrumb'
 import { useStatement } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
+import { Breadcrumb, Header } from '../../common/index'
 
 const StatementHeader = () => {
 	const { t } = useTranslation()

@@ -1,6 +1,5 @@
-// todo:待 eddie 把 useTable 合進 dev 在重新引入
-import useTable from '@nx-next-app/components/D0006/table/useTable'
 import { useStatement } from '@nx-next-app/operations'
+import useTable from '@yashbet-desktop/components/common/table/useTable'
 
 const StatementTable = () => {
 	const { activeTab, displayColumns, onDetails } = useStatement()

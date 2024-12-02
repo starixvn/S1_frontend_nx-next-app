@@ -1,5 +1,4 @@
-// todo:待 eddie 把 useTable 合進 dev 在重新引入
-import useTable from '@nx-next-app/components/D0001/table/useTable'
+import useTable from '@n88-desktop/components/common/table/useTable'
 import { useStatement } from '@nx-next-app/operations'
 
 const StatementTable = () => {

@@ -1,14 +1,10 @@
-import { LeftMenu, Statement } from '@n88-desktop/components/index'
+import { Layout, LeftMenu, Statement } from '@n88-desktop/components/index'
 import { NovaAuthProvider } from '@nova88-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import {
-	// todo:待 Linda 把 Layout 合進 dev 在重新引入
-	Layout,
-} from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,

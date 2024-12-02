@@ -1,2 +1,5 @@
+export { default as ChangePassword } from './change-password'
+export { default as Layout } from './layout'
 export { default as LeftMenu } from './leftMenu'
+export { default as Profile } from './profile'
 export { default as Statement } from './statement'

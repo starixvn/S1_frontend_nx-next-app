@@ -1,4 +1,3 @@
-import { InputBox, Loading, Select } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { EMAIL_REGEX, REALNAME_REGEX } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
@@ -7,6 +6,7 @@ import { numberFormat } from '@nx-next-app/utils'
 import dayjs from 'dayjs'
 import DateSelector from 'libs/web/src/components/D0001/dateSelector'
 import { useTranslation } from 'next-i18next'
+import { InputBox, Loading, Select } from '../common/index'
 import { PhoneOtpModal } from '../modal/PhoneOtpModal'
 
 const Info = () => {

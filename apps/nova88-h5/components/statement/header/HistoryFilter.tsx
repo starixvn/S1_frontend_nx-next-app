@@ -1,6 +1,6 @@
-import DateSelector from '@nx-next-app/components/H0001/dateSelector'
 import { useHistory } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
+import { DateSelector } from '../../common/index'
 
 const HistoryFilter = () => {
 	const { startDate, endDate, onStartDateChange, onEndDateChange, onSearch } =
