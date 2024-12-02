@@ -1,22 +1,23 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const LobbyGamePage = styled.div`
 	.banner-container {
+		max-height: 39rem;
 		padding-top: 2rem;
-		height: 39rem;
+		padding-bottom: 6rem;
 		background: url(${({ theme }) =>
-			theme.assetUrl}/desktop/img/new-ui/banner-bg.webp);
+				theme.assetUrl}/desktop/img/new-ui/banner-bg.webp)
+			no-repeat;
 
 		.img {
-			height: 36.4rem;
+			width: 100%;
+			height: auto;
 		}
 
 		.content-container {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			height: 36.4rem;
-			background: #1d2447;
 			border-radius: 2rem;
 		}
 	}
@@ -33,6 +34,13 @@ export const LobbyGamePage = styled.div`
 
 	.custom-nodata {
 		margin-top: 2rem;
+		margin-bottom: 6rem;
+	}
+
+	&.sports {
+		.lobby-content-item {
+			margin-top: 0;
+		}
 	}
 `
 
@@ -159,6 +167,7 @@ export const GameListContainer = styled.div`
 	justify-content: flex-start;
 	flex-wrap: wrap;
 	gap: 2rem;
+	padding-bottom: 4rem;
 `
 
 export const SearchForm = styled.div`

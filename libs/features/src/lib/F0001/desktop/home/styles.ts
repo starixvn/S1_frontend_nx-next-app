@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const HomePage = styled.div`
 	.homebanner {
@@ -8,9 +8,13 @@ export const HomePage = styled.div`
 			theme.assetUrl}/desktop/img/new-ui/banner-bg.webp);
 
 		.swiper-container {
-			width: ${({ theme }) => theme.desktop.contentWidth};
+			width: ${({ theme }) => theme.desktop.minContentWidth};
 			border-radius: 2rem;
 			position: relative;
+
+			@media (min-width: 1450px) {
+				width: ${({ theme }) => theme.desktop.contentWidth};
+			}
 
 			> .swiper-wrapper {
 				align-items: flex-start;
@@ -92,8 +96,12 @@ export const GameGroup = styled.div`
 	padding-bottom: 4rem;
 
 	&.promotion {
-		width: 150rem;
+		width: ${({ theme }) => theme.desktop.minContentWidth};
 		margin: 0 auto;
+
+		@media (min-width: 1450px) {
+			width: 150rem;
+		}
 
 		.load-more {
 			margin-right: 0;
@@ -119,11 +127,19 @@ export const GameGroup = styled.div`
 	}
 
 	&.slot .embla__container {
-		--column-count: 6.5;
+		--column-count: 5.5;
+
+		@media (min-width: 1450px) {
+			--column-count: 6.5;
+		}
 	}
 
 	&.others .embla__container {
-		--column-count: 8.5;
+		--column-count: 7.5;
+
+		@media (min-width: 1450px) {
+			--column-count: 8.5;
+		}
 	}
 
 	.embla__container {

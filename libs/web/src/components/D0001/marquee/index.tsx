@@ -22,28 +22,30 @@ const Marquee = ({ data, configs, onMarqueeClick }: IMarqueeProps) => {
 
 	return (
 		<HomeMarquee>
-			<div className='marquee' id='Marquee'>
-				<div className='marquee-box'>
-					<div className='marquee-run' style={{ width: '100%' }}>
-						<ReactMarquee {...defaultConfig}>
-							{data?.map(({ id, subject }) => (
-								<button
-									className='white'
-									key={`announcement-${id}`}
-									style={{ paddingLeft: '2rem' }}
-									onClick={onMarqueeClick}
-								>
-									{subject}
-								</button>
-							))}
-						</ReactMarquee>
+			<div className='content-container'>
+				<div className='marquee' id='Marquee'>
+					<div className='marquee-box'>
+						<div className='marquee-run' style={{ width: '100%' }}>
+							<ReactMarquee {...defaultConfig}>
+								{data?.map(({ id, subject }) => (
+									<button
+										className='white'
+										key={`announcement-${id}`}
+										style={{ paddingLeft: '2rem' }}
+										onClick={onMarqueeClick}
+									>
+										{subject}
+									</button>
+								))}
+							</ReactMarquee>
+						</div>
 					</div>
 				</div>
+				<button className='live-chat' onClick={openLiveChat}>
+					<span className='icon icon-chat-smile-fill' />
+					{t('Label_General_LiveChat')}
+				</button>
 			</div>
-			<button className='live-chat' onClick={openLiveChat}>
-				<span className='icon icon-chat-smile-fill' />
-				{t('Label_General_LiveChat')}
-			</button>
 		</HomeMarquee>
 	)
 }

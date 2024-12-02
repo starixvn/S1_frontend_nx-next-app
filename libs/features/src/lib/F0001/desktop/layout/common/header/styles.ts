@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const HeaderTop = styled.div`
 	display: flex;
@@ -6,10 +6,14 @@ export const HeaderTop = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	align-self: stretch;
-	width: ${({ theme }) => theme.desktop.contentWidth};
+	width: ${({ theme }) => theme.desktop.minContentWidth};
 	margin: auto;
 	background: ${({ theme }) => theme.desktop.headerBg};
 	color: ${({ theme }) => theme.desktop.headerColor};
+
+	@media (min-width: 1450px) {
+		width: ${({ theme }) => theme.desktop.contentWidth};
+	}
 `
 export const Message = styled.div`
 	position: relative;

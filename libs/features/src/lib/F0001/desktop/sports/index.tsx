@@ -1,8 +1,9 @@
-import { LobbyGamePage } from '@nx-next-app/features/F0001/desktop/lobby-game/styles'
-import SportGame from '@nx-next-app/features/F0001/desktop/sport-game'
-import SportBanner from '@nx-next-app/features/F0001/desktop/sports/SportBanner'
-import { useRouter } from 'next/router'
-import SportList from './SportList'
+import { LobbyGamePage } from "@nx-next-app/features/F0001/desktop/lobby-game/styles";
+import SportGame from "@nx-next-app/features/F0001/desktop/sport-game";
+import SportBanner from "@nx-next-app/features/F0001/desktop/sports/SportBanner";
+import { useRouter } from "next/router";
+
+import SportList from "./SportList";
 
 const Sports = () => {
 	const {
@@ -11,7 +12,7 @@ const Sports = () => {
 	return queryProvider ? (
 		<SportGame />
 	) : (
-		<LobbyGamePage className='main-content '>
+		<LobbyGamePage className='main-content sports'>
 			<SportBanner />
 			<SportList />
 		</LobbyGamePage>

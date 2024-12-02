@@ -1,11 +1,9 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const FooterContainer = styled.div`
 	background: ${({ theme }) => theme.desktop.footerBg};
 	padding-top: 4rem;
 	.footer-top {
-		margin: 0 auto;
-		max-width: ${({ theme }) => theme.desktop.contentWidth};
 		display: flex;
 		gap: 2.4rem;
 		padding-bottom: 2.4rem;
@@ -22,8 +20,6 @@ export const FooterContainer = styled.div`
 		}
 	}
 	.footer-center {
-		margin: 0 auto;
-		max-width: ${({ theme }) => theme.desktop.contentWidth};
 		display: flex;
 		justify-content: space-between;
 		padding: 2.4rem 0 4rem;

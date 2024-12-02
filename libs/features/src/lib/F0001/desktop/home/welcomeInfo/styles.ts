@@ -1,10 +1,12 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const WelcomeInfoContainer = styled.div`
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
+	flex-wrap: wrap;
 	margin-top: 2rem;
 	padding-bottom: 4rem;
+	gap: 2rem;
 
 	.welcomeinfo-content {
 		position: relative;
@@ -99,6 +101,15 @@ export const WelcomeInfoContainer = styled.div`
 				box-shadow: ${({ theme }) =>
 					theme.desktop.welcomeReferralBtnShadowHover};
 				color: ${({ theme }) => theme.desktop.welcomeReferralBtnColorHover};
+			}
+		}
+	}
+
+	@media (min-width: 1450px) {
+		.welcomeinfo-content {
+			img {
+				width: 33.2rem;
+				height: 25.7rem;
 			}
 		}
 	}

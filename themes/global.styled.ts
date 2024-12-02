@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
-import { theme } from './theme'
+import { theme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
@@ -125,13 +125,21 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .main-content {
-    min-width: ${({ theme }) => theme.desktop.contentWidth};
+    min-width: ${({ theme }) => theme.desktop.minContentWidth};
+
+    @media (min-width: 1450px) {
+      min-width: ${({ theme }) => theme.desktop.contentWidth};
+    }
   }
 
   .content-container {
-    width:${({ theme }) => theme.desktop.contentWidth};
+    width:${({ theme }) => theme.desktop.minContentWidth};
     margin-left: auto;
     margin-right: auto;
+
+    @media (min-width: 1450px) {
+      width: ${({ theme }) => theme.desktop.contentWidth};
+    }
   }
 
   #popup {
@@ -309,7 +317,7 @@ export const GlobalStyles = createGlobalStyle`
         }
       }
     }
-    
+
   }
   .tip {
     margin-top: 0.4rem;
@@ -1338,7 +1346,7 @@ export const GlobalStyles = createGlobalStyle`
         font-size: 1.7rem;
         font-weight: 700;
         line-height: normal;
-       
+
       }
       .txt-gray{
        margin-top : .8rem;
@@ -1367,7 +1375,7 @@ export const GlobalStyles = createGlobalStyle`
         color: #939DC5 !important;
         padding : 0 !important;
         margin-bottom : 1.2rem !important;
-        
+
       }
       p,div,span{
         margin-bottom : 1.2rem !important;
@@ -1495,7 +1503,7 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 1.3rem;
     font-weight : 600;
   }
- 
+
   .step {
 		display: flex;
 		justify-content: space-between;
@@ -1679,5 +1687,5 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0 auto;
     display: flex;
   }
- 
+
 `

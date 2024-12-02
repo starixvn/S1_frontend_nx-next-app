@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const HomeMarquee = styled.div`
 	position: relative;
@@ -6,8 +6,12 @@ export const HomeMarquee = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	height: 4rem;
-	padding: 0 calc((100% - ${({ theme }) => theme.desktop.contentWidth}) / 2);
 	background: ${({ theme }) => theme.desktop.marqueeMessageBg};
+
+	.content-container {
+		display: grid;
+		grid-template-columns: 1fr 12rem;
+	}
 
 	.marquee {
 		position: relative;
@@ -18,7 +22,7 @@ export const HomeMarquee = styled.div`
 			overflow: hidden;
 			padding: 0 1.2rem;
 
-			width: 120rem;
+			width: 100%;
 			margin: auto;
 			position: relative;
 			display: flex;
@@ -56,6 +60,7 @@ export const HomeMarquee = styled.div`
 	.live-chat {
 		display: flex;
 		align-items: center;
+		justify-content: end;
 		height: 100%;
 		color: ${({ theme }) => theme.desktop.liveChatColor};
 

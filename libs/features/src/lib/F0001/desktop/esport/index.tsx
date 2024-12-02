@@ -1,11 +1,11 @@
-import ESportBanner from '@nx-next-app/features/F0001/desktop/esport/ESportBanner'
-import { LobbyGamePage } from '@nx-next-app/features/F0001/desktop/lobby-game/styles'
+import ESportBanner from "@nx-next-app/features/F0001/desktop/esport/ESportBanner";
+import { LobbyGamePage } from "@nx-next-app/features/F0001/desktop/lobby-game/styles";
 
-import ESportList from './ESportList'
+import ESportList from "./ESportList";
 
 const ESport = () => {
 	return (
-		<LobbyGamePage className='main-content '>
+		<LobbyGamePage className='main-content sports'>
 			<ESportBanner />
 			<ESportList />
 		</LobbyGamePage>

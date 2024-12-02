@@ -24,9 +24,13 @@ export const MenuContainer = styled.div`
 		display: flex;
 		align-items: center;
 		margin: auto;
-		width: ${({ theme }) => theme.desktop.contentWidth};
+		width: ${({ theme }) => theme.desktop.minContentWidth};
 		height: 100%;
 		justify-content: space-between;
+
+		@media (min-width: 1450px) {
+			width: ${({ theme }) => theme.desktop.contentWidth};
+		}
 
 		.menu-item,
 		> button {

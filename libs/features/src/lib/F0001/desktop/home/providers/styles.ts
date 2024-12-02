@@ -1,5 +1,5 @@
-import { GameGroup } from '@nx-next-app/features/F0001/desktop/home/styles'
-import styled from 'styled-components'
+import { GameGroup } from "@nx-next-app/features/F0001/desktop/home/styles";
+import styled from "styled-components";
 
 export const GameContainer = styled.div`
 	display: grid;
@@ -8,7 +8,11 @@ export const GameContainer = styled.div`
 `
 export const ProviderGroup = styled(GameGroup)`
 	.embla {
-		width: ${({ theme }) => theme.desktop.contentWidth};
+		width: ${({ theme }) => theme.desktop.minContentWidth};
+
+		@media (min-width: 1450px) {
+			width: ${({ theme }) => theme.desktop.contentWidth};
+		}
 	}
 
 	.embla__container {

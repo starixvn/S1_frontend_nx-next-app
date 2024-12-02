@@ -1,11 +1,11 @@
-import { Footer } from '@nx-next-app/components/D0001'
-import { useAuth } from '@nx-next-app/data-access'
-import { FooterContainer } from '@nx-next-app/features/F0001/desktop/layout/common/footer/styles'
-import { useGetSocialChannelQuery } from '@nx-next-app/service'
-import { SocialChannelEnum } from 'libs/features/src/lib/F0001/types'
-import { IFooterData } from 'libs/web/src/app/types/footer'
-import { upperFirst } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
+import { Footer } from "@nx-next-app/components/D0001";
+import { useAuth } from "@nx-next-app/data-access";
+import { FooterContainer } from "@nx-next-app/features/F0001/desktop/layout/common/footer/styles";
+import { useGetSocialChannelQuery } from "@nx-next-app/service";
+import { SocialChannelEnum } from "libs/features/src/lib/F0001/types";
+import { IFooterData } from "libs/web/src/app/types/footer";
+import { upperFirst } from "lodash-es";
+import { useTranslation } from "next-i18next";
 
 const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 	const {
@@ -32,14 +32,13 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 	return (
 		<FooterContainer>
 			<Footer>
-				<div className='footer-top'>
+				<div className='footer-top content-container'>
 					{!!quickLinks && <Footer.QuickLinks quickLinks={quickLinks} />}
 				</div>
-				<div className='footer-center'>
+				<div className='footer-center content-container'>
 					{isGetSocialChannelListLoading ? null : (
 						<Footer.SocialMedia socialChannelList={socialChannelList} />
 					)}
-					{/* <Footer.SuggestBrowser suggestedBrowser={suggestedBrowser} /> */}
 					<Footer.PaymentMethod
 						paymentMethodsByCurrencyId={paymentMethodsByCurrencyId}
 					/>
@@ -47,7 +46,6 @@ const LayoutFooter = ({ footerData }: { footerData: IFooterData }) => {
 				<div className='copyright'>
 					{t('Label_Footer_Copyright', { year, site })}
 				</div>
-				{/* <Footer.PromotionText promotionTextList={promotionTextList} /> */}
 			</Footer>
 		</FooterContainer>
 	)
