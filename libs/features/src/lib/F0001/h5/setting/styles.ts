@@ -402,35 +402,35 @@ export const WrapperSettingPage = styled.div`
 		}
 
 		.menu-vip.vintage {
-			background: url(${({ theme }) => theme.assetUrl}/h5/img/new-ui/nova-bg.webp)
+			background: url(${({ theme }) => theme.assetUrl}/h5/img/new-ui/platium-bg.webp)
 				no-repeat center/cover;
 		}
 		.menu-vip.vintage .right {
 			background: #ffb773;
 		}
 		.menu-vip.silver {
-			background: url(${({ theme }) => theme.assetUrl}/h5/img/new-ui/nova-bg.webp)
+			background: url(${({ theme }) => theme.assetUrl}/h5/img/new-ui/silver.webp)
 				no-repeat center/cover;
 		}
 		.menu-vip.silver .right {
 			background: #e9e9e9;
 		}
 		.menu-vip.gold {
-			background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/gold-bg.png)
+			background: url(${({ theme }) => theme.assetUrl}/h5/img/new-ui/gold-bg.webp)
 				no-repeat center/cover;
 		}
 		.menu-vip.gold .right {
 			background: #ffd965;
 		}
 		.menu-vip.titanium {
-			background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/titanium-bg.png)
+			background: url(${({ theme }) => theme.assetUrl}/h5/img/new-ui/titanium-bg.webp)
 				no-repeat center/cover;
 		}
 		.menu-vip.titanium .right {
 			background: #a5a5a5;
 		}
 		.menu-vip.diamond {
-			background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/diamond-bg.png)
+			background: url(${({ theme }) => theme.assetUrl}/h5/img/new-ui/diamond-bg.webp)
 				no-repeat center/cover;
 		}
 		.menu-vip.diamond .right {

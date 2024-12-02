@@ -70,10 +70,7 @@ const Shortcut = () => {
 				target='_blank'
 				rel='noreferrer'
 			>
-				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/livechat-2.png`}
-					alt='livechat'
-				/>
+				<i className='icon icon-chat-check-fill' />
 				<span>{t('Label_General_LiveChat')}</span>
 			</a>
 			{/* TODO: Hide in phase 1 */}
@@ -112,11 +109,7 @@ const Shortcut = () => {
 			{isLogin && (
 				<Link href={paths.survey.root}>
 					<a>
-						<img
-							className='exclusion-icon'
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/survey.png`}
-							alt='survey'
-						/>
+						<i className='icon icon-chat-check-fill' />
 						<span>{t('Label_General_Survey')}</span>
 					</a>
 				</Link>
