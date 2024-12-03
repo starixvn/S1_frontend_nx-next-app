@@ -1,5 +1,6 @@
-import { GroupTitleContainer } from '@nx-next-app/features/F0001/desktop/home/styles'
-import Link from 'next/link'
+import { GroupTitleContainer } from "@nx-next-app/features/F0001/desktop/home/styles";
+import { useTranslation } from "next-i18next";
+import Link from "next/link";
 
 type IGroupTitle = {
 	title: string
@@ -7,13 +8,16 @@ type IGroupTitle = {
 }
 
 const GroupTitle: React.FC<IGroupTitle> = ({ title, href }: IGroupTitle) => {
+	const { t } = useTranslation()
+
 	return (
 		<GroupTitleContainer>
 			{title}
 			{href && (
 				<Link href={href} passHref>
 					<a className='load-more'>
-						All <span className='icon icon-arrow-right-line' />
+						{t('Label_General_All')}
+						<span className='icon icon-arrow-right-line' />
 					</a>
 				</Link>
 			)}
