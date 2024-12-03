@@ -1,18 +1,15 @@
-import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import { useHeaderLogo } from '@nx-next-app/hooks'
-import {
-	ICustBonusWalletData,
-	IMainWalletInfoData,
-	ITpWalletInfoData,
-} from '@nx-next-app/service'
-import { numberFormat } from '@nx-next-app/utils'
-import classNames from 'classnames'
-import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
-import { HTMLAttributes, useEffect } from 'react'
-import { useBoolean, useDebounce } from 'usehooks-ts'
-import { SpinButton } from '../button'
+import { paths } from "@nx-next-app/constants";
+import { useAuth } from "@nx-next-app/data-access";
+import { useHeaderLogo } from "@nx-next-app/hooks";
+import { ICustBonusWalletData, IMainWalletInfoData, ITpWalletInfoData } from "@nx-next-app/service";
+import { numberFormat } from "@nx-next-app/utils";
+import classNames from "classnames";
+import { useTranslation } from "next-i18next";
+import Link from "next/link";
+import { HTMLAttributes, useEffect } from "react";
+import { useBoolean, useDebounce } from "usehooks-ts";
+
+import { SpinButton } from "../button";
 
 interface IHeaderModuleProps extends HTMLAttributes<HTMLDivElement> {
 	isTpWalletBalanceListLoading: boolean
@@ -40,8 +37,8 @@ const HeaderModule = ({
 	const { t } = useTranslation()
 	const { logoUrl, showSpLogo } = useHeaderLogo({
 		mainLogoUrl: {
-			original: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w.png`,
-			special: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo-mid.png`,
+			original: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/logo_w.png`,
+			special: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/logo_w.png`,
 		},
 	})
 
@@ -83,25 +80,26 @@ const HeaderModule = ({
 
 			{/* 登入前 */}
 			{!auth.isLogin && (
-				<>
-					<div className='home-btn-group header-login'>
+				<div className='btn-groups'>
+					<div className='header-login'>
 						<Link href={paths.login.root} prefetch>
-							<a className='btn-login'>{t('Label_General_LogIn')}</a>
+							<a className='btn-login button btn-primary'>
+								{t('Label_General_LogIn')}
+							</a>
 						</Link>
 						<Link href={paths.join.root} prefetch>
-							<a className='btn-register'>{t('Label_General_Register')}</a>
+							<a className='btn-register button btn-secondary'>
+								{t('Label_General_Register')}
+							</a>
 						</Link>
 					</div>
 
 					<Link href={paths.setting.root} prefetch>
 						<a className='btn-menu'>
-							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/menu.png`}
-								alt='setting'
-							/>
+							<span className='icon icon-hamburger' />
 						</a>
 					</Link>
-				</>
+				</div>
 			)}
 
 			{/* 登入後簡易資訊 */}

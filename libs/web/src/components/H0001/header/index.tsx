@@ -1,7 +1,9 @@
-import { HTMLAttributes, ReactNode } from 'react'
-import AppDownload from './AppDownload'
-import HeaderModule from './HeaderModule'
-import { Tag, Tags } from './tabs/index'
+import { HeaderContainer } from "@nx-next-app/components/H0001/header/styles";
+import { HTMLAttributes, ReactNode } from "react";
+
+import AppDownload from "./AppDownload";
+import HeaderModule from "./HeaderModule";
+import { Tag, Tags } from "./tabs";
 
 interface IHeaderProps extends HTMLAttributes<HTMLElement> {
 	children: ReactNode
@@ -9,9 +11,9 @@ interface IHeaderProps extends HTMLAttributes<HTMLElement> {
 
 const Header = ({ children, ...props }: IHeaderProps) => {
 	return (
-		<header id='header' {...props}>
+		<HeaderContainer id='header' {...props}>
 			{children}
-		</header>
+		</HeaderContainer>
 	)
 }
 
@@ -21,5 +23,5 @@ Header.Tag = Tag
 Header.Tags = Tags
 
 export default Header
-export { useAppDownload } from './useAppDownload'
 export type { TagOptionType } from './tabs'
+export { useAppDownload } from './useAppDownload'

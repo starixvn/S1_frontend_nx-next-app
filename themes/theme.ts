@@ -296,6 +296,9 @@ export const theme = {
 		promotionTimeBgHover: '#414F86',
 	},
 	mobile: {
+		headerBg: '#0F1428',
+		headerColor: '#fff',
+
 		rightModuleBg: '#182043',
 		rightModuleTitleBg: '#232B4F',
 		rightModuleBorderColor: '#374375',

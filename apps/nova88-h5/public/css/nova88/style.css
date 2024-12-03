@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -3061,8 +3061,6 @@ main .gameList .icon-new {
 	font-weight: bold;
 }
 
-
-
 .quantity {
 	background: white;
 	border-radius: 100%;
@@ -5014,7 +5012,6 @@ button.clickBtn:before {
 .transfer ul li:last-child {
 	width: 100%;
 }
-
 
 .Message {
 	padding: 40vw 0 25vw;
@@ -14906,13 +14903,6 @@ input[type='number'] {
 	-moz-appearance: textfield;
 }
 
-.btn-group {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	width: 100%;
-	margin: 2vw 0;
-}
 .btn-group.transferAll {
 	width: -webkit-min-content;
 	width: -moz-min-content;
@@ -15043,171 +15033,6 @@ input[type='number'] {
 	color: #284985;
 }
 .btn-group .recentBtn {
-	background: #112240;
-}
-
-.home-btn-group {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	width: 100%;
-}
-.home-btn-group.transferAll {
-	width: -webkit-min-content;
-	width: -moz-min-content;
-	width: min-content;
-	height: 100%;
-	margin: 0;
-	position: absolute;
-	right: 0;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.home-btn-group.transferAll .clickBtn {
-	max-width: 6vw;
-	padding: 0;
-}
-.home-btn-group.transferAll .transfer-btn,
-.home-btn-group.transferAll .red {
-	height: 100%;
-	font-weight: bold;
-}
-.home-btn-group.transferAll .transfer-btn.active,
-.home-btn-group.transferAll .red.active {
-	color: #c6d4f1;
-}
-.home-btn-group button,
-.home-btn-group a,
-.home-btn-group .submit {
-	font-family: 'Poppins', sans-serif;
-	background: -webkit-gradient(
-		linear,
-		left top,
-		left bottom,
-		from(#435f8b),
-		to(#6383b9)
-	);
-	background: linear-gradient(to bottom, #435f8b, #6383b9);
-	width: 100%;
-	border-radius: 50px;
-	padding: 2vw;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	position: relative;
-	font-size: 3vw;
-}
-.home-btn-group button i,
-.home-btn-group a i,
-.home-btn-group .submit i {
-	margin: 0 0 0 2vw;
-	-webkit-transition: 0.7s;
-	transition: 0.7s;
-}
-.home-btn-group button i.icon-keyboard_arrow_down.active,
-.home-btn-group a i.icon-keyboard_arrow_down.active,
-.home-btn-group .submit i.icon-keyboard_arrow_down.active {
-	-webkit-transform: rotate(180deg);
-	transform: rotate(180deg);
-	-webkit-transition: 0.7s;
-	transition: 0.7s;
-}
-.home-btn-group button:nth-child(n + 2),
-.home-btn-group a:nth-child(n + 2),
-.home-btn-group .submit:nth-child(n + 2) {
-	margin: 0 0 0 3vw;
-}
-.home-btn-group button.backupClick,
-.home-btn-group a.backupClick,
-.home-btn-group .submit.backupClick {
-	background: #f77a00;
-}
-.home-btn-group button.blue,
-.home-btn-group a.blue,
-.home-btn-group .submit.blue {
-	background: -webkit-gradient(
-		linear,
-		right top,
-		left top,
-		from(#556d97),
-		to(#112240)
-	);
-	background: linear-gradient(270deg, #556d97 0%, #112240 100%);
-}
-.home-btn-group button.cancel,
-.home-btn-group a.cancel,
-.home-btn-group .submit.cancel {
-	background: -webkit-gradient(
-		linear,
-		left top,
-		left bottom,
-		from(#95aacf),
-		to(#bdcbe2)
-	);
-	background: linear-gradient(to bottom, #95aacf, #bdcbe2);
-}
-.home-btn-group button.white,
-.home-btn-group a.white,
-.home-btn-group .submit.white {
-	background: -webkit-gradient(
-		linear,
-		left top,
-		left bottom,
-		from(#95aacf),
-		to(#bdcbe2)
-	);
-	background: linear-gradient(to bottom, #95aacf, #bdcbe2);
-}
-.home-btn-group button.gray,
-.home-btn-group a.gray,
-.home-btn-group .submit.gray {
-	background: #949494;
-}
-.home-btn-group button.orange,
-.home-btn-group a.orange,
-.home-btn-group .submit.orange {
-	background: #f77a00;
-}
-.home-btn-group button.red,
-.home-btn-group a.red,
-.home-btn-group .submit.red {
-	background: #e92529;
-}
-.home-btn-group button.btn-line,
-.home-btn-group a.btn-line,
-.home-btn-group .submit.btn-line {
-	background: #07b802;
-	color: white;
-	line-height: 1;
-	padding: 2vw;
-	margin: 0;
-}
-.home-btn-group button.btn-line .icon,
-.home-btn-group a.btn-line .icon,
-.home-btn-group .submit.btn-line .icon {
-	font-size: 18px;
-	margin-right: 1vw;
-}
-.home-btn-group button.btn-line.active,
-.home-btn-group a.btn-line.active,
-.home-btn-group .submit.btn-line.active {
-	background: #069c02;
-}
-.home-btn-group a {
-	padding: 2vw;
-}
-.home-btn-group + .txt-line {
-	text-align: center;
-	color: #284985;
-}
-.home-btn-group .recentBtn {
 	background: #112240;
 }
 
@@ -15402,30 +15227,6 @@ input[type='number'] {
 			center/cover;
 		opacity: 1;
 	}
-}
-.header-login {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: end;
-	-ms-flex-pack: end;
-	justify-content: flex-end;
-	margin-right: 4vw;
-}
-.header-login .btn-login,
-.header-login .btn-register {
-	width: 18vw;
-	padding: 1vw;
-}
-.header-login .btn-login {
-	color: #ff7600;
-	border: 1px solid #ff7600;
-	background: none;
-	font-weight: 600;
-}
-.header-login .btn-register {
-	background: #ff7600;
-	margin-left: 2vw !important;
 }
 
 .header-menu {
@@ -16632,11 +16433,6 @@ main.casino .banner {
 	margin-right: 1vw;
 	margin-left: -1vw;
 }
-
-
-
-
-
 
 .react-datepicker-wrapper {
 	-webkit-box-flex: 1;
