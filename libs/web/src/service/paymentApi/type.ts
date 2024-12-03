@@ -172,14 +172,12 @@ export interface ISubmitWithdrawalArgs {
 	amount: number
 	sysId: number
 	memo?: string
-	blackbox?: string
 	ifscCode?: string
 }
 
 export interface ISubmitCryptoWithdrawalArgs {
 	accountNo: string
 	amount: number
-	blackbox: string
 	currencyId: number
 	exchangeRate: number
 	exchangeAmount: number

@@ -5,6 +5,7 @@ export const LiveChatScript = ({ liveChatId }: { liveChatId: number }) => (
 	<script
 		async
 		id='liveChat-script'
+		// eslint-disable-next-line react/no-danger
 		dangerouslySetInnerHTML={{
 			__html: `window.__lc = window.__lc || {};
        window.__lc.license = ${process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']};
@@ -13,24 +14,6 @@ export const LiveChatScript = ({ liveChatId }: { liveChatId: number }) => (
        `,
 		}}
 	/>
-)
-
-export const IovationScript = () => (
-	<>
-		<Script async id='iovation-script'>
-			{`
-                         window.IGLOO = window.IGLOO || {
-                         "enable_flash" : false,
-                         "loader" : {
-                         "fp_dyn" : false,
-                         "version" : "5.2.2"
-                         }
-                       };
-                 `}
-		</Script>
-
-		<Script async src='/js/loader_only.js' />
-	</>
 )
 
 export const PlayTechScript = () => (
