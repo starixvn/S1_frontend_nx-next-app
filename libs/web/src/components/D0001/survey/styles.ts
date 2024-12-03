@@ -17,20 +17,18 @@ export const WrapperServey = styled.div`
 		right: -60px;
 		display: flex;
 		align-items: center;
-		background: #0066cc;
+		background: #7883b4;
 		border-radius: 100%;
-		padding: 15px;
-		width: 60px;
-		height: 60px;
-		box-shadow: 0 3px 6px rgba(180, 187, 193, 0.8117647059);
-	}
-	#survey .survey-icon-btn img {
-		width: 35px;
-	}
-	#survey .survey-icon-btn:hover {
-		background: #2685e3;
-		-webkit-transition: 0.3s;
-		transition: 0.3s;
+		align-items: center;
+		justify-content: center;
+		width: 5.2rem;
+		height: 5.2rem;
+		box-shadow: 0px 6px 30px 0px rgba(0, 0, 0, 0.5);
+		.icon {
+			&:before {
+				font-size: 2.8rem;
+			}
+		}
 	}
 	#survey .survey-box {
 		position: absolute;
@@ -139,7 +137,7 @@ export const WrapperServey = styled.div`
 		justify-content: right;
 	}
 	#survey .survey-before.close {
-		display: none;
+		display: done;
 	}
 	#survey .survey-after {
 		display: flex;
@@ -147,8 +145,18 @@ export const WrapperServey = styled.div`
 		align-items: center;
 		padding: 8rem 3rem;
 	}
-	#survey .survey-after img {
-		width: 150px;
+	#survey .survey-after .icon {
+		border: 6px solid #1d2447;
+		background: #232b4f;
+		border-radius: 100px;
+		height: 52px;
+		width: 52px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&:before {
+			font-size: 3.2rem;
+		}
 	}
 	#survey .survey-after .icon-close {
 		position: absolute;

@@ -122,6 +122,7 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    overflow-x : hidden;
   }
 
   .main-content {
@@ -500,10 +501,13 @@ export const GlobalStyles = createGlobalStyle`
   }
   .wrapper-profile {
     display: flex;
-    max-width: ${({ theme }) => theme.desktop.contentWidth};
-    margin: 0 auto;
+    width: ${({ theme }) => theme.desktop.minContentWidth};
     padding: 4rem 1.6rem 4rem;
     gap : 2.4rem;
+    @media (min-width: 1450px) {
+      width: ${({ theme }) => theme.desktop.contentWidth};
+       margin: 0 auto;
+    }
     #leftMenu {
       flex : 0 0 18%;
     }

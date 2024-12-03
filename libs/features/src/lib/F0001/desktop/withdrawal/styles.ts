@@ -10,6 +10,9 @@ export const WrapperWithdrawl = styled.div`
 		align-items: flex-start;
 		justify-content: center;
 		gap: 1.6rem;
+		&.custom {
+			display: block;
+		}
 	}
 
 	.walletModule {

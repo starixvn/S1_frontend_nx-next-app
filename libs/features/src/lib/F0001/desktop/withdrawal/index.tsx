@@ -44,19 +44,19 @@ const index = ({ withdrawalBlockSetting }: IWithdrawalProps) => {
 										</button>
 									</div>
 								</div>
-								<div className='inside-body'>
-									{kycStatus !== KycStatusEnum.Normal ? (
+								{kycStatus !== KycStatusEnum.Normal ? (
+									<div className='inside-body custom'>
 										<KycPanel />
-									) : (
-										<>
-											<div className='infoModuleLeft'>
-												<WalletInfo />
-												<WalletPanel />
-											</div>
-											<ImportNotice />
-										</>
-									)}
-								</div>
+									</div>
+								) : (
+									<div className='inside-body'>
+										<div className='infoModuleLeft'>
+											<WalletInfo />
+											<WalletPanel />
+										</div>
+										<ImportNotice />
+									</div>
+								)}
 							</div>
 							<RecentHistory />
 						</div>

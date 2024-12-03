@@ -64,10 +64,7 @@ const Survey = () => {
 					className='survey-icon-btn'
 					onClick={() => setIsOpenSurvey(true)}
 				>
-					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/survey.svg`}
-						alt='survey'
-					/>
+					<i className='icon icon-chat-private-fill' />
 				</button>
 				<div className={classNames('survey-box', { active: isOpenSurvey })}>
 					<div
@@ -146,10 +143,7 @@ const Survey = () => {
 					>
 						<i className='icon icon-close-line' onClick={onCloseSurvey} />
 						<div>
-							<img
-								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/thankyou.png`}
-								alt='thankyou'
-							/>
+							<i className='icon icon-file-damage-fill' />
 							<div>{t('Label_General_Thankyou')}</div>
 						</div>
 						<div>{t('Label_Survey_Hint2')}</div>
