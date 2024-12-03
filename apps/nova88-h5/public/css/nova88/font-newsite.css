@@ -26,6 +26,10 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-globe-alt:before {
+  content: "\e957";
+  color: #939dc5;
+}
 .icon-chat-poll-line:before {
   content: "\e956";
   color: #ea6118;

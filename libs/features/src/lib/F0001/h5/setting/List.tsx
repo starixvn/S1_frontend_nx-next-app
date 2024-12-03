@@ -33,7 +33,7 @@ const List = () => {
 	return (
 		<SettingCollapse>
 			<SettingCollapse.Item
-				imgName='languages'
+				imgName='icon-u_globe'
 				header={t('Label_General_Languages')}
 				defaultActive
 			>
@@ -134,7 +134,7 @@ const List = () => {
 			</SettingCollapse.Item>
 
 			<SettingCollapse.Item
-				imgName='policies'
+				imgName='icon-file-fill-pc'
 				header={t('Label_General_OurPolicies')}
 			>
 				<a
@@ -168,7 +168,7 @@ const List = () => {
 			</SettingCollapse.Item>
 
 			<SettingCollapse.Item
-				imgName='help'
+				imgName='icon-help-circle-outline'
 				header={t('Label_General_HelpSupport')}
 			>
 				<a
@@ -195,7 +195,7 @@ const List = () => {
 			</SettingCollapse.Item>
 
 			<SettingCollapse.Item
-				imgName='nova88'
+				imgName='icon-globe-alt'
 				header={String(process.env['NEXT_PUBLIC_SITE_NAME']).toUpperCase()}
 			>
 				<a

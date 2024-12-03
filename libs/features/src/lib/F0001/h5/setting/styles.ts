@@ -414,12 +414,16 @@ export const WrapperSettingPage = styled.div`
 
 	
 		.btn-logout {
-			background: white;
+			background: #505667;
+			box-shadow: 0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset;
 			border-radius: 30px;
-			width: 80vw;
-			padding: 3vw 0;
-			color: #d1d1d1;
-			margin: 5vw;
+			width: 100%;
+			max-width: 90vw;
+			margin: 4vw auto;
+			display: flex;
+			justify-content: center;
+			padding: 2.7vw 0;
+    		font-size: 3.3vw;
 		}
 
 	}

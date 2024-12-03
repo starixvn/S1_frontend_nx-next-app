@@ -1783,8 +1783,8 @@ export const GlobalStyles = createGlobalStyle`
 
 
   .menu-bottom {
-			background: #f0f0f0;
     	margin: 5vw auto;
+      padding-bottom : 30vw;
 			&-item{
 				.info {
 					display: flex;
@@ -1805,6 +1805,12 @@ export const GlobalStyles = createGlobalStyle`
 						font-size : 6.1vw;
 						color : ${({ theme }) => theme.desktop.rightModuleSloganColor};
 					}
+          .icon{
+            &:before{
+              font-size : 6.1vw;
+              color : ${({ theme }) => theme.desktop.rightModuleSloganColor};
+            }
+          }
 					img{
 						width: 6vw;
 					}
@@ -1832,10 +1838,8 @@ export const GlobalStyles = createGlobalStyle`
             align-items: center;
             &-current{
               display: flex;
-              margin-bottom: 5vw;
               background-color: ${({ theme }) =>
 								theme.desktop.rightModuleTitleBg};
-              border-radius: 4vw;
               padding: 3.8vw 4vw;
               .country-item{
                 background-color: ${({ theme }) =>
@@ -1886,7 +1890,6 @@ export const GlobalStyles = createGlobalStyle`
 			width: 100%;
 			align-items: center;
 			padding: 2vw 0;
-			margin-left: 6vw;
 		}
 		.menu-bottom-item .option .country-item > div:last-child {
 			width: 60vw;
@@ -1899,9 +1902,6 @@ export const GlobalStyles = createGlobalStyle`
 		}
 		.menu-bottom-item .option .country-item:last-child {
 			padding-bottom: 0;
-		}
-		.menu-bottom-item .option-item {
-			padding: 5vw;
 		}
 		.menu-bottom-item .option div {
 			font-size: 3.5vw;
