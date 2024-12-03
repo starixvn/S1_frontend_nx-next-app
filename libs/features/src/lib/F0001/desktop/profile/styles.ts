@@ -26,7 +26,7 @@ export const WrapperProfileAfterLogin = styled.div`
 				margin-top: 0.8rem;
 				border-radius: 100px;
 				color: ${({ theme }) => theme.desktop.white};
-				&.nova {
+				&.infinity {
 					background: ${({ theme }) => theme.desktop.gradeNovaBg};
 				}
 				&.vintage {

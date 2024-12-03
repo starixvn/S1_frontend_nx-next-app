@@ -1827,6 +1827,7 @@ export const GlobalStyles = createGlobalStyle`
 					color: #000;
 					font-weight: 500;
           background : #12172A;
+          border-bottom : 4px solid #12172A; 
           div {
             font-size: 3.3vw;
 			      font-weight: 600;
@@ -1849,6 +1850,17 @@ export const GlobalStyles = createGlobalStyle`
                   margin-top: 2vw;
                   color: #878787;
                   font-size: 3vw;
+                }
+              }
+              .country-title{
+                img{
+                  width: 10.7vw;
+                  border-radius: 50%;
+                  border: 1px solid #d1d1d1;
+                }
+                &.after{
+                  margin: 0;
+			            padding: 0 6vw;
                 }
               }
             }
@@ -1875,60 +1887,33 @@ export const GlobalStyles = createGlobalStyle`
 				}
 			}
 		}
-		.menu-bottom-item .option .country-current .country-title img {
-			width: 10.7vw;
-			border-radius: 50%;
-			border: 1px solid #d1d1d1;
-		}
-		.menu-bottom-item .option .country-current.after {
-			background-color: transparent;
-			margin: 0;
-			padding: 0 6vw;
-		}
-		.menu-bottom-item .option .country-item {
-			display: flex;
-			width: 100%;
-			align-items: center;
-			padding: 2vw 0;
-		}
-		.menu-bottom-item .option .country-item > div:last-child {
-			width: 60vw;
-		}
-		.menu-bottom-item .option .country-item > div button.active {
-			color: #ff7600;
-		}
-		.menu-bottom-item .option .country-item:first-child {
-			padding-top: 0;
-		}
-		.menu-bottom-item .option .country-item:last-child {
-			padding-bottom: 0;
-		}
-		.menu-bottom-item .option div {
-			font-size: 3.5vw;
-			font-weight: 600;
-		}
-		.menu-bottom-item .option button {
-			font-size: 3.5vw;
-			color: #585858;
-			font-weight: 500;
-			border-right: 1px solid #d1d1d1;
-			padding: 0 2vw;
-		}
-		.menu-bottom-item .option button:first-child {
-			padding-left: 0;
-		}
-		.menu-bottom-item .option button:last-child {
-			padding-right: 0;
-			border-right: 0;
-		}
-		.menu-bottom-item .option a {
-			color: #a7a7a7;
-			font-size: 600;
+		.menu-bottom-item .option a,.langs {
+			color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
-			padding: 0 0 5vw 18vw;
+      padding: 3vw 13vw;
+      background : #182043;
+      font-size: 3.6vw;
+      font-weight: 600;
+      line-height: normal;
 		}
+    .menu-bottom-item .option {
+      .langs{
+        flex-direction: row;
+        align-items: center;
+        gap : 3vw;
+        &-name{
+          color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+        }
+        &-img{
+          width : 6.2vw;
+          height : 6.2vw;
+          border-radius : 100px;
+          overflow : hidden;
+        }
+      }
+    }
 		.menu-bottom-item.active .info {
 			border: 0;
 		}
@@ -1942,5 +1927,4 @@ export const GlobalStyles = createGlobalStyle`
 		.menu-bottom-item:last-child .info {
 			border: 0;
 		}
-
 `

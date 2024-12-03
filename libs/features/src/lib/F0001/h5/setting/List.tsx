@@ -1,9 +1,7 @@
 import { SettingCollapse } from '@nx-next-app/components/H0001'
-import { LANG_GROUP_COUNTRY, paths } from '@nx-next-app/constants'
+import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useLanguageGroup } from '@nx-next-app/hooks'
-import classNames from 'classnames'
-import { isEqual } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -37,7 +35,27 @@ const List = () => {
 				header={t('Label_General_Languages')}
 				defaultActive
 			>
-				<div className={classNames('country-current', { after: isLogin })}>
+				<div className='option-item'>
+					<div className='langs'>
+						<div className='langs-img'>
+							<img
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/th.jpg`}
+								alt='country'
+							/>
+						</div>
+						<div className='langs-name'>ThaiLand</div>
+					</div>
+					<div className='langs'>
+						<div className='langs-img'>
+							<img
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/en.jpg`}
+								alt='country'
+							/>
+						</div>
+						<div className='langs-name'>English</div>
+					</div>
+				</div>
+				{/* <div className={classNames('country-current', { after: isLogin })}>
 					<div className='country-item'>
 						<div className='country-title'>
 							<div>
@@ -130,7 +148,7 @@ const List = () => {
 							)
 						})}
 					</div>
-				)}
+				)} */}
 			</SettingCollapse.Item>
 
 			<SettingCollapse.Item
