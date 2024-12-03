@@ -219,7 +219,6 @@ const Join = ({ cookies }: IJoinProps) => {
 		}
 		// opera and meta pixel tracker
 		OperaPixelTracker('register')
-		MetaPixelTracker('registerSubmit')
 
 		const {
 			username,
@@ -235,6 +234,13 @@ const Join = ({ cookies }: IJoinProps) => {
 			phone,
 			affiliate,
 		} = getValues()
+		MetaPixelTracker(
+			'registerSubmit',
+			undefined,
+			undefined,
+			undefined,
+			username
+		)
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
@@ -264,7 +270,6 @@ const Join = ({ cookies }: IJoinProps) => {
 				({ value }) => value === langId
 			)?.value ?? 'en'
 
-		const blackbox = ''
 		try {
 			await signUp({
 				// 因 cookies 有機會是 string[] 導致錯誤
@@ -285,12 +290,17 @@ const Join = ({ cookies }: IJoinProps) => {
 				userLang,
 				userName: username,
 				userpwd: password,
-				blackbox,
 				langId: userLang,
 				lineUserId: cookieLineUserId as string,
 			}).unwrap()
 			setStep(3)
-			MetaPixelTracker('CompleteRegistration')
+			MetaPixelTracker(
+				'CompleteRegistration',
+				undefined,
+				undefined,
+				undefined,
+				username
+			)
 		} catch (error) {
 			modal.error((error as Error).message)
 		}

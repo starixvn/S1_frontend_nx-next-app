@@ -11,24 +11,6 @@ export const LiveChatScript = () => (
 	</Script>
 )
 
-export const IovationScript = () => (
-	<>
-		<Script strategy='lazyOnload' id='iovation-script'>
-			{`
-                         window.IGLOO = window.IGLOO || {
-                         "enable_flash" : false,
-                         "loader" : {
-                         "fp_dyn" : false,
-                         "version" : "5.2.2"
-                         }
-                       };
-                 `}
-		</Script>
-
-		<Script strategy='lazyOnload' src='/js/loader_only.js' />
-	</>
-)
-
 export const ActivatorScript = () => (
 	<Script
 		strategy='lazyOnload'

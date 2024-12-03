@@ -82,7 +82,6 @@ export interface ISignUpArgs {
 	userLang: string
 	userName: string
 	userpwd: string
-	blackbox?: string
 	langId: string
 	lineUserId?: string
 }
