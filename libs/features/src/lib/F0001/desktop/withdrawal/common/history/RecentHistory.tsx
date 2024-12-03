@@ -30,7 +30,7 @@ const RecentHistory = () => {
 				<Link href={paths.history.root}>
 					<a className='btn-secondary'>
 						<i className='icon icon-book-read-fill' />
-						All Transaction
+						{t('Label_General_AllTranscations')}
 					</a>
 				</Link>
 			</div>
