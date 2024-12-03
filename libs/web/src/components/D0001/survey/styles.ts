@@ -137,7 +137,7 @@ export const WrapperServey = styled.div`
 		justify-content: right;
 	}
 	#survey .survey-before.close {
-		display: done;
+		display: none;
 	}
 	#survey .survey-after {
 		display: flex;
@@ -145,7 +145,7 @@ export const WrapperServey = styled.div`
 		align-items: center;
 		padding: 8rem 3rem;
 	}
-	#survey .survey-after .icon {
+	#survey .survey-after .icon-like {
 		border: 6px solid #1d2447;
 		background: #232b4f;
 		border-radius: 100px;
@@ -215,6 +215,6 @@ export const WrapperServey = styled.div`
 		width: 100%;
 	}
 	.icon-like {
-		margin-bottom: 2.4rem;
+		margin-bottom: 1rem;
 	}
 `
