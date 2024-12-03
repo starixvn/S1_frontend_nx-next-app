@@ -25,7 +25,7 @@
 			"options": {
 				"buildTarget": "noble888-desktop:build",
 				"dev": true,
-				"port": 4001
+				"port": 4007
 			},
 			"configurations": {
 				"development": {
