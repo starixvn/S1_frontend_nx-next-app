@@ -71,7 +71,7 @@ const Verification = () => {
 				<div>{t('Label_Profile_UserVerification')}：</div>
 				<div>
 					<div
-						className={classNames('icon icon-person', {
+						className={classNames('icon icon-user-line', {
 							active: accountName,
 							openTip: tipOpenCol === 'accountName',
 						})}

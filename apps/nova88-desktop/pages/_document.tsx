@@ -203,7 +203,7 @@ class MyDocument extends Document<CustomDocumentProps> {
 						</>
 					)}
 				</Head>
-				<body>
+				<body className='desktop'>
 					{/* Google Tag Manager (noscript) - GTAG paste in the <body> */}
 					{process.env['NEXT_PUBLIC_ENV'] === 'PRD' && (
 						<noscript>

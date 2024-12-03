@@ -9,6 +9,7 @@ import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
+import { WrapperEditAddressH5 } from '@nx-next-app/features/F0001/h5/profile/styles'
 import { PhoneOtpModal } from './PhoneOtpModal'
 
 const AddressEdit = () => {
@@ -90,101 +91,107 @@ const AddressEdit = () => {
 	if (addressCity) return null
 
 	return (
-		<div className='addressModule'>
-			<div className='title'>
-				{t('Label_Profile_ShippingAddress')}:（{t('Label_Profile_Option2')}）
-				<span>{t('Label_Profile_ShippingHint')}</span>
-			</div>
-			<div className='subtitle'>{t('Label_Profile_Address')}</div>
-
-			<Form onSubmit={handleSubmit(handleSubmitForm)}>
-				<InputBox
-					register={register('formLineFirst', {
-						required: {
-							value: true,
-							message: t('Label_Profile_ContentNotEmpty'),
-						},
-						onBlur: () => trigger('formLineFirst'),
-					})}
-					errorMessage={errors['formLineFirst']?.message as string}
-					error={!!errors['formLineFirst']}
-					touched={!!touchedFields['formLineFirst']}
-					infoMessage={t('Label_Profile_EnterAddress') || ''}
-					subtitle={t('Label_Profile_Line1') || ''}
-				/>
-				<InputBox
-					register={register('formLineSecond', {
-						onBlur: () => trigger('formLineSecond'),
-					})}
-					error={!!errors['formLineSecond']}
-					touched={!!touchedFields['formLineSecond']}
-					infoMessage={t('Label_Profile_EnterAddress') || ''}
-					subtitle={t('Label_Profile_Line2') || ''}
-				/>
-				<InputBox
-					register={register('formCity', {
-						required: {
-							value: true,
-							message: t('Label_Profile_ContentNotEmpty'),
-						},
-						onBlur: () => trigger('formCity'),
-					})}
-					errorMessage={errors['formCity']?.message as string}
-					error={!!errors['formCity']}
-					touched={!!touchedFields['formCity']}
-					infoMessage={t('Label_Profile_EnterCity') || ''}
-					subtitle={t('Label_Profile_City') || ''}
-				/>
-				<InputBox
-					register={register('formPostCode', {
-						required: {
-							value: true,
-							message: t('Label_Profile_ContentNotEmpty'),
-						},
-						onBlur: () => trigger('formPostCode'),
-					})}
-					type='number'
-					min='0'
-					style={{ WebkitAppearance: 'none' }}
-					errorMessage={errors['formPostCode']?.message as string}
-					error={!!errors['formPostCode']}
-					touched={!!touchedFields['formPostCode']}
-					infoMessage={t('Label_Profile_EnterPostCode') || ''}
-					subtitle={t('Label_Profile_PostCode') || ''}
-				/>
-				<InputBox
-					register={register('formState', {
-						required: {
-							value: true,
-							message: t('Label_Profile_ContentNotEmpty'),
-						},
-						onBlur: () => trigger('formState'),
-					})}
-					errorMessage={errors['formState']?.message as string}
-					error={!!errors['formState']}
-					touched={!!touchedFields['formState']}
-					infoMessage={t('Label_Profile_EnterState') || ''}
-					subtitle={t('Label_Profile_State') || ''}
-				/>
-				<InputBox
-					register={register('formCountry', {
-						required: {
-							value: true,
-							message: t('Label_Profile_ContentNotEmpty'),
-						},
-						onBlur: () => trigger('formCountry'),
-					})}
-					errorMessage={errors['formCountry']?.message as string}
-					error={!!errors['formCountry']}
-					touched={!!touchedFields['formCountry']}
-					infoMessage={t('Label_Profile_EnterCountry') || ''}
-					subtitle={t('Label_Profile_Country') || ''}
-				/>
-				<div className='btn-group'>
-					<button type='submit'>{t('Label_General_Submit')}</button>
+		<WrapperEditAddressH5>
+			<div className='addressModule'>
+				<div className='title'>
+					{t('Label_Profile_ShippingAddress')}:（{t('Label_Profile_Option2')}）
 				</div>
-			</Form>
-		</div>
+				<div className='group-sub-title'>
+					<div className='heading-box'>{t('Label_Profile_Address')}</div>
+					<div className='body-box'>
+						<Form onSubmit={handleSubmit(handleSubmitForm)}>
+							<InputBox
+								register={register('formLineFirst', {
+									required: {
+										value: true,
+										message: t('Label_Profile_ContentNotEmpty'),
+									},
+									onBlur: () => trigger('formLineFirst'),
+								})}
+								errorMessage={errors['formLineFirst']?.message as string}
+								error={!!errors['formLineFirst']}
+								touched={!!touchedFields['formLineFirst']}
+								infoMessage={t('Label_Profile_EnterAddress') || ''}
+								subtitle={t('Label_Profile_Line1') || ''}
+							/>
+							<InputBox
+								register={register('formLineSecond', {
+									onBlur: () => trigger('formLineSecond'),
+								})}
+								error={!!errors['formLineSecond']}
+								touched={!!touchedFields['formLineSecond']}
+								infoMessage={t('Label_Profile_EnterAddress') || ''}
+								subtitle={t('Label_Profile_Line2') || ''}
+							/>
+							<InputBox
+								register={register('formCity', {
+									required: {
+										value: true,
+										message: t('Label_Profile_ContentNotEmpty'),
+									},
+									onBlur: () => trigger('formCity'),
+								})}
+								errorMessage={errors['formCity']?.message as string}
+								error={!!errors['formCity']}
+								touched={!!touchedFields['formCity']}
+								infoMessage={t('Label_Profile_EnterCity') || ''}
+								subtitle={t('Label_Profile_City') || ''}
+							/>
+							<InputBox
+								register={register('formPostCode', {
+									required: {
+										value: true,
+										message: t('Label_Profile_ContentNotEmpty'),
+									},
+									onBlur: () => trigger('formPostCode'),
+								})}
+								type='number'
+								min='0'
+								style={{ WebkitAppearance: 'none' }}
+								errorMessage={errors['formPostCode']?.message as string}
+								error={!!errors['formPostCode']}
+								touched={!!touchedFields['formPostCode']}
+								infoMessage={t('Label_Profile_EnterPostCode') || ''}
+								subtitle={t('Label_Profile_PostCode') || ''}
+							/>
+							<InputBox
+								register={register('formState', {
+									required: {
+										value: true,
+										message: t('Label_Profile_ContentNotEmpty'),
+									},
+									onBlur: () => trigger('formState'),
+								})}
+								errorMessage={errors['formState']?.message as string}
+								error={!!errors['formState']}
+								touched={!!touchedFields['formState']}
+								infoMessage={t('Label_Profile_EnterState') || ''}
+								subtitle={t('Label_Profile_State') || ''}
+							/>
+							<InputBox
+								register={register('formCountry', {
+									required: {
+										value: true,
+										message: t('Label_Profile_ContentNotEmpty'),
+									},
+									onBlur: () => trigger('formCountry'),
+								})}
+								errorMessage={errors['formCountry']?.message as string}
+								error={!!errors['formCountry']}
+								touched={!!touchedFields['formCountry']}
+								infoMessage={t('Label_Profile_EnterCountry') || ''}
+								subtitle={t('Label_Profile_Country') || ''}
+							/>
+							<div className='btn-group'>
+								<button type='submit' className='btn-primary'>
+									{t('Label_General_Submit')}
+								</button>
+							</div>
+						</Form>
+					</div>
+				</div>
+			</div>
+		</WrapperEditAddressH5>
 	)
 }
 

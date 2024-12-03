@@ -1,5 +1,5 @@
-import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
+import { useTranslation } from 'next-i18next'
 
 const Address = () => {
 	const { t } = useTranslation()
@@ -21,7 +21,6 @@ const Address = () => {
 		<div className='addressModule'>
 			<div className='title'>
 				{t('Label_Profile_ShippingAddress')}:（{t('Label_Profile_Option2')}）
-				<span>{t('Label_Profile_ShippingHint')}</span>
 			</div>
 			<div className='subtitle'>{t('Label_Profile_Address')}</div>
 			<div className='addressContent'>

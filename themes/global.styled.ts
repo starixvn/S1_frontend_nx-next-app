@@ -142,136 +142,136 @@ export const GlobalStyles = createGlobalStyle`
       width: ${({ theme }) => theme.desktop.contentWidth};
     }
   }
-
   #popup {
-    background: rgba(0, 0, 0, 0.6);
-    position: fixed;
-    z-index: 99;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    &::-webkit-scrollbar-track{
-        background: rgba(0, 0, 0, 0.2);
-    }
-    &::-webkit-scrollbar-thumb{
-      background: rgba(125, 125, 125, 0.7);
-    }
-    &.active{
-      display : flex;
+      background: rgba(0, 0, 0, 0.6);
+      position: fixed;
+      z-index: 99;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      &::-webkit-scrollbar-track{
+          background: rgba(0, 0, 0, 0.2);
+      }
+      &::-webkit-scrollbar-thumb{
+        background: rgba(125, 125, 125, 0.7);
+      }
+      &.active{
+        display : flex;
 
-    }
-    .pop{
-      border-radius: 20px;
-      max-height: calc(100% - 160px);
-      box-shadow: ${theme.desktop.popupBoxShadow};
-      background : ${theme.desktop.popupBg};
-      position : relative;
-      .close-popup{
-        position : absolute;
-        cursor: pointer;
-        top: 20px;
-        right: 20px;
-        &:before{
-          font-size : 2.4rem;
-        }
       }
-      .icon-notifi{
-        border-radius: 100px;
-        border: 6px solid ${theme.desktop.borderIconNotifiCationColor};
-        background: ${theme.desktop.bgIconNotifiCationColor};
-        width : 4.8rem;
-        height : 4.8rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom : 2.4rem;
-        &:before{
-          font-size : 3.2rem;
-          color : ${theme.desktop.iconNotifiCationColor}
+      .pop{
+        border-radius: 20px;
+        max-height: calc(100% - 160px);
+        box-shadow: ${theme.desktop.popupBoxShadow};
+        background : ${theme.desktop.popupBg};
+        position : relative;
+        .close-popup{
+          position : absolute;
+          cursor: pointer;
+          top: 20px;
+          right: 20px;
+          &:before{
+            font-size : 2.4rem;
+          }
         }
-      }
-      .notifi-content{
-        margin-top : 1.6rem;
-        > div {
+        .icon-notifi{
+          border-radius: 100px;
+          border: 6px solid ${theme.desktop.borderIconNotifiCationColor};
+          background: ${theme.desktop.bgIconNotifiCationColor};
+          width : 4.8rem;
+          height : 4.8rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom : 2.4rem;
+          &:before{
+            font-size : 3.2rem;
+            color : ${theme.desktop.iconNotifiCationColor}
+          }
+        }
+        .notifi-content{
+          margin-top : 1.6rem;
+          > div {
+            font-size: 1.4rem;
+            font-style: normal;
+            font-weight: 400;
+            text-align : center;
+            margin-bottom : .5rem;
+            line-height: 1.8rem;
+            &:last-child{
+              margin-bottom : 0;
+            }
+          }
+        }
+        .title{
+          color: ${({ theme }) => theme.desktop.white};
+          font-size: 1.7rem;
+          font-weight: 700;
+          line-height: normal;
+          margin-bottom : .8rem;
+        }
+        .error-content{
           font-size: 1.4rem;
           font-style: normal;
           font-weight: 400;
-          text-align : center;
-          margin-bottom : .5rem;
           line-height: 1.8rem;
-          &:last-child{
-            margin-bottom : 0;
+        }
+        .Success, ,poker,
+        .duitnowPop,
+        .angpaopop,
+        .friend,
+        .Cancel,
+        .uploadSuccess,
+        .updateSuccess,
+        .Success,
+        .tokyc,
+        .addBankpop,
+        .addAddresspop,
+        .changePassWordpop,
+        .editSuccess,
+        .joinSuccess,
+        .resetPassWordpop,
+        .noticepop,.statuspop{
+          min-width: 40rem;
+          padding: 4rem 2.8rem 2.8rem 2.8rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .btnGroup{
+            margin-top : 2.4rem;
+            min-width : 20rem;
+            button{
+              width: 100%;
+            }
           }
-         }
+        }
       }
-      .title{
-        color: ${({ theme }) => theme.desktop.white};
-        font-size: 1.7rem;
-        font-weight: 700;
-        line-height: normal;
-        margin-bottom : .8rem;
-      }
-      .error-content{
+      .do-you-have {
         font-size: 1.4rem;
-        font-style: normal;
         font-weight: 400;
-        line-height: 1.8rem;
+        line-height: normal;
+        margin-top: 0.8rem;
+        color: #939dc5;
       }
-      .Success, ,poker,
-      .duitnowPop,
-      .angpaopop,
-      .friend,
-      .Cancel,
-      .uploadSuccess,
-      .updateSuccess,
-      .Success,
-      .tokyc,
-      .addBankpop,
-      .addAddresspop,
-      .changePassWordpop,
-      .editSuccess,
-      .joinSuccess,
-      .resetPassWordpop,
-      .noticepop,.statuspop{
-        min-width: 40rem;
-        padding: 4rem 2.8rem 2.8rem 2.8rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      .resend{
         .btnGroup{
-          margin-top : 2.4rem;
-          min-width : 20rem;
+          justify-content: center;
+          margin-top : .8rem !important;
           button{
-             width: 100%;
+            width : max-content !important;
+          }
+          .icon{
+            &:before{
+              font-size : 1.6rem;
+            }
           }
         }
       }
     }
-    .do-you-have {
-      font-size: 1.4rem;
-      font-weight: 400;
-      line-height: normal;
-      margin-top: 0.8rem;
-      color: #939dc5;
-    }
-    .resend{
-      .btnGroup{
-        justify-content: center;
-        margin-top : .8rem !important;
-        button{
-          width : max-content !important;
-        }
-        .icon{
-          &:before{
-            font-size : 1.6rem;
-          }
-        }
-      }
-    }
-  }
+  
   .promoInfoPop{
     max-height: calc(100% - 160px);
     overflow-y: auto;

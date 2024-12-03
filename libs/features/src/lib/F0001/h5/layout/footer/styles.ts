@@ -130,7 +130,7 @@ export const WrapperFooterDock = styled.div`
 		bottom: 10vw;
 		left: 0;
 		border-radius: 20px 20px 0px 0px;
-		padding: 6vw 0 16vw 0;
+		padding: 6vw 0 18vw 0;
 		z-index: 2;
 		position: fixed;
 		transform: translateY(50vw);
