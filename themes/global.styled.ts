@@ -1945,36 +1945,27 @@ export const GlobalStyles = createGlobalStyle`
       flex-flow: column;
       background: transparent;
       .headerTag {
-        background: #b2b2b2;
+        background: #0F1428;
         display: flex;
         width: 100%;
-        height: 12vw;
+        height: 12.3vw;
+        border-bottom: 1px solid #374375;
+        a,button{
+          flex: 1;
+          justify-content: center;
+          color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+          height: 100%;
+          display: flex;
+          align-items: center;
+          font-weight: bold;
+          font-size: 3.6vw;
+          text-align: center;
+          &.active{
+            color: ${({ theme }) => theme.desktop.white};
+            background: linear-gradient(0deg, #717FBA 0%, #A2AFE5 100%);
+          }
+        }
       }
-    }
-    .header .headerTag > a,
-    .header .headerTag > button {
-      -webkit-box-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      color: #747474;
-      height: 100%;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      font-weight: bold;
-      font-size: 4vw;
-      text-align: center;
-    }
-    .header .headerTag > a.active,
-    .header .headerTag > button.active {
-      color: white;
-      background: #112240;
     }
     .header .headerTag > a.active .quantity,
     .header .headerTag > button.active .quantity {

@@ -7761,48 +7761,7 @@ span.important {
 	display: none;
 }
 
-.vip_mark {
-	margin: -8vw auto 4vw;
-	position: relative;
-	text-align: center;
-	width: -webkit-min-content;
-	width: -moz-min-content;
-	width: min-content;
-	padding-top: 10vw;
-}
-.vip_mark img {
-	width: 32vw;
-	z-index: 1;
-	position: relative;
-}
-.vip_mark div {
-	background: #112240;
-	padding: 1vw;
-	margin-top: 1vw;
-	border-radius: 15px;
-}
-.vip_mark .circleAnimation {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	z-index: 0;
-	left: 50%;
-	top: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	width: 15vw;
-	height: 15vw;
-	border-radius: 100%;
-}
-.vip_mark .circleAnimation:before {
-	width: 28vw;
-	height: 28vw;
-}
-.vip_mark .circleAnimation:after {
-	width: 24vw;
-	height: 24vw;
-	background: #112240;
-}
+
 
 .contact {
 	display: -webkit-box;

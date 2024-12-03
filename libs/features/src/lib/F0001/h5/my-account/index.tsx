@@ -1,12 +1,11 @@
-import React from 'react'
-import Link from 'next/link'
 import { Header } from '@nx-next-app/components/H0001'
-import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
-import { useGetMsgCountQuery } from '@nx-next-app/service'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { includes } from 'lodash-es'
+import { useGetMsgCountQuery } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
 
 const MyAccount = () => {
 	const { t } = useTranslation()

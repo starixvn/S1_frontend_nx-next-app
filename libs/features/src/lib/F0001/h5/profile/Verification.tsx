@@ -1,4 +1,5 @@
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { WrapperVerificationH5 } from '@nx-next-app/features/F0001/h5/profile/styles'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { getSafetyLv, numberFormat } from '@nx-next-app/utils'
 import classNames from 'classnames'
@@ -44,9 +45,8 @@ const Verification = () => {
 		phoneVerification,
 		emailVerification,
 	})
-
 	return (
-		<>
+		<WrapperVerificationH5>
 			{userLevelImageInfo?.url ? (
 				<div className='vip_mark'>
 					<img src={userLevelImageInfo?.url} alt={userLevelImageInfo?.alt} />
@@ -127,7 +127,7 @@ const Verification = () => {
 					</div>
 				</div>
 			</div>
-		</>
+		</WrapperVerificationH5>
 	)
 }
 

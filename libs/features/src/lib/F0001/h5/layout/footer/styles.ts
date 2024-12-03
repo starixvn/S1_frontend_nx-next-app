@@ -4,7 +4,7 @@ export const WrapperFooterDock = styled.div`
 	.footer {
 		background: url('https://s1-static.nexdev.net/h5/img/new-ui/footer-bg.webp')
 			no-repeat center/cover;
-		height: 21.5vw;
+		height: 28vw;
 		width: 100%;
 		display: flex;
 		position: fixed;
@@ -63,7 +63,7 @@ export const WrapperFooterDock = styled.div`
 		height: 12vw;
 		flex: 0 0 12vw;
 		padding: 2vw;
-		margin-top: -3.5vw;
+		margin-top: 2.5vw;
 	}
 	.footer .plus img {
 		width: 6vw;
