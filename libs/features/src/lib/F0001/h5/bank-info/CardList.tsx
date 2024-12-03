@@ -1,8 +1,8 @@
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useBankInfo } from '@nx-next-app/features/F0001/providers'
+import { CurrenciesEnum } from '@nx-next-app/types'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { useBankInfo } from '@nx-next-app/features/F0001/providers'
 
 const CardList = () => {
 	const { t } = useTranslation()
@@ -20,7 +20,7 @@ const CardList = () => {
 	return (
 		<>
 			{userLevelImageInfo?.url ? (
-				<div className='vip_mark'>
+				<div className={`vip_mark ${userLevelImageInfo?.levelTabsName}`}>
 					<img src={userLevelImageInfo?.url} alt={userLevelImageInfo?.alt} />
 					{includes(
 						ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],

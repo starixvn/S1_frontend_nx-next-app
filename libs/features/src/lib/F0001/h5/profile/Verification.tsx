@@ -48,7 +48,7 @@ const Verification = () => {
 	return (
 		<WrapperVerificationH5>
 			{userLevelImageInfo?.url ? (
-				<div className='vip_mark'>
+				<div className={`vip_mark ${userLevelImageInfo?.levelTabsName}`}>
 					<img src={userLevelImageInfo?.url} alt={userLevelImageInfo?.alt} />
 					{includes(
 						ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],

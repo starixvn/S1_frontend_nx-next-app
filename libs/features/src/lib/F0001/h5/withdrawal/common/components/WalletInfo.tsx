@@ -1,10 +1,10 @@
-import { useTranslation } from 'next-i18next'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { includes } from 'lodash-es'
 import { SpinButton } from '@nx-next-app/components/H0001'
-import { numberFormat } from '@nx-next-app/utils'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { numberFormat } from '@nx-next-app/utils'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 
 const WalletInfo = () => {
 	const { t } = useTranslation()
@@ -20,7 +20,7 @@ const WalletInfo = () => {
 	return (
 		<>
 			{userLevelImageInfo?.url ? (
-				<div className='vip_mark'>
+				<div className={`vip_mark ${userLevelImageInfo?.levelTabsName}`}>
 					<img src={userLevelImageInfo?.url} alt={userLevelImageInfo?.alt} />
 					{includes(
 						ALLOWED_CURRENCIES['VIP'] as CurrenciesEnum[],
