@@ -39,7 +39,7 @@ export const MENU_DATA: IMenuData[] = [
 				query: { provider: 'Soccer' },
 				desktop: {
 					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
+					menuActionType: MenuActionTypeEnum.EnterPage,
 				},
 				h5: {
 					hasLobby: false,
@@ -52,7 +52,7 @@ export const MENU_DATA: IMenuData[] = [
 				query: { provider: 'SabaSoccer' },
 				desktop: {
 					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
+					menuActionType: MenuActionTypeEnum.EnterPage,
 				},
 				h5: {
 					hasLobby: false,
@@ -65,7 +65,7 @@ export const MENU_DATA: IMenuData[] = [
 				query: { provider: 'Basketball' },
 				desktop: {
 					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
+					menuActionType: MenuActionTypeEnum.EnterPage,
 				},
 				h5: {
 					hasLobby: false,
@@ -78,7 +78,7 @@ export const MENU_DATA: IMenuData[] = [
 				query: { provider: 'Cricket' },
 				desktop: {
 					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
+					menuActionType: MenuActionTypeEnum.EnterPage,
 				},
 				h5: {
 					hasLobby: false,
@@ -91,7 +91,7 @@ export const MENU_DATA: IMenuData[] = [
 				query: { provider: 'Badminton' },
 				desktop: {
 					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
+					menuActionType: MenuActionTypeEnum.EnterPage,
 				},
 				h5: {
 					hasLobby: false,
@@ -104,7 +104,7 @@ export const MENU_DATA: IMenuData[] = [
 				query: { provider: 'Volleyball' },
 				desktop: {
 					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
+					menuActionType: MenuActionTypeEnum.EnterPage,
 				},
 				h5: {
 					hasLobby: false,
@@ -117,7 +117,7 @@ export const MENU_DATA: IMenuData[] = [
 				...PRODUCTS.VirtualSports,
 				desktop: {
 					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.Link,
+					menuActionType: MenuActionTypeEnum.EnterPage,
 				},
 				h5: {
 					hasLobby: false,
