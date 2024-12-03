@@ -35,9 +35,36 @@ const List = () => {
 				header={t('Label_General_Languages')}
 				defaultActive
 			>
-				<div className='option-item'>
+				<div>
+					{languageGroup[icon || 'ch']?.map(
+						({ displayText, currencyId, value }) => {
+							return (
+								<div className='option-item' key={`languageGroup-${value}`}>
+									<div
+										className='langs'
+										onClick={() =>
+											onSetLanguage({
+												langCode: value,
+												currencyId,
+											})
+										}
+									>
+										<div className='langs-img'>
+											<img
+												src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/${value}.jpg`}
+												alt='country'
+											/>
+										</div>
+										<div className='langs-name'>{displayText}</div>
+									</div>
+								</div>
+							)
+						}
+					)}
+				</div>
+				{/* <div className='option-item'>
 					<div className='langs'>
-						<div className='langs-img'>
+						<div className='langs-img' onClick={}>
 							<img
 								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/th.jpg`}
 								alt='country'
@@ -54,7 +81,7 @@ const List = () => {
 						</div>
 						<div className='langs-name'>English</div>
 					</div>
-				</div>
+				</div> */}
 				{/* <div className={classNames('country-current', { after: isLogin })}>
 					<div className='country-item'>
 						<div className='country-title'>
