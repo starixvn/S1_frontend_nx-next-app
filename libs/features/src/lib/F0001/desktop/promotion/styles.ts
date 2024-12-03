@@ -69,7 +69,10 @@ export const WrapperPromotion = styled.div`
 						border-radius: 20px;
 						position: relative;
 						width: 100%;
-						max-width: 65.3rem;
+						max-width: 50rem;
+						@media (min-width: 1450px) {
+							max-width: 65.3rem;
+						}
 						img {
 							position: absolute;
 							top: 0;

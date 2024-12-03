@@ -1249,10 +1249,12 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .wraper-client{
-    max-width : 1400px;
-    width : 100%;
+    width : ${({ theme }) => theme.desktop.minContentWidth};
     margin : 0 auto;
     padding : 0 1.2rem;
+    @media (min-width: 1450px) {
+      width: ${({ theme }) => theme.desktop.contentWidth};
+    }
     .title-client{
       font-size: 3.3rem;
       font-weight: 700;
