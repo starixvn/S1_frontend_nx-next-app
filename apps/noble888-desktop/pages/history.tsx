@@ -11,11 +11,11 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { IWithdrawalSetting } from '@nx-next-app/service'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/noble888'
 import {
 	HISTORY_TABS,
 	QUICK_PICK_LIST,
-} from '@nx-next-app/site/nova88/data/history'
+} from '@nx-next-app/site/noble888/data/history'
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'

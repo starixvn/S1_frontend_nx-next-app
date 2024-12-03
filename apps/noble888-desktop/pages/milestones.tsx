@@ -6,11 +6,11 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/noble888'
 import {
 	milestonesData,
 	slideData,
-} from '@nx-next-app/site/nova88/data/milestoneData'
+} from '@nx-next-app/site/noble888/data/milestoneData'
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'

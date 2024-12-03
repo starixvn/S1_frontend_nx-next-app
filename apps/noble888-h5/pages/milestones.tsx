@@ -8,7 +8,7 @@ import {
 import {
 	milestonesData,
 	slideData,
-} from '@nx-next-app/site/nova88/data/milestoneData'
+} from '@nx-next-app/site/noble888/data/milestoneData'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 

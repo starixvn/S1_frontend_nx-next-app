@@ -8,7 +8,7 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { ISlotsGameData } from '@nx-next-app/service'
-import { CATEGORY_SORT } from '@nx-next-app/site/nova88/data/slots'
+import { CATEGORY_SORT } from '@nx-next-app/site/noble888/data/slots'
 import { pick } from 'lodash-es'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'

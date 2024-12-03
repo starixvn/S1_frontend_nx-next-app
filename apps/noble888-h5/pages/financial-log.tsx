@@ -10,7 +10,7 @@ import {
 import {
 	HISTORY_TABS,
 	QUICK_PICK_LIST,
-} from '@nx-next-app/site/nova88/data/history'
+} from '@nx-next-app/site/noble888/data/history'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 

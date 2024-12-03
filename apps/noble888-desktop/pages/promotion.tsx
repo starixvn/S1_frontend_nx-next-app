@@ -8,7 +8,7 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { IPromotionData } from '@nx-next-app/service'
-import { FOOTER_DATA, PROMOTION_SELECT_OPTIONS } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA, PROMOTION_SELECT_OPTIONS } from '@nx-next-app/site/noble888'
 import { DeviceTypeEnum, IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'

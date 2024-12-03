@@ -19,7 +19,7 @@ import {
 	IHotGame,
 	IPromotionData,
 } from '@nx-next-app/service'
-import { DESKTOP_HOME_ORDERS, FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { DESKTOP_HOME_ORDERS, FOOTER_DATA } from '@nx-next-app/site/noble888'
 import { BannerTypeEnum, IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'

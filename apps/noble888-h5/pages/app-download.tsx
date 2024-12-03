@@ -6,7 +6,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/nova88/data/appDownload'
+import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/noble888/data/appDownload'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
