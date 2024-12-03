@@ -1927,4 +1927,188 @@ export const GlobalStyles = createGlobalStyle`
 		.menu-bottom-item:last-child .info {
 			border: 0;
 		}
+
+  
+
+
+
+    .header {
+      justify-content: center;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+      padding: 0;
+      font-size: 4vw;
+      font-weight: bold;
+      width: 100%;
+      height: auto;
+      flex-flow: column;
+      background: transparent;
+      .headerTag {
+        background: #b2b2b2;
+        display: flex;
+        width: 100%;
+        height: 12vw;
+      }
+    }
+    .header .headerTag > a,
+    .header .headerTag > button {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      color: #747474;
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 4vw;
+      text-align: center;
+    }
+    .header .headerTag > a.active,
+    .header .headerTag > button.active {
+      color: white;
+      background: #112240;
+    }
+    .header .headerTag > a.active .quantity,
+    .header .headerTag > button.active .quantity {
+      color: white;
+      background: #ff5e00;
+    }
+    .header .headerTag.promos {
+      position: relative;
+    }
+    .header .headerTag.promos .arrow-icon {
+      position: absolute;
+      left: 8vw;
+      top: 0.5vw;
+    }
+    .header .headerTag.promos .arrow-icon .icon-keyboard_arrow_left:after,
+    .header .headerTag.promos .arrow-icon .icon-keyboard_arrow_left:before {
+      content: '\e95d';
+      font-family: 'icomoon';
+      margin-left: -2.5vw;
+      color: white;
+    }
+    .header .title {
+      width: 100%;
+      height: 12vw;
+      background: #112240;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      font-weight: normal;
+    }
+    .header .title a {
+      position: absolute;
+      left: 0;
+      color: white;
+      width: 12vw;
+      height: 12vw;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+      flex-flow: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 3vw;
+      font-size: 3vw;
+      font-weight: bold;
+      z-index: 1;
+    }
+    .header .title a i {
+      letter-spacing: -2.5vw;
+    }
+    .header .title a i.icon-keyboard_arrow_left:after,
+    .header .title a i.icon-keyboard_arrow_left:before {
+      content: '\e95d';
+      font-family: 'icomoon' !important;
+      font-size: 4vw;
+      font-weight: bold;
+    }
+    .header .title.searchBar {
+      position: relative;
+    }
+    .header .title.searchBar .icon-search {
+      position: absolute;
+      right: 2vw;
+      top: 3.5vw;
+    }
+    .header .title.searchBar .infoModule {
+      position: absolute;
+      right: 2vw;
+      top: 0;
+      width: 0;
+      opacity: 0;
+    }
+    .header .title.searchBar .infoModule .inputBox,
+    .header .title.searchBar .infoModule .euro .inputBox-event,
+    .euro .header .title.searchBar .infoModule .inputBox-event,
+    .header
+      .title.searchBar
+      .infoModule
+      .worldcupEvent
+      .event
+      .event-content
+      .inputBox-event,
+    .worldcupEvent
+      .event
+      .event-content
+      .header
+      .title.searchBar
+      .infoModule
+      .inputBox-event {
+      background: #c6d4f1;
+      margin-left: 15vw;
+      height: 8vw;
+    }
+    .header .title.searchBar .infoModule .inputBox input,
+    .header .title.searchBar .infoModule .euro .inputBox-event input,
+    .euro .header .title.searchBar .infoModule .inputBox-event input,
+    .header
+      .title.searchBar
+      .infoModule
+      .worldcupEvent
+      .event
+      .event-content
+      .inputBox-event
+      input,
+    .worldcupEvent
+      .event
+      .event-content
+      .header
+      .title.searchBar
+      .infoModule
+      .inputBox-event
+      input {
+      padding: 0;
+      height: 8vw;
+    }
+    .header .title.searchBar .infoModule .icon-close {
+      position: revert;
+    }
+    .header .title.searchBar .infoModule.active {
+      -webkit-transition: 0.3s;
+      transition: 0.3s;
+      width: 100%;
+      opacity: 1;
+    }
 `

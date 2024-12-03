@@ -38,6 +38,7 @@ const BackTop = () => {
 			id='goTop'
 			onClick={scrollToTop}
 			style={{ zIndex: 4 }}
+			className='pc'
 		>
 			<i className='icon icon-arrow-up-line' />
 		</button>

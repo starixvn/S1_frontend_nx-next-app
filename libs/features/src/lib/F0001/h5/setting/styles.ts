@@ -150,50 +150,43 @@ export const WrapperSettingPage = styled.div`
 				line-height: normal;
 			}
 			.casino-wallet {
-				margin-top: 5vw;
-			}
-			.casino-wallet-item {
-				background: #efefef;
-				padding: 5vw 3vw 3vw;
-				border-radius: 10px;
-			}
-			.casino-wallet-item .money {
-				display: flex;
-				justify-content: space-between;
-				font-weight: 500;
-				margin-bottom: 2vw;
-			}
-			.casino-wallet-item .money > div:last-child {
-				margin-right: 1vw;
-			}
-			.casino-wallet-item .progress {
-				background: white;
-				width: 74vw;
-				height: 2vw;
-				border-radius: 20px;
-			}
-			.casino-wallet-item .progress-bar {
-				background: -webkit-gradient(
-					linear,
-					left top,
-					right top,
-					from(rgb(56, 117, 227)),
-					to(rgb(167, 167, 167))
-				);
-				background: linear-gradient(
-					90deg,
-					rgb(56, 117, 227) 0%,
-					rgb(167, 167, 167) 100%
-				);
-				width: 50vw;
-				height: 2vw;
-				border-radius: 20px;
-			}
-			.casino-wallet-item .progress-number {
-				text-align: end;
-				margin-top: 1vw;
-				color: #a7a7a7;
-				margin-right: 1vw;
+				padding : 0 4vw 4vw;
+				&-item {
+					background: #232B4F;
+					border-radius: 10px;
+					padding : 2vw;
+					.money{
+						display: flex;
+						justify-content: space-between;
+						font-weight: 500;
+						margin-bottom: 2vw;
+						> div{
+						 	color : ${({ theme }) => theme.desktop.rightModuleSloganColor};
+							font-size : 3.1vw;
+						}
+					}
+					.group-progress{
+						    display: flex;
+							align-items: center;
+							gap: 3vw;
+						.progress{
+							background: #374375;
+							height: 2vw;
+							border-radius: 20px;
+							width: 100%;
+						}
+						.progress-number {
+							color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+							font-size : 3.1vw;
+						}
+						.progress-bar {
+							background : ${({ theme }) => theme.mobile.hrefColorPrimary};
+							width: 50vw;
+							height: 2vw;
+							border-radius: 20px;
+						}
+					}
+				}
 			}
 			.wallet-list-item {
 				display: flex;
@@ -239,15 +232,18 @@ export const WrapperSettingPage = styled.div`
 			position: absolute;
 			right: 2vw;
     		top: 15vw;
-			background: white;
+			background: ${({ theme }) => theme.desktop.hrefColorPrimary};
 			width: 35vw;
-			height: 6vw;
+			height: 8vw;
 			border-radius: 20px;
-			color: #0a1b38;
-			font-weight: 500;
+			color: ${({ theme }) => theme.desktop.white};
+			font-weight: 600;
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+			opacity : 0.9;
+			font-size : 3.1vw;
 		}
 		.profile-item .message-popup::before {
 			position: absolute;
@@ -255,9 +251,10 @@ export const WrapperSettingPage = styled.div`
 			content: '';
 			border-style: solid;
 			border-width: 0 6px 12px 6px;
-			border-color: transparent transparent #ffffff transparent;
+			border-color: transparent transparent ${({ theme }) =>
+				theme.desktop.hrefColorPrimary} transparent;
 			top: -2vw;
-			right: 2vw;
+			right: 4vw;
 		}
 		.profile-item .message-popup > div {
 			width: 30vw;

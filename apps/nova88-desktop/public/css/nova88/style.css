@@ -2442,8 +2442,6 @@ main .promosswiper .swiper-button-prev::after {
 	flex-flow: column;
 }
 
-
-
 #popup.olympic-rule {
 	-webkit-backdrop-filter: blur(7px);
 	backdrop-filter: blur(7px);
@@ -4401,9 +4399,6 @@ main .promosswiper .swiper-button-prev::after {
 	margin-right: 10px;
 }
 
-
-
-
 .pageSelect {
 	width: -webkit-max-content;
 	width: -moz-max-content;
@@ -5279,7 +5274,6 @@ article p {
 .progressBarModule .turnover span {
 	color: #1e85ec;
 }
-
 
 pre {
 	color: #666;
@@ -15043,8 +15037,8 @@ button.icon-spinner11:before {
 	position: fixed;
 	bottom: 175px;
 	right: 10px;
-	width: 60px;
-	height: 60px;
+	width: 52px;
+	height: 52px;
 	background: #ff5e00;
 	border-radius: 100%;
 	z-index: 2;
@@ -21023,8 +21017,6 @@ input[type='number'] {
 	width: 220px;
 	padding: 40px 0;
 }
-
-
 
 @-webkit-keyframes Gradient {
 	0% {

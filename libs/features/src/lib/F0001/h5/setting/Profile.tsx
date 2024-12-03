@@ -164,15 +164,17 @@ const Profile = () => {
 												{currencyName} {numberFormat(bonus, currencyId)}
 											</div>
 										</div>
-										<div className='progress'>
-											<div
-												className='progress-bar'
-												style={{
-													width: `${percentage}%`,
-												}}
-											/>
+										<div className='group-progress'>
+											<div className='progress'>
+												<div
+													className='progress-bar'
+													style={{
+														width: `${percentage}%`,
+													}}
+												/>
+											</div>
+											<div className='progress-number'>{percentage}%</div>
 										</div>
-										<div className='progress-number'>{percentage}%</div>
 									</div>
 								)
 							}

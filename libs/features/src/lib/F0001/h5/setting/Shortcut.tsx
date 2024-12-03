@@ -63,16 +63,6 @@ const Shortcut = () => {
 				<i className='icon icon-team-fill' />
 				<span>{t('Label_General_Referral')}</span>
 			</a>
-			<a
-				href={`https://direct.lc.chat/${
-					process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']
-				}/${LIVE_CHAT_ID_BY_LANG_ID[langId] || 'en'}`}
-				target='_blank'
-				rel='noreferrer'
-			>
-				<i className='icon icon-chat-check-fill' />
-				<span>{t('Label_General_LiveChat')}</span>
-			</a>
 			{/* TODO: Hide in phase 1 */}
 			{/* {includes(ALLOWED_CURRENCIES['AFFILIATE'], currencyId) && (
 				<a
