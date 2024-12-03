@@ -1,16 +1,9 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/next-script-for-ga */
 /* eslint-disable react/no-danger */
-import { getGA4ID, getGTMId } from '@nx-next-app/site/nova88/data'
-import Document, {
-	DocumentContext,
-	DocumentInitialProps,
-	Head,
-	Html,
-	Main,
-	NextScript,
-} from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+import { getGA4ID, getGTMId } from "@nx-next-app/site/nova88/data";
+import Document, { DocumentContext, DocumentInitialProps, Head, Html, Main, NextScript } from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
 interface CustomDocumentProps extends DocumentInitialProps {
 	host?: string
@@ -85,6 +78,13 @@ class MyDocument extends Document<CustomDocumentProps> {
 						<link
 							rel='stylesheet'
 							href={`/css/${process.env['NEXT_PUBLIC_SITE_NAME']}/font-newsite.css`}
+						/>
+					)}
+
+					{process.env['NEXT_PUBLIC_SITE_NAME'] !== '' && (
+						<link
+							rel='stylesheet'
+							href={`/css/${process.env['NEXT_PUBLIC_SITE_NAME']}/embla.css`}
 						/>
 					)}
 

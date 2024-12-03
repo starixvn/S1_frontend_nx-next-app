@@ -37,8 +37,8 @@ const HeaderModule = ({
 	const { t } = useTranslation()
 	const { logoUrl, showSpLogo } = useHeaderLogo({
 		mainLogoUrl: {
-			original: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/logo_w.png`,
-			special: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/logo_w.png`,
+			original: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/logo_w.webp`,
+			special: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/logo_w.webp`,
 		},
 	})
 
@@ -55,7 +55,7 @@ const HeaderModule = ({
 	const debouncedIsHideBalance = useDebounce(isHideBalance, 500)
 
 	// TODO: 沒有贊助球隊時可能會有暫時沒有spLogo的情況，這時主Logo要改用沒有右邊分隔線的圖
-	const noSpLogoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/logo_w_noline.png`
+	const noSpLogoUrl = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/logo_w.webp`
 
 	// * 使用者快速切換時，讓畫面順利切換，用 debounce 觸發最後的狀態
 	useEffect(() => {

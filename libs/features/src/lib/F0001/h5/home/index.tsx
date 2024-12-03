@@ -1,16 +1,17 @@
-import { Header, JackPot } from '@nx-next-app/components/H0001'
-import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useHome } from '@nx-next-app/features/F0001/providers'
-import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
-import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
-import { useSetHideBalanceMutation } from '@nx-next-app/service'
-import { multiEqual } from '@nx-next-app/utils'
-import { includes } from 'lodash-es'
-import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
-import { Fragment, useCallback } from 'react'
-import Menu from './menu'
+import { Header, JackPot } from "@nx-next-app/components/H0001";
+import { paths } from "@nx-next-app/constants";
+import { useAuth, useStaticData } from "@nx-next-app/data-access";
+import { useHome } from "@nx-next-app/features/F0001/providers";
+import { MobileHomeComponentsEnum } from "@nx-next-app/features/F0001/types";
+import { useTpWalletBalanceListFetcher } from "@nx-next-app/hooks";
+import { useSetHideBalanceMutation } from "@nx-next-app/service";
+import { multiEqual } from "@nx-next-app/utils";
+import { includes } from "lodash-es";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import { Fragment, useCallback } from "react";
+
+import Menu from "./menu";
 
 const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
 
@@ -169,12 +170,11 @@ const Home = () => {
 					onRefetchAllWallet={onRefetchAllWallet}
 					onSetHideBalance={setHideBalance}
 				/>
+				<Menu />
 			</Header>
 
 			<main>
 				{bannerBlockOrders.map(component => renderComponent(component))}
-
-				<Menu />
 
 				{contentOrders.map(component => renderComponent(component))}
 			</main>

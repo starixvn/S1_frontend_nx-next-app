@@ -299,6 +299,17 @@ export const theme = {
 		headerBg: '#0F1428',
 		headerColor: '#fff',
 
+		menuContainerBg: '#232B4F',
+		menuItemColor: '#fff',
+		menuItemBgHover: '#182043',
+		menuItemColorHover: '#ea6118',
+		menuItemActiveLine: '#ea6118',
+		newLabelBg: '#F00',
+		newLabelColor: '#fff',
+		hotLabelBg: '#e12973',
+		hotLabelColor: '#fff',
+		hotIconColor: '#ffd21d',
+
 		rightModuleBg: '#182043',
 		rightModuleTitleBg: '#232B4F',
 		rightModuleBorderColor: '#374375',

@@ -1,14 +1,14 @@
-import classNames from 'classnames'
-import { useRouter } from 'next/router'
-import { useState, useEffect, startTransition } from 'react'
-import { useTranslation } from 'next-i18next'
-import { isEventPeriod } from '@nx-next-app/utils'
-import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import { CurrenciesEnum, MenuIconTypeEnum, MenuKeyEnum, LobbyCategoryEnum } from '@nx-next-app/types'
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
-import { type IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
-import SubMenu from './SubMenu'
+import { paths } from "@nx-next-app/constants";
+import { useAuth } from "@nx-next-app/data-access";
+import { MenuContainer } from "@nx-next-app/features/F0001/h5/home/menu/styles";
+import { IMergedMenuData } from "@nx-next-app/features/F0001/hooks";
+import { CurrenciesEnum, IDynamicSubMenuItem, LobbyCategoryEnum, MenuIconTypeEnum, MenuKeyEnum } from "@nx-next-app/types";
+import { isEventPeriod } from "@nx-next-app/utils";
+import classNames from "classnames";
+import useEmblaCarousel from "embla-carousel-react";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
+import { startTransition, useEffect, useState } from "react";
 
 interface IMenuProps {
 	menuList: IMergedMenuData[]
@@ -29,6 +29,7 @@ interface IMenuProps {
 
 const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 	const { t } = useTranslation()
+	const [emblaRef, emblaApi] = useEmblaCarousel({ slidesToScroll: 'auto' })
 	const {
 		query: { prevPageRecord },
 		push,
@@ -39,7 +40,10 @@ const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 	} = useAuth()
 
 	// 7/16/24 因應 hotfix遮蔽saba sport,根據語系設定初始 menuKey
-	const defaultMenuKey = (currencyId === CurrenciesEnum.USD || currencyId === CurrenciesEnum.CNY) ? 'Casino' : 'Sports';
+	const defaultMenuKey =
+		currencyId === CurrenciesEnum.USD || currencyId === CurrenciesEnum.CNY
+			? 'Casino'
+			: 'Sports'
 
 	const [menuKey, setMenuKey] = useState<keyof typeof MenuKeyEnum | undefined>(
 		defaultMenuKey
@@ -55,74 +59,76 @@ const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 	}, [])
 
 	return (
-    <>
-        <div className='home-sidebar'>
-          {menuList.map(mainMenuItem => {
-            const { display, category, h5, displayKey, subMenu, pathname, lobbyCategoryId } =
-              mainMenuItem || {}
-            if (display === 'desktop') return null
-            const { icon } = h5 || {}
+		<MenuContainer>
+			<div className='embla'>
+				<div className='embla__viewport' ref={emblaRef}>
+					<div className='embla__container'>
+						{menuList.map(mainMenuItem => {
+							const {
+								display,
+								category,
+								h5,
+								displayKey,
+								subMenu,
+								pathname,
+								lobbyCategoryId,
+							} = mainMenuItem || {}
+							if (display === 'desktop') return null
+							const { icon } = h5 || {}
 
-            // * 查看 subMenu 是否有在顯示範圍的 New Icon( 手機貌似只有 New Tag )
-            const hasNewIcon = subMenu.some(subMenuItem => {
-              const { iconType, iconStartTime, iconEndTime } = subMenuItem || {}
+							// * 查看 subMenu 是否有在顯示範圍的 New Icon( 手機貌似只有 New Tag )
+							const hasNewIcon = subMenu.some(subMenuItem => {
+								const { iconType, iconStartTime, iconEndTime } =
+									subMenuItem || {}
 
-              return (
-                isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
-                iconType === MenuIconTypeEnum.New
-              )
-            })
+								return (
+									isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
+									iconType === MenuIconTypeEnum.New
+								)
+							})
 
-            const menuText = (displayKey && t(displayKey)) || ''
+							const menuText = (displayKey && t(displayKey)) || ''
 
-            return (
-              <button
-                className={classNames(`btn-${icon}`, {
-                  active: menuKey === category,
-                })}
-                key={category}
-                onClick={() => {
-                  startTransition(() => {
-                    setMenuKey(category)
-                    if(lobbyCategoryId !== LobbyCategoryEnum.Sports && lobbyCategoryId !== LobbyCategoryEnum.ESports){
-                      push(pathname as string)
-                    }
-                  })
-                }}
-              >
-                {hasNewIcon && <div className='new-icon'>New</div>}
-                <div className='btn-circle'>
-                  <img
-                    src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/${icon}-icon.png`}
-                    alt={icon!}
-                  />
-                </div>
-                <div>{menuText}</div>
-              </button>
-            )
-          })}
+							return (
+								<button
+									className={classNames('embla__slide menu-item', {
+										active: menuKey === category,
+									})}
+									key={category}
+									onClick={() => {
+										startTransition(() => {
+											setMenuKey(category)
+											if (
+												lobbyCategoryId !== LobbyCategoryEnum.Sports &&
+												lobbyCategoryId !== LobbyCategoryEnum.ESports
+											) {
+												push(pathname as string)
+											}
+										})
+									}}
+								>
+									{hasNewIcon && <div className='new-icon'>New</div>}
 
-          {isLobbyHeaderError && (
-            <button
-              className='btn-slots active'
-              key='Slot'
-              onClick={() => {
-                push(paths.slots.root)
-              }}
-            >
-              <div className='btn-circle'>
-                <img
-                  src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/slots-icon.png`}
-                  alt='Slots'
-                />
-              </div>
-              <div>{t('Label_General_Slots')}</div>
-            </button>
-          )}
-        </div>
+									<div>{menuText}</div>
+								</button>
+							)
+						})}
 
-      <SubMenu menuKey={menuKey} menuList={menuList} onMenuOpen={onMenuOpen} />
-    </>
+						{isLobbyHeaderError && (
+							<button
+								className='embla__slide menu-item active'
+								key='Slot'
+								onClick={() => {
+									push(paths.slots.root)
+								}}
+							>
+								<div>{t('Label_General_Slots')}</div>
+							</button>
+						)}
+					</div>
+				</div>
+			</div>
+		</MenuContainer>
 	)
 }
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
 	width: 100%;
-	position: fixed;
+	position: sticky;
 	top: 0;
 	background: ${({ theme }) => theme.mobile.headerBg};
 	flex-flow: wrap;
