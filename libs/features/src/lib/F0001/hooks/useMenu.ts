@@ -311,7 +311,8 @@ const useMenu = () => {
 		}
 
 		if (
-			tpId === 45 // * SPORTS CRYPTO SPORTS
+			tpId === 45 || // * SPORTS CRYPTO SPORTS,
+			tpId === 41// * SPORTS ,
 		) {
 			return onWindowOpenProduct({
 				pathname: entPageUrl,
@@ -457,7 +458,7 @@ const useMenu = () => {
 
 			const { menuActionType } =
 				Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) ===
-				DeviceTypeEnum.Desktop
+					DeviceTypeEnum.Desktop
 					? desktop || {}
 					: h5 || {}
 
