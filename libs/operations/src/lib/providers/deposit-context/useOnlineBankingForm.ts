@@ -191,6 +191,7 @@ const useOnlineBankingForm = ({
 					amount: String(convertedAmount),
 					bonusCode,
 					errorUrl,
+					homeUrl: window.location.origin,
 				})
 				const paramsUrl = searchParams.toString()
 
@@ -246,7 +247,7 @@ const useOnlineBankingForm = ({
 			selBank = false,
 		} = find(dataSource, { payName: String(queryPaymentName) }) ||
 		head(dataSource) ||
-		{}
+			{}
 
 		const {
 			bankLogo,
@@ -255,7 +256,7 @@ const useOnlineBankingForm = ({
 			maxAmount: selBankMaxAmount = 0,
 		} = find(paymentOnlineBankInfoSysList, { sysId: Number(querySysId) }) ||
 		head(paymentOnlineBankInfoSysList) ||
-		{}
+			{}
 
 		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
 		const convertMinAmount =

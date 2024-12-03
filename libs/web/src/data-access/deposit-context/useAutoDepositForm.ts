@@ -141,6 +141,7 @@ const useAutoDepositForm = ({
 				BonusCode: bonusCode,
 				PayAccount: bankCardRequired ? String(custBankAccount) : '',
 				errorUrl,
+				homeUrl: window.location.origin,
 			})
 			const paramsUrl = searchParams.toString()
 
@@ -190,7 +191,7 @@ const useAutoDepositForm = ({
 			amountList = [],
 		} = find(dataSource, { channelId: Number(queryChannelId) }) ||
 		head(dataSource) ||
-		{}
+			{}
 
 		const banksInfo =
 			find(supportBanks, { sysId: Number(querySysId) }) || head(supportBanks)

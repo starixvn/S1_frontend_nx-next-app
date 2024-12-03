@@ -51,7 +51,7 @@ const nextConfig = {
 				// * 原因為 langId 組在 api controller 前面 ex: /en/Cashier/DepositReqCryptoPay
 				{
 					source: '/:langId/Cashier/:path*',
-					destination: `${process.env.NEXT_PUBLIC_REFERER_HOST}/${process.env.NEXT_PUBLIC_PLAYER_API_PATH}/:langId/Cashier/:path*`,
+					destination: `${process.env.NEXT_PUBLIC_ENV_DB_HOST}/:langId/Cashier/:path*`,
 					locale: false,
 				},
 				{

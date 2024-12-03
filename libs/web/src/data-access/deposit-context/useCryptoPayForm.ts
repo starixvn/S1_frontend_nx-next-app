@@ -104,11 +104,11 @@ const useCryptoPayForm = ({
 
 				result[groupName] = result[groupName]
 					? {
-							groupName,
-							displayGroupName,
-							maxAmount: Math.max(maxAmount, result[groupName]?.maxAmount),
-							minAmount: Math.min(minAmount, result[groupName]?.minAmount),
-					  }
+						groupName,
+						displayGroupName,
+						maxAmount: Math.max(maxAmount, result[groupName]?.maxAmount),
+						minAmount: Math.min(minAmount, result[groupName]?.minAmount),
+					}
 					: { groupName, minAmount, maxAmount, displayGroupName }
 				return result
 			},
@@ -159,6 +159,7 @@ const useCryptoPayForm = ({
 				Amount: String(convertedAmount),
 				BonusCode: bonusCode,
 				errorUrl,
+				homeUrl: window.location.origin,
 			})
 			const paramsUrl = searchParams.toString()
 
@@ -234,7 +235,7 @@ const useCryptoPayForm = ({
 			channelName,
 		} = find(cryptoChannelList, { channelId: Number(queryChannelId) }) ||
 		head(cryptoChannelList) ||
-		{}
+			{}
 
 		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
 		const convertMinAmount = minAmount / (isConvert(currencyId) ? 1000 : 1)

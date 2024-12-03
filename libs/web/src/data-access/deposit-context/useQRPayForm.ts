@@ -124,6 +124,7 @@ const useQRPayForm = ({
 				Amount: String(convertedAmount),
 				BonusCode: bonusCode,
 				errorUrl,
+				homeUrl: window.location.origin,
 			})
 			const paramsUrl = searchParams.toString()
 
@@ -194,7 +195,7 @@ const useQRPayForm = ({
 			maxAmount = 0,
 		} = find(channelQrPayList, { channelId: Number(queryChannelId) }) ||
 		head(channelQrPayList) ||
-		{}
+			{}
 
 		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
 		const convertMinAmount = minAmount / (isConvert(currencyId) ? 1000 : 1)

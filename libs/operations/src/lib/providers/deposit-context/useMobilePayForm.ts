@@ -232,6 +232,7 @@ const useMobilePayForm = ({
 				PayAccount: payAccount,
 				SysId: String(sysId),
 				errorUrl,
+				homeUrl: window.location.origin,
 			})
 			const paramsUrl = searchParams.toString()
 
@@ -324,7 +325,7 @@ const useMobilePayForm = ({
 			amountList = [],
 		} = find(channelMobilePayList, { channelId: Number(queryChannelId) }) ||
 		head(channelMobilePayList) ||
-		{}
+			{}
 
 		// * 如果 isConvert = true, 畫面上的金額需除 1000 並需要加上 ('000) 的貨幣格式
 		const convertMinAmount = minAmount / (isConvert(currencyId) ? 1000 : 1)
