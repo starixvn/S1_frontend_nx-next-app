@@ -143,7 +143,7 @@ const Survey = () => {
 					>
 						<i className='icon icon-close-line' onClick={onCloseSurvey} />
 						<div>
-							<i className='icon icon-file-damage-fill' />
+							<i className='icon icon-like' />
 							<div>{t('Label_General_Thankyou')}</div>
 						</div>
 						<div>{t('Label_Survey_Hint2')}</div>

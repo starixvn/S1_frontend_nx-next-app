@@ -26,6 +26,10 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-like:before {
+  content: "\e94b";
+  color: #717fba;
+}
 
 .icon-email:before {
 	content: '\e907';

@@ -181,14 +181,13 @@ export const WrapperServey = styled.div`
 		flex-direction: column;
 		align-items: center;
 		color: #0a1b38;
-		font-size: 17px;
 		font-weight: 600;
 		text-align: left;
 	}
 	#survey .survey-after > div:nth-child(2) > div {
-		font-size: 1.7rem;
+		font-size: 1.4rem;
 		color: ${({ theme }) => theme.desktop.white};
-		margin: 1.6rem 0;
+		margin: 0.8rem 0;
 	}
 	#survey .survey-after > div:last-child {
 		color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
@@ -214,5 +213,8 @@ export const WrapperServey = styled.div`
 	}
 	.btnGroup {
 		width: 100%;
+	}
+	.icon-like {
+		margin-bottom: 2.4rem;
 	}
 `
