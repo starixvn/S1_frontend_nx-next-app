@@ -188,26 +188,6 @@ const Join = () => {
 		clearErrors('currencyId')
 		return true
 	}
-
-	const getBlackbox = async () => {
-		let blackbox = ''
-		if (
-			typeof window !== undefined &&
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			typeof (window as any).IGLOO?.getBlackbox === 'function'
-		) {
-			try {
-				// eslint-disable-next-line @typescript-eslint/no-explicit-any
-				const result = await (window as any).IGLOO.getBlackbox()
-				blackbox = result?.blackbox || ''
-			} catch {
-				//
-			}
-		}
-
-		return blackbox
-	}
-
 	const handleSubmitForm = async () => {
 		if (initNationality === 'China') {
 			return
@@ -240,7 +220,6 @@ const Join = () => {
 				({ value }) => value === langId
 			)?.value ?? 'en'
 
-		const blackbox = await getBlackbox()
 		try {
 			await signUp({
 				affCode,
@@ -253,7 +232,6 @@ const Join = () => {
 				userLang,
 				userName: username,
 				userpwd: password,
-				blackbox,
 				langId: userLang,
 				...(reCaptchaToken && { reCaptchaToken, captchaType }),
 			}).unwrap()

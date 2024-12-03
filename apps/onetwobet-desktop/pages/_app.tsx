@@ -42,7 +42,6 @@ dayjs.extend(isBetween)
 
 const {
 	LiveChatScript,
-	IovationScript,
 	PlayTechScript,
 	JackpotsScript,
 	OperaPixelCodeScript,
@@ -79,7 +78,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
 			</Provider>
 
 			<LiveChatScript />
-			<IovationScript />
 			<PlayTechScript />
 			<GTMScript />
 			<JackpotsScript />

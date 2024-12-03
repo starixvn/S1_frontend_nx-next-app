@@ -34,7 +34,7 @@ import '../styles/css/font.scss'
 import '../styles/css/style.scss'
 import '../styles/css/swiper.css'
 
-const { IovationScript, PlayTechScript, JackpotsScript } = ThirdPartyJS
+const { PlayTechScript, JackpotsScript } = ThirdPartyJS
 
 dayjs.extend(localizedFormat)
 dayjs.extend(timezone)
@@ -70,7 +70,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
 				</UIProvider>
 			</Provider>
 
-			<IovationScript />
 			<PlayTechScript />
 			{/* <GTMScript /> */}
 			<JackpotsScript />

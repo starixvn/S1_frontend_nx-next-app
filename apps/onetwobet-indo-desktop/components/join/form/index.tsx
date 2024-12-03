@@ -296,23 +296,6 @@ const Form = () => {
 		}
 	}
 
-	const getBlackbox = async () => {
-		let blackbox = ''
-		if (
-			typeof window !== undefined &&
-			typeof (window as any).IGLOO?.getBlackbox === 'function'
-		) {
-			try {
-				const result = await (window as any).IGLOO?.getBlackbox()
-				blackbox = result?.blackbox || ''
-			} catch {
-				//
-			}
-		}
-
-		return blackbox
-	}
-
 	const handleSubmitForm = async () => {
 		if (initNationality === 'China') {
 			return
@@ -348,7 +331,6 @@ const Form = () => {
 				({ value }) => value === langId
 			)?.value ?? 'en'
 
-		const blackbox = await getBlackbox()
 		try {
 			await signUp({
 				affCode,
@@ -361,7 +343,6 @@ const Form = () => {
 				userLang,
 				userName: username,
 				userpwd: password,
-				blackbox,
 				langId: userLang,
 				...(reCaptchaToken && { reCaptchaToken, captchaType }),
 			}).unwrap()
