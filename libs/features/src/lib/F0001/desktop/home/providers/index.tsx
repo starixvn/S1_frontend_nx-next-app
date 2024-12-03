@@ -121,7 +121,7 @@ const ProvidersList = () => {
 
 	return (
 		<ProviderGroup className='content-container'>
-			<GroupTitle title='Providers' />
+			<GroupTitle title={t('Label_Providers')} />
 			<GameContainer>
 				<EmblaCarousel options={gameTypeEmblaOptions} isControlButton={false}>
 					{providerData.map(provider => {
