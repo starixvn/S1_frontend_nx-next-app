@@ -4,11 +4,7 @@ import classNames from "classnames";
 
 import VendorItem from "./VendorItem";
 
-const VendorFilter = ({
-  pathRoot
-}: {
-  pathRoot: string
-}) => {
+const VendorFilter = ({ pathRoot }: { pathRoot: string }) => {
 	const {
 		vendorList,
 		activeVendorTpId,
@@ -31,7 +27,7 @@ const VendorFilter = ({
 							onVendorChange({
 								tpId,
 								openPath,
-                pathRoot
+								pathRoot,
 							})
 						}
 						isActive={activeVendorTpId === tpId}
@@ -40,12 +36,11 @@ const VendorFilter = ({
 					/>
 				))}
 			</div>
-      {
-        vendorList.length > 5 &&
-          <button className='btn-toggle' onClick={() => onToggleDropdown()}>
-            <span className='icon icon-chevron_down' />
-          </button>
-      }
+			{vendorList?.length > 5 && (
+				<button className='btn-toggle' onClick={() => onToggleDropdown()}>
+					<span className='icon icon-chevron_down' />
+				</button>
+			)}
 		</VendorFilterContainer>
 	)
 }

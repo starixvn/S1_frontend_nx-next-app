@@ -9,6 +9,8 @@ export const VendorFilterContainer = styled.div`
 	.provider-list {
 		display: flex;
 		flex-wrap: wrap;
+		gap: 1.6rem;
+		margin-top: 2.4rem;
 
 		&-item {
 			display: flex;
@@ -18,7 +20,6 @@ export const VendorFilterContainer = styled.div`
 			height: 5.6rem;
 			padding: 0 1.2rem;
 			border-radius: 1rem;
-			margin: 2.4rem 0 0 1.6rem;
 
 			&:first-child {
 				margin-left: 0;
