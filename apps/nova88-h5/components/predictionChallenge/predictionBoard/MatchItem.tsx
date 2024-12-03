@@ -47,7 +47,7 @@ const MatchItem = ({ data }: { data: TPromotionPredictionData }) => {
 			{
 				loginCallback: () => {
 					router.push(
-						`${paths.login.root}?from=${paths.predictionChallenge.root}`
+						`${paths.login.root}?from=${paths.predictionChallenge.root}&affCode=42206`
 					)
 				},
 				successCallback: () => {

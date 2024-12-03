@@ -8,7 +8,13 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
-const LoginModal = ({ path = paths.deposit.root }: { path?: string }) => {
+const LoginModal = ({
+	path = paths.deposit.root,
+	affCode,
+}: {
+	path?: string
+	affCode?: string
+}) => {
 	const { push, reload, pathname } = useRouter()
 	const { t } = useTranslation()
 	const { closeModal } = useGlobalModal()
@@ -133,7 +139,11 @@ const LoginModal = ({ path = paths.deposit.root }: { path?: string }) => {
 						<div className='title txt-orange'>{t('Label_General_LogIn')}</div>
 						<div className='noAccount'>
 							{t('Label_Join_DontHaveAccount')}
-							<Link href={paths.join.root}>
+							<Link
+								href={`${paths.join.root}${
+									affCode ? `?affCode=${affCode}` : ''
+								}`}
+							>
 								<a className='txt-orange' onClick={closeModal}>
 									{t('Label_General_Join')}
 								</a>

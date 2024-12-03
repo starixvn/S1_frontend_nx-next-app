@@ -49,7 +49,9 @@ const MatchItem = ({ data }: { data: TPromotionPredictionData }) => {
 			{ matchId, homeTeamScore, awayTeamScore },
 			{
 				loginCallback: () => {
-					modal.open(<LoginModal path={paths.predictionChallenge.root} />)
+					modal.open(
+						<LoginModal path={paths.predictionChallenge.root} affCode='42206' />
+					)
 				},
 				successCallback: () => {
 					modal.info(t('Label_Prediction_Challenge_Success'))
