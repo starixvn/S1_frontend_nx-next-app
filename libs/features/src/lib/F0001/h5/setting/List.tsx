@@ -2,6 +2,8 @@ import { SettingCollapse } from '@nx-next-app/components/H0001'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useLanguageGroup } from '@nx-next-app/hooks'
+import classNames from 'classnames'
+import { isEqual } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -41,7 +43,9 @@ const List = () => {
 							return (
 								<div className='option-item' key={`languageGroup-${value}`}>
 									<div
-										className='langs'
+										className={classNames('langs', {
+											active: isEqual(langId, value),
+										})}
 										onClick={() =>
 											onSetLanguage({
 												langCode: value,

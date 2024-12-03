@@ -65,7 +65,7 @@ const Home = () => {
 
 	// 因為有用useCallback避免render issue，因此這邊資料僅使用static＆serverSide data
 	// clientSide api fetch在元件內部呼叫
-	const { bannerData, mobileHomeOrders, footerData } = useHome()
+	const { bannerData, mobileHomeOrders } = useHome()
 
 	const {
 		isLoading: isTpWalletBalanceListLoading,
