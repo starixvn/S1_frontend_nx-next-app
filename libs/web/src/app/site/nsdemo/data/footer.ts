@@ -399,38 +399,38 @@ export const FOOTER_DATA = ({
 					name: 'RapidPay',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/rapidpay.jpg`,
 				},
-				{
-					name: 'BTC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
-				},
-				{
-					name: 'ETH',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
-				},
-				{
-					name: 'USDT',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
-				},
-				{
-					name: 'USDC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
-				},
-				{
-					name: 'DAI',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
-				},
-				{
-					name: 'EOS',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
-				},
-				{
-					name: 'ADA',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
-				},
-				{
-					name: 'DOGE',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
-				},
+				// {
+				// 	name: 'BTC',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+				// },
+				// {
+				// 	name: 'ETH',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+				// },
+				// {
+				// 	name: 'USDT',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+				// },
+				// {
+				// 	name: 'USDC',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+				// },
+				// {
+				// 	name: 'DAI',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+				// },
+				// {
+				// 	name: 'EOS',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+				// },
+				// {
+				// 	name: 'ADA',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+				// },
+				// {
+				// 	name: 'DOGE',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+				// },
 			],
 			[CurrenciesEnum.IDR]: [
 				{
