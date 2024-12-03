@@ -1,11 +1,11 @@
 @font-face {
 	font-family: 'S1NewIcons';
-	src: url('../fonts-newsite/s1-new-icons.eot?q3lvc0');
-	src: url('../fonts-newsite/s1-new-icons.eot?q3lvc0#iefix')
+	src: url('../fonts-newsite/s1-new-icons.eot?qsdolx');
+	src: url('../fonts-newsite/s1-new-icons.eot?qsdolx#iefix')
 			format('embedded-opentype'),
-		url('../fonts-newsite/s1-new-icons.ttf?q3lvc0') format('truetype'),
-		url('../fonts-newsite/s1-new-icons.woff?q3lvc0') format('woff'),
-		url('../fonts-newsite/s1-new-icons.svg?q3lvc0#icomoon') format('svg');
+		url('../fonts-newsite/s1-new-icons.ttf?qsdolx') format('truetype'),
+		url('../fonts-newsite/s1-new-icons.woff?qsdolx') format('woff'),
+		url('../fonts-newsite/s1-new-icons.svg?qsdolx#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 	font-display: block;
@@ -26,13 +26,18 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+.icon-email:before {
+	content: '\e907';
+	color: #fff;
+}
 .icon-chat-private-fill:before {
-  content: "\e94a";
-  color: #fff;
+	content: '\e94a';
+	color: #fff;
 }
 .icon-verify:before {
-  content: "\e949";
-  color: #939dc5;
+	content: '\e949';
+	color: #939dc5;
 }
 .icon-plus_circle:before {
 	content: '\e948';
@@ -200,10 +205,6 @@
 }
 .icon-lock-password-line:before {
 	content: '\e906';
-	color: #fff;
-}
-.icon-mail-fill:before {
-	content: '\e907';
 	color: #fff;
 }
 .icon-mail-line:before {
