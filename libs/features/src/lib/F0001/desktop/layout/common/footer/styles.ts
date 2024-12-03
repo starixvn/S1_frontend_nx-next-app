@@ -30,7 +30,7 @@ export const FooterContainer = styled.div`
 			margin-bottom: 1.6rem;
 		}
 		.social-media {
-			flex: 0 0 18rem;
+			flex: 0 0 24rem;
 			&-list {
 				display: flex;
 				gap: 1.2rem;
