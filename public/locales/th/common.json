@@ -990,6 +990,7 @@
   "Label_Promotion_TotalBonusClaimable": "ยอดรวมโบนัสที่กดรับทั้งหมด",
   "Label_Promotion_TotalNetLoss": "ยอดเสียสุทธิรวม",
   "Label_Promotion_TurnoverAccumulated": "เทิร์นโอเวอร์สะสม",
+  "Label_Promotion_Unavailable": "โปรโมชั่นไม่พร้อมใช้งาน",
   "Label_Promotions": "โปรโมชั่น",
   "Label_Promotions_PromoCode": "โค้ดโปรโมชั่น",
   "Label_Providers": "ผู้ให้บริการ",
