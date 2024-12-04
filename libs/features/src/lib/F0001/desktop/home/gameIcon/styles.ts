@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 	props => {
@@ -15,6 +15,16 @@ export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 	overflow: hidden;
 
 	&.maintain {
+		.um-container {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: 2rem;
+			background: rgba(0, 0, 0, 0.5);
+		}
+
 		.txt-maintain {
 			position: absolute;
 			left: 0;

@@ -205,6 +205,11 @@ export const Grade = styled.div`
 		color: ${({ theme }) => theme.desktop.gradeNovaColor};
 	}
 
+	&.infinity .grade-color {
+		background: ${({ theme }) => theme.desktop.gradeInfinityBg};
+		color: ${({ theme }) => theme.desktop.gradeInfinityColor};
+	}
+
 	&.active {
 		${HomeProfile} {
 			display: block;

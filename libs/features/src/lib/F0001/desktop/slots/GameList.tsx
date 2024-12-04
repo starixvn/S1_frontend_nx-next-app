@@ -1,16 +1,13 @@
-import { useAuth } from '@nx-next-app/data-access'
-import AppearSensor from '@nx-next-app/features/F0001/desktop/common/appearSensor'
-import { NoData } from '@nx-next-app/features/F0001/desktop/common/NoData'
-import { LoadingIcon } from '@nx-next-app/features/F0001/desktop/home/gameIcon/icons'
-import {
-	GameIconContainer,
-	GameListContainer,
-} from '@nx-next-app/features/F0001/desktop/lobby-game/styles'
-import { useSlots } from '@nx-next-app/features/F0001/providers'
-import classNames from 'classnames'
-import { useTranslation } from 'next-i18next'
-import { Suspense } from 'react'
-import { Img } from 'react-image'
+import { useAuth } from "@nx-next-app/data-access";
+import AppearSensor from "@nx-next-app/features/F0001/desktop/common/appearSensor";
+import { NoData } from "@nx-next-app/features/F0001/desktop/common/NoData";
+import { LoadingIcon } from "@nx-next-app/features/F0001/desktop/home/gameIcon/icons";
+import { GameIconContainer, GameListContainer } from "@nx-next-app/features/F0001/desktop/lobby-game/styles";
+import { useSlots } from "@nx-next-app/features/F0001/providers";
+import classNames from "classnames";
+import { useTranslation } from "next-i18next";
+import { Suspense } from "react";
+import { Img } from "react-image";
 
 const GameList = () => {
 	const {
@@ -59,8 +56,10 @@ const GameList = () => {
 										key={`casino-game-${tpId}-${gameId}`}
 									>
 										{isMaintain && (
-											<div className='under'>
-												{t('Label_General_UnderMaintenance')}
+											<div className='um-container'>
+												<div className='under'>
+													{t('Label_General_UnderMaintenance')}
+												</div>
 											</div>
 										)}
 										{newGamesArr.includes(gameId) && (

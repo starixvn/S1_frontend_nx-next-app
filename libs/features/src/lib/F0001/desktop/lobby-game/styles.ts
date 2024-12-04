@@ -129,22 +129,32 @@ export const GameIconContainer = styled.div`
 		}
 	}
 
-	.under {
+	.um-container {
 		position: absolute;
-		top: 50%;
 		left: 0;
+		top: 0;
 		width: 100%;
-		transform: translateY(-50%);
+		height: 100%;
+		border-radius: 2rem;
+		background: rgba(0, 0, 0, 0.5);
 		z-index: 3;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 2.7rem 0;
-		background: ${({ theme }) => theme.desktop.gameIconMaintainBg};
-		color: ${({ theme }) => theme.desktop.gameIconMaintainColor};
-		text-align: center;
-		font-size: 1.4rem;
-		font-weight: 700;
+
+		.under {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			transform: translateY(-50%);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 2.7rem 0;
+			background: ${({ theme }) => theme.desktop.gameIconMaintainBg};
+			color: ${({ theme }) => theme.desktop.gameIconMaintainColor};
+			text-align: center;
+			font-size: 1.4rem;
+			font-weight: 700;
+		}
 	}
 
 	.new-icon {

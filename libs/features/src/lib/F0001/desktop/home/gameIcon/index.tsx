@@ -1,9 +1,9 @@
-import AppearSensor from '@nx-next-app/features/F0001/desktop/common/appearSensor'
-import { LoadingIcon } from '@nx-next-app/features/F0001/desktop/home/gameIcon/icons'
-import { GameIconContainer } from '@nx-next-app/features/F0001/desktop/home/gameIcon/styles'
-import { useTranslation } from 'next-i18next'
-import { FC } from 'react'
-import { Img } from 'react-image'
+import AppearSensor from "@nx-next-app/features/F0001/desktop/common/appearSensor";
+import { LoadingIcon } from "@nx-next-app/features/F0001/desktop/home/gameIcon/icons";
+import { GameIconContainer } from "@nx-next-app/features/F0001/desktop/home/gameIcon/styles";
+import { useTranslation } from "next-i18next";
+import { FC } from "react";
+import { Img } from "react-image";
 
 interface IGameItem {
 	gameId: string
@@ -52,9 +52,12 @@ const GameIcon: FC<IGameIcon> = ({ gameItem, isLarge, onClick }) => {
 
 							<div className='providerName'>{tpName}</div>
 						</div>
+
 						{isMaintain && (
-							<div className='txt-maintain'>
-								{t('Label_General_UnderMaintenance')}
+							<div className='um-container'>
+								<div className='txt-maintain'>
+									{t('Label_General_UnderMaintenance')}
+								</div>
 							</div>
 						)}
 					</GameIconContainer>

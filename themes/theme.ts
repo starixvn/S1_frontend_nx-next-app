@@ -43,6 +43,8 @@ export const theme = {
 		gradeDiamondColor: '#fff',
 		gradeNovaBg: '#BCACA3',
 		gradeNovaColor: '#fff',
+		gradeInfinityBg: '#BCACA3',
+		gradeInfinityColor: '#fff',
 		headerBalanceColor: '#fff',
 		depositBtnBg: '#ea6118',
 		depositBtnColor: '#fff',
