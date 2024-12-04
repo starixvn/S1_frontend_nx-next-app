@@ -7,6 +7,7 @@ import { EmblaOptionsType } from "embla-carousel";
 import { useTranslation } from "next-i18next";
 import dynamic from "next/dynamic";
 import { Img } from "react-image";
+import { ProviderEnum} from '@nx-next-app/types'
 
 const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
 	ssr: false,
@@ -22,10 +23,7 @@ const UnderMaintenanceModal = dynamic(
 const ProvidersList = () => {
 	const { t } = useTranslation()
 	const { providerData } = useHome()
-	const maxGame = 61
-	const keno = 71
-	const lottery = 72
-	const tableGame = 73
+
 	const gameTypeEmblaOptions: EmblaOptionsType = { slidesToScroll: 'auto' }
 
 	const providerComingSoon = [
@@ -127,10 +125,10 @@ const ProvidersList = () => {
 					{providerData.map(provider => {
 						const { tpId, tpLogo, tpName } = provider
 						if (
-							tpId === maxGame ||
-							tpId === keno ||
-							tpId === lottery ||
-							tpId === tableGame
+							tpId === ProviderEnum.MaxGame ||
+							tpId === ProviderEnum.Keno ||
+							tpId === ProviderEnum.Lottery ||
+							tpId === ProviderEnum.TableGame
 						)
 							return null
 						return (
@@ -149,10 +147,10 @@ const ProvidersList = () => {
 						// hard code vendor MaxGame,RNG Keno, Lottery, Table Game
 						providerData.findIndex(
 							x =>
-								x.tpId === maxGame ||
-								x.tpId === keno ||
-								x.tpId === lottery ||
-								x.tpId === tableGame
+								x.tpId === ProviderEnum.MaxGame ||
+								x.tpId === ProviderEnum.Keno ||
+								x.tpId === ProviderEnum.Lottery ||
+								x.tpId === ProviderEnum.TableGame
 						) !== -1 && (
 							<div className='embla__slide provider-item' key={0}>
 								<Img
@@ -169,10 +167,10 @@ const ProvidersList = () => {
 					{providerComingSoon.map(provider => {
 						const { tpId, tpLogo, tpName } = provider
 						if (
-							tpId === maxGame ||
-							tpId === keno ||
-							tpId === lottery ||
-							tpId === tableGame
+							tpId === ProviderEnum.MaxGame ||
+							tpId === ProviderEnum.Keno ||
+							tpId === ProviderEnum.Lottery ||
+							tpId === ProviderEnum.TableGame
 						)
 							return null
 						return (

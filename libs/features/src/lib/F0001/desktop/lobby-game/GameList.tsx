@@ -13,8 +13,9 @@ import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import { Img } from 'react-image'
-
+import { ProviderEnum } from '@nx-next-app/types'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
+
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
 	{
@@ -90,7 +91,12 @@ const GameList = () => {
 											)}
 										</div>
 										<div className='details'>
-											<div className='providerName'>{displayText}</div>
+											<div className='providerName'>
+                        {
+                        (tpId === ProviderEnum.MaxGame ||
+                          tpId === ProviderEnum.Keno ||
+                          tpId === ProviderEnum.Lottery ||
+                          tpId === ProviderEnum.TableGame) ? "MaxPlay" : displayText}</div>
 											<div
 												className={classNames(
 													'icon icon-star-fill icon-favorite',

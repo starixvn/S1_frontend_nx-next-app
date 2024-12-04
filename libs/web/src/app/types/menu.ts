@@ -35,6 +35,14 @@ export const LobbyCategoryEnum = {
 	Keno: 82,
 } as const
 
+export const ProviderEnum = {
+	MaxGame: 61,
+	Keno: 71,
+	Lottery: 72,
+	TableGame: 73,
+  MaxPlay: 99
+} as const
+
 export enum MenuIconTypeEnum {
 	NO_ICON,
 	New,

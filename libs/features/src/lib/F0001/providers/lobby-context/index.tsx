@@ -35,7 +35,7 @@ import {
 	trim,
 } from 'lodash-es'
 import { getIsTpMaintain, moveItem } from '@nx-next-app/utils'
-import { BannerTypeEnum } from '@nx-next-app/types'
+import { BannerTypeEnum, ProviderEnum } from '@nx-next-app/types'
 import { CategoryEnum } from '@nx-next-app/features/F0001/types'
 
 interface ILobbyProviderProps {
@@ -505,11 +505,18 @@ const LobbyProvider = ({
 		const filteredGameList = originGameList
 			.filter(({ tpId, gameName }) => {
 				return (
-					(queryTpId ? String(tpId) === queryTpId : true) &&
+					((queryTpId ? String(tpId) === queryTpId : true) &&
 					(searchCategoryText === '' ||
 						some(Object.values(gameName), name =>
 							camelCase(trim(gameName)).match(camelCase(trim(searchCategoryText)))
-						))
+						))||
+            (queryTpId === ProviderEnum.MaxPlay.toString() && (
+              tpId === ProviderEnum.MaxGame ||
+              tpId === ProviderEnum.Keno ||
+              tpId === ProviderEnum.Lottery ||
+              tpId === ProviderEnum.TableGame
+            )
+            ))
 				)
 			})
 			.map(gameObj => ({
