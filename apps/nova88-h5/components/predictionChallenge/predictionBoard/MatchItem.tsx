@@ -1,10 +1,5 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import {
-	dateFormat,
-	gmtFormat,
-	paths,
-	timeFormat,
-} from '@nx-next-app/constants'
+import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
 import { usePredictionChallengeContext } from '@nx-next-app/operations'
 import { TPromotionPredictionData } from '@nx-next-app/service'
 import classNames from 'classnames'
@@ -37,7 +32,6 @@ const MatchItem = ({ data }: { data: TPromotionPredictionData }) => {
 	} = data
 	const date = dayjs(battleTime).format(dateFormat)
 	const time = dayjs(battleTime).format(timeFormat)
-	const gmt = dayjs(battleTime).format(gmtFormat)
 	const { handleSubmit, register } = useForm<TPredictForm>()
 
 	const onSubmit: SubmitHandler<TPredictForm> = async formData => {
@@ -69,7 +63,7 @@ const MatchItem = ({ data }: { data: TPromotionPredictionData }) => {
 							<div className='match'>{sportLeaguesTitle}</div>
 							<div className='time'>
 								<span>{date}</span>
-								<span>{`${time} ${gmt}`}</span>
+								<span>{time}</span>
 							</div>
 						</div>
 						<div className='card-predict'>

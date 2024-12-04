@@ -1,5 +1,5 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { dateFormat, gmtFormat, timeFormat } from '@nx-next-app/constants'
+import { dateFormat, timeFormat } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { usePredictionChallengeContext } from '@nx-next-app/operations'
 import { numberFormat } from '@nx-next-app/utils'
@@ -31,7 +31,6 @@ const PredictionResult = () => {
 
 	const date = dayjs(battleTime).format(dateFormat)
 	const time = dayjs(battleTime).format(timeFormat)
-	const gmt = dayjs(battleTime).format(gmtFormat)
 	const formatBonus = numberFormat(bonus, currencyId)
 	const winnerList = [...winners, '-', '-', '-', '-', '-'].slice(0, 5)
 
@@ -49,7 +48,7 @@ const PredictionResult = () => {
 					<div className='sub-caption'>
 						{predictResult && (
 							<>
-								<div className='time'>{`${date} ${time} ${gmt}`}</div>
+								<div className='time'>{`${date} ${time}`}</div>
 								<div className='title'>{`${homeTeamName} VS ${awayTeamName}`}</div>
 							</>
 						)}
