@@ -1,10 +1,11 @@
-import dayjs from 'dayjs'
-import { useTranslation } from 'next-i18next'
-import { useSendOTPEmailMutation } from '@nx-next-app/service'
-import { useAuth } from '@nx-next-app/data-access'
+import { Loading } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { Loading } from '@nx-next-app/components/D0001'
+import { useAuth } from '@nx-next-app/data-access'
+import { WrapperProfileH5 } from '@nx-next-app/features/F0001/h5/profile/styles'
+import { useSendOTPEmailMutation } from '@nx-next-app/service'
+import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
 import { PhoneOtpModal } from './PhoneOtpModal'
 
 const Info = () => {
@@ -49,72 +50,77 @@ const Info = () => {
 	if (!lastLogin) return <Loading />
 
 	return (
-		<div className='profile'>
-			{phoneNo && (
-				<div>
-					<div>{t('Label_General_Phone')}</div>
-					{phoneNo && (
-						<div>
-							({areaCode}){phoneNo}
-							{phoneVerified ? (
+		<WrapperProfileH5>
+			<div className='profile'>
+				{phoneNo && (
+					<div className='group-control'>
+						<div className='label-name'>{t('Label_General_Phone')}</div>
+						{phoneNo && (
+							<div className='group-cfm'>
+								<div className='name-input'>
+									({areaCode}){phoneNo}
+								</div>
+
+								{phoneVerified ? (
+									<span className='icon icon-Shield' />
+								) : (
+									<button className='btn-secondary' onClick={onPhoneVerify}>
+										<i className='icon icon-mobile-alt' />
+										<span>{t('Label_Profile_MobileVerifiy')}</span>
+									</button>
+								)}
+							</div>
+						)}
+					</div>
+				)}
+				{email && (
+					<div className='group-control'>
+						<div className='label-name'>{t('Label_General_Email')}</div>
+						<div className='group-cfm'>
+							<div className='name-input'>{email}</div>
+							{emailVerified ? (
 								<span className='icon icon-Shield' />
 							) : (
-								<button
-									className='icon btn-org icon-mobile'
-									onClick={onPhoneVerify}
-								>
-									<span>{t('Label_Profile_MobileVerifiy')}</span>
+								<button className='btn-secondary' onClick={onEmailVerify}>
+									<i className='icon icon-mail-line' />
+									<span>{t('Label_Profile_EmailVerification')}</span>
 								</button>
 							)}
 						</div>
-					)}
+					</div>
+				)}
+				{accountName && (
+					<div className='group-control'>
+						<div className='label-name'>{t('Label_General_RealName')}</div>
+						<div className='name-input'>{accountName}</div>
+					</div>
+				)}
+				{birthDay && (
+					<div className='group-control'>
+						<div className='label-name'>{t('Label_Profile_Birthday')}</div>
+						<div>
+							{birthDay} / {birthMonth} / {birthYear}
+						</div>
+					</div>
+				)}
+				<div className='group-control'>
+					<div className='label-name'>{t('Label_General_Username')}</div>
+					<div className='name-input'>{userName}</div>
 				</div>
-			)}
-			{email && (
-				<div>
-					<div>{t('Label_General_Email')}</div>
-					<div>
-						{email}
-						{emailVerified ? (
-							<span className='icon icon-Shield' />
-						) : (
-							<button
-								className='icon btn-org icon-envelope'
-								onClick={onEmailVerify}
-							>
-								<span>{t('Label_Profile_EmailVerification')}</span>
-							</button>
-						)}
+				<div className='group-control'>
+					<div className='label-name'>{t('Label_Profile_RegisterTime')}</div>
+					<div className='name-input'>
+						{dayjs(regTime).format('DD/MM/YYYY HH:mm:ss')}
 					</div>
 				</div>
-			)}
-			{accountName && (
-				<div>
-					<div>{t('Label_General_RealName')}</div>
-					<div>{accountName}</div>
-				</div>
-			)}
-			{birthDay && (
-				<div>
-					<div>{t('Label_Profile_Birthday')}</div>
-					<div>
-						{birthDay} / {birthMonth} / {birthYear}
+				<div className='group-control'>
+					<div className='label-name'>{t('Label_Profile_LastLogin')}</div>
+					<div className='name-input'>
+						{dayjs(lastLogin).format('DD/MM/YYYY HH:mm:ss')}
 					</div>
 				</div>
-			)}
-			<div>
-				<div>{t('Label_General_Username')}</div>
-				<div>{userName}</div>
 			</div>
-			<div>
-				<div>{t('Label_Profile_RegisterTime')}</div>
-				<div>{dayjs(regTime).format('DD/MM/YYYY HH:mm:ss')}</div>
-			</div>
-			<div>
-				<div>{t('Label_Profile_LastLogin')}</div>
-				<div>{dayjs(lastLogin).format('DD/MM/YYYY HH:mm:ss')}</div>
-			</div>
-		</div>
+		</WrapperProfileH5>
 	)
 }
 

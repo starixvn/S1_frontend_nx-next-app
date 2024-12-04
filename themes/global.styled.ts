@@ -272,6 +272,32 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
   
+  .mobile-h5{
+    .pop{
+      min-width : unset !important;
+      max-width: 80vw;
+    }
+    .Success, ,poker,
+        .duitnowPop,
+        .angpaopop,
+        .friend,
+        .Cancel,
+        .uploadSuccess,
+        .updateSuccess,
+        .Success,
+        .tokyc,
+        .addBankpop,
+        .addAddresspop,
+        .changePassWordpop,
+        .editSuccess,
+        .joinSuccess,
+        .resetPassWordpop,
+        .noticepop,.statuspop{
+          min-width : unset !important;
+        }
+  }
+
+
   .promoInfoPop{
     max-height: calc(100% - 160px);
     overflow-y: auto;
@@ -394,6 +420,10 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
   }
+
+
+
+
   .react-datepicker-popper[data-placement^=bottom]{
     padding-top : 1.5rem;
   }

@@ -249,7 +249,6 @@ export const WrapperVerificationH5 = styled.div`
 
 export const WrapperEditAddressH5 = styled.div`
 	.addressModule {
-		margin: 3.1vw 0;
 		.title {
 			text-align: center;
 			color: ${({ theme }) => theme.mobile.white};
@@ -258,17 +257,23 @@ export const WrapperEditAddressH5 = styled.div`
 			font-weight: 700;
 			line-height: normal;
 		}
+		.inputInfo {
+			color: ${({ theme }) => theme.mobile.white};
+			background: #ea6118;
+			&:before {
+				border-color: #ea6118 transparent transparent;
+			}
+		}
 		.group-sub-title {
-			background: #182043;
-			border-radius: 20px;
-			overflow: hidden;
 			.heading-box {
 				padding: 2.7vw 5vw;
 				background: #232b4f;
 				border-bottom: 1px solid #374375;
 			}
 			.body-box {
-				padding: 5vw;
+				padding-bottom: 5vw;
+				margin: 5vw;
+				border-bottom: 1px solid #374375;
 				.infoModule {
 					margin-bottom: 3.4vw;
 					position: relative;
@@ -281,6 +286,64 @@ export const WrapperEditAddressH5 = styled.div`
 				position: absolute;
 				right: 0;
 				z-index: 9;
+			}
+		}
+	}
+`
+
+export const WrapperParentProfileH5 = styled.div`
+	background: #182043;
+	border-radius: 20px;
+	overflow: hidden;
+	.group-btn-line {
+		padding: 0 5vw 0 5vw;
+		.btnGroup {
+			margin: 2vw 0;
+			.icon {
+				margin-right: 1.5vw;
+			}
+		}
+		.txt-line {
+			color: #1b5bff;
+			padding: 4vw 0;
+			font-size: 3.5vw;
+			font-weight: 400;
+		}
+	}
+`
+
+export const WrapperProfileH5 = styled.div`
+	.profile {
+		padding: 0 5vw 2vw 5vw;
+		.group-control {
+			display: flex;
+			flex-wrap: wrap;
+			margin-bottom: 1.5vw;
+			.label-name {
+				min-width: 35vw;
+				font-size: 3.4vw;
+				font-weight: 600;
+			}
+			.name-input {
+				font-size: 3.4vw;
+				font-weight: 400;
+				line-height: 18px;
+				color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+			}
+			.group-cfm {
+				.name-input {
+					margin-bottom: 1vw;
+				}
+				button {
+					border-radius: 100px;
+					display: flex;
+					align-items: center;
+					width: 100%;
+					justify-content: center;
+					padding: 1vw 3vw;
+					gap: 0.4rem;
+					font-size: 3.5vw;
+				}
 			}
 		}
 	}

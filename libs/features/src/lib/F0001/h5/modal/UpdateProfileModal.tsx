@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import { useTranslation } from 'next-i18next'
-import { paths } from '@nx-next-app/constants'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
 
 const UpdateProfileModal = ({ prevPage }: { prevPage: string }) => {
 	const { t } = useTranslation()
@@ -16,9 +16,10 @@ const UpdateProfileModal = ({ prevPage }: { prevPage: string }) => {
 						? t('Label_General_UpdatePersonalInfoWithdrawal')
 						: t('Label_General_UpdatePersonalInfoDeposit')}
 				</div>
-				<div className='btn-group'>
+
+				<div className='btnGroup'>
 					<Link href={paths.profile.root}>
-						<button className='btn-check' onClick={closeModal}>
+						<button className='btn-primary' onClick={closeModal}>
 							{t('Label_General_UpdatePersonalDetail')}
 						</button>
 					</Link>

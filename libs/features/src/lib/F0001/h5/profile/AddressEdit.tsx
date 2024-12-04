@@ -93,9 +93,9 @@ const AddressEdit = () => {
 	return (
 		<WrapperEditAddressH5>
 			<div className='addressModule'>
-				<div className='title'>
+				{/* <div className='title'>
 					{t('Label_Profile_ShippingAddress')}:（{t('Label_Profile_Option2')}）
-				</div>
+				</div> */}
 				<div className='group-sub-title'>
 					<div className='heading-box'>{t('Label_Profile_Address')}</div>
 					<div className='body-box'>

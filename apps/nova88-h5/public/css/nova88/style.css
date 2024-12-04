@@ -180,13 +180,6 @@ button[disabled] {
 	height: 100%;
 }
 
-.icon-close {
-	position: fixed;
-	top: 3vw;
-	right: 3vw;
-	color: #f77a00;
-}
-
 div[tabindex='-1'] {
 	height: 100%;
 }
@@ -1095,7 +1088,7 @@ main .gameList .icon-new {
 	align-items: center;
 }
 
-#popup {
+/* #popup {
 	width: calc(100% - 16vw);
 	height: calc(100% - 16vw);
 	position: fixed;
@@ -1491,7 +1484,7 @@ main .gameList .icon-new {
 }
 #popup.angpaopop .pop > img.door {
 	top: 30vw;
-}
+} */
 @-webkit-keyframes tiger {
 	from {
 		-webkit-transform: translateY(-15vw) translateX(-15vw);
@@ -7758,8 +7751,6 @@ span.important {
 	display: none;
 }
 
-
-
 .contact {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -12478,75 +12469,6 @@ span.important {
 	}
 }
 
-
-
-
-
-
-
-.profile {
-	color: #5574a7;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-flow: wrap;
-	flex-flow: wrap;
-}
-.profile > div {
-	width: 50%;
-}
-.profile > div > div {
-	margin: 2vw 0;
-}
-.profile > div > div:first-child {
-	font-weight: bold;
-}
-.profile > div > div .icon-Shield:before {
-	color: #009810;
-	font-size: 3.5vw;
-}
-.profile > div > div button {
-	background: -webkit-gradient(
-		linear,
-		left top,
-		left bottom,
-		from(#f77900),
-		to(#f55c00)
-	);
-	background: linear-gradient(to bottom, #f77900, #f55c00);
-	color: white;
-	padding: 1vw 2vw;
-	border-radius: 3px;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	position: relative;
-	margin-top: 2vw;
-}
-.profile > div > div button:before {
-	font-size: 3vw;
-	margin-right: 1vw;
-}
-.profile .description {
-	display: none;
-}
-.profile + .btn-group a,
-.profile + .btn-group button {
-	width: 100%;
-}
-.profile-email.unfilled {
-	color: gray;
-}
-.profile-email.unfilled > div:first-child {
-	color: #5574a7;
-}
-.profile-email.unfilled button {
-	background: gray;
-}
-
 .nav {
 	background: white;
 	position: absolute;
@@ -12678,8 +12600,6 @@ span.important {
 	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/flag/jp.jpg)
 		no-repeat top left/cover;
 }
-
-
 
 .worldcupEvent {
 	width: 100%;

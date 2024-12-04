@@ -1,11 +1,11 @@
-import { useTranslation } from 'next-i18next'
-import { CurrenciesEnum } from '@nx-next-app/types'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import {
 	LineLoginDirectTypeEnum,
 	useLazyGetLineLoginDirectUrlQuery,
 } from '@nx-next-app/service'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { useTranslation } from 'next-i18next'
 
 const LineBinding = () => {
 	const { t } = useTranslation()

@@ -52,8 +52,12 @@ const GlobalModal = ({
 
 			{type !== 'default' && (
 				<div className='pop'>
-					<div className='popTit'>
-						<div className='icon icon-close' onClick={closeModal} />
+					<div className='icon icon-notifi icon-alert-fill' />
+					<div className='title'>
+						<div
+							className='close-popup icon icon-close-line'
+							onClick={closeModal}
+						/>
 						{mergedTitle}
 					</div>
 					<div className='popTxt'>
@@ -63,14 +67,14 @@ const GlobalModal = ({
 							{isArray(content) && content.map(val => <div>{val}</div>)}
 						</div>
 
-						<div className='btn-group'>
+						<div className='btnGroup'>
 							{footer}
 
 							{!footer && (
 								<>
 									<button
 										type='button'
-										className='blue'
+										className='btn-primary'
 										onClick={() => {
 											closeModal()
 											onOK && onOK()
