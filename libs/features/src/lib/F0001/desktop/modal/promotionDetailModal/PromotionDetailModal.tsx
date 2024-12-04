@@ -20,7 +20,6 @@ import PromotionProgressBar from '../../promotion/common/PromotionProgressBar'
 import PromoRule from './PromoRule'
 import PromoMission from './PromoMission'
 
-
 interface IPromotionDetailModalProps {
 	bonusCode: string
 	// 是否隱藏全部優惠的 button , 預設為 false
@@ -43,15 +42,11 @@ const PromotionDetailModal = ({
 		langId,
 		bonusCode,
 	})
-	const { modal } = useGlobalModal()
 
 	const { onUpdatePromotionDetail, setClaimPromotionHandler } =
 		useSetClaimPromotionFetcher()
 
-	if (!promotionDetail) {
-		modal.error(t('Label_Promotion_Unavailable'))
-		return
-	}
+	if (!promotionDetail) return null
 
 	const {
 		banner,
@@ -173,18 +168,18 @@ const PromotionDetailModal = ({
 						status,
 						promotionType,
 					}) && (
-							<PromotionProgressBar
-								custTurnOver={custTurnOver}
-								custRollOver={custRollOver}
-								onSpinButton={() =>
-									onUpdatePromotionDetail({
-										bonusCode,
-										tpId,
-										promoCategoryId: String(categoryId),
-									})
-								}
-							/>
-						)}
+						<PromotionProgressBar
+							custTurnOver={custTurnOver}
+							custRollOver={custRollOver}
+							onSpinButton={() =>
+								onUpdatePromotionDetail({
+									bonusCode,
+									tpId,
+									promoCategoryId: String(categoryId),
+								})
+							}
+						/>
+					)}
 					{promotionType === PromotionTypeEnum.MissionBonus && !isJoin && (
 						<PromoMission promotionDetail={promotionDetail} />
 					)}
