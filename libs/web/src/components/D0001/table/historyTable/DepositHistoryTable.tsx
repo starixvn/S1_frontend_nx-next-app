@@ -1,24 +1,24 @@
-import dynamic from 'next/dynamic'
-import { includes } from 'lodash-es'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
+import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
+import {
+	AllowUploadReceiptType,
+	CURRENCY_TO_TIMEZONE,
+	WithReceiptInfoType,
+} from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { IDepositInfoHistoryData } from '@nx-next-app/service'
+import { numberFormat } from '@nx-next-app/utils'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
 import {
 	DepositStatusClassName,
 	DepositStatusClassNameEnum,
 	DepositStatusEnum,
 } from 'libs/web/src/app/types/history'
-import { IDepositInfoHistoryData } from '@nx-next-app/service'
-import {
-	CURRENCY_TO_TIMEZONE,
-	AllowUploadReceiptType,
-	WithReceiptInfoType,
-} from '@nx-next-app/constants'
-import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
-import { numberFormat } from '@nx-next-app/utils'
-import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
-import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
+import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import dynamic from 'next/dynamic'
 
 dayjs.extend(utc)
 
@@ -185,6 +185,7 @@ const DepositHistoryTable = ({
 											bankSite={item?.bankInfo?.bankSite}
 											accountName={item?.depositRep?.accountName}
 											accountNo={item?.depositRep?.accountNo}
+											amount={item.amount || 0}
 											code={item?.depositRep?.code}
 											transId={item?.transId}
 											depositReceipt={item?.depositReceipt}
