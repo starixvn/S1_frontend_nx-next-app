@@ -44,7 +44,7 @@ export const WrapperHistory = styled.div`
 	}
 	.dropdown {
 		.btn {
-			color: #fff;
+			color: #fff !important;
 		}
 	}
 `
