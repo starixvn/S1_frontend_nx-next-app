@@ -1,13 +1,14 @@
 import { Header } from '@nx-next-app/components/H0001'
 import { paths } from '@nx-next-app/constants'
-import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
+import { WrapperDepositH5 } from '@nx-next-app/features/F0001/h5/deposit/styles'
 import { useGetMainWalletInfoQuery } from '@nx-next-app/service'
 import { numberFormat } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
 import DepositAutoRemember from './DepositAutoRemember'
 import DepositImportant from './DepositImportant'
-import DepositForm from './depositForm'
 import DepositRecentHistory from './DepositRecentHistory'
+import DepositForm from './depositForm'
 
 const Deposit = () => {
 	const { t } = useTranslation()
@@ -41,24 +42,28 @@ const Deposit = () => {
 					]}
 				/>
 			</Header>
-			<main className='main deposit'>
-				<div className='mainWallet'>
-					<div className='account'>
-						<div className='icon icon-icon32px_wallet'>
-							{t('Label_General_Balance')}
+			<WrapperDepositH5>
+				<main className='main deposit'>
+					<div className='mainWallet'>
+						<div className='account inputBox-blue'>
+							<div className='group-icon'>
+								<i className='icon icon-empty-wallet' />
+								{t('Label_General_Balance')}
+							</div>
+
+							<div className='money'>{balanceText}</div>
 						</div>
-						<div>{balanceText}</div>
 					</div>
-				</div>
 
-				<DepositAutoRemember />
+					<DepositAutoRemember />
 
-				<DepositForm />
+					<DepositForm />
 
-				<DepositRecentHistory />
+					<DepositRecentHistory />
 
-				<DepositImportant />
-			</main>
+					<DepositImportant />
+				</main>
+			</WrapperDepositH5>
 		</>
 	)
 }

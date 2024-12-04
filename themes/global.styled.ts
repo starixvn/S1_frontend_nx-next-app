@@ -1708,31 +1708,35 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  .inputInfo {
-    text-align: left;
-    display: none;
-    background: #a5bbe0;
-    border-radius: 5px;
-    padding: 2vw;
-    position: relative;
-    word-break: break-word;
-    color: #5574a7;
-    &:before{
-      content: '';
-      width: 0;
-      height: 0;
-      border-width: 2vw 2vw 0 2vw;
-      border-style: solid dashed dashed;
-      border-color: #a5bbe0 transparent transparent;
-      position: absolute;
-      bottom: -1.5vw;
-      right: 3vw;
-      z-index: 1;
-    }
-    &.active{
-       display: block;
+  .mobile-h5{
+    .inputInfo {
+      text-align: left;
+      display: none;
+      background: #EA6118;
+      border-radius: 5px;
+      padding: 2vw;
+      position: relative;
+      word-break: break-word;
+      color: ${({ theme }) => theme.mobile.white};
+      font-size : 3.1vw;
+      &:before{
+        content: '';
+        width: 0;
+        height: 0;
+        border-width: 2vw 2vw 0 2vw;
+        border-style: solid dashed dashed;
+        border-color: #EA6118 transparent transparent;
+        position: absolute;
+        bottom: -1.5vw;
+        right: 3vw;
+        z-index: 1;
+      }
+      &.active{
+        display: block;
+      }
     }
   }
+
 
   .inputBox-mobiile{
     .icon-module{
@@ -2187,5 +2191,26 @@ export const GlobalStyles = createGlobalStyle`
       transition: 0.3s;
       width: 100%;
       opacity: 1;
+    }
+    .group-select-bank {
+      border-radius: 20px;
+      margin-bottom : 4vw;
+      overflow: hidden;
+        .title {
+          border-bottom: 1px solid ${({ theme }) =>
+						theme.desktop.rightModuleBorderColor};
+          background: ${({ theme }) => theme.desktop.rightModuleTitleBg};
+          padding : 3.1vw 4.1vw;
+          font-size : 3.4vw;
+          font-weight: 700;
+          span{
+            color : ${({ theme }) => theme.desktop.hrefColorPrimary};
+            font-weight: 400;
+          }
+        }
+        .selectModule{
+          padding: 4vw;
+          background: ${({ theme }) => theme.desktop.rightModuleBg};
+        }
     }
 `

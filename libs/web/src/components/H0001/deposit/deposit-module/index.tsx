@@ -29,18 +29,15 @@ const DepositModule = ({
 		userInfo: { currencyId },
 	} = useAuth()
 	return (
-		<>
+		<div className='group-select-bank'>
 			<div className='title'>
-				{required && <span>*</span>}
-
-				{title}
-
+				{title} {required && <span>*</span>}
 				{isConvert(currencyId) && hasAdditionalInfo && (
 					<div className='info'>{t('Label_Deposit_AdditionalInfo')}</div>
 				)}
 			</div>
 			<div className={classNames(className)}>{children}</div>
-		</>
+		</div>
 	)
 }
 

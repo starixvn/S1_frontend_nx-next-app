@@ -136,7 +136,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 						<div className='column' />
 						<InputBox
 							type='number'
-							className='inputBox-white'
+							className='inputBox-blue'
 							register={register('amount', {
 								valueAsNumber: true,
 								required: {
@@ -243,7 +243,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 					/>
 
 					<InputBox
-						className='inputBox-white'
+						className='inputBox-blue'
 						register={register('promoCode')}
 						placeholder={t('Label_Promotions_PromoCode') || ''}
 						touched={!!touchedFields['promoCode']}
@@ -255,13 +255,13 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			</DepositModule>
 
 			<Form onSubmit={handleSubmit(onAutoDepositFormSubmit)}>
-				<div className='btn-group'>
+				<div className='btnGroup'>
 					<button
 						type='submit'
 						style={{ pointerEvents: isValid ? 'auto' : 'none' }}
 						className={classNames({
-							darkGray: !isValid,
-							'btn-check': isValid,
+							'btn-disable': !isValid,
+							'btn-primary': isValid,
 						})}
 					>
 						{t('Label_General_Submit')}
