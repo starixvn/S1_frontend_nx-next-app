@@ -210,6 +210,7 @@ export const WrapperServey = styled.div`
 	.group-input {
 		display: flex;
 		width: 100%;
+		flex-wrap: wrap;
 	}
 	.btnGroup {
 		width: 100%;
