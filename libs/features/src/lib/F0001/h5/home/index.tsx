@@ -1,6 +1,5 @@
-import { Header, JackPot } from "@nx-next-app/components/H0001";
-import { paths } from "@nx-next-app/constants";
-import { useAuth, useStaticData } from "@nx-next-app/data-access";
+import { Header } from "@nx-next-app/components/H0001";
+import { useAuth } from "@nx-next-app/data-access";
 import { HomPageContainer } from "@nx-next-app/features/F0001/h5/home/styles";
 import { useHome } from "@nx-next-app/features/F0001/providers";
 import { MobileHomeComponentsEnum } from "@nx-next-app/features/F0001/types";
@@ -36,27 +35,11 @@ const Announcement = dynamic(() => import('./Announcement'))
 
 const PromotionSwiper = dynamic(() => import('./PromotionSwiper'))
 
-const HotEventSwiper = dynamic(() => import('./HotEventSwiper'))
-
-const HotGameSwiper = dynamic(() => import('./HotGameSwiper'))
-
 const HotGameCasinoSwiper = dynamic(() => import('./HotGameCasinoSwiper'))
-
-const RecentlyViewGames = dynamic(() => import('./RecentlyViewGames'), {
-	ssr: false,
-})
-
-const FriendReferral = dynamic(() => import('./FriendReferral'), { ssr: false })
 
 const SimpleFooter = dynamic(() => import('./SimpleFooter'))
 
 const FooterBlock = dynamic(() => import('./footerBlock'))
-
-const JackPotSwiper = dynamic(() => import('./JackPotSwiper'), { ssr: false })
-
-const OlympicEntry = dynamic(() => import('../common/OlympicEntry'), {
-	ssr: false,
-})
 
 const Home = () => {
 	const { push } = useRouter()
@@ -81,58 +64,60 @@ const Home = () => {
 
 	const [setHideBalance] = useSetHideBalanceMutation()
 
-	const { ALLOWED_CURRENCIES } = useStaticData()
 	const homeComponents = {
 		[MobileHomeComponentsEnum.CarouselBanner]: (
 			<div className='home-mainbanner'>
-				<CarouselBanner
-					bannerList={bannerData}
-					pagination={true}
-					navigation={false}
-				/>
+				<CarouselBanner bannerList={bannerData} navigation={false} />
 			</div>
 		),
 		[MobileHomeComponentsEnum.Announcement]: <Announcement />,
-		[MobileHomeComponentsEnum.PromotionSwiper]: <PromotionSwiper />,
-		[MobileHomeComponentsEnum.HotEventSwiper]: includes(
-			ALLOWED_CURRENCIES.SPORTS_SABA_CLUB,
-			currencyId
-		) ? (
-			<HotEventSwiper />
-		) : null,
-		[MobileHomeComponentsEnum.HotGameSwiper]: <HotGameSwiper />,
-		[MobileHomeComponentsEnum.HotGameCasinoSwiper]: <HotGameCasinoSwiper />,
-		[MobileHomeComponentsEnum.RecentlyViewGames]: <RecentlyViewGames />,
-		[MobileHomeComponentsEnum.FriendReferral]: <FriendReferral />,
-		[MobileHomeComponentsEnum.Jackpot]: includes(
-			ALLOWED_CURRENCIES.JACKPOT,
-			currencyId
-		) ? (
-			<JackPot onClick={() => push(paths.slots.root)} isRoot />
-		) : null,
-		[MobileHomeComponentsEnum.EuropeCupEntry]: includes(
-			ALLOWED_CURRENCIES.Euro_Cup,
-			currencyId
-		) ? (
-			<EuroCupEntry />
-		) : null,
-		[MobileHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
-		[MobileHomeComponentsEnum.Retention]: <Retention />,
+		[MobileHomeComponentsEnum.LiveCasino]: <HotGameCasinoSwiper />,
+		[MobileHomeComponentsEnum.TableGames]: <HotGameCasinoSwiper />,
+		[MobileHomeComponentsEnum.SlotGames]: <HotGameCasinoSwiper />,
 
-		[MobileHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
+		[MobileHomeComponentsEnum.HotGameSport]: <HotGameCasinoSwiper />,
+		[MobileHomeComponentsEnum.NewRelease]: <HotGameCasinoSwiper />,
+		[MobileHomeComponentsEnum.ProviderList]: <HotGameCasinoSwiper />,
+		[MobileHomeComponentsEnum.PromotionSwiper]: <PromotionSwiper />,
+		// [MobileHomeComponentsEnum.HotEventSwiper]: includes(
+		// 	ALLOWED_CURRENCIES.SPORTS_SABA_CLUB,
+		// 	currencyId
+		// ) ? (
+		// 	<HotEventSwiper />
+		// ) : null,
+		// [MobileHomeComponentsEnum.HotGameSwiper]: <HotGameSwiper />,
+
+		// [MobileHomeComponentsEnum.RecentlyViewGames]: <RecentlyViewGames />,
+		// [MobileHomeComponentsEnum.FriendReferral]: <FriendReferral />,
+		// [MobileHomeComponentsEnum.Jackpot]: includes(
+		// 	ALLOWED_CURRENCIES.JACKPOT,
+		// 	currencyId
+		// ) ? (
+		// 	<JackPot onClick={() => push(paths.slots.root)} isRoot />
+		// ) : null,
+		// [MobileHomeComponentsEnum.EuropeCupEntry]: includes(
+		// 	ALLOWED_CURRENCIES.Euro_Cup,
+		// 	currencyId
+		// ) ? (
+		// 	<EuroCupEntry />
+		// ) : null,
+		// [MobileHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
+		// [MobileHomeComponentsEnum.Retention]: <Retention />,
+
+		// [MobileHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
 
 		[MobileHomeComponentsEnum.FooterBlock]: <FooterBlock />,
 		[MobileHomeComponentsEnum.SimpleFooter]: <SimpleFooter />,
 		// TODO: Hide in phase 1
 		// [MobileHomeComponentsEnum.JackPotSwiper]: <JackPotSwiper />,
-		[MobileHomeComponentsEnum.JackPotSwiper]: <div />,
+		// [MobileHomeComponentsEnum.JackPotSwiper]: <div />,
 
-		[MobileHomeComponentsEnum.OlympicEntry]: includes(
-			ALLOWED_CURRENCIES.OLYMPIC,
-			currencyId
-		) ? (
-			<OlympicEntry />
-		) : null,
+		// [MobileHomeComponentsEnum.OlympicEntry]: includes(
+		// 	ALLOWED_CURRENCIES.OLYMPIC,
+		// 	currencyId
+		// ) ? (
+		// 	<OlympicEntry />
+		// ) : null,
 	}
 
 	// banner 區塊，目前只有兩個

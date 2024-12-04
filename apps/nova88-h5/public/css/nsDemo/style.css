@@ -167,15 +167,6 @@ html {
 	color: white;
 }
 
-button {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 500;
-}
-button[disabled] {
-	background: #a5aab1 !important;
-	color: #666 !important;
-}
-
 #root {
 	height: 100%;
 }

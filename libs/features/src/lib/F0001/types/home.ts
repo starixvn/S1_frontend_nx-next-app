@@ -52,19 +52,29 @@ export enum MobileHomeComponentsEnum {
 	CarouselBanner = 'CarouselBanner',
 	// 跑馬燈
 	Announcement = 'Announcement',
+	// LiveCasino
+	LiveCasino = 'LiveCasino',
+	// HotGame
+	// HotGame = 'HotGame',
+	HotGameSport = 'HotGameSports',
+	SlotGames = 'SlotGames',
+	TableGames = 'TableGames',
+	NewRelease = 'NewRelease',
+	ProviderList = 'ProviderList',
 	// Promotion 跑馬燈
 	PromotionSwiper = 'PromotionSwiper',
-	HotEventSwiper = 'HotEventSwiper',
-	HotGameSwiper = 'HotGameSwiper',
-	HotGameCasinoSwiper = 'HotGameCasinoSwiper',
-	JackPotSwiper = 'JackPotSwiper',
+
+	// HotEventSwiper = 'HotEventSwiper',
+	// HotGameSwiper = 'HotGameSwiper',
+	// HotGameCasinoSwiper = 'HotGameCasinoSwiper',
+	// JackPotSwiper = 'JackPotSwiper',
 	// 最近遊玩的遊戲，有登入才有
-	RecentlyViewGames = 'RecentlyViewGames',
+	// RecentlyViewGames = 'RecentlyViewGames',
 	// 登入才有
-	FriendReferral = 'FriendReferral',
-	Jackpot = 'Jackpot',
-	LuckyWheel = 'LuckyWheel',
-	LiveStreamingLink = 'LiveStreamingLink',
+	// FriendReferral = 'FriendReferral',
+	// Jackpot = 'Jackpot',
+	// LuckyWheel = 'LuckyWheel',
+	// LiveStreamingLink = 'LiveStreamingLink',
 	// AppDownload = 'AppDownload',
 	// PartnerBlock = 'PartnerBlock',
 	// 代言人頭像
@@ -72,9 +82,9 @@ export enum MobileHomeComponentsEnum {
 	// 簡易 Footer , 與 Footer 只可擇一添加
 	SimpleFooter = 'SimpleFooter',
 	//  歐冠活動入口
-	EuropeCupEntry = 'EuropeCupEntry',
+	// EuropeCupEntry = 'EuropeCupEntry',
 	// RetentionFloatingButton
-	Retention = 'Retention',
+	// Retention = 'Retention',
 	// 2024巴黎奧運入口
-	OlympicEntry = 'OlympicEntry',
+	// OlympicEntry = 'OlympicEntry',
 }

@@ -1,12 +1,11 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useHome } from '@nx-next-app/features/F0001/providers'
-import { isUrl } from '@nx-next-app/utils'
-import { useTranslation } from 'next-i18next'
-import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
-import {  TpCategory } from '@nx-next-app/service'
+import { paths } from "@nx-next-app/constants";
+import GameList from "@nx-next-app/features/F0001/h5/home/GameList";
+import GroupTitle from "@nx-next-app/features/F0001/h5/home/GroupTitle";
+import { GameGroup } from "@nx-next-app/features/F0001/h5/home/styles";
+import { useHome } from "@nx-next-app/features/F0001/providers";
+import { TpCategory } from "@nx-next-app/service";
+import { useTranslation } from "next-i18next";
+import dynamic from "next/dynamic";
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -20,75 +19,30 @@ const config = {
 }
 
 const HotGameCasinoSwiper = () => {
-	const { push } = useRouter()
-	const { hotGameData, handleHotGameClick } = useHome()
+	const { hotGameData } = useHome()
 	const { t } = useTranslation()
-	const { modal } = useGlobalModal()
-	const { ALLOWED_CURRENCIES } = useStaticData()
-	const {
-		userInfo: { currencyId },
-	} = useAuth()
 
-  const hotGameCasino = hotGameData.filter((element) => {
-    return element.tpCategory === TpCategory.Casino;
-  })
-
-	const children = hotGameCasino?.map(game => {
-		const { gameLogo, gameName } = game
-
-		return (
-			<div
-				key={gameName}
-				onClick={() =>
-					handleHotGameClick(
-						{ game },
-						{
-							underMaintenanceCallback: () => {
-								modal.info(t('Label_underMaintenance'), {
-									title: t('Label_General_ImportantNote'),
-								})
-							},
-							loginCallback: () => push(paths.login.root),
-						}
-					)
-				}
-			>
-				<a>
-					<div className='hotgame-item'>
-						{isUrl(gameLogo) ? (
-							<img src={gameLogo} alt={gameName} />
-						) : (
-							<img src={gameLogo} alt={gameName} />
-						)}
-						<span>{gameName}</span>
-					</div>
-				</a>
-			</div>
-		)
+	const hotGameCasino = hotGameData.filter(element => {
+		return element.tpCategory === TpCategory.Casino
 	})
 
-	return children?.length > 0 ? (
-		<>
-			<div className='home-title'>Slots</div>
-			<div className='home-hotgame'>
-				<div className='hotgame-bn'>
-					<img
-						src={`${
-							process.env['NEXT_PUBLIC_BANNER_HOST']
-						}/h5/img/4.0/hotgame-bn${
-							ALLOWED_CURRENCIES['SLOTS_PP']?.includes(currencyId)
-								? ''
-								: '-spad'
-						}.png`}
-						alt='Hot Game'
-					/>
-				</div>
-				<div className='home-hotgame-swiper'>
-					<DynamicSwiper {...config}>{children}</DynamicSwiper>
-				</div>
-			</div>
-		</>
-	) : null
+	if (hotGameCasino.length === 0) {
+		return <div />
+	}
+
+	return (
+		<GameGroup className='others'>
+			<GroupTitle
+				title={t('Label_General_CasinoWithLive')}
+				href={paths.liveCasino.root}
+			/>
+			<GameList
+				gameData={hotGameCasino}
+				isControlButton
+				extraClassName='two-rows'
+			/>
+		</GameGroup>
+	)
 }
 
 export default HotGameCasinoSwiper
