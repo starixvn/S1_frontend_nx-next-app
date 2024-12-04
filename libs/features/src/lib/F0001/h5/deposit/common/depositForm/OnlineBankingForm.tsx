@@ -123,6 +123,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 		<>
 			<DepositModule
 				title={t('Label_Payment_Method')}
+				depositTitle={t('Label_Payment_Method', { lng: 'en' })}
 				required
 				hasAdditionalInfo
 			>
@@ -148,6 +149,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 			{selBank && (
 				<DepositModule
 					title={t('Label_BankInfo_SelectBank')}
+					depositTitle={t('Label_BankInfo_SelectBank', { lng: 'en' })}
 					required
 					hasAdditionalInfo
 				>
@@ -172,7 +174,11 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 			)}
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
-				<DepositModule title={t('Label_General_DepositAmount')} required>
+				<DepositModule
+					title={t('Label_General_DepositAmount')}
+					depositTitle={t('Label_General_DepositAmount', { lng: 'en' })}
+					required
+				>
 					<div className='infoModule'>
 						<InputBox
 							type='number'
@@ -235,7 +241,11 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 			)}
 
 			{bankCardRequired && (
-				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+				<DepositModule
+					title={t('Label_Deposit_DepositChannel')}
+					depositTitle={t('Label_Deposit_DepositChannel', { lng: 'en' })}
+					required
+				>
 					<div className='infoModule'>
 						<Select
 							value={watchCustBankAccount}
@@ -265,7 +275,12 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 				</DepositModule>
 			)}
 
-			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
+			<DepositModule
+				title={t('Label_Deposit_ChooseAvailablePromotion')}
+				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
+					lng: 'en',
+				})}
+			>
 				<div className='infoModule'>
 					<Select
 						value={watchBonusCode}
@@ -288,13 +303,13 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 			</DepositModule>
 
 			<Form onSubmit={handleSubmit(onOnlineBankingFormSubmit)}>
-				<div className='btn-group'>
+				<div className='btnGroup'>
 					<button
 						type='submit'
 						style={{ pointerEvents: isValid ? 'auto' : 'none' }}
 						className={classNames({
-							gray: !isValid,
-							orange: isValid,
+							'btn-disable': !isValid,
+							'btn-primary': isValid,
 						})}
 					>
 						{t('Label_General_Submit')}

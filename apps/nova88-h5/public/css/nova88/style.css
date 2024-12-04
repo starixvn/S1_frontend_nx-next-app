@@ -1031,63 +1031,6 @@ main .gameList .icon-new {
 	padding: 2vw 2vw 2vw 9vw;
 }
 
-.dropdown {
-	background: transparent;
-	border-radius: 3px;
-	position: relative;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-webkit-box-flex: 1;
-	-ms-flex: auto;
-	flex: auto;
-	padding: 2vw 0 2vw 2vw;
-	font-size: 3vw;
-	min-height: 8.27vw;
-	color: #5574a7;
-}
-.dropdown.dropdownbank {
-	height: 12vw;
-}
-.dropdown.dropdownbank ~ .dropdown-container {
-	top: 12vw;
-}
-.dropdown ~ .dropdown-container {
-	display: none;
-	position: absolute;
-	background: #ecf3fd;
-	z-index: 2;
-	border: 1px solid #5574a7;
-	border-top: 0;
-	width: 100%;
-	margin: 0 0 0 -1px;
-	left: 0;
-	top: 8vw;
-	max-height: 45vw;
-	overflow-y: scroll;
-	color: #5574a7;
-}
-.dropdown ~ .dropdown-container.active {
-	display: block;
-}
-.dropdown ~ .dropdown-container .dropdown-item {
-	padding: 2vw 2vw 2vw 4vw;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-
 /* #popup {
 	width: calc(100% - 16vw);
 	height: calc(100% - 16vw);
@@ -3223,10 +3166,6 @@ main .gameList .icon-new {
 	font-weight: bold;
 }
 
-.Bank {
-	padding: 33vw 4vw 25vw;
-}
-
 .walletTotal {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -3685,7 +3624,7 @@ main .gameList .icon-new {
 	display: flex;
 	width: 100%;
 }
-.infoModule.parts .phone .inputBox input,
+/* .infoModule.parts .phone .inputBox input,
 .infoModule.parts .phone .euro .inputBox-event input,
 .euro .infoModule.parts .phone .inputBox-event input,
 .infoModule.parts
@@ -4380,7 +4319,7 @@ main .gameList .icon-new {
 .worldcupEvent .event .event-content .inputBox-event .icon-keyboard_arrow_down {
 	color: #f77a00;
 	max-height: 16px;
-}
+} */
 
 .quickSelect {
 	display: -webkit-box;
@@ -4653,29 +4592,6 @@ main .gameList .icon-new {
 	display: none;
 }
 
-.text-red {
-	color: #e92529;
-}
-
-.text {
-	color: #5574a7;
-}
-
-.text-gray {
-	color: #b2b2b2;
-}
-
-.text-org {
-	color: #5574a7;
-}
-
-.text-org.text-center {
-	margin: 3vw 0;
-}
-.text-org.text-center:before {
-	margin: 0 2vw 0 0;
-}
-
 .bankSlip {
 	background: rgba(0, 0, 0, 0.7);
 	top: 0;
@@ -4854,61 +4770,6 @@ button.clickBtn {
 }
 button.clickBtn:before {
 	font-size: 3vw;
-}
-
-.buttonBox {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-flow: wrap;
-	flex-flow: wrap;
-}
-.buttonBox button {
-	-webkit-box-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	border-radius: 3px;
-	padding: 2vw 1vw;
-	margin: 1vw;
-	position: relative;
-	background: white;
-	font-size: 3vw;
-	border: 1px solid #bfcce2;
-	color: #5574a7;
-}
-.buttonBox button.active {
-	color: white;
-	background: #f77a00;
-}
-.buttonBox button[disabled] {
-	background: #e6e6e6;
-	color: #a5aab1;
-}
-.buttonBox.col-3 {
-	margin: 0 0.5vw !important;
-}
-.buttonBox.col-3 button {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-flex: 0;
-	-ms-flex: 0 0 25.75vw;
-	flex: 0 0 25.75vw;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.buttonBox.col-3 button:nth-child(3n) {
-	margin-right: 0 !important;
-}
-.buttonBox.col-3 .icon-icon32px_check {
-	margin-right: 0.5vw;
-}
-.buttonBox.col-3 .icon-icon32px_check::before {
-	font-size: 4vw;
 }
 
 .channel {
@@ -13853,13 +13714,6 @@ input[type='number'] {
 	color: #c6d4f1;
 }
 
-.btn-group button i,
-.btn-group a i,
-.btn-group .submit i {
-	margin: 0 0 0 2vw;
-	-webkit-transition: 0.7s;
-	transition: 0.7s;
-}
 .btn-group button i.icon-keyboard_arrow_down.active,
 .btn-group a i.icon-keyboard_arrow_down.active,
 .btn-group .submit i.icon-keyboard_arrow_down.active {
@@ -13955,9 +13809,6 @@ input[type='number'] {
 .btn-group + .txt-line {
 	text-align: center;
 	color: #284985;
-}
-.btn-group .recentBtn {
-	background: #112240;
 }
 
 .header-module {

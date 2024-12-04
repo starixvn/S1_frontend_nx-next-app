@@ -2195,7 +2195,6 @@ export const GlobalStyles = createGlobalStyle`
     .group-select-bank {
       border-radius: 20px;
       margin-bottom : 4vw;
-      overflow: hidden;
         .title {
           border-bottom: 1px solid ${({ theme }) =>
 						theme.desktop.rightModuleBorderColor};
@@ -2203,6 +2202,7 @@ export const GlobalStyles = createGlobalStyle`
           padding : 3.1vw 4.1vw;
           font-size : 3.4vw;
           font-weight: 700;
+          border-radius : 20px 20px 0 0;
           span{
             color : ${({ theme }) => theme.desktop.hrefColorPrimary};
             font-weight: 400;
@@ -2211,6 +2211,7 @@ export const GlobalStyles = createGlobalStyle`
         .selectModule{
           padding: 4vw;
           background: ${({ theme }) => theme.desktop.rightModuleBg};
+          border-radius : 0 0 20px 20px;
         }
     }
 `

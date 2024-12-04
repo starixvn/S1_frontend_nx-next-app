@@ -113,11 +113,10 @@ const Select = (props: ISelectProps) => {
 					className={classNames('dropdown btn', btnClassName)}
 				>
 					{/* 如 prefixOptionIcon 為 Image 會造成跑版，所以使用 style 調整 */}
-					<div style={{ display: 'flex', alignItems: 'center' }}>
+					<div className='text-dropdown'>
 						{currentOption?.prefixOptionIcon}
 						<span className='text'>{label}</span>
 					</div>
-					<i className='icon icon-keyboard_arrow_down' />
 				</button>
 
 				{!!infoMessage && (

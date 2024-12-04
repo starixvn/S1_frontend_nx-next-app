@@ -42,4 +42,9 @@ export const WrapperHistory = styled.div`
 			border-top: none;
 		}
 	}
+	.dropdown {
+		.btn {
+			color: #fff;
+		}
+	}
 `

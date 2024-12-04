@@ -93,7 +93,7 @@ export const WrapperDepositH5 = styled.div`
 				height: 11.6vw;
 				width: 11.6vw;
 				background: ${({ theme }) => theme.mobile.rightModuleTitleBg};
-				border-radius: 5px;
+				border-radius: 10px;
 				padding: 0 0 0;
 				margin: auto;
 				box-sizing: border-box;
@@ -101,8 +101,43 @@ export const WrapperDepositH5 = styled.div`
 				align-items: center;
 				justify-content: center;
 				position: relative;
+				overflow: hidden;
+				img {
+					border-radius: 10px;
+				}
+				.check {
+					display: none;
+				}
 				&.active {
 					border: 2px solid ${({ theme }) => theme.mobile.hrefColorPrimary};
+					.icon {
+						&:before {
+							color: ${({ theme }) => theme.mobile.white};
+						}
+					}
+					.check {
+						display: flex;
+						background: ${({ theme }) => theme.mobile.hrefColorPrimary};
+						width: 4.4vw;
+						height: 4.4vw;
+						align-items: center;
+						justify-content: center;
+						position: absolute;
+						right: -3px;
+						bottom: -3px;
+						border-radius: 5px;
+						.icon {
+							&:before {
+								font-size: 3.1vw;
+							}
+						}
+					}
+				}
+				.icon {
+					&:before {
+						font-size: 6vw;
+						color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+					}
 				}
 			}
 			.subtitle {
@@ -114,6 +149,14 @@ export const WrapperDepositH5 = styled.div`
 				margin-top: 1.5vw;
 				font-weight: 700;
 				color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+				max-width: 20vw;
+			}
+			.subinfo {
+				font-size: 2.9vw;
+				color: #939dc5;
+				span {
+					display: block;
+				}
 			}
 		}
 	}
@@ -124,6 +167,116 @@ export const WrapperDepositH5 = styled.div`
 		border-radius: 5px 5px 0 0;
 		margin: 4vw 0 0;
 	}
+
+	.Bank,
+	.Payment,
+	.Channel {
+		.selectModule {
+			justify-content: space-between;
+			gap: 3.5vw;
+			> div {
+				display: grid;
+				width: 45%;
+				grid-template-columns: repeat(3, 1fr);
+				grid-template-rows: repeat(4, 3.5vw);
+				height: 11.6vw;
+				gap: 1vw;
+			}
+			.subtitle {
+				margin-top: 0;
+				grid-column: 2 / 4;
+				grid-row: 1;
+				text-align: left;
+				color: ${({ theme }) => theme.mobile.white};
+				font-size: 3.4vw;
+				max-width: unset;
+			}
+			.subinfo {
+				grid-column: 2 / 4;
+				grid-row: 2;
+				text-align: left;
+			}
+		}
+	}
+	.inputBox-blue {
+		.icon {
+			&:before {
+				color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+			}
+		}
+	}
+	.buttonBox {
+		display: flex;
+		flex-wrap: wrap;
+		margin-top: 3.1vw;
+		gap: 3.1vw;
+		button {
+			color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+			background: #374375;
+			padding: 2vw 3vw;
+			border-radius: 100px;
+			font-size: 3.2vw;
+			&.active {
+				background: #717fba;
+				color: ${({ theme }) => theme.mobile.white};
+			}
+		}
+	}
+	.buttonBox button[disabled] {
+		background: #232b4f !important;
+		color: #374375 !important;
+	}
+	.group-dropdown {
+		width: 100%;
+		.inputBox {
+			width: 100%;
+		}
+		.text-dropdown {
+			span {
+				font-size: 3.2vw;
+			}
+		}
+	}
+	.Amount,
+	.Channel {
+		.inputBox-blue {
+			margin-top: 1vw;
+		}
+		.selectModule {
+			display: block;
+		}
+	}
+	.Channel {
+		.inputBox-blue {
+			margin-top: 0;
+		}
+		.infoModule {
+			display: flex !important;
+			width: 100% !important;
+			gap: 2vw !important;
+		}
+		.btn-group {
+			a {
+				width: auto;
+				background: #374375;
+				padding: 1rem 1rem;
+				.icon {
+					&:before {
+						color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+						font-size: 4.5vw;
+					}
+				}
+			}
+		}
+	}
+	.Promotion {
+		.group-dropdown {
+			.spacing-input-0 {
+				margin-top: 0;
+			}
+		}
+	}
+
 	// .depositModule > .title.fast:after {
 	// 	content: '';
 	// 	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/fast-icon.png)
@@ -138,22 +291,7 @@ export const WrapperDepositH5 = styled.div`
 		margin-left: 0.75vw;
 		font-size: 2.75vw;
 	}
-	.depositModule .selectModule > div .subinfo {
-		font-size: 2.5vw;
-		color: #505050;
-		margin-bottom: 1vw;
-	}
-	.depositModule .selectModule > div .subinfo span {
-		display: block;
-	}
-	.depositModule .selectModule > div.btn-group {
-		width: 100%;
-		margin: 0 auto;
-	}
-	.depositModule .selectModule > div.btn-group button {
-		font-size: 3vw;
-		background: #112240;
-	}
+
 	.depositModule .selectModule .infoAccount {
 		width: 100%;
 		margin: 2vw 2vw -0.5vw;
@@ -237,79 +375,7 @@ export const WrapperDepositH5 = styled.div`
 		.inputBox-event {
 		margin: 0;
 	}
-	.depositModule .selectModule .parts .inputBox .dropdown,
-	.depositModule .selectModule .parts .euro .inputBox-event .dropdown,
-	.euro .depositModule .selectModule .parts .inputBox-event .dropdown,
-	.depositModule
-		.selectModule
-		.parts
-		.worldcupEvent
-		.event
-		.event-content
-		.inputBox-event
-		.dropdown,
-	.worldcupEvent
-		.event
-		.event-content
-		.depositModule
-		.selectModule
-		.parts
-		.inputBox-event
-		.dropdown {
-		width: 50vw;
-		text-align: left;
-		padding-right: 5vw;
-	}
-	.depositModule .selectModule .parts .inputBox .dropdown i,
-	.depositModule .selectModule .parts .euro .inputBox-event .dropdown i,
-	.euro .depositModule .selectModule .parts .inputBox-event .dropdown i,
-	.depositModule
-		.selectModule
-		.parts
-		.worldcupEvent
-		.event
-		.event-content
-		.inputBox-event
-		.dropdown
-		i,
-	.worldcupEvent
-		.event
-		.event-content
-		.depositModule
-		.selectModule
-		.parts
-		.inputBox-event
-		.dropdown
-		i {
-		position: absolute;
-		right: 0;
-	}
-	.depositModule .selectModule .parts .inputBox .dropdown-container,
-	.depositModule .selectModule .parts .euro .inputBox-event .dropdown-container,
-	.euro .depositModule .selectModule .parts .inputBox-event .dropdown-container,
-	.depositModule
-		.selectModule
-		.parts
-		.worldcupEvent
-		.event
-		.event-content
-		.inputBox-event
-		.dropdown-container,
-	.worldcupEvent
-		.event
-		.event-content
-		.depositModule
-		.selectModule
-		.parts
-		.inputBox-event
-		.dropdown-container {
-		top: 11vw;
-		max-height: 50vw;
-		min-height: 11vw;
-	}
-	.depositModule .selectModule .dropdown-container {
-		background: #f5f5f5;
-	}
+
 	.depositModule .selectModule li span {
 		padding: 0 0 0 1.5vw;
 	}
@@ -327,13 +393,6 @@ export const WrapperDepositH5 = styled.div`
 	// 	top: 0;
 	// 	left: 0;
 	// }
-	.depositModule .selectModule .bankName div.icon::before {
-		font-size: 7vw;
-		color: #112240;
-	}
-	.depositModule .selectModule .bankName div.icon-line:before {
-		color: #07b802;
-	}
 	.depositModule .selectModule .bankName.open:before {
 		content: '●';
 		border-radius: 100%;
@@ -425,26 +484,6 @@ export const WrapperDepositH5 = styled.div`
 		input {
 		padding: 1.5vw;
 	}
-	.depositModule .selectModule .inputBox button,
-	.depositModule .selectModule .euro .inputBox-event button,
-	.euro .depositModule .selectModule .inputBox-event button,
-	.depositModule
-		.selectModule
-		.worldcupEvent
-		.event
-		.event-content
-		.inputBox-event
-		button,
-	.worldcupEvent
-		.event
-		.event-content
-		.depositModule
-		.selectModule
-		.inputBox-event
-		button {
-		padding: 1.5vw;
-		min-height: 7.75vw;
-	}
 	.depositModule .selectModule .title {
 		margin-top: 2vw;
 		padding-top: 1.5vw;
@@ -457,21 +496,7 @@ export const WrapperDepositH5 = styled.div`
 		color: #e92529;
 		margin-right: 0.5vw;
 	}
-	.depositModule .selectModule .buttonBox {
-		margin: 0 1.5vw;
-	}
-	.depositModule .selectModule .infoModule {
-		width: 100%;
-	}
-	.depositModule .selectModule .buttonBox {
-		width: 100%;
-	}
-	.depositModule .selectModule .buttonBox button {
-		margin: 1.5vw 1.5vw 1.5vw 0;
-	}
-	.depositModule .selectModule .buttonBox button:last-child {
-		margin-right: 0;
-	}
+
 	.depositModule .downloadModule {
 		margin: 2vw 0;
 		padding: 2vw;

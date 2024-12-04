@@ -125,6 +125,11 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 	const depositAmountText = `${t('Label_General_DepositAmount')} ${
 		currencyId === IDR ? t('Label_Deposit_IDRAmountHint') : ''
 	}`
+	const depositAmountTextEng = `${t('Label_General_DepositAmount', {
+		lng: 'en',
+	})} ${
+		currencyId === IDR ? t('Label_Deposit_IDRAmountHint', { lng: 'en' }) : ''
+	}`
 
 	// * 手機版邏輯：送出前打開確認彈窗
 	const handleMobilePayFormSubmit = (values: IMobilePayForm) => {
@@ -185,6 +190,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 		<>
 			<DepositModule
 				title={t('Label_Payment_Method')}
+				depositTitle={t('Label_Payment_Method', { lng: 'en' })}
 				required
 				hasAdditionalInfo
 			>
@@ -209,6 +215,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 
 			<DepositModule
 				title={t('Label_Deposit_SelectChannel')}
+				depositTitle={t('Label_Deposit_SelectChannel', { lng: 'en' })}
 				required
 				hasAdditionalInfo
 			>
@@ -238,7 +245,11 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			</DepositModule>
 
 			{showUPI && (
-				<DepositModule title='UPI' required>
+				<DepositModule
+					title='UPI'
+					depositTitle={t('UPI', { lng: 'en' })}
+					required
+				>
 					<div className='infoModule'>
 						<InputBox
 							icon='icon icon-pencil'
@@ -259,7 +270,11 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			)}
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
-				<DepositModule title={depositAmountText} required>
+				<DepositModule
+					title={depositAmountText}
+					depositTitle={depositAmountTextEng}
+					required
+				>
 					<div className='infoModule'>
 						<InputBox
 							type='number'
@@ -336,7 +351,11 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			)}
 
 			{(bankCardRequired || bankCardOrEWalletRequired) && (
-				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+				<DepositModule
+					title={t('Label_Deposit_DepositChannel')}
+					depositTitle={t('Label_Deposit_DepositChannel', { lng: 'en' })}
+					required
+				>
 					<div className='infoModule'>
 						<Select
 							value={watchCustBankAccount}
@@ -370,7 +389,11 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			)}
 
 			{(eWalletRequired || bankCardOrEWalletRequired) && (
-				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+				<DepositModule
+					title={t('Label_Deposit_DepositChannel')}
+					depositTitle={t('Label_Deposit_DepositChannel', { lng: 'en' })}
+					required
+				>
 					<div className='infoModule'>
 						<Select
 							value={watchCustEWalletAccount}
@@ -403,7 +426,12 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				</DepositModule>
 			)}
 
-			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
+			<DepositModule
+				title={t('Label_Deposit_ChooseAvailablePromotion')}
+				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
+					lng: 'en',
+				})}
+			>
 				<div className='infoModule'>
 					<Select
 						value={watchBonusCode}
@@ -427,13 +455,13 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			</DepositModule>
 
 			<Form onSubmit={handleSubmit(handleMobilePayFormSubmit)}>
-				<div className='btn-group'>
+				<div className='btnGroup'>
 					<button
 						type='submit'
 						style={{ pointerEvents: isValid ? 'auto' : 'none' }}
 						className={classNames({
-							gray: !isValid,
-							orange: isValid,
+							'btn-disable': !isValid,
+							'btn-primary': isValid,
 						})}
 					>
 						{t('Label_General_Submit')}

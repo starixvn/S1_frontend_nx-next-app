@@ -72,12 +72,19 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 		currencyId === IDR ? t('Label_Deposit_IDRAmountHint') : ''
 	}`
 
+	const depositAmountTextEng = `${t('Label_General_DepositAmount', {
+		lng: 'en',
+	})} ${
+		currencyId === IDR ? t('Label_Deposit_IDRAmountHint', { lng: 'en' }) : ''
+	}`
+
 	return (
 		<>
 			<DepositModule
 				title={t('Label_Payment_Method')}
 				required
 				hasAdditionalInfo
+				depositTitle={t('Label_Payment_Method', { lng: 'en' })}
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{dataSource.map(item => {
@@ -107,6 +114,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			{supportBanks.length > 0 && (
 				<DepositModule
 					title={t('Label_BankInfo_SelectBank')}
+					depositTitle={t('Label_BankInfo_SelectBank', { lng: 'en' })}
 					required
 					hasAdditionalInfo
 				>
@@ -131,12 +139,15 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			)}
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
-				<DepositModule title={depositAmountText} required>
+				<DepositModule
+					title={depositAmountText}
+					depositTitle={depositAmountTextEng}
+					required
+				>
 					<div className='infoModule'>
 						<div className='column' />
 						<InputBox
 							type='number'
-							className='inputBox-blue'
 							register={register('amount', {
 								valueAsNumber: true,
 								required: {
@@ -201,29 +212,41 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			)}
 
 			{bankCardRequired && (
-				<DepositModule title={t('Label_Deposit_DepositChannel')} required>
+				<DepositModule
+					title={t('Label_Deposit_DepositChannel')}
+					depositTitle={t('Label_Deposit_DepositChannel', { lng: 'en' })}
+					required
+				>
 					<div className='infoModule'>
-						<Select
-							value={watchCustBankAccount}
-							options={bankCardOptions}
-							onChange={value => {
-								trigger('custBankAccount')
-								setValue('custBankAccount', String(value))
-								clearErrors('custBankAccount')
-							}}
-							errorMessage={errors['custBankAccount']?.message as string}
-						/>
-						<div
-							className={classNames('tip', {
-								active: errors['custBankAccount'],
-							})}
-						>
-							{errors['custBankAccount']?.message}
+						<div className='group-dropdown'>
+							<div className='inputBox-blue'>
+								<div className='dropdown'>
+									<Select
+										value={watchCustBankAccount}
+										options={bankCardOptions}
+										onChange={value => {
+											trigger('custBankAccount')
+											setValue('custBankAccount', String(value))
+											clearErrors('custBankAccount')
+										}}
+										errorMessage={errors['custBankAccount']?.message as string}
+									/>
+								</div>
+							</div>
+							<div
+								className={classNames('tip', {
+									active: errors['custBankAccount'],
+								})}
+							>
+								{errors['custBankAccount']?.message}
+							</div>
 						</div>
 						{custBankInfo.length < 3 && (
 							<div className='btn-group'>
 								<Link href={paths.bankInfo.root}>
-									<a>+</a>
+									<a>
+										<i className='icon icon-plus-add' />
+									</a>
 								</Link>
 							</div>
 						)}
@@ -231,19 +254,28 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 				</DepositModule>
 			)}
 
-			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
-				<div className='infoModule'>
-					<Select
-						value={watchBonusCode}
+			<DepositModule
+				title={t('Label_Deposit_ChooseAvailablePromotion')}
+				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
+					lng: 'en',
+				})}
+			>
+				<div className='group-dropdown'>
+					<div className='inputBox-blue spacing-input-0'>
+						<div className='dropdown'>
+							<div className='infoModule'>
+								<Select
+									value={watchBonusCode}
 						options={getCustPromotionOptions(watchAmount)}
-						onChange={value => {
-							setValue('bonusCode', String(value))
-							setValue('promoCode', undefined)
-						}}
-					/>
-
+									onChange={value => {
+										setValue('bonusCode', String(value))
+										setValue('promoCode', undefined)
+									}}
+								/>
+							</div>
+						</div>
+					</div>
 					<InputBox
-						className='inputBox-blue'
 						register={register('promoCode')}
 						placeholder={t('Label_Promotions_PromoCode') || ''}
 						touched={!!touchedFields['promoCode']}

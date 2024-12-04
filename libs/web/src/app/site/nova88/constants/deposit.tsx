@@ -20,12 +20,12 @@ export const DEPOSIT_PAYMENT_OPTIONS = {
 	[DepositPaymentEnum.AutoDeposit]: {
 		labelDisplayKey: 'Label_Deposit_AutoDeposit',
 		timeDisplayKey: 'Label_General_Instant',
-		icon: 'icon icon-library fast',
+		icon: 'icon icon-bank-fill fast',
 	},
 	[DepositPaymentEnum.BankTransfer]: {
 		labelDisplayKey: 'Label_Deposit_BankTransfer',
 		timeDisplayKey: 'Label_Deposit_5Mins',
-		icon: 'icon icon-library',
+		icon: 'icon icon-bank-fill',
 	},
 	[DepositPaymentEnum.LinePay]: {
 		labelDisplayKey: 'Label_General_LinePay',
@@ -35,12 +35,12 @@ export const DEPOSIT_PAYMENT_OPTIONS = {
 	[DepositPaymentEnum.OnlineBanking]: {
 		labelDisplayKey: 'Label_Deposit_OnlineBanking',
 		timeDisplayKey: 'Label_General_Instant',
-		icon: 'icon icon-connection',
+		icon: 'icon icon-bank-online',
 	},
 	[DepositPaymentEnum.MobilePay]: {
 		labelDisplayKey: 'Label_Deposit_MobileEWallet',
 		timeDisplayKey: 'Label_General_Instant',
-		icon: 'icon icon-mobile',
+		icon: 'icon icon-mobile-alt',
 	},
 	[DepositPaymentEnum.CryptoPay]: {
 		labelDisplayKey: 'Label_Deposit_Crypto',
@@ -50,7 +50,7 @@ export const DEPOSIT_PAYMENT_OPTIONS = {
 	[DepositPaymentEnum.QRPay]: {
 		labelDisplayKey: 'Label_Deposit_QR_Pay',
 		timeDisplayKey: 'Label_General_Instant',
-		icon: 'icon icon-qrpay',
+		icon: 'icon icon-qr-code-line',
 	},
 	[DepositPaymentEnum.TopUpCardPay]: {
 		labelDisplayKey: 'Label_Deposit_Top_Up_Card',

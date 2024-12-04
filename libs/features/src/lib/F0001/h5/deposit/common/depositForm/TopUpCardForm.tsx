@@ -60,6 +60,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 		<>
 			<DepositModule
 				title={t('Label_Payment_Method')}
+				depositTitle={t('Label_Payment_Method', { lng: 'en' })}
 				required
 				hasAdditionalInfo
 			>
@@ -82,7 +83,11 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 				</DepositModule.SubModuleButtonGroup>
 			</DepositModule>
 
-			<DepositModule title={t('Label_Deposit_CardCode')} required>
+			<DepositModule
+				title={t('Label_Deposit_CardCode')}
+				depositTitle={t('Label_Deposit_CardCode', { lng: 'en' })}
+				required
+			>
 				<div className='infoModule'>
 					<InputBox
 						className='input-group'
@@ -107,7 +112,11 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 				</div>
 			</DepositModule>
 
-			<DepositModule title={t('Label_Deposit_CardSerial')} required>
+			<DepositModule
+				title={t('Label_Deposit_CardSerial')}
+				depositTitle={t('Label_Deposit_CardSerial', { lng: 'en' })}
+				required
+			>
 				<div className='infoModule'>
 					<InputBox
 						className='input-group'
@@ -142,7 +151,11 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 			)}
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
-				<DepositModule title={t('Label_General_DepositAmount')} required>
+				<DepositModule
+					title={t('Label_General_DepositAmount')}
+					depositTitle={t('Label_General_DepositAmount', { lng: 'en' })}
+					required
+				>
 					{/* <div className='input-column'>
 
 
@@ -211,7 +224,12 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 				</DepositModule>
 			)}
 
-			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
+			<DepositModule
+				title={t('Label_Deposit_ChooseAvailablePromotion')}
+				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
+					lng: 'en',
+				})}
+			>
 				<div className='infoModule'>
 					<Select
 						value={watchBonusCode}
@@ -235,13 +253,13 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 			</DepositModule>
 
 			<Form onSubmit={handleSubmit(onTopUpCardPayFormSubmit)}>
-				<div className='btn-group'>
+				<div className='btnGroup'>
 					<button
 						type='submit'
 						style={{ pointerEvents: isFormValid ? 'auto' : 'none' }}
 						className={classNames({
-							gray: !isFormValid,
-							orange: isFormValid,
+							'btn-disable': !isFormValid,
+							'btn-primary': isFormValid,
 						})}
 					>
 						{t('Label_General_Submit')}

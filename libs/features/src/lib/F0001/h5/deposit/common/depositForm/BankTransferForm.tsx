@@ -1,27 +1,27 @@
-import classNames from 'classnames'
-import { isNumber, toLower } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
-import dynamic from 'next/dynamic'
 import {
 	DepositModule,
 	Form,
 	InputBox,
 	Select,
 } from '@nx-next-app/components/H0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	useAuth,
 	useDepositBankTransferForm,
 	useDepositContext,
 } from '@nx-next-app/data-access'
 import { IPaymentBankTransferData } from '@nx-next-app/service'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	generateShortcutList,
 	isConvert,
+	numFormatToDigits,
 	numberFormat,
 	revertNumberFormat,
-	numFormatToDigits,
 } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { isNumber, toLower } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 
 const DepositBankSlipModal = dynamic(
 	() =>
@@ -87,6 +87,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 		<>
 			<DepositModule
 				title={t('Label_BankInfo_SelectBank')}
+				depositTitle={t('Label_BankInfo_SelectBank', { lng: 'en' })}
 				required
 				hasAdditionalInfo
 			>
@@ -138,6 +139,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 				{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
 					<DepositModule
 						title={t('Label_General_DepositAmount')}
+						depositTitle={t('Label_General_DepositAmount', { lng: 'en' })}
 						className='infoModule'
 						required
 					>
@@ -193,7 +195,12 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 				)}
 			</DepositModule>
 
-			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
+			<DepositModule
+				title={t('Label_Deposit_ChooseAvailablePromotion')}
+				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
+					lng: 'en',
+				})}
+			>
 				<div className='infoModule'>
 					<Select
 						value={watchBonusCode}
@@ -222,21 +229,21 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 
 			<Form onSubmit={handleSubmit(onBankTransferFormSubmit)}>
 				{watchCanSubmit ? (
-					<div className='btn-group'>
+					<div className='btnGroup'>
 						<button
 							type='submit'
 							style={{ pointerEvents: isFormValid ? 'auto' : 'none' }}
 							className={classNames({
-								gray: !isFormValid,
-								'btn-check': isFormValid,
+								'btn-disabled': !isFormValid,
+								'btn-primary': isFormValid,
 							})}
 						>
 							{t('Label_General_Submit')}
 						</button>
 					</div>
 				) : (
-					<div className='btn-group'>
-						<button className='orange' style={{ pointerEvents: 'none' }}>
+					<div className='btnGroup'>
+						<button className='btn-primary' style={{ pointerEvents: 'none' }}>
 							{t('Label_General_Pending')}
 						</button>
 					</div>

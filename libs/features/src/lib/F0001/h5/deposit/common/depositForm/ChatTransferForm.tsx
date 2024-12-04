@@ -13,9 +13,9 @@ import { IDepositChatTransferData } from '@nx-next-app/service'
 import {
 	generateShortcutList,
 	isConvert,
+	numFormatToDigits,
 	numberFormat,
 	revertNumberFormat,
-	numFormatToDigits,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
@@ -57,6 +57,7 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 		<>
 			<DepositModule
 				title={t('Label_Deposit_SelectChannel')}
+				depositTitle={t('Label_Deposit_SelectChannel', { lng: 'en' })}
 				required
 				hasAdditionalInfo
 			>
@@ -88,6 +89,7 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 			{supportBanks.length > 0 && (
 				<DepositModule
 					title={t('Label_BankInfo_SelectBank')}
+					depositTitle={t('Label_BankInfo_SelectBank', { lng: 'en' })}
 					required
 					hasAdditionalInfo
 				>
@@ -112,7 +114,11 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 			)}
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
-				<DepositModule title={t('Label_General_DepositAmount')} required>
+				<DepositModule
+					title={t('Label_General_DepositAmount')}
+					depositTitle={t('Label_General_DepositAmount', { lng: 'en' })}
+					required
+				>
 					<div className='column' />
 					<InputBox
 						type='number'
@@ -171,7 +177,12 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 				</DepositModule>
 			)}
 
-			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
+			<DepositModule
+				title={t('Label_Deposit_ChooseAvailablePromotion')}
+				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
+					lng: 'en',
+				})}
+			>
 				<div className='infoModule'>
 					<Select
 						value={watchBonusCode}
@@ -195,13 +206,13 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 			</DepositModule>
 
 			<Form onSubmit={handleSubmit(onFormSubmit)}>
-				<div className='btn-group'>
+				<div className='btnGroup'>
 					<button
 						type='submit'
 						style={{ pointerEvents: isFormValid ? 'auto' : 'none' }}
 						className={classNames({
-							gray: !isFormValid,
-							orange: isFormValid,
+							'btn-disable': !isFormValid,
+							'btn-primary': isFormValid,
 						})}
 					>
 						{t('Label_General_Submit')}

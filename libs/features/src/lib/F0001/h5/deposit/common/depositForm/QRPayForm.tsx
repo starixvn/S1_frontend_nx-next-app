@@ -1,10 +1,10 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	DepositModule,
 	Form,
 	InputBox,
 	Select,
 } from '@nx-next-app/components/H0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	IQRPayForm,
 	useAuth,
@@ -15,14 +15,14 @@ import { IPaymentQRPayData } from '@nx-next-app/service'
 import {
 	generateShortcutList,
 	isConvert,
+	numFormatToDigits,
 	numberFormat,
 	revertNumberFormat,
-	numFormatToDigits,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
-import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 
 interface IQRPayFormProps {
 	dataSource: IPaymentQRPayData[]
@@ -94,17 +94,19 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 			</>,
 			{
 				footer: [
-					<button className='white' onClick={closeModal}>
-						{t('Label_General_Cancel')}
-					</button>,
-					<button
-						className='orange'
-						onClick={() => {
-							onQRPayFormSubmit(values)
-						}}
-					>
-						{t('Label_General_Submit')}
-					</button>,
+					<div className='btnGroup'>
+						<button className='btn-secondary' onClick={closeModal}>
+							{t('Label_General_Cancel')}
+						</button>
+						<button
+							className='btn-primary'
+							onClick={() => {
+								onQRPayFormSubmit(values)
+							}}
+						>
+							{t('Label_General_Submit')}
+						</button>
+					</div>,
 				],
 			}
 		)
@@ -113,6 +115,7 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 		<>
 			<DepositModule
 				title={t('Label_Payment_Method')}
+				depositTitle={t('Label_Payment_Method', { lng: 'en' })}
 				required
 				hasAdditionalInfo
 			>
@@ -137,6 +140,7 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 
 			<DepositModule
 				title={t('Label_Deposit_SelectChannel')}
+				depositTitle={t('Label_Deposit_SelectChannel', { lng: 'en' })}
 				required
 				hasAdditionalInfo
 			>
@@ -166,7 +170,11 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 			</DepositModule>
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
-				<DepositModule title={t('Label_General_DepositAmount')} required>
+				<DepositModule
+					title={t('Label_General_DepositAmount')}
+					depositTitle={t('Label_General_DepositAmount', { lng: 'en' })}
+					required
+				>
 					<div className='column' />
 					<InputBox
 						type='number'
@@ -225,7 +233,12 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 				</DepositModule>
 			)}
 
-			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
+			<DepositModule
+				title={t('Label_Deposit_ChooseAvailablePromotion')}
+				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
+					lng: 'en',
+				})}
+			>
 				<div className='infoModule'>
 					<Select
 						value={watchBonusCode}
@@ -249,13 +262,13 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 			</DepositModule>
 
 			<Form onSubmit={handleSubmit(handleQRPayFormSubmit)}>
-				<div className='btn-group'>
+				<div className='btnGroup'>
 					<button
 						type='submit'
 						style={{ pointerEvents: isValid ? 'auto' : 'none' }}
 						className={classNames({
-							gray: !isValid,
-							orange: isValid,
+							'btn-disbale': !isValid,
+							'btn-primary': isValid,
 						})}
 					>
 						{t('Label_General_Submit')}

@@ -59,7 +59,9 @@ const DepositSubModuleButton = ({
 						/>
 					)}
 
-					<i className='icon icon-icon32px_check' />
+					<div className='check'>
+						<i className='icon icon-check' />
+					</div>
 					<div
 						className={classNames({
 							mask: !canSubmit,

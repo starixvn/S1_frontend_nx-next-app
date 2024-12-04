@@ -17,13 +17,13 @@ import {
 	generateShortcutList,
 	isConvert,
 	numberFormat,
-	revertNumberFormat,
 	numFormatToDigits,
+	revertNumberFormat,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { isNumber, toLower } from 'lodash-es'
-import dynamic from 'next/dynamic'
 import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 
 interface ICryptoPayFormProps {
 	dataSource: IPaymentCryptoPayData[]
@@ -98,11 +98,11 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 			</>,
 			{
 				footer: [
-					<button className='white' onClick={closeModal}>
+					<button className='btn btn-secondary' onClick={closeModal}>
 						{t('Label_General_Cancel')}
 					</button>,
 					<button
-						className='orange'
+						className='btn-primary'
 						onClick={() => {
 							onCryptoPayFormSubmit(values)
 						}}
@@ -118,6 +118,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 		<>
 			<DepositModule
 				title={t('Label_Payment_Method')}
+				depositTitle={t('Label_Payment_Method', { lng: 'en' })}
 				required
 				hasAdditionalInfo
 			>
@@ -142,6 +143,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 
 			<DepositModule
 				title={t('Label_Deposit_SelectChannel')}
+				depositTitle={t('Label_Deposit_SelectChannel', { lng: 'en' })}
 				required
 				hasAdditionalInfo
 			>
@@ -171,7 +173,11 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 			</DepositModule>
 
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
-				<DepositModule title={t('Label_General_DepositAmount')} required>
+				<DepositModule
+					title={t('Label_General_DepositAmount')}
+					depositTitle={t('Label_General_DepositAmount', { lng: 'en' })}
+					required
+				>
 					<InputBox
 						type='number'
 						icon='icon icon-pencil'
@@ -233,7 +239,12 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 				</DepositModule>
 			)}
 
-			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
+			<DepositModule
+				title={t('Label_Deposit_ChooseAvailablePromotion')}
+				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
+					lng: 'en',
+				})}
+			>
 				<div className='infoModule'>
 					<Select
 						value={watchBonusCode}
@@ -257,13 +268,13 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 			</DepositModule>
 
 			<Form onSubmit={handleSubmit(handleMobilePayFormSubmit)}>
-				<div className='btn-group'>
+				<div className='btnGroup'>
 					<button
 						type='submit'
 						style={{ pointerEvents: isValid ? 'auto' : 'none' }}
 						className={classNames({
-							gray: !isValid,
-							orange: isValid,
+							'btn-disable': !isValid,
+							'btn-primary': isValid,
 						})}
 					>
 						{t('Label_General_Submit')}
