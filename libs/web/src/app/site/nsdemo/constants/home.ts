@@ -7,17 +7,22 @@ export const DESKTOP_HOME_ORDERS = [
 	DesktopHomeComponentsEnum.Announcement,
 	DesktopHomeComponentsEnum.CarouselBanner,
 	DesktopHomeComponentsEnum.WelcomeInfo,
-	DesktopHomeComponentsEnum.PromotionSwiper,
-	DesktopHomeComponentsEnum.HotMatch,
+	DesktopHomeComponentsEnum.SlotGames,
 	DesktopHomeComponentsEnum.LiveCasino,
-	DesktopHomeComponentsEnum.HotGame,
-	// DesktopHomeComponentsEnum.RecentlyViewGames, 目前隱藏，未來看需求有可能開啟
-	DesktopHomeComponentsEnum.ProviderBlock,
-	DesktopHomeComponentsEnum.LiveStreamingLink,
-	DesktopHomeComponentsEnum.EuropeCupEntry,
+	DesktopHomeComponentsEnum.PromotionSwiper,
+	DesktopHomeComponentsEnum.TableGames,
+	DesktopHomeComponentsEnum.HotGameSport,
+	DesktopHomeComponentsEnum.NewRelease,
+	DesktopHomeComponentsEnum.ProviderList,
+	// DesktopHomeComponentsEnum.HotGame,
+	// DesktopHomeComponentsEnum.HotGameLiveCasino,
+	// // DesktopHomeComponentsEnum.RecentlyViewGames, 目前隱藏，未來看需求有可能開啟
+	// DesktopHomeComponentsEnum.ProviderBlock,
+	// DesktopHomeComponentsEnum.LiveStreamingLink,
+	// DesktopHomeComponentsEnum.EuropeCupEntry,
 	// DesktopHomeComponentsEnum.LuckyWheel,
-	DesktopHomeComponentsEnum.Retention,
-	DesktopHomeComponentsEnum.OlympicEntry,
+	// DesktopHomeComponentsEnum.Retention,
+	// DesktopHomeComponentsEnum.OlympicEntry,
 ]
 
 export const MOBILE_HOME_ORDERS = [
@@ -26,6 +31,7 @@ export const MOBILE_HOME_ORDERS = [
 	MobileHomeComponentsEnum.HotEventSwiper,
 	MobileHomeComponentsEnum.PromotionSwiper,
 	MobileHomeComponentsEnum.HotGameSwiper,
+	MobileHomeComponentsEnum.HotGameCasinoSwiper,
 	// MobileHomeComponentsEnum.RecentlyViewGames,  目前隱藏，未來看需求有可能開啟
 	MobileHomeComponentsEnum.JackPotSwiper,
 	// MobileHomeComponentsEnum.AppDownload,

@@ -11,8 +11,8 @@ import { useTranslation } from "next-i18next";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import { Img } from "react-image";
-
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
+
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
 	{
