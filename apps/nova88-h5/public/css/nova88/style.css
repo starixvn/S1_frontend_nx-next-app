@@ -5742,11 +5742,6 @@ input[type='date'] {
 	display: none;
 }
 
-span.important {
-	background: rgba(0, 0, 0, 0.5);
-	border-radius: 5px;
-	padding: 1vw 2vw;
-}
 
 .quickChangePage {
 	display: -webkit-box;
@@ -9343,41 +9338,7 @@ span.important {
 	width: 100%;
 }
 
-.important {
-	background: #e2e2e2;
-	color: #666;
-	padding: 4vw;
-}
-.important .title {
-	margin-bottom: 3vw;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.important .title span:before {
-	margin-right: 2vw;
-	font-weight: normal;
-}
-.important li {
-	list-style: decimal;
-	line-height: 6vw;
-	margin-left: 3vw;
-	word-wrap: break-word;
-}
-.important li span,
-.important li a {
-	font-weight: bold;
-}
-.important li a,
-.important li button {
-	color: #5574a7;
-}
+
 
 .formula {
 	background: white;

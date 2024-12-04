@@ -124,6 +124,12 @@ export const GlobalStyles = createGlobalStyle`
     scroll-behavior: smooth;
     overflow-x : hidden;
   }
+  .desktop{
+     #__next{
+      display: flex;
+      flex-direction: column;
+     }
+  }
 
   .main-content {
     min-width: ${({ theme }) => theme.desktop.minContentWidth};

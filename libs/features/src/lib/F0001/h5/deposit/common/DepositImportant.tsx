@@ -1,7 +1,6 @@
-import React from 'react'
-import { useTranslation, Trans } from 'next-i18next'
 import { openLiveChat } from '@nx-next-app/utils'
 import { upperFirst } from 'lodash-es'
+import { Trans, useTranslation } from 'next-i18next'
 
 const DepositImportant = () => {
 	const { t } = useTranslation()
@@ -9,7 +8,7 @@ const DepositImportant = () => {
 	return (
 		<div className='important'>
 			<div className='title'>
-				<span className='icon icon-information' />
+				<span className='icon icon-alert-fill' />
 				{t('Label_General_ImportantNotice')}
 			</div>
 			<ul>

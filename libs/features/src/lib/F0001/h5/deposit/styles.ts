@@ -277,6 +277,43 @@ export const WrapperDepositH5 = styled.div`
 		}
 	}
 
+	.important {
+		flex: 0 0 21.8rem;
+		border-radius: 20px;
+		padding: 2rem 1.6rem;
+		background: ${({ theme }) => theme.desktop.importantBg};
+		.title {
+			text-align: center;
+			margin-bottom: 0.8rem;
+			font-size: 1.4rem;
+			font-weight: 700;
+			line-height: normal;
+			color: ${({ theme }) => theme.desktop.inputBorderColorError};
+			display: flex;
+			align-items: center;
+			gap: 0.8rem;
+			.icon {
+				&:before {
+					font-size: 2rem;
+					color: ${({ theme }) => theme.desktop.inputBorderColorError};
+				}
+			}
+		}
+		ul {
+			li {
+				font-size: 1.2rem;
+				font-weight: 400;
+				line-height: 2rem;
+				color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+				a,
+				span {
+					color: #1b5bff;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+
 	// .depositModule > .title.fast:after {
 	// 	content: '';
 	// 	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/fast-icon.png)

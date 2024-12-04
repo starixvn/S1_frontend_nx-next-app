@@ -1,10 +1,10 @@
-import DepositItem from '@nx-next-app/features/F0001/h5/history/historyItems/DepositItem'
+import { paths } from '@nx-next-app/constants'
 import { useDepositRecentHistory } from '@nx-next-app/data-access'
-import { useTranslation } from 'react-i18next'
-import { useBoolean } from 'usehooks-ts'
+import DepositItem from '@nx-next-app/features/F0001/h5/history/historyItems/DepositItem'
 import classNames from 'classnames'
 import { useRouter } from 'next/router'
-import { paths } from '@nx-next-app/constants'
+import { useTranslation } from 'react-i18next'
+import { useBoolean } from 'usehooks-ts'
 
 const DepositRecentHistory = () => {
 	const { t } = useTranslation()
@@ -14,8 +14,8 @@ const DepositRecentHistory = () => {
 
 	return (
 		<>
-			<div className='btn-group'>
-				<button className='recentBtn' onClick={toggle}>
+			<div className='btnGroup'>
+				<button className='btn-primary' onClick={toggle}>
 					{t('Label_General_RecentTransactions')}
 					<i
 						className={classNames('icon icon-keyboard_arrow_down', {
@@ -36,9 +36,9 @@ const DepositRecentHistory = () => {
 					))}
 				</div>
 
-				<div className='btn-group'>
+				<div className='btnGroup'>
 					<a
-						className='orange recentBtn'
+						className='btn-primary recentBtn'
 						onClick={() => push(paths.depositHistory.root)}
 					>
 						{t('Label_General_AllTranscations')}

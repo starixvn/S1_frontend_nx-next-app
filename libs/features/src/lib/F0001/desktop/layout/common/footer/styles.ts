@@ -1,8 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const FooterContainer = styled.div`
 	background: ${({ theme }) => theme.desktop.footerBg};
 	padding-top: 4rem;
+	margin-top: auto;
 	.footer-top {
 		display: flex;
 		gap: 2.4rem;
