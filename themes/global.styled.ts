@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
-import { theme } from './theme'
+import { theme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
@@ -131,6 +131,10 @@ export const GlobalStyles = createGlobalStyle`
     @media (min-width: 1450px) {
       min-width: ${({ theme }) => theme.desktop.contentWidth};
     }
+  }
+
+  .main-content-mobile {
+
   }
 
   .content-container {
@@ -271,7 +275,7 @@ export const GlobalStyles = createGlobalStyle`
         }
       }
     }
-  
+
   .mobile-h5{
     .pop{
       min-width : unset !important;
@@ -1781,7 +1785,7 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
   }
-  
+
 
   .menu {
     padding: 0;
@@ -1838,7 +1842,7 @@ export const GlobalStyles = createGlobalStyle`
 					align-items: center;
 					padding: 3vw 5vw;
 					background : ${({ theme }) => theme.desktop.rightModuleTitleBg};
-          border-bottom : 4px solid #12172A; 
+          border-bottom : 4px solid #12172A;
 					&:after{
 						display: block;
 						content: '\\e925';
@@ -1871,7 +1875,7 @@ export const GlobalStyles = createGlobalStyle`
 					color: #000;
 					font-weight: 500;
           background : #12172A;
-          border-bottom : 4px solid #12172A; 
+          border-bottom : 4px solid #12172A;
           div {
             font-size: 3.3vw;
 			      font-weight: 600;
@@ -1972,7 +1976,7 @@ export const GlobalStyles = createGlobalStyle`
 			border: 0;
 		}
 
-  
+
 
 
 

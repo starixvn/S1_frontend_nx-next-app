@@ -1,6 +1,7 @@
 import { Header, JackPot } from "@nx-next-app/components/H0001";
 import { paths } from "@nx-next-app/constants";
 import { useAuth, useStaticData } from "@nx-next-app/data-access";
+import { HomPageContainer } from "@nx-next-app/features/F0001/h5/home/styles";
 import { useHome } from "@nx-next-app/features/F0001/providers";
 import { MobileHomeComponentsEnum } from "@nx-next-app/features/F0001/types";
 import { useTpWalletBalanceListFetcher } from "@nx-next-app/hooks";
@@ -86,7 +87,7 @@ const Home = () => {
 			<div className='home-mainbanner'>
 				<CarouselBanner
 					bannerList={bannerData}
-					pagination={false}
+					pagination={true}
 					navigation={false}
 				/>
 			</div>
@@ -158,7 +159,7 @@ const Home = () => {
 	)
 
 	return (
-		<>
+		<HomPageContainer>
 			<Header>
 				<Header.HeaderModule
 					isTpWalletBalanceListLoading={isTpWalletBalanceListLoading}
@@ -173,12 +174,12 @@ const Home = () => {
 				<Menu />
 			</Header>
 
-			<main>
+			<div className='main-content-mobile'>
 				{bannerBlockOrders.map(component => renderComponent(component))}
 
 				{contentOrders.map(component => renderComponent(component))}
-			</main>
-		</>
+			</div>
+		</HomPageContainer>
 	)
 }
 

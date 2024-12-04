@@ -1,8 +1,6 @@
-import ReactMarquee from 'react-fast-marquee'
-import {
-	IMarqueeData,
-	IMarqueeConfigs,
-} from '@nx-next-app/components/D0001/marquee/type'
+import { IMarqueeConfigs, IMarqueeData } from "@nx-next-app/components/D0001/marquee/type";
+import { HomeMarquee } from "@nx-next-app/components/H0001/marquee/styles";
+import ReactMarquee from "react-fast-marquee";
 
 interface IMarqueeProps {
 	data: IMarqueeData[] | null
@@ -20,22 +18,22 @@ const Marquee = ({ data, configs, onMarqueeClick }: IMarqueeProps) => {
 		...configs,
 	}
 	return (
-		<div id='Marquee'>
+		<HomeMarquee id='Marquee'>
 			<div className='marquee-box'>
-				<ReactMarquee {...defaultConfig}>
-					{data?.map(({ id, subject }) => (
-						<button
-							className='white'
-							key={`announcement-${id}`}
-							style={{ paddingLeft: '2rem' }}
-							onClick={onMarqueeClick}
-						>
-							{subject}
-						</button>
-					))}
-				</ReactMarquee>
-			</div>
-		</div>
+					<ReactMarquee {...defaultConfig}>
+						{data?.map(({ id, subject }) => (
+							<button
+								className='white'
+								key={`announcement-${id}`}
+								style={{ paddingLeft: '2rem' }}
+								onClick={onMarqueeClick}
+							>
+								{subject}
+							</button>
+						))}
+					</ReactMarquee>
+				</div>
+		</HomeMarquee>
 	)
 }
 

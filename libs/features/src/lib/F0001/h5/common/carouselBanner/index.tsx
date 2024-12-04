@@ -1,14 +1,13 @@
-import Carousel, {
-	ICarouselProps,
-} from '@nx-next-app/components/H0001/carousel'
-import { paths, PRODUCTS } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { IBannerData } from '@nx-next-app/service'
-import { BannerActionEnum } from '@nx-next-app/types'
-import { isNumber } from 'lodash'
-import { useRouter } from 'next/router'
-import BannerItem from './BannerItem'
+import Carousel, { ICarouselProps } from "@nx-next-app/components/H0001/carousel";
+import { paths, PRODUCTS } from "@nx-next-app/constants";
+import { useAuth } from "@nx-next-app/data-access";
+import { useMenu } from "@nx-next-app/features/F0001/hooks";
+import { IBannerData } from "@nx-next-app/service";
+import { BannerActionEnum } from "@nx-next-app/types";
+import { isNumber } from "lodash";
+import { useRouter } from "next/router";
+
+import BannerItem from "./BannerItem";
 
 interface ICarouselBannerProps extends ICarouselProps {
 	bannerList: IBannerData[]
@@ -107,7 +106,7 @@ const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 			{resultList?.map(item => (
 				<BannerItem
 					key={item.itemKey}
-					src={item.bannerPCUrl}
+					src={item.bannerMobileUrl}
 					alt={item.bannerName}
 					onClick={
 						item.redirectLink

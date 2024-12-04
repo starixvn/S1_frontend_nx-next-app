@@ -312,6 +312,9 @@ export const theme = {
 		hotLabelColor: '#fff',
 		hotIconColor: '#ffd21d',
 
+		marqueeMessageBg: '#374375',
+		marqueeMessageColor: '#fff',
+
 		rightModuleBg: '#182043',
 		rightModuleTitleBg: '#232B4F',
 		rightModuleBorderColor: '#374375',

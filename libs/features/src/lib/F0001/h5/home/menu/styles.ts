@@ -6,11 +6,8 @@ export const MenuContainer = styled.div`
 	gap: 3.9vw;
 	width: 100vw;
 
-	.embla,
-	.embla__viewport,
-	.embla__container {
-		display: flex;
-		width: 100vw;
+	.embla__viewport {
+		overflow: initial;
 	}
 
 	button,
@@ -19,11 +16,13 @@ export const MenuContainer = styled.div`
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: ${({ theme }) => theme.mobile.menuItemColor};
 		flex-direction: column;
 		height: 11.6vw;
 		padding: 0 2vw;
+		transform: none;
+		flex: none;
 		white-space: nowrap;
+		color: ${({ theme }) => theme.mobile.menuItemColor};
 		font-size: 3.1vw;
 		font-weight: 700;
 		text-transform: uppercase;
