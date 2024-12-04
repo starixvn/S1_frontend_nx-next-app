@@ -124,6 +124,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 				TpCategory.Casino,
 				TpCategory.LiveCasino,
 				TpCategory.ESports,
+				TpCategory.Games,
 			].toString(),
 			currencyId,
 		}),

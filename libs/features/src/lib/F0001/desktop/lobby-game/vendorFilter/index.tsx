@@ -58,7 +58,7 @@ const VendorFilter = ({ pathRoot }: { pathRoot: string }) => {
                 }
                 isActive={activeVendorTpId === ProviderEnum.MaxPlay}
                 displayText="MaxPlay"
-                imgName="MaxPlay"
+                imgName="maxplay"
               />
           }
 			</div>
