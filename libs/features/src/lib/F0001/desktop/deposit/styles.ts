@@ -91,6 +91,11 @@ export const WrapperDeposit = styled.div`
 						border: 2px solid ${({ theme }) => theme.desktop.bankBgColor};
 						position: relative;
 						overflow: hidden;
+						.icon {
+							&:before {
+								font-size: 2.4rem;
+							}
+						}
 						.icon-qrpay {
 							&:before {
 								background: none;
@@ -130,6 +135,15 @@ export const WrapperDeposit = styled.div`
 									color: ${({ theme }) => theme.desktop.white};
 								}
 							}
+							.icon-qrpay,
+							.icon-bank-fill,
+							.icon-library,
+							.icon-connection,
+							.icon-mobile {
+								&:before {
+									color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+								}
+							}
 							.icon-check {
 								display: block;
 								width: 1.8rem;
@@ -150,7 +164,7 @@ export const WrapperDeposit = styled.div`
 					}
 					.bank {
 						text-align: center;
-						font-size: 1rem;
+						font-size: 1.2rem;
 						font-weight: 700;
 						line-height: normal;
 						margin-top: 0.8rem;

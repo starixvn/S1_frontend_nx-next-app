@@ -30,7 +30,7 @@ const DepositSubModuleButton = ({
 
 	const fastIcon = icon.match('fast') ? 'fast' : ''
 	return (
-		<div>
+		<div className='block-grid'>
 			<div
 				className={classNames(className, fastIcon, 'bankName', {
 					active: isActive,

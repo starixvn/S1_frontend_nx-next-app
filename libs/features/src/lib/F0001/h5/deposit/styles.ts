@@ -174,7 +174,7 @@ export const WrapperDepositH5 = styled.div`
 		.selectModule {
 			justify-content: space-between;
 			gap: 3.5vw;
-			> div {
+			.block-grid {
 				display: grid;
 				width: 45%;
 				grid-template-columns: repeat(3, 1fr);
@@ -292,6 +292,7 @@ export const WrapperDepositH5 = styled.div`
 			display: flex;
 			align-items: center;
 			gap: 0.8rem;
+			justify-content: center;
 			.icon {
 				&:before {
 					font-size: 2rem;
@@ -329,11 +330,10 @@ export const WrapperDepositH5 = styled.div`
 		font-size: 2.75vw;
 	}
 
-	.depositModule .selectModule .infoAccount {
-		width: 100%;
-		margin: 2vw 2vw -0.5vw;
-		padding-top: 2vw;
-		border-top: 1px solid #bfcce2;
+	.infoAccount {
+		width: 100% !important;
+		display: block !important;
+		height: auto !important;
 	}
 	.depositModule .selectModule .infoAccount li {
 		-webkit-box-pack: start;

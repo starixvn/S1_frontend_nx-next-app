@@ -194,7 +194,6 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 					</DepositModule>
 				)}
 			</DepositModule>
-
 			<DepositModule
 				title={t('Label_Deposit_ChooseAvailablePromotion')}
 				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
@@ -226,7 +225,6 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 					/>
 				</div>
 			</DepositModule>
-
 			<Form onSubmit={handleSubmit(onBankTransferFormSubmit)}>
 				{watchCanSubmit ? (
 					<div className='btnGroup'>

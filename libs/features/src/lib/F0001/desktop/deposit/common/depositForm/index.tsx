@@ -54,7 +54,7 @@ const DepositForm = () => {
 					<div className='title-text'>{t('Label_Deposit_SubTitle')}</div>
 					<DepositAutoRemember />
 				</div>
-				<DepositModule title={t('Label_Deposit_SubTitle')}>
+				<DepositModule title={t('Label_Deposit_DepositOptions')}>
 					<DepositModule.SubModuleButtonGroup matchKey='paymentType'>
 						{Object.keys(payments).map(key => {
 							const paymentOption =
