@@ -1,12 +1,14 @@
-import { dateFormat, paths, timeFormat } from "@nx-next-app/constants";
-import { HotMatchContainer } from "@nx-next-app/features/F0001/desktop/home/hotMatch/styles";
-import { useHome } from "@nx-next-app/features/F0001/providers";
-import { IHotEventData } from "@nx-next-app/service";
-import dayjs from "dayjs";
-import { useTranslation } from "next-i18next";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+/* eslint-disable @typescript-eslint/no-empty-function */
+import { dateFormat, timeFormat } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { HotMatchContainer } from '@nx-next-app/features/F0001/desktop/home/hotMatch/styles'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { IHotEventData } from '@nx-next-app/service'
+import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import { useEffect, useMemo, useState } from 'react'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -15,6 +17,10 @@ export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 const Item = ({ data }: { data: IHotEventData }) => {
 	const { t } = useTranslation()
 	const { formatHdp } = useHome()
+	const {
+		userInfo: { langId },
+	} = useAuth()
+	const { onEnterPage } = useMenu()
 	const {
 		sportLeaguesTitle,
 		homeTeamPic,
@@ -29,13 +35,6 @@ const Item = ({ data }: { data: IHotEventData }) => {
 		homeOdds = 0,
 		handicap = 0,
 	} = data
-
-	const searchParams = new URLSearchParams({
-		provider: 'soccer',
-		tpId,
-		matchId: matchId ? String(matchId) : '',
-		gameId,
-	})
 
 	const date = dayjs(battleTime).format(dateFormat)
 	const time = dayjs(battleTime).format(timeFormat)
@@ -76,9 +75,23 @@ const Item = ({ data }: { data: IHotEventData }) => {
 						{date}
 						<div>{time}</div>
 					</div>
-					<Link href={`${paths.sports.root}/?${searchParams.toString()}`}>
-						<button className='bet-btn'>{t('Label_General_BetNow')}</button>
-					</Link>
+					<button
+						onClick={() => {
+							onEnterPage(
+								{
+									langId,
+									tpId: Number(data.tpId),
+									gameId,
+									matchid: matchId.toString(),
+									tpGameType: 0,
+								},
+								{ loginCallback: () => {} }
+							)
+						}}
+						className='bet-btn'
+					>
+						{t('Label_General_BetNow')}
+					</button>
 				</div>
 			</div>
 		</div>

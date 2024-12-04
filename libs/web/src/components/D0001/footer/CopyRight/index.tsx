@@ -11,7 +11,7 @@ const QuickLinks = ({
 	const { t } = useTranslation()
 	const [rootUrl, setRootUrl] = useState('')
 	const {
-		userInfo: { langId },
+		userInfo: { currencyId },
 	} = useAuth()
 
 	useEffect(() => {
@@ -28,7 +28,7 @@ const QuickLinks = ({
 				) : (
 					<a
 						key={displayKey}
-						href={`${href}?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
+						href={`${href}?currencyId=${currencyId}`}
 						target='_blank'
 						rel='noreferrer'
 					>
