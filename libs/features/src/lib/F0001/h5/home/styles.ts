@@ -83,7 +83,7 @@ export const GroupTitleContainer = styled.div`
 	.load-more {
 		display: flex;
 		align-items: center;
-		margin-right: 26vw;
+		margin-right: 22vw;
 		color: ${({ theme }) => theme.desktop.homePageLoadMoreColor};
 		font-size: 4.1vw;
 		font-weight: 600;
@@ -100,7 +100,7 @@ export const GroupTitleContainer = styled.div`
 `
 export const GameGroup = styled.div`
 	position: relative;
-	padding: 9.8vw 3.8vw;
+	padding: 5.8vw 3.8vw;
 
 	&.promotion {
 		width: ${({ theme }) => theme.desktop.minContentWidth};
@@ -129,7 +129,7 @@ export const GameGroup = styled.div`
 
 	.embla__controls {
 		position: absolute;
-		top: 8.7vw;
+		top: 4.7vw;
 		right: 3.8vw;
 		grid-template-columns: auto;
 		gap: 1.9vw;

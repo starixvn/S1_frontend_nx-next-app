@@ -3,8 +3,7 @@ import styled from "styled-components";
 
 export const GameContainer = styled.div`
 	display: grid;
-	gap: 2.4rem;
-	margin-top: 4rem;
+	margin-top: 5.8vw;
 `
 export const ProviderGroup = styled(GameGroup)`
 	.embla__container {
@@ -20,7 +19,7 @@ export const ProviderGroup = styled(GameGroup)`
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border-radius: 1rem;
+		border-radius: 2.42vw;
 		background: #232b4f;
 		width: var(--slide-size);
 
