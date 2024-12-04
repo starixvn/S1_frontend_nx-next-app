@@ -35,9 +35,8 @@ const PromotionDetailModal = ({
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
-	const { closeModal } = useGlobalModal()
-
-	const { data: { data: promotionDetail } = {} } = useGetPromotionDetailQuery({
+	const { closeModal, modal } = useGlobalModal()
+	const { data: { data: promotionDetail } = {}, status: statusResult } = useGetPromotionDetailQuery({
 		currencyId,
 		langId,
 		bonusCode,
@@ -46,6 +45,10 @@ const PromotionDetailModal = ({
 	const { onUpdatePromotionDetail, setClaimPromotionHandler } =
 		useSetClaimPromotionFetcher()
 
+	if (statusResult !== 'pending' && promotionDetail === null) {
+		modal.error(t('Label_Promotion_Unavailable'))
+		return null
+	}
 	if (!promotionDetail) return null
 
 	const {
@@ -168,18 +171,18 @@ const PromotionDetailModal = ({
 						status,
 						promotionType,
 					}) && (
-						<PromotionProgressBar
-							custTurnOver={custTurnOver}
-							custRollOver={custRollOver}
-							onSpinButton={() =>
-								onUpdatePromotionDetail({
-									bonusCode,
-									tpId,
-									promoCategoryId: String(categoryId),
-								})
-							}
-						/>
-					)}
+							<PromotionProgressBar
+								custTurnOver={custTurnOver}
+								custRollOver={custRollOver}
+								onSpinButton={() =>
+									onUpdatePromotionDetail({
+										bonusCode,
+										tpId,
+										promoCategoryId: String(categoryId),
+									})
+								}
+							/>
+						)}
 					{promotionType === PromotionTypeEnum.MissionBonus && !isJoin && (
 						<PromoMission promotionDetail={promotionDetail} />
 					)}
