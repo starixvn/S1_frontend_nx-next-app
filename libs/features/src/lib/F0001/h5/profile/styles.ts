@@ -268,12 +268,12 @@ export const WrapperEditAddressH5 = styled.div`
 			.heading-box {
 				padding: 2.7vw 5vw;
 				background: #232b4f;
-				border-bottom: 1px solid #374375;
+				// border-bottom: 1px solid #374375;
 			}
 			.body-box {
-				padding-bottom: 5vw;
+				// padding-bottom: 5vw;
 				margin: 5vw;
-				border-bottom: 1px solid #374375;
+				// border-bottom: 1px solid #374375;
 				.infoModule {
 					margin-bottom: 3.4vw;
 					position: relative;
@@ -295,12 +295,16 @@ export const WrapperParentProfileH5 = styled.div`
 	background: #182043;
 	border-radius: 20px;
 	overflow: hidden;
+	padding-bottom: 5vw;
 	.group-btn-line {
 		padding: 0 5vw 0 5vw;
 		.btnGroup {
 			margin: 2vw 0;
 			.icon {
 				margin-right: 1.5vw;
+				&:before {
+					font-size: 4vw;
+				}
 			}
 		}
 		.txt-line {
@@ -309,41 +313,54 @@ export const WrapperParentProfileH5 = styled.div`
 			font-size: 3.5vw;
 			font-weight: 400;
 		}
+		.icon-line {
+			&:before {
+				font-size: 5.5vw;
+			}
+		}
 	}
 `
 
 export const WrapperProfileH5 = styled.div`
-	.profile {
+	.profile,
+	.addressModule {
 		padding: 0 5vw 2vw 5vw;
-		.group-control {
-			display: flex;
-			flex-wrap: wrap;
-			margin-bottom: 1.5vw;
-			.label-name {
-				min-width: 35vw;
-				font-size: 3.4vw;
-				font-weight: 600;
-			}
+	}
+	.title {
+		padding: 2.7vw 5vw;
+		background: #232b4f;
+		border-bottom: 1px solid #374375;
+		margin-bottom: 3.1vw;
+	}
+
+	.group-control {
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 1.5vw;
+		.label-name {
+			min-width: 35vw;
+			font-size: 3.4vw;
+			font-weight: 600;
+		}
+		.name-input {
+			font-size: 3.4vw;
+			font-weight: 400;
+			line-height: 18px;
+			color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+		}
+		.group-cfm {
 			.name-input {
-				font-size: 3.4vw;
-				font-weight: 400;
-				line-height: 18px;
-				color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+				margin-bottom: 1vw;
 			}
-			.group-cfm {
-				.name-input {
-					margin-bottom: 1vw;
-				}
-				button {
-					border-radius: 100px;
-					display: flex;
-					align-items: center;
-					width: 100%;
-					justify-content: center;
-					padding: 1vw 3vw;
-					gap: 0.4rem;
-					font-size: 3.5vw;
-				}
+			button {
+				border-radius: 100px;
+				display: flex;
+				align-items: center;
+				width: 100%;
+				justify-content: center;
+				padding: 1vw 3vw;
+				gap: 0.4rem;
+				font-size: 3.5vw;
 			}
 		}
 	}

@@ -51,6 +51,7 @@ const Info = () => {
 
 	return (
 		<WrapperProfileH5>
+			<div className='title'>{t('Label_Profile_ShippingAddress')}</div>
 			<div className='profile'>
 				{phoneNo && (
 					<div className='group-control'>
@@ -98,7 +99,7 @@ const Info = () => {
 				{birthDay && (
 					<div className='group-control'>
 						<div className='label-name'>{t('Label_Profile_Birthday')}</div>
-						<div>
+						<div className='name-input'>
 							{birthDay} / {birthMonth} / {birthYear}
 						</div>
 					</div>

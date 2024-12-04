@@ -54,9 +54,13 @@ const PhoneOtpModal = () => {
 
 	return (
 		<div className='pop'>
+			<i className='icon icon-notifi icon-notification-active' />
 			<div className='popTit'>
 				{t('Label_General_ImportantNotes')}
-				<div className='icon icon-close' onClick={closeModal} />
+				<div
+					className='close-popup icon icon-close-line'
+					onClick={closeModal}
+				/>
 			</div>
 
 			<div className='popTxt text-center'>
@@ -66,7 +70,7 @@ const PhoneOtpModal = () => {
 				</div>
 				<Form className='infoModule' onSubmit={handleSubmit(handleSubmitForm)}>
 					<div
-						className={classNames('inputBox', {
+						className={classNames('inputBox-blue', {
 							error: errors['otpCode'],
 						})}
 					>
@@ -85,25 +89,22 @@ const PhoneOtpModal = () => {
 							{errors['otpCode']?.message as string}
 						</div>
 					</div>
-					<div className='btn-group'>
-						<button type='submit' className='submit'>
+					{timer && (
+						<CountdownTimer
+							timer={timer}
+							startUnixTime={startUnixTime}
+							setTimer={setTimer}
+						/>
+					)}
+					<div className='btnGroup'>
+						<button type='submit' className='btn-primary'>
 							{t('Label_General_Submit')}
 						</button>
-					</div>
-				</Form>
-				{timer ? (
-					<CountdownTimer
-						timer={timer}
-						startUnixTime={startUnixTime}
-						setTimer={setTimer}
-					/>
-				) : (
-					<div className='btn-group'>
-						<button className='submit' onClick={handleSendOtpSMS}>
+						<button className='btn-secondary' onClick={handleSendOtpSMS}>
 							{t('Label_Profile_Retransmit')}
 						</button>
 					</div>
-				)}
+				</Form>
 			</div>
 		</div>
 	)

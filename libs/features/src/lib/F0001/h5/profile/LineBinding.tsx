@@ -39,7 +39,7 @@ const LineBinding = () => {
 		<>
 			<div className='btn-group'>
 				<button className='btn-line' onClick={handleLineBinding}>
-					<i className='icon icon-line-bold' />
+					<i className='icon icon-line' />
 					{isLineBinding
 						? t('Label_Profile_Connected')
 						: t('Label_Profile_Connect')}

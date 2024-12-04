@@ -276,6 +276,18 @@ export const GlobalStyles = createGlobalStyle`
     .pop{
       min-width : unset !important;
       max-width: 80vw;
+      .popTit{
+        font-size: 4.1vw;;
+        font-weight: 700;
+        line-height: normal;
+        color: ${({ theme }) => theme.mobile.white};
+      }
+      .txt{
+        font-size : 3.1vw;
+        margin-top : 1.5vw;
+        color: ${({ theme }) => theme.mobile.white};
+        font-weight: 400;
+      }
     }
     .Success, ,poker,
         .duitnowPop,
