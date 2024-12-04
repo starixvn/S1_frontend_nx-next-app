@@ -62,6 +62,7 @@ interface DepositContextInterface {
 		[DepositPaymentEnum.ChatTransfer]?: IDepositChatTransferData[]
 	}
 	promotionOptions: SelectOptionType[]
+	getCustPromotionOptions: (minAmount: number) => SelectOptionType[]
 	refetchPaymentBankTransferList: () => void
 	refetchPaymentOnlineBankingList: () => void
 	refetchPaymentMobilePayList: () => void
@@ -213,6 +214,22 @@ export const DepositProvider = ({
 		})
 	)
 
+	const getCustPromotionOptions = (minAmount?: number) => {
+		if (!minAmount) {
+			return promotionOptions
+		}
+
+		const custPromotionOptions = depositPromotionList.filter(
+			option => option.tierAmountList.some(tierAmount => minAmount >= tierAmount.requiredAmount)
+		)
+
+		return custPromotionOptions.map(({ title, bonusCode }) => ({
+			label: title,
+			value: String(bonusCode),
+		}))
+	}
+
+
 	const originPayments: DepositContextInterface['payments'] = {
 		[DepositPaymentEnum.AutoDeposit]: paymentAutoDepositList,
 		[DepositPaymentEnum.BankTransfer]: paymentBankTransferList,
@@ -270,6 +287,7 @@ export const DepositProvider = ({
 		loading,
 		payments,
 		promotionOptions,
+		getCustPromotionOptions,
 		refetchPaymentBankTransferList,
 		refetchPaymentOnlineBankingList,
 		refetchPaymentMobilePayList,

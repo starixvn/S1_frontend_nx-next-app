@@ -39,7 +39,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
-	const { promotionOptions } = useDepositContext()
+	const { getCustPromotionOptions } = useDepositContext()
 
 	const {
 		formMethods: {
@@ -197,7 +197,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 				<div className='infoModule'>
 					<Select
 						value={watchBonusCode}
-						options={promotionOptions}
+						options={getCustPromotionOptions(watchAmount)}
 						onChange={value => {
 							setValue('bonusCode', String(value))
 							setValue('promoCode', undefined)

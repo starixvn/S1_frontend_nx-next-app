@@ -36,7 +36,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 		userInfo: { currencyId, accountName },
 	} = useAuth()
 	const { t } = useTranslation()
-	const { promotionOptions } = useDepositContext()
+	const { getCustPromotionOptions } = useDepositContext()
 
 	const {
 		formMethods: {
@@ -249,7 +249,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
 				<Select
 					value={watchBonusCode}
-					options={promotionOptions}
+					options={getCustPromotionOptions(watchAmount)}
 					onChange={value => {
 						setValue('bonusCode', String(value))
 						setValue('promoCode', undefined)

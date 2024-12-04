@@ -33,7 +33,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 	} = useAuth()
 	const { t } = useTranslation()
 
-	const { promotionOptions } = useDepositContext()
+	const { getCustPromotionOptions } = useDepositContext()
 
 	const {
 		formMethods: {
@@ -173,7 +173,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 			<DepositModule title={t('Label_Deposit_ChooseAvailablePromotion')}>
 				<Select
 					value={watchBonusCode}
-					options={promotionOptions}
+					options={getCustPromotionOptions(watchAmount)}
 					onChange={value => {
 						// * bonusCode 與 promoCode 擇一使用因此清空 promoCode
 						setValue('bonusCode', String(value))

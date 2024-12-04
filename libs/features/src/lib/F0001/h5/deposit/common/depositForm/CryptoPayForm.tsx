@@ -43,7 +43,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal, closeModal } = useGlobalModal()
-	const { promotionOptions } = useDepositContext()
+	const { getCustPromotionOptions } = useDepositContext()
 
 	const {
 		formMethods: {
@@ -237,7 +237,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 				<div className='infoModule'>
 					<Select
 						value={watchBonusCode}
-						options={promotionOptions}
+						options={getCustPromotionOptions(watchAmount)}
 						onChange={value => {
 							// * bonusCode 與 promoCode 擇一使用因此清空 promoCode
 							setValue('bonusCode', String(value))
