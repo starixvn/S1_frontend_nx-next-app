@@ -201,15 +201,15 @@ const defaultDesktopHomeOrders = [
 const defaultMobileHomeOrders = [
 	MobileHomeComponentsEnum.Announcement,
 	MobileHomeComponentsEnum.CarouselBanner,
-	MobileHomeComponentsEnum.HotEventSwiper,
+	// MobileHomeComponentsEnum.HotEventSwiper,
 	MobileHomeComponentsEnum.PromotionSwiper,
-	MobileHomeComponentsEnum.HotGameSwiper,
-	MobileHomeComponentsEnum.JackPotSwiper,
+	// MobileHomeComponentsEnum.HotGameSwiper,
+	// MobileHomeComponentsEnum.JackPotSwiper,
 	// MobileHomeComponentsEnum.AppDownload,
 	MobileHomeComponentsEnum.FooterBlock,
-	MobileHomeComponentsEnum.EuropeCupEntry,
-	MobileHomeComponentsEnum.LuckyWheel,
-	MobileHomeComponentsEnum.LiveStreamingLink,
+	// MobileHomeComponentsEnum.EuropeCupEntry,
+	// MobileHomeComponentsEnum.LuckyWheel,
+	// MobileHomeComponentsEnum.LiveStreamingLink,
 ]
 
 export const HomeProvider = ({
