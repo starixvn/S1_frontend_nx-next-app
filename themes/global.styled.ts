@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
-import { theme } from "./theme";
+import { theme } from './theme'
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
@@ -1901,12 +1901,23 @@ export const GlobalStyles = createGlobalStyle`
                   border-bottom : none;
                 }
                 .group-button{
+                  border-radius: 20px;
+                  overflow : hidden;
+                  margin-top: 1vw;
+                  display: flex;
+                  gap: 1px;
                   button{
-                    margin-top: 1vw;
                     color: ${({ theme }) =>
 											theme.desktop.rightModuleSloganColor};
                     font-size: 3vw;
                     background : #374375;
+                    padding : 1vw 2vw;
+
+                    &.active{
+                      background : ${({ theme }) =>
+												theme.mobile.hrefColorPrimary};
+                      color: ${({ theme }) => theme.mobile.white};
+                    }
                   }
                 }
                 
@@ -1915,6 +1926,10 @@ export const GlobalStyles = createGlobalStyle`
                   width: 100%;
                   .country-title{
                      background-color : #182043;
+                     img{
+                      width :5.5vw;
+                      height :5.5vw;
+                     }
                     > div{
                       background-color : #182043;
                     }
