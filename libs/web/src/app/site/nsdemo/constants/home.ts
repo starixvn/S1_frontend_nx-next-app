@@ -1,7 +1,4 @@
-import {
-	DesktopHomeComponentsEnum,
-	MobileHomeComponentsEnum,
-} from '@nx-next-app/features/F0001/types'
+import { DesktopHomeComponentsEnum, MobileHomeComponentsEnum } from "@nx-next-app/features/F0001/types";
 
 export const DESKTOP_HOME_ORDERS = [
 	DesktopHomeComponentsEnum.Announcement,
@@ -28,18 +25,24 @@ export const DESKTOP_HOME_ORDERS = [
 export const MOBILE_HOME_ORDERS = [
 	MobileHomeComponentsEnum.Announcement,
 	MobileHomeComponentsEnum.CarouselBanner,
-	MobileHomeComponentsEnum.HotEventSwiper,
+	MobileHomeComponentsEnum.LiveCasino,
 	MobileHomeComponentsEnum.PromotionSwiper,
-	MobileHomeComponentsEnum.HotGameSwiper,
-	MobileHomeComponentsEnum.HotGameCasinoSwiper,
+	MobileHomeComponentsEnum.TableGames,
+	MobileHomeComponentsEnum.HotGameSport,
+	MobileHomeComponentsEnum.NewRelease,
+	MobileHomeComponentsEnum.ProviderList,
+	// MobileHomeComponentsEnum.HotEventSwiper,
+
+	// MobileHomeComponentsEnum.HotGameSwiper,
+
 	// MobileHomeComponentsEnum.RecentlyViewGames,  目前隱藏，未來看需求有可能開啟
-	MobileHomeComponentsEnum.JackPotSwiper,
+	// MobileHomeComponentsEnum.JackPotSwiper,
 	// MobileHomeComponentsEnum.AppDownload,
 	// MobileHomeComponentsEnum.PartnerBlock,
 	MobileHomeComponentsEnum.FooterBlock,
-	MobileHomeComponentsEnum.LiveStreamingLink,
-	MobileHomeComponentsEnum.EuropeCupEntry,
+	// MobileHomeComponentsEnum.LiveStreamingLink,
+	// MobileHomeComponentsEnum.EuropeCupEntry,
 	// MobileHomeComponentsEnum.LuckyWheel,
-	MobileHomeComponentsEnum.Retention,
-	MobileHomeComponentsEnum.OlympicEntry,
+	// MobileHomeComponentsEnum.Retention,
+	// MobileHomeComponentsEnum.OlympicEntry,
 ]
