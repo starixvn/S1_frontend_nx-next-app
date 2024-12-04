@@ -1,15 +1,15 @@
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { paths } from '@nx-next-app/constants'
-import EmblaCarousel from '@nx-next-app/features/F0001/desktop/common/emblaCarousel'
-import GameIcon from '@nx-next-app/features/F0001/desktop/home/gameIcon'
-import GroupTitle from '@nx-next-app/features/F0001/desktop/home/GroupTitle'
-import { GameContainer } from '@nx-next-app/features/F0001/desktop/home/slotGames/styles'
-import { GameGroup } from '@nx-next-app/features/F0001/desktop/home/styles'
-import { useHome } from '@nx-next-app/features/F0001/providers'
-import { TpCategory } from '@nx-next-app/service'
-import { EmblaOptionsType } from 'embla-carousel'
-import { useTranslation } from 'next-i18next'
-import dynamic from 'next/dynamic'
+import { useGlobalModal } from "@nx-next-app/components/config-provider";
+import { paths } from "@nx-next-app/constants";
+import EmblaCarousel from "@nx-next-app/features/F0001/desktop/common/emblaCarousel";
+import GameIcon from "@nx-next-app/features/F0001/desktop/home/gameIcon";
+import GroupTitle from "@nx-next-app/features/F0001/desktop/home/GroupTitle";
+import { GameContainer } from "@nx-next-app/features/F0001/desktop/home/slotGames/styles";
+import { GameGroup } from "@nx-next-app/features/F0001/desktop/home/styles";
+import { useHome } from "@nx-next-app/features/F0001/providers";
+import { TpCategory } from "@nx-next-app/service";
+import { EmblaOptionsType } from "embla-carousel";
+import { useTranslation } from "next-i18next";
+import dynamic from "next/dynamic";
 
 const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
 	ssr: false,
@@ -56,7 +56,7 @@ const HotGameSlot = () => {
 
 	return (
 		<GameGroup className='content-container slot'>
-			<GroupTitle title='Slots' href={paths.slots.root} />
+			<GroupTitle title={t('Label_General_Slots')} href={paths.slots.root} />
 			<GameContainer>
 				<div className='game-large'>
 					<GameIcon

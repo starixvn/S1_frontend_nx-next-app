@@ -45,6 +45,26 @@ export const HomPageContainer = styled.div`
 			}
 		}
 	}
+
+	.home-promos-swiper {
+		margin-top: 7.2vw;
+		.swiper-slide {
+			max-width: 84vw;
+
+			> div {
+				width: 100%;
+				height: 29vw;
+				overflow: hidden;
+				display: flex;
+				justify-content: center;
+				border-radius: 7.2vw;
+			}
+			img {
+				width: auto;
+				height: 100%;
+			}
+		}
+	}
 `
 
 export const GameContainer = styled.div`
@@ -95,35 +115,11 @@ export const GameGroup = styled.div`
 		}
 	}
 
-	.embla__viewport {
-		position: relative;
-
-		&:after {
-			content: '';
-			position: absolute;
-			right: 0;
-			top: 0;
-			height: 100%;
-			width: 8rem;
-			background: linear-gradient(
-				270deg,
-				#0f1428ed 0%,
-				rgba(15, 20, 40, 0) 100%
-			);
-		}
-	}
-
 	.embla__container {
-		--largeGameWidth: 32rem;
 		--slide-height: 18.9rem;
 		--slide-size: 14rem;
-		--column-count: 3.5;
-		--single-column-width: calc(
-			(
-					(100% + var(--largeGameWidth)) - (var(--column-count) - 1) *
-						var(--slide-spacing)
-				) / var(--column-count)
-		);
+		--column-count: 3.2;
+		--single-column-width: 33.9vw;
 
 		display: grid;
 		grid-auto-flow: column;
@@ -134,7 +130,7 @@ export const GameGroup = styled.div`
 	.embla__controls {
 		position: absolute;
 		top: 8.7vw;
-		right: 0;
+		right: 3.8vw;
 		grid-template-columns: auto;
 		gap: 1.9vw;
 		margin-top: 0;

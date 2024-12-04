@@ -25,6 +25,7 @@ export const DESKTOP_HOME_ORDERS = [
 export const MOBILE_HOME_ORDERS = [
 	MobileHomeComponentsEnum.Announcement,
 	MobileHomeComponentsEnum.CarouselBanner,
+	MobileHomeComponentsEnum.SlotGames,
 	MobileHomeComponentsEnum.LiveCasino,
 	MobileHomeComponentsEnum.PromotionSwiper,
 	MobileHomeComponentsEnum.TableGames,

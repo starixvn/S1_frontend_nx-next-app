@@ -1,7 +1,10 @@
-import { useHome } from '@nx-next-app/features/F0001/providers'
-import { isUrl } from '@nx-next-app/utils'
-import { useTranslation } from 'next-i18next'
-import dynamic from 'next/dynamic'
+import { paths } from "@nx-next-app/constants";
+import GroupTitle from "@nx-next-app/features/F0001/h5/home/GroupTitle";
+import { GameGroup } from "@nx-next-app/features/F0001/h5/home/styles";
+import { useHome } from "@nx-next-app/features/F0001/providers";
+import { isUrl } from "@nx-next-app/utils";
+import { useTranslation } from "next-i18next";
+import dynamic from "next/dynamic";
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -19,8 +22,12 @@ const PromotionSwiper = () => {
 
 	if (promotionData == null || promotionData.length === 0) return null
 	return (
-		<>
-			<div className='home-title'>{t('Label_General_Promotion')}</div>
+		<GameGroup className='promotion'>
+			<GroupTitle
+				title={t('Label_General_Promotion')}
+				href={paths.promotion.root}
+			/>
+
 			<div className='home-promos-swiper'>
 				<DynamicSwiper {...config}>
 					{promotionData.map(({ banner, title, description, bonusCode }) => (
@@ -39,7 +46,7 @@ const PromotionSwiper = () => {
 					))}
 				</DynamicSwiper>
 			</div>
-		</>
+		</GameGroup>
 	)
 }
 

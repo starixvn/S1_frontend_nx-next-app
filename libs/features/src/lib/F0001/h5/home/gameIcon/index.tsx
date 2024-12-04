@@ -23,12 +23,7 @@ interface IGameIcon {
 const GameIcon: FC<IGameIcon> = ({ gameItem, isLarge, onClick }) => {
 	const { gameId, imageUrl, gameName, isMaintain, tpName } = gameItem
 	const { t } = useTranslation()
-	console.log(
-		'-------',
-		`${process.env['NEXT_PUBLIC_IMAGE_HOST']}/${imageUrl}${
-			isLarge ? '@2x' : '@1x'
-		}.webp`
-	)
+
 	return (
 		<AppearSensor>
 			{({ hasBeenVisible }: { hasBeenVisible: boolean }) => {

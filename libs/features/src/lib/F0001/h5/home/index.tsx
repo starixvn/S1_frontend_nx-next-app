@@ -13,20 +13,6 @@ import { Fragment, useCallback } from "react";
 
 import Menu from "./menu";
 
-const LuckyWheel = dynamic(() => import('../common/LuckyWheel'), { ssr: false })
-
-const LiveStreamingLink = dynamic(() => import('../common/liveStreamingLink'), {
-	ssr: false,
-})
-
-const EuroCupEntry = dynamic(() => import('../common/EuroCupEntry'), {
-	ssr: false,
-})
-
-const Retention = dynamic(() => import('../common/RetentionEntry'), {
-	ssr: false,
-})
-
 const CarouselBanner = dynamic(() => import('../common/carouselBanner'), {
 	ssr: false,
 })
@@ -35,7 +21,17 @@ const Announcement = dynamic(() => import('./Announcement'))
 
 const PromotionSwiper = dynamic(() => import('./PromotionSwiper'))
 
-const HotGameCasinoSwiper = dynamic(() => import('./HotGameCasinoSwiper'))
+const LiveCasinoGames = dynamic(() => import('./LiveCasinoGames'))
+
+const SlotGames = dynamic(() => import('./SlotGames'))
+
+const TableGames = dynamic(() => import('./TableGames'))
+
+const SportGames = dynamic(() => import('./sportsGames'))
+
+const NewReleaseGames = dynamic(() => import('./NewReleaseGames'))
+
+const ProvidersList = dynamic(() => import('./providers'))
 
 const SimpleFooter = dynamic(() => import('./SimpleFooter'))
 
@@ -71,13 +67,13 @@ const Home = () => {
 			</div>
 		),
 		[MobileHomeComponentsEnum.Announcement]: <Announcement />,
-		[MobileHomeComponentsEnum.LiveCasino]: <HotGameCasinoSwiper />,
-		[MobileHomeComponentsEnum.TableGames]: <HotGameCasinoSwiper />,
-		[MobileHomeComponentsEnum.SlotGames]: <HotGameCasinoSwiper />,
+		[MobileHomeComponentsEnum.LiveCasino]: <LiveCasinoGames />,
+		[MobileHomeComponentsEnum.TableGames]: <TableGames />,
+		[MobileHomeComponentsEnum.SlotGames]: <SlotGames />,
 
-		[MobileHomeComponentsEnum.HotGameSport]: <HotGameCasinoSwiper />,
-		[MobileHomeComponentsEnum.NewRelease]: <HotGameCasinoSwiper />,
-		[MobileHomeComponentsEnum.ProviderList]: <HotGameCasinoSwiper />,
+		[MobileHomeComponentsEnum.HotGameSport]: <SportGames />,
+		[MobileHomeComponentsEnum.NewRelease]: <NewReleaseGames />,
+		[MobileHomeComponentsEnum.ProviderList]: <ProvidersList />,
 		[MobileHomeComponentsEnum.PromotionSwiper]: <PromotionSwiper />,
 		// [MobileHomeComponentsEnum.HotEventSwiper]: includes(
 		// 	ALLOWED_CURRENCIES.SPORTS_SABA_CLUB,

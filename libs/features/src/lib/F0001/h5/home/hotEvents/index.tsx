@@ -1,13 +1,14 @@
-import dayjs from 'dayjs'
-import classNames from 'classnames'
-import { useHome } from '@nx-next-app/features/F0001/providers'
-import { useTranslation } from 'next-i18next'
-import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { useAuth } from '@nx-next-app/data-access'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { useRouter } from 'next/router'
-import dynamic from 'next/dynamic'
+import { dateFormat, paths, timeFormat } from "@nx-next-app/constants";
+import { useAuth } from "@nx-next-app/data-access";
+import { HotMatchContainer } from "@nx-next-app/features/F0001/h5/home/hotEvents/styles";
+import { useMenu } from "@nx-next-app/features/F0001/hooks";
+import { useHome } from "@nx-next-app/features/F0001/providers";
+import { CurrenciesEnum } from "@nx-next-app/types";
+import classNames from "classnames";
+import dayjs from "dayjs";
+import { useTranslation } from "next-i18next";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -20,7 +21,7 @@ const config = {
 	containerClass: 'hotmatch-swiper-container',
 }
 
-const HotEventSwiper = () => {
+const HotEvents = () => {
 	const { t } = useTranslation()
 	const { hotEventData, formatHdp } = useHome()
 	const {
@@ -34,16 +35,11 @@ const HotEventSwiper = () => {
 
 	return (
 		// 巴西有加 br className，因為僅有巴西需要去除 Aston Villa 贊助球隊
-		<div
-			className={classNames('home-hotmatch', {
+		<HotMatchContainer
+			className={classNames({
 				br: isBRL,
 			})}
 		>
-			<div className='home-hotmatch-wrapper'>
-				<div className='top'>
-					<div>{t('Label_General_Sports').toUpperCase()}</div>
-				</div>
-			</div>
 			<div className='home-hotmatch-swiper'>
 				<DynamicSwiper {...config}>
 					{hotEventData?.map(eventData => {
@@ -69,17 +65,13 @@ const HotEventSwiper = () => {
 						const awayTeamHandicap = formatHdp(handicap * -1)
 						return (
 							<div key={`${matchId}-${battleTime}`}>
-								<div className='home-hotmatch-item'>
-									<div className='title'>
+								<div className='match-item'>
+									<div className='match-item-title'>
 										<p>{sportLeaguesTitle}</p>
-										<div>
-											{date}
-											<div>{time}</div>
-										</div>
 									</div>
-									<div className='team'>
+									<div className='match-item-center'>
 										<div className='team-content'>
-											<div className='team-content-item'>
+											<div className='team-item'>
 												<img src={homeTeamPic} alt={homeTeamName} />
 												<div>{homeTeamName}</div>
 											</div>
@@ -89,7 +81,7 @@ const HotEventSwiper = () => {
 											</div>
 										</div>
 										<div className='team-content'>
-											<div className='team-content-item'>
+											<div className='team-item'>
 												<img src={awayTeamPic} alt={awayTeamName} />
 												<div>{awayTeamName}</div>
 											</div>
@@ -99,32 +91,38 @@ const HotEventSwiper = () => {
 											</div>
 										</div>
 									</div>
-									<button
-										className='btn-bet'
-										onClick={() =>
-											onEnterPage(
-												{
-													tpId: Number(tpId),
-													gameId,
-													matchid: String(matchId),
-													langId,
-													// 原本的就這樣寫
-													tpGameType: 1,
-												},
-												{ loginCallback: () => push(paths.login.root) }
-											)
-										}
-									>
-										{t('Label_General_BetNow')}
-									</button>
+									<div className='match-footer'>
+										<div className='match-date'>
+											{date}
+											<div>{time}</div>
+										</div>
+										<button
+											className='bet-btn'
+											onClick={() =>
+												onEnterPage(
+													{
+														tpId: Number(tpId),
+														gameId,
+														matchid: String(matchId),
+														langId,
+														// 原本的就這樣寫
+														tpGameType: 1,
+													},
+													{ loginCallback: () => push(paths.login.root) }
+												)
+											}
+										>
+											{t('Label_General_BetNow')}
+										</button>
+									</div>
 								</div>
 							</div>
 						)
 					})}
 				</DynamicSwiper>
 			</div>
-		</div>
+		</HotMatchContainer>
 	)
 }
 
-export default HotEventSwiper
+export default HotEvents

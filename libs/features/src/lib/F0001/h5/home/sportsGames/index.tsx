@@ -1,6 +1,8 @@
 import { paths } from "@nx-next-app/constants";
 import GameList from "@nx-next-app/features/F0001/h5/home/GameList";
 import GroupTitle from "@nx-next-app/features/F0001/h5/home/GroupTitle";
+import HotEvents from "@nx-next-app/features/F0001/h5/home/hotEvents";
+import { SportContainer } from "@nx-next-app/features/F0001/h5/home/sportsGames/styles";
 import { GameGroup } from "@nx-next-app/features/F0001/h5/home/styles";
 import { useHome } from "@nx-next-app/features/F0001/providers";
 import { TpCategory } from "@nx-next-app/service";
@@ -11,19 +13,12 @@ export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
 })
 
-const config = {
-	shouldSwiperUpdate: true,
-	containerClass: 'hotgame-container',
-	slidesPerView: 3.2,
-	spaceBetween: 10,
-}
-
-const HotGameCasinoSwiper = () => {
+const SportsGames = () => {
 	const { hotGameData } = useHome()
 	const { t } = useTranslation()
 
 	const hotGameCasino = hotGameData.filter(element => {
-		return element.tpCategory === TpCategory.Casino
+		return element.tpCategory === TpCategory.Sports
 	})
 
 	if (hotGameCasino.length === 0) {
@@ -31,18 +26,14 @@ const HotGameCasinoSwiper = () => {
 	}
 
 	return (
-		<GameGroup className='others'>
-			<GroupTitle
-				title={t('Label_General_CasinoWithLive')}
-				href={paths.liveCasino.root}
-			/>
-			<GameList
-				gameData={hotGameCasino}
-				isControlButton
-				extraClassName='two-rows'
-			/>
-		</GameGroup>
+		<SportContainer>
+			<GameGroup>
+				<GroupTitle title={t('Label_General_Sports')} href={paths.game.root} />
+				<GameList gameData={hotGameCasino} isControlButton />
+				<HotEvents />
+			</GameGroup>
+		</SportContainer>
 	)
 }
 
-export default HotGameCasinoSwiper
+export default SportsGames

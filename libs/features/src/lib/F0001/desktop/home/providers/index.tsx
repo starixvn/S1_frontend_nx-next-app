@@ -3,22 +3,10 @@ import { LoadingIcon, NoGameIcon } from "@nx-next-app/features/F0001/desktop/hom
 import GroupTitle from "@nx-next-app/features/F0001/desktop/home/GroupTitle";
 import { GameContainer, ProviderGroup } from "@nx-next-app/features/F0001/desktop/home/providers/styles";
 import { useHome } from "@nx-next-app/features/F0001/providers";
+import { ProviderEnum } from "@nx-next-app/types";
 import { EmblaOptionsType } from "embla-carousel";
 import { useTranslation } from "next-i18next";
-import dynamic from "next/dynamic";
 import { Img } from "react-image";
-import { ProviderEnum} from '@nx-next-app/types'
-
-const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
-	ssr: false,
-})
-
-const UnderMaintenanceModal = dynamic(
-	() => import('../../modal/UnderMaintainModal'),
-	{
-		ssr: false,
-	}
-)
 
 const ProvidersList = () => {
 	const { t } = useTranslation()
