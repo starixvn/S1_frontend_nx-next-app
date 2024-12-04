@@ -1,11 +1,11 @@
 @font-face {
-	font-family: 'icomoon';
-	src: url('../fonts-newsite/player-icon.eot?71k8ox');
-	src: url('../fonts-newsite/player-icon.eot?71k8ox#iefix')
+	font-family: 'S1NewIcons';
+	src: url('../fonts-newsite/s1-new-icons.eot?qsdolx');
+	src: url('../fonts-newsite/s1-new-icons.eot?qsdolx#iefix')
 			format('embedded-opentype'),
-		url('../fonts-newsite/player-icon.ttf?71k8ox') format('truetype'),
-		url('../fonts-newsite/player-icon.woff?71k8ox') format('woff'),
-		url('../fonts-newsite/player-icon.svg?71k8ox#icomoon') format('svg');
+		url('../fonts-newsite/s1-new-icons.ttf?qsdolx') format('truetype'),
+		url('../fonts-newsite/s1-new-icons.woff?qsdolx') format('woff'),
+		url('../fonts-newsite/s1-new-icons.svg?qsdolx#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 	font-display: block;
@@ -14,7 +14,7 @@
 [class^='icon-'],
 [class*=' icon-'] {
 	/* use !important to prevent issues with browser extensions that change fonts */
-	font-family: 'icomoon' !important;
+	font-family: 'S1NewIcons' !important;
 	speak: never;
 	font-style: normal;
 	font-weight: normal;
@@ -26,7 +26,163 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-like:before {
+  content: "\e94b";
+  color: #717fba;
+}
 
+.icon-email:before {
+	content: '\e907';
+	color: #fff;
+}
+.icon-chat-private-fill:before {
+	content: '\e94a';
+	color: #fff;
+}
+.icon-verify:before {
+	content: '\e949';
+	color: #939dc5;
+}
+.icon-plus_circle:before {
+	content: '\e948';
+	color: #fff;
+}
+.icon-time:before {
+	content: '\e947';
+	color: #fff;
+}
+.icon-arrow-left-line:before {
+	content: '\e946';
+	color: #fff;
+}
+.icon-loading:before {
+	content: '\e944';
+	color: #fff;
+}
+.icon-no-image:before {
+	content: '\e945';
+	color: #fff;
+}
+.icon-chat-history-fill:before {
+	content: '\e942';
+	color: #fff;
+}
+.icon-file-damage-fill:before {
+	content: '\e943';
+	color: #717fba;
+}
+.icon-user-unfollow-fill:before {
+	content: '\e93b';
+	color: #fff;
+}
+.icon-star-fill:before {
+	content: '\e93c';
+	color: #fff;
+}
+.icon-share-forward-fill:before {
+	content: '\e93d';
+	color: #fff;
+}
+.icon-notification-active:before {
+	content: '\e93e';
+	color: #fff;
+}
+.icon-bookmark-fill:before {
+	content: '\e93f';
+	color: #fff;
+}
+.icon-add-fill:before {
+	content: '\e940';
+	color: #fff;
+}
+.icon-bank-online:before {
+	content: '\e941';
+	color: #fff;
+}
+.icon-help-circle:before {
+	content: '\e93a';
+	color: #717fba;
+}
+.icon-contacts-book-upload-fill:before {
+	content: '\e933';
+	color: #fff;
+}
+.icon-crypto-wallet:before {
+	content: '\e934';
+	color: #fff;
+}
+.icon-gift-fill:before {
+	content: '\e935';
+	color: #fff;
+}
+.icon-qr-code-line:before {
+	content: '\e936';
+	color: #fff;
+}
+.icon-redo:before {
+	content: '\e937';
+	color: #fff;
+}
+.icon-service-fill:before {
+	content: '\e938';
+	color: #fff;
+}
+.icon-share-forward-fill:before {
+	content: '\e939';
+	color: #fff;
+}
+.icon-plus-add:before {
+	content: '\e92d';
+	color: #fff;
+}
+.icon-mobile-alt:before {
+	content: '\e931';
+	color: #fff;
+}
+.icon-file-text-fill:before {
+	content: '\e92b';
+	color: #fff;
+}
+.icon-Equal:before {
+	content: '\e92c';
+	color: #fff;
+}
+.icon-empty-wallet:before {
+	content: '\e92e';
+	color: #fff;
+}
+.icon-card-pos:before {
+	content: '\e92f';
+	color: #fff;
+}
+.icon-book-read-fill:before {
+	content: '\e930';
+	color: #fff;
+}
+.icon-file-user-fill:before {
+	content: '\e932';
+	color: #fff;
+}
+.icon-home:before {
+	content: '\e913';
+	color: #fff;
+}
+.icon-arrow-right-line:before {
+	content: '\e928';
+	color: #fff;
+}
+.icon-logout:before {
+	content: '\e929';
+	color: #fff;
+}
+.icon-profile-2user:before {
+	content: '\e92a';
+	color: #fff;
+}
+.icon-phone-line:before {
+	content: '\e927';
+	color: #fff;
+}
 .icon-switch-off:before {
 	content: '\e900';
 	color: #fff;
@@ -53,10 +209,6 @@
 }
 .icon-lock-password-line:before {
 	content: '\e906';
-	color: #fff;
-}
-.icon-mail-fill:before {
-	content: '\e907';
 	color: #fff;
 }
 .icon-mail-line:before {
@@ -101,10 +253,6 @@
 }
 .icon-fire-fill:before {
 	content: '\e912';
-	color: #fff;
-}
-.icon-home-4-fill:before {
-	content: '\e913';
 	color: #fff;
 }
 .icon-eye-close-line:before {
