@@ -1886,23 +1886,46 @@ export const GlobalStyles = createGlobalStyle`
             flex-wrap: wrap;
             align-items: center;
             &-current{
-              display: flex;
-              background-color: ${({ theme }) =>
-								theme.desktop.rightModuleTitleBg};
-              padding: 3.8vw 4vw;
+              margin : 3vw 3.5vw;
+              border-radius : 20px;
+              overflow: hidden;
               .country-item{
                 background-color: ${({ theme }) =>
 									theme.desktop.rightModuleTitleBg};
                 margin-left : 0;
-                button{
-                  margin-top: 2vw;
-                  color: #878787;
-                  font-size: 3vw;
+                display: flex;
+                align-items: center;
+                padding : 3.5vw 3vw;
+                border-bottom : 1px solid #374375;
+                &:last-child{
+                  border-bottom : none;
+                }
+                .group-button{
+                  button{
+                    margin-top: 1vw;
+                    color: ${({ theme }) =>
+											theme.desktop.rightModuleSloganColor};
+                    font-size: 3vw;
+                    background : #374375;
+                  }
+                }
+                
+                &-child{
+                  background-color : #182043;
+                  width: 100%;
+                  .country-title{
+                     background-color : #182043;
+                    > div{
+                      background-color : #182043;
+                    }
+                  }
+                 
                 }
               }
+
               .country-title{
                 img{
-                  width: 10.7vw;
+                  width: 11.2vw;
                   border-radius: 50%;
                   border: 1px solid #d1d1d1;
                 }
