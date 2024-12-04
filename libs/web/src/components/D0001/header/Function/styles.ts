@@ -422,12 +422,9 @@ export const FunctionContainer = styled.div`
 
 		.country-option {
 			display: flex;
-			height: 5rem;
-			overflow-y: scroll;
-			display: flex;
 			flex-direction: column;
-			gap: 0.1rem;
 			align-items: flex-start;
+			gap: 0.1rem;
 			background: ${({ theme }) => theme.desktop.dropdownMainBg};
 			border-radius: 0 0 1.5rem 1.5rem;
 			font-size: 1.4rem;
