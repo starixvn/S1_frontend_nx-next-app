@@ -40,6 +40,12 @@ interface ICaptchaProviderProps {
 	action?: CaptchaActionTypeEnum
 }
 
+const isGoogleRecaptcha = (data?: IRecaptchaInfoData) =>
+	data?.type === CaptchaTypeEnum.Google &&
+	data.siteKey &&
+	data.country !== 'CN' &&
+	!isInApp()
+
 const CaptchaProvider = ({
 	children,
 	recaptchaInfoData,
@@ -47,16 +53,16 @@ const CaptchaProvider = ({
 }: ICaptchaProviderProps) => {
 	const token = useRef('')
 	const [captchaType, setCaptchaType] = useState<undefined | CaptchaTypeEnum>()
-	const { siteKey, type, country } = recaptchaInfoData || {}
+	const { siteKey, type } = recaptchaInfoData || {}
 	const { executeRecaptcha } = useGoogleReCaptcha()
 
 	const getToken = () => {
 		switch (captchaType) {
 			case CaptchaTypeEnum.Google:
-				if (country === 'CN' || isInApp()) {
-					return undefined
+				if (isGoogleRecaptcha(recaptchaInfoData)) {
+					return executeRecaptcha?.(action)
 				}
-				return executeRecaptcha?.(action)
+				return undefined
 			case CaptchaTypeEnum.Cloudflare:
 				return token.current
 			default:
@@ -88,44 +94,34 @@ const CaptchaProvider = ({
 		Captcha: captchaType !== undefined ? components[captchaType] : () => null,
 		captchaType,
 	}
+
 	return (
 		<CaptchaContext.Provider value={value}>{children}</CaptchaContext.Provider>
 	)
 }
 
 export const MultiCaptchaProvider = ({ children }: { children: ReactNode }) => {
-	const { data: { data: recaptchaInfoData } = {} } = useGetRecaptchaInfoQuery()
-	const { type, siteKey, country } = recaptchaInfoData || {}
+	const { data: recaptchaInfoData } = useGetRecaptchaInfoQuery()?.data ?? {}
+	const { siteKey } = recaptchaInfoData ?? {}
+	const { langId } = useAuth()?.userInfo ?? {}
 
-	const {
-		userInfo: { langId },
-	} = useAuth()
-
-	if (!siteKey)
-		return (
-			<CaptchaProvider recaptchaInfoData={recaptchaInfoData}>
-				{children}
-			</CaptchaProvider>
-		)
-
-	const isGoogleReCaptchaBadge =
-		type === CaptchaTypeEnum.Google && country !== 'CN' && !isInApp()
+	const googleRecaptchaElementId = 'g-reCaptcha'
 
 	return (
 		<GoogleReCaptchaProvider
 			language={RECAPTCHAT_LANG_BY_LANG_ID[langId]}
 			container={{
-				element: 'g-reCaptcha',
+				element: googleRecaptchaElementId,
 				parameters: { badge: 'bottomleft' },
 			}}
-			reCaptchaKey={siteKey}
+			reCaptchaKey={siteKey || ''}
 		>
 			<CaptchaProvider recaptchaInfoData={recaptchaInfoData}>
 				{children}
 			</CaptchaProvider>
 			<div
-				id='g-reCaptcha'
-				style={isGoogleReCaptchaBadge ? {} : { display: 'none' }}
+				id={googleRecaptchaElementId}
+				style={isGoogleRecaptcha(recaptchaInfoData) ? {} : { display: 'none' }}
 			/>
 		</GoogleReCaptchaProvider>
 	)
