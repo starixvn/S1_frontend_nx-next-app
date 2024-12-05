@@ -178,6 +178,10 @@ export const FOOTER_DATA = ({
 				...PRODUCTS.DragonGaming,
 				imgName: 'dragongaming',
 			},
+			{
+				...PRODUCTS.Eday,
+				imgName: 'eday',
+			},
 		],
 		quickLinks: [
 			// =====  以下 desktop footer 顯示使用 ( 照 footer 順序排列 )  =====
