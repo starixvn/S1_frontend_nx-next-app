@@ -9,7 +9,7 @@ const CategoryFilter = () => {
 
 	return (
 		<CategoryFilterTabs>
-			{categoryKeys.map(value => {
+			{categoryKeys?.map(value => {
 				return (
 					<div
 						key={`casino-nav-${value}`}

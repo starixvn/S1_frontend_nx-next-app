@@ -1,30 +1,21 @@
-import { LoadingIcon, NoGameIcon } from "@nx-next-app/features/F0001/desktop/home/gameIcon/icons";
 import CategoryFilter from "@nx-next-app/features/F0001/desktop/lobby-game/CategoryFilter";
 import GameList from "@nx-next-app/features/F0001/desktop/lobby-game/GameList";
+import LobbyPageBanner from "@nx-next-app/features/F0001/desktop/lobby-game/LobbyPageBanner";
 import SearchBox from "@nx-next-app/features/F0001/desktop/lobby-game/SearchBox";
 import { LobbyGamePage } from "@nx-next-app/features/F0001/desktop/lobby-game/styles";
 import VendorFilter from "@nx-next-app/features/F0001/desktop/lobby-game/vendorFilter";
-import { Img } from "react-image";
 
 const LiveCasino = () => {
 	return (
 		<LobbyGamePage className='main-content '>
-			<div className='banner-container'>
-				<div className='content-container'>
-					<Img
-						className='img-banner'
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/live-casino-banner.webp`}
-						loader={<LoadingIcon />}
-						unloader={<NoGameIcon />}
-						alt='Live Casino'
-					/>
-				</div>
-			</div>
-
+			<LobbyPageBanner
+				alt='Live Casino'
+				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/live-casino-banner.webp`}
+			/>
 			<div className='content-container'>
 				<div className='filter-form'>
 					<SearchBox />
-					<VendorFilter pathRoot=''/>
+					<VendorFilter pathRoot='' />
 				</div>
 				<CategoryFilter />
 				<GameList />

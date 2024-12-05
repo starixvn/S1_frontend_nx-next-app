@@ -1,6 +1,6 @@
+import LobbyPageBanner from "@nx-next-app/features/F0001/desktop/lobby-game/LobbyPageBanner";
 import { LobbyGamePage } from "@nx-next-app/features/F0001/desktop/lobby-game/styles";
 import SportGame from "@nx-next-app/features/F0001/desktop/sport-game";
-import SportBanner from "@nx-next-app/features/F0001/desktop/sports/SportBanner";
 import { useRouter } from "next/router";
 
 import SportList from "./SportList";
@@ -13,7 +13,10 @@ const Sports = () => {
 		<SportGame />
 	) : (
 		<LobbyGamePage className='main-content sports'>
-			<SportBanner />
+			<LobbyPageBanner
+				alt='Sports'
+				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/sport-banner.webp`}
+			/>
 			<SportList />
 		</LobbyGamePage>
 	)
