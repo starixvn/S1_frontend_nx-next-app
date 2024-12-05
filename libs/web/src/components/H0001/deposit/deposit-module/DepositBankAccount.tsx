@@ -24,52 +24,49 @@ const DepositBankAccount = ({
 		<>
 			<div className='info infoAccount'>
 				<ul>
-					<li>
+					<li className='selected-bank'>
 						<img
-							src={`${
-								process.env['NEXT_PUBLIC_PAYMENT_HOST']
-							}/paymentlogo/square/${toLower(bankLogo)}`}
+							src={`${process.env['NEXT_PUBLIC_PAYMENT_HOST']}/square/${toLower(
+								bankLogo
+							)}`}
 							alt='img-bank-logo'
 						/>
 						<div>{bankName}</div>
 					</li>
 
-					<li>
+					<li className='input-type'>
 						<div>
 							<span>{accountName}</span>
 						</div>
 						<button
-							className='icon icon-files-empty clickBtn copyBtn'
+							className='icon icon-file-copy-line clickBtn copyBtn'
 							onClick={() => copy(accountName)}
 						/>
 					</li>
 
-					<li>
+					<li className='input-type'>
 						<div>
 							<span>{accountNumber}</span>
 						</div>
 						<button
-							className='icon icon-files-empty clickBtn copyBtn'
+							className='icon icon-file-copy-line clickBtn copyBtn'
 							onClick={() => copy(accountNumber)}
 						/>
 					</li>
 				</ul>
 			</div>
-
 			{code && (
 				<div className='info infoAccount remark'>
 					<ul>
 						<li className='title'>{t('Label_General_Remark')}</li>
-						<li>
-							<li>
-								<div>
-									<span>{code}</span>
-								</div>
-								<button
-									className='icon icon-files-empty clickBtn copyBtn'
-									onClick={() => copy(code)}
-								/>
-							</li>
+						<li className='input-type'>
+							<div>
+								<span>{code}</span>
+							</div>
+							<button
+								className='icon icon-file-copy-line clickBtn copyBtn'
+								onClick={() => copy(code)}
+							/>
 						</li>
 						<div className='tip active'>{t('Label_Deposit_RemarkHint')}</div>
 					</ul>

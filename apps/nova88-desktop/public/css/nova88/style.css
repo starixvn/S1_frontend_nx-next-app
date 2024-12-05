@@ -15033,32 +15033,6 @@ button.icon-spinner11:before {
 	}
 }
 
-#goTop {
-	position: fixed;
-	bottom: 175px;
-	right: 10px;
-	width: 52px;
-	height: 52px;
-	background: #ff5e00;
-	border-radius: 100%;
-	z-index: 2;
-	color: white;
-}
-#goTop i {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
-#goTop i:before {
-	font-size: 18px;
-	font-weight: bold;
-}
 
 .worldcupEvent {
 	overflow: hidden;

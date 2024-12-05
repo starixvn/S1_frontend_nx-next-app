@@ -7,10 +7,10 @@ interface IDepositScanQRProps {
 const DepositScanQR = ({ qrCode }: IDepositScanQRProps) => {
 	const { t } = useTranslation()
 	return (
-		<>
+		<div className='info infoAccount block-qr-code'>
 			<div className='title'>
-				<span>*</span>
 				{t('Label_Deposit_ScanQR')}
+				<span style={{ marginLeft: '5px' }}>*</span>
 			</div>
 			<div className='infoModule'>
 				<div className='qrCode'>
@@ -20,7 +20,7 @@ const DepositScanQR = ({ qrCode }: IDepositScanQRProps) => {
 					/>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 

@@ -257,13 +257,14 @@ export const WrapperDepositH5 = styled.div`
 		}
 		.btn-group {
 			a {
-				width: auto;
+				width: 9vw;
+				height: 9vw;
 				background: #374375;
-				padding: 1rem 1rem;
+				padding: 0;
 				.icon {
 					&:before {
 						color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
-						font-size: 4.5vw;
+						font-size: 7.5vw;
 					}
 				}
 			}
@@ -273,6 +274,31 @@ export const WrapperDepositH5 = styled.div`
 		.group-dropdown {
 			.spacing-input-0 {
 				margin-top: 0;
+			}
+		}
+		.infoModule {
+			width: 100%;
+		}
+	}
+
+	.block-qr-code {
+		.title {
+			text-align: left;
+			background: none;
+			padding: 0;
+			border: none;
+			border-radius: 0;
+			margin-bottom: 3.5vw;
+		}
+		.qrCode {
+			background: ${({ theme }) => theme.mobile.white};
+			max-width: 27vw;
+			height: 27vw;
+			padding: 2vw;
+			border-radius: 10px;
+			img {
+				width: 100%;
+				height: 100%;
 			}
 		}
 	}
@@ -315,15 +341,6 @@ export const WrapperDepositH5 = styled.div`
 		}
 	}
 
-	// .depositModule > .title.fast:after {
-	// 	content: '';
-	// 	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/fast-icon.png)
-	// 		no-repeat center/cover;
-	// 	display: block;
-	// 	width: 14vw;
-	// 	height: 4vw;
-	// 	margin-left: 1vw;
-	// }
 	.depositModule > .title .info {
 		color: #f77a00;
 		margin-left: 0.75vw;
@@ -331,49 +348,81 @@ export const WrapperDepositH5 = styled.div`
 	}
 
 	.infoAccount {
-		width: 100% !important;
-		display: block !important;
-		height: auto !important;
-	}
-	.depositModule .selectModule .infoAccount li {
-		-webkit-box-pack: start;
-		-ms-flex-pack: start;
-		justify-content: flex-start;
-	}
-	.depositModule .selectModule .infoAccount li:first-child {
-		padding-top: 0;
-	}
-	.depositModule .selectModule .infoAccount li:last-child {
-		padding-bottom: 0;
-	}
-	.depositModule .selectModule .infoAccount li > img {
-		margin-right: 1vw;
-	}
-	.depositModule .selectModule .infoAccount li span {
-		width: 69vw;
-		color: #fff;
-		background: #5574a7;
-		border-radius: 3px;
-		padding: 1vw 0 1vw 1.5vw;
-	}
-	.depositModule .selectModule .infoAccount li button {
-		margin: 0 0 0 1.5vw;
-	}
-	.depositModule .selectModule .infoAccount .title {
-		border: 0;
-		margin-top: 0;
-		padding: 0;
-	}
-	.depositModule .selectModule .infoAccount .tip {
-		color: #666;
-	}
-	.depositModule .selectModule.inner {
+		border-top: 1px solid #374375;
+		padding-top: 3.5vw;
 		width: 100%;
-		padding: 0 2vw;
+		.selected-bank {
+			display: flex;
+			margin-bottom: 2.5vw;
+			padding-bottom: 0;
+			align-items: center;
+			gap: 0.8rem;
+			img {
+				height: 11.6vw;
+				width: 11.6vw;
+				border-radius: 10px;
+			}
+			> div {
+				color: #fff;
+				font-size: 3.4vw;
+				font-weight: 700;
+				text-align: left;
+			}
+		}
+		.input-type {
+			display: flex;
+			align-items: center;
+			background: #232b4f;
+			margin-bottom: 2.9vw;
+			padding: 1.5vw 2vw;
+			border-radius: 5px;
+			justify-content: space-between;
+			color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+			font-size: 3.5vw;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			.icon {
+				margin: 0;
+				&:before {
+					font-size: 5vw;
+					color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+				}
+			}
+		}
+		&.remark {
+			.title {
+				padding: 0;
+				background: none;
+				border-bottom: 0;
+				text-align: left;
+				margin-bottom: 3.1vw;
+			}
+		}
 	}
-	.depositModule .selectModule.inner .infoModule {
-		margin: 1vw 0 0;
+	.Bank {
+		.Deposit {
+			&.Amount {
+				.title {
+					text-align: left;
+					background: none;
+					padding: 0;
+					border: none;
+					border-top: 1px solid #374375;
+					padding-top: 3.5vw;
+					border-radius: 0;
+					margin-bottom: 3.5vw;
+				}
+			}
+		}
 	}
+
+	.infoModule {
+		.btnGroup {
+			margin-top: 0;
+		}
+	}
+
 	.depositModule .selectModule.inner .infoModule .inputBox,
 	.depositModule .selectModule.inner .infoModule .euro .inputBox-event,
 	.euro .depositModule .selectModule.inner .infoModule .inputBox-event,
@@ -520,18 +569,6 @@ export const WrapperDepositH5 = styled.div`
 		.inputBox-event
 		input {
 		padding: 1.5vw;
-	}
-	.depositModule .selectModule .title {
-		margin-top: 2vw;
-		padding-top: 1.5vw;
-		width: 100%;
-		text-align: left;
-		border-top: 1px solid #bfcce2;
-		font-size: 3.2vw;
-	}
-	.depositModule .selectModule .title span {
-		color: #e92529;
-		margin-right: 0.5vw;
 	}
 
 	.depositModule .downloadModule {

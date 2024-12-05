@@ -3510,88 +3510,6 @@ main .gameList .icon-new {
 	right: -6vw;
 }
 
-.info ul {
-	display: inline-block;
-}
-.info ul li {
-	float: left;
-	width: 49%;
-	line-height: 24px;
-	color: #666;
-}
-.info ul li span {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
-.info ul li span.title {
-	color: #5574a7;
-}
-.info ul li span.title button.icon,
-.info ul li span.title i.icon {
-	border-radius: 100%;
-	background: #5574a7;
-	width: 4.6vw;
-	height: 4.6vw;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	margin: auto auto auto 2vw;
-}
-.info ul li span.title button.icon:before,
-.info ul li span.title i.icon:before {
-	font-size: 12px;
-}
-.info > div:not(.btn-group) {
-	position: relative;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-flow: column;
-	flex-flow: column;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	width: calc(100% - 6vw);
-}
-.info > div:not(.btn-group) > div {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	color: #a5aab1;
-}
-.info > div:not(.btn-group) > div.title {
-	color: #5574a7;
-}
-.info > div:not(.btn-group) button {
-	position: absolute;
-	right: -6vw;
-}
-.info.infoAccount li {
-	width: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	padding: 1vw 0;
-}
-.info.infoAccount li .title {
-	font-weight: bold;
-}
-
 .tip {
 	color: #e92529;
 	text-align: left;
@@ -4752,26 +4670,6 @@ input[type='checkbox'] + label {
 	font: 3vw Arial;
 }
 
-button.clickBtn {
-	background: #5574a7;
-	border-radius: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	margin: 0 0 0 2vw;
-	width: 6vw;
-	height: 6vw;
-}
-button.clickBtn:before {
-	font-size: 3vw;
-}
-
 .channel {
 	visibility: hidden;
 	-webkit-transition: 0.7s;
@@ -5741,7 +5639,6 @@ input[type='date'] {
 .amount {
 	display: none;
 }
-
 
 .quickChangePage {
 	display: -webkit-box;
@@ -9337,8 +9234,6 @@ input[type='date'] {
 	margin-bottom: 2vw;
 	width: 100%;
 }
-
-
 
 .formula {
 	background: white;

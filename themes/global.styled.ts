@@ -2220,4 +2220,33 @@ export const GlobalStyles = createGlobalStyle`
           border-radius : 0 0 20px 20px;
         }
     }
+    .desktop,.mobile-h5{
+      #goTop {
+        position: fixed;
+        bottom: 175px;
+        right: 10px;
+        width: 52px;
+        height: 52px;
+        background: #ff5e00;
+        border-radius: 100%;
+        z-index: 2;
+        color: white;
+      }
+      #goTop i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #goTop i:before {
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+    }
+    .mobile-h5{
+      #goTop{
+        bottom: 70px;
+        width: 10vw;
+        height: 10vw;
+      }
+    }
 `

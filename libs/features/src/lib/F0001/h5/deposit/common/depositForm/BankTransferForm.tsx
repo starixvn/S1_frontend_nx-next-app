@@ -130,8 +130,8 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 				{watchQrCodeUrl && <DepositModule.ScanQR qrCode={watchQrCodeUrl} />}
 
 				<div className='infoModule'>
-					<div className='btn-group'>
-						<button onClick={onOpenBankSlipModal}>
+					<div className='btnGroup'>
+						<button className='btn-secondary' onClick={onOpenBankSlipModal}>
 							{t('Label_General_UploadReceipt')}
 						</button>
 					</div>
@@ -201,28 +201,33 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 				})}
 			>
 				<div className='infoModule'>
-					<Select
-						value={watchBonusCode}
+					<div className='group-dropdown'>
+						<div className='inputBox-blue spacing-input-0'>
+							<div className='dropdown'>
+								<Select
+									value={watchBonusCode}
 						options={getCustPromotionOptions(watchAmount)}
-						onChange={value => {
-							setValue('bonusCode', String(value))
-							setValue('promoCode', undefined)
-						}}
-					/>
-
-					<InputBox
-						register={register('promoCode')}
-						placeholder={t('Label_Promotions_PromoCode') || ''}
-						touched={!!touchedFields['promoCode']}
-						onChange={() => {
-							setValue('bonusCode', undefined)
-						}}
-						onKeyDown={e => {
-							if (e.key === 'Enter') {
-								e.currentTarget.blur()
-							}
-						}}
-					/>
+									onChange={value => {
+										setValue('bonusCode', String(value))
+										setValue('promoCode', undefined)
+									}}
+								/>
+							</div>
+						</div>
+						<InputBox
+							register={register('promoCode')}
+							placeholder={t('Label_Promotions_PromoCode') || ''}
+							touched={!!touchedFields['promoCode']}
+							onChange={() => {
+								setValue('bonusCode', undefined)
+							}}
+							onKeyDown={e => {
+								if (e.key === 'Enter') {
+									e.currentTarget.blur()
+								}
+							}}
+						/>
+					</div>
 				</div>
 			</DepositModule>
 			<Form onSubmit={handleSubmit(onBankTransferFormSubmit)}>
@@ -232,7 +237,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 							type='submit'
 							style={{ pointerEvents: isFormValid ? 'auto' : 'none' }}
 							className={classNames({
-								'btn-disabled': !isFormValid,
+								'btn-disable': !isFormValid,
 								'btn-primary': isFormValid,
 							})}
 						>
