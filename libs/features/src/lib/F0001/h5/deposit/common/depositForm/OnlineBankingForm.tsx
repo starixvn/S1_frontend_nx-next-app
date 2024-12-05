@@ -287,7 +287,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 							<div className='dropdown'>
 								<Select
 									value={watchBonusCode}
-									options={promotionOptions}
+									options={getCustPromotionOptions(watchAmount)}
 									onChange={value => {
 										setValue('bonusCode', String(value))
 										setValue('promoCode', undefined)
