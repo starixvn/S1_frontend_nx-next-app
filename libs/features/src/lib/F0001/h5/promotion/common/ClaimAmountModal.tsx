@@ -36,7 +36,10 @@ const ClaimAmountModal = ({
 		<div className='pop'>
 			<Form onSubmit={handleSubmit(onSubmit)}>
 				<div className='popTit'>
-					<div className='icon icon-close' onClick={closeModal} />
+					<div
+						className='close-popup icon icon-close-line'
+						onClick={closeModal}
+					/>
 					{t('Label_General_ImportantNote')}
 				</div>
 				<div className='popTxt'>

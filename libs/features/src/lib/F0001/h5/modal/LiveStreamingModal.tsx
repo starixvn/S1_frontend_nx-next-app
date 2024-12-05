@@ -1,6 +1,5 @@
-import React from 'react'
-import { useTranslation } from 'next-i18next'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useTranslation } from 'next-i18next'
 
 const LiveStreamingModal = () => {
 	const { t } = useTranslation()
@@ -9,7 +8,10 @@ const LiveStreamingModal = () => {
 	return (
 		<div className='pop'>
 			<div className='popTit'>
-				<div className='icon icon-close' onClick={closeModal} />
+				<div
+					className='close-popup icon icon-close-line'
+					onClick={closeModal}
+				/>
 				{t('Label_General_Information')}
 			</div>
 			<div className='popTxt'>

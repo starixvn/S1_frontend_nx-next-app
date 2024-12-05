@@ -1,7 +1,7 @@
-import { useTranslation } from 'next-i18next'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth } from '@nx-next-app/data-access'
 import { numFormatToDigits } from '@nx-next-app/utils'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useTranslation } from 'next-i18next'
 
 interface ITurnoverModalProps {
 	turnover: number
@@ -25,7 +25,10 @@ const TurnoverModal = ({
 	return (
 		<div className='pop'>
 			<div className='popTit'>
-				<div className='icon icon-close' onClick={closeModal} />
+				<div
+					className='close-popup icon icon-close-line'
+					onClick={closeModal}
+				/>
 				{t('Label_General_ImportantNote')}
 			</div>
 			<div className='popTxt'>

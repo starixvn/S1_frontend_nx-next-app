@@ -18,7 +18,10 @@ const ReferralDetailModal = ({
 		<div className='pop'>
 			<div className='popTit'>
 				{t('Label_General_Referral')} {t('Label_General_Details')}
-				<div className='icon icon-close' onClick={closeModal} />
+				<div
+					className='close-popup icon icon-close-line'
+					onClick={closeModal}
+				/>
 			</div>
 
 			<div className='promotions'>

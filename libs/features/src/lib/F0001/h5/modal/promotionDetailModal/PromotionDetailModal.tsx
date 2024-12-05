@@ -1,23 +1,23 @@
 /* eslint-disable react/no-danger */
 
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useTranslation } from 'next-i18next'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
 import { useGetPromotionDetailQuery } from '@nx-next-app/service'
+import { PromotionTypeEnum } from '@nx-next-app/types'
 import {
 	getIsHidePromotionJoinButton,
 	isShowPromotionProgressBar,
 } from '@nx-next-app/utils'
-import { PromotionTypeEnum } from '@nx-next-app/types'
 import { includes, toUpper } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 
-import PromotionRule from './PromotionRule'
-import CashbackInfo from './CashbackInfo'
-import DepositSlip from './DepositSlip'
-import DepositMenu from './DepositMenu'
 import PromotionProgressBar from '../../promotion/common/PromotionProgressBar'
+import CashbackInfo from './CashbackInfo'
+import DepositMenu from './DepositMenu'
+import DepositSlip from './DepositSlip'
 import PromotionMission from './PromotionMission'
+import PromotionRule from './PromotionRule'
 
 interface IPromotionDetailModalProps {
 	bonusCode: string
@@ -107,7 +107,10 @@ const PromotionDetailModal = ({
 		<div className='pop'>
 			<div className='popTit'>
 				{t('Label_General_Promotion')}
-				<div className='icon icon-close' onClick={closeModal} />
+				<div
+					className='close-popup icon icon-close-line'
+					onClick={closeModal}
+				/>
 			</div>
 			<div className='promotions'>
 				<div className='proInfomodule'>

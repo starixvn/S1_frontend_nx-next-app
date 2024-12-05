@@ -10,6 +10,7 @@ const UpdateProfileModal = ({ prevPage }: { prevPage: string }) => {
 	return (
 		<div className='pop'>
 			<div className='popTit'>{t('Label_General_ImportantNote')}</div>
+			<i className='close-popup icon icon-close-line' onClick={closeModal} />
 			<div className='popTxt'>
 				<div>
 					{prevPage === paths.withdrawal.root

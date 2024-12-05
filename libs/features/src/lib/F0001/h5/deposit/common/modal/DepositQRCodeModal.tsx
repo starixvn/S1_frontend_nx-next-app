@@ -1,13 +1,13 @@
-import { useCopyToClipboard, useCountdown, useTimeout } from 'usehooks-ts'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { numberFormat, secondsToTime } from '@nx-next-app/utils'
-import { DepositPaymentEnum } from '@nx-next-app/types'
 import { IDepositQRCodeModalProps, useAuth } from '@nx-next-app/data-access'
+import { DepositPaymentEnum } from '@nx-next-app/types'
+import { numberFormat, secondsToTime } from '@nx-next-app/utils'
+import dayjs from 'dayjs'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
-import { useEffect, useMemo } from 'react'
 import QRCode from 'qrcode.react'
-import dayjs from 'dayjs'
+import { useEffect, useMemo } from 'react'
+import { useCopyToClipboard, useCountdown, useTimeout } from 'usehooks-ts'
 
 // * 存款以 QR CODE 呈現的通用元件
 const DepositQRCodeModal = ({
@@ -75,7 +75,10 @@ const DepositQRCodeModal = ({
 	return (
 		<div className='pop'>
 			<div className='popTit'>
-				<div className='icon icon-close' onClick={closeModal} />
+				<div
+					className='close-popup icon icon-close-line'
+					onClick={closeModal}
+				/>
 				{title}
 			</div>
 

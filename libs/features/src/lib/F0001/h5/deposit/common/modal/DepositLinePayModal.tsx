@@ -8,7 +8,7 @@ const DepositLinePayModal = ({ link }: IDepositLinePayModalProps) => {
 	const { closeModal } = useGlobalModal()
 	return (
 		<div className='linepop'>
-			<i className='icon icon-close' onClick={closeModal} />
+			<i className='close-popup icon icon-close-line' onClick={closeModal} />
 			<a href={link} target='_blank' rel='noreferrer'>
 				<img
 					// * 目前只有 en 版本

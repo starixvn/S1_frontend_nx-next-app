@@ -49,7 +49,10 @@ const DepositLocalPayEWalletQRModal = ({
 						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/thaiqr.jpg`}
 						alt=''
 					/>
-					<div className='icon icon-close' onClick={closeModal} />
+					<div
+						className='close-popup icon icon-close-line'
+						onClick={closeModal}
+					/>
 				</div>
 				<div className='guide'>
 					<div className='banklogo'>

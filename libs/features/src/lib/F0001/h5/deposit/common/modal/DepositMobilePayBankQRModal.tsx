@@ -43,7 +43,10 @@ const DepositMobilePayBankQRModal = ({
 		<div className='pop'>
 			<div className='popTit'>
 				{channelName}
-				<div className='icon icon-close' onClick={closeModal} />
+				<div
+					className='close-popup icon icon-close-line'
+					onClick={closeModal}
+				/>
 			</div>
 			<div className='popTxt'>
 				<div className='title'>{t('Label_Deposit_ScanAndPay')}</div>

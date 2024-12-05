@@ -1,9 +1,9 @@
-import { useTranslation } from 'next-i18next'
-import { ISelectedBankInfo } from '@nx-next-app/features/F0001/providers'
-import { useAuth } from '@nx-next-app/data-access'
-import { isConvert, numberFormat } from '@nx-next-app/utils'
-import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useAuth } from '@nx-next-app/data-access'
+import { ISelectedBankInfo } from '@nx-next-app/features/F0001/providers'
+import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
+import { isConvert, numberFormat } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
 
 const WithdrawalConfirmModal = ({
 	selectedBankInfo,
@@ -45,7 +45,10 @@ const WithdrawalConfirmModal = ({
 	return (
 		<div className='pop'>
 			<div className='popTit'>
-				<div className='icon icon-close' onClick={closeModal} />
+				<div
+					className='close-popup icon icon-close-line'
+					onClick={closeModal}
+				/>
 				{t('Label_General_ImportantNote')}
 			</div>
 			<div className='popTxt'>

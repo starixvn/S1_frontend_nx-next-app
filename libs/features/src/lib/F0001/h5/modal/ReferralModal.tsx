@@ -1,8 +1,8 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
 import { useTranslation } from 'next-i18next'
 import QRCode from 'qrcode.react'
-import { useAuth } from '@nx-next-app/data-access'
-import { paths } from '@nx-next-app/constants'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 
 const ReferralQRModal = ({
 	refLink,
@@ -22,7 +22,10 @@ const ReferralQRModal = ({
 	return (
 		<div className='pop'>
 			<div className='popTit'>
-				<div className='icon icon-close' onClick={closeModal} />
+				<div
+					className='close-popup icon icon-close-line'
+					onClick={closeModal}
+				/>
 				{`${t('Label_Referral_ReferralCode')}: ${referralCode}`}
 			</div>
 			<QRCode id='refQRcode' value={refLink} style={{ display: 'none' }} />
