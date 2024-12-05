@@ -227,7 +227,7 @@ export const WrapperDeposit = styled.div`
 			border-radius: 10px;
 			border: 1px solid ${({ theme }) => theme.desktop.borderColorBankAccount};
 			padding: 0.8rem;
-			max-width: 35.2rem;
+			min-width: 35.2rem;
 			width: auto;
 			margin-right: auto;
 			ul {
@@ -250,6 +250,12 @@ export const WrapperDeposit = styled.div`
 				font-weight: 400;
 				line-height: 1.8rem;
 				min-height: 3rem;
+				&:first-child {
+					width: 10rem;
+				}
+				&:nth-child(2) {
+					width: 100%;
+				}
 			}
 			.icon {
 				padding-right: 0.8rem;
