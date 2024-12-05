@@ -292,6 +292,7 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: 700;
         line-height: normal;
         color: ${({ theme }) => theme.mobile.white};
+        margin-bottom : 2vw;
       }
       .txt{
         font-size : 3.1vw;
@@ -1466,6 +1467,7 @@ export const GlobalStyles = createGlobalStyle`
 		opacity: 0;
 		height: calc(100% - 10rem);
 		background: ${({ theme }) => theme.mobile.bgLoginRegisterColor};
+    position: relative;
 		.switch {
 			background: ${({ theme }) => theme.mobile.bgSwitchButtonLoginColor};
 		}

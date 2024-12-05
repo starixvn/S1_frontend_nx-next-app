@@ -364,4 +364,7 @@ export const WrapperProfileH5 = styled.div`
 			}
 		}
 	}
+	.edit-info {
+		padding: 0 5vw 2vw 5vw;
+	}
 `

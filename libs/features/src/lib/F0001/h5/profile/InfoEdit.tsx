@@ -28,6 +28,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
+import { WrapperProfileH5 } from '@nx-next-app/features/F0001/h5/profile/styles'
 import { PhoneOtpModal } from './PhoneOtpModal'
 
 const InfoEdit = () => {
@@ -229,7 +230,7 @@ const InfoEdit = () => {
 					},
 					onBlur: checkEmail,
 				})}
-				icon='icon icon-email txt-blue'
+				icon='icon icon-mail-line txt-blue'
 				placeholder={t('Label_General_Email') as string}
 				loading={existsEmailLoading}
 				errorMessage={errors['formEmail']?.message as any}
@@ -249,80 +250,110 @@ const InfoEdit = () => {
 	}, [key, emailcode])
 
 	return (
-		<Form onSubmit={handleSubmit(handleSubmitForm)}>
-			{!email && <div>{emailFieldRenderer()}</div>}
-			{!birthDay && (
-				<div className='infoModule parts'>
-					<Select
-						options={monthOptions}
-						prefixIcon={<i className='icon icon-cake' />}
-						onChange={m => setValue('formBirthMonth', m as number)}
-						value={getValues('formBirthMonth')}
-					/>
-					<Select
-						options={dayOptions}
-						onChange={d => setValue('formBirthDay', d as number)}
-						value={getValues('formBirthDay')}
-					/>
-					<Select
-						options={yearOptions}
-						onChange={y => setValue('formBirthYear', y as number)}
-						value={getValues('formBirthYear')}
-					/>
-				</div>
-			)}
-			{!accountName && (
-				<InputBox
-					register={register('formRealName', {
-						required: { value: true, message: t('Label_Join_RealNameReq') },
-						pattern: {
-							value: REALNAME_REGEX,
-							message: t('Label_Join_EnterRealName') || '',
-						},
-						onBlur: () => trigger('formRealName'),
-					})}
-					icon='icon-member txt-blue'
-					placeholder={t('Label_General_RealName') as string}
-					errorMessage={errors['formRealName']?.message as string}
-					error={!!errors['formRealName']}
-					touched={!!touchedFields['formRealName']}
-					infoMessage={t('Label_General_RemindForName') as string}
-				/>
-			)}
+		<WrapperProfileH5>
+			<div className='edit-info'>
+				<Form onSubmit={handleSubmit(handleSubmitForm)}>
+					{!email && <div>{emailFieldRenderer()}</div>}
+					{!birthDay && (
+						<div className='infoModule parts'>
+							<Select
+								options={monthOptions}
+								prefixIcon={<i className='icon icon-calendar-2-line' />}
+								onChange={m => setValue('formBirthMonth', m as number)}
+								value={getValues('formBirthMonth')}
+							/>
+							<Select
+								options={dayOptions}
+								onChange={d => setValue('formBirthDay', d as number)}
+								value={getValues('formBirthDay')}
+							/>
+							<Select
+								options={yearOptions}
+								onChange={y => setValue('formBirthYear', y as number)}
+								value={getValues('formBirthYear')}
+							/>
+						</div>
+					)}
+					{!accountName && (
+						<InputBox
+							register={register('formRealName', {
+								required: { value: true, message: t('Label_Join_RealNameReq') },
+								pattern: {
+									value: REALNAME_REGEX,
+									message: t('Label_Join_EnterRealName') || '',
+								},
+								onBlur: () => trigger('formRealName'),
+							})}
+							icon='icon icon-user-follow-line txt-blue'
+							placeholder={t('Label_General_RealName') as string}
+							errorMessage={errors['formRealName']?.message as string}
+							error={!!errors['formRealName']}
+							touched={!!touchedFields['formRealName']}
+							infoMessage={t('Label_General_RemindForName') as string}
+						/>
+					)}
 
-			{!phoneNo && (
-				<div className='phone'>
-					<Select
-						showSearch
-						options={areaCodeSelectOptions}
-						prefixIcon={<i className='icon icon-phone txt-blue' />}
-						onChange={areaCode => selectAreaCode(areaCode)}
-						value={getValues('formAreaCode')}
-						errorMessage={phoneErrorTip}
-					/>
-					<InputBox
-						register={register('formPhone', {
-							required: {
-								value: true,
-								message: t('Label_Join_PhoneRequired'),
-							},
-							onBlur: checkPhone,
-						})}
-						placeholder={t('Label_General_Phone') as string}
-						error={!!errors['formPhone'] || !!phoneErrorTip}
-						touched={!!touchedFields['formPhone']}
-						errorMessage={phoneErrorTip}
-						infoMessage={t('Label_Join_CantChangePhone') as string}
-					/>
-				</div>
-			)}
+					{!phoneNo && (
+						<div className='phone'>
+							<Select
+								showSearch
+								options={areaCodeSelectOptions}
+								prefixIcon={<i className='icon icon-phone-line txt-blue' />}
+								onChange={areaCode => selectAreaCode(areaCode)}
+								value={getValues('formAreaCode')}
+								errorMessage={phoneErrorTip}
+							/>
+							<InputBox
+								register={register('formPhone', {
+									required: {
+										value: true,
+										message: t('Label_Join_PhoneRequired'),
+									},
+									onBlur: checkPhone,
+								})}
+								placeholder={t('Label_General_Phone') as string}
+								error={!!errors['formPhone'] || !!phoneErrorTip}
+								touched={!!touchedFields['formPhone']}
+								errorMessage={phoneErrorTip}
+								infoMessage={t('Label_Join_CantChangePhone') as string}
+							/>
+						</div>
+					)}
+					<div className='phone'>
+						<Select
+							showSearch
+							options={areaCodeSelectOptions}
+							prefixIcon={<i className='icon icon-phone-line txt-blue' />}
+							onChange={areaCode => selectAreaCode(areaCode)}
+							value={getValues('formAreaCode')}
+							errorMessage={phoneErrorTip}
+						/>
+						<InputBox
+							register={register('formPhone', {
+								required: {
+									value: true,
+									message: t('Label_Join_PhoneRequired'),
+								},
+								onBlur: checkPhone,
+							})}
+							placeholder={t('Label_General_Phone') as string}
+							error={!!errors['formPhone'] || !!phoneErrorTip}
+							touched={!!touchedFields['formPhone']}
+							errorMessage={phoneErrorTip}
+							infoMessage={t('Label_Join_CantChangePhone') as string}
+						/>
+					</div>
 
-			{showSubmitBtn && (
-				<div className='btn-group'>
-					<button type='submit'>{t('Label_General_Submit')}</button>
-				</div>
-			)}
-		</Form>
+					{showSubmitBtn && (
+						<div className='btnGroup'>
+							<button type='submit' className='btn-primary'>
+								{t('Label_General_Submit')}
+							</button>
+						</div>
+					)}
+				</Form>
+			</div>
+		</WrapperProfileH5>
 	)
 }
 

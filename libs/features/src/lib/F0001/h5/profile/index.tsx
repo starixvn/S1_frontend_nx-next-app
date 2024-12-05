@@ -41,8 +41,8 @@ const Profile = () => {
 				<Verification />
 				<WrapperParentProfileH5>
 					<AddressEdit />
-					<InfoEdit />
 					<Info />
+					<InfoEdit />
 					<Address />
 
 					<div className='group-btn-line'>

@@ -11,7 +11,7 @@ import {
 	PHONE_DIGITS_LIMIT,
 	PHONE_LENGTH_REGEX,
 } from '@nx-next-app/constants'
-import { useJoin } from '@nx-next-app/features/F0001/hooks'
+import { WrapperJoinPage } from '@nx-next-app/features/F0001/h5/loginJoin/common/join/styles'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
 import { useLazyExistsEmailQuery } from '@nx-next-app/service'
 import dayjs from 'dayjs'
@@ -161,8 +161,9 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 							onChange={currencyId => selectCurrency(currencyId)}
 							errorMessage={errors['currencyId']?.message as string}
 							infoMessage={
-				isDropdown={false}
+								t('Label_Join_CantChangePreferredCurrency') as string
 							}
+							isDropdown={false}
 						/>
 					</div>
 				</div>

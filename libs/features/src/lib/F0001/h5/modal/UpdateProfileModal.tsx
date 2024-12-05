@@ -9,6 +9,7 @@ const UpdateProfileModal = ({ prevPage }: { prevPage: string }) => {
 
 	return (
 		<div className='pop'>
+			<i className='icon icon-notifi icon-notification-active' />
 			<div className='popTit'>{t('Label_General_ImportantNote')}</div>
 			<i className='close-popup icon icon-close-line' onClick={closeModal} />
 			<div className='popTxt'>
