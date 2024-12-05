@@ -244,7 +244,7 @@ export const GlobalStyles = createGlobalStyle`
         .editSuccess,
         .joinSuccess,
         .resetPassWordpop,
-        .noticepop,.statuspop{
+        .noticepop,.statuspop,.bankSlip{
           min-width: 40rem;
           padding: 4rem 2.8rem 2.8rem 2.8rem;
           display: flex;
