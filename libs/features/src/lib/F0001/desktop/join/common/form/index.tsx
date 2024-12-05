@@ -397,13 +397,7 @@ const Form = ({ cookies }: IJoinProps) => {
 			phone,
 			affiliate,
 		} = getValues()
-		MetaPixelTracker(
-			'registerSubmit',
-			undefined,
-			undefined,
-			undefined,
-			username
-		)
+		MetaPixelTracker('registerSubmit', username)
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
@@ -448,13 +442,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				...(reCaptchaToken && { reCaptchaToken, captchaType }),
 			}).unwrap()
 
-			MetaPixelTracker(
-				'CompleteRegistration',
-				undefined,
-				undefined,
-				undefined,
-				username
-			)
+			MetaPixelTracker('CompleteRegistration', username)
 
 			router.push(`/${userLang}${paths.deposit.root}`)
 		} catch (error) {
