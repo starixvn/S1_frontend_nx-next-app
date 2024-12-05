@@ -1,5 +1,6 @@
 import { paths } from '@nx-next-app/constants'
 import { useDepositRecentHistory } from '@nx-next-app/data-access'
+import { WrapperDepositHistoryH5 } from '@nx-next-app/features/F0001/h5/deposit/styles'
 import DepositItem from '@nx-next-app/features/F0001/h5/history/historyItems/DepositItem'
 import classNames from 'classnames'
 import { useRouter } from 'next/router'
@@ -13,7 +14,7 @@ const DepositRecentHistory = () => {
 	const { depositInfoRecentList } = useDepositRecentHistory()
 
 	return (
-		<>
+		<WrapperDepositHistoryH5>
 			<div className='btnGroup'>
 				<button className='btn-primary' onClick={toggle}>
 					{t('Label_General_RecentTransactions')}
@@ -36,16 +37,16 @@ const DepositRecentHistory = () => {
 					))}
 				</div>
 
-				<div className='btnGroup'>
+				<div className='btnGroup recentBtn' style={{ marginBottom: '1.6rem' }}>
 					<a
-						className='btn-primary recentBtn'
+						className='btn-primary'
 						onClick={() => push(paths.depositHistory.root)}
 					>
 						{t('Label_General_AllTranscations')}
 					</a>
 				</div>
 			</div>
-		</>
+		</WrapperDepositHistoryH5>
 	)
 }
 

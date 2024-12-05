@@ -21,6 +21,7 @@ export const WrapperRegister = styled.div`
 					align-items: center;
 					font-size: 1.4rem;
 					gap: 1rem;
+					font-weight: 700;
 					.icon {
 						&:before {
 							font-size: 2.4rem;

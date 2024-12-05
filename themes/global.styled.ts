@@ -1682,6 +1682,7 @@ export const GlobalStyles = createGlobalStyle`
 		color: ${({ theme }) => theme.mobile.hrefColorPrimary};
 		margin: 0;
 		font-size: 1.7rem;
+    font-weight: 700;
 	}
 	.features .title:nth-child(1) {
 		background: ${({ theme }) => theme.mobile.rightModuleTitleBg};

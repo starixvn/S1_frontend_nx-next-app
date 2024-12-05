@@ -1,26 +1,25 @@
-import React from 'react'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
-	CURRENCY_TO_TIMEZONE,
 	AllowUploadReceiptType,
+	CURRENCY_TO_TIMEZONE,
 	WithReceiptInfoType,
 } from '@nx-next-app/constants'
-import dayjs from 'dayjs'
-import { includes } from 'lodash-es'
-import { numberFormat } from '@nx-next-app/utils'
-import {
-	DepositStatusClassName,
-	DepositStatusClassNameEnum,
-	DepositStatusEnum,
-} from 'libs/web/src/app/types/history'
-import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { DepositBankSlipModal } from '@nx-next-app/features/F0001/h5/history/modal'
 import {
 	IDepositInfoHistoryData,
 	useSetDepositCancelMutation,
 	useUploadReceiptMutation,
 } from '@nx-next-app/service'
+import { numberFormat } from '@nx-next-app/utils'
+import dayjs from 'dayjs'
+import {
+	DepositStatusClassName,
+	DepositStatusClassNameEnum,
+	DepositStatusEnum,
+} from 'libs/web/src/app/types/history'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 
 const HistoryMsgModal = dynamic(
@@ -82,7 +81,7 @@ const DepositItem = ({
 					<span className='title'>
 						{t('Label_History_Date')} ({CURRENCY_TO_TIMEZONE[currencyId]})
 					</span>
-					<span>
+					<span className='body'>
 						{dayjs(createTime, 'YYYY-MM-DDThh:mm:ssZ')
 							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 							.format('DD/MM/YYYY')}
@@ -92,7 +91,7 @@ const DepositItem = ({
 					<span className='title'>
 						{t('Label_General_Time')} ({CURRENCY_TO_TIMEZONE[currencyId]})
 					</span>
-					<span>
+					<span className='body'>
 						{dayjs(createTime, 'YYYY-MM-DDThh:mm:ssZ')
 							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 							.format('HH:mm:ss')}
@@ -100,15 +99,17 @@ const DepositItem = ({
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_ID')}</span>
-					<span>{transId}</span>
+					<span className='body'>{transId}</span>
 				</li>
 				<li>
 					<span className='title'>{t('Label_General_Method')}</span>
-					<span>{t(`Label_DepositType${depositType}`)}</span>
+					<span className='body'>{t(`Label_DepositType${depositType}`)}</span>
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_Amount')}</span>
-					<span>{numberFormat(amount as number, currencyId, 0)}</span>
+					<span className='body'>
+						{numberFormat(amount as number, currencyId, 0)}
+					</span>
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_Status')}</span>
@@ -156,9 +157,9 @@ const DepositItem = ({
 					// 存款狀態
 					(status === DepositStatusEnum.Pending ||
 						status === DepositStatusEnum.OnHold) && (
-						<div className='btn-group'>
+						<div className='btnGroup'>
 							<button
-								className='white'
+								className='btn-secondary'
 								onClick={() => {
 									modal.confirm(t('Label_History_CancelConfirm'), {
 										onOK: () => {
@@ -171,7 +172,7 @@ const DepositItem = ({
 							</button>
 
 							<button
-								className='orange openPopup'
+								className='btn-primary openPopup'
 								onClick={() =>
 									modal.open(
 										<DepositBankSlipModal

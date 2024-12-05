@@ -6,13 +6,14 @@ import FinancialItem from '@nx-next-app/features/F0001/h5/history/historyItems/F
 import ReferralItem from '@nx-next-app/features/F0001/h5/history/historyItems/ReferralItem'
 import TransferItem from '@nx-next-app/features/F0001/h5/history/historyItems/TransferItem'
 import WithdrawalItem from '@nx-next-app/features/F0001/h5/history/historyItems/WithdrawalItem'
+import { WrapperDepositPageHistoryH5 } from '@nx-next-app/features/F0001/h5/history/styles'
 import { useHistory } from '@nx-next-app/features/F0001/providers'
 import {
-  IDepositInfoHistoryData,
-  IReferralData,
-  IStatementData,
-  ITransferHistoryData,
-  IWithdrawalInfoHistoryData,
+	IDepositInfoHistoryData,
+	IReferralData,
+	IStatementData,
+	ITransferHistoryData,
+	IWithdrawalInfoHistoryData,
 } from '@nx-next-app/service'
 import { HistoryTabsEnum } from 'libs/web/src/app/types/history'
 import { uniqueId } from 'lodash-es'
@@ -30,7 +31,7 @@ const History = () => {
 	const { t } = useTranslation()
 
 	return (
-		<>
+		<WrapperDepositPageHistoryH5>
 			<HistoryHeader />
 			<main className='main history'>
 				<div className='recent active'>
@@ -61,7 +62,7 @@ const History = () => {
 							{displayColumns.length > 2 ? <BackTop /> : null}
 						</div>
 					)}
-          <span ref={historyListRef} />
+					<span ref={historyListRef} />
 					{currentPage && displayColumns.length === 0 && (
 						<div className='nodata icon icon-nodata'>
 							<div className='txt-white'>{t('Label_General_NoData')}</div>
@@ -69,7 +70,7 @@ const History = () => {
 					)}
 				</div>
 			</main>
-		</>
+		</WrapperDepositPageHistoryH5>
 	)
 }
 

@@ -200,27 +200,6 @@ div[tabindex='-1'] {
 	border-bottom: 1px solid #5574a7;
 }
 
-.Join > .logo {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
-.Join .dropdown.btn > div {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
-.Join .dropdown .dropdown-item {
-	padding: 3vw;
-}
-.Join .flag:before {
-	border: 1px solid #ccc;
-	width: 16px;
-	height: 16px;
-}
 .Join .inputBox i.icon.icon-minus,
 .Join .euro .inputBox-event i.icon.icon-minus,
 .euro .Join .inputBox-event i.icon.icon-minus,
@@ -283,45 +262,7 @@ div[tabindex='-1'] {
 	display: -ms-flexbox;
 	display: flex;
 }
-.Join .congrats {
-	text-align: center;
-	color: #f77a00;
-	font-size: 4vw;
-	margin: 10vw 0;
-	position: relative;
-}
-.Join .congrats::before {
-	content: '\e996';
-	font-family: 'icomoon';
-	font-size: 20vw;
-	color: #5574a7;
-	margin: 5vw;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
-.Join .congrats > p {
-	font-size: 5vw;
-	color: #5574a7;
-	font-weight: bold;
-	margin: 2vw;
-}
-.Join .congrats::after {
-	position: absolute;
-	width: 50vw;
-	height: 48vw;
-	content: '';
-	background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/spread.png)
-		no-repeat;
-	background-size: 100%;
-	top: -5vw;
-	left: 20vw;
-	-webkit-animation: fire1 2.8s 3s infinite;
-	animation: fire1 2.8s 3s infinite;
-}
+
 @-webkit-keyframes fire1 {
 	0% {
 		-webkit-transform: scale(0) translateY(-10%);
@@ -1720,57 +1661,7 @@ main .gameList .icon-new {
 #popup.statuspop {
 	color: #5574a7;
 }
-#popup.statuspop .pop {
-	background: #eaf1ff;
-	border: 1px solid #284985;
-	padding: 0;
-	border-radius: 1vw;
-}
-#popup.statuspop .pop .statustitle {
-	font-size: 4.5vw;
-	padding: 2vw 9vw 2vw 4vw;
-	border-bottom: 1px solid #5574a7;
-	background: #284985;
-	color: white;
-	position: relative;
-}
-#popup.statuspop .pop .statustitle .close {
-	right: 2vw;
-	top: 2vw;
-}
-#popup.statuspop .pop .statuscontent {
-	padding: 0 3.5vw;
-	border-top: 0;
-}
-#popup.statuspop .pop .statuscontent > div {
-	border-bottom: 1px solid #c1cceb;
-}
-#popup.statuspop .pop .statuscontent > div .subtitle {
-	font-size: 4vw;
-}
-#popup.statuspop .pop .statuscontent > div > div {
-	font-size: 3.5vw;
-	margin-top: 3vw;
-	color: #052561;
-}
-#popup.statuspop .pop .statuscontent > div > div:last-child {
-	margin: 1vw 0 3vw;
-}
-#popup.statuspop .pop .statuscontent > div:last-child {
-	border-bottom: 0;
-}
-#popup.statuspop .pop .success {
-	background: #5574a7;
-	padding: 2vw 10vw;
-	border-radius: 5vw;
-	margin: auto auto 5vw;
-	color: white;
-	display: block;
-}
-#popup.statuspop .pop .success::before {
-	content: '';
-	display: block;
-}
+
 #popup.noticepop .checkbox {
 	width: -webkit-max-content;
 	width: -moz-max-content;
@@ -3408,102 +3299,8 @@ main .gameList .icon-new {
 	text-align: center;
 }
 
-.infoList .info {
-	border-radius: 5px;
-	padding: 4vw;
-	background: #d2e2f9;
-}
-.infoList .info:nth-child(even) {
-	background: rgba(210, 226, 249, 0.5);
-}
-
 .openPopup {
 	white-space: nowrap;
-}
-
-.approved {
-	background: #2ea512;
-	width: -webkit-max-content;
-	width: -moz-max-content;
-	width: max-content;
-	padding: 0 3vw;
-	border-radius: 3px;
-	font-weight: bold;
-	min-width: 15vw;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	color: white;
-}
-
-.reject {
-	background: #cf0404;
-	width: -webkit-max-content;
-	width: -moz-max-content;
-	width: max-content;
-	padding: 0 3vw;
-	border-radius: 3px;
-	font-weight: bold;
-	min-width: 15vw;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	color: white;
-}
-
-.cancelled {
-	background: #6f6f6f;
-	width: -webkit-max-content;
-	width: -moz-max-content;
-	width: max-content;
-	padding: 0 3.2vw;
-	border-radius: 3px;
-	font-weight: bold;
-	min-width: 15vw;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	color: white;
-}
-
-.pending {
-	background: #f9b041;
-	color: black;
-	width: -webkit-max-content;
-	width: -moz-max-content;
-	width: max-content;
-	padding: 0 3vw;
-	border-radius: 3px;
-	font-weight: bold;
-	min-width: 15vw;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
-
-.pending,
-.reject,
-.cancelled,
-.approved {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	position: relative;
-}
-.pending .infobtn,
-.reject .infobtn,
-.cancelled .infobtn,
-.approved .infobtn {
-	background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/notice.png)
-		no-repeat center/cover;
-	width: 4vw;
-	height: 4vw;
-	margin-left: 1vw;
-	position: absolute;
-	right: -6vw;
 }
 
 .tip {
@@ -4217,88 +4014,7 @@ main .gameList .icon-new {
 	max-height: 16px;
 } */
 
-.quickSelect {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	padding: 5vw 8vw;
-	width: calc(100% - 16vw);
-	border-bottom: 1px solid #5574a7;
-	overflow: scroll;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	background: #e4e4e4;
-}
-.quickSelect + .functionList {
-	padding: 2vw 4vw;
-	width: calc(100% - 8vw);
-	position: unset;
-}
-.quickSelect + .functionList .infoModule.parts {
-	-ms-flex-flow: nowrap;
-	flex-flow: nowrap;
-}
-.quickSelect + .functionList .infoModule.parts .inputBox,
-.quickSelect + .functionList .infoModule.parts .euro .inputBox-event,
-.euro .quickSelect + .functionList .infoModule.parts .inputBox-event,
-.quickSelect
-	+ .functionList
-	.infoModule.parts
-	.worldcupEvent
-	.event
-	.event-content
-	.inputBox-event,
-.worldcupEvent
-	.event
-	.event-content
-	.quickSelect
-	+ .functionList
-	.infoModule.parts
-	.inputBox-event {
-	max-width: 28vw;
-}
-.quickSelect + .functionList .icon-icon32px_1 {
-	margin: 0 0 0 1vw;
-	color: #5574a7;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.quickSelect + .functionList .btn-group {
-	margin: 0 0 0 1vw;
-	-webkit-box-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.quickSelect + .functionList .btn-group button {
-	padding: 2.5vw;
-	white-space: nowrap;
-}
-.quickSelect button {
-	color: #a4a4a4;
-	white-space: nowrap;
-}
-.quickSelect button:nth-child(n + 2) {
-	margin: 0 0 0 5vw;
-}
-.quickSelect button.active {
-	color: #112240;
-}
-.quickSelect .icon {
-	position: fixed;
-	right: 1vw;
-	color: #112240;
-}
-.quickSelect .icon:before {
-	font-size: 6vw;
-}
+
 
 .infotxt {
 	background: #002b6c;
@@ -4313,14 +4029,6 @@ main .gameList .icon-new {
 .infotxt .icon-close {
 	position: unset;
 	margin: 2vw 0 0;
-}
-
-.history {
-	padding: 45vw 4vw 20vw;
-}
-
-.statement {
-	padding: 55vw 4vw 20vw;
 }
 
 .bankAccount {
@@ -4463,29 +4171,6 @@ main .gameList .icon-new {
 	font-family: 'icomoon';
 	color: white;
 	font-size: 8vw;
-}
-
-.recent {
-	visibility: hidden;
-	-webkit-transition: 0.7s;
-	transition: 0.7s;
-	opacity: 0;
-	height: 0;
-}
-.recent.active {
-	visibility: visible;
-	-webkit-transition: 0.7s;
-	transition: 0.7s;
-	opacity: 1;
-	height: auto;
-}
-.recent.active .info {
-	display: block;
-	padding: 4vw;
-	margin: 2vw 0;
-}
-.recent .info {
-	display: none;
 }
 
 .txt-red {
