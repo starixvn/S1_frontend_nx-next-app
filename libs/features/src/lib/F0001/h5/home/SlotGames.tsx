@@ -15,11 +15,11 @@ const SlotGames = () => {
 	const { hotGameData } = useHome()
 	const { t } = useTranslation()
 
-	const slotGames = hotGameData.filter(element => {
+	const slotGames = hotGameData?.filter(element => {
 		return element.tpCategory === TpCategory.Casino
 	})
 
-	if (slotGames.length === 0) {
+	if (slotGames?.length === 0) {
 		return <div />
 	}
 

@@ -15,11 +15,11 @@ const TableGames = () => {
 	const { hotGameData } = useHome()
 	const { t } = useTranslation()
 
-	const hotGameCasino = hotGameData.filter(element => {
+	const hotGameCasino = hotGameData?.filter(element => {
 		return element.tpCategory === TpCategory.Games
 	})
 
-	if (hotGameCasino.length === 0) {
+	if (hotGameCasino?.length === 0) {
 		return <div />
 	}
 

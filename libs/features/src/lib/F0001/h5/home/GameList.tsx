@@ -25,7 +25,7 @@ const GameList: React.FC<IGameList> = (props: IGameList) => {
 
 	const gameTypeEmblaOptions: EmblaOptionsType = { slidesToScroll: 'auto' }
 
-	if (gameData.length === 0) {
+	if (gameData?.length === 0) {
 		return <div />
 	}
 
@@ -37,7 +37,7 @@ const GameList: React.FC<IGameList> = (props: IGameList) => {
 				isControlButton={isControlButton}
 				extraClassName={extraClassName}
 			>
-				{gameData.map(game => {
+				{gameData?.map(game => {
 					const { gameLogo, gameName, gameId, tpName } = game
 					const gameItem = {
 						gameId,
