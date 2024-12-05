@@ -1,9 +1,6 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
 import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
-import SpinButton from '@nx-next-app/components/D0001/button/SpinButton'
-import Table, { ITableColumns } from '@nx-next-app/components/D0001/table/Table'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	AllowUploadReceiptType,
 	CURRENCY_TO_TIMEZONE,
