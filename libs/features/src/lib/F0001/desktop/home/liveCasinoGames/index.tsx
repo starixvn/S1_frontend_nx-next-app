@@ -18,7 +18,7 @@ const LiveCasinoGames = () => {
 
 	if (liveCasinoGames?.length === 0 && jackpot?.length === 0) return null
 
-	if (liveCasinoGames?.length === 0) {
+	if (liveCasinoGames === null || liveCasinoGames === undefined || liveCasinoGames?.length === 0) {
 		return <div />
 	}
 

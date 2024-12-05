@@ -101,7 +101,7 @@ const ProvidersList = () => {
 		},
 	]
 
-	if (providerData?.length === 0) {
+	if (providerData === null || providerData === undefined || providerData?.length === 0) {
 		return <div />
 	}
 

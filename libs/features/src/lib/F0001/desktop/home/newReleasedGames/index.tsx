@@ -8,7 +8,7 @@ const NewReleasedGames = () => {
 	const { t } = useTranslation()
 	const { newGameData } = useHome()
 
-	if (newGameData?.length === 0) {
+	if (newGameData === null || newGameData === undefined || newGameData?.length === 0) {
 		return <div />
 	}
 

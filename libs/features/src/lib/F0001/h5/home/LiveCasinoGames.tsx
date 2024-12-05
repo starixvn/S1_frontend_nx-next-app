@@ -19,7 +19,7 @@ const LiveCasinoGames = () => {
 		return element.tpCategory === TpCategory.LiveCasino
 	})
 
-	if (hotGameCasino?.length === 0) {
+	if (hotGameCasino === null || hotGameCasino === undefined || hotGameCasino?.length === 0) {
 		return <div />
 	}
 

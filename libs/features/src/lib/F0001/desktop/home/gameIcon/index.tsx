@@ -21,7 +21,7 @@ interface IGameIcon {
 }
 
 const GameIcon: FC<IGameIcon> = ({ gameItem, isLarge, onClick }) => {
-  if(!gameItem) return null;
+  if(gameItem === null || gameItem === undefined) return null;
 	const { gameId, imageUrl, gameName, isMaintain, tpName } = gameItem
 	const { t } = useTranslation()
 

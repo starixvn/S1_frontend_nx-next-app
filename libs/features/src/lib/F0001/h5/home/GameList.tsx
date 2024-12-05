@@ -25,7 +25,7 @@ const GameList: React.FC<IGameList> = (props: IGameList) => {
 
 	const gameTypeEmblaOptions: EmblaOptionsType = { slidesToScroll: 'auto' }
 
-	if (gameData?.length === 0) {
+	if (gameData === null || gameData === undefined || gameData?.length === 0) {
 		return <div />
 	}
 

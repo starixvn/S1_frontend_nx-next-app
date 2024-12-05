@@ -19,7 +19,7 @@ const TableGames = () => {
 		return element.tpCategory === TpCategory.Games
 	})
 
-	if (hotGameCasino?.length === 0) {
+	if (hotGameCasino === null || hotGameCasino === undefined || hotGameCasino?.length === 0) {
 		return <div />
 	}
 

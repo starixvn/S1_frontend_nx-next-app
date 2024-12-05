@@ -50,7 +50,7 @@ const HotGameSlot = () => {
 		}
 	}
 
-	if (slotGames?.length === 0) {
+	if (slotGames === null || slotGames === undefined || slotGames?.length === 0) {
 		return <div />
 	}
 

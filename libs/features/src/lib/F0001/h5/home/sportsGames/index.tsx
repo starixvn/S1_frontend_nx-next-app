@@ -21,7 +21,7 @@ const SportsGames = () => {
 		return element.tpCategory === TpCategory.Sports
 	})
 
-	if (hotGameCasino?.length === 0) {
+	if (hotGameCasino === null || hotGameCasino === undefined || hotGameCasino?.length === 0) {
 		return <div />
 	}
 

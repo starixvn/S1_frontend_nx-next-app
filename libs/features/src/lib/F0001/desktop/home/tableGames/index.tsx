@@ -17,7 +17,7 @@ const TableGames = () => {
 
 	if (tableGames?.length === 0 && jackpot?.length === 0) return null
 
-	if (tableGames?.length === 0) {
+	if (tableGames === null || tableGames === undefined || tableGames?.length === 0) {
 		return <div />
 	}
 
