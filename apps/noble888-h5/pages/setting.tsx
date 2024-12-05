@@ -1,4 +1,4 @@
-import { Setting } from '@noble888-h5/components'
+import { Setting } from '@apps/noble888-h5/components'
 import { NovaAuthProvider } from '@noble888-h5/providers'
 import { GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout } from '@nx-next-app/features/F0001/h5'

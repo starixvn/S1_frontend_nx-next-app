@@ -13,6 +13,7 @@ import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
 import {
 	ALLOWED_CURRENCIES,
 	BANNER_IMAGE_LIST,
+	EVENT_DATA,
 	FEATURE_BONUS,
 	GET_AFFILIATE_LINK,
 	LANG_GROUPS,
@@ -23,7 +24,7 @@ import {
 	TERMS_CONDITIONS,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	VIP_CLUB_IMAGES,
-} from '@nx-next-app/site/noble888'
+} from '@nx-next-app/site/nova88'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
@@ -66,6 +67,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 						LEFT_MENU_DATA={LEFT_MENU_DATA}
 						LIVE_CHAT_ID_BY_LANG_ID={LIVE_CHAT_ID_BY_LANG_ID}
 						LANG_TO_CURRENCY={LANG_TO_CURRENCY}
+						EVENT_DATA={EVENT_DATA}
 					>
 						<Component {...pageProps} />
 						<ToastContainer /> {/* 吐司訊息 */}

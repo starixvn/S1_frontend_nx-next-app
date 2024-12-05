@@ -59,6 +59,7 @@ const ChangePassword = () => {
 				touched={!!touchedFields['oldPassword']}
 				errorMessage={errors['oldPassword']?.message as string}
 				error={!!errors['oldPassword']}
+				placeholder={t('Label_ChangePassword_OldPassword')}
 			/>
 			<InputBox
 				register={register('newPassword', {
@@ -75,6 +76,7 @@ const ChangePassword = () => {
 				touched={!!touchedFields['newPassword']}
 				errorMessage={errors['newPassword']?.message as string}
 				error={!!errors['newPassword']}
+				placeholder={t('Label_ChangePassword_NewPassword')}
 			/>
 			<div className='tip'>Password is required.</div>
 			<div className='btn-group'>

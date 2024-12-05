@@ -19,7 +19,7 @@ import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import { TransferFundsProvider } from '@nx-next-app/features/F0001/providers'
-import { FOOTER_DATA } from '@nx-next-app/site/noble888'
+import { FOOTER_DATA } from '@nx-next-app/site/nova88'
 
 interface ITransferFundsPageProps extends InitialPropsInterface {
 	persistFooterData: IFooterData

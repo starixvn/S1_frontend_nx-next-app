@@ -7,7 +7,7 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { IVipBannerData } from '@nx-next-app/service'
-import { ALLOWED_CURRENCIES, FOOTER_DATA } from '@nx-next-app/site/noble888'
+import { ALLOWED_CURRENCIES, FOOTER_DATA } from '@nx-next-app/site/nova88'
 import { IFooterData } from '@nx-next-app/types'
 import { includes } from 'lodash'
 import { GetServerSideProps } from 'next'

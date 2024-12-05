@@ -21,7 +21,7 @@ import {
 	LeaderBoardDayEnum,
 	LeaderBoardGameTypeEnum,
 	LeaderBoardTabsEnum,
-} from '@nx-next-app/site/noble888/data/leaderBoard'
+} from '@nx-next-app/site/nova88/data/leaderBoard'
 
 type ILeaderBoardPageProps = InitialPropsInterface
 

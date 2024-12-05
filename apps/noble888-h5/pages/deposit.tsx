@@ -8,7 +8,7 @@ import {
 import {
 	DEPOSIT_PAYMENT_OPTIONS,
 	DEPOSIT_PAYMENT_ORDERS,
-} from '@nx-next-app/site/noble888'
+} from '@nx-next-app/site/nova88'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 

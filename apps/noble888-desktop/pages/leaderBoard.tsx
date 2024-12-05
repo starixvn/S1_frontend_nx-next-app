@@ -9,7 +9,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { FOOTER_DATA } from '@nx-next-app/site/noble888'
+import { FOOTER_DATA } from '@nx-next-app/site/nova88'
 import {
 	LEADER_BOARD_EVENT_CODE,
 	LEADER_BOARD_GAME_POINT_NAV,
@@ -20,7 +20,7 @@ import {
 	LeaderBoardDayEnum,
 	LeaderBoardGameTypeEnum,
 	LeaderBoardTabsEnum,
-} from '@nx-next-app/site/noble888/data/leaderBoard'
+} from '@nx-next-app/site/nova88/data/leaderBoard'
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'

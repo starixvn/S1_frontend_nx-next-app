@@ -1,16 +1,18 @@
 import { NovaAuthProvider } from '@noble888-h5/providers'
 import { paths } from '@nx-next-app/constants'
 import { GlobalDataProvider } from '@nx-next-app/data-access'
-import { History, Layout } from '@nx-next-app/features/F0001/h5'
-import { HistoryProvider } from '@nx-next-app/features/F0001/providers'
+import { Layout } from '@nx-next-app/features/F0001/h5'
+
+import { History } from '@apps/noble888-h5/components'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { HistoryProvider } from '@nx-next-app/operations'
 import {
 	HISTORY_TABS,
 	QUICK_PICK_LIST,
-} from '@nx-next-app/site/noble888/data/history'
+} from '@nx-next-app/site/nova88/data/history'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
