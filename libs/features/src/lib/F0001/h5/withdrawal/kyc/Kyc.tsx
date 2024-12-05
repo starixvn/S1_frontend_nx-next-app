@@ -1,9 +1,9 @@
-import { useTranslation } from 'next-i18next'
 import { Header } from '@nx-next-app/components/H0001'
 import {
 	useKycUploader,
 	useWithdrawal,
 } from '@nx-next-app/features/F0001/providers'
+import { useTranslation } from 'next-i18next'
 
 const Kyc = () => {
 	const { t } = useTranslation()

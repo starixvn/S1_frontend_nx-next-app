@@ -66,40 +66,36 @@ export const WrapperCongrats = styled.div`
 	.congrats {
 		text-align: center;
 		color: #f77a00;
-		font-size: 4vw;
-		margin: 10vw 0;
+		margin: 4vw 0;
 		position: relative;
+		font-size: 3.4vw;
+		font-weight: 400;
+		color: #939dc5;
+		text-align: center;
+		p {
+			font-weight: 700;
+			color: #fff;
+			margin-bottom: 1vw;
+		}
 	}
-	.congrats::before {
-		content: '\\e996';
-		font-family: 'icomoon';
-		font-size: 20vw;
-		color: #5574a7;
-		margin: 5vw;
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-pack: center;
-		-ms-flex-pack: center;
-		justify-content: center;
+	.group-icon-check {
+		width: 10.5vw;
+		height: 10.5vw;
+		overflow: hidden;
+		border-radius: 100px;
+		border: 6px solid rgba(1, 185, 1, 0.3);
+		margin: 3vw auto;
+
+		.icon {
+			background: #01b901;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 	}
-	.congrats > p {
-		font-size: 5vw;
-		color: #5574a7;
-		font-weight: bold;
-		margin: 2vw;
-	}
-	.congrats::after {
-		position: absolute;
-		width: 50vw;
-		height: 48vw;
-		content: '';
-		background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/spread.png)
-			no-repeat;
-		background-size: 100%;
-		top: -5vw;
-		left: 20vw;
-		-webkit-animation: fire1 2.8s 3s infinite;
-		animation: fire1 2.8s 3s infinite;
+	.Terms {
+		text-align: center;
 	}
 `

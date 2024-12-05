@@ -9,6 +9,9 @@ const Step3 = () => {
 	return (
 		<WrapperCongrats>
 			<div className='congrats'>
+				<div className='group-icon-check'>
+					<i className='icon icon-check' />
+				</div>
 				<p>{t('Label_Join_Congratulations')}</p>
 				{t('Label_Join_BecomingDistinguishedPlayer')}
 			</div>

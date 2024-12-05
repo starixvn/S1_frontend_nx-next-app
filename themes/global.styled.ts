@@ -286,6 +286,7 @@ export const GlobalStyles = createGlobalStyle`
     .pop{
       min-width : unset !important;
       max-width: 80vw;
+      width : 100%;
       .popTit{
         font-size: 4.1vw;;
         font-weight: 700;
