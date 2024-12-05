@@ -64,7 +64,7 @@ const LoginJoin = ({ cookies }: ILoginJoinProps) => {
 				}}
 			/>
 
-			{formType === 'left' && <Login />}
+			{formType === 'left' && <Login fromRoute={fromRoute} />}
 			{formType === 'right' && (
 				<GReCaptchaProviders>
 					<Join cookies={cookies} />

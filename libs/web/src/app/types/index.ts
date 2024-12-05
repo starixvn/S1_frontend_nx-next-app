@@ -72,6 +72,7 @@ export interface IStaticAllowedCurrencies {
 	EXCHANGE?: CurrenciesEnum[]
 	REWARDS?: CurrenciesEnum[]
 	LEADER_BOARD?: CurrenciesEnum[]
+	PREDICTION_CHALLENGE?: CurrenciesEnum[]
 	APP_DOWNLOAD?: CurrenciesEnum[]
 
 	TRANSFER?: CurrenciesEnum[]
@@ -289,6 +290,7 @@ export enum KycStatusEnum {
 }
 
 export * from './deposit'
+export * from './event'
 export * from './footer'
 export * from './gameProviders'
 export * from './history'

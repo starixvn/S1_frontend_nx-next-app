@@ -1,12 +1,12 @@
 import { paths } from '@nx-next-app/constants'
-import { useState } from 'react'
-import { useRouter } from 'next/router'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
-import { useTranslation } from 'next-i18next'
 import { isString } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 import SwitchButton from '../common/SwitchButton'
-import Login from '../common/login'
 import Join from '../common/join'
+import Login from '../common/login'
 
 interface ILoginJoinProps {
 	cookies: TmpCookiesObj
@@ -53,7 +53,7 @@ const LoginJoin = ({ cookies }: ILoginJoinProps) => {
 				}}
 			/>
 
-			{formType === 'left' && <Login />}
+			{formType === 'left' && <Login fromRoute={fromRoute} />}
 			{formType === 'right' && <Join cookies={cookies} />}
 		</div>
 	)

@@ -522,7 +522,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .sponsorList,
 .header > div.menu .subMenu-Wrapper-new .rankingList,
 .header > div.menu .subMenu-Wrapper-new .eventList,
-.header > div.menu .subMenu-Wrapper-new .cryptoList {
+.header > div.menu .subMenu-Wrapper-new .cryptoList,
+.header > div.menu .subMenu-Wrapper-new .prediction-list {
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -554,7 +555,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .sponsorList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .rankingList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .eventList.maintenance,
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance {
+.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.maintenance {
   -webkit-filter: grayscale(2);
           filter: grayscale(2);
 }
@@ -593,7 +595,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a,
 .header > div.menu .subMenu-Wrapper-new .eventList button,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 155px;
           flex: 1 1 155px;
@@ -656,7 +660,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a .under,
 .header > div.menu .subMenu-Wrapper-new .eventList button .under,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a .under,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button .under {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button .under,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a .under,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button .under {
   display: none;
   position: absolute;
   z-index: 1;
@@ -700,7 +706,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a.active,
 .header > div.menu .subMenu-Wrapper-new .eventList button.active,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a.active,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button.active {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button.active,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a.active,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button.active {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
 }
@@ -739,7 +747,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a.active .under,
 .header > div.menu .subMenu-Wrapper-new .eventList button.active .under,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a.active .under,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button.active .under {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button.active .under,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a.active .under,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button.active .under {
   display: block;
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a .live:before,
@@ -777,7 +787,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a .live:before,
 .header > div.menu .subMenu-Wrapper-new .eventList button .live:before,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a .live:before,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button .live:before {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button .live:before,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a .live:before,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button .live:before {
   bottom: 30px;
   top: auto;
   right: 15px;
@@ -818,7 +830,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a img,
 .header > div.menu .subMenu-Wrapper-new .eventList button img,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a img,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button img {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button img,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a img,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button img {
   -webkit-transition: 0.3s;
   transition: 0.3s;
   position: absolute;
@@ -859,7 +873,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .eventList button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button img.List-npc {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button img.List-npc,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a img.List-npc,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button img.List-npc {
   z-index: 1;
   margin: 0 0 -30px -30px;
   border-radius: 20px;
@@ -899,7 +915,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a:hover img,
 .header > div.menu .subMenu-Wrapper-new .eventList button:hover img,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a:hover img,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button:hover img {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button:hover img,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a:hover img,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button:hover img {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   opacity: 1;
@@ -939,7 +957,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .eventList button:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a:hover img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button:hover img.List-npc {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button:hover img.List-npc,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a:hover img.List-npc,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button:hover img.List-npc {
   margin: 0 0 0 10px;
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a:hover img.List-bg,
@@ -977,7 +997,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .eventList button:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a:hover img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button:hover img.List-bg {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button:hover img.List-bg,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a:hover img.List-bg,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button:hover img.List-bg {
   -webkit-filter: grayscale(0);
           filter: grayscale(0);
   margin: 0 0 10px 0;
@@ -1017,7 +1039,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a > span,
 .header > div.menu .subMenu-Wrapper-new .eventList button > span,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a > span,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button > span {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button > span,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a > span,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button > span {
   position: absolute;
   font-size: 16px;
   width: 150px;
@@ -1070,7 +1094,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList a.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .eventList button.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a.icon-new:before,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button.icon-new:before {
+.header > div.menu .subMenu-Wrapper-new .cryptoList button.icon-new:before,
+.header > div.menu .subMenu-Wrapper-new .prediction-list a.icon-new:before,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button.icon-new:before {
   font-size: 12px;
   top: auto;
   bottom: 30px;
@@ -1108,7 +1134,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .sponsorList.active,
 .header > div.menu .subMenu-Wrapper-new .rankingList.active,
 .header > div.menu .subMenu-Wrapper-new .eventList.active,
-.header > div.menu .subMenu-Wrapper-new .cryptoList.active {
+.header > div.menu .subMenu-Wrapper-new .cryptoList.active,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.active {
   opacity: 1;
   visibility: visible;
   height: auto;
@@ -1148,7 +1175,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList.active a,
 .header > div.menu .subMenu-Wrapper-new .eventList.active button,
 .header > div.menu .subMenu-Wrapper-new .cryptoList.active a,
-.header > div.menu .subMenu-Wrapper-new .cryptoList.active button {
+.header > div.menu .subMenu-Wrapper-new .cryptoList.active button,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.active a,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.active button {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   opacity: 1;
@@ -1195,7 +1224,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList.active a img,
 .header > div.menu .subMenu-Wrapper-new .eventList.active button img,
 .header > div.menu .subMenu-Wrapper-new .cryptoList.active a img,
-.header > div.menu .subMenu-Wrapper-new .cryptoList.active button img {
+.header > div.menu .subMenu-Wrapper-new .cryptoList.active button img,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.active a img,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.active button img {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   margin-left: 0;
@@ -1235,7 +1266,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList.active a img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .eventList.active button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .cryptoList.active a img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .cryptoList.active button img.List-npc {
+.header > div.menu .subMenu-Wrapper-new .cryptoList.active button img.List-npc,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.active a img.List-npc,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.active button img.List-npc {
   margin-bottom: 20px;
 }
 .header > div.menu .subMenu-Wrapper-new .homeList.active a > span,
@@ -1273,7 +1306,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList.active a > span,
 .header > div.menu .subMenu-Wrapper-new .eventList.active button > span,
 .header > div.menu .subMenu-Wrapper-new .cryptoList.active a > span,
-.header > div.menu .subMenu-Wrapper-new .cryptoList.active button > span {
+.header > div.menu .subMenu-Wrapper-new .cryptoList.active button > span,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.active a > span,
+.header > div.menu .subMenu-Wrapper-new .prediction-list.active button > span {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   left: 0;
@@ -1296,7 +1331,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .sponsorList .new-icon,
 .header > div.menu .subMenu-Wrapper-new .rankingList .new-icon,
 .header > div.menu .subMenu-Wrapper-new .eventList .new-icon,
-.header > div.menu .subMenu-Wrapper-new .cryptoList .new-icon {
+.header > div.menu .subMenu-Wrapper-new .cryptoList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .prediction-list .new-icon {
   background: #FF7600;
   border-radius: 50px;
   font-size: 12px;
@@ -1558,6 +1594,14 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .rankingList > a div:last-child {
   color: #1D3662;
   font-size: 16px;
+}
+.header > div.menu .subMenu-Wrapper-new .prediction-list a img,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button img {
+  margin-bottom: 20px;
+}
+.header > div.menu .subMenu-Wrapper-new .prediction-list a img:hover,
+.header > div.menu .subMenu-Wrapper-new .prediction-list button img:hover {
+  margin-left: 10px;
 }
 .header > div.function {
   width: 100%;
@@ -27156,4 +27200,745 @@ input[type=number] {
 }
 .setting .social .social-icon button.active::after {
   display: none;
+}
+
+main.prediction {
+  background: #480024;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+main.prediction * {
+  color: white;
+}
+main.prediction .prediction-banner {
+  position: relative;
+}
+main.prediction .prediction-banner .banner-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 1400px;
+  position: absolute;
+  left: calc(50% - 700px);
+  bottom: calc(25% - 58px);
+}
+main.prediction .prediction-banner .banner-logo {
+  margin-bottom: 54px;
+}
+main.prediction .prediction-banner .banner-logo img {
+  max-width: 360px;
+}
+main.prediction .prediction-banner .banner-caption .title {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.24;
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+main.prediction .prediction-banner .banner-caption .subtitle {
+  font-size: 18px;
+  font-weight: 300;
+  max-width: 400px;
+}
+@media (min-width: 1440px) and (max-width: 1600px) {
+  main.prediction .prediction-banner .banner-logo {
+    margin-bottom: 28px;
+  }
+  main.prediction .prediction-banner .banner-logo img {
+    max-width: 320px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  main.prediction .prediction-banner .banner-logo {
+    margin-bottom: 25px;
+  }
+  main.prediction .prediction-banner .banner-logo img {
+    max-width: 300px;
+  }
+  main.prediction .prediction-banner .banner-caption .title {
+    font-size: 40px;
+    max-width: 600px;
+    margin-bottom: 24px;
+  }
+  main.prediction .prediction-banner .banner-caption .subtitle {
+    font-size: 16px;
+    max-width: 500px;
+  }
+}
+main.prediction .prediction-container {
+  max-width: 1400px;
+  width: 100%;
+  padding-top: 70px;
+}
+main.prediction .prediction-container .prediction-introduce {
+  text-align: center;
+  margin-bottom: 52px;
+}
+main.prediction .prediction-container .prediction-introduce .title {
+  font-size: 32px;
+  font-weight: 600;
+}
+main.prediction .prediction-container .prediction-introduce .text {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+main.prediction .prediction-container .prediction-introduce .text span {
+  font-size: 16px;
+  font-weight: 300;
+  max-width: 688px;
+}
+main.prediction .prediction-container .prediction-board {
+  background: url(https://banner.0814media.net/desktop/img/event/prediction/premier-league.jpg) no-repeat center/cover;
+  border-radius: 20px;
+  max-width: 1400px;
+  padding: 48px 88px 32px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+main.prediction .prediction-container .prediction-board .card-swiper {
+  max-width: 448px;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container {
+  padding: 0 0 10px;
+  border-radius: 20px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container .swiper-wrapper {
+  max-width: 448px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container .swiper-wrapper .swiper-slide {
+  border-radius: 20px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container .swiper-pagination {
+  position: static;
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container .swiper-pagination .swiper-pagination-bullet {
+  background: #D9D9D9;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container .swiper-pagination .swiper-pagination-bullet-active {
+  border-radius: 50%;
+  background: #ff7600;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container .swiper-button-next,
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container .swiper-button-prev {
+  width: 30px;
+  height: 30px;
+  background: #BEBEBE;
+  border-radius: 50%;
+  color: #fff;
+  display: none;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container .swiper-button-next {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  right: 5px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container .swiper-button-next::after {
+  content: "\e95d";
+  font-size: 28px;
+  font-family: "icomoon";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container .swiper-button-prev {
+  left: 5px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .swiper-container .swiper-button-prev::after {
+  content: "\e95d";
+  font-size: 28px;
+  font-family: "icomoon";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+main.prediction .prediction-container .prediction-board .card-swiper:hover .swiper-button-next,
+main.prediction .prediction-container .prediction-board .card-swiper:hover .swiper-button-prev {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 448px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 0 0;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .btn-submit {
+  background: #FF7600;
+  border-radius: 0 0 20px 20px;
+  padding: 13px 0;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .btn-submit:hover {
+  background: #ff8c29;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .btn-submit.active {
+  background: #C6C6C6;
+  color: #fff;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .btn-submit.active:hover {
+  cursor: text;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .btn-submit[disabled] {
+  background: #C6C6C6 !important;
+  color: #fff !important;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .btn-submit[disabled]:hover {
+  cursor: text;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 52px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 44px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-top .match {
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-top .time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-top .time span {
+  color: #000;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-top .time span:last-child {
+  margin-left: 8px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .tips {
+  color: red;
+  font-weight: 300;
+  font-size: 12px;
+  padding: 3px 0;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 40px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .team {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .team-badge {
+  position: relative;
+  margin-bottom: 32px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .team-badge .team-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  z-index: 2;
+  width: 64px;
+  height: 64px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .team-badge .team-img img {
+  display: block;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .team-badge::before {
+  content: "";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80px;
+  height: 80px;
+  background: #FCFCFC;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .team-badge::after {
+  content: "";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100px;
+  height: 100px;
+  background: #F3F3F3;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .team-name {
+  font-size: 12px;
+  color: #000;
+  margin-bottom: 10px;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .center-txt {
+  margin-top: 17px;
+  font-size: 24px;
+  color: #FF7600;
+  padding: 0 10px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .center-txt.disabled {
+  color: #A5A5A5;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .center-txt.active {
+  color: #A5A5A5;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box {
+  display: block;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input {
+  border: 1px solid #ff7600;
+  max-width: 130px;
+  padding: 12px 0;
+  border-radius: 10px;
+  color: #000;
+  text-align: center;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input::-webkit-input-placeholder {
+  text-align: center;
+  color: #B1B1B1;
+  font-weight: 200;
+  font-size: 12px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input::-moz-placeholder {
+  text-align: center;
+  color: #B1B1B1;
+  font-weight: 200;
+  font-size: 12px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input:-ms-input-placeholder {
+  text-align: center;
+  color: #B1B1B1;
+  font-weight: 200;
+  font-size: 12px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input::-ms-input-placeholder {
+  text-align: center;
+  color: #B1B1B1;
+  font-weight: 200;
+  font-size: 12px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input::placeholder {
+  text-align: center;
+  color: #B1B1B1;
+  font-weight: 200;
+  font-size: 12px;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input:focus-visible {
+  outline: 2px solid #ff7600;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input[disabled] {
+  border: 1px solid transparent !important;
+  background: #F3F3F3 !important;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input[disabled]::-webkit-input-placeholder {
+  color: #000 !important;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input[disabled]::-moz-placeholder {
+  color: #000 !important;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input[disabled]:-ms-input-placeholder {
+  color: #000 !important;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input[disabled]::-ms-input-placeholder {
+  color: #000 !important;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box input[disabled]::placeholder {
+  color: #000 !important;
+}
+main.prediction .prediction-container .prediction-board .card-swiper .match-card .card-content .card-predict .number-box .number {
+  width: 130px;
+  color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 26px;
+  font-weight: 500;
+}
+main.prediction .prediction-container .prediction-result .result-title {
+  margin: 95px 0 52px;
+  font-size: 34px;
+  font-weight: 600;
+  text-align: center;
+}
+main.prediction .prediction-container .prediction-result .result-content {
+  background: #fff;
+  border-radius: 20px;
+  padding: 50px;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 48px;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-top .sub-caption {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-top .sub-caption .time {
+  font-size: 12px;
+  color: #000;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-top .sub-caption .title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-top .sub-caption .title span {
+  color: #000;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-top button {
+  background: #ff7600;
+  border-radius: 30px;
+  padding: 16px 42px;
+  font-size: 16px;
+  font-weight: 400;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-top button:hover {
+  background: #ff8c29;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+  width: 100%;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .prize-money {
+  background: url(https://banner.0814media.net/desktop/img/event/prediction/result.jpg) no-repeat center/cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 750px;
+          flex: 0 0 750px;
+  border-radius: 20px;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .prize-money span {
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.25px;
+  padding-left: 100px;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .prize-money span.amount {
+  font-size: 40px;
+  font-weight: 600;
+  color: #ff7600;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .user-content {
+  background: #14173D;
+  border-radius: 20px;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .user-content .title {
+  font-size: 20px;
+  padding: 6px;
+  margin-bottom: 10px;
+  color: #FF5E00;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .user-content .user-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .user-content .user-list ul {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .user-content .user-list ul li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 12px 0;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: 300;
+}
+main.prediction .prediction-container .prediction-result .result-content .result-bottom .user-content .user-list ul li:last-child {
+  margin-bottom: 0;
+}
+main.prediction .bottom-graphic {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 120px 0 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#popup .pop .result-pop {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-width: 900px;
+  background: #fff;
+  padding: 50px 42px;
+  border-radius: 20px;
+}
+#popup .pop .result-pop .btn-block {
+  padding-top: 40px;
+}
+#popup .pop .result-pop .btn-block .btn-check {
+  padding: 15px;
+  background: #ff7600;
+  min-width: 180px;
+  border-radius: 10px;
+  color: #fff;
+}
+#popup .pop .result-pop .btn-block .btn-check:hover {
+  background: #ff9133;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+#popup .pop .result-pop .caption {
+  margin-bottom: 45px;
+  font-size: 26px;
+  color: #ff7600;
+  font-weight: 600;
+}
+#popup .pop .result-pop .content {
+  max-height: 275px;
+  overflow-y: auto;
+}
+#popup .pop .result-pop .content::-webkit-scrollbar-thumb {
+  background: #ff7600;
+  border-radius: 20px;
+}
+#popup .pop .result-pop .content ul {
+  padding-left: 15px;
+}
+#popup .pop .result-pop .content ul .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style: circle;
+}
+#popup .pop .result-pop .content ul .list span {
+  display: block;
+}
+#popup .pop .result-pop .content ul .list span.title {
+  color: #000;
+  font-size: 20px;
+  position: relative;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+#popup .pop .result-pop .content ul .list span.title::before {
+  content: "";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff6700;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: -15px;
+}
+#popup .pop .result-pop .content ul .list span.text {
+  font-size: 16px;
+  color: #797979;
+  font-weight: 400;
+  line-height: 1.2;
 }/*# sourceMappingURL=style.css.map */

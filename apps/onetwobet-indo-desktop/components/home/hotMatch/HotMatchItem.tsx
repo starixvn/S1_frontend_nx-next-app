@@ -10,7 +10,7 @@ import dayjs from 'dayjs'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 
-const HotMatchtem = ({ data }: { data: IHotEventData }) => {
+const HotMatchItem = ({ data }: { data: IHotEventData }) => {
 	const { t } = useTranslation()
 	const {
 		sportLeaguesTitle,
@@ -90,4 +90,4 @@ const HotMatchtem = ({ data }: { data: IHotEventData }) => {
 	)
 }
 
-export default HotMatchtem
+export default HotMatchItem
