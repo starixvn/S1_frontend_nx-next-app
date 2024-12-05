@@ -1,8 +1,8 @@
-import classNames from 'classnames'
-import React, { forwardRef, useState } from 'react'
-import { head, includes, isUndefined } from 'lodash-es'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import classNames from "classnames";
+import { head, includes, isUndefined } from "lodash-es";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { forwardRef, useState } from "react";
 
 type TagOptionType = {
 	key: string | number
@@ -78,7 +78,7 @@ const Tag = forwardRef(
 									}
 								}}
 							>
-								<i className='icon icon-keyboard_arrow_left' />
+								<i className='icon icon-arrow-left-line icon-back' />
 							</a>
 						)}
 						{title}
@@ -181,5 +181,5 @@ const Tags = ({ tags = [], className = 'headerTag', ...props }: ITagsProps) => {
 	)
 }
 
-export { Tags, Tag }
+export { Tag, Tags }
 export type { TagOptionType }

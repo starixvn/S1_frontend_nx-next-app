@@ -26,44 +26,28 @@ export const HeaderContainer = styled.div`
 		font-size: 7.8vw;
 	}
 
-	.headerModule {
+	.header-module {
+		width: 100%;
 		display: flex;
 		align-items: center;
-		width: 100%;
+		padding: 2vw 0;
 		justify-content: space-between;
-		position: relative;
-		> a {
-			display: flex;
-			align-items: center;
-			height: 13.5vw;
-			width: 42vw;
-			clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
+		.header-logo {
+			position: relative;
 			img {
-				width: 21vw;
-				margin-left: 2vw;
+				display: block;
+				width: 25vw;
+				margin-left: 3vw;
 			}
 		}
-		> div {
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			margin: 1.5vw;
-		}
-
-		.headerInfo {
-			display: flex;
-			font-size: 3vw;
-			span {
-				margin-right: 1vw;
-			}
-			.MemberID {
-				color: white;
-				display: flex;
-				align-items: center;
-				margin-left: 1vw;
+		.btn-menu {
+			margin: 1vw 2.5vw 0 0;
+			img {
+				width: 6vw;
 			}
 		}
 	}
+
 	button.clickBtn {
 		display: flex;
 		width: 5vw;

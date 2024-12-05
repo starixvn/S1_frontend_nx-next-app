@@ -1,7 +1,6 @@
-import React from 'react'
-import process from 'process'
-import { IVendorData } from '@nx-next-app/service'
-import classNames from 'classnames'
+import { IVendorData } from "@nx-next-app/service";
+import classNames from "classnames";
+import process from "process";
 
 interface IVendorItemProps {
 	item: IVendorData
@@ -21,14 +20,21 @@ const VendorItem = ({
 	return (
 		<a
 			onClick={() => onClick(item)}
-			className={classNames({ active: tpId === activeVendorTpId })}
+			className={classNames('provider-item', {
+				active: tpId === activeVendorTpId,
+			})}
 		>
-			<img
-				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/venderlogo/${
-					item.imgName
-				}${tpId === activeVendorTpId ? 'a' : ''}.png`}
-				alt={displayText}
-			/>
+			<div className='img-container'>
+				<img
+					src={`${
+						process.env['NEXT_PUBLIC_BANNER_HOST']
+					}/h5/img/new-ui/filter-form-provider-logo/${item.imgName}${
+						tpId === activeVendorTpId ? 'a' : ''
+					}.webp`}
+					alt={displayText}
+				/>
+			</div>
+			<div className='provider-name'>{displayText}</div>
 		</a>
 	)
 }
