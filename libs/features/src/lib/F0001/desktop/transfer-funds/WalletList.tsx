@@ -1,8 +1,8 @@
-import { useTranslation } from 'next-i18next'
-import { numFormatToDigits } from '@nx-next-app/utils'
-import { TransferWalletTpId } from '@nx-next-app/constants'
 import { SpinButton } from '@nx-next-app/components/D0001'
+import { TransferWalletTpId } from '@nx-next-app/constants'
 import { useTransferFunds } from '@nx-next-app/features/F0001/providers'
+import { numFormatToDigits } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
 
 const WalletList = () => {
 	const { t } = useTranslation()

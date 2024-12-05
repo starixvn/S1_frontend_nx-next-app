@@ -28,7 +28,7 @@ const WalletInfo = () => {
 					) && <div>{t(userLevelImageInfo?.displayKey as string)}</div>}
 				</div>
 			) : (
-				<div className='icon icon-member' />
+				<div className='icon icon-user-line icon-member' />
 			)}
 
 			<div className='name'>{userName}</div>
@@ -36,16 +36,15 @@ const WalletInfo = () => {
 				{t('Label_Withdrawal_EligibleWithdrawalAmount')}
 			</div>
 			<div className='balanceModule'>
-				<SpinButton
-					onClick={refetchWithdrawalBalance}
-					className='icon icon-spinner11 clickBtn'
-				>
+				<SpinButton onClick={refetchWithdrawalBalance} className='spin-button'>
 					<>
+						<i className='icon icon-refresh-fill' />
 						{t(`Label_General_Currency_${currencyId}`)}
 						{numberFormat(availableBalance, currencyId)}
 					</>
 				</SpinButton>
-				<button className='icon icon-history clickBtn' onClick={restoreAll}>
+				<button className='btn-secondary' onClick={restoreAll}>
+					<i className='icon icon-redo' />
 					{t('Label_Withdrawal_RestoreAll')}
 				</button>
 			</div>

@@ -2276,5 +2276,28 @@ export const GlobalStyles = createGlobalStyle`
           }
         }
       }
+      .tag {
+        width: 100%;
+        display: flex;
+        background: #0F1428;
+      }
+      .tag a,
+      .tag button {
+        flex: 1;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 12vw;
+        border-bottom: 1px solid #939DC5;
+        color: #939DC5;
+        font-size: 3.5vw;
+        text-align: center;
+      }
+      .tag a.active,
+      .tag button.active {
+        color: #EA6118;
+        border-color: #EA6118;
+        font-weight: bold;
+      }
     }
 `

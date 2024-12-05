@@ -49,33 +49,40 @@ const BankSelect = () => {
 						selectedBankInfo?.accountNo === accountNo
 
 					return (
-						<button
-							disabled={disabled}
-							className={classNames({ active: selected, pending: disabled })}
-							key={`${info.sysId}-${info.accountNo}`}
-							onClick={() =>
-								handleSelectCard({
-									bankName,
-									accountNo,
-									sysId,
-									ifscCode,
-									type: withdrawalType,
-								})
-							}
-						>
-							{disabled && (
-								<div className='mask'>
-									{t('Label_General_UnderMaintenance')}
-								</div>
-							)}
+						<div className='block-grid' key={`${info.sysId}-${info.accountNo}`}>
+							<div
+								className={classNames('bankName', {
+									active: selected,
+									pending: disabled,
+								})}
+								onClick={() =>
+									handleSelectCard({
+										bankName,
+										accountNo,
+										sysId,
+										ifscCode,
+										type: withdrawalType,
+									})
+								}
+							>
+								{disabled && (
+									<div className='mask'>
+										{t('Label_General_UnderMaintenance')}
+									</div>
+								)}
 
-							<img
-								src={`${
-									process.env['NEXT_PUBLIC_PAYMENT_HOST']
-								}/square/${bankLogo.toLowerCase()}`}
-								alt={bankName}
-							/>
-						</button>
+								<img
+									src={`${
+										process.env['NEXT_PUBLIC_PAYMENT_HOST']
+									}/square/${bankLogo.toLowerCase()}`}
+									alt={bankName}
+								/>
+								<div className='check'>
+									<i className='icon icon-check' />
+								</div>
+							</div>
+							<span className='bank-name'>{bankName}</span>
+						</div>
 					)
 				})
 			case WithdrawalBankCardEnum.EWallet:
@@ -104,6 +111,7 @@ const BankSelect = () => {
 								}/square/${eWalletLogo.toLowerCase()}`}
 								alt={eWalletName}
 							/>
+							<span className='bank-name'>{eWalletName}</span>
 						</button>
 					)
 				})

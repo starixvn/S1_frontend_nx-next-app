@@ -2925,84 +2925,13 @@ main .gameList .icon-new {
 	align-items: center;
 }
 
-.tag {
-	width: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	border-bottom: 1px solid #5574a7;
-	background: #e4e4e4;
-}
-.tag a,
-.tag button {
-	-webkit-box-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	height: 12vw;
-	border-bottom: 3px solid transparent;
-	color: #a4a4a4;
-	font-size: 4vw;
-	text-align: center;
-}
-.tag a.active,
-.tag button.active {
-	color: #112240;
-	border-color: #ff5e00;
-	font-weight: bold;
-}
+
 
 .main {
 	width: calc(100% - 8vw);
 	min-height: 100%;
 	height: auto;
 	padding: 5vw 4vw 20vw 4vw;
-}
-.main > .icon-member {
-	background: #112240;
-	padding: 3vw;
-	width: 13vw;
-	height: 13vw;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	border-radius: 100%;
-	margin: 0 auto 7vw;
-	position: relative;
-}
-.main > .icon-member:before {
-	font-size: 15vw;
-	z-index: 1;
-}
-.main > .icon-member .circleAnimation {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	z-index: 0;
-	top: auto;
-}
-.main > .icon-member .circleAnimation:before {
-	width: 26vw;
-	height: 26vw;
-}
-.main > .icon-member .circleAnimation:after {
-	width: 22vw;
-	height: 22vw;
-	background: #112240;
 }
 
 .Wallet {
@@ -3246,58 +3175,9 @@ main .gameList .icon-new {
 	align-items: center;
 }
 
-.balanceModule {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	margin: 3vw 0;
-}
-.balanceModule button.clickBtn {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	padding: 5vw 2vw;
-	white-space: nowrap;
-	border-radius: 3px;
-	width: -webkit-max-content;
-	width: -moz-max-content;
-	width: max-content;
-}
-.balanceModule button.clickBtn:not(.icon-history) {
-	margin: 0 1vw 0 0;
-	-webkit-box-flex: 1;
-	-ms-flex: auto;
-	flex: auto;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	background: #7591c1;
-}
-.balanceModule button.clickBtn:not(.icon-history)::before {
-	background: #5574a7;
-	padding: 2vw;
-}
-.balanceModule button.clickBtn::before {
-	margin: 0 2vw 0 0;
-	border-radius: 100%;
-}
-.balanceModule button.clickBtn.icon-history:before {
-	font-size: 5vw;
-}
 
-.name {
-	font-size: 5vw;
-	font-weight: bold;
-	text-align: center;
-	margin: 0 0 2vw;
-	color: #112240;
-}
-.name + .text-org {
-	text-align: center;
-}
+
+
 
 .openPopup {
 	white-space: nowrap;
@@ -10136,11 +10016,7 @@ input[type='date'] {
 	color: #f77a00;
 }
 
-.crypto,
-.eWallet,
-.withdrawal {
-	padding: 30vw 4vw 20vw;
-}
+
 
 .addAddresspop input {
 	font-size: 3vw;

@@ -369,11 +369,11 @@ export const WrapperSettingPage = styled.div`
 			margin-left: 1vw;
 		}
 		
-		.menu-vip.vintage {
+		.menu-vip.infinity {
 			background: url(${({ theme }) => theme.assetUrl}/h5/img/new-ui/platium-bg.webp)
 				no-repeat center/cover;
 		}
-		.menu-vip.vintage .right {
+		.menu-vip.infinity .right {
 			background: rgba(0, 0, 0, 0.10);
 		}
 		.menu-vip.silver {
@@ -404,7 +404,7 @@ export const WrapperSettingPage = styled.div`
 		.menu-vip.diamond .right {
 			background: rgba(0, 0, 0, 0.10);
 		}
-		.menu-vip.nova {
+		.menu-vip.vintage {
 			background: url(${({ theme }) => theme.assetUrl}/h5/img/new-ui/nova-bg.webp)
 				no-repeat center/cover;
 		}
