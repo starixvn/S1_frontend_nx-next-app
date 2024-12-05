@@ -613,6 +613,7 @@ const Form = ({ cookies }: IJoinProps) => {
 								value={getValues('areaCode')}
 								errorMessage={phoneErrorTip}
 								showValue
+								isDropdown={false}
 							/>
 							<InputBox
 								register={register('phone', {
