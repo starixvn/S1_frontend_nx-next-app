@@ -98,6 +98,11 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			value: 'cs',
 			currencyId: CurrenciesEnum.USD,
 		},
+		{
+			displayText: 'اَلْعَرَبِيَّةُ',
+			value: 'ar',
+			currencyId: CurrenciesEnum.USD,
+		},
 	],
 	bd: [
 		{
