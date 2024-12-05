@@ -1257,18 +1257,6 @@ export const MENU_DATA: IMenuData[] = [
 					menuActionType: MenuActionTypeEnum.EnterPage,
 				},
 			},
-			{
-				...PRODUCTS.Eday,
-				pathname: paths.lottery.root,
-				h5: {
-					hasLobby: false,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-				desktop: {
-					hasLobby: true,
-					menuActionType: MenuActionTypeEnum.EnterPage,
-				},
-			},
 		],
 		subMenuAllowCurrenciesWithAuth: false,
 	},
