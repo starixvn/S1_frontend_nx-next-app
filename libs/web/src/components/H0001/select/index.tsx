@@ -1,9 +1,9 @@
-import { ReactNode, useEffect, useRef, useState, MouseEvent } from 'react'
-import { useBoolean, useOnClickOutside } from 'usehooks-ts'
-import { filter, find, includes, uniqueId } from 'lodash'
-import classNames from 'classnames'
 import { SelectOptionType } from '@nx-next-app/types'
+import classNames from 'classnames'
+import { filter, find, includes, uniqueId } from 'lodash'
 import { useTranslation } from 'next-i18next'
+import { MouseEvent, ReactNode, useEffect, useRef, useState } from 'react'
+import { useBoolean, useOnClickOutside } from 'usehooks-ts'
 
 export interface ISelectProps {
 	value?: string | number
@@ -18,6 +18,7 @@ export interface ISelectProps {
 	onChange?: (value: SelectOptionType['value']) => void
 	showValue?: boolean
 	btnClassName?: string
+	isDropdown?: boolean
 }
 
 const Select = (props: ISelectProps) => {
@@ -36,6 +37,7 @@ const Select = (props: ISelectProps) => {
 		showValue,
 		btnClassName,
 		onChange,
+		isDropdown = true,
 	} = props
 	const { value: isActive, toggle, setFalse } = useBoolean()
 	const [currentOption, setCurrentOption] = useState<SelectOptionType>()
@@ -122,7 +124,11 @@ const Select = (props: ISelectProps) => {
 					<i className='icon icon-information' onClick={handleInfoClick} />
 				)}
 
-				<div className={classNames('dropdown-container', { active: isActive })}>
+				<div
+					className={classNames('dropdown-container', {
+						active: isActive && isDropdown,
+					})}
+				>
 					{showSearch && (
 						<div className='inputBox' onClick={e => e.stopPropagation()}>
 							<input

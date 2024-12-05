@@ -1,35 +1,35 @@
-import Link from 'next/link'
-import classNames from 'classnames'
-import { isNumber } from 'lodash'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
-import { useState, useEffect } from 'react'
-import { useForm, FormProvider } from 'react-hook-form'
-import { TmpCookiesObj } from 'cookies-next/lib/types'
-import {
-	paths,
-	ENV_COOKIE_NAMES,
-	CURRENCY_TO_LANG_KEY,
-	AREA_CODE_BY_CURRENCY,
-	FLAG_PREFIX_ICON_BY_CURRENCIES,
-} from '@nx-next-app/constants'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { ISelectProps } from '@nx-next-app/components/H0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
-	useSignupMutation,
-	useLazyAffiliateCheckQuery,
-	useGetSiteCurrencyListQuery,
-	useLazyGetAffiliateAgentQuery,
-} from '@nx-next-app/service'
-import {
-	getQueryParam,
-	OperaPixelTracker,
-	MetaPixelTracker,
-} from '@nx-next-app/utils'
+	AREA_CODE_BY_CURRENCY,
+	CURRENCY_TO_LANG_KEY,
+	ENV_COOKIE_NAMES,
+	FLAG_PREFIX_ICON_BY_CURRENCIES,
+	paths,
+} from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
-import { Step1, Step2, Step3, StepBar, Features, LineRegister } from './form'
+import {
+	useGetSiteCurrencyListQuery,
+	useLazyAffiliateCheckQuery,
+	useLazyGetAffiliateAgentQuery,
+	useSignupMutation,
+} from '@nx-next-app/service'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import {
+	MetaPixelTracker,
+	OperaPixelTracker,
+	getQueryParam,
+} from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { TmpCookiesObj } from 'cookies-next/lib/types'
+import { isNumber } from 'lodash'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { FormProvider, useForm } from 'react-hook-form'
+import { Features, Step1, Step2, Step3, StepBar } from './form'
 
 interface IJoinProps {
 	cookies: TmpCookiesObj
@@ -52,6 +52,7 @@ const Join = ({ cookies }: IJoinProps) => {
 	const [currencyOptions, setCurrencyOptions] = useState<
 		ISelectProps['options']
 	>([])
+	const [siteCurrencyList, setSiteCurrencyList] = useState<number[]>([])
 
 	const formMethods = useForm()
 	const { setError, setValue, getValues, clearErrors, handleSubmit } =
@@ -65,32 +66,35 @@ const Join = ({ cookies }: IJoinProps) => {
 	const urlAffiliate = urlAffId || urlAffCode
 	const cookieLineUserId = cookies[ENV_COOKIE_NAMES.LineUserId]
 
-	const { data: { data: siteCurrencyList = [] } = {} } =
-		useGetSiteCurrencyListQuery()
+	const { data, isLoading, isError } = useGetSiteCurrencyListQuery()
+
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [getAffiliateAgent] = useLazyGetAffiliateAgentQuery()
 	const [signUp] = useSignupMutation()
 
-	const currencySelectOptions = siteCurrencyList
-		.filter(currencyId => {
-			const affiliate = getValues('affiliate')
-			const formCurrencyId = getValues('currencyId')
 
-			// If affId qualified, only show currencyId from api in select
-			return urlAffId && affiliate ? currencyId === formCurrencyId : true
-		})
-		.map(currencyId => ({
-			value: currencyId,
-			label: t(`Label_General_Currency_${currencyId}`),
-			prefixOptionIcon: (
-				<div
-					className={classNames(
-						'flag',
-						FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
-					)}
-				/>
-			),
-		}))
+	const buildSiteCurrencyListWithFlag = (currencyList: number[]) => {
+		return currencyList
+			.filter(currencyId => {
+				const affiliate = getValues('affiliate')
+				const formCurrencyId = getValues('currencyId')
+
+				// if affId qualified, only show currencyId from api
+				return urlAffId && affiliate ? currencyId === formCurrencyId : true
+			})
+			.map(currencyId => ({
+				value: currencyId,
+				label: t(`Label_General_Currency_${currencyId}`),
+				prefixOptionIcon: (
+					<div
+						className={classNames(
+							'flag',
+							FLAG_PREFIX_ICON_BY_CURRENCIES[currencyId]
+						)}
+					/>
+				),
+			}))
+	}
 
 	const checkLineRegister = () => {
 		if (!cookieLineUserId) return
@@ -279,8 +283,18 @@ const Join = ({ cookies }: IJoinProps) => {
 	}, [])
 
 	useEffect(() => {
-		checkLineRegister()
-	}, [siteCurrencyList])
+		if (!isLoading && !isError) {
+			const siteCurrencyListApiResult: number[] = data?.data ?? []
+			setSiteCurrencyList(siteCurrencyListApiResult)
+			setCurrencyOptions(
+				buildSiteCurrencyListWithFlag(siteCurrencyListApiResult)
+			)
+			setTimeout(() => {
+				selectCurrency(CurrenciesEnum.THB)
+			}, 1)
+			checkLineRegister()
+		}
+	}, [data, isLoading, isError])
 
 	return (
 		<>
@@ -301,11 +315,7 @@ const Join = ({ cookies }: IJoinProps) => {
 						{step === 2 && (
 							<Step2
 								// * 如果 Aff Input 有相對應的幣別，則使用 currencyOptions（Aff 過濾的幣別選項）
-								currencySelectOptions={
-									currencyOptions.length === 0
-										? currencySelectOptions
-										: currencyOptions
-								}
+								currencySelectOptions={currencyOptions}
 								selectCurrency={selectCurrency}
 							/>
 						)}

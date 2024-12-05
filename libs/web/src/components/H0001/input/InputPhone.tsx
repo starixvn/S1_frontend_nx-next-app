@@ -99,6 +99,7 @@ const InputPhone = ({
 					onChange={onChangeSelect}
 					value={selectValue}
 					showValue={showValue}
+				    isDropdown={false}
 				/>
 
 				<div
