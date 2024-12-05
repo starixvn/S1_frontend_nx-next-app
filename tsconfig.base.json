@@ -45,7 +45,13 @@
 			"@12b-indo-desktop/components/*": [
 				"apps/onetwobet-indo-desktop/components/*"
 			],
-			"@12b-indo-h5/components/*": ["apps/onetwobet-indo-h5/components/*"]
+			"@12b-indo-h5/components/*": ["apps/onetwobet-indo-h5/components/*"],
+
+			// noble888 cloned from nova88
+			"@noble888-desktop/providers": ["apps/noble888-desktop/providers"],
+			"@noble888-h5/providers": ["apps/noble888-h5/providers"],
+			"@noble888-desktop/components": ["apps/noble888-desktop/components"],
+			"@noble888-h5/components": ["apps/noble888-h5/components"]
 		},
 		"jsx": "react"
 	},

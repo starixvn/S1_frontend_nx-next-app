@@ -1,11 +1,8 @@
+import { NovaAuthProvider } from '@noble888-h5/providers'
 import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import {
-	AuthProvider,
-	GlobalDataProvider,
-	getSlotGamePage,
-} from '@nx-next-app/data-access'
-import { Layout, Slots } from '@nx-next-app/features/F0006/h5'
-import { SlotsProvider } from '@nx-next-app/features/F0006/providers'
+import { GlobalDataProvider, getSlotGamePage } from '@nx-next-app/data-access'
+import { Layout, Slots } from '@nx-next-app/features/F0001/h5'
+import { SlotsProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -30,7 +27,10 @@ const SlotsPage = ({
 	persistSlotsCategoryData,
 }: ISlotsPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -43,7 +43,7 @@ const SlotsPage = ({
 					</Layout>
 				</SlotsProvider>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

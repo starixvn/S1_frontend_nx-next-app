@@ -1,10 +1,7 @@
+import { NovaAuthProvider } from '@noble888-h5/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import {
-	AuthProvider,
-	getVipBanner,
-	GlobalDataProvider,
-} from '@nx-next-app/data-access'
-import { Layout, Vip } from '@nx-next-app/features/F0006/h5'
+import { getVipBanner, GlobalDataProvider } from '@nx-next-app/data-access'
+import { Layout, Vip } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -27,7 +24,10 @@ const VipPage = ({
 	vipBannerData,
 }: IVipPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -35,7 +35,7 @@ const VipPage = ({
 					<Vip vipBannerData={vipBannerData} />
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

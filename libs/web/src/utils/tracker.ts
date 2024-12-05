@@ -25,22 +25,46 @@ export const MetaPixelTracker = (
 	eventName: MetaPixelTrackerName,
 	amount?: number,
 	firstDeposit?: boolean,
-	isoCode?: string
+	isoCode?: string,
+	userName?: string,
+	transId?: string
 ) => {
 	if (window && 'fbq' in window && typeof window.fbq === 'function') {
 		if (eventName === 'CompleteRegistration') {
-			window.fbq('track', eventName)
+			window.fbq('track', eventName, {}, { eventID: userName })
 			return
 		}
 		if (eventName === 'Purchase') {
 			if (firstDeposit) {
-				window.fbq('track', 'StartTrial', { currency: isoCode, value: amount })
+				window.fbq(
+					'track',
+					'StartTrial',
+					{ currency: isoCode, value: amount },
+					{ eventID: transId }
+				)
 			} else {
-				window.fbq('track', 'redeposit', { currency: isoCode, value: amount })
+				window.fbq(
+					'track',
+					'redeposit',
+					{ currency: isoCode, value: amount },
+					{ eventID: transId }
+				)
 			}
-			window.fbq('track', eventName, { currency: isoCode, value: amount })
+			window.fbq(
+				'track',
+				eventName,
+				{ currency: isoCode, value: amount },
+				{ eventID: transId }
+			)
 			return
 		}
-		window.fbq('trackCustom', eventName)
+		window.fbq(
+			'trackCustom',
+			eventName,
+			{},
+			{
+				eventID: eventName === 'registerSubmit' ? userName : transId,
+			}
+		)
 	}
 }

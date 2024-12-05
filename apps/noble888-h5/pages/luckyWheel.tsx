@@ -1,7 +1,8 @@
+import { NovaAuthProvider } from '@noble888-h5/providers'
 import { ENV_COOKIE_NAMES, EVENT_PERIOD } from '@nx-next-app/constants'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, LuckyWheel } from '@nx-next-app/features/F0006/h5'
-import { LuckWheelProvider } from '@nx-next-app/features/F0006/providers'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
+import { Layout, LuckyWheel } from '@nx-next-app/features/F0001/h5'
+import { LuckWheelProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -20,7 +21,10 @@ const LuckyWheelPage = ({
 	persistStaticFileDomainData,
 }: ILuckyWheelPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -30,7 +34,7 @@ const LuckyWheelPage = ({
 					</LuckWheelProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

@@ -1,4 +1,5 @@
 export const BANNER_IMAGE_LIST = {
+	// TODO yashbet only
 	en: 'NewindexCenterBanner_en.jpg',
 	cs: 'NewindexCenterBanner_cs.jpg',
 	id: 'NewindexCenterBanner_id.jpg',
