@@ -2,6 +2,7 @@ import { CurrenciesEnum, IStaticLangGroups } from '@nx-next-app/types'
 
 export * from './affiliate'
 export * from './allowCurrency'
+export * from './event'
 export * from './footer'
 export * from './gtmData'
 export * from './images'

@@ -25,7 +25,7 @@ import {
 	ThirdPartyJS,
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY_DESKTOP,
 	VIP_CLUB_IMAGES,
-} from '@nx-next-app/site/nova88'
+} from '@nx-next-app/site/noble888'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
