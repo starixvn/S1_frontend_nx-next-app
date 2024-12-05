@@ -187,7 +187,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 		)
 	}
 	return (
-		<>
+		<div className='mobile-payform'>
 			<DepositModule
 				title={t('Label_Payment_Method')}
 				depositTitle={t('Label_Payment_Method', { lng: 'en' })}
@@ -252,7 +252,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				>
 					<div className='infoModule'>
 						<InputBox
-							icon='icon icon-pencil'
+							icon=''
 							register={register('UPIPayAccount', {
 								required: {
 									value: true,
@@ -278,7 +278,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 					<div className='infoModule'>
 						<InputBox
 							type='number'
-							icon='icon icon-pencil'
+							icon=''
 							register={register('amount', {
 								valueAsNumber: true,
 								required: {
@@ -357,33 +357,41 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 					required
 				>
 					<div className='infoModule'>
-						<Select
-							value={watchCustBankAccount}
-							options={bankCardOptions}
-							onChange={value => {
-								if (bankCardOrEWalletRequired) {
-									setValue('custEWalletAccount', undefined)
-								}
-								trigger('custBankAccount')
-								setValue('custBankAccount', String(value))
-								clearErrors('custBankAccount')
-							}}
-							errorMessage={errors['custBankAccount']?.message as string}
-						/>
-						<div
-							className={classNames('tip', {
-								active: errors['custBankAccount'],
-							})}
-						>
-							{errors['custBankAccount']?.message}
+						<div className='group-dropdown'>
+							<div className='inputBox-blue spacing-input-0'>
+								<div className='dropdown'>
+									<Select
+										value={watchCustBankAccount}
+										options={bankCardOptions}
+										onChange={value => {
+											if (bankCardOrEWalletRequired) {
+												setValue('custEWalletAccount', undefined)
+											}
+											trigger('custBankAccount')
+											setValue('custBankAccount', String(value))
+											clearErrors('custBankAccount')
+										}}
+										errorMessage={errors['custBankAccount']?.message as string}
+									/>
+								</div>
+							</div>
 						</div>
 						{custBankInfo.length < 3 && (
 							<div className='btn-group'>
 								<Link href={paths.bankInfo.root}>
-									<a>+</a>
+									<a>
+										<i className='icon  icon-add-fill' />
+									</a>
 								</Link>
 							</div>
 						)}
+					</div>
+					<div
+						className={classNames('tip', {
+							active: errors['custBankAccount'],
+						})}
+					>
+						{errors['custBankAccount']?.message}
 					</div>
 				</DepositModule>
 			)}
@@ -395,33 +403,44 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 					required
 				>
 					<div className='infoModule'>
-						<Select
-							value={watchCustEWalletAccount}
-							options={eWalletOptions}
-							onChange={value => {
-								if (bankCardOrEWalletRequired) {
-									setValue('custBankAccount', undefined)
-								}
-								trigger('custEWalletAccount')
-								setValue('custEWalletAccount', String(value))
-								clearErrors('custEWalletAccount')
-							}}
-							errorMessage={errors['custEWalletAccount']?.message as string}
-						/>
-						<div
-							className={classNames('tip', {
-								active: errors['custEWalletAccount'],
-							})}
-						>
-							{errors['custEWalletAccount']?.message}
+						<div className='group-dropdown'>
+							<div className='inputBox-blue spacing-input-0'>
+								<div className='dropdown'>
+									<Select
+										value={watchCustEWalletAccount}
+										options={eWalletOptions}
+										onChange={value => {
+											if (bankCardOrEWalletRequired) {
+												setValue('custBankAccount', undefined)
+											}
+											trigger('custEWalletAccount')
+											setValue('custEWalletAccount', String(value))
+											clearErrors('custEWalletAccount')
+										}}
+										errorMessage={
+											errors['custEWalletAccount']?.message as string
+										}
+									/>
+								</div>
+							</div>
 						</div>
+
 						{custEWalletList.length < 3 && (
 							<div className='btn-group'>
 								<Link href={paths.eWallet.root}>
-									<a>+</a>
+									<a>
+										<i className='icon  icon-add-fill' />
+									</a>
 								</Link>
 							</div>
 						)}
+					</div>
+					<div
+						className={classNames('tip', {
+							active: errors['custEWalletAccount'],
+						})}
+					>
+						{errors['custEWalletAccount']?.message}
 					</div>
 				</DepositModule>
 			)}
@@ -433,15 +452,21 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				})}
 			>
 				<div className='infoModule'>
-					<Select
-						value={watchBonusCode}
-						options={getCustPromotionOptions(watchAmount)}
-						onChange={value => {
-							// * bonusCode 與 promoCode 擇一使用因此清空 promoCode
-							setValue('bonusCode', String(value))
-							setValue('promoCode', undefined)
-						}}
-					/>
+					<div className='group-dropdown'>
+						<div className='inputBox-blue spacing-input-0'>
+							<div className='dropdown'>
+								<Select
+									value={watchBonusCode}
+									options={promotionOptions}
+									onChange={value => {
+										// * bonusCode 與 promoCode 擇一使用因此清空 promoCode
+										setValue('bonusCode', String(value))
+										setValue('promoCode', undefined)
+									}}
+								/>
+							</div>
+						</div>
+					</div>
 
 					<InputBox
 						register={register('promoCode')}
@@ -468,7 +493,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 					</button>
 				</div>
 			</Form>
-		</>
+		</div>
 	)
 }
 

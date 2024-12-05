@@ -282,14 +282,20 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 				})}
 			>
 				<div className='infoModule'>
-					<Select
-						value={watchBonusCode}
-						options={getCustPromotionOptions(watchAmount)}
-						onChange={value => {
-							setValue('bonusCode', String(value))
-							setValue('promoCode', undefined)
-						}}
-					/>
+					<div className='group-dropdown'>
+						<div className='inputBox-blue spacing-input-0'>
+							<div className='dropdown'>
+								<Select
+									value={watchBonusCode}
+									options={promotionOptions}
+									onChange={value => {
+										setValue('bonusCode', String(value))
+										setValue('promoCode', undefined)
+									}}
+								/>
+							</div>
+						</div>
+					</div>
 
 					<InputBox
 						register={register('promoCode')}
