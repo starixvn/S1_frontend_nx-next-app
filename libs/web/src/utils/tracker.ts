@@ -23,48 +23,38 @@ export const OperaPixelTracker = (eventName: OperaPixelTrackerName) => {
 }
 export const MetaPixelTracker = (
 	eventName: MetaPixelTrackerName,
+	eventID?: string,
 	amount?: number,
 	firstDeposit?: boolean,
-	isoCode?: string,
-	userName?: string,
-	transId?: string
+	isoCode?: string
 ) => {
-	if (window && 'fbq' in window && typeof window.fbq === 'function') {
-		if (eventName === 'CompleteRegistration') {
-			window.fbq('track', eventName, {}, { eventID: userName })
-			return
+	if (!(window && 'fbq' in window && typeof window.fbq === 'function')) return
+
+	const trackWithParams = (
+		action: string,
+		extraParams?: Record<string, unknown>
+	) => {
+		const params: Record<string, unknown> = {
+			currency: isoCode,
+			value: amount,
+			...extraParams,
 		}
-		if (eventName === 'Purchase') {
-			if (firstDeposit) {
-				window.fbq(
-					'track',
-					'StartTrial',
-					{ currency: isoCode, value: amount },
-					{ eventID: transId }
-				)
-			} else {
-				window.fbq(
-					'track',
-					'redeposit',
-					{ currency: isoCode, value: amount },
-					{ eventID: transId }
-				)
-			}
-			window.fbq(
-				'track',
-				eventName,
-				{ currency: isoCode, value: amount },
-				{ eventID: transId }
-			)
-			return
-		}
-		window.fbq(
-			'trackCustom',
-			eventName,
-			{},
-			{
-				eventID: eventName === 'registerSubmit' ? userName : transId,
-			}
-		)
+		;(window as any).fbq('track', action, params, { eventID })
+	}
+
+	switch (eventName) {
+		case 'CompleteRegistration':
+			window.fbq('track', eventName, {}, { eventID })
+			break
+		case 'Purchase':
+			trackWithParams(firstDeposit ? 'StartTrial' : 'redeposit')
+			trackWithParams(eventName)
+			break
+		case 'withdraw':
+			trackWithParams(eventName)
+			break
+		default:
+			window.fbq('trackCustom', eventName, {}, { eventID })
+			break
 	}
 }
