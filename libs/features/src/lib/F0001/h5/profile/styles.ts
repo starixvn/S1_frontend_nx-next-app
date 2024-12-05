@@ -366,5 +366,22 @@ export const WrapperProfileH5 = styled.div`
 	}
 	.edit-info {
 		padding: 0 5vw 2vw 5vw;
+		.group-dropdown {
+			width: 100%;
+			.inputBox {
+				width: 100%;
+				display: flex;
+			}
+			.text-dropdown {
+				span {
+					font-size: 3.2vw;
+				}
+			}
+		}
+		.group-select {
+			display: flex;
+			align-items: center;
+			gap: 0.6rem;
+		}
 	}
 `

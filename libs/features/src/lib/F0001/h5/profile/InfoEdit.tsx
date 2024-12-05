@@ -255,25 +255,46 @@ const InfoEdit = () => {
 				<Form onSubmit={handleSubmit(handleSubmitForm)}>
 					{!email && <div>{emailFieldRenderer()}</div>}
 					{!birthDay && (
-						<div className='infoModule parts'>
-							<Select
-								options={monthOptions}
-								prefixIcon={<i className='icon icon-calendar-2-line' />}
-								onChange={m => setValue('formBirthMonth', m as number)}
-								value={getValues('formBirthMonth')}
-							/>
-							<Select
-								options={dayOptions}
-								onChange={d => setValue('formBirthDay', d as number)}
-								value={getValues('formBirthDay')}
-							/>
-							<Select
-								options={yearOptions}
-								onChange={y => setValue('formBirthYear', y as number)}
-								value={getValues('formBirthYear')}
-							/>
+						<div className='group-select'>
+							<div className='group-dropdown'>
+								<div className='inputBox-blue input-width'>
+									<div className='dropdown'>
+										<Select
+											options={monthOptions}
+											prefixIcon={<i className='icon icon-calendar-2-line' />}
+											onChange={m => setValue('formBirthMonth', m as number)}
+											value={getValues('formBirthMonth')}
+										/>
+									</div>
+								</div>
+							</div>
+							<div className='group-dropdown'>
+								<div className='inputBox-blue input-width'>
+									<div className='dropdown'>
+										<Select
+											prefixIcon={<i className='icon icon-calendar-2-line' />}
+											options={dayOptions}
+											onChange={d => setValue('formBirthDay', d as number)}
+											value={getValues('formBirthDay')}
+										/>
+									</div>
+								</div>
+							</div>
+							<div className='group-dropdown'>
+								<div className='inputBox-blue input-width'>
+									<div className='dropdown'>
+										<Select
+											prefixIcon={<i className='icon icon-calendar-2-line' />}
+											options={yearOptions}
+											onChange={y => setValue('formBirthYear', y as number)}
+											value={getValues('formBirthYear')}
+										/>
+									</div>
+								</div>
+							</div>
 						</div>
 					)}
+
 					{!accountName && (
 						<InputBox
 							register={register('formRealName', {
@@ -294,15 +315,19 @@ const InfoEdit = () => {
 					)}
 
 					{!phoneNo && (
-						<div className='phone'>
-							<Select
-								showSearch
-								options={areaCodeSelectOptions}
-								prefixIcon={<i className='icon icon-phone-line txt-blue' />}
-								onChange={areaCode => selectAreaCode(areaCode)}
-								value={getValues('formAreaCode')}
-								errorMessage={phoneErrorTip}
-							/>
+						<div className='group-dropdown'>
+							<div className='inputBox-blue input-width'>
+								<div className='dropdown'>
+									<Select
+										showSearch
+										options={areaCodeSelectOptions}
+										prefixIcon={<i className='icon icon-phone-line txt-blue' />}
+										onChange={areaCode => selectAreaCode(areaCode)}
+										value={getValues('formAreaCode')}
+										errorMessage={phoneErrorTip}
+									/>
+								</div>
+							</div>
 							<InputBox
 								register={register('formPhone', {
 									required: {
@@ -319,30 +344,6 @@ const InfoEdit = () => {
 							/>
 						</div>
 					)}
-					<div className='phone'>
-						<Select
-							showSearch
-							options={areaCodeSelectOptions}
-							prefixIcon={<i className='icon icon-phone-line txt-blue' />}
-							onChange={areaCode => selectAreaCode(areaCode)}
-							value={getValues('formAreaCode')}
-							errorMessage={phoneErrorTip}
-						/>
-						<InputBox
-							register={register('formPhone', {
-								required: {
-									value: true,
-									message: t('Label_Join_PhoneRequired'),
-								},
-								onBlur: checkPhone,
-							})}
-							placeholder={t('Label_General_Phone') as string}
-							error={!!errors['formPhone'] || !!phoneErrorTip}
-							touched={!!touchedFields['formPhone']}
-							errorMessage={phoneErrorTip}
-							infoMessage={t('Label_Join_CantChangePhone') as string}
-						/>
-					</div>
 
 					{showSubmitBtn && (
 						<div className='btnGroup'>

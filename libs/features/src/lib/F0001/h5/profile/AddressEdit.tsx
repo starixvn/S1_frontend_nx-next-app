@@ -97,7 +97,10 @@ const AddressEdit = () => {
 					{t('Label_Profile_ShippingAddress')}:（{t('Label_Profile_Option2')}）
 				</div> */}
 				<div className='group-sub-title'>
-					<div className='heading-box'>{t('Label_Profile_Address')}</div>
+					<div className='heading-box'>
+						{t('Label_Profile_ShippingAddress')}:（{t('Label_Profile_Option2')}
+						）
+					</div>
 					<div className='body-box'>
 						<Form onSubmit={handleSubmit(handleSubmitForm)}>
 							<InputBox

@@ -2253,5 +2253,28 @@ export const GlobalStyles = createGlobalStyle`
         width: 10vw;
         height: 10vw;
       }
+      .group-dropdown {
+        .inputBox {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          .dropdown {
+            width: 100%;
+            .text {
+              width: 100%;
+              display: block;
+            }
+            &-item {
+              min-height: 8.5vw;
+              font-size: 3.1vw;
+            }
+            &-container {
+              max-height: 20rem;
+              overflow-y: auto;
+              border-radius: 0 0 20px 20px;
+            }
+          }
+        }
+      }
     }
 `
