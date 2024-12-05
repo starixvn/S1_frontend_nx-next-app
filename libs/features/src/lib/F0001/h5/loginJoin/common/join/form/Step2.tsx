@@ -12,6 +12,7 @@ import {
 	PHONE_LENGTH_REGEX,
 } from '@nx-next-app/constants'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
+import { useJoin } from '@nx-next-app/features/F0001/hooks'
 import { useLazyExistsEmailQuery } from '@nx-next-app/service'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
@@ -148,17 +149,25 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 	}, [])
 
 	return (
-		<>
-			<Select
-				options={currencySelectOptions}
-				value={getValues('currencyId')}
-				placeholder={t('Label_Join_PrefferedCurrency') as string}
-				prefixIcon={<i className='icon icon-coin-dollar' />}
-				onChange={currencyId => selectCurrency(currencyId)}
-				errorMessage={errors['currencyId']?.message as string}
-				infoMessage={t('Label_Join_CantChangePreferredCurrency') as string}
+		<WrapperJoinPage>
+			<div className='group-dropdown'>
+				<div className='inputBox-blue'>
+					<div className='dropdown'>
+						<Select
+							options={currencySelectOptions}
+							value={getValues('currencyId')}
+							placeholder={t('Label_Join_PrefferedCurrency') as string}
+							prefixIcon={<i className='icon icon-money-dollar-circle-line' />}
+							onChange={currencyId => selectCurrency(currencyId)}
+							errorMessage={errors['currencyId']?.message as string}
+							infoMessage={
 				isDropdown={false}
-			/>
+							}
+						/>
+					</div>
+				</div>
+			</div>
+
 			{!!errors['currencyId'] && (
 				<div className='tip active'>
 					{errors['currencyId']?.message as string}
@@ -173,7 +182,6 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 						},
 						onBlur: checkPhone,
 					})}
-					icon='icon icon-phone'
 					placeholder={t('Label_General_Phone') as string}
 					error={!!errors['phone']}
 					touched={!!touchedFields['phone']}
@@ -196,7 +204,7 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 					},
 					onBlur: checkEmail,
 				})}
-				icon='icon-member txt-blue'
+				icon='icon-mail-line txt-blue'
 				placeholder={t('Label_General_Email') || ''}
 				errorMessage={errors['email']?.message as string}
 				error={!!errors['email']}
@@ -205,48 +213,75 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 			/>
 
 			<div className='infoModule parts'>
-				<Select
-					options={monthOptions}
-					placeholder='MM'
-					defaultValue={1}
-					prefixIcon={<i className='icon icon-cake' />}
-					onChange={m => setValue('formBirthMonth', m as number)}
-					value={getValues('formBirthMonth')}
-				/>
-				<Select
-					options={dayOptions}
-					placeholder='DD'
-					defaultValue={1}
-					onChange={d => setValue('formBirthDay', d as number)}
-					value={getValues('formBirthDay')}
-				/>
-				<Select
-					options={yearOptions}
-					placeholder='YYYY'
-					defaultValue={1990}
-					onChange={y => setValue('formBirthYear', y as number)}
-					value={getValues('formBirthYear')}
-				/>
+				<div className='group-dropdown'>
+					<div className='inputBox-blue'>
+						<div className='dropdown'>
+							<Select
+								options={monthOptions}
+								placeholder='MM'
+								defaultValue={1}
+								prefixIcon={<i className='icon icon-calendar-2-line' />}
+								onChange={m => setValue('formBirthMonth', m as number)}
+								value={getValues('formBirthMonth')}
+							/>
+						</div>
+					</div>
+				</div>
+				<div className='group-dropdown'>
+					<div className='inputBox-blue'>
+						<div className='dropdown'>
+							<Select
+								options={dayOptions}
+								placeholder='DD'
+								prefixIcon={<i className='icon icon-calendar-2-line' />}
+								defaultValue={1}
+								onChange={d => setValue('formBirthDay', d as number)}
+								value={getValues('formBirthDay')}
+							/>
+						</div>
+					</div>
+				</div>
+				<div className='group-dropdown'>
+					<div className='inputBox-blue'>
+						<div className='dropdown'>
+							<Select
+								options={yearOptions}
+								placeholder='YYYY'
+								prefixIcon={<i className='icon icon-calendar-2-line' />}
+								defaultValue={1990}
+								onChange={y => setValue('formBirthYear', y as number)}
+								value={getValues('formBirthYear')}
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className='group-dropdown'>
+				<div className='inputBox-blue'>
+					<div className='dropdown'>
+						<Select
+							showSearch
+							isTranslation
+							options={countrySelectOptions}
+							defaultValue={initNationality}
+							value={getValues('nationality')}
+							placeholder={t('Label_Join_Nationality') as string} // TODO: 請ＰＭ給完整i18n
+							prefixIcon={<i className='icon icon-search' />}
+							onChange={value => {
+								setValue('nationality', value)
+							}}
+							errorMessage={errors['nationality']?.message as string}
+						/>
+					</div>
+				</div>
 			</div>
 
-			<Select
-				showSearch
-				isTranslation
-				options={countrySelectOptions}
-				defaultValue={initNationality}
-				value={getValues('nationality')}
-				placeholder={t('Label_Join_Nationality') as string} // TODO: 請ＰＭ給完整i18n
-				prefixIcon={<i className='icon icon-sphere txt-blue' />}
-				onChange={value => {
-					setValue('nationality', value)
-				}}
-				errorMessage={errors['nationality']?.message as string}
-			/>
-
-			<div className='btn-group'>
-				<button type='submit'>{t('Label_General_Join')}</button>
+			<div className='btnGroup'>
+				<button type='submit' className='btn-primary'>
+					{t('Label_General_Join')}
+				</button>
 			</div>
-		</>
+		</WrapperJoinPage>
 	)
 }
 

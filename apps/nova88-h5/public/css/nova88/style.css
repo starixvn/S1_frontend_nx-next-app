@@ -1027,10 +1027,6 @@ main .gameList .icon-new {
 		transform: translateY(0px);
 	}
 }
-.icon + .dropdown ~ .dropdown-container .dropdown-item {
-	padding: 2vw 2vw 2vw 9vw;
-}
-
 /* #popup {
 	width: calc(100% - 16vw);
 	height: calc(100% - 16vw);
@@ -3524,24 +3520,6 @@ main .gameList .icon-new {
 	float: right;
 }
 
-.infoModule.parts {
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-flow: row wrap;
-	flex-flow: row wrap;
-}
-.infoModule.parts + span {
-	color: #5574a7;
-}
-.infoModule.parts + span + div {
-	color: #5574a7;
-}
-.infoModule.parts .phone {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	width: 100%;
-}
 /* .infoModule.parts .phone .inputBox input,
 .infoModule.parts .phone .euro .inputBox-event input,
 .euro .infoModule.parts .phone .inputBox-event input,
@@ -4509,7 +4487,6 @@ main .gameList .icon-new {
 .recent .info {
 	display: none;
 }
-
 
 .txt-red {
 	color: #e92529;

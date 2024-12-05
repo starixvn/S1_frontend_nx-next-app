@@ -1,8 +1,8 @@
+import { Select } from '@nx-next-app/components/H0001'
+import { SelectOptionType } from '@nx-next-app/types'
 import classNames from 'classnames'
 import React, { InputHTMLAttributes, useState } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
-import { Select } from '@nx-next-app/components/H0001'
-import { SelectOptionType } from '@nx-next-app/types'
 
 export interface IInputPhoneProps
 	extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
@@ -80,47 +80,61 @@ const InputPhone = ({
 	}
 
 	return (
-		<div className={classNames('infoModule', className)}>
-			{!!infoMessage && (
-				<div
-					className={classNames('inputInfo', {
-						active: showInfo,
-					})}
-				>
-					{infoMessage}
-				</div>
-			)}
-			<div className='phone'>
-				<Select
-					showSearch
-					options={selectOptions}
-					placeholder=''
-					prefixIcon={<i className='icon icon-phone' />}
-					onChange={onChangeSelect}
-					value={selectValue}
-					showValue={showValue}
+		<>
+			<div className='group-dropdown'>
+				<div className='inputBox-blue'>
+					<div className='dropdown'>
+						<div className={classNames('infoModule', className)}>
+							{!!infoMessage && (
+								<div
+									className={classNames('inputInfo', {
+										active: showInfo,
+									})}
+								>
+									{infoMessage}
+								</div>
+							)}
+							<div className='phone'>
+								<Select
+									showSearch
+									options={selectOptions}
+									placeholder=''
+									prefixIcon={<i className='icon icon-phone-line' />}
+									onChange={onChangeSelect}
+									value={selectValue}
+									showValue={showValue}
 				    isDropdown={false}
-				/>
+								/>
 
-				<div
-					className={classNames('inputBox', {
-						error,
-					})}
-				>
-					{inputIcon()}
-					<input disabled={disabled} type='tel' {...props} {...register} />
-					<div className='icon-module'>
-						{stateIcon()}
-						{!!infoMessage && (
-							<i
-								className='icon icon-information'
-								onClick={() => setShowInfo(prev => !prev)}
-							/>
-						)}
+								<div
+									className={classNames('inputBox', {
+										error,
+									})}
+								>
+									{inputIcon()}
+									<input
+										disabled={disabled}
+										type='tel'
+										{...props}
+										{...register}
+									/>
+									<div className='icon-module'>
+										{stateIcon()}
+										{!!infoMessage && (
+											<i
+												className='icon icon-information'
+												onClick={() => setShowInfo(prev => !prev)}
+											/>
+										)}
+									</div>
+								</div>
+								{children}
+							</div>
+						</div>
 					</div>
 				</div>
-				{children}
 			</div>
+
 			<div
 				className={classNames('tip', {
 					active: error,
@@ -128,7 +142,7 @@ const InputPhone = ({
 			>
 				{errorMessage}
 			</div>
-		</div>
+		</>
 	)
 }
 
