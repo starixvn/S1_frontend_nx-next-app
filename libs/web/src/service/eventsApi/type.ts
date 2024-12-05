@@ -251,18 +251,19 @@ export interface IGetPredictionWinnerListArgs {
 export type TGetPredictionWinnerListData = {
 	bonusCode: string
 	bonus: number
-	winners: string[]
-	sportLeaguesTitle: string
-	matchId: number
+	isoCode: string
+	winners?: string[]
+	sportLeaguesTitle?: string
+	matchId?: number
 	tpId?: string
-	gameld?: string
-	homeTeamLeaguesId: number
-	homeTeamId: number
-	homeTeamName: string
-	awayTeamLeaguesId: number
-	awayTeamId: number
-	awayTeamName: string
-	battleTime: string
+	gameId?: string
+	homeTeamLeaguesId?: number
+	homeTeamId?: number
+	homeTeamName?: string
+	awayTeamLeaguesId?: number
+	awayTeamId?: number
+	awayTeamName?: string
+	battleTime?: string
 	homeOdds?: number
 	awayOdds?: number
 	handicap?: number
