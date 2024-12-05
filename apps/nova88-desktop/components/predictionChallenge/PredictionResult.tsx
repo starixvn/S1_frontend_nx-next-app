@@ -32,7 +32,9 @@ const PredictionResult = () => {
 	const date = dayjs(battleTime).format(dateFormat)
 	const time = dayjs(battleTime).format(timeFormat)
 	const formatBonus = numberFormat(bonus, currencyId)
-	const winnerList = [...winners, '-', '-', '-', '-', '-'].slice(0, 5)
+	const winnerList = winners
+		? [...winners, '-', '-', '-', '-', '-'].slice(0, 5)
+		: ['-', '-', '-', '-', '-']
 
 	const onOpenTermsConditionsModal = () => {
 		modal.open(<PredictionChallengeTermsModal bonusCode={bonusCode} />, {
@@ -46,7 +48,7 @@ const PredictionResult = () => {
 			<div className='result-content'>
 				<div className='result-top'>
 					<div className='sub-caption'>
-						{predictResult && (
+						{homeTeamName && (
 							<>
 								<div className='time'>{`${date} ${time}`}</div>
 								<div className='title'>{`${homeTeamName} VS ${awayTeamName}`}</div>
