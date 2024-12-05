@@ -1,5 +1,7 @@
 import { useGlobalModal } from "@nx-next-app/components/config-provider";
 import { paths } from "@nx-next-app/constants";
+import AppearSensor from "@nx-next-app/features/F0001/h5/common/appearSensor";
+import { NoData } from "@nx-next-app/features/F0001/h5/common/NoData";
 import { LoadingIcon } from "@nx-next-app/features/F0001/h5/home/gameIcon/icons";
 import { GameIconContainer, GameListContainer } from "@nx-next-app/features/F0001/h5/lobby-game/styles";
 import { useMenu } from "@nx-next-app/features/F0001/hooks";
@@ -49,106 +51,111 @@ const GameList = () => {
 		})
 	}
 
-	console.log('-------lobbyGameList', lobbyGameList)
-
 	return lobbyGameList && lobbyGameList.length > 0 ? (
 		<Suspense>
 			<GameListContainer>
-				{lobbyGameList.map(
-					({
-						tpId,
-						gameId,
-						gameName,
-						tpName,
-						isMaintain,
-						isFavorite,
-						imgGameName,
-						betType,
-						tpGameType,
-						displayText,
-						...rest
-					}) => {
-						const resultGameImgDisplayText = vendorList.find(
-							({ tpId: vendorTpId }) => vendorTpId === tpId
-						)?.gameImgDisplayText
+				<AppearSensor>
+					{({ hasBeenVisible }: { hasBeenVisible: boolean }) => {
+						return lobbyGameList.map(
+							({
+								tpId,
+								gameId,
+								gameName,
+								tpName,
+								isMaintain,
+								isFavorite,
+								imgGameName,
+								betType,
+								tpGameType,
+								displayText,
+								...rest
+							}) => {
+								const resultImgUrl = `${
+									process.env['NEXT_PUBLIC_IMAGE_HOST']
+								}/${tpName}/${gameName
+									.toLowerCase()
+									.split(' ')
+									.join('-')}@1x.webp`
 
-						const resultImgUrl = `${
-							process.env['NEXT_PUBLIC_IMAGE_HOST']
-						}/${tpName}/${gameName.toLowerCase().split(' ').join('-')}@1x.webp`
+								const lobbyGameItem = {
+									tpId,
+									betType,
+									tpGameType,
+									gameId,
+									tpName,
+								} as IDynamicSubMenuItem
 
-						const lobbyGameItem = {
-							tpId,
-							betType,
-							tpGameType,
-							gameId,
-							tpName,
-						} as IDynamicSubMenuItem
-
-						return (
-							<GameIconContainer
-								className={classNames({
-									'star active': isMaintain,
-								})}
-							>
-								<button
-									className='img-wrapper'
-									onClick={() => onItemClick(lobbyGameItem)}
-								>
-									<Img
-										className='img'
-										src={resultImgUrl}
-										loader={<LoadingIcon />}
-										// unloader={<NoGameIcon />}
-										unloader={<p>{gameName}</p>}
-										alt={gameName}
-									/>
-								</button>
-
-								<div className='details'>
-									<div className='providerName'>
-										{tpId === ProviderEnum.MaxGame ||
-										tpId === ProviderEnum.Keno ||
-										tpId === ProviderEnum.Lottery ||
-										tpId === ProviderEnum.TableGame
-											? 'MaxPlay'
-											: displayText}
-									</div>
-
-									<div
-										onClick={() =>
-											onFavoritesToggle({
-												tpId,
-												gameId,
-											})
-										}
-										className={classNames('icon icon-star-fill icon-favorite', {
-											active: isFavorite,
+								return (
+									<GameIconContainer
+										className={classNames({
+											'star active': isMaintain,
 										})}
-									/>
-								</div>
+									>
+										<button
+											className='img-wrapper'
+											onClick={() => onItemClick(lobbyGameItem)}
+										>
+											{hasBeenVisible && (
+												<Img
+													className='img'
+													src={resultImgUrl}
+													loader={<LoadingIcon />}
+													// unloader={<NoGameIcon />}
+													unloader={<p>{gameName}</p>}
+													alt={gameName}
+												/>
+											)}
+										</button>
 
-								{isMaintain && (
-									<div className='um-container'>
-										<div className='under'>
-											{t('Label_General_UnderMaintenance')}
+										<div className='details'>
+											<div className='providerName'>
+												{tpId === ProviderEnum.MaxGame ||
+												tpId === ProviderEnum.Keno ||
+												tpId === ProviderEnum.Lottery ||
+												tpId === ProviderEnum.TableGame
+													? 'MaxPlay'
+													: displayText}
+											</div>
+
+											<div
+												onClick={() =>
+													onFavoritesToggle({
+														tpId,
+														gameId,
+													})
+												}
+												className={classNames(
+													'icon icon-star-fill icon-favorite',
+													{
+														active: isFavorite,
+													}
+												)}
+											/>
 										</div>
-									</div>
-								)}
 
-								{newGamesArr.includes(gameId) ? (
-									<div className='new-icon'>{t('Label_General_New')}</div>
-								) : null}
-							</GameIconContainer>
+										{isMaintain && (
+											<div className='um-container'>
+												<div className='under'>
+													{t('Label_General_UnderMaintenance')}
+												</div>
+											</div>
+										)}
+
+										{newGamesArr.includes(gameId) ? (
+											<div className='new-icon'>{t('Label_General_New')}</div>
+										) : null}
+									</GameIconContainer>
+								)
+							}
 						)
-					}
-				)}
+					}}
+				</AppearSensor>
+
 				<span ref={gameListRef} />
 			</GameListContainer>
 		</Suspense>
 	) : (
-		<div className='nodata icon icon-nodata'>
-			<div className='txt-white'>{t('Label_General_NoData')}</div>
-		</div>
+		<NoData customClass='no-border' />
 	)
 }
 

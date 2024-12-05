@@ -16,8 +16,8 @@ export const HotMatchContainer = styled.div`
 
 	.match-item {
 		width: 100%;
-		background: ${({ theme }) => theme.desktop.hotMatchBg};
-		box-shadow: ${({ theme }) => theme.desktop.hotMatchShadow};
+		background: ${({ theme }) => theme.mobile.hotMatchBg};
+		box-shadow: ${({ theme }) => theme.mobile.hotMatchShadow};
 		border-radius: 4.8vw;
 		overflow: hidden;
 
@@ -28,9 +28,9 @@ export const HotMatchContainer = styled.div`
 			justify-content: space-between;
 			height: 9.7vw;
 			padding-left: 3.8vw;
-			background: ${({ theme }) => theme.desktop.hotMatchHeaderBg};
+			background: ${({ theme }) => theme.mobile.hotMatchHeaderBg};
 			overflow: hidden;
-			color: ${({ theme }) => theme.desktop.hotMatchHeaderColor};
+			color: ${({ theme }) => theme.mobile.hotMatchHeaderColor};
 			text-overflow: ellipsis;
 			font-size: 3.6vw;
 			font-weight: 700;
@@ -73,7 +73,7 @@ export const HotMatchContainer = styled.div`
 				width: 31.8vw;
 				height: 36.4vw;
 				background: url(${({ theme }) =>
-						theme.assetUrl}/desktop/img/new-ui/match-bg.webp)
+						theme.assetUrl}/h5/img/new-ui/match-bg.webp)
 					no-repeat;
 				z-index: 1;
 			}
@@ -96,7 +96,7 @@ export const HotMatchContainer = styled.div`
 						width: 9.7vw;
 						border-radius: 50%;
 						margin-right: 1.94vw;
-						background: ${({ theme }) => theme.desktop.hotMatchLogoBg};
+						background: ${({ theme }) => theme.mobile.hotMatchLogoBg};
 					}
 
 					div {
@@ -114,17 +114,17 @@ export const HotMatchContainer = styled.div`
 					justify-content: space-between;
 					align-items: center;
 					border-radius: 12.13vw;
-					background: ${({ theme }) => theme.desktop.hotMatchOddsBg};
+					background: ${({ theme }) => theme.mobile.hotMatchOddsBg};
 					width: 26.69vw;
 					height: 5.82vw;
 					border-radius: 12.13vw;
 					padding: 0 3.88vw;
 					margin-top: 1.21vw;
 					font-size: 3.39vw;
-					color: ${({ theme }) => theme.desktop.hotMatchOddsColor};
+					color: ${({ theme }) => theme.mobile.hotMatchOddsColor};
 
 					span:nth-child(2) {
-						color: ${({ theme }) => theme.desktop.hotMatchAwayOddsColor};
+						color: ${({ theme }) => theme.mobile.hotMatchAwayOddsColor};
 					}
 				}
 			}
@@ -133,7 +133,7 @@ export const HotMatchContainer = styled.div`
 		.match-date {
 			display: flex;
 			gap: 2.91vw;
-			color: ${({ theme }) => theme.desktop.hotMatchDateColor};
+			color: ${({ theme }) => theme.mobile.hotMatchDateColor};
 			text-overflow: ellipsis;
 			font-size: 3.39vw;
 			font-weight: 400;
@@ -155,18 +155,13 @@ export const HotMatchContainer = styled.div`
 			height: 100%;
 			border-radius: 4.8vw 0;
 			padding: 2.4vw 4.8vw;
-			background: ${({ theme }) => theme.desktop.hotMatchBtnBg};
-			box-shadow: ${({ theme }) => theme.desktop.hotMatchBtnShadow};
+			background: ${({ theme }) => theme.mobile.hotMatchBtnBg};
+			box-shadow: ${({ theme }) => theme.mobile.hotMatchBtnShadow};
 			text-transform: uppercase;
 			font-size: 4.12vw;
 			font-weight: 600;
 			letter-spacing: 0.85px;
-			color: ${({ theme }) => theme.desktop.hotMatchBtnColor};
-
-			&:hover {
-				background: ${({ theme }) => theme.desktop.hotMatchBtnBgHover};
-				box-shadow: ${({ theme }) => theme.desktop.hotMatchBtnShadowHover};
-			}
+			color: ${({ theme }) => theme.mobile.hotMatchBtnColor};
 		}
 	}
 `

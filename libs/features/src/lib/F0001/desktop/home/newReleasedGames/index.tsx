@@ -1,4 +1,3 @@
-import { paths } from "@nx-next-app/constants";
 import GameList from "@nx-next-app/features/F0001/desktop/home/GameList";
 import GroupTitle from "@nx-next-app/features/F0001/desktop/home/GroupTitle";
 import { GameGroup } from "@nx-next-app/features/F0001/desktop/home/styles";
@@ -15,7 +14,7 @@ const NewReleasedGames = () => {
 
 	return (
 		<GameGroup className='content-container others'>
-			<GroupTitle title={t('Label_New_Release')} href={paths.sports.root} />
+			<GroupTitle title={t('Label_New_Release')} />
 			<GameList gameData={newGameData} isControlButton />
 		</GameGroup>
 	)

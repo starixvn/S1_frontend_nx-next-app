@@ -315,6 +315,43 @@ export const theme = {
 		marqueeMessageBg: '#374375',
 		marqueeMessageColor: '#fff',
 
+		bannerBulletBg: '#374375',
+		bannerBulletBgActive: '#EA6118',
+
+		homePageTitleColor: '#fff',
+		homePageLoadMoreColor: '#717FBA',
+
+		carouselBtnBg: '#374375',
+		carouselBtnBorder: '#0f1428',
+		carouselBtnColor: '#fff',
+		carouselBtnColorDisabled: '#717fba',
+
+		gameIconBg: '#1D2447',
+		gameIconLoadingColor: '#fff',
+		gameIconProviderNameColor: '#fff',
+		gameIconMaintainBg:
+			'linear-gradient(180deg, rgba(35, 43, 79, 0.00) 0%, rgba(35, 43, 79, 0.70) 25.5%, rgba(35, 43, 79, 0.70) 75%, rgba(35, 43, 79, 0.00) 100%)',
+		gameIconMaintainColor: '#fff',
+		gameIconNoGameIconColor: '#374375',
+		gameIconNewBg: '#f00',
+		gameIconNewColor: '#fff',
+		gameIconNewShadow: '0px 2.286px 0px 0px rgba(0, 0, 0, 0.25)',
+		gameIconFavoriteColor: '#fff',
+		gameIconFavoriteColorActive: '#fbc208',
+
+		hotMatchBg: '#374375',
+		hotMatchShadow: '0px -5px 0px 0px #323c6a inset',
+		hotMatchHeaderBg: '#232b4f',
+		hotMatchHeaderColor: '#fff',
+		hotMatchLogoBg: '#dfdfdf',
+		hotMatchOddsBg: '#232b4f',
+		hotMatchOddsColor: '#fff',
+		hotMatchAwayOddsColor: '#3b7bf0',
+		hotMatchDateColor: '#fff',
+		hotMatchBtnBg: '#ea6118',
+		hotMatchBtnShadow: '0px -5px 0px 0px #d35716 inset',
+		hotMatchBtnColor: '#fff',
+
 		rightModuleBg: '#182043',
 		rightModuleTitleBg: '#232B4F',
 		rightModuleBorderColor: '#374375',

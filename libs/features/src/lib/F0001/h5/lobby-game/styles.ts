@@ -92,84 +92,40 @@ export const LobbyGamePage = styled.div`
 		justify-content: space-between;
 		flex-direction: column;
 		padding: 0 3.88vw;
-
-		.parts {
-			.dropdown-container {
-				background: white;
-			}
-		}
-
-		.filterSelect {
-			display: flex;
-			height: 11.65vw;
-			margin-top: 3.88vw;
-			margin-bottom: 3.88vw;
-			gap: 3.88vw;
-
-			button,
-			a {
-				color: #717fba;
-				margin: 0 1.94vw;
-				padding: 0 1.94vw;
-				white-space: nowrap;
-				border-radius: 0;
-				font-size: 3.39vw;
-				font-weight: 600;
-
-				&.active {
-					margin-top: 1vw;
-					color: #fff;
-					border-bottom: 0.48vw solid #ea6118;
-				}
-			}
-		}
-
-		.partnerSelect {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 3.88vw;
-			width: 100%;
-
-			.provider-item {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				gap: 1.8vw;
-				flex: 0 0 calc((100% - 7.76vw) / 3);
-				height: 21.8vw;
-				background: #1d2447;
-				border-radius: 2.42vw;
-				color: #fff;
-				font-size: 12px;
-				font-style: normal;
-				font-weight: 700;
-
-				.img-container {
-					width: 8.7vw;
-					height: 8.7vw;
-					border-radius: 50%;
-					background: #dcdee9;
-				}
-
-				&.active {
-					background: linear-gradient(0deg, #717fba 0%, #a2afe5 100%);
-					color: white;
-				}
-			}
-
-			.provider-name {
-				text-align: center;
-				font-size: 2.91vw;
-				font-style: normal;
-				font-weight: 700;
-			}
-		}
-	}
-
-	.game-container {
 	}
 `
+
+export const CategoryFilterTabs = styled.div`
+	display: flex;
+	height: 11.65vw;
+	border-bottom: 1px solid #556298;
+	margin: 3.88vw 1.94vw;
+	gap: 3.88vw;
+	width: 92vw;
+
+	.embla {
+		--slide-size: auto;
+	}
+
+	.tab-item {
+		position: relative;
+		bottom: 0.72vw;
+		height: 11.65vw;
+		margin: 0 1.94vw;
+		padding: 0 1.94vw;
+		white-space: nowrap;
+		color: #717fba;
+		font-size: 3.39vw;
+		font-weight: 600;
+
+		&.active {
+			margin-top: 1vw;
+			color: #fff;
+			border-bottom: 0.48vw solid #ea6118;
+		}
+	}
+`
+
 export const GameListContainer = styled.div`
 	display: flex;
 	justify-content: flex-start;
@@ -184,7 +140,7 @@ export const GameIconContainer = styled.div`
 	align-items: center;
 	justify-content: center;
 	flex: 0 0 calc((100% - 7.76vw) / 3);
-	background: ${({ theme }) => theme.desktop.gameIconBg};
+	background: ${({ theme }) => theme.mobile.gameIconBg};
 	border-radius: 2rem;
 
 	.img-wrapper {
@@ -221,7 +177,7 @@ export const GameIconContainer = styled.div`
 			bottom: 1.9vw;
 			width: 100%;
 			text-align: center;
-			color: ${({ theme }) => theme.desktop.gameIconProviderNameColor};
+			color: ${({ theme }) => theme.mobile.gameIconProviderNameColor};
 			font-size: 2.9vw;
 			font-style: normal;
 			font-weight: 400;
@@ -234,11 +190,11 @@ export const GameIconContainer = styled.div`
 			font-size: 4.85vw;
 
 			&:before {
-				color: ${({ theme }) => theme.desktop.gameIconFavoriteColor};
+				color: ${({ theme }) => theme.mobile.gameIconFavoriteColor};
 			}
 
 			&.active:before {
-				color: ${({ theme }) => theme.desktop.gameIconFavoriteColorActive};
+				color: ${({ theme }) => theme.mobile.gameIconFavoriteColorActive};
 			}
 		}
 	}
@@ -263,8 +219,8 @@ export const GameIconContainer = styled.div`
 			align-items: center;
 			justify-content: center;
 			padding: 1.9vw 0;
-			background: ${({ theme }) => theme.desktop.gameIconMaintainBg};
-			color: ${({ theme }) => theme.desktop.gameIconMaintainColor};
+			background: ${({ theme }) => theme.mobile.gameIconMaintainBg};
+			color: ${({ theme }) => theme.mobile.gameIconMaintainColor};
 			text-align: center;
 			font-size: 2.4vw;
 			font-weight: 700;
@@ -277,9 +233,9 @@ export const GameIconContainer = styled.div`
 		top: 1.9vw;
 		padding: 0.72vw 1.45vw;
 		border-radius: 12.6vw;
-		background: ${({ theme }) => theme.desktop.gameIconNewBg};
-		box-shadow: ${({ theme }) => theme.desktop.gameIconNewShadow};
-		color: ${({ theme }) => theme.desktop.gameIconNewColor};
+		background: ${({ theme }) => theme.mobile.gameIconNewBg};
+		box-shadow: ${({ theme }) => theme.mobile.gameIconNewShadow};
+		color: ${({ theme }) => theme.mobile.gameIconNewColor};
 		font-size: 2.4vw;
 		font-weight: 600;
 		z-index: 2;

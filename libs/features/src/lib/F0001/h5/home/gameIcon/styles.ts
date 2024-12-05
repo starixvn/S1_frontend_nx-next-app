@@ -11,7 +11,7 @@ export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 )`
 	position: relative;
 	border-radius: 2rem;
-	background: ${({ theme }) => theme.desktop.gameIconBg};
+	background: ${({ theme }) => theme.mobile.gameIconBg};
 	overflow: hidden;
 
 	&.maintain {
@@ -32,8 +32,8 @@ export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 			top: 50%;
 			transform: translateY(-50%);
 			padding: 27px 8px;
-			background: ${({ theme }) => theme.desktop.gameIconMaintainBg};
-			color: ${({ theme }) => theme.desktop.gameIconMaintainColor};
+			background: ${({ theme }) => theme.mobile.gameIconMaintainBg};
+			color: ${({ theme }) => theme.mobile.gameIconMaintainColor};
 			font-size: 1.4rem;
 			font-weight: 700;
 			text-align: center;
@@ -65,7 +65,7 @@ export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 		text-align: center;
 		width: 100%;
 		line-height: 1.8rem;
-		color: ${({ theme }) => theme.desktop.gameIconProviderNameColor};
+		color: ${({ theme }) => theme.mobile.gameIconProviderNameColor};
 		text-overflow: ellipsis;
 		font-size: 1.2rem;
 		font-weight: 400;
@@ -81,7 +81,7 @@ export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 export const NoGameIconWrapper = styled.div`
 	.icon:before {
 		font-size: 3rem;
-		color: ${({ theme }) => theme.desktop.gameIconNoGameIconColor};
+		color: ${({ theme }) => theme.mobile.gameIconNoGameIconColor};
 	}
 `
 

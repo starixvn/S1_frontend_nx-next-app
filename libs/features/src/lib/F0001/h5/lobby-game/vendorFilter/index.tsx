@@ -1,14 +1,22 @@
-import React from 'react'
-import VendorItem from '@nx-next-app/features/F0001/h5/slots/vendorFilter/VendorItem'
-import { useLobby } from '@nx-next-app/features/F0001/providers'
+import { VendorFilterContainer } from "@nx-next-app/features/F0001/h5/lobby-game/vendorFilter/styles";
+import VendorItem from "@nx-next-app/features/F0001/h5/slots/vendorFilter/VendorItem";
+import { useLobby } from "@nx-next-app/features/F0001/providers";
 
 const VendorFilter = () => {
 	const { vendorList, activeVendorTpId, onVendorChange } = useLobby()
 
 	return (
-		<div className='partnerSelect'>
+		<VendorFilterContainer>
 			{vendorList?.map(
-				({ tpId, displayText, openPath, pathRoot, tpName, imgName, ...rest }) => {
+				({
+					tpId,
+					displayText,
+					openPath,
+					pathRoot,
+					tpName,
+					imgName,
+					...rest
+				}) => {
 					return (
 						<VendorItem
 							key={`slot-swiper-${tpId}`}
@@ -16,7 +24,7 @@ const VendorFilter = () => {
 								tpId,
 								displayText,
 								openPath,
-                pathRoot,
+								pathRoot,
 								tpName,
 								imgName,
 								...rest,
@@ -29,7 +37,7 @@ const VendorFilter = () => {
 					)
 				}
 			)}
-		</div>
+		</VendorFilterContainer>
 	)
 }
 

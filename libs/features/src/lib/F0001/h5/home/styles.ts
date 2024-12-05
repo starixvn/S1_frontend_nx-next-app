@@ -33,14 +33,14 @@ export const HomPageContainer = styled.div`
 			.swiper-pagination-bullet {
 				width: 2.4vw;
 				height: 1.4vw;
-				background: ${({ theme }) => theme.desktop.bannerBulletBg};
+				background: ${({ theme }) => theme.mobile.bannerBulletBg};
 				margin: 0 0.97vw;
 				border-radius: 0.8rem;
 
 				&.swiper-pagination-bullet-active {
 					width: 10.9vw;
 					height: 1.4vw;
-					background: ${({ theme }) => theme.desktop.bannerBulletBgActive};
+					background: ${({ theme }) => theme.mobile.bannerBulletBgActive};
 				}
 			}
 		}
@@ -74,7 +74,7 @@ export const GameContainer = styled.div`
 export const GroupTitleContainer = styled.div`
 	display: flex;
 	justify-content: space-between;
-	color: ${({ theme }) => theme.desktop.homePageTitleColor};
+	color: ${({ theme }) => theme.mobile.homePageTitleColor};
 	font-size: 5.8vw;
 	font-weight: 700;
 
@@ -82,36 +82,18 @@ export const GroupTitleContainer = styled.div`
 		display: flex;
 		align-items: center;
 		margin-right: 22vw;
-		color: ${({ theme }) => theme.desktop.homePageLoadMoreColor};
+		color: ${({ theme }) => theme.mobile.homePageLoadMoreColor};
 		font-size: 4.1vw;
 		font-weight: 600;
 
 		.icon:before {
-			color: ${({ theme }) => theme.desktop.homePageLoadMoreColor};
-		}
-
-		&:hover,
-		&:hover .icon:before {
-			color: ${({ theme }) => theme.desktop.homePageLoadMoreColorHover};
+			color: ${({ theme }) => theme.mobile.homePageLoadMoreColor};
 		}
 	}
 `
 export const GameGroup = styled.div`
 	position: relative;
 	padding: 5.8vw 3.8vw;
-
-	&.promotion {
-		width: ${({ theme }) => theme.desktop.minContentWidth};
-		margin: 0 auto;
-
-		@media (min-width: 1450px) {
-			width: 140rem;
-		}
-
-		.load-more {
-			margin-right: 0;
-		}
-	}
 
 	.embla__container {
 		--slide-height: 45.87vw;
@@ -133,12 +115,12 @@ export const GameGroup = styled.div`
 
 		.embla__button {
 			border-radius: 2.4vw;
-			border: 2px solid ${({ theme }) => theme.desktop.carouselBtnBorder};
-			background: ${({ theme }) => theme.desktop.carouselBtnBg};
+			border: 2px solid ${({ theme }) => theme.mobile.carouselBtnBorder};
+			background: ${({ theme }) => theme.mobile.carouselBtnBg};
 			font-size: 5.8vw;
 
 			&:disabled .icon:before {
-				color: ${({ theme }) => theme.desktop.carouselBtnColorDisabled};
+				color: ${({ theme }) => theme.mobile.carouselBtnColorDisabled};
 			}
 		}
 	}
