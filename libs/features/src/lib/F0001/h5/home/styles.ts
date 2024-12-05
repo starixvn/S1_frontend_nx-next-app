@@ -68,8 +68,6 @@ export const HomPageContainer = styled.div`
 `
 
 export const GameContainer = styled.div`
-	display: grid;
-	gap: 3.8vw;
 	margin-top: 5.8vw;
 `
 
@@ -116,15 +114,13 @@ export const GameGroup = styled.div`
 	}
 
 	.embla__container {
-		--slide-height: 18.9rem;
-		--slide-size: 14rem;
-		--column-count: 3.2;
+		--slide-height: 45.87vw;
+		--slide-size: 33.9vw;
 		--single-column-width: 33.9vw;
 
 		display: grid;
 		grid-auto-flow: column;
 		grid-auto-columns: var(--column-width, var(--single-column-width));
-		padding-right: var(--largeGameWidth);
 	}
 
 	.embla__controls {
@@ -143,15 +139,6 @@ export const GameGroup = styled.div`
 
 			&:disabled .icon:before {
 				color: ${({ theme }) => theme.desktop.carouselBtnColorDisabled};
-			}
-
-			&:hover:not([disabled]) {
-				border: 2px solid ${({ theme }) => theme.desktop.carouselBtnBorderHover};
-				background: ${({ theme }) => theme.desktop.carouselBtnBgHover};
-
-				.icon:before {
-					color: ${({ theme }) => theme.desktop.carouselBtnColorHover};
-				}
 			}
 		}
 	}

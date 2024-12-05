@@ -1,4 +1,4 @@
-import { NextButton, PrevButton, usePrevNextButtons } from "@nx-next-app/features/F0001/desktop/common/emblaCarousel/ArrowButtons";
+import { NextButton, PrevButton, usePrevNextButtons } from "@nx-next-app/features/F0001/h5/common/emblaCarousel/ArrowButtons";
 import { EmblaOptionsType, EmblaPluginType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 

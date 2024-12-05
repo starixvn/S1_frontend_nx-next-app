@@ -1,14 +1,9 @@
 import { GameGroup } from "@nx-next-app/features/F0001/h5/home/styles";
 import styled from "styled-components";
 
-export const GameContainer = styled.div`
-	display: grid;
-	margin-top: 5.8vw;
-`
 export const ProviderGroup = styled(GameGroup)`
 	.embla__container {
 		--column-count: 2.2;
-		--largeGameWidth: 0;
 		--slide-height: 18.9vw;
 		--slide-size: 41.7vw;
 		--single-column-width: 41.7vw;

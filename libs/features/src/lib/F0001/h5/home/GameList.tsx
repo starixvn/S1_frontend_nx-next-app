@@ -18,11 +18,16 @@ type IGameList = {
 
 const GameList: React.FC<IGameList> = (props: IGameList) => {
 	const { gameData, isControlButton, children, extraClassName } = props
+	const { modal } = useGlobalModal()
 	const { t } = useTranslation()
 	const { push } = useRouter()
 	const { handleHotGameClick } = useHome()
+
 	const gameTypeEmblaOptions: EmblaOptionsType = { slidesToScroll: 'auto' }
-	const { modal } = useGlobalModal()
+
+	if (gameData.length === 0) {
+		return <div />
+	}
 
 	return (
 		<GameContainer>

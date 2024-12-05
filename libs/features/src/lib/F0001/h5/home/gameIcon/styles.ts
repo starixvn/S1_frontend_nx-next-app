@@ -71,22 +71,6 @@ export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 		font-weight: 400;
 	}
 
-	&:hover:not(.maintain) {
-		&:after {
-			content: '';
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			background: ${({ theme }) => theme.desktop.gameIconBgHover};
-		}
-
-		.btn-play {
-			display: block;
-		}
-	}
-
 	.img-wrapper {
 		display: flex;
 		align-items: center;
