@@ -1,7 +1,7 @@
 import { useGlobalData } from '@nx-next-app/data-access'
 import { useMetaData } from '@nx-next-app/hooks'
 import { ISEOData } from 'libs/web/src/data-access/type'
-import { uniqueId } from 'lodash'
+import { uniqueId } from 'lodash-es'
 import Head from 'next/head'
 
 const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {

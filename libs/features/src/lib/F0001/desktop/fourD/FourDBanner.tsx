@@ -1,4 +1,4 @@
-const FishingBanner = () => {
+const FourDBanner = () => {
 	return (
 		<div className='lobby-banner'>
 			<div className='swiper-container'>
@@ -15,4 +15,4 @@ const FishingBanner = () => {
 	)
 }
 
-export default FishingBanner
+export default FourDBanner
