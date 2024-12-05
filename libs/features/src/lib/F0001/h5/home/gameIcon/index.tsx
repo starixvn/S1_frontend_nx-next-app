@@ -1,6 +1,6 @@
-import AppearSensor from "@nx-next-app/features/F0001/desktop/common/appearSensor";
-import { LoadingIcon } from "@nx-next-app/features/F0001/desktop/home/gameIcon/icons";
-import { GameIconContainer } from "@nx-next-app/features/F0001/desktop/home/gameIcon/styles";
+import AppearSensor from "@nx-next-app/features/F0001/h5/common/appearSensor";
+import { LoadingIcon } from "@nx-next-app/features/F0001/h5/home/gameIcon/icons";
+import { GameIconContainer } from "@nx-next-app/features/F0001/h5/home/gameIcon/styles";
 import { useTranslation } from "next-i18next";
 import { FC } from "react";
 import { Img } from "react-image";

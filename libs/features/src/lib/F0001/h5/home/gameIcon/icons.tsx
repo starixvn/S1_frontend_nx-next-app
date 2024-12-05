@@ -1,7 +1,4 @@
-import {
-	NoGameIconWrapper,
-	SpinnerBox,
-} from '@nx-next-app/features/F0001/desktop/home/gameIcon/styles'
+import { NoGameIconWrapper, SpinnerBox } from "@nx-next-app/features/F0001/h5/home/gameIcon/styles";
 
 export const NoGameIcon: React.FC = () => {
 	return (
