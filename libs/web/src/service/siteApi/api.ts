@@ -151,6 +151,7 @@ export const siteApi = rootApi.injectEndpoints({
 				method: 'POST',
 				data,
 			}),
+			invalidatesTags: ['CAPTCHA'],
 		}),
 		getBannerV3: builder.query<
 			IAxiosResponse<IBannerData[]>,
@@ -216,6 +217,7 @@ export const siteApi = rootApi.injectEndpoints({
 				method: 'POST',
 				data,
 			}),
+			providesTags: ['CAPTCHA'],
 		}),
 	}),
 })

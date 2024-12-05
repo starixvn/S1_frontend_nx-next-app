@@ -38,6 +38,7 @@ export const rootApi = createApi({
 		'OLYMPIC_EVENT_GET_TICKETS',
 		'QUESTIONNAIRE_POST',
 		'LOTTERY_EVENT_GET_STICKER',
+		'CAPTCHA',
 	],
 	endpoints: () => ({}),
 })
