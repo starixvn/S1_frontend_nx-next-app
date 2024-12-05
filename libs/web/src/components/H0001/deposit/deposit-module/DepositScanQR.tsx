@@ -15,7 +15,7 @@ const DepositScanQR = ({ qrCode }: IDepositScanQRProps) => {
 			<div className='infoModule'>
 				<div className='qrCode'>
 					<img
-						src={`${process.env['NEXT_PUBLIC_PAYMENT_HOST']}${qrCode}`}
+						src={`${process.env['NEXT_PUBLIC_PAYMENT_MINIO_HOST']}${qrCode}`}
 						alt='img-qr-code'
 					/>
 				</div>
