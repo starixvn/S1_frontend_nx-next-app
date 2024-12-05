@@ -11,6 +11,7 @@ const GlobalModal = ({
 	okText,
 	cancelText,
 	footer,
+	className,
 	onOK,
 	onCancel,
 	closeModal,
@@ -54,7 +55,7 @@ const GlobalModal = ({
 	}
 
 	return (
-		<Modal open={open}>
+		<Modal open={open} className={className}>
 			{type === 'default' && content}
 
 			{type !== 'default' && (

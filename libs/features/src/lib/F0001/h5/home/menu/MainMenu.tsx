@@ -1,13 +1,18 @@
-import classNames from 'classnames'
-import { useRouter } from 'next/router'
-import { useState, useEffect, startTransition } from 'react'
-import { useTranslation } from 'next-i18next'
-import { isEventPeriod } from '@nx-next-app/utils'
 import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import { CurrenciesEnum, MenuIconTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { type IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
+import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
+import {
+	CurrenciesEnum,
+	MenuIconTypeEnum,
+	MenuKeyEnum,
+} from '@nx-next-app/types'
+import { isEventPeriod } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { includes, union } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { startTransition, useEffect, useState } from 'react'
 import SubMenu from './SubMenu'
 
 interface IMenuProps {
@@ -38,11 +43,25 @@ const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 		userInfo: { currencyId },
 	} = useAuth()
 
+	const { ALLOWED_CURRENCIES } = useStaticData()
+
 	// 7/16/24 因應 hotfix遮蔽saba sport,根據語系設定初始 menuKey
-	const defaultMenuKey = (currencyId === CurrenciesEnum.USD || currencyId === CurrenciesEnum.CNY) ? 'Casino' : 'Sports';
+	const defaultMenuKey =
+		currencyId === CurrenciesEnum.USD || currencyId === CurrenciesEnum.CNY
+			? 'Casino'
+			: 'Sports'
 
 	const [menuKey, setMenuKey] = useState<keyof typeof MenuKeyEnum | undefined>(
 		defaultMenuKey
+	)
+
+	// 有符合任何 Event 的 ALLOWED_CURRENCIES
+	const isEventAllowed = includes(
+		union(
+			ALLOWED_CURRENCIES.LEADER_BOARD,
+			ALLOWED_CURRENCIES.PREDICTION_CHALLENGE
+		),
+		currencyId
 	)
 
 	// * 若是之前進入過 slot 頁面 ，點左上角返回後 main Menu 須在 Slot
@@ -91,7 +110,7 @@ const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 							<div className='btn-circle'>
 								<img
 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/${icon}-icon.png`}
-									alt={icon!}
+									alt={icon ?? ''}
 								/>
 							</div>
 							<div>{menuText}</div>
@@ -102,7 +121,6 @@ const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 				{isLobbyHeaderError && (
 					<button
 						className='btn-slots active'
-						key='Slot'
 						onClick={() => {
 							push(paths.slots.root)
 						}}
@@ -114,6 +132,28 @@ const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 							/>
 						</div>
 						<div>{t('Label_General_Slots')}</div>
+					</button>
+				)}
+
+				{isEventAllowed && (
+					<button
+						className={classNames(`btn-event`, {
+							active: menuKey === MenuKeyEnum.Event,
+						})}
+						onClick={() => {
+							startTransition(() => {
+								setMenuKey(MenuKeyEnum.Event)
+							})
+						}}
+					>
+						{/* {hasNewIcon && <div className='new-icon'>New</div>} */}
+						<div className='btn-circle'>
+							<img
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/event-icon.png`}
+								alt='event-icon'
+							/>
+						</div>
+						<div>{t('Label_LeaderBoard_Event')}</div>
 					</button>
 				)}
 			</div>

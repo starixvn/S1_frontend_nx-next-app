@@ -1,19 +1,19 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
-import { useForm, FormProvider } from 'react-hook-form'
-import { paths } from '@nx-next-app/constants'
-import { CurrenciesEnum } from '@nx-next-app/types'
 import { Form } from '@nx-next-app/components/H0001'
-import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
 import {
 	LineLoginDirectTypeEnum,
 	useLazyGetLineLoginDirectUrlQuery,
 } from '@nx-next-app/service'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { FormProvider, useForm } from 'react-hook-form'
 import { LoginForm } from './form'
 
-const Login = () => {
+const Login = ({ fromRoute }: { fromRoute: string }) => {
 	const router = useRouter()
 	const { t } = useTranslation()
 
@@ -35,7 +35,7 @@ const Login = () => {
 				userName,
 				password,
 			})
-			router.push(paths.home.root)
+			router.push(fromRoute)
 		} catch (error) {
 			modal.error((error as Error).message)
 		}

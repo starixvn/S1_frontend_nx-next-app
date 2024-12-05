@@ -7,7 +7,7 @@ import dayjs from 'dayjs'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 
-const HotMatchtem = ({ data }: { data: IHotEventData }) => {
+const HotMatchItem = ({ data }: { data: IHotEventData }) => {
 	const { t } = useTranslation()
 	const {
 		userInfo: { langId },
@@ -90,4 +90,4 @@ const HotMatchtem = ({ data }: { data: IHotEventData }) => {
 	)
 }
 
-export default HotMatchtem
+export default HotMatchItem

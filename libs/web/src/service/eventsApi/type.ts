@@ -97,3 +97,72 @@ export interface ICheckDrawPrizeData {
 	prizeName: null | string
 	ticketCount: number
 }
+
+export type TPromotionPredictionData = {
+	bonusCode: string
+	banner: string
+	description: string
+	startTime: string
+	endTime: string
+	rollOver: number
+	requiredAmount: number
+	depositCountAchieved: number
+	depositTermPeriodDays: number
+	bonus: number
+	homeTeamPic: string
+	awayTeamPic: string
+	homeScore: number
+	awayScore: number
+	custHomeScore: number
+	custAwayScore: number
+	result: boolean
+	isPredict: boolean
+	sportLeaguesTitle: string
+	matchId: number
+	tpId: string
+	gameId: string
+	homeTeamLeaguesId: number
+	homeTeamId: number
+	homeTeamName: string
+	awayTeamLeaguesId: number
+	awayTeamId: number
+	awayTeamName: string
+	battleTime: string
+	homeOdds?: number
+	awayOdds?: number
+	handicap?: number
+}
+
+export type TPredictionTeamInfoData = {
+	bonusCode: string
+	promotionPrediction: TPromotionPredictionData[]
+}
+
+export interface IGetPredictionWinnerListArgs {
+	siteId: number
+	currencyId: number
+}
+export type TGetPredictionWinnerListData = {
+	bonusCode: string
+	bonus: number
+	winners: string[]
+	sportLeaguesTitle: string
+	matchId: number
+	tpId?: string
+	gameld?: string
+	homeTeamLeaguesId: number
+	homeTeamId: number
+	homeTeamName: string
+	awayTeamLeaguesId: number
+	awayTeamId: number
+	awayTeamName: string
+	battleTime: string
+	homeOdds?: number
+	awayOdds?: number
+	handicap?: number
+}
+export interface IPromotionPredictScoreArgs {
+	matchId: number
+	homeTeamScore: number
+	awayTeamScore: number
+}

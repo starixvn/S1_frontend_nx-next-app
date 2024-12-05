@@ -91,7 +91,11 @@ const PromoRule = ({ promotionDetail }: IPromoRuleProps) => {
 	return (
 		<div className='rolloverList'>
 			{!includes(
-				[PromotionTypeEnum.SpecialBonus, PromotionTypeEnum.Rebate],
+				[
+					PromotionTypeEnum.SpecialBonus,
+					PromotionTypeEnum.Rebate,
+					PromotionTypeEnum.PredictionEvent,
+				],
 				promotionType
 			) && (
 				<>
@@ -110,7 +114,11 @@ const PromoRule = ({ promotionDetail }: IPromoRuleProps) => {
 
 			{isPercentage &&
 				!includes(
-					[PromotionTypeEnum.SpecialBonus, PromotionTypeEnum.Rebate],
+					[
+						PromotionTypeEnum.SpecialBonus,
+						PromotionTypeEnum.Rebate,
+						PromotionTypeEnum.PredictionEvent,
+					],
 					promotionType
 				) && (
 					<div>

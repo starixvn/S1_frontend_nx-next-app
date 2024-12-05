@@ -132,6 +132,17 @@ const Shortcut = () => {
 					</a>
 				</Link>
 			)}
+			{includes(ALLOWED_CURRENCIES['PREDICTION_CHALLENGE'], currencyId) && (
+				<Link href={paths.predictionChallenge.root}>
+					<a>
+						<img
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/prediction.png`}
+							alt='prediction'
+						/>
+						<span>{t('Label_Event_Prediction_Challenge')}</span>
+					</a>
+				</Link>
+			)}
 		</div>
 	)
 }
