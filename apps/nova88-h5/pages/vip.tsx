@@ -8,7 +8,7 @@ import {
 } from '@nx-next-app/hooks'
 import { IVipBannerData } from '@nx-next-app/service'
 import { ALLOWED_CURRENCIES } from '@nx-next-app/site/nova88'
-import { includes } from 'lodash'
+import { includes } from 'lodash-es'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 

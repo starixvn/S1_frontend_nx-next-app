@@ -1,5 +1,5 @@
 import { paths } from '@nx-next-app/constants'
-import { isNumber } from 'lodash'
+import { isNumber } from 'lodash-es'
 
 export const getPathParams = ({
 	urlRouter,

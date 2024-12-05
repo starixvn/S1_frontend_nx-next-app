@@ -15,7 +15,7 @@ import {
 	FOOTER_DATA,
 } from '@nx-next-app/site/onetwobet-indo'
 import { IFooterData } from '@nx-next-app/types'
-import { includes } from 'lodash'
+import { includes } from 'lodash-es'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
