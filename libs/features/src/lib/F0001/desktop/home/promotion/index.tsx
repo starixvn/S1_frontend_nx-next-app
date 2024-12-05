@@ -74,7 +74,7 @@ const PromotionSwiper = () => {
 				onBlur={() => 0}
 			>
 				<DynamicSwiper {...swipperConfig}>
-					{promotionData.map(
+					{promotionData?.map(
 						({ bonusCode, categoryId, tpId, banner, title }) => (
 							<div
 								key={`promotion.list-${bonusCode}-${categoryId}-${tpId}`}

@@ -101,7 +101,7 @@ const ProvidersList = () => {
 		},
 	]
 
-	if (providerData.length === 0) {
+	if (providerData?.length === 0) {
 		return <div />
 	}
 
@@ -110,7 +110,7 @@ const ProvidersList = () => {
 			<GroupTitle title={t('Label_Providers')} />
 			<GameContainer>
 				<EmblaCarousel options={gameTypeEmblaOptions} isControlButton={false}>
-					{providerData.map(provider => {
+					{providerData?.map(provider => {
 						const { tpId, tpLogo, tpName } = provider
 						if (
 							tpId === ProviderEnum.MaxGame ||
@@ -133,7 +133,7 @@ const ProvidersList = () => {
 					})}
 					{
 						// hard code vendor MaxGame,RNG Keno, Lottery, Table Game
-						providerData.findIndex(
+						providerData?.findIndex(
 							x =>
 								x.tpId === ProviderEnum.MaxGame ||
 								x.tpId === ProviderEnum.Keno ||

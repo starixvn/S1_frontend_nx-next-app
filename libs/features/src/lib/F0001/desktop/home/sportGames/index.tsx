@@ -13,7 +13,7 @@ const SportGames = () => {
 	const { hotGameData, slotGameData } = useHome()
 	const { jackpot = [] } = slotGameData ?? {}
 
-	const sportGames = hotGameData.filter(element => {
+	const sportGames = hotGameData?.filter(element => {
 		return element.tpCategory === TpCategory.Sports
 	})
 

@@ -66,7 +66,7 @@ const Home = () => {
 		[DesktopHomeComponentsEnum.CarouselBanner]: (
 			<CarouselBanner
 				className='homebanner'
-				bannerList={bannerData.length > 0 ? bannerData : defaultBanner}
+				bannerList={bannerData?.length > 0 ? bannerData : defaultBanner}
 				navigation={false}
 			/>
 		),

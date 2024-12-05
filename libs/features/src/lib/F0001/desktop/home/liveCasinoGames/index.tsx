@@ -12,13 +12,13 @@ const LiveCasinoGames = () => {
 	const { hotGameData, slotGameData } = useHome()
 	const { jackpot = [] } = slotGameData ?? {}
 
-	const liveCasinoGames = hotGameData.filter(element => {
+	const liveCasinoGames = hotGameData?.filter(element => {
 		return element.tpCategory === TpCategory.LiveCasino
 	})
 
 	if (liveCasinoGames?.length === 0 && jackpot?.length === 0) return null
 
-	if (liveCasinoGames.length === 0) {
+	if (liveCasinoGames?.length === 0) {
 		return <div />
 	}
 

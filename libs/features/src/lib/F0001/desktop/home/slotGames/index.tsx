@@ -29,7 +29,7 @@ const HotGameSlot = () => {
 
 	const { modal } = useGlobalModal()
 
-	const slotGames = hotGameData.filter(element => {
+	const slotGames = hotGameData?.filter(element => {
 		return element.tpCategory === TpCategory.Casino
 	})
 
@@ -39,7 +39,7 @@ const HotGameSlot = () => {
 	let largeGame: any
 	let largeGameItem: any
 
-	if (slotGames.length > 0) {
+	if (slotGames?.length > 0) {
 		largeGame = slotGames.shift()
 		largeGameItem = {
 			gameId: largeGame.gameId,
@@ -50,7 +50,7 @@ const HotGameSlot = () => {
 		}
 	}
 
-	if (slotGames.length === 0) {
+	if (slotGames?.length === 0) {
 		return <div />
 	}
 
@@ -82,7 +82,7 @@ const HotGameSlot = () => {
 					isControlButton
 					extraClassName='two-rows'
 				>
-					{slotGames.map(game => {
+					{slotGames?.map(game => {
 						const { gameLogo, gameName, gameId, tpName } = game
 						const gameItem = {
 							gameId,

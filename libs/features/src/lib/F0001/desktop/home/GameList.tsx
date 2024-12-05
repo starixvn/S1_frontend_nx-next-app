@@ -41,7 +41,7 @@ const GameList: React.FC<IGameList> = (props: IGameList) => {
 				isControlButton={isControlButton}
 				extraClassName={extraClassName}
 			>
-				{gameData.map(game => {
+				{gameData?.map(game => {
 					const { gameLogo, gameName, gameId, tpName } = game
 					const gameItem = {
 						gameId,
