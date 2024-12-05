@@ -271,10 +271,10 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 				<div className='btnGroup'>
 					<button
 						type='submit'
-						style={{ pointerEvents: isValid ? 'auto' : 'none' }}
+						style={{ pointerEvents: isValid && watchAmount ? 'auto' : 'none' }}
 						className={classNames({
-							darkGray: !isValid,
-							'btn-check': isValid,
+							darkGray: !(isValid && watchAmount),
+							'btn-check': isValid && watchAmount,
 						})}
 					>
 						{t('Label_General_Submit')}
