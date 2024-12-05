@@ -1,5 +1,6 @@
 import { BackTop } from '@nx-next-app/components/D0001'
 import Loading from '@nx-next-app/components/H0001/loading'
+import { WrapperDepositHistoryH5 } from '@nx-next-app/features/F0001/h5/deposit/styles'
 import HistoryHeader from '@nx-next-app/features/F0001/h5/history/header'
 import DepositItem from '@nx-next-app/features/F0001/h5/history/historyItems/DepositItem'
 import FinancialItem from '@nx-next-app/features/F0001/h5/history/historyItems/FinancialItem'
@@ -34,41 +35,45 @@ const History = () => {
 		<WrapperDepositPageHistoryH5>
 			<HistoryHeader />
 			<main className='main history'>
-				<div className='recent active'>
-					{isShowMobileLoading && <Loading />}
+				<WrapperDepositHistoryH5>
+					<div className='recent active'>
+						{isShowMobileLoading && <Loading />}
 
-					{displayColumns.length > 0 && (
-						<div className='infoList'>
-							{displayColumns.map(item => (
-								<React.Fragment key={uniqueId()}>
-									{activeTab === HistoryTabsEnum.Transfer && (
-										<TransferItem {...(item as ITransferHistoryData)} />
-									)}
-									{activeTab === HistoryTabsEnum.Deposit && (
-										<DepositItem {...(item as IDepositInfoHistoryData)} />
-									)}
-									{activeTab === HistoryTabsEnum.Withdrawal && (
-										<WithdrawalItem {...(item as IWithdrawalInfoHistoryData)} />
-									)}
-									{activeTab === HistoryTabsEnum.Financial && (
-										<FinancialItem {...(item as IStatementData)} />
-									)}
-									{activeTab === HistoryTabsEnum.Referral && (
-										<ReferralItem {...(item as IReferralData)} />
-									)}
-								</React.Fragment>
-							))}
+						{displayColumns.length > 0 && (
+							<div className='infoList'>
+								{displayColumns.map(item => (
+									<React.Fragment key={uniqueId()}>
+										{activeTab === HistoryTabsEnum.Transfer && (
+											<TransferItem {...(item as ITransferHistoryData)} />
+										)}
+										{activeTab === HistoryTabsEnum.Deposit && (
+											<DepositItem {...(item as IDepositInfoHistoryData)} />
+										)}
+										{activeTab === HistoryTabsEnum.Withdrawal && (
+											<WithdrawalItem
+												{...(item as IWithdrawalInfoHistoryData)}
+											/>
+										)}
+										{activeTab === HistoryTabsEnum.Financial && (
+											<FinancialItem {...(item as IStatementData)} />
+										)}
+										{activeTab === HistoryTabsEnum.Referral && (
+											<ReferralItem {...(item as IReferralData)} />
+										)}
+									</React.Fragment>
+								))}
 
-							{displayColumns.length > 2 ? <BackTop /> : null}
-						</div>
-					)}
-					<span ref={historyListRef} />
-					{currentPage && displayColumns.length === 0 && (
-						<div className='nodata icon icon-nodata'>
-							<div className='txt-white'>{t('Label_General_NoData')}</div>
-						</div>
-					)}
-				</div>
+								{displayColumns.length > 2 ? <BackTop /> : null}
+							</div>
+						)}
+						<span ref={historyListRef} />
+						{currentPage && displayColumns.length === 0 && (
+							<div className='nodata icon icon-nodata'>
+								<div className='txt-white'>{t('Label_General_NoData')}</div>
+							</div>
+						)}
+					</div>
+				</WrapperDepositHistoryH5>
 			</main>
 		</WrapperDepositPageHistoryH5>
 	)

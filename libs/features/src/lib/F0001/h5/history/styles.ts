@@ -3,80 +3,84 @@ import styled from 'styled-components'
 export const WrapperDepositPageHistoryH5 = styled.div`
 	.quickSelect {
 		display: flex;
-		padding: 5vw 8vw;
-		width: calc(100% - 16vw);
+		padding: 0 8vw;
+		width: calc(100% - 7vw);
 		border-bottom: 1px solid #374375;
 		overflow: scroll;
 		align-items: center;
 		margin-top: 0;
+		position: relative;
+		background: #0f1428;
+		&:before {
+			content: '';
+			position: fixed;
+			width: 20vw;
+			height: 20vw;
+			background: linear-gradient(270deg, #0f1428 0%, rgba(15, 20, 40, 0) 100%);
+			right: 0;
+			top: 51px;
+		}
+	}
+	#header {
+		box-shadow: none;
 	}
 	.quickSelect + .functionList {
-		padding: 2vw 4vw;
-		width: calc(100% - 8vw);
+		padding: 4vw 0;
+		width: calc(100% - 6.5vw);
 		position: unset;
+		border-bottom: 1px solid #374375;
+		background: #0f1428;
 	}
-	.quickSelect + .functionList .infoModule.parts {
-		-ms-flex-flow: nowrap;
-		flex-flow: nowrap;
-	}
-	.quickSelect + .functionList .infoModule.parts .inputBox,
-	.quickSelect + .functionList .infoModule.parts .euro .inputBox-event,
-	.euro .quickSelect + .functionList .infoModule.parts .inputBox-event,
-	.quickSelect
-		+ .functionList
-		.infoModule.parts
-		.worldcupEvent
-		.event
-		.event-content
-		.inputBox-event,
-	.worldcupEvent
-		.event
-		.event-content
-		.quickSelect
-		+ .functionList
-		.infoModule.parts
-		.inputBox-event {
-		max-width: 28vw;
-	}
-	.quickSelect + .functionList .icon-icon32px_1 {
-		margin: 0 0 0 1vw;
-		color: #5574a7;
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-align: center;
-		-ms-flex-align: center;
-		align-items: center;
-	}
-	.quickSelect + .functionList .btn-group {
-		margin: 0 0 0 1vw;
-		-webkit-box-flex: 1;
-		-ms-flex: 1;
-		flex: 1;
-		-webkit-box-align: center;
-		-ms-flex-align: center;
-		align-items: center;
-	}
+
 	.quickSelect + .functionList .btn-group button {
 		padding: 2.5vw;
 		white-space: nowrap;
 	}
 	.quickSelect button {
-		color: #a4a4a4;
+		color: ${({ theme }) => theme.mobile.white};
 		white-space: nowrap;
-	}
-	.quickSelect button:nth-child(n + 2) {
-		margin: 0 0 0 5vw;
+		font-weight: 700;
+		font-size: 3.4vw;
+		text-transform: uppercase;
+		padding: 3.8vw 0;
+		border-bottom: 2px solid #0f1428;
 	}
 	.quickSelect button.active {
-		color: #112240;
-	}
-	.quickSelect .icon {
-		position: fixed;
-		right: 1vw;
-		color: #112240;
+		color: ${({ theme }) => theme.mobile.hrefColorPrimary};
+		border-bottom: 2px solid ${({ theme }) => theme.mobile.hrefColorPrimary};
 	}
 	.quickSelect .icon:before {
 		font-size: 6vw;
+	}
+
+	.functionList {
+		padding: 3vw 12vw;
+		width: calc(100% - 20vw);
+		position: fixed;
+		left: -3vw;
+		z-index: 2;
+		top: 25vw;
+		.infoModule {
+			display: flex;
+			align-items: center;
+			gap: 2.9vw;
+		}
+		.btnGroup {
+			margin-top: 0;
+		}
+		.inputBox-blue {
+			margin-top: 0;
+			input {
+				border-radius: 22px;
+			}
+		}
+	}
+	.history {
+		padding: 4vw 4vw 30vw 4vw;
+	}
+	.infoList {
+		.info {
+			margin-top: 0 !important;
+		}
 	}
 `
