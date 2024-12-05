@@ -234,13 +234,7 @@ const Join = ({ cookies }: IJoinProps) => {
 			phone,
 			affiliate,
 		} = getValues()
-		MetaPixelTracker(
-			'registerSubmit',
-			undefined,
-			undefined,
-			undefined,
-			username
-		)
+		MetaPixelTracker('registerSubmit', username)
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
@@ -294,13 +288,7 @@ const Join = ({ cookies }: IJoinProps) => {
 				lineUserId: cookieLineUserId as string,
 			}).unwrap()
 			setStep(3)
-			MetaPixelTracker(
-				'CompleteRegistration',
-				undefined,
-				undefined,
-				undefined,
-				username
-			)
+			MetaPixelTracker('CompleteRegistration', username)
 		} catch (error) {
 			modal.error((error as Error).message)
 		}
