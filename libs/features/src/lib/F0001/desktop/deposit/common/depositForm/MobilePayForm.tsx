@@ -405,11 +405,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				/>
 			</DepositModule>
 
-			<Form
-				onSubmit={() => {
-					return handleSubmit(onMobilePayFormSubmit)
-				}}
-			>
+			<Form onSubmit={handleSubmit(onMobilePayFormSubmit)}>
 				<div className='btnGroup'>
 					<button
 						type='submit'
