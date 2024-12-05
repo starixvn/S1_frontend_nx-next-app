@@ -480,69 +480,70 @@ export const WrapperDepositHistoryH5 = styled.div`
 				}
 			}
 		}
-	}
-	.pending,
-	.approved,
-	.reject,
-	.cancel,
-	.undefined {
-		font-size: 1.2rem;
-		font-style: normal;
-		font-weight: 600;
-		line-height: normal;
-		padding: 0.4rem 1.2rem;
-		border-radius: 100px;
-		display: inline-flex;
-		align-items: center;
-		gap: 3px;
-		width: fit-content;
-		.infobtn {
-			&:before {
-				font-family: 'S1NewIcons';
-				display: block;
-				content: '\\e910';
-				font-size: 1.5rem;
-				color: #fff;
+		.pending,
+		.approved,
+		.reject,
+		.cancel,
+		.undefined {
+			font-size: 1.2rem;
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+			padding: 0.4rem 1.2rem;
+			border-radius: 100px;
+			display: inline-flex;
+			align-items: center;
+			gap: 3px;
+			width: fit-content;
+			.infobtn {
+				&:before {
+					font-family: 'S1NewIcons';
+					display: block;
+					content: '\\e910';
+					font-size: 1.5rem;
+					color: #fff;
+				}
+			}
+		}
+		.pending,
+		.undefined {
+			color: ${({ theme }) => theme.desktop.tableStatusPenddingColor};
+			border: 1px solid ${({ theme }) => theme.desktop.tableStatusPenddingColor};
+			.infobtn {
+				&:before {
+					color: ${({ theme }) => theme.desktop.tableStatusPenddingColor};
+				}
+			}
+		}
+		.approved {
+			color: ${({ theme }) => theme.desktop.tableStatusApprovedColor};
+			border: 1px solid ${({ theme }) => theme.desktop.tableStatusApprovedColor};
+			.infobtn {
+				&:before {
+					color: ${({ theme }) => theme.desktop.tableStatusApprovedColor};
+				}
+			}
+		}
+		.reject {
+			color: ${({ theme }) => theme.desktop.tableStatusRejetctColor};
+			border: 1px solid ${({ theme }) => theme.desktop.tableStatusRejetctColor};
+			.infobtn {
+				&:before {
+					color: ${({ theme }) => theme.desktop.tableStatusRejetctColor};
+				}
+			}
+		}
+		.cancel {
+			color: ${({ theme }) => theme.desktop.tableStatusCancelColor};
+			border: 1px solid ${({ theme }) => theme.desktop.tableStatusCancelColor};
+			.infobtn {
+				&:before {
+					color: ${({ theme }) => theme.desktop.tableStatusCancelColor};
+				}
 			}
 		}
 	}
-	.pending,
-	.undefined {
-		color: ${({ theme }) => theme.desktop.tableStatusPenddingColor};
-		border: 1px solid ${({ theme }) => theme.desktop.tableStatusPenddingColor};
-		.infobtn {
-			&:before {
-				color: ${({ theme }) => theme.desktop.tableStatusPenddingColor};
-			}
-		}
-	}
-	.approved {
-		color: ${({ theme }) => theme.desktop.tableStatusApprovedColor};
-		border: 1px solid ${({ theme }) => theme.desktop.tableStatusApprovedColor};
-		.infobtn {
-			&:before {
-				color: ${({ theme }) => theme.desktop.tableStatusApprovedColor};
-			}
-		}
-	}
-	.reject {
-		color: ${({ theme }) => theme.desktop.tableStatusRejetctColor};
-		border: 1px solid ${({ theme }) => theme.desktop.tableStatusRejetctColor};
-		.infobtn {
-			&:before {
-				color: ${({ theme }) => theme.desktop.tableStatusRejetctColor};
-			}
-		}
-	}
-	.cancel {
-		color: ${({ theme }) => theme.desktop.tableStatusCancelColor};
-		border: 1px solid ${({ theme }) => theme.desktop.tableStatusCancelColor};
-		.infobtn {
-			&:before {
-				color: ${({ theme }) => theme.desktop.tableStatusCancelColor};
-			}
-		}
-	}
+
 	.recentBtn {
 		width: max-content;
 		margin: 0 auto;

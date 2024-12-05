@@ -1,5 +1,6 @@
 import { BackTop } from '@nx-next-app/components/D0001'
 import Loading from '@nx-next-app/components/H0001/loading'
+import { NoData } from '@nx-next-app/features/F0001/h5/deposit/common/NoData'
 import { WrapperDepositHistoryH5 } from '@nx-next-app/features/F0001/h5/deposit/styles'
 import HistoryHeader from '@nx-next-app/features/F0001/h5/history/header'
 import DepositItem from '@nx-next-app/features/F0001/h5/history/historyItems/DepositItem'
@@ -67,12 +68,10 @@ const History = () => {
 							</div>
 						)}
 						<span ref={historyListRef} />
-						{currentPage && displayColumns.length === 0 && (
-							<div className='nodata icon icon-nodata'>
-								<div className='txt-white'>{t('Label_General_NoData')}</div>
-							</div>
-						)}
 					</div>
+					{currentPage && displayColumns.length === 0 && (
+						<NoData customClass='no-border' />
+					)}
 				</WrapperDepositHistoryH5>
 			</main>
 		</WrapperDepositPageHistoryH5>

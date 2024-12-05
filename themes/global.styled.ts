@@ -836,6 +836,7 @@ export const GlobalStyles = createGlobalStyle`
 			font-size: 1.4rem;
 			font-weight: 600;
 			line-height: normal;
+      text-align : left;
 			&:first-child {
 				border-top: none;
 			}
