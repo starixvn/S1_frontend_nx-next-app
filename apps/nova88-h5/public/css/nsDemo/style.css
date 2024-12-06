@@ -5581,24 +5581,6 @@ input[type='date'] {
 	vertical-align: middle;
 }
 
-.breadcrumb {
-	text-transform: capitalize;
-	padding: 2vw 4vw;
-	font-size: 12px;
-	font-weight: normal;
-	width: calc(100% - 8vw);
-}
-.breadcrumb a {
-	color: #a5bbe0;
-}
-.breadcrumb a[class='acive'] {
-	color: #5574a7;
-}
-.breadcrumb a + a::before {
-	font-family: 'icomoon';
-	content: '\e9a8';
-	margin: 0 1vw;
-}
 
 .total {
 	color: #5574a7;

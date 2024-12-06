@@ -1,4 +1,4 @@
-import React from 'react'
+import { BreadcrumbContainer } from '@nx-next-app/components/H0001/breadcrumb/styles'
 import classNames from 'classnames'
 
 interface IBreadcrumbProps {
@@ -10,19 +10,19 @@ interface IBreadcrumbProps {
 const Breadcrumb = ({ items, activeItem, onClick }: IBreadcrumbProps) => {
 	const index = items.findIndex(item => item.value === activeItem) + 1
 	return (
-		<nav className='breadcrumb'>
+		<BreadcrumbContainer>
 			{items.slice(0, index).map(({ displayKey, value }) => (
 				<a
 					role='link'
 					aria-hidden
 					onClick={() => onClick(value)}
 					key={displayKey}
-					className={classNames({ active: activeItem === value })}
+					className={classNames('item', { active: activeItem === value })}
 				>
 					{displayKey}
 				</a>
 			))}
-		</nav>
+		</BreadcrumbContainer>
 	)
 }
 

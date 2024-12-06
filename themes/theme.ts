@@ -352,6 +352,9 @@ export const theme = {
 		hotMatchBtnShadow: '0px -5px 0px 0px #d35716 inset',
 		hotMatchBtnColor: '#fff',
 
+		breadcrumbTextColor: '#939dc5',
+		breadcrumbLineColor: '#374375',
+
 		rightModuleBg: '#182043',
 		rightModuleTitleBg: '#232B4F',
 		rightModuleBorderColor: '#374375',
