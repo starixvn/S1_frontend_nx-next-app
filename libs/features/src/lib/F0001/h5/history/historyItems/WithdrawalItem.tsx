@@ -1,12 +1,11 @@
-import React from 'react'
-import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
-import dayjs from 'dayjs'
-import { numberFormat } from '@nx-next-app/utils'
-import { WithdrawalStatusClassNameForMobile } from 'libs/web/src/app/types/history'
-import HistoryMsgModal from 'libs/features/src/lib/F0001/h5/history/modal/HistoryMsgModal'
-import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { numberFormat } from '@nx-next-app/utils'
+import dayjs from 'dayjs'
+import HistoryMsgModal from 'libs/features/src/lib/F0001/h5/history/modal/HistoryMsgModal'
+import { WithdrawalStatusClassNameForMobile } from 'libs/web/src/app/types/history'
+import { useTranslation } from 'next-i18next'
 
 interface IWithdrawalItemProps {
 	createTime: string
@@ -40,7 +39,7 @@ const WithdrawalItem = ({
 					<span className='title'>
 						{t('Label_History_Date')} ({CURRENCY_TO_TIMEZONE[currencyId]})
 					</span>
-					<span>
+					<span className='body'>
 						{dayjs(createTime, 'YYYY-MM-DDThh:mm:ssZ')
 							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 							.format('DD/MM/YYYY')}
@@ -50,7 +49,7 @@ const WithdrawalItem = ({
 					<span className='title'>
 						{t('Label_General_Time')} ({CURRENCY_TO_TIMEZONE[currencyId]})
 					</span>
-					<span>
+					<span className='body'>
 						{dayjs(createTime, 'YYYY-MM-DDThh:mm:ssZ')
 							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 							.format('HH:mm:ss')}
@@ -58,11 +57,13 @@ const WithdrawalItem = ({
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_ID')}</span>
-					<span>{transId}</span>
+					<span className='body'>{transId}</span>
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_Amount')}</span>
-					<span>{numberFormat(amount as number, currencyId, 0)}</span>
+					<span className='body'>
+						{numberFormat(amount as number, currencyId, 0)}
+					</span>
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_Status')}</span>

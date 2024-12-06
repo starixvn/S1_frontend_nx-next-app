@@ -1,9 +1,8 @@
-import React from 'react'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
-import dayjs from 'dayjs'
-import { numberFormat, transferDirection } from '@nx-next-app/utils'
-import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
+import { numberFormat, transferDirection } from '@nx-next-app/utils'
+import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
 
 interface ITransferItemProps {
 	tpName: string
@@ -46,7 +45,7 @@ const TransferItem = ({
 					<span className='title'>
 						{t('Label_History_Date')} ({CURRENCY_TO_TIMEZONE[currencyId]})
 					</span>
-					<span>
+					<span className='body'>
 						{dayjs(createTime, 'YYYY-MM-DDThh:mm:ssZ')
 							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 							.format('DD/MM/YYYY')}
@@ -56,7 +55,7 @@ const TransferItem = ({
 					<span className='title'>
 						{t('Label_General_Time')} ({CURRENCY_TO_TIMEZONE[currencyId]})
 					</span>
-					<span>
+					<span className='body'>
 						{dayjs(createTime, 'YYYY-MM-DDThh:mm:ssZ')
 							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 							.format('HH:mm:ss')}
@@ -64,11 +63,11 @@ const TransferItem = ({
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_ID')}</span>
-					<span>{transId}</span>
+					<span className='body'>{transId}</span>
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_Status')}</span>
-					<span>
+					<span className='body'>
 						{status === 0
 							? t('Label_General_Success')
 							: t('Label_General_Fail')}
@@ -76,11 +75,13 @@ const TransferItem = ({
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_Amount')}</span>
-					<span>{numberFormat(amount as number, currencyId, 0)}</span>
+					<span className='body'>
+						{numberFormat(amount as number, currencyId, 0)}
+					</span>
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_Direction')}</span>
-					<span>
+					<span className='body'>
 						<span>{startWallet}</span>
 						{endWallet === t('Label_History_Adjustment') ? (
 							<i>&nbsp;&nbsp;</i>
@@ -92,7 +93,7 @@ const TransferItem = ({
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_Memo')}</span>
-					<span>
+					<span className='body'>
 						<span>{memo}</span>
 					</span>
 				</li>

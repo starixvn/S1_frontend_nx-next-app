@@ -484,7 +484,8 @@ export const WrapperDepositHistoryH5 = styled.div`
 		.approved,
 		.reject,
 		.cancel,
-		.undefined {
+		.undefined,
+		.cancelled {
 			font-size: 1.2rem;
 			font-style: normal;
 			font-weight: 600;
@@ -533,7 +534,8 @@ export const WrapperDepositHistoryH5 = styled.div`
 				}
 			}
 		}
-		.cancel {
+		.cancel,
+		.cancelled {
 			color: ${({ theme }) => theme.desktop.tableStatusCancelColor};
 			border: 1px solid ${({ theme }) => theme.desktop.tableStatusCancelColor};
 			.infobtn {

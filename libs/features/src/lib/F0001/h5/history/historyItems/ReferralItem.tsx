@@ -27,11 +27,11 @@ const ReferralItem = ({
 			<ul>
 				<li>
 					<span className='title'>{t('Label_General_Username')}</span>
-					<span>{userName}</span>
+					<span className='body'>{userName}</span>
 				</li>
 				<li>
 					<span className='title'>{t('Label_Deposit_Date')}</span>
-					<span>
+					<span className='body'>
 						{dayjs(settledDate)
 							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 							.format('MM/DD/YYYY')}
@@ -39,11 +39,15 @@ const ReferralItem = ({
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_DepositAmount')}</span>
-					<span>{numberFormat(totalDeposit, currencyId, 2)}</span>
+					<span className='body'>
+						{numberFormat(totalDeposit, currencyId, 2)}
+					</span>
 				</li>
 				<li>
 					<span className='title'>{t('Label_History_RewardsAmounts')}</span>
-					<span>{numberFormat(rewardAmount, currencyId, 2)}</span>
+					<span className='body'>
+						{numberFormat(rewardAmount, currencyId, 2)}
+					</span>
 				</li>
 			</ul>
 		</div>
