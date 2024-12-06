@@ -1061,7 +1061,7 @@ export const GlobalStyles = createGlobalStyle`
       justify-content: center !important; 
       margin-top : 0;
       .btn{
-        width : max-content;
+        width : max-content !important;
       }
     }
     .txt-blue{

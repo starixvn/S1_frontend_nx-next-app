@@ -50,6 +50,11 @@ const BankSelect = () => {
 
 					return (
 						<div className='block-grid' key={`${info.sysId}-${info.accountNo}`}>
+							{disabled && (
+								<div className='mask'>
+									{t('Label_General_UnderMaintenance')}
+								</div>
+							)}
 							<div
 								className={classNames('bankName', {
 									active: selected,
@@ -65,12 +70,6 @@ const BankSelect = () => {
 									})
 								}
 							>
-								{disabled && (
-									<div className='mask'>
-										{t('Label_General_UnderMaintenance')}
-									</div>
-								)}
-
 								<img
 									src={`${
 										process.env['NEXT_PUBLIC_PAYMENT_HOST']

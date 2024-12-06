@@ -255,6 +255,23 @@ export const WrapperWithdrawalH5 = styled.div`
 			display: flex;
 			gap: 2vw;
 			align-items: center;
+			position : relative;
+			overflow: hidden;
+			border-radius: 10px;
+			.mask{
+				position: absolute;
+				background: rgba(55, 67, 117, 0.70);
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				z-index: 9;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 2.9vw;
+				font-weight: 700;
+			}
 		}
 		.bankName {
 			height: 11.6vw;

@@ -1,7 +1,8 @@
-import { useTranslation } from 'next-i18next'
-import { paths } from '@nx-next-app/constants'
 import { Header } from '@nx-next-app/components/H0001'
+import { paths } from '@nx-next-app/constants'
+import { WrapperBankInfoH5 } from '@nx-next-app/features/F0001/h5/bank-info/styles'
 import { useBankInfo } from '@nx-next-app/features/F0001/providers'
+import { useTranslation } from 'next-i18next'
 import { AddCard } from './AddCard'
 import { CardList } from './CardList'
 
@@ -13,7 +14,7 @@ const BankInfo = () => {
 	} = useBankInfo()
 
 	return (
-		<>
+		<WrapperBankInfoH5>
 			<Header className='header'>
 				<Header.Tags
 					tags={[
@@ -53,7 +54,7 @@ const BankInfo = () => {
 			<main className='main Wallet'>
 				{isShowCards ? <CardList /> : <AddCard />}
 			</main>
-		</>
+		</WrapperBankInfoH5>
 	)
 }
 

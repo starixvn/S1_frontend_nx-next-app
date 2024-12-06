@@ -28,7 +28,7 @@ const CardList = () => {
 					) && <div>{t(userLevelImageInfo?.displayKey as string)}</div>}
 				</div>
 			) : (
-				<div className='icon icon-member' />
+				<div className='icon icon-member icon-user-line' />
 			)}
 
 			<div className='name'>{accountName}</div>
@@ -36,51 +36,50 @@ const CardList = () => {
 				{t('Label_BankInfo_BankAccountHint')}
 			</div>
 			{bankInfoDetail.length !== 3 && (
-				<div className='btn-group'>
+				<div className='btnGroup'>
 					<button
-						className='icon icon-plus'
+						className='btn-secondary'
 						type='button'
 						onClick={() => setIsShowCards(false)}
 					>
+						<i className='icon icon-plus-add' />
 						{t('Label_BankInfo_AddNewAccount')}
 					</button>
 				</div>
 			)}
 			{bankInfoDetail.length > 0 && (
-				<>
-					<div className='text-center text-org icon icon-library'>
-						{t('Label_BankInfo_BankAccount')}
-					</div>
-					<div className='bankAccount'>
+				<div className='group-select-bank'>
+					<div className='title'>{t('Label_BankInfo_BankAccount')}</div>
+					<div className='bankAccount selectModule'>
 						{bankInfoDetail.map(
 							({ bankName, bankLogo, accountNo, sysId, ifscCode }) => (
 								<div className='account' key={`${sysId}-${accountNo}`}>
-									<div className='bankLogo'>
-										<img
-											alt={bankName}
-											src={`${
-												process.env['NEXT_PUBLIC_PAYMENT_HOST']
-											}/square/${bankLogo.toLowerCase()}`}
-										/>
-									</div>
-									<div className='info'>
-										<span className='title text-org'>{bankName}</span>
-										<span>{accountNo}</span>
+									<div className='block-grid'>
+										<div className='bankName'>
+											<img
+												alt={bankName}
+												src={`${
+													process.env['NEXT_PUBLIC_PAYMENT_HOST']
+												}/square/${bankLogo.toLowerCase()}`}
+											/>
+										</div>
+										<div className='subtitle'>{bankName}</div>
+										<div className='accountNo'>{accountNo}</div>
 										{ifscCode && (
-											<div>
+											<div className='code'>
 												{t('Label_BankInfo_IFSCCode')}: {ifscCode}
 											</div>
 										)}
 									</div>
 									<button
-										className='icon icon-bin clickBtn'
+										className='icon icon-delete-bin-fill clickBtn'
 										onClick={() => handleDeleteCard({ accountNo, sysId })}
 									/>
 								</div>
 							)
 						)}
 					</div>
-				</>
+				</div>
 			)}
 		</>
 	)
