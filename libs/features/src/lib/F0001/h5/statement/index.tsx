@@ -1,9 +1,10 @@
-import React from 'react'
-import StatementHeader from '@nx-next-app/features/F0001/h5/statement/header'
-import { useStatement } from '@nx-next-app/features/F0001/providers/statement-context'
-import StatementItem from '@nx-next-app/features/F0001/h5/statement/statementItem'
-import { uniqueId } from 'lodash-es'
 import { Loading, Select } from '@nx-next-app/components/H0001'
+import { NoData } from '@nx-next-app/features/F0001/h5/common/NoData'
+import StatementHeader from '@nx-next-app/features/F0001/h5/statement/header'
+import StatementItem from '@nx-next-app/features/F0001/h5/statement/statementItem'
+import { StatementContainer } from '@nx-next-app/features/F0001/h5/statement/styles'
+import { useStatement } from '@nx-next-app/features/F0001/providers/statement-context'
+import { uniqueId } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 
 const Statement = () => {
@@ -16,13 +17,11 @@ const Statement = () => {
 	}
 
 	return (
-		<>
+		<StatementContainer>
 			<StatementHeader />
 			<main className='main history'>
 				{displayColumns.length === 0 ? (
-					<div className='nodata icon icon-nodata'>
-						<div>{t('Label_General_NoData')}</div>
-					</div>
+					<NoData customClass='no-border' />
 				) : (
 					<>
 						<Select
@@ -44,7 +43,7 @@ const Statement = () => {
 					</>
 				)}
 			</main>
-		</>
+		</StatementContainer>
 	)
 }
 

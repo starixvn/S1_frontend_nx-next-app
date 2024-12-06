@@ -1,8 +1,7 @@
-import React from 'react'
-import { useTranslation } from 'next-i18next'
+import { Header } from '@nx-next-app/components/H0001'
 import Breadcrumb from '@nx-next-app/components/H0001/breadcrumb'
 import { useStatement } from '@nx-next-app/features/F0001/providers/statement-context'
-import { Header } from '@nx-next-app/components/H0001'
+import { useTranslation } from 'next-i18next'
 
 const StatementHeader = () => {
 	const { t } = useTranslation()
@@ -29,7 +28,7 @@ const StatementHeader = () => {
 	}))
 
 	return (
-		<header className='header'>
+		<div className='header'>
 			<Header.Tags tags={tags} />
 			<Header.Tag
 				quickSelect={quickSelect}
@@ -43,7 +42,7 @@ const StatementHeader = () => {
 				activeItem={activeTab}
 				onClick={onTabChange as (value: string | number | null) => void}
 			/>
-		</header>
+		</div>
 	)
 }
 

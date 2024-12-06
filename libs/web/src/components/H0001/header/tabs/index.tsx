@@ -1,8 +1,10 @@
-import classNames from "classnames";
-import { head, includes, isUndefined } from "lodash-es";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { forwardRef, useState } from "react";
+import { QuickSelectContainer } from '@nx-next-app/components/H0001/header/tabs/styles'
+import classNames from 'classnames'
+import useEmblaCarousel from 'embla-carousel-react'
+import { head, includes, isUndefined } from 'lodash-es'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import React, { forwardRef, useState } from 'react'
 
 type TagOptionType = {
 	key: string | number
@@ -57,6 +59,8 @@ const Tag = forwardRef(
 		const [quickSelectValue, setQuickSelectValue] = useState(
 			activeQuickSelect ?? head(quickSelect)?.key
 		)
+
+		const [emblaRef, emblaApi] = useEmblaCarousel({ slidesToScroll: 'auto' })
 
 		return (
 			<>
@@ -114,41 +118,48 @@ const Tag = forwardRef(
 				)}
 
 				{quickSelect && (
-					<div
-						className='quickSelect'
+					<QuickSelectContainer
 						ref={ref as React.MutableRefObject<null | HTMLDivElement>}
 					>
-						{quickSelect.map(({ key, label }) => {
-							return (
-								<button
-									key={key}
-									className={classNames({
-										active:
-											activeQuickSelect === key || quickSelectValue === key,
-									})}
-									value={key}
-									onClick={() => {
-										if (!activeQuickSelect) {
-											// * 觸發 uncontrolled component 元件邏輯
-											setQuickSelectValue(key)
-										}
+						<div className='embla'>
+							<div className='embla__viewport' ref={emblaRef}>
+								<div className='embla__container'>
+									{quickSelect.map(({ key, label }) => {
+										return (
+											<button
+												key={key}
+												className={classNames('tab-item', {
+													active:
+														activeQuickSelect === key ||
+														quickSelectValue === key,
+												})}
+												value={key}
+												onClick={() => {
+													if (!activeQuickSelect) {
+														// * 觸發 uncontrolled component 元件邏輯
+														setQuickSelectValue(key)
+													}
 
-										if (onQuickSelectChange) {
-											onQuickSelectChange(key)
-										}
-									}}
-								>
-									{label}
-								</button>
-							)
-						})}
+													if (onQuickSelectChange) {
+														onQuickSelectChange(key)
+													}
+												}}
+											>
+												{label}
+											</button>
+										)
+									})}
+								</div>
+							</div>
+						</div>
+
 						{!!onTabsScroll && (
 							<i
 								className='icon icon-keyboard_arrow_right'
 								onClick={onTabsScroll}
 							/>
 						)}
-					</div>
+					</QuickSelectContainer>
 				)}
 			</>
 		)
