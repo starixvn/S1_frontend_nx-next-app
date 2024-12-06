@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const WrapperWithdrawalH5 = styled.div`
+	.withdrawal{
+		padding : 5vw 4vw 35vw 4vw;
+	}
 	.header-waiting {
 		.title {
 			font-size: 4.1vw;
@@ -227,20 +230,82 @@ export const WrapperWithdrawalH5 = styled.div`
 		.selectBank {
 			display: flex;
 			flex-direction: column;
+			.btn-add-bank{
+				width : 100%;
+				background : #374375;
+				margin-top : 2.9vw;
+				text-align : center;
+				border-radius: 10px;
+				padding : 1vw 0;
+				.icon{
+					&:before{
+						color : ${({ theme }) => theme.mobile.rightModuleSloganColor};
+						font-size: 10vw;
+					}
+				}
+			}
 		}
 		.group-block-gird {
 			display: flex;
-			align-items: center;
-			justify-content: space-between;
+			align-items: flex-start;
 			gap: 4vw;
+			flex-direction: column;
 		}
 		.block-grid {
-			display: grid;
-			width: 50%;
-			grid-template-columns: repeat(3, 1fr);
-			grid-template-rows: repeat(4, 3.5vw);
-			height: 11.6vw;
+			display: flex;
 			gap: 2vw;
+			align-items: center;
+		}
+		.bankName {
+			height: 11.6vw;
+			width: 11.6vw;
+			background: ${({ theme }) => theme.mobile.rightModuleTitleBg};
+			border-radius: 10px;
+			padding: 0 0 0;
+			margin: auto;
+			box-sizing: border-box;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			overflow: hidden;
+			img {
+				border-radius: 10px;
+			}
+			.check {
+				display: none;
+			}
+			&.active {
+				border: 2px solid ${({ theme }) => theme.mobile.hrefColorPrimary};
+				.icon {
+					&:before {
+						color: ${({ theme }) => theme.mobile.white};
+					}
+				}
+				.check {
+					display: flex;
+					background: ${({ theme }) => theme.mobile.hrefColorPrimary};
+					width: 4.4vw;
+					height: 4.4vw;
+					align-items: center;
+					justify-content: center;
+					position: absolute;
+					right: -3px;
+					bottom: -3px;
+					border-radius: 5px;
+					.icon {
+						&:before {
+							font-size: 3.1vw;
+						}
+					}
+				}
+			}
+			.icon {
+				&:before {
+					font-size: 6vw;
+					color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+				}
+			}
 		}
 		.subtitle {
 			margin-top: 0;
@@ -250,11 +315,69 @@ export const WrapperWithdrawalH5 = styled.div`
 			color: ${({ theme }) => theme.mobile.white};
 			font-size: 3.4vw;
 			max-width: unset;
+			font-weight: 700;
 		}
 		.subinfo {
 			grid-column: 2 / 4;
 			grid-row: 2;
 			text-align: left;
 		}
+	}
+	.inputBox-blue {
+		margin-top: 0;
+	}
+	.formula {
+		border-radius: 3px;
+		color: #5574a7;
+		padding: 3.4vw 0;
+		border-top: 1px solid #374375;
+		margin-top: 3.4vw;
+	}
+	.formula > div {
+		display: flex;
+		justify-content: space-between;
+		gap: 0.8rem;
+	}
+	.formula > div > div {
+		flex: 1;
+		display: flex;
+		justify-content: center;
+		flex-flow: column;
+		font-weight: bold;
+		font-size: 6vw;
+		text-align: center;
+		color: #939dc5;
+	}
+	.formula > div > div:nth-child(2) {
+		font-size: 3vw;
+		flex: 19;
+		background: #232b4f;
+		text-align: left;
+		border-radius: 3px;
+		margin-bottom: 2vw;
+		padding: 2vw 3vw;
+	}
+	.formula > div > div:nth-child(2) > div:nth-child(1) {
+		font-weight: normal;
+	}
+	.formula > div > div:nth-child(2) > div:nth-child(2) {
+		color: #939dc5;
+	}
+	.formula > div > div:nth-child(2) > div:nth-child(2) span {
+		color: #ea6118;
+		margin: 0 0 0 1vw;
+		font-size: 3.4vw;
+	}
+	.text-org {
+		font-size: 2.9vw;
+		margin-top: 1vw;
+		color: #7883b4;
+		span {
+			color: #f00;
+			margin-right: 1vw;
+		}
+	}
+	.recent{
+		margin -bottom : 4vw;
 	}
 `

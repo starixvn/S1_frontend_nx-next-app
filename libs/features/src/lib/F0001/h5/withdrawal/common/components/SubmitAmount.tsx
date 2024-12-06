@@ -1,11 +1,11 @@
-import { find } from 'lodash-es'
+import { Form, InputBox } from '@nx-next-app/components/H0001'
 import { useAuth } from '@nx-next-app/data-access'
-import { useTranslation } from 'next-i18next'
 import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
 import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
-import { numberFormat } from '@nx-next-app/utils'
 import { CurrenciesEnum } from '@nx-next-app/types'
-import { Form, InputBox } from '@nx-next-app/components/H0001'
+import { numberFormat } from '@nx-next-app/utils'
+import { find } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 
 const SubmitAmount = () => {
 	const { t } = useTranslation()
@@ -109,8 +109,12 @@ const SubmitAmount = () => {
 				</span>
 				{withdrawalMinMaxLimitHint}
 			</div>
-			<div className='btn-group'>
-				<button type='submit' className='btn-check' disabled={isButtonDisabled}>
+			<div className='btnGroup'>
+				<button
+					type='submit'
+					className='btn-primary'
+					disabled={isButtonDisabled}
+				>
 					{t('Label_General_Submit')}
 				</button>
 			</div>

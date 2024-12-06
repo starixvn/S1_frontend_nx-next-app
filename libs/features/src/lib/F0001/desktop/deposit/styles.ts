@@ -294,6 +294,10 @@ export const WrapperDeposit = styled.div`
 				background: ${({ theme }) => theme.desktop.btnDepositAmountBg};
 				min-height: 2.8rem;
 				color: ${({ theme }) => theme.desktop.btnDepositAmountColor};
+				&.active {
+					background: #717fba;
+					color: #fff;
+				}
 			}
 			button[disabled] {
 				background: ${({ theme }) => theme.desktop.btnDepositAmountBgDisabled};

@@ -987,10 +987,7 @@ export const GlobalStyles = createGlobalStyle`
 						theme.desktop.customTableBorderColor};
           border-bottom: 1px solid ${({ theme }) =>
 						theme.desktop.customTableBorderColor};
-          display: inline-block !important;
-          white-space: nowrap;
-          overflow: hidden !important;
-          text-overflow: ellipsis;
+          word-break: break-all;
           &:first-child{
             width : 30%;
           }

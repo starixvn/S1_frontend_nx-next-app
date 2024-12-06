@@ -1,10 +1,11 @@
-import Link from 'next/link'
-import classNames from 'classnames'
-import { useToggle } from 'usehooks-ts'
-import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { useToggle } from 'usehooks-ts'
 
+import { NoData } from '@nx-next-app/features/F0001/h5/deposit/common/NoData'
 import { HistoryItem } from './HistoryItem'
 
 const RecentHistory = () => {
@@ -14,8 +15,8 @@ const RecentHistory = () => {
 
 	return (
 		<>
-			<div className='btn-group'>
-				<button className='recentBtn' onClick={toggleOpen}>
+			<div className='btnGroup'>
+				<button className='recentBtn btn-primary' onClick={toggleOpen}>
 					{t('Label_Withdrawal_RecentTransactions')}
 					<i
 						className={classNames('icon icon-keyboard_arrow_down', {
@@ -41,9 +42,7 @@ const RecentHistory = () => {
 						</div>
 					</>
 				) : (
-					<div className='nodata icon icon-nodata'>
-						<div className='txt-white'>{t('Label_General_NoData')}</div>
-					</div>
+					<NoData />
 				)}
 			</div>
 		</>
