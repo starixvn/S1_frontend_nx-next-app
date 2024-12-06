@@ -1,6 +1,6 @@
 import { switchLobbyIcon } from '@nx-next-app/components/D0001/game-list-item'
 import { useAuth } from '@nx-next-app/data-access'
-import { GameIconContainer } from '@nx-next-app/features/F0001/desktop/lobby-game/styles'
+import { GameIconContainer } from '@nx-next-app/features/F0001/h5/lobby-game/styles'
 import { IDynamicSubMenuItem } from '@nx-next-app/types'
 import { isEventPeriod } from '@nx-next-app/utils'
 import classNames from 'classnames'
@@ -36,7 +36,7 @@ const SportListItem = ({ subMenuItem, onItemClick }: IListItemProps) => {
 
 	return (
 		<GameIconContainer
-			className={classNames('lobby-content-item', {
+			className={classNames({
 				under: isTpMaintain,
 			})}
 		>

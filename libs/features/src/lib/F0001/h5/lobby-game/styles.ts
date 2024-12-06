@@ -56,6 +56,10 @@ export const GameListContainer = styled.div`
 	flex-wrap: wrap;
 	gap: 3.88vw;
 	padding: 0 3.88vw;
+
+	&.sport {
+		padding-bottom: 5.82vw;
+	}
 `
 
 export const GameIconContainer = styled.div`

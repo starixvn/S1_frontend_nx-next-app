@@ -1,6 +1,6 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import ESportListItem from '@nx-next-app/features/F0001/h5/esport/ESportListItem'
-import { ESportContainer } from '@nx-next-app/features/F0001/h5/esport/styles'
+import { GameListContainer } from '@nx-next-app/features/F0001/h5/lobby-game/styles'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { IDynamicSubMenuItem, MenuKeyEnum } from '@nx-next-app/types'
 import { find } from 'lodash-es'
@@ -35,7 +35,7 @@ const ESportList = () => {
 	}
 
 	return (
-		<ESportContainer className='content-container'>
+		<GameListContainer className='sport'>
 			{eSportSubMenus?.map(subMenuItem => (
 				<ESportListItem
 					key={subMenuItem?.tpGameIdNo}
@@ -43,7 +43,7 @@ const ESportList = () => {
 					onItemClick={onItemClick}
 				/>
 			))}
-		</ESportContainer>
+		</GameListContainer>
 	)
 }
 

@@ -1,14 +1,26 @@
-import LobbyPageBanner from "@nx-next-app/features/F0001/h5/lobby-game/LobbyPageBanner";
-import { LobbyGamePage } from "@nx-next-app/features/F0001/h5/lobby-game/styles";
+import { Header } from '@nx-next-app/components/H0001'
+import { paths } from '@nx-next-app/constants'
+import LobbyPageBanner from '@nx-next-app/features/F0001/h5/lobby-game/LobbyPageBanner'
+import { LobbyGamePage } from '@nx-next-app/features/F0001/h5/lobby-game/styles'
+import { MenuKeyEnum } from '@nx-next-app/types'
+import { useTranslation } from 'react-i18next'
 
-import ESportList from "./ESportList";
+import ESportList from './ESportList'
 
 const ESport = () => {
+	const { t } = useTranslation()
+
 	return (
-		<LobbyGamePage className='main-content sports'>
+		<LobbyGamePage>
+			<Header>
+				<Header.Tag
+					title={t('Label_General_ESports') as string}
+					back={`${paths.home.root}/?prevPageRecord=${MenuKeyEnum.Fishing}`}
+				/>
+			</Header>
 			<LobbyPageBanner
 				alt='E-Sport'
-				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/e-sport-banner.webp`}
+				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/e-sport-banner.webp`}
 			/>
 			<ESportList />
 		</LobbyGamePage>

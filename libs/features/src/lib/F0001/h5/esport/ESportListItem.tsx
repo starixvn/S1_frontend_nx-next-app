@@ -36,7 +36,7 @@ const ESportListItem = ({ subMenuItem, onItemClick }: IListItemProps) => {
 
 	return (
 		<GameIconContainer
-			className={classNames('lobby-content-item', {
+			className={classNames({
 				under: isTpMaintain,
 			})}
 		>
