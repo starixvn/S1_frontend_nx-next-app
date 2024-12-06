@@ -50,10 +50,10 @@ const Country = ({
 					<div className={classNames('flag', icon)} />
 					<div className='country-info'>
 						<div className='country-name'>
-							{LANG_GROUP_COUNTRY[icon || 'ch']}
+							{LANG_GROUP_COUNTRY[icon || 'th']}
 						</div>
 						<div className='group'>
-							{langGroup[icon || 'ch']?.map(
+							{langGroup[icon || 'th']?.map(
 								({ displayText, currencyId, value }) => {
 									return (
 										<button
