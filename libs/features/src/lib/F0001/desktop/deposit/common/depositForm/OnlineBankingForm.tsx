@@ -94,6 +94,9 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 				layout='vertical'
 				required
 				hasAdditionalInfo
+				depositTitle={t('Label_Payment_Method', {
+					lng: 'en',
+				})}
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{dataSource.map(item => {
@@ -120,6 +123,9 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 					layout='horizontal'
 					required
 					hasAdditionalInfo
+					depositTitle={t('Label_BankInfo_SelectBank', {
+						lng: 'en',
+					})}
 				>
 					<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 						{paymentOnlineBankInfoSysList.map(item => {
@@ -144,6 +150,9 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
 				<DepositModule
 					title={t('Label_General_DepositAmount')}
+					depositTitle={t('Label_General_DepositAmount', {
+						lng: 'en',
+					})}
 					required
 				>
 					<div className='column' />
@@ -221,6 +230,9 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 			{bankCardRequired && (
 				<DepositModule
 					title={t('Label_Deposit_DepositChannel')}
+					depositTitle={t('Label_Deposit_DepositChannel', {
+						lng: 'en',
+					})}
 					required
 				>
 					<Select
@@ -255,6 +267,9 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 
 			<DepositModule
 				title={t('Label_Deposit_ChooseAvailablePromotion')}
+				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
+					lng: 'en',
+				})}
 			>
 				<Select
 					value={watchBonusCode}
