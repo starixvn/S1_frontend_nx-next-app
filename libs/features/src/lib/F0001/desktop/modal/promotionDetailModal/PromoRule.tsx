@@ -103,7 +103,7 @@ const PromoRule = ({ promotionDetail }: IPromoRuleProps) => {
 	}
 
 	return (
-		<div className='rolloverList'>
+		<div className='rolloverList custom-table'>
 			{!includes(
 				[PromotionTypeEnum.SpecialBonus, PromotionTypeEnum.Rebate],
 				promotionType

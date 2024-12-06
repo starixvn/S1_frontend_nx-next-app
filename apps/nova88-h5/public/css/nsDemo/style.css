@@ -2980,29 +2980,7 @@ main .gameList .icon-new {
 	font-weight: bold;
 }
 
-.walletTotal {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	color: #5574a7;
-	background: #e4e4e4;
-	border-radius: 1vw;
-	padding: 3vw;
-}
-.walletTotal span {
-	color: #112240;
-	margin: 0 2vw;
-}
-.walletTotal .icon {
-	color: #112240;
-	background: none;
-}
+
 
 .walletMenu {
 	width: 100%;
