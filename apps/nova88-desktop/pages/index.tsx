@@ -131,7 +131,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 				TpCategory.ESports,
 				TpCategory.Games,
 			].toString(),
-			currencyId,
+			currencyId: Number(process.env['NEXT_PUBLIC_DEFAULT_CURRENCY']),
 		}),
 	])
 
