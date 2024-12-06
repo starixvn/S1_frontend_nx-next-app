@@ -37,13 +37,13 @@ export const CategoryFilterTabs = styled.div`
 		bottom: 0.72vw;
 		height: 11.65vw;
 		padding: 0 1.94vw;
+		margin-top: 1vw;
 		white-space: nowrap;
 		color: #717fba;
 		font-size: 3.39vw;
 		font-weight: 600;
 
 		&.active {
-			margin-top: 1vw;
 			color: #fff;
 			border-bottom: 0.48vw solid #ea6118;
 		}

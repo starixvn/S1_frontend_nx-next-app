@@ -1,8 +1,14 @@
-import React, { Suspense } from 'react'
+import { useAuth } from '@nx-next-app/data-access'
+import { LoadingIcon } from '@nx-next-app/features/F0001/h5/home/gameIcon/icons'
+import {
+	GameIconContainer,
+	GameListContainer,
+} from '@nx-next-app/features/F0001/h5/lobby-game/styles'
+import { useSlots } from '@nx-next-app/features/F0001/providers'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
-import { useSlots } from '@nx-next-app/features/F0001/providers'
+import { Suspense } from 'react'
+import { Img } from 'react-image'
 
 const GameList = () => {
 	const {
@@ -22,7 +28,7 @@ const GameList = () => {
 
 	return slotsGameList && slotsGameList.length > 0 ? (
 		<Suspense>
-			<div className='slotList'>
+			<GameListContainer>
 				{slotsGameList.map(
 					({
 						tpId,
@@ -32,6 +38,7 @@ const GameList = () => {
 						playFree,
 						isMaintain,
 						isFavorite,
+						tpName,
 						...rest
 					}) => {
 						const resultGameImgDisplayText = vendorList.find(
@@ -43,16 +50,14 @@ const GameList = () => {
 						const resultImgName = imgName[langId] ?? imgName['en']
 						const resultImgUrl = `${imgUrl}/${resultGameImgDisplayText}/${resultImgName}`
 						const resultGameName = gameName[langId] ?? gameName['en']
+
 						return (
-							<div
-								className={classNames('info', { 'star active': isMaintain })}
+							<GameIconContainer
+								className={classNames({ 'star active': isMaintain })}
 								key={`slots-game-${tpId}-${gameId}`}
 							>
-								{newGamesArr.includes(gameId) ? (
-									<i className='icon  icon-new' />
-								) : null}
-
 								<button
+									className='img-wrapper'
 									onClick={() =>
 										onGameActive({
 											tpId,
@@ -62,6 +67,7 @@ const GameList = () => {
 											playFree,
 											isMaintain,
 											isFavorite,
+											tpName,
 											...rest,
 											resultTpName,
 											resultGameImgDisplayText,
@@ -69,27 +75,47 @@ const GameList = () => {
 										})
 									}
 								>
-									<img src={resultImgUrl} alt={resultGameName} />
+									<Img
+										className='img'
+										src={resultImgUrl}
+										loader={<LoadingIcon />}
+										// unloader={<NoGameIcon />}
+										unloader={<p>{resultGameName}</p>}
+										alt={resultGameName}
+									/>
 								</button>
-								<span>{resultGameImgDisplayText}</span>
+								<div className='details'>
+									<div className='providerName'>{tpName}</div>
+									<span
+										onClick={() =>
+											onFavoritesToggle({
+												tpId,
+												gameId,
+											})
+										}
+										className={classNames('icon icon-star-fill icon-favorite', {
+											active: isFavorite,
+										})}
+									/>
+								</div>
+
 								{isMaintain && (
-									<div className='under'>{t('Label_underMaintenance')}</div>
+									<div className='um-container'>
+										<div className='under'>
+											{t('Label_General_UnderMaintenance')}
+										</div>
+									</div>
 								)}
-								<span
-									onClick={() =>
-										onFavoritesToggle({
-											tpId,
-											gameId,
-										})
-									}
-									className={`icon icon-star-${isFavorite ? 'full' : 'empty'}`}
-								/>
-							</div>
+
+								{newGamesArr.includes(gameId) ? (
+									<div className='new-icon'>{t('Label_General_New')}</div>
+								) : null}
+							</GameIconContainer>
 						)
 					}
 				)}
 				<span ref={gameListRef} />
-			</div>
+			</GameListContainer>
 		</Suspense>
 	) : (
 		<div className='nodata icon icon-nodata'>
