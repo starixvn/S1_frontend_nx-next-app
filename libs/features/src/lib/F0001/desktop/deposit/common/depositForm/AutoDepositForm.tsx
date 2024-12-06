@@ -90,7 +90,6 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 				layout='vertical'
 				required
 				hasAdditionalInfo
-				depositTitle={t('Label_Payment_Method', { lng: 'en' })}
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{dataSource.map(item => {
@@ -123,7 +122,6 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 					layout='horizontal'
 					required
 					hasAdditionalInfo
-					depositTitle={t('Label_BankInfo_SelectBank', { lng: 'en' })}
 				>
 					<DepositModule.SubModuleButtonGroup matchKey='sysId'>
 						{supportBanks.map(item => {
@@ -149,7 +147,6 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 				<DepositModule
 					title={depositAmountText}
 					required
-					depositTitle={depositAmountTextEng}
 				>
 					<div className='column' />
 					{!showShortcutList && (
@@ -227,7 +224,6 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 				<DepositModule
 					title={t('Label_Deposit_DepositChannel')}
 					required
-					depositTitle={t('Label_Deposit_DepositChannel', { lng: 'en' })}
 				>
 					<div className='group-input-chanel'>
 						<Select
@@ -265,9 +261,6 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 
 			<DepositModule
 				title={t('Label_Deposit_ChooseAvailablePromotion')}
-				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
-					lng: 'en',
-				})}
 			>
 				<Select
 					value={watchBonusCode}

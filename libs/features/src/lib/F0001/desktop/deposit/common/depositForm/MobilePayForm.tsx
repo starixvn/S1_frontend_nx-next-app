@@ -140,9 +140,6 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				layout='vertical'
 				required
 				hasAdditionalInfo
-				depositTitle={t('Label_Payment_Method', {
-					lng: 'en',
-				})}
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='paymentName'>
 					{dataSource.map(item => {
@@ -168,9 +165,6 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 				layout='vertical'
 				required
 				hasAdditionalInfo
-				depositTitle={t('Label_Deposit_SelectChannel', {
-					lng: 'en',
-				})}
 			>
 				<DepositModule.SubModuleButtonGroup matchKey='channelId'>
 					{channelMobilePayList.map(item => {
@@ -219,7 +213,6 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			{isNumber(watchMinAmount) && isNumber(watchMaxAmount) && (
 				<DepositModule
 					title={depositAmountText}
-					depositTitle={depositAmountTextEng}
 					required
 				>
 					<div className='column' />
@@ -297,7 +290,6 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			{bankCardRequired && (
 				<DepositModule
 					title={t('Label_Deposit_DepositChannel')}
-					depositTitle={t('Label_Deposit_DepositChannel', { lng: 'en' })}
 					required
 				>
 					<Select
@@ -333,7 +325,6 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			{(eWalletRequired || bankCardOrEWalletRequired) && (
 				<DepositModule
 					title={t('Label_Deposit_DepositChannel')}
-					depositTitle={t('Label_Deposit_DepositChannel', { lng: 'en' })}
 					required
 				>
 					<div className='subModule-item'>
@@ -409,9 +400,6 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 
 			<DepositModule
 				title={t('Label_Deposit_ChooseAvailablePromotion')}
-				depositTitle={t('Label_Deposit_ChooseAvailablePromotion', {
-					lng: 'en',
-				})}
 			>
 				<Select
 					value={watchBonusCode}
