@@ -1,12 +1,12 @@
+import { Loading } from '@nx-next-app/components/D0001'
+import { Form, InputBox, Select } from '@nx-next-app/components/H0001'
+import { BANK_ACCOUNT_REGEX, IFSC_CODE_REGEX } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { useBankInfo } from '@nx-next-app/features/F0001/providers'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { useTranslation } from 'next-i18next'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
-import { CurrenciesEnum } from '@nx-next-app/types'
-import { IFSC_CODE_REGEX, BANK_ACCOUNT_REGEX } from '@nx-next-app/constants'
-import { useBankInfo } from '@nx-next-app/features/F0001/providers'
-import { Form, Select, InputBox } from '@nx-next-app/components/H0001'
-import { Loading } from '@nx-next-app/components/D0001'
 
 const AddCard = () => {
 	const { t } = useTranslation()
@@ -52,15 +52,22 @@ const AddCard = () => {
 
 	return (
 		<Form onSubmit={handleSubmit(handleSubmitForm)}>
-			<Select
-				options={bankSysOptions}
-				value={getValues('sysId')}
-				placeholder={t('Label_BankInfo_SelectBank') as string}
-				onChange={sysId => setValue('sysId', sysId)}
-				errorMessage={errors['sysId']?.message as string}
-				defaultValue={bankSysOptions[0].value}
-				btnClassName='dropdownbank'
-			/>
+			<div className='group-dropdown'>
+				<div className='inputBox-blue'>
+					<div className='dropdown'>
+						<Select
+							options={bankSysOptions}
+							value={getValues('sysId')}
+							placeholder={t('Label_BankInfo_SelectBank') as string}
+							onChange={sysId => setValue('sysId', sysId)}
+							errorMessage={errors['sysId']?.message as string}
+							defaultValue={bankSysOptions[0].value}
+							btnClassName='dropdownbank'
+						/>
+					</div>
+				</div>
+			</div>
+
 			<InputBox
 				register={register('accountNo', {
 					required: {
@@ -73,13 +80,13 @@ const AddCard = () => {
 					},
 					onBlur: () => trigger('accountNo'),
 				})}
-				icon='icon-newspaper'
 				placeholder={t('Label_BankInfo_AccountNumber') as string}
 				touched={!!touchedFields['accountNo']}
 				errorMessage={errors['accountNo']?.message as string}
 				error={!!errors['accountNo']}
 				infoMessage={t('Label_BankInfo_EnterAccountNumber') as string}
 			/>
+
 			{currencyId === CurrenciesEnum.INR && (
 				<InputBox
 					register={register('ifscCode', {
@@ -93,7 +100,6 @@ const AddCard = () => {
 						},
 						onBlur: () => trigger('ifscCode'),
 					})}
-					icon='icon-newspaper'
 					placeholder={t('Label_BankInfo_IFSCCode') as string}
 					touched={!!touchedFields['ifscCode']}
 					errorMessage={errors['ifscCode']?.message as string}
@@ -101,15 +107,15 @@ const AddCard = () => {
 					infoMessage={t('Label_BankInfo_PleaseEnterIFSCCode') as string}
 				/>
 			)}
-			<div className='btn-group'>
+			<div className='btnGroup'>
 				<button
-					className='white'
+					className='btn-secondary'
 					type='button'
 					onClick={() => setIsShowCards(true)}
 				>
 					{t('Label_General_Cancel')}
 				</button>
-				<button className='orange' type='submit'>
+				<button className='btn-primary' type='submit'>
 					{t('Label_General_Submit')}
 				</button>
 			</div>

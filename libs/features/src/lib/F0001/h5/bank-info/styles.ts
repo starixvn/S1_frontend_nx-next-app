@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const WrapperBankInfoH5 = styled.div`
 	.Wallet {
 		padding: 5vw 4vw 35vw;
-		.btnGroup {
+		.custom-btn-group {
 			button {
 				min-height: 7vw;
 			}
@@ -11,77 +11,6 @@ export const WrapperBankInfoH5 = styled.div`
 				&:before {
 					font-size: 5.1vw;
 				}
-			}
-		}
-	}
-	.vip_mark {
-		margin: auto;
-		position: relative;
-		text-align: center;
-		max-width: 35vw;
-		&.infinity {
-			div {
-				background: ${({ theme }) => theme.desktop.gradeNovaBg};
-			}
-		}
-		&.vintage {
-			div {
-				background: ${({ theme }) => theme.desktop.gradeVintageBg};
-			}
-		}
-		&.silver {
-			div {
-				background: ${({ theme }) => theme.desktop.gradeSilverBg};
-			}
-		}
-		&.gold {
-			div {
-				background: ${({ theme }) => theme.desktop.gradeGoldBg};
-			}
-		}
-		&.titanium {
-			div {
-				background: ${({ theme }) => theme.desktop.gradeTitaniumBg};
-			}
-		}
-		&.diamond {
-			div {
-				background: ${({ theme }) => theme.desktop.gradeDiamondBg};
-			}
-		}
-		img {
-			width: 25vw;
-			z-index: 1;
-			position: relative;
-			margin: 0 auto;
-		}
-		div {
-			background: #112240;
-			padding: 1vw;
-			margin-top: 3.1vw;
-			border-radius: 15px;
-			color: ${({ theme }) => theme.mobile.white};
-			font-size: 3.1vw;
-			font-weight: 700;
-			line-height: normal;
-		}
-		.circleAnimation {
-			display: flex;
-			z-index: 0;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-			width: 15vw;
-			height: 15vw;
-			border-radius: 100%;
-			&:before {
-				width: 28vw;
-				height: 28vw;
-			}
-			&:after {
-				width: 24vw;
-				height: 24vw;
-				background: #112240;
 			}
 		}
 	}
@@ -138,12 +67,10 @@ export const WrapperBankInfoH5 = styled.div`
 	.group-select-bank {
 		margin-top: 3.4vw;
 		.block-grid {
-			display: grid;
-			width: 100%;
-			grid-template-columns: repeat(3, 1fr);
-			grid-template-rows: repeat(4, 3.5vw);
 			height: 11.6vw;
-			gap: 1vw;
+			gap: 2vw;
+			display: flex;
+			align-items: center;
 		}
 		.bankName {
 			height: 11.6vw;
@@ -151,7 +78,6 @@ export const WrapperBankInfoH5 = styled.div`
 			background: ${({ theme }) => theme.mobile.rightModuleTitleBg};
 			border-radius: 10px;
 			padding: 0 0 0;
-			margin: auto;
 			box-sizing: border-box;
 			display: flex;
 			align-items: center;
@@ -164,8 +90,6 @@ export const WrapperBankInfoH5 = styled.div`
 		}
 		.subtitle {
 			margin-top: 0;
-			grid-column: 2 / 4;
-			grid-row: 1;
 			text-align: left;
 			font-weight: 700;
 			color: ${({ theme }) => theme.mobile.white};
@@ -173,16 +97,58 @@ export const WrapperBankInfoH5 = styled.div`
 			max-width: unset;
 		}
 		.subinfo {
-			grid-column: 2 / 4;
-			grid-row: 2;
 			text-align: left;
 			color: #939dc5;
 		}
 		.code {
-			grid-column: 2 / 4;
-			grid-row: 3;
 			text-align: left;
 			color: #939dc5;
 		}
+	}
+	.account {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 2vw;
+		padding: 2vw;
+		border-radius: 10px;
+		border: 1px solid #374375;
+		.icon {
+			&:before {
+				font-size: 5vw;
+				color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+			}
+		}
+	}
+	.dropdown {
+		.btn {
+			margin-left: 0;
+		}
+	}
+	.text-dropdown {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+		.bankLogo {
+			img {
+				border-radius: 50px;
+				width: 5.8vw;
+				height: 5.8vw;
+			}
+		}
+	}
+	.dropdown-container {
+		align-items: center;
+		gap: 0.8rem;
+		.bankLogo {
+			img {
+				border-radius: 50px;
+				width: 5.8vw;
+				height: 5.8vw;
+			}
+		}
+	}
+	.dropdown-item {
+		gap: 0.8rem;
+		padding: 0 3vw;
 	}
 `

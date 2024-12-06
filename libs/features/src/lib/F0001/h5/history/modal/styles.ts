@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const WrapperDepositModalBankSlipH5 = styled.div`
+	.pop {
+		width: auto;
+	}
 	.popup-bankslip {
 		.heading-bankslip {
 			font-size: 4.2vw;

@@ -36,7 +36,7 @@ const CardList = () => {
 				{t('Label_BankInfo_BankAccountHint')}
 			</div>
 			{bankInfoDetail.length !== 3 && (
-				<div className='btnGroup'>
+				<div className='btnGroup custom-btn-group'>
 					<button
 						className='btn-secondary'
 						type='button'
@@ -63,13 +63,15 @@ const CardList = () => {
 												}/square/${bankLogo.toLowerCase()}`}
 											/>
 										</div>
-										<div className='subtitle'>{bankName}</div>
-										<div className='subinfo'>{accountNo}</div>
-										{ifscCode && (
-											<div className='code'>
-												{t('Label_BankInfo_IFSCCode')}: {ifscCode}
-											</div>
-										)}
+										<div className='group-subtitle'>
+											<div className='subtitle'>{bankName}</div>
+											<div className='subinfo'>{accountNo}</div>
+											{ifscCode && (
+												<div className='code'>
+													{t('Label_BankInfo_IFSCCode')}: {ifscCode}
+												</div>
+											)}
+										</div>
 									</div>
 									<button
 										className='icon icon-delete-bin-fill clickBtn'

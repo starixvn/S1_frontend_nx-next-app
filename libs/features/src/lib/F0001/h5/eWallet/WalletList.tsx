@@ -1,4 +1,5 @@
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { WrapperBankInfoH5 } from '@nx-next-app/features/F0001/h5/bank-info/styles'
 import { useEWallet } from '@nx-next-app/features/F0001/providers'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import { includes } from 'lodash-es'
@@ -18,7 +19,7 @@ const WalletList = () => {
 	const userLevelImageInfo = VIP_CLUB_IMAGES[(userLevel as number) - 1]
 
 	return (
-		<>
+		<WrapperBankInfoH5>
 			<div className={`vip_mark ${userLevelImageInfo?.levelTabsName}`}>
 				<img
 					src={userLevelImageInfo?.url}
@@ -36,48 +37,49 @@ const WalletList = () => {
 				{t('Label_BankInfo_BankAccountHint')}
 			</div>
 			{custEWalletList.length !== 3 && (
-				<div className='btn-group'>
+				<div className='btnGroup custom-btn-group'>
 					<button
-						className='icon icon-plus'
+						className='btn-secondary'
 						type='button'
 						onClick={() => setIsShowCards(false)}
 					>
+						<i className='icon icon-plus-add' />
 						{t('Label_EWallet_AddEWallet')}
 					</button>
 				</div>
 			)}
 			{custEWalletList.length > 0 && (
-				<>
-					<div className='text-center text-org icon icon-library'>
-						{t('Label_General_EWallet')}
-					</div>
-					<div className='bankAccount'>
+				<div className='group-select-bank'>
+					<div className='title'>{t('Label_General_EWallet')}</div>
+					<div className='bankAccount selectModule'>
 						{custEWalletList.map(
 							({ sysId, accountNo, eWalletLogo, eWalletName }) => (
 								<div className='account' key={`${sysId}-${accountNo}`}>
-									<div className='bankLogo'>
-										<img
-											alt={eWalletName}
-											src={`${
-												process.env['NEXT_PUBLIC_PAYMENT_HOST']
-											}/square/${eWalletLogo.toLowerCase()}`}
-										/>
-									</div>
-									<div className='info'>
-										<span className='title text-org'>{eWalletName}</span>
-										<span>{accountNo}</span>
+									<div className='block-grid'>
+										<div className='bankName'>
+											<img
+												alt={eWalletName}
+												src={`${
+													process.env['NEXT_PUBLIC_PAYMENT_HOST']
+												}/square/${eWalletLogo.toLowerCase()}`}
+											/>
+										</div>
+										<div className='group-subtitle'>
+											<div className='subtitle'>{eWalletName}</div>
+											<div className='subinfo'>{accountNo}</div>
+										</div>
 									</div>
 									<button
-										className='icon icon-bin clickBtn'
+										className='icon icon-delete-bin-fill clickBtn'
 										onClick={() => handleDeleteEWallet({ accountNo, sysId })}
 									/>
 								</div>
 							)
 						)}
 					</div>
-				</>
+				</div>
 			)}
-		</>
+		</WrapperBankInfoH5>
 	)
 }
 

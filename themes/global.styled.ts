@@ -2309,5 +2309,76 @@ export const GlobalStyles = createGlobalStyle`
         border-color: #EA6118;
         font-weight: bold;
       }
+        .vip_mark {
+          margin: auto;
+          position: relative;
+          text-align: center;
+          max-width: 35vw;
+          &.infinity {
+            div {
+              background: ${({ theme }) => theme.desktop.gradeNovaBg};
+            }
+          }
+          &.vintage {
+            div {
+              background: ${({ theme }) => theme.desktop.gradeVintageBg};
+            }
+          }
+          &.silver {
+            div {
+              background: ${({ theme }) => theme.desktop.gradeSilverBg};
+            }
+          }
+          &.gold {
+            div {
+              background: ${({ theme }) => theme.desktop.gradeGoldBg};
+            }
+          }
+          &.titanium {
+            div {
+              background: ${({ theme }) => theme.desktop.gradeTitaniumBg};
+            }
+          }
+          &.diamond {
+            div {
+              background: ${({ theme }) => theme.desktop.gradeDiamondBg};
+            }
+          }
+          img {
+            width: 25vw;
+            z-index: 1;
+            position: relative;
+            margin: 0 auto;
+          }
+          div {
+            background: #112240;
+            padding: 1vw;
+            margin-top: 3.1vw;
+            border-radius: 15px;
+            color: ${({ theme }) => theme.mobile.white};
+            font-size: 3.1vw;
+            font-weight: 700;
+            line-height: normal;
+          }
+          .circleAnimation {
+            display: flex;
+            z-index: 0;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 15vw;
+            height: 15vw;
+            border-radius: 100%;
+            &:before {
+              width: 28vw;
+              height: 28vw;
+            }
+            &:after {
+              width: 24vw;
+              height: 24vw;
+              background: #112240;
+            }
+          }
+        }
     }
 `

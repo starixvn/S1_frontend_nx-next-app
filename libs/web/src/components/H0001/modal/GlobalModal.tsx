@@ -84,7 +84,7 @@ const GlobalModal = ({
 									</button>
 									{type === 'confirm' && (
 										<button
-											className='gray'
+											className='btn-secondary'
 											onClick={() => {
 												closeModal()
 												onCancel && onCancel()
