@@ -75,7 +75,8 @@ interface DepositContextInterface {
 		[DepositPaymentEnum.ChatTransfer]?: IDepositChatTransferData[]
 	}
 	promotionOptions: SelectOptionType[]
-	getCustPromotionOptions: (minAmount?: number) => SelectOptionType[] 
+	getCustPromotionOptions: (minAmount?: number) => SelectOptionType[],
+	getBonusCodeIfExist: (minAmount?: number, bonusId?: number | string) => number | string | undefined,
 	refetchPaymentBankTransferList: () => void
 	refetchPaymentOnlineBankingList: () => void
 	refetchPaymentMobilePayList: () => void
@@ -247,6 +248,14 @@ export const DepositProvider = ({
 		}))
 	}
 
+	const getBonusCodeIfExist = (minAmount?: number, bonusId?: number | string) => {
+		if (!bonusId) {
+			return ''
+		}
+
+		return getCustPromotionOptions(minAmount).find(bonusCode => bonusCode.value === bonusId)?.value ?? ''
+	}
+
 	const originPayments: DepositContextInterface['payments'] = {
 		[DepositPaymentEnum.AutoDeposit]: paymentAutoDepositList,
 		[DepositPaymentEnum.BankTransfer]: paymentBankTransferList,
@@ -305,6 +314,7 @@ export const DepositProvider = ({
 		payments,
 		promotionOptions,
 		getCustPromotionOptions,
+		getBonusCodeIfExist,
 		refetchPaymentBankTransferList,
 		refetchPaymentOnlineBankingList,
 		refetchPaymentMobilePayList,

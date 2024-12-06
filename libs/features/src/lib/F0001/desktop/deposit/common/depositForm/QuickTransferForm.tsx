@@ -33,7 +33,7 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 	} = useAuth()
 	const { t } = useTranslation()
 
-	const { getCustPromotionOptions } = useDepositContext()
+	const { getCustPromotionOptions, getBonusCodeIfExist } = useDepositContext()
 
 	const {
 		formMethods: {
@@ -156,6 +156,17 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 							},
 						})}
 						format={isConvert(currencyId)}
+						onChange={event => {
+							setValue(
+								'bonusCode',
+								String(
+									getBonusCodeIfExist(
+										Number(event.target.value),
+										watchBonusCode
+									)
+								)
+							)
+						}}
 						placeholder={
 							t('Label_General_AmountMinMaxLimit', {
 								value1: numFormatToDigits(watchMinAmount),
@@ -178,6 +189,10 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 							minAmount: watchMinAmount,
 						})}
 						onChange={value => {
+							setValue(
+								'bonusCode',
+								String(getBonusCodeIfExist(value, watchBonusCode))
+							)
 							setValue('amount', value)
 							trigger('amount')
 						}}
@@ -192,7 +207,7 @@ const QuickTransferForm = ({ dataSource }: IQuickTransferFormProps) => {
 				})}
 			>
 				<Select
-					value={watchBonusCode}
+					value={getBonusCodeIfExist(watchAmount, watchBonusCode)}
 					options={getCustPromotionOptions(watchAmount)}
 					onChange={value => {
 						// * bonusCode 與 promoCode 擇一使用因此清空 promoCode

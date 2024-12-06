@@ -42,7 +42,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
-	const { getCustPromotionOptions } = useDepositContext()
+	const { getCustPromotionOptions, getBonusCodeIfExist } = useDepositContext()
 
 	const {
 		formMethods: {
@@ -87,7 +87,6 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 			)
 		}
 	}
-
 	return (
 		<>
 			{loading && <Loading />}
@@ -179,6 +178,12 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 							},
 						})}
 						format={isConvert(currencyId)}
+						onChange={event => {
+							setValue(
+								'bonusCode',
+								String(getBonusCodeIfExist(Number(event.target.value), watchBonusCode))
+							)
+						}}
 						placeholder={
 							t('Label_General_AmountMinMaxLimit', {
 								value1: numFormatToDigits(watchMinAmount),
@@ -201,6 +206,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 							minAmount: watchMinAmount,
 						})}
 						onChange={value => {
+							setValue('bonusCode', String(getBonusCodeIfExist(value, watchBonusCode)))
 							setValue('amount', value)
 							trigger('amount')
 						}}
@@ -230,7 +236,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 				})}
 			>
 				<Select
-					value={watchBonusCode}
+					value={getBonusCodeIfExist(watchAmount, watchBonusCode)}
 					options={getCustPromotionOptions(watchAmount)}
 					onChange={value => {
 						setValue('bonusCode', String(value))

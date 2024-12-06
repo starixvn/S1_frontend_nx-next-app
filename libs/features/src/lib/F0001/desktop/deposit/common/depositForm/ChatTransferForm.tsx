@@ -33,7 +33,7 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 	} = useAuth()
 	const { t } = useTranslation()
 
-	const { getCustPromotionOptions } = useDepositContext()
+	const { getCustPromotionOptions, getBonusCodeIfExist } = useDepositContext()
 
 	const {
 		formMethods: {
@@ -148,6 +148,17 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 							},
 						})}
 						format={isConvert(currencyId)}
+						onChange={event => {
+							setValue(
+								'bonusCode',
+								String(
+									getBonusCodeIfExist(
+										Number(event.target.value),
+										watchBonusCode
+									)
+								)
+							)
+						}}
 						placeholder={
 							t('Label_General_AmountMinMaxLimit', {
 								value1: numFormatToDigits(watchMinAmount),
@@ -170,6 +181,10 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 							minAmount: watchMinAmount,
 						})}
 						onChange={value => {
+							setValue(
+								'bonusCode',
+								String(getBonusCodeIfExist(value, watchBonusCode))
+							)
 							setValue('amount', value)
 							trigger('amount')
 						}}
@@ -184,7 +199,7 @@ const ChatTransferForm = ({ dataSource }: IChatTransferFormProps) => {
 				})}
 			>
 				<Select
-					value={watchBonusCode}
+					value={getBonusCodeIfExist(watchAmount, watchBonusCode)}
 					options={getCustPromotionOptions(watchAmount)}
 					onChange={value => {
 						// * bonusCode 與 promoCode 擇一使用因此清空 promoCode

@@ -33,7 +33,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 	} = useAuth()
 	const { t } = useTranslation()
 
-	const { getCustPromotionOptions } = useDepositContext()
+	const { getCustPromotionOptions, getBonusCodeIfExist } = useDepositContext()
 
 	const {
 		formMethods: {
@@ -107,6 +107,17 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 								placeholder={t('Label_Deposit_CardCode') || ''}
 								touched={!!touchedFields['code']}
 								error={!!errors['code']}
+								onChange={event => {
+									setValue(
+										'bonusCode',
+										String(
+											getBonusCodeIfExist(
+												Number(event.target.value),
+												watchBonusCode
+											)
+										)
+									)
+								}}
 								onInfoClick={() => toggleIsCardInfoImgActive()}
 							/>
 							<button
@@ -172,6 +183,10 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 						}
 						format={isConvert(currencyId)}
 						onChange={value => {
+							setValue(
+								'bonusCode',
+								String(getBonusCodeIfExist(value, watchBonusCode))
+							)
 							setValue('amount', value)
 							trigger('amount')
 						}}
@@ -186,7 +201,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 				})}
 			>
 				<Select
-					value={watchBonusCode}
+					value={getBonusCodeIfExist(watchAmount, watchBonusCode)}
 					options={getCustPromotionOptions(watchAmount)}
 					onChange={value => {
 						// * bonusCode 與 promoCode 擇一使用因此清空 promoCode
