@@ -10,11 +10,11 @@ const DemoModal = (props: ModalState) => {
 		<Modal open={props.open}>
 			<p>Some contents...</p>
 			<div className='Success active'>
-				<div className='icon icon-bell' />
+				<div className='icon icon-notification-active' />
 				<div className='title'>Information</div>
 				<div>Content</div>
 				<div className='btnGroup'>
-					<button type='button' className='btn-check' onClick={handleClicked}>
+					<button type='button' className='btn-primary' onClick={handleClicked}>
 						OK
 					</button>
 				</div>

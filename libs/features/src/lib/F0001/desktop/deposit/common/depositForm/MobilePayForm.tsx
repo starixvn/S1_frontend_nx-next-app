@@ -313,7 +313,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 					{custBankInfo.length < 3 && (
 						<div className='btnGroup'>
 							<button
-								className='btn-check'
+								className='btn-primary'
 								onClick={() => handleAddCards(WithdrawalBankCardEnum.LocalBank)}
 							>
 								+
@@ -353,7 +353,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 						{custEWalletList.length < 3 && (
 							<div className='btnGroup'>
 								<button
-									className='btn-check'
+									className='btn-primary'
 									onClick={() => handleAddCards(WithdrawalBankCardEnum.EWallet)}
 								>
 									+
@@ -385,7 +385,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 								{custBankInfo.length < 3 && (
 									<div className='btnGroup'>
 										<button
-											className='btn-check'
+											className='btn-primary'
 											onClick={() =>
 												handleAddCards(WithdrawalBankCardEnum.LocalBank)
 											}
@@ -443,8 +443,8 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 						type='submit'
 						style={{ pointerEvents: isValid && watchAmount ? 'auto' : 'none' }}
 						className={classNames({
-							darkGray: !(isValid && watchAmount),
-							'btn-check': isValid && watchAmount,
+							'btn-disable': !(isValid && watchAmount),
+							'btn-primary': isValid && watchAmount,
 						})}
 					>
 						{t('Label_General_Submit')}

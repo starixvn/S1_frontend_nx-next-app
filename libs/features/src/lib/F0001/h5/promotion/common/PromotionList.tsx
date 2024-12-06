@@ -4,7 +4,6 @@ import {
 	PromotionFilterEnum,
 	PromotionTypeEnum,
 } from '@nx-next-app/types'
-import { includes } from 'lodash-es'
 import {
 	getIsHidePromotionJoinButton,
 	isPromotionClaimed,
@@ -12,6 +11,7 @@ import {
 	isShowPromotionProgressBar,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
+import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import PromotionProgressBar from './PromotionProgressBar'
 
@@ -123,10 +123,10 @@ const PromotionList = () => {
 							/>
 						)}
 
-						<div className='btn-group'>
+						<div className='btnGroup'>
 							{!isHideJoinButton && (
 								<button
-									className='orange'
+									className='btn-primary'
 									onClick={() => setClaimPromotionHandler(item)}
 								>
 									{isShowClaimNowButton
@@ -141,7 +141,7 @@ const PromotionList = () => {
 									href={promotionLink as string}
 									target='_blank'
 									rel='noreferrer'
-									className='btn-check'
+									className='btn-primary'
 								>
 									{t('Label_General_MoreInfo')}
 								</a>

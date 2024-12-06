@@ -50,7 +50,7 @@ const TurnoverModal = ({
 					</div>
 				</div>
 				<div className='btnGroup'>
-					<button className='btn-check' type='button' onClick={closeModal}>
+					<button className='btn-primary' type='button' onClick={closeModal}>
 						OK
 					</button>
 				</div>

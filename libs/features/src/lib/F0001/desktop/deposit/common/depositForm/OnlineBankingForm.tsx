@@ -248,7 +248,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 					{custBankInfo.length < 3 && (
 						<div className='btnGroup'>
 							<button
-								className='btn-check'
+								className='btn-primary'
 								onClick={() => handleAddCards(WithdrawalBankCardEnum.LocalBank)}
 							>
 								+
@@ -304,8 +304,8 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 								isValid && watchAmount && !loading ? 'auto' : 'none',
 						}}
 						className={classNames({
-							darkGray: !(isValid && watchAmount),
-							'btn-check': isValid && watchAmount,
+							'btn-disable': !(isValid && watchAmount),
+							'btn-primary': isValid && watchAmount,
 						})}
 					>
 						{t('Label_General_Submit')}

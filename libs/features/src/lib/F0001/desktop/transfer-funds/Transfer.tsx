@@ -1,9 +1,9 @@
-import { useTranslation } from 'next-i18next'
-import { isConvert } from '@nx-next-app/utils'
+import { Form, InputBox, Select } from '@nx-next-app/components/D0001'
 import { useAuth } from '@nx-next-app/data-access'
-import { Form, Select, InputBox } from '@nx-next-app/components/D0001'
 import { useTransferFunds } from '@nx-next-app/features/F0001/providers'
+import { isConvert } from '@nx-next-app/utils'
 import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
 
 const Transfer = () => {
 	const { t } = useTranslation()
@@ -68,8 +68,8 @@ const Transfer = () => {
 							<button
 								type='submit'
 								className={classNames({
-									'btn-check': isFormValid,
-									darkGray: !isFormValid,
+									'btn-primary': isFormValid,
+									'btn-disable': !isFormValid,
 								})}
 								style={{ pointerEvents: isFormValid ? 'auto' : 'none' }}
 							>

@@ -162,9 +162,9 @@ const AddWalletModal = ({
 								placeholder='OTP'
 							/>
 						</div>
-						<div className='btn-group'>
+						<div className='btnGroup'>
 							{timer ? (
-								<button className='gray' type='button'>
+								<button className='btn-secondary' type='button'>
 									<CountdownTimer
 										timer={timer}
 										startUnixTime={startUnixTime || checkUnixTime}
@@ -174,7 +174,7 @@ const AddWalletModal = ({
 							) : (
 								<button
 									type='button'
-									className='btn-check'
+									className='btn-primary'
 									onClick={handleSendOtpSMS}
 								>
 									<span>{t('Label_Profile_Retransmit')}</span>
