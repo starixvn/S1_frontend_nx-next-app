@@ -58,62 +58,67 @@ const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 		}
 	}, [])
 
+  const menus = menuList.map(mainMenuItem => {
+    const {
+      display,
+      category,
+      h5,
+      displayKey,
+      subMenu,
+      pathname,
+      lobbyCategoryId,
+    } = mainMenuItem || {}
+    if (display === 'desktop') return null
+    const { icon } = h5 || {}
+
+    // * 查看 subMenu 是否有在顯示範圍的 New Icon( 手機貌似只有 New Tag )
+    const hasNewIcon = subMenu.some(subMenuItem => {
+      const { iconType, iconStartTime, iconEndTime } =
+        subMenuItem || {}
+
+      return (
+        isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
+        iconType === MenuIconTypeEnum.New
+      )
+    })
+
+    const menuText = (displayKey && t(displayKey)) || ''
+
+    return (
+      <button
+        className={classNames('embla__slide menu-item', {
+          active: menuKey === category,
+        })}
+        key={lobbyCategoryId}
+        onClick={() => {
+          startTransition(() => {
+            setMenuKey(category)
+            push(`${pathname}`)
+      })
+        }}
+      >
+        {hasNewIcon && <div className='new-icon'>New</div>}
+
+        <div>{menuText}</div>
+      </button>
+    )
+  })
+
 	return (
 		<MenuContainer>
 			<div className='embla'>
 				<div className='embla__viewport' ref={emblaRef}>
 					<div className='embla__container'>
-						{menuList.map(mainMenuItem => {
-							const {
-								display,
-								category,
-								h5,
-								displayKey,
-								subMenu,
-								pathname,
-								lobbyCategoryId,
-							} = mainMenuItem || {}
-							if (display === 'desktop') return null
-							const { icon } = h5 || {}
-
-							// * 查看 subMenu 是否有在顯示範圍的 New Icon( 手機貌似只有 New Tag )
-							const hasNewIcon = subMenu.some(subMenuItem => {
-								const { iconType, iconStartTime, iconEndTime } =
-									subMenuItem || {}
-
-								return (
-									isEventPeriod({ start: iconStartTime, end: iconEndTime }) &&
-									iconType === MenuIconTypeEnum.New
-								)
-							})
-
-							const menuText = (displayKey && t(displayKey)) || ''
-
-							return (
-								<button
-									className={classNames('embla__slide menu-item', {
-										active: menuKey === category,
-									})}
-									key={category}
-									onClick={() => {
-										startTransition(() => {
-											setMenuKey(category)
-											if (
-												lobbyCategoryId !== LobbyCategoryEnum.Sports &&
-												lobbyCategoryId !== LobbyCategoryEnum.ESports
-											) {
-												push(pathname as string)
-											}
-										})
-									}}
-								>
-									{hasNewIcon && <div className='new-icon'>New</div>}
-
-									<div>{menuText}</div>
-								</button>
-							)
-						})}
-
+            <button key = 'home' onClick={() => { push('/') }}>
+                Home
+            </button>
+            {menus.find(x => x?.key === '3')}
+            {menus.find(x => x?.key === '4')}
+            {menus.find(x => x?.key === '1')}
+            {menus.find(x => x?.key === '2')}
+            {menus.find(x => x?.key === '6')}
+            {menus.find(x => x?.key === '7')}
+            {menus.find(x => x?.key === '8')}
 						{isLobbyHeaderError && (
 							<button
 								className='embla__slide menu-item active'
