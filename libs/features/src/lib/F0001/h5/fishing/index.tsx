@@ -1,12 +1,14 @@
-import classNames from 'classnames'
-import VendorFilter from '@nx-next-app/features/F0001/h5/lobby-game/vendorFilter'
+import { Header } from '@nx-next-app/components/H0001'
+import { paths } from '@nx-next-app/constants'
 import CategoryFilter from '@nx-next-app/features/F0001/h5/lobby-game/CategoryFilter'
 import GameList from '@nx-next-app/features/F0001/h5/lobby-game/GameList'
-import { paths } from '@nx-next-app/constants'
-import { useTranslation } from 'next-i18next'
-import { Header } from '@nx-next-app/components/H0001'
+import LobbyPageBanner from '@nx-next-app/features/F0001/h5/lobby-game/LobbyPageBanner'
+import { LobbyGamePage } from '@nx-next-app/features/F0001/h5/lobby-game/styles'
+import VendorFilter from '@nx-next-app/features/F0001/h5/lobby-game/vendorFilter'
 import { useLobby } from '@nx-next-app/features/F0001/providers'
 import { MenuKeyEnum } from '@nx-next-app/types'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
 
 const Fishing = () => {
 	const {
@@ -20,8 +22,8 @@ const Fishing = () => {
 	} = useLobby()
 	const { t } = useTranslation()
 	return (
-		<>
-			<Header className='header'>
+		<LobbyGamePage>
+			<Header>
 				<Header.Tag
 					title={t('Label_General_TpCategory4') as string}
 					back={`${paths.home.root}/?prevPageRecord=${MenuKeyEnum.Fishing}`}
@@ -32,23 +34,16 @@ const Fishing = () => {
 					onInputClose={onInputClose}
 				/>
 			</Header>
-			<main className='main casino'>
-				{/* {!isGetBannerV3Fetching && (
-					<CarouselBanner
-						bannerList={bannerList}
-						navigation={false}
-						spaceBetween={100}
-					/>
-				)} */}
-
-				<div className={classNames('functionList', { active: !isNavInView })}>
-					<VendorFilter />
-					<CategoryFilter />
-				</div>
-				<div ref={navRef} />
-				<GameList />
-			</main>
-		</>
+			<LobbyPageBanner
+				alt='Fishing'
+				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/fishing-banner.webp`}
+			/>
+			<div className={classNames('functionList', { active: !isNavInView })}>
+				<VendorFilter />
+				<CategoryFilter />
+			</div>
+			<GameList />
+		</LobbyGamePage>
 	)
 }
 
