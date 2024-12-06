@@ -2275,13 +2275,14 @@ export const GlobalStyles = createGlobalStyle`
               display: block;
             }
             &-item {
-              min-height: 8.5vw;
-              font-size: 3.1vw;
+              min-height: 12vw;
+              font-size: 3.4vw;
+              padding: 0 4vw;
             }
             &-container {
               max-height: 20rem;
               overflow-y: auto;
-              border-radius: 0 0 20px 20px;
+              border-radius: 20px ;
             }
           }
         }

@@ -1,7 +1,8 @@
-import { useTranslation } from 'next-i18next'
-import { paths } from '@nx-next-app/constants'
 import { Header } from '@nx-next-app/components/H0001'
+import { paths } from '@nx-next-app/constants'
+import { WrapperBankInfoH5 } from '@nx-next-app/features/F0001/h5/bank-info/styles'
 import { useEWallet } from '@nx-next-app/features/F0001/providers'
+import { useTranslation } from 'next-i18next'
 import { AddWallet } from './AddWallet'
 import { WalletList } from './WalletList'
 
@@ -13,7 +14,7 @@ const EWallet = () => {
 		cardAllowed: { bankCardAllowed, eWalletCardAllowed, cryptoCardAllowed },
 	} = useEWallet()
 	return (
-		<>
+		<WrapperBankInfoH5>
 			<Header className='header'>
 				<Header.Tags
 					tags={[
@@ -56,7 +57,7 @@ const EWallet = () => {
 			<main className='main Wallet'>
 				{isShowCards ? <WalletList /> : <AddWallet />}
 			</main>
-		</>
+		</WrapperBankInfoH5>
 	)
 }
 

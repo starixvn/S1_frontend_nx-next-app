@@ -88,22 +88,21 @@ const AddWallet = () => {
 					onBlur: () => trigger('accountNo'),
 				})}
 				type='number'
-				icon='icon-newspaper'
 				error={!!errors['accountNo']}
 				touched={!!touchedFields['accountNo']}
 				placeholder={t('Label_BankInfo_AccountNumber') as string}
 				infoMessage={t('Label_BankInfo_EnterAccountNumber') as string}
 				errorMessage={errors['accountNo']?.message as string}
 			/>
-			<div className='btn-group'>
+			<div className='btnGroup'>
 				<button
 					type='button'
-					className='white'
+					className='btn-secondary'
 					onClick={() => setIsShowCards(true)}
 				>
 					{t('Label_General_Cancel')}
 				</button>
-				<button className='orange' type='submit'>
+				<button className='btn-primary' type='submit'>
 					{t('Label_General_Submit')}
 				</button>
 			</div>
