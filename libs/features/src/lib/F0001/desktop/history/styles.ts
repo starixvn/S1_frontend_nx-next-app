@@ -32,10 +32,8 @@ export const WrapperHistory = styled.div`
 		}
 		.btnGroup {
 			gap: 0.8rem;
-			padding: 0 1rem;
 			.btn {
 				padding: 0 1.6rem;
-				width: 100% !important;
 			}
 		}
 		.custom-nodata {

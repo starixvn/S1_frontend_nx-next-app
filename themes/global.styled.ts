@@ -948,7 +948,7 @@ export const GlobalStyles = createGlobalStyle`
         justify-content: center;
         align-items: center;
         width: 100%;
-        padding : 1.8rem .8rem;
+        padding : 1.8rem 0;
         text-align :center;
         border-right: 1px solid ${({ theme }) =>
 					theme.desktop.customTableBorderColor};
@@ -982,7 +982,7 @@ export const GlobalStyles = createGlobalStyle`
         .td{
           width: 100%;
           text-align : center;
-          padding : 1.8rem .8rem;
+          padding : 1.8rem 0;
           border-right: 1px solid ${({ theme }) =>
 						theme.desktop.customTableBorderColor};
           border-bottom: 1px solid ${({ theme }) =>
@@ -1058,7 +1058,7 @@ export const GlobalStyles = createGlobalStyle`
     }
     .btnGroup{
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: center !important; 
       margin-top : 0;
       .btn{
         width : max-content;
@@ -1419,6 +1419,16 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
   }
+
+  .promoInfoPop{
+    .custom-td{
+      .td:first-child{
+        width : 100%;
+      }
+    }
+  }
+
+  
   .proDataBody {
     background-color : #182043 !important;
       padding : 1.6rem;

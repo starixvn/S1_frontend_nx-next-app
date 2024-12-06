@@ -435,11 +435,11 @@ export const WrapperDeposit = styled.div`
 			}
 		}
 		.custom-th {
-			padding: 1.8rem 0.5rem;
+			padding: 1.8rem 0;
 		}
 		.custom-td {
 			.td {
-				padding: 1.8rem 0.5rem;
+				padding: 1.8rem 0;
 				text-overflow: unset;
 			}
 		}
