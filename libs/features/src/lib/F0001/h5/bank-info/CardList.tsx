@@ -64,7 +64,7 @@ const CardList = () => {
 											/>
 										</div>
 										<div className='subtitle'>{bankName}</div>
-										<div className='accountNo'>{accountNo}</div>
+										<div className='subinfo'>{accountNo}</div>
 										{ifscCode && (
 											<div className='code'>
 												{t('Label_BankInfo_IFSCCode')}: {ifscCode}

@@ -1060,7 +1060,7 @@ export const GlobalStyles = createGlobalStyle`
       flex-wrap: wrap;
       justify-content: center !important; 
       margin-top : 0;
-      .btn{
+      .btn,button{
         width : max-content !important;
       }
     }

@@ -139,17 +139,35 @@ export const WrapperBankInfoH5 = styled.div`
 		margin-top: 3.4vw;
 		.block-grid {
 			display: grid;
-			width: 45%;
+			width: 100%;
 			grid-template-columns: repeat(3, 1fr);
 			grid-template-rows: repeat(4, 3.5vw);
 			height: 11.6vw;
 			gap: 1vw;
+		}
+		.bankName {
+			height: 11.6vw;
+			width: 11.6vw;
+			background: ${({ theme }) => theme.mobile.rightModuleTitleBg};
+			border-radius: 10px;
+			padding: 0 0 0;
+			margin: auto;
+			box-sizing: border-box;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			overflow: hidden;
+			img {
+				border-radius: 10px;
+			}
 		}
 		.subtitle {
 			margin-top: 0;
 			grid-column: 2 / 4;
 			grid-row: 1;
 			text-align: left;
+			font-weight: 700;
 			color: ${({ theme }) => theme.mobile.white};
 			font-size: 3.4vw;
 			max-width: unset;
@@ -158,6 +176,13 @@ export const WrapperBankInfoH5 = styled.div`
 			grid-column: 2 / 4;
 			grid-row: 2;
 			text-align: left;
+			color: #939dc5;
+		}
+		.code {
+			grid-column: 2 / 4;
+			grid-row: 3;
+			text-align: left;
+			color: #939dc5;
 		}
 	}
 `
