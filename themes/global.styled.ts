@@ -2248,6 +2248,9 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
     .mobile-h5{
+      #header{
+        justify-content :center;
+      }
       #goTop{
         bottom: 70px;
         width: 10vw;

@@ -1,19 +1,21 @@
-import { Header } from '@nx-next-app/components/H0001'
+import { WrapperWithdrawalH5 } from '@nx-next-app/features/F0001/h5/withdrawal/styles'
 import { useTranslation } from 'next-i18next'
 
 const KycWaiting = () => {
 	const { t } = useTranslation()
 	return (
-		<>
-			<Header className='header'>
+		<WrapperWithdrawalH5>
+			<div className='header header-waiting'>
 				<div className='title'>{t('Label_Withdrawal_WaitKYC')}</div>
-			</Header>
+			</div>
 			<main className='main kyc'>
-				<div className='icon icon-jump' />
-				<div className='text-center'>{t('Label_Withdrawal_WaitKYC')}</div>
-				<div className='text-center'>{t('Label_Withdrawal_WaitKYCHint')}</div>
+				<div className='icon-noti'>
+					<i className='icon icon-notification-active' />
+				</div>
+				<div className='kyc-text title'>{t('Label_Withdrawal_WaitKYC')}</div>
+				<div className='kyc-text'>{t('Label_Withdrawal_WaitKYCHint')}</div>
 			</main>
-		</>
+		</WrapperWithdrawalH5>
 	)
 }
 export default KycWaiting

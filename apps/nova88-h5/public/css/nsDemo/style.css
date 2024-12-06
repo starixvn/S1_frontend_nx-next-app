@@ -167,6 +167,15 @@ html {
 	color: white;
 }
 
+button {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+}
+button[disabled] {
+	background: #a5aab1 !important;
+	color: #666 !important;
+}
+
 #root {
 	height: 100%;
 }
@@ -191,27 +200,6 @@ div[tabindex='-1'] {
 	border-bottom: 1px solid #5574a7;
 }
 
-.Join > .logo {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
-.Join .dropdown.btn > div {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
-.Join .dropdown .dropdown-item {
-	padding: 3vw;
-}
-.Join .flag:before {
-	border: 1px solid #ccc;
-	width: 16px;
-	height: 16px;
-}
 .Join .inputBox i.icon.icon-minus,
 .Join .euro .inputBox-event i.icon.icon-minus,
 .euro .Join .inputBox-event i.icon.icon-minus,
@@ -274,45 +262,7 @@ div[tabindex='-1'] {
 	display: -ms-flexbox;
 	display: flex;
 }
-.Join .congrats {
-	text-align: center;
-	color: #f77a00;
-	font-size: 4vw;
-	margin: 10vw 0;
-	position: relative;
-}
-.Join .congrats::before {
-	content: '\e996';
-	font-family: 'icomoon';
-	font-size: 20vw;
-	color: #5574a7;
-	margin: 5vw;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
-.Join .congrats > p {
-	font-size: 5vw;
-	color: #5574a7;
-	font-weight: bold;
-	margin: 2vw;
-}
-.Join .congrats::after {
-	position: absolute;
-	width: 50vw;
-	height: 48vw;
-	content: '';
-	background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/spread.png)
-		no-repeat;
-	background-size: 100%;
-	top: -5vw;
-	left: 20vw;
-	-webkit-animation: fire1 2.8s 3s infinite;
-	animation: fire1 2.8s 3s infinite;
-}
+
 @-webkit-keyframes fire1 {
 	0% {
 		-webkit-transform: scale(0) translateY(-10%);
@@ -366,6 +316,111 @@ header {
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
+}
+header .headerModule {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	width: 100%;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	position: relative;
+}
+header .headerModule > a {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	height: 13.5vw;
+	width: 42vw;
+	-webkit-clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
+	clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
+}
+header .headerModule > a img {
+	width: 21vw;
+	margin-left: 2vw;
+}
+header .headerModule > div {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	margin: 1.5vw;
+}
+header .headerModule .headerInfo {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	font-size: 3vw;
+}
+header .headerModule .headerInfo span {
+	margin-right: 1vw;
+}
+header .headerModule .headerInfo .MemberID {
+	color: white;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-left: 1vw;
+}
+header button.clickBtn {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	width: 5vw;
+	height: 5vw;
+	padding: 0;
+	margin: 0 0 0 2.5vw;
+}
+header button.clickBtn::before {
+	-webkit-transform: scale(0.75);
+	transform: scale(0.75);
+}
+
+.headerButton {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	height: 10vw;
+}
+.headerButton > button,
+.headerButton > a {
+	font-size: 3vw;
+	color: white;
+	padding: 1vw 3vw;
+	background: #112240;
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	font-weight: 700;
+}
+.headerButton > button.loginBtn,
+.headerButton > a.loginBtn {
+	background: #ff5e00;
 }
 
 .icon-new {
@@ -913,67 +968,6 @@ main .gameList .icon-new {
 		transform: translateY(0px);
 	}
 }
-.icon + .dropdown ~ .dropdown-container .dropdown-item {
-	padding: 2vw 2vw 2vw 9vw;
-}
-
-.dropdown {
-	background: transparent;
-	border-radius: 3px;
-	position: relative;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-webkit-box-flex: 1;
-	-ms-flex: auto;
-	flex: auto;
-	padding: 2vw 0 2vw 2vw;
-	font-size: 3vw;
-	min-height: 8.27vw;
-	color: #5574a7;
-}
-.dropdown.dropdownbank {
-	height: 12vw;
-}
-.dropdown.dropdownbank ~ .dropdown-container {
-	top: 12vw;
-}
-.dropdown ~ .dropdown-container {
-	display: none;
-	position: absolute;
-	background: #ecf3fd;
-	z-index: 2;
-	border: 1px solid #5574a7;
-	border-top: 0;
-	width: 100%;
-	margin: 0 0 0 -1px;
-	left: 0;
-	top: 8vw;
-	max-height: 45vw;
-	overflow-y: scroll;
-	color: #5574a7;
-}
-.dropdown ~ .dropdown-container.active {
-	display: block;
-}
-.dropdown ~ .dropdown-container .dropdown-item {
-	padding: 2vw 2vw 2vw 4vw;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-
 /* #popup {
 	width: calc(100% - 16vw);
 	height: calc(100% - 16vw);
@@ -1667,57 +1661,7 @@ main .gameList .icon-new {
 #popup.statuspop {
 	color: #5574a7;
 }
-#popup.statuspop .pop {
-	background: #eaf1ff;
-	border: 1px solid #284985;
-	padding: 0;
-	border-radius: 1vw;
-}
-#popup.statuspop .pop .statustitle {
-	font-size: 4.5vw;
-	padding: 2vw 9vw 2vw 4vw;
-	border-bottom: 1px solid #5574a7;
-	background: #284985;
-	color: white;
-	position: relative;
-}
-#popup.statuspop .pop .statustitle .close {
-	right: 2vw;
-	top: 2vw;
-}
-#popup.statuspop .pop .statuscontent {
-	padding: 0 3.5vw;
-	border-top: 0;
-}
-#popup.statuspop .pop .statuscontent > div {
-	border-bottom: 1px solid #c1cceb;
-}
-#popup.statuspop .pop .statuscontent > div .subtitle {
-	font-size: 4vw;
-}
-#popup.statuspop .pop .statuscontent > div > div {
-	font-size: 3.5vw;
-	margin-top: 3vw;
-	color: #052561;
-}
-#popup.statuspop .pop .statuscontent > div > div:last-child {
-	margin: 1vw 0 3vw;
-}
-#popup.statuspop .pop .statuscontent > div:last-child {
-	border-bottom: 0;
-}
-#popup.statuspop .pop .success {
-	background: #5574a7;
-	padding: 2vw 10vw;
-	border-radius: 5vw;
-	margin: auto auto 5vw;
-	color: white;
-	display: block;
-}
-#popup.statuspop .pop .success::before {
-	content: '';
-	display: block;
-}
+
 #popup.noticepop .checkbox {
 	width: -webkit-max-content;
 	width: -moz-max-content;
@@ -2962,9 +2906,6 @@ main .gameList .icon-new {
 	color: #5574a7;
 }
 
-.title {
-	font-weight: bold;
-}
 .title .icon-checkmark:before {
 	color: white;
 }
@@ -2984,87 +2925,11 @@ main .gameList .icon-new {
 	align-items: center;
 }
 
-.tag {
-	width: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	border-bottom: 1px solid #5574a7;
-	background: #e4e4e4;
-}
-.tag a,
-.tag button {
-	-webkit-box-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	height: 12vw;
-	border-bottom: 3px solid transparent;
-	color: #a4a4a4;
-	font-size: 4vw;
-	text-align: center;
-}
-.tag a.active,
-.tag button.active {
-	color: #112240;
-	border-color: #ff5e00;
-	font-weight: bold;
-}
-
 .main {
 	width: calc(100% - 8vw);
 	min-height: 100%;
 	height: auto;
-	padding: 20vw 4vw;
-}
-.main > .icon-member {
-	background: #112240;
-	padding: 3vw;
-	width: 13vw;
-	height: 13vw;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	border-radius: 100%;
-	margin: 0 auto 7vw;
-	position: relative;
-}
-.main > .icon-member:before {
-	font-size: 15vw;
-	z-index: 1;
-}
-.main > .icon-member .circleAnimation {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	z-index: 0;
-	top: auto;
-}
-.main > .icon-member .circleAnimation:before {
-	width: 26vw;
-	height: 26vw;
-}
-.main > .icon-member .circleAnimation:after {
-	width: 22vw;
-	height: 22vw;
-	background: #112240;
-}
-.main.deposit {
-	padding: 14vw 4vw;
+	padding: 5vw 4vw 20vw 4vw;
 }
 
 .Wallet {
@@ -3113,10 +2978,6 @@ main .gameList .icon-new {
 }
 .Wallet > .account .info span:first-child {
 	font-weight: bold;
-}
-
-.Bank {
-	padding: 33vw 4vw 25vw;
 }
 
 .walletTotal {
@@ -3312,237 +3173,8 @@ main .gameList .icon-new {
 	align-items: center;
 }
 
-.balanceModule {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	margin: 3vw 0;
-}
-.balanceModule button.clickBtn {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	padding: 5vw 2vw;
-	white-space: nowrap;
-	border-radius: 3px;
-	width: -webkit-max-content;
-	width: -moz-max-content;
-	width: max-content;
-}
-.balanceModule button.clickBtn:not(.icon-history) {
-	margin: 0 1vw 0 0;
-	-webkit-box-flex: 1;
-	-ms-flex: auto;
-	flex: auto;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	background: #7591c1;
-}
-.balanceModule button.clickBtn:not(.icon-history)::before {
-	background: #5574a7;
-	padding: 2vw;
-}
-.balanceModule button.clickBtn::before {
-	margin: 0 2vw 0 0;
-	border-radius: 100%;
-}
-.balanceModule button.clickBtn.icon-history:before {
-	font-size: 5vw;
-}
-
-.name {
-	font-size: 5vw;
-	font-weight: bold;
-	text-align: center;
-	margin: 0 0 2vw;
-	color: #112240;
-}
-.name + .text-org {
-	text-align: center;
-}
-
-.infoList .info {
-	border-radius: 5px;
-	padding: 4vw;
-	background: #d2e2f9;
-}
-.infoList .info:nth-child(even) {
-	background: rgba(210, 226, 249, 0.5);
-}
-
 .openPopup {
 	white-space: nowrap;
-}
-
-.approved {
-	background: #2ea512;
-	width: -webkit-max-content;
-	width: -moz-max-content;
-	width: max-content;
-	padding: 0 3vw;
-	border-radius: 3px;
-	font-weight: bold;
-	min-width: 15vw;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	color: white;
-}
-
-.reject {
-	background: #cf0404;
-	width: -webkit-max-content;
-	width: -moz-max-content;
-	width: max-content;
-	padding: 0 3vw;
-	border-radius: 3px;
-	font-weight: bold;
-	min-width: 15vw;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	color: white;
-}
-
-.cancelled {
-	background: #6f6f6f;
-	width: -webkit-max-content;
-	width: -moz-max-content;
-	width: max-content;
-	padding: 0 3.2vw;
-	border-radius: 3px;
-	font-weight: bold;
-	min-width: 15vw;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	color: white;
-}
-
-.pending {
-	background: #f9b041;
-	color: black;
-	width: -webkit-max-content;
-	width: -moz-max-content;
-	width: max-content;
-	padding: 0 3vw;
-	border-radius: 3px;
-	font-weight: bold;
-	min-width: 15vw;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
-
-.pending,
-.reject,
-.cancelled,
-.approved {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	position: relative;
-}
-.pending .infobtn,
-.reject .infobtn,
-.cancelled .infobtn,
-.approved .infobtn {
-	background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/notice.png)
-		no-repeat center/cover;
-	width: 4vw;
-	height: 4vw;
-	margin-left: 1vw;
-	position: absolute;
-	right: -6vw;
-}
-
-.info ul {
-	display: inline-block;
-}
-.info ul li {
-	float: left;
-	width: 49%;
-	line-height: 24px;
-	color: #666;
-}
-.info ul li span {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
-.info ul li span.title {
-	color: #5574a7;
-}
-.info ul li span.title button.icon,
-.info ul li span.title i.icon {
-	border-radius: 100%;
-	background: #5574a7;
-	width: 4.6vw;
-	height: 4.6vw;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	margin: auto auto auto 2vw;
-}
-.info ul li span.title button.icon:before,
-.info ul li span.title i.icon:before {
-	font-size: 12px;
-}
-.info > div:not(.btn-group) {
-	position: relative;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-flow: column;
-	flex-flow: column;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	width: calc(100% - 6vw);
-}
-.info > div:not(.btn-group) > div {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	color: #a5aab1;
-}
-.info > div:not(.btn-group) > div.title {
-	color: #5574a7;
-}
-.info > div:not(.btn-group) button {
-	position: absolute;
-	right: -6vw;
-}
-.info.infoAccount li {
-	width: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	padding: 1vw 0;
-}
-.info.infoAccount li .title {
-	font-weight: bold;
 }
 
 .tip {
@@ -3559,25 +3191,7 @@ main .gameList .icon-new {
 	float: right;
 }
 
-.infoModule.parts {
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-flow: row wrap;
-	flex-flow: row wrap;
-}
-.infoModule.parts + span {
-	color: #5574a7;
-}
-.infoModule.parts + span + div {
-	color: #5574a7;
-}
-.infoModule.parts .phone {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	width: 100%;
-}
-.infoModule.parts .phone .inputBox input,
+/* .infoModule.parts .phone .inputBox input,
 .infoModule.parts .phone .euro .inputBox-event input,
 .euro .infoModule.parts .phone .inputBox-event input,
 .infoModule.parts
@@ -4272,90 +3886,7 @@ main .gameList .icon-new {
 .worldcupEvent .event .event-content .inputBox-event .icon-keyboard_arrow_down {
 	color: #f77a00;
 	max-height: 16px;
-}
-
-.quickSelect {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	padding: 5vw 8vw;
-	width: calc(100% - 16vw);
-	border-bottom: 1px solid #5574a7;
-	overflow: scroll;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	background: #e4e4e4;
-}
-.quickSelect + .functionList {
-	padding: 2vw 4vw;
-	width: calc(100% - 8vw);
-	position: unset;
-}
-.quickSelect + .functionList .infoModule.parts {
-	-ms-flex-flow: nowrap;
-	flex-flow: nowrap;
-}
-.quickSelect + .functionList .infoModule.parts .inputBox,
-.quickSelect + .functionList .infoModule.parts .euro .inputBox-event,
-.euro .quickSelect + .functionList .infoModule.parts .inputBox-event,
-.quickSelect
-	+ .functionList
-	.infoModule.parts
-	.worldcupEvent
-	.event
-	.event-content
-	.inputBox-event,
-.worldcupEvent
-	.event
-	.event-content
-	.quickSelect
-	+ .functionList
-	.infoModule.parts
-	.inputBox-event {
-	max-width: 28vw;
-}
-.quickSelect + .functionList .icon-icon32px_1 {
-	margin: 0 0 0 1vw;
-	color: #5574a7;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.quickSelect + .functionList .btn-group {
-	margin: 0 0 0 1vw;
-	-webkit-box-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.quickSelect + .functionList .btn-group button {
-	padding: 2.5vw;
-	white-space: nowrap;
-}
-.quickSelect button {
-	color: #a4a4a4;
-	white-space: nowrap;
-}
-.quickSelect button:nth-child(n + 2) {
-	margin: 0 0 0 5vw;
-}
-.quickSelect button.active {
-	color: #112240;
-}
-.quickSelect .icon {
-	position: fixed;
-	right: 1vw;
-	color: #112240;
-}
-.quickSelect .icon:before {
-	font-size: 6vw;
-}
+} */
 
 .infotxt {
 	background: #002b6c;
@@ -4370,14 +3901,6 @@ main .gameList .icon-new {
 .infotxt .icon-close {
 	position: unset;
 	margin: 2vw 0 0;
-}
-
-.history {
-	padding: 45vw 4vw 20vw;
-}
-
-.statement {
-	padding: 55vw 4vw 20vw;
 }
 
 .bankAccount {
@@ -4447,288 +3970,41 @@ main .gameList .icon-new {
 	padding: 4vw;
 }
 
-.selectBank {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-flow: wrap;
-	flex-flow: wrap;
-}
-.selectBank button,
-.selectBank a {
-	-webkit-box-flex: 0;
-	-ms-flex: 0 0 calc(33.3333333333% - 1vw);
-	flex: 0 0 calc(33.3333333333% - 1vw);
-	margin: 0.5vw;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	border: 2px solid transparent;
-	border-radius: 5px;
-	overflow: hidden;
-	line-height: 0;
-	background: white;
-	min-height: 13vw;
-}
-.selectBank button.active,
-.selectBank a.active {
-	border: 2px solid #5574a7;
-}
-.selectBank button .mask,
-.selectBank a .mask {
-	display: none;
-}
-.selectBank button.pending,
-.selectBank a.pending {
-	position: relative;
-}
-.selectBank button.pending .mask,
-.selectBank a.pending .mask {
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	color: #fff;
-	background: rgba(40, 73, 133, 0.8);
-	width: 100%;
-	height: 100%;
-	line-height: 1;
-	z-index: 1;
-	font-size: 3vw;
-}
-.selectBank a {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	background: #e6e6e6;
-}
-.selectBank a:before {
-	content: '\e94f';
-	font-family: 'icomoon';
-	color: white;
-	font-size: 8vw;
-}
-
-.recent {
-	visibility: hidden;
-	-webkit-transition: 0.7s;
-	transition: 0.7s;
-	opacity: 0;
-	height: 0;
-}
-.recent.active {
-	visibility: visible;
-	-webkit-transition: 0.7s;
-	transition: 0.7s;
-	opacity: 1;
-	height: auto;
-}
-.recent.active .info {
-	display: block;
-	padding: 4vw;
-	margin: 2vw 0;
-}
-.recent .info {
-	display: none;
-}
-
-.account {
-	border-radius: 3px;
-	margin: 2vw 0;
-	padding: 4vw;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-ms-flex-flow: wrap;
-	flex-flow: wrap;
-	position: relative;
-	border-bottom: 1px solid #e8edf3;
-	color: #112240;
-}
-.account.active {
-	margin: 0;
-	padding: 0;
-	color: #112240;
-}
-.account .bankLogo {
-	-webkit-box-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	text-align: center;
-}
-.account .bankLogo + .info {
-	margin: 0 0 0 2vw;
-}
-.account .bankLogo img {
-	height: 8vw;
-	vertical-align: middle;
-	border-radius: 5px;
-}
-.account .bankLogo + .text {
-	text-align: left;
-}
-.account .info {
-	-webkit-box-flex: 4;
-	-ms-flex: 4;
-	flex: 4;
-}
-.account .info .text-org {
-	margin: 0 1vw 0 0;
-}
-
-.text-red {
-	color: #e92529;
-}
-
-.text {
-	color: #5574a7;
-}
-
-.text-gray {
-	color: #b2b2b2;
-}
-
-.text-org {
-	color: #5574a7;
-}
-
-.text-org.text-center {
-	margin: 3vw 0;
-}
-.text-org.text-center:before {
-	margin: 0 2vw 0 0;
-}
-
-.bankSlip {
-	background: rgba(0, 0, 0, 0.7);
-	top: 0;
-	left: 0;
-	z-index: 4;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-flow: column;
-	flex-flow: column;
-	padding: 2vw;
-	width: calc(100% - 4vw);
-}
-.bankSlip span.text {
-	color: white;
-}
-.bankSlip .info li {
-	color: white;
-}
-.bankSlip .info .title {
-	color: #1e85ec;
-}
-.bankSlip .info .clickBtn {
-	background: #1e85ec;
-	border-radius: 3px;
-}
-.bankSlip .text-gray.title {
-	margin: 3vw 0 0;
-}
-.bankSlip .uploadModule {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-flex: 1;
-	-ms-flex: 1 1;
-	flex: 1 1;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	width: 100%;
-	margin: 2vw auto;
-}
-.bankSlip .upload_img {
-	width: 25.3vw;
-	height: 18vw;
-	border-radius: 10px;
-	border: 1px solid #1e85ec;
-	background: rgba(117, 145, 193, 0.5);
-	margin: 0 1vw 1vw 0;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	overflow: hidden;
-	cursor: pointer;
-	position: relative;
-}
-.bankSlip .upload_img:nth-child(3n) {
-	margin-right: 0;
-}
-.bankSlip .upload_img .icon-folder-upload {
-	display: none;
-}
-.bankSlip .upload_img .icon-close {
-	position: absolute;
-	top: 5px;
-	right: 5px;
-	font-size: 8px !important;
-	background: #868686;
-	border: 1px solid #fff;
-	border-radius: 50%;
-	padding: 2px;
-	z-index: 3;
-}
-.bankSlip .upload_img .icon-close::before {
-	font-size: 8px;
-	margin: 0 2px;
-	color: #fff;
-}
-.bankSlip .upload_img.error {
-	border-color: #e92529;
-}
-.bankSlip .upload_img .icon {
-	font-size: 5vw;
-	color: #1e85ec;
-}
-.bankSlip .upload_img img {
-	height: 100%;
-}
-
-.rule {
-	color: #b2b2b2;
-	margin: 2vw 0;
-}
-.rule ul {
-	margin: 2vw 0 0 5vw;
-}
-.rule ul li {
-	list-style: disc;
-}
-
 .txt-red {
 	color: #e92529;
 }
 
+input {
+	background: transparent;
+	-webkit-box-flex: 1;
+	-ms-flex: auto;
+	flex: auto;
+	padding: 2vw;
+	color: #5574a7;
+	border: 0;
+	outline: none;
+	font-size: 3.6vw;
+}
+input::-webkit-input-placeholder {
+	color: #5574a7;
+	text-align: left;
+}
+input::-moz-placeholder {
+	color: #5574a7;
+	text-align: left;
+}
+input:-ms-input-placeholder {
+	color: #5574a7;
+	text-align: left;
+}
+input::-ms-input-placeholder {
+	color: #5574a7;
+	text-align: left;
+}
+input::placeholder {
+	color: #5574a7;
+	text-align: left;
+}
 input[type='file'] {
 	display: none;
 }
@@ -4745,81 +4021,6 @@ input[type='checkbox'] + label {
 	content: "('000)";
 	color: #5574a7;
 	font: 3vw Arial;
-}
-
-button.clickBtn {
-	background: #5574a7;
-	border-radius: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	margin: 0 0 0 2vw;
-	width: 6vw;
-	height: 6vw;
-}
-button.clickBtn:before {
-	font-size: 3vw;
-}
-
-.buttonBox {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-flow: wrap;
-	flex-flow: wrap;
-}
-.buttonBox button {
-	-webkit-box-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	border-radius: 3px;
-	padding: 2vw 1vw;
-	margin: 1vw;
-	position: relative;
-	background: white;
-	font-size: 3vw;
-	border: 1px solid #bfcce2;
-	color: #5574a7;
-}
-.buttonBox button.active {
-	color: white;
-	background: #f77a00;
-}
-.buttonBox button[disabled] {
-	background: #e6e6e6;
-	color: #a5aab1;
-}
-.buttonBox.col-3 {
-	margin: 0 0.5vw !important;
-}
-.buttonBox.col-3 button {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-flex: 0;
-	-ms-flex: 0 0 25.75vw;
-	flex: 0 0 25.75vw;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.buttonBox.col-3 button:nth-child(3n) {
-	margin-right: 0 !important;
-}
-.buttonBox.col-3 .icon-icon32px_check {
-	margin-right: 0.5vw;
-}
-.buttonBox.col-3 .icon-icon32px_check::before {
-	font-size: 4vw;
 }
 
 .channel {
@@ -5654,12 +4855,6 @@ input[type='date'] {
 	display: none;
 }
 
-span.important {
-	background: rgba(0, 0, 0, 0.5);
-	border-radius: 5px;
-	padding: 1vw 2vw;
-}
-
 .quickChangePage {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -6020,42 +5215,6 @@ span.important {
 .promotions .proInfomodule.active .claimed + img {
 	-webkit-filter: grayscale(1);
 	filter: grayscale(1);
-}
-
-.kyc {
-	line-height: 20px;
-	color: #a5bbe0;
-}
-.kyc .text-org {
-	text-align: left;
-}
-.kyc .btn-group {
-	margin: 3vw 0;
-}
-.kyc .btn-group .fileUpload {
-	padding: 0 2vw;
-}
-.kyc ul li {
-	list-style: decimal;
-	margin: 0 0 0 4vw;
-}
-.kyc .icon-jump {
-	margin: 2vw auto;
-	text-align: center;
-}
-.kyc .icon-jump:before {
-	font-size: 13vw;
-	-webkit-animation: jump 0.3s infinite;
-	animation: jump 0.3s infinite;
-	color: #a4a4a4;
-}
-.kyc .icon-jump ~ div:nth-child(2) {
-	background: #a4a4a4;
-	padding: 3vw 0;
-	border-radius: 3px;
-	width: 100%;
-	margin: 3vw 0;
-	color: white;
 }
 
 @-webkit-keyframes jump {
@@ -8136,557 +7295,6 @@ span.important {
 	color: #5574a7;
 }
 
-.depositModule {
-	width: calc(100% - 6vw - 2px);
-	margin: auto;
-	background: #d2e2f9;
-	padding: 3vw;
-	border-radius: 0 0 5px 5px;
-	display: none;
-}
-.depositModule.active {
-	display: block;
-}
-.depositModule > .title {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.depositModule > .title:not(.text-org) {
-	font-weight: normal;
-	background: #112240;
-	padding: 5px;
-	border-radius: 5px 5px 0 0;
-	margin: 4vw 0 0;
-}
-.depositModule > .title:before,
-.depositModule > .title span {
-	margin-right: 1vw;
-}
-.depositModule > .title > span.text-org {
-	color: white;
-}
-.depositModule > .title.fast:after {
-	content: '';
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/fast-icon.png)
-		no-repeat center/cover;
-	display: block;
-	width: 14vw;
-	height: 4vw;
-	margin-left: 1vw;
-}
-.depositModule > .title .info {
-	color: #f77a00;
-	margin-left: 0.75vw;
-	font-size: 2.75vw;
-}
-.depositModule .selectModule {
-	background: #f5f5f5;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	border-radius: 0 0 5px 5px;
-	padding: 2vw;
-	color: #5574a7;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-flow: row wrap;
-	flex-flow: row wrap;
-	-webkit-box-flex: 1;
-	-ms-flex: 1 1;
-	flex: 1 1;
-	text-align: center;
-}
-.depositModule .selectModule > div {
-	width: 27vw;
-}
-.depositModule .selectModule > div .subtitle {
-	font-weight: bold;
-	white-space: nowrap;
-	font-size: 2.5vw;
-	text-overflow: ellipsis;
-	overflow: hidden;
-}
-.depositModule .selectModule > div .subinfo {
-	font-size: 2.5vw;
-	color: #505050;
-	margin-bottom: 1vw;
-}
-.depositModule .selectModule > div .subinfo span {
-	display: block;
-}
-.depositModule .selectModule > div.btn-group {
-	width: 100%;
-	margin: 0 auto;
-}
-.depositModule .selectModule > div.btn-group button {
-	font-size: 3vw;
-	background: #112240;
-}
-.depositModule .selectModule .infoAccount {
-	width: 100%;
-	margin: 2vw 2vw -0.5vw;
-	padding-top: 2vw;
-	border-top: 1px solid #bfcce2;
-}
-.depositModule .selectModule .infoAccount li {
-	-webkit-box-pack: start;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
-}
-.depositModule .selectModule .infoAccount li:first-child {
-	padding-top: 0;
-}
-.depositModule .selectModule .infoAccount li:last-child {
-	padding-bottom: 0;
-}
-.depositModule .selectModule .infoAccount li > img {
-	margin-right: 1vw;
-}
-.depositModule .selectModule .infoAccount li span {
-	width: 69vw;
-	color: #fff;
-	background: #5574a7;
-	border-radius: 3px;
-	padding: 1vw 0 1vw 1.5vw;
-}
-.depositModule .selectModule .infoAccount li button {
-	margin: 0 0 0 1.5vw;
-}
-.depositModule .selectModule .infoAccount .title {
-	border: 0;
-	margin-top: 0;
-	padding: 0;
-}
-.depositModule .selectModule .infoAccount .tip {
-	color: #666;
-}
-.depositModule .selectModule.inner {
-	width: 100%;
-	padding: 0 2vw;
-}
-.depositModule .selectModule.inner .infoModule {
-	margin: 1vw 0 0;
-}
-.depositModule .selectModule.inner .infoModule .inputBox,
-.depositModule .selectModule.inner .infoModule .euro .inputBox-event,
-.euro .depositModule .selectModule.inner .infoModule .inputBox-event,
-.depositModule
-	.selectModule.inner
-	.infoModule
-	.worldcupEvent
-	.event
-	.event-content
-	.inputBox-event,
-.worldcupEvent
-	.event
-	.event-content
-	.depositModule
-	.selectModule.inner
-	.infoModule
-	.inputBox-event {
-	margin-right: 1vw;
-}
-.depositModule .selectModule .parts .inputBox,
-.depositModule .selectModule .parts .euro .inputBox-event,
-.euro .depositModule .selectModule .parts .inputBox-event,
-.depositModule
-	.selectModule
-	.parts
-	.worldcupEvent
-	.event
-	.event-content
-	.inputBox-event,
-.worldcupEvent
-	.event
-	.event-content
-	.depositModule
-	.selectModule
-	.parts
-	.inputBox-event {
-	margin: 0;
-}
-.depositModule .selectModule .parts .inputBox .dropdown,
-.depositModule .selectModule .parts .euro .inputBox-event .dropdown,
-.euro .depositModule .selectModule .parts .inputBox-event .dropdown,
-.depositModule
-	.selectModule
-	.parts
-	.worldcupEvent
-	.event
-	.event-content
-	.inputBox-event
-	.dropdown,
-.worldcupEvent
-	.event
-	.event-content
-	.depositModule
-	.selectModule
-	.parts
-	.inputBox-event
-	.dropdown {
-	width: 50vw;
-	text-align: left;
-	padding-right: 5vw;
-}
-.depositModule .selectModule .parts .inputBox .dropdown i,
-.depositModule .selectModule .parts .euro .inputBox-event .dropdown i,
-.euro .depositModule .selectModule .parts .inputBox-event .dropdown i,
-.depositModule
-	.selectModule
-	.parts
-	.worldcupEvent
-	.event
-	.event-content
-	.inputBox-event
-	.dropdown
-	i,
-.worldcupEvent
-	.event
-	.event-content
-	.depositModule
-	.selectModule
-	.parts
-	.inputBox-event
-	.dropdown
-	i {
-	position: absolute;
-	right: 0;
-}
-.depositModule .selectModule .parts .inputBox .dropdown-container,
-.depositModule .selectModule .parts .euro .inputBox-event .dropdown-container,
-.euro .depositModule .selectModule .parts .inputBox-event .dropdown-container,
-.depositModule
-	.selectModule
-	.parts
-	.worldcupEvent
-	.event
-	.event-content
-	.inputBox-event
-	.dropdown-container,
-.worldcupEvent
-	.event
-	.event-content
-	.depositModule
-	.selectModule
-	.parts
-	.inputBox-event
-	.dropdown-container {
-	top: 11vw;
-	max-height: 50vw;
-	min-height: 11vw;
-}
-.depositModule .selectModule .dropdown-container {
-	background: #f5f5f5;
-}
-.depositModule .selectModule li span {
-	padding: 0 0 0 1.5vw;
-}
-.depositModule .selectModule li button {
-	margin: 0 1.5vw 0;
-}
-.depositModule .selectModule .bankName {
-	height: 13vw;
-	background: white;
-	border-radius: 5px;
-	padding: 0 0 0;
-	margin: 1.5vw;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	position: relative;
-}
-@media (max-width: 320px) {
-	.depositModule .selectModule .bankName {
-		height: 15vw;
-	}
-}
-.depositModule .selectModule .bankName.fast::after {
-	content: '';
-	background: url(https://minio-api.lumigame.com/s1-nova88/desktop/img/fast-icon.png)
-		no-repeat center/cover;
-	display: block;
-	width: 13vw;
-	height: 4vw;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-.depositModule .selectModule .bankName div.icon::before {
-	font-size: 7vw;
-	color: #112240;
-}
-.depositModule .selectModule .bankName div.icon-line:before {
-	color: #07b802;
-}
-.depositModule .selectModule .bankName.open:before {
-	content: '●';
-	border-radius: 100%;
-	color: #42ac5e;
-	position: absolute;
-	top: -2vw;
-	right: 0;
-	font-size: 5vw;
-}
-.depositModule .selectModule .bankName.close:before {
-	content: '●';
-	border-radius: 100%;
-	color: #e92529;
-	position: absolute;
-	top: -2vw;
-	right: 0;
-	font-size: 5vw;
-}
-.depositModule .selectModule .bankName.pending {
-	width: auto;
-}
-.depositModule .selectModule .bankName.pending .mask {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(40, 73, 133, 0.6);
-	border-radius: 5px;
-	z-index: 1;
-}
-.depositModule .selectModule .bankName .bank {
-	margin: 0 0 0 3vw;
-	position: absolute;
-	left: 24vw;
-}
-.depositModule .selectModule .bankName .bank > div {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	width: 50vw;
-}
-.depositModule .selectModule .bankName .bank > div:first-child {
-	color: #5574a7;
-}
-.depositModule .selectModule .bankName .bank > div:last-child {
-	color: #666;
-}
-.depositModule .selectModule .bankName img {
-	width: auto;
-	max-width: 20vw;
-	margin: 0 auto;
-	display: block;
-}
-.depositModule .selectModule .bankName .icon-icon32px_check {
-	position: absolute;
-	right: 0.5vw;
-	bottom: -1vw;
-	color: #f77a00;
-	z-index: 2;
-	display: none;
-}
-.depositModule .selectModule .bankName .icon-icon32px_check::before {
-	background: #fff;
-	border-radius: 10vw;
-}
-.depositModule .selectModule .bankName.active {
-	-webkit-box-shadow: 0 0 0 2px #f77a00;
-	box-shadow: 0 0 0 2px #f77a00;
-}
-.depositModule .selectModule .bankName.active .icon-icon32px_check {
-	display: block;
-	bottom: 0;
-}
-.depositModule .selectModule .inputBox,
-.depositModule .selectModule .euro .inputBox-event,
-.euro .depositModule .selectModule .inputBox-event,
-.depositModule
-	.selectModule
-	.worldcupEvent
-	.event
-	.event-content
-	.inputBox-event,
-.worldcupEvent
-	.event
-	.event-content
-	.depositModule
-	.selectModule
-	.inputBox-event {
-	margin: 1.5vw 0;
-	padding: 0 1.2vw;
-}
-.depositModule .selectModule .inputBox input,
-.depositModule .selectModule .euro .inputBox-event input,
-.euro .depositModule .selectModule .inputBox-event input,
-.depositModule
-	.selectModule
-	.worldcupEvent
-	.event
-	.event-content
-	.inputBox-event
-	input,
-.worldcupEvent
-	.event
-	.event-content
-	.depositModule
-	.selectModule
-	.inputBox-event
-	input {
-	padding: 1.5vw;
-}
-.depositModule .selectModule .inputBox button,
-.depositModule .selectModule .euro .inputBox-event button,
-.euro .depositModule .selectModule .inputBox-event button,
-.depositModule
-	.selectModule
-	.worldcupEvent
-	.event
-	.event-content
-	.inputBox-event
-	button,
-.worldcupEvent
-	.event
-	.event-content
-	.depositModule
-	.selectModule
-	.inputBox-event
-	button {
-	padding: 1.5vw;
-	min-height: 7.75vw;
-}
-.depositModule .selectModule .title {
-	margin-top: 2vw;
-	padding-top: 1.5vw;
-	width: 100%;
-	text-align: left;
-	border-top: 1px solid #bfcce2;
-	font-size: 3.2vw;
-}
-.depositModule .selectModule .title span {
-	color: #e92529;
-	margin-right: 0.5vw;
-}
-.depositModule .selectModule .buttonBox {
-	margin: 0 1.5vw;
-}
-.depositModule .selectModule .infoModule {
-	width: 100%;
-}
-.depositModule .selectModule .buttonBox {
-	width: 100%;
-}
-.depositModule .selectModule .buttonBox button {
-	margin: 1.5vw 1.5vw 1.5vw 0;
-}
-.depositModule .selectModule .buttonBox button:last-child {
-	margin-right: 0;
-}
-.depositModule .downloadModule {
-	margin: 2vw 0;
-	padding: 2vw;
-	position: relative;
-	text-align: center;
-	overflow: hidden;
-}
-.depositModule .downloadModule .guideMark {
-	position: absolute;
-	width: calc(100% - 19vw);
-	height: calc(100% - 4vw);
-	top: 0;
-	left: 0;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	z-index: 2;
-	-webkit-box-sizing: content-box;
-	box-sizing: content-box;
-	border-color: rgba(210, 226, 249, 0.5);
-	border-style: solid;
-	border-width: 2vw 9.5vw;
-	background: transparent;
-	pointer-events: none;
-}
-.depositModule .downloadModule .swiper-container {
-	position: relative;
-	padding: 0;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	width: 45vw;
-	overflow: unset;
-}
-.depositModule .downloadModule .swiper-pagination-bullets {
-	bottom: -3vw;
-}
-.depositModule .input-group {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.depositModule .input-group .inputBox,
-.depositModule .input-group .euro .inputBox-event,
-.euro .depositModule .input-group .inputBox-event,
-.depositModule
-	.input-group
-	.worldcupEvent
-	.event
-	.event-content
-	.inputBox-event,
-.worldcupEvent
-	.event
-	.event-content
-	.depositModule
-	.input-group
-	.inputBox-event {
-	width: 76vw;
-}
-.depositModule .cardinfo {
-	text-align: left;
-	margin-top: 2vw;
-}
-.depositModule .cardinfo img {
-	border-radius: 5px;
-	width: 74vw;
-}
-.depositModule .note {
-	width: 100% !important;
-	background: #e2e2e2;
-	color: #838383;
-	border-radius: 5px;
-	padding: 1vw 2vw;
-	font-size: 3vw;
-	text-align: left;
-	margin: 1.5vw auto;
-}
-.depositModule .note .title {
-	margin: 0 0 1.5vw 0;
-	color: #cf0404;
-	border-top: 0;
-}
-.depositModule .note .title .icon-warning::before {
-	font-size: 3.5vw;
-}
-.depositModule .note li {
-	margin-bottom: 2vw;
-	line-height: 1.5;
-}
-
 .icon-qrpay::before {
 	content: '';
 	display: block;
@@ -9800,81 +8408,10 @@ span.important {
 	color: #5574a7;
 }
 
-.rememberMode {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-flow: wrap;
-	flex-flow: wrap;
-	position: relative;
-}
-.rememberMode > .icon {
-	color: #5574a7;
-	position: absolute;
-	right: 0;
-	top: 2vw;
-}
-.rememberMode .inputInfo {
-	margin: 0 0 2vw;
-	word-break: break-word;
-	width: 100%;
-}
-.rememberMode .inputInfo:before {
-	content: '';
-	border-width: 0 2vw 2vw 2vw;
-	border-style: solid dashed dashed;
-	border-color: transparent transparent #a5bbe0 transparent;
-	right: 0.7vw;
-	top: -2vw;
-}
-.rememberMode .inputInfo span {
-	display: block;
-	color: #e92529;
-	font-weight: bold;
-	text-align: center;
-	font-size: 3.25vw;
-}
-
 .nickName {
 	font-weight: bold;
 	margin-bottom: 2vw;
 	width: 100%;
-}
-
-.important {
-	background: #e2e2e2;
-	color: #666;
-	padding: 4vw;
-}
-.important .title {
-	margin-bottom: 3vw;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.important .title span:before {
-	margin-right: 2vw;
-	font-weight: normal;
-}
-.important li {
-	list-style: decimal;
-	line-height: 6vw;
-	margin-left: 3vw;
-	word-wrap: break-word;
-}
-.important li span,
-.important li a {
-	font-weight: bold;
-}
-.important li a,
-.important li button {
-	color: #5574a7;
 }
 
 .formula {
@@ -10238,67 +8775,6 @@ span.important {
 		background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/jpotbg.png)
 			no-repeat center/cover;
 	}
-}
-.swithModule {
-	text-align: center;
-	color: #5574a7 !important;
-	font-size: 12px;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	margin-bottom: 2vw;
-}
-.swithModule .switchBtn {
-	width: 60px;
-	height: 28px;
-	border: 1px solid #f3f3f3;
-	background: #666;
-	border-radius: 28px;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	position: relative;
-	padding: 5px;
-	margin: 5px;
-}
-.swithModule .switchBtn.active {
-	background: #42ac5e;
-	border-color: #42ac5e;
-}
-.swithModule .switchBtn.active > span:nth-child(2) {
-	opacity: 0;
-	-webkit-transition: 0.7s;
-	transition: 0.7s;
-}
-.swithModule .switchBtn > span {
-	color: white;
-	font-size: 12px;
-	font-weight: normal;
-	margin: 0;
-}
-.swithModule .switchBtn > div {
-	position: absolute;
-	background: white;
-	width: 26px;
-	height: 26px;
-	border-radius: 26px;
-	left: 0;
-	-webkit-transition: 0.7s;
-	transition: 0.7s;
-}
-.swithModule .switchBtn > div.active {
-	-webkit-transition: 0.7s;
-	transition: 0.7s;
-	left: calc(100% - 26px);
 }
 
 .favouriteModule {
@@ -10868,6 +9344,100 @@ span.important {
 	border-radius: 3px;
 }
 
+.partnerSelect,
+.filterSelect {
+	overflow: scroll;
+	width: 100%;
+	border-radius: 5px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	border-radius: 0;
+	margin: 0 0 1vw;
+}
+.partnerSelect button,
+.partnerSelect a,
+.filterSelect button,
+.filterSelect a {
+	min-width: 30.5vw;
+	padding: 0 1vw;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-flow: center;
+	flex-flow: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	font-size: 3vw;
+	border-radius: 3px;
+}
+.partnerSelect button div,
+.partnerSelect a div,
+.filterSelect button div,
+.filterSelect a div {
+	margin-top: -1vw;
+}
+.partnerSelect button img,
+.partnerSelect a img,
+.filterSelect button img,
+.filterSelect a img {
+	-webkit-transform: scale(0.8);
+	transform: scale(0.8);
+	-webkit-transition: 0.7s;
+	transition: 0.7s;
+	height: 12vw;
+	-webkit-filter: brightness(70%) contrast(50%) sepia(1) hue-rotate(170deg);
+	filter: brightness(70%) contrast(50%) sepia(1) hue-rotate(170deg);
+}
+
+.filterSelect {
+	height: 10vw;
+	background: #e2e4e7;
+	margin-bottom: 0;
+}
+.filterSelect button,
+.filterSelect a {
+	color: #a1a1a1;
+	width: auto;
+	min-width: auto;
+	margin: 0 2vw;
+	padding: 0 2vw;
+	white-space: nowrap;
+	border-radius: 0;
+}
+.filterSelect button.active,
+.filterSelect a.active {
+	margin-top: 1vw;
+	color: #6c88b5;
+	border-bottom: 1vw #6c88b5 solid;
+}
+
+.partnerSelect button,
+.partnerSelect a {
+	background: #d2e2f9;
+	margin-right: 1vw;
+}
+.partnerSelect button.active,
+.partnerSelect a.active {
+	background: #284985;
+	color: white;
+}
+.partnerSelect button.active img,
+.partnerSelect a.active img {
+	-webkit-transform: scale(0.9);
+	transform: scale(0.9);
+	-webkit-transition: 0.7s;
+	transition: 0.7s;
+	-webkit-filter: none;
+	filter: none;
+}
+
 .rolloverList,
 .minAmount,
 .remainingTime {
@@ -11323,12 +9893,6 @@ span.important {
 }
 .ifsc span {
 	color: #f77a00;
-}
-
-.crypto,
-.eWallet,
-.withdrawal {
-	padding: 30vw 4vw 20vw;
 }
 
 .addAddresspop input {
@@ -13064,24 +11628,6 @@ span.important {
 	}
 }
 
-.mainWallet {
-	color: #284985;
-	margin: 2vw 0;
-	font-size: 3.5vw;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-		sans-serif;
-	font-weight: bold;
-}
-.mainWallet .account {
-	padding: 2.5vw 3vw;
-	background: #e4e4e4;
-}
-.mainWallet .account .icon:before {
-	font-size: 3vw;
-	margin-right: 1vw;
-}
-
 .g-recaptcha {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -14197,13 +12743,6 @@ input[type='number'] {
 	color: #c6d4f1;
 }
 
-.btn-group button i,
-.btn-group a i,
-.btn-group .submit i {
-	margin: 0 0 0 2vw;
-	-webkit-transition: 0.7s;
-	transition: 0.7s;
-}
 .btn-group button i.icon-keyboard_arrow_down.active,
 .btn-group a i.icon-keyboard_arrow_down.active,
 .btn-group .submit i.icon-keyboard_arrow_down.active {
@@ -14300,8 +12839,52 @@ input[type='number'] {
 	text-align: center;
 	color: #284985;
 }
-.btn-group .recentBtn {
-	background: #112240;
+
+.header-module {
+	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	padding: 2vw 0;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+.header-module .header-logo {
+	position: relative;
+}
+.header-module .header-logo.eurocup::before {
+	content: '';
+	position: absolute;
+	left: 2.25vw;
+	top: -3.5vw;
+	width: 28vw;
+	height: 16vw;
+	pointer-events: none;
+	background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/eurocup/logo-euro-ball.gif)
+		center/cover;
+}
+.header-module .header-logo.eurocup + .splogo {
+	-webkit-animation: eurologo 7.5s running infinite 0.5s;
+	animation: eurologo 7.5s running infinite 0.5s;
+}
+.header-module .header-logo.olympic + .splogo {
+	-webkit-animation: olympic 7.5s running infinite 0.5s;
+	animation: olympic 7.5s running infinite 0.5s;
+}
+.header-module .header-logo img {
+	display: block;
+	width: 25vw;
+	margin-left: 3vw;
+}
+.header-module .btn-menu {
+	margin: 1vw 2.5vw 0 0;
+}
+.header-module .btn-menu img {
+	width: 6vw;
 }
 
 .splogo {
@@ -14450,6 +13033,68 @@ input[type='number'] {
 	}
 }
 
+.header-menu {
+	margin-right: 3vw;
+}
+.header-menu img {
+	width: 6vw;
+}
+
+.header-info {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	margin-right: 3vw;
+}
+
+.header-balance {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	font-size: 4vw;
+	height: 4.5vw;
+	font-weight: 600;
+}
+.header-balance span {
+	margin-right: 1.5vw;
+}
+.header-balance .icon-minus,
+.header-balance .icon-plus {
+	width: 4vw;
+	margin: 1vw 0 0 2vw;
+}
+.header-balance .icon-spinner11 {
+	width: 4vw;
+	background: none;
+}
+.header-balance .icon-spinner11:before {
+	font-size: 5vw;
+	font-weight: normal;
+}
+.header-balance > div {
+	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+.header-balance .clickBtn {
+	margin: 0.3vw 0 0 1vw;
+	height: 5.5vw;
+}
+.header-balance .clickBtn::before {
+	-webkit-transform: scale(0.9);
+	transform: scale(0.9);
+}
+
 main {
 	width: 100%;
 	padding: 12vw 0 0;
@@ -14574,6 +13219,186 @@ main.casino .banner {
 	filter: grayscale(1) !important;
 }
 
+.home-hotmatch {
+	background: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(10%, #fff),
+		color-stop(20%, #172f5d),
+		to(#04070e)
+	);
+	background: linear-gradient(180deg, #fff 10%, #172f5d 20%, #04070e);
+	height: auto;
+	position: relative;
+	margin-top: 2vw;
+	padding-bottom: 13vw;
+}
+.home-hotmatch::after {
+	display: block;
+	content: '';
+	background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/sports-bg-new.png)
+		no-repeat center/cover;
+	height: 45vw;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+.home-hotmatch.br::after {
+	background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/4.0/sports-bg.png)
+		no-repeat center/cover;
+}
+.home-hotmatch-wrapper {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+.home-hotmatch-wrapper .top {
+	z-index: 1;
+	padding: 15vw 0 0 5vw;
+}
+.home-hotmatch-wrapper .top div {
+	font-weight: 700;
+	font-size: 8vw;
+	letter-spacing: 0.2vw;
+	margin-top: -2vw;
+}
+.home-hotmatch-wrapper .top img {
+	width: 22vw;
+	margin-bottom: 0.5vw;
+}
+.home-hotmatch-swiper {
+	margin-left: 2.5vw;
+}
+.home-hotmatch-item {
+	color: #0a1b38;
+	background: white;
+	width: 92vw;
+	height: 45vw;
+	border-radius: 15px;
+}
+.home-hotmatch-item .title {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	font-size: 3.5vw;
+	font-weight: 600;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	padding: 3.5vw 5vw 0;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	position: relative;
+}
+.home-hotmatch-item .title p {
+	width: 35vw;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.home-hotmatch-item .title div {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	font-size: 3vw;
+}
+.home-hotmatch-item .title div div {
+	margin-left: 1vw;
+}
+.home-hotmatch-item .title::after {
+	position: absolute;
+	top: 9vw;
+	display: block;
+	content: '';
+	width: 16vw;
+	height: 1vw;
+	background: -webkit-gradient(
+		linear,
+		left top,
+		right top,
+		color-stop(10%, #ff7600),
+		to(#fff)
+	);
+	background: linear-gradient(90deg, #ff7600 10%, #fff);
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 3% 100%);
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 3% 100%);
+	margin-top: 1vw;
+}
+.home-hotmatch-item .team-content {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	font-weight: 500;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	padding: 0 4vw;
+	margin: 4.5vw 0 0;
+}
+.home-hotmatch-item .team-content-item {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.home-hotmatch-item .team-content-item img {
+	width: 9vw;
+	border: 1px solid #d1d1d1;
+	border-radius: 50px;
+	padding: 1vw;
+}
+.home-hotmatch-item .team-content-item div {
+	width: 25vw;
+	margin-left: 2vw;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	font-size: 3.5vw;
+}
+.home-hotmatch-item .team-content .odds {
+	background: #efefef;
+	width: 20vw;
+	height: 5vw;
+	border-radius: 20px;
+	padding: 1vw 4vw;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+.home-hotmatch-item .team-content .odds span:last-child {
+	color: #407aeb;
+}
+.home-hotmatch-item .team-content:last-child {
+	margin-top: 2vw;
+}
+.home-hotmatch-item .btn-bet {
+	background: #ff7600;
+	width: 92vw;
+	height: 9vw;
+	border-radius: 0 0 20px 20px;
+	margin-top: 3vw;
+	text-align: center;
+	font-weight: 600;
+	font-size: 3.5vw;
+}
+
 .home-title {
 	color: #0a1b38;
 	font-size: 4vw;
@@ -14602,6 +13427,208 @@ main.casino .banner {
 	width: 18vw;
 	height: 0.8vw;
 	margin-left: 2vw;
+}
+
+.home-promos {
+	margin-top: 5vw;
+}
+.home-promos-swiper {
+	margin: 5vw 0 0 2.5vw;
+}
+.home-promos-swiper .swiper-slide {
+	max-width: 93vw;
+}
+.home-promos-swiper .swiper-slide > div {
+	width: 100%;
+	height: 35vw;
+	overflow: hidden;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	border-radius: 10px;
+}
+.home-promos-swiper .swiper-slide img {
+	width: auto;
+	height: 100%;
+}
+
+.home-hotgame {
+	background: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(20%, #0a1b38),
+		to(#1b448a)
+	);
+	background: linear-gradient(180deg, #0a1b38 20%, #1b448a);
+	height: 103vw;
+	margin-top: 5vw;
+}
+.home-hotgame .hotgame-bn {
+	padding: 0 2vw;
+	position: relative;
+}
+.home-hotgame .hotgame-bn img {
+	width: 100%;
+	margin-top: -5vw;
+}
+.home-hotgame-swiper {
+	margin: 2vw 0 0 2vw;
+}
+.home-hotgame .btn-play {
+	position: absolute;
+	background: -webkit-gradient(
+		linear,
+		left top,
+		right top,
+		from(rgb(30, 62, 119)),
+		to(rgb(10, 27, 56))
+	);
+	background: linear-gradient(90deg, rgb(30, 62, 119) 0%, rgb(10, 27, 56) 100%);
+	padding: 2vw 5vw;
+	border-radius: 15vw;
+	bottom: 6vw;
+	right: 12vw;
+}
+
+.hotgame-item {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.hotgame-item img {
+	width: 29.5vw;
+	border-radius: 10px;
+	margin-bottom: 1vw;
+	-webkit-box-shadow: 0 0 6px #0a1b38;
+	box-shadow: 0 0 6px #0a1b38;
+}
+.hotgame-item span {
+	font-weight: 500;
+}
+
+.home-jackpot-swiper {
+	margin: 5vw 0 0 2vw;
+}
+
+.jackpot-item img {
+	width: 29.5vw;
+	border-radius: 10px;
+	margin-bottom: 1vw;
+	-webkit-box-shadow: 0 0 6px rgba(10, 27, 56, 0.4);
+	box-shadow: 0 0 6px rgba(10, 27, 56, 0.4);
+}
+
+.home-appdownload {
+	background: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(20%, #ffffff),
+		to(#f5f5f5)
+	);
+	background: linear-gradient(180deg, #ffffff 20%, #f5f5f5);
+	border-radius: 80px;
+	height: auto;
+	margin: 1vw 0 10vw;
+	padding-bottom: 8vw;
+}
+.home-appdownload-content {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.home-appdownload-content img {
+	width: 40vw;
+	margin-right: 6vw;
+}
+.home-appdownload-content .text {
+	margin: 2vw 0 0 10vw;
+	color: #0a1b38;
+}
+.home-appdownload-content .text div {
+	font-weight: 500;
+}
+.home-appdownload-content .text div:nth-child(2) {
+	margin-top: 2vw;
+	font-size: 4.5vw;
+	margin-bottom: 1vw;
+	font-weight: 600;
+	line-height: 6.5vw;
+}
+.home-appdownload-content .text div:nth-child(2) span {
+	color: #ff7600;
+}
+.home-appdownload-content .text div:nth-child(3) {
+	color: #a4a4a4;
+}
+.home-appdownload-content .text div.fullname {
+	font-weight: 600;
+}
+.home-appdownload .btn-download {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	margin-top: 4vw;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	padding: 0 7vw;
+}
+.home-appdownload .btn-download > div {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.home-appdownload .btn-download > div button {
+	width: 40vw;
+	padding: 2.5vw 2vw;
+	border-radius: 30px;
+	-webkit-box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1098039216);
+	box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1098039216);
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	font-size: 3.5vw;
+}
+.home-appdownload .btn-download > div button img {
+	width: 5vw;
+	margin-right: 1vw;
+}
+.home-appdownload .btn-download > div .ios {
+	background: #ff7600;
+}
+.home-appdownload .btn-download > div .android {
+	background: #47b452;
+}
+.home-appdownload .btn-download > div a {
+	color: #0066cc;
+	margin-top: 1.5vw;
 }
 
 .fullname {

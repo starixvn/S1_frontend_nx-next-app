@@ -2925,8 +2925,6 @@ main .gameList .icon-new {
 	align-items: center;
 }
 
-
-
 .main {
 	width: calc(100% - 8vw);
 	min-height: 100%;
@@ -3174,10 +3172,6 @@ main .gameList .icon-new {
 	-ms-flex-align: center;
 	align-items: center;
 }
-
-
-
-
 
 .openPopup {
 	white-space: nowrap;
@@ -3894,8 +3888,6 @@ main .gameList .icon-new {
 	max-height: 16px;
 } */
 
-
-
 .infotxt {
 	background: #002b6c;
 	color: #b2b2b2;
@@ -3976,81 +3968,6 @@ main .gameList .icon-new {
 	box-shadow: 0 0 0 2px #5574a7 inset;
 	margin: 2vw 0;
 	padding: 4vw;
-}
-
-.selectBank {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-flow: wrap;
-	flex-flow: wrap;
-}
-.selectBank button,
-.selectBank a {
-	-webkit-box-flex: 0;
-	-ms-flex: 0 0 calc(33.3333333333% - 1vw);
-	flex: 0 0 calc(33.3333333333% - 1vw);
-	margin: 0.5vw;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	border: 2px solid transparent;
-	border-radius: 5px;
-	overflow: hidden;
-	line-height: 0;
-	background: white;
-	min-height: 13vw;
-}
-.selectBank button.active,
-.selectBank a.active {
-	border: 2px solid #5574a7;
-}
-.selectBank button .mask,
-.selectBank a .mask {
-	display: none;
-}
-.selectBank button.pending,
-.selectBank a.pending {
-	position: relative;
-}
-.selectBank button.pending .mask,
-.selectBank a.pending .mask {
-	position: absolute;
-	top: 0;
-	left: 0;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	color: #fff;
-	background: rgba(40, 73, 133, 0.8);
-	width: 100%;
-	height: 100%;
-	line-height: 1;
-	z-index: 1;
-	font-size: 3vw;
-}
-.selectBank a {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	background: #e6e6e6;
-}
-.selectBank a:before {
-	content: '\e94f';
-	font-family: 'icomoon';
-	color: white;
-	font-size: 8vw;
 }
 
 .txt-red {
@@ -4164,8 +4081,6 @@ input[type='checkbox'] + label {
 .Announcement .functionList ~ .account.active .content {
 	padding: 5vw 3vw 5vw 7vw;
 }
-
-
 
 .checkbox {
 	margin-left: -5vw;
@@ -5300,42 +5215,6 @@ input[type='date'] {
 .promotions .proInfomodule.active .claimed + img {
 	-webkit-filter: grayscale(1);
 	filter: grayscale(1);
-}
-
-.kyc {
-	line-height: 20px;
-	color: #a5bbe0;
-}
-.kyc .text-org {
-	text-align: left;
-}
-.kyc .btn-group {
-	margin: 3vw 0;
-}
-.kyc .btn-group .fileUpload {
-	padding: 0 2vw;
-}
-.kyc ul li {
-	list-style: decimal;
-	margin: 0 0 0 4vw;
-}
-.kyc .icon-jump {
-	margin: 2vw auto;
-	text-align: center;
-}
-.kyc .icon-jump:before {
-	font-size: 13vw;
-	-webkit-animation: jump 0.3s infinite;
-	animation: jump 0.3s infinite;
-	color: #a4a4a4;
-}
-.kyc .icon-jump ~ div:nth-child(2) {
-	background: #a4a4a4;
-	padding: 3vw 0;
-	border-radius: 3px;
-	width: 100%;
-	margin: 3vw 0;
-	color: white;
 }
 
 @-webkit-keyframes jump {
@@ -10015,8 +9894,6 @@ input[type='date'] {
 .ifsc span {
 	color: #f77a00;
 }
-
-
 
 .addAddresspop input {
 	font-size: 3vw;

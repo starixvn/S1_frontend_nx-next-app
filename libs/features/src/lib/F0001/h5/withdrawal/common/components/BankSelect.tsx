@@ -24,13 +24,13 @@ const BankSelect = () => {
 			case WithdrawalBankCardEnum.LocalBank:
 				return bankInfoDetail?.length < 3 ? (
 					<Link href={paths.bankInfo.root}>
-						<a />
+						<i className='icon icon-plus-add' />
 					</Link>
 				) : null
 			case WithdrawalBankCardEnum.EWallet:
 				return custEWalletInfo?.length < 3 ? (
 					<Link href={paths.eWallet.root}>
-						<a />
+						<i className='icon icon-plus-add' />
 					</Link>
 				) : null
 			default:
@@ -81,7 +81,7 @@ const BankSelect = () => {
 									<i className='icon icon-check' />
 								</div>
 							</div>
-							<span className='bank-name'>{bankName}</span>
+							<div className='subtitle'>{bankName}</div>
 						</div>
 					)
 				})
@@ -111,7 +111,7 @@ const BankSelect = () => {
 								}/square/${eWalletLogo.toLowerCase()}`}
 								alt={eWalletName}
 							/>
-							<span className='bank-name'>{eWalletName}</span>
+							<div className='subtitle'>{eWalletName}</div>
 						</button>
 					)
 				})
@@ -123,8 +123,8 @@ const BankSelect = () => {
 	return (
 		<>
 			<div className='selectBank'>
-				{banksIcon}
-				{addCardIcon}
+				<div className='group-block-gird'>{banksIcon}</div>
+				<div className='btn-add-bank'>{addCardIcon}</div>
 			</div>
 			{withdrawalType === WithdrawalBankCardEnum.EWallet && (
 				<div className='text'>{t('Label_Withdrawal_EWalletSubmitNote')}</div>

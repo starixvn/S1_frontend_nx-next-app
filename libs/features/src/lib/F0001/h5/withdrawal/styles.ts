@@ -1,8 +1,40 @@
 import styled from 'styled-components'
 
 export const WrapperWithdrawalH5 = styled.div`
-	.withdrawal {
-		padding: 4vw 4vw 30vw;
+	.header-waiting {
+		.title {
+			font-size: 4.1vw;
+			font-weight: 700;
+			background: #0f1428;
+			border-bottom: 1px solid #374375;
+			height: 14.8vw;
+		}
+	}
+	.kyc-text {
+		text-align: center;
+		margin: 3vw 0;
+		color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+		&.title {
+			font-size: 4.1vw;
+			font-weight: 700;
+		}
+	}
+	.icon-noti {
+		width: 10vw;
+		height: 10vw;
+		margin: auto;
+		border-radius: 100px;
+		border: 6px solid #1d2447;
+		background: #232b4f;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		.icon {
+			&:before {
+				color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+				font-size: 7.8vw;
+			}
+		}
 	}
 	.vip_mark {
 		margin: auto;
@@ -192,5 +224,37 @@ export const WrapperWithdrawalH5 = styled.div`
 		border-radius: 20px;
 		background: ${({ theme }) => theme.mobile.rightModuleBg};
 		padding: 3.9vw;
+		.selectBank {
+			display: flex;
+			flex-direction: column;
+		}
+		.group-block-gird {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 4vw;
+		}
+		.block-grid {
+			display: grid;
+			width: 50%;
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(4, 3.5vw);
+			height: 11.6vw;
+			gap: 2vw;
+		}
+		.subtitle {
+			margin-top: 0;
+			grid-column: 2 / 4;
+			grid-row: 1;
+			text-align: left;
+			color: ${({ theme }) => theme.mobile.white};
+			font-size: 3.4vw;
+			max-width: unset;
+		}
+		.subinfo {
+			grid-column: 2 / 4;
+			grid-row: 2;
+			text-align: left;
+		}
 	}
 `
