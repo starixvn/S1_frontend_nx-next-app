@@ -1,8 +1,8 @@
+import { useAuth } from '@nx-next-app/data-access'
+import { IVipBannerData, RebateCategoryEnum } from '@nx-next-app/service'
+import { numberFormatExcludeString } from '@nx-next-app/utils'
 import { capitalize } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
-import { numberFormatExcludeString } from '@nx-next-app/utils'
-import { IVipBannerData, RebateCategoryEnum } from '@nx-next-app/service'
 
 const VipTableInfo = ({
 	vipBannerData,
@@ -124,7 +124,7 @@ const VipTableInfo = ({
 				</tr>
 				{/* Casino */}
 				<tr>
-					<td>{capitalize(t('Label_Vip_Slot_Fishing_Rebate') || '')}</td>
+					<td>{capitalize(t('Label_Vip_Slot_Rebate') || '')}</td>
 					{vipBannerData?.map(item => (
 						<td key={item.level}>
 							{item?.rebateCategory[RebateCategoryEnum.Casino]?.percentage}%
@@ -141,15 +141,6 @@ const VipTableInfo = ({
 									?.percentage
 							}
 							%
-						</td>
-					))}
-				</tr>
-				{/* ESports */}
-				<tr>
-					<td>{capitalize(t('Label_Vip_ESport_Rebate') || '')}</td>
-					{vipBannerData?.map(item => (
-						<td key={item.level}>
-							{item?.rebateCategory[RebateCategoryEnum.ESports]?.percentage}%
 						</td>
 					))}
 				</tr>
