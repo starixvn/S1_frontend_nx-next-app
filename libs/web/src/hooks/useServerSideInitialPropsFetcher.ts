@@ -76,7 +76,7 @@ export const useServerSideInitialPropsFetcher = async (
 
 	// After obtaining the current currencyId, execute maintenance diversion logic
 	// TODO
-	await useRedirectMaintain(context, originCurrencyId)
+	//await useRedirectMaintain(context, originCurrencyId)
 
 	// Bring in the cookies used by api config
 	const currentHeaderCookies = transferCookiesObj(originCookies)
