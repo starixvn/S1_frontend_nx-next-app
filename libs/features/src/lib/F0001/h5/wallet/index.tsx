@@ -82,19 +82,21 @@ const Wallet = ({ withdrawalBlockSetting }: IWalletPageProps) => {
 									: ((turnover / rollover) * 100).toFixed(2)
 							return (
 								<div className='account' key={tpId}>
-									<div className='info'>
-										<span>
-											{t(`Label_Wallet_BonusWallet_${promoCategoryId}`)}
-										</span>
-										<div>{numFormatToDigits(bonus ?? 0)}</div>
-									</div>
 									<div className='progressBarModule'>
-										<div className='percentage'>{percentage} %</div>
-										<div className='bar'>
-											<div
-												className='progress'
-												style={{ width: `${percentage}%` }}
-											/>
+										<div className='info'>
+											<span>
+												{t(`Label_Wallet_BonusWallet_${promoCategoryId}`)}
+											</span>
+											<div>{numFormatToDigits(bonus ?? 0)}</div>
+										</div>
+										<div className='group-process'>
+											<div className='bar'>
+												<div
+													className='progress'
+													style={{ width: `${percentage}%` }}
+												/>
+											</div>
+											<div className='percentage'>{percentage} %</div>
 										</div>
 									</div>
 								</div>

@@ -5316,50 +5316,7 @@ input[type='date'] {
 		transform: rotate(359deg);
 	}
 }
-.progressBarModule {
-	width: 100%;
-	margin: 2vw 0 0;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.progressBarModule .bar {
-	height: 2vw;
-	background: #d2e2f9;
-	border-radius: 10px;
-	overflow: hidden;
-	-webkit-box-flex: 1;
-	-ms-flex: auto;
-	flex: auto;
-}
-.progressBarModule .bar .progress {
-	background: #5574a7;
-	height: 100%;
-	border-radius: 10px;
-}
-.progressBarModule .icon-spinner11 {
-	background: #5574a7;
-	color: white;
-	border-radius: 100%;
-	margin: 0 0 0 2vw;
-	width: 7vw;
-	height: 7vw;
-}
-.progressBarModule .icon-spinner11:before {
-	font-size: 3vw;
-}
-.progressBarModule .percentage {
-	color: #5574a7;
-	font-weight: bold;
-	-webkit-box-flex: 0;
-	-ms-flex: 0 0 auto;
-	flex: 0 0 auto;
-	min-width: 12vw;
-	margin: 0 3vw 0 0;
-}
+
 
 .otp {
 	margin: 0;

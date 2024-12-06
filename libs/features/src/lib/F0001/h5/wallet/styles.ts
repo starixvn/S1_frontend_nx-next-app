@@ -55,4 +55,51 @@ export const WrapperMyWalletH5 = styled.div`
 			}
 		}
 	}
+	.progressBarModule {
+		margin: 2vw 0 0;
+		align-items: center;
+		max-width: 100%;
+		width: auto;
+		.info {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 2vw;
+			color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+		}
+	}
+	.progressBarModule .bar {
+		height: 2vw;
+		background: #374375;
+		border-radius: 10px;
+		overflow: hidden;
+		flex: auto;
+	}
+	.progressBarModule .bar .progress {
+		background: #ea6118;
+		height: 100%;
+		border-radius: 10px;
+	}
+	.progressBarModule .icon-spinner11 {
+		background: #5574a7;
+		color: white;
+		border-radius: 100%;
+		margin: 0 0 0 2vw;
+		width: 7vw;
+		height: 7vw;
+	}
+	.progressBarModule .icon-spinner11:before {
+		font-size: 3vw;
+	}
+	.progressBarModule .percentage {
+		font-weight: bold;
+		flex: 0 0 auto;
+		min-width: 12vw;
+		color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+	}
+	.group-process {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+	}
 `
