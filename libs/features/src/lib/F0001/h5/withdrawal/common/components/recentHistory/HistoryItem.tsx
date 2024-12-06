@@ -1,16 +1,16 @@
-import dayjs from 'dayjs'
-import dynamic from 'next/dynamic'
-import { useTranslation } from 'next-i18next'
-import { numberFormat } from '@nx-next-app/utils'
-import { IWithdrawalRecentInfoData } from '@nx-next-app/service'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { dateFormat, detailTimeFormat } from '@nx-next-app/constants'
-import {
-	statusClassNames,
-	WithdrawalStatusEnum,
-} from '@nx-next-app/features/F0001/types'
-import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { dateFormat, detailTimeFormat } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
+import {
+	WithdrawalStatusEnum,
+	statusClassNames,
+} from '@nx-next-app/features/F0001/types'
+import { IWithdrawalRecentInfoData } from '@nx-next-app/service'
+import { numberFormat } from '@nx-next-app/utils'
+import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 
 const WithdrawalMessageModal = dynamic(
 	() => import('../modal/WithdrawalMessageModal'),
@@ -42,9 +42,9 @@ const HistoryItem = ({ item }: { item: IWithdrawalRecentInfoData }) => {
 			status === WithdrawalStatusEnum.ToKyc
 		) {
 			return (
-				<div className='btn-group'>
+				<div className='btnGroup'>
 					<button
-						className='white'
+						className='btn-secondary'
 						onClick={() =>
 							modal.confirm(t('Label_History_CancelConfirm'), {
 								onOK: () => cancelWithdrawal(transId),
@@ -66,7 +66,7 @@ const HistoryItem = ({ item }: { item: IWithdrawalRecentInfoData }) => {
 					<span className='title'>
 						{t('Label_Withdrawal_Date')} ({timeZone})
 					</span>
-					<span>
+					<span className='body'>
 						{dayjs(createTime).utcOffset(timeZone).format(dateFormat)}
 					</span>
 				</li>
@@ -74,17 +74,17 @@ const HistoryItem = ({ item }: { item: IWithdrawalRecentInfoData }) => {
 					<span className='title'>
 						{t('Label_General_Time')} ({timeZone})
 					</span>
-					<span>
+					<span className='body'>
 						{dayjs(createTime).utcOffset(timeZone).format(detailTimeFormat)}
 					</span>
 				</li>
 				<li>
 					<span className='title'>{t('Label_Withdrawal_ID')}</span>
-					<span>{transId}</span>
+					<span className='body'>{transId}</span>
 				</li>
 				<li>
 					<span className='title'>{t('Label_Withdrawal_Amount')}</span>
-					<span>{numberFormat(amount, currencyId)}</span>
+					<span className='body'>{numberFormat(amount, currencyId)}</span>
 				</li>
 				<li>
 					<span className='title'>{t('Label_Withdrawal_Status')}</span>
