@@ -1,11 +1,11 @@
-import { useForm } from 'react-hook-form'
-import { head } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
-import { useEWallet } from '@nx-next-app/features/F0001/providers'
-import { Form, Select, InputBox, Loading } from '@nx-next-app/components/H0001'
-import { CurrenciesEnum } from '@nx-next-app/types'
+import { Form, InputBox, Loading, Select } from '@nx-next-app/components/H0001'
 import { E_WALLET_SYSID, TOUCH_GO_REGEX } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { useEWallet } from '@nx-next-app/features/F0001/providers'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { head } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useForm } from 'react-hook-form'
 
 const AddWallet = () => {
 	const { t } = useTranslation()
@@ -57,15 +57,22 @@ const AddWallet = () => {
 
 	return (
 		<Form onSubmit={handleSubmit(handleSubmitForm)}>
-			<Select
-				value={getValues('sysId')}
-				options={eWalletSysOptions}
-				placeholder={t('Label_BankInfo_SelectBank') as string}
-				errorMessage={errors['sysId']?.message as string}
-				defaultValue={head(eWalletSysOptions)?.value}
-				onChange={sysId => setValue('sysId', sysId as number)}
-				btnClassName='dropdownbank'
-			/>
+			<div className='group-dropdown'>
+				<div className='inputBox-blue'>
+					<div className='dropdown'>
+						<Select
+							value={getValues('sysId')}
+							options={eWalletSysOptions}
+							placeholder={t('Label_BankInfo_SelectBank') as string}
+							errorMessage={errors['sysId']?.message as string}
+							defaultValue={head(eWalletSysOptions)?.value}
+							onChange={sysId => setValue('sysId', sysId as number)}
+							btnClassName='dropdownbank'
+						/>
+					</div>
+				</div>
+			</div>
+
 			<InputBox
 				register={register('accountNo', {
 					required: {

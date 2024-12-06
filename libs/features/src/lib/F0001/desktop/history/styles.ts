@@ -20,6 +20,9 @@ export const WrapperHistory = styled.div`
 		border-top: 1px solid #374375;
 		.custom-th {
 			padding: 1.8rem 0;
+			&:nth-child(6) {
+				width: 60%;
+			}
 		}
 		.custom-td {
 			.td {
@@ -27,6 +30,9 @@ export const WrapperHistory = styled.div`
 				&:nth-child(2) {
 					display: flex !important;
 					justify-content: center;
+				}
+				&:nth-child(6) {
+					width: 60%;
 				}
 			}
 		}
