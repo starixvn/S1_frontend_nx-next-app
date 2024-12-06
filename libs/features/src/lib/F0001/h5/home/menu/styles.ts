@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const MenuContainer = styled.div`
 	background: ${({ theme }) => theme.mobile.menuContainerBg};
@@ -8,6 +8,10 @@ export const MenuContainer = styled.div`
 
 	.embla__viewport {
 		overflow: initial;
+	}
+
+	.icon-home {
+		font-size: 3.8vw;
 	}
 
 	button,
@@ -43,6 +47,8 @@ export const MenuContainer = styled.div`
 
 		&.active {
 			position: relative;
+			color: ${({ theme }) => theme.mobile.menuItemColorHover};
+
 			&::after {
 				display: block;
 				content: '';
@@ -50,8 +56,11 @@ export const MenuContainer = styled.div`
 				height: 0.5vw;
 				position: absolute;
 				bottom: 0;
-				color: ${({ theme }) => theme.mobile.menuItemColorHover};
 				background: ${({ theme }) => theme.mobile.menuItemActiveLine};
+			}
+
+			.icon-home:before {
+				color: ${({ theme }) => theme.mobile.menuItemColorHover};
 			}
 		}
 	}
