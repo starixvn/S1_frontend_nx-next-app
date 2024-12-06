@@ -73,7 +73,6 @@ const SubmitAmount = () => {
 			})}
 		>
 			<InputBox
-				icon='icon-pencil'
 				register={register('amount', {
 					required: {
 						value: true,

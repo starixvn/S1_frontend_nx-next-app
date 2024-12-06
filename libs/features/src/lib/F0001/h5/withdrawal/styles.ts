@@ -368,7 +368,7 @@ export const WrapperWithdrawalH5 = styled.div`
 		margin: 0 0 0 1vw;
 		font-size: 3.4vw;
 	}
-	.text-org {
+	.text-org,.text {
 		font-size: 2.9vw;
 		margin-top: 1vw;
 		color: #7883b4;
@@ -379,5 +379,22 @@ export const WrapperWithdrawalH5 = styled.div`
 	}
 	.recent{
 		margin -bottom : 4vw;
+	}
+	.icon-module{
+		.icon-information-fill{
+			&:before{
+				color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+			}
+		}
+		.icon-close-line{
+			&:before{
+				color : #F00;
+			}
+		}
+		.icon-check{
+			&:before{
+				color : #01B901;
+			}
+		}
 	}
 `

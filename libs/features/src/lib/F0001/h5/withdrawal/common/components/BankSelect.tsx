@@ -92,8 +92,8 @@ const BankSelect = () => {
 						selectedBankInfo?.sysId === sysId &&
 						selectedBankInfo?.accountNo === accountNo
 					return (
-						<button
-							className={classNames({ active: selected })}
+						<div
+							className='block-grid'
 							key={`${sysId}-${accountNo}`}
 							data-testid='bank-icon'
 							onClick={() =>
@@ -105,14 +105,19 @@ const BankSelect = () => {
 								})
 							}
 						>
-							<img
-								src={`${
-									process.env['NEXT_PUBLIC_PAYMENT_HOST']
-								}/square/${eWalletLogo.toLowerCase()}`}
-								alt={eWalletName}
-							/>
+							<div className={classNames('bankName', { active: selected })}>
+								<img
+									src={`${
+										process.env['NEXT_PUBLIC_PAYMENT_HOST']
+									}/square/${eWalletLogo.toLowerCase()}`}
+									alt={eWalletName}
+								/>
+								<div className='check'>
+									<i className='icon icon-check' />
+								</div>
+							</div>
 							<div className='subtitle'>{eWalletName}</div>
-						</button>
+						</div>
 					)
 				})
 			default:
