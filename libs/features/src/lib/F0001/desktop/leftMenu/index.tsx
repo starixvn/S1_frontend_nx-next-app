@@ -47,9 +47,8 @@ const LeftMenu = ({ withdrawalBlockSetting }: ILeftMenuProps) => {
 
 					return (
 						isMatchCurrency && (
-							<div className='menuBody'>
+							<div className='menuBody' key={displayKey}>
 								<a
-									key={displayKey}
 									className={classNames('menuSelect', { active: matchPath })}
 									onClick={() => {
 										// * 目標路徑不同才進行導轉
@@ -64,8 +63,8 @@ const LeftMenu = ({ withdrawalBlockSetting }: ILeftMenuProps) => {
 				})
 
 			return (
-				<WrapperLeftMenu>
-					<div className='menuModule' key={uniqueId()}>
+				<WrapperLeftMenu key={uniqueId()}>
+					<div className='menuModule'>
 						<button className='menuHeader' style={{ cursor: 'auto' }}>
 							{t(displayKey)}
 						</button>

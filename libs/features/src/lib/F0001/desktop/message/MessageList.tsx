@@ -73,7 +73,7 @@ const MessageList = ({
 					<input
 						type='checkbox'
 						id={`msgList-checkBox-${id}`}
-						onClick={() => onCheckBox(id, isBatch)}
+						onChange={e => onCheckBox(id, isBatch)}
 						checked={some(selectedMessage, { msgId: id })}
 					/>
 					<label
