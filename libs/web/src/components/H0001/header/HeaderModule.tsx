@@ -1,15 +1,19 @@
-import { paths } from "@nx-next-app/constants";
-import { useAuth } from "@nx-next-app/data-access";
-import { useHeaderLogo } from "@nx-next-app/hooks";
-import { ICustBonusWalletData, IMainWalletInfoData, ITpWalletInfoData } from "@nx-next-app/service";
-import { numberFormat } from "@nx-next-app/utils";
-import classNames from "classnames";
-import { useTranslation } from "next-i18next";
-import Link from "next/link";
-import { HTMLAttributes, useEffect } from "react";
-import { useBoolean, useDebounce } from "usehooks-ts";
+import { paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { useHeaderLogo } from '@nx-next-app/hooks'
+import {
+	ICustBonusWalletData,
+	IMainWalletInfoData,
+	ITpWalletInfoData,
+} from '@nx-next-app/service'
+import { numberFormat } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { HTMLAttributes, useEffect } from 'react'
+import { useBoolean, useDebounce } from 'usehooks-ts'
 
-import { SpinButton } from "../button";
+import { SpinButton } from '../button'
 
 interface IHeaderModuleProps extends HTMLAttributes<HTMLDivElement> {
 	isTpWalletBalanceListLoading: boolean
@@ -105,21 +109,21 @@ const HeaderModule = ({
 			{/* 登入後簡易資訊 */}
 			{auth.isLogin && !isTpWalletBalanceListLoading && (
 				<div className='header-info'>
-					<div>
+					<div className='user-info'>
 						{`${t('Label_General_Hello')}, `}
 						<Link href={paths.profile.root}>
-							<a className='MemberID'>{userName}</a>
+							<a className='member-id'>{userName}</a>
 						</Link>
 					</div>
 					<div className='header-balance'>
-						<span>{currencyName}</span>
-						<div>
+						<div>{currencyName}</div>
+						<div className='group-icons'>
 							{!isHideBalance && (
 								<>${numberFormat(totalWalletBalance, currencyId, 2)}</>
 							)}
 
 							<SpinButton
-								className='icon icon-spinner11 clickBtn'
+								className='icon icon-refresh-fill'
 								onClick={onRefetchAllWallet}
 							/>
 							<button
@@ -128,19 +132,11 @@ const HeaderModule = ({
 									toggleHideBalance()
 								}}
 							>
-								{isHideBalance ? (
-									<img
-										className='icon-plus'
-										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/plus.png`}
-										alt='img-icon-plus'
-									/>
-								) : (
-									<img
-										className='icon-minus'
-										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/minus.png`}
-										alt='img- icon-minus'
-									/>
-								)}
+								<span
+									className={`icon ${
+										isHideBalance ? 'icon-plus_circle' : 'icon-minus_circle'
+									}`}
+								/>
 							</button>
 						</div>
 					</div>

@@ -48,6 +48,49 @@ export const HeaderContainer = styled.div`
 		}
 	}
 
+	.header-info {
+		display: flex;
+		flex-direction: column;
+		margin-right: 3.89vw;
+
+		.user-info {
+			color: #939dc5;
+			font-size: 2.91vw;
+			font-weight: 600;
+		}
+
+		.member-id {
+			color: #939dc5;
+		}
+	}
+
+	.header-balance {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+		gap: 0.97vw;
+		color: #fff;
+		font-size: 3.39vw;
+		font-weight: 700;
+
+		.icon {
+			font-size: 4.85vw;
+		}
+
+		.icon-plus_circle,
+		.icon-minus_circle {
+			position: relative;
+			top: 1px;
+		}
+
+		.group-icons {
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+			gap: 0.97vw;
+		}
+	}
+
 	button.clickBtn {
 		display: flex;
 		width: 5vw;

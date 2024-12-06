@@ -12840,53 +12840,6 @@ input[type='number'] {
 	color: #284985;
 }
 
-.header-module {
-	width: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	padding: 2vw 0;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-}
-.header-module .header-logo {
-	position: relative;
-}
-.header-module .header-logo.eurocup::before {
-	content: '';
-	position: absolute;
-	left: 2.25vw;
-	top: -3.5vw;
-	width: 28vw;
-	height: 16vw;
-	pointer-events: none;
-	background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/event/eurocup/logo-euro-ball.gif)
-		center/cover;
-}
-.header-module .header-logo.eurocup + .splogo {
-	-webkit-animation: eurologo 7.5s running infinite 0.5s;
-	animation: eurologo 7.5s running infinite 0.5s;
-}
-.header-module .header-logo.olympic + .splogo {
-	-webkit-animation: olympic 7.5s running infinite 0.5s;
-	animation: olympic 7.5s running infinite 0.5s;
-}
-.header-module .header-logo img {
-	display: block;
-	width: 25vw;
-	margin-left: 3vw;
-}
-.header-module .btn-menu {
-	margin: 1vw 2.5vw 0 0;
-}
-.header-module .btn-menu img {
-	width: 6vw;
-}
-
 .splogo {
 	position: absolute;
 	left: 30vw;
@@ -13038,61 +12991,6 @@ input[type='number'] {
 }
 .header-menu img {
 	width: 6vw;
-}
-
-.header-info {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	margin-right: 3vw;
-}
-
-.header-balance {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-wrap: nowrap;
-	flex-wrap: nowrap;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	font-size: 4vw;
-	height: 4.5vw;
-	font-weight: 600;
-}
-.header-balance span {
-	margin-right: 1.5vw;
-}
-.header-balance .icon-minus,
-.header-balance .icon-plus {
-	width: 4vw;
-	margin: 1vw 0 0 2vw;
-}
-.header-balance .icon-spinner11 {
-	width: 4vw;
-	background: none;
-}
-.header-balance .icon-spinner11:before {
-	font-size: 5vw;
-	font-weight: normal;
-}
-.header-balance > div {
-	width: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
-.header-balance .clickBtn {
-	margin: 0.3vw 0 0 1vw;
-	height: 5.5vw;
-}
-.header-balance .clickBtn::before {
-	-webkit-transform: scale(0.9);
-	transform: scale(0.9);
 }
 
 main {
