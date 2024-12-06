@@ -1,11 +1,15 @@
-import { NextButton, PrevButton, usePrevNextButtons } from "@nx-next-app/features/F0001/h5/common/emblaCarousel/ArrowButtons";
-import { EmblaOptionsType, EmblaPluginType } from "embla-carousel";
-import useEmblaCarousel from "embla-carousel-react";
+import {
+	NextButton,
+	PrevButton,
+	usePrevNextButtons,
+} from '@nx-next-app/features/F0001/h5/common/emblaCarousel/ArrowButtons'
+import { EmblaOptionsType, EmblaPluginType } from 'embla-carousel'
+import useEmblaCarousel from 'embla-carousel-react'
 
 interface IEmblaCarousel {
 	options: EmblaOptionsType
 	children: any
-	isControlButton: boolean
+	isControlButton?: boolean
 	extraClassName?: string
 	plugins?: EmblaPluginType[]
 }

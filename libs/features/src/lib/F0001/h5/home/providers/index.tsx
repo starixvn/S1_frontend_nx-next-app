@@ -1,13 +1,16 @@
-import EmblaCarousel from "@nx-next-app/features/F0001/h5/common/emblaCarousel";
-import { LoadingIcon, NoGameIcon } from "@nx-next-app/features/F0001/h5/home/gameIcon/icons";
-import GroupTitle from "@nx-next-app/features/F0001/h5/home/GroupTitle";
-import { ProviderGroup } from "@nx-next-app/features/F0001/h5/home/providers/styles";
-import { GameContainer } from "@nx-next-app/features/F0001/h5/home/styles";
-import { useHome } from "@nx-next-app/features/F0001/providers";
-import { ProviderEnum } from "@nx-next-app/types";
-import { EmblaOptionsType } from "embla-carousel";
-import { useTranslation } from "next-i18next";
-import { Img } from "react-image";
+import EmblaCarousel from '@nx-next-app/features/F0001/h5/common/emblaCarousel'
+import {
+	LoadingIcon,
+	NoGameIcon,
+} from '@nx-next-app/features/F0001/h5/home/gameIcon/icons'
+import GroupTitle from '@nx-next-app/features/F0001/h5/home/GroupTitle'
+import { ProviderGroup } from '@nx-next-app/features/F0001/h5/home/providers/styles'
+import { GameContainer } from '@nx-next-app/features/F0001/h5/home/styles'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { ProviderEnum } from '@nx-next-app/types'
+import { EmblaOptionsType } from 'embla-carousel'
+import { useTranslation } from 'next-i18next'
+import { Img } from 'react-image'
 
 const ProvidersList = () => {
 	const { t } = useTranslation()
@@ -110,7 +113,7 @@ const ProvidersList = () => {
 		<ProviderGroup>
 			<GroupTitle title={t('Label_Providers')} />
 			<GameContainer>
-				<EmblaCarousel options={gameTypeEmblaOptions} isControlButton={false}>
+				<EmblaCarousel options={gameTypeEmblaOptions}>
 					{providerData?.map(provider => {
 						const { tpId, tpLogo, tpName } = provider
 						if (

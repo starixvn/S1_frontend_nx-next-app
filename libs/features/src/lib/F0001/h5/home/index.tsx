@@ -1,17 +1,17 @@
-import { Header } from "@nx-next-app/components/H0001";
-import { useAuth } from "@nx-next-app/data-access";
-import { HomPageContainer } from "@nx-next-app/features/F0001/h5/home/styles";
-import { useHome } from "@nx-next-app/features/F0001/providers";
-import { MobileHomeComponentsEnum } from "@nx-next-app/features/F0001/types";
-import { useTpWalletBalanceListFetcher } from "@nx-next-app/hooks";
-import { useSetHideBalanceMutation } from "@nx-next-app/service";
-import { multiEqual } from "@nx-next-app/utils";
-import { includes } from "lodash-es";
-import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
-import { Fragment, useCallback } from "react";
+import { Header } from '@nx-next-app/components/H0001'
+import { useAuth } from '@nx-next-app/data-access'
+import { HomPageContainer } from '@nx-next-app/features/F0001/h5/home/styles'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
+import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
+import { useSetHideBalanceMutation } from '@nx-next-app/service'
+import { multiEqual } from '@nx-next-app/utils'
+import { includes } from 'lodash-es'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
+import { Fragment, useCallback } from 'react'
 
-import Menu from "./menu";
+import Menu from './menu'
 
 const CarouselBanner = dynamic(() => import('../common/carouselBanner'), {
 	ssr: false,
@@ -31,7 +31,9 @@ const SportGames = dynamic(() => import('./sportsGames'))
 
 const NewReleaseGames = dynamic(() => import('./NewReleaseGames'))
 
-const ProvidersList = dynamic(() => import('./providers'))
+const ProvidersList = dynamic(() => import('./providers'), {
+	ssr: false,
+})
 
 const SimpleFooter = dynamic(() => import('./SimpleFooter'))
 
