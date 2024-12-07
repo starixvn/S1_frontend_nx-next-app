@@ -2383,6 +2383,17 @@ export const GlobalStyles = createGlobalStyle`
           }
         }
     }
+    .resetPassWordpop {
+      max-width: 40rem;
+      padding: 0 !important;
+      .txt-blue {
+        white-space: nowrap;
+        color : #7883B4;
+      }
+      .title-pass{
+        text-align : center;
+      }
+    }
 
   /* Using mobile*/
   .main {
