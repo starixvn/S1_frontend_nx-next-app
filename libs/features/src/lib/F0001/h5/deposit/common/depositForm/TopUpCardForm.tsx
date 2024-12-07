@@ -32,7 +32,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 	} = useAuth()
 	const { t } = useTranslation()
 
-	const { getCustPromotionOptions } = useDepositContext()
+	const { getCustPromotionOptions, getBonusCodeIfExist } = useDepositContext()
 
 	const {
 		formMethods: {
@@ -207,6 +207,10 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 						}
 						format={isConvert(currencyId)}
 						onChange={value => {
+							setValue(
+								'bonusCode',
+								String(getBonusCodeIfExist(value, watchBonusCode))
+							)
 							setValue('amount', value)
 							trigger('amount')
 						}}
@@ -232,7 +236,7 @@ const TopUpCardForm = ({ dataSource }: ITopUpCardFormProps) => {
 			>
 				<div className='infoModule'>
 					<Select
-						value={watchBonusCode}
+						value={getBonusCodeIfExist(watchAmount, watchBonusCode)}
 						options={getCustPromotionOptions(watchAmount)}
 						onChange={value => {
 							// * bonusCode 與 promoCode 擇一使用因此清空 promoCode

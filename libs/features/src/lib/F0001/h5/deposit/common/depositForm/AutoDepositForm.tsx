@@ -36,7 +36,7 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { t } = useTranslation()
-	const { getCustPromotionOptions } = useDepositContext()
+	const { getCustPromotionOptions, getBonusCodeIfExist } = useDepositContext()
 
 	const {
 		formMethods: {
@@ -168,6 +168,17 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 								},
 							})}
 							format={isConvert(currencyId)}
+							onChange={event => {
+								setValue(
+									'bonusCode',
+									String(
+										getBonusCodeIfExist(
+											Number(event.target.value),
+											watchBonusCode
+										)
+									)
+								)
+							}}
 							placeholder={
 								t('Label_General_AmountMinMaxLimit', {
 									value1: numFormatToDigits(watchMinAmount),
@@ -203,6 +214,10 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 									  })
 							}
 							onChange={value => {
+								setValue(
+									'bonusCode',
+									String(getBonusCodeIfExist(value, watchBonusCode))
+								)
 								setValue('amount', value)
 								trigger('amount')
 							}}
@@ -265,8 +280,8 @@ const AutoDepositForm = ({ dataSource }: IAutoDepositFormProps) => {
 						<div className='dropdown'>
 							<div className='infoModule'>
 								<Select
-									value={watchBonusCode}
-						options={getCustPromotionOptions(watchAmount)}
+									value={getBonusCodeIfExist(watchAmount, watchBonusCode)}
+									options={getCustPromotionOptions(watchAmount)}
 									onChange={value => {
 										setValue('bonusCode', String(value))
 										setValue('promoCode', undefined)

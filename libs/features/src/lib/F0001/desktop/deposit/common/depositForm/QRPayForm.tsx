@@ -42,7 +42,7 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
-	const { getCustPromotionOptions } = useDepositContext()
+	const { getCustPromotionOptions, getBonusCodeIfExist } = useDepositContext()
 
 	const {
 		formMethods: {
@@ -166,6 +166,17 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 							},
 						})}
 						format={isConvert(currencyId)}
+						onChange={event => {
+							setValue(
+								'bonusCode',
+								String(
+									getBonusCodeIfExist(
+										Number(event.target.value),
+										watchBonusCode
+									)
+								)
+							)
+						}}
 						placeholder={
 							t('Label_General_AmountMinMaxLimit', {
 								value1: numFormatToDigits(watchMinAmount),
@@ -202,7 +213,7 @@ const QRPayForm = ({ dataSource }: IQRPayFormProps) => {
 				})}
 			>
 				<Select
-					value={watchBonusCode}
+					value={getBonusCodeIfExist(watchAmount, watchBonusCode)}
 					options={getCustPromotionOptions(watchAmount)}
 					onChange={value => {
 						// * bonusCode 與 promoCode 擇一使用因此清空 promoCode

@@ -43,7 +43,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal, closeModal } = useGlobalModal()
-	const { getCustPromotionOptions } = useDepositContext()
+	const { getCustPromotionOptions, getBonusCodeIfExist } = useDepositContext()
 
 	const {
 		formMethods: {
@@ -202,6 +202,17 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 							},
 						})}
 						format={isConvert(currencyId)}
+						onChange={event => {
+							setValue(
+								'bonusCode',
+								String(
+									getBonusCodeIfExist(
+										Number(event.target.value),
+										watchBonusCode
+									)
+								)
+							)
+						}}
 						placeholder={
 							t('Label_General_AmountMinMaxLimit', {
 								value1: numFormatToDigits(watchMinAmount),
@@ -231,6 +242,10 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 								isConvert: false,
 							})}
 							onChange={value => {
+								setValue(
+									'bonusCode',
+									String(getBonusCodeIfExist(value, watchBonusCode))
+								)
 								setValue('amount', value)
 								trigger('amount')
 							}}
@@ -247,7 +262,7 @@ const CryptoPayForm = ({ dataSource }: ICryptoPayFormProps) => {
 			>
 				<div className='infoModule'>
 					<Select
-						value={watchBonusCode}
+						value={getBonusCodeIfExist(watchAmount, watchBonusCode)}
 						options={getCustPromotionOptions(watchAmount)}
 						onChange={value => {
 							// * bonusCode 與 promoCode 擇一使用因此清空 promoCode
