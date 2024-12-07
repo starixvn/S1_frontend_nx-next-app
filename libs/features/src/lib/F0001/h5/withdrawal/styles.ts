@@ -339,6 +339,9 @@ export const WrapperWithdrawalH5 = styled.div`
 			grid-row: 2;
 			text-align: left;
 		}
+		.group-subtitle {
+			width: 60vw;
+		}
 	}
 	.inputBox-blue {
 		margin-top: 0;

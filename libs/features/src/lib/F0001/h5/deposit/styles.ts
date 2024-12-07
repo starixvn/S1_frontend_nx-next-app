@@ -545,9 +545,20 @@ export const WrapperDepositHistoryH5 = styled.div`
 			}
 		}
 	}
+	.btn-recent-history {
+		color: #939dc5;
+		background: #374375;
+		.icon {
+			&:before {
+				font-size: 5vw;
+				color: #939dc5;
+			}
+		}
+	}
 
 	.recentBtn {
-		width: max-content;
-		margin: 0 auto;
+		a {
+			min-height: 8vw;
+		}
 	}
 `

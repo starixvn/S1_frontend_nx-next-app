@@ -16,11 +16,12 @@ const DepositRecentHistory = () => {
 	return (
 		<WrapperDepositHistoryH5>
 			<div className='btnGroup'>
-				<button className='btn-primary' onClick={toggle}>
+				<button className='btn-primary btn-recent-history' onClick={toggle}>
 					{t('Label_General_RecentTransactions')}
 					<i
-						className={classNames('icon icon-keyboard_arrow_down', {
-							active: isActive,
+						className={classNames('icon', {
+							'icon-chevron_down': !isActive,
+							'icon-chevron_up': isActive,
 						})}
 					/>
 				</button>
@@ -39,9 +40,13 @@ const DepositRecentHistory = () => {
 
 				<div className='btnGroup recentBtn' style={{ marginBottom: '1.6rem' }}>
 					<a
-						className='btn-primary'
+						className='btn-secondary'
 						onClick={() => push(paths.depositHistory.root)}
 					>
+						<i
+							className='icon icon-book-read-fill'
+							style={{ marginRight: '1vw' }}
+						/>
 						{t('Label_General_AllTranscations')}
 					</a>
 				</div>

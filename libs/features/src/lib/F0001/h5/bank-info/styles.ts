@@ -96,6 +96,9 @@ export const WrapperBankInfoH5 = styled.div`
 			font-size: 3.4vw;
 			max-width: unset;
 		}
+		.group-subtitle {
+			width: 60vw;
+		}
 		.subinfo {
 			text-align: left;
 			color: #939dc5;
