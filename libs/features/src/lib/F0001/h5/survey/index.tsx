@@ -105,17 +105,27 @@ const Survey = () => {
 								})}
 								type='text'
 								placeholder={t('Label_Survey_Phd_Contact') ?? ''}
+								className='inputBox-blue'
 							/>
 							{renderInfoMessage(errors['contactInfo']?.message as string)}
 						</fieldset>
-						<fieldset className='survey-btn'>
+						<fieldset className='btnGroup'>
 							<button
 								type='submit'
 								disabled={!isDirty || !isValid || isSubmitting}
+								className={`${
+									!isDirty || !isValid || isSubmitting
+										? 'btn-disable'
+										: 'btn-primary'
+								}`}
 							>
 								{t('Label_General_Submit')}
 							</button>
-							<button type='button' onClick={onCancel}>
+							<button
+								type='button'
+								onClick={onCancel}
+								className='btn-secondary'
+							>
 								{t('Label_General_Cancel')}
 							</button>
 						</fieldset>
@@ -126,14 +136,15 @@ const Survey = () => {
 						close: !isSubmitted,
 					})}
 				>
-					<div>
-						<img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/4.0/thankyou.png`}
-							alt='thankyou'
-						/>
-						<div>{t('Label_General_Thankyou')}</div>
+					<div className='icon-survey'>
+						<i className='icon icon-like' />
 					</div>
-					<div>{t('Label_Survey_Hint2')}</div>
+					<div className='thank-box'>
+						<div className='thank-box-heading'>
+							{t('Label_General_Thankyou')}
+						</div>
+						<div className='thank-box-body'>{t('Label_Survey_Hint2')}</div>
+					</div>
 				</div>
 			</main>
 		</WrapperSurvayH5>

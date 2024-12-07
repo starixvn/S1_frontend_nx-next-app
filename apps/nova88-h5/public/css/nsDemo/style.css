@@ -136,6 +136,12 @@ table {
 	border-spacing: 0;
 }
 
+body,
+html {
+	height: 100%;
+	font-family: 'Montserrat', sans-serif;
+}
+
 button {
 	background: transparent;
 	border: none;
@@ -2406,7 +2412,6 @@ main .gameList .icon-new {
 	align-items: center;
 }
 
-
 /* .Wallet {
 	padding: 30vw 4vw 25vw;
 }
@@ -3448,10 +3453,6 @@ input[type='checkbox'] + label {
 	width: 100%;
 }
 
-
-
-
-
 .casino {
 	width: calc(100% - 8vw);
 	padding: 80vw 4vw 24vw;
@@ -3667,7 +3668,6 @@ input[type='date'] {
 		transform: rotate(720deg);
 	}
 }
-
 
 .amount {
 	display: none;
@@ -16870,197 +16870,3 @@ input[type='number'] .btn-logout {
 		background-position: 0% 50%;
 	}
 }
-/* .survey,
-.survey * {
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-.survey {
-	background: #f8f8f8;
-	color: #9c9c9c;
-	padding: 22vw 0 40vw;
-	width: 100%;
-}
-.survey-before {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	padding: 0 6vw;
-}
-.survey-before > div:first-child {
-	color: #141f33;
-	font-size: 4vw;
-	font-weight: 600;
-	text-align: center;
-}
-.survey-before > div:nth-child(2) {
-	text-align: center;
-	margin-top: 5vw;
-	line-height: 5.5vw;
-}
-.survey-before .survey-input {
-	margin-top: 3vw;
-}
-.survey-before fieldset {
-	border: none;
-	min-width: 100%;
-	padding: 0;
-	width: 100%;
-}
-.survey-before fieldset:first-child {
-	margin-bottom: 5vw;
-}
-.survey-before fieldset textarea {
-	width: 100%;
-	border: 1px solid #ccc;
-	background: #fff;
-	padding: 3vw;
-	height: 50vw;
-	max-width: 100%;
-	resize: none;
-	border-radius: 2vw;
-}
-.survey-before fieldset textarea::-webkit-input-placeholder {
-	color: #d8d8d8;
-	font-family: 'Poppins', sans-serif;
-	font-size: 3vw;
-}
-.survey-before fieldset textarea::-moz-placeholder {
-	color: #d8d8d8;
-	font-family: 'Poppins', sans-serif;
-	font-size: 3vw;
-}
-.survey-before fieldset textarea:-ms-input-placeholder {
-	color: #d8d8d8;
-	font-family: 'Poppins', sans-serif;
-	font-size: 3vw;
-}
-.survey-before fieldset textarea::-ms-input-placeholder {
-	color: #d8d8d8;
-	font-family: 'Poppins', sans-serif;
-	font-size: 3vw;
-}
-.survey-before fieldset textarea::placeholder {
-	color: #d8d8d8;
-	font-family: 'Poppins', sans-serif;
-	font-size: 3vw;
-}
-.survey-before fieldset textarea:focus {
-	outline: 0;
-	border: 2px solid #648dd6;
-}
-.survey-before fieldset input {
-	width: 100%;
-	border: 1px solid #ccc;
-	background: #fff;
-	padding: 3vw;
-	color: #0a1b38;
-	border-radius: 2vw;
-}
-.survey-before fieldset input::-webkit-input-placeholder {
-	color: #d8d8d8;
-	font-family: 'Poppins', sans-serif;
-	font-size: 3vw;
-}
-.survey-before fieldset input::-moz-placeholder {
-	color: #d8d8d8;
-	font-family: 'Poppins', sans-serif;
-	font-size: 3vw;
-}
-.survey-before fieldset input:-ms-input-placeholder {
-	color: #d8d8d8;
-	font-family: 'Poppins', sans-serif;
-	font-size: 3vw;
-}
-.survey-before fieldset input::-ms-input-placeholder {
-	color: #d8d8d8;
-	font-family: 'Poppins', sans-serif;
-	font-size: 3vw;
-}
-.survey-before fieldset input::placeholder {
-	color: #d8d8d8;
-	font-family: 'Poppins', sans-serif;
-	font-size: 3vw;
-}
-.survey-before fieldset button {
-	background: #ee4f49;
-	font-size: 3.5vw;
-	font-weight: 600;
-	border-radius: 2vw;
-	padding: 3vw 10vw;
-	width: 39.5vw;
-	margin-top: 8vw;
-	color: #fff;
-}
-.survey-before fieldset button [disabled] {
-	color: #666 !important;
-}
-.survey-before fieldset button:first-child[disabled] {
-	background: gray !important;
-}
-.survey-before fieldset button:last-child {
-	background: #dfdfdf;
-	color: #9b9b9b;
-}
-.survey-before fieldset .tip {
-	display: none;
-}
-.survey-before fieldset .tip.active {
-	display: block;
-	color: red;
-}
-.survey-before fieldset.error textarea {
-	border: 2px solid red;
-}
-.survey-before fieldset.error input {
-	border: 2px solid red;
-}
-.survey .survey-btn {
-	width: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	gap: 3vw;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-}
-.survey-after {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.survey-after.close {
-	display: none;
-}
-.survey-after img {
-	width: 45vw;
-	margin-top: 15vw;
-}
-.survey-after > div:first-child > div {
-	color: #141f33;
-	font-size: 4vw;
-	font-weight: 600;
-	text-align: center;
-	margin-top: 8vw;
-}
-.survey-after > div:last-child {
-	text-align: center;
-	padding: 7vw 5vw 0;
-	line-height: 5.5vw;
-} # sourceMappingURL=style.css.map */

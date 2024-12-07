@@ -26,6 +26,10 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-like:before {
+  content: "\e95a";
+  color: #717fba;
+}
 .icon-timelapse:before {
   content: "\e959";
   color: #717fba;
