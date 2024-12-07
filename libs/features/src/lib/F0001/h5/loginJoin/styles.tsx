@@ -37,4 +37,17 @@ export const WrapperLoginRegister = styled.div`
 			bottom: -2vw;
 		}
 	}
+	.register-line {
+		.btn-line {
+			border-radius: 100px;
+			background: #01b901;
+			box-shadow: 0px -2px 0px 0px rgba(255, 255, 255, 0.4) inset;
+			gap: 1vw;
+			.icon {
+				&:before {
+					font-size: 6vw;
+				}
+			}
+		}
+	}
 `

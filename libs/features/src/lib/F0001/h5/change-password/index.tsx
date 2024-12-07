@@ -13,7 +13,10 @@ const ChangePassword = () => {
 	return (
 		<WrapperChangePassWordH5>
 			<Header className='header'>
-				<div className='title'>{t('Label_General_ChangePassword')}</div>
+				<div className='title'>
+					{/* <i className='icon icon-arrow-left-line' /> */}
+					{t('Label_General_ChangePassword')}
+				</div>
 			</Header>
 			<main className='main'>
 				<div>

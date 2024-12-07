@@ -82,4 +82,16 @@ export const WrapperRegister = styled.div`
 			}
 		}
 	}
+	.dropdown {
+		button {
+			display: flex;
+			align-items: center;
+			.flag {
+				&:before {
+					width: 2rem;
+					height: 2rem;
+				}
+			}
+		}
+	}
 `

@@ -2,6 +2,7 @@ import { Form } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { WrapperLoginRegister } from '@nx-next-app/features/F0001/h5/loginJoin/styles'
 import {
 	LineLoginDirectTypeEnum,
 	useLazyGetLineLoginDirectUrlQuery,
@@ -56,26 +57,26 @@ const Login = () => {
 	}
 
 	return (
-		<>
-			{currencyId === CurrenciesEnum.THB && (
-				<div className='register-line'>
-					<div className='btn-group'>
-						<button
-							className='btn-line'
-							type='button'
-							onClick={handleLineLogin}
-						>
-							<i className='icon icon-line-bold' />
-							{t('Label_General_LogIn')}
-						</button>
-					</div>
-				</div>
-			)}
+		<WrapperLoginRegister>
 			<FormProvider {...formMethods}>
 				<Form onSubmit={handleSubmit(handleSignIn)}>
 					<LoginForm />
 				</Form>
 			</FormProvider>
+			{currencyId === CurrenciesEnum.THB && (
+				<div className='register-line'>
+					<div className='btnGroup'>
+						<button
+							className='btn-line'
+							type='button'
+							onClick={handleLineLogin}
+						>
+							<i className='icon icon-line' />
+							{t('Label_General_LogIn')}
+						</button>
+					</div>
+				</div>
+			)}
 			<Link href={paths.home.root}>
 				<a>
 					<div className='visit'>
@@ -84,7 +85,7 @@ const Login = () => {
 					</div>
 				</a>
 			</Link>
-		</>
+		</WrapperLoginRegister>
 	)
 }
 

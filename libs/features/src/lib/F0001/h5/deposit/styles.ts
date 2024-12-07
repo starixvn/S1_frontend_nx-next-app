@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const WrapperDepositH5 = styled.div`
+	.deposit {
+		padding: 5vw 4vw 30vw 4vw;
+	}
 	.mainWallet {
 		margin-bottom: 2vw;
 		font-size: 3.5vw;
@@ -66,6 +69,7 @@ export const WrapperDepositH5 = styled.div`
 				position: absolute;
 				width: 50vw;
 				right: 0;
+				z-index: 2;
 				&:before {
 					content: '';
 					border-width: 0 2vw 2vw 2vw;
