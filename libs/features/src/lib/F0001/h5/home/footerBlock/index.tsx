@@ -24,7 +24,6 @@ const index = () => {
 		langId,
 		displayPage: SocialChannelEnum.FOOTER,
 	})
-	console.log(isLogin)
 	return (
 		<WrapperFooter>
 			<div className={classNames('home-bottom', { 'logged-in': isLogin })}>
