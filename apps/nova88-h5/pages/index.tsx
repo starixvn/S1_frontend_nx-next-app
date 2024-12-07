@@ -132,7 +132,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
 	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
 	const { NewGame: persistNewGameData = [] } = hotGameData ?? {}
-	const { Provider: persistProviderGameData = [] } = hotGameData ?? {}
+	const { Provider: persistProviderData = [] } = hotGameData ?? {}
 
 	const persistPromotionData = filter(
 		rawPromotionData,
@@ -148,7 +148,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			persistHotEventData,
 			persistHotGameData,
 			persistNewGameData,
-			persistProviderGameData,
+			persistProviderData,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
