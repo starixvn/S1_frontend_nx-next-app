@@ -139,10 +139,6 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  .main-content-mobile {
-
-  }
-
   .content-container {
     width:${({ theme }) => theme.desktop.minContentWidth};
     margin-left: auto;
@@ -1058,7 +1054,7 @@ export const GlobalStyles = createGlobalStyle`
     }
     .btnGroup{
       flex-wrap: wrap;
-      justify-content: center !important; 
+      justify-content: center !important;
       margin-top : 0;
       .btn,button{
         width : max-content !important;
@@ -1429,7 +1425,7 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
-  
+
   .proDataBody {
     background-color : #182043 !important;
       padding : 1.6rem;
@@ -1943,7 +1939,7 @@ export const GlobalStyles = createGlobalStyle`
                     }
                   }
                 }
-                
+
                 &-child{
                   background-color : #182043;
                   width: 100%;
@@ -1957,7 +1953,7 @@ export const GlobalStyles = createGlobalStyle`
                       background-color : #182043;
                     }
                   }
-                 
+
                 }
               }
 
@@ -2383,4 +2379,12 @@ export const GlobalStyles = createGlobalStyle`
           }
         }
     }
+
+  /* Using mobile*/
+  .main {
+		width: calc(100% - 8vw);
+		min-height: 100%;
+		height: auto;
+		padding: 5vw 4vw 20vw 4vw;
+	}
 `

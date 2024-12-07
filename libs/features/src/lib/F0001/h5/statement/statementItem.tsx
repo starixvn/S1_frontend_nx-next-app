@@ -133,6 +133,7 @@ const StatementItem = ({
 									})
 								}
 							>
+								<span className='icon icon-file-text-fill' />
 								{t('Label_General_Details')}
 							</button>
 						</div>
@@ -184,6 +185,7 @@ const StatementItem = ({
 									})
 								}
 							>
+								<span className='icon icon-file-text-fill' />
 								{t('Label_General_Details')}
 							</button>
 						</div>

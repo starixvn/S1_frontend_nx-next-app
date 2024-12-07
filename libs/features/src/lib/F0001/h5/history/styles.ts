@@ -55,13 +55,14 @@ export const WrapperDepositPageHistoryH5 = styled.div`
 
 	.functionList {
 		padding: 3vw 0;
-		margin: 0vw 8vw;
-		width: calc(100% - 10vw);
-		position: fixed;
+		margin: 0vw 3.88vw;
+		width: calc(100% - 3.88vw);
 		left: -3vw;
 		z-index: 2;
 		top: 25vw;
 		border-bottom: 1px solid #374375;
+		background: #0f1428;
+
 		.infoModule {
 			display: flex;
 			align-items: center;

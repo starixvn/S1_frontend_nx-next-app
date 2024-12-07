@@ -2424,12 +2424,6 @@ main .gameList .icon-new {
 	align-items: center;
 }
 
-.main {
-	width: calc(100% - 8vw);
-	min-height: 100%;
-	height: auto;
-	padding: 5vw 4vw 20vw 4vw;
-}
 
 /* .Wallet {
 	padding: 30vw 4vw 25vw;

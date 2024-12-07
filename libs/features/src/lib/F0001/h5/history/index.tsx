@@ -35,7 +35,7 @@ const History = () => {
 	return (
 		<WrapperDepositPageHistoryH5>
 			<HistoryHeader />
-			<main className='main history'>
+			<div className='main'>
 				<WrapperInfoList>
 					<div className='recent active'>
 						{isShowMobileLoading && <Loading />}
@@ -73,7 +73,7 @@ const History = () => {
 						<NoData customClass='no-border' />
 					)}
 				</WrapperInfoList>
-			</main>
+			</div>
 		</WrapperDepositPageHistoryH5>
 	)
 }
