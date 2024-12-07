@@ -6,6 +6,7 @@ import { WrapperFooter } from '@nx-next-app/features/F0001/h5/home/footerBlock/s
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { SocialChannelEnum } from '@nx-next-app/features/F0001/types'
 import { useGetSocialChannelQuery } from '@nx-next-app/service'
+import classNames from 'classnames'
 // import { License } from './License'
 
 const index = () => {
@@ -13,6 +14,7 @@ const index = () => {
 
 	const {
 		userInfo: { currencyId, langId },
+		auth: { isLogin },
 	} = useAuth()
 	const {
 		data: { data: socialChannelList = [] } = {},
@@ -22,9 +24,10 @@ const index = () => {
 		langId,
 		displayPage: SocialChannelEnum.FOOTER,
 	})
+	console.log(isLogin)
 	return (
 		<WrapperFooter>
-			<div className='home-bottom'>
+			<div className={classNames('home-bottom', { 'logged-in': isLogin })}>
 				<Footer>
 					<div className='footer-top'>
 						{!!quickLinksList && (
