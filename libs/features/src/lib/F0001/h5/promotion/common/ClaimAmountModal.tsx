@@ -1,5 +1,6 @@
-import { Form, Select } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { Form, Select } from '@nx-next-app/components/H0001'
+import { ClaimAmountContainer } from '@nx-next-app/features/F0001/h5/promotion/styles'
 import { ISetClaimPromotionArgs } from '@nx-next-app/service'
 import { SelectOptionType } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
@@ -33,7 +34,7 @@ const ClaimAmountModal = ({
 	}
 
 	return (
-		<div className='pop'>
+		<ClaimAmountContainer className='pop'>
 			<Form onSubmit={handleSubmit(onSubmit)}>
 				<div className='popTit'>
 					<div
@@ -46,25 +47,34 @@ const ClaimAmountModal = ({
 					<div className='txt-lightgray text-center'>
 						{t('Label_Promotion_SelectPreferAmount')}
 					</div>
-
-					<Select
-						options={tierAmountListSelectOptions}
-						onChange={value => {
-							typeof value === 'string' && setValue('amount', value)
-						}}
-					/>
+					<div className='group-dropdown'>
+						<div className='inputBox-blue'>
+							<div className='dropdown'>
+								<Select
+									options={tierAmountListSelectOptions}
+									onChange={value => {
+										typeof value === 'string' && setValue('amount', value)
+									}}
+								/>
+							</div>
+						</div>
+					</div>
 
 					<div className='btn-group'>
-						<button type='button' className='white' onClick={closeModal}>
+						<button
+							type='button'
+							className='button btn-secondary'
+							onClick={closeModal}
+						>
 							{t('Label_General_Cancel')}
 						</button>
-						<button type='submit' className='orange'>
+						<button type='submit' className='button btn-primary'>
 							{t('Label_Promotion_JoinNow')}
 						</button>
 					</div>
 				</div>
 			</Form>
-		</div>
+		</ClaimAmountContainer>
 	)
 }
 
@@ -142,7 +152,7 @@ const ClaimAmountModal = ({
 					{t('Label_General_ImportantNote')}
 				</div>
 				<div className='popTxt'>
-					如果 'promotionType' 為 'FirstDeposit' 則需提供 Input 給使用者填寫金額 
+					如果 'promotionType' 為 'FirstDeposit' 則需提供 Input 給使用者填寫金額
 					{promotionType === PromotionTypeEnum.FirstDeposit && (
 						<>
 							<div className='txt-lightgray text-center'>

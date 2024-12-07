@@ -1,3 +1,4 @@
+import { NoData } from '@nx-next-app/features/F0001/h5/common/NoData'
 import { usePromotion } from '@nx-next-app/features/F0001/providers'
 import {
 	PromotionActionType,
@@ -13,6 +14,7 @@ import {
 import classNames from 'classnames'
 import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
+
 import PromotionProgressBar from './PromotionProgressBar'
 
 const PromotionList = () => {
@@ -26,11 +28,7 @@ const PromotionList = () => {
 	} = usePromotion()
 
 	if (promotionData.length === 0) {
-		return (
-			<div className='nodata icon icon-nodata'>
-				<div className='txt-white'>{t('Label_General_NoData')}</div>
-			</div>
-		)
+		return <NoData />
 	}
 
 	return (
@@ -123,10 +121,10 @@ const PromotionList = () => {
 							/>
 						)}
 
-						<div className='btnGroup'>
+						<div className='btn-group'>
 							{!isHideJoinButton && (
 								<button
-									className='btn-primary'
+									className='button btn-primary'
 									onClick={() => setClaimPromotionHandler(item)}
 								>
 									{isShowClaimNowButton
@@ -141,12 +139,15 @@ const PromotionList = () => {
 									href={promotionLink as string}
 									target='_blank'
 									rel='noreferrer'
-									className='btn-primary'
+									className='button btn-secondary'
 								>
 									{t('Label_General_MoreInfo')}
 								</a>
 							) : (
-								<button onClick={() => onGetPromotionDetail({ bonusCode })}>
+								<button
+									className='button btn-secondary'
+									onClick={() => onGetPromotionDetail({ bonusCode })}
+								>
 									{t('Label_General_MoreInfo')}
 								</button>
 							)}

@@ -1,4 +1,6 @@
 import { Header } from '@nx-next-app/components/H0001'
+import { PromotionPage } from '@nx-next-app/features/F0001/h5/promotion/styles'
+
 import PromotionCode from './common/PromotionCode'
 import PromotionFilter from './common/PromotionFilter'
 import PromotionList from './common/PromotionList'
@@ -6,14 +8,14 @@ import PromotionList from './common/PromotionList'
 const Promotion = () => {
 	return (
 		<>
-			<Header className='header'>
+			<Header>
 				<PromotionFilter />
 			</Header>
 
-			<main className='main promotions'>
+			<PromotionPage className='main'>
 				<PromotionCode />
 				<PromotionList />
-			</main>
+			</PromotionPage>
 		</>
 	)
 }

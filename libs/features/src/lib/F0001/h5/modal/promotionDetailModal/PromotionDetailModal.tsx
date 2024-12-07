@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
-
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { PromotionDetailContainer } from '@nx-next-app/features/F0001/h5/modal/promotionDetailModal/style'
 import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
 import { useGetPromotionDetailQuery } from '@nx-next-app/service'
 import { PromotionTypeEnum } from '@nx-next-app/types'
@@ -104,7 +104,7 @@ const PromotionDetailModal = ({
 		PromotionTypeEnum.SpecialBonus === promotionDetail.promotionType
 
 	return (
-		<div className='pop'>
+		<PromotionDetailContainer className='pop'>
 			<div className='popTit'>
 				{t('Label_General_Promotion')}
 				<div
@@ -193,7 +193,7 @@ const PromotionDetailModal = ({
 					)}
 				</div>
 			</div>
-		</div>
+		</PromotionDetailContainer>
 	)
 }
 
