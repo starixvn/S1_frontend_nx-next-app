@@ -2,6 +2,7 @@ import { Form, Header, InputBox } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { EMAIL_REGEX, paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { WrapperForgotPassWordH5 } from '@nx-next-app/features/F0001/h5/forget-password/styles'
 import { FlagEnum, useSetForgetPasswordMutation } from '@nx-next-app/service'
 import { upperFirst } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
@@ -42,7 +43,7 @@ const ForgetPassword = () => {
 	}
 
 	return (
-		<>
+		<WrapperForgotPassWordH5>
 			<Header className='header'>
 				<Header.Tag title={t('Label_General_ForgetPassword') as string} />
 			</Header>
@@ -74,9 +75,9 @@ const ForgetPassword = () => {
 						errorMessage={errors['email']?.message as string}
 						error={!!errors['email']}
 					/>
-					<div className='btn-group'>
+					<div className='btnGroup'>
 						<button
-							className='white'
+							className='btn-secondary'
 							onClick={() => {
 								onCancel()
 							}}
@@ -84,13 +85,17 @@ const ForgetPassword = () => {
 						>
 							{t('Label_General_Back')}
 						</button>
-						<button onClick={handleSubmit(onSubmit)} type='submit'>
+						<button
+							onClick={handleSubmit(onSubmit)}
+							className='btn-primary'
+							type='submit'
+						>
 							{t('Label_General_Submit')}
 						</button>
 					</div>
 				</Form>
 			</main>
-		</>
+		</WrapperForgotPassWordH5>
 	)
 }
 
