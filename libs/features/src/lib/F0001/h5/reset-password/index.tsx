@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react'
-import { Header } from '@nx-next-app/components/H0001'
-import { paths } from '@nx-next-app/constants'
-import { isUndefined } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
-import { useRouter } from 'next/router'
 import { Loading } from '@nx-next-app/components/D0001'
+import { Header } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import { WrapperResetPassWordH5 } from '@nx-next-app/features/F0001/h5/reset-password/styles'
 import {
 	useCheckResetPwdTokenMutation,
 	useResetPasswordMutation,
 } from '@nx-next-app/service'
+import { isUndefined } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import ResetPasswordForm from './ResetPasswordForm'
 
 type ResetPasswordFormType = {
@@ -58,7 +59,7 @@ const ResetPassword = () => {
 	if (isCheckResetPwdLoading) return <Loading />
 
 	return (
-		<>
+		<WrapperResetPassWordH5>
 			<Header className='header'>
 				<Header.Tag title={t('Label_ResetPassword') as string} />
 			</Header>
@@ -68,7 +69,7 @@ const ResetPassword = () => {
 					onSubmit={handleSubmit}
 				/>
 			</main>
-		</>
+		</WrapperResetPassWordH5>
 	)
 }
 

@@ -40,7 +40,7 @@ const ResetPasswordForm = ({ loading, onSubmit }: IResetPasswordFormProps) => {
 				errorMessage={errors['newPassword']?.message as string}
 				error={!!errors['newPassword']}
 			/>
-			<div className='btn-group'>
+			<div className='btnGroup'>
 				<button
 					onClick={handleSubmit(onSubmit)}
 					type='submit'
