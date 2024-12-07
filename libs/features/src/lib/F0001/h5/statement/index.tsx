@@ -1,9 +1,11 @@
 import { Loading, Select } from '@nx-next-app/components/H0001'
-import { WrapperInfoList } from '@nx-next-app/features/F0001/h5/common/CommonStyles'
 import { NoData } from '@nx-next-app/features/F0001/h5/common/NoData'
 import StatementHeader from '@nx-next-app/features/F0001/h5/statement/header'
 import StatementItem from '@nx-next-app/features/F0001/h5/statement/statementItem'
-import { StatementContainer } from '@nx-next-app/features/F0001/h5/statement/styles'
+import {
+	StatementContainer,
+	StatementWrapperInfoList,
+} from '@nx-next-app/features/F0001/h5/statement/styles'
 import { useStatement } from '@nx-next-app/features/F0001/providers/statement-context'
 import { uniqueId } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
@@ -20,31 +22,37 @@ const Statement = () => {
 	return (
 		<StatementContainer>
 			<StatementHeader />
-			<main className='main history'>
-				{displayColumns.length === 0 ? (
-					<NoData customClass='no-border' />
-				) : (
-					<WrapperInfoList>
-						<Select
-							options={Array.from({ length: totalPage }, (_, index) => ({
-								value: index + 1,
-								label: index + 1,
-							}))}
-							placeholder='-'
-							value={currentPage}
-							onChange={value => onPageChange({ selected: value as number })}
-						/>
-
-						<div className='recent active'>
-							<div className='infoList'>
-								{displayColumns.map(item => (
-									<StatementItem key={uniqueId()} {...item} />
-								))}
+			{displayColumns.length === 0 ? (
+				<NoData customClass='no-border' />
+			) : (
+				<StatementWrapperInfoList>
+					<div className='group-dropdown'>
+						<div className='inputBox-blue'>
+							<div className='dropdown'>
+								<Select
+									options={Array.from({ length: totalPage }, (_, index) => ({
+										value: index + 1,
+										label: index + 1,
+									}))}
+									placeholder='-'
+									value={currentPage}
+									onChange={value =>
+										onPageChange({ selected: value as number })
+									}
+								/>
 							</div>
 						</div>
-					</WrapperInfoList>
-				)}
-			</main>
+					</div>
+
+					<div className='recent active'>
+						<div className='infoList'>
+							{displayColumns.map(item => (
+								<StatementItem key={uniqueId()} {...item} />
+							))}
+						</div>
+					</div>
+				</StatementWrapperInfoList>
+			)}
 		</StatementContainer>
 	)
 }

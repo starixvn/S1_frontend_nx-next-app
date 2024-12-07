@@ -28,14 +28,20 @@ export const WrapperInfoList = styled.div`
 				flex-wrap: wrap;
 				li {
 					font-size: 3.4vw;
-					margin-bottom: 0.6rem;
+					margin-bottom: 2vw;
 					width: 50%;
 					display: flex;
 					flex-direction: column;
-					gap: 0.6rem;
+					gap: 1.45vw;
+
 					.title {
 						font-weight: 600;
 						color: ${({ theme }) => theme.mobile.white};
+					}
+					.value {
+						font-weight: 400;
+						color: #939dc5;
+						overflow-wrap: break-word;
 					}
 					.body {
 						color: ${({ theme }) => theme.mobile.rightModuleSloganColor};

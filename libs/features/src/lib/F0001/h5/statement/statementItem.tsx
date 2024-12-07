@@ -1,9 +1,8 @@
-import React from 'react'
-import { useStatement } from '@nx-next-app/features/F0001/providers/statement-context'
-import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
 import { CURRENCY_TO_TIMEZONE } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { useStatement } from '@nx-next-app/features/F0001/providers/statement-context'
 import { numberFormat, revertTimeZone } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
 
 interface IStatementItemProps {
 	settledDate?: string
@@ -47,37 +46,44 @@ const StatementItem = ({
 						<span className='title'>{`${t('Label_General_SettledDate')} (${
 							CURRENCY_TO_TIMEZONE[currencyId]
 						})`}</span>
-						<span>
+						<span className='value'>
 							{revertTimeZone(settledDate ?? '').format('YYYY-MM-DD')}
 						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_Turnover')}</span>
-						<span>{numberFormat(turnOver as number, currencyId, 2)}</span>
+						<span className='value'>
+							{numberFormat(turnOver as number, currencyId, 2)}
+						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_ValidBet')}</span>
-						<span>{numberFormat(validBet as number, currencyId, 2)}</span>
+						<span className='value'>
+							{numberFormat(validBet as number, currencyId, 2)}
+						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_WinlostAmount')}</span>
-						<span>{numberFormat(winlostAmount as number, currencyId, 2)}</span>
+						<span className='value'>
+							{numberFormat(winlostAmount as number, currencyId, 2)}
+						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_History_Action')}</span>
-						<div className='btn-group'>
-							<button
-								className='orange openPopup'
-								onClick={() =>
-									onDetails({
-										selDate: settledDate as string,
-										targetTab: 'byDay',
-									})
-								}
-							>
-								{t('Label_General_Details')}
-							</button>
-						</div>
+					</li>
+					<li className='full-width'>
+						<button
+							className='button btn-secondary btn-detail'
+							onClick={() =>
+								onDetails({
+									selDate: settledDate as string,
+									targetTab: 'byDay',
+								})
+							}
+						>
+							<span className='icon icon-file-text-fill' />
+							{t('Label_General_Details')}
+						</button>
 					</li>
 				</ul>
 			)}
@@ -87,31 +93,38 @@ const StatementItem = ({
 						<span className='title'>{`${t('Label_General_SettledDate')} (${
 							CURRENCY_TO_TIMEZONE[currencyId]
 						})`}</span>
-						<span>
+						<span className='value'>
 							{revertTimeZone(settledDate ?? '').format('YYYY-MM-DD')}
 						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_CategoryName')}</span>
-						<span>{categoryName}</span>
+						<span className='value'>{categoryName}</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_Turnover')}</span>
-						<span>{numberFormat(turnOver as number, currencyId, 2)}</span>
+						<span className='value'>
+							{numberFormat(turnOver as number, currencyId, 2)}
+						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_ValidBet')}</span>
-						<span>{numberFormat(validBet as number, currencyId, 2)}</span>
+						<span className='value'>
+							{numberFormat(validBet as number, currencyId, 2)}
+						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_WinlostAmount')}</span>
-						<span>{numberFormat(winlostAmount as number, currencyId, 2)}</span>
+						<span className='value'>
+							{numberFormat(winlostAmount as number, currencyId, 2)}
+						</span>
 					</li>
-					<li>
+
+					<li className='full-width'>
 						<span className='title'>{t('Label_History_Action')}</span>
-						<div className='btn-group'>
+						<div>
 							<button
-								className='orange openPopup'
+								className='button btn-secondary btn-detail'
 								onClick={() =>
 									onDetails({
 										selDate: settledDate as string,
@@ -132,31 +145,37 @@ const StatementItem = ({
 						<span className='title'>{`${t('Label_General_SettledDate')} (${
 							CURRENCY_TO_TIMEZONE[currencyId]
 						})`}</span>
-						<span>
+						<span className='value'>
 							{revertTimeZone(settledDate ?? '').format('YYYY-MM-DD')}
 						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_GameTypeName')}</span>
-						<span>{gameTypeName}</span>
+						<span className='value'>{gameTypeName}</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_Turnover')}</span>
-						<span>{numberFormat(turnOver as number, currencyId, 2)}</span>
+						<span className='value'>
+							{numberFormat(turnOver as number, currencyId, 2)}
+						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_ValidBet')}</span>
-						<span>{numberFormat(validBet as number, currencyId, 2)}</span>
+						<span className='value'>
+							{numberFormat(validBet as number, currencyId, 2)}
+						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_WinlostAmount')}</span>
-						<span>{numberFormat(winlostAmount as number, currencyId, 2)}</span>
+						<span className='value'>
+							{numberFormat(winlostAmount as number, currencyId, 2)}
+						</span>
 					</li>
-					<li>
+					<li className='full-width'>
 						<span className='title'>{t('Label_History_Action')}</span>
-						<div className='btn-group'>
+						<div className='detail-group'>
 							<button
-								className='orange openPopup'
+								className='button btn-secondary btn-detail'
 								onClick={() =>
 									onDetails({
 										selDate: settledDate as string,
@@ -177,33 +196,39 @@ const StatementItem = ({
 						<span className='title'>{`${t('Label_General_SettledDate')} (${
 							CURRENCY_TO_TIMEZONE[currencyId]
 						})`}</span>
-						<span>
+						<span className='value'>
 							{revertTimeZone(settledTime ?? '').format('YYYY-MM-DD HH:mm:ss')}
 						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_Turnover')}</span>
-						<span>{numberFormat(turnOver as number, currencyId, 2)}</span>
+						<span className='value'>
+							{numberFormat(turnOver as number, currencyId, 2)}
+						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_ValidBet')}</span>
-						<span>{numberFormat(validBet as number, currencyId, 2)}</span>
+						<span className='value'>
+							{numberFormat(validBet as number, currencyId, 2)}
+						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_WinlostAmount')}</span>
-						<span>{numberFormat(winlostAmount as number, currencyId, 2)}</span>
+						<span className='value'>
+							{numberFormat(winlostAmount as number, currencyId, 2)}
+						</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_BonusCode')}</span>
-						<span>{bonusCode || '-'}</span>
+						<span className='value'>{bonusCode || '-'}</span>
 					</li>
 					<li>
 						<span className='title'>{t('Label_General_BonusId')}</span>
-						<span>{bonusId}</span>
+						<span className='value'>{bonusId}</span>
 					</li>
-					<li>
+					<li className='full-width'>
 						<span className='title'>{t('Label_General_TransId')}</span>
-						<span>{transId}</span>
+						<span className='value'>{transId}</span>
 					</li>
 				</ul>
 			)}

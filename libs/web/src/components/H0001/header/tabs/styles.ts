@@ -10,16 +10,6 @@ export const QuickSelectContainer = styled.div`
 
 	.embla {
 		position: relative;
-
-		&:after {
-			content: '';
-			position: absolute;
-			right: 0;
-			top: 0;
-			height: 11.65vw;
-			width: 22.8vw;
-			background: linear-gradient(270deg, #0f1428 0%, rgba(15, 20, 40, 0) 100%);
-		}
 	}
 
 	+ .functionList {
