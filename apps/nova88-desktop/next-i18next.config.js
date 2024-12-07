@@ -20,7 +20,7 @@ module.exports = {
 		],
 		defaultNS: process.env.NEXT_PUBLIC_SITE_NAME,
 		fallbackNS: 'common',
-		fallbackLng: 'en',
+		fallbackLng: 'th',
 	},
 	reloadOnPrerender: isDevelopment,
 }
