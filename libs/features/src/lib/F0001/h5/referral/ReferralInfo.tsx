@@ -65,34 +65,42 @@ const ReferralInfo = () => {
 				</div>
 			</div>
 			<div className='referinfo-down'>
-				<div className='title'>
-					<div>{toUpper(t('Label_Referral_YourLinkInvite') || '')}</div>
-				</div>
-				<div className='referinfo-list'>
-					<div className='subtitle'>
-						{toUpper(t('Label_Referral_ReferralCode') || '')}
+				<div className='custom-box'>
+					<div className='custom-box-title'>
+						<div>{toUpper(t('Label_Referral_YourLinkInvite') || '')}</div>
 					</div>
-					<div
-						className='inputcopy'
-						onClick={() => referralCode && copy(referralCode)}
-					>
-						<input id='ref_code' type='text' value={referralCode} />
+					<div className='custom-box-body'>
+						<div className='referinfo-list'>
+							<div className='subtitle'>
+								{toUpper(t('Label_Referral_ReferralCode') || '')}
+							</div>
+							<div
+								className='inputcopy inputBox-blue'
+								onClick={() => referralCode && copy(referralCode)}
+							>
+								<input id='ref_code' type='text' value={referralCode} />
+							</div>
+						</div>
+						<div className='referinfo-list'>
+							<div className='subtitle'>
+								{toUpper(t('Label_Referral_ReferralLink') || '')}
+							</div>
+							<div
+								className='inputcopy inputBox-blue'
+								onClick={() => copy(referralLink)}
+							>
+								<input type='text' id='ref_link' value={referralLink} />
+							</div>
+						</div>
+						<div className='referinfo-list'>
+							<div className='subtitle'>QR CODE</div>
+							<div className='qr-code-group'>
+								<QRCode value={referralLink} />
+							</div>
+						</div>
+						<ReferralSocialMediaList />
 					</div>
 				</div>
-				<div className='referinfo-list'>
-					<div className='subtitle'>
-						{toUpper(t('Label_Referral_ReferralLink') || '')}
-					</div>
-					<div className='inputcopy' onClick={() => copy(referralLink)}>
-						<input type='text' id='ref_link' value={referralLink} />
-					</div>
-				</div>
-				<div className='referinfo-list'>
-					<div className='subtitle'>QR CODE</div>
-					<QRCode value={referralLink} />
-				</div>
-
-				<ReferralSocialMediaList />
 			</div>
 		</div>
 	)

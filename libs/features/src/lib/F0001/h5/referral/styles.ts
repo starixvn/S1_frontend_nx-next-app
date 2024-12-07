@@ -80,7 +80,7 @@ export const WrapperReferFrendsH5 = styled.div`
 		justify-content: flex-start;
 		align-items: center;
 		line-height: 1.2;
-		margin-bottom: 11vw;
+		margin-bottom: 6.1vw;
 		gap: 2vw;
 
 		&-body {
@@ -94,56 +94,64 @@ export const WrapperReferFrendsH5 = styled.div`
 			p {
 				color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 				margin-bottom: 0;
+				font-size: 2.9vw;
 			}
 		}
 	}
-	.refer .referinfo-step .icon {
-		width: 14.35vw;
-		height: 14.35vw;
+	.referinfo-step .icon {
+		width: 10vw;
+		height: 10vw;
 		position: relative;
 	}
-	.refer .referinfo-step .icon > img {
-		width: 14.35vw;
+	.referinfo-step .icon > img {
+		width: 10vw;
+		height: 10vw;
 	}
-	.refer .referinfo-step .icon::after {
+	.referinfo-step .icon::after {
 		content: '';
 		display: block;
 		padding: 1vw 0;
 		height: 10vw;
 		position: absolute;
-		top: 13vw;
-		left: calc(50% - 1vw);
+		top: 10vw;
+		left: calc(50% - 0vw);
 		border: 1px dashed #939dc5;
 	}
-	.refer .referinfo-step:last-child .icon::after {
+	.referinfo-step:last-child .icon::after {
 		display: none;
 	}
-	.refer .referinfo-list {
-		margin-bottom: 6.5vw;
+	.referinfo-list {
+		margin-bottom: 4.1vw;
 		padding: 0 0.8vw;
 		text-align: center;
+		.subtitle {
+			font-size: 3.4vw;
+			font-style: normal;
+			font-weight: 600;
+			color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+			text-align: left;
+		}
 	}
-	.refer .referinfo-list .inputcopy {
+	.referinfo-list .inputcopy {
 		position: relative;
 	}
-	.refer .referinfo-list .inputcopy input {
-		width: calc(100% - 5vw);
-		border-radius: 20vw;
-		border: 1px solid #bababa;
-		padding: 2.3vw 2.5vw;
-		display: block;
-		color: #777;
+	.referinfo-list .inputcopy input {
+		color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 		font-size: 3.2vw;
-		background: #fff;
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 	}
-	.refer .referinfo-list .inputcopy input:last-child {
-		width: calc(100% - 11.5vw);
-		padding: 2.3vw 9vw 2.3vw 2.5vw;
+
+	.qr-code-group {
+		text-align: left;
+		background: ${({ theme }) => theme.mobile.white};
+		padding: 1vw;
+		border-radius: 10px;
+		width: 128px;
 	}
-	.refer .referinfo-list .inputcopy::after {
+
+	.referinfo-list .inputcopy::after {
 		content: '';
 		display: inline-block;
 		background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/icon-copy.svg)
@@ -155,13 +163,13 @@ export const WrapperReferFrendsH5 = styled.div`
 		bottom: calc(50% - 2.5vw);
 		cursor: pointer;
 	}
-	.refer .referinfo-list-qr {
+	.referinfo-list-qr {
 		width: 90px;
 		padding: 2px;
 		border: 1px solid rgba(180, 180, 180, 0.9333333333);
 		border-radius: 3px;
 	}
-	.refer .referinfo-share {
+	.referinfo-share {
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
@@ -172,7 +180,7 @@ export const WrapperReferFrendsH5 = styled.div`
 		-ms-flex-pack: center;
 		justify-content: center;
 	}
-	.refer .referinfo-share img {
+	.referinfo-share img {
 		width: 7.8vw;
 		margin: 0 2.3vw;
 	}
