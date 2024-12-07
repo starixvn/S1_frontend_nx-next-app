@@ -1,4 +1,5 @@
 import { Header } from '@nx-next-app/components/H0001'
+import { WrapperChangePassWordH5 } from '@nx-next-app/features/F0001/h5/change-password/styles'
 import { useChangePasswordFetcher } from '@nx-next-app/hooks'
 import { useTranslation } from 'next-i18next'
 import { ChangePasswordForm } from './ChangePasswordForm'
@@ -10,7 +11,7 @@ const ChangePassword = () => {
 	)
 
 	return (
-		<>
+		<WrapperChangePassWordH5>
 			<Header className='header'>
 				<div className='title'>{t('Label_General_ChangePassword')}</div>
 			</Header>
@@ -22,7 +23,7 @@ const ChangePassword = () => {
 					/>
 				</div>
 			</main>
-		</>
+		</WrapperChangePassWordH5>
 	)
 }
 

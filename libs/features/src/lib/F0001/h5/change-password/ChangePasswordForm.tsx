@@ -1,9 +1,9 @@
-import Link from 'next/link'
-import { useTranslation } from 'next-i18next'
-import { UseFormReturn } from 'react-hook-form'
-import { PASSWORD_REGEX, paths } from '@nx-next-app/constants'
 import { Form, InputBox } from '@nx-next-app/components/H0001'
+import { PASSWORD_REGEX, paths } from '@nx-next-app/constants'
 import { ChangePasswordFormType } from 'libs/web/src/hooks/useChangePasswordFetcher'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { UseFormReturn } from 'react-hook-form'
 
 interface IChangePasswordFormProps {
 	onSubmit: (value: ChangePasswordFormType) => void
@@ -27,7 +27,6 @@ const ChangePasswordForm = ({
 						message: t('Label_ChangePassword_PasswordReq'),
 					},
 				})}
-				icon='icon-key'
 				password
 				placeholder={t('Label_ChangePassword_OldPassword') || ''}
 				touched={!!touchedFields['oldPassword']}
@@ -45,7 +44,6 @@ const ChangePasswordForm = ({
 						message: t('Label_General_PasswordValidate'),
 					},
 				})}
-				icon='icon-key'
 				password
 				placeholder={t('Label_ChangePassword_NewPassword') || ''}
 				touched={!!touchedFields['newPassword']}
@@ -54,12 +52,12 @@ const ChangePasswordForm = ({
 				error={!!errors['newPassword']}
 			/>
 
-			<div className='btn-group'>
-				<Link className='white' href={paths.profile.root}>
-					{t('Label_General_Back')}
+			<div className='btnGroup'>
+				<Link href={paths.profile.root}>
+					<a className='btn-secondary'>{t('Label_General_Back')}</a>
 				</Link>
 				<button
-					className='orange'
+					className='btn-primary'
 					onClick={handleSubmit(onSubmit)}
 					type='submit'
 					// 有輸入 => 驗證有通過 => 防連點
