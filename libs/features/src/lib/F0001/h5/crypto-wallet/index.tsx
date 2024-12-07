@@ -1,8 +1,9 @@
-import { useTranslation } from 'next-i18next'
+import { Header } from '@nx-next-app/components/H0001'
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { WrapperBankInfoH5 } from '@nx-next-app/features/F0001/h5/bank-info/styles'
 import { useCryptoWallet } from '@nx-next-app/features/F0001/providers'
-import { Header } from '@nx-next-app/components/H0001'
+import { useTranslation } from 'next-i18next'
 import { WalletList } from './WalletList'
 
 const CryptoWallet = () => {
@@ -19,7 +20,7 @@ const CryptoWallet = () => {
 	} = useCryptoWallet()
 
 	return (
-		<>
+		<WrapperBankInfoH5>
 			<Header className='header'>
 				<Header.Tags
 					tags={[
@@ -78,7 +79,7 @@ const CryptoWallet = () => {
 				)}
 				<WalletList />
 			</main>
-		</>
+		</WrapperBankInfoH5>
 	)
 }
 
