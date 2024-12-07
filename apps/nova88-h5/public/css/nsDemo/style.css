@@ -3776,7 +3776,6 @@ main .gameList .icon-new {
 	margin: 2vw 0 0;
 }
 
-
 .txt-red {
 	color: #e92529;
 }
@@ -3869,15 +3868,6 @@ input[type='checkbox'] + label {
 	width: 100%;
 }
 
-.Message {
-	padding: 40vw 0 25vw;
-	width: 100%;
-}
-.Message .nodata {
-	width: 80%;
-	margin: 0 auto;
-}
-
 .Announcement {
 	padding: 30vw 4vw 25vw;
 }
@@ -3889,25 +3879,6 @@ input[type='checkbox'] + label {
 	padding: 5vw 3vw 5vw 7vw;
 }
 
-.checkbox {
-	margin-left: -5vw;
-	outline: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	display: -webkit-inline-box;
-	display: -ms-inline-flexbox;
-	display: inline-flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	color: #112240;
-	font-weight: bold;
-}
 .checkbox input {
 	display: none;
 }
@@ -5142,7 +5113,6 @@ input[type='date'] {
 	}
 }
 
-
 .otp {
 	margin: 0;
 }
@@ -5580,7 +5550,6 @@ input[type='date'] {
 	margin: 2vw 1vw;
 	vertical-align: middle;
 }
-
 
 .total {
 	color: #5574a7;
@@ -8155,8 +8124,6 @@ input[type='date'] {
 	margin-bottom: 2vw;
 	width: 100%;
 }
-
-
 
 .myAccount {
 	background: #f9f9f9;

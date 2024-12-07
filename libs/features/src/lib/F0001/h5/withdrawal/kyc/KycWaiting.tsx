@@ -10,7 +10,7 @@ const KycWaiting = () => {
 			</div>
 			<main className='main kyc'>
 				<div className='icon-noti'>
-					<i className='icon icon-notification-active' />
+					<i className='icon icon-timelapse' />
 				</div>
 				<div className='kyc-text title'>{t('Label_Withdrawal_WaitKYC')}</div>
 				<div className='kyc-text'>{t('Label_Withdrawal_WaitKYCHint')}</div>

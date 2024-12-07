@@ -54,12 +54,14 @@ export const WrapperDepositPageHistoryH5 = styled.div`
 	}
 
 	.functionList {
-		padding: 3vw 12vw;
-		width: calc(100% - 20vw);
+		padding: 3vw 0;
+		margin: 0vw 8vw;
+		width: calc(100% - 10vw);
 		position: fixed;
 		left: -3vw;
 		z-index: 2;
 		top: 25vw;
+		border-bottom: 1px solid #374375;
 		.infoModule {
 			display: flex;
 			align-items: center;
@@ -76,7 +78,7 @@ export const WrapperDepositPageHistoryH5 = styled.div`
 		}
 	}
 	.history {
-		padding: 4vw 4vw 30vw 4vw;
+		padding: 20vw 4vw 30vw 4vw;
 	}
 	.infoList {
 		.info {

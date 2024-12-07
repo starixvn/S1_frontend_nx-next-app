@@ -1,10 +1,11 @@
+import { Header, SpinButton } from '@nx-next-app/components/H0001'
+import Loading from '@nx-next-app/components/H0001/loading'
+import { paths } from '@nx-next-app/constants'
+import { WrapperMessageH5 } from '@nx-next-app/features/F0001/h5/message/styles'
+import { useMessageFetcher } from '@nx-next-app/hooks'
 import classNames from 'classnames'
 import { isEmpty } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import { paths } from '@nx-next-app/constants'
-import { useMessageFetcher } from '@nx-next-app/hooks'
-import Loading from '@nx-next-app/components/H0001/loading'
-import { Header, SpinButton } from '@nx-next-app/components/H0001'
 import MessageList from './MessageList'
 
 const PersonalMessage = () => {
@@ -29,7 +30,7 @@ const PersonalMessage = () => {
 	const { msgListRef } = infiniteScrollMode
 
 	return (
-		<>
+		<WrapperMessageH5>
 			<Header className='header'>
 				<Header.Tags
 					tags={[
@@ -67,9 +68,9 @@ const PersonalMessage = () => {
 							/>
 							<i
 								className={classNames({
-									'icon icon-checkbox-checked':
+									'icon icon-checkbox-fill':
 										msgList.length === selectedMessage.length,
-									'icon icon-checkbox':
+									'icon icon-checkbox-blank-line':
 										msgList.length !== selectedMessage.length,
 								})}
 							/>
@@ -83,15 +84,18 @@ const PersonalMessage = () => {
 						>
 							<button
 								data-testid='readMsg'
-								className='icon icon-icon32px_openmail'
+								className='icon icon-mail-line'
 								onClick={onReadSelectedMsg}
 							/>
 							<button
-								className='icon icon-bin'
+								className='icon icon-delete-bin-fill'
 								data-testid='deleteMsg'
 								onClick={onDeleteMessage}
 							/>
-							<SpinButton className='icon icon-spinner11' onClick={refetch} />
+							<SpinButton
+								className='icon icon-refresh-fill'
+								onClick={refetch}
+							/>
 						</div>
 					</div>
 
@@ -111,7 +115,7 @@ const PersonalMessage = () => {
 			) : (
 				<Loading />
 			)}
-		</>
+		</WrapperMessageH5>
 	)
 }
 

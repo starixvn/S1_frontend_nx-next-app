@@ -1,17 +1,17 @@
+import { paths } from '@nx-next-app/constants'
+import classNames from 'classnames'
 import dayjs from 'dayjs'
 import { some } from 'lodash-es'
-import classNames from 'classnames'
 import { useRouter } from 'next/router'
-import { paths } from '@nx-next-app/constants'
 import { useEffect, useState } from 'react'
 
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
 	IBasicMsg,
 	IMsgContentData,
 	IMsgData,
 	useGetMsgContentMutation,
 } from '@nx-next-app/service'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 
 interface IMessageListProps extends IMsgData {
 	popUpMsgId: number | null
@@ -87,10 +87,10 @@ const MessageList = ({
 					<i
 						data-testid='checkIcon'
 						className={classNames({
-							'icon icon-checkbox-checked': some(selectedMessage, {
+							'icon icon-checkbox-fill': some(selectedMessage, {
 								msgId: id,
 							}),
-							'icon icon-checkbox': !some(selectedMessage, {
+							'icon icon-checkbox-blank-line': !some(selectedMessage, {
 								msgId: id,
 							}),
 						})}
@@ -102,7 +102,7 @@ const MessageList = ({
 				</div>
 				<button
 					className={classNames({
-						'icon icon-keyboard_arrow_down': { active: isShowContent },
+						'icon icon-chevron_down': { active: isShowContent },
 					})}
 					data-testid='openBtn'
 					onClick={() => handleFetchMsgContent(id, isBatch, !isShowContent)}
