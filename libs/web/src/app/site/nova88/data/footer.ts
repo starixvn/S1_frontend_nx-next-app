@@ -283,716 +283,821 @@ export const FOOTER_DATA = ({
 		paymentMethodsByCurrencyId: {
 			[CurrenciesEnum.MYR]: [
 				{
-					name: 'Maybank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/maybank.jpg`,
-				},
-				{
-					name: 'OCBC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ocbc.jpg`,
-				},
-
-				{
-					name: 'tngqr',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ambank.jpg`,
-				},
-				{
-					name: 'CIMB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/cimb.jpg`,
-				},
-				{
-					name: 'RHB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/rhb.jpg`,
-				},
-				{
-					name: 'AFFIN',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/affin.jpg`,
-				},
-				{
-					name: 'HLB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/hlb.jpg`,
-				},
-				{
-					name: 'PBB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/pbb.jpg`,
-				},
-				{
-					name: 'Duitnow',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/duitnow.jpg`,
-				},
-				{
-					name: 'TnG',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/tng.jpg`,
-				},
-				{
-					name: 'Boost',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/boost.jpg`,
-				},
-				{
-					name: 'Grabpay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/grabpay.jpg`,
-				},
-				{
-					name: 'Shopeepay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/shopeepay.jpg`,
-				},
-
-				{
-					name: 'BTC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
-				},
-				{
-					name: 'ETH',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
-				},
-				{
-					name: 'USDT',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
-				},
-				{
-					name: 'USDC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
-				},
-				{
-					name: 'BNB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bnb.jpg`,
-				},
-				{
-					name: 'DOGE',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
-				},
-			],
-			[CurrenciesEnum.THB]: [
-				{
 					name: 'Kasikorn Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/kasikornbank.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/kasikornbank.webp`,
 				},
 				{
 					name: 'Krung Thai Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ktb.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ktb.webp`,
 				},
 				{
 					name: 'Siam Commercial Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/scb.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/scb.webp`,
 				},
 				{
 					name: 'Bangkok Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bangkokbank.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bangkokbank.webp`,
 				},
 				{
 					name: 'Bank of Ayudhya',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ayudhya.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ayudhya.webp`,
 				},
 				{
 					name: 'Promtpay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/promptpay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/promptpay.webp`,
 				},
 				{
 					name: 'TrueMoney',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/truemoney.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/truemoney.webp`,
 				},
 
 				{
 					name: 'BigPayz',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bigpayz.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bigpayz.webp`,
 				},
 				{
 					name: 'RapidPay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/rapidpay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/rapidpay.webp`,
+				},
+				{
+					name: 'ANZ Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ANZ-Bank.webp`,
+				},
+				{
+					name: 'KrungThai',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Krung-Thai-Bank.webp`,
+				},
+				{
+					name: 'TMBThanachart',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/TMBThanachart-Bank.webp`,
+				},
+				{
+					name: 'Government Saving Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Government-Savings-Bank.webp`,
+				},
+				{
+					name: 'United Oversea Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/United-Overseas-Bank.webp`,
+				},
+				{
+					name: 'CIMB Thai',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/CIMB-Thai-Bank.webp`,
+				},
+				{
+					name: 'Standard Chartered Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Standard-Chartered-Bank.webp`,
+				},
+				{
+					name: 'HSCB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/The-Hongkong-Shanghai-Bank.webp`,
+				},
+				{
+					name: 'Kiatnakin Phatra Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Kiatnakin-Phatra-Bank.webp`,
+				},
+				{
+					name: 'ICBC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Industrial-and-Commercial-Bank.webp`,
+				},
+
+				{
+					name: 'Tisco Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Tisco-Bank.webp`,
+				},
+				{
+					name: 'Thai Credit Retail Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Thai-Credit-Retail-Bank.webp`,
+				},
+				{
+					name: 'Thanachart Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Thanachart.webp`,
+				},
+				{
+					name: 'Bank of China',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Bank-of-China.webp`,
 				},
 				// {
 				// 	name: 'BTC',
-				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.webp`,
 				// },
 				// {
 				// 	name: 'ETH',
-				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.webp`,
 				// },
 				// {
 				// 	name: 'USDT',
-				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.webp`,
 				// },
 				// {
 				// 	name: 'USDC',
-				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.webp`,
 				// },
 				// {
 				// 	name: 'DAI',
-				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.webp`,
 				// },
 				// {
 				// 	name: 'EOS',
-				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.webp`,
 				// },
 				// {
 				// 	name: 'ADA',
-				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.webp`,
 				// },
 				// {
 				// 	name: 'DOGE',
-				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.webp`,
+				// },
+			],
+			[CurrenciesEnum.THB]: [
+				{
+					name: 'Kasikorn Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/kasikornbank.webp`,
+				},
+				{
+					name: 'Krung Thai Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ktb.webp`,
+				},
+				{
+					name: 'Siam Commercial Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/scb.webp`,
+				},
+				{
+					name: 'Bangkok Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bangkokbank.webp`,
+				},
+				{
+					name: 'Bank of Ayudhya',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ayudhya.webp`,
+				},
+				{
+					name: 'Promtpay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/promptpay.webp`,
+				},
+				{
+					name: 'TrueMoney',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/truemoney.webp`,
+				},
+
+				{
+					name: 'BigPayz',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bigpayz.webp`,
+				},
+				{
+					name: 'RapidPay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/rapidpay.webp`,
+				},
+				{
+					name: 'ANZ Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ANZ-Bank.webp`,
+				},
+				{
+					name: 'KrungThai',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Krung-Thai-Bank.webp`,
+				},
+				{
+					name: 'TMBThanachart',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/TMBThanachart-Bank.webp`,
+				},
+				{
+					name: 'Government Saving Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Government-Savings-Bank.webp`,
+				},
+				{
+					name: 'United Oversea Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/United-Overseas-Bank.webp`,
+				},
+				{
+					name: 'CIMB Thai',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/CIMB-Thai-Bank.webp`,
+				},
+				{
+					name: 'Standard Chartered Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Standard-Chartered-Bank.webp`,
+				},
+				{
+					name: 'HSCB',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/The-Hongkong-Shanghai-Bank.webp`,
+				},
+				{
+					name: 'Kiatnakin Phatra Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Kiatnakin-Phatra-Bank.webp`,
+				},
+				{
+					name: 'ICBC',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Industrial-and-Commercial-Bank.webp`,
+				},
+
+				{
+					name: 'Tisco Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Tisco-Bank.webp`,
+				},
+				{
+					name: 'Thai Credit Retail Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Thai-Credit-Retail-Bank.webp`,
+				},
+				{
+					name: 'Thanachart Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Thanachart.webp`,
+				},
+				{
+					name: 'Bank of China',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Bank-of-China.webp`,
+				},
+				// {
+				// 	name: 'BTC',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.webp`,
+				// },
+				// {
+				// 	name: 'ETH',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.webp`,
+				// },
+				// {
+				// 	name: 'USDT',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.webp`,
+				// },
+				// {
+				// 	name: 'USDC',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.webp`,
+				// },
+				// {
+				// 	name: 'DAI',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.webp`,
+				// },
+				// {
+				// 	name: 'EOS',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.webp`,
+				// },
+				// {
+				// 	name: 'ADA',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.webp`,
+				// },
+				// {
+				// 	name: 'DOGE',
+				// 	img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.webp`,
 				// },
 			],
 			[CurrenciesEnum.IDR]: [
 				{
 					name: 'BCA',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bca.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bca.webp`,
 				},
 				{
 					name: 'MANDIRI',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/mandiri.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/mandiri.webp`,
 				},
 				{
 					name: 'BRI',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bri.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bri.webp`,
 				},
 				{
 					name: 'PERMATA',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/permata.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/permata.webp`,
 				},
 				{
 					name: 'CIMB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/cimb.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/cimb.webp`,
 				},
 				{
 					name: 'BNI',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bni.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bni.webp`,
 				},
 				{
 					name: 'QRIS',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/qris.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/qris.webp`,
 				},
 				{
 					name: 'GOPAY',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/gopay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/gopay.webp`,
 				},
 				{
 					name: 'OVO',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ovo.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ovo.webp`,
 				},
 				{
 					name: 'DANA',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dana.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dana.webp`,
 				},
 				{
 					name: 'SAKUKU',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/sakuku.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/sakuku.webp`,
 				},
 				{
 					name: 'LINKAJA',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/linkaja.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/linkaja.webp`,
 				},
 				{
 					name: 'SHOPEEPAY',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/shopeepay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/shopeepay.webp`,
 				},
 				{
 					name: 'DOKU',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doku.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doku.webp`,
 				},
 
 				{
 					name: 'BTC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.webp`,
 				},
 				{
 					name: 'ETH',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.webp`,
 				},
 				{
 					name: 'USDT',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.webp`,
 				},
 				{
 					name: 'USDC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.webp`,
 				},
 				{
 					name: 'BNB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bnb.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bnb.webp`,
 				},
 				{
 					name: 'DOGE',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.webp`,
 				},
 			],
 			[CurrenciesEnum.INR]: [
 				{
 					name: 'Federeal Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/federealbank.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/federealbank.webp`,
 				},
 				{
 					name: 'ICICI Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/icici.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/icici.webp`,
 				},
 				{
 					name: 'IDFC Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/idfc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/idfc.webp`,
 				},
 				{
 					name: 'Indian Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/indian.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/indian.webp`,
 				},
 				{
 					name: 'IndusInd Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/indusind.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/indusind.webp`,
 				},
 				{
 					name: 'Kotak Mahindra',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/kotak.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/kotak.webp`,
 				},
 				{
 					name: 'UPI',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/upi.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/upi.webp`,
 				},
 
 				{
 					name: 'Tenpay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/tenpay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/tenpay.webp`,
 				},
 				{
 					name: 'VaderPay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/vaderpay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/vaderpay.webp`,
 				},
 				{
 					name: 'BTC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.webp`,
 				},
 				{
 					name: 'ETH',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.webp`,
 				},
 				{
 					name: 'USDT',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.webp`,
 				},
 				{
 					name: 'USDC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.webp`,
 				},
 				{
 					name: 'DAI',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.webp`,
 				},
 				{
 					name: 'EOS',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.webp`,
 				},
 				{
 					name: 'ADA',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.webp`,
 				},
 				{
 					name: 'DOGE',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.webp`,
 				},
 			],
 			[CurrenciesEnum.BDT]: [
 				{
 					name: 'Bkash',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bkash.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bkash.webp`,
 				},
 				{
 					name: 'Rocket',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/rocket.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/rocket.webp`,
 				},
 				{
 					name: 'Upay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/upay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/upay.webp`,
 				},
 				{
 					name: 'Nagad',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/nagad.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/nagad.webp`,
 				},
 				{
 					name: 'BTC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.webp`,
 				},
 				{
 					name: 'ETH',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.webp`,
 				},
 				{
 					name: 'USDT',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.webp`,
 				},
 				{
 					name: 'USDC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.webp`,
 				},
 				{
 					name: 'DAI',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.webp`,
 				},
 				{
 					name: 'EOS',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.webp`,
 				},
 				{
 					name: 'ADA',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.webp`,
 				},
 				{
 					name: 'DOGE',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.webp`,
 				},
 			],
 			[CurrenciesEnum.KHM]: [
 				{
 					name: 'ABA',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/aba.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/aba.webp`,
 				},
 				{
 					name: 'ACLEDA',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/acleda.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/acleda.webp`,
 				},
 				{
 					name: 'WING',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/wing.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/wing.webp`,
 				},
 				{
 					name: 'TRUEMONEY',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/truemoney.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/truemoney.webp`,
 				},
 				{
 					name: 'PIPAY',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/pipay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/pipay.webp`,
 				},
 
 				{
 					name: 'ACLEDA_Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/acledabank.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/acledabank.webp`,
 				},
 				{
 					name: 'BTC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.webp`,
 				},
 				{
 					name: 'ETH',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.webp`,
 				},
 				{
 					name: 'USDT',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.webp`,
 				},
 				{
 					name: 'USDC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.webp`,
 				},
 				{
 					name: 'DAI',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.webp`,
 				},
 				{
 					name: 'EOS',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.webp`,
 				},
 				{
 					name: 'ADA',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.webp`,
 				},
 				{
 					name: 'DOGE',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.webp`,
 				},
 			],
 			[CurrenciesEnum.VND]: [
 				{
 					name: 'ACB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/acb.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/acb.webp`,
 				},
 				{
 					name: 'DAB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dab.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dab.webp`,
 				},
 				{
 					name: 'Eximbank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/exim.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/exim.webp`,
 				},
 				{
 					name: 'VTB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/vtb.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/vtb.webp`,
 				},
 				{
 					name: 'BIDV',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bidv.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bidv.webp`,
 				},
 				{
 					name: 'MB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/mb.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/mb.webp`,
 				},
 				{
 					name: 'TCB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/tcb.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/tcb.webp`,
 				},
 				{
 					name: 'VCB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/vcb.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/vcb.webp`,
 				},
 				{
 					name: 'VIB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/vib.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/vib.webp`,
 				},
 				{
 					name: 'HDB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/hdb.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/hdb.webp`,
 				},
 				{
 					name: 'MSB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/msb.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/msb.webp`,
 				},
 				{
 					name: 'SACOM',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/sacom.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/sacom.webp`,
 				},
 				{
 					name: 'MOMO',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/momo.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/momo.webp`,
 				},
 				{
 					name: 'ZALO',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/zalo.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/zalo.webp`,
 				},
 
 				{
 					name: 'YuiPay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/yuipay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/yuipay.webp`,
 				},
 				{
 					name: 'HonorPay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/honorpay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/honorpay.webp`,
 				},
 				{
 					name: 'Wpay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/wpay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/wpay.webp`,
 				},
 				{
 					name: 'BTC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.webp`,
 				},
 				{
 					name: 'ETH',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.webp`,
 				},
 				{
 					name: 'USDT',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.webp`,
 				},
 				{
 					name: 'USDC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.webp`,
 				},
 				{
 					name: 'DAI',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.webp`,
 				},
 				{
 					name: 'EOS',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.webp`,
 				},
 				{
 					name: 'ADA',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.webp`,
 				},
 				{
 					name: 'DOGE',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.webp`,
 				},
 			],
 			[CurrenciesEnum.CNY]: [
 				{
 					name: '广西省农村信用社',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/kwangsi.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/kwangsi.webp`,
 				},
 
 				{
 					name: 'ChangChenPay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/changchenpay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/changchenpay.webp`,
 				},
 				{
 					name: 'TenglongPay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/tenglongpay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/tenglongpay.webp`,
 				},
 				{
 					name: 'Alipay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/alipay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/alipay.webp`,
 				},
 				{
 					name: 'QQPay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/qqpay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/qqpay.webp`,
 				},
 				{
 					name: 'UnionPay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/unionpay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/unionpay.webp`,
 				},
 				{
 					name: 'WechatPay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/wechatpay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/wechatpay.webp`,
 				},
 				{
 					name: 'DouDouPay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doudoupay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doudoupay.webp`,
 				},
 				{
 					name: 'BTC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.webp`,
 				},
 				{
 					name: 'ETH',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.webp`,
 				},
 				{
 					name: 'USDT',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.webp`,
 				},
 				{
 					name: 'USDC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.webp`,
 				},
 				{
 					name: 'DAI',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.webp`,
 				},
 				{
 					name: 'EOS',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.webp`,
 				},
 				{
 					name: 'ADA',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.webp`,
 				},
 				{
 					name: 'DOGE',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.webp`,
 				},
 			],
 			[CurrenciesEnum.USD]: [
 				{
 					name: 'USDT',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.webp`,
 				},
 				{
 					name: 'USDC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.webp`,
 				},
 				{
 					name: 'BUSD',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/busd.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/busd.webp`,
 				},
 				{
 					name: 'DAI',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.webp`,
 				},
 				{
 					name: 'DOGE',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.webp`,
 				},
 				{
 					name: 'EOS',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.webp`,
 				},
 				{
 					name: 'SHIB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/shib.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/shib.webp`,
 				},
 				{
 					name: 'ADA',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.webp`,
 				},
 				{
 					name: 'ETH',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.webp`,
 				},
 				{
 					name: 'BTC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.webp`,
 				},
 			],
 			[CurrenciesEnum.KRW]: [
 				{
 					name: 'HonorPay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/honorpay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/honorpay.webp`,
 				},
 				{
 					name: 'SojuPay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/sojupay.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/sojupay.webp`,
 				},
 				{
 					name: 'BTC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.webp`,
 				},
 				{
 					name: 'ETH',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.webp`,
 				},
 				{
 					name: 'USDT',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.webp`,
 				},
 				{
 					name: 'USDC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.webp`,
 				},
 				{
 					name: 'DAI',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.webp`,
 				},
 				{
 					name: 'EOS',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.webp`,
 				},
 				{
 					name: 'ADA',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ada.webp`,
 				},
 				{
 					name: 'DOGE',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.webp`,
 				},
 			],
 			[CurrenciesEnum.BRL]: [
 				{
 					name: 'PIX',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/pix.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/pix.webp`,
 				},
 				{
 					name: 'BTC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/btc.webp`,
 				},
 				{
 					name: 'ETH',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eth.webp`,
 				},
 				{
 					name: 'USDT',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdt.webp`,
 				},
 				{
 					name: 'USDC',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/usdc.webp`,
 				},
 				{
 					name: 'EOS',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/eos.webp`,
 				},
 				{
 					name: 'DAI',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/dai.webp`,
 				},
 				{
 					name: 'DOGE',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/doge.webp`,
 				},
 				{
 					name: 'SHIB',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/shib.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/shib.webp`,
 				},
 				{
 					name: 'BUSD',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/busd.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/busd.webp`,
 				},
 				{
 					name: 'XRP',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/xrp.jpg`,
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/xrp.webp`,
 				},
 			],
 		},
