@@ -1,12 +1,12 @@
 import { paths } from '@nx-next-app/constants'
+import { WrapperInfoList } from '@nx-next-app/features/F0001/h5/common/CommonStyles'
+import { NoData } from '@nx-next-app/features/F0001/h5/deposit/common/NoData'
 import { useWithdrawal } from '@nx-next-app/features/F0001/providers'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { useToggle } from 'usehooks-ts'
 
-import { NoData } from '@nx-next-app/features/F0001/h5/deposit/common/NoData'
-import { WrapperDepositHistoryH5 } from '@nx-next-app/features/F0001/h5/deposit/styles'
 import { HistoryItem } from './HistoryItem'
 
 const RecentHistory = () => {
@@ -26,7 +26,7 @@ const RecentHistory = () => {
 					/>
 				</button>
 			</div>
-			<WrapperDepositHistoryH5>
+			<WrapperInfoList>
 				<div className={classNames('recent', { active: isOpen })}>
 					{withdrawalRecentInfo.length > 0 ? (
 						<>
@@ -47,7 +47,7 @@ const RecentHistory = () => {
 						<NoData />
 					)}
 				</div>
-			</WrapperDepositHistoryH5>
+			</WrapperInfoList>
 		</>
 	)
 }

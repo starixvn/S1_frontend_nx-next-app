@@ -1,7 +1,7 @@
 import { BackTop } from '@nx-next-app/components/D0001'
 import Loading from '@nx-next-app/components/H0001/loading'
+import { WrapperInfoList } from '@nx-next-app/features/F0001/h5/common/CommonStyles'
 import { NoData } from '@nx-next-app/features/F0001/h5/deposit/common/NoData'
-import { WrapperDepositHistoryH5 } from '@nx-next-app/features/F0001/h5/deposit/styles'
 import HistoryHeader from '@nx-next-app/features/F0001/h5/history/header'
 import DepositItem from '@nx-next-app/features/F0001/h5/history/historyItems/DepositItem'
 import FinancialItem from '@nx-next-app/features/F0001/h5/history/historyItems/FinancialItem'
@@ -36,7 +36,7 @@ const History = () => {
 		<WrapperDepositPageHistoryH5>
 			<HistoryHeader />
 			<main className='main history'>
-				<WrapperDepositHistoryH5>
+				<WrapperInfoList>
 					<div className='recent active'>
 						{isShowMobileLoading && <Loading />}
 
@@ -72,7 +72,7 @@ const History = () => {
 					{currentPage && displayColumns.length === 0 && (
 						<NoData customClass='no-border' />
 					)}
-				</WrapperDepositHistoryH5>
+				</WrapperInfoList>
 			</main>
 		</WrapperDepositPageHistoryH5>
 	)

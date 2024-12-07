@@ -1,4 +1,5 @@
 import { Loading, Select } from '@nx-next-app/components/H0001'
+import { WrapperInfoList } from '@nx-next-app/features/F0001/h5/common/CommonStyles'
 import { NoData } from '@nx-next-app/features/F0001/h5/common/NoData'
 import StatementHeader from '@nx-next-app/features/F0001/h5/statement/header'
 import StatementItem from '@nx-next-app/features/F0001/h5/statement/statementItem'
@@ -23,7 +24,7 @@ const Statement = () => {
 				{displayColumns.length === 0 ? (
 					<NoData customClass='no-border' />
 				) : (
-					<>
+					<WrapperInfoList>
 						<Select
 							options={Array.from({ length: totalPage }, (_, index) => ({
 								value: index + 1,
@@ -33,6 +34,7 @@ const Statement = () => {
 							value={currentPage}
 							onChange={value => onPageChange({ selected: value as number })}
 						/>
+
 						<div className='recent active'>
 							<div className='infoList'>
 								{displayColumns.map(item => (
@@ -40,7 +42,7 @@ const Statement = () => {
 								))}
 							</div>
 						</div>
-					</>
+					</WrapperInfoList>
 				)}
 			</main>
 		</StatementContainer>
