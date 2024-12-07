@@ -45,7 +45,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 	} = useAuth()
 	const { t } = useTranslation()
 	const { modal } = useGlobalModal()
-	const { getCustPromotionOptions } = useDepositContext()
+	const { getCustPromotionOptions, getBonusCodeIfExist } = useDepositContext()
 
 	const {
 		formMethods: {
@@ -202,6 +202,17 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 								},
 							})}
 							format={isConvert(currencyId)}
+							onChange={event => {
+								setValue(
+									'bonusCode',
+									String(
+										getBonusCodeIfExist(
+											Number(event.target.value),
+											watchBonusCode
+										)
+									)
+								)
+							}}
 							placeholder={
 								t('Label_General_AmountMinMaxLimit', {
 									value1: numFormatToDigits(watchMinAmount),
@@ -232,6 +243,10 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 									  })
 							}
 							onChange={value => {
+								setValue(
+									'bonusCode',
+									String(getBonusCodeIfExist(value, watchBonusCode))
+								)
 								setValue('amount', value)
 								trigger('amount')
 							}}
@@ -286,7 +301,7 @@ const OnlineBankingForm = ({ dataSource }: IOnlineBankingFormProps) => {
 						<div className='inputBox-blue spacing-input-0'>
 							<div className='dropdown'>
 								<Select
-									value={watchBonusCode}
+									value={getBonusCodeIfExist(watchAmount, watchBonusCode)}
 									options={getCustPromotionOptions(watchAmount)}
 									onChange={value => {
 										setValue('bonusCode', String(value))
