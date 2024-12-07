@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const WrapperChangePassWordH5 = styled.div`
 	.title {
 		padding-left: 0;
-		background: transparent;
+		background: #0f1428;
 		font-weight: 700;
 		// justify-content: flex-start;
 	}

@@ -5,7 +5,7 @@ import { ChangePasswordForm } from '../change-password/ChangePasswordForm'
 
 const ChangePasswordModal = () => {
 	const { t } = useTranslation()
-	const { modal } = useGlobalModal()
+	const { modal, closeModal } = useGlobalModal()
 	const { changePasswordForm, onSetChangePassword } = useChangePasswordFetcher({
 		backChangePassword: () => modal.open(<ChangePasswordModal />),
 	})
@@ -13,7 +13,10 @@ const ChangePasswordModal = () => {
 	return (
 		<div className='pop'>
 			<div className='resetPassWordpop active'>
-				<i className='close-popup icon-close-line' />
+				<i
+					className='close-popup icon-close-line'
+					onClick={() => closeModal()}
+				/>
 				<i className='icon icon icon-notifi icon-notification-active' />
 				<div className='title'>{t('Label_General_ChangePassword')}</div>
 				<ChangePasswordForm
