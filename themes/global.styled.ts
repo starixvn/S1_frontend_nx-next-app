@@ -1128,6 +1128,7 @@ export const GlobalStyles = createGlobalStyle`
       display: flex;
       gap: 1rem;
       align-items: center;
+      font-weight : 700;
     }
     .btnGroup {
       margin-top: 0;
