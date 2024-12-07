@@ -61,7 +61,7 @@ export const AuthProvider = ({
 		data: {
 			data: originUserInfo = {
         langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
-				currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
+				currencyId: Number(process.env['NEXT_PUBLIC_DEFAULT_CURRENCY']),
 				userName: 'guest',
 			},
 		} = {},
