@@ -1,9 +1,10 @@
+import { LoadingContainer } from '@nx-next-app/components/H0001/loading/styles'
 import { useTranslation } from 'next-i18next'
 
 const Loading = () => {
 	const { t } = useTranslation()
 	return (
-		<div id='Loading' className='active'>
+		<LoadingContainer id='Loading' className='active'>
 			<div className='container'>
 				<div className='cube'>
 					<div className='sides'>
@@ -18,7 +19,7 @@ const Loading = () => {
 				<h1> </h1>
 				<div className='text'>{t('Label_General_Loading')}...</div>
 			</div>
-		</div>
+		</LoadingContainer>
 	)
 }
 
