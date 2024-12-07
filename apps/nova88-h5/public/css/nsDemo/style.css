@@ -3879,30 +3879,8 @@ input[type='checkbox'] + label {
 	padding: 5vw 3vw 5vw 7vw;
 }
 
-.checkbox input {
-	display: none;
-}
-.checkbox .icon {
-	color: #112240;
-	margin: 0 2vw 0 0;
-}
-.checkbox .icon.icon-checkbox:before {
-	content: '\ea53';
-	font-weight: 100;
-	font-size: 4vw;
-}
 
-.introduction {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-flow: wrap;
-	flex-flow: wrap;
-	width: 100%;
-}
-.introduction span {
-	width: 100%;
-}
+
 
 .casino {
 	width: calc(100% - 8vw);
