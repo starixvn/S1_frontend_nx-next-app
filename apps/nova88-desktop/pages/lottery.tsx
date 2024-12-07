@@ -1,4 +1,4 @@
-import { DEVICE_TYPE, ENV_COOKIE_NAMES } from '@nx-next-app/constants'
+import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
@@ -6,12 +6,13 @@ import {
 } from '@nx-next-app/data-access'
 import { Layout, Lottery } from '@nx-next-app/features/F0001/desktop'
 import { LobbyProvider } from '@nx-next-app/features/F0001/providers'
-import { CATEGORY_LOBBY_SORT } from '@nx-next-app/site/nova88/data/lobby'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { ILobbyCategoryGameData, LobbyCategory } from '@nx-next-app/service'
+import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { CATEGORY_LOBBY_SORT } from '@nx-next-app/site/nova88/data/lobby'
 import { IFooterData } from '@nx-next-app/types'
 import { pick } from 'lodash-es'
 import { GetServerSideProps } from 'next'
@@ -54,16 +55,16 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
 	const { originCookies, currentHeaderCookies } = initialProps
 
-  const { langId, currencyId } = {
+	const { langId, currencyId } = {
 		langId: originCookies[ENV_COOKIE_NAMES.LangId],
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
 	const persistLobbyGameData = await getLobbyGamePage(
 		{
 			siteId: parseInt(process.env['NEXT_PUBLIC_SITE_ID'], 10),
-		  currencyId: currencyId as number,
-		  lobbyCategoryIds: LobbyCategory.Lottery.toString(),
-      langId: langId as string
+			currencyId: currencyId as number,
+			lobbyCategoryIds: LobbyCategory.Lottery.toString(),
+			langId: langId as string,
 		},
 		{ headers: { cookie: currentHeaderCookies } }
 	)
@@ -73,6 +74,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 			persistLobbyGameData,
+			footerData: FOOTER_DATA({ langId, currencyId }),
 			persistLobbyCategoryData: pick(persistLobbyGameData, CATEGORY_LOBBY_SORT),
 		},
 	}

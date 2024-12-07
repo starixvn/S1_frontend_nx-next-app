@@ -11,6 +11,7 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { ISlotsGameData } from '@nx-next-app/service'
+import { FOOTER_DATA } from '@nx-next-app/site/nova88'
 import { CATEGORY_SORT } from '@nx-next-app/site/nova88/data/slots'
 import { IFooterData } from '@nx-next-app/types'
 import { pick } from 'lodash-es'
@@ -53,9 +54,11 @@ const SlotsPage = ({
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
 	const { originCookies, currentHeaderCookies } = initialProps
-	const { currencyId } = {
+	const { langId, currencyId } = {
+		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
+
 	const persistSlotsGameData = await getSlotGamePage(
 		{
 			deviceType: DEVICE_TYPE.Desktop,
@@ -69,6 +72,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),
 			persistSlotsGameData,
+			footerData: FOOTER_DATA({ langId, currencyId }),
 			persistSlotsCategoryData: pick(persistSlotsGameData, CATEGORY_SORT),
 		},
 	}
