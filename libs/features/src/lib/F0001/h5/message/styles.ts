@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const WrapperMessageH5 = styled.div`
-	.Message {
+	.Message,
+	.Announcement {
 		padding: 0 0 30vw 0;
 		width: 100%;
 		.icon {
@@ -50,7 +51,7 @@ export const WrapperMessageH5 = styled.div`
 		}
 		.content {
 			background: ${({ theme }) => theme.desktop.rightModuleBg};
-			padding: 0 4vw 4vw 10vw;
+			padding: 1vw 4vw 4vw 10vw;
 			display: none;
 			color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
 			font-weight: 500;
@@ -59,6 +60,13 @@ export const WrapperMessageH5 = styled.div`
 		&.active {
 			.content {
 				display: block;
+			}
+		}
+		&.noread {
+			.introduction {
+				span {
+					color: ${({ theme }) => theme.desktop.white};
+				}
 			}
 		}
 	}
@@ -76,6 +84,14 @@ export const WrapperMessageH5 = styled.div`
 			font-weight: 700;
 			font-size: 3.4vw;
 			margin-top: 0;
+		}
+	}
+	.Announcement {
+		.content {
+			padding: 1vw 4vw 4vw 4vw;
+		}
+		.custom-nodata {
+			padding-top: 1.6rem;
 		}
 	}
 `

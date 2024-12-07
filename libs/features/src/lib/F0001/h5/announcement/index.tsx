@@ -1,13 +1,15 @@
-import dayjs from 'dayjs'
-import { useState } from 'react'
-import { isEmpty } from 'lodash-es'
-import classNames from 'classnames'
-import { useTranslation } from 'next-i18next'
-import { useGetAnnouncementQuery } from '@nx-next-app/service'
-import { useAuth } from '@nx-next-app/data-access'
 import { Header } from '@nx-next-app/components/H0001'
 import { paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { NoData } from '@nx-next-app/features/F0001/h5/deposit/common/NoData'
+import { WrapperMessageH5 } from '@nx-next-app/features/F0001/h5/message/styles'
+import { useGetAnnouncementQuery } from '@nx-next-app/service'
+import classNames from 'classnames'
+import dayjs from 'dayjs'
+import { isEmpty } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 const Announcement = () => {
 	const { t } = useTranslation()
@@ -42,7 +44,7 @@ const Announcement = () => {
 					</div>
 					<button
 						data-testid='displayBtn'
-						className={classNames('icon icon-keyboard_arrow_down', {
+						className={classNames('icon icon-chevron_down', {
 							active: isOpen,
 						})}
 						onClick={() => handleOpenItem(item.id)}
@@ -56,7 +58,7 @@ const Announcement = () => {
 	})
 
 	return (
-		<>
+		<WrapperMessageH5>
 			<Header className='header'>
 				<Header.Tags
 					tags={[
@@ -88,16 +90,9 @@ const Announcement = () => {
 			</Header>
 
 			<main className='main Announcement'>
-				<div className='functionList' />
-				{!isEmpty(announcementList) ? (
-					arr
-				) : (
-					<div className='nodata icon icon-nodata'>
-						<div className='txt-white'>{t('Label_General_NoData')}</div>
-					</div>
-				)}
+				{!isEmpty(announcementList) ? arr : <NoData customClass='no-border' />}
 			</main>
-		</>
+		</WrapperMessageH5>
 	)
 }
 

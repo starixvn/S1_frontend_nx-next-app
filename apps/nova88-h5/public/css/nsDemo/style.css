@@ -3868,16 +3868,6 @@ input[type='checkbox'] + label {
 	width: 100%;
 }
 
-.Announcement {
-	padding: 30vw 4vw 25vw;
-}
-.Announcement .functionList {
-	padding: 0;
-	border: 0;
-}
-.Announcement .functionList ~ .account.active .content {
-	padding: 5vw 3vw 5vw 7vw;
-}
 
 
 
