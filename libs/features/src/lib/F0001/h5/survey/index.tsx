@@ -1,12 +1,13 @@
-import { useState } from 'react'
-import { useRouter } from 'next/router'
+import { Form, Header } from '@nx-next-app/components/H0001'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { EMAIL_OR_PHONE_REGEX } from '@nx-next-app/constants'
+import { WrapperSurvayH5 } from '@nx-next-app/features/F0001/h5/survey/styles'
+import { useSetQuestionnaireMutation } from '@nx-next-app/service'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
-import { Header, Form } from '@nx-next-app/components/H0001'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { useSetQuestionnaireMutation } from '@nx-next-app/service'
-import { EMAIL_OR_PHONE_REGEX } from '@nx-next-app/constants'
 
 type TSurveyForm = {
 	content: string
@@ -58,9 +59,12 @@ const Survey = () => {
 	}
 
 	return (
-		<>
+		<WrapperSurvayH5>
 			<Header className='header'>
-				<div className='title'>{t('Label_General_Survey')}</div>
+				<div className='title'>
+					<i className='icon icon-arrow-left-line' onClick={onCancel} />
+					{t('Label_General_Survey')}
+				</div>
 			</Header>
 			<main className='main survey'>
 				<div
@@ -68,8 +72,8 @@ const Survey = () => {
 						close: isSubmitted,
 					})}
 				>
-					<div>{t('Label_Survey_Title')}</div>
-					<div>{t('Label_Survey_Hint1')}</div>
+					<div className='heading-survey'>{t('Label_Survey_Title')}</div>
+					<div className='slogan-survey'>{t('Label_Survey_Hint1')}</div>
 					<Form className='survey-input' onSubmit={handleSubmit(onSubmit)}>
 						<fieldset className={classNames({ error: !!errors['content'] })}>
 							<textarea
@@ -132,7 +136,7 @@ const Survey = () => {
 					<div>{t('Label_Survey_Hint2')}</div>
 				</div>
 			</main>
-		</>
+		</WrapperSurvayH5>
 	)
 }
 

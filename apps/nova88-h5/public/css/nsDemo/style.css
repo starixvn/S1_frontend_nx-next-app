@@ -16870,7 +16870,7 @@ input[type='number'] .btn-logout {
 		background-position: 0% 50%;
 	}
 }
-.survey,
+/* .survey,
 .survey * {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -17063,4 +17063,4 @@ input[type='number'] .btn-logout {
 	text-align: center;
 	padding: 7vw 5vw 0;
 	line-height: 5.5vw;
-} /*# sourceMappingURL=style.css.map */
+} # sourceMappingURL=style.css.map */
