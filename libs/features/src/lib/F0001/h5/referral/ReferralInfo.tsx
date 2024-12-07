@@ -1,15 +1,15 @@
-import QRCode from 'qrcode.react'
 import { Img } from '@nx-next-app/components/H0001'
-import { toUpper } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
 import { useReferral } from '@nx-next-app/features/F0001/providers'
+import { toUpper } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import QRCode from 'qrcode.react'
 import { useCopyToClipboard } from 'usehooks-ts'
 import ReferralSocialMediaList from './ReferralSocialMediaList'
 
-const referralStep01Img = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/referral-step-01.png`
-const referralStep02Img = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/referral-step-02.png`
-const referralStep03Img = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/referral-step-03.png`
+const referralStep01Img = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/referral-step-01.webp`
+const referralStep02Img = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/referral-step-02.webp`
+const referralStep03Img = `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/referral-step-03.webp`
 
 const ReferralInfo = () => {
 	const { t } = useTranslation()
@@ -27,34 +27,40 @@ const ReferralInfo = () => {
 	return (
 		<div className='referinfo'>
 			<div className='referinfo-up'>
-				<div className='title'>{t('Label_Referral_Simple3StepsToShare')}</div>
-				<div className='referinfo-step'>
-					<div className='icon'>
-						<Img src={referralStep01Img} alt='img-referral-step-01' />
+				<div className='custom-box'>
+					<div className='custom-box-title'>
+						{t('Label_Referral_Simple3StepsToShare')}
 					</div>
-					<div>
-						<div className='subtitle'>{t('Label_General_Share')}</div>
-						<p>{toUpper(t('Label_Referral_ShareDescription') || '')}</p>
-					</div>
-				</div>
-				<div className='referinfo-step'>
-					<div className='icon'>
-						<Img src={referralStep02Img} alt='img-referral-step-02' />
-					</div>
-					<div>
-						<div className='subtitle'>{t('Label_General_Recharge')}</div>
-						<p>{t('Label_Referral_Recharge')}</p>
-					</div>
-				</div>
-				<div className='referinfo-step'>
-					<div className='icon'>
-						<Img src={referralStep03Img} alt='img-referral-step-03' />
-					</div>
-					<div>
-						<div className='subtitle'>
-							{toUpper(t('Label_General_Rewards') || '')}
+					<div className='custom-box-body'>
+						<div className='referinfo-step'>
+							<div className='icon'>
+								<Img src={referralStep01Img} alt='img-referral-step-01' />
+							</div>
+							<div className='referinfo-step-body'>
+								<div className='subtitle'>{t('Label_General_Share')}</div>
+								<p>{toUpper(t('Label_Referral_ShareDescription') || '')}</p>
+							</div>
 						</div>
-						<p>{toUpper(t('Label_Referral_RewardsDescription') || '')}</p>
+						<div className='referinfo-step'>
+							<div className='icon'>
+								<Img src={referralStep02Img} alt='img-referral-step-02' />
+							</div>
+							<div className='referinfo-step-body'>
+								<div className='subtitle'>{t('Label_General_Recharge')}</div>
+								<p>{t('Label_Referral_Recharge')}</p>
+							</div>
+						</div>
+						<div className='referinfo-step'>
+							<div className='icon'>
+								<Img src={referralStep03Img} alt='img-referral-step-03' />
+							</div>
+							<div className='referinfo-step-body'>
+								<div className='subtitle'>
+									{toUpper(t('Label_General_Rewards') || '')}
+								</div>
+								<p>{toUpper(t('Label_Referral_RewardsDescription') || '')}</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

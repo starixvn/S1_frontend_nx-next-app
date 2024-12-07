@@ -5,6 +5,9 @@ export const WrapperFooter = styled.div`
 	margin-top: 4rem;
 	padding: 2.4rem 1.6rem 0;
 	.home-bottom {
+		&.logged-in {
+			padding-bottom: 20vw;
+		}
 	}
 	.footer-top {
 		display: flex;
