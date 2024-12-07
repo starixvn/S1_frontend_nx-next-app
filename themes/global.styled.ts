@@ -109,7 +109,9 @@ export const GlobalStyles = createGlobalStyle`
 
   body, main {
     background: ${theme.desktop.primary};
+    font-family: ${({ theme }) => theme.desktop.fontFamily};
     font-size: 1.4rem;
+    color: ${({ theme }) => theme.desktop.white};
   }
 
   #__next {
@@ -658,6 +660,8 @@ export const GlobalStyles = createGlobalStyle`
 		height: 3.6rem;
 		padding: 0 1.2rem;
 		border-radius: 10rem;
+    font-family: 'Montserrat', sans-serif;
+	  font-weight: 500;
   }
   .custom-nodata{
     min-height : 10rem;
