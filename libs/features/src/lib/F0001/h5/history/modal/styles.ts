@@ -38,6 +38,10 @@ export const WrapperDepositModalBankSlipH5 = styled.div`
 			}
 		}
 	}
+	.uploadModule {
+		display: flex;
+		flex-wrap: wrap;
+	}
 	.upload_img {
 		display: flex;
 		background: #1d2447;
@@ -46,7 +50,7 @@ export const WrapperDepositModalBankSlipH5 = styled.div`
 		border-radius: 10px;
 		justify-content: center;
 		align-items: center;
-		margin: 3vw auto;
+		margin: 3vw 0;
 		overflow: hidden;
 		img {
 			width: 100%;

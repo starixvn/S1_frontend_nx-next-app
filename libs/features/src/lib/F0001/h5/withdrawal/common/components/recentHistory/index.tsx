@@ -16,16 +16,22 @@ const RecentHistory = () => {
 
 	return (
 		<>
-			<div className='btnGroup'>
-				<button className='recentBtn btn-primary' onClick={toggleOpen}>
-					{t('Label_Withdrawal_RecentTransactions')}
-					<i
-						className={classNames('icon icon-keyboard_arrow_down', {
-							active: isOpen,
-						})}
-					/>
-				</button>
-			</div>
+			<WrapperInfoList>
+				<div className='btnGroup'>
+					<button
+						className='btn-primary btn-recent-history'
+						onClick={toggleOpen}
+					>
+						{t('Label_Withdrawal_RecentTransactions')}
+						<i
+							className={classNames('icon icon-chevron_down', {
+								active: isOpen,
+							})}
+						/>
+					</button>
+				</div>
+			</WrapperInfoList>
+
 			<WrapperInfoList>
 				<div className={classNames('recent', { active: isOpen })}>
 					{withdrawalRecentInfo.length > 0 ? (
@@ -37,7 +43,11 @@ const RecentHistory = () => {
 							</div>
 							<div className='btnGroup'>
 								<Link href={paths.withdrawalHistory.root}>
-									<a className='btn-primary recentBtn'>
+									<a className='btn-secondary recentBtn'>
+										<i
+											className='icon icon-book-read-fill'
+											style={{ marginRight: '2vw' }}
+										/>
 										{t('Label_Withdrawal_AllTransactions')}
 									</a>
 								</Link>

@@ -221,6 +221,14 @@ export const WrapperWithdrawalH5 = styled.div`
 		.btn-secondary {
 			min-width: 30vw;
 			border-radius: 100px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			.icon {
+				&:before {
+					font-size: 4.5vw;
+				}
+			}
 		}
 	}
 	.group-withdrawal {
@@ -234,9 +242,10 @@ export const WrapperWithdrawalH5 = styled.div`
 				width : 100%;
 				background : #374375;
 				margin-top : 2.9vw;
-				text-align : center;
 				border-radius: 10px;
-				padding : 1vw 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
 				.icon{
 					&:before{
 						color : ${({ theme }) => theme.mobile.rightModuleSloganColor};
@@ -331,7 +340,7 @@ export const WrapperWithdrawalH5 = styled.div`
 			text-align: left;
 			color: ${({ theme }) => theme.mobile.white};
 			font-size: 3.4vw;
-			max-width: unset;
+			max-width: 70vw;
 			font-weight: 700;
 		}
 		.subinfo {
@@ -416,5 +425,8 @@ export const WrapperWithdrawalH5 = styled.div`
 				color : #01B901;
 			}
 		}
+	}
+	.recentBtn{
+		min-height : 8vw;
 	}
 `

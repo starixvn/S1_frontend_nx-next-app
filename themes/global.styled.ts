@@ -1473,7 +1473,7 @@ export const GlobalStyles = createGlobalStyle`
     overflow: scroll;
 		visibility: hidden;
 		opacity: 0;
-		height: calc(100% - 10rem);
+		height: calc(100% - 2rem);
 		background: ${({ theme }) => theme.mobile.bgLoginRegisterColor};
     position: relative;
 		.switch {
@@ -2021,6 +2021,10 @@ export const GlobalStyles = createGlobalStyle`
 				}
 			}
 		}
+    .menu-bottom-item .info > div{
+      color : #fff;
+      font-weight : 700;
+    }
 		.menu-bottom-item .option a,.langs {
 			color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
 			display: flex;
