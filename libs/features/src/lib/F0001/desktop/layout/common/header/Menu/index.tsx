@@ -162,7 +162,7 @@ const Menu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 		)
 	})
 	return (
-		<div className='menu'>
+		<div className='menu primary-400'>
 			<div onMouseLeave={() => setMenuKey(undefined)}>
 				<Link href={paths.home.root} passHref>
 					<a className='icon icon-home' onMouseEnter={() => setMenuKey('Home')}>

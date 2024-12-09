@@ -1,3 +1,5 @@
+@import "_variables.scss";
+@import "_noble888-style.scss";
 @import "reset.scss";
 @import "color-group.scss";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
@@ -90,7 +92,8 @@ header {
       color: $inputword;
       text-align: center;
     }
-    &:-webkit-autofill{
+
+    &:-webkit-autofill {
       box-shadow: 0 0 0px 1000px white inset;
       -webkit-text-fill-color: #0A1B38;
     }
@@ -576,7 +579,7 @@ header {
                 &.List-npc {
                   margin-bottom: 20px;
                 }
-                
+
               }
 
               >span {
@@ -869,11 +872,12 @@ header {
 
         // prediction-list 
         .prediction-list {
+
           a,
           button {
             img {
               margin-bottom: 20px;
-              
+
               &:hover {
                 margin-left: 10px;
               }
@@ -882,7 +886,7 @@ header {
 
           }
         }
-        
+
       }
     }
 
@@ -25443,33 +25447,37 @@ input[type=number] {
   }
 }
 
-.setting{
-  .infoModule{
+.setting {
+  .infoModule {
     padding-bottom: 40px;
   }
-  &-container{
+
+  &-container {
     padding: 0 65px;
-    .bottom-line{
+
+    .bottom-line {
       border-bottom: 1px solid #C2D9FF;
       margin: 40px 0;
     }
   }
-  &-content{
+
+  &-content {
     display: flex;
     align-items: center;
     color: #5574A7;
     margin-bottom: 30px;
 
-    &:first-child{
+    &:first-child {
       position: relative;
       z-index: 3;
-    } 
+    }
 
-    >div{
+    >div {
       display: flex;
       align-items: center;
-    } 
-    .inputBox-blue{ 
+    }
+
+    .inputBox-blue {
       padding: 0 20px 0 20px;
       margin-right: 10px;
       border-radius: 10px !important;
@@ -25482,6 +25490,7 @@ input[type=number] {
       align-items: center;
       z-index: 2;
       border: 1px solid $blue21;
+
       .dropdown {
         span {
           +button {
@@ -25489,6 +25498,7 @@ input[type=number] {
             flex: auto;
           }
         }
+
         .dropdown-container {
           position: absolute;
           top: 44px;
@@ -25499,18 +25509,21 @@ input[type=number] {
           border-top: 0;
           margin-left: 0;
           overflow: hidden;
+
           .dropdown-item {
             margin: 0;
             padding: 10px 20px 10px 20px;
           }
         }
+
         .btn {
           padding: 0px;
         }
       }
     }
   }
-  &-checkbox{
+
+  &-checkbox {
     .checkbox-content {
       display: flex;
       align-items: center;
@@ -25522,7 +25535,7 @@ input[type=number] {
         opacity: 0;
         cursor: pointer;
         margin: 0;
-      
+
       }
 
       input[type="checkbox"]:disabled {
@@ -25538,13 +25551,13 @@ input[type=number] {
         padding: 0.5px;
       }
 
-      input[type="checkbox"]:disabled + .checkbox-icon + span {
+      input[type="checkbox"]:disabled+.checkbox-icon+span {
         color: #B5C0D1;
       }
-      
-      
+
+
       // 樣式化checkbox
-      .checkbox-icon{
+      .checkbox-icon {
         box-sizing: border-box;
         width: 16px;
         height: 16px;
@@ -25556,8 +25569,9 @@ input[type=number] {
         justify-content: center;
         margin-right: 8px;
         padding: 0.5px;
+
         // 添加勾勾icon (隱藏狀態)
-        &::after{
+        &::after {
           content: "";
           width: 4px;
           height: 8px;
@@ -25568,36 +25582,44 @@ input[type=number] {
           margin-bottom: 4px;
         }
       }
-      input[type="checkbox"]:checked ~ .checkbox-icon{
+
+      input[type="checkbox"]:checked~.checkbox-icon {
         background: #2775FF;
-        &::after{
+
+        &::after {
           display: block;
         }
       }
-      input[type="checkbox"]:disabled ~ .checkbox-icon{
+
+      input[type="checkbox"]:disabled~.checkbox-icon {
         opacity: 0;
-        &::after{
+
+        &::after {
           opacity: 0;
         }
       }
-      
+
     }
-    label{
-      &:nth-child(2){
+
+    label {
+      &:nth-child(2) {
         margin-left: 20px;
       }
     }
   }
-  &-radiobox{
-    .radio{
+
+  &-radiobox {
+    .radio {
       display: flex;
       align-items: center;
       margin: 10px 0 10px 10px;
-      input[type="radio"]{
+
+      input[type="radio"] {
         position: absolute;
         opacity: 0;
-        + .radio-label{
-          &::before{
+
+        +.radio-label {
+          &::before {
             content: "";
             background: white;
             border-radius: 100%;
@@ -25613,47 +25635,53 @@ input[type=number] {
             transition: all 250ms ease;
           }
         }
-        &:checked{
-          + .radio-label{
-            &::before{
+
+        &:checked {
+          +.radio-label {
+            &::before {
               background: #2775FF;
               box-shadow: inset 0 0 0 3px white;
             }
           }
         }
-        &:focus{
-          + .radio-label{
-            &::before{
+
+        &:focus {
+          +.radio-label {
+            &::before {
               outline: none;
               border-color: #2775FF;
             }
           }
         }
-        &:disabled{
-          + .radio-label{
-            &::before{
+
+        &:disabled {
+          +.radio-label {
+            &::before {
               box-shadow: inset 0 0 0 3px #f4f4f4;
               border-color: #b4b4b4;
               background: white;
             }
           }
         }
-        + .radio-label{
-          &:empty{
-            &::before{
+
+        +.radio-label {
+          &:empty {
+            &::before {
               margin-right: 0;
             }
           }
         }
       }
-      .radio-label{
+
+      .radio-label {
         display: flex;
         align-items: center;
       }
     }
   }
-  &-title{
-    &::before{
+
+  &-title {
+    &::before {
       content: "";
       display: block;
       background: url(https://banner.0814media.net/desktop/img/4.0/setting-icon-w.svg)no-repeat center / cover;
@@ -25662,26 +25690,29 @@ input[type=number] {
       margin-right: 7px;
     }
   }
-  &-subtitle{
+
+  &-subtitle {
     width: 40%;
     color: #5574A7;
     font-weight: 700;
     font-size: 15px;
     margin-left: 5px;
   }
-  &-tip{
+
+  &-tip {
     color: #B5C0D1;
     font-size: 12px;
     font-weight: 100;
     margin: 5px 0 15px 5px;
   }
-  .changepassword-content{
+
+  .changepassword-content {
     display: flex;
     align-items: flex-start;
-    
-    .resetPassWord{
 
-      .inputBox-blue{
+    .resetPassWord {
+
+      .inputBox-blue {
         height: 50px;
         width: 350px;
         padding: 0 20px 0 20px;
@@ -25689,32 +25720,38 @@ input[type=number] {
         border-radius: 10px;
         border: 1px solid transparent;
         color: #5574A7;
-        &.error{
+
+        &.error {
           border-color: #cf0404;
         }
-        input{
+
+        input {
           &::placeholder {
             color: #B5C0D1;
             font-family: 'Poppins', sans-serif;
             letter-spacing: 0.5px;
           }
-          &:-webkit-autofill{
+
+          &:-webkit-autofill {
             box-shadow: 0 0 0px 1000px white inset;
             -webkit-text-fill-color: #5574a7;
           }
         }
       }
     }
-    .btnGroup{
+
+    .btnGroup {
       width: 20%;
-      .btn-check{
+
+      .btn-check {
         height: 52px;
         border-radius: 10px;
       }
     }
   }
-  .social{
-    .social-icon{
+
+  .social {
+    .social-icon {
       background: white;
       border-radius: 10px;
       padding: 8px 15px 8px 10px;
@@ -25722,18 +25759,22 @@ input[type=number] {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      >div{
+
+      >div {
         display: flex;
         align-items: center;
-        img{
+
+        img {
           width: 40px;
         }
-        span{
+
+        span {
           color: #5574A7;
           margin-left: 8px;
         }
       }
-      button{
+
+      button {
         background: #2775FF;
         color: white;
         width: 120px;
@@ -25742,7 +25783,8 @@ input[type=number] {
         display: flex;
         align-items: center;
         justify-content: center;
-        &::after{
+
+        &::after {
           display: block;
           content: "";
           background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png)no-repeat center / 100%;
@@ -25751,9 +25793,11 @@ input[type=number] {
           transform: rotate(-90deg);
           margin-left: 5px;
         }
-        &.active{
+
+        &.active {
           background: #9C9C9C;
-          &::after{
+
+          &::after {
             display: none;
           }
         }
@@ -25775,10 +25819,13 @@ main {
     * {
       color: #ffff;
     }
+
     //Banner
     .prediction-banner {
       position: relative;
+
       .banner {
+
         // banner-content
         &-content {
           display: flex;
@@ -25788,13 +25835,16 @@ main {
           left: calc(50% - 700px);
           bottom: calc(25% - 58px);
         }
+
         //banner-logo
-        &-logo { 
+        &-logo {
           margin-bottom: 54px;
+
           img {
             max-width: 360px;
           }
         }
+
         //banner-cpation 
         &-caption {
           .title {
@@ -25804,6 +25854,7 @@ main {
             margin-bottom: 30px;
             max-width: 600px;
           }
+
           .subtitle {
             font-size: 18px;
             font-weight: 300;
@@ -25811,31 +25862,36 @@ main {
           }
         }
       }
+
       @media (min-width: 1440px) and (max-width: 1600px) {
         .banner {
           &-logo {
             margin-bottom: 28px;
+
             img {
               max-width: 320px;
             }
           }
         }
-      } 
+      }
 
       @media screen and (max-width: 1440px) {
         .banner {
           &-logo {
             margin-bottom: 25px;
+
             img {
               max-width: 300px;
             }
           }
+
           &-caption {
             .title {
               font-size: 40px;
               max-width: 600px;
               margin-bottom: 24px;
             }
+
             .subtitle {
               font-size: 16px;
               max-width: 500px;
@@ -25850,19 +25906,24 @@ main {
       max-width: 1400px;
       width: 100%;
       padding-top: 70px;
+
       .prediction {
+
         // Prediction-Introduce
         &-introduce {
           text-align: center;
           margin-bottom: 52px;
+
           .title {
             font-size: 32px;
             font-weight: 600;
           }
+
           .text {
             width: 100%;
             display: flex;
             justify-content: center;
+
             span {
               font-size: 16px;
               font-weight: 300;
@@ -25891,32 +25952,38 @@ main {
             .swiper-container {
               padding: 0 0 10px;
               border-radius: 20px;
+
               // swiper-wrapper
               .swiper-wrapper {
                 max-width: 448px;
+
                 // swiper-slide
                 .swiper-slide {
                   border-radius: 20px;
                 }
               }
+
               // swiper-pagination
               .swiper-pagination {
                 position: static;
                 margin-top: 20px;
                 display: flex;
                 align-items: center;
-                justify-content: center; 
+                justify-content: center;
+
                 .swiper-pagination-bullet {
                   background: #D9D9D9;
                   width: 10px;
                   height: 10px;
                   border-radius: 50%;
+
                   &-active {
                     border-radius: 50%;
                     background: #ff7600;
                   }
                 }
               }
+
               // swiper-navigation-buttons
               .swiper-button-next,
               .swiper-button-prev {
@@ -25927,10 +25994,12 @@ main {
                 color: #fff;
                 display: none;
               }
+
               // swiper-button-next
               .swiper-button-next {
                 transform: rotate(180deg);
                 right: 5px;
+
                 &::after {
                   content: "\e95d";
                   font-size: 28px;
@@ -25940,9 +26009,11 @@ main {
                   justify-content: center;
                 }
               }
+
               // swiper-button-prev
               .swiper-button-prev {
                 left: 5px;
+
                 &::after {
                   content: "\e95d";
                   font-size: 28px;
@@ -25953,14 +26024,16 @@ main {
                 }
               }
             }
+
             // card-swiper hover 
             &:hover {
+
               .swiper-button-next,
               .swiper-button-prev {
                 display: flex;
               }
             }
-            
+
             // Match-Card
             .match-card {
               display: flex;
@@ -25969,6 +26042,7 @@ main {
               background: #fff;
               border-radius: 20px;
               padding: 40px 0 0;
+
               // Button
               .btn-submit {
                 background: #FF7600;
@@ -25977,37 +26051,45 @@ main {
                 width: 100%;
                 text-transform: uppercase;
                 font-size: 15px;
+
                 &:hover {
                   background: lighten(#ff7600, 8%);
                   transition: .2s;
                 }
+
                 &.active {
                   background: #C6C6C6;
                   color: #fff;
+
                   &:hover {
                     cursor: text;
                   }
                 }
+
                 &[disabled] {
                   background: #C6C6C6 !important;
                   color: #fff !important;
+
                   &:hover {
                     cursor: text;
                   }
                 }
               }
+
               //card-content
               .card-content {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 padding: 0 52px;
+
                 // card-top
                 .card-top {
                   display: flex;
                   flex-direction: column;
                   align-items: center;
                   margin-bottom: 44px;
+
                   // match
                   .match {
                     color: #000;
@@ -26017,13 +26099,15 @@ main {
                     margin-bottom: 12px;
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 2; 
-                    overflow: hidden; 
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
                     text-overflow: ellipsis;
                   }
+
                   //time
                   .time {
                     display: flex;
+
                     span {
                       color: #000;
                       font-weight: 500;
@@ -26031,15 +26115,17 @@ main {
                       text-align: center;
                       display: -webkit-box;
                       -webkit-box-orient: vertical;
-                      -webkit-line-clamp: 2; 
-                      overflow: hidden; 
+                      -webkit-line-clamp: 2;
+                      overflow: hidden;
                       text-overflow: ellipsis;
+
                       &:last-child {
                         margin-left: 8px;
                       }
                     }
                   }
                 }
+
                 //tips
                 .tips {
                   color: red;
@@ -26047,19 +26133,23 @@ main {
                   font-size: 12px;
                   padding: 3px 0;
                 }
+
                 // card-predict
                 .card-predict {
                   display: flex;
                   margin-bottom: 40px;
+
                   // team
                   .team {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+
                     // team-badge
                     &-badge {
                       position: relative;
                       margin-bottom: 32px;
+
                       // team-img
                       .team-img {
                         display: flex;
@@ -26068,6 +26158,7 @@ main {
                         z-index: 2;
                         width: 64px;
                         height: 64px;
+
                         img {
                           display: block;
                           // left: 50%;
@@ -26075,6 +26166,7 @@ main {
                           // transform: translate(-50%, -50%);
                         }
                       }
+
                       &::before {
                         content: "";
                         display: flex;
@@ -26089,6 +26181,7 @@ main {
                         top: 50%;
                         transform: translate(-50%, -50%);
                       }
+
                       &::after {
                         content: "";
                         display: flex;
@@ -26104,6 +26197,7 @@ main {
                         transform: translate(-50%, -50%);
                       }
                     }
+
                     // team-name
                     &-name {
                       font-size: 12px;
@@ -26112,11 +26206,12 @@ main {
                       text-align: center;
                       display: -webkit-box;
                       -webkit-box-orient: vertical;
-                      -webkit-line-clamp: 1; 
-                      overflow: hidden; 
+                      -webkit-line-clamp: 1;
+                      overflow: hidden;
                       text-overflow: ellipsis;
                     }
                   }
+
                   // center
                   .center-txt {
                     // align-self: flex-start;
@@ -26124,16 +26219,20 @@ main {
                     font-size: 24px;
                     color: #FF7600;
                     padding: 0 10px;
+
                     &.disabled {
                       color: #A5A5A5;
                     }
+
                     &.active {
                       color: #A5A5A5;
                     }
                   }
+
                   // number-box
                   .number-box {
                     display: block;
+
                     // input
                     input {
                       border: 1px solid #ff7600;
@@ -26142,23 +26241,28 @@ main {
                       border-radius: 10px;
                       color: #000;
                       text-align: center;
+
                       &::placeholder {
                         text-align: center;
                         color: #B1B1B1;
                         font-weight: 200;
                         font-size: 12px;
                       }
+
                       &:focus-visible {
                         outline: 2px solid #ff7600;
                       }
+
                       &[disabled] {
                         border: 1px solid transparent !important;
                         background: #F3F3F3 !important;
+
                         &::placeholder {
                           color: #000 !important;
                         }
                       }
                     }
+
                     //number
                     .number {
                       width: 130px;
@@ -26179,6 +26283,7 @@ main {
 
         // Prediction-Result
         &-result {
+
           // result-title
           .result-title {
             margin: 95px 0 52px;
@@ -26186,50 +26291,61 @@ main {
             font-weight: 600;
             text-align: center;
           }
+
           // result-content
           .result-content {
             background: #fff;
             border-radius: 20px;
             padding: 50px;
+
             .result {
+
               // result-top
               &-top {
                 display: flex;
                 justify-content: space-between;
                 margin-bottom: 48px;
+
                 .sub-caption {
                   display: flex;
                   flex-direction: column;
+
                   .time {
                     font-size: 12px;
                     color: #000;
                   }
+
                   .title {
                     font-size: 24px;
                     font-weight: 700;
                     color: #000;
+
                     span {
                       color: #000;
                     }
                   }
                 }
+
                 button {
                   background: #ff7600;
                   border-radius: 30px;
                   padding: 16px 42px;
                   font-size: 16px;
                   font-weight: 400;
+
                   &:hover {
                     background: lighten(#ff7600, 8%);
                     transition: .2s;
                   }
                 }
               }
+
               // result-bottom
               &-bottom {
                 display: flex;
                 gap: 30px;
                 width: 100%;
+
                 // prize-money
                 .prize-money {
                   background: url(https://banner.0814media.net/desktop/img/event/prediction/result.jpg) no-repeat center / cover;
@@ -26238,19 +26354,22 @@ main {
                   justify-content: center;
                   flex: 0 0 750px;
                   border-radius: 20px;
+
                   span {
                     font-size: 20px;
                     font-weight: 500;
                     text-transform: uppercase;
                     letter-spacing: 1.25px;
                     padding-left: 100px;
+
                     &.amount {
                       font-size: 40px;
                       font-weight: 600;
-                      color: #ff7600; 
+                      color: #ff7600;
                     }
                   }
                 }
+
                 //user-content
                 .user-content {
                   background: #14173D;
@@ -26260,21 +26379,25 @@ main {
                   flex-direction: column;
                   align-items: center;
                   width: 100%;
+
                   .title {
                     font-size: 20px;
                     padding: 6px;
                     margin-bottom: 10px;
                     color: #FF5E00;
                   }
+
                   // user-list
                   .user-list {
                     display: flex;
                     flex-direction: column;
                     width: 100%;
+
                     ul {
                       flex: 1;
                       display: flex;
                       flex-direction: column;
+
                       li {
                         flex: 1;
                         padding: 12px 0;
@@ -26285,6 +26408,7 @@ main {
                         align-items: center;
                         background: rgba(#fff, .2);
                         font-weight: 300;
+
                         &:last-child {
                           margin-bottom: 0;
                         }
@@ -26294,7 +26418,7 @@ main {
                 }
               }
             }
-            
+
           }
         }
       }
@@ -26304,7 +26428,7 @@ main {
     .bottom-graphic {
       width: 100%;
       box-sizing: border-box;
-      margin: 120px 0 80px ;
+      margin: 120px 0 80px;
       display: flex;
       align-items: center;
     }
@@ -26320,47 +26444,58 @@ main {
       background: #fff;
       padding: 50px 42px;
       border-radius: 20px;
+
       .btn-block {
         padding-top: 40px;
+
         .btn-check {
           padding: 15px;
           background: #ff7600;
           min-width: 180px;
           border-radius: 10px;
           color: #fff;
+
           &:hover {
-            background: lighten(#ff7600 ,10% );
+            background: lighten(#ff7600, 10%);
             transition: .3s;
           }
         }
       }
+
       .caption {
         margin-bottom: 45px;
         font-size: 26px;
         color: #ff7600;
         font-weight: 600;
       }
+
       .content {
         max-height: 275px;
         overflow-y: auto;
+
         &::-webkit-scrollbar-thumb {
-          background: #ff7600; 
-          border-radius: 20px; 
+          background: #ff7600;
+          border-radius: 20px;
         }
+
         ul {
           padding-left: 15px;
+
           .list {
             display: flex;
             flex-direction: column;
             list-style: circle;
+
             span {
               display: block;
+
               &.title {
                 color: #000;
                 font-size: 20px;
                 position: relative;
                 margin-bottom: 15px;
                 font-weight: 600;
+
                 &::before {
                   content: "";
                   display: flex;
@@ -26376,6 +26511,7 @@ main {
                   left: -15px;
                 }
               }
+
               &.text {
                 font-size: 16px;
                 color: #797979;
@@ -26389,4 +26525,3 @@ main {
     }
   }
 }
-
