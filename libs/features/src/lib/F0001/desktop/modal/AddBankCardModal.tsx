@@ -7,11 +7,12 @@ import {
 } from '@nx-next-app/components/D0001'
 import {
 	E_WALLET_SYSID,
+	PAYMENT_BANK_ACCOUNT_REGEX,
 	TOUCH_GO_REGEX,
 } from '@nx-next-app/constants'
 
-import { WrapperModal } from '@nx-next-app/features/F0001/desktop/modal/styles'
 import { useAuth } from '@nx-next-app/data-access'
+import { WrapperModal } from '@nx-next-app/features/F0001/desktop/modal/styles'
 import { WithdrawalBankCardEnum } from '@nx-next-app/features/F0001/types'
 import {
 	IBankInfoData,
@@ -186,16 +187,19 @@ const AddBankCardModal = ({
 									value: true,
 									message: t('Label_Withdrawal_NeedAccountNo'),
 								},
-							minLength: {
-								value: 8,
-								message: t('Label_BankInfo_AccountLength'),
-							},
+								minLength: {
+									value: 8,
+									message: t('Label_BankInfo_AccountLength'),
+								},
 								pattern: isTouchNGoIsValid
 									? {
 											value: TOUCH_GO_REGEX,
 											message: t('Label_Withdrawal_TouchGo_Validation'),
 									  }
-								: undefined,
+									: {
+											value: PAYMENT_BANK_ACCOUNT_REGEX,
+											message: t('Label_BankInfo_AccountWrongFormat'),
+									  },
 								onBlur: checkAccountNo,
 							})}
 							title={
