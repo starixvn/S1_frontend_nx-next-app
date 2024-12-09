@@ -296,29 +296,6 @@ export const WrapperParentProfileH5 = styled.div`
 	border-radius: 20px;
 	overflow: hidden;
 	padding-bottom: 5vw;
-	.group-btn-line {
-		padding: 0 5vw 0 5vw;
-		.btnGroup {
-			margin: 2vw 0;
-			.icon {
-				margin-right: 1.5vw;
-				&:before {
-					font-size: 4vw;
-				}
-			}
-		}
-		.txt-line {
-			color: #1b5bff;
-			padding: 4vw 0;
-			font-size: 3.5vw;
-			font-weight: 400;
-		}
-		.icon-line {
-			&:before {
-				font-size: 5.5vw;
-			}
-		}
-	}
 `
 
 export const WrapperProfileH5 = styled.div`

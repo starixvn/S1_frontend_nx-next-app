@@ -37,7 +37,7 @@ const LineBinding = () => {
 
 	return (
 		<>
-			<div className='btn-group'>
+			<div className='btnGroup'>
 				<button className='btn-line' onClick={handleLineBinding}>
 					<i className='icon icon-line' />
 					{isLineBinding

@@ -1,8 +1,8 @@
-import { useTranslation } from 'next-i18next'
 import {
 	LineLoginDirectTypeEnum,
 	useLazyGetLineLoginDirectUrlQuery,
 } from '@nx-next-app/service'
+import { useTranslation } from 'next-i18next'
 
 const LineRegister = () => {
 	const { t } = useTranslation()
@@ -26,9 +26,9 @@ const LineRegister = () => {
 	return (
 		<div className='register-line'>
 			{t('Label_Join_RegisterWithLine')} ID
-			<div className='btn-group'>
+			<div className='btnGroup'>
 				<button className='btn-line' type='button' onClick={handleLineRegister}>
-					<i className='icon icon-line-bold' />
+					<i className='icon icon-line' />
 					{t('Label_Join_RegisterWithLine')}
 				</button>
 			</div>

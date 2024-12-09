@@ -8,6 +8,7 @@ export const WrapperSettingPage = styled.div`
 				no-repeat center/cover;
 			height: 42vw;
 			border-radius: 0 0 20px 20px;
+			background-position: top;
 			.profile-item {
 				display: flex;
 				align-items: center;

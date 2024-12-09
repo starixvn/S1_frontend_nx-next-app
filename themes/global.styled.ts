@@ -1754,6 +1754,31 @@ export const GlobalStyles = createGlobalStyle`
         display: block;
       }
     }
+    .group-btn-line {
+      padding: 0 5vw 0 5vw;
+      .btnGroup {
+        margin: 2vw 0;
+        .icon {
+          margin-right: 1.5vw;
+        }
+      }
+      .btn-line{
+        background: #01B901;
+        box-shadow: 0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset;
+      }
+      .txt-line {
+        color: #939DC5;
+        padding: 4vw 0;
+        font-size: 3.5vw;
+        font-weight: 400;
+        text-align : center;
+      }
+      .icon-line {
+        &:before {
+          font-size: 5.5vw;
+        }
+      }
+    }
   }
 
 
