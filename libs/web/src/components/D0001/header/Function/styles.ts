@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const HomeProfile = styled.div`
 	background: ${({ theme }) => theme.desktop.dropdownBg};
@@ -574,15 +574,15 @@ export const LoginForm = styled.div`
 	}
 
 	.form-input {
-		background: ${({ theme }) => theme.desktop.headerInputBg};
-		color: ${({ theme }) => theme.desktop.headerInputColor};
-		font-size: 1.4rem;
-		text-align: left;
+		width: 100%;
 		border: none;
 		outline: none;
 		box-shadow: none;
-		width: 100%;
-		color: #fff;
+		background: ${({ theme }) => theme.desktop.headerInputBg};
+		font-size: 1.4rem;
+		text-align: left;
+		color: ${({ theme }) => theme.desktop.headerInputColor};
+		caret-color: ${({ theme }) => theme.desktop.headerInputColor};
 	}
 
 	.inputBox-blue + .inputBox-blue {

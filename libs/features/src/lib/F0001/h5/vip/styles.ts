@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const WrapperVipPageH5 = styled.div`
 	.vip {
@@ -9,9 +9,14 @@ export const WrapperVipPageH5 = styled.div`
 			height: 100%;
 			margin-left: auto;
 			margin-right: auto;
-			background: #232b4f;
-			border-radius: 0 0 5vw 5vw;
+
+			> .swiper-wrapper {
+				margin-bottom: 3.88vw;
+				background: #232b4f;
+				border-radius: 0 0 5vw 5vw;
+			}
 		}
+
 		.swiper-slide {
 			text-align: center;
 			font-size: 18px;
@@ -205,9 +210,7 @@ export const WrapperVipPageH5 = styled.div`
 			}
 		}
 	}
-	.vip .swiper-pagination {
-		top: 122vw;
-	}
+
 	.vip .swiper-pagination-bullet-active {
 		background-color: #fff;
 	}
@@ -343,7 +346,7 @@ export const WrapperVipPageH5 = styled.div`
 
 	.swiper-pagination {
 		width: max-content;
-		bottom: 0;
+		bottom: 10px;
 		right: unset;
 		left: 50% !important;
 		transform: translateX(-50%);
