@@ -54,7 +54,7 @@ const RecentHistory = () => {
 							</div>
 						</>
 					) : (
-						<NoData />
+						<NoData customClass='have-border' />
 					)}
 				</div>
 			</WrapperInfoList>

@@ -132,3 +132,20 @@ export const WrapperInfoList = styled.div`
 		}
 	}
 `
+
+export const WrapperCustomTitleBack = styled.div`
+	width: 100%;
+	.title {
+		&.custom-title-back {
+			padding: 0;
+			background: #0f1428;
+			font-weight: 700;
+			justify-content: flex-start;
+			gap: 2vw;
+
+			.icon-arrow-left-line {
+				margin-left: 5vw;
+			}
+		}
+	}
+`

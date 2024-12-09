@@ -1,16 +1,6 @@
 import styled from 'styled-components'
 
 export const WrapperSurvayH5 = styled.div`
-	.title {
-		padding: 0 4vw;
-		background: #0f1428;
-		font-weight: 700;
-		justify-content: flex-start;
-		gap: 2vw;
-		.icon-arrow-left-line {
-			margin-left: 5vw;
-		}
-	}
 	.inputBox-blue {
 		margin-top: 0;
 		color: #939dc5;

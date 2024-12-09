@@ -1,6 +1,7 @@
 import { Form, Header } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { EMAIL_OR_PHONE_REGEX } from '@nx-next-app/constants'
+import { WrapperCustomTitleBack } from '@nx-next-app/features/F0001/h5/common/CommonStyles'
 import { WrapperSurvayH5 } from '@nx-next-app/features/F0001/h5/survey/styles'
 import { useSetQuestionnaireMutation } from '@nx-next-app/service'
 import classNames from 'classnames'
@@ -61,10 +62,12 @@ const Survey = () => {
 	return (
 		<WrapperSurvayH5>
 			<Header className='header'>
-				<div className='title'>
-					<i className='icon icon-arrow-left-line' onClick={onCancel} />
-					{t('Label_General_Survey')}
-				</div>
+				<WrapperCustomTitleBack>
+					<div className='title custom-title-back'>
+						<i className='icon icon-arrow-left-line' onClick={onCancel} />
+						{t('Label_General_Survey')}
+					</div>
+				</WrapperCustomTitleBack>
 			</Header>
 			<main className='main survey'>
 				<div
