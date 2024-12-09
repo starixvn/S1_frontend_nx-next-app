@@ -1124,14 +1124,26 @@ main {
 
   }
 
+
   //gamelist
   .home-gamelist {
+
     .gamelist {
+
       &-img {
         color: $white !important;
 
         img {
           filter: drop-shadow(0 0 4px #D8D8D8) !important;
+        }
+      }
+
+      //under
+      &-item {
+        &.under {
+          img {
+            filter: grayscale(1) !important;
+          }
         }
       }
     }
