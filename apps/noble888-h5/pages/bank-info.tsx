@@ -1,11 +1,11 @@
+import { NovaAuthProvider } from '@noble888-h5/providers'
 import { paths } from '@nx-next-app/constants'
 import {
-	AuthProvider,
 	getWithdrawalBlockSetting,
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
-import { BankInfo, Layout } from '@nx-next-app/features/F0006/h5'
-import { BankInfoProvider } from '@nx-next-app/features/F0006/providers'
+import { BankInfo, Layout } from '@nx-next-app/features/F0001/h5'
+import { BankInfoProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -27,7 +27,10 @@ const BankInfoPage = ({
 	persistStaticFileDomainData,
 }: IBankInfoPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -37,7 +40,7 @@ const BankInfoPage = ({
 					</Layout>
 				</BankInfoProvider>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

@@ -1,7 +1,8 @@
+import { NovaAuthProvider } from '@noble888-desktop/providers'
 import { ENV_COOKIE_NAMES, EVENT_PERIOD } from '@nx-next-app/constants'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, LuckyWheel } from '@nx-next-app/features/F0006/desktop'
-import { LuckWheelProvider } from '@nx-next-app/features/F0006/providers'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
+import { Layout, LuckyWheel } from '@nx-next-app/features/F0001/desktop'
+import { LuckWheelProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -24,7 +25,10 @@ const LuckyWheelPage = ({
 	persistStaticFileDomainData,
 }: ILuckyWheelPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -34,13 +38,14 @@ const LuckyWheelPage = ({
 					</LuckWheelProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
 	const { originCookies } = initialProps
+
 	const { langId, currencyId } = {
 		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),

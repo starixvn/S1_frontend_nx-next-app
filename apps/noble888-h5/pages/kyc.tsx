@@ -1,5 +1,5 @@
+import { NovaAuthProvider } from '@noble888-h5/providers'
 import {
-	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
@@ -25,7 +25,10 @@ const KycPage = ({
 	withdrawalBlockSetting,
 }: IKycPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -35,7 +38,7 @@ const KycPage = ({
 					</WithdrawalProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

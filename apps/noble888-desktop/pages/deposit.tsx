@@ -1,12 +1,11 @@
+import { NovaAuthProvider } from '@noble888-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
-	AuthProvider,
 	DepositProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { Deposit } from '@nx-next-app/features/F0001/desktop'
-import { Layout } from '@nx-next-app/features/F0006/desktop'
+import { Deposit, Layout } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -35,7 +34,10 @@ const DepositPage = ({
 	withdrawalBlockSetting,
 }: IDepositPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -52,7 +54,7 @@ const DepositPage = ({
 					</DepositProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

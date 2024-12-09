@@ -1,5 +1,6 @@
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, Profile } from '@nx-next-app/features/F0006/h5'
+import { NovaAuthProvider } from '@noble888-h5/providers'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
+import { Layout, Profile } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -14,7 +15,10 @@ const ProfilePage = ({
 	persistStaticFileDomainData,
 }: InitialPropsInterface) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -22,7 +26,7 @@ const ProfilePage = ({
 					<Profile />
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 
