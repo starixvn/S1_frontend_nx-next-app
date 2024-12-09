@@ -212,7 +212,7 @@ const DepositHistoryTable = ({
 				return (
 					<div className='btnGroup' style={{ justifyContent: 'flex-start' }}>
 						{result}
-						{item?.thirdId}
+						{/* {item?.thirdId} */}
 					</div>
 				)
 			},
