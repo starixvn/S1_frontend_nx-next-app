@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const WrapperVipPageH5 = styled.div`
 	.vip {
@@ -295,12 +295,90 @@ export const WrapperVipPageH5 = styled.div`
 				padding: 4vw 2vw;
 				background: #232b4f;
 				border-top: 0.02rem solid #374375;
-				font-weight : 700;
-				font-size : 2.9vw;
+				font-weight: 700;
+				font-size: 3.4vw;
+			}
+			&.vintage {
+				.viptable-item {
+					&:last-child {
+						.viptable-item-text {
+							&:last-child {
+								background: #faa972;
+								color: #fff;
+								font-weight: 700;
+							}
+						}
+					}
+				}
+			}
+			&.silver {
+				.viptable-item {
+					&:last-child {
+						.viptable-item-text {
+							&:last-child {
+								background: #adadad;
+								color: #fff;
+								font-weight: 700;
+							}
+						}
+					}
+				}
+			}
+			&.gold {
+				.viptable-item {
+					&:last-child {
+						.viptable-item-text {
+							&:last-child {
+								background: #e8bb4a;
+								color: #fff;
+								font-weight: 700;
+							}
+						}
+					}
+				}
+			}
+			&.titanium {
+				.viptable-item {
+					&:last-child {
+						.viptable-item-text {
+							&:last-child {
+								background: #606677;
+								color: #fff;
+								font-weight: 700;
+							}
+						}
+					}
+				}
+			}
+			&.diamond {
+				.viptable-item {
+					&:last-child {
+						.viptable-item-text {
+							&:last-child {
+								background: #6dbdf2;
+								color: #fff;
+								font-weight: 700;
+							}
+						}
+					}
+				}
+			}
+			&.infinity {
+				.viptable-item {
+					&:last-child {
+						.viptable-item-text {
+							&:last-child {
+								background: #bcaca3;
+								color: #fff;
+								font-weight: 700;
+							}
+						}
+					}
+				}
 			}
 		}
 		.viptable-item-text {
-			color: #939DC5;
+			color: #939dc5;
 			display: flex;
 			padding-left: 2vw;
 			border-top: 0.02rem solid #374375;
@@ -312,7 +390,15 @@ export const WrapperVipPageH5 = styled.div`
 				width: 100%;
 				display: flex;
 				align-items: center;
-				font-size : 3.4vw;
+				font-size: 3.4vw;
+				font-weight: 600;
+				&:last-child {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					border: 0;
+					flex: 0 0 30%;
+				}
 			}
 		}
 		.medal-item {
@@ -326,8 +412,8 @@ export const WrapperVipPageH5 = styled.div`
 			flex-flow: column;
 			align-items: center;
 			border-right: 0.02rem solid #374375;
-			&:last-child{
-				border-right : none;
+			&:last-child {
+				border-right: none;
 			}
 			img {
 				width: 15vw;
@@ -346,7 +432,7 @@ export const WrapperVipPageH5 = styled.div`
 					opacity: 1;
 				}
 				> div {
-					color: #ADADAD;
+					color: #adadad;
 				}
 			}
 			&.gold {
@@ -354,7 +440,7 @@ export const WrapperVipPageH5 = styled.div`
 					opacity: 1;
 				}
 				> div {
-					color: #E8BB4A;
+					color: #e8bb4a;
 				}
 			}
 			&.titanium {
@@ -362,15 +448,23 @@ export const WrapperVipPageH5 = styled.div`
 					opacity: 1;
 				}
 				> div {
-					color: #C6C9CB;
+					color: #c6c9cb;
 				}
 			}
-			&.diamond{
+			&.diamond {
 				img {
 					opacity: 1;
 				}
 				> div {
-					color: #6DBDF2;
+					color: #6dbdf2;
+				}
+			}
+			&.infinity {
+				img {
+					opacity: 1;
+				}
+				> div {
+					color: #c3cacf;
 				}
 			}
 		}
@@ -378,22 +472,17 @@ export const WrapperVipPageH5 = styled.div`
 			border-left: 0;
 		}
 	}
-	.vipPage .viptable-item-text li:last-child {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border: 0;
-		flex: 0 0 30%;
-	}
-	.vipPage .viptable-item-text li.High::before {
-		content: '';
+	.High::before {
+		content: '\\e91a';
+		font-family: 'S1NewIcons' !important;
 		display: block;
-		background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/check.png)
-			no-repeat center/100%;
-		height: 3vw;
-		width: 3vw;
+		height: 6.1vw;
+		width: 6.1vw;
+		color: #01b901;
+		font-size: 6.1vw;
+		margin-right: 1vw;
 	}
-	
+
 	.vip-bottom {
 		display: flex;
 		flex-wrap: wrap;
@@ -417,9 +506,9 @@ export const WrapperVipPageH5 = styled.div`
 		text-align: center;
 		display: flex;
 		justify-content: center;
-		font-size: 20px;
-		width: 150px;
-		font-weight: bold;);
-		filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+		font-size: 3.4vw;
+		text-transform: uppercase;
+		width: 30vw;
+		font-weight: bold;
 	}
 `

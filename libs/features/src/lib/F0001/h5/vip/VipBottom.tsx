@@ -1,9 +1,8 @@
-import React from 'react'
-import { useTranslation } from 'next-i18next'
-import { useAuth } from '@nx-next-app/data-access'
-import { paths } from '@nx-next-app/constants'
-import { useRouter } from 'next/router'
 import { Img } from '@nx-next-app/components/D0001'
+import { paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
 
 const VipBottom = () => {
 	const { t } = useTranslation()
@@ -22,7 +21,7 @@ const VipBottom = () => {
 		<div className='vip-bottom'>
 			<div className='vip-bottom-item' style={{ cursor: 'pointer' }}>
 				<Img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/benefit-1.png`}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/benefit-1.webp`}
 					alt='TopPriorityServices'
 					onClick={handleClickVipBottomImage}
 				/>
@@ -30,7 +29,7 @@ const VipBottom = () => {
 			</div>
 			<div className='vip-bottom-item' style={{ cursor: 'pointer' }}>
 				<Img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/benefit-2.png`}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/benefit-2.webp`}
 					alt='ExclusivePromo'
 					onClick={handleClickVipBottomImage}
 				/>
@@ -38,7 +37,7 @@ const VipBottom = () => {
 			</div>
 			<div className='vip-bottom-item' style={{ cursor: 'pointer' }}>
 				<Img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/benefit-3.png`}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/benefit-3.webp`}
 					alt='BirthdaySpecialGifts'
 					onClick={handleClickVipBottomImage}
 				/>
@@ -46,7 +45,7 @@ const VipBottom = () => {
 			</div>
 			<div className='vip-bottom-item' style={{ cursor: 'pointer' }}>
 				<Img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/benefit-4.png`}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/benefit-4.webp`}
 					alt='LifetimeMembership'
 					onClick={handleClickVipBottomImage}
 				/>
