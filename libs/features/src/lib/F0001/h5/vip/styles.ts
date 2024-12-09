@@ -488,8 +488,6 @@ export const WrapperVipPageH5 = styled.div`
 		flex-wrap: wrap;
 		justify-content: center;
 		align-items: center;
-		background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/vip-bottom-bg.png)
-			no-repeat center/100%;
 		height: 100%;
 		padding-bottom: 20vw;
 		margin-top: 10vw;
@@ -498,9 +496,6 @@ export const WrapperVipPageH5 = styled.div`
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-	}
-	.vip-bottom-item img {
-		width: 40vw;
 	}
 	.vip-bottom-item span {
 		text-align: center;
