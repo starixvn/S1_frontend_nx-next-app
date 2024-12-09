@@ -244,9 +244,6 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 				}}
 				errorMessage={errors['nationality']?.message as string}
 			/>
-			<div style={{ textAlign: 'center' }}>
-				<Captcha />
-			</div>
 			{captchaType === CaptchaTypeEnum.Number && (
 				<InputBox
 					register={register('reCaptchaToken', { required: true })}
@@ -257,6 +254,10 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 					touched={!!touchedFields['reCaptchaToken']}
 				/>
 			)}
+			<div>
+				<Captcha />
+			</div>
+
 			<div className='btn-group'>
 				<button type='submit'>{t('Label_General_Join')}</button>
 			</div>

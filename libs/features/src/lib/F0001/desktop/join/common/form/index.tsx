@@ -677,7 +677,6 @@ const Form = ({ cookies }: IJoinProps) => {
 					/>
 				)}
 			</div>
-			<Captcha />
 			{captchaType === CaptchaTypeEnum.Number && (
 				<InputBox
 					register={register('reCaptchaToken', { required: true })}
@@ -688,6 +687,7 @@ const Form = ({ cookies }: IJoinProps) => {
 					touched={!!touchedFields['reCaptchaToken']}
 				/>
 			)}
+			<Captcha />
 			<div className='Terms'>
 				{t('Label_Join_SignUpTerms1')}
 				<a
