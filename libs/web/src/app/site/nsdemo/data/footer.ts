@@ -283,50 +283,30 @@ export const FOOTER_DATA = ({
 		paymentMethodsByCurrencyId: {
 			[CurrenciesEnum.MYR]: [
 				{
+					name: 'Bangkok Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bangkokbank.webp`,
+				},
+
+				{
 					name: 'Kasikorn Bank',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/kasikornbank.webp`,
 				},
-				{
-					name: 'Krung Thai Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ktb.webp`,
-				},
+
 				{
 					name: 'Siam Commercial Bank',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/scb.webp`,
 				},
+
 				{
-					name: 'Bangkok Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bangkokbank.webp`,
+					name: 'Krung Thai Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ktb.webp`,
 				},
+
 				{
 					name: 'Bank of Ayudhya',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ayudhya.webp`,
 				},
-				{
-					name: 'Promtpay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/promptpay.webp`,
-				},
-				{
-					name: 'TrueMoney',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/truemoney.webp`,
-				},
 
-				{
-					name: 'BigPayz',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bigpayz.webp`,
-				},
-				{
-					name: 'RapidPay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/rapidpay.webp`,
-				},
-				{
-					name: 'ANZ Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ANZ-Bank.webp`,
-				},
-				{
-					name: 'KrungThai',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Krung-Thai-Bank.webp`,
-				},
 				{
 					name: 'TMBThanachart',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/TMBThanachart-Bank.webp`,
@@ -342,6 +322,19 @@ export const FOOTER_DATA = ({
 				{
 					name: 'CIMB Thai',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/CIMB-Thai-Bank.webp`,
+				},
+				{
+					name: 'Land and Houses Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Land-and-Houses-Bank.webp`,
+				},
+
+				{
+					name: 'Promtpay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/promptpay.webp`,
+				},
+				{
+					name: 'TrueMoney',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/truemoney.webp`,
 				},
 				{
 					name: 'Standard Chartered Bank',
@@ -411,50 +404,30 @@ export const FOOTER_DATA = ({
 			],
 			[CurrenciesEnum.THB]: [
 				{
+					name: 'Bangkok Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bangkokbank.webp`,
+				},
+
+				{
 					name: 'Kasikorn Bank',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/kasikornbank.webp`,
 				},
-				{
-					name: 'Krung Thai Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ktb.webp`,
-				},
+
 				{
 					name: 'Siam Commercial Bank',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/scb.webp`,
 				},
+
 				{
-					name: 'Bangkok Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bangkokbank.webp`,
+					name: 'Krung Thai Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ktb.webp`,
 				},
+
 				{
 					name: 'Bank of Ayudhya',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ayudhya.webp`,
 				},
-				{
-					name: 'Promtpay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/promptpay.webp`,
-				},
-				{
-					name: 'TrueMoney',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/truemoney.webp`,
-				},
 
-				{
-					name: 'BigPayz',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/bigpayz.webp`,
-				},
-				{
-					name: 'RapidPay',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/rapidpay.webp`,
-				},
-				{
-					name: 'ANZ Bank',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/ANZ-Bank.webp`,
-				},
-				{
-					name: 'KrungThai',
-					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Krung-Thai-Bank.webp`,
-				},
 				{
 					name: 'TMBThanachart',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/TMBThanachart-Bank.webp`,
@@ -470,6 +443,19 @@ export const FOOTER_DATA = ({
 				{
 					name: 'CIMB Thai',
 					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/CIMB-Thai-Bank.webp`,
+				},
+				{
+					name: 'Land and Houses Bank',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/Land-and-Houses-Bank.webp`,
+				},
+
+				{
+					name: 'Promtpay',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/promptpay.webp`,
+				},
+				{
+					name: 'TrueMoney',
+					img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/footer/square/truemoney.webp`,
 				},
 				{
 					name: 'Standard Chartered Bank',
