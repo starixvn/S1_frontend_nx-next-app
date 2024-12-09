@@ -1,18 +1,18 @@
-import Link from 'next/link'
-import dayjs from 'dayjs'
-import classNames from 'classnames'
-import { includes } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
-import { useBoolean, useDebounce, useOnClickOutside } from 'usehooks-ts'
-import { Fragment, useEffect, useRef } from 'react'
+import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import {
 	ICustBonusWalletData,
 	IMainWalletInfoData,
 	ITpWalletInfoData,
 } from '@nx-next-app/service'
 import { numberFormat } from '@nx-next-app/utils'
-import { paths } from '@nx-next-app/constants'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import classNames from 'classnames'
+import dayjs from 'dayjs'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import Link from 'next/link'
+import { Fragment, useEffect, useRef } from 'react'
+import { useBoolean, useDebounce, useOnClickOutside } from 'usehooks-ts'
 import { SpinButton } from '../../button'
 
 interface IWalletProps {
@@ -150,11 +150,11 @@ const Wallet = ({
 
 					<div className='btnGroup'>
 						<Link href={paths.withdrawal.root} passHref>
-							<a className='orange'>{t('Label_General_Withdrawal')}</a>
+							<a>{t('Label_General_Withdrawal')}</a>
 						</Link>
 						{includes(ALLOWED_CURRENCIES.TRANSFER, currencyId) && (
 							<Link href={paths.transferFunds.root} passHref>
-								<a className='orange'>{t('Label_General_TransferFunds')}</a>
+								<a>{t('Label_General_TransferFunds')}</a>
 							</Link>
 						)}
 					</div>

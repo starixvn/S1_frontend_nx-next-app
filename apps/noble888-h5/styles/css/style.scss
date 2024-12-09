@@ -1,10 +1,12 @@
+@import "_noble888-style.scss";
+@import "_variables.scss";
 @import "reset.scss";
 @import "color-group.scss";
 @import "font.scss";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Khmer:wght@300;400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-$transition:  .7s;
+$transition: .7s;
 $family: 'Poppins', sans-serif;
 
 body,
@@ -28,6 +30,7 @@ button {
 }
 
 .icon {
+
   &::before,
   &::after {
     font-family: 'icomoon' !important;
@@ -41,12 +44,12 @@ button {
 //     color: $lightgray2 !important;
 //   }
 // }
-#root  {
+#root {
   height: 100%;
 }
 
 
-.icon-close  {
+.icon-close {
   position: fixed;
   top: 3vw;
   right: 3vw;
@@ -54,7 +57,7 @@ button {
 }
 
 
-div[tabindex="-1"]  {
+div[tabindex="-1"] {
   height: 100%;
 }
 
@@ -340,7 +343,7 @@ div[tabindex="-1"]  {
       width: 50vw;
       height: 48vw;
       content: "";
-      background: url(https://banner.0814media.net/h5/img/spread.png)no-repeat;
+      background: url(https://imgs.tuk555.net/noble888-2w/h5/img/spread.png)no-repeat;
       background-size: 100%;
       top: -5vw;
       left: 20vw;
@@ -955,7 +958,7 @@ main {
 //         }
 //       }
 //       .circleAnimation {
-//         background: url(https://banner.0814media.net/h5/img/footerActive.svg) no-repeat top center / 100%;
+//         background: url(https://imgs.tuk555.net/noble888-2w/h5/img/footerActive.svg) no-repeat top center / 100%;
 //         display: flex;width: calc(20vw - 1px);
 //         color: #6F6F6F;
 //         top: -7vw;      
@@ -1242,7 +1245,7 @@ main {
   }
 
   &.ErrorPage {
-    background: url(https://banner.0814media.net/h5/img/errorBG.jpg) no-repeat center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/errorBG.jpg) no-repeat center / cover;
 
     .icon-close {
       position: absolute;
@@ -2308,7 +2311,7 @@ main {
           display: flex;
           justify-content: center;
           align-items: center;
-          background: url(https://banner.0814media.net/h5/img/4.0/username.png)no-repeat center / 100%;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/username.png)no-repeat center / 100%;
           height: 14vw;
           width: 47vw;
           color: white;
@@ -2355,21 +2358,21 @@ main {
 
       @keyframes bigwinpopup-en {
         0% {
-          background: url(https://banner.0814media.net/h5/img/4.0/popup-en-2.png) no-repeat center / cover;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/popup-en-2.png) no-repeat center / cover;
         }
 
         100% {
-          background: url(https://banner.0814media.net/h5/img/4.0/popup-en-1.png) no-repeat center / cover;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/popup-en-1.png) no-repeat center / cover;
         }
       }
 
       @keyframes bigwinpopup-id {
         0% {
-          background: url(https://banner.0814media.net/h5/img/4.0/popup-id-2.png) no-repeat center / cover;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/popup-id-2.png) no-repeat center / cover;
         }
 
         100% {
-          background: url(https://banner.0814media.net/h5/img/4.0/popup-id-1.png) no-repeat center / cover;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/popup-id-1.png) no-repeat center / cover;
         }
       }
     }
@@ -2463,7 +2466,7 @@ main {
         }
 
         .livesports-item {
-          background: url(https://banner.0814media.net/h5/img/4.0/team-bg.png) no-repeat center / cover;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/team-bg.png) no-repeat center / cover;
           height: 35vw;
           margin-bottom: 1.5vw;
           overflow: hidden;
@@ -3423,7 +3426,7 @@ main {
   position: relative;
 
   .infobtn {
-    background: url(https://banner.0814media.net/h5/img/notice.png) no-repeat center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/notice.png) no-repeat center / cover;
     width: 4vw;
     height: 4vw;
     margin-left: 1vw;
@@ -5818,7 +5821,7 @@ span.important {
 }
 
 .installGuide {
-  background: #2d023a url(https://banner.0814media.net/h5/img/918/bg.jpg) no-repeat center top/180vw;
+  background: #2d023a url(https://imgs.tuk555.net/noble888-2w/h5/img/918/bg.jpg) no-repeat center top/180vw;
   width: calc(100% - 8vw);
   height: calc(100% - 40vw);
   padding: 20vw 4vw 20vw;
@@ -5981,7 +5984,7 @@ span.important {
   }
 
   &.mega {
-    background: url(https://banner.0814media.net/h5/img/megabg.jpg) no-repeat center top/cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/megabg.jpg) no-repeat center top/cover;
 
     section {
       .copyinfo {
@@ -6346,7 +6349,7 @@ span.important {
         &::after {
           content: "";
           display: block;
-          background: url(https://banner.0814media.net/h5/img/refer-dashLine.svg) no-repeat center/2vw 10vw;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/refer-dashLine.svg) no-repeat center/2vw 10vw;
           padding: 1vw 0;
           width: 2vw;
           height: 10vw;
@@ -6410,7 +6413,7 @@ span.important {
         &::after {
           content: "";
           display: inline-block;
-          background: url(https://banner.0814media.net/h5/img/icon-copy.svg) no-repeat center/5vw 5vw;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/icon-copy.svg) no-repeat center/5vw 5vw;
           width: 5vw;
           height: 5vw;
           position: absolute;
@@ -7366,7 +7369,7 @@ span.important {
               &::before {
                 content: "";
                 display: block;
-                background: url(https://banner.0814media.net/h5/img/check.png)no-repeat center / 100%;
+                background: url(https://imgs.tuk555.net/noble888-2w/h5/img/check.png)no-repeat center / 100%;
                 height: 3vw;
                 width: 3vw;
               }
@@ -7467,7 +7470,7 @@ span.important {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background: url(https://banner.0814media.net/h5/img/vip-bottom-bg.png) no-repeat center / 100%;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/vip-bottom-bg.png) no-repeat center / 100%;
     height: 100%;
     padding-bottom: 20vw;
     margin-top: 10vw;
@@ -7496,7 +7499,7 @@ span.important {
 
 //event
 // .event{
-//   background:url(https://banner.0814media.net/h5/img/event/mysterybox/bg.jpg) no-repeat top center / 120%;
+//   background:url(https://imgs.tuk555.net/noble888-2w/h5/img/event/mysterybox/bg.jpg) no-repeat top center / 120%;
 //   width: calc(100% - 6vw);
 //   height: auto;
 //   padding: 0 3vw 24vw;
@@ -7644,7 +7647,7 @@ span.important {
 //     right: 10vw;
 //     width: 8vw;
 //     height: 6vw;
-//     background: url(https://banner.0814media.net/h5/img/event/mysterybox/coin.png) no-repeat center / cover;
+//     background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/mysterybox/coin.png) no-repeat center / cover;
 //     &:nth-child(3) {
 //       top: 22vw;
 //       left: 43vw;
@@ -8213,7 +8216,7 @@ span.important {
     width: 10vw;
     height: 10vw;
     margin: 0 auto !important;
-    background: url(https://banner.0814media.net/h5/img/qrpay.png) center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/qrpay.png) center / cover;
   }
 }
 
@@ -8224,7 +8227,7 @@ span.important {
     width: 10vw;
     height: 10vw;
     margin: 0 auto !important;
-    background: url(https://banner.0814media.net/h5/img/topup.png) center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/topup.png) center / cover;
   }
 }
 
@@ -8235,7 +8238,7 @@ span.important {
     width: 10vw;
     height: 10vw;
     margin: 0 auto !important;
-    background: url(https://banner.0814media.net/h5/img/quick-transfer.png) center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/quick-transfer.png) center / cover;
   }
 }
 
@@ -8246,7 +8249,7 @@ span.important {
     width: 10vw;
     height: 10vw;
     margin: 0 auto !important;
-    background: url(https://banner.0814media.net/h5/img/4.0/chat-transfer.png) center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/chat-transfer.png) center / cover;
   }
 }
 
@@ -8372,7 +8375,7 @@ span.important {
 
 .promos {
   .promosModule {
-    background: url(https://banner.0814media.net/h5/img/homepage/promobg.jpg) no-repeat left / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/homepage/promobg.jpg) no-repeat left / cover;
 
     >div {
       &:nth-child(1) {
@@ -8444,41 +8447,41 @@ span.important {
 // Referral-index
 .friendReferral {
   margin: 2vw;
-  background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-en.jpg) no-repeat center / 100%;
+  background: url(https://imgs.tuk555.net/noble888-2w/h5/img/index-referBlock-H5-en.jpg) no-repeat center / 100%;
   min-height: 42.5vw;
   border-radius: 5px;
   border: 1px solid #d2e2f9;
 
   &.en {
-    background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-en.jpg) no-repeat center / 100%;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/index-referBlock-H5-en.jpg) no-repeat center / 100%;
   }
 
   &.cs {
-    background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-cs.jpg) no-repeat center / 100%;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/index-referBlock-H5-cs.jpg) no-repeat center / 100%;
   }
 
   &.th {
-    background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-th.jpg) no-repeat center / 100%;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/index-referBlock-H5-th.jpg) no-repeat center / 100%;
   }
 
   &.id {
-    background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-id.jpg) no-repeat center / 100%;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/index-referBlock-H5-id.jpg) no-repeat center / 100%;
   }
 
   &.hi {
-    background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-hi.jpg) no-repeat center / 100%;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/index-referBlock-H5-hi.jpg) no-repeat center / 100%;
   }
 
   &.bd {
-    background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-bd.jpg) no-repeat center / 100%;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/index-referBlock-H5-bd.jpg) no-repeat center / 100%;
   }
 
   &.kh {
-    background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-kh.jpg) no-repeat center / 100%;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/index-referBlock-H5-kh.jpg) no-repeat center / 100%;
   }
 
   &.vn {
-    background: url(https://banner.0814media.net/h5/img/index-referBlock-H5-vn.jpg) no-repeat center / 100%;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/index-referBlock-H5-vn.jpg) no-repeat center / 100%;
   }
 
   &-btn {
@@ -8594,7 +8597,7 @@ span.important {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        background: url(https://banner.0814media.net/h5/img/gamenamebg.png) no-repeat center top / cover;
+        background: url(https://imgs.tuk555.net/noble888-2w/h5/img/gamenamebg.png) no-repeat center top / cover;
 
         @media (max-width:325px) {
           line-height: 2;
@@ -8777,7 +8780,7 @@ span.important {
 
     &.active {
       >.title {
-        background: url(https://banner.0814media.net/h5/img/livetvtitlebggold.png) no-repeat center / 75% 100%;
+        background: url(https://imgs.tuk555.net/noble888-2w/h5/img/livetvtitlebggold.png) no-repeat center / 75% 100%;
 
         &:before {
           color: red;
@@ -8802,7 +8805,7 @@ span.important {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      background: url(https://banner.0814media.net/h5/img/livetvtitlebg.png) no-repeat center / 75% 100%;
+      background: url(https://imgs.tuk555.net/noble888-2w/h5/img/livetvtitlebg.png) no-repeat center / 75% 100%;
       border-radius: 5px 5px 0 0;
       color: white;
       position: relative;
@@ -9026,7 +9029,7 @@ span.important {
 }
 
 .moduleTitle {
-  background: url(https://banner.0814media.net/h5/img/homepage/titlebg.png) no-repeat;
+  background: url(https://imgs.tuk555.net/noble888-2w/h5/img/homepage/titlebg.png) no-repeat;
   margin: 8vw 2vw 3vw;
   font-weight: bold;
   padding: 0 0 1vw 5vw;
@@ -9044,7 +9047,7 @@ span.important {
 
     &::after {
       content: "";
-      background: url(https://banner.0814media.net/h5/img/homepage/more.png) no-repeat;
+      background: url(https://imgs.tuk555.net/noble888-2w/h5/img/homepage/more.png) no-repeat;
       width: 20px;
       height: 20px;
       margin: 1vw 1vw 0;
@@ -9633,7 +9636,7 @@ span.important {
   margin: 13vw 2vw 7vw;
   border-radius: 1vw;
   height: 37vw;
-  background: url(https://banner.0814media.net/h5/img/homepage/jpotbg-a.png) no-repeat 100%/ cover;
+  background: url(https://imgs.tuk555.net/noble888-2w/h5/img/homepage/jpotbg-a.png) no-repeat 100%/ cover;
 
   &.active {
     filter: grayscale(1);
@@ -9664,7 +9667,7 @@ span.important {
   }
 
   >.number {
-    background: url(https://banner.0814media.net/h5/img/homepage/jpot-title.png) no-repeat;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/homepage/jpot-title.png) no-repeat;
     position: absolute;
     width: 67vw;
     height: 9.6vw;
@@ -9707,7 +9710,7 @@ span.important {
           content: "";
           display: block;
           position: absolute;
-          background: url(https://banner.0814media.net/h5/img/homepage/coin.png) no-repeat 70%;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/homepage/coin.png) no-repeat 70%;
           width: 10vw;
           height: 10vw;
           top: calc(50% - 5vw);
@@ -9755,15 +9758,15 @@ span.important {
 
 @keyframes jpot {
   0% {
-    background: url(https://banner.0814media.net/h5/img/jpotbg.png) no-repeat center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/jpotbg.png) no-repeat center / cover;
   }
 
   50% {
-    background: url(https://banner.0814media.net/h5/img/jpotbga.png) no-repeat center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/jpotbga.png) no-repeat center / cover;
   }
 
   100% {
-    background: url(https://banner.0814media.net/h5/img/jpotbg.png) no-repeat center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/jpotbg.png) no-repeat center / cover;
   }
 }
 
@@ -9897,7 +9900,7 @@ span.important {
   background: #97b4e0;
 
   .app {
-    background: url(https://banner.0814media.net/h5/img/app/new-appbg.png) no-repeat top center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/app/new-appbg.png) no-repeat top center / cover;
 
     &Header {
       height: 8vw;
@@ -10516,7 +10519,7 @@ span.important {
 
 /*checkspeed*/
 .checkspeed {
-  background: #0339a2 url(https://banner.0814media.net/h5/img/check_speed/bg.jpg) no-repeat center 24vw / 100% auto;
+  background: #0339a2 url(https://imgs.tuk555.net/noble888-2w/h5/img/check_speed/bg.jpg) no-repeat center 24vw / 100% auto;
   height: auto;
 
   img {
@@ -10901,14 +10904,14 @@ span.important {
     display: flex;
     align-items: center;
     flex-flow: column;
-    background: url(https://banner.0814media.net/h5/img/event/wheel/bg.jpg) no-repeat top center / 175vw, linear-gradient(to right, #100d41, #250333);
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/wheel/bg.jpg) no-repeat top center / 175vw, linear-gradient(to right, #100d41, #250333);
     padding: 0 0 24vw;
   }
 
   .eventTitleBg {
     width: 56vw;
     height: 13vw;
-    background: url(https://banner.0814media.net/h5/img/event/wheel/event_title_bg.png) no-repeat top center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/wheel/event_title_bg.png) no-repeat top center / cover;
     margin: auto;
     display: flex;
     justify-content: center;
@@ -10968,7 +10971,7 @@ span.important {
       width: 60vw;
       height: 60vw;
       position: absolute;
-      background: url(https://banner.0814media.net/h5/img/event/wheel/wheelbg.png) no-repeat center / cover;
+      background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/wheel/wheelbg.png) no-repeat center / cover;
       border-radius: 100%;
       margin-top: 1vw;
       font-weight: bold;
@@ -11252,7 +11255,7 @@ span.important {
         right: 50px;
         width: 60px;
         height: 46px;
-        background: url(https://banner.0814media.net/h5/img/event/wheel/coin.png) no-repeat center / cover;
+        background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/wheel/coin.png) no-repeat center / cover;
 
         &:nth-child(2) {
           top: 100px;
@@ -11750,12 +11753,12 @@ span.important {
     &.top {
       position: relative;
       height: 200vw;
-      background: url(https://banner.0814media.net/h5/img/event/worldcup/bg.jpg) no-repeat center / cover;
+      background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/worldcup/bg.jpg) no-repeat center / cover;
     }
 
     &.middle {
       position: relative;
-      background: url(https://banner.0814media.net/h5/img/event/worldcup/bg2.jpg) no-repeat center / cover;
+      background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/worldcup/bg2.jpg) no-repeat center / cover;
       text-align: center;
       padding: 10vw 0;
     }
@@ -11910,7 +11913,7 @@ span.important {
       display: block;
       width: 4vw;
       height: 4vw;
-      background: url(https://banner.0814media.net/h5/img/event/worldcup/icon-fifa.svg) no-repeat center / cover;
+      background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/worldcup/icon-fifa.svg) no-repeat center / cover;
       position: absolute;
       left: -0.5vw;
       top: 1.05vw;
@@ -11924,7 +11927,7 @@ span.important {
       "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
       "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;
-    background: url(https://banner.0814media.net/h5/img/event/worldcup/fixturebg.jpg) no-repeat top center / contain, linear-gradient(180deg, #300113 50%, #4a031e 100%);
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/worldcup/fixturebg.jpg) no-repeat top center / contain, linear-gradient(180deg, #300113 50%, #4a031e 100%);
 
     .title {
       margin: 3vw auto 18vw;
@@ -12483,7 +12486,7 @@ span.important {
         top: 2vw;
         width: 13vw;
         height: 2vw;
-        background: url(https://banner.0814media.net/h5/img/event/worldcup/5deco.svg) no-repeat center / cover;
+        background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/worldcup/5deco.svg) no-repeat center / cover;
       }
 
       &:before {
@@ -12746,13 +12749,13 @@ input:-webkit-autofill:active {
       display: flex;
       align-items: center;
       flex-flow: column;
-      background: url(https://banner.0814media.net/h5/img/event/angpao/bg-top.jpg) no-repeat top center / cover, #990100;
+      background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/angpao/bg-top.jpg) no-repeat top center / cover, #990100;
       min-height: 92vw;
     }
 
     &--bottom {
       min-width: 100%;
-      background: url(https://banner.0814media.net/h5/img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
+      background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
       padding-top: 5vw;
       padding-bottom: 15vw;
     }
@@ -12848,7 +12851,7 @@ input:-webkit-autofill:active {
           font-size: 3.5vw;
           text-transform: uppercase;
           color: #fff;
-          background: url(https://banner.0814media.net/h5/img/event/angpao/btn.png) no-repeat top center / contain;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/angpao/btn.png) no-repeat top center / contain;
           width: 45vw;
           height: 12vw;
           line-height: 1;
@@ -13110,7 +13113,7 @@ input:-webkit-autofill:active {
       display: block;
       width: 130px;
       height: 58px;
-      background-image: url("https://banner.0814media.net/h5/img/logo_en_w.png");
+      background-image: url("https://imgs.tuk555.net/noble888-2w/h5/img/logo_en_w.png");
       background-size: 100%;
       background-repeat: no-repeat;
       transition: ease .15s;
@@ -13829,7 +13832,7 @@ input[type=number] {
         width: 28vw;
         height: 16vw;
         pointer-events: none;
-        background: url(https://banner.0814media.net/h5/img/event/eurocup/logo-euro-ball.gif) center / cover;
+        background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/eurocup/logo-euro-ball.gif) center / cover;
       }
 
       +.splogo {
@@ -13867,7 +13870,7 @@ input[type=number] {
   // height: 9vw !important;
   width: 10vw !important;
   height: 10vw !important;
-  background: url(https://banner.0814media.net/h5/img/4.0/sp-aston-villa.png) center / cover;
+  background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/sp-aston-villa.png) center / cover;
   // animation:  splogo 3.5s ease-in-out infinite;
   clip-path: none !important;
 }
@@ -13917,12 +13920,12 @@ input[type=number] {
 //2024歐冠盃限定
 @keyframes eurologo {
   0% {
-    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/eurocup/euro-logo.png) center / cover;
     opacity: 1;
   }
 
   100% {
-    background: url(https://banner.0814media.net/h5/img/event/eurocup/euro-logo.png) center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/eurocup/euro-logo.png) center / cover;
     opacity: 1;
   }
 }
@@ -13930,12 +13933,12 @@ input[type=number] {
 //2024奧運限定
 @keyframes olympic {
   0% {
-    background: url(https://banner.0814media.net/h5/img/event/olympic/logo-paris.png) center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/olympic/logo-paris.png) center / cover;
     opacity: 1;
   }
 
   100% {
-    background: url(https://banner.0814media.net/h5/img/event/olympic/logo-paris.png) center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/olympic/logo-paris.png) center / cover;
     opacity: 1;
   }
 }
@@ -14450,7 +14453,7 @@ main {
   &::after {
     display: block;
     content: "";
-    background: url(https://banner.0814media.net/h5/img/4.0/sports-bg-new.png) no-repeat center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/sports-bg-new.png) no-repeat center / cover;
     height: 45vw;
     position: absolute;
     top: 0;
@@ -14460,7 +14463,7 @@ main {
 
   &.br {
     &::after {
-      background: url(https://banner.0814media.net/h5/img/4.0/sports-bg.png) no-repeat center / cover;
+      background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/sports-bg.png) no-repeat center / cover;
     }
   }
 
@@ -14979,7 +14982,7 @@ main {
 }
 
 .footer {
-  background: url(https://banner.0814media.net/h5/img/4.0/footer-bg.png) no-repeat center / cover;
+  background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/footer-bg.png) no-repeat center / cover;
   height: 21.5vw;
   width: 100%;
   display: flex;
@@ -15256,7 +15259,7 @@ main {
         &::after {
           display: block;
           content: "";
-          background: url(https://banner.0814media.net/h5/img/4.0/down.svg) no-repeat center / 100%;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/down.svg) no-repeat center / 100%;
           width: 3vw;
           height: 3vw;
           margin-left: 15vw;
@@ -15396,7 +15399,7 @@ main {
           border: 0;
 
           &::after {
-            background: url(https://banner.0814media.net/h5/img/4.0/up.svg) no-repeat center / 100%;
+            background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/up.svg) no-repeat center / 100%;
           }
         }
 
@@ -15431,7 +15434,7 @@ main {
 .after {
   .menu {
     &-top {
-      background: url(https://banner.0814media.net/h5/img/4.0/menu-after-bg.png)no-repeat center / cover;
+      background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/menu-after-bg.png)no-repeat center / cover;
       height: 55vw;
       border-radius: 0 0 20px 20px;
 
@@ -15457,7 +15460,7 @@ main {
                 &::after {
                   display: block;
                   content: "";
-                  background: url(https://banner.0814media.net/h5/img/4.0/right.png) no-repeat center / cover;
+                  background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/right.png) no-repeat center / cover;
                   height: 2vw;
                   width: 2vw;
                   margin-left: 1vw;
@@ -15592,7 +15595,7 @@ main {
       position: relative;
 
       &.vintage {
-        background: url(https://banner.0814media.net/h5/img/4.0/vintage-bg.png) no-repeat center / cover;
+        background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/vintage-bg.png) no-repeat center / cover;
 
         .right {
           background: #ffb773;
@@ -15600,7 +15603,7 @@ main {
       }
 
       &.silver {
-        background: url(https://banner.0814media.net/h5/img/4.0/silver-bg.png) no-repeat center / cover;
+        background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/silver-bg.png) no-repeat center / cover;
 
         .right {
           background: #e9e9e9;
@@ -15608,7 +15611,7 @@ main {
       }
 
       &.gold {
-        background: url(https://banner.0814media.net/h5/img/4.0/gold-bg.png) no-repeat center / cover;
+        background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/gold-bg.png) no-repeat center / cover;
 
         .right {
           background: #ffd965;
@@ -15616,7 +15619,7 @@ main {
       }
 
       &.titanium {
-        background: url(https://banner.0814media.net/h5/img/4.0/titanium-bg.png) no-repeat center / cover;
+        background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/titanium-bg.png) no-repeat center / cover;
 
         .right {
           background: #a5a5a5;
@@ -15624,7 +15627,7 @@ main {
       }
 
       &.diamond {
-        background: url(https://banner.0814media.net/h5/img/4.0/diamond-bg.png) no-repeat center / cover;
+        background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/diamond-bg.png) no-repeat center / cover;
 
         .right {
           background: #82F2FF;
@@ -15632,7 +15635,7 @@ main {
       }
 
       &.nova {
-        background: url(https://banner.0814media.net/h5/img/4.0/nova-bg.png) no-repeat center / cover;
+        background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/nova-bg.png) no-repeat center / cover;
 
         .right {
           background: #efefef;
@@ -15706,13 +15709,13 @@ main {
 
           .progress {
             &-bar-vertical {
-              background: url(https://banner.0814media.net/h5/img/4.0/dot-progress-bg.png) no-repeat left;
+              background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/dot-progress-bg.png) no-repeat left;
               height: 5vw;
               width: 100%;
             }
 
             &-now-vertical {
-              background: url(https://banner.0814media.net/h5/img/4.0/dot-progress.png) no-repeat left;
+              background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/dot-progress.png) no-repeat left;
               height: 5vw;
             }
           }
@@ -15732,7 +15735,7 @@ main {
           &::after {
             display: block;
             content: "";
-            background: url(https://banner.0814media.net/h5/img/4.0/right-2.png) no-repeat center / cover;
+            background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/right-2.png) no-repeat center / cover;
             width: 2vw;
             height: 2vw;
             margin-left: 1vw;
@@ -15923,33 +15926,33 @@ input[type=number] {
 //2024 新年活動-dragonegg-活動頁面
 .dragonegg {
   &-event {
-    background: $event-primary url(https://banner.0814media.net/h5/img/event/dragonegg/banner-en.jpg) no-repeat top / contain;
+    background: $event-primary url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/banner-en.jpg) no-repeat top / contain;
     padding-top: 0;
     position: relative;
     height: auto;
 
     &.en {
-      background: $event-primary url(https://banner.0814media.net/h5/img/event/dragonegg/banner-en.jpg) no-repeat top / contain;
+      background: $event-primary url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/banner-en.jpg) no-repeat top / contain;
     }
 
     &.my {
-      background: $event-primary url(https://banner.0814media.net/h5/img/event/dragonegg/banner-my.jpg) no-repeat top / contain;
+      background: $event-primary url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/banner-my.jpg) no-repeat top / contain;
     }
 
     &.cs {
-      background: $event-primary url(https://banner.0814media.net/h5/img/event/dragonegg/banner-cs.jpg) no-repeat top / contain;
+      background: $event-primary url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/banner-cs.jpg) no-repeat top / contain;
     }
 
     &.id {
-      background: $event-primary url(https://banner.0814media.net/h5/img/event/dragonegg/banner-id.jpg) no-repeat top / contain;
+      background: $event-primary url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/banner-id.jpg) no-repeat top / contain;
     }
 
     &.th {
-      background: $event-primary url(https://banner.0814media.net/h5/img/event/dragonegg/banner-th.jpg) no-repeat top / contain;
+      background: $event-primary url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/banner-th.jpg) no-repeat top / contain;
     }
 
     &.vn {
-      background: $event-primary url(https://banner.0814media.net/h5/img/event/dragonegg/banner-vn.jpg) no-repeat top / contain;
+      background: $event-primary url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/banner-vn.jpg) no-repeat top / contain;
     }
 
     .event {
@@ -15965,7 +15968,7 @@ input[type=number] {
             &::after {
               content: "";
               display: inline-block;
-              background: url(https://banner.0814media.net/h5/img/event/dragonegg/icon-back.svg) no-repeat center / cover;
+              background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/icon-back.svg) no-repeat center / cover;
               width: 2vw;
               height: 3vw;
               position: absolute;
@@ -16009,7 +16012,7 @@ input[type=number] {
             display: inline-block;
             width: 6.8vw;
             height: 7.8vw;
-            background: url(https://banner.0814media.net/h5/img/event/dragonegg/title-egg.png) no-repeat center / cover;
+            background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/title-egg.png) no-repeat center / cover;
             position: absolute;
             top: 50%;
             transform: translateY(-50%) rotate(-14deg);
@@ -16022,7 +16025,7 @@ input[type=number] {
             display: inline-block;
             width: 6.8vw;
             height: 7.8vw;
-            background: url(https://banner.0814media.net/h5/img/event/dragonegg/title-egg.png) no-repeat center / cover;
+            background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/title-egg.png) no-repeat center / cover;
             position: absolute;
             top: 50%;
             transform: translateY(-50%) rotate(14deg);
@@ -16132,7 +16135,7 @@ input[type=number] {
       //抽蛋
       &-draw {
         // clip-path: ellipse(50% 50% at 50% 50%);
-        background: url(https://banner.0814media.net/h5/img/event/dragonegg/draw-bg-1.jpg) no-repeat center / contain;
+        background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/draw-bg-1.jpg) no-repeat center / contain;
         position: relative;
         width: 100%;
         height: 70vw;
@@ -16340,7 +16343,7 @@ input[type=number] {
         &::before {
           content: "";
           display: block;
-          background: url(https://banner.0814media.net/h5/img/event/dragonegg/draw-bg-2.jpg)no-repeat center / contain;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/draw-bg-2.jpg)no-repeat center / contain;
           width: 100%;
           height: 20vw;
           position: absolute;
@@ -16528,7 +16531,7 @@ input[type=number] {
         &::after {
           content: "";
           display: block;
-          background: url(https://banner.0814media.net/h5/img/event/dragonegg/icon-close.svg) no-repeat center / cover;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/icon-close.svg) no-repeat center / cover;
           width: 6vw;
           height: 6vw;
           position: absolute;
@@ -16755,7 +16758,7 @@ input[type=number] {
         &::after {
           content: "";
           display: block;
-          background: url(https://banner.0814media.net/h5/img/event/dragonegg/icon-close.svg) no-repeat center / cover;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/icon-close.svg) no-repeat center / cover;
           width: 6vw;
           height: 6vw;
           position: absolute;
@@ -16985,7 +16988,7 @@ input[type=number] {
         &::after {
           content: "";
           display: inline-block;
-          background: url(https://banner.0814media.net/h5/img/event/dragonegg/popup-10-light.png)no-repeat center / cover;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/popup-10-light.png)no-repeat center / cover;
           width: 60vw;
           height: 60vw;
           position: absolute;
@@ -17016,7 +17019,7 @@ input[type=number] {
               display: inline-block;
               width: 18vw;
               height: 18vw;
-              background: url(https://banner.0814media.net/h5/img/event/dragonegg/popup-10-reward.png)no-repeat center / cover;
+              background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/popup-10-reward.png)no-repeat center / cover;
               position: absolute;
               top: -9vw;
               left: 4lvw;
@@ -17028,7 +17031,7 @@ input[type=number] {
               display: inline-block;
               width: 18vw;
               height: 18vw;
-              background: url(https://banner.0814media.net/h5/img/event/dragonegg/popup-10-reward.png)no-repeat center / cover;
+              background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/dragonegg/popup-10-reward.png)no-repeat center / cover;
               position: absolute;
               top: -9vw;
               right: 4lvw;
@@ -17065,7 +17068,7 @@ input[type=number] {
   .wrapper {
     padding-top: 20vw;
     min-height: 200vw;
-    background: #143CDB url(https://banner.0814media.net/h5/img/event/eurocup/top-bg.jpg) no-repeat bottom / contain;
+    background: #143CDB url(https://imgs.tuk555.net/noble888-2w/h5/img/event/eurocup/top-bg.jpg) no-repeat bottom / contain;
     position: relative;
 
     &::before {
@@ -17077,7 +17080,7 @@ input[type=number] {
       width: 100%;
       height: 27vw;
       z-index: 0;
-      background: url(https://banner.0814media.net/h5/img/event/eurocup/top-item.png) no-repeat center / cover;
+      background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/eurocup/top-item.png) no-repeat center / cover;
     }
   }
 
@@ -17340,7 +17343,7 @@ input[type=number] {
             top: -6vw;
             width: 10vw;
             height: 5vw;
-            background: url(https://banner.0814media.net/h5/img/event/eurocup/tickets-1.png) no-repeat center / cover;
+            background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/eurocup/tickets-1.png) no-repeat center / cover;
           }
         }
 
@@ -17379,7 +17382,7 @@ input[type=number] {
             width: 2vw;
             height: 1.8vw;
             transform: translateX(-55%);
-            background: url(https://banner.0814media.net/h5/img/event/eurocup/frame.png) no-repeat center / cover;
+            background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/eurocup/frame.png) no-repeat center / cover;
           }
         }
       }
@@ -17575,7 +17578,7 @@ input[type=number] {
           display: block;
           width: 4vw;
           height: 4vw;
-          background: url(https://banner.0814media.net/h5/img/event/eurocup/arrow-icon.png) no-repeat center / cover;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/eurocup/arrow-icon.png) no-repeat center / cover;
           border: 0;
         }
       }
@@ -18470,7 +18473,7 @@ input[type=number] {
 
 
 .retention {
-  background: #0f1f3b url(https://banner.0814media.net/h5/img/event/retention/top-bg.jpg) no-repeat top / contain;
+  background: #0f1f3b url(https://imgs.tuk555.net/noble888-2w/h5/img/event/retention/top-bg.jpg) no-repeat top / contain;
   position: relative;
   // display: flex;
   // flex-direction: column;
@@ -18503,7 +18506,7 @@ input[type=number] {
       &-btn {
         position: absolute;
         bottom: -18vw;
-        background: url(https://banner.0814media.net/h5/img/event/retention/btn-bg.png) no-repeat center / 100%;
+        background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/retention/btn-bg.png) no-repeat center / 100%;
         width: 50vw;
         height: 20vw;
         display: flex;
@@ -18535,7 +18538,7 @@ input[type=number] {
         >div {
           &:first-child {
             color: white;
-            background: url(https://banner.0814media.net/h5/img/event/retention/title-bg.png) no-repeat center / 100%;
+            background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/retention/title-bg.png) no-repeat center / 100%;
             padding: 4vw 0 2vw 6vw;
             font-size: 4vw;
             display: flex;
@@ -18946,7 +18949,7 @@ input[type=number] {
   }
 
   &-top {
-    background: url(https://banner.0814media.net/h5/img/event/olympic/background-a.jpg)no-repeat center / cover;
+    background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/olympic/background-a.jpg)no-repeat center / cover;
 
     &-logo {
       width: 25vw;
@@ -19020,7 +19023,7 @@ input[type=number] {
         &::before {
           display: block;
           content: "";
-          background: url(https://banner.0814media.net/h5/img/event/olympic/gold-medal.png) no-repeat center / cover;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/olympic/gold-medal.png) no-repeat center / cover;
           width: 72vw;
           height: 72vw;
           position: absolute;
@@ -19049,7 +19052,7 @@ input[type=number] {
           &::after {
             display: block;
             content: "";
-            background: url(https://banner.0814media.net/h5/img/event/olympic/arrow.png) no-repeat center / cover;
+            background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/olympic/arrow.png) no-repeat center / cover;
             width: 1.5vw;
             height: 2.5vw;
             margin-left: 2vw;
@@ -19115,7 +19118,7 @@ input[type=number] {
               &::after {
                 display: block;
                 content: "";
-                background: url(https://banner.0814media.net/h5/img/event/olympic/arrow.png) no-repeat center / cover;
+                background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/olympic/arrow.png) no-repeat center / cover;
                 width: 1.5vw;
                 height: 2.5vw;
                 margin-left: 2vw;
@@ -19311,9 +19314,9 @@ input[type=number] {
   }
 }
 
-.setting{
-  &-container{
-    .bottom-line{
+.setting {
+  &-container {
+    .bottom-line {
       border-bottom: 1px solid #EFEFEF;
       margin: 8vw 0;
     }
@@ -19417,7 +19420,7 @@ input[type=number] {
       }
 
       // 樣式化checkbox
-      .checkbox-icon{
+      .checkbox-icon {
         width: 4vw;
         height: 4vw;
         background: white;
@@ -19441,9 +19444,11 @@ input[type=number] {
           margin-bottom: 1vw;
         }
       }
-      input[type="checkbox"]:checked ~ .checkbox-icon{
+
+      input[type="checkbox"]:checked~.checkbox-icon {
         background: #2775FF;
-        &::after{
+
+        &::after {
           display: block;
         }
       }
@@ -19632,7 +19637,8 @@ input[type=number] {
         font-family: 'Poppins', sans-serif;
         letter-spacing: 0.5px;
       }
-      &:-webkit-autofill{
+
+      &:-webkit-autofill {
         box-shadow: 0 0 0px 1000px #0A1B38 inset;
         -webkit-text-fill-color: white;
       }
@@ -19689,7 +19695,7 @@ input[type=number] {
         &::after {
           display: block;
           content: "";
-          background: url(https://banner.0814media.net/h5/img/4.0/down-1.png)no-repeat center / 100%;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/4.0/down-1.png)no-repeat center / 100%;
           width: 2.5vw;
           height: 2.5vw;
           transform: rotate(-90deg);
@@ -19712,8 +19718,8 @@ input[type=number] {
   height: 100%;
 }
 
-#g-reCaptcha .grecaptcha-badge{ 
-  z-index: 999; 
+#g-reCaptcha .grecaptcha-badge {
+  z-index: 999;
 }
 
 .survey {
@@ -19917,13 +19923,16 @@ main {
       color: #ffff;
       box-sizing: border-box;
     }
+
     //Banner
     .prediction-banner {
       position: relative;
+
       .banner {
         &-top {
           width: 100%;
         }
+
         // banner-content
         &-content {
           display: flex;
@@ -19934,20 +19943,24 @@ main {
           padding: 0 5.6vw;
           width: 100%;
         }
+
         //banner-logo
-        &-logo { 
+        &-logo {
           margin-bottom: 8.4vw;
           display: flex;
           align-items: center;
+
           img {
             max-width: 46.8vw;
           }
         }
+
         //banner-cpation 
         &-caption {
           display: flex;
           flex-direction: column;
           align-items: center;
+
           .title {
             font-size: 5.6vw;
             font-weight: 600;
@@ -19955,6 +19968,7 @@ main {
             margin-bottom: 4.68vw;
             text-align: center;
           }
+
           .subtitle {
             text-align: center;
             font-size: 3.28vw;
@@ -19969,20 +19983,25 @@ main {
     .prediction-container {
       width: 100%;
       padding: 7vw 4.68vw;
+
       .prediction {
+
         // Prediction-Introduce
         &-introduce {
           text-align: center;
           margin-bottom: 7vw;
+
           .title {
             font-size: 5.6vw;
             font-weight: 600;
             margin-bottom: 3.74vw;
           }
+
           .text {
             width: 100%;
             display: flex;
             justify-content: center;
+
             span {
               font-size: 2.8vw;
               font-weight: 300;
@@ -19993,7 +20012,7 @@ main {
 
         // Prediction-Board
         &-board {
-          background: url(https://banner.0814media.net/h5/img/event/prediction/premier-league.jpg) no-repeat center / cover;
+          background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/prediction/premier-league.jpg) no-repeat center / cover;
           border-radius: 4.68vw;
           padding: 0 4.68vw;
           display: flex;
@@ -20004,7 +20023,7 @@ main {
           .card-swiper {
             width: 100%;
             position: relative;
-            padding: 0 ;
+            padding: 0;
             cursor: pointer;
             transition: .3s;
             display: flex;
@@ -20014,14 +20033,17 @@ main {
             .swiper-container {
               border-radius: 4.67vw;
               padding: 12vw 0 8vw;
+
               // swiper-wrapper
               .swiper-wrapper {
                 width: 100%;
+
                 // swiper-slide
                 .swiper-slide {
                   border-radius: 4.67vw;
                 }
               }
+
               // swiper-pagination
               .swiper-pagination {
                 width: 100%;
@@ -20032,11 +20054,13 @@ main {
                 justify-content: center;
                 gap: 2.5vw;
                 padding: 3vw 0 0;
+
                 .swiper-pagination-bullet {
                   background: #D9D9D9;
                   width: 2.4vw;
                   height: 2.4vw;
                   border-radius: 50%;
+
                   &-active {
                     border-radius: 50%;
                     background: #ff7600;
@@ -20055,10 +20079,12 @@ main {
               color: #fff;
               display: none;
             }
+
             // swiper-button-next
             .swiper-button-next {
               transform: rotate(180deg);
               right: -7vw;
+
               &::after {
                 content: "\e95d";
                 font-size: 12.62vw;
@@ -20068,9 +20094,11 @@ main {
                 justify-content: center;
               }
             }
+
             // swiper-button-prev
             .swiper-button-prev {
               left: -7vw;
+
               &::after {
                 content: "\e95d";
                 font-size: 12.62vw;
@@ -20080,14 +20108,16 @@ main {
                 justify-content: center;
               }
             }
+
             // card-swiper hover 
             &:hover {
+
               .swiper-button-next,
               .swiper-button-prev {
                 display: flex;
               }
             }
-            
+
             // Match-Card
             .match-card {
               display: flex;
@@ -20097,6 +20127,7 @@ main {
               border-radius: 4.67vw;
               padding: 7.48vw 0 0;
               box-sizing: border-box;
+
               // Button
               .btn-submit {
                 background: #FF7600;
@@ -20105,37 +20136,45 @@ main {
                 width: 100%;
                 text-transform: uppercase;
                 font-size: 15px;
+
                 &:hover {
                   background: lighten(#ff7600, 8%);
                   transition: .2s;
                 }
+
                 &.active {
                   background: #C6C6C6;
                   color: #fff;
+
                   &:hover {
                     cursor: text;
                   }
                 }
+
                 &[disabled] {
                   background: #C6C6C6 !important;
                   color: #fff !important;
+
                   &:hover {
                     cursor: text;
                   }
                 }
               }
+
               //card-content
               .card-content {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 padding: 0 6.5vw;
+
                 // card-top
                 .card-top {
                   display: flex;
                   flex-direction: column;
                   align-items: center;
                   margin-bottom: 6.48vw;
+
                   // match
                   .match {
                     color: #000;
@@ -20145,14 +20184,16 @@ main {
                     margin-bottom: 0.93vw;
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 2; 
-                    overflow: hidden; 
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
                     text-overflow: ellipsis;
                     line-height: 1.15;
                   }
+
                   //time
                   .time {
                     display: flex;
+
                     span {
                       color: #000;
                       font-weight: 500;
@@ -20161,35 +20202,41 @@ main {
                       line-height: 1.15;
                       display: -webkit-box;
                       -webkit-box-orient: vertical;
-                      -webkit-line-clamp: 2; 
-                      overflow: hidden; 
+                      -webkit-line-clamp: 2;
+                      overflow: hidden;
                       text-overflow: ellipsis;
+
                       &:last-child {
                         margin-left: 1.87vw;
                       }
                     }
                   }
                 }
+
                 // card-predict
                 .card-predict {
                   display: flex;
                   margin-bottom: 7.48vw;
+
                   // team
                   .team {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+
                     // team-badge
                     &-badge {
                       position: relative;
                       margin-bottom: 5.61vw;
                       min-height: 12.62vw;
+
                       // team-img
                       .team-img {
                         display: flex;
                         align-items: center;
                         position: relative;
                         z-index: 2;
+
                         img {
                           display: block;
                           width: 12.62vw;
@@ -20199,6 +20246,7 @@ main {
                           // transform: translate(-50%, -50%);
                         }
                       }
+
                       &::before {
                         content: "";
                         display: flex;
@@ -20213,6 +20261,7 @@ main {
                         top: 50%;
                         transform: translate(-50%, -50%);
                       }
+
                       &::after {
                         content: "";
                         display: flex;
@@ -20228,6 +20277,7 @@ main {
                         transform: translate(-50%, -50%);
                       }
                     }
+
                     // team-name
                     &-name {
                       font-size: 2.8vw;
@@ -20236,11 +20286,12 @@ main {
                       text-align: center;
                       display: -webkit-box;
                       -webkit-box-orient: vertical;
-                      -webkit-line-clamp: 2; 
-                      overflow: hidden; 
+                      -webkit-line-clamp: 2;
+                      overflow: hidden;
                       text-overflow: ellipsis;
                     }
                   }
+
                   // center
                   .center-txt {
                     // align-self: flex-start;
@@ -20249,13 +20300,16 @@ main {
                     color: #FF7600;
                     padding: 0 1.4vw;
                     font-weight: 500;
+
                     &.disabled {
                       color: #A5A5A5;
                     }
                   }
+
                   // number-box
                   .number-box {
                     display: block;
+
                     // input
                     input {
                       border: 1px solid #ff7600;
@@ -20264,23 +20318,28 @@ main {
                       color: #000;
                       text-align: center;
                       width: 100%;
+
                       &::placeholder {
                         text-align: center;
                         color: #B1B1B1;
                         font-weight: 200;
                         font-size: 2.8vw;
                       }
+
                       &:focus-visible {
                         outline: 2px solid #ff7600;
                       }
+
                       &[disabled] {
                         border: 1px solid transparent !important;
                         background: #F3F3F3 !important;
+
                         &::placeholder {
                           color: #000 !important;
                         }
                       }
                     }
+
                     //number
                     .number {
                       width: 25.7vw;
@@ -20293,6 +20352,7 @@ main {
                     }
                   }
                 }
+
                 //tips
                 .tips {
                   color: red;
@@ -20308,6 +20368,7 @@ main {
 
         // Prediction-Result
         &-result {
+
           // result-title
           .result-title {
             margin: 5.61vw 0 7vw;
@@ -20315,11 +20376,13 @@ main {
             font-weight: 600;
             text-align: center;
           }
+
           // result-content
           .result-content {
             background: #fff;
             border-radius: 4.67vw;
             padding: 14.02vw 4.67vw;
+
             button {
               width: 100%;
               background: #ff7600;
@@ -20328,31 +20391,38 @@ main {
               font-size: 3.74vw;
               font-weight: 400;
             }
+
             .result {
+
               // result-top
               &-top {
                 display: flex;
                 justify-content: space-between;
                 margin-bottom: 4.67vw;
+
                 .sub-caption {
                   display: flex;
                   flex-direction: column;
+
                   .time {
                     font-size: 2.8vw;
                     color: #000;
                     margin-bottom: 2.5vw;
                   }
+
                   .title {
                     font-size: 24px;
                     font-weight: 700;
                     line-height: 1.2;
                     color: #000;
+
                     span {
                       color: #000;
                     }
                   }
                 }
               }
+
               // result-bottom
               &-bottom {
                 display: flex;
@@ -20360,9 +20430,10 @@ main {
                 gap: 7vw;
                 width: 100%;
                 margin-bottom: 4.67vw;
+
                 // prize-money
                 .prize-money {
-                  background: url(https://banner.0814media.net/h5/img/event/prediction/result.jpg) no-repeat center / cover;
+                  background: url(https://imgs.tuk555.net/noble888-2w/h5/img/event/prediction/result.jpg) no-repeat center / cover;
                   display: flex;
                   flex-direction: column;
                   justify-content: center;
@@ -20371,19 +20442,22 @@ main {
                   // flex: 0 0 750px;
                   border-radius: 4.67vw;
                   padding-left: 4.67vw;
+
                   span {
                     font-size: 3.27vw;
                     font-weight: 500;
                     text-transform: uppercase;
                     letter-spacing: 0.29vw;
+
                     &.amount {
                       display: block;
                       font-size: 5.61vw;
                       font-weight: 600;
-                      color: #ff7600; 
+                      color: #ff7600;
                     }
                   }
                 }
+
                 //user-content
                 .user-content {
                   background: #14173D;
@@ -20393,21 +20467,25 @@ main {
                   flex-direction: column;
                   align-items: center;
                   width: 100%;
+
                   .title {
                     font-size: 4.67vw;
                     padding: 1.4vw;
                     margin-bottom: 2.34vw;
                     color: #ff7600;
                   }
+
                   // user-list
                   .user-list {
                     display: flex;
                     flex-direction: column;
                     width: 100%;
+
                     ul {
                       flex: 1;
                       display: flex;
                       flex-direction: column;
+
                       li {
                         flex: 1;
                         padding: 12px 0;
@@ -20418,6 +20496,7 @@ main {
                         align-items: center;
                         background: rgba(#fff, .2);
                         font-weight: 300;
+
                         &:last-child {
                           margin-bottom: 0;
                         }
@@ -20427,7 +20506,7 @@ main {
                 }
               }
             }
-            
+
           }
         }
       }
@@ -20437,7 +20516,7 @@ main {
     .bottom-graphic {
       width: 100%;
       box-sizing: border-box;
-      margin: 11.68vw 0 28.04vw ;
+      margin: 11.68vw 0 28.04vw;
       display: flex;
       align-items: center;
     }
@@ -20453,19 +20532,20 @@ main {
     background: rgba(0, 0, 0, 0.7);
     justify-content: center;
     padding: 5vw;
-    
+
     .pop {
       .result-pop {
         box-sizing: border-box;
         background: #fff;
         padding: 8vw 6vw 8vw 5vw;
         border-radius: 4.67vw !important;
-        
+
         .btn-block {
           padding-top: 9vw;
           display: flex;
           align-items: center;
           justify-content: center;
+
           .btn-check {
             padding: 3.5vw;
             background: #ff7600;
@@ -20473,12 +20553,14 @@ main {
             border-radius: 2.5vw;
             color: #fff;
             font-size: 3vw;
+
             &:hover {
-              background: lighten(#ff7600 ,10% );
+              background: lighten(#ff7600, 10%);
               transition: .3s;
             }
           }
         }
+
         .caption {
           margin-bottom: 4vw;
           font-size: 4.8vw;
@@ -20486,29 +20568,36 @@ main {
           font-weight: 600;
           text-align: center;
         }
+
         .content {
           max-height: 70vw;
           overflow-y: scroll;
+
           &::-webkit-scrollbar-thumb {
-            background: #ff7600; 
-            border-radius: 20px; 
+            background: #ff7600;
+            border-radius: 20px;
           }
+
           ul {
             padding-left: 3.5vw;
+
             .list {
               display: flex;
               flex-direction: column;
               list-style: circle;
               background: unset;
               padding: 0 2vw;
+
               span {
                 display: block;
+
                 &.title {
                   color: #000;
                   font-size: 3.9vw;
                   position: relative;
                   margin-bottom: 2vw;
                   font-weight: 600;
+
                   &::before {
                     content: "";
                     display: flex;
@@ -20524,6 +20613,7 @@ main {
                     left: -4.5vw;
                   }
                 }
+
                 &.text {
                   font-size: 3.2vw;
                   color: #797979;
@@ -20538,9 +20628,9 @@ main {
       }
     }
 
-    > div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo):not(.bigwin):not(.medalpop):not(.rulepop):not(.livesports) {
+    >div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo):not(.bigwin):not(.medalpop):not(.rulepop):not(.livesports) {
       border-radius: 20px !important;
     }
   }
-  
+
 }

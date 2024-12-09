@@ -1,11 +1,11 @@
-import dynamic from 'next/dynamic'
-import { useTranslation } from 'next-i18next'
-import classNames from 'classnames'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { MenuActionTypeEnum, CurrenciesEnum } from '@nx-next-app/types'
-import { useAuth } from '@nx-next-app/data-access'
 import { PRODUCTS, paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import { CurrenciesEnum, MenuActionTypeEnum } from '@nx-next-app/types'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 import { HotEventSwiper } from './HotEventSwiper'
 
 const LoginModal = dynamic(() => import('../../modal/LoginModal'), {

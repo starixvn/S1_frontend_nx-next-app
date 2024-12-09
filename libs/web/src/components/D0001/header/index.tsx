@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react'
-import Logo from './Logo'
 import Function from './Function'
+import Logo from './Logo'
 
 interface IHeaderProps {
 	children: ReactNode

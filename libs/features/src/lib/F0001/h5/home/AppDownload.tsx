@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import { paths } from '@nx-next-app/constants'
 import { useDownloadLinks } from '@nx-next-app/hooks'
 import { Trans, useTranslation } from 'next-i18next'
+import Link from 'next/link'
 
 const AppDownload = () => {
 	const { t } = useTranslation()

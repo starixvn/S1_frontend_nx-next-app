@@ -1,14 +1,14 @@
-import Link from 'next/link'
-import { find } from 'lodash-es'
-import { useState } from 'react'
-import { useTranslation } from 'next-i18next'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths, PRODUCTS } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { useHome } from '@nx-next-app/features/F0001/providers'
-import { paths, PRODUCTS } from '@nx-next-app/constants'
 import { CurrenciesEnum } from '@nx-next-app/types'
+import { find } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
+import { useState } from 'react'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,

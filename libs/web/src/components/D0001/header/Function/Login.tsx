@@ -1,7 +1,7 @@
-import { FieldErrors, useForm } from 'react-hook-form'
-import { useTranslation } from 'next-i18next'
 import { paths } from '@nx-next-app/constants'
+import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
+import { FieldErrors, useForm } from 'react-hook-form'
 import Form from '../../form'
 
 export type LoginFormType = {
@@ -68,13 +68,13 @@ const Login = ({ onLogin, onLoginInvalid, onLineLogin }: ILoginProps) => {
 
 			<button
 				type='button'
-				className='login'
+				className='login ghost'
 				onClick={handleSubmit(onLogin, onLoginInvalid)}
 			>
 				{t('Label_General_LogIn')}
 			</button>
 			<Link href='join'>
-				<button type='button' className='join'>
+				<button type='button' className='join secondary'>
 					{t('Label_General_Register')}
 				</button>
 			</Link>
