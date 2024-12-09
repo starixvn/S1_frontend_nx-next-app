@@ -87,43 +87,32 @@ export const GameIconContainer = styled.div`
 		}
 	}
 
-	.details {
+	.providerName {
 		position: absolute;
-		left: 0;
-		top: 0;
+		bottom: 1.9vw;
 		width: 100%;
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		line-height: 1;
+		text-align: center;
+		color: ${({ theme }) => theme.mobile.gameIconProviderNameColor};
+		font-size: 2.9vw;
+		font-style: normal;
+		font-weight: 400;
 		z-index: 2;
-		border-radius: 4.85vw;
-		overflow: hidden;
+	}
 
-		.providerName {
-			position: absolute;
-			bottom: 1.9vw;
-			width: 100%;
-			text-align: center;
-			color: ${({ theme }) => theme.mobile.gameIconProviderNameColor};
-			font-size: 2.9vw;
-			font-style: normal;
-			font-weight: 400;
+	.icon-favorite {
+		position: absolute;
+		top: 1.9vw;
+		right: 1.9vw;
+		font-size: 4.85vw;
+		z-index: 2;
+
+		&:before {
+			color: ${({ theme }) => theme.mobile.gameIconFavoriteColor};
 		}
 
-		.icon-favorite {
-			position: absolute;
-			top: 1.9vw;
-			right: 1.9vw;
-			font-size: 4.85vw;
-
-			&:before {
-				color: ${({ theme }) => theme.mobile.gameIconFavoriteColor};
-			}
-
-			&.active:before {
-				color: ${({ theme }) => theme.mobile.gameIconFavoriteColorActive};
-			}
+		&.active:before {
+			color: ${({ theme }) => theme.mobile.gameIconFavoriteColorActive};
 		}
 	}
 

@@ -13,8 +13,8 @@ import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { Suspense } from "react";
 import { Img } from "react-image";
-import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 
+import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
 	{
@@ -70,7 +70,7 @@ const GameList = () => {
 								displayText,
 								...rest
 							}) => {
-                const resultImgUrl = `${process.env['NEXT_PUBLIC_IMAGE_HOST']}/${tpName}/${imgGameName}-en@1x.webp`
+								const resultImgUrl = `${process.env['NEXT_PUBLIC_IMAGE_HOST']}/${tpName}/${imgGameName}-en@1x.webp`
 
 								const lobbyGameItem = {
 									tpId,
@@ -102,31 +102,29 @@ const GameList = () => {
 											)}
 										</button>
 
-										<div className='details'>
-											<div className='providerName'>
-												{tpId === ProviderEnum.MaxGame ||
-												tpId === ProviderEnum.Keno ||
-												tpId === ProviderEnum.Lottery ||
-												tpId === ProviderEnum.TableGame
-													? 'MaxPlay'
-													: displayText}
-											</div>
-
-											<div
-												onClick={() =>
-													onFavoritesToggle({
-														tpId,
-														gameId,
-													})
-												}
-												className={classNames(
-													'icon icon-star-fill icon-favorite',
-													{
-														active: isFavorite,
-													}
-												)}
-											/>
+										<div className='providerName'>
+											{tpId === ProviderEnum.MaxGame ||
+											tpId === ProviderEnum.Keno ||
+											tpId === ProviderEnum.Lottery ||
+											tpId === ProviderEnum.TableGame
+												? 'MaxPlay'
+												: displayText}
 										</div>
+
+										<div
+											onClick={() =>
+												onFavoritesToggle({
+													tpId,
+													gameId,
+												})
+											}
+											className={classNames(
+												'icon icon-star-fill icon-favorite',
+												{
+													active: isFavorite,
+												}
+											)}
+										/>
 
 										{isMaintain && (
 											<div className='um-container'>

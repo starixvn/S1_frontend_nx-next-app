@@ -39,21 +39,18 @@ const SportListItem = ({ subMenuItem, onItemClick }: IListItemProps) => {
 			className={classNames({
 				under: isTpMaintain,
 			})}
+			onClick={() => onItemClick(subMenuItem)}
 		>
 			{isTpMaintain && (
 				<div className='under'>{t('Label_General_UnderMaintenance')}</div>
 			)}
 
-			<div className='img-wrapper' onClick={() => onItemClick(subMenuItem)}>
+			<button className='img-wrapper' onClick={() => onItemClick(subMenuItem)}>
 				<img src={suBMenuLobbyImage} alt={subMenuItem?.gameName} />
-			</div>
+			</button>
 
-			<div className='details'>
-				<div className='providerName'>
-					{displayName || subMenuItem?.gameName}
-				</div>
-				{sportLobbyIcon}
-			</div>
+			<div className='providerName'>{displayName || subMenuItem?.gameName}</div>
+			{sportLobbyIcon}
 		</GameIconContainer>
 	)
 }

@@ -1,14 +1,11 @@
-import { useAuth } from '@nx-next-app/data-access'
-import { LoadingIcon } from '@nx-next-app/features/F0001/h5/home/gameIcon/icons'
-import {
-	GameIconContainer,
-	GameListContainer,
-} from '@nx-next-app/features/F0001/h5/lobby-game/styles'
-import { useSlots } from '@nx-next-app/features/F0001/providers'
-import classNames from 'classnames'
-import { useTranslation } from 'next-i18next'
-import { Suspense } from 'react'
-import { Img } from 'react-image'
+import { useAuth } from "@nx-next-app/data-access";
+import { LoadingIcon } from "@nx-next-app/features/F0001/h5/home/gameIcon/icons";
+import { GameIconContainer, GameListContainer } from "@nx-next-app/features/F0001/h5/lobby-game/styles";
+import { useSlots } from "@nx-next-app/features/F0001/providers";
+import classNames from "classnames";
+import { useTranslation } from "next-i18next";
+import { Suspense } from "react";
+import { Img } from "react-image";
 
 const GameList = () => {
 	const {
@@ -83,20 +80,18 @@ const GameList = () => {
 										alt={resultGameName}
 									/>
 								</button>
-								<div className='details'>
-									<div className='providerName'>{tpName}</div>
-									<span
-										onClick={() =>
-											onFavoritesToggle({
-												tpId,
-												gameId,
-											})
-										}
-										className={classNames('icon icon-star-fill icon-favorite', {
-											active: isFavorite,
-										})}
-									/>
-								</div>
+								<div className='providerName'>{tpName}</div>
+								<span
+									onClick={() =>
+										onFavoritesToggle({
+											tpId,
+											gameId,
+										})
+									}
+									className={classNames('icon icon-star-fill icon-favorite', {
+										active: isFavorite,
+									})}
+								/>
 
 								{isMaintain && (
 									<div className='um-container'>

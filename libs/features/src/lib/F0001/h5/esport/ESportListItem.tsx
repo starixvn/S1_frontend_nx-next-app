@@ -44,16 +44,12 @@ const ESportListItem = ({ subMenuItem, onItemClick }: IListItemProps) => {
 				<div className='under'>{t('Label_General_UnderMaintenance')}</div>
 			)}
 
-			<div className='img-wrapper' onClick={() => onItemClick(subMenuItem)}>
+			<button className='img-wrapper' onClick={() => onItemClick(subMenuItem)}>
 				<img src={suBMenuLobbyImage} alt={subMenuItem?.gameName} />
-			</div>
+			</button>
 
-			<div className='details'>
-				<div className='providerName'>
-					{displayName || subMenuItem?.gameName}
-				</div>
-				{eSportLobbyIcon}
-			</div>
+			<div className='providerName'>{displayName || subMenuItem?.gameName}</div>
+			{eSportLobbyIcon}
 		</GameIconContainer>
 	)
 }

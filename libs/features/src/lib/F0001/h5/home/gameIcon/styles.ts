@@ -54,7 +54,7 @@ export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 		bottom: 0.4rem;
 		text-align: center;
 		width: 100%;
-		line-height: 1.8rem;
+		line-height: 1;
 		color: ${({ theme }) => theme.mobile.gameIconProviderNameColor};
 		text-overflow: ellipsis;
 		font-size: 1.2rem;
