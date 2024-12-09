@@ -107,9 +107,7 @@ const Wallet = ({
 					<span>{currencyName}</span>
 					<span>
 						{numberFormat(totalWalletBalance, currencyId, 2)}
-						<SpinButton onClick={onRefetchAllWallet}>
-							<span className='icon icon-refresh-fill' />
-						</SpinButton>
+						<SpinButton className='icon icon-refresh-fill' onClick={onRefetchAllWallet}/>
 					</span>
 				</div>
 
