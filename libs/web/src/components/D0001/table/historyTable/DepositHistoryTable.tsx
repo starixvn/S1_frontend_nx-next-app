@@ -155,7 +155,7 @@ const DepositHistoryTable = ({
 			title: (
 				<>
 					{t('Label_History_Action')}
-					<SpinButton onClick={onReload} />
+					<SpinButton className='icon icon-refresh-fill' onClick={onReload} />
 				</>
 			),
 			dataIndex: 'action',
