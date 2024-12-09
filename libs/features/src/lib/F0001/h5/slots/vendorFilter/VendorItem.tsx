@@ -26,11 +26,7 @@ const VendorItem = ({
 		>
 			<div className='img-container'>
 				<img
-					src={`${
-						process.env['NEXT_PUBLIC_BANNER_HOST']
-					}/h5/img/new-ui/filter-form-provider-logo/${item.imgName}${
-						tpId === activeVendorTpId ? 'a' : ''
-					}.webp`}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/filter-form-provider-logo/${item.imgName}.webp`}
 					alt={displayText}
 				/>
 			</div>
