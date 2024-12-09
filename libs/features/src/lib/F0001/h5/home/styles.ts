@@ -95,6 +95,10 @@ export const GameGroup = styled.div`
 	position: relative;
 	padding: 5.8vw 3.8vw;
 
+	&.promotion .load-more {
+		margin-right: 0 !important;
+	}
+
 	.embla__container {
 		--slide-height: 45.87vw;
 		--slide-size: 33.9vw;

@@ -3928,35 +3928,6 @@ input[type='date'] {
 	text-align: right;
 }
 
-.new {
-	position: absolute;
-	top: 0;
-	right: 0;
-	background: #5574a7;
-	border-radius: 100%;
-	width: 40px;
-	height: 40px;
-	padding: 0;
-	display: none;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-transform: rotate(-30deg);
-	transform: rotate(-30deg);
-	font-style: italic;
-}
-.new:before {
-	content: 'NEW';
-	margin: 0 1vw 0 0;
-}
-.new.active {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
 
 .nodata {
 	text-align: center;

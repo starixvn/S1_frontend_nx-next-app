@@ -47,21 +47,21 @@ export const PromotionPage = styled.div`
 	.claimed,
 	.new {
 		position: absolute;
+		top: 6.8vw;
+		left: -0.5vw;
+		display: flex;
 		justify-content: center;
 		align-items: center;
-		font-size: 3vw;
+		height: 4.6vw;
+		width: auto;
+		padding: 0 1.45vw;
+		transform: rotate(-20deg) skewX(-20deg);
 		z-index: 1;
-		top: 3.5vw;
-		left: -0.5vw;
 		border-radius: 0px 4px 4px 0px;
 		box-shadow: 0px 2.286px 0px 0px rgba(0, 0, 0, 0.25);
-		width: 30px;
-		height: 25px;
-		padding: 0 20px;
-		color: white;
+		color: #fff;
 		font-weight: bold;
-		transform: rotate(-20deg) skewX(-20deg);
-		font-style: initial;
+		font-size: 2.67vw;
 
 		&:before {
 			content: 'CLAIMED';
@@ -79,13 +79,13 @@ export const PromotionPage = styled.div`
 
 	.promodule,
 	.proInfomodule {
-		padding: 3.88vw;
-		border: 0;
-		background: #2e3965;
-		line-height: 24px;
 		position: relative;
+		padding: 3.88vw;
 		margin-bottom: 5.8vw;
+		line-height: 5.82vw;
+		border: none;
 		border-radius: 4.85vw;
+		background: #2e3965;
 
 		.btn-group {
 			display: flex;
