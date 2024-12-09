@@ -26,6 +26,8 @@ const List = () => {
 		await push(paths.home.root).then(() => reload())
 	}
 
+	const langGroups = Object.entries(languageGroup)
+
 	return (
 		<MenuCollapse>
 			<MenuCollapse.Item
@@ -76,9 +78,9 @@ const List = () => {
 						</div>
 					</div>
 				</div>
-				{!isLogin && (
+				{!isLogin && langGroups.length > 1 && (
 					<div className='country'>
-						{Object.entries(languageGroup).map(([lang, items]) => {
+						{langGroups.map(([lang, items]) => {
 							return (
 								<div
 									key={`${lang}-${items}`}
