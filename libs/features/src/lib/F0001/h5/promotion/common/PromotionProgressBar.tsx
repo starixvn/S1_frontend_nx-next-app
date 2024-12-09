@@ -1,7 +1,7 @@
-import { SpinButton } from '@nx-next-app/components/H0001'
-import { useAuth } from '@nx-next-app/data-access'
-import { getPromotionPercentage, numberFormat } from '@nx-next-app/utils'
-import { useTranslation } from 'next-i18next'
+import { SpinButton } from "@nx-next-app/components/H0001";
+import { useAuth } from "@nx-next-app/data-access";
+import { getPromotionPercentage, numberFormat } from "@nx-next-app/utils";
+import { useTranslation } from "next-i18next";
 
 const PromotionProgressBar = ({
 	custTurnOver,
@@ -25,23 +25,25 @@ const PromotionProgressBar = ({
 	return (
 		<div className='account'>
 			<div className='info'>
-				<span>{t('Label_Promotion_TurnoverAccumulated')}</span>
-				<span>
+				<div className='info-title'>
+					{t('Label_Promotion_TurnoverAccumulated')}
+				</div>
+				<div className='info-value'>
 					{numberFormat(custTurnOver, currencyId)} /{' '}
 					{numberFormat(custRollOver, currencyId)}
-				</span>
+				</div>
 			</div>
+			{onSpinButton && (
+				<SpinButton
+					className='icon icon-refresh-fill clickBtn'
+					onClick={onSpinButton}
+				/>
+			)}
 			<div className='progressBarModule'>
-				<div className='percentage'>{percentage}%</div>
 				<div className='bar'>
 					<div className='progress' style={{ width: `${percentage}%` }} />
 				</div>
-				{onSpinButton && (
-					<SpinButton
-						className='icon icon-spinner11 clickBtn'
-						onClick={onSpinButton}
-					/>
-				)}
+				<div className='percentage'>{percentage}%</div>
 			</div>
 		</div>
 	)

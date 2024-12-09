@@ -116,7 +116,7 @@ const PromotionRule = ({ promotionDetail }: IPromotionRuleProps) => {
 							<div className='row-title'>
 								{toUpper(t('Label_Promotion_MinDeposit') || '')}
 							</div>
-							<div>{numberWithCurrency(requiredAmount)}</div>
+							<div className='value'>{numberWithCurrency(requiredAmount)}</div>
 						</div>
 					)}
 					<div className='row'>
@@ -139,7 +139,7 @@ const PromotionRule = ({ promotionDetail }: IPromotionRuleProps) => {
 						<div className='row-title'>
 							{toUpper(t('Label_Promotion_MaxBonus') || '')}
 						</div>
-						<div>{numberWithCurrency(maxBonus)}</div>
+						<div className='value'>{numberWithCurrency(maxBonus)}</div>
 					</div>
 				)}
 

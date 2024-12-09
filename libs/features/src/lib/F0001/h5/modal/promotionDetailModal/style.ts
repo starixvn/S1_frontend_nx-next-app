@@ -5,6 +5,10 @@ export const PromotionDetailContainer = styled.div`
 		width: 100%;
 		overflow-y: auto;
 
+		.btn-group {
+			margin-top: 5.8vw;
+		}
+
 		.protitle {
 			margin-top: 5.8vw;
 			margin-bottom: 1.94vw;

@@ -114,7 +114,7 @@ const PromotionDetailModal = ({
 					<div className='btn-group'>
 						{!isHideJoinButton && !isShowApplyNowButton && (
 							<button
-								className='orange'
+								className='button btn-primary'
 								onClick={() => {
 									setClaimPromotionHandler(promotionDetail)
 								}}

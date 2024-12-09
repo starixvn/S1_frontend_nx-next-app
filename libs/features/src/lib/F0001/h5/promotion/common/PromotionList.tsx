@@ -1,21 +1,12 @@
-import { NoData } from '@nx-next-app/features/F0001/h5/common/NoData'
-import { usePromotion } from '@nx-next-app/features/F0001/providers'
-import {
-	PromotionActionType,
-	PromotionFilterEnum,
-	PromotionTypeEnum,
-} from '@nx-next-app/types'
-import {
-	getIsHidePromotionJoinButton,
-	isPromotionClaimed,
-	isPromotionNew,
-	isShowPromotionProgressBar,
-} from '@nx-next-app/utils'
-import classNames from 'classnames'
-import { includes } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
+import { NoData } from "@nx-next-app/features/F0001/h5/common/NoData";
+import { usePromotion } from "@nx-next-app/features/F0001/providers";
+import { PromotionActionType, PromotionFilterEnum, PromotionTypeEnum } from "@nx-next-app/types";
+import { getIsHidePromotionJoinButton, isPromotionClaimed, isPromotionNew, isShowPromotionProgressBar } from "@nx-next-app/utils";
+import classNames from "classnames";
+import { includes } from "lodash-es";
+import { useTranslation } from "next-i18next";
 
-import PromotionProgressBar from './PromotionProgressBar'
+import PromotionProgressBar from "./PromotionProgressBar";
 
 const PromotionList = () => {
 	const { t } = useTranslation()
@@ -28,7 +19,7 @@ const PromotionList = () => {
 	} = usePromotion()
 
 	if (promotionData.length === 0) {
-		return <NoData />
+		return <NoData customClass='no-border' />
 	}
 
 	return (
