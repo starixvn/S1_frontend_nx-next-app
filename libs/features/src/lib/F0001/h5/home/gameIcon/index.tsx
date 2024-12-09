@@ -33,7 +33,7 @@ const GameIcon: FC<IGameIcon> = ({ gameItem, isLarge, onClick }) => {
 						$isMaintain={isMaintain}
 						key={`casino-game-${gameId}`}
 					>
-						<div className='img-wrapper'>
+						<div className='img-wrapper' onClick={onClick}>
 							{hasBeenVisible && (
 								<Img
 									className='img'
@@ -46,9 +46,6 @@ const GameIcon: FC<IGameIcon> = ({ gameItem, isLarge, onClick }) => {
 									alt={gameName}
 								/>
 							)}
-							<button className='button btn-primary btn-play' onClick={onClick}>
-								{t('Label_Play')}
-							</button>
 
 							<div className='providerName'>{tpName}</div>
 						</div>

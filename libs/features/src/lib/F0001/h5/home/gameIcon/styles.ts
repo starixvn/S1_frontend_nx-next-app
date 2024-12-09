@@ -49,16 +49,6 @@ export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 		height: 100%;
 	}
 
-	.btn-play {
-		display: none;
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-		z-index: 2;
-		padding: 1rem 2.4rem;
-	}
-
 	.providerName {
 		position: absolute;
 		bottom: 0.4rem;
