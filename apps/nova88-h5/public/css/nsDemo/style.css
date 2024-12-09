@@ -4411,10 +4411,6 @@ input[type='date'] {
 	background: #f77a00;
 }
 
-
-
-
-
 .rankEvent,
 .champion,
 .records {
@@ -7571,7 +7567,7 @@ input[type='date'] {
 	filter: none;
 }
 
-.rolloverList,
+/* .rolloverList,
 .minAmount,
 .remainingTime {
 	margin-bottom: 10px;
@@ -7608,7 +7604,7 @@ input[type='date'] {
 .rolloverList > div:last-child div,
 .minAmount > div:last-child div {
 	border-bottom: 0;
-}
+} */
 
 .remainingTime > div > div {
 	border: 0;

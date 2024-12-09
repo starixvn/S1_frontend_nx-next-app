@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
-import { theme } from './theme'
+import { theme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
@@ -285,6 +285,9 @@ export const GlobalStyles = createGlobalStyle`
       min-width : unset !important;
       max-width: 80vw;
       width : 100%;
+      padding-left: 6.79vw !important;
+      padding-right: 6.79vw !important;
+
       .popTit{
         font-size: 4.1vw;;
         font-weight: 700;

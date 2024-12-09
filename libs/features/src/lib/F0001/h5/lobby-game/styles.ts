@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const LobbyGamePage = styled.div`
 	.banner-container {
@@ -34,7 +34,7 @@ export const CategoryFilterTabs = styled.div`
 
 	.tab-item {
 		position: relative;
-		bottom: 0.72vw;
+		bottom: 0.97vw;
 		height: 11.65vw;
 		padding: 0 1.94vw;
 		margin-top: 1vw;

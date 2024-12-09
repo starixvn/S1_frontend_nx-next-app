@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import dayjs from 'dayjs'
-import { useTranslation } from 'react-i18next'
-import { PromotionPeriodType } from '@nx-next-app/types'
-import { IPromotionData } from '@nx-next-app/service'
-import { useAuth } from '@nx-next-app/data-access'
-import { numFormatToDigits } from '@nx-next-app/utils'
+import { useAuth } from "@nx-next-app/data-access";
+import { IPromotionData } from "@nx-next-app/service";
+import { PromotionPeriodType } from "@nx-next-app/types";
+import { numFormatToDigits } from "@nx-next-app/utils";
+import dayjs from "dayjs";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface IPromotionMissionProps {
 	promotionDetail: IPromotionData
@@ -93,32 +93,40 @@ const PromotionMission = ({ promotionDetail }: IPromotionMissionProps) => {
 							key={`${requiredAmount}${requiredTurnover}${rollOver}${bonus}`}
 						>
 							{isShowDeposit && (
-								<div>
-									<div>{t('Label_Deposit').toUpperCase()}</div>
-									<div>
+								<div className='row'>
+									<div className='row-title'>
+										{t('Label_Deposit').toUpperCase()}
+									</div>
+									<div className='value'>
 										{currencyName} {numFormatToDigits(requiredAmount, 0)}
 									</div>
 								</div>
 							)}
 							{isShowTurnover && (
-								<div>
-									<div>{t('Label_General_Turnover').toUpperCase()}</div>
-									<div>
+								<div className='row'>
+									<div className='row-title'>
+										{t('Label_General_Turnover').toUpperCase()}
+									</div>
+									<div className='value'>
 										{currencyName} {numFormatToDigits(requiredTurnover, 0)}
 									</div>
 								</div>
 							)}
-							<div>
-								<div>
+							<div className='row'>
+								<div className='row-title'>
 									{fullFillType === 2
 										? t('Label_General_WinOver')
 										: t('Label_General_RollOver')}
 								</div>
-								<div>{fullFillType === 2 ? winOver : rollOver}X</div>
+								<div className='value'>
+									{fullFillType === 2 ? winOver : rollOver}X
+								</div>
 							</div>
-							<div>
-								<div>{t('Label_Promotion_Bonus').toUpperCase()}</div>
-								<div>
+							<div className='row'>
+								<div className='row-title'>
+									{t('Label_Promotion_Bonus').toUpperCase()}
+								</div>
+								<div className='value'>
 									{currencyName} {numFormatToDigits(bonus, 0)}
 								</div>
 							</div>
