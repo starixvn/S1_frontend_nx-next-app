@@ -141,10 +141,20 @@ export const WrapperCustomTitleBack = styled.div`
 			background: #0f1428;
 			font-weight: 700;
 			justify-content: flex-start;
-			gap: 2vw;
-
+			gap: 4vw;
+			a {
+				position: unset;
+				width: 9vw;
+			}
+			.icon-back {
+				font-size: unset;
+			}
 			.icon-arrow-left-line {
 				margin-left: 5vw;
+				letter-spacing: 0;
+				&:before {
+					font-size: 6.25vw;
+				}
 			}
 		}
 	}

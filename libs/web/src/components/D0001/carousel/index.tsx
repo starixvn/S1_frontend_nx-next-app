@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import dynamic from 'next/dynamic'
-import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper'
 import { ReactIdSwiperProps } from 'react-id-swiper'
+import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper'
 
 // * 啟用功能
 SwiperCore.use([Pagination, Navigation, Autoplay])
@@ -20,11 +20,11 @@ const Carousel = ({ children, className, ...rest }: ICarouselProps) => {
 	const params: ReactIdSwiperProps = {
 		spaceBetween: 30,
 		centeredSlides: true,
-		loop: true,
-		autoplay: {
-			delay: 5000,
-			disableOnInteraction: false,
-		},
+		// loop: true,
+		// autoplay: {
+		// 	delay: 5000,
+		// 	disableOnInteraction: false,
+		// },
 		pagination: {
 			el: '.swiper-pagination',
 			clickable: true,

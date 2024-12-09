@@ -1,13 +1,15 @@
-import { useState } from 'react'
-import dayjs from 'dayjs'
-import { useTranslation } from 'next-i18next'
+import { Header } from '@nx-next-app/components/H0001'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { IVipBannerData } from '@nx-next-app/service'
+import { WrapperCustomTitleBack } from '@nx-next-app/features/F0001/h5/common/CommonStyles'
 import VipBanner from '@nx-next-app/features/F0001/h5/vip/VipBanner'
-import VipTable from '@nx-next-app/features/F0001/h5/vip/VipTable'
 import VipBottom from '@nx-next-app/features/F0001/h5/vip/VipBottom'
 import VipMedal from '@nx-next-app/features/F0001/h5/vip/VipMedal'
-import { Header } from '@nx-next-app/components/H0001'
+import VipTable from '@nx-next-app/features/F0001/h5/vip/VipTable'
+import { WrapperVipPageH5 } from '@nx-next-app/features/F0001/h5/vip/styles'
+import { IVipBannerData } from '@nx-next-app/service'
+import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
+import { useState } from 'react'
 
 interface IVipProps {
 	vipBannerData: IVipBannerData
@@ -33,9 +35,11 @@ const Vip = ({
 	}
 
 	return (
-		<>
+		<WrapperVipPageH5>
 			<Header className='header'>
-				<Header.Tag title='VIP' back />
+				<WrapperCustomTitleBack>
+					<Header.Tag title='VIP' back />
+				</WrapperCustomTitleBack>
 			</Header>
 
 			<main className='main vip'>
@@ -65,7 +69,7 @@ const Vip = ({
 				</div>
 				<VipBottom />
 			</main>
-		</>
+		</WrapperVipPageH5>
 	)
 }
 

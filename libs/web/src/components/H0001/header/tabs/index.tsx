@@ -66,7 +66,7 @@ const Tag = forwardRef(
 			<>
 				{!!title && (
 					<div
-						className={classNames('title', {
+						className={classNames('title custom-title-back', {
 							searchBar: !!onSearchBarChange,
 						})}
 					>
