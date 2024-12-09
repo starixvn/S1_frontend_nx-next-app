@@ -1,11 +1,11 @@
-import Link from 'next/link'
-import dynamic from 'next/dynamic'
-import { useTranslation } from 'next-i18next'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths, PRODUCTS } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { CurrenciesEnum } from '@nx-next-app/types'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
 
 const LoginModal = dynamic(() => import('../modal/LoginModal'), {
 	ssr: false,
@@ -171,7 +171,7 @@ const LiveCasino = () => {
 							alt='casino_SG'
 						/>
 						<button
-							className='all-btn'
+							className='all-btn secondary'
 							onClick={() => {
 								onStaticMenuOpen(evoCasino, {
 									loginCallback: () => modal.open(<LoginModal />),
@@ -193,7 +193,7 @@ const LiveCasino = () => {
 							alt='casino_DG'
 						/>
 						<button
-							className='all-btn'
+							className='all-btn secondary'
 							onClick={() => {
 								onStaticMenuOpen(dgCasino, {
 									loginCallback: () => modal.open(<LoginModal />),

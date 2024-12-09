@@ -1,0 +1,1975 @@
+@import "_variables.scss";
+@import "font.scss";
+
+//---------- General Structure ----------//
+
+body,
+html {
+  background: $primary !important;
+}
+
+
+.required-tip {
+  color: $red;
+}
+
+.d-none {
+  display: none;
+}
+
+
+.notify-dot {
+  &::after {
+    top: 0;
+    right: -1vw;
+    position: absolute;
+    display: block;
+    content: "";
+    background: red;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 100px;
+    transition: all 0.2s ease-in-out;
+    animation: 1.5s ease 0s infinite normal none move;
+  }
+}
+
+#goTop {
+  background: $white !important;
+  color: $secondary !important;
+}
+
+//----- Button -----//
+
+button,
+a {
+  &.primary {
+    background: $primary !important;
+    color: $white !important;
+    border-color: $primary !important;
+  }
+
+  &.secondary {
+    background: $secondary !important;
+    color: $white !important;
+    border-color: $secondary !important;
+  }
+
+  &.thrid {
+    background: $thrid !important;
+    color: $white !important;
+    border-color: $thrid !important;
+  }
+
+  &.ghost {
+    background: transparent !important;
+    border: 1px solid $secondary !important;
+    color: $secondary !important;
+
+    &:hover {
+      color: $white !important;
+      border: 1px solid $white !important;
+    }
+
+    &.gold {
+      border: 1px solid $secondary !important;
+      color: $secondary !important;
+      background: $black !important;
+
+      &.red {
+        color: $white !important;
+        border: 1px solid $red !important;
+        background: #e92529 !important;
+      }
+    }
+
+    &.dark {
+      color: $main-grey-dark !important;
+      border: 1px solid $main-grey-dark !important;
+      background: transparent !important;
+    }
+  }
+
+  // &.white {
+  //   background: $white !important;
+  //   border: 1px solid $secondary !important;
+  //   color: $secondary !important;
+  // }
+
+  &.green {
+    color: $white !important;
+    background: $green !important;
+  }
+
+  &.info {
+    background: $indigo !important;
+    color: $white;
+  }
+}
+
+.btn-group {
+
+  button,
+  a {
+    background: $secondary !important;
+
+    &.btn-check {
+      background: $secondary !important;
+    }
+
+    &.btn-cancle {
+      background: lighten($primary-400, 10%) !important;
+    }
+
+    &.blue,
+    &.orange {
+      background: $secondary !important;
+    }
+
+    &.orange {
+      &.recentBtn {
+        background: $secondary !important;
+      }
+    }
+
+    &.recentBtn {
+      background: lighten($primary, 20%) !important;
+    }
+
+    &.gray,
+    &.white {
+      background: $grey !important;
+    }
+
+  }
+
+  //disabled
+  button[disabled] {
+    cursor: default;
+    background: #a5aab1 !important;
+    color: #666 !important;
+    border-color: transparent !important;
+  }
+}
+
+.walletTotal {
+  .icon {
+    color: $primary !important;
+  }
+
+  span {
+    color: $primary !important;
+  }
+
+}
+
+.icon-member {
+  background: $secondary !important;
+}
+
+.promodule {
+  .btn-group {
+
+    button,
+    a {
+      &:nth-child(2) {
+        background: $primary !important;
+      }
+    }
+  }
+}
+
+.balanceModule {
+  button {
+    background: $secondary !important;
+
+  }
+}
+
+.balanceModule button.clickBtn:not(.icon-history) {
+  &::before {
+    background: darken($secondary, 20%) !important;
+  }
+}
+
+
+.vip_mark {
+  div {
+    background: $secondary !important;
+  }
+}
+
+.important {
+  ul {
+    li {
+      a {
+        color: $secondary !important;
+      }
+    }
+  }
+}
+
+.recent {
+  .infoList {
+    .info {
+      .title {
+        color: $text-400 !important;
+      }
+
+      background: $primary-400 !important;
+
+      &:nth-child(even) {
+        background: darken($primary-400, 5%) !important;
+      }
+    }
+  }
+}
+
+
+//----- icon -----//
+
+// information
+.icon-information {
+  &:before {
+    color: $primary-light !important;
+  }
+}
+
+//---------- Component ----------//
+
+//header
+
+header {
+  background: $primary !important;
+
+  .tag {
+    a {
+      &.active {
+        border-color: $secondary !important;
+        color: $primary !important;
+      }
+
+    }
+  }
+
+  .title {
+    background: $secondary !important;
+  }
+
+  .quickSelect {
+    .icon {
+      color: $primary !important;
+    }
+
+    button {
+      &.active {
+        color: $primary !important;
+      }
+    }
+  }
+
+  .btn {
+    &-login {
+      background: transparent !important;
+      border: 1px solid $secondary !important;
+      color: $secondary !important;
+    }
+
+    &-register {
+      background: $secondary !important;
+      color: $white !important;
+    }
+
+  }
+
+  .headerTag {
+    a {
+      background: $white !important;
+      color: lighten($primary, 30%) !important;
+
+      &.active {
+        background: $secondary !important;
+        color: $white !important;
+      }
+    }
+
+  }
+
+  // .header-module {
+  //   .header-info {
+  //     display: flex;
+  //     gap: 3vw;
+  //     margin-right: 3vw;
+
+  //     button,
+  //     a {
+  //       position: relative;
+
+  //       &.active {
+  //         @extend .notify-dot;
+  //       }
+  //     }
+  //   }
+  // }
+}
+
+.rememberMode {
+  >.icon {
+    color: $secondary !important;
+  }
+
+  .swithModule {
+    color: $text-400 !important;
+  }
+}
+
+//deposit
+.deposit {
+  .account {
+    background: $white !important;
+  }
+
+  .depositModule {
+    background: $primary-400 !important;
+
+    .title {
+      background: $secondary-darken !important;
+
+      .info {
+        color: $primary !important;
+        font-weight: 600;
+      }
+    }
+
+    .selectModule {
+      .inputBox {
+        border: 1px solid $primary-400 !important;
+      }
+
+      .bankName {
+        &.active {
+          box-shadow: 0 0 0 2px $secondary !important;
+
+          .icon-icon32px_check {
+            &::before {
+              color: lighten($secondary, 5%) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//withdrawal
+.withdrawal {
+  .name {
+    color: $white !important;
+  }
+
+  .text-org {
+    color: $white !important;
+  }
+
+  .formula {
+    background: lighten($primary, 10%);
+    border: unset !important;
+
+    div {
+      div {
+        &:first-child {
+          color: $text-500 !important;
+        }
+
+        &:last-child {
+          background: $primary !important;
+        }
+
+        div {
+          color: $text-500 !important;
+
+          span {
+            color: $secondary !important;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+// Other
+
+.account {
+  color: $primary !important;
+}
+
+.selectModule {
+  color: $primary !important;
+
+  i.icon {
+    color: $primary !important;
+  }
+}
+
+.text {
+  color: $text-400 !important;
+}
+
+.selectBank {
+  a {
+    background: $grey !important;
+  }
+}
+
+.bankAccount {
+  .account {
+
+    .nickName,
+    .icon,
+    .icon::before {
+      color: $primary !important;
+    }
+  }
+}
+
+.breadcrumb {
+  a {
+    color: $text-400 !important;
+  }
+}
+
+.nodata {
+  div {
+    color: $primary-400 !important;
+  }
+}
+
+
+
+//appdowload
+.appdownload {
+  &.active {
+    a {
+      background: $secondary !important;
+    }
+
+    div {
+      color: $primary !important;
+    }
+  }
+}
+
+//Promotion
+.promotions {
+  .promodule {
+    background: $white !important;
+
+    .protitle {
+      color: $primary !important;
+    }
+
+    .text {
+      color: $primary-400 !important;
+    }
+  }
+}
+
+
+// logoSwitch 
+.logoSwitch {
+  background: $primary !important;
+
+  .icon-close {
+    color: $white !important;
+  }
+
+  .switch {
+    color: $primary !important;
+  }
+
+  .switchBg {
+    background: $secondary !important;
+  }
+
+  .Terms {
+    a {
+      color: $secondary !important;
+    }
+  }
+
+  .Join {
+    .Terms {
+      color: $text-500 !important;
+    }
+  }
+
+  .step {
+    .circle {
+      background: $secondary !important;
+
+      &.active {
+        background: rgba($secondary , 0.568627451) !important;
+      }
+
+      >div {
+        background: rgba($secondary , 0.568627451) !important;
+
+        >div {
+          background: $secondary !important;
+        }
+      }
+    }
+  }
+
+  .features {
+    .title {
+      &:nth-child(1) {
+        background: darken($secondary, 20%) !important;
+        color: $text-400 !important
+      }
+
+      color: $primary !important;
+    }
+  }
+
+}
+
+//inputBox
+.infoModule {
+  .icon-icon32px_1 {
+    color: $primary !important;
+  }
+
+  .inputBox {
+    // border: 1px solid $primary !important;
+    background: $white !important;
+
+    .dropdown {
+      color: $primary !important;
+
+      .text {
+        color: $primary !important;
+      }
+
+      &~.dropdown-container {
+        color: $primary !important;
+        border: 1px solid $primary !important;
+      }
+
+      &.error {
+        border: 1px solid $red !important;
+      }
+
+      .icon-information {
+        &:before {
+          color: darken($secondary, 10%) !important;
+        }
+      }
+    }
+
+    .dropdown-container {
+      &.active {
+        .dropdown-item {
+          .text {
+            color: $primary !important;
+          }
+        }
+      }
+    }
+
+    input {
+      color: $primary !important;
+
+      &::placeholder {
+        color: $text-600 ;
+      }
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      -webkit-text-fill-color: unset !important;
+    }
+
+    i.icon {
+      color: $primary !important;
+    }
+  }
+
+  .inputBox-white {
+    .inputBox {
+      background: $white !important;
+    }
+  }
+
+  .buttonBox {
+    button {
+      border: 1px solid $secondary !important;
+      color: $secondary !important;
+    }
+  }
+
+}
+
+
+
+
+//Collapsible 收合元件
+.collapsible {
+  @extend.card;
+  padding: 2vw;
+  transition: ease 0.3s;
+
+  &.collapsed {
+
+    .content {
+      visibility: hidden;
+      height: 0;
+      margin-bottom: 0;
+    }
+
+    .collapse-btn {
+      .icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .collapse-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    align-self: stretch;
+
+    .icon {
+      transition: ease 0.3s;
+      display: flex;
+    }
+
+  }
+
+  .content {
+    transition: ease 0.3s;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    visibility: visible;
+    height: 270px;
+    overflow-y: scroll;
+    margin-bottom: 3vw;
+
+    p {
+      color: $main-grey-default;
+
+      b {
+        color: $white;
+        margin-bottom: 2vw
+      }
+    }
+  }
+}
+
+//Card
+.card {
+  border-radius: 15px;
+  background-color: $grey-dark;
+  margin: 2.5vw 2vw;
+  padding: 2vw 2vw 5vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+
+  .title {
+    font-size: 3vw;
+    margin: 3vw 0;
+  }
+}
+
+//Menu
+.menu {
+  &-logo {
+    >div {
+      &:first-child {
+        color: $primary !important;
+      }
+
+      &:last-child {
+        color: $primary !important;
+        font-weight: 800 !important;
+
+        span {
+          color: $primary !important;
+          font-weight: 800 !important;
+          margin-left: 1.5vw !important;
+        }
+      }
+    }
+
+  }
+
+  &-center {
+    a {
+      span {
+        color: $text-400 !important;
+      }
+    }
+  }
+
+  &-bottom {
+    background: unset !important;
+
+    &-item {
+      .country-item {
+        div {
+          button {
+            color: $text-500 !important;
+
+            &.active {
+              color: $secondary !important;
+            }
+          }
+        }
+      }
+    }
+
+    .info {
+      >div {
+        color: $text-500 !important;
+      }
+    }
+
+    .option {
+      >div {
+        background: $primary-light !important;
+        color: $primary-400 !important;
+
+        .country-current {
+          background: lighten($primary , 5%) !important;
+
+          .country-item {
+            div {
+              &:nth-child(2) {
+
+                div {
+                  &:first-child {
+                    color: $text-500 !important;
+                  }
+                }
+              }
+
+              button {
+                &.active {
+                  color: $secondary !important;
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+
+
+  }
+
+  &-bottom-item {
+    background: lighten($primary , 5%) !important;
+    color: $text-500 !important;
+  }
+
+
+  //-- Menu-after --
+
+  //close-btn 
+  .close-btn {
+    left: unset !important;
+    right: 3.5vw !important;
+  }
+
+  &.after {
+    .profile-item {
+      div {
+        div {
+          a {
+            &::after {
+              content: "\e95c" !important;
+              font-family: 'icomoon' !important;
+              background: unset !important;
+              font-size: 2.4vw;
+              display: flex;
+              justify-content: center;
+            }
+          }
+
+          div {
+            span {
+              color: $white !important;
+              font-weight: 400;
+            }
+
+            color: $primary !important;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    .menu-bottom-item {
+      .info {
+        color: $text-500;
+      }
+
+      .option {
+        .country-current {
+          &.after {
+            padding: 3.6vw;
+            background: lighten($primary , 5%);
+            border-radius: 2.8vw;
+
+            .country-item {
+              div {
+                &:nth-child(2) {
+                  div {
+                    &:first-child {
+                      color: $text-500 !important;
+                    }
+                  }
+                }
+
+                button {
+                  &.active {
+                    color: $secondary !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .menu {
+      &-top {
+        background: $secondary !important;
+
+        &-balance {
+          div {
+            &:last-child {
+              a {
+                background: linear-gradient(to top, $primary 60%, lighten($primary-400, 10%));
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // .wallet-list {
+
+    //   a,
+    //   button {
+    //     &.primary {
+    //       background: $secondary-gradient-right !important;
+    //     }
+    //   }
+    // }
+
+    .btn-logout {
+      color: $text-600 !important;
+    }
+
+    //------- vip --------
+    // .menu-vip {
+    //   .left {
+    //     >div {
+    //       &:last-child {
+    //         margin-top: 2.5vw;
+    //       }
+    //     }
+    //   }
+
+    //   .vip-text {
+    //     right: 1.2vw !important;
+    //     font-size: 2.5vw !important;
+    //   }
+
+    //   .right {
+    //     background: lighten($white, 10%) !important;
+    //     padding-right: 4.5vw !important;
+    //   }
+
+    //   &.tortoise {
+    //     background: url(../img/style-img/4.0/tortoise-bg.png) no-repeat center / cover !important;
+    //   }
+
+    //   &.phoenix {
+    //     background: url(../img/style-img/4.0/phoenix-bg.png) no-repeat center / cover;
+    //   }
+
+    //   &.tiger {
+    //     background: url(../img/style-img/4.0/tiger-bg.png) no-repeat center / cover;
+
+    //     .right {
+    //       background: lighten($grey-dark, 24%) !important;
+    //     }
+    //   }
+
+    //   &.dragon {
+    //     background: url(../img/style-img/4.0/dragon-bg.png) no-repeat center / cover;
+    //   }
+
+    //   &.qilin {
+    //     background: url(../img/style-img/4.0/qilin-bg.png) no-repeat center / cover;
+    //   }
+
+    //   &.vermilion {
+    //     background: url(../img/style-img/4.0/vermilion-bg.png) no-repeat center / cover;
+
+    //     // .vip-text {
+    //     //   color: #8d8d8d;
+    //     // }
+
+    //     // .left{
+    //     //   color: #8d8d8d;
+    //     //   >div{
+    //     //     &:last-child{
+    //     //       color: #8d8d8d;
+    //     //       div{
+    //     //         color: #b9b9b9;
+    //     //       }
+    //     //     }
+    //     //   }
+    //     // }
+    //   }
+    // }
+  }
+}
+
+//Footer
+.footer {
+  .plus {
+    background: linear-gradient(180deg, $secondary 20%, $secondary-400 ) !important;
+    box-shadow: unset !important;
+  }
+
+  .footer-title {
+    color: lighten($primary-400, 20%) !important;
+  }
+
+  .footer-item.active :not(.plus) {
+    color: $primary !important;
+
+    &.footer-title {
+      border-bottom: 2.5px solid $secondary !important;
+    }
+  }
+}
+
+//--------- index -----------//
+// Main index
+main {
+  &.index {
+    padding-bottom: 30vw !important;
+
+  }
+
+  #Marquee {
+    background: $secondary !important;
+
+    .livechat-btn {
+      background: unset !important;
+      color: $text-400 !important;
+    }
+
+    .marquee-box {
+      &::after {
+        background: unset !important;
+      }
+
+      &::before {
+        background: $white !important;
+        color: $secondary !important;
+      }
+
+      .marquee-container {
+        background: unset !important;
+
+        button {
+          background: unset !important;
+          border: unset !important;
+          color: $text-400;
+        }
+
+      }
+
+    }
+  }
+
+  .new-icon {
+    background: $secondary !important;
+  }
+
+  //sidebar
+  .home-sidebar {
+    background: $primary-400 !important;
+
+    button {
+      .btn-circle {
+        background: $primary !important;
+      }
+
+      &.active {
+        .btn-circle {
+          background: $secondary !important;
+        }
+
+        &::after {
+          background: $secondary !important;
+        }
+      }
+
+      div {
+        color: $text-400 !important;
+      }
+    }
+
+  }
+
+  //gamelist
+  .home-gamelist {
+    .gamelist {
+      &-img {
+        color: $white !important;
+
+        img {
+          filter: drop-shadow(0 0 4px #D8D8D8) !important;
+        }
+      }
+    }
+  }
+
+  .home-title {
+    color: $white !important;
+
+    &::after {
+      background: $secondary-gradient-right !important;
+    }
+  }
+
+  .home-hotmatch-item {
+    background: $primary-400 !important;
+    color: $text-400 !important;
+
+    .title {
+      &::after {
+        background: $secondary-gradient-right !important;
+      }
+    }
+
+    .odds {
+      background: $primary !important;
+      color: $text-400 !important;
+
+      span {
+        &:last-child {
+          color: $secondary !important;
+        }
+      }
+    }
+
+    .btn-bet {
+      background: $secondary !important;
+    }
+  }
+
+  //home-hotgame
+  .home-hotgame {
+    background: $primary-400 !important;
+  }
+
+  //home-partner
+  .home-partner {
+    &-content {
+      div {
+        color: $text-400 !important;
+      }
+    }
+
+    &-title {
+      color: $text-400;
+
+      &::after {
+        background: $secondary-gradient-right;
+      }
+
+      &::before {
+        background: $secondary-gradient-right;
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  //home-bottom
+  .home-bottom {
+    background: $secondary !important;
+
+    &-aff {
+      background: $secondary-400 !important;
+      color: $text-400 !important;
+
+      a {
+        color: $text-400 !important;
+      }
+    }
+
+    .bottom-license {
+      div {
+        color: $text-400 !important;
+      }
+    }
+  }
+
+  //home-appdownload
+  .home-appdownload {
+    background: $primary !important;
+
+    .btn-download {
+      .ios {
+        background: $secondary !important;
+      }
+    }
+  }
+
+  //setting
+  &.setting {
+    .setting-title {
+      color: $secondary !important;
+    }
+
+    .inputBox {
+      background: $white !important;
+
+      button {
+        div {
+          span.text {
+            color: $primary !important;
+          }
+        }
+      }
+
+      i.icon {
+        color: $primary !important;
+      }
+    }
+
+    .dropdown {
+      color: $primary !important;
+
+      &-container {
+        background: $white !important;
+      }
+
+      &-item {
+        span.text {
+          color: $primary !important;
+        }
+      }
+
+    }
+  }
+
+  //exclusion
+  .exclusion-text {
+
+    a,
+    button {
+      background: $secondary !important;
+      color: $primary !important;
+    }
+
+    div {
+      color: $text-400 !important;
+    }
+  }
+
+  &.Announcement,
+  &.Message {
+    .account {
+      &.active {
+        .info {
+          background: $primary-400 !important;
+
+        }
+      }
+    }
+
+    .checkbox {
+      color: $text-400 !important;
+
+      .icon {
+        color: unset !important;
+      }
+    }
+
+    .icon-keyboard_arrow_down {
+      &::before {
+        color: $text-400 !important;
+      }
+    }
+
+    .introduction {
+      span {
+        &.title {
+          color: $secondary !important;
+        }
+
+        color: $text-400 !important;
+      }
+    }
+
+    .smallBtn-group {
+      &.active {
+        button {
+          background: $secondary !important;
+        }
+      }
+    }
+
+
+  }
+
+  &.rankingNew {
+    .rankEvent {
+      .text-blue {
+        color: $secondary !important;
+      }
+
+      .filterBtn {
+        button {
+          border: 1px solid $secondary !important;
+          color: $secondary !important;
+
+          &.active {
+            background: $secondary !important;
+            color: $text-400 !important;
+          }
+        }
+      }
+
+      .title {
+        color: $secondary !important;
+      }
+    }
+
+    .rankList ul li {
+      background: $secondary !important;
+
+      &.userRank {
+        color: $primary !important;
+      }
+
+      &:first-child {
+        background: unset !important;
+        color: $primary !important;
+      }
+    }
+  }
+
+  &.Wallet {
+    .name {
+      color: $secondary !important;
+    }
+
+    .dropdown-item {
+      .text {
+        color: $primary !important;
+      }
+    }
+
+    .inputBox {
+      border: 1px solid $secondary !important;
+
+      i.icon {
+        color: $secondary !important;
+      }
+    }
+
+    .account {
+      .text-org {
+        color: $primary !important;
+      }
+
+      a,
+      button {
+        background: $secondary !important;
+      }
+    }
+  }
+}
+
+.account {}
+
+
+
+
+
+
+//---------- .Main ----------//
+
+.main {
+
+  //Login
+  &.login {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    padding: 0 7.5vw !important;
+
+    .close-btn {
+      position: absolute;
+      top: 3.5vw;
+      right: 3.5vw;
+
+      img {
+        width: 3.5vw;
+      }
+    }
+
+    //-- logo --
+    .logo {
+      margin-bottom: 10vw;
+
+      img {
+        width: 55vw;
+      }
+    }
+
+    //-- input-content
+    .form {
+      &-content {
+        width: 100%;
+
+        .infoModule {
+          margin: 0 0 3.5vw !important;
+        }
+
+        // inputBox
+        .inputBox {
+          border-radius: 10vw !important;
+          padding: 2.4vw 3.8vw !important;
+          margin: 0 !important;
+
+          input {
+            font-size: 3vw !important;
+            padding: 0 !important;
+            font-family: "Poppins", sans-serif;
+
+            &::placeholder {
+              color: $black !important;
+            }
+          }
+
+          &.error {
+            background: lighten($red, 35%) !important;
+          }
+        }
+
+        // terms
+        .Terms {
+          a {
+            display: block;
+            text-align: right;
+            padding-right: 3vw;
+            font-size: 2.5vw !important;
+            margin-top: 2vw;
+            font-weight: 400 !important;
+            text-decoration: underline !important;
+            color: darken($white, 20%);
+          }
+        }
+
+        .tip-join {
+          text-align: center;
+          color: darken($main-grey-dark, 5%) !important;
+          font-weight: 600;
+          margin-top: 4.5vw;
+
+          a {
+            display: inline-block;
+            margin-left: 1.5vw;
+            color: $primary !important;
+            text-decoration: underline !important;
+          }
+        }
+
+        //btn-group
+        .btn {
+          &-group {
+            margin: 5vw 0 0 !important;
+
+            button {
+              margin: 0 8vw !important;
+              font-size: 3.5vw !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //Registration
+
+  &.registration {
+
+    //-- flag --
+    .flag {
+      &:before {
+        border: 1px solid #ccc;
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+
+    //-- banner --
+    .banner {
+      height: auto;
+      margin-bottom: 6vw;
+
+      img {
+        height: auto;
+        object-fit: contain;
+        width: 100%;
+      }
+    }
+
+    //-- tab --
+    .tab {
+      display: flex;
+      align-self: stretch;
+      gap: 10px;
+
+
+      a {
+        flex: 1;
+        cursor: pointer;
+        border-radius: 20px 20px 0 0;
+        padding: 2vw;
+        color: $white;
+        text-align: center;
+        border-bottom: 4px solid $main-grey-dark;
+        transition: 0.3s ease;
+
+        &.active {
+          background-color: $main-grey-default;
+          border-bottom: 4px solid $primary;
+          cursor: default;
+
+          &:hover {
+            background-color: $main-grey-default;
+          }
+        }
+
+        &:hover {
+          background-color: rgba($main-grey-default , 30%);
+        }
+      }
+    }
+
+    //-- Form-content --
+    .form-content {
+      padding-top: 4vw;
+
+      .infoModule {
+        .inputBox {
+          border-radius: 10vw;
+
+
+          i.icon {
+
+            &.icon-minus,
+            &.icon-plus {
+              display: none;
+            }
+
+            &.icon-key+input+div>.icon-minus {
+              display: flex;
+            }
+
+            &.icon-key+input+div>.icon-plus {
+              display: flex;
+            }
+          }
+
+          // dropdown
+          .dropdown {
+            &.btn {
+
+              // justify-content:flex-start;
+              // padding: 0;
+              // background: transparent;
+              >div {
+                display: flex;
+                align-items: center;
+              }
+            }
+
+            .dropdown-item {
+              padding: 3vw;
+            }
+
+          }
+
+          .dropdown-container {
+            border-radius: 1.5vw;
+
+            .inputBox {
+              margin: 8px 4px;
+            }
+
+            .tip {
+              padding: 1vw;
+            }
+          }
+        }
+
+        &.parts {
+
+          .input-group {
+            display: flex;
+            width: 100%;
+
+            .inputBox {
+              flex: 1;
+              min-width: 0;
+
+              input {
+                width: 100%;
+              }
+
+              // dropdown
+              .dropdown {
+                &.btn {
+                  flex: 1;
+                  min-width: 0;
+
+                  >div {
+                    flex: 1;
+                    overflow: hidden;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //-- btn-group --
+    .btn-group {
+      margin: 5vw 0;
+
+      button {
+        margin: 0 8vw;
+      }
+    }
+
+    //-- Terms --
+    .Terms {
+      text-align: center;
+      padding: 0 2vw;
+      margin: 2vw 0;
+      color: $main-grey-light;
+
+      &.error {
+        border: 1px solid $red;
+      }
+
+      a {
+        cursor: pointer;
+        color: $primary;
+        text-decoration: underline;
+      }
+    }
+
+    //-- 20220628 恭喜入會 --
+    .congrats {
+      text-align: center;
+      color: #F77A00;
+      font-size: 4vw;
+      margin: 10vw 0;
+      position: relative;
+
+      &::before {
+        content: "\e996";
+        font-family: 'icomoon';
+        font-size: 20vw;
+        color: #5574A7;
+        margin: 5vw;
+        display: flex;
+        justify-content: center;
+      }
+
+      >p {
+        font-size: 5vw;
+        color: #5574A7;
+        font-weight: bold;
+        margin: 2vw;
+      }
+
+      // 紙花
+      &::after {
+        position: absolute;
+        width: 50vw;
+        height: 48vw;
+        content: "";
+        // background: url(../img/style-img/spread.png)no-repeat;
+        background-size: 100%;
+        top: -5vw;
+        left: 20vw;
+        animation: fire1 2.8s 3s infinite;
+      }
+
+      @keyframes fire1 {
+        0% {
+          transform: scale(0) translateY(-10%);
+          opacity: 0;
+        }
+
+        50% {
+          transform: scale(1) translateY(-5%);
+          opacity: 0.6;
+        }
+
+        100% {
+          transform: scale(1) translateY(0%);
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  //Forget Password
+  &.forget-password {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 20vw 4vw !important;
+
+    //form-content
+    .form {
+      &-content {
+        width: 100%;
+      }
+
+      &-module {
+        margin-bottom: 10vw;
+        box-sizing: border-box;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5vw;
+
+          .icon {
+            &::before {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+
+        .title {
+          font-size: 3.5vw;
+          font-weight: 500;
+          text-align: center;
+          margin-bottom: 3.5vw;
+        }
+
+        p {
+          text-align: center;
+          color: $main-grey-default;
+          font-size: 3vw;
+        }
+
+        // inputModule
+        .infoModule {
+          margin: 0 0 2.5vw !important;
+        }
+
+        .input-group {
+          display: flex;
+          width: 100%;
+          gap: 1.2vw;
+          margin-bottom: 1vw;
+        }
+
+        // inputBox
+        .inputBox {
+          border-radius: 10vw !important;
+          padding: 2.4vw 3.8vw !important;
+          margin: 0 !important;
+          box-sizing: border-box !important;
+          width: 100%;
+          flex-wrap: unset !important;
+
+          input {
+            font-size: 3vw !important;
+            padding: 0 !important;
+            font-family: "Poppins", sans-serif;
+
+            &::placeholder {
+              color: $black !important;
+            }
+          }
+
+          &.error {
+            background: lighten($red, 35%) !important;
+          }
+
+          .dropdown {
+            padding: 0 !important;
+            min-height: unset !important;
+            font-weight: 400 !important;
+
+            ~.dropdown-container {
+              border: transparent !important;
+              color: $black !important;
+              border-radius: 1.5vw;
+              margin: 0 0 0 -0.2vw !important;
+
+            }
+          }
+
+          .dropdown-container {
+            .inputBox {
+              margin-top: 2vw !important;
+
+              input {
+                &::placeholder {
+                  color: $main-grey-default !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //btn-group
+    .btn {
+      &-group {
+        box-sizing: border-box;
+        margin: 5vw 8vw 0 !important;
+        width: auto !important;
+
+        button {
+          font-size: 3vw !important;
+        }
+      }
+    }
+
+  }
+
+  //Download
+  &.download {
+    box-sizing: border-box;
+    width: 100%;
+
+    .download-group {
+      @extend .collapsible;
+      border-radius: 10px;
+      padding: 0;
+      overflow: visible;
+      margin: 8vw 0;
+
+      %title {
+        justify-content: start;
+        padding: 0 2.5vw;
+        border-radius: 10px 10px 0 0;
+        transition: ease 0.3s;
+
+        .title {
+          font-size: 3.5vw;
+          position: relative;
+          padding-left: 50px;
+
+          img {
+            position: absolute;
+            bottom: 20%;
+            left: 0;
+          }
+        }
+
+      }
+
+      // android
+      &.android {
+        .collapse-btn {
+          @extend %title;
+          background: linear-gradient(to bottom, #9dd53a, #a1d54f 50%, #80c217 51%, #7cbc0a);
+        }
+      }
+
+      // ios
+      &.ios {
+        .collapse-btn {
+          @extend %title;
+          background: linear-gradient(to bottom, #adadad 0% 51%, #939393 51% 100%);
+        }
+      }
+
+      // content
+      .content {
+        flex: 1;
+        align-self: stretch;
+        margin: 0;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+
+          li {
+            display: flex;
+            padding: 2.5vw;
+            justify-content: space-between;
+            border-bottom: $main-grey-dark solid 1px;
+
+            &:last-child {
+              border-bottom: none;
+            }
+
+            .title {
+              display: flex;
+              gap: 2vw;
+              font-size: 3.5vw;
+            }
+
+            .state {
+              color: $primary-light;
+            }
+
+            button {
+              border-radius: 5px;
+              font-size: 2vw;
+              padding: 2vw;
+
+              background: #ffffff1a;
+              border: 1px solid rgba(255, 255, 255, .1);
+            }
+          }
+        }
+      }
+
+      //.collapsed
+      &.collapsed {
+        .collapse-btn {
+          border-radius: 10px;
+        }
+
+        .content {
+          flex: auto;
+        }
+      }
+    }
+
+    //note
+    .note {
+      span {
+        color: $primary-light;
+      }
+    }
+
+
+
+  }
+
+}
+
+
+//---------- Popup ----------//
+
+#popup {
+
+  //johnSuccess popup
+  // .joinSuccess {
+  //   margin: auto;
+
+  //   .logo {
+  //     display: flex;
+  //     justify-content: center;
+  //   }
+
+  //   .Join {
+  //     .Terms {
+  //       text-align: center;
+  //     }
+  //   }
+  // }
+}
+
+.icon-close {
+  color: $primary !important;
+}
+
+#popup {
+  background: rgba($primary, 85%) !important;
+
+  .promospop {
+    .popTit {
+      color: $primary !important;
+      background: text-500 !important;
+    }
+
+    .protitle {
+      color: $primary !important;
+    }
+
+    .text {
+      color: $primary-400 !important;
+    }
+
+  }
+
+  .popTit {
+    color: $primary !important;
+    border-bottom: 1px solid $primary !important;
+
+    .icon-close {
+      &::before {
+        color: $primary !important;
+      }
+    }
+  }
+
+  .popTxt {
+    color: $primary !important;
+  }
+
+  .promotionsInfo {
+    img {
+      width: 100%;
+    }
+  }
+
+  .remainingTime {
+    div {
+      div {
+        &:nth-child(1) {
+          background: $primary !important;
+        }
+      }
+    }
+  }
+}

@@ -1,11 +1,7 @@
-import Link from 'next/link'
-import { useTranslation } from 'next-i18next'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { paths } from '@nx-next-app/constants'
-import dynamic from 'next/dynamic'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import { MenuActionTypeEnum } from '@nx-next-app/types'
 import { useHome } from '@nx-next-app/features/F0001/providers'
 import { includes } from 'lodash-es'
 
@@ -77,7 +73,7 @@ const WelcomeInfo = () => {
 							<span>{t('Label_Home_JoinDescription')}</span>
 						</div>
 						<Link href={`${paths.join.root}`}>
-							<button className='welcome-btn'>
+							<button className='welcome-btn secondary'>
 								{t('Label_General_MoreInfo')}
 							</button>
 						</Link>

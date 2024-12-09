@@ -1,0 +1,184 @@
+//----- Desktop -----//
+
+//----- color -----//
+$primary-light: lighten(#0C0C0D, 10%);
+$primary: #0C0C0D;
+$primary-400: #1E1F1D;
+$primary-hover: #2D2D2D;
+$secondary: #BB9A66;
+$secondary-400: #C9AE85;
+$secondary-hover: #E3BA79;
+$secondary-darken: darken($secondary, 10%);
+$secondary-lighten: lighten($secondary, 15%);
+$thrid: #1F1F1F;
+$thrid-hover: #5a5a5a;
+$yellow: #F0B003;
+$green: #4B902E;
+$green-hover: #83BA43;
+$white: #fff;
+$black: #000;
+$grey: #B0B3BB;
+$grey-dark: #242526;
+$mask: rgba($grey-dark, 0.6);
+$indigo: #011FD4;
+$indigo-light: #1549FF;
+$red: #cf0404;
+$text-400: #fff;
+$text-500: #D1D1D1;
+$text-600: #A7A7A7;
+
+
+//----- main greyscale -----//
+$main-grey-lightest: #E0E6E9;
+$main-grey-light: #CCCCCC;
+$main-grey-default: #AEACAC;
+$main-grey-dark: #4c5356;
+
+//----- gradient -----//
+$secondary-gradient-right: linear-gradient(to right, $secondary , rgba($white, 10%));
+$primary-gradient-right: linear-gradient(to right, $primary , rgba($secondary, 10%));
+$secondary-gradient-bottom: linear-gradient(to bottom, $secondary-lighten , $secondary);
+$secondary-gradient-bottom-default: linear-gradient(to bottom, $secondary-darken 0%, $secondary 100%);
+// $red-gold-gradient-right: linear-gradient(to right, $primary 10%, $secondary);
+$gold-gradient-right: linear-gradient(to right, $secondary-darken 0%, $secondary 100%);
+$black-gold-gradient-right: linear-gradient(to right, #1E1E1E 0%, $secondary 100%);
+
+
+
+//----- component -----//
+
+$header: #090707;
+$footer: #1C1C1C;
+$body: $black;
+$sidebar-title-bg: #DFDFDF;
+$container-bg: #525252;
+$thead-bg: #4E4E4E;
+$table-bg: #eeeeee;
+$table-sec-bg: #F4F4F4;
+$icon: #3F4144;
+$nav-bg: #333333;
+$box-content: #2E2E2E;
+
+//----- vip color  -----//
+$level-one: #009345;
+$level-two: #BA3622;
+$level-three: #C7C8CA;
+$level-four: #D9A728;
+$level-five: #56449A;
+$level-six: #ED2550;
+
+//---------- Loading ----------//
+
+
+.preloader {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-image: radial-gradient(center, circle closest-side, rgba(20, 20, 20, 1) 10%, rgba(20, 20, 20, 0) 60%);
+  background-image: -webkit-radial-gradient(center, circle closest-side, rgba(20, 20, 20, 1) 10%, rgba(20, 20, 20, 0) 60%);
+  background-image: -moz-radial-gradient(center, circle closest-side, rgba(20, 20, 20, 1) 10%, rgba(20, 20, 20, 0) 60%);
+  background-image: -ms-radial-gradient(center, circle closest-side, rgba(20, 20, 20, 1) 10%, rgba(20, 20, 20, 0) 60%);
+  background-image: -o-radial-gradient(center, circle closest-side, rgba(20, 20, 20, 1) 10%, rgba(20, 20, 20, 0) 60%);
+}
+
+.preloader-logo {
+  width: 39%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  animation: 3s logofader ease-in;
+}
+
+.preloader,
+.preloader hr {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.preloader hr {
+  box-sizing: border-box;
+  display: block;
+  border: 2px solid transparent;
+  border-radius: 50%;
+
+  animation: 1s spin linear infinite;
+}
+
+.preloader hr:nth-of-type(1) {
+  top: 28px;
+  border-top-color: #FF0000;
+  animation-duration: 2.4s;
+  height: 144px;
+  width: 144px;
+}
+
+.preloader hr:nth-of-type(2) {
+  top: 33px;
+  border-top-color: #FF0000;
+  animation-duration: 2s;
+  height: 134px;
+  width: 134px;
+}
+
+.preloader hr:nth-of-type(3) {
+  top: 38px;
+  border-top-color: #FF0000;
+  animation-duration: 1.6s;
+  height: 124px;
+  width: 124px;
+}
+
+.preloader hr:nth-of-type(4) {
+  top: 43px;
+  border-top-color: #FF0000;
+  animation-duration: 1.2s;
+  height: 114px;
+  width: 114px;
+}
+
+.preloader hr:nth-of-type(5) {
+  top: 48px;
+  left: 25px;
+  right: 25px;
+  border-top-color: #FF0000;
+  animation-duration: .8s;
+  height: 104px;
+  width: 104px;
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes logofader {
+  0% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  75% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,2704 @@
+@import "_variables.scss";
+@import "font.scss";
+
+
+//---------- Google Fonts ----------//
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+//---------- General Structure ----------//
+html {
+  height: 100%;
+  background: $primary !important;
+}
+
+body {
+  min-height: 100vh;
+  background: $primary !important;
+}
+
+.required-tip {
+  color: $red;
+}
+
+.d-none {
+  display: none !important;
+}
+
+// txt
+.txt-gray {
+  color: $main-grey-default !important;
+}
+
+.txt-black {
+  color: $black;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+@keyframes dot {
+  0% {
+    opacity: 1;
+  }
+
+  10% {
+    transform: translate3d(-0.1px, 0, 0);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: #ff000078 0 0 0 4px;
+  }
+
+  80% {
+    transform: translate3d(-0.1px, 0, 0);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: #ff000078 0 0 0 5px;
+    opacity: 1;
+  }
+}
+
+.notify-dot {
+  &::after {
+    top: 2px;
+    right: 0;
+    position: absolute;
+    display: block;
+    content: "";
+    background: red;
+    width: 8px;
+    height: 8px;
+    border-radius: 100px;
+    transition: all 0.2s ease-in-out;
+    animation: 1.5s ease 0s infinite normal none dot;
+  }
+
+}
+
+//---- background ---- //
+div {
+  &.primary {
+    background: $primary !important;
+  }
+
+  &.primary-400 {
+    background: $primary-400 !important;
+  }
+
+  &.secondary {
+    background: $secondary !important;
+
+  }
+}
+
+
+
+//----- Button -----//
+button,
+a {
+
+  &.primary {
+    background: $primary !important;
+    color: $white !important;
+    border-color: $primary !important;
+
+    &:hover {
+      background: $primary-hover !important;
+      border-color: $primary-hover !important;
+    }
+  }
+
+  &.secondary {
+    background: $secondary !important;
+    color: $white !important;
+    border-color: $secondary !important;
+
+    &:hover {
+      background: $secondary-hover !important;
+      border-color: $secondary-hover !important;
+
+    }
+  }
+
+  &.thrid {
+    background: $thrid !important;
+    color: $white !important;
+    border-color: $thrid !important;
+
+    &:hover {
+      background: $thrid-hover !important;
+      border-color: $thrid-hover !important;
+    }
+
+  }
+
+  &.ghost {
+    background: transparent !important;
+    border: 1px solid $secondary !important;
+    color: $secondary !important;
+
+    &:hover {
+      color: $secondary-hover !important;
+      border: 1px solid $secondary-hover !important;
+    }
+
+    &.gold {
+      border: 1px solid $secondary !important;
+      color: $secondary !important;
+      background: $black !important;
+
+      &:hover {
+        color: $secondary-lighten !important;
+        border: 1px solid $secondary-lighten !important;
+      }
+
+      &.red {
+        color: $white !important;
+        border: 1px solid $red !important;
+        background: #e92529 !important;
+      }
+    }
+
+    &.dark {
+      color: $main-grey-dark !important;
+      border: 1px solid $main-grey-dark !important;
+      background: transparent !important;
+
+      &:hover {
+        color: $main-grey-light !important;
+        border: 1px solid $main-grey-light !important;
+      }
+    }
+  }
+
+  // &.white {
+  //   background: $white !important;
+  //   border: 1px solid $secondary !important;
+  //   color: $secondary !important;
+
+  //   &:hover {
+  //     color: $secondary-darken !important;
+  //   }
+  // }
+
+  &.green {
+    color: $white !important;
+    background: $green !important;
+
+    &:hover {
+      background: $green-hover !important;
+    }
+  }
+
+  &.info {
+    background: $indigo !important;
+    color: $white;
+
+    &:hover {
+      background: $indigo-light !important;
+    }
+  }
+}
+
+//disabled
+button[disabled] {
+  cursor: default;
+  background: #a5aab1 !important;
+  color: #666 !important;
+  border-color: transparent !important;
+
+  &:hover {
+    background: #a5aab1 !important;
+    color: #666 !important;
+    border-color: transparent !important;
+  }
+}
+
+//Go Top
+#goTop {
+  background: $white !important;
+  color: $secondary !important;
+}
+
+
+//---------- Component ----------//
+.icon-balance:before {
+  font-size: 24px !important;
+}
+
+.icon-cq9:before {
+  font-size: 16px !important;
+}
+
+.icon-friend:before {
+  font-size: 12px;
+}
+
+
+//Profile
+.addressModule {
+  .address-list {
+    >div {
+      color: $main-grey-default !important;
+    }
+  }
+}
+
+//Form
+form {
+  color: $main-grey-default !important;
+}
+
+//inputBox
+.inputBox-blue,
+.inputBox-white {
+  input {
+    color: $primary-400 !important;
+
+    &::placeholder {
+      color: $text-600 !important;
+    }
+  }
+
+  .iconModule {
+    i {
+      color: $primary-400 !important;
+
+      &::before {
+        color: $primary-400 !important;
+      }
+
+      &.icon-checkmark {
+        &::before {
+          color: $green !important;
+        }
+      }
+
+      &.icon-cross {
+        &::before {
+          color: $red !important;
+        }
+      }
+    }
+
+    //icon-warning
+    .icon-warning {
+      &::before {
+        color: $secondary !important;
+      }
+    }
+
+    //icon-information
+    .icon-information {
+      &::before {
+        color: $secondary !important;
+      }
+    }
+
+    i:not(.icon) {
+      color: primary-400 !important;
+    }
+  }
+
+}
+
+
+//Personal Message 
+.listBody {
+  &.backstage {
+    a {
+      color: $secondary-lighten !important;
+
+      &:hover {
+        color: $secondary-hover !important;
+      }
+    }
+  }
+}
+
+.personal .list .functionMenu .icon-spinner11 {
+  color: $secondary !important;
+}
+
+.personal .list .listHeader>div:nth-child(2) {
+  color: $text-400 !important;
+}
+
+.personal .list .listHeader label {
+  border: 1px solid $text-400 !important;
+  color: $text-400 !important;
+}
+
+.personal .list .functionMenu button.active {
+  background: $secondary !important;
+}
+
+.list .listHeader button.icon-keyboard_arrow_down {
+  color: $secondary !important;
+}
+
+.pagination a {
+  color: $secondary !important;
+
+  &:hover {
+    background: $secondary !important;
+    color: $text-400 !important;
+  }
+
+  &.active {
+    background: $secondary !important;
+    color: $text-400 !important;
+  }
+}
+
+.announcement {
+  .listHeader {
+    div {
+      color: $text-400 !important;
+    }
+  }
+}
+
+
+
+//PageSelect
+.pageSelect {
+  width: unset !important;
+
+  .dropdown {
+    .btn {
+      position: static;
+      justify-content: flex-start !important;
+    }
+  }
+}
+
+//PromosSelect
+.promosSelect {
+
+  .white {
+    border: none !important;
+    color: $black !important;
+
+    &:hover {
+      background: lighten($main-grey-light, 10%) !important;
+    }
+  }
+
+  .thrid {
+    background: $black !important;
+
+    &:hover {
+      background: $icon !important;
+    }
+  }
+}
+
+
+
+//---------- Layout ----------//
+//Header
+#header {
+  background: $primary !important;
+
+  &.primary {
+    background: $primary !important;
+  }
+
+  &.secondary {
+    background: $secondary !important;
+  }
+
+  //menu
+  .menu {
+    border-bottom: unset !important;
+    background: $primary-400 !important;
+
+    a,
+    button {
+      color: $text-400;
+
+      &:hover {
+        color: $secondary;
+      }
+
+      &::after {
+        background: $secondary;
+      }
+
+      .icon {
+        background: $secondary;
+      }
+    }
+
+    .subMenu-Wrapper-new {
+      background: rgba($primary, 80%) !important;
+      border-bottom: unset !important;
+
+      a,
+      button {
+        span {
+          color: $text-400 !important;
+        }
+      }
+
+      .new-icon {
+        background: $secondary !important;
+        color: $text-400 !important;
+      }
+    }
+
+  }
+
+  //function
+  .function {
+
+    .deposit-btn {
+      background: $secondary !important;
+
+      &:hover {
+        background: $secondary-hover !important;
+      }
+    }
+
+    .home-profile {
+
+
+      &-top,
+      &-bottom {
+        a {
+          color: $primary !important;
+        }
+      }
+
+      &-top {
+        color: $primary !important;
+      }
+
+      &-bottom {
+        .logout-btn {
+          color: $secondary !important;
+        }
+      }
+    }
+
+    .home-balance {
+      .balance-submenu {
+        color: $primary;
+      }
+
+      .btnGroup {
+        a {
+          margin: unset !important;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+//Footer
+#footer {
+  background: $secondary !important;
+
+  .copyright {
+    background: $secondary !important;
+  }
+
+  .footer-bottom {
+    background: $secondary-400 !important;
+
+    p {
+      color: $text-400 !important;
+    }
+
+    .footer-btn {
+      color: $text-400;
+    }
+  }
+}
+
+.footer {
+  &-navigation {
+    background: $primary-400 !important;
+
+    a {
+      color: $text-400 !important;
+    }
+  }
+
+}
+
+//NewsList
+.newsList {
+  padding: 0 30px;
+
+  //-- newsList-item
+  .newsList-item {
+    margin: 10px 0 20px;
+    display: flex;
+    align-items: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid $secondary;
+
+    img {
+      flex: 0 0 30%;
+      min-width: 0;
+      border-radius: 10px;
+    }
+
+    //-- newsList-article
+    .newsList-article {
+      flex: 1;
+      padding: 20px 0 0 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-self: stretch;
+
+      //-- title
+      .title {
+        font-size: 17px;
+      }
+
+      //-- txt-gray
+      .txt-gray {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        white-space: normal;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+
+      //-- btnGroup 
+      .btnGroup {
+        justify-content: start;
+        margin: auto 0 0 auto;
+
+        a,
+        button {
+          font-size: 14px;
+          margin: 0;
+          padding: 10px 40px;
+          flex: 0;
+          justify-content: flex-start;
+          min-width: unset;
+        }
+      }
+    }
+  }
+}
+
+//NewsInfo
+article {
+
+  h1,
+  h2 {
+    color: $secondary !important;
+  }
+
+  p {
+    color: $main-grey-default !important;
+  }
+
+  overflow: hidden;
+}
+
+//leftModule
+
+#leftMenu {
+  .menuModule {
+    background: $primary-400 !important;
+
+    a,
+    button {
+      color: $text-400 !important;
+
+      &:hover {
+        background: $secondary-gradient-right !important;
+      }
+
+      &.active {
+        background: $secondary-gradient-right !important;
+      }
+
+      &.menuHeader {
+        background: $secondary !important;
+
+        &:hover {
+          background: $secondary !important;
+          cursor: unset !important;
+        }
+
+      }
+
+      &.menuSelect {
+        &:hover {
+          &:after {
+            background: $secondary !important;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+//rightModule
+.rightModule {
+  .infoModule {
+    background: $primary-400 !important;
+  }
+
+  .inside-title {
+    >span {
+      background: $secondary !important;
+      // color: $primary !important;
+
+      &::after {
+        background: linear-gradient(to right, $white , $secondary) !important;
+        transform: rotate(180deg);
+      }
+    }
+
+    div {
+      color: $text-500 !important;
+    }
+
+    a,
+    button {
+      background: $secondary !important;
+
+      &:hover {
+        background: $secondary-hover !important;
+      }
+    }
+
+  }
+
+  .subModuleListColumn {
+    .subModuleTitle {
+      color: $white !important;
+
+      .txt-blue {
+        color: $red !important;
+      }
+
+      .info {
+        color: $secondary !important;
+      }
+    }
+
+    .checkbox.autotransfer {
+      color: $text-500 !important;
+
+      .icon-question {
+        color: $secondary !important;
+      }
+
+    }
+
+    .subModule {
+      background: $primary !important;
+
+      >div {
+        >button {
+          div {
+            &:first-child {
+              &::before {
+                color: $primary !important;
+              }
+            }
+          }
+
+          &.active {
+            >div {
+              >i {
+                &::after {
+                  background: $secondary !important;
+                }
+              }
+
+
+              &:first-child {
+                box-shadow: 0 0 0 2px $secondary !important;
+              }
+            }
+
+            .bank {
+              div {
+                color: $secondary !important;
+              }
+            }
+          }
+
+          &:hover {
+            >div {
+              >i {
+                &::after {
+                  background: $secondary !important;
+                }
+              }
+
+
+              &:first-child {
+                box-shadow: 0 0 0 2px $secondary !important;
+              }
+            }
+
+            .bank {
+              div {
+                color: $secondary !important;
+              }
+            }
+          }
+
+        }
+      }
+
+      .bank {
+        div {
+          color: $text-400 !important;
+        }
+      }
+    }
+  }
+
+  .subModuleList {
+    .subModule {
+      background: $primary !important;
+
+      .calculation {
+        >div {
+          span {
+            color: $secondary !important;
+          }
+
+          >div {
+            &:first-child {
+              color: $text-400 !important;
+            }
+
+            &:nth-child(2) {
+              color: $text-600 !important;
+            }
+          }
+
+          &:nth-child(even) {
+            color: $text-400 !important;
+            background: unset !important;
+          }
+
+          &:nth-child(odd) {
+            background: $primary-light !important;
+            border: unset !important;
+          }
+        }
+      }
+    }
+
+  }
+
+  .profileModule {
+    color: $white !important;
+
+    .userVerification {
+      .icon {
+        background: $secondary !important;
+      }
+    }
+
+  }
+
+  .vipLv,
+  .profile,
+  .address-container {
+    background: $primary !important;
+
+    >div {
+      color: $white !important;
+    }
+
+  }
+
+  .vipLv {
+    .description {
+      .title {
+        color: $secondary !important;
+      }
+
+      border: 1px solid $primary !important;
+      color: $primary !important;
+    }
+
+    .vipname {
+      background: $secondary !important;
+    }
+  }
+
+  .address-container {
+    .inside-title {
+      >span {
+        color: $white !important;
+        background: unset !important;
+      }
+    }
+  }
+
+  .profile {
+    div {
+      &:first-child {
+        color: $grey !important;
+      }
+    }
+  }
+
+  .inputModuleRow {
+    .inputBox-blue {
+      i.txt-blue {
+        color: $primary !important;
+      }
+    }
+
+    .tip {
+      color: $text-600 !important;
+    }
+  }
+
+  a {
+    &.icon-books {
+      color: $secondary !important;
+    }
+  }
+
+  .important {
+
+    a,
+    button {
+      color: $secondary !important;
+    }
+  }
+
+  .inputBox-blue {
+    .dropdown {
+
+      .btn {
+        color: $primary !important;
+
+        &::after {
+          border-color: $primary transparent transparent transparent !important;
+        }
+      }
+
+      .dropdown-container {
+        border: 1px solid $white !important;
+
+        .dropdown-item {
+          color: $primary !important;
+
+          &:hover {
+            background: $secondary !important;
+            color: $white !important;
+          }
+        }
+      }
+    }
+  }
+
+  .accountName {
+    color: $text-400 !important;
+
+    span {
+      color: $secondary !important;
+    }
+
+    a,
+    button {
+      color: $secondary !important;
+    }
+  }
+
+  //table
+
+  .list {
+    .txt-blue {
+      color: $secondary !important;
+    }
+
+    .listBody {
+      >div {
+        &:nth-child(even) {
+          background: lighten($grey, 20%) !important;
+        }
+      }
+
+      div {
+        border-right: 1px solid lighten($grey, 10%) !important;
+
+        &:last-child {
+          border-right: unset !important;
+        }
+      }
+    }
+
+
+    .listHeader {
+      background: rgba($primary-400, 90%) !important;
+
+      div {
+        border-right: 1px solid $grey !important;
+
+        &:last-child {
+          border-right: unset !important;
+        }
+      }
+    }
+
+    .functionMenu {
+      background: $primary !important;
+    }
+  }
+
+  //withdrawal
+  .walletModule {
+    .walletBalanceModule {
+      background: $primary !important;
+
+      span {
+        &:nth-child(2) {
+          color: $secondary !important;
+        }
+      }
+
+      .icon {
+        color: $white !important;
+      }
+    }
+
+    .tip {
+      color: $text-600 !important;
+
+      &.active {
+        color: $text-400 !important;
+      }
+    }
+
+    .addBank {
+      background: $primary !important;
+
+      .addBankName {
+        color: $primary !important;
+
+        &:hover {
+          background: $secondary !important;
+        }
+
+        &.noBank {
+          div {
+            color: $primary !important;
+          }
+
+          color: $primary !important;
+        }
+
+        .checkbox {
+          label {
+            border: 1px solid $primary !important;
+          }
+        }
+
+        .icon {
+          color: $primary !important;
+        }
+      }
+
+      .txt-blue {
+        color: $primary-400 !important;
+      }
+    }
+  }
+
+
+  .historyModule {
+    background: $primary !important;
+  }
+
+  .breadcrumb {
+    ul {
+      background: $primary !important;
+
+      li {
+        &.breadcrumb-item {
+          &::before {
+            color: $white !important;
+          }
+        }
+      }
+    }
+  }
+
+  .statement {
+    >div:first-child {
+      background: darken($secondary, 5%) !important;
+    }
+  }
+
+  .icon-nodata {
+    color: $grey !important;
+
+    div {
+      color: $grey !important;
+    }
+  }
+
+  .quickSelect {
+    .inputBox-blue {
+      color: $primary !important;
+
+      .txt-blue {
+        color: $primary !important;
+      }
+    }
+  }
+
+
+  .proListNew {
+    >div {
+      background: rgba($white, 86%) !important;
+
+      &:hover {
+        background: $white !important;
+        box-shadow: 0 0 0 3px $secondary inset !important;
+      }
+    }
+
+    .promoInfo {
+      .txt-darkBlue {
+        color: $primary !important;
+      }
+
+      a,
+      button {
+        &.btn-check {
+          background: $primary !important;
+
+          &:hover {
+            background: $primary-hover !important;
+          }
+        }
+      }
+    }
+
+    .remain {
+      .icon-icon32px_time {
+        color: $primary !important;
+
+        div {
+          color: $secondary !important;
+        }
+      }
+    }
+
+  }
+
+  .stepBar {
+    background: rgba($secondary, 50%);
+
+    .stepLine {
+      background: $secondary !important;
+
+      &~div.active {
+        span {
+          color: $secondary !important;
+        }
+
+        &:after {
+          background: $secondary !important;
+        }
+      }
+
+    }
+  }
+
+  .promosSelect {
+    background: $white !important;
+    color: $primary !important;
+  }
+
+  .exclusion-text {
+    a {
+      background: $secondary !important;
+    }
+
+    div {
+      color: $white !important;
+    }
+  }
+
+  .setting-container {
+    .bottom-line {
+      border-bottom: 1px solid $white !important;
+    }
+  }
+
+  .setting-content {
+    color: $text-400 !important;
+  }
+
+  .setting-subtitle {
+    color: $secondary !important;
+  }
+
+  .setting-tip {
+    color: $white !important;
+  }
+
+
+  .referstatus {
+    background: $primary-400 !important;
+
+    .title {
+      color: $secondary !important;
+    }
+
+    .card {
+      div {
+        color: $secondary !important;
+      }
+    }
+
+    .refer-history {
+      color: $secondary !important;
+      border: 2px solid $secondary !important;
+
+      &:hover {
+        color: $secondary-hover !important;
+        border: 2px solid $secondary-hover !important;
+      }
+    }
+  }
+
+  .referinfo-left {
+    .title {
+      color: $secondary !important;
+    }
+
+    .subtitle {
+      color: $secondary !important;
+    }
+
+  }
+
+
+}
+
+
+
+// Button 
+.btnGroup {
+
+  &.historyTag {
+
+    a,
+    button {
+      background: $primary !important;
+      border: 1px solid rgba($grey, 30%) !important;
+
+      &:hover {
+        background: $secondary !important;
+      }
+
+      &.active {
+        background: $secondary !important;
+      }
+    }
+  }
+
+  &.promoType {
+
+    a,
+    button {
+      &.blueBorder {
+        &:hover {
+          background: darken($secondary, 5%) !important;
+          color: $white !important;
+        }
+      }
+    }
+  }
+
+  &.shortcut {
+
+    a,
+    button {
+      color: $primary !important;
+
+      &:hover {
+        background: $secondary !important;
+        color: $text-400 !important;
+      }
+    }
+  }
+
+  a,
+  button {
+
+    &.btn-check {
+      background: $secondary !important;
+      color: $white !important;
+
+      &:hover {
+        background: $secondary-hover !important;
+      }
+    }
+
+    &.btn-cancle {
+      background: $primary !important;
+      border: 1px solid $grey !important;
+
+      &:hover {
+        background: $primary-hover !important;
+      }
+    }
+
+    &.blue,
+    &.orange {
+      background: $secondary !important;
+
+      &:hover {
+        background: $secondary-hover !important;
+      }
+    }
+
+    &.blueBorder {
+      color: $primary !important;
+    }
+  }
+}
+
+
+//---------- Page ------------//
+//Main .index
+main {
+  background: $primary !important;
+
+  //marqee
+  .home-marquee {
+    background: $secondary !important;
+
+    #Marquee {
+      background: unset !important;
+    }
+
+    .livechat-btn {
+      background: unset !important;
+      color: $text-400 !important;
+    }
+
+    .marquee-box {
+      &::after {
+        background: unset !important;
+      }
+
+      &::before {
+        background: $white !important;
+        color: $secondary !important;
+      }
+
+      .marquee-container {
+        background: unset !important;
+
+        button {
+          background: unset !important;
+          border: unset !important;
+          color: $text-400;
+        }
+
+      }
+
+    }
+  }
+
+  .welcome-btn {
+    background: $secondary !important;
+  }
+
+  //promotion swiper
+  .promosswiper {
+    .swiper-button-next {
+      background-image: unset;
+
+      &::after {
+        content: "\e95c";
+        font-family: 'icomoon' !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        background: $secondary;
+        color: $text-400;
+        border-radius: 50%;
+        font-size: 30px !important;
+      }
+    }
+
+    .swiper-button-prev {
+      &::after {
+        content: "\e95d";
+        font-family: 'icomoon' !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        background: $secondary;
+        color: $text-400;
+        border-radius: 50%;
+        font-size: 30px !important;
+      }
+    }
+  }
+
+  //welcomeinfo
+  .welcomeinfo-content {
+    &-text {
+      div {
+        color: $text-400;
+      }
+
+      span {
+        color: $text-600;
+      }
+    }
+
+  }
+
+  //main title
+  .maintitle {
+    color: $text-400 !important;
+
+    a {
+      color: $text-400 !important;
+
+      &::after {
+        content: "\ea3c" !important;
+        font-family: 'icomoon' !important;
+        background: unset !important;
+        color: $secondary !important;
+      }
+    }
+
+    &::after {
+      background: $secondary-gradient-right !important;
+    }
+  }
+
+  //hotmatch
+  .hotmatch {
+    background: $primary !important;
+
+    //hotmatch-item
+    &-item {
+      background: $primary-400 !important;
+
+      .bet-btn {
+        background: $secondary !important;
+      }
+
+      &-title {
+        color: $white !important;
+
+        &::after {
+          background: $secondary-gradient-right !important;
+        }
+      }
+
+      .team {
+        &-content {
+          color: $white !important;
+
+          .odds {
+            background: $primary !important;
+
+            span {
+              &:nth-child(2) {
+                color: $secondary !important;
+              }
+            }
+          }
+        }
+
+        &-item {
+
+          &-center {
+            img {
+              border: 2px solid $text-500 !important;
+            }
+          }
+
+          .bet-btn {
+            background: $secondary !important;
+          }
+        }
+      }
+
+
+    }
+  }
+
+  //hotgame
+  .hotgame {
+    background: $primary-400 !important;
+  }
+
+  //appdownload
+  .appdownload {
+    &-text {
+      color: $white !important;
+
+      span {
+        color: $white !important;
+      }
+
+    }
+
+    .app-qrcode {
+      .app-qrcode-item {
+        color: $secondary !important;
+
+        div {
+          border: 1px solid $secondary !important;
+        }
+
+        a {
+          color: $secondary !important;
+        }
+      }
+    }
+
+  }
+
+  //partner
+  .partner {
+    &-title {
+      color: $text-400;
+    }
+
+    &-logo {
+      img {
+        background: $primary-400;
+      }
+    }
+  }
+
+  //lobby
+  &.lobby {
+    .lobby-title {
+      color: $text-400 !important;
+    }
+
+    //slot
+    .search-input {
+      background: unset !important;
+    }
+
+    .provider-list-item {
+      color: $primary !important;
+
+      &:hover {
+        background: $secondary !important;
+        color: $text-400 !important;
+      }
+    }
+
+    .select-bar {
+      >div {
+        &:hover {
+          color: $secondary !important;
+        }
+
+        &.active {
+          color: $secondary !important;
+          border-bottom: 2px solid $secondary !important;
+        }
+      }
+    }
+
+    .slots-list-item {
+      .img-wrapper {
+        .btn-container {
+          .btn-play {
+            background: $secondary !important;
+          }
+        }
+      }
+
+      &:hover {
+        .details {
+          >div {
+            &:first-child {
+              background: $secondary-gradient-bottom !important;
+            }
+          }
+        }
+      }
+
+      .details {
+        div {
+          div {
+            &:first-child {
+              color: $text-400 !important;
+            }
+
+            &:last-child {
+              color: $text-500 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .hotsports-item {
+    .all-btn {
+      background: $secondary !important;
+    }
+  }
+
+  .mainlivecasino {
+    .all-btn {
+      background: $secondary !important;
+    }
+  }
+
+  .hotgame-content {
+    .all-btn {
+      background: $secondary !important;
+    }
+  }
+
+
+
+
+}
+
+// Survey
+#survey {
+  .survey-icon-btn {
+    background: $primary-400 !important;
+  }
+}
+
+
+
+
+
+
+//rebateExclude
+.subheader {
+  background: $black;
+  padding: 14px;
+  position: sticky;
+  top: 0;
+  z-index: 4;
+
+  &__container {
+    width: 100%;
+    max-width: 912px;
+    margin: 0 auto;
+  }
+
+  // a {
+  //   &::before {
+  //     content: "";
+  //     display: block;
+  //     width: 130px;
+  //     height: 35px;
+  //     // background-image: url("../img/style-img/12bet-logo.png");
+  //     background-size: 100%;
+  //     background-repeat: no-repeat;
+  //     transition: ease .15s;
+  //   }
+  // }
+}
+
+.subcopyright {
+  margin: 0 auto;
+  background: $black;
+  text-align: center;
+  color: $main-grey-default;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 30px;
+  white-space: nowarp;
+}
+
+.exclude {
+  padding: 20px 10px;
+  background: $footer;
+  color: $main-grey-light;
+  min-width: unset;
+  min-height: calc(100vh - 93px);
+
+  &__container {
+    width: 100%;
+    max-width: 912px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 18px;
+    color: $main-grey-light;
+    position: relative;
+    margin-bottom: 25px;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      width: 100%;
+      background-image: linear-gradient(to right, #CCCCCC, rgba(247, 122, 0, 0));
+    }
+  }
+
+  &__table {
+    width: 100%;
+    border-left: 1px solid $primary-hover;
+    border-right: 1px solid $primary-hover;
+    border-radius: 3px;
+    text-align: center;
+
+    &__item {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+
+      &:first-child {
+        div {
+          background: $primary;
+          border-top: 1px solid $primary-hover;
+          color: #fff;
+          font-weight: bold;
+        }
+      }
+
+      div {
+        background: $footer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        flex: 1 1;
+        border-bottom: 1px solid $primary-hover;
+
+        &:first-child {
+          border-right: 1px solid $primary-hover;
+        }
+
+        span {
+          display: block;
+          text-align: center;
+          width: 100%;
+          line-height: 2;
+          padding-bottom: 2px;
+          position: relative;
+
+          &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 1px;
+            height: 1px;
+            width: 100%;
+            background: $primary-hover;
+          }
+
+          &:last-child {
+            padding-bottom: 0;
+
+            &::after {
+              height: 0;
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.joinloginModule {
+  .features {
+    .title {
+      &:first-child {
+        background: darken($secondary, 20%);
+      }
+    }
+  }
+
+  .joinloginFunction {
+    .title {
+      color: $secondary !important;
+    }
+
+    a,
+    button {
+
+      &.btn-check,
+      &.btn-cancel {
+        color: $white !important;
+      }
+
+      color: $secondary !important;
+    }
+
+    .tip {
+      color: $grey !important;
+    }
+  }
+
+  .inputModule {
+    .inputBox-blue {
+      i.txt-blue {
+        color: $primary-400 !important;
+      }
+
+      .dropdown {
+        .btn {
+          color: $primary !important;
+
+          &::after {
+            border-color: $primary transparent transparent transparent !important;
+          }
+        }
+
+
+        .dropdown-container {
+          border: 1px solid $white !important;
+
+          i.txt-blue {
+            color: $primary-400 !important;
+          }
+
+          .dropdown {
+            .btn {
+              color: $primary !important;
+
+              &::after {
+                border-color: $primary transparent transparent transparent !important;
+              }
+            }
+
+
+            .dropdown-container {
+              border: 1px solid $white !important;
+
+              &.active {
+                .inputBox-blue {
+                  border: 1px solid $grey !important;
+                  outline: $grey !important;
+                }
+              }
+
+
+              .dropdown-item {
+                color: $primary !important;
+
+                &:hover {
+                  background: $secondary !important;
+                  color: $white !important;
+                }
+              }
+            }
+          }
+
+          .txt-blue {
+            color: $primary !important;
+
+          }
+
+          .dropdown-item {
+            color: $primary !important;
+
+            &:hover {
+              background: $secondary !important;
+              color: $white !important;
+            }
+          }
+        }
+      }
+
+      .txt-blue {
+        color: $primary !important;
+
+      }
+
+      .txt-blue {
+        color: $secondary !important;
+      }
+
+      i.icon {
+        &.icon-cross {
+          &::before {
+            color: $red !important;
+          }
+        }
+
+        &.icon-checkmark {
+          &::before {
+            color: $green !important;
+          }
+        }
+
+        &.icon-information {
+          &::before {
+            color: $secondary !important;
+          }
+        }
+
+        &::before {
+          color: $primary !important;
+        }
+      }
+
+
+      input {
+        color: $primary-400 !important;
+
+        &::placeholder {
+          color: $grey !important;
+        }
+      }
+
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      input:-webkit-autofill:active {
+        box-shadow: 0 0 0px 1000px #fff inset;
+        -webkit-text-fill-color: $primary-400 !important;
+      }
+    }
+  }
+}
+
+.loginpop {
+  .joinloginFunction {
+    .title {
+      color: $secondary !important;
+    }
+
+
+    .btnGroup {
+
+      a,
+      button {
+
+        &.gray,
+        &.orange {
+          color: $white !important;
+        }
+      }
+    }
+
+    .tip {
+      color: $grey !important;
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-text-fill-color: $primary-400 !important;
+}
+
+
+
+.inputBox-blue {
+  &:focus-within {
+    border: 1px solid $grey !important;
+    outline: $grey !important;
+  }
+}
+
+//Joinpop.Registration
+// .joinpop {
+//   &.registration {
+//     background-image: url(../img/style-img/signup-bg.jpg);
+//     background-size: 100% 100%;
+//     background-repeat: no-repeat;
+//     display: flex;
+//     justify-content: center;
+//     padding: 50px 20px;
+//     max-width: none !important;
+
+//     .joinloginModule {
+//       display: flex;
+//       background-color: rgba($black , 0.8);
+//       overflow: hidden;
+//       border-radius: 10px;
+//       max-width: 1000px;
+
+//       box-shadow: 0px 0px 10px 6px rgb(0 0 0 / 40%);
+
+//       //-- banner
+//       .banner {
+//         img {
+//           height: 100%;
+//           object-fit: cover;
+//           width: fit-content;
+//         }
+//       }
+
+//       //-- joinloginFunction
+//       .joinloginFunction {
+//         display: flex;
+//         flex-direction: column;
+//         // align-items: center;
+//         margin: 0;
+//         padding: 30px;
+//         color: $main-grey-light;
+//         min-width: 0;
+
+//         //-- title
+//         .title {
+//           font-size: 30px;
+//           margin-bottom: 25px;
+//           text-align: center;
+//         }
+
+//         //-- tab
+//         .tab {
+//           display: flex;
+//           align-self: stretch;
+//           gap: 10px;
+
+//           a {
+//             flex: 1;
+//             cursor: pointer;
+//             border-radius: 20px 20px 0 0;
+//             padding: 20px;
+//             color: $white;
+//             text-align: center;
+//             border-bottom: 4px solid $main-grey-dark;
+//             transition: 0.3s ease;
+
+//             &.active {
+//               background-color: $main-grey-default;
+//               border-bottom: 4px solid $primary;
+//               cursor: default;
+
+//               &:hover {
+//                 background-color: $main-grey-default;
+//               }
+//             }
+
+//             &:hover {
+//               background-color: rgba($main-grey-default , 30%);
+//             }
+//           }
+//         }
+
+//         //-- inputModule
+//         .inputModule {
+//           margin: 20px 10px;
+//           align-items: stretch;
+
+//           .inputBox-blue {
+//             flex: 1;
+//             border-radius: 100px;
+//             width: auto;
+
+//             //-- dropdwon
+//             .dropdown {
+//               .dropdown-container {
+//                 border-radius: 5px;
+//                 max-height: 120px;
+
+//                 // -- search
+//                 .inputBox-blue {
+//                   margin: 8px;
+//                   border-color: $main-grey-default;
+//                 }
+//               }
+//             }
+//           }
+
+//           //-- input-group
+//           .input-group {
+//             display: flex;
+//             gap: 5px;
+
+//             //-- inputBox
+//             .inputBox-blue {
+//               width: auto;
+//               flex: 1;
+//               min-width: 0;
+
+
+//               input {
+//                 flex: 1;
+//                 min-width: 0;
+//               }
+
+//               .iconModule {
+//                 .icon {
+//                   width: 20px;
+//                   height: 20px;
+//                   display: flex;
+//                   align-items: center;
+//                   justify-content: center;
+
+//                 }
+//               }
+//             }
+
+//             //-- dropdwon
+//             .dropdown {
+//               flex-wrap: nowrap;
+
+//               >span {
+//                 flex: 0 1 auto;
+//               }
+
+//               >.btn {
+//                 flex: 1;
+//                 overflow: hidden;
+//                 white-space: nowrap;
+//                 text-overflow: ellipsis;
+//               }
+
+//               .dropdown-container {
+//                 overflow-y: auto;
+//                 max-height: 120px;
+//                 min-width: fit-content;
+
+//                 .dropdown-item {
+//                   padding: 5px;
+//                 }
+
+//                 .inputBox-blue {
+//                   input {
+//                     min-width: 0;
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+
+//         //-- btnGroup
+//         .btnGroup {
+//           align-self: center;
+//         }
+
+//         //-- Terms
+//         .Terms {
+//           text-align: center;
+
+//           a {
+//             cursor: pointer;
+//             color: $primary;
+//             text-decoration: underline;
+
+//             &:hover {
+//               color: $primary-hover;
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+
+//---------- Popup ----------//
+#popup {
+  .pop {
+    box-shadow: 0 0 20px 1px rgba($white, 20%);
+
+    >div {
+      background: $primary !important;
+
+      div {
+        color: $text-600 !important;
+      }
+
+      .icon {
+        color: $secondary !important;
+      }
+
+      .title {
+        color: $text-400 !important;
+
+      }
+    }
+
+    .txt {
+      .txt-blue {
+        color: $white !important;
+      }
+
+      span {
+        &:last-child {
+          color: $secondary !important;
+        }
+      }
+    }
+
+    .inputBox-blue {
+      i.txt-blue {
+        color: $primary-400 !important;
+      }
+
+      .dropdown {
+        .btn {
+          color: $primary !important;
+
+          &::after {
+            border-color: $primary transparent transparent transparent !important;
+          }
+        }
+
+
+        .dropdown-container {
+          border: 1px solid $white !important;
+
+          .dropdown-item {
+            color: $primary !important;
+
+            &:hover {
+              background: $secondary !important;
+              color: $white !important;
+            }
+          }
+        }
+      }
+
+      .txt-blue {
+        color: $primary !important;
+
+      }
+    }
+
+
+  }
+
+  .promotionsInfo {
+    .icon-close {
+      color: $primary !important;
+    }
+
+    .proDataTitle {
+      .txt-darkBlue {
+        color: $primary !important;
+      }
+    }
+
+    .remainingTime {
+      >div {
+        >div:nth-child(1) {
+          background: $primary !important;
+        }
+      }
+    }
+
+    .rolloverListNew {
+      >div:first-child {
+        div {
+          background: $primary !important;
+        }
+      }
+    }
+  }
+}
+
+//Login
+// .loginpop {
+//   box-sizing: border-box;
+//   // max-width: 700px !important;
+//   height: auto;
+//   width: 100%;
+//   padding: 0 !important;
+//   // border-radius: unset !important;
+//   box-shadow: 0px 0px 10px 6px rgba($black, 0.4);
+
+//   //-- banner 
+//   .banner {
+//     img {
+//       width: 100%;
+//       border-radius: 10px 0 0 10px;
+//     }
+//   }
+
+//   //-- joinloginModule 
+//   .joinloginModule {
+//     img {
+//       width: unset !important;
+//       height: unset !important;
+//     }
+
+//     //-- joinloginFunction 
+//     .joinloginFunction {
+//       padding: 0 50px !important;
+//       margin-left: 0 !important;
+//       color: darken($main-grey-dark, 5%) !important;
+
+//       //-- title 
+//       .title {
+//         font-size: 25px !important;
+//         text-align: center;
+//       }
+
+//       .noAccount {
+//         font-size: 14px !important;
+//         margin: 10px 0 0 !important;
+//         text-align: center;
+
+//         //-- join-a-link 
+//         a {
+//           color: $primary;
+//           font-size: 14px !important;
+//         }
+//       }
+
+//       //-- inputModule 
+//       .inputModule {
+
+//         // -- forgotten-your-password-a-link 
+//         a {
+//           color: darken($white, 20%) !important;
+//           font-size: 10px !important;
+//           font-weight: 400 !important;
+//           margin-top: 5px;
+//         }
+
+//         margin: 0 0 25px !important;
+
+//         //-- inputBox 
+//         .inputBox-blue {
+//           border-radius: 50px !important;
+//           width: unset !important;
+//           margin: 14px 0 2px !important;
+//           padding: 10px 14px !important;
+//           border-color: transparent !important;
+//           box-sizing: border-box;
+
+//           &:first-child {
+//             margin-top: 25px !important;
+//           }
+
+//           //-- input 
+//           input {
+//             padding: 0;
+
+//             &::placeholder {
+//               color: $black !important;
+//             }
+//           }
+
+//           &.error {
+//             background: lighten($red, 45%) !important;
+//             outline: 1px solid red;
+//           }
+//         }
+//       }
+
+//       //-- btnGroup 
+//       .btnGroup {
+//         margin-top: 25px !important;
+//       }
+//     }
+//   }
+// }
+
+// #popup {
+//   .pop {
+
+//     //login、forgetpassword
+//     &-login,
+//     &-forgetpassword {
+//       flex: 1;
+//       border-radius: unset !important;
+//       max-height: unset !important;
+//       overflow: unset !important;
+//     }
+//   }
+
+//   //smallList popup
+//   .smallList {
+//     >ul {
+//       li {
+//         &:first-child {
+//           color: $main-grey-dark !important;
+//         }
+//       }
+//     }
+//   }
+
+//   //johnSuccess popup
+//   .joinSuccess {
+//     .icon-icon_1_cop {
+//       color: $secondary !important;
+//     }
+//   }
+// }
+
+// #popup .loginpop {
+//   width: unset !important;
+//   max-width: 700px !important;
+// }
+
+// #popup .pop>div {
+//   &.loginpop {
+//     padding-top: unset !important;
+//     box-sizing: border-box !important;
+//     border-radius: 10px !important;
+//   }
+// }
+
+//Forget-Password
+// .forget-password {
+//   box-sizing: border-box;
+//   max-width: 700px;
+//   margin: auto;
+//   box-shadow: 0px 0px 10px 6px rgba($black, 0.4);
+
+//   //-- title 
+//   .title {
+//     font-size: 20px;
+//     text-align: center;
+//     margin-bottom: 15px;
+//   }
+
+//   //-- banner 
+//   .banner {
+//     img {
+//       width: 100%;
+//       border-radius: 10px 0 0 10px;
+//     }
+//   }
+
+//   //-- right code
+//   .forget-container {
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     position: relative;
+//     background: $black;
+//     border-radius: 10px;
+
+//     //-- form-content 
+//     .form-content {
+//       padding: 0 50px;
+//       margin: 0;
+//       color: $main-grey-default;
+//       flex: 1;
+
+//       //-- inpurModule 
+//       .inputModule {
+
+//         //-- back-a-link 
+//         a {
+//           text-decoration: none;
+//           font-size: 12px;
+//           color: $white;
+//           text-align: center;
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+
+//           &:hover {
+//             color: $main-grey-default;
+//           }
+//         }
+
+//         .icon {
+//           &::before {
+//             margin: 0 2px;
+//           }
+//         }
+
+//         p {
+//           text-align: center;
+//           margin: 0 0 20px;
+//         }
+
+//         //-- inputBox 
+//         .inputBox-blue {
+//           background: $white;
+//           border-radius: 50px !important;
+//           padding: 12px 14px !important;
+//           margin: 10px 0 0 !important;
+//           border: transparent !important;
+//           z-index: unset !important;
+//           width: 100% !important;
+//           box-sizing: border-box;
+
+//           input {
+//             padding: 0;
+
+//             &::placeholder {
+//               color: $black !important;
+//             }
+//           }
+
+//           &.error {
+//             background: lighten($red, 45%) !important;
+//             outline: 1px solid red;
+//           }
+//         }
+
+//         //-- dropdown 
+//         .dropdown {
+//           .btn {
+//             color: $black !important;
+//             font-weight: 400 !important;
+//             padding: 0 !important;
+//           }
+
+//           &-container {
+//             max-height: 200px;
+//             box-sizing: border-box;
+//             position: absolute;
+//             top: 38px;
+//             left: 0;
+//             border-radius: 10px;
+//             border: 1px solid $main-grey-light;
+//             background: $white;
+//             border-top: 0;
+//             margin: 0 !important;
+//             overflow-x: hidden;
+//             overflow-y: auto;
+//             z-index: 2;
+//             font-weight: 400 !important;
+
+//             //--dropdown內inputBox
+//             .inputBox-blue {
+//               margin: 15px 5px 5px !important;
+//               border: 1px solid $main-grey-default !important;
+//             }
+//           }
+
+//           &-item {
+//             padding: 8px 0 8px 15px !important;
+//           }
+//         }
+
+//         //-- input-group 
+//         .input-group {
+//           display: flex;
+//           width: 100%;
+//           gap: 5px;
+
+//           .inputBox-blue {
+//             width: 100% !important;
+
+//             &:first-child {
+//               flex: 1 1 40%;
+//             }
+
+//             &:last-child {
+//               flex: 1 1 60%;
+//             }
+//           }
+
+//           .dropdown-container {
+//             width: auto;
+//           }
+//         }
+
+//         .tip {
+//           margin-top: 2px;
+//           color: red;
+
+//           &.active {
+//             color: red;
+//           }
+//         }
+//       }
+
+//       //-- btnGroup 
+//       .btnGroup {
+//         margin: 25px 0 18px !important;
+//       }
+//     }
+//   }
+// }
+
+// #popup .pop .forget-password {
+//   .title {
+//     font-size: 20px;
+//   }
+// }
+
+// #popup .pop>div {
+//   &.forget-password {
+//     padding-top: unset !important;
+//     box-sizing: border-box !important;
+//     border-radius: 10px !important;
+//   }
+// }
+
+//Appdownload
+// .appdownload-pop {
+//   background: url(../img/style-img/appdownload-pop-bg.jpg) no-repeat center / cover;
+//   padding: 10px;
+//   width: 700px;
+//   border-radius: 10px;
+//   position: relative;
+
+//   * {
+//     box-sizing: border-box;
+//   }
+
+//   .icon-close-radius {
+//     position: absolute;
+//     top: -14px;
+//     right: -10px;
+//     background: darken($main-grey-default , 10%);
+//     border-radius: 100%;
+//     height: 30px;
+//     width: 30px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     color: $black;
+
+//     cursor: pointer;
+
+//     &:hover {
+//       background: $main-grey-default;
+//     }
+//   }
+
+//   .pop-container {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+
+//     img {
+//       width: 150px;
+//     }
+
+//     .title {
+//       background: $secondary-gradient-bottom;
+//       text-shadow: 0 -1px 0 $black;
+//       padding: 10px;
+//       width: 100%;
+//       text-align: center;
+//       border-radius: 10px 10px 0 0;
+//       margin-top: 10px;
+//       font-size: 15px;
+//     }
+
+//     .item-container {
+//       background: $white;
+//       width: 100%;
+//       padding: 10px 20px;
+//       display: flex;
+//       gap: 8px;
+
+
+//       .download-item {
+//         background: url(../img/style-img/download-item-bg.jpg)no-repeat center / cover;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         padding: 15px 0 10px;
+//         flex: 1;
+//         position: relative;
+//         border-radius: 5px;
+//         border: 2px solid $white;
+//         box-shadow: 0 0 6px $grey;
+//         transition: all 0.2s ease-in-out;
+//         cursor: pointer;
+
+//         .icon-group {
+//           display: flex;
+//           flex-direction: column;
+//           align-items: center;
+//           position: absolute;
+//           gap: 4px;
+//           left: 6px;
+//           top: 7px;
+
+//           [class^="icon"] {
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             border-radius: 5px;
+//             font-size: 20px;
+//             width: 28px;
+//             height: 28px;
+//             background: $grey-dark;
+//             color: $white;
+//           }
+
+//           .icon-android {
+//             background: $green;
+//           }
+
+//           .icon-ios {
+//             background: #0194CC;
+
+//           }
+
+//         }
+
+//         &:hover {
+//           box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.65);
+//           transform: translateY(-6px);
+//         }
+//       }
+
+//       .qr-code {
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+
+//         img,
+//         svg {
+//           width: 90px;
+//           height: 90px;
+//         }
+
+//         .primary {
+//           font-size: 14px;
+//           font-weight: 600;
+//           margin-top: 6px;
+//           padding: 2px 0;
+//           width: 150px;
+//           border-radius: 3px;
+//           background: $secondary-gradient-bottom !important;
+
+//           &:hover {
+//             background: $primary-hover !important;
+//           }
+//         }
+//       }
+
+//     }
+
+//     .pop-tip {
+//       color: $level-four;
+//       text-align: center;
+//       font-size: 12px;
+//       margin-top: 10px;
+//     }
+//   }
+
+// }

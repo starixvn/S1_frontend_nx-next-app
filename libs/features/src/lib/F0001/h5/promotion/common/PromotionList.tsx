@@ -4,7 +4,6 @@ import {
 	PromotionFilterEnum,
 	PromotionTypeEnum,
 } from '@nx-next-app/types'
-import { includes } from 'lodash-es'
 import {
 	getIsHidePromotionJoinButton,
 	isPromotionClaimed,
@@ -12,6 +11,7 @@ import {
 	isShowPromotionProgressBar,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
+import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import PromotionProgressBar from './PromotionProgressBar'
 

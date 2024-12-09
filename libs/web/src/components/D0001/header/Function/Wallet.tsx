@@ -150,11 +150,11 @@ const Wallet = ({
 
 					<div className='btnGroup'>
 						<Link href={paths.withdrawal.root} passHref>
-							<a className='orange'>{t('Label_General_Withdrawal')}</a>
+							<a className='secondary'>{t('Label_General_Withdrawal')}</a>
 						</Link>
 						{includes(ALLOWED_CURRENCIES.TRANSFER, currencyId) && (
 							<Link href={paths.transferFunds.root} passHref>
-								<a className='orange'>{t('Label_General_TransferFunds')}</a>
+								<a className='secondary'>{t('Label_General_TransferFunds')}</a>
 							</Link>
 						)}
 					</div>
