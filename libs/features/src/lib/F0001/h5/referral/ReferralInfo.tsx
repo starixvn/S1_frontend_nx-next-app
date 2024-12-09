@@ -79,6 +79,10 @@ const ReferralInfo = () => {
 								onClick={() => referralCode && copy(referralCode)}
 							>
 								<input id='ref_code' type='text' value={referralCode} />
+								<i
+									className='icon  icon-file-copy-line'
+									onClick={() => referralCode && copy(referralCode)}
+								/>
 							</div>
 						</div>
 						<div className='referinfo-list'>
@@ -90,6 +94,10 @@ const ReferralInfo = () => {
 								onClick={() => copy(referralLink)}
 							>
 								<input type='text' id='ref_link' value={referralLink} />
+								<i
+									className='icon  icon-file-copy-line'
+									onClick={() => copy(referralLink)}
+								/>
 							</div>
 						</div>
 						<div className='referinfo-list'>

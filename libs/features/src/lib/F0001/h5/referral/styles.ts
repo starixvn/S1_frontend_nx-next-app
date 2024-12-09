@@ -115,7 +115,7 @@ export const WrapperReferFrendsH5 = styled.div`
 		position: absolute;
 		top: 10vw;
 		left: calc(50% - 0vw);
-		border: 1px dashed #939dc5;
+		border: 1px dashed #374375;
 	}
 	.referinfo-step:last-child .icon::after {
 		display: none;
@@ -136,7 +136,7 @@ export const WrapperReferFrendsH5 = styled.div`
 		position: relative;
 	}
 	.referinfo-list .inputcopy input {
-		color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+		color: ${({ theme }) => theme.mobile.white};
 		font-size: 3.2vw;
 		overflow: hidden;
 		white-space: nowrap;
@@ -170,18 +170,12 @@ export const WrapperReferFrendsH5 = styled.div`
 		border-radius: 3px;
 	}
 	.referinfo-share {
-		display: -webkit-box;
-		display: -ms-flexbox;
 		display: flex;
-		-webkit-box-align: center;
-		-ms-flex-align: center;
 		align-items: center;
-		-webkit-box-pack: center;
-		-ms-flex-pack: center;
-		justify-content: center;
+		justify-content: flex-start;
+		gap: 2vw;
 	}
 	.referinfo-share img {
-		width: 7.8vw;
-		margin: 0 2.3vw;
+		width: 8.7vw;
 	}
 `
