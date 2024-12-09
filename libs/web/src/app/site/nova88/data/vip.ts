@@ -47,46 +47,46 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
 	langId: string | number
 ): IBannerByCurrencyData[] => [
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/vintage${
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/vintage${
 			langId === 'en' ? '' : `-${langId}`
-		}.png`,
+		}.webp`,
 		level: VipLevelEnum.VINTAGE,
 		levelText: 'vintage',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/silver${
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/silver${
 			langId === 'en' ? '' : `-${langId}`
-		}.png`,
+		}.webp`,
 		level: VipLevelEnum.SILVER,
 		levelText: 'silver',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/gold${
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/gold${
 			langId === 'en' ? '' : `-${langId}`
-		}.png`,
+		}.webp`,
 		level: VipLevelEnum.GOLD,
 		levelText: 'gold',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/titanium${
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/titanium${
 			langId === 'en' ? '' : `-${langId}`
-		}.png`,
+		}.webp`,
 		level: VipLevelEnum.TITANIUM,
 		levelText: 'titanium',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/diamond${
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/diamond${
 			langId === 'en' ? '' : `-${langId}`
-		}.png`,
+		}.webp`,
 		level: VipLevelEnum.DIAMOND,
 		levelText: 'diamond',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/nova${
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/infinity${
 			langId === 'en' ? '' : `-${langId}`
-		}.png`,
+		}.webp`,
 		level: VipLevelEnum.Highest,
-		levelText: 'nova',
+		levelText: 'infinity',
 	},
 ]
 

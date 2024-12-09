@@ -1,4 +1,3 @@
-import React from 'react'
 import { Carousel } from '@nx-next-app/components/D0001'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import VipBannerItem from '@nx-next-app/features/F0001/h5/vip/VipBannerItem'

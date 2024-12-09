@@ -20,11 +20,11 @@ const Carousel = ({ children, className, ...rest }: ICarouselProps) => {
 	const params: ReactIdSwiperProps = {
 		spaceBetween: 30,
 		centeredSlides: true,
-		// loop: true,
-		// autoplay: {
-		// 	delay: 5000,
-		// 	disableOnInteraction: false,
-		// },
+		loop: true,
+		autoplay: {
+			delay: 5000,
+			disableOnInteraction: false,
+		},
 		pagination: {
 			el: '.swiper-pagination',
 			clickable: true,

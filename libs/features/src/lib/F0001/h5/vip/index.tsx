@@ -7,7 +7,6 @@ import VipMedal from '@nx-next-app/features/F0001/h5/vip/VipMedal'
 import VipTable from '@nx-next-app/features/F0001/h5/vip/VipTable'
 import { WrapperVipPageH5 } from '@nx-next-app/features/F0001/h5/vip/styles'
 import { IVipBannerData } from '@nx-next-app/service'
-import dayjs from 'dayjs'
 import { useTranslation } from 'next-i18next'
 import { useState } from 'react'
 
@@ -47,7 +46,7 @@ const Vip = ({
 				<div className='vipprogram'>
 					{/* 目前只用 en 圖 */}
 					<img
-						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/vipbox.png`}
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/vip/vipbox.webp`}
 						alt='vipbox'
 					/>
 					<div className='vipTitle'>{t('Label_Vip_Info_Title_1')}</div>
@@ -57,13 +56,13 @@ const Vip = ({
 					<div className='vipTitle'>{t('Label_Vip_Info_Title_3')}</div>
 				</div>
 				<div className='vipPage'>
-					<div className='text'>
+					{/* <div className='text'>
 						{t('Label_Vip_LastUpdated')}
 						{dayjs(lastUpdateTime)
 							.utc()
 							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 							?.format('L') ?? ''}
-					</div>
+					</div> */}
 					<VipMedal activeTab={activeTab} onChange={handleTabChange} />
 					<VipTable vipBannerInfo={vipBannerInfo} activeTab={activeTab} />
 				</div>
