@@ -435,6 +435,12 @@ export const WrapperSettingPage = styled.div`
 		}
 
 	}
+
+	.vip-height{
+		font-size : 3.4vw;
+		margin-left : 2vw;
+		font-weight: 600;
+	}
 	
 
 	@-webkit-keyframes move {

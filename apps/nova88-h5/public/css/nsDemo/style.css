@@ -3555,32 +3555,7 @@ input[type='date'] {
 	background-image: linear-gradient(to top, transparent, transparent);
 }
 
-.filterBtn {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	margin: 1vw 0;
-	border: 0;
-	padding: 0;
-	width: 100%;
-}
-.filterBtn button {
-	-webkit-box-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	border: 1px solid #5574a7;
-	border-radius: 3px;
-	padding: 1vw;
-	margin: 0 2vw 0 0;
-	color: #5574a7;
-}
-.filterBtn button:last-child {
-	margin: 0;
-}
-.filterBtn button.active {
-	background: #5574a7;
-	color: white;
-}
+
 
 .search {
 	width: calc(100% - 10vw);

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const WrapperLeaderBoard = styled.div`
 	.rankingNew {
-		padding: 5vw 4vw 35vw;
+		padding: 0 4vw 35vw;
 		width: calc(100% - 8vw);
 		.title {
 			color: ${({ theme }) => theme.mobile.white};
@@ -78,23 +78,28 @@ export const WrapperLeaderBoard = styled.div`
 		justify-content: center;
 		a {
 			width: max-content;
+			min-height: 3rem;
 		}
 	}
-	.rankList ul li.userRank {
-		color: #5574a7;
-		background: white;
-		text-align: center;
-		font-weight: bold;
+	.filterBtn {
+		display: flex;
+		margin: 4vw 0;
+		border: 0;
+		padding: 0;
+		width: 100%;
+		gap: 0.8rem;
+		button {
+			color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+			background: #374375;
+			font-size: 3vw;
+		}
 	}
-	.rankList ul li.userRank span {
-		color: #a5aab1;
-		margin: 0 0 0 2vw;
-	}
+
 	.text-blue {
-		color: #5574a7;
-		margin-bottom: 2vw;
-	}
-	.filterBtn button {
-		white-space: nowrap;
+		text-align: center;
+		color: ${({ theme }) => theme.mobile.white};
+		font-size: 4vw;
+		font-weight: 700;
+		margin: 5vw 0;
 	}
 `

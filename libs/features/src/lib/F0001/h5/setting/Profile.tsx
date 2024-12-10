@@ -207,22 +207,19 @@ const Profile = () => {
 									src={nextVipLevelInfo?.headerUrl as string}
 									alt={nextVipLevelInfo?.levelTabsName as string}
 								/>
+								<Link href={paths.vip.root}>
+									<a className='vip-text next'>
+										{t('Label_Vip_NextMilestone')}
+									</a>
+								</Link>
 							</>
 						)}
+						{isVipLevelHighest && (
+							<div className='vip-height'>
+								{t('Label_Vip_ReachedTheHighestLevel')}
+							</div>
+						)}
 					</div>
-
-					{isVipLevelHighest ? (
-						<div className='vip-text'>
-							{t('Label_Vip_ReachedTheHighestLevel')}
-						</div>
-					) : (
-						<Link href={paths.vip.root}>
-							<a className='vip-text next'>
-								{t('Label_Vip_NextMilestone')}{' '}
-								<i className='icon icon-arrow-right-line' />
-							</a>
-						</Link>
-					)}
 				</div>
 			)}
 		</>

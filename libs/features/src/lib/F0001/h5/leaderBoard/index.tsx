@@ -34,6 +34,10 @@ const LeaderBoard = () => {
 				</WrapperCustomTitleBack>
 			</Header>
 			<WrapperLeaderBoard>
+				<img
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/leaderboard.webp`}
+					alt='event'
+				/>
 				<main className='main rankingNew'>
 					{activeTab === LeaderBoardTabsEnum.Event ? (
 						<LeaderBoardEventList />

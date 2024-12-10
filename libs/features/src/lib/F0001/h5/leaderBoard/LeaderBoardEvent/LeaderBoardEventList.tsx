@@ -56,6 +56,10 @@ const LeaderBoardEventList = () => {
 					className='btn-secondary openPopup'
 					onClick={handleTermAndConditionClick}
 				>
+					<i
+						className='icon icon-file-text-fill'
+						style={{ marginRight: '1vw' }}
+					/>
 					{t('Label_LeaderBoard_Terms&Conditions')}
 				</a>
 			</div>
