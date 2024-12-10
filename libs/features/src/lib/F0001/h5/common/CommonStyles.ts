@@ -26,10 +26,11 @@ export const WrapperInfoList = styled.div`
 				justify-content: space-between;
 				align-items: center;
 				flex-wrap: wrap;
+				gap: 1vw;
 				li {
 					font-size: 3.4vw;
 					margin-bottom: 2vw;
-					width: 50%;
+					width: 49%;
 					display: flex;
 					flex-direction: column;
 					gap: 1.45vw;
@@ -46,6 +47,7 @@ export const WrapperInfoList = styled.div`
 					.body {
 						color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 						font-weight: 400;
+						word-break: break-all;
 					}
 				}
 			}
