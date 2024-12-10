@@ -1,12 +1,9 @@
-import { useAuth } from '@nx-next-app/data-access'
-import {
-	CustBonusWalletFullFillTypeEnum,
-	IPromotionData,
-} from '@nx-next-app/service'
-import { BonusTypeEnum, PromotionTypeEnum } from '@nx-next-app/types'
-import { getExpiryTime, numberFormat } from '@nx-next-app/utils'
-import { includes, toUpper } from 'lodash-es'
-import { useTranslation } from 'next-i18next'
+import { useAuth } from "@nx-next-app/data-access";
+import { CustBonusWalletFullFillTypeEnum, IPromotionData } from "@nx-next-app/service";
+import { BonusTypeEnum, PromotionTypeEnum } from "@nx-next-app/types";
+import { getExpiryTime, numberFormat } from "@nx-next-app/utils";
+import { includes, toUpper } from "lodash-es";
+import { useTranslation } from "next-i18next";
 
 interface IPromoRuleProps {
 	promotionDetail: IPromotionData
@@ -103,21 +100,29 @@ const PromoRule = ({ promotionDetail }: IPromoRuleProps) => {
 	}
 
 	return (
-		<div className='rolloverList custom-table'>
+		<div className='rolloverList'>
 			{!includes(
 				[PromotionTypeEnum.SpecialBonus, PromotionTypeEnum.Rebate],
 				promotionType
 			) && (
 				<>
 					{requiredAmount > 0 && (
-						<div className='custom-th'>
-							<div>{toUpper(t('Label_Promotion_MinDeposit') || '')}</div>
-							<div>{numberWithCurrency(requiredAmount)}</div>
+						<div className='row'>
+							<div className='row-title'>
+								{toUpper(t('Label_Promotion_MinDeposit') || '')}
+							</div>
+							<div className='row-value'>
+								{numberWithCurrency(requiredAmount)}
+							</div>
 						</div>
 					)}
-					<div className='custom-th'>
-						<div>{toUpper(t('Label_Promotion_Bonus') || '')}</div>
-						<div>{isPercentage ? `${bonus}%` : numberWithCurrency(bonus)}</div>
+					<div className='row'>
+						<div className='row-title'>
+							{toUpper(t('Label_Promotion_Bonus') || '')}
+						</div>
+						<div className='row-value'>
+							{isPercentage ? `${bonus}%` : numberWithCurrency(bonus)}
+						</div>
 					</div>
 				</>
 			)}
@@ -127,26 +132,28 @@ const PromoRule = ({ promotionDetail }: IPromoRuleProps) => {
 					[PromotionTypeEnum.SpecialBonus, PromotionTypeEnum.Rebate],
 					promotionType
 				) && (
-					<div className='custom-th'>
-						<div className='custom-th'>
+					<div className='row'>
+						<div className='row-title'>
 							{toUpper(t('Label_Promotion_MaxBonus') || '')}
 						</div>
-						<div>{numberWithCurrency(maxBonus)}</div>
+						<div className='row-value'>{numberWithCurrency(maxBonus)}</div>
 					</div>
 				)}
 
-			<div>
-				<div className='custom-th'>
+			<div className='row'>
+				<div className='row-title'>
 					{fullFillType === CustBonusWalletFullFillTypeEnum.WinOver
 						? t('Label_General_WinOver')
 						: t('Label_General_RollOver')}
 				</div>
-				<div>{fullFillType === 2 ? winOver : rollOver}x</div>
+				<div className='row-value'>
+					{fullFillType === 2 ? winOver : rollOver}x
+				</div>
 			</div>
 
-			<div className='custom-th'>
-				<div>{t('Label_Promotion_RemainingTime')}</div>
-				<div>{expiryTime}</div>
+			<div className='row'>
+				<div className='row-title'>{t('Label_Promotion_RemainingTime')}</div>
+				<div className='row-value'>{expiryTime}</div>
 			</div>
 		</div>
 	)

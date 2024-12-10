@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const WrapperModalPromotion = styled.div`
 	.promotionsInfo {
@@ -57,5 +57,43 @@ export const WrapperModalPromotion = styled.div`
 		width: auto;
 		margin-bottom: 2.4rem;
 		max-width: 30rem;
+	}
+
+	.rolloverList {
+		display: flex;
+		flex-direction: column;
+		border: 0.1rem solid #374375;
+		border-radius: 1rem;
+		background-color: #374375;
+		gap: 0.1rem;
+		overflow: hidden;
+
+		.row {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			justify-content: space-between;
+			color: #fff;
+			font-size: 1.4rem;
+
+			.row-title,
+			.row-value {
+				display: flex;
+				height: 5.2rem;
+				padding: 0 1.6rem;
+				align-items: center;
+			}
+
+			.row-title {
+				border-right: #fff solid #374375;
+				background: #232b4f;
+				font-weight: 700;
+			}
+
+			.row-value {
+				align-items: center;
+				background: #182043;
+				font-weight: 600;
+			}
+		}
 	}
 `
