@@ -1,19 +1,15 @@
-import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import { useHeaderLogo } from '@nx-next-app/hooks'
-import {
-	ICustBonusWalletData,
-	IMainWalletInfoData,
-	ITpWalletInfoData,
-} from '@nx-next-app/service'
-import { numberFormat } from '@nx-next-app/utils'
-import classNames from 'classnames'
-import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
-import { HTMLAttributes, useEffect } from 'react'
-import { useBoolean, useDebounce } from 'usehooks-ts'
+import { paths } from "@nx-next-app/constants";
+import { useAuth } from "@nx-next-app/data-access";
+import { useHeaderLogo } from "@nx-next-app/hooks";
+import { ICustBonusWalletData, IMainWalletInfoData, ITpWalletInfoData } from "@nx-next-app/service";
+import { numberFormat } from "@nx-next-app/utils";
+import classNames from "classnames";
+import { useTranslation } from "next-i18next";
+import Link from "next/link";
+import { HTMLAttributes, useEffect } from "react";
+import { useBoolean, useDebounce } from "usehooks-ts";
 
-import { SpinButton } from '../button'
+import { SpinButton } from "../button";
 
 interface IHeaderModuleProps extends HTMLAttributes<HTMLDivElement> {
 	isTpWalletBalanceListLoading: boolean
@@ -73,13 +69,14 @@ const HeaderModule = ({
 		setIsHideBalanceValue(originIsHideBalance)
 	}, [originIsHideBalance])
 
+	const logo = showSpLogo ? logoUrl : noSpLogoUrl
+
 	return (
 		<div className={classNames('header-module', className)} {...props}>
 			{/* 用 a link 讓畫面重新整理，僅有巴西沒有贊助球隊，所以秀 nova 原始 Logo */}
+
 			<Link href={paths.home.root}>
-				<a className='header-logo'>
-					<img src={showSpLogo ? logoUrl : noSpLogoUrl} alt='logo' />
-				</a>
+				<a className='header-logo'>{logo && <img src={logo} alt='logo' />}</a>
 			</Link>
 
 			{/* 登入前 */}
