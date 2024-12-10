@@ -92,7 +92,7 @@ const FinancialHistoryTable = ({
 		<Table
 			dataSource={dataSource}
 			columns={columns as ITableColumns<IStatementData>[]}
-			mainClassName='list history custom-table'
+			mainClassName='list history custom-table financial-log-table'
 			headerClassName='listHeader custom-table-thead'
 			bodyClassName='listBody custom-table-tbody'
 		/>

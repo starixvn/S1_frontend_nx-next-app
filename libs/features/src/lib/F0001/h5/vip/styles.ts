@@ -31,7 +31,7 @@ export const WrapperVipPageH5 = styled.div`
 			.vipinfo {
 				font-weight: 400;
 				font-size: 4vw;
-				color: #fff;
+				color: ${({ theme }) => theme.mobile.white};
 				width: 100%;
 				display: flex;
 				flex-direction: column;
@@ -66,13 +66,13 @@ export const WrapperVipPageH5 = styled.div`
 			&.vintage {
 				text-transform: uppercase;
 				.vipinfo {
-					color: #faa972;
+					color: ${({ theme }) => theme.mobile.vipVintageBtnColor};
 				}
 				.viprule {
 					span {
 						&:last-child {
-							color: #faa972;
-							background: #fff2ea;
+							color: ${({ theme }) => theme.mobile.vipVintageBtnColor};
+							background: ${({ theme }) => theme.mobile.vipVintageBtnBg};
 						}
 					}
 				}
@@ -80,75 +80,75 @@ export const WrapperVipPageH5 = styled.div`
 			&.silver {
 				text-transform: uppercase;
 				.vipinfo {
-					color: #fff;
+					color: ${({ theme }) => theme.mobile.vipSilverBtnColor};
 				}
 				.viprule {
 					span:first-child {
-						background: #adadad;
+						background: ${({ theme }) => theme.mobile.vipSilverTitleBgColor};
 					}
 					span:last-child {
-						color: #adadad;
-						background: #e5e5e5;
+						color: ${({ theme }) => theme.mobile.vipSilverBtnColor};
+						background: ${({ theme }) => theme.mobile.vipSilverBtnBg};
 					}
 				}
 			}
 			&.gold {
 				text-transform: uppercase;
 				.vipinfo {
-					color: #f0c966;
+					color: ${({ theme }) => theme.mobile.vipGoldBtnColor};
 				}
 				.viprule {
 					span:first-child {
-						background: #e8bb4a;
+						background: ${({ theme }) => theme.mobile.vipGoldTitleBgColor};
 					}
 					span:last-child {
-						color: #e8bb4a;
-						background: #f8edd1;
+						color: ${({ theme }) => theme.mobile.vipGoldBtnColor};
+						background: ${({ theme }) => theme.mobile.vipGoldBtnBg};
 					}
 				}
 			}
 			&.titanium {
 				text-transform: uppercase;
 				.vipinfo {
-					color: #fff;
+					color: ${({ theme }) => theme.mobile.vipTitaniumBtnColor};
 				}
 				.viprule {
 					span:first-child {
-						background: #606677;
+						background: ${({ theme }) => theme.mobile.vipTitaniumTitleBgColor};
 					}
 					span:last-child {
-						color: #606677;
-						background: #c6c9cb;
+						color: ${({ theme }) => theme.mobile.vipTitaniumBtnColor};
+						background: ${({ theme }) => theme.mobile.vipTitaniumBtnBg};
 					}
 				}
 			}
 			&.diamond {
 				text-transform: uppercase;
 				.vipinfo {
-					color: #2aafe1;
+					color: ${({ theme }) => theme.mobile.vipDiamonBtnColor};
 				}
 				.viprule {
 					span:first-child {
-						background: #6dbdf2;
+						background: ${({ theme }) => theme.mobile.vipDiamonTitleBgColor};
 					}
 					span:last-child {
-						color: #6dbdf2;
-						background: #def2ff;
+						color: ${({ theme }) => theme.mobile.vipDiamonBtnColor};
+						background: ${({ theme }) => theme.mobile.vipDiamonBtnBg};
 					}
 				}
 			}
 			&.infinity {
 				text-transform: uppercase;
 				.vipinfo {
-					color: #bcaca3;
+					color: ${({ theme }) => theme.mobile.vipInfinityBtnColor};
 				}
 				.viprule {
 					span:first-child {
-						background: #bcaca3;
+						background: ${({ theme }) => theme.mobile.vipInfinityTitleBgColor};
 					}
 					span:last-child {
-						color: #bcaca3;
-						background: #f5f5f5;
+						color: ${({ theme }) => theme.mobile.vipInfinityBtnColor};
+						background: ${({ theme }) => theme.mobile.vipInfinityBtnBg};
 					}
 				}
 			}
@@ -303,7 +303,8 @@ export const WrapperVipPageH5 = styled.div`
 					&:last-child {
 						.viptable-item-text {
 							&:last-child {
-								background: #faa972;
+								background: ${({ theme }) =>
+									theme.mobile.vipVintageTitleBgColor};
 								color: #fff;
 								font-weight: 700;
 							}
@@ -316,7 +317,8 @@ export const WrapperVipPageH5 = styled.div`
 					&:last-child {
 						.viptable-item-text {
 							&:last-child {
-								background: #adadad;
+								background: ${({ theme }) =>
+									theme.mobile.vipSilverTitleBgColor};
 								color: #fff;
 								font-weight: 700;
 							}
@@ -329,7 +331,7 @@ export const WrapperVipPageH5 = styled.div`
 					&:last-child {
 						.viptable-item-text {
 							&:last-child {
-								background: #e8bb4a;
+								background: ${({ theme }) => theme.mobile.vipGoldTitleBgColor};
 								color: #fff;
 								font-weight: 700;
 							}
@@ -342,7 +344,8 @@ export const WrapperVipPageH5 = styled.div`
 					&:last-child {
 						.viptable-item-text {
 							&:last-child {
-								background: #606677;
+								background: ${({ theme }) =>
+									theme.mobile.vipTitaniumTitleBgColor};
 								color: #fff;
 								font-weight: 700;
 							}
@@ -355,7 +358,8 @@ export const WrapperVipPageH5 = styled.div`
 					&:last-child {
 						.viptable-item-text {
 							&:last-child {
-								background: #6dbdf2;
+								background: ${({ theme }) =>
+									theme.mobile.vipDiamonTitleBgColor};
 								color: #fff;
 								font-weight: 700;
 							}
@@ -368,7 +372,8 @@ export const WrapperVipPageH5 = styled.div`
 					&:last-child {
 						.viptable-item-text {
 							&:last-child {
-								background: #bcaca3;
+								background: ${({ theme }) =>
+									theme.mobile.vipInfinityTitleBgColor};
 								color: #fff;
 								font-weight: 700;
 							}
@@ -424,7 +429,7 @@ export const WrapperVipPageH5 = styled.div`
 					opacity: 1;
 				}
 				> div {
-					color: #faa972;
+					color: ${({ theme }) => theme.mobile.vipVintageBtnColor};
 				}
 			}
 			&.silver {
@@ -432,7 +437,7 @@ export const WrapperVipPageH5 = styled.div`
 					opacity: 1;
 				}
 				> div {
-					color: #adadad;
+					color: ${({ theme }) => theme.mobile.vipSilverBtnColor};
 				}
 			}
 			&.gold {
@@ -440,7 +445,7 @@ export const WrapperVipPageH5 = styled.div`
 					opacity: 1;
 				}
 				> div {
-					color: #e8bb4a;
+					color: ${({ theme }) => theme.mobile.vipGoldBtnColor};
 				}
 			}
 			&.titanium {
@@ -448,7 +453,7 @@ export const WrapperVipPageH5 = styled.div`
 					opacity: 1;
 				}
 				> div {
-					color: #c6c9cb;
+					color: ${({ theme }) => theme.mobile.vipTitaniumBtnColor};
 				}
 			}
 			&.diamond {
@@ -456,7 +461,7 @@ export const WrapperVipPageH5 = styled.div`
 					opacity: 1;
 				}
 				> div {
-					color: #6dbdf2;
+					color: ${({ theme }) => theme.mobile.vipDiamonBtnColor};
 				}
 			}
 			&.infinity {
@@ -464,7 +469,7 @@ export const WrapperVipPageH5 = styled.div`
 					opacity: 1;
 				}
 				> div {
-					color: #c3cacf;
+					color: ${({ theme }) => theme.mobile.vipInfinityBtnColor};
 				}
 			}
 		}

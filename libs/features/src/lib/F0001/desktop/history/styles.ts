@@ -51,4 +51,25 @@ export const WrapperHistory = styled.div`
 			color: #fff !important;
 		}
 	}
+
+	.financial-log-table {
+		.custom-th {
+			&:nth-child(5),
+			&:nth-child(3),
+			&:nth-child(6),
+			&:nth-child(7) {
+				width: 70%;
+			}
+		}
+		.custom-td {
+			.td {
+				&:nth-child(5),
+				&:nth-child(6),
+				&:nth-child(3),
+				&:nth-child(7) {
+					width: 70%;
+				}
+			}
+		}
+	}
 `
