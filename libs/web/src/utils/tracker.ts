@@ -66,7 +66,7 @@ export const MetaPixelTracker = (
 			eventToken: eventName,
 			...(isoCode && { currency: isoCode }),
 			...(amount && { revenue: amount }),
-			...(partnerParams && { partnerParams }), // 動態添加 partnerParams
+			...(partnerParams && { partnerParams }), // username / transid use this block
 		})
 	}
 
@@ -77,9 +77,6 @@ export const MetaPixelTracker = (
 			break
 		case 'Purchase':
 			trackWithParams(firstDeposit ? 'StartTrial' : 'redeposit')
-			trackWithParams(eventName)
-			break
-		case 'withdraw':
 			trackWithParams(eventName)
 			break
 		default:
