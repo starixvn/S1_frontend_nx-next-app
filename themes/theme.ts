@@ -382,5 +382,29 @@ export const theme = {
 		tooltipBgColor: '#232B4F',
 		tooltipColor: '#EA6118',
 		tooltipBoxShadow: '0px 6px 30px 0px rgba(0, 0, 0, 0.50)',
+
+		vipDiamonBtnBg: '#DEF2FF',
+		vipDiamonBtnColor: '#6DBDF2',
+		vipDiamonTitleBgColor: '#6DBDF2',
+
+		vipTitaniumBtnBg: '#C6C9CB',
+		vipTitaniumBtnColor: '#606677',
+		vipTitaniumTitleBgColor: '#606677',
+
+		vipInfinityBtnBg: '#F5F5F5',
+		vipInfinityBtnColor: '#BCACA3',
+		vipInfinityTitleBgColor: '#BCACA3',
+
+		vipVintageBtnBg: '#FFF2EA',
+		vipVintageBtnColor: '#FAA972',
+		vipVintageTitleBgColor: '#FAA972',
+
+		vipSilverBtnBg: '#E5E5E5',
+		vipSilverBtnColor: '#ADADAD',
+		vipSilverTitleBgColor: '#ADADAD',
+
+		vipGoldBtnBg: '#F8EDD1',
+		vipGoldBtnColor: '#E8BB4A',
+		vipGoldTitleBgColor: '#E8BB4A',
 	},
 }

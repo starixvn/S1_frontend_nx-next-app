@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 export const WrapperFooterDock = styled.div`
 	.footer {
-		background: url('https://s1-static.nexdev.net/h5/img/new-ui/footer-bg.webp')
+		background: url(${({ theme }) =>
+				theme.assetUrl}/h5/img/new-ui/footer-bg.webp)
 			no-repeat center/cover;
 		height: 28vw;
 		width: 100%;
