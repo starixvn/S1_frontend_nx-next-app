@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react'
 import classNames from 'classnames'
+import { useRef, useState } from 'react'
 import { useOnClickOutside } from 'usehooks-ts'
 
 interface ILeaderBoardSelectProps {
@@ -28,30 +28,33 @@ const LeaderBoardSelect = ({ options, onChange }: ILeaderBoardSelectProps) => {
 	})
 
 	return (
-		<div className='infoModule'>
+		<div className='infoModule select-date'>
 			<div className='inputInfo ' />
-			<div className='inputBox' ref={ref}>
-				<button
-					onClick={() => {
-						setIsShow(true)
-					}}
-					className='dropdown btn'
-				>
-					<div>
-						<div className='flag undefined' />
-						<span className='text'>{selectedOption.label}</span>
-					</div>
-					<i className='icon icon-keyboard_arrow_down' />
-				</button>
-				<div className={classNames('dropdown-container', { active: isShow })}>
-					{options.map(option => (
-						<div
-							onClick={() => handleOptionClick(option)}
-							className='dropdown-item'
-						>
-							<span className='text'>{option.label}</span>
+			<div className='inputBox-blue'>
+				<div className='dropdown' ref={ref}>
+					<button
+						onClick={() => {
+							setIsShow(!isShow)
+						}}
+						className='btn'
+					>
+						<div>
+							<div className='flag undefined' />
+							<span className='text'>{selectedOption.label}</span>
 						</div>
-					))}
+					</button>
+					<div className={classNames('dropdown-container', { active: isShow })}>
+						<div className='dropdown-wrapper'>
+							{options.map(option => (
+								<div
+									onClick={() => handleOptionClick(option)}
+									className='dropdown-item'
+								>
+									<span className='text'>{option.label}</span>
+								</div>
+							))}
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

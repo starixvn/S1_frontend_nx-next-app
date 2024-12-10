@@ -1,6 +1,6 @@
-import React from 'react'
-import { useTranslation } from 'next-i18next'
 import { useLeaderBoard } from '@nx-next-app/data-access'
+import { NoData } from '@nx-next-app/features/F0001/h5/deposit/common/NoData'
+import { useTranslation } from 'next-i18next'
 import LeaderBoardContentNav from './LeaderBoardContentNav'
 import LeaderBoardRankList from './LeaderBoardRanks/LeaderBoardRankList'
 
@@ -27,7 +27,7 @@ const LeaderBoardContent = () => {
 				{rankList && rankList.length > 0 ? (
 					<LeaderBoardRankList rankList={rankList} activeTab={activeTab} />
 				) : (
-					<div className='icon icon-nodata'>{t('Label_General_NoData')}</div>
+					<NoData />
 				)}
 				{!(activeTab === LeaderBoardTabsEnum.Result) && (
 					<>

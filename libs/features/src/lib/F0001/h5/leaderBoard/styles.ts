@@ -120,4 +120,10 @@ export const WrapperLeaderBoard = styled.div`
 			color: ${({ theme }) => theme.mobile.hrefColorPrimary} !important;
 		}
 	}
+	.dropdown-wrapper {
+		max-height: 50vw !important;
+	}
+	.select-date {
+		margin-bottom: 2vw;
+	}
 `
