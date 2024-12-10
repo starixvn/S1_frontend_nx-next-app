@@ -2,6 +2,10 @@ import styled from 'styled-components'
 
 export const WrapperSettingPage = styled.div`
 	.after {
+		.vip-text-profile{
+			font-weight: 700 !important;
+			font-size: 5vw !important;
+		}
 		.menu-top {
 			background: url(${({ theme }) =>
 				theme.assetUrl}/h5/img/new-ui/menu-after-bg.webp);
@@ -356,6 +360,12 @@ export const WrapperSettingPage = styled.div`
 			line-height: normal;
 			border-radius: 20px 0px 0px 0px;
 			padding : .8vw 4vw;
+			.icon{
+				&:before{
+					color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+					margin-left : 1vw;
+				}
+			}
 		}
 		.menu-vip .vip-text.next {
 			display: flex;
@@ -425,7 +435,7 @@ export const WrapperSettingPage = styled.div`
 		}
 
 	}
-
+	
 
 	@-webkit-keyframes move {
 		0% {

@@ -439,7 +439,8 @@ export const WrapperDepositH5 = styled.div`
 		}
 	}
 	.bankimg {
-		max-width: 20vw;
-		margin: 4vw auto;
+		max-width: 34vw;
+		margin: 3vw auto;
+		border-radius: 10px;
 	}
 `

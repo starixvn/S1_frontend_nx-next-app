@@ -186,7 +186,7 @@ const Profile = () => {
 				<div className={classNames('menu-vip', levelTabsName)}>
 					<div className='left'>
 						<div>{t('Label_VIP_YourVIPIs')}</div>
-						<div>{levelText}</div>
+						<div className='vip-text-profile'>{levelText}</div>
 						{!isVipLevelHighest && (
 							<div>
 								{numberFormat(actualDeposit, currencyId)}
@@ -210,13 +210,17 @@ const Profile = () => {
 							</>
 						)}
 					</div>
+
 					{isVipLevelHighest ? (
 						<div className='vip-text'>
 							{t('Label_Vip_ReachedTheHighestLevel')}
 						</div>
 					) : (
 						<Link href={paths.vip.root}>
-							<a className='vip-text next'>{t('Label_Vip_NextMilestone')}</a>
+							<a className='vip-text next'>
+								{t('Label_Vip_NextMilestone')}{' '}
+								<i className='icon icon-arrow-right-line' />
+							</a>
 						</Link>
 					)}
 				</div>
