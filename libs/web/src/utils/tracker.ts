@@ -1,5 +1,7 @@
 // 廣告商用的事件記錄器
 
+import Adjust from '@adjustcom/adjust-web-sdk'
+
 // Opera Pixel & Meta Pixel:
 // 事件 "register" || "registerSubmit" 綁在 註冊頁 按鈕
 // 事件 "deposit" || "depositSubmit" 綁在 deposit 表單的 submit
@@ -40,11 +42,38 @@ export const MetaPixelTracker = (
 			...extraParams,
 		}
 		;(window as any).fbq('track', action, params, { eventID })
+		trackAdjustEvent(action, { eventID })
+	}
+
+	const createPartnerParams = (
+		params: Record<string, any>
+	): { key: string; value: any }[] => {
+		return Object.entries(params).map(([key, value]) => ({
+			key,
+			value,
+		}))
+	}
+
+	const trackAdjustEvent = (
+		eventName: string,
+		eventParams?: Record<string, any>
+	) => {
+		const partnerParams = eventParams
+			? createPartnerParams(eventParams)
+			: undefined
+
+		Adjust.trackEvent({
+			eventToken: eventName,
+			...(isoCode && { currency: isoCode }),
+			...(amount && { revenue: amount }),
+			...(partnerParams && { partnerParams }), // 動態添加 partnerParams
+		})
 	}
 
 	switch (eventName) {
 		case 'CompleteRegistration':
 			window.fbq('track', eventName, {}, { eventID })
+			trackAdjustEvent(eventName, { eventID })
 			break
 		case 'Purchase':
 			trackWithParams(firstDeposit ? 'StartTrial' : 'redeposit')
@@ -55,6 +84,7 @@ export const MetaPixelTracker = (
 			break
 		default:
 			window.fbq('trackCustom', eventName, {}, { eventID })
+			trackAdjustEvent(eventName, { eventID })
 			break
 	}
 }
