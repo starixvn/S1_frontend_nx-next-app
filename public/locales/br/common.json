@@ -551,6 +551,7 @@
   "Label_General_EWallet": "Carteira eletrônica",
   "Label_General_EWalletWithdrawal": "Retirada da carteira eletrônica",
   "Label_General_Email": "E-mail",
+  "Label_General_EnterCaptchaCode": "Digite o código captcha",
   "Label_General_Exchange": "Câmbio",
   "Label_General_FAQ": "PERGUNTAS FREQUENTES",
   "Label_General_Fail": "Falha",
