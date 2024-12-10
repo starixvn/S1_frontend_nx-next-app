@@ -112,7 +112,7 @@ export const WrapperCardAddBank = styled.div`
 		.addBank {
 			display: block;
 			.addBankName {
-				max-width: 20rem;
+				max-width: 30rem;
 				margin-bottom: 1.2rem;
 			}
 			.remainder,
@@ -145,7 +145,7 @@ export const WrapperCardAddBank = styled.div`
 					text-align: center;
 					border-radius: 10px;
 					word-break: break-all;
-					padding: 0.7rem 1.4rem;
+					padding: 0.7rem 1rem;
 					display: flex;
 					flex-flow: column;
 					justify-content: space-between;
@@ -161,6 +161,9 @@ export const WrapperCardAddBank = styled.div`
 						color: #5574a7;
 						font-size: 4.8rem;
 						flex: 0.1;
+					}
+					> div {
+						word-break: normal;
 					}
 				}
 				.money {

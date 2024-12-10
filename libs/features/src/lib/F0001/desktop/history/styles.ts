@@ -55,19 +55,22 @@ export const WrapperHistory = styled.div`
 	.financial-log-table {
 		.custom-th {
 			&:nth-child(5),
-			&:nth-child(3),
+			&:nth-child(2),
 			&:nth-child(6),
 			&:nth-child(7) {
-				width: 70%;
+				width: 65%;
 			}
 		}
 		.custom-td {
 			.td {
 				&:nth-child(5),
 				&:nth-child(6),
-				&:nth-child(3),
+				&:nth-child(2),
 				&:nth-child(7) {
-					width: 70%;
+					width: 65%;
+				}
+				&:nth-child(2) {
+					display: block !important;
 				}
 			}
 		}
