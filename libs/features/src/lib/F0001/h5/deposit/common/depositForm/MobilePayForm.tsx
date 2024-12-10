@@ -160,7 +160,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 					className='bankimg'
 					src={`${process.env['NEXT_PUBLIC_PAYMENT_HOST']}/${toLower(
 						watchGroupName
-					)}.png`}
+					)}.webp`}
 					alt='img-bank-logo'
 				/>
 				<div>
@@ -170,18 +170,20 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			</>,
 			{
 				footer: [
-					<button className='white' onClick={closeModal}>
-						{t('Label_General_Cancel')}
-					</button>,
-					<button
-						className='orange'
-						onClick={() => {
-							onMobilePayFormSubmit(values)
-							closeModal()
-						}}
-					>
-						{t('Label_General_Submit')}
-					</button>,
+					<>
+						<button className='btn-secondary' onClick={closeModal}>
+							{t('Label_General_Cancel')}
+						</button>
+						<button
+							className='btn-primary'
+							onClick={() => {
+								onMobilePayFormSubmit(values)
+								closeModal()
+							}}
+						>
+							{t('Label_General_Submit')}
+						</button>
+					</>,
 				],
 			}
 		)

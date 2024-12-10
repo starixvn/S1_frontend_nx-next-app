@@ -429,4 +429,71 @@ export const WrapperWithdrawalH5 = styled.div`
 	.recentBtn{
 		min-height : 8vw;
 	}
+	.submit-photo{
+		.title{
+			justify-content: flex-start;
+			padding-left: 5vw;
+			.icon{
+				margin-right : 3vw;
+				&:before{
+					font-size : 7vw;
+				}
+			}
+		}
+		.inputBox {
+			width: 22vw;
+			height: 18vw;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0 auto;
+			border-radius: 10px;
+			border: 1px solid #374375;
+			background: #1D2447;
+			overflow: hidden;
+			.icon {
+				&:before{
+					color: #939DC5;
+					font-size: 6.1vw;
+				}
+			}
+		}
+		.text-org {
+			text-align : left;
+			display : block;
+			margin : 3vw 0;
+			color  :  ${({ theme }) => theme.mobile.white};
+			font-size: 4.1vw;
+			font-weight : 700;
+		}
+		.kyc-bottom{
+			.title{
+				padding-left : 0;
+				text-align : left;
+				display : block;
+				margin : 3vw 0;
+				color  :  ${({ theme }) => theme.mobile.white};
+				font-size: 4.1vw;
+				font-weight : 700;
+			}
+			ul{
+				list-style : none;
+				margin-left: 4vw;
+				li{
+					color: #939DC5;
+					position: relative;
+					&:after{
+						content: '';
+						display: block;
+						width: 3px;
+						height: 3px;
+						position: absolute;
+						left: -10px;
+						top: 8px;
+						background: #939DC5;
+					}
+				}
+			}
+		}
+	}
 `

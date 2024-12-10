@@ -3928,7 +3928,6 @@ input[type='date'] {
 	text-align: right;
 }
 
-
 .nodata {
 	text-align: center;
 	padding: 10vw 0;
@@ -4209,121 +4208,6 @@ input[type='date'] {
 	border-radius: 5px;
 	background: #d2e2f9;
 	text-align: right;
-}
-
-.rankingNew {
-	padding: 30vw 4vw 20vw;
-	width: calc(100% - 8vw);
-	-webkit-box-pack: start;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
-}
-.rankingNew .rankEvent .rankList ul li div:first-child {
-	-webkit-box-flex: 1.4;
-	-ms-flex: 1.4;
-	flex: 1.4;
-}
-.rankingNew .rankEvent .rankList ul li div:last-child {
-	-webkit-box-flex: 0.5;
-	-ms-flex: 0.5;
-	flex: 0.5;
-}
-.rankingNew .rankList {
-	background: #f5f5f5;
-	border-radius: 5px;
-	padding: 0 2vw 2vw;
-}
-.rankingNew .rankList + div {
-	color: #5574a7;
-}
-.rankingNew .rankList .title {
-	color: #7591c1;
-	margin: 0;
-	padding: 4vw 2vw 0;
-}
-.rankingNew .rankList ul li {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	background: #7591c1;
-	border-radius: 5px;
-	margin: 2vw 0;
-	padding: 2vw;
-}
-.rankingNew .rankList ul li .icon-arrow_drop_up {
-	color: red;
-}
-.rankingNew .rankList ul li .icon-arrow_drop_down {
-	color: #05bc0b;
-}
-.rankingNew .rankList ul li:first-child {
-	color: #92aed6;
-	background: transparent;
-	border: 0;
-}
-.rankingNew .rankList ul li:first-child div {
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
-.rankingNew .rankList ul li div {
-	-webkit-box-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	text-align: center;
-}
-.rankingNew .rankList ul li div:first-child {
-	-webkit-box-pack: start;
-	-ms-flex-pack: start;
-	justify-content: flex-start;
-	text-align: left;
-}
-.rankingNew .rankList ul li div:last-child {
-	-webkit-box-pack: end;
-	-ms-flex-pack: end;
-	justify-content: flex-end;
-	text-align: right;
-}
-.rankingNew .rankList ul li div img {
-	width: 5vw;
-	margin-right: 1vw;
-}
-.rankingNew .rankList ul li.userRank {
-	color: #5574a7;
-	background: white;
-	text-align: center;
-	font-weight: bold;
-}
-.rankingNew .rankList ul li.userRank span {
-	color: #a5aab1;
-	margin: 0 0 0 2vw;
-}
-.rankingNew .text-blue {
-	color: #5574a7;
-	margin-bottom: 2vw;
-}
-.rankingNew .filterBtn button {
-	white-space: nowrap;
-}
-.rankingNew .title {
-	color: #112240;
-	font-size: 4vw;
-	margin: 0;
-	position: relative;
-	padding: 2.5vw 2vw;
-	text-align: center;
 }
 
 .list {

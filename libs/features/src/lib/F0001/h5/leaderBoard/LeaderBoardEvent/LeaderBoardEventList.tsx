@@ -1,7 +1,7 @@
-import { useTranslation } from 'next-i18next'
+import { useLeaderBoard } from '@nx-next-app/data-access'
 import LeaderBoardSection1 from '@nx-next-app/features/F0001/h5/leaderBoard/LeaderBoardEvent/LeaderBoardSection1'
 import LeaderBoardSection2 from '@nx-next-app/features/F0001/h5/leaderBoard/LeaderBoardEvent/LeaderBoardSection2'
-import { useLeaderBoard } from '@nx-next-app/data-access'
+import { useTranslation } from 'next-i18next'
 
 const LeaderBoardEventList = () => {
 	const { t } = useTranslation()
@@ -51,8 +51,11 @@ const LeaderBoardEventList = () => {
 					)}
 				</ul>
 			</div>
-			<div className='btn-group'>
-				<a className='orange openPopup' onClick={handleTermAndConditionClick}>
+			<div className='btnGroup'>
+				<a
+					className='btn-secondary openPopup'
+					onClick={handleTermAndConditionClick}
+				>
 					{t('Label_LeaderBoard_Terms&Conditions')}
 				</a>
 			</div>
