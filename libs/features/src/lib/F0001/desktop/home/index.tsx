@@ -34,9 +34,9 @@ const ProviderList = dynamic(() => import('./providers'), { ssr: false })
 
 const defaultBanner: IBannerData[] = [
 	{
-		bannerName: 'redeposit',
+		bannerName: 'Default Banner',
 		bannerType: 1,
-		actionMode: 3,
+		actionMode: 1,
 		bonusCode: null,
 		tpId: '0',
 		gameId: null,
@@ -44,7 +44,7 @@ const defaultBanner: IBannerData[] = [
 		details: null,
 		bannerLink: '',
 		bannerPCUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/default-banner-lobby.webp`,
-		bannerMobileUrl: '',
+		bannerMobileUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/default-banner-lobby.webp`,
 		logo: null,
 		backgroundPic: null,
 		tpGameType: 0,
@@ -62,11 +62,16 @@ const Home = () => {
 		userInfo: { langId, currencyId },
 	} = useAuth()
 
+	const bannerList =
+		bannerData !== null && bannerData !== undefined && bannerData?.length > 0
+			? bannerData
+			: defaultBanner
+
 	const homeComponents = {
 		[DesktopHomeComponentsEnum.CarouselBanner]: (
 			<CarouselBanner
 				className='homebanner'
-				bannerList={bannerData !== null && bannerData !== undefined && bannerData?.length > 0 ? bannerData : defaultBanner}
+				bannerList={bannerList}
 				navigation={false}
 			/>
 		),

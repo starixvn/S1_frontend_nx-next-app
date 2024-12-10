@@ -1,17 +1,16 @@
-import { Header } from '@nx-next-app/components/H0001'
-import { useAuth } from '@nx-next-app/data-access'
-import { HomPageContainer } from '@nx-next-app/features/F0001/h5/home/styles'
-import { useHome } from '@nx-next-app/features/F0001/providers'
-import { MobileHomeComponentsEnum } from '@nx-next-app/features/F0001/types'
-import { useTpWalletBalanceListFetcher } from '@nx-next-app/hooks'
-import { useSetHideBalanceMutation } from '@nx-next-app/service'
-import { multiEqual } from '@nx-next-app/utils'
-import { includes } from 'lodash-es'
-import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
-import { Fragment, useCallback } from 'react'
+import { Header } from "@nx-next-app/components/H0001";
+import { useAuth } from "@nx-next-app/data-access";
+import { HomPageContainer } from "@nx-next-app/features/F0001/h5/home/styles";
+import { useHome } from "@nx-next-app/features/F0001/providers";
+import { MobileHomeComponentsEnum } from "@nx-next-app/features/F0001/types";
+import { useTpWalletBalanceListFetcher } from "@nx-next-app/hooks";
+import { IBannerData, useSetHideBalanceMutation } from "@nx-next-app/service";
+import { multiEqual } from "@nx-next-app/utils";
+import { includes } from "lodash-es";
+import dynamic from "next/dynamic";
+import { Fragment, useCallback } from "react";
 
-import Menu from './menu'
+import Menu from "./menu";
 
 const CarouselBanner = dynamic(() => import('../common/carouselBanner'), {
 	ssr: false,
@@ -39,9 +38,28 @@ const SimpleFooter = dynamic(() => import('./SimpleFooter'))
 
 const FooterBlock = dynamic(() => import('./footerBlock'))
 
-const Home = () => {
-	const { push } = useRouter()
+const defaultBanner: IBannerData[] = [
+	{
+		bannerName: 'Default Banner',
+		bannerType: 1,
+		actionMode: 1,
+		bonusCode: null,
+		tpId: '0',
+		gameId: null,
+		urlRouter: '',
+		details: null,
+		bannerLink: '',
+		bannerPCUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/default-banner-lobby.webp`,
+		bannerMobileUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/default-banner-lobby.webp`,
+		logo: null,
+		backgroundPic: null,
+		tpGameType: 0,
+		redirectLink: null,
+		itemKey: '',
+	},
+]
 
+const Home = () => {
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
@@ -49,6 +67,10 @@ const Home = () => {
 	// 因為有用useCallback避免render issue，因此這邊資料僅使用static＆serverSide data
 	// clientSide api fetch在元件內部呼叫
 	const { bannerData, mobileHomeOrders } = useHome()
+	const bannerList =
+		bannerData !== null && bannerData !== undefined && bannerData?.length > 0
+			? bannerData
+			: defaultBanner
 
 	const {
 		isLoading: isTpWalletBalanceListLoading,
@@ -65,7 +87,7 @@ const Home = () => {
 	const homeComponents = {
 		[MobileHomeComponentsEnum.CarouselBanner]: (
 			<div className='home-mainbanner'>
-				<CarouselBanner bannerList={bannerData} navigation={false} />
+				<CarouselBanner bannerList={bannerList} navigation={false} />
 			</div>
 		),
 		[MobileHomeComponentsEnum.Announcement]: <Announcement />,
