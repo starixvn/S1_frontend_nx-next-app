@@ -8,7 +8,7 @@ export const META_DATA: IMetaData = {
 			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
 			keyword: `Asia Most Trusted Sportsbook, Live Casino, Slot Games, SABA Sports, Online Casino, Online Betting`,
 			links: [
-				{ rel: 'canonical', href: `https://www.nova88.net/en/` },
+				{ rel: 'canonical', href: `${process.env['NEXT_PUBLIC_REFERER_HOST']}/en/` },
 				{
 					rel: 'alternate',
 					media: 'only screen and (max-width: 640px)',
@@ -190,7 +190,7 @@ export const META_DATA: IMetaData = {
 					media: 'only screen and (max-width: 640px)',
 					href: `https://m.nova88bkk.com/th/`,
 				},
-				{ rel: 'canonical', href: `https://www.nova88bkk.com/th/` },
+				{ rel: 'canonical', href: `${process.env['NEXT_PUBLIC_REFERER_HOST']}/th/` },
 				{
 					rel: 'alternate',
 					href: 'https://www.nova88.net/en/',
