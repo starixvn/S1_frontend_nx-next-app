@@ -19,6 +19,7 @@ export const WrapperFooterDock = styled.div`
 			justify-content: center;
 			padding-bottom: 1vw;
 			font-weight: 500;
+			position: relative;
 			.icon {
 				&:before {
 					font-size: 6.1vw;
@@ -31,11 +32,18 @@ export const WrapperFooterDock = styled.div`
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		color: red;
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 0.8vw;
+			background: ${({ theme }) => theme.mobile.hrefColorPrimary};
+			bottom: 5vw;
+			left: 0;
+		}
 	}
 	.footer-item.active :not(.plus).footer-title {
-		border-bottom: 2.5px solid ${({ theme }) => theme.mobile.hrefColorPrimary};
-		padding-bottom: 2vw;
 		color: ${({ theme }) => theme.mobile.hrefColorPrimary};
 	}
 

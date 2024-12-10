@@ -236,7 +236,7 @@ export const WrapperVipPageH5 = styled.div`
 		flex-direction: column;
 		align-items: flex-start;
 		padding: 0vw 3vw 5vw;
-		margin: 25vw 3.4vw 10vw 3.4vw;
+		margin: 20vw 3.4vw 10vw 3.4vw;
 		border-radius: 20px;
 		font-size: 3.4vw;
 		img {
@@ -494,7 +494,7 @@ export const WrapperVipPageH5 = styled.div`
 		justify-content: center;
 		align-items: center;
 		height: 100%;
-		padding-bottom: 20vw;
+		padding-bottom: 30vw;
 		margin-top: 10vw;
 	}
 	.vip-bottom-item {
