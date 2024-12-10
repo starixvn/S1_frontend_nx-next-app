@@ -87,11 +87,19 @@ export const WrapperLeaderBoard = styled.div`
 		border: 0;
 		padding: 0;
 		width: 100%;
-		gap: 0.8rem;
+		gap: 2vw;
 		button {
 			color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
 			background: #374375;
-			font-size: 3vw;
+			font-size: 2.9vw;
+			width: 100%;
+			padding: 1.5vw 1vw;
+			font-weight: 600;
+			border-radius: 100px;
+			&.active {
+				background: #717fba;
+				color: ${({ theme }) => theme.mobile.white};
+			}
 		}
 	}
 
@@ -101,5 +109,15 @@ export const WrapperLeaderBoard = styled.div`
 		font-size: 4vw;
 		font-weight: 700;
 		margin: 5vw 0;
+	}
+	.lastUpdate {
+		color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+		text-align: center;
+		padding: 0 7vw;
+		margin-top: 3.1vw;
+		font-weight: 500;
+		&:last-child {
+			color: ${({ theme }) => theme.mobile.hrefColorPrimary} !important;
+		}
 	}
 `
