@@ -585,6 +585,24 @@ export const LoginForm = styled.div`
 		caret-color: ${({ theme }) => theme.desktop.headerInputColor};
 	}
 
+	::selection {
+		color: #fff;
+		background: #717fba;
+	}
+
+	::-moz-selection {
+		color: #fff;
+		background: #717fba;
+	}
+
+	input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus {
+		font-family: ${({ theme }) => theme.desktop.fontFamily};
+		font-size: 1.4rem;
+		font-weight: 500;
+	}
+
 	.inputBox-blue + .inputBox-blue {
 		margin-left: 1.2rem;
 	}
