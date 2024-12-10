@@ -94,11 +94,11 @@ export const LANG_GROUPS: IStaticLangGroups = {
 			currencyId: CurrenciesEnum.USD,
 			mainLanguage: true,
 		},
-		{
-			displayText: '简体中文',
-			value: 'cs',
-			currencyId: CurrenciesEnum.USD,
-		},
+		// {
+		// 	displayText: '简体中文',
+		// 	value: 'cs',
+		// 	currencyId: CurrenciesEnum.USD,
+		// },
 		{
 			displayText: 'اَلْعَرَبِيَّةُ',
 			value: 'ar',
