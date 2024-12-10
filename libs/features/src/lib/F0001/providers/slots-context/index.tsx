@@ -556,7 +556,6 @@ const SlotsProvider = ({
 				}),
 				isFavorite: isFavorite({ tpId: gameObj.tpId, gameId: gameObj.gameId }),
 			}))
-			.sort(() => Math.random() - 0.5) // 隨機排列遊戲列表
 		// 原先為按照發佈時間順序排列：
 		// .sort(
 		// 	(a, b) =>
