@@ -2291,6 +2291,11 @@ export const GlobalStyles = createGlobalStyle`
       #header{
         justify-content :center;
       }
+
+      #popup .pop .popTxt {
+        text-align: center;
+      }
+
       #goTop{
         bottom: 70px;
         width: 10vw;

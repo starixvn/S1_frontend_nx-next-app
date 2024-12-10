@@ -34,7 +34,7 @@ export const CategoryFilterTabs = styled.div`
 
 	.tab-item {
 		position: relative;
-		bottom: 0.97vw;
+		bottom: 0.728vw;
 		height: 11.65vw;
 		padding: 0 1.94vw;
 		margin-top: 1vw;
