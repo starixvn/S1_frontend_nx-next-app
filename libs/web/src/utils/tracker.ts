@@ -9,7 +9,7 @@ export type MetaPixelTrackerName =
 	| 'depositSubmit'
 	| 'Purchase'
 	| 'withdraw'
-	// 存款成功
+	// 註冊成功
 	| 'CompleteRegistration'
 	// 首存
 	| 'StartTrial'

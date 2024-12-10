@@ -5,7 +5,7 @@ import {
 	ToastTypeEnum,
 } from '@nx-next-app/components/D0001'
 import { AuthProvider } from '@nx-next-app/data-access'
-import { InitialPropsInterface } from '@nx-next-app/hooks'
+import { InitialPropsInterface, useInitAdjustSDK } from '@nx-next-app/hooks'
 import {
 	NotificationSoundStateEnum,
 	TToastSetting,
@@ -135,6 +135,8 @@ export const NovaAuthProvider = ({
 		)
 		await Promise.all(allNotificationTypePromises)
 	}
+
+	useInitAdjustSDK()
 
 	return (
 		<AuthProvider
