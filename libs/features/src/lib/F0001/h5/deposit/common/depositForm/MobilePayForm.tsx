@@ -12,6 +12,7 @@ import {
 	useDepositContext,
 	useMobilePayForm,
 } from '@nx-next-app/data-access'
+import { WrapperDepositH5 } from '@nx-next-app/features/F0001/h5/deposit/styles'
 import { IPaymentMobilePayData } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
 import {
@@ -154,7 +155,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 			: watchAmount
 
 		modal.confirm(
-			<>
+			<WrapperDepositH5>
 				<p>{t('Label_Deposit_ConfirmDeposit')}</p>
 				<img
 					className='bankimg'
@@ -167,7 +168,7 @@ const MobilePayForm = ({ dataSource }: IMobilePayFormProps) => {
 					<span>{t('Label_General_DepositAmount')}：</span>{' '}
 					{numberFormat(convertedAmount, currencyId, 0)}
 				</div>
-			</>,
+			</WrapperDepositH5>,
 			{
 				footer: [
 					<>

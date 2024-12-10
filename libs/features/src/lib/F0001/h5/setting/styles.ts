@@ -378,7 +378,7 @@ export const WrapperSettingPage = styled.div`
 			background: rgba(0, 0, 0, 0.10);
 		}
 		.menu-vip.silver {
-			background: url(${({ theme }) => theme.assetUrl}/h5/img/new-ui/silver.webp)
+			background: url(${({ theme }) => theme.assetUrl}/h5/img/new-ui/silver-bg.webp)
 				no-repeat center/cover;
 		}
 		.menu-vip.silver .right {

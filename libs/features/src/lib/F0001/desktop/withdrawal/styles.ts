@@ -110,7 +110,6 @@ export const WrapperWithdrawl = styled.div`
 		}
 	}
 	.submit-photo-id {
-		width: 100%;
 		border: 1px solid ${({ theme }) => theme.desktop.rightModuleBorderColor};
 		border-radius: 10px;
 		padding: 1.6rem;
