@@ -2,12 +2,10 @@ import styled from 'styled-components'
 
 export const WrapperVipPage = styled.div`
 	.vip {
-		&-main {
-			width: ${({ theme }) => theme.desktop.minContentWidth};
-			margin: 0 auto;
-			@media (min-width: 1450px) {
-				width: ${({ theme }) => theme.desktop.contentWidth};
-			}
+		width: ${({ theme }) => theme.desktop.minContentWidth};
+		margin: 0 auto;
+		@media (min-width: 1450px) {
+			width: ${({ theme }) => theme.desktop.contentWidth};
 		}
 		.swiper-slide {
 			position: relative;
@@ -17,6 +15,13 @@ export const WrapperVipPage = styled.div`
 			flex-direction: column;
 			overflow: hidden;
 			position: relative;
+			.vipbg {
+				width: 100%;
+				min-width: 2560px;
+				text-align: center;
+				position: relative;
+				z-index: 1;
+			}
 		}
 		.swiper-container {
 			width: 100%;
@@ -24,13 +29,6 @@ export const WrapperVipPage = styled.div`
 		}
 	}
 
-	.vip .swiper-slide .vipbg {
-		width: 100%;
-		min-width: 2560px;
-		text-align: center;
-		position: relative;
-		z-index: 1;
-	}
 	.vip .swiper-slide.vintage .vipinfo {
 		color: #faa972;
 	}

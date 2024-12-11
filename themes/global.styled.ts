@@ -551,7 +551,7 @@ export const GlobalStyles = createGlobalStyle`
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active{
-      -webkit-box-shadow: 0 0 0 30px ${({ theme }) =>
+      -webkit-box-shadow: 0 0 0 1000px ${({ theme }) =>
 				theme.desktop.inputBg} inset !important;
       -webkit-text-fill-color: #ffffff;
   }

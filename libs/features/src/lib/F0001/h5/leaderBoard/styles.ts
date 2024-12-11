@@ -121,7 +121,7 @@ export const WrapperLeaderBoard = styled.div`
 		}
 	}
 	.dropdown-wrapper {
-		max-height: 50vw !important;
+		max-height: 35vw !important;
 	}
 	.select-date {
 		margin-bottom: 2vw;

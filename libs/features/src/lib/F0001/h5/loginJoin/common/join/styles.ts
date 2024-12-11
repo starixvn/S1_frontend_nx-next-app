@@ -37,6 +37,11 @@ export const WrapperJoinPage = styled.div`
 		width: 16px;
 		height: 16px;
 	}
+	.select-currentcy {
+		.inputInfo {
+			display: none;
+		}
+	}
 `
 
 export const WrapperCongrats = styled.div`

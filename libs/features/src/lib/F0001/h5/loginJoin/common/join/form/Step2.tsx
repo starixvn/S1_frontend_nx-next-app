@@ -151,7 +151,7 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 	return (
 		<WrapperJoinPage>
 			<div className='group-dropdown'>
-				<div className='inputBox-blue'>
+				<div className='inputBox-blue select-currentcy'>
 					<div className='dropdown'>
 						<Select
 							options={currencySelectOptions}
