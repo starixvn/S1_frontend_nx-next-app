@@ -13,7 +13,7 @@ import {
 } from '@nx-next-app/hooks'
 import { HistoryProvider } from '@nx-next-app/operations'
 import { IWithdrawalSetting } from '@nx-next-app/service'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/noble888'
 import {
 	HISTORY_TABS,
 	QUICK_PICK_LIST,

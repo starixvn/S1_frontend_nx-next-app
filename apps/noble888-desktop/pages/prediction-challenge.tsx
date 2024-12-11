@@ -7,7 +7,7 @@ import {
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { PredictionChallengeProvider } from '@nx-next-app/operations'
-import { ALLOWED_CURRENCIES, FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { ALLOWED_CURRENCIES, FOOTER_DATA } from '@nx-next-app/site/noble888'
 import { IFooterData } from '@nx-next-app/types'
 import { includes } from 'lodash-es'
 import { GetServerSideProps } from 'next'

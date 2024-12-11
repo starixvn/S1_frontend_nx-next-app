@@ -7,7 +7,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/noble888'
 import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/nova88/data/appDownload'
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'

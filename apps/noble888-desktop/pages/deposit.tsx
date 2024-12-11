@@ -15,7 +15,7 @@ import {
 	DEPOSIT_PAYMENT_OPTIONS,
 	DEPOSIT_PAYMENT_ORDERS,
 	FOOTER_DATA,
-} from '@nx-next-app/site/nova88'
+} from '@nx-next-app/site/noble888'
 import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'

@@ -9,7 +9,7 @@ import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { FOOTER_DATA } from '@nx-next-app/site/nova88'
+import { FOOTER_DATA } from '@nx-next-app/site/noble888'
 import {
 	LEADER_BOARD_EVENT_CODE,
 	LEADER_BOARD_GAME_POINT_NAV,
