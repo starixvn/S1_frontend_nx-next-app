@@ -2,18 +2,13 @@ import styled from 'styled-components'
 
 export const HomePage = styled.div`
 	.homebanner {
-		--ratio: calc(
-			${({ theme }) => theme.desktop.minContentWidth} /
-				${({ theme }) => theme.desktop.contentWidth}
-		);
-
+		height: ${({ theme }) => theme.desktop.smallBannerContainerHeight};
 		padding-top: 2rem;
-		height: 39rem;
 		background: url(${({ theme }) =>
 			theme.assetUrl}/desktop/img/new-ui/banner-bg.webp);
 
 		@media (min-width: 1450px) {
-			height: calc(39rem * var(--ratio));
+			height: ${({ theme }) => theme.desktop.largeBannerContainerHeight};
 		}
 
 		.swiper-container {
@@ -30,10 +25,10 @@ export const HomePage = styled.div`
 			}
 
 			.banner {
-				height: calc(36.4rem * var(--ratio));
+				height: ${({ theme }) => theme.desktop.smallBannerHeight};
 
 				@media (min-width: 1450px) {
-					height: 36.4rem;
+					height: ${({ theme }) => theme.desktop.largeBannerHeight};
 				}
 
 				img {

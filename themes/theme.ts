@@ -4,6 +4,11 @@ export const theme = {
 	desktop: {
 		minContentWidth: '120rem',
 		contentWidth: '140rem',
+		smallBannerContainerHeight: '33.2rem',
+		largeBannerContainerHeight: '39rem',
+		smallBannerHeight: '31.2rem',
+		largeBannerHeight: '36.4rem',
+
 		primary: '#0F1428',
 		hrefColorPrimary: '#EA6118',
 		white: '#fff',
