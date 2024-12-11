@@ -35,11 +35,13 @@ $gradientblue3:linear-gradient(to right, #BFCCE2, #7591C1);
 $gradientblue4:linear-gradient(to bottom, #98b6e9, #85a2d3);
 
 
+$gray:#666;
 $gray1:#838383;
 $gray2:#949494;
 $dark:#191919;
 $lightblack:#212121;
 $darkGray:#333;
+$lightgray:#b2b2b2;
 $orange:#f77900;
 $yellow1: #fab617;
 $yellow2: #F9B041;
@@ -54,21 +56,4 @@ $green2:#07b802;
 $rankingbgcolor: #00616f;
 $rankingbordercolor: #19a4bb;
 
-//LEOBET
-$primary:#0a0a0a;
-$secondary:#d7ae78;
-$secondary-light:#F1D5B6;
-$secondary-deep: #A98153;
-$highlight:#ff2a56;
-$lightgray:#dfdfdf;
-$gray:#b2b2b2;
-$gray-deep:#8b8b8b;
-$darkgray:#777777;
-$white: #fff;
-//LEOBET-Gradient-button
-$btn-light: rgba(#d7ae78, 6%);
-$btn-center: rgba(#d1b37d, 34%);
-$btn-deep: rgba(#8a5938b3, 100%);
-//hover-Gradient-button
-$btn-h-deep: rgba(#ff2a56,30%);
-$btn-h-light: rgba(#ff6281,100%);
+$primary:#0A1B38;

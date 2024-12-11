@@ -1,6 +1,6 @@
+import { NovaAuthProvider } from '@noble888-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
-	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
@@ -8,7 +8,7 @@ import {
 	Announcement,
 	Layout,
 	LeftMenu,
-} from '@nx-next-app/features/F0006/desktop'
+} from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -33,7 +33,10 @@ const AnnouncementPage = ({
 	withdrawalBlockSetting,
 }: IAnnouncementPage) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -46,7 +49,7 @@ const AnnouncementPage = ({
 					</main>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

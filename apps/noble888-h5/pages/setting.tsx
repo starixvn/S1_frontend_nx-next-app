@@ -1,33 +1,52 @@
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, Setting } from '@nx-next-app/features/F0006/h5'
+import { Setting } from '@noble888-h5/components'
+import { NovaAuthProvider } from '@noble888-h5/providers'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
+import { Layout } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
+import { SettingProvider } from '@nx-next-app/operations'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-const SettingPage = ({
+type IReferralPageProps = InitialPropsInterface
+
+const ReferralPage = ({
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
 	persistStaticFileDomainData,
-}: InitialPropsInterface) => {
+}: IReferralPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
 				<Layout persistSEOData={persistSEOData}>
-					<Setting />
+					<SettingProvider>
+						<Setting />
+					</SettingProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
+
+	if (!initialProps.originIsSignIn) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false,
+			},
+		}
+	}
 
 	return {
 		props: {
@@ -37,4 +56,4 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	}
 }
 
-export default SettingPage
+export default ReferralPage

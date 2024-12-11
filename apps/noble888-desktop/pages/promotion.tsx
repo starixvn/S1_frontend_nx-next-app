@@ -1,21 +1,14 @@
+import { NovaAuthProvider } from '@noble888-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import {
-	AuthProvider,
-	getPromotion,
-	GlobalDataProvider,
-} from '@nx-next-app/data-access'
-import { Promotion } from '@nx-next-app/features/F0001/desktop'
+import { getPromotion, GlobalDataProvider } from '@nx-next-app/data-access'
+import { Layout, Promotion } from '@nx-next-app/features/F0001/desktop'
 import { PromotionProvider } from '@nx-next-app/features/F0001/providers'
-import { Layout } from '@nx-next-app/features/F0006/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { IPromotionData } from '@nx-next-app/service'
-import {
-	FOOTER_DATA,
-	PROMOTION_SELECT_OPTIONS,
-} from '@nx-next-app/site/noble888'
+import { FOOTER_DATA, PROMOTION_SELECT_OPTIONS } from '@nx-next-app/site/noble888'
 import { DeviceTypeEnum, IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -34,7 +27,10 @@ const PromotionPage = ({
 	persistPromotionData,
 }: IPromotionPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -47,7 +43,7 @@ const PromotionPage = ({
 					</PromotionProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

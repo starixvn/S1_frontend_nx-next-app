@@ -1,11 +1,11 @@
+import { NovaAuthProvider } from '@noble888-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
-	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { History, Layout, LeftMenu } from '@nx-next-app/features/F0006/desktop'
-import { HistoryProvider } from '@nx-next-app/features/F0006/providers'
+import { History, Layout, LeftMenu } from '@nx-next-app/features/F0001/desktop'
+import { HistoryProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -34,7 +34,10 @@ const HistoryPage = ({
 	withdrawalBlockSetting,
 }: IHistoryPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -52,7 +55,7 @@ const HistoryPage = ({
 					</HistoryProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

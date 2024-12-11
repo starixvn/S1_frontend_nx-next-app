@@ -1,7 +1,8 @@
+import { NovaAuthProvider } from '@noble888-h5/providers'
 import { paths } from '@nx-next-app/constants'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, Statement } from '@nx-next-app/features/F0006/h5'
-import { StatementProvider } from '@nx-next-app/features/F0006/providers'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
+import { Layout, Statement } from '@nx-next-app/features/F0001/h5'
+import { StatementProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -25,7 +26,10 @@ const StatementPage = ({
 	]
 
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -38,7 +42,7 @@ const StatementPage = ({
 					</StatementProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 
