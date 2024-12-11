@@ -1,6 +1,6 @@
 import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
-import { GReCaptchaProviders } from '@nx-next-app/features/F0001/providers/googleReCaptcha-provider'
+import { MultiCaptchaProvider } from '@nx-next-app/operations'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
 import { isString } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
@@ -66,10 +66,9 @@ const LoginJoin = ({ cookies }: ILoginJoinProps) => {
 
 			{formType === 'left' && <Login fromRoute={fromRoute} />}
 			{formType === 'right' && (
-				<GReCaptchaProviders>
+				<MultiCaptchaProvider>
 					<Join cookies={cookies} />
-					<div id='g-reCaptcha' />
-				</GReCaptchaProviders>
+				</MultiCaptchaProvider>
 			)}
 		</div>
 	)

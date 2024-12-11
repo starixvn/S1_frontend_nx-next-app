@@ -5,6 +5,7 @@ import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
 
 export * from './bankInfo-context'
+export * from './captcha-context'
 export * from './cryptoWallet-context'
 export * from './deposit-context'
 export * from './eWallet-context'
