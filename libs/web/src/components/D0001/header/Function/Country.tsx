@@ -76,7 +76,7 @@ const Country = ({
 						</div>
 					</div>
 				</div>
-				{!isLogin && (
+				{!isLogin && Object.entries(langGroup).length > 2 && (
 					<div className='country-option'>
 						{Object.entries(langGroup).map(([lang, item]) => (
 							<Fragment key={lang}>

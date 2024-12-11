@@ -81,7 +81,7 @@ const List = () => {
 					</div>
 					{!isLogin && (
 						<div className='country'>
-							{Object.entries(languageGroup).map(([lang, items]) => {
+							{Object.entries(languageGroup).length > 2 && Object.entries(languageGroup).map(([lang, items]) => {
 								return (
 									<div
 										key={`${lang}-${items}`}

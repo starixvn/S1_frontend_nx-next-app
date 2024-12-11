@@ -60,7 +60,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		{
 			siteId: parseInt(process.env['NEXT_PUBLIC_SITE_ID'], 10),
 		  currencyId: currencyId as number,
-		  lobbyCategoryIds: LobbyCategory.Fishing.toString(),
+		  lobbyCategoryIds: LobbyCategory.Games.toString(),
       langId: langId as string
 		},
 		{ headers: { cookie: currentHeaderCookies } }

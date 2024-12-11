@@ -46,10 +46,7 @@ const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 	} = useAuth()
 
 	// 7/16/24 因應 hotfix遮蔽saba sport,根據語系設定初始 menuKey
-	const defaultMenuKey =
-		currencyId === CurrenciesEnum.USD || currencyId === CurrenciesEnum.CNY
-			? 'Casino'
-			: 'Sports'
+	const defaultMenuKey = 'Home'
 
 	const [menuKey, setMenuKey] = useState<keyof typeof MenuKeyEnum | undefined>(
 		defaultMenuKey
@@ -57,7 +54,7 @@ const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 
 	// * 若是之前進入過 slot 頁面 ，點左上角返回後 main Menu 須在 Slot
 	useEffect(() => {
-		if (prevPageRecord === MenuKeyEnum.Slot) {
+		if (prevPageRecord === MenuKeyEnum.Home) {
 			startTransition(() => {
 				setMenuKey(prevPageRecord)
 			})
@@ -116,7 +113,10 @@ const MainMenu = ({ menuList, onMenuOpen, isLobbyHeaderError }: IMenuProps) => {
 					<div className='embla__container'>
 						{!auth.isLogin && (
 							<button
-								key='home'
+								key='Home'
+								className={classNames('embla__slide menu-item', {
+                  active: menuKey === 'Home',
+                })}
 								onClick={() => {
 									push('/')
 								}}

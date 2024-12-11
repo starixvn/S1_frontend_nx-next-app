@@ -18,6 +18,7 @@ export enum MenuKeyEnum {
 	'Promotion' = 'Promotion',
 	'VIP' = 'VIP',
 	'LeaderBoard' = 'LeaderBoard',
+	'Home' = 'Home',
 }
 
 export const LobbyCategoryEnum = {
