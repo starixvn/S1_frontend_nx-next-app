@@ -1,42 +1,31 @@
-import React, {
-	createContext,
-	Dispatch,
-	ReactNode,
-	SetStateAction,
-	useContext,
-	useEffect,
-	useState,
-} from 'react'
-import { useRouter } from 'next/router'
-import { useIsFirstRender, useLocalStorage } from 'usehooks-ts'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import LoginModal from '@nx-next-app/features/F0001/desktop/modal/LoginModal'
+import { useInView } from '@nx-next-app/hooks'
 import {
 	IBannerData,
-	ILobbyGameData,
-  IDisplayLobbyGameData,
+	IDisplayLobbyGameData,
 	ILobbyCategoryGameData,
+	ILobbyGameData,
 	IVendorData,
 	useGetBannerV3Query,
 	useSetFavoriteGameMutation,
 } from '@nx-next-app/service'
-import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
-import { useAuth, useGlobalData } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useInView } from '@nx-next-app/hooks'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import LoginModal from '@nx-next-app/features/F0001/desktop/modal/LoginModal'
-import {
-	camelCase,
-	filter,
-	find,
-	findIndex,
-	includes,
-	random,
-	some,
-	trim,
-} from 'lodash-es'
-import { getIsTpMaintain, moveItem } from '@nx-next-app/utils'
 import { BannerTypeEnum, ProviderEnum } from '@nx-next-app/types'
-import { CategoryEnum } from '@nx-next-app/features/F0001/types'
+import { getIsTpMaintain, moveItem } from '@nx-next-app/utils'
+import { camelCase, find, findIndex, includes, some, trim } from 'lodash-es'
+import { useRouter } from 'next/router'
+import React, {
+	Dispatch,
+	ReactNode,
+	SetStateAction,
+	createContext,
+	useContext,
+	useEffect,
+	useState,
+} from 'react'
+import { useIsFirstRender, useLocalStorage } from 'usehooks-ts'
 
 interface ILobbyProviderProps {
 	children: ReactNode
@@ -72,11 +61,11 @@ export interface LobbyContextInterface {
 	onVendorChange: ({
 		tpId,
 		openPath,
-    pathRoot
+		pathRoot,
 	}: {
 		tpId: number
-		openPath: string,
-    pathRoot: string
+		openPath: string
+		pathRoot: string
 	}) => void
 	onCategoryChange: (value: string) => void
 	onSearchCategoryTextChange: (value: string) => void
@@ -109,6 +98,7 @@ export interface LobbyContextInterface {
 	}) => void
 	onToggleDropdown: () => void
 	isNewGame: () => string[]
+	providerSize: number
 }
 
 export const LobbyContext = createContext<LobbyContextInterface>(
@@ -165,7 +155,10 @@ const LobbyProvider = ({
 	const [categoryKeys, setCategoryKeys] = useState(
 		Object.keys(persistLobbyCategoryData)
 	)
-	const [lobbyGameList, setlobbyGameList] = useState<IDisplayLobbyGameData[]>([])
+	const [lobbyGameList, setlobbyGameList] = useState<IDisplayLobbyGameData[]>(
+		[]
+	)
+
 	// 初始渲染40筆資料
 	const [pageSize, setPageSize] = useState(50)
 	const [isProcess, setIsProcess] = useState(true)
@@ -180,6 +173,18 @@ const LobbyProvider = ({
 		| null
 	>(null)
 	const [isActiveDropdown, setIsActiveDropdown] = useState(false)
+
+	const largeScreenSize = 1450
+	const maxProviderNumber = 5
+	const minProviderNumber = 4
+	const [providerSize, setProviderSize] = useState<number>(5)
+
+	window.addEventListener('resize', () => {
+		window.innerWidth > largeScreenSize
+			? setProviderSize(maxProviderNumber)
+			: setProviderSize(minProviderNumber)
+	})
+
 	// 找出featured的位置
 	const featuredIdx = categoryKeys.findIndex(value => {
 		return value === 'featured'
@@ -200,11 +205,11 @@ const LobbyProvider = ({
 	const onVendorChange = ({
 		tpId,
 		openPath,
-    pathRoot
+		pathRoot,
 	}: {
 		tpId: number
 		openPath: string
-    pathRoot: string
+		pathRoot: string
 	}) => {
 		if (tpId === activeVendorTpId) {
 			setActiveVendorTpId(null)
@@ -255,8 +260,8 @@ const LobbyProvider = ({
 			}) || {}
 	}
 
-  const onCategoryChange = (value: string) => {
-			setActiveCategoryKey(value as keyof ILobbyCategoryGameData)
+	const onCategoryChange = (value: string) => {
+		setActiveCategoryKey(value as keyof ILobbyCategoryGameData)
 	}
 
 	const isFavorite = ({
@@ -350,10 +355,7 @@ const LobbyProvider = ({
 		let tempVendorList = vendorList
 		if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
 			const uniqueTpIds = Array.from(
-				new Set(
-					custGameTypeSettingList
-						.map(item => item.tpId)
-				)
+				new Set(custGameTypeSettingList.map(item => item.tpId))
 			)
 			tempVendorList = vendorList.filter(
 				({ tpId }) => !uniqueTpIds.includes(tpId)
@@ -369,7 +371,8 @@ const LobbyProvider = ({
 				Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Desktop
 			) {
 				// * 當指定廠牌不在頁面上時,展開下拉
-				if (targetIndex > 5) {
+
+				if (targetIndex >= providerSize) {
 					setIsActiveDropdown(true)
 				} else {
 					setIsActiveDropdown(false)
@@ -422,7 +425,7 @@ const LobbyProvider = ({
 				prev => `${prev}${myFavorites && result ? '&' : ''}${result}`
 			)
 			updateVendorList()
-      setActiveCategoryKey('all')
+			setActiveCategoryKey('all')
 		}
 	}, [isFirstRender])
 
@@ -480,7 +483,11 @@ const LobbyProvider = ({
 			.map(string => string.split('#'))
 			.forEach(([tpId, gameId]) => {
 				persistLobbyCategoryData.all?.forEach(item => {
-					if (String(item.tpId) === tpId && item.gameId === gameId && resultList.findIndex(x => x.gameId === gameId) === -1) {
+					if (
+						String(item.tpId) === tpId &&
+						item.gameId === gameId &&
+						resultList.findIndex(x => x.gameId === gameId) === -1
+					) {
 						resultList.push(item)
 					}
 				})
@@ -488,14 +495,12 @@ const LobbyProvider = ({
 		let originGameList =
 			activeCategoryKey === 'myFavorite'
 				? removeDuplicates(resultList)
-				: ((persistLobbyCategoryData[activeCategoryKey] || []) as ILobbyGameData[])
+				: ((persistLobbyCategoryData[activeCategoryKey] ||
+						[]) as ILobbyGameData[])
 
 		if (custGameTypeSettingList && custGameTypeSettingList.length > 0) {
 			const uniqueTpIds = Array.from(
-				new Set(
-					custGameTypeSettingList
-						.map(item => item.tpId)
-				)
+				new Set(custGameTypeSettingList.map(item => item.tpId))
 			)
 			originGameList = originGameList.filter(
 				({ tpId }) => !uniqueTpIds.includes(tpId)
@@ -506,17 +511,17 @@ const LobbyProvider = ({
 			.filter(({ tpId, gameName }) => {
 				return (
 					((queryTpId ? String(tpId) === queryTpId : true) &&
-					(searchCategoryText === '' ||
-						some(Object.values(gameName), name =>
-							camelCase(trim(gameName)).match(camelCase(trim(searchCategoryText)))
-						))||
-            (queryTpId === ProviderEnum.MaxPlay.toString() && (
-              tpId === ProviderEnum.MaxGame ||
-              tpId === ProviderEnum.Keno ||
-              tpId === ProviderEnum.Lottery ||
-              tpId === ProviderEnum.TableGame
-            )
-            ))
+						(searchCategoryText === '' ||
+							some(Object.values(gameName), name =>
+								camelCase(trim(gameName)).match(
+									camelCase(trim(searchCategoryText))
+								)
+							))) ||
+					(queryTpId === ProviderEnum.MaxPlay.toString() &&
+						(tpId === ProviderEnum.MaxGame ||
+							tpId === ProviderEnum.Keno ||
+							tpId === ProviderEnum.Lottery ||
+							tpId === ProviderEnum.TableGame))
 				)
 			})
 			.map(gameObj => ({
@@ -586,6 +591,7 @@ const LobbyProvider = ({
 		onGamePlay,
 		onToggleDropdown,
 		isNewGame,
+		providerSize,
 	}
 
 	return <LobbyContext.Provider value={value}>{children}</LobbyContext.Provider>

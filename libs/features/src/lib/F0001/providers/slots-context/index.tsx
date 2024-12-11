@@ -1,14 +1,10 @@
-import React, {
-	createContext,
-	Dispatch,
-	ReactNode,
-	SetStateAction,
-	useContext,
-	useEffect,
-	useState,
-} from 'react'
-import { useRouter } from 'next/router'
-import { useIsFirstRender, useLocalStorage } from 'usehooks-ts'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import LoginModal from '@nx-next-app/features/F0001/desktop/modal/LoginModal'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import { CategoryEnum } from '@nx-next-app/features/F0001/types'
+import { useInView } from '@nx-next-app/hooks'
 import {
 	IBannerData,
 	IDisplayGameData,
@@ -18,12 +14,8 @@ import {
 	useGetBannerV3Query,
 	useSetFavoriteGameMutation,
 } from '@nx-next-app/service'
-import { DEVICE_TYPE, paths } from '@nx-next-app/constants'
-import { useAuth, useGlobalData } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useInView } from '@nx-next-app/hooks'
-import { useMenu } from '@nx-next-app/features/F0001/hooks'
-import LoginModal from '@nx-next-app/features/F0001/desktop/modal/LoginModal'
+import { BannerTypeEnum } from '@nx-next-app/types'
+import { getIsTpMaintain, moveItem } from '@nx-next-app/utils'
 import {
 	camelCase,
 	filter,
@@ -34,9 +26,17 @@ import {
 	some,
 	trim,
 } from 'lodash-es'
-import { getIsTpMaintain, moveItem } from '@nx-next-app/utils'
-import { BannerTypeEnum } from '@nx-next-app/types'
-import { CategoryEnum } from '@nx-next-app/features/F0001/types'
+import { useRouter } from 'next/router'
+import React, {
+	Dispatch,
+	ReactNode,
+	SetStateAction,
+	createContext,
+	useContext,
+	useEffect,
+	useState,
+} from 'react'
+import { useIsFirstRender, useLocalStorage } from 'usehooks-ts'
 
 interface ISlotsProviderProps {
 	children: ReactNode
@@ -72,11 +72,11 @@ export interface SlotsContextInterface {
 	onVendorChange: ({
 		tpId,
 		openPath,
-    isLobby
+		isLobby,
 	}: {
 		tpId: number
 		openPath: string
-    isLobby: boolean
+		isLobby: boolean
 	}) => void
 	onCategoryChange: (value: string) => void
 	onSearchCategoryTextChange: (value: string) => void
@@ -109,6 +109,7 @@ export interface SlotsContextInterface {
 	}) => void
 	onToggleDropdown: () => void
 	isNewGame: () => string[]
+	providerSize: number
 }
 
 export const SlotsContext = createContext<SlotsContextInterface>(
@@ -167,6 +168,7 @@ const SlotsProvider = ({
 		Object.keys(persistSlotsCategoryData)
 	)
 	const [slotsGameList, setSlotsGameList] = useState<IDisplayGameData[]>([])
+
 	// 初始渲染40筆資料
 	const [pageSize, setPageSize] = useState(50)
 	const [isProcess, setIsProcess] = useState(true)
@@ -181,6 +183,18 @@ const SlotsProvider = ({
 		| null
 	>(null)
 	const [isActiveDropdown, setIsActiveDropdown] = useState(false)
+
+	const largeScreenSize = 1450
+	const maxProviderNumber = 5
+	const minProviderNumber = 4
+	const [providerSize, setProviderSize] = useState<number>(5)
+
+	window.addEventListener('resize', () => {
+		window.innerWidth > largeScreenSize
+			? setProviderSize(maxProviderNumber)
+			: setProviderSize(minProviderNumber)
+	})
+
 	// 找出featured的位置
 	const featuredIdx = categoryKeys.findIndex(value => {
 		return value === 'featured'
@@ -201,7 +215,7 @@ const SlotsProvider = ({
 	const onVendorChange = ({
 		tpId,
 		openPath,
-    isLobby
+		isLobby,
 	}: {
 		tpId: number
 		openPath: string
@@ -216,16 +230,16 @@ const SlotsProvider = ({
 			setActiveVendorTpId(tpId)
 			if (openPath) {
 				push(`/${openPath}`)
-			} else if(isLobby) {
+			} else if (isLobby) {
 				// * 只改變路徑，不重新渲染畫面
 				push({ pathname: paths.fishing.root, query: { tpId } }, undefined, {
 					shallow: true,
 				})
-			}else{
-        push({ pathname: paths.slots.root, query: { tpId } }, undefined, {
+			} else {
+				push({ pathname: paths.slots.root, query: { tpId } }, undefined, {
 					shallow: true,
 				})
-      }
+			}
 		}
 	}
 
@@ -400,7 +414,8 @@ const SlotsProvider = ({
 				Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) === DEVICE_TYPE.Desktop
 			) {
 				// * 當指定廠牌不在頁面上時,展開下拉
-				if (targetIndex > 5) {
+
+				if (targetIndex >= providerSize) {
 					setIsActiveDropdown(true)
 				} else {
 					setIsActiveDropdown(false)
@@ -454,7 +469,7 @@ const SlotsProvider = ({
 				prev => `${prev}${myFavorites && result ? '&' : ''}${result}`
 			)
 			updateVendorList()
-      setActiveCategoryKey('all')
+			setActiveCategoryKey('all')
 		}
 	}, [isFirstRender])
 
@@ -612,6 +627,7 @@ const SlotsProvider = ({
 		onGamePlay,
 		onToggleDropdown,
 		isNewGame,
+		providerSize,
 	}
 
 	return <SlotsContext.Provider value={value}>{children}</SlotsContext.Provider>

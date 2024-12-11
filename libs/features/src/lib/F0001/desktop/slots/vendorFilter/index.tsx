@@ -10,6 +10,7 @@ const VendorFilter = () => {
 		isActiveDropdown,
 		onVendorChange,
 		onToggleDropdown,
+		providerSize,
 	} = useSlots()
 
 	return (
@@ -35,12 +36,11 @@ const VendorFilter = () => {
 					/>
 				))}
 			</div>
-      {
-        vendorList.length > 5 &&
-          <button className='btn-toggle' onClick={() => onToggleDropdown()}>
-            <span className='icon icon-chevron_down' />
-          </button>
-      }
+			{vendorList.length > providerSize && (
+				<button className='btn-toggle' onClick={() => onToggleDropdown()}>
+					<span className='icon icon-chevron_down' />
+				</button>
+			)}
 		</VendorFilterContainer>
 	)
 }

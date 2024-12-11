@@ -1,9 +1,11 @@
-import { VendorFilterContainer } from "@nx-next-app/features/F0001/desktop/lobby-game/vendorFilter/styles";
-import { useLobby } from "@nx-next-app/features/F0001/providers";
-import { ProviderEnum } from "@nx-next-app/types";
-import classNames from "classnames";
+import { VendorFilterContainer } from '@nx-next-app/features/F0001/desktop/lobby-game/vendorFilter/styles'
+import { useLobby } from '@nx-next-app/features/F0001/providers'
+import { IVendorData } from '@nx-next-app/service'
+import { ProviderEnum } from '@nx-next-app/types'
+import classNames from 'classnames'
+import { useEffect, useState } from 'react'
 
-import VendorItem from "./VendorItem";
+import VendorItem from './VendorItem'
 
 const VendorFilter = ({ pathRoot }: { pathRoot: string }) => {
 	const {
@@ -12,7 +14,38 @@ const VendorFilter = ({ pathRoot }: { pathRoot: string }) => {
 		isActiveDropdown,
 		onVendorChange,
 		onToggleDropdown,
+		providerSize,
 	} = useLobby()
+
+	const [providerCount, setProviderCount] = useState<number>(0)
+	const [filterProviderList, setFilterProviderList] = useState<
+		IVendorData[] | null
+	>(null)
+	const [showMaxPLay, setShowMaxPlay] = useState<boolean>(false)
+
+	useEffect(() => {
+		const isShowMaxPLay = vendorList?.findIndex(
+			x =>
+				x.tpId === ProviderEnum.MaxGame ||
+				x.tpId === ProviderEnum.Keno ||
+				x.tpId === ProviderEnum.Lottery ||
+				x.tpId === ProviderEnum.TableGame
+		)
+		setShowMaxPlay(!!isShowMaxPLay)
+
+		const filterList = vendorList?.filter(
+			vendor =>
+				vendor.tpId !== ProviderEnum.MaxGame &&
+				vendor.tpId !== ProviderEnum.Keno &&
+				vendor.tpId !== ProviderEnum.Lottery &&
+				vendor.tpId !== ProviderEnum.TableGame
+		)
+
+		setFilterProviderList(filterList)
+
+		const countMaxPlay = isShowMaxPLay ? 1 : 0
+		setProviderCount(filterList.length + countMaxPlay)
+	}, [vendorList])
 
 	return (
 		<VendorFilterContainer
@@ -21,35 +54,25 @@ const VendorFilter = ({ pathRoot }: { pathRoot: string }) => {
 			})}`}
 		>
 			<div className='provider-list'>
-				{vendorList?.map(
-					({ tpId, openPath, tpName, imgName, displayText }) =>
-						tpId !== ProviderEnum.MaxGame &&
-						tpId !== ProviderEnum.Keno &&
-						tpId !== ProviderEnum.Lottery &&
-						tpId !== ProviderEnum.TableGame && (
-							<VendorItem
-								key={`lobby-vendor-${tpId}`}
-								onClick={() =>
-									onVendorChange({
-										tpId,
-										openPath,
-										pathRoot,
-									})
-								}
-								isActive={activeVendorTpId === tpId}
-								displayText={displayText}
-								imgName={imgName}
-							/>
-						)
+				{filterProviderList?.map(
+					({ tpId, openPath, tpName, imgName, displayText }) => (
+						<VendorItem
+							key={`lobby-vendor-${tpId}`}
+							onClick={() =>
+								onVendorChange({
+									tpId,
+									openPath,
+									pathRoot,
+								})
+							}
+							isActive={activeVendorTpId === tpId}
+							displayText={displayText}
+							imgName={imgName}
+						/>
+					)
 				)}
 
-				{vendorList?.findIndex(
-					x =>
-						x.tpId === ProviderEnum.MaxGame ||
-						x.tpId === ProviderEnum.Keno ||
-						x.tpId === ProviderEnum.Lottery ||
-						x.tpId === ProviderEnum.TableGame
-				) !== -1 && (
+				{showMaxPLay && (
 					<VendorItem
 						key={`lobby-vendor-${ProviderEnum.MaxPlay}`}
 						onClick={() =>
@@ -65,7 +88,7 @@ const VendorFilter = ({ pathRoot }: { pathRoot: string }) => {
 					/>
 				)}
 			</div>
-			{vendorList?.length > 5 && (
+			{providerCount > providerSize && (
 				<button className='btn-toggle' onClick={() => onToggleDropdown()}>
 					<span className='icon icon-chevron_down' />
 				</button>
