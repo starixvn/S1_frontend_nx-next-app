@@ -179,11 +179,13 @@ const LobbyProvider = ({
 	const minProviderNumber = 4
 	const [providerSize, setProviderSize] = useState<number>(5)
 
-	window.addEventListener('resize', () => {
-		window.innerWidth > largeScreenSize
-			? setProviderSize(maxProviderNumber)
-			: setProviderSize(minProviderNumber)
-	})
+	if (typeof window !== 'undefined') {
+		window.addEventListener('resize', () => {
+			window.innerWidth > largeScreenSize
+				? setProviderSize(maxProviderNumber)
+				: setProviderSize(minProviderNumber)
+		})
+	}
 
 	// 找出featured的位置
 	const featuredIdx = categoryKeys.findIndex(value => {
@@ -436,12 +438,13 @@ const LobbyProvider = ({
 			if (queryTpId) {
 				Object.entries(persistLobbyCategoryData).forEach(([key, value]) => {
 					const result = value.find(
-						(item: ILobbyGameData) => String(item.tpId) === queryTpId || (queryTpId === ProviderEnum.MaxPlay.toString() && (
-              item.tpId === ProviderEnum.MaxGame ||
-              item.tpId === ProviderEnum.Keno ||
-              item.tpId === ProviderEnum.Lottery ||
-              item.tpId === ProviderEnum.TableGame
-            ))
+						(item: ILobbyGameData) =>
+							String(item.tpId) === queryTpId ||
+							(queryTpId === ProviderEnum.MaxPlay.toString() &&
+								(item.tpId === ProviderEnum.MaxGame ||
+									item.tpId === ProviderEnum.Keno ||
+									item.tpId === ProviderEnum.Lottery ||
+									item.tpId === ProviderEnum.TableGame))
 					)
 					if (result !== undefined) {
 						newCategoryKeys.push(key)
@@ -512,26 +515,26 @@ const LobbyProvider = ({
 			)
 		}
 
-    originGameList = originGameList.filter(
-				({ tpId }) => (queryTpId ? String(tpId) === queryTpId : true) || (queryTpId === ProviderEnum.MaxPlay.toString() && (
-          tpId === ProviderEnum.MaxGame ||
-          tpId === ProviderEnum.Keno ||
-          tpId === ProviderEnum.Lottery ||
-          tpId === ProviderEnum.TableGame
-        ))
-			)
+		originGameList = originGameList.filter(
+			({ tpId }) =>
+				(queryTpId ? String(tpId) === queryTpId : true) ||
+				(queryTpId === ProviderEnum.MaxPlay.toString() &&
+					(tpId === ProviderEnum.MaxGame ||
+						tpId === ProviderEnum.Keno ||
+						tpId === ProviderEnum.Lottery ||
+						tpId === ProviderEnum.TableGame))
+		)
 
 		// * 過濾當前 tpId 與 searchCategoryText
 		const filteredGameList = originGameList
 			.filter(({ tpId, gameName }) => {
 				return (
 					searchCategoryText === '' ||
-						(searchCategoryText === '' ||
-							some(Object.values(gameName), name =>
-								camelCase(trim(gameName)).match(
-									camelCase(trim(searchCategoryText))
-								)
-							)))
+					searchCategoryText === '' ||
+					some(Object.values(gameName), name =>
+						camelCase(trim(gameName)).match(camelCase(trim(searchCategoryText)))
+					)
+				)
 			})
 			.map(gameObj => ({
 				...gameObj,

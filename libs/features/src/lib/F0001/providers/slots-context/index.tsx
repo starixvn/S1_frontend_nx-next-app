@@ -189,11 +189,13 @@ const SlotsProvider = ({
 	const minProviderNumber = 4
 	const [providerSize, setProviderSize] = useState<number>(5)
 
-	window.addEventListener('resize', () => {
-		window.innerWidth > largeScreenSize
-			? setProviderSize(maxProviderNumber)
-			: setProviderSize(minProviderNumber)
-	})
+	if (typeof window !== 'undefined') {
+		window.addEventListener('resize', () => {
+			window.innerWidth > largeScreenSize
+				? setProviderSize(maxProviderNumber)
+				: setProviderSize(minProviderNumber)
+		})
+	}
 
 	// 找出featured的位置
 	const featuredIdx = categoryKeys.findIndex(value => {
