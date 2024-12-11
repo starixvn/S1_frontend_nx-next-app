@@ -70,6 +70,9 @@ export const WrapperReferFrendsH5 = styled.div`
 				font-size: 4.1vw;
 				font-weight: 700;
 				color: ${({ theme }) => theme.mobile.hrefColorPrimary};
+				span {
+					margin-right: 1vw;
+				}
 			}
 		}
 	}

@@ -112,8 +112,6 @@ export const WrapperVipPage = styled.div`
 			}
 		}
 		.swiper-container {
-			width: 100%;
-			margin-bottom: 2.5rem;
 			border-radius: 20px;
 		}
 		.newvipinfo {
@@ -250,93 +248,81 @@ export const WrapperVipPage = styled.div`
 				}
 			}
 		}
-	}
-
-	.vip .swiper-slide.infinity .rewardinfo {
-		width: 600px;
-		font-size: 23px;
-	}
-	.vip .swiper-slide.infinity .rewardinfo span {
-		font-size: 30px;
-	}
-	.vip .vipinfo {
-		position: absolute;
-		top: 430px;
-		left: calc(50% - 570px);
-		font-size: 23px;
-		text-align: center;
-		width: 650px;
-		z-index: 2;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	.vip .vipinfo span {
-		font-size: 28px;
-		font-weight: bold;
-	}
-	.vip .rewardinfo {
-		background: white;
-		width: 590px;
-		height: 70px;
-		margin-top: 10px;
-		display: flex;
-		align-items: center;
-		-webkit-box-pack: center;
-		-ms-flex-pack: center;
-		justify-content: center;
-		border-radius: 50px;
-		font-size: 25px;
-		color: #112240;
-	}
-	.vip .rewardinfo span {
-		font-size: 33px;
-		margin-left: 10px;
-	}
-	.vip .viprule {
-		background: #fff2ea;
-		width: 1400px;
-		height: 350px;
-		margin: -100px auto 0;
-		border-radius: 0 0 40px 40px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		position: relative;
-		z-index: 0;
-	}
-	.vip .viprule-item {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		-webkit-box-pack: center;
-		-ms-flex-pack: center;
-		justify-content: center;
-		margin: 95px 30px 0;
-		word-wrap: break-word;
-	}
-	.vip .viprule-item span {
-		text-align: center;
-		background: #faa972;
-		width: 320px;
-		height: 65px;
-		padding: 5px;
-		font-size: 20px;
-		border-radius: 10px 10px 0 0;
-		display: flex;
-		align-items: center;
-		-webkit-box-pack: center;
-		-ms-flex-pack: center;
-		justify-content: center;
-		text-transform: capitalize;
-	}
-	.vip .viprule-item span:nth-child(2) {
-		background: white;
-		color: #faa972;
-		font-size: 25px;
-		border-radius: 10px;
-		margin-top: -5px;
+		.vipinfo {
+			position: absolute;
+			bottom: 40px;
+			left: 13%;
+			font-size: 1.7rem;
+			text-align: center;
+			width: 40rem;
+			z-index: 9;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.4rem;
+			span {
+				font-size: 1.7rem;
+				font-weight: 700;
+			}
+		}
+		.rewardinfo {
+			background: #374375;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50px;
+			font-size: 1.4rem;
+			color: #717fba;
+			font-weight: 400;
+			padding: 1rem 1.2rem;
+			width: 100%;
+			span {
+				margin-left: 1rem;
+				font-weight: 700;
+			}
+		}
+		.vintage {
+			.vipinfo {
+				bottom: 70px;
+			}
+		}
+		.viprule {
+			display: flex;
+			justify-content: center;
+			text-align: center;
+			position: absolute;
+			z-index: 9;
+			right: 4rem;
+			bottom: 4rem;
+			gap: 1.6rem;
+			&-item {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				word-wrap: break-word;
+				border-radius: 8px;
+				overflow: hidden;
+				span {
+					text-align: center;
+					background: #faa972;
+					width: 19rem;
+					height: 4rem;
+					padding: 5px;
+					font-size: 1.1rem;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					text-transform: capitalize;
+					font-weight: 700;
+					&:nth-child(2) {
+						background: white;
+						color: #faa972;
+						font-size: 1.4rem;
+						height: auto;
+					}
+				}
+			}
+		}
 	}
 
 	.vip + footer .footerList > div a ~ div {
@@ -356,7 +342,6 @@ export const WrapperVipPage = styled.div`
 
 	.vipInfo {
 		display: flex;
-		-ms-flex-flow: wrap;
 		flex-flow: wrap;
 		background: rgba(210, 226, 249, 0.5);
 		border-radius: 15px;

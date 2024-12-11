@@ -38,7 +38,7 @@ const ReferralInfo = () => {
 							</div>
 							<div className='referinfo-step-body'>
 								<div className='subtitle'>{t('Label_General_Share')}</div>
-								<p>{toUpper(t('Label_Referral_ShareDescription') || '')}</p>
+								<p>{t('Label_Referral_ShareDescription') || ''}</p>
 							</div>
 						</div>
 						<div className='referinfo-step'>
@@ -58,7 +58,7 @@ const ReferralInfo = () => {
 								<div className='subtitle'>
 									{toUpper(t('Label_General_Rewards') || '')}
 								</div>
-								<p>{toUpper(t('Label_Referral_RewardsDescription') || '')}</p>
+								<p>{t('Label_Referral_RewardsDescription') || ''}</p>
 							</div>
 						</div>
 					</div>
