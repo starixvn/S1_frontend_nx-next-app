@@ -39,6 +39,9 @@ export const WrapperSurvayH5 = styled.div`
 		flex-direction: column;
 		align-items: center;
 		padding: 0 6vw;
+		&.close {
+			display: none;
+		}
 	}
 	.survey-before .survey-input {
 		margin-top: 3vw;

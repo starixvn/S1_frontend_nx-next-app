@@ -1,4 +1,3 @@
-import React from 'react'
 import { Carousel } from '@nx-next-app/components/D0001'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import VipBannerItem from '@nx-next-app/features/F0001/desktop/vip/VipBannerItem'
@@ -13,7 +12,7 @@ const VipBanner = ({
 	const { VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY } = useStaticData()
 
 	return (
-		<Carousel pagination={false}>
+		<Carousel navigation={false}>
 			{VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY(langId)
 				.map(item => {
 					const vipBannerInfo = vipBannerData.find(

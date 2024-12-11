@@ -21,10 +21,10 @@ const Carousel = ({ children, className, ...rest }: ICarouselProps) => {
 		spaceBetween: 30,
 		centeredSlides: true,
 		loop: true,
-		autoplay: {
-			delay: 5000,
-			disableOnInteraction: false,
-		},
+		// autoplay: {
+		// 	delay: 5000,
+		// 	disableOnInteraction: false,
+		// },
 		pagination: {
 			el: '.swiper-pagination',
 			clickable: true,
@@ -36,9 +36,7 @@ const Carousel = ({ children, className, ...rest }: ICarouselProps) => {
 
 	return (
 		<div className={classNames('swiper-container', className)}>
-			<div className='swiper-wrapper'>
-				<DynamicSwiper {...config}>{children}</DynamicSwiper>
-			</div>
+			<DynamicSwiper {...config}>{children}</DynamicSwiper>
 		</div>
 	)
 }
