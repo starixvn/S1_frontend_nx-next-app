@@ -436,7 +436,12 @@ const LobbyProvider = ({
 			if (queryTpId) {
 				Object.entries(persistLobbyCategoryData).forEach(([key, value]) => {
 					const result = value.find(
-						(item: ILobbyGameData) => String(item.tpId) === queryTpId
+						(item: ILobbyGameData) => String(item.tpId) === queryTpId || (queryTpId === ProviderEnum.MaxPlay.toString() && (
+              item.tpId === ProviderEnum.MaxGame ||
+              item.tpId === ProviderEnum.Keno ||
+              item.tpId === ProviderEnum.Lottery ||
+              item.tpId === ProviderEnum.TableGame
+            ))
 					)
 					if (result !== undefined) {
 						newCategoryKeys.push(key)
@@ -506,23 +511,28 @@ const LobbyProvider = ({
 				({ tpId }) => !uniqueTpIds.includes(tpId)
 			)
 		}
+
+    originGameList = originGameList.filter(
+				({ tpId }) => (queryTpId ? String(tpId) === queryTpId : true) || (queryTpId === ProviderEnum.MaxPlay.toString() && (
+          tpId === ProviderEnum.MaxGame ||
+          tpId === ProviderEnum.Keno ||
+          tpId === ProviderEnum.Lottery ||
+          tpId === ProviderEnum.TableGame
+        ))
+			)
+
 		// * 過濾當前 tpId 與 searchCategoryText
 		const filteredGameList = originGameList
 			.filter(({ tpId, gameName }) => {
 				return (
-					((queryTpId ? String(tpId) === queryTpId : true) &&
+					searchCategoryText === '' ||
 						(searchCategoryText === '' ||
 							some(Object.values(gameName), name =>
 								camelCase(trim(gameName)).match(
 									camelCase(trim(searchCategoryText))
 								)
 							))) ||
-					(queryTpId === ProviderEnum.MaxPlay.toString() &&
-						(tpId === ProviderEnum.MaxGame ||
-							tpId === ProviderEnum.Keno ||
-							tpId === ProviderEnum.Lottery ||
-							tpId === ProviderEnum.TableGame))
-				)
+						)
 			})
 			.map(gameObj => ({
 				...gameObj,
