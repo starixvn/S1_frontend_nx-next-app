@@ -181,7 +181,7 @@ export const initAdjustSDK = () => {
 				// 非正式環境都會使用 sandbox 模式，需要從 testing console 做測試，如果需要用 sandbox 做測試，需到 adjust 官方找 script 手動引入
 				process.env['NEXT_PUBLIC_ENV'] === 'PRD' ? 'production' : 'sandbox',
 			// 正式環境移除降低 log level , 預設只有錯誤會噴 log
-			...(process.env['NEXT_PUBLIC_ENV'] === 'PRD' && { logLevel: 'verbose' }),
+			...(process.env['NEXT_PUBLIC_ENV'] !== 'PRD' && { logLevel: 'verbose' }),
 		})
 	}
 }
