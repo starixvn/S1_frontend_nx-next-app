@@ -38,7 +38,7 @@ const WalletInfo = () => {
 			<div className='balanceModule'>
 				<SpinButton onClick={refetchWithdrawalBalance} className='spin-button'>
 					<>
-						<i className='icon icon-refresh-fill' />
+						<div className='icon icon-refresh-fill' />
 						{t(`Label_General_Currency_${currencyId}`)}
 						{numberFormat(availableBalance, currencyId)}
 					</>

@@ -1196,9 +1196,6 @@ export const GlobalStyles = createGlobalStyle`
 			margin-top: 0;
 		}
 	}
-  .icon-refresh-fill{
-  }
-
 
   .flag:before {
     content: '';
@@ -1262,16 +1259,7 @@ export const GlobalStyles = createGlobalStyle`
     background: url(${({ theme }) => theme.assetUrl}/desktop/img/flag/jp.jpg)
       no-repeat top left/cover;
   }
-      @-webkit-keyframes rotate {
-		from {
-			-webkit-transform: rotate(0deg);
-			transform: rotate(0deg);
-		}
-		to {
-			-webkit-transform: rotate(360deg);
-			transform: rotate(360deg);
-		}
-	}
+
   .icon-refresh-fill {
     &:before {
       font-size: 2rem;
@@ -1280,6 +1268,7 @@ export const GlobalStyles = createGlobalStyle`
       animation: rotate 0.5s linear 2;
     }
   }
+
 	@keyframes rotate {
 		from {
 			-webkit-transform: rotate(0deg);
@@ -1290,6 +1279,7 @@ export const GlobalStyles = createGlobalStyle`
 			transform: rotate(360deg);
 		}
 	}
+
   .directions {
 		ul {
 			li {
