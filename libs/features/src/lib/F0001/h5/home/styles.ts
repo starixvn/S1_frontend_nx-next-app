@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HomPageContainer = styled.div`
 	.home-mainbanner {
@@ -48,6 +48,10 @@ export const HomPageContainer = styled.div`
 
 	.home-promos-swiper {
 		margin-top: 7.2vw;
+		margin-left: 0;
+		overflow: hidden;
+		width: 100vw;
+
 		.swiper-slide {
 			max-width: 84vw;
 
@@ -57,7 +61,7 @@ export const HomPageContainer = styled.div`
 				overflow: hidden;
 				display: flex;
 				justify-content: center;
-				border-radius: 7.2vw;
+				border-radius: 4.85vw;
 			}
 			img {
 				width: auto;
