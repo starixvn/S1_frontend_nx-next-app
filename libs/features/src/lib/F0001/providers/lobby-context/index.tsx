@@ -531,8 +531,7 @@ const LobbyProvider = ({
 								camelCase(trim(gameName)).match(
 									camelCase(trim(searchCategoryText))
 								)
-							))) ||
-						)
+							)))
 			})
 			.map(gameObj => ({
 				...gameObj,
