@@ -2,10 +2,19 @@ import styled from 'styled-components'
 
 export const HomePage = styled.div`
 	.homebanner {
+		--ratio: calc(
+			${({ theme }) => theme.desktop.minContentWidth} /
+				${({ theme }) => theme.desktop.contentWidth}
+		);
+
 		padding-top: 2rem;
 		height: 39rem;
 		background: url(${({ theme }) =>
 			theme.assetUrl}/desktop/img/new-ui/banner-bg.webp);
+
+		@media (min-width: 1450px) {
+			height: calc(39rem * var(--ratio));
+		}
 
 		.swiper-container {
 			height: 100%;
@@ -21,7 +30,11 @@ export const HomePage = styled.div`
 			}
 
 			.banner {
-				height: 36.4rem;
+				height: calc(36.4rem * var(--ratio));
+
+				@media (min-width: 1450px) {
+					height: 36.4rem;
+				}
 
 				img {
 					border-radius: 2rem;
@@ -100,7 +113,7 @@ export const GameGroup = styled.div`
 		margin: 0 auto;
 
 		@media (min-width: 1450px) {
-			width: 140rem;
+			width: ${({ theme }) => theme.desktop.contentWidth};
 		}
 
 		.load-more {

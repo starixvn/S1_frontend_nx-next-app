@@ -1,9 +1,15 @@
 import styled from 'styled-components'
 
 export const FooterContainer = styled.div`
-	background: ${({ theme }) => theme.desktop.footerBg};
+	width: ${({ theme }) => theme.desktop.minContentWidth};
 	padding-top: 4rem;
 	margin-top: auto;
+	background: ${({ theme }) => theme.desktop.footerBg};
+
+	@media (min-width: 1200px) {
+		width: 100%;
+	}
+
 	.footer-top {
 		display: flex;
 		gap: 2.4rem;

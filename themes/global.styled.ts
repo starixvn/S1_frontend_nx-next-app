@@ -128,8 +128,8 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
-    overflow-x : hidden;
   }
+
   .desktop{
      #__next{
       display: flex;

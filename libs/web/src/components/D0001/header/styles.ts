@@ -8,10 +8,15 @@ export const HeaderContainer = styled.div`
 	justify-content: center;
 	align-items: center;
 	align-self: stretch;
-	width: 100%;
+	width: ${({ theme }) => theme.desktop.minContentWidth};
 	height: 12.4rem;
+	margin: auto;
 	background: ${({ theme }) => theme.desktop.headerBg};
 	z-index: 9;
+
+	@media (min-width: 1200px) {
+		width: 100%;
+	}
 `
 
 export const LogoContainer = styled.div`
