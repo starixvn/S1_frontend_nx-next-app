@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HomePage = styled.div`
 	.homebanner {
@@ -8,8 +8,8 @@ export const HomePage = styled.div`
 			theme.assetUrl}/desktop/img/new-ui/banner-bg.webp);
 
 		.swiper-container {
+			height: 100%;
 			width: ${({ theme }) => theme.desktop.minContentWidth};
-			border-radius: 2rem;
 			position: relative;
 
 			@media (min-width: 1450px) {
