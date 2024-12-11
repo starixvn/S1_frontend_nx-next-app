@@ -48,6 +48,16 @@ export const onWindowOpenProduct = ({
 	windowKey: string
 }) => {
 	if (typeof window !== `undefined`) {
+		// detect safari browser
+		const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+		console.log(isSafari);
+		if (isSafari) {
+			const popup = window.open('', windowKey);
+
+			if (popup && !popup.closed) {
+				popup.close();
+			}
+		}
 		window
 			.open(
 				pathname,
