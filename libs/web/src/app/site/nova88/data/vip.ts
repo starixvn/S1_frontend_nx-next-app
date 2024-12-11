@@ -12,34 +12,34 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY_DESKTOP = (
 	langId: string | number
 ): IBannerByCurrencyData[] => [
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/vintage-${langId}.png`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/vip/vintage-${langId}.webp`,
 		level: VipLevelEnum.VINTAGE,
 		levelText: 'vintage',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/silver-${langId}.png`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/vip/silver-${langId}.webp`,
 		level: VipLevelEnum.SILVER,
 		levelText: 'silver',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/gold-${langId}.png`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/vip/gold-${langId}.webp`,
 		level: VipLevelEnum.GOLD,
 		levelText: 'gold',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/titanium-${langId}.png`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/vip/titanium-${langId}.webp`,
 		level: VipLevelEnum.TITANIUM,
 		levelText: 'titanium',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/diamond-${langId}.png`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/vip/diamond-${langId}.webp`,
 		level: VipLevelEnum.DIAMOND,
 		levelText: 'diamond',
 	},
 	{
-		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/nova-${langId}.png`,
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/vip/infinity-${langId}.webp`,
 		level: VipLevelEnum.Highest,
-		levelText: 'nova',
+		levelText: 'infinity',
 	},
 ]
 

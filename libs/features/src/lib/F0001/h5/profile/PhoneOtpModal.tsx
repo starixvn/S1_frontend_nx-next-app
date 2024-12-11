@@ -100,9 +100,11 @@ const PhoneOtpModal = () => {
 						<button type='submit' className='btn-primary'>
 							{t('Label_General_Submit')}
 						</button>
-						<button className='btn-secondary' onClick={handleSendOtpSMS}>
-							{t('Label_Profile_Retransmit')}
-						</button>
+						{!timer && (
+							<button className='btn-secondary' onClick={handleSendOtpSMS}>
+								{t('Label_Profile_Retransmit')}
+							</button>
+						)}
 					</div>
 				</Form>
 			</div>

@@ -17,7 +17,7 @@ const VipTableInfo = ({
 			<tbody>
 				{/* === Service support ===  */}
 				<tr className='title'>
-					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
+					<td className={`${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
 						{capitalize(t('Label_Vip_Service_Support') || '')}
 					</td>
 					<td colSpan={6}>{t('Label_Vip_Tier')}</td>
@@ -26,8 +26,10 @@ const VipTableInfo = ({
 					<td>{capitalize(t('Label_Vip_Deposit_Priority') || '')}</td>
 					{vipBannerData?.map(item => (
 						<td key={item.level}>
-							{item?.depositPriority && <i className='icon icon-checkmark' />}
-							{item?.depositPriority}
+							<div className='group-vip-icon'>
+								{item?.depositPriority && <i className='icon icon-check' />}
+								{item?.depositPriority}
+							</div>
 						</td>
 					))}
 				</tr>
@@ -35,10 +37,10 @@ const VipTableInfo = ({
 					<td>{capitalize(t('Label_Vip_WithDrawal_Priority') || '')}</td>
 					{vipBannerData?.map(item => (
 						<td key={item.level}>
-							{item?.withdrawalPriority && (
-								<i className='icon icon-checkmark' />
-							)}
-							{item?.withdrawalPriority}
+							<div className='group-vip-icon'>
+								{item?.withdrawalPriority && <i className='icon icon-check' />}
+								{item?.withdrawalPriority}
+							</div>
 						</td>
 					))}
 				</tr>
@@ -46,8 +48,10 @@ const VipTableInfo = ({
 					<td>{capitalize(t('Label_Vip_Service_Support_At_Date') || '')}</td>
 					{vipBannerData?.map(item => (
 						<td key={item.level}>
-							{item?.serviceSupport && <i className='icon icon-checkmark' />}
-							{item?.serviceSupport}
+							<div className='group-vip-icon'>
+								{item?.serviceSupport && <i className='icon icon-check' />}
+								{item?.serviceSupport}
+							</div>
 						</td>
 					))}
 				</tr>
@@ -57,7 +61,7 @@ const VipTableInfo = ({
 					{vipBannerData?.map(item => (
 						<td key={item.level}>
 							{item?.designatedAccountManager && (
-								<i className='icon icon-checkmark' />
+								<i className='icon icon-check' />
 							)}
 						</td>
 					))}
@@ -80,7 +84,7 @@ const VipTableInfo = ({
 				</tr>
 				{/* === Exclusive bonus(VND) ===  */}
 				<tr className='title'>
-					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
+					<td className={`${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
 						{capitalize(t('Label_Vip_Exclusive_Bonus') || '')}
 						<span className='txt-orange'>
 							({t(`Label_General_Currency_${currencyId}`)})
@@ -99,7 +103,7 @@ const VipTableInfo = ({
 
 				{/* === Special rebate ===  */}
 				<tr className='title'>
-					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
+					<td className={`${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
 						{capitalize(t('Label_Vip_Special_Rebate') || '')}
 					</td>
 					<td colSpan={6} />
@@ -146,7 +150,7 @@ const VipTableInfo = ({
 				</tr>
 				{/* === Referral bonus program ===  */}
 				<tr className='title'>
-					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
+					<td className={`${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
 						{capitalize(t('Label_Vip_Referral_Bonus_Program') || '')}
 					</td>
 					<td colSpan={6} />
@@ -156,13 +160,13 @@ const VipTableInfo = ({
 					{/* 沒有叉叉 */}
 					{vipBannerData?.map(item => (
 						<td key={item.level}>
-							{item?.referralBonus && <i className='icon icon-checkmark' />}
+							{item?.referralBonus && <i className='icon icon-check' />}
 						</td>
 					))}
 				</tr>
 				{/* === Tier upgrade requirement(VND) ===  */}
 				<tr className='title'>
-					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
+					<td className={`${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
 						{capitalize(t('Label_Vip_Tire_Upgrade_Requirement') || '')}
 						<span className='txt-orange'>
 							({t(`Label_General_Currency_${currencyId}`)})
@@ -180,7 +184,7 @@ const VipTableInfo = ({
 				</tr>
 				{/* === Tier maintenance requirement(VND) ===  */}
 				<tr className='title'>
-					<td className={`icon icon-${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
+					<td className={`${process.env['NEXT_PUBLIC_SITE_NAME']}`}>
 						{capitalize(t('Label_Vip_Tier_Maintenance_Requirement') || '')}
 						<span className='txt-orange'>
 							({t(`Label_General_Currency_${currencyId}`)})
