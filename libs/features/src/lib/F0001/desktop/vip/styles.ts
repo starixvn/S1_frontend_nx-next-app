@@ -7,6 +7,35 @@ export const WrapperVipPage = styled.div`
 		@media (min-width: 1450px) {
 			width: ${({ theme }) => theme.desktop.contentWidth};
 		}
+		.swiper-wrapper {
+			margin-bottom: 4rem;
+			background: #232b4f;
+			border-radius: 0 0 5vw 5vw;
+		}
+		.swiper-pagination {
+			width: max-content;
+			bottom: 10px;
+			right: unset;
+			left: 50% !important;
+			transform: translateX(-50%);
+			z-index: 1;
+			display: flex;
+			align-items: center;
+
+			.swiper-pagination-bullet {
+				width: 1.5rem;
+				height: 0.6rem;
+				background: ${({ theme }) => theme.desktop.bannerBulletBg};
+				margin: 0 0.4rem;
+				border-radius: 0.8rem;
+
+				&.swiper-pagination-bullet-active {
+					width: 4.5rem;
+					height: 0.6rem;
+					background: ${({ theme }) => theme.desktop.bannerBulletBgActive};
+				}
+			}
+		}
 		.swiper-slide {
 			position: relative;
 			display: flex;
@@ -15,6 +44,7 @@ export const WrapperVipPage = styled.div`
 			flex-direction: column;
 			overflow: hidden;
 			position: relative;
+			border-radius: 20px;
 			.vipbg {
 				width: 100%;
 				text-align: center;
@@ -115,8 +145,38 @@ export const WrapperVipPage = styled.div`
 			border-radius: 20px;
 		}
 		.newvipinfo {
-			margin-top: 10rem;
+			margin-top: 16rem;
 			background: #182043;
+			display: flex;
+			padding: 4rem 1.6rem 1.6rem 1.6rem;
+			border-radius: 20px;
+			.img {
+				min-width: 60rem;
+				margin-top: -12rem;
+				img {
+					width: 100%;
+				}
+			}
+			&-content {
+				&-items {
+					margin-bottom: 1rem;
+					.heading {
+						margin-bottom: 0.4rem;
+						color: ${({ theme }) => theme.desktop.hrefColorPrimary};
+						font-size: 1.7rem;
+						font-weight: 700;
+					}
+					.content {
+						font-weight: 400;
+						font-size: 1.4rem;
+					}
+				}
+				.last-items {
+					color: #01b901;
+					font-size: 1.7rem;
+					font-weight: 700;
+				}
+			}
 		}
 		.vipPage {
 			border-radius: 10px;
@@ -218,11 +278,11 @@ export const WrapperVipPage = styled.div`
 			color: white;
 		}
 		.eventList tr:not(.title):not(.lastTd):hover td {
-			background: #e4e4e4;
-			color: #f77900;
+			background: #48558b;
+			color: white;
 		}
 		.eventList tr:not(.title):not(.lastTd):hover td:first-child {
-			background: #979797;
+			background: #48558b;
 			color: white;
 		}
 
