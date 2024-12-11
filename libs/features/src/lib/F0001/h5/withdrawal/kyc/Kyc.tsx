@@ -5,6 +5,7 @@ import {
 	useWithdrawal,
 } from '@nx-next-app/features/F0001/providers'
 import { useTranslation } from 'next-i18next'
+import { Img } from "react-image";
 
 const Kyc = () => {
 	const { t } = useTranslation()
@@ -23,7 +24,11 @@ const Kyc = () => {
 				<div className='infoModule parts'>
 					<label className='inputBox'>
 						<i className='icon icon-add-fill' />
-						{`${kycFile ? kycFile.fileData.name : ''}`}
+            <Img
+									className='img'
+									src={kycFile?.fileImg as string}
+									alt={kycFile?.fileData.name}
+								/>
 						<input
 							type='file'
 							accept='image/*'
