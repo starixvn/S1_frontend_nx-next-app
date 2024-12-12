@@ -45,7 +45,7 @@ const LeaderBoardSection1 = ({
 						<img src={baseURL + item.img} alt={item.label} />
 						{item.displayName.toUpperCase()}
 					</div>
-					{item.turnover}
+					<div>{item.turnover}</div>
 					<div>{point}</div>
 				</li>
 			))}

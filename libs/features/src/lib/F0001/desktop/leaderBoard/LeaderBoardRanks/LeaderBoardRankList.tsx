@@ -1,6 +1,5 @@
-import React from 'react'
-import { useTranslation } from 'next-i18next'
 import { useLeaderBoard } from '@nx-next-app/data-access'
+import { useTranslation } from 'next-i18next'
 import LeaderBoardRankItem from './LeaderBoardRankItem'
 
 interface ILeaderBoardRankListProps {
@@ -26,11 +25,9 @@ const LeaderBoardRankList = ({
 				<li>
 					<div>{t('Label_LeaderBoard_Ranking')}</div>
 					<div>{t('Label_General_Username')}</div>
-					{activeTab === LeaderBoardTabsEnum.Result ? null : (
-						// 日排名隱藏status欄位，等ＰＭ通知再修正回顯示
-						<div> {` `}</div>
-						// <div>{t("lbl_Status")}</div>
-					)}
+					<div>
+						{/* {activeTab === LeaderBoardTabsEnum.Result ? null : ()} */}
+					</div>
 					<div>{t('Label_LeaderBoard_Points')}</div>
 				</li>
 				{rankList?.map((item, index) => (

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const WrapperVipPage = styled.div`
 	.vip {
-		width: ${({ theme }) => theme.desktop.minContentWidth};
+		min-width: ${({ theme }) => theme.desktop.minContentWidth};
 		margin: 2rem auto;
 		@media (min-width: 1450px) {
 			width: ${({ theme }) => theme.desktop.contentWidth};

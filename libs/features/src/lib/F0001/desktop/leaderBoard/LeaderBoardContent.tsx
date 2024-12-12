@@ -1,6 +1,7 @@
-import { useTranslation } from 'next-i18next'
-import { useLeaderBoard } from '@nx-next-app/data-access'
 import { Loading } from '@nx-next-app/components/D0001'
+import { useLeaderBoard } from '@nx-next-app/data-access'
+import { NoData } from '@nx-next-app/features/F0001/desktop/common/NoData'
+import { useTranslation } from 'next-i18next'
 import LeaderBoardContentNav from './LeaderBoardContentNav'
 import LeaderBoardRankList from './LeaderBoardRanks/LeaderBoardRankList'
 
@@ -29,7 +30,9 @@ const LeaderBoardContent = () => {
 					<Loading />
 				) : (
 					rankList.length === 0 && (
-						<div className='icon icon-nodata'>{t('Label_General_NoData')}</div>
+						<div style={{ marginTop: '1.6rem' }}>
+							<NoData />
+						</div>
 					)
 				)}
 
@@ -38,21 +41,18 @@ const LeaderBoardContent = () => {
 				)}
 
 				{!(activeTab === LeaderBoardTabsEnum.Result) && (
-					<>
-						<div className='lastUpdate'>
+					<div className='lastUpdate'>
+						<div>
 							{t(`Label_LeaderBoard_LastUpdTime`, {
 								time: getFormattedUpdateTime(),
 							})}
 						</div>
-						<div
-							className='lastUpdate'
-							style={{ color: '#fab617', fontWeight: 600 }}
-						>
+						<div>
 							{t(`Label_LeaderBoard_Ranking_EndDate`, {
 								time: `${formattedEndTime} GMT+8`,
 							})}
 						</div>
-					</>
+					</div>
 				)}
 			</div>
 		</div>

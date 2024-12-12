@@ -1,7 +1,6 @@
-import React from 'react'
-import classNames from 'classnames'
-import { numberFormat } from '@nx-next-app/utils'
 import { useAuth, useLeaderBoard } from '@nx-next-app/data-access'
+import { numberFormat } from '@nx-next-app/utils'
+import classNames from 'classnames'
 
 interface ILeaderBoardRankItemProps {
 	item: any
@@ -57,7 +56,7 @@ const LeaderBoardRankItem = ({
 				{`TOP ${rank || index + 1}`}
 			</div>
 			<div>{userName}</div>
-			{getDisplayStatus(status as number)}
+			<div>{getDisplayStatus(status as number)}</div>
 			<div>{numberFormat(wTurnover as number, currencyId)}</div>
 		</li>
 	)

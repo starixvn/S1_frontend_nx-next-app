@@ -1,5 +1,6 @@
-import LeaderBoardTabs from '@nx-next-app/features/F0001/desktop/leaderBoard/LeaderBoardTabs'
 import { useLeaderBoard } from '@nx-next-app/data-access'
+import LeaderBoardTabs from '@nx-next-app/features/F0001/desktop/leaderBoard/LeaderBoardTabs'
+import { WrapperLeaderBoardPage } from '@nx-next-app/features/F0001/desktop/leaderBoard/styles'
 import LeaderBoardContent from './LeaderBoardContent'
 import LeaderBoardEventList from './LeaderBoardEvent/LeaderBoardEventList'
 
@@ -7,21 +8,18 @@ const LeaderBoard = () => {
 	const { backgroundImg, activeTab, LeaderBoardTabsEnum } = useLeaderBoard()
 
 	return (
-		<main
-			className='rankingNew'
-			style={{
-				backgroundImage: `url(${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/${backgroundImg})`,
-			}}
-		>
-			<section>
-				<LeaderBoardTabs />
-				{activeTab === LeaderBoardTabsEnum.Event ? (
-					<LeaderBoardEventList />
-				) : (
-					<LeaderBoardContent />
-				)}
-			</section>
-		</main>
+		<WrapperLeaderBoardPage>
+			<main className='rankingNew'>
+				<section>
+					<LeaderBoardTabs />
+					{activeTab === LeaderBoardTabsEnum.Event ? (
+						<LeaderBoardEventList />
+					) : (
+						<LeaderBoardContent />
+					)}
+				</section>
+			</main>
+		</WrapperLeaderBoardPage>
 	)
 }
 

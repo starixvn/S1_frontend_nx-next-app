@@ -53,9 +53,7 @@ const LeaderBoardPage = ({
 						LeaderBoardGameTypeEnum={LeaderBoardGameTypeEnum}
 						LeaderBoardTabsEnum={LeaderBoardTabsEnum}
 					>
-						<main>
-							<LeaderBoard />
-						</main>
+						<LeaderBoard />
 					</LeaderBoardProvider>
 				</Layout>
 			</GlobalDataProvider>

@@ -1,5 +1,5 @@
-import { useTranslation } from 'next-i18next'
 import { useLeaderBoard } from '@nx-next-app/data-access'
+import { useTranslation } from 'next-i18next'
 import LeaderBoardSection1 from './LeaderBoardSection1'
 import LeaderBoardSection2 from './LeaderBoardSection2'
 
@@ -19,7 +19,7 @@ const LeaderBoardEventList = () => {
 			</div>
 			<div className='rankList'>
 				<div className='title'>{t('Label_LeaderBoard_Point_Calculation')}</div>
-				<ul>
+				<ul className='rankList-main'>
 					<li>
 						<div>{t('Label_LeaderBoard_Product')}</div>
 						<div>{t('Label_LeaderBoard_Valid_Turnover')}</div>
@@ -32,7 +32,7 @@ const LeaderBoardEventList = () => {
 					/>
 				</ul>
 				<div className='title'>{t('Label_LeaderBoard_Monthly_Tournament')}</div>
-				<ul>
+				<ul className='rankList-main'>
 					<li>
 						<div>{t('Label_LeaderBoard_Ranking')}</div>
 						<div>{t('Label_LeaderBoard_Min_Point')}</div>
@@ -50,7 +50,10 @@ const LeaderBoardEventList = () => {
 						)
 					)}
 				</ul>
-				<button onClick={handleTermAndConditionClick}>
+			</div>
+			<div className='btnGroup'>
+				<button className='btn-secondary' onClick={handleTermAndConditionClick}>
+					<i className='icon icon-file-text-fill' />
 					{t('Label_LeaderBoard_Terms&Conditions')}
 				</button>
 			</div>

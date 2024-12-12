@@ -70,6 +70,12 @@ export const WrapperLeaderBoard = styled.div`
 							margin-right: 1vw;
 						}
 					}
+					&.userRank {
+						background: #374375;
+						> div {
+							color: #fff;
+						}
+					}
 				}
 			}
 		}
