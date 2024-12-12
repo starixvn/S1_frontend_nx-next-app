@@ -1,14 +1,29 @@
-import { paths } from '@nx-next-app/constants'
-import { useRouter } from 'next/router'
-import React, { useLayoutEffect } from 'react'
+import { WrapperErrorPage } from '@nx-next-app/features/F0001/desktop/promotion/styles'
 
 export default function Page404() {
-	const { push } = useRouter()
-
-	// * 404 未找到檔案的路徑時導回首頁
-	useLayoutEffect(() => {
-		push(paths.home.root)
-	}, [])
-
-	return <div>404</div>
+	return (
+		<WrapperErrorPage>
+			<div className='page-error page-error-404'>
+				<div className='page-error-group'>
+					<div className='page-error-img'>
+						<img
+							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/error-404.webp`}
+							alt=''
+						/>
+					</div>
+					<div className='page-error-box'>
+						<div className='page-error-box-title'>404</div>
+						<div className='page-error-box-content'>
+							Dear Valued Customers, To present a better experience for valued
+							players, system is performing an upgrade. Hence, it is
+							inaccessible as for the moment. Kindly bear with us, we will back
+							on track as soon as maintenance is complete later. Your kindest
+							patience and utmost understanding is appreciate.
+						</div>
+						<div className='hour'>24/7 Customer Support</div>
+					</div>
+				</div>
+			</div>
+		</WrapperErrorPage>
+	)
 }

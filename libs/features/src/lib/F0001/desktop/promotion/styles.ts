@@ -182,3 +182,45 @@ export const WrapperPromotion = styled.div`
 		margin: 0;
 	}
 `
+
+export const WrapperErrorPage = styled.div`
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: url(${({ theme }) =>
+		theme.assetUrl}/desktop/img/new-ui/bg-error.webp);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	.page-error {
+		&-group {
+			max-width: 100rem;
+			padding: 0 1.2rem;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			gap: 4rem;
+		}
+		&-img {
+			width: 100%;
+			min-width: 42rem;
+		}
+		&-box {
+			&-title {
+				color: ${({ theme }) => theme.desktop.hrefColorPrimary};
+				font-size: 2.5rem;
+				font-weight: 700;
+				margin-bottom: 1.6rem;
+			}
+			&-content {
+				font-size: 1.4rem;
+				color: ${({ theme }) => theme.desktop.white};
+				line-height: 1.8rem;
+			}
+			.hour {
+				color: #1b5bff;
+			}
+		}
+	}
+`

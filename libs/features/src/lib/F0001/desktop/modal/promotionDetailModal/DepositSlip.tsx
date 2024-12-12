@@ -34,10 +34,7 @@ const DepositSlip = ({ depositAmount, refList = [] }: IDepositSlipProps) => {
 							<div className='td'>{numberFormat(item.amount, currencyId)}</div>
 						</React.Fragment>
 					))}
-					<div className='td'>
-						{t('Label_Promotion_Total')}:{' '}
-						{numberFormat(depositAmount, currencyId)}
-					</div>
+					<div className='td'>{numberFormat(depositAmount, currencyId)}</div>
 				</div>
 			</div>
 		</div>
