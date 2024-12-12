@@ -1,37 +1,41 @@
-import { IVendorData } from "@nx-next-app/service";
 import classNames from "classnames";
 import process from "process";
+import { useRef } from "react";
+import { useHover } from "usehooks-ts";
 
 interface IVendorItemProps {
-	item: IVendorData
-	tpId: number
+	isActive: boolean
 	displayText: string
-	activeVendorTpId?: string | number | null
-	onClick: (provider: IVendorData) => void
+	imgName: string
+	onClick: () => void
 }
 
 const VendorItem = ({
-	item,
-	tpId,
+	isActive,
 	displayText,
-	activeVendorTpId,
+	imgName: originImgName,
 	onClick,
 }: IVendorItemProps) => {
+  const hoverRef = useRef(null)
+	const isHover = useHover(hoverRef)
+	const imgName = isHover && !isActive ? `${originImgName}a` : originImgName
+
 	return (
-		<a
-			onClick={() => onClick(item)}
-			className={classNames('provider-item', {
-				active: tpId === activeVendorTpId,
+    <a
+			onClick={onClick}
+      className={classNames('provider-item', {
+				active: isActive
 			})}
 		>
 			<div className='img-container'>
 				<img
-					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/filter-form-provider-logo/${item.imgName}.webp`}
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/filter-form-provider-logo/${imgName}.webp`}
 					alt={displayText}
 				/>
 			</div>
 			<div className='provider-name'>{displayText}</div>
 		</a>
+
 	)
 }
 
