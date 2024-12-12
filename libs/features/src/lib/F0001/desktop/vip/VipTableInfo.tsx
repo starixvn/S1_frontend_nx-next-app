@@ -12,6 +12,8 @@ const VipTableInfo = ({
 	} = useAuth()
 	const { t } = useTranslation()
 
+	const filteredData = vipBannerData.filter(item => item.level !== 6)
+
 	return (
 		<table className='eventList'>
 			<tbody>
@@ -24,7 +26,7 @@ const VipTableInfo = ({
 				</tr>
 				<tr>
 					<td>{capitalize(t('Label_Vip_Deposit_Priority') || '')}</td>
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>
 							{item?.depositPriority && <i className='icon icon-checkmark' />}
 							{item?.depositPriority}
@@ -33,7 +35,7 @@ const VipTableInfo = ({
 				</tr>
 				<tr>
 					<td>{capitalize(t('Label_Vip_WithDrawal_Priority') || '')}</td>
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>
 							{item?.withdrawalPriority && (
 								<i className='icon icon-checkmark' />
@@ -44,7 +46,7 @@ const VipTableInfo = ({
 				</tr>
 				<tr>
 					<td>{capitalize(t('Label_Vip_Service_Support_At_Date') || '')}</td>
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>
 							{item?.serviceSupport && <i className='icon icon-checkmark' />}
 							{item?.serviceSupport}
@@ -54,7 +56,7 @@ const VipTableInfo = ({
 				<tr>
 					<td>{capitalize(t('Label_Vip_Designated_Account_Manager') || '')}</td>
 					{/* 目前沒有叉叉 */}
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>
 							{item?.designatedAccountManager && (
 								<i className='icon icon-checkmark' />
@@ -66,7 +68,7 @@ const VipTableInfo = ({
 					<td>
 						{capitalize(t('Label_Vip_Daily_Withdrawal_Limitation') || '')}
 					</td>
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>
 							{numberFormatExcludeString(item.withdrawalMax)}
 						</td>
@@ -74,7 +76,7 @@ const VipTableInfo = ({
 				</tr>
 				<tr>
 					<td>{capitalize(t('Label_Vip_Daily_Transactions_Count') || '')}</td>
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>{item?.times}</td>
 					))}
 				</tr>
@@ -90,7 +92,7 @@ const VipTableInfo = ({
 				</tr>
 				<tr>
 					<td>{capitalize(t('Label_Vip_Tier_UpGrade_Bonus') || '')}</td>
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>
 							{item?.upBonus && numberFormatExcludeString(item.upBonus)}
 						</td>
@@ -107,7 +109,7 @@ const VipTableInfo = ({
 				{/* Sports */}
 				<tr>
 					<td>{capitalize(t('Label_Vip_Sport_Rebate') || '')}</td>
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>
 							{item?.rebateCategory[RebateCategoryEnum.Sports]?.percentage}%
 						</td>
@@ -116,7 +118,7 @@ const VipTableInfo = ({
 				{/* LiveCasino */}
 				<tr>
 					<td>{capitalize(t('Label_Vip_Live_Casino_Rebate') || '')}</td>
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>
 							{item?.rebateCategory[RebateCategoryEnum.LiveCasino]?.percentage}%
 						</td>
@@ -125,7 +127,7 @@ const VipTableInfo = ({
 				{/* Casino */}
 				<tr>
 					<td>{capitalize(t('Label_Vip_Slot_Rebate') || '')}</td>
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>
 							{item?.rebateCategory[RebateCategoryEnum.Casino]?.percentage}%
 						</td>
@@ -134,7 +136,7 @@ const VipTableInfo = ({
 				{/* VirtualSports */}
 				<tr>
 					<td>{capitalize(t('Label_Vip_Virtual_Sport_Rebate') || '')}</td>
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>
 							{
 								item?.rebateCategory[RebateCategoryEnum.VirtualSports]
@@ -147,7 +149,7 @@ const VipTableInfo = ({
 				{/* ESports */}
 				<tr>
 					<td>{capitalize(t('Label_Vip_ESport_Rebate') || '')}</td>
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>
 							{item?.rebateCategory[RebateCategoryEnum.ESports]?.percentage}%
 						</td>
@@ -163,7 +165,7 @@ const VipTableInfo = ({
 				<tr>
 					<td>{capitalize(t('Label_Vip_Referral_Bonus') || '')}</td>
 					{/* 沒有叉叉 */}
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>
 							{item?.referralBonus && <i className='icon icon-checkmark' />}
 						</td>
@@ -181,7 +183,7 @@ const VipTableInfo = ({
 				</tr>
 				<tr>
 					<td>{capitalize(t('Label_Vip_Monthly_Minimum_Deposit') || '')}</td>
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>
 							{item?.upDeposit && numberFormatExcludeString(item.upDeposit)}
 						</td>
@@ -203,7 +205,7 @@ const VipTableInfo = ({
 							t('Label_Vip_Minimum_Deposit_Within_Validity_Period') || ''
 						)}
 					</td>
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>
 							{item?.downDeposit &&
 								Number(item?.downDeposit) !== 0 &&
@@ -217,7 +219,7 @@ const VipTableInfo = ({
 							t('Label_Vip_Minimum_Turnover_Within_Validity_Period') || ''
 						)}
 					</td>
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>
 							{item?.downTurnover &&
 								Number(item?.downTurnover) !== 0 &&
@@ -231,7 +233,7 @@ const VipTableInfo = ({
 							t('Label_Vip_Ranking_Validity_Membership_Renewal') || ''
 						)}
 					</td>
-					{vipBannerData?.map(item => (
+					{filteredData?.map(item => (
 						<td key={item.level}>{item?.rankingValidityMembershipRenewal}</td>
 					))}
 				</tr>
