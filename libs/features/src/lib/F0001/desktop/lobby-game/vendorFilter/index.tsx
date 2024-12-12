@@ -31,7 +31,7 @@ const VendorFilter = ({ pathRoot }: { pathRoot: string }) => {
 				x.tpId === ProviderEnum.Lottery ||
 				x.tpId === ProviderEnum.TableGame
 		)
-		setShowMaxPlay(!!isShowMaxPLay)
+		setShowMaxPlay(isShowMaxPLay !== -1)
 
 		const filterList = vendorList?.filter(
 			vendor =>
