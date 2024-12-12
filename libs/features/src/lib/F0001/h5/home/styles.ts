@@ -7,7 +7,7 @@ export const HomPageContainer = styled.div`
 			margin: 0 auto;
 			overflow: hidden;
 			list-style: none;
-			padding-bottom: 9.7vw;
+			padding-bottom: 7.28vw;
 			width: 100%;
 
 			.swiper-slide.swiper-slide-active {
