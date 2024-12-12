@@ -42,7 +42,7 @@ const FourD = () => {
 				)} */}
 
 				<div className={classNames('functionList', { active: !isNavInView })}>
-					<VendorFilter />
+        <VendorFilter pathRoot='' />
 					<CategoryFilter />
 				</div>
 				<div ref={navRef} />

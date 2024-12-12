@@ -39,7 +39,7 @@ const LiveCasino = () => {
 				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/live-casino-banner.webp`}
 			/>
 			<div className={classNames('functionList', { active: !isNavInView })}>
-				<VendorFilter />
+        <VendorFilter pathRoot='' />
 				<CategoryFilter />
 			</div>
 			<GameList />
