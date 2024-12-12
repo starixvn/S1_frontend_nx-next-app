@@ -41,7 +41,7 @@ export const WrapperReferal = styled.div`
 					font-size: 1.7rem;
 					font-weight: 700;
 					line-height: normal;
-					color: #ea6118;
+					color: ${({ theme }) => theme.desktop.hrefColorPrimary};
 				}
 			}
 		}

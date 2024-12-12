@@ -57,7 +57,7 @@ export const Message = styled.div`
 		transform: translateY(100%);
 		border-radius: 1rem;
 		opacity: 0.9;
-		background: #ea6118;
+		background: ${({ theme }) => theme.desktop.hrefColorPrimary};
 		box-shadow: 0 0.6rem 3rem 0 rgba(0, 0, 0, 0.5);
 		padding: 0.6rem 0 0.6rem 1.2rem;
 		color: #fff;
@@ -86,7 +86,8 @@ export const Message = styled.div`
 			height: 0;
 			width: 0;
 			transform: translateY(-100%);
-			border-color: transparent transparent #ea6118;
+			border-color: transparent transparent
+				${({ theme }) => theme.desktop.hrefColorPrimary};
 			border-style: solid solid solid solid;
 			border-width: 0.8rem;
 		}

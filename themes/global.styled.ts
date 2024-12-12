@@ -367,7 +367,7 @@ export const GlobalStyles = createGlobalStyle`
         justify-content: center;
         width: 4.8rem;
         height: 4.8rem;
-        background: var(--Color-5, #EA6118);
+        background: ${({ theme }) => theme.desktop.hrefColorPrimary};
         &:before{
           font-size : 3.2rem;
         }
@@ -1386,7 +1386,7 @@ export const GlobalStyles = createGlobalStyle`
 			overflow: hidden;
 		}
 		.progressBar .bar .progress {
-			background: #ea6118;
+			background: ${({ theme }) => theme.desktop.hrefColorPrimary};
 			height: 100%;
 			border-radius: 10px;
 		}
@@ -1438,7 +1438,7 @@ export const GlobalStyles = createGlobalStyle`
       font-weight: 400 !important;
       line-height: 1.8rem !important;
       background-color : #182043 !important;
-      span,p,div,a,strong,h1,h2,h3,h4,h5,h6,h7,ul,li,ol,li,table{
+      span,p,div,a{
         background-color : #182043 !important;
         font-family: ${({ theme }) => theme.desktop.fontFamily} !important;
         line-height: 1.6rem !important;
@@ -1461,20 +1461,25 @@ export const GlobalStyles = createGlobalStyle`
     colgroup col {
         width: 100% !important;
     }
-    table{
-      width : 100% !important;
-      margin-bottom : 1rem !important;
-      td {
-				border: 1px solid #374375 !important;
-				background: #182043 !important;
-				color: #fff;
-			}
+    table {
+      width: 100% !important;
+      margin-bottom : 1.6rem !important;
+      font-size : 1.4rem !important;
+    }
 
-			tr:first-child {
-				td {
-					background: #232b4f !important;
-				}
-			}
+    td {
+      border: 1px solid ${({ theme }) =>
+				theme.mobile.promotionGroupBorder} !important;
+      background: ${({ theme }) => theme.mobile.promotionGroupBg} !important;
+      color: ${({ theme }) => theme.mobile.promotionHeaderGroupColor};
+      font-weight : 500 !important;
+    }
+
+    tr:first-child {
+      td {
+        background: ${({ theme }) =>
+					theme.mobile.promotionHeaderGroupBg} !important;
+      }
     }
   }
   .backstage{
@@ -1497,8 +1502,7 @@ export const GlobalStyles = createGlobalStyle`
         color: #939DC5 !important;
       }
     }
-    
-    span,p,div,a,strong,h1,h2,h3,h4,h5,h6,h7,ul,li,ol,li,table{
+    span,p,div,a,strong,h1,h2,h3,h4,h5,h6,h7,ul,li,ol,li{
       background-color : #182043 !important;
       font-family: ${({ theme }) => theme.desktop.fontFamily} !important;
       line-height: 1.6rem !important;
@@ -1777,7 +1781,7 @@ export const GlobalStyles = createGlobalStyle`
     .inputInfo {
       text-align: left;
       display: none;
-      background: #EA6118;
+      background: ${({ theme }) => theme.desktop.hrefColorPrimary};
       border-radius: 5px;
       padding: 2vw;
       position: relative;
@@ -1790,7 +1794,8 @@ export const GlobalStyles = createGlobalStyle`
         height: 0;
         border-width: 2vw 2vw 0 2vw;
         border-style: solid dashed dashed;
-        border-color: #EA6118 transparent transparent;
+        border-color: ${({ theme }) =>
+					theme.desktop.hrefColorPrimary} transparent transparent;
         position: absolute;
         bottom: -1.5vw;
         right: 3vw;
@@ -2315,7 +2320,7 @@ export const GlobalStyles = createGlobalStyle`
         right: 10px;
         width: 52px;
         height: 52px;
-        background: #ff5e00;
+        background: ${({ theme }) => theme.desktop.hrefColorPrimary};
         border-radius: 100%;
         z-index: 2;
         color: white;
@@ -2387,8 +2392,8 @@ export const GlobalStyles = createGlobalStyle`
       }
       .tag a.active,
       .tag button.active {
-        color: #EA6118;
-        border-color: #EA6118;
+        color: ${({ theme }) => theme.desktop.hrefColorPrimary};
+        border-color: ${({ theme }) => theme.desktop.hrefColorPrimary};
         font-weight: bold;
       }
         .vip_mark {

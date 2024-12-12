@@ -197,9 +197,9 @@ export const WrapperVerificationH5 = styled.div`
 	}
 	.userVerification .description {
 		position: absolute;
-		border: 1px solid #ea6118;
+		border: 1px solid ${({ theme }) => theme.desktop.hrefColorPrimary};
 		border-radius: 10px;
-		background: #ea6118;
+		background: ${({ theme }) => theme.desktop.hrefColorPrimary};
 		font-size: 3vw;
 		z-index: 1;
 		padding: 2vw;
@@ -216,7 +216,8 @@ export const WrapperVerificationH5 = styled.div`
 		}
 	}
 	.userVerification .description:before {
-		border-color: transparent transparent #ea6118;
+		border-color: transparent transparent
+			${({ theme }) => theme.desktop.hrefColorPrimary};
 		border-style: solid solid solid;
 		border-width: 2vw;
 		top: 0;
@@ -228,7 +229,8 @@ export const WrapperVerificationH5 = styled.div`
 		transform: translateY(-100%);
 	}
 	.userVerification .description:after {
-		border-color: transparent transparent #ea6118;
+		border-color: transparent transparent
+			${({ theme }) => theme.desktop.hrefColorPrimary};
 		border-style: solid solid solid solid;
 		border-width: 2vw;
 		top: 1px;
@@ -259,9 +261,10 @@ export const WrapperEditAddressH5 = styled.div`
 		}
 		.inputInfo {
 			color: ${({ theme }) => theme.mobile.white};
-			background: #ea6118;
+			background: ${({ theme }) => theme.desktop.hrefColorPrimary};
 			&:before {
-				border-color: #ea6118 transparent transparent;
+				border-color: ${({ theme }) => theme.desktop.hrefColorPrimary}
+					transparent transparent;
 			}
 		}
 		.group-sub-title {

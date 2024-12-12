@@ -393,7 +393,7 @@ export const WrapperWithdrawalH5 = styled.div`
 		color: #939dc5;
 	}
 	.formula > div > div:nth-child(2) > div:nth-child(2) span {
-		color: #ea6118;
+		color: ${({ theme }) => theme.desktop.hrefColorPrimary};
 		margin: 0 0 0 1vw;
 		font-size: 3.4vw;
 	}
@@ -402,7 +402,7 @@ export const WrapperWithdrawalH5 = styled.div`
 		margin-top: 1vw;
 		color: #7883b4;
 		span {
-			color: #f00;
+			color: #FF4040;
 			margin-right: 1vw;
 		}
 	}
@@ -417,7 +417,7 @@ export const WrapperWithdrawalH5 = styled.div`
 		}
 		.icon-close-line{
 			&:before{
-				color : #F00;
+				color : #FF4040;
 			}
 		}
 		.icon-check{

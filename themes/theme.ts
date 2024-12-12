@@ -10,10 +10,10 @@ export const theme = {
 		largeBannerHeight: '36.4rem',
 
 		primary: '#0F1428',
-		hrefColorPrimary: '#EA6118',
+		hrefColorPrimary: '#FF813D',
 		white: '#fff',
-		inputBorderColorError: '#F00',
-		tipColorError: '#F00',
+		inputBorderColorError: '#FF4040',
+		tipColorError: '#FF4040',
 		tipColor: '#7883B4',
 		fontFamily: `'Montserrat', serif`,
 
@@ -33,7 +33,7 @@ export const theme = {
 		countryCurrentBtnGroupBg: '#232B4F',
 		countryCurrentBtnBg: '#374375',
 		countryCurrentBtnColor: '#939DC5',
-		countryCurrentBtnBgHover: '#EA6118',
+		countryCurrentBtnBgHover: '#FF813D',
 		countryCurrentBtnColorHover: '#fff',
 		gradeTextColor: '#fff',
 		gradeVintageBg: '#e1884c',
@@ -51,18 +51,18 @@ export const theme = {
 		gradeInfinityBg: '#BCACA3',
 		gradeInfinityColor: '#fff',
 		headerBalanceColor: '#fff',
-		depositBtnBg: '#ea6118',
+		depositBtnBg: '#FF813D',
 		depositBtnColor: '#fff',
-		depositBtnBgHover: '#ea6118',
+		depositBtnBgHover: '#FF813D',
 		depositBtnColorHover: '#fff',
 		depositBtnBoxShadow: '0px -2px 0px 0px rgba(255, 255, 255, 0.4) inset',
 		homeProfileProgressBg: '#374375',
-		homeProfileProgressBarBg: '#ea6118',
+		homeProfileProgressBarBg: '#FF813D',
 
 		footerBg: '#232B4F',
 		copyRightBg: '#1F274C',
 
-		primaryBtnBg: '#EA6118',
+		primaryBtnBg: '#FF813D',
 		primaryBtnColor: '#fff',
 		primaryBtnShadow: '0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset',
 		primaryBtnBgHover: '#D95712',
@@ -99,9 +99,9 @@ export const theme = {
 		menuContainerBg: '#232B4F',
 		menuItemColor: '#fff',
 		menuItemBgHover: '#182043',
-		menuItemColorHover: '#ea6118',
-		menuItemActiveLine: '#ea6118',
-		newLabelBg: '#F00',
+		menuItemColorHover: '#FF813D',
+		menuItemActiveLine: '#FF813D',
+		newLabelBg: '#FF4040',
 		newLabelColor: '#fff',
 		hotLabelBg: '#e12973',
 		hotLabelColor: '#fff',
@@ -109,10 +109,10 @@ export const theme = {
 
 		marqueeMessageBg: '#374375',
 		marqueeMessageColor: '#fff',
-		liveChatColor: '#ea6118',
+		liveChatColor: '#FF813D',
 
 		bannerBulletBg: '#374375',
-		bannerBulletBgActive: '#EA6118',
+		bannerBulletBgActive: '#FF813D',
 
 		welcomeInfoTitleColor: '#fff',
 		welcomeInfoDescColor: '#fff',
@@ -165,7 +165,7 @@ export const theme = {
 			'linear-gradient(180deg, rgba(35, 43, 79, 0.00) 0%, rgba(35, 43, 79, 0.70) 25.5%, rgba(35, 43, 79, 0.70) 75%, rgba(35, 43, 79, 0.00) 100%)',
 		gameIconMaintainColor: '#fff',
 		gameIconNoGameIconColor: '#374375',
-		gameIconNewBg: '#f00',
+		gameIconNewBg: '#FF4040',
 		gameIconNewColor: '#fff',
 		gameIconNewShadow: '0px 2.286px 0px 0px rgba(0, 0, 0, 0.25)',
 		gameIconFavoriteColor: '#fff',
@@ -180,13 +180,13 @@ export const theme = {
 		hotMatchOddsColor: '#fff',
 		hotMatchAwayOddsColor: '#3b7bf0',
 		hotMatchDateColor: '#fff',
-		hotMatchBtnBg: '#ea6118',
+		hotMatchBtnBg: '#FF813D',
 		hotMatchBtnShadow: '0px -5px 0px 0px #d35716 inset',
 		hotMatchBtnColor: '#fff',
 		hotMatchBtnBgHover: '#f76b20',
 		hotMatchBtnShadowHover: '0px -5px 0px 0px #d35716 inset',
 
-		swiperBtnBg: '#ea6118',
+		swiperBtnBg: '#FF813D',
 		swiperBtnBorder: '2px solid #0f1428',
 
 		filterFormBg: '#232b4f',
@@ -202,9 +202,9 @@ export const theme = {
 		gameTabBorder: '1px solid #556298',
 		gameTabItemColor: '#717fba',
 		gameTabItemColorHover: '#fff',
-		gameTabItemBorderHover: '2px solid var(--Color-5, #ea6118)',
+		gameTabItemBorderHover: '2px solid var(--Color-5, #FF813D)',
 
-		buttonSloganBg: '#EA6118',
+		buttonSloganBg: '#FF813D',
 		registerBodyBg: '#182043',
 
 		inputBg: '#232b4f',
@@ -213,7 +213,7 @@ export const theme = {
 
 		registerInputDropDownShadow: '0px 0px 10px 0px rgba(0, 0, 0, 0.25)',
 		registerInputDropDownColor: '#939DC5',
-		registerInputDropDownColorHover: '#EA6118',
+		registerInputDropDownColorHover: '#FF813D',
 		registerDropdownBg: '#182043',
 		registerDropdownBorderColor: '#374375',
 
@@ -224,8 +224,8 @@ export const theme = {
 		leftMenuHeaderBgAfterLogin: '#232B4F',
 		leftMenuBodyBgAfterLogin: '#182043',
 		leftMenuItemColorAfterLogin: '#939DC5',
-		leftMenuItemColorActiveAfterLogin: '#EA6118',
-		leftMenuItemBoxShadowActiveAfterLogin: '-4px 0px 0px 0px #ea6118 inset',
+		leftMenuItemColorActiveAfterLogin: '#FF813D',
+		leftMenuItemBoxShadowActiveAfterLogin: '-4px 0px 0px 0px #FF813D inset',
 		leftMenuBorderColor: '#374375',
 
 		rightModuleBg: '#182043',
@@ -237,9 +237,9 @@ export const theme = {
 		userVertificationDefaultBgIcon: '#374375',
 		userVertificationActiveBgIcon: '#717FBA',
 
-		tooltipBorderColor: '#EA6118',
+		tooltipBorderColor: '#FF813D',
 		tooltipBgColor: '#232B4F',
-		tooltipColor: '#EA6118',
+		tooltipColor: '#FF813D',
 		tooltipBoxShadow: '0px 6px 30px 0px rgba(0, 0, 0, 0.50)',
 		labelColor: '#939DC5',
 
@@ -276,7 +276,7 @@ export const theme = {
 		hoverAddBankName: '#232B4F',
 
 		tableStatusPenddingColor: '#FBC208',
-		tableStatusRejetctColor: '#F00',
+		tableStatusRejetctColor: '#FF4040',
 		tableStatusApprovedColor: '#01B901',
 		tableStatusCancelColor: '#6F7689',
 
@@ -288,7 +288,7 @@ export const theme = {
 		borderCardRederralColor: '#374375',
 		bgCardRederralColor: '#232B4F',
 
-		datePickerSelectColor: '#EA6118',
+		datePickerSelectColor: '#FF813D',
 		datePickerSelectRangeBg: '#717FBA',
 		datePickerHeaderBg: '#0F1428',
 		datePickerBoxShadow: '0px 6px 30px 0px rgba(0, 0, 0, 0.50)',
@@ -333,9 +333,9 @@ export const theme = {
 		menuContainerBg: '#232B4F',
 		menuItemColor: '#fff',
 		menuItemBgHover: '#182043',
-		menuItemColorHover: '#ea6118',
-		menuItemActiveLine: '#ea6118',
-		newLabelBg: '#F00',
+		menuItemColorHover: '#FF813D',
+		menuItemActiveLine: '#FF813D',
+		newLabelBg: '#FF4040',
 		newLabelColor: '#fff',
 		hotLabelBg: '#e12973',
 		hotLabelColor: '#fff',
@@ -345,7 +345,7 @@ export const theme = {
 		marqueeMessageColor: '#fff',
 
 		bannerBulletBg: '#374375',
-		bannerBulletBgActive: '#EA6118',
+		bannerBulletBgActive: '#FF813D',
 
 		homePageTitleColor: '#fff',
 		homePageLoadMoreColor: '#717FBA',
@@ -362,7 +362,7 @@ export const theme = {
 			'linear-gradient(180deg, rgba(35, 43, 79, 0.00) 0%, rgba(35, 43, 79, 0.70) 25.5%, rgba(35, 43, 79, 0.70) 75%, rgba(35, 43, 79, 0.00) 100%)',
 		gameIconMaintainColor: '#fff',
 		gameIconNoGameIconColor: '#374375',
-		gameIconNewBg: '#f00',
+		gameIconNewBg: '#FF4040',
 		gameIconNewColor: '#fff',
 		gameIconNewShadow: '0px 2.286px 0px 0px rgba(0, 0, 0, 0.25)',
 		gameIconFavoriteColor: '#fff',
@@ -377,7 +377,7 @@ export const theme = {
 		hotMatchOddsColor: '#fff',
 		hotMatchAwayOddsColor: '#3b7bf0',
 		hotMatchDateColor: '#fff',
-		hotMatchBtnBg: '#ea6118',
+		hotMatchBtnBg: '#FF813D',
 		hotMatchBtnShadow: '0px -5px 0px 0px #d35716 inset',
 		hotMatchBtnColor: '#fff',
 
@@ -391,7 +391,7 @@ export const theme = {
 
 		bgFooter: '#232B4F',
 
-		hrefColorPrimary: '#EA6118',
+		hrefColorPrimary: '#FF813D',
 		bgLoginRegisterColor: '#0F1428',
 		white: '#fff',
 		boxShadowLoginRegisterColor: '0px 2px 10px 0px rgba(0, 0, 0, 0.10)',
@@ -403,13 +403,13 @@ export const theme = {
 			'0px -2px 0px 0px rgba(255, 255, 255, 0.40) inset',
 		stepBg: '#374375',
 		stepBorderActive: 'rgba(234, 97, 24, 0.5)',
-		stepBgActive: '#EA6118',
+		stepBgActive: '#FF813D',
 		stepBgItem: '#717FBA',
 		stepBoder: '#374375',
 
-		tooltipBorderColor: '#EA6118',
+		tooltipBorderColor: '#FF813D',
 		tooltipBgColor: '#232B4F',
-		tooltipColor: '#EA6118',
+		tooltipColor: '#FF813D',
 		tooltipBoxShadow: '0px 6px 30px 0px rgba(0, 0, 0, 0.50)',
 
 		vipDiamonBtnBg: '#DEF2FF',

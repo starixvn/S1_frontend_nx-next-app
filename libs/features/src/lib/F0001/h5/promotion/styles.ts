@@ -69,7 +69,7 @@ export const PromotionPage = styled.div`
 	}
 
 	.new {
-		background: var(--Color-13, #f00);
+		background: #ff4040;
 
 		&:before {
 			content: 'NEW';
@@ -231,7 +231,7 @@ export const PromotionProgressBarContainer = styled.div`
 			flex: auto;
 
 			.progress {
-				background: #ea6118;
+				background: ${({ theme }) => theme.desktop.hrefColorPrimary};
 				height: 100%;
 				border-radius: 10px;
 			}

@@ -245,7 +245,7 @@ export const WrapperVipPageH5 = styled.div`
 		}
 		.vipTitle {
 			font-weight: 700;
-			color: #ea6118;
+			color: ${({ theme }) => theme.desktop.hrefColorPrimary};
 			margin: 3vw 0 1vw;
 			&:last-child {
 				margin-top: 5vw;

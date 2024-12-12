@@ -9,7 +9,7 @@ export const WrapperBankInFo = styled.div`
 		position: relative;
 		margin: 4rem 0;
 		.stepLine {
-			background: #ea6118;
+			background: ${({ theme }) => theme.desktop.hrefColorPrimary};
 			position: absolute;
 			height: 100%;
 			border-radius: 10px 0px 0 10px;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const PromotionContainer = styled.div`
 	position: relative;
@@ -52,7 +52,7 @@ export const PromotionContainer = styled.div`
 		width: 2.8rem;
 		border-radius: 10rem;
 		border: 2px solid #0f1428;
-		background: #ea6118;
+		background: ${({ theme }) => theme.desktop.hrefColorPrimary};
 		font-size: 2.4rem;
 		z-index: 3;
 	}

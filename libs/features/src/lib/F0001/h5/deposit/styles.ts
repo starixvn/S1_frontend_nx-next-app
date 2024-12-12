@@ -74,7 +74,8 @@ export const WrapperDepositH5 = styled.div`
 					content: '';
 					border-width: 0 2vw 2vw 2vw;
 					border-style: solid dashed dashed;
-					border-color: transparent transparent #ea6118 transparent;
+					border-color: transparent transparent
+						${({ theme }) => theme.desktop.hrefColorPrimary} transparent;
 					right: 0.7vw;
 					top: -1.5vw;
 				}

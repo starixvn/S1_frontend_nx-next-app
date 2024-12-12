@@ -65,7 +65,7 @@ export const WrapperFooterDock = styled.div`
 		background: radial-gradient(
 			76.92% 76.92% at 50% 23.08%,
 			#ea9218 0%,
-			#ea6118 100%
+			${({ theme }) => theme.desktop.hrefColorPrimary} 100%
 		);
 		box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.47);
 		border-radius: 50px;

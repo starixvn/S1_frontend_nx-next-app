@@ -76,7 +76,7 @@ export const WrapperMyWalletH5 = styled.div`
 		flex: auto;
 	}
 	.progressBarModule .bar .progress {
-		background: #ea6118;
+		background: ${({ theme }) => theme.desktop.hrefColorPrimary};
 		height: 100%;
 		border-radius: 10px;
 	}

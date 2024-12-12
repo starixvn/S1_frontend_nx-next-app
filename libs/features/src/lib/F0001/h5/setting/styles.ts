@@ -149,7 +149,7 @@ export const WrapperSettingPage = styled.div`
 				}
 			}
 			.money-name {
-				color: #ea6118;
+				color: ${({ theme }) => theme.desktop.hrefColorPrimary};
 				font-size: 3.4vw;
 				font-weight: 700;
 				line-height: normal;

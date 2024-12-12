@@ -33,7 +33,7 @@ export const WrapperRegister = styled.div`
 					padding: 1.6rem;
 					height: 100%;
 					.title-list {
-						color: #ea6118;
+						color: ${({ theme }) => theme.desktop.hrefColorPrimary};
 						font-size: 1.7rem;
 						font-weight: 700;
 						line-height: normal;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const LobbyGamePage = styled.div`
 	.banner-container {
@@ -45,7 +45,8 @@ export const CategoryFilterTabs = styled.div`
 
 		&.active {
 			color: #fff;
-			border-bottom: 0.48vw solid #ea6118;
+			border-bottom: 0.48vw solid
+				${({ theme }) => theme.desktop.hrefColorPrimary};
 		}
 	}
 `
