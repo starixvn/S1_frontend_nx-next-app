@@ -1,10 +1,10 @@
-import { useAuth } from "@nx-next-app/data-access";
-import { IPromotionData } from "@nx-next-app/service";
-import { PromotionPeriodType } from "@nx-next-app/types";
-import { numFormatToDigits } from "@nx-next-app/utils";
-import dayjs from "dayjs";
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useAuth } from '@nx-next-app/data-access'
+import { IPromotionData } from '@nx-next-app/service'
+import { PromotionPeriodType } from '@nx-next-app/types'
+import { numFormatToDigits } from '@nx-next-app/utils'
+import dayjs from 'dayjs'
+import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 interface IPromotionMissionProps {
 	promotionDetail: IPromotionData
@@ -97,7 +97,7 @@ const PromotionMission = ({ promotionDetail }: IPromotionMissionProps) => {
 									<div className='row-title'>
 										{t('Label_Deposit').toUpperCase()}
 									</div>
-									<div className='value'>
+									<div className='row-value'>
 										{currencyName} {numFormatToDigits(requiredAmount, 0)}
 									</div>
 								</div>
@@ -107,7 +107,7 @@ const PromotionMission = ({ promotionDetail }: IPromotionMissionProps) => {
 									<div className='row-title'>
 										{t('Label_General_Turnover').toUpperCase()}
 									</div>
-									<div className='value'>
+									<div className='row-value'>
 										{currencyName} {numFormatToDigits(requiredTurnover, 0)}
 									</div>
 								</div>
@@ -118,7 +118,7 @@ const PromotionMission = ({ promotionDetail }: IPromotionMissionProps) => {
 										? t('Label_General_WinOver')
 										: t('Label_General_RollOver')}
 								</div>
-								<div className='value'>
+								<div className='row-value'>
 									{fullFillType === 2 ? winOver : rollOver}X
 								</div>
 							</div>
@@ -126,7 +126,7 @@ const PromotionMission = ({ promotionDetail }: IPromotionMissionProps) => {
 								<div className='row-title'>
 									{t('Label_Promotion_Bonus').toUpperCase()}
 								</div>
-								<div className='value'>
+								<div className='row-value'>
 									{currencyName} {numFormatToDigits(bonus, 0)}
 								</div>
 							</div>

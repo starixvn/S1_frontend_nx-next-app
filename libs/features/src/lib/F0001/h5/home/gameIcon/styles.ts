@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 	props => {
@@ -51,10 +51,10 @@ export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 
 	.providerName {
 		position: absolute;
-		bottom: 0.4rem;
+		bottom: 1vw;
 		text-align: center;
 		width: 100%;
-		line-height: 1;
+		line-height: 4.37vw;
 		color: ${({ theme }) => theme.mobile.gameIconProviderNameColor};
 		text-overflow: ellipsis;
 		font-size: 1.2rem;
@@ -65,6 +65,7 @@ export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		text-align: center;
 	}
 `
 

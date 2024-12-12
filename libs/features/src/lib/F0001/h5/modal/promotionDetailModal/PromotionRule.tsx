@@ -1,9 +1,12 @@
-import { useAuth } from "@nx-next-app/data-access";
-import { CustBonusWalletFullFillTypeEnum, IPromotionData } from "@nx-next-app/service";
-import { BonusTypeEnum, PromotionTypeEnum } from "@nx-next-app/types";
-import { getExpiryTime, numberFormat } from "@nx-next-app/utils";
-import { includes, toUpper } from "lodash-es";
-import { useTranslation } from "next-i18next";
+import { useAuth } from '@nx-next-app/data-access'
+import {
+	CustBonusWalletFullFillTypeEnum,
+	IPromotionData,
+} from '@nx-next-app/service'
+import { BonusTypeEnum, PromotionTypeEnum } from '@nx-next-app/types'
+import { getExpiryTime, numberFormat } from '@nx-next-app/utils'
+import { includes, toUpper } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 
 interface IPromotionRuleProps {
 	promotionDetail: IPromotionData
@@ -46,7 +49,7 @@ const PromotionRule = ({ promotionDetail }: IPromotionRuleProps) => {
 					<div className='row-title'>
 						{toUpper(t('Label_Promotion_MinDeposit') || '')}
 					</div>
-					<div className='value'>
+					<div className='row-value'>
 						{numberWithCurrency(tierAmountInfo.requiredAmount)}
 					</div>
 				</div>
@@ -54,7 +57,7 @@ const PromotionRule = ({ promotionDetail }: IPromotionRuleProps) => {
 					<div className='row-title'>
 						{toUpper(t('Label_Promotion_Bonus') || '')}
 					</div>
-					<div className='value'>
+					<div className='row-value'>
 						{isPercentage
 							? `${tierAmountInfo.bonus}%`
 							: numberWithCurrency(tierAmountInfo.bonus)}
@@ -66,7 +69,7 @@ const PromotionRule = ({ promotionDetail }: IPromotionRuleProps) => {
 							<div className='row-title'>
 								{toUpper(t('Label_Promotion_MaxBonus') || '')}
 							</div>
-							<div className='value'>
+							<div className='row-value'>
 								{numberWithCurrency(tierAmountInfo.maxBonus)}
 							</div>
 						</>
@@ -78,7 +81,7 @@ const PromotionRule = ({ promotionDetail }: IPromotionRuleProps) => {
 							? toUpper(t('Label_General_WinOver') || '')
 							: toUpper(t('Label_General_RollOver') || '')}
 					</div>
-					<div className='value'>
+					<div className='row-value'>
 						{fullFillType === CustBonusWalletFullFillTypeEnum.WinOver
 							? tierAmountInfo.winOver
 							: tierAmountInfo.rollOver}
@@ -95,7 +98,7 @@ const PromotionRule = ({ promotionDetail }: IPromotionRuleProps) => {
 						<div className='row-title'>
 							{toUpper(t('Label_Promotion_RemainingTime') || '')}
 						</div>
-						<div className='value'>{expiryTime}</div>
+						<div className='row-value'>{expiryTime}</div>
 					</div>
 				</div>
 
@@ -116,14 +119,16 @@ const PromotionRule = ({ promotionDetail }: IPromotionRuleProps) => {
 							<div className='row-title'>
 								{toUpper(t('Label_Promotion_MinDeposit') || '')}
 							</div>
-							<div className='value'>{numberWithCurrency(requiredAmount)}</div>
+							<div className='row-value'>
+								{numberWithCurrency(requiredAmount)}
+							</div>
 						</div>
 					)}
 					<div className='row'>
 						<div className='row-title'>
 							{toUpper(t('Label_Promotion_Bonus') || '')}
 						</div>
-						<div className='value'>
+						<div className='row-value'>
 							{isPercentage ? `${bonus}%` : numberWithCurrency(bonus)}
 						</div>
 					</div>
@@ -139,7 +144,7 @@ const PromotionRule = ({ promotionDetail }: IPromotionRuleProps) => {
 						<div className='row-title'>
 							{toUpper(t('Label_Promotion_MaxBonus') || '')}
 						</div>
-						<div className='value'>{numberWithCurrency(maxBonus)}</div>
+						<div className='row-value'>{numberWithCurrency(maxBonus)}</div>
 					</div>
 				)}
 
@@ -149,7 +154,7 @@ const PromotionRule = ({ promotionDetail }: IPromotionRuleProps) => {
 						? t('Label_General_WinOver')
 						: t('Label_General_RollOver')}
 				</div>
-				<div className='value'>
+				<div className='row-value'>
 					{fullFillType === CustBonusWalletFullFillTypeEnum.WinOver
 						? winOver
 						: rollOver}
@@ -159,7 +164,7 @@ const PromotionRule = ({ promotionDetail }: IPromotionRuleProps) => {
 
 			<div className='row'>
 				<div className='row-title'>{t('Label_Promotion_RemainingTime')}</div>
-				<div className='value'>{expiryTime}</div>
+				<div className='row-value'>{expiryTime}</div>
 			</div>
 		</div>
 	)

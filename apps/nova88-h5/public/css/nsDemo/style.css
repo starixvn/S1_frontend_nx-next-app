@@ -3555,8 +3555,6 @@ input[type='date'] {
 	background-image: linear-gradient(to top, transparent, transparent);
 }
 
-
-
 .search {
 	width: calc(100% - 10vw);
 	padding: 2vw 0 2vw 8vw;
@@ -3857,52 +3855,6 @@ input[type='date'] {
 	bottom: 3vw;
 }
 
-.depositSlip {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	font-size: 12px;
-	border-radius: 3px;
-	-ms-flex-flow: wrap;
-	flex-flow: wrap;
-	margin: 2vw 0 0;
-}
-.depositSlip > div {
-	display: none;
-	width: 100%;
-	font-weight: bold;
-}
-.depositSlip > div:nth-child(n + 3),
-.depositSlip > div:nth-child(1) {
-	display: none;
-}
-.depositSlip > div:nth-child(n + 3).active,
-.depositSlip > div:nth-child(1).active {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
-.depositSlip > div:first-child > div {
-	color: #f77a00;
-}
-.depositSlip > div:last-child {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
-.depositSlip > div > div {
-	-webkit-box-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	border: 1px solid #b2b2b2;
-	background: white;
-	padding: 5px 10px;
-	color: #1249a5;
-}
-.depositSlip > div > div:last-child {
-	text-align: right;
-}
-
 .nodata {
 	text-align: center;
 	padding: 10vw 0;
@@ -4175,15 +4127,7 @@ input[type='date'] {
 	vertical-align: middle;
 }
 
-.total {
-	color: #5574a7;
-	font-weight: bold;
-	font-size: 5vw;
-	padding: 2vw;
-	border-radius: 5px;
-	background: #d2e2f9;
-	text-align: right;
-}
+
 
 .list {
 	margin: 0 0 3vw;
@@ -10297,7 +10241,6 @@ main.casino .banner {
 	transform: translateX(-50%);
 }
 
-
 .home-gamelist {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -10374,7 +10317,6 @@ main.casino .banner {
 	-webkit-filter: grayscale(1) !important;
 	filter: grayscale(1) !important;
 }
-
 
 .home-title {
 	color: #0a1b38;

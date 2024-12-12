@@ -435,5 +435,12 @@ export const theme = {
 		vipGoldBtnBg: '#F8EDD1',
 		vipGoldBtnColor: '#E8BB4A',
 		vipGoldTitleBgColor: '#E8BB4A',
+
+		promotionHeaderGroupBg: '#232b4f',
+		promotionHeaderGroupColor: '#fff',
+		promotionGroupBg: '#182043',
+		promotionGroupColor: '#939dc5',
+		promotionGroupBorder: '#374375',
+		promotionLinkColor: '#717fba',
 	},
 }

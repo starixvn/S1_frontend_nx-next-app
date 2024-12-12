@@ -1,8 +1,8 @@
-import { useTranslation } from 'next-i18next'
-import { numberFormat } from '@nx-next-app/utils'
 import { useAuth } from '@nx-next-app/data-access'
-import { useBoolean } from 'usehooks-ts'
+import { numberFormat } from '@nx-next-app/utils'
 import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
+import { useBoolean } from 'usehooks-ts'
 
 interface IDepositSlipProps {
 	depositAmount: number
@@ -28,38 +28,33 @@ const DepositSlip = ({ depositAmount, refList = [] }: IDepositSlipProps) => {
 	return (
 		<>
 			<div className='depositSlip'>
-				<div className={classNames({ active: isActive })}>
-					<div>{t('Label_General_ID')}</div>
-					<div>{t('Label_General_Amount')}</div>
-				</div>
-
-				{/* // * 手機版設計稿需多出這一空白元件才能完整顯示 resList */}
-				<div>
-					<div />
-					<div />
-				</div>
-
 				{refList?.map(item => (
-					<div
-						key={item.depositId}
-						className={classNames({ active: isActive })}
-					>
-						<div>{item.depositId}</div>
-						<div>{numberFormat(item.amount, currencyId)}</div>
+					<div className={classNames('deposit-group', { active: isActive })}>
+						<div key={item.depositId} className='row'>
+							<div className='row-title'>{t('Label_General_ID')}</div>
+							<div className='row-value'>{item.depositId}</div>
+						</div>
+
+						<div key={item.amount} className='row'>
+							<div className='row-title'>{t('Label_General_Amount')}</div>
+							<div className='row-value'>
+								{numberFormat(item.amount, currencyId)}
+							</div>
+						</div>
 					</div>
 				))}
 
-				<div className={classNames({ active: isActive })}>
-					<div>{t('Label_Promotion_Total')}</div>
-					<div>{numberFormat(depositAmount, currencyId)}</div>
+				<div className={classNames('row total-group', { active: isActive })}>
+					<div className='row-title'>{t('Label_Promotion_Total')}</div>
+					<div className='row-value'>
+						{numberFormat(depositAmount, currencyId)}
+					</div>
 				</div>
 			</div>
-			<button className='ViewAllAmount active' onClick={toggleActive}>
+			<button className='view-all' onClick={toggleActive}>
 				{t('Label_Promotion_ViewAll')}
 				<span
-					className={classNames('icon icon-keyboard_arrow_down', {
-						active: isActive,
-					})}
+					className={`icon icon-${isActive ? 'chevron_down' : 'chevron_up'}`}
 				/>
 			</button>
 		</>

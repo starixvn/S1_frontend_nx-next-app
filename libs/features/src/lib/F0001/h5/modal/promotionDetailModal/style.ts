@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const PromotionDetailContainer = styled.div`
 	.promotions {
@@ -22,14 +22,15 @@ export const PromotionDetailContainer = styled.div`
 			line-height: 4.36vw;
 		}
 
-		.rolloverList {
+		.rolloverList,
+		.depositSlip {
 			display: flex;
 			flex-direction: column;
 			gap: 1px;
 			margin-top: 5.8vw;
 			margin-bottom: 5.8vw;
-			border: 1px solid #374375;
-			background: #374375;
+			border: 1px solid ${({ theme }) => theme.mobile.promotionGroupBorder};
+			background: ${({ theme }) => theme.mobile.promotionGroupBorder};
 			border-radius: 2.42vw;
 			overflow: hidden;
 
@@ -39,11 +40,11 @@ export const PromotionDetailContainer = styled.div`
 				grid-template-rows: 12.62vw;
 				align-items: center;
 				gap: 1px;
-				background: #374375;
+				background: ${({ theme }) => theme.mobile.promotionGroupBorder};
 			}
 
 			.row-title,
-			.value {
+			.row-value {
 				display: flex;
 				align-items: center;
 				height: 100%;
@@ -52,15 +53,15 @@ export const PromotionDetailContainer = styled.div`
 			}
 
 			.row-title {
-				background: #232b4f;
+				background: ${({ theme }) => theme.mobile.promotionHeaderGroupBg};
 				font-weight: 700;
-				color: #fff;
+				color: ${({ theme }) => theme.mobile.promotionHeaderGroupColor};
 			}
 
-			.value {
-				color: #939dc5;
+			.row-value {
+				background: ${({ theme }) => theme.mobile.promotionGroupBg};
 				font-weight: 600;
-				background: #182043;
+				color: ${({ theme }) => theme.mobile.promotionGroupColor};
 			}
 		}
 
@@ -68,7 +69,7 @@ export const PromotionDetailContainer = styled.div`
 			p,
 			span {
 				background: transparent !important;
-				color: var(--Color-9, #939dc5) !important;
+				color: ${({ theme }) => theme.mobile.promotionGroupColor} !important;
 				font-size: 3.39vw !important;
 				font-weight: 500 !important;
 				line-height: 4.36vw !important;
@@ -78,16 +79,50 @@ export const PromotionDetailContainer = styled.div`
 				color: #fff !important;
 			}
 
+			table {
+				width: 100% !important;
+			}
+
 			td {
-				border: 1px solid #374375 !important;
-				background: #182043 !important;
-				color: #fff;
+				border: 1px solid ${({ theme }) => theme.mobile.promotionGroupBorder} !important;
+				background: ${({ theme }) => theme.mobile.promotionGroupBg} !important;
+				color: ${({ theme }) => theme.mobile.promotionHeaderGroupColor};
+				font-size: 3.39vw !important;
 			}
 
 			tr:first-child {
 				td {
-					background: #232b4f !important;
+					background: ${({ theme }) =>
+						theme.mobile.promotionHeaderGroupBg} !important;
 				}
+			}
+		}
+
+		.depositSlip {
+			margin: 2vw 0 0;
+
+			.deposit-group {
+				display: none;
+
+				&.active {
+					display: flex;
+					flex-direction: column;
+					gap: 1px;
+				}
+			}
+		}
+
+		.view-all {
+			display: flex;
+			align-items: center;
+			margin-top: 1.92vw;
+			margin-bottom: 3.88vw;
+			font-size: 3.39vw;
+			color: ${({ theme }) => theme.mobile.promotionLinkColor};
+
+			.icon:before {
+				color: ${({ theme }) => theme.mobile.promotionLinkColor};
+				font-size: 4.85vw;
 			}
 		}
 	}
