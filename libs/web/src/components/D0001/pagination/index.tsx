@@ -31,7 +31,7 @@ const Pagination = ({
 	const config: ReactPaginateProps = {
 		...defaultReactPaginateProps,
 		pageCount: totalPage,
-		forcePage: currentPage,
+		forcePage: currentPage - 1,
 		onPageChange,
 		...rest,
 	}
