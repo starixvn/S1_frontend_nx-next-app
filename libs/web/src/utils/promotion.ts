@@ -82,7 +82,6 @@ export const getPromotionPercentage = ({
 export const getIsHidePromotionJoinButton = ({
 	isJoin,
 	promotionType,
-
 	beenUsed,
 	periodFrom,
 	periodTo,
@@ -96,6 +95,7 @@ export const getIsHidePromotionJoinButton = ({
 	isJoin ||
 	promotionType === PromotionTypeEnum.Rebate ||
 	promotionType === PromotionTypeEnum.SpecialBonus ||
+	promotionType === PromotionTypeEnum.PredictionEvent ||
 	beenUsed ||
 	dayjs.unix(periodFrom).diff(Date.now()) > 0 ||
 	dayjs.unix(periodTo).diff(Date.now()) < 0

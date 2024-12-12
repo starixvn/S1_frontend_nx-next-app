@@ -35,23 +35,26 @@ for device in ${deviceList[@]}
 do
   for site in ${siteList[@]}
   do
-    designPath="${DESIGN_PROJECT}/$site/$device/public/css"
-    projectPath="${PROJECT}/apps/$site-$device/styles"
+    # css
+    designCssPath="${DESIGN_PROJECT}/$site/$device/public/*.scss"
+    projectCssPath="${PROJECT}/apps/$site-$device/styles/css"
 
-    echo $designPath "->" $projectPath
-    cp -R ${designPath} ${projectPath}
+    echo $designCssPath "->" $projectCssPath
+    cp -R ${designCssPath} ${projectCssPath}
 
+    # font
     designFontsPath="${DESIGN_PROJECT}/$site/$device/public/fonts"
+    projectFontsPath="${PROJECT}/apps/$site-$device/styles"
 
-    echo $designFontsPath "->" $projectPath
-    cp -R ${designFontsPath} ${projectPath}
+    echo $designFontsPath "->" $projectFontsPath
+    cp -R ${designFontsPath} ${projectFontsPath}
 
-    # 僅複製 CSS 內用到的相對路徑圖片 (img/style-img/*)
+    # img 僅複製 CSS 內用到的相對路徑圖片 (img/style-img/*)
     designStyleImgPath="${DESIGN_PROJECT}/$site/$device/public/img/style-img"
     projectImgPath="${PROJECT}/apps/$site-$device/styles/img"
     if [ -d "$designStyleImgPath" ]; then
       # 清空 img 目錄確保不會有舊圖片殘留
-      rm -rf ${projectImgPath}/* 
+      rm -rf ${projectImgPath}/*
       echo $designStyleImgPath "->" $projectImgPath
       cp -R ${designStyleImgPath} ${projectImgPath}
     fi

@@ -3,7 +3,7 @@ import { useHome } from '@nx-next-app/operations'
 import { useTranslation } from 'next-i18next'
 import { useEffect, useMemo, useState } from 'react'
 import { ReactIdSwiperProps } from 'react-id-swiper'
-import HotMatchtem from './HotMatchtem'
+import HotMatchItem from './HotMatchItem'
 
 const HotMatch = () => {
 	const { t } = useTranslation()
@@ -57,7 +57,7 @@ const HotMatch = () => {
 			>
 				<Carousel {...config}>
 					{hotEventData?.map(eventData => (
-						<HotMatchtem
+						<HotMatchItem
 							key={`${eventData.sportLeaguesTitle}-${eventData.matchId}`}
 							data={eventData}
 						/>

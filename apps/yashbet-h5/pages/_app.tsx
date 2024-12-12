@@ -11,6 +11,7 @@ import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
+import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
 import {
 	ALLOWED_CURRENCIES,
 	BANNER_IMAGE_LIST,
@@ -25,14 +26,12 @@ import {
 	VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY,
 	VIP_CLUB_IMAGES,
 } from '@nx-next-app/site/yashbet'
-
-import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
+
 import 'react-datepicker/dist/react-datepicker.css'
-import '../styles/css/font.css'
-import '../styles/css/style-dark.css'
-import '../styles/css/style.css'
+import '../styles/css/font.scss'
+import '../styles/css/style.scss'
 import '../styles/css/swiper.css'
 
 dayjs.extend(localizedFormat)

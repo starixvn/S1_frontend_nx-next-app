@@ -1,11 +1,12 @@
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { AppDownload, Layout } from '@nx-next-app/features/F0006/h5'
-import { AppDownloadProvider } from '@nx-next-app/features/F0006/providers'
+import { NovaAuthProvider } from '@noble888-h5/providers'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
+import { AppDownload, Layout } from '@nx-next-app/features/F0001/h5'
+import { AppDownloadProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
-import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/noble888/data'
+import { APP_DOWNLOAD_LIST } from '@nx-next-app/site/noble888/data/appDownload'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
@@ -18,7 +19,10 @@ const AppDownloadPage = ({
 	persistStaticFileDomainData,
 }: IAppDownloadPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -28,7 +32,7 @@ const AppDownloadPage = ({
 					</Layout>
 				</AppDownloadProvider>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

@@ -1,13 +1,15 @@
-import classNames from 'classnames'
-import { useRouter } from 'next/router'
-import dynamic from 'next/dynamic'
-import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
-import { isEventPeriod } from '@nx-next-app/utils'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { MenuKeyEnum, MenuIconTypeEnum } from '@nx-next-app/types'
+import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { type IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
+import { MenuIconTypeEnum, MenuKeyEnum } from '@nx-next-app/types'
+import { isEventPeriod } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 
 const LiveStreamingModalH5 = dynamic(
 	() => import('../../modal/LiveStreamingModal'),
@@ -32,11 +34,13 @@ interface ISubMenuProps {
 }
 
 const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
+	const { t } = useTranslation()
 	const {
-		userInfo: { langId },
+		userInfo: { langId, currencyId },
 	} = useAuth()
 	const { push } = useRouter()
 	const { modal } = useGlobalModal()
+	const { EVENT_DATA } = useStaticData()
 	const submenus =
 		menuList?.find(({ category }) => category === menuKey)?.subMenu || []
 
@@ -67,7 +71,7 @@ const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
 					subMenuItem?.currencyGameName[langId]
 
 				// * 後端這裡是字串格式 需做處理
-				const suBMenuImage =
+				const subMenuImage =
 					mobileHeaderPicUrl && JSON.parse(mobileHeaderPicUrl)[0]
 
 				const isNew =
@@ -93,7 +97,7 @@ const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
 					>
 						<div className='gamelist-img'>
 							{isNew && <div className='new-icon'>New</div>}
-							<img src={suBMenuImage} alt={productName} />
+							<img src={subMenuImage} alt={productName} />
 							<div
 								className='gamelist-title'
 								// 為解決特定情況跑版，覆蓋原先 css 指定的寬度
@@ -105,6 +109,48 @@ const SubMenu = ({ menuList, onMenuOpen, menuKey }: ISubMenuProps) => {
 					</button>
 				)
 			})}
+			{menuKey === MenuKeyEnum.Event &&
+				EVENT_DATA?.map(
+					({
+						name,
+						path,
+						h5PicUrl,
+						label,
+						isNew,
+						underMaintenance,
+						allowedCurrencies,
+					}) => {
+						if (allowedCurrencies && !includes(allowedCurrencies, currencyId)) {
+							return null
+						}
+						return (
+							<button
+								className={classNames('gamelist-item', {
+									under: underMaintenance,
+								})}
+								// 為解決特定情況跑版，改以上層 grid gap 代替
+								style={{ margin: 0 }}
+								onClick={() => push(path)}
+								key={name}
+							>
+								<div className='gamelist-img'>
+									{isNew && <div className='new-icon'>New</div>}
+									<img
+										src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}${h5PicUrl}`}
+										alt={name}
+									/>
+									<div
+										className='gamelist-title'
+										// 為解決特定情況跑版，覆蓋原先 css 指定的寬度
+										style={{ width: 'auto' }}
+									>
+										{t(label)}
+									</div>
+								</div>
+							</button>
+						)
+					}
+				)}
 		</div>
 	)
 

@@ -13,6 +13,7 @@ import { CURRENCY_TO_TIMEZONE, PRODUCTS } from '@nx-next-app/constants'
 import {
 	ALLOWED_CURRENCIES,
 	BANNER_IMAGE_LIST,
+	EVENT_DATA,
 	FEATURE_BONUS,
 	GET_AFFILIATE_LINK,
 	LANG_GROUPS,
@@ -31,9 +32,8 @@ import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
 import Head from 'next/head'
 import 'react-datepicker/dist/react-datepicker.css'
-import '../styles/css/font.css'
-import '../styles/css/style-dark.css'
-import '../styles/css/style.css'
+import '../styles/css/font.scss'
+import '../styles/css/style.scss'
 import '../styles/css/swiper.css'
 
 dayjs.extend(localizedFormat)
@@ -67,6 +67,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
 						LEFT_MENU_DATA={LEFT_MENU_DATA}
 						LIVE_CHAT_ID_BY_LANG_ID={LIVE_CHAT_ID_BY_LANG_ID}
 						LANG_TO_CURRENCY={LANG_TO_CURRENCY}
+						EVENT_DATA={EVENT_DATA}
 					>
 						<Component {...pageProps} />
 						<ToastContainer /> {/* 吐司訊息 */}

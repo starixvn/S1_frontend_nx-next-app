@@ -12,8 +12,9 @@ import {
 	paths,
 } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
-import { useJoin } from '@nx-next-app/operations'
+import { useCaptchaContext, useJoin } from '@nx-next-app/operations'
 import {
+	CaptchaTypeEnum,
 	useGetSiteCurrencyListQuery,
 	useLazyAffiliateCheckQuery,
 	useLazyExistsEmailQuery,
@@ -93,6 +94,7 @@ const Form = () => {
 		useLazyExistsEmailQuery()
 
 	const [signUp] = useSignupMutation()
+	const { Captcha, getToken, captchaType } = useCaptchaContext()
 
 	const [currencyOptions, setCurrencyOptions] = useState<
 		ISelectProps['options']
@@ -309,6 +311,12 @@ const Form = () => {
 
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
+
+		const reCaptchaToken =
+			captchaType === CaptchaTypeEnum.Number
+				? getValues('reCaptchaToken')
+				: await getToken()
+
 		// currency & recaptcha & affiliate cannot use form required check
 		if (!currencyCheck || !affCodeCheck) return
 
@@ -336,6 +344,7 @@ const Form = () => {
 				userName: username,
 				userpwd: password,
 				langId: userLang,
+				...(reCaptchaToken && { reCaptchaToken, captchaType }),
 			}).unwrap()
 
 			// opera and meta pixel tracker
@@ -530,6 +539,21 @@ const Form = () => {
 					/>
 				)}
 			</div>
+
+			<div style={{ textAlign: 'center' }}>
+				<Captcha />
+			</div>
+			{captchaType === CaptchaTypeEnum.Number && (
+				<InputBox
+					register={register('reCaptchaToken', { required: true })}
+					icon='icon txt-blue'
+					placeholder={t('Label_General_EnterCaptchaCode') as string}
+					errorMessage={errors['reCaptchaToken']?.message as string}
+					error={!!errors['reCaptchaToken']}
+					touched={!!touchedFields['reCaptchaToken']}
+				/>
+			)}
+
 			<div className='Terms'>
 				{t('Label_Join_SignUpTerms1')}
 				<a
@@ -544,6 +568,7 @@ const Form = () => {
 				</a>
 				{t('Label_Join_SignUpTerms3')}
 			</div>
+
 			<div className='btnGroup'>
 				<button
 					className='btn-check primary'

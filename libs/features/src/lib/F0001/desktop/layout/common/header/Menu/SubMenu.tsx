@@ -1,17 +1,17 @@
-import { includes } from 'lodash-es'
-import classNames from 'classnames'
-import Link from 'next/link'
-import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'next-i18next'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { Dispatch, SetStateAction, ReactNode } from 'react'
-import { MenuIconTypeEnum } from '@nx-next-app/types'
-import { isEventPeriod } from '@nx-next-app/utils'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import type { IMergedMenuData } from '@nx-next-app/features/F0001/hooks'
 import type { IDynamicSubMenuItem } from '@nx-next-app/features/F0001/types'
+import { MenuIconTypeEnum } from '@nx-next-app/types'
+import { isEventPeriod } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { includes } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { Dispatch, ReactNode, SetStateAction } from 'react'
 
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
@@ -60,7 +60,7 @@ const SubMenu = ({
 	} = useAuth()
 	const { push } = useRouter()
 	const { modal } = useGlobalModal()
-	const { ALLOWED_CURRENCIES } = useStaticData()
+	const { ALLOWED_CURRENCIES, EVENT_DATA } = useStaticData()
 
 	const menus = menuList.map(mainMenuItem => {
 		const { lobbyCategoryId, desktop, subMenu, category } = mainMenuItem || {}
@@ -79,7 +79,7 @@ const SubMenu = ({
 				>
 					{subMenu?.map(subMenuItem => {
 						// * 後端這裡是字串格式 需做處理
-						const suBMenuImage =
+						const subMenuImage =
 							subMenuItem?.pcHeaderPicUrl &&
 							JSON.parse(subMenuItem?.pcHeaderPicUrl)[0]
 
@@ -117,7 +117,7 @@ const SubMenu = ({
 								{submenuIcon}
 								<img
 									className='List-npc'
-									src={suBMenuImage}
+									src={subMenuImage}
 									alt={subMenuItem?.productName}
 								/>
 								<span>{displayName || subMenuItem?.productName}</span>
@@ -144,7 +144,7 @@ const SubMenu = ({
 				})}
 				onMouseLeave={() => setMenuKey(undefined)}
 			>
-				{includes(ALLOWED_CURRENCIES.VIP, Number(currencyId)) && (
+				{includes(ALLOWED_CURRENCIES.VIP, currencyId) && (
 					<Link href={paths.vip.root}>
 						<a>
 							<img
@@ -156,7 +156,7 @@ const SubMenu = ({
 						</a>
 					</Link>
 				)}
-				{includes(ALLOWED_CURRENCIES.LEADER_BOARD, Number(currencyId)) && (
+				{includes(ALLOWED_CURRENCIES.LEADER_BOARD, currencyId) && (
 					<Link href={paths.leaderBoard.root}>
 						<a>
 							<img
@@ -172,7 +172,7 @@ const SubMenu = ({
 					onClick={
 						!isLogin
 							? () => modal.open(<LoginModal />)
-							: () => push(`/${langId}/${paths.referral.root}`)
+							: () => push(paths.referral.root)
 					}
 				>
 					<img
@@ -213,15 +213,47 @@ const SubMenu = ({
 			>
 				<div />
 			</div>
-			<a
-				className={classNames(`rankingList ${langId}`, {
-					active: debouncedMenuKey === 'LeaderBoard',
+
+			<div
+				className={classNames(`homeList ${langId}`, {
+					active: debouncedMenuKey === 'Event',
 				})}
-				onClick={() => push(paths.leaderBoard.root)}
-				onMouseEnter={() => setMenuKey('LeaderBoard')}
+				onMouseLeave={() => setMenuKey(undefined)}
 			>
-				<div />
-			</a>
+				{EVENT_DATA?.map(
+					({
+						name,
+						path,
+						desktopPicUrl,
+						label,
+						isNew,
+						underMaintenance,
+						allowedCurrencies,
+					}) => {
+						if (allowedCurrencies && !includes(allowedCurrencies, currencyId)) {
+							return null
+						}
+						return (
+							<button
+								className={classNames({
+									active: underMaintenance,
+								})}
+								onMouseEnter={() => setMenuKey('Event')}
+								onClick={() => push(path)}
+								key={name}
+							>
+								{isNew && <div className='new-icon'>NEW</div>}
+								<img
+									className='List-npc'
+									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}${desktopPicUrl}`}
+									alt={name}
+								/>
+								<span>{t(label)}</span>
+							</button>
+						)
+					}
+				)}
+			</div>
 		</div>
 	)
 }

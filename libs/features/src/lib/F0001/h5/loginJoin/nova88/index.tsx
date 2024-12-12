@@ -1,15 +1,15 @@
-import { GReCaptchaProviders } from '@nx-next-app/features/F0001/providers/googleReCaptcha-provider'
 import { paths } from '@nx-next-app/constants'
-import { useState } from 'react'
-import { useRouter } from 'next/router'
-import { TmpCookiesObj } from 'cookies-next/lib/types'
 import { useAuth } from '@nx-next-app/data-access'
-import { useTranslation } from 'next-i18next'
+import { MultiCaptchaProvider } from '@nx-next-app/operations'
+import { TmpCookiesObj } from 'cookies-next/lib/types'
 import { isString } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 import SwitchButton from '../common/SwitchButton'
-import Login from '../common/login'
 import Join from '../common/join'
+import Login from '../common/login'
 
 interface ILoginJoinProps {
 	cookies: TmpCookiesObj
@@ -64,12 +64,11 @@ const LoginJoin = ({ cookies }: ILoginJoinProps) => {
 				}}
 			/>
 
-			{formType === 'left' && <Login />}
+			{formType === 'left' && <Login fromRoute={fromRoute} />}
 			{formType === 'right' && (
-				<GReCaptchaProviders>
+				<MultiCaptchaProvider>
 					<Join cookies={cookies} />
-					<div id='g-reCaptcha' />
-				</GReCaptchaProviders>
+				</MultiCaptchaProvider>
 			)}
 		</div>
 	)

@@ -1,4 +1,5 @@
 {
+	"name": "noble888-desktop",
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
 	"sourceRoot": "apps/noble888-desktop",
 	"projectType": "application",

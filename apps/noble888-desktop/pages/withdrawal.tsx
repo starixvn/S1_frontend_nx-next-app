@@ -1,15 +1,14 @@
+import { NovaAuthProvider } from '@noble888-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
-	AuthProvider,
 	getWithdrawalBlockSetting,
 	GlobalDataProvider,
 } from '@nx-next-app/data-access'
-import { Withdrawal } from '@nx-next-app/features/F0001/desktop'
+import { Layout, Withdrawal } from '@nx-next-app/features/F0001/desktop'
 import {
 	CryptoWalletProvider,
 	WithdrawalProvider,
 } from '@nx-next-app/features/F0001/providers'
-import { Layout } from '@nx-next-app/features/F0006/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -26,15 +25,18 @@ interface IWithdrawalPageProps extends InitialPropsInterface {
 }
 
 const WithdrawalPage = ({
+	withdrawalBlockSetting,
 	originIsSignIn,
 	originCookies,
 	persistSEOData,
 	persistFooterData,
 	persistStaticFileDomainData,
-	withdrawalBlockSetting,
 }: IWithdrawalPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -49,7 +51,7 @@ const WithdrawalPage = ({
 					</WithdrawalProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 
