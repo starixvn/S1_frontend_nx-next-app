@@ -1,7 +1,8 @@
-import { SpinButton } from "@nx-next-app/components/H0001";
-import { useAuth } from "@nx-next-app/data-access";
-import { getPromotionPercentage, numberFormat } from "@nx-next-app/utils";
-import { useTranslation } from "next-i18next";
+import { SpinButton } from '@nx-next-app/components/H0001'
+import { useAuth } from '@nx-next-app/data-access'
+import { PromotionProgressBarContainer } from '@nx-next-app/features/F0001/h5/promotion/styles'
+import { getPromotionPercentage, numberFormat } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
 
 const PromotionProgressBar = ({
 	custTurnOver,
@@ -23,7 +24,7 @@ const PromotionProgressBar = ({
 	})
 
 	return (
-		<div className='account'>
+		<PromotionProgressBarContainer>
 			<div className='info'>
 				<div className='info-title'>
 					{t('Label_Promotion_TurnoverAccumulated')}
@@ -45,7 +46,7 @@ const PromotionProgressBar = ({
 				</div>
 				<div className='percentage'>{percentage}%</div>
 			</div>
-		</div>
+		</PromotionProgressBarContainer>
 	)
 }
 

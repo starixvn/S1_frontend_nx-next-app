@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const PromotionPage = styled.div`
 	justify-content: flex-start;
@@ -154,6 +154,56 @@ export const PromotionPage = styled.div`
 			}
 		}
 	}
+`
+
+export const ClaimAmountContainer = styled.div`
+	.popTxt {
+		margin-top: 5.82vw;
+	}
+
+	.btn-group {
+		display: flex;
+		gap: 3.88vw;
+		margin-top: 5.82vw;
+	}
+`
+
+export const PromotionProgressBarContainer = styled.div`
+	position: relative;
+	border-radius: 2.42vw;
+	background: #232b4f;
+	line-height: initial;
+	margin-top: 2.94vw;
+	padding: 1.94vw;
+
+	.info {
+		display: flex;
+		flex-direction: column;
+		gap: 1.94vw;
+		font-size: 2.91vw;
+		color: var(--Color-9, #939dc5);
+
+		.info-title {
+			font-weight: 600;
+		}
+
+		.info-value {
+			font-weight: 400;
+		}
+	}
+
+	.clickBtn {
+		position: absolute;
+		right: 0.97vw;
+		top: 5.48vw;
+		margin: 0 0 0 2vw;
+		width: 7vw;
+		height: 7vw;
+
+		&:before {
+			color: #939dc5;
+		}
+	}
 
 	.progressBarModule {
 		position: relative;
@@ -194,55 +244,5 @@ export const PromotionPage = styled.div`
 			min-width: 6vw;
 			color: #939dc5;
 		}
-	}
-
-	.account {
-		position: relative;
-		border-radius: 2.42vw;
-		background: #232b4f;
-		line-height: initial;
-		margin-top: 2.94vw;
-		padding: 1.94vw;
-
-		.info {
-			display: flex;
-			flex-direction: column;
-			gap: 1.94vw;
-			font-size: 2.91vw;
-			color: var(--Color-9, #939dc5);
-
-			.info-title {
-				font-weight: 600;
-			}
-
-			.info-value {
-				font-weight: 400;
-			}
-		}
-
-		.clickBtn {
-			position: absolute;
-			right: 0.97vw;
-			top: 5.48vw;
-			margin: 0 0 0 2vw;
-			width: 7vw;
-			height: 7vw;
-
-			&:before {
-				color: #939dc5;
-			}
-		}
-	}
-`
-
-export const ClaimAmountContainer = styled.div`
-	.popTxt {
-		margin-top: 5.82vw;
-	}
-
-	.btn-group {
-		display: flex;
-		gap: 3.88vw;
-		margin-top: 5.82vw;
 	}
 `
