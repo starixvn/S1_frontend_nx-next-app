@@ -1,8 +1,9 @@
+import { NovaAuthProvider } from '@noble888-h5/providers'
 import { Header } from '@nx-next-app/components/H0001'
 import { paths } from '@nx-next-app/constants'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout, Referral } from '@nx-next-app/features/F0006/h5'
-import { ReferralProvider } from '@nx-next-app/features/F0006/providers'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
+import { Layout, Referral } from '@nx-next-app/features/F0001/h5'
+import { ReferralProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -22,13 +23,37 @@ const ReferralPage = ({
 	const { t } = useTranslation()
 
 	// 使用 i18n, 因此需放在此處跟著 re-render 更新
-	const referralInfoList: {
-		img: string
-		url: string
-	}[] = []
+	// URL 內的 {{ref_url}} 會被替換為推薦連結
+	const referralInfoList = [
+		{
+			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/icon-Facebook-1.png`,
+			url: `https://www.facebook.com/sharer/sharer.php?u={{ref_url}}&quote=${t(
+				'Label_Referral_Welcome'
+			)}`,
+		},
+		{
+			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/icon-WhatsApp-1.png`,
+			url: `https://wa.me/?&text=${t('Label_Referral_Welcome')} {{ref_url}}`,
+		},
+		{
+			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/icon-Telegram-1.png`,
+			url: `https://t.me/share/url?url={{ref_url}}&text=${t(
+				'Label_Referral_Welcome'
+			)}`,
+		},
+		{
+			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/icon-Line-1.png`,
+			url: `http://line.naver.jp/R/msg/text/?${t(
+				'Label_Referral_Welcome'
+			)}%0D%0A{{ref_url}}`,
+		},
+	]
 
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -53,7 +78,7 @@ const ReferralPage = ({
 					</Layout>
 				</ReferralProvider>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

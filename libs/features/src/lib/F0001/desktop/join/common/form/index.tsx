@@ -17,8 +17,9 @@ import {
 } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
+import { useCaptchaContext } from '@nx-next-app/operations'
 import {
-	useGetRecaptchaInfoQuery,
+	CaptchaTypeEnum,
 	useGetSiteCurrencyListQuery,
 	useLazyAffiliateCheckQuery,
 	useLazyExistsEmailQuery,
@@ -41,7 +42,6 @@ import { includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { useForm } from 'react-hook-form'
 import { LineRegister } from './LineRegister'
 import { LoginHint } from './LoginHint'
@@ -66,7 +66,6 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const { ALLOWED_CURRENCIES } = useStaticData()
 	const { initNationality, countrySelectOptions } = useJoin()
-	const { executeRecaptcha } = useGoogleReCaptcha()
 
 	const {
 		formState,
@@ -95,12 +94,12 @@ const Form = ({ cookies }: IJoinProps) => {
 
 	const [checkExistsUsername, { isFetching: existsUsernameLoading }] =
 		useLazyExistsUserNameQuery()
-	const { data: { data: recaptchaInfoData } = {} } = useGetRecaptchaInfoQuery()
 
 	const [checkExistsEmail, { isFetching: existsEmailLoading }] =
 		useLazyExistsEmailQuery()
 
 	const [signUp] = useSignupMutation()
+	const { Captcha, getToken, captchaType } = useCaptchaContext()
 
 	const [registerRejectClick] = useRegisterRejectClickMutation()
 
@@ -400,18 +399,10 @@ const Form = ({ cookies }: IJoinProps) => {
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
-		// 目前只有 nova 需要 google recaptcha，因為 Yashbet 外面沒有包ㄧ層 GReCaptchaProviders
-		// 會找不到 executeRecaptcha 壞掉 需要在此排除
-		// 中國地區不需驗證
-		const reCaptchaAction = 'signup'
-		let reCaptchaToken
-		if (
-			process.env['NEXT_PUBLIC_SITE_ID'] === '1' &&
-			recaptchaInfoData?.country !== 'CN'
-		) {
-			if (!executeRecaptcha) return
-			reCaptchaToken = await executeRecaptcha(reCaptchaAction)
-		}
+		const reCaptchaToken =
+			captchaType === CaptchaTypeEnum.Number
+				? getValues('reCaptchaToken')
+				: await getToken()
 
 		// currency & recaptcha & affiliate cannot use form required check
 		if (!currencyCheck || !affCodeCheck) return
@@ -440,14 +431,13 @@ const Form = ({ cookies }: IJoinProps) => {
 				Birth_m: birth ? dayjs(birth).format('MM') : 0,
 				Birth_y: birth ? dayjs(birth).format('YYYY') : 0,
 				nationality: nationality ?? initNationality,
-				reCaptchaToken,
-				reCaptchaAction,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,
 				userpwd: password,
 				langId: userLang,
 				lineUserId: lineUserId as string,
+				...(reCaptchaToken && { reCaptchaToken, captchaType }),
 			}).unwrap()
 
 			MetaPixelTracker('CompleteRegistration', username)
@@ -685,7 +675,17 @@ const Form = ({ cookies }: IJoinProps) => {
 					/>
 				)}
 			</div>
-
+			{captchaType === CaptchaTypeEnum.Number && (
+				<InputBox
+					register={register('reCaptchaToken', { required: true })}
+					icon='icon txt-blue'
+					placeholder={t('Label_General_EnterCaptchaCode') as string}
+					errorMessage={errors['reCaptchaToken']?.message as string}
+					error={!!errors['reCaptchaToken']}
+					touched={!!touchedFields['reCaptchaToken']}
+				/>
+			)}
+			<Captcha />
 			<div className='Terms'>
 				{t('Label_Join_SignUpTerms1')}
 				<a

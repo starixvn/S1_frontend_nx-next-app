@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import liff from '@line/liff'
+import { initAdjustSDK } from '@nx-next-app/utils'
 import { createContext, ReactNode, useEffect, useState } from 'react'
 import {
 	ITpGameTypeData,
@@ -85,6 +86,7 @@ const GlobalDataProvider = ({
 	}
 
 	useEffect(() => {
+		initAdjustSDK()
 		setIsInApp(isReactNativeWebView())
 		setIsInLiff(liff.isInClient())
 	}, [])

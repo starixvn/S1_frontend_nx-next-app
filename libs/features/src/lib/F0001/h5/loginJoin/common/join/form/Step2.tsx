@@ -12,7 +12,8 @@ import {
 	PHONE_LENGTH_REGEX,
 } from '@nx-next-app/constants'
 import { useJoin } from '@nx-next-app/features/F0001/hooks'
-import { useLazyExistsEmailQuery } from '@nx-next-app/service'
+import { useCaptchaContext } from '@nx-next-app/operations'
+import { CaptchaTypeEnum, useLazyExistsEmailQuery } from '@nx-next-app/service'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import { useTranslation } from 'next-i18next'
@@ -43,6 +44,8 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 		clearErrors,
 		getFieldState,
 	} = useFormContext()
+
+	const { Captcha, captchaType } = useCaptchaContext()
 
 	const { errors, touchedFields } = formState
 	const watchCurrencyId = watch('currencyId')
@@ -241,6 +244,19 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 				}}
 				errorMessage={errors['nationality']?.message as string}
 			/>
+			{captchaType === CaptchaTypeEnum.Number && (
+				<InputBox
+					register={register('reCaptchaToken', { required: true })}
+					icon='icon txt-blue'
+					placeholder={t('Label_General_EnterCaptchaCode') as string}
+					errorMessage={errors['reCaptchaToken']?.message as string}
+					error={!!errors['reCaptchaToken']}
+					touched={!!touchedFields['reCaptchaToken']}
+				/>
+			)}
+			<div>
+				<Captcha />
+			</div>
 
 			<div className='btn-group'>
 				<button type='submit'>{t('Label_General_Join')}</button>

@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/heading-has-content */
+import { NovaAuthProvider } from '@noble888-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
-	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
-import { Layout, LeftMenu, Profile } from '@nx-next-app/features/F0006/desktop'
+import { Layout, LeftMenu, Profile } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -30,7 +30,10 @@ const ProfilePage = ({
 	withdrawalBlockSetting,
 }: IProfilePageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -43,7 +46,7 @@ const ProfilePage = ({
 					</main>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

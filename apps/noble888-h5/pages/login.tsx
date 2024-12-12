@@ -1,6 +1,6 @@
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { Layout } from '@nx-next-app/features/F0001/h5'
-import { LoginJoin } from '@nx-next-app/features/F0001/h5/loginJoin/yashbet'
+import { NovaAuthProvider } from '@noble888-h5/providers'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
+import { Layout, LoginJoin } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -17,7 +17,10 @@ const LoginPage = ({
 	persistStaticFileDomainData,
 }: IHomePageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -25,7 +28,7 @@ const LoginPage = ({
 					<LoginJoin cookies={originCookies} />
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

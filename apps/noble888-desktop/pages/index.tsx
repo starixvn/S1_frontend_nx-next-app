@@ -1,26 +1,22 @@
+import { NovaAuthProvider } from '@noble888-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
-	AuthProvider,
 	GlobalDataProvider,
 	getBanner,
 	getHotEvent,
 	getHotGame,
-	getLatestHighlightVideo,
-	getNews,
 	getPromotion,
 } from '@nx-next-app/data-access'
-import { Home, Layout } from '@nx-next-app/features/F0006/desktop'
-import { HomeProvider } from '@nx-next-app/features/F0006/providers'
+import { Home, Layout } from '@nx-next-app/features/F0001/desktop'
+import { HomeProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import {
 	IBannerData,
-	IHighlightData,
 	IHotEventData,
 	IHotGame,
-	INewsData,
 	IPromotionData,
 } from '@nx-next-app/service'
 import { DESKTOP_HOME_ORDERS, FOOTER_DATA } from '@nx-next-app/site/noble888'
@@ -44,10 +40,8 @@ path.resolve('./next.config.js')
 interface IHomePageProps extends InitialPropsInterface {
 	persistBannerData: IBannerData[]
 	persistPromotionData: IPromotionData[]
-	persistLatestHighlightVideo: IHighlightData
 	persistHotEventData: IHotEventData[]
 	persistHotGameData: IHotGame[]
-	persistNewsData: INewsData[]
 	persistFooterData: IFooterData
 }
 
@@ -57,40 +51,39 @@ const HomePage = ({
 	persistSEOData,
 	persistBannerData,
 	persistPromotionData,
-	persistLatestHighlightVideo,
 	persistHotEventData,
 	persistHotGameData,
-	persistNewsData,
 	persistFooterData,
 	persistStaticFileDomainData,
 }: IHomePageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
 				<Layout
 					showFooter
-					isFullFooter
 					persistSEOData={persistSEOData}
 					footerData={persistFooterData}
 				>
 					<HomeProvider
 						persistBannerData={persistBannerData}
 						persistPromotionData={persistPromotionData}
-						persistLatestHighlightVideo={persistLatestHighlightVideo}
 						persistHotEventData={persistHotEventData}
 						persistHotGameData={persistHotGameData}
-						persistNewsData={persistNewsData}
 						persistLicenseData={persistFooterData.licenseData}
-						persistProgramList={persistFooterData.programList}
+						persistQuickLinksList={persistFooterData.quickLinks}
+						persistPlatformList={persistFooterData.platformList}
 						desktopHomeOrders={DESKTOP_HOME_ORDERS}
 					>
 						<Home />
 					</HomeProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 
@@ -102,22 +95,36 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
 
-	const persistBannerData = await getBanner(
-		{
-			langId,
-			currencyId,
-			bannerTypes: [BannerTypeEnum.Main],
-		},
-		{ headers: { cookie: currentHeaderCookies } }
-	)
-	const rawPromotionData = await getPromotion(
-		{
-			langId,
-			currencyId,
+	const [
+		persistBannerData,
+		rawPromotionData,
+		persistHotEventData,
+		hotGameData,
+	] = await Promise.all([
+		getBanner(
+			{
+				langId,
+				currencyId,
+				bannerTypes: [BannerTypeEnum.Main],
+			},
+			{ headers: { cookie: currentHeaderCookies } }
+		),
+		getPromotion(
+			{
+				langId,
+				currencyId,
+				deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
+			},
+			{ headers: { cookie: currentHeaderCookies } }
+		),
+		getHotEvent({ langId }),
+		getHotGame({
 			deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
-		},
-		{ headers: { cookie: currentHeaderCookies } }
-	)
+			currencyId,
+		}),
+	])
+
+	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
 
 	const persistPromotionData = filter(
 		rawPromotionData,
@@ -126,32 +133,12 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		}
 	)
 
-	const persistLatestHighlightVideo = await getLatestHighlightVideo({ langId })
-
-	const persistHotEventData = await getHotEvent({ langId })
-
-	const hotGameData = await getHotGame({
-		deviceType: Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']),
-		currencyId,
-	})
-
-	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}
-
-	const persistNewsData = await getNews({
-		langId,
-		currencyId,
-		pageSize: 2,
-		pageNumber: 1,
-	})
-
 	return {
 		props: {
 			persistBannerData,
 			persistPromotionData,
-			persistLatestHighlightVideo,
 			persistHotEventData,
 			persistHotGameData,
-			persistNewsData,
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),
 			...initialProps,
 			...(await serverSideTranslations(context.locale)),

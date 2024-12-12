@@ -1,7 +1,8 @@
+import { NovaAuthProvider } from '@noble888-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { AppDownload, Layout } from '@nx-next-app/features/F0006/desktop'
-import { AppDownloadProvider } from '@nx-next-app/features/F0006/providers'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
+import { AppDownload, Layout } from '@nx-next-app/features/F0001/desktop'
+import { AppDownloadProvider } from '@nx-next-app/features/F0001/providers'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -24,7 +25,10 @@ const AppDownloadPage = ({
 	persistStaticFileDomainData,
 }: IAppDownloadPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -37,17 +41,19 @@ const AppDownloadPage = ({
 					</Layout>
 				</AppDownloadProvider>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
 	const { originCookies } = initialProps
+
 	const { langId, currencyId } = {
 		langId: originCookies[ENV_COOKIE_NAMES.LangId] as string,
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
+
 	return {
 		props: {
 			persistFooterData: FOOTER_DATA({ langId, currencyId }),

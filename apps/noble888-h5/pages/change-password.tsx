@@ -1,5 +1,6 @@
-import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
-import { ChangePassword, Layout } from '@nx-next-app/features/F0006/h5'
+import { NovaAuthProvider } from '@noble888-h5/providers'
+import { GlobalDataProvider } from '@nx-next-app/data-access'
+import { ChangePassword, Layout } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -14,7 +15,10 @@ const ChangePasswordPage = ({
 	persistStaticFileDomainData,
 }: InitialPropsInterface) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -22,7 +26,7 @@ const ChangePasswordPage = ({
 					<ChangePassword />
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 
@@ -31,6 +35,7 @@ export default ChangePasswordPage
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
 
+	// 後台強制 change-password 時仍需要此頁面，故保留
 	if (!initialProps.originIsSignIn) {
 		return {
 			redirect: {

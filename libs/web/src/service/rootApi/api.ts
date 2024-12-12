@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/dist/query/react'
-import { baseUrl } from '../baseApi'
 import { axiosBaseQuery } from '../axiosBaseQuery'
+import { baseUrl } from '../baseApi'
 
 /*
  * 配置初始定義的 createApi，減少初始 bundle 的大小，定義後調用 injectEndpoints 來定義額外的 api
@@ -37,6 +37,7 @@ export const rootApi = createApi({
 		'EUROPE_CUP_EVENT_GET_TICKETS',
 		'OLYMPIC_EVENT_GET_TICKETS',
 		'QUESTIONNAIRE_POST',
+		'CAPTCHA',
 	],
 	endpoints: () => ({}),
 })

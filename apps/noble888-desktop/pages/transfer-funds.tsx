@@ -1,6 +1,6 @@
+import { NovaAuthProvider } from '@noble888-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
-	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
@@ -8,7 +8,7 @@ import {
 	Layout,
 	LeftMenu,
 	TransferFunds,
-} from '@nx-next-app/features/F0006/desktop'
+} from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -18,7 +18,7 @@ import { IFooterData } from '@nx-next-app/types'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-import { TransferFundsProvider } from '@nx-next-app/features/F0006/providers'
+import { TransferFundsProvider } from '@nx-next-app/features/F0001/providers'
 import { FOOTER_DATA } from '@nx-next-app/site/noble888'
 
 interface ITransferFundsPageProps extends InitialPropsInterface {
@@ -35,7 +35,10 @@ const TransferFundsPage = ({
 	withdrawalBlockSetting,
 }: ITransferFundsPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -53,7 +56,7 @@ const TransferFundsPage = ({
 					</Layout>
 				</TransferFundsProvider>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

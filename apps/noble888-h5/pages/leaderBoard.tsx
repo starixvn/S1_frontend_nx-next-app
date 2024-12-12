@@ -1,9 +1,9 @@
+import { NovaAuthProvider } from '@noble888-h5/providers'
 import {
-	AuthProvider,
 	GlobalDataProvider,
 	LeaderBoardProvider,
 } from '@nx-next-app/data-access'
-import { Layout, LeaderBoard } from '@nx-next-app/features/F0006/h5'
+import { Layout, LeaderBoard } from '@nx-next-app/features/F0001/h5'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -32,7 +32,10 @@ const LeaderBoardPage = ({
 	persistStaticFileDomainData,
 }: ILeaderBoardPageProps) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -52,7 +55,7 @@ const LeaderBoardPage = ({
 					</LeaderBoardProvider>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 

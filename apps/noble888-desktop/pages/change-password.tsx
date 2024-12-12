@@ -1,6 +1,6 @@
+import { NovaAuthProvider } from '@noble888-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
-	AuthProvider,
 	GlobalDataProvider,
 	getWithdrawalBlockSetting,
 } from '@nx-next-app/data-access'
@@ -8,7 +8,7 @@ import {
 	ChangePassword,
 	Layout,
 	LeftMenu,
-} from '@nx-next-app/features/F0006/desktop'
+} from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
 	useServerSideInitialPropsFetcher,
@@ -33,7 +33,10 @@ const ChangePasswordPage = ({
 	withdrawalBlockSetting,
 }: IChangePasswordPage) => {
 	return (
-		<AuthProvider originIsSignIn={originIsSignIn} originCookies={originCookies}>
+		<NovaAuthProvider
+			originIsSignIn={originIsSignIn}
+			originCookies={originCookies}
+		>
 			<GlobalDataProvider
 				persistStaticFileDomainData={persistStaticFileDomainData}
 			>
@@ -46,7 +49,7 @@ const ChangePasswordPage = ({
 					</main>
 				</Layout>
 			</GlobalDataProvider>
-		</AuthProvider>
+		</NovaAuthProvider>
 	)
 }
 
@@ -58,13 +61,12 @@ export const getServerSideProps: GetServerSideProps = async context => {
 		currencyId: Number(originCookies[ENV_COOKIE_NAMES.CurrencyId]),
 	}
 
-	if (!initialProps.originIsSignIn) {
-		return {
-			redirect: {
-				destination: '/',
-				permanent: false,
-			},
-		}
+	// 當前已將 change-password 功能，改至 setting 頁，故將此頁等回首頁
+	return {
+		redirect: {
+			destination: '/',
+			permanent: false,
+		},
 	}
 
 	const withdrawalBlockSetting = await getWithdrawalBlockSetting({

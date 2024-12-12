@@ -167,6 +167,9 @@ export const paths = {
 	news: {
 		root: '/news',
 	},
+	predictionChallenge: {
+		root: '/prediction-challenge',
+	},
 } as const
 
 export type IRootpath = (typeof paths)[keyof typeof paths]['root']

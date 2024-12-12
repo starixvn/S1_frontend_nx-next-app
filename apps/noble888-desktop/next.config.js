@@ -1,7 +1,7 @@
 /* eslint-disable */
-const path = require('path')
 
 const withNx = require('@nrwl/next/plugins/with-nx')
+const path = require('path')
 
 process.env.I18NEXT_DEFAULT_CONFIG_PATH = `${__dirname}/next-i18next.config.js`
 
@@ -55,10 +55,7 @@ const nextConfig = {
 	experimental: {
 		outputFileTracingRoot: path.join(__dirname, '../../'),
 		// 提高 serverside page props data threshold , 避免 128kb 警告
-		largePageDataBytes: 128 * 10000,
-	},
-	sassOptions: {
-		implementation: 'sass-embedded',
+		// largePageDataBytes: 128 * 10000,
 	},
 }
 

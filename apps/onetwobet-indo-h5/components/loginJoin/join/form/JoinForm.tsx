@@ -11,7 +11,9 @@ import {
 	USERNAME_REGEX,
 } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
+import { useCaptchaContext } from '@nx-next-app/operations'
 import {
+	CaptchaTypeEnum,
 	useLazyAffiliateCheckQuery,
 	useLazyExistsEmailQuery,
 	useLazyExistsUserNameQuery,
@@ -63,6 +65,8 @@ const JoinForm = ({
 		setValue,
 	} = useFormContext()
 	const { errors, touchedFields } = formState
+
+	const { Captcha, captchaType } = useCaptchaContext()
 
 	const [affiliateCheck] = useLazyAffiliateCheckQuery()
 	const [checkExistsUsername] = useLazyExistsUserNameQuery()
@@ -287,6 +291,21 @@ const JoinForm = ({
 				infoMessage={t('Label_Join_Please_Enter_Affiliate_ID')}
 				readOnly={!!urlAffiliate && !!getValues('affiliate')}
 			/>
+
+			<div style={{ textAlign: 'center' }}>
+				<Captcha />
+			</div>
+			{captchaType === CaptchaTypeEnum.Number && (
+				<InputBox
+					register={register('reCaptchaToken', { required: true })}
+					icon='icon txt-blue'
+					placeholder={t('Label_General_EnterCaptchaCode') as string}
+					errorMessage={errors['reCaptchaToken']?.message as string}
+					error={!!errors['reCaptchaToken']}
+					touched={!!touchedFields['reCaptchaToken']}
+				/>
+			)}
+
 			<div className='btn-group'>
 				<button
 					type='submit'

@@ -4,14 +4,17 @@ import { DepositPaymentEnum } from '@nx-next-app/types'
  * 存款選項的開關與排序
  */
 export const DEPOSIT_PAYMENT_ORDERS = [
+	DepositPaymentEnum.DigitalWallet,
 	DepositPaymentEnum.AutoDeposit,
 	DepositPaymentEnum.BankTransfer,
-	DepositPaymentEnum.LinePay,
+	DepositPaymentEnum.QuickTransfer,
+	DepositPaymentEnum.QRPay,
 	DepositPaymentEnum.OnlineBanking,
+	DepositPaymentEnum.LinePay,
 	DepositPaymentEnum.MobilePay,
 	DepositPaymentEnum.CryptoPay,
-	DepositPaymentEnum.QRPay,
 	DepositPaymentEnum.TopUpCardPay,
+	DepositPaymentEnum.ChatTransfer,
 ]
 
 export const DEPOSIT_PAYMENT_OPTIONS = {
@@ -46,13 +49,28 @@ export const DEPOSIT_PAYMENT_OPTIONS = {
 		icon: 'icon icon-USDT',
 	},
 	[DepositPaymentEnum.QRPay]: {
-		labelDisplayKey: 'QR Pay',
+		labelDisplayKey: 'Label_Deposit_QR_Pay',
 		timeDisplayKey: 'Label_General_Instant',
 		icon: 'icon icon-qrpay',
 	},
 	[DepositPaymentEnum.TopUpCardPay]: {
-		labelDisplayKey: 'TOP-UP CARD',
+		labelDisplayKey: 'Label_Deposit_Top_Up_Card',
 		timeDisplayKey: 'Label_General_Instant',
 		icon: 'icon icon-topup',
+	},
+	[DepositPaymentEnum.QuickTransfer]: {
+		labelDisplayKey: 'Label_Deposit_Quick_Transfer',
+		timeDisplayKey: 'Label_General_Instant',
+		icon: 'icon-quick',
+	},
+	[DepositPaymentEnum.ChatTransfer]: {
+		labelDisplayKey: 'Label_Deposit_Quick_ChatTransfer',
+		timeDisplayKey: 'Label_General_Instant',
+		icon: 'icon-dou',
+	},
+	[DepositPaymentEnum.DigitalWallet]: {
+		labelDisplayKey: 'Label_Deposit_DigitalWallet',
+		timeDisplayKey: 'Label_General_Instant',
+		icon: 'icon icon-digital-wallet',
 	},
 }

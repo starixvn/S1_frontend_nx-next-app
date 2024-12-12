@@ -1,3 +1,15 @@
-export const GET_AFFILIATE_LINK = ({ langId }: { langId: string }) => {
-	return `https://aff.yashbet.com/?lang=${langId}`
+import { CurrenciesEnum } from '@nx-next-app/types'
+
+export const GET_AFFILIATE_LINK = ({
+	currencyId,
+	langId,
+}: {
+	currencyId: number
+	langId: string
+}) => {
+	if (currencyId === CurrenciesEnum.INR) {
+		return `https://aff.nova88india.com/?lang=${langId}`
+	}
+	// return `https://aff.nova88bkk.com/?lang=${langId}`
+	return ` https://aff.nova88mas102.com/?lang=${langId}`
 }
