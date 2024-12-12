@@ -107,7 +107,10 @@ const Wallet = ({
 					<span>{currencyName}</span>
 					<span>
 						{numberFormat(totalWalletBalance, currencyId, 2)}
-						<SpinButton className='icon icon-refresh-fill' onClick={onRefetchAllWallet}/>
+						<SpinButton
+							className='icon icon-refresh-fill'
+							onClick={onRefetchAllWallet}
+						/>
 					</span>
 				</div>
 
@@ -179,13 +182,15 @@ const Wallet = ({
 					<span>{t('Label_General_LastLogin')}</span>
 					<span>{dayjs(lastLogin).format('L LT')}</span>
 				</div>
-				<div className='transactionLog'>
-					<span>{t('Label_General_LastTransaction')}</span>
+				{dayjs(lastTransaction).isAfter(dayjs('2024-01-01')) && (
+					<div className='transactionLog'>
+						<span>{t('Label_General_LastTransaction')}</span>
 
-					<span>
-						{lastTransaction && dayjs(lastTransaction).format('L LT')}
-					</span>
-				</div>
+						<span>
+							{lastTransaction && dayjs(lastTransaction).format('L LT')}
+						</span>
+					</div>
+				)}
 			</div>
 		</HomeBalance>
 	)
