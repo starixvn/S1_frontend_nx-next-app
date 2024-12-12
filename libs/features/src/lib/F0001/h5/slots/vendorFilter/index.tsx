@@ -20,18 +20,9 @@ const VendorFilter = () => {
 					return (
 						<VendorItem
 							key={`slot-swiper-${tpId}`}
-							item={{
-								tpId,
-								displayText,
-								openPath,
-								pathRoot,
-								tpName,
-								imgName,
-								...rest,
-							}}
-							tpId={tpId}
+              isActive={activeVendorTpId === tpId}
 							displayText={displayText}
-							activeVendorTpId={activeVendorTpId}
+							imgName={imgName}
 							onClick={() =>
 								onVendorChange({
 									tpId,
