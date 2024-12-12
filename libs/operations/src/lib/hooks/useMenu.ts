@@ -310,7 +310,7 @@ const useMenu = () => {
 		) {
 			return onWindowOpenProduct({
 				pathname: entPageUrl,
-				windowKey: `${tpId}_${gameId}`,
+				windowKey: `${tpId}`,
 			})
 		}
 
@@ -321,7 +321,7 @@ const useMenu = () => {
 		}
 		onWindowOpenProduct({
 			pathname: entPageUrl,
-			windowKey: `${tpId}_${gameId}`,
+			windowKey: `${tpId}`,
 		})
 	}
 
@@ -452,7 +452,7 @@ const useMenu = () => {
 
 			const { menuActionType } =
 				Number(process.env['NEXT_PUBLIC_DEVICE_TYPE']) ===
-				DeviceTypeEnum.Desktop
+					DeviceTypeEnum.Desktop
 					? desktop || {}
 					: h5 || {}
 

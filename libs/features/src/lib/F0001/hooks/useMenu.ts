@@ -316,7 +316,7 @@ const useMenu = () => {
 		) {
 			return onWindowOpenProduct({
 				pathname: entPageUrl,
-				windowKey: `${tpId}_${gameId}`,
+				windowKey: `${tpId}`,
 			})
 		}
 
@@ -327,7 +327,7 @@ const useMenu = () => {
 		}
 		onWindowOpenProduct({
 			pathname: entPageUrl,
-			windowKey: `${tpId}_${gameId}`,
+			windowKey: `${tpId}`,
 		})
 	}
 
