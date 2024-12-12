@@ -64,6 +64,18 @@ export enum RebateCategoryEnum {
 	ESports = 4,
 }
 
+export enum CaptchaTypeEnum {
+	Number,
+	Google,
+	Cloudflare,
+}
+
+export enum CaptchaActionTypeEnum {
+	Signup = 'signup',
+	Login = 'login',
+	PasswordReset = 'password_reset',
+}
+
 export interface ISignUpArgs {
 	affCode?: string
 	affId?: string
@@ -77,13 +89,13 @@ export interface ISignUpArgs {
 	phoneNo?: string
 	realName?: string
 	reCaptchaToken?: string | undefined
-	reCaptchaAction?: string
 	referralUrl?: string
 	userLang: string
 	userName: string
 	userpwd: string
 	langId: string
 	lineUserId?: string
+	captchaType?: CaptchaTypeEnum
 }
 
 export interface IGetBannerArgs {
@@ -158,4 +170,19 @@ export interface IResetPwdVerifyOTPArgs {
 export interface ICountryListData {
 	code: string
 	country: string
+}
+
+export interface IRecaptchaInfoData {
+	type: CaptchaTypeEnum
+	siteKey: string
+	country: string
+}
+
+export interface IGetNumberCaptchaData {
+	picture: string
+	seconds: number
+}
+
+export interface IGetNumberCaptchaArgs {
+	action: CaptchaActionTypeEnum
 }

@@ -7,8 +7,9 @@ import {
 	paths,
 } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useJoin } from '@nx-next-app/operations'
+import { useCaptchaContext, useJoin } from '@nx-next-app/operations'
 import {
+	CaptchaTypeEnum,
 	useGetSiteCurrencyListQuery,
 	useLazyAffiliateCheckQuery,
 	useLazyGetAffiliateAgentQuery,
@@ -55,6 +56,7 @@ const Join = () => {
 	const { LANG_GROUPS } = useStaticData()
 	const { initNationality } = useJoin()
 	const { modal } = useGlobalModal()
+	const { getToken, captchaType } = useCaptchaContext()
 
 	const {
 		userInfo: { langId },
@@ -203,6 +205,11 @@ const Join = () => {
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
+		const reCaptchaToken =
+			captchaType === CaptchaTypeEnum.Number
+				? getValues('reCaptchaToken')
+				: await getToken()
+
 		if (!currencyCheck || !affCodeCheck) return
 
 		const affId = affiliate && urlAffId ? String(affiliate) : null
@@ -210,7 +217,7 @@ const Join = () => {
 
 		// use register currency to get langId, if not exist, use default en
 		const userLang =
-			LANG_GROUPS[CURRENCY_TO_LANG_KEY[formCurrencyId] as string].find(
+			LANG_GROUPS[CURRENCY_TO_LANG_KEY[formCurrencyId] as string]?.find(
 				({ value }) => value === langId
 			)?.value ?? 'en'
 
@@ -222,12 +229,12 @@ const Join = () => {
 				...(joinBy === JoinMethod.Email
 					? { email }
 					: { areaCode, phoneNo: phone }),
-				// reCaptchaToken,
 				referralUrl: document.referrer,
 				userLang,
 				userName: username,
 				userpwd: password,
 				langId: userLang,
+				...(reCaptchaToken && { reCaptchaToken, captchaType }),
 			}).unwrap()
 
 			// opera and meta pixel tracker
