@@ -31,7 +31,7 @@ const Statement = () => {
 							<div className='dropdown'>
 								<Select
 									options={Array.from({ length: totalPage }, (_, index) => ({
-										value: index + 1,
+										value: index,
 										label: index + 1,
 									}))}
 									placeholder='-'
