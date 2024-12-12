@@ -17,11 +17,11 @@ const DepositMenu = ({ depositId, depositAmount }: IDepositMenuProps) => {
 		<div className='minAmount custom-table' style={{ marginBottom: '1.6rem' }}>
 			<div className='custom-table-thead'>
 				<div className='custom-th'>{t('Label_General_ID')}</div>
-				<div className='custom-th'>{depositId}</div>
+				<div className='custom-th'>{t('Label_General_DepositAmount')}</div>
 			</div>
 			<div className='custom-table-tbody'>
 				<div className='custom-td'>
-					<div className='td'>{t('Label_General_DepositAmount')}</div>
+					<div className='td'>{depositId}</div>
 					<div className='td'>{numberFormat(depositAmount, currencyId)}</div>
 				</div>
 			</div>
