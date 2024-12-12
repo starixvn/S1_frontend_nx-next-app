@@ -2,14 +2,15 @@ import { AdjustTracker } from 'libs/web/src/utils/tracker/adjust'
 import { MetaPixelTracker } from 'libs/web/src/utils/tracker/metaPixel'
 import { OperaPixelTracker } from 'libs/web/src/utils/tracker/operaPixel'
 
-// 註冊全域變數
+// global.d.ts
 declare global {
 	interface Window {
 		fbq?: (action: string, ...args: any[]) => void
 		Adjust?: {
 			initSdk: (config: {
 				appToken: string
-				environment: string
+				environment: 'sandbox' | 'production'
+				// 有需要才開啟，測試模式使用 verbose 可以顯示所有 sdk 行為，方便確認用戶 uuid
 				logLevel?: 'verbose' | 'debug' | 'info' | 'warn' | 'error' | 'assert'
 			}) => void
 			trackEvent: (params: {
