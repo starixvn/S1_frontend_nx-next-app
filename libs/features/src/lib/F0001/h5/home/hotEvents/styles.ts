@@ -1,10 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HotMatchContainer = styled.div`
 	position: relative;
-	margin-top: 5.8vw;
+	margin-left: 3.88vw;
+	margin-bottom: 5.8vw;
 
-	.swiper-container {
+	.home-hotmatch-swiper {
 		overflow: hidden;
 		position: unset !important;
 	}

@@ -11,6 +11,7 @@ export const HeaderContainer = styled.div`
 	padding: 0;
 	z-index: 3;
 	justify-content: space-between;
+	overflow: hidden;
 
 	.btn-groups {
 		display: flex;
@@ -32,6 +33,7 @@ export const HeaderContainer = styled.div`
 		align-items: center;
 		padding: 2vw 0;
 		justify-content: space-between;
+
 		.header-logo {
 			position: relative;
 			img {

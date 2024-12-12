@@ -1,14 +1,14 @@
-import { dateFormat, paths, timeFormat } from "@nx-next-app/constants";
-import { useAuth } from "@nx-next-app/data-access";
-import { HotMatchContainer } from "@nx-next-app/features/F0001/h5/home/hotEvents/styles";
-import { useMenu } from "@nx-next-app/features/F0001/hooks";
-import { useHome } from "@nx-next-app/features/F0001/providers";
-import { CurrenciesEnum } from "@nx-next-app/types";
-import classNames from "classnames";
-import dayjs from "dayjs";
-import { useTranslation } from "next-i18next";
-import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
+import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { HotMatchContainer } from '@nx-next-app/features/F0001/h5/home/hotEvents/styles'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { CurrenciesEnum } from '@nx-next-app/types'
+import classNames from 'classnames'
+import dayjs from 'dayjs'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -17,7 +17,7 @@ export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 const config = {
 	spaceBetween: 10,
 	shouldSwiperUpdate: true,
-	slidesPerView: 1.05,
+	slidesPerView: 1.12,
 	containerClass: 'hotmatch-swiper-container',
 }
 

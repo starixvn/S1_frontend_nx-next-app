@@ -1,10 +1,10 @@
-import { paths } from "@nx-next-app/constants";
-import GroupTitle from "@nx-next-app/features/F0001/h5/home/GroupTitle";
-import { GameGroup } from "@nx-next-app/features/F0001/h5/home/styles";
-import { useHome } from "@nx-next-app/features/F0001/providers";
-import { isUrl } from "@nx-next-app/utils";
-import { useTranslation } from "next-i18next";
-import dynamic from "next/dynamic";
+import { paths } from '@nx-next-app/constants'
+import GroupTitle from '@nx-next-app/features/F0001/h5/home/GroupTitle'
+import { GameGroup } from '@nx-next-app/features/F0001/h5/home/styles'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { isUrl } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -13,7 +13,7 @@ export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 const config = {
 	shouldSwiperUpdate: true,
 	containerClass: 'home-promos-container',
-	slidesPerView: 1.05,
+	slidesPerView: 1.12,
 	spaceBetween: 10,
 }
 const PromotionSwiper = () => {

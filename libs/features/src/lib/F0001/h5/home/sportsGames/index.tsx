@@ -1,13 +1,13 @@
-import { paths } from "@nx-next-app/constants";
-import GameList from "@nx-next-app/features/F0001/h5/home/GameList";
-import GroupTitle from "@nx-next-app/features/F0001/h5/home/GroupTitle";
-import HotEvents from "@nx-next-app/features/F0001/h5/home/hotEvents";
-import { SportContainer } from "@nx-next-app/features/F0001/h5/home/sportsGames/styles";
-import { GameGroup } from "@nx-next-app/features/F0001/h5/home/styles";
-import { useHome } from "@nx-next-app/features/F0001/providers";
-import { TpCategory } from "@nx-next-app/service";
-import { useTranslation } from "next-i18next";
-import dynamic from "next/dynamic";
+import { paths } from '@nx-next-app/constants'
+import GameList from '@nx-next-app/features/F0001/h5/home/GameList'
+import GroupTitle from '@nx-next-app/features/F0001/h5/home/GroupTitle'
+import HotEvents from '@nx-next-app/features/F0001/h5/home/hotEvents'
+import { SportContainer } from '@nx-next-app/features/F0001/h5/home/sportsGames/styles'
+import { GameGroup } from '@nx-next-app/features/F0001/h5/home/styles'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { TpCategory } from '@nx-next-app/service'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
@@ -21,7 +21,11 @@ const SportsGames = () => {
 		return element.tpCategory === TpCategory.Sports
 	})
 
-	if (hotGameCasino === null || hotGameCasino === undefined || hotGameCasino?.length === 0) {
+	if (
+		hotGameCasino === null ||
+		hotGameCasino === undefined ||
+		hotGameCasino?.length === 0
+	) {
 		return <div />
 	}
 
@@ -30,8 +34,8 @@ const SportsGames = () => {
 			<GameGroup>
 				<GroupTitle title={t('Label_General_Sports')} href={paths.game.root} />
 				<GameList gameData={hotGameCasino} isControlButton />
-				<HotEvents />
 			</GameGroup>
+			<HotEvents />
 		</SportContainer>
 	)
 }

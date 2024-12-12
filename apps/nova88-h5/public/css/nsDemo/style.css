@@ -10297,29 +10297,6 @@ main.casino .banner {
 	transform: translateX(-50%);
 }
 
-.home-mainbanner .swiper-container {
-	position: relative;
-	margin: 0 auto;
-	overflow: hidden;
-	list-style: none;
-	padding: 0;
-	width: 100%;
-}
-.home-mainbanner .swiper-container .swiper-slide.swiper-slide-active {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
-.home-mainbanner .swiper-container .swiper-pagination-bullet-active {
-	background: #5574a7;
-}
-.home-mainbanner .mainbanner {
-	height: 40vw;
-	display: block;
-}
 
 .home-gamelist {
 	display: -webkit-box;

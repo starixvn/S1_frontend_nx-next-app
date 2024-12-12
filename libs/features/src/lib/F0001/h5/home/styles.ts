@@ -50,7 +50,6 @@ export const HomPageContainer = styled.div`
 		margin-top: 7.2vw;
 		margin-left: 0;
 		overflow: hidden;
-		width: 100vw;
 
 		.swiper-slide {
 			max-width: 84vw;
@@ -85,7 +84,7 @@ export const GroupTitleContainer = styled.div`
 	.load-more {
 		display: flex;
 		align-items: center;
-		margin-right: 22vw;
+		margin-right: 26.21vw;
 		color: ${({ theme }) => theme.mobile.homePageLoadMoreColor};
 		font-size: 4.1vw;
 		font-weight: 600;
@@ -97,10 +96,10 @@ export const GroupTitleContainer = styled.div`
 `
 export const GameGroup = styled.div`
 	position: relative;
-	padding: 5.8vw 3.8vw;
+	padding: 5.8vw 0 5.8vw 3.8vw;
 
 	&.promotion .load-more {
-		margin-right: 0 !important;
+		margin-right: 3.2vw !important;
 	}
 
 	.embla__container {
