@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HomeMarquee = styled.div`
 	background: ${({ theme }) => theme.mobile.marqueeMessageBg};
@@ -23,8 +23,8 @@ export const HomeMarquee = styled.div`
 		.marquee-run {
 			position: absolute;
 			white-space: nowrap;
-			margin-left: 12vw;
-			padding-left: 55vw;
+			margin-left: 19vw;
+
 			button {
 				-webkit-text-size-adjust: 100%;
 				padding: 1vw;
@@ -51,31 +51,16 @@ export const HomeMarquee = styled.div`
 			z-index: 1;
 		}
 	}
-	> div.active {
-		width: calc(100% - 5vw);
-		animation-name: marquee;
-		animation-duration: 4600ms;
-		animation-iteration-count: infinite;
-	}
+	// > div.active {
+	// 	width: calc(100% - 5vw);
+	// 	animation-name: marquee;
+	// 	animation-duration: 4600ms;
+	// 	animation-iteration-count: infinite;
+	// }
 	.btn-more {
 		color: #9c9c9c;
 		text-decoration: underline;
 		font-weight: 600;
 		margin-right: 2vw;
-	}
-
-	@keyframes marquee {
-		0% {
-			opacity: 0;
-			transform: translateY(16px);
-		}
-		25% {
-			opacity: 1;
-			transform: translateY(0px);
-		}
-		100% {
-			opacity: 1;
-			transform: translateY(0px);
-		}
 	}
 `
