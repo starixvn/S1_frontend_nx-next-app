@@ -35,7 +35,7 @@ const Statement = () => {
 										label: index + 1,
 									}))}
 									placeholder='-'
-									value={currentPage}
+									value={currentPage - 1}
 									onChange={value =>
 										onPageChange({ selected: value as number })
 									}
