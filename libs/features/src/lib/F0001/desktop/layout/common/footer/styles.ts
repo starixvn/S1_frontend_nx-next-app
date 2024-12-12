@@ -48,7 +48,7 @@ export const FooterContainer = styled.div`
 			}
 		}
 		.payment {
-			flex: 0 0 33%;
+			flex: 0 0 34%;
 			.footer-icon {
 				display: flex;
 				gap: 1.2rem;

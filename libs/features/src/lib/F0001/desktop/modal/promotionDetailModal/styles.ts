@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const WrapperModalPromotion = styled.div`
 	.promotionsInfo {
@@ -84,7 +84,7 @@ export const WrapperModalPromotion = styled.div`
 			}
 
 			.row-title {
-				border-right: #fff solid #374375;
+				border-right: 1px solid #374375;
 				background: #232b4f;
 				font-weight: 700;
 			}
@@ -93,6 +93,15 @@ export const WrapperModalPromotion = styled.div`
 				align-items: center;
 				background: #182043;
 				font-weight: 600;
+			}
+		}
+	}
+	.amount-pop {
+		.custom-table-thead {
+			.custom-th {
+				&:first-child {
+					width: 100% !important;
+				}
 			}
 		}
 	}

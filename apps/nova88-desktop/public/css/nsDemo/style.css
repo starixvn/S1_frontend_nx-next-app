@@ -5967,76 +5967,9 @@ button.icon-spinner11:before {
 	margin-right: 0;
 }
 
-.depositSlip {
-	font-size: 12px;
-	font-weight: bold;
-}
-.depositSlip .depositSlipList {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-flow: wrap;
-	flex-flow: wrap;
-}
-.depositSlip .depositSlipList > div {
-	min-width: 100px;
-	margin: 2px 0;
-}
-.depositSlip .depositSlipList > div > div {
-	border: 1px solid #5574a7;
-	padding: 5px;
-	color: #5574a7;
-	text-align: right;
-	border-bottom: 0;
-}
-.depositSlip .depositSlipList > div > div:nth-child(2) {
-	color: #b2b2b2;
-	border-color: #b2b2b2;
-	border-bottom: 1px solid #b2b2b2;
-}
-.depositSlip .txt-orange {
-	margin: 5px 0 15px;
-	font-size: 16px;
-	border: 1px solid #5574a7;
-	padding: 5px 10px;
-	width: -webkit-max-content;
-	width: -moz-max-content;
-	width: max-content;
-	border-radius: 10px;
-	color: #5574a7;
-}
 
-.colorInfo {
-	margin-bottom: 5px;
-}
-.colorInfo > div {
-	font-weight: bold;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-}
-.colorInfo > div:first-child {
-	color: #5574a7;
-}
-.colorInfo > div:first-child span {
-	background: #5574a7;
-}
-.colorInfo > div:last-child {
-	color: #b2b2b2;
-}
-.colorInfo > div:last-child span {
-	background: #b2b2b2;
-}
-.colorInfo > div span {
-	display: block;
-	width: 50px;
-	height: 8px;
-	border-radius: 5px;
-	margin-right: 10px;
-}
+
+
 
 .icon-icon32px_bank-account ~ .platformName,
 .icon-BTC ~ .platformName {

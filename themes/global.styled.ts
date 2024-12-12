@@ -1438,7 +1438,7 @@ export const GlobalStyles = createGlobalStyle`
       font-weight: 400 !important;
       line-height: 1.8rem !important;
       background-color : #182043 !important;
-      span,p,div,a{
+      span,p,div,a,strong,h1,h2,h3,h4,h5,h6,h7,ul,li,ol,li,table{
         background-color : #182043 !important;
         font-family: ${({ theme }) => theme.desktop.fontFamily} !important;
         line-height: 1.6rem !important;
@@ -1461,6 +1461,21 @@ export const GlobalStyles = createGlobalStyle`
     colgroup col {
         width: 100% !important;
     }
+    table{
+      width : 100% !important;
+      margin-bottom : 1rem !important;
+      td {
+				border: 1px solid #374375 !important;
+				background: #182043 !important;
+				color: #fff;
+			}
+
+			tr:first-child {
+				td {
+					background: #232b4f !important;
+				}
+			}
+    }
   }
   .backstage{
     background-color : #182043 !important;
@@ -1482,7 +1497,8 @@ export const GlobalStyles = createGlobalStyle`
         color: #939DC5 !important;
       }
     }
-    span,p,div,a,strong,h1,h2,h3,h4,h5,h6,h7,ul,li,ol,li{
+    
+    span,p,div,a,strong,h1,h2,h3,h4,h5,h6,h7,ul,li,ol,li,table{
       background-color : #182043 !important;
       font-family: ${({ theme }) => theme.desktop.fontFamily} !important;
       line-height: 1.6rem !important;

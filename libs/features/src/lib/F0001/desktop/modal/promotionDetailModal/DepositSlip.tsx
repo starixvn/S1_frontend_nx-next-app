@@ -1,6 +1,7 @@
 import { useAuth } from '@nx-next-app/data-access'
 import { numberFormat } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
+import React from 'react'
 
 interface IDepositSlipProps {
 	depositAmount: number
@@ -19,33 +20,27 @@ const DepositSlip = ({ depositAmount, refList = [] }: IDepositSlipProps) => {
 	if (!refList || refList.length === 0) return null
 
 	return (
-		<>
-			<div className='colorInfo'>
-				<div>
-					<span />
-					{t('Label_General_ID')}
-				</div>
-				<div>
-					<span />
-					{t('Label_General_Amount')}
-				</div>
+		<div className='custom-table amount-pop' style={{ marginBottom: '1.6rem' }}>
+			<div className='custom-table-thead'>
+				<div className='custom-th'>{t('Label_General_ID')}</div>
+				<div className='custom-th'>{t('Label_General_Amount')}</div>
+				<div className='custom-th'>{t('Label_Promotion_Total')}</div>
 			</div>
-			<div className='depositSlip'>
-				<div className='depositSlipList'>
+			<div className='custom-table-tbody'>
+				<div className='custom-td'>
 					{refList.map(item => (
-						<div key={item.depositId}>
-							<div>{item.depositId}</div>
-
-							<div>{numberFormat(item.amount, currencyId)}</div>
-						</div>
+						<React.Fragment key={item.depositId}>
+							<div className='td'>{item.depositId}</div>
+							<div className='td'>{numberFormat(item.amount, currencyId)}</div>
+						</React.Fragment>
 					))}
-				</div>
-				<div className='txt-orange'>
-					{t('Label_Promotion_Total')}:{' '}
-					{numberFormat(depositAmount, currencyId)}
+					<div className='td'>
+						{t('Label_Promotion_Total')}:{' '}
+						{numberFormat(depositAmount, currencyId)}
+					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	)
 }
 
