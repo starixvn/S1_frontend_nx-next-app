@@ -1,6 +1,6 @@
-import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
 import { numberFormat } from '@nx-next-app/utils'
+import { useTranslation } from 'next-i18next'
 
 interface IDepositMenuProps {
 	depositId: string | null
@@ -15,13 +15,15 @@ const DepositMenu = ({ depositId, depositAmount }: IDepositMenuProps) => {
 
 	return (
 		<div className='minAmount'>
-			<div>
-				<div>{t('Label_General_ID')}</div>
-				<div>{depositId}</div>
+			<div className='row'>
+				<div className='row-title'>{t('Label_General_ID')}</div>
+				<div className='row-value'>{depositId}</div>
 			</div>
-			<div>
-				<div>{t('Label_General_Amount')}</div>
-				<div>{numberFormat(depositAmount, currencyId)}</div>
+			<div className='row'>
+				<div className='row-title'>{t('Label_General_Amount')}</div>
+				<div className='row-value'>
+					{numberFormat(depositAmount, currencyId)}
+				</div>
 			</div>
 		</div>
 	)

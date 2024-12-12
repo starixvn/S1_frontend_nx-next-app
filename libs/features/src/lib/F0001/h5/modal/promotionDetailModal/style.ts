@@ -23,7 +23,8 @@ export const PromotionDetailContainer = styled.div`
 		}
 
 		.rolloverList,
-		.depositSlip {
+		.depositSlip,
+		.minAmount {
 			display: flex;
 			flex-direction: column;
 			gap: 1px;
