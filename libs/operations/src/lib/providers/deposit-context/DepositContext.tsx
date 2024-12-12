@@ -31,7 +31,7 @@ import {
 	IDepositPaymentOption,
 	SelectOptionType,
 } from '@nx-next-app/types'
-import { MetaPixelTracker, OperaPixelTracker } from '@nx-next-app/utils'
+import { tracking } from '@nx-next-app/utils'
 import { head, includes, isArray } from 'lodash-es'
 import { useRouter } from 'next/router'
 import { ReactNode, createContext, useContext, useEffect } from 'react'
@@ -263,9 +263,7 @@ export const DepositProvider = ({
 			;(window as any)._yuri_track('Purchase')
 		}
 
-		// opera and meta pixel tracker
-		OperaPixelTracker('deposit')
-		MetaPixelTracker('depositSubmit')
+		tracking('depositSubmit')
 	}
 
 	const loading =
