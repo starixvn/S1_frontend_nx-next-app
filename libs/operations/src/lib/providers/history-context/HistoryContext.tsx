@@ -467,14 +467,14 @@ const HistoryProvider = ({
 			) => {
 				const updatedColumns = originalColumns.map(columnItem => {
 					const matchItem = newData.find(
-						targetItem => targetItem.id === columnItem.id
+						targetItem => targetItem.transId === columnItem.transId
 					)
 					return matchItem ? { ...columnItem, ...matchItem } : columnItem
 				})
 
-				const newTransIds = updatedColumns?.map(item => item.id)
+				const newTransIds = updatedColumns?.map(item => item.transId)
 				const nonMatchedItems =
-					newData?.filter(item => !newTransIds?.includes(item.id)) || []
+					newData?.filter(item => !newTransIds?.includes(item.transId)) || []
 
 				return [...updatedColumns, ...nonMatchedItems]
 			}

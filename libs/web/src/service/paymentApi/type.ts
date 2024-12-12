@@ -85,7 +85,6 @@ export interface IDepositInfoHistoryData {
 	createTime: string
 	depositType: number
 	transId: string
-	id: string
 	amount: number
 	status: number
 	depositRep: {
