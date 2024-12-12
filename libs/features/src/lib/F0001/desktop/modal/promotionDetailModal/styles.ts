@@ -105,4 +105,10 @@ export const WrapperModalPromotion = styled.div`
 			}
 		}
 	}
+	.promoInfoPop {
+		overflow-x: hidden;
+		.promotionsInfo {
+			padding-right: 1.6rem;
+		}
+	}
 `
