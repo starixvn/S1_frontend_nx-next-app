@@ -103,18 +103,24 @@ export const GameGroup = styled.div`
 	}
 
 	.embla__container {
-		--slide-height: 45.87vw;
+		--slide-height: 45.9vw;
 		--slide-size: 33.9vw;
-		--single-column-width: 33.9vw;
-
+		--column-count: 2.5;
+		--single-column-width: calc(
+			(
+					(100% + var(--slide-spacing)) - (var(--column-count)) *
+						var(--slide-spacing)
+				) / var(--column-count)
+		);
 		display: grid;
 		grid-auto-flow: column;
 		grid-auto-columns: var(--column-width, var(--single-column-width));
+		margin-right: var(--slide-spacing);
 	}
 
 	.embla__controls {
 		position: absolute;
-		top: 4.7vw;
+		top: 5.2vw;
 		right: 3.8vw;
 		grid-template-columns: auto;
 		gap: 1.9vw;
