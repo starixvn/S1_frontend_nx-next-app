@@ -206,4 +206,7 @@ export const WrapperLeaderBoardPage = styled.div`
 			max-width : 20rem;
 		}
 	}
+	#Loading{
+		position : absolute;
+	}
 `
