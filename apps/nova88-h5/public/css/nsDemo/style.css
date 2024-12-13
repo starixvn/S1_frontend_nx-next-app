@@ -140,7 +140,7 @@ body,
 html {
 	height: 100%;
 	font-family: 'Montserrat', sans-serif;
-	overflow: auto;
+	/* overflow: auto; */
 }
 
 button {
@@ -4127,8 +4127,6 @@ input[type='date'] {
 	margin: 2vw 1vw;
 	vertical-align: middle;
 }
-
-
 
 .list {
 	margin: 0 0 3vw;
@@ -15296,9 +15294,9 @@ input[type='number'] .btn-logout {
 	display: none;
 }
 
-#__next {
+/* #__next {
 	height: 100%;
-}
+} */
 
 #g-reCaptcha .grecaptcha-badge {
 	z-index: 999;
