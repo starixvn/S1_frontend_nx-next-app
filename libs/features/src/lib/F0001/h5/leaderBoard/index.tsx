@@ -25,7 +25,7 @@ const LeaderBoard = () => {
 				<WrapperCustomTitleBack>
 					<Header.Tag
 						title={t('Label_General_LeaderBoard') as string}
-						back={paths.home.root}
+						back
 						quickSelect={quickSelect}
 						onQuickSelectChange={key => {
 							onTabsChange(key as number)
