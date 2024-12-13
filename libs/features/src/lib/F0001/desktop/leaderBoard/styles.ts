@@ -86,6 +86,9 @@ export const WrapperLeaderBoardPage = styled.div`
 				padding-top : 0;
 				.rankList{
 					padding-top : 1.2rem;
+                    overflow: auto;
+                    max-height: 66rem;
+                    overflow-x: hidden;
 					ul{
 						li{
 							div{
