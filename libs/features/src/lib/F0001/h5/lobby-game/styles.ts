@@ -1,6 +1,8 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-export const LobbyGamePage = styled.div`
+export const LobbyGamePage = styled.div<{ $isLogin: boolean | undefined }>`
+	padding-bottom: ${({ $isLogin }) => ($isLogin ? '24.27vw' : '4.85vw')};
+
 	.banner-container {
 		max-height: 36.4vw;
 		padding-bottom: 5.83vw;

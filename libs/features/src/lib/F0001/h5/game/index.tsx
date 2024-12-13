@@ -1,14 +1,15 @@
-import { Header } from '@nx-next-app/components/H0001'
-import { paths } from '@nx-next-app/constants'
-import CategoryFilter from '@nx-next-app/features/F0001/h5/lobby-game/CategoryFilter'
-import GameList from '@nx-next-app/features/F0001/h5/lobby-game/GameList'
-import LobbyPageBanner from '@nx-next-app/features/F0001/h5/lobby-game/LobbyPageBanner'
-import { LobbyGamePage } from '@nx-next-app/features/F0001/h5/lobby-game/styles'
-import VendorFilter from '@nx-next-app/features/F0001/h5/lobby-game/vendorFilter'
-import { useLobby } from '@nx-next-app/features/F0001/providers'
-import { MenuKeyEnum } from '@nx-next-app/types'
-import classNames from 'classnames'
-import { useTranslation } from 'next-i18next'
+import { Header } from "@nx-next-app/components/H0001";
+import { paths } from "@nx-next-app/constants";
+import { useAuth } from "@nx-next-app/data-access";
+import CategoryFilter from "@nx-next-app/features/F0001/h5/lobby-game/CategoryFilter";
+import GameList from "@nx-next-app/features/F0001/h5/lobby-game/GameList";
+import LobbyPageBanner from "@nx-next-app/features/F0001/h5/lobby-game/LobbyPageBanner";
+import { LobbyGamePage } from "@nx-next-app/features/F0001/h5/lobby-game/styles";
+import VendorFilter from "@nx-next-app/features/F0001/h5/lobby-game/vendorFilter";
+import { useLobby } from "@nx-next-app/features/F0001/providers";
+import { MenuKeyEnum } from "@nx-next-app/types";
+import classNames from "classnames";
+import { useTranslation } from "next-i18next";
 
 const Game = () => {
 	const {
@@ -21,8 +22,10 @@ const Game = () => {
 		onInputClose,
 	} = useLobby()
 	const { t } = useTranslation()
+	const { auth } = useAuth()
+
 	return (
-		<LobbyGamePage>
+		<LobbyGamePage $isLogin={auth.isLogin}>
 			<Header>
 				<Header.Tag
 					title={t('Label_General_Games') as string}
@@ -39,7 +42,7 @@ const Game = () => {
 				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/games-banner.webp`}
 			/>
 			<div className={classNames('functionList', { active: !isNavInView })}>
-        <VendorFilter pathRoot='' />
+				<VendorFilter pathRoot='' />
 				<CategoryFilter />
 			</div>
 			<GameList />
