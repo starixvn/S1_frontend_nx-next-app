@@ -95,7 +95,7 @@ const useMenu = () => {
 		auth,
 		userInfo: { langId, memberType },
 	} = useAuth()
-	const [windows, setWindows] = useState<Window[]>([])
+	const [windows, setWindows] = useState<{ window: Window, key: string }[]>([])
 	const { MENU_DATA } = useStaticData()
 	const { LobberHeaderMenuList, isLobbyHeaderError } = useMenuData()
 	const { tpMaintainList, isInLiff } = useGlobalData()
@@ -539,12 +539,18 @@ const useMenu = () => {
 		pathname: string
 		windowKey: string
 	}) => {
-		windows.find(window => window.name === windowKey)?.close();
+		const current = windows.find(window => window.key === windowKey);
+		let newList = windows;
+		if (current) {
+			current.window.close();
+			newList = windows.filter(window => window.key !== windowKey)
+		}
+
 
 		const newWindow = window.open(pathname, windowKey, 'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0')
 		if (newWindow) {
 			newWindow.focus()
-			setWindows([...windows, newWindow])
+			setWindows([...newList, { window: newWindow, key: windowKey }])
 		}
 	}
 
