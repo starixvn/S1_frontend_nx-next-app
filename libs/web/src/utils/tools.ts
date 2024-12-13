@@ -48,18 +48,22 @@ export const onWindowOpenProduct = ({
 	windowKey: string
 }) => {
 	if (typeof window !== `undefined`) {
-		const popup = window.open('', windowKey);
+		// detect safari browser
+		const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+		if (isSafari) {
+			const popup = window.open('', windowKey);
 
-		if (popup && !popup.closed) {
-			popup.focus();
-			window
-				.open(
-					pathname,
-					windowKey,
-					'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0'
-				)
-
+			if (popup && !popup.closed) {
+				popup.close();
+			}
 		}
+		window
+			.open(
+				pathname,
+				windowKey,
+				'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0'
+			)
+			?.focus()
 	}
 }
 
