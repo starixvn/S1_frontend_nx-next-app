@@ -124,7 +124,6 @@ export const GlobalStyles = createGlobalStyle`
     top: 0;
     height: 100%;
     width: 100%;
-    overflow: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
