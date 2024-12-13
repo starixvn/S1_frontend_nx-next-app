@@ -5,7 +5,6 @@ import { useLanguageGroup } from '@nx-next-app/hooks'
 import classNames from 'classnames'
 import { isEqual } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 
@@ -81,53 +80,57 @@ const List = () => {
 					</div>
 					{!isLogin && (
 						<div className='country'>
-							{Object.entries(languageGroup).length > 2 && Object.entries(languageGroup).map(([lang, items]) => {
-								return (
-									<div
-										key={`${lang}-${items}`}
-										className={classNames('country-item country-item-child ', {
-											active: lang === icon,
-										})}
-									>
-										<div className='country-title'>
+							{Object.entries(languageGroup).length > 2 &&
+								Object.entries(languageGroup).map(([lang, items]) => {
+									return (
+										<div
+											key={`${lang}-${items}`}
+											className={classNames(
+												'country-item country-item-child ',
+												{
+													active: lang === icon,
+												}
+											)}
+										>
+											<div className='country-title'>
+												<div>
+													<img
+														src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/${lang}.jpg`}
+														alt={lang}
+													/>
+												</div>
+											</div>
 											<div>
-												<img
-													src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/${lang}.jpg`}
-													alt={lang}
-												/>
+												{items.map(languageItem => {
+													if (!languageItem?.mainLanguage) return
+													return (
+														<button
+															key={`${languageItem.value}-${languageItem.currencyId}`}
+															className={classNames({
+																active: isEqual(
+																	{ langId, currencyId },
+																	{
+																		langId: languageItem.value,
+																		currencyId: languageItem.currencyId,
+																	}
+																),
+															})}
+															type='button'
+															onClick={() => {
+																onSetLanguage({
+																	langCode: languageItem.value,
+																	currencyId: languageItem.currencyId,
+																})
+															}}
+														>
+															{languageItem.displayText}
+														</button>
+													)
+												})}
 											</div>
 										</div>
-										<div>
-											{items.map(languageItem => {
-												if (!languageItem?.mainLanguage) return
-												return (
-													<button
-														key={`${languageItem.value}-${languageItem.currencyId}`}
-														className={classNames({
-															active: isEqual(
-																{ langId, currencyId },
-																{
-																	langId: languageItem.value,
-																	currencyId: languageItem.currencyId,
-																}
-															),
-														})}
-														type='button'
-														onClick={() => {
-															onSetLanguage({
-																langCode: languageItem.value,
-																currencyId: languageItem.currencyId,
-															})
-														}}
-													>
-														{languageItem.displayText}
-													</button>
-												)
-											})}
-										</div>
-									</div>
-								)
-							})}
+									)
+								})}
 						</div>
 					)}
 				</div>
@@ -221,10 +224,6 @@ const List = () => {
 				</a>
 
 				{/* <a href={`/${langId}/milestones`}>{t('Label_General_Milestone')}</a> */}
-
-				<Link href={paths.gameProvider.root}>
-					<a>{t('Label_General_GameProvider')}</a>
-				</Link>
 			</SettingCollapse.Item>
 
 			{isLogin && (
