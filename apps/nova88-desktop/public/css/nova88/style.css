@@ -5842,7 +5842,7 @@ button.icon-spinner11:before {
 #Loading h1:after {
 	font-size: 1ˊpx;
 	font-weight: bold;
-	content: 'NOVA88';
+	content: '';
 	position: absolute;
 	-webkit-transform: translateX(-50%) translateY(-50%);
 	transform: translateX(-50%) translateY(-50%);
