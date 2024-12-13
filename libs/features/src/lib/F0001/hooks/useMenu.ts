@@ -23,6 +23,7 @@ import {
 } from '@nx-next-app/utils'
 import { filter, find, includes } from 'lodash-es'
 import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void
@@ -94,6 +95,7 @@ const useMenu = () => {
 		auth,
 		userInfo: { langId, memberType },
 	} = useAuth()
+	const [windows, setWindows] = useState<Window[]>([])
 	const { MENU_DATA } = useStaticData()
 	const { LobberHeaderMenuList, isLobbyHeaderError } = useMenuData()
 	const { tpMaintainList, isInLiff } = useGlobalData()
@@ -528,6 +530,22 @@ const useMenu = () => {
 
 		// * 靜態 (isTpMaintain noPlay 會在 onStaticMenuOpen 擋掉)
 		redirectAction(item)
+	}
+
+	const onWindowOpenProduct = ({
+		pathname,
+		windowKey,
+	}: {
+		pathname: string
+		windowKey: string
+	}) => {
+		windows.find(window => window.name === windowKey)?.close();
+
+		const newWindow = window.open(pathname, windowKey, 'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0')
+		if (newWindow) {
+			newWindow.focus()
+			setWindows([...windows, newWindow])
+		}
 	}
 
 	return {
