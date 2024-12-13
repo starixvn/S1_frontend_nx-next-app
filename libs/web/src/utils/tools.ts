@@ -51,7 +51,7 @@ export const onWindowOpenProduct = ({
 		// detect safari browser
 		const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 		if (isSafari) {
-			const popup = window.open('', windowKey);
+			const popup = window.open('', windowKey, 'toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0');
 
 			if (popup && !popup.closed) {
 				popup.close();
