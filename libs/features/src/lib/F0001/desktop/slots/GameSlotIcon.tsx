@@ -42,7 +42,6 @@ const SlotGameIcon: FC<{ game: IDisplayGameData }> = ({ game }) => {
 			style={{
 				pointerEvents: isMaintain ? 'none' : 'auto',
 			}}
-			key={`casino-game-${tpId}-${gameId}`}
 		>
 			{isMaintain && (
 				<div className='um-container'>

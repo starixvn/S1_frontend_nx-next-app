@@ -72,7 +72,6 @@ const GameLobbyIcon: FC<{ game: IDisplayLobbyGameData }> = ({ game }) => {
 			style={{
 				pointerEvents: isMaintain ? 'none' : 'auto',
 			}}
-			key={`casino-game-${tpId}-${gameId}`}
 		>
 			<div className='img-wrapper'>
 				{inView && (

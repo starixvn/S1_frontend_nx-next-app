@@ -49,7 +49,6 @@ const SlotGameIcon: FC<{ game: IDisplayGameData }> = ({ game }) => {
 	return (
 		<GameIconContainer
 			className={classNames({ 'star active': isMaintain })}
-			key={`slots-game-${tpId}-${gameId}`}
 			ref={ref}
 		>
 			<button

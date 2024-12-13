@@ -11,7 +11,10 @@ const GameList = () => {
 		<Suspense>
 			<GameListContainer>
 				{lobbyGameList.map(game => {
-					return <GameLobbyIcon game={game} />
+					const { tpId, gameId } = game
+					return (
+						<GameLobbyIcon key={`casino-game-${tpId}-${gameId}`} game={game} />
+					)
 				})}
 
 				<span ref={gameListRef} />
