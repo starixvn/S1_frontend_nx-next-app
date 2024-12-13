@@ -34,6 +34,7 @@ export const siteApiUrl = {
 	getSocialChannel: 'Site/GetSocialChannel',
 	getSeo: 'Site/seo',
 	getVipBanner: 'Site/GetVipBanner',
+	getVipBannerV2: 'Site/GetVipBannerV2',
 	getIpCountry: 'Site/GetIpCountry',
 	reSetPwdByOTP: 'Site/ReSetPwdByOTP',
 	reSetPwdVerifyOTP: 'Site/ReSetPwdVerifyOTP',

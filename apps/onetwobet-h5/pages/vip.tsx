@@ -3,7 +3,7 @@ import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import {
 	AuthProvider,
 	GlobalDataProvider,
-	getVipBanner,
+	getVipBannerV2,
 } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
@@ -44,7 +44,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	const { currentHeaderCookies } = initialProps
 	const currencyId = initialProps.originCookies[ENV_COOKIE_NAMES.CurrencyId]
 
-	const vipBannerData = await getVipBanner(
+	const vipBannerData = await getVipBannerV2(
 		{
 			currencyId: Number(currencyId),
 		},

@@ -96,6 +96,27 @@ export const getVipBanner = async (
 	}
 }
 
+export const getVipBannerV2 = async (
+	params: IGetVipBannerArgs,
+	config: AxiosRequestConfig
+): Promise<IVipBannerData> => {
+	const defaultVipBannerData: IVipBannerData = {
+		lastUpdateTime: '',
+		vipBannerData: [],
+	}
+
+	try {
+		const { data: { data } = {} } = await baseAxios.post(
+			siteApiUrl.getVipBannerV2,
+			params,
+			config
+		)
+		return data || defaultVipBannerData
+	} catch (error) {
+		return defaultVipBannerData
+	}
+}
+
 export const getStaticFileDomain = async (
 	params: null,
 	config: AxiosRequestConfig

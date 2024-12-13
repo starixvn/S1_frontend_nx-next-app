@@ -1,12 +1,18 @@
 import { VipTableInfo } from '@12b-desktop/components/vip/components'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
-import { IVipBannerData } from '@nx-next-app/service'
+import { IOneTwoBetVipProgram } from '@nx-next-app/site/onetwobet'
 import dayjs from 'dayjs'
 import 'dayjs/plugin/timezone'
 import 'dayjs/plugin/utc'
+import { some } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 
-const VipTable = ({ vipBannerData, lastUpdateTime }: IVipBannerData) => {
+interface IVipTableProps {
+	settings: IOneTwoBetVipProgram[]
+	lastUpdateTime: string
+}
+
+const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 	const { t } = useTranslation()
 	const {
 		userInfo: { currencyId, langId },
@@ -26,7 +32,9 @@ const VipTable = ({ vipBannerData, lastUpdateTime }: IVipBannerData) => {
 								.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 								?.format('L') ?? ''}
 						</td>
-						{VIP_CLUB_IMAGES.map(item => (
+						{VIP_CLUB_IMAGES.filter(item =>
+							some(settings, x => x.level === item.level)
+						).map(item => (
 							<td key={item.alt}>
 								<img src={getBannerUrl(item.url)} alt={item.alt} />
 								{t(item.displayKey || '')}
@@ -37,8 +45,7 @@ const VipTable = ({ vipBannerData, lastUpdateTime }: IVipBannerData) => {
 					</tr>
 				</tbody>
 			</table>
-
-			{vipBannerData && <VipTableInfo vipBannerData={vipBannerData} />}
+			<VipTableInfo settings={settings} />
 		</div>
 	)
 }

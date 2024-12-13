@@ -1,24 +1,22 @@
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
-import { VipBannerInfo } from '@nx-next-app/service'
-import { IBannerByCurrencyData, VipLevelEnum } from '@nx-next-app/types'
+import { IOneTwoBetVipProgram } from '@nx-next-app/site/onetwobet'
+import { VipLevelEnum } from '@nx-next-app/types'
 import { numberFormatExcludeString } from '@nx-next-app/utils'
 import { capitalize, includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 
 interface IVipBannerItemProps {
-	data: VipBannerInfo
-	bannerByCurrencyData: IBannerByCurrencyData
+	item: IOneTwoBetVipProgram
 }
 
 const VipBannerItem = ({
-	data: {
-		upBonus,
-		upDeposit,
-		rankingValidityMembershipRenewal,
+	item: {
+		level,
+		membershipRenewal,
 		referralBonus,
-		rebateCategory: rebateCategoryList,
+		apiData,
+		bannerData: { url },
 	},
-	bannerByCurrencyData: { level, url },
 }: IVipBannerItemProps) => {
 	const { t } = useTranslation()
 	const { getBannerUrl } = useGlobalData()
@@ -35,7 +33,7 @@ const VipBannerItem = ({
 	const vipRules = [
 		{
 			resourceKey: 'Label_Vip_Ranking_Validity_Membership_Renewal',
-			content: rankingValidityMembershipRenewal,
+			content: t(membershipRenewal),
 		},
 		{
 			resourceKey: 'Label_Vip_Referral_Bonus_Program',
@@ -44,8 +42,10 @@ const VipBannerItem = ({
 		{
 			resourceKey: 'Label_Vip_Special_Rebate_UP_TO',
 			content: `${
-				rebateCategoryList
-					? Math.max(...rebateCategoryList.map(({ percentage }) => percentage))
+				apiData?.rebateCategory
+					? Math.max(
+							...apiData.rebateCategory.map(({ percentage }) => percentage)
+					  )
 					: 0
 			}%`,
 		},
@@ -53,21 +53,21 @@ const VipBannerItem = ({
 
 	return (
 		<>
-			<img className='vipbg' src={getBannerUrl(url)} alt='' />
+			<img className='vipbg' src={getBannerUrl(url)} alt='vipbanner' />
 			<div className='vipinfo'>
-				{t('Label_Vip_Monthly_Minimum_Deposit')}
+				{t('Label_Vip_Monthly_Retain_Deposit')}
 				<span>
 					{isShowCurrency && currencyName}
-					{upDeposit
-						? numberFormatExcludeString(upDeposit)
+					{apiData?.upDeposit
+						? numberFormatExcludeString(apiData.upDeposit)
 						: t('Label_Vip_NoRestrictions')}
 				</span>
-				{upBonus && (
+				{apiData?.upBonus && (
 					<div className='rewardinfo'>
 						{t('Label_Vip_Tier_UpGrade_Bonus')}
 						<span>
 							{isShowCurrency && currencyName}
-							{upBonus && numberFormatExcludeString(upBonus)}
+							{apiData?.upBonus && numberFormatExcludeString(apiData?.upBonus)}
 						</span>
 					</div>
 				)}

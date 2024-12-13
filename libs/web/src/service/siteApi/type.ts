@@ -126,20 +126,24 @@ export interface IGetVipBannerArgs {
 	currencyId: number
 }
 
+export interface IRebateCategory {
+	categoryId: number
+	categoryName: string
+	level: number
+	percentage: number
+}
+
 export type VipBannerInfo = {
-	rebateCategory: {
-		categoryId: number
-		categoryName: string
-		level: number
-		percentage: number
-	}[]
+	rebateCategory: IRebateCategory[]
 	level: number
 	levelName: string
 	withdrawalMin: string
 	withdrawalMax: string
 	times: string
 	upDeposit: null | string
+	upTurnover: null | string
 	upBonus: null | string
+	upRewardPoint: null | string
 	downDeposit: null | string
 	downTurnover: null | string
 	rankingValidityMembershipRenewal: string

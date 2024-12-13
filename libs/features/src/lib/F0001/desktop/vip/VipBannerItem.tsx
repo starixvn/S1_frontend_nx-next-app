@@ -1,10 +1,9 @@
-import React from 'react'
-import { capitalize } from 'lodash-es'
-import { IBannerByCurrencyData, VipLevelEnum } from '@nx-next-app/types'
-import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
-import { isUrl, numberFormatExcludeString } from '@nx-next-app/utils'
 import { VipBannerInfo } from '@nx-next-app/service'
+import { IBannerByCurrencyData, VipLevelEnum } from '@nx-next-app/types'
+import { isUrl, numberFormatExcludeString } from '@nx-next-app/utils'
+import { capitalize } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 
 interface IVipBannerItemProps {
 	vipBannerInfo: VipBannerInfo

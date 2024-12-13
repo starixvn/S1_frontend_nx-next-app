@@ -24,12 +24,22 @@ const UserProfile = () => {
 		{ refetchOnMountOrArgChange: true }
 	)
 
-	const { upDeposit = 0, actualDeposit = 0 } = custVIPProgress || {}
-	// * upDeposit = null 代表該會員已經是最高等級
-	const isVipLevelHighest = upDeposit === null
+	const {
+		currentVipLevel,
+		nextVipLevel,
+		upDeposit = 0,
+		upTurnover = 0,
+		actualDeposit = 0,
+		turnoverSummary,
+	} = custVIPProgress || {}
+
+	const isVipLevelHighest = nextVipLevel === null
 
 	// * Vip 進度條百分比
-	const progress = Math.floor((actualDeposit / Number(upDeposit)) * 100)
+	const depositProgress = Math.floor((actualDeposit / Number(upDeposit)) * 100)
+	const turnoverProgress = Math.floor(
+		(turnoverSummary / Number(upTurnover)) * 100
+	)
 
 	const isShowVip = ALLOWED_CURRENCIES.VIP?.includes(currencyId)
 
@@ -56,23 +66,6 @@ const UserProfile = () => {
 			<div className='profile-selector'>
 				{isShowVip && (
 					<div className='selector-top'>
-						<div className='progress-img'>
-							<img
-								src={getBannerUrl('/desktop/img/vip1.svg')}
-								alt='vip level img'
-							/>
-							<img
-								className='dot-line'
-								src={getBannerUrl('/desktop/img/4.0/dot-2.png')}
-								alt='dot line'
-							/>
-							<img
-								src={getBannerUrl('/desktop/img/vip2.svg')}
-								alt='vip level img'
-							/>
-						</div>
-						{/* --- */}
-
 						{/* // * vip 等級最高時顯示 ReachedTheHighestLevel */}
 						{isVipLevelHighest ? (
 							<Link href={paths.vip.root} className='highest-text'>
@@ -80,17 +73,48 @@ const UserProfile = () => {
 							</Link>
 						) : (
 							<>
+								<div className='progress-img'>
+									<img
+										src={getBannerUrl(`/desktop/img/vip${currentVipLevel}.svg`)}
+										alt='vip level img'
+									/>
+									<img
+										className='dot-line'
+										src={getBannerUrl('/desktop/img/4.0/dot-2.png')}
+										alt='dot line'
+									/>
+									<img
+										src={getBannerUrl(`/desktop/img/vip${nextVipLevel}.svg`)}
+										alt='vip level img'
+									/>
+								</div>
 								<div className='progress'>
 									<div
 										className='progress-bar'
-										style={{ width: `${Math.min(progress, 100)}%` }}
+										style={{ width: `${Math.min(depositProgress, 100)}%` }}
 									/>
 								</div>
 								<div className='progress-number'>
+									<div>{t('Label_General_Deposit')}</div>
 									<div>
 										{numberFormat(actualDeposit, currencyId)}/{' '}
 										{numberFormat(upDeposit, currencyId)}
 									</div>
+								</div>
+								<div className='progress'>
+									<div
+										className='progress-bar'
+										style={{ width: `${Math.min(turnoverProgress, 100)}%` }}
+									/>
+								</div>
+								<div className='progress-number'>
+									<div>{t('Label_General_Turnover')}</div>
+									<div>
+										{numberFormat(turnoverSummary, currencyId)}/{' '}
+										{numberFormat(upTurnover, currencyId)}
+									</div>
+								</div>
+								<div className='next-milestone'>
 									<Link href={paths.vip.root}>
 										<a>
 											{t('Label_Vip_NextMilestone')}{' '}
