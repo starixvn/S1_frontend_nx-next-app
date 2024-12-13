@@ -10,6 +10,8 @@ import { TpCategory } from "@nx-next-app/service";
 import { EmblaOptionsType } from "embla-carousel";
 import { useTranslation } from "next-i18next";
 import dynamic from "next/dynamic";
+import { getIsTpMaintain } from '@nx-next-app/utils'
+import { useGlobalData } from '@nx-next-app/data-access'
 
 const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
 	ssr: false,
@@ -26,6 +28,7 @@ const HotGameSlot = () => {
 	const { t } = useTranslation()
 	const { hotGameData, slotGameData, handleHotGameClick } = useHome()
 	const { jackpot = [] } = slotGameData ?? {}
+	const { tpMaintainList } = useGlobalData()
 
 	const { modal } = useGlobalModal()
 
@@ -44,7 +47,11 @@ const HotGameSlot = () => {
 		largeGameItem = {
 			gameId: largeGame.gameId,
 			imageUrl: largeGame.gameLogo,
-			isMaintain: false,
+			isMaintain: getIsTpMaintain({
+        tpMaintainList,
+        tpId: largeGame.tpId,
+        tpGameType: largeGame.tpGameType,
+      }),
 			tpName: largeGame.tpName,
 			gameName: largeGame.gameName,
 		}
@@ -83,11 +90,15 @@ const HotGameSlot = () => {
 					extraClassName='two-rows'
 				>
 					{slotGames?.map(game => {
-						const { gameLogo, gameName, gameId, tpName } = game
+						const { gameLogo, gameName, gameId, tpName, tpId, tpGameType } = game
 						const gameItem = {
 							gameId,
 							imageUrl: gameLogo,
-							isMaintain: false,
+							isMaintain: getIsTpMaintain({
+                tpMaintainList,
+                tpId,
+                tpGameType,
+              }),
 							tpName,
 							gameName,
 						}

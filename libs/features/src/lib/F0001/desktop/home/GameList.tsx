@@ -7,6 +7,8 @@ import { IHotGame } from '@nx-next-app/service'
 import { EmblaOptionsType } from 'embla-carousel'
 import dynamic from 'next/dynamic'
 import React from 'react'
+import { getIsTpMaintain } from '@nx-next-app/utils'
+import { useGlobalData } from '@nx-next-app/data-access'
 
 const LoginModal = dynamic(() => import('../modal/LoginModal'), {
 	ssr: false,
@@ -32,6 +34,7 @@ const GameList: React.FC<IGameList> = (props: IGameList) => {
 	const { handleHotGameClick } = useHome()
 	const gameTypeEmblaOptions: EmblaOptionsType = { slidesToScroll: 'auto' }
 	const { modal } = useGlobalModal()
+	const { tpMaintainList } = useGlobalData()
 
 	return (
 		<GameContainer>
@@ -42,11 +45,15 @@ const GameList: React.FC<IGameList> = (props: IGameList) => {
 				extraClassName={extraClassName}
 			>
 				{gameData?.map(game => {
-					const { gameLogo, gameName, gameId, tpName } = game
+					const { gameLogo, gameName, gameId, tpName, tpId, tpGameType } = game
 					const gameItem = {
 						gameId,
 						imageUrl: gameLogo,
-						isMaintain: false,
+						isMaintain: getIsTpMaintain({
+              tpMaintainList,
+              tpId,
+              tpGameType,
+            }),
 						tpName,
 						gameName,
 					}
