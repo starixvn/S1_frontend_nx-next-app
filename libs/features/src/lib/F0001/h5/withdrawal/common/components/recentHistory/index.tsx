@@ -18,10 +18,7 @@ const RecentHistory = () => {
 		<>
 			<WrapperInfoList>
 				<div className='btnGroup'>
-					<button
-						className='btn-primary btn-recent-history'
-						onClick={toggleOpen}
-					>
+					<button className='btn-recent-history' onClick={toggleOpen}>
 						{t('Label_Withdrawal_RecentTransactions')}
 						<i
 							className={classNames('icon icon-chevron_down', {
