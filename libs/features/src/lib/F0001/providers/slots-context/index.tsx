@@ -477,28 +477,8 @@ const SlotsProvider = ({
 
 	// * 根據廠商過濾遊戲類型
 	useEffect(() => {
-		const updateCategoryKeys = () => {
-			const newCategoryKeys: string[] = []
-			if (queryTpId) {
-				Object.entries(persistSlotsCategoryData).forEach(([key, value]) => {
-					const result = value.find(
-						(item: IGameData) => String(item.tpId) === queryTpId
-					)
-					if (result !== undefined) {
-						newCategoryKeys.push(key)
-					}
-				})
-				if (!newCategoryKeys.includes('myFavorite')) {
-					newCategoryKeys.push('myFavorite')
-				}
-				setCategoryKeys(newCategoryKeys)
-			} else {
-				setCategoryKeys(Object.keys(persistSlotsCategoryData))
-			}
-		}
-
-		updateCategoryKeys()
-		setActiveCategoryKey('all') // 一進畫面先顯示哪個類別的遊戲
+      setCategoryKeys(Object.keys(persistSlotsCategoryData))
+      setActiveCategoryKey('all') // 一進畫面先顯示哪個類別的遊戲
 	}, [queryTpId])
 
 	// useEffect(() => {
@@ -605,7 +585,7 @@ const SlotsProvider = ({
 		imgUrl: persistSlotsGameData.imgUrl,
 		bannerList,
 		vendorList,
-		categoryKeys: moveItem(categoryKeys, featuredIdx, 1),
+		categoryKeys,
 		isGetBannerV3Fetching,
 		activeVendorTpId,
 		activeCategoryKey,

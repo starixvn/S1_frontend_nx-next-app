@@ -433,33 +433,7 @@ const LobbyProvider = ({
 
 	// * 根據廠商過濾遊戲類型
 	useEffect(() => {
-		const updateCategoryKeys = () => {
-			const newCategoryKeys: string[] = []
-			if (queryTpId) {
-				Object.entries(persistLobbyCategoryData).forEach(([key, value]) => {
-					const result = value.find(
-						(item: ILobbyGameData) =>
-							String(item.tpId) === queryTpId ||
-							(queryTpId === ProviderEnum.MaxPlay.toString() &&
-								(item.tpId === ProviderEnum.MaxGame ||
-									item.tpId === ProviderEnum.Keno ||
-									item.tpId === ProviderEnum.Lottery ||
-									item.tpId === ProviderEnum.TableGame))
-					)
-					if (result !== undefined) {
-						newCategoryKeys.push(key)
-					}
-				})
-				if (!newCategoryKeys.includes('myFavorite')) {
-					newCategoryKeys.push('myFavorite')
-				}
-				setCategoryKeys(newCategoryKeys)
-			} else {
-				setCategoryKeys(Object.keys(persistLobbyCategoryData))
-			}
-		}
-
-		updateCategoryKeys()
+    setCategoryKeys(Object.keys(persistLobbyCategoryData))
 		setActiveCategoryKey('all') // 一進畫面先顯示哪個類別的遊戲
 	}, [queryTpId])
 
@@ -579,7 +553,7 @@ const LobbyProvider = ({
 		imgUrl: persistLobbyGameData.imgUrl,
 		bannerList,
 		vendorList,
-		categoryKeys: moveItem(categoryKeys, featuredIdx, 1),
+		categoryKeys,
 		isGetBannerV3Fetching,
 		activeVendorTpId,
 		activeCategoryKey,

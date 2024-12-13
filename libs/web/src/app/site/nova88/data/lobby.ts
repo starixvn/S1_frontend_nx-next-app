@@ -1,6 +1,6 @@
 export const CATEGORY_LOBBY_SORT = [
 	'all',
-	'myFavorite',
 	'new',
-	'recentlyPlayed'
+	'recentlyPlayed',
+	'myFavorite'
 ]
