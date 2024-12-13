@@ -439,11 +439,17 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.desktop.hrefColorPrimary}
   }
 
+
+  .react-datepicker-wrapper{
+    width : 100%;
+  }
   .react-datepicker__input-container{
     input{
-      width : 88% !important;
+      width : 100% !important;
       font-size : 1.4rem;
       color: ${({ theme }) => theme.desktop.inputPlaceHolderColor};
+      background: transparent;
+      cursor: pointer;
       &::placeholder {
         font-size : 1.4rem;
       }
@@ -530,6 +536,9 @@ export const GlobalStyles = createGlobalStyle`
         color : ${({ theme }) =>
 					theme.desktop.datePickerSelectColor} !important;
       }
+    }
+    .react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected, .react-datepicker__year-text--keyboard-selected{
+      background :${({ theme }) => theme.desktop.datePickerSelectRangeBg};
     }
   }
 
@@ -1829,6 +1838,9 @@ export const GlobalStyles = createGlobalStyle`
           font-size: 5.5vw;
         }
       }
+    }
+    #header{
+      overflow: unset;
     }
   }
 
