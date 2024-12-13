@@ -235,6 +235,7 @@ const Join = () => {
 				userpwd: password,
 				langId: userLang,
 				...(reCaptchaToken && { reCaptchaToken, captchaType }),
+				joinBy: joinBy as string,
 			}).unwrap()
 
 			// opera and meta pixel tracker
