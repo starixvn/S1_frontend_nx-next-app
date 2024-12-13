@@ -1,6 +1,11 @@
-import styled from 'styled-components'
+import { HeaderContainer } from "@nx-next-app/components/H0001/header/styles";
+import styled from "styled-components";
 
 export const HomPageContainer = styled.div`
+	${HeaderContainer} {
+		overflow: hidden !important;
+	}
+
 	.home-mainbanner {
 		.swiper-container {
 			position: relative;

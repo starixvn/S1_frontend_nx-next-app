@@ -1,14 +1,12 @@
-import { useAuth } from '@nx-next-app/data-access'
-import { LoadingIcon } from '@nx-next-app/features/F0001/h5/home/gameIcon/icons'
-import {
-	GameIconContainer,
-	GameListContainer,
-} from '@nx-next-app/features/F0001/h5/lobby-game/styles'
-import { useSlots } from '@nx-next-app/features/F0001/providers'
-import classNames from 'classnames'
-import { useTranslation } from 'next-i18next'
-import { Suspense } from 'react'
-import { Img } from 'react-image'
+import { useAuth } from "@nx-next-app/data-access";
+import { NoData } from "@nx-next-app/features/F0001/h5/common/NoData";
+import { LoadingIcon } from "@nx-next-app/features/F0001/h5/home/gameIcon/icons";
+import { GameIconContainer, GameListContainer } from "@nx-next-app/features/F0001/h5/lobby-game/styles";
+import { useSlots } from "@nx-next-app/features/F0001/providers";
+import classNames from "classnames";
+import { useTranslation } from "next-i18next";
+import { Suspense } from "react";
+import { Img } from "react-image";
 
 const GameList = () => {
 	const {
@@ -106,9 +104,7 @@ const GameList = () => {
 			</GameListContainer>
 		</Suspense>
 	) : (
-		<div className='nodata icon icon-nodata'>
-			<div className='txt-white'>{t('Label_General_NoData')}</div>
-		</div>
+		<NoData customClass='no-border' />
 	)
 }
 
