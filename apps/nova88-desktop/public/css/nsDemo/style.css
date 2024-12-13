@@ -194,6 +194,14 @@ html {
 	color: white;
 	height: 100%;
 	font-weight: 500;
+	overflow: hidden;
+}
+
+body {
+	overflow: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	scroll-behavior: smooth;
 }
 
 #___gatsby,
@@ -5966,10 +5974,6 @@ button.icon-spinner11:before {
 .transferModule + .inputModuleRow .btn-check {
 	margin-right: 0;
 }
-
-
-
-
 
 .icon-icon32px_bank-account ~ .platformName,
 .icon-BTC ~ .platformName {

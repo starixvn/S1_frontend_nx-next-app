@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
-import { theme } from './theme'
+import { theme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
@@ -116,25 +116,6 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${({ theme }) => theme.desktop.fontFamily};
     font-size: 1.4rem;
     color: ${({ theme }) => theme.desktop.white};
-  }
-
-  #__next {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    scroll-behavior: smooth;
-  }
-
-  .desktop{
-     #__next{
-      display: flex;
-      flex-direction: column;
-     }
   }
 
   .main-content {
@@ -1499,7 +1480,7 @@ export const GlobalStyles = createGlobalStyle`
       font-weight: 400 !important;
       line-height: 1.8rem !important;
       background-color : #182043 !important;
-      
+
       p,div,span{
         margin-bottom : 1.2rem !important;
         display : block !important;

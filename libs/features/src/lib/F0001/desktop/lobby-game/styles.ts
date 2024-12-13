@@ -33,7 +33,7 @@ export const LobbyGamePage = styled.div`
 	}
 
 	.custom-nodata {
-		margin-top: 2rem;
+		margin-top: 2rem !important;
 		margin-bottom: 6rem;
 	}
 
@@ -168,7 +168,7 @@ export const GameIconContainer = styled.div`
 		color: ${({ theme }) => theme.desktop.gameIconNewColor};
 		font-size: 1.2rem;
 		font-weight: 600;
-		z-index: 2;
+		z-index: 3;
 	}
 `
 
