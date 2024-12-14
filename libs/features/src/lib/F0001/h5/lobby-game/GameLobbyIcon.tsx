@@ -1,18 +1,18 @@
-import { useGlobalModal } from "@nx-next-app/components/config-provider";
-import { paths } from "@nx-next-app/constants";
-import { LoadingIcon } from "@nx-next-app/features/F0001/h5/home/gameIcon/icons";
-import { GameIconContainer } from "@nx-next-app/features/F0001/h5/lobby-game/styles";
-import { useMenu } from "@nx-next-app/features/F0001/hooks";
-import { useLobby } from "@nx-next-app/features/F0001/providers";
-import { IDisplayLobbyGameData } from "@nx-next-app/service";
-import { IDynamicSubMenuItem, ProviderEnum } from "@nx-next-app/types";
-import classNames from "classnames";
-import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
-import { FC } from "react";
-import { useTranslation } from "react-i18next";
-import { Img } from "react-image";
-import { useInView } from "react-intersection-observer";
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import { LoadingIcon } from '@nx-next-app/features/F0001/h5/home/gameIcon/icons'
+import { GameIconContainer } from '@nx-next-app/features/F0001/h5/lobby-game/styles'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import { useLobby } from '@nx-next-app/features/F0001/providers'
+import { IDisplayLobbyGameData } from '@nx-next-app/service'
+import { IDynamicSubMenuItem, ProviderEnum } from '@nx-next-app/types'
+import classNames from 'classnames'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
+import { FC } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Img } from 'react-image'
+import { useInView } from 'react-intersection-observer'
 
 const LoginModal = dynamic(
 	() => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),

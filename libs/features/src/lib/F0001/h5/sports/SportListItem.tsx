@@ -1,10 +1,10 @@
-import { switchLobbyIcon } from "@nx-next-app/components/D0001/game-list-item";
-import { useAuth } from "@nx-next-app/data-access";
-import { GameIconContainer } from "@nx-next-app/features/F0001/h5/lobby-game/styles";
-import { IDynamicSubMenuItem } from "@nx-next-app/types";
-import { isEventPeriod } from "@nx-next-app/utils";
-import classNames from "classnames";
-import { useTranslation } from "next-i18next";
+import { switchLobbyIcon } from '@nx-next-app/components/D0001/game-list-item'
+import { useAuth } from '@nx-next-app/data-access'
+import { GameIconContainer } from '@nx-next-app/features/F0001/h5/lobby-game/styles'
+import { IDynamicSubMenuItem } from '@nx-next-app/types'
+import { isEventPeriod } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
 
 interface IListItemProps {
 	subMenuItem: IDynamicSubMenuItem
@@ -42,7 +42,9 @@ const SportListItem = ({ subMenuItem, onItemClick }: IListItemProps) => {
 			onClick={() => onItemClick(subMenuItem)}
 		>
 			{isTpMaintain && (
-				<div className='under'>{t('Label_General_UnderMaintenance')}</div>
+				<div className='um-container'>
+					<div className='under'>{t('Label_General_UnderMaintenance')}</div>
+				</div>
 			)}
 
 			<button className='img-wrapper' onClick={() => onItemClick(subMenuItem)}>

@@ -1,9 +1,9 @@
-import { LoadingIcon } from "@nx-next-app/features/F0001/h5/home/gameIcon/icons";
-import { GameIconContainer } from "@nx-next-app/features/F0001/h5/home/gameIcon/styles";
-import { useTranslation } from "next-i18next";
-import { FC } from "react";
-import { Img } from "react-image";
-import { useInView } from "react-intersection-observer";
+import { LoadingIcon } from '@nx-next-app/features/F0001/h5/home/gameIcon/icons'
+import { GameIconContainer } from '@nx-next-app/features/F0001/h5/home/gameIcon/styles'
+import { useTranslation } from 'next-i18next'
+import { FC } from 'react'
+import { Img } from 'react-image'
+import { useInView } from 'react-intersection-observer'
 
 interface IGameItem {
 	gameId: string
@@ -54,9 +54,7 @@ const GameIcon: FC<IGameIcon> = ({ gameItem, isLarge, onClick }) => {
 
 			{isMaintain && (
 				<div className='um-container'>
-					<div className='txt-maintain'>
-						{t('Label_General_UnderMaintenance')}
-					</div>
+					<div className='under'>{t('Label_General_UnderMaintenance')}</div>
 				</div>
 			)}
 		</GameIconContainer>

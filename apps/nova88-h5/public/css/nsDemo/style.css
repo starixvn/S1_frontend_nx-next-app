@@ -10312,10 +10312,6 @@ main.casino .banner {
 	z-index: 2;
 	top: 10vw;
 }
-.under img {
-	-webkit-filter: grayscale(1) !important;
-	filter: grayscale(1) !important;
-}
 
 .home-title {
 	color: #0a1b38;

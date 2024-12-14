@@ -1,13 +1,13 @@
-import { useAuth } from "@nx-next-app/data-access";
-import { LoadingIcon } from "@nx-next-app/features/F0001/h5/home/gameIcon/icons";
-import { GameIconContainer } from "@nx-next-app/features/F0001/h5/lobby-game/styles";
-import { useSlots } from "@nx-next-app/features/F0001/providers";
-import { IDisplayGameData } from "@nx-next-app/service";
-import classNames from "classnames";
-import { FC } from "react";
-import { useTranslation } from "react-i18next";
-import { Img } from "react-image";
-import { useInView } from "react-intersection-observer";
+import { useAuth } from '@nx-next-app/data-access'
+import { LoadingIcon } from '@nx-next-app/features/F0001/h5/home/gameIcon/icons'
+import { GameIconContainer } from '@nx-next-app/features/F0001/h5/lobby-game/styles'
+import { useSlots } from '@nx-next-app/features/F0001/providers'
+import { IDisplayGameData } from '@nx-next-app/service'
+import classNames from 'classnames'
+import { FC } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Img } from 'react-image'
+import { useInView } from 'react-intersection-observer'
 
 const SlotGameIcon: FC<{ game: IDisplayGameData }> = ({ game }) => {
 	const {

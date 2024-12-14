@@ -41,7 +41,9 @@ const SportListItem = ({ subMenuItem, onItemClick }: IListItemProps) => {
 			})}
 		>
 			{isTpMaintain && (
-				<div className='under'>{t('Label_General_UnderMaintenance')}</div>
+				<div className='um-container'>
+					<div className='under'>{t('Label_General_UnderMaintenance')}</div>
+				</div>
 			)}
 
 			<div className='img-wrapper'>

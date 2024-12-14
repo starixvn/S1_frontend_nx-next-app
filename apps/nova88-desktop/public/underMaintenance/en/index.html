@@ -51,12 +51,12 @@
 							) {
 								//TODO: Hardcode for development phase. Should build a UM page with nextjs
 								url =
-									'https://minio-api.lumigame.com/s1-errorpage/NOVA88/maintain.json'
+									'https://minio-api.lumigame.com/s1-errorpage/NSDEMO/maintain.json'
 							} else if (window.location.href.indexOf('vgamesuat') !== -1) {
-								url = 'https://www.vgamesuat.com/NOVA88/maintain.json'
+								url = 'https://www.vgamesuat.com/NSDEMO/maintain.json'
 							} else {
 								url =
-									'https://minio-api.nova88demo.com/s1-errorpage/NOVA88/maintain.json'
+									'https://minio-api.nova88demo.com/s1-errorpage/NSDEMO/maintain.json'
 							}
 							fetch(url)
 								.then(function (response) {
