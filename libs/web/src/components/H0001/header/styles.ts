@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HeaderContainer = styled.div`
 	width: 100%;
@@ -9,7 +9,7 @@ export const HeaderContainer = styled.div`
 	display: flex;
 	align-items: center;
 	padding: 0;
-	z-index: 3;
+	z-index: 9;
 	justify-content: space-between;
 
 	.btn-groups {
