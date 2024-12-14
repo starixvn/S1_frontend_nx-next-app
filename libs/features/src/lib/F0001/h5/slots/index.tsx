@@ -1,6 +1,8 @@
 import { Header } from "@nx-next-app/components/H0001";
 import { paths } from "@nx-next-app/constants";
 import { useAuth } from "@nx-next-app/data-access";
+import CarouselBanner from "@nx-next-app/features/F0001/h5/common/carouselBanner";
+import { LoadingIcon } from "@nx-next-app/features/F0001/h5/home/gameIcon/icons";
 import LobbyPageBanner from "@nx-next-app/features/F0001/h5/lobby-game/LobbyPageBanner";
 import { LobbyGamePage } from "@nx-next-app/features/F0001/h5/lobby-game/styles";
 import CategoryFilter from "@nx-next-app/features/F0001/h5/slots/CategoryFilter";
@@ -21,9 +23,13 @@ const Slots = () => {
 		setIsShowSearchInput,
 		onSearchCategoryTextChange,
 		onInputClose,
+		bannerList,
+		isGetBannerV3Fetching,
 	} = useSlots()
 	const { t } = useTranslation()
 	const { auth } = useAuth()
+
+	if (isGetBannerV3Fetching) return <LoadingIcon />
 
 	return (
 		<LobbyGamePage $isLogin={auth.isLogin}>
@@ -38,10 +44,22 @@ const Slots = () => {
 					onInputClose={onInputClose}
 				/>
 			</Header>
-			<LobbyPageBanner
-				alt='Slots'
-				src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/slot-banner.webp`}
-			/>
+			{!isGetBannerV3Fetching && (
+				bannerList.length > 0 ? (
+					<div className='banner-container'>
+						<CarouselBanner
+							bannerList={bannerList}
+							navigation={false}
+							pagination={false}
+						/>
+					</div>
+				) : (
+					<LobbyPageBanner
+						alt='Slots'
+						src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/new-ui/slot-banner.webp`}
+					/>
+				)
+			)}
 			<div className={classNames('functionList', { active: !isNavInView })}>
 				<VendorFilter />
 				<CategoryFilter />
