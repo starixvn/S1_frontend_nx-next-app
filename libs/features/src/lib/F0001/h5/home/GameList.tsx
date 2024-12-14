@@ -8,6 +8,8 @@ import { IHotGame } from "@nx-next-app/service";
 import { EmblaOptionsType } from "embla-carousel";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import { getIsTpMaintain } from '@nx-next-app/utils'
+import { useGlobalData } from '@nx-next-app/data-access'
 
 type IGameList = {
 	gameData: IHotGame[]
@@ -22,6 +24,7 @@ const GameList: React.FC<IGameList> = (props: IGameList) => {
 	const { t } = useTranslation()
 	const { push } = useRouter()
 	const { handleHotGameClick } = useHome()
+  const { tpMaintainList } = useGlobalData()
 
 	const gameTypeEmblaOptions: EmblaOptionsType = { slidesToScroll: 'auto' }
 
@@ -38,11 +41,15 @@ const GameList: React.FC<IGameList> = (props: IGameList) => {
 				extraClassName={extraClassName}
 			>
 				{gameData?.map(game => {
-					const { gameLogo, gameName, gameId, tpName } = game
+					const { gameLogo, gameName, gameId, tpName, tpId, tpGameType } = game
 					const gameItem = {
 						gameId,
 						imageUrl: gameLogo,
-						isMaintain: false,
+						isMaintain: getIsTpMaintain({
+              tpMaintainList,
+              tpId,
+              tpGameType,
+            }),
 						tpName,
 						gameName,
 					}
