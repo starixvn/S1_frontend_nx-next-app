@@ -39,7 +39,7 @@ const CarouselBanner = ({
 			if (actionMode === BannerActionEnum.GoToBonus) {
 				redirectLink = `${paths.promotion.root}?BonusCode=${bonusCode}`
 			} else if (actionMode === BannerActionEnum.RedirectPageOfThisSite) {
-				let params = `?tpId=${tpId}`
+				let params = tpId ? `?tpId=${tpId}` : ''
 				if (urlRouter === paths.slots.root) {
 					params += isNumber(tpGameType)
 						? `&tpGameType=${tpGameType}`
