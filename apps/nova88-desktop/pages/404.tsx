@@ -23,17 +23,6 @@ export default function Page404() {
 							alt=''
 						/>
 					</div>
-					{/* <div className='page-error-box'>
-						<div className='page-error-box-title'>404</div>
-						<div className='page-error-box-content'>
-							Dear Valued Customers, To present a better experience for valued
-							players, system is performing an upgrade. Hence, it is
-							inaccessible as for the moment. Kindly bear with us, we will back
-							on track as soon as maintenance is complete later. Your kindest
-							patience and utmost understanding is appreciate.
-						</div>
-						<div className='hour'>24/7 Customer Support</div>
-					</div> */}
 				</div>
 			</div>
 		</WrapperErrorPage>

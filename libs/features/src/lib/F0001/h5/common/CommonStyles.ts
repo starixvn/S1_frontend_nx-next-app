@@ -161,3 +161,49 @@ export const WrapperCustomTitleBack = styled.div`
 		}
 	}
 `
+
+export const WrapperErrorPageH5 = styled.div`
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: url(${({ theme }) => theme.assetUrl}/h5/img/new-ui/bg-error.webp);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	.page-error {
+		.logo-page {
+			img {
+				width: 10rem;
+				margin: 3rem auto;
+			}
+		}
+		&-group {
+			max-width: 100rem;
+			padding: 0 1.2rem;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			gap: 4rem;
+		}
+		&-img {
+			max-width: 100%;
+		}
+		&-box {
+			&-title {
+				color: ${({ theme }) => theme.desktop.hrefColorPrimary};
+				font-size: 2.5rem;
+				font-weight: 700;
+				margin-bottom: 1.6rem;
+			}
+			&-content {
+				font-size: 1.4rem;
+				color: ${({ theme }) => theme.desktop.white};
+				line-height: 1.8rem;
+			}
+			.hour {
+				color: #1b5bff;
+			}
+		}
+	}
+`
