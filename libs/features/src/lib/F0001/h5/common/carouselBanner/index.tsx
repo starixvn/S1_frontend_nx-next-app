@@ -29,7 +29,7 @@ const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 			if (actionMode === BannerActionEnum.GoToBonus) {
 				redirectLink = `${paths.promotion.root}?BonusCode=${bonusCode}`
 			} else if (actionMode === BannerActionEnum.RedirectPageOfThisSite) {
-				let params = tpId ? `?tpId=${tpId}` : ''
+				let params = (tpId && tpId !== '0') ? `?tpId=${tpId}` : ''
 				if (urlRouter === paths.slots.root) {
 					params += isNumber(tpGameType)
 						? `&tpGameType=${tpGameType}`
