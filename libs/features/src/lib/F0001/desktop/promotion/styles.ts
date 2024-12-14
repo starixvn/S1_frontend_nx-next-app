@@ -194,6 +194,12 @@ export const WrapperErrorPage = styled.div`
 	background-repeat: no-repeat;
 	background-size: cover;
 	.page-error {
+		.logo-page {
+			img {
+				width: 10rem;
+				margin: 3rem auto;
+			}
+		}
 		&-group {
 			max-width: 100rem;
 			padding: 0 1.2rem;
