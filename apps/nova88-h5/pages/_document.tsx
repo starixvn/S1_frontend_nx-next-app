@@ -172,7 +172,7 @@ class MyDocument extends Document<CustomDocumentProps> {
 						</>
 					)}
 				</Head>
-				<body className='mobile-h5'>
+				<body className='mobile-h5' id='__top'>
 					{process.env['NEXT_PUBLIC_ENV'] === 'PRD' && (
 						// Google Tag Manager (noscript) - 市場區分 domain 的 google tag
 						<noscript>
