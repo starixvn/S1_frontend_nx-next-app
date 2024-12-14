@@ -21,6 +21,8 @@ export const WrapperLeaderBoard = styled.div`
 			background: ${({ theme }) => theme.mobile.rightModuleTitleBg};
 			border-radius: 20px;
 			padding: 2.9vw 4vw;
+			max-height: 100vw;
+			overflow: auto;
 			.title {
 				font-size: 4.1vw;
 				padding: 2vw 0;

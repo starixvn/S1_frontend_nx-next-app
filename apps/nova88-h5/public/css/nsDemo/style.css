@@ -140,7 +140,7 @@ body,
 html {
 	height: 100%;
 	font-family: 'Montserrat', sans-serif;
-	/* overflow: auto; */
+	overflow-x: hidden;
 }
 
 button {
@@ -15294,9 +15294,9 @@ input[type='number'] .btn-logout {
 	display: none;
 }
 
-/* #__next {
+#__next {
 	height: 100%;
-} */
+}
 
 #g-reCaptcha .grecaptcha-badge {
 	z-index: 999;
