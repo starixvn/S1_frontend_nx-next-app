@@ -15,7 +15,7 @@ const BackTop = () => {
 	}, 100)
 
 	useEffect(() => {
-		const mainContent = document?.getElementById('__next')
+		const mainContent = document?.getElementById('__desktop')
 		if (mainContent === undefined) return
 
 		mainContent?.addEventListener('scroll', handleScroll)
@@ -26,7 +26,7 @@ const BackTop = () => {
 	}, [])
 
 	const scrollToTop = useCallback(() => {
-		const mainContent = document?.getElementById('__next')
+		const mainContent = document?.getElementById('__desktop')
 		if (!mainContent) return
 
 		mainContent.scrollTop = 0
