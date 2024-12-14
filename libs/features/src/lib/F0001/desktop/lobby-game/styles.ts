@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const LobbyGamePage = styled.div`
 	.banner-container {
@@ -19,6 +19,10 @@ export const LobbyGamePage = styled.div`
 			align-items: center;
 			justify-content: center;
 			border-radius: 2rem;
+
+			.swiper-container {
+				border-radius: 2rem;
+			}
 		}
 	}
 

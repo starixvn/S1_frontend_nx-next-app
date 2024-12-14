@@ -15,17 +15,26 @@ const Slots = () => {
 
 	return (
 		<LobbyGamePage className='main-content '>
-			{!isGetBannerV3Fetching && (
-				<div className='lobby-banner'>
-					<CarouselBanner
-						bannerList={bannerList}
-						navigation={false}
-						pagination={false}
-					/>
+			{!isGetBannerV3Fetching && bannerList.length > 0 && (
+				<div className='banner-container'>
+					<div className='content-container'>
+						<CarouselBanner
+							bannerList={bannerList}
+							navigation={false}
+							pagination={false}
+						/>
+					</div>
 				</div>
 			)}
 
-			<div className='content-container'>
+			{!isGetBannerV3Fetching && bannerList.length === 0 && (
+				<LobbyPageBanner
+					alt='Slot'
+					src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/slot-banner.webp`}
+				/>
+			)}
+
+			< div className='content-container'>
 				<div className='filter-form'>
 					<SearchBox />
 					<VendorFilter />
@@ -33,7 +42,7 @@ const Slots = () => {
 				<CategoryFilter />
 				<GameList />
 			</div>
-		</LobbyGamePage>
+		</LobbyGamePage >
 	)
 }
 
