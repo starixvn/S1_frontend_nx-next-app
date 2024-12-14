@@ -36,9 +36,11 @@ const LayoutFooter = () => {
 	}
 
 	// * 根據語系有不同的 LIVE CHAT ID, 默認為 en
-	const liveChatUrl = `https://direct.lc.chat/${
-		process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']
-	}/${LIVE_CHAT_ID_BY_LANG_ID[langId] || 'en'}`
+	// const liveChatUrl = `https://direct.lc.chat/${
+	// 	process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']
+	// }/${LIVE_CHAT_ID_BY_LANG_ID[langId] || 'en'}`
+
+	const liveChatUrl = `https://line.me/ti/p/FKGAY68Tse`
 
 	return (
 		<WrapperFooterDock>

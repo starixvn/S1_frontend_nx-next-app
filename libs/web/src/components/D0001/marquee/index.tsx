@@ -1,8 +1,10 @@
-import { HomeMarquee } from "@nx-next-app/components/D0001/marquee/styles";
-import { IMarqueeConfigs, IMarqueeData } from "@nx-next-app/components/D0001/marquee/type";
-import { openLiveChat } from "@nx-next-app/utils";
-import { useTranslation } from "next-i18next";
-import ReactMarquee from "react-fast-marquee";
+import { HomeMarquee } from '@nx-next-app/components/D0001/marquee/styles'
+import {
+	IMarqueeConfigs,
+	IMarqueeData,
+} from '@nx-next-app/components/D0001/marquee/type'
+import { useTranslation } from 'next-i18next'
+import ReactMarquee from 'react-fast-marquee'
 
 interface IMarqueeProps {
 	data: IMarqueeData[] | null
@@ -41,10 +43,15 @@ const Marquee = ({ data, configs, onMarqueeClick }: IMarqueeProps) => {
 						</div>
 					</div>
 				</div>
-				<button className='live-chat' onClick={openLiveChat}>
+				<a
+					href='https://line.me/ti/p/FKGAY68Tse'
+					target='_blank'
+					className='live-chat'
+					rel='noreferrer'
+				>
 					<span className='icon icon-chat-smile-fill' />
 					{t('Label_General_LiveChat')}
-				</button>
+				</a>
 			</div>
 		</HomeMarquee>
 	)
