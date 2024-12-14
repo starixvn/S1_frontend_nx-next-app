@@ -32,7 +32,7 @@ const SportsGames = () => {
 	return (
 		<SportContainer>
 			<GameGroup>
-				<GroupTitle title={t('Label_General_Sports')} href={paths.game.root} />
+				<GroupTitle title={t('Label_General_Sports')} href={paths.sports.root} />
 				<GameList gameData={hotGameCasino} isControlButton />
 			</GameGroup>
 			<HotEvents />
