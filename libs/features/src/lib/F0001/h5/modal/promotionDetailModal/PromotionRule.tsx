@@ -63,18 +63,16 @@ const PromotionRule = ({ promotionDetail }: IPromotionRuleProps) => {
 							: numberWithCurrency(tierAmountInfo.bonus)}
 					</div>
 				</div>
-				<div className='row'>
-					{isPercentage && (
-						<>
-							<div className='row-title'>
-								{toUpper(t('Label_Promotion_MaxBonus') || '')}
-							</div>
-							<div className='row-value'>
-								{numberWithCurrency(tierAmountInfo.maxBonus)}
-							</div>
-						</>
-					)}
-				</div>
+				{isPercentage && (
+					<div className='row'>
+						<div className='row-title'>
+							{toUpper(t('Label_Promotion_MaxBonus') || '')}
+						</div>
+						<div className='row-value'>
+							{numberWithCurrency(tierAmountInfo.maxBonus)}
+						</div>
+					</div>
+				)}
 				<div className='row'>
 					<div className='row-title'>
 						{fullFillType === CustBonusWalletFullFillTypeEnum.WinOver

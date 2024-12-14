@@ -11,6 +11,9 @@ export const LobbyGamePage = styled.div<{ $isLogin: boolean | undefined }>`
 			width: 100%;
 			height: auto;
 		}
+		.swiper-container {
+			position: unset;
+		}
 	}
 
 	.functionList {
