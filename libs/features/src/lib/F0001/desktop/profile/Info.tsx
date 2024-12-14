@@ -286,6 +286,7 @@ const Info = ({ formBirth, setFormBirth }: IInfoProps) => {
 						) : (
 							<div className='btnGroup'>
 								<button
+									type='button'
 									className='btn-secondary custom-tooltip'
 									onClick={onPhoneVerify}
 								>
