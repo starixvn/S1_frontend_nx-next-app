@@ -1,15 +1,15 @@
-import { useGlobalModal } from "@nx-next-app/components/config-provider";
-import { paths } from "@nx-next-app/constants";
-import EmblaCarousel from "@nx-next-app/features/F0001/h5/common/emblaCarousel";
-import GameIcon from "@nx-next-app/features/F0001/h5/home/gameIcon";
-import { GameContainer } from "@nx-next-app/features/F0001/h5/home/styles";
-import { useHome } from "@nx-next-app/features/F0001/providers";
-import { IHotGame } from "@nx-next-app/service";
-import { EmblaOptionsType } from "embla-carousel";
-import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
-import { getIsTpMaintain } from '@nx-next-app/utils'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
 import { useGlobalData } from '@nx-next-app/data-access'
+import EmblaCarousel from '@nx-next-app/features/F0001/h5/common/emblaCarousel'
+import GameIcon from '@nx-next-app/features/F0001/h5/home/gameIcon'
+import { GameContainer } from '@nx-next-app/features/F0001/h5/home/styles'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { IHotGame } from '@nx-next-app/service'
+import { getIsTpMaintain } from '@nx-next-app/utils'
+import { EmblaOptionsType } from 'embla-carousel'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
 
 type IGameList = {
 	gameData: IHotGame[]
@@ -24,7 +24,7 @@ const GameList: React.FC<IGameList> = (props: IGameList) => {
 	const { t } = useTranslation()
 	const { push } = useRouter()
 	const { handleHotGameClick } = useHome()
-  const { tpMaintainList } = useGlobalData()
+	const { tpMaintainList } = useGlobalData()
 
 	const gameTypeEmblaOptions: EmblaOptionsType = { slidesToScroll: 'auto' }
 
@@ -46,10 +46,10 @@ const GameList: React.FC<IGameList> = (props: IGameList) => {
 						gameId,
 						imageUrl: gameLogo,
 						isMaintain: getIsTpMaintain({
-              tpMaintainList,
-              tpId,
-              tpGameType,
-            }),
+							tpMaintainList,
+							tpId,
+							tpGameType,
+						}),
 						tpName,
 						gameName,
 					}

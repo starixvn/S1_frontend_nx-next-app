@@ -51,6 +51,11 @@ const SlotGameIcon: FC<{ game: IDisplayGameData }> = ({ game }) => {
 			className={classNames({ 'star active': isMaintain })}
 			ref={ref}
 		>
+			{isMaintain && (
+				<div className='um-container'>
+					<div className='under'>{t('Label_General_UnderMaintenance')}</div>
+				</div>
+			)}
 			<button
 				className='img-wrapper'
 				onClick={() =>
@@ -84,12 +89,6 @@ const SlotGameIcon: FC<{ game: IDisplayGameData }> = ({ game }) => {
 					active: isFavorite,
 				})}
 			/>
-
-			{isMaintain && (
-				<div className='um-container'>
-					<div className='under'>{t('Label_General_UnderMaintenance')}</div>
-				</div>
-			)}
 
 			{newGamesArr.includes(gameId) ? (
 				<div className='new-icon'>{t('Label_General_New')}</div>

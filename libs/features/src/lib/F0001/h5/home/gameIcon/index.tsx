@@ -54,7 +54,9 @@ const GameIcon: FC<IGameIcon> = ({ gameItem, isLarge, onClick }) => {
 
 			{isMaintain && (
 				<div className='um-container'>
-					<div className='under'>{t('Label_General_UnderMaintenance')}</div>
+					<div className='txt-maintain'>
+						{t('Label_General_UnderMaintenance')}
+					</div>
 				</div>
 			)}
 		</GameIconContainer>
