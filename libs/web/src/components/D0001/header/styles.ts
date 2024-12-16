@@ -22,6 +22,7 @@ export const HeaderContainer = styled.div`
 export const LogoContainer = styled.div`
 	width: 110px;
 	height: 46px;
+	cursor: pointer;
 `
 export const FunctionContainer = styled.div`
 	display: flex;
