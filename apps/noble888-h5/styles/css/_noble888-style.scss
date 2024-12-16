@@ -163,9 +163,39 @@ a {
 
 }
 
-.icon-member {
-  background: $secondary !important;
+.Wallet {}
+
+.userVerification,
+.profile {
+  color: $white !important;
 }
+
+.addressModule {
+  span {
+    color: $white !important;
+  }
+
+  .title {
+    color: $white !important;
+  }
+
+  .subtitle {
+
+    color: $white !important;
+  }
+}
+
+.accountSafety {
+  color: $white !important;
+}
+
+.addressContent {
+  div {
+    color: $white !important;
+  }
+}
+
+
 
 .promodule {
   .btn-group {
@@ -704,7 +734,7 @@ header {
         font-weight: 800 !important;
 
         span {
-          color: $primary !important;
+          color: $secondary !important;
           font-weight: 800 !important;
           margin-left: 1.5vw !important;
         }
@@ -977,6 +1007,10 @@ main {
   &.index {
     padding-bottom: 30vw !important;
 
+  }
+
+  >.icon-member {
+    background: $secondary !important;
   }
 
   #Marquee {
@@ -1298,7 +1332,10 @@ main {
       i.icon {
         color: $secondary !important;
       }
+
     }
+
+
 
     .account {
       .text-org {
