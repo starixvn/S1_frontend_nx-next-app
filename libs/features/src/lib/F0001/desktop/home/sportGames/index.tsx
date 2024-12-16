@@ -1,12 +1,12 @@
-import { paths } from "@nx-next-app/constants";
-import GameList from "@nx-next-app/features/F0001/desktop/home/GameList";
-import GroupTitle from "@nx-next-app/features/F0001/desktop/home/GroupTitle";
-import HotEvents from "@nx-next-app/features/F0001/desktop/home/hotMatch";
-import { SportContainer } from "@nx-next-app/features/F0001/desktop/home/sportGames/styles";
-import { GameGroup } from "@nx-next-app/features/F0001/desktop/home/styles";
-import { useHome } from "@nx-next-app/features/F0001/providers";
-import { TpCategory } from "@nx-next-app/service";
-import { useTranslation } from "next-i18next";
+import { paths } from '@nx-next-app/constants'
+import GameList from '@nx-next-app/features/F0001/desktop/home/GameList'
+import GroupTitle from '@nx-next-app/features/F0001/desktop/home/GroupTitle'
+import HotEvents from '@nx-next-app/features/F0001/desktop/home/hotMatch'
+import { SportContainer } from '@nx-next-app/features/F0001/desktop/home/sportGames/styles'
+import { GameGroup } from '@nx-next-app/features/F0001/desktop/home/styles'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { TpCategory } from '@nx-next-app/service'
+import { useTranslation } from 'next-i18next'
 
 const SportGames = () => {
 	const { t } = useTranslation()
@@ -27,7 +27,7 @@ const SportGames = () => {
 					href={paths.sports.root}
 				/>
 				<GameList gameData={sportGames} isControlButton />
-				<HotEvents />
+				<HotEvents gameData={sportGames} />
 			</GameGroup>
 		</SportContainer>
 	)

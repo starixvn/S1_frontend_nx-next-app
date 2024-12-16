@@ -16,4 +16,5 @@ export interface IHotEventData {
 	matchId: number
 	sportLeaguesTitle: string
 	tpId: string
+	isMaintenance: boolean
 }

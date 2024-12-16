@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { dateFormat, timeFormat } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { HotMatchContainer } from '@nx-next-app/features/F0001/desktop/home/hotMatch/styles'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useHome } from '@nx-next-app/features/F0001/providers'
-import { IHotEventData } from '@nx-next-app/service'
+import { IHotEventData, IHotGame } from '@nx-next-app/service'
 import dayjs from 'dayjs'
+import { getIsTpMaintain } from 'libs/web/src/utils/tools'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import { useEffect, useMemo, useState } from 'react'
@@ -14,7 +15,13 @@ export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
 })
 
-const Item = ({ data }: { data: IHotEventData }) => {
+const Item = ({
+	data,
+	isMaintenance,
+}: {
+	data: IHotEventData
+	isMaintenance: boolean
+}) => {
 	const { t } = useTranslation()
 	const { formatHdp } = useHome()
 	const {
@@ -44,6 +51,10 @@ const Item = ({ data }: { data: IHotEventData }) => {
 
 	return (
 		<div className='swiper-slide'>
+			{isMaintenance && (
+				// Todo: Jimmy Help Me
+				<div></div>
+			)}
 			<div className='match-item '>
 				<div className='match-item-title '>
 					<p>{sportLeaguesTitle}</p>
@@ -98,11 +109,13 @@ const Item = ({ data }: { data: IHotEventData }) => {
 	)
 }
 
-const HotEvents = () => {
+const HotEvents = ({ gameData }: { gameData: IHotGame[] }) => {
 	const { hotEventData } = useHome()
 	const [showNavigation, setShowNavigation] = useState(false)
+	const [isMaintenance, setIsMaintenance] = useState(false)
 	const [shouldSwiperUpdate, setShouldSwiperUpdate] = useState(false)
 	const memoHotEventData = useMemo(() => hotEventData, [hotEventData])
+	const { tpMaintainList } = useGlobalData()
 
 	const config = {
 		slidesPerView: 2.8,
@@ -132,6 +145,27 @@ const HotEvents = () => {
 	}
 
 	useEffect(() => {
+		if (
+			gameData &&
+			gameData.length > 0 &&
+			hotEventData &&
+			hotEventData.length > 0
+		) {
+			const game = gameData.find(
+				game => game.tpId === Number(hotEventData[0]?.tpId)
+			)
+			const { tpId, tpGameType } = game || {}
+			setIsMaintenance(
+				getIsTpMaintain({
+					tpMaintainList,
+					tpId,
+					tpGameType,
+				})
+			)
+		}
+	}, [tpMaintainList, hotEventData, gameData])
+
+	useEffect(() => {
 		setShouldSwiperUpdate(true)
 		setTimeout(() => setShouldSwiperUpdate(false), 5000)
 	}, [memoHotEventData])
@@ -141,6 +175,7 @@ const HotEvents = () => {
 		<Item
 			key={`${eventData.sportLeaguesTitle}-${eventData.matchId}`}
 			data={eventData}
+			isMaintenance={isMaintenance}
 		/>
 	))
 
