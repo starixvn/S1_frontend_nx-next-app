@@ -127,7 +127,8 @@ export const getServerSideProps: GetServerSideProps = async context => {
 				TpCategory.Games,
 			].toString(),
 			currencyId: Number(process.env['NEXT_PUBLIC_DEFAULT_CURRENCY']),
-		}),
+		},
+    { headers: { cookie: currentHeaderCookies } }),
 	])
 
 	const { HotGame: persistHotGameData = [] } = hotGameData ?? {}

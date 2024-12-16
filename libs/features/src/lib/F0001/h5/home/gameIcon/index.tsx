@@ -1,4 +1,4 @@
-import { LoadingIcon } from '@nx-next-app/features/F0001/h5/home/gameIcon/icons'
+import { LoadingIcon, NoGameIcon } from '@nx-next-app/features/F0001/h5/home/gameIcon/icons'
 import { GameIconContainer } from '@nx-next-app/features/F0001/h5/home/gameIcon/styles'
 import { useTranslation } from 'next-i18next'
 import { FC } from 'react'
@@ -43,8 +43,7 @@ const GameIcon: FC<IGameIcon> = ({ gameItem, isLarge, onClick }) => {
 							isLarge ? '@2x' : '@1x'
 						}.webp`}
 						loader={<LoadingIcon />}
-						// unloader={<NoGameIcon />}
-						unloader={<p>{gameName}</p>}
+						unloader={<NoGameIcon />}
 						alt={gameName}
 					/>
 				)}

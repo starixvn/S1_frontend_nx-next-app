@@ -1,6 +1,6 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { LoadingIcon } from '@nx-next-app/features/F0001/h5/home/gameIcon/icons'
+import { LoadingIcon, NoGameIcon } from '@nx-next-app/features/F0001/h5/home/gameIcon/icons'
 import { GameIconContainer } from '@nx-next-app/features/F0001/h5/lobby-game/styles'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useLobby } from '@nx-next-app/features/F0001/providers'
@@ -87,8 +87,7 @@ const GameLobbyIcon: FC<{ game: IDisplayLobbyGameData }> = ({ game }) => {
 						className='img'
 						src={resultImgUrl}
 						loader={<LoadingIcon />}
-						// unloader={<NoGameIcon />}
-						unloader={<p>{gameName}</p>}
+						unloader={<NoGameIcon />}
 						alt={gameName}
 					/>
 				)}

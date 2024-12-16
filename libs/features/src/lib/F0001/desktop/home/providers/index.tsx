@@ -145,8 +145,7 @@ const ProvidersList = () => {
 									className='img'
 									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/provider/dark/sabaplus-maxplay.webp`}
 									loader={<LoadingIcon />}
-									// unloader={<NoGameIcon />}
-									unloader={<p>sabaplus-maxplay</p>}
+									unloader={<NoGameIcon />}
 									alt='Max play'
 								/>
 							</div>

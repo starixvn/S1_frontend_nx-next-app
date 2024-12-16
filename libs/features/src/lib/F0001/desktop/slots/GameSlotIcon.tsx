@@ -1,5 +1,5 @@
 import { useAuth } from "@nx-next-app/data-access";
-import { LoadingIcon } from "@nx-next-app/features/F0001/desktop/home/gameIcon/icons";
+import { LoadingIcon, NoGameIcon } from "@nx-next-app/features/F0001/desktop/home/gameIcon/icons";
 import { GameIconContainer } from "@nx-next-app/features/F0001/desktop/lobby-game/styles";
 import { useSlots } from "@nx-next-app/features/F0001/providers";
 import { IDisplayGameData } from "@nx-next-app/service";
@@ -58,8 +58,7 @@ const SlotGameIcon: FC<{ game: IDisplayGameData }> = ({ game }) => {
 						className='img'
 						src={resultImgUrl}
 						loader={<LoadingIcon />}
-						// unloader={<NoGameIcon />}
-						unloader={<p>{resultGameName}</p>}
+						unloader={<NoGameIcon />}
 						alt={resultGameName}
 					/>
 				)}
