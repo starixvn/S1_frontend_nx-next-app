@@ -120,6 +120,10 @@ const Form = ({ cookies }: IJoinProps) => {
 		// 巴西，韓國，日本 沒有 enums
 		// 32 日幣 / 13 人民幣
 		const filterCurrency = [32, 13]
+		// noble888 只要 USD
+		if (process.env['NEXT_PUBLIC_SITE_NAME'] === 'noble888') {
+			return [CurrenciesEnum.USD]
+		}
 		return siteCurrencyList.filter(
 			currencyId => !includes(filterCurrency, currencyId)
 		)

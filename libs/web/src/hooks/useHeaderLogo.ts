@@ -21,6 +21,7 @@ const useHeaderLogo = ({ mainLogoUrl }: IHeaderLogoProps) => {
 
 	// 僅有巴西沒有贊助球隊，所以秀 nova 原始 Logo
 	useEffect(() => {
+		// noble888 沒有 sp logo
 		if (process.env['NEXT_PUBLIC_SITE_NAME'] === 'noble888')
 			setShowSpLogo(false)
 		if (isBRL) setShowSpLogo(false)
