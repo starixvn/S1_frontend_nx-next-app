@@ -182,16 +182,19 @@ const SubMenu = ({
 					/>
 					<span>{t('Label_General_Referral')}</span>
 				</button>
-				<Link href={paths.milestones.root}>
-					<a>
-						<img
-							className='List-npc'
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/dropdown/home/home-milestone.png`}
-							alt='home-milestone'
-						/>
-						<span>{t('Label_General_Milestone')}</span>
-					</a>
-				</Link>
+				{/* TODO HardCode 寫死，之後改回來 */}
+				{process.env['NEXT_PUBLIC_SITE_NAME'] !== 'noble888' && (
+					<Link href={paths.milestones.root}>
+						<a>
+							<img
+								className='List-npc'
+								src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/dropdown/home/home-milestone.png`}
+								alt='home-milestone'
+							/>
+							<span>{t('Label_General_Milestone')}</span>
+						</a>
+					</Link>
+				)}
 			</div>
 
 			{menus}

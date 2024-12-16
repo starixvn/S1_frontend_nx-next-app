@@ -213,7 +213,10 @@ const List = () => {
 					{t('Label_General_ContactUs')}
 				</a>
 
-				<a href={`/${langId}/milestones`}>{t('Label_General_Milestone')}</a>
+				{/* TODO 先 hardcode 寫死，之後改回來  */}
+				{process.env['NEXT_PUBLIC_SITE_NAME'] !== 'noble888' && (
+					<a href={`/${langId}/milestones`}>{t('Label_General_Milestone')}</a>
+				)}
 
 				<Link href={paths.gameProvider.root}>
 					<a>{t('Label_General_GameProvider')}</a>
