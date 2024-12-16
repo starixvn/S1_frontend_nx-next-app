@@ -363,7 +363,7 @@ export const WrapperVipPage = styled.div`
 				border-radius: 8px;
 				overflow: hidden;
 				opacity: 0;
-				transform: translateY(30px);
+				transform: translateY(60px);
 				transition: all 0.5s ease-out;
 				span {
 					text-align: center;

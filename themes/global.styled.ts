@@ -2527,9 +2527,9 @@ export const GlobalStyles = createGlobalStyle`
     .Straight-lock .text {
       margin: 2vw 0 0;
       text-align: center;
-      line-height: 4vw;
+      line-height: 22px;
       color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
-      font-size : 2vw;
+      font-size : 13px;
     }
 
     @-webkit-keyframes reload1 {
