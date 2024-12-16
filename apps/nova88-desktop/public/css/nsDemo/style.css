@@ -609,10 +609,6 @@ body {
 	position: relative !important;
 }
 
-main {
-	min-width: 1400px;
-}
-
 main .teachingbar {
 	width: 1400px;
 	display: -webkit-box;

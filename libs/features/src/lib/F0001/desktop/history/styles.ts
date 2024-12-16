@@ -30,6 +30,7 @@ export const WrapperHistory = styled.div`
 				&:nth-child(2) {
 					display: flex !important;
 					justify-content: center;
+					flex-wrap: wrap;
 				}
 				&:nth-child(6) {
 					width: 60%;
