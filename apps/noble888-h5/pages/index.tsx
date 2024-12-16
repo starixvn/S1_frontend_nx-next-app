@@ -53,7 +53,7 @@ const HomePage = ({
 	persistFooterData,
 	persistStaticFileDomainData,
 }: IHomePageProps) => {
-	const persistAppDownloadHint = originCookies[ENV_COOKIE_NAMES.AppDownloadHint]
+	// const persistAppDownloadHint = originCookies[ENV_COOKIE_NAMES.AppDownloadHint]
 
 	return (
 		<NovaAuthProvider
@@ -74,7 +74,7 @@ const HomePage = ({
 						persistPlatformList={persistFooterData.platformList}
 						mobileHomeOrders={MOBILE_HOME_ORDERS}
 					>
-						<Home persistAppDownloadHint={persistAppDownloadHint} />
+						<Home persistAppDownloadHint='true' />
 					</HomeProvider>
 				</Layout>
 			</GlobalDataProvider>
