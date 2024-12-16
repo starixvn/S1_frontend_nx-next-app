@@ -94,4 +94,14 @@ export const WrapperRegister = styled.div`
 			}
 		}
 	}
+	.currency-id,
+	.phone-edit {
+		.dropdown {
+			.btn {
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
 `

@@ -3556,11 +3556,6 @@ input[type='date'] {
 	background-image: linear-gradient(to top, transparent, transparent);
 }
 
-.search {
-	width: calc(100% - 10vw);
-	padding: 2vw 0 2vw 8vw;
-}
-
 .icon-spinner11.active:before {
 	display: block;
 	-webkit-animation-name: reload;

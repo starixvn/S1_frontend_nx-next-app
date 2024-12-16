@@ -37,10 +37,27 @@ export const WrapperJoinPage = styled.div`
 		width: 16px;
 		height: 16px;
 	}
-	.select-currentcy {
+	.select-currentcy,
+	.select-phone {
 		.inputInfo {
 			display: none;
 		}
+		.dropdown {
+			.btn {
+				&:before {
+					display: none;
+				}
+			}
+		}
+		.btn {
+			&:before {
+				display: none;
+			}
+		}
+	}
+	.search {
+		width: calc(100% - 10vw);
+		padding: 4vw 0 3vw 8vw;
 	}
 `
 

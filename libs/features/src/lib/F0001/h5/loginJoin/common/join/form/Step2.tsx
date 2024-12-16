@@ -188,7 +188,7 @@ const Step2 = ({ selectCurrency, currencySelectOptions }: IStep2Props) => {
 					touched={!!touchedFields['phone']}
 					infoMessage={t('Label_Join_CantChangePhone') as string}
 					selectOptions={areaCodeSelectOptions}
-					className='parts parts-xs'
+					className='parts parts-xs select-phone'
 					errorMessage={errors['phone']?.message as string}
 					onChangeSelect={areaCode => selectAreaCode(areaCode)}
 					selectValue={getValues('areaCode')}

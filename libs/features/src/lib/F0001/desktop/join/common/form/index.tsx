@@ -584,23 +584,24 @@ const Form = ({ cookies }: IJoinProps) => {
 					/>
 				</div>
 
-				<Select
-					// * 如果 Aff Input 有相對應的幣別，則使用 currencyOptions（Aff 過濾的幣別選項）
-					options={currencyOptions}
-					value={getValues('currencyId')}
-					placeholder={t('Label_Join_PrefferedCurrency') as string}
-					prefixIcon={<i className='icon icon-money-dollar-circle-line' />}
-					onChange={currencyId => selectCurrency(currencyId)}
-					errorMessage={errors['currencyId']?.message as string}
-					isDropdown={false}
-				/>
+				<div className='currency-id'>
+					<Select
+						options={currencyOptions}
+						value={getValues('currencyId')}
+						placeholder={t('Label_Join_PrefferedCurrency') as string}
+						prefixIcon={<i className='icon icon-money-dollar-circle-line' />}
+						onChange={currencyId => selectCurrency(currencyId)}
+						errorMessage={errors['currencyId']?.message as string}
+						isDropdown={false}
+					/>
+				</div>
 				<div className='tip active'>
 					{(errors['currencyId']?.message as string) ||
 						t('Label_Join_CantChangePreferredCurrency')}
 				</div>
 				{watchCurrencyId && (
 					<>
-						<div className='inputBox-row'>
+						<div className='inputBox-row phone-edit'>
 							<Select
 								showSearch
 								options={areaCodeSelectOptions}
