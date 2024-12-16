@@ -456,6 +456,7 @@ form {
   //function
   .function {
 
+
     .deposit-btn {
       background: $secondary !important;
 
@@ -491,8 +492,11 @@ form {
       }
 
       .btnGroup {
-        a {
-          margin: unset !important;
+
+        a,
+        button {
+          margin: 0 !important;
+          box-sizing: border-box !important;
           font-size: 15px;
           background: $secondary !important;
           color: $white !important;
@@ -658,6 +662,8 @@ article {
   }
 }
 
+
+
 //rightModule
 .rightModule {
   .infoModule {
@@ -686,7 +692,78 @@ article {
       &:hover {
         background: $secondary-hover !important;
       }
+
+      &.icon-information {
+        background: unset !important;
+        color: $secondary !important;
+      }
     }
+
+    .swithModule .switchBtn {
+      background: $grey !important;
+    }
+
+    .swithModule .switchBtn.active {
+      border: unset !important;
+      background: $green !important;
+    }
+
+    .inputInfo.transfer {
+      background: $white !important;
+    }
+
+    .swithModule .inputInfo:before {
+      border-color: $white transparent transparent !important;
+    }
+
+  }
+
+  .walletTransfer {
+    background: $primary !important;
+
+  }
+
+  .walletModule {
+
+    .icon-icon32px_Main-Wallet,
+    .icon-icon32px_Sportsbook-Wallet,
+    .icon-spinner11 {
+      &::before {
+        color: $secondary !important;
+      }
+    }
+
+    .inputBox-blue {
+      .dropdown {
+
+        .btn {
+          color: $primary !important;
+
+          &::after {
+            border-color: $primary transparent transparent transparent !important;
+          }
+        }
+
+        .dropdown-container {
+          border: 1px solid $white !important;
+          background: $white !important;
+
+          .dropdown-item {
+            color: $primary !important;
+
+            &:hover {
+              background: $secondary !important;
+              color: $white !important;
+            }
+          }
+        }
+      }
+
+      i.txt-blue {
+        color: $grey !important;
+      }
+    }
+
 
   }
 

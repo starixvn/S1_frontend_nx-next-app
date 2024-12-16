@@ -566,6 +566,8 @@ header {
 
 }
 
+
+
 //inputBox
 .infoModule {
   .icon-icon32px_1 {
@@ -823,6 +825,12 @@ header {
   }
 
   &.after {
+    .wallet-list {
+      a {
+        background: $secondary-gradient-left !important;
+      }
+    }
+
     .profile-item {
       div {
         div {
@@ -1008,6 +1016,47 @@ main {
     padding-bottom: 30vw !important;
 
   }
+
+  .inputInfo {
+    background: $white !important;
+    color: $primary !important;
+  }
+
+  .rememberMode .inputInfo:before {
+    border-color: transparent transparent $white transparent !important;
+  }
+
+  form {
+    .inputBox {
+      background: $white !important;
+      border: 1px solid $secondary !important;
+
+      .text {
+        color: $primary !important;
+      }
+
+
+      .dropdown {
+        i.icon {
+          color: $secondary !important;
+        }
+      }
+
+      .dropdown~.dropdown-container {
+        background: $white !important;
+        color: $primary !important;
+
+      }
+
+      .dropdown-item {
+
+        .text {
+          color: $primary !important;
+        }
+      }
+    }
+  }
+
 
   >.icon-member {
     background: $secondary !important;
@@ -1218,6 +1267,14 @@ main {
     }
   }
 
+  .account {
+    background: $white !important;
+  }
+
+  .text-org {
+    color: $secondary !important;
+  }
+
   //exclusion
   .exclusion-text {
 
@@ -1349,8 +1406,6 @@ main {
     }
   }
 }
-
-.account {}
 
 
 

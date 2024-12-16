@@ -36,6 +36,7 @@ $main-grey-dark: #4c5356;
 
 //----- gradient -----//
 $secondary-gradient-right: linear-gradient(to right, $secondary , rgba($white, 10%));
+$secondary-gradient-left: linear-gradient(to left, $secondary , $secondary-darken);
 $secondary-gradient-bottom: linear-gradient(to bottom, $secondary-lighten , $secondary); //
 $secondary-gradient-bottom-default: linear-gradient(to bottom, $secondary-darken 0%, $secondary 100%);
 $red-gold-gradient-right: linear-gradient(to right, $primary 10%, $secondary);
