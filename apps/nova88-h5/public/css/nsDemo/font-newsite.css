@@ -26,6 +26,11 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+.icon-ns-site:before {
+  content: "\e95b";
+  color: #fff;
+}
 .icon-like:before {
   content: "\e95a";
   color: #717fba;

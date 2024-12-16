@@ -198,7 +198,7 @@ const List = () => {
 			</SettingCollapse.Item>
 
 			<SettingCollapse.Item
-				imgName='icon-globe-alt'
+				imgName='icon-ns-site'
 				header={String(process.env['NEXT_PUBLIC_SITE_NAME']).toUpperCase()}
 			>
 				<a
