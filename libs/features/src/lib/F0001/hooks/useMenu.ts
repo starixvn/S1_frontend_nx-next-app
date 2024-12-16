@@ -196,7 +196,7 @@ const useMenu = () => {
 		const lobbyUrl = `${host}${paths.slots.root}?tpId=${tpId}`
 
 		// * 只支援 en, cs, id, th
-		const errorUrl = `${dbHost}/404/index_${langId}.html`
+		const errorUrl = `${window.location.origin}/404/index_${langId}.html`
 
 		const searchParams = new URLSearchParams({
 			tpId,
@@ -250,7 +250,7 @@ const useMenu = () => {
 		//	:
 		const signupUrl = `${host}${paths.join.root}`
 		const loginUrl = `${host}${paths.login.root}`
-		const errorUrl = `${dbHost}/404/index_${langId}.html`
+		const errorUrl = `${window.location.origin}/404/index_${langId}.html`
 		const cashierUrl = `${host}${paths.deposit.root}`
 		const lobbyUrl = ''
 
