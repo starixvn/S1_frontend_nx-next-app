@@ -14,7 +14,7 @@ export const DESKTOP_HOME_ORDERS = [
 	// DesktopHomeComponentsEnum.RecentlyViewGames, 目前隱藏，未來看需求有可能開啟
 	DesktopHomeComponentsEnum.AppDownloadBanner,
 	DesktopHomeComponentsEnum.ProviderBlock,
-	DesktopHomeComponentsEnum.OfficialPartner,
+	// DesktopHomeComponentsEnum.OfficialPartner,
 	DesktopHomeComponentsEnum.LiveStreamingLink,
 	DesktopHomeComponentsEnum.EuropeCupEntry,
 	DesktopHomeComponentsEnum.RetentionEntry,
@@ -30,7 +30,7 @@ export const MOBILE_HOME_ORDERS = [
 	// MobileHomeComponentsEnum.RecentlyViewGames,  目前隱藏，未來看需求有可能開啟
 	MobileHomeComponentsEnum.JackPotSwiper,
 	MobileHomeComponentsEnum.AppDownload,
-	MobileHomeComponentsEnum.PartnerBlock,
+	// MobileHomeComponentsEnum.PartnerBlock,
 	MobileHomeComponentsEnum.FooterBlock,
 	MobileHomeComponentsEnum.LiveStreamingLink,
 	MobileHomeComponentsEnum.EuropeCupEntry,
