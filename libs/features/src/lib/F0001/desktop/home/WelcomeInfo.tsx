@@ -3,7 +3,11 @@ import { paths } from '@nx-next-app/constants'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useHome } from '@nx-next-app/features/F0001/providers'
+import { MenuActionTypeEnum } from '@nx-next-app/types'
 import { includes } from 'lodash-es'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
+import { useTranslation } from 'react-i18next'
 
 const LoginModal = dynamic(() => import('../modal/LoginModal'), {
 	ssr: false,
