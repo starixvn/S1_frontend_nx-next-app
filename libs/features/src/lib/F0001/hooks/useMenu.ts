@@ -1,8 +1,15 @@
-import { includes, find, filter } from 'lodash-es'
-import { useRouter } from 'next/router'
-import { useMenuData } from '@nx-next-app/hooks'
-import { paths, PRODUCTS, memberTypeEnum } from '@nx-next-app/constants'
+import { PRODUCTS, memberTypeEnum, paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData, useStaticData } from '@nx-next-app/data-access'
+import type {
+	IDynamicSubMenuItem,
+	IDynamicSubMenuLinkType,
+	IStaticSubMenuItem,
+} from '@nx-next-app/features/F0001/types'
+import { useMenuData } from '@nx-next-app/hooks'
+import {
+	useGetCustTpGameTypeSettingQuery,
+	type IGotoGameArg,
+} from '@nx-next-app/service'
 import {
 	DeviceTypeEnum,
 	LoginGameTypeEnum,
@@ -10,19 +17,12 @@ import {
 	MenuKeyEnum,
 } from '@nx-next-app/types'
 import {
-	type IGotoGameArg,
-	useGetCustTpGameTypeSettingQuery,
-} from '@nx-next-app/service'
-import {
 	getIsTpMaintain,
-	onWindowOpenProduct,
 	isGameExcludedFromLiff,
+	onWindowOpenProduct,
 } from '@nx-next-app/utils'
-import type {
-	IDynamicSubMenuItem,
-	IStaticSubMenuItem,
-	IDynamicSubMenuLinkType,
-} from '@nx-next-app/features/F0001/types'
+import { filter, find, includes } from 'lodash-es'
+import { useRouter } from 'next/router'
 
 type LoginCallbackType = () => void
 type MessageCallbackType = (message: string) => void
@@ -124,6 +124,13 @@ const useMenu = () => {
 				// * subMenu 是插入的相關資料 因此不會影響順序
 				subMenu.forEach(defSubItem => {
 					if (subMenuItem.tpGameIdNo === defSubItem.tpGameIdNo) {
+						// TODO HardCode 先改名，之後要改回來
+						if (
+							subMenuItem.tpGameIdNo === PRODUCTS.Nova88Exchange.tpGameIdNo &&
+							process.env['NEXT_PUBLIC_SITE_NAME'] === 'noble888'
+						) {
+							Object.assign(subMenuItem, { productName: 'Noble888 Exchange' })
+						}
 						Object.assign(subMenuItem, defSubItem)
 					}
 				})
