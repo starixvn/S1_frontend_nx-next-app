@@ -494,6 +494,16 @@ form {
         a {
           margin: unset !important;
           font-size: 15px;
+          background: $secondary !important;
+          color: $white !important;
+
+          &:hover {
+            background: $secondary-hover !important;
+          }
+
+          &:first-child {
+            margin-right: 3px !important;
+          }
         }
       }
     }
