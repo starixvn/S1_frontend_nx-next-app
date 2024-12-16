@@ -1,7 +1,7 @@
-import { useEventListener } from 'usehooks-ts'
-import { useState } from 'react'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
+import { useState } from 'react'
+import { useEventListener } from 'usehooks-ts'
 
 const RotationHint = () => {
 	const [rotateClass, setRotateClass] = useState<string>('')
@@ -30,8 +30,8 @@ const RotationHint = () => {
 
 	return (
 		<div className={classNames('Straight-lock', rotateClass)}>
-			<div className='icon icon-mobile img-rotate'>
-				<i className='icon icon-spinner11' />
+			<div className='icon icon-mobile-alt img-rotate'>
+				<i className='icon icon-refresh-fill' />
 			</div>
 			<div className='text'>
 				{t('Label_General_RotationHint1')}

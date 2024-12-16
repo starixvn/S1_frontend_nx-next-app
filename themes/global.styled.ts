@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
-import { theme } from "./theme";
+import { theme } from './theme'
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset UI */
@@ -2480,4 +2480,77 @@ export const GlobalStyles = createGlobalStyle`
 		height: auto;
 		padding: 5vw 4vw 20vw 4vw;
 	}
+    .Straight-lock {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 5vw;
+      background: #0F1428;
+      z-index: 9999;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+    }
+    .Straight-lock.in {
+      display: flex;
+    }
+    .Straight-lock.right .img-rotate {
+      transform: scaleX(-1);
+      filter: FlipH;
+    }
+    .Straight-lock .icon-mobile-alt {
+      position: relative;
+    }
+    .Straight-lock .icon-mobile-alt:before {
+      font-size: 10vw;
+    }
+    .Straight-lock i.icon-refresh-fill {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+    .Straight-lock i.icon-refresh-fill:before {
+      font-size: 3vw;
+      color: ${({ theme }) => theme.mobile.hrefColorPrimary};
+      transform: scaleX(-1);
+      animation-name: reload1;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+    }
+    .Straight-lock .text {
+      margin: 2vw 0 0;
+      text-align: center;
+      line-height: 4vw;
+      color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+      font-size : 2vw;
+    }
+
+    @-webkit-keyframes reload1 {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+      }
+    }
+
+    @keyframes reload1 {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+      }
+    }
 `
