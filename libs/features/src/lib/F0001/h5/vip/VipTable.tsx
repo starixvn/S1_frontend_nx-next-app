@@ -178,8 +178,8 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 			<div className='viptable-item'>
 				<ul className='viptable-item-title'>
 					<li>
-						{capitalize(t('Label_Vip_Tire_Upgrade_Requirement') as string)}
-						{t(`Label_General_Currency_${currencyId}`)}
+						{capitalize(t('Label_Vip_Tire_Upgrade_Requirement') as string)} (
+						{t(`Label_General_Currency_${currencyId}`)})
 					</li>
 				</ul>
 				<ul className='viptable-item-text'>
@@ -196,8 +196,8 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 			<div className='viptable-item'>
 				<ul className='viptable-item-title'>
 					<li>
-						{capitalize(t('Label_Vip_Tier_Maintenance_Requirement') as string)}
-						{t(`Label_General_Currency_${currencyId}`)}
+						{capitalize(t('Label_Vip_Tier_Maintenance_Requirement') as string)}{' '}
+						({t(`Label_General_Currency_${currencyId}`)})
 					</li>
 				</ul>
 				<ul className='viptable-item-text'>
