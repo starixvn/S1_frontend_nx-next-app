@@ -362,6 +362,9 @@ export const WrapperVipPage = styled.div`
 				word-wrap: break-word;
 				border-radius: 8px;
 				overflow: hidden;
+				opacity: 0;
+				transform: translateY(30px);
+				transition: all 0.5s ease-out;
 				span {
 					text-align: center;
 					background: #faa972;
@@ -417,5 +420,13 @@ export const WrapperVipPage = styled.div`
 		font-weight: bold;
 		color: #5574a7;
 		width: 100%;
+	}
+	.swiper-slide {
+		&-active {
+			.viprule-item {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
 	}
 `
