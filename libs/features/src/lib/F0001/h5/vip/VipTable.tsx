@@ -153,7 +153,7 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 				</ul>
 
 				{/* ESports */}
-				<ul className='viptable-item-text'>
+				{/* <ul className='viptable-item-text'>
 					<li>{capitalize(t('Label_Vip_ESport_Rebate') as string)}</li>
 					<li>
 						{
@@ -162,7 +162,7 @@ const VipTable = ({ vipBannerInfo, activeTab }: IVipTableProps) => {
 						}
 						%
 					</li>
-				</ul>
+				</ul> */}
 			</div>
 			{/* === Referral bonus program ===  */}
 			<div className='viptable-item'>
