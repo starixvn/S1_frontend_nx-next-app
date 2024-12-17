@@ -31,7 +31,7 @@ const DepositImportant = () => {
 							span: <span />,
 						}}
 						values={{
-							site: upperFirst(process.env['NEXT_PUBLIC_SITE_NAME'] || ''),
+							site: upperFirst(process.env['NEXT_PUBLIC_BRAND_NAME'] || ''),
 						}}
 					/>
 				</li>

@@ -4,7 +4,7 @@ import { EMAIL_OR_PHONE_REGEX } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
 import { useSetQuestionnaireMutation } from '@nx-next-app/service'
 import classNames from 'classnames'
-import { useTranslation } from 'next-i18next'
+import { useTranslation, Trans } from 'next-i18next'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
@@ -74,7 +74,12 @@ const Survey = () => {
 					>
 						<i className='icon icon-close-line' onClick={onCloseSurvey} />
 						<div>{t('Label_Survey_Title')}</div>
-						<div>{t('Label_Survey_Hint1')}</div>
+						<div><Trans
+                      i18nKey='Label_Survey_Hint1'
+                      values={{
+                        site: process.env['NEXT_PUBLIC_BRAND_NAME'] || '',
+                      }}
+                    /></div>
 						<form className='survey-input' onSubmit={handleSubmit(onSubmit)}>
 							<fieldset className={classNames({ error: !!errors['content'] })}>
 								<textarea
@@ -146,7 +151,12 @@ const Survey = () => {
 							<i className='icon icon-like' />
 							<div>{t('Label_General_Thankyou')}</div>
 						</div>
-						<div>{t('Label_Survey_Hint2')}</div>
+						<div><Trans
+                      i18nKey='Label_Survey_Hint2'
+                      values={{
+                        site: process.env['NEXT_PUBLIC_BRAND_NAME'] || '',
+                      }}
+                    /></div>
 					</div>
 				</div>
 			</div>

@@ -5,10 +5,10 @@ import { WrapperCustomTitleBack } from '@nx-next-app/features/F0001/h5/common/Co
 import { WrapperSurvayH5 } from '@nx-next-app/features/F0001/h5/survey/styles'
 import { useSetQuestionnaireMutation } from '@nx-next-app/service'
 import classNames from 'classnames'
-import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { Trans, useTranslation } from 'next-i18next'
 
 type TSurveyForm = {
 	content: string
@@ -76,7 +76,14 @@ const Survey = () => {
 					})}
 				>
 					<div className='heading-survey'>{t('Label_Survey_Title')}</div>
-					<div className='slogan-survey'>{t('Label_Survey_Hint1')}</div>
+					{/* <div className='slogan-survey'>{t('Label_Survey_Hint1')}</div> */}
+					<div className='slogan-survey'><Trans
+                      i18nKey='Label_Survey_Hint1'
+                      values={{
+                        site: process.env['NEXT_PUBLIC_BRAND_NAME'] || '',
+                      }}
+                    /></div>
+
 					<Form className='survey-input' onSubmit={handleSubmit(onSubmit)}>
 						<fieldset className={classNames({ error: !!errors['content'] })}>
 							<textarea
@@ -146,7 +153,12 @@ const Survey = () => {
 						<div className='thank-box-heading'>
 							{t('Label_General_Thankyou')}
 						</div>
-						<div className='thank-box-body'>{t('Label_Survey_Hint2')}</div>
+						<div className='thank-box-body'><Trans
+                      i18nKey='Label_Survey_Hint2'
+                      values={{
+                        site: process.env['NEXT_PUBLIC_BRAND_NAME'] || '',
+                      }}
+                    /></div>
 					</div>
 				</div>
 			</main>

@@ -14,7 +14,9 @@ const LeaderBoardEventList = () => {
 	return (
 		<div className='rankEvent active'>
 			<div className='title'>
-				{t('Label_LeaderBoard_Title_1')}
+				{t('Label_LeaderBoard_Title_1',{
+          site: process.env['NEXT_PUBLIC_BRAND_NAME'] || '',
+        }).toUpperCase()}
 				<div>{t('Label_LeaderBoard_Title_2')}</div>
 			</div>
 			<div className='rankList'>

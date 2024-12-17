@@ -199,7 +199,7 @@ const List = () => {
 
 			<SettingCollapse.Item
 				imgName='icon-ns-site'
-				header={String(process.env['NEXT_PUBLIC_SITE_NAME']).toUpperCase()}
+				header={String(process.env['NEXT_PUBLIC_BRAND_NAME']).toUpperCase()}
 			>
 				<a
 					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AboutUs.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}

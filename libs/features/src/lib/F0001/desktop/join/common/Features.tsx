@@ -31,7 +31,9 @@ const Features = () => {
 					)}
 				</ul>
 				<div className='title-list'>
-					{t('Label_Join_EnjoyVipExclusiveBonus').toUpperCase()}
+					{t('Label_Join_EnjoyVipExclusiveBonus',{
+          site: process.env['NEXT_PUBLIC_BRAND_NAME'] || '',
+        }).toUpperCase()}
 				</div>
 				<ul className='list'>
 					<li>{t('Label_Join_MultipleProductPlatforms')}</li>

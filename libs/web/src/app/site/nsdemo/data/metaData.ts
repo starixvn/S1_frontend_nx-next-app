@@ -4,8 +4,8 @@ import { IMetaData } from '@nx-next-app/types'
 export const META_DATA: IMetaData = {
 	[paths.home.root]: {
 		en: {
-			title: `nsDemo Solutions | Online Betting | Demo Site`,
-			description: `nsDemo is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
+			title: `${process.env['NEXT_PUBLIC_BRAND_NAME'] || ''} | Online Betting | Demo Site`,
+			description: `${process.env['NEXT_PUBLIC_BRAND_NAME'] || ''} is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
 			keyword: `Asia Most Trusted Sportsbook, Live Casino, Slot Games, SABA Sports, Online Casino, Online Betting`,
 			links: [
 				{ rel: 'canonical', href: `${process.env['NEXT_PUBLIC_REFERER_HOST']}/en/` },
@@ -181,9 +181,9 @@ export const META_DATA: IMetaData = {
 			],
 		},
 		th: {
-			title: `nsDemo - หน้าเว็บเดิมพันกีฬา,คาสิโนออนไลน์ที่ดีที่สุดในเอเชีย`,
-			description: `nsDemo  เป็นเว็บไซต์เดิมพันออนไลน์ที่หน้าเชื่อถือและดีสุดในเอเชีย เข้าร่วมและเดิมพันกีฬา,คาสิโนสด,สล็อต คาสิโน,ลอตเตอรี,คีโน,และ ตกปลา`,
-			keyword: `nsDemo, ลิงค์ Nova88, คาสิโนออนไลน์, การพนันออนไลน์, การพนันออนไลน์ไทย, การเดิมพันกีฬา, ลอตเตอรี, ไทยคาสิโนสด`,
+			title: `${process.env['NEXT_PUBLIC_BRAND_NAME'] || ''} - หน้าเว็บเดิมพันกีฬา,คาสิโนออนไลน์ที่ดีที่สุดในเอเชีย`,
+			description: `${process.env['NEXT_PUBLIC_BRAND_NAME'] || ''}  เป็นเว็บไซต์เดิมพันออนไลน์ที่หน้าเชื่อถือและดีสุดในเอเชีย เข้าร่วมและเดิมพันกีฬา,คาสิโนสด,สล็อต คาสิโน,ลอตเตอรี,คีโน,และ ตกปลา`,
+			keyword: `${process.env['NEXT_PUBLIC_BRAND_NAME'] || ''}, ลิงค์ Nova88, คาสิโนออนไลน์, การพนันออนไลน์, การพนันออนไลน์ไทย, การเดิมพันกีฬา, ลอตเตอรี, ไทยคาสิโนสด`,
 			links: [
 				{
 					rel: 'alternate',

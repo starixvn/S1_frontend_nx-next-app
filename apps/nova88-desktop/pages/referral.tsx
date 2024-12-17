@@ -39,26 +39,34 @@ const ReferralPage = ({
 			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/fb.webp`,
 			hoverImg: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/fb.webp`,
 			url: `https://www.facebook.com/sharer/sharer.php?u={{ref_url}}&quote=${t(
-				'Label_Referral_Welcome'
+				'Label_Referral_Welcome',{
+          site: process.env['NEXT_PUBLIC_BRAND_NAME'] || '',
+        }
 			)}`,
 		},
 		{
 			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/whatsapp.webp`,
 			hoverImg: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/whatsapp.webp`,
-			url: `https://wa.me/?text=${t('Label_Referral_Welcome')} {{ref_url}}`,
+			url: `https://wa.me/?text=${t('Label_Referral_Welcome',{
+        site: process.env['NEXT_PUBLIC_BRAND_NAME'] || '',
+      })} {{ref_url}}`,
 		},
 		{
 			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/tga.webp`,
 			hoverImg: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/tga.webp`,
 			url: `https://t.me/share/url?url={{ref_url}}&text=${t(
-				'Label_Referral_Welcome'
+				'Label_Referral_Welcome',{
+          site: process.env['NEXT_PUBLIC_BRAND_NAME'] || '',
+        }
 			)}`,
 		},
 		{
 			img: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/line.webp`,
 			hoverImg: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/line.webp`,
 			url: `http://line.naver.jp/R/msg/text/?${t(
-				'Label_Referral_Welcome'
+				'Label_Referral_Welcome',{
+          site: process.env['NEXT_PUBLIC_BRAND_NAME'] || '',
+        }
 			)}%0D%0A{{ref_url}}`,
 		},
 	]
