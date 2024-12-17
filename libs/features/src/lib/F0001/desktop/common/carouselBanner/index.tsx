@@ -88,7 +88,9 @@ const CarouselBanner = ({
 
 		// tpId 1 等於saba
 		if (actionMode === BannerActionEnum.GoToGame && Number(tpId) === 1) {
-			window.location.href = `${window.location.origin}/${langId}/sports?provider=saba&type=soccer`
+			if (!isExclusionGame) {
+				window.location.href = `${window.location.origin}/${langId}/sports?provider=saba&type=soccer`
+			}
 			return false
 		}
 

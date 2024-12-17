@@ -63,6 +63,7 @@ const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 		actionMode,
 		bannerLink,
 		tpGameType,
+		isExclusionGame
 	}: IBannerData) => {
 		if (Number(tpId) === PRODUCTS.NewPlayTechSlot.tpId) {
 			onGoToGame(
@@ -77,7 +78,9 @@ const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 
 		// tpId 1 等於saba
 		if (actionMode === BannerActionEnum.GoToGame && Number(tpId) === 1) {
-			window.location.href = `${window.location.origin}/${langId}/sports?provider=saba&type=soccer`
+			if (!isExclusionGame) {
+				window.location.href = `${window.location.origin}/${langId}/sports?provider=saba&type=soccer`
+			}
 			return false
 		}
 
@@ -88,15 +91,17 @@ const CarouselBanner = ({ bannerList, ...rest }: ICarouselBannerProps) => {
 		} else if (actionMode === BannerActionEnum.RedirectPageOfThisSite) {
 			push(paths.login.root)
 		} else if (actionMode === BannerActionEnum.GoToGame) {
-			onEnterPage(
-				{
-					langId,
-					tpId: Number(tpId),
-					gameId: gameId as string,
-					tpGameType,
-				},
-				{ loginCallback: () => push(paths.login.root) }
-			)
+			if (!isExclusionGame) {
+				onEnterPage(
+					{
+						langId,
+						tpId: Number(tpId),
+						gameId: gameId as string,
+						tpGameType,
+					},
+					{ loginCallback: () => push(paths.login.root) }
+				)
+			}
 		}
 		return false
 	}
