@@ -85,9 +85,9 @@ export const siteMiddleware = async ({ request, config }: ISiteMiddleware) => {
 
 	// * 使用幣別語系權重: cookie => ip => default
 	// * 沒有 cookie 資料，且無指定語系
-	// const { isAccess = true, countryCode } =
-	// 	(await getIpCountry(request.headers)) ?? {}
-	const isAccess = true
+	const { isAccess = true, countryCode } =
+		(await getIpCountry(request.headers)) ?? {}
+
 
 	if (!isAccess && process.env.NODE_ENV === 'production') {
 		// 只有在線上會 work
