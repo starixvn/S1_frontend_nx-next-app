@@ -1,24 +1,24 @@
-import { useTranslation } from 'next-i18next'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import { useAuth } from '@nx-next-app/data-access'
+import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
+import { useGetPromotionDetailQuery } from '@nx-next-app/service'
+import { PromotionTypeEnum } from '@nx-next-app/types'
 import {
-	openLiveChat,
 	getIsHidePromotionJoinButton,
 	isShowPromotionProgressBar,
 	isUrl,
+	openLiveChat,
 } from '@nx-next-app/utils'
-import { useAuth } from '@nx-next-app/data-access'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useGetPromotionDetailQuery } from '@nx-next-app/service'
-import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
-import { useRouter } from 'next/router'
-import { paths } from '@nx-next-app/constants'
-import { PromotionTypeEnum } from '@nx-next-app/types'
 import { includes, toUpper } from 'lodash-es'
-import CashbackInfo from './CashbackInfo'
-import DepositSlip from './DepositSlip'
-import DepositMenu from './DepositMenu'
+import { useTranslation } from 'next-i18next'
+import { useRouter } from 'next/router'
 import PromotionProgressBar from '../../promotion/common/PromotionProgressBar'
-import PromoRule from './PromoRule'
+import CashbackInfo from './CashbackInfo'
+import DepositMenu from './DepositMenu'
+import DepositSlip from './DepositSlip'
 import PromoMission from './PromoMission'
+import PromoRule from './PromoRule'
 
 interface IPromotionDetailModalProps {
 	bonusCode: string
@@ -42,9 +42,11 @@ const PromotionDetailModal = ({
 		langId,
 		bonusCode,
 	})
-
-	const { onUpdatePromotionDetail, setClaimPromotionHandler } =
-		useSetClaimPromotionFetcher()
+	const {
+		onUpdatePromotionDetail,
+		setClaimPromotionHandler,
+		onSetClaimPromotionForUploadCustList,
+	} = useSetClaimPromotionFetcher()
 
 	if (!promotionDetail) return null
 
@@ -130,11 +132,26 @@ const PromotionDetailModal = ({
 										: toUpper(t('Label_Promotion_JoinNow') || '')}
 								</button>
 							)}
-							{isShowApplyNowButton && (
-								<button className='red' onClick={openLiveChat}>
-									{t('Label_Promotion_ApplyNow')}
+
+							{/* 在名單內的 Special Bonus 而且還沒claim過的才有 ClaimNow 按鈕直接兌換 */}
+							{!isJoin && isShowApplyNowButton && (
+								<button
+									className={`${canJoin && !isJoin ? 'orange' : 'red'}`}
+									onClick={() => {
+										canJoin && !isJoin
+											? onSetClaimPromotionForUploadCustList({
+													bonusCode,
+													lockedAmount: 0,
+											  })
+											: openLiveChat()
+									}}
+								>
+									{canJoin && !isJoin
+										? t('Label_Promotion_ClaimNow')
+										: t('Label_Promotion_ApplyNow')}
 								</button>
 							)}
+
 							{!isHideAllPromoButton && (
 								<button
 									className='btn-check'

@@ -1,4 +1,10 @@
-import { useTranslation } from 'next-i18next'
+import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
+import { usePromotion } from '@nx-next-app/features/F0001/providers'
+import {
+	PromotionActionType,
+	PromotionFilterEnum,
+	PromotionTypeEnum,
+} from '@nx-next-app/types'
 import {
 	getExpiryTime,
 	getIsHidePromotionJoinButton,
@@ -6,14 +12,9 @@ import {
 	isPromotionNew,
 	isShowPromotionProgressBar,
 } from '@nx-next-app/utils'
-import { usePromotion } from '@nx-next-app/features/F0001/providers'
 import classNames from 'classnames'
 import { includes } from 'lodash-es'
-import {
-	PromotionActionType,
-	PromotionFilterEnum,
-	PromotionTypeEnum,
-} from '@nx-next-app/types'
+import { useTranslation } from 'next-i18next'
 import PromotionProgressBar from './PromotionProgressBar'
 
 const PromotionList = () => {
@@ -26,6 +27,9 @@ const PromotionList = () => {
 		onUpdatePromotionData,
 	} = usePromotion()
 
+	const {
+		onSetClaimPromotionForUploadCustList, // 雖然用法和useSetClaimPromotionMutation類似，但因為後端資料結構關係，所以另外寫一個for有在名單內才能領取的玩家
+	} = useSetClaimPromotionFetcher()
 	return promotionData.length >= 1 ? (
 		<div className='proListNew'>
 			{promotionData.map(item => {
@@ -49,7 +53,6 @@ const PromotionList = () => {
 					promotionAction,
 					promotionLink,
 				} = item
-
 				// * activeFilterType 只存在在 List，所以不加進 getIsHidePromotionJoinButton 的邏輯裡
 				const isHideJoinButton =
 					(activeFilterType === PromotionFilterEnum.PromoCode && !canJoin) ||
@@ -137,6 +140,24 @@ const PromotionList = () => {
 											: t('Label_Promotion_JoinNow')}
 									</button>
 								)}
+
+								{/* 有在名單內的 Special Bonus 才有 ClaimNow 按鈕直接兌換 */}
+								{canJoin &&
+									!isJoin &&
+									promotionType === PromotionTypeEnum.SpecialBonus && (
+										<button
+											className='orange'
+											// 用新的setClaimPromotionForUploadCustList
+											onClick={() =>
+												onSetClaimPromotionForUploadCustList({
+													bonusCode: item.bonusCode,
+													lockedAmount: 0,
+												})
+											}
+										>
+											{t('Label_Promotion_ClaimNow')}
+										</button>
+									)}
 								{/* 只有 Special Bonus 有 Link Type 另開視窗 */}
 								{promotionType === PromotionTypeEnum.SpecialBonus &&
 								promotionAction === PromotionActionType.Link ? (
@@ -151,7 +172,11 @@ const PromotionList = () => {
 								) : (
 									<button
 										className='btn-check'
-										onClick={() => onGetPromotionDetail({ bonusCode })}
+										onClick={() =>
+											onGetPromotionDetail({
+												bonusCode,
+											})
+										}
 									>
 										{t('Label_General_MoreInfo')}
 									</button>
