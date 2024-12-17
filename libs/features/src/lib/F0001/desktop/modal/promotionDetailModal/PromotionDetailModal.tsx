@@ -147,8 +147,8 @@ const PromotionDetailModal = ({
 									}}
 								>
 									{canJoin && !isJoin
-										? t('Label_Promotion_ClaimNow')
-										: t('Label_Promotion_ApplyNow')}
+										? toUpper(t('Label_Promotion_ClaimNow') || '')
+										: toUpper(t('Label_Promotion_ApplyNow') || '')}
 								</button>
 							)}
 

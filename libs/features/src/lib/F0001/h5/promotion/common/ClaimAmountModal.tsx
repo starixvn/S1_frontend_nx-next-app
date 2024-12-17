@@ -31,7 +31,7 @@ const ClaimAmountModal = ({
 	const { onSetClaimPromotionForUploadCustList } = useSetClaimPromotionFetcher()
 
 	const onSubmit = ({ amount }: { amount: string | undefined }) => {
-		// 針對first deposit & redeposit，如果是在名單內才能領取的玩家（isPromotionUploadCustList===true），則使用 onSetClaimPromotionForUploadCustList，否則使用原本的 onSetClaimPromotion
+		// 針對first deposit & redeposit，如果是在名單內才能領取的玩家（isPromotionUploadCustList===true）使用 onSetClaimPromotionForUploadCustList，否則使用原本的 onSetClaimPromotion
 		if (isPromotionUploadCustList) {
 			onSetClaimPromotionForUploadCustList({
 				bonusCode,
