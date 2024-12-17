@@ -137,6 +137,7 @@ export interface IBannerData {
 	tpGameType: number
 	redirectLink: string | null
 	itemKey: string
+	isExclusionGame?: boolean
 }
 
 export interface IGetVipBannerArgs {

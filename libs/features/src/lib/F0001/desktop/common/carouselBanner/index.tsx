@@ -73,6 +73,7 @@ const CarouselBanner = ({
 		actionMode,
 		bannerLink,
 		tpGameType,
+		isExclusionGame
 	}: IBannerData) => {
 		if (Number(tpId) === PRODUCTS.NewPlayTechSlot.tpId) {
 			onGoToGame(
@@ -98,15 +99,17 @@ const CarouselBanner = ({
 		} else if (actionMode === BannerActionEnum.RedirectPageOfThisSite) {
 			modal.open(<LoginModal />)
 		} else if (actionMode === BannerActionEnum.GoToGame) {
-			onEnterPage(
-				{
-					langId,
-					tpId: Number(tpId),
-					gameId: gameId as string,
-					tpGameType,
-				},
-				{ loginCallback: () => modal.open(<LoginModal />) }
-			)
+			if (!isExclusionGame) {
+				onEnterPage(
+					{
+						langId,
+						tpId: Number(tpId),
+						gameId: gameId as string,
+						tpGameType,
+					},
+					{ loginCallback: () => modal.open(<LoginModal />) }
+				)
+			}
 		}
 		return false
 	}
