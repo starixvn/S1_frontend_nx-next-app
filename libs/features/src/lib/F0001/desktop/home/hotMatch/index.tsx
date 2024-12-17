@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { dateFormat, timeFormat } from '@nx-next-app/constants'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import { GameIconContainer } from '@nx-next-app/features/F0001/desktop/home/gameIcon/styles'
 import { HotMatchContainer } from '@nx-next-app/features/F0001/desktop/home/hotMatch/styles'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useHome } from '@nx-next-app/features/F0001/providers'
@@ -51,60 +52,68 @@ const Item = ({
 
 	return (
 		<div className='swiper-slide'>
-			{isMaintenance && (
-				// Todo: Jimmy Help Me
-				<div></div>
-			)}
-			<div className='match-item '>
-				<div className='match-item-title '>
-					<p>{sportLeaguesTitle}</p>
-				</div>
-				<div className='match-item-center'>
-					<div className='team-content'>
-						<div className='team-item'>
-							<img src={homeTeamPic} alt='' />
-							<div>{homeTeamName}</div>
+			<GameIconContainer
+				className={`spacing-top-0 ${isMaintenance ? 'maintain' : ''}`}
+				$isMaintain={isMaintenance}
+			>
+				<div className='match-item '>
+					{isMaintenance && (
+						<div className='um-container'>
+							<div className='txt-maintain'>
+								{t('Label_General_UnderMaintenance')}
+							</div>
 						</div>
-						<div className='odds'>
-							<span>{homeTeamHandicap}</span>
-							<span>{homeOdds}</span>
+					)}
+					<div className='match-item-title '>
+						<p>{sportLeaguesTitle}</p>
+					</div>
+					<div className='match-item-center'>
+						<div className='team-content'>
+							<div className='team-item'>
+								<img src={homeTeamPic} alt='' />
+								<div>{homeTeamName}</div>
+							</div>
+							<div className='odds'>
+								<span>{homeTeamHandicap}</span>
+								<span>{homeOdds}</span>
+							</div>
+						</div>
+						<div className='team-content'>
+							<div className='team-item'>
+								<img src={awayTeamPic} alt='' />
+								<div>{awayTeamName}</div>
+							</div>
+							<div className='odds'>
+								<span>{awayTeamHandicap}</span>
+								<span>{awayOdds}</span>
+							</div>
 						</div>
 					</div>
-					<div className='team-content'>
-						<div className='team-item'>
-							<img src={awayTeamPic} alt='' />
-							<div>{awayTeamName}</div>
+					<div className='match-footer'>
+						<div className='match-date'>
+							{date}
+							<div>{time}</div>
 						</div>
-						<div className='odds'>
-							<span>{awayTeamHandicap}</span>
-							<span>{awayOdds}</span>
-						</div>
+						<button
+							onClick={() => {
+								onEnterPage(
+									{
+										langId,
+										tpId: Number(data.tpId),
+										gameId,
+										matchid: matchId.toString(),
+										tpGameType: 0,
+									},
+									{ loginCallback: () => {} }
+								)
+							}}
+							className='bet-btn'
+						>
+							{t('Label_General_BetNow')}
+						</button>
 					</div>
 				</div>
-				<div className='match-footer'>
-					<div className='match-date'>
-						{date}
-						<div>{time}</div>
-					</div>
-					<button
-						onClick={() => {
-							onEnterPage(
-								{
-									langId,
-									tpId: Number(data.tpId),
-									gameId,
-									matchid: matchId.toString(),
-									tpGameType: 0,
-								},
-								{ loginCallback: () => {} }
-							)
-						}}
-						className='bet-btn'
-					>
-						{t('Label_General_BetNow')}
-					</button>
-				</div>
-			</div>
+			</GameIconContainer>
 		</div>
 	)
 }

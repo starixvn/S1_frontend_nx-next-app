@@ -39,6 +39,18 @@ export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 			text-align: center;
 		}
 	}
+	// &.spacing-top-0 {
+	// 	.um-container {
+	// 		background: none;
+	// 	}
+	// 	.txt-maintain {
+	// 		padding: 0;
+	// 		height: 100%;
+	// 		display: flex;
+	// 		justify-content: center;
+	// 		align-items: center;
+	// 	}
+	// }
 
 	.img-wrapper {
 		height: 100%;

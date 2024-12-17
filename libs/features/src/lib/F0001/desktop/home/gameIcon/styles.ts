@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 	props => {
@@ -13,7 +13,6 @@ export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 	border-radius: 2rem;
 	background: ${({ theme }) => theme.desktop.gameIconBg};
 	overflow: hidden;
-
 	&.maintain {
 		.um-container {
 			position: absolute;
@@ -23,6 +22,7 @@ export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 			height: 100%;
 			border-radius: 2rem;
 			background: rgba(0, 0, 0, 0.5);
+			z-index: 3;
 		}
 
 		.txt-maintain {
@@ -39,6 +39,18 @@ export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 			text-align: center;
 		}
 	}
+	// &.spacing-top-0 {
+	// 	.um-container {
+	// 		background: none;
+	// 	}
+	// 	.txt-maintain {
+	// 		padding: 0;
+	// 		height: 100%;
+	// 		display: flex;
+	// 		justify-content: center;
+	// 		align-items: center;
+	// 	}
+	// }
 
 	.img-wrapper {
 		height: 100%;

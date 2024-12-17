@@ -57,7 +57,9 @@ export const GameIconContainer = styled.div`
 	flex: 0 0 calc(100% / 6 - 10rem);
 	background: ${({ theme }) => theme.desktop.gameIconBg};
 	border-radius: 2rem;
-
+	&.spacing-top-0 {
+		margin-top: 0;
+	}
 	.img-wrapper {
 		position: relative;
 		display: flex;

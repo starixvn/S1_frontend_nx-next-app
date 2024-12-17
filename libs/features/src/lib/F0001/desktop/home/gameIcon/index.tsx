@@ -1,9 +1,12 @@
-import { LoadingIcon, NoGameIcon } from "@nx-next-app/features/F0001/desktop/home/gameIcon/icons";
-import { GameIconContainer } from "@nx-next-app/features/F0001/desktop/home/gameIcon/styles";
-import { useTranslation } from "next-i18next";
-import { FC } from "react";
-import { Img } from "react-image";
-import { useInView } from "react-intersection-observer";
+import {
+	LoadingIcon,
+	NoGameIcon,
+} from '@nx-next-app/features/F0001/desktop/home/gameIcon/icons'
+import { GameIconContainer } from '@nx-next-app/features/F0001/desktop/home/gameIcon/styles'
+import { useTranslation } from 'next-i18next'
+import { FC } from 'react'
+import { Img } from 'react-image'
+import { useInView } from 'react-intersection-observer'
 
 interface IGameItem {
 	gameId: string

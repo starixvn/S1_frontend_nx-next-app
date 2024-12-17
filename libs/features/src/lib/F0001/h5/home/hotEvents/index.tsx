@@ -1,5 +1,6 @@
 import { dateFormat, paths, timeFormat } from '@nx-next-app/constants'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import { GameIconContainer } from '@nx-next-app/features/F0001/h5/home/gameIcon/styles'
 import { HotMatchContainer } from '@nx-next-app/features/F0001/h5/home/hotEvents/styles'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { useHome } from '@nx-next-app/features/F0001/providers'
@@ -58,7 +59,7 @@ const HotEvents = () => {
 				})
 			)
 		}
-	}, [tpMaintainList, hotEventData, gameData])
+	}, [tpMaintainList, hotEventData])
 
 	/** 當前是否為巴西 */
 	const isBRL = currencyId === CurrenciesEnum.BRL
@@ -94,10 +95,17 @@ const HotEvents = () => {
 						const homeTeamHandicap = formatHdp(handicap)
 						const awayTeamHandicap = formatHdp(handicap * -1)
 						return (
-							<div key={`${matchId}-${battleTime}`}>
+							<GameIconContainer
+								key={`${matchId}-${battleTime}`}
+								$isMaintain={isMaintenance}
+								className={`spacing-top-0 ${isMaintenance ? 'maintain' : ''}`}
+							>
 								{isMaintenance && (
-									// Jimmy Help me
-									<div></div>
+									<div className='um-container'>
+										<div className='txt-maintain'>
+											{t('Label_General_UnderMaintenance')}
+										</div>
+									</div>
 								)}
 								<div className='match-item'>
 									<div className='match-item-title'>
@@ -150,7 +158,7 @@ const HotEvents = () => {
 										</button>
 									</div>
 								</div>
-							</div>
+							</GameIconContainer>
 						)
 					})}
 				</DynamicSwiper>
