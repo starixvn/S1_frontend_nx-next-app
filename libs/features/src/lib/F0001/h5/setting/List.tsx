@@ -138,62 +138,42 @@ const List = () => {
 
 			<SettingCollapse.Item
 				imgName='icon-file-fill-pc'
-				header={t('Label_General_OurPolicies')}
+				header={t('Label_General_TermsConditions')}
 			>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ResposibleGaming.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/Terms.html`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
-					{t('Label_General_ResponsibleGaming')}
+					{t('Label_General_TermsOfUse')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/TermsConditions.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`} // 2024.8.22 需求說先改成統一導到en語系
-					target='_blank'
-					rel='noreferrer noopener'
-				>
-					{t('Label_General_TermsConditions')}
-				</a>
-				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/PrivacyPolicy.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
-					target='_blank'
-					rel='noreferrer noopener'
-				>
-					{t('Label_General_PrivacyPolicy')}
-				</a>
-				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/CookiePolicy.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
-					target='_blank'
-					rel='noreferrer noopener'
-				>
-					{t('Label_General_CookiePolicy')}
-				</a>
-			</SettingCollapse.Item>
-
-			<SettingCollapse.Item
-				imgName='icon-help-circle-outline'
-				header={t('Label_General_HelpSupport')}
-			>
-				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/RulesandRegulations.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
-					target='_blank'
-					rel='noreferrer noopener'
-				>
-					{t('Label_General_RuleRegulations')}
-				</a>
-				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AccountTerms.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AccountTerms.html`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_AccountTerms')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/FAQ.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/PlayerFundPolicy.html`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
-					{t('Label_General_FAQ')}
+					{t('Label_General_PlayerFundPolicy')}
+				</a>
+				<a
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/PrivacyPolicy.html`}
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					{t('Label_General_PrivacyPolicy')}
+				</a>
+				<a
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ResponsibleGaming.html`}
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					{t('Label_General_ResponsibleGaming')}
 				</a>
 			</SettingCollapse.Item>
 
@@ -202,28 +182,12 @@ const List = () => {
 				header={String(process.env['NEXT_PUBLIC_BRAND_NAME']).toUpperCase()}
 			>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AboutUs.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
-					target='_blank'
-					rel='noreferrer noopener'
-				>
-					{t('Label_General_AboutUs')}
-				</a>
-				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/Terms.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
-					target='_blank'
-					rel='noreferrer noopener'
-				>
-					{t('Label_General_Terms')}
-				</a>
-				<a
 					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_ContactUs')}
 				</a>
-
-				{/* <a href={`/${langId}/milestones`}>{t('Label_General_Milestone')}</a> */}
 			</SettingCollapse.Item>
 
 			{isLogin && (
