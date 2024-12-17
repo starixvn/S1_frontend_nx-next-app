@@ -1,5 +1,6 @@
 import { Form, Select } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
 import { ISetClaimPromotionArgs } from '@nx-next-app/service'
 import { SelectOptionType } from '@nx-next-app/types'
 import { useTranslation } from 'next-i18next'
@@ -9,6 +10,7 @@ const ClaimAmountModal = ({
 	bonusCode,
 	onSetClaimPromotion,
 	tierAmountListSelectOptions,
+	isPromotionUploadCustList,
 }: {
 	bonusCode: string
 	onSetClaimPromotion: ({
@@ -16,6 +18,7 @@ const ClaimAmountModal = ({
 		lockedAmount,
 	}: Pick<ISetClaimPromotionArgs, 'bonusCode' | 'lockedAmount'>) => void
 	tierAmountListSelectOptions: SelectOptionType[]
+	isPromotionUploadCustList: boolean
 }) => {
 	const { t } = useTranslation()
 
@@ -25,11 +28,21 @@ const ClaimAmountModal = ({
 		amount: string | undefined
 	}>()
 
+	const { onSetClaimPromotionForUploadCustList } = useSetClaimPromotionFetcher()
+
 	const onSubmit = ({ amount }: { amount: string | undefined | number }) => {
-		onSetClaimPromotion({
-			bonusCode,
-			lockedAmount: Number(amount),
-		})
+		// 針對first deposit & redeposit，如果是在名單內才能領取的玩家（isPromotionUploadCustList===true），則使用 onSetClaimPromotionForUploadCustList，否則使用原本的 onSetClaimPromotion
+		if (isPromotionUploadCustList) {
+			onSetClaimPromotionForUploadCustList({
+				bonusCode,
+				lockedAmount: Number(amount),
+			})
+		} else {
+			onSetClaimPromotion({
+				bonusCode,
+				lockedAmount: Number(amount),
+			})
+		}
 	}
 
 	return (

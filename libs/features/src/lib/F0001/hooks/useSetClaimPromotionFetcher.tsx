@@ -8,6 +8,7 @@ import {
 	updatePromotionData,
 	updatePromotionDetail,
 	useLazyGetCustSpecificBonusQuery,
+	useSetClaimPromotionForUploadCustListMutation,
 	useSetClaimPromotionMutation,
 } from '@nx-next-app/service'
 import { useAppDispatch } from '@nx-next-app/store'
@@ -57,9 +58,12 @@ const useSetClaimPromotionFetcher = () => {
 	const { t } = useTranslation()
 	const dispatch = useAppDispatch()
 	const { modal } = useGlobalModal()
-	const { push } = useRouter()
+	const { push, reload } = useRouter()
 
 	const [setClaimPromotion] = useSetClaimPromotionMutation()
+
+	const [setClaimPromotionForUploadCustList] =
+		useSetClaimPromotionForUploadCustListMutation()
 
 	const [getCustSpecificBonus] = useLazyGetCustSpecificBonusQuery()
 
@@ -89,6 +93,7 @@ const useSetClaimPromotionFetcher = () => {
 			promotionType,
 			maxAmount = 0,
 			canJoinTierAmountList,
+			isPromotionUploadCustList,
 		} = promotionData
 
 		if (!auth.isLogin) {
@@ -159,6 +164,7 @@ const useSetClaimPromotionFetcher = () => {
 						// promotionType={promotionType}
 						onSetClaimPromotion={onSetClaimPromotion}
 						tierAmountListSelectOptions={tierAmountListSelectOptions}
+						isPromotionUploadCustList={isPromotionUploadCustList}
 					/>
 				) : (
 					<H5ClaimAmountModal
@@ -166,6 +172,7 @@ const useSetClaimPromotionFetcher = () => {
 						// promotionType={promotionType}
 						onSetClaimPromotion={onSetClaimPromotion}
 						tierAmountListSelectOptions={tierAmountListSelectOptions}
+						isPromotionUploadCustList={isPromotionUploadCustList}
 					/>
 				)
 			)
@@ -178,6 +185,28 @@ const useSetClaimPromotionFetcher = () => {
 			bonusCode,
 			lockedAmount: maxAmount,
 		})
+	}
+
+	// 有在名單內的promo打這支送出claim
+	const onSetClaimPromotionForUploadCustList = async ({
+		bonusCode,
+		lockedAmount,
+	}: Pick<ISetClaimPromotionArgs, 'bonusCode' | 'lockedAmount'>) => {
+		try {
+			await setClaimPromotionForUploadCustList({
+				langId,
+				bonusCode,
+				lockedAmount,
+			}).unwrap()
+
+			reload()
+
+			modal.info(t('Label_Promotion_SuccessClaimed2'), {
+				title: t('Label_Promotion_SuccessClaimed1'),
+			})
+		} catch (error) {
+			modal.error((error as Error).message)
+		}
 	}
 
 	const onUpdatePromotionDetail = async ({
@@ -214,7 +243,11 @@ const useSetClaimPromotionFetcher = () => {
 		}
 	}
 
-	return { setClaimPromotionHandler, onUpdatePromotionDetail }
+	return {
+		setClaimPromotionHandler,
+		onSetClaimPromotionForUploadCustList,
+		onUpdatePromotionDetail,
+	}
 }
 
 export { useSetClaimPromotionFetcher }
