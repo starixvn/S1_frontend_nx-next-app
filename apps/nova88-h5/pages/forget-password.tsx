@@ -30,6 +30,16 @@ const ForgetPasswordPage = ({
 
 export const getServerSideProps: GetServerSideProps = async context => {
 	const initialProps = await useServerSideInitialPropsFetcher(context)
+	const { originIsSignIn } = initialProps
+
+	if (originIsSignIn) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false,
+			},
+		}
+	}
 
 	return {
 		props: {
