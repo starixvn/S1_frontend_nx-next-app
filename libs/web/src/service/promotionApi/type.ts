@@ -79,6 +79,7 @@ export interface IPromotionData {
 		depositAmountSum: number
 		turnoverSum: number
 	}
+	isPromotionUploadCustList: boolean
 }
 
 // promotion detail

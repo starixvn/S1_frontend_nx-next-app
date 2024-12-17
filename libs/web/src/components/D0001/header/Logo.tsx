@@ -11,7 +11,7 @@ const Logo = ({ rewardsUrl }: ILogoProps) => {
 	const { logoUrl, showSpLogo } = useHeaderLogo({
 		mainLogoUrl: {
 			original: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/logo_w.png`,
-			special: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/logo-mid.png`,
+			special: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/logo-christmas.png`,
 		},
 	})
 

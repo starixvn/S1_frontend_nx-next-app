@@ -1,3 +1,4 @@
+import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
 import { usePromotion } from '@nx-next-app/features/F0001/providers'
 import {
 	PromotionActionType,
@@ -24,6 +25,10 @@ const PromotionList = () => {
 		onGetPromotionDetail,
 		onUpdatePromotionData,
 	} = usePromotion()
+
+	const {
+		onSetClaimPromotionForUploadCustList, // 雖然用法和useSetClaimPromotionMutation類似，但因為後端資料結構關係，所以另外寫一個for有在名單內才能領取的玩家
+	} = useSetClaimPromotionFetcher()
 
 	if (promotionData.length === 0) {
 		return (
@@ -134,6 +139,25 @@ const PromotionList = () => {
 										: t('Label_Promotion_JoinNow')}
 								</button>
 							)}
+
+							{/* 有在名單內的 Special Bonus 才有 ClaimNow 按鈕直接兌換 */}
+							{canJoin &&
+								!isJoin &&
+								promotionType === PromotionTypeEnum.SpecialBonus && (
+									<button
+										className='orange'
+										// 用新的setClaimPromotionForUploadCustList
+										onClick={() =>
+											onSetClaimPromotionForUploadCustList({
+												bonusCode: item.bonusCode,
+												lockedAmount: 0,
+											})
+										}
+									>
+										{t('Label_Promotion_ClaimNow')}
+									</button>
+								)}
+
 							{/* 只有 Special Bonus 有 Link Type 另開視窗 */}
 							{promotionType === PromotionTypeEnum.SpecialBonus &&
 							promotionAction === PromotionActionType.Link ? (

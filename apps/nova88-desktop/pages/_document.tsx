@@ -47,7 +47,7 @@ class MyDocument extends Document<CustomDocumentProps> {
 						rel='stylesheet'
 					/>
 
-					{/* N88-RD-GTM , 其餘 script 均由此 gtm 控制，若無管理權限請洽 TL */}
+					{/* N88-RD-GTM , 其餘 script 均由此 gtm 控制，若無管理權限請洽 TL , GTM ID 不能用 env file , 在 _document load 不到 */}
 					{process.env['NEXT_PUBLIC_ENV'] === 'PRD' && (
 						<script
 							dangerouslySetInnerHTML={{

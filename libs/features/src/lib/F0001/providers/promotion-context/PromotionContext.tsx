@@ -1,17 +1,19 @@
-import dayjs from 'dayjs'
-import dynamic from 'next/dynamic'
-import { useAppDispatch } from '@nx-next-app/store'
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
 import { useAuth } from '@nx-next-app/data-access'
+import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
 import {
 	IAxiosError,
 	IGetCustSpecificBonusArgs,
 	IPromotionData,
+	updatePromotionData,
 	useGetPromotionListV3Query,
+	useGetPromotionUploadCustListQuery,
 	useGetSpecialPromotionListQuery,
 	useLazyGetCustSpecificBonusQuery,
 	useSetSpecialCodeMutation,
-	updatePromotionData,
 } from '@nx-next-app/service'
+import { useAppDispatch } from '@nx-next-app/store'
 import {
 	DeviceTypeEnum,
 	PromotionCategoryIdEnum,
@@ -19,19 +21,18 @@ import {
 	PromotionTypeEnum,
 	PromotionWalletType,
 } from '@nx-next-app/types'
+import dayjs from 'dayjs'
+import { filter, includes, isUndefined, trim } from 'lodash-es'
+import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 import {
-	createContext,
 	ReactNode,
+	createContext,
 	useContext,
 	useEffect,
 	useState,
 } from 'react'
-import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
-import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useForm, UseFormReturn } from 'react-hook-form'
-import { filter, includes, isUndefined, trim } from 'lodash-es'
-import { useRouter } from 'next/router'
-import { paths } from '@nx-next-app/constants'
+import { UseFormReturn, useForm } from 'react-hook-form'
 
 const DesktopPromotionDetailModal = dynamic(
 	() =>
@@ -121,6 +122,16 @@ export const PromotionProvider = ({
 
 	const { data: { data: promotionList = persistPromotionData } = {} } =
 		useGetPromotionListV3Query(
+			{ langId, currencyId },
+			{
+				pollingInterval: 120000,
+				refetchOnMountOrArgChange: true,
+			}
+		)
+
+	// 2024/12/16 為了後台新功能：first deposit, redeposit, special deposit有在名單內可以直接領取的API
+	const { data: { data: promotionUploadCustList } = {} } =
+		useGetPromotionUploadCustListQuery(
 			{ langId, currencyId },
 			{
 				pollingInterval: 120000,
@@ -225,7 +236,6 @@ export const PromotionProvider = ({
 		activeFilterType === PromotionFilterEnum.PromoCode
 			? specialPromotionList
 			: promotionList
-
 	const promotionData = originPromotionData
 		// * 過濾掉已過期的 promotion
 		.filter(({ isJoin, promotionType, custExpiryTime, periodTo }) =>
@@ -296,6 +306,7 @@ export const PromotionProvider = ({
 
 			return bol
 		})
+		.concat(promotionUploadCustList ?? [])
 
 	const filteredPromotionSelectOptions = filter(
 		PROMOTION_SELECT_OPTIONS,

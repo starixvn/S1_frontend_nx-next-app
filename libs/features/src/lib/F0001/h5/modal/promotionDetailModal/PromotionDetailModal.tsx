@@ -12,6 +12,7 @@ import {
 import { includes, toUpper } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 
+import { useRouter } from 'next/router'
 import PromotionProgressBar from '../../promotion/common/PromotionProgressBar'
 import CashbackInfo from './CashbackInfo'
 import DepositMenu from './DepositMenu'
@@ -33,6 +34,7 @@ const PromotionDetailModal = ({
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
+	const router = useRouter()
 	const { closeModal } = useGlobalModal()
 	const { LIVE_CHAT_ID_BY_LANG_ID } = useStaticData()
 
@@ -42,8 +44,11 @@ const PromotionDetailModal = ({
 		bonusCode,
 	})
 
-	const { onUpdatePromotionDetail, setClaimPromotionHandler } =
-		useSetClaimPromotionFetcher()
+	const {
+		onUpdatePromotionDetail,
+		setClaimPromotionHandler,
+		onSetClaimPromotionForUploadCustList,
+	} = useSetClaimPromotionFetcher()
 
 	if (!promotionDetail) return null
 
@@ -124,16 +129,29 @@ const PromotionDetailModal = ({
 									: toUpper(t('Label_Promotion_JoinNow') || '')}
 							</button>
 						)}
-						{isShowApplyNowButton && (
+
+						{/* 在名單內的 Special Bonus 而且還沒claim過的才有 ClaimNow 按鈕直接兌換 */}
+						{!isJoin && isShowApplyNowButton && (
 							<a
-								className='red'
+								className={`${canJoin && !isJoin ? 'orange' : 'red'}`}
 								rel='noreferrer'
 								target='_blank'
-								href={`https://direct.lc.chat/${
-									process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']
-								}/${LIVE_CHAT_ID_BY_LANG_ID[langId] || 'en'}`}
+								onClick={() => {
+									canJoin && !isJoin
+										? onSetClaimPromotionForUploadCustList({
+												bonusCode,
+												lockedAmount: 0,
+										  })
+										: router.push(
+												`https://direct.lc.chat/${
+													process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']
+												}/${LIVE_CHAT_ID_BY_LANG_ID[langId] || 'en'}`
+										  )
+								}}
 							>
-								{t('Label_Promotion_ApplyNow')}
+								{canJoin && !isJoin
+									? toUpper(t('Label_Promotion_ClaimNow') || '')
+									: toUpper(t('Label_Promotion_ApplyNow') || '')}
 							</a>
 						)}
 					</div>

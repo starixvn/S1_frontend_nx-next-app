@@ -7,7 +7,8 @@ declare global {
 		Adjust?: {
 			initSdk: (config: {
 				appToken: string
-				environment: string
+				environment: 'sandbox' | 'production'
+				// 有需要才開啟，測試模式使用 verbose 可以顯示所有 sdk 行為，方便確認用戶 uuid
 				logLevel?: 'verbose' | 'debug' | 'info' | 'warn' | 'error' | 'assert'
 			}) => void
 			trackEvent: (params: {
@@ -176,8 +177,11 @@ export const initAdjustSDK = () => {
 	if (isAdjustAvailable(window)) {
 		window.Adjust?.initSdk({
 			appToken: process.env['NEXT_PUBLIC_ADJUST_TOKEN'] || '',
-			environment: 'sandbox',
-			logLevel: 'verbose',
+			environment:
+				// 非正式環境都會使用 sandbox 模式，需要從 testing console 做測試，如果需要用 sandbox 做測試，需到 adjust 官方找 script 手動引入
+				process.env['NEXT_PUBLIC_ENV'] === 'PRD' ? 'production' : 'sandbox',
+			// 正式環境移除降低 log level , 預設只有錯誤會噴 log
+			...(process.env['NEXT_PUBLIC_ENV'] !== 'PRD' && { logLevel: 'verbose' }),
 		})
 	}
 }
