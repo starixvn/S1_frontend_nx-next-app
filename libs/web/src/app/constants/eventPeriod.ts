@@ -6,6 +6,7 @@ export const EVENT_PERIOD: {
 	EUROPE_EVENT_AFTER_PREDICT: IEventPeriod
 	OLYMPIC: IEventPeriod
 	MIDAUTUMN: IEventPeriod
+	CHRISTMAS: IEventPeriod
 } = {
 	LUCKY_WHEEL: { start: '2021/12/13 00:00:00', end: null },
 	// 歐洲盃賽事期間
@@ -16,4 +17,6 @@ export const EVENT_PERIOD: {
 	OLYMPIC: { start: '2024/06/16 00:00:00', end: '2024/08/15 23:59:59' },
 	// 2024中秋節
 	MIDAUTUMN: { start: '2024/09/12 00:00:00', end: '2024/09/18 23:59:59' },
+	// 2024 聖誕節
+	CHRISTMAS: { start: '2024/12/17 00:00:00', end: '2024/12/26 23:59:59' },
 }
