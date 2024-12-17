@@ -1,12 +1,12 @@
-import React from 'react'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import VipTableInfo from '@nx-next-app/features/F0001/desktop/vip/VipTableInfo'
 import dayjs from 'dayjs'
 import 'dayjs/plugin/timezone'
 import 'dayjs/plugin/utc'
 import { useTranslation } from 'next-i18next'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import VipTableInfo from '@nx-next-app/features/F0001/desktop/vip/VipTableInfo'
 
 import { IVipBannerData } from '@nx-next-app/service'
+import { VipLevelEnum } from '@nx-next-app/types'
 
 const VipTable = ({ vipBannerData, lastUpdateTime }: IVipBannerData) => {
 	const { t } = useTranslation()
@@ -14,6 +14,10 @@ const VipTable = ({ vipBannerData, lastUpdateTime }: IVipBannerData) => {
 		userInfo: { currencyId, langId },
 	} = useAuth()
 	const { VIP_CLUB_IMAGES, CURRENCY_TO_TIMEZONE } = useStaticData()
+
+	const filteredVipClubImages = VIP_CLUB_IMAGES.filter(
+		item => item.level !== VipLevelEnum.Highest
+	)
 
 	return (
 		<div className='vipPage'>
@@ -27,7 +31,7 @@ const VipTable = ({ vipBannerData, lastUpdateTime }: IVipBannerData) => {
 								.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 								?.format('L') ?? ''}
 						</td>
-						{VIP_CLUB_IMAGES.map(item => (
+						{filteredVipClubImages.map(item => (
 							<td key={item.alt}>
 								<img src={item.url} alt={item.alt} />
 								{t(item.displayKey || '')}
