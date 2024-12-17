@@ -148,15 +148,15 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		level: VipLevelEnum.DIAMOND,
 		alt: 'vip05',
 	},
-	// {
-	// 	url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
-	// 		deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-	// 	}/img/vip6.png`,
-	// 	displayKey: 'Label_Nova_Club',
-	// 	settingDisplayKey: 'Label_VIP_Nova88',
-	// 	headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-nova.png`,
-	// 	levelTabsName: 'nova',
-	// 	level: VipLevelEnum.Highest,
-	// 	alt: 'vip06',
-	// },
+	{
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
+		}/img/vip6.png`,
+		displayKey: 'Label_Nova_Club',
+		settingDisplayKey: 'Label_VIP_Nova88',
+		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-nova.png`,
+		levelTabsName: 'nova',
+		level: VipLevelEnum.Highest,
+		alt: 'vip06',
+	},
 ]

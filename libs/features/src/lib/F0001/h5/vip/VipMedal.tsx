@@ -1,6 +1,6 @@
-import classNames from 'classnames'
-import type { IImageData } from '@nx-next-app/types'
 import { useStaticData } from '@nx-next-app/data-access'
+import { VipLevelEnum, type IImageData } from '@nx-next-app/types'
+import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 
 interface IVipMedalProps {
@@ -11,9 +11,14 @@ interface IVipMedalProps {
 const VipMedal = ({ activeTab, onChange }: IVipMedalProps) => {
 	const { t } = useTranslation()
 	const { VIP_CLUB_IMAGES } = useStaticData()
+
+	const filteredVipClubImages = VIP_CLUB_IMAGES.filter(
+		item => item.level !== VipLevelEnum.Highest
+	)
+
 	return (
 		<div className='medal'>
-			{VIP_CLUB_IMAGES.map(
+			{filteredVipClubImages.map(
 				({ url, displayKey, levelTabsName, level }: IImageData) => (
 					<div
 						className={classNames('medal-item', {
