@@ -21,7 +21,8 @@ export const HotMatchContainer = styled.div`
 		box-shadow: ${({ theme }) => theme.mobile.hotMatchShadow};
 		border-radius: 4.8vw;
 		overflow: hidden;
-
+		position: relative;
+		z-index: 1;
 		.match-item-title {
 			position: relative;
 			display: flex;

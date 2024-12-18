@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const HotMatchContainer = styled.div`
 	position: relative;
@@ -31,7 +31,8 @@ export const HotMatchContainer = styled.div`
 		box-shadow: ${({ theme }) => theme.desktop.hotMatchShadow};
 		border-radius: 2rem;
 		overflow: hidden;
-
+		position: relative;
+		z-index: 1;
 		.match-item-title {
 			display: flex;
 			align-items: center;

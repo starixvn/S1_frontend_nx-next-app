@@ -23,6 +23,7 @@ export const GameIconContainer = styled.div.attrs<{ $isMaintain: boolean }>(
 			height: 100%;
 			border-radius: 2rem;
 			background: rgba(0, 0, 0, 0.5);
+			z-index: 4;
 		}
 
 		.txt-maintain {
