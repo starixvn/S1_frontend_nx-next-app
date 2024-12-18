@@ -34,6 +34,7 @@ const ReferralInfoRight = () => {
 						onClick={() => referralCode && copy(referralCode)}
 					>
 						<input id='ref_code' type='text' value={referralCode} />
+						<i className='icon icon-file-copy-line' />
 					</div>
 				</div>
 				<div className='referinfo-list'>
@@ -45,6 +46,7 @@ const ReferralInfoRight = () => {
 						onClick={() => copy(referralLink)}
 					>
 						<input type='text' id='ref_link' value={referralLink} />
+						<i className='icon icon-file-copy-line' />
 					</div>
 				</div>
 				<div className='referinfo-list'>

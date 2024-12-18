@@ -159,17 +159,20 @@ export const WrapperReferal = styled.div`
 			}
 			.inputcopy {
 				position: relative;
-				&:after {
-					content: '\\e911';
-					display: inline-block;
-					font-family: 'S1NewIcons';
+				.icon-file-copy-line {
 					position: absolute;
 					right: 10px;
 					bottom: calc(50% - 1rem);
 					cursor: pointer;
 					transition: 0.3s;
 					font-size: 2rem;
+					&:hover {
+						&:before {
+							color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
+						}
+					}
 				}
+
 				input {
 					padding: 0;
 					width: 90%;
