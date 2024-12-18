@@ -141,35 +141,35 @@ const List = () => {
 				header={t('Label_General_TermsConditions')}
 			>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/Terms.html`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/Terms.html?currencyId=${currencyId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_TermsOfUse')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AccountTerms.html`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AccountTerms.html?currencyId=${currencyId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_AccountTerms')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/PlayerFundPolicy.html`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/PlayerFundPolicy.html?currencyId=${currencyId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_PlayerFundPolicy')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/PrivacyPolicy.html`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/PrivacyPolicy.html?currencyId=${currencyId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_PrivacyPolicy')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ResponsibleGaming.html`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ResponsibleGaming.html?currencyId=${currencyId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
@@ -182,7 +182,7 @@ const List = () => {
 				header={String(process.env['NEXT_PUBLIC_BRAND_NAME']).toUpperCase()}
 			>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html?url=${rootUrl}/${langId}&siteName=${process.env['NEXT_PUBLIC_SITE_NAME']}&imageUrl=${process.env['NEXT_PUBLIC_BANNER_HOST']}&lang=${langId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html?currencyId=${currencyId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
