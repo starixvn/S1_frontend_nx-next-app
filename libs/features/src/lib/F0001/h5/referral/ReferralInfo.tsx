@@ -23,7 +23,6 @@ const ReferralInfo = () => {
 			: ''
 
 	const referralLink = `${origin}${paths.join.root}?AffId=${referralCode}`
-
 	return (
 		<div className='referinfo'>
 			<div className='referinfo-up'>

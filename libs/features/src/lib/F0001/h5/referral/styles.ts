@@ -145,26 +145,12 @@ export const WrapperReferFrendsH5 = styled.div`
 		white-space: nowrap;
 		text-overflow: ellipsis;
 	}
-
 	.qr-code-group {
 		text-align: left;
 		background: ${({ theme }) => theme.mobile.white};
 		padding: 1vw;
 		border-radius: 10px;
 		width: 128px;
-	}
-
-	.referinfo-list .inputcopy::after {
-		content: '';
-		display: inline-block;
-		background: url(https://minio-api.lumigame.com/s1-nova88/h5/img/icon-copy.svg)
-			no-repeat center/5vw 5vw;
-		width: 5vw;
-		height: 5vw;
-		position: absolute;
-		right: 2.3vw;
-		bottom: calc(50% - 2.5vw);
-		cursor: pointer;
 	}
 	.referinfo-list-qr {
 		width: 90px;
@@ -180,5 +166,12 @@ export const WrapperReferFrendsH5 = styled.div`
 	}
 	.referinfo-share img {
 		width: 8.7vw;
+	}
+	.icon-file-copy-line {
+		&:hover {
+			&:before {
+				color: ${({ theme }) => theme.mobile.rightModuleSloganColor};
+			}
+		}
 	}
 `
