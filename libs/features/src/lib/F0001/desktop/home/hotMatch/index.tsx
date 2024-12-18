@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
+import { useGlobalModal } from "@nx-next-app/components/config-provider";
 import { dateFormat, timeFormat } from '@nx-next-app/constants'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
 import { GameIconContainer } from '@nx-next-app/features/F0001/desktop/home/gameIcon/styles'
@@ -15,6 +16,13 @@ import { useEffect, useMemo, useState } from 'react'
 export const DynamicSwiper = dynamic(() => import('react-id-swiper'), {
 	ssr: false,
 })
+
+const LoginModal = dynamic(
+  () => import('@nx-next-app/features/F0001/desktop/modal/LoginModal'),
+  {
+    ssr: false,
+  }
+)
 
 const Item = ({
 	data,
@@ -46,6 +54,7 @@ const Item = ({
 
 	const date = dayjs(battleTime).format(dateFormat)
 	const time = dayjs(battleTime).format(timeFormat)
+  const { modal } = useGlobalModal()
 
 	const homeTeamHandicap = formatHdp(handicap)
 	const awayTeamHandicap = formatHdp(handicap * -1)
@@ -104,7 +113,7 @@ const Item = ({
 										matchid: matchId.toString(),
 										tpGameType: 0,
 									},
-									{ loginCallback: () => {} }
+									{ loginCallback: () => modal.open(<LoginModal />) }
 								)
 							}}
 							className='bet-btn'
