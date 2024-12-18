@@ -305,22 +305,22 @@ const useMenu = () => {
 			appType,
 		})
 		// * 這裡的遊戲不需要登入，執行完直接 return 出去
-		if (
-			tpId === 1 &&
-			(Number(gameId) < 100 || includes([161, 180, 192, 2002], gameId))
-		) {
-			return push(entPageUrl)
-		}
+		// if (
+		// 	tpId === 1 &&
+		// 	(Number(gameId) < 100 || includes([161, 180, 192, 2002], gameId))
+		// ) {
+		// 	return push(entPageUrl)
+		// }
 
-		if (
-			tpId === 45 || // * SPORTS CRYPTO SPORTS,
-			tpId === 41// * SPORTS ,
-		) {
-			return onWindowOpenProduct({
-				pathname: entPageUrl,
-				windowKey: `${tpId}`,
-			})
-		}
+		// if (
+		// 	tpId === 45 || // * SPORTS CRYPTO SPORTS,
+		// 	tpId === 41// * SPORTS ,
+		// ) {
+		// 	return onWindowOpenProduct({
+		// 		pathname: entPageUrl,
+		// 		windowKey: `${tpId}`,
+		// 	})
+		// }
 
 		// * 這裡的遊戲需要登入檢查
 
