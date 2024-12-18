@@ -33,7 +33,7 @@ const Vip = ({
 						<div className='newvipinfo-content-items'>
 							<div className='heading'>VIP Program</div>
 							<div className='content'>
-								NsDemo has launched its VIP rewards program so that members
+								{process.env['NEXT_PUBLIC_BRAND_NAME'] || ''} has launched its VIP rewards program so that members
 								could indulge in good services, more rewards, and a better
 								experience. Discover greater perks and entitlements when your
 								tier upgraded. We're waiting for you!
@@ -42,7 +42,7 @@ const Vip = ({
 						<div className='newvipinfo-content-items'>
 							<div className='heading'>VIP Program</div>
 							<div className='content'>
-								NsDemo has launched its VIP rewards program so that members
+              {process.env['NEXT_PUBLIC_BRAND_NAME'] || ''} has launched its VIP rewards program so that members
 								could indulge in good services, more rewards, and a better
 								experience. Discover greater perks and entitlements when your
 								tier upgraded. We're waiting for you!
