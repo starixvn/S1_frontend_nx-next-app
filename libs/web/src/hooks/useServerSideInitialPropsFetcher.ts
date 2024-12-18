@@ -14,7 +14,7 @@ import { GetServerSidePropsContext, PreviewData } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { UserInfoMemberType, setServerSideHeaders } from '../service'
 import { useRedirectDevice } from './useRedirectDevice'
-import { useRedirectMaintain } from 'libs/web/src/hooks/useRedirectMaintain'
+import { useRedirectMaintain } from './useRedirectMaintain'
 
 export interface InitialPropsInterface {
 	originLangId: string
@@ -75,8 +75,7 @@ export const useServerSideInitialPropsFetcher = async (
 	const originCurrencyId = Number(originCookies[ENV_COOKIE_NAMES.CurrencyId])
 
 	// After obtaining the current currencyId, execute maintenance diversion logic
-	// TODO
-	//await useRedirectMaintain(context, originCurrencyId)
+	await useRedirectMaintain(context, originCurrencyId)
 
 	// Bring in the cookies used by api config
 	const currentHeaderCookies = transferCookiesObj(originCookies)

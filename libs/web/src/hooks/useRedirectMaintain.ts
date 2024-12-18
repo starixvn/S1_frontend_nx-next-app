@@ -19,9 +19,9 @@ export const useRedirectMaintain = async (
 	currencyId: number
 ) => {
 	// production 才執行這個 hooks
-	if (process.env.NODE_ENV !== 'production') return
-
+	if (process.env.NODE_ENV === 'development') return
 	const isInMaintain = await checkMaintain()
+
 	const { req, res } = context
 	const reqDomain = req.headers.host
 	const langKey = CURRENCY_TO_LANG_KEY[currencyId] ?? 'en'
