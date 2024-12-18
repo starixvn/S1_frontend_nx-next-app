@@ -96,6 +96,7 @@ export interface ISignUpArgs {
 	langId: string
 	lineUserId?: string
 	captchaType?: CaptchaTypeEnum
+	joinBy?: string
 }
 
 export interface IGetBannerArgs {
