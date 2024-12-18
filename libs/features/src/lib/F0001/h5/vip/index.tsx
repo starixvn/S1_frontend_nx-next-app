@@ -50,7 +50,9 @@ const Vip = ({
 						alt='vipbox'
 					/>
 					<div className='vipTitle'>{t('Label_Vip_Info_Title_1')}</div>
-					{t('Label_Vip_Info_Content_1')}
+					{t('Label_Vip_Info_Content_1',{
+          site: process.env['NEXT_PUBLIC_BRAND_NAME'] || ''
+        })}
 					<div className='vipTitle'>{t('Label_Vip_Info_Title_2')}</div>
 					{t('Label_Vip_Info_Content_2')}
 					<div className='vipTitle'>{t('Label_Vip_Info_Title_3')}</div>
