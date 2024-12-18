@@ -141,35 +141,35 @@ const List = () => {
 				header={t('Label_General_TermsConditions')}
 			>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/Terms.html?currencyId=${currencyId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/TermsConditions.html#TermsOfUse?currencyId=${currencyId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_TermsOfUse')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AccountTerms.html?currencyId=${currencyId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/TermsConditions.html#AccountTerms?currencyId=${currencyId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_AccountTerms')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/PlayerFundPolicy.html?currencyId=${currencyId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/TermsConditions.html#PlayerFundPolicy?currencyId=${currencyId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_PlayerFundPolicy')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/PrivacyPolicy.html?currencyId=${currencyId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/TermsConditions.html#PrivacyPolicy?currencyId=${currencyId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_PrivacyPolicy')}
 				</a>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ResponsibleGaming.html?currencyId=${currencyId}`}
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/TermsConditions.html#ResponsibleGaming?currencyId=${currencyId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
