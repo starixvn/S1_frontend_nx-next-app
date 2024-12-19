@@ -22,7 +22,7 @@ export const useRedirectMaintain = async (
 	const { req, res } = context
 	const reqDomain = req.headers.host
 	const langKey = CURRENCY_TO_LANG_KEY[currencyId] ?? 'en'
-	const mobileCName = `${process.env['NEXT_PUBLIC_M_CNAME']}-`
+	const mobileCName = `${process.env['NEXT_PUBLIC_M_CNAME']}`
 	const desktopCName = `${process.env['NEXT_PUBLIC_PC_CNAME']}`
 
 	if (isInMaintain && reqDomain) {
