@@ -22,7 +22,7 @@ const Vip = ({
 	} = useAuth()
 	const banners = useStaticData().VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY(langId)
 	const settings = chain([...VIP_PROGRAMS])
-		.filter('enable')
+		.filter(x => x.enable)
 		.map(x => ({
 			...x,
 			apiData: find(vipBannerData, o => o.level === x.level),
