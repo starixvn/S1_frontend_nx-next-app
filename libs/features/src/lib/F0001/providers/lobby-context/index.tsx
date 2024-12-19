@@ -24,6 +24,7 @@ import React, {
 	useContext,
 	useEffect,
 	useState,
+  useCallback
 } from 'react'
 import { useIsFirstRender, useLocalStorage } from 'usehooks-ts'
 
@@ -408,6 +409,13 @@ const LobbyProvider = ({
 		return newGamesArr
 	}
 
+  const scrollToTop = useCallback(() => {
+    const mainContent = document?.getElementById('__top')
+    if (!mainContent) return
+
+    mainContent.scrollTop = 0
+  }, [])
+
 	useEffect(() => {
 		if (isFirstRender) {
 			const responseMyFavorites =
@@ -428,6 +436,7 @@ const LobbyProvider = ({
 			)
 			updateVendorList()
 			setActiveCategoryKey('all')
+      scrollToTop()
 		}
 	}, [isFirstRender])
 

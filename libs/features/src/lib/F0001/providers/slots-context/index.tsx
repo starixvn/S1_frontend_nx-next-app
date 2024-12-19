@@ -35,6 +35,7 @@ import React, {
 	useContext,
 	useEffect,
 	useState,
+  useCallback
 } from 'react'
 import { useIsFirstRender, useLocalStorage } from 'usehooks-ts'
 
@@ -451,6 +452,13 @@ const SlotsProvider = ({
 		return newGamesArr
 	}
 
+  const scrollToTop = useCallback(() => {
+    const mainContent = document?.getElementById('__top')
+    if (!mainContent) return
+
+    mainContent.scrollTop = 0
+  }, [])
+
 	useEffect(() => {
 		// * 首次進入slots計算整理myFavorites
 		if (isFirstRender) {
@@ -472,6 +480,7 @@ const SlotsProvider = ({
 			)
 			updateVendorList()
 			setActiveCategoryKey('all')
+      scrollToTop()
 		}
 	}, [isFirstRender])
 
