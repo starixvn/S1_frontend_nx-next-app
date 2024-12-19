@@ -9,12 +9,12 @@ import {
 } from '@nx-next-app/data-access'
 import { getCookies } from 'cookies-next'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
+import { useRedirectMaintain } from 'libs/web/src/hooks/useRedirectMaintain'
 import { assign, includes, isEmpty } from 'lodash-es'
 import { GetServerSidePropsContext, PreviewData } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { UserInfoMemberType, setServerSideHeaders } from '../service'
 import { useRedirectDevice } from './useRedirectDevice'
-import { useRedirectMaintain } from 'libs/web/src/hooks/useRedirectMaintain'
 
 export interface InitialPropsInterface {
 	originLangId: string
@@ -76,7 +76,7 @@ export const useServerSideInitialPropsFetcher = async (
 
 	// After obtaining the current currencyId, execute maintenance diversion logic
 	// TODO
-	//await useRedirectMaintain(context, originCurrencyId)
+	await useRedirectMaintain(context, originCurrencyId)
 
 	// Bring in the cookies used by api config
 	const currentHeaderCookies = transferCookiesObj(originCookies)

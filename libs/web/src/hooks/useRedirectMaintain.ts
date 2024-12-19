@@ -18,10 +18,7 @@ export const useRedirectMaintain = async (
 	context: GetServerSidePropsContext,
 	currencyId: number
 ) => {
-	// production 才執行這個 hooks
-	if (process.env.NODE_ENV === 'development') return
 	const isInMaintain = await checkMaintain()
-
 	const { req, res } = context
 	const reqDomain = req.headers.host
 	const langKey = CURRENCY_TO_LANG_KEY[currencyId] ?? 'en'
@@ -31,7 +28,12 @@ export const useRedirectMaintain = async (
 	if (isInMaintain && reqDomain) {
 		// 無論如何都導到桌機
 		const targetDomain = reqDomain.replace(mobileCName, desktopCName)
-		const maintainUrl = `https://${targetDomain}/underMaintenance/${langKey}/index.html`
+		let maintainUrl = ''
+		if (process.env.NODE_ENV === 'development') {
+			maintainUrl = `http://${targetDomain}/underMaintenance/${langKey}/index.html`
+		} else {
+			maintainUrl = `https://${targetDomain}/underMaintenance/${langKey}/index.html`
+		}
 		res.writeHead(302, { Location: maintainUrl })
 		res.end()
 	}
