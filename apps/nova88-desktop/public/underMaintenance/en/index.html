@@ -154,13 +154,6 @@
 									off: function () {
 										i(['off', c.call(arguments)])
 									},
-									get: function () {
-										if (!e._h)
-											throw new Error(
-												"[LiveChatWidget] You can't use getters before load."
-											)
-										return i(['get', c.call(arguments)])
-									},
 									call: function () {
 										i(['call', c.call(arguments)])
 									},
@@ -172,8 +165,6 @@
 											t.head.appendChild(n)
 									},
 								}
-								!n.__lc.asyncInit && e.init(),
-									(n.LiveChatWidget = n.LiveChatWidget || e)
 							})(window, document, [].slice)
 						</script>
 						<a
@@ -184,6 +175,14 @@
 						>
 					</div>
 				</div>
+				<a
+					href="https://line.me/ti/p/FKGAY68Tse"
+					rel="nofollow"
+					target="_blank"
+					class="top-chat"
+				>
+					<img src="./img/Top.png" alt="" />
+				</a>
 			</div>
 		</div>
 	</body>
