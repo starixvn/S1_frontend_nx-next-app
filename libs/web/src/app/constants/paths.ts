@@ -5,8 +5,14 @@ export const paths = {
 	login: {
 		root: '/login',
 	},
+	appLogin: {
+		root: '/app-login',
+	},
 	forgetPassword: {
 		root: '/forget-password',
+	},
+	appForgetPassword: {
+		root: '/app-forget-password',
 	},
 	join: {
 		root: '/join',
