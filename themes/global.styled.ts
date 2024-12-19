@@ -1419,13 +1419,13 @@ export const GlobalStyles = createGlobalStyle`
 
   .proDataBody {
     background-color : #182043 !important;
+    line-height: 3rem;
       padding : 1.6rem;
       border-radius: 20px;
       margin-top : 1.6rem;
       > * {
       font-style: normal !important;
       font-weight: 400 !important;
-      line-height: 1.8rem !important;
       background-color : #182043 !important;
       span,p,div,a{
         line-height: 1.6rem !important;
