@@ -30,7 +30,7 @@ export const useRedirectMaintain = async (
 		const targetDomain = reqDomain.replace(mobileCName, desktopCName)
 		let maintainUrl = ''
 		if (process.env.NODE_ENV === 'development') {
-			maintainUrl = `http://${targetDomain}/underMaintenance/${langKey}/index.html`
+			maintainUrl = `http://localhost:4001/underMaintenance/${langKey}/index.html`
 		} else {
 			maintainUrl = `https://${targetDomain}/underMaintenance/${langKey}/index.html`
 		}
