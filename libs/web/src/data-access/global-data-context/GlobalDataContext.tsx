@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import liff from '@line/liff'
-import { initAdjustSDK } from '@nx-next-app/utils'
+import { initAdjustSDK } from 'libs/web/src/utils/tracker/adjust'
 import { createContext, ReactNode, useEffect, useState } from 'react'
 import {
 	ITpGameTypeData,

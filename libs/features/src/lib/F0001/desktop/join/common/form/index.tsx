@@ -29,11 +29,7 @@ import {
 	useSignupMutation,
 } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
-import {
-	MetaPixelTracker,
-	OperaPixelTracker,
-	getQueryParam,
-} from '@nx-next-app/utils'
+import { getQueryParam, tracking } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
 import dayjs from 'dayjs'
@@ -381,8 +377,6 @@ const Form = ({ cookies }: IJoinProps) => {
 		if (initNationality === 'China') {
 			return
 		}
-		// opera and meta pixel tracker
-		OperaPixelTracker('register')
 		const {
 			username,
 			password,
@@ -395,7 +389,7 @@ const Form = ({ cookies }: IJoinProps) => {
 			phone,
 			affiliate,
 		} = getValues()
-		MetaPixelTracker('registerSubmit', username)
+		tracking('registerSubmit', username)
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
@@ -440,7 +434,7 @@ const Form = ({ cookies }: IJoinProps) => {
 				...(reCaptchaToken && { reCaptchaToken, captchaType }),
 			}).unwrap()
 
-			MetaPixelTracker('CompleteRegistration', username)
+			tracking('CompleteRegistration', username)
 
 			router.push(`/${userLang}${paths.deposit.root}`)
 		} catch (error) {
