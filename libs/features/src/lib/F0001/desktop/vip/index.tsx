@@ -1,8 +1,8 @@
 import { useAuth } from '@nx-next-app/data-access'
-import { IVipBannerData } from '@nx-next-app/service'
 import VipBanner from '@nx-next-app/features/F0001/desktop/vip/VipBanner'
-import VipTable from '@nx-next-app/features/F0001/desktop/vip/VipTable'
 import VipBottom from '@nx-next-app/features/F0001/desktop/vip/VipBottom'
+import VipTable from '@nx-next-app/features/F0001/desktop/vip/VipTable'
+import { IVipBannerData } from '@nx-next-app/service'
 
 interface IVipProps {
 	vipBannerData: IVipBannerData

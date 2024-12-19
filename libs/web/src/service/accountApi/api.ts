@@ -1,33 +1,33 @@
-import { rootApi } from '../rootApi/api'
 import { IAxiosResponse } from '../axiosBaseQuery'
+import { rootApi } from '../rootApi/api'
 
 import {
-	IPopUpMsgData,
-	IMainWalletInfoData,
-	ISetLangArgs,
-	ITpWalletData,
-	TpWalletListTypeEnum,
-	ICustBonusWalletData,
-	ITpWalletInfoData,
-	IGetCustSpecificBonusArgs,
-	ICustSpecificBonusData,
-	IGetMsgListArgs,
-	IDelMsgArgs,
-	ISetMsgReadArgs,
-	IGetMsgListResponse,
-	IMsgContentResponse,
-	IGetMsgContentArgs,
-	IReferralSettingData,
-	ISetChangePasswordArgs,
-	IReferralSummaryData,
-	IReferralSettingDetailData,
-	IWithdrawalAvailableBalanceData,
 	ICustBankInfoData,
+	ICustBonusWalletData,
+	ICustSpecificBonusData,
+	IDelMsgArgs,
 	IEWalletData,
+	IGetCustSpecificBonusArgs,
+	IGetMsgContentArgs,
+	IGetMsgListArgs,
+	IGetMsgListResponse,
 	IGetReferralArgs,
+	IMainWalletInfoData,
+	IMsgContentResponse,
+	IPopUpMsgData,
 	IReferralData,
-	IWalletInfoData,
+	IReferralSettingData,
+	IReferralSettingDetailData,
+	IReferralSummaryData,
+	ISetChangePasswordArgs,
+	ISetLangArgs,
+	ISetMsgReadArgs,
 	ITpGameTypeData,
+	ITpWalletData,
+	ITpWalletInfoData,
+	IWalletInfoData,
+	IWithdrawalAvailableBalanceData,
+	TpWalletListTypeEnum,
 } from './type'
 
 export const accountApiUrl = {
@@ -305,8 +305,11 @@ const accountApi = rootApi.injectEndpoints({
 		getCustVIPProgress: builder.query<
 			IAxiosResponse<{
 				currentVipLevel: number
+				nextVipLevel: null | number
 				upDeposit: null | number
+				upTurnover: null | number
 				actualDeposit: number
+				turnoverSummary: number
 				downDeposit: null | number
 				downTurnover: null | number
 			}>,

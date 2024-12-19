@@ -1,29 +1,18 @@
 import { Carousel } from '@12b-desktop/components/common'
 import { VipBannerItem } from '@12b-desktop/components/vip/components/VipBannerItem'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { IVipBannerData } from '@nx-next-app/service'
-import { find } from 'lodash-es'
+import { IOneTwoBetVipProgram } from '@nx-next-app/site/onetwobet'
 import { SwiperSlide } from 'swiper/react'
 
-const VipBanner = ({
-	vipBannerData,
-}: Omit<IVipBannerData, 'lastUpdateTime'>) => {
-	const {
-		userInfo: { langId },
-	} = useAuth()
+interface IVipBannerProps {
+	settings: IOneTwoBetVipProgram[]
+}
 
-	const banners = useStaticData()
-		.VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY(langId)
-		.filter(val => find(vipBannerData, vip => vip.level === val.level))
-
+const VipBanner = ({ settings }: IVipBannerProps) => {
 	return (
 		<Carousel pagination={false} navigation={false}>
-			{banners.map(item => (
+			{settings.map(item => (
 				<SwiperSlide className={`vip${item.level}`} key={item.level}>
-					<VipBannerItem
-						data={find(vipBannerData, vip => vip.level === item.level)}
-						bannerByCurrencyData={item}
-					/>
+					<VipBannerItem item={item} />
 				</SwiperSlide>
 			))}
 		</Carousel>

@@ -8,7 +8,7 @@ import {
 } from '@nx-next-app/service'
 import { numberFormat } from '@nx-next-app/utils'
 import classNames from 'classnames'
-import { includes } from 'lodash-es'
+import { find, includes } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 
@@ -36,13 +36,19 @@ const Profile = () => {
 	const { ALLOWED_CURRENCIES, VIP_CLUB_IMAGES } = useStaticData()
 
 	const {
+		currentVipLevel,
+		nextVipLevel,
 		upDeposit = 0,
-		currentVipLevel = 0,
+		upTurnover = 0,
 		actualDeposit = 0,
+		turnoverSummary,
 	} = custVIPProgress || {}
 
-	const isVipLevelHighest = upDeposit === null
-	const currentVipLevelInfo = VIP_CLUB_IMAGES[currentVipLevel - 1]
+	const isVipLevelHighest = nextVipLevel === null
+	const currentVipLevelInfo = find(
+		VIP_CLUB_IMAGES,
+		o => o.level === currentVipLevel
+	)
 
 	// 暫時保留
 	// const nextVipLevelInfo = VIP_CLUB_IMAGES[currentVipLevel]
@@ -199,10 +205,18 @@ const Profile = () => {
 						<div>{t('Label_VIP_YourVIPIs')}</div>
 						<div>{t(`${levelText}`)}</div>
 						{!isVipLevelHighest && (
-							<div>
-								{numberFormat(actualDeposit, currencyId)}
-								<div>/{numberFormat(Number(upDeposit), currencyId)}</div>
-							</div>
+							<>
+								<div className='progress-number'>
+									<div>{t('Label_General_Deposit')}</div>
+									{numberFormat(actualDeposit, currencyId)}/
+									{numberFormat(Number(upDeposit), currencyId)}
+								</div>
+								<div className='progress-number'>
+									<div>{t('Label_General_Turnover')}</div>
+									{numberFormat(turnoverSummary, currencyId)}/
+									{numberFormat(Number(upTurnover), currencyId)}
+								</div>
+							</>
 						)}
 					</div>
 					<div className='right'>
