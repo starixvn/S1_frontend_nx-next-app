@@ -138,7 +138,6 @@ export const PromotionProvider = ({
 				refetchOnMountOrArgChange: true,
 			}
 		)
-
 	const [getCustSpecificBonus] = useLazyGetCustSpecificBonusQuery()
 
 	const [setSpecialCode] = useSetSpecialCodeMutation()
@@ -231,12 +230,14 @@ export const PromotionProvider = ({
 		// * 清除 promo code
 		promotionForm.reset()
 	}
-
 	const originPromotionData =
 		activeFilterType === PromotionFilterEnum.PromoCode
 			? specialPromotionList
 			: promotionList
+
+	// 將後台新功能：first deposit, redeposit, special bonus有在名單內可以直接領取的API的資料用concat加進去
 	const promotionData = originPromotionData
+		.concat(promotionUploadCustList ?? [])
 		// * 過濾掉已過期的 promotion
 		.filter(({ isJoin, promotionType, custExpiryTime, periodTo }) =>
 			isJoin &&
@@ -261,7 +262,6 @@ export const PromotionProvider = ({
 						[PromotionTypeEnum.FirstDeposit, PromotionTypeEnum.WalletBonus],
 						promotionType
 					)
-
 					break
 
 				case PromotionFilterEnum.Special:
@@ -303,10 +303,8 @@ export const PromotionProvider = ({
 				default:
 					break
 			}
-
 			return bol
 		})
-		.concat(promotionUploadCustList ?? [])
 
 	const filteredPromotionSelectOptions = filter(
 		PROMOTION_SELECT_OPTIONS,
