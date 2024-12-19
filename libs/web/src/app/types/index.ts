@@ -174,6 +174,8 @@ export interface IStaticAllowedCurrencies {
 
 	// olympic
 	OLYMPIC?: CurrenciesEnum[]
+
+	NewYear?: CurrenciesEnum[]
 }
 
 export interface ITermsConditions {

@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useRouter } from 'next/router'
 import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { includes } from 'lodash-es'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 const LuckyWheel = () => {
 	const {

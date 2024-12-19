@@ -58,6 +58,8 @@ const OlympicEntry = dynamic(() => import('../common/OlympicEntry'), {
 	ssr: false,
 })
 
+const NewYear = dynamic(() => import('../common/NewYear'), { ssr: false })
+
 const Home = () => {
 	// 因為有用useCallback避免render issue，因此這邊資料僅使用static＆serverSide data
 	// clientSide api fetch在元件內部呼叫
@@ -98,6 +100,7 @@ const Home = () => {
 			<EuropeCupEntry />
 		) : null,
 		[DesktopHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
+		[DesktopHomeComponentsEnum.NewYear]: <NewYear />,
 		[DesktopHomeComponentsEnum.Retention]: <Retention />,
 		[DesktopHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,
 		[DesktopHomeComponentsEnum.QuickDownload]: <QuickDownload />,
