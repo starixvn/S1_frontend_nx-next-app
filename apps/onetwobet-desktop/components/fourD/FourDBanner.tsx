@@ -1,6 +1,6 @@
 import { useGlobalData } from '@nx-next-app/data-access'
 
-const FishingBanner = () => {
+const FourDBanner = () => {
 	const { getBannerUrl } = useGlobalData()
 	return (
 		<div className='lobby-banner'>
@@ -18,4 +18,4 @@ const FishingBanner = () => {
 	)
 }
 
-export default FishingBanner
+export default FourDBanner

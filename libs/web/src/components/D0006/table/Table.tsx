@@ -1,5 +1,5 @@
+import { uniqueId } from 'lodash-es'
 import React, { ReactNode } from 'react'
-import { uniqueId } from 'lodash'
 
 export interface ITableColumns<T> {
 	title: string | React.ReactNode

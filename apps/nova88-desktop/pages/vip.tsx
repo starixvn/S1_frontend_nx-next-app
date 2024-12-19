@@ -9,7 +9,7 @@ import {
 import { IVipBannerData } from '@nx-next-app/service'
 import { ALLOWED_CURRENCIES, FOOTER_DATA } from '@nx-next-app/site/nova88'
 import { IFooterData } from '@nx-next-app/types'
-import { includes } from 'lodash'
+import { includes } from 'lodash-es'
 import { GetServerSideProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 

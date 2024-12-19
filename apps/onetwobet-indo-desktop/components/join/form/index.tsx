@@ -23,15 +23,10 @@ import {
 	useSignupMutation,
 } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
-import {
-	MetaPixelTracker,
-	OperaPixelTracker,
-	getQueryParam,
-} from '@nx-next-app/utils'
+import { getQueryParam, tracking } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { getCookies } from 'cookies-next'
-import { isNumber } from 'lodash'
-import { includes } from 'lodash-es'
+import { includes, isNumber } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -347,10 +342,7 @@ const Form = () => {
 				...(reCaptchaToken && { reCaptchaToken, captchaType }),
 			}).unwrap()
 
-			// opera and meta pixel tracker
-			OperaPixelTracker('register')
-			MetaPixelTracker('registerSubmit')
-
+			tracking('registerSubmit')
 			router.push(`/${userLang}${paths.deposit.root}`)
 		} catch (error) {
 			modal.error((error as Error).message)

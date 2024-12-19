@@ -8,7 +8,7 @@ import LoginModal from '@nx-next-app/features/F0001/desktop/modal/LoginModal'
 import { useMenu } from '@nx-next-app/features/F0001/hooks'
 import { IBannerData } from '@nx-next-app/service'
 import { BannerActionEnum } from '@nx-next-app/types'
-import { isNumber } from 'lodash'
+import { isNumber } from 'lodash-es'
 import { useRouter } from 'next/router'
 import BannerItem from './BannerItem'
 

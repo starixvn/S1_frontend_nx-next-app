@@ -12,7 +12,7 @@ import {
 	useDepositWithdrawTracker,
 } from '@nx-next-app/operations'
 import { NotificationTypeEnum } from '@nx-next-app/service'
-import { MetaPixelTrackerName } from '@nx-next-app/utils'
+import { BaseTrackerEvent } from '@nx-next-app/utils'
 import { ReactNode } from 'react'
 
 interface IAuthProviderProps
@@ -21,7 +21,7 @@ interface IAuthProviderProps
 }
 
 type TNotificationConfig = {
-	event: MetaPixelTrackerName | null
+	event: BaseTrackerEvent | null
 	i18nLabel: string
 	bgColor: ToastBGColorEnum
 	iconClassName: ToastIconEnum
