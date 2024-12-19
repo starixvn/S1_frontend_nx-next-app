@@ -1,4 +1,3 @@
-import * as Sentry from '@sentry/node'
 import axios from 'axios'
 
 // 這隻 json 取得後只需要拿 Maintain 布林出來使用
@@ -18,14 +17,7 @@ export const checkMaintain = async (): Promise<boolean> => {
 
 		return Maintain
 	} catch (error) {
-		if (axios.isAxiosError(error) && error.name === 'CanceledError') {
-			Sentry.captureException(
-				`Request checkMaintain due to timeout, url: ${url}`
-			)
-		} else {
-			Sentry.captureException(`Request failed: url: ${url}, error: ${error}`)
-		}
-
+		console.log(error)
 		return false
 	}
 }
