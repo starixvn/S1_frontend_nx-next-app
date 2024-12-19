@@ -1423,16 +1423,13 @@ export const GlobalStyles = createGlobalStyle`
       border-radius: 20px;
       margin-top : 1.6rem;
       > * {
-      font-size: 1.4rem !important;
       font-style: normal !important;
       font-weight: 400 !important;
       line-height: 1.8rem !important;
       background-color : #182043 !important;
       span,p,div,a{
         background-color : #182043 !important;
-        font-family: ${({ theme }) => theme.desktop.fontFamily} !important;
         line-height: 1.6rem !important;
-        color: #939DC5 !important;
         padding : 0 !important;
         margin-bottom : 1.2rem !important;
 
@@ -1443,9 +1440,6 @@ export const GlobalStyles = createGlobalStyle`
       }
       a{
         font-weight: bold !important;
-      }
-      strong {
-        color: #939DC5 !important;
       }
     }
     colgroup col {
