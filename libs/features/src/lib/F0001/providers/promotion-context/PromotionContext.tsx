@@ -305,7 +305,6 @@ export const PromotionProvider = ({
 			}
 			return bol
 		})
-		.concat(promotionUploadCustList ?? [])
 
 	const filteredPromotionSelectOptions = filter(
 		PROMOTION_SELECT_OPTIONS,
