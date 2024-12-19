@@ -5,7 +5,7 @@ import {
 	useLazySetCustNotificationQuery,
 } from '@nx-next-app/service'
 
-import { MetaPixelTracker, MetaPixelTrackerName } from '@nx-next-app/utils'
+import { BaseTrackerEvent, tracking } from '@nx-next-app/utils'
 import { useTranslation } from 'next-i18next'
 
 /** 財務通知是否禁用。 */
@@ -45,7 +45,7 @@ const useDepositWithdrawTracker = () => {
 	 * 處理財務通知（ 存款成功／提款成功／存款失敗／提款失敗 ）的函數
 	 *  1. 已登入時，每分鐘打一次 getCustNotification 確認是否有財務通知的單號。
 	 *	2. 登入完成，也會打一次 getCustNotification ( 有可能用戶存完款就登出，後台尚未審核，所以未通知用戶 )，此時若有單號，則會通知用戶。
-	 *  3. 觸發 MetaPixelTracker 事件，通知市場用戶執行當前財務操作成功。
+	 *  3. 觸發 Tracking 事件，通知市場用戶執行當前財務操作成功。
 	 *  4. 向用戶發送財務通知訊息。
 	 *  5. 調用 setCustNotification 移除該財務通知單號，防止之後再次獲得相同的單號。
 	 *
@@ -70,7 +70,7 @@ const useDepositWithdrawTracker = () => {
 		notificationType: NotificationTypeEnum
 		notificationEnabledArg: string
 		notificationMutedArg: string
-		event: MetaPixelTrackerName
+		event: BaseTrackerEvent
 		i18nLabel: string
 		bgColor: ToastBGColorEnum
 		iconClassName: ToastIconEnum
@@ -91,8 +91,7 @@ const useDepositWithdrawTracker = () => {
 			const orderProcessingPromises = orders.map(
 				({ transId, amount = 0, firstDeposit = false, isoCode = '' }) => {
 					// 如果有需要通知市場的事件，就發送通知給市場
-					if (event)
-						MetaPixelTracker(event, transId, amount, firstDeposit, isoCode)
+					if (event) tracking(event, transId, amount, isoCode, firstDeposit)
 
 					// 如果財務通知有啟用，就發送通知
 					if (notificationEnabled) {

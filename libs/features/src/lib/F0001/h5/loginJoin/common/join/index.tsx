@@ -19,15 +19,10 @@ import {
 	useSignupMutation,
 } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
-import {
-	MetaPixelTracker,
-	OperaPixelTracker,
-	getQueryParam,
-} from '@nx-next-app/utils'
+import { getQueryParam, tracking } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { TmpCookiesObj } from 'cookies-next/lib/types'
-import { isNumber } from 'lodash'
-import { includes } from 'lodash-es'
+import { includes, isNumber } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
@@ -218,8 +213,6 @@ const Join = ({ cookies }: IJoinProps) => {
 		if (initNationality === 'China') {
 			return
 		}
-		// opera and meta pixel tracker
-		OperaPixelTracker('register')
 
 		const {
 			username,
@@ -235,7 +228,8 @@ const Join = ({ cookies }: IJoinProps) => {
 			phone,
 			affiliate,
 		} = getValues()
-		MetaPixelTracker('registerSubmit', username)
+
+		tracking('registerSubmit', username)
 		const currencyCheck = checkCurrency()
 		const affCodeCheck = await checkAffiliate()
 
@@ -279,7 +273,7 @@ const Join = ({ cookies }: IJoinProps) => {
 				...(reCaptchaToken && { reCaptchaToken, captchaType }),
 			}).unwrap()
 			setStep(3)
-			MetaPixelTracker('CompleteRegistration', username)
+			tracking('CompleteRegistration', username)
 		} catch (error) {
 			modal.error((error as Error).message)
 		}

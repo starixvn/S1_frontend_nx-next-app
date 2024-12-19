@@ -6,7 +6,7 @@ import { useAuth } from '@nx-next-app/data-access'
 import { useMenu } from '@nx-next-app/features/F0006/hooks'
 import { IBannerData } from '@nx-next-app/service'
 import { BannerActionEnum } from '@nx-next-app/types'
-import { isNumber } from 'lodash'
+import { isNumber } from 'lodash-es'
 import { useRouter } from 'next/router'
 import BannerItem from './BannerItem'
 

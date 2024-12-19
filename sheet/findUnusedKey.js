@@ -3,7 +3,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const fs = require('fs')
 const path = require('path')
-const { compact, map, flattenDeep } = require('lodash')
+const { compact, map, flattenDeep } = require('lodash-es')
 const { extractSheets } = require('spreadsheet-to-json')
 const { SHEET_URL_ID } = require('./sheet')
 const auth = require('../ailab-resources-385807-220772b7ea81.json')
