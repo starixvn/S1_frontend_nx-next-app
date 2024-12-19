@@ -29,7 +29,10 @@ const BackTop = () => {
 		const mainContent = document?.getElementById('__top')
 		if (!mainContent) return
 
-		mainContent.scrollTop = 0
+		mainContent.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		})
 	}, [])
 
 	return !isVisible ? null : (
