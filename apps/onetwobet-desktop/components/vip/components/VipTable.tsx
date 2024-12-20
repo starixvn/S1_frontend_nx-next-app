@@ -15,7 +15,7 @@ interface IVipTableProps {
 const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 	const { t } = useTranslation()
 	const {
-		userInfo: { currencyId, langId },
+		userInfo: { currencyId },
 	} = useAuth()
 	const { VIP_CLUB_IMAGES, CURRENCY_TO_TIMEZONE } = useStaticData()
 	const { getBannerUrl } = useGlobalData()
@@ -38,8 +38,6 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 							<td key={item.alt}>
 								<img src={getBannerUrl(item.url)} alt={item.alt} />
 								{t(item.displayKey || '')}
-								{/* // * cs 語系才需顯示 Club */}
-								{langId === 'cs' && <p>{t('Label_Vip_Club')}</p>}
 							</td>
 						))}
 					</tr>

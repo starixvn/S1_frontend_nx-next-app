@@ -50,11 +50,11 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 			contentFn: () => <li>{withdrawalPriority && t('Label_High')}</li>,
 		},
 		{
-			resourceKey: 'Label_Vip_Service_Support_At_Date',
+			resourceKey: 'Label_Vip_LiveChat',
 			contentFn: () => <li>{vipLiveChat && t('Label_High')}</li>,
 		},
 		{
-			resourceKey: 'Label_Vip_Designated_Account_Manager',
+			resourceKey: 'Label_Vip_Priority_Access_VIP_Services',
 			contentFn: () => (
 				<li
 					className={classNames({
@@ -66,7 +66,11 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 		{
 			resourceKey: 'Label_Vip_Daily_Withdrawal_Limitation',
 			contentFn: () => (
-				<li>{numberFormatExcludeString(apiData?.withdrawalMax)}</li>
+				<li>
+					{numberFormatExcludeString(apiData?.withdrawalMax) === '0'
+						? t('Label_Vip_Unlimited')
+						: numberFormatExcludeString(apiData?.withdrawalMax)}
+				</li>
 			),
 		},
 		{
@@ -114,10 +118,6 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 		{
 			resourceKey: 'Label_Vip_Virtual_Sport_Rebate',
 			rebateEnum: RebateCategoryEnum.VirtualSports,
-		},
-		{
-			resourceKey: 'Label_Vip_ESport_Rebate',
-			rebateEnum: RebateCategoryEnum.ESports,
 		},
 	]
 
@@ -176,6 +176,15 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 							{apiData?.upBonus && numberFormatExcludeString(apiData?.upBonus)}
 						</li>
 					</ul>
+					<ul className='viptable-item-text'>
+						<li>
+							{capitalize(t('Label_Vip_Tier_UpGrade_RewardPoints') as string)}
+						</li>
+						<li>
+							{apiData?.upRewardPoint &&
+								numberFormatExcludeString(apiData?.upRewardPoint)}
+						</li>
+					</ul>
 				</div>
 
 				{/* === Special Offer ===  */}
@@ -226,18 +235,14 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 						</li>
 					</ul>
 					<ul className='viptable-item-text'>
-						<li>
-							{capitalize(t('Label_Vip_Monthly_Minimum_Deposit') as string)}
-						</li>
+						<li>{capitalize(t('Label_Vip_Deposit_Requirement') as string)}</li>
 						<li>
 							{apiData?.upDeposit &&
 								numberFormatExcludeString(apiData?.upDeposit)}
 						</li>
 					</ul>
 					<ul className='viptable-item-text'>
-						<li>
-							{capitalize(t('Label_vip_monthly_minimum_turnover') as string)}
-						</li>
+						<li>{capitalize(t('Label_Vip_Turnover_Requirement') as string)}</li>
 						<li>
 							{apiData?.upTurnover &&
 								numberFormatExcludeString(apiData?.upTurnover)}
@@ -256,11 +261,7 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 						</li>
 					</ul>
 					<ul className='viptable-item-text'>
-						<li>
-							{capitalize(
-								t('Label_Vip_Minimum_Deposit_Within_Validity_Period') as string
-							)}
-						</li>
+						<li>{capitalize(t('Label_Vip_Retain_Deposit') as string)}</li>
 						<li>
 							{apiData?.downDeposit &&
 								Number(apiData?.downDeposit) !== 0 &&
@@ -268,11 +269,7 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 						</li>
 					</ul>
 					<ul className='viptable-item-text'>
-						<li>
-							{capitalize(
-								t('Label_Vip_Minimum_Turnover_Within_Validity_Period') as string
-							)}
-						</li>
+						<li>{capitalize(t('Label_Vip_Retain_Turnover') as string)}</li>
 						<li>
 							{apiData?.downTurnover &&
 								Number(apiData?.downTurnover) !== 0 &&

@@ -7,7 +7,7 @@ import {
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { IVipBannerData } from '@nx-next-app/service'
 import { VIP_PROGRAMS } from '@nx-next-app/site/onetwobet'
-import { chain, find } from 'lodash-es'
+import { find } from 'lodash-es'
 
 interface IVipProps {
 	vipBannerData: IVipBannerData
@@ -22,14 +22,13 @@ const Vip = ({
 
 	const banners = useStaticData().VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY(langId)
 
-	const settings = chain([...VIP_PROGRAMS])
-		.filter('enable')
+	const settings = [...VIP_PROGRAMS]
+		.filter(x => x.enable)
 		.map(x => ({
 			...x,
 			apiData: find(vipBannerData, o => o.level === x.level),
 			bannerData: find(banners, o => o.level === x.level),
 		}))
-		.value()
 
 	return (
 		<main className='vip'>

@@ -66,7 +66,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip1.svg`,
-		displayKey: 'Label_Vip_BlackTortoise_Club',
+		displayKey: 'Label_VIP_BlackTortoise',
 		settingDisplayKey: 'Label_VIP_BlackTortoise',
 		headerUrl: `/desktop/img/4.0/header-vintage.png`,
 		levelTabsName: 'tortoise',
@@ -77,7 +77,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip2.svg`,
-		displayKey: 'Label_Vip_Qilin_Club',
+		displayKey: 'Label_VIP_Qilin',
 		settingDisplayKey: 'Label_VIP_Qilin',
 		headerUrl: `/desktop/img/4.0/header-silver.png`,
 		levelTabsName: 'phoenix',
@@ -88,7 +88,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip3.svg`,
-		displayKey: 'Label_Vip_VermilionBird_Club',
+		displayKey: 'Label_VIP_VermilionBird',
 		settingDisplayKey: 'Label_VIP_VermilionBird',
 		headerUrl: `/desktop/img/4.0/header-gold.png`,
 		levelTabsName: 'tiger',
@@ -99,7 +99,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip4.svg`,
-		displayKey: 'Label_Vip_Phoenix_Club',
+		displayKey: 'Label_VIP_Phoenix',
 		settingDisplayKey: 'Label_VIP_Phoenix',
 		headerUrl: `/desktop/img/4.0/header-titanium.png`,
 		levelTabsName: 'dragon',
@@ -110,7 +110,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip5.svg`,
-		displayKey: 'Label_Vip_Tiger_Club',
+		displayKey: 'Label_VIP_Tiger',
 		settingDisplayKey: 'Label_VIP_Tiger',
 		headerUrl: `/desktop/img/4.0/header-diamond.png`,
 		levelTabsName: 'qulin',
@@ -121,7 +121,7 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		url: `/${
 			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
 		}/img/vip6.svg`,
-		displayKey: 'Label_Vip_Dragon_Club',
+		displayKey: 'Label_VIP_Dragon',
 		settingDisplayKey: 'Label_VIP_Dragon',
 		headerUrl: `/desktop/img/4.0/header-nova.png`,
 		levelTabsName: 'vermilion',
