@@ -1,5 +1,5 @@
 import { siteMiddleware } from '@nx-next-app/middleware'
-import { NextRequest, NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
 
 // langToCurrency 在 middleware 就要使用到，next 規定 middleware 使用的資源要寫在裡面才 build 得過
 export const LANG_TO_CURRENCY: { [key: string]: number } = {
@@ -25,11 +25,5 @@ const config = {
 }
 
 export const middleware = (request: NextRequest) => {
-	const originalHost = request.headers.get('host');
-	const url = request.nextUrl.clone();
-	if (url.pathname.match(/^\/\w+\/entPage\//) && process.env.NEXT_PUBLIC_PLAYER_API_PATH !== '') {
-		url.hostname = `${originalHost}/${process.env.NEXT_PUBLIC_PLAYER_API_PATH}`;
-		return NextResponse.rewrite(url);
-	}
 	return siteMiddleware({ request, config })
 }
