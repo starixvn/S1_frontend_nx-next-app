@@ -1414,6 +1414,12 @@ export const GlobalStyles = createGlobalStyle`
         width : 100%;
       }
     }
+    strong{
+      font-weight: 700 !important;
+    }
+    em{
+      font-style: italic !important;
+    }
   }
 
 
