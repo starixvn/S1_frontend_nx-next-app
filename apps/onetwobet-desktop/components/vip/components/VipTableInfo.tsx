@@ -37,7 +37,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 				)),
 		},
 		{
-			resourceKey: 'Label_Vip_Service_Support_At_Date',
+			resourceKey: 'Label_Vip_LiveChat',
 			contentFn: () =>
 				settings.map(x => (
 					<td key={x.level}>
@@ -47,7 +47,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 				)),
 		},
 		{
-			resourceKey: 'Label_Vip_Designated_Account_Manager',
+			resourceKey: 'Label_Vip_Priority_Access_VIP_Services',
 			contentFn: () =>
 				settings.map(x => (
 					<td key={x.level}>
@@ -62,8 +62,9 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 			contentFn: () =>
 				settings.map(x => (
 					<td key={x.level}>
-						{x?.apiData?.withdrawalMax &&
-							numberFormatExcludeString(x.apiData.withdrawalMax)}
+						{numberFormatExcludeString(x?.apiData?.withdrawalMax) === '0'
+							? t('Label_Vip_Unlimited')
+							: numberFormatExcludeString(x.apiData.withdrawalMax)}
 					</td>
 				)),
 		},
@@ -227,7 +228,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 					<td colSpan={6} />
 				</tr>
 				<tr>
-					<td>{capitalize(t('Label_Vip_Monthly_Minimum_Deposit') || '')}</td>
+					<td>{capitalize(t('Label_Vip_Deposit_Requirement') || '')}</td>
 					{settings?.map(item => (
 						<td key={item.level}>
 							{item?.apiData?.upDeposit &&
@@ -236,7 +237,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 					))}
 				</tr>
 				<tr>
-					<td>{capitalize(t('Label_Vip_Monthly_Minimum_Turnover') || '')}</td>
+					<td>{capitalize(t('Label_Vip_Turnover_Requirement') || '')}</td>
 					{settings?.map(item => (
 						<td key={item.level}>
 							{item?.apiData?.upTurnover &&
@@ -256,11 +257,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 					<td colSpan={6} />
 				</tr>
 				<tr>
-					<td>
-						{capitalize(
-							t('Label_Vip_Minimum_Deposit_Within_Validity_Period') || ''
-						)}
-					</td>
+					<td>{capitalize(t('Label_Vip_Retain_Deposit') || '')}</td>
 					{settings?.map(item => (
 						<td key={item.level}>
 							{item?.apiData?.downDeposit &&
@@ -270,11 +267,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 					))}
 				</tr>
 				<tr>
-					<td>
-						{capitalize(
-							t('Label_Vip_Minimum_Turnover_Within_Validity_Period') || ''
-						)}
-					</td>
+					<td>{capitalize(t('Label_Vip_Retain_Turnover') || '')}</td>
 					{settings?.map(item => (
 						<td key={item.level}>
 							{item?.apiData?.downTurnover &&

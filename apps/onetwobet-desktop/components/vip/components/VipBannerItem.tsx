@@ -55,7 +55,7 @@ const VipBannerItem = ({
 		<>
 			<img className='vipbg' src={getBannerUrl(url)} alt='vipbanner' />
 			<div className='vipinfo'>
-				{t('Label_Vip_Monthly_Retain_Deposit')}
+				{t('Label_Vip_Monthly_Minimum_Deposit')}
 				<span>
 					{isShowCurrency && currencyName}
 					{apiData?.upDeposit
