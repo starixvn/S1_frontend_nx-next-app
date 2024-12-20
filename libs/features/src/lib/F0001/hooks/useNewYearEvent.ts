@@ -1,9 +1,9 @@
 import {
 	IAxiosResponse,
 	ICheckPromotionMissionData,
+	ICustDrawPrizeData,
 	IDrawPrizeData,
 	IGetCustBlessingsStickerData,
-	IGetCustDrawPrizeListData,
 	useCheckPromotionMissionQuery,
 	useClaimNewYearBigPrizeMutation,
 	useDrawPrizeMutation,
@@ -11,7 +11,7 @@ import {
 	useLazyGetCustBlessingsStickerQuery,
 	useLazyGetCustDrawPrizeListQuery,
 	useMultiDrawPrizeMutation,
-} from '../service'
+} from '@nx-next-app/service'
 
 export enum PromotionMissionTypeEnum {
 	accumulateDeposit = 1,
@@ -31,7 +31,7 @@ export enum DrawPrizeTypeEnum {
 	blessingSticker,
 }
 
-export const useGragonEgg = () => {
+export const useNewYearEvent = () => {
 	const {
 		data: {
 			data: { newYearMission2024: missionList = [], eggTicket = 0 } = {},
@@ -141,7 +141,7 @@ export const useGragonEgg = () => {
 		eventId,
 	}: {
 		eventId: number
-	}): Promise<IAxiosResponse<IGetCustDrawPrizeListData[]> | Error> => {
+	}): Promise<IAxiosResponse<ICustDrawPrizeData[]> | Error> => {
 		try {
 			const res = await getCustDrawPrizeList({ eventId }).unwrap()
 			return res

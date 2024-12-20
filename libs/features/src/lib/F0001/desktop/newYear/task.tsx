@@ -1,7 +1,17 @@
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
-import { useAuth } from '@nx-next-app/data-access'
+import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import NewYearEventModal from '@nx-next-app/features/F0001/desktop/modal/NewYearEventModal'
+import { numberFormat } from '@nx-next-app/utils'
+import classNames from 'classnames'
+import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import {
+	CategoryIdEnum,
+	PromotionMissionTypeEnum,
+	useNewYearEvent,
+} from '../../hooks'
 
 const Task = () => {
 	const { t } = useTranslation()
@@ -9,11 +19,21 @@ const Task = () => {
 		userInfo: { currencyId, langId },
 	} = useAuth()
 
-	const { setPopBox } = useContext(popBoxContext)
+	const { push } = useRouter()
 
-	const { eggTicket, missionList, getMissionList } = useGragonEgg()
+	const { modal } = useGlobalModal()
 
-	const goMission = ({ type, tpCategoryId }) => {
+	const { getBannerUrl } = useGlobalData()
+
+	const { eggTicket, missionList, getMissionList } = useNewYearEvent()
+
+	const goMission = ({
+		type,
+		tpCategoryId,
+	}: {
+		type: number
+		tpCategoryId: number
+	}) => {
 		let targetPath = ''
 
 		if (type === PromotionMissionTypeEnum.referFriend) {
@@ -23,29 +43,32 @@ const Task = () => {
 		} else if (tpCategoryId === CategoryIdEnum.sports) {
 			targetPath = paths.sports.root
 		} else if (tpCategoryId === CategoryIdEnum.slots) {
-			targetPath = paths.casino.root
+			targetPath = paths.slots.root
 		} else if (tpCategoryId === CategoryIdEnum.liveCasino) {
 			targetPath = paths.liveCasino.root
 		}
 
-		navigate(`/${langId}/${targetPath}`)
+		push(`/${langId}/${targetPath}`)
 	}
 
-	const drawPrize = ({ isMulti }) => {
+	const drawPrize = ({ isMulti }: { isMulti: boolean }) => {
 		if (isMulti) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Modal,
-				className: 'pop dragonegg-result-pop',
-				content: <PrizePopBox isMulti={isMulti} />,
-			})
+			console.log('open Multi')
+			// setPopBox({
+			// 	isOpen: true,
+			// 	popBoxType: defPopBoxType.Modal,
+			// 	className: 'pop dragonegg-result-pop',
+			// 	content: <PrizePopBox isMulti={isMulti} />,
+			// })
 		} else {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Modal,
-				className: 'pop dragonegg-pop',
-				content: <DrawPopBox />,
-			})
+			console.log('open single')
+			modal.open(<NewYearEventModal />)
+			// setPopBox({
+			// 	isOpen: true,
+			// 	popBoxType: defPopBoxType.Modal,
+			// 	className: 'pop dragonegg-pop',
+			// 	content: <DrawPopBox />,
+			// })
 		}
 	}
 
@@ -90,14 +113,8 @@ const Task = () => {
 										</div>
 									) : (
 										<div className='progress-info'>
-											<span>
-												{number_format(
-													progressAmount,
-													isConvert(currencyId),
-													0
-												)}
-											</span>
-											/{number_format(goalAmount, isConvert(currencyId), 0)}
+											<span>{numberFormat(progressAmount, currencyId, 0)}</span>
+											/{numberFormat(goalAmount, currencyId, 0)}
 										</div>
 									)}
 								</div>
@@ -115,9 +132,11 @@ const Task = () => {
 								>
 									<img
 										className={`event-task-${eggCount === 1 ? 'one' : 'two'}`}
-										src={`${bannerImgUrl}/desktop/img/event/dragonegg/daily-egg${
-											eggCount === 1 ? '1' : '2'
-										}${isCompleted ? '-ok' : ''}.png`}
+										src={getBannerUrl(
+											`/desktop/img/event/dragonegg/daily-egg${
+												eggCount === 1 ? '1' : '2'
+											}${isCompleted ? '-ok' : ''}.png`
+										)}
 										alt='daily_egg'
 									/>
 									<button
@@ -142,7 +161,9 @@ const Task = () => {
 					</div>
 					<img
 						className='event-draw-img'
-						src={`${bannerImgUrl}/desktop/img/event/dragonegg/index-game-eggs.png`}
+						src={getBannerUrl(
+							'/desktop/img/event/dragonegg/index-game-eggs.png'
+						)}
 						alt='draw_dragon'
 					/>
 				</div>
@@ -155,7 +176,6 @@ const Task = () => {
 							if (eggTicket > 0)
 								drawPrize({
 									isMulti: false,
-									eventId: eventId.dragonEgg,
 								})
 						}}
 					>
@@ -169,7 +189,6 @@ const Task = () => {
 							if (eggTicket >= 10)
 								drawPrize({
 									isMulti: true,
-									eventId: eventId.dragonEgg,
 								})
 						}}
 					>

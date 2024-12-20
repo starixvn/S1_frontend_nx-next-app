@@ -2,10 +2,13 @@ import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
 import {
 	ICheckDrawPrizeData,
+	ICheckPromotionMissionData,
 	ICustDrawPrizeData,
 	ICustRankData,
 	ICustRankMonthData,
 	IDisplayDrawPrizeData,
+	IDrawPrizeData,
+	IGetCustBlessingsStickerData,
 	IGetCustRankArgs,
 	IGetCustRankMonthArgs,
 	IGetLeaderBoardData,
@@ -33,6 +36,10 @@ export const eventApiUrl = {
 	getPredictionTeamInfo: 'Events/GetPredictionTeamInfo',
 	getPredictionWinnerList: 'Events/GetPredictionWinnerList',
 	promotionPredictScore: 'Events/PromotionPredictScore',
+	checkPromotionMission: 'Events/CheckPromotionMission',
+	getCustBlessingsSticker: 'Events/GetCustBlessingsSticker',
+	multiDrawPrize: 'Events/MultiDrawPrize',
+	claimNewYearBigPrize: 'Events/ClaimNewYearBigPrize',
 }
 
 export const eventsApi = rootApi.injectEndpoints({
@@ -123,12 +130,7 @@ export const eventsApi = rootApi.injectEndpoints({
 		}),
 		// * 抽獎
 		drawPrize: builder.mutation<
-			IAxiosResponse<{
-				jackpot: number
-				prizeId: number
-				prizeName: string | null
-				ticketCount: number
-			}>,
+			IAxiosResponse<IDrawPrizeData>,
 			{ eventId: number }
 		>({
 			query: data => ({
@@ -137,7 +139,11 @@ export const eventsApi = rootApi.injectEndpoints({
 				data,
 			}),
 			// * 更新 幸運輪盤抽獎紀錄 和 當前使用者抽獎資格
-			invalidatesTags: ['LUCKY_WHEEL_DRAW_PRIZE'],
+			invalidatesTags: [
+				'LUCKY_WHEEL_DRAW_PRIZE',
+				'DRAGONEGG_DRAW',
+				'DRAGONEGG_BLESSING',
+			],
 		}),
 		// * 足球預測活動撈取隊伍資訊
 		getPredictionTeamInfo: builder.query<
@@ -172,6 +178,49 @@ export const eventsApi = rootApi.injectEndpoints({
 			}),
 			// * 更新隊伍相關資訊
 		}),
+		getCustBlessingsSticker: builder.query<
+			IAxiosResponse<IGetCustBlessingsStickerData>,
+			{ eventId: number }
+		>({
+			query: ({ eventId }) => ({
+				url: `${eventApiUrl.getCustBlessingsSticker}`,
+				method: 'POST',
+				data: { eventId },
+			}),
+			providesTags: ['DRAGONEGG_BLESSING'],
+		}),
+		checkPromotionMission: builder.query<
+			IAxiosResponse<ICheckPromotionMissionData>,
+			void
+		>({
+			query: () => ({
+				url: `${eventApiUrl.checkPromotionMission}`,
+				method: 'POST',
+			}),
+			providesTags: ['DRAGONEGG_DRAW'],
+		}),
+		multiDrawPrize: builder.mutation<
+			IAxiosResponse<IDrawPrizeData[]>,
+			{ eventId: number; drawTimes: number }
+		>({
+			query: ({ eventId, drawTimes }) => ({
+				url: `${eventApiUrl.multiDrawPrize}`,
+				method: 'POST',
+				data: { eventId, drawTimes },
+			}),
+			invalidatesTags: ['DRAGONEGG_DRAW', 'DRAGONEGG_BLESSING'],
+		}),
+		claimNewYearBigPrize: builder.mutation<
+			IAxiosResponse<void>,
+			{ eventId: number }
+		>({
+			query: ({ eventId }) => ({
+				url: `${eventApiUrl.claimNewYearBigPrize}`,
+				method: 'POST',
+				data: { eventId },
+			}),
+			invalidatesTags: ['DRAGONEGG_BLESSING'],
+		}),
 	}),
 })
 
@@ -184,8 +233,14 @@ export const {
 	useCheckDrawPrizeQuery,
 	useGetDisplayDrawPrizeListQuery,
 	useGetCustDrawPrizeListQuery,
+	useLazyGetCustDrawPrizeListQuery,
 	useDrawPrizeMutation,
 	useGetPredictionTeamInfoQuery,
 	useGetPredictionWinnerListQuery,
 	usePromotionPredictScoreMutation,
+	useLazyGetCustBlessingsStickerQuery,
+	useCheckPromotionMissionQuery,
+	useLazyCheckPromotionMissionQuery,
+	useMultiDrawPrizeMutation,
+	useClaimNewYearBigPrizeMutation,
 } = eventsApi
