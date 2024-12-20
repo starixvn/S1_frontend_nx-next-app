@@ -1427,12 +1427,6 @@ export const GlobalStyles = createGlobalStyle`
       font-style: normal !important;
       font-weight: 400 !important;
       background-color : #182043 !important;
-      span,p,div,a{
-        line-height: 1.6rem !important;
-        padding : 0 !important;
-        margin-bottom : 1.2rem !important;
-
-      }
       a{
         font-weight: bold !important;
       }
@@ -1442,8 +1436,7 @@ export const GlobalStyles = createGlobalStyle`
     }
     table {
       width: 100% !important;
-      margin-bottom : 1.6rem !important;
-      font-size : 1.4rem !important;
+      margin : 1.6rem 0 !important;
     }
 
     td {
@@ -1451,7 +1444,6 @@ export const GlobalStyles = createGlobalStyle`
 				theme.mobile.promotionGroupBorder} !important;
       background: ${({ theme }) => theme.mobile.promotionGroupBg} !important;
       color: ${({ theme }) => theme.mobile.promotionHeaderGroupColor};
-      font-weight : 500 !important;
     }
 
     tr:first-child {
@@ -1464,15 +1456,11 @@ export const GlobalStyles = createGlobalStyle`
   .backstage{
     background-color : #182043 !important;
       > * {
-      font-size: 1.4rem !important;
       font-style: normal !important;
-      font-weight: 400 !important;
-      line-height: 1.8rem !important;
       background-color : #182043 !important;
     }
     span,p,div,a,strong,h1,h2,h3,h4,h5,h6,h7,ul,li,ol,li{
       background-color : #182043 !important;
-      line-height: 1.6rem !important;
       padding : 0 !important;
       margin-bottom : 1.2rem !important;
 
