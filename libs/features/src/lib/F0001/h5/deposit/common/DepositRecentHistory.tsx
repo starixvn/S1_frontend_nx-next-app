@@ -16,7 +16,7 @@ const DepositRecentHistory = () => {
 	return (
 		<WrapperInfoList>
 			<div className='btnGroup'>
-				<button className='btn-primary btn-recent-history' onClick={toggle}>
+				<button className='btn-recent-history' onClick={toggle}>
 					{t('Label_General_RecentTransactions')}
 					<i
 						className={classNames('icon', {
