@@ -5,31 +5,27 @@ import { useBoolean } from 'usehooks-ts'
 const BackTop = () => {
 	const { value: isVisible, setTrue, setFalse } = useBoolean(false)
 
-	const handleScroll = throttle((event: Event) => {
-		const mainContent = event.target as HTMLElement
-		if (mainContent.scrollTop > 0) {
-			setTrue()
-		} else {
-			setFalse()
-		}
-	}, 100)
+	const handleScroll = useCallback(
+		throttle(() => {
+			if (window.scrollY > 0) {
+				setTrue()
+			} else {
+				setFalse()
+			}
+		}, 100),
+		[]
+	)
 
 	useEffect(() => {
-		const mainContent = document?.getElementById('__top')
-		if (mainContent === undefined) return
-
-		mainContent?.addEventListener('scroll', handleScroll)
+		window.addEventListener('scroll', handleScroll)
 
 		return () => {
-			mainContent?.removeEventListener('scroll', handleScroll)
+			window.removeEventListener('scroll', handleScroll)
 		}
-	}, [])
+	}, [handleScroll])
 
 	const scrollToTop = useCallback(() => {
-		const mainContent = document?.getElementById('__top')
-		if (!mainContent) return
-
-		mainContent.scrollTo({
+		window.scrollTo({
 			top: 0,
 			behavior: 'smooth',
 		})
