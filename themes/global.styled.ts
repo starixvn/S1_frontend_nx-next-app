@@ -1421,6 +1421,14 @@ export const GlobalStyles = createGlobalStyle`
       font-style: italic !important;
     }
   }
+  .load-bo-config{
+    strong{
+      font-weight: 700 !important;
+    }
+    em{
+      font-style: italic !important;
+    }
+  }
 
 
   .proDataBody {

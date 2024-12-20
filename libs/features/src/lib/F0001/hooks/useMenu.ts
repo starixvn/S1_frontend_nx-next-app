@@ -194,6 +194,7 @@ const useMenu = () => {
 		const signupUrl = `${host}${paths.join.root}`
 		const loginUrl = `${host}${paths.login.root}`
 		const lobbyUrl = `${host}${paths.slots.root}?tpId=${tpId}`
+		const apiPath = process.env['NEXT_PUBLIC_PLAYER_API_PATH']
 
 		// * 只支援 en, cs, id, th
 		const errorUrl = `${window.location.origin}/404/index_${langId}.html`
@@ -213,7 +214,7 @@ const useMenu = () => {
 			searchParams.set('LobbyUrl', lobbyUrl)
 		}
 
-		const entPageUrl = `${dbHost}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&${searchParams.toString()}`
+		const entPageUrl = `${dbHost}/${langId}/entPage?homeUrl=${host}&apiPath=${apiPath}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&${searchParams.toString()}`
 
 		onWindowOpenProduct({
 			pathname: entPageUrl,
@@ -253,6 +254,7 @@ const useMenu = () => {
 		const errorUrl = `${window.location.origin}/404/index_${langId}.html`
 		const cashierUrl = `${host}${paths.deposit.root}`
 		const lobbyUrl = ''
+		const apiPath = process.env['NEXT_PUBLIC_PLAYER_API_PATH']
 
 		const searchParams = new URLSearchParams({
 			tpId: String(tpId),
@@ -272,7 +274,7 @@ const useMenu = () => {
 			)
 		}
 
-		return `${dbHost}/${langId}/entPage?homeUrl=${host}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&CashierUrl=${cashierUrl}&${searchParams.toString()}`
+		return `${dbHost}/${langId}/entPage?homeUrl=${host}&apiPath=${apiPath}&signupUrl=${signupUrl}&LoginUrl=${loginUrl}&errorUrl=${errorUrl}&CashierUrl=${cashierUrl}&${searchParams.toString()}`
 	}
 
 	const onEnterPage = (

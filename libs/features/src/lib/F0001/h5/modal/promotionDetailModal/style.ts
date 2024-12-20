@@ -71,7 +71,6 @@ export const PromotionDetailContainer = styled.div`
 			span {
 				background: transparent !important;
 				font-size: 3.39vw !important;
-				font-weight: 500 !important;
 				line-height: 4.36vw !important;
 			}
 
