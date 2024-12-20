@@ -99,7 +99,7 @@ const Home = () => {
 		) ? (
 			<EuropeCupEntry />
 		) : null,
-		[DesktopHomeComponentsEnum.LuckyWheel]: <LuckyWheel />,
+		[DesktopHomeComponentsEnum.LuckyWheel]: <NewYear />,
 		[DesktopHomeComponentsEnum.NewYear]: <NewYear />,
 		[DesktopHomeComponentsEnum.Retention]: <Retention />,
 		[DesktopHomeComponentsEnum.LiveStreamingLink]: <LiveStreamingLink />,

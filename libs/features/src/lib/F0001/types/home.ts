@@ -71,5 +71,5 @@ export enum MobileHomeComponentsEnum {
 	// 2024巴黎奧運入口
 	OlympicEntry = 'OlympicEntry',
 	// 2025新年活動
-	DragonEgg = 'DragonEgg',
+	NewYear = 'NewYear',
 }
