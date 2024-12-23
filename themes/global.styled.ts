@@ -241,6 +241,12 @@ export const GlobalStyles = createGlobalStyle`
             }
           }
         }
+        .loackAmount{
+          .title{
+            text-align : center;
+            margin : 1rem 0;
+          }
+        }
       }
       .do-you-have {
         font-size: 1.4rem;

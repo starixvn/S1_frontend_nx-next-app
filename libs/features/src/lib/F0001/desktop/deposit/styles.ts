@@ -43,10 +43,8 @@ export const WrapperDeposit = styled.div`
 				display: flex;
 				align-items: center;
 				color: ${({ theme }) => theme.desktop.rightModuleSloganColor};
-				position: absolute;
-				top: 0;
-				right: 0;
 				gap: 0.8rem;
+				margin-left: auto;
 				.icon {
 					&:before {
 						margin: 0;
