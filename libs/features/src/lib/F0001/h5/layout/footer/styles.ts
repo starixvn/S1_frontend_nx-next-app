@@ -19,10 +19,11 @@ export const WrapperFooterDock = styled.div`
 			justify-content: center;
 			padding-bottom: 1vw;
 			font-weight: 500;
+			gap: 1vw;
 			position: relative;
 			.icon {
 				&:before {
-					font-size: 6.1vw;
+					font-size: 5.5vw;
 					color: ${({ theme }) => theme.mobile.white};
 				}
 			}

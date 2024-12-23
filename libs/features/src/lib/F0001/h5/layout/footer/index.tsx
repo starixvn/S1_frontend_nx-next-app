@@ -80,7 +80,7 @@ const LayoutFooter = () => {
 					href={liveChatUrl}
 					className='footer-item'
 				>
-					<i className='icon icon-chat-smile-fill' />
+					<i className='icon icon-line' />
 					<span className='footer-title'>{t('Label_General_LiveChat')}</span>
 				</a>
 

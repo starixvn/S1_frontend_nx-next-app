@@ -1,13 +1,13 @@
-import { useGlobalModal } from "@nx-next-app/components/config-provider";
-import { paths } from "@nx-next-app/constants";
-import { useAuth, useStaticData } from "@nx-next-app/data-access";
-import { WelcomeInfoContainer } from "@nx-next-app/features/F0001/desktop/home/welcomeInfo/styles";
-import { useMenu } from "@nx-next-app/features/F0001/hooks";
-import { useHome } from "@nx-next-app/features/F0001/providers";
-import { MenuActionTypeEnum } from "@nx-next-app/types";
-import { useTranslation } from "next-i18next";
-import dynamic from "next/dynamic";
-import Link from "next/link";
+import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { paths } from '@nx-next-app/constants'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import { WelcomeInfoContainer } from '@nx-next-app/features/F0001/desktop/home/welcomeInfo/styles'
+import { useMenu } from '@nx-next-app/features/F0001/hooks'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { MenuActionTypeEnum } from '@nx-next-app/types'
+import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
 
 const LoginModal = dynamic(() => import('../../modal/LoginModal'), {
 	ssr: false,
@@ -38,28 +38,43 @@ const WelcomeInfo = () => {
 	}
 
 	return (
-		<WelcomeInfoContainer className='content-container'>
+		<WelcomeInfoContainer
+			className={`content-container ${isLogin ? 'wrapper-after-login' : ''}`}
+		>
 			<div
 				className={`welcomeinfo-content join ${isLogin ? 'after-login' : ''}`}
 			>
 				{isLogin ? (
 					<>
-						<img
-							src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/welcome-affiliate.webp`}
-							alt='welcome-affilate'
-						/>
+						<div className='group-soon'>
+							{isLogin ? (
+								<img
+									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/welcome-join.webp`}
+									alt='welcome-join'
+								/>
+							) : (
+								<img
+									src={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/new-ui/welcome-affiliate.webp`}
+									alt='welcome-affilate'
+								/>
+							)}
+
+							<div className='comming-soon'>{t('Label_Event_ComingSoon')}</div>
+						</div>
 						<div className='welcomeinfo-content-text'>
 							<div className='title'>{t('Label_General_Affiliate')}</div>
 							<div className='desc'>{t('Label_Affiliate_Program_desc')}</div>
 						</div>
-						<a
-							href={link}
-							className='welcome-btn'
-							target='_blank'
-							rel='noreferrer'
-						>
-							{t('Label_General_MoreInfo')}
-						</a>
+						{!isLogin && (
+							<a
+								href={link}
+								className='welcome-btn'
+								target='_blank'
+								rel='noreferrer'
+							>
+								{t('Label_General_MoreInfo')}
+							</a>
+						)}
 					</>
 				) : (
 					<>

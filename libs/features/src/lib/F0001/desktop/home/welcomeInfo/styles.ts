@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const WelcomeInfoContainer = styled.div`
 	display: flex;
@@ -153,6 +153,44 @@ export const WelcomeInfoContainer = styled.div`
 					color: ${({ theme }) => theme.desktop.welcomeReferralBtnColorHover};
 				}
 			}
+		}
+		&.after-login {
+			&:before {
+				opacity: 0.3;
+			}
+			.group-soon {
+				position: relative;
+				.comming-soon {
+					border-radius: 20px;
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-size: 1.4rem;
+					font-weight: 700;
+					line-height: normal;
+					z-index: 2;
+					background: linear-gradient(
+						180deg,
+						rgba(35, 43, 79, 0) 0%,
+						rgba(35, 43, 79, 0.7) 25.5%,
+						rgba(35, 43, 79, 0.7) 75%,
+						rgba(35, 43, 79, 0) 100%
+					);
+				}
+				img {
+					opacity: 0.3;
+				}
+			}
+		}
+	}
+	&.wrapper-after-login {
+		.join {
+			order: 4;
 		}
 	}
 `
