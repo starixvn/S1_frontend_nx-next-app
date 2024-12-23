@@ -786,7 +786,7 @@
   "Label_Installation_tutorial": "Tutorial de instalação",
   "Label_JOE_COLE": "JOE COLE",
   "Label_Join_AffiliateIdWrong": "O ID de afiliado não pode ser encontrado",
-  "Label_Join_Affiliate_ID": "ID de afiliado/referência",
+  "Label_Join_Affiliate_ID": "ID de afiliado/referência(opcional)",
   "Label_Join_AfterJoinHint": "Parabéns! Você se registrou com sucesso como membro",
   "Label_Join_BecomingDistinguishedPlayer": "Tornando-se um jogador distinto",
   "Label_Join_CantChangeEmail": "O e-mail não pode ser alterado após o registro.",
