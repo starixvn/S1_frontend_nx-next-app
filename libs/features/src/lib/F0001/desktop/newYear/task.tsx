@@ -55,23 +55,9 @@ const Task = () => {
 
 	const drawPrize = ({ isMulti }: { isMulti: boolean }) => {
 		if (isMulti) {
-			console.log('open Multi')
 			modal.open(<PrizePopBox isMulti />)
-			// setPopBox({
-			// 	isOpen: true,
-			// 	popBoxType: defPopBoxType.Modal,
-			// 	className: 'pop dragonegg-result-pop',
-			// 	content: <PrizePopBox isMulti={isMulti} />,
-			// })
 		} else {
-			console.log('open single')
-			modal.open(<NewYearEventModal isMulti />)
-			// setPopBox({
-			// 	isOpen: true,
-			// 	popBoxType: defPopBoxType.Modal,
-			// 	className: 'pop dragonegg-pop',
-			// 	content: <DrawPopBox />,
-			// })
+			modal.open(<NewYearEventModal />)
 		}
 	}
 

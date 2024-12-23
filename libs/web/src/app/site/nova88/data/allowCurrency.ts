@@ -127,4 +127,6 @@ export const ALLOWED_CURRENCIES: IStaticAllowedCurrencies = {
 
 	// 奧運不准CNY USD
 	OLYMPIC: [MYR, THB, IDR, INR, KHM, BDT, VND, USDT, KRW, BRL],
+	// NewYearEvent
+	NewYearEvent: [MYR, THB, IDR, VND],
 }

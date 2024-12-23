@@ -17,7 +17,7 @@ const Blessing = () => {
 	const {
 		userInfo: { currencyId, currencyName },
 	} = useAuth()
-	const { closeModal, modal } = useGlobalModal()
+	const { modal } = useGlobalModal()
 
 	const { getBlessingSticker, claimBlessingPrize } = useNewYearEvent()
 
@@ -55,7 +55,7 @@ const Blessing = () => {
 		{ length: stickerResult.stickers },
 		(_, i) => i + 1
 	).map(i => (
-		<div className='event-fu-item'>
+		<div key={i} className='event-fu-item'>
 			<div className='event-collection-get'>
 				<img
 					src={getBannerUrl('/desktop/img/event/dragonegg/bless-egg.png')}
@@ -69,7 +69,7 @@ const Blessing = () => {
 		{ length: 5 - stickerResult.stickers },
 		(_, i) => i + 1
 	).map(i => (
-		<div className='event-fu-item'>
+		<div key={i} className='event-fu-item'>
 			<div className='event-collection-noget'>
 				<img
 					src={getBannerUrl('/desktop/img/event/dragonegg/bless-word.png')}
