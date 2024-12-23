@@ -49,7 +49,7 @@ const DepositImportant = () => {
 					<Trans
 						i18nKey='Label_Deposit_ImportantNoticeContent6'
 						components={{
-							Link: <a onClick={() => openLiveChat()} />,
+							Link: <a rel='noreferrer' target='_blank' href='https://line.me/ti/p/FKGAY68Tse' />,
 						}}
 					/>
 				</li>
