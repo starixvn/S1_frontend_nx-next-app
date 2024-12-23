@@ -25,6 +25,7 @@ export const WrapperServey = styled.div`
 	}
 	#survey .survey-box {
 		position: absolute;
+		z-index: 9;
 		bottom: 45px;
 		right: -60px;
 		visibility: hidden;
