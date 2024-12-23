@@ -369,7 +369,7 @@
   "Label_Deposit_ImportantNoticeContent3": "ชื่อผู้ฝากต้องตรงกับที่ลงทะเบียนหรือหมายเลขธุรกรรมในสลิปโอนเงิน",
   "Label_Deposit_ImportantNoticeContent4": "โปรดอย่ากรอก <span>{{site}}</span> หรือคำที่ละเอียดอ่อนใดๆ ที่เกี่ยวข้องกับการพนันเพื่อเป็นข้อมูลอ้างอิง/อ้างถึงในการทำธุรกรรมออนไลน์ของคุณ ",
   "Label_Deposit_ImportantNoticeContent5": "โปรดทราบว่าจะต้องมีการโรลโอเวอร์ 1x สำหรับการฝากเงินทั้งหมด ก่อนที่จะสามารถดำเนินการถอนได้ ",
-  "Label_Deposit_ImportantNoticeContent6": "กรุณาติดต่อเราที่ <Link>แชทสดตลอด 24/7</Link> หากธุรกรรมของคุณยังคงรอดำเนินการนานกว่า 5 นาที ",
+  "Label_Deposit_ImportantNoticeContent6": "กรุณาติดต่อเราที่ <Link>บริการลูกค้า</Link> หากธุรกรรมของคุณยังคงรอดำเนินการนานกว่า 5 นาที ",
   "Label_Deposit_MobileEWallet": "QR- Code",
   "Label_Deposit_Now": "ฝากตอนนี้",
   "Label_Deposit_OnlineBanking": "ธนาคารออนไลน์",
