@@ -43,7 +43,7 @@ const Marquee = ({ data, configs, onMarqueeClick }: IMarqueeProps) => {
 						</div>
 					</div>
 				</div>
-				<a
+				{/* <a
 					href='https://line.me/ti/p/FKGAY68Tse'
 					target='_blank'
 					className='live-chat'
@@ -51,7 +51,7 @@ const Marquee = ({ data, configs, onMarqueeClick }: IMarqueeProps) => {
 				>
 					<span className='icon icon-chat-smile-fill' />
 					{t('Label_General_LiveChat')}
-				</a>
+				</a> */}
 			</div>
 		</HomeMarquee>
 	)
