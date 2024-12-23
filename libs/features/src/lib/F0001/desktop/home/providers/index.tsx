@@ -1,12 +1,18 @@
-import EmblaCarousel from "@nx-next-app/features/F0001/desktop/common/emblaCarousel";
-import { LoadingIcon, NoGameIcon } from "@nx-next-app/features/F0001/desktop/home/gameIcon/icons";
-import GroupTitle from "@nx-next-app/features/F0001/desktop/home/GroupTitle";
-import { GameContainer, ProviderGroup } from "@nx-next-app/features/F0001/desktop/home/providers/styles";
-import { useHome } from "@nx-next-app/features/F0001/providers";
-import { ProviderEnum } from "@nx-next-app/types";
-import { EmblaOptionsType } from "embla-carousel";
-import { useTranslation } from "next-i18next";
-import { Img } from "react-image";
+import EmblaCarousel from '@nx-next-app/features/F0001/desktop/common/emblaCarousel'
+import {
+	LoadingIcon,
+	NoGameIcon,
+} from '@nx-next-app/features/F0001/desktop/home/gameIcon/icons'
+import GroupTitle from '@nx-next-app/features/F0001/desktop/home/GroupTitle'
+import {
+	GameContainer,
+	ProviderGroup,
+} from '@nx-next-app/features/F0001/desktop/home/providers/styles'
+import { useHome } from '@nx-next-app/features/F0001/providers'
+import { ProviderEnum } from '@nx-next-app/types'
+import { EmblaOptionsType } from 'embla-carousel'
+import { useTranslation } from 'next-i18next'
+import { Img } from 'react-image'
 
 const ProvidersList = () => {
 	const { t } = useTranslation()
@@ -101,7 +107,11 @@ const ProvidersList = () => {
 		},
 	]
 
-	if (providerData === null || providerData === undefined || providerData?.length === 0) {
+	if (
+		providerData === null ||
+		providerData === undefined ||
+		providerData?.length === 0
+	) {
 		return <div />
 	}
 
@@ -169,7 +179,7 @@ const ProvidersList = () => {
 									unloader={<NoGameIcon />}
 									alt={tpName}
 								/>
-								<div className='coming-soon'>Coming Soon</div>
+								<div className='coming-soon'>{t('Label_Event_ComingSoon')}</div>
 							</div>
 						)
 					})}

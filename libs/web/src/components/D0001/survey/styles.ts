@@ -2,19 +2,12 @@ import styled from 'styled-components'
 
 export const WrapperServey = styled.div`
 	#survey {
-		position: fixed;
-		bottom: 35px;
-		right: 70px;
-		width: 345px;
 		border-radius: 10px;
 		color: white;
 		z-index: 5;
 		transition: 0.5s;
 	}
 	#survey .survey-icon-btn {
-		position: absolute;
-		bottom: 60px;
-		right: -60px;
 		display: flex;
 		align-items: center;
 		background: #7883b4;

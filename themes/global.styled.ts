@@ -2451,6 +2451,37 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
 
+  .desktop{
+    #goTop{
+      position : unset;
+    }
+    .group-fixed{
+      position : fixed;
+      right : 100px;
+      bottom : 100px;
+      z-index : 999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .icon-line-fixed{
+        border-radius: 100px;
+        background: #01B901;
+        box-shadow: 0px 6px 30px 0px rgba(0, 0, 0, 0.50);
+        width : 5.2rem;
+        height : 5.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        .icon{
+          &:before{
+            font-size : 2.8rem;
+          }
+        }
+      }
+    }
+  }
+
   /* Using mobile*/
   .main {
 		width: calc(100% - 8vw);

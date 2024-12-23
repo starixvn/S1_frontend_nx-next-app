@@ -173,7 +173,7 @@ const ProvidersList = () => {
 									unloader={<NoGameIcon />}
 									alt={tpName}
 								/>
-								<div className='coming-soon'>Coming Soon</div>
+								<div className='coming-soon'>{t('Label_Event_ComingSoon')}</div>
 							</div>
 						)
 					})}

@@ -1,10 +1,3 @@
-import dynamic from 'next/dynamic'
-import { ReactNode } from 'react'
-import { ISEOData } from '@nx-next-app/data-access'
-import {
-	useAffiliateReferralEffect,
-	useChangePasswordModalEffect,
-} from '@nx-next-app/hooks'
 import {
 	BackTop,
 	GlobalModal,
@@ -12,9 +5,16 @@ import {
 	Survey,
 } from '@nx-next-app/components/D0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import LayoutHeader from '@nx-next-app/features/F0001/desktop/layout/common/header'
+import { ISEOData } from '@nx-next-app/data-access'
 import LayoutFooter from '@nx-next-app/features/F0001/desktop/layout/common/footer'
+import LayoutHeader from '@nx-next-app/features/F0001/desktop/layout/common/header'
+import {
+	useAffiliateReferralEffect,
+	useChangePasswordModalEffect,
+} from '@nx-next-app/hooks'
 import { IFooterData } from '@nx-next-app/types'
+import dynamic from 'next/dynamic'
+import { ReactNode } from 'react'
 
 interface ILayoutProps {
 	children: ReactNode
@@ -54,10 +54,20 @@ export function Layout({
 
 			{/* 只需放在 Layout 來渲染全域彈窗 */}
 			<GlobalModal {...globalModal} closeModal={closeModal} />
-
-			{hasGoTopBtn && <BackTop />}
-
-			<Survey />
+			<div className='group-fixed'>
+				{hasGoTopBtn && <BackTop />}
+				<Survey />
+				<div className='icon-line-fixed'>
+					<a
+						href='https://line.me/ti/p/FKGAY68Tse'
+						target='_blank'
+						className='live-chat'
+						rel='noreferrer'
+					>
+						<span className='icon icon-line-chat' />
+					</a>
+				</div>
+			</div>
 		</>
 	)
 }

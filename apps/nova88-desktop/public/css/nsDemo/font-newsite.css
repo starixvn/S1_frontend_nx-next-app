@@ -26,6 +26,10 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+.icon-line-chat:before {
+  content: "\e94c";
+  color: #fff;
+}
 .icon-like:before {
   content: "\e94b";
   color: #717fba;
