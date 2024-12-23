@@ -177,7 +177,7 @@ export const WrapperCardAddBank = styled.div`
 		}
 	}
 	.inputModuleRow {
-		max-width: 30rem;
+		max-width: 32rem;
 		.txt-blue {
 			color: ${({ theme }) => theme.desktop.labelColor};
 		}
