@@ -190,7 +190,7 @@ const useSetClaimPromotionFetcher = () => {
 	// 有在名單內的promo打這支送出claim
 	const onSetClaimPromotionForUploadCustList = async ({
 		bonusCode,
-		lockedAmount,
+		lockedAmount = 0,
 	}: Pick<ISetClaimPromotionArgs, 'bonusCode' | 'lockedAmount'>) => {
 		try {
 			await setClaimPromotionForUploadCustList({

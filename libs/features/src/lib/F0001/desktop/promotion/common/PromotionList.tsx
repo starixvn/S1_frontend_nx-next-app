@@ -31,7 +31,6 @@ const PromotionList = () => {
 		onSetClaimPromotionForUploadCustList, // 雖然用法和useSetClaimPromotionMutation類似，但因為後端資料結構關係，所以另外寫一個for有在名單內才能領取的玩家
 	} = useSetClaimPromotionFetcher()
 
-	console.log('promotionData :>> ', promotionData)
 	return promotionData.length >= 1 ? (
 		<div className='proListNew'>
 			{promotionData.map(item => {
@@ -153,7 +152,7 @@ const PromotionList = () => {
 											onClick={() =>
 												onSetClaimPromotionForUploadCustList({
 													bonusCode: item.bonusCode,
-													lockedAmount: 0,
+													lockedAmount: item.maxAmount,
 												})
 											}
 										>
