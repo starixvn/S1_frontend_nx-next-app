@@ -150,7 +150,7 @@ const PromotionList = () => {
 										onClick={() =>
 											onSetClaimPromotionForUploadCustList({
 												bonusCode: item.bonusCode,
-												lockedAmount: 0,
+												lockedAmount: item.maxAmount,
 											})
 										}
 									>

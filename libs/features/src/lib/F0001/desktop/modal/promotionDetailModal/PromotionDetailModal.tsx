@@ -70,8 +70,8 @@ const PromotionDetailModal = ({
 		periodTo,
 		tpId,
 		categoryId,
+		maxAmount,
 	} = promotionDetail ?? {}
-
 	// * 是否顯示 Cashback 相關資訊
 	const isShowCashbackInfo = cashBackDetails && bonusCode
 
@@ -141,7 +141,7 @@ const PromotionDetailModal = ({
 										canJoin && !isJoin
 											? onSetClaimPromotionForUploadCustList({
 													bonusCode,
-													lockedAmount: 0,
+													lockedAmount: maxAmount,
 											  })
 											: openLiveChat()
 									}}
