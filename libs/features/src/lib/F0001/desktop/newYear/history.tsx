@@ -30,7 +30,7 @@ const History = () => {
 				<div className='event-title'>{t('lbl_DragonEgg_RewardHistory')}</div>
 				<div className='event-history-table'>
 					<div className='top-title'>
-						<div>{t('Label_General_Day')}</div>
+						<div>{t('Label_History_Date')}</div>
 						<div>{t('lbl_DragonEgg_EventRewards').toUpperCase()}</div>
 					</div>
 					<div className='content'>
