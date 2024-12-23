@@ -20,6 +20,7 @@ export const DESKTOP_HOME_ORDERS = [
 	DesktopHomeComponentsEnum.LuckyWheel,
 	DesktopHomeComponentsEnum.Retention,
 	DesktopHomeComponentsEnum.OlympicEntry,
+	DesktopHomeComponentsEnum.NewYear,
 ]
 
 export const MOBILE_HOME_ORDERS = [
@@ -38,4 +39,5 @@ export const MOBILE_HOME_ORDERS = [
 	MobileHomeComponentsEnum.LuckyWheel,
 	MobileHomeComponentsEnum.Retention,
 	MobileHomeComponentsEnum.OlympicEntry,
+	MobileHomeComponentsEnum.NewYear,
 ]

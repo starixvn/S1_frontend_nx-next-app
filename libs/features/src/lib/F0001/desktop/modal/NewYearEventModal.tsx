@@ -1,25 +1,17 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
-import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import { useGlobalData } from '@nx-next-app/data-access'
 import {
 	DrawPrizeTypeEnum,
 	useNewYearEvent,
 } from '@nx-next-app/features/F0001/hooks'
-import { IAxiosResponse, IDrawPrizeData } from '@nx-next-app/service'
+import { IDrawPrizeData } from '@nx-next-app/service'
 import classNames from 'classnames'
 import { delay } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 import { useEffect, useState } from 'react'
 
-interface IAddBankCardForm {
-	sysId: number
-	accountNo: string
-	isfcCode: string
-}
-
-const NewYearEventModal = () => {
+export const NewYearEventModal = () => {
 	const { t } = useTranslation()
-	const { userInfo } = useAuth()
-	const { accountName, currencyId } = userInfo
 	const { eggTicket } = useNewYearEvent()
 	const { getBannerUrl } = useGlobalData()
 	const { closeModal, modal } = useGlobalModal()
@@ -45,8 +37,8 @@ const NewYearEventModal = () => {
 					<div className='title'>{t('lbl_DragonEgg_DrawEggs')}</div>
 					<div className='text'>{t('lbl_DragonEgg_DrawHints')}</div>
 					<div className='dragonegg-draw'>
-						{Array.from({ length: 3 }, (_, i) => i + 1).map(() => (
-							<button className='egg' onClick={onOpenPrizeBox}>
+						{Array.from({ length: 3 }, (_, i) => i + 1).map(item => (
+							<button key={item} className='egg' onClick={onOpenPrizeBox}>
 								<img
 									src={getBannerUrl(
 										'/desktop/img/event/dragonegg/draw-egg.png'
@@ -72,36 +64,26 @@ const NewYearEventModal = () => {
 
 export const PrizePopBox = ({ isMulti }: { isMulti: boolean }) => {
 	const EVENT_ID = 15 // dragonEgg
-
 	const { t } = useTranslation()
 	const { closeModal, modal } = useGlobalModal()
 	const { getBannerUrl } = useGlobalData()
-	const [prizeList, setPrizeList] = useState<IDrawPrizeData>()
+	const [prizeList, setPrizeList] = useState<IDrawPrizeData[]>()
 	const [isMultiDraw, setIsMultiDraw] = useState(isMulti)
-	const { eggTicket } = useNewYearEvent()
-	const { drawPrize } = useNewYearEvent()
+	const { eggTicket, drawPrize } = useNewYearEvent()
 
 	const getPrize = async ({ multiDraw }: { multiDraw: boolean }) => {
-		try {
-			const ccc = await drawPrize({
-				eventId: EVENT_ID,
-				multiDraw,
-			})
-
-			const { errorCode, data, message } = ccc
-
-			// if (errorCode === 0) {
-			// 	console.log('1230')
-			// 	setPrizeList([data])
-			// 	if (multiDraw) setIsMultiDraw(true)
-			// } else {
-			// 	console.log(errorCode)
-			// 	modal.error(message || `[${errorCode}] error`)
-			// }
-		} catch (err) {
-			console.log(err)
-			console.log(error)
-			modal.error((err as IAxiosResponse<IDrawPrizeData>).message)
+		const result = await drawPrize({
+			eventId: EVENT_ID,
+			multiDraw,
+		})
+		if ('data' in result && result.errorCode === 0) {
+			const { data } = result
+			const dataArray: IDrawPrizeData[] = Array.isArray(data) ? data : [data]
+			setPrizeList(dataArray)
+			if (multiDraw) setIsMultiDraw(true)
+		} else {
+			const { message } = result
+			modal.error(message)
 		}
 	}
 
@@ -118,13 +100,15 @@ export const PrizePopBox = ({ isMulti }: { isMulti: boolean }) => {
 	} else if (
 		// 單抽無獎
 		!isMulti &&
-		prizeList?.drawPrizeType === DrawPrizeTypeEnum.noPrize
+		prizeList &&
+		prizeList[0].drawPrizeType === DrawPrizeTypeEnum.noPrize
 	) {
 		imgType = 'goodlucky'
 	} else if (
 		// 單抽為福
 		!isMulti &&
-		prizeList?.drawPrizeType === DrawPrizeTypeEnum.blessingSticker
+		prizeList &&
+		prizeList[0].drawPrizeType === DrawPrizeTypeEnum.blessingSticker
 	) {
 		imgType = 'blessingegg'
 	}
@@ -136,17 +120,20 @@ export const PrizePopBox = ({ isMulti }: { isMulti: boolean }) => {
 					'ten-draw': isMultiDraw,
 					'next-try':
 						!isMultiDraw &&
-						prizeList?.drawPrizeType === DrawPrizeTypeEnum.noPrize,
+						prizeList &&
+						prizeList[0].drawPrizeType === DrawPrizeTypeEnum.noPrize,
 					single:
 						!isMultiDraw &&
-						prizeList?.drawPrizeType !== DrawPrizeTypeEnum.noPrize,
+						prizeList &&
+						prizeList[0].drawPrizeType !== DrawPrizeTypeEnum.noPrize,
 				})}
 			>
 				<button className='close-btn' onClick={() => closeModal()} />
 				<div className='dragonegg-result-frame'>
 					{/* 單抽 */}
 					{!isMultiDraw &&
-						(prizeList?.drawPrizeType === DrawPrizeTypeEnum.noPrize ? (
+						prizeList &&
+						(prizeList[0].drawPrizeType === DrawPrizeTypeEnum.noPrize ? (
 							// 單抽無獎
 							<div className='title'>{t('lbl_DragonEgg_GoodLuck')}</div>
 						) : (
@@ -155,7 +142,7 @@ export const PrizePopBox = ({ isMulti }: { isMulti: boolean }) => {
 								<div className='title'>
 									{t('lbl_DragonEgg_CONGRATULATIONS')}
 								</div>
-								<div className='rewards-title'>{prizeList?.prizeName}</div>
+								<div className='rewards-title'>{prizeList[0].prizeName}</div>
 							</>
 						))}
 					{!isMultiDraw && (
@@ -173,10 +160,11 @@ export const PrizePopBox = ({ isMulti }: { isMulti: boolean }) => {
 								<div className='list-title'>
 									{t('lbl_DragonEgg_EventRewards')}
 								</div>
-								{/* {prizeList.map(({ prizeName }, i) => (
-									// eslint-disable-next-line react/no-array-index-key
-									<div key={i}>{prizeName}</div>
-								))} */}
+								{prizeList &&
+									prizeList.map(({ prizeName }, i) => (
+										// eslint-disable-next-line react/no-array-index-key
+										<div key={i}>{prizeName}</div>
+									))}
 							</div>
 						</>
 					)}
@@ -193,7 +181,8 @@ export const PrizePopBox = ({ isMulti }: { isMulti: boolean }) => {
 					)}
 					{/* 單抽有獎或10抽且剩下龍蛋不為 0 時 */}
 					{(isMultiDraw ||
-						prizeList?.drawPrizeType !== DrawPrizeTypeEnum.noPrize) &&
+						(prizeList &&
+							prizeList[0].drawPrizeType !== DrawPrizeTypeEnum.noPrize)) &&
 						eggTicket !== 0 && (
 							<button className='btn-receive' onClick={() => closeModal()}>
 								{t('lbl_DragonEgg_Received')}

@@ -1,7 +1,9 @@
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import { paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
-import NewYearEventModal from '@nx-next-app/features/F0001/desktop/modal/NewYearEventModal'
+import NewYearEventModal, {
+	PrizePopBox,
+} from '@nx-next-app/features/F0001/desktop/modal/NewYearEventModal'
 import { numberFormat } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { useRouter } from 'next/router'
@@ -54,6 +56,7 @@ const Task = () => {
 	const drawPrize = ({ isMulti }: { isMulti: boolean }) => {
 		if (isMulti) {
 			console.log('open Multi')
+			modal.open(<PrizePopBox isMulti />)
 			// setPopBox({
 			// 	isOpen: true,
 			// 	popBoxType: defPopBoxType.Modal,
@@ -62,7 +65,7 @@ const Task = () => {
 			// })
 		} else {
 			console.log('open single')
-			modal.open(<NewYearEventModal />)
+			modal.open(<NewYearEventModal isMulti />)
 			// setPopBox({
 			// 	isOpen: true,
 			// 	popBoxType: defPopBoxType.Modal,
