@@ -4,7 +4,7 @@ import { WrapperDepositModalBankSlipH5 } from '@nx-next-app/features/F0001/h5/hi
 import { useImageFile } from '@nx-next-app/hooks'
 import { IDepositInfoHistoryData } from '@nx-next-app/service'
 import { CurrenciesEnum } from '@nx-next-app/types'
-import { convertBase64ToFile, convertFileToBase64 } from '@nx-next-app/utils'
+import { convertBase64ToFile, convertFileToBase64, isValidFile } from '@nx-next-app/utils'
 import classNames from 'classnames'
 import { uniqueId } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
@@ -48,7 +48,7 @@ const DepositBankSlipModal = ({
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
-	const { closeModal } = useGlobalModal()
+	const { closeModal, modal } = useGlobalModal()
 	const [, copy] = useCopyToClipboard()
 
 	const { errorMessage, imageFile, setImageFile, onImageFileChange } =
@@ -57,6 +57,10 @@ const DepositBankSlipModal = ({
 	const handleBankSlipSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		if (imageFile) {
+			if (!isValidFile(imageFile)) {
+				modal.error(t('Label_History_BankSlipHint1'))
+				return
+			}
 			const image = await convertFileToBase64(imageFile)
 			onSubmit({ transId, receipt: image as string })
 			closeModal()
@@ -217,12 +221,11 @@ const DepositBankSlipModal = ({
 							<button
 								type='submit'
 								disabled={!imageFile}
-								className={`${
-									currencyId !== CurrenciesEnum.THB ||
+								className={`${currencyId !== CurrenciesEnum.THB ||
 									(currencyId === CurrenciesEnum.THB && imageFile)
-										? 'btn-primary'
-										: 'btn-disable'
-								} closePopup`}
+									? 'btn-primary'
+									: 'btn-disable'
+									} closePopup`}
 							>
 								{t('Label_General_Submit')}
 							</button>

@@ -3,6 +3,7 @@ import {
 	Form,
 	InputBox,
 	Select,
+	Loading
 } from '@nx-next-app/components/H0001'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
 import {
@@ -50,6 +51,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 			register,
 			formState: { touchedFields, errors },
 		},
+		loading,
 		isFormValid,
 		bankAccountInfo,
 		onBankTransferFormSubmit,
@@ -86,6 +88,7 @@ const BankTransferForm = ({ dataSource }: IBankTransferFormProps) => {
 
 	return (
 		<>
+			{loading && <Loading />}
 			<DepositModule
 				title={t('Label_BankInfo_SelectBank')}
 				depositTitle={t('Label_BankInfo_SelectBank', { lng: 'en' })}

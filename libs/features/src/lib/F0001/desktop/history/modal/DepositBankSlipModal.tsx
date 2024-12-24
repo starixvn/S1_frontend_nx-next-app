@@ -6,6 +6,7 @@ import { IDepositInfoHistoryData } from '@nx-next-app/service'
 import {
 	convertBase64ToFile,
 	convertFileToBase64,
+	isValidFile,
 	numberFormat,
 } from '@nx-next-app/utils'
 import classNames from 'classnames'
@@ -50,7 +51,7 @@ const DepositBankSlipModal = ({
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
-	const { closeModal } = useGlobalModal()
+	const { closeModal, modal } = useGlobalModal()
 	const [, copy] = useCopyToClipboard()
 
 	const { errorMessage, imageFile, setImageFile, onImageFileChange } =
@@ -59,6 +60,10 @@ const DepositBankSlipModal = ({
 	const handleBankSlipSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		if (imageFile) {
+			if (!isValidFile(imageFile)) {
+				modal.error(t('Label_History_BankSlipHint1'))
+				return
+			}
 			const image = await convertFileToBase64(imageFile)
 			onSubmit({ transId, receipt: image as string })
 			closeModal()

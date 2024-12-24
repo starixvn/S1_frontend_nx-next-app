@@ -16,3 +16,14 @@ export const convertBase64ToFile = async (
 	const blob: Blob = await res.blob()
 	return new File([blob], fileName, option)
 }
+
+export const isValidFile = (imageFile: File) => {
+	const MAX_FILE_SIZE_MB = 4
+	const MAX_FILE_SIZE_BYTES = MAX_FILE_SIZE_MB * 1024 * 1024 // 4 MB in bytes
+
+	if (imageFile && imageFile.size > MAX_FILE_SIZE_BYTES) {
+		return false
+	}
+
+	return true
+}
