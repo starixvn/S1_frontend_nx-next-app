@@ -57,7 +57,6 @@ const Tag = forwardRef(
 		const [quickSelectValue, setQuickSelectValue] = useState(
 			activeQuickSelect ?? head(quickSelect)?.key
 		)
-
 		return (
 			<>
 				{!!title && (
