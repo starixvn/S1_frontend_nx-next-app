@@ -1,23 +1,24 @@
 /* eslint-disable react/no-danger */
 
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { useTranslation } from 'next-i18next'
 import { useGlobalModal } from '@nx-next-app/components/config-provider'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
 import { useSetClaimPromotionFetcher } from '@nx-next-app/features/F0001/hooks'
 import { useGetPromotionDetailQuery } from '@nx-next-app/service'
+import { PromotionTypeEnum } from '@nx-next-app/types'
 import {
 	getIsHidePromotionJoinButton,
 	isShowPromotionProgressBar,
 } from '@nx-next-app/utils'
-import { PromotionTypeEnum } from '@nx-next-app/types'
 import { includes, toUpper } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 
-import PromotionRule from './PromotionRule'
-import CashbackInfo from './CashbackInfo'
-import DepositSlip from './DepositSlip'
-import DepositMenu from './DepositMenu'
+import { useRouter } from 'next/router'
 import PromotionProgressBar from '../../promotion/common/PromotionProgressBar'
+import CashbackInfo from './CashbackInfo'
+import DepositMenu from './DepositMenu'
+import DepositSlip from './DepositSlip'
 import PromotionMission from './PromotionMission'
+import PromotionRule from './PromotionRule'
 
 interface IPromotionDetailModalProps {
 	bonusCode: string
@@ -33,6 +34,7 @@ const PromotionDetailModal = ({
 	const {
 		userInfo: { langId, currencyId },
 	} = useAuth()
+	const router = useRouter()
 	const { closeModal } = useGlobalModal()
 	const { LIVE_CHAT_ID_BY_LANG_ID } = useStaticData()
 
@@ -42,8 +44,11 @@ const PromotionDetailModal = ({
 		bonusCode,
 	})
 
-	const { onUpdatePromotionDetail, setClaimPromotionHandler } =
-		useSetClaimPromotionFetcher()
+	const {
+		onUpdatePromotionDetail,
+		setClaimPromotionHandler,
+		onSetClaimPromotionForUploadCustList,
+	} = useSetClaimPromotionFetcher()
 
 	if (!promotionDetail) return null
 
@@ -66,6 +71,7 @@ const PromotionDetailModal = ({
 		periodTo,
 		tpId,
 		categoryId,
+		maxAmount,
 	} = promotionDetail ?? {}
 
 	// * 是否顯示 Cashback 相關資訊
@@ -124,16 +130,29 @@ const PromotionDetailModal = ({
 									: toUpper(t('Label_Promotion_JoinNow') || '')}
 							</button>
 						)}
-						{isShowApplyNowButton && (
+
+						{/* 在名單內的 Special Bonus 而且還沒claim過的才有 ClaimNow 按鈕直接兌換 */}
+						{!isJoin && isShowApplyNowButton && (
 							<a
-								className='red'
+								className={`${canJoin && !isJoin ? 'orange' : 'red'}`}
 								rel='noreferrer'
 								target='_blank'
-								href={`https://direct.lc.chat/${
-									process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']
-								}/${LIVE_CHAT_ID_BY_LANG_ID[langId] || 'en'}`}
+								onClick={() => {
+									canJoin && !isJoin
+										? onSetClaimPromotionForUploadCustList({
+												bonusCode,
+												lockedAmount: maxAmount,
+										  })
+										: router.push(
+												`https://direct.lc.chat/${
+													process.env['NEXT_PUBLIC_LIVECHAT_LICENSE']
+												}/${LIVE_CHAT_ID_BY_LANG_ID[langId] || 'en'}`
+										  )
+								}}
 							>
-								{t('Label_Promotion_ApplyNow')}
+								{canJoin && !isJoin
+									? toUpper(t('Label_Promotion_ClaimNow') || '')
+									: toUpper(t('Label_Promotion_ApplyNow') || '')}
 							</a>
 						)}
 					</div>
