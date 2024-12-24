@@ -1260,7 +1260,7 @@
   "Label_Withdrawal_IFSCCodeLength": "IFSC code must be 11 characters",
   "Label_Withdrawal_ImageJpgPngOnly": "JPG or PNG only.",
   "Label_Withdrawal_ImageUploadWarning": "Upload a color image of the entire document. Screenshots  are not allowed.",
-  "Label_Withdrawal_ImportantNoticeContent1": "Kindly check with our <Link>24/7 LIVE CHAT</Link> if your transaction is pending for more than 10 minutes.",
+  "Label_Withdrawal_ImportantNoticeContent1": "Kindly check with our <Link>Customer Service</Link> if your transaction is pending for more than 10 minutes.",
   "Label_Withdrawal_ImportantNoticeContent2": "Withdrawal bank account name must match with registered full name, member is not allow withdrawal to 3rd party bank account.",
   "Label_Withdrawal_ImportantNoticeContent3": "Some game provider requires 15 till 30 minutes of report sync time, kindly bear with us during the required sync time.",
   "Label_Withdrawal_ImportantNoticeContent4": "Please make sure your required turnover is achieve, and submit the withdrawal transaction after 30 minutes to avoid system auto reject.",
