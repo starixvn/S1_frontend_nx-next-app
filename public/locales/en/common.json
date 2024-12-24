@@ -1264,7 +1264,7 @@
   "Label_Withdrawal_ImportantNoticeContent2": "Withdrawal bank account name must match with registered full name, member is not allow withdrawal to 3rd party bank account.",
   "Label_Withdrawal_ImportantNoticeContent3": "Some game provider requires 15 till 30 minutes of report sync time, kindly bear with us during the required sync time.",
   "Label_Withdrawal_ImportantNoticeContent4": "Please make sure your required turnover is achieve, and submit the withdrawal transaction after 30 minutes to avoid system auto reject.",
-  "Label_Withdrawal_ImportantNoticeContent5": "If there is any discrepancy or you may have any other further withdrawal inquiries, kindly contact our <Link>Customer Support</Link>. Thank you.",
+  "Label_Withdrawal_ImportantNoticeContent5": "If there is any discrepancy or you may have any other further withdrawal inquiries, kindly contact our <Link>Customer Service</Link>. Thank you.",
   "Label_Withdrawal_Insufficientbalance": "Insufficient balance",
   "Label_Withdrawal_MinMaxAmount": "Min/Max Limit",
   "Label_Withdrawal_NO": "NO.",
