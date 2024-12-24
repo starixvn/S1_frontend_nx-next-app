@@ -182,18 +182,18 @@ const List = () => {
 				header={String(process.env['NEXT_PUBLIC_BRAND_NAME']).toUpperCase()}
 			>
 				<a
-					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html?currencyId=${currencyId}`}
-					target='_blank'
-					rel='noreferrer noopener'
-				>
-					{t('Label_General_ContactUs')}
-				</a>
-				<a
 					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/AboutUs.html?currencyId=${currencyId}`}
 					target='_blank'
 					rel='noreferrer noopener'
 				>
 					{t('Label_General_AboutUs')}
+				</a>
+				<a
+					href={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/Static/${langId}/ContactUs.html?currencyId=${currencyId}`}
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					{t('Label_General_ContactUs')}
 				</a>
 			</SettingCollapse.Item>
 
