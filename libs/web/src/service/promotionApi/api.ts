@@ -1,7 +1,8 @@
 import { cloneDeep, findIndex } from 'lodash-es'
+import { getDeviceType } from '../../utils/client'
+import { ICustSpecificBonusData } from '../accountApi/type'
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
-import { ICustSpecificBonusData } from '../accountApi/type'
 import {
 	IDepositPromotionData,
 	IGetPopUpPromotionArgs,
@@ -11,7 +12,6 @@ import {
 	ISetClaimPromotionArgs,
 	ISetDepositPromotionQueueArgs,
 } from './type'
-import { getDeviceType } from '../../utils/client'
 
 export const promotionApiUrl = {
 	getPromotionListV3: 'Promotion/GetPromotionListV3',
@@ -24,6 +24,9 @@ export const promotionApiUrl = {
 	setSpecialCode: 'Promotion/SetSpecialCode',
 	setClaimPromotion: 'Promotion/SetClaimPromotion',
 	setDepositPromotionQueue: 'Promotion/SetDepositPromotionQueue',
+	getPromotionUploadCustList: 'Promotion/GetPromotionUploadCustList',
+	setClaimPromotionForUploadCustList:
+		'Promotion/SetClaimPromotionForUploadCustList',
 }
 
 export const promotionApi = rootApi.injectEndpoints({
@@ -136,6 +139,33 @@ export const promotionApi = rootApi.injectEndpoints({
 				data: { deviceType: getDeviceType() },
 			}),
 		}),
+
+		// 2024/12/16 為了後台新功能：first deposit, redeposit, special deposit有在名單內可以直接領取的API
+		getPromotionUploadCustList: builder.query<
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			IAxiosResponse<IPromotionData[]>,
+			{ langId: string; currencyId: number }
+		>({
+			query: ({ langId, currencyId }) => ({
+				url: `${promotionApiUrl.getPromotionUploadCustList}/${langId}`,
+				method: 'POST',
+				data: { deviceType: getDeviceType(), currencyId },
+			}),
+			// providesTags: ['PROMOTION_GET_PROMOTION_LIST'],
+		}),
+
+		// 2024/12/16 為了後台新功能：first deposit, redeposit, special deposit有在名單內可以直接領取的API(直接送給後端，少一層請客服處理的流程)
+		setClaimPromotionForUploadCustList: builder.mutation<
+			IAxiosResponse<void>,
+			ISetClaimPromotionArgs
+		>({
+			query: ({ langId, ...data }) => ({
+				url: `${promotionApiUrl.setClaimPromotionForUploadCustList}/${langId}`,
+				method: 'POST',
+				data: { deviceType: getDeviceType(), ...data },
+			}),
+			invalidatesTags: ['PROMOTION_GET_PROMOTION_LIST'],
+		}),
 	}),
 })
 
@@ -236,4 +266,6 @@ export const {
 	useSetSpecialCodeMutation,
 	useSetClaimPromotionMutation,
 	useSetDepositPromotionQueueMutation,
+	useGetPromotionUploadCustListQuery,
+	useSetClaimPromotionForUploadCustListMutation,
 } = promotionApi

@@ -53,7 +53,6 @@ const PromotionDetailModal = ({
 		langId,
 		bonusCode,
 	})
-
 	const { onUpdatePromotionDetail, setClaimPromotionHandler } =
 		useSetClaimPromotion({
 			loginCallback: () => modal.open(<LoginModal />),
