@@ -14,7 +14,7 @@ const ImportNotice = () => {
 					<Trans
 						i18nKey='Label_Withdrawal_ImportantNoticeContent1'
 						components={{
-							Link: <a onClick={() => openLiveChat()} />,
+							Link: <a rel='noreferrer' target='_blank' href='https://line.me/ti/p/FKGAY68Tse' />,
 						}}
 					/>
 				</li>
@@ -25,7 +25,7 @@ const ImportNotice = () => {
 					<Trans
 						i18nKey='Label_Withdrawal_ImportantNoticeContent5'
 						components={{
-							Link: <a onClick={() => openLiveChat()} />,
+							Link: <a rel='noreferrer' target='_blank' href='https://line.me/ti/p/FKGAY68Tse' />,
 						}}
 					/>
 				</li>

@@ -1,4 +1,3 @@
-import { openLiveChat } from '@nx-next-app/utils'
 import { Trans, useTranslation } from 'next-i18next'
 
 const ImportantNotice = () => {
@@ -14,7 +13,7 @@ const ImportantNotice = () => {
 					<Trans
 						i18nKey='Label_Withdrawal_ImportantNoticeContent1'
 						components={{
-							Link: <a onClick={() => openLiveChat()} />,
+							Link: <a rel='noreferrer' target='_blank' href='https://line.me/ti/p/FKGAY68Tse' />,
 						}}
 					/>
 				</li>
@@ -25,7 +24,7 @@ const ImportantNotice = () => {
 					<Trans
 						i18nKey='Label_Withdrawal_ImportantNoticeContent5'
 						components={{
-							Link: <a onClick={() => openLiveChat()} />,
+							Link: <a rel='noreferrer' target='_blank' href='https://line.me/ti/p/FKGAY68Tse' />,
 						}}
 					/>
 				</li>
