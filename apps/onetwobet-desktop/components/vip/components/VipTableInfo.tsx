@@ -64,7 +64,7 @@ const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 					<td key={x.level}>
 						{numberFormatExcludeString(x?.apiData?.withdrawalMax) === '0'
 							? t('Label_Vip_Unlimited')
-							: numberFormatExcludeString(x.apiData.withdrawalMax)}
+							: numberFormatExcludeString(x?.apiData?.withdrawalMax)}
 					</td>
 				)),
 		},

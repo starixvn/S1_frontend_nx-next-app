@@ -1,13 +1,18 @@
-import { useState } from 'react'
-import dayjs from 'dayjs'
-import { useTranslation } from 'next-i18next'
+import { Header } from '@nx-next-app/components/H0001'
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { IVipBannerData } from '@nx-next-app/service'
 import VipBanner from '@nx-next-app/features/F0001/h5/vip/VipBanner'
-import VipTable from '@nx-next-app/features/F0001/h5/vip/VipTable'
 import VipBottom from '@nx-next-app/features/F0001/h5/vip/VipBottom'
 import VipMedal from '@nx-next-app/features/F0001/h5/vip/VipMedal'
-import { Header } from '@nx-next-app/components/H0001'
+import VipTable from '@nx-next-app/features/F0001/h5/vip/VipTable'
+import {
+	IF0001VipProgram,
+	VIP_PROGRAMS,
+} from '@nx-next-app/features/F0001/types'
+import { IVipBannerData } from '@nx-next-app/service'
+import dayjs from 'dayjs'
+import { find } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
+import { useState } from 'react'
 
 interface IVipProps {
 	vipBannerData: IVipBannerData
@@ -22,11 +27,21 @@ const Vip = ({
 	} = useAuth()
 	const { CURRENCY_TO_TIMEZONE, VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY } =
 		useStaticData()
-	const [activeTab, setActiveTab] = useState<number>(
-		VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY(langId)[0].level
-	)
+	const banners = VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY(langId)
 
-	const vipBannerInfo = vipBannerData.find(({ level }) => level === activeTab)
+	const settings = [...VIP_PROGRAMS]
+		.filter(x => x.enable)
+		.map(x => ({
+			...x,
+			apiData: find(vipBannerData, o => o.level === x.level),
+			bannerData: find(banners, o => o.level === x.level),
+		}))
+
+	const [activeTab, setActiveTab] = useState<number>(settings[0].level)
+
+	const info = settings.find(
+		({ level }) => level === activeTab
+	) as IF0001VipProgram
 
 	const handleTabChange = (tab: number) => {
 		setActiveTab(tab)
@@ -39,7 +54,7 @@ const Vip = ({
 			</Header>
 
 			<main className='main vip'>
-				<VipBanner vipBannerData={vipBannerData} />
+				<VipBanner settings={settings} />
 				<div className='vipprogram'>
 					{/* 目前只用 en 圖 */}
 					<img
@@ -60,8 +75,12 @@ const Vip = ({
 							.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 							?.format('L') ?? ''}
 					</div>
-					<VipMedal activeTab={activeTab} onChange={handleTabChange} />
-					<VipTable vipBannerInfo={vipBannerInfo} activeTab={activeTab} />
+					<VipMedal
+						settings={settings}
+						activeTab={activeTab}
+						onChange={handleTabChange}
+					/>
+					<VipTable info={info} activeTab={activeTab} />
 				</div>
 				<VipBottom />
 			</main>

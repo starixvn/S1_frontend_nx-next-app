@@ -36,11 +36,11 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY_DESKTOP = (
 		level: VipLevelEnum.DIAMOND,
 		levelText: 'diamond',
 	},
-	// {
-	// 	url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/nova-${langId}.png`,
-	// 	level: VipLevelEnum.Highest,
-	// 	levelText: 'nova',
-	// },
+	{
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/nova-${langId}.png`,
+		level: VipLevelEnum.Highest,
+		levelText: 'nova',
+	},
 ]
 
 export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
@@ -81,13 +81,13 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
 		level: VipLevelEnum.DIAMOND,
 		levelText: 'diamond',
 	},
-	// {
-	// 	url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/nova${
-	// 		langId === 'en' ? '' : `-${langId}`
-	// 	}.png`,
-	// 	level: VipLevelEnum.Highest,
-	// 	levelText: 'nova',
-	// },
+	{
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/h5/img/nova${
+			langId === 'en' ? '' : `-${langId}`
+		}.png`,
+		level: VipLevelEnum.Highest,
+		levelText: 'nova',
+	},
 ]
 
 // * headerUrl 目前只有支援 desktop
@@ -148,15 +148,15 @@ export const VIP_CLUB_IMAGES: IImageData[] = [
 		level: VipLevelEnum.DIAMOND,
 		alt: 'vip05',
 	},
-	// {
-	// 	url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
-	// 		deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
-	// 	}/img/vip6.png`,
-	// 	displayKey: 'Label_Nova_Club',
-	// 	settingDisplayKey: 'Label_VIP_Nova88',
-	// 	headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-nova.png`,
-	// 	levelTabsName: 'nova',
-	// 	level: VipLevelEnum.Highest,
-	// 	alt: 'vip06',
-	// },
+	{
+		url: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/${
+			deviceType === DeviceTypeEnum.Desktop ? 'desktop' : 'h5'
+		}/img/vip6.png`,
+		displayKey: 'Label_Nova_Club',
+		settingDisplayKey: 'Label_VIP_Nova88',
+		headerUrl: `${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/4.0/header-nova.png`,
+		levelTabsName: 'nova',
+		level: VipLevelEnum.Highest,
+		alt: 'vip06',
+	},
 ]

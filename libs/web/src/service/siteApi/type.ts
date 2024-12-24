@@ -166,12 +166,6 @@ export type VipBannerInfo = {
 	upRewardPoint: null | string
 	downDeposit: null | string
 	downTurnover: null | string
-	rankingValidityMembershipRenewal: string
-	depositPriority: null | string
-	serviceSupport: null | string
-	withdrawalPriority: null | string
-	designatedAccountManager: boolean
-	referralBonus: boolean
 }
 
 export interface IVipBannerData {

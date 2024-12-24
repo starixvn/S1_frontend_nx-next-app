@@ -10,11 +10,13 @@ interface IVipBannerProps {
 const VipBanner = ({ settings }: IVipBannerProps) => {
 	return (
 		<Carousel pagination={false} navigation={false}>
-			{settings.map(item => (
-				<SwiperSlide className={`vip${item.level}`} key={item.level}>
-					<VipBannerItem item={item} />
-				</SwiperSlide>
-			))}
+			{settings
+				.filter(item => item.bannerData)
+				.map(item => (
+					<SwiperSlide className={`vip${item.level}`} key={item.level}>
+						<VipBannerItem item={item} />
+					</SwiperSlide>
+				))}
 		</Carousel>
 	)
 }

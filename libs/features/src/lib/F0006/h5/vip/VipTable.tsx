@@ -1,16 +1,16 @@
 import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import { VipBannerInfo } from '@nx-next-app/service'
+import { IF0006VipProgram } from '@nx-next-app/features/F0006/types/vip'
 import dayjs from 'dayjs'
 import 'dayjs/plugin/timezone'
 import 'dayjs/plugin/utc'
 import VipTableInfo from './VipTableInfo'
 
 interface IVipTableProps {
+	settings: IF0006VipProgram[]
 	lastUpdateTime: string
-	vipBannerData: VipBannerInfo[]
 }
 
-const VipTable = ({ vipBannerData, lastUpdateTime }: IVipTableProps) => {
+const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
@@ -25,7 +25,7 @@ const VipTable = ({ vipBannerData, lastUpdateTime }: IVipTableProps) => {
 					.utcOffset(CURRENCY_TO_TIMEZONE[currencyId])
 					?.format('L') ?? ''}
 			</div>
-			<VipTableInfo vipBannerData={vipBannerData} />
+			<VipTableInfo settings={settings} />
 		</div>
 	)
 }

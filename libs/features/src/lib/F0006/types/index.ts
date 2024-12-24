@@ -96,3 +96,4 @@ export enum ForgetPasswordStepEnum {
 
 export * from './home'
 export * from './menu'
+export * from './vip'
