@@ -37,6 +37,7 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 		lossRebate,
 		rewardPointsMultiplier,
 		membershipRenewal,
+		referralBonus,
 		apiData,
 	} = settings.find(({ level }) => level === activeTab)
 
@@ -222,7 +223,7 @@ const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 					</ul>
 					<ul className='viptable-item-text'>
 						<li>{capitalize(t('Label_Vip_Referral_Bonus') as string)}</li>
-						<li className={`${apiData?.referralBonus ? 'High' : null}`} />
+						<li className={`${referralBonus ? 'High' : null}`} />
 					</ul>
 				</div>
 
