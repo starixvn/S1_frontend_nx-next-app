@@ -49,7 +49,7 @@ const MetaData = ({ persistSEOData }: { persistSEOData: ISEOData }) => {
 			<meta property='og:title' content={title} />
 			<meta property='og:description' content={description} />
 			<meta
-				property='oog:image'
+				property='og:image'
 				content={`${process.env['NEXT_PUBLIC_BANNER_HOST']}/desktop/img/thumbnail/thumbnail_001.jpg`}
 			/>
 		</Head>
