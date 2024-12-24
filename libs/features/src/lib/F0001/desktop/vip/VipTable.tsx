@@ -1,14 +1,17 @@
-import React from 'react'
+import { useAuth, useStaticData } from '@nx-next-app/data-access'
+import VipTableInfo from '@nx-next-app/features/F0001/desktop/vip/VipTableInfo'
+import { IF0001VipProgram } from '@nx-next-app/features/F0001/types'
 import dayjs from 'dayjs'
 import 'dayjs/plugin/timezone'
 import 'dayjs/plugin/utc'
 import { useTranslation } from 'next-i18next'
-import { useAuth, useStaticData } from '@nx-next-app/data-access'
-import VipTableInfo from '@nx-next-app/features/F0001/desktop/vip/VipTableInfo'
 
-import { IVipBannerData } from '@nx-next-app/service'
+interface IVipTableProps {
+	settings: IF0001VipProgram[]
+	lastUpdateTime: string
+}
 
-const VipTable = ({ vipBannerData, lastUpdateTime }: IVipBannerData) => {
+const VipTable = ({ settings, lastUpdateTime }: IVipTableProps) => {
 	const { t } = useTranslation()
 	const {
 		userInfo: { currencyId, langId },
@@ -39,7 +42,7 @@ const VipTable = ({ vipBannerData, lastUpdateTime }: IVipBannerData) => {
 				</tbody>
 			</table>
 
-			{vipBannerData && <VipTableInfo vipBannerData={vipBannerData} />}
+			<VipTableInfo settings={settings} />
 		</div>
 	)
 }

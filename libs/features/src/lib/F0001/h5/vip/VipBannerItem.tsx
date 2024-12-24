@@ -1,29 +1,22 @@
-import { capitalize } from 'lodash-es'
-import { IBannerByCurrencyData } from '@nx-next-app/types'
-import { useTranslation } from 'next-i18next'
 import { useAuth } from '@nx-next-app/data-access'
+import { IF0001VipProgram } from '@nx-next-app/features/F0001/types'
+import { IBannerByCurrencyData } from '@nx-next-app/types'
 import { isUrl, numberFormatExcludeString } from '@nx-next-app/utils'
-import { VipBannerInfo } from '@nx-next-app/service'
+import { capitalize } from 'lodash-es'
+import { useTranslation } from 'next-i18next'
 
 interface IVipBannerItemProps {
-	vipData: VipBannerInfo
-	BannerByCurrencyData: IBannerByCurrencyData
+	item: IF0001VipProgram
 }
 
 const VipBannerItem = ({
-	vipData: {
-		upBonus,
-		upDeposit,
-		rankingValidityMembershipRenewal,
-		referralBonus,
-		rebateCategory: rebateCategoryList,
-	},
-	BannerByCurrencyData: { levelText, level, url },
+	item: { level, membershipRenewal, referralBonus, apiData, bannerData },
 }: IVipBannerItemProps) => {
 	const { t } = useTranslation()
 	const {
 		userInfo: { currencyName },
 	} = useAuth()
+	const { url, levelText } = bannerData as IBannerByCurrencyData
 
 	return (
 		<div className={`swiper-slide ${levelText}`} key={level}>
@@ -33,17 +26,17 @@ const VipBannerItem = ({
 				<span>
 					{/* vintage Club 與 Nova Club 在後台是不能編輯的且是文字或null 故這裡不顯示 currency */}
 					{level === 1 || level === 6 ? null : currencyName}
-					{upDeposit
-						? numberFormatExcludeString(upDeposit)
+					{apiData?.upDeposit
+						? numberFormatExcludeString(apiData?.upDeposit)
 						: t('Label_Vip_NoRestrictions')}
 				</span>
-				{upBonus && (
+				{apiData?.upBonus && (
 					<div className='rewardinfo'>
 						{t('Label_Vip_Tier_UpGrade_Bonus')}
 						<span>
 							{/* vintage Club 與 Nova Club 在後台是不能編輯的且是文字或null 故這裡不顯示 currency */}
 							{level === 1 || level === 6 ? null : currencyName}{' '}
-							{upBonus && numberFormatExcludeString(upBonus)}
+							{apiData?.upBonus && numberFormatExcludeString(apiData?.upBonus)}
 						</span>
 					</div>
 				)}
@@ -56,7 +49,7 @@ const VipBannerItem = ({
 							t('Label_Vip_Ranking_Validity_Membership_Renewal') as string
 						)}
 					</span>
-					<span>{rankingValidityMembershipRenewal}</span>
+					<span>{t(membershipRenewal)}</span>
 				</div>
 				<div className='viprule-item'>
 					<span>
@@ -69,9 +62,9 @@ const VipBannerItem = ({
 						{capitalize(t('Label_Vip_Special_Rebate_UP_TO') as string)}
 					</span>
 					<span>
-						{rebateCategoryList
+						{apiData?.rebateCategory
 							? Math.max(
-									...rebateCategoryList.map(({ percentage }) => percentage)
+									...apiData.rebateCategory.map(({ percentage }) => percentage)
 							  )
 							: 0}
 						%

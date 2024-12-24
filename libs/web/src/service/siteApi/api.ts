@@ -5,7 +5,6 @@ import {
 	ICountryListData,
 	IGetNumberCaptchaArgs,
 	IGetNumberCaptchaData,
-	IGetVipBannerArgs,
 	IRecaptchaInfoData,
 	IResetPwdByOTPArgs,
 	IResetPwdVerifyOTPArgs,
@@ -13,7 +12,6 @@ import {
 	ISetForgetPasswordArgs,
 	ISignUpArgs,
 	ISocialChannelData,
-	IVipBannerData,
 	TpMaintainData,
 } from './type'
 
@@ -33,7 +31,6 @@ export const siteApiUrl = {
 	affiliateCheck: 'Site/AffiliateCheck',
 	getSocialChannel: 'Site/GetSocialChannel',
 	getSeo: 'Site/seo',
-	getVipBanner: 'Site/GetVipBanner',
 	getVipBannerV2: 'Site/GetVipBannerV2',
 	getIpCountry: 'Site/GetIpCountry',
 	reSetPwdByOTP: 'Site/ReSetPwdByOTP',
@@ -162,15 +159,6 @@ export const siteApi = rootApi.injectEndpoints({
 				url: `${siteApiUrl.getBanner}/${langId}`,
 				method: 'POST',
 				data,
-			}),
-		}),
-		getVipBanner: builder.query<
-			IAxiosResponse<IVipBannerData[]>,
-			IGetVipBannerArgs
-		>({
-			query: () => ({
-				url: siteApiUrl.getVipBanner,
-				method: 'POST',
 			}),
 		}),
 		getIpCountry: builder.query<IAxiosResponse<{ code: string }>, null>({

@@ -30,8 +30,8 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
 		}/${deviceTypeForVipBanner}/img/vip-02-${
 			currencyId === CurrenciesEnum.INR ? 'hi' : 'bd'
 		}${langId === 'en' ? '-en' : ''}.jpg`,
-		level: VipLevelEnum.VINTAGE,
-		levelText: 'vintage',
+		level: VipLevelEnum.SILVER,
+		levelText: 'silver',
 	},
 	{
 		url: `${
@@ -39,8 +39,8 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
 		}/${deviceTypeForVipBanner}/img/vip-03-${
 			currencyId === CurrenciesEnum.INR ? 'hi' : 'bd'
 		}${langId === 'en' ? '-en' : ''}.jpg`,
-		level: VipLevelEnum.VINTAGE,
-		levelText: 'vintage',
+		level: VipLevelEnum.GOLD,
+		levelText: 'gold',
 	},
 	{
 		url: `${
@@ -48,8 +48,8 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
 		}/${deviceTypeForVipBanner}/img/vip-04-${
 			currencyId === CurrenciesEnum.INR ? 'hi' : 'bd'
 		}${langId === 'en' ? '-en' : ''}.jpg`,
-		level: VipLevelEnum.VINTAGE,
-		levelText: 'vintage',
+		level: VipLevelEnum.TITANIUM,
+		levelText: 'titanium',
 	},
 	{
 		url: `${
@@ -57,8 +57,8 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
 		}/${deviceTypeForVipBanner}/img/vip-05-${
 			currencyId === CurrenciesEnum.INR ? 'hi' : 'bd'
 		}${langId === 'en' ? '-en' : ''}.jpg`,
-		level: VipLevelEnum.VINTAGE,
-		levelText: 'vintage',
+		level: VipLevelEnum.DIAMOND,
+		levelText: 'diamond',
 	},
 	{
 		url: `${
@@ -66,8 +66,8 @@ export const VIP_BANNER_CAROUSEL_LIST_BY_CURRENCY = (
 		}/${deviceTypeForVipBanner}/img/vip-06-${
 			currencyId === CurrenciesEnum.INR ? 'hi' : 'bd'
 		}${langId === 'en' ? '-en' : ''}.jpg`,
-		level: VipLevelEnum.VINTAGE,
-		levelText: 'vintage',
+		level: VipLevelEnum.Highest,
+		levelText: 'yashbet',
 	},
 ]
 

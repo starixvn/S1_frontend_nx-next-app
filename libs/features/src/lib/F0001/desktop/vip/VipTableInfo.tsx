@@ -1,18 +1,19 @@
 import { useAuth } from '@nx-next-app/data-access'
-import { IVipBannerData, RebateCategoryEnum } from '@nx-next-app/service'
+import { IF0001VipProgram } from '@nx-next-app/features/F0001/types'
+import { RebateCategoryEnum } from '@nx-next-app/service'
 import { numberFormatExcludeString } from '@nx-next-app/utils'
 import { capitalize } from 'lodash-es'
 import { useTranslation } from 'next-i18next'
 
-const VipTableInfo = ({
-	vipBannerData,
-}: Omit<IVipBannerData, 'lastUpdateTime'>) => {
+interface IVipTableInfoProps {
+	settings: IF0001VipProgram[]
+}
+
+const VipTableInfo = ({ settings }: IVipTableInfoProps) => {
 	const {
 		userInfo: { currencyId },
 	} = useAuth()
 	const { t } = useTranslation()
-
-	const filteredData = vipBannerData.filter(item => item.level !== 6)
 
 	return (
 		<table className='eventList'>
@@ -26,37 +27,37 @@ const VipTableInfo = ({
 				</tr>
 				<tr>
 					<td>{capitalize(t('Label_Vip_Deposit_Priority') || '')}</td>
-					{filteredData?.map(item => (
+					{settings?.map(item => (
 						<td key={item.level}>
 							{item?.depositPriority && <i className='icon icon-checkmark' />}
-							{item?.depositPriority}
+							{item?.depositPriority && t('Label_High')}
 						</td>
 					))}
 				</tr>
 				<tr>
 					<td>{capitalize(t('Label_Vip_WithDrawal_Priority') || '')}</td>
-					{filteredData?.map(item => (
+					{settings?.map(item => (
 						<td key={item.level}>
 							{item?.withdrawalPriority && (
 								<i className='icon icon-checkmark' />
 							)}
-							{item?.withdrawalPriority}
+							{item?.withdrawalPriority && t('Label_High')}
 						</td>
 					))}
 				</tr>
 				<tr>
 					<td>{capitalize(t('Label_Vip_Service_Support_At_Date') || '')}</td>
-					{filteredData?.map(item => (
+					{settings?.map(item => (
 						<td key={item.level}>
-							{item?.serviceSupport && <i className='icon icon-checkmark' />}
-							{item?.serviceSupport}
+							{item?.vipLiveChat && <i className='icon icon-checkmark' />}
+							{item?.vipLiveChat && t('Label_High')}
 						</td>
 					))}
 				</tr>
 				<tr>
 					<td>{capitalize(t('Label_Vip_Designated_Account_Manager') || '')}</td>
 					{/* 目前沒有叉叉 */}
-					{filteredData?.map(item => (
+					{settings?.map(item => (
 						<td key={item.level}>
 							{item?.designatedAccountManager && (
 								<i className='icon icon-checkmark' />
@@ -68,16 +69,22 @@ const VipTableInfo = ({
 					<td>
 						{capitalize(t('Label_Vip_Daily_Withdrawal_Limitation') || '')}
 					</td>
-					{filteredData?.map(item => (
+					{settings?.map(item => (
 						<td key={item.level}>
-							{numberFormatExcludeString(item.withdrawalMax)}
+							{Number(item?.apiData?.withdrawalMax) === 0
+								? t('Label_Vip_Unlimited')
+								: numberFormatExcludeString(item?.apiData?.withdrawalMax)}
 						</td>
 					))}
 				</tr>
 				<tr>
 					<td>{capitalize(t('Label_Vip_Daily_Transactions_Count') || '')}</td>
-					{filteredData?.map(item => (
-						<td key={item.level}>{item?.times}</td>
+					{settings?.map(item => (
+						<td key={item.level}>
+							{Number(item?.apiData?.times) === 0
+								? t('Label_Vip_Unlimited')
+								: numberFormatExcludeString(item?.apiData?.times)}
+						</td>
 					))}
 				</tr>
 				{/* === Exclusive bonus(VND) ===  */}
@@ -92,9 +99,10 @@ const VipTableInfo = ({
 				</tr>
 				<tr>
 					<td>{capitalize(t('Label_Vip_Tier_UpGrade_Bonus') || '')}</td>
-					{filteredData?.map(item => (
+					{settings?.map(item => (
 						<td key={item.level}>
-							{item?.upBonus && numberFormatExcludeString(item.upBonus)}
+							{item?.apiData?.upBonus &&
+								numberFormatExcludeString(item?.apiData?.upBonus)}
 						</td>
 					))}
 				</tr>
@@ -109,37 +117,49 @@ const VipTableInfo = ({
 				{/* Sports */}
 				<tr>
 					<td>{capitalize(t('Label_Vip_Sport_Rebate') || '')}</td>
-					{filteredData?.map(item => (
+					{settings?.map(item => (
 						<td key={item.level}>
-							{item?.rebateCategory[RebateCategoryEnum.Sports]?.percentage}%
+							{
+								item?.apiData?.rebateCategory[RebateCategoryEnum.Sports]
+									?.percentage
+							}
+							%
 						</td>
 					))}
 				</tr>
 				{/* LiveCasino */}
 				<tr>
 					<td>{capitalize(t('Label_Vip_Live_Casino_Rebate') || '')}</td>
-					{filteredData?.map(item => (
+					{settings?.map(item => (
 						<td key={item.level}>
-							{item?.rebateCategory[RebateCategoryEnum.LiveCasino]?.percentage}%
+							{
+								item?.apiData?.rebateCategory[RebateCategoryEnum.LiveCasino]
+									?.percentage
+							}
+							%
 						</td>
 					))}
 				</tr>
 				{/* Casino */}
 				<tr>
 					<td>{capitalize(t('Label_Vip_Slot_Rebate') || '')}</td>
-					{filteredData?.map(item => (
+					{settings?.map(item => (
 						<td key={item.level}>
-							{item?.rebateCategory[RebateCategoryEnum.Casino]?.percentage}%
+							{
+								item?.apiData?.rebateCategory[RebateCategoryEnum.Casino]
+									?.percentage
+							}
+							%
 						</td>
 					))}
 				</tr>
 				{/* VirtualSports */}
 				<tr>
 					<td>{capitalize(t('Label_Vip_Virtual_Sport_Rebate') || '')}</td>
-					{filteredData?.map(item => (
+					{settings?.map(item => (
 						<td key={item.level}>
 							{
-								item?.rebateCategory[RebateCategoryEnum.VirtualSports]
+								item?.apiData?.rebateCategory[RebateCategoryEnum.VirtualSports]
 									?.percentage
 							}
 							%
@@ -149,9 +169,13 @@ const VipTableInfo = ({
 				{/* ESports */}
 				<tr>
 					<td>{capitalize(t('Label_Vip_ESport_Rebate') || '')}</td>
-					{filteredData?.map(item => (
+					{settings?.map(item => (
 						<td key={item.level}>
-							{item?.rebateCategory[RebateCategoryEnum.ESports]?.percentage}%
+							{
+								item?.apiData?.rebateCategory[RebateCategoryEnum.ESports]
+									?.percentage
+							}
+							%
 						</td>
 					))}
 				</tr>
@@ -165,7 +189,7 @@ const VipTableInfo = ({
 				<tr>
 					<td>{capitalize(t('Label_Vip_Referral_Bonus') || '')}</td>
 					{/* 沒有叉叉 */}
-					{filteredData?.map(item => (
+					{settings?.map(item => (
 						<td key={item.level}>
 							{item?.referralBonus && <i className='icon icon-checkmark' />}
 						</td>
@@ -183,9 +207,10 @@ const VipTableInfo = ({
 				</tr>
 				<tr>
 					<td>{capitalize(t('Label_Vip_Monthly_Minimum_Deposit') || '')}</td>
-					{filteredData?.map(item => (
+					{settings?.map(item => (
 						<td key={item.level}>
-							{item?.upDeposit && numberFormatExcludeString(item.upDeposit)}
+							{item?.apiData?.upDeposit &&
+								numberFormatExcludeString(item?.apiData?.upDeposit)}
 						</td>
 					))}
 				</tr>
@@ -205,11 +230,11 @@ const VipTableInfo = ({
 							t('Label_Vip_Minimum_Deposit_Within_Validity_Period') || ''
 						)}
 					</td>
-					{filteredData?.map(item => (
+					{settings?.map(item => (
 						<td key={item.level}>
-							{item?.downDeposit &&
-								Number(item?.downDeposit) !== 0 &&
-								numberFormatExcludeString(item.downDeposit)}
+							{item?.apiData?.downDeposit &&
+								Number(item?.apiData?.downDeposit) !== 0 &&
+								numberFormatExcludeString(item?.apiData?.downDeposit)}
 						</td>
 					))}
 				</tr>
@@ -219,11 +244,11 @@ const VipTableInfo = ({
 							t('Label_Vip_Minimum_Turnover_Within_Validity_Period') || ''
 						)}
 					</td>
-					{filteredData?.map(item => (
+					{settings?.map(item => (
 						<td key={item.level}>
-							{item?.downTurnover &&
-								Number(item?.downTurnover) !== 0 &&
-								numberFormatExcludeString(item.downTurnover)}
+							{item?.apiData?.downTurnover &&
+								Number(item?.apiData?.downTurnover) !== 0 &&
+								numberFormatExcludeString(item?.apiData?.downTurnover)}
 						</td>
 					))}
 				</tr>
@@ -233,8 +258,8 @@ const VipTableInfo = ({
 							t('Label_Vip_Ranking_Validity_Membership_Renewal') || ''
 						)}
 					</td>
-					{filteredData?.map(item => (
-						<td key={item.level}>{item?.rankingValidityMembershipRenewal}</td>
+					{settings?.map(item => (
+						<td key={item.level}>{t(item.membershipRenewal)}</td>
 					))}
 				</tr>
 			</tbody>

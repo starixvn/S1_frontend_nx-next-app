@@ -1,6 +1,6 @@
 import { NovaAuthProvider } from '@nova88-desktop/providers'
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
-import { getVipBanner, GlobalDataProvider } from '@nx-next-app/data-access'
+import { getVipBannerV2, GlobalDataProvider } from '@nx-next-app/data-access'
 import { Layout, Vip } from '@nx-next-app/features/F0001/desktop'
 import {
 	InitialPropsInterface,
@@ -48,7 +48,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	const langId = originCookies[ENV_COOKIE_NAMES.LangId]
 	const currencyId = Number(originCookies[ENV_COOKIE_NAMES.CurrencyId])
 
-	const vipBannerData = await getVipBanner(
+	const vipBannerData = await getVipBannerV2(
 		{
 			currencyId: Number(currencyId),
 		},
