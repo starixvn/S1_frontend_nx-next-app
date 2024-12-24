@@ -57,6 +57,7 @@ export const FooterContainer = styled.div`
 					display: block;
 					border-radius: 6px;
 					overflow: hidden;
+					cursor: inherit;
 					img {
 						width: 3.6rem;
 					}

@@ -1,5 +1,6 @@
 import { Img } from '@nx-next-app/components/D0001'
 import { footerImgName } from '@nx-next-app/features/F0001/types'
+import { t } from 'i18next'
 
 interface ISocialMediaProps {
 	socialChannelList: {
@@ -18,7 +19,9 @@ interface ISocialMediaProps {
 const SocialMedia = ({ socialChannelList }: ISocialMediaProps) => {
 	return (
 		<div className='social-media'>
-			<div className='footer-center-title'>Social Media</div>
+			<div className='footer-center-title'>
+				{t('Label_Social_Media_Footer')}
+			</div>
 			<div className='social-media-list'>
 				{socialChannelList.map(({ link, channelName, title }) => (
 					<a key={channelName} href={link} target='_blank' rel='noreferrer'>
