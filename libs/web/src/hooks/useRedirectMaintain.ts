@@ -22,13 +22,17 @@ export const useRedirectMaintain = async (
 	const { req, res } = context
 	const reqDomain = req.headers.host
 	const langKey = CURRENCY_TO_LANG_KEY[currencyId] ?? 'en'
-	const mobileCName = `${process.env['NEXT_PUBLIC_M_CNAME']}`
-	const desktopCName = `${process.env['NEXT_PUBLIC_PC_CNAME']}`
+	const mobileCName = `${process.env['NEXT_PUBLIC_M_CNAME']}.`
+	const desktopCName = `${process.env['NEXT_PUBLIC_PC_CNAME']}.`
 
 	if (isInMaintain && reqDomain) {
 		// 無論如何都導到桌機
-		const targetDomain = reqDomain.replace(mobileCName, desktopCName)
+		let targetDomain = reqDomain
 		let maintainUrl = ''
+		if (reqDomain.startsWith(mobileCName)) {
+			targetDomain = reqDomain.replace(mobileCName, desktopCName)
+		}
+
 		if (process.env.NODE_ENV === 'development') {
 			maintainUrl = `http://localhost:4001/underMaintenance/${langKey}/index.html`
 		} else {
