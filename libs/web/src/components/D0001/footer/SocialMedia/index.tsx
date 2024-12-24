@@ -1,6 +1,6 @@
 import { Img } from '@nx-next-app/components/D0001'
 import { footerImgName } from '@nx-next-app/features/F0001/types'
-import { t } from 'i18next'
+import { useTranslation } from 'react-i18next'
 
 interface ISocialMediaProps {
 	socialChannelList: {
@@ -17,6 +17,7 @@ interface ISocialMediaProps {
 }
 
 const SocialMedia = ({ socialChannelList }: ISocialMediaProps) => {
+	const { t } = useTranslation()
 	return (
 		<div className='social-media'>
 			<div className='footer-center-title'>
