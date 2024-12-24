@@ -782,7 +782,7 @@
   "Label_Installation_tutorial": "安装教学",
   "Label_JOE_COLE": "JOE COLE",
   "Label_Join_AffiliateIdWrong": "代理商ID 无法查找",
-  "Label_Join_Affiliate_ID": "代理商 ID/参照号",
+  "Label_Join_Affiliate_ID": "代理商 ID/参照号(选填)",
   "Label_Join_AfterJoinHint": "恭喜！您已成功注册为会员。",
   "Label_Join_BecomingDistinguishedPlayer": "成为杰出玩家",
   "Label_Join_CantChangeEmail": "一旦完成注册，即无法修改电子邮箱。",
