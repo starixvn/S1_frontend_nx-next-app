@@ -8,6 +8,12 @@ export const paths = {
 	appLogin: {
 		root: '/app-login',
 	},
+	appDeposit: {
+		root: '/app-deposit',
+	},
+	appWithdrawal: {
+		root: '/app-withdrawal',
+	},
 	forgetPassword: {
 		root: '/forget-password',
 	},
