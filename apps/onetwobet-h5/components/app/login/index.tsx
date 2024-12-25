@@ -2,7 +2,9 @@
 
 // 在app 上不使用modal 直接用alert顯示
 /* eslint-disable no-alert */
+import { paths } from '@nx-next-app/constants'
 import { useAuth, useGlobalData } from '@nx-next-app/data-access'
+import { IAppSignInData } from 'libs/web/src/service/authApi/type'
 import { useEffect } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { Form } from '../../common'
@@ -43,9 +45,6 @@ const AppLogin = () => {
 			})
 
 			if (response.errorCode === 0) {
-				alert(response.data)
-
-				// 等app包好 且 third party api可回傳token後, 需移除上方alert並取消下方postMessage的註解
 				onebookPostMessage(response.data)
 			} else {
 				alert(response.message)
@@ -55,10 +54,15 @@ const AppLogin = () => {
 		}
 	}
 
-	const onebookPostMessage = (token: string) => {
+	const onebookPostMessage = (data: IAppSignInData) => {
+		const { userName, token } = data
+
 		const parameter = JSON.stringify({
 			act: 'login',
-			data: token,
+			data: {
+				token,
+				transfer: `${window.location.origin}${paths.appDeposit.root}?userName=${userName}`,
+			},
 		})
 
 		if (appInterface) {

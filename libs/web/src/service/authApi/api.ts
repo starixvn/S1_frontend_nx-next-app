@@ -1,7 +1,7 @@
 import { trim } from 'lodash-es'
 import { IAxiosResponse } from '../axiosBaseQuery'
 import { rootApi } from '../rootApi/api'
-import { ISignInArgs } from './type'
+import { IAppSignInData, ISignInArgs } from './type'
 
 export const authApiUrl = {
 	checkSignIn: 'Site/CheckSignIn',
@@ -41,7 +41,7 @@ export const authApi = rootApi.injectEndpoints({
 			invalidatesTags: ['AUTH_API_POST'],
 		}),
 		// * app內嵌登入頁專用進入點
-		appSignIn: builder.mutation<IAxiosResponse<string>, ISignInArgs>({
+		appSignIn: builder.mutation<IAxiosResponse<IAppSignInData>, ISignInArgs>({
 			query: ({ userName, userpwd, ...rest }) => ({
 				url: authApiUrl.appSignIn,
 				method: 'POST',
