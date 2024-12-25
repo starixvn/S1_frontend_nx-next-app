@@ -8,6 +8,7 @@ export const authApiUrl = {
 	signIn: 'Site/SignIn',
 	signOut: 'Account/SignOut',
 	appSignIn: 'Site/AppLogin',
+	verifyToken: 'Site/VerifyToken',
 }
 
 export const authApi = rootApi.injectEndpoints({

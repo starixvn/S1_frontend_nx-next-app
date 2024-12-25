@@ -1,5 +1,6 @@
-import { AxiosRequestConfig } from 'axios'
-import { authApiUrl, baseAxios } from '@nx-next-app/service'
+import { authApiUrl, baseAxios, IAxiosResponse } from '@nx-next-app/service'
+import { AxiosRequestConfig, AxiosResponse } from 'axios'
+import { IVerifyTokenArgs } from 'libs/web/src/service/authApi/type'
 
 export const checkSignIn = async (
 	params: null,
@@ -15,4 +16,10 @@ export const checkSignIn = async (
 	} catch (error) {
 		return false
 	}
+}
+
+export const verifyToken = async (
+	params: IVerifyTokenArgs
+): Promise<AxiosResponse<IAxiosResponse<void>>> => {
+	return baseAxios.post(authApiUrl.verifyToken, params)
 }

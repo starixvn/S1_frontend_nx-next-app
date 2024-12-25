@@ -1,7 +1,8 @@
+import { paths } from '@nx-next-app/constants'
 import { AuthProvider, GlobalDataProvider } from '@nx-next-app/data-access'
 import {
 	InitialPropsInterface,
-	useServerSideInitialPropsFetcher,
+	useAppInitialPropsFetcher,
 } from '@nx-next-app/hooks'
 import { DepositProvider } from '@nx-next-app/operations'
 import {
@@ -35,12 +36,12 @@ const DepositPage = ({
 }
 
 export const getServerSideProps: GetServerSideProps = async context => {
-	const initialProps = await useServerSideInitialPropsFetcher(context)
+	const initialProps = await useAppInitialPropsFetcher(context)
 
 	if (!initialProps.originIsSignIn) {
 		return {
 			redirect: {
-				destination: '/',
+				destination: `/${paths.appLogin.root}`,
 				permanent: false,
 			},
 		}

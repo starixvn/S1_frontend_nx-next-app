@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 export * from './useAffiliateReferralEffect'
+export * from './useAppInitialPropsFetcher'
 export * from './useChangePasswordFetcher'
 export * from './useChangePasswordModalEffect'
 export * from './useCheckLineDirect'

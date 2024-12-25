@@ -19,3 +19,8 @@ export interface IAppSignInData {
 	userName: string
 	token: string
 }
+
+export interface IVerifyTokenArgs {
+	userName: string
+	token: string
+}
