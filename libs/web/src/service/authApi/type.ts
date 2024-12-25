@@ -14,3 +14,8 @@ export interface ISignInArgs {
 		token?: string
 	}
 }
+
+export interface IAppSignInData {
+	userName: string
+	token: string
+}

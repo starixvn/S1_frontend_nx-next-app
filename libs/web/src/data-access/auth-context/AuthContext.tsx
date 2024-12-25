@@ -1,5 +1,6 @@
 import { ENV_COOKIE_NAMES } from '@nx-next-app/constants'
 import { setAppAuth } from '@nx-next-app/utils'
+import { IAppSignInData } from 'libs/web/src/service/authApi/type'
 import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import { ReactNode, createContext, useState } from 'react'
@@ -50,7 +51,7 @@ export interface AuthContextInterface {
 	}: {
 		userName: string
 		password: string
-	}) => Promise<IAxiosResponse<string> | undefined>
+	}) => Promise<IAxiosResponse<IAppSignInData> | undefined>
 }
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
