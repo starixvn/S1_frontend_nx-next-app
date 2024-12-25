@@ -5,8 +5,20 @@ export const paths = {
 	login: {
 		root: '/login',
 	},
+	appLogin: {
+		root: '/app-login',
+	},
+	appDeposit: {
+		root: '/app-deposit',
+	},
+	appWithdrawal: {
+		root: '/app-withdrawal',
+	},
 	forgetPassword: {
 		root: '/forget-password',
+	},
+	appForgetPassword: {
+		root: '/app-forget-password',
 	},
 	join: {
 		root: '/join',

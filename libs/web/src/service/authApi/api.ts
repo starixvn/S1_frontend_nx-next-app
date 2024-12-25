@@ -7,6 +7,7 @@ export const authApiUrl = {
 	checkSignIn: 'Site/CheckSignIn',
 	signIn: 'Site/SignIn',
 	signOut: 'Account/SignOut',
+	appSignIn: 'Site/AppLogin',
 }
 
 export const authApi = rootApi.injectEndpoints({
@@ -39,6 +40,16 @@ export const authApi = rootApi.injectEndpoints({
 			}),
 			invalidatesTags: ['AUTH_API_POST'],
 		}),
+		// * app內嵌登入頁專用進入點
+		appSignIn: builder.mutation<IAxiosResponse<string>, ISignInArgs>({
+			query: ({ userName, userpwd, ...rest }) => ({
+				url: authApiUrl.appSignIn,
+				method: 'POST',
+				// 防呆，userName 去空白
+				data: { userName: trim(userName), userpwd: trim(userpwd), ...rest },
+			}),
+			invalidatesTags: ['AUTH_API_POST'],
+		}),
 	}),
 })
 
@@ -47,4 +58,5 @@ export const {
 	useLazyCheckSignInQuery,
 	useSignInMutation,
 	useSignOutMutation,
+	useAppSignInMutation,
 } = authApi

@@ -12,6 +12,8 @@ import {
 	useSynchronizeCookiesEffect,
 } from '../../hooks'
 import {
+	IAxiosResponse,
+	useAppSignInMutation,
 	useGetUserInfoQuery,
 	useLazyCheckSignInQuery,
 	useSignInMutation,
@@ -42,6 +44,13 @@ export interface AuthContextInterface {
 	onSignOut: () => Promise<void>
 	onCheckSignIn: () => void
 	onResetAuth: () => void
+	onAppSignIn: ({
+		userName,
+		password,
+	}: {
+		userName: string
+		password: string
+	}) => Promise<IAxiosResponse<string> | undefined>
 }
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -102,6 +111,8 @@ export const AuthProvider = ({
 
 	const [signOut] = useSignOutMutation()
 
+	const [appSignIn] = useAppSignInMutation()
+
 	const onCheckSignIn = async () => {
 		try {
 			const { errorCode } = await checkSignInQuery(null).unwrap()
@@ -157,6 +168,50 @@ export const AuthProvider = ({
 		setAuth({ isLogin: undefined })
 	}
 
+	const onAppSignIn = async ({
+		userName,
+		password,
+	}: {
+		userName: string
+		password: string
+	}) => {
+		if (typeof window === undefined) return
+
+		const url = window.location.origin
+		const { platform, userAgent } = navigator
+		const screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`
+		let di = ''
+		let bi = ''
+		let detecasAnalysis = ''
+		let sessionKey = ''
+		let token = ''
+
+		// * di, bi, detecasAnalysis, sessionKey, token 引用第三方 js: //*/activator.ashx
+		di = (document.getElementById('__di') as any)?.value
+		bi = (document.getElementById('__bi') as any)?.value
+		detecasAnalysis = (document.getElementById('detecas-analysis') as any)
+			?.value
+		sessionKey = (document.getElementById('__fdi') as any)?.value // * fdi = sessionKey
+		token = (document.getElementById('__tk') as any)?.value // * 默認為 empty
+
+		return appSignIn({
+			userName,
+			userpwd: password,
+			isPersistent: false,
+			url,
+			platform,
+			userAgent,
+			screen,
+			FPSRequest: {
+				di,
+				bi,
+				detecasAnalysis,
+				sessionKey,
+				token,
+			},
+		}).unwrap()
+	}
+
 	const host = typeof window === 'undefined' ? null : window.location.origin
 	// * DB 路徑，根據生產模式與開發模式給予不同的路徑
 	const dbHost =
@@ -199,6 +254,7 @@ export const AuthProvider = ({
 		onSignIn,
 		onSignOut,
 		onResetAuth,
+		onAppSignIn,
 	}
 
 	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
