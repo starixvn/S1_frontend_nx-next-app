@@ -1,5 +1,5 @@
-import classNames from 'classnames'
 import { LANG_GROUP_COUNTRY } from '@nx-next-app/constants'
+import classNames from 'classnames'
 import { Fragment } from 'react'
 
 interface ICountryProps {
@@ -34,6 +34,7 @@ const Country = ({
 	onSetLanguage,
 	selectedText,
 }: ICountryProps) => {
+	const langGroups = Object.entries(langGroup)
 	return (
 		<>
 			<button
@@ -75,9 +76,9 @@ const Country = ({
 						</div>
 					</div>
 				</div>
-				{!isLogin && (
+				{!isLogin && langGroups.length > 1 && (
 					<div className='country-option'>
-						{Object.entries(langGroup).map(([lang, item]) => (
+						{langGroups.map(([lang, item]) => (
 							<Fragment key={lang}>
 								<div className={classNames('flag', lang)} key={`flag_${lang}`}>
 									{item?.map(

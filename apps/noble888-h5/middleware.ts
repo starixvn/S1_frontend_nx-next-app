@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server'
 
 // langToCurrency 在 middleware 就要使用到，next 規定 middleware 使用的資源要寫在裡面才 build 得過
 export const LANG_TO_CURRENCY: { [key: string]: number } = {
-	en: 2,
+	en: 3,
 	cs: 2,
 	my: 2,
 	th: 4,
