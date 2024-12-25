@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-    <title>Loading...</title>
+		<title>Loading...</title>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
@@ -10,6 +10,7 @@
 			content="width=device-width, initial-scale=1.0, user-scalable=no"
 		/>
 		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="../../css/nsDemo/font-newsite.css" />
 		<link rel="stylesheet" href="css/style.css" />
 	</head>
 
@@ -61,12 +62,12 @@
 									'https://minio-api.nova88demo.com/s1-errorpage/NSDEMO/maintain.json'
 							}
 
-              await fetch('/api/env')
-                .then(response => response.json())
-                .then(data => {
-                  console.log(data)
-                  document.title = data.BRAND_NAME
-                })
+							       await fetch('/api/env')
+							         .then(response => response.json())
+							         .then(data => {
+							           console.log(data)
+							           document.title = data.BRAND_NAME
+							         })
 
 							fetch(url)
 								.then(function (response) {
@@ -173,12 +174,10 @@
 								}
 							})(window, document, [].slice)
 						</script>
-						<a
-							href="https://line.me/ti/p/FKGAY68Tse"
-							rel="nofollow"
-							target="_blank"
-							>24/7 Customer Support</a
-						>
+						<a href="https://line.me/ti/p/FKGAY68Tse" class="img-button">
+							<i class="icon icon-line-chat"></i>
+							Customer Service
+						</a>
 					</div>
 				</div>
 				<a
