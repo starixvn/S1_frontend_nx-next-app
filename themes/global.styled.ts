@@ -103,8 +103,10 @@ export const GlobalStyles = createGlobalStyle`
       flex: 1 1 auto
   }
 
+
   html {
     font-size: 10px !important;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
   input[type="password"]::-ms-reveal,
   input[type="password"]::-ms-clear {
